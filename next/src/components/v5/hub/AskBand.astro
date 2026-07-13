@@ -16,6 +16,8 @@
 export interface Props {
   /** 6 words maximum (build warns over). */
   heading?: string;
+  /** Uppercase eyebrow above the heading (mint, on the dark ground). */
+  eyebrow?: string;
   body?: string;
   /** Up to 3 suggested prompts, 8 words maximum each. */
   prompts?: string[];
@@ -27,6 +29,7 @@ export interface Props {
 
 const {
   heading = 'Cannot decide? Ask PI',
+  eyebrow = 'Ask PI',
   body = 'Tell PI the occasion and it answers from our reviews.',
   prompts = [],
   triggerLabel = 'Ask PI',
@@ -49,6 +52,7 @@ const headingId = `${id ?? `ask-${surface ?? 'hub'}`}-heading`;
 <aside class="v5-askband" id={id} aria-labelledby={headingId}>
   <div class="container v5-askband__inner">
     <div class="v5-askband__copy">
+      {eyebrow && <p class="v5-askband__eyebrow">{eyebrow}</p>}
       <h2 class="v5-askband__heading" id={headingId}>{heading}</h2>
       <p class="v5-askband__body">{body}</p>
     </div>
@@ -88,35 +92,59 @@ const headingId = `${id ?? `ask-${surface ?? 'hub'}`}-heading`;
 </aside>
 
 <style>
+  /* The one forest-teal feature band per hub, with mint accents. */
   .v5-askband {
-    background: var(--bg-dark, var(--text));
-    color: var(--bg, var(--white));
-    padding: var(--space-7, 3rem) 0;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: var(--bg-deep);
+    color: var(--white);
+    padding: clamp(2.6rem, 7vw, 4.5rem) 0;
+  }
+  .v5-askband::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      radial-gradient(90% 120% at 100% 0%, color-mix(in srgb, var(--teal) 26%, transparent), transparent 55%),
+      radial-gradient(80% 120% at 0% 100%, color-mix(in srgb, var(--mint) 14%, transparent), transparent 60%);
   }
   .v5-askband__inner {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-5, 1.5rem);
+    gap: var(--space-6, 2rem);
     align-items: flex-start;
     justify-content: space-between;
   }
   .v5-askband__copy {
-    max-width: var(--measure-body, 44ch);
+    max-width: var(--measure-dek, 44ch);
+  }
+  .v5-askband__eyebrow {
+    margin: 0 0 var(--space-3, 0.75rem);
+    font-family: var(--font-ui);
+    font-size: var(--fs-100, 0.75rem);
+    font-weight: 600;
+    letter-spacing: var(--ls-eyebrow, 0.12em);
+    text-transform: uppercase;
+    color: var(--mint);
   }
   .v5-askband__heading {
     margin: 0;
-    font-family: var(--font-display, var(--font-display));
+    font-family: var(--font-display);
     font-size: var(--fs-700, clamp(1.6rem, 1.35rem + 1.2vw, 2.1rem));
     font-weight: var(--fw-display, 600);
-    line-height: var(--lh-heading, 1.2);
-    color: inherit;
+    line-height: var(--lh-heading, 1.14);
+    letter-spacing: -0.01em;
+    color: var(--white);
+    text-wrap: balance;
   }
   .v5-askband__body {
-    margin: var(--space-2, 0.5rem) 0 0;
-    font-family: var(--font-ui, var(--font-ui));
-    font-size: var(--fs-300, 0.9375rem);
+    margin: var(--space-3, 0.75rem) 0 0;
+    font-family: var(--font-ui);
+    font-size: var(--fs-400, 1.0625rem);
     line-height: var(--lh-ui, 1.5);
-    opacity: 0.85;
+    color: var(--soft-inverse);
   }
   .v5-askband__actions {
     display: flex;
@@ -137,49 +165,53 @@ const headingId = `${id ?? `ask-${surface ?? 'hub'}`}-heading`;
     align-items: center;
     min-height: 48px;
     padding: 0 var(--space-4, 1rem);
-    border: 1px solid currentColor;
-    border-radius: 999px;
-    font-family: var(--font-ui, var(--font-ui));
+    border: 1.5px solid color-mix(in srgb, var(--mint) 55%, transparent);
+    border-radius: var(--radius-pill, 999px);
+    font-family: var(--font-ui);
     font-size: var(--fs-200, 0.8125rem);
-    color: inherit;
+    font-weight: var(--fw-medium, 500);
+    color: var(--white);
     text-decoration: none;
-    opacity: 0.9;
+    transition: background var(--dur-fast, 120ms) var(--ease-enter, ease),
+      border-color var(--dur-fast, 120ms) var(--ease-enter, ease);
   }
   .v5-askband__prompt:hover {
-    opacity: 1;
-    background: color-mix(in srgb, currentColor 12%, transparent);
+    background: color-mix(in srgb, var(--mint) 16%, transparent);
+    border-color: var(--mint);
   }
   .v5-askband__prompt:focus-visible,
   .v5-askband__trigger:focus-visible {
-    outline: var(--focus-ring, 2px solid var(--accent));
+    outline: 2px solid var(--mint);
     outline-offset: 2px;
   }
+  /* On the dark ground the primary CTA is solid mint (design-system button spec). */
   .v5-askband__trigger {
     display: inline-flex;
     align-items: center;
     gap: var(--space-2, 0.5rem);
     min-height: 48px;
     padding: 0 var(--space-5, 1.5rem);
-    background: var(--accent);
-    color: var(--white);
-    border-radius: 999px;
-    font-family: var(--font-ui, var(--font-ui));
+    background: var(--mint);
+    color: var(--bg-deep);
+    border-radius: var(--radius-s, 8px);
+    font-family: var(--font-ui);
     font-size: var(--fs-300, 0.9375rem);
-    font-weight: var(--fw-semibold, 600);
+    font-weight: var(--fw-bold, 700);
     text-decoration: none;
+    transition: filter var(--dur-fast, 120ms) var(--ease-enter, ease);
   }
   .v5-askband__trigger:hover {
-    filter: brightness(1.08);
+    filter: brightness(1.06);
   }
   .v5-askband__mark {
-    font-family: var(--font-display, var(--font-display));
-    font-weight: var(--fw-display, 700);
+    font-family: var(--font-display);
+    font-weight: var(--fw-display, 600);
     letter-spacing: 0.04em;
   }
   .v5-askband__disclosure {
     margin: 0;
-    font-family: var(--font-ui, var(--font-ui));
+    font-family: var(--font-ui);
     font-size: var(--fs-100, 0.75rem);
-    opacity: 0.7;
+    color: var(--soft-inverse);
   }
 </style>

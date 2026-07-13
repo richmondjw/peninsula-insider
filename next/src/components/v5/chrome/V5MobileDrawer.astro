@@ -163,14 +163,14 @@ const groups = [
   }
   .v5-drawer__brand {
     font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 1.25rem;
+    font-weight: var(--fw-bold);
+    font-size: 1.35rem;
+    letter-spacing: var(--ls-display);
     color: var(--text);
     text-decoration: none;
   }
   .v5-drawer__brand span {
-    font-style: italic;
-    font-weight: var(--fw-display-em);
+    font-weight: var(--fw-bold);
     color: var(--accent);
   }
   .v5-drawer__close {
@@ -179,11 +179,17 @@ const groups = [
     justify-content: center;
     width: 48px;
     height: 48px;
-    background: none;
-    border: 1px solid var(--border);
-    border-radius: 999px;
+    background: transparent;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-pill);
     color: var(--text);
     cursor: pointer;
+    transition: border-color var(--dur-fast) var(--ease-enter),
+                color var(--dur-fast) var(--ease-enter);
+  }
+  .v5-drawer__close:hover {
+    border-color: var(--accent);
+    color: var(--accent);
   }
 
   .v5-drawer__nav {
@@ -199,9 +205,9 @@ const groups = [
     font-family: var(--font-ui);
     font-size: var(--fs-100);
     font-weight: var(--fw-semibold);
-    letter-spacing: 0.14em;
+    letter-spacing: var(--ls-eyebrow);
     text-transform: uppercase;
-    color: var(--soft);
+    color: var(--teal-text);
     margin-bottom: var(--space-2);
     line-height: var(--lh-label);
   }
@@ -220,31 +226,35 @@ const groups = [
     font-family: var(--font-display);
     font-weight: var(--fw-display);
     font-size: var(--fs-600);
-    min-height: 52px;
+    letter-spacing: var(--ls-display);
+    min-height: 54px;
   }
   .v5-drawer__link:active { color: var(--accent); }
 
   .v5-drawer__cta {
+    margin: var(--space-4) var(--space-5) var(--space-5);
     padding: var(--space-5);
     padding-bottom: calc(var(--space-5) + env(safe-area-inset-bottom));
     background: var(--bg-alt);
-    border-top: 1px solid var(--border);
+    border-radius: var(--radius-l);
+    box-shadow: var(--elev-1);
   }
   .v5-drawer__cta-label {
     font-family: var(--font-ui);
     font-size: var(--fs-100);
     font-weight: var(--fw-semibold);
-    letter-spacing: 0.14em;
+    letter-spacing: var(--ls-eyebrow);
     text-transform: uppercase;
-    color: var(--soft);
+    color: var(--teal-text);
     margin-bottom: var(--space-1);
     line-height: var(--lh-label);
   }
   .v5-drawer__cta-dek {
     font-family: var(--font-display);
-    font-style: italic;
-    font-weight: var(--fw-display-em);
-    font-size: var(--fs-400);
+    font-weight: var(--fw-display);
+    font-size: var(--fs-500);
+    line-height: var(--lh-heading);
+    letter-spacing: var(--ls-display);
     color: var(--text);
     margin-bottom: var(--space-3);
     max-width: var(--measure-card);
@@ -253,17 +263,19 @@ const groups = [
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-height: 44px;
+    min-height: 46px;
     padding: 0 var(--space-5);
     background: var(--accent);
     color: var(--white);
-    border-radius: 999px;
+    border-radius: var(--radius-pill);
     font-family: var(--font-ui);
     font-size: var(--fs-300);
-    font-weight: var(--fw-semibold);
+    font-weight: var(--fw-bold);
     text-decoration: none;
+    transition: background var(--dur-med) var(--ease-enter),
+                transform var(--dur-fast) var(--ease-enter);
   }
-  .v5-drawer__cta-btn:hover { background: var(--acc-h); }
+  .v5-drawer__cta-btn:hover { background: var(--acc-h); transform: translateY(-1px); }
 
   .v5-drawer a:focus-visible,
   .v5-drawer button:focus-visible {

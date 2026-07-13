@@ -41,6 +41,7 @@ const kicker = lead ? (formatLabel[lead.data.format] ?? 'Feature') : '';
         })}
       />
     </figure>
+    <span class="home-journal__scrim" aria-hidden="true"></span>
     <div class="container home-journal__body">
       <p class="home-journal__kicker">From the Journal <span aria-hidden="true">&middot;</span> {kicker}</p>
       <h2 id="home-journal-title" class="home-journal__headline">
@@ -68,15 +69,24 @@ const kicker = lead ? (formatLabel[lead.data.format] ?? 'Feature') : '';
 </script>
 
 <style>
+  /* Immersive editorial feature band: full-bleed hero image under a
+     forest-teal scrim, text overlaid bottom-left. Tokens only. */
   .home-journal {
     position: relative;
-    margin: var(--space-6, 2rem) 0 var(--space-7, 3rem);
+    isolation: isolate;
+    display: flex;
+    align-items: flex-end;
+    min-height: min(78vh, 40rem);
+    margin: var(--space-7) 0;
+    overflow: hidden;
+    background: var(--bg-deep);
   }
 
   .home-journal__media {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
     margin: 0;
-    height: min(70vh, 34rem);
-    overflow: hidden;
   }
 
   .home-journal__media img {
@@ -84,70 +94,101 @@ const kicker = lead ? (formatLabel[lead.data.format] ?? 'Feature') : '';
     height: 100%;
     object-fit: cover;
     display: block;
+    transition: transform var(--dur-slow) var(--ease-enter);
+  }
+
+  .home-journal:hover .home-journal__media img {
+    transform: scale(1.03);
+  }
+
+  .home-journal__scrim {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(
+      to top,
+      color-mix(in srgb, var(--bg-deep) 90%, transparent) 0%,
+      color-mix(in srgb, var(--bg-deep) 24%, transparent) 55%,
+      transparent 88%
+    );
   }
 
   .home-journal__body {
-    padding-top: var(--space-5, 1.5rem);
-    max-width: var(--max-w, 1100px);
+    position: relative;
+    padding-block: var(--space-7);
+    max-width: var(--max-w);
   }
 
   .home-journal__kicker {
-    margin: 0 0 var(--space-2, 0.5rem);
+    margin: 0 0 var(--space-3);
     font-family: var(--font-ui);
-    font-size: var(--fs-200, 0.8125rem);
-    font-weight: var(--fw-semibold, 600);
-    letter-spacing: 0.08em;
+    font-size: var(--fs-200);
+    font-weight: var(--fw-semibold);
+    letter-spacing: var(--ls-eyebrow);
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--mint);
   }
 
   .home-journal__headline {
     margin: 0;
     font-family: var(--font-display);
-    font-weight: var(--fw-display, 600);
-    font-size: var(--fs-800, clamp(2rem, 4vw, 3rem));
-    line-height: var(--lh-display, 1.08);
+    font-weight: var(--fw-display);
+    font-size: var(--fs-800);
+    line-height: var(--lh-display);
+    letter-spacing: var(--ls-display);
     max-width: 24ch;
     text-wrap: balance;
   }
 
   .home-journal__headline a {
-    color: var(--ink);
+    color: var(--white);
     text-decoration: none;
+    transition: color var(--dur-fast) var(--ease-enter);
   }
 
   .home-journal__headline a:hover {
-    color: var(--accent);
+    color: var(--mint);
   }
 
   .home-journal__headline a:focus-visible {
-    outline: var(--focus-ring, 2px solid var(--accent));
-    outline-offset: 2px;
+    outline: 2px solid var(--focus-ring-color-inverse);
+    outline-offset: 3px;
   }
 
   .home-journal__dek {
-    margin: var(--space-3, 0.75rem) 0 0;
-    font-size: var(--fs-400, 1.0625rem);
-    line-height: var(--lh-dek, 1.45);
-    color: var(--soft);
-    max-width: var(--measure-dek, 52ch);
+    margin: var(--space-3) 0 0;
+    font-family: var(--font-ui);
+    font-size: var(--fs-400);
+    line-height: var(--lh-dek);
+    color: var(--soft-inverse);
+    max-width: var(--measure-dek);
   }
 
   .home-journal__cta {
-    margin: var(--space-4, 1rem) 0 0;
+    margin: var(--space-5) 0 0;
     font-family: var(--font-ui);
-    font-weight: var(--fw-semibold, 600);
-    font-size: var(--fs-400, 1.0625rem);
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-400);
   }
 
   .home-journal__cta a {
-    color: var(--ink);
+    color: var(--white);
     text-decoration: none;
-    border-bottom: 1px solid var(--accent);
+    border-bottom: 1.5px solid var(--mint);
     padding-bottom: 2px;
+    transition: color var(--dur-fast) var(--ease-enter);
   }
 
   .home-journal__cta a:hover {
-    color: var(--accent);
+    color: var(--mint);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .home-journal__media img {
+      transition: none;
+    }
+    .home-journal:hover .home-journal__media img {
+      transform: none;
+    }
   }
 </style>

@@ -46,11 +46,10 @@
 </script>
 
 <style>
+  /* Forest-teal feature band: PI's voice in light type, mint primary CTA. */
   .home-ask {
-    padding: var(--space-7, 3rem) 0;
-    background: var(--bg-alt, var(--bg));
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
+    padding: var(--space-8) 0;
+    background: var(--bg-deep);
   }
 
   .home-ask__sr {
@@ -68,24 +67,25 @@
   .home-ask__inner {
     display: flex;
     align-items: center;
-    gap: var(--space-5, 1.5rem);
+    gap: var(--space-5);
     flex-wrap: wrap;
   }
 
   .home-ask__line {
     margin: 0;
     font-family: var(--font-display);
-    font-weight: var(--fw-display, 600);
-    font-size: var(--fs-600, 1.375rem);
-    line-height: var(--lh-heading, 1.2);
-    color: var(--ink);
+    font-weight: var(--fw-display);
+    font-size: var(--fs-700);
+    line-height: var(--lh-heading);
+    letter-spacing: var(--ls-display);
+    color: var(--white);
     max-width: 26ch;
     flex: 1 1 18rem;
   }
 
   .home-ask__form {
     display: flex;
-    gap: var(--space-2, 0.5rem);
+    gap: var(--space-2);
     flex: 1 1 22rem;
     max-width: 32rem;
   }
@@ -93,13 +93,13 @@
   .home-ask__input {
     flex: 1;
     min-height: 48px;
-    padding: 0 var(--space-4, 1rem);
+    padding: 0 var(--space-4);
     font-family: var(--font-ui);
-    font-size: var(--fs-400, 1.0625rem);
-    color: var(--ink);
-    background: var(--bg);
-    border: 1px solid var(--border-strong, var(--border));
-    border-radius: var(--radius-m, 10px);
+    font-size: var(--fs-400);
+    color: var(--text);
+    background: var(--white);
+    border: 1.5px solid transparent;
+    border-radius: var(--radius-s);
   }
 
   .home-ask__input::placeholder {
@@ -107,29 +107,31 @@
   }
 
   .home-ask__input:focus-visible {
-    outline: var(--focus-ring, 2px solid var(--accent));
+    outline: 2px solid var(--focus-ring-color-inverse);
     outline-offset: 2px;
   }
 
+  /* Primary on dark: solid mint, forest-teal ink. */
   .home-ask__submit {
     min-height: 48px;
-    padding: 0 var(--space-5, 1.5rem);
+    padding: 0 var(--space-5);
     font-family: var(--font-ui);
-    font-weight: var(--fw-semibold, 600);
-    font-size: var(--fs-400, 1.0625rem);
-    color: var(--bg);
-    background: var(--ink);
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-400);
+    color: var(--bg-deep);
+    background: var(--mint);
     border: none;
-    border-radius: var(--radius-m, 10px);
+    border-radius: var(--radius-s);
     cursor: pointer;
+    transition: background var(--dur-fast) var(--ease-enter);
   }
 
   .home-ask__submit:hover {
-    background: var(--accent);
+    background: color-mix(in srgb, var(--mint) 82%, var(--white));
   }
 
   .home-ask__submit:focus-visible {
-    outline: var(--focus-ring, 2px solid var(--accent));
+    outline: 2px solid var(--focus-ring-color-inverse);
     outline-offset: 2px;
   }
 

@@ -50,7 +50,7 @@ const { tiles } = Astro.props;
     font-size: 0.72rem;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--accent, #8B4E3B);
+    color: var(--accent, var(--accent));
     font-weight: 600;
   }
   .ataglance__list {
@@ -81,7 +81,7 @@ const { tiles } = Astro.props;
     font-style: italic;
     font-size: 2rem;
     line-height: 1;
-    color: var(--accent, #8B4E3B);
+    color: var(--accent, var(--accent));
     font-weight: 400;
     flex: 0 0 auto;
   }

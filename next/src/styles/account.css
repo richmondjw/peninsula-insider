@@ -23,7 +23,7 @@
   font-weight: 700;
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: var(--ochre, #A0541F);
+  color: var(--ochre, #26997e);
   margin: 0 0 0.7rem;
 }
 
@@ -40,7 +40,7 @@
 
 .v2-account-page__title em {
   font-style: italic;
-  color: var(--ochre, #A0541F);
+  color: var(--ochre, #26997e);
   font-weight: 300;
 }
 
@@ -58,7 +58,7 @@
   display: inline-flex;
   gap: 0.25rem;
   padding: 0.35rem;
-  background: var(--paper-warm, #F3EDDE);
+  background: var(--paper-warm, #def3ee);
   border-radius: 100px;
   margin: 1.5rem 0 2.5rem;
 }
@@ -105,7 +105,7 @@
   transition: background 0.18s ease, transform 0.08s ease;
 }
 
-.v2-account-page__cta:hover { background: var(--ochre, #A0541F); }
+.v2-account-page__cta:hover { background: var(--ochre, #26997e); }
 .v2-account-page__cta:active { transform: scale(0.98); }
 
 /* Profile-page header (avatar + name) */
@@ -120,7 +120,7 @@
   width: 4rem;
   height: 4rem;
   border-radius: 50%;
-  background: var(--ochre, #A0541F) center/cover no-repeat;
+  background: var(--ochre, #26997e) center/cover no-repeat;
   color: #fff;
   font-size: 1.6rem;
   font-weight: 600;
@@ -140,7 +140,7 @@
 /* Profile-page edit panel */
 .v2-account-page__panel {
   background: #fff;
-  border: 1px solid var(--line, #D9D1BE);
+  border: 1px solid var(--line, #bed9d3);
   border-radius: 8px;
   padding: clamp(1.25rem, 3vw, 2rem);
 }
@@ -169,7 +169,7 @@
 .v2-account-page__form input[type=text],
 .v2-account-page__form textarea {
   padding: 0.75rem 0.95rem;
-  border: 1px solid var(--line, #D9D1BE);
+  border: 1px solid var(--line, #bed9d3);
   border-radius: 4px;
   font: inherit;
   font-size: 0.95rem;
@@ -181,8 +181,8 @@
 .v2-account-page__form input[type=text]:focus,
 .v2-account-page__form textarea:focus {
   outline: none;
-  border-color: var(--ochre, #A0541F);
-  box-shadow: 0 0 0 3px rgba(160, 84, 31, 0.12);
+  border-color: var(--ochre, #26997e);
+  box-shadow: 0 0 0 3px rgba(11, 90, 72, 0.12);
 }
 
 .v2-account-page__form textarea {
@@ -219,7 +219,7 @@
   transition: background 0.18s ease;
 }
 
-.v2-account-page__save:hover { background: var(--ochre, #A0541F); }
+.v2-account-page__save:hover { background: var(--ochre, #26997e); }
 
 .v2-account-page__status {
   font-size: 0.85rem;
@@ -228,7 +228,7 @@
   margin: 0;
 }
 
-.v2-account-page__status--ok { color: var(--ochre, #A0541F); }
+.v2-account-page__status--ok { color: var(--ochre, #26997e); }
 .v2-account-page__status--err { color: #B3261E; }
 
 .v2-account-page__signed-out {
@@ -248,7 +248,7 @@
   display: grid;
   grid-template-rows: auto 1fr;
   background: #fff;
-  border: 1px solid var(--line, #D9D1BE);
+  border: 1px solid var(--line, #bed9d3);
   border-radius: 8px;
   overflow: hidden;
   text-decoration: none;
@@ -258,15 +258,15 @@
 
 .v2-saved-card:hover {
   transform: translateY(-2px);
-  border-color: var(--ochre, #A0541F);
-  box-shadow: 0 16px 32px -16px rgba(34, 24, 16, 0.18);
+  border-color: var(--ochre, #26997e);
+  box-shadow: 0 16px 32px -16px rgba(0, 40, 34, 0.18);
 }
 
 .v2-saved-card__img {
   aspect-ratio: 16 / 10;
   background-size: cover;
   background-position: center;
-  background-color: var(--paper-warm, #F3EDDE);
+  background-color: var(--paper-warm, #def3ee);
 }
 
 .v2-saved-card__body { padding: 1rem 1.1rem 1.15rem; }
@@ -277,7 +277,7 @@
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--ochre, #A0541F);
+  color: var(--ochre, #26997e);
   margin: 0 0 0.45rem;
 }
 
@@ -320,8 +320,8 @@
   width: 4rem;
   height: 4rem;
   border-radius: 50%;
-  background: var(--paper-warm, #F3EDDE);
-  color: var(--ochre, #A0541F);
+  background: var(--paper-warm, #def3ee);
+  color: var(--ochre, #26997e);
   margin-bottom: 1.25rem;
 }
 

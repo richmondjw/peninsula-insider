@@ -27,7 +27,7 @@
 }
 .masthead__search-icon:hover,
 .masthead__search-icon:focus-visible {
-  background: rgba(167, 118, 55, 0.12);
+  background: rgba(7, 158, 165, 0.12);
   color: var(--accent);
   outline: none;
 }
@@ -151,7 +151,7 @@
 }
 .site-search-overlay__form:focus-within {
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(167, 118, 55, 0.18);
+  box-shadow: 0 0 0 3px rgba(7, 158, 165, 0.18);
 }
 .site-search-overlay__icon {
   display: inline-flex;
@@ -236,7 +236,7 @@
 }
 .site-search-overlay__result-link:hover,
 .site-search-overlay__result-link:focus-visible {
-  background: rgba(167, 118, 55, 0.08);
+  background: rgba(7, 158, 165, 0.08);
   outline: none;
 }
 .site-search-overlay__result-kind {
@@ -259,7 +259,7 @@
   line-height: 1.4;
 }
 .site-search-overlay__result-excerpt mark {
-  background: rgba(167, 118, 55, 0.18);
+  background: rgba(7, 158, 165, 0.18);
   color: inherit;
   padding: 0 0.1rem;
 }
@@ -285,7 +285,7 @@
   font-weight: 600;
   letter-spacing: 0.06em;
   color: var(--accent);
-  border: 1px solid rgba(167, 118, 55, 0.5);
+  border: 1px solid rgba(7, 158, 165, 0.5);
   border-radius: 999px;
   text-decoration: none;
   transition: background .2s var(--ease), color .2s var(--ease);
@@ -299,7 +299,7 @@ body.search-open { overflow: hidden; }
 
 /* ─── /search page proper ───────────────────────────────────────── */
 .search-page-v2__hero {
-  background: linear-gradient(180deg, rgba(167, 118, 55, 0.06) 0%, transparent 100%);
+  background: linear-gradient(180deg, rgba(7, 158, 165, 0.06) 0%, transparent 100%);
   padding: clamp(2rem, 5vw, 3.5rem) 0 clamp(1.5rem, 3vw, 2.5rem);
   text-align: center;
 }
@@ -333,7 +333,7 @@ body.search-open { overflow: hidden; }
 }
 .search-page-v2__bar:focus-within {
   border-color: var(--accent);
-  box-shadow: 0 0 0 4px rgba(167, 118, 55, 0.16);
+  box-shadow: 0 0 0 4px rgba(7, 158, 165, 0.16);
 }
 .search-page-v2__bar-icon {
   display: inline-flex;
@@ -473,7 +473,7 @@ body.search-open { overflow: hidden; }
 .search-result-group__toggle {
   appearance: none;
   border: 0;
-  border-bottom: 1px solid rgba(167, 118, 55, 0.42);
+  border-bottom: 1px solid rgba(7, 158, 165, 0.42);
   border-radius: 0;
   padding: 0 0 0.1rem;
   background: transparent;
@@ -506,7 +506,7 @@ body.search-open { overflow: hidden; }
   transition: border-color .2s var(--ease), transform .2s var(--ease), box-shadow .2s var(--ease);
 }
 .search-card:hover {
-  border-color: rgba(167, 118, 55, 0.4);
+  border-color: rgba(7, 158, 165, 0.4);
   transform: translateY(-1px);
   box-shadow: 0 6px 20px -10px rgba(0, 0, 0, 0.18);
 }
@@ -518,7 +518,7 @@ body.search-open { overflow: hidden; }
 }
 .search-card--lead {
   grid-template-columns: clamp(180px, 34%, 280px) 1fr;
-  border-color: rgba(167, 118, 55, 0.28);
+  border-color: rgba(7, 158, 165, 0.28);
   background: #fffdf8;
 }
 .search-result-group__grid .search-card {
@@ -539,11 +539,11 @@ body.search-open { overflow: hidden; }
   border-radius: 6px;
   background-size: cover;
   background-position: center;
-  background-color: rgba(167, 118, 55, 0.08);
+  background-color: rgba(7, 158, 165, 0.08);
   aspect-ratio: 16 / 11;
 }
 .search-card__hero--placeholder {
-  background-image: linear-gradient(135deg, rgba(167, 118, 55, 0.18), rgba(167, 118, 55, 0.05));
+  background-image: linear-gradient(135deg, rgba(7, 158, 165, 0.18), rgba(7, 158, 165, 0.05));
 }
 .search-card__body {
   display: flex;
@@ -571,7 +571,7 @@ body.search-open { overflow: hidden; }
   color: var(--soft);
 }
 .search-card__excerpt mark {
-  background: rgba(167, 118, 55, 0.18);
+  background: rgba(7, 158, 165, 0.18);
   color: var(--ink);
   padding: 0 0.15rem;
   border-radius: 2px;
@@ -645,7 +645,7 @@ body.search-open { overflow: hidden; }
 
 /* ─── Fallback "Didn't find?" block ─────────────────────────────── */
 .search-page-v2__fallback {
-  background: linear-gradient(180deg, transparent, rgba(167, 118, 55, 0.05));
+  background: linear-gradient(180deg, transparent, rgba(7, 158, 165, 0.05));
   padding: 2.5rem 0 3.5rem;
 }
 .search-page-v2__fallback-card {
@@ -664,8 +664,8 @@ body.search-open { overflow: hidden; }
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 30% 20%, rgba(167, 118, 55, 0.18), transparent 40%),
-    radial-gradient(circle at 80% 80%, rgba(167, 118, 55, 0.12), transparent 50%);
+    radial-gradient(circle at 30% 20%, rgba(7, 158, 165, 0.18), transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(7, 158, 165, 0.12), transparent 50%);
   pointer-events: none;
 }
 .search-page-v2__fallback-eyebrow,

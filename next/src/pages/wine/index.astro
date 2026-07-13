@@ -269,7 +269,12 @@ const faqSchema = {
 
   <!-- 1. Stand-first: h1 + <= 80-word Editor case (replaces hero dek,
        EditorialSurface, CompareBlock and the 232-word essay) -->
-  <HubStandfirst title="The Peninsula's best bottles start on the ridge" standfirst={standfirst} />
+  <HubStandfirst
+    eyebrow="Wine Country"
+    title="The Peninsula's best bottles start on the ridge"
+    standfirst={standfirst}
+    image={{ src: '/images/sourced/article-cellar-door-01.webp', alt: 'A Red Hill cellar door among the vines' }}
+  />
 
   <div class="wine-controls container">
     <!-- 2. Experience chips: CHIP_PRESETS.wine. ONE FilterBar; one filter
@@ -303,6 +308,7 @@ const faqSchema = {
   <!-- 3. The Six -->
   <TheSix
     id="the-six"
+    eyebrow="The Six · this month"
     heading="Where to actually go this month"
     sub="Six cellar doors, Critic verdicts, checked dates. Save them or add them to a trip."
     surface="wine"
@@ -313,6 +319,7 @@ const faqSchema = {
        /eat/ carries the mirror module pointing here. -->
   <DirectoryRows
     id="winery-kitchens"
+    eyebrow="The bridge to Eat & Drink"
     heading="Winery kitchens"
     sub="Six wineries whose dining rooms justify the booking on their own. The wineries live here; restaurants proper live in Eat & Drink."
     surface="wine"
@@ -354,6 +361,7 @@ const faqSchema = {
        not separate one-card grids (HUB-13). -->
   <DirectoryRows
     id="wine-directory"
+    eyebrow="The full list"
     heading={`All ${venues.length} cellar doors, breweries and distilleries`}
     sub="Every producer we track, one URL each. Narrow with the chips above; sort by name or town."
     surface="wine"
@@ -460,20 +468,21 @@ const faqSchema = {
 
   /* Best-of rail */
   .wine-rail__eyebrow {
-    margin: 0 0 0.25rem;
-    font-family: var(--font-ui, var(--font-ui));
+    margin: 0 0 var(--space-2, 0.5rem);
+    font-family: var(--font-ui);
     font-size: var(--fs-100, 0.75rem);
     font-weight: var(--fw-semibold, 600);
-    letter-spacing: 0.14em;
+    letter-spacing: var(--ls-eyebrow, 0.12em);
     text-transform: uppercase;
-    color: var(--gold-text);
+    color: var(--teal-text);
   }
   .wine-rail__heading {
     margin: 0 0 var(--space-5, 1.5rem);
-    font-family: var(--font-display, var(--font-display));
+    font-family: var(--font-display);
     font-size: var(--fs-700, clamp(1.75rem, 1.5rem + 1.2vw, 2.25rem));
     font-weight: var(--fw-display, 600);
-    line-height: var(--lh-heading, 1.2);
+    line-height: var(--lh-heading, 1.14);
+    letter-spacing: -0.01em;
     color: var(--text);
   }
 

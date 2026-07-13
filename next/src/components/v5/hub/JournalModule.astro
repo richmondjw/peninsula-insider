@@ -3,7 +3,7 @@
  * JournalModule (v5 hub module) - "From the Journal": at most three
  * contextual guides below the catalogue layer (page-redesigns section 2
  * block 9.6; wireframes #eat note 5). Editorial cards only: Card(guide)
- * with serif titles, byline provenance, zero venue cosmetics (HUB-08).
+ * with Sora display titles, byline provenance, zero venue cosmetics (HUB-08).
  *
  * Generic and prop-driven for the Eat / Wine / Stay / Explore hub agents.
  * Pass a page-written verdict of 25 words or fewer per item; article deks
@@ -30,6 +30,8 @@ export interface JournalItem {
 export interface Props {
   /** h2; defaults to the cross-hub convention. */
   heading?: string;
+  /** Uppercase eyebrow above the heading (teal). */
+  eyebrow?: string;
   sub?: string;
   /** At most 3 (build warns and slices). */
   items: JournalItem[];
@@ -41,6 +43,7 @@ export interface Props {
 
 const {
   heading = 'From the Journal',
+  eyebrow = 'The Journal',
   sub,
   items,
   moreHref,
@@ -61,6 +64,7 @@ const headingId = `${id ?? `journal-${surface ?? 'hub'}`}-heading`;
     <div class="container">
       <div class="v5-journal__header">
         <div>
+          {eyebrow && <p class="v5-journal__eyebrow">{eyebrow}</p>}
           <h2 class="v5-journal__heading" id={headingId}>{heading}</h2>
           {sub && <p class="v5-journal__sub">{sub}</p>}
         </div>
@@ -92,38 +96,51 @@ const headingId = `${id ?? `journal-${surface ?? 'hub'}`}-heading`;
 
 <style>
   .v5-journal {
-    padding: var(--space-6, 2rem) 0;
+    padding: var(--space-8, 4rem) 0;
     background: var(--bg-alt);
   }
   .v5-journal__header {
     display: flex;
-    align-items: baseline;
+    align-items: flex-end;
     justify-content: space-between;
     gap: var(--space-4, 1rem);
     flex-wrap: wrap;
-    margin-bottom: var(--space-4, 1rem);
+    margin-bottom: var(--space-5, 1.5rem);
+  }
+  .v5-journal__eyebrow {
+    margin: 0 0 var(--space-2, 0.5rem);
+    font-family: var(--font-ui);
+    font-size: var(--fs-100, 0.75rem);
+    font-weight: 600;
+    letter-spacing: var(--ls-eyebrow, 0.12em);
+    text-transform: uppercase;
+    color: var(--teal-text);
   }
   .v5-journal__heading {
     margin: 0;
-    font-family: var(--font-display, var(--font-display));
+    font-family: var(--font-display);
     font-size: var(--fs-700, clamp(1.6rem, 1.35rem + 1.2vw, 2.1rem));
     font-weight: var(--fw-display, 600);
-    line-height: var(--lh-heading, 1.2);
+    line-height: var(--lh-heading, 1.14);
+    letter-spacing: -0.01em;
     color: var(--text);
+    text-wrap: balance;
   }
   .v5-journal__sub {
-    margin: var(--space-2, 0.5rem) 0 0;
-    font-family: var(--font-ui, var(--font-ui));
+    margin: var(--space-3, 0.75rem) 0 0;
+    font-family: var(--font-ui);
     font-size: var(--fs-300, 0.9375rem);
     color: var(--soft);
   }
   .v5-journal__more {
-    font-family: var(--font-ui, var(--font-ui));
-    font-size: var(--fs-300, 0.9375rem);
+    font-family: var(--font-ui);
+    font-size: var(--fs-200, 0.8125rem);
     font-weight: var(--fw-semibold, 600);
     color: var(--accent);
     text-decoration: none;
     white-space: nowrap;
+    border-bottom: 1.5px solid color-mix(in srgb, var(--accent) 40%, transparent);
+    padding-bottom: 2px;
   }
   .v5-journal__more:hover {
     text-decoration: underline;

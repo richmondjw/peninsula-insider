@@ -529,27 +529,34 @@ export const prerender = true;
     }
   }
 
+  /* v6 Evergreen Coast: no serif. Sora module titles, teal-text kickers,
+     sea-fog summary panel at radius-m, cool hairlines. */
   .article-summary {
     margin: 2.5rem 0 2rem;
-    padding: 1.4rem 1.5rem;
-    border: 1px solid rgba(33, 30, 28, 0.12);
-    background: rgba(246, 241, 232, 0.7);
+    padding: var(--space-5) var(--space-5);
+    border: 1px solid var(--border);
+    background: var(--bg-alt);
+    border-radius: var(--radius-m);
   }
   .article-summary__eyebrow,
   .article-faq__eyebrow {
     margin: 0 0 0.45rem;
-    font-size: 0.72rem;
-    letter-spacing: 0.14em;
+    font-family: var(--font-ui);
+    font-size: var(--fs-100);
+    font-weight: var(--fw-semibold);
+    letter-spacing: var(--ls-eyebrow);
     text-transform: uppercase;
-    color: var(--accent, #7a5c3e);
+    color: var(--teal-text);
   }
   .article-summary__title,
   .article-faq__title {
     margin: 0 0 0.9rem;
-    font-family: var(--serif, 'Newsreader', Georgia, serif);
-    font-size: clamp(1.4rem, 2.8vw, 1.9rem);
-    font-weight: 500;
-    color: var(--ink, #211e1c);
+    font-family: var(--font-display);
+    font-size: var(--fs-700);
+    font-weight: var(--fw-display);
+    line-height: var(--lh-heading);
+    letter-spacing: var(--ls-display);
+    color: var(--text);
   }
   .article-summary__list {
     margin: 0;
@@ -558,34 +565,35 @@ export const prerender = true;
     gap: 0.55rem;
   }
   .article-summary__list li {
-    color: var(--ink-soft, #433d39);
-    line-height: 1.65;
+    color: var(--text);
+    line-height: var(--lh-body);
   }
   .article-faq {
     margin-top: 2.5rem;
     padding-top: 0.5rem;
-    border-top: 1px solid rgba(0,0,0,.08);
+    border-top: 1px solid var(--border);
   }
   .article-faq__items {
     display: grid;
     gap: 0.8rem;
   }
   .article-faq__item {
-    border-bottom: 1px solid rgba(0,0,0,.08);
+    border-bottom: 1px solid var(--border);
     padding-bottom: 0.8rem;
   }
   .article-faq__question {
     cursor: pointer;
     list-style: none;
-    font-weight: 600;
-    color: var(--ink, #211e1c);
+    font-family: var(--font-ui);
+    font-weight: var(--fw-semibold);
+    color: var(--text);
   }
   .article-faq__question::-webkit-details-marker {
     display: none;
   }
   .article-faq__answer p {
     margin: 0.7rem 0 0;
-    color: var(--ink-soft, #433d39);
-    line-height: 1.7;
+    color: var(--text);
+    line-height: var(--lh-body);
   }
 </style>

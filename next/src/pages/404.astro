@@ -66,11 +66,11 @@ export const prerender = true;
     width: 88px; height: 88px;
     border-radius: 50%;
     overflow: hidden;
-    background: radial-gradient(circle at 30% 30%, #FBF1DE 0%, #F0E2C7 70%, #E5D2AF 100%);
-    border: 1px solid rgba(139, 78, 59, 0.22);
+    background: radial-gradient(circle at 30% 30%, #e1f8f2 0%, #c7f0e6 70%, #afe5d8 100%);
+    border: 1px solid rgba(11, 90, 72, 0.22);
     display: grid;
     place-items: center;
-    box-shadow: 0 4px 24px rgba(34, 24, 16, 0.1);
+    box-shadow: 0 4px 24px rgba(0, 40, 34, 0.1);
   }
   .not-found__avatar img {
     position: absolute;
@@ -83,12 +83,12 @@ export const prerender = true;
     font-family: var(--font-display);
     font-style: italic;
     font-weight: 600;
-    color: #8B4E3B;
+    color: var(--accent);
     font-size: 1.4rem;
     line-height: 1;
   }
   .not-found__code-mark {
-    color: #8B4E3B;
+    color: var(--accent);
     font-size: 0.6em;
     margin-left: 0.4em;
     letter-spacing: 0.4em;
@@ -103,14 +103,14 @@ export const prerender = true;
     font-weight: 700;
     letter-spacing: 0.32em;
     text-transform: uppercase;
-    color: #8B4E3B;
+    color: var(--accent);
   }
   .not-found__nav-label::before,
   .not-found__nav-label::after {
     content: '';
     flex: 1;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(139, 78, 59, 0.32), transparent);
+    background: linear-gradient(90deg, transparent, rgba(11, 90, 72, 0.32), transparent);
   }
   .not-found__nav-label > span { white-space: nowrap; }
 </style>

@@ -199,17 +199,17 @@ const conciergeIcon = '/images/pi-concierge.svg';
     pointer-events: none;
     /* Local design tokens (mirror /ask) */
     --pi-paper:       #FAF6EE;
-    --pi-paper-deep:  #F0E9DA;
+    --pi-paper-deep:  #daf0eb;
     --pi-paper-warm:  #FFFCF6;
-    --pi-ink:         #2B2520;
-    --pi-ink-soft:    #5C4F40;
-    --pi-ink-muted:   #8A7E6E;
-    --pi-terra:       #8B4E3B;
-    --pi-terra-deep:  #6D3A2B;
-    --pi-terra-haze:  rgba(139, 78, 59, 0.08);
-    --pi-rule:        rgba(139, 78, 59, 0.18);
-    --pi-rule-soft:   rgba(139, 78, 59, 0.10);
-    --pi-sage:        #7A8B6D;
+    --pi-ink:         var(--text);
+    --pi-ink-soft:    #405c55;
+    --pi-ink-muted:   #6e8a83;
+    --pi-terra:       var(--accent);
+    --pi-terra-deep:  var(--acc-h);
+    --pi-terra-haze:  rgba(11, 90, 72, 0.08);
+    --pi-rule:        rgba(11, 90, 72, 0.18);
+    --pi-rule-soft:   rgba(11, 90, 72, 0.10);
+    --pi-sage:        var(--sage);
     --ease-soft:      cubic-bezier(0.22, 0.61, 0.36, 1);
   }
 
@@ -228,7 +228,7 @@ const conciergeIcon = '/images/pi-concierge.svg';
   .pi-drawer__backdrop {
     position: fixed;
     inset: 0;
-    background: rgba(34, 24, 16, 0.35);
+    background: rgba(0, 40, 34, 0.35);
     backdrop-filter: blur(2px);
     opacity: 0;
     pointer-events: none;
@@ -251,13 +251,13 @@ const conciergeIcon = '/images/pi-concierge.svg';
     max-width: calc(100vw - 2 * var(--pi-drawer-margin));
     max-height: calc(100vh - 2 * var(--pi-drawer-margin));
     background: var(--pi-paper-warm);
-    border: 1px solid rgba(139, 78, 59, 0.18);
+    border: 1px solid rgba(11, 90, 72, 0.18);
     border-radius: 18px;          /* rounded all-around */
     box-shadow:
-      0 1px 0 rgba(255, 252, 247, 0.8) inset,
-      0 4px 12px rgba(34, 24, 16, 0.06),
-      0 18px 40px rgba(34, 24, 16, 0.12),
-      0 40px 80px rgba(34, 24, 16, 0.10);
+      0 1px 0 rgba(251, 253, 252, 0.8) inset,
+      0 4px 12px rgba(0, 40, 34, 0.06),
+      0 18px 40px rgba(0, 40, 34, 0.12),
+      0 40px 80px rgba(0, 40, 34, 0.10);
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -278,11 +278,11 @@ const conciergeIcon = '/images/pi-concierge.svg';
     inset: 0 0 auto 0;
     height: 3px;
     background: linear-gradient(90deg,
-      rgba(139, 78, 59, 0) 0%,
-      rgba(167, 118, 55, 0.85) 18%,
-      rgba(223, 197, 158, 0.95) 50%,
-      rgba(167, 118, 55, 0.85) 82%,
-      rgba(139, 78, 59, 0) 100%);
+      rgba(11, 90, 72, 0) 0%,
+      rgba(7, 158, 165, 0.85) 18%,
+      rgba(158, 223, 208, 0.95) 50%,
+      rgba(7, 158, 165, 0.85) 82%,
+      rgba(11, 90, 72, 0) 100%);
     border-radius: 18px 18px 0 0;
     z-index: 5;
   }
@@ -392,13 +392,13 @@ const conciergeIcon = '/images/pi-concierge.svg';
     width: 6px; height: 6px;
     border-radius: 50%;
     background: var(--pi-sage);
-    box-shadow: 0 0 0 0 rgba(122, 139, 109, 0.5);
+    box-shadow: 0 0 0 0 rgba(79, 183, 158, 0.5);
     animation: pi-drawer-pulse 2.4s ease-out infinite;
   }
   @keyframes pi-drawer-pulse {
-    0%   { box-shadow: 0 0 0 0   rgba(122, 139, 109, 0.6); }
-    70%  { box-shadow: 0 0 0 8px rgba(122, 139, 109, 0); }
-    100% { box-shadow: 0 0 0 0   rgba(122, 139, 109, 0); }
+    0%   { box-shadow: 0 0 0 0   rgba(79, 183, 158, 0.6); }
+    70%  { box-shadow: 0 0 0 8px rgba(79, 183, 158, 0); }
+    100% { box-shadow: 0 0 0 0   rgba(79, 183, 158, 0); }
   }
 
   .pi-drawer__actions {
@@ -433,7 +433,7 @@ const conciergeIcon = '/images/pi-concierge.svg';
     }
     .pi-drawer__icon-btn--close {
       background: var(--pi-terra-haze);
-      border-color: rgba(139, 78, 59, 0.32);
+      border-color: rgba(11, 90, 72, 0.32);
       color: var(--pi-terra);
     }
   }
@@ -449,7 +449,7 @@ const conciergeIcon = '/images/pi-concierge.svg';
       width: 40px;
       height: 4px;
       border-radius: 2px;
-      background: rgba(139, 78, 59, 0.32);
+      background: rgba(11, 90, 72, 0.32);
       margin: 8px auto -2px;
       cursor: pointer;
       flex-shrink: 0;
@@ -476,14 +476,14 @@ const conciergeIcon = '/images/pi-concierge.svg';
   }
   .pi-drawer__body::-webkit-scrollbar { width: 6px; }
   .pi-drawer__body::-webkit-scrollbar-track {
-    background: rgba(139, 78, 59, 0.06);
+    background: rgba(11, 90, 72, 0.06);
     border-radius: 3px;
   }
   .pi-drawer__body::-webkit-scrollbar-thumb {
-    background: rgba(139, 78, 59, 0.3);
+    background: rgba(11, 90, 72, 0.3);
     border-radius: 3px;
   }
-  .pi-drawer__body::-webkit-scrollbar-thumb:hover { background: rgba(139, 78, 59, 0.5); }
+  .pi-drawer__body::-webkit-scrollbar-thumb:hover { background: rgba(11, 90, 72, 0.5); }
 
   /* ── COMPOSER ─────────────────────────────────────────── */
   .pi-drawer__composer {
@@ -540,9 +540,9 @@ const conciergeIcon = '/images/pi-concierge.svg';
     font-family: inherit;
     text-align: left;
     box-shadow:
-      0 1px 0 rgba(255, 252, 247, 0.85) inset,
-      0 4px 14px rgba(34, 24, 16, 0.10),
-      0 14px 36px rgba(34, 24, 16, 0.14);
+      0 1px 0 rgba(251, 253, 252, 0.85) inset,
+      0 4px 14px rgba(0, 40, 34, 0.10),
+      0 14px 36px rgba(0, 40, 34, 0.14);
     /* Visible by default at every breakpoint - only concealed while the
        drawer panel is open (handled below). Animates in/out via transform. */
     transform: translateY(0);
@@ -563,9 +563,9 @@ const conciergeIcon = '/images/pi-concierge.svg';
   .pi-drawer__bubble:hover {
     transform: translateY(-2px);
     box-shadow:
-      0 1px 0 rgba(255, 252, 247, 0.85) inset,
-      0 6px 18px rgba(34, 24, 16, 0.13),
-      0 18px 42px rgba(34, 24, 16, 0.16);
+      0 1px 0 rgba(251, 253, 252, 0.85) inset,
+      0 6px 18px rgba(0, 40, 34, 0.13),
+      0 18px 42px rgba(0, 40, 34, 0.16);
     border-color: rgba(23, 20, 19, 0.28);
   }
 
@@ -576,8 +576,8 @@ const conciergeIcon = '/images/pi-concierge.svg';
     border-radius: 50%;
     overflow: hidden;
     flex-shrink: 0;
-    background: radial-gradient(circle at 30% 30%, #FBF1DE 0%, #F0E2C7 70%, #E5D2AF 100%);
-    border: 1px solid rgba(139, 78, 59, 0.25);
+    background: radial-gradient(circle at 30% 30%, #e1f8f2 0%, #c7f0e6 70%, #afe5d8 100%);
+    border: 1px solid rgba(11, 90, 72, 0.25);
     display: grid;
     place-items: center;
   }
@@ -613,8 +613,8 @@ const conciergeIcon = '/images/pi-concierge.svg';
     top: 6px; right: 12px;
     width: 6px; height: 6px;
     border-radius: 50%;
-    background: rgba(122, 139, 109, 0.55);
-    box-shadow: 0 0 0 0 rgba(122, 139, 109, 0.3);
+    background: rgba(79, 183, 158, 0.55);
+    box-shadow: 0 0 0 0 rgba(79, 183, 158, 0.3);
     animation: pi-drawer-pulse 3s ease-out infinite;
   }
 
@@ -649,18 +649,18 @@ const conciergeIcon = '/images/pi-concierge.svg';
   }
   @keyframes ask-stream-breathe {
     0%, 100% { box-shadow:
-      0 1px 0 rgba(255, 252, 247, 0.9) inset,
-      0 1px 3px rgba(34, 24, 16, 0.04),
-      0 8px 22px rgba(34, 24, 16, 0.05); }
+      0 1px 0 rgba(251, 253, 252, 0.9) inset,
+      0 1px 3px rgba(0, 40, 34, 0.04),
+      0 8px 22px rgba(0, 40, 34, 0.05); }
     50% { box-shadow:
-      0 1px 0 rgba(255, 252, 247, 0.9) inset,
-      0 1px 3px rgba(34, 24, 16, 0.05),
-      0 8px 28px rgba(139, 78, 59, 0.08); }
+      0 1px 0 rgba(251, 253, 252, 0.9) inset,
+      0 1px 3px rgba(0, 40, 34, 0.05),
+      0 8px 28px rgba(11, 90, 72, 0.08); }
   }
 
   .pi-drawer .ask-stream-thinking em {
     font-style: italic;
-    color: #5C4F40;
+    color: #405c55;
   }
 
   .pi-drawer .ask-stream-prose {

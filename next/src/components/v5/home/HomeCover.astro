@@ -39,7 +39,9 @@ const season = getSeason(now).toLowerCase();
 ---
 
 <section class="home-cover" aria-label="Cover">
-  <div class="container">
+  <span class="home-cover__glow" aria-hidden="true"></span>
+  <div class="container home-cover__inner">
+    <p class="home-cover__eyebrow">{season} on the Peninsula</p>
     <h1
       class="home-cover__statement"
       {...editableText({
@@ -53,46 +55,123 @@ const season = getSeason(now).toLowerCase();
     </h1>
     <p class="home-cover__context">
       <time datetime={isoDate}>{dateLabel}</time>
-      <span class="home-cover__sep" aria-hidden="true">&middot;</span>
-      <span>{season} on the Peninsula</span>
     </p>
+    <div class="home-cover__actions">
+      <a class="home-cover__btn home-cover__btn--primary" href="/whats-on/">See this weekend</a>
+      <a class="home-cover__btn home-cover__btn--ghost" href="/ask/">Ask PI</a>
+    </div>
   </div>
 </section>
 
 <style>
+  /* Immersive giant-type hero. No hero photo exists for this block, so the
+     ground is the signature forest-teal with a subtle mint/teal glow rather
+     than a fabricated image. Tokens only. */
   .home-cover {
-    padding: var(--space-8, 4rem) 0 var(--space-6, 2rem);
-    background: var(--bg);
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: var(--bg-deep);
+    padding: clamp(3rem, 9vw, 6.4rem) 0;
+  }
+
+  .home-cover__glow {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+      radial-gradient(60% 55% at 84% 10%, color-mix(in srgb, var(--mint) 20%, transparent), transparent 70%),
+      radial-gradient(72% 60% at 8% 96%, color-mix(in srgb, var(--teal) 26%, transparent), transparent 72%);
+  }
+
+  .home-cover__inner {
+    position: relative;
+  }
+
+  .home-cover__eyebrow {
+    margin: 0 0 var(--space-4);
+    font-family: var(--font-ui);
+    font-size: var(--fs-100);
+    font-weight: var(--fw-semibold);
+    letter-spacing: var(--ls-eyebrow);
+    text-transform: uppercase;
+    color: var(--mint);
   }
 
   .home-cover__statement {
     margin: 0;
     max-width: 18ch;
     font-family: var(--font-display);
-    font-weight: var(--fw-display, 600);
-    font-size: var(--fs-900, clamp(2.5rem, 6vw, 4.25rem));
-    line-height: var(--lh-display, 1.08);
-    color: var(--ink);
+    font-weight: var(--fw-display);
+    font-size: var(--fs-950);
+    line-height: var(--lh-display);
+    letter-spacing: var(--ls-display);
+    color: var(--white);
     text-wrap: balance;
   }
 
   .home-cover__context {
-    margin: var(--space-4, 1rem) 0 0;
+    margin: var(--space-5) 0 0;
     font-family: var(--font-ui);
-    font-size: var(--fs-300, 0.9375rem);
-    line-height: var(--lh-ui, 1.4);
-    color: var(--soft);
+    font-size: var(--fs-300);
+    line-height: var(--lh-ui);
+    color: var(--soft-inverse);
     letter-spacing: 0.02em;
   }
 
-  .home-cover__sep {
-    margin: 0 var(--space-2, 0.5rem);
-    color: var(--accent);
+  .home-cover__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-top: var(--space-6);
+  }
+
+  .home-cover__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-ui);
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-300);
+    text-decoration: none;
+    transition:
+      background var(--dur-fast) var(--ease-enter),
+      color var(--dur-fast) var(--ease-enter);
+  }
+
+  /* Primary on dark: solid mint, forest-teal ink. */
+  .home-cover__btn--primary {
+    padding: 0.85rem 1.35rem;
+    border: 0;
+    border-radius: var(--radius-s);
+    background: var(--mint);
+    color: var(--bg-deep);
+  }
+  .home-cover__btn--primary:hover {
+    background: color-mix(in srgb, var(--mint) 82%, var(--white));
+  }
+
+  /* Secondary: ghost pill in light ink. */
+  .home-cover__btn--ghost {
+    padding: 0.8rem 1.3rem;
+    border: 1.5px solid currentColor;
+    border-radius: var(--radius-pill);
+    background: transparent;
+    color: var(--white);
+  }
+  .home-cover__btn--ghost:hover {
+    color: var(--mint);
+  }
+
+  .home-cover__btn:focus-visible {
+    outline: 2px solid var(--focus-ring-color-inverse);
+    outline-offset: 3px;
   }
 
   @media (max-width: 47.94em) {
     .home-cover {
-      padding-top: var(--space-6, 2rem);
+      padding: clamp(2.5rem, 12vw, 4rem) 0;
     }
   }
 </style>

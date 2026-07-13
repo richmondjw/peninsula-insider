@@ -720,16 +720,16 @@ export const prerender = true;
     display: flex;
     flex-direction: column;
     background: linear-gradient(180deg, rgba(255,252,247,0.99) 0%, rgba(248,243,236,0.99) 100%);
-    border: 1px solid rgba(121, 92, 58, 0.14);
+    border: 1px solid rgba(74, 90, 87, 0.14);
     border-radius: 1.25rem;
-    box-shadow: 0 12px 32px rgba(34, 24, 16, 0.06);
+    box-shadow: 0 12px 32px rgba(0, 40, 34, 0.06);
     overflow: hidden;
     transition: transform 0.22s cubic-bezier(0.25, 0.46, 0.45, 0.94),
                 box-shadow 0.22s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
   .golf-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 20px 48px rgba(34, 24, 16, 0.11);
+    box-shadow: 0 20px 48px rgba(0, 40, 34, 0.11);
   }
 
   .golf-card__header {
@@ -738,8 +738,8 @@ export const prerender = true;
     justify-content: space-between;
     gap: 0.75rem;
     padding: 1.1rem 1.4rem 0.75rem;
-    border-bottom: 1px solid rgba(121, 92, 58, 0.09);
-    background: rgba(139, 78, 59, 0.035);
+    border-bottom: 1px solid rgba(74, 90, 87, 0.09);
+    background: rgba(11, 90, 72, 0.035);
   }
   .golf-card__badges {
     display: flex;
@@ -775,9 +775,9 @@ export const prerender = true;
     border: 1px solid rgba(90, 140, 80, 0.25);
   }
   .golf-badge--semi {
-    background: rgba(182, 154, 107, 0.15);
-    color: #7a5f2a;
-    border: 1px solid rgba(182, 154, 107, 0.3);
+    background: rgba(7, 158, 165, 0.15);
+    color: #2a7a67;
+    border: 1px solid rgba(7, 158, 165, 0.3);
   }
   .golf-badge--private {
     background: rgba(44, 35, 28, 0.07);
@@ -792,13 +792,13 @@ export const prerender = true;
   }
   .golf-tier--1.golf-badge--tier {
     color: var(--accent);
-    border-color: rgba(139, 78, 59, 0.3);
-    background: rgba(139, 78, 59, 0.06);
+    border-color: rgba(11, 90, 72, 0.3);
+    background: rgba(11, 90, 72, 0.06);
   }
   .golf-badge--ranked {
-    background: rgba(182, 154, 107, 0.18);
-    color: #7a5f2a;
-    border: 1px solid rgba(182, 154, 107, 0.35);
+    background: rgba(7, 158, 165, 0.18);
+    color: #2a7a67;
+    border: 1px solid rgba(7, 158, 165, 0.35);
   }
 
   /* ── Card body ── */
@@ -831,8 +831,8 @@ export const prerender = true;
   .golf-card__ranking {
     font-size: 0.75rem;
     font-weight: 600;
-    color: #7a5f2a;
-    background: rgba(182, 154, 107, 0.1);
+    color: #2a7a67;
+    background: rgba(7, 158, 165, 0.1);
     border-left: 3px solid var(--gold);
     padding: 0.35rem 0.6rem;
     border-radius: 0 0.25rem 0.25rem 0;
@@ -841,18 +841,18 @@ export const prerender = true;
   }
   .golf-card__note {
     font-size: 0.88rem;
-    color: #44372b;
+    color: #2b443e;
     line-height: 1.65;
     margin: 0;
   }
   .golf-card__local {
     font-size: 0.82rem;
-    color: #5a4a38;
+    color: #385a52;
     line-height: 1.6;
     margin: 0.85rem 0 0;
     padding: 0.65rem 0.85rem;
-    background: rgba(182, 154, 107, 0.09);
-    border-left: 3px solid rgba(182, 154, 107, 0.55);
+    background: rgba(7, 158, 165, 0.09);
+    border-left: 3px solid rgba(7, 158, 165, 0.55);
     border-radius: 0 0.35rem 0.35rem 0;
     font-style: italic;
   }
@@ -862,7 +862,7 @@ export const prerender = true;
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: #7a5f2a;
+    color: #2a7a67;
     font-style: normal;
     margin-right: 0.5rem;
   }
@@ -873,7 +873,7 @@ export const prerender = true;
     align-items: center;
     gap: 1rem;
     padding: 0.9rem 1.4rem 1.1rem;
-    border-top: 1px solid rgba(121, 92, 58, 0.09);
+    border-top: 1px solid rgba(74, 90, 87, 0.09);
     margin-top: auto;
   }
   .golf-card__cta {
@@ -911,18 +911,18 @@ export const prerender = true;
   .game-panel {
     border-radius: 1.25rem;
     overflow: hidden;
-    border: 1px solid rgba(121, 92, 58, 0.12);
+    border: 1px solid rgba(74, 90, 87, 0.12);
     background: var(--white);
-    box-shadow: 0 8px 24px rgba(34, 24, 16, 0.05);
+    box-shadow: 0 8px 24px rgba(0, 40, 34, 0.05);
     display: flex;
     flex-direction: column;
   }
   .game-panel__header {
     padding: 1.4rem 1.5rem 1.1rem;
-    border-bottom: 1px solid rgba(121, 92, 58, 0.1);
+    border-bottom: 1px solid rgba(74, 90, 87, 0.1);
   }
-  .game-panel--low .game-panel__header { background: rgba(139, 78, 59, 0.07); }
-  .game-panel--mid .game-panel__header { background: rgba(182, 154, 107, 0.1); }
+  .game-panel--low .game-panel__header { background: rgba(11, 90, 72, 0.07); }
+  .game-panel--mid .game-panel__header { background: rgba(7, 158, 165, 0.1); }
   .game-panel--social .game-panel__header { background: rgba(122, 138, 109, 0.09); }
 
   .game-panel__hcp {
@@ -955,7 +955,7 @@ export const prerender = true;
   }
   .game-panel__list li {
     padding: 0.9rem 1.5rem;
-    border-bottom: 1px solid rgba(121, 92, 58, 0.07);
+    border-bottom: 1px solid rgba(74, 90, 87, 0.07);
     font-size: 0.86rem;
     line-height: 1.5;
   }
@@ -985,13 +985,13 @@ export const prerender = true;
 
   .architect-card {
     background: var(--white);
-    border: 1px solid rgba(121, 92, 58, 0.12);
+    border: 1px solid rgba(74, 90, 87, 0.12);
     border-radius: 1rem;
     padding: 1.4rem 1.5rem;
-    box-shadow: 0 4px 16px rgba(34, 24, 16, 0.04);
+    box-shadow: 0 4px 16px rgba(0, 40, 34, 0.04);
     transition: box-shadow 0.2s;
   }
-  .architect-card:hover { box-shadow: 0 8px 28px rgba(34, 24, 16, 0.09); }
+  .architect-card:hover { box-shadow: 0 8px 28px rgba(0, 40, 34, 0.09); }
   .architect-card__name {
     font-family: var(--font-display);
     font-size: 1.3rem;
@@ -1010,7 +1010,7 @@ export const prerender = true;
   }
   .architect-card__note {
     font-size: 0.86rem;
-    color: #44372b;
+    color: #2b443e;
     line-height: 1.65;
     margin: 0;
   }
@@ -1027,10 +1027,10 @@ export const prerender = true;
 
   .pairing-card {
     background: var(--white);
-    border: 1px solid rgba(121, 92, 58, 0.12);
+    border: 1px solid rgba(74, 90, 87, 0.12);
     border-radius: 1.25rem;
     padding: 1.75rem 1.75rem;
-    box-shadow: 0 6px 20px rgba(34, 24, 16, 0.05);
+    box-shadow: 0 6px 20px rgba(0, 40, 34, 0.05);
   }
   .pairing-card__heading {
     font-family: var(--font-display);
@@ -1058,7 +1058,7 @@ export const prerender = true;
     line-height: 1.6;
     color: var(--text);
     padding-left: 1rem;
-    border-left: 2px solid rgba(139, 78, 59, 0.25);
+    border-left: 2px solid rgba(11, 90, 72, 0.25);
   }
   .pairing-card__list a { color: var(--accent); text-decoration: underline; }
 
@@ -1076,18 +1076,18 @@ export const prerender = true;
     display: flex;
     flex-direction: column;
     background: var(--white);
-    border: 1px solid rgba(121, 92, 58, 0.12);
+    border: 1px solid rgba(74, 90, 87, 0.12);
     border-radius: 1.25rem;
     overflow: hidden;
     text-decoration: none;
     color: inherit;
-    box-shadow: 0 6px 20px rgba(34, 24, 16, 0.05);
+    box-shadow: 0 6px 20px rgba(0, 40, 34, 0.05);
     transition: transform 0.22s cubic-bezier(0.25, 0.46, 0.45, 0.94),
                 box-shadow 0.22s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
   .golf-article-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 14px 36px rgba(34, 24, 16, 0.11);
+    box-shadow: 0 14px 36px rgba(0, 40, 34, 0.11);
   }
   .golf-article-card__img {
     aspect-ratio: 16 / 7;
@@ -1168,7 +1168,7 @@ export const prerender = true;
   .golf-stayplay__link {
     color: var(--gold);
     text-decoration: underline;
-    text-decoration-color: rgba(182, 154, 107, 0.45);
+    text-decoration-color: rgba(7, 158, 165, 0.45);
     transition: text-decoration-color 0.2s;
   }
   .golf-stayplay__link:hover { text-decoration-color: var(--gold); }
@@ -1182,7 +1182,7 @@ export const prerender = true;
     color: var(--gold);
     text-decoration: none;
     padding-bottom: 0.2rem;
-    border-bottom: 1px solid rgba(182, 154, 107, 0.4);
+    border-bottom: 1px solid rgba(7, 158, 165, 0.4);
     transition: border-color 0.2s, color 0.2s;
   }
   .golf-stayplay__cta:hover { border-color: var(--gold); }
@@ -1226,17 +1226,17 @@ export const prerender = true;
     flex-direction: column;
     gap: 0;
     margin-top: 0.5rem;
-    border: 1px solid rgba(121, 92, 58, 0.14);
+    border: 1px solid rgba(74, 90, 87, 0.14);
     border-radius: 1rem;
     overflow: hidden;
     background: var(--white);
   }
   .golf-faq__item {
-    border-bottom: 1px solid rgba(121, 92, 58, 0.1);
+    border-bottom: 1px solid rgba(74, 90, 87, 0.1);
     transition: background 0.18s;
   }
   .golf-faq__item:last-child { border-bottom: none; }
-  .golf-faq__item[open] { background: rgba(139, 78, 59, 0.03); }
+  .golf-faq__item[open] { background: rgba(11, 90, 72, 0.03); }
   .golf-faq__q {
     cursor: pointer;
     list-style: none;
@@ -1266,7 +1266,7 @@ export const prerender = true;
   .golf-faq__a {
     padding: 0 1.5rem 1.25rem;
     font-size: 0.88rem;
-    color: #44372b;
+    color: #2b443e;
     line-height: 1.7;
   }
   .golf-faq__a p { margin-bottom: 0.6rem; }

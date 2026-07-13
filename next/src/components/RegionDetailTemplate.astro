@@ -33,7 +33,7 @@ const SITE = 'https://peninsulainsider.com.au';
 const url = `${SITE}/explore/regions/${d.slug}/`;
 const hero = await resolveHero('region', d.slug, d);
 const regionHeroSrc = hero.src;
-const regionHeroStyle = `background-image:linear-gradient(rgba(20,18,16,0.45) 0%,rgba(20,18,16,0.35) 40%,rgba(20,18,16,0.65) 100%),url('${regionHeroSrc}')`;
+const regionHeroStyle = `background-image:linear-gradient(rgba(0,40,34,0.42) 0%,rgba(0,40,34,0.32) 40%,rgba(0,54,44,0.78) 100%),url('${regionHeroSrc}')`;
 const heroAbs = regionHeroSrc.startsWith('http') ? regionHeroSrc : `${SITE}${regionHeroSrc}`;
 
 const pillarOf = (type: string) => venueHrefPrefix(type).replace(/\//g, '');
@@ -192,12 +192,12 @@ const touristDestination = {
   </script>
 
   <style>
-    .region-hero { background-size: cover; background-position: center; color: #fff; padding: clamp(64px, 12vw, 160px) 0 clamp(40px, 7vw, 90px); }
-    .region-hero__eyebrow { font-family: var(--font-ui); text-transform: uppercase; letter-spacing: 0.16em; font-size: 11px; opacity: 0.92; margin: 0 0 12px; text-shadow: 0 1px 4px rgba(0,0,0,0.5); color: #fff; }
-    .region-hero__title { font-family: var(--font-display); font-size: clamp(36px, 6vw, 72px); line-height: 1.02; margin: 0; text-shadow: 0 2px 12px rgba(0,0,0,0.45), 0 1px 3px rgba(0,0,0,0.3); color: #fff; }
-    .region-hero__tagline { font-family: var(--font-display); font-style: italic; font-size: clamp(17px, 2.4vw, 24px); max-width: 60ch; margin: 14px 0 0; text-shadow: 0 1px 6px rgba(0,0,0,0.5), 0 1px 2px rgba(0,0,0,0.3); color: #fff; }
-    .region-intro { margin: 36px 0; max-width: 70ch; font-size: 1.05rem; line-height: 1.6; }
-    .region-section__title { font-family: var(--font-display); font-size: clamp(24px, 3.5vw, 34px); margin: 40px 0 18px; }
+    .region-hero { background-size: cover; background-position: center; color: var(--white); padding: clamp(64px, 12vw, 160px) 0 clamp(40px, 7vw, 90px); }
+    .region-hero__eyebrow { font-family: var(--font-ui); text-transform: uppercase; letter-spacing: var(--ls-eyebrow); font-size: var(--fs-100); font-weight: 600; margin: 0 0 12px; text-shadow: 0 1px 4px rgba(0,0,0,0.5); color: var(--mint); }
+    .region-hero__title { font-family: var(--font-display); font-weight: 600; font-size: clamp(36px, 6vw, 72px); line-height: var(--lh-display); letter-spacing: var(--ls-display); margin: 0; text-shadow: 0 2px 12px rgba(0,0,0,0.45), 0 1px 3px rgba(0,0,0,0.3); color: var(--white); }
+    .region-hero__tagline { font-family: var(--font-ui); font-style: italic; font-size: clamp(17px, 2.4vw, 24px); line-height: var(--lh-dek); max-width: 60ch; margin: 14px 0 0; text-shadow: 0 1px 6px rgba(0,0,0,0.5), 0 1px 2px rgba(0,0,0,0.3); color: rgba(255,255,255,0.92); }
+    .region-intro { margin: 36px 0; max-width: var(--measure-prose); font-size: var(--fs-400); line-height: var(--lh-body); }
+    .region-section__title { font-family: var(--font-display); font-weight: 600; font-size: var(--fs-700); line-height: var(--lh-heading); letter-spacing: var(--ls-display); margin: 40px 0 18px; }
     .region-places { position: relative; }
     .region-places::after {
       content: "";
@@ -329,13 +329,13 @@ const touristDestination = {
     }
     :global(.region-venues .experience-card__cta) { margin-top: 18px; }
     .region-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 22px; }
-    .region-tab { font-family: var(--font-ui); font-size: 13px; padding: 7px 16px; border: 1px solid var(--border); border-radius: 999px; background: transparent; color: var(--text); cursor: pointer; transition: background 0.15s, border-color 0.15s, color 0.15s; }
-    .region-tab.is-active, .region-tab:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .region-tab { font-family: var(--font-ui); font-weight: 500; font-size: var(--fs-200); padding: 7px 16px; border: 1.5px solid var(--border); border-radius: var(--radius-pill); background: transparent; color: var(--text); cursor: pointer; transition: background var(--dur-fast), border-color var(--dur-fast), color var(--dur-fast); }
+    .region-tab.is-active, .region-tab:hover { background: var(--accent); border-color: var(--accent); color: var(--white); }
     .region-grid__item[hidden] { display: none; }
     .region-adjacent__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 44px; }
-    .region-adjacent__card { display: flex; flex-direction: column; gap: 6px; padding: 18px 20px; border: 1px solid var(--border); border-radius: 6px; text-decoration: none; color: var(--text); transition: border-color 0.15s; }
-    .region-adjacent__card:hover { border-color: var(--accent); }
-    .region-adjacent__name { font-family: var(--font-display); font-size: 1.3rem; }
-    .region-adjacent__tagline { font-size: 0.85rem; color: var(--soft); }
+    .region-adjacent__card { display: flex; flex-direction: column; gap: 6px; padding: 18px 20px; border: 1px solid var(--border); border-radius: var(--radius-m); background: var(--white); text-decoration: none; color: var(--text); transition: border-color var(--dur-med), box-shadow var(--dur-med); }
+    .region-adjacent__card:hover { border-color: var(--accent); box-shadow: var(--elev-1); }
+    .region-adjacent__name { font-family: var(--font-display); font-weight: 600; font-size: var(--fs-600); line-height: var(--lh-heading); letter-spacing: var(--ls-display); }
+    .region-adjacent__tagline { font-size: var(--fs-200); color: var(--soft); }
   </style>
 </BaseLayout>

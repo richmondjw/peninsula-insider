@@ -158,6 +158,8 @@ function isActive(href: string): boolean {
       list-style: none;
       display: flex;
       height: 56px;
+      padding: var(--space-1) var(--space-2);
+      gap: var(--space-1);
     }
     .v5-bottombar__list li { flex: 1; display: flex; }
 
@@ -169,15 +171,20 @@ function isActive(href: string): boolean {
       justify-content: center;
       gap: 2px;
       min-height: 48px;
+      border-radius: var(--radius-m);
       color: var(--soft);
       text-decoration: none;
       font-family: var(--font-ui);
-      transition: color var(--dur-fast) var(--ease);
+      transition: color var(--dur-fast) var(--ease-enter),
+                  background var(--dur-fast) var(--ease-enter);
     }
-    .v5-bottombar__item.is-active { color: var(--accent); }
+    .v5-bottombar__item.is-active {
+      color: var(--accent);
+      background: color-mix(in srgb, var(--accent) 12%, transparent);
+    }
     .v5-bottombar__label {
       font-size: var(--fs-100);
-      font-weight: var(--fw-medium);
+      font-weight: var(--fw-semibold);
       line-height: var(--lh-label);
     }
 

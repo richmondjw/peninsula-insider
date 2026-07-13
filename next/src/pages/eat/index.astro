@@ -262,8 +262,10 @@ export const prerender = true;
 
   <!-- 1. Orient: h1 + Editor stand-first (content-guidelines example 1) -->
   <HubStandfirst
+    eyebrow="Eat & Drink"
     title="Where to eat on the Mornington Peninsula"
     standfirst={standfirst}
+    image={{ src: '/images/sourced/venue-italian-dining-01.webp', alt: 'A Peninsula dining room set for a long lunch' }}
   />
 
   <!-- 2. Decide: intent chips + filters. ONE state governs The Six AND the
@@ -277,6 +279,7 @@ export const prerender = true;
   <!-- 3. The verdict layer -->
   <TheSix
     id="the-six"
+    eyebrow="The Six · this month"
     heading="Six tables worth planning around this month"
     surface="eat"
     items={sixItems}
@@ -298,6 +301,7 @@ export const prerender = true;
   <!-- 4. The catalogue layer: every non-winery venue, one render, in-DOM -->
   <DirectoryRows
     id="directory"
+    eyebrow="The full list"
     heading={`All ${directoryItems.length} places to eat`}
     sub="Ordered by editorial weight. The filters above reshape this list."
     noun="places"
@@ -399,7 +403,7 @@ export const prerender = true;
 
 <style>
   .eat-rail {
-    padding: 0 0 var(--space-5, 1.5rem);
+    padding: var(--space-4, 1rem) 0 var(--space-6, 2rem);
   }
   .eat-rail__list {
     list-style: none;
@@ -414,14 +418,16 @@ export const prerender = true;
     align-items: center;
     min-height: 48px;
     padding: 0 var(--space-4, 1rem);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-m, 10px);
-    background: var(--bg-alt);
-    font-family: var(--font-ui, var(--font-ui));
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-pill, 999px);
+    background: var(--white);
+    font-family: var(--font-ui);
     font-size: var(--fs-300, 0.9375rem);
     font-weight: var(--fw-semibold, 600);
     color: var(--text);
     text-decoration: none;
+    transition: border-color var(--dur-fast, 120ms) var(--ease-enter, ease),
+      color var(--dur-fast, 120ms) var(--ease-enter, ease);
   }
   .eat-rail__link:hover {
     border-color: var(--accent);
@@ -434,16 +440,17 @@ export const prerender = true;
 
   .eat-winery-kitchens {
     border: 1px solid var(--border);
-    border-radius: var(--radius-m, 10px);
+    border-radius: var(--radius-l, 28px);
     background: var(--bg-alt);
-    padding: var(--space-5, 1.5rem);
-    margin-bottom: var(--space-5, 1.5rem);
+    padding: var(--space-6, 2rem);
+    margin-bottom: var(--space-6, 2rem);
   }
   .eat-winery-kitchens__heading {
     margin: 0;
-    font-family: var(--font-display, var(--font-display));
+    font-family: var(--font-display);
     font-size: var(--fs-600, 1.4rem);
     font-weight: var(--fw-display, 600);
+    letter-spacing: -0.01em;
     color: var(--text);
   }
   .eat-winery-kitchens__sub {

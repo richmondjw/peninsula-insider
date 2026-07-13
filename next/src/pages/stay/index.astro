@@ -212,8 +212,10 @@ export const prerender = true;
 
   <!-- 1. Stand-first: h1 retained, intro + CompareBlock compressed to <= 80 words -->
   <HubStandfirst
+    eyebrow="Stay"
     title="Choose the base, and the whole weekend changes"
     standfirst={standfirst}
+    image={{ src: '/images/sourced/venue-jackalope-hotel-01.webp', alt: 'A vineyard hotel on the Mornington Peninsula at dusk' }}
   />
 
   <!-- 2. Party chips: ONE filter state for The Six + directory (CHIP_PRESETS.stay) -->
@@ -226,6 +228,7 @@ export const prerender = true;
 
   <!-- 3. The Six -->
   <TheSix
+    eyebrow="The Six · this month"
     heading="Six stays worth building a weekend around"
     surface="stay"
     items={sixItems}
@@ -234,7 +237,7 @@ export const prerender = true;
   <!-- 4. Best-of rail -->
   <section class="v5-bestof" aria-labelledby="bestof-heading">
     <div class="container">
-      <p class="label label--accent">Best-of guides</p>
+      <p class="v5-bestof__eyebrow">Best-of guides</p>
       <h2 id="bestof-heading" class="v5-bestof__title">Start with a ranked list</h2>
       <CardGrid label="Stay guides" layout="grid" maxCols={3}>
         {bestOfGuides.map((guide, i) => (
@@ -255,6 +258,7 @@ export const prerender = true;
 
   <!-- 5. Directory: the FULL stay corpus as compact rows, Book primary + Save -->
   <DirectoryRows
+    eyebrow="The full list"
     heading={`All ${stayCount} places to stay`}
     surface="stay"
     noun="stays"
@@ -308,11 +312,25 @@ export const prerender = true;
 
 <style>
   .v5-bestof {
-    padding: var(--space-7, 3rem) 0;
+    padding: var(--space-8, 4rem) 0;
     background: var(--bg-alt, var(--bg));
   }
+  .v5-bestof__eyebrow {
+    margin: 0 0 var(--space-2, 0.5rem);
+    font-family: var(--font-ui);
+    font-size: var(--fs-100, 0.75rem);
+    font-weight: 600;
+    letter-spacing: var(--ls-eyebrow, 0.12em);
+    text-transform: uppercase;
+    color: var(--teal-text);
+  }
   .v5-bestof__title {
-    margin: 0.25rem 0 var(--space-5, 1.5rem);
-    font-size: var(--fs-600, clamp(1.35rem, 2.5vw, 1.75rem));
+    margin: 0 0 var(--space-5, 1.5rem);
+    font-family: var(--font-display);
+    font-size: var(--fs-700, clamp(1.6rem, 1.35rem + 1.2vw, 2.1rem));
+    font-weight: var(--fw-display, 600);
+    line-height: var(--lh-heading, 1.14);
+    letter-spacing: -0.01em;
+    color: var(--text);
   }
 </style>

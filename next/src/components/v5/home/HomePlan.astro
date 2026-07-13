@@ -38,7 +38,10 @@ const moodLabel = featured
   <section class="home-plan" aria-labelledby="home-plan-title">
     <div class="container">
       <div class="home-plan__head">
-        <h2 id="home-plan-title" class="home-plan__title">Featured plan</h2>
+        <div class="home-plan__heading">
+          <p class="home-plan__eyebrow">Plan it</p>
+          <h2 id="home-plan-title" class="home-plan__title">Featured plan</h2>
+        </div>
         <p class="home-plan__all">
           <a href="/plans/">All plans &rarr;</a>
         </p>
@@ -67,38 +70,57 @@ const moodLabel = featured
 
 <style>
   .home-plan {
-    padding: var(--space-6, 2rem) 0 var(--space-7, 3rem);
+    padding: var(--space-7) 0;
   }
 
   .home-plan__head {
     display: flex;
     align-items: baseline;
     justify-content: space-between;
-    gap: var(--space-3, 0.75rem);
-    margin-bottom: var(--space-5, 1.5rem);
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-bottom: var(--space-5);
+  }
+
+  .home-plan__heading {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .home-plan__eyebrow {
+    margin: 0;
+    font-family: var(--font-ui);
+    font-size: var(--fs-100);
+    font-weight: var(--fw-semibold);
+    letter-spacing: var(--ls-eyebrow);
+    text-transform: uppercase;
+    color: var(--teal-text);
   }
 
   .home-plan__title {
     margin: 0;
     font-family: var(--font-display);
-    font-weight: var(--fw-display, 600);
-    font-size: var(--fs-700, 1.75rem);
-    line-height: var(--lh-heading, 1.2);
-    color: var(--ink);
+    font-weight: var(--fw-display);
+    font-size: var(--fs-700);
+    line-height: var(--lh-heading);
+    letter-spacing: var(--ls-display);
+    color: var(--text);
   }
 
   .home-plan__all {
     margin: 0;
     font-family: var(--font-ui);
-    font-weight: var(--fw-semibold, 600);
-    font-size: var(--fs-300, 0.9375rem);
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-300);
   }
 
   .home-plan__all a {
-    color: var(--ink);
+    color: var(--text);
     text-decoration: none;
-    border-bottom: 1px solid var(--accent);
+    border-bottom: 1.5px solid var(--accent);
     padding-bottom: 2px;
+    transition: color var(--dur-fast) var(--ease-enter);
   }
 
   .home-plan__all a:hover {

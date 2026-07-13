@@ -210,14 +210,17 @@ const breadcrumbSchema = show
   .v5-breadcrumbs__item a {
     color: var(--soft);
     text-decoration: none;
-    transition: color var(--dur-fast) var(--ease);
+    transition: color var(--dur-fast) var(--ease-enter);
   }
   .v5-breadcrumbs__item a:hover { color: var(--accent); }
   .v5-breadcrumbs__item a:focus-visible {
     outline: var(--focus-ring);
     outline-offset: 2px;
   }
-  .v5-breadcrumbs__item [aria-current='page'] { color: var(--text); }
+  .v5-breadcrumbs__item [aria-current='page'] {
+    color: var(--teal-text);
+    font-weight: var(--fw-medium);
+  }
 </style>
 
 <style is:global>

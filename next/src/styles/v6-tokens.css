@@ -103,9 +103,25 @@
   --mint:       #A7FFEB;  /* electric pop — on dark grounds only, never body text on white */
   --slate:      #27455C;  /* tertiary cool accent */
   --signal:     #FFAD29;  /* the single warm pop — live/now, one key CTA */
-  --signal-text:#B5730A;  /* AA-safe amber for text */
+  --signal-text:#9A6300;  /* AA-safe amber for text (5.05:1 on white) */
   --wine:       #4D0222;  /* rare deep flourish */
   --bg-deep:    #00362C;  /* alias of --bg-dark: the signature forest-teal ground */
+  --ink:        #12211E;  /* alias of --text (design-doc name); keep var(--ink) resolvable */
+
+  /* ── Legacy token aliases. Older components reference these names with WARM
+     v5 fallbacks (e.g. var(--paper, var(--bg-alt))) or a serif. They are only
+     defined in the magenta-stone admin theme, so on the live site they fell
+     back to v5. Aliasing them here retargets ~185 references to v6 at once.
+     The magenta-stone theme still overrides via its html[data-theme] selector. ── */
+  --paper:       var(--white);     /* clean card ground */
+  --surface:     var(--white);
+  --surface-mute:var(--bg-alt);
+  --ink-soft:    var(--soft);
+  --text-muted:  var(--soft);
+  --cream:       var(--bg-alt);
+  --serif:       var(--font-display); /* no serif in v6; map to Sora */
+  --sans:        var(--font-ui);       /* legacy body/UI alias (was Inter) */
+  --ochre:       var(--accent);         /* legacy warm accent -> evergreen (58 refs) */
 
   /* ── AA-safe support roles ── */
   --soft-inverse:  rgba(233, 244, 240, 0.74); /* muted text on --bg-dark */

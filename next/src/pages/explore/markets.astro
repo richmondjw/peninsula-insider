@@ -554,11 +554,11 @@ export const prerender = true;
     list-style: none;
     padding: 0;
     margin: 0;
-    border: 1px solid rgba(121, 92, 58, 0.14);
+    border: 1px solid rgba(74, 90, 87, 0.14);
     border-radius: 1rem;
     overflow: hidden;
     background: var(--white);
-    box-shadow: 0 8px 24px rgba(34, 24, 16, 0.05);
+    box-shadow: 0 8px 24px rgba(0, 40, 34, 0.05);
   }
   .market-calendar__row {
     display: grid;
@@ -566,10 +566,10 @@ export const prerender = true;
     align-items: center;
     gap: 1rem;
     padding: 0.95rem 1.4rem;
-    border-bottom: 1px solid rgba(121, 92, 58, 0.09);
+    border-bottom: 1px solid rgba(74, 90, 87, 0.09);
   }
   .market-calendar__row:last-child { border-bottom: none; }
-  .market-calendar__row:nth-child(odd) { background: rgba(139, 78, 59, 0.025); }
+  .market-calendar__row:nth-child(odd) { background: rgba(11, 90, 72, 0.025); }
   .market-calendar__week {
     font-size: 0.7rem;
     font-weight: 700;
@@ -624,14 +624,14 @@ export const prerender = true;
     border-color: rgba(90, 140, 80, 0.25);
   }
   .market-badge--mixed {
-    background: rgba(182, 154, 107, 0.15);
-    color: #7a5f2a;
-    border-color: rgba(182, 154, 107, 0.3);
+    background: rgba(7, 158, 165, 0.15);
+    color: #2a7a67;
+    border-color: rgba(7, 158, 165, 0.3);
   }
   .market-badge--craft {
-    background: rgba(139, 78, 59, 0.09);
+    background: rgba(11, 90, 72, 0.09);
     color: var(--accent);
-    border-color: rgba(139, 78, 59, 0.22);
+    border-color: rgba(11, 90, 72, 0.22);
   }
   .market-badge--tier {
     background: transparent;
@@ -641,8 +641,8 @@ export const prerender = true;
   }
   .market-tier--1.market-badge--tier {
     color: var(--accent);
-    background: rgba(139, 78, 59, 0.06);
-    border-color: rgba(139, 78, 59, 0.3);
+    background: rgba(11, 90, 72, 0.06);
+    border-color: rgba(11, 90, 72, 0.3);
   }
 
   /* ─────────────────────────────────────────────────────────────────
@@ -661,16 +661,16 @@ export const prerender = true;
     display: flex;
     flex-direction: column;
     background: linear-gradient(180deg, rgba(255,252,247,0.99) 0%, rgba(248,243,236,0.99) 100%);
-    border: 1px solid rgba(121, 92, 58, 0.14);
+    border: 1px solid rgba(74, 90, 87, 0.14);
     border-radius: 1.25rem;
-    box-shadow: 0 12px 32px rgba(34, 24, 16, 0.06);
+    box-shadow: 0 12px 32px rgba(0, 40, 34, 0.06);
     overflow: hidden;
     transition: transform 0.22s cubic-bezier(0.25, 0.46, 0.45, 0.94),
                 box-shadow 0.22s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
   .market-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 20px 48px rgba(34, 24, 16, 0.11);
+    box-shadow: 0 20px 48px rgba(0, 40, 34, 0.11);
   }
   .market-card__rank {
     position: absolute;
@@ -689,7 +689,7 @@ export const prerender = true;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 12px rgba(34, 24, 16, 0.12);
+    box-shadow: 0 4px 12px rgba(0, 40, 34, 0.12);
   }
   .market-card__media {
     aspect-ratio: 16 / 8;
@@ -726,18 +726,18 @@ export const prerender = true;
   .market-card__sep { opacity: 0.55; }
   .market-card__note {
     font-size: 0.88rem;
-    color: #44372b;
+    color: #2b443e;
     line-height: 1.65;
     margin: 0;
   }
   .market-card__insider {
     font-size: 0.82rem;
-    color: #5a4a38;
+    color: #385a52;
     line-height: 1.6;
     margin: 0.85rem 0 0;
     padding: 0.65rem 0.85rem;
-    background: rgba(182, 154, 107, 0.09);
-    border-left: 3px solid rgba(182, 154, 107, 0.55);
+    background: rgba(7, 158, 165, 0.09);
+    border-left: 3px solid rgba(7, 158, 165, 0.55);
     border-radius: 0 0.35rem 0.35rem 0;
     font-style: italic;
   }
@@ -747,7 +747,7 @@ export const prerender = true;
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: #7a5f2a;
+    color: #2a7a67;
     font-style: normal;
     margin-right: 0.5rem;
   }
@@ -756,7 +756,7 @@ export const prerender = true;
     align-items: center;
     gap: 1rem;
     padding: 0.9rem 1.4rem 1.1rem;
-    border-top: 1px solid rgba(121, 92, 58, 0.09);
+    border-top: 1px solid rgba(74, 90, 87, 0.09);
     margin-top: auto;
   }
   .market-card__cta {
@@ -790,18 +790,18 @@ export const prerender = true;
     display: flex;
     flex-direction: column;
     background: var(--white);
-    border: 1px solid rgba(121, 92, 58, 0.12);
+    border: 1px solid rgba(74, 90, 87, 0.12);
     border-radius: 1.25rem;
     overflow: hidden;
     text-decoration: none;
     color: inherit;
-    box-shadow: 0 6px 20px rgba(34, 24, 16, 0.05);
+    box-shadow: 0 6px 20px rgba(0, 40, 34, 0.05);
     transition: transform 0.22s cubic-bezier(0.25, 0.46, 0.45, 0.94),
                 box-shadow 0.22s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
   .market-article-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 14px 36px rgba(34, 24, 16, 0.11);
+    box-shadow: 0 14px 36px rgba(0, 40, 34, 0.11);
   }
   .market-article-card__img {
     aspect-ratio: 16 / 7;
@@ -882,7 +882,7 @@ export const prerender = true;
   .market-feature__link {
     color: var(--gold);
     text-decoration: underline;
-    text-decoration-color: rgba(182, 154, 107, 0.45);
+    text-decoration-color: rgba(7, 158, 165, 0.45);
   }
   .market-feature__link:hover { text-decoration-color: var(--gold); }
   .market-feature__aside {
@@ -924,16 +924,16 @@ export const prerender = true;
     display: flex;
     flex-direction: column;
     margin-top: 0.5rem;
-    border: 1px solid rgba(121, 92, 58, 0.14);
+    border: 1px solid rgba(74, 90, 87, 0.14);
     border-radius: 1rem;
     overflow: hidden;
     background: var(--white);
   }
   .market-faq__item {
-    border-bottom: 1px solid rgba(121, 92, 58, 0.1);
+    border-bottom: 1px solid rgba(74, 90, 87, 0.1);
   }
   .market-faq__item:last-child { border-bottom: none; }
-  .market-faq__item[open] { background: rgba(139, 78, 59, 0.03); }
+  .market-faq__item[open] { background: rgba(11, 90, 72, 0.03); }
   .market-faq__q {
     cursor: pointer;
     list-style: none;
@@ -960,7 +960,7 @@ export const prerender = true;
   .market-faq__a {
     padding: 0 1.5rem 1.25rem;
     font-size: 0.88rem;
-    color: #44372b;
+    color: #2b443e;
     line-height: 1.7;
   }
   .market-faq__a p { margin-bottom: 0.6rem; }

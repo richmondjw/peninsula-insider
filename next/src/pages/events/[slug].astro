@@ -234,6 +234,8 @@ export const prerender = true;
 </BaseLayout>
 
 <style>
+  /* v6 Evergreen Coast: signature-event detail. Sora section heads,
+     sea-fog sidebar/callouts at radius-m, evergreen actions, pill chips. */
   .signature-event {
     padding: clamp(2rem, 4vw, 4rem) 0 clamp(3rem, 6vw, 5rem);
   }
@@ -252,48 +254,56 @@ export const prerender = true;
   }
   .signature-event__h2 {
     font-family: var(--font-display);
-    font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+    font-size: var(--fs-700);
+    font-weight: var(--fw-display);
+    line-height: var(--lh-heading);
+    letter-spacing: var(--ls-display);
     margin: 0 0 0.75rem;
-    color: var(--text, #1a1a1a);
+    color: var(--text);
   }
   .signature-event__lede {
     font-family: var(--font-display);
-    font-size: clamp(1.05rem, 1.7vw, 1.2rem);
-    line-height: 1.6;
-    color: var(--text-muted, #4a4a4a);
+    font-size: var(--fs-500);
+    line-height: var(--lh-dek);
+    color: var(--soft);
     margin: 0;
   }
   .signature-event__official {
     margin: 0;
-    padding: 1rem 1.25rem;
-    background: var(--surface, #f5f1ea);
-    border-left: 3px solid var(--accent, #8a6a3b);
+    padding: var(--space-4) var(--space-5);
+    background: var(--bg-alt);
+    border-left: 3px solid var(--accent);
+    border-radius: var(--radius-s);
   }
   .signature-event__official-link {
-    font-weight: 600;
+    font-family: var(--font-ui);
+    font-weight: var(--fw-bold);
     text-decoration: none;
-    color: var(--accent, #8a6a3b);
+    color: var(--accent);
   }
   .signature-event__official-note {
     display: block;
     margin-top: 0.5rem;
-    font-size: 0.9rem;
-    color: var(--text-muted, #6a6a6a);
+    font-family: var(--font-ui);
+    font-size: var(--fs-300);
+    color: var(--soft);
   }
   .signature-event__box {
-    padding: 1.25rem 1.5rem;
-    border: 1px solid var(--border, #d8d3c8);
-    background: var(--surface, #f9f6f0);
+    padding: var(--space-5);
+    border: 1px solid var(--border);
+    background: var(--bg-alt);
+    border-radius: var(--radius-m);
     position: sticky;
     top: 6rem;
   }
   .signature-event__box-label {
-    font-size: 0.75rem;
+    font-family: var(--font-ui);
+    font-size: var(--fs-100);
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--accent, #8a6a3b);
+    letter-spacing: var(--ls-eyebrow);
+    color: var(--teal-text);
     margin: 0 0 0.75rem;
-    font-weight: 600;
+    font-weight: var(--fw-semibold);
   }
   .signature-event__box-list {
     display: grid;
@@ -301,39 +311,46 @@ export const prerender = true;
     margin: 0 0 1rem;
   }
   .signature-event__box-list dt {
-    font-size: 0.78rem;
+    font-family: var(--font-ui);
+    font-size: var(--fs-200);
     text-transform: uppercase;
     letter-spacing: 0.06em;
-    color: var(--text-muted, #6a6a6a);
+    color: var(--soft);
     margin-bottom: 0.1rem;
   }
   .signature-event__box-list dd {
     margin: 0;
-    font-size: 0.98rem;
-    color: var(--text, #1a1a1a);
+    font-family: var(--font-ui);
+    font-size: var(--fs-300);
+    color: var(--text);
   }
   .signature-event__box-list a {
-    color: var(--accent, #8a6a3b);
+    color: var(--accent);
     text-decoration: none;
   }
   .signature-event__actions {
-    border-top: 1px solid var(--border, #d8d3c8);
+    border-top: 1px solid var(--border);
     padding-top: 0.85rem;
   }
   .signature-event__action {
     display: inline-block;
-    padding: 0.55rem 0.95rem;
-    background: var(--accent, #8a6a3b);
+    padding: 0.7rem 1.1rem;
+    background: var(--accent);
     color: #fff;
     text-decoration: none;
-    font-weight: 600;
-    font-size: 0.9rem;
-    border-radius: 2px;
+    font-family: var(--font-ui);
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-200);
+    border-radius: var(--radius-s);
+    transition: background var(--dur-fast) var(--ease-enter);
+  }
+  .signature-event__action:hover {
+    background: var(--acc-h);
   }
   .signature-event__related {
     margin-top: clamp(3rem, 6vw, 5rem);
     padding-top: clamp(2rem, 4vw, 3rem);
-    border-top: 1px solid var(--border, #d8d3c8);
+    border-top: 1px solid var(--border);
   }
   .place-grid {
     display: grid;
@@ -348,12 +365,13 @@ export const prerender = true;
     margin-top: 1rem;
   }
   .event-chip {
-    padding: 0.3rem 0.7rem;
-    background: var(--surface, #f5f1ea);
-    border: 1px solid var(--border, #d8d3c8);
-    border-radius: 999px;
-    font-size: 0.82rem;
-    color: var(--text-muted, #4a4a4a);
+    padding: 0.3rem 0.8rem;
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-pill);
+    font-family: var(--font-ui);
+    font-size: var(--fs-200);
+    color: var(--soft);
     white-space: nowrap;
   }
 </style>

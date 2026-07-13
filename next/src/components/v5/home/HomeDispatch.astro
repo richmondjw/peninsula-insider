@@ -52,21 +52,22 @@ import NewsletterBlock from '../../NewsletterBlock.astro';
 
 <style>
   .home-dispatch {
-    margin-top: var(--space-6, 2rem);
+    margin-top: var(--space-6);
   }
 
   .home-dispatch__trust {
-    margin: var(--space-4, 1rem) 0 var(--space-7, 3rem);
+    margin: var(--space-4) 0 var(--space-7);
     font-family: var(--font-ui);
-    font-size: var(--fs-300, 0.9375rem);
+    font-size: var(--fs-300);
     color: var(--soft);
   }
 
   .home-dispatch__trust a {
-    color: var(--ink);
+    color: var(--text);
     text-decoration: none;
-    border-bottom: 1px solid var(--accent);
+    border-bottom: 1.5px solid var(--accent);
     padding-bottom: 2px;
+    transition: color var(--dur-fast) var(--ease-enter);
   }
 
   .home-dispatch__trust a:hover {
@@ -74,6 +75,7 @@ import NewsletterBlock from '../../NewsletterBlock.astro';
   }
 
   .home-dispatch__sep {
-    margin: 0 var(--space-2, 0.5rem);
+    margin: 0 var(--space-2);
+    color: var(--border-strong);
   }
 </style>

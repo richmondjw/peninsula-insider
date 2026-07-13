@@ -202,6 +202,16 @@ const active = activePillar(path, section);
 </script>
 
 <style>
+  /* Evergreen Coast masthead: clean, generous, confident. Light
+     backdrop blur over a near-white ground; a single subtle bottom
+     hairline. Sticky positioning is owned by the outer .masthead. */
+  .v5-masthead {
+    background: color-mix(in srgb, var(--bg) 84%, transparent);
+    -webkit-backdrop-filter: saturate(1.4) blur(12px);
+    backdrop-filter: saturate(1.4) blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
   .v5-masthead__brand-inner,
   .v5-masthead__nav nav {
     max-width: var(--max-w);
@@ -209,120 +219,132 @@ const active = activePillar(path, section);
     padding: 0 var(--space-5);
   }
 
-  .v5-masthead__brand {
-    border-bottom: 1px solid var(--border);
-  }
   .v5-masthead__brand-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: var(--space-4);
-    min-height: 60px;
+    min-height: 68px;
   }
 
   .v5-masthead__logo {
     font-family: var(--font-display);
-    font-weight: 700;
-    font-size: clamp(1.3rem, 1.1rem + 1vw, 1.7rem);
-    letter-spacing: -0.01em;
+    font-weight: var(--fw-bold);
+    font-size: clamp(1.35rem, 1.05rem + 1.1vw, 1.75rem);
+    letter-spacing: var(--ls-display);
+    line-height: var(--lh-display);
     color: var(--text);
     text-decoration: none;
     white-space: nowrap;
   }
   .v5-masthead__logo span {
-    font-style: italic;
-    font-weight: var(--fw-display-em);
+    font-weight: var(--fw-bold);
     color: var(--accent);
   }
 
   .v5-masthead__utilities {
     display: flex;
     align-items: center;
-    gap: var(--space-3);
+    gap: var(--space-2);
   }
   .v5-masthead__profile-slot { display: contents; }
 
+  /* Utility actions as pill buttons (ghost-pill spec). */
   .v5-launcher {
     display: inline-flex;
     align-items: center;
     gap: var(--space-2);
-    min-height: 40px;
+    min-height: 42px;
     padding: 0 var(--space-4);
-    border: 1px solid var(--border-strong);
-    border-radius: 999px;
-    background: var(--bg);
+    border: 1.5px solid var(--border-strong);
+    border-radius: var(--radius-pill);
+    background: var(--white);
     font-family: var(--font-ui);
     font-size: var(--fs-200);
-    font-weight: var(--fw-medium);
+    font-weight: var(--fw-semibold);
     color: var(--soft);
     text-decoration: none;
-    transition: border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+    transition: border-color var(--dur-fast) var(--ease-enter),
+                color var(--dur-fast) var(--ease-enter),
+                transform var(--dur-fast) var(--ease-enter);
   }
   .v5-launcher:hover {
     border-color: var(--accent);
     color: var(--accent);
+    transform: translateY(-1px);
   }
 
   .v5-utilbtn {
     display: inline-flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 2px;
-    min-width: 44px;
-    min-height: 44px;
-    padding: var(--space-1) var(--space-2);
-    background: none;
-    border: none;
-    border-radius: var(--radius-s);
+    gap: var(--space-2);
+    min-height: 42px;
+    padding: 0 var(--space-3);
+    background: transparent;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-pill);
     font-family: var(--font-ui);
     color: var(--text);
     text-decoration: none;
     cursor: pointer;
-    transition: color var(--dur-fast) var(--ease);
+    transition: border-color var(--dur-fast) var(--ease-enter),
+                color var(--dur-fast) var(--ease-enter),
+                transform var(--dur-fast) var(--ease-enter);
   }
-  .v5-utilbtn:hover { color: var(--accent); }
+  .v5-utilbtn:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-1px);
+  }
   .v5-utilbtn__label {
-    font-size: var(--fs-100);
-    font-weight: var(--fw-medium);
+    font-size: var(--fs-200);
+    font-weight: var(--fw-semibold);
     line-height: var(--lh-label);
   }
 
   .v5-masthead__nav {
-    border-bottom: 1px solid var(--border);
+    border-top: 1px solid var(--border);
   }
   .v5-pillars {
     list-style: none;
     display: flex;
     align-items: stretch;
-    gap: var(--space-5);
+    gap: var(--space-6);
   }
   .v5-pillars__item { position: static; }
 
+  /* Nav labels: uppercase Figtree eyebrows with wide tracking. */
   .v5-pillar-trigger {
     display: inline-flex;
     align-items: center;
     gap: var(--space-2);
-    min-height: 48px;
+    min-height: 50px;
     padding: 0 var(--space-1);
     background: none;
     border: none;
     border-bottom: 2px solid transparent;
     font-family: var(--font-ui);
-    font-size: var(--fs-300);
-    font-weight: var(--fw-medium);
+    font-size: var(--fs-100);
+    font-weight: var(--fw-semibold);
+    letter-spacing: var(--ls-eyebrow);
+    text-transform: uppercase;
     color: var(--text);
     cursor: pointer;
-    transition: color var(--dur-fast) var(--ease);
+    transition: color var(--dur-fast) var(--ease-enter),
+                border-color var(--dur-fast) var(--ease-enter);
   }
   .v5-pillar-trigger:hover { color: var(--accent); }
   .v5-pillars__item.is-current .v5-pillar-trigger {
     border-bottom-color: var(--accent);
-    font-weight: var(--fw-semibold);
+    color: var(--accent);
   }
-  .v5-pillars__item.is-open .v5-pillar-trigger { color: var(--accent); }
+  .v5-pillars__item.is-open .v5-pillar-trigger {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
   .v5-pillar-trigger__chev {
-    transition: transform var(--dur-fast) var(--ease);
+    transition: transform var(--dur-fast) var(--ease-enter);
   }
   .v5-pillars__item.is-open .v5-pillar-trigger__chev {
     transform: rotate(180deg);
@@ -358,7 +380,7 @@ const active = activePillar(path, section);
       min-height: 44px;
       justify-content: center;
       padding: 0;
-      border: none;
+      border: 1.5px solid var(--border);
       color: var(--text);
     }
   }
