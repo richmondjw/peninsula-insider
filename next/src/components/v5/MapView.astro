@@ -251,6 +251,10 @@ const chips: { key: FacetKey; value: string; label: string }[] = standalone
 <style>
   .v5-mapview {
     position: relative;
+    /* Contain the map's internal z-index stack (list panel, peek card,
+       controls run up to z-index 1200) so it cannot leak into the root
+       stacking context and paint over the sticky masthead / mega menu. */
+    isolation: isolate;
     background: var(--bg);
   }
 
@@ -542,6 +546,13 @@ const chips: { key: FacetKey; value: string; label: string }[] = standalone
     background: var(--bg-alt);
     font-family: var(--font-ui, var(--font-ui));
     color: var(--text);
+  }
+  /* The failure overlay is opt-in via the [hidden] attribute (removed by
+     showFailure() only when Leaflet or map init actually throws). Without
+     this guard the class rule's display:flex overrides the UA [hidden]
+     rule and the overlay covers a perfectly working map. */
+  .v5-mapview__fail[hidden] {
+    display: none;
   }
   .v5-mapview__fail p {
     margin: 0;

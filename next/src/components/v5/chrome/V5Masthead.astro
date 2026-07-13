@@ -357,6 +357,13 @@ const active = activePillar(path, section);
     outline-offset: 2px;
   }
 
+  /* Desktop: the pillar nav carries wayfinding and Saved lives in the
+     utility cluster, so the mobile menu button is redundant. Show the
+     burger only below the desktop breakpoint. */
+  @media (min-width: 1024px) {
+    .v5-burger { display: none; }
+  }
+
   /* Mobile: nav row retires; the drawer carries wayfinding. The
      utility cluster reduces to launcher (icon only) + menu; Saved
      lives in the drawer and the bottom bar (NAV-05 capability set is

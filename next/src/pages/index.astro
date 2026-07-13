@@ -47,6 +47,9 @@ export const prerender = true;
   <HomeDoors />
   <HomePlan />
   <HomeJournalFeature />
-  <HomeAsk />
+  {/* TEMP (2026-07): Ask PI chat band hidden from the main screen per request.
+      Code is preserved (HomeAsk.astro + import above are untouched); re-enable
+      by restoring the <HomeAsk /> line below. */}
+  {/* <HomeAsk /> */}
   <HomeDispatch />
 </BaseLayout>
