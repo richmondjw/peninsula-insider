@@ -2,11 +2,11 @@
 
 **North star:** Become the number-1 destination — for people and AI agents — for what's on, and where to stay, eat, drink and explore on the Mornington Peninsula.
 
-**Loop health:** 🟢 healthy — Actions recorded but none re-measured yet — learning signal not flowing (expected until GSC re-crawls the actioned pages).
+**Loop health:** 🟡 warning — Loop may be slipping: 2 days since last snapshot.
 
-**Generated:** 2026-07-12 06:50 AEST  
+**Generated:** 2026-07-14 06:57 AEST  
 **Season:** Winter  
-**Inputs used:** gsc-search-analytics, gsc-coverage, sitemap-inventory, events-calendar:5-upcoming, seasonal-calendar:winter  
+**Inputs used:** gsc-search-analytics, gsc-coverage, sitemap-inventory, events-calendar:7-upcoming, seasonal-calendar:winter  
 
 ## Where we stand
 
@@ -19,11 +19,11 @@
 | Pages indexed by Google | 0 |
 | Pages known-not-indexed | 26 |
 | Pages in sitemap | 408 |
-| Open opportunities | 53 |
+| Open opportunities | 55 |
 
 ## Day-over-day (is the strategy improving?)
 
-_Compared with 2026-07-11._
+_Compared with 2026-07-12._
 
 - Average position held by 0.00.
 - Clicks flat 0 vs last snapshot.
@@ -88,37 +88,36 @@ Ranked by the strategy model (performance + season + coverage + effort). The orc
 - **Why:** 'mornington cup 2026 date' ranks avg position 8.8 on 23 impressions — small, targeted improvement could reach page 1 and start earning clicks.
 - **Do:** Strengthen the ranking page for this exact query: expand the relevant section, add an FAQ answer, tighten the H1/intro, add internal links from related hub pages.
 
-### 7. [EVENT · score 2.992] Preview: Stonier Fire & Wine Winter Lunch (28d out)
+### 7. [EVENT · score 2.992] Preview: Southern Peninsula Sleepout at The Ranch Adventure Park (17d out)
 - **Desk:** dispatch-desk
-- **Why:** Stonier Fire & Wine Winter Lunch is 28 days out (2026-08-09, Merricks) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** Southern Peninsula Sleepout at The Ranch Adventure Park is 17 days out (2026-07-31, Boneo) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 8. [EVENT · score 2.992] Preview: Red Hill Brewery Secret Stash Weekend (34d out)
+### 8. [EVENT · score 2.992] Preview: Country Day at Tar Barrel (19d out)
 - **Desk:** dispatch-desk
-- **Why:** Red Hill Brewery Secret Stash Weekend is 34 days out (2026-08-15, Other Mornington Peninsula) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** Country Day at Tar Barrel is 19 days out (2026-08-02, Mornington) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 9. [RANK · score 2.883] Push 'dog friendly guide mornington peninsula' onto page 1
+### 9. [EVENT · score 2.992] Preview: Stonier Fire & Wine Winter Lunch (26d out)
+- **Desk:** dispatch-desk
+- **Why:** Stonier Fire & Wine Winter Lunch is 26 days out (2026-08-09, Merricks) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
+
+### 10. [EVENT · score 2.992] Preview: Red Hill Brewery Secret Stash Weekend (32d out)
+- **Desk:** dispatch-desk
+- **Why:** Red Hill Brewery Secret Stash Weekend is 32 days out (2026-08-15, Other Mornington Peninsula) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
+
+### 11. [RANK · score 2.883] Push 'dog friendly guide mornington peninsula' onto page 1
 - **Desk:** field-desk
 - **Query:** `dog friendly guide mornington peninsula`
 - **Why:** 'dog friendly guide mornington peninsula' ranks avg position 9.6 on 17 impressions — small, targeted improvement could reach page 1 and start earning clicks.
 - **Do:** Strengthen the ranking page for this exact query: expand the relevant section, add an FAQ answer, tighten the H1/intro, add internal links from related hub pages.
 
-### 10. [INDEX · score 2.868] Get /journal/a-winter-peninsula-weekend/ indexed
+### 12. [INDEX · score 2.868] Get /journal/a-winter-peninsula-weekend/ indexed
 - **Desk:** dispatch-desk
 - **Why:** Google reports 'Discovered – currently not indexed' (last crawl: Never). This page that isn't indexed cannot rank for anything — the single highest-leverage fix.
 - **Do:** Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.
-
-### 11. [INDEX · score 2.868] Get /wine/best-cellar-doors/ indexed
-- **Desk:** table-desk
-- **Why:** Google reports 'Discovered – currently not indexed' (last crawl: Never). This page that isn't indexed cannot rank for anything — the single highest-leverage fix.
-- **Do:** Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.
-
-### 12. [RANK · score 2.845] Push 'a dog-friendly guide mornington peninsula' onto page 1
-- **Desk:** field-desk
-- **Query:** `a dog-friendly guide mornington peninsula`
-- **Why:** 'a dog-friendly guide mornington peninsula' ranks avg position 8.3 on 10 impressions — small, targeted improvement could reach page 1 and start earning clicks.
-- **Do:** Strengthen the ranking page for this exact query: expand the relevant section, add an FAQ answer, tighten the H1/intro, add internal links from related hub pages.
 
 ## Coverage snapshot
 
