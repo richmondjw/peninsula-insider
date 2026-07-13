@@ -90,7 +90,7 @@ const accessibleName = venueName ? `${label}, opens ${venueName} website` : `${l
     min-height: 48px;
     padding: 0 1rem;
     border-radius: var(--radius-s, 4px);
-    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-family: var(--font-ui, var(--font-ui));
     font-size: var(--fs-300, 0.9375rem);
     font-weight: var(--fw-medium, 500);
     letter-spacing: 0.02em;
@@ -130,7 +130,7 @@ const accessibleName = venueName ? `${label}, opens ${venueName} website` : `${l
   }
 
   .v5-booking__disclosure {
-    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-family: var(--font-ui, var(--font-ui));
     font-size: var(--fs-100, 0.75rem);
     line-height: var(--lh-label, 1.2);
     color: var(--soft);

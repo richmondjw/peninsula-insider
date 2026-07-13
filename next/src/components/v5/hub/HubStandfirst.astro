@@ -50,7 +50,7 @@ if (/!/.test(standfirst)) {
   }
   .v5-standfirst__title {
     margin: 0;
-    font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+    font-family: var(--font-display, var(--font-display));
     font-size: var(--fs-900, clamp(2.1rem, 1.6rem + 2.4vw, 3.25rem));
     font-weight: var(--fw-display, 600);
     line-height: var(--lh-display, 1.08);
@@ -59,7 +59,7 @@ if (/!/.test(standfirst)) {
   }
   .v5-standfirst__dek {
     margin: var(--space-3, 0.75rem) 0 0;
-    font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+    font-family: var(--font-display, var(--font-display));
     font-size: var(--fs-500, 1.1875rem);
     line-height: var(--lh-dek, 1.45);
     color: var(--text);

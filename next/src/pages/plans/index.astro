@@ -70,7 +70,7 @@ export const prerender = true;
   }
   .plans-hero__title {
     margin: 0 0 0.5rem;
-    font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+    font-family: var(--font-display, var(--font-display));
     font-size: var(--fs-900, clamp(2.25rem, 1.7rem + 2.8vw, 3.5rem));
     font-weight: var(--fw-display, 600);
     line-height: var(--lh-display, 1.08);
@@ -79,7 +79,7 @@ export const prerender = true;
   }
   .plans-hero__standfirst {
     margin: 0;
-    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-family: var(--font-ui, var(--font-ui));
     font-size: var(--fs-400, 1.0625rem);
     line-height: var(--lh-ui, 1.5);
     color: var(--soft);

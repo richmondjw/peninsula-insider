@@ -153,7 +153,7 @@ export const prerender = true;
   }
   .v5-map-page__title {
     margin: 0 0 0.25rem;
-    font-family: var(--font-display, 'Cormorant Garamond', serif);
+    font-family: var(--font-display, var(--font-display));
     font-size: var(--fs-800, clamp(2.125rem, 1.5rem + 2.8vw, 3rem));
     font-weight: var(--fw-display, 600);
     line-height: var(--lh-heading, 1.2);
@@ -161,7 +161,7 @@ export const prerender = true;
   }
   .v5-map-page__sub {
     margin: 0;
-    font-family: var(--font-ui, 'Outfit', sans-serif);
+    font-family: var(--font-ui, var(--font-ui));
     font-size: var(--fs-400, 1.0625rem);
     color: var(--soft);
     max-width: var(--measure-dek, 52ch);

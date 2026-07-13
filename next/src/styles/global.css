@@ -7,7 +7,7 @@
    ========================================================= */
 
 /* V5 token layer — must stay the first statement in this file. */
-@import './v5-tokens.css';
+@import './v6-tokens.css';
 
 /* =========================================================
    TOKENS  -  matched to live site (css/styles.css)
@@ -21,7 +21,7 @@
   padding: 0.6rem 1rem;
   background: var(--text, #2B2520);
   color: #fff;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.85rem;
   text-decoration: none;
 }
@@ -38,23 +38,25 @@
      washing out on every screen, the white surface gives photos and
      hairlines more contrast without losing brand warmth thanks to
      bg-alt. */
+  /* v6 "Evergreen Coast" (2026-07-13). Legacy role names are retargeted
+     onto the new palette so every existing component shifts automatically:
+       --accent -> evergreen (primary), --gold -> teal (decorative/secondary),
+       --sage -> sea-green. New named tokens live in v6-tokens.css. */
   --bg:         #FFFFFF;
-  --bg-alt:     #F6F2EA;
-  --bg-dark:    #1E1B18;
-  --text:       #2B2520;
-  --soft:       #5F574E;
-  --accent:     #8B4E3B;
-  --acc-h:      #6D3A2B;
-  --gold:       #B69A6B;
-  /* Gold as READABLE text on light surfaces — --gold itself is 2.7:1 on
-     white, decorative use only. This darker cut passes WCAG AA (5.7:1 on
-     white, 5.1:1 on bg-alt). */
-  --gold-text:  #7A6340;
-  --sage-text:  #5C6B52; /* AA-safe sage for text on light surfaces */
-  --dark:       #1E1B18;
-  --white:      #FDFCFA;
-  --border:     #E5E0D6;
-  --sage:       #7A8B6D;
+  --bg-alt:     #EEF1F1;   /* sea fog (was warm parchment) */
+  --bg-dark:    #00362C;   /* forest-teal signature ground */
+  --text:       #12211E;   /* cold near-black */
+  --soft:       #4A5A57;   /* cool slate-green metadata */
+  --accent:     #0B5A48;   /* evergreen — CTAs, links */
+  --acc-h:      #084736;
+  --gold:       #079EA5;   /* remapped to teal (decorative rules/accents) */
+  /* AA-safe teal cut for text on light surfaces (>=4.5:1 on white/bg-alt). */
+  --gold-text:  #0A7B80;
+  --sage-text:  #2E7D68;   /* AA-safe sea-green for text on light surfaces */
+  --dark:       #00362C;
+  --white:      #FBFDFC;
+  --border:     #D6DDDB;   /* cool hairline */
+  --sage:       #4FB79E;   /* remapped to fresh sea-green (decorative) */
   --max-w:      1100px;
   /* v5: --prose-w now tracks the ch-based measure token (68ch at 17px
      Outfit ≈ 680px — same width, but the cap survives font scaling). */
@@ -126,23 +128,13 @@ body {
   overflow-x: hidden;
 }
 
-/* Grain texture */
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 9999;
-  opacity: 0.022;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-size: 128px;
-}
+/* v6: film-grain overlay removed — the Evergreen Coast lift is clean and flat. */
 
 img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; transition: color .22s var(--ease); }
 
 h1, h2, h3, h4, h5 {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   line-height: 1.06;
   color: var(--dark);
   text-rendering: optimizeLegibility;
@@ -155,7 +147,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .label {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.65rem;
   font-weight: 600;
   letter-spacing: 0.16em;
@@ -201,7 +193,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .masthead__utility {
   background: rgba(232, 224, 209, 0.55);
   border-bottom: 1px solid rgba(121, 92, 58, 0.10);
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: var(--font-ui);
 }
 .masthead__utility-inner {
   display: flex;
@@ -229,7 +221,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .masthead__edition-mark:empty { display: none; }
 .masthead__edition-label {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-style: italic;
   font-size: 0.92rem;
   font-weight: 500;
@@ -274,7 +266,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   padding: 0;
   margin: 0;
   cursor: pointer;
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.62rem;
   font-weight: 600;
   letter-spacing: 0.14em;
@@ -294,7 +286,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.68rem;
   letter-spacing: 0.04em;
   color: var(--soft);
@@ -327,7 +319,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   gap: 1.5rem;
 }
 .masthead__logo {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(1.85rem, 3vw, 2.35rem);
   font-weight: 600;
   letter-spacing: -0.014em;
@@ -343,7 +335,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   font-weight: 600;
 }
 .masthead__tagline {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-style: italic;
   font-size: 0.95rem;
   color: var(--soft);
@@ -422,7 +414,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 /* JOURNAL — editorial italic distinction. Marks the section visually as
    the editorial heart, not just another nav pillar. */
 .masthead__nav-item--journal a {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-style: italic;
   font-size: 1rem;
   letter-spacing: 0;
@@ -557,7 +549,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .masthead__more-link-dek {
   display: block;
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-style: italic;
   font-size: 0.85rem;
   font-weight: 400;
@@ -595,7 +587,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
    full wordmark + tagline. */
 .masthead__logo-mobile {
   display: none;
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: 1.35rem;
   font-weight: 600;
   letter-spacing: -0.012em;
@@ -617,7 +609,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   margin-bottom: 0.5rem;
 }
 .mobile-nav__logo {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(1.7rem, 7vw, 2.1rem);
   font-weight: 600;
   letter-spacing: -0.012em;
@@ -631,7 +623,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   font-style: italic;
 }
 .mobile-nav__tagline-top {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-style: italic;
   font-size: 0.95rem;
   color: var(--soft);
@@ -639,7 +631,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   line-height: 1.4;
 }
 .mobile-nav__edition {
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.6rem;
   font-weight: 600;
   letter-spacing: 0.16em;
@@ -870,7 +862,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .pillars__eyebrow {
   display: block;
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.68rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -878,7 +870,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   margin-bottom: 0.3rem;
 }
 .pillars__title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(1.6rem, 2.3vw, 2.05rem);
   font-weight: 500;
   letter-spacing: -0.01em;
@@ -915,7 +907,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   outline: none;
 }
 .pillar-row__num {
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.7rem;
   font-weight: 500;
   letter-spacing: 0.16em;
@@ -923,7 +915,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   font-feature-settings: 'tnum' 1;
 }
 .pillar-row__name {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(1.45rem, 2.1vw, 1.95rem);
   font-weight: 500;
   letter-spacing: -0.012em;
@@ -936,7 +928,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   color: var(--accent);
 }
 .pillar-row__dek {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(0.95rem, 1.05vw, 1.05rem);
   font-style: normal;
   font-weight: 500;
@@ -944,7 +936,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   line-height: 1.35;
 }
 .pillar-row__arrow {
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: var(--font-ui);
   font-size: 1rem;
   color: var(--soft);
   opacity: 0.5;
@@ -1165,7 +1157,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   position: absolute;
   bottom: 0.75rem;
   right: 1.25rem;
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: 5rem;
   font-weight: 700;
   line-height: 1;
@@ -1281,7 +1273,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   letter-spacing: 0.04em;
 }
 .venue-card__name {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: 1.55rem;
   font-weight: 600;
   line-height: 1.1;
@@ -1382,7 +1374,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   align-items: center;
   gap: 0.4rem;
   margin: 0.6rem 0 0;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.68rem;
   font-weight: 500;
   letter-spacing: 0.08em;
@@ -1523,7 +1515,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   margin-bottom: 0.4rem;
 }
 .place-card__name {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: 1.6rem;
   font-weight: 600;
   letter-spacing: -0.015em;
@@ -1594,7 +1586,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   background: var(--border);
 }
 .subpage-hero__title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(2.2rem, 4.4vw, 3.6rem);
   font-weight: 600;
   line-height: 1.05;
@@ -1636,7 +1628,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   position: absolute;
   bottom: 1rem;
   left: 1.1rem;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.62rem;
   font-weight: 500;
   letter-spacing: 0.1em;
@@ -1684,7 +1676,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   align-items: center;
   gap: 0.85rem;
   margin-bottom: 1.4rem;
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.7rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -1710,7 +1702,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   background: rgba(121, 92, 58, 0.3);
 }
 .article-hero__title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(2.2rem, 4.8vw, 4rem);
   font-weight: 600;
   line-height: 1.04;
@@ -1721,7 +1713,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .article-hero__title em { color: var(--accent); font-style: italic; font-weight: 600; }
 .article-hero__dek {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-style: normal;
   font-weight: 500;
   font-size: clamp(1.1rem, 1.6vw, 1.32rem);
@@ -1735,7 +1727,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   align-items: center;
   gap: 1.2rem;
   flex-wrap: wrap;
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.78rem;
   letter-spacing: 0.04em;
   color: var(--soft);
@@ -1751,7 +1743,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   flex-wrap: wrap;
 }
 .article-hero__tag {
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.62rem;
   font-weight: 600;
   letter-spacing: 0.14em;
@@ -1775,7 +1767,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .article-hero__credit {
   margin-top: 0.6rem;
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.62rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1794,7 +1786,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
    adding .has-drop-cap on the prose container (e.g., for journal
    long-form articles). */
 .prose.has-drop-cap > p:first-of-type::first-letter {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-style: italic;
   float: left;
   font-size: 4.6em;
@@ -1904,7 +1896,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .prose p + p { margin-top: 0; }
 .prose h2 {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: 1.85rem;
   font-weight: 600;
   color: var(--dark);
@@ -1912,7 +1904,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   margin: 3rem 0 1rem;
 }
 .prose h3 {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: 1.35rem;
   font-weight: 600;
   color: var(--dark);
@@ -1939,7 +1931,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   width: 100%;
   border-collapse: collapse;
   margin: 1.75rem 0 2.5rem;
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.92rem;
   line-height: 1.55;
   font-weight: 400;
@@ -2103,7 +2095,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .venue-detail__hero-credit {
   margin: -2.4rem 0 1.6rem 0;
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.62rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -2268,7 +2260,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   margin-bottom: 0.85rem;
 }
 .why-insider__title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(1.8rem, 3.2vw, 2.8rem);
   font-weight: 600;
   line-height: 1.1;
@@ -2297,7 +2289,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   gap: 0.25rem;
 }
 .why-insider__stat-number {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(2.8rem, 5vw, 3.8rem);
   font-weight: 600;
   line-height: 1;
@@ -2361,7 +2353,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   text-align: center;
 }
 .news-hero__eyebrow {
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.18em;
@@ -2371,7 +2363,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .news-hero__eyebrow span { color: var(--accent); }
 .news-hero__title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(2.6rem, 6vw, 4.6rem);
   font-weight: 500;
   line-height: 1.02;
@@ -2386,7 +2378,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   font-weight: 500;
 }
 .news-hero__dek {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-style: normal;
   font-weight: 500;
   font-size: clamp(1.15rem, 1.6vw, 1.35rem);
@@ -2430,7 +2422,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   border: 1px solid var(--border);
   border-radius: 4px;
   color: var(--dark);
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 1rem;
   font-weight: 400;
   outline: none;
@@ -2448,7 +2440,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   border: none;
   border-radius: 4px;
   color: #fff;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.16em;
@@ -2487,7 +2479,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   padding: 1.4rem 0 0;
   border-top: 1px solid var(--border);
   max-width: 520px;
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.74rem;
   letter-spacing: 0.05em;
   color: var(--soft);
@@ -2498,7 +2490,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   gap: 0.45rem;
 }
 .news-hero__proof strong {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: 1.1rem;
   font-weight: 600;
   color: var(--dark);
@@ -2517,7 +2509,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   text-align: center;
 }
 .news-sample__title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(1.95rem, 3.6vw, 2.6rem);
   font-weight: 600;
   line-height: 1.1;
@@ -2526,7 +2518,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   margin: 0.5rem 0 0.7rem;
 }
 .news-sample__sub {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-style: normal;
   font-weight: 500;
   font-size: 1.1rem;
@@ -2550,7 +2542,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .news-sample__email-from,
 .news-sample__email-preview {
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.78rem;
   color: var(--soft);
   margin: 0 0 0.25rem;
@@ -2558,7 +2550,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .news-sample__email-from strong { color: var(--dark); font-weight: 600; }
 .news-sample__email-subject {
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.92rem;
   font-weight: 600;
   color: var(--dark);
@@ -2572,7 +2564,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .news-sample__email-body {
   padding: clamp(1.4rem, 3vw, 2.2rem);
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: 1.05rem;
   line-height: 1.65;
   color: #2B2520;
@@ -2580,7 +2572,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .news-sample__email-body p { margin: 0 0 1rem; }
 .news-sample__email-body p em { color: var(--soft); }
 .news-sample__email-body h3 {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: 1.15rem;
   font-weight: 600;
   color: var(--accent);
@@ -2608,7 +2600,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   gap: 0.55rem;
 }
 .news-editions__item {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(1.1rem, 2.2vw, 1.3rem);
   font-weight: 500;
   color: var(--dark);
@@ -2623,7 +2615,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   font-weight: 400;
 }
 .news-editions__note {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-style: normal;
   font-weight: 500;
   font-size: 0.95rem;
@@ -2642,7 +2634,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   margin: 0 0 clamp(1.8rem, 4vw, 2.8rem);
 }
 .news-promise__title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(1.95rem, 3.6vw, 2.6rem);
   font-weight: 600;
   line-height: 1.1;
@@ -2678,7 +2670,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .news-promise__num {
   display: block;
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-style: italic;
   font-size: 0.95rem;
   color: var(--accent);
@@ -2686,7 +2678,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   letter-spacing: 0.04em;
 }
 .news-promise__heading {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: 1.45rem;
   font-weight: 600;
   line-height: 1.18;
@@ -2712,7 +2704,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   margin: 0 0 clamp(1.8rem, 4vw, 2.8rem);
 }
 .news-trust__title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(1.95rem, 3.6vw, 2.6rem);
   font-weight: 600;
   line-height: 1.1;
@@ -2729,7 +2721,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   gap: clamp(1.5rem, 3vw, 2.4rem);
 }
 .news-trust__item h3 {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-style: italic;
   font-size: 1.4rem;
   font-weight: 600;
@@ -2762,7 +2754,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .news-close__inner .label--accent { color: rgba(245, 220, 178, 0.9); }
 .news-close__title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(1.95rem, 3.6vw, 2.6rem);
   font-weight: 500;
   line-height: 1.08;
@@ -2773,7 +2765,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .news-close__title em { color: rgba(245, 220, 178, 0.95); font-style: italic; }
 .news-close__dek {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-style: normal;
   font-weight: 500;
   font-size: 1.1rem;
@@ -2788,7 +2780,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   border: 1px solid var(--accent);
   border-radius: 4px;
   color: #fff;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.16em;
@@ -2838,7 +2830,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   margin-bottom: 1rem;
 }
 .newsletter__title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(2rem, 3.5vw, 3rem);
   font-weight: 600;
   line-height: 1.08;
@@ -2875,7 +2867,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .newsletter__fallback-title {
   margin: 0 0 0.35rem;
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: 1.15rem;
   color: var(--white);
 }
@@ -2888,7 +2880,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .newsletter__fallback-link {
   display: inline-flex;
   margin-top: 0.7rem;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -2929,7 +2921,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   border: 1px solid rgba(255,255,255,0.15);
   border-right: none;
   color: var(--white);
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.9rem;
   font-weight: 400;
   outline: none;
@@ -2945,7 +2937,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   background: var(--accent);
   border: 1px solid var(--accent);
   color: var(--white);
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.12em;
@@ -3095,7 +3087,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   margin-bottom: 3rem;
 }
 .split-intro__title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(1.75rem, 2.8vw, 2.4rem);
   font-weight: 600;
   line-height: 1.06;
@@ -3192,7 +3184,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   gap: 0.5rem;
 }
 .experience-card__title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: 1.5rem;
   font-weight: 600;
   line-height: 1.1;
@@ -3296,7 +3288,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   height: 1.7rem;
   border: 1px solid rgba(160, 84, 31, 0.55);
   border-radius: 999px;
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: -0.03em;
@@ -3310,7 +3302,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   margin-bottom: 1rem;
 }
 .itinerary-card__title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: 1.65rem;
   font-weight: 600;
   line-height: 1.08;
@@ -3388,7 +3380,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   margin-bottom: 0.85rem;
 }
 .plan-note h3 {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: 1.4rem;
   font-weight: 600;
   line-height: 1.15;
@@ -3558,7 +3550,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .stop-day { margin-bottom: 3rem; }
 .stop-day:last-child { margin-bottom: 0; }
 .stop-day__heading {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: 1.5rem;
   font-weight: 600;
   letter-spacing: -0.01em;
@@ -3586,7 +3578,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   padding-top: 0.25rem;
 }
 .stop-item__name {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: 1.3rem;
   font-weight: 600;
   letter-spacing: -0.01em;
@@ -3689,7 +3681,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .cost-band__heading,
 .checklist__heading,
 .faq__heading {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: 1.55rem;
   font-weight: 600;
   letter-spacing: -0.01em;
@@ -3768,7 +3760,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   margin-top: 1.25rem;
   padding-top: 1rem;
   border-top: 1px solid var(--border);
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: 1.2rem;
   color: var(--dark);
 }
@@ -3825,7 +3817,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .faq__item:last-child { border-bottom: none; }
 .faq__question {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: 1.2rem;
   font-weight: 600;
   color: var(--dark);
@@ -3889,7 +3881,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   margin-bottom: 0.65rem;
 }
 .zone-card__title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: 1.3rem;
   font-weight: 600;
   line-height: 1.15;
@@ -3952,7 +3944,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   color: var(--soft);
 }
 .issue-ribbon__stats dd {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: 1.45rem;
   font-weight: 600;
   line-height: 1;
@@ -3991,7 +3983,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .intent-chip:hover .intent-chip__label { color: var(--accent); }
 .intent-chip__label {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: 1.2rem;
   font-weight: 600;
   line-height: 1.1;
@@ -4057,7 +4049,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .editors-desk__body + .editors-desk__body { margin-top: 1rem; }
 .editors-desk__body em {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-style: italic;
   color: var(--accent);
   font-size: 1.05em;
@@ -4097,7 +4089,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: 1rem;
   font-weight: 600;
   font-style: italic;
@@ -4141,7 +4133,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   text-align: center;
 }
 .planning-guides__title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(1.75rem, 3vw, 2.4rem);
   font-weight: 500;
   line-height: 1.1;
@@ -4185,7 +4177,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   background: rgba(139, 78, 59, 0.04);
 }
 .planning-guides__eyebrow {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.65rem;
   font-weight: 600;
   letter-spacing: 0.16em;
@@ -4193,7 +4185,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   color: var(--accent);
 }
 .planning-guides__name {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: 1.12rem;
   font-weight: 500;
   line-height: 1.25;
@@ -4322,7 +4314,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   color: var(--soft);
 }
 .place-detail__stats dd {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: 1.35rem;
   font-weight: 600;
   line-height: 1;
@@ -4401,7 +4393,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .seasonal-shelf__list a:hover { color: var(--accent); }
 .seasonal-shelf__list a:hover .seasonal-shelf__name { color: var(--accent); }
 .seasonal-shelf__name {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: 1.15rem;
   font-weight: 600;
   line-height: 1.2;
@@ -4488,7 +4480,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   margin-bottom: 0.85rem;
 }
 .weekend-picker__title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(1.85rem, 3.6vw, 2.85rem);
   font-weight: 600;
   line-height: 1.1;
@@ -4587,7 +4579,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .insider-stripe__pitch { min-width: 0; }
 .insider-stripe__eyebrow {
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.66rem;
   font-weight: 700;
   letter-spacing: 0.22em;
@@ -4596,7 +4588,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   margin: 0 0 0.85rem;
 }
 .insider-stripe__title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(1.85rem, 3.5vw, 2.6rem);
   font-weight: 600;
   line-height: 1.1;
@@ -4611,7 +4603,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   font-weight: 600;
 }
 .insider-stripe__body {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-style: normal;
   font-weight: 500;
   font-size: 1.05rem;
@@ -4644,7 +4636,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   background: transparent;
   border: none;
   color: #fff;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.95rem;
   outline: none;
   min-width: 0;
@@ -4655,7 +4647,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   background: var(--accent);
   border: none;
   color: #fff;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.74rem;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -4681,7 +4673,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   min-height: 1.2em;
 }
 .insider-stripe__trust {
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.72rem;
   letter-spacing: 0.06em;
   color: rgba(253, 252, 250, 0.55);
@@ -4731,7 +4723,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   .shortlist__intro { position: static; }
 }
 .shortlist__eyebrow {
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.18em;
@@ -4740,7 +4732,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   margin: 0 0 0.9rem;
 }
 .shortlist__heading {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(2.2rem, 4.6vw, 3.6rem);
   font-weight: 600;
   line-height: 1.05;
@@ -4755,7 +4747,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   font-weight: 600;
 }
 .shortlist__body {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-style: normal;
   font-weight: 500;
   font-size: 1.1rem;
@@ -4768,7 +4760,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.18em;
@@ -4801,7 +4793,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .sl-item:hover { padding-left: 0.25rem; }
 .sl-item--unnumbered { grid-template-columns: 1fr; }
 .sl-item__num {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-style: italic;
   font-size: clamp(2.8rem, 5vw, 4rem);
   font-weight: 400;
@@ -4820,7 +4812,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   align-items: center;
   gap: 0.75rem;
   flex-wrap: wrap;
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.66rem;
   font-weight: 600;
   letter-spacing: 0.14em;
@@ -4834,7 +4826,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   background: var(--soft);
 }
 .sl-item__name {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(1.5rem, 2.8vw, 2.1rem);
   font-weight: 600;
   line-height: 1.1;
@@ -4859,7 +4851,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   flex-wrap: wrap;
 }
 .sl-item__tag {
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.62rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -4910,7 +4902,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   margin-bottom: 1.3rem;
 }
 .letter__eyebrow {
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.18em;
@@ -4923,7 +4915,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   background: var(--accent);
 }
 .letter__head {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(1.95rem, 4.2vw, 3.2rem);
   font-weight: 600;
   line-height: 1.05;
@@ -4944,7 +4936,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .letter__prose p { margin: 0 0 1rem; }
 .letter__prose p:first-of-type::first-letter {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-style: italic;
   float: left;
   font-size: 4.4em;
@@ -4954,7 +4946,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   font-weight: 600;
 }
 .letter__pullquote {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-style: italic;
   font-size: clamp(1.2rem, 1.8vw, 1.5rem);
   line-height: 1.4;
@@ -4971,21 +4963,21 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   gap: 0.9rem;
 }
 .letter__sig-mark {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-style: italic;
   font-size: 1.5rem;
   color: var(--accent);
   line-height: 1;
 }
 .letter__sig-name {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-style: italic;
   font-size: 1.1rem;
   color: var(--dark);
   line-height: 1.2;
 }
 .letter__sig-role {
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.66rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -5005,7 +4997,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .letter__image-cap {
   margin-top: 0.75rem;
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-style: italic;
   font-size: 0.92rem;
   line-height: 1.5;
@@ -5036,7 +5028,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   align-items: center;
   gap: 0.85rem;
   margin-bottom: 1.6rem;
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.7rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -5067,7 +5059,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .home-cover__headline-link { text-decoration: none; color: inherit; display: block; }
 .home-cover__headline {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(2.4rem, 5.4vw, 4.6rem);
   font-weight: 600;
   line-height: 1.04;
@@ -5084,7 +5076,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   font-weight: 600;
 }
 .home-cover__dek {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-style: normal;
   font-weight: 500;
   font-size: clamp(1.1rem, 1.6vw, 1.35rem);
@@ -5097,7 +5089,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   display: flex;
   align-items: center;
   gap: 1rem;
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.78rem;
   letter-spacing: 0.04em;
   color: var(--soft);
@@ -5152,7 +5144,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   display: flex;
   justify-content: space-between;
   margin-top: 0.65rem;
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.62rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -5203,7 +5195,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   min-width: 0;
 }
 .guide-hero__eyebrow {
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.7rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -5212,7 +5204,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   margin: 0 0 1.1rem;
 }
 .guide-hero__title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(2.2rem, 5vw, 4rem);
   font-weight: 600;
   line-height: 1.04;
@@ -5227,7 +5219,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   font-weight: 600;
 }
 .guide-hero__dek {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-style: normal;
   font-weight: 500;
   font-size: clamp(1.05rem, 1.5vw, 1.28rem);
@@ -5242,7 +5234,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   flex-wrap: wrap;
   padding-top: 1rem;
   border-top: 1px solid rgba(121, 92, 58, 0.18);
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.7rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -5276,7 +5268,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   filter: saturate(0.92) contrast(1.02);
 }
 .guide-hero__credit {
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.62rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -5348,7 +5340,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   border-radius: var(--tile-image-radius);
 }
 .prose .article-figure figcaption {
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.72rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -5360,7 +5352,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
 }
 .compare-block__heading {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(1.9rem, 3.6vw, 2.6rem);
   font-weight: 600;
   line-height: 1.1;
@@ -5411,7 +5403,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   margin-bottom: 1rem;
 }
 .compare-block__title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(1.3rem, 2.4vw, 1.7rem);
   font-weight: 600;
   line-height: 1.18;
@@ -5517,7 +5509,7 @@ body::before {
   text-align: center;
 }
 .issue-flag__edition {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(1.05rem, 1.4vw, 1.25rem);
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -5544,7 +5536,7 @@ body::before {
   user-select: none;
 }
 .issue-flag__context {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-style: italic;
   font-size: clamp(1rem, 1.4vw, 1.2rem);
   color: var(--soft);
@@ -5575,7 +5567,7 @@ body::before {
   margin: 0;
 }
 .issue-flag__stat dd {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(1.5rem, 2.4vw, 1.85rem);
   font-weight: 600;
   color: var(--dark);
@@ -5591,7 +5583,7 @@ body::before {
    ========================================================= */
 .has-drop-cap > p:first-of-type::first-letter,
 p.has-drop-cap::first-letter {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-style: italic;
   font-weight: 600;
   float: left;
@@ -5609,7 +5601,7 @@ p.has-drop-cap::first-letter {
    ========================================================= */
 .section-standfirst,
 .venues__sub--standfirst {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-style: normal;
   font-size: clamp(1.1rem, 1.55vw, 1.32rem);
   line-height: 1.5;
@@ -5636,7 +5628,7 @@ p.has-drop-cap::first-letter {
   margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
 }
 .hub-formats__title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(1.85rem, 3.4vw, 2.4rem);
   font-weight: 600;
   line-height: 1.1;
@@ -5646,7 +5638,7 @@ p.has-drop-cap::first-letter {
   margin-bottom: 0.7rem;
 }
 .hub-formats__dek {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-style: normal;
   font-weight: 500;
   font-size: 1.1rem;
@@ -5717,7 +5709,7 @@ p.has-drop-cap::first-letter {
   margin-bottom: 0.1rem;
 }
 .hub-notebook__headline {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(0.95rem, 1.6vw, 1.15rem);
   font-weight: 500;
   line-height: 1.3;
@@ -5734,7 +5726,7 @@ p.has-drop-cap::first-letter {
   grid-column: 1;
 }
 .hub-notebook__link {
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.78rem;
   color: var(--soft);
   text-decoration: none;
@@ -5759,7 +5751,7 @@ p.has-drop-cap::first-letter {
   margin-bottom: clamp(1.5rem, 3vw, 2.2rem);
 }
 .hub-faq__title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(1.85rem, 3.4vw, 2.4rem);
   font-weight: 600;
   line-height: 1.12;
@@ -5870,7 +5862,7 @@ p.has-drop-cap::first-letter {
 }
 .events-lens__chip.is-empty { opacity: 0.4; pointer-events: none; }
 .events-lens__chip-label {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: 1.18rem;
   font-weight: 600;
   line-height: 1.1;
@@ -5919,7 +5911,7 @@ p.has-drop-cap::first-letter {
   color: var(--soft);
 }
 .events-stats__list dd {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: 1.4rem;
   font-weight: 600;
   line-height: 1;
@@ -6147,7 +6139,7 @@ p.has-drop-cap::first-letter {
   color: var(--soft);
 }
 .event-card__name {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: 1.55rem;
   font-weight: 600;
   line-height: 1.18;
@@ -6183,7 +6175,7 @@ p.has-drop-cap::first-letter {
   margin-bottom: 0.3rem;
 }
 .event-card__verdict p {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-style: normal;
   font-weight: 500;
   font-size: 1rem;
@@ -6257,7 +6249,7 @@ p.has-drop-cap::first-letter {
 }
 .skip-block .label--accent { color: #F2D6CD; }
 .skip-block__title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(1.6rem, 3vw, 2.2rem);
   font-weight: 600;
   line-height: 1.15;
@@ -6278,7 +6270,7 @@ p.has-drop-cap::first-letter {
   padding-top: 1.2rem;
 }
 .skip-entry__title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: 1.4rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
@@ -6328,7 +6320,7 @@ p.has-drop-cap::first-letter {
   background: var(--soft);
 }
 .event-detail__title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 600;
   line-height: 1.08;
@@ -6364,7 +6356,7 @@ p.has-drop-cap::first-letter {
   margin-bottom: 0.5rem;
 }
 .event-verdict__body {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-style: normal;
   font-weight: 500;
   font-size: 1.2rem;
@@ -6452,7 +6444,7 @@ p.has-drop-cap::first-letter {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -6489,7 +6481,7 @@ p.has-drop-cap::first-letter {
   letter-spacing: 0.06em;
 }
 .event-detail__hosted-name {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-display);
   font-size: 1.15rem;
   font-weight: 500;
   line-height: 1.25;
@@ -6590,7 +6582,7 @@ p.has-drop-cap::first-letter {
   top: 5rem;
 }
 .about-mission__title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(1.6rem, 3vw, 2.2rem);
   line-height: 1.12;
   color: var(--dark);
@@ -6623,7 +6615,7 @@ p.has-drop-cap::first-letter {
   border-radius: 2px;
 }
 .about-principle__title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: 1.3rem;
   line-height: 1.2;
   color: var(--dark);
@@ -6644,7 +6636,7 @@ p.has-drop-cap::first-letter {
   margin: 0 auto;
 }
 .about-coverage__title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(1.8rem, 3.5vw, 2.6rem);
   line-height: 1.06;
   color: var(--dark);
@@ -6664,14 +6656,14 @@ p.has-drop-cap::first-letter {
   text-align: center;
 }
 .about-coverage__stats dd {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(2.4rem, 4vw, 3.4rem);
   line-height: 1;
   color: var(--accent);
   font-weight: 600;
 }
 .about-coverage__stats dt {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.12em;
@@ -6699,7 +6691,7 @@ p.has-drop-cap::first-letter {
   gap: 0.35rem;
 }
 .about-masthead__credits dt {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.12em;
@@ -6707,7 +6699,7 @@ p.has-drop-cap::first-letter {
   color: var(--soft);
 }
 .about-masthead__credits dd {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-display);
   font-size: 1.1rem;
   font-weight: 500;
   color: var(--text);
@@ -6752,7 +6744,7 @@ p.has-drop-cap::first-letter {
   line-height: 1;
 }
 .contact-card__title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: 1.2rem;
   line-height: 1.2;
   color: var(--dark);
@@ -6764,7 +6756,7 @@ p.has-drop-cap::first-letter {
   flex: 1;
 }
 .contact-card__email {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.78rem;
   font-weight: 500;
   color: var(--accent);
@@ -6830,14 +6822,14 @@ p.has-drop-cap::first-letter {
   line-height: 1;
 }
 .contact-editorial__title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(1.55rem, 3vw, 2rem);
   font-weight: 600;
   line-height: 1.15;
   color: var(--dark);
 }
 .contact-editorial__lead {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(1.05rem, 2vw, 1.2rem);
   line-height: 1.5;
   color: var(--soft);
@@ -6891,7 +6883,7 @@ p.has-drop-cap::first-letter {
   margin-bottom: 1.8rem;
 }
 .article__tag {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.65rem;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -6996,7 +6988,7 @@ p.has-drop-cap::first-letter {
   text-align: right;
 }
 .article-nav__direction {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.65rem;
   font-weight: 600;
   letter-spacing: 0.12em;
@@ -7004,7 +6996,7 @@ p.has-drop-cap::first-letter {
   color: var(--accent);
 }
 .article-nav__link-title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: 1.1rem;
   line-height: 1.2;
   color: var(--dark);
@@ -7027,7 +7019,7 @@ p.has-drop-cap::first-letter {
   border-top: 1px solid var(--border);
 }
 .venue-detail__tag {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.62rem;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -7242,7 +7234,7 @@ p.has-drop-cap::first-letter {
 /* --- Hamburger button (hidden on desktop) --- */
 .masthead__cta-mobile {
   display: none;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.68rem;
   font-weight: 600;
   letter-spacing: 0.14em;
@@ -7268,7 +7260,7 @@ p.has-drop-cap::first-letter {
   color: var(--accent);
   border: 1px solid var(--accent);
   border-radius: 999px;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.74rem;
   font-weight: 600;
   letter-spacing: 0.12em;
@@ -7367,7 +7359,7 @@ p.has-drop-cap::first-letter {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(1.5rem, 5.5vw, 1.85rem);
   font-weight: 600;
   line-height: 1.1;
@@ -7427,7 +7419,7 @@ p.has-drop-cap::first-letter {
 .mobile-nav__split-link {
   display: flex;
   align-items: center;
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(1.5rem, 5.5vw, 1.85rem);
   font-weight: 600;
   line-height: 1.1;
@@ -7493,7 +7485,7 @@ p.has-drop-cap::first-letter {
 }
 .mobile-nav__submenu-link {
   display: block;
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: var(--font-ui);
   font-size: clamp(0.95rem, 3.5vw, 1.05rem);
   font-weight: 400;
   color: var(--soft);
@@ -7582,7 +7574,7 @@ p.has-drop-cap::first-letter {
     margin: 0 auto;
     text-align: center;
     color: var(--dark);
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-size: 1.55rem;          /* +15% from prior 1.35rem */
     font-weight: 600;
     text-decoration: none;
@@ -7931,7 +7923,7 @@ p.has-drop-cap::first-letter {
   border: 1px solid var(--accent);
   border-radius: 0 2px 2px 0;
   color: var(--white);
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -8210,7 +8202,7 @@ p.has-drop-cap::first-letter {
 
 .newsletter__cta-title {
   margin: 0;
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(1.7rem, 3vw, 2.35rem);
   line-height: 1.04;
   letter-spacing: -0.015em;
@@ -8313,9 +8305,9 @@ p.has-drop-cap::first-letter {
    when SAVE expands on hover. */
 .tour-card__body { padding: 1.25rem 1.25rem 3.25rem; flex: 1; display: flex; flex-direction: column; }
 .tour-card__meta { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
-.tour-card__badge { font-family: 'Outfit', sans-serif; font-size: 0.625rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.2em 0.6em; border-radius: 1px; background: var(--bg-alt); color: var(--body); border: 1px solid var(--border); }
+.tour-card__badge { font-family: var(--font-ui); font-size: 0.625rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.2em 0.6em; border-radius: 1px; background: var(--bg-alt); color: var(--body); border: 1px solid var(--border); }
 .tour-card__badge--accent { background: var(--accent-muted, #f5ede4); color: var(--accent); border-color: var(--accent-muted, #f5ede4); }
-.tour-card__name { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.25rem; font-weight: 600; line-height: 1.2; margin-bottom: 0.5rem; }
+.tour-card__name { font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; line-height: 1.2; margin-bottom: 0.5rem; }
 .tour-card__name a { color: var(--dark); text-decoration: none; }
 .tour-card__name a:hover { color: var(--accent); }
 .tour-card__operator { font-size: 0.8rem; color: var(--body-light, #888); margin-bottom: 0.5rem; }
@@ -8326,16 +8318,16 @@ p.has-drop-cap::first-letter {
 .operator-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.25rem; }
 .package-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
 .tour-filter-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; }
-.tour-filter-chip { font-family: 'Outfit', sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.4em 1em; border: 1px solid var(--border); border-radius: 2px; color: var(--body); text-decoration: none; background: var(--bg); transition: background 0.15s, color 0.15s; }
+.tour-filter-chip { font-family: var(--font-ui); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.4em 1em; border: 1px solid var(--border); border-radius: 2px; color: var(--body); text-decoration: none; background: var(--bg); transition: background 0.15s, color 0.15s; }
 .tour-filter-chip:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
 .at-a-glance { border: 1px solid var(--border); border-radius: 2px; overflow: hidden; margin: 2rem 0; }
 .at-a-glance__row { display: flex; border-bottom: 1px solid var(--border); }
 .at-a-glance__row:last-child { border-bottom: none; }
-.at-a-glance__label { padding: 0.75rem 1rem; font-size: 0.8rem; font-weight: 600; color: var(--body); background: var(--bg-alt); min-width: 160px; text-transform: uppercase; letter-spacing: 0.06em; font-family: 'Outfit', sans-serif; }
+.at-a-glance__label { padding: 0.75rem 1rem; font-size: 0.8rem; font-weight: 600; color: var(--body); background: var(--bg-alt); min-width: 160px; text-transform: uppercase; letter-spacing: 0.06em; font-family: var(--font-ui); }
 .at-a-glance__value { padding: 0.75rem 1rem; font-size: 0.9rem; color: var(--dark); flex: 1; }
 .affiliate-disclosure { font-size: 0.8rem; color: var(--body-light, #888); font-style: italic; margin: 1.5rem 0; padding: 0.75rem 1rem; border-left: 3px solid var(--border); background: var(--bg-alt); }
 .tour-cta-block { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 2px; padding: 1.5rem; margin: 2rem 0; }
-.tour-cta-block__title { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; margin-bottom: 0.5rem; }
+.tour-cta-block__title { font-family: var(--font-display); font-size: 1.4rem; margin-bottom: 0.5rem; }
 .tour-cta-primary { display: inline-block; background: var(--accent); color: #fff; font-size: 0.875rem; font-weight: 600; padding: 0.75em 1.5em; border-radius: 2px; text-decoration: none; margin-top: 1rem; letter-spacing: 0.04em; }
 .tour-cta-primary:hover { opacity: 0.9; }
 
@@ -8597,7 +8589,7 @@ body[data-path^="/ask"] .concierge-fab {
   background: var(--accent);
   color: #fff;
   border-radius: 999px;
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -8671,7 +8663,7 @@ body.menu-open .subscribe-pill {
   gap: 1rem;
   padding: 0.85rem 1.1rem;
   cursor: pointer;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
 }
 .venue-filters__summary::-webkit-details-marker { display: none; }
 .venue-filters__summary::after {
@@ -8720,7 +8712,7 @@ body.menu-open .subscribe-pill {
 }
 .venue-filters__group-label {
   display: block;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -8730,7 +8722,7 @@ body.menu-open .subscribe-pill {
 }
 
 .venue-filters__select {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.92rem;
   padding: 0.55rem 0.7rem;
   background: var(--bg, #fff);
@@ -8752,7 +8744,7 @@ body.menu-open .subscribe-pill {
 .venue-filters__chips--tight { gap: 0.3rem; }
 
 .venue-filters__chip {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.8rem;
   font-weight: 500;
   letter-spacing: 0.02em;
@@ -8774,7 +8766,7 @@ body.menu-open .subscribe-pill {
   border-color: var(--accent);
 }
 .venue-filters__chip--price {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-display);
   font-size: 1rem;
   font-weight: 500;
   padding: 0.4rem 0.8rem;
@@ -8791,7 +8783,7 @@ body.menu-open .subscribe-pill {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.88rem;
   color: var(--dark);
   cursor: pointer;
@@ -8805,7 +8797,7 @@ body.menu-open .subscribe-pill {
 }
 
 .venue-filters__clear {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.78rem;
   font-weight: 500;
   letter-spacing: 0.06em;
@@ -8834,7 +8826,7 @@ body.menu-open .subscribe-pill {
   text-align: center;
 }
 .venues__more-btn {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 0.06em;
@@ -8858,7 +8850,7 @@ body.menu-open .subscribe-pill {
   padding: 1.5rem;
   border: 1px dashed var(--border);
   text-align: center;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.95rem;
   color: var(--soft);
 }
@@ -8883,7 +8875,7 @@ body.menu-open .subscribe-pill {
   max-width: 720px;
 }
 .whatson-temporal__title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-display);
   font-size: clamp(1.65rem, 3vw, 2.3rem);
   font-weight: 500;
   color: var(--text);
@@ -8892,7 +8884,7 @@ body.menu-open .subscribe-pill {
   line-height: 1.1;
 }
 .whatson-temporal__sub {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 1rem;
   line-height: 1.55;
   color: var(--soft);
@@ -8912,7 +8904,7 @@ body.menu-open .subscribe-pill {
   align-items: center;
   gap: 0.5rem;
   padding: 0.6rem 1rem;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.9rem;
   font-weight: 500;
   letter-spacing: 0.02em;
@@ -8954,7 +8946,7 @@ body.menu-open .subscribe-pill {
 
 .whatson-temporal__panel[hidden] { display: none; }
 .whatson-temporal__blurb {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.92rem;
   color: var(--soft);
   margin: 0 0 clamp(1rem, 2vw, 1.5rem);
@@ -8964,7 +8956,7 @@ body.menu-open .subscribe-pill {
   padding: 1.5rem;
   border: 1px dashed var(--border);
   text-align: center;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.95rem;
   color: var(--soft);
 }
@@ -8979,7 +8971,7 @@ body.menu-open .subscribe-pill {
   align-items: center;
   gap: 0.35rem;
   padding: 0.55rem 0.7rem;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.7rem;
   font-weight: 500;
   letter-spacing: 0.06em;
@@ -9042,7 +9034,7 @@ body.menu-open .subscribe-pill {
   margin-bottom: clamp(1.5rem, 3vw, 2rem);
 }
 .saved-banner__label {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.12em;
@@ -9051,14 +9043,14 @@ body.menu-open .subscribe-pill {
   margin: 0 0 0.55rem;
 }
 .saved-banner__body {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.95rem;
   line-height: 1.55;
   color: var(--dark);
   margin: 0 0 0.85rem;
 }
 .saved-banner__action {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -9085,7 +9077,7 @@ body.menu-open .subscribe-pill {
   margin-bottom: clamp(1.25rem, 2.5vw, 1.75rem);
 }
 .saved-toolbar__count {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.95rem;
   color: var(--soft);
   margin: 0;
@@ -9096,7 +9088,7 @@ body.menu-open .subscribe-pill {
   gap: 0.55rem;
 }
 .saved-toolbar__action {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -9116,7 +9108,7 @@ body.menu-open .subscribe-pill {
 .saved-toolbar__action--ghost:hover { color: var(--accent); border-color: var(--accent); background: transparent; }
 
 .saved-section-heading {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-display);
   font-size: clamp(1.4rem, 2.5vw, 1.85rem);
   font-weight: 500;
   letter-spacing: -0.01em;
@@ -9172,7 +9164,7 @@ body.menu-open .subscribe-pill {
   min-width: 0;
 }
 .saved-list__item-meta {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.7rem;
   font-weight: 500;
   letter-spacing: 0.08em;
@@ -9181,7 +9173,7 @@ body.menu-open .subscribe-pill {
   margin: 0;
 }
 .saved-list__item-title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-display);
   font-size: 1.15rem;
   font-weight: 500;
   line-height: 1.2;
@@ -9190,7 +9182,7 @@ body.menu-open .subscribe-pill {
   margin: 0;
 }
 .saved-list__item-sub {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.85rem;
   line-height: 1.5;
   color: var(--soft);
@@ -9204,7 +9196,7 @@ body.menu-open .subscribe-pill {
   flex-shrink: 0;
   align-self: flex-start;
   margin: 0.6rem 0.6rem 0 0;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.65rem;
   font-weight: 500;
   letter-spacing: 0.08em;
@@ -9225,7 +9217,7 @@ body.menu-open .subscribe-pill {
   padding: 1.5rem;
   border: 1px dashed var(--border);
   text-align: center;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.95rem;
   color: var(--soft);
 }
@@ -9261,7 +9253,7 @@ body.menu-open .subscribe-pill {
   border-bottom: 1px solid var(--border);
 }
 .map-page__title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-display);
   font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 500;
   letter-spacing: -0.02em;
@@ -9270,7 +9262,7 @@ body.menu-open .subscribe-pill {
   margin: 0.4rem 0 0.7rem;
 }
 .map-page__sub {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 1rem;
   line-height: 1.6;
   color: var(--soft);
@@ -9294,7 +9286,7 @@ body.menu-open .subscribe-pill {
   align-items: center;
   gap: 0.45rem;
   padding: 0.5rem 0.85rem;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.78rem;
   font-weight: 500;
   letter-spacing: 0.04em;
@@ -9347,7 +9339,7 @@ body.menu-open .subscribe-pill {
   border-bottom: 2px solid transparent;
   margin-bottom: -2px;
   padding: 0.75rem 1rem;
-  font-family: 'Outfit', system-ui, sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.82rem;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -9407,7 +9399,7 @@ body.menu-open .subscribe-pill {
 }
 .map-page__search {
   width: 100%;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.92rem;
   padding: 0.55rem 0.7rem;
   border: 1px solid var(--border);
@@ -9420,7 +9412,7 @@ body.menu-open .subscribe-pill {
   outline-offset: 1px;
 }
 .map-page__list-count {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.78rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -9473,7 +9465,7 @@ body.menu-open .subscribe-pill {
   flex: 1;
 }
 .map-page__entry-name {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-display);
   font-size: 1.05rem;
   font-weight: 500;
   letter-spacing: -0.005em;
@@ -9481,7 +9473,7 @@ body.menu-open .subscribe-pill {
   line-height: 1.2;
 }
 .map-page__entry-meta {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.72rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -9492,7 +9484,7 @@ body.menu-open .subscribe-pill {
   padding: 1rem;
   border: 1px dashed var(--border);
   text-align: center;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.9rem;
   color: var(--soft);
 }
@@ -9509,7 +9501,7 @@ body.menu-open .subscribe-pill {
   z-index: 0;
 }
 .map-page__attribution-note {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.7rem;
   letter-spacing: 0.06em;
   color: var(--soft);
@@ -9542,7 +9534,7 @@ body.menu-open .subscribe-pill {
    popup chrome is left in place; we just style the inner content. */
 .map-popup {
   width: 240px;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
 }
 .map-popup__hero {
   height: 110px;
@@ -9564,7 +9556,7 @@ body.menu-open .subscribe-pill {
   margin: 0;
 }
 .map-popup__title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-display);
   font-size: 1.15rem;
   font-weight: 500;
   letter-spacing: -0.01em;
@@ -9610,7 +9602,7 @@ body.menu-open .subscribe-pill {
   align-items: center;
   gap: 0.45rem;
   padding: 0.45rem 0.75rem 0.45rem 0.7rem;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.78rem;
   font-weight: 500;
   letter-spacing: 0.04em;
@@ -9629,7 +9621,7 @@ body.menu-open .subscribe-pill {
 }
 .typeahead__trigger-label { margin-right: 0.1rem; }
 .typeahead__trigger-kbd {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.65rem;
   font-weight: 600;
   letter-spacing: 0.04em;
@@ -9681,7 +9673,7 @@ body.menu-open .subscribe-pill {
 }
 .typeahead__input {
   flex: 1;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-display);
   font-size: 1.1rem;
   font-weight: 500;
   color: var(--text);
@@ -9709,7 +9701,7 @@ body.menu-open .subscribe-pill {
   padding: 0.85rem 1rem 1rem;
 }
 .typeahead__suggestions-label {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -9727,7 +9719,7 @@ body.menu-open .subscribe-pill {
   align-items: center;
   gap: 0.35rem;
   padding: 0.4rem 0.75rem;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.8rem;
   background: var(--paper, #fbf7f0);
   border: 1px solid var(--border);
@@ -9760,7 +9752,7 @@ body.menu-open .subscribe-pill {
   padding-top: 0.4rem;
 }
 .typeahead__group-label {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.66rem;
   font-weight: 600;
   letter-spacing: 0.12em;
@@ -9792,7 +9784,7 @@ body.menu-open .subscribe-pill {
 }
 .typeahead__result-title {
   display: block;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-display);
   font-size: 1.02rem;
   font-weight: 500;
   letter-spacing: -0.005em;
@@ -9801,7 +9793,7 @@ body.menu-open .subscribe-pill {
 }
 .typeahead__result-excerpt {
   display: block;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.83rem;
   line-height: 1.45;
   color: var(--soft);
@@ -9820,13 +9812,13 @@ body.menu-open .subscribe-pill {
   list-style: none;
 }
 .typeahead__empty-title {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.95rem;
   color: var(--text);
   margin: 0 0 0.35rem;
 }
 .typeahead__empty-hint {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.85rem;
   color: var(--soft);
   margin: 0;
@@ -9840,7 +9832,7 @@ body.menu-open .subscribe-pill {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.06em;
@@ -9892,7 +9884,7 @@ body.menu-open .subscribe-pill {
   max-width: 720px;
 }
 .place-map__title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-display);
   font-size: clamp(1.55rem, 3vw, 2.1rem);
   font-weight: 500;
   letter-spacing: -0.01em;
@@ -9901,7 +9893,7 @@ body.menu-open .subscribe-pill {
   line-height: 1.15;
 }
 .place-map__sub {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.95rem;
   line-height: 1.55;
   color: var(--soft);
@@ -9942,7 +9934,7 @@ body.menu-open .subscribe-pill {
   background: var(--paper, #fbf7f0);
 }
 .place-map__placeholder-text {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.9rem;
   letter-spacing: 0.04em;
   color: var(--soft);
@@ -9965,14 +9957,14 @@ body.menu-open .subscribe-pill {
   text-align: center;
 }
 .itinerary-empty__title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-display);
   font-size: 1.4rem;
   font-weight: 500;
   color: var(--text);
   margin: 0 0 0.5rem;
 }
 .itinerary-empty__body {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.95rem;
   color: var(--soft);
   margin: 0 0 1.25rem;
@@ -9987,7 +9979,7 @@ body.menu-open .subscribe-pill {
 .itinerary-empty__cta {
   display: inline-flex;
   align-items: center;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -10014,7 +10006,7 @@ body.menu-open .subscribe-pill {
   margin-bottom: clamp(1.25rem, 2.5vw, 1.75rem);
 }
 .itinerary-banner__label {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.12em;
@@ -10023,14 +10015,14 @@ body.menu-open .subscribe-pill {
   margin: 0 0 0.55rem;
 }
 .itinerary-banner__body {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.95rem;
   line-height: 1.55;
   color: var(--dark);
   margin: 0 0 0.85rem;
 }
 .itinerary-banner__action {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -10054,7 +10046,7 @@ body.menu-open .subscribe-pill {
   margin-bottom: clamp(1.25rem, 2.5vw, 1.75rem);
 }
 .itinerary-toolbar__count {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.92rem;
   color: var(--soft);
 }
@@ -10065,7 +10057,7 @@ body.menu-open .subscribe-pill {
   gap: 0.45rem;
 }
 .itinerary-toolbar__action {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.78rem;
   font-weight: 500;
   letter-spacing: 0.04em;
@@ -10124,7 +10116,7 @@ body.menu-open .subscribe-pill {
   margin-top: 0;
 }
 .itinerary-day-head__label {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-display);
   font-size: 1.4rem;
   font-weight: 500;
   color: var(--text);
@@ -10133,7 +10125,7 @@ body.menu-open .subscribe-pill {
 }
 .itinerary-day-head__rename,
 .itinerary-day-head__remove {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.7rem;
   font-weight: 500;
   letter-spacing: 0.08em;
@@ -10204,7 +10196,7 @@ body.menu-open .subscribe-pill {
   min-width: 0;
 }
 .itinerary-item__meta {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.7rem;
   font-weight: 500;
   letter-spacing: 0.08em;
@@ -10212,7 +10204,7 @@ body.menu-open .subscribe-pill {
   color: var(--soft);
 }
 .itinerary-item__title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-display);
   font-size: 1.1rem;
   font-weight: 500;
   letter-spacing: -0.01em;
@@ -10223,7 +10215,7 @@ body.menu-open .subscribe-pill {
   flex-shrink: 0;
   align-self: flex-start;
   margin: 0.65rem 0.65rem 0 0;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.65rem;
   font-weight: 500;
   letter-spacing: 0.08em;
@@ -10250,7 +10242,7 @@ body.menu-open .subscribe-pill {
   background: linear-gradient(90deg, transparent, var(--border), transparent);
 }
 .itinerary-gap__label {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.72rem;
   font-weight: 500;
   letter-spacing: 0.06em;
@@ -10314,7 +10306,7 @@ body.menu-open .subscribe-pill {
   gap: 0.45rem;
   margin: 0 0 0.85rem;
   padding: 0.4rem 0.75rem;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.72rem;
   font-weight: 500;
   letter-spacing: 0.06em;
@@ -10382,7 +10374,7 @@ body.menu-open .subscribe-pill {
 }
 .submit-process li {
   position: relative;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.92rem;
   line-height: 1.55;
   color: var(--dark);
@@ -10403,14 +10395,14 @@ body.menu-open .subscribe-pill {
   border-radius: 50%;
   background: var(--accent);
   color: var(--bg, #fff);
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.78rem;
   font-weight: 600;
 }
 .submit-process li:last-child { border-bottom: 0; }
 
 .submit-rules-label {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.12em;
@@ -10422,7 +10414,7 @@ body.menu-open .subscribe-pill {
   list-style: disc inside;
   padding: 0;
   margin: 0;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.9rem;
   line-height: 1.55;
   color: var(--soft);
@@ -10440,7 +10432,7 @@ body.menu-open .subscribe-pill {
   padding: clamp(1rem, 2vw, 1.4rem);
 }
 .submit-form__legend {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.12em;
@@ -10454,7 +10446,7 @@ body.menu-open .subscribe-pill {
 }
 .submit-form__label {
   display: block;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--dark);
@@ -10464,7 +10456,7 @@ body.menu-open .subscribe-pill {
 .submit-form__textarea,
 .submit-form__select {
   width: 100%;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.95rem;
   line-height: 1.45;
   color: var(--dark);
@@ -10480,13 +10472,13 @@ body.menu-open .subscribe-pill {
   outline-offset: 1px;
 }
 .submit-form__hint {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.78rem;
   color: var(--soft);
   margin: 0.35rem 0 0;
 }
 .submit-form__file {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.9rem;
 }
 .submit-form__submit {
@@ -10497,7 +10489,7 @@ body.menu-open .subscribe-pill {
   margin-top: 0.5rem;
 }
 .submit-form__button {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -10514,14 +10506,14 @@ body.menu-open .subscribe-pill {
   border-color: var(--text, #1a1a1a);
 }
 .submit-form__caveat {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.78rem;
   color: var(--soft);
   margin: 0;
   max-width: 30rem;
 }
 .submit-form__status {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.92rem;
   padding: 0.7rem 0.95rem;
   border: 1px solid var(--border);
@@ -10555,7 +10547,7 @@ body.menu-open .subscribe-pill {
   max-width: 720px;
 }
 .place-submit-cta__label {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.12em;
@@ -10564,7 +10556,7 @@ body.menu-open .subscribe-pill {
   margin: 0 0 0.55rem;
 }
 .place-submit-cta__body {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 1rem;
   line-height: 1.6;
   color: var(--dark);
@@ -10573,7 +10565,7 @@ body.menu-open .subscribe-pill {
 .place-submit-cta__link {
   display: inline-flex;
   align-items: center;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.06em;
@@ -10622,7 +10614,7 @@ body.menu-open .subscribe-pill {
   gap: 0.5rem;
 }
 .guide-card__season {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.12em;
@@ -10631,7 +10623,7 @@ body.menu-open .subscribe-pill {
   margin: 0;
 }
 .guide-card__title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-display);
   font-size: clamp(1.4rem, 2.5vw, 1.85rem);
   font-weight: 500;
   line-height: 1.15;
@@ -10640,14 +10632,14 @@ body.menu-open .subscribe-pill {
   margin: 0;
 }
 .guide-card__dek {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.95rem;
   line-height: 1.55;
   color: var(--soft);
   margin: 0;
 }
 .guide-card__meta {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.78rem;
   letter-spacing: 0.06em;
   color: var(--soft);
@@ -10661,7 +10653,7 @@ body.menu-open .subscribe-pill {
   gap: 0.45rem;
 }
 .guide-card__form-label {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.78rem;
   font-weight: 500;
   letter-spacing: 0.04em;
@@ -10675,7 +10667,7 @@ body.menu-open .subscribe-pill {
 .guide-card__form-input {
   flex: 1;
   min-width: 12rem;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.92rem;
   padding: 0.55rem 0.7rem;
   background: var(--bg, #fff);
@@ -10684,7 +10676,7 @@ body.menu-open .subscribe-pill {
 }
 .guide-card__form-input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
 .guide-card__form-button {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.06em;
@@ -10701,20 +10693,20 @@ body.menu-open .subscribe-pill {
   border-color: var(--text, #1a1a1a);
 }
 .guide-card__form-fineprint {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.78rem;
   color: var(--soft);
   margin: 0;
 }
 .guide-card__form-status {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.85rem;
   color: var(--soft);
 }
 .guide-card__form-status[data-status-kind="error"] { color: #b14b3a; }
 .guide-card__form-status[data-status-kind="info"] { color: var(--accent); }
 .guide-card__success-label {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-display);
   font-size: 1.15rem;
   font-weight: 500;
   color: var(--accent);
@@ -10723,7 +10715,7 @@ body.menu-open .subscribe-pill {
 .guide-card__success-link {
   display: inline-flex;
   align-items: center;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.06em;
@@ -10742,7 +10734,7 @@ body.menu-open .subscribe-pill {
   margin-top: clamp(1.5rem, 3vw, 2.5rem);
   padding-top: 1.5rem;
   border-top: 1px dashed var(--border);
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.92rem;
   color: var(--soft);
   text-align: center;
@@ -10764,14 +10756,14 @@ body.menu-open .subscribe-pill {
 }
 .alerts-empty[hidden] { display: none; }
 .alerts-empty__title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-display);
   font-size: 1.25rem;
   font-weight: 500;
   color: var(--text);
   margin: 0 0 0.5rem;
 }
 .alerts-empty__body {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.95rem;
   line-height: 1.55;
   color: var(--soft);
@@ -10790,13 +10782,13 @@ body.menu-open .subscribe-pill {
 }
 .alerts-toolbar[hidden] { display: none; }
 .alerts-toolbar__count {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.92rem;
   color: var(--soft);
   margin: 0;
 }
 .alerts-toolbar__action {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.78rem;
   font-weight: 500;
   letter-spacing: 0.06em;
@@ -10831,14 +10823,14 @@ body.menu-open .subscribe-pill {
 }
 .alert-item__body { flex: 1; min-width: 0; }
 .alert-item__criteria {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-display);
   font-size: 1.1rem;
   font-weight: 500;
   color: var(--text);
   margin: 0;
 }
 .alert-item__delivery {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.78rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -10846,7 +10838,7 @@ body.menu-open .subscribe-pill {
   margin: 0.25rem 0 0;
 }
 .alert-item__remove {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.7rem;
   font-weight: 500;
   letter-spacing: 0.08em;
@@ -10865,7 +10857,7 @@ body.menu-open .subscribe-pill {
   padding: clamp(1rem, 2vw, 1.4rem);
 }
 .alert-form__heading {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-display);
   font-size: 1.3rem;
   font-weight: 500;
   color: var(--text);
@@ -10886,14 +10878,14 @@ body.menu-open .subscribe-pill {
   gap: 0.3rem;
 }
 .alert-form__field span {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.78rem;
   font-weight: 500;
   letter-spacing: 0.06em;
   color: var(--soft);
 }
 .alert-form__field select {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.92rem;
   padding: 0.55rem 0.7rem;
   background: var(--bg, #fff);
@@ -10908,7 +10900,7 @@ body.menu-open .subscribe-pill {
   margin: 0 0 1rem;
 }
 .alert-form__delivery legend {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.78rem;
   font-weight: 500;
   letter-spacing: 0.06em;
@@ -10920,7 +10912,7 @@ body.menu-open .subscribe-pill {
   align-items: center;
   gap: 0.4rem;
   margin-right: 1rem;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.92rem;
   color: var(--dark);
   cursor: pointer;
@@ -10931,7 +10923,7 @@ body.menu-open .subscribe-pill {
   accent-color: var(--accent);
 }
 .alert-form__submit {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.08em;

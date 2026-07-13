@@ -233,7 +233,7 @@ const payloadJson = JSON.stringify(payload).replace(/</g, '\\u003c');
     display: none;
   }
   .plan-engine__chip {
-    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-family: var(--font-ui, var(--font-ui));
     font-size: var(--fs-300, 0.9375rem);
     font-weight: var(--fw-semibold, 600);
     color: var(--text);
@@ -296,7 +296,7 @@ const payloadJson = JSON.stringify(payload).replace(/</g, '\\u003c');
   }
   .plan-featured__mark {
     margin: 0;
-    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-family: var(--font-ui, var(--font-ui));
     font-size: var(--fs-100, 0.75rem);
     font-weight: var(--fw-semibold, 600);
     letter-spacing: 0.14em;
@@ -305,7 +305,7 @@ const payloadJson = JSON.stringify(payload).replace(/</g, '\\u003c');
   }
   .plan-featured__title {
     margin: 0;
-    font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+    font-family: var(--font-display, var(--font-display));
     font-size: var(--fs-800, clamp(1.75rem, 1.4rem + 1.6vw, 2.375rem));
     font-weight: var(--fw-display, 600);
     line-height: var(--lh-heading, 1.15);
@@ -323,7 +323,7 @@ const payloadJson = JSON.stringify(payload).replace(/</g, '\\u003c');
   }
   .plan-featured__verdict {
     margin: 0;
-    font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+    font-family: var(--font-display, var(--font-display));
     font-style: italic;
     font-size: var(--fs-500, 1.1875rem);
     line-height: var(--lh-dek, 1.45);
@@ -332,7 +332,7 @@ const payloadJson = JSON.stringify(payload).replace(/</g, '\\u003c');
   }
   .plan-featured__meta {
     margin: 0;
-    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-family: var(--font-ui, var(--font-ui));
     font-size: var(--fs-200, 0.8125rem);
     color: var(--soft);
   }
@@ -357,7 +357,7 @@ const payloadJson = JSON.stringify(payload).replace(/</g, '\\u003c');
     border-radius: var(--radius-s, 6px);
     background: var(--bg, var(--white));
     color: var(--text);
-    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-family: var(--font-ui, var(--font-ui));
     font-size: var(--fs-300, 0.9375rem);
     font-weight: var(--fw-semibold, 600);
     text-decoration: none;
@@ -428,7 +428,7 @@ const payloadJson = JSON.stringify(payload).replace(/</g, '\\u003c');
   }
   .plan-alt__mark {
     margin: 0;
-    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-family: var(--font-ui, var(--font-ui));
     font-size: var(--fs-100, 0.75rem);
     font-weight: var(--fw-semibold, 600);
     letter-spacing: 0.14em;
@@ -437,7 +437,7 @@ const payloadJson = JSON.stringify(payload).replace(/</g, '\\u003c');
   }
   .plan-alt__title {
     margin: 0;
-    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-family: var(--font-ui, var(--font-ui));
     font-size: var(--fs-500, 1.1875rem);
     font-weight: var(--fw-semibold, 600);
     line-height: var(--lh-heading, 1.2);
@@ -455,7 +455,7 @@ const payloadJson = JSON.stringify(payload).replace(/</g, '\\u003c');
   }
   .plan-alt__verdict {
     margin: 0;
-    font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+    font-family: var(--font-display, var(--font-display));
     font-style: italic;
     font-size: var(--fs-400, 1.0625rem);
     line-height: var(--lh-dek, 1.45);
@@ -469,13 +469,13 @@ const payloadJson = JSON.stringify(payload).replace(/</g, '\\u003c');
 
   .plan-engine__empty {
     margin: var(--space-5, 1.5rem) 0 0;
-    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-family: var(--font-ui, var(--font-ui));
     color: var(--soft);
   }
 
   .plan-engine__all {
     margin: var(--space-4, 1rem) 0 0;
-    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-family: var(--font-ui, var(--font-ui));
     font-size: var(--fs-300, 0.9375rem);
   }
   .plan-engine__all a {
@@ -515,7 +515,7 @@ const payloadJson = JSON.stringify(payload).replace(/</g, '\\u003c');
     background: var(--text);
     color: var(--white, var(--bg));
     border-radius: var(--radius-m, 10px);
-    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-family: var(--font-ui, var(--font-ui));
     font-size: var(--fs-300, 0.9375rem);
     box-shadow: var(--elev-2, 0 12px 24px -12px rgba(40, 28, 14, 0.4));
     max-width: min(92vw, 30rem);

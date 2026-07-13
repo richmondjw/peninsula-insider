@@ -106,7 +106,7 @@ const six = items.slice(0, 6);
   }
   .v5-six__heading {
     margin: 0;
-    font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+    font-family: var(--font-display, var(--font-display));
     font-size: var(--fs-700, clamp(1.6rem, 1.35rem + 1.2vw, 2.1rem));
     font-weight: var(--fw-display, 600);
     line-height: var(--lh-heading, 1.2);
@@ -114,7 +114,7 @@ const six = items.slice(0, 6);
   }
   .v5-six__sub {
     margin: var(--space-2, 0.5rem) 0 0;
-    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-family: var(--font-ui, var(--font-ui));
     font-size: var(--fs-300, 0.9375rem);
     color: var(--soft);
     max-width: var(--measure-body, 64ch);

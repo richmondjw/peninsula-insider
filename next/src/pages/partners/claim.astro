@@ -241,21 +241,21 @@ export const prerender = true;
     text-align: center;
   }
   .claim-anonymous__title {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: var(--font-display);
     font-size: 1.4rem;
     font-weight: 500;
     color: var(--text);
     margin: 0 0 0.5rem;
   }
   .claim-anonymous__body {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.95rem;
     color: var(--soft);
     margin: 0 auto 1.25rem;
     max-width: 32rem;
   }
   .claim-anonymous__cta {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.78rem;
     font-weight: 600;
     letter-spacing: 0.08em;
@@ -271,7 +271,7 @@ export const prerender = true;
     border-color: var(--text, #1a1a1a);
   }
   .claim-existing {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.95rem;
     color: var(--dark);
   }
@@ -291,7 +291,7 @@ export const prerender = true;
     padding: clamp(1rem, 2vw, 1.4rem);
   }
   .claim-form__legend {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.7rem;
     font-weight: 600;
     letter-spacing: 0.12em;
@@ -303,7 +303,7 @@ export const prerender = true;
   .claim-form__field { margin-top: 1rem; }
   .claim-form__label {
     display: block;
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.85rem;
     font-weight: 600;
     color: var(--dark);
@@ -312,7 +312,7 @@ export const prerender = true;
   .claim-form__input,
   .claim-form__textarea {
     width: 100%;
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.95rem;
     line-height: 1.45;
     color: var(--dark);
@@ -327,7 +327,7 @@ export const prerender = true;
     outline-offset: 1px;
   }
   .claim-form__hint {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.78rem;
     color: var(--soft);
     margin: 0.35rem 0 0;
@@ -340,7 +340,7 @@ export const prerender = true;
     align-items: flex-start;
   }
   .claim-form__button {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.78rem;
     font-weight: 600;
     letter-spacing: 0.08em;
@@ -357,14 +357,14 @@ export const prerender = true;
     border-color: var(--text, #1a1a1a);
   }
   .claim-form__caveat {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.78rem;
     color: var(--soft);
     margin: 0;
     max-width: 28rem;
   }
   .claim-form__status {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.92rem;
     padding: 0.7rem 0.95rem;
     border: 1px solid var(--border);

@@ -46,7 +46,7 @@ const { href = '/explore/plans/?intent=melbourne-weekend' } = Astro.props;
   }
 
   .melb-strip__text {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-style: italic;
     font-size: clamp(0.95rem, 1.6vw, 1.1rem);
     color: var(--text);
@@ -59,7 +59,7 @@ const { href = '/explore/plans/?intent=melbourne-weekend' } = Astro.props;
   }
 
   .melb-strip__link {
-    font-family: 'Outfit', system-ui, sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.72rem;
     font-weight: 600;
     letter-spacing: 0.14em;

@@ -291,7 +291,7 @@ export const prerender = true;
 <style>
   .award-detail { padding: clamp(1.5rem, 3vw, 2.5rem) 0 clamp(2rem, 4vw, 3rem); }
   .award-detail__title {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: var(--font-display);
     font-size: clamp(2rem, 5vw, 3rem);
     font-weight: 500;
     letter-spacing: -0.02em;
@@ -299,7 +299,7 @@ export const prerender = true;
     margin: 0.5rem 0 0.85rem;
   }
   .award-detail__description {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 1.05rem;
     line-height: 1.6;
     color: var(--soft);
@@ -307,7 +307,7 @@ export const prerender = true;
     margin: 0 0 1.25rem;
   }
   .award-detail__state {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.85rem;
     letter-spacing: 0.04em;
     color: var(--accent);
@@ -323,7 +323,7 @@ export const prerender = true;
   }
   .award-nominees__loading,
   .award-nominees__empty {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.95rem;
     color: var(--soft);
     border: 1px dashed var(--border);
@@ -341,7 +341,7 @@ export const prerender = true;
   }
   .award-nominee__body { flex: 1; min-width: 0; }
   .award-nominee__name {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: var(--font-display);
     font-size: 1.3rem;
     font-weight: 500;
     line-height: 1.2;
@@ -354,14 +354,14 @@ export const prerender = true;
   }
   .award-nominee__name a:hover { color: var(--accent); }
   .award-nominee__blurb {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.92rem;
     line-height: 1.55;
     color: var(--dark);
     margin: 0;
   }
   .award-nominee__count {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.78rem;
     letter-spacing: 0.06em;
     color: var(--accent);
@@ -369,7 +369,7 @@ export const prerender = true;
   }
   .award-nominee__vote {
     flex-shrink: 0;
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.78rem;
     font-weight: 600;
     letter-spacing: 0.06em;
@@ -393,7 +393,7 @@ export const prerender = true;
     border-top: 1px dashed var(--border);
   }
   .award-detail__results-note {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.9rem;
     color: var(--soft);
     margin: 0.5rem 0 0;
@@ -404,7 +404,7 @@ export const prerender = true;
     padding: 1rem 1.1rem;
     border: 1px dashed var(--accent);
     background: rgba(167, 118, 55, 0.06);
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.95rem;
     color: var(--dark);
     display: flex;
@@ -412,7 +412,7 @@ export const prerender = true;
     gap: 0.85rem;
   }
   .award-detail__signin-button {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.78rem;
     font-weight: 600;
     letter-spacing: 0.06em;

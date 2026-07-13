@@ -378,7 +378,7 @@ const hasActions = !!resolvedSaveKind || trip || !!booking;
     padding: 0.3rem 0.45rem;
     background: var(--bg, #fff);
     border-radius: var(--radius-s, 4px);
-    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-family: var(--font-ui, var(--font-ui));
     line-height: var(--lh-label, 1.2);
   }
   .v5-card__date-day {
@@ -403,7 +403,7 @@ const hasActions = !!resolvedSaveKind || trip || !!booking;
   }
 
   .v5-card__mark {
-    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-family: var(--font-ui, var(--font-ui));
     font-size: var(--fs-100, 0.75rem);
     font-weight: var(--fw-semibold, 600);
     line-height: var(--lh-label, 1.2);
@@ -415,7 +415,7 @@ const hasActions = !!resolvedSaveKind || trip || !!booking;
 
   .v5-card__title {
     margin: 0;
-    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-family: var(--font-ui, var(--font-ui));
     font-size: var(--fs-600, clamp(1.375rem, 1.2rem + 0.8vw, 1.625rem));
     font-weight: var(--fw-semibold, 600);
     line-height: var(--lh-heading, 1.2);
@@ -442,7 +442,7 @@ const hasActions = !!resolvedSaveKind || trip || !!booking;
      it never gets muted colour and it is never a heading. */
   .v5-card__verdict {
     margin: 0;
-    font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+    font-family: var(--font-display, var(--font-display));
     font-style: italic;
     font-size: var(--fs-500, 1.1875rem);
     font-weight: var(--fw-display-em, 600);
@@ -458,7 +458,7 @@ const hasActions = !!resolvedSaveKind || trip || !!booking;
     flex-wrap: wrap;
     align-items: baseline;
     gap: 0.35rem;
-    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-family: var(--font-ui, var(--font-ui));
     font-size: var(--fs-200, 0.8125rem);
     line-height: var(--lh-ui, 1.4);
     color: var(--soft);
@@ -497,7 +497,7 @@ const hasActions = !!resolvedSaveKind || trip || !!booking;
     border: 1px solid var(--border);
     border-radius: 999px;
     cursor: pointer;
-    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-family: var(--font-ui, var(--font-ui));
     font-size: var(--fs-200, 0.8125rem);
     font-weight: var(--fw-semibold, 600);
     color: var(--soft);
@@ -570,7 +570,7 @@ const hasActions = !!resolvedSaveKind || trip || !!booking;
     border-color: transparent;
   }
   .v5-card--editorial .v5-card__title {
-    font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+    font-family: var(--font-display, var(--font-display));
     font-weight: var(--fw-display, 600);
     font-size: var(--fs-600, clamp(1.375rem, 1.2rem + 0.8vw, 1.625rem));
   }

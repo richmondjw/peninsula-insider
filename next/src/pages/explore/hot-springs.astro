@@ -330,7 +330,7 @@ export const prerender = true;
 
   /* Type primitives */
   .hs-eyebrow {
-    font-family: 'Outfit', system-ui, sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.68rem;
     font-weight: 600;
     letter-spacing: 0.24em;
@@ -343,7 +343,7 @@ export const prerender = true;
     margin-bottom: 1rem;
   }
   .hs-section-label {
-    font-family: 'Outfit', system-ui, sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.66rem;
     font-weight: 600;
     letter-spacing: 0.28em;
@@ -353,7 +353,7 @@ export const prerender = true;
     margin: 0 0 clamp(2rem, 4vw, 3rem);
   }
   .hs-link {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-style: italic;
     font-size: 1.15rem;
     color: #171413;
@@ -377,7 +377,7 @@ export const prerender = true;
     align-items: center;
   }
   .hs-hero__headline {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-size: clamp(2.6rem, 5.4vw, 4.8rem);
     font-weight: 500;
     line-height: 1.02;
@@ -387,7 +387,7 @@ export const prerender = true;
     max-width: 13ch;
   }
   .hs-hero__dek {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-size: clamp(1.1rem, 1.4vw, 1.3rem);
     line-height: 1.55;
     color: rgba(23, 20, 19, 0.78);
@@ -435,14 +435,14 @@ export const prerender = true;
     align-items: baseline;
   }
   .hs-answer__num {
-    font-family: 'Outfit', system-ui, sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.7rem;
     font-weight: 600;
     letter-spacing: 0.18em;
     color: #A0541F;
   }
   .hs-answer__text {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-size: 1.15rem;
     line-height: 1.45;
     color: #171413;
@@ -460,7 +460,7 @@ export const prerender = true;
     max-width: 36rem;
     margin: 0 auto clamp(4rem, 7vw, 6.5rem);
     text-align: center;
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-size: clamp(1.2rem, 1.5vw, 1.4rem);
     line-height: 1.55;
     color: rgba(23, 20, 19, 0.78);
@@ -492,7 +492,7 @@ export const prerender = true;
   }
   .hs-pair__visual:hover img { transform: scale(1.025); }
   .hs-pair__headline {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-size: clamp(1.9rem, 3.4vw, 3rem);
     font-weight: 500;
     line-height: 1.05;
@@ -501,14 +501,14 @@ export const prerender = true;
     margin: 0 0 0.5rem;
   }
   .hs-pair__location {
-    font-family: 'Outfit', system-ui, sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.78rem;
     letter-spacing: 0.04em;
     color: rgba(23, 20, 19, 0.55);
     margin: 0 0 1.5rem;
   }
   .hs-pair__dek {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-size: clamp(1.05rem, 1.3vw, 1.2rem);
     line-height: 1.55;
     color: rgba(23, 20, 19, 0.78);
@@ -526,7 +526,7 @@ export const prerender = true;
   }
   .hs-stats div { display: flex; flex-direction: column; gap: 0.2rem; }
   .hs-stats dt {
-    font-family: 'Outfit', system-ui, sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.62rem;
     font-weight: 600;
     letter-spacing: 0.22em;
@@ -535,7 +535,7 @@ export const prerender = true;
   }
   .hs-stats dd {
     margin: 0;
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-size: 1.05rem;
     line-height: 1.35;
     color: #171413;
@@ -548,7 +548,7 @@ export const prerender = true;
     border-block: 1px solid rgba(23, 20, 19, 0.08);
   }
   .hs-compare__title {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-size: clamp(2.1rem, 4vw, 3.4rem);
     font-weight: 500;
     line-height: 1.05;
@@ -557,7 +557,7 @@ export const prerender = true;
     text-align: center;
   }
   .hs-compare__dek {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-style: italic;
     font-size: clamp(1.05rem, 1.3vw, 1.2rem);
     line-height: 1.55;
@@ -574,7 +574,7 @@ export const prerender = true;
     background: #FFFFFF;
   }
   .hs-table thead th {
-    font-family: 'Outfit', system-ui, sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.7rem;
     font-weight: 600;
     letter-spacing: 0.22em;
@@ -585,7 +585,7 @@ export const prerender = true;
     border-bottom: 1px solid rgba(23, 20, 19, 0.16);
   }
   .hs-table tbody th {
-    font-family: 'Outfit', system-ui, sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.7rem;
     font-weight: 600;
     letter-spacing: 0.22em;
@@ -597,7 +597,7 @@ export const prerender = true;
     width: 30%;
   }
   .hs-table tbody td {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-size: clamp(1.05rem, 1.3vw, 1.2rem);
     color: #171413;
     padding: 1.4rem 1.5rem;
@@ -637,7 +637,7 @@ export const prerender = true;
   }
   .hs-card:hover .hs-card__thumb img { transform: scale(1.03); }
   .hs-card__title {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-size: clamp(1.35rem, 1.8vw, 1.7rem);
     font-weight: 500;
     line-height: 1.15;
@@ -645,7 +645,7 @@ export const prerender = true;
     margin: 0 0 0.6rem;
   }
   .hs-card__dek {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-size: 1rem;
     line-height: 1.5;
     color: rgba(23, 20, 19, 0.7);
@@ -655,7 +655,7 @@ export const prerender = true;
 
   /* ── Verified line ───────────────────────────────────────────── */
   .hs-verified {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-style: italic;
     font-size: 0.95rem;
     color: rgba(23, 20, 19, 0.55);
@@ -669,7 +669,7 @@ export const prerender = true;
     padding: 0 0 clamp(5rem, 8vw, 8rem);
   }
   .hs-faq__title {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-size: clamp(2rem, 3.6vw, 3rem);
     font-weight: 500;
     line-height: 1.05;
@@ -690,7 +690,7 @@ export const prerender = true;
   }
   .hs-faq__q { margin: 0 0 0.65rem; }
   .hs-faq__q h3 {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-size: clamp(1.3rem, 1.8vw, 1.55rem);
     font-weight: 500;
     line-height: 1.25;
@@ -699,7 +699,7 @@ export const prerender = true;
   }
   .hs-faq__a {
     margin: 0;
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-size: 1.1rem;
     line-height: 1.55;
     color: rgba(23, 20, 19, 0.75);

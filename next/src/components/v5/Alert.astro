@@ -166,7 +166,7 @@ const role = live ? (variant === 'warning' ? 'alert' : 'status') : undefined;
 
   .v5-alert__title {
     margin: 0;
-    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-family: var(--font-ui, var(--font-ui));
     font-size: var(--fs-100, 0.75rem);
     font-weight: var(--fw-semibold, 600);
     letter-spacing: 0.14em;
@@ -175,7 +175,7 @@ const role = live ? (variant === 'warning' ? 'alert' : 'status') : undefined;
   }
 
   .v5-alert__body {
-    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-family: var(--font-ui, var(--font-ui));
     font-size: var(--fs-300, 0.9375rem);
     line-height: var(--lh-ui, 1.4);
     color: var(--text);
@@ -185,7 +185,7 @@ const role = live ? (variant === 'warning' ? 'alert' : 'status') : undefined;
   }
 
   .v5-alert__action {
-    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-family: var(--font-ui, var(--font-ui));
     font-size: var(--fs-300, 0.9375rem);
     font-weight: var(--fw-medium, 500);
     color: var(--accent);

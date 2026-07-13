@@ -20,7 +20,7 @@
   border-radius: 999px;
   background: #faf7f0;
   color: #1a1a1a;
-  font: 600 0.75rem/1 'Outfit', system-ui, sans-serif;
+  font: 600 0.75rem/1 var(--font-ui);
   letter-spacing: 0.04em;
   text-transform: uppercase;
   cursor: pointer;
@@ -67,7 +67,7 @@ body[data-pi-edit-mode="on"] .pi-edit-toggle__dot {
   border-radius: 999px;
   background: #faf7f0;
   color: #1a1a1a;
-  font: 600 0.75rem/1 'Outfit', system-ui, sans-serif;
+  font: 600 0.75rem/1 var(--font-ui);
   letter-spacing: 0.04em;
   text-transform: uppercase;
   cursor: pointer;
@@ -120,7 +120,7 @@ body[data-pi-edit-mode="on"] [data-pi-edit]::before {
   top: -0.85rem;
   left: 0;
   padding: 0.15rem 0.4rem;
-  font: 600 0.6rem/1 'Outfit', system-ui, sans-serif;
+  font: 600 0.6rem/1 var(--font-ui);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #8b4e3b;
@@ -162,7 +162,7 @@ body[data-pi-edit-mode="on"] [data-pi-edit="image"][data-pi-uploading="1"]::afte
   background: #1a1a1a;
   color: #faf7f0;
   border-radius: 999px;
-  font: 600 0.7rem/1 'Outfit', system-ui, sans-serif;
+  font: 600 0.7rem/1 var(--font-ui);
   letter-spacing: 0.05em;
   text-transform: uppercase;
   z-index: 3;
@@ -197,7 +197,7 @@ body[data-pi-edit-mode="on"] [role="img"]:not([data-pi-edit]):not([data-pi-no-ed
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 0.75rem;
   box-shadow: 0 18px 50px rgba(0, 0, 0, 0.18), 0 4px 12px rgba(0, 0, 0, 0.06);
-  font: 400 0.85rem/1.35 'Outfit', system-ui, sans-serif;
+  font: 400 0.85rem/1.35 var(--font-ui);
   color: #1a1a1a;
   overflow: hidden;
   display: flex;
@@ -278,7 +278,7 @@ body[data-pi-edit-mode="on"] [role="img"]:not([data-pi-edit]):not([data-pi-no-ed
   color: #faf7f0;
   border: 0;
   border-radius: 0.5rem;
-  font: 600 0.8rem/1 'Outfit', system-ui, sans-serif;
+  font: 600 0.8rem/1 var(--font-ui);
   letter-spacing: 0.04em;
   cursor: pointer;
   transition: background 0.15s ease, transform 0.08s ease;
@@ -306,7 +306,7 @@ body[data-pi-edit-mode="on"] [role="img"]:not([data-pi-edit]):not([data-pi-no-ed
   color: #1a1a1a;
   border: 1px solid rgba(139, 78, 59, 0.24);
   border-radius: 0.5rem;
-  font: 600 0.78rem/1 'Outfit', system-ui, sans-serif;
+  font: 600 0.78rem/1 var(--font-ui);
   letter-spacing: 0.04em;
   text-decoration: none;
   cursor: pointer;
@@ -315,7 +315,7 @@ body[data-pi-edit-mode="on"] [role="img"]:not([data-pi-edit]):not([data-pi-no-ed
 
 .pi-edit-panel__library-link {
   color: #8b4e3b;
-  font: 600 0.68rem/1 'Outfit', system-ui, sans-serif;
+  font: 600 0.68rem/1 var(--font-ui);
   letter-spacing: 0.03em;
   text-decoration: none;
   white-space: nowrap;
@@ -346,7 +346,7 @@ body[data-pi-edit-mode="on"] [role="img"]:not([data-pi-edit]):not([data-pi-no-ed
   color: #1a1a1a;
   border: 1px dashed rgba(139, 78, 59, 0.5);
   border-radius: 0.45rem;
-  font: 400 0.75rem/1.25 'Outfit', system-ui, sans-serif;
+  font: 400 0.75rem/1.25 var(--font-ui);
   letter-spacing: 0.02em;
   cursor: pointer;
   transition: background 0.15s ease, border-color 0.15s ease;
@@ -426,7 +426,7 @@ body[data-pi-edit-mode="on"] [role="img"]:not([data-pi-edit]):not([data-pi-no-ed
   padding: 0.5rem 0.65rem;
   border: 1px solid rgba(0, 0, 0, 0.14);
   border-radius: 0.4rem;
-  font: 400 0.78rem/1.2 'Outfit', system-ui, sans-serif;
+  font: 400 0.78rem/1.2 var(--font-ui);
 }
 
 .pi-edit-panel__picker-count {
@@ -485,7 +485,7 @@ body[data-pi-edit-mode="on"] [role="img"]:not([data-pi-edit]):not([data-pi-no-ed
 .pi-edit-panel__media-name {
   margin-top: 0.4rem;
   color: #1a1a1a;
-  font: 600 0.68rem/1.2 'Outfit', system-ui, sans-serif;
+  font: 600 0.68rem/1.2 var(--font-ui);
 }
 
 .pi-edit-panel__media-meta {
@@ -526,7 +526,7 @@ body[data-pi-edit-mode="on"] [role="img"]:not([data-pi-edit]):not([data-pi-no-ed
 }
 
 .pi-edit-panel__field input {
-  font: 400 0.85rem/1.3 'Outfit', system-ui, sans-serif;
+  font: 400 0.85rem/1.3 var(--font-ui);
   padding: 0.55rem 0.7rem;
   background: #fff;
   border: 1px solid rgba(0, 0, 0, 0.12);
@@ -554,7 +554,7 @@ body[data-pi-edit-mode="on"] [role="img"]:not([data-pi-edit]):not([data-pi-no-ed
 .pi-edit-panel__btn {
   padding: 0.5rem 0.95rem;
   border-radius: 0.4rem;
-  font: 600 0.75rem/1 'Outfit', system-ui, sans-serif;
+  font: 600 0.75rem/1 var(--font-ui);
   letter-spacing: 0.05em;
   text-transform: uppercase;
   cursor: pointer;
@@ -588,7 +588,7 @@ body[data-pi-edit-mode="on"] [role="img"]:not([data-pi-edit]):not([data-pi-no-ed
   background: #1a1a1a;
   color: #faf7f0;
   border-radius: 999px;
-  font: 500 0.8rem/1 'Outfit', system-ui, sans-serif;
+  font: 500 0.8rem/1 var(--font-ui);
   letter-spacing: 0.03em;
   z-index: 10001;
   opacity: 0;
@@ -668,7 +668,7 @@ body[data-pi-edit-mode="on"] [data-pi-prose-root] [data-pi-block-id].pi-block-ed
   color: #faf7f0;
   border-radius: 0.5rem;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25), 0 2px 6px rgba(0, 0, 0, 0.15);
-  font: 500 0.78rem/1 'Outfit', system-ui, sans-serif;
+  font: 500 0.78rem/1 var(--font-ui);
   letter-spacing: 0.02em;
   user-select: none;
   animation: piBlockToolbarIn 0.12s ease-out both;
@@ -750,7 +750,7 @@ body[data-pi-edit-mode="on"] [data-pi-prose-root] [data-pi-block-id].pi-block-ed
   border-radius: 0.6rem;
   box-shadow: 0 18px 50px rgba(0, 0, 0, 0.18), 0 4px 12px rgba(0, 0, 0, 0.08);
   padding: 0.85rem;
-  font: 400 0.85rem/1.35 'Outfit', system-ui, sans-serif;
+  font: 400 0.85rem/1.35 var(--font-ui);
   color: #1a1a1a;
   animation: piBlockToolbarIn 0.14s ease-out both;
 }
