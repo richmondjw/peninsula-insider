@@ -14,8 +14,11 @@ import { routeSlug, formatLabel } from '../../../lib/editorial';
 import { resolveHero } from '../../../lib/inline-edit/resolve-hero';
 import { editableImage } from '../../../lib/inline-edit/attrs';
 
+// The homepage flagship feature is an editorial piece, not a weekend-picker
+// dispatch or a B2B service page (past-dated event guides are dropped by
+// clearing their `featured` flag).
 const published = (await getCollection('articles', ({ data }) => data.status === 'published'))
-  .filter((a) => a.data.format !== 'weekend-picker')
+  .filter((a) => a.data.format !== 'weekend-picker' && a.data.format !== 'service')
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
 
 const lead = published.find((a) => a.data.featured) ?? published[0];

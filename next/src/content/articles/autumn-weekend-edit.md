@@ -14,7 +14,7 @@ tags: ["autumn", "red-hill", "long-lunch", "walks", "weekend"]
 relatedVenues: ["tedesca-osteria", "montalto", "lindenderry", "ten-minutes-by-tractor", "morning-sun", "paringa-estate", "crittenden-restaurant", "bistro-elba", "allis-wine-bar", "many-little"]
 relatedExperiences: ["bushrangers-bay-walk", "red-hill-market"]
 readingTimeMinutes: 8
-featured: true
+featured: false
 status: "published"
 lastVerified: 2026-04-22
 clusterLinks:

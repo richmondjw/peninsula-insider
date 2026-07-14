@@ -15,7 +15,7 @@ tags: ["winter", "solstice", "festival", "sorrento", "event-guide", "weekend-pic
 relatedVenues: ["hotel-sorrento", "continental-sorrento", "sorrento-back-beach"]
 relatedEvents: ["sorrento-solstice-festival-2026"]
 readingTimeMinutes: 7
-featured: true
+featured: false
 status: "published"
 lastVerified: 2026-06-15
 ---

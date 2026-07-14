@@ -265,9 +265,9 @@ export const v5DrawerItems: V5DrawerItem[] = [
 /** The one CTA permitted in the drawer. */
 export const v5DrawerCta = {
   key: 'dispatch',
-  label: 'The Dispatch',
+  label: 'The Insider Note',
   dek: "The Sunday email. What's worth your weekend, chosen by PI.",
-  ctaLabel: 'Join the Dispatch',
+  ctaLabel: 'Join The Insider Note',
   href: '/dispatch/',
 };
 

@@ -57,12 +57,12 @@ const isHome = Astro.url.pathname === '/';
       </nav>
 
       <div class="v5-foot__dispatch">
-        <h2 class="v5-foot__col-title">The Dispatch</h2>
+        <h2 class="v5-foot__col-title">The Insider Note</h2>
         <p class="v5-foot__dispatch-dek">
           Sunday, one email, what's worth your weekend.
         </p>
         {isHome
-          ? <p class="v5-foot__dispatch-dek"><a href="/dispatch/">Join the Dispatch</a></p>
+          ? <p class="v5-foot__dispatch-dek"><a href="/dispatch/">Join The Insider Note</a></p>
           : <SubscribeForm variant="light" source="footer" />}
       </div>
     </div>
