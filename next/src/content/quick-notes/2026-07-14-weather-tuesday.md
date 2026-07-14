@@ -1,5 +1,5 @@
 ---
-headline: "Weather — another wet morning at Main Ridge, the dry window opens tomorrow and holds through the weekend."
+headline: "Weather - another wet morning at Main Ridge, the dry window opens tomorrow and holds through the weekend."
 dek: "Nine point seven degrees at half past six with a west-north-westerly at twenty-two kilometres per hour and light drizzle falling. Today carries ninety-eight percent rain probability and over five millimetres expected. Tomorrow drops to six percent."
 section: weather
 tag: weather
@@ -19,6 +19,6 @@ Main Ridge is sitting at nine point seven degrees at half past six on Tuesday mo
 
 What changes is what comes after.
 
-Wednesday arrives as the week's reset: rain probability falls to six percent, the wind backs off to under sixteen kilometres per hour, and the forecast carries only a trace of moisture. Thursday carries a forty-one percent chance, which is the kind of number that means you pack a layer but probably stay dry. Then Friday, Saturday, and Sunday come in completely clear — zero probability on all three days, light winds, and the overcast calm that makes July on the Peninsula feel like the right time to visit rather than the wrong one.
+Wednesday arrives as the week's reset: rain probability falls to six percent, the wind backs off to under sixteen kilometres per hour, and the forecast carries only a trace of moisture. Thursday carries a forty-one percent chance, which is the kind of number that means you pack a layer but probably stay dry. Then Friday, Saturday, and Sunday come in completely clear - zero probability on all three days, light winds, and the overcast calm that makes July on the Peninsula feel like the right time to visit rather than the wrong one.
 
 The weekend of the 18th and 19th is the window. If a longer Peninsula trip is on the table, the second half of this week and the upcoming weekend are where the conditions sit. Today is an indoor day. Tomorrow starts the change.

@@ -1,5 +1,5 @@
 ---
-headline: "Editor's note — a wet Sunday concentrates the Peninsula into one deliberate choice."
+headline: "Editor's note - a wet Sunday concentrates the Peninsula into one deliberate choice."
 dek: "Mid-July rain removes the itinerary problem. The question on a morning like this is not what to do with the day, but which single thing is worth building it around."
 section: note
 tag: editor-note

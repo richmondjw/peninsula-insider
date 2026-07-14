@@ -361,7 +361,7 @@ def enrich_venue(slug):
     if missing_hours and re.search(r'appointment\s*[- ]?only|by appointment|appointment essential|appointments essential', local_text):
         updates['openingHours'] = []
         updates['bookingRequired'] = True
-        updates['bookingNotes'] = 'By appointment only — contact the venue directly.'
+        updates['bookingNotes'] = 'By appointment only - contact the venue directly.'
         evidence['openingHours'] = 'local-editorial-copy'
     candidates = []
     seed_urls = []

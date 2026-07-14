@@ -1,5 +1,5 @@
 ---
-headline: "Peninsula Hot Springs — the wet Tuesday argument for booking today rather than waiting for the weekend."
+headline: "Peninsula Hot Springs - the wet Tuesday argument for booking today rather than waiting for the weekend."
 dek: "Bathing sessions are available today with the week's consistent program running through July. With the weekend now likely to be busy as the dry window arrives, Tuesday carries its own logic."
 section: spa
 tag: opening-window

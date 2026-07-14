@@ -1,6 +1,6 @@
 ---
 title: "Peninsula This Weekend - 11 to 12 July"
-dek: "A proper wet winter weekend concentrates everything. The answer on a day like this is one indoor booking with some real weight to it — truffle country, a long lunch, or the pools when the air outside is genuinely cold."
+dek: "A proper wet winter weekend concentrates everything. The answer on a day like this is one indoor booking with some real weight to it - truffle country, a long lunch, or the pools when the air outside is genuinely cold."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-07-10
@@ -24,13 +24,13 @@ clusterLinks:
   - label: "Things to Do on the Mornington Peninsula"
     href: "/journal/things-to-do-mornington-peninsula/"
 dispatch:
-  editorLine: "A wet winter weekend removes the itinerary problem. The question is not what to do with the day — it is which one thing is worth building it around."
+  editorLine: "A wet winter weekend removes the itinerary problem. The question is not what to do with the day - it is which one thing is worth building it around."
   weather: "Mid-July on the Peninsula is proper winter: this weekend brings heavy cloud, rain through Sunday, north-westerly winds, and a top of around twelve. Check the Bureau before committing to anything that depends on the coast being comfortable."
   lead:
     title: "Peninsula Hot Springs, Rye"
     when: "Saturday 11 and Sunday 12 July, booking required"
     where: "Peninsula Hot Springs, Springs Lane, Rye"
-    summary: "The clearest call on the weekend's cold-weather calendar. Rain and a north-westerly wind at over thirty kilometres per hour make the thermal contrast sharper, not less appealing. Sound Healing Sessions and Daily Studio Yoga are both on the weekly timetable and fold into a bathing visit without requiring a separate booking sequence. Sunday is a popular day — book ahead rather than arriving speculatively."
+    summary: "The clearest call on the weekend's cold-weather calendar. Rain and a north-westerly wind at over thirty kilometres per hour make the thermal contrast sharper, not less appealing. Sound Healing Sessions and Daily Studio Yoga are both on the weekly timetable and fold into a bathing visit without requiring a separate booking sequence. Sunday is a popular day - book ahead rather than arriving speculatively."
     bookingLabel: "Book via Peninsula Hot Springs"
     bookingUrl: "https://www.peninsulahotsprings.com/bathing"
     eventRef: ""
@@ -47,16 +47,16 @@ dispatch:
     when: "Running through July, free entry"
     where: "Mornington Peninsula Regional Gallery, Dunns Road, Mornington"
     price: "Free"
-    summary: "The National Works on Paper survey is MPRG's anchor winter show. It is the right indoor answer when you want something with some cultural weight rather than just a dry space to be in — a proper gallery survey, national scope, and free to enter."
+    summary: "The National Works on Paper survey is MPRG's anchor winter show. It is the right indoor answer when you want something with some cultural weight rather than just a dry space to be in - a proper gallery survey, national scope, and free to enter."
     bookingLabel: "See gallery programme"
     bookingUrl: "https://www.mornpen.vic.gov.au/Arts-Culture/Mornington-Peninsula-Regional-Gallery"
     eventRef: ""
   weekendShape: "If you want the weekend to have one clear centre, book the hot springs and treat everything else as optional. If a long lunch is more your weekend shape, Stonier gives you the fire and the time to use it. If the family needs a gallery morning, MPRG is the answer that does not require a booking."
 faq:
   - question: "What is on this weekend on the Mornington Peninsula, 11–12 July 2026?"
-    answer: "The weekend is cold and wet — a proper mid-July pattern. The clearest bookings are Peninsula Hot Springs in Rye (with Sound Healing and Yoga on the weekly timetable) and a Fire and Wine Winter Lunch at Stonier Wines in Merricks on Sunday. National Works on Paper at MPRG is the free indoor gallery option running through the month. Red Hill Truffles and Flinders Truffles are both open through the winter season."
+    answer: "The weekend is cold and wet - a proper mid-July pattern. The clearest bookings are Peninsula Hot Springs in Rye (with Sound Healing and Yoga on the weekly timetable) and a Fire and Wine Winter Lunch at Stonier Wines in Merricks on Sunday. National Works on Paper at MPRG is the free indoor gallery option running through the month. Red Hill Truffles and Flinders Truffles are both open through the winter season."
   - question: "Is Peninsula Hot Springs worth visiting in the rain?"
-    answer: "Yes — the thermal contrast is sharper when the air outside is genuinely cold and wet. Sound Healing Sessions and Daily Studio Yoga are both available through the week and fold into a bathing visit. Sunday is popular so book ahead."
+    answer: "Yes - the thermal contrast is sharper when the air outside is genuinely cold and wet. Sound Healing Sessions and Daily Studio Yoga are both available through the week and fold into a bathing visit. Sunday is popular so book ahead."
   - question: "What is the best rainy-day plan on the Peninsula this weekend?"
     answer: "For a cultural indoor option, National Works on Paper at Mornington Peninsula Regional Gallery is free and runs through July. For something more active, Peninsula Hot Springs in Rye is the clearest call when the weather has already decided the day is a cold one."
 ---
@@ -71,7 +71,7 @@ A bath that feels better when the air outside is cold and moving fast. A cellar 
 
 ### Peninsula Hot Springs, Rye
 
-The thermal contrast is the point on a weekend like this. Nine degrees outside, rain building through the morning, a north-westerly that makes the coast feel considerably colder than the thermometer says — and the pools at a fixed temperature regardless.
+The thermal contrast is the point on a weekend like this. Nine degrees outside, rain building through the morning, a north-westerly that makes the coast feel considerably colder than the thermometer says - and the pools at a fixed temperature regardless.
 
 Sound Healing Sessions and Daily Studio Yoga are both on the timetable through the week. They fold into a standard bathing visit without requiring a separate booking layer, which is the better way to use them.
 
@@ -89,7 +89,7 @@ This is the right Sunday answer if the week has been busy and the weekend needs 
 
 ### National Works on Paper, Mornington Peninsula Regional Gallery
 
-MPRG's winter anchor show — a national survey of works on paper, free entry, running through July. This is the indoor plan that still feels like you did something rather than just waiting for the rain to stop.
+MPRG's winter anchor show - a national survey of works on paper, free entry, running through July. This is the indoor plan that still feels like you did something rather than just waiting for the rain to stop.
 
 The gallery is the right call for a morning or early afternoon when you want cultural weight without the admission question. You can move between it and Mornington foreshore or lunch from here without making a whole-day thing of it.
 

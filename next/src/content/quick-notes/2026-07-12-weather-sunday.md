@@ -1,5 +1,5 @@
 ---
-headline: "Weather — a committed wet Sunday at Main Ridge, the week's dry window arrives mid-week."
+headline: "Weather - a committed wet Sunday at Main Ridge, the week's dry window arrives mid-week."
 dek: "Nine degrees at 6:30am with a north-westerly at thirty-one kilometres per hour. Today carries one-hundred percent rain probability and nearly eight millimetres expected. Wednesday is the first properly dry day."
 section: weather
 tag: weather
@@ -19,6 +19,6 @@ Main Ridge is sitting at nine degrees at half past six on Sunday morning, with a
 
 This is not a day that offers outdoor options easily. The question it answers instead is which of the Peninsula's indoor experiences make sense when the weather removes the rest.
 
-The week ahead is worth knowing. Monday carries more rain still — nearly eleven millimetres and a thunderstorm signal, the strongest weathercode of the week. Tuesday continues wet at four and a half millimetres. Wednesday is where the change sits: zero precipitation, the probability drops to three percent, and the wind backs off to sixteen kilometres per hour. Thursday through the weekend of the 18th and 19th is the dry window — both weekend days come in at zero probability with calm winds and overcast skies.
+The week ahead is worth knowing. Monday carries more rain still - nearly eleven millimetres and a thunderstorm signal, the strongest weathercode of the week. Tuesday continues wet at four and a half millimetres. Wednesday is where the change sits: zero precipitation, the probability drops to three percent, and the wind backs off to sixteen kilometres per hour. Thursday through the weekend of the 18th and 19th is the dry window - both weekend days come in at zero probability with calm winds and overcast skies.
 
 If you are planning a longer Peninsula visit, the second half of the week and next weekend are where the forecast opens up. Today and tomorrow are indoor days.

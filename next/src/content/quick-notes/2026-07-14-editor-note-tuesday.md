@@ -1,6 +1,6 @@
 ---
-headline: "Editor's note — a second wet morning, and why the mid-week reset matters."
-dek: "Two consecutive wet days concentrates the Peninsula into its most useful form. The question is not whether to wait — Wednesday answers that — but what to do with the time between now and then."
+headline: "Editor's note - a second wet morning, and why the mid-week reset matters."
+dek: "Two consecutive wet days concentrates the Peninsula into its most useful form. The question is not whether to wait - Wednesday answers that - but what to do with the time between now and then."
 section: note
 tag: editor-note
 publishedAt: 2026-07-14T06:37:00+10:00
@@ -17,7 +17,7 @@ status: published
 ---
 A second wet morning asks a slightly different question than the first one did.
 
-On Sunday and Monday the weather made the decision: stay indoors, find one thing worth committing to, and stop trying to fit an outdoor Peninsula itinerary around rain that was not going to stop. Tuesday holds the same forecast — ninety-eight percent probability, over five millimetres, strong winds through the day — but the forecast also shows clearly what is coming.
+On Sunday and Monday the weather made the decision: stay indoors, find one thing worth committing to, and stop trying to fit an outdoor Peninsula itinerary around rain that was not going to stop. Tuesday holds the same forecast - ninety-eight percent probability, over five millimetres, strong winds through the day - but the forecast also shows clearly what is coming.
 
 Wednesday clears. The weekend of the 18th and 19th arrives fully dry.
 
