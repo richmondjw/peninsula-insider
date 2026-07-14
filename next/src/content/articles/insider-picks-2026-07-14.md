@@ -14,7 +14,7 @@ tags: [insider-picks, winter, weekly, peninsula]
 relatedVenues: [quealy-winemakers]
 relatedExperiences: []
 readingTimeMinutes: 4
-featured: false
+featured: true
 status: "published"
 lastVerified: 2026-07-14
 agentRun: 2026-07-14-daily
