@@ -2,9 +2,9 @@
 
 **North star:** Become the number-1 destination — for people and AI agents — for what's on, and where to stay, eat, drink and explore on the Mornington Peninsula.
 
-**Loop health:** 🟡 warning — Loop may be slipping: 2 days since last snapshot.
+**Loop health:** 🟢 healthy — Actions recorded but none re-measured yet — learning signal not flowing (expected until GSC re-crawls the actioned pages).
 
-**Generated:** 2026-07-14 06:57 AEST  
+**Generated:** 2026-07-16 07:02 AEST  
 **Season:** Winter  
 **Inputs used:** gsc-search-analytics, gsc-coverage, sitemap-inventory, events-calendar:7-upcoming, seasonal-calendar:winter  
 
@@ -23,7 +23,7 @@
 
 ## Day-over-day (is the strategy improving?)
 
-_Compared with 2026-07-12._
+_Compared with 2026-07-15._
 
 - Average position held by 0.00.
 - Clicks flat 0 vs last snapshot.
@@ -88,24 +88,24 @@ Ranked by the strategy model (performance + season + coverage + effort). The orc
 - **Why:** 'mornington cup 2026 date' ranks avg position 8.8 on 23 impressions — small, targeted improvement could reach page 1 and start earning clicks.
 - **Do:** Strengthen the ranking page for this exact query: expand the relevant section, add an FAQ answer, tighten the H1/intro, add internal links from related hub pages.
 
-### 7. [EVENT · score 2.992] Preview: Southern Peninsula Sleepout at The Ranch Adventure Park (17d out)
+### 7. [EVENT · score 2.992] Preview: Southern Peninsula Sleepout at The Ranch Adventure Park (15d out)
 - **Desk:** dispatch-desk
-- **Why:** Southern Peninsula Sleepout at The Ranch Adventure Park is 17 days out (2026-07-31, Boneo) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** Southern Peninsula Sleepout at The Ranch Adventure Park is 15 days out (2026-07-31, Boneo) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 8. [EVENT · score 2.992] Preview: Country Day at Tar Barrel (19d out)
+### 8. [EVENT · score 2.992] Preview: Country Day at Tar Barrel (17d out)
 - **Desk:** dispatch-desk
-- **Why:** Country Day at Tar Barrel is 19 days out (2026-08-02, Mornington) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** Country Day at Tar Barrel is 17 days out (2026-08-02, Mornington) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 9. [EVENT · score 2.992] Preview: Stonier Fire & Wine Winter Lunch (26d out)
+### 9. [EVENT · score 2.992] Preview: Stonier Fire & Wine Winter Lunch (24d out)
 - **Desk:** dispatch-desk
-- **Why:** Stonier Fire & Wine Winter Lunch is 26 days out (2026-08-09, Merricks) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** Stonier Fire & Wine Winter Lunch is 24 days out (2026-08-09, Merricks) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 10. [EVENT · score 2.992] Preview: Red Hill Brewery Secret Stash Weekend (32d out)
+### 10. [EVENT · score 2.992] Preview: Red Hill Brewery Secret Stash Weekend (30d out)
 - **Desk:** dispatch-desk
-- **Why:** Red Hill Brewery Secret Stash Weekend is 32 days out (2026-08-15, Other Mornington Peninsula) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** Red Hill Brewery Secret Stash Weekend is 30 days out (2026-08-15, Other Mornington Peninsula) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
 ### 11. [RANK · score 2.883] Push 'dog friendly guide mornington peninsula' onto page 1

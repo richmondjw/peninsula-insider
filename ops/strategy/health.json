@@ -1,8 +1,7 @@
 {
-  "status": "warning",
-  "checked": "2026-07-14",
+  "status": "ok",
+  "checked": "2026-07-16",
   "notes": [
-    "Loop may be slipping: 2 days since last snapshot.",
     "Actions recorded but none re-measured yet \u2014 learning signal not flowing (expected until GSC re-crawls the actioned pages)."
   ]
 }
