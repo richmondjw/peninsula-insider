@@ -183,6 +183,12 @@ const resolved = await Promise.all(
     text-decoration: none;
     color: var(--white);
   }
+  /* Small phones: 2-up tiles get too cramped (long verdict lines overflow),
+     so drop to a single wider tile with tighter padding. */
+  @media (max-width: 26em) {
+    .home-doors__grid { grid-template-columns: 1fr; }
+    .home-doors__card { aspect-ratio: 16 / 10; padding: var(--space-4); }
+  }
 
   .home-doors__card:focus-visible {
     outline: 2px solid var(--focus-ring-color-inverse);

@@ -448,7 +448,9 @@ const hasActions = !!resolvedSaveKind || trip || !!booking;
   }
   .v5-card__link:focus-visible {
     outline: var(--focus-ring);
-    outline-offset: 2px;
+    /* Inset ring: the card clips overflow, so a positive offset would hide
+       the focus outline at the card edge. Draw it just inside instead. */
+    outline-offset: -3px;
   }
 
   /* Verdict: the product line. Figtree italic (NO serif), muted slate. */

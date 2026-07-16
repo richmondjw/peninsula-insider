@@ -23,7 +23,6 @@ import type { DirectoryRowItem } from '../../components/v5/hub/DirectoryRows.ast
 import JournalModule from '../../components/v5/hub/JournalModule.astro';
 import AskBand from '../../components/v5/hub/AskBand.astro';
 import FilterBar from '../../components/v5/FilterBar.astro';
-import MapToggle from '../../components/v5/MapToggle.astro';
 import { routeSlug, resolveHeroSrc, hasOwnHeroImage } from '../../lib/editorial';
 import { getFacets } from '../../lib/facets';
 import { loadOverrides } from '../../lib/inline-edit/overrides';
@@ -272,7 +271,6 @@ export const prerender = true;
        directory (URL-persisted; restoration per pi:restore:v1 contract). -->
   <div class="container">
     <FilterBar surface="eat" noun="places" label="Filter places to eat" sticky>
-      <MapToggle />
     </FilterBar>
   </div>
 

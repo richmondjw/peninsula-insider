@@ -329,7 +329,7 @@ const touristDestination = {
     }
     :global(.region-venues .experience-card__cta) { margin-top: 18px; }
     .region-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 22px; }
-    .region-tab { font-family: var(--font-ui); font-weight: 500; font-size: var(--fs-200); padding: 7px 16px; border: 1.5px solid var(--border); border-radius: var(--radius-pill); background: transparent; color: var(--text); cursor: pointer; transition: background var(--dur-fast), border-color var(--dur-fast), color var(--dur-fast); }
+    .region-tab { display: inline-flex; align-items: center; min-height: 44px; font-family: var(--font-ui); font-weight: 500; font-size: var(--fs-200); padding: 7px 16px; border: 1.5px solid var(--border); border-radius: var(--radius-pill); background: transparent; color: var(--text); cursor: pointer; transition: background var(--dur-fast), border-color var(--dur-fast), color var(--dur-fast); }
     .region-tab.is-active, .region-tab:hover { background: var(--accent); border-color: var(--accent); color: var(--white); }
     .region-grid__item[hidden] { display: none; }
     .region-adjacent__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 44px; }

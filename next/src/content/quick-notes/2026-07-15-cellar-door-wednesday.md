@@ -2,7 +2,7 @@
 headline: "Cellar doors - the mid-week clearing argument for a long lunch today rather than waiting for Saturday."
 dek: "The wet week ends and the fires are still lit. Wednesday is the quieter version of the same cellar door experience the weekend will offer, without the competition for tables."
 section: wine
-tag: cellar-door
+tag: editor-note
 publishedAt: 2026-07-15T06:35:00+10:00
 expiresAt: 2026-07-15T23:59:00+10:00
 verifiedAt: 2026-07-15T06:35:00+10:00

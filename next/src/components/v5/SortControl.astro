@@ -41,7 +41,7 @@ const uid = 'v5-sort-' + Math.random().toString(36).slice(2, 8);
   }
   .v5-sort__select {
     font-family: inherit;
-    font-size: 0.85rem;
+    font-size: var(--fs-400); /* 17px: >=16px prevents iOS focus-zoom on native select */
     color: var(--text);
     background: var(--white);
     border: 1px solid var(--border);

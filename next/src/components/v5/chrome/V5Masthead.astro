@@ -254,7 +254,7 @@ const active = activePillar(path, section);
     display: inline-flex;
     align-items: center;
     gap: var(--space-2);
-    min-height: 42px;
+    min-height: 44px;
     padding: 0 var(--space-4);
     border: 1.5px solid var(--border-strong);
     border-radius: var(--radius-pill);
@@ -279,7 +279,7 @@ const active = activePillar(path, section);
     align-items: center;
     justify-content: center;
     gap: var(--space-2);
-    min-height: 42px;
+    min-height: 44px;
     padding: 0 var(--space-3);
     background: transparent;
     border: 1.5px solid var(--border);
@@ -389,6 +389,11 @@ const active = activePillar(path, section);
       padding: 0;
       border: 1.5px solid var(--border);
       color: var(--text);
+    }
+    /* Mobile: the burger is the only nav entry point; guarantee a 44px target. */
+    .v5-utilbtn {
+      min-width: 44px;
+      min-height: 44px;
     }
   }
 </style>

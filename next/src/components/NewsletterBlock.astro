@@ -368,8 +368,8 @@ const showPreview = !hidePreview && resolvedHeadline && resolvedPicks.length > 0
   .v2-newsletter__input {
     flex: 1;
     padding: 1rem 1.5rem;
-    font-family: var(--sans, 'Inter', system-ui, sans-serif);
-    font-size: 0.95rem;
+    font-family: var(--font-ui);
+    font-size: var(--fs-400); /* 17px: >=16px prevents iOS focus-zoom */
     background: transparent;
     color: var(--paper, #FAF7F0);
     border: none;

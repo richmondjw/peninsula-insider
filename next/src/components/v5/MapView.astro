@@ -514,7 +514,9 @@ const chips: { key: FacetKey; value: string; label: string }[] = standalone
     display: none;
     position: absolute;
     top: var(--space-3, 0.75rem);
-    left: var(--space-3, 0.75rem);
+    /* Top-right so it clears Leaflet's top-left zoom control on mobile
+       (both were stacking in the same corner and overlapping). */
+    right: var(--space-3, 0.75rem);
     z-index: 900;
     font-family: var(--font-ui, var(--font-ui));
     font-size: var(--fs-300, 0.9375rem);

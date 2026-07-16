@@ -95,7 +95,9 @@ const presets = CHIP_PRESETS[surface] ?? [];
   }
   .v5-filterbar--sticky {
     position: sticky;
-    top: 0;
+    /* Sit below the sticky masthead (its measured height is published as
+       --masthead-h on <html> by BaseLayout) rather than jamming under it. */
+    top: var(--masthead-h, 0px);
     z-index: 40;
   }
   .v5-filterbar__row {
@@ -127,6 +129,13 @@ const presets = CHIP_PRESETS[surface] ?? [];
     align-items: center;
     gap: 0.5rem;
     flex: 0 0 auto;
+  }
+  /* Mobile: give the intent-chip scroller the full row width by dropping the
+     sort/utility controls onto their own line instead of crushing the chips. */
+  @media (max-width: 560px) {
+    .v5-filterbar__row { flex-wrap: wrap; }
+    .v5-filterbar__scroll { order: 1; flex-basis: 100%; }
+    .v5-filterbar__end { order: 2; flex-basis: 100%; justify-content: flex-end; }
   }
   .v5-filterbar__chip {
     font-family: var(--font-ui);
