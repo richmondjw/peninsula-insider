@@ -16,10 +16,17 @@ staged=$(git diff --cached --name-only --diff-filter=ACM \
 # block the commit (the deploy gate remains as the backstop).
 command -v node >/dev/null 2>&1 || exit 0
 
-# The linter runs from next/ and expects paths relative to it.
+# The fixers run from next/ and expect paths relative to it.
 rel=$(printf '%s\n' "$staged" | sed 's#^next/##')
-( cd next && printf '%s\n' "$rel" | xargs node scripts/lint-house-style.mjs --fix ) || exit 0
 
-# Re-stage anything the fixer rewrote so the fixes are part of this commit.
+# 1. House style: auto-fix em-dashes in all staged reader-facing content.
+( cd next && printf '%s\n' "$rel" | xargs node scripts/lint-house-style.mjs --fix ) || true
+
+# 2. Content schema: fix the recurring quick-note breaks (invalid tag enum,
+#    over-length verdict) that hard-fail the astro build.
+qn=$(printf '%s\n' "$rel" | grep -E '^src/content/quick-notes/.*\.md$' || true)
+[ -n "$qn" ] && ( cd next && printf '%s\n' "$qn" | xargs node scripts/fix-content-schema.mjs ) || true
+
+# Re-stage anything the fixers rewrote so the fixes are part of this commit.
 printf '%s\n' "$staged" | xargs git add >/dev/null 2>&1 || true
 exit 0

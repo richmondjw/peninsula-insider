@@ -2,12 +2,12 @@
 headline: "Coastal walks - the calm and overcast Friday argument for the cliff tracks and foreshore paths today."
 dek: "Five point seven kilometres per hour at Main Ridge this morning and zero rain probability through the weekend. Overcast and still is often the best version of the Peninsula coast."
 section: explore
-tag: explore
+tag: weather
 publishedAt: 2026-07-17T06:40:00+10:00
 expiresAt: 2026-07-17T23:59:00+10:00
 verifiedAt: 2026-07-17T06:40:00+10:00
 verifiedBy: editor
-verdict: "Calm conditions on Friday morning make today one of the better days for the Peninsula's coastal and cliff-top tracks. The four-day dry block means Saturday and Sunday hold the same."
+verdict: "Calm conditions on Friday morning make today one of the better days for the Peninsula's coastal and cliff-top tracks."
 sources:
   - kind: gov
     url: "https://api.open-meteo.com/v1/forecast?latitude=-38.40&longitude=145.00&daily=precipitation_sum,precipitation_probability_max,temperature_2m_max,temperature_2m_min,windspeed_10m_max,weathercode&current_weather=true&timezone=Australia%2FMelbourne&forecast_days=7"
