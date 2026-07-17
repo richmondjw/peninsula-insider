@@ -51,6 +51,9 @@ jobs:
         run: |
           git config user.name "Peninsula Insider Engine"
           git config user.email "engine@peninsulainsider.com.au"
+          # Auto-fix BRAND-PI house style (em-dashes) on staged content before
+          # the engine commits, so generated content can't break the deploy.
+          git config core.hooksPath .githooks
 
       - name: Run deep seasonal research
         env:
