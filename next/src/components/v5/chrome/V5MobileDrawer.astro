@@ -143,6 +143,10 @@ const groups = [
     flex-direction: column;
     background: var(--bg);
     overflow-y: auto;
+    /* Contain scroll so the page behind the full-screen drawer cannot
+       rubber-band on iOS; clear the status bar / notch under viewport-fit. */
+    overscroll-behavior: contain;
+    padding-top: env(safe-area-inset-top);
     -webkit-overflow-scrolling: touch;
     transform: translateX(8%);
     opacity: 0;

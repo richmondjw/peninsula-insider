@@ -210,13 +210,17 @@ const active = activePillar(path, section);
     -webkit-backdrop-filter: saturate(1.4) blur(12px);
     backdrop-filter: saturate(1.4) blur(12px);
     border-bottom: 1px solid var(--border);
+    /* viewport-fit=cover: keep the brand row below the status bar / notch. */
+    padding-top: env(safe-area-inset-top);
   }
 
   .v5-masthead__brand-inner,
   .v5-masthead__nav nav {
     max-width: var(--max-w);
     margin: 0 auto;
-    padding: 0 var(--space-5);
+    /* Include the horizontal safe-area insets so the row clears the notch
+       in landscape (0 on non-notched devices / portrait). */
+    padding: 0 calc(var(--space-5) + env(safe-area-inset-right)) 0 calc(var(--space-5) + env(safe-area-inset-left));
   }
 
   .v5-masthead__brand-inner {

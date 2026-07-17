@@ -126,6 +126,12 @@ const season = getSeason(now).toLowerCase();
     gap: var(--space-3);
     margin-top: var(--space-6);
   }
+  /* Narrow phones: stack the hero CTAs full-width so they are easy thumb
+     targets instead of two half-stranded pills. */
+  @media (max-width: 26em) {
+    .home-cover__actions { flex-direction: column; align-items: stretch; }
+    .home-cover__btn { width: 100%; justify-content: center; }
+  }
 
   .home-cover__btn {
     display: inline-flex;
