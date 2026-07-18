@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-12T00:55:06.183Z",
+  "generatedAt": "2026-07-17T07:01:27.423Z",
   "source": "next/scripts/build-media-registry.mjs",
   "assetCount": 143,
   "assets": [
@@ -138,6 +138,12 @@
         {
           "file": "src/pages/wine/index.astro",
           "purpose": "seo",
+          "entityType": null,
+          "entitySlug": null
+        },
+        {
+          "file": "src/pages/wine/index.astro",
+          "purpose": "inline",
           "entityType": null,
           "entitySlug": null
         },
@@ -687,6 +693,12 @@
       "bytes": 369846,
       "updatedAt": "2026-05-21T20:39:52.112Z",
       "usages": [
+        {
+          "file": "src/content/articles/peninsula-this-weekend-jul-11.md",
+          "purpose": "hero",
+          "entityType": "article",
+          "entitySlug": "peninsula-this-weekend-jul-11"
+        },
         {
           "file": "src/content/articles/rainy-day-peninsula.md",
           "purpose": "hero",
@@ -2334,6 +2346,30 @@
           "entitySlug": "insider-picks-2026-07-12"
         },
         {
+          "file": "src/content/articles/insider-picks-2026-07-14.md",
+          "purpose": "hero",
+          "entityType": "article",
+          "entitySlug": "insider-picks-2026-07-14"
+        },
+        {
+          "file": "src/content/articles/insider-picks-2026-07-15.md",
+          "purpose": "hero",
+          "entityType": "article",
+          "entitySlug": "insider-picks-2026-07-15"
+        },
+        {
+          "file": "src/content/articles/insider-picks-2026-07-16.md",
+          "purpose": "hero",
+          "entityType": "article",
+          "entitySlug": "insider-picks-2026-07-16"
+        },
+        {
+          "file": "src/content/articles/insider-picks-2026-07-17.md",
+          "purpose": "hero",
+          "entityType": "article",
+          "entitySlug": "insider-picks-2026-07-17"
+        },
+        {
           "file": "src/content/experiences/cape-schanck-lighthouse-walk.json",
           "purpose": "hero",
           "entityType": "experience",
@@ -2354,6 +2390,12 @@
         {
           "file": "src/pages/explore/index.astro",
           "purpose": "seo",
+          "entityType": null,
+          "entitySlug": null
+        },
+        {
+          "file": "src/pages/explore/index.astro",
+          "purpose": "hero",
           "entityType": null,
           "entitySlug": null
         },
@@ -4842,6 +4884,12 @@
           "entitySlug": null
         },
         {
+          "file": "src/pages/eat/index.astro",
+          "purpose": "inline",
+          "entityType": null,
+          "entitySlug": null
+        },
+        {
           "file": "src/components/v5/home/HomeDoors.astro",
           "purpose": "inline",
           "entityType": null,
@@ -4914,6 +4962,12 @@
         {
           "file": "src/pages/stay/index.astro",
           "purpose": "seo",
+          "entityType": null,
+          "entitySlug": null
+        },
+        {
+          "file": "src/pages/stay/index.astro",
+          "purpose": "inline",
           "entityType": null,
           "entitySlug": null
         },
@@ -5065,6 +5119,12 @@
       "bytes": 102880,
       "updatedAt": "2026-05-21T20:39:53.424Z",
       "usages": [
+        {
+          "file": "src/content/articles/peninsula-this-weekend-jul-18.md",
+          "purpose": "hero",
+          "entityType": "article",
+          "entitySlug": "peninsula-this-weekend-jul-18"
+        },
         {
           "file": "src/content/events/pt-leo-estate-local-complimentary-sculpture-park-winter-2026.json",
           "purpose": "hero",
@@ -5255,6 +5315,12 @@
         {
           "file": "src/pages/whats-on/index.astro",
           "purpose": "seo",
+          "entityType": null,
+          "entitySlug": null
+        },
+        {
+          "file": "src/pages/whats-on/index.astro",
+          "purpose": "hero",
           "entityType": null,
           "entitySlug": null
         }
