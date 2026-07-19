@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-17T07:01:27.423Z",
+  "generatedAt": "2026-07-19T20:46:46.770Z",
   "source": "next/scripts/build-media-registry.mjs",
   "assetCount": 143,
   "assets": [
@@ -800,7 +800,7 @@
           "entitySlug": "the-one-booking-peninsula-day"
         },
         {
-          "file": "src/content/events/pearcedale-community-market.json",
+          "file": "src/content/events/archive/pearcedale-community-market.json",
           "purpose": "hero",
           "entityType": "event",
           "entitySlug": "pearcedale-community-market"
@@ -916,6 +916,12 @@
           "entitySlug": "sorrento-bakery"
         },
         {
+          "file": "src/pages/_archive/newsletter-pre-emma-2026-05-15.astro",
+          "purpose": "seo",
+          "entityType": null,
+          "entitySlug": null
+        },
+        {
           "file": "src/pages/dispatch.astro",
           "purpose": "seo",
           "entityType": null,
@@ -924,12 +930,6 @@
         {
           "file": "src/pages/explore/golf.astro",
           "purpose": "hero",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/_archive/newsletter-pre-emma-2026-05-15.astro",
-          "purpose": "seo",
           "entityType": null,
           "entitySlug": null
         },
@@ -1320,16 +1320,22 @@
       "updatedAt": "2026-05-21T20:39:52.351Z",
       "usages": [
         {
+          "file": "src/content/events/archive/emu-plains-market-balnarring.json",
+          "purpose": "hero",
+          "entityType": "event",
+          "entitySlug": "emu-plains-market-balnarring"
+        },
+        {
           "file": "src/content/events/archive/mornington-racecourse-monthly-market-june-2026.json",
           "purpose": "hero",
           "entityType": "event",
           "entitySlug": "mornington-racecourse-monthly-market-june-2026"
         },
         {
-          "file": "src/content/events/emu-plains-market-balnarring.json",
+          "file": "src/content/events/archive/mt-eliza-farmers-market.json",
           "purpose": "hero",
           "entityType": "event",
-          "entitySlug": "emu-plains-market-balnarring"
+          "entitySlug": "mt-eliza-farmers-market"
         },
         {
           "file": "src/content/events/heart-of-the-community-market-rosebud.json",
@@ -1354,12 +1360,6 @@
           "purpose": "hero",
           "entityType": "event",
           "entitySlug": "mornington-wednesday-market-main-street-market"
-        },
-        {
-          "file": "src/content/events/mt-eliza-farmers-market.json",
-          "purpose": "hero",
-          "entityType": "event",
-          "entitySlug": "mt-eliza-farmers-market"
         },
         {
           "file": "src/content/signature-events/main-street-mornington-festival.json",
@@ -1390,16 +1390,16 @@
       "updatedAt": "2026-05-21T20:39:52.365Z",
       "usages": [
         {
+          "file": "src/content/events/archive/boneo-community-market.json",
+          "purpose": "hero",
+          "entityType": "event",
+          "entitySlug": "boneo-community-market"
+        },
+        {
           "file": "src/content/events/archive/mornington-racecourse-market.json",
           "purpose": "hero",
           "entityType": "event",
           "entitySlug": "mornington-racecourse-market"
-        },
-        {
-          "file": "src/content/events/boneo-community-market.json",
-          "purpose": "hero",
-          "entityType": "event",
-          "entitySlug": "boneo-community-market"
         },
         {
           "file": "src/content/events/hastings-thursday-street-market.json",
@@ -2036,7 +2036,7 @@
       "updatedAt": "2026-05-21T20:39:52.682Z",
       "usages": [
         {
-          "file": "src/content/events/faux-snow-flurries-arthurs-seat-eagle-2026.json",
+          "file": "src/content/events/archive/faux-snow-flurries-arthurs-seat-eagle-2026.json",
           "purpose": "hero",
           "entityType": "event",
           "entitySlug": "faux-snow-flurries-arthurs-seat-eagle-2026"
@@ -2368,6 +2368,18 @@
           "purpose": "hero",
           "entityType": "article",
           "entitySlug": "insider-picks-2026-07-17"
+        },
+        {
+          "file": "src/content/articles/insider-picks-2026-07-18.md",
+          "purpose": "hero",
+          "entityType": "article",
+          "entitySlug": "insider-picks-2026-07-18"
+        },
+        {
+          "file": "src/content/articles/insider-picks-2026-07-19.md",
+          "purpose": "hero",
+          "entityType": "article",
+          "entitySlug": "insider-picks-2026-07-19"
         },
         {
           "file": "src/content/experiences/cape-schanck-lighthouse-walk.json",
@@ -3058,13 +3070,13 @@
           "entitySlug": "the-four-hour-peninsula"
         },
         {
-          "file": "src/pages/about.astro",
+          "file": "src/pages/_archive/editorial-approach-pre-emma-2026-05-15.astro",
           "purpose": "hero",
           "entityType": null,
           "entitySlug": null
         },
         {
-          "file": "src/pages/_archive/editorial-approach-pre-emma-2026-05-15.astro",
+          "file": "src/pages/about.astro",
           "purpose": "hero",
           "entityType": null,
           "entitySlug": null
@@ -3145,13 +3157,13 @@
       "updatedAt": "2026-05-21T20:39:52.977Z",
       "usages": [
         {
-          "file": "src/pages/contact.astro",
+          "file": "src/pages/_archive/contact-pre-emma-2026-05-15.astro",
           "purpose": "inline",
           "entityType": null,
           "entitySlug": null
         },
         {
-          "file": "src/pages/_archive/contact-pre-emma-2026-05-15.astro",
+          "file": "src/pages/contact.astro",
           "purpose": "inline",
           "entityType": null,
           "entitySlug": null
@@ -3207,6 +3219,24 @@
           "purpose": "inline",
           "entityType": null,
           "entitySlug": null
+        },
+        {
+          "file": "src/pages/journal/[slug].astro",
+          "purpose": "hero",
+          "entityType": "article",
+          "entitySlug": "routeSlug"
+        },
+        {
+          "file": "src/pages/journal/[slug].astro",
+          "purpose": "inline",
+          "entityType": "article",
+          "entitySlug": "routeSlug"
+        },
+        {
+          "file": "src/pages/journal/[slug].astro",
+          "purpose": "seo",
+          "entityType": "article",
+          "entitySlug": "routeSlug"
         },
         {
           "file": "src/pages/journal/best-brunch-mornington-peninsula.astro",
@@ -3267,24 +3297,6 @@
           "purpose": "inline",
           "entityType": "article",
           "entitySlug": "mornington-peninsula-with-kids"
-        },
-        {
-          "file": "src/pages/journal/[slug].astro",
-          "purpose": "hero",
-          "entityType": "article",
-          "entitySlug": "routeSlug"
-        },
-        {
-          "file": "src/pages/journal/[slug].astro",
-          "purpose": "inline",
-          "entityType": "article",
-          "entitySlug": "routeSlug"
-        },
-        {
-          "file": "src/pages/journal/[slug].astro",
-          "purpose": "seo",
-          "entityType": "article",
-          "entitySlug": "routeSlug"
         },
         {
           "file": "src/pages/partners/advertising-kit/index.astro",
@@ -5126,6 +5138,12 @@
           "entitySlug": "peninsula-this-weekend-jul-18"
         },
         {
+          "file": "src/content/events/archive/sip-sketch-sculpture-park-pt-leo-estate-school-holidays-2026.json",
+          "purpose": "hero",
+          "entityType": "event",
+          "entitySlug": "sip-sketch-sculpture-park-pt-leo-estate-school-holidays-2026"
+        },
+        {
           "file": "src/content/events/pt-leo-estate-local-complimentary-sculpture-park-winter-2026.json",
           "purpose": "hero",
           "entityType": "event",
@@ -5136,12 +5154,6 @@
           "purpose": "hero",
           "entityType": "event",
           "entitySlug": "pt-leo-estate-sculpture-park"
-        },
-        {
-          "file": "src/content/events/sip-sketch-sculpture-park-pt-leo-estate-school-holidays-2026.json",
-          "purpose": "hero",
-          "entityType": "event",
-          "entitySlug": "sip-sketch-sculpture-park-pt-leo-estate-school-holidays-2026"
         },
         {
           "file": "src/content/experiences/pt-leo-sculpture-park.json",
