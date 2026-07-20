@@ -3,14 +3,14 @@
   "@type": "ItemList",
   "name": "What's on — Mornington Peninsula (upcoming)",
   "description": "Machine-readable feed of upcoming Mornington Peninsula events for AI assistants and agents. Forward-dated; regenerated on each build. See https://peninsulainsider.com.au/llms.txt for the full site map.",
-  "generated": "2026-07-19",
+  "generated": "2026-07-20",
   "site": "https://peninsulainsider.com.au",
   "windowDays": 90,
   "thisWeekend": {
-    "start": "2026-07-18",
-    "end": "2026-07-19",
-    "label": "18 to 19 July",
-    "count": 24
+    "start": "2026-07-25",
+    "end": "2026-07-26",
+    "label": "25 to 26 July",
+    "count": 25
   },
   "count": 86,
   "events": [
@@ -987,7 +987,7 @@
       "venue": null,
       "freePaid": "Paid",
       "summary": "Afternoon truffle hunt at Flinders Truffles, then a truffle-matched dinner at Polperro Winery with Sam Coverdale's wines. One ticket, one winter day.",
-      "thisWeekend": false
+      "thisWeekend": true
     },
     {
       "title": "Southern Peninsula Sleepout at The Ranch Adventure Park",
