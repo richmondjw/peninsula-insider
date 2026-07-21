@@ -20,6 +20,7 @@ import V3Masthead from '../../components/v3/V3Masthead.astro';
 import V3Footer from '../../components/v3/V3Footer.astro';
 import V3ConciergeDock from '../../components/v3/V3ConciergeDock.astro';
 import ConciergeDrawer from '../../components/ConciergeDrawer.astro';
+import { SHOW_ASK_PI } from '../../lib/features';
 import CookieBanner from '../../components/CookieBanner.astro';
 
 export interface Props {
@@ -88,7 +89,7 @@ const ogImageAbs = ogImage.startsWith('http') ? ogImage : `${SITE_URL}${ogImage}
     window.PI_API_URL = API_URL;
   </script>
 
-  <ConciergeDrawer />
+  {SHOW_ASK_PI && <ConciergeDrawer />}
   <V3ConciergeDock />
   <CookieBanner />
 

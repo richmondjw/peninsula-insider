@@ -230,7 +230,7 @@ export const v5Pillars: V5Pillar[] = [
  * search and Ask is a later wave. Saved points at the /me/ reader layer.
  */
 export const v5Utilities = {
-  launcher: { key: 'launcher', label: 'Ask PI or search', href: '/search/' },
+  launcher: { key: 'launcher', label: 'Search', href: '/search/' },
   saved:    { key: 'saved',    label: 'Saved',            href: '/me/saved/' },
   menu:     { key: 'menu',     label: 'Menu' },
 };
@@ -285,7 +285,7 @@ export interface V5BarItem {
 }
 
 export const v5BottomBar: V5BarItem[] = [
-  { key: 'ask',  label: 'Ask PI',  href: '/search/',    opensSearch: true, evt: 'ask_open' },
+  // Ask PI hidden until bug fix: { key: 'ask', label: 'Ask PI', href: '/search/', opensSearch: true, evt: 'ask_open' },
   { key: 'map',  label: 'Map',     href: '/map/',       evt: 'map_toggle' },
   { key: 'save', label: 'Saved',   href: '/me/saved/' },
   { key: 'trip', label: 'My Trip', href: '/me/trip/' },

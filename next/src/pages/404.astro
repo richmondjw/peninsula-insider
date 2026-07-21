@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import NewsletterBlock from '../components/NewsletterBlock.astro';
-import AskPICTA from '../components/AskPICTA.astro';
+// import AskPICTA from '../components/AskPICTA.astro'; // hidden until Ask PI bug fix
 export const prerender = true;
 ---
 
@@ -29,12 +29,7 @@ export const prerender = true;
           The URL might be wrong, the page might have moved, or it was never here to begin with. The Peninsula is big enough to get lost in. The website shouldn't be.
         </p>
 
-        <AskPICTA
-          variant="inline"
-          label="Tell me what you were looking for"
-          hint="I'll find you the right thing instead."
-          prefill=""
-        />
+        {/* Ask PI hidden until bug fix */}
 
         <nav class="not-found__nav" aria-label="Recovery links">
           <p class="not-found__nav-label"><span>Or try one of these</span></p>

@@ -27,6 +27,7 @@ import V5BottomBar from '../components/v5/chrome/V5BottomBar.astro';
 import V5Breadcrumbs from '../components/v5/chrome/V5Breadcrumbs.astro';
 import V5Footer from '../components/v5/chrome/V5Footer.astro';
 import ConciergeDrawer from '../components/ConciergeDrawer.astro';
+import { SHOW_ASK_PI } from '../lib/features';
 import SearchOverlay from '../components/SearchOverlay.astro';
 import AuthModal from '../components/v2/AuthModal.astro';
 import ProfileDropdown from '../components/v2/ProfileDropdown.astro';
@@ -425,7 +426,7 @@ const isAskPage = rawPathname.startsWith('/ask');
 
   <!-- PI concierge drawer, slides in from the right edge.
        Suppressed on /ask itself (which is the full-page version). -->
-  {!isAskPage && <ConciergeDrawer />}
+  {SHOW_ASK_PI && !isAskPage && <ConciergeDrawer />}
 
   <!-- Site search overlay - instant Pagefind dropdown, opened by any
        [data-open-search] trigger or the `/` keyboard shortcut. -->

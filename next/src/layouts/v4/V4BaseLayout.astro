@@ -21,6 +21,7 @@ import V4Masthead from '../../components/v4/V4Masthead.astro';
 import V4MobileDrawer from '../../components/v4/V4MobileDrawer.astro';
 import Footer from '../../components/Footer.astro';
 import ConciergeDrawer from '../../components/ConciergeDrawer.astro';
+import { SHOW_ASK_PI } from '../../lib/features';
 import SearchOverlay from '../../components/SearchOverlay.astro';
 import AuthModal from '../../components/v2/AuthModal.astro';
 import ProfileDropdown from '../../components/v2/ProfileDropdown.astro';
@@ -127,7 +128,7 @@ const isAskPage = rawPath.startsWith('/ask');
     window.PI_API_URL = API_URL;
   </script>
 
-  {!isAskPage && <ConciergeDrawer />}
+  {SHOW_ASK_PI && !isAskPage && <ConciergeDrawer />}
   <SearchOverlay />
   <CookieBanner />
 

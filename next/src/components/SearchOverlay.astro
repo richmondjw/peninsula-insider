@@ -256,7 +256,7 @@
           els.list.innerHTML =
             '<li class="site-search-overlay__result site-search-overlay__result--empty">' +
               '<p class="site-search-overlay__result-empty-title">Nothing matched "' + escapeHtml(query) + '".</p>' +
-              '<p class="site-search-overlay__result-empty-hint">Hit Enter to try the full results page, or ask The Insider directly.</p>' +
+              '<p class="site-search-overlay__result-empty-hint">Hit Enter to try the full results page.</p>' +
             '</li>';
         } else {
           els.list.innerHTML = results.slice(0, 6).map((item) => {
