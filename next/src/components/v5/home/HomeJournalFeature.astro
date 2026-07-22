@@ -21,7 +21,13 @@ const published = (await getCollection('articles', ({ data }) => data.status ===
   .filter((a) => a.data.format !== 'weekend-picker' && a.data.format !== 'service')
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
 
-const lead = published.find((a) => a.data.featured) ?? published[0];
+// `published` is sorted newest-first, so published[0] is the current
+// edition (today's Insider Picks daily drumbeat). We deliberately do NOT
+// honour the `featured` pin here: that flag is set on ~19 evergreen guides
+// dated back to April, so "featured wins" pinned a months-stale piece
+// (the 14 July daily pick) while newer editions piled up unseen. The
+// homepage flagship should always be the latest edition.
+const lead = published[0];
 const slug = lead ? routeSlug(lead) : '';
 const hero = lead ? await resolveHero('article', slug, lead.data, 'hero') : null;
 const kicker = lead ? (formatLabel[lead.data.format] ?? 'Feature') : '';

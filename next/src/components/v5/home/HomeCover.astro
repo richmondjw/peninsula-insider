@@ -12,14 +12,25 @@
  * The statement is CMS-editable: override slot (page/home, cover.statement)
  * is resolved server-side so editor rewrites survive rebuilds.
  */
-import { editableText } from '../../../lib/inline-edit/attrs';
+import { editableText, editableImage } from '../../../lib/inline-edit/attrs';
 import { loadOverrides } from '../../../lib/inline-edit/overrides';
 import { getSeason } from '../../../lib/edition';
 
 const DEFAULT_STATEMENT = 'The Mornington Peninsula, sorted.';
 
+// Hero photograph behind the masthead statement. Swappable via the inline
+// CMS (right-click replace) and resolved through the page/home override
+// slot so an editor's replacement survives rebuilds.
+const DEFAULT_HERO_SRC = '/images/sourced/home-cover-cape-schanck-rainbow-01.webp';
+const DEFAULT_HERO_ALT =
+  'A rainbow arcs over the bay at Cape Schanck on a still winter morning, Mornington Peninsula';
+
 const overrides = await loadOverrides('page', 'home');
 const statement = overrides.text['cover.statement'] ?? DEFAULT_STATEMENT;
+
+const heroOverride = overrides.image['cover.image'];
+const heroSrc = heroOverride?.src ?? DEFAULT_HERO_SRC;
+const heroAlt = heroOverride?.alt ?? DEFAULT_HERO_ALT;
 
 if (statement.trim().split(/\s+/).length > 18) {
   console.warn('[v5 home] cover statement over 18 words; trim it (page-redesigns.md 1.9)');
@@ -39,7 +50,23 @@ const season = getSeason(now).toLowerCase();
 ---
 
 <section class="home-cover" aria-label="Cover">
-  <span class="home-cover__glow" aria-hidden="true"></span>
+  <img
+    class="home-cover__media"
+    src={heroSrc}
+    alt={heroAlt}
+    fetchpriority="high"
+    decoding="async"
+    width="2400"
+    height="1350"
+    {...editableImage({
+      entityType: 'page',
+      entitySlug: 'home',
+      fieldPath: 'cover.image',
+      label: 'Cover background image',
+      purpose: 'hero',
+    })}
+  />
+  <span class="home-cover__scrim" aria-hidden="true"></span>
   <div class="container home-cover__inner">
     <p class="home-cover__eyebrow">{season} on the Peninsula</p>
     <h1
@@ -64,9 +91,10 @@ const season = getSeason(now).toLowerCase();
 </section>
 
 <style>
-  /* Immersive giant-type hero. No hero photo exists for this block, so the
-     ground is the signature forest-teal with a subtle mint/teal glow rather
-     than a fabricated image. Tokens only. */
+  /* Immersive giant-type hero over a full-bleed Peninsula landscape. The
+     photo sits under a forest-teal scrim, weighted to the lower-left where
+     the statement, date, and CTAs live, so the white type stays legible
+     while the headland and sky read through. Tokens only. */
   .home-cover {
     position: relative;
     isolation: isolate;
@@ -75,14 +103,37 @@ const season = getSeason(now).toLowerCase();
     padding: clamp(3rem, 9vw, 6.4rem) 0;
   }
 
-  .home-cover__glow {
+  .home-cover__media {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    object-fit: cover;
+    /* Bias upward so the horizon, headland, and rainbow stay in frame
+       rather than centring on empty water. */
+    object-position: center 38%;
+  }
+
+  .home-cover__scrim {
     position: absolute;
     inset: 0;
     z-index: -1;
     pointer-events: none;
     background:
-      radial-gradient(60% 55% at 84% 10%, color-mix(in srgb, var(--mint) 20%, transparent), transparent 70%),
-      radial-gradient(72% 60% at 8% 96%, color-mix(in srgb, var(--teal) 26%, transparent), transparent 72%);
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--bg-deep) 28%, transparent) 0%,
+        color-mix(in srgb, var(--bg-deep) 52%, transparent) 55%,
+        color-mix(in srgb, var(--bg-deep) 86%, transparent) 100%
+      ),
+      linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--bg-deep) 62%, transparent) 0%,
+        color-mix(in srgb, var(--bg-deep) 26%, transparent) 46%,
+        transparent 78%
+      );
   }
 
   .home-cover__inner {
@@ -109,6 +160,7 @@ const season = getSeason(now).toLowerCase();
     letter-spacing: var(--ls-display);
     color: var(--white);
     text-wrap: balance;
+    text-shadow: 0 1px 28px color-mix(in srgb, var(--bg-deep) 55%, transparent);
   }
 
   .home-cover__context {
