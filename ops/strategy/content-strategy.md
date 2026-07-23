@@ -4,7 +4,7 @@
 
 **Loop health:** 🟢 healthy — Actions recorded but none re-measured yet — learning signal not flowing (expected until GSC re-crawls the actioned pages).
 
-**Generated:** 2026-07-23 07:09 AEST  
+**Generated:** 2026-07-24 07:06 AEST  
 **Season:** Winter  
 **Inputs used:** gsc-search-analytics, gsc-coverage, sitemap-inventory, events-calendar:9-upcoming, seasonal-calendar:winter  
 
@@ -23,7 +23,7 @@
 
 ## Day-over-day (is the strategy improving?)
 
-_Compared with 2026-07-22._
+_Compared with 2026-07-23._
 
 - Average position held by 0.00.
 - Clicks flat 0 vs last snapshot.
@@ -88,19 +88,19 @@ Ranked by the strategy model (performance + season + coverage + effort). The orc
 - **Why:** 'mornington cup 2026 date' ranks avg position 8.8 on 23 impressions — small, targeted improvement could reach page 1 and start earning clicks.
 - **Do:** Strengthen the ranking page for this exact query: expand the relevant section, add an FAQ answer, tighten the H1/intro, add internal links from related hub pages.
 
-### 7. [EVENT · score 2.992] Preview: Stonier Fire & Wine Winter Lunch (17d out)
+### 7. [EVENT · score 2.992] Preview: Stonier Fire & Wine Winter Lunch (16d out)
 - **Desk:** dispatch-desk
-- **Why:** Stonier Fire & Wine Winter Lunch is 17 days out (2026-08-09, Merricks) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** Stonier Fire & Wine Winter Lunch is 16 days out (2026-08-09, Merricks) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 8. [EVENT · score 2.992] Preview: Red Hill Brewery Secret Stash Weekend (23d out)
+### 8. [EVENT · score 2.992] Preview: Red Hill Brewery Secret Stash Weekend (22d out)
 - **Desk:** dispatch-desk
-- **Why:** Red Hill Brewery Secret Stash Weekend is 23 days out (2026-08-15, Other Mornington Peninsula) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** Red Hill Brewery Secret Stash Weekend is 22 days out (2026-08-15, Other Mornington Peninsula) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 9. [EVENT · score 2.992] Preview: National Works on Paper 2026 (NWOP) (44d out)
+### 9. [EVENT · score 2.992] Preview: National Works on Paper 2026 (NWOP) (43d out)
 - **Desk:** dispatch-desk
-- **Why:** National Works on Paper 2026 (NWOP) is 44 days out (2026-09-05, Mornington) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** National Works on Paper 2026 (NWOP) is 43 days out (2026-09-05, Mornington) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
 ### 10. [RANK · score 2.883] Push 'dog friendly guide mornington peninsula' onto page 1
