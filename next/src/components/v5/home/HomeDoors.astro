@@ -175,7 +175,8 @@ const resolved = await Promise.all(
     isolation: isolate;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    /* aspect-ratio sets the preferred height; min-height:auto lets the card
+       grow when the verdict line wraps, so overlaid text can never collide. */
     aspect-ratio: 3 / 4;
     padding: var(--space-5);
     overflow: hidden;
@@ -183,9 +184,10 @@ const resolved = await Promise.all(
     text-decoration: none;
     color: var(--white);
   }
-  /* Small phones: 2-up tiles get too cramped (long verdict lines overflow),
-     so drop to a single wider tile with tighter padding. */
-  @media (max-width: 26em) {
+  /* Phones (incl. 414-430px devices): 2-up tiles get too cramped (long
+     verdict lines stack over the eyebrow), so drop to a single wider tile
+     with tighter padding. */
+  @media (max-width: 35.94em) {
     .home-doors__grid { grid-template-columns: 1fr; }
     .home-doors__card { aspect-ratio: 16 / 10; padding: var(--space-4); }
   }
@@ -227,11 +229,11 @@ const resolved = await Promise.all(
     );
   }
 
-  /* Verdict-count eyebrow, mint, top-left. */
+  /* Verdict-count eyebrow, mint, top-left. In flow (not absolute) with
+     margin-bottom:auto pinning label + line to the card's bottom edge:
+     the text blocks share one flex column, so they can never overlap. */
   .home-doors__count {
-    position: absolute;
-    top: var(--space-5);
-    left: var(--space-5);
+    margin-bottom: auto;
     font-family: var(--font-ui);
     font-size: var(--fs-100);
     font-weight: var(--fw-semibold);
