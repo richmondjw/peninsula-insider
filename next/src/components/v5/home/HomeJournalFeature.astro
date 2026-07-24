@@ -86,7 +86,8 @@ const kicker = lead ? (formatLabel[lead.data.format] ?? 'Feature') : '';
     display: flex;
     align-items: flex-end;
     min-height: min(78vh, 40rem);
-    margin: var(--space-7) 0;
+    /* No bottom margin: the Dispatch band below sits flush against this one. */
+    margin: var(--space-7) 0 0;
     overflow: hidden;
     background: var(--bg-deep);
   }

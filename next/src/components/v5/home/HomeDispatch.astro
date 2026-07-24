@@ -23,13 +23,6 @@ import NewsletterBlock from '../../NewsletterBlock.astro';
     source="home"
     hidePreview={false}
   />
-  <div class="container">
-    <p class="home-dispatch__trust">
-      <a href="/editorial-approach/">How we review &rarr;</a>
-      <span class="home-dispatch__sep" aria-hidden="true">&middot;</span>
-      <span>Partner content is always labelled.</span>
-    </p>
-  </div>
 </div>
 
 <script>
@@ -51,31 +44,10 @@ import NewsletterBlock from '../../NewsletterBlock.astro';
 </script>
 
 <style>
+  /* Flush band: the Dispatch sits directly against the journal feature
+     above and the footer below - no margins, no trust row (removed
+     2026-07-24 at James's request). */
   .home-dispatch {
-    margin-top: var(--space-6);
-  }
-
-  .home-dispatch__trust {
-    margin: var(--space-4) 0 var(--space-7);
-    font-family: var(--font-ui);
-    font-size: var(--fs-300);
-    color: var(--soft);
-  }
-
-  .home-dispatch__trust a {
-    color: var(--text);
-    text-decoration: none;
-    border-bottom: 1.5px solid var(--accent);
-    padding-bottom: 2px;
-    transition: color var(--dur-fast) var(--ease-enter);
-  }
-
-  .home-dispatch__trust a:hover {
-    color: var(--accent);
-  }
-
-  .home-dispatch__sep {
-    margin: 0 var(--space-2);
-    color: var(--border-strong);
+    margin: 0;
   }
 </style>
