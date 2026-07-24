@@ -4,7 +4,7 @@
 
 **Loop health:** 🟢 healthy — Actions recorded but none re-measured yet — learning signal not flowing (expected until GSC re-crawls the actioned pages).
 
-**Generated:** 2026-07-24 07:06 AEST  
+**Generated:** 2026-07-24 15:52 AEST  
 **Season:** Winter  
 **Inputs used:** gsc-search-analytics, gsc-coverage, sitemap-inventory, events-calendar:9-upcoming, seasonal-calendar:winter  
 
