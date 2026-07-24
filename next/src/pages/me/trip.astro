@@ -62,7 +62,6 @@ for (const x of experiences) {
 
 const lookupJson = JSON.stringify(lookup).replace(/</g, '\\u003c');
 
-const askPrefill = encodeURIComponent('Suggest a stop to fill a gap in my Peninsula day');
 export const prerender = true;
 ---
 
@@ -119,7 +118,7 @@ export const prerender = true;
           <div slot="actions" class="trip-empty-doors">
             <a class="trip-empty-doors__primary" href="/plans/" data-evt="empty_state_cta" data-surface="me-trip">Browse plans</a>
             <a class="trip-empty-doors__link" href="/me/saved/" data-evt="empty_state_cta" data-surface="me-trip">Start from saved</a>
-            <a class="trip-empty-doors__link" href={`/ask/?q=${askPrefill}`} data-evt="ask_open" data-surface="me-trip">Ask PI</a>
+            <a class="trip-empty-doors__link" href="/search/" data-open-search data-evt="search_open" data-surface="me-trip">Search</a>
           </div>
         </EmptyState>
       </div>
@@ -137,7 +136,7 @@ export const prerender = true;
           <a href="/me/saved/">Open Saved</a>
         </p>
         <p class="trip-add__ask">
-          <a href={`/ask/?q=${askPrefill}`} data-evt="ask_open" data-surface="me-trip">Ask PI to fill a gap</a>
+          <a href="/search/" data-open-search data-evt="search_open" data-surface="me-trip">Search for something to fill a gap</a>
         </p>
       </section>
     </div>

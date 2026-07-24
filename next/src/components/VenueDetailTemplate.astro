@@ -33,8 +33,6 @@ const hasSeasonalNotes = data.seasonalNotes && Object.values(data.seasonalNotes)
 const seasonalNoteEntries: [string, string][] = data.seasonalNotes
   ? (Object.entries(data.seasonalNotes) as [string, string][]).filter(([, v]) => v)
   : [];
-// Ask PI query: pre-built prompt connecting this venue to broader planning
-const askPiQuery = encodeURIComponent(`What else is worth doing near ${data.name} on the Mornington Peninsula?`);
 const sectionLabel = section === 'stay' ? 'Stay' : section === 'wine' ? 'Wine Country' : 'Eat & Drink';
 const sectionHref = `/${section}`;
 const hats = data.authority?.hats ?? 0;
@@ -601,13 +599,13 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
   </section>
 )}
 
-{/* ── ASK PI - light planning integration ── */}
+{/* ── Search - light planning integration (was Ask PI, replaced 2026-07-24) ── */}
 <section class="venue-ask-pi">
   <div class="container">
     <div class="venue-ask-pi__inner">
       <p class="venue-ask-pi__prompt">Not sure how to build a day around {data.name}?</p>
-      <a href={`/ask/?q=${askPiQuery}`} class="venue-ask-pi__cta" data-pi-trigger="true">
-        Ask The Insider
+      <a href="/search/" class="venue-ask-pi__cta" data-open-search data-evt="search_open">
+        Search Peninsula Insider
         <svg width="12" height="12" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M5 10h10M11 5l5 5-5 5" />
         </svg>
@@ -925,7 +923,7 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
     font-size: var(--fs-200);
     color: var(--soft);
     margin-top: 0.1rem;
-    font-style: italic;
+    font-style: normal;
   }
 
   /* ── Wine identity panel ── */
@@ -958,7 +956,7 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
     line-height: 1.45;
   }
   .wine-identity__value--italic {
-    font-style: italic;
+    font-style: normal;
   }
   .wine-identity__varieties {
     display: flex;
@@ -1062,7 +1060,7 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
   .venue-verdict__text {
     font-family: var(--font-ui);
     font-size: var(--fs-500);
-    font-style: italic;
+    font-style: normal;
     line-height: 1.5;
     color: var(--white);
     margin: 0;

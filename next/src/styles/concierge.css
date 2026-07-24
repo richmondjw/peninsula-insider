@@ -66,7 +66,7 @@
   }
   .pi-avatar__fallback {
     font-family: var(--font-display);
-    font-style: italic;
+    font-style: normal;
     font-weight: 600;
     color: var(--pi-terra, var(--accent));
     font-size: 0.45em;     /* relative to avatar height */
@@ -129,7 +129,7 @@
     letter-spacing: -0.025em;
   }
   .ask-hero__heading em {
-    font-style: italic;
+    font-style: normal;
     color: var(--pi-terra);
     font-weight: 600;
   }
@@ -368,7 +368,7 @@
     top: -0.05em; left: 0.32em;
     font-family: var(--font-display);
     font-size: 2.4em;
-    font-style: italic;
+    font-style: normal;
     line-height: 1;
     color: rgba(11, 90, 72, 0.16);
     pointer-events: none;
@@ -437,7 +437,7 @@
   /* Dropcap on first paragraph — magazine treatment */
   .ask-msg__prose p:first-of-type::first-letter {
     font-family: var(--font-display);
-    font-style: italic;
+    font-style: normal;
     font-weight: 600;
     font-size: 3.6em;
     line-height: 0.85;
@@ -590,7 +590,7 @@
     border: 1px solid rgba(11, 90, 72, 0.5);
     color: var(--pi-terra);
     font-family: var(--font-display);
-    font-style: italic;
+    font-style: normal;
     font-weight: 700;
     font-size: 0.82rem;
     line-height: 1;

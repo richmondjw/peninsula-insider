@@ -222,7 +222,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .masthead__edition-mark:empty { display: none; }
 .masthead__edition-label {
   font-family: var(--font-display);
-  font-style: italic;
+  font-style: normal;
   font-size: 0.92rem;
   font-weight: 500;
   letter-spacing: 0;
@@ -331,12 +331,12 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .masthead__logo span {
   color: var(--accent);
-  font-style: italic;
+  font-style: normal;
   font-weight: 600;
 }
 .masthead__tagline {
   font-family: var(--font-display);
-  font-style: italic;
+  font-style: normal;
   font-size: 0.95rem;
   color: var(--soft);
   margin: 0;
@@ -415,7 +415,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
    the editorial heart, not just another nav pillar. */
 .masthead__nav-item--journal a {
   font-family: var(--font-display);
-  font-style: italic;
+  font-style: normal;
   font-size: 1rem;
   letter-spacing: 0;
   text-transform: none;
@@ -550,7 +550,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .masthead__more-link-dek {
   display: block;
   font-family: var(--font-display);
-  font-style: italic;
+  font-style: normal;
   font-size: 0.85rem;
   font-weight: 400;
   color: var(--soft);
@@ -599,7 +599,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .masthead__logo-mobile span {
   color: var(--accent);
-  font-style: italic;
+  font-style: normal;
 }
 
 /* ── Mobile-nav brand block (top of full-screen overlay) ── */
@@ -620,11 +620,11 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .mobile-nav__logo span {
   color: var(--accent);
-  font-style: italic;
+  font-style: normal;
 }
 .mobile-nav__tagline-top {
   font-family: var(--font-display);
-  font-style: italic;
+  font-style: normal;
   font-size: 0.95rem;
   color: var(--soft);
   margin: 0.4rem 0 0.5rem;
@@ -640,7 +640,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   margin: 0;
 }
 .mobile-nav__link--journal span:first-child {
-  font-style: italic;
+  font-style: normal;
   color: var(--accent);
 }
 
@@ -673,7 +673,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   color: var(--dark);
   margin-bottom: 1.75rem;
 }
-.cover__headline em { font-style: italic; color: var(--accent); }
+.cover__headline em { font-style: normal; color: var(--accent); }
 .cover__dek {
   font-size: 1.1rem;
   line-height: 1.65;
@@ -739,7 +739,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   color: var(--dark);
   margin-bottom: 1.4rem;
 }
-.section-hero__title em { font-style: italic; color: var(--accent); }
+.section-hero__title em { font-style: normal; color: var(--accent); }
 .section-hero__dek {
   font-size: 1.05rem;
   line-height: 1.7;
@@ -1064,7 +1064,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   line-height: 1.65;
   color: var(--soft);
   margin-bottom: 1.75rem;
-  font-style: italic;
+  font-style: normal;
 }
 .feature__byline {
   display: flex;
@@ -1121,7 +1121,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   color: var(--soft);
   max-width: 45ch;
   margin-top: 0.4rem;
-  font-style: italic;
+  font-style: normal;
 }
 .venues__link {
   font-size: 0.73rem;
@@ -1594,7 +1594,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   color: var(--dark);
   margin-bottom: 1.5rem;
 }
-.subpage-hero__title em { font-style: italic; color: var(--accent); }
+.subpage-hero__title em { font-style: normal; color: var(--accent); }
 .subpage-hero__prose {
   font-size: 0.975rem;
   color: var(--body);
@@ -1711,7 +1711,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   margin: 0 0 1.2rem;
   text-wrap: balance;
 }
-.article-hero__title em { color: var(--accent); font-style: italic; font-weight: 600; }
+.article-hero__title em { color: var(--accent); font-style: normal; font-weight: 600; }
 .article-hero__dek {
   font-family: var(--font-display);
   font-style: normal;
@@ -1787,7 +1787,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
    long-form articles). */
 .prose.has-drop-cap > p:first-of-type::first-letter {
   font-family: var(--font-display);
-  font-style: italic;
+  font-style: normal;
   float: left;
   font-size: 4.6em;
   line-height: 0.85;
@@ -1830,14 +1830,14 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   color: var(--dark);
   margin-bottom: 1.25rem;
 }
-.article__title em { font-style: italic; color: var(--accent); }
+.article__title em { font-style: normal; color: var(--accent); }
 
 .article__dek {
   max-width: 50ch;
   font-size: 1.15rem;
   line-height: 1.6;
   color: var(--soft);
-  font-style: italic;
+  font-style: normal;
   margin-bottom: 2.5rem;
 }
 
@@ -1911,7 +1911,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   margin: 2rem 0 0.75rem;
 }
 .prose strong { font-weight: 600; color: var(--dark); }
-.prose em { font-style: italic; }
+.prose em { font-style: normal; }
 .prose a {
   color: var(--accent);
   border-bottom: 1px solid rgba(11, 90, 72, 0.35);
@@ -2021,7 +2021,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .venue-detail__signature {
   max-width: 50ch;
   font-size: 1.15rem;
-  font-style: italic;
+  font-style: normal;
   line-height: 1.6;
   color: var(--soft);
   margin-bottom: 2.5rem;
@@ -2374,7 +2374,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .news-hero__title em {
   color: var(--accent);
-  font-style: italic;
+  font-style: normal;
   font-weight: 500;
 }
 .news-hero__dek {
@@ -2558,7 +2558,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   letter-spacing: 0;
 }
 .news-sample__email-preview {
-  font-style: italic;
+  font-style: normal;
   color: var(--soft);
   margin-top: 0.2rem;
 }
@@ -2671,7 +2671,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .news-promise__num {
   display: block;
   font-family: var(--font-display);
-  font-style: italic;
+  font-style: normal;
   font-size: 0.95rem;
   color: var(--accent);
   margin: 0 0 0.4rem;
@@ -2722,7 +2722,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .news-trust__item h3 {
   font-family: var(--font-display);
-  font-style: italic;
+  font-style: normal;
   font-size: 1.4rem;
   font-weight: 600;
   color: var(--accent);
@@ -2763,7 +2763,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   margin: 0.6rem 0 1rem;
   text-wrap: balance;
 }
-.news-close__title em { color: rgba(185, 238, 225, 0.95); font-style: italic; }
+.news-close__title em { color: rgba(185, 238, 225, 0.95); font-style: normal; }
 .news-close__dek {
   font-family: var(--font-display);
   font-style: normal;
@@ -3101,7 +3101,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   color: var(--soft);
   max-width: 52ch;
   padding-top: 0.25rem;
-  font-style: italic;
+  font-style: normal;
 }
 
 /* =========================================================
@@ -3315,7 +3315,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   font-size: 0.9rem;
   line-height: 1.65;
   color: var(--soft);
-  font-style: italic;
+  font-style: normal;
   flex: 1;
   margin-bottom: 1.25rem;
 }
@@ -3498,7 +3498,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   font-size: 1.1rem;
   line-height: 1.65;
   color: var(--soft);
-  font-style: italic;
+  font-style: normal;
   margin-bottom: 1.5rem;
 }
 .itinerary-detail__chips {
@@ -3591,7 +3591,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   font-size: 0.9rem;
   line-height: 1.65;
   color: var(--soft);
-  font-style: italic;
+  font-style: normal;
 }
 .stop-item__practical {
   font-size: 0.78rem;
@@ -4050,7 +4050,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .editors-desk__body + .editors-desk__body { margin-top: 1rem; }
 .editors-desk__body em {
   font-family: var(--font-display);
-  font-style: italic;
+  font-style: normal;
   color: var(--accent);
   font-size: 1.05em;
 }
@@ -4092,7 +4092,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   font-family: var(--font-display);
   font-size: 1rem;
   font-weight: 600;
-  font-style: italic;
+  font-style: normal;
   color: var(--dark);
   letter-spacing: -0.01em;
   margin-bottom: 0.15rem;
@@ -4256,7 +4256,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   font-size: 0.94rem;
   line-height: 1.65;
   color: var(--soft);
-  font-style: italic;
+  font-style: normal;
   max-width: 58ch;
   margin-top: 0.7rem;
 }
@@ -4403,7 +4403,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   font-size: 0.82rem;
   line-height: 1.5;
   color: var(--soft);
-  font-style: italic;
+  font-style: normal;
 }
 
 @media (max-width: 900px) {
@@ -4599,7 +4599,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .insider-stripe__title em {
   color: rgba(185, 238, 225, 0.95);
-  font-style: italic;
+  font-style: normal;
   font-weight: 600;
 }
 .insider-stripe__body {
@@ -4743,7 +4743,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .shortlist__heading em {
   color: var(--accent);
-  font-style: italic;
+  font-style: normal;
   font-weight: 600;
 }
 .shortlist__body {
@@ -4794,7 +4794,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .sl-item--unnumbered { grid-template-columns: 1fr; }
 .sl-item__num {
   font-family: var(--font-display);
-  font-style: italic;
+  font-style: normal;
   font-size: clamp(2.8rem, 5vw, 4rem);
   font-weight: 400;
   color: var(--accent);
@@ -4926,7 +4926,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .letter__head em {
   color: var(--accent);
-  font-style: italic;
+  font-style: normal;
   font-weight: 600;
 }
 .letter__prose {
@@ -4937,7 +4937,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .letter__prose p { margin: 0 0 1rem; }
 .letter__prose p:first-of-type::first-letter {
   font-family: var(--font-display);
-  font-style: italic;
+  font-style: normal;
   float: left;
   font-size: 4.4em;
   line-height: 0.85;
@@ -4947,7 +4947,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .letter__pullquote {
   font-family: var(--font-display);
-  font-style: italic;
+  font-style: normal;
   font-size: clamp(1.2rem, 1.8vw, 1.5rem);
   line-height: 1.4;
   color: var(--dark);
@@ -4964,14 +4964,14 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .letter__sig-mark {
   font-family: var(--font-display);
-  font-style: italic;
+  font-style: normal;
   font-size: 1.5rem;
   color: var(--accent);
   line-height: 1;
 }
 .letter__sig-name {
   font-family: var(--font-display);
-  font-style: italic;
+  font-style: normal;
   font-size: 1.1rem;
   color: var(--dark);
   line-height: 1.2;
@@ -4998,7 +4998,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .letter__image-cap {
   margin-top: 0.75rem;
   font-family: var(--font-display);
-  font-style: italic;
+  font-style: normal;
   font-size: 0.92rem;
   line-height: 1.5;
   color: var(--soft);
@@ -5072,7 +5072,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .home-cover__headline-link:hover .home-cover__headline { color: var(--accent); }
 .home-cover__headline em {
   color: var(--accent);
-  font-style: italic;
+  font-style: normal;
   font-weight: 600;
 }
 .home-cover__dek {
@@ -5215,7 +5215,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .guide-hero__title em {
   color: var(--accent);
-  font-style: italic;
+  font-style: normal;
   font-weight: 600;
 }
 .guide-hero__dek {
@@ -5537,7 +5537,7 @@ body::before {
 }
 .issue-flag__context {
   font-family: var(--font-display);
-  font-style: italic;
+  font-style: normal;
   font-size: clamp(1rem, 1.4vw, 1.2rem);
   color: var(--soft);
   max-width: 56ch;
@@ -5584,7 +5584,7 @@ body::before {
 .has-drop-cap > p:first-of-type::first-letter,
 p.has-drop-cap::first-letter {
   font-family: var(--font-display);
-  font-style: italic;
+  font-style: normal;
   font-weight: 600;
   float: left;
   font-size: 4.4em;
@@ -5921,7 +5921,7 @@ p.has-drop-cap::first-letter {
   margin-top: 1.4rem;
   font-size: 0.85rem;
   color: var(--soft);
-  font-style: italic;
+  font-style: normal;
   max-width: 72ch;
 }
 .events-stats__note a { color: var(--accent); border-bottom: 1px solid currentColor; }
@@ -6258,7 +6258,7 @@ p.has-drop-cap::first-letter {
 .skip-block__body {
   font-size: 0.85rem;
   color: rgba(242, 237, 228, 0.55);
-  font-style: italic;
+  font-style: normal;
 }
 .skip-block__list {
   display: flex;
@@ -6427,7 +6427,7 @@ p.has-drop-cap::first-letter {
 .event-detail__box-list dd a { color: var(--accent); border-bottom: 1px solid rgba(11, 90, 72, 0.4); }
 .event-detail__box-list dd.event-detail__box-soft {
   color: var(--soft);
-  font-style: italic;
+  font-style: normal;
 }
 
 /* Standardised action row beneath the at-a-glance list. Always shows an
@@ -6833,7 +6833,7 @@ p.has-drop-cap::first-letter {
   font-size: clamp(1.05rem, 2vw, 1.2rem);
   line-height: 1.5;
   color: var(--soft);
-  font-style: italic;
+  font-style: normal;
 }
 .contact-editorial__body {
   display: flex;
@@ -6899,7 +6899,7 @@ p.has-drop-cap::first-letter {
   font-size: 0.75rem;
   color: var(--soft);
   margin-left: 0.6rem;
-  font-style: italic;
+  font-style: normal;
 }
 
 /* =========================================================
@@ -7039,7 +7039,7 @@ p.has-drop-cap::first-letter {
   font-size: 0.72rem;
   color: var(--soft);
   margin-top: 0.8rem;
-  font-style: italic;
+  font-style: normal;
   line-height: 1.6;
 }
 
@@ -8325,7 +8325,7 @@ p.has-drop-cap::first-letter {
 .at-a-glance__row:last-child { border-bottom: none; }
 .at-a-glance__label { padding: 0.75rem 1rem; font-size: 0.8rem; font-weight: 600; color: var(--body); background: var(--bg-alt); min-width: 160px; text-transform: uppercase; letter-spacing: 0.06em; font-family: var(--font-ui); }
 .at-a-glance__value { padding: 0.75rem 1rem; font-size: 0.9rem; color: var(--dark); flex: 1; }
-.affiliate-disclosure { font-size: 0.8rem; color: var(--body-light, #888); font-style: italic; margin: 1.5rem 0; padding: 0.75rem 1rem; border-left: 3px solid var(--border); background: var(--bg-alt); }
+.affiliate-disclosure { font-size: 0.8rem; color: var(--body-light, #888); font-style: normal; margin: 1.5rem 0; padding: 0.75rem 1rem; border-left: 3px solid var(--border); background: var(--bg-alt); }
 .tour-cta-block { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 2px; padding: 1.5rem; margin: 2rem 0; }
 .tour-cta-block__title { font-family: var(--font-display); font-size: 1.4rem; margin-bottom: 0.5rem; }
 .tour-cta-primary { display: inline-block; background: var(--accent); color: #fff; font-size: 0.875rem; font-weight: 600; padding: 0.75em 1.5em; border-radius: 2px; text-decoration: none; margin-top: 1rem; letter-spacing: 0.04em; }
@@ -8521,7 +8521,7 @@ body[data-path^="/ask"] .concierge-fab {
   .sl-item__num {
     display: inline-block;
     font-size: 1.4rem;
-    font-style: italic;
+    font-style: normal;
     line-height: 1;
     margin: 0 0 0.4rem;
     color: var(--accent);
@@ -11020,4 +11020,22 @@ body.menu-open .subscribe-pill {
 .newsletter,
 .v3-footer {
   --focus-ring-color: var(--focus-ring-color-inverse);
+}
+
+/* ── No italics, sitewide (2026-07-24) ─────────────────────────────────────
+   House rule: the site does not use italic type anywhere. All component
+   font-style declarations were normalised in the same change; this rule
+   catches semantic emphasis from markdown-rendered article content (em,
+   cite, etc.) and any future slip-through. Emphasis reads through weight
+   and colour, never slant. */
+em,
+i,
+cite,
+q,
+dfn,
+var,
+address,
+blockquote,
+figcaption {
+  font-style: normal;
 }

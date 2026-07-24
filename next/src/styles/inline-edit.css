@@ -700,7 +700,7 @@ body[data-pi-edit-mode="on"] [data-pi-prose-root] [data-pi-block-id].pi-block-ed
 
 .pi-block-toolbar__btn strong,
 .pi-block-toolbar__btn em {
-  font-style: italic;
+  font-style: normal;
   font-weight: 700;
 }
 .pi-block-toolbar__btn strong { font-style: normal; }
