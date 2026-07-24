@@ -295,6 +295,14 @@
   color: var(--bg);
 }
 
+/* The author display rules above override the UA [hidden] rule, which left
+   the empty "See all results" pill visible before any query was typed (the
+   "weird box"). Restore hidden's meaning explicitly. */
+.site-search-overlay__results[hidden],
+.site-search-overlay__cta[hidden] {
+  display: none;
+}
+
 body.search-open { overflow: hidden; }
 
 /* ─── /search page proper ───────────────────────────────────────── */
