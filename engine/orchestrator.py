@@ -195,13 +195,18 @@ def call_openclaw_agent(agent_name: str, brief: dict, output_path: Path, fallbac
              '--season', season,
              '--output', str(output_path)]
             + (['--research-file', brief['research_file']] if 'research_file' in brief else []),
-            capture_output=True, text=True, timeout=60
+            capture_output=True, text=True, timeout=240  # room for a real LLM call
         )
         if result.returncode == 0 and output_path.exists():
             print(f"    ✓ Generated via content_generator")
             return True
         else:
-            print(f"    ✗ Generator failed: {result.stderr[:200]}")
+            print(f"    ✗ Generator failed: {result.stderr[:300]}")
+            # Publishable article tasks must NOT fall through to the generic
+            # stub below — a missing file makes the gates skip the publish,
+            # which beats committing a placeholder (or canned content) live.
+            if gen_task in ("daily-insider-picks", "weekend-picks", "long-form"):
+                return False
 
     # Integration path 2: research stub (write empty JSON so downstream works)
     if task == 'daily-event-intel' and not output_path.exists():
@@ -305,9 +310,16 @@ def run_daily(log: RunLog, state: dict, today: str, now_aest: datetime):
     if style_result == "FAIL":
         log.error("Style gate failed — running one revision")
         # Simplified revision: ask dispatch to fix specific issues
-        call_openclaw_agent("dispatch-desk", {**dispatch_brief, "revision": True, "style_notes": "simplify, remove generic language"}, article_path)
+        call_openclaw_agent("dispatch-desk", {**dispatch_brief, "revision": True, "style_notes": "simplify, remove generic language, remove ALL dollar figures and prices"}, article_path)
         style_result = run_style_gate(article_path)
         if style_result == "FAIL":
+            import re as _re
+            if article_path.exists() and _re.search(r"\$\s?\d", article_path.read_text()):
+                # Pricing would hard-fail the build's lint:no-pricing gate and
+                # block every subsequent deploy — abort this publish instead.
+                log.error("Pricing still present after revision — aborting daily publish")
+                article_path.unlink()
+                return
             log.step("style-gate", "WARN", "Second pass also flagged — shipping with log note")
     else:
         log.step("style-gate", "PASS")
@@ -317,7 +329,7 @@ def run_daily(log: RunLog, state: dict, today: str, now_aest: datetime):
     verify_result = run_verify_gate(article_path, today)
     if verify_result == "FAIL":
         log.error("Verify gate hard fail — checking for fallback")
-        fallback = find_latest_insider_picks()
+        fallback = find_latest_insider_picks(exclude=article_path)
         if fallback:
             log.step("verify-gate", "FALLBACK", f"Using {fallback.name} as template")
             article_path = fallback
@@ -647,6 +659,11 @@ def run_style_gate(article_path: Path) -> str:
     prohibited = ["stunning", "vibrant", "nestled", "charming", "hidden gem",
                   "must-visit", "you won't be disappointed", "world-class"]
     failures = [p for p in prohibited if p.lower() in content.lower()]
+    # BRAND-PI "No pricing on site. Ever." — the build's lint:no-pricing gate
+    # fails the deploy on any prose dollar figure, so catch it here first.
+    import re as _re
+    if _re.search(r"\$\s?\d", content):
+        failures.append("pricing ($ figure)")
     if failures:
         print(f"    Style issues: {failures}")
         return "FAIL"
@@ -812,10 +829,14 @@ def run_corpus_refresh() -> bool:
     return False
 
 
-def find_latest_insider_picks() -> Path | None:
-    """Find the most recent insider-picks file as fallback."""
+def find_latest_insider_picks(exclude: Path | None = None) -> Path | None:
+    """Find the most recent insider-picks file as fallback. `exclude` keeps a
+    just-written failing article from being offered as its own fallback."""
     picks = sorted(CONTENT_DIR.glob("insider-picks-*.md"), reverse=True)
-    return picks[0] if picks else None
+    for p in picks:
+        if exclude is None or p.resolve() != exclude.resolve():
+            return p
+    return None
 
 
 def find_stale_town_hubs() -> list[str]:

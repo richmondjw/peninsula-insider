@@ -33,6 +33,9 @@ VOICE RULES (non-negotiable):
 - Sentences max 35 words.
 - Oxford comma. Present tense for venues. Past tense for experiences the writer has had.
 - The Peninsula Insider house byline means nobody claims to be a human writer.
+- NO PRICING, EVER. Never state a dollar figure, price range, or cost ("$135pp",
+  "from $40") - the site has a hard no-pricing rule enforced at build time.
+  Say "bookings essential", "book ahead", or "check the website" instead.
 
 SEASON CONTEXT:
 - Summer (Dec-Feb): beaches, outdoor dining, crowds, hot springs, sailing
@@ -110,10 +113,13 @@ def get_season(month: int) -> str:
     return seasons.get(month, "summer")
 
 
-def generate_insider_picks(date_str: str, research_data: dict | None = None) -> str:
+def generate_insider_picks(date_str: str, research_data: dict | None = None) -> str | None:
     """
     Generate an Insider Picks column using Claude (via OpenClaw or claude CLI).
-    Returns the full markdown content of the article.
+    Returns the full markdown content of the article, or None when no LLM
+    backend is available — publishing callers must SKIP, never fabricate.
+    (The template fallback shipped 19 identical date-swapped articles between
+    2026-07-05 and 2026-07-24 before this was enforced.)
     """
     now = datetime.fromisoformat(date_str) if "-" in date_str else datetime.now(AEST)
     season = get_season(now.month)
@@ -144,7 +150,7 @@ Write three picks:
 
 3. DISCOVERY/CULTURAL: Something off the main track — a gallery show with a closing date, a market, a new opening, or something locals know that visitors discover through PI.
 
-Each pick: 130-180 words. Structure: hook sentence → detail paragraph → practical note (address, time needed, booking/price) → pairing suggestion (one sentence).
+Each pick: 130-180 words. Structure: hook sentence → detail paragraph → practical note (address, time needed, how to book — never a price) → pairing suggestion (one sentence).
 
 After the three picks, write a footer with the three picks' key details (name, address, key practical info).
 
@@ -156,17 +162,13 @@ heroImage src should be: {HERO_IMAGES.get(season, HERO_IMAGES['winter'])}
 
 Remember: no brochure language. Specific. Local. Opinionated. Start with the thing, not with "This week"."""
 
-    # Generate via the shared LLM client (Anthropic SDK in CI, `claude` CLI
-    # locally). Returns None if neither backend is available -> template fallback.
+    # Generate via the shared LLM client (Anthropic SDK / OpenRouter in CI,
+    # `claude` CLI locally). None means no backend produced text — the caller
+    # must skip the publish and alert, NOT substitute canned content.
     import sys as _sys
     _sys.path.insert(0, str(Path(__file__).resolve().parent))
     import llm
-    out = llm.complete(prompt, system=PI_VOICE_SYSTEM_PROMPT, max_tokens=2000)
-    if out:
-        return out
-
-    # Fallback: structured template
-    return generate_template_picks(date_str, season)
+    return llm.complete(prompt, system=PI_VOICE_SYSTEM_PROMPT, max_tokens=2000) or None
 
 
 def generate_template_picks(date_str: str, season: str) -> str:
@@ -285,6 +287,27 @@ _Confirm current hours and availability directly with each venue before visiting
     return content
 
 
+def _fail_no_llm(task: str, date_str: str) -> None:
+    """No LLM backend produced content for a publishable article: alert loudly
+    and exit non-zero WITHOUT writing an output file, so the orchestrator's
+    gates see a missing article instead of committing canned content."""
+    import sys as _sys
+    _sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import llm
+    msg = (f"{task} for {date_str}: no LLM backend produced content "
+           f"(llm.available() = {llm.available()}). Publish skipped - "
+           "check ANTHROPIC_API_KEY / OPENROUTER_API_KEY secrets and provider status.")
+    print(f"✗ {msg}", file=sys.stderr)
+    try:
+        import alert
+        alert.emit_alert(
+            title=f"PI content engine: {task} publish skipped (no LLM)",
+            body=msg, severity="error", dedup_key="llm-unavailable")
+    except Exception as e:
+        print(f"  alert emit failed: {e}", file=sys.stderr)
+    sys.exit(2)
+
+
 def load_research(research_file: str | None) -> dict | None:
     if research_file and Path(research_file).exists():
         try:
@@ -317,11 +340,15 @@ def main():
 
     if args.task == "daily-insider-picks":
         content = generate_insider_picks(args.date, research_data)
+        if content is None:
+            _fail_no_llm(args.task, args.date)
         output_path.write_text(content)
         print(f"✓ Written: {output_path} ({len(content)} chars)")
 
     elif args.task == "weekend-picks":
         content = generate_insider_picks(args.date, research_data)
+        if content is None:
+            _fail_no_llm(args.task, args.date)
         # Adjust frontmatter for weekend-picks format
         content = content.replace('"insider-edit"', '"weekend-guide"')
         content = content.replace('tags: [insider-picks', 'tags: [weekend-picks')
