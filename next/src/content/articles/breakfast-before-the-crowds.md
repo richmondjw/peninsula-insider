@@ -21,7 +21,6 @@ relatedVenues:
   - "sourdough-kitchen"
   - "flinders-general-store"
   - "red-hill-bakery"
-  - "sorrento-bakery"
   - "balnarring-bakehouse"
   - "somers-general"
 readingTimeMinutes: 7

@@ -72,8 +72,6 @@ Sorrento does not have the Peninsula's deepest dining bench, but it has enough f
 
 ### The practical institutions
 
-**Sorrento Bakery** is not optional if you are doing the town properly. Go early. Buy for the walk as much as for breakfast. A pie after the back beach is more useful than another elaborate brunch booking.
-
 **Sorrento Gelato** remains worth it, but only if you treat it as a walk accessory rather than a destination in itself.
 
 ### Worth leaving town by five minutes
@@ -126,7 +124,7 @@ Treating Portsea and Sorrento as interchangeable. Portsea is quieter, more withh
 
 ## The best single day here
 
-Start with coffee and something substantial from Sorrento Bakery before 8am. Drive or walk to the back beach while the light is still low and spend the first two hours walking rather than trying to turn the morning into content. By late morning, head back into town for a slow circuit of the village and foreshore.
+Start with coffee and something substantial in the village before 8am. Drive or walk to the back beach while the light is still low and spend the first two hours walking rather than trying to turn the morning into content. By late morning, head back into town for a slow circuit of the village and foreshore.
 
 Lunch at The Baths if the weather is doing what you hoped it would. If not, take the dependable option and settle in at Hotel Sorrento. Early afternoon is for Point Nepean, the proper version rather than the rushed one. Give yourself enough time for the walk, the fortifications and the outlooks.
 

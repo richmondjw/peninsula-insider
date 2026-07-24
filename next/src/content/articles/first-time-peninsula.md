@@ -11,7 +11,7 @@ heroImage:
   license: "tmp-wikimedia"
 format: "service"
 tags: ["first-timers", "guide", "overview", "planning", "explore", "weekend"]
-relatedVenues: ["montalto", "ten-minutes-by-tractor", "merricks-general-wine-store", "commonfolk-coffee", "flinders-hotel", "hotel-sorrento", "red-hill-brewery", "alba-thermal-springs", "peninsula-hot-springs", "polperro", "lindenderry", "jackalope", "flinders-sourdough", "red-hill-cheese", "sorrento-bakery", "sorrento-hotel", "portsea-hotel", "main-ridge-dairy"]
+relatedVenues: ["montalto", "ten-minutes-by-tractor", "merricks-general-wine-store", "commonfolk-coffee", "flinders-hotel", "hotel-sorrento", "red-hill-brewery", "alba-thermal-springs", "peninsula-hot-springs", "polperro", "lindenderry", "jackalope", "flinders-sourdough", "red-hill-cheese", "sorrento-hotel", "portsea-hotel", "main-ridge-dairy"]
 relatedExperiences: ["arthurs-seat-lookout", "point-nepean-national-park", "sorrento-back-beach", "sorrento-ferry", "mornington-foreshore-walk", "pt-leo-sculpture-park", "montalto-sculpture-trail", "bushrangers-bay-walk"]
 readingTimeMinutes: 9
 featured: true

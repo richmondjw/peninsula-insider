@@ -11,7 +11,7 @@ heroImage:
   license: "tmp-wikimedia"
 format: "slow-peninsula"
 tags: ["sorrento", "portsea", "weekend", "stay", "bayside", "back-beaches"]
-relatedVenues: ["hotel-sorrento", "the-continental-sorrento", "sorrento-hotel", "polperro", "polperro-villas", "sorrento-bakery", "sorrento-gelato", "portsea-hotel", "the-baths-sorrento", "pt-leo-estate", "barragunda-dining"]
+relatedVenues: ["hotel-sorrento", "the-continental-sorrento", "sorrento-hotel", "polperro", "polperro-villas", "sorrento-gelato", "portsea-hotel", "the-baths-sorrento", "pt-leo-estate", "barragunda-dining"]
 relatedExperiences: ["sorrento-back-beach", "sorrento-ocean-baths", "sorrento-ferry", "portsea-front-beach", "coppins-track", "point-nepean-fort-walk", "point-nepean-national-park"]
 readingTimeMinutes: 8
 featured: false
@@ -73,7 +73,7 @@ The first is the **ferry to Queenscliff**  -  a forty-minute crossing to the Bel
 
 The second, and the one locals tend to pick, is **Point Nepean National Park**. Drive the ten minutes west out of Sorrento through Portsea, park at the visitor centre, and take either the shuttle or the longer **Point Nepean Fort Walk** out to the defensive batteries at the tip of the Peninsula. The fort walk is more interesting than its name  -  nineteenth-century gun emplacements, a quarantine station with a full Gold Rush history, and the westernmost point of the whole land mass, with the Rip churning below you. Give it a minimum of three hours. If you do nothing else at Point Nepean, walk out to Cheviot Hill for the view back along both coasts at once.
 
-Lunch on day two should be light and close to the activity. If you took the ferry, eat on the other side. If you went to Point Nepean, **Portsea Hotel** on the way back is the easy answer  -  the bistro is better than the building hints at, and the verandah looks directly over Port Phillip. Otherwise, **Sorrento Bakery** for a pie and **Sorrento Gelato** afterwards is the village move, and it is genuinely the right move on a day when you have already put walking in the bank.
+Lunch on day two should be light and close to the activity. If you took the ferry, eat on the other side. If you went to Point Nepean, **Portsea Hotel** on the way back is the easy answer  -  the bistro is better than the building hints at, and the verandah looks directly over Port Phillip. Otherwise, **Sorrento Gelato** on the walk through the village is the move, and it is genuinely the right move on a day when you have already put walking in the bank.
 
 ## The dinner that matters
 

@@ -266,14 +266,7 @@ export const prerender = true;
     image={{ src: '/images/sourced/venue-italian-dining-01.webp', alt: 'A Peninsula dining room set for a long lunch' }}
   />
 
-  <!-- 2. Decide: intent chips + filters. ONE state governs The Six AND the
-       directory (URL-persisted; restoration per pi:restore:v1 contract). -->
-  <div class="container">
-    <FilterBar surface="eat" noun="places" label="Filter places to eat" sticky>
-    </FilterBar>
-  </div>
-
-  <!-- 3. The verdict layer -->
+  <!-- 2. The verdict layer -->
   <TheSix
     id="the-six"
     eyebrow="The Six · this month"
@@ -295,19 +288,26 @@ export const prerender = true;
     </div>
   </nav>
 
-  <!-- 4. The catalogue layer: every non-winery venue, one render, in-DOM -->
+  <!-- 4. The catalogue layer: every non-winery venue, one render, in-DOM.
+       Intent chips + filters are slotted directly above the list they
+       reshape (moved below The Six 2026-07-24 per James; slotted inside the
+       directory so the sticky bar has the full list height to stick
+       against). ONE state still governs The Six AND the directory
+       (URL-persisted; restoration per pi:restore:v1 contract). -->
   <DirectoryRows
     id="directory"
     eyebrow="The full list"
     heading={`All ${directoryItems.length} places to eat`}
-    sub="Ordered by editorial weight. The filters above reshape this list."
+    sub="Ordered by editorial weight. The filters reshape this list."
     noun="places"
     surface="eat"
     items={directoryItems}
     topLink={{ label: 'Ranked top 15', href: '/eat/best-restaurants/' }}
     emptyHeading="Nothing matches those filters yet"
-    emptyBody="Loosen one and the list comes back. Or tell PI the occasion."
+    emptyBody="Loosen one and the list comes back."
   >
+    <FilterBar slot="before-list" surface="eat" noun="places" label="Filter places to eat" sticky>
+    </FilterBar>
     <div
       slot="before-list"
       class="eat-winery-kitchens"

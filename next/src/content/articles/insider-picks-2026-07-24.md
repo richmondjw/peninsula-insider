@@ -5,8 +5,8 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-07-24
 heroImage:
-  src: "/images/sourced/explore-cape-schanck-lighthouse-01.webp"
-  alt: "Cape Schanck lighthouse on the Bass Strait coastline in winter morning light, Mornington Peninsula"
+  src: "/images/sourced/venue-ten-minutes-by-tractor-01.webp"
+  alt: "Ten Minutes by Tractor, Main Ridge - the vineyard dining room in winter, Mornington Peninsula"
   credit: "Peninsula Insider"
   license: "other-licensed"
 format: "insider-edit"

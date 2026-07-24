@@ -23,7 +23,6 @@ relatedVenues:
   - "mornington-hotel"
   - "dromana-hotel"
   - "balnarring-pub"
-  - "sorrento-bakery"
   - "tedesca-osteria"
   - "rare-hare"
   - "bistro-elba"
@@ -92,7 +91,7 @@ The principle: stop once, on the way in, and buy everything you need for Friday 
 
 **The Flinders stop:** **Flinders General Store** carries a curated range of provisions (local cheese, bread, smallgoods, wine) designed for exactly this scenario. It closes early, so time it right. If you miss it, the Flinders Hotel bottle shop is the fallback.
 
-**The Sorrento stop:** **Sorrento Bakery** for bread and pastries (if you arrive before five). The IGA in Sorrento for basics. The Continental bottle shop for wine if you want to spend more.
+**The Sorrento stop:** The IGA in Sorrento for basics. The Continental bottle shop for wine if you want to spend more.
 
 The provisions-stop dinner looks like this: bread torn from a loaf, cheese on a board, olives, cold chicken or charcuterie, a salad if you are feeling virtuous, wine, and the deck. It takes ten minutes to assemble and costs less than a pub dinner for two. On a still autumn evening, it is one of the loveliest dinners the Peninsula offers.
 

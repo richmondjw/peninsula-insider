@@ -11,7 +11,7 @@ heroImage:
   license: "tmp-wikimedia"
 format: "service"
 tags: ["point-nepean", "sorrento", "portsea", "walks", "history", "explore", "families", "all-year"]
-relatedVenues: ["portsea-hotel", "hotel-sorrento", "the-continental-sorrento", "sorrento-bakery", "sorrento-gelato"]
+relatedVenues: ["portsea-hotel", "hotel-sorrento", "the-continental-sorrento", "sorrento-gelato"]
 relatedExperiences: ["point-nepean-fort-walk", "point-nepean-national-park", "portsea-front-beach", "sorrento-back-beach", "coppins-track", "sorrento-ocean-baths"]
 readingTimeMinutes: 7
 featured: false
@@ -93,7 +93,7 @@ The Point Nepean half-day fits cleanly into a Sorrento or Portsea weekend in one
 
 **Slot one: the Saturday afternoon after a late morning at the back beach.** Back beach by 9am for the walk and the light, coffee and pastry back in the village by 11, shuttle and walk at Point Nepean from about 1pm, back in the village by 4.30 for a pre-dinner drink and a short lie-down.
 
-**Slot two: the Sunday morning before driving home.** An early coffee in Sorrento, park entry at 9am when the shuttle starts, the fort by 10, back at the car by 12, one quick lunch in Portsea at the **Portsea Hotel** or back at **Sorrento Bakery**, and on the road by 2pm to beat the Sunday traffic. This is the version we recommend for first-time visitors, it turns the landscape of the Peninsula into the last thing you see, rather than a detour you try to squeeze before dinner on night one.
+**Slot two: the Sunday morning before driving home.** An early coffee in Sorrento, park entry at 9am when the shuttle starts, the fort by 10, back at the car by 12, one quick lunch in Portsea at the **Portsea Hotel**, and on the road by 2pm to beat the Sunday traffic. This is the version we recommend for first-time visitors, it turns the landscape of the Peninsula into the last thing you see, rather than a detour you try to squeeze before dinner on night one.
 
 ## What to bring
 

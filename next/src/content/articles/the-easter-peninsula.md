@@ -11,7 +11,7 @@ heroImage:
   license: "tmp-unsplash"
 format: "service"
 tags: ["easter", "long-weekend", "seasonal", "family", "weekend", "autumn"]
-relatedVenues: ["red-hill-bakery", "sorrento-bakery", "balnarring-bakehouse", "flinders-sourdough", "johnny-ripe", "mornington-peninsula-chocolates", "sunny-ridge-strawberry-farm", "ashcombe-maze", "merricks-general-wine-store", "balnarring-pub", "flinders-hotel", "red-hill-brewery", "lindenderry", "polperro-villas", "crittenden-villas", "alba-thermal-springs", "peninsula-hot-springs"]
+relatedVenues: ["red-hill-bakery", "balnarring-bakehouse", "flinders-sourdough", "johnny-ripe", "mornington-peninsula-chocolates", "sunny-ridge-strawberry-farm", "ashcombe-maze", "merricks-general-wine-store", "balnarring-pub", "flinders-hotel", "red-hill-brewery", "lindenderry", "polperro-villas", "crittenden-villas", "alba-thermal-springs", "peninsula-hot-springs"]
 relatedExperiences: ["bushrangers-bay-walk", "cape-schanck-boardwalk", "mornington-foreshore-walk", "balnarring-beach", "mount-martha-beach", "red-hill-market"]
 readingTimeMinutes: 7
 featured: false
@@ -76,7 +76,7 @@ Friday is the day everyone else uses to drive down. Either be down already or ar
 
 Most cellar doors are closed on Good Friday. Most bakeries and cafes are open with reduced hours. Friday rewards a slow shape:
 
-**8.30am:** Bakery breakfast. **Red Hill Bakery** if you are based on the ridge, **Sorrento Bakery** if you are at the tip, **Flinders Sourdough** if you are south. Hot cross buns are the day's organising food and most of the bakeries make them properly. Buy more than you think you need; you will eat them across all four days.
+**8.30am:** Bakery breakfast. **Red Hill Bakery** if you are based on the ridge, **Flinders Sourdough** if you are south. Hot cross buns are the day's organising food and most of the bakeries make them properly. Buy more than you think you need; you will eat them across all four days.
 
 **10am:** A village walk. Friday morning on the Peninsula is the right time to walk a village without anyone else there. The Mornington foreshore from the pier to Mills Beach. The Sorrento foreshore from the village to the front beach. The Flinders pier and back along the village street.
 

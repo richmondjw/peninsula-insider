@@ -214,14 +214,7 @@ export const prerender = true;
     image={{ src: '/images/sourced/venue-jackalope-hotel-01.webp', alt: 'A vineyard hotel on the Mornington Peninsula at dusk' }}
   />
 
-  <!-- 2. Party chips: ONE filter state for The Six + directory (CHIP_PRESETS.stay) -->
-  <div class="container">
-    <FilterBar surface="stay" noun="stays" label="Filter stays" sticky={true}>
-      <SortControl />
-    </FilterBar>
-  </div>
-
-  <!-- 3. The Six -->
+  <!-- 2. The Six -->
   <TheSix
     eyebrow="The Six · this month"
     heading="Six stays worth building a weekend around"
@@ -251,7 +244,11 @@ export const prerender = true;
     </div>
   </section>
 
-  <!-- 5. Directory: the FULL stay corpus as compact rows, Book primary + Save -->
+  <!-- 5. Directory: the FULL stay corpus as compact rows, Book primary +
+       Save. Party chips are slotted directly above the list they reshape
+       (moved from the top of the page 2026-07-24 per James; slotted inside
+       the directory so the sticky bar has the full list height to stick
+       against). ONE filter state still governs The Six + directory. -->
   <DirectoryRows
     eyebrow="The full list"
     heading={`All ${stayCount} places to stay`}
@@ -259,7 +256,11 @@ export const prerender = true;
     noun="stays"
     items={directoryItems}
     topLink={{ label: 'Ranked: the best places to stay', href: '/stay/best-accommodation/' }}
-  />
+  >
+    <FilterBar slot="before-list" surface="stay" noun="stays" label="Filter stays" sticky={true}>
+      <SortControl />
+    </FilterBar>
+  </DirectoryRows>
 
   <!-- 6. From the Journal (3) -->
   <JournalModule

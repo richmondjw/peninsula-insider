@@ -275,35 +275,7 @@ const faqSchema = {
     image={{ src: '/images/sourced/article-cellar-door-01.webp', alt: 'A Red Hill cellar door among the vines' }}
   />
 
-  <div class="wine-controls container">
-    <!-- 2. Experience chips: CHIP_PRESETS.wine. ONE FilterBar; one filter
-         state governs The Six, the kitchens rows and the directory. -->
-    <FilterBar surface="wine" noun="cellar doors" sticky={true}>
-      <SortControl />
-    </FilterBar>
-
-    <!-- Walk-in vs appointment: depth kept behind one interaction (P7).
-         Carries the CompareBlock's SEO-load-bearing names and phrases. -->
-    <details class="wine-orientation">
-      <summary>Walk-in or appointment? How to shape the day</summary>
-      <div class="wine-orientation__body">
-        <p>
-          Walk-in rooms (Montalto, Polperro, Pt. Leo Estate, Red Hill Estate, Foxeys Hangout,
-          Paringa Estate) suit a first visit: taste at the bar, then a long lunch in the dining
-          room. Cellar doors take you as you come; the restaurants book 2 to 6 weeks ahead for
-          weekends.
-        </p>
-        <p>
-          Appointment producers (Ten Minutes by Tractor, Main Ridge Estate, Dexter Wines, Quealy
-          Winemakers, Eldridge Estate, Garagiste) pour smaller, talk longer and often open the
-          back vintages. Book 1 to 3 weeks ahead. The right call when the wine is genuinely the
-          point of the trip.
-        </p>
-      </div>
-    </details>
-  </div>
-
-  <!-- 3. The Six -->
+  <!-- 2. The Six -->
   <TheSix
     id="the-six"
     eyebrow="The Six · this month"
@@ -361,13 +333,41 @@ const faqSchema = {
     id="wine-directory"
     eyebrow="The full list"
     heading={`All ${venues.length} cellar doors, breweries and distilleries`}
-    sub="Every producer we track, one URL each. Narrow with the chips above; sort by name or town."
+    sub="Every producer we track, one URL each. Narrow with the chips; sort by name or town."
     surface="wine"
     noun="cellar doors"
     items={directoryItems}
     emptyHeading="Nothing matches those filters"
     emptyBody="Clear one and the ridge reopens."
-  />
+  >
+    {/* Experience chips live with the list they reshape (moved from the top
+        of the page 2026-07-24 per James). Slotted inside the directory so the
+        sticky bar has the full list height to stick against. ONE filter
+        state still governs The Six, the kitchens rows and this directory. */}
+    <FilterBar slot="before-list" surface="wine" noun="cellar doors" sticky={true}>
+      <SortControl />
+    </FilterBar>
+
+    {/* Walk-in vs appointment: depth kept behind one interaction (P7).
+        Carries the CompareBlock's SEO-load-bearing names and phrases. */}
+    <details slot="before-list" class="wine-orientation">
+      <summary>Walk-in or appointment? How to shape the day</summary>
+      <div class="wine-orientation__body">
+        <p>
+          Walk-in rooms (Montalto, Polperro, Pt. Leo Estate, Red Hill Estate, Foxeys Hangout,
+          Paringa Estate) suit a first visit: taste at the bar, then a long lunch in the dining
+          room. Cellar doors take you as you come; the restaurants book 2 to 6 weeks ahead for
+          weekends.
+        </p>
+        <p>
+          Appointment producers (Ten Minutes by Tractor, Main Ridge Estate, Dexter Wines, Quealy
+          Winemakers, Eldridge Estate, Garagiste) pour smaller, talk longer and often open the
+          back vintages. Book 1 to 3 weeks ahead. The right call when the wine is genuinely the
+          point of the trip.
+        </p>
+      </div>
+    </details>
+  </DirectoryRows>
 
   <!-- 7. From the Journal: ONE module, <= 3 cards (down from two sections) -->
   <JournalModule

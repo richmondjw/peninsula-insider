@@ -96,7 +96,10 @@ CLUSTER_LINK_TARGETS = [
 ]
 
 HERO_IMAGES = {
-    "winter": "/images/sourced/explore-cape-schanck-lighthouse-01.webp",
+    # Winter picks lead with the Ten Minutes by Tractor dining room
+    # (James, 2026-07-24: the homepage flagship behind Insider Picks
+    # should carry a TMBT photo rather than the lighthouse).
+    "winter": "/images/sourced/venue-ten-minutes-by-tractor-01.webp",
     "spring": "/images/sourced/explore-cape-schanck-lighthouse-01.webp",
     "summer": "/images/sourced/explore-cape-schanck-lighthouse-01.webp",
     "autumn": "/images/sourced/explore-cape-schanck-lighthouse-01.webp",

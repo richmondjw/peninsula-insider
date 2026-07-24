@@ -36,7 +36,12 @@ body[data-v4="true"] .masthead {
      the third (nav) row beneath. */
   position: sticky;
   top: 0;
-  z-index: 60;
+  /* Match the base .masthead (9999): this rule's higher specificity was
+     demoting the menu to 60, letting Leaflet panes (z up to ~1200) paint
+     over it on Places pages. House rule 2026-07-24: the main menu always
+     sits above page content; only the search overlay (10005) and drawers
+     (10010) go higher. */
+  z-index: 9999;
 }
 
 .v4-masthead-nav {

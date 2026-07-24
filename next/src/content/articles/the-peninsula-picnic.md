@@ -11,7 +11,7 @@ heroImage:
   license: "tmp-wikimedia"
 format: "service"
 tags: ["picnic", "producers", "outdoor", "family", "couples", "budget", "autumn", "spring"]
-relatedVenues: ["red-hill-cheese", "main-ridge-dairy", "flinders-sourdough", "red-hill-bakery", "green-olive-red-hill", "mornington-peninsula-chocolates", "peninsula-fresh-organics", "balnarring-bakehouse", "somers-general", "johnny-ripe", "sorrento-bakery", "merricks-general-wine-store", "red-hill-market", "mornington-farmers-market"]
+relatedVenues: ["red-hill-cheese", "main-ridge-dairy", "flinders-sourdough", "red-hill-bakery", "green-olive-red-hill", "mornington-peninsula-chocolates", "peninsula-fresh-organics", "balnarring-bakehouse", "somers-general", "johnny-ripe", "merricks-general-wine-store", "red-hill-market", "mornington-farmers-market"]
 relatedExperiences: ["montalto-sculpture-trail", "pt-leo-sculpture-park", "arthurs-seat-lookout", "mount-martha-beach", "balnarring-beach", "point-nepean-national-park", "mornington-foreshore-walk", "red-hill-market"]
 readingTimeMinutes: 7
 featured: false

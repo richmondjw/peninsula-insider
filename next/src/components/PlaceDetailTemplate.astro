@@ -193,13 +193,17 @@ const factual = place.data.factualLede ?? '';
   })}>
   <div class="pdv2-hero__scrim"></div>
   <div class="pdv2-hero__inner container">
-    <p class="pdv2-hero__eyebrow">{zoneLabel} · {kindLabel}</p>
-    {place.data.regionSlug && (
+    {/* ONE eyebrow (2026-07-24, per James - the old zone · kind line doubled
+        up with the region link). Region link when the place has one, else
+        the zone · kind fallback. */}
+    {place.data.regionSlug ? (
       <a
         href={`/explore/regions/${place.data.regionSlug}/`}
         class="pdv2-hero__eyebrow pdv2-hero__region"
         style="display:inline-block;text-decoration:none;border-bottom:1px solid currentColor;margin:2px 0 8px;"
       >{place.data.regionLabel ?? place.data.regionSlug}</a>
+    ) : (
+      <p class="pdv2-hero__eyebrow">{zoneLabel} · {kindLabel}</p>
     )}
     <h1 class="pdv2-hero__title"
       {...editableText({ entityType: 'place', entitySlug: placeSlug, fieldPath: 'name', label: `${place.data.name} - name` })}

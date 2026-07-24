@@ -28,7 +28,6 @@ relatedVenues:
   - "montalto"
   - "pt-leo-estate"
   - "commonfolk-coffee"
-  - "sorrento-bakery"
   - "flinders-sourdough"
   - "kooyong"
   - "dexter-wines"
@@ -106,7 +105,7 @@ Saturday is the day with one anchor: the long lunch. Everything before and after
 
 ### Morning
 
-Sleep in. Make coffee. If you are near a bakery, **Flinders Sourdough**, **Sorrento Bakery**, or **Commonfolk** in Mornington if you are staying up that end, walk to it. Get pastries and a flat white and bring them back. Keep breakfast light. You have a lunch coming.
+Sleep in. Make coffee. If you are near a bakery, **Flinders Sourdough**, or **Commonfolk** in Mornington if you are staying up that end, walk to it. Get pastries and a flat white and bring them back. Keep breakfast light. You have a lunch coming.
 
 If you want movement, take a walk. **Coppins Track** near Sorrento is a short coastal loop. The **Cape Schanck Boardwalk** is windblown and dramatic. **Bushrangers Bay** is the longer option if you want to earn the lunch. None of these are mandatory. Sitting on the deck with a second coffee is an equally valid Saturday morning.
 
