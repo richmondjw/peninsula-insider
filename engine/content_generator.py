@@ -168,7 +168,31 @@ Remember: no brochure language. Specific. Local. Opinionated. Start with the thi
     import sys as _sys
     _sys.path.insert(0, str(Path(__file__).resolve().parent))
     import llm
-    return llm.complete(prompt, system=PI_VOICE_SYSTEM_PROMPT, max_tokens=2000) or None
+    out = llm.complete(prompt, system=PI_VOICE_SYSTEM_PROMPT, max_tokens=2000)
+    return _clean_llm_output(out) if out else None
+
+
+def _clean_llm_output(text: str) -> str:
+    """Normalise raw LLM output into a valid article file. Models sometimes
+    wrap the whole document in a markdown code fence and emit an unquoted
+    title containing a colon — both break Astro's frontmatter parse at build
+    time (first seen on the 2026-07-24 run)."""
+    import re as _re
+    t = text.strip()
+    if t.startswith("```"):
+        lines = t.splitlines()[1:]  # drop the opening fence line
+        if lines and lines[-1].strip().startswith("```"):
+            lines = lines[:-1]
+        t = "\n".join(lines).strip()
+
+    def _quote_title(m):
+        v = m.group(1).strip()
+        if v and v[0] not in "\"'":
+            v = '"' + v.replace('"', "'") + '"'
+        return f"title: {v}"
+
+    t = _re.sub(r"^title:\s*(.+)$", _quote_title, t, count=1, flags=_re.MULTILINE)
+    return t + "\n"
 
 
 def generate_template_picks(date_str: str, season: str) -> str:

@@ -1,6 +1,5 @@
-```yaml
 ---
-title: Insider Picks: 24 July 2026
+title: "Insider Picks: 24 July 2026"
 dek: "A fireside duck dish at Ten Minutes by Tractor, a winter dawn walk to Cape Schanck, and a photography show closing soon at Mornington's two-storey gallery."
 author: "editorial"
 houseByline: true
@@ -78,4 +77,3 @@ This is a gallery that locals treat as a standing appointment rather than a one-
 | Duck & winter menu | Ten Minutes by Tractor, 1333 Mornington–Flinders Rd, Main Ridge | Wed–Sun lunch & dinner; bookings essential |
 | Cape Schanck boardwalk | Cape Schanck Coastal Park, Cape Schanck Rd, Cape Schanck | Open year-round; 90 min return; Parks Vic vehicle entry fee applies |
 | Photography show | Mornington Peninsula Regional Gallery, Dunns Road, Mornington | Tue–Sun 10am–5pm; confirm closing date on their website |
-```
