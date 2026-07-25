@@ -55,7 +55,14 @@
   --sage-text:  #2E7D68;   /* AA-safe sea-green for text on light surfaces */
   --dark:       #00362C;
   --white:      #FBFDFC;
-  --border:     #D6DDDB;   /* cool hairline */
+  /* P0-4 (2026-07-25): the old #D6DDDB measured 1.38:1 on white - an
+     invisible rule, which is the main reason every grid read flat. Raised
+     to a crisp printed hairline that clears 3:1 on every light ground the
+     site uses: 3.45:1 on #FFFFFF, 3.38:1 on --white (#FBFDFC) and 3.04:1
+     on --bg-alt (#EEF1F1). Same cool slate-green family as --soft, so it
+     reads as a rule rather than an outline. Card box-shadows are dropped
+     alongside it: definition now comes from the rule, not from a shadow. */
+  --border:     #7C8E89;   /* cool hairline, >=3:1 on white */
   --sage:       #4FB79E;   /* remapped to fresh sea-green (decorative) */
   --max-w:      1100px;
   /* v5: --prose-w now tracks the ch-based measure token (68ch at 17px
@@ -507,7 +514,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   min-width: 18rem;
   max-width: min(28rem, 90vw);
   padding: 1rem 0.65rem;
-  background: var(--paper, #fbf7f0);
+  background: var(--paper);
   border: 1px solid var(--border);
   border-radius: 4px;
   box-shadow: 0 18px 40px -20px rgba(14, 40, 34, 0.35);
@@ -787,7 +794,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   background-image: linear-gradient(135deg,#0E6A54 0%,#12857A 50%,#00362C 100%);
 }
 .hero-grad--stay {
-  background-image: linear-gradient(135deg,#2F2A24 0%,#2e4a43 40%,#3b6b60 80%,#478b7b 100%);
+  background-image: linear-gradient(135deg,var(--text) 0%,#2e4a43 40%,#3b6b60 80%,#478b7b 100%);
 }
 .hero-grad--journal {
   background-image: linear-gradient(135deg,#12726E 0%,#0B5A72 45%,#00362C 100%);
@@ -1182,8 +1189,8 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   gap: 0;
   border-radius: var(--radius-card-lg);
   border: 1px solid var(--border);
-  box-shadow: var(--elev-1);
-  transition: transform 0.22s var(--ease), box-shadow 0.22s var(--ease), border-color 0.22s var(--ease);
+  /* P0-4: no resting shadow. The visible hairline carries the definition. */
+  transition: transform 0.22s var(--ease), border-color 0.22s var(--ease);
 }
 .venue-card__hero {
   display: block;
@@ -1248,8 +1255,9 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 @media (prefers-reduced-motion: no-preference) {
   .venue-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 28px 56px rgba(0, 40, 34, 0.1);
-    border-color: rgba(74, 90, 87, 0.24);
+    /* Hover state darkens the rule instead of raising a shadow. The old
+       rgba(74,90,87,0.24) is now lighter than the resting --border. */
+    border-color: var(--accent);
   }
 }
 .venue-card__top {
@@ -1335,8 +1343,8 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #f7f1e9;
-  background: #201711;
+  color: var(--white);
+  background: var(--bg-dark);
   margin-top: auto;
   padding: 0.7rem 0.95rem;
   border-radius: 999px;
@@ -1396,7 +1404,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 
 .venue-card__book:hover {
-  border-color: rgba(74, 90, 87, 0.3);
+  border-color: var(--accent);
   color: #254d44;
   background: rgba(255,255,255,1);
 }
@@ -3235,11 +3243,11 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   border: 1px solid var(--border);
   border-radius: 2px;
   overflow: hidden;
-  transition: transform .2s var(--ease), box-shadow .2s var(--ease);
+  transition: transform .2s var(--ease), border-color .2s var(--ease);
 }
 .itinerary-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 14px 32px rgba(0, 54, 44, 0.07);
+  border-color: var(--accent);
 }
 .itinerary-card__hero {
   display: block;
@@ -3622,8 +3630,8 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   display: inline-flex;
   align-items: center;
   padding: 0.85rem 1.4rem;
-  background: #201711;
-  color: #f7f1e9;
+  background: var(--bg-dark);
+  color: var(--white);
   font-size: 0.74rem;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -3634,7 +3642,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .itinerary-detail__cta:hover {
   background: #193a32;
   transform: translateY(-1px);
-  color: #f7f1e9;
+  color: var(--white);
 }
 .itinerary-detail__cta-note {
   font-size: 0.72rem;
@@ -3864,12 +3872,11 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .zone-card--link {
   display: block;
   height: 100%;
-  transition: transform .18s var(--ease), border-color .18s var(--ease), box-shadow .18s var(--ease);
+  transition: transform .18s var(--ease), border-color .18s var(--ease);
 }
 .zone-card--link:hover {
   transform: translateY(-2px);
-  border-color: rgba(11, 90, 72, 0.35);
-  box-shadow: 0 10px 24px rgba(0, 54, 44, 0.06);
+  border-color: var(--accent);
 }
 .zone-card--link:hover .zone-card__title { color: var(--accent); }
 .zone-card__label {
@@ -3978,7 +3985,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .intent-chip:hover {
   transform: translateY(-2px);
-  border-color: rgba(11, 90, 72, 0.45);
+  border-color: var(--accent);
   box-shadow: 0 10px 24px rgba(0, 54, 44, 0.06);
 }
 .intent-chip:hover .intent-chip__label { color: var(--accent); }
@@ -4218,7 +4225,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .format-chip:hover {
   background: var(--bg);
-  border-color: rgba(11, 90, 72, 0.45);
+  border-color: var(--accent);
   color: var(--accent);
 }
 .format-chip__name {
@@ -4337,7 +4344,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .place-detail__nav-link:hover {
   background: var(--white);
-  border-color: rgba(11, 90, 72, 0.45);
+  border-color: var(--accent);
   color: var(--accent);
 }
 .place-detail__nav-label {
@@ -4521,13 +4528,13 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   border-color: var(--accent);
 }
 .weekend-picker__cta--ghost {
-  border-color: rgba(74, 90, 87, 0.25);
+  border-color: var(--border);
   color: var(--soft);
 }
 .weekend-picker__cta--ghost:hover {
   background: var(--bg-alt);
   color: var(--dark);
-  border-color: rgba(74, 90, 87, 0.4);
+  border-color: var(--accent);
 }
 /* Quiet Melbourne entry line — absorbed the former MelbourneEntryStrip
    (2026-06-10) so weekend intent has a single surface on the homepage. */
@@ -5380,7 +5387,6 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   border: 1px solid var(--border);
   border-radius: var(--radius-card-md);
   padding: clamp(1.6rem, 3vw, 2.2rem);
-  box-shadow: var(--elev-1);
   overflow: hidden;
 }
 .compare-block__col::before {
@@ -5857,7 +5863,7 @@ p.has-drop-cap::first-letter {
 }
 .events-lens__chip:hover {
   transform: translateY(-2px);
-  border-color: rgba(11, 90, 72, 0.45);
+  border-color: var(--accent);
   box-shadow: 0 10px 24px rgba(0, 54, 44, 0.06);
 }
 .events-lens__chip.is-empty { opacity: 0.4; pointer-events: none; }
@@ -5955,7 +5961,7 @@ p.has-drop-cap::first-letter {
   border: 1px solid var(--border);
   border-radius: 2px;
   overflow: hidden;
-  transition: transform .2s var(--ease), border-color .2s var(--ease), box-shadow .2s var(--ease);
+  transition: transform .2s var(--ease), border-color .2s var(--ease);
 }
 .event-card__hero {
   display: block;
@@ -6045,8 +6051,7 @@ p.has-drop-cap::first-letter {
 .event-card__cta { padding-bottom: 3.25rem; }
 .event-card:hover {
   transform: translateY(-3px);
-  border-color: rgba(11, 90, 72, 0.45);
-  box-shadow: 0 14px 32px rgba(0, 54, 44, 0.07);
+  border-color: var(--accent);
 }
 /* Body wrapper: holds everything below the hero. Flex column so __cta's
    margin-top:auto still pins it to the bottom of the card after the body
@@ -6064,7 +6069,7 @@ p.has-drop-cap::first-letter {
 .event-card--featured {
   grid-column: 1 / -1;
   background: var(--bg-alt);
-  border-color: rgba(11, 90, 72, 0.35);
+  border-color: var(--accent);
   display: grid;
   grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
   gap: 0;
@@ -6217,7 +6222,7 @@ p.has-drop-cap::first-letter {
 .event-badge--drive {
   background: #2C5530;
   border-color: #2C5530;
-  color: #F2EDE4;
+  color: var(--white);
 }
 .event-badge--first {
   background: #8cddca;
@@ -6238,7 +6243,7 @@ p.has-drop-cap::first-letter {
 .skip-block {
   padding: clamp(3rem, 6vw, 4.5rem) 0;
   background: var(--bg-deep);
-  color: #F2EDE4;
+  color: var(--white);
   border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 .skip-block__inner {
@@ -6257,7 +6262,7 @@ p.has-drop-cap::first-letter {
 }
 .skip-block__body {
   font-size: 0.85rem;
-  color: rgba(242, 237, 228, 0.55);
+  color: rgba(233, 244, 240, 0.55);
   font-style: normal;
 }
 .skip-block__list {
@@ -6280,7 +6285,7 @@ p.has-drop-cap::first-letter {
 .skip-entry__reason {
   font-size: 0.95rem;
   line-height: 1.6;
-  color: rgba(242, 237, 228, 0.85);
+  color: rgba(233, 244, 240, 0.85);
 }
 
 /* Event detail page */
@@ -7894,10 +7899,17 @@ p.has-drop-cap::first-letter {
   font-weight: 500;
 }
 .newsletter .newsletter__status--ok {
-  color: #A9BA9C; /* light sage: AA on the dark newsletter band */
+  /* Was #A9BA9C, a warm v5 sage (6.52:1 on the band). This sea-green is
+     palette-native and measures 8.51:1 on --bg-dark. */
+  color: #8CDDCA;
 }
 .newsletter__status--err {
-  color: #c0392b;
+  color: var(--error-text);
+}
+/* --error-text is tuned for light grounds (5.44:1 on white) and collapses to
+   2.47:1 on the deep evergreen band. Use the lifted inverse cut there. */
+.newsletter .newsletter__status--err {
+  color: var(--error-text-inverse);
 }
 .newsletter__input {
   flex: 1;
@@ -7975,7 +7987,7 @@ p.has-drop-cap::first-letter {
   color: var(--sage-text);
 }
 .newsletter__form--standalone .newsletter__status--err {
-  color: #c0392b;
+  color: var(--error-text);
 }
 
 /* =========================================================
@@ -8225,7 +8237,7 @@ p.has-drop-cap::first-letter {
   padding: 0.95rem 1.45rem;
   border-radius: 999px;
   background: linear-gradient(180deg, #8ad8c6 0%, #5fb9a4 100%);
-  color: #211c17;
+  color: var(--text);
   font-size: 0.76rem;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -8296,8 +8308,8 @@ p.has-drop-cap::first-letter {
 }
 
 /* ─── Tour vertical ─────────────────────────────────────────────────────── */
-.tour-card { position: relative; background: var(--bg); border: 1px solid var(--border); border-radius: var(--tile-image-radius); display: flex; flex-direction: column; overflow: hidden; transition: box-shadow 0.2s; }
-.tour-card:hover { box-shadow: 0 4px 24px rgba(0,0,0,0.10); }
+.tour-card { position: relative; background: var(--bg); border: 1px solid var(--border); border-radius: var(--tile-image-radius); display: flex; flex-direction: column; overflow: hidden; transition: border-color 0.2s; }
+.tour-card:hover { border-color: var(--accent); }
 .tour-card__image { aspect-ratio: 16/9; overflow: hidden; }
 .tour-card__image img { width: 100%; height: 100%; object-fit: cover; display: block; }
 /* Bottom padding (3.25rem) reserves a dedicated zone for the floating Save
@@ -8306,7 +8318,7 @@ p.has-drop-cap::first-letter {
 .tour-card__body { padding: 1.25rem 1.25rem 3.25rem; flex: 1; display: flex; flex-direction: column; }
 .tour-card__meta { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
 .tour-card__badge { font-family: var(--font-ui); font-size: 0.625rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.2em 0.6em; border-radius: 1px; background: var(--bg-alt); color: var(--body); border: 1px solid var(--border); }
-.tour-card__badge--accent { background: var(--accent-muted, #f5ede4); color: var(--accent); border-color: var(--accent-muted, #f5ede4); }
+.tour-card__badge--accent { background: var(--accent-muted); color: var(--accent); border-color: var(--accent-muted); }
 .tour-card__name { font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; line-height: 1.2; margin-bottom: 0.5rem; }
 .tour-card__name a { color: var(--dark); text-decoration: none; }
 .tour-card__name a:hover { color: var(--accent); }
@@ -8647,7 +8659,7 @@ body.menu-open .subscribe-pill {
 .venue-filters {
   margin: clamp(1rem, 2vw, 1.5rem) 0 clamp(1.5rem, 3vw, 2.25rem);
   border: 1px solid var(--border);
-  background: var(--paper, #fbf7f0);
+  background: var(--paper);
 }
 .venue-filters__panel {
   padding: 0;
@@ -8934,7 +8946,7 @@ body.menu-open .subscribe-pill {
   font-weight: 600;
   letter-spacing: 0.04em;
   padding: 0.1rem 0.4rem;
-  background: var(--paper, #fbf7f0);
+  background: var(--paper);
   border: 1px solid var(--border);
   border-radius: 999px;
   color: var(--soft);
@@ -9135,7 +9147,7 @@ body.menu-open .subscribe-pill {
   display: flex;
   align-items: stretch;
   border: 1px solid var(--border);
-  background: var(--paper, #fbf7f0);
+  background: var(--paper);
   position: relative;
 }
 .saved-list__item-link {
@@ -9299,7 +9311,7 @@ body.menu-open .subscribe-pill {
 }
 .map-pin-toggle[aria-pressed="false"] {
   opacity: 0.45;
-  background: var(--paper, #fbf7f0);
+  background: var(--paper);
 }
 .map-pin-toggle:hover { border-color: var(--accent); }
 .map-pin-toggle__dot {
@@ -9312,7 +9324,7 @@ body.menu-open .subscribe-pill {
 }
 .map-pin-toggle--place .map-pin-toggle__dot      { background: #2c6b5c; }
 .map-pin-toggle--eat .map-pin-toggle__dot        { background: #2cb192; }
-.map-pin-toggle--wine .map-pin-toggle__dot       { background: #7b1e3c; }
+.map-pin-toggle--wine .map-pin-toggle__dot       { background: var(--wine); }
 .map-pin-toggle--stay .map-pin-toggle__dot       { background: #4a6a4f; }
 .map-pin-toggle--experience .map-pin-toggle__dot { background: #2f6e8a; }
 .map-pin-toggle__count {
@@ -9330,7 +9342,7 @@ body.menu-open .subscribe-pill {
 .map-page__tabs {
   display: none;
   border-bottom: 2px solid var(--border);
-  background: var(--paper, #fbf7f0);
+  background: var(--paper);
 }
 .map-page__tab {
   flex: 1;
@@ -9379,7 +9391,7 @@ body.menu-open .subscribe-pill {
   border-bottom: 1px solid var(--border);
   display: flex;
   flex-direction: column;
-  background: var(--paper, #fbf7f0);
+  background: var(--paper);
 }
 @media (min-width: 880px) {
   .map-page__list {
@@ -9392,7 +9404,7 @@ body.menu-open .subscribe-pill {
 .map-page__list-header {
   padding: 0.85rem 1rem;
   border-bottom: 1px solid var(--border);
-  background: var(--paper, #fbf7f0);
+  background: var(--paper);
   position: sticky;
   top: 0;
   z-index: 1;
@@ -9454,7 +9466,7 @@ body.menu-open .subscribe-pill {
 }
 .map-page__entry-dot--place      { background: #2c6b5c; }
 .map-page__entry-dot--eat        { background: #2cb192; }
-.map-page__entry-dot--wine       { background: #7b1e3c; }
+.map-page__entry-dot--wine       { background: var(--wine); }
 .map-page__entry-dot--stay       { background: #4a6a4f; }
 .map-page__entry-dot--experience { background: #2f6e8a; }
 .map-page__entry-text {
@@ -9526,7 +9538,7 @@ body.menu-open .subscribe-pill {
 }
 .map-pin--place .map-pin__inner      { background: #2c6b5c; }
 .map-pin--eat .map-pin__inner        { background: #2cb192; }
-.map-pin--wine .map-pin__inner       { background: #7b1e3c; }
+.map-pin--wine .map-pin__inner       { background: var(--wine); }
 .map-pin--stay .map-pin__inner       { background: #4a6a4f; }
 .map-pin--experience .map-pin__inner { background: #2f6e8a; }
 
@@ -9540,7 +9552,7 @@ body.menu-open .subscribe-pill {
   height: 110px;
   background-size: cover;
   background-position: center;
-  background-color: var(--paper, #fbf7f0);
+  background-color: var(--paper);
   margin: -8px -12px 8px;
 }
 .map-popup__body {
@@ -9628,7 +9640,7 @@ body.menu-open .subscribe-pill {
   padding: 0.05rem 0.32rem;
   border: 1px solid var(--border);
   border-radius: 4px;
-  background: var(--paper, #fbf7f0);
+  background: var(--paper);
   color: var(--soft);
 }
 @media (max-width: 720px) {
@@ -9721,7 +9733,7 @@ body.menu-open .subscribe-pill {
   padding: 0.4rem 0.75rem;
   font-family: var(--font-ui);
   font-size: 0.8rem;
-  background: var(--paper, #fbf7f0);
+  background: var(--paper);
   border: 1px solid var(--border);
   color: var(--dark);
   cursor: pointer;
@@ -9912,7 +9924,7 @@ body.menu-open .subscribe-pill {
   width: 100%;
   height: 380px;
   border: 1px solid var(--border);
-  background: var(--paper, #fbf7f0);
+  background: var(--paper);
   z-index: 0;
 }
 @media (max-width: 720px) {
@@ -9931,7 +9943,7 @@ body.menu-open .subscribe-pill {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--paper, #fbf7f0);
+  background: var(--paper);
 }
 .place-map__placeholder-text {
   font-family: var(--font-ui);
@@ -10100,7 +10112,7 @@ body.menu-open .subscribe-pill {
   gap: 0;
   border: 1px solid var(--border);
   border-radius: 4px;
-  background: var(--paper, #fbf7f0);
+  background: var(--paper);
 }
 .itinerary-day-head {
   list-style: none;
@@ -10151,7 +10163,7 @@ body.menu-open .subscribe-pill {
 }
 .itinerary-item.is-ghost {
   opacity: 0.4;
-  background: var(--paper, #fbf7f0);
+  background: var(--paper);
 }
 .itinerary-item.is-dragging {
   box-shadow: 0 12px 24px -12px rgba(14, 40, 34, 0.4);
@@ -10166,7 +10178,7 @@ body.menu-open .subscribe-pill {
   cursor: grab;
   user-select: none;
   border-right: 1px solid var(--border);
-  background: var(--paper, #fbf7f0);
+  background: var(--paper);
 }
 .itinerary-item__handle:active { cursor: grabbing; }
 .itinerary-item__link {
@@ -10182,7 +10194,7 @@ body.menu-open .subscribe-pill {
   width: 80px;
   background-size: cover;
   background-position: center;
-  background-color: var(--paper, #fbf7f0);
+  background-color: var(--paper);
 }
 .itinerary-item__hero--empty {
   background: linear-gradient(135deg, rgba(7, 158, 165, 0.12), rgba(158, 223, 208, 0.08));
@@ -10312,7 +10324,7 @@ body.menu-open .subscribe-pill {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--soft);
-  background: var(--paper, #fbf7f0);
+  background: var(--paper);
   border: 1px solid var(--border);
   border-radius: 999px;
 }
@@ -10337,11 +10349,11 @@ body.menu-open .subscribe-pill {
   animation: cloud-sync-pulse 1s ease-in-out infinite;
 }
 [data-cloud-sync-status="error"] {
-  color: #b14b3a;
-  border-color: rgba(177, 75, 58, 0.5);
+  color: var(--error-text);
+  border-color: color-mix(in srgb, var(--error-text) 50%, transparent);
 }
 [data-cloud-sync-status="error"] .cloud-sync-indicator__dot {
-  background: #b14b3a;
+  background: var(--error-text);
 }
 @keyframes cloud-sync-pulse {
   0%, 100% { opacity: 1; }
@@ -10428,7 +10440,7 @@ body.menu-open .subscribe-pill {
 }
 .submit-form__group {
   border: 1px solid var(--border);
-  background: var(--paper, #fbf7f0);
+  background: var(--paper);
   padding: clamp(1rem, 2vw, 1.4rem);
 }
 .submit-form__legend {
@@ -10524,9 +10536,9 @@ body.menu-open .subscribe-pill {
   background: rgba(47, 110, 58, 0.07);
 }
 .submit-form__status[data-status-kind="error"] {
-  color: #b14b3a;
-  border-color: rgba(177, 75, 58, 0.5);
-  background: rgba(177, 75, 58, 0.07);
+  color: var(--error-text);
+  border-color: color-mix(in srgb, var(--error-text) 50%, transparent);
+  background: color-mix(in srgb, var(--error-text) 7%, transparent);
 }
 .submit-form__status[data-status-kind="info"] {
   color: var(--soft);
@@ -10541,7 +10553,7 @@ body.menu-open .subscribe-pill {
 .place-submit-cta {
   padding: clamp(1.75rem, 3.5vw, 2.5rem) 0;
   border-top: 1px solid var(--border);
-  background: var(--paper, #fbf7f0);
+  background: var(--paper);
 }
 .place-submit-cta__inner {
   max-width: 720px;
@@ -10598,7 +10610,7 @@ body.menu-open .subscribe-pill {
   display: flex;
   flex-direction: column;
   border: 1px solid var(--border);
-  background: var(--paper, #fbf7f0);
+  background: var(--paper);
   overflow: hidden;
 }
 .guide-card__hero {
@@ -10703,7 +10715,7 @@ body.menu-open .subscribe-pill {
   font-size: 0.85rem;
   color: var(--soft);
 }
-.guide-card__form-status[data-status-kind="error"] { color: #b14b3a; }
+.guide-card__form-status[data-status-kind="error"] { color: var(--error-text); }
 .guide-card__form-status[data-status-kind="info"] { color: var(--accent); }
 .guide-card__success-label {
   font-family: var(--font-display);
@@ -10818,7 +10830,7 @@ body.menu-open .subscribe-pill {
   align-items: center;
   gap: 0.85rem;
   border: 1px solid var(--border);
-  background: var(--paper, #fbf7f0);
+  background: var(--paper);
   padding: 0.9rem 1rem;
 }
 .alert-item__body { flex: 1; min-width: 0; }
@@ -10942,10 +10954,10 @@ body.menu-open .subscribe-pill {
 /* What's On hierarchy refinement — 2026-05-12 */
 .whatson-weekend-hero .weekend-picker {
   padding: clamp(2.5rem, 5vw, 4rem) 0 clamp(2.75rem, 5vw, 4.5rem);
-  background: linear-gradient(180deg, #f8f1e7 0%, var(--bg) 100%);
+  background: linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%);
 }
 .whatson-weekend-hero .weekend-picker__inner {
-  border-color: rgba(11, 90, 72, 0.22);
+  border-color: var(--accent);
   box-shadow: 0 24px 60px rgba(0, 40, 34, 0.09);
 }
 .whatson-weekend-hero .weekend-picker__title {
@@ -11038,4 +11050,118 @@ address,
 blockquote,
 figcaption {
   font-style: normal;
+}
+
+/* =========================================================
+   CARD BOTTOM ALIGNMENT  (P0-5, 2026-07-25)
+   ---------------------------------------------------------
+   Card deks were running 3-5 unclamped lines and metadata rows floated
+   directly under whatever length the dek happened to be, so no two cards
+   in a grid resolved at the same internal rhythm. Two rules fix it:
+
+     1. Every card dek is clamped to TWO lines and reserves two lines of
+        space, so the dek block is a constant height whether the copy runs
+        one line or five.
+     2. Whatever follows the dek (metadata, provenance, CTA) is pushed to
+        the bottom of the card body with an auto margin, so those rows land
+        on the same baseline across a row of cards.
+
+   Scale safety: every reservation is expressed in `em` (relative to the
+   element's own rem-based font-size), never in px. The three-step reader
+   text-scale control changes the root font-size, so `em` reservations grow
+   with the text and the clamp continues to show exactly two lines.
+
+   Clamp syntax: `-webkit-line-clamp` is the interoperable implementation
+   in every shipping engine; `line-clamp` is declared alongside it as the
+   standards property so the rule survives the prefix being retired.
+
+   Note: `.v5-card__*` and `.wo-row__*` are authored inside Astro component
+   <style> blocks, which compile to `:where()`-wrapped selectors at
+   specificity (0,1,0). The selectors below repeat the block class to reach
+   (0,2,0) so they win regardless of bundle order. Folding these back into
+   the components is the tidier end state - see the P0-5 hand-off note.
+   ========================================================= */
+
+/* ── 1. Two-line dek clamp ───────────────────────────────────────────── */
+.v5-card .v5-card__verdict,
+.venue-card .venue-card__signature,
+.event-card .event-card__summary,
+.itinerary-card .itinerary-card__dek,
+.experience-card .experience-card__summary,
+.place-card .place-card__intro,
+.tour-card .tour-card__excerpt,
+.guide-card .guide-card__dek,
+.wo-row .wo-row__dek {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
+
+/* Reserve the two lines so a one-line dek occupies the same block as a
+   two-line one. Each value is 2 x the element's own line-height, in em. */
+.v5-card .v5-card__verdict            { min-height: calc(2em * var(--lh-dek)); }
+.venue-card .venue-card__signature    { min-height: 3.24em; } /* 2 x 1.62 */
+.event-card .event-card__summary      { min-height: 3.2em; }  /* 2 x 1.6  */
+.itinerary-card .itinerary-card__dek  { min-height: 3.3em; }  /* 2 x 1.65 */
+.experience-card .experience-card__summary { min-height: 3.3em; }
+.place-card .place-card__intro        { min-height: 3.3em; }
+.tour-card .tour-card__excerpt        { min-height: 3.3em; }
+.guide-card .guide-card__dek          { min-height: 3.1em; }  /* 2 x 1.55 */
+
+/* The What's On rows are a list, not a grid, so they clamp without
+   reserving - an empty reservation would only add air between rows. */
+
+/* ── 2. Metadata rows: consistent height, pinned to the card bottom ──── */
+
+/* The dek absorbs the card's slack, so metadata and provenance always
+   resolve against the bottom edge instead of trailing the copy. */
+.v5-card .v5-card__verdict { margin-bottom: auto; }
+/* Cards with no dek pin from the title instead. */
+.v5-card .v5-card__body:not(:has(.v5-card__verdict)) .v5-card__title {
+  margin-bottom: auto;
+}
+/* A metadata row occupies one line whether it carries three chips, one
+   chip, or only a price band. */
+.v5-card .v5-card__meta,
+.v5-card .v5-card__provenance {
+  min-height: calc(1em * var(--lh-ui));
+}
+/* The compact row variant is a horizontal list item, not a grid card:
+   nothing needs pinning and a reservation would only pad it out. */
+.v5-card--compact-row .v5-card__verdict {
+  margin-bottom: 0;
+  min-height: 0;
+}
+.v5-card--compact-row .v5-card__meta,
+.v5-card--compact-row .v5-card__provenance {
+  min-height: 0;
+}
+
+/* Legacy grids: the same bottom-pin, applied to the row that trails the
+   dek in each card family. */
+.event-card .event-card__cta,
+.itinerary-card .itinerary-card__actions,
+.experience-card .experience-card__cta {
+  margin-top: auto;
+}
+
+/* =========================================================
+   PALETTE LEAK: THE WEEKEND DATE CHIP  (P0-3, 2026-07-25)
+   ---------------------------------------------------------
+   `.home-weekend__window` (the "25-26 July" pill on the homepage) is
+   built from --signal / --signal-text, a warm amber that renders as an
+   apricot-cream field beside an otherwise cool page. Retargeted onto the
+   evergreen primary: an evergreen tint ground at 10% over white with
+   --accent copy measures 6.99:1, comfortably past AA, and the pill now
+   reads as masthead furniture rather than a stray highlight.
+
+   Authored in the component's scoped <style>; the doubled class reaches
+   specificity (0,2,0) so this wins wherever the bundles land. The clean
+   fix is one edit in HomeWeekend.astro - see the hand-off note.
+   ========================================================= */
+.home-weekend .home-weekend__window {
+  background: color-mix(in srgb, var(--accent) 10%, var(--white));
+  color: var(--accent);
 }
