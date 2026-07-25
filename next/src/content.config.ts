@@ -211,6 +211,61 @@ const venues = defineCollection({
      */
     liveStatusUrl: z.string().url().optional(),
     /**
+     * Visiting block - the practical access facts an operator publishes.
+     * Present on 28 venues (25 with real opening hours; three appointment-only
+     * producers carry an empty `openingHours` array, so presence of `visiting`
+     * is never enough on its own - templates must test the length).
+     *
+     * Deliberately permissive. The block was hand-authored before it had a
+     * schema, so the shapes are uneven: `tastingFee` is a string on 15 venues
+     * and an explicit null on 6, `days` is an array everywhere today but the
+     * templates already tolerate a bare string, and times are plain "HH:MM"
+     * strings rather than a validated pattern. A validation failure here fails
+     * the whole build, so every field is optional and no format is enforced.
+     *
+     * openingHours mirrors the schema.org OpeningHoursSpecification shape and
+     * is emitted as such in the venue JSON-LD (lib/schema.ts, and
+     * VenueDetailTemplate for the eat and stay surfaces).
+     */
+    visiting: z
+      .object({
+        openingHours: z
+          .array(
+            z.object({
+              days: z.union([z.array(z.string()), z.string()]).optional(),
+              opens: z.string().optional(),
+              closes: z.string().optional(),
+            })
+          )
+          .optional(),
+        bookingRequired: z.boolean().optional(),
+        bookingNotes: z.string().optional(),
+        tastingFee: z.string().nullable().optional(),
+        tastingNote: z.string().optional(),
+      })
+      .optional(),
+    /**
+     * On-site dining room, for venues whose primary type is not a restaurant
+     * (14 wineries). Drives the Winery kitchens module on the wine hub, the
+     * restaurant section on the venue page, and the Restaurant JSON-LD node.
+     * `hats` is the Good Food Guide count; it is a rating, never a price.
+     */
+    restaurant: z
+      .object({
+        name: z.string().optional(),
+        hats: z.number().optional(),
+        cuisine: z.string().optional(),
+        reservations: z.boolean().optional(),
+        description: z.string().optional(),
+      })
+      .optional(),
+    /**
+     * Long-form editorial verdict (21 venues). Rendered as the pull-quote
+     * verdict block on the venue page and used, trimmed to its first
+     * sentence, as the short verdict on wine hub cards.
+     */
+    editorVerdict: z.string().optional(),
+    /**
      * Entity signals — 3–5 short noun phrases (2–4 words each) naming what
      * the venue is distinctively known for. Renders as a chip row below the
      * signature line (see VenueDetailTemplate.astro) and is emitted as
