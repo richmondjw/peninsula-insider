@@ -13,7 +13,7 @@ sources:
     url: "https://www.peninsulahotsprings.com/events/sunday-sessions-at-peninsula-hot-springs"
     note: "Sunday Sessions confirmed: every Sunday from 12pm, Bath House Cafe amphitheatre, local acoustic musicians, complimentary with bathing booking. Weather permitting. Geothermal springs unaffected by surface conditions."
     checkedAt: 2026-06-20T07:00:00+10:00
-status: published
+status: archived
 ---
 Peninsula Hot Springs Sunday Sessions run from noon each Sunday at the Bath House Cafe. Local acoustic musicians play in the amphitheatre space alongside the geothermal pools. Attendance is complimentary with any bathing booking and does not require a separate ticket.
 

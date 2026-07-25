@@ -13,7 +13,7 @@ sources:
     url: "https://sorrentosolstice.com.au"
     note: "Sorrento Solstice Festival 2026: Saturday 20 June, 2pm-9pm, Sorrento Foreshore. Free, ticketed via Humanitix (waitlist). Effigy burn 6:30pm."
     checkedAt: 2026-06-20T07:00:00+10:00
-status: published
+status: archived
 ---
 The winter solstice falls on Sunday 21 June. The festival falls on Saturday. The gap between the two is intentional: the longest night is the warm-up; the actual day of turning is the quiet that follows.
 

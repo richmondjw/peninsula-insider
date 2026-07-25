@@ -13,7 +13,7 @@ sources:
     url: "https://api.open-meteo.com/v1/forecast?latitude=-38.40&longitude=145.00&daily=precipitation_sum,precipitation_probability_max,temperature_2m_max,temperature_2m_min,windspeed_10m_max,weathercode&current_weather=true&timezone=Australia%2FMelbourne&forecast_days=7"
     note: "Open-Meteo Main Ridge retrieval 2026-07-17T20:37Z. Sat-Tue 18-21 Jul: 0%, 0%, 0%, 2% rain. Wed 22 Jul: 73% rain returns."
     checkedAt: 2026-07-18T06:37:00+10:00
-status: published
+status: archived
 ---
 Friday's note opened with a four-day dry block through Monday. The Saturday morning retrieval has revised that upward: Tuesday now reads at two percent rain probability and zero millimetres expected. The window has added a day.
 

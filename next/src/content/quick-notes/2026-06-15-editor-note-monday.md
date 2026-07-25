@@ -13,7 +13,7 @@ sources:
     url: "https://sorrentosolstice.com.au"
     note: "Sorrento Solstice Festival 2026: Saturday 20 June, 2pm–9pm, Sorrento Foreshore. Free ticketed via Humanitix."
     checkedAt: 2026-06-15T08:00:00+10:00
-status: published
+status: archived
 ---
 The Peninsula is in its quietest week of winter, and that will not last. Saturday 20 June is Sorrento Solstice Festival - the biggest winter set-piece on the Peninsula calendar - and the five days between now and then are the planning window.
 

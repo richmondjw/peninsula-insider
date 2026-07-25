@@ -13,7 +13,7 @@ sources:
     url: "https://api.open-meteo.com/v1/forecast?latitude=-38.40&longitude=145.00"
     note: "Open-Meteo Main Ridge forecast retrieved 2026-06-14T21:00Z: Monday 65% / 2.1mm, Tuesday 45% / 0.8mm, Wednesday 30% / 0.3mm, Thursday 55% / 4.2mm, Friday 25% / 0.1mm, Saturday 20% / 0mm, Sunday 35% / 0.5mm."
     checkedAt: 2026-06-15T07:00:00+10:00
-status: published
+status: archived
 ---
 Monday is covered and light across the Peninsula. Sixty-five percent chance of rain, two millimetres on the model, low cloud holding through the morning. This is not a difficult read: the inside venues are the frame for the start of the week.
 

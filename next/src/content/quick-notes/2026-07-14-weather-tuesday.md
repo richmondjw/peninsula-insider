@@ -13,7 +13,7 @@ sources:
     url: "https://api.open-meteo.com/v1/forecast?latitude=-38.40&longitude=145.00&daily=precipitation_sum,precipitation_probability_max,temperature_2m_max,temperature_2m_min,windspeed_10m_max,weathercode&current_weather=true&timezone=Australia%2FMelbourne&forecast_days=7"
     note: "Open-Meteo Main Ridge retrieval 2026-07-13T20:37Z. Current at 06:30 AEST: 9.7°C, 22.4 km/h WNW, weathercode 51 (light drizzle). Tue 14 Jul: max 13.4°C, min 9.6°C, 98% rain probability, 5.3mm, 35.8 km/h max wind, weathercode 53 (moderate drizzle). Wed 15 Jul: 6% probability, 0.3mm, 15.9 km/h, max 13.4°C. Thu 16 Jul: 41% probability, 1.5mm, 6.8 km/h. Fri 17 Jul: 0%, 0mm, max 12.7°C. Sat 18 Jul: 0%, 0mm, max 11.7°C. Sun 19 Jul: 0%, 0mm, max 13.2°C."
     checkedAt: 2026-07-14T06:37:00+10:00
-status: published
+status: archived
 ---
 Main Ridge is sitting at nine point seven degrees at half past six on Tuesday morning, with a west-north-westerly blowing at twenty-two kilometres per hour and light drizzle already falling. The day ahead follows the same pattern as Monday: ninety-eight percent rain probability, five millimetres and change expected, and gusts reaching close to thirty-six kilometres per hour through the day. The weathercode reads moderate drizzle. This is not a day that opens up.
 

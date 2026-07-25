@@ -13,7 +13,7 @@ sources:
     url: "https://api.open-meteo.com/v1/forecast?latitude=-38.40&longitude=145.00&daily=precipitation_sum,precipitation_probability_max,temperature_2m_max,temperature_2m_min,windspeed_10m_max,weathercode&current_weather=true&timezone=Australia%2FMelbourne&forecast_days=7"
     note: "Open-Meteo Main Ridge retrieval 2026-07-13T20:37Z. Tue 14 Jul: 98% rain, 5.3mm. Wed 15 Jul: 6%. Weekend 18–19 Jul: 0% both days."
     checkedAt: 2026-07-14T06:37:00+10:00
-status: published
+status: archived
 ---
 A second wet morning asks a slightly different question than the first one did.
 

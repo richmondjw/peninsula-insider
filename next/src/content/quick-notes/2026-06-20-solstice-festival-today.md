@@ -17,7 +17,7 @@ sources:
     url: "https://events.humanitix.com/sorrento-solstice-festival"
     note: "Humanitix listing confirmed active. Waitlist entry available as of retrieval 2026-06-19T20:40Z."
     checkedAt: 2026-06-20T07:00:00+10:00
-status: published
+status: archived
 ---
 The Sorrento Solstice Festival runs today from 2pm to 9pm on the Sorrento Foreshore. This is the event that defines the Peninsula's winter calendar: a large-scale fire and lantern celebration held on the Esplanade each year for the winter solstice.
 

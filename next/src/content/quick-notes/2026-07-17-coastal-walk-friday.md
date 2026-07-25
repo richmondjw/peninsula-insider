@@ -13,7 +13,7 @@ sources:
     url: "https://api.open-meteo.com/v1/forecast?latitude=-38.40&longitude=145.00&daily=precipitation_sum,precipitation_probability_max,temperature_2m_max,temperature_2m_min,windspeed_10m_max,weathercode&current_weather=true&timezone=Australia%2FMelbourne&forecast_days=7"
     note: "Open-Meteo Main Ridge retrieval 2026-07-16T20:39Z. Current 06:30 AEST: 8.0°C, 5.7 km/h NNE, weathercode 2 (partly cloudy). Fri 17 Jul: 0% rain, 10.7 km/h max, weathercode 3. Sat 18 Jul: 0%, 14.4 km/h. Sun 19 Jul: 0%, 10.6 km/h."
     checkedAt: 2026-07-17T06:40:00+10:00
-status: published
+status: archived
 ---
 The wind at Main Ridge this morning is north-north-easterly at five point seven kilometres per hour. By the standards of a mid-winter Peninsula morning, this is as still as the coastline gets. The partly cloudy read at half past six gives way to overcast through the day, but the rain probability is zero and the maximum wind speed on the daily forecast is under eleven kilometres per hour.
 

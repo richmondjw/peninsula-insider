@@ -13,7 +13,7 @@ sources:
     url: "https://api.open-meteo.com/v1/forecast?latitude=-38.40&longitude=145.00&daily=precipitation_sum,precipitation_probability_max,temperature_2m_max,temperature_2m_min,windspeed_10m_max,weathercode&current_weather=true&timezone=Australia%2FMelbourne"
     note: "Open-Meteo Main Ridge retrieval 2026-06-29T05:35Z. Current at 15:30 local: 15.0°C, 19.4 km/h wind, weathercode 3. Mon 29 Jun: max 15.3°C, min 8.1°C, 67% rain probability, 3.0mm. Tue 30 Jun: 100% rain probability, 13.4mm, max 14.7°C, min 12.1°C. Wed to Sat remains unsettled before a cleaner Sunday."
     checkedAt: 2026-06-29T15:35:00+10:00
-status: published
+status: archived
 ---
 The Peninsula is sitting at fifteen degrees this afternoon with an overcast sky and a light north-north-easterly breeze. Monday has enough room in it for a late walk, a cellar door stop, or an early dinner booking without much weather drama.
 

@@ -14,7 +14,7 @@ sources:
     url: "https://www.peninsulahotsprings.com/bathe/wellness-activities/body-clay-ritual"
     note: "Official Body Clay Ritual page checked 2026-06-29. Page states Monday to Friday sessions at 12pm and 2pm, plus expanded weekend session times including 10:30am and 3pm. Workshop duration listed as 45 minutes."
     checkedAt: 2026-06-29T15:40:00+10:00
-status: published
+status: archived
 ---
 Peninsula Hot Springs is still running its Body Clay Ritual on the weekday timetable this week, with sessions at 12pm and 2pm from Monday to Friday. The workshop runs for forty-five minutes and remains one of the better winter inclusions because it folds into a normal bathing visit rather than asking for a separate planning layer.
 

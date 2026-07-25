@@ -13,7 +13,7 @@ sources:
     url: "https://api.open-meteo.com/v1/forecast?latitude=-38.40&longitude=145.00&daily=precipitation_sum,precipitation_probability_max,temperature_2m_max,temperature_2m_min,windspeed_10m_max,weathercode&current_weather=true&timezone=Australia%2FMelbourne&forecast_days=7"
     note: "Open-Meteo Main Ridge retrieval 2026-07-17T20:37Z. Current 06:30 AEST: 6.9°C, 6.5 km/h NNW. Sat 18 Jul: 0% rain, 11.5 km/h max, overcast, max 13.1°C. Sun 19 Jul: 0%, 14.3 km/h."
     checkedAt: 2026-07-18T06:37:00+10:00
-status: published
+status: archived
 ---
 The conditions this morning - six point nine degrees, north-north-westerly at six point five kilometres per hour, partly cloudy at half past six and overcast through the day - are not what most visitors associate with a cellar door visit. They are, however, what the Peninsula's wine country looks like at its quieter best.
 

@@ -13,7 +13,7 @@ sources:
     url: "https://api.open-meteo.com/v1/forecast?latitude=-38.40&longitude=145.00&daily=precipitation_sum,precipitation_probability_max,temperature_2m_max,temperature_2m_min,windspeed_10m_max,weathercode&current_weather=true&timezone=Australia%2FMelbourne&forecast_days=7"
     note: "Open-Meteo Main Ridge retrieval 2026-07-19T20:40Z. Current 06:30 AEST: 9.5°C, 14.4 km/h NW (322°), weathercode 3. Mon 20 Jul: 0% rain, 17.5 km/h max, overcast, max 14.1°C. Tue 21 Jul: 2%, 20.8 km/h."
     checkedAt: 2026-07-20T06:40:00+10:00
-status: published
+status: archived
 ---
 The north-westerly this morning is running at fourteen point four kilometres per hour. That is up from Friday's five point seven and Sunday's six - but it is within the range for a workable coastal walk on the Peninsula. Monday's maximum wind speed is seventeen point five kilometres per hour. Track conditions following five dry days will be firm and clear.
 

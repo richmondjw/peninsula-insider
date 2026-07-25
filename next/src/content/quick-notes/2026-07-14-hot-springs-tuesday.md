@@ -14,7 +14,7 @@ sources:
     url: "https://api.open-meteo.com/v1/forecast?latitude=-38.40&longitude=145.00&daily=precipitation_sum,precipitation_probability_max,temperature_2m_max,temperature_2m_min,windspeed_10m_max,weathercode&current_weather=true&timezone=Australia%2FMelbourne&forecast_days=7"
     note: "Open-Meteo Main Ridge retrieval 2026-07-13T20:37Z. Tue 14 Jul: 9.7°C current, 98% rain probability, 5.3mm, 35.8 km/h winds. Weekend 18–19 Jul: 0% rain, dry and calm."
     checkedAt: 2026-07-14T06:37:00+10:00
-status: published
+status: archived
 ---
 Peninsula Hot Springs is open for bathing today, with Sound Healing Sessions and Daily Studio Yoga continuing through the week's program.
 

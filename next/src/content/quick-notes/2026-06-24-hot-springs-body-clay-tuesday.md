@@ -14,7 +14,7 @@ sources:
     url: "https://www.peninsulahotsprings.com/bathe/wellness-activities/body-clay-ritual"
     note: "Body Clay Ritual schedule: Monday to Friday 12pm & 2pm; Saturday & Sunday 10:30am, 12pm, 1pm & 3pm. Forty-five minute workshop. Included with bathing experience. 10% surcharge on public holidays."
     checkedAt: 2026-06-24T07:30:00+10:00
-status: published
+status: archived
 ---
 Peninsula Hot Springs runs its Body Clay Ritual on weekdays at 12pm and 2pm. The session is included with a standard bathing booking and runs for forty-five minutes in the clay ridge landscape.
 

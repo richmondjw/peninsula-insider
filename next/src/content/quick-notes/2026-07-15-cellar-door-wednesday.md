@@ -13,7 +13,7 @@ sources:
     url: "https://api.open-meteo.com/v1/forecast?latitude=-38.40&longitude=145.00&daily=precipitation_sum,precipitation_probability_max,temperature_2m_max,temperature_2m_min,windspeed_10m_max,weathercode&current_weather=true&timezone=Australia%2FMelbourne&forecast_days=7"
     note: "Open-Meteo Main Ridge retrieval 2026-07-14T20:38Z. Wed 15 Jul: 6% rain, mainly clear morning, 13.6°C max. Weekend 18-19 Jul: 0% rain - expected to be busier."
     checkedAt: 2026-07-15T06:35:00+10:00
-status: published
+status: archived
 ---
 The Peninsula's cellar doors do not change much between Wednesday and Saturday. The fires are lit regardless. The wine list is the same. The view from the tasting room looks out over the same overcast mid-winter sky in each direction.
 

@@ -13,7 +13,7 @@ sources:
     url: "https://api.open-meteo.com/v1/forecast?latitude=-38.40&longitude=145.00&daily=precipitation_sum,precipitation_probability_max,temperature_2m_max,temperature_2m_min,windspeed_10m_max,weathercode&current_weather=true&timezone=Australia%2FMelbourne"
     note: "Open-Meteo Main Ridge retrieval 2026-06-19T20:40Z. Sat 20 Jun: 83% / 7.0mm / max 12.8°C / wind 23.4 km/h / weathercode 80 (showers). Current at 06:30 local: 11.3°C, 22.7 km/h south, weathercode 1 (mainly clear). Sun 21 Jun: 26% / 0.8mm / max 13.3°C / 10.2 km/h."
     checkedAt: 2026-06-20T07:00:00+10:00
-status: published
+status: archived
 ---
 The Peninsula woke calm this morning. Eleven degrees, a southerly at 23 kilometres per hour, and currently clear. That window is narrow.
 

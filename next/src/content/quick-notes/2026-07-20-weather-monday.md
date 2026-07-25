@@ -13,7 +13,7 @@ sources:
     url: "https://api.open-meteo.com/v1/forecast?latitude=-38.40&longitude=145.00&daily=precipitation_sum,precipitation_probability_max,temperature_2m_max,temperature_2m_min,windspeed_10m_max,weathercode&current_weather=true&timezone=Australia%2FMelbourne&forecast_days=7"
     note: "Open-Meteo Main Ridge retrieval 2026-07-19T20:40Z. Current at 06:30 AEST 20 Jul: 9.5°C, 14.4 km/h NW (322°), weathercode 3 (overcast). Mon 20 Jul: max 14.1°C, min 8.7°C, 0% rain, 0mm, 17.5 km/h max, weathercode 3. Tue 21 Jul: max 13.4°C, min 9.2°C, 2%, 0mm, 20.8 km/h, weathercode 3. Wed 22 Jul: 76%, 3.2mm, max 13.5°C, 25.3 km/h, weathercode 53. Thu 23 Jul: 67%, 5.6mm, max 9.8°C, 27.0 km/h, weathercode 53."
     checkedAt: 2026-07-20T06:40:00+10:00
-status: published
+status: archived
 ---
 Main Ridge is sitting at nine point five degrees at half past six on Monday morning, with a north-westerly at fourteen point four kilometres per hour. The temperature has lifted three degrees from Sunday's seven point one - the warmer overnight read reflects the changing air mass ahead of Wednesday's rain. The weathercode is overcast, consistent with the pattern that has held across the dry window since Friday.
 
