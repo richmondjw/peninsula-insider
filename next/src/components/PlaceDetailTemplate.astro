@@ -575,23 +575,23 @@ const factual = place.data.factualLede ?? '';
       <a href="/journal/" class="venues__link">All Peninsula guides →</a>
     </div>
     <div class="venues__grid venues__grid--links">
-      <a href="/journal/mornington-peninsula-itinerary/" class="venue-card__cta">3-Day Peninsula Itinerary →</a>
-      <a href="/explore/plans/" class="venue-card__cta">Weekend Plans →</a>
+      <a href="/journal/mornington-peninsula-itinerary/" class="pi-btn pi-btn--solid">3-Day Peninsula Itinerary →</a>
+      <a href="/explore/plans/" class="pi-btn pi-btn--solid">Weekend Plans →</a>
       {(place.data.zone === 'red-hill' || place.data.zone === 'hinterland') && (
-        <a href="/journal/mornington-peninsula-winery-tour/" class="venue-card__cta">Self-Drive Winery Tour →</a>
+        <a href="/journal/mornington-peninsula-winery-tour/" class="pi-btn pi-btn--solid">Self-Drive Winery Tour →</a>
       )}
       {(place.data.zone === 'peninsula-tip' || place.data.zone === 'bay-coast' || place.data.zone === 'mornington') && (
-        <a href="/journal/free-things-to-do-mornington-peninsula/" class="venue-card__cta">Free Things to Do →</a>
+        <a href="/journal/free-things-to-do-mornington-peninsula/" class="pi-btn pi-btn--solid">Free Things to Do →</a>
       )}
-      <a href="/journal/best-brunch-mornington-peninsula/" class="venue-card__cta">Best Brunch Guide →</a>
-      <a href="/journal/mornington-peninsula-hot-springs-guide/" class="venue-card__cta">Hot Springs Guide →</a>
-      <a href="/journal/mornington-peninsula-in-winter/" class="venue-card__cta">Winter Guide →</a>
-      <a href="/dog-friendly/" class="venue-card__cta">Dog-Friendly Peninsula →</a>
+      <a href="/journal/best-brunch-mornington-peninsula/" class="pi-btn pi-btn--solid">Best Brunch Guide →</a>
+      <a href="/journal/mornington-peninsula-hot-springs-guide/" class="pi-btn pi-btn--solid">Hot Springs Guide →</a>
+      <a href="/journal/mornington-peninsula-in-winter/" class="pi-btn pi-btn--solid">Winter Guide →</a>
+      <a href="/dog-friendly/" class="pi-btn pi-btn--solid">Dog-Friendly Peninsula →</a>
       {place.data.kind === 'town' && (
-        <a href="/journal/mornington-peninsula-wedding-venues/" class="venue-card__cta">Wedding Venues →</a>
+        <a href="/journal/mornington-peninsula-wedding-venues/" class="pi-btn pi-btn--solid">Wedding Venues →</a>
       )}
       {(place.data.zone === 'ocean-coast' || place.data.zone === 'peninsula-tip') && (
-        <a href="/explore/golf/" class="venue-card__cta">Best Golf Courses →</a>
+        <a href="/explore/golf/" class="pi-btn pi-btn--solid">Best Golf Courses →</a>
       )}
     </div>
   </div>
@@ -693,7 +693,7 @@ const factual = place.data.factualLede ?? '';
   <div class="container place-submit-cta__inner">
     <p class="place-submit-cta__label">Got a {place.data.name} secret?</p>
     <p class="place-submit-cta__body">If there's a {place.data.name} corner you think we'd cover better with your help - a back-bay swimming hole, a producer's farm-gate, a local pub that hits - send it through. Editorial review, named credit if we publish it.</p>
-    <a href="/submit/" class="place-submit-cta__link">Tell us about {place.data.name} →</a>
+    <a href="/submit/" class="pi-btn pi-btn--text">Tell us about {place.data.name} →</a>
   </div>
 </aside>
 
@@ -1048,7 +1048,7 @@ const factual = place.data.factualLede ?? '';
     padding: 1rem 1.2rem;
     border-left: 3px solid var(--accent);
     background: var(--bg-alt);
-    border-radius: 0 var(--radius-s) var(--radius-s) 0;
+    border-radius: var(--radius-m);
   }
   .place-fit__skip p {
     font-family: var(--font-display);
@@ -1130,7 +1130,7 @@ const factual = place.data.factualLede ?? '';
     padding: clamp(1.25rem, 2vw, 1.75rem) clamp(1.5rem, 2.5vw, 2.25rem);
     background: var(--bg-alt);
     border-left: 3px solid var(--accent);
-    border-radius: 0 var(--radius-s) var(--radius-s) 0;
+    border-radius: var(--radius-m);
     max-width: 50rem;
   }
   .place-day__note p {
@@ -1359,16 +1359,6 @@ const factual = place.data.factualLede ?? '';
     color: var(--dark);
     margin: 0 0 1.4rem;
   }
-  .place-submit-cta__link {
-    display: inline-block;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--accent);
-    text-decoration: none;
-    border-bottom: 1px solid currentColor;
-    padding-bottom: 1px;
-  }
-  .place-submit-cta__link:hover { opacity: 0.75; }
 
   /* ── CATEGORY GUIDES (Explore by Experience) ─────────────────────── */
   .place-category-guides {

@@ -195,7 +195,7 @@ export const prerender = true;
             </fieldset>
 
             <div class="submit-form__submit">
-              <button type="submit" class="submit-form__button">Send the secret</button>
+              <button type="submit" class="submit-form__button pi-btn pi-btn--solid">Send the secret</button>
               <p class="submit-form__caveat">By submitting you agree to the editor's right to lightly edit for clarity, fact-check the venue, and decline to publish.</p>
             </div>
 
@@ -260,7 +260,7 @@ export const prerender = true;
     const form = document.querySelector('[data-submit-form]') as HTMLFormElement | null;
     if (!form) return;
     const status = document.querySelector('[data-submit-status]') as HTMLParagraphElement | null;
-    const button = form.querySelector('.submit-form__button') as HTMLButtonElement | null;
+    const button = form.querySelector('button[type="submit"]') as HTMLButtonElement | null;
 
     function setStatus(kind: 'success' | 'error' | 'info', message: string) {
       if (!status) return;

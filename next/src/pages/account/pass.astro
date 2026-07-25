@@ -53,7 +53,7 @@ export const prerender = true;
       <div class="pass-account-anon" data-pass-account-anon>
         <p class="pass-account-anon__title">Sign in to manage your Pass.</p>
         <p class="pass-account-anon__body">If you've already taken out an Insider or Founders' tier, sign in with the email you used at checkout. Otherwise, see the <a href="/pass/">Pass page</a>.</p>
-        <button type="button" class="pass-account-anon__cta" data-open-auth>Sign in</button>
+        <button type="button" class="pi-btn pi-btn--solid" data-open-auth>Sign in</button>
       </div>
 
       <!-- Loading state -->
@@ -65,7 +65,7 @@ export const prerender = true;
       <div class="pass-account-empty" data-pass-account-empty hidden>
         <p class="pass-account-empty__title">You're signed in, but you don't have an active Pass.</p>
         <p class="pass-account-empty__body">Pick a tier on the Pass page - Insider unlocks the member benefits, Founders' Circle is a capped longer-term partnership.</p>
-        <a href="/pass/" class="pass-account-empty__cta">Open the Pass page →</a>
+        <a href="/pass/" class="pi-btn pi-btn--text">Open the Pass page →</a>
       </div>
 
       <!-- Active membership summary -->
@@ -292,30 +292,10 @@ export const prerender = true;
     margin: 0 auto 1.25rem;
     max-width: 38rem;
   }
-  .pass-account-anon__body a, .pass-account-empty__cta {
+  .pass-account-anon__body a{
     color: var(--accent);
     text-decoration: underline;
     text-underline-offset: 3px;
-  }
-  .pass-account-anon__cta, .pass-account-empty__cta {
-    display: inline-flex;
-    align-items: center;
-    font-family: var(--font-ui);
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    background: var(--accent);
-    color: var(--bg, #fff);
-    border: 1px solid var(--accent);
-    padding: 0.7rem 1.1rem;
-    cursor: pointer;
-    text-decoration: none;
-  }
-  .pass-account-anon__cta:hover, .pass-account-empty__cta:hover {
-    background: var(--text, #1a1a1a);
-    border-color: var(--text, #1a1a1a);
-    color: var(--bg, #fff);
   }
 
   .pass-account-active {

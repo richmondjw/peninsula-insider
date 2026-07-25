@@ -91,14 +91,14 @@ export const prerender = true;
           </div>
           <div class="venues__grid venues__grid--links">
             {items.map((loc) => (
-              <article class="venue-card">
-                <h3 class="venue-card__name">
+              <article class="pi-card"><div class="pi-card__body">
+                <h3 class="pi-card__title">
                   <a href={`/fishing/locations/${loc.data.slug}/`}>{loc.data.name}</a>
                 </h3>
-                <p class="venue-card__meta">{loc.data.locationType}{loc.data.bestSeason ? ` · ${loc.data.bestSeason}` : ''}</p>
-                <p class="venue-card__signature">{loc.data.intro}</p>
-                <a href={`/fishing/locations/${loc.data.slug}/`} class="venue-card__cta">Location guide &rarr;</a>
-              </article>
+                <p class="pi-card__meta">{loc.data.locationType}{loc.data.bestSeason ? ` · ${loc.data.bestSeason}` : ''}</p>
+                <p class="pi-card__dek">{loc.data.intro}</p>
+                <div class="pi-card__actions"><a href={`/fishing/locations/${loc.data.slug}/`} class="pi-btn pi-btn--solid">Location guide &rarr;</a></div>
+              </div></article>
             ))}
           </div>
         </div>

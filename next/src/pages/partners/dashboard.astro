@@ -75,7 +75,7 @@ export const prerender = true;
       <div class="dashboard-anonymous" data-dashboard-anonymous>
         <p class="dashboard-anonymous__title">Sign in to your operator account.</p>
         <p class="dashboard-anonymous__body">The dashboard is auth-gated. Sign in (or create an account, free) to claim your venue and start managing your listing.</p>
-        <button type="button" class="dashboard-anonymous__cta" data-open-auth>Sign in</button>
+        <button type="button" class="pi-btn pi-btn--solid" data-open-auth>Sign in</button>
         <p class="dashboard-anonymous__alt">
           Just want to send a quick update without signing in? You can still <a href="/partners/update/">submit anonymously</a> - that path stays open.
         </p>
@@ -90,7 +90,7 @@ export const prerender = true;
       <div class="dashboard-empty" data-dashboard-empty hidden>
         <p class="dashboard-empty__title">No venues claimed yet.</p>
         <p class="dashboard-empty__body">Claim your venue to manage hours, photos, and events from one place. Editor approves the claim manually - usually within a working day.</p>
-        <a href="/partners/claim/" class="dashboard-empty__cta">Claim your venue →</a>
+        <a href="/partners/claim/" class="pi-btn pi-btn--solid">Claim your venue →</a>
       </div>
 
       <!-- Claims grid -->
@@ -293,27 +293,6 @@ export const prerender = true;
     color: var(--soft);
     margin: 0 auto 1.25rem;
     max-width: 38rem;
-  }
-  .dashboard-anonymous__cta,
-  .dashboard-empty__cta {
-    display: inline-flex;
-    align-items: center;
-    font-family: var(--font-ui);
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    background: var(--accent);
-    color: var(--bg, #fff);
-    border: 1px solid var(--accent);
-    padding: 0.7rem 1.1rem;
-    cursor: pointer;
-    text-decoration: none;
-  }
-  .dashboard-anonymous__cta:hover,
-  .dashboard-empty__cta:hover {
-    background: var(--text, #1a1a1a);
-    border-color: var(--text, #1a1a1a);
   }
   .dashboard-anonymous__alt {
     font-family: var(--font-ui);

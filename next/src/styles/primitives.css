@@ -522,12 +522,16 @@
 }
 
 /* --- __body ---------------------------------------------- */
+/* Padding is --space-4, matching the v5 card this primitive replaced.
+   The refactor is meant to be visually neutral: --space-5 added 16px of
+   height to every card, which compounded to roughly 800px on the hub
+   pages and pulled the dek into an earlier wrap. */
 .pi-card__body {
   display: flex;
   flex: 1;
   flex-direction: column;
   gap: var(--space-2);
-  padding: var(--space-5);
+  padding: var(--space-4);
 }
 
 /* --- __eyebrow ------------------------------------------- */
@@ -572,6 +576,11 @@
   overflow: hidden;
   min-height: calc(2em * var(--lh-dek));
   max-width: var(--measure-card);
+  /* --fs-300 matches .venue-card__signature (0.96rem), which is what the
+     284 converted page cards used. v5/Card.astro's verdict line ran at
+     --fs-500 and restores that in its own scoped block: the two card
+     families genuinely disagreed, and the larger population wins the
+     default. */
   font-size: var(--fs-300);
   line-height: var(--lh-dek);
   color: var(--soft);
@@ -586,19 +595,30 @@
   align-items: center;
   gap: var(--space-1) var(--space-3);
   margin-top: auto;
-  padding-top: var(--space-3);
+  /* No padding-top: __body already separates its children with a gap,
+     and adding one here stacked 12px onto every card, which compounded
+     to roughly 690px on the hub grids. */
+  /* One-line floor so a row with three chips and a row with one still
+     land on the same baseline (the P0-5 metadata reservation). */
+  min-height: calc(1em * var(--lh-ui));
   font-family: var(--font-ui);
   font-size: var(--fs-200);
   line-height: var(--lh-ui);
   color: var(--soft);
 }
 
-/* --- __actions -------------------------------------------- */
+/* --- __actions --------------------------------------------
+   Also pinned to the foot: a card whose foot is an actions row
+   with no meta row above it still has to land on the common
+   baseline. The adjacent-sibling rule below hands the pin back
+   to __meta whenever both are present, so only one of the two
+   ever consumes the free space. */
 .pi-card__actions {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: var(--space-3);
+  margin-top: auto;
   padding-top: var(--space-2);
 }
 .pi-card__meta + .pi-card__actions {

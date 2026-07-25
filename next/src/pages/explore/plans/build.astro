@@ -143,7 +143,7 @@ export const prerender = true;
         ))}
 
         <div class="plan-builder__actions">
-          <button type="button" id="planBuilderClear" class="plan-builder__btn plan-builder__btn--ghost">Clear all</button>
+          <button type="button" id="planBuilderClear" class="pi-btn pi-btn--ghost">Clear all</button>
           <p id="planBuilderCount" class="plan-builder__count" aria-live="polite">Pick a filter or type to see results.</p>
         </div>
       </div>
@@ -313,8 +313,6 @@ export const prerender = true;
     .plan-builder__chip input { margin: 0; }
     .plan-builder__chip:has(input:checked) { background: var(--c-accent, #1f3f3a); color: white; border-color: var(--c-accent, #1f3f3a); }
     .plan-builder__actions { display: flex; align-items: center; gap: 1rem; margin-top: 0.8rem; flex-wrap: wrap; }
-    .plan-builder__btn { padding: 0.45rem 0.9rem; border: 1px solid var(--c-rule, #c0d4cf); border-radius: 6px; background: white; cursor: pointer; font-size: 0.9rem; }
-    .plan-builder__btn--ghost:hover { background: var(--c-paper-tint, #f6f3eb); }
     .plan-builder__count { margin: 0; font-size: 0.85rem; opacity: 0.7; }
     .plan-builder__results-section { padding: 1.4rem 0; }
     .plan-builder__list { list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr)); }

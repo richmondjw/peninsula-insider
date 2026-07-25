@@ -120,7 +120,7 @@ const payloadJson = JSON.stringify(payload).replace(/</g, '\\u003c');
             <div class="plan-featured__actions">
               <button
                 type="button"
-                class="plan-engine__btn plan-engine__btn--primary"
+                class="pi-btn pi-btn--solid"
                 data-plan-fork={featured.id}
                 data-evt="trip_add"
                 data-entity-type={featured.entityType}
@@ -130,7 +130,7 @@ const payloadJson = JSON.stringify(payload).replace(/</g, '\\u003c');
               >
                 Make this my trip
               </button>
-              <a class="plan-engine__btn" href={featured.href} data-slot="featured-read">Read the plan</a>
+              <a class="pi-btn pi-btn--ghost" href={featured.href} data-slot="featured-read">Read the plan</a>
             </div>
           </div>
         </article>
@@ -175,7 +175,7 @@ const payloadJson = JSON.stringify(payload).replace(/</g, '\\u003c');
               <p class="plan-alt__verdict" data-slot="alt-verdict">{alt?.verdict}</p>
               <button
                 type="button"
-                class="plan-engine__btn plan-engine__btn--quiet"
+                class="pi-btn pi-btn--text"
                 data-plan-fork={alt?.id}
                 data-evt="trip_add"
                 data-entity-type={alt?.entityType}
@@ -346,54 +346,6 @@ const payloadJson = JSON.stringify(payload).replace(/</g, '\\u003c');
     margin-top: 0.4rem;
   }
 
-  /* ---- buttons ---- */
-  .plan-engine__btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 48px;
-    padding: 0 1.15rem;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-s, 6px);
-    background: var(--bg, var(--white));
-    color: var(--text);
-    font-family: var(--font-ui, var(--font-ui));
-    font-size: var(--fs-300, 0.9375rem);
-    font-weight: var(--fw-semibold, 600);
-    text-decoration: none;
-    cursor: pointer;
-    transition:
-      background var(--dur-fast, 120ms) var(--ease, ease),
-      border-color var(--dur-fast, 120ms) var(--ease, ease),
-      color var(--dur-fast, 120ms) var(--ease, ease);
-  }
-  .plan-engine__btn:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-  }
-  .plan-engine__btn:focus-visible {
-    outline: var(--focus-ring, 2px solid var(--accent));
-    outline-offset: 2px;
-  }
-  .plan-engine__btn--primary {
-    background: var(--accent);
-    border-color: var(--accent);
-    color: var(--white, var(--bg));
-  }
-  .plan-engine__btn--primary:hover {
-    background: var(--text);
-    border-color: var(--text);
-    color: var(--white, var(--bg));
-  }
-  .plan-engine__btn--quiet {
-    min-height: 44px;
-    font-size: var(--fs-200, 0.8125rem);
-  }
-  .plan-engine__btn[disabled] {
-    opacity: 0.6;
-    cursor: default;
-  }
-
   /* ---- alternates ---- */
   .plan-alts {
     display: grid;
@@ -462,10 +414,6 @@ const payloadJson = JSON.stringify(payload).replace(/</g, '\\u003c');
     color: var(--text);
     flex: 1;
   }
-  .plan-alt .plan-engine__btn--quiet {
-    align-self: flex-start;
-    margin-top: 0.5rem;
-  }
 
   .plan-engine__empty {
     margin: var(--space-5, 1.5rem) 0 0;
@@ -489,13 +437,6 @@ const payloadJson = JSON.stringify(payload).replace(/</g, '\\u003c');
     }
     .plan-alts {
       grid-template-columns: 1fr;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .plan-engine__chip,
-    .plan-engine__btn {
-      transition: none;
     }
   }
 </style>

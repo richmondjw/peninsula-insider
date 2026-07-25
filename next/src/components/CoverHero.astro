@@ -164,8 +164,8 @@ const eyebrowIssueResolved = eyebrowIssue ?? (issueDate ? `${issueDate} Issue` :
     </h1>
     <p class="hero-v2__dek">{dekResolved}</p>
     <div class="hero-v2__ctas">
-      <a href={ctaPrimary.href} class="hero-v2__cta-primary">{ctaPrimary.label}</a>
-      {ctaSecondary && <a href={ctaSecondary.href} class="hero-v2__cta-secondary">{ctaSecondary.label}</a>}
+      <a href={ctaPrimary.href} class="pi-btn pi-btn--solid pi-btn--lg">{ctaPrimary.label}</a>
+      {ctaSecondary && <a href={ctaSecondary.href} class="pi-btn pi-btn--ghost pi-btn--lg pi-btn--inverse">{ctaSecondary.label}</a>}
     </div>
     {journalLink && <p class="hero-v2__journal-link"><a href={journalLink.href}>{journalLink.label}</a></p>}
   </div>
@@ -229,10 +229,6 @@ const eyebrowIssueResolved = eyebrowIssue ?? (issueDate ? `${issueDate} Issue` :
   .hero-v2__headline em { font-style: normal; color: var(--gold); font-size: 1.1em; display: inline-block; text-shadow: 0 2px 40px rgba(7, 158, 165,0.25); }
   .hero-v2__dek { font-family: Outfit,system-ui,sans-serif; font-size: 1.05rem; line-height: 1.7; color: rgba(253,252,250,0.7); max-width: 44ch; font-weight: 300; margin-bottom: 2rem; }
   .hero-v2__ctas { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
-  .hero-v2__cta-primary { display: inline-flex; align-items: center; padding: 0.9rem 2rem; background: var(--accent); color: var(--white); font-family: Outfit,system-ui,sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: background 0.25s ease; min-height: 44px; }
-  .hero-v2__cta-primary:hover { background: var(--acc-h); }
-  .hero-v2__cta-secondary { display: inline-flex; align-items: center; padding: 0.9rem 2rem; background: transparent; color: rgba(253,252,250,0.7); border: 1px solid rgba(253,252,250,0.2); font-family: Outfit,system-ui,sans-serif; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: border-color 0.25s ease, color 0.25s ease; min-height: 44px; }
-  .hero-v2__cta-secondary:hover { border-color: rgba(253,252,250,0.5); color: var(--white); }
   .hero-v2__journal-link { margin-top: 1rem; }
   .hero-v2__journal-link a { font-family: Outfit,system-ui,sans-serif; font-size: 0.78rem; font-weight: 400; color: rgba(253,252,250,0.45); text-decoration: none; transition: color 0.2s ease; }
   .hero-v2__journal-link a:hover { color: rgba(253,252,250,0.75); }
@@ -290,8 +286,6 @@ const eyebrowIssueResolved = eyebrowIssue ?? (issueDate ? `${issueDate} Issue` :
     .hero-v2__headline { font-size: clamp(2.6rem,10vw,4rem); max-width: 100%; text-shadow: 0 2px 20px rgba(0,0,0,0.6); }
     .hero-v2__dek { font-size: 0.95rem; max-width: 100%; color: rgba(253,252,250,0.88); }
     .hero-v2__ctas { flex-direction: column; align-items: stretch; }
-    .hero-v2__cta-primary, .hero-v2__cta-secondary { text-align: center; justify-content: center; }
-    .hero-v2__cta-secondary { color: rgba(253,252,250,0.88); border-color: rgba(253,252,250,0.35); }
     .hero-v2__journal-link a { color: rgba(253,252,250,0.6); }
     .hero-v2__scroll-hint { display: none; }
   }

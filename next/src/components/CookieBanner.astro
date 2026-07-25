@@ -48,10 +48,10 @@
     </div>
 
     <div class="cookie-banner__actions" id="cookie-banner-actions">
-      <button type="button" class="cookie-banner__btn cookie-banner__btn--primary" id="cookie-accept-all">
+      <button type="button" class="pi-btn pi-btn--solid pi-btn--sm" id="cookie-accept-all">
         Accept all
       </button>
-      <button type="button" class="cookie-banner__btn cookie-banner__btn--ghost" id="cookie-manage">
+      <button type="button" class="pi-btn pi-btn--ghost pi-btn--sm" id="cookie-manage">
         Manage preferences
       </button>
     </div>
@@ -81,10 +81,10 @@
         </li>
       </ul>
       <div class="cookie-banner__manage-actions">
-        <button type="button" class="cookie-banner__btn cookie-banner__btn--primary" id="cookie-save">
+        <button type="button" class="pi-btn pi-btn--solid pi-btn--sm" id="cookie-save">
           Save preferences
         </button>
-        <button type="button" class="cookie-banner__btn cookie-banner__btn--ghost" id="cookie-reject-all">
+        <button type="button" class="pi-btn pi-btn--ghost pi-btn--sm" id="cookie-reject-all">
           Reject non-essential
         </button>
       </div>
@@ -299,42 +299,6 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: center;
-  }
-
-  .cookie-banner__btn {
-    font-family: var(--font-ui);
-    font-size: var(--fs-200);
-    font-weight: var(--fw-medium);
-    line-height: var(--lh-ui);
-    letter-spacing: 0.02em;
-    border-radius: var(--radius-pill);
-    padding: var(--space-2) var(--space-4);
-    border: 1px solid var(--cb-line);
-    background: var(--white);
-    color: var(--text);          /* 16.29:1 on --white */
-    cursor: pointer;
-    white-space: nowrap;
-    transition:
-      background var(--dur-fast) var(--ease-enter),
-      border-color var(--dur-fast) var(--ease-enter),
-      color var(--dur-fast) var(--ease-enter);
-  }
-  .cookie-banner__btn:hover { border-color: var(--accent); }
-  .cookie-banner__btn:focus-visible {
-    outline: var(--focus-ring);
-    outline-offset: 2px;
-  }
-  .cookie-banner__btn--primary {
-    background: var(--accent);
-    border-color: var(--accent);
-    color: var(--white);         /* 8.00:1 on --accent */
-  }
-  .cookie-banner__btn--primary:hover {
-    background: var(--acc-h);    /* --white on --acc-h = 10.46:1 */
-    border-color: var(--acc-h);
-  }
-  .cookie-banner__btn--ghost {
-    background: transparent;
   }
 
   .cookie-banner__manage {

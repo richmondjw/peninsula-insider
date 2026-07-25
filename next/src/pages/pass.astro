@@ -66,7 +66,7 @@ export const prerender = true;
             <li>The weekly Peninsula This Weekend dispatch.</li>
           </ul>
 
-          <a href="/dispatch/" class="pass-tier__cta pass-tier__cta--ghost">Sign up free</a>
+          <a href="/dispatch/" class="pi-btn pi-btn--ghost">Sign up free</a>
           <p class="pass-tier__line">This is the default Peninsula Insider experience. If you've been reading, you're already a Reader.</p>
         </article>
 
@@ -89,7 +89,7 @@ export const prerender = true;
             <label class="pass-tier__waitlist-label" for="pass-email-insider">Join the waitlist</label>
             <div class="pass-tier__waitlist-row">
               <input id="pass-email-insider" type="email" name="email" required placeholder="you@example.com" />
-              <button type="submit">Notify me</button>
+              <button type="submit" class="pi-btn pi-btn--solid pi-btn--sm">Notify me</button>
             </div>
             <p class="pass-tier__waitlist-note" data-pass-status hidden></p>
           </form>
@@ -114,7 +114,7 @@ export const prerender = true;
             <label class="pass-tier__waitlist-label" for="pass-email-founders">Express interest</label>
             <div class="pass-tier__waitlist-row">
               <input id="pass-email-founders" type="email" name="email" required placeholder="you@example.com" />
-              <button type="submit">Tell me more</button>
+              <button type="submit" class="pi-btn pi-btn--solid pi-btn--sm">Tell me more</button>
             </div>
             <p class="pass-tier__waitlist-note" data-pass-status hidden></p>
           </form>
@@ -161,13 +161,13 @@ export const prerender = true;
           +   '<label><input type="radio" name="interval-' + tier + '" value="year" /> Annual (save ~16%)</label>'
           + '</div>'
           : '')
-        + '<button type="submit" class="pass-tier__buy-button">'
+        + '<button type="submit" class="pi-btn pi-btn--solid">'
         +   (isInsider ? 'Become an Insider' : "Join the Founders' Circle")
         + '</button>'
         + '<p class="pass-tier__waitlist-note" data-pass-status hidden></p>';
 
       const status = form.querySelector('[data-pass-status]');
-      const button = form.querySelector('.pass-tier__buy-button');
+      const button = form.querySelector('button[type="submit"]');
 
       function setStatus(kind, msg) {
         if (!status) return;
@@ -387,30 +387,6 @@ export const prerender = true;
     font-weight: 700;
   }
 
-  .pass-tier__cta {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-ui);
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    background: var(--accent);
-    color: var(--bg, #fff);
-    border: 1px solid var(--accent);
-    padding: 0.85rem 1.2rem;
-    cursor: pointer;
-    text-decoration: none;
-    margin-top: auto;
-  }
-  .pass-tier__cta--ghost {
-    background: transparent;
-    color: var(--accent);
-  }
-  .pass-tier__cta:hover { background: var(--text, #1a1a1a); border-color: var(--text, #1a1a1a); color: var(--bg, #fff); }
-  .pass-tier__cta--ghost:hover { color: var(--bg, #fff); }
-
   .pass-tier__waitlist {
     margin-top: auto;
     display: flex;
@@ -440,20 +416,6 @@ export const prerender = true;
     color: var(--dark);
   }
   .pass-tier__waitlist-row input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
-  .pass-tier__waitlist-row button {
-    font-family: var(--font-ui);
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    background: var(--accent);
-    color: var(--bg, #fff);
-    border: 1px solid var(--accent);
-    padding: 0.55rem 0.95rem;
-    cursor: pointer;
-  }
-  .pass-tier__waitlist-row button:hover { background: var(--text, #1a1a1a); border-color: var(--text, #1a1a1a); }
-  .pass-tier__waitlist-row button:disabled { opacity: 0.6; cursor: progress; }
   .pass-tier__waitlist-note {
     font-family: var(--font-ui);
     font-size: 0.85rem;

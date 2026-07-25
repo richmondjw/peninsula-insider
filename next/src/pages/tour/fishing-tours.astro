@@ -112,8 +112,8 @@ export const prerender = true;
           <p>Operator profiles are being verified. Check back soon.</p>
         ) : (
           allCharters.map((c) => (
-            <article class="venue-card">
-              <h3 class="venue-card__name">
+            <article class="pi-card"><div class="pi-card__body">
+              <h3 class="pi-card__title">
                 <a
                   href={`/fishing/charters/${c.data.slug}/`}
                   data-bf-event="bf_cross_vertical_click"
@@ -121,12 +121,12 @@ export const prerender = true;
                   data-bf-operator={c.data.slug}
                 >{c.data.name}</a>
               </h3>
-              <p class="venue-card__meta">
+              <p class="pi-card__meta">
                 {c.data.licenceCovered === 'covered' ? 'Licence covered' : c.data.licenceCovered === 'byo' ? 'BYO licence' : ''}
               </p>
-              <p class="venue-card__signature">{c.data.intro}</p>
-              <a href={`/fishing/charters/${c.data.slug}/`} class="venue-card__cta" data-bf-event="bf_cross_vertical_click" data-bf-from="tour-fishing-tours" data-bf-operator={c.data.slug}>Operator profile &rarr;</a>
-            </article>
+              <p class="pi-card__dek">{c.data.intro}</p>
+              <div class="pi-card__actions"><a href={`/fishing/charters/${c.data.slug}/`} class="pi-btn pi-btn--solid" data-bf-event="bf_cross_vertical_click" data-bf-from="tour-fishing-tours" data-bf-operator={c.data.slug}>Operator profile &rarr;</a></div>
+            </div></article>
           ))
         )}
       </div>
@@ -146,11 +146,11 @@ export const prerender = true;
         </div>
         <div class="venues__grid venues__grid--links">
           {adjacentTours.slice(0, 6).map((t) => (
-            <article class="venue-card">
-              <h3 class="venue-card__name"><a href={`/tour/${t.data.slug}/`}>{t.data.name}</a></h3>
-              <p class="venue-card__signature">{t.data.intro}</p>
-              <a href={`/tour/${t.data.slug}/`} class="venue-card__cta">Tour profile &rarr;</a>
-            </article>
+            <article class="pi-card"><div class="pi-card__body">
+              <h3 class="pi-card__title"><a href={`/tour/${t.data.slug}/`}>{t.data.name}</a></h3>
+              <p class="pi-card__dek">{t.data.intro}</p>
+              <div class="pi-card__actions"><a href={`/tour/${t.data.slug}/`} class="pi-btn pi-btn--solid">Tour profile &rarr;</a></div>
+            </div></article>
           ))}
         </div>
       </div>

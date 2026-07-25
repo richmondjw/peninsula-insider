@@ -76,17 +76,17 @@ export const prerender = true;
       ) : (
         <div class="venues__grid venues__grid--links">
           {allHire.map((h) => (
-            <article class="venue-card">
+            <article class="pi-card"><div class="pi-card__body">
               <h2 class="venue-card__name">
                 <a href={`/boating/hire/${h.data.slug}/`}>{h.data.name}</a>
               </h2>
-              <p class="venue-card__meta">
+              <p class="pi-card__meta">
                 {h.data.departurePoint}
                 {h.data.licenceRequired === false ? ' · No licence required' : ' · Licence required'}
               </p>
-              <p class="venue-card__signature">{h.data.intro}</p>
-              <a href={`/boating/hire/${h.data.slug}/`} class="venue-card__cta">Operator profile &rarr;</a>
-            </article>
+              <p class="pi-card__dek">{h.data.intro}</p>
+              <div class="pi-card__actions"><a href={`/boating/hire/${h.data.slug}/`} class="pi-btn pi-btn--solid">Operator profile &rarr;</a></div>
+            </div></article>
           ))}
         </div>
       )}

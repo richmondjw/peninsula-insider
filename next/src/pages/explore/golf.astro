@@ -279,7 +279,7 @@ export const prerender = true;
                 )}
               </div>
               <div class="golf-card__footer">
-                <a href={`/explore/${slug}/`} class="golf-card__cta">Course guide →</a>
+                <a href={`/explore/${slug}/`} class="pi-btn pi-btn--text">Course guide →</a>
                 {g.bookingUrl && g.access !== 'private' && (
                   <a href={g.bookingUrl} class="golf-card__book" target="_blank" rel="noopener">Book a round →</a>
                 )}
@@ -337,7 +337,7 @@ export const prerender = true;
                 )}
               </div>
               <div class="golf-card__footer">
-                <a href={`/explore/${slug}/`} class="golf-card__cta">Course guide →</a>
+                <a href={`/explore/${slug}/`} class="pi-btn pi-btn--text">Course guide →</a>
                 {g.bookingUrl && g.access !== 'private' && (
                   <a href={g.bookingUrl} class="golf-card__book" target="_blank" rel="noopener">Book a round →</a>
                 )}
@@ -598,7 +598,7 @@ export const prerender = true;
           <p class="golf-stayplay__dek">A Peninsula golf weekend works when the accommodation is close enough that travel between the course and the stay does not eat the day. The RACV Cape Schanck Resort is the most integrated: on-property accommodation, an 18-hole course, and the spa within walking distance. Moonah Links has its own on-property stay. Both allow two rounds in two days without getting in a car between them.</p>
           <p class="golf-stayplay__dek">For those not staying on a golf property, Sorrento and Blairgowrie are the strongest mid-Peninsula bases: within 20 minutes of the Cape Schanck cluster and within 15 minutes of the ferry for a Queenscliff morning. The full stay-and-play guide maps each accommodation option to its closest course and travel time.</p>
           <p class="golf-stayplay__dek">Building a broader Peninsula trip around golf? The <a href="/journal/mornington-peninsula-itinerary/" class="golf-stayplay__link">3-day Mornington Peninsula itinerary</a> shows how a long weekend can hold golf, wineries, hot springs, and the coast without feeling rushed.</p>
-          <a href="/journal/mornington-peninsula-golf-stay-and-play/" class="golf-stayplay__cta">Read the stay-and-play guide →</a>
+          <a href="/journal/mornington-peninsula-golf-stay-and-play/" class="pi-btn pi-btn--text">Read the stay-and-play guide →</a>
         </div>
         <div class="golf-stayplay__aside">
           <div class="golf-stayplay__fact">
@@ -876,15 +876,6 @@ export const prerender = true;
     border-top: 1px solid rgba(74, 90, 87, 0.09);
     margin-top: auto;
   }
-  .golf-card__cta {
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    color: var(--accent);
-    text-decoration: none;
-    transition: color 0.18s;
-  }
-  .golf-card__cta:hover { color: var(--acc-h); }
   .golf-card__book {
     font-size: 0.78rem;
     font-weight: 600;
@@ -1172,20 +1163,6 @@ export const prerender = true;
     transition: text-decoration-color 0.2s;
   }
   .golf-stayplay__link:hover { text-decoration-color: var(--gold); }
-  .golf-stayplay__cta {
-    display: inline-block;
-    margin-top: 1.25rem;
-    font-size: 0.82rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--gold);
-    text-decoration: none;
-    padding-bottom: 0.2rem;
-    border-bottom: 1px solid rgba(7, 158, 165, 0.4);
-    transition: border-color 0.2s, color 0.2s;
-  }
-  .golf-stayplay__cta:hover { border-color: var(--gold); }
   .golf-stayplay__aside {
     display: flex;
     flex-direction: column;

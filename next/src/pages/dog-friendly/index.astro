@@ -90,11 +90,11 @@ export const prerender = true;
           existing system-wide pattern for even-card-count sections. */}
       <div class="venues__grid venues__grid--two">
         {hubCards.map((card) => (
-          <article class="venue-card">
-            <h3 class="venue-card__name"><a href={card.href}>{card.title}</a></h3>
-            <p class="venue-card__signature">{card.dek}</p>
-            <a href={card.href} class="venue-card__cta">Open guide →</a>
-          </article>
+          <article class="pi-card"><div class="pi-card__body">
+            <h3 class="pi-card__title"><a href={card.href}>{card.title}</a></h3>
+            <p class="pi-card__dek">{card.dek}</p>
+            <div class="pi-card__actions"><a href={card.href} class="pi-btn pi-btn--solid">Open guide →</a></div>
+          </div></article>
         ))}
       </div>
     </div>
@@ -132,8 +132,7 @@ export const prerender = true;
     }
 
     .dog-hub-cards .venue-card > .venue-card__name,
-    .dog-hub-cards .venue-card > .venue-card__signature,
-    .dog-hub-cards .venue-card > .venue-card__cta {
+    .dog-hub-cards .venue-card > .venue-card__signature{
       padding-left: 0;
       padding-right: 0;
     }
@@ -160,12 +159,6 @@ export const prerender = true;
       border-top: 1px solid rgba(74, 90, 87, 0.14);
     }
 
-    .dog-hub-cards .venue-card__cta {
-      width: 100%;
-      min-height: 3.25rem;
-      padding: 0.82rem 1rem;
-    }
-
     @media (max-width: 760px) {
       .dog-hub-cards {
         padding-top: 2.75rem;
@@ -183,12 +176,6 @@ export const prerender = true;
       .dog-hub-cards .venue-card__name {
         font-size: clamp(1.5rem, 6.2vw, 1.85rem);
         line-height: 1.1;
-      }
-
-      .dog-hub-cards .venue-card__cta {
-        min-height: 3rem;
-        padding: 0.78rem 1rem;
-        font-size: 0.78rem;
       }
     }
   </style>

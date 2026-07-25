@@ -115,9 +115,9 @@ const verifiedTier = verificationFreshness(data.lastVerified);
     </div>
   )}
   <div class="venue-card__actions">
-    <a href={href} class="venue-card__cta">Read notes</a>
+    <a href={href} class="pi-btn pi-btn--solid">Read notes</a>
     {data.bookingUrl && data.bookingProvider !== 'none' && (
-      <a href={data.bookingUrl} target="_blank" rel="noopener noreferrer" class="venue-card__book" onClick={(e: any) => e.stopPropagation()}>{hrefPrefix === '/stay' ? 'View stay' : 'Book'}</a>
+      <a href={data.bookingUrl} target="_blank" rel="noopener noreferrer" class="pi-btn pi-btn--ghost" onClick={(e: any) => e.stopPropagation()}>{hrefPrefix === '/stay' ? 'View stay' : 'Book'}</a>
     )}
   </div>
   {data.featuredPartner && (

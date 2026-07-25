@@ -86,7 +86,7 @@ export const prerender = true;
         <div class="tour-cta-block">
           <h3 class="tour-cta-block__title">Visit {data.name} directly</h3>
           <p>Pricing, seasonal departures, and group bookings are managed on the operator's own website.</p>
-          <a href={websiteWithUtm} target="_blank" rel="noopener noreferrer" class="tour-cta-primary">
+          <a href={websiteWithUtm} target="_blank" rel="noopener noreferrer" class="tour-cta-primary pi-btn pi-btn--solid">
             Visit {data.name} &rarr;
           </a>
         </div>
@@ -129,16 +129,16 @@ export const prerender = true;
         </div>
       </div>
       <div class="venues__grid venues__grid--links">
-        <div class="venue-card">
-          <h3 class="venue-card__name"><a href="/tour/operators/">All operators</a></h3>
-          <p class="venue-card__signature">Compare all verified tour operators on the Peninsula.</p>
-          <a href="/tour/operators/" class="venue-card__cta">Browse operators &rarr;</a>
-        </div>
-        <div class="venue-card">
-          <h3 class="venue-card__name"><a href="/tour-packages/">Tour packages</a></h3>
-          <p class="venue-card__signature">Curated multi-experience Peninsula weekends with an anchor stay recommendation.</p>
-          <a href="/tour-packages/" class="venue-card__cta">Browse packages &rarr;</a>
-        </div>
+        <div class="pi-card"><div class="pi-card__body">
+          <h3 class="pi-card__title"><a href="/tour/operators/">All operators</a></h3>
+          <p class="pi-card__dek">Compare all verified tour operators on the Peninsula.</p>
+          <div class="pi-card__actions"><a href="/tour/operators/" class="pi-btn pi-btn--solid">Browse operators &rarr;</a></div>
+        </div></div>
+        <div class="pi-card"><div class="pi-card__body">
+          <h3 class="pi-card__title"><a href="/tour-packages/">Tour packages</a></h3>
+          <p class="pi-card__dek">Curated multi-experience Peninsula weekends with an anchor stay recommendation.</p>
+          <div class="pi-card__actions"><a href="/tour-packages/" class="pi-btn pi-btn--solid">Browse packages &rarr;</a></div>
+        </div></div>
       </div>
     </div>
   </section>

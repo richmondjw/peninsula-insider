@@ -84,8 +84,8 @@ const season = getSeason(now).toLowerCase();
       <time datetime={isoDate}>{dateLabel}</time>
     </p>
     <div class="home-cover__actions">
-      <a class="home-cover__btn home-cover__btn--primary" href="/whats-on/">See this weekend</a>
-      <a class="home-cover__btn home-cover__btn--ghost" href="/search/" data-open-search data-evt="search_open">Search</a>
+      <a class="pi-btn pi-btn--solid pi-btn--lg pi-btn--inverse" href="/whats-on/">See this weekend</a>
+      <a class="pi-btn pi-btn--ghost pi-btn--lg pi-btn--inverse" href="/search/" data-open-search data-evt="search_open">Search</a>
     </div>
   </div>
 </section>
@@ -182,50 +182,8 @@ const season = getSeason(now).toLowerCase();
      targets instead of two half-stranded pills. */
   @media (max-width: 26em) {
     .home-cover__actions { flex-direction: column; align-items: stretch; }
-    .home-cover__btn { width: 100%; justify-content: center; }
   }
 
-  .home-cover__btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-family: var(--font-ui);
-    font-weight: var(--fw-bold);
-    font-size: var(--fs-300);
-    text-decoration: none;
-    transition:
-      background var(--dur-fast) var(--ease-enter),
-      color var(--dur-fast) var(--ease-enter);
-  }
-
-  /* Primary on dark: solid mint, forest-teal ink. */
-  .home-cover__btn--primary {
-    padding: 0.85rem 1.35rem;
-    border: 0;
-    border-radius: var(--radius-s);
-    background: var(--mint);
-    color: var(--bg-deep);
-  }
-  .home-cover__btn--primary:hover {
-    background: color-mix(in srgb, var(--mint) 82%, var(--white));
-  }
-
-  /* Secondary: ghost pill in light ink. */
-  .home-cover__btn--ghost {
-    padding: 0.8rem 1.3rem;
-    border: 1.5px solid currentColor;
-    border-radius: var(--radius-pill);
-    background: transparent;
-    color: var(--white);
-  }
-  .home-cover__btn--ghost:hover {
-    color: var(--mint);
-  }
-
-  .home-cover__btn:focus-visible {
-    outline: 2px solid var(--focus-ring-color-inverse);
-    outline-offset: 3px;
-  }
 
   @media (max-width: 47.94em) {
     .home-cover {

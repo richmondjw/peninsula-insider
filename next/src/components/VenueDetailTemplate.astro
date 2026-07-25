@@ -282,7 +282,7 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
     {(data.bookingUrl || data.phone) && (
       <div class="venue-detail__booking-bar">
         {data.bookingUrl && (
-          <a href={data.bookingUrl} target="_blank" rel="noopener noreferrer" class="venue-detail__book-btn">
+          <a href={data.bookingUrl} target="_blank" rel="noopener noreferrer" class="pi-btn pi-btn--solid pi-btn--lg">
             {data.type === 'hotel' || data.type === 'villa' || data.type === 'cottage' || data.type === 'glamping' || data.type === 'farm-stay'
               ? 'Check availability'
               : data.type === 'winery'
@@ -293,7 +293,11 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
           </a>
         )}
         {data.phone && (
-          <a href={`tel:${data.phone.replace(/\s/g, '')}`} class="venue-detail__phone-btn">
+          <a
+            href={`tel:${data.phone.replace(/\s/g, '')}`}
+            class="pi-btn pi-btn--ghost pi-btn--lg"
+            aria-label={`Call ${data.name} on ${data.phone}`}
+          >
             {data.phone}
           </a>
         )}
@@ -629,7 +633,7 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
           )}
         </dl>
 
-        {data.bookingUrl && <a class="facts__cta" href={data.bookingUrl}>Book now</a>}
+        {data.bookingUrl && <a class="facts__cta pi-btn pi-btn--ghost pi-btn--block" href={data.bookingUrl}>Book now</a>}
         {data.affiliateNote && <p class="facts__affiliate-note">{data.affiliateNote}</p>}
       </aside>
     </div>
@@ -751,7 +755,7 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
   <div class="container">
     <div class="venue-ask-pi__inner">
       <p class="venue-ask-pi__prompt">Not sure how to build a day around {data.name}?</p>
-      <a href="/search/" class="venue-ask-pi__cta" data-open-search data-evt="search_open">
+      <a href="/search/" class="pi-btn pi-btn--text" data-open-search data-evt="search_open">
         Search Peninsula Insider
         <svg width="12" height="12" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M5 10h10M11 5l5 5-5 5" />
@@ -825,33 +829,33 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
       </div>
     </div>
     <div class="venues__grid venues__grid--links">
-      <a href="/journal/mornington-peninsula-itinerary/" class="venue-card__cta">Peninsula weekend itinerary →</a>
+      <a href="/journal/mornington-peninsula-itinerary/" class="pi-btn pi-btn--solid">Peninsula weekend itinerary →</a>
       {(section === 'eat') && (
         <>
-          <a href="/journal/the-long-lunch/" class="venue-card__cta">The long lunch guide →</a>
-          <a href="/journal/mornington-peninsula-winery-tour/" class="venue-card__cta">Winery tour route →</a>
-          <a href="/journal/the-rainy-day-peninsula-without-a-booking/" class="venue-card__cta">Rainy-day Peninsula →</a>
+          <a href="/journal/the-long-lunch/" class="pi-btn pi-btn--solid">The long lunch guide →</a>
+          <a href="/journal/mornington-peninsula-winery-tour/" class="pi-btn pi-btn--solid">Winery tour route →</a>
+          <a href="/journal/the-rainy-day-peninsula-without-a-booking/" class="pi-btn pi-btn--solid">Rainy-day Peninsula →</a>
         </>
       )}
       {(section === 'wine') && (
         <>
-          <a href="/journal/the-cellar-door-short-list/" class="venue-card__cta">Cellar door shortlist →</a>
-          <a href="/journal/mornington-peninsula-winery-tour/" class="venue-card__cta">Self-drive winery tour →</a>
-          <a href="/journal/mornington-peninsula-in-winter/" class="venue-card__cta">Winter on the Peninsula →</a>
+          <a href="/journal/the-cellar-door-short-list/" class="pi-btn pi-btn--solid">Cellar door shortlist →</a>
+          <a href="/journal/mornington-peninsula-winery-tour/" class="pi-btn pi-btn--solid">Self-drive winery tour →</a>
+          <a href="/journal/mornington-peninsula-in-winter/" class="pi-btn pi-btn--solid">Winter on the Peninsula →</a>
         </>
       )}
       {(section === 'stay') && (
         <>
-          <a href="/journal/the-one-night-escape/" class="venue-card__cta">The one-night escape →</a>
-          <a href="/journal/mornington-peninsula-in-winter/" class="venue-card__cta">Winter on the Peninsula →</a>
-          <a href="/plans/" class="venue-card__cta">Weekend plans →</a>
+          <a href="/journal/the-one-night-escape/" class="pi-btn pi-btn--solid">The one-night escape →</a>
+          <a href="/journal/mornington-peninsula-in-winter/" class="pi-btn pi-btn--solid">Winter on the Peninsula →</a>
+          <a href="/plans/" class="pi-btn pi-btn--solid">Weekend plans →</a>
         </>
       )}
       {data.dogFriendly && (
-        <a href="/dog-friendly/" class="venue-card__cta">Dog-friendly Peninsula →</a>
+        <a href="/dog-friendly/" class="pi-btn pi-btn--solid">Dog-friendly Peninsula →</a>
       )}
       {(moodTags.includes('rainy-day') || seasonTags.includes('winter')) && (
-        <a href="/journal/the-rainy-day-peninsula-without-a-booking/" class="venue-card__cta">Rainy-day Peninsula →</a>
+        <a href="/journal/the-rainy-day-peninsula-without-a-booking/" class="pi-btn pi-btn--solid">Rainy-day Peninsula →</a>
       )}
     </div>
   </div>
@@ -906,13 +910,21 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
 <NewsletterBlock />
 
 <style>
-  /* ── Worth Knowing panel ── */
+  /* ── Worth Knowing panel ──
+     Corner treatment is uniform --radius-m on all four corners and there
+     is no shadow: the panel is defined by the same hairline every other
+     surface uses, plus the accent edge, which is load-bearing (it marks
+     this as the trust layer, not decoration). Previously the heavy left
+     edge was the only definition the panel had, so the remaining three
+     sides dissolved into the ground and the shape read half-finished. */
   .worth-knowing {
     margin: 2rem 0 1.5rem;
     padding: 1.5rem;
     background: var(--bg-alt);
+    border: 1px solid var(--border);
     border-left: 3px solid var(--accent);
     border-radius: var(--radius-m);
+    box-shadow: none;
   }
   .worth-knowing__heading {
     font-family: var(--font-ui);
@@ -1009,23 +1021,6 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
     margin: 0;
     flex: 1;
     min-width: 200px;
-  }
-  .venue-ask-pi__cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    font-family: var(--font-ui);
-    font-size: var(--fs-200);
-    font-weight: 700;
-    color: var(--accent);
-    text-decoration: none;
-    border-bottom: 1px solid currentColor;
-    padding-bottom: 0.1rem;
-    white-space: nowrap;
-    transition: opacity var(--dur-med) var(--ease-enter);
-  }
-  .venue-ask-pi__cta:hover {
-    opacity: 0.75;
   }
 
   /* ── Opening hours in the At a glance panel ── */
