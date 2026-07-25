@@ -26,8 +26,8 @@ Source of findings: [`docs/visual-design-brand-review-2026-07-25.md`](./visual-d
 
 | Phase | Name | Gate | Status | Target |
 |---|---|---|---|---|
-| **P0** | Zero-regret fixes | none | ⬜ Not started | Week 1 |
-| **P1** | Direction proof | **G1, G2** | ⬜ Not started | Week 1–2 |
+| **P0** | Zero-regret fixes | none | 🟡 In progress | Week 1 |
+| **P1** | Direction proof | **G1, G2** | 🟡 In progress | Week 1–2 |
 | **P2** | Photography | G2 | ⬜ Not started | Week 2–10 (calendar-driven) |
 | **P3** | Architecture | G2 | ⬜ Not started | Week 3–5 |
 | **P4** | Skin | G2 + P3 | ⬜ Not started | Week 5–8 |
