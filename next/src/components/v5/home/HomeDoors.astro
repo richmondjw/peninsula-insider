@@ -184,14 +184,6 @@ const resolved = await Promise.all(
     text-decoration: none;
     color: var(--white);
   }
-  /* Phones (incl. 414-430px devices): 2-up tiles get too cramped (long
-     verdict lines stack over the eyebrow), so drop to a single wider tile
-     with tighter padding. */
-  @media (max-width: 35.94em) {
-    .home-doors__grid { grid-template-columns: 1fr; }
-    .home-doors__card { aspect-ratio: 16 / 10; padding: var(--space-4); }
-  }
-
   .home-doors__card:focus-visible {
     outline: 2px solid var(--focus-ring-color-inverse);
     outline-offset: 3px;
@@ -274,6 +266,46 @@ const resolved = await Promise.all(
   @media (max-width: 47.94em) {
     .home-doors__label {
       font-size: var(--fs-500);
+    }
+  }
+
+  /* Phones. Two things happen here.
+
+     Ordering: these max-width blocks must run largest to smallest. This
+     block previously sat ABOVE the 63.94em one, so at 375px both matched
+     and the later (2-column) rule won. Phones rendered two narrow tiles at
+     the 16/10 ratio intended for one wide tile, which clipped the verdict
+     line mid-sentence.
+
+     No photography: at tile size the images sat behind the eyebrow and made
+     it unreadable, and they were carrying no information the copy did not
+     already give. The tiles become typographic on a solid ground.
+
+     Height is content-driven rather than a fixed ratio, so a long verdict
+     line lengthens the tile instead of being cut off. */
+  @media (max-width: 35.94em) {
+    .home-doors__grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-3);
+    }
+    .home-doors__card {
+      aspect-ratio: auto;
+      gap: var(--space-1);
+      padding: var(--space-5) var(--space-4);
+      background: var(--bg-deep);
+    }
+    .home-doors__media,
+    .home-doors__scrim {
+      display: none;
+    }
+    /* margin-bottom:auto exists to pin the label to the foot of a
+       fixed-height tile. With content-driven height it would add dead
+       space, so it becomes a plain gap. */
+    .home-doors__count {
+      margin-bottom: var(--space-2);
+    }
+    .home-doors__line {
+      max-width: none;
     }
   }
 
