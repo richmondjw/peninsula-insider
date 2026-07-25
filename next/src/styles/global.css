@@ -775,6 +775,13 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .section-hero__visual {
   position: relative;
+  /* width:100% is load-bearing. With no width set, aspect-ratio and
+     min-height together resolve the box from its HEIGHT: at the mobile
+     16/9 override that made the width 220 * 16/9 = 391px inside a 343px
+     grid track, so the journal hero ran 32px past the viewport and was
+     clipped by the body's overflow-x. Sizing from the container instead
+     makes the ratio describe the height, which is the intent. */
+  width: 100%;
   border-radius: var(--radius-m);
   overflow: hidden;
   aspect-ratio: 4 / 3;
