@@ -604,8 +604,12 @@ const chips: { key: FacetKey; value: string; label: string }[] = standalone
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    height: 28px;
+    /* Clear of the 48px close button in the top-right corner. */
+    right: 56px;
+    /* 44px, not 28px. The visible grip stays a 4px bar; the button around
+       it has to be a real touch target or the sheet reads as unresponsive
+       because the tap simply misses. */
+    height: 44px;
     background: none;
     border: none;
     cursor: grab;
@@ -773,7 +777,8 @@ const chips: { key: FacetKey; value: string; label: string }[] = standalone
       border-left: none;
       border-right: none;
       border-bottom: none;
-      padding-top: var(--space-6, 2rem);
+      /* 44px: the handle owns this strip, so content starts below it. */
+      padding-top: 2.75rem;
       padding-bottom: var(--space-4, 1rem);
       overflow-y: auto;
       overscroll-behavior: contain;
@@ -782,6 +787,25 @@ const chips: { key: FacetKey; value: string; label: string }[] = standalone
     }
     .v5-mapview__peek--expanded {
       max-height: 82dvh;
+    }
+    /* Collapsed, the verdict is clamped so the expand control has something
+       to reveal. Without this the sheet already showed everything and
+       tapping the handle changed nothing visible, which reads as broken. */
+    .v5-mapview__peek .v5-mapview__peek-verdict {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      overflow: hidden;
+    }
+    .v5-mapview__peek--expanded .v5-mapview__peek-verdict {
+      -webkit-line-clamp: unset;
+      line-clamp: unset;
+      overflow: visible;
+    }
+    /* Genuinely nothing folded away: no control rather than a dead one. */
+    .v5-mapview__peek--nofold .v5-mapview__peek-handle {
+      display: none;
     }
     .v5-mapview__peek-handle {
       display: block;
@@ -1064,6 +1088,14 @@ const chips: { key: FacetKey; value: string; label: string }[] = standalone
       /* The sheet scrolls, so a retained scrollTop from the previous place
          left the meta line clipped under the top padding. */
       peek.scrollTop = 0;
+      /* Hide the expand control when the verdict is not actually clamped,
+         so the handle never sits there doing nothing. Measured after paint
+         because the text has only just been written. */
+      requestAnimationFrame(() => {
+        const v = peek.querySelector<HTMLElement>('[data-peek-verdict]');
+        const folded = !!v && v.scrollHeight > v.clientHeight + 1;
+        peek.classList.toggle('v5-mapview__peek--nofold', !folded);
+      });
       items.forEach((x) => x.row.removeAttribute('data-selected'));
       it.row.setAttribute('data-selected', 'true');
       if (mapReady && cluster && it.marker) {
