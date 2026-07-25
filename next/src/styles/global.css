@@ -4866,12 +4866,14 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   color: var(--soft);
   padding: 0.3rem 0.65rem;
   background: var(--bg-alt);
-  border: 1px solid rgba(74, 90, 87, 0.2);
+  border: 1px solid var(--border);
   border-radius: 999px;
 }
+/* Was #56b6a0 on a transparent ground: 2.44:1, an AA failure. Evergreen
+   measures 8.17:1 on white and 7.19:1 on --bg-alt. */
 .sl-item__tag--hat {
-  color: #56b6a0;
-  border-color: rgba(86, 182, 160, 0.55);
+  color: var(--accent);
+  border-color: var(--accent);
   background: transparent;
 }
 @media (max-width: 500px) {
@@ -11102,7 +11104,9 @@ figcaption {
 /* Reserve the two lines so a one-line dek occupies the same block as a
    two-line one. Each value is 2 x the element's own line-height, in em. */
 .v5-card .v5-card__verdict            { min-height: calc(2em * var(--lh-dek)); }
-.venue-card .venue-card__signature    { min-height: 3.24em; } /* 2 x 1.62 */
+/* box-sizing is border-box sitewide, so this one adds back its own
+   0.9rem padding-top and 1px rule on top of the two text lines. */
+.venue-card .venue-card__signature    { min-height: calc(3.24em + 0.9rem + 1px); } /* 2 x 1.62 */
 .event-card .event-card__summary      { min-height: 3.2em; }  /* 2 x 1.6  */
 .itinerary-card .itinerary-card__dek  { min-height: 3.3em; }  /* 2 x 1.65 */
 .experience-card .experience-card__summary { min-height: 3.3em; }

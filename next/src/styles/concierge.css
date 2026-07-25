@@ -11,12 +11,18 @@
 
   /* Local design tokens — extend the global PI palette */
   .ask-page {
-    --pi-paper:       #FAF6EE;
+    /* P0-3 (2026-07-25): the two page grounds were warm v5 survivors
+       (#FAF6EE and #FFFCF6) sitting beside the cool --pi-paper-deep, so
+       /ask carried the same two-palette split as the newsletter band.
+       Retargeted onto the v6 cool grounds. */
+    --pi-paper:       var(--bg-alt);
     --pi-paper-deep:  #daf0eb;
-    --pi-paper-warm:  #FFFCF6;
+    --pi-paper-warm:  var(--bg);
     --pi-ink:         var(--text);
     --pi-ink-soft:    #405c55;
-    --pi-ink-muted:   #6e8a83;
+    /* #6e8a83 measured 3.46:1 on the old ground and 3.29:1 on the new one,
+       both below AA. --soft is 6.39:1 on --bg-alt and 7.26:1 on white. */
+    --pi-ink-muted:   var(--soft);
     --pi-terra:       var(--accent);     /* matches --accent */
     --pi-terra-deep:  var(--acc-h);
     --pi-terra-haze:  rgba(11, 90, 72, 0.08);
