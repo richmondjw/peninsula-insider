@@ -10,6 +10,12 @@
  * Country and the legal entity line from the v4 footer; the cookie
  * settings trigger stays on the legal row so consent management
  * remains reachable from every page.
+ *
+ * v6 token pass (P3-6, 2026-07-25): the footer carries no buttons of its
+ * own (the Dispatch signup is SubscribeForm's), so nothing here moves to
+ * .pi-btn. Every colour is already a v6 role token; the one correction
+ * is the hairline alpha, which was effectively invisible on the dark
+ * ground. Focus stays on the inverse ring: --mint is 11.60:1 here.
  */
 import { v5FooterSections, v5FooterAbout, v5FooterFinePrint } from '../../../lib/v5-nav';
 import SubscribeForm from '../../SubscribeForm.astro';
@@ -93,7 +99,12 @@ const isHome = Astro.url.pathname === '/';
      (--white full-strength, --soft-inverse muted), mint used
      sparingly for accents, low-opacity white hairlines. */
   .v5-foot {
-    --foot-line: color-mix(in srgb, var(--white) 16%, transparent);
+    /* Raised from 16% to 40%. At 16% the footer's own hairlines measured
+       1.61:1 against --bg-deep - the same invisible-rule failure P0-4
+       fixed on the light side by taking --border to 3.45:1. 40% is
+       3.35:1, so the column rules and the Acknowledgement band actually
+       register, and it now matches the mint 40% rule along the top. */
+    --foot-line: color-mix(in srgb, var(--white) 40%, transparent);
     background: var(--bg-deep);
     border-top: 1px solid color-mix(in srgb, var(--mint) 40%, transparent);
     padding: var(--space-9) 0 var(--space-6);
@@ -168,6 +179,7 @@ const isHome = Astro.url.pathname === '/';
   .v5-foot__col a {
     display: inline-flex;
     align-items: center;
+    /* Touch target, not a spacing step. */
     min-height: 44px;
     font-family: var(--font-ui);
     font-size: var(--fs-300);

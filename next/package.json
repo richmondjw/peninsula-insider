@@ -7,8 +7,8 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "node scripts/clear-content-cache.mjs && npm run media:registry && npm run lint:no-pricing && npm run lint:region-images && npm run lint:surfaces && npm run lint:nav-budget && astro build",
-    "build:search": "npm run media:registry && npm run lint:no-pricing && npm run lint:house-style && npm run lint:region-images && npm run lint:surfaces && npm run lint:nav-budget && astro build && npx pagefind --site dist",
+    "build": "node scripts/clear-content-cache.mjs && npm run media:registry && npm run lint:no-pricing && npm run lint:region-images && npm run lint:surfaces && npm run lint:nav-budget && npm run lint:css-budget && astro build",
+    "build:search": "npm run media:registry && npm run lint:no-pricing && npm run lint:house-style && npm run lint:region-images && npm run lint:surfaces && npm run lint:nav-budget && npm run lint:css-budget && astro build && npx pagefind --site dist",
     "preview": "astro preview",
     "astro": "astro",
     "check": "astro check",
@@ -16,6 +16,7 @@
     "lint:region-images": "node scripts/lint-region-images.mjs",
     "lint:surfaces": "node scripts/audit-surface-hardening.mjs",
     "lint:nav-budget": "node scripts/lint-nav-budget.mjs",
+    "lint:css-budget": "node scripts/check-css-budget.mjs",
     "media:registry": "node scripts/build-media-registry.mjs",
     "lint:taxonomy": "node scripts/taxonomy-lint.mjs",
     "lint:taxonomy:strict": "node scripts/taxonomy-lint.mjs --strict",

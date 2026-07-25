@@ -6,8 +6,13 @@
    and then referenced by every page in the rebuild.
    ========================================================= */
 
-/* V5 token layer — must stay the first statement in this file. */
+/* V6 token layer - must stay the first statement in this file. */
 @import './v6-tokens.css';
+
+/* Component primitives (.pi-btn, .pi-card). Must load immediately after
+   the tokens and before every module below, so that a module rule can
+   always override a primitive without a specificity fight. P3-1 / P3-4. */
+@import './primitives.css';
 
 /* =========================================================
    TOKENS  -  matched to live site (css/styles.css)
@@ -34,7 +39,7 @@
   /* White base for legibility, with a subtle warm tint on alternating
      sections so editorial section breaks still read. Borders nudged
      slightly cooler so hairlines register on white. Promoted from
-     mobile-only to global on 2026-05-02 — the cream paper tone was
+     mobile-only to global on 2026-05-02 - the cream paper tone was
      washing out on every screen, the white surface gives photos and
      hairlines more contrast without losing brand warmth thanks to
      bg-alt. */
@@ -47,7 +52,7 @@
   --bg-dark:    #00362C;   /* forest-teal signature ground */
   --text:       #12211E;   /* cold near-black */
   --soft:       #4A5A57;   /* cool slate-green metadata */
-  --accent:     #0B5A48;   /* evergreen — CTAs, links */
+  --accent:     #0B5A48;   /* evergreen - CTAs, links */
   --acc-h:      #084736;
   --gold:       #079EA5;   /* remapped to teal (decorative rules/accents) */
   /* AA-safe teal cut for text on light surfaces (>=4.5:1 on white/bg-alt). */
@@ -66,7 +71,7 @@
   --sage:       #4FB79E;   /* remapped to fresh sea-green (decorative) */
   --max-w:      1100px;
   /* v5: --prose-w now tracks the ch-based measure token (68ch at 17px
-     Outfit ≈ 680px — same width, but the cap survives font scaling). */
+     Outfit ≈ 680px - same width, but the cap survives font scaling). */
   --prose-w:    var(--measure-prose);
   --ease:       cubic-bezier(0.25, 0.46, 0.45, 0.94);
   /* v5: legacy radius names alias onto the 3-token radius scale
@@ -77,12 +82,14 @@
   --radius-card-lg: var(--radius-l);
 }
 
-/* Shared image treatment for editorial tiles/cards */
+/* Shared image treatment for editorial tiles.
+   P3-4: .place-card and .tour-card are removed from this group - they are
+   .pi-card now and take --radius-m from the primitive, which also clips
+   their media via overflow: hidden. What remains are the standalone
+   images that are not inside a card. */
 .feature__image-block,
 .feature__image-bg,
-.place-card,
 .place-card__image,
-.tour-card,
 .tour-card__image,
 .tour-card__image img {
   border-radius: var(--tile-image-radius);
@@ -94,14 +101,14 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 /* 100% (not a fixed px value) so the reader's browser font-size
    preference is respected. The whole sheet is rem-based, so everything
-   scales with it — including the three-step reader text-size control,
+   scales with it - including the three-step reader text-size control,
    which sets data-text-scale on <html> (see TextScaleControl.astro). */
 html { scroll-behavior: auto; font-size: 100%; }
 html[data-text-scale="2"] { font-size: 108.75%; }
 html[data-text-scale="3"] { font-size: 118%; }
 
 /* =========================================================
-   VIEW TRANSITIONS — page fade between routes
+   VIEW TRANSITIONS - page fade between routes
    ========================================================= */
 @media (prefers-reduced-motion: no-preference) {
   @keyframes vt-fade-out { to   { opacity: 0; } }
@@ -135,7 +142,7 @@ body {
   overflow-x: hidden;
 }
 
-/* v6: film-grain overlay removed — the Evergreen Coast lift is clean and flat. */
+/* v6: film-grain overlay removed - the Evergreen Coast lift is clean and flat. */
 
 img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; transition: color .22s var(--ease); }
@@ -166,11 +173,11 @@ h1, h2, h3, h4, h5 {
 hr.rule { border: none; border-top: 1px solid var(--border); }
 
 /* =========================================================
-   MASTHEAD V3 — three-row editorial flag.
+   MASTHEAD V3 - three-row editorial flag.
    Replaces UtilityBar+Masthead with a single sticky header zone:
-     1. utility — issue stamp · weather · subscribe / about
-     2. brand   — wordmark + italic tagline
-     3. nav     — section pillars (Journal in italic) + Subscribe
+     1. utility - issue stamp · weather · subscribe / about
+     2. brand - wordmark + italic tagline
+     3. nav - section pillars (Journal in italic) + Subscribe
    Followed by a subtle gold-gradient rule that signals "magazine flag"
    instead of generic "website header."
    ========================================================= */
@@ -180,7 +187,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   z-index: 9999;
   background: rgba(245, 241, 235, 0.97);
   backdrop-filter: blur(12px);
-  border-bottom: none; /* gold gradient rule replaces this — see ::after below */
+  border-bottom: none; /* gold gradient rule replaces this - see ::after below */
 }
 .masthead::after {
   content: '';
@@ -223,7 +230,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   color: var(--accent);
   padding: 0.18rem 0.5rem;
   border: 1px solid rgba(7, 158, 165, 0.35);
-  border-radius: 2px;
+  border-radius: var(--radius-s);
   white-space: nowrap;
 }
 .masthead__edition-mark:empty { display: none; }
@@ -418,7 +425,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   .masthead__nav a::after { transition: none; }
 }
 
-/* JOURNAL — editorial italic distinction. Marks the section visually as
+/* JOURNAL - editorial italic distinction. Marks the section visually as
    the editorial heart, not just another nav pillar. */
 .masthead__nav-item--journal a {
   font-family: var(--font-display);
@@ -432,7 +439,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .masthead__nav-item--journal a:hover { color: var(--accent); }
 
-/* MORE — mega-menu trigger and panel.
+/* MORE - mega-menu trigger and panel.
    The trigger is a button styled to match the surrounding nav links exactly,
    with a small chevron that rotates when the panel is open. The panel is
    absolutely positioned beneath the row, anchored to the trigger's right edge
@@ -502,7 +509,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .masthead__more-panel {
   position: absolute;
-  /* Panel docks flush against the bottom of the trigger — no visible
+  /* Panel docks flush against the bottom of the trigger - no visible
      gap, no hover-dead-zone bridge needed. Visual breathing room is
      created entirely by the panel's own top padding. The previous
      translateY + ::before bridge approach was sound geometrically but
@@ -516,7 +523,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   padding: 1rem 0.65rem;
   background: var(--paper);
   border: 1px solid var(--border);
-  border-radius: 4px;
+  border-radius: var(--radius-l);
   box-shadow: 0 18px 40px -20px rgba(14, 40, 34, 0.35);
 }
 .masthead__more-panel[hidden] {
@@ -535,7 +542,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   padding: 0.55rem 0.6rem;
   text-decoration: none;
   color: var(--dark);
-  border-radius: 2px;
+  border-radius: var(--radius-s);
   transition: background .15s var(--ease), color .15s var(--ease);
 }
 .masthead__more-link:hover,
@@ -571,25 +578,17 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   .masthead__nav-item--more { display: none; }
 }
 
+/* P3-2: .pi-btn --ghost --sm owns ground, border, radius, type and hover.
+   KEPT: flex-shrink, so the CTA is never squeezed out of the nav row. */
 .masthead__cta {
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--accent);
-  border: 1px solid rgba(7, 158, 165, 0.5);
-  padding: 0.45rem 1rem;
-  transition: background .2s var(--ease), color .2s var(--ease), border-color .2s var(--ease);
-  white-space: nowrap;
   flex-shrink: 0;
-  text-decoration: none;
 }
 .masthead__cta:hover {
   background: var(--accent);
   color: var(--bg);
   border-color: var(--accent);
 }
-/* Mobile-only wordmark — sits in the centre of the merged mobile nav
+/* Mobile-only wordmark - sits in the centre of the merged mobile nav
    row. Hidden on desktop, where the dedicated brand row carries the
    full wordmark + tagline. */
 .masthead__logo-mobile {
@@ -690,7 +689,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .cover__visual {
   position: relative;
-  border-radius: 2px;
+  border-radius: var(--radius-m);
   overflow: hidden;
   aspect-ratio: 4 / 3;
   background: linear-gradient(135deg,#0E6A54 0%,#12857A 50%,#00362C 100%);
@@ -756,7 +755,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .section-hero__visual {
   position: relative;
-  border-radius: 2px;
+  border-radius: var(--radius-m);
   overflow: hidden;
   aspect-ratio: 4 / 3;
   min-height: 220px;
@@ -779,7 +778,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   background: linear-gradient(to bottom, rgba(245,241,235,0.12) 0%, transparent 40%, rgba(0, 54, 44,0.3) 100%);
 }
 
-/* hero gradient variants — use background-image (not shorthand)
+/* hero gradient variants - use background-image (not shorthand)
    so they don't reset background-size/position from .section-hero__visual */
 .hero-grad--vineyard {
   background-image: linear-gradient(135deg,#0E6A54 0%,#12857A 50%,#00362C 100%);
@@ -850,7 +849,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
    voice: a print magazine contents page, not a web nav bar.
    ========================================================= */
 /* =========================================================
-   PILLAR NAV — magazine table-of-contents.
+   PILLAR NAV - magazine table-of-contents.
    Replaces the 3x3 icon-tile grid. Numbered list, each row =
    section name in Cormorant + a one-line editorial dek. Reads
    like a real magazine's contents page. Compact, scannable.
@@ -957,7 +956,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   transform: translateX(4px);
 }
 
-/* Tablet — collapse name + dek to a single column under the number. */
+/* Tablet - collapse name + dek to a single column under the number. */
 @media (max-width: 768px) {
   .pillars {
     padding: clamp(2rem, 4vw, 3rem) 0;
@@ -1088,18 +1087,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .feature__byline-dot { width: 3px; height: 3px; background: var(--border); border-radius: 50%; }
 .feature__byline-meta { font-size: 0.78rem; color: var(--soft); }
-.feature__cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--accent);
-  transition: gap .2s var(--ease);
-}
-.feature__cta:hover { gap: 0.85rem; color: var(--acc-h); }
+/* P3-2: fully absorbed by .pi-btn --text. */
 
 /* =========================================================
    VENUES STRIP & GRID
@@ -1174,23 +1162,15 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   z-index: 0;
 }
 
+/* P3-4: ground, hairline, radius and overflow come from .pi-card.
+   KEPT: the bottom padding reserves a dedicated 3.25rem zone for the
+   floating Save and Share pills. The pills are 2rem tall and sit at
+   `bottom: 0.75rem`, so their top edge lands at 2.75rem from the card's
+   bottom - anything less than ~3rem of padding makes the actions row
+   overlap the pills horizontally when SAVE expands on hover. */
 .venue-card {
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(180deg, var(--white) 0%, var(--bg-alt) 100%);
-  /* Bottom padding leaves a dedicated 3.25rem zone for the floating Save
-     and Share pills. The pills are 2rem tall and sit at `bottom: 0.75rem`,
-     so their top edge lands at 2.75rem from the card's bottom — anything
-     less than ~3rem of padding makes the actions row (READ NOTES / VIEW
-     STAY) overlap the pills horizontally when SAVE expands on hover. */
   padding: 0 0 3.25rem;
-  display: flex;
-  flex-direction: column;
   gap: 0;
-  border-radius: var(--radius-card-lg);
-  border: 1px solid var(--border);
-  /* P0-4: no resting shadow. The visible hairline carries the definition. */
-  transition: transform 0.22s var(--ease), border-color 0.22s var(--ease);
 }
 .venue-card__hero {
   display: block;
@@ -1203,7 +1183,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   z-index: 1;
 }
 
-/* Placeholder state — venue has no dedicated photo yet.
+/* Placeholder state - venue has no dedicated photo yet.
    editableImage attrs are already on this element so right-click
    opens the CMS image-replace panel directly. */
 .venue-card__hero--placeholder {
@@ -1332,25 +1312,14 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   color: #427d6f;
   background: rgba(92, 165, 148, 0.08);
   padding: 0.34rem 0.58rem;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
 }
+/* P3-2: ground, type, radius, hover and transition now come from
+   .pi-btn --solid in primitives.css. Card-foot placement is the only
+   thing that is genuinely local. */
 .venue-card__cta {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.4rem;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--white);
-  background: var(--bg-dark);
   margin-top: auto;
-  padding: 0.7rem 0.95rem;
-  border-radius: 999px;
-  transition: background .18s var(--ease), transform .18s var(--ease);
 }
-.venue-card__cta:hover { background: #193a32; transform: translateY(-1px); }
 
 .venue-card__actions {
   display: flex;
@@ -1362,18 +1331,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .venue-card__actions .venue-card__cta {
   margin-top: 0;
 }
-.venue-card__book {
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #386c60;
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,0.8);
-  padding: 0.7rem 0.85rem;
-  border-radius: 999px;
-  transition: border-color 0.18s var(--ease), color 0.18s var(--ease), background 0.18s var(--ease);
-}
+/* P3-2: fully absorbed by .pi-btn --solid. */
 /* Editorial-freshness chip on venue cards. Three tiers, colour-coded:
    fresh (≤35 days, accent), recent (36–120 days, soft), stale (older or
    unknown, muted). The aim is an honest signal, not a precise age. */
@@ -1495,11 +1453,9 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
 }
-.place-card {
-  position: relative;
-  overflow: hidden;
-  border-radius: var(--tile-image-radius);
-}
+/* P3-4: fully absorbed by .pi-card. The place tile previously carried no
+   ground and no hairline, which is exactly the "cards float without
+   definition" finding; it now takes the shared 3.45:1 rule. */
 .place-card__image {
   display: block;
   aspect-ratio: 16 / 9;
@@ -1615,7 +1571,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .subpage-hero__visual {
   position: relative;
   overflow: hidden;
-  border-radius: 2px;
+  border-radius: var(--radius-m);
   min-height: 300px;
 }
 .subpage-hero__visual img {
@@ -1663,7 +1619,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 
 /* =========================================================
-   ARTICLE HERO — split magazine cover for journal articles.
+   ARTICLE HERO - split magazine cover for journal articles.
    Text on cream LEFT (meta · title · dek · byline · tags),
    image RIGHT. Mirrors HomeCover / GuideHero. Stacks on mobile.
    ========================================================= */
@@ -1760,7 +1716,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   padding: 0.3rem 0.65rem;
   background: var(--bg-alt);
   border: 1px solid rgba(74, 90, 87, 0.18);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
 }
 
 .article-hero__figure { margin: 0; position: relative; }
@@ -1770,7 +1726,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   background-size: cover;
   background-position: center;
   background-color: var(--bg-alt);
-  border-radius: 4px;
+  border-radius: var(--radius-m);
   filter: saturate(0.92) contrast(1.02);
 }
 .article-hero__credit {
@@ -1867,7 +1823,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .article__hero {
   position: relative;
   aspect-ratio: 16 / 8;
-  border-radius: 2px;
+  border-radius: var(--radius-m);
   overflow: hidden;
   margin-bottom: clamp(2.5rem, 5vw, 4rem);
   background: linear-gradient(135deg,#12726E 0%,#0B5A72 45%,#00362C 100%);
@@ -1894,7 +1850,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   max-width: var(--prose-w);
   margin: 0 auto;
   font-size: var(--fs-400);
-  /* v5: 1.85 was over-leaded for a 68ch measure — --lh-body 1.7. */
+  /* v5: 1.85 was over-leaded for a 68ch measure - --lh-body 1.7. */
   line-height: var(--lh-body);
   color: var(--text);
   font-weight: var(--fw-body);
@@ -2034,55 +1990,23 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   color: var(--soft);
   margin-bottom: 2.5rem;
 }
-/* Booking bar — prominent CTA between signature and hero */
+/* Booking bar - prominent CTA between signature and hero */
 .venue-detail__booking-bar {
   display: flex;
   gap: 0.75rem;
   margin-bottom: 2rem;
   flex-wrap: wrap;
 }
-.venue-detail__book-btn {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.85rem 2rem;
-  background: var(--accent);
-  color: var(--white);
-  font-family: Outfit, system-ui, sans-serif;
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  text-decoration: none;
-  border: 1px solid var(--accent);
-  transition: background 0.2s var(--ease);
-  min-height: 44px;
-}
-.venue-detail__book-btn:hover {
-  background: var(--acc-h, var(--acc-h));
-}
-.venue-detail__phone-btn {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.85rem 1.5rem;
-  background: transparent;
-  color: var(--soft);
-  font-family: Outfit, system-ui, sans-serif;
-  font-size: 0.82rem;
-  font-weight: 400;
-  text-decoration: none;
-  border: 1px solid var(--border);
-  transition: border-color 0.2s var(--ease), color 0.2s var(--ease);
-  min-height: 44px;
-}
-.venue-detail__phone-btn:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-}
+/* P3-2: fully absorbed by .pi-btn --solid --lg. */
+/* P3-3: the phone control used --soft on a --border hairline, which read
+   as a disabled field. It is now .pi-btn --ghost --lg, so it carries the
+   same --text label (16.64:1) and --border-strong rule (5.10:1) as every
+   other secondary action. Nothing local remains. */
 
 .venue-detail__hero {
   position: relative;
   aspect-ratio: 16 / 8;
-  border-radius: 2px;
+  border-radius: var(--radius-m);
   overflow: hidden;
   margin-bottom: clamp(2.5rem, 5vw, 4rem);
   background: linear-gradient(135deg,#12726E 0%,#0B5A72 45%,#00362C 100%);
@@ -2122,7 +2046,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   background: var(--white);
   border: 1px solid var(--border);
   padding: 1.75rem 1.5rem;
-  border-radius: 2px;
+  border-radius: var(--radius-m);
 }
 .facts__title {
   font-size: 0.65rem;
@@ -2150,20 +2074,11 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .facts dd { color: var(--text); line-height: 1.55; }
 .facts dd a { color: var(--accent); }
 .facts dd a:hover { color: var(--acc-h); }
+/* P3-2: .pi-btn --ghost --block owns ground, border, radius, type and
+   hover. KEPT: the gap above the panel's fact list. */
 .facts__cta {
-  display: block;
-  margin-top: 1.75rem;
-  padding: 0.75rem 1rem;
-  border: 1px solid var(--accent);
-  color: var(--accent);
-  text-align: center;
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  transition: background .2s var(--ease), color .2s var(--ease);
+  margin-top: var(--space-5);
 }
-.facts__cta:hover { background: var(--accent); color: var(--white); }
 
 /* =========================================================
    PLACE DETAIL
@@ -2213,7 +2128,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .place-detail__hero {
   position: relative;
   aspect-ratio: 21 / 9;
-  border-radius: 2px;
+  border-radius: var(--radius-m);
   overflow: hidden;
   margin-bottom: clamp(2rem, 4vw, 3rem);
   background-size: cover;
@@ -2320,13 +2235,13 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 
 /* =========================================================
-   NEWSLETTER PAGE V2 — conversion-first standalone page
+   NEWSLETTER PAGE V2 - conversion-first standalone page
    Form-above-the-fold cinematic hero, sample dispatch preview,
    four promises, three trust statements, second-chance close.
    ========================================================= */
 
 /* ── 1. Conversion hero ── */
-/* ── 1. Hero — typographic only, no photo, paper background ──
+/* ── 1. Hero - typographic only, no photo, paper background ──
    Conversion-first publication front page. The dispatch IS the
    product, so the page sells with type and voice rather than
    scenery. Form sits on a solid white card so the input is
@@ -2340,7 +2255,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   border-bottom: 1px solid var(--border);
   overflow: hidden;
 }
-/* Decorative top hairline + faint paper noise — keeps the surface
+/* Decorative top hairline + faint paper noise - keeps the surface
    editorial without competing with the typography. */
 .news-hero::before {
   content: '';
@@ -2395,7 +2310,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   max-width: 52ch;
   margin: 0 auto 2.4rem;
 }
-/* The form lives on a white card with hairline border — high
+/* The form lives on a white card with hairline border - high
    contrast against the cream surround so the field is the visual
    focal point of the page. */
 .news-hero__form {
@@ -2403,7 +2318,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   margin: 0 auto 2rem;
   background: #FFFFFF;
   border: 1px solid var(--border);
-  border-radius: 6px;
+  border-radius: var(--radius-s);
   padding: clamp(1.4rem, 2.4vw, 1.8rem) clamp(1.2rem, 2vw, 1.6rem);
   box-shadow: 0 1px 0 rgba(251, 253, 252, 0.8) inset,
               0 18px 40px rgba(0, 40, 34, 0.06);
@@ -2428,7 +2343,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   padding: 0.95rem 1.05rem;
   background: var(--bg);
   border: 1px solid var(--border);
-  border-radius: 4px;
+  border-radius: var(--radius-s);
   color: var(--dark);
   font-family: var(--font-ui);
   font-size: 1rem;
@@ -2446,7 +2361,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   padding: 1.05rem 1.4rem;
   background: var(--accent);
   border: none;
-  border-radius: 4px;
+  border-radius: var(--radius-s);
   color: #fff;
   font-family: var(--font-ui);
   font-size: 0.8rem;
@@ -2475,7 +2390,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   min-height: 1.2em;
   text-align: center;
 }
-/* Proof bar — small caps, hairline rules above and below.
+/* Proof bar - small caps, hairline rules above and below.
    Three short signals in equal-spaced columns. */
 .news-hero__proof {
   display: flex;
@@ -2505,7 +2420,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   letter-spacing: 0;
 }
 
-/* ── 2. Sample dispatch — styled like a real email ── */
+/* ── 2. Sample dispatch - styled like a real email ── */
 .news-sample {
   padding: clamp(3.5rem, 8vw, 6rem) 0;
   background: var(--bg);
@@ -2588,8 +2503,8 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   letter-spacing: -0.005em;
 }
 
-/* ── 3. What you get — numbered four-up ── */
-/* ── Editions — editorial rhythms within The Insider publication ── */
+/* ── 3. What you get - numbered four-up ── */
+/* ── Editions - editorial rhythms within The Insider publication ── */
 .news-editions {
   padding: clamp(2.8rem, 6vw, 4.5rem) 0;
   background: var(--bg);
@@ -2616,7 +2531,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   position: relative;
 }
 .news-editions__item::before {
-  content: '—';
+  content: ' - ';
   position: absolute;
   left: 0;
   color: var(--accent);
@@ -2746,7 +2661,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   margin: 0;
 }
 
-/* ── 5. Close — editorial close, single button back to the form ──
+/* ── 5. Close - editorial close, single button back to the form ──
    No second form. One form, one decision. The close earns the
    conversion with a precise editorial line and bounces the reader
    back to the hero form (anchor #subscribe). */
@@ -2781,22 +2696,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   color: rgba(253, 252, 250, 0.78);
   margin: 0 0 2rem;
 }
-.news-close__cta {
-  display: inline-block;
-  padding: 1.05rem 2.2rem;
-  background: var(--accent);
-  border: 1px solid var(--accent);
-  border-radius: 4px;
-  color: #fff;
-  font-family: var(--font-ui);
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: background .2s var(--ease), border-color .2s var(--ease);
-}
-.news-close__cta:hover { background: var(--acc-h); border-color: var(--acc-h); }
+/* P3-2: fully absorbed by .pi-btn --solid --lg. */
 
 /* ── Mobile adjustments ── */
 @media (max-width: 720px) {
@@ -2811,7 +2711,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 
 /* =========================================================
-   NEWSLETTER (legacy footer block — kept for NewsletterBlock component)
+   NEWSLETTER (legacy footer block - kept for NewsletterBlock component)
    ========================================================= */
 .newsletter {
   background: var(--dark);
@@ -2940,20 +2840,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   background: rgba(255,255,255,0.11);
   border-color: rgba(255,255,255,0.3);
 }
-.newsletter__submit {
-  padding: 0.85rem 1.5rem;
-  background: var(--accent);
-  border: 1px solid var(--accent);
-  color: var(--white);
-  font-family: var(--font-ui);
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: background .2s var(--ease);
-  white-space: nowrap;
-}
+/* P3-2: fully absorbed by .pi-btn --solid. */
 .newsletter__submit:hover { background: var(--acc-h); }
 .newsletter__proofs {
   display: flex;
@@ -3037,7 +2924,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   border-bottom: 1px solid var(--border);
   background: var(--bg);
   /* Generous top padding so the breadcrumb never reads as "tucked under"
-     the sticky masthead — visible breathing room is the whole point. */
+     the sticky masthead - visible breathing room is the whole point. */
   padding: 1.0rem 0 0.85rem;
   /* Sticky under the masthead so the reader can always see where they
      are in the hierarchy on long pages. `--masthead-h` is set in JS by
@@ -3130,12 +3017,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   grid-template-columns: repeat(3, 1fr);
   gap: clamp(1rem, 1.6vw, 1.4rem);
 }
-.experience-card {
-  position: relative;
-  background: var(--white);
-  display: flex;
-  flex-direction: column;
-}
+/* P3-4: fully absorbed by .pi-card. */
 .experience-card__visual {
   display: block;
   position: relative;
@@ -3212,19 +3094,8 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-.experience-card__cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-top: auto;
-  transition: gap .18s var(--ease), color .18s var(--ease);
-}
-.experience-card__cta:hover { gap: 0.65rem; color: var(--acc-h); }
+/* P3-2: .pi-btn --text owns everything except the card-foot pin. */
+.experience-card__cta { margin-top: auto; }
 
 /* =========================================================
    ITINERARY GRID & CARDS
@@ -3234,17 +3105,8 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   grid-template-columns: repeat(2, 1fr);
   gap: clamp(1rem, 1.6vw, 1.4rem);
 }
-.itinerary-card {
-  position: relative;
-  background: var(--white);
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  border: 1px solid var(--border);
-  border-radius: 2px;
-  overflow: hidden;
-  transition: transform .2s var(--ease), border-color .2s var(--ease);
-}
+/* P3-4 / P3-7: fully absorbed by .pi-card (the old 2px radius was one of
+   the inconsistencies the radius policy removes). */
 .itinerary-card:hover {
   transform: translateY(-3px);
   border-color: var(--accent);
@@ -3295,7 +3157,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   width: 1.7rem;
   height: 1.7rem;
   border: 1px solid rgba(11, 90, 72, 0.55);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   font-family: var(--font-display);
   font-size: 0.78rem;
   font-weight: 700;
@@ -3353,18 +3215,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
      expands on hover. */
   padding-bottom: 3.25rem;
 }
-.itinerary-card__cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--accent);
-  transition: gap .18s var(--ease), color .18s var(--ease);
-}
-.itinerary-card__cta:hover { gap: 0.65rem; color: var(--acc-h); }
+/* P3-2: fully absorbed by .pi-btn --text. */
 
 /* =========================================================
    PLAN GRID (editorial rules on escape page)
@@ -3444,7 +3295,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .experience-detail__hero {
   position: relative;
   aspect-ratio: 16 / 8;
-  border-radius: 2px;
+  border-radius: var(--radius-m);
   overflow: hidden;
   margin-bottom: clamp(2.5rem, 5vw, 4rem);
 }
@@ -3527,7 +3378,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .itinerary-detail__hero {
   position: relative;
   aspect-ratio: 16 / 8;
-  border-radius: 2px;
+  border-radius: var(--radius-m);
   overflow: hidden;
   margin-bottom: clamp(2.5rem, 5vw, 4rem);
 }
@@ -3615,10 +3466,10 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 
 /* =========================================================
-   /ESCAPE/ — 11-section anatomy (peninsula_insider_escape_v1)
+   /ESCAPE/ - 11-section anatomy (peninsula_insider_escape_v1)
    ========================================================= */
 
-/* Hero CTA — anchor-stay 3-placement rule, slot 1 */
+/* Hero CTA - anchor-stay 3-placement rule, slot 1 */
 .itinerary-detail__cta-row {
   display: flex;
   align-items: center;
@@ -3626,24 +3477,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   flex-wrap: wrap;
   margin: 1.5rem 0 2rem;
 }
-.itinerary-detail__cta {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.85rem 1.4rem;
-  background: var(--bg-dark);
-  color: var(--white);
-  font-size: 0.74rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  border-radius: 999px;
-  transition: background .18s var(--ease), transform .18s var(--ease);
-}
-.itinerary-detail__cta:hover {
-  background: #193a32;
-  transform: translateY(-1px);
-  color: var(--white);
-}
+/* P3-2: fully absorbed by .pi-btn --solid. */
 .itinerary-detail__cta-note {
   font-size: 0.72rem;
   color: var(--soft);
@@ -3651,13 +3485,13 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   text-transform: uppercase;
 }
 
-/* Where you sleep tonight — slot 2 */
+/* Where you sleep tonight - slot 2 */
 .where-you-sleep {
   margin: 1.75rem 0 0;
   padding: 1.4rem 1.6rem;
   background: rgba(92, 165, 148, 0.07);
   border-left: 3px solid var(--accent);
-  border-radius: 0 6px 6px 0;
+  border-radius: 0 var(--radius-m) var(--radius-m) 0;
 }
 .where-you-sleep__label {
   font-size: 0.68rem;
@@ -3673,14 +3507,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   color: var(--text);
   margin-bottom: 0.85rem;
 }
-.where-you-sleep__cta {
-  display: inline-flex;
-  font-size: 0.74rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  color: var(--accent);
-}
-.where-you-sleep__cta:hover { color: var(--acc-h); }
+/* P3-2: fully absorbed by .pi-btn --text. */
 
 /* Variations panel */
 .variations { margin: 3rem 0; }
@@ -3707,7 +3534,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   padding: 1.25rem 1.4rem;
   background: var(--white);
   border: 1px solid var(--border);
-  border-radius: 6px;
+  border-radius: var(--radius-m);
 }
 .variation__label {
   font-size: 0.7rem;
@@ -3736,7 +3563,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   margin: 3rem 0;
   padding: 1.5rem 1.75rem;
   background: rgba(11, 90, 72, 0.04);
-  border-radius: 6px;
+  border-radius: var(--radius-m);
 }
 .skip-these__heading {
   margin-bottom: 0.85rem;
@@ -3792,7 +3619,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   letter-spacing: 0.14em;
   text-transform: uppercase;
   padding: 0.25rem 0.6rem;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   align-self: center;
   width: fit-content;
 }
@@ -3867,7 +3694,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   padding: 1.75rem;
   border: 1px solid var(--border);
   background: var(--white);
-  border-radius: 2px;
+  border-radius: var(--radius-m);
 }
 .zone-card--link {
   display: block;
@@ -3980,7 +3807,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   padding: 1.2rem 1.1rem;
   background: var(--white);
   border: 1px solid var(--border);
-  border-radius: 2px;
+  border-radius: var(--radius-s);
   transition: transform .18s var(--ease), border-color .18s var(--ease), box-shadow .18s var(--ease);
 }
 .intent-chip:hover {
@@ -4066,7 +3893,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   background: var(--bg-alt);
   border: 1px solid var(--border);
   border-top: 3px solid var(--gold);
-  border-radius: 2px;
+  border-radius: var(--radius-m);
 }
 .editors-desk__formats .label {
   font-size: 0.65rem;
@@ -4219,7 +4046,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   gap: 0.55rem;
   padding: 0.55rem 0.95rem;
   border: 1px solid var(--border);
-  border-radius: 999px;
+  border-radius: var(--radius-s);
   background: var(--white);
   transition: background .18s var(--ease), border-color .18s var(--ease), color .18s var(--ease);
 }
@@ -4241,7 +4068,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   color: var(--soft);
   background: var(--bg-alt);
   padding: 0.1rem 0.45rem;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
 }
 
 /* =========================================================
@@ -4338,7 +4165,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   gap: 0.55rem;
   padding: 0.55rem 0.95rem;
   border: 1px solid var(--border);
-  border-radius: 999px;
+  border-radius: var(--radius-s);
   background: var(--bg);
   transition: background .18s var(--ease), border-color .18s var(--ease), color .18s var(--ease);
 }
@@ -4360,7 +4187,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   color: var(--soft);
   background: var(--bg-alt);
   padding: 0.1rem 0.45rem;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
 }
 
 /* =========================================================
@@ -4509,34 +4336,10 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   gap: 1.2rem;
   flex-wrap: wrap;
 }
-.weekend-picker__cta {
-  display: inline-flex;
-  align-items: center;
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--accent);
-  padding: 0.7rem 1.1rem;
-  border: 1px solid rgba(7, 158, 165, 0.3);
-  border-radius: 2px;
-  transition: background .18s var(--ease), color .18s var(--ease), border-color .18s var(--ease);
-}
-.weekend-picker__cta:hover {
-  background: var(--accent);
-  color: var(--bg);
-  border-color: var(--accent);
-}
-.weekend-picker__cta--ghost {
-  border-color: var(--border);
-  color: var(--soft);
-}
-.weekend-picker__cta--ghost:hover {
-  background: var(--bg-alt);
-  color: var(--dark);
-  border-color: var(--accent);
-}
-/* Quiet Melbourne entry line — absorbed the former MelbourneEntryStrip
+/* P3-2: both the picker CTA and its --ghost sibling collapse onto
+   .pi-btn --ghost. The old pair drew two different border colours for
+   what is one control, which is exactly the drift P3-2 removes. */
+/* Quiet Melbourne entry line - absorbed the former MelbourneEntryStrip
    (2026-06-10) so weekend intent has a single surface on the homepage. */
 .weekend-picker__melb {
   margin-top: 1.4rem;
@@ -4629,7 +4432,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   display: flex;
   background: rgba(255, 255, 255, 0.07);
   border: 1px solid rgba(185, 238, 225, 0.28);
-  border-radius: 4px;
+  border-radius: var(--radius-s);
   overflow: hidden;
   transition: border-color 0.2s var(--ease), background 0.2s var(--ease);
 }
@@ -4696,11 +4499,11 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   }
   .insider-stripe__form .newsletter__input {
     padding: 0.85rem;
-    border-radius: 2px;
+    border-radius: var(--radius-s);
     background: rgba(255,255,255,0.06);
     border: 1px solid rgba(255,255,255,0.1);
   }
-  .insider-stripe__form .newsletter__submit { width: 100%; padding: 0.95rem; border-radius: 2px; }
+  .insider-stripe__form .newsletter__submit { width: 100%; padding: 0.95rem; border-radius: var(--radius-s); }
 }
 
 /* =========================================================
@@ -4867,7 +4670,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   padding: 0.3rem 0.65rem;
   background: var(--bg-alt);
   border: 1px solid var(--border);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
 }
 /* Was #56b6a0 on a transparent ground: 2.44:1, an AA failure. Evergreen
    measures 8.17:1 on white and 7.19:1 on --bg-alt. */
@@ -5001,7 +4804,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   background-size: cover;
   background-position: center;
   background-color: var(--bg-alt);
-  border-radius: 4px;
+  border-radius: var(--radius-m);
   filter: saturate(0.92) contrast(1.02);
 }
 .letter__image-cap {
@@ -5119,7 +4922,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   transition: color 0.2s var(--ease);
 }
 .home-cover__byline-read::before {
-  content: '—';
+  content: ' - ';
   position: absolute;
   left: 0;
   color: var(--soft);
@@ -5136,7 +4939,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   aspect-ratio: 4 / 5;
   overflow: hidden;
   background: var(--bg-alt);
-  border-radius: 4px;
+  border-radius: var(--radius-m);
 }
 .home-cover__slide {
   position: absolute;
@@ -5185,7 +4988,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
    GUIDE HERO  -  split-layout editorial header for hub pages.
    Two columns on desktop: text on cream LEFT, image RIGHT.
    Stacks vertically on mobile (text first, image below). The
-   bulletproof magazine pattern — text always perfectly legible,
+   bulletproof magazine pattern - text always perfectly legible,
    image always intact, no scrim-vs-image fight.
    ========================================================= */
 .guide-hero {
@@ -5270,9 +5073,9 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   aspect-ratio: 4 / 5;
   background-size: cover;
   background-position: center;
-  border-radius: 4px;
+  border-radius: var(--radius-m);
   overflow: hidden;
-  /* Light editorial desaturation — keeps the image vivid but tones
+  /* Light editorial desaturation - keeps the image vivid but tones
      the rare over-saturated photo so the page feels editorial. */
   filter: saturate(0.92) contrast(1.02);
 }
@@ -5286,7 +5089,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   text-align: right;
 }
 
-/* ── Mobile: stack vertically — text first, image below ── */
+/* ── Mobile: stack vertically - text first, image below ── */
 @media (max-width: 768px) {
   .guide-hero {
     padding: clamp(1.6rem, 5vw, 2.4rem) 0 clamp(1.6rem, 5vw, 2.4rem);
@@ -5326,7 +5129,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   background: var(--bg);
   border-bottom: 1px solid var(--border);
 }
-/* CompareBlock embedded in article prose (MDX) — drop the full-bleed
+/* CompareBlock embedded in article prose (MDX) - drop the full-bleed
    section chrome and the nested container gutters so it sits flush in
    the 680px column. */
 .prose .compare-block {
@@ -5407,7 +5210,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   color: var(--accent);
   background: rgba(92, 165, 148, 0.08);
   padding: 0.35rem 0.7rem;
-  border-radius: 999px;
+  border-radius: var(--radius-s);
   margin-bottom: 1rem;
 }
 .compare-block__title {
@@ -5464,14 +5267,14 @@ body::before {
   mix-blend-mode: multiply;
 }
 @media (prefers-reduced-motion: no-preference) {
-  /* No animation — the texture is static. The query is a guard against
+  /* No animation - the texture is static. The query is a guard against
      accidental costly repaints on devices that opt out of motion. */
 }
 
 /* =========================================================
    SECTION DIVIDER  -  magazine-style break between major sections.
    Two soft gold rules with a small fleuron centered between them.
-   Used sparingly — never between every section, only at meaningful
+   Used sparingly - never between every section, only at meaningful
    transitions in narrative.
    ========================================================= */
 .section-divider {
@@ -5586,8 +5389,7 @@ body::before {
 /* =========================================================
    DROP CAP  -  large gold serif initial on the first paragraph
    of selected sections. Apply via .has-drop-cap on the wrapper
-   that contains the paragraph. Used only on 2-3 key sections —
-   over-use kills the magazine effect.
+   that contains the paragraph. Used only on 2-3 key sections - over-use kills the magazine effect.
    ========================================================= */
 .has-drop-cap > p:first-of-type::first-letter,
 p.has-drop-cap::first-letter {
@@ -5696,7 +5498,7 @@ p.has-drop-cap::first-letter {
 
 /* =========================================================
    HUB FAQ  -  native-disclosure accordion used at the foot
-   of hub pages. No JS — uses <details>/<summary>. The +/−
+   of hub pages. No JS - uses <details>/<summary>. The +/−
    indicator is built with ::after.
    ========================================================= */
 /* ── Hub Notebook module ─────────────────────────────────────────────────────
@@ -5814,7 +5616,7 @@ p.has-drop-cap::first-letter {
 }
 .hub-faq__a p { margin: 0; }
 
-/* Safety / advisory callout — single panel for editorial alerts
+/* Safety / advisory callout - single panel for editorial alerts
    (rip warning, weather, booking-window, etc.). Reusable wherever
    a serious editorial caution belongs above the main content. */
 .guide-callout {
@@ -5860,7 +5662,7 @@ p.has-drop-cap::first-letter {
   padding: 1.05rem 1.1rem;
   background: var(--white);
   border: 1px solid var(--border);
-  border-radius: 2px;
+  border-radius: var(--radius-s);
   transition: transform .18s var(--ease), border-color .18s var(--ease), box-shadow .18s var(--ease);
 }
 .events-lens__chip:hover {
@@ -5894,7 +5696,7 @@ p.has-drop-cap::first-letter {
   color: var(--accent);
   background: var(--bg-alt);
   padding: 0.18rem 0.55rem;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   min-width: 1.6rem;
   text-align: center;
 }
@@ -5953,17 +5755,10 @@ p.has-drop-cap::first-letter {
   grid-template-columns: repeat(3, 1fr);
   gap: 1.6rem;
 }
+/* P3-4 / P3-7: .pi-card owns ground, hairline, radius and overflow.
+   KEPT: the event card stacks its own rows with a gap. */
 .event-card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
   gap: 0.85rem;
-  padding: 0;
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 2px;
-  overflow: hidden;
-  transition: transform .2s var(--ease), border-color .2s var(--ease);
 }
 .event-card__hero {
   display: block;
@@ -5988,7 +5783,7 @@ p.has-drop-cap::first-letter {
   font-weight: 700;
   letter-spacing: 0.12em;
   padding: 0.32rem 0.55rem;
-  border-radius: 2px;
+  border-radius: var(--radius-s);
   z-index: 1;
   backdrop-filter: blur(2px);
 }
@@ -6001,7 +5796,7 @@ p.has-drop-cap::first-letter {
   }
 }
 
-/* Placeholder state — event has no hero image yet. editableImage attrs
+/* Placeholder state - event has no hero image yet. editableImage attrs
    are already on this element so right-click opens the CMS image-replace
    panel directly. Mirrors .venue-card__hero--placeholder for consistency. */
 .event-card__hero--placeholder {
@@ -6030,7 +5825,7 @@ p.has-drop-cap::first-letter {
   text-transform: uppercase;
   color: var(--soft);
 }
-/* Disable the scale-on-hover transform for placeholder cards — the icon
+/* Disable the scale-on-hover transform for placeholder cards - the icon
    is centred and would translate awkwardly. */
 .event-card:hover .event-card__hero--placeholder {
   transform: none;
@@ -6065,7 +5860,7 @@ p.has-drop-cap::first-letter {
   flex: 1;
   min-width: 0;
 }
-/* Featured (lead) card — first in each What's On section.
+/* Featured (lead) card - first in each What's On section.
    Spans full grid width with a larger hero and stronger typographic scale.
    Signals editorial hierarchy: this is the recommended pick. */
 .event-card--featured {
@@ -6170,7 +5965,7 @@ p.has-drop-cap::first-letter {
   padding: 0.85rem 1rem;
   background: var(--bg);
   border-left: 3px solid var(--accent);
-  border-radius: 0 2px 2px 0;
+  border-radius: 0 var(--radius-s) var(--radius-s) 0;
 }
 .event-card__verdict-label {
   display: block;
@@ -6189,13 +5984,9 @@ p.has-drop-cap::first-letter {
   line-height: 1.45;
   color: var(--dark);
 }
+/* P3-2: .pi-btn --text owns everything except the card-foot pin. */
 .event-card__cta {
   margin-top: auto;
-  font-size: 0.74rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--accent);
 }
 .event-card__cta:hover { text-decoration: underline; }
 
@@ -6215,7 +6006,7 @@ p.has-drop-cap::first-letter {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   border: 1px solid var(--border);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   background: var(--white);
   color: var(--soft);
   white-space: nowrap;
@@ -6352,7 +6143,7 @@ p.has-drop-cap::first-letter {
   padding: 1.4rem 1.6rem;
   background: var(--bg-alt);
   border-left: 4px solid var(--accent);
-  border-radius: 0 2px 2px 0;
+  border-radius: 0 var(--radius-s) var(--radius-s) 0;
 }
 .event-verdict__label {
   font-size: 0.65rem;
@@ -6375,7 +6166,7 @@ p.has-drop-cap::first-letter {
   padding: 1.2rem 1.4rem;
   background: var(--bg-deep);
   color: #cdf2e9;
-  border-radius: 2px;
+  border-radius: var(--radius-m);
 }
 .skip-callout__label {
   font-size: 0.66rem;
@@ -6399,7 +6190,7 @@ p.has-drop-cap::first-letter {
   padding: 1.4rem 1.5rem;
   background: var(--white);
   border: 1px solid var(--border);
-  border-radius: 2px;
+  border-radius: var(--radius-m);
 }
 .event-detail__box-label {
   font-size: 0.62rem;
@@ -6537,7 +6328,7 @@ p.has-drop-cap::first-letter {
   color: var(--soft);
   background: var(--bg);
   padding: 0.32rem 0.7rem;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
 }
 
 @media (max-width: 980px) {
@@ -6575,7 +6366,7 @@ p.has-drop-cap::first-letter {
   background: var(--bg-alt);
 }
 .about-mission {
-  /* override left in place but uniform now — kept as a hook for any
+  /* override left in place but uniform now - kept as a hook for any
      hero-adjacent tweaks we want without breaking rhythm. */
 }
 .about-mission__grid {
@@ -6619,7 +6410,7 @@ p.has-drop-cap::first-letter {
   padding: 2rem;
   background: var(--bg);
   border: 1px solid var(--border);
-  border-radius: 2px;
+  border-radius: var(--radius-m);
 }
 .about-principle__title {
   font-family: var(--font-display);
@@ -6741,7 +6532,7 @@ p.has-drop-cap::first-letter {
   padding: 1.35rem;
   background: var(--bg-alt);
   border: 1px solid var(--border);
-  border-radius: 2px;
+  border-radius: var(--radius-m);
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
@@ -6898,7 +6689,7 @@ p.has-drop-cap::first-letter {
   color: var(--soft);
   background: var(--bg-alt);
   padding: 0.3rem 0.65rem;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   border: 1px solid var(--border);
 }
 
@@ -6935,28 +6726,8 @@ p.has-drop-cap::first-letter {
   gap: 0.6rem;
   flex-wrap: wrap;
 }
-.article__share-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  padding: 0.45rem 0.85rem;
-  border: 1px solid var(--border);
-  background: transparent;
-  color: var(--soft);
-  font-family: Outfit, system-ui, sans-serif;
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  text-decoration: none;
-  cursor: pointer;
-  border-radius: 2px;
-  transition: border-color .2s var(--ease), color .2s var(--ease), background .2s var(--ease);
-  min-height: 36px;
-}
-.article__share-btn:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-}
+/* P3-2: fully absorbed by .pi-btn --ghost --sm. */
+/* KEPT: copied-confirmation state. The primitive has no success state. */
 .article__share-btn.is-copied {
   border-color: var(--gold-text);
   color: var(--gold-text);
@@ -6965,7 +6736,7 @@ p.has-drop-cap::first-letter {
 @media (max-width: 600px) {
   .article__share { gap: 0.85rem; }
   .article__share-btn-label { display: none; }
-  .article__share-btn { padding: 0.55rem 0.75rem; }
+  .article__share-btn { padding: var(--space-1) var(--space-3); }
 }
 
 .article-nav {
@@ -6984,7 +6755,7 @@ p.has-drop-cap::first-letter {
   gap: 0.35rem;
   padding: 1.2rem 1.5rem;
   border: 1px solid var(--border);
-  border-radius: 2px;
+  border-radius: var(--radius-m);
   transition: border-color 0.22s var(--ease), background 0.22s var(--ease);
 }
 .article-nav__link:hover {
@@ -7034,7 +6805,7 @@ p.has-drop-cap::first-letter {
   color: var(--soft);
   background: var(--bg-alt);
   padding: 0.28rem 0.6rem;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   border: 1px solid var(--border);
 }
 .venue-detail__price-band {
@@ -7052,7 +6823,7 @@ p.has-drop-cap::first-letter {
 
 /* =========================================================
    FOOTER  -  legacy V2 styles removed 2026-05-17
-   The active footer is .pi-foot — see Footer.astro
+   The active footer is .pi-foot - see Footer.astro
    ========================================================= */
 
 /* ═══════════════════════════════════════════════════════════════════
@@ -7239,19 +7010,11 @@ p.has-drop-cap::first-letter {
    ========================================================= */
 
 /* --- Hamburger button (hidden on desktop) --- */
+/* P3-2: .pi-btn --text owns type, colour and hover.
+   KEPT: hidden by default, revealed by the mobile media query below. */
 .masthead__cta-mobile {
   display: none;
-  font-family: var(--font-ui);
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--accent);
-  text-decoration: none;
-  padding: 0.35rem 0.5rem;
-  transition: color .18s var(--ease);
 }
-.masthead__cta-mobile:hover { color: var(--dark); }
 
 /* --- Mobile-only concierge pill in the masthead nav row ---
    Editorial-brand pill: white surface, accent-coloured border,
@@ -7266,7 +7029,7 @@ p.has-drop-cap::first-letter {
   background: var(--bg);
   color: var(--accent);
   border: 1px solid var(--accent);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   font-family: var(--font-ui);
   font-size: 0.74rem;
   font-weight: 600;
@@ -7308,7 +7071,7 @@ p.has-drop-cap::first-letter {
   width: 20px;
   height: 2px;
   background: var(--dark);
-  border-radius: 1px;
+  border-radius: var(--radius-pill);
   transition: transform .25s var(--ease), opacity .2s var(--ease);
 }
 .masthead__burger.is-open span:nth-child(1) {
@@ -7517,23 +7280,13 @@ p.has-drop-cap::first-letter {
   flex-direction: column;
   gap: 0.85rem;
 }
+/* P3-2: .pi-btn --solid --block owns everything except the drawer's
+   slightly taller tap target. */
 .mobile-nav__cta {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.95rem 1.5rem;
-  background: var(--accent);
-  color: var(--white);
-  font-family: Outfit, system-ui, sans-serif;
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  text-decoration: none;
+  width: 100%;
   min-height: 48px;
-  transition: background .2s var(--ease);
 }
-.mobile-nav__cta:hover { background: var(--acc-h); }
 .mobile-nav__tagline {
   font-family: Outfit, system-ui, sans-serif;
   font-size: 0.7rem;
@@ -7546,7 +7299,7 @@ p.has-drop-cap::first-letter {
 
 /* --- 768px: Tablet and below --- */
 @media (max-width: 768px) {
-  /* Mobile masthead — simplest possible flex strip.
+  /* Mobile masthead - simplest possible flex strip.
      Source order in Masthead.astro is now logo / pill / burger so we
      don't need flex `order` to re-arrange. Display values use `block`
      for the wordmark to avoid any inline-flex/inline-block edge cases
@@ -7611,7 +7364,7 @@ p.has-drop-cap::first-letter {
   .masthead__burger          { order: 4; flex: 0 0 auto; margin-right: 0; }
 
   /* Floating bottom-right "Ask The Insider" bubble stays visible on
-     mobile alongside the in-header pill — both surfaces lead to the
+     mobile alongside the in-header pill - both surfaces lead to the
      same drawer, the floater is the persistent reminder. */
 
   /* Tighten utility row */
@@ -7919,7 +7672,7 @@ p.has-drop-cap::first-letter {
   background: rgba(253,252,250,0.08);
   border: 1px solid rgba(253,252,250,0.15);
   border-right: none;
-  border-radius: 2px 0 0 2px;
+  border-radius: var(--radius-s) 0 0 var(--radius-s);
   color: var(--white);
   font-size: 1rem;
   outline: none;
@@ -7931,20 +7684,10 @@ p.has-drop-cap::first-letter {
 .newsletter__input:focus {
   border-color: rgba(253,252,250,0.4);
 }
+/* P3-2 / P3-7: .pi-btn --solid owns the control. KEPT: the joined-field
+   corner treatment, so the submit still butts against the input. */
 .newsletter__submit {
-  padding: 0.85rem 1.5rem;
-  background: var(--accent);
-  border: 1px solid var(--accent);
-  border-radius: 0 2px 2px 0;
-  color: var(--white);
-  font-family: var(--font-ui);
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: background .2s var(--ease);
+  border-radius: 0 var(--radius-s) var(--radius-s) 0;
 }
 .newsletter__submit:hover {
   background: var(--acc-h);
@@ -8231,22 +7974,9 @@ p.has-drop-cap::first-letter {
   color: rgba(222, 244, 239, 0.78);
 }
 
-.newsletter__cta-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 3rem;
-  padding: 0.95rem 1.45rem;
-  border-radius: 999px;
-  background: linear-gradient(180deg, #8ad8c6 0%, #5fb9a4 100%);
-  color: var(--text);
-  font-size: 0.76rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  box-shadow: 0 12px 24px rgba(0,0,0,0.18);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
-}
+/* P3-2: this sits on the dark newsletter ground, so it is
+   .pi-btn --solid --inverse: a flat --mint fill with a --text label
+   (14.38:1) in place of the old two-stop gradient and drop shadow. */
 
 .newsletter__cta-card:hover .newsletter__cta-button {
   transform: translateY(-1px);
@@ -8310,7 +8040,7 @@ p.has-drop-cap::first-letter {
 }
 
 /* ─── Tour vertical ─────────────────────────────────────────────────────── */
-.tour-card { position: relative; background: var(--bg); border: 1px solid var(--border); border-radius: var(--tile-image-radius); display: flex; flex-direction: column; overflow: hidden; transition: border-color 0.2s; }
+/* P3-4: fully absorbed by .pi-card. */
 .tour-card:hover { border-color: var(--accent); }
 .tour-card__image { aspect-ratio: 16/9; overflow: hidden; }
 .tour-card__image img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -8319,7 +8049,7 @@ p.has-drop-cap::first-letter {
    when SAVE expands on hover. */
 .tour-card__body { padding: 1.25rem 1.25rem 3.25rem; flex: 1; display: flex; flex-direction: column; }
 .tour-card__meta { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
-.tour-card__badge { font-family: var(--font-ui); font-size: 0.625rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.2em 0.6em; border-radius: 1px; background: var(--bg-alt); color: var(--body); border: 1px solid var(--border); }
+.tour-card__badge { font-family: var(--font-ui); font-size: 0.625rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.2em 0.6em; border-radius: var(--radius-s); background: var(--bg-alt); color: var(--body); border: 1px solid var(--border); }
 .tour-card__badge--accent { background: var(--accent-muted); color: var(--accent); border-color: var(--accent-muted); }
 .tour-card__name { font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; line-height: 1.2; margin-bottom: 0.5rem; }
 .tour-card__name a { color: var(--dark); text-decoration: none; }
@@ -8327,26 +8057,27 @@ p.has-drop-cap::first-letter {
 .tour-card__operator { font-size: 0.8rem; color: var(--body-light, #888); margin-bottom: 0.5rem; }
 .tour-card__excerpt { font-size: 0.875rem; color: var(--body); line-height: 1.65; flex: 1; margin-bottom: 1rem; }
 .tour-card__price { font-size: 0.8rem; color: var(--body); }
-.tour-card__cta { display: inline-block; font-size: 0.75rem; font-weight: 600; color: var(--accent); text-decoration: none; letter-spacing: 0.04em; margin-top: auto; }
+/* P3-2: .pi-btn --text owns everything except the card-foot pin. */
+.tour-card__cta { margin-top: auto; }
 .tour-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
 .operator-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.25rem; }
 .package-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
 .tour-filter-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; }
-.tour-filter-chip { font-family: var(--font-ui); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.4em 1em; border: 1px solid var(--border); border-radius: 2px; color: var(--body); text-decoration: none; background: var(--bg); transition: background 0.15s, color 0.15s; }
+.tour-filter-chip { font-family: var(--font-ui); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.4em 1em; border: 1px solid var(--border); border-radius: var(--radius-s); color: var(--body); text-decoration: none; background: var(--bg); transition: background 0.15s, color 0.15s; }
 .tour-filter-chip:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
-.at-a-glance { border: 1px solid var(--border); border-radius: 2px; overflow: hidden; margin: 2rem 0; }
+.at-a-glance { border: 1px solid var(--border); border-radius: var(--radius-m); overflow: hidden; margin: 2rem 0; }
 .at-a-glance__row { display: flex; border-bottom: 1px solid var(--border); }
 .at-a-glance__row:last-child { border-bottom: none; }
 .at-a-glance__label { padding: 0.75rem 1rem; font-size: 0.8rem; font-weight: 600; color: var(--body); background: var(--bg-alt); min-width: 160px; text-transform: uppercase; letter-spacing: 0.06em; font-family: var(--font-ui); }
 .at-a-glance__value { padding: 0.75rem 1rem; font-size: 0.9rem; color: var(--dark); flex: 1; }
 .affiliate-disclosure { font-size: 0.8rem; color: var(--body-light, #888); font-style: normal; margin: 1.5rem 0; padding: 0.75rem 1rem; border-left: 3px solid var(--border); background: var(--bg-alt); }
-.tour-cta-block { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 2px; padding: 1.5rem; margin: 2rem 0; }
+.tour-cta-block { background: var(--bg-alt); border: 1px solid var(--border); border-radius: var(--radius-m); padding: 1.5rem; margin: 2rem 0; }
 .tour-cta-block__title { font-family: var(--font-display); font-size: 1.4rem; margin-bottom: 0.5rem; }
-.tour-cta-primary { display: inline-block; background: var(--accent); color: #fff; font-size: 0.875rem; font-weight: 600; padding: 0.75em 1.5em; border-radius: 2px; text-decoration: none; margin-top: 1rem; letter-spacing: 0.04em; }
-.tour-cta-primary:hover { opacity: 0.9; }
+/* P3-2: .pi-btn --solid owns everything except the stack gap. */
+.tour-cta-primary { margin-top: var(--space-4); }
 
 /* =========================================================
-   MOBILE FIXES — Phase 1/2/3 (z-index, occlusion, safe-area,
+   MOBILE FIXES - Phase 1/2/3 (z-index, occlusion, safe-area,
    article-hero stack, concierge floater redesign).
    Appended at end so it cascades over earlier rules.
    ========================================================= */
@@ -8362,8 +8093,7 @@ body.menu-open .masthead { visibility: hidden; }
 
 /* When the concierge drawer is full-screen on MOBILE, hide every piece
    of sticky site chrome so the chat panel owns the viewport top-to-
-   bottom. On desktop the drawer is a floating panel in the corner —
-   the masthead must stay visible. The 640px breakpoint matches the
+   bottom. On desktop the drawer is a floating panel in the corner - the masthead must stay visible. The 640px breakpoint matches the
    one in ConciergeDrawer.astro that switches the drawer between
    floating (desktop) and full-screen (mobile). */
 @media (max-width: 640px) {
@@ -8389,7 +8119,7 @@ body.menu-open .masthead { visibility: hidden; }
   }
 }
 
-/* 4) Mobile concierge floater — compact circular icon-only button.
+/* 4) Mobile concierge floater - compact circular icon-only button.
       The wide pill is too heavy on phones. The circle gives an
       iOS-app feel and keeps a 52px tap target. Sits above the iOS
       home bar via env(safe-area-inset-bottom). */
@@ -8410,7 +8140,7 @@ body.menu-open .masthead { visibility: hidden; }
     overflow: hidden !important;
     box-shadow: 0 8px 24px rgba(0, 40, 34, 0.18) !important;
   }
-  /* Hide any descendant text labels — keep only the avatar/icon. */
+  /* Hide any descendant text labels - keep only the avatar/icon. */
   .pi-concierge-trigger > *:not(img):not(svg):not(.concierge-trigger__avatar):not(.pi-concierge__avatar),
   .concierge-trigger > *:not(img):not(svg):not(.concierge-trigger__avatar),
   .pi-concierge-fab > *:not(img):not(svg),
@@ -8419,7 +8149,7 @@ body.menu-open .masthead { visibility: hidden; }
   }
 }
 
-/* 5) On the /ask/ page itself, suppress the floater entirely — the
+/* 5) On the /ask/ page itself, suppress the floater entirely - the
       affordance IS the page. Targets via data-path which BaseLayout
       sets on the <body> from the current pathname. */
 body[data-path^="/ask"] .pi-concierge-trigger,
@@ -8430,10 +8160,10 @@ body[data-path^="/ask"] .concierge-fab {
   display: none !important;
 }
 
-/* 6) /ask/ page on mobile — drop the drop-cap (unusual on a small
+/* 6) /ask/ page on mobile - drop the drop-cap (unusual on a small
       screen), bigger chip touch targets, prominent input. */
 @media (max-width: 720px) {
-  /* Drop-cap removal — match common selectors used by the ask page. */
+  /* Drop-cap removal - match common selectors used by the ask page. */
   .ask-msg__prose--greeting::first-letter,
   .ask-stream-prose::first-letter,
   .ask-page__intro::first-letter {
@@ -8459,7 +8189,7 @@ body[data-path^="/ask"] .concierge-fab {
 }
 
 /* =========================================================
-   HOMEPAGE MOBILE TIGHTENING — Phase 1 + 2
+   HOMEPAGE MOBILE TIGHTENING - Phase 1 + 2
    Cuts vertical length, reorders priorities, makes the
    surviving sections punch harder on phones.
    Desktop is untouched.
@@ -8467,7 +8197,7 @@ body[data-path^="/ask"] .concierge-fab {
 
 @media (max-width: 720px) {
 
-  /* ---- Phase 1 — Cut the length ---- */
+  /* ---- Phase 1 - Cut the length ---- */
 
   /* Hide low-payoff secondary lists on mobile */
   .seasonal-shelf,
@@ -8503,7 +8233,7 @@ body[data-path^="/ask"] .concierge-fab {
     aspect-ratio: auto !important;
     text-align: left !important;
     border: 1px solid rgba(74, 90, 87, 0.15);
-    border-radius: 6px;
+    border-radius: var(--radius-m);
     background: var(--bg);
   }
   .pillar__icon {
@@ -8517,9 +8247,9 @@ body[data-path^="/ask"] .concierge-fab {
   }
   .pillar__sub { display: none; }
 
-  /* ---- Phase 2 — Make the surviving sections punch ---- */
+  /* ---- Phase 2 - Make the surviving sections punch ---- */
 
-  /* HomeCover: image FIRST, text below — sets the tone in 1 swipe */
+  /* HomeCover: image FIRST, text below - sets the tone in 1 swipe */
   .home-cover__frame {
     grid-template-columns: 1fr;
   }
@@ -8583,32 +8313,25 @@ body[data-path^="/ask"] .concierge-fab {
 }
 
 /* =========================================================
-   STICKY SUBSCRIBE PILL — Phase 3
+   STICKY SUBSCRIBE PILL - Phase 3
    Fades in once the reader passes the 50% scroll mark.
    Mobile-only. Bottom-LEFT (opposite concierge FAB at
    bottom-right). Hidden on routes where it'd be redundant
    or unwanted (/newsletter, /ask, /account).
    ========================================================= */
+/* P3-2: ground, radius, type and hover come from .pi-btn --solid --sm.
+   KEPT: this is a floating affordance, not an inline button - the fixed
+   placement, stacking order, drop shadow (it sits over page content, so
+   it needs lift the flat cards do not) and the reveal animation are all
+   genuinely local behaviour the primitive cannot express. */
 .subscribe-pill {
-  /* Hidden by default — only shown on mobile via the media query
+  /* Hidden by default - only shown on mobile via the media query
      below, and only when body.show-subscribe-pill is set. */
   display: none;
   position: fixed;
   left: 0.85rem;
   bottom: calc(env(safe-area-inset-bottom, 0px) + 0.85rem);
   z-index: 90; /* below mobile-nav (10010) and masthead (9999) */
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.7rem 1.05rem 0.7rem 0.95rem;
-  background: var(--accent);
-  color: #fff;
-  border-radius: 999px;
-  font-family: var(--font-ui);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  text-decoration: none;
   box-shadow: 0 8px 24px rgba(0, 40, 34, 0.22);
   opacity: 0;
   transform: translateY(8px);
@@ -8617,14 +8340,13 @@ body[data-path^="/ask"] .concierge-fab {
               transform 0.28s var(--ease),
               background 0.18s var(--ease);
 }
-.subscribe-pill:hover { background: var(--acc-h); }
 .subscribe-pill svg { flex-shrink: 0; opacity: 0.95; }
 
 @media (max-width: 720px) {
   .subscribe-pill { display: inline-flex; }
 }
 
-/* Visible state — driven by body.show-subscribe-pill which the
+/* Visible state - driven by body.show-subscribe-pill which the
    scroll script in BaseLayout toggles past the 50% mark. */
 body.show-subscribe-pill .subscribe-pill {
   opacity: 1;
@@ -8767,7 +8489,7 @@ body.menu-open .subscribe-pill {
   border: 1px solid var(--border);
   color: var(--dark);
   cursor: pointer;
-  border-radius: 999px;
+  border-radius: var(--radius-s);
   transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
 }
 .venue-filters__chip:hover {
@@ -8839,22 +8561,7 @@ body.menu-open .subscribe-pill {
   margin: 1.5rem 0 0;
   text-align: center;
 }
-.venues__more-btn {
-  font-family: var(--font-ui);
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  padding: 0.7rem 1.6rem;
-  background: none;
-  border: 1px solid var(--border, var(--border));
-  color: var(--text, var(--text));
-  cursor: pointer;
-}
-.venues__more-btn:hover {
-  border-color: var(--accent, var(--accent));
-  color: var(--accent, var(--accent));
-}
+/* P3-2: fully absorbed by .pi-btn --ghost. */
 .venues__grid > [data-venue].is-filtered-out {
   display: none;
 }
@@ -8950,7 +8657,7 @@ body.menu-open .subscribe-pill {
   padding: 0.1rem 0.4rem;
   background: var(--paper);
   border: 1px solid var(--border);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   color: var(--soft);
 }
 .whatson-temporal__tab[aria-selected="true"] .whatson-temporal__tab-count {
@@ -8980,31 +8687,9 @@ body.menu-open .subscribe-pill {
    Save button on cards, masthead Saved link, and /saved/ page.
    ============================================================================ */
 
-.save-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  padding: 0.55rem 0.7rem;
-  font-family: var(--font-ui);
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--soft);
-  background: transparent;
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  cursor: pointer;
-  transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
-}
-.save-button:hover {
-  color: var(--accent);
-  border-color: var(--accent);
-}
-.save-button:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
-}
+/* P3-2: ground, border, radius, type, hover and focus come from
+   .pi-btn --ghost --sm.
+   KEPT: the aria-pressed saved state. The primitive has no toggle state. */
 .save-button[aria-pressed="true"] {
   color: var(--accent);
   border-color: var(--accent);
@@ -9018,7 +8703,7 @@ body.menu-open .subscribe-pill {
   flex-shrink: 0;
 }
 
-/* Masthead "Saved (N)" link — hidden until at least one item saved. */
+/* Masthead "Saved (N)" link - hidden until at least one item saved. */
 .masthead__saved-link {
   display: inline-flex;
   align-items: center;
@@ -9034,7 +8719,7 @@ body.menu-open .subscribe-pill {
   padding: 0.05rem 0.35rem;
   background: var(--accent);
   color: var(--bg, #fff);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
 }
 
 /* /saved/ page */
@@ -9307,7 +8992,7 @@ body.menu-open .subscribe-pill {
   background: transparent;
   color: var(--dark);
   border: 1px solid var(--border);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   cursor: pointer;
   transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease, opacity 0.15s ease;
 }
@@ -9337,7 +9022,7 @@ body.menu-open .subscribe-pill {
   padding-left: 0.2rem;
 }
 
-/* List/Map tab bar — retired 2026-06-11: mobile is map-only (the list
+/* List/Map tab bar - retired 2026-06-11: mobile is map-only (the list
    is hidden on phones per James), desktop always shows both panels, so
    the bar has no remaining job. Markup + controller kept for an easy
    revert. */
@@ -9386,7 +9071,7 @@ body.menu-open .subscribe-pill {
 }
 
 @media (max-width: 879px) {
-  /* Mobile is map-only — hide the list panel (James 2026-06-11). */
+  /* Mobile is map-only - hide the list panel (James 2026-06-11). */
   .map-page__list { display: none !important; }
 }
 .map-page__list {
@@ -9525,7 +9210,7 @@ body.menu-open .subscribe-pill {
   border-top: 1px solid var(--border);
 }
 
-/* Custom Leaflet pins. DivIcon-based — no external image assets. */
+/* Custom Leaflet pins. DivIcon-based - no external image assets. */
 .map-pin {
   background: transparent;
   border: 0;
@@ -9584,18 +9269,10 @@ body.menu-open .subscribe-pill {
   color: var(--dark);
   margin: 0;
 }
+/* P3-2: .pi-btn --text owns type, colour and the 1px rule.
+   KEPT: align-self, so the link does not stretch in the popup column. */
 .map-popup__cta {
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--accent);
-  text-decoration: none;
-  border-bottom: 1px solid rgba(7, 158, 165, 0.45);
   align-self: flex-start;
-}
-.map-popup__cta:hover {
-  border-bottom-color: var(--accent);
 }
 
 /* ============================================================================
@@ -9623,7 +9300,7 @@ body.menu-open .subscribe-pill {
   color: var(--soft);
   background: transparent;
   border: 1px solid var(--border);
-  border-radius: 999px;
+  border-radius: var(--radius-s);
   cursor: pointer;
   transition: color 0.15s ease, border-color 0.15s ease;
 }
@@ -9641,7 +9318,7 @@ body.menu-open .subscribe-pill {
   letter-spacing: 0.04em;
   padding: 0.05rem 0.32rem;
   border: 1px solid var(--border);
-  border-radius: 4px;
+  border-radius: var(--radius-s);
   background: var(--paper);
   color: var(--soft);
 }
@@ -9696,20 +9373,7 @@ body.menu-open .subscribe-pill {
   outline: none;
   min-width: 0;
 }
-.typeahead__close {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.85rem;
-  height: 1.85rem;
-  background: transparent;
-  border: 0;
-  color: var(--soft);
-  cursor: pointer;
-  border-radius: 999px;
-  transition: color 0.15s ease, background 0.15s ease;
-}
-.typeahead__close:hover { color: var(--accent); background: rgba(7, 158, 165, 0.08); }
+/* P3-2: fully absorbed by .pi-btn --ghost --icon --sm. */
 
 .typeahead__suggestions {
   padding: 0.85rem 1rem 1rem;
@@ -9739,7 +9403,7 @@ body.menu-open .subscribe-pill {
   border: 1px solid var(--border);
   color: var(--dark);
   cursor: pointer;
-  border-radius: 999px;
+  border-radius: var(--radius-s);
   transition: border-color 0.15s ease, color 0.15s ease;
 }
 .typeahead__chip:hover { border-color: var(--accent); color: var(--accent); }
@@ -9812,14 +9476,14 @@ body.menu-open .subscribe-pill {
   line-height: 1.45;
   color: var(--soft);
   margin-top: 0.18rem;
-  /* Pagefind excerpts contain <mark> wrappers around matched terms — let
+  /* Pagefind excerpts contain <mark> wrappers around matched terms - let
      them render with brand colour. */
 }
 .typeahead__result-excerpt mark {
   background: rgba(7, 158, 165, 0.18);
   color: var(--text);
   padding: 0 0.1em;
-  border-radius: 2px;
+  border-radius: var(--radius-s);
 }
 .typeahead__empty {
   padding: 1rem 1.1rem 1.2rem;
@@ -9990,27 +9654,7 @@ body.menu-open .subscribe-pill {
   gap: 0.6rem;
   margin: 0;
 }
-.itinerary-empty__cta {
-  display: inline-flex;
-  align-items: center;
-  font-family: var(--font-ui);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  background: var(--accent);
-  color: var(--bg, #fff);
-  border: 1px solid var(--accent);
-  padding: 0.65rem 1rem;
-  cursor: pointer;
-  text-decoration: none;
-}
-.itinerary-empty__cta--ghost {
-  background: transparent;
-  color: var(--accent);
-}
-.itinerary-empty__cta:hover { background: var(--text, #1a1a1a); border-color: var(--text, #1a1a1a); color: var(--bg, #fff); }
-.itinerary-empty__cta--ghost:hover { color: var(--bg, #fff); }
+/* P3-2: base is .pi-btn --solid, the --ghost sibling is .pi-btn --ghost. */
 [data-itinerary-empty][hidden] { display: none; }
 
 .itinerary-banner {
@@ -10079,7 +9723,7 @@ body.menu-open .subscribe-pill {
   color: var(--dark);
   border: 1px solid var(--border);
   padding: 0.55rem 0.85rem;
-  border-radius: 999px;
+  border-radius: var(--radius-s);
   cursor: pointer;
   text-decoration: none;
   transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
@@ -10113,7 +9757,7 @@ body.menu-open .subscribe-pill {
   flex-direction: column;
   gap: 0;
   border: 1px solid var(--border);
-  border-radius: 4px;
+  border-radius: var(--radius-m);
   background: var(--paper);
 }
 .itinerary-day-head {
@@ -10265,7 +9909,7 @@ body.menu-open .subscribe-pill {
   white-space: nowrap;
 }
 
-/* Print rules — strip chrome for a clean glove-box copy. */
+/* Print rules - strip chrome for a clean glove-box copy. */
 @media print {
   header.masthead,
   footer,
@@ -10328,7 +9972,7 @@ body.menu-open .subscribe-pill {
   color: var(--soft);
   background: var(--paper);
   border: 1px solid var(--border);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
 }
 .cloud-sync-indicator[hidden] { display: none; }
 .cloud-sync-indicator__dot {
@@ -10502,23 +10146,9 @@ body.menu-open .subscribe-pill {
   align-items: flex-start;
   margin-top: 0.5rem;
 }
-.submit-form__button {
-  font-family: var(--font-ui);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--bg, #fff);
-  background: var(--accent);
-  border: 1px solid var(--accent);
-  padding: 0.85rem 1.4rem;
-  cursor: pointer;
-}
-.submit-form__button:disabled { opacity: 0.6; cursor: progress; }
-.submit-form__button:hover:not(:disabled) {
-  background: var(--text, #1a1a1a);
-  border-color: var(--text, #1a1a1a);
-}
+/* P3-2: .pi-btn --solid owns the control.
+   KEPT: the progress cursor while the form is submitting. */
+.submit-form__button:disabled { cursor: progress; }
 .submit-form__caveat {
   font-family: var(--font-ui);
   font-size: 0.78rem;
@@ -10576,28 +10206,12 @@ body.menu-open .subscribe-pill {
   color: var(--dark);
   margin: 0 0 1rem;
 }
-.place-submit-cta__link {
-  display: inline-flex;
-  align-items: center;
-  font-family: var(--font-ui);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--accent);
-  text-decoration: none;
-  border-bottom: 1px solid rgba(7, 158, 165, 0.5);
-  padding-bottom: 0.1rem;
-}
-.place-submit-cta__link:hover {
-  border-bottom-color: var(--accent);
-  color: var(--text);
-}
+/* P3-2: fully absorbed by .pi-btn --text. */
 
 
 /* ============================================================================
    GUIDES INDEX (Phase 4 WS4C)
-   /guides/ index page — newsletter-gated PDF download cards.
+   /guides/ index page - newsletter-gated PDF download cards.
    ============================================================================ */
 
 .guides-page { padding: clamp(1.5rem, 3vw, 2.5rem) 0 clamp(2rem, 4vw, 3rem); }
@@ -10608,13 +10222,7 @@ body.menu-open .subscribe-pill {
 }
 @media (min-width: 880px) { .guides-grid { grid-template-columns: 1fr 1fr; } }
 
-.guide-card {
-  display: flex;
-  flex-direction: column;
-  border: 1px solid var(--border);
-  background: var(--paper);
-  overflow: hidden;
-}
+/* P3-4: fully absorbed by .pi-card. */
 .guide-card__hero {
   aspect-ratio: 16 / 9;
   background-size: cover;
@@ -10689,23 +10297,9 @@ body.menu-open .subscribe-pill {
   color: var(--dark);
 }
 .guide-card__form-input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
-.guide-card__form-button {
-  font-family: var(--font-ui);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  background: var(--accent);
-  color: var(--bg, #fff);
-  border: 1px solid var(--accent);
-  padding: 0.6rem 1rem;
-  cursor: pointer;
-}
-.guide-card__form-button:disabled { opacity: 0.6; cursor: progress; }
-.guide-card__form-button:hover:not(:disabled) {
-  background: var(--text, #1a1a1a);
-  border-color: var(--text, #1a1a1a);
-}
+/* P3-2: .pi-btn --solid --sm owns the control.
+   KEPT: the progress cursor while the form is submitting. */
+.guide-card__form-button:disabled { cursor: progress; }
 .guide-card__form-fineprint {
   font-family: var(--font-ui);
   font-size: 0.78rem;
@@ -10810,7 +10404,7 @@ body.menu-open .subscribe-pill {
   background: transparent;
   color: var(--accent);
   border: 1px solid var(--accent);
-  border-radius: 999px;
+  border-radius: var(--radius-s);
   padding: 0.55rem 0.95rem;
   cursor: pointer;
 }
@@ -10953,7 +10547,7 @@ body.menu-open .subscribe-pill {
   border-color: var(--text, #1a1a1a);
 }
 
-/* What's On hierarchy refinement — 2026-05-12 */
+/* What's On hierarchy refinement - 2026-05-12 */
 .whatson-weekend-hero .weekend-picker {
   padding: clamp(2.5rem, 5vw, 4rem) 0 clamp(2.75rem, 5vw, 4.5rem);
   background: linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%);
@@ -10997,7 +10591,7 @@ body.menu-open .subscribe-pill {
    Consistent vertical breathing room for EditorialSurface.astro instances
    on hub pages. The container handles horizontal bounds; this handles the
    gap between the hero above and the AudiencePicker / grid below.
-   One per hub page, maximum — see placement-principles doc.
+   One per hub page, maximum - see placement-principles doc.
    ───────────────────────────────────────────────────────────────────────── */
 .eat-surface-wrap,
 .wine-surface-wrap,
@@ -11009,7 +10603,7 @@ body.menu-open .subscribe-pill {
 }
 
 /* =========================================================
-   V5 FOCUS SYSTEM (A-08) — keep this block LAST in the file.
+   V5 FOCUS SYSTEM (A-08) - keep this block LAST in the file.
    ---------------------------------------------------------
    Replaces the invisible v4 ring (rgba(11, 90, 72,.22) computes
    1.39:1) with a tokenised ≥3:1 ring: --accent is 6.46:1 on --bg,
@@ -11019,14 +10613,14 @@ body.menu-open .subscribe-pill {
    suppressions earlier in this file and in components (which
    target the base state or :focus, not :focus-visible), while
    still yielding to deliberate `X:focus-visible { outline: none;
-   box-shadow: ... }` replacements in later-loaded sheets (v4.css)
-   until the chrome agent retires them. Do not add !important.
+   box-shadow: ... }` replacements in later-loaded sheets and in
+   component-scoped styles. Do not add !important.
    ========================================================= */
 :focus-visible:focus-visible {
   outline: var(--focus-ring);
   outline-offset: 2px;
 }
-/* Dark surfaces re-point one variable — the offset gap gives a
+/* Dark surfaces re-point one variable - the offset gap gives a
    double-ring effect so the ring passes on both surface colours. */
 .is-dark,
 .why-insider,

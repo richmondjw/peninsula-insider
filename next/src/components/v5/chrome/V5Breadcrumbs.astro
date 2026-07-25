@@ -13,6 +13,10 @@
  * richer). This component defers to them: a :has() rule hides the
  * auto trail visually, and a tiny script removes the auto nav and its
  * JSON-LD from the DOM so assistive tech and crawlers see one trail.
+ *
+ * v6 token pass (P3-6, 2026-07-25): no buttons here, so nothing moves
+ * to .pi-btn. Two contrast corrections only - the separator glyph and
+ * the current-crumb colour - both noted at the rules below.
  */
 
 export interface Props {
@@ -201,11 +205,15 @@ const breadcrumbSchema = show
     display: flex;
     align-items: center;
     gap: var(--space-2);
+    /* Trail row height (target size), not a spacing step. */
     min-height: 28px;
   }
   .v5-breadcrumbs__item + .v5-breadcrumbs__item::before {
     content: '\203A';
-    opacity: 0.45;
+    /* Was opacity 0.45, which dropped the separator to roughly 2.6:1.
+       --border-strong is the token for exactly this job and measures
+       5.10:1 on --bg while still reading lighter than the crumb links. */
+    color: var(--border-strong);
   }
   .v5-breadcrumbs__item a {
     display: inline-block;
@@ -221,7 +229,10 @@ const breadcrumbSchema = show
     outline-offset: 2px;
   }
   .v5-breadcrumbs__item [aria-current='page'] {
-    color: var(--teal-text);
+    /* The current crumb is a "you are here" marker, not an accent: --text
+       at 16.64:1 reads as the strongest item in the trail, and it takes
+       one more --teal-text instance out of the chrome. */
+    color: var(--text);
     font-weight: var(--fw-medium);
   }
 </style>

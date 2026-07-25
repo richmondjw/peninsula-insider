@@ -1,6 +1,6 @@
 
   /* ===========================================================
-     ASK PAGE — "PI's Notebook"
+     ASK PAGE - "PI's Notebook"
      Editorial chat. Magazine column prose. Postcard tiles.
      Filed-under tags. Paper grain. Brass-stamped numerals.
 
@@ -9,7 +9,7 @@
      dynamic elements. Global scope ensures avatars stay 22px etc.
   =========================================================== */
 
-  /* Local design tokens — extend the global PI palette */
+  /* Local design tokens - extend the global PI palette */
   .ask-page {
     /* P0-3 (2026-07-25): the two page grounds were warm v5 survivors
        (#FAF6EE and #FFFCF6) sitting beside the cool --pi-paper-deep, so
@@ -53,7 +53,7 @@
   .ask-page > * { position: relative; z-index: 1; }
 
   /* ----------------------------------------------------------
-     PI AVATAR — universal, with graceful CSS fallback when
+     PI AVATAR - universal, with graceful CSS fallback when
      /images/pi-concierge.svg hasn't been saved yet.
   ---------------------------------------------------------- */
   .pi-avatar {
@@ -94,7 +94,7 @@
   .pi-avatar--sm { border-width: 0.5px; }
 
   /* ----------------------------------------------------------
-     HERO — editorial header, breathing room
+     HERO - editorial header, breathing room
   ---------------------------------------------------------- */
   .ask-hero {
     flex-shrink: 0;
@@ -152,7 +152,7 @@
   }
 
   /* ----------------------------------------------------------
-     CHAT SECTION & DIALOG — the bound notebook
+     CHAT SECTION & DIALOG - the bound notebook
   ---------------------------------------------------------- */
   .ask-chat-section {
     display: flex;
@@ -163,10 +163,10 @@
   .ask-dialog {
     width: 100%;
     max-width: 600px;
-    height: 800px;          /* 20% taller — more breathing room */
+    height: 800px;          /* 20% taller - more breathing room */
     background: var(--pi-paper-warm);
     border: 1px solid rgba(11, 90, 72, 0.18);
-    border-radius: 6px;
+    border-radius: var(--radius-l);
     box-shadow:
       0 1px 0 rgba(251, 253, 252, 0.8) inset,
       0 1px 2px rgba(0, 40, 34, 0.04),
@@ -177,7 +177,7 @@
     overflow: hidden;
     position: relative;
   }
-  /* Gilt edge — gold hairline at top of dialog */
+  /* Gilt edge - gold hairline at top of dialog */
   .ask-dialog::before {
     content: '';
     position: absolute;
@@ -203,7 +203,7 @@
     background: var(--pi-paper-warm);
     position: relative;
   }
-  /* Sub-rule under masthead — double-rule editorial touch */
+  /* Sub-rule under masthead - double-rule editorial touch */
   .ask-dialog__header::after {
     content: '';
     position: absolute;
@@ -262,25 +262,9 @@
     70%  { box-shadow: 0 0 0 8px rgba(79, 183, 158, 0); }
     100% { box-shadow: 0 0 0 0   rgba(79, 183, 158, 0); }
   }
-  .ask-dialog__reset {
-    font-family: var(--font-ui);
-    font-size: 0.7rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--pi-ink-muted);
-    background: transparent;
-    border: 1px solid var(--pi-rule);
-    border-radius: 100px;
-    padding: 0.42rem 0.95rem;
-    cursor: pointer;
-    transition: all 0.18s var(--ease-soft);
-  }
-  .ask-dialog__reset:hover {
-    color: var(--pi-terra);
-    border-color: var(--pi-terra);
-    background: var(--pi-terra-haze);
-  }
+  /* P3-2: fully absorbed by .pi-btn --ghost --sm. The old rule drew a
+     --soft label on an 18%-alpha accent hairline; the primitive gives it
+     a --text label (16.64:1) on --border-strong (5.10:1). */
 
   /* ── Notebook page (scrollable thread) ── */
   .ask-dialog__body {
@@ -300,17 +284,17 @@
   .ask-dialog__body::-webkit-scrollbar { width: 6px; }
   .ask-dialog__body::-webkit-scrollbar-track {
     background: rgba(11, 90, 72, 0.06);
-    border-radius: 3px;
+    border-radius: var(--radius-pill);
   }
   .ask-dialog__body::-webkit-scrollbar-thumb {
     background: rgba(11, 90, 72, 0.3);
-    border-radius: 3px;
+    border-radius: var(--radius-pill);
   }
   .ask-dialog__body::-webkit-scrollbar-thumb:hover { background: rgba(11, 90, 72, 0.5); }
   .ask-dialog__body { scrollbar-color: rgba(11, 90, 72, 0.3) rgba(11, 90, 72, 0.06); }
 
   /* ----------------------------------------------------------
-     MESSAGES — the column entries
+     MESSAGES - the column entries
   ---------------------------------------------------------- */
   .ask-msg {
     display: flex;
@@ -325,7 +309,7 @@
     to   { opacity: 1; transform: translateY(0); }
   }
 
-  /* ── USER MESSAGE — a torn slip handed to PI, cream + terracotta rule ── */
+  /* ── USER MESSAGE - a torn slip handed to PI, cream + terracotta rule ── */
   .ask-msg--user {
     align-items: flex-end;
     margin-bottom: 1.4rem;
@@ -353,7 +337,7 @@
     background: var(--pi-paper-warm);
     color: var(--pi-ink);
     padding: 0.85rem 1.15rem 0.9rem 1.3rem;
-    border-radius: 14px 14px 2px 14px;
+    border-radius: var(--radius-m) var(--radius-m) var(--radius-s) var(--radius-m);
     font-family: var(--font-ui);
     font-size: 1rem;
     line-height: 1.6;
@@ -380,7 +364,7 @@
     pointer-events: none;
   }
 
-  /* ── PI MESSAGE — magazine column ── */
+  /* ── PI MESSAGE - magazine column ── */
   .ask-msg--pi {
     align-items: stretch;
     width: 100%;
@@ -405,11 +389,11 @@
     background: linear-gradient(90deg, var(--pi-rule), transparent);
   }
 
-  /* The prose card — the printed column */
+  /* The prose card - the printed column */
   .ask-msg__prose {
     background: var(--pi-paper-warm);
     border: 1px solid rgba(11, 90, 72, 0.14);
-    border-radius: 4px 14px 14px 14px;
+    border-radius: var(--radius-s) var(--radius-m) var(--radius-m) var(--radius-m);
     padding: 1.4rem 1.5rem 1.45rem;
     width: 100%;
     box-shadow:
@@ -440,7 +424,7 @@
     text-rendering: optimizeLegibility;
   }
 
-  /* Dropcap on first paragraph — magazine treatment */
+  /* Dropcap on first paragraph - magazine treatment */
   .ask-msg__prose p:first-of-type::first-letter {
     font-family: var(--font-display);
     font-style: normal;
@@ -453,7 +437,7 @@
     letter-spacing: -0.02em;
   }
 
-  /* Asterism (⁂) divider between paragraphs — editorial pause */
+  /* Asterism (⁂) divider between paragraphs - editorial pause */
   .ask-msg__prose p + p {
     margin-top: 1.4rem;
     position: relative;
@@ -470,7 +454,7 @@
     line-height: 1;
   }
 
-  /* Greeting prose — no dropcap, lighter touch */
+  /* Greeting prose - no dropcap, lighter touch */
   .ask-msg__prose--greeting p:first-of-type::first-letter {
     font-size: 1em;
     float: none;
@@ -484,7 +468,7 @@
   }
 
   /* ----------------------------------------------------------
-     RECOMMENDATION STACK — full-width editorial cards, one per row
+     RECOMMENDATION STACK - full-width editorial cards, one per row
   ---------------------------------------------------------- */
   .ask-rail {
     display: flex;
@@ -495,7 +479,7 @@
     width: 100%;
   }
 
-  /* Tile — slim horizontal: small image LEFT, text RIGHT */
+  /* Tile - slim horizontal: small image LEFT, text RIGHT */
   .ask-tile {
     width: 100%;
     position: relative;
@@ -535,7 +519,7 @@
     border-color: rgba(11, 90, 72, 0.32);
   }
 
-  /* Hero image — small square on the LEFT */
+  /* Hero image - small square on the LEFT */
   .ask-tile__hero {
     flex: 0 0 96px;
     width: 96px;
@@ -557,7 +541,7 @@
     pointer-events: none;
   }
 
-  /* Placeholder hero — small editorial mark */
+  /* Placeholder hero - small editorial mark */
   .ask-tile__hero--placeholder {
     background:
       radial-gradient(circle at 30% 25%, rgba(158, 223, 208, 0.5), transparent 55%),
@@ -573,7 +557,7 @@
     position: absolute;
     inset: 16%;
     border: 1px solid rgba(11, 90, 72, 0.25);
-    border-radius: 3px;
+    border-radius: var(--radius-s);
   }
   .ask-tile__hero--placeholder::after {
     content: '✦';
@@ -584,7 +568,7 @@
     z-index: 1;
   }
 
-  /* Brass numeral — small, top-left of image */
+  /* Brass numeral - small, top-left of image */
   .ask-tile__rank {
     position: absolute;
     top: 0.4rem;
@@ -606,7 +590,7 @@
     box-shadow: 0 1px 3px rgba(0, 40, 34, 0.14);
   }
 
-  /* Price — inline tag in the body, not over the image */
+  /* Price - inline tag in the body, not over the image */
   .ask-tile__price {
     font-family: var(--font-ui);
     font-size: 0.68rem;
@@ -616,7 +600,7 @@
     flex-shrink: 0;
   }
 
-  /* Right-side body — title, type, why-quote */
+  /* Right-side body - title, type, why-quote */
   .ask-tile__body {
     padding: 0.7rem 0.95rem 0.75rem 1rem;
     flex: 1;
@@ -673,7 +657,7 @@
     text-overflow: ellipsis;
     white-space: nowrap;
   }
-  /* PI's pull-quote — clamped to 2 lines */
+  /* PI's pull-quote - clamped to 2 lines */
   .ask-tile__why {
     font-family: var(--font-ui);
     font-size: max(0.82rem, 13px);
@@ -688,7 +672,7 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
-  /* Signature/CTA hidden in compact mode — keep tiles slim */
+  /* Signature/CTA hidden in compact mode - keep tiles slim */
   .ask-tile__signature { display: none; }
   .ask-tile__cta {
     display: none;
@@ -754,7 +738,7 @@
     padding: 0.5rem 1rem 0.55rem 0.85rem;
     background: var(--pi-paper-warm);
     border: 1px solid rgba(11, 90, 72, 0.22);
-    border-radius: 100px;
+    border-radius: var(--radius-s);
     font-family: var(--font-ui);
     font-style: normal;
     font-size: max(0.88rem, 14px);
@@ -794,7 +778,7 @@
   }
 
   /* ----------------------------------------------------------
-     COMPOSER — the writing slip
+     COMPOSER - the writing slip
   ---------------------------------------------------------- */
   .ask-dialog__composer {
     flex-shrink: 0;
@@ -806,7 +790,7 @@
     background: var(--pi-paper-warm);
     position: relative;
   }
-  /* Hairline above composer — like a perforated tear line */
+  /* Hairline above composer - like a perforated tear line */
   .ask-dialog__composer::before {
     content: '';
     position: absolute;
@@ -825,7 +809,7 @@
     color: var(--pi-ink);
     background: var(--pi-paper);
     border: 1px solid var(--pi-rule);
-    border-radius: 22px;
+    border-radius: var(--radius-s);
     padding: 0.65rem 1.1rem 0.7rem;
     resize: none;
     max-height: 130px;
@@ -930,7 +914,7 @@
     .ask-hero__heading { font-size: 2.4rem; margin-bottom: 0.7rem; }
     .ask-hero__sub { font-size: 1rem; }
     .ask-chat-section { padding: 1.25rem 0.5rem 2.5rem; }
-    .ask-dialog { border-radius: 4px; height: 580px; }
+    .ask-dialog { border-radius: var(--radius-l); height: 580px; }
     .ask-dialog__body { padding: 1.25rem 1.1rem 1rem; }
     .ask-msg__prose { padding: 1.15rem 1.2rem 1.2rem; }
     .ask-msg__prose p { font-size: 0.97rem; }
@@ -943,7 +927,7 @@
   }
 
 
-  /* ── Contact icon button — sits next to the send button in the composer ── */
+  /* ── Contact icon button - sits next to the send button in the composer ── */
   .ask-composer__contact {
     width: 38px;
     height: 38px;
@@ -1025,24 +1009,11 @@
   color: var(--accent);
   margin: 0;
 }
+/* P3-2: .pi-btn --text owns type, colour and the 1px rule.
+   KEPT: placement inside the concierge card column. */
 .ask-itinerary-cta__link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
   margin-top: 0.4rem;
-  font-family: var(--font-ui);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: var(--accent);
   align-self: flex-start;
-  border-bottom: 1px solid rgba(11, 90, 72, 0.5);
-  padding-bottom: 0.1rem;
-}
-.ask-itinerary-cta__link:hover {
-  border-bottom-color: var(--accent);
 }
 .ask-banner__title {
   font-family: var(--font-ui);

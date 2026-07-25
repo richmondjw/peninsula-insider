@@ -17,8 +17,8 @@
  * BRAND-PI.md: no em-dashes, no tourism adjectives, no exclamation
  * marks, noun-phrase links.
  *
- * Rail pins carry the same editorial data shape as the v4 rail (the
- * existing rail data source, v4-nav.ts) so the pin copy migrates 1:1;
+ * Rail pins carry the editorial data shape inherited from the v4 rail,
+ * whose data source was retired with the v4 tree in P3-5;
  * V5MegaPanel marks the pin fields up with editableText() so each pin
  * is CMS-editable in place (entityType 'page', entitySlug 'nav-<key>').
  */
