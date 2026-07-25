@@ -4,9 +4,9 @@
 
 **Loop health:** 🟢 healthy — Actions recorded but none re-measured yet — learning signal not flowing (expected until GSC re-crawls the actioned pages).
 
-**Generated:** 2026-07-25 07:05 AEST  
+**Generated:** 2026-07-26 06:54 AEST  
 **Season:** Winter  
-**Inputs used:** gsc-search-analytics, gsc-coverage, sitemap-inventory, events-calendar:9-upcoming, seasonal-calendar:winter  
+**Inputs used:** gsc-search-analytics, gsc-coverage, sitemap-inventory, events-calendar:8-upcoming, seasonal-calendar:winter  
 
 ## Where we stand
 
@@ -19,11 +19,11 @@
 | Pages indexed by Google | 0 |
 | Pages known-not-indexed | 26 |
 | Pages in sitemap | 408 |
-| Open opportunities | 56 |
+| Open opportunities | 55 |
 
 ## Day-over-day (is the strategy improving?)
 
-_Compared with 2026-07-24._
+_Compared with 2026-07-25._
 
 - Average position held by 0.00.
 - Clicks flat 0 vs last snapshot.
@@ -88,36 +88,37 @@ Ranked by the strategy model (performance + season + coverage + effort). The orc
 - **Why:** 'mornington cup 2026 date' ranks avg position 8.8 on 23 impressions — small, targeted improvement could reach page 1 and start earning clicks.
 - **Do:** Strengthen the ranking page for this exact query: expand the relevant section, add an FAQ answer, tighten the H1/intro, add internal links from related hub pages.
 
-### 7. [EVENT · score 2.992] Preview: Stonier Fire & Wine Winter Lunch (15d out)
+### 7. [EVENT · score 2.992] Preview: Red Hill Brewery Secret Stash Weekend (20d out)
 - **Desk:** dispatch-desk
-- **Why:** Stonier Fire & Wine Winter Lunch is 15 days out (2026-08-09, Merricks) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** Red Hill Brewery Secret Stash Weekend is 20 days out (2026-08-15, Other Mornington Peninsula) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 8. [EVENT · score 2.992] Preview: Red Hill Brewery Secret Stash Weekend (21d out)
+### 8. [EVENT · score 2.992] Preview: National Works on Paper 2026 (NWOP) (41d out)
 - **Desk:** dispatch-desk
-- **Why:** Red Hill Brewery Secret Stash Weekend is 21 days out (2026-08-15, Other Mornington Peninsula) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** National Works on Paper 2026 (NWOP) is 41 days out (2026-09-05, Mornington) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 9. [EVENT · score 2.992] Preview: National Works on Paper 2026 (NWOP) (42d out)
-- **Desk:** dispatch-desk
-- **Why:** National Works on Paper 2026 (NWOP) is 42 days out (2026-09-05, Mornington) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
-- **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
-
-### 10. [RANK · score 2.883] Push 'dog friendly guide mornington peninsula' onto page 1
+### 9. [RANK · score 2.883] Push 'dog friendly guide mornington peninsula' onto page 1
 - **Desk:** field-desk
 - **Query:** `dog friendly guide mornington peninsula`
 - **Why:** 'dog friendly guide mornington peninsula' ranks avg position 9.6 on 17 impressions — small, targeted improvement could reach page 1 and start earning clicks.
 - **Do:** Strengthen the ranking page for this exact query: expand the relevant section, add an FAQ answer, tighten the H1/intro, add internal links from related hub pages.
 
-### 11. [INDEX · score 2.868] Get /journal/a-winter-peninsula-weekend/ indexed
+### 10. [INDEX · score 2.868] Get /journal/a-winter-peninsula-weekend/ indexed
 - **Desk:** dispatch-desk
 - **Why:** Google reports 'Discovered – currently not indexed' (last crawl: Never). This page that isn't indexed cannot rank for anything — the single highest-leverage fix.
 - **Do:** Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.
 
-### 12. [INDEX · score 2.868] Get /wine/best-cellar-doors/ indexed
+### 11. [INDEX · score 2.868] Get /wine/best-cellar-doors/ indexed
 - **Desk:** table-desk
 - **Why:** Google reports 'Discovered – currently not indexed' (last crawl: Never). This page that isn't indexed cannot rank for anything — the single highest-leverage fix.
 - **Do:** Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.
+
+### 12. [RANK · score 2.845] Push 'a dog-friendly guide mornington peninsula' onto page 1
+- **Desk:** field-desk
+- **Query:** `a dog-friendly guide mornington peninsula`
+- **Why:** 'a dog-friendly guide mornington peninsula' ranks avg position 8.3 on 10 impressions — small, targeted improvement could reach page 1 and start earning clicks.
+- **Do:** Strengthen the ranking page for this exact query: expand the relevant section, add an FAQ answer, tighten the H1/intro, add internal links from related hub pages.
 
 ## Coverage snapshot
 
