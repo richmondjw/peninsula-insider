@@ -22,6 +22,9 @@ import { ClientRouter } from 'astro:transitions';
 // globally so every below-level-1 template carries a trail; the
 // V5BottomBar carries the mobile quick actions.
 import V5Masthead from '../components/v5/chrome/V5Masthead.astro';
+// The conditions strip and issue stamp (visual design review finding #1,
+// P0-1 / P0-2). Sits above the masthead in normal flow, site-wide.
+import UtilityBar from '../components/UtilityBar.astro';
 import V5MobileDrawer from '../components/v5/chrome/V5MobileDrawer.astro';
 import V5BottomBar from '../components/v5/chrome/V5BottomBar.astro';
 import V5Breadcrumbs from '../components/v5/chrome/V5Breadcrumbs.astro';
@@ -333,6 +336,12 @@ const isAskPage = rawPathname.startsWith('/ask');
 <body data-page={section} data-path={rawPathname} data-v4="true">
 
   <a href="#main-content" class="skip-link">Skip to content</a>
+
+  {/* Conditions strip + issue stamp. Deliberately above the masthead and
+      deliberately NOT sticky: it reads as a printed dateline and scrolls
+      away, leaving the sticky masthead (and its --masthead-h measurement
+      below) exactly as they were. */}
+  <UtilityBar />
 
   <V5Masthead section={section} />
 

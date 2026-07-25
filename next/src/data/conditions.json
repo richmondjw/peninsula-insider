@@ -1,0 +1,42 @@
+{
+  "_readme": [
+    "EDITORIALLY MAINTAINED. This file is the only source for the two fields on",
+    "the masthead conditions strip that cannot be computed: the air temperature",
+    "and the sea/tide description. There is no weather feed, tide feed or API",
+    "wired into this repo, and nothing here is generated.",
+    "",
+    "HOUSE RULE: never invent a value. If you have not checked the actual",
+    "conditions, leave the field null. A null field is dropped from the strip",
+    "entirely, which is correct: a short honest strip beats a full false one.",
+    "",
+    "HOW TO UPDATE: set observedAt to the moment you actually checked (ISO 8601,",
+    "with the Melbourne offset), then fill temperatureC and/or sea. Anything",
+    "older than staleAfterHours is treated as unobserved and dropped, so a",
+    "forgotten file degrades to silence rather than to yesterday's weather.",
+    "",
+    "NOT IN THIS FILE: sunset is computed from the date and the Peninsula's",
+    "coordinates in src/lib/sunset.ts, and the issue label is derived from the",
+    "current date in src/lib/edition.ts. Neither needs a human.",
+    "",
+    "SHAPE: see _example below.",
+    "  place         string  the point the readings refer to, e.g. 'Sorrento'",
+    "  temperatureC  number  air temperature in whole degrees Celsius, or null",
+    "  sea           string  short sensory read on bay and tide, or null",
+    "  observedAt    string  ISO 8601 timestamp of the observation, or null",
+    "  staleAfterHours number how long an observation stays publishable"
+  ],
+
+  "place": "Sorrento",
+  "temperatureC": null,
+  "sea": null,
+  "observedAt": null,
+  "staleAfterHours": 36,
+
+  "_example": {
+    "place": "Sorrento",
+    "temperatureC": 16,
+    "sea": "Bay glassy, tide low",
+    "observedAt": "2026-07-25T08:15:00+10:00",
+    "staleAfterHours": 36
+  }
+}
