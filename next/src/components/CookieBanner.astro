@@ -2,6 +2,10 @@
 /**
  * CookieBanner - first-visit consent surface.
  *
+ * Presented as a compact bottom-left corner toast (P0-7, review finding #7).
+ * It was a full-width bar that ate ~15% of every first impression; it is now a
+ * ~360px card that never spans the viewport. Consent behaviour is unchanged.
+ *
  * Two-tier consent (Accept all / Manage preferences). Strictly necessary
  * cookies (concierge session) are always on; analytics (Google Analytics)
  * is opt-in.
@@ -15,6 +19,14 @@
  *
  * Re-opening: any element with `data-pi-consent="open"` will re-show the
  * banner. The footer "Cookie settings" link uses this hook.
+ *
+ * Mobile: the toast clears V5BottomBar (56px + safe-area) so the Ask / Map /
+ * Save / Trip tab bar is never covered or trapped. Below 560px it goes
+ * full-width-but-short inside the gutters.
+ *
+ * Keyboard: Escape dismisses without recording a choice (analytics stays off
+ * and the toast returns next visit), and focus is returned to whatever opened
+ * it.
  */
 ---
 
@@ -30,7 +42,7 @@
     <div class="cookie-banner__copy">
       <p class="cookie-banner__title">A note on cookies</p>
       <p class="cookie-banner__body">
-        Essential cookies keep features like search and saved places working during your visit. Analytics cookies (optional) tell us which pages are most useful, anonymously - so we can write more of what works. Nothing personal is sold or shared.
+        Essential cookies keep search and saved places working. Analytics cookies (optional) tell us anonymously which pages are useful. Nothing personal is sold or shared.
         <a href="/privacy/">Privacy policy.</a>
       </p>
     </div>
@@ -87,6 +99,9 @@
     var banner = document.getElementById('cookie-banner');
     if (!banner) return;
 
+    // Element that opened the toast, so focus can be returned on dismiss.
+    var opener = null;
+
     function read() {
       try {
         var raw = localStorage.getItem(KEY);
@@ -106,16 +121,27 @@
       window.dispatchEvent(new CustomEvent('pi:consent-changed', { detail: state }));
     }
 
-    function show() {
+    function show(fromEl) {
+      opener = fromEl || null;
       banner.setAttribute('data-state', 'visible');
       var manage = document.getElementById('cookie-banner-manage');
       var actions = document.getElementById('cookie-banner-actions');
       if (manage) manage.hidden = true;
       if (actions) actions.hidden = false;
+      // Only pull focus when the user asked for the toast. The first-visit
+      // appearance stays non-modal and does not interrupt reading.
+      if (opener) {
+        var first = document.getElementById('cookie-accept-all');
+        if (first) first.focus();
+      }
     }
 
     function hide() {
       banner.setAttribute('data-state', 'hidden');
+      if (opener && typeof opener.focus === 'function' && document.contains(opener)) {
+        opener.focus();
+      }
+      opener = null;
     }
 
     function expandManage() {
@@ -126,6 +152,9 @@
       var toggle = document.getElementById('cookie-toggle-analytics');
       var existing = read();
       if (toggle && existing) toggle.checked = !!existing.analytics;
+      // The button that was focused just got hidden with its row; move focus
+      // into the panel rather than dropping it on <body>.
+      if (toggle) toggle.focus();
     }
 
     function save(analyticsOn) {
@@ -147,6 +176,14 @@
     });
     document.getElementById('cookie-reject-all').addEventListener('click', function () { save(false); });
 
+    // Escape dismisses the toast. No choice is recorded, so nothing is written
+    // to storage, no consent event fires, and the toast returns next visit.
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== 'Escape' && e.key !== 'Esc') return;
+      if (banner.getAttribute('data-state') !== 'visible') return;
+      hide();
+    });
+
     // Re-open from anywhere via [data-pi-consent="open"]
     function bindReopenTriggers() {
       document.querySelectorAll('[data-pi-consent="open"]').forEach(function (el) {
@@ -154,7 +191,7 @@
         el._piConsentBound = true;
         el.addEventListener('click', function (e) {
           e.preventDefault();
-          show();
+          show(el);
         });
       });
     }
@@ -162,12 +199,12 @@
     document.addEventListener('astro:page-load', bindReopenTriggers);
 
     // Expose programmatic re-open
-    window.openConsent = show;
+    window.openConsent = function () { show(); };
 
     // Initial: show only if the user has not made a choice yet.
     if (!read()) {
       // Defer slightly to avoid layout jank on first paint.
-      setTimeout(show, 350);
+      setTimeout(function () { show(); }, 350);
     } else {
       // Re-broadcast so any late-bound listeners (e.g. GA loader) see state.
       window.dispatchEvent(new CustomEvent('pi:consent-changed', { detail: read() }));
@@ -176,51 +213,81 @@
 </script>
 
 <style>
+  /* ─────────────────────────────────────────────────────────────────────
+     Corner toast. Bottom-left, ~360px, never full-bleed.
+     Local derived tokens only: no hardcoded hex.
+     ───────────────────────────────────────────────────────────────────── */
   .cookie-banner {
+    /* A hairline that actually reads: 3.24:1 on --white, so the ghost
+       button and the toggle track meet WCAG 1.4.11. */
+    --cb-line: color-mix(in srgb, var(--text) 50%, var(--white));
+    /* Distance from the bottom edge. Overridden on mobile to clear the
+       V5BottomBar tab strip. */
+    --cb-bottom: var(--space-5);
+
     position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    left: var(--space-5);
+    right: auto;
+    bottom: var(--cb-bottom);
+    width: min(360px, calc(100vw - var(--space-7)));
+    max-height: calc(100dvh - var(--cb-bottom) - var(--space-6));
+    overflow-y: auto;
+    overscroll-behavior: contain;
     z-index: 9000;
     background: var(--white);
-    border-top: 1px solid var(--border);
-    box-shadow: 0 -8px 28px -16px rgba(0, 0, 0, 0.18);
-    transform: translateY(110%);
-    transition: transform 0.3s ease;
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-m);
+    box-shadow: var(--elev-3);
     font-family: var(--font-ui);
     color: var(--text);
+
+    /* Entrance: slide up from the corner. Tokenised durations collapse to
+       0ms under prefers-reduced-motion (v6-tokens.css), so this becomes an
+       instant appearance rather than a jump-cut mid-animation. */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(calc(100% + var(--space-6)));
+    transition:
+      transform var(--dur-slow) var(--ease-enter),
+      opacity var(--dur-slow) var(--ease-enter),
+      visibility 0s linear var(--dur-slow);
   }
   .cookie-banner[data-state='visible'] {
+    opacity: 1;
+    visibility: visible;
     transform: translateY(0);
+    transition:
+      transform var(--dur-slow) var(--ease-enter),
+      opacity var(--dur-slow) var(--ease-enter),
+      visibility 0s linear 0s;
   }
 
   .cookie-banner__inner {
-    max-width: 1080px;
-    margin: 0 auto;
-    padding: 1.1rem clamp(1rem, 4vw, 2rem);
     display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: 1.25rem;
-    align-items: center;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-4);
+    padding: var(--space-5);
   }
 
   .cookie-banner__title {
     font-family: var(--font-display);
-    font-size: 1.25rem;
-    font-weight: 500;
-    margin: 0 0 0.25rem;
-    letter-spacing: -0.01em;
+    font-size: var(--fs-400);
+    font-weight: var(--fw-display);
+    line-height: var(--lh-heading);
+    letter-spacing: var(--ls-display);
+    margin: 0 0 var(--space-1);
   }
 
   .cookie-banner__body {
-    font-size: 0.88rem;
-    line-height: 1.5;
-    color: var(--soft);
+    font-size: var(--fs-200);
+    line-height: var(--lh-dek);
+    color: var(--soft);          /* 7.11:1 on --white */
     margin: 0;
-    max-width: 70ch;
+    max-width: none;
+    text-wrap: pretty;
   }
   .cookie-banner__body a {
-    color: var(--accent);
+    color: var(--accent);        /* 8.00:1 on --white */
     text-decoration: underline;
     text-underline-offset: 2px;
   }
@@ -228,67 +295,79 @@
 
   .cookie-banner__actions {
     display: flex;
-    gap: 0.5rem;
+    gap: var(--space-2);
     flex-wrap: wrap;
-    justify-content: flex-end;
+    justify-content: flex-start;
+    align-items: center;
   }
 
   .cookie-banner__btn {
     font-family: var(--font-ui);
-    font-size: 0.88rem;
-    font-weight: 500;
+    font-size: var(--fs-200);
+    font-weight: var(--fw-medium);
+    line-height: var(--lh-ui);
     letter-spacing: 0.02em;
-    border-radius: 999px;
-    padding: 0.65rem 1.25rem;
-    border: 1px solid var(--border);
+    border-radius: var(--radius-pill);
+    padding: var(--space-2) var(--space-4);
+    border: 1px solid var(--cb-line);
     background: var(--white);
-    color: var(--text);
+    color: var(--text);          /* 16.29:1 on --white */
     cursor: pointer;
-    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+    white-space: nowrap;
+    transition:
+      background var(--dur-fast) var(--ease-enter),
+      border-color var(--dur-fast) var(--ease-enter),
+      color var(--dur-fast) var(--ease-enter);
   }
   .cookie-banner__btn:hover { border-color: var(--accent); }
+  .cookie-banner__btn:focus-visible {
+    outline: var(--focus-ring);
+    outline-offset: 2px;
+  }
   .cookie-banner__btn--primary {
     background: var(--accent);
     border-color: var(--accent);
-    color: var(--white);
+    color: var(--white);         /* 8.00:1 on --accent */
   }
-  .cookie-banner__btn--primary:hover { background: var(--text); border-color: var(--text); }
+  .cookie-banner__btn--primary:hover {
+    background: var(--acc-h);    /* --white on --acc-h = 10.46:1 */
+    border-color: var(--acc-h);
+  }
   .cookie-banner__btn--ghost {
     background: transparent;
   }
 
   .cookie-banner__manage {
-    grid-column: 1 / -1;
-    border-top: 1px solid var(--border);
-    padding-top: 1rem;
-    margin-top: 0.25rem;
+    border-top: 1px solid var(--border-strong);
+    padding-top: var(--space-4);
   }
 
   .cookie-banner__list {
     list-style: none;
-    margin: 0 0 1rem;
+    margin: 0 0 var(--space-4);
     padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 0.85rem;
+    gap: var(--space-4);
   }
 
   .cookie-banner__row {
     display: flex;
-    gap: 1rem;
+    gap: var(--space-3);
     align-items: flex-start;
   }
   .cookie-banner__row-text { flex: 1; min-width: 0; }
   .cookie-banner__row-title {
-    font-size: 0.92rem;
-    font-weight: 500;
-    margin: 0 0 0.15rem;
-    color: var(--text);
+    font-size: var(--fs-200);
+    font-weight: var(--fw-semibold);
+    line-height: var(--lh-ui);
+    margin: 0 0 var(--space-1);
+    color: var(--text);          /* 16.29:1 on --white */
   }
   .cookie-banner__row-dek {
-    font-size: 0.82rem;
-    line-height: 1.5;
-    color: var(--soft);
+    font-size: var(--fs-100);
+    line-height: var(--lh-dek);
+    color: var(--soft);          /* 7.11:1 on --white */
     margin: 0;
   }
 
@@ -298,16 +377,20 @@
     width: 38px;
     height: 22px;
     flex-shrink: 0;
-    background: var(--border);
-    border-radius: 999px;
+    background: var(--cb-line);
+    border-radius: var(--radius-pill);
     cursor: pointer;
-    transition: background 0.15s ease;
+    transition: background var(--dur-fast) var(--ease-enter);
   }
   .cookie-banner__toggle input {
     position: absolute;
     opacity: 0;
     inset: 0;
     cursor: pointer;
+  }
+  .cookie-banner__toggle:has(input:focus-visible) {
+    outline: var(--focus-ring);
+    outline-offset: 2px;
   }
   .cookie-banner__toggle-knob {
     position: absolute;
@@ -317,7 +400,7 @@
     height: 18px;
     background: var(--white);
     border-radius: 50%;
-    transition: transform 0.15s ease;
+    transition: transform var(--dur-fast) var(--ease-enter);
   }
   .cookie-banner__toggle input:checked ~ .cookie-banner__toggle-knob {
     transform: translateX(16px);
@@ -336,9 +419,9 @@
 
   .cookie-banner__manage-actions {
     display: flex;
-    gap: 0.5rem;
+    gap: var(--space-2);
     flex-wrap: wrap;
-    justify-content: flex-end;
+    justify-content: flex-start;
   }
 
   .visually-hidden {
@@ -349,38 +432,44 @@
     white-space: nowrap; border: 0;
   }
 
-  /* ── Mobile: slim bottom bar ──────────────────────────────────────────── */
-  @media (max-width: 720px) {
+  /* ─────────────────────────────────────────────────────────────────────
+     Mobile / tablet: clear the V5BottomBar tab strip (Ask / Map / Save /
+     Trip). The bar is fixed at bottom:0, 56px tall plus the safe-area inset,
+     and shows at <=1023px. The toast sits above it so the tab bar is never
+     covered and never trapped behind the toast.
+     ───────────────────────────────────────────────────────────────────── */
+  @media (max-width: 1023px) {
+    .cookie-banner {
+      --cb-bottom: calc(56px + env(safe-area-inset-bottom) + var(--space-3));
+    }
+
+    /* Pages that never render the bar (journal reading, dispatch/account/
+       access/ask flows) reclaim the reserved space. Browsers without :has()
+       drop this rule and keep the safe, bar-clearing default above. */
+    :global(body:not(:has(#v5BottomBar))) .cookie-banner {
+      --cb-bottom: var(--space-3);
+    }
+  }
+
+  /* Phones: full-width inside the gutters, but short. At 390px the toast is
+     366px wide and roughly 200px tall, still well clear of the tab bar. */
+  @media (max-width: 560px) {
+    .cookie-banner {
+      left: var(--space-3);
+      right: var(--space-3);
+      width: auto;
+      max-width: none;
+    }
     .cookie-banner__inner {
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: 0.6rem 0.75rem;
-      padding: 0.65rem clamp(1rem, 4vw, 1.5rem);
-      align-items: center;
-    }
-    /* Hide title and long body on mobile - replaced by compact copy below */
-    .cookie-banner__title { display: none; }
-    .cookie-banner__body {
-      font-size: 0.8rem;
-      line-height: 1.35;
-      /* Truncate to one line on mobile */
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .cookie-banner__actions {
-      justify-content: flex-end;
-      flex-wrap: nowrap;
-      gap: 0.4rem;
+      padding: var(--space-4);
+      gap: var(--space-3);
     }
     .cookie-banner__actions .cookie-banner__btn {
-      padding: 0.45rem 0.85rem;
-      font-size: 0.8rem;
-      white-space: nowrap;
-      flex: none;
+      flex: 1 1 auto;
     }
-    /* Manage panel still expands full-width when opened */
-    .cookie-banner__manage {
-      grid-column: 1 / -1;
-    }
+  }
+
+  @media print {
+    .cookie-banner { display: none; }
   }
 </style>
