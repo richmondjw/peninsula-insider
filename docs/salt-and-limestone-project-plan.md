@@ -26,11 +26,11 @@ Source of findings: [`docs/visual-design-brand-review-2026-07-25.md`](./visual-d
 
 | Phase | Name | Gate | Status | Target |
 |---|---|---|---|---|
-| **P0** | Zero-regret fixes | none | 🟡 In progress | Week 1 |
-| **P1** | Direction proof | **G1, G2** | 🟡 In progress | Week 1–2 |
+| **P0** | Zero-regret fixes | none | ✅ Done | Week 1 |
+| **P1** | Direction proof | **G1, G2** | ✅ Done | Week 1–2 |
 | **P2** | Photography | G2 | ⬜ Not started | Week 2–10 (calendar-driven) |
 | **P3** | Architecture | G2 | ✅ Done | Week 3–5 |
-| **P4** | Skin | G2 + P3 | ⬜ Not started | Week 5–8 |
+| **P4** | Skin | G2 + P3 | ❌ Dropped as scoped (see G2) | — |
 | **P5** | Brand evolution | P4 | ⬜ Not started | Month 3–12 |
 
 **Status legend:** ⬜ Not started · 🟡 In progress · ✅ Done · ⏸️ Blocked · ❌ Dropped
@@ -45,12 +45,12 @@ Work does not cross a gate until the decision is recorded here with a date.
 
 | Gate | Decision | Owner | Blocks | Status |
 |---|---|---|---|---|
-| **G1** | **Serif or no serif for display.** Move off Sora to an editorial serif (Fraunces proposed), or keep the geometric sans. | James | P4 entirely; P1 proof is built to answer this | ⬜ Open |
-| **G2** | **Adopt Salt & Limestone as the v6.1 correction**, or keep Evergreen Coast and act on craft items only. | James | P2, P3 scope, P4 entirely | ⬜ Open |
+| **G1** | **Serif or no serif for display.** | James | — | ✅ **Answered 2026-07-25: keep Sora.** Both P1 proofs reviewed; the serif was not adopted. |
+| **G2** | **Adopt Salt & Limestone, or keep Evergreen Coast.** | James | — | ✅ **Answered 2026-07-25: keep Evergreen Coast.** Salt & Limestone rejected. Palette work continues as blue-led variants of v6. |
 | **G3** | **Commission the photography shoot** (budget + photographer). | James | P2-5, P2-6 | ⬜ Open |
-| **G4** | **Licence a display face** or stay on the open variable (Fraunces). | James | P5-1 | ⬜ Open |
+| **G4** | ~~Licence a display face~~ | — | — | ❌ Moot: G1 kept Sora. |
 
-> **G1 and G2 are the only decisions that block the critical path.** Both are answered by the P1 proof. Everything in P0 proceeds regardless.
+> **G1 and G2 were the only decisions blocking the critical path. Both are now answered.** The remaining open decision is G3 (photography budget), which is the only item with a calendar dependency.
 
 ---
 
@@ -62,15 +62,15 @@ Work does not cross a gate until the decision is recorded here with a date.
 
 | ID | Item | Review # | Effort | Depends on | Status |
 |---|---|---|---|---|---|
-| P0-1 | **Reinstate the conditions strip** (`SORRENTO 16° · SUNSET 5:48 · BAY GLASSY, TIDE LOW`). Wire orphaned `components/UtilityBar.astro` into `V5Masthead`. | #1 | 0.5d | — | ⬜ |
-| P0-2 | **Reinstate the issue stamp** (`WINTER INSIDER · JULY 2026`) from `components/Masthead.astro`. | #1 | 0.5d | P0-1 | ⬜ |
-| P0-3 | **Fix palette leaks.** Newsletter band `#221810` → `--bg-dark`; warm apricot date chip → palette-native. | #3 | 0.5d | — | ⬜ |
-| P0-4 | **Raise `--border` to ≥3:1** against white (currently `#D6DDDB`, 1.38:1) and drop card shadows. | #4 | 0.5d | — | ⬜ |
-| P0-5 | **Clamp card deks to 2 lines**; normalise card metadata to a fixed field set so card bottoms align. | #5 | 1d | — | ⬜ |
-| P0-6 | **Fix duplicate `FILED UNDER` tags** (venue pages render "Solo" twice); add a dedupe guard. | #6 | 0.25d | — | ⬜ |
-| P0-7 | **Shrink the cookie banner to a corner toast.** Currently consumes ~15% of every first impression. | #7 | 0.5d | — | ⬜ |
-| P0-8 | **Remove redundant eyebrows** where the section already declares the type (three "EVENT" stamps in one module). | #8 | 0.25d | — | ⬜ |
-| P0-9 | **Backfill missing card images** or fall back to a typographic card. No empty slots in flagship modules. | #12 (partial) | 0.5d | — | ⬜ |
+| P0-1 | **Reinstate the conditions strip** (`SORRENTO 16° · SUNSET 5:48 · BAY GLASSY, TIDE LOW`). Wire orphaned `components/UtilityBar.astro` into `V5Masthead`. | #1 | 0.5d | — | ✅ |
+| P0-2 | **Reinstate the issue stamp** (`WINTER INSIDER · JULY 2026`) from `components/Masthead.astro`. | #1 | 0.5d | P0-1 | ✅ |
+| P0-3 | **Fix palette leaks.** Newsletter band `#221810` → `--bg-dark`; warm apricot date chip → palette-native. | #3 | 0.5d | — | ✅ |
+| P0-4 | **Raise `--border` to ≥3:1** against white (currently `#D6DDDB`, 1.38:1) and drop card shadows. | #4 | 0.5d | — | ✅ |
+| P0-5 | **Clamp card deks to 2 lines**; normalise card metadata to a fixed field set so card bottoms align. | #5 | 1d | — | ✅ |
+| P0-6 | **Fix duplicate `FILED UNDER` tags** (venue pages render "Solo" twice); add a dedupe guard. | #6 | 0.25d | — | ✅ |
+| P0-7 | **Shrink the cookie banner to a corner toast.** Currently consumes ~15% of every first impression. | #7 | 0.5d | — | ✅ |
+| P0-8 | **Remove redundant eyebrows** where the section already declares the type (three "EVENT" stamps in one module). | #8 | 0.25d | — | ✅ |
+| P0-9 | **Backfill missing card images** or fall back to a typographic card. No empty slots in flagship modules. | #12 (partial) | 0.5d | — | ✅ |
 
 **Phase effort:** ~4.5 days.
 
@@ -84,10 +84,10 @@ Work does not cross a gate until the decision is recorded here with a date.
 
 | ID | Item | Review # | Effort | Depends on | Status |
 |---|---|---|---|---|---|
-| P1-1 | **Build `docs/design-explorations/salt-limestone-home-2026-07-25.html`** — self-contained, real copy, Fraunces + Figtree self-hosted, conditions strip + tide rule + issue stamp in place, 3–4 library images regraded to the proposed treatment. | #16, #17 | 1d | — | ⬜ |
-| P1-2 | **Build a second variant holding Sora** but taking the palette and motifs, so G1 is isolated from G2. | #10 | 0.5d | P1-1 | ⬜ |
-| P1-3 | **Side-by-side review** against the current homepage at 1440 and 390. | — | 0.25d | P1-1, P1-2 | ⬜ |
-| P1-4 | **Record G1 and G2** in the gate table above with date and rationale. | — | — | P1-3 | ⬜ |
+| P1-1 | **Build `docs/design-explorations/salt-limestone-home-2026-07-25.html`** — self-contained, real copy, Fraunces + Figtree self-hosted, conditions strip + tide rule + issue stamp in place, 3–4 library images regraded to the proposed treatment. | #16, #17 | 1d | — | ✅ |
+| P1-2 | **Build a second variant holding Sora** but taking the palette and motifs, so G1 is isolated from G2. | #10 | 0.5d | P1-1 | ✅ |
+| P1-3 | **Side-by-side review** against the current homepage at 1440 and 390. | — | 0.25d | P1-1, P1-2 | ✅ |
+| P1-4 | **Record G1 and G2** in the gate table above with date and rationale. | — | — | P1-3 | ✅ |
 
 **Phase effort:** ~2 days.
 
