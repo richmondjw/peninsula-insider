@@ -43,32 +43,36 @@
      washing out on every screen, the white surface gives photos and
      hairlines more contrast without losing brand warmth thanks to
      bg-alt. */
-  /* v6 "Evergreen Coast" (2026-07-13). Legacy role names are retargeted
-     onto the new palette so every existing component shifts automatically:
-       --accent -> evergreen (primary), --gold -> teal (decorative/secondary),
-       --sage -> sea-green. New named tokens live in v6-tokens.css. */
+  /* HARBOUR (2026-07-25), superseding v6 "Evergreen Coast" (2026-07-13).
+     Blue carries the structure, a single sand pop carries the warm signal.
+     Role names are retargeted onto the named palette so every existing
+     component shifts automatically:
+       --accent -> harbour blue (primary), --gold -> bronze (decorative),
+       --sage -> tide (decorative). Named tokens live in v6-tokens.css,
+     where the Evergreen names are kept as aliases. */
   --bg:         #FFFFFF;
-  --bg-alt:     #EEF1F1;   /* sea fog (was warm parchment) */
-  --bg-dark:    #00362C;   /* forest-teal signature ground */
-  --text:       #12211E;   /* cold near-black */
-  --soft:       #4A5A57;   /* cool slate-green metadata */
-  --accent:     #0B5A48;   /* evergreen - CTAs, links */
-  --acc-h:      #084736;
-  --gold:       #079EA5;   /* remapped to teal (decorative rules/accents) */
-  /* AA-safe teal cut for text on light surfaces (>=4.5:1 on white/bg-alt). */
-  --gold-text:  #0A7B80;
-  --sage-text:  #2E7D68;   /* AA-safe sea-green for text on light surfaces */
-  --dark:       #00362C;
-  --white:      #FBFDFC;
+  --bg-alt:     #F2EFEA;   /* warm paper tint - the one warm ground */
+  --bg-dark:    var(--harbour-deep);
+  --text:       #14202A;   /* blue-black */
+  --soft:       #4B5862;   /* blue-grey metadata */
+  --accent:     var(--harbour);
+  --acc-h:      var(--harbour-h);
+  --gold:       var(--bronze);    /* decorative rules/accents */
+  /* AA-safe warm cut for text on light surfaces (>=4.5:1 on white/bg-alt). */
+  --gold-text:  var(--sand-text);
+  --sage-text:  var(--tide-text); /* AA-safe blue for text on light surfaces */
+  --dark:       var(--harbour-deep);
+  --white:      #FDFCFA;
   /* P0-4 (2026-07-25): the old #D6DDDB measured 1.38:1 on white - an
      invisible rule, which is the main reason every grid read flat. Raised
      to a crisp printed hairline that clears 3:1 on every light ground the
-     site uses: 3.45:1 on #FFFFFF, 3.38:1 on --white (#FBFDFC) and 3.04:1
-     on --bg-alt (#EEF1F1). Same cool slate-green family as --soft, so it
-     reads as a rule rather than an outline. Card box-shadows are dropped
-     alongside it: definition now comes from the rule, not from a shadow. */
-  --border:     #7C8E89;   /* cool hairline, >=3:1 on white */
-  --sage:       #4FB79E;   /* remapped to fresh sea-green (decorative) */
+     site uses. Re-cut for Harbour (2026-07-25): the warm --bg-alt tint is
+     lighter than the cool one it replaced, so the rule came down a step to
+     keep its footing there. Now 3.74:1 on #FFFFFF, 3.64:1 on --white and
+     3.26:1 on --bg-alt. Card box-shadows are dropped alongside it:
+     definition comes from the rule, not from a shadow. */
+  --border:     #83857E;
+  --sage:       var(--tide);   /* decorative */
   --max-w:      1100px;
   /* v5: --prose-w now tracks the ch-based measure token (68ch at 17px
      Outfit ≈ 680px - same width, but the cap survives font scaling). */
@@ -692,7 +696,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   border-radius: var(--radius-m);
   overflow: hidden;
   aspect-ratio: 4 / 3;
-  background: linear-gradient(135deg,#0E6A54 0%,#12857A 50%,#00362C 100%);
+  background: linear-gradient(135deg,#14608F 0%,#1E86B0 50%,#0B2E4A 100%);
   background-size: cover;
   background-position: center;
 }
@@ -781,7 +785,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 /* hero gradient variants - use background-image (not shorthand)
    so they don't reset background-size/position from .section-hero__visual */
 .hero-grad--vineyard {
-  background-image: linear-gradient(135deg,#0E6A54 0%,#12857A 50%,#00362C 100%);
+  background-image: linear-gradient(135deg,#14608F 0%,#1E86B0 50%,#0B2E4A 100%);
 }
 .hero-grad--bay {
   background-image: linear-gradient(160deg,#B8D4E8 0%,#7BACCB 40%,#4A7FA3 80%,#2F5A80 100%);
@@ -790,13 +794,13 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   background-image: linear-gradient(160deg,#c9efe6 0%,#9ad9ca 35%,#70b8a7 70%,#478b7b 100%);
 }
 .hero-grad--hinterland {
-  background-image: linear-gradient(135deg,#0E6A54 0%,#12857A 50%,#00362C 100%);
+  background-image: linear-gradient(135deg,#14608F 0%,#1E86B0 50%,#0B2E4A 100%);
 }
 .hero-grad--stay {
   background-image: linear-gradient(135deg,var(--text) 0%,#2e4a43 40%,#3b6b60 80%,#478b7b 100%);
 }
 .hero-grad--journal {
-  background-image: linear-gradient(135deg,#12726E 0%,#0B5A72 45%,#00362C 100%);
+  background-image: linear-gradient(135deg,#166B8E 0%,#0E4E75 45%,#0B2E4A 100%);
 }
 
 /* =========================================================
@@ -1014,7 +1018,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .feature__image-bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg,#12726E 0%,#0B5A72 45%,#00362C 100%);
+  background: linear-gradient(135deg,#166B8E 0%,#0E4E75 45%,#0B2E4A 100%);
   background-size: cover;
   background-position: center;
 }
@@ -1459,7 +1463,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .place-card__image {
   display: block;
   aspect-ratio: 16 / 9;
-  background: linear-gradient(135deg,#0E6A54 0%,#12857A 50%,#00362C 100%);
+  background: linear-gradient(135deg,#14608F 0%,#1E86B0 50%,#0B2E4A 100%);
   background-size: cover;
   background-position: center;
 }
@@ -1826,7 +1830,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   border-radius: var(--radius-m);
   overflow: hidden;
   margin-bottom: clamp(2.5rem, 5vw, 4rem);
-  background: linear-gradient(135deg,#12726E 0%,#0B5A72 45%,#00362C 100%);
+  background: linear-gradient(135deg,#166B8E 0%,#0E4E75 45%,#0B2E4A 100%);
   background-size: cover;
   background-position: center;
 }
@@ -2009,7 +2013,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   border-radius: var(--radius-m);
   overflow: hidden;
   margin-bottom: clamp(2.5rem, 5vw, 4rem);
-  background: linear-gradient(135deg,#12726E 0%,#0B5A72 45%,#00362C 100%);
+  background: linear-gradient(135deg,#166B8E 0%,#0E4E75 45%,#0B2E4A 100%);
 }
 .venue-detail__hero-fog {
   position: absolute; inset: 0;
@@ -2968,7 +2972,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   background: linear-gradient(160deg, #c9efe6 0%, #9ad9ca 35%, #70b8a7 70%, #478b7b 100%);
 }
 .feature__image-block--hinterland {
-  background: linear-gradient(135deg,#0E6A54 0%,#12857A 50%,#00362C 100%);
+  background: linear-gradient(135deg,#14608F 0%,#1E86B0 50%,#0B2E4A 100%);
 }
 
 /* =========================================================
@@ -3022,7 +3026,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   display: block;
   position: relative;
   aspect-ratio: 4 / 3;
-  background: linear-gradient(135deg,#12726E 0%,#0B5A72 45%,#00362C 100%);
+  background: linear-gradient(135deg,#166B8E 0%,#0E4E75 45%,#0B2E4A 100%);
   overflow: hidden;
   flex-shrink: 0;
 }
@@ -3033,12 +3037,12 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   object-fit: cover;
 }
 .experience-card__visual--walk,
-.experience-card__visual--park { background: linear-gradient(135deg,#0E6A54 0%,#12857A 50%,#00362C 100%); }
+.experience-card__visual--park { background: linear-gradient(135deg,#14608F 0%,#1E86B0 50%,#0B2E4A 100%); }
 .experience-card__visual--beach,
 .experience-card__visual--lookout { background: linear-gradient(135deg, #B8D4E8 0%, #7BACCB 40%, #4A7FA3 100%); }
 .experience-card__visual--market,
 .experience-card__visual--gallery { background: linear-gradient(135deg, #c9efe6 0%, #9ad9ca 35%, #70b8a7 70%, #478b7b 100%); }
-.experience-card__visual--wellness { background: linear-gradient(135deg,#0E6A54 0%,#12857A 50%,#00362C 100%); }
+.experience-card__visual--wellness { background: linear-gradient(135deg,#14608F 0%,#1E86B0 50%,#0B2E4A 100%); }
 .experience-card__fog {
   position: absolute; inset: 0;
   background: linear-gradient(to top, rgba(0, 54, 44,0.45) 0%, transparent 60%);

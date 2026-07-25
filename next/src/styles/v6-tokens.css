@@ -93,20 +93,41 @@
   --space-heading-above: 2.75rem;
   --space-heading-below: 1rem;
 
-  /* ── New named palette tokens (Evergreen Coast).
-     Core roles (--bg, --accent, --gold, --sage, ...) are retargeted
-     onto this world in global.css :root. ── */
-  --evergreen:  #0B5A48;  /* primary brand (CTAs, links on light) */
-  --evergreen-h:#084736;
-  --teal:       #079EA5;  /* secondary accent */
-  --teal-text:  #0A7B80;  /* AA-safe teal for text on white */
-  --mint:       #A7FFEB;  /* electric pop - on dark grounds only, never body text on white */
-  --slate:      #27455C;  /* tertiary cool accent */
-  --signal:     #FFAD29;  /* the single warm pop - live/now, one key CTA */
-  --signal-text:#9A6300;  /* AA-safe amber for text (5.05:1 on white) */
-  --wine:       #4D0222;  /* rare deep flourish */
-  --bg-deep:    #00362C;  /* alias of --bg-dark: the signature forest-teal ground */
-  --ink:        #12211E;  /* alias of --text (design-doc name); keep var(--ink) resolvable */
+  /* ── Named palette tokens: HARBOUR (adopted 2026-07-25).
+     Blue does the structural work; a single sand pop carries the warm
+     signal. Replaces Evergreen Coast, whose forest greens read alpine
+     rather than coastal and fought the photography: bay water went
+     muddy under a green wash. The v6 names below are kept as aliases so
+     no component had to change.
+     Core roles (--bg, --accent, --gold, --sage, ...) are retargeted onto
+     this world in global.css :root. ── */
+  --harbour:      #10527E;  /* primary brand (CTAs, links on light) */
+  --harbour-h:    #0C4166;  /* hover */
+  --harbour-deep: #0B2E4A;  /* the signature dark ground */
+  --sand:         #F5C177;  /* the single warm pop - dark grounds only, never body text on white */
+  --sand-text:    #8A5620;  /* AA-safe warm cut for text on light (6.12:1 on white) */
+  --bronze:       #C2803A;  /* secondary warm accent, decorative */
+  --tide:         #7FB2D4;  /* light blue, decorative */
+  --tide-text:    #1D6491;  /* AA-safe blue cut for text on light (6.39:1 on white) */
+  --slate:        #2E4A63;  /* tertiary cool accent */
+  /* Live/now must stay legible AS a signal, so it cannot be another
+     amber: --sand already owns warm. This coral reads 2.28:1 against
+     --sand, which is enough separation to tell the two apart at a
+     glance. */
+  --signal:       #E2562F;
+  --signal-text:  #A63A16;  /* AA-safe cut for text (6.49:1 on white) */
+  --wine:         #4D0222;  /* rare deep flourish */
+
+  /* Legacy v6 (Evergreen Coast) names, retargeted onto Harbour. Keeping
+     them resolvable is what makes this a one-block palette swap rather
+     than a sweep through 100+ components. */
+  --evergreen:  var(--harbour);
+  --evergreen-h:var(--harbour-h);
+  --teal:       var(--bronze);
+  --teal-text:  var(--sand-text);
+  --mint:       var(--sand);
+  --bg-deep:    var(--harbour-deep);
+  --ink:        #14202A;  /* alias of --text (design-doc name); keep var(--ink) resolvable */
 
   /* ── Legacy token aliases. Older components reference these names with WARM
      v5 fallbacks (e.g. var(--paper, var(--bg-alt))) or a serif. They are only
@@ -148,12 +169,11 @@
   --c-paper-tint: var(--bg-alt);
 
   /* ── AA-safe support roles ── */
-  --soft-inverse:  rgba(233, 244, 240, 0.74); /* muted text on --bg-dark */
-  /* Non-text UI needs >=3:1. The old #A7B4B0 measured 2.14:1 on white and
-     did not meet the contract in its own comment. #5F726D is 5.10:1 on
-     white, 4.99:1 on --white and 4.49:1 on --bg-alt, and stays a step
-     stronger than the (now visible) --border hairline. */
-  --border-strong: #5F726D;
+  --soft-inverse:  rgba(237, 241, 245, 0.74); /* muted text on --bg-dark, 7.38:1 */
+  /* Non-text UI needs >=3:1, and this stays a step stronger than the
+     --border hairline. Re-cut blue-grey for Harbour: 5.50:1 on white,
+     4.80:1 on the warm tint. */
+  --border-strong: #5C6B75;
   --error-text:    #C0392B;                    /* 5.44:1 on white */
   /* Error text on the deep evergreen ground: #C0392B measures 2.47:1 there,
      which fails. This lifted cut is 6.57:1 on --bg-dark. */
