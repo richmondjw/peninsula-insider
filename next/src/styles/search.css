@@ -151,7 +151,15 @@
 }
 .site-search-overlay__form:focus-within {
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(7, 158, 165, 0.18);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 22%, transparent);
+}
+/* The wrapper above IS the focus indicator: an accent border at 8.30:1 on
+   white plus a 3px ring. The global :focus-visible:focus-visible rule was
+   then drawing a SECOND outline around the input inside it, which is the
+   box-within-a-box. Suppressed here at (0,3,0) so it beats that (0,2,0)
+   rule. The input keeps a compliant indicator via the wrapper. */
+.site-search-overlay__form:focus-within .site-search-overlay__input:focus-visible {
+  outline: none;
 }
 .site-search-overlay__icon {
   display: inline-flex;
@@ -326,7 +334,11 @@ body.search-open { overflow: hidden; }
 }
 .search-page-v2__bar:focus-within {
   border-color: var(--accent);
-  box-shadow: 0 0 0 4px rgba(7, 158, 165, 0.16);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 20%, transparent);
+}
+/* Same nested-indicator suppression as the overlay field above. */
+.search-page-v2__bar:focus-within .search-page-v2__input:focus-visible {
+  outline: none;
 }
 .search-page-v2__bar-icon {
   display: inline-flex;

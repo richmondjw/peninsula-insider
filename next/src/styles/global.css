@@ -4467,6 +4467,12 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   background: rgba(255, 255, 255, 0.12);
   border-color: rgba(185, 238, 225, 0.6);
 }
+/* The field wrapper carries the focus indicator (3.86:1 against its own
+   focused ground), so the global :focus-visible ring on the input inside
+   it only added a second nested box. */
+.insider-stripe__form .newsletter__field:focus-within .newsletter__input:focus-visible {
+  outline: none;
+}
 .insider-stripe__form .newsletter__input {
   flex: 1;
   padding: 1rem 1.15rem;
