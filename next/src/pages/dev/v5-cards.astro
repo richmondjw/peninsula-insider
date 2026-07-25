@@ -85,6 +85,33 @@ const rowVenues = (await getCollection('venues'))
     </section>
 
     <section>
+      <h2>venue, no photograph (mediaFallback house plate)</h2>
+      <p class="v5-lab__note">
+        What an image-bearing grid renders when one entry has no hero. The plate
+        holds the 3:2 media height so the row stays level, and the eyebrow is
+        suppressed the way a typed section heading would suppress it.
+      </p>
+      <CardGrid label="Media fallback">
+        {venues.slice(0, 2).map((v, i) => (
+          <Card
+            variant="venue"
+            title={v.data.name}
+            href={`/eat/${slugOf(v)}/`}
+            entityType="venue"
+            entitySlug={slugOf(v)}
+            image={i === 0 ? { src: v.data.heroImage.src, alt: v.data.heroImage.alt ?? v.data.name } : undefined}
+            mediaFallback={true}
+            showEyebrow={false}
+            verdict={v.data.signature}
+            meta={[placeName(v.data.place), v.data.type].filter(Boolean)}
+            surface="dev-lab"
+            position={i}
+          />
+        ))}
+      </CardGrid>
+    </section>
+
+    <section>
       <h2>compact-row (with and without media)</h2>
       <CardGrid label="Venue rows" layout="rows">
         {rowVenues.map((v, i) => (
