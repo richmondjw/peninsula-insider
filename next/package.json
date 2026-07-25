@@ -7,14 +7,15 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "node scripts/clear-content-cache.mjs && npm run media:registry && npm run lint:no-pricing && npm run lint:region-images && npm run lint:surfaces && astro build",
-    "build:search": "npm run media:registry && npm run lint:no-pricing && npm run lint:house-style && npm run lint:region-images && npm run lint:surfaces && astro build && npx pagefind --site dist",
+    "build": "node scripts/clear-content-cache.mjs && npm run media:registry && npm run lint:no-pricing && npm run lint:region-images && npm run lint:surfaces && npm run lint:nav-budget && astro build",
+    "build:search": "npm run media:registry && npm run lint:no-pricing && npm run lint:house-style && npm run lint:region-images && npm run lint:surfaces && npm run lint:nav-budget && astro build && npx pagefind --site dist",
     "preview": "astro preview",
     "astro": "astro",
     "check": "astro check",
     "lint:no-pricing": "node scripts/lint-no-pricing.mjs",
     "lint:region-images": "node scripts/lint-region-images.mjs",
     "lint:surfaces": "node scripts/audit-surface-hardening.mjs",
+    "lint:nav-budget": "node scripts/lint-nav-budget.mjs",
     "media:registry": "node scripts/build-media-registry.mjs",
     "lint:taxonomy": "node scripts/taxonomy-lint.mjs",
     "lint:taxonomy:strict": "node scripts/taxonomy-lint.mjs --strict",
@@ -30,7 +31,8 @@
     "prebuild": "node scripts/clear-content-cache.mjs",
     "lint:house-style": "node scripts/lint-house-style.mjs",
     "lint:content-caps": "node scripts/lint-content-caps.mjs",
-    "lint:content-caps:strict": "node scripts/lint-content-caps.mjs --strict"
+    "lint:content-caps:strict": "node scripts/lint-content-caps.mjs --strict",
+    "lint:editorial-quality": "python3 ../ops/scripts/editorial-quality-check.py"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.0",

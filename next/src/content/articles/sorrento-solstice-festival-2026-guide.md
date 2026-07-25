@@ -12,7 +12,7 @@ heroImage:
 format: "insider-edit"
 section: "journal"
 tags: ["winter", "solstice", "festival", "sorrento", "event-guide", "weekend-pick", "fire", "free", "family-friendly"]
-relatedVenues: ["hotel-sorrento", "continental-sorrento", "sorrento-back-beach"]
+relatedVenues: ["hotel-sorrento", "the-continental-sorrento"]
 relatedEvents: ["sorrento-solstice-festival-2026"]
 readingTimeMinutes: 7
 featured: false

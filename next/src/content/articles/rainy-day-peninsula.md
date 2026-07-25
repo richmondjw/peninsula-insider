@@ -11,7 +11,7 @@ heroImage:
   license: "tmp-wikimedia"
 format: "service"
 tags: ["winter", "rainy-day", "indoor", "hot-springs", "fireplace"]
-relatedVenues: ["alba-thermal-springs", "peninsula-hot-springs", "tedesca-osteria", "lindenderry", "bass-and-flinders", "ashcombe-maze", "stringers-sorrento", "mornington-peninsula-chocolates", "red-hill-cheese", "via-boffe"]
+relatedVenues: ["alba-thermal-springs", "peninsula-hot-springs", "tedesca-osteria", "lindenderry", "bass-and-flinders", "stringers-sorrento", "mornington-peninsula-chocolates", "red-hill-cheese", "via-boffe"]
 relatedExperiences: ["mornington-peninsula-gallery"]
 readingTimeMinutes: 6
 featured: false

@@ -11,7 +11,7 @@ heroImage:
   license: "tmp-unsplash"
 format: "service"
 tags: ["family", "kids", "school-holidays", "activities", "outdoor", "rainy-day", "budget", "all-year"]
-relatedVenues: ["ashcombe-maze", "sunny-ridge-strawberry-farm", "red-hill-brewery", "mornington-peninsula-chocolates", "st-andrews-beach-brewery", "red-gum-bbq", "commonfolk-coffee", "dromana-hotel", "rye-hotel", "sorrento-gelato", "johnny-ripe", "balnarring-pub"]
+relatedVenues: ["red-hill-brewery", "mornington-peninsula-chocolates", "st-andrews-beach-brewery", "red-gum-bbq", "commonfolk-coffee", "dromana-hotel", "rye-hotel", "sorrento-gelato", "johnny-ripe", "balnarring-pub"]
 relatedExperiences: ["arthurs-seat-lookout", "mount-martha-beach", "balnarring-beach", "portsea-front-beach", "mornington-peninsula-gallery", "point-nepean-fort-walk", "bushrangers-bay-walk", "pt-leo-sculpture-park", "dromana-beach", "rye-ocean-beach", "gunnamatta-ocean-beach", "safety-beach-foreshore", "red-hill-market"]
 readingTimeMinutes: 8
 featured: false

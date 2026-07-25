@@ -11,7 +11,7 @@ heroImage:
   license: "tmp-unsplash"
 format: "editors-letter"
 tags: ["spring", "seasonal", "weekend", "red-hill", "markets", "walks"]
-relatedVenues: ["montalto", "merricks-general-wine-store", "lindenderry", "ten-minutes-by-tractor", "polperro", "crittenden-estate", "paringa-estate", "red-hill-brewery", "flinders-hotel", "tedesca-osteria", "pt-leo-estate", "sunny-ridge-strawberry-farm", "mornington-farmers-market", "red-hill-market", "balnarring-market"]
+relatedVenues: ["montalto", "merricks-general-wine-store", "lindenderry", "ten-minutes-by-tractor", "polperro", "crittenden-estate", "paringa-estate", "red-hill-brewery", "flinders-hotel", "tedesca-osteria", "pt-leo-estate", "mornington-farmers-market", "red-hill-market", "balnarring-market"]
 relatedExperiences: ["bushrangers-bay-walk", "red-hill-market", "arthurs-seat-lookout", "mount-martha-beach", "mornington-foreshore-walk", "red-hill-hinterland-cycling", "farnsworth-track"]
 readingTimeMinutes: 7
 featured: false
