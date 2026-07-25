@@ -315,6 +315,23 @@ const isAskPage = rawPathname.startsWith('/ask');
     })();
   </script>
 
+  {/* Global [data-evt] listener.
+      initV5Analytics() installs one delegated, capture-phase click handler on
+      document. It used to be called only from the 13 components that happen to
+      import it, which meant markup carrying data-evt on any other page (Card,
+      FilterBar, WhatsOnScopeBar, MapToggle and friends) recorded nothing, so
+      card_click was measured on an arbitrary subset of pages. Binding it once
+      here from the layout covers every template.
+
+      The listener sits on document, which survives Astro view transitions, and
+      initV5Analytics is idempotent, so the existing per-component calls stay
+      harmless. trackEvent is itself consent-gated, matching the gtag loader
+      above: no consent, no events. */}
+  <script>
+    import { initV5Analytics } from '../lib/v5-analytics';
+    initV5Analytics();
+  </script>
+
   {/* TEMPORARY PASSWORD GATE.
       Client-side only, so it is a soft courtesy gate, not security: the
       content ships in the HTML regardless and crawlers that run JS get

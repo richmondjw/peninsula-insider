@@ -34,16 +34,10 @@ export const prerender = true;
 // ── Corpus ────────────────────────────────────────────────────────────────
 const wineTypes = ['winery', 'producer', 'brewery', 'distillery'];
 
-// The venues Zod schema strips fields the wine hub needs (visiting.bookingRequired
-// for the walk-in/appointment badge, restaurant for the kitchens module,
-// editorVerdict for short verdicts). Read the raw JSON alongside the collection
-// so those fields survive; schema-validated data still wins where both exist.
-const rawVenueModules = import.meta.glob('../../content/venues/*.json', { eager: true });
-const rawVenueBySlug = new Map<string, any>();
-for (const mod of Object.values(rawVenueModules)) {
-  const raw = (mod as any).default ?? mod;
-  if (raw && typeof raw.slug === 'string') rawVenueBySlug.set(raw.slug, raw);
-}
+// visiting.bookingRequired (walk-in/appointment badge), restaurant (kitchens
+// module) and editorVerdict (short verdicts) are all declared in the venues
+// schema now, so entry.data carries them. The raw-JSON glob that used to work
+// around the schema stripping them is gone (2026-07-25).
 
 const score = (v: any) => Number(v.data.authority?.hallidayScore ?? 0);
 const hatCount = (v: any) => Number(v.data.authority?.hats ?? 0);
@@ -112,15 +106,9 @@ const iso = (d: unknown): string | undefined => {
   return undefined;
 };
 
-/** Schema data merged over the raw JSON, so stripped fields are readable. */
-function fullData(v: any): any {
-  const raw = rawVenueBySlug.get(routeSlug(v)) ?? {};
-  return { ...raw, ...v.data };
-}
-
 // ── Card item builder (SixItem / DirectoryRowItem shape from the hub modules) ──
 function venueItem(v: any) {
-  const data = fullData(v);
+  const data = v.data;
   const slug = routeSlug(v);
   const meta = [areaOf(data), badgeFor(data) ?? typeLabels[data.type]].filter(Boolean) as string[];
   if (data.type === 'winery' && hasKitchen(data) && meta.length < 3) meta.push('Kitchen on site');
@@ -133,7 +121,9 @@ function venueItem(v: any) {
     verdict: verdictFor(data),
     meta,
     priceBand: typeof data.priceBand === 'string' ? data.priceBand : undefined,
-    freshness: iso(data.lastVerified ?? data.lastFactVerified ?? data.publishedAt),
+    // lastVerified is required by the venues schema, so it always wins here;
+    // publishedAt stays as the belt-and-braces fallback.
+    freshness: iso(data.lastVerified ?? data.publishedAt),
     facets: getFacets('venue', data),
     sortTitle: data.name as string,
   };
@@ -148,16 +138,16 @@ const theSixItems = sixSource.map((v) => venueItem(v));
 
 // ── Winery kitchens: reciprocal module, the HUB-01 bridge with /eat/ ──────
 const kitchens = venues
-  .filter((v) => v.data.type === 'winery' && hasKitchen(fullData(v)))
+  .filter((v) => v.data.type === 'winery' && hasKitchen(v.data))
   .sort(
     (a, b) =>
-      Number(fullData(b).restaurant?.hats ?? 0) - Number(fullData(a).restaurant?.hats ?? 0) ||
+      Number(b.data.restaurant?.hats ?? 0) - Number(a.data.restaurant?.hats ?? 0) ||
       score(b) - score(a),
   )
   .slice(0, 6);
 const kitchenItems = kitchens.map((v) => {
   const item = venueItem(v);
-  const dining = firstSentence(fullData(v).restaurant?.description);
+  const dining = firstSentence(v.data.restaurant?.description);
   return {
     ...item,
     verdict: dining && wordCount(dining) <= 25 ? dining : item.verdict,
