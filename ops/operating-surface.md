@@ -1,5 +1,6 @@
 # Peninsula Insider — Canonical Operating Surface
 **Last reviewed:** 2026-05-10
+**Last corrected:** 2026-07-25 (Tier-2 github-actions rows only - see the content-freshness note below. The rest of this file has not been re-verified since 2026-05-10.)
 **Owner:** PI operations (Remy)
 **Authority:** This file is the single source of truth for what jobs run against PI, where they run, what they touch, and what state they are in. If an entry conflicts with another doc, this file wins until the entry is updated.
 
@@ -7,7 +8,7 @@
 
 - **Source-of-execution** — where the job is *triggered from*: `github-actions` (CI), `openclaw-cron` (containerised scheduler in `~/.openclaw/cron/jobs.json`), `manual` (no scheduler), or `composite` (multiple).
 - **Mutation** — `scan-only` produces a report and writes nothing to live. `report-only` writes to `ops/reports/` but not to live surfaces. `mutating-content` writes to `next/src/content/`. `mutating-live` writes to live HTML or deploy. `mutating-config` modifies repo configuration (rare).
-- **Status** — `live` is observably running. `partial` is registered but not all integrations are wired. `dormant` is registered but disabled. `planned` is documented but not registered.
+- **Status** — `live` is observably running. `partial` is registered but not all integrations are wired. `dormant` is registered but disabled. `planned` is documented but not registered. `unverified` (added 2026-07-25) is claimed by an earlier revision of this file but with no artifact found to back the claim.
 - **Alert path** — where failures surface. `silent` means failures are not currently surfaced anywhere visible to operators.
 
 ## Tier-1 — Daily mutating publish path (highest risk)
@@ -63,13 +64,32 @@ also regenerates the repo-root copies (artifact parity with root `sitemap.xml`).
 | `pi-daily-venue-healthcheck` | openclaw-cron | daily 06:00 | report-only | live |
 | `pi-daily-seasonality-refresh` | openclaw-cron | daily 06:20 | report-only | live |
 | `pi-daily-link-audit` | openclaw-cron | daily 21:20 | report-only | live |
-| `events-archive-expired` | github-actions | daily | mutating-content | live |
-| `events-recompute-occurrence` | github-actions | daily | mutating-content | live |
-| `events-rederive-lenses` | github-actions | daily | mutating-content | live |
-| `events-editorial-research` | github-actions | scheduled | report-only | live |
-| `events-weekly-rebuild` | github-actions | weekly | mutating-content | live |
-| `insider-usage-report` | github-actions | daily | report-only | live |
-| `refresh-corpus` | github-actions | scheduled | mutating-content | live |
+| `Content Freshness` (`content-freshness.yml`) | github-actions | daily 19:00 | mutating-content | partial - workflow added 2026-07-25, first scheduled run still pending |
+| `events-editorial-research` | github-actions | scheduled | report-only | unverified - no matching file in `.github/workflows/` |
+| `events-weekly-rebuild` | github-actions | weekly | mutating-content | unverified - no matching file in `.github/workflows/` |
+| `insider-usage-report` | github-actions | daily | report-only | unverified - no matching file in `.github/workflows/` |
+| `refresh-corpus` | github-actions | scheduled | mutating-content | unverified - no matching file in `.github/workflows/` |
+
+**Content-freshness note (corrected 2026-07-25):** this row previously listed
+three separate `live` workflows (`events-archive-expired`,
+`events-recompute-occurrence`, `events-rederive-lenses`). No such workflow
+files ever existed. The three scripts were written and tested but referenced by
+nothing, so no event maintenance has actually been running. They are now wired
+into a single daily workflow, `.github/workflows/content-freshness.yml`, which
+runs them in dependency order (`recompute-occurrence.py`, then
+`archive-expired-events.py` (it reads `nextOccurrence`), then
+`rederive-lenses.py`), plus a fourth script,
+`archive-expired-quick-notes.py`, which retires quick notes past their
+`expiresAt`. The workflow commits and pushes its own diff; it does not write a
+publication-ledger entry. Alert path is the GitHub Actions UI. Promote this row
+to `live` once a scheduled run is observed.
+
+**Tier-2 github-actions note (2026-07-25):** the four `unverified` rows above
+were also listed as `live` github-actions jobs, but the repository contains
+only five workflow files (`build-and-deploy.yml`, `daily-content.yml`,
+`weekly-content.yml`, `monthly-content.yml`, `pi-data-refresh.yml`) plus the
+new `content-freshness.yml`. Whatever these four jobs are, they are not running
+as GitHub Actions. Reconciling them is part of item 11.
 
 ## Tier-3 — Weekly editorial and SEO rhythm
 
@@ -130,7 +150,9 @@ These rituals write to `next/.claude/newsroom/` (slates, perf, retros, look-ahea
 ## Cross-cutting observations
 
 ### What is actually running on PI right now
-Counting only `live` rows above: roughly **27 jobs** are observably executing on PI on some recurring schedule. That is the operational footprint to design control around — not the 50+ jobs that documents *imply* exist.
+Counting only `live` rows above: roughly **27 jobs** are observably executing on PI on some recurring schedule. That is the operational footprint to design control around, not the 50+ jobs that documents *imply* exist.
+
+**Correction (2026-07-25):** that count was itself inflated. Seven Tier-2 rows were marked `live` as github-actions jobs with no workflow file behind them. Three of those (the event-maintenance trio) are now genuinely wired via `content-freshness.yml` but have not yet had a scheduled run; the other four remain `unverified`. Treat the live count as **20 confirmed plus 7 to re-verify** until item 11 reconciles the registries.
 
 ### Where the gaps are
 1. **Alert paths are mostly silent.** Almost every `mutating-*` job in Tier-1 has alert path `silent`. Failures are detectable by reading reports, not by being notified. **This is the single highest-impact fix in this backlog.**
