@@ -215,14 +215,16 @@ const active = activePillar(path, section);
      backdrop blur over a near-white ground; a single subtle bottom
      hairline. Sticky positioning is owned by the outer .masthead. */
   .v5-masthead {
-    /* 92%, not 84%. The masthead is sticky, so arbitrary page content
-       (including full-bleed dark heroes) scrolls under it. Measured
-       against the darkest ground the site uses (--bg-dark, the Harbour deep ground):
-       84% put --soft at 5.34:1 and --text at 12.24:1; 92% lifts those
-       to 6.26:1 and 14.34:1 while still reading as glass. */
-    background: color-mix(in srgb, var(--bg) 92%, transparent);
-    -webkit-backdrop-filter: saturate(1.4) blur(12px);
-    backdrop-filter: saturate(1.4) blur(12px);
+    /* Opaque, deliberately. This was a translucent ground (84%, then 92%)
+       with a backdrop blur, tuned so the masthead's OWN text stayed legible
+       over dark content scrolling under it. That solved the wrong problem:
+       the masthead is fixed and every hub opens on a full-bleed dark hero,
+       so at 92% the hero headline was still plainly readable THROUGH the
+       header. Contrast ratios do not fix that - it is the page showing
+       through the chrome, and no alpha short of 1 removes it.
+       The blur goes with it: once the ground is opaque it composites every
+       scroll frame for nothing. */
+    background: var(--bg);
     border-bottom: 1px solid var(--border);
     /* viewport-fit=cover: keep the brand row below the status bar / notch. */
     padding-top: env(safe-area-inset-top);
@@ -234,14 +236,17 @@ const active = activePillar(path, section);
     margin: 0 auto;
     /* Include the horizontal safe-area insets so the row clears the notch
        in landscape (0 on non-notched devices / portrait). */
-    padding: 0 calc(var(--space-5) + env(safe-area-inset-right)) 0 calc(var(--space-5) + env(safe-area-inset-left));
+    /* The gutter is capped against the viewport for the same reason the
+       type in this row is: it is rem-based, so it widened under reader
+       text scaling and ate the slack the wordmark needed. */
+    padding: 0 calc(min(var(--space-5), 6.4vw) + env(safe-area-inset-right)) 0 calc(min(var(--space-5), 6.4vw) + env(safe-area-inset-left));
   }
 
   .v5-masthead__brand-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: var(--space-4);
+    gap: min(var(--space-4), 3.0vw);
     /* Row height, not a spacing step: it is sized off the 44px control
        inside it plus breathing room. Left in px deliberately. */
     min-height: 68px;
@@ -253,12 +258,23 @@ const active = activePillar(path, section);
     /* Was a bespoke clamp (21.6 -> 28px) that sat off the v6 scale.
        --fs-600 is the nearest step (22 -> 26px) and now matches the
        drawer wordmark, which carried its own one-off value. */
-    font-size: var(--fs-600);
+    /* Capped against the viewport, not just the type scale. --fs-600 is
+       rem-based, so it grows with the root font-size and there is no slack
+       in this row to absorb that: at 375px the wordmark, gap and utilities
+       already fill the line exactly. The vw arm holds the wordmark still
+       while body copy still scales, which keeps the brand name whole
+       instead of truncating it to "Peninsula ...". */
+    font-size: min(var(--fs-600), 5.9vw);
     letter-spacing: var(--ls-display);
     line-height: var(--lh-display);
     color: var(--text);
     text-decoration: none;
     white-space: nowrap;
+    /* Deliberately NOT min-width: 0. In a space-between flex row that lets
+       the wordmark shrink below its own content, which truncated the brand
+       name to "Peninsula Insi..." even at default size. The row is kept in
+       bounds by capping type and spacing against the viewport instead, so
+       nothing here has to shrink at all. */
   }
   .v5-masthead__logo span {
     font-weight: var(--fw-bold);
@@ -269,6 +285,20 @@ const active = activePillar(path, section);
     display: flex;
     align-items: center;
     gap: var(--space-2);
+    /* Never shrink and never be pushed out of the row: these are the only
+       navigation affordances on a phone. */
+    flex: 0 0 auto;
+  }
+
+  /* The masthead is fixed chrome with no spare width, so nothing in this
+     row is allowed to inflate with the root font-size. The reader's text
+     control still scales body copy, which is what it is for; letting it
+     also scale the header only cost the Menu button its place on screen
+     and truncated the wordmark to make room. Both arms are capped against
+     the viewport so the row is stable at any text size. */
+  .v5-masthead__utilities .pi-btn {
+    font-size: min(var(--fs-200), 3.5vw);
+    padding: var(--space-1) min(var(--space-3), 3.2vw);
   }
   .v5-masthead__profile-slot { display: contents; }
 

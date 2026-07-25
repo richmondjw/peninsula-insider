@@ -107,7 +107,17 @@
    preference is respected. The whole sheet is rem-based, so everything
    scales with it - including the three-step reader text-size control,
    which sets data-text-scale on <html> (see TextScaleControl.astro). */
-html { scroll-behavior: auto; font-size: 100%; }
+html {
+  scroll-behavior: auto;
+  font-size: 100%;
+  /* iOS inflates text of its own accord in standalone (home-screen) mode,
+     which is how the masthead Menu button ended up off-screen for readers
+     who launch from a saved icon rather than in Safari. Pinning to 100%
+     leaves the reader's own browser font-size and the three-step text
+     control below in charge, and nothing else. */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
 html[data-text-scale="2"] { font-size: 108.75%; }
 html[data-text-scale="3"] { font-size: 118%; }
 
@@ -189,8 +199,14 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   position: sticky;
   top: 0;
   z-index: 9999;
-  background: rgba(245, 241, 235, 0.97);
-  backdrop-filter: blur(12px);
+  /* Opaque, and on the palette. This was a hardcoded rgba(245,241,235,.97)
+     - a warm v5 cream - which survived every palette migration because a
+     raw rgba() is invisible to a token swap. Paired with the translucent
+     ground on .v5-masthead inside it, page content scrolling under the
+     header stayed legible through both layers. The blur is dropped with
+     it: over an opaque ground it composites every scroll frame and shows
+     nothing. */
+  background: var(--bg);
   border-bottom: none; /* gold gradient rule replaces this - see ::after below */
 }
 .masthead::after {
