@@ -84,15 +84,8 @@
   font-size: clamp(1rem, 1.4vw, 1.15rem); line-height: 1.65;
   color: rgba(246,242,234,.88); max-width: 56ch; margin: 0 0 1.6rem;
 }
-.ed-cover__cta {
-  display: inline-flex; align-items: center; gap: .55rem;
-  font-family: var(--font-ui); font-size: .8rem; font-weight: 600;
-  letter-spacing: .14em; text-transform: uppercase;
-  color: var(--bg-alt); text-decoration: none;
-  padding: .8rem 1.4rem; border: 1px solid rgba(246,242,234,.45);
-  transition: border-color .25s ease, background .25s ease, color .25s ease;
-}
-.ed-cover__cta:hover { background: var(--bg-alt); color: #211e1c; border-color: var(--bg-alt); }
+/* P3-2: the cover CTA sits on the dark edition cover, so it is
+   .pi-btn --ghost --inverse (white rule, white label, 13.43:1). */
 .ed-cover__cta svg { transition: transform .25s ease; }
 .ed-cover__cta:hover svg { transform: translateX(3px); }
 
@@ -226,7 +219,7 @@
 .ed-builder__chips { display: flex; flex-wrap: wrap; gap: .6rem; margin-bottom: 2rem; }
 .ed-builder__chip {
   cursor: pointer; background: none; color: rgba(246,242,234,.85);
-  border: 1px solid rgba(246,242,234,.35); border-radius: 999px;
+  border: 1px solid rgba(246,242,234,.35); border-radius: var(--radius-s);
   font-family: var(--font-ui); font-size: .8rem; font-weight: 600;
   letter-spacing: .1em; text-transform: uppercase; padding: .55rem 1.1rem;
   transition: background .2s ease, color .2s ease, border-color .2s ease;
@@ -257,12 +250,10 @@
   font-size: 1.45rem; line-height: 1.15; color: #FBF8F2;
 }
 .ed-builder__slot-note { font-size: .93rem; line-height: 1.55; color: rgba(246,242,234,.75); flex: 1; }
-.ed-builder__slot-cta {
-  font-family: var(--font-ui); font-size: .72rem; font-weight: 600;
-  letter-spacing: .14em; text-transform: uppercase; color: rgba(246,242,234,.6);
-  transition: color .2s ease;
-}
-.ed-builder__slot:hover .ed-builder__slot-cta { color: #9edfd0; }
+/* P3-2: .pi-btn --text --inverse (a --mint label on the dark builder
+   ground, 11.60:1, replacing the 60%-alpha cream that fell below AA).
+   KEPT: the parent-hover handoff, which the primitive cannot express. */
+.ed-builder__slot:hover .ed-builder__slot-cta { color: #FFFFFF; }
 .ed-builder__foot { margin: 1.8rem 0 0; font-size: .95rem; color: rgba(246,242,234,.75); }
 .ed-builder__foot a { color: #9edfd0; text-decoration: underline; text-underline-offset: 3px; }
 
@@ -302,11 +293,7 @@
   font-family: var(--font-display); font-style: normal;
   font-size: 1.05rem; line-height: 1.5; color: #2b443e; margin: 0; flex: 1;
 }
-.ed-notebook__cta {
-  font-family: var(--font-ui); font-size: .72rem; font-weight: 600;
-  letter-spacing: .14em; text-transform: uppercase; color: var(--soft, var(--soft));
-  transition: color .2s ease;
-}
+/* P3-2: fully absorbed by .pi-btn --text. */
 .ed-notebook__card:hover .ed-notebook__cta { color: var(--accent, var(--accent)); }
 
 /* ---- Responsive -------------------------------------------------------------- */

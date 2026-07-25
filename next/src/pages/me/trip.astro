@@ -84,8 +84,8 @@ export const prerender = true;
         <p class="trip-shared__title">Someone sent you a Peninsula day. Make it yours, or start your own.</p>
         <ul class="trip-shared__list" data-trip-shared-list></ul>
         <div class="trip-shared__actions">
-          <button type="button" class="trip-btn trip-btn--primary" data-trip-import>Add these stops to my trip</button>
-          <button type="button" class="trip-btn" data-trip-shared-dismiss>Start my own</button>
+          <button type="button" class="pi-btn pi-btn--solid" data-trip-import>Add these stops to my trip</button>
+          <button type="button" class="pi-btn pi-btn--ghost" data-trip-shared-dismiss>Start my own</button>
         </div>
       </aside>
 
@@ -97,10 +97,10 @@ export const prerender = true;
           <span data-trip-drive-total>drive estimate unavailable</span>
         </p>
         <div class="trip-toolbar__actions">
-          <button type="button" class="trip-btn" data-trip-add-day>+ Add a day</button>
-          <button type="button" class="trip-btn" data-trip-share>Share link</button>
-          <button type="button" class="trip-btn" data-trip-print>Print</button>
-          <button type="button" class="trip-btn trip-btn--quiet" data-trip-clear>Clear trip</button>
+          <button type="button" class="pi-btn pi-btn--ghost" data-trip-add-day>+ Add a day</button>
+          <button type="button" class="pi-btn pi-btn--ghost" data-trip-share>Share link</button>
+          <button type="button" class="pi-btn pi-btn--ghost" data-trip-print>Print</button>
+          <button type="button" class="pi-btn pi-btn--text" data-trip-clear>Clear trip</button>
         </div>
       </div>
 
@@ -539,7 +539,7 @@ export const prerender = true;
         <li class="trip-add__item">
           <span class="trip-add__kind">${esc(KIND_LABELS[it.kind])}</span>
           <span class="trip-add__title">${esc(it.title)}</span>
-          <button type="button" class="trip-add__btn" data-trip-add data-kind="${esc(it.kind)}" data-slug="${esc(it.slug)}" aria-label="Add ${esc(it.title)} to the trip">+ Add</button>
+          <button type="button" class="pi-btn pi-btn--ghost pi-btn--sm" data-trip-add data-kind="${esc(it.kind)}" data-slug="${esc(it.slug)}" aria-label="Add ${esc(it.title)} to the trip">+ Add</button>
         </li>`)
       .join('');
   }
@@ -804,50 +804,6 @@ export const prerender = true;
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-2, 0.5rem);
-  }
-
-  .trip-btn {
-    appearance: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 48px;
-    padding: 0 var(--space-4, 1rem);
-    background: var(--bg, #fff);
-    color: var(--text);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-s, 4px);
-    font-family: var(--font-ui, var(--font-ui));
-    font-size: var(--fs-200, 0.8125rem);
-    font-weight: var(--fw-semibold, 600);
-    cursor: pointer;
-    transition: border-color var(--dur-fast, 120ms) var(--ease, ease), color var(--dur-fast, 120ms) var(--ease, ease);
-  }
-
-  .trip-btn:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-  }
-
-  .trip-btn--primary {
-    background: var(--accent);
-    border-color: var(--accent);
-    color: var(--white, #fff);
-  }
-  .trip-btn--primary:hover {
-    background: var(--acc-h);
-    border-color: var(--acc-h);
-    color: var(--white, #fff);
-  }
-
-  .trip-btn--quiet {
-    border-color: transparent;
-    color: var(--soft);
-  }
-
-  .trip-btn:focus-visible {
-    outline: var(--focus-ring, 2px solid var(--accent));
-    outline-offset: 2px;
   }
 
   .trip-empty-doors {
@@ -1196,33 +1152,6 @@ export const prerender = true;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-  }
-
-  .trip-page .trip-add__btn {
-    appearance: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 44px;
-    padding: 0 var(--space-3, 0.75rem);
-    background: var(--bg, #fff);
-    color: var(--text);
-    border: 1px solid var(--text);
-    border-radius: 999px;
-    font-family: var(--font-ui, var(--font-ui));
-    font-size: var(--fs-200, 0.8125rem);
-    font-weight: var(--fw-semibold, 600);
-    cursor: pointer;
-  }
-
-  .trip-page .trip-add__btn:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-  }
-
-  .trip-page .trip-add__btn:focus-visible {
-    outline: var(--focus-ring, 2px solid var(--accent));
-    outline-offset: 2px;
   }
 
   @media print {

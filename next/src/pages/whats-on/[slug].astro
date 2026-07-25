@@ -44,10 +44,19 @@ const related = allEvents
 const relatedFallback = allEvents.slice(0, 3);
 const sidebar = related.length >= 2 ? related : relatedFallback;
 
-const lensList = (event.data.lens ?? []).map((key: string) => ({
-  key,
-  label: eventLensLabel[key] ?? key,
-}));
+/* "Filed under" for events. Two lens keys can resolve to the same visible
+   label (and a content file can repeat a key outright), so dedupe on the
+   rendered label: case-insensitive, separator-tolerant. */
+const lensSeen = new Set<string>();
+const lensList: Array<{ key: string; label: string }> = ((event.data.lens ?? []) as unknown[])
+  .filter((key): key is string => typeof key === 'string' && key.trim() !== '')
+  .map((key: string) => ({ key, label: eventLensLabel[key] ?? key }))
+  .filter(({ label }) => {
+    const dedupeKey = label.trim().toLowerCase().replace(/[\s_-]+/g, ' ');
+    if (lensSeen.has(dedupeKey)) return false;
+    lensSeen.add(dedupeKey);
+    return true;
+  });
 
 const slug = routeSlug(event);
 const placeName = place?.data?.name ?? 'Mornington Peninsula';

@@ -14,6 +14,13 @@
  * nav + lists, no menu roles (NAV-03); group labels are styled <p>s,
  * not headings, so the drawer never pollutes the heading outline.
  * Rows are 48px minimum. Link taps close the drawer.
+ *
+ * v6 token pass (P3-6, 2026-07-25): the close control is .pi-btn
+ * --ghost --icon (it already carries the aria-label the variant needs)
+ * and the Dispatch CTA is .pi-btn --solid, so their duplicated scoped
+ * rules are gone. The wayfinding rows are not buttons and stay
+ * chrome-specific. Radii follow the v6 scale: --radius-l on the CTA
+ * panel (it is a panel), --radius-s on the controls via the primitive.
  */
 import { v5DrawerItems, v5DrawerCta } from '../../../lib/v5-nav';
 
@@ -35,7 +42,7 @@ const groups = [
 >
   <div class="v5-drawer__head">
     <a href="/" class="v5-drawer__brand">Peninsula <span>Insider</span></a>
-    <button type="button" class="v5-drawer__close" aria-label="Close menu" data-v5-drawer-close>
+    <button type="button" class="v5-drawer__close pi-btn pi-btn--ghost pi-btn--icon" aria-label="Close menu" data-v5-drawer-close>
       <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <line x1="6" y1="6" x2="18" y2="18" />
         <line x1="18" y1="6" x2="6" y2="18" />
@@ -59,7 +66,7 @@ const groups = [
   <div class="v5-drawer__cta">
     <p class="v5-drawer__cta-label">{v5DrawerCta.label}</p>
     <p class="v5-drawer__cta-dek">{v5DrawerCta.dek}</p>
-    <a href={v5DrawerCta.href} class="v5-drawer__cta-btn" data-evt="dispatch_submit">{v5DrawerCta.ctaLabel}</a>
+    <a href={v5DrawerCta.href} class="v5-drawer__cta-btn pi-btn pi-btn--solid" data-evt="dispatch_submit">{v5DrawerCta.ctaLabel}</a>
   </div>
 </div>
 
@@ -168,7 +175,10 @@ const groups = [
   .v5-drawer__brand {
     font-family: var(--font-display);
     font-weight: var(--fw-bold);
-    font-size: 1.35rem;
+    /* Was a raw 1.35rem off the scale; --fs-600 is the matching step and
+       is now what the masthead wordmark uses too. */
+    font-size: var(--fs-600);
+    line-height: var(--lh-display);
     letter-spacing: var(--ls-display);
     color: var(--text);
     text-decoration: none;
@@ -177,23 +187,11 @@ const groups = [
     font-weight: var(--fw-bold);
     color: var(--accent);
   }
+  /* .pi-btn --ghost --icon owns the ground, border, radius and hover.
+     Chrome keeps only the 48px target the drawer spec calls for. */
   .v5-drawer__close {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 48px;
-    height: 48px;
-    background: transparent;
-    border: 1.5px solid var(--border);
-    border-radius: var(--radius-pill);
-    color: var(--text);
-    cursor: pointer;
-    transition: border-color var(--dur-fast) var(--ease-enter),
-                color var(--dur-fast) var(--ease-enter);
-  }
-  .v5-drawer__close:hover {
-    border-color: var(--accent);
-    color: var(--accent);
+    min-width: 48px;
+    min-height: 48px;
   }
 
   .v5-drawer__nav {
@@ -211,7 +209,10 @@ const groups = [
     font-weight: var(--fw-semibold);
     letter-spacing: var(--ls-eyebrow);
     text-transform: uppercase;
-    color: var(--teal-text);
+    /* One eyebrow colour across the chrome (see V5MegaPanel): --accent
+       is 8.17:1 on --bg and 7.19:1 on --bg-alt, where --teal-text was
+       only 4.45:1. */
+    color: var(--accent);
     margin-bottom: var(--space-2);
     line-height: var(--lh-label);
   }
@@ -240,8 +241,11 @@ const groups = [
     padding: var(--space-5);
     padding-bottom: calc(var(--space-5) + env(safe-area-inset-bottom));
     background: var(--bg-alt);
+    /* Panel radius, per the v6 scale. */
     border-radius: var(--radius-l);
-    box-shadow: var(--elev-1);
+    /* P0-4 direction: definition comes from the (now visible) hairline,
+       not from a shadow. --border is 3.04:1 on --bg-alt. */
+    border: 1px solid var(--border);
   }
   .v5-drawer__cta-label {
     font-family: var(--font-ui);
@@ -249,7 +253,7 @@ const groups = [
     font-weight: var(--fw-semibold);
     letter-spacing: var(--ls-eyebrow);
     text-transform: uppercase;
-    color: var(--teal-text);
+    color: var(--accent);
     margin-bottom: var(--space-1);
     line-height: var(--lh-label);
   }
@@ -263,23 +267,18 @@ const groups = [
     margin-bottom: var(--space-3);
     max-width: var(--measure-card);
   }
+  /* .pi-btn --solid owns everything the old ruleset duplicated: the
+     evergreen ground (--white on --accent is 8.00:1, on --acc-h 10.46:1),
+     the label type, the --radius-s corner (it was a 999px pill, one of
+     the three button languages the review flagged) and the hover. Chrome
+     keeps the touch-target floor only (with the flex display that floor
+     needs to apply at all on an inline <a>). */
   .v5-drawer__cta-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     min-height: 46px;
-    padding: 0 var(--space-5);
-    background: var(--accent);
-    color: var(--white);
-    border-radius: var(--radius-pill);
-    font-family: var(--font-ui);
-    font-size: var(--fs-300);
-    font-weight: var(--fw-bold);
-    text-decoration: none;
-    transition: background var(--dur-med) var(--ease-enter),
-                transform var(--dur-fast) var(--ease-enter);
   }
-  .v5-drawer__cta-btn:hover { background: var(--acc-h); transform: translateY(-1px); }
 
   .v5-drawer a:focus-visible,
   .v5-drawer button:focus-visible {

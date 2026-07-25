@@ -540,7 +540,7 @@ export const prerender = true;
         {effectiveStay && effectiveStayHref && (
           <a
             href={`${effectiveStayHref}?utm_source=peninsula-insider&utm_medium=escape&utm_campaign=${slug}&utm_content=hero`}
-            class="itinerary-detail__cta"
+            class="pi-btn pi-btn--solid"
             data-event="escape_hero_anchor_stay_cta_click"
             data-itinerary={slug}
           >
@@ -622,7 +622,7 @@ export const prerender = true;
                       </p>
                       <a
                         href={`${effectiveStayHref}?utm_source=peninsula-insider&utm_medium=escape&utm_campaign=${slug}&utm_content=inflow`}
-                        class="where-you-sleep__cta"
+                        class="pi-btn pi-btn--text"
                         data-event="escape_inflow_anchor_stay_click"
                         data-itinerary={slug}
                       >
@@ -792,7 +792,7 @@ export const prerender = true;
 
           {effectiveStayHref ? (
             <a
-              class="facts__cta"
+              class="facts__cta pi-btn pi-btn--ghost pi-btn--block"
               href={`${effectiveStayHref}?utm_source=peninsula-insider&utm_medium=escape&utm_campaign=${slug}&utm_content=facts`}
               data-event="escape_facts_anchor_stay_click"
               data-itinerary={slug}
@@ -800,7 +800,7 @@ export const prerender = true;
               Stay here →
             </a>
           ) : (
-            <a class="facts__cta" href="/stay/">Choose the stay</a>
+            <a class="facts__cta pi-btn pi-btn--ghost pi-btn--block" href="/stay/">Choose the stay</a>
           )}
 
           {lastVerifiedLabel && (

@@ -15,8 +15,8 @@
         <p class="plan-next__sub">Search the places and days out on the site, or build your own from a blank trip.</p>
       </div>
       <div class="plan-next__actions">
-        <a class="plan-next__btn plan-next__btn--primary" href="/search/" data-open-search data-evt="search_open" data-surface="plans">Search the site</a>
-        <a class="plan-next__btn" href="/me/trip/">Start a blank My Trip</a>
+        <a class="pi-btn pi-btn--solid" href="/search/" data-open-search data-evt="search_open" data-surface="plans">Search the site</a>
+        <a class="pi-btn pi-btn--ghost" href="/me/trip/">Start a blank My Trip</a>
       </div>
     </div>
   </div>
@@ -54,47 +54,5 @@
     display: flex;
     flex-wrap: wrap;
     gap: 0.6rem;
-  }
-  .plan-next__btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 48px;
-    padding: 0 1.15rem;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-s, 6px);
-    background: var(--bg, var(--white));
-    color: var(--text);
-    font-family: var(--font-ui, var(--font-ui));
-    font-size: var(--fs-300, 0.9375rem);
-    font-weight: var(--fw-semibold, 600);
-    text-decoration: none;
-    transition:
-      background var(--dur-fast, 120ms) var(--ease, ease),
-      border-color var(--dur-fast, 120ms) var(--ease, ease),
-      color var(--dur-fast, 120ms) var(--ease, ease);
-  }
-  .plan-next__btn:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-  }
-  .plan-next__btn:focus-visible {
-    outline: var(--focus-ring, 2px solid var(--accent));
-    outline-offset: 2px;
-  }
-  .plan-next__btn--primary {
-    background: var(--accent);
-    border-color: var(--accent);
-    color: var(--white, var(--bg));
-  }
-  .plan-next__btn--primary:hover {
-    background: var(--text);
-    border-color: var(--text);
-    color: var(--white, var(--bg));
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .plan-next__btn {
-      transition: none;
-    }
   }
 </style>

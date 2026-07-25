@@ -185,7 +185,7 @@ export const prerender = true;
             </fieldset>
 
             <div class="partner-update-form__submit">
-              <button type="submit" class="partner-update-form__button">Send the update</button>
+              <button type="submit" class="pi-btn pi-btn--solid">Send the update</button>
               <p class="partner-update-form__caveat">By submitting you confirm the information is accurate and you have authority to submit it on the venue's behalf. Editorial may verify with a phone call or a visit.</p>
             </div>
 
@@ -243,7 +243,7 @@ export const prerender = true;
     if (!form) return;
     applyVenueQueryParam();
     const status = document.querySelector('[data-partner-update-status]');
-    const button = form.querySelector('.partner-update-form__button');
+    const button = form.querySelector('button[type="submit"]');
     const venueOptions = venueOptionsJson;
 
     function setStatus(kind, message) {
@@ -445,23 +445,6 @@ export const prerender = true;
     gap: 0.55rem;
     align-items: flex-start;
     margin-top: 0.5rem;
-  }
-  .partner-update-form__button {
-    font-family: var(--font-ui);
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--bg, #fff);
-    background: var(--accent);
-    border: 1px solid var(--accent);
-    padding: 0.85rem 1.4rem;
-    cursor: pointer;
-  }
-  .partner-update-form__button:disabled { opacity: 0.6; cursor: progress; }
-  .partner-update-form__button:hover:not(:disabled) {
-    background: var(--text, #1a1a1a);
-    border-color: var(--text, #1a1a1a);
   }
   .partner-update-form__caveat {
     font-family: var(--font-ui);

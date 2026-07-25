@@ -140,7 +140,7 @@ export const prerender = true;
                       placeholder="you@example.com"
                       class="guide-card__form-input"
                     />
-                    <button type="submit" class="guide-card__form-button">Get the {g.season} guide</button>
+                    <button type="submit" class="guide-card__form-button pi-btn pi-btn--solid">Get the {g.season} guide</button>
                   </div>
                   <p class="guide-card__form-fineprint">You'll join the Peninsula This Weekend dispatch. Unsubscribe any time.</p>
                   <p class="guide-card__form-status" data-guide-status hidden></p>
@@ -190,7 +190,7 @@ export const prerender = true;
           var emailInput = form.querySelector('input[name="email"]');
           var email = emailInput && emailInput.value && emailInput.value.trim();
           if (!email) return;
-          var btn = form.querySelector('.guide-card__form-button');
+          var btn = form.querySelector('button[type="submit"]');
           if (btn) btn.setAttribute('disabled', '');
           setStatus('info', 'Sending the link…');
 

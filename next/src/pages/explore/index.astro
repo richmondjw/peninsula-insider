@@ -468,6 +468,8 @@ export const prerender = true;
           </div>
           <a class="x-shelf__all" href="/journal/">All in the Journal →</a>
         </div>
+        {/* Section eyebrow already reads "From the Journal"; the per-card
+            ARTICLE stamp is redundant, so showEyebrow is off below. */}
         <CardGrid label="From the Journal">
           {journal.map((a, i) => (
             <Card
@@ -479,6 +481,7 @@ export const prerender = true;
               fieldPath="hero"
               image={{ src: a.hero.src, alt: a.hero.alt }}
               verdict={a.verdict}
+              showEyebrow={false}
               readTime={a.readTime}
               dateISO={a.dateISO}
               surface="explore-journal"
@@ -533,7 +536,7 @@ export const prerender = true;
           Start with a place, a mood, or the time you have.
         </p>
       </div>
-      <a class="x-ask__cta" href="/search/" data-open-search data-evt="search_open" data-surface="explore">Search Peninsula Insider</a>
+      <a class="pi-btn pi-btn--solid" href="/search/" data-open-search data-evt="search_open" data-surface="explore">Search Peninsula Insider</a>
     </div>
   </section>
 </BaseLayout>
@@ -914,26 +917,6 @@ export const prerender = true;
     font-family: var(--font-ui);
     color: var(--soft-inverse);
     max-width: var(--measure-dek, 40ch);
-  }
-  .x-ask__cta {
-    font-family: var(--font-ui);
-    font-weight: var(--fw-bold, 700);
-    background: var(--mint);
-    color: var(--bg-deep);
-    border-radius: var(--radius-s, 8px);
-    padding: 0 1.4rem;
-    min-height: 48px;
-    display: inline-flex;
-    align-items: center;
-    text-decoration: none;
-    transition: filter var(--dur-fast, 120ms) var(--ease-enter, ease);
-  }
-  .x-ask__cta:hover {
-    filter: brightness(1.06);
-  }
-  .x-ask__cta:focus-visible {
-    outline: 2px solid var(--mint);
-    outline-offset: 2px;
   }
 </style>
 

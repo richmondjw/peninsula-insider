@@ -39,6 +39,12 @@ export interface Props {
   moreLabel?: string;
   surface?: string;
   id?: string;
+  /**
+   * Type eyebrow on each card. Off by default: the module eyebrow reads
+   * "The Journal" and the heading "From the Journal", so a GUIDE stamp on
+   * every card below repeats what the section has already said.
+   */
+  showEyebrow?: boolean;
 }
 
 const {
@@ -50,6 +56,7 @@ const {
   moreLabel = 'All in the Journal',
   surface,
   id,
+  showEyebrow = false,
 } = Astro.props;
 
 if (items.length > 3) {
@@ -57,6 +64,10 @@ if (items.length > 3) {
 }
 const shown = items.slice(0, 3);
 const headingId = `${id ?? `journal-${surface ?? 'hub'}`}-heading`;
+
+/* Image-bearing row: a piece without a hero takes the Card house plate so
+   the three cards keep a level media line. All-text sets stay all-text. */
+const anyImage = shown.some((item) => Boolean(item.image?.src));
 ---
 
 {shown.length > 0 && (
@@ -81,6 +92,8 @@ const headingId = `${id ?? `journal-${surface ?? 'hub'}`}-heading`;
             entityType="article"
             entitySlug={item.entitySlug}
             image={item.image}
+            mediaFallback={anyImage}
+            showEyebrow={showEyebrow}
             verdict={item.verdict}
             byline={item.byline}
             readTime={item.readTime}

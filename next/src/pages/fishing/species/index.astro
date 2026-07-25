@@ -89,16 +89,16 @@ export const prerender = true;
       ) : (
         <div class="venues__grid venues__grid--links">
           {ordered.map((s) => (
-            <article class="venue-card">
+            <article class="pi-card"><div class="pi-card__body">
               <h2 class="venue-card__name">
                 <a href={`/fishing/species/${s.data.slug}/`}>{s.data.commonName}</a>
               </h2>
-              <p class="venue-card__meta">
+              <p class="pi-card__meta">
                 {s.data.scientificName} · Primary water: {REGION_LABEL[s.data.primaryRegion]} · Peak: {s.data.peakSeason}
               </p>
-              <p class="venue-card__signature">{s.data.intro}</p>
-              <a href={`/fishing/species/${s.data.slug}/`} class="venue-card__cta">Read species guide &rarr;</a>
-            </article>
+              <p class="pi-card__dek">{s.data.intro}</p>
+              <div class="pi-card__actions"><a href={`/fishing/species/${s.data.slug}/`} class="pi-btn pi-btn--solid">Read species guide &rarr;</a></div>
+            </div></article>
           ))}
         </div>
       )}

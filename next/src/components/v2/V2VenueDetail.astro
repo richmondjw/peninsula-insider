@@ -36,7 +36,26 @@ const isClosed = data.status === 'closed';
 const moodTags = data.tags?.mood ?? [];
 const seasonTags = data.tags?.season ?? [];
 const audienceTags = data.tags?.audience ?? [];
-const allTags = [...moodTags, ...seasonTags, ...audienceTags];
+
+/* Same overlap guard as VenueDetailTemplate: mood/season/audience share
+   values (legacy `mood: solo` vs current `audience: solo`), so the merged
+   list is deduped case-insensitively and tolerant of separators. */
+function dedupeTags(tags: unknown[]): string[] {
+  const seen = new Set<string>();
+  const out: string[] = [];
+  for (const raw of tags) {
+    if (typeof raw !== 'string') continue;
+    const label = raw.trim();
+    if (!label) continue;
+    const key = label.toLowerCase().replace(/[\s_-]+/g, ' ').trim();
+    if (seen.has(key)) continue;
+    seen.add(key);
+    out.push(label);
+  }
+  return out;
+}
+
+const allTags = dedupeTags([...moodTags, ...seasonTags, ...audienceTags]);
 
 const editorParas = String(data.editorNote ?? '').split(/\n\n+/).filter(Boolean);
 const pullquote = data.editorVerdict;
@@ -167,7 +186,7 @@ const venueHrefBase = `${base}${section}/`;
           </dl>
 
           {data.bookingUrl && (
-            <a class="masthead__cta" href={data.bookingUrl} target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-top:1.5rem;">
+            <a class="pi-btn pi-btn--solid" href={data.bookingUrl} target="_blank" rel="noopener noreferrer" style="margin-top:1.5rem;">
               {bookLabel}
             </a>
           )}

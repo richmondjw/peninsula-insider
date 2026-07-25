@@ -51,7 +51,7 @@ export const prerender = true;
       <div class="claim-anonymous" data-claim-anonymous>
         <p class="claim-anonymous__title">Sign in to submit a claim.</p>
         <p class="claim-anonymous__body">Claims are linked to your account so the editor can write back about verification status. Sign in (or create an account, free) to continue.</p>
-        <button type="button" class="claim-anonymous__cta" data-open-auth>Sign in</button>
+        <button type="button" class="pi-btn pi-btn--solid" data-open-auth>Sign in</button>
       </div>
 
       <form class="claim-form" data-claim-form aria-label="Operator claim form" hidden>
@@ -106,7 +106,7 @@ export const prerender = true;
         </fieldset>
 
         <div class="claim-form__submit">
-          <button type="submit" class="claim-form__button">Submit claim</button>
+          <button type="submit" class="pi-btn pi-btn--solid">Submit claim</button>
           <p class="claim-form__caveat">Claims are reviewed manually. You'll hear back via your account email - usually within a working day.</p>
         </div>
 
@@ -174,7 +174,7 @@ export const prerender = true;
     if (!form || form._piBound) return;
     form._piBound = true;
     const status = document.querySelector('[data-claim-status]');
-    const button = form.querySelector('.claim-form__button');
+    const button = form.querySelector('button[type="submit"]');
     const venueOptions = venueOptionsJson;
 
     function setStatus(kind, message) {
@@ -254,22 +254,6 @@ export const prerender = true;
     margin: 0 auto 1.25rem;
     max-width: 32rem;
   }
-  .claim-anonymous__cta {
-    font-family: var(--font-ui);
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    background: var(--accent);
-    color: var(--bg, #fff);
-    border: 1px solid var(--accent);
-    padding: 0.7rem 1.1rem;
-    cursor: pointer;
-  }
-  .claim-anonymous__cta:hover {
-    background: var(--text, #1a1a1a);
-    border-color: var(--text, #1a1a1a);
-  }
   .claim-existing {
     font-family: var(--font-ui);
     font-size: 0.95rem;
@@ -338,23 +322,6 @@ export const prerender = true;
     flex-direction: column;
     gap: 0.55rem;
     align-items: flex-start;
-  }
-  .claim-form__button {
-    font-family: var(--font-ui);
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--bg, #fff);
-    background: var(--accent);
-    border: 1px solid var(--accent);
-    padding: 0.85rem 1.4rem;
-    cursor: pointer;
-  }
-  .claim-form__button:disabled { opacity: 0.6; cursor: progress; }
-  .claim-form__button:hover:not(:disabled) {
-    background: var(--text, #1a1a1a);
-    border-color: var(--text, #1a1a1a);
   }
   .claim-form__caveat {
     font-family: var(--font-ui);

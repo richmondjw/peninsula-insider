@@ -227,6 +227,9 @@ export const prerender = true;
     <div class="container">
       <p class="v5-bestof__eyebrow">Best-of guides</p>
       <h2 id="bestof-heading" class="v5-bestof__title">Start with a ranked list</h2>
+      {/* "Best-of guides" is stated once, in the section eyebrow. The cards
+          drop their GUIDE stamp. They are text-only by design, so no media
+          fallback either: a plate on all three would be noise, not repair. */}
       <CardGrid label="Stay guides" layout="grid" maxCols={3}>
         {bestOfGuides.map((guide, i) => (
           <Card
@@ -235,6 +238,7 @@ export const prerender = true;
             href={`/stay/${guide.slug}/`}
             entityType="page"
             entitySlug={`stay-${guide.slug}`}
+            showEyebrow={false}
             verdict={guide.verdict}
             surface="stay"
             position={i + 1}

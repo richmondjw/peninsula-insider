@@ -19,6 +19,15 @@
  *
  * Keeps the .masthead class so the existing sticky positioning and the
  * --masthead-h measurement script in BaseLayout keep working.
+ *
+ * v6 token pass (P3-6, 2026-07-25): the three utility controls are the
+ * shared .pi-btn primitive (--ghost --sm); ground, border, radius, type
+ * and hover all come from primitives.css, so the duplicated scoped rules
+ * are gone. What stays here is genuinely chrome-specific: the 44px touch
+ * target, the responsive icon-only collapse, and the pillar-nav row.
+ * The pillar triggers are deliberately NOT .pi-btn - they are navigation
+ * eyebrows (uppercase, tracked), which is the one place the review keeps
+ * letterspaced caps. Button labels stay sentence case.
  */
 import { v5Pillars, v5Utilities } from '../../../lib/v5-nav';
 import V5MegaPanel from './V5MegaPanel.astro';
@@ -60,7 +69,7 @@ const active = activePillar(path, section);
             display:contents so the chip joins this flex row. */}
         <span class="v2-util__links v5-masthead__profile-slot"></span>
 
-        <a href={v5Utilities.launcher.href} class="v5-launcher" data-open-search data-evt="search_open">
+        <a href={v5Utilities.launcher.href} class="v5-launcher pi-btn pi-btn--ghost pi-btn--sm" data-open-search data-evt="search_open">
           <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <circle cx="11" cy="11" r="7" />
             <line x1="21" y1="21" x2="16.5" y2="16.5" />
@@ -68,7 +77,7 @@ const active = activePillar(path, section);
           <span class="v5-launcher__label">{v5Utilities.launcher.label}</span>
         </a>
 
-        <a href={v5Utilities.saved.href} class="v5-utilbtn v5-utilbtn--saved" aria-label="Saved, your shortlist">
+        <a href={v5Utilities.saved.href} class="v5-utilbtn v5-utilbtn--saved pi-btn pi-btn--ghost pi-btn--sm" aria-label="Saved, your shortlist">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M6 3.5h12a.5.5 0 0 1 .5.5v16.6a.4.4 0 0 1-.63.33L12 16.5l-5.87 4.43a.4.4 0 0 1-.63-.33V4a.5.5 0 0 1 .5-.5Z" />
           </svg>
@@ -77,7 +86,7 @@ const active = activePillar(path, section);
 
         <button
           type="button"
-          class="v5-utilbtn v5-burger"
+          class="v5-utilbtn v5-burger pi-btn pi-btn--ghost pi-btn--sm"
           aria-label="Open menu"
           aria-expanded="false"
           aria-controls="v5Drawer"
@@ -206,7 +215,12 @@ const active = activePillar(path, section);
      backdrop blur over a near-white ground; a single subtle bottom
      hairline. Sticky positioning is owned by the outer .masthead. */
   .v5-masthead {
-    background: color-mix(in srgb, var(--bg) 84%, transparent);
+    /* 92%, not 84%. The masthead is sticky, so arbitrary page content
+       (including full-bleed dark heroes) scrolls under it. Measured
+       against the darkest ground the site uses (--bg-dark, the Harbour deep ground):
+       84% put --soft at 5.34:1 and --text at 12.24:1; 92% lifts those
+       to 6.26:1 and 14.34:1 while still reading as glass. */
+    background: color-mix(in srgb, var(--bg) 92%, transparent);
     -webkit-backdrop-filter: saturate(1.4) blur(12px);
     backdrop-filter: saturate(1.4) blur(12px);
     border-bottom: 1px solid var(--border);
@@ -228,13 +242,18 @@ const active = activePillar(path, section);
     align-items: center;
     justify-content: space-between;
     gap: var(--space-4);
+    /* Row height, not a spacing step: it is sized off the 44px control
+       inside it plus breathing room. Left in px deliberately. */
     min-height: 68px;
   }
 
   .v5-masthead__logo {
     font-family: var(--font-display);
     font-weight: var(--fw-bold);
-    font-size: clamp(1.35rem, 1.05rem + 1.1vw, 1.75rem);
+    /* Was a bespoke clamp (21.6 -> 28px) that sat off the v6 scale.
+       --fs-600 is the nearest step (22 -> 26px) and now matches the
+       drawer wordmark, which carried its own one-off value. */
+    font-size: var(--fs-600);
     letter-spacing: var(--ls-display);
     line-height: var(--lh-display);
     color: var(--text);
@@ -253,58 +272,22 @@ const active = activePillar(path, section);
   }
   .v5-masthead__profile-slot { display: contents; }
 
-  /* Utility actions as pill buttons (ghost-pill spec). */
-  .v5-launcher {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-2);
-    min-height: 44px;
-    padding: 0 var(--space-4);
-    border: 1.5px solid var(--border-strong);
-    border-radius: var(--radius-pill);
-    background: var(--white);
-    font-family: var(--font-ui);
-    font-size: var(--fs-200);
-    font-weight: var(--fw-semibold);
-    color: var(--soft);
-    text-decoration: none;
-    transition: border-color var(--dur-fast) var(--ease-enter),
-                color var(--dur-fast) var(--ease-enter),
-                transform var(--dur-fast) var(--ease-enter);
-  }
-  .v5-launcher:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-    transform: translateY(-1px);
-  }
-
+  /* Search / Saved / Menu are .pi-btn --ghost --sm. The primitive owns
+     ground, border, radius (--radius-s), type, hover and transition, so
+     the three near-identical scoped rulesets that used to live here are
+     gone - along with the pill radius and the two different border
+     colours (--border vs --border-strong) they disagreed on, and the
+     --soft label colour that made the launcher read like a disabled
+     field. All that is left is the touch-target floor: --sm is a
+     small-button scale, and these are the header's only tap targets.
+     (The flex display is not a duplicate: min-height does nothing on an
+     inline <a>, so the target floor needs it to take effect.) */
+  .v5-launcher,
   .v5-utilbtn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: var(--space-2);
     min-height: 44px;
-    padding: 0 var(--space-3);
-    background: transparent;
-    border: 1.5px solid var(--border);
-    border-radius: var(--radius-pill);
-    font-family: var(--font-ui);
-    color: var(--text);
-    text-decoration: none;
-    cursor: pointer;
-    transition: border-color var(--dur-fast) var(--ease-enter),
-                color var(--dur-fast) var(--ease-enter),
-                transform var(--dur-fast) var(--ease-enter);
-  }
-  .v5-utilbtn:hover {
-    color: var(--accent);
-    border-color: var(--accent);
-    transform: translateY(-1px);
-  }
-  .v5-utilbtn__label {
-    font-size: var(--fs-200);
-    font-weight: var(--fw-semibold);
-    line-height: var(--lh-label);
   }
 
   .v5-masthead__nav {
@@ -323,6 +306,7 @@ const active = activePillar(path, section);
     display: inline-flex;
     align-items: center;
     gap: var(--space-2);
+    /* Nav row height (target size), not a spacing step. */
     min-height: 50px;
     padding: 0 var(--space-1);
     background: none;
@@ -386,18 +370,17 @@ const active = activePillar(path, section);
       white-space: nowrap;
       border: 0;
     }
+    /* Icon-only launcher: the label is still in the accessible name via
+       the visually-hidden span above, so no aria-label is needed and the
+       .pi-btn--icon variant (which requires one) is not used here. Square
+       it up and let the primitive keep the ground and border. */
     .v5-launcher {
       min-width: 44px;
-      min-height: 44px;
-      justify-content: center;
       padding: 0;
-      border: 1.5px solid var(--border);
-      color: var(--text);
     }
     /* Mobile: the burger is the only nav entry point; guarantee a 44px target. */
     .v5-utilbtn {
       min-width: 44px;
-      min-height: 44px;
     }
   }
 </style>

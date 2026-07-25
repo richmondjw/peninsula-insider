@@ -70,7 +70,7 @@ const dispatchDek   = articleOv.text['dek']   ?? dispatch?.data?.dek   ?? '';
         <div class="weekend-picker__ctas">
           <a
             href={target}
-            class="weekend-picker__cta"
+            class="weekend-picker__cta pi-btn pi-btn--ghost"
             {...editableText({
               entityType: 'page', entitySlug: '_global',
               fieldPath: 'weekend.cta.primary', label: 'Primary CTA label',
@@ -78,7 +78,7 @@ const dispatchDek   = articleOv.text['dek']   ?? dispatch?.data?.dek   ?? '';
           >{ctaPrimary}</a>
           <a
             href="/whats-on/"
-            class="weekend-picker__cta weekend-picker__cta--ghost"
+            class="weekend-picker__cta pi-btn pi-btn--ghost"
             {...editableText({
               entityType: 'page', entitySlug: '_global',
               fieldPath: 'weekend.cta.ghost', label: 'Ghost CTA label',

@@ -177,6 +177,8 @@ const pageDescription = `What is actually worth it on the Mornington Peninsula t
           <h2 class="wo-picks__title" id="wo-picks-h">PI's picks</h2>
           <p class="wo-picks__dek">Three, chosen by us. If we would not drive to it, it is not here.</p>
         </div>
+        {/* Every card here is an event on the What's On page, under a heading
+            that says so: the per-card EVENT stamp is dropped. */}
         <CardGrid label="PI's picks for this weekend">
           {pickCards.map((c) => (
             <Card
@@ -189,6 +191,8 @@ const pageDescription = `What is actually worth it on the Mornington Peninsula t
               verdict={c.verdict}
               meta={c.meta}
               dateISO={c.dateISO}
+              showEyebrow={false}
+              mediaFallback={true}
               trip={true}
               surface="whatson"
               position={c.position}
@@ -229,7 +233,7 @@ const pageDescription = `What is actually worth it on the Mornington Peninsula t
         ))}
       </div>
       <p class="wo-more">
-        <button type="button" class="wo-more__btn" data-wo-month data-evt="wo_date_change" hidden>
+        <button type="button" class="pi-btn pi-btn--ghost" data-wo-month data-evt="wo_date_change" hidden>
           Load the month ahead
         </button>
         <noscript>
@@ -762,27 +766,6 @@ const pageDescription = `What is actually worth it on the Mornington Peninsula t
   }
   .wo-more {
     margin: var(--space-6, 2rem) 0 0;
-  }
-  .wo-more__btn {
-    appearance: none;
-    min-height: 48px;
-    padding: 0 var(--space-5, 1.5rem);
-    background: var(--bg);
-    color: var(--text);
-    border: 1px solid var(--border-strong, var(--border));
-    border-radius: var(--radius-m, 10px);
-    font-family: var(--font-ui, inherit);
-    font-size: var(--fs-300, 0.9rem);
-    font-weight: var(--fw-semibold, 600);
-    cursor: pointer;
-  }
-  .wo-more__btn:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-  }
-  .wo-more__btn:focus-visible {
-    outline: var(--focus-ring, 2px solid var(--accent));
-    outline-offset: 2px;
   }
   .wo-more__noscript {
     color: var(--soft);

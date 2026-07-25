@@ -1,5 +1,5 @@
 /**
- * Peninsula Insider — inline editor visual chrome.
+ * Peninsula Insider - inline editor visual chrome.
  *
  * All styles are scoped under `body[data-pi-edit-mode="on"]`. When edit mode
  * is off, none of this CSS applies and the public site is byte-identical.
@@ -17,7 +17,7 @@
   gap: 0.5rem;
   padding: 0.5rem 0.85rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   background: #faf7f0;
   color: #1a1a1a;
   font: 600 0.75rem/1 var(--font-ui);
@@ -64,7 +64,7 @@ body[data-pi-edit-mode="on"] .pi-edit-toggle__dot {
   gap: 0.5rem;
   padding: 0.5rem 0.85rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   background: #faf7f0;
   color: #1a1a1a;
   font: 600 0.75rem/1 var(--font-ui);
@@ -126,7 +126,7 @@ body[data-pi-edit-mode="on"] [data-pi-edit]::before {
   color: var(--accent);
   background: rgba(250, 247, 240, 0.95);
   border: 1px solid rgba(11, 90, 72, 0.25);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.15s ease;
@@ -136,7 +136,7 @@ body[data-pi-edit-mode="on"] [data-pi-edit]::before {
 
 body[data-pi-edit-mode="on"] [data-pi-edit]:hover::before { opacity: 1; }
 
-/* Active state — currently being edited */
+/* Active state - currently being edited */
 body[data-pi-edit-mode="on"] [data-pi-edit][data-pi-editing="1"] {
   outline-color: var(--accent);
   outline-width: 2px;
@@ -161,7 +161,7 @@ body[data-pi-edit-mode="on"] [data-pi-edit="image"][data-pi-uploading="1"]::afte
   padding: 0.5rem 0.9rem;
   background: #1a1a1a;
   color: #faf7f0;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   font: 600 0.7rem/1 var(--font-ui);
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -170,7 +170,7 @@ body[data-pi-edit-mode="on"] [data-pi-edit="image"][data-pi-uploading="1"]::afte
 
 /* -- Universal hover affordance for unmarked images in edit mode ----------- */
 /* Mirrors the [data-pi-edit] styling but for ANY image-like element on the
-   page (an <img>, or a [role="img"] div using background-image — the
+   page (an <img>, or a [role="img"] div using background-image - the
    article-hero / editor's-letter / place-card pattern) so the editor knows
    it can right-click anything. */
 body[data-pi-edit-mode="on"] img:not([data-pi-edit]):not([data-pi-no-edit]),
@@ -186,7 +186,7 @@ body[data-pi-edit-mode="on"] [role="img"]:not([data-pi-edit]):not([data-pi-no-ed
   box-shadow: 0 0 0 4px rgba(11, 90, 72, 0.08);
 }
 
-/* -- Image edit panel — replaces the old right-click context menu ---------- */
+/* -- Image edit panel - replaces the old right-click context menu ---------- */
 
 .pi-edit-panel {
   position: fixed;
@@ -332,7 +332,7 @@ body[data-pi-edit-mode="on"] [role="img"]:not([data-pi-edit]):not([data-pi-no-ed
 
 .pi-edit-panel__library span { font-size: 1rem; }
 
-/* Promote-to-explicit affordance — appears only when an auto-detected image
+/* Promote-to-explicit affordance - appears only when an auto-detected image
    sits inside an ancestor that declares a CMS entity. Visually quieter than
    the primary Replace button so it reads as a secondary, advanced action. */
 .pi-edit-panel__promote {
@@ -587,7 +587,7 @@ body[data-pi-edit-mode="on"] [role="img"]:not([data-pi-edit]):not([data-pi-no-ed
   padding: 0.6rem 1.1rem;
   background: #1a1a1a;
   color: #faf7f0;
-  border-radius: 999px;
+  border-radius: var(--radius-l);
   font: 500 0.8rem/1 var(--font-ui);
   letter-spacing: 0.03em;
   z-index: 10001;
@@ -635,7 +635,7 @@ body[data-pi-edit-mode="on"] [data-pi-prose-root] [data-pi-block-id] {
   transition: outline-color 0.15s ease, background-color 0.15s ease;
   outline: 1px dashed transparent;
   outline-offset: 4px;
-  border-radius: 2px;
+  border-radius: var(--radius-s);
 }
 
 body[data-pi-edit-mode="on"] [data-pi-prose-root] [data-pi-block-id]:hover {

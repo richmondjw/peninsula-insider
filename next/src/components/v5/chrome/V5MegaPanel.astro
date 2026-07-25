@@ -11,6 +11,12 @@
  *
  * Open/close behaviour lives in V5Masthead's script: click or Enter on
  * the trigger, never focus or hover.
+ *
+ * v6 token pass (P3-6, 2026-07-25): the panel is all links, so nothing
+ * moves to .pi-btn. Radii already follow the scale (--radius-l for the
+ * panel, --radius-m for the pin tile) and --elev-3 is kept deliberately:
+ * this floats over page content, which is what the elevation scale is
+ * for - unlike in-flow cards, where P0-4 dropped shadows.
  */
 import type { V5Pillar } from '../../../lib/v5-nav';
 import { editableText } from '../../../lib/inline-edit/attrs';
@@ -127,7 +133,12 @@ const pinVerdictAttrs = editableText({
     font-weight: var(--fw-semibold);
     letter-spacing: var(--ls-eyebrow);
     text-transform: uppercase;
-    color: var(--teal-text);
+    /* Was --teal-text. That measures 5.05:1 on white but only 4.45:1 on
+       --bg-alt, and this same class is used inside .v5-mega__pin, which
+       is an --bg-alt tile - so the eyebrow shipped below AA there.
+       --accent clears AA on both grounds (8.17:1 on --bg, 7.19:1 on
+       --bg-alt) and gives the chrome one eyebrow colour instead of two. */
+    color: var(--accent);
     margin-bottom: var(--space-3);
     line-height: var(--lh-label);
   }

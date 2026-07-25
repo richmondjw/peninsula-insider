@@ -1,125 +1,166 @@
 ---
-/* UtilityBar - V2 design, top utility ribbon.
-   Issue stamp · weekend conditions · Subscribe / About.
-   Renders above the masthead site-wide.
-   Strangler-fig migration: namespaced .v2-util* so it can coexist with
-   any existing V1 utility rules (currently none - but pattern is consistent
-   with the V2 newsletter migration).
-   CSS inlined so the component is self-contained. */
+/**
+ * UtilityBar - the Peninsula Insider conditions strip.
+ *
+ * Two brand assets in one row: the conditions read on the left
+ * (SORRENTO 16° · SUNSET 5:26 PM · BAY GLASSY, TIDE LOW) and the issue
+ * stamp on the right (WINTER INSIDER · JULY 2026). Both shipped in v5 and
+ * were dropped in the v6 "Evergreen Coast" migration. Reinstated per the
+ * visual design review (finding #1, P0-1 / P0-2): live local sensory data
+ * as masthead furniture is the most ownable thing on the site, and the
+ * issue stamp is what makes it an edition rather than a database.
+ *
+ * DATA HONESTY. There is no weather or tide feed in this repo.
+ *   - Sunset is computed from the date and the Peninsula's coordinates
+ *     (src/lib/sunset.ts). No API, no network, deterministic.
+ *   - The issue label is derived from the current date.
+ *   - Temperature and the sea/tide read come from the editorially
+ *     maintained src/data/conditions.json, and are DROPPED (not faked)
+ *     when unset or stale. See src/lib/conditions.ts.
+ * The strip therefore degrades to whatever it can honestly say. In the
+ * worst case it is just the issue stamp, and that is the correct outcome.
+ *
+ * Not sticky. The v6 masthead owns `position: sticky; top: 0` in
+ * global.css, so the strip sits above it in normal flow and scrolls away
+ * like a printed dateline. That avoids fighting the masthead's offset and
+ * leaves the --masthead-h measurement in BaseLayout untouched.
+ *
+ * Styles are scoped to this component (global.css is not ours to edit) and
+ * use only v6 tokens: no hardcoded hex.
+ */
+import { getConditionsStrip } from '../lib/conditions';
 
 export interface Props {
-  issueMark?: string;
-  issueLabel?: string;
-  port?: string;
-  portTemp?: string;
-  sunset?: string;
-  nextDispatch?: string;
+  /** Override the reference instant. Defaults to build time. */
+  now?: Date;
 }
 
-const {
-  issueMark = '',
-  issueLabel = 'Autumn Insider · May 2026',
-  port = 'Port Phillip',
-  portTemp = '16°C',
-  sunset = '5:48 pm',
-  nextDispatch = 'Weekly dispatch',
-} = Astro.props;
+const { now = new Date() } = Astro.props;
+const c = getConditionsStrip(now);
+
+// "Sorrento 16°" reads as one unit; if there is no temperature it is just
+// the place, and if there is no place the whole item is dropped.
+const placeLabel = c.place && c.temperature
+  ? `${c.place} ${c.temperature}°`
+  : c.place ?? null;
 ---
 
-<div class="v2-util">
-  <div class="v2-util__inner">
-    <span class="v2-util__issue">
-      <span class="v2-util__issue-mark">{issueMark}</span>
-      <span set:html={issueLabel} />
-    </span>
-    <div class="v2-util__now">
-      <span><strong>{port}</strong> {portTemp}</span>
-      <span><strong>Sunset</strong> {sunset}</span>
-      <span><strong>Next dispatch</strong> {nextDispatch}</span>
-    </div>
-    <div class="v2-util__links">
-      <a href="/#newsletter">Join</a>
-      <a href="/editorial-approach/">Editorial Approach</a>
-    </div>
+<div class="pi-conditions">
+  <div class="pi-conditions__inner">
+    {!c.isBare && (
+      <p class="pi-conditions__now">
+        {placeLabel && (
+          <span class="pi-conditions__item pi-conditions__item--place">{placeLabel}</span>
+        )}
+        {c.sunset && (
+          <span class="pi-conditions__item pi-conditions__item--sunset">Sunset {c.sunset}</span>
+        )}
+        {c.sea && (
+          <span class="pi-conditions__item pi-conditions__item--sea">{c.sea}</span>
+        )}
+      </p>
+    )}
+    <p class="pi-conditions__issue">
+      <span class="pi-conditions__issue-full">{c.issue}</span>
+      <span class="pi-conditions__issue-short">{c.issueShort}</span>
+    </p>
   </div>
 </div>
 
-<style is:global>
-  .v2-util {
-    background: var(--deep, #201B17);
-    color: rgba(250,247,240,0.72);
-    font-size: 0.72rem;
-    letter-spacing: 0.05em;
-    border-bottom: 1px solid rgba(250,247,240,0.08);
-    font-family: var(--sans, 'Inter', system-ui, sans-serif);
-    /* Pinned to the very top of every page, always visible. The
-       Masthead has its top offset bumped down by 34px (the bar's
-       height) in global.css so they stack cleanly. */
-    position: sticky;
-    top: 0;
-    z-index: 10000;
+<style>
+  /* Ground: the signature forest-teal. Text colours are the tokenised
+     inverse pair, both measured against --bg-dark (the Harbour deep ground):
+       --soft-inverse  7.21:1  (conditions)
+       --white        13.14:1  (issue stamp)
+     Both clear WCAG AA for normal text (4.5:1) with room to spare. */
+  .pi-conditions {
+    background: var(--bg-dark);
+    color: var(--soft-inverse);
+    font-family: var(--font-ui);
+    border-bottom: 1px solid color-mix(in srgb, var(--white) 12%, transparent);
+    /* viewport-fit=cover: clear the status bar / notch, since this is now
+       the topmost painted element on the page. */
+    padding-top: env(safe-area-inset-top);
   }
-  .v2-util__inner {
+
+  .pi-conditions__inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 34px;
-    gap: 1rem;
-    max-width: 1280px;
+    gap: var(--space-4);
+    min-height: 34px;
+    max-width: var(--max-w);
     margin: 0 auto;
-    padding: 0 clamp(1.25rem, 4vw, 2.5rem);
+    padding: 0 calc(var(--space-5) + env(safe-area-inset-right)) 0
+             calc(var(--space-5) + env(safe-area-inset-left));
   }
-  .v2-util__issue {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    font-family: var(--serif, 'Newsreader', Georgia, serif);
-    font-weight: 400;
-    font-style: normal;
-    font-size: 0.85rem;
-    color: rgba(250,247,240,0.85);
-    font-variation-settings: 'opsz' 16;
-  }
-  .v2-util__issue-mark {
-    font-family: var(--sans, 'Inter', system-ui, sans-serif);
-    font-style: normal;
-    font-size: 0.65rem;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--gold, #56b6a0);
-    padding: 0.18rem 0.5rem;
-    border: 1px solid rgba(86, 182, 160,0.4);
-    border-radius: 2px;
-  }
-  .v2-util__now {
-    display: flex;
-    gap: 1.5rem;
-    font-size: 0.7rem;
-    letter-spacing: 0.06em;
-    color: rgba(250,247,240,0.55);
-  }
-  .v2-util__now strong {
-    color: rgba(250,247,240,0.85);
-    font-weight: 500;
-    margin-right: 0.35rem;
-  }
-  .v2-util__links {
-    display: flex;
-    gap: 1.1rem;
-    font-size: 0.7rem;
-    letter-spacing: 0.09em;
-    text-transform: uppercase;
-  }
-  .v2-util__links a {
-    color: rgba(250,247,240,0.55);
-    text-decoration: none;
-    transition: color .2s ease;
-  }
-  .v2-util__links a:hover { color: var(--gold, #56b6a0); }
 
-  @media (max-width: 760px) {
-    .v2-util__now { display: none; }
-    .v2-util__inner { padding: 0 1rem; }
+  .pi-conditions__now,
+  .pi-conditions__issue {
+    margin: 0;
+    font-size: var(--fs-100);
+    font-weight: var(--fw-medium);
+    line-height: var(--lh-label);
+    letter-spacing: var(--ls-eyebrow);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  /* The conditions group yields first when space is short; the issue stamp
+     never gets pushed off the row. */
+  .pi-conditions__now {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-3);
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  /* Separators are generated, so hiding an item at a breakpoint removes its
+     separator with it. */
+  .pi-conditions__item + .pi-conditions__item::before {
+    content: '·';
+    margin-right: var(--space-3);
+    color: color-mix(in srgb, var(--white) 55%, transparent);
+  }
+
+  .pi-conditions__issue {
+    flex: none;
+    /* Stays right-aligned even when the conditions group is empty. */
+    margin-left: auto;
+    color: var(--white);
+    font-weight: var(--fw-semibold);
+  }
+  .pi-conditions__issue-short { display: none; }
+
+  /* Tablet: the sea and tide read is the longest and least critical item. */
+  @media (max-width: 899px) {
+    .pi-conditions__item--sea { display: none; }
+  }
+
+  /* Mobile (390px target): reduce to sunset plus a short issue stamp rather
+     than squashing four items into one row. `.pi-conditions__item--sunset`
+     becomes the first visible item, so its generated separator is cleared
+     explicitly (display:none siblings still match the adjacency selector). */
+  @media (max-width: 639px) {
+    .pi-conditions__item--place { display: none; }
+    /* Selector matches the generated-separator rule's specificity (two
+       classes plus the pseudo-element) and comes later, so it wins. */
+    .pi-conditions__item--place + .pi-conditions__item--sunset::before {
+      content: none;
+      margin-right: 0;
+    }
+    .pi-conditions__issue-full { display: none; }
+    .pi-conditions__issue-short { display: inline; }
+    .pi-conditions__inner {
+      gap: var(--space-3);
+      padding: 0 calc(var(--space-4) + env(safe-area-inset-right)) 0
+               calc(var(--space-4) + env(safe-area-inset-left));
+    }
+  }
+
+  /* The strip is furniture, not content: it adds nothing to a printed page. */
+  @media print {
+    .pi-conditions { display: none; }
   }
 </style>

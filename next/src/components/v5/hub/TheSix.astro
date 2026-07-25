@@ -51,14 +51,26 @@ export interface Props {
   /** Exactly six editorially pinned items (build warns off-count). */
   items: SixItem[];
   id?: string;
+  /**
+   * Type eyebrow on each card. Off by default: every item here is a venue
+   * and the section heading already says so ("Six tables worth planning
+   * around this month"), so six identical VENUE stamps add nothing.
+   */
+  showEyebrow?: boolean;
 }
 
-const { heading, eyebrow, sub, surface, items, id } = Astro.props;
+const { heading, eyebrow, sub, surface, items, id, showEyebrow = false } = Astro.props;
 
 if (items.length !== 6) {
   console.warn(`[v5 TheSix] expected 6 items for surface "${surface}", got ${items.length}`);
 }
 const six = items.slice(0, 6);
+
+/* This is a photographic module. When at least one pick has a hero, any pick
+   without one gets the Card house plate instead of a blank slot, so the row
+   stays level. If the whole set is image-free the module simply runs
+   text-only rather than printing six identical plates. */
+const anyImage = six.some((item) => Boolean(item.image?.src));
 ---
 
 <section class="v5-six" id={id} aria-labelledby={`${id ?? `six-${surface}`}-heading`}>
@@ -83,6 +95,8 @@ const six = items.slice(0, 6);
             entityType={item.entityType}
             entitySlug={item.entitySlug}
             image={item.image}
+            mediaFallback={anyImage}
+            showEyebrow={showEyebrow}
             verdict={item.verdict}
             meta={item.meta}
             priceBand={item.priceBand}
@@ -139,7 +153,7 @@ const six = items.slice(0, 6);
     list-style: none;
     display: flex;
   }
-  .v5-six__item > :global(.v5-card) {
+  .v5-six__item > :global(.pi-card) {
     flex: 1;
   }
 </style>

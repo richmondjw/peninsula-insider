@@ -15,6 +15,7 @@
  */
 import { mastheadNav as navItems, mastheadMoreNav as moreItems } from '../lib/nav';
 import Typeahead from './Typeahead.astro';
+import { getConditionsStrip } from '../lib/conditions';
 
 export interface Props {
   section?: string;
@@ -25,13 +26,23 @@ export interface Props {
   sunset?: string;
 }
 
+/* Defaults are derived, never hardcoded. The previous literals
+   ("Autumn Insider · May 2026", "16°C", "5:48 pm") were frozen at the v5
+   build date and were quietly wrong from the day after. Issue label and
+   sunset are computed; temperature comes from the editorial data file and
+   resolves to an empty string when unobserved, so nothing is invented.
+   See src/lib/conditions.ts and src/lib/sunset.ts.
+   NOTE: this component is not currently mounted. The live conditions strip
+   and issue stamp are UtilityBar.astro, rendered from BaseLayout. */
+const strip = getConditionsStrip();
+
 const {
   section = 'home',
   issueMark = '',
-  issueLabel = 'Autumn Insider · May 2026',
-  port = 'Port Phillip',
-  portTemp = '16°C',
-  sunset = '5:48 pm',
+  issueLabel = strip.issue,
+  port = strip.place ?? '',
+  portTemp = strip.temperature ? `${strip.temperature}°C` : '',
+  sunset = strip.sunset ?? '',
 } = Astro.props;
 ---
 
@@ -160,8 +171,8 @@ const {
              mounted by BaseLayout as a fallback path; the typeahead's
              "View all results" footer link routes there if needed. -->
         <Typeahead />
-        <a href="/dispatch/" class="masthead__cta">Join</a>
-        <a href="/dispatch/" class="masthead__cta-mobile" aria-label="Join the Dispatch">Join</a>
+        <a href="/dispatch/" class="masthead__cta pi-btn pi-btn--ghost pi-btn--sm">Join</a>
+        <a href="/dispatch/" class="masthead__cta-mobile pi-btn pi-btn--text" aria-label="Join the Dispatch">Join</a>
       </div>
     </div>
   </div>
@@ -254,10 +265,10 @@ const {
       <span class="mobile-nav__arrow" aria-hidden="true">→</span>
     </a>
     <div class="mobile-nav__footer">
-      <a href="/ask/" class="mobile-nav__cta mobile-nav__cta--ask" data-pi-trigger="true">
+      <a href="/ask/" class="mobile-nav__cta pi-btn pi-btn--solid pi-btn--block" data-pi-trigger="true">
         Ask The Insider for a recommendation
       </a>
-      <a href="/dispatch/" class="mobile-nav__cta">Join the Peninsula Dispatch</a>
+      <a href="/dispatch/" class="mobile-nav__cta pi-btn pi-btn--solid pi-btn--block">Join the Peninsula Dispatch</a>
       <p class="mobile-nav__tagline">Independent editorial. Sent when it's worth sending.</p>
     </div>
   </div>

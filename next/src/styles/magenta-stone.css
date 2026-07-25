@@ -1,5 +1,5 @@
 /* ════════════════════════════════════════════════════════════════════════
-   Magenta Stone — admin-previewable theme override layer.
+   Magenta Stone - admin-previewable theme override layer.
 
    A magenta-accented, cool-greystone redesign of the site. Everything here is
    scoped under `html[data-theme="magenta-stone"]`, so this file is globally
@@ -28,7 +28,7 @@ html[data-theme="magenta-stone"] {
   --soft:       #5E6561;   /* ink-muted */
   --accent:     #BE1E63;   /* magenta-500 */
   --acc-h:      #9E1452;   /* magenta-600 pressed */
-  --gold:       #E4D08A;   /* amber-base — decorative + dark-banner CTA */
+  --gold:       #E4D08A;   /* amber-base - decorative + dark-banner CTA */
   --gold-text:  #9E1452;   /* amber-deep fails AA as text → use magenta-600 */
   --dark:       #1C201E;   /* ink (heading colour) */
   --white:      #FFFFFF;
@@ -81,7 +81,7 @@ html[data-theme="magenta-stone"] :is(h3, h4, h5, h6) {
 }
 
 /* Large editorial titles that hardcode Cormorant on a class (and may not be
-   h1/h2 elements) — keep them Newsreader display. */
+   h1/h2 elements) - keep them Newsreader display. */
 html[data-theme="magenta-stone"] :is(
   .cover__headline,
   .hp-big4__name,
@@ -141,7 +141,7 @@ html[data-theme="magenta-stone"] .cover__chip {
   color: #E4D08A;
 }
 html[data-theme="magenta-stone"] .cover__cta {
-  border-radius: 9px;
+  border-radius: var(--radius-s);
 }
 
 /* Big-four nav + rails: warm band → cool surface-sunken (handled by --bg-alt

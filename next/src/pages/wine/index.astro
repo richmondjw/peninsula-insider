@@ -294,6 +294,8 @@ const faqSchema = {
     <section class="wine-rail" aria-labelledby="wine-rail-h">
       <p class="wine-rail__eyebrow">The guides</p>
       <h2 id="wine-rail-h" class="wine-rail__heading">Read before you book</h2>
+      {/* The section eyebrow already reads "The guides"; the cards drop the
+          per-card GUIDE stamp. Text-only rail, so no media fallback. */}
       <CardGrid label="Wine guides" layout="grid" maxCols={3}>
         {bestOfRail.map((guide, i) => (
           <Card
@@ -302,6 +304,7 @@ const faqSchema = {
             href={guide.href}
             entityType="page"
             entitySlug={guide.entitySlug}
+            showEyebrow={false}
             verdict={guide.verdict}
             surface="wine"
             position={i + 1}

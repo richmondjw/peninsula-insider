@@ -1,5 +1,5 @@
 /**
- * Account pages — shared chrome for /account/, /account/saved/, /account/likes/.
+ * Account pages - shared chrome for /account/, /account/saved/, /account/likes/.
  *
  * Loads via BaseLayout's import chain when any account page renders. Each
  * page also adds its own panel-specific styles below the shared frame.
@@ -59,7 +59,7 @@
   gap: 0.25rem;
   padding: 0.35rem;
   background: var(--paper-warm, #def3ee);
-  border-radius: 100px;
+  border-radius: var(--radius-s);
   margin: 1.5rem 0 2.5rem;
 }
 
@@ -72,7 +72,7 @@
   font-weight: 600;
   color: var(--ink-soft, #3A3531);
   text-decoration: none;
-  border-radius: 100px;
+  border-radius: var(--radius-s);
   transition: background 0.18s ease, color 0.18s ease;
 }
 
@@ -85,27 +85,9 @@
   color: var(--paper, #FAF7F0);
 }
 
-/* Primary CTA (Sign in / Browse the Journal) */
-.v2-account-page__cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.85rem 1.5rem;
-  background: var(--ink, #171413);
-  color: var(--paper, #FAF7F0);
-  border: 0;
-  border-radius: 100px;
-  font-family: var(--font-ui);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background 0.18s ease, transform 0.08s ease;
-}
-
-.v2-account-page__cta:hover { background: var(--ochre, #26997e); }
+/* Primary CTA (Sign in / Browse the Journal)
+   P3-2: .pi-btn --solid owns ground, radius, type and hover.
+   KEPT: the press-down affordance. */
 .v2-account-page__cta:active { transform: scale(0.98); }
 
 /* Profile-page header (avatar + name) */
@@ -141,7 +123,7 @@
 .v2-account-page__panel {
   background: #fff;
   border: 1px solid var(--line, #bed9d3);
-  border-radius: 8px;
+  border-radius: var(--radius-l);
   padding: clamp(1.25rem, 3vw, 2rem);
 }
 
@@ -170,7 +152,7 @@
 .v2-account-page__form textarea {
   padding: 0.75rem 0.95rem;
   border: 1px solid var(--line, #bed9d3);
-  border-radius: 4px;
+  border-radius: var(--radius-s);
   font: inherit;
   font-size: 0.95rem;
   background: #fff;
@@ -203,23 +185,11 @@
   color: var(--ink, #171413) !important;
 }
 
+/* P3-2: .pi-btn --solid owns the control.
+   KEPT: grid placement inside the settings form. */
 .v2-account-page__save {
-  padding: 0.75rem 1.4rem;
-  background: var(--ink, #171413);
-  color: var(--paper, #FAF7F0);
-  border: 0;
-  border-radius: 100px;
-  font-family: var(--font-ui);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  cursor: pointer;
   justify-self: start;
-  transition: background 0.18s ease;
 }
-
-.v2-account-page__save:hover { background: var(--ochre, #26997e); }
 
 .v2-account-page__status {
   font-size: 0.85rem;
@@ -249,7 +219,7 @@
   grid-template-rows: auto 1fr;
   background: #fff;
   border: 1px solid var(--line, #bed9d3);
-  border-radius: 8px;
+  border-radius: var(--radius-m);
   overflow: hidden;
   text-decoration: none;
   color: inherit;
