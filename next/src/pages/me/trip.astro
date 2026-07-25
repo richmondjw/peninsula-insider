@@ -929,6 +929,12 @@ export const prerender = true;
     gap: var(--space-5, 1.5rem);
   }
 
+  /* Grid items default to min-width: auto, so day groups and stop rows refuse
+     to shrink below their content width and overflow the page gutters. */
+  .trip-page .trip-day {
+    min-width: 0;
+  }
+
   .trip-page .trip-day__head {
     display: flex;
     align-items: baseline;
@@ -978,6 +984,7 @@ export const prerender = true;
     align-items: center;
     gap: var(--space-3, 0.75rem);
     padding: var(--space-3, 0.75rem);
+    min-width: 0;
     background: var(--bg, #fff);
     border: 1px solid var(--border);
     border-radius: var(--radius-m, 10px);
@@ -1152,6 +1159,19 @@ export const prerender = true;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+  }
+
+  /* Below this width the media tile, title and both 48px targets cannot share a
+     single line without crushing the title, so the actions take their own row. */
+  @media (max-width: 32.49em) {
+    .trip-page .trip-stop {
+      flex-wrap: wrap;
+    }
+
+    .trip-page .trip-stop__actions {
+      flex: 1 0 100%;
+      justify-content: flex-end;
+    }
   }
 
   @media print {
