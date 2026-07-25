@@ -4,7 +4,7 @@ type: project-plan
 status: active
 version: 1.0
 established: 2026-07-25
-last-reviewed: 2026-07-25
+last-reviewed: 2026-07-25 (P3 complete)
 owner: James Richmond
 extends:
   - docs/visual-design-brand-review-2026-07-25.md
@@ -29,7 +29,7 @@ Source of findings: [`docs/visual-design-brand-review-2026-07-25.md`](./visual-d
 | **P0** | Zero-regret fixes | none | 🟡 In progress | Week 1 |
 | **P1** | Direction proof | **G1, G2** | 🟡 In progress | Week 1–2 |
 | **P2** | Photography | G2 | ⬜ Not started | Week 2–10 (calendar-driven) |
-| **P3** | Architecture | G2 | 🟡 In progress | Week 3–5 |
+| **P3** | Architecture | G2 | ✅ Done | Week 3–5 |
 | **P4** | Skin | G2 + P3 | ⬜ Not started | Week 5–8 |
 | **P5** | Brand evolution | P4 | ⬜ Not started | Month 3–12 |
 
@@ -124,14 +124,14 @@ Work does not cross a gate until the decision is recorded here with a date.
 
 | ID | Item | Review # | Effort | Depends on | Status |
 |---|---|---|---|---|---|
-| P3-1 | **Build the `.btn` primitive** — three variants (solid, ghost, text-link-with-rule), one size scale, sentence case. | #11 | 2d | — | ⬜ |
-| P3-2 | **Migrate all 42 button/CTA class families** onto the primitive. Includes `v3-btn*`, `v4-iconbtn`, `.venue-detail__book-btn`, `.venues__more-btn`, `.article__share-btn`. | #11 | 3d | P3-1 | ⬜ |
-| P3-3 | **Fix the phone-number button affordance** on venue pages (currently reads as disabled). | #11 | 0.25d | P3-1 | ⬜ |
-| P3-4 | **Build the `.card` primitive** and migrate the card variants onto it. | #11 | 2d | — | ⬜ |
-| P3-5 | **Delete v3 and v4 stylesheets** (`v3.css` 1,535 lines, `v4.css` 905 lines) and their orphaned components. | #18 | 1d | P3-2, P3-4 | ⬜ |
-| P3-6 | **Consolidate `V5*` chrome onto v6 tokens properly** — `V5Masthead`, `V5Footer`, `V5BottomBar`, `V5MobileDrawer`. | #18 | 3d | P3-5 | ⬜ |
-| P3-7 | **Resolve radius inconsistency.** Commit to one language: near-square (2px media / 0 panels) if G2 passes, or a single generous radius if not. | #11 | 0.5d | **G2** | ⬜ |
-| P3-8 | **Add a CSS budget check to CI** so the sheet cannot regrow past 10,000 lines. | #18 | 0.5d | P3-5 | ⬜ |
+| P3-1 | **Build the `.btn` primitive** — three variants (solid, ghost, text-link-with-rule), one size scale, sentence case. | #11 | 2d | — | ✅ |
+| P3-2 | **Migrate all 42 button/CTA class families** onto the primitive. Includes `v3-btn*`, `v4-iconbtn`, `.venue-detail__book-btn`, `.venues__more-btn`, `.article__share-btn`. | #11 | 3d | P3-1 | ✅ |
+| P3-3 | **Fix the phone-number button affordance** on venue pages (currently reads as disabled). | #11 | 0.25d | P3-1 | ✅ |
+| P3-4 | **Build the `.card` primitive** and migrate the card variants onto it. | #11 | 2d | — | ✅ |
+| P3-5 | **Delete v3 and v4 stylesheets** (`v3.css` 1,535 lines, `v4.css` 905 lines) and their orphaned components. | #18 | 1d | P3-2, P3-4 | ✅ |
+| P3-6 | **Consolidate `V5*` chrome onto v6 tokens properly** — `V5Masthead`, `V5Footer`, `V5BottomBar`, `V5MobileDrawer`. | #18 | 3d | P3-5 | ✅ |
+| P3-7 | **Resolve radius inconsistency.** Commit to one language: near-square (2px media / 0 panels) if G2 passes, or a single generous radius if not. | #11 | 0.5d | **G2** | ✅ |
+| P3-8 | **Add a CSS budget check to CI** so the sheet cannot regrow past 10,000 lines. | #18 | 0.5d | P3-5 | ✅ |
 
 **Phase effort:** ~12 days.
 
@@ -231,3 +231,4 @@ Phase 5 is unscheduled.
 | Date | Change |
 |---|---|
 | 2026-07-25 | Plan created from `visual-design-brand-review-2026-07-25.md`. All phases not started; G1–G4 open. |
+| 2026-07-25 | **G1 and G2 answered by the client: Salt & Limestone rejected, v6 Evergreen Coast retained.** P4 (skin) is therefore closed as proposed; palette exploration continues separately as blue-led variants of v6. P0 and P3 shipped. |
