@@ -25,6 +25,89 @@ const data = venue.data;
 const liveStatusUrl = resolveLiveStatusUrl(data);
 const verifiedLabel = verifiedFreshnessLabel(data.lastVerified);
 
+// ── Opening hours ────────────────────────────────────────────────────────
+// data.visiting.openingHours carries the schema.org shape: full day names
+// plus 24-hour "HH:MM" strings. Three appointment-only producers carry an
+// empty array, so the block is gated on length, never on presence.
+const DAY_ORDER = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+const DAY_SHORT: Record<string, string> = {
+  Monday: 'Mon', Tuesday: 'Tue', Wednesday: 'Wed', Thursday: 'Thu',
+  Friday: 'Fri', Saturday: 'Sat', Sunday: 'Sun',
+};
+
+const normaliseDay = (value: unknown): string | null => {
+  const raw = String(value ?? '').trim();
+  if (!raw) return null;
+  const cased = raw.charAt(0).toUpperCase() + raw.slice(1).toLowerCase();
+  return DAY_ORDER.includes(cased) ? cased : null;
+};
+
+interface HoursEntry { days: string[]; opens: string; closes: string }
+
+const openingHours: HoursEntry[] = (Array.isArray(data.visiting?.openingHours)
+  ? data.visiting.openingHours
+  : []
+)
+  .map((h: any) => ({
+    days: (Array.isArray(h?.days) ? h.days : h?.days ? [h.days] : [])
+      .map(normaliseDay)
+      .filter((d: string | null): d is string => Boolean(d)),
+    opens: String(h?.opens ?? ''),
+    closes: String(h?.closes ?? ''),
+  }))
+  .filter((h: HoursEntry) => h.days.length > 0 && h.opens && h.closes);
+const hasOpeningHours = openingHours.length > 0;
+
+// "Monday, Tuesday, Wednesday, Thursday" becomes "Mon to Thu". A pair stays
+// listed ("Fri, Sat"), and split runs join with a comma ("Mon to Thu, Sun").
+function formatDays(days: string[]): string {
+  const indexes = [...new Set(days.map((d) => DAY_ORDER.indexOf(d)))].sort((a, b) => a - b);
+  if (indexes.length === DAY_ORDER.length) return 'Every day';
+  const runs: number[][] = [];
+  for (const i of indexes) {
+    const last = runs[runs.length - 1];
+    if (last && i === last[last.length - 1] + 1) last.push(i);
+    else runs.push([i]);
+  }
+  return runs
+    .map((run) => {
+      const first = DAY_SHORT[DAY_ORDER[run[0]]];
+      const final = DAY_SHORT[DAY_ORDER[run[run.length - 1]]];
+      if (run.length === 1) return first;
+      if (run.length === 2) return `${first}, ${final}`;
+      return `${first} to ${final}`;
+    })
+    .join(', ');
+}
+
+// "17:00" becomes "5pm", "10:30" becomes "10:30am". Anything unparseable
+// falls through as the operator wrote it rather than rendering nonsense.
+function formatTime(value: string): string {
+  const match = /^(\d{1,2}):(\d{2})/.exec(value);
+  if (!match) return value;
+  const hours24 = Number(match[1]);
+  const minutes = match[2];
+  const suffix = hours24 < 12 || hours24 >= 24 ? 'am' : 'pm';
+  const hours12 = hours24 % 12 === 0 ? 12 : hours24 % 12;
+  return minutes === '00' ? `${hours12}${suffix}` : `${hours12}:${minutes}${suffix}`;
+}
+
+// Midnight to one minute before midnight is a 24-hour operation (reception
+// desks), not a 23-hour 59-minute one.
+const isAllDay = (h: HoursEntry) =>
+  h.opens === '00:00' && ['23:59', '24:00', '00:00'].includes(h.closes);
+const formatHoursRange = (h: HoursEntry) =>
+  isAllDay(h) ? 'Open 24 hours' : `${formatTime(h.opens)}–${formatTime(h.closes)}`;
+
+const coveredDays = new Set(openingHours.flatMap((h) => h.days));
+const closedDays = DAY_ORDER.filter((d) => !coveredDays.has(d));
+const hoursRows: { days: string; time: string; closed: boolean }[] = [
+  ...openingHours.map((h) => ({ days: formatDays(h.days), time: formatHoursRange(h), closed: false })),
+  ...(closedDays.length > 0 && closedDays.length < DAY_ORDER.length
+    ? [{ days: formatDays(closedDays), time: 'Closed', closed: true }]
+    : []),
+];
+
 // New planning/recommendation layer
 // Worth Knowing panel renders if worthKnowing object has any values, OR if bestFor tags are present
 const hasWorthKnowing = (data.bestFor && data.bestFor.length > 0) ||
@@ -100,7 +183,31 @@ const winemakerName: string | null = isWinery ? (data.wines?.winemaker ?? null) 
 const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seasonTags.includes('all-year')
   ? seasonTags.map((s: string) => s.charAt(0).toUpperCase() + s.slice(1)).join(' and ')
   : null;
+
+// Opening hours as schema.org OpeningHoursSpecification.
+// The venue's main JSON-LD node is built by the page, not here: /wine/ uses
+// buildWinerySchema (lib/schema.ts), which already emits the hours, while
+// /eat/ and /stay/ build an inline node that does not. This block fills that
+// gap, and only on the venue's own canonical surface, so a venue is never
+// described by two competing hours nodes.
+const isCanonicalSurface = venueHrefPrefix(data.type).endsWith(`/${section}`);
+const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'LocalBusiness',
+      name: data.name,
+      url: `https://peninsulainsider.com.au/${section}/${venueSlug}/`,
+      openingHoursSpecification: openingHours.map((h) => ({
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: h.days,
+        opens: h.opens,
+        closes: h.closes,
+      })),
+    }
+  : null;
 ---
+
+{hoursSchema && <script type="application/ld+json" set:html={JSON.stringify(hoursSchema)} />}
 
 <Breadcrumbs items={breadcrumbItems} />
 
@@ -427,6 +534,22 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
             </>
           )}
 
+          {hasOpeningHours && (
+            <>
+              <dt>Opening hours</dt>
+              <dd>
+                <ul class="facts__hours">
+                  {hoursRows.map((row) => (
+                    <li class:list={['facts__hours-row', row.closed && 'facts__hours-row--closed']}>
+                      <span class="facts__hours-days">{row.days}</span>
+                      <span class="facts__hours-time">{row.time}</span>
+                    </li>
+                  ))}
+                </ul>
+              </dd>
+            </>
+          )}
+
           <>
             <dt>Live status</dt>
             <dd>
@@ -499,13 +622,10 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
       <h2 class="venue-detail-section__title">Visiting</h2>
       <div class="prose">
         {data.visiting.tastingNote && <p>{data.visiting.tastingNote}</p>}
-        {data.visiting.openingHours?.length > 0 && (
-          <ul>
-            {data.visiting.openingHours.map((h: any) => (
-              <li>{Array.isArray(h.days) ? h.days.join(', ') : h.days}: {h.opens}–{h.closes}</li>
-            ))}
-          </ul>
-        )}
+        {/* Opening hours render once, in the At a glance panel above, where
+            readers look for the practical facts. Kept out of here so the
+            same venue never publishes two hours lists. */}
+        {data.visiting.bookingNotes && <p>{data.visiting.bookingNotes}</p>}
         {data.visiting.bookingRequired && (
           <p><strong>Booking required.</strong>{' '}
             {data.bookingUrl
@@ -735,6 +855,27 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
   </div>
 )}
 
+{/* Foot matter: when we last checked this page, and the operator's route to
+    claim it. Verification discipline is worth nothing if the reader cannot
+    see it, so the date is stated plainly; both lines are deliberately quiet
+    so neither competes with the editorial above. */}
+<div class="venue-footnote">
+  <div class="container">
+    <div class="venue-footnote__inner">
+      {verifiedLabel && (
+        <p class="venue-footnote__verified">
+          <span>{verifiedLabel} by Peninsula Insider</span>
+          <span class="venue-footnote__sep" aria-hidden="true"> · </span>
+          <a href="/methodology/">How we check</a>
+        </p>
+      )}
+      <p class="venue-footnote__claim">
+        Is this your venue? <a href="/partners/claim/">Claim it</a>
+      </p>
+    </div>
+  </div>
+</div>
+
 <NewsletterBlock />
 
 <style>
@@ -858,6 +999,67 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
   }
   .venue-ask-pi__cta:hover {
     opacity: 0.75;
+  }
+
+  /* ── Opening hours in the At a glance panel ── */
+  .facts__hours {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.2rem;
+  }
+  .facts__hours-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.75rem;
+  }
+  .facts__hours-days {
+    color: var(--soft);
+    white-space: nowrap;
+  }
+  .facts__hours-time {
+    text-align: right;
+  }
+  .facts__hours-row--closed .facts__hours-time {
+    color: var(--soft);
+  }
+
+  /* ── Foot matter: verification date + operator claim ── */
+  .venue-footnote {
+    padding: 1.1rem 0 1.6rem;
+    border-top: 1px solid var(--border);
+  }
+  .venue-footnote__inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.4rem 1.5rem;
+  }
+  .venue-footnote__verified,
+  .venue-footnote__claim {
+    margin: 0;
+    font-size: 0.82rem;
+    line-height: 1.6;
+    color: var(--soft);
+  }
+  .venue-footnote__sep {
+    color: var(--border);
+  }
+  .venue-footnote__verified a,
+  .venue-footnote__claim a {
+    color: var(--soft);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.1rem;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+  .venue-footnote__verified a:hover,
+  .venue-footnote__claim a:hover {
+    color: var(--accent);
+    border-color: var(--accent);
   }
 
   /* ── Destination hierarchy return link ── */

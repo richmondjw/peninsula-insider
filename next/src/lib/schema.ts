@@ -96,13 +96,17 @@ export function buildWinerySchema(data: any, slug: string, section = 'wine') {
     }));
   }
 
-  if (data.editorVerdict) {
-    schema.review = {
-      '@type': 'Review',
-      author: { '@type': 'Organization', name: 'Peninsula Insider' },
-      reviewBody: data.editorVerdict,
-    };
-  }
+  // Deliberately no schema.org Review node. A Review without a reviewRating is
+  // invalid for rich results and Google flags it, but Peninsula Insider does not
+  // score venues, so there is no honest rating to supply and inventing one would
+  // contradict the editorial stance. The verdict still reaches search engines
+  // through `description` above.
+  //
+  // This branch was dormant until 2026-07-25: editorVerdict was absent from the
+  // venues schema, so Zod stripped it and data.editorVerdict was always
+  // undefined. Adding the field to the schema would have switched it on for 21
+  // wineries at once. Revisit only if a published, defensible rating scale ever
+  // exists.
 
   return schema;
 }
