@@ -107,7 +107,17 @@
    preference is respected. The whole sheet is rem-based, so everything
    scales with it - including the three-step reader text-size control,
    which sets data-text-scale on <html> (see TextScaleControl.astro). */
-html { scroll-behavior: auto; font-size: 100%; }
+html {
+  scroll-behavior: auto;
+  font-size: 100%;
+  /* iOS inflates text of its own accord in standalone (home-screen) mode,
+     which is how the masthead Menu button ended up off-screen for readers
+     who launch from a saved icon rather than in Safari. Pinning to 100%
+     leaves the reader's own browser font-size and the three-step text
+     control below in charge, and nothing else. */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
 html[data-text-scale="2"] { font-size: 108.75%; }
 html[data-text-scale="3"] { font-size: 118%; }
 
