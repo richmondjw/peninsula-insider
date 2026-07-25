@@ -270,6 +270,7 @@ const groups = facets
     toggleValue,
     commit,
     countMatches,
+    getAvailableValues,
     isEmptyState,
     type FilterState,
     type FilterKey,
@@ -288,6 +289,27 @@ const groups = facets
     let staged: FilterState = {};
     let invoker: HTMLElement | null = null;
     let open = false;
+
+    /**
+     * Drop options this page cannot satisfy. The sheet markup is the whole
+     * shared taxonomy; only some of it applies to any one surface. An option
+     * that can only ever return zero results is not a filter, it is a dead
+     * control, so it is removed rather than shown disabled. A group left with
+     * nothing goes too.
+     */
+    function pruneToAvailable() {
+      const available = getAvailableValues();
+      sheet.querySelectorAll<HTMLElement>('[data-sheet-option]').forEach((btn) => {
+        const key = btn.dataset.key as FilterKey;
+        const value = btn.dataset.value || '';
+        const live = !!available[key] && available[key].has(value);
+        btn.toggleAttribute('hidden', !live);
+      });
+      sheet.querySelectorAll<HTMLElement>('.v5-sheet__group').forEach((group) => {
+        const anyLive = !!group.querySelector('[data-sheet-option]:not([hidden])');
+        group.toggleAttribute('hidden', !anyLive);
+      });
+    }
 
     function paintOptions() {
       sheet.querySelectorAll<HTMLButtonElement>('[data-sheet-option]').forEach((btn) => {
@@ -308,6 +330,8 @@ const groups = facets
       open = true;
       invoker = from;
       staged = getState();
+      // Recomputed per open: the vocabulary follows whatever is on the page.
+      pruneToAvailable();
       paintOptions();
       paintCount();
       sheet.removeAttribute('hidden');

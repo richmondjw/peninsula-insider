@@ -7,8 +7,8 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "node scripts/clear-content-cache.mjs && npm run media:registry && npm run lint:no-pricing && npm run lint:region-images && npm run lint:surfaces && npm run lint:nav-budget && npm run lint:css-budget && astro build",
-    "build:search": "npm run media:registry && npm run lint:no-pricing && npm run lint:house-style && npm run lint:region-images && npm run lint:surfaces && npm run lint:nav-budget && npm run lint:css-budget && astro build && npx pagefind --site dist",
+    "build": "node scripts/clear-content-cache.mjs && npm run media:registry && npm run lint:no-pricing && npm run lint:region-images && npm run lint:surfaces && npm run lint:nav-budget && npm run lint:css-budget && astro build && npm run lint:filter-chips",
+    "build:search": "npm run media:registry && npm run lint:no-pricing && npm run lint:house-style && npm run lint:region-images && npm run lint:surfaces && npm run lint:nav-budget && npm run lint:css-budget && astro build && npm run lint:filter-chips && npx pagefind --site dist",
     "preview": "astro preview",
     "astro": "astro",
     "check": "astro check",
@@ -33,7 +33,8 @@
     "lint:house-style": "node scripts/lint-house-style.mjs",
     "lint:content-caps": "node scripts/lint-content-caps.mjs",
     "lint:content-caps:strict": "node scripts/lint-content-caps.mjs --strict",
-    "lint:editorial-quality": "python3 ../ops/scripts/editorial-quality-check.py"
+    "lint:editorial-quality": "python3 ../ops/scripts/editorial-quality-check.py",
+    "lint:filter-chips": "node scripts/lint-filter-chips.mjs"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.0",

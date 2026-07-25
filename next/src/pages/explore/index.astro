@@ -25,7 +25,7 @@ import FilterBar from '../../components/v5/FilterBar.astro';
 import EmptyState from '../../components/v5/EmptyState.astro';
 import { getFacets, type FacetKey } from '../../lib/facets';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
-import { routeSlug, currentSeason, seasonBlurb, placeLabel, titleize } from '../../lib/editorial';
+import { routeSlug, currentSeason, seasonBlurb, placeLabel, titleize, venueHrefPrefix } from '../../lib/editorial';
 import { buildCollectionPageSchema, buildFaqSchema, buildBreadcrumbSchema } from '../../lib/schema';
 
 // ── Copy helpers ──────────────────────────────────────────────────────────────
@@ -58,6 +58,7 @@ const TYPE_LABEL: Record<string, string> = {
   park: 'Park',
   tour: 'Tour',
   market: 'Market',
+  spa: 'Springs & spa',
   wellness: 'Wellness',
 };
 
@@ -93,6 +94,39 @@ const rows: Row[] = experiences.map((e) => {
   };
 });
 
+// Markets and day spas are Explore subjects whose records live in the venues
+// collection, so their detail pages route to /eat/ and /stay/ via
+// venueHrefPrefix. The directory is the one place every Explore subject is
+// listed, and CHIP_PRESETS.explore offers Markets and Springs & spa chips, so
+// sourcing them here is what makes those two chips match anything at all.
+const EXPLORE_VENUE_TYPES = ['market', 'spa'];
+const exploreVenues = (await getCollection('venues')).filter((v) =>
+  EXPLORE_VENUE_TYPES.includes(v.data.type),
+);
+
+const venueRows: Row[] = exploreVenues.map((v) => {
+  const slug = routeSlug(v);
+  return {
+    slug,
+    name: v.data.name,
+    href: `${venueHrefPrefix(v.data.type)}/${slug}/`,
+    facets: getFacets('venue', v.data),
+    verdict: clipLine(v.data.signature ?? v.data.whyWeGo ?? v.data.editorNote, 25),
+    meta: [
+      TYPE_LABEL[v.data.type] ?? titleize(v.data.type ?? ''),
+      placeLabel(v.data.place),
+    ].filter((m): m is string => Boolean(m)).slice(0, 3),
+    data: v.data,
+  };
+});
+
+// Shelves stay experience-only, keeping the "at most one shelf plus one
+// directory row" rule. The directory carries the whole Explore corpus, so
+// every count and every filter result is drawn from this list.
+const directoryRows: Row[] = [...rows, ...venueRows].sort((a, b) =>
+  a.name.localeCompare(b.name),
+);
+
 const season = currentSeason();
 const blurb = seasonBlurb[season];
 
@@ -103,7 +137,10 @@ const matches = (r: Row, preset: FilterPreset) =>
   Object.entries(preset).every(([key, vals]) =>
     (r.facets[key as FacetKey] ?? []).some((v) => (vals as string[]).includes(v)),
   );
-const countLive = (preset: FilterPreset) => rows.filter((r) => matches(r, preset)).length;
+// Counted over the directory, not the shelf pool: "All N" has to equal what
+// the filter will actually show once applied.
+const countLive = (preset: FilterPreset) =>
+  directoryRows.filter((r) => matches(r, preset)).length;
 
 // Shelf assembly: an experience appears in at most ONE shelf (plus its single
 // directory row), enforcing the corpus <=2x-per-entry acceptance (spec 30).
@@ -423,20 +460,20 @@ export const prerender = true;
   <section class="x-directory" id="directory" aria-labelledby="directory-heading">
     <div class="container">
       <p class="x-eyebrow">The full list</p>
-      <h2 class="x-directory__heading" id="directory-heading">All {rows.length} experiences</h2>
+      <h2 class="x-directory__heading" id="directory-heading">All {directoryRows.length} experiences</h2>
       <p class="x-directory__intro">
-        One list, one render: every walk, beach, course, gallery, and lookout we cover.
-        Narrow it from the filter bar above.
+        One list, one render: every walk, beach, course, gallery, lookout, market, and
+        day spa we cover. Narrow it from the filter bar above.
       </p>
-      <CardGrid label={`All ${rows.length} experiences`} layout="rows">
-        {rows.map((r, i) => (
+      <CardGrid label={`All ${directoryRows.length} experiences`} layout="rows">
+        {directoryRows.map((r, i) => (
           <li data-facets={JSON.stringify(r.facets)} data-title={r.name} class="x-directory__row">
             <Card
               as="div"
               variant="compact-row"
               title={r.name}
               href={r.href}
-              entityType="experience"
+              entityType={EXPLORE_VENUE_TYPES.includes(r.data.type) ? 'venue' : 'experience'}
               entitySlug={r.slug}
               verdict={r.verdict}
               meta={r.meta}

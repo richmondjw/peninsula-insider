@@ -11,7 +11,7 @@ import {
   buildFaqSchema,
   buildBreadcrumbSchema,
 } from '../../lib/schema';
-import { routeSlug } from '../../lib/editorial';
+import { routeSlug, titleize } from '../../lib/editorial';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
 import { editableImage } from '../../lib/inline-edit/attrs';
 
@@ -45,27 +45,49 @@ const heroPlaceRedHill = await resolvePlaceHero('red-hill', '/images/sourced/pla
 const heroPlaceBalnarring = await resolvePlaceHero('balnarring', '/images/sourced/place-balnarring-01.webp');
 
 // ── Load markets in editorial order ───────────────────────────────────────────
-const allExperiences = await getCollection('experiences');
-const marketOrder = [
-  'red-hill-market',
-  'balnarring-farmers-market',
-  'mornington-main-street-market',
-  'rye-beachside-market',
-  'mount-eliza-farmers-market',
+// Markets are records in the venues collection, not experiences. This page
+// used to read them from experiences, which matched nothing, so the guide
+// rendered with no market cards and no link to a single market page.
+//
+// The Explore route slug and the venue slug differ for Balnarring, so the
+// pairing is stated rather than inferred from either name.
+const MARKET_ROUTES: { route: string; venue: string }[] = [
+  { route: 'red-hill-market', venue: 'red-hill-market' },
+  { route: 'balnarring-farmers-market', venue: 'balnarring-market' },
+  { route: 'mornington-main-street-market', venue: 'mornington-main-street-market' },
+  { route: 'rye-beachside-market', venue: 'rye-beachside-market' },
+  { route: 'mount-eliza-farmers-market', venue: 'mount-eliza-farmers-market' },
 ];
-const allMarkets = allExperiences.filter((e) => e.data.type === 'market');
-const markets = marketOrder
-  .map((slug) => allMarkets.find((m) => (m.data.slug ?? m.id) === slug))
-  .filter(Boolean) as typeof allMarkets;
+
+const marketVenues = await getCollection('venues', ({ data }) => data.type === 'market');
+const missingMarkets = MARKET_ROUTES.filter(
+  ({ venue }) => !marketVenues.some((v) => (v.data.slug ?? v.id) === venue),
+);
+if (missingMarkets.length) {
+  // Fail the build rather than ship a market guide with missing markets.
+  throw new Error(
+    `explore/markets: no venue record for ${missingMarkets.map((m) => m.venue).join(', ')}. ` +
+      'Update MARKET_ROUTES or restore the venue file.',
+  );
+}
+
+// Cards are keyed by Explore route slug: marketMeta, the hero map and the
+// detail href are all route-keyed. venueSlug carries the CMS identity.
+const markets = MARKET_ROUTES.map(({ route, venue }) => {
+  const entry = marketVenues.find((v) => (v.data.slug ?? v.id) === venue)!;
+  return { id: route, venueSlug: venue, data: { ...entry.data, slug: route } };
+});
 
 // Resolve CMS hero overrides for the market cards so an editor's replacement
-// (saved to experience/<slug>/heroImage) survives rebuilds instead of
-// reverting to the content file.
+// (saved to venue/<slug>/heroImage) survives rebuilds instead of reverting to
+// the content file. Keyed by route slug to match the render below.
 const marketHeroBySlug = new Map<string, Awaited<ReturnType<typeof resolveHero>>>();
 await Promise.all(
   markets.map(async (market) => {
-    const s = market.data.slug ?? market.id;
-    marketHeroBySlug.set(s, await resolveHero('experience', s, market.data));
+    marketHeroBySlug.set(
+      market.id,
+      await resolveHero('venue', market.venueSlug, market.data),
+    );
   }),
 );
 
@@ -173,13 +195,14 @@ const itemListSchema = buildItemListSchema({
   name: 'Mornington Peninsula Markets',
   description: 'Five Mornington Peninsula markets ranked by editorial value.',
   listPath: '/explore/markets',
-  items: [
-    { name: 'Red Hill Community Market', path: '/explore/red-hill-market', itemType: 'TouristAttraction', addressLocality: 'Red Hill' },
-    { name: 'Balnarring Farmers Market', path: '/explore/balnarring-farmers-market', itemType: 'TouristAttraction', addressLocality: 'Balnarring' },
-    { name: 'Mornington Main Street Market', path: '/explore/mornington-main-street-market', itemType: 'TouristAttraction', addressLocality: 'Mornington' },
-    { name: 'Rye Beachside Market', path: '/explore/rye-beachside-market', itemType: 'TouristAttraction', addressLocality: 'Rye' },
-    { name: 'Mount Eliza Farmers Market', path: '/explore/mount-eliza-farmers-market', itemType: 'TouristAttraction', addressLocality: 'Mount Eliza' },
-  ],
+  // Derived from the same records the cards render, so the names and the
+  // canonical paths cannot drift from what the page actually links to.
+  items: markets.map((m) => ({
+    name: m.data.name,
+    path: `/eat/${m.venueSlug}`,
+    itemType: 'TouristAttraction' as const,
+    addressLocality: m.data.address?.split(',')[1]?.trim() ?? titleize(String(m.data.place ?? '')),
+  })),
 });
 const faqSchema = buildFaqSchema([
   {
@@ -319,7 +342,8 @@ export const prerender = true;
           const slug = d.slug ?? market.id;
           const meta = marketMeta[slug];
           if (!meta) return null;
-          const detailHref = `/explore/${slug}/`;
+          // /explore/<slug>/ is a redirect stub; the venue page is canonical.
+          const detailHref = `/eat/${market.venueSlug}/`;
           const locality = d.address?.split(',')[1]?.trim() ?? '';
           return (
             <article class="market-card">
@@ -329,7 +353,7 @@ export const prerender = true;
                 style={marketHeroBySlug.get(slug)?.style ?? `background-image: url('${d.heroImage.src}')`}
                 role="img"
                 aria-label={marketHeroBySlug.get(slug)?.alt ?? d.heroImage.alt}
-                {...editableImage({ entityType: 'experience', entitySlug: slug, fieldPath: 'heroImage', label: `${d.name} hero`, purpose: 'hero' })}
+                {...editableImage({ entityType: 'venue', entitySlug: market.venueSlug, fieldPath: 'heroImage', label: `${d.name} hero`, purpose: 'hero' })}
               ></div>
               <div class="market-card__body">
                 <div class="market-card__badges">
