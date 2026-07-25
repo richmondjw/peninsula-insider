@@ -123,10 +123,41 @@
   --sans:        var(--font-ui);       /* legacy body/UI alias (was Inter) */
   --ochre:       var(--accent);         /* legacy warm accent -> evergreen (58 refs) */
 
+  /* ── Palette-leak plugs (P0-3, 2026-07-25).
+     These names were consumed by live components as `var(--name, <warm v5
+     hex>)` but were never defined outside the magenta-stone admin theme, so
+     the public site silently rendered the WARM fallback. That is where the
+     "#221810 newsletter band" and the warm rules/metadata in the footer came
+     from. Defining them here retargets every one of those fallbacks onto v6
+     without touching a single component. magenta-stone still wins via its
+     html[data-theme] selector. ── */
+  --deep:        var(--bg-dark);   /* newsletter / utility-bar dark ground (was #201B17) */
+  --ink-muted:   var(--soft);      /* footer + newsletter metadata (was #6E655C) */
+  --muted:       var(--soft);      /* v4.css metadata alias (was #6E655C) */
+  --body:        var(--text);      /* legacy body-copy role (undefined -> inherited) */
+  --body-light:  var(--soft);      /* was #888 = 3.5:1 on white, below AA */
+  --color-text-muted: var(--soft); /* was #9A9A9A = 2.9:1 on white, below AA */
+  --line:        var(--border);    /* hairline alias (was #BED9D3 / warm #D9D1BE) */
+  --line-soft:   var(--border);    /* was warm #E8E2D1 */
+  --color-border:var(--border);    /* was #E5E7EB */
+  --paper-warm:  var(--bg-alt);    /* footer band / reversed type (was #F3EDDE) */
+  --accent-muted: color-mix(in srgb, var(--accent) 10%, var(--white)); /* was #F5EDE4 */
+  /* Plan-builder page-local names, likewise never defined (warm creams). */
+  --c-accent:     var(--accent);
+  --c-rule:       var(--border);
+  --c-paper-tint: var(--bg-alt);
+
   /* ── AA-safe support roles ── */
   --soft-inverse:  rgba(233, 244, 240, 0.74); /* muted text on --bg-dark */
-  --border-strong: #A7B4B0;                    /* form-control borders >=3:1 */
-  --error-text:    #C0392B;                    /* >=5:1 on white */
+  /* Non-text UI needs >=3:1. The old #A7B4B0 measured 2.14:1 on white and
+     did not meet the contract in its own comment. #5F726D is 5.10:1 on
+     white, 4.99:1 on --white and 4.49:1 on --bg-alt, and stays a step
+     stronger than the (now visible) --border hairline. */
+  --border-strong: #5F726D;
+  --error-text:    #C0392B;                    /* 5.44:1 on white */
+  /* Error text on the deep evergreen ground: #C0392B measures 2.47:1 there,
+     which fails. This lifted cut is 6.57:1 on --bg-dark. */
+  --error-text-inverse: #FF9A8F;
 
   /* ── Radii — lifted toward the reference: 16px dominant, plus pill ── */
   --radius-s:    8px;    /* chips, buttons, inputs */

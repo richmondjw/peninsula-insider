@@ -468,6 +468,8 @@ export const prerender = true;
           </div>
           <a class="x-shelf__all" href="/journal/">All in the Journal →</a>
         </div>
+        {/* Section eyebrow already reads "From the Journal"; the per-card
+            ARTICLE stamp is redundant, so showEyebrow is off below. */}
         <CardGrid label="From the Journal">
           {journal.map((a, i) => (
             <Card
@@ -479,6 +481,7 @@ export const prerender = true;
               fieldPath="hero"
               image={{ src: a.hero.src, alt: a.hero.alt }}
               verdict={a.verdict}
+              showEyebrow={false}
               readTime={a.readTime}
               dateISO={a.dateISO}
               surface="explore-journal"

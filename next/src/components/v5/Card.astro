@@ -67,6 +67,20 @@ export interface Props {
   freshness?: string;
   /** Entity label eyebrow; defaults per variant (Venue/Event/Guide/...). */
   typeMark?: string;
+  /**
+   * Render the type eyebrow. Set false from a section whose heading already
+   * declares the type ("This weekend" over three event cards stamped EVENT).
+   * The card stays reusable: in a mixed grid the label still carries
+   * information, so the default is on and the parent opts out.
+   */
+  showEyebrow?: boolean;
+  /**
+   * Render a typographic plate in place of the media block when no image is
+   * supplied. Set true from image-bearing grids so one entry missing a photo
+   * does not open a hole in the row. Leave false for grids that are text-only
+   * by design (guide rails, compact rows), where a plate would be noise.
+   */
+  mediaFallback?: boolean;
   /** Region eyebrow for the place variant (replaces typeMark when set). */
   eyebrow?: string;
   /** Article variant: byline (falls back to "Peninsula Insider"). */
@@ -107,6 +121,8 @@ const {
   priceBand,
   freshness,
   typeMark,
+  showEyebrow = true,
+  mediaFallback = false,
   eyebrow,
   byline,
   readTime,
@@ -175,6 +191,10 @@ const freshnessText = freshness ? freshnessLabel(freshness) : null;
 
 const isEditorial = variant === 'article' || variant === 'guide';
 const showMedia = !!image;
+/* No photo, but the row around this card has them: draw the house plate so
+   the card keeps its media height and the grid stays level. compact-row is
+   text-only by contract (HUB-11) and never takes a plate. */
+const showPlate = !image && mediaFallback && variant !== 'compact-row';
 const hasVerdictSlot = Astro.slots.has('verdict');
 
 /* Save kind: entityType maps 1:1 except page/region, which are not saveable. */
@@ -210,8 +230,24 @@ const hasActions = !!resolvedSaveKind || trip || !!booking;
     </div>
   )}
 
+  {showPlate && (
+    <div class="v5-card__media v5-card__media--plate">
+      <span class="v5-card__plate" aria-hidden="true">
+        <span class="v5-card__plate-rule"></span>
+        <span class="v5-card__plate-mark">Peninsula Insider</span>
+      </span>
+      {eventDate && (
+        <span class="v5-card__date-block" aria-hidden="true">
+          <span class="v5-card__date-day">{eventDate.day}</span>
+          <span class="v5-card__date-month">{eventDate.month}</span>
+        </span>
+      )}
+      {variant === 'event' && <slot name="badges" />}
+    </div>
+  )}
+
   <div class="v5-card__body">
-    {markText && <p class="v5-card__mark">{markText}</p>}
+    {showEyebrow && markText && <p class="v5-card__mark">{markText}</p>}
 
     <h3 class="v5-card__title">
       <a
@@ -374,6 +410,45 @@ const hasActions = !!resolvedSaveKind || trip || !!booking;
   }
   .v5-card:hover .v5-card__media img {
     transform: scale(1.03);
+  }
+
+  /* ---- media fallback: the house plate ----
+     A card with no photograph used to render a blank slot inside an
+     image-bearing row. Instead we set the masthead on the signature
+     evergreen ground, at exactly the media block's 3:2 ratio, so the grid
+     stays level and the absence reads as a deliberate typographic tile.
+     Colour is tokens only: --bg-dark ground, --white type (about 13:1),
+     rule at 42% white (decorative, not text). No placeholder photography. */
+  .v5-card__media--plate {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background: var(--bg-dark);
+  }
+
+  .v5-card__plate {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-4) var(--space-5);
+  }
+
+  .v5-card__plate-rule {
+    display: block;
+    width: 2.25rem;
+    height: 2px;
+    background: var(--sage);
+  }
+
+  .v5-card__plate-mark {
+    display: block;
+    max-width: 7ch;
+    font-family: var(--font-display);
+    font-size: var(--fs-600);
+    font-weight: var(--fw-display);
+    line-height: var(--lh-heading);
+    letter-spacing: var(--ls-display);
+    color: var(--white);
   }
 
   .v5-card__date-block {

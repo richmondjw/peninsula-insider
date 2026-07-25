@@ -5,6 +5,9 @@
  *
  * Three PI picks for the upcoming weekend, each a v5 event Card with Save
  * and "+ Trip", closed by "Everything on this weekend" into /whats-on/.
+ * The cards run without the type eyebrow: "This weekend" plus a date window
+ * already declares that these are events, and three stacked EVENT stamps
+ * read as machine output rather than an edited page.
  * Picks resolve from the editorial weekend-picks entry for this weekend
  * when one exists; otherwise a ranked fallback over the events collection
  * keeps the module honest between editorial pushes (see home-data.ts).
@@ -81,6 +84,8 @@ const cards = await Promise.all(
               verdict={card.verdict}
               meta={card.meta}
               dateISO={card.dateISO}
+              showEyebrow={false}
+              mediaFallback={true}
               trip={true}
               surface="home-weekend"
               position={i}

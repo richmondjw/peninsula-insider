@@ -116,6 +116,21 @@ const authorLabel = article.data.houseByline
   : String(article.data.author?.id ?? article.data.author);
 const slug = routeSlug(article);
 
+/* Hero tag row: dedupe before the 4-chip cap so a repeated value never
+   burns a visible slot or prints the same word twice. Case-insensitive and
+   tolerant of hyphens, underscores and stray whitespace, because titleize()
+   collapses all of those to the same rendered label. */
+const heroTagSeen = new Set<string>();
+const heroTags: string[] = ((article.data.tags ?? []) as unknown[])
+  .filter((tag): tag is string => typeof tag === 'string' && tag.trim() !== '')
+  .filter((tag) => {
+    const key = tag.trim().toLowerCase().replace(/[\s_-]+/g, ' ');
+    if (heroTagSeen.has(key)) return false;
+    heroTagSeen.add(key);
+    return true;
+  })
+  .slice(0, 4);
+
 // Build-time CMS override consult. If an editor has uploaded a new hero
 // via the inline editor, it wins over the content-MDX default - and
 // crucially, it ships in the static HTML so there's no client-side flash
@@ -294,9 +309,9 @@ export const prerender = true;
             <div class="article-hero__byline">
               <span class="article-hero__byline-name"> - By <strong>{authorLabel}</strong></span>
             </div>
-            {article.data.tags.length > 0 && (
+            {heroTags.length > 0 && (
               <div class="article-hero__tags">
-                {article.data.tags.slice(0, 4).map((tag) => (
+                {heroTags.map((tag) => (
                   <span class="article-hero__tag">{titleize(tag)}</span>
                 ))}
               </div>

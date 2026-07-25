@@ -177,6 +177,8 @@ const pageDescription = `What is actually worth it on the Mornington Peninsula t
           <h2 class="wo-picks__title" id="wo-picks-h">PI's picks</h2>
           <p class="wo-picks__dek">Three, chosen by us. If we would not drive to it, it is not here.</p>
         </div>
+        {/* Every card here is an event on the What's On page, under a heading
+            that says so: the per-card EVENT stamp is dropped. */}
         <CardGrid label="PI's picks for this weekend">
           {pickCards.map((c) => (
             <Card
@@ -189,6 +191,8 @@ const pageDescription = `What is actually worth it on the Mornington Peninsula t
               verdict={c.verdict}
               meta={c.meta}
               dateISO={c.dateISO}
+              showEyebrow={false}
+              mediaFallback={true}
               trip={true}
               surface="whatson"
               position={c.position}

@@ -69,7 +69,34 @@ const breadcrumbItems = [
 const moodTags = data.tags?.mood ?? [];
 const seasonTags = data.tags?.season ?? [];
 const audienceTags = data.tags?.audience ?? [];
-const allTags = [...moodTags, ...seasonTags, ...audienceTags];
+
+/**
+ * The taxonomy deliberately overlaps: `solo` is a legacy `tags.mood` value
+ * that the facet taxonomy has since moved to `tags.audience`, and plenty of
+ * venue files still carry both. Merging the three arrays raw is what put
+ * "First Date · Slow · Solo · All Year · Couples · Solo" on the page.
+ *
+ * Dedupe at render, not in the data, so a bad content file can never reach
+ * the reader. Matching is case-insensitive and tolerant of whitespace,
+ * hyphens and underscores, because "first-date", "First Date" and
+ * "first_date" all titleize to the same visible label.
+ */
+function dedupeTags(tags: unknown[]): string[] {
+  const seen = new Set<string>();
+  const out: string[] = [];
+  for (const raw of tags) {
+    if (typeof raw !== 'string') continue;
+    const label = raw.trim();
+    if (!label) continue;
+    const key = label.toLowerCase().replace(/[\s_-]+/g, ' ').trim();
+    if (seen.has(key)) continue;
+    seen.add(key);
+    out.push(label);
+  }
+  return out;
+}
+
+const allTags = dedupeTags([...moodTags, ...seasonTags, ...audienceTags]);
 
 const isWinery = section === 'wine';
 const hasFaq = isWinery && data.faq?.length > 0;
