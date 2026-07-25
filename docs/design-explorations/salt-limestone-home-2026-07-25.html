@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Peninsula Insider — Salt &amp; Limestone homepage proof (P1-1, 2026-07-25)</title>
+<title>Peninsula Insider · Salt &amp; Limestone homepage proof (P1-1, 2026-07-25)</title>
 <meta name="description" content="Direction proof for the Salt &amp; Limestone visual correction. Self-contained; answers gates G1 (serif) and G2 (palette).">
 <style>
 /* ==========================================================================
-   PENINSULA INSIDER — "SALT & LIMESTONE"
+   PENINSULA INSIDER  -  "SALT & LIMESTONE"
    Direction proof, P1-1. Built to answer G1 (serif or no serif) and
    G2 (adopt Salt & Limestone, or hold Evergreen Coast).
 
@@ -37,9 +37,9 @@
 
 /* ---------- Tokens -------------------------------------------------------- */
 :root {
-  /* Palette — review section 7. Mint #A7FFEB is retired. */
+  /* Palette  -  review section 7. Mint #A7FFEB is retired. */
   --limestone:      #F4F0E8;  /* paper, primary ground */
-  --limestone-deep: #EBE5D9;  /* quiet panel fill */
+  --limestone-deep: #EEE8DD;  /* quiet panel fill; ti-tree holds 4.55:1 on it */
   --ink:            #14140F;  /* headlines, body */
   --bass-strait:    #123A3A;  /* dark grounds */
   --ti-tree:        #A0541F;  /* the single warm accent */
@@ -90,7 +90,7 @@ h1, h2, h3, h4, p, figure, ul, ol { margin: 0; }
 ul { list-style: none; padding: 0; }
 :focus-visible { outline: 2px solid var(--ti-tree); outline-offset: 3px; }
 
-/* Paper tooth. Very quiet — the ground should read as stock, not as texture. */
+/* Paper tooth. Very quiet  -  the ground should read as stock, not as texture. */
 body::after {
   content: ""; position: fixed; inset: 0; z-index: 900; pointer-events: none;
   opacity: 0.038; mix-blend-mode: multiply;
@@ -120,22 +120,25 @@ body::after {
 }
 
 /* ---------- Motif 1: the tide rule ----------------------------------------
-   A hairline section divider that is not straight. One 72px tile carries two
-   full periods of a shallow sine, tiled on x, so it holds its period and its
-   stroke weight at any width. Drawn left to right when it enters the view.  */
-.tide {
-  height: 10px;
+   A hairline section divider that is not straight. One 360px tile carries two
+   full periods of a shallow sine (period 180px, amplitude 2.8px), tiled on x,
+   so it holds its period and its stroke weight at any width. The tile is
+   C1-continuous across the seam, so the repeat is invisible. Drawn left to
+   right when it enters the view.                                            */
+.tide { height: 14px; overflow: hidden; }
+.tide__line {
+  display: block; height: 100%;
   background-repeat: repeat-x;
   background-position: left center;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='10' viewBox='0 0 72 10'%3E%3Cpath d='M0 5 q 9 -2.6 18 0 t 18 0 t 18 0 t 18 0' fill='none' stroke='%236F7A5E' stroke-width='1'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='14' viewBox='0 0 360 14'%3E%3Cpath d='M0 7 q 45 -4.2 90 0 t 90 0 t 90 0 t 90 0' fill='none' stroke='%236F7A5E' stroke-width='1'/%3E%3C/svg%3E");
   clip-path: inset(0 100% 0 0);
-  transition: clip-path 1100ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition: clip-path 1400ms cubic-bezier(0.22, 0.61, 0.36, 1);
 }
-.tide.is-drawn { clip-path: inset(0 0 0 0); }
-.tide--light {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='10' viewBox='0 0 72 10'%3E%3Cpath d='M0 5 q 9 -2.6 18 0 t 18 0 t 18 0 t 18 0' fill='none' stroke='%23BFC4B2' stroke-width='1'/%3E%3C/svg%3E");
+.tide.is-drawn .tide__line { clip-path: inset(0 0 0 0); }
+.tide--light .tide__line {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='14' viewBox='0 0 360 14'%3E%3Cpath d='M0 7 q 45 -4.2 90 0 t 90 0 t 90 0 t 90 0' fill='none' stroke='%23BFC4B2' stroke-width='1'/%3E%3C/svg%3E");
 }
-.tide-block { padding-block: clamp(2rem, 5vw, 3.4rem); }
+.tide-block { padding-block: clamp(1.6rem, 4vw, 2.8rem); }
 
 /* ---------- Motif 4: the verdict mark --------------------------------------
    A letterpress ti-tree bracket. Two square brackets around a leaning
@@ -174,7 +177,7 @@ body::after {
 .btn--link:hover { border-bottom-color: var(--ink); }
 
 /* ==========================================================================
-   1. CONDITIONS STRIP — the first element on the page
+   1. CONDITIONS STRIP  -  the first element on the page
    ========================================================================== */
 .conditions {
   border-bottom: 1px solid var(--rule);
@@ -186,7 +189,7 @@ body::after {
 }
 .conditions__now { color: var(--ink); display: flex; align-items: center; gap: 0.55rem; flex-wrap: wrap; }
 .conditions__now b { font-variation-settings: var(--vf-furn), 'wght' 700; }
-.conditions__sep { color: var(--moonah); }
+.conditions__sep { color: var(--moonah-text); }
 .conditions__live {
   width: 6px; height: 6px; border-radius: 50%;
   background: var(--ti-tree); flex: none; margin-right: 0.15rem;
@@ -253,7 +256,7 @@ body::after {
 .masthead__search:hover { color: var(--ti-tree); }
 
 /* ==========================================================================
-   4. HERO — type-led on limestone paper. No photograph, no scrim.
+   4. HERO  -  type-led on limestone paper. No photograph, no scrim.
    Asymmetric grid: datelines and the verdict hang in the live outer column.
    ========================================================================== */
 .spread {
@@ -264,7 +267,7 @@ body::after {
 @media (min-width: 1000px) {
   .spread { grid-template-columns: 232px minmax(0, 1fr); gap: clamp(2rem, 4vw, 4rem); }
 }
-.hero { padding-block: clamp(2.4rem, 7vw, 5.4rem) clamp(2.2rem, 5vw, 3.6rem); }
+.hero { padding-block: clamp(2.4rem, 7vw, 5.2rem) clamp(1.6rem, 3vw, 2.4rem); }
 .hero__aside { display: flex; flex-direction: column; gap: 1.5rem; }
 .hero__dateline { color: var(--moonah-text); }
 .hero__h1 {
@@ -286,7 +289,23 @@ body::after {
 }
 .hero__actions { margin-top: clamp(1.6rem, 3vw, 2.2rem); display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
 
-/* The hanging verdict — outer column at desktop, inline panel at mobile */
+/* Contents strip  -  masthead furniture. Makes the page an edition, and stops
+   the type-led hero from opening onto dead canvas. */
+.contents { padding-top: clamp(1.8rem, 4vw, 3rem); }
+.contents__label { color: var(--moonah-text); margin-bottom: 0.9rem; }
+.contents__list { display: grid; grid-template-columns: 1fr; }
+@media (min-width: 720px) { .contents__list { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1000px) { .contents__list { grid-template-columns: repeat(4, 1fr); } }
+.contents__item {
+  border-top: 1px solid var(--rule);
+  padding: 0.75rem 1.4rem 0.9rem 0;
+  display: flex; gap: 0.75rem; align-items: baseline;
+  font-variation-settings: var(--vf-text), 'wght' 400;
+  font-size: 0.9375rem; line-height: 1.4;
+}
+.contents__n { color: var(--ti-tree); flex: none; }
+
+/* The hanging verdict  -  outer column at desktop, inline panel at mobile */
 .verdict {
   border-top: 1px solid var(--ink);
   padding-top: 0.85rem;
@@ -296,9 +315,9 @@ body::after {
 .verdict__attr { margin-top: 0.6rem; color: var(--moonah-text); }
 
 /* ==========================================================================
-   5. THE SHORT LIST — typographic, no photography, verdict-marked
+   5. THE SHORT LIST  -  typographic, no photography, verdict-marked
    ========================================================================== */
-.section { padding-block: clamp(2.2rem, 5vw, 3.6rem); }
+.section { padding-block: clamp(1.6rem, 3.5vw, 2.6rem) clamp(2.2rem, 5vw, 3.6rem); }
 .section__head {
   display: flex; align-items: flex-end; justify-content: space-between;
   gap: 1rem; flex-wrap: wrap; margin-bottom: clamp(1.2rem, 3vw, 2rem);
@@ -338,7 +357,7 @@ body::after {
 .section__foot { border-top: 1px solid var(--ink); padding-top: 1rem; display: flex; justify-content: flex-end; }
 
 /* ==========================================================================
-   6. PHOTOGRAPHY — one full-bleed break, mid page. Not a scrim behind text.
+   6. PHOTOGRAPHY  -  one full-bleed break, mid page. Not a scrim behind text.
    Grade: warm highlights, cool-green shadows, lifted blacks, desaturated
    greens, sand protected.
    ========================================================================== */
@@ -383,7 +402,7 @@ body::after {
 .break__caption .lead { color: var(--ink); }
 
 /* ==========================================================================
-   7. CARD GRID — hairline rules, no shadows, 2px media / 0 panels,
+   7. CARD GRID  -  hairline rules, no shadows, 2px media / 0 panels,
    two-line dek clamp so card bottoms align.
    ========================================================================== */
 .cards { display: grid; gap: clamp(1rem, 2vw, 1.4rem); grid-template-columns: 1fr; }
@@ -429,15 +448,16 @@ body::after {
   border-radius: var(--r-media);
   border: 1px solid var(--rule);
   display: flex; flex-direction: column; justify-content: space-between;
-  padding: 0.9rem;
+  gap: 0.6rem; padding: 0.9rem;
 }
+.card--typo .card__slug-tide { flex: 1 1 auto; align-self: stretch; min-height: 14px; }
 .card--typo .card__slug-line {
   font-variation-settings: var(--vf-display), 'wght' 400;
   font-size: clamp(1.4rem, 3vw, 1.75rem); line-height: 1.02; letter-spacing: -0.02em;
 }
 
 /* ==========================================================================
-   8. THE FOUR WAYS IN — typographic doors on a limestone panel
+   8. THE FOUR WAYS IN  -  typographic doors on a limestone panel
    ========================================================================== */
 .doors { background: var(--limestone-deep); border-block: 1px solid var(--rule); }
 .doors__grid { display: grid; grid-template-columns: 1fr; }
@@ -469,7 +489,7 @@ body::after {
 .door__go { margin-top: 0.35rem; color: var(--ti-tree); }
 
 /* ==========================================================================
-   9. THE INSIDER NOTE — the one dark ground on the page
+   9. THE INSIDER NOTE  -  the one dark ground on the page
    ========================================================================== */
 .note { background: var(--bass-strait); color: var(--limestone); }
 .note__inner {
@@ -502,12 +522,12 @@ body::after {
 }
 .note__preview-head { display: flex; justify-content: space-between; gap: 1rem; color: var(--muted-light); margin-bottom: 0.9rem; }
 .note__preview-line { display: flex; gap: 0.7rem; padding-block: 0.6rem; border-top: 1px solid var(--rule-dark); font-size: 0.9375rem; }
-.note__preview-line b { color: var(--ti-tree-light); font-variation-settings: var(--vf-furn), 'wght' 600; font-variant-caps: all-small-caps; letter-spacing: 0.1em; white-space: nowrap; }
+.note__preview-line b { flex: none; width: 5.6rem; color: var(--ti-tree-light); font-variation-settings: var(--vf-furn), 'wght' 600; font-variant-caps: all-small-caps; letter-spacing: 0.1em; white-space: nowrap; }
 
 /* ==========================================================================
-   10. FOOTER — four even columns
+   10. FOOTER  -  four even columns
    ========================================================================== */
-.footer { background: var(--bass-strait); color: var(--limestone); }
+.footer { background: var(--kelp); color: var(--limestone); }
 .footer__top { padding-block: clamp(2rem, 5vw, 3.4rem) clamp(1.6rem, 3vw, 2.4rem); }
 .footer__flag { display: flex; align-items: flex-end; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; margin-bottom: clamp(1.8rem, 4vw, 2.8rem); }
 .footer__wordmark { font-variation-settings: var(--vf-display), 'wght' 500; font-size: clamp(1.6rem, 3.4vw, 2.2rem); line-height: 1; letter-spacing: -0.022em; }
@@ -531,11 +551,30 @@ body::after {
    draw on dividers. Everything collapses under reduced motion.             */
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; }
-  .tide { clip-path: none !important; }
+  .tide__line { clip-path: none !important; }
   .break__frame img { transform: none !important; }
 }
 
 /* ---------- Small screens -------------------------------------------------- */
+/* The headline leads. Below the asymmetric-grid breakpoint the outer column
+   dissolves and the verdict falls in after the standfirst, not before it. */
+@media (max-width: 999px) {
+  .hero { display: flex; flex-direction: column; gap: 1.5rem; }
+  .hero__aside { display: contents; }
+  .hero__dateline { order: 1; }
+  .hero__main { order: 2; }
+  .verdict { order: 3; }
+}
+@media (max-width: 760px) {
+  .furn { font-size: 0.8125rem; letter-spacing: 0.1em; }
+  .conditions .furn { font-size: 0.78rem; letter-spacing: 0.075em; }
+  .conditions__now { gap: 0.4rem; justify-content: center; }
+  .masthead__links {
+    mask-image: linear-gradient(90deg, #000 88%, transparent 100%);
+    -webkit-mask-image: linear-gradient(90deg, #000 88%, transparent 100%);
+  }
+  .contents__item { padding-right: 0; }
+}
 @media (max-width: 760px) {
   .masthead__flag { grid-template-columns: 1fr; justify-items: center; text-align: center; gap: 0.75rem; padding-block: 1.1rem; }
   .issue-stamp, .masthead__wordmark, .masthead__tag { justify-self: center; text-align: center; }
@@ -630,7 +669,7 @@ body::after {
 </header>
 
 <!-- ===================================================================== -->
-<!-- 4. HERO — type-led on limestone                                        -->
+<!-- 4. HERO  -  type-led on limestone                                        -->
 <!-- ===================================================================== -->
 <main>
 <section class="wrap hero spread" aria-label="Cover">
@@ -642,7 +681,7 @@ body::after {
       <p class="furn verdict__attr">Main Ridge · Booking required</p>
     </div>
   </div>
-  <div>
+  <div class="hero__main">
     <h1 class="hero__h1">The <span class="accent">opinionated</span> guide to the Mornington Peninsula.</h1>
     <p class="hero__standfirst">41 cellar doors, 36 stays, and a standing list of the places we have stopped recommending. This is the edit, not the directory.</p>
     <div class="hero__actions">
@@ -652,7 +691,17 @@ body::after {
   </div>
 </section>
 
-<div class="wrap tide-block"><div class="tide" role="separator" aria-hidden="true"></div></div>
+<section class="wrap contents" aria-label="In this issue">
+  <p class="furn contents__label">In this issue</p>
+  <ol class="contents__list">
+    <li class="contents__item"><span class="furn contents__n">01</span><span>The case for coming in July</span></li>
+    <li class="contents__item"><span class="furn contents__n">02</span><span>A Flinders weekend, south of everything</span></li>
+    <li class="contents__item"><span class="furn contents__n">03</span><span>What came off the list this season</span></li>
+    <li class="contents__item"><span class="furn contents__n">04</span><span>The Insider Note, issue 128</span></li>
+  </ol>
+</section>
+
+<div class="wrap tide-block"><div class="tide" role="separator" aria-hidden="true"><span class="tide__line"></span></div></div>
 
 <!-- ===================================================================== -->
 <!-- 5. THE SHORT LIST                                                      -->
@@ -746,6 +795,7 @@ body::after {
     <a class="card card--typo" href="#">
       <span class="card__slug">
         <span class="furn" style="color:var(--moonah-text)">Standing list</span>
+        <span class="card__slug-tide tide is-drawn" aria-hidden="true"><span class="tide__line"></span></span>
         <span class="card__slug-line">The places we have stopped recommending.</span>
       </span>
       <span class="eyebrow card__eyebrow">The made versus the marketed</span>
@@ -756,7 +806,7 @@ body::after {
   </div>
 </section>
 
-<div class="wrap tide-block"><div class="tide" role="separator" aria-hidden="true"></div></div>
+<div class="wrap tide-block"><div class="tide" role="separator" aria-hidden="true"><span class="tide__line"></span></div></div>
 
 <!-- ===================================================================== -->
 <!-- 8. THE FOUR WAYS IN                                                    -->
@@ -824,7 +874,7 @@ body::after {
 <!-- 10. FOOTER                                                             -->
 <!-- ===================================================================== -->
 <footer class="footer">
-  <div class="wrap"><div class="tide tide--light" role="separator" aria-hidden="true" style="margin-top:0"></div></div>
+  <div class="wrap"><div class="tide tide--light" role="separator" aria-hidden="true"><span class="tide__line"></span></div></div>
   <div class="wrap footer__top">
     <div class="footer__flag">
       <p class="footer__wordmark">Peninsula <em>Insider</em></p>
