@@ -3,16 +3,16 @@
   "@type": "ItemList",
   "name": "What's on — Mornington Peninsula (upcoming)",
   "description": "Machine-readable feed of upcoming Mornington Peninsula events for AI assistants and agents. Forward-dated; regenerated on each build. See https://peninsulainsider.com.au/llms.txt for the full site map.",
-  "generated": "2026-07-25",
+  "generated": "2026-07-26",
   "site": "https://peninsulainsider.com.au",
   "windowDays": 90,
   "thisWeekend": {
     "start": "2026-07-25",
     "end": "2026-07-26",
     "label": "25 to 26 July",
-    "count": 25
+    "count": 24
   },
-  "count": 86,
+  "count": 85,
   "events": [
     {
       "title": "Michael Vale Exhibition at MPRG",
@@ -974,19 +974,6 @@
       "venue": null,
       "freePaid": "Paid",
       "summary": "Winter school holiday family experience: kids get a hot chocolate and cookie while adults enjoy wine. All-day Sculpture Park access included. Booking required.",
-      "thisWeekend": true
-    },
-    {
-      "title": "Soil & Cellar: Flinders Truffles x Polperro Winery",
-      "url": "https://peninsulainsider.com.au/whats-on/soil-cellar-flinders-truffles-x-polperro-winery/",
-      "startDate": "2026-07-25",
-      "endDate": "2026-07-25",
-      "recurrence": "one-off",
-      "category": "food-wine",
-      "place": null,
-      "venue": null,
-      "freePaid": "Paid",
-      "summary": "Afternoon truffle hunt at Flinders Truffles, then a truffle-matched dinner at Polperro Winery with Sam Coverdale's wines. One ticket, one winter day.",
       "thisWeekend": true
     },
     {
