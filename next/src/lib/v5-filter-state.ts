@@ -217,6 +217,30 @@ export function countMatches(state: FilterState, root?: ParentNode): number {
   );
 }
 
+/**
+ * Every facet value actually present on this page, per key.
+ *
+ * The shared FilterSheet renders the whole global taxonomy because it has no
+ * knowledge of the surface it sits on. Without this, roughly two thirds of the
+ * options on any given page match nothing: /wine/ offered Sorrento and Portsea
+ * with no cellar door in either, /stay/ offered "Restaurant", and every
+ * surface offered every date scope. Deriving the vocabulary from the rendered
+ * items keeps the sheet honest as content changes, with no per-page config to
+ * fall out of date.
+ */
+export function getAvailableValues(root?: ParentNode): Record<FilterKey, Set<string>> {
+  const out = {} as Record<FilterKey, Set<string>>;
+  for (const key of FILTER_KEYS) out[key] = new Set<string>();
+  if (!hasDom()) return out;
+  for (const item of collectItems(root || document)) {
+    for (const key of FILTER_KEYS) {
+      const values = item.facets[key];
+      if (values) for (const v of values) out[key].add(v);
+    }
+  }
+  return out;
+}
+
 let announceTimer: ReturnType<typeof setTimeout> | undefined;
 
 /** Politely announce to the shared #pi-results-status live region. */
