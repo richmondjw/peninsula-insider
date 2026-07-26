@@ -147,7 +147,7 @@ const pageDescription = `What is actually worth it on the Mornington Peninsula t
       <p class="wo-head__eyebrow"><span class="wo-head__live" aria-hidden="true"></span>What's On · live now</p>
       <h1 class="wo-head__title" data-wo-heading>What's on this weekend</h1>
       <p class="wo-head__context">
-        <span data-wo-range>{weekend.label}</span> · {season} on the Peninsula
+        <span data-wo-range>{weekend.label}</span> · <span data-wo-season>{season}</span> on the Peninsula
       </p>
       <p class="wo-head__rule">We list what's worth the drive, not everything on.</p>
     </div>
@@ -325,6 +325,7 @@ const pageDescription = `What is actually worth it on the Mornington Peninsula t
   const scopeNav = document.querySelector<HTMLElement>('[data-wo-scope]');
   const headingEl = document.querySelector<HTMLElement>('[data-wo-heading]');
   const rangeEl = document.querySelector<HTMLElement>('[data-wo-range]');
+  const seasonEl = document.querySelector<HTMLElement>('[data-wo-season]');
   const statusEl = document.getElementById('pi-results-status');
   const monthBtn = document.querySelector<HTMLButtonElement>('[data-wo-month]');
   const custom = document.querySelector<HTMLDetailsElement>('[data-wo-custom]');
@@ -334,6 +335,7 @@ const pageDescription = `What is actually worth it on the Mornington Peninsula t
   if (daysEl && scopeNav && rowTpl) {
     const defaultHTML = daysEl.innerHTML;
     const defaultRange = rangeEl?.textContent ?? '';
+    const defaultSeason = seasonEl?.textContent ?? '';
     if (monthBtn) monthBtn.hidden = false;
 
     // ── date helpers (mirror _data.ts, runtime clock) ──────────────────
@@ -496,9 +498,21 @@ const pageDescription = `What is actually worth it on the Mornington Peninsula t
       history.replaceState(null, '', url.pathname + url.search + url.hash);
     };
 
-    const setHeading = (headline: string, label: string) => {
+    // The season word belongs to the range on screen, not to today. Picking
+    // the September school holidays in July left the line reading
+    // "Sat 19 September to Sun 4 October · winter on the Peninsula".
+    const auSeason = (d: Date) => {
+      const m = d.getMonth();
+      if (m === 11 || m <= 1) return 'summer';
+      if (m <= 4) return 'autumn';
+      if (m <= 7) return 'winter';
+      return 'spring';
+    };
+
+    const setHeading = (headline: string, label: string, start?: Date) => {
       if (headingEl) headingEl.textContent = headline;
       if (rangeEl) rangeEl.textContent = label;
+      if (seasonEl) seasonEl.textContent = start ? auSeason(start) : defaultSeason;
     };
 
     const applyDefault = () => {
@@ -520,7 +534,7 @@ const pageDescription = `What is actually worth it on the Mornington Peninsula t
     ) => {
       setPressed(scope);
       const label = rangeLabel(start, end);
-      setHeading(headline, label);
+      setHeading(headline, label, start);
       syncUrl(param);
       try {
         const entries = await loadFeed();

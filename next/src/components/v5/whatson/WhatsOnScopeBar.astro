@@ -97,6 +97,11 @@ const { weekendStartISO, weekendLabel, nextWeekendLabel, holidays, todayISO } = 
 <style>
   .wo-scope {
     margin: var(--space-4, 1rem) 0 0;
+    /* Anchor the Pick dates panel to the whole bar, not to the summary it
+       hangs off. Hung off the summary it overflowed in both directions: past
+       the left edge on phones and 138px past the right at tablet widths. The
+       bar spans the container, so a panel pinned to it cannot leave the page. */
+    position: relative;
   }
   .wo-scope__row {
     display: flex;
@@ -150,7 +155,7 @@ const { weekendStartISO, weekendLabel, nextWeekendLabel, holidays, todayISO } = 
 
   /* Pick dates disclosure */
   .wo-scope__custom {
-    position: relative;
+    position: static;
   }
   .wo-scope__btn--summary {
     list-style: none;
@@ -172,7 +177,8 @@ const { weekendStartISO, weekendLabel, nextWeekendLabel, holidays, todayISO } = 
     position: absolute;
     z-index: 30;
     top: calc(100% + var(--space-2, 0.5rem));
-    left: 0;
+    left: auto;
+    right: 0;
     display: flex;
     flex-wrap: wrap;
     align-items: flex-end;
@@ -182,7 +188,8 @@ const { weekendStartISO, weekendLabel, nextWeekendLabel, holidays, todayISO } = 
     border: 1px solid var(--border);
     border-radius: var(--radius-m, 10px);
     box-shadow: var(--elev-2);
-    min-width: min(320px, 82vw);
+    min-width: min(320px, 100%);
+    max-width: 100%;
   }
   .wo-scope__field {
     display: flex;
@@ -231,9 +238,19 @@ const { weekendStartISO, weekendLabel, nextWeekendLabel, holidays, todayISO } = 
       flex-direction: row;
       align-items: center;
     }
+    /* Phones: fill the bar and stack the submit button under the fields
+       rather than squeezing three controls onto one line. */
     .wo-scope__form {
-      left: auto;
-      right: 0;
+      left: 0;
+    }
+    .wo-scope__field {
+      flex: 1 1 9rem;
+    }
+    .wo-scope__field input {
+      width: 100%;
+    }
+    .wo-scope__apply {
+      flex: 1 0 100%;
     }
   }
 </style>
