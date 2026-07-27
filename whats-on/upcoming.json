@@ -3,14 +3,14 @@
   "@type": "ItemList",
   "name": "What's on — Mornington Peninsula (upcoming)",
   "description": "Machine-readable feed of upcoming Mornington Peninsula events for AI assistants and agents. Forward-dated; regenerated on each build. See https://peninsulainsider.com.au/llms.txt for the full site map.",
-  "generated": "2026-07-26",
+  "generated": "2026-07-27",
   "site": "https://peninsulainsider.com.au",
   "windowDays": 90,
   "thisWeekend": {
-    "start": "2026-07-25",
-    "end": "2026-07-26",
-    "label": "25 to 26 July",
-    "count": 24
+    "start": "2026-08-01",
+    "end": "2026-08-02",
+    "label": "1 to 2 August",
+    "count": 25
   },
   "count": 85,
   "events": [
@@ -886,19 +886,6 @@
       "thisWeekend": false
     },
     {
-      "title": "Mugs & Keep Cups Workshop at Peninsula Ceramics Studio",
-      "url": "https://peninsulainsider.com.au/whats-on/mugs-keep-cups-workshop-peninsula-ceramics-studio-july-2026/",
-      "startDate": "2026-06-30",
-      "endDate": "2026-07-26",
-      "recurrence": "one-off",
-      "category": "arts",
-      "place": "moorooduc",
-      "venue": null,
-      "freePaid": "Paid",
-      "summary": "Craft a unique set of mugs and/or keep cups in a warm, relaxed studio environment at Moorooduc. Pieces glazed in speckle glaze and ready for pickup in approximately four weeks.",
-      "thisWeekend": true
-    },
-    {
       "title": "Winter Camp 2026, The Ranch",
       "url": "https://peninsulainsider.com.au/whats-on/winter-camp-2026-the-ranch/",
       "startDate": "2026-06-30",
@@ -987,7 +974,7 @@
       "venue": null,
       "freePaid": "Paid",
       "summary": "Community winter sleep out: participants spend the night in their cars to understand rough sleeping and raise funds for local support services (SPCS). Food pack, soup and hot cuppa provided. Registration required.",
-      "thisWeekend": false
+      "thisWeekend": true
     },
     {
       "title": "Country Day at Tar Barrel",
@@ -1000,7 +987,7 @@
       "venue": null,
       "freePaid": "Paid",
       "summary": "Live music from Ash King (album launch) 12pm–3pm, Hand Over Hammer 4pm–7pm. Country day drink specials and Sunday Sippers happy hour. Open till late.",
-      "thisWeekend": false
+      "thisWeekend": true
     },
     {
       "title": "Stonier Fire & Wine Winter Lunch",
@@ -1078,6 +1065,19 @@
       "venue": null,
       "freePaid": "Free",
       "summary": "Annual free street festival on Mornington's Main Street: 7 stages, live music, local wine and craft beer, food stalls, artisan crafts, kids' activities, roving performers, 11am to 5pm on the third Sunday of October. 2026 contingent on sponsorship after 2025 was cancelled.",
+      "thisWeekend": false
+    },
+    {
+      "title": "The Bloody Long Walk – Mornington Peninsula 2026",
+      "url": "https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/",
+      "startDate": "2026-10-25",
+      "endDate": "2026-10-25",
+      "recurrence": "one-off",
+      "category": "racing-sport",
+      "place": "portsea",
+      "venue": null,
+      "freePaid": "Paid",
+      "summary": "35km charity walk from Point Nepean Quarantine Station to Martha Cove Marina for the Mito Foundation. Walk, jog or run. Limited spots.",
       "thisWeekend": false
     },
     {
