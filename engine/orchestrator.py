@@ -14,7 +14,7 @@ import json
 import os
 import subprocess
 import sys
-from datetime import datetime, timezone
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 import zoneinfo
 
@@ -208,11 +208,31 @@ def call_openclaw_agent(agent_name: str, brief: dict, output_path: Path, fallbac
             if gen_task in ("daily-insider-picks", "weekend-picks", "long-form"):
                 return False
 
-    # Integration path 2: research stub (write empty JSON so downstream works)
+    # Integration path 2: real event intel, stub only as a last resort.
+    #
+    # This used to write `'events': []` unconditionally, every single day. That
+    # empty list flows straight into the picks prompt as "Events this week: []"
+    # while the prompt asks the model to name something "particularly good
+    # RIGHT NOW" and "worth going this week specifically". Asked for specifics
+    # and given nothing, the model invented them: the 2026-07-27 column
+    # recommended "a ceramics show closing soon in Red Hill" with no venue, no
+    # date, and an FAQ telling readers to check a noticeboard.
+    #
+    # Feed it real events and that failure mode goes away.
     if task == 'daily-event-intel' and not output_path.exists():
+        events, source = _load_event_intel(date)
+        if not events:
+            # Kept so a missing scan cannot break the run, but made loud. A
+            # silent empty list is exactly what caused the problem above.
+            print(f"    ! event intel EMPTY ({source}). Picks will have no event "
+                  f"data and may generalise. Check the events scan.")
+        else:
+            print(f"    ✓ event intel: {len(events)} event(s) from {source}")
         output_path.write_text(json.dumps({
             'date': date, 'season': season,
-            'events': [], 'seasonal_context': f'{season.title()} on the Mornington Peninsula',
+            'events': events,
+            'events_source': source,
+            'seasonal_context': f'{season.title()} on the Mornington Peninsula',
             'recommended_picks': []
         }, indent=2))
         return True
@@ -827,6 +847,105 @@ def run_corpus_refresh() -> bool:
         )
         return result.returncode == 0
     return False
+
+
+def _pick_rank(rec: dict, today) -> tuple:
+    """Sort key for events heading into the picks prompt.
+
+    content_generator only passes the first five records through, so ordering
+    decides what the model actually sees. Sorting by startDate is wrong here:
+    an always-on listing that opened in May sorts above a one-off happening on
+    Saturday, and the prompt fills up with daily yoga.
+
+    Rank: genuinely dated one-offs starting soon, then short runs, then
+    evergreens. An event running longer than 60 days is treated as evergreen,
+    which on this collection cleanly separates "2026-05-01 to 2027-04-30"
+    listings from real events.
+    """
+    try:
+        start = date.fromisoformat(str(rec["startDate"])[:10])
+    except (KeyError, ValueError, TypeError):
+        return (9, date.max)
+    try:
+        end = date.fromisoformat(str(rec.get("endDate") or rec["startDate"])[:10])
+    except (ValueError, TypeError):
+        end = start
+    duration = (end - start).days
+    evergreen = duration > 60
+    # For something already running, what matters is that it is on now, not
+    # when it opened. Clamp to today so it does not sort by ancient start date.
+    effective = max(start, today)
+    return (1 if evergreen else 0, effective, duration)
+
+
+def _load_event_intel(date_str: str, horizon_days: int = 7) -> tuple[list[dict], str]:
+    """Real events for the picks prompt, newest trustworthy source first.
+
+    Returns (events, source_label). Never raises: a broken or missing source
+    degrades to an empty list with a label saying which, so the caller can log
+    it loudly rather than silently shipping a column with no facts in it.
+
+    Source order:
+      1. reports/peninsula-whats-on.json, written by the events scan. Preferred
+         because it carries confidence labels and a primarySourceUrl per record.
+      2. next/src/content/events/*.json, the live collection. Always present,
+         but only as good as the last freshness pass.
+
+    Only events whose window overlaps [today, today+horizon] are returned, and
+    only fields the prompt can actually use. Handing the model a database dump
+    buries the few facts that matter.
+    """
+    try:
+        today = date.fromisoformat(date_str[:10])
+    except (ValueError, TypeError):
+        today = datetime.now(AEST).date()
+    horizon = today + timedelta(days=horizon_days)
+
+    def _trim(rec: dict) -> dict:
+        keep = ("title", "startDate", "endDate", "startTime", "endTime",
+                "venueName", "suburb", "priceTier", "freePaid", "bookingUrl",
+                "primarySourceUrl", "lastCheckedDate", "category", "confidence")
+        return {k: rec[k] for k in keep if rec.get(k)}
+
+    def _in_window(rec: dict) -> bool:
+        try:
+            start = date.fromisoformat(str(rec["startDate"])[:10])
+        except (KeyError, ValueError, TypeError):
+            return False
+        try:
+            end = date.fromisoformat(str(rec.get("endDate") or rec["startDate"])[:10])
+        except (ValueError, TypeError):
+            end = start
+        return start <= horizon and end >= today
+
+    # 1. Events scan output.
+    scan = REPO_ROOT / "reports" / "peninsula-whats-on.json"
+    if scan.is_file():
+        try:
+            data = json.loads(scan.read_text(encoding="utf-8"))
+            records = data.get("events", data) if isinstance(data, dict) else data
+            picked = [_trim(r) for r in records if isinstance(r, dict) and _in_window(r)]
+            if picked:
+                return picked, "reports/peninsula-whats-on.json"
+        except (json.JSONDecodeError, OSError, TypeError):
+            pass
+
+    # 2. Live collection.
+    events_dir = REPO_ROOT / "next/src/content/events"
+    if events_dir.is_dir():
+        picked = []
+        for f in sorted(events_dir.glob("*.json")):
+            try:
+                rec = json.loads(f.read_text(encoding="utf-8"))
+            except (json.JSONDecodeError, OSError):
+                continue
+            if rec.get("status") == "published" and _in_window(rec):
+                picked.append(_trim(rec))
+        if picked:
+            picked.sort(key=lambda r: _pick_rank(r, today))
+            return picked, "next/src/content/events (live collection)"
+
+    return [], "no source available"
 
 
 def find_latest_insider_picks(exclude: Path | None = None) -> Path | None:

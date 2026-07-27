@@ -165,16 +165,132 @@ def _next_occurrence(month: int, day: int, anchor: date) -> date | None:
     return None
 
 
-def check_links(text: str, fm: str, site_paths: set[str]) -> tuple[list[str], list[str]]:
+_BUILD_SKIP = {"next", "_astro", "assets", ".git", "_archive", "node_modules",
+               "docs", "ops", "engine", "reports", "images", "downloads"}
+
+
+def known_sections(repo_root: Path = REPO_ROOT) -> set[str]:
+    """Section names, derived from the built site with the literal set as a floor.
+
+    Fixed 2026-07-27. _KNOWN_SECTIONS alone was missing 29 sections that exist
+    and are reader-facing, among them escape, plans, awards, walks, quick-note
+    and tour-packages. A link to any of them hard-FAILED, so the gate was
+    blocking valid content. A gate that blocks good work gets bypassed, and a
+    bypassed gate protects nothing, which makes this worse than a miss.
+
+    Deriving from the build keeps it correct as sections are added. The union
+    with the literal set means a pre-build CI checkout still gets sensible
+    behaviour rather than failing everything.
+    """
+    sections = set(_KNOWN_SECTIONS)
+    try:
+        for entry in repo_root.iterdir():
+            if (entry.is_dir() and entry.name not in _BUILD_SKIP
+                    and not entry.name.startswith(".")):
+                if next(entry.rglob("*.html"), None) is not None:
+                    sections.add(entry.name)
+    except OSError:
+        pass
+    return sections
+
+
+def check_links(text: str, fm: str, site_paths: set[str],
+                sections: set[str] | None = None) -> tuple[list[str], list[str]]:
     fails, flags = [], []
+    if sections is None:
+        sections = known_sections()
     for link in _internal_links(text, fm):
         if link in site_paths or link == "/":
             continue
         section = link.strip("/").split("/")[0]
-        if section not in _KNOWN_SECTIONS:
+        if section not in sections:
             fails.append(f"Internal link '{link}' points to unknown section '/{section}/' (likely 404)")
         else:
-            flags.append(f"Internal link '{link}' not in sitemap yet — verify it resolves")
+            flags.append(f"Internal link '{link}' not in sitemap yet, verify it resolves")
+    return fails, flags
+
+
+# ── Event grounding ────────────────────────────────────────────────────────
+#
+# Added 2026-07-27 after the daily engine published a recommendation for "a
+# ceramics show closing soon in Red Hill" with no venue, no dates, and an FAQ
+# answer telling the reader to "check the Red Hill Community Centre
+# noticeboard and local Instagram accounts for the current closing date".
+#
+# check_venues() did not catch it because it only validates slugs declared in
+# frontmatter, and this claim lived in prose. The root cause was orchestrator
+# handing the generator an empty events list every day (fixed separately), but
+# a gate that can block the symptom is worth having regardless: the generator
+# will always be one bad day away from doing it again.
+
+# Copy that pushes a factual claim onto the reader is an admission the writer
+# did not know the fact. High precision, so it hard-fails.
+_UNVERIFIABLE_REFERRAL = [
+    (re.compile(r"(?i)check\s+(?:the\s+)?[\w' ]*\bnoticeboard\b"),
+     "tells the reader to check a noticeboard for a fact the copy should state"),
+    (re.compile(r"(?i)check\s+[\w' ]*\b(?:local\s+)?instagram\b[\w' ]*for\s+(?:the\s+)?"
+                r"(?:current\s+)?(?:date|dates|closing|times?|hours)"),
+     "tells the reader to check social media for a date the copy should state"),
+    (re.compile(r"(?i)\b(?:shows?|events?|exhibitions?)\s+in\s+this\s+space\s+typically\b"),
+     "describes what events 'typically' do instead of naming actual dates"),
+    (re.compile(r"(?i)for\s+the\s+current\s+(?:closing\s+)?date[,\s]"),
+     "defers the current date to the reader"),
+]
+
+# Time-bound language that implies a specific event exists. Fuzzy by nature,
+# so it flags rather than fails: prose names events in ways no regex will
+# reliably match against a slug.
+_TIME_BOUND_CLAIM = re.compile(
+    r"(?i)\b(closing soon|last chance|final week|closes? (?:this|next) \w+|"
+    r"on (?:now )?until|ends? (?:this|next) \w+|this weekend only|opening (?:this|next) \w+)\b"
+)
+
+
+def known_event_titles(content_dir: Path) -> set[str]:
+    """Lowercased titles of every event in the collection, any status.
+
+    Any status deliberately: a claim matching an archived event is a staleness
+    problem for the accuracy scan, not a fabrication, and this gate should not
+    conflate the two.
+    """
+    titles = set()
+    d = content_dir / "events"
+    if not d.exists():
+        return titles
+    for f in glob.glob(str(d / "*.json")):
+        try:
+            with open(f, encoding="utf-8") as fh:
+                rec = json.load(fh)
+        except (json.JSONDecodeError, OSError):
+            continue
+        t = (rec.get("title") or "").strip().lower()
+        if t:
+            titles.add(t)
+    return titles
+
+
+def check_event_grounding(text: str, event_titles: set[str]) -> tuple[list[str], list[str]]:
+    """Returns (fails, flags) for event claims the copy cannot support."""
+    fails, flags = [], []
+
+    for pattern, why in _UNVERIFIABLE_REFERRAL:
+        m = pattern.search(text)
+        if m:
+            fails.append(
+                f"Unverifiable referral: {why}. Matched: '{m.group(0)[:70]}'. "
+                f"State the fact or drop the claim."
+            )
+
+    for m in _TIME_BOUND_CLAIM.finditer(text):
+        phrase = m.group(0)
+        # Look for any known event title in the surrounding sentence.
+        start = max(0, m.start() - 220)
+        window = text[start:m.end() + 220].lower()
+        if not any(t in window for t in event_titles if len(t) > 10):
+            flags.append(
+                f"Time-bound claim '{phrase}' with no matching event record nearby. "
+                f"Confirm an event exists in next/src/content/events/ before publishing."
+            )
     return fails, flags
 
 
@@ -203,9 +319,10 @@ def verify_content(path: Path, content_dir: Path = CONTENT_DIR,
     vf, vchecks = check_venues(fm, known_entity_slugs(content_dir))
     df, dchecks = check_dates(text, anchor)
     lf, lflags = check_links(text, fm, known_site_paths(sitemap_path))
+    ef, eflags = check_event_grounding(text, known_event_titles(content_dir))
 
-    fails = vf + df + lf
-    flags = lflags + _soft_flags(text)
+    fails = vf + df + lf + ef
+    flags = lflags + eflags + _soft_flags(text)
     result = "FAIL" if fails else ("PASS_WITH_FLAGS" if flags else "PASS")
     return {
         "result": result,

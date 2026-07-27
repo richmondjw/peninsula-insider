@@ -1,4 +1,6 @@
 {
+  "_README": "DESIGN DOCUMENT, NOT AN INVENTORY OF LIVE JOBS. Reviewed 2026-07-27: of the 25 jobs described here, only about eight exist in the live OpenClaw registry at .openclaw/cron/jobs.json, and several described here have never run. pi-daily-events-scan in particular has never produced a single output file. For what is actually scheduled, see .openclaw/cron/jobs.json (host plane) and .github/workflows/ (GitHub Actions plane). Accuracy scan and autofix were migrated from the host plane to GitHub Actions on 2026-07-27; the entries below still describe their pre-migration cadence.",
+  "_statusReviewed": "2026-07-27",
   "site": "Peninsula Insider",
   "version": "2026-04-27",
   "status": "active-design",
