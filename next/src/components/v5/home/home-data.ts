@@ -12,6 +12,7 @@
  * so the module never renders empty.
  */
 
+import { rotateDaily } from '../../../lib/daily-rotation';
 export interface WeekendWindow {
   /** ISO date (YYYY-MM-DD) of the weekend's Saturday, Melbourne calendar. */
   satISO: string;
@@ -29,6 +30,7 @@ export interface WeekendPick {
 }
 
 /** Melbourne "now" as a plain Date carrying local wall-clock fields. */
+
 export function melbourneNow(now: Date = new Date()): Date {
   return new Date(now.toLocaleString('en-US', { timeZone: 'Australia/Melbourne' }));
 }
@@ -194,7 +196,13 @@ export function selectWeekendPicks(
           fallbackScore(b, win) - fallbackScore(a, win) ||
           soonestTime(a, mel) - soonestTime(b, mel),
       );
-    for (const ev of ranked) {
+    // The ranking above is computed entirely from static event fields, so it
+    // cannot change between builds, and the weekend window holds Monday to
+    // Sunday. Left alone the module shows the same three items all week, which
+    // is what it did for the 1-2 August weekend. Rotate the visible slice
+    // through the top of the ranking once per Melbourne day. Editorial picks
+    // above are untouched: only this fallback rotates.
+    for (const ev of rotateDaily(ranked, now)) {
       used.add(slugOf(ev));
       out.push({
         event: ev,

@@ -1,5 +1,5 @@
 ---
-headline: "Weather - ten point five degrees at Main Ridge at half past six, storm arrives Tuesday with one hundred percent rain and a thunderstorm forecast."
+headline: "Weather - ten point five degrees at Main Ridge at half past six, storm arrives Tuesday with one hundred percent rain and a thunderstorm"
 dek: "Ten point five degrees at 06:30 AEST, northerly at thirty-eight kilometres per hour, currently clear. Tuesday's forecast is one hundred percent rain, six point one millimetres, and weathercode ninety-five. The storm sequence runs through Wednesday before easing."
 section: weather
 tag: weather

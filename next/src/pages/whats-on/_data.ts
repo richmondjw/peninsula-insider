@@ -18,6 +18,7 @@
  *  - the compact feed payload for /whats-on/feed.json (HUB-11: the month+
  *    horizon ships as fetch-on-demand JSON, never as hidden DOM)
  */
+import { rotateDaily } from '../../lib/daily-rotation';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { routeSlug, eventCategoryLabel } from '../../lib/editorial';
 
@@ -427,7 +428,11 @@ export async function getPicks(events: LiveEvent[], win: ScopeWindow): Promise<P
       return { e, score };
     })
     .sort((a, b) => b.score - a.score);
-  for (const { e } of scored) {
+  // Same staleness as the homepage module: this score is static per event, so
+  // the same three surface every day the window holds. Rotate through the top
+  // of the ranking once per Melbourne day. The editorial sheet above returns
+  // early and is never rotated.
+  for (const { e } of rotateDaily(scored, new Date())) {
     picks.push(toPick(e, (e.event.data as any).editorVerdict ?? e.oneLiner));
     if (picks.length === 3) break;
   }

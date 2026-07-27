@@ -26,6 +26,11 @@ const ALLOWED_TAGS = new Set([
   'weather', 'editor-note', 'pricing', 'safety',
 ]);
 const VERDICT_MAX = 140;
+// `headline` carries the same 140 cap in content.config.ts. It was not checked
+// here, so an over-length headline walked past this hook and hard-failed the
+// Astro build. 2026-07-28-weather-tuesday shipped at 145 chars and broke every
+// build from 27 July 20:41 UTC until it was trimmed.
+const HEADLINE_MAX = 140;
 
 function trimVerdict(s) {
   if (s.length <= VERDICT_MAX) return s;
@@ -60,6 +65,14 @@ function fixFile(file) {
       const trimmed = trimVerdict(m[1]);
       lines[i] = `verdict: "${trimmed}"`;
       console.log(`  schema fix: ${file}  verdict ${m[1].length} -> ${trimmed.length} chars`);
+      changed = true;
+      continue;
+    }
+    m = line.match(/^headline:\s*"(.*)"\s*$/);
+    if (m && m[1].length > HEADLINE_MAX) {
+      const trimmed = trimVerdict(m[1]);
+      lines[i] = `headline: "${trimmed}"`;
+      console.log(`  schema fix: ${file}  headline ${m[1].length} -> ${trimmed.length} chars`);
       changed = true;
     }
   }
