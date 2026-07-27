@@ -61,7 +61,7 @@
     "tailwindcss": "^4.3.0"
   },
   "optionalDependencies": {
-    "@rollup/rollup-linux-x64-gnu": "^4.60.2",
+    "@rollup/rollup-linux-x64-gnu": "^4.62.3",
     "@rollup/rollup-win32-x64-msvc": "^4.60.4"
   },
   "_buildComment": "cache-clear baked into build script 2026-05-24"
