@@ -337,7 +337,11 @@ def check_rotation(path: Path, text: str, repo_root: Path = REPO_ROOT) -> list[s
     except Exception:
         return []
     venues = {v["slug"]: v.get("name", "") for v in recency.load_venues(repo_root)}
-    low = text.lower()
+    # Must match how the ledger decides a venue was featured, or the gate
+    # enforces a stricter rule than the one it built. Matching the whole article
+    # flagged "Pair it with: Flinders Sourdough two doors up" as a repeat
+    # feature, which it plainly is not.
+    low = recency._feature_text(text).lower()
     fails = []
     for slug in ledger["blocked"]:
         name = venues.get(slug, "")
