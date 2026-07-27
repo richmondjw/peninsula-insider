@@ -34,7 +34,7 @@ import glob
 import json
 import re
 import sys
-from datetime import date
+from datetime import date, timedelta
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -294,6 +294,59 @@ def check_event_grounding(text: str, event_titles: set[str]) -> tuple[list[str],
     return fails, flags
 
 
+def check_fence_balance(text: str) -> list[str]:
+    """Unclosed code fences. Added 2026-07-27.
+
+    insider-picks-2026-07-27.md shipped with a lone ``` immediately after the
+    frontmatter, so the whole article rendered as one monospace block that ran
+    off the right edge on mobile. The 24 July "strip LLM code fences" fix held
+    for the 24th and 25th then regressed on the 27th, so the stripper has a gap
+    and the gate should catch what it misses.
+    """
+    body = re.sub(r"^---\n.*?\n---", "", text, count=1, flags=re.S)
+    n = len(re.findall(r"^```", body, re.M))
+    if n % 2:
+        return [f"Unbalanced code fences in body ({n} found). An unclosed ``` "
+                f"renders the whole article as a code block."]
+    return []
+
+
+def check_rotation(path: Path, text: str, repo_root: Path = REPO_ROOT) -> list[str]:
+    """Block a column that features a venue inside its cooldown.
+
+    A rotation rule that lives only in the prompt is a suggestion, and this
+    generator has shown it will drift. Only applies to picks columns.
+    """
+    if "insider-picks-" not in path.name and "weekend-picks-" not in path.name:
+        return []
+    try:
+        sys.path.insert(0, str(Path(__file__).resolve().parent))
+        import recency
+    except ImportError:
+        return []
+    m = re.search(r"(\d{4}-\d{2}-\d{2})", path.name)
+    if not m:
+        return []
+    try:
+        today = date.fromisoformat(m.group(1))
+    except ValueError:
+        return []
+    try:
+        # Exclude this column from its own ledger, or it blocks itself.
+        ledger = recency.build_ledger(repo_root, today - timedelta(days=1))
+    except Exception:
+        return []
+    venues = {v["slug"]: v.get("name", "") for v in recency.load_venues(repo_root)}
+    low = text.lower()
+    fails = []
+    for slug in ledger["blocked"]:
+        name = venues.get(slug, "")
+        if len(name) >= 8 and name.lower() in low:
+            fails.append(f"Rotation violation: '{name}' is inside its "
+                         f"{recency.VENUE_COOLDOWN_DAYS}-day cooldown and cannot be featured again yet.")
+    return fails
+
+
 def _soft_flags(text: str) -> list[str]:
     flags = []
     if re.search(r"\$\d", text):
@@ -320,8 +373,10 @@ def verify_content(path: Path, content_dir: Path = CONTENT_DIR,
     df, dchecks = check_dates(text, anchor)
     lf, lflags = check_links(text, fm, known_site_paths(sitemap_path))
     ef, eflags = check_event_grounding(text, known_event_titles(content_dir))
+    ff = check_fence_balance(text)
+    rf = check_rotation(path, text, content_dir.parents[2])
 
-    fails = vf + df + lf + ef
+    fails = vf + df + lf + ef + ff + rf
     flags = lflags + eflags + _soft_flags(text)
     result = "FAIL" if fails else ("PASS_WITH_FLAGS" if flags else "PASS")
     return {

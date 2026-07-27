@@ -228,10 +228,23 @@ def call_openclaw_agent(agent_name: str, brief: dict, output_path: Path, fallbac
                   f"data and may generalise. Check the events scan.")
         else:
             print(f"    ✓ event intel: {len(events)} event(s) from {source}")
+        # Rotation ledger. Without it the generator has no memory and returns
+        # the highest-prior answer every day, which is how Ten Minutes by
+        # Tractor led the column on 24, 25 and 27 July 2026.
+        try:
+            import recency
+            ledger = recency.build_ledger(REPO_ROOT, date_obj_or_today(date))
+            print(f"    ✓ rotation: EAT type {ledger['eat_type']}, "
+                  f"{len(ledger['blocked'])} venue(s) on cooldown, "
+                  f"{ledger['pool']['eligible_today']} eligible")
+        except Exception as exc:
+            ledger = None
+            print(f"    ! rotation ledger unavailable ({exc}). Picks may repeat.")
         output_path.write_text(json.dumps({
             'date': date, 'season': season,
             'events': events,
             'events_source': source,
+            'rotation': ledger,
             'seasonal_context': f'{season.title()} on the Mornington Peninsula',
             'recommended_picks': []
         }, indent=2))
@@ -847,6 +860,14 @@ def run_corpus_refresh() -> bool:
         )
         return result.returncode == 0
     return False
+
+
+def date_obj_or_today(date_str: str):
+    """Parse the run date, falling back to today rather than failing the run."""
+    try:
+        return date.fromisoformat(str(date_str)[:10])
+    except (ValueError, TypeError):
+        return datetime.now(AEST).date()
 
 
 def _pick_rank(rec: dict, today) -> tuple:

@@ -138,12 +138,20 @@ def generate_insider_picks(date_str: str, research_data: dict | None = None) -> 
         events = research_data.get("events", [])
         recommended = research_data.get("recommended_picks", [])
         seasonal_ctx = research_data.get("seasonal_context", "")
+        rotation = research_data.get("rotation")
+        rotation_block = ""
+        if rotation:
+            try:
+                import recency
+                rotation_block = "\n" + recency.prompt_block(rotation) + "\n"
+            except Exception:
+                rotation_block = ""
         research_context = f"""
 RESEARCH DATA:
 Season context: {seasonal_ctx}
 Events this week: {json.dumps(events[:5], indent=2)}
 Recommended picks: {json.dumps(recommended, indent=2)}
-"""
+{rotation_block}"""
 
     prompt = f"""Write an Insider Picks column for Peninsula Insider.
 
@@ -156,7 +164,7 @@ Write three picks:
 
 2. EXPERIENCE/WALK: An outdoor or nature experience that is at its best in {season} on the Peninsula. Be specific about conditions, timing, what makes winter/summer/etc the right time.
 
-3. DISCOVERY/CULTURAL: Something off the main track — a gallery show with a closing date, a market, a new opening, or something locals know that visitors discover through PI.
+3. DISCOVERY/CULTURAL: Follow the REQUIRED LENS given in the rotation rules above. Do NOT default to a gallery show: that instruction previously produced 'a photography show closing soon', 'a textile show closing soon' and 'a ceramics show closing soon' on three consecutive days, the last of which did not exist. If you name a show, name the gallery, the title and the dates. If you cannot, choose something else.
 
 Each pick: 130-180 words. Structure: hook sentence → detail paragraph → practical note (address, time needed, how to book — never a price) → pairing suggestion (one sentence).
 
