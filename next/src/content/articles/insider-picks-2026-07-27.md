@@ -5,10 +5,10 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-07-27
 heroImage:
-  src: "/images/sourced/venue-ten-minutes-by-tractor-01.webp"
-  alt: "Ten Minutes by Tractor dining room, Main Ridge, Mornington Peninsula, winter"
-  credit: "Peninsula Insider"
-  license: "other-licensed"
+  src: "/images/sourced/venue-ten-minutes-by-tractor-01.jpg"
+  alt: "Entrance walkway and restaurant exterior at Ten Minutes by Tractor, Main Ridge, Mornington Peninsula"
+  credit: "Provided image"
+  license: "venue-media-kit"
 format: "insider-edit"
 tags: [insider-picks, winter, weekly]
 relatedVenues: []
@@ -33,7 +33,6 @@ faq:
   - question: "Where is the Red Hill ceramics show and when does it close?"
     answer: "Check the Red Hill Community Centre noticeboard and local Instagram accounts for the current closing date - shows in this space typically run three to four weeks. Red Hill is on Arthurs Seat Road. Arrive in the morning when the light through the north-facing windows is best."
 ---
-```
 
 ---
 

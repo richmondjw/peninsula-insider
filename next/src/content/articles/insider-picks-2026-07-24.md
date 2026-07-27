@@ -5,10 +5,10 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-07-24
 heroImage:
-  src: "/images/sourced/venue-ten-minutes-by-tractor-01.webp"
-  alt: "Ten Minutes by Tractor, Main Ridge - the vineyard dining room in winter, Mornington Peninsula"
-  credit: "Peninsula Insider"
-  license: "other-licensed"
+  src: "/images/sourced/venue-ten-minutes-by-tractor-01.jpg"
+  alt: "Entrance walkway and restaurant exterior at Ten Minutes by Tractor, Main Ridge, Mornington Peninsula"
+  credit: "Provided image"
+  license: "venue-media-kit"
 format: "insider-edit"
 tags: [insider-picks, winter, weekly]
 relatedVenues: []

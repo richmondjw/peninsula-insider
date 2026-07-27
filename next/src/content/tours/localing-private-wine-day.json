@@ -4,7 +4,10 @@
   "operatorSlug": "localing-tours",
   "experienceType": "food-wine",
   "duration": "full-day",
-  "theme": ["gourmet", "romantic"],
+  "theme": [
+    "gourmet",
+    "romantic"
+  ],
   "audience": "couples",
   "occasion": "general",
   "origin": "melbourne-cbd",
@@ -14,7 +17,14 @@
   "durationHours": 8,
   "maxGroupSize": 10,
   "departsFrom": "Melbourne hotels / CBD (door-to-door pickup)",
-  "languages": ["en", "es", "zh", "fr", "de", "it"],
+  "languages": [
+    "en",
+    "es",
+    "zh",
+    "fr",
+    "de",
+    "it"
+  ],
   "accessibility": "Mobility needs accommodated if advised in advance. Not wheelchair accessible in the standard configuration.",
   "bookingUrl": "https://localingtours.com/mornington-peninsula-private-day-tour/",
   "intro": "Localing is a premium-private operator that builds each Peninsula day around the specific group: their wine knowledge level, varietal interests, and preferred pace. The price reflects a private guide day rate rather than a tour fare, and the multilingual capability in English, Spanish, Mandarin, French, German, and Italian is the most practical differentiator in this market. For a couple or small group who want a fully bespoke Peninsula day with a local expert, this is the reference product.",
@@ -38,9 +48,9 @@
     }
   ],
   "heroImage": {
-    "src": "/images/sourced/venue-ten-minutes-by-tractor-01.webp",
-    "alt": "Ten Minutes by Tractor estate - luxury private wine day on the Mornington Peninsula",
-    "credit": "Peninsula Insider",
+    "src": "/images/sourced/venue-ten-minutes-by-tractor-01.jpg",
+    "alt": "Ten Minutes by Tractor, Main Ridge, on a private Mornington Peninsula wine day",
+    "credit": "Provided image",
     "license": "venue-media-kit"
   },
   "lastVerified": "2026-04-29",

@@ -99,7 +99,12 @@ HERO_IMAGES = {
     # Winter picks lead with the Ten Minutes by Tractor dining room
     # (James, 2026-07-24: the homepage flagship behind Insider Picks
     # should carry a TMBT photo rather than the lighthouse).
-    "winter": "/images/sourced/venue-ten-minutes-by-tractor-01.webp",
+    "winter": "/images/sourced/venue-ten-minutes-by-tractor-01.jpg",
+    # 2026-07-27: was the .webp, which is NOT this venue. Two files share
+    # the base name; the .webp is a generic wedding barn and shipped as the
+    # hero on the 24, 25 and 27 July columns captioned as the TMBT dining
+    # room and credited to Peninsula Insider. The .jpg is the venue media-kit
+    # image the venue record uses. Credit it "Provided image".
     "spring": "/images/sourced/explore-cape-schanck-lighthouse-01.webp",
     "summer": "/images/sourced/explore-cape-schanck-lighthouse-01.webp",
     "autumn": "/images/sourced/explore-cape-schanck-lighthouse-01.webp",
