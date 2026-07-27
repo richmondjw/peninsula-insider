@@ -13,7 +13,7 @@ format: "weekend-picker"
 tags: ["weekend-picker", "whats-on", "july-planning", "winter", "school-holidays", "truffle", "red-hill", "main-ridge", "mornington"]
 relatedVenues: []
 readingTimeMinutes: 3
-featured: true
+featured: false
 status: "published"
 lastVerified: 2026-06-29
 clusterLinks:
