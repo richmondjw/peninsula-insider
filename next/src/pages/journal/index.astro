@@ -34,7 +34,11 @@ const bylineFor = (article: (typeof articles)[number]) =>
 
 /* Lead feature: the pinned pick, else the newest piece. Always resolves,
    so the curation slot cannot render empty (HUB-13 guard by construction). */
-const lead = articles.find((article) => article.data.featured) ?? articles[0];
+const FEATURED_TTL_MS = 14 * 24 * 60 * 60 * 1000;
+const now = Date.now();
+const lead = articles.find(
+  (article) => article.data.featured && now - article.data.publishedAt.getTime() < FEATURED_TTL_MS
+) ?? articles[0];
 const leadSlug = lead ? routeSlug(lead) : null;
 const leadHero = lead ? await resolveHero('article', leadSlug!, lead.data, 'hero') : null;
 
