@@ -1,14 +1,14 @@
 ---
 title: "Insider Picks: 25 July 2026"
-dek: "A slow-braised lamb at Ten Minutes by Tractor, the winter-bare Bushrangers Bay trail, and a textile show closing soon at Merricks gallery space."
+dek: "Get to Flinders Sourdough before the miche goes, walk the Coppins Track clifftops to Diamond Bay, and buy your vegetables where the restaurants buy theirs."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-07-25
 heroImage:
-  src: "/images/sourced/venue-ten-minutes-by-tractor-01.jpg"
-  alt: "Entrance walkway and restaurant exterior at Ten Minutes by Tractor, Main Ridge, Mornington Peninsula"
-  credit: "Provided image"
-  license: "venue-media-kit"
+  src: "/images/sourced/explore-two-bays-walk-01.webp"
+  alt: "Coastal clifftop heathland on the Mornington Peninsula in winter"
+  credit: "Peninsula Insider"
+  license: "tmp-unsplash"
 format: "insider-edit"
 tags: [insider-picks, winter, weekly]
 relatedVenues: []
@@ -26,54 +26,52 @@ clusterLinks:
   - label: "Best Walks on the Mornington Peninsula"
     href: "/explore/best-walks/"
 faq:
-  - question: "Does Ten Minutes by Tractor take walk-ins for lunch in winter?"
-    answer: "Rarely. The Main Ridge restaurant runs a set lunch format and fills quickly even mid-week in winter. Book through their website at tenminutesbytractor.com.au well ahead of your visit."
-  - question: "Is the Bushrangers Bay track open year-round?"
-    answer: "Yes. The trail runs from Cape Schanck car park to Bushrangers Bay and is accessible year-round. Winter can bring slippery sections after rain - wear grip shoes. Parks Victoria manages the site; no booking required."
-  - question: "When does the textile exhibition at the Merricks gallery space close?"
-    answer: "Check directly with the gallery for current closing dates, as exhibition schedules can shift. The space is on Merricks Road, Merricks. Call ahead to confirm opening hours before making the drive."
+  - question: "What time should I get to Flinders Sourdough?"
+    answer: "Before mid-morning on a weekend. The almond croissants and the miche go first, and the bakery regularly sells out by early afternoon. It is at 48 Cook Street, Flinders."
+  - question: "How long is the Coppins Track?"
+    answer: "Roughly four kilometres from Sorrento Ocean Beach to Diamond Bay through clifftop coastal heathland. Allow two hours return at a comfortable pace, more if you stop to read the interpretive signage along the way."
+  - question: "Can the public shop at Peninsula Fresh Organics?"
+    answer: "Yes. The farm-gate shop at 170 Baxter-Tooradin Road, Baxter is open to anyone, not only to the restaurants it supplies. Go early for what was picked that morning."
 ---
 
-**EAT / DRINK / WINE**
+**EAT: Flinders Sourdough, Flinders**
 
-Ten Minutes by Tractor runs its winter lunch menu through July, and the slow-braised lamb shoulder with white bean purée is the reason to book now rather than wait for spring.
+A village bakery good enough that it accidentally became a reason to drive to Flinders. The loaves hold their crust for three days, which is the only real test, and the queue on a Saturday morning is made up almost entirely of people who know exactly what they came for.
 
-The Main Ridge kitchen leans into the cold-weather pantry hard. This dish has been built around lamb that has taken on the herb-forward character of the surrounding Hillside and Wallis vineyard blocks. The room itself is worth the trip - stone walls, low light, and a wine list that defaults to their own 10X Pinot Noir without apology. The set lunch format means you surrender the afternoon, which is exactly the right thing to do on a July Saturday. Service is considered without being stiff.
+Get there before mid-morning. The almond croissants and the miche go first, and by early afternoon the shelves are largely a rumour. In winter this is a better plan than it sounds: buy the bread and a pastry, eat one in the car with the heater running, and take the loaf home.
 
-Book the early sitting if you want daylight on the drive home through Red Hill. Allow three hours minimum. Bookings essential via their website.
+It is at 48 Cook Street, Flinders. No bookings, no menu, just get there early.
 
-*Pair the afternoon with a detour to nearby Montalto for a post-lunch walk through the olive grove before the light goes.*
-
----
-
-**EXPERIENCE / WALK**
-
-The Bushrangers Bay trail from Cape Schanck is a different walk in winter. The ti-tree is stripped back, the basalt platform is slick and loud, and you have it almost entirely to yourself on a weekday morning.
-
-The track descends from the Cape Schanck Lighthouse car park through coastal scrub to a black sand bay framed by columnar basalt. Summer brings families and swimming. In late July, the bay collects kelp and swell, and the cliff faces show their full geological drama. The 3.6 km return takes about 90 minutes at a relaxed pace. Watch for fur seals hauled out on the lower rocks at the bay's southern end - July is reliable for sightings. The track surface gets greasy after rain, so wear something with grip rather than trail runners with worn soles.
-
-Parks Victoria manages the site. Free entry. The lighthouse precinct has a café if you need warming up at the end.
-
-*Go early, before the sea wind picks up around 11am, and you will have the basalt platform to yourself.*
+*Pair it with:* the Flinders General Store, two minutes away, for coffee to go with the pastry.
 
 ---
 
-**DISCOVERY / CULTURAL**
+**WALK: Coppins Track, Sorrento**
 
-A small textile exhibition at a gallery space on Merricks Road is showing fibre work by three Mornington Peninsula-based makers - and it closes within weeks.
+Four kilometres of clifftop coastal heathland from Sorrento Ocean Beach to Diamond Bay, on a route threaded with a century of local history. The interpretive signage along the way reads the landscape properly rather than decorating it, and it is worth the extra ten minutes to actually stop and read it.
 
-The show is not widely advertised, which is typical for this space. The work spans large-format woven pieces and smaller dyed works using locally sourced eucalyptus and wattle. The makers have documented their dye processes alongside the finished objects, which gives the show more substance than a typical craft market display. It is the kind of exhibition you would not find unless a local told you, and the gallery itself is worth knowing - a converted farm building that handles natural light well. The Merricks end of the Peninsula moves slowly in winter, which makes this a good pairing with lunch at The Merricks General Wine Store a short drive away.
+Winter is the honest season for this one. The heath is low and wind-shaped, the ocean side is doing something dramatic most days, and you will have long stretches of it to yourself in a way that is simply not true in January.
 
-Call the gallery directly to confirm hours before driving out. The closing date is tight - do not leave it until next weekend.
+Start at Sorrento Ocean Beach. Allow two hours return.
 
-*Pair with a glass of Paringa Estate Shiraz at the General Store afterward; the two sit on the same road.*
+*Pair it with:* a long lunch back in Sorrento once your ears have warmed up.
 
 ---
 
-### Quick Reference
+**DISCOVERY: Peninsula Fresh Organics, Baxter**
 
-| Pick | Name | Location | Key Practical |
-|---|---|---|---|
-| Eat | Ten Minutes by Tractor | 1333 Mornington–Flinders Rd, Main Ridge | Bookings essential; set lunch format |
-| Walk | Bushrangers Bay Track | Cape Schanck Lighthouse car park, Cape Schanck | 3.6 km return; wear grip shoes; no booking required |
-| Discovery | Merricks Rd Textile Exhibition | Merricks Road, Merricks | Call ahead to confirm hours; closing soon |
+Where the vegetables on Peninsula restaurant plates come from, and the shop attached to it is open to anyone. That second part is the bit most people do not know.
+
+It is a working certified-organic market garden with a farm-gate shop, so you can buy the same produce that goes to the kitchens, on the day it came out of the ground. In July that means brassicas, roots and leaves that taste like something, which is the whole argument for shopping this way in the first place.
+
+It is at 170 Baxter-Tooradin Road, Baxter. Go early and buy what was picked that morning.
+
+*Pair it with:* cooking it yourself that night, which is rather the point.
+
+---
+
+**Quick Reference**
+
+- **Flinders Sourdough**, 48 Cook St, Flinders. Before mid-morning or you will miss out.
+- **Coppins Track**, Sorrento Ocean Beach to Diamond Bay. 4 km, about two hours return.
+- **Peninsula Fresh Organics**, 170 Baxter-Tooradin Rd, Baxter. Farm-gate shop, open to the public.

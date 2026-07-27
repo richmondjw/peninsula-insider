@@ -1,14 +1,14 @@
 ---
 title: "Insider Picks: 27 July 2026"
-dek: "Slow-braised lamb at Ten Minutes by Tractor, the Bushrangers Bay clifftop in July light, and a ceramics show closing soon in Red Hill."
+dek: "The rotating taps at Jetty Road, the Farnsworth Track's cliff-view shortcut, and a hot chocolate in Flinders that justifies the drive."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-07-27
 heroImage:
-  src: "/images/sourced/venue-ten-minutes-by-tractor-01.jpg"
-  alt: "Entrance walkway and restaurant exterior at Ten Minutes by Tractor, Main Ridge, Mornington Peninsula"
-  credit: "Provided image"
-  license: "venue-media-kit"
+  src: "/images/sourced/explore-farnsworth-track-01.webp"
+  alt: "Clifftop coastal heath on the Farnsworth Track between Portsea Ocean Beach and London Bridge, Point Nepean"
+  credit: "Wikimedia Commons"
+  license: "tmp-wikimedia"
 format: "insider-edit"
 tags: [insider-picks, winter, weekly]
 relatedVenues: []
@@ -26,56 +26,52 @@ clusterLinks:
   - label: "Best Walks on the Mornington Peninsula"
     href: "/explore/best-walks/"
 faq:
-  - question: "Do I need to book Ten Minutes by Tractor for a winter weekend lunch?"
-    answer: "Yes. Ten Minutes by Tractor at 1333 Mornington–Flinders Road, Main Ridge fills quickly on Saturdays and Sundays year-round. Book through their website well ahead of your visit - same-week tables are rare in winter."
-  - question: "How do I access the Bushrangers Bay clifftop trail?"
-    answer: "Park at Cape Schanck car park off Cape Schanck Road. The return loop to Bushrangers Bay is roughly 6 km and takes around two hours at a comfortable pace. No booking required. Dogs are not permitted on this section of the Mornington Peninsula National Park trail."
-  - question: "Where is the Red Hill ceramics show and when does it close?"
-    answer: "Check the Red Hill Community Centre noticeboard and local Instagram accounts for the current closing date - shows in this space typically run three to four weeks. Red Hill is on Arthurs Seat Road. Arrive in the morning when the light through the north-facing windows is best."
+  - question: "Where is Jetty Road Brewery and do I need to book?"
+    answer: "Jetty Road Brewery is at 12-14 Brasser Avenue, Dromana, next door to the drive-in. Walk-ins are the norm rather than the exception, though a large group on a weekend afternoon is worth ringing ahead for."
+  - question: "How long does the Farnsworth Track take?"
+    answer: "It runs 1.5 kilometres one way between Portsea Ocean Beach and London Bridge, so allow about an hour return at an unhurried pace. Check Parks Victoria for current track conditions before you go."
+  - question: "Where is Mornington Peninsula Chocolates?"
+    answer: "At 50 Cook Street, Flinders, a short walk from Flinders Sourdough and the General Store. There is a hot chocolate bar and a small cafe alongside the handmade range."
 ---
 
----
+**EAT: Jetty Road Brewery, Dromana**
 
-**EAT: Ten Minutes by Tractor, Main Ridge**
+Winter is when a brewery taproom earns its keep, and Jetty Road is the most considered of the bayside ones. The fit-out is deliberate rather than the usual shed-with-tanks, and the deck is generous enough that even in July there is somewhere to sit that is not directly under a heater.
 
-The slow-braised lamb shoulder on the current winter menu at Ten Minutes by Tractor is the reason to drive up to Main Ridge this weekend. The kitchen sources from farms you can see from the dining room windows, and in July that proximity matters - the cooking is heavier, slower, more deliberate than the spring and summer plates.
+The move is to ignore the core range for a moment and ask what is on the rotating taps. That is where the head brewer takes risks, and the seasonals are usually worth it. Order the one you have not heard of.
 
-The set lunch format suits winter well. You commit to the table, the pacing is unhurried, and the 10X Pinot Noir poured alongside the lamb holds up to the braise without overwhelming it. The room itself is full of cold grey light off the vines, which sounds bleak and is actually exactly right.
+It is at 12-14 Brasser Avenue, Dromana, next door to the drive-in. Walk in.
 
-Book well ahead - this is not a walk-in operation on a July Saturday. The restaurant is at 1333 Mornington–Flinders Road, Main Ridge. Allow three hours minimum.
-
-*Pair it with:* a stop at the Ten Minutes by Tractor cellar door before lunch to taste the current 10X and Wallis vineyard single-site Pinots side by side.
-
----
-
-**WALK: Bushrangers Bay Clifftop, Cape Schanck**
-
-The Bushrangers Bay loop from Cape Schanck car park is at its best in winter, specifically on the kind of overcast July morning we get when the swell is running from the southwest. The basalt columns at the bay take on a different weight in flat grey light - no tourist haze, no summer glare bouncing off the water.
-
-The track runs roughly 6 km return, dropping from the clifftop through coastal scrub to the bay and back. The descent is steep and the rocks at the bottom are always slippery - wear actual hiking shoes. Winter weekday mornings you will likely have the bay to yourself. On a clear July day you can see all the way to Phillip Island from the clifftop section.
-
-No booking required. Park off Cape Schanck Road. Allow two hours. Dogs are not permitted on this section of the national park trail.
-
-*Pair it with:* coffee and a sausage roll at the Cape Schanck Lighthouse kiosk before you set off - it opens early and the coffee is better than it has any right to be.
+*Pair it with:* the Dromana Hotel afterwards, if the afternoon turns into an evening.
 
 ---
 
-**DISCOVERY: Winter Ceramics Show, Red Hill**
+**WALK: Farnsworth Track, Point Nepean**
 
-A small group ceramics show is running in Red Hill right now with a closing date coming up fast - this is the kind of low-key exhibition that gets three Instagram posts and then disappears. The work is by Peninsula-based makers and leans toward functional pieces: stoneware mugs, fermentation crocks, and some genuinely good salt-glazed serving bowls that would not look out of place in any of the serious restaurant kitchens up on the ridge.
+If you have an hour and want the most clifftop view per step available on this coastline, this is the walk. Farnsworth runs 1.5 kilometres one way between Portsea Ocean Beach and London Bridge, with dramatic Bass Strait views at almost every point along it.
 
-Red Hill in July on a weekday feels like the Peninsula before anyone else found it. The Community Centre space is modest, north-facing, and the winter morning light through those windows is the best argument for arriving before 11am. This is not a curated gallery experience - it is a group of working ceramicists selling directly, which is where the interesting conversations happen.
+July suits it. The swell is up, the light stays low and side-on for most of the day, and the heath either side of the track has none of the summer dust on it. It is short enough to fit into a break in the weather, which in winter matters more than the walk itself does.
 
-Check the Red Hill Community Centre or local Instagram accounts for exact closing date and hours before you drive out.
+Park at Portsea Ocean Beach. Allow an hour return, more if you stop, which you will.
 
-*Pair it with:* a late breakfast at one of the Red Hill General Store tables, five minutes up the road, before or after.
+*Pair it with:* a coffee back in Portsea before the drive home.
+
+---
+
+**DISCOVERY: Mornington Peninsula Chocolates, Flinders**
+
+A small producer making chocolate by hand on Cook Street, with a hot chocolate bar attached and a cafe you did not plan to spend forty minutes in. In July you will.
+
+The hot chocolate is the reason to come in the cold months, and it is worth saying that this is a proper one rather than a cocoa sachet with ambition. The handmade range rotates with the season, and the gift stock is the answer to the question of what to take to someone's house on a Sunday.
+
+It is at 50 Cook Street, Flinders. Buy a mixed box and keep at least one bar back for the drive home.
+
+*Pair it with:* Flinders Sourdough two doors up, if anything is left by the time you get there.
 
 ---
 
 **Quick Reference**
 
-| Pick | Address | Key Practical |
-|---|---|---|
-| Ten Minutes by Tractor | 1333 Mornington–Flinders Road, Main Ridge VIC 3926 | Bookings essential; set lunch format; book via website |
-| Bushrangers Bay Clifftop | Cape Schanck Road, Cape Schanck VIC 3939 | Free entry; 6 km return; no dogs; allow 2 hours |
-| Red Hill Ceramics Show | Red Hill Community Centre, Arthurs Seat Road, Red Hill VIC 3937 | Check closing date before visiting; morning light best |
+- **Jetty Road Brewery**, 12-14 Brasser Ave, Dromana. Rotating seasonal taps. No booking needed.
+- **Farnsworth Track**, Portsea Ocean Beach to London Bridge, Point Nepean. 1.5 km one way, about an hour return.
+- **Mornington Peninsula Chocolates**, 50 Cook St, Flinders. Hot chocolate bar and handmade range.
