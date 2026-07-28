@@ -42,11 +42,16 @@ if (!KEY) {
   process.exit(2);
 }
 
-/** Buffer channel ids, from ops/skills/social-publishing.md. */
+/** Buffer channel ids. Re-verified against the live API 2026-07-28: the two
+ *  ids previously recorded in ops/skills/social-publishing.md were stale and
+ *  resolved to "Channel not found". Verify with distribution-preflight.mjs
+ *  rather than trusting this list. */
+// Re-verified against the live Buffer API 2026-07-28. Two ids were stale.
+const BUFFER_ORG = '68d0ae8232af2ad45b4fc1c6';
 const BUFFER_CHANNELS = {
   linkedin: '69e58e43031bfa423c20f0bf',
-  facebook: '69e5913b031bfa423c20f7cf',
-  instagram: '69e5d3b7031bfa423c21c0d8',
+  facebook: '69f5f7a55c4c051afa024938',
+  instagram: '69f5f6ca5c4c051afa0243e0',
 };
 
 /** channel -> { platform, dayOffset from the Thursday anchor, hour, minute } */
