@@ -224,6 +224,21 @@ starved one. Fixing Eventbrite and Humanitix, demoting Doot Doot Doot, and narro
 dropping the ABC Victoria feed would do more for commissioning quality than any change to the
 scoring model.
 
+Exact fault per source, probed 2026-07-28:
+
+| Source | HTTP | Diagnosis | Fix |
+|---|---|---|---|
+| `venue: Doot Doot Doot` | 403 | `jackalopehotels.com` bot protection. 37 failures. | Demote to `degraded` now; needs headless client or a venue feed |
+| `GDELT DOC 2.0` | 429 | Rate limited despite the 6s courtesy sleep. Runs every 6h. | Back off to daily, or cache and widen the timespan |
+| `Eventbrite - Mornington` | 405 | Bot protection on all non-browser clients | Headless client or partner API |
+| `Humanitix - Mornington` | 403 | Bot protection | Headless client or API |
+| `MP Shire - News & Media` | 404 then 403 | Seeded URL is dead; every candidate path also 403s to curl behind the WAF | Needs a browser session to find the live path |
+
+Three of the five need a headless fetch client, which is a real piece of work rather than a
+config change. **The cheapest immediate win is demoting Doot Doot Doot** so a T1 source with 37
+consecutive failures stops being counted as active, and **backing GDELT off to daily** so it
+stops burning its rate limit every six hours.
+
 The heartbeat now reports source health on failure streak rather than on the `state` label,
 because a source can sit at `active` with 37 failures indefinitely.
 
