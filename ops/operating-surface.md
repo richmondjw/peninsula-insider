@@ -176,6 +176,35 @@ publishes only `next/dist` to `gh-pages`; the root-deploy model (`build-live.sh`
 New top-level directories such as `ops/campaigns/` are safe. Earlier docs warning otherwise
 are describing a hazard that has been removed.
 
+## Heartbeat findings — 2026-07-28
+
+`node ops/scripts/job-heartbeat.mjs` checks the opposite way round from an alert: it knows
+what artifact each job is supposed to leave and reports when the artifact is missing. A job
+cannot hide from it by not running, which is the failure mode alerts never catch.
+
+First run found four problems, none of which were visible anywhere before:
+
+| Job | Listed status | Actual | Evidence |
+|---|---|---|---|
+| `pi-daily-link-audit` | live | **NEVER produced an artifact** | no `reports/peninsula-link-audit-*` exists |
+| `pi-daily-venue-healthcheck` | live | **NEVER produced an artifact** | no `reports/peninsula-venue-health-*` exists |
+| `pi-daily-events-scan` | live | **NEVER produced an artifact** | already flagged in `ops/editorial-jobs.json`, now confirmed |
+| `pi-opportunity-detection` | live | **stale, last row 11 days old** | newest `pi_opportunities.created_at` |
+
+The link-audit and venue-healthcheck rows in Tier-2 above should be read as `unverified`
+until they produce a dated report. This is the same class of error the 2026-07-25 correction
+found for the three phantom event workflows: a row in this file is a claim, not evidence.
+
+**Causal note:** `pi-opportunity-detection` being dead for 11 days is why `signal_lift` scores
+0.00 for nearly every Plan in `score-plan-fitness.mjs`. A dead upstream job was silently
+degrading downstream commissioning quality, and nothing surfaced it. That is the whole
+argument for the heartbeat.
+
+**Three mutating jobs are unobservable by design** because they leave no dated artifact:
+`pi-daily-quick-note-qa-publish` (mutates live), `pi-daily-image-relevance-autofix`
+(mutates content), and `pi-maintenance-sweep`. Each should either emit a dated artifact or
+be retired. A mutating job that cannot be proven to have run is a standing risk.
+
 ## Cross-cutting observations
 
 ### What is actually running on PI right now

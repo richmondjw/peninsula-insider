@@ -200,6 +200,11 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Job heartbeat (what should have run, and did it?)
+        id: heartbeat
+        continue-on-error: true
+        run: node ops/scripts/job-heartbeat.mjs | tee /tmp/heartbeat.txt
+
       - name: Verify anything that claims to be published
         id: verify
         continue-on-error: true
@@ -216,7 +221,10 @@ jobs:
           echo "exit=$?" >> "$GITHUB_OUTPUT"
 
       - name: Alert on problems
-        if: steps.status.outcome == 'failure' || steps.verify.outcome == 'failure'
+        if: |
+          steps.status.outcome == 'failure' ||
+          steps.verify.outcome == 'failure' ||
+          steps.heartbeat.outcome == 'failure'
         env:
           GITHUB_TOKEN: ${{ github.token }}
           GITHUB_REPOSITORY: ${{ github.repository }}
@@ -225,6 +233,6 @@ jobs:
           # path. Reuse it rather than inventing a second one.
           python engine/alert.py \
             --title "Content factory: problems detected" \
-            --body "$(cat /tmp/verify.txt /tmp/status.txt 2>/dev/null)" \
+            --body "$(cat /tmp/heartbeat.txt /tmp/verify.txt /tmp/status.txt 2>/dev/null)" \
             --dedup content-factory-health \
             --severity warn || echo "::warning::alert path failed"
