@@ -18,7 +18,7 @@
  *              campaign's UTM or the plan slug (a 200 on a soft-404 shell is
  *              not proof of publication).
  *   buffer     query the post by id; state must be `sent`.
- *   mailchimp  campaign status must be `sent`, with a non-zero recipient count.
+ *   beehiiv    post status must be `confirmed`, with a non-zero recipient count.
  *   manual     never auto-verified; a human marks it.
  *
  * Usage:
@@ -29,7 +29,7 @@
  * Exit 1 if anything is unverified past its grace window, so the daily health
  * job alerts rather than a human remembering to look.
  *
- * Env: SUPABASE_SERVICE_KEY, BUFFER_API_KEY, MAILCHIMP_API_KEY (as available)
+ * Env: SUPABASE_SERVICE_KEY, BUFFER_API_KEY, BEEHIIV_API_KEY, BEEHIIV_PUBLICATION_ID
  */
 
 import { RunLog, hasDb, select, patch } from './lib/pi-factory.mjs';
@@ -86,26 +86,25 @@ async function verifyBuffer(pub) {
   }
 }
 
-async function verifyMailchimp(pub) {
-  const key = process.env.MAILCHIMP_API_KEY;
-  if (!key) return { ok: null, note: 'MAILCHIMP_API_KEY not set; cannot verify' };
-  if (!pub.external_id) return { ok: false, note: 'no Mailchimp campaign id recorded' };
-  const dc = key.split('-')[1];
-  if (!dc) return { ok: false, note: 'malformed Mailchimp key (no datacentre suffix)' };
+async function verifyBeehiiv(pub) {
+  const key = process.env.BEEHIIV_API_KEY;
+  const publication = process.env.BEEHIIV_PUBLICATION_ID;
+  if (!key || !publication) return { ok: null, note: 'beehiiv credentials not set; cannot verify' };
+  if (!pub.external_id) return { ok: false, note: 'no beehiiv post id recorded' };
   try {
-    const res = await fetch(`https://${dc}.api.mailchimp.com/3.0/campaigns/${pub.external_id}`, {
-      headers: { Authorization: `Basic ${Buffer.from(`anystring:${key}`).toString('base64')}` },
-      signal: AbortSignal.timeout(20000),
-    });
+    const res = await fetch(
+      `https://api.beehiiv.com/v2/publications/${publication}/posts/${pub.external_id}?expand[]=stats`,
+      { headers: { Authorization: `Bearer ${key}` }, signal: AbortSignal.timeout(20000) });
     if (!res.ok) return { ok: false, note: `HTTP ${res.status}` };
     const j = await res.json();
-    if (j.status !== 'sent') return { ok: null, note: `mailchimp status "${j.status}"` };
-    const sent = j?.emails_sent ?? 0;
+    const status = j?.data?.status;
+    if (status !== 'confirmed' && status !== 'archived') return { ok: null, note: `beehiiv status "${status}"` };
+    const recipients = j?.data?.stats?.email?.recipients ?? 0;
     // Sent to nobody is a successful send and a failed publication.
-    if (!sent) return { ok: false, note: 'sent to 0 recipients (empty segment?)' };
-    return { ok: true, note: `sent to ${sent} recipients` };
+    if (!recipients) return { ok: false, note: 'sent to 0 recipients' };
+    return { ok: true, note: `confirmed, ${recipients} recipients` };
   } catch (err) {
-    return { ok: false, note: `mailchimp query failed: ${err.message}` };
+    return { ok: false, note: `beehiiv query failed: ${err.message}` };
   }
 }
 
@@ -142,7 +141,7 @@ async function main() {
 
   await log.stage('load', { startedAt: t0, outputs: { pending: scoped.length } });
 
-  const VERIFIERS = { github: verifyGithub, buffer: verifyBuffer, mailchimp: verifyMailchimp };
+  const VERIFIERS = { github: verifyGithub, buffer: verifyBuffer, beehiiv: verifyBeehiiv };
   let problems = 0;
   const results = [];
 

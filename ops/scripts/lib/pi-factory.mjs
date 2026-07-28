@@ -216,7 +216,11 @@ export function houseStyle(text) {
   let out = String(text)
     .replace(/\s*—\s*/g, ', ')   // em-dash
     .replace(/\s*–\s*/g, ', ')   // en-dash used as a break
-    .replace(/\s*,\s*,/g, ',');
+    // Legacy content already contains "  -  " where an em-dash was once
+    // hand-replaced. Left alone it reads as a typo in published copy.
+    .replace(/\s{2,}-\s{2,}/g, ', ')
+    .replace(/\s*,\s*,/g, ',')
+    .replace(/\s{2,}/g, ' ');
   return out.trim();
 }
 

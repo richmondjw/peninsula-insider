@@ -15,18 +15,18 @@
 
 ```
 THESIS:
-[MACHINE DRAFT, NOT APPROVED] Sorrento in August belongs to the people who live there.
+Sorrento in August belongs to the people who live there.
 The back beach is empty, the dining rooms take walk-ins, and the village finally feels
 like a village rather than a car park.
 
 CORE PROMISE:
-One night, one village, and no need to book anything more than a table.
+Two nights, one village, and nothing to book but a table.
 
 WHY THIS ANGLE OVER THE RUNNERS-UP:
 Off-season is the plan's own framing, so the angle is grounded in the itinerary rather
 than imported. It is also the only plan with a rights-cleared hero available.
 
-APPROVED BY:
+APPROVED BY: james (via chat approval 2026-07-28)
 ```
 
 Nothing generates until `THESIS` is filled in.

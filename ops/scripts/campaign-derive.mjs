@@ -178,6 +178,25 @@ function genStory({ plan, stops, entities, signals, ctaUrl }) {
   };
 }
 
+
+function genLinkedIn({ thesis, plan, stops, entities, signals, ctaUrl }) {
+  // LinkedIn's job is Prove, and its reader is an operator or a partner, not a
+  // visitor. So it leads with the observation about the trade, not the weekend.
+  // If a week has no genuine industry angle this generator should not be called
+  // at all: posting a recycled consumer caption here is volume, not authority.
+  const commercial = signals.filter((s) => s.role === 'commercial');
+  const bookable = commercial.length;
+  const f = [
+    frag.thesis(thesis.split(/(?<=\.)\s/)[0]),
+    frag.boiler('Off-season is the part of the Peninsula calendar operators talk about privately and rarely publish. Rooms are available, kitchens are quieter, and the people who actually live here get their village back for a few months.'),
+    frag.plan('dek', plan.dek),
+    frag.boiler(`We have mapped it out: ${nights(plan.lengthNights)}, ${stops.length} stops, ${bookable} of them directly bookable, about ${plan.totalDriveMinutes ?? '?'} minutes of driving.`),
+    frag.boiler('For operators: this is the window where a walk-in policy and a visible off-season rate do more for occupancy than any amount of summer advertising.'),
+    frag.boiler(ctaUrl),
+  ];
+  return assemble(f);
+}
+
 function genOpinionCard({ plan }) {
   // The cheapest high-value derivative in the matrix: pure typography over
   // PI's own verdict. No photography, no rights exposure, no generation.
@@ -276,9 +295,26 @@ async function main() {
   let promise = campaign.core_promise;
   let rationale = campaign.angle_rationale;
   let approvedBy = campaign.thesis_approved_by;
-  if (!thesis) {
-    const fromBrief = await thesisFromBrief(KEY);
-    if (fromBrief) ({ thesis, promise, rationale, approvedBy } = fromBrief);
+
+  // The brief is where a human signs, so a signed brief OVERRIDES whatever the
+  // database captured on an earlier unsigned run. Reading the DB first meant a
+  // stale "[MACHINE DRAFT, NOT APPROVED]" thesis survived the signature and
+  // would have been published verbatim.
+  const fromBrief = await thesisFromBrief(KEY);
+  if (fromBrief && (fromBrief.approvedBy || !thesis)) {
+    ({ thesis, promise, rationale, approvedBy } = fromBrief);
+  }
+
+  // Belt and braces: a draft marker must never reach channel copy, whatever
+  // its provenance.
+  const DRAFT_MARKER = /\[\s*MACHINE DRAFT[^\]]*\]\s*/gi;
+  if (thesis && DRAFT_MARKER.test(thesis)) {
+    if (approvedBy) {
+      thesis = thesis.replace(DRAFT_MARKER, '').trim();
+    } else {
+      console.error('\nThesis still carries a MACHINE DRAFT marker and is unsigned. Refusing to derive.');
+      process.exit(1);
+    }
   }
   if (!thesis) {
     await log.stage('thesis-gate', {
@@ -332,6 +368,7 @@ async function main() {
     ig_carousel: () => genCarousel(ctx),
     facebook: (a) => genFacebook({ ...ctx, ctaUrl: a.cta_url }),
     ig_story: (a) => genStory({ ...ctx, ctaUrl: a.cta_url }),
+    linkedin: (a) => genLinkedIn({ ...ctx, ctaUrl: a.cta_url }),
     opinion_card: () => genOpinionCard(ctx),
     site_links: () => genSiteLinks(ctx),
   };

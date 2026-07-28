@@ -19,9 +19,9 @@
  *   Buffer      credentials valid; each configured channel id resolves to a
  *               live, connected channel; payload passes the platform's own
  *               constraints (Instagram requires an image; caption limits).
- *   Mailchimp   credentials valid; the datacentre suffix parses; the target
- *               audience exists and has a non-zero member count (a send to an
- *               empty list is a successful send and a failed publication).
+ *   beehiiv     credentials valid; the publication resolves; the list has a
+ *               non-zero active subscriber count (a send to an empty list is a
+ *               successful send and a failed publication).
  *   GitHub      the target route resolves, or is a known-new path; the deploy
  *               workflow exists and is not disabled.
  *   Scheduling  every queued slot is in the future and in the right order.
@@ -33,7 +33,7 @@
  * Exit 0 = the path is ready and the only thing missing is a human saying go.
  * Exit 1 = something would fail on send.
  *
- * Env: SUPABASE_SERVICE_KEY, BUFFER_API_KEY, MAILCHIMP_API_KEY
+ * Env: SUPABASE_SERVICE_KEY, BUFFER_API_KEY, BEEHIIV_API_KEY, BEEHIIV_PUBLICATION_ID
  */
 
 import { RunLog, hasDb, select } from './lib/pi-factory.mjs';
@@ -134,43 +134,40 @@ async function preflightBuffer(queued) {
 
 // ── Mailchimp ──────────────────────────────────────────────────────────────
 
-async function preflightMailchimp() {
-  const key = process.env.MAILCHIMP_API_KEY;
+async function preflightBeehiiv() {
+  const key = process.env.BEEHIIV_API_KEY;
+  const pub = process.env.BEEHIIV_PUBLICATION_ID;
   if (!key) {
-    record('mailchimp', 'credentials', null, 'MAILCHIMP_API_KEY not set in this shell');
+    record('beehiiv', 'credentials', null, 'BEEHIIV_API_KEY not set; email leg cannot be verified');
     return;
   }
-  const dc = key.split('-')[1];
-  if (!dc) {
-    record('mailchimp', 'credentials', false, 'key has no datacentre suffix (expected key-usXX)');
-    return;
-  }
-  const auth = { Authorization: `Basic ${Buffer.from(`anystring:${key}`).toString('base64')}` };
-  try {
-    const res = await fetch(`https://${dc}.api.mailchimp.com/3.0/`, { headers: auth, signal: AbortSignal.timeout(20000) });
-    if (!res.ok) { record('mailchimp', 'credentials', false, `HTTP ${res.status}`); return; }
-    const j = await res.json();
-    record('mailchimp', 'credentials', true, `account "${j.account_name ?? '?'}" on ${dc}`);
-  } catch (err) {
-    record('mailchimp', 'credentials', false, err.message);
+  if (!pub) {
+    record('beehiiv', 'publication id', null, 'BEEHIIV_PUBLICATION_ID not set');
     return;
   }
   try {
-    const res = await fetch(`https://${dc}.api.mailchimp.com/3.0/lists?count=10`, { headers: auth, signal: AbortSignal.timeout(20000) });
+    const res = await fetch(`https://api.beehiiv.com/v2/publications/${pub}`, {
+      headers: { Authorization: `Bearer ${key}` },
+      signal: AbortSignal.timeout(20000),
+    });
+    if (!res.ok) { record('beehiiv', 'credentials', false, `HTTP ${res.status}`); return; }
     const j = await res.json();
-    const lists = j?.lists ?? [];
-    if (!lists.length) {
-      record('mailchimp', 'audience', false, 'no audiences on this account');
-      return;
-    }
-    for (const l of lists) {
-      const n = l?.stats?.member_count ?? 0;
-      // A send to an empty audience succeeds and publishes nothing.
-      record('mailchimp', `audience ${l.name}`.slice(0, 34), n > 0,
-        `id ${l.id}, ${n} member(s)`);
-    }
+    record('beehiiv', 'credentials', true, `publication "${j?.data?.name ?? pub}"`);
   } catch (err) {
-    record('mailchimp', 'audience', false, err.message);
+    record('beehiiv', 'credentials', false, err.message);
+    return;
+  }
+  try {
+    const res = await fetch(`https://api.beehiiv.com/v2/publications/${pub}/subscriptions?limit=1&status=active`, {
+      headers: { Authorization: `Bearer ${key}` },
+      signal: AbortSignal.timeout(20000),
+    });
+    const j = await res.json();
+    const n = j?.total_results ?? j?.data?.length ?? 0;
+    // A send to an empty list succeeds and publishes nothing.
+    record('beehiiv', 'active subscribers', n > 0, `${n} active`);
+  } catch (err) {
+    record('beehiiv', 'active subscribers', false, err.message);
   }
 }
 
@@ -265,7 +262,7 @@ async function main() {
   console.log('\nDISTRIBUTION PREFLIGHT — read-only. Nothing is published by this script.\n');
 
   await preflightBuffer(queued);
-  await preflightMailchimp();
+  await preflightBeehiiv();
   await preflightSite(scopedCampaigns);
   preflightSchedule(queued);
 

@@ -59,7 +59,9 @@ const LADDER = {
   site_plan:    { platform: 'github',    day: 0, hour: 6,  minute: 0 },
   site_article: { platform: 'github',    day: 0, hour: 6,  minute: 0 },
   site_links:   { platform: 'github',    day: 0, hour: 6,  minute: 0 },
-  email:        { platform: 'mailchimp', day: 0, hour: 7,  minute: 0 },
+  // Peninsula Insider sends on beehiiv. The Mailchimp key in the environment
+  // belongs to a different company entirely, so it must never carry PI email.
+  email:        { platform: 'beehiiv',   day: 0, hour: 7,  minute: 0 },
   ig_carousel:  { platform: 'buffer',    day: 0, hour: 18, minute: 0, buffer: 'instagram' },
   facebook:     { platform: 'buffer',    day: 1, hour: 8,  minute: 0, buffer: 'facebook' },
   ig_story:     { platform: 'buffer',    day: 2, hour: 9,  minute: 0, buffer: 'instagram' },
@@ -115,6 +117,45 @@ async function bufferPost({ text, channelId, dueAt, platform }) {
   return post;
 }
 
+
+/**
+ * Live channel health, read from Buffer before queueing anything.
+ *
+ * Buffer will happily accept a scheduled post for a disconnected channel and
+ * then never publish it. Queueing into that is manufacturing a silent failure,
+ * so a channel that is disconnected, locked, or paused is skipped with the
+ * reason recorded rather than queued and hoped for.
+ */
+async function bufferChannelHealth() {
+  const key = process.env.BUFFER_API_KEY;
+  if (!key) return null;
+  try {
+    const res = await fetch('https://api.buffer.com', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${key}` },
+      body: JSON.stringify({
+        query: `query { channels(input: { organizationId: "${BUFFER_ORG}" }) { id service name isDisconnected isLocked isQueuePaused } }`,
+      }),
+      signal: AbortSignal.timeout(20000),
+    });
+    const j = await res.json();
+    const list = j?.data?.channels;
+    if (!list) return null;
+    const map = new Map();
+    for (const c of list) {
+      const faults = [
+        c.isDisconnected && 'disconnected',
+        c.isLocked && 'locked',
+        c.isQueuePaused && 'queue paused',
+      ].filter(Boolean);
+      map.set(c.id, { name: c.name, service: c.service, faults });
+    }
+    return map;
+  } catch {
+    return null;
+  }
+}
+
 async function main() {
   const log = new RunLog('campaign-schedule', { jobSource: 'manual' });
   if (!hasDb()) {
@@ -136,7 +177,11 @@ async function main() {
   // ── Release gate ─────────────────────────────────────────────────────────
   t0 = new Date();
   const l3 = assets.filter((a) => a.approval_level === 'L3');
-  const l3NotReady = l3.filter((a) => a.state !== 'ready');
+  // `scheduled` and `published` are DOWNSTREAM of ready, not short of it.
+  // Checking for `ready` alone meant a second --submit run was blocked by
+  // assets the first run had already queued.
+  const L3_SATISFIED = new Set(['ready', 'scheduled', 'published']);
+  const l3NotReady = l3.filter((a) => !L3_SATISFIED.has(a.state));
   const thesisSigned = Boolean(campaign.thesis_approved_by);
   const blockers = [];
   if (!thesisSigned) blockers.push('thesis is not signed');
@@ -159,6 +204,28 @@ async function main() {
     degradations: blockers.length ? [`queue only: ${blockers.join('; ')}`] : [],
   });
 
+  // ── Channel health, before queueing anything ─────────────────────────────
+  t0 = new Date();
+  const health = await bufferChannelHealth();
+  const unhealthy = new Set();
+  if (health) {
+    for (const [name, id] of Object.entries(BUFFER_CHANNELS)) {
+      const h = health.get(id);
+      if (!h) { unhealthy.add(name); continue; }
+      if (h.faults.length) unhealthy.add(name);
+    }
+  }
+  await log.stage('channel-health', {
+    startedAt: t0,
+    status: health ? (unhealthy.size ? 'degraded' : 'ok') : 'degraded',
+    outputs: health
+      ? Object.fromEntries([...health.values()].map((h) => [h.service, h.faults.length ? h.faults.join('+') : 'ok']))
+      : {},
+    degradations: health
+      ? [...unhealthy].map((n) => `${n} is not sendable; its assets will be skipped, not queued`)
+      : ['could not read Buffer channel health; queueing blind'],
+  });
+
   // ── Queue ────────────────────────────────────────────────────────────────
   const anchor = anchorThursday(FROM);
   const existing = await select(
@@ -167,11 +234,19 @@ async function main() {
   const queuedFor = new Set((existing ?? []).map((p) => p.campaign_asset_id));
 
   const queued = [];
+  const skipped = [];
   for (const asset of assets) {
     const spec = LADDER[asset.channel];
     if (!spec) continue;
     if (asset.state !== 'ready') continue;
     if (queuedFor.has(asset.id)) continue;
+    // Never queue into a channel that cannot publish. Buffer accepts the post
+    // and silently drops it, which is the failure class this factory exists
+    // to eliminate.
+    if (spec.buffer && unhealthy.has(spec.buffer)) {
+      skipped.push({ asset, reason: `${spec.buffer} channel is not sendable` });
+      continue;
+    }
     const when = slotFor(anchor, spec);
     const [row] = await insert('pi_publications', [{
       campaign_asset_id: asset.id,
@@ -189,15 +264,39 @@ async function main() {
       queued: queued.length,
       already_queued: assets.filter((a) => queuedFor.has(a.id)).length,
       not_ready: assets.filter((a) => a.state !== 'ready' && LADDER[a.channel]).map((a) => a.channel),
+      skipped_unhealthy: skipped.map((s) => `${s.asset.channel}: ${s.reason}`),
     },
+    degradations: skipped.map((s) => `${s.asset.channel} skipped, ${s.reason}`),
+    status: skipped.length ? 'degraded' : 'ok',
   });
 
   // ── Submit ───────────────────────────────────────────────────────────────
+  // Submit everything still in `queued` for this campaign, not just what this
+  // run happened to queue. Iterating only over newly-queued rows meant a second
+  // --submit invocation silently sent nothing, because the first run had
+  // already created the rows.
+  const assetById = new Map(assets.map((a) => [a.id, a]));
+  const SERVICE_FOR = {
+    ig_carousel: 'instagram', ig_story: 'instagram', opinion_card: 'instagram',
+    facebook: 'facebook', linkedin: 'linkedin',
+  };
+  const pending = SUBMIT
+    ? (await select(
+        `pi_publications?select=*&state=eq.queued&platform=eq.buffer` +
+        `&campaign_asset_id=in.(${assets.map((a) => a.id).join(',')})`
+      ) ?? []).map((p) => {
+        const asset = assetById.get(p.campaign_asset_id);
+        const service = asset ? SERVICE_FOR[asset.channel] : null;
+        return { publication: p, asset, when: new Date(p.scheduled_for), spec: { platform: 'buffer', buffer: service } };
+      }).filter((x) => x.asset && x.spec.buffer && !unhealthy.has(x.spec.buffer))
+    : [];
+
   if (!SUBMIT) {
     console.log('\nQueued only. Nothing was sent to a live channel.');
     console.log('Re-run with --submit once the thesis is signed and the L3 assets are approved.\n');
   } else {
-    for (const q of queued.filter((x) => x.spec.platform === 'buffer')) {
+    if (!pending.length) console.log('\nNothing pending submission on a sendable channel.');
+    for (const q of pending) {
       const t = new Date();
       const channelId = BUFFER_CHANNELS[q.spec.buffer];
       try {

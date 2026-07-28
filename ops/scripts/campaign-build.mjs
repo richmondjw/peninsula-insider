@@ -52,6 +52,7 @@ const CHANNELS = [
   { channel: 'ig_carousel',   approval: 'L2', lifespan: 60,  purpose: 'Persuade: the shape of the weekend, one slide per stop', variant: '4:5' },
   { channel: 'opinion_card',  approval: 'L2', lifespan: 120, purpose: 'Prove: one verdict, typeset. No photography needed' },
   { channel: 'facebook',      approval: 'L1', lifespan: 5,   purpose: 'Remind: one practical detail, conversational', variant: '1.91:1' },
+  { channel: 'linkedin',      approval: 'L2', lifespan: 21,  purpose: 'Prove: the industry observation, for operators and partners', variant: '1.91:1' },
   { channel: 'ig_story',      approval: 'L1', lifespan: 1,   purpose: 'Enable: booking order, link sticker', variant: '9:16' },
   { channel: 'site_links',    approval: 'L0', lifespan: 3650, purpose: 'Cross-link every stop entity back to the Plan; ItemList JSON-LD' },
 ];
@@ -215,7 +216,10 @@ async function main() {
       ? houseStyle(`Media readiness ${(mediaReadiness * 100).toFixed(0)}%. ${gaps.length} of ${stops.length} stops lack a social-cleared asset. Derivatives will fall back to brand graphics and typographic cards.`)
       : null,
     blocked_reason: null,
-    utm_campaign: `pi-${week.toLowerCase()}-${plan.slug.split('-').slice(-2).join('-')}`.slice(0, 60),
+    // Use the whole plan slug: slicing the last two segments turned
+    // "sorrento-off-season-weekend" into "season-weekend", which is not
+    // identifiable in an analytics report.
+    utm_campaign: `pi-${week.toLowerCase()}-${plan.slug}`.slice(0, 60),
     correlation_id: correlationId,
     est_cost_usd: 0,
   };
