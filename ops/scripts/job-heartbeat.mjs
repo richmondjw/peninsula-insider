@@ -92,9 +92,15 @@ const EXPECTATIONS = [
     maxAgeHours: 12, note: 'every 6h: fetch, extract, contradiction-detect',
   },
   {
+    // CONDITIONAL OUTPUT. Verified 2026-07-28: this job runs fine and correctly
+    // creates nothing when no cluster clears the bar. Judging it by row
+    // recency produced a false "STALE" and a wrong diagnosis of "job is dead".
+    // "No new rows" is not "did not run" for a table that only gains rows when
+    // something qualifies. Its real health signal is source health, below.
     job: 'pi-opportunity-detection', tier: 2, kind: 'db-row',
     table: 'pi_opportunities', tsColumn: 'created_at',
-    maxAgeHours: 48, note: 'daily L3 scoring',
+    maxAgeHours: 48, conditionalOutput: true,
+    note: 'daily L3 scoring. Zero output is a legitimate result, not a failure.',
   },
   {
     job: 'content-factory', tier: 0, kind: 'db-row',
@@ -160,14 +166,28 @@ async function main() {
     }
 
     const age = lastSeen ? hoursSince(lastSeen) : Infinity;
-    const verdict = !lastSeen ? 'NEVER' : age > e.maxAgeHours ? 'STALE' : 'ok';
+    // A conditional-output job cannot be judged stale by row age: producing
+    // nothing is one of its valid outcomes.
+    const verdict = e.conditionalOutput
+      ? (lastSeen ? 'ok (conditional)' : 'NEVER')
+      : !lastSeen ? 'NEVER' : age > e.maxAgeHours ? 'STALE' : 'ok';
     checks.push({ ...e, lastSeen, evidence, ageHours: age, verdict });
   }
 
+  // ── Source health: the real upstream signal for the intelligence pipeline ──
+  // A source can be `active` with a 37-failure streak, which is how a dead feed
+  // stays invisible. Judge on the streak, not the label.
+  const sources = hasDb()
+    ? await select('pi_sources?select=name,kind,tier,state,failure_streak,health_note&order=failure_streak.desc&limit=60')
+    : null;
+  const brokenSources = (sources ?? []).filter((s) => (s.failure_streak ?? 0) >= 3);
+  const degradedSources = (sources ?? []).filter((s) => s.state === 'degraded');
+
   const never = checks.filter((c) => c.verdict === 'NEVER');
   const stale = checks.filter((c) => c.verdict === 'STALE');
-  const ok = checks.filter((c) => c.verdict === 'ok');
-  const problems = [...never, ...stale];
+  const ok = checks.filter((c) => c.verdict.startsWith('ok'));
+  const problems = [...never, ...stale,
+    ...brokenSources.map((s) => ({ job: `source: ${s.name}`, verdict: 'BROKEN' }))];
 
   const payload = {
     generated_at: new Date().toISOString(),
@@ -179,6 +199,11 @@ async function main() {
       tolerance_hours: c.maxAgeHours, evidence: c.evidence, note: c.note,
     })),
     unobservable: UNCHECKABLE,
+    sources: {
+      total: (sources ?? []).length,
+      broken: brokenSources.map((s) => ({ name: s.name, tier: s.tier, state: s.state, failure_streak: s.failure_streak })),
+      degraded: degradedSources.map((s) => ({ name: s.name, tier: s.tier })),
+    },
   };
 
   await log.stage('heartbeat', {
@@ -209,10 +234,33 @@ async function main() {
     }
   } else {
     for (const c of checks.sort((a, b) => a.tier - b.tier || a.job.localeCompare(b.job))) {
-      const mark = c.verdict === 'ok' ? 'ok   ' : c.verdict === 'STALE' ? 'STALE' : 'NEVER';
+      const mark = c.verdict.startsWith('ok') ? 'ok   ' : c.verdict === 'STALE' ? 'STALE' : 'NEVER';
       out.push(`  [${mark}] T${c.tier} ${c.job.padEnd(32)} last ${fmtAge(c.ageHours).padEnd(6)} (tolerance ${c.maxAgeHours}h)`);
-      if (c.verdict !== 'ok') out.push(`         ${c.note}`);
+      if (!c.verdict.startsWith('ok')) out.push(`         ${c.note}`);
     }
+  }
+
+  out.push('');
+  out.push(AS_MD ? '## Source health' : 'SOURCE HEALTH (a source can be "active" with a 37-failure streak):');
+  out.push('');
+  if (!sources) {
+    out.push('  (no database access)');
+  } else if (!brokenSources.length && !degradedSources.length) {
+    out.push(`  all ${sources.length} sources healthy`);
+  } else {
+    for (const s of brokenSources) {
+      out.push(AS_MD
+        ? `- **BROKEN** T${s.tier} \`${s.name}\` — ${s.failure_streak} consecutive failures, still marked \`${s.state}\``
+        : `  [BROKEN] T${s.tier} ${String(s.name).slice(0, 44).padEnd(46)} ${s.failure_streak} consecutive failures, still "${s.state}"`);
+    }
+    for (const s of degradedSources.filter((d) => !brokenSources.some((b) => b.name === d.name))) {
+      out.push(AS_MD
+        ? `- degraded T${s.tier} \`${s.name}\``
+        : `  [degr  ] T${s.tier} ${String(s.name).slice(0, 44).padEnd(46)} marked degraded`);
+    }
+    out.push('');
+    out.push('  A broken event source with a healthy statewide news feed is why opportunity');
+    out.push('  detection produces nothing: the pipe is full, but full of the wrong material.');
   }
 
   out.push('');

@@ -189,7 +189,7 @@ First run found four problems, none of which were visible anywhere before:
 | `pi-daily-link-audit` | live | **NEVER produced an artifact** | no `reports/peninsula-link-audit-*` exists |
 | `pi-daily-venue-healthcheck` | live | **NEVER produced an artifact** | no `reports/peninsula-venue-health-*` exists |
 | `pi-daily-events-scan` | live | **NEVER produced an artifact** | already flagged in `ops/editorial-jobs.json`, now confirmed |
-| `pi-opportunity-detection` | live | **stale, last row 11 days old** | newest `pi_opportunities.created_at` |
+| `pi-opportunity-detection` | live | ~~stale~~ **CORRECTED: runs fine** | see the correction below |
 
 The link-audit and venue-healthcheck rows in Tier-2 above should be read as `unverified`
 until they produce a dated report. This is the same class of error the 2026-07-25 correction
@@ -199,6 +199,33 @@ found for the three phantom event workflows: a row in this file is a claim, not 
 0.00 for nearly every Plan in `score-plan-fitness.mjs`. A dead upstream job was silently
 degrading downstream commissioning quality, and nothing surfaced it. That is the whole
 argument for the heartbeat.
+
+**Correction, same day.** The `pi-opportunity-detection` "stale" verdict above was a false
+positive and the diagnosis of "dead job" was wrong. Run manually 2026-07-28: it executed
+cleanly, formed 58 clusters, made 18 LLM calls, cost $0.023, and correctly created zero
+opportunities because every cluster was irrelevant. **"No new rows" is not "did not run"** for
+a table that only gains rows when something qualifies. The heartbeat now treats
+`pi_opportunities` as a conditional-output table.
+
+The real problem is upstream, in the source mix:
+
+| Source | Tier | State | Reality |
+|---|---|---|---|
+| `venue: Doot Doot Doot` | T1 | `active` | **37 consecutive failures** and never demoted |
+| `GDELT DOC 2.0` | T2 | `active` | 15 consecutive failures |
+| `Eventbrite - Mornington` | T3 | degraded | one of only two real event feeds |
+| `Humanitix - Mornington` | T3 | degraded | the other one |
+| `ABC News - Victoria RSS` | T2 | active, healthy | flooding the pipe with statewide noise |
+
+Both dedicated event feeds are degraded while a statewide news RSS works perfectly, so the
+material reaching L3 is Albury council rate rises, Melbourne CBD attractions, and state
+politics. That is why `signal_lift` scores 0.00 for nearly every Plan: not a dead job, a
+starved one. Fixing Eventbrite and Humanitix, demoting Doot Doot Doot, and narrowing or
+dropping the ABC Victoria feed would do more for commissioning quality than any change to the
+scoring model.
+
+The heartbeat now reports source health on failure streak rather than on the `state` label,
+because a source can sit at `active` with 37 failures indefinitely.
 
 **Three mutating jobs are unobservable by design** because they leave no dated artifact:
 `pi-daily-quick-note-qa-publish` (mutates live), `pi-daily-image-relevance-autofix`
