@@ -1,0 +1,222 @@
+name: Content Factory — Peninsula Insider
+
+# The weekly rhythm. Three cadences, one workflow:
+#
+#   Monday 06:00 AEST   score the Plans, build the campaign packet, open the
+#                       thesis issue. Produces a brief; publishes nothing.
+#   Thursday 05:00 AEST derive channel copy from the (hopefully signed) thesis
+#                       and queue the release ladder. Still publishes nothing
+#                       to a live channel.
+#   Daily 07:00 AEST    factory health. Non-zero exit opens a deduped issue.
+#
+# Nothing in this workflow submits to Buffer or Mailchimp. Live distribution is
+# a separate, deliberate act (`campaign-schedule.mjs --submit`) gated on a
+# signed thesis and approved L3 assets. Automating the build rhythm is safe;
+# automating the send is not, and should be earned rather than assumed.
+
+on:
+  schedule:
+    - cron: '0 20 * * 0'   # Sun 20:00 UTC = Mon 06:00 AEST — build
+    - cron: '0 19 * * 3'   # Wed 19:00 UTC = Thu 05:00 AEST — derive + queue
+    - cron: '0 21 * * *'   # daily 21:00 UTC = 07:00 AEST — health
+  workflow_dispatch:
+    inputs:
+      stage:
+        description: 'Which stage to run'
+        type: choice
+        options: [build, derive, health, all]
+        default: all
+      plan:
+        description: 'Override the Featured Plan slug (build only)'
+        required: false
+        type: string
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: content-factory
+  cancel-in-progress: false
+
+env:
+  SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+  PI_SUPABASE_URL: ${{ secrets.PI_SUPABASE_URL }}
+  PI_REPO_ROOT: ${{ github.workspace }}
+
+jobs:
+  # ── Monday: select and package ──────────────────────────────────────────
+  build:
+    if: |
+      github.event.schedule == '0 20 * * 0' ||
+      (github.event_name == 'workflow_dispatch' &&
+       (inputs.stage == 'build' || inputs.stage == 'all'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PAT_CONTENT_PUSH || github.token }}
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Configure git identity
+        run: |
+          git config user.name "Peninsula Insider Factory"
+          git config user.email "engine@peninsulainsider.com.au"
+          git config core.hooksPath .githooks
+
+      - name: Rank the Plans
+        id: rank
+        run: |
+          node ops/scripts/score-plan-fitness.mjs --json > /tmp/fitness.json
+          node ops/scripts/score-plan-fitness.mjs | tee /tmp/fitness.txt
+          echo "plan=$(node -e "
+            const f=require('/tmp/fitness.json');
+            process.stdout.write('${{ inputs.plan }}' || f.shortlist[0] || '');
+          ")" >> "$GITHUB_OUTPUT"
+
+      - name: Build the campaign packet
+        id: build
+        run: |
+          if [ -z "${{ steps.rank.outputs.plan }}" ]; then
+            echo "::error::No plan cleared selection. Every itinerary is in cooldown or unscorable."
+            exit 1
+          fi
+          node ops/scripts/campaign-build.mjs --plan "${{ steps.rank.outputs.plan }}" | tee /tmp/build.txt
+          echo "key=$(grep -oP '^campaign:\s+\K\S+' /tmp/build.txt)" >> "$GITHUB_OUTPUT"
+
+      - name: Commit the brief
+        run: |
+          git add ops/campaigns/ ops/reports/ || true
+          if git diff --cached --quiet; then
+            echo "nothing to commit"
+          else
+            git commit -m "factory: campaign brief ${{ steps.build.outputs.key }} [skip-review]"
+            git push
+          fi
+
+      - name: Open the thesis issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          KEY="${{ steps.build.outputs.key }}"
+          BRIEF="ops/campaigns/${KEY}.md"
+          {
+            echo "The factory has packaged this week's Featured Plan. It needs a thesis."
+            echo ""
+            echo "**Brief:** [\`${BRIEF}\`](../blob/main/${BRIEF})"
+            echo ""
+            echo "Write the thesis into the fenced block in that file and sign the"
+            echo "\`APPROVED BY:\` line. Nothing L3 generates as \`ready\` until you do."
+            echo ""
+            echo "### This week's ranking"
+            echo ""
+            echo '```'
+            cat /tmp/fitness.txt
+            echo '```'
+          } > /tmp/issue.md
+          gh issue create \
+            --title "Thesis needed: ${KEY}" \
+            --body-file /tmp/issue.md \
+            --label "content-factory" || echo "::warning::issue creation failed"
+
+  # ── Thursday: derive and queue ──────────────────────────────────────────
+  derive:
+    if: |
+      github.event.schedule == '0 19 * * 3' ||
+      (github.event_name == 'workflow_dispatch' &&
+       (inputs.stage == 'derive' || inputs.stage == 'all'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PAT_CONTENT_PUSH || github.token }}
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Configure git identity
+        run: |
+          git config user.name "Peninsula Insider Factory"
+          git config user.email "engine@peninsulainsider.com.au"
+          git config core.hooksPath .githooks
+
+      - name: Find the current campaign
+        id: current
+        run: |
+          KEY=$(node -e "
+            const k=process.env.SUPABASE_SERVICE_KEY;
+            const u=(process.env.PI_SUPABASE_URL||'https://mvdtkgsfuhmkioygxgge.supabase.co');
+            fetch(u+'/rest/v1/pi_campaigns?select=campaign_key,state&state=in.(brief_ready,awaiting_editorial_approval,in_production)&order=publication_week.desc&limit=1',
+              {headers:{apikey:k,Authorization:'Bearer '+k}})
+              .then(r=>r.json()).then(j=>process.stdout.write(j?.[0]?.campaign_key||''));
+          ")
+          echo "key=$KEY" >> "$GITHUB_OUTPUT"
+          [ -n "$KEY" ] || echo "::warning::no campaign in flight"
+
+      - name: Derive channel copy
+        if: steps.current.outputs.key != ''
+        run: node ops/scripts/campaign-derive.mjs --campaign "${{ steps.current.outputs.key }}"
+
+      - name: Queue the release ladder (no live submission)
+        if: steps.current.outputs.key != ''
+        run: node ops/scripts/campaign-schedule.mjs --campaign "${{ steps.current.outputs.key }}"
+
+      - name: Commit the review pack
+        if: steps.current.outputs.key != ''
+        run: |
+          git add ops/campaigns/ || true
+          if git diff --cached --quiet; then
+            echo "nothing to commit"
+          else
+            git commit -m "factory: derivatives ${{ steps.current.outputs.key }} [skip-review]"
+            git push
+          fi
+
+  # ── Daily: is anything silently broken? ─────────────────────────────────
+  health:
+    if: |
+      github.event.schedule == '0 21 * * *' ||
+      (github.event_name == 'workflow_dispatch' &&
+       (inputs.stage == 'health' || inputs.stage == 'all'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 1 }
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Factory status
+        id: status
+        continue-on-error: true
+        run: |
+          node ops/scripts/factory-status.mjs | tee /tmp/status.txt
+          echo "exit=$?" >> "$GITHUB_OUTPUT"
+
+      - name: Alert on problems
+        if: steps.status.outcome == 'failure'
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: |
+          # engine/alert.py is the estate's only deduplicated non-silent alert
+          # path. Reuse it rather than inventing a second one.
+          python engine/alert.py \
+            --title "Content factory: problems detected" \
+            --body "$(cat /tmp/status.txt)" \
+            --dedup content-factory-health \
+            --severity warn || echo "::warning::alert path failed"

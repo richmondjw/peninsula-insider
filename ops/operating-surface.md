@@ -147,6 +147,35 @@ These rituals write to `next/.claude/newsroom/` (slates, perf, retros, look-ahea
 | `Warden — Daily Backup Freshness Check` | openclaw-cron | daily 07:30 | report-only | live |
 | `Runner — Stall Detection` | openclaw-cron | every 15 min | report-only | live |
 
+## Tier-0 — Content Factory (weekly campaign rhythm)
+
+**Added 2026-07-28.** The campaign layer. Selects one Featured Plan a week, packages it as a
+Content Campaign Packet, derives channel copy, and queues a staggered release ladder. Every
+stage writes a `pi_run_log` row, so this tier has **no silent alert paths by construction**.
+
+| Job | Source | Schedule (UTC) | Mutation | Status | Alert path |
+|---|---|---|---|---|---|
+| `content-factory / build` | github-actions | Sun 20:00 (Mon 06:00 AEST) | mutating-content (`ops/campaigns/`) | live | GH issue (thesis request) |
+| `content-factory / derive` | github-actions | Wed 19:00 (Thu 05:00 AEST) | mutating-content | live | `pi_run_log` + GH Actions UI |
+| `content-factory / health` | github-actions | daily 21:00 | scan-only | live | `engine/alert.py` deduped GH issue |
+| `campaign-schedule --submit` | **manual only** | on demand | **mutating-live** | live | `pi_run_log` |
+
+**Deliberate non-automation:** nothing in this tier submits to Buffer or Mailchimp. Live
+distribution is a separate manual act, gated in code on a signed thesis and `ready` L3 assets.
+Automating the build rhythm is safe; automating the send is autonomy that should be earned on
+evidence, not assumed at install time. See the graduated approval ladder in
+`docs/peninsula-insider-content-operating-system-2026-07-28.md`.
+
+**Observability:** `node ops/scripts/factory-status.mjs` is the single view. Exit code 1 means
+something is genuinely wrong (a stale job, a failed publication, a campaign past its SLA), so
+the daily job alerts on it rather than a human remembering to look.
+
+**Correction to a long-standing hazard note (verified 2026-07-28):** the "sync dist to repo
+root wipes everything except an allowlist" trap no longer applies. `build-and-deploy.yml`
+publishes only `next/dist` to `gh-pages`; the root-deploy model (`build-live.sh`) is retired.
+New top-level directories such as `ops/campaigns/` are safe. Earlier docs warning otherwise
+are describing a hazard that has been removed.
+
 ## Cross-cutting observations
 
 ### What is actually running on PI right now
