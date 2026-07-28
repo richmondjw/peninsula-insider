@@ -1,0 +1,188 @@
+{
+  "campaign": {
+    "campaign_key": "CMP-2026-W32-the-family-day-out",
+    "publication_week": "2026-W32",
+    "featured_plan_slug": "the-family-day-out",
+    "audience": "families",
+    "strategic_theme": null,
+    "editorial_thesis": null,
+    "core_promise": null,
+    "angle_rationale": null,
+    "plan_fitness_json": {
+      "media_readiness": 0,
+      "stops": 4
+    },
+    "seasonal_context": {
+      "season": "winter",
+      "week": "2026-W32",
+      "generated_from": "campaign-build.mjs"
+    },
+    "confidence": null,
+    "state": "brief_ready",
+    "risk_class": "amber",
+    "risk_note": "Media readiness 0%. 4 of 4 stops lack a social-cleared asset. Derivatives will fall back to brand graphics and typographic cards.",
+    "blocked_reason": null,
+    "utm_campaign": "pi-2026-w32-day-out",
+    "correlation_id": "eb3de72b-d9fe-46dc-b515-c058bd2b1ec1",
+    "est_cost_usd": 0
+  },
+  "signals": [
+    {
+      "role": "context",
+      "assertion": "A Peninsula day with kids works when you have one anchor for the children (the gondola) and one anchor for the adults (the lunch). Four moves, ninety minutes apart, no degustation, no back-beach gambles with under-sixes. This plan does not try to be all things  -  and that is the reason it lands.",
+      "entity_slug": null,
+      "verification": "single_source",
+      "source_tier": 2,
+      "source_url": "https://peninsulainsider.com.au/explore/plans/the-family-day-out/"
+    },
+    {
+      "role": "support",
+      "assertion": "Arthurs Seat Eagle: Start high. The Arthurs Seat Eagle gondola is the anchor of the day  -  twenty minutes of gently dangling flight and the best orientation to the whole Peninsula.",
+      "entity_slug": "arthurs-seat-lookout",
+      "verification": "single_source",
+      "source_tier": 2,
+      "source_url": "https://aseagle.com.au"
+    },
+    {
+      "role": "commercial",
+      "assertion": "Arthurs Seat Eagle takes direct bookings.",
+      "entity_slug": "arthurs-seat-lookout",
+      "verification": "single_source",
+      "source_tier": 1,
+      "source_url": "https://aseagle.com.au/book"
+    },
+    {
+      "role": "support",
+      "assertion": "Red Hill Brewery: The right family lunch room: grass, picnic tables, a wood-fired pizza oven, and a tasting flight for the adults. Do not try to upgrade to a cellar door.",
+      "entity_slug": "red-hill-brewery",
+      "verification": "single_source",
+      "source_tier": 2,
+      "source_url": "https://redhillbrewery.com.au"
+    },
+    {
+      "role": "commercial",
+      "assertion": "Red Hill Brewery takes direct bookings.",
+      "entity_slug": "red-hill-brewery",
+      "verification": "single_source",
+      "source_tier": 1,
+      "source_url": "https://redhillbrewery.com.au"
+    },
+    {
+      "role": "support",
+      "assertion": "Mount Martha Beach: The default family swim. Shallow, pale, gentle, with bathing boxes at the northern end. Park at the main lot, walk south if it is busy.",
+      "entity_slug": "mount-martha-beach",
+      "verification": "single_source",
+      "source_tier": 2,
+      "source_url": null
+    },
+    {
+      "role": "support",
+      "assertion": "Commonfolk Coffee: The right way to close the day. Serious coffee for the adults, a babyccino and pastry for a tired child, and an easy freeway exit afterwards.",
+      "entity_slug": "commonfolk-coffee",
+      "verification": "single_source",
+      "source_tier": 2,
+      "source_url": "https://commonfolkcoffee.com.au"
+    },
+    {
+      "role": "commercial",
+      "assertion": "Commonfolk Coffee takes direct bookings.",
+      "entity_slug": "commonfolk-coffee",
+      "verification": "single_source",
+      "source_tier": 1,
+      "source_url": "https://commonfolkcoffee.com.au"
+    },
+    {
+      "role": "timing",
+      "assertion": "Published for 2026-W32, winter on the Mornington Peninsula.",
+      "entity_slug": null,
+      "verification": "verified",
+      "source_tier": 1,
+      "source_url": null,
+      "verified_at": "2026-07-28T02:21:58.429Z"
+    },
+    {
+      "role": "risk",
+      "assertion": "No social-cleared photography for: arthurs-seat-lookout, red-hill-brewery, mount-martha-beach, commonfolk-coffee. Derivatives for these stops must use brand graphics or typographic cards.",
+      "entity_slug": null,
+      "verification": "verified",
+      "source_tier": 1,
+      "source_url": null,
+      "verified_at": "2026-07-28T02:21:58.429Z"
+    }
+  ],
+  "assets": [
+    {
+      "channel": "site_plan",
+      "variant": null,
+      "purpose": "Complete the schema, add a seasonal variation, refresh lastVerified",
+      "approval_level": "L3",
+      "lifespan_days": 365,
+      "state": "draft",
+      "cta_url": "https://peninsulainsider.com.au/explore/plans/the-family-day-out/?utm_source=site_plan&utm_medium=organic&utm_campaign=pi-2026-w32-day-out"
+    },
+    {
+      "channel": "site_article",
+      "variant": null,
+      "purpose": "The story-world piece. Why this Plan, why now",
+      "approval_level": "L3",
+      "lifespan_days": 270,
+      "state": "draft",
+      "cta_url": "https://peninsulainsider.com.au/explore/plans/the-family-day-out/?utm_source=site_article&utm_medium=organic&utm_campaign=pi-2026-w32-day-out"
+    },
+    {
+      "channel": "email",
+      "variant": null,
+      "purpose": "Lead with the thesis, carry the Picks",
+      "approval_level": "L3",
+      "lifespan_days": 3,
+      "state": "draft",
+      "cta_url": "https://peninsulainsider.com.au/explore/plans/the-family-day-out/?utm_source=email&utm_medium=organic&utm_campaign=pi-2026-w32-day-out"
+    },
+    {
+      "channel": "ig_carousel",
+      "variant": "4:5",
+      "purpose": "Persuade: the shape of the weekend, one slide per stop",
+      "approval_level": "L2",
+      "lifespan_days": 60,
+      "state": "draft",
+      "cta_url": "https://peninsulainsider.com.au/explore/plans/the-family-day-out/?utm_source=ig_carousel&utm_medium=organic&utm_campaign=pi-2026-w32-day-out"
+    },
+    {
+      "channel": "opinion_card",
+      "variant": null,
+      "purpose": "Prove: one verdict, typeset. No photography needed",
+      "approval_level": "L2",
+      "lifespan_days": 120,
+      "state": "draft",
+      "cta_url": "https://peninsulainsider.com.au/explore/plans/the-family-day-out/?utm_source=opinion_card&utm_medium=organic&utm_campaign=pi-2026-w32-day-out"
+    },
+    {
+      "channel": "facebook",
+      "variant": "1.91:1",
+      "purpose": "Remind: one practical detail, conversational",
+      "approval_level": "L1",
+      "lifespan_days": 5,
+      "state": "draft",
+      "cta_url": "https://peninsulainsider.com.au/explore/plans/the-family-day-out/?utm_source=facebook&utm_medium=organic&utm_campaign=pi-2026-w32-day-out"
+    },
+    {
+      "channel": "ig_story",
+      "variant": "9:16",
+      "purpose": "Enable: booking order, link sticker",
+      "approval_level": "L1",
+      "lifespan_days": 1,
+      "state": "draft",
+      "cta_url": "https://peninsulainsider.com.au/explore/plans/the-family-day-out/?utm_source=ig_story&utm_medium=organic&utm_campaign=pi-2026-w32-day-out"
+    },
+    {
+      "channel": "site_links",
+      "variant": null,
+      "purpose": "Cross-link every stop entity back to the Plan; ItemList JSON-LD",
+      "approval_level": "L0",
+      "lifespan_days": 3650,
+      "state": "draft",
+      "cta_url": "https://peninsulainsider.com.au/explore/plans/the-family-day-out/?utm_source=site_links&utm_medium=organic&utm_campaign=pi-2026-w32-day-out"
+    }
+  ],
+  "campaign_id": "2cbc3fde-d243-4547-86ea-3584dc0bad5e"
+}
