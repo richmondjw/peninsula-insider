@@ -422,6 +422,50 @@ class HouseStyleSanitizer(unittest.TestCase):
         self.assertNotIn("—", out)
 
 
+class DraftSentenceLengthGate(unittest.TestCase):
+    """Regression coverage for the dispatch draft's 35-word sentence cap."""
+
+    # This was the failure mode: a useful but overlong sentence that required
+    # a human to split it before the style review could approve the draft.
+    PREVIOUSLY_FAILING_SENTENCE = (
+        "The cellar door pours its single-vineyard Pinot beside a fire, while the kitchen "
+        "serves a slow winter lunch that gives Melbourne visitors a reason to stay through "
+        "the late afternoon rather than rush back over the city-bound bridge."
+    )
+    REGENERATED_DRAFT = (
+        "The cellar door pours single-vineyard Pinot beside a fire. "
+        "Its kitchen serves a slow winter lunch worth staying for. "
+        "Leave after the late-afternoon tasting, not before it."
+    )
+
+    def _run_gate(self, text: str):
+        import tempfile
+        import orchestrator as orch
+        with tempfile.TemporaryDirectory() as d:
+            path = Path(d) / "insider-picks.md"
+            path.write_text(text)
+            result = orch.run_style_gate(path)
+            return result, path.read_text()
+
+    def test_rejects_previously_failing_overlong_sentence(self):
+        result, _ = self._run_gate(self.PREVIOUSLY_FAILING_SENTENCE)
+        self.assertEqual(result, "FAIL")
+
+    def test_regenerated_draft_passes_without_post_generation_editing(self):
+        # This fixture represents the generator's returned draft, not text
+        # split by a deterministic post-processor. The style gate must pass it
+        # unchanged after one generation.
+        result, checked = self._run_gate(self.REGENERATED_DRAFT)
+        self.assertEqual(result, "PASS")
+        self.assertEqual(checked, self.REGENERATED_DRAFT)
+
+    def test_system_prompt_requires_counting_and_rewriting_long_sentences(self):
+        import content_generator as cg
+        self.assertIn("35 words or fewer", cg.PI_VOICE_SYSTEM_PROMPT)
+        self.assertIn("count each sentence", cg.PI_VOICE_SYSTEM_PROMPT)
+        self.assertIn("do not rely on an editor to split it later", cg.PI_VOICE_SYSTEM_PROMPT)
+
+
 class AutoActScope(unittest.TestCase):
     def test_actionable_kinds(self):
         import auto_act as aa

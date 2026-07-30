@@ -697,6 +697,28 @@ def run_style_gate(article_path: Path) -> str:
     import re as _re
     if _re.search(r"\$\s?\d", content):
         failures.append("pricing ($ figure)")
+
+    # The draft prompt requires 35 words or fewer per sentence. Check that
+    # requirement deterministically, but do not alter copy here: the single
+    # permitted regeneration must return a compliant draft rather than rely on
+    # an automatic, potentially meaning-changing sentence splitter.
+    body = content
+    if body.startswith("---"):
+        frontmatter_end = body.find("\n---", 3)
+        if frontmatter_end != -1:
+            body = body[frontmatter_end + 4:]
+    sentences = _re.split(r"(?<=[.!?])\s+", body.strip())
+    overlong = [
+        (index, len(_re.findall(r"[A-Za-z0-9]+(?:[’'-][A-Za-z0-9]+)*", sentence)))
+        for index, sentence in enumerate(sentences, start=1)
+        if len(_re.findall(r"[A-Za-z0-9]+(?:[’'-][A-Za-z0-9]+)*", sentence)) > 35
+    ]
+    if overlong:
+        failures.append(
+            "sentence length >35 words (" + ", ".join(
+                f"sentence {index}: {word_count}" for index, word_count in overlong[:3]
+            ) + ")"
+        )
     if failures:
         print(f"    Style issues: {failures}")
         return "FAIL"
