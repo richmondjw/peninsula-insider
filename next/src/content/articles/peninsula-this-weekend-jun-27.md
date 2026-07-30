@@ -33,7 +33,7 @@ dispatch:
     price: "Free entry"
     summary: "The fourth-Saturday community market with around 250 stalls, produce, plants, craft, and local makers. A low-key Saturday morning that pairs with a beach walk or breakfast in Rye."
     bookingLabel: "More info"
-    bookingUrl: "https://www.morningtonpeninsulamakers.com/markets/tootgarook-primary-school-market"
+    bookingUrl: "https://peninsulakids.com.au/markets-3/"
   companion:
     title: "Peninsula Hot Springs Sunday Sessions (final session), Rye"
     when: "Sunday 28 June, 2:00pm–5:00pm"
