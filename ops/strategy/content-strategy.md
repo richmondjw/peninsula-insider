@@ -4,9 +4,9 @@
 
 **Loop health:** 🟢 healthy — Actions recorded but none re-measured yet — learning signal not flowing (expected until GSC re-crawls the actioned pages).
 
-**Generated:** 2026-07-31 07:11 AEST  
+**Generated:** 2026-08-01 07:05 AEST  
 **Season:** Winter  
-**Inputs used:** gsc-search-analytics, gsc-coverage, sitemap-inventory, events-calendar:9-upcoming, seasonal-calendar:winter  
+**Inputs used:** gsc-search-analytics, gsc-coverage, sitemap-inventory, events-calendar:8-upcoming, seasonal-calendar:winter  
 
 ## Where we stand
 
@@ -19,11 +19,11 @@
 | Pages indexed by Google | 0 |
 | Pages known-not-indexed | 26 |
 | Pages in sitemap | 408 |
-| Open opportunities | 56 |
+| Open opportunities | 55 |
 
 ## Day-over-day (is the strategy improving?)
 
-_Compared with 2026-07-30._
+_Compared with 2026-07-31._
 
 - Average position held by 0.00.
 - Clicks flat 0 vs last snapshot.
@@ -88,36 +88,37 @@ Ranked by the strategy model (performance + season + coverage + effort). The orc
 - **Why:** 'mornington cup 2026 date' ranks avg position 8.8 on 23 impressions — small, targeted improvement could reach page 1 and start earning clicks.
 - **Do:** Strengthen the ranking page for this exact query: expand the relevant section, add an FAQ answer, tighten the H1/intro, add internal links from related hub pages.
 
-### 7. [EVENT · score 2.992] Preview: Red Hill Brewery Secret Stash Weekend (15d out)
+### 7. [EVENT · score 2.992] Preview: National Works on Paper 2026 (NWOP) (35d out)
 - **Desk:** dispatch-desk
-- **Why:** Red Hill Brewery Secret Stash Weekend is 15 days out (2026-08-15, Other Mornington Peninsula) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** National Works on Paper 2026 (NWOP) is 35 days out (2026-09-05, Mornington) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 8. [EVENT · score 2.992] Preview: National Works on Paper 2026 (NWOP) (36d out)
-- **Desk:** dispatch-desk
-- **Why:** National Works on Paper 2026 (NWOP) is 36 days out (2026-09-05, Mornington) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
-- **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
-
-### 9. [RANK · score 2.883] Push 'dog friendly guide mornington peninsula' onto page 1
+### 8. [RANK · score 2.883] Push 'dog friendly guide mornington peninsula' onto page 1
 - **Desk:** field-desk
 - **Query:** `dog friendly guide mornington peninsula`
 - **Why:** 'dog friendly guide mornington peninsula' ranks avg position 9.6 on 17 impressions — small, targeted improvement could reach page 1 and start earning clicks.
 - **Do:** Strengthen the ranking page for this exact query: expand the relevant section, add an FAQ answer, tighten the H1/intro, add internal links from related hub pages.
 
-### 10. [INDEX · score 2.868] Get /journal/a-winter-peninsula-weekend/ indexed
+### 9. [INDEX · score 2.868] Get /journal/a-winter-peninsula-weekend/ indexed
 - **Desk:** dispatch-desk
 - **Why:** Google reports 'Discovered – currently not indexed' (last crawl: Never). This page that isn't indexed cannot rank for anything — the single highest-leverage fix.
 - **Do:** Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.
 
-### 11. [INDEX · score 2.868] Get /wine/best-cellar-doors/ indexed
+### 10. [INDEX · score 2.868] Get /wine/best-cellar-doors/ indexed
 - **Desk:** table-desk
 - **Why:** Google reports 'Discovered – currently not indexed' (last crawl: Never). This page that isn't indexed cannot rank for anything — the single highest-leverage fix.
 - **Do:** Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.
 
-### 12. [RANK · score 2.845] Push 'a dog-friendly guide mornington peninsula' onto page 1
+### 11. [RANK · score 2.845] Push 'a dog-friendly guide mornington peninsula' onto page 1
 - **Desk:** field-desk
 - **Query:** `a dog-friendly guide mornington peninsula`
 - **Why:** 'a dog-friendly guide mornington peninsula' ranks avg position 8.3 on 10 impressions — small, targeted improvement could reach page 1 and start earning clicks.
+- **Do:** Strengthen the ranking page for this exact query: expand the relevant section, add an FAQ answer, tighten the H1/intro, add internal links from related hub pages.
+
+### 12. [RANK · score 2.689] Push 'mornington cup 2026' onto page 1
+- **Desk:** dispatch-desk
+- **Query:** `mornington cup 2026`
+- **Why:** 'mornington cup 2026' ranks avg position 10.2 on 12 impressions — small, targeted improvement could reach page 1 and start earning clicks.
 - **Do:** Strengthen the ranking page for this exact query: expand the relevant section, add an FAQ answer, tighten the H1/intro, add internal links from related hub pages.
 
 ## Coverage snapshot
