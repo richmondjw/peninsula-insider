@@ -65,3 +65,27 @@ export function rotateDaily<T>(
   const offset = melbourneDayIndex(now) % pool.length;
   return pool.map((_, i) => pool[(i + offset) % pool.length]);
 }
+
+/**
+ * Rotate a ranked list by a fixed Melbourne-local cadence. This retains the
+ * same quality pool and deterministic behaviour as rotateDaily, but allows a
+ * shelf with a scheduled rebuild to advance more than once per day.
+ */
+export function rotateByMelbourneHours<T>(
+  ranked: T[],
+  now: Date = new Date(),
+  hours = 12,
+  poolSize = 9,
+  take = 3,
+): T[] {
+  if (ranked.length <= take) return ranked;
+  if (!Number.isInteger(hours) || hours < 1 || 24 % hours !== 0) {
+    throw new Error('Rotation cadence must be a whole divisor of 24 hours.');
+  }
+  const mel = new Date(now.toLocaleString('en-US', { timeZone: 'Australia/Melbourne' }));
+  const slotsPerDay = 24 / hours;
+  const slot = melbourneDayIndex(now) * slotsPerDay + Math.floor(mel.getHours() / hours);
+  const pool = ranked.slice(0, Math.max(poolSize, take));
+  const offset = slot % pool.length;
+  return pool.map((_, i) => pool[(i + offset) % pool.length]);
+}

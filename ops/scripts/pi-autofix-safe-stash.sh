@@ -11,6 +11,13 @@
 #            autofix MUST abort the run and let the next scheduled tick retry.
 #            Writes .pi-autofix/deferred with the foreign file list on exit 2.
 #
+#   check --approved-scope <name>
+#            An explicit, named exception for a human-approved task. It does
+#            NOT make a dirty tree generally safe: it only permits unrelated
+#            changes to remain in place. A change to one of the named scope's
+#            own files is still treated as a conflict and aborts. Every pass
+#            is appended to .pi-autofix/approved-scopes.log for audit.
+#
 #   stash    Refuses (exit 2) if foreign changes are present. Otherwise
 #            stashes autofix-owned residue with a label and records the stash
 #            commit SHA in .pi-autofix/stash-ref so restore can find it even
@@ -35,6 +42,7 @@ SENTINEL_DIR=".pi-autofix"
 CONFLICT_LOG="$SENTINEL_DIR/stash-conflict.log"
 STASH_REF_FILE="$SENTINEL_DIR/stash-ref"
 DEFER_FILE="$SENTINEL_DIR/deferred"
+APPROVED_SCOPE_LOG="$SENTINEL_DIR/approved-scopes.log"
 STASH_LABEL="pi-autofix-safe-stash"
 
 # Paths the autofix itself owns. Anything dirty outside these prefixes is
@@ -68,6 +76,72 @@ foreign_files() {
     [ -n "$f" ] || continue
     is_allowed "$f" || printf '%s\n' "$f"
   done < <(dirty_files)
+}
+
+# A scope is deliberately small and versioned in this script. Adding one is a
+# code review decision, not a runtime bypass. Each scope names only files that
+# the approved task itself may edit; pre-existing changes to those files are a
+# conflict, whereas unrelated WIP elsewhere remains protected but need not
+# block this scoped task.
+scope_owns() {
+  local scope="$1" f="$2"
+  case "$scope" in
+    deli-270-weekend-rotation)
+      case "$f" in
+        "next/src/components/v5/home/home-data.ts"|\
+        "next/src/lib/daily-rotation.ts"|\
+        ".github/workflows/build-and-deploy.yml"|\
+        "ops/scripts/pi-autofix-safe-stash.sh") return 0 ;;
+      esac ;;
+    *) return 2 ;;
+  esac
+  return 1
+}
+
+scope_known() {
+  case "$1" in
+    deli-270-weekend-rotation) return 0 ;;
+    *) return 1 ;;
+  esac
+}
+
+scope_conflicts() {
+  local scope="$1" f
+  while IFS= read -r f; do
+    [ -n "$f" ] || continue
+    # Autofix-owned residue is safe. For the explicit scope, only overlap with
+    # the task's files is unsafe; unrelated WIP is intentionally left alone.
+    is_allowed "$f" && continue
+    if scope_owns "$scope" "$f"; then
+      printf '%s\n' "$f"
+    fi
+  done < <(dirty_files)
+}
+
+cmd_approved_scope_check() {
+  local scope="$1" conflicts
+  if ! scope_known "$scope"; then
+    echo "Unknown approved scope: $scope" >&2
+    exit 64
+  fi
+  conflicts="$(scope_conflicts "$scope")"
+  if [ -n "$conflicts" ]; then
+    {
+      echo "deferred-at: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+      echo "reason: approved scope conflicts with existing changes ($scope)"
+      echo "conflicting-files:"
+      printf '  %s\n' $conflicts
+    } > "$DEFER_FILE"
+    echo "APPROVED scope '$scope' conflicts with existing work — aborting:" >&2
+    printf '  %s\n' $conflicts >&2
+    exit 2
+  fi
+  rm -f "$DEFER_FILE"
+  printf '%s scope=%s branch=%s head=%s result=pass\n' \
+    "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$scope" \
+    "$(git rev-parse --abbrev-ref HEAD)" "$(git rev-parse --short HEAD)" \
+    >> "$APPROVED_SCOPE_LOG"
+  echo "OK: approved scope '$scope' has no conflicting in-scope changes"
 }
 
 cmd_check() {
@@ -141,11 +215,20 @@ cmd_restore() {
 }
 
 case "${1:-}" in
-  check)   cmd_check ;;
+  check)
+    if [ "${2:-}" = "--approved-scope" ] && [ -n "${3:-}" ] && [ -z "${4:-}" ]; then
+      cmd_approved_scope_check "$3"
+    elif [ -n "${2:-}" ]; then
+      echo "Usage: $0 check [--approved-scope <name>]" >&2
+      exit 64
+    else
+      cmd_check
+    fi
+    ;;
   stash)   cmd_stash ;;
   restore) cmd_restore ;;
   *)
-    echo "Usage: $0 {check|stash|restore}" >&2
+    echo "Usage: $0 {check [--approved-scope <name>]|stash|restore}" >&2
     exit 64
     ;;
 esac

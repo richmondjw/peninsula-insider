@@ -12,7 +12,7 @@
  * so the module never renders empty.
  */
 
-import { rotateDaily } from '../../../lib/daily-rotation';
+import { rotateByMelbourneHours } from '../../../lib/daily-rotation';
 export interface WeekendWindow {
   /** ISO date (YYYY-MM-DD) of the weekend's Saturday, Melbourne calendar. */
   satISO: string;
@@ -176,11 +176,21 @@ export function selectWeekendPicks(
   );
   if (entry) {
     const ordered = [...entry.data.picks].sort((a: any, b: any) => a.position - b.position);
+    const editorialCandidates: WeekendPick[] = [];
+    const editorialUsed = new Set<string>();
     for (const pick of ordered) {
       const ev = bySlug.get(pick.eventSlug);
-      if (!ev || !isLiveEvent(ev) || used.has(slugOf(ev))) continue;
-      used.add(slugOf(ev));
-      out.push({ event: ev, verdict: clampVerdict(pick.editorVerdict) });
+      if (!ev || !isLiveEvent(ev) || editorialUsed.has(slugOf(ev))) continue;
+      editorialUsed.add(slugOf(ev));
+      editorialCandidates.push({ event: ev, verdict: clampVerdict(pick.editorVerdict) });
+    }
+    // The collection remains the source of truth, including its verdicts and
+    // candidate set. The twice-daily cadence simply advances the visible
+    // three through that curated shortlist; when it contains only three, the
+    // same picks are shown in a different lead order.
+    for (const candidate of rotateByMelbourneHours(editorialCandidates, now, 12)) {
+      used.add(slugOf(candidate.event));
+      out.push(candidate);
       if (out.length === 3) break;
     }
   }
@@ -200,9 +210,10 @@ export function selectWeekendPicks(
     // cannot change between builds, and the weekend window holds Monday to
     // Sunday. Left alone the module shows the same three items all week, which
     // is what it did for the 1-2 August weekend. Rotate the visible slice
-    // through the top of the ranking once per Melbourne day. Editorial picks
-    // above are untouched: only this fallback rotates.
-    for (const ev of rotateDaily(ranked, now)) {
+    // through the top of the ranking twice per Melbourne day. The deploy
+    // workflow rebuilds at each 12-hour boundary over Saturday and Sunday.
+    // Editorial picks above are untouched: only this fallback rotates.
+    for (const ev of rotateByMelbourneHours(ranked, now, 12)) {
       used.add(slugOf(ev));
       out.push({
         event: ev,

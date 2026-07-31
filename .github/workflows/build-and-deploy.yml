@@ -8,6 +8,13 @@ on:
       - 'next/public/**'
       - 'next/astro.config.mjs'
       - 'next/package.json'
+  schedule:
+    # Rebuild twice per Melbourne weekend day. UTC remains safely within the
+    # weekend when DST shifts (08:00/14:00 AEST, 09:00/15:00 AEDT).
+    - cron: '0 22 * * 5'
+    - cron: '0 4 * * 6'
+    - cron: '0 22 * * 6'
+    - cron: '0 4 * * 0'
   workflow_dispatch:
 
 # GITHUB_TOKEN must be able to push the built site to gh-pages.
