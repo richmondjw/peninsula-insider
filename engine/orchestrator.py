@@ -517,6 +517,18 @@ def run_weekly(log: RunLog, state: dict, today: str, now_aest: datetime):
         "output_path": str(wp_path),
         "target_words": 500,
     }, wp_path)
+    # Weekend Picks uses the same post-write hero selector as the daily column.
+    try:
+        sys.path.insert(0, str(Path(__file__).resolve().parent))
+        import hero_image as _hero
+        from datetime import date as _date
+        _res = _hero.stamp(wp_path, today=_date.fromisoformat(today))
+        if _res.get("ok"):
+            log.step("hero-image-weekend", "DONE", f"{_res['src']} ({_res['reason']})")
+        else:
+            log.step("hero-image-weekend", "WARN", _res.get("reason", "no selection"))
+    except Exception as _e:
+        log.step("hero-image-weekend", "WARN", f"selection failed, hero left as written: {_e}")
     commissioned_paths.append(wp_path)
     log.step("weekend-picks", "DONE")
 
@@ -655,6 +667,20 @@ def run_monthly(log: RunLog, state: dict, today: str, now_aest: datetime):
             "output_path": str(town_path),
         }, town_path)
         if generated:
+            # Refreshed town hubs are reader-facing article pages; re-stamp the
+            # hero from the refreshed body rather than leaving whatever generic
+            # image the writer/template happened to emit.
+            try:
+                sys.path.insert(0, str(Path(__file__).resolve().parent))
+                import hero_image as _hero
+                from datetime import date as _date
+                _res = _hero.stamp(town_path, today=_date.fromisoformat(today))
+                if _res.get("ok"):
+                    log.step(f"hero-image-town-{town}", "DONE", f"{_res['src']} ({_res['reason']})")
+                else:
+                    log.step(f"hero-image-town-{town}", "WARN", _res.get("reason", "no selection"))
+            except Exception as _e:
+                log.step(f"hero-image-town-{town}", "WARN", f"selection failed, hero left as written: {_e}")
             long_form_paths.append(town_path)
         else:
             log.error(f"town-hub-refresh for {town} failed; existing file left untouched and excluded from commit")

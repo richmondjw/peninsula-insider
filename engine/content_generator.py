@@ -364,6 +364,22 @@ def stamp_hero(output_path: Path, date_str: str) -> None:
         print(f"⚠ Hero selection failed, placeholder left in place: {e}", file=sys.stderr)
 
 
+def stamp_loose_markdown_hero(output_path: Path, date_str: str) -> None:
+    """Attach hero metadata to email/newsletter markdown without YAML leakage."""
+    import sys as _sys
+    _sys.path.insert(0, str(Path(__file__).resolve().parent))
+    try:
+        import hero_image
+        from datetime import date as _date
+        res = hero_image.stamp_loose_markdown(output_path, today=_date.fromisoformat(date_str))
+        if res.get("ok"):
+            print(f"✓ Newsletter hero: {res['src']} ({res['reason']})")
+        else:
+            print(f"⚠ Newsletter hero selection skipped: {res.get('reason')}", file=sys.stderr)
+    except Exception as e:
+        print(f"⚠ Newsletter hero selection failed: {e}", file=sys.stderr)
+
+
 def load_research(research_file: str | None) -> dict | None:
     if research_file and Path(research_file).exists():
         try:
@@ -428,6 +444,7 @@ def main():
 """
         output_path.write_text(newsletter)
         print(f"✓ Newsletter written: {output_path}")
+        stamp_loose_markdown_hero(output_path, args.date)
 
     else:
         # Publishing an empty shell is worse than failing the run: Astro only
