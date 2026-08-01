@@ -1,11 +1,17 @@
 ---
 title: "[long-form - 2026-08-02]"
+dek: "Placeholder for long-form editorial content."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-08-02
-format: "guide"
+heroImage:
+  src: "/images/sourced/journal-hub-hero-01.webp"
+  alt: "Mornington Peninsula winter landscape"
+  credit: "Peninsula Insider"
+  license: "tmp-wikimedia"
+format: "peninsula-notes"
 tags: [winter, peninsula]
-status: "published"
+status: "draft"
 lastVerified: 2026-08-02
 agentRun: 2026-08-02-long-form
 ---

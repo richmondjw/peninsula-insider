@@ -1,11 +1,17 @@
 ---
-title: "[town-hub-refresh - 2026-08-02]"
+title: "Sorrento: The Peninsula Insider Guide"
+dek: "Sorrento is the Peninsula's most celebrated village — a clifftop town of limestone buildings, ocean baths and a summer social scene that has defined the region's identity for generations."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-08-02
-format: "guide"
-tags: [winter, peninsula]
-status: "published"
+heroImage:
+  src: "/images/sourced/explore-sorrento-ocean-baths-01.webp"
+  alt: "Sorrento ocean baths on the Bass Strait side under soft winter light"
+  credit: "Peninsula Insider"
+  license: "tmp-wikimedia"
+format: "hub-guide"
+tags: [sorrento, area-guide, planning]
+status: "draft"
 lastVerified: 2026-08-02
 agentRun: 2026-08-02-town-hub-refresh
 ---

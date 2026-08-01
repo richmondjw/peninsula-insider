@@ -1,11 +1,17 @@
 ---
-title: "[town-hub-refresh - 2026-08-02]"
+title: "Mornington: The Peninsula Insider Guide"
+dek: "Mornington is the Peninsula's working gateway town — a bay-facing port with a main street of galleries and restaurants, a historic foreshore, and a character that balances local life with visitor energy."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-08-02
-format: "guide"
-tags: [winter, peninsula]
-status: "published"
+heroImage:
+  src: "/images/sourced/place-mornington-01.webp"
+  alt: "Mornington main street and foreshore with bay views"
+  credit: "Peninsula Insider"
+  license: "tmp-wikimedia"
+format: "hub-guide"
+tags: [mornington, area-guide, planning]
+status: "draft"
 lastVerified: 2026-08-02
 agentRun: 2026-08-02-town-hub-refresh
 ---
