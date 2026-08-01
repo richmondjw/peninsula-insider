@@ -3,7 +3,7 @@
 **Date:** Saturday, 1 August 2026 (UTC) / Sunday, 2 August 2026 (AEST)
 **Job:** `pi-daily-quick-note-qa-publish`
 **Agent:** Remy
-**Status:** PUBLISHED — pending GitHub Pages deployment verification
+**Status:** PUBLISHED — external verification passed
 
 ## Result
 
@@ -28,6 +28,6 @@ Published the Sunday 2 August AEST morning quick-note edition under the standing
 
 - House-style lint: passed; no em-dashes in content.
 - Content schema / Astro check: not run. `npm run check` could not start because the checkout has no local `astro` executable (`sh: 1: astro: not found`).
-- External post-publish verification: deferred to the GitHub Pages deployment. It must pass HTTP, canonical, metadata, stylesheet, target-copy, and sitemap checks before the change is treated as live.
+- External post-publish verification: passed at `https://peninsulainsider.com.au/quick-note/` using `ops/scripts/post-publish-verify.mjs`; structured result: `ops/reports/verify/2026-08-01-quick-note.md`.
 
-**Verification result:** pending deployment.
+**Verification result:** passed.
