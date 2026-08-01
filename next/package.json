@@ -12,6 +12,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "check": "astro check",
+    "validate:content": "node scripts/validate-content.mjs",
+    "test:content-admission": "node scripts/test-content-admission.mjs",
     "lint:no-pricing": "node scripts/lint-no-pricing.mjs",
     "lint:region-images": "node scripts/lint-region-images.mjs",
     "lint:surfaces": "node scripts/audit-surface-hardening.mjs",

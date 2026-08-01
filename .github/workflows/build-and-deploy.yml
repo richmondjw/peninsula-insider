@@ -8,6 +8,7 @@ on:
       - 'next/public/**'
       - 'next/astro.config.mjs'
       - 'next/package.json'
+      - '.github/workflows/build-and-deploy.yml'
   schedule:
     # Rebuild twice per Melbourne weekend day. UTC remains safely within the
     # weekend when DST shifts (08:00/14:00 AEST, 09:00/15:00 AEDT).
@@ -20,6 +21,7 @@ on:
 # GITHUB_TOKEN must be able to push the built site to gh-pages.
 permissions:
   contents: write
+  issues: write
 
 # Cancel any in-progress deploy on new push
 concurrency:
@@ -51,6 +53,12 @@ jobs:
 
       - name: CMS editable-coverage gate
         run: node next/scripts/check-editable-coverage.mjs
+
+      - name: Content admission gate
+        run: |
+          cd next
+          npm run test:content-admission
+          npm run validate:content
 
       - name: Build
         run: |
@@ -98,8 +106,9 @@ jobs:
 
       - name: Notify on failure
         if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
-          echo "Build failed for commit ${{ github.sha }}"
-          echo "Commit message: ${{ github.event.head_commit.message }}"
-          # In production: write failure to .claude/newsroom/runs/deploy-failure.json
-          # or ping webhook
+          gh issue create \
+            --title "Deploy failed: ${{ github.sha }}" \
+            --body "Build and Deploy failed for [${{ github.sha }}](${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}).\n\nRun: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}\n\nCommit: ${{ github.event.head_commit.message }}" || echo "::error::Could not create deploy-failure issue"

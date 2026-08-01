@@ -29,4 +29,7 @@ qn=$(printf '%s\n' "$rel" | grep -E '^src/content/quick-notes/.*\.md$' || true)
 
 # Re-stage anything the fixers rewrote so the fixes are part of this commit.
 printf '%s\n' "$staged" | xargs git add >/dev/null 2>&1 || true
-exit 0
+
+# Admission gate: a content shell or invalid collection entry must never be
+# committed. This intentionally blocks rather than silently fixing bad output.
+( cd next && npm run validate:content )
