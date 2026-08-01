@@ -1480,9 +1480,19 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
 }
-/* P3-4: fully absorbed by .pi-card. The place tile previously carried no
-   ground and no hairline, which is exactly the "cards float without
-   definition" finding; it now takes the shared 3.45:1 rule. */
+/* The place tile is intentionally borderless: a photograph with a caption
+   beneath it, not a contained card.
+   P3-4 (2026-07-25) absorbed it into .pi-card to answer the "cards float
+   without definition" finding, but that only half-landed. .place-card__body
+   has no horizontal padding, so the new hairline ran flush into the name and
+   intro text, and on /explore/places/ the result read as a stray box around
+   every tile. Reverted to the pre-P3-4 rule. If this tile ever does want a
+   ground, the body padding has to come with it. */
+.place-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--tile-image-radius);
+}
 .place-card__image {
   display: block;
   aspect-ratio: 16 / 9;
