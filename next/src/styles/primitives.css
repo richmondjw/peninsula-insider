@@ -471,12 +471,15 @@
    --border hairline, which measures 3.45:1 on #FFFFFF.
    ========================================================= */
 
+/* .place-card is deliberately NOT in this group. See global.css: the place
+   tile is a photograph with a caption under it, not a contained card, and its
+   body carries no horizontal padding. Giving it the hairline ran the border
+   straight into the text. */
 .pi-card,
 .venue-card,
 .event-card,
 .itinerary-card,
 .tour-card,
-.place-card,
 .experience-card,
 .guide-card {
   position: relative;
