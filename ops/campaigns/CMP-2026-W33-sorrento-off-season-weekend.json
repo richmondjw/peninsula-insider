@@ -1,0 +1,236 @@
+{
+  "campaign": {
+    "campaign_key": "CMP-2026-W33-sorrento-off-season-weekend",
+    "publication_week": "2026-W33",
+    "featured_plan_slug": "sorrento-off-season-weekend",
+    "audience": "couples",
+    "strategic_theme": null,
+    "editorial_thesis": null,
+    "core_promise": null,
+    "angle_rationale": null,
+    "plan_fitness_json": {
+      "media_readiness": 0.22,
+      "stops": 9
+    },
+    "seasonal_context": {
+      "season": "winter",
+      "week": "2026-W33",
+      "generated_from": "campaign-build.mjs"
+    },
+    "confidence": null,
+    "state": "brief_ready",
+    "risk_class": "amber",
+    "risk_note": "Media readiness 22%. 7 of 9 stops lack a social-cleared asset. Derivatives will fall back to brand graphics and typographic cards.",
+    "blocked_reason": null,
+    "utm_campaign": "pi-2026-w33-season-weekend",
+    "correlation_id": "ec9b1d54-da67-48af-9a19-bbcbfa70c01f",
+    "est_cost_usd": 0
+  },
+  "signals": [
+    {
+      "role": "context",
+      "assertion": "Most Sorrento weekends are built around the summer version of the town  -  crowded, bright, too warm to walk far. This plan inverts that. It assumes you are here in April, May, June, September, or October, and it treats the village as the base rather than a stop. Two nights is enough. Three is ideal.",
+      "entity_slug": null,
+      "verification": "single_source",
+      "source_tier": 2,
+      "source_url": "https://peninsulainsider.com.au/explore/plans/sorrento-off-season-weekend/"
+    },
+    {
+      "role": "support",
+      "assertion": "The Continental: Check in by 3pm. Leave time to walk the village before the first drink. The front lawn is the right pre-dinner space on a calm evening.",
+      "entity_slug": "the-continental-sorrento",
+      "verification": "single_source",
+      "source_tier": 2,
+      "source_url": "https://continentalsorrento.com.au"
+    },
+    {
+      "role": "commercial",
+      "assertion": "The Continental takes direct bookings.",
+      "entity_slug": "the-continental-sorrento",
+      "verification": "single_source",
+      "source_tier": 1,
+      "source_url": "https://continentalsorrento.com.au/stay"
+    },
+    {
+      "role": "support",
+      "assertion": "Sorrento Ocean Baths: A short drive to the back-beach side. Walk the boardwalk above the baths at last light  -  this is the most dramatic orientation move you can make in Sorrento.",
+      "entity_slug": "sorrento-ocean-baths",
+      "verification": "single_source",
+      "source_tier": 2,
+      "source_url": null
+    },
+    {
+      "role": "support",
+      "assertion": "Hotel Sorrento: Dinner somewhere walkable. Hotel Sorrento's bistro is the right call when you have driven all afternoon and want the bay view to do the work.",
+      "entity_slug": "hotel-sorrento",
+      "verification": "single_source",
+      "source_tier": 2,
+      "source_url": "https://hotelsorrento.com.au"
+    },
+    {
+      "role": "commercial",
+      "assertion": "Hotel Sorrento takes direct bookings.",
+      "entity_slug": "hotel-sorrento",
+      "verification": "single_source",
+      "source_tier": 1,
+      "source_url": "https://hotelsorrento.com.au/stay"
+    },
+    {
+      "role": "support",
+      "assertion": "Sorrento Back Beach: Early  -  before nine. Morning light on the basalt reefs is the photograph people keep trying to take. Walk end to end.",
+      "entity_slug": "sorrento-back-beach",
+      "verification": "single_source",
+      "source_tier": 2,
+      "source_url": null
+    },
+    {
+      "role": "support",
+      "assertion": "Stringers Sorrento: Breakfast after the walk. Coffee and something from the counter, a few minutes in the village sun.",
+      "entity_slug": "stringers-sorrento",
+      "verification": "single_source",
+      "source_tier": 2,
+      "source_url": "https://stringerssorrento.com.au"
+    },
+    {
+      "role": "commercial",
+      "assertion": "Stringers Sorrento takes direct bookings.",
+      "entity_slug": "stringers-sorrento",
+      "verification": "single_source",
+      "source_tier": 1,
+      "source_url": "https://stringerssorrento.com.au"
+    },
+    {
+      "role": "support",
+      "assertion": "Point Nepean Fort Walk: The afternoon move. Shuttle out, walk back. Three hours minimum. This is the landscape move the weekend hinges on.",
+      "entity_slug": "point-nepean-fort-walk",
+      "verification": "single_source",
+      "source_tier": 2,
+      "source_url": "https://www.parks.vic.gov.au/places-to-see/parks/point-nepean-national-park"
+    },
+    {
+      "role": "support",
+      "assertion": "Pt. Leo Estate: Drive east for the second night's dinner. The sculpture park at dusk and a dining room that treats the occasion seriously.",
+      "entity_slug": "pt-leo-estate",
+      "verification": "single_source",
+      "source_tier": 2,
+      "source_url": "https://www.ptleoestate.com.au"
+    },
+    {
+      "role": "commercial",
+      "assertion": "Pt. Leo Estate takes direct bookings.",
+      "entity_slug": "pt-leo-estate",
+      "verification": "single_source",
+      "source_tier": 1,
+      "source_url": "https://www.ptleoestate.com.au/restaurant"
+    },
+    {
+      "role": "support",
+      "assertion": "Coppins Track: A final morning heath walk through the narrow corridor between the front beach and the back coast. One hour, easy pace.",
+      "entity_slug": "coppins-track",
+      "verification": "single_source",
+      "source_tier": 2,
+      "source_url": null
+    },
+    {
+      "role": "support",
+      "assertion": "Sorrento Gelato: One last village move before the drive home. Gelato counts as breakfast at the end of a weekend.",
+      "entity_slug": "sorrento-gelato",
+      "verification": "single_source",
+      "source_tier": 2,
+      "source_url": null
+    },
+    {
+      "role": "timing",
+      "assertion": "Published for 2026-W33, winter on the Mornington Peninsula.",
+      "entity_slug": null,
+      "verification": "verified",
+      "source_tier": 1,
+      "source_url": null,
+      "verified_at": "2026-07-28T02:38:23.928Z"
+    },
+    {
+      "role": "risk",
+      "assertion": "No social-cleared photography for: sorrento-ocean-baths, sorrento-back-beach, stringers-sorrento, point-nepean-fort-walk, pt-leo-estate, coppins-track, sorrento-gelato. Derivatives for these stops must use brand graphics or typographic cards.",
+      "entity_slug": null,
+      "verification": "verified",
+      "source_tier": 1,
+      "source_url": null,
+      "verified_at": "2026-07-28T02:38:23.928Z"
+    }
+  ],
+  "assets": [
+    {
+      "channel": "site_plan",
+      "variant": null,
+      "purpose": "Complete the schema, add a seasonal variation, refresh lastVerified",
+      "approval_level": "L3",
+      "lifespan_days": 365,
+      "state": "draft",
+      "cta_url": "https://peninsulainsider.com.au/explore/plans/sorrento-off-season-weekend/?utm_source=site_plan&utm_medium=organic&utm_campaign=pi-2026-w33-season-weekend"
+    },
+    {
+      "channel": "site_article",
+      "variant": null,
+      "purpose": "The story-world piece. Why this Plan, why now",
+      "approval_level": "L3",
+      "lifespan_days": 270,
+      "state": "draft",
+      "cta_url": "https://peninsulainsider.com.au/explore/plans/sorrento-off-season-weekend/?utm_source=site_article&utm_medium=organic&utm_campaign=pi-2026-w33-season-weekend"
+    },
+    {
+      "channel": "email",
+      "variant": null,
+      "purpose": "Lead with the thesis, carry the Picks",
+      "approval_level": "L3",
+      "lifespan_days": 3,
+      "state": "draft",
+      "cta_url": "https://peninsulainsider.com.au/explore/plans/sorrento-off-season-weekend/?utm_source=email&utm_medium=organic&utm_campaign=pi-2026-w33-season-weekend"
+    },
+    {
+      "channel": "ig_carousel",
+      "variant": "4:5",
+      "purpose": "Persuade: the shape of the weekend, one slide per stop",
+      "approval_level": "L2",
+      "lifespan_days": 60,
+      "state": "draft",
+      "cta_url": "https://peninsulainsider.com.au/explore/plans/sorrento-off-season-weekend/?utm_source=ig_carousel&utm_medium=organic&utm_campaign=pi-2026-w33-season-weekend"
+    },
+    {
+      "channel": "opinion_card",
+      "variant": null,
+      "purpose": "Prove: one verdict, typeset. No photography needed",
+      "approval_level": "L2",
+      "lifespan_days": 120,
+      "state": "draft",
+      "cta_url": "https://peninsulainsider.com.au/explore/plans/sorrento-off-season-weekend/?utm_source=opinion_card&utm_medium=organic&utm_campaign=pi-2026-w33-season-weekend"
+    },
+    {
+      "channel": "facebook",
+      "variant": "1.91:1",
+      "purpose": "Remind: one practical detail, conversational",
+      "approval_level": "L1",
+      "lifespan_days": 5,
+      "state": "draft",
+      "cta_url": "https://peninsulainsider.com.au/explore/plans/sorrento-off-season-weekend/?utm_source=facebook&utm_medium=organic&utm_campaign=pi-2026-w33-season-weekend"
+    },
+    {
+      "channel": "ig_story",
+      "variant": "9:16",
+      "purpose": "Enable: booking order, link sticker",
+      "approval_level": "L1",
+      "lifespan_days": 1,
+      "state": "draft",
+      "cta_url": "https://peninsulainsider.com.au/explore/plans/sorrento-off-season-weekend/?utm_source=ig_story&utm_medium=organic&utm_campaign=pi-2026-w33-season-weekend"
+    },
+    {
+      "channel": "site_links",
+      "variant": null,
+      "purpose": "Cross-link every stop entity back to the Plan; ItemList JSON-LD",
+      "approval_level": "L0",
+      "lifespan_days": 3650,
+      "state": "draft",
+      "cta_url": "https://peninsulainsider.com.au/explore/plans/sorrento-off-season-weekend/?utm_source=site_links&utm_medium=organic&utm_campaign=pi-2026-w33-season-weekend"
+    }
+  ],
+  "campaign_id": "70ea53cf-fc17-4154-b2d7-539d64eef988"
+}

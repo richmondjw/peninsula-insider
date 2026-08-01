@@ -1,0 +1,236 @@
+{
+  "campaign": {
+    "campaign_key": "CMP-2026-W31-the-peninsula-golf-weekend",
+    "publication_week": "2026-W31",
+    "featured_plan_slug": "the-peninsula-golf-weekend",
+    "audience": "friends",
+    "strategic_theme": null,
+    "editorial_thesis": null,
+    "core_promise": null,
+    "angle_rationale": null,
+    "plan_fitness_json": {
+      "media_readiness": 0,
+      "stops": 7
+    },
+    "seasonal_context": {
+      "season": "winter",
+      "week": "2026-W31",
+      "generated_from": "campaign-build.mjs"
+    },
+    "confidence": null,
+    "state": "brief_ready",
+    "risk_class": "amber",
+    "risk_note": "Media readiness 0%. 7 of 7 stops lack a social-cleared asset. Derivatives will fall back to brand graphics and typographic cards.",
+    "blocked_reason": null,
+    "utm_campaign": "pi-2026-w31-golf-weekend",
+    "correlation_id": "ee4107f3-7af3-4196-8b1e-bf4bb14c8fc4",
+    "est_cost_usd": 0
+  },
+  "signals": [
+    {
+      "role": "context",
+      "assertion": "The Peninsula golf weekend that actually makes sense for a group where not everyone plays. One serious round at St Andrews Beach - Tom Doak architecture, public access, world top-100 credibility - anchors Saturday. The rest of the weekend shapes around it: ridge stays, vineyard lunches, coastal walks for the non-golfers, and a Sunday that sends you home slowly through Red Hill. Not a 36-hole grind. A shaped weekend that uses golf as the hero round rather than the only event. Book St Andrews Beach 4+ weeks out; plan the lunch at Montalto the same day.",
+      "entity_slug": null,
+      "verification": "single_source",
+      "source_tier": 2,
+      "source_url": "https://peninsulainsider.com.au/explore/plans/the-peninsula-golf-weekend/"
+    },
+    {
+      "role": "support",
+      "assertion": "Jackalope Hotel: Arrive Friday afternoon, check in, settle. The ridge stay positions both golf days and the non-golf days properly - Cape Schanck is 15 minutes south, Red Hill restaurants are at your door.",
+      "entity_slug": "jackalope",
+      "verification": "single_source",
+      "source_tier": 2,
+      "source_url": "https://jackalopehotels.com/mornington-peninsula"
+    },
+    {
+      "role": "commercial",
+      "assertion": "Jackalope Hotel takes direct bookings.",
+      "entity_slug": "jackalope",
+      "verification": "single_source",
+      "source_tier": 1,
+      "source_url": "https://jackalopehotels.com/mornington-peninsula"
+    },
+    {
+      "role": "support",
+      "assertion": "Doot Doot Doot: Friday dinner at the hotel restaurant. Sets the weekend up as an event rather than a golf grind.",
+      "entity_slug": "doot-doot-doot",
+      "verification": "single_source",
+      "source_tier": 2,
+      "source_url": "https://jackalopehotels.com/mornington-peninsula"
+    },
+    {
+      "role": "commercial",
+      "assertion": "Doot Doot Doot takes direct bookings.",
+      "entity_slug": "doot-doot-doot",
+      "verification": "single_source",
+      "source_tier": 1,
+      "source_url": "https://jackalopehotels.com/mornington-peninsula"
+    },
+    {
+      "role": "support",
+      "assertion": "St Andrews Beach Golf Course: Saturday morning tee time at St Andrews Beach. Book 4+ weeks ahead. Links country, firm fairways, Tom Doak greens. Allow 4.5 hours for 18 with walk-ups. Non-golfers drive to Cape Schanck for the boardwalk and Bushrangers Bay.",
+      "entity_slug": "st-andrews-beach-golf-course",
+      "verification": "single_source",
+      "source_tier": 2,
+      "source_url": "https://www.standrewsbeachgolf.com.au/"
+    },
+    {
+      "role": "commercial",
+      "assertion": "St Andrews Beach Golf Course takes direct bookings.",
+      "entity_slug": "st-andrews-beach-golf-course",
+      "verification": "single_source",
+      "source_tier": 1,
+      "source_url": "https://www.standrewsbeachgolf.com.au/"
+    },
+    {
+      "role": "support",
+      "assertion": "Montalto Vineyard & Olive Grove: Late lunch at Montalto piazza - relaxed, no dress code required, close enough to the course to work as a recovery meal. The whole group meets here whether they played or not.",
+      "entity_slug": "montalto",
+      "verification": "single_source",
+      "source_tier": 2,
+      "source_url": "https://www.montalto.com.au"
+    },
+    {
+      "role": "commercial",
+      "assertion": "Montalto Vineyard & Olive Grove takes direct bookings.",
+      "entity_slug": "montalto",
+      "verification": "single_source",
+      "source_tier": 1,
+      "source_url": "https://www.montalto.com.au/restaurant"
+    },
+    {
+      "role": "support",
+      "assertion": "Bushrangers Bay Walk: Late afternoon walk for the non-golfers (or an easy option for everyone). Southern Ocean cliffs and the light at 5pm. Optional - skip and rest if the morning round was tiring.",
+      "entity_slug": "bushrangers-bay-walk",
+      "verification": "single_source",
+      "source_tier": 2,
+      "source_url": "https://www.parks.vic.gov.au/places-to-see/parks/mornington-peninsula-national-park"
+    },
+    {
+      "role": "support",
+      "assertion": "Commonfolk Coffee: Sunday brunch in Mornington. Strong coffee, good eggs, no queue before 9am. Shake out the Saturday legs.",
+      "entity_slug": "commonfolk-coffee",
+      "verification": "single_source",
+      "source_tier": 2,
+      "source_url": "https://commonfolkcoffee.com.au"
+    },
+    {
+      "role": "commercial",
+      "assertion": "Commonfolk Coffee takes direct bookings.",
+      "entity_slug": "commonfolk-coffee",
+      "verification": "single_source",
+      "source_tier": 1,
+      "source_url": "https://commonfolkcoffee.com.au"
+    },
+    {
+      "role": "support",
+      "assertion": "Ten Minutes by Tractor: One cellar door before the drive home. Serious pinot noir and chardonnay. The ridge sending you off.",
+      "entity_slug": "ten-minutes-by-tractor",
+      "verification": "single_source",
+      "source_tier": 2,
+      "source_url": "https://www.tenminutesbytractor.com.au"
+    },
+    {
+      "role": "commercial",
+      "assertion": "Ten Minutes by Tractor takes direct bookings.",
+      "entity_slug": "ten-minutes-by-tractor",
+      "verification": "single_source",
+      "source_tier": 1,
+      "source_url": "https://www.tenminutesbytractor.com.au"
+    },
+    {
+      "role": "timing",
+      "assertion": "Published for 2026-W31, winter on the Mornington Peninsula.",
+      "entity_slug": null,
+      "verification": "verified",
+      "source_tier": 1,
+      "source_url": null,
+      "verified_at": "2026-07-28T02:12:43.015Z"
+    },
+    {
+      "role": "risk",
+      "assertion": "No social-cleared photography for: jackalope, doot-doot-doot, st-andrews-beach-golf-course, montalto, bushrangers-bay-walk, commonfolk-coffee, ten-minutes-by-tractor. Derivatives for these stops must use brand graphics or typographic cards.",
+      "entity_slug": null,
+      "verification": "verified",
+      "source_tier": 1,
+      "source_url": null,
+      "verified_at": "2026-07-28T02:12:43.015Z"
+    }
+  ],
+  "assets": [
+    {
+      "channel": "site_plan",
+      "variant": null,
+      "purpose": "Complete the schema, add a seasonal variation, refresh lastVerified",
+      "approval_level": "L3",
+      "lifespan_days": 365,
+      "state": "draft",
+      "cta_url": "https://peninsulainsider.com.au/explore/plans/the-peninsula-golf-weekend/?utm_source=site_plan&utm_medium=organic&utm_campaign=pi-2026-w31-golf-weekend"
+    },
+    {
+      "channel": "site_article",
+      "variant": null,
+      "purpose": "The story-world piece. Why this Plan, why now",
+      "approval_level": "L3",
+      "lifespan_days": 270,
+      "state": "draft",
+      "cta_url": "https://peninsulainsider.com.au/explore/plans/the-peninsula-golf-weekend/?utm_source=site_article&utm_medium=organic&utm_campaign=pi-2026-w31-golf-weekend"
+    },
+    {
+      "channel": "email",
+      "variant": null,
+      "purpose": "Lead with the thesis, carry the Picks",
+      "approval_level": "L3",
+      "lifespan_days": 3,
+      "state": "draft",
+      "cta_url": "https://peninsulainsider.com.au/explore/plans/the-peninsula-golf-weekend/?utm_source=email&utm_medium=organic&utm_campaign=pi-2026-w31-golf-weekend"
+    },
+    {
+      "channel": "ig_carousel",
+      "variant": "4:5",
+      "purpose": "Persuade: the shape of the weekend, one slide per stop",
+      "approval_level": "L2",
+      "lifespan_days": 60,
+      "state": "draft",
+      "cta_url": "https://peninsulainsider.com.au/explore/plans/the-peninsula-golf-weekend/?utm_source=ig_carousel&utm_medium=organic&utm_campaign=pi-2026-w31-golf-weekend"
+    },
+    {
+      "channel": "opinion_card",
+      "variant": null,
+      "purpose": "Prove: one verdict, typeset. No photography needed",
+      "approval_level": "L2",
+      "lifespan_days": 120,
+      "state": "draft",
+      "cta_url": "https://peninsulainsider.com.au/explore/plans/the-peninsula-golf-weekend/?utm_source=opinion_card&utm_medium=organic&utm_campaign=pi-2026-w31-golf-weekend"
+    },
+    {
+      "channel": "facebook",
+      "variant": "1.91:1",
+      "purpose": "Remind: one practical detail, conversational",
+      "approval_level": "L1",
+      "lifespan_days": 5,
+      "state": "draft",
+      "cta_url": "https://peninsulainsider.com.au/explore/plans/the-peninsula-golf-weekend/?utm_source=facebook&utm_medium=organic&utm_campaign=pi-2026-w31-golf-weekend"
+    },
+    {
+      "channel": "ig_story",
+      "variant": "9:16",
+      "purpose": "Enable: booking order, link sticker",
+      "approval_level": "L1",
+      "lifespan_days": 1,
+      "state": "draft",
+      "cta_url": "https://peninsulainsider.com.au/explore/plans/the-peninsula-golf-weekend/?utm_source=ig_story&utm_medium=organic&utm_campaign=pi-2026-w31-golf-weekend"
+    },
+    {
+      "channel": "site_links",
+      "variant": null,
+      "purpose": "Cross-link every stop entity back to the Plan; ItemList JSON-LD",
+      "approval_level": "L0",
+      "lifespan_days": 3650,
+      "state": "draft",
+      "cta_url": "https://peninsulainsider.com.au/explore/plans/the-peninsula-golf-weekend/?utm_source=site_links&utm_medium=organic&utm_campaign=pi-2026-w31-golf-weekend"
+    }
+  ],
+  "campaign_id": "ac7ad64e-3469-4570-8776-b11a4335bcd9"
+}

@@ -147,6 +147,106 @@ These rituals write to `next/.claude/newsroom/` (slates, perf, retros, look-ahea
 | `Warden — Daily Backup Freshness Check` | openclaw-cron | daily 07:30 | report-only | live |
 | `Runner — Stall Detection` | openclaw-cron | every 15 min | report-only | live |
 
+## Tier-0 — Content Factory (weekly campaign rhythm)
+
+**Added 2026-07-28.** The campaign layer. Selects one Featured Plan a week, packages it as a
+Content Campaign Packet, derives channel copy, and queues a staggered release ladder. Every
+stage writes a `pi_run_log` row, so this tier has **no silent alert paths by construction**.
+
+| Job | Source | Schedule (UTC) | Mutation | Status | Alert path |
+|---|---|---|---|---|---|
+| `content-factory / build` | github-actions | Sun 20:00 (Mon 06:00 AEST) | mutating-content (`ops/campaigns/`) | live | GH issue (thesis request) |
+| `content-factory / derive` | github-actions | Wed 19:00 (Thu 05:00 AEST) | mutating-content | live | `pi_run_log` + GH Actions UI |
+| `content-factory / health` | github-actions | daily 21:00 | scan-only | live | `engine/alert.py` deduped GH issue |
+| `campaign-schedule --submit` | **manual only** | on demand | **mutating-live** | live | `pi_run_log` |
+
+**Deliberate non-automation:** nothing in this tier submits to Buffer or Mailchimp. Live
+distribution is a separate manual act, gated in code on a signed thesis and `ready` L3 assets.
+Automating the build rhythm is safe; automating the send is autonomy that should be earned on
+evidence, not assumed at install time. See the graduated approval ladder in
+`docs/peninsula-insider-content-operating-system-2026-07-28.md`.
+
+**Observability:** `node ops/scripts/factory-status.mjs` is the single view. Exit code 1 means
+something is genuinely wrong (a stale job, a failed publication, a campaign past its SLA), so
+the daily job alerts on it rather than a human remembering to look.
+
+**Correction to a long-standing hazard note (verified 2026-07-28):** the "sync dist to repo
+root wipes everything except an allowlist" trap no longer applies. `build-and-deploy.yml`
+publishes only `next/dist` to `gh-pages`; the root-deploy model (`build-live.sh`) is retired.
+New top-level directories such as `ops/campaigns/` are safe. Earlier docs warning otherwise
+are describing a hazard that has been removed.
+
+## Heartbeat findings — 2026-07-28
+
+`node ops/scripts/job-heartbeat.mjs` checks the opposite way round from an alert: it knows
+what artifact each job is supposed to leave and reports when the artifact is missing. A job
+cannot hide from it by not running, which is the failure mode alerts never catch.
+
+First run found four problems, none of which were visible anywhere before:
+
+| Job | Listed status | Actual | Evidence |
+|---|---|---|---|
+| `pi-daily-link-audit` | live | **NEVER produced an artifact** | no `reports/peninsula-link-audit-*` exists |
+| `pi-daily-venue-healthcheck` | live | **NEVER produced an artifact** | no `reports/peninsula-venue-health-*` exists |
+| `pi-daily-events-scan` | live | **NEVER produced an artifact** | already flagged in `ops/editorial-jobs.json`, now confirmed |
+| `pi-opportunity-detection` | live | ~~stale~~ **CORRECTED: runs fine** | see the correction below |
+
+The link-audit and venue-healthcheck rows in Tier-2 above should be read as `unverified`
+until they produce a dated report. This is the same class of error the 2026-07-25 correction
+found for the three phantom event workflows: a row in this file is a claim, not evidence.
+
+**Causal note:** `pi-opportunity-detection` being dead for 11 days is why `signal_lift` scores
+0.00 for nearly every Plan in `score-plan-fitness.mjs`. A dead upstream job was silently
+degrading downstream commissioning quality, and nothing surfaced it. That is the whole
+argument for the heartbeat.
+
+**Correction, same day.** The `pi-opportunity-detection` "stale" verdict above was a false
+positive and the diagnosis of "dead job" was wrong. Run manually 2026-07-28: it executed
+cleanly, formed 58 clusters, made 18 LLM calls, cost $0.023, and correctly created zero
+opportunities because every cluster was irrelevant. **"No new rows" is not "did not run"** for
+a table that only gains rows when something qualifies. The heartbeat now treats
+`pi_opportunities` as a conditional-output table.
+
+The real problem is upstream, in the source mix:
+
+| Source | Tier | State | Reality |
+|---|---|---|---|
+| `venue: Doot Doot Doot` | T1 | `active` | **37 consecutive failures** and never demoted |
+| `GDELT DOC 2.0` | T2 | `active` | 15 consecutive failures |
+| `Eventbrite - Mornington` | T3 | degraded | one of only two real event feeds |
+| `Humanitix - Mornington` | T3 | degraded | the other one |
+| `ABC News - Victoria RSS` | T2 | active, healthy | flooding the pipe with statewide noise |
+
+Both dedicated event feeds are degraded while a statewide news RSS works perfectly, so the
+material reaching L3 is Albury council rate rises, Melbourne CBD attractions, and state
+politics. That is why `signal_lift` scores 0.00 for nearly every Plan: not a dead job, a
+starved one. Fixing Eventbrite and Humanitix, demoting Doot Doot Doot, and narrowing or
+dropping the ABC Victoria feed would do more for commissioning quality than any change to the
+scoring model.
+
+Exact fault per source, probed 2026-07-28:
+
+| Source | HTTP | Diagnosis | Fix |
+|---|---|---|---|
+| `venue: Doot Doot Doot` | 403 | `jackalopehotels.com` bot protection. 37 failures. | Demote to `degraded` now; needs headless client or a venue feed |
+| `GDELT DOC 2.0` | 429 | Rate limited despite the 6s courtesy sleep. Runs every 6h. | Back off to daily, or cache and widen the timespan |
+| `Eventbrite - Mornington` | 405 | Bot protection on all non-browser clients | Headless client or partner API |
+| `Humanitix - Mornington` | 403 | Bot protection | Headless client or API |
+| `MP Shire - News & Media` | 404 then 403 | Seeded URL is dead; every candidate path also 403s to curl behind the WAF | Needs a browser session to find the live path |
+
+Three of the five need a headless fetch client, which is a real piece of work rather than a
+config change. **The cheapest immediate win is demoting Doot Doot Doot** so a T1 source with 37
+consecutive failures stops being counted as active, and **backing GDELT off to daily** so it
+stops burning its rate limit every six hours.
+
+The heartbeat now reports source health on failure streak rather than on the `state` label,
+because a source can sit at `active` with 37 failures indefinitely.
+
+**Three mutating jobs are unobservable by design** because they leave no dated artifact:
+`pi-daily-quick-note-qa-publish` (mutates live), `pi-daily-image-relevance-autofix`
+(mutates content), and `pi-maintenance-sweep`. Each should either emit a dated artifact or
+be retired. A mutating job that cannot be proven to have run is a standing risk.
+
 ## Cross-cutting observations
 
 ### What is actually running on PI right now

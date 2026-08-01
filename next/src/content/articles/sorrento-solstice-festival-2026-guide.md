@@ -42,7 +42,7 @@ Sunday is quieter. The festival infrastructure is still there but the energy shi
 
 **Cost:** Free. Ticketing is through Humanitix and is recommended - the crowd is real, and the foreshore has a capacity.
 
-**Book tickets:** <https://events.humanitix.com/sorrento-solstice-festival/tickets>
+**Book tickets:** <https://events.humanitix.com/sorrento-solstice-festival>
 
 **Getting there:** Sorrento is the far end of the Peninsula. From Melbourne, allow 90 minutes without traffic, two hours on a Saturday afternoon. The Nepean Highway is the direct route; the Mornington Peninsula Freeway to Boneo Road is faster but less scenic. Parking in Sorrento is competitive on festival day. The foreshore car park fills by mid-afternoon. The move is to park on the back streets - Hotham Road, Park Road, the residential blocks behind the main strip - and walk in.
 
