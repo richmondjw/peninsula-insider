@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-01T03:14:39.939Z",
+  "generatedAt": "2026-08-01T21:01:28.707Z",
   "items": [
     {
       "id": "87568b5a-0472-5cb9-a66f-9a71d0e43d74",
@@ -158,32 +158,6 @@
       "decision": null
     },
     {
-      "id": "64b0196d-21f0-50e2-a4d3-db0a04dbb73d",
-      "subjectType": "asset_metadata",
-      "subjectId": "64b0196d-21f0-50e2-a4d3-db0a04dbb73d",
-      "assetId": "abf6c4d5-85b9-5dd5-a631-fbd0222000f4",
-      "priority": "mandatory",
-      "reasons": [
-        "semantic metadata and alt text are proposal-only"
-      ],
-      "proposal": {
-        "labels": [
-          {
-            "id": "geo.mornington-peninsula",
-            "confidence": 0.7,
-            "evidenceType": "contextual",
-            "evidence": "placement is in the Peninsula Insider corpus"
-          }
-        ],
-        "altText": "Mornington foreshore with bathing boxes and calm bay water",
-        "flags": [],
-        "uncertainties": [
-          "No vision provider called in baseline dry run"
-        ]
-      },
-      "decision": null
-    },
-    {
       "id": "83575d26-4d06-5cd6-a154-af16014b3111",
       "subjectType": "asset_metadata",
       "subjectId": "83575d26-4d06-5cd6-a154-af16014b3111",
@@ -228,32 +202,6 @@
           }
         ],
         "altText": "Rolling vineyard rows across Red Hill on the Mornington Peninsula",
-        "flags": [],
-        "uncertainties": [
-          "No vision provider called in baseline dry run"
-        ]
-      },
-      "decision": null
-    },
-    {
-      "id": "13bfc470-c956-537e-a261-6a7a867625ab",
-      "subjectType": "asset_metadata",
-      "subjectId": "13bfc470-c956-537e-a261-6a7a867625ab",
-      "assetId": "55236a08-86a9-511b-a6b2-46314e105c10",
-      "priority": "mandatory",
-      "reasons": [
-        "semantic metadata and alt text are proposal-only"
-      ],
-      "proposal": {
-        "labels": [
-          {
-            "id": "geo.mornington-peninsula",
-            "confidence": 0.7,
-            "evidenceType": "contextual",
-            "evidence": "placement is in the Peninsula Insider corpus"
-          }
-        ],
-        "altText": "Limestone cliffs and calm bay water at Sorrento on the Mornington Peninsula",
         "flags": [],
         "uncertainties": [
           "No vision provider called in baseline dry run"
@@ -1004,6 +952,32 @@
           }
         ],
         "altText": "A polished vineyard-side retreat setting on the Mornington Peninsula suited to a corporate offsite",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "13bfc470-c956-537e-a261-6a7a867625ab",
+      "subjectType": "asset_metadata",
+      "subjectId": "13bfc470-c956-537e-a261-6a7a867625ab",
+      "assetId": "55236a08-86a9-511b-a6b2-46314e105c10",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Sorrento's coastal village setting on the Mornington Peninsula, representing the polished offsite atmosphere discussed in the guide",
         "flags": [],
         "uncertainties": [
           "No vision provider called in baseline dry run"
@@ -4258,6 +4232,32 @@
       "decision": null
     },
     {
+      "id": "5f0b5460-f184-500b-ab3f-26ccdac4a152",
+      "subjectType": "asset_metadata",
+      "subjectId": "5f0b5460-f184-500b-ab3f-26ccdac4a152",
+      "assetId": "44ccc894-d013-5978-ad93-bed662b1485d",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Hotel Sorrento - historic heritage building, Sorrento, Mornington Peninsula",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
       "id": "67b254d3-692b-5b42-a769-fbef9baa60ea",
       "subjectType": "asset_metadata",
       "subjectId": "67b254d3-692b-5b42-a769-fbef9baa60ea",
@@ -4374,6 +4374,428 @@
       "decision": null
     },
     {
+      "id": "a7450251-c52b-5069-a0dc-ba2c5284bd3b",
+      "subjectType": "asset_metadata",
+      "subjectId": "a7450251-c52b-5069-a0dc-ba2c5284bd3b",
+      "assetId": "cdb9982b-163d-5769-a306-a23a24e53571",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Turramurra Estate vineyard and cellar-door setting on the Mornington Peninsula",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "20adc1fe-6ee3-5869-af55-341c02d94fec",
+      "subjectType": "asset_metadata",
+      "subjectId": "20adc1fe-6ee3-5869-af55-341c02d94fec",
+      "assetId": "e7350a4f-a0f4-5f81-aec4-afad4b5dec30",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "subject.coast-beach",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "subject.walk-nature",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Greens Bush section of the Two Bays Walking Track, Mornington Peninsula National Park",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "b0d8d603-0cc8-5778-a74d-9d4ba92a8167",
+      "subjectType": "asset_metadata",
+      "subjectId": "b0d8d603-0cc8-5778-a74d-9d4ba92a8167",
+      "assetId": "7f926a2b-d800-5614-aadd-62b1323dcb52",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "subject.vineyard-cellar-door",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "subject.market-produce",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Underground Wine Makers vineyard and cellar-door setting on the Mornington Peninsula",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "d5e47314-fb8b-54a6-a687-244bb25565e7",
+      "subjectType": "asset_metadata",
+      "subjectId": "d5e47314-fb8b-54a6-a687-244bb25565e7",
+      "assetId": "82f3b921-918d-5490-a27f-49f442dc84ee",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "subject.vineyard-cellar-door",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Vale Wines vineyard and cellar-door setting on the Mornington Peninsula",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "24b00c02-ee9b-567e-a7c5-e69fb88f667d",
+      "subjectType": "asset_metadata",
+      "subjectId": "24b00c02-ee9b-567e-a7c5-e69fb88f667d",
+      "assetId": "ae4f1aa7-69af-50a9-a309-35d7de467616",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "subject.vineyard-cellar-door",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Vidoni Estate vineyard and cellar-door setting on the Mornington Peninsula",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "68eb66eb-30f5-5df1-af41-e204d1736516",
+      "subjectType": "asset_metadata",
+      "subjectId": "68eb66eb-30f5-5df1-af41-e204d1736516",
+      "assetId": "c806d4c6-a8f4-5e8c-aa9c-63fb89ba0a4d",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "subject.food-dining",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "The Baths restaurant at Sorrento with panoramic Port Phillip Bay views",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "44ba361a-1cf3-5b85-ae75-277a63a16d88",
+      "subjectType": "asset_metadata",
+      "subjectId": "44ba361a-1cf3-5b85-ae75-277a63a16d88",
+      "assetId": "bf0d504d-82ee-5803-aa69-86f06e81f752",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Long lunch table set in a vineyard restaurant on the Mornington Peninsula",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "5edf2e17-0a8a-5449-ac17-47b218a416df",
+      "subjectType": "asset_metadata",
+      "subjectId": "5edf2e17-0a8a-5449-ac17-47b218a416df",
+      "assetId": "1596b84e-9a19-5c03-aa1e-1c60f36216e2",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "subject.accommodation",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Lancemore Lindenderry at Red Hill - one of many accommodation styles on the Mornington Peninsula",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "97dd7077-e826-5b78-aadf-e0b91ec5a68d",
+      "subjectType": "asset_metadata",
+      "subjectId": "97dd7077-e826-5b78-aadf-e0b91ec5a68d",
+      "assetId": "c5b16e2e-f5dd-5314-a1e4-37323148d601",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "subject.vineyard-cellar-door",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Whinstone Estate vineyard and cellar-door setting on the Mornington Peninsula",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "03a7a98d-73bf-5ef2-a889-429850d1361b",
+      "subjectType": "asset_metadata",
+      "subjectId": "03a7a98d-73bf-5ef2-a889-429850d1361b",
+      "assetId": "f0cb45b9-68ef-5a3b-a8ef-46ab03627410",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Wildcroft Estate vineyard and cellar-door setting on the Mornington Peninsula",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "85606696-928c-5e99-ad78-e00389368689",
+      "subjectType": "asset_metadata",
+      "subjectId": "85606696-928c-5e99-ad78-e00389368689",
+      "assetId": "6a71e4c1-9d1e-5d71-a230-c21744d66221",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "subject.vineyard-cellar-door",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "subject.market-produce",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Winbirra Vineyard vineyard and cellar-door setting on the Mornington Peninsula",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "5d2d04a2-bc1d-5bab-a904-63bb939b4369",
+      "subjectType": "asset_metadata",
+      "subjectId": "5d2d04a2-bc1d-5bab-a904-63bb939b4369",
+      "assetId": "89928693-1cf6-5059-a67d-e4c6595d1ceb",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "subject.vineyard-cellar-door",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Yal Yal Estate vineyard and cellar-door setting on the Mornington Peninsula",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "0bd1ccc6-37d4-5b75-a469-6b683f3c4999",
+      "subjectType": "asset_metadata",
+      "subjectId": "0bd1ccc6-37d4-5b75-a469-6b683f3c4999",
+      "assetId": "aafcd432-0456-58ec-a4bd-4949307742f3",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "subject.vineyard-cellar-door",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "subject.market-produce",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Yrsa's Vineyard vineyard and cellar-door setting on the Mornington Peninsula",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
       "id": "45b09a60-2e76-5238-a6c9-e8505a56839d",
       "subjectType": "asset_metadata",
       "subjectId": "45b09a60-2e76-5238-a6c9-e8505a56839d",
@@ -4444,6 +4866,50 @@
       "decision": null
     },
     {
+      "id": "41d8c5a9-6831-59bb-a80a-49e50ae01c0a",
+      "subjectType": "asset_metadata",
+      "subjectId": "41d8c5a9-6831-59bb-a80a-49e50ae01c0a",
+      "assetId": "ba93cdc7-8b1c-542b-a316-a8b6892374ad",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "subject.vineyard-cellar-door",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "subject.food-dining",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "subject.walk-nature",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Vineyard in autumn on the Mornington Peninsula wine trail",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
       "id": "e5970412-70fb-5e6b-acc4-d2313fe717b6",
       "subjectType": "asset_metadata",
       "subjectId": "e5970412-70fb-5e6b-acc4-d2313fe717b6",
@@ -4468,6 +4934,38 @@
           }
         ],
         "altText": "Community market at Boneo on the Mornington Peninsula",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "5a3412dd-5063-5422-a39b-a46ba44ba524",
+      "subjectType": "asset_metadata",
+      "subjectId": "5a3412dd-5063-5422-a39b-a46ba44ba524",
+      "assetId": "cc557fa2-8c0e-5b95-a71d-b20ac5819773",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "subject.family",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Artisan dessert and confectionery setting, Mornington Peninsula",
         "flags": [],
         "uncertainties": [
           "No vision provider called in baseline dry run"
@@ -4578,292 +5076,6 @@
       "decision": null
     },
     {
-      "id": "b8552c0f-fc16-571b-a1a7-676a2d6efa7f",
-      "subjectType": "asset_metadata",
-      "subjectId": "b8552c0f-fc16-571b-a1a7-676a2d6efa7f",
-      "assetId": "52f0d945-e472-5749-a45b-07c06fe2093b",
-      "priority": "mandatory",
-      "reasons": [
-        "semantic metadata and alt text are proposal-only"
-      ],
-      "proposal": {
-        "labels": [
-          {
-            "id": "subject.vineyard-cellar-door",
-            "confidence": 0.72,
-            "evidenceType": "contextual",
-            "evidence": "linked content context; visual confirmation required"
-          },
-          {
-            "id": "geo.mornington-peninsula",
-            "confidence": 0.7,
-            "evidenceType": "contextual",
-            "evidence": "placement is in the Peninsula Insider corpus"
-          }
-        ],
-        "altText": "Pinot Noir vineyard at Stonier Wines, Mornington Peninsula",
-        "flags": [],
-        "uncertainties": [
-          "No vision provider called in baseline dry run"
-        ]
-      },
-      "decision": null
-    },
-    {
-      "id": "64a8db91-6937-54b4-aa84-8a8640e2f944",
-      "subjectType": "asset_metadata",
-      "subjectId": "64a8db91-6937-54b4-aa84-8a8640e2f944",
-      "assetId": "a38c262a-3597-5830-a1e4-1f0e3ff62cb7",
-      "priority": "mandatory",
-      "reasons": [
-        "semantic metadata and alt text are proposal-only"
-      ],
-      "proposal": {
-        "labels": [
-          {
-            "id": "subject.vineyard-cellar-door",
-            "confidence": 0.72,
-            "evidenceType": "contextual",
-            "evidence": "linked content context; visual confirmation required"
-          },
-          {
-            "id": "subject.food-dining",
-            "confidence": 0.72,
-            "evidenceType": "contextual",
-            "evidence": "linked content context; visual confirmation required"
-          },
-          {
-            "id": "geo.mornington-peninsula",
-            "confidence": 0.7,
-            "evidenceType": "contextual",
-            "evidence": "placement is in the Peninsula Insider corpus"
-          }
-        ],
-        "altText": "Vineyard tour at Stonier Wines on the Mornington Peninsula",
-        "flags": [],
-        "uncertainties": [
-          "No vision provider called in baseline dry run"
-        ]
-      },
-      "decision": null
-    },
-    {
-      "id": "c9d5bdf9-8aa4-5d64-abca-3a2aabf050d1",
-      "subjectType": "asset_metadata",
-      "subjectId": "c9d5bdf9-8aa4-5d64-abca-3a2aabf050d1",
-      "assetId": "d2609820-d8ad-577d-a6ef-891b5b12366e",
-      "priority": "mandatory",
-      "reasons": [
-        "semantic metadata and alt text are proposal-only"
-      ],
-      "proposal": {
-        "labels": [
-          {
-            "id": "subject.family",
-            "confidence": 0.72,
-            "evidenceType": "contextual",
-            "evidence": "linked content context; visual confirmation required"
-          },
-          {
-            "id": "geo.mornington-peninsula",
-            "confidence": 0.7,
-            "evidenceType": "contextual",
-            "evidence": "placement is in the Peninsula Insider corpus"
-          }
-        ],
-        "altText": "Farm produce and picking activity on the Mornington Peninsula",
-        "flags": [],
-        "uncertainties": [
-          "No vision provider called in baseline dry run"
-        ]
-      },
-      "decision": null
-    },
-    {
-      "id": "08be521f-6d43-51cf-a617-c02a472fd35e",
-      "subjectType": "asset_metadata",
-      "subjectId": "08be521f-6d43-51cf-a617-c02a472fd35e",
-      "assetId": "23bd7cdd-5307-5f78-abf1-83c06104e4c9",
-      "priority": "mandatory",
-      "reasons": [
-        "semantic metadata and alt text are proposal-only"
-      ],
-      "proposal": {
-        "labels": [
-          {
-            "id": "subject.vineyard-cellar-door",
-            "confidence": 0.72,
-            "evidenceType": "contextual",
-            "evidence": "linked content context; visual confirmation required"
-          },
-          {
-            "id": "geo.mornington-peninsula",
-            "confidence": 0.7,
-            "evidenceType": "contextual",
-            "evidence": "placement is in the Peninsula Insider corpus"
-          }
-        ],
-        "altText": "Pinot Noir grapes on the vine at Main Ridge",
-        "flags": [],
-        "uncertainties": [
-          "No vision provider called in baseline dry run"
-        ]
-      },
-      "decision": null
-    },
-    {
-      "id": "41d8c5a9-6831-59bb-a80a-49e50ae01c0a",
-      "subjectType": "asset_metadata",
-      "subjectId": "41d8c5a9-6831-59bb-a80a-49e50ae01c0a",
-      "assetId": "ba93cdc7-8b1c-542b-a316-a8b6892374ad",
-      "priority": "mandatory",
-      "reasons": [
-        "semantic metadata and alt text are proposal-only"
-      ],
-      "proposal": {
-        "labels": [
-          {
-            "id": "subject.vineyard-cellar-door",
-            "confidence": 0.72,
-            "evidenceType": "contextual",
-            "evidence": "linked content context; visual confirmation required"
-          },
-          {
-            "id": "subject.food-dining",
-            "confidence": 0.72,
-            "evidenceType": "contextual",
-            "evidence": "linked content context; visual confirmation required"
-          },
-          {
-            "id": "subject.walk-nature",
-            "confidence": 0.72,
-            "evidenceType": "contextual",
-            "evidence": "linked content context; visual confirmation required"
-          },
-          {
-            "id": "geo.mornington-peninsula",
-            "confidence": 0.7,
-            "evidenceType": "contextual",
-            "evidence": "placement is in the Peninsula Insider corpus"
-          }
-        ],
-        "altText": "Vineyard in autumn on the Mornington Peninsula wine trail",
-        "flags": [],
-        "uncertainties": [
-          "No vision provider called in baseline dry run"
-        ]
-      },
-      "decision": null
-    },
-    {
-      "id": "fefd8b4a-3903-5dcf-a18a-3cf83df84620",
-      "subjectType": "asset_metadata",
-      "subjectId": "fefd8b4a-3903-5dcf-a18a-3cf83df84620",
-      "assetId": "4d495214-51ca-5a93-abd9-f68a578ba87b",
-      "priority": "mandatory",
-      "reasons": [
-        "semantic metadata and alt text are proposal-only"
-      ],
-      "proposal": {
-        "labels": [
-          {
-            "id": "subject.vineyard-cellar-door",
-            "confidence": 0.72,
-            "evidenceType": "contextual",
-            "evidence": "linked content context; visual confirmation required"
-          },
-          {
-            "id": "subject.food-dining",
-            "confidence": 0.72,
-            "evidenceType": "contextual",
-            "evidence": "linked content context; visual confirmation required"
-          },
-          {
-            "id": "geo.mornington-peninsula",
-            "confidence": 0.7,
-            "evidenceType": "contextual",
-            "evidence": "placement is in the Peninsula Insider corpus"
-          }
-        ],
-        "altText": "Craft spirits and distillery experience on the Mornington Peninsula",
-        "flags": [],
-        "uncertainties": [
-          "No vision provider called in baseline dry run"
-        ]
-      },
-      "decision": null
-    },
-    {
-      "id": "5a3412dd-5063-5422-a39b-a46ba44ba524",
-      "subjectType": "asset_metadata",
-      "subjectId": "5a3412dd-5063-5422-a39b-a46ba44ba524",
-      "assetId": "cc557fa2-8c0e-5b95-a71d-b20ac5819773",
-      "priority": "mandatory",
-      "reasons": [
-        "semantic metadata and alt text are proposal-only"
-      ],
-      "proposal": {
-        "labels": [
-          {
-            "id": "subject.family",
-            "confidence": 0.72,
-            "evidenceType": "contextual",
-            "evidence": "linked content context; visual confirmation required"
-          },
-          {
-            "id": "geo.mornington-peninsula",
-            "confidence": 0.7,
-            "evidenceType": "contextual",
-            "evidence": "placement is in the Peninsula Insider corpus"
-          }
-        ],
-        "altText": "Artisan dessert and confectionery setting, Mornington Peninsula",
-        "flags": [],
-        "uncertainties": [
-          "No vision provider called in baseline dry run"
-        ]
-      },
-      "decision": null
-    },
-    {
-      "id": "3cfa1be2-25f8-5ed5-a28f-bd1f1c047678",
-      "subjectType": "asset_metadata",
-      "subjectId": "3cfa1be2-25f8-5ed5-a28f-bd1f1c047678",
-      "assetId": "1fa77ed7-3025-5a10-a25d-1242d77c3f0b",
-      "priority": "mandatory",
-      "reasons": [
-        "semantic metadata and alt text are proposal-only"
-      ],
-      "proposal": {
-        "labels": [
-          {
-            "id": "subject.vineyard-cellar-door",
-            "confidence": 0.72,
-            "evidenceType": "contextual",
-            "evidence": "linked content context; visual confirmation required"
-          },
-          {
-            "id": "subject.food-dining",
-            "confidence": 0.72,
-            "evidenceType": "contextual",
-            "evidence": "linked content context; visual confirmation required"
-          },
-          {
-            "id": "geo.mornington-peninsula",
-            "confidence": 0.7,
-            "evidenceType": "contextual",
-            "evidence": "placement is in the Peninsula Insider corpus"
-          }
-        ],
-        "altText": "Live music at a Mornington Peninsula venue",
-        "flags": [],
-        "uncertainties": [
-          "No vision provider called in baseline dry run"
-        ]
-      },
-      "decision": null
-    },
-    {
       "id": "b16425ca-0cdc-5d0b-a3a1-27e1e33b7555",
       "subjectType": "asset_metadata",
       "subjectId": "b16425ca-0cdc-5d0b-a3a1-27e1e33b7555",
@@ -4908,10 +5120,10 @@
       "decision": null
     },
     {
-      "id": "00500591-0c21-574c-a65e-5bb171988a80",
+      "id": "fefd8b4a-3903-5dcf-a18a-3cf83df84620",
       "subjectType": "asset_metadata",
-      "subjectId": "00500591-0c21-574c-a65e-5bb171988a80",
-      "assetId": "2caac4d1-840a-57be-a9a2-4c93bb3ea4ea",
+      "subjectId": "fefd8b4a-3903-5dcf-a18a-3cf83df84620",
+      "assetId": "4d495214-51ca-5a93-abd9-f68a578ba87b",
       "priority": "mandatory",
       "reasons": [
         "semantic metadata and alt text are proposal-only"
@@ -4919,7 +5131,13 @@
       "proposal": {
         "labels": [
           {
-            "id": "subject.walk-nature",
+            "id": "subject.vineyard-cellar-door",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "subject.food-dining",
             "confidence": 0.72,
             "evidenceType": "contextual",
             "evidence": "linked content context; visual confirmation required"
@@ -4931,39 +5149,7 @@
             "evidence": "placement is in the Peninsula Insider corpus"
           }
         ],
-        "altText": "Local farm produce harvest on the Mornington Peninsula",
-        "flags": [],
-        "uncertainties": [
-          "No vision provider called in baseline dry run"
-        ]
-      },
-      "decision": null
-    },
-    {
-      "id": "9317d576-bf6e-5995-aa55-b52da52ab1e1",
-      "subjectType": "asset_metadata",
-      "subjectId": "9317d576-bf6e-5995-aa55-b52da52ab1e1",
-      "assetId": "3cb10aa8-c166-5821-a9cd-3c78272a7e92",
-      "priority": "mandatory",
-      "reasons": [
-        "semantic metadata and alt text are proposal-only"
-      ],
-      "proposal": {
-        "labels": [
-          {
-            "id": "subject.art-culture",
-            "confidence": 0.72,
-            "evidenceType": "contextual",
-            "evidence": "linked content context; visual confirmation required"
-          },
-          {
-            "id": "geo.mornington-peninsula",
-            "confidence": 0.7,
-            "evidenceType": "contextual",
-            "evidence": "placement is in the Peninsula Insider corpus"
-          }
-        ],
-        "altText": "Mornington Peninsula Regional Gallery exterior",
+        "altText": "Brewery dining on the Mornington Peninsula",
         "flags": [],
         "uncertainties": [
           "No vision provider called in baseline dry run"
@@ -5106,6 +5292,38 @@
       "decision": null
     },
     {
+      "id": "9317d576-bf6e-5995-aa55-b52da52ab1e1",
+      "subjectType": "asset_metadata",
+      "subjectId": "9317d576-bf6e-5995-aa55-b52da52ab1e1",
+      "assetId": "3cb10aa8-c166-5821-a9cd-3c78272a7e92",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "subject.art-culture",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Mornington Peninsula Regional Gallery",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
       "id": "ec18e0eb-536f-59a3-af18-c6bc26816e39",
       "subjectType": "asset_metadata",
       "subjectId": "ec18e0eb-536f-59a3-af18-c6bc26816e39",
@@ -5136,6 +5354,286 @@
           }
         ],
         "altText": "Outdoor thermal pool at Peninsula Hot Springs",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "c9d5bdf9-8aa4-5d64-abca-3a2aabf050d1",
+      "subjectType": "asset_metadata",
+      "subjectId": "c9d5bdf9-8aa4-5d64-abca-3a2aabf050d1",
+      "assetId": "d2609820-d8ad-577d-a6ef-891b5b12366e",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "subject.vineyard-cellar-door",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "subject.food-dining",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "subject.art-culture",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Artisan produce and chocolate tasting on the Mornington Peninsula",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "b8552c0f-fc16-571b-a1a7-676a2d6efa7f",
+      "subjectType": "asset_metadata",
+      "subjectId": "b8552c0f-fc16-571b-a1a7-676a2d6efa7f",
+      "assetId": "52f0d945-e472-5749-a45b-07c06fe2093b",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "subject.vineyard-cellar-door",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Pinot Noir vineyard at Stonier Wines, Mornington Peninsula",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "64a8db91-6937-54b4-aa84-8a8640e2f944",
+      "subjectType": "asset_metadata",
+      "subjectId": "64a8db91-6937-54b4-aa84-8a8640e2f944",
+      "assetId": "a38c262a-3597-5830-a1e4-1f0e3ff62cb7",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "subject.vineyard-cellar-door",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "subject.food-dining",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Vineyard tour at Stonier Wines on the Mornington Peninsula",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "6bb62bdc-0295-5db7-a75a-68c0be94e1ad",
+      "subjectType": "asset_metadata",
+      "subjectId": "6bb62bdc-0295-5db7-a75a-68c0be94e1ad",
+      "assetId": "d7c3ea3b-d66e-510f-a388-9bb8203190f9",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Safety Beach on the Mornington Peninsula",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "25383d87-30c7-5774-abca-3e97ef3c2db4",
+      "subjectType": "asset_metadata",
+      "subjectId": "25383d87-30c7-5774-abca-3e97ef3c2db4",
+      "assetId": "1dcd50a2-6e8f-562d-aeb6-c828f5715f28",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "subject.vineyard-cellar-door",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "subject.food-dining",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Farm produce and local harvest on the Mornington Peninsula",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "08be521f-6d43-51cf-a617-c02a472fd35e",
+      "subjectType": "asset_metadata",
+      "subjectId": "08be521f-6d43-51cf-a617-c02a472fd35e",
+      "assetId": "23bd7cdd-5307-5f78-abf1-83c06104e4c9",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "subject.vineyard-cellar-door",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Pinot Noir grapes on the vine at Main Ridge",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "3cfa1be2-25f8-5ed5-a28f-bd1f1c047678",
+      "subjectType": "asset_metadata",
+      "subjectId": "3cfa1be2-25f8-5ed5-a28f-bd1f1c047678",
+      "assetId": "1fa77ed7-3025-5a10-a25d-1242d77c3f0b",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "subject.vineyard-cellar-door",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "subject.food-dining",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Live music at a Mornington Peninsula venue",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "00500591-0c21-574c-a65e-5bb171988a80",
+      "subjectType": "asset_metadata",
+      "subjectId": "00500591-0c21-574c-a65e-5bb171988a80",
+      "assetId": "2caac4d1-840a-57be-a9a2-4c93bb3ea4ea",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "subject.walk-nature",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Local farm produce harvest on the Mornington Peninsula",
         "flags": [],
         "uncertainties": [
           "No vision provider called in baseline dry run"
@@ -5278,32 +5776,6 @@
       "decision": null
     },
     {
-      "id": "6bb62bdc-0295-5db7-a75a-68c0be94e1ad",
-      "subjectType": "asset_metadata",
-      "subjectId": "6bb62bdc-0295-5db7-a75a-68c0be94e1ad",
-      "assetId": "d7c3ea3b-d66e-510f-a388-9bb8203190f9",
-      "priority": "mandatory",
-      "reasons": [
-        "semantic metadata and alt text are proposal-only"
-      ],
-      "proposal": {
-        "labels": [
-          {
-            "id": "geo.mornington-peninsula",
-            "confidence": 0.7,
-            "evidenceType": "contextual",
-            "evidence": "placement is in the Peninsula Insider corpus"
-          }
-        ],
-        "altText": "Safety Beach on the Mornington Peninsula",
-        "flags": [],
-        "uncertainties": [
-          "No vision provider called in baseline dry run"
-        ]
-      },
-      "decision": null
-    },
-    {
       "id": "3f6bb5ee-cf43-57ee-a23f-967dbd48a674",
       "subjectType": "asset_metadata",
       "subjectId": "3f6bb5ee-cf43-57ee-a23f-967dbd48a674",
@@ -5334,44 +5806,6 @@
           }
         ],
         "altText": "Fine dining table setting at a Peninsula estate restaurant",
-        "flags": [],
-        "uncertainties": [
-          "No vision provider called in baseline dry run"
-        ]
-      },
-      "decision": null
-    },
-    {
-      "id": "25383d87-30c7-5774-abca-3e97ef3c2db4",
-      "subjectType": "asset_metadata",
-      "subjectId": "25383d87-30c7-5774-abca-3e97ef3c2db4",
-      "assetId": "1dcd50a2-6e8f-562d-aeb6-c828f5715f28",
-      "priority": "mandatory",
-      "reasons": [
-        "semantic metadata and alt text are proposal-only"
-      ],
-      "proposal": {
-        "labels": [
-          {
-            "id": "subject.vineyard-cellar-door",
-            "confidence": 0.72,
-            "evidenceType": "contextual",
-            "evidence": "linked content context; visual confirmation required"
-          },
-          {
-            "id": "subject.food-dining",
-            "confidence": 0.72,
-            "evidenceType": "contextual",
-            "evidence": "linked content context; visual confirmation required"
-          },
-          {
-            "id": "geo.mornington-peninsula",
-            "confidence": 0.7,
-            "evidenceType": "contextual",
-            "evidence": "placement is in the Peninsula Insider corpus"
-          }
-        ],
-        "altText": "Farm produce and local harvest on the Mornington Peninsula",
         "flags": [],
         "uncertainties": [
           "No vision provider called in baseline dry run"
@@ -5416,6 +5850,1352 @@
           }
         ],
         "altText": "Portsea Hotel on the Mornington Peninsula",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "c6ef2ac9-b208-511f-a8e4-4937808c8798",
+      "subjectType": "asset_metadata",
+      "subjectId": "c6ef2ac9-b208-511f-a8e4-4937808c8798",
+      "assetId": "7f0b79f0-ca5d-5a54-a208-e06834c31920",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "subject.walk-nature",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Ashcombe Maze and Lavender Gardens, Shoreham - Mornington Peninsula attraction",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "9d54f507-1386-5cda-a72f-c1f0ec008e64",
+      "subjectType": "asset_metadata",
+      "subjectId": "9d54f507-1386-5cda-a72f-c1f0ec008e64",
+      "assetId": "a75f5c52-24ae-5f2d-a23e-ff5a6cb976ad",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "subject.coast-beach",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Balnarring Beach sands and ti-tree backing dunes on Western Port",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "222b8216-d4bc-5240-a77a-41a0984a7f56",
+      "subjectType": "asset_metadata",
+      "subjectId": "222b8216-d4bc-5240-a77a-41a0984a7f56",
+      "assetId": "c95aaef1-3c1e-5f81-af82-290ec7a332d5",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "subject.coast-beach",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Dromana Beach  -  Peninsula Insider",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "509b33ac-dcab-585c-a4df-760670739976",
+      "subjectType": "asset_metadata",
+      "subjectId": "509b33ac-dcab-585c-a4df-760670739976",
+      "assetId": "bf9bf1b3-518e-5c08-acc8-8f10b1bc7563",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "subject.coast-beach",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Gunnamatta Ocean Beach  -  Peninsula Insider",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "0cae51b4-879f-5ac2-af1f-e4ad5af524fd",
+      "subjectType": "asset_metadata",
+      "subjectId": "0cae51b4-879f-5ac2-af1f-e4ad5af524fd",
+      "assetId": "3b8ba3b9-fe17-5d35-a6e4-122b6a65acff",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "subject.walk-nature",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "subject.art-culture",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Montalto Sculpture Trail  -  Peninsula Insider",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "eeb0e702-c792-5083-a1cb-8c9f78b96e85",
+      "subjectType": "asset_metadata",
+      "subjectId": "eeb0e702-c792-5083-a1cb-8c9f78b96e85",
+      "assetId": "032209a5-b550-5968-a3e4-e0fa481415e1",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "subject.walk-nature",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Historic fort ruins at Point Nepean overlooking Port Phillip Heads",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "0f605cd4-883d-5701-a297-9097d7284f84",
+      "subjectType": "asset_metadata",
+      "subjectId": "0f605cd4-883d-5701-a297-9097d7284f84",
+      "assetId": "09b7cade-aaf5-5bb4-a56c-7d36f59c0c00",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "subject.coast-beach",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Portsea Front Beach  -  Peninsula Insider",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "58720934-4653-5d59-a3e7-0f152998e1cc",
+      "subjectType": "asset_metadata",
+      "subjectId": "58720934-4653-5d59-a3e7-0f152998e1cc",
+      "assetId": "7e9c4373-621b-5568-a748-6f2af866445f",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Mornington Peninsula landscape - representative image for Red Hill Truffles",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "4c24606c-db89-5083-a98e-46e0dbc33340",
+      "subjectType": "asset_metadata",
+      "subjectId": "4c24606c-db89-5083-a98e-46e0dbc33340",
+      "assetId": "ee81878e-4f28-588c-a3c2-666a167e3f1b",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "subject.coast-beach",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Rye Ocean Beach  -  Peninsula Insider",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "5806f2a3-3c24-58e4-a0df-6a33bfb235bb",
+      "subjectType": "asset_metadata",
+      "subjectId": "5806f2a3-3c24-58e4-a0df-6a33bfb235bb",
+      "assetId": "064f7d08-6e4c-50f3-a127-8e0508cf57dd",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Sea Search Encounters  -  Peninsula Insider",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "c9f14ef9-449d-57cb-af40-ae2e3d44941b",
+      "subjectType": "asset_metadata",
+      "subjectId": "c9f14ef9-449d-57cb-af40-ae2e3d44941b",
+      "assetId": "1d38ebb3-bbff-568a-a7d1-3fa01d6f8f49",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "The Mornington Peninsula at sunset - the year's defining places",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "0080591e-a48d-539d-a525-d0c679de26bb",
+      "subjectType": "asset_metadata",
+      "subjectId": "0080591e-a48d-539d-a525-d0c679de26bb",
+      "assetId": "a018710c-91d0-55f6-adec-0e3c0ea591ab",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Balnarring village street, general store, and the surrounding farmland of the eastern Peninsula",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "c1bf0669-eac7-5495-a99c-3506bc9cb157",
+      "subjectType": "asset_metadata",
+      "subjectId": "c1bf0669-eac7-5495-a99c-3506bc9cb157",
+      "assetId": "6c4df139-7e40-5f05-a2d8-a9d64fc554b0",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Saltmarsh and mangrove channels at the Bittern Coastal Wetlands at low tide",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "d598a12f-a359-5689-a797-02d7f4edda21",
+      "subjectType": "asset_metadata",
+      "subjectId": "d598a12f-a359-5689-a797-02d7f4edda21",
+      "assetId": "de0a7ef3-ceb4-5eaa-a5f2-2f3c7dfe5480",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Blairgowrie yacht club and foreshore with moored boats",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "d9b32a4e-212b-5801-a081-d14a551bb1ad",
+      "subjectType": "asset_metadata",
+      "subjectId": "d9b32a4e-212b-5801-a081-d14a551bb1ad",
+      "assetId": "bb13f881-f9c5-5ed9-a2eb-84615aef7175",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Open Boneo farmland with the Cape Schanck ridge in the distance",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "3c5189f1-099f-5526-afbd-c1141073f5df",
+      "subjectType": "asset_metadata",
+      "subjectId": "3c5189f1-099f-5526-afbd-c1141073f5df",
+      "assetId": "4ae4d1ce-838e-5df9-a1db-b7f3e98cd5f5",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Foreshore camping with tents set behind tea-tree dunes at Capel Sound",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "27d8546d-02e6-5793-aa99-2289b708977d",
+      "subjectType": "asset_metadata",
+      "subjectId": "27d8546d-02e6-5793-aa99-2289b708977d",
+      "assetId": "648ed494-c355-5748-a5c4-78de9eeadbdd",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Mangroves and a wooden walkway at Woolleys Beach near Crib Point",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "0199ba30-0338-5dad-a5fd-7a1e23527896",
+      "subjectType": "asset_metadata",
+      "subjectId": "0199ba30-0338-5dad-a5fd-7a1e23527896",
+      "assetId": "0f742bd0-6102-5a60-a8fa-3f7f4161872c",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Hastings pier and fishing fleet looking across Western Port",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "a1fc82b3-8ac4-5872-aa76-bc749d9ec4f8",
+      "subjectType": "asset_metadata",
+      "subjectId": "a1fc82b3-8ac4-5872-aa76-bc749d9ec4f8",
+      "assetId": "9523a958-ac00-5ea1-ad5f-09c9a621cb6a",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "McCrae Lighthouse above a calm Port Phillip Bay morning",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "c1c5075c-95b2-53b8-a580-c67ffff7eb62",
+      "subjectType": "asset_metadata",
+      "subjectId": "c1c5075c-95b2-53b8-a580-c67ffff7eb62",
+      "assetId": "83c00018-05ec-54f5-a642-b1e710a7b246",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "subject.coast-beach",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Shallow Western Port tide flats at Merricks Beach with timber holiday houses set behind the dunes",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "acc969df-30ca-52b9-ab9e-99e2a40da2e2",
+      "subjectType": "asset_metadata",
+      "subjectId": "acc969df-30ca-52b9-ab9e-99e2a40da2e2",
+      "assetId": "8be02d5a-b563-53d8-af9f-b7ae21b0948f",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Vineyard rows at Merricks North with a country hall on the ridge behind",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "64b0196d-21f0-50e2-a4d3-db0a04dbb73d",
+      "subjectType": "asset_metadata",
+      "subjectId": "64b0196d-21f0-50e2-a4d3-db0a04dbb73d",
+      "assetId": "abf6c4d5-85b9-5dd5-a631-fbd0222000f4",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Colourful bathing boxes along Mornington Beach foreshore, Port Phillip Bay",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "da6b1afd-9a9c-5b20-ad45-244c5c7bc506",
+      "subjectType": "asset_metadata",
+      "subjectId": "da6b1afd-9a9c-5b20-ad45-244c5c7bc506",
+      "assetId": "d9c37a02-e4c7-59b8-ad7f-3067be93afc3",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Wooden beach-access staircase descending to Ranelagh Beach at Mount Eliza",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "821557ec-b54d-565b-a471-d3a1d50b4612",
+      "subjectType": "asset_metadata",
+      "subjectId": "821557ec-b54d-565b-a471-d3a1d50b4612",
+      "assetId": "c77dd8af-8fe4-5ff4-a53a-744e843da4bb",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "subject.art-culture",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Mount Martha beach and bathing boxes at the northern end of the bay curve",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "123f3e7f-813f-5983-a31e-30720c8529de",
+      "subjectType": "asset_metadata",
+      "subjectId": "123f3e7f-813f-5983-a31e-30720c8529de",
+      "assetId": "b33f8b8d-fb9e-53f4-aa60-e5a9cd8afafd",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Contemporary sculptures set among coastal grasses at Point Leo Estate, looking toward Western Port",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "deec0dce-afc3-505c-a890-893e8963d49f",
+      "subjectType": "asset_metadata",
+      "subjectId": "deec0dce-afc3-505c-a890-893e8963d49f",
+      "assetId": "ee314cad-b7e6-5a40-a58f-76767b98dc89",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Vines and a farmhouse gate at Red Hill South in early autumn light",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "ad5f42a2-07e1-5553-aabe-e48804072034",
+      "subjectType": "asset_metadata",
+      "subjectId": "ad5f42a2-07e1-5553-aabe-e48804072034",
+      "assetId": "c4f79d77-2662-5e95-a3f9-42307a6be3f6",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Rosebud foreshore lawn and jetty with the bay behind",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "226a958f-1690-5bbc-af7d-eabe32aa4e00",
+      "subjectType": "asset_metadata",
+      "subjectId": "226a958f-1690-5bbc-af7d-eabe32aa4e00",
+      "assetId": "9dfbe1b6-534c-5ba5-ac4b-d3d6dee14f81",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Rye pier and calm front beach at dusk with the ridge rising behind",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "5ba10caf-83da-5c03-ae1c-e5f4a8d884b7",
+      "subjectType": "asset_metadata",
+      "subjectId": "5ba10caf-83da-5c03-ae1c-e5f4a8d884b7",
+      "assetId": "e11a3cbc-3c21-50b6-af5d-01913442388e",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Shoreham beach and rocky foreshore on a still Peninsula afternoon",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "0bfa6445-1611-5865-a098-8c2dd3c112f8",
+      "subjectType": "asset_metadata",
+      "subjectId": "0bfa6445-1611-5865-a098-8c2dd3c112f8",
+      "assetId": "34617d78-fdc9-5046-a31a-1401aaae1af2",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Tea-tree dunes and shallow Western Port water at Somers beach",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "e61c9a85-046f-58f8-a0ca-62c602b3b31f",
+      "subjectType": "asset_metadata",
+      "subjectId": "e61c9a85-046f-58f8-a0ca-62c602b3b31f",
+      "assetId": "220b69ab-3052-545a-aec5-9737402f75bc",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "subject.coast-beach",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Empty sweep of St Andrews Beach with tea-tree dunes catching late afternoon light",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "4dc70c3d-7826-5191-a957-bc7fe6f2f41d",
+      "subjectType": "asset_metadata",
+      "subjectId": "4dc70c3d-7826-5191-a957-bc7fe6f2f41d",
+      "assetId": "d4030ac9-d161-50ff-a22c-507825efa72a",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "The Stony Point jetty and ferry across Western Port to French Island in the distance",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "4095dea5-237e-5e46-a4da-7cc2973a9e36",
+      "subjectType": "asset_metadata",
+      "subjectId": "4095dea5-237e-5e46-a4da-7cc2973a9e36",
+      "assetId": "018d101d-0d90-5a97-aa26-e48e37fa4fd0",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Reeds and standing water at the Tootgarook Wetland in spring",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "cca0161f-0f55-5bdf-a724-7b1a69bca373",
+      "subjectType": "asset_metadata",
+      "subjectId": "cca0161f-0f55-5bdf-a724-7b1a69bca373",
+      "assetId": "3f376fae-c15e-5317-a0c4-1097124dec70",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Vintage warbird taxiing on the grass strip at Tyabb airfield",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "7af398da-7006-5e09-ad04-60434213e410",
+      "subjectType": "asset_metadata",
+      "subjectId": "7af398da-7006-5e09-ad04-60434213e410",
+      "assetId": "ee026f72-4cef-5adc-ae61-25738c79e3ac",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Sorrento Pier departure point, Polperro Dolphin Swims",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "3da2a320-0305-5449-abeb-aea584cac56a",
+      "subjectType": "asset_metadata",
+      "subjectId": "3da2a320-0305-5449-abeb-aea584cac56a",
+      "assetId": "44ad5ed1-805f-5d25-a316-aa7c483d2c6b",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "subject.vineyard-cellar-door",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "subject.food-dining",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Paringa Estate winery on the Mornington Peninsula - Australian Journeys luxury day tour",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "e2e5bc47-7886-5a54-a316-3aef1292dc66",
+      "subjectType": "asset_metadata",
+      "subjectId": "e2e5bc47-7886-5a54-a316-3aef1292dc66",
+      "assetId": "f17636a6-64d4-574a-add6-6929fb96158e",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "subject.vineyard-cellar-door",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "subject.food-dining",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Wine bar interior, editorial placeholder for Allis Wine Bar pending venue media",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "f40389e7-79c1-5bcc-a20c-430e63c7da3c",
+      "subjectType": "asset_metadata",
+      "subjectId": "f40389e7-79c1-5bcc-a20c-430e63c7da3c",
+      "assetId": "a19fa923-03c8-596d-aaca-11ccb7362da8",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "subject.vineyard-cellar-door",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "A glass of Avani pinot held above a row of barrels in the cellar",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "d6b01ce1-6b3a-5fe2-a1dc-5806b0fdfe7d",
+      "subjectType": "asset_metadata",
+      "subjectId": "d6b01ce1-6b3a-5fe2-a1dc-5806b0fdfe7d",
+      "assetId": "ed4fc331-9d6b-5c2e-ad36-547a8d331f2d",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "subject.food-dining",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Mornington Peninsula landscape - representative image for Barragunda Dining",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "7c2c1c6d-23be-5146-aada-0862354a9639",
+      "subjectType": "asset_metadata",
+      "subjectId": "7c2c1c6d-23be-5146-aada-0862354a9639",
+      "assetId": "ce9cec62-62c3-5eb5-a5d3-3b6ecb70cd7b",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "subject.accommodation",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Dromana Pier from McCrae, Port Phillip Bay - Dromana Hotel",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "ae7e7fd1-bd3c-5271-a6bf-4b34714f3a15",
+      "subjectType": "asset_metadata",
+      "subjectId": "ae7e7fd1-bd3c-5271-a6bf-4b34714f3a15",
+      "assetId": "7c54509f-bd99-5e4a-aa89-edecee1f796e",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "subject.vineyard-cellar-door",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Mornington Peninsula landscape - representative image for Kooyong",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "5ff8b6e0-0ca8-5b9d-aaea-ae0650f7663b",
+      "subjectType": "asset_metadata",
+      "subjectId": "5ff8b6e0-0ca8-5b9d-aaea-ae0650f7663b",
+      "assetId": "dd924798-4e5c-5813-ae9f-d35f466262ed",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "subject.vineyard-cellar-door",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Montalto Vineyard and Olive Grove - cellar door, restaurant and estate at Red Hill South, Mornington Peninsula",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "2fbc52be-7ca2-5eeb-a13b-9a249e3a9ca4",
+      "subjectType": "asset_metadata",
+      "subjectId": "2fbc52be-7ca2-5eeb-a13b-9a249e3a9ca4",
+      "assetId": "96a60ae1-5529-5336-a8c7-aa64c8c8b9f7",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "subject.vineyard-cellar-door",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Nazaaray Estate winery building set among the vines, Merricks, Mornington Peninsula",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "f6fec256-1a1b-5841-a758-35234bcd82bd",
+      "subjectType": "asset_metadata",
+      "subjectId": "f6fec256-1a1b-5841-a758-35234bcd82bd",
+      "assetId": "ffcd0a8e-dcf7-5a2d-a212-3137c3613208",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "subject.food-dining",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Red Hill village streetscape, Mornington Peninsula - Red Hill Bakery",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "7592d292-ddf6-5467-a8a6-4b59e99358f1",
+      "subjectType": "asset_metadata",
+      "subjectId": "7592d292-ddf6-5467-a8a6-4b59e99358f1",
+      "assetId": "e078f6ce-553c-5d3e-af75-98de5f53ee09",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "subject.food-dining",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "Tedesca Osteria - Italian country dining room in the Red Hill vineyard landscape",
+        "flags": [],
+        "uncertainties": [
+          "No vision provider called in baseline dry run"
+        ]
+      },
+      "decision": null
+    },
+    {
+      "id": "55543b80-b483-5223-aa11-371cf3f83a99",
+      "subjectType": "asset_metadata",
+      "subjectId": "55543b80-b483-5223-aa11-371cf3f83a99",
+      "assetId": "f2c43885-aac1-525c-aaed-cd1f6d9bb2d8",
+      "priority": "mandatory",
+      "reasons": [
+        "semantic metadata and alt text are proposal-only"
+      ],
+      "proposal": {
+        "labels": [
+          {
+            "id": "subject.accommodation",
+            "confidence": 0.72,
+            "evidenceType": "contextual",
+            "evidence": "linked content context; visual confirmation required"
+          },
+          {
+            "id": "geo.mornington-peninsula",
+            "confidence": 0.7,
+            "evidenceType": "contextual",
+            "evidence": "placement is in the Peninsula Insider corpus"
+          }
+        ],
+        "altText": "The Continental Hotel, Sorrento - landmark heritage façade on the Mornington Peninsula",
         "flags": [],
         "uncertainties": [
           "No vision provider called in baseline dry run"

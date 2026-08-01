@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-08-01T03:14:39.957Z",
+  "generatedAt": "2026-08-01T21:01:28.726Z",
   "mode": "dry-run",
   "summary": {
     "assets": 226,
-    "placements": 551,
-    "pilotPlacements": 250,
-    "directlyResolvedRate": 0.7985480943738656,
+    "placements": 583,
+    "pilotPlacements": 583,
+    "directlyResolvedRate": 0.8096054888507719,
     "resolvedOrExplicitlyExceptedRate": 1,
     "structuredOutputValidityRate": 1,
-    "reviewItems": 167,
+    "reviewItems": 226,
     "publicWrites": 0,
     "providerCalls": 0,
-    "estimatedCostAud": 20.04,
-    "lowMatchPlacements": 551
+    "estimatedCostAud": 27.12,
+    "lowMatchPlacements": 583
   },
   "assertions": {
     "budgetWithinCap": true,
