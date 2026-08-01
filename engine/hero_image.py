@@ -17,9 +17,10 @@ themselves: a generator with no memory, asked an identical question daily,
 returning the identical highest-prior answer.
 
 This module is the image-side equivalent. Deterministic, stdlib only, no API
-calls and no provider dependency, so it cannot become a source of drift and
-does not wait on the image-intelligence vision backend (whose search index is
-still an empty zero-asset baseline until a provider is configured).
+calls and no provider dependency, so it cannot become a source of drift. When
+the image-intelligence search index is still an empty zero-asset baseline (as
+it is until a vision provider is configured and metadata is approved), the
+selector falls back to the entity/place rules below with no behaviour change.
 
 How selection works
 -------------------
@@ -30,9 +31,13 @@ How selection works
    the hero cannot be captioned as a venue it does not show. (24, 25 and 27
    July shipped a generic wedding barn captioned as the Ten Minutes by
    Tractor dining room and credited to Peninsula Insider.)
-3. Drop anything used as a hero in the last HERO_COOLDOWN_DAYS of articles.
+3. Drop anything used as a hero inside the active cooldown. The cooldown is
+   adaptive: 45 days while the usable pool is tight, up to 90 days once the
+   distinct on-disk asset pool can support a quarter-year without repetition.
 4. Score the survivors: lead pick beats second beats third, an entity match
-   beats a zone match beats a generic seasonal asset.
+   beats a zone match beats a generic seasonal asset. Approved image-
+   intelligence metadata (when present) adds subject/season/orientation
+   signals without ever becoming required.
 5. Break ties by least-recently-used, then by filename, so the choice is
    reproducible for a given repo state and date.
 
@@ -58,11 +63,15 @@ VENUES = "next/src/content/venues"
 EXPERIENCES = "next/src/content/experiences"
 PUBLIC = "next/public"
 
-# Sized against the pool the way recency.py sizes its cooldowns: 139 venues
-# and 44 experiences carry a heroImage, so 45 days of hero cooldown is
-# comfortably satisfiable and cannot paint the selector into a corner.
+# Sized against the pool the way recency.py sizes its cooldowns. 45 days is
+# the safe floor; the selector moves toward 90 days when the distinct usable
+# pool has enough assets to support it without starving the fresh pool.
 HERO_COOLDOWN_DAYS = 45
-HERO_LOOKBACK_ARTICLES = 60
+HERO_MIN_COOLDOWN_DAYS = 45
+HERO_TARGET_COOLDOWN_DAYS = 90
+HERO_MIN_FRESH_POOL = 12
+HERO_LOOKBACK_ARTICLES = 120
+IMAGE_INTELLIGENCE_INDEX = "next/src/data/image-intelligence-search-index.json"
 
 # Weights. A hero that shows the lead pick is worth more than one that shows
 # the third, and any entity match is worth more than a generic seasonal shot.
@@ -70,6 +79,10 @@ SLOT_WEIGHT = {0: 100, 1: 60, 2: 40}
 ENTITY_MATCH = 50
 ZONE_MATCH = 15
 SEASON_MATCH = 10
+INTEL_ENTITY_MATCH = 35
+INTEL_SUBJECT_MATCH = 25
+INTEL_SEASON_MATCH = 10
+INTEL_ORIENTATION_MATCH = 5
 
 SEASONS = {
     12: "summer", 1: "summer", 2: "summer",
@@ -161,6 +174,9 @@ def _load_entities(root: Path) -> list[dict]:
                 "slug": rec.get("slug") or f.stem,
                 "name": rec.get("name") or rec.get("title") or f.stem,
                 "zone": rec.get("zone") or rec.get("place") or "",
+                "place": rec.get("place") or "",
+                "type": rec.get("type") or "",
+                "tags": rec.get("tags") or {},
                 "hero": hero,
             })
     return out
@@ -188,6 +204,82 @@ def _generic_assets(root: Path) -> list[dict]:
             },
         })
     return out
+
+
+# ── Optional image intelligence ─────────────────────────────────────────────
+
+def _load_image_intelligence(root: Path) -> dict[str, dict]:
+    """Approved, rights-known semantic asset metadata keyed by canonical URI.
+
+    The pilot writes a zero-asset index until a provider is configured and a
+    human approves metadata. That is a valid state: return an empty map and let
+    deterministic entity/place selection carry the run.
+    """
+    path = root / IMAGE_INTELLIGENCE_INDEX
+    try:
+        data = json.loads(path.read_text())
+    except Exception:
+        return {}
+    out: dict[str, dict] = {}
+    for asset in data.get("assets") or []:
+        src = asset.get("canonicalUri")
+        if not src:
+            continue
+        if asset.get("metadataState") != "approved" or asset.get("rightsStatus") != "known":
+            continue
+        out[src] = asset
+    return out
+
+
+_INTEL_SUBJECT_TERMS = {
+    "subject.food-dining": {"eat", "food", "restaurant", "dining", "cafe", "bakery", "bar", "pub", "hotel", "coffee", "pizza", "italian", "seafood", "brewery"},
+    "subject.vineyard-cellar-door": {"wine", "winery", "vineyard", "cellar", "estate", "tasting"},
+    "subject.coast-beach": {"beach", "coast", "ocean", "bay", "pier", "foreshore", "lighthouse", "ferry", "swim", "surf"},
+    "subject.thermal-wellness": {"spa", "thermal", "springs", "wellness", "bathhouse"},
+    "subject.walk-nature": {"walk", "track", "trail", "hike", "nature", "park", "garden", "maze", "lookout", "view", "cycling"},
+    "subject.market-produce": {"market", "produce", "producer", "farm", "dairy", "cheese", "organics", "strawberry"},
+    "subject.golf": {"golf", "links"},
+    "subject.art-culture": {"art", "gallery", "sculpture", "museum", "mprg"},
+    "subject.accommodation": {"hotel", "retreat", "tents", "accommodation", "villa", "cottage", "glamping"},
+}
+
+
+def _entity_text(ent: dict) -> str:
+    tags = ent.get("tags") or {}
+    tag_text = " ".join(" ".join(v) for v in tags.values() if isinstance(v, list))
+    return _norm(" ".join(str(x or "") for x in [
+        ent.get("slug"), ent.get("name"), ent.get("type"), ent.get("zone"), ent.get("place"), tag_text
+    ]))
+
+
+def _intel_boost(ent: dict, src: str, intel: dict[str, dict], pick_text: str, season: str) -> tuple[int, list[str]]:
+    asset = intel.get(src)
+    if not asset:
+        return 0, []
+    boost = 0
+    reasons: list[str] = []
+    ent_slug = _norm(ent.get("slug") or "").replace(" ", "-")
+    asset_slugs = {_norm(s).replace(" ", "-") for s in asset.get("entitySlugs") or []}
+    if ent_slug and ent_slug in asset_slugs:
+        boost += INTEL_ENTITY_MATCH
+        reasons.append("approved image-intelligence entity match")
+
+    taxonomy = set(asset.get("taxonomy") or [])
+    text_words = set((_entity_text(ent) + " " + pick_text).split())
+    subject_matches = []
+    for tax_id, terms in _INTEL_SUBJECT_TERMS.items():
+        if tax_id in taxonomy and text_words & terms:
+            subject_matches.append(tax_id.removeprefix("subject."))
+    if subject_matches:
+        boost += INTEL_SUBJECT_MATCH
+        reasons.append("image-intelligence subject match: " + ", ".join(sorted(subject_matches)))
+    if f"season.{season}" in taxonomy:
+        boost += INTEL_SEASON_MATCH
+        reasons.append(f"image-intelligence season match: {season}")
+    if (asset.get("orientation") or "").lower() in {"landscape", "wide", "horizontal"}:
+        boost += INTEL_ORIENTATION_MATCH
+        reasons.append("landscape orientation")
+    return boost, reasons
 
 
 # ── Recency ────────────────────────────────────────────────────────────────
@@ -224,6 +316,62 @@ def hero_usage(root: Path, today: date, exclude: Path | None = None) -> dict[str
     return used
 
 
+# ── Coverage / starvation guard ────────────────────────────────────────────
+
+def _usable_sources(root: Path) -> set[str]:
+    on_disk = root / PUBLIC
+    return {
+        ent["hero"]["src"]
+        for ent in (_load_entities(root) + _generic_assets(root))
+        if ent.get("hero", {}).get("src") and (on_disk / ent["hero"]["src"].lstrip("/")).exists()
+    }
+
+
+def resolve_cooldown_days(root: Path) -> int:
+    """Move from the 45-day floor toward 90 days only when the pool supports it."""
+    if os.environ.get("PI_HERO_COOLDOWN_DAYS"):
+        return max(1, int(os.environ["PI_HERO_COOLDOWN_DAYS"]))
+    target = max(HERO_MIN_COOLDOWN_DAYS, int(os.environ.get("PI_HERO_TARGET_COOLDOWN_DAYS", HERO_TARGET_COOLDOWN_DAYS)))
+    min_fresh = max(1, int(os.environ.get("PI_HERO_MIN_FRESH_POOL", HERO_MIN_FRESH_POOL)))
+    return target if len(_usable_sources(root)) >= target + min_fresh else HERO_MIN_COOLDOWN_DAYS
+
+
+def _coverage(candidates: list[tuple[int, str, dict, str]], used: dict[str, date], cutoff: date, root: Path) -> dict:
+    on_disk = root / PUBLIC
+    distinct = {src for _score, src, _ent, _why in candidates if (on_disk / src.lstrip("/")).exists()}
+    fresh = {src for src in distinct if not (src in used and used[src] > cutoff)}
+    min_fresh = max(1, int(os.environ.get("PI_HERO_MIN_FRESH_POOL", HERO_MIN_FRESH_POOL)))
+    return {
+        "usable_assets": len(distinct),
+        "fresh_assets": len(fresh),
+        "minimum_fresh_assets": min_fresh,
+        "starved": len(fresh) < min_fresh,
+        "shortfall": max(0, min_fresh - len(fresh)),
+    }
+
+
+def _emit_coverage_alert(result: dict) -> None:
+    coverage = result.get("coverage") or {}
+    if not coverage.get("starved") or os.environ.get("PI_HERO_COVERAGE_ALERT", "1") == "0":
+        return
+    try:
+        import alert
+        alert.emit_alert(
+            title="PI hero image fresh pool starvation",
+            body=(
+                f"Hero selector has {coverage.get('fresh_assets')} fresh asset(s), "
+                f"below the minimum {coverage.get('minimum_fresh_assets')}. "
+                f"Usable pool: {coverage.get('usable_assets')}; cooldown: "
+                f"{result.get('cooldown_days')} days. Source more assets or lower the "
+                "cooldown before a repeat ships."
+            ),
+            severity="warning",
+            dedup_key="hero-image-pool-starvation",
+        )
+    except Exception as e:
+        print(f"  hero coverage alert failed: {e}", file=sys.stderr)
+
+
 # ── Selection ──────────────────────────────────────────────────────────────
 
 def select(article_path: Path, root: Path = REPO_ROOT, today: date | None = None) -> dict:
@@ -236,15 +384,20 @@ def select(article_path: Path, root: Path = REPO_ROOT, today: date | None = None
 
     picks = extract_picks(body)
     entities = _load_entities(root)
+    intel = _load_image_intelligence(root)
     used = hero_usage(root, today, exclude=Path(article_path))
-    cutoff = today - timedelta(days=HERO_COOLDOWN_DAYS)
+    cooldown_days = resolve_cooldown_days(root)
+    cutoff = today - timedelta(days=cooldown_days)
+    pick_text = _norm(" ".join(picks))
 
     def cooling(src: str) -> bool:
         return src in used and used[src] > cutoff
 
     candidates: list[tuple[int, str, dict, str]] = []
 
-    # 1. Picks resolved to their own records.
+    # 1. Picks resolved to their own records. Approved semantic metadata can
+    # strengthen the match, but the record-owned asset remains the source of
+    # truth for alt/credit/licence.
     for slot, pick in enumerate(picks[:6]):
         p = _norm(pick)
         if not p:
@@ -255,26 +408,77 @@ def select(article_path: Path, root: Path = REPO_ROOT, today: date | None = None
                 continue
             if n in p or p.startswith(n) or _norm(ent["slug"]).replace(" ", "") in p.replace(" ", ""):
                 score = SLOT_WEIGHT.get(slot, 20) + ENTITY_MATCH
-                candidates.append((score, ent["hero"]["src"], ent,
-                                   f"{ent['kind']} {ent['slug']} matched pick slot {slot + 1}"))
+                why = f"{ent['kind']} {ent['slug']} matched pick slot {slot + 1}"
+                boost, boost_reasons = _intel_boost(ent, ent["hero"]["src"], intel, pick_text, season)
+                if boost:
+                    score += boost
+                    why += "; " + "; ".join(boost_reasons)
+                candidates.append((score, ent["hero"]["src"], ent, why))
+
+    # 1b. Approved intelligence assets linked to a featured slug, even when the
+    # content record has not been updated to point at them yet. With the current
+    # zero-asset baseline this adds nothing; with approved metadata it lets the
+    # corpus improve selection without a content-schema migration.
+    for src, asset in intel.items():
+        for slot, slug in enumerate(asset.get("entitySlugs") or []):
+            s = _norm(slug).replace(" ", "-")
+            if s and s in pick_text.replace(" ", "-"):
+                ent = {
+                    "kind": "intelligence",
+                    "slug": s,
+                    "name": slug.replace("-", " "),
+                    "zone": "",
+                    "place": "",
+                    "type": "",
+                    "tags": {},
+                    "hero": {
+                        "src": src,
+                        "alt": asset.get("altText") or asset.get("caption") or "",
+                        "credit": "Peninsula Insider",
+                        "license": "other-licensed",
+                    },
+                }
+                score = SLOT_WEIGHT.get(slot, 20) + ENTITY_MATCH + INTEL_ENTITY_MATCH
+                boost, boost_reasons = _intel_boost(ent, src, intel, pick_text, season)
+                why = f"approved image-intelligence asset for {s}"
+                if boost:
+                    score += boost
+                    why += "; " + "; ".join(boost_reasons)
+                candidates.append((score, src, ent, why))
 
     # 2. Same zone as a resolved pick, so the hero is at least the right place.
     zones = {e["zone"] for _, _, e, _ in candidates if e.get("zone")}
     for ent in entities:
         if ent.get("zone") and ent["zone"] in zones:
-            candidates.append((ZONE_MATCH, ent["hero"]["src"], ent,
-                               f"same zone ({ent['zone']}) as a featured pick"))
+            score = ZONE_MATCH
+            why = f"same zone ({ent['zone']}) as a featured pick"
+            boost, boost_reasons = _intel_boost(ent, ent["hero"]["src"], intel, pick_text, season)
+            if boost:
+                score += boost
+                why += "; " + "; ".join(boost_reasons)
+            candidates.append((score, ent["hero"]["src"], ent, why))
 
     # 3. Seasonal generics, so there is always something in date.
     for ent in _generic_assets(root):
         hints = SEASON_HINTS.get(season, ())
         if any(h in ent["slug"] for h in hints):
-            candidates.append((SEASON_MATCH, ent["hero"]["src"], ent,
-                               f"seasonal asset for {season}"))
+            score = SEASON_MATCH
+            why = f"seasonal asset for {season}"
+            boost, boost_reasons = _intel_boost(ent, ent["hero"]["src"], intel, pick_text, season)
+            if boost:
+                score += boost
+                why += "; " + "; ".join(boost_reasons)
+            candidates.append((score, ent["hero"]["src"], ent, why))
 
     # 4. Anything at all, least recently used.
     for ent in _generic_assets(root):
-        candidates.append((1, ent["hero"]["src"], ent, "least-recently-used asset"))
+        score = 1
+        why = "least-recently-used asset"
+        boost, boost_reasons = _intel_boost(ent, ent["hero"]["src"], intel, pick_text, season)
+        if boost:
+            score += boost
+            why += "; " + "; ".join(boost_reasons)
+        candidates.append((score, ent["hero"]["src"], ent, why))
 
     on_disk = root / PUBLIC
     fresh = [c for c in candidates
@@ -303,6 +507,9 @@ def select(article_path: Path, root: Path = REPO_ROOT, today: date | None = None
         "cooled_out": sorted({c[1] for c in candidates if cooling(c[1])}),
         "fresh_pool": len(fresh),
         "recycled": not fresh,
+        "cooldown_days": cooldown_days,
+        "coverage": _coverage(candidates, used, cutoff, root),
+        "image_intelligence_assets": len(intel),
     }
 
 
@@ -325,6 +532,7 @@ def stamp(article_path: Path, root: Path = REPO_ROOT, today: date | None = None)
     res = select(article_path, root=root, today=today)
     if not res.get("ok"):
         return res
+    _emit_coverage_alert(res)
     p = Path(article_path)
     text = p.read_text()
     fm, body = split_frontmatter(text)
@@ -342,6 +550,39 @@ def stamp(article_path: Path, root: Path = REPO_ROOT, today: date | None = None)
     else:
         new_fm = fm.rstrip("\n") + "\n" + block
     p.write_text("---" + new_fm.rstrip("\n") + "\n---" + body)
+    res["stamped"] = True
+    return res
+
+
+def stamp_loose_markdown(markdown_path: Path, root: Path = REPO_ROOT, today: date | None = None) -> dict:
+    """Attach a selected hero to non-article markdown (newsletter drafts).
+
+    Newsletter markdown is an email draft, not an Astro content entry, so adding
+    YAML frontmatter would leak into the rendered email. A single HTML comment
+    carries the same selected asset metadata for the newsletter assembly step.
+    """
+    res = select(markdown_path, root=root, today=today)
+    if not res.get("ok"):
+        return res
+    _emit_coverage_alert(res)
+    p = Path(markdown_path)
+    text = p.read_text()
+    if "<!-- heroImage:" in text[:1000]:
+        res["stamped"] = False
+        res["reason"] += "; hero metadata already present"
+        return res
+    hero = res["hero"]
+    alt = hero.get("alt") or f"{res['picks'][0] if res['picks'] else 'Mornington Peninsula'}, Mornington Peninsula"
+    comment = (
+        "<!-- heroImage: "
+        f"src=\"{hero['src']}\" | alt=\"{str(alt).replace(chr(34), chr(39))}\" | "
+        f"credit=\"{str(hero.get('credit') or 'Peninsula Insider').replace(chr(34), chr(39))}\" | "
+        f"license=\"{hero.get('license') or 'other-licensed'}\" -->"
+    )
+    lines = text.splitlines()
+    insert_at = 1 if lines and lines[0].startswith("#") else 0
+    lines.insert(insert_at, comment)
+    p.write_text("\n".join(lines) + "\n")
     res["stamped"] = True
     return res
 
@@ -367,6 +608,7 @@ def main() -> int:
             print(f"{'stamped' if args.apply else 'selected'}: {res['src']}")
             print(f"  why: {res['reason']}{flag}")
             print(f"  picks: {', '.join(res['picks']) or '(none resolved)'}")
+            print(f"  cooldown: {res.get('cooldown_days')} days | fresh pool: {res.get('fresh_pool')} | intelligence assets: {res.get('image_intelligence_assets')}")
         else:
             print(f"✗ {res.get('reason')}", file=sys.stderr)
     return 0 if res.get("ok") else 1
