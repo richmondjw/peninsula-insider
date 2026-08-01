@@ -95,20 +95,17 @@ CLUSTER_LINK_TARGETS = [
     ("/eat/best-restaurants/", "Best Restaurants on the Mornington Peninsula"),
 ]
 
-HERO_IMAGES = {
-    # Winter picks lead with the Ten Minutes by Tractor dining room
-    # (James, 2026-07-24: the homepage flagship behind Insider Picks
-    # should carry a TMBT photo rather than the lighthouse).
-    "winter": "/images/sourced/venue-ten-minutes-by-tractor-01.jpg",
-    # 2026-07-27: was the .webp, which is NOT this venue. Two files share
-    # the base name; the .webp is a generic wedding barn and shipped as the
-    # hero on the 24, 25 and 27 July columns captioned as the TMBT dining
-    # room and credited to Peninsula Insider. The .jpg is the venue media-kit
-    # image the venue record uses. Credit it "Provided image".
-    "spring": "/images/sourced/explore-cape-schanck-lighthouse-01.webp",
-    "summer": "/images/sourced/explore-cape-schanck-lighthouse-01.webp",
-    "autumn": "/images/sourced/explore-cape-schanck-lighthouse-01.webp",
-}
+# Placeholder only. The real hero is chosen AFTER the column is written, by
+# engine/hero_image.py, from the records the picks actually resolve to, with a
+# 45-day cooldown. The season -> single-file map this replaced put the same
+# Ten Minutes by Tractor photograph on seven of twelve consecutive columns
+# (2026-08-01, James: "the daily insider picks keeps surfacing the same
+# image"), and pointed all three non-winter seasons at one lighthouse shot.
+# Asking the model for the image up front also meant it wrote alt text for a
+# photo it had never seen: 24, 25 and 27 July shipped a generic wedding barn
+# captioned as the TMBT dining room. Alt and credit now come from the entity
+# record that owns the asset.
+HERO_PLACEHOLDER = "/images/sourced/explore-cape-schanck-lighthouse-01.webp"
 
 
 def get_season(month: int) -> str:
@@ -174,7 +171,7 @@ Use the full frontmatter schema specified in your system prompt. For clusterLink
 {json.dumps(CLUSTER_LINK_TARGETS, indent=2)}
 
 The slug will be: insider-picks-{date_str}
-heroImage src should be: {HERO_IMAGES.get(season, HERO_IMAGES['winter'])}
+heroImage src should be: {HERO_PLACEHOLDER} — this is a placeholder that is replaced automatically after you write. Do not spend words on it and do not describe the photograph in the body.
 
 Remember: no brochure language. Specific. Local. Opinionated. Start with the thing, not with "This week"."""
 
@@ -348,6 +345,25 @@ def _fail_no_llm(task: str, date_str: str) -> None:
     sys.exit(2)
 
 
+def stamp_hero(output_path: Path, date_str: str) -> None:
+    """Replace the placeholder hero with a selected one. Never fatal: a
+    published column with a stale hero beats a skipped publish, but the run
+    must say so out loud so the miss is visible in the cron digest."""
+    import sys as _sys
+    _sys.path.insert(0, str(Path(__file__).resolve().parent))
+    try:
+        import hero_image
+        from datetime import date as _date
+        res = hero_image.stamp(output_path, today=_date.fromisoformat(date_str))
+        if res.get("ok"):
+            note = " [RECYCLED — whole pool inside cooldown]" if res.get("recycled") else ""
+            print(f"✓ Hero: {res['src']} ({res['reason']}){note}")
+        else:
+            print(f"⚠ Hero selection skipped: {res.get('reason')}", file=sys.stderr)
+    except Exception as e:
+        print(f"⚠ Hero selection failed, placeholder left in place: {e}", file=sys.stderr)
+
+
 def load_research(research_file: str | None) -> dict | None:
     if research_file and Path(research_file).exists():
         try:
@@ -384,6 +400,7 @@ def main():
             _fail_no_llm(args.task, args.date)
         output_path.write_text(content)
         print(f"✓ Written: {output_path} ({len(content)} chars)")
+        stamp_hero(output_path, args.date)
 
     elif args.task == "weekend-picks":
         content = generate_insider_picks(args.date, research_data)
@@ -394,6 +411,7 @@ def main():
         content = content.replace('tags: [insider-picks', 'tags: [weekend-picks')
         output_path.write_text(content)
         print(f"✓ Written: {output_path}")
+        stamp_hero(output_path, args.date)
 
     elif args.task == "newsletter":
         content = generate_template_picks(args.date, season)

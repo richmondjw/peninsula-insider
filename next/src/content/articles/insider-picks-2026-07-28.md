@@ -5,8 +5,8 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-07-28
 heroImage:
-  src: "/images/sourced/venue-ten-minutes-by-tractor-01.jpg"
-  alt: "Red Hill vineyard rows in winter fog, Mornington Peninsula"
+  src: "/images/sourced/place-cape-schanck-01.webp"
+  alt: "Mornington Peninsula landscape - representative image for Doot Doot Doot"
   credit: "Peninsula Insider"
   license: "other-licensed"
 format: "insider-edit"

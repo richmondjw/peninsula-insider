@@ -6,9 +6,9 @@ houseByline: true
 publishedAt: 2026-07-25
 heroImage:
   src: "/images/sourced/explore-two-bays-walk-01.webp"
-  alt: "Coastal clifftop heathland on the Mornington Peninsula in winter"
+  alt: "Mornington Peninsula landscape - representative image for Flinders Sourdough"
   credit: "Peninsula Insider"
-  license: "tmp-unsplash"
+  license: "other-licensed"
 format: "insider-edit"
 tags: [insider-picks, winter, weekly]
 relatedVenues: []

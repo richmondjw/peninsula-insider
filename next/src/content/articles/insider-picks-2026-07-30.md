@@ -5,8 +5,8 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-07-30
 heroImage:
-  src: "/images/sourced/venue-ten-minutes-by-tractor-01.jpg"
-  alt: "Winter vines on the Mornington Peninsula hinterland, overcast sky, July"
+  src: "/images/sourced/place-mornington-01.webp"
+  alt: "Mornington Peninsula landscape - representative image for Sourdough Kitchen"
   credit: "Peninsula Insider"
   license: "other-licensed"
 format: "insider-edit"

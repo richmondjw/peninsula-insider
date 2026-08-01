@@ -5,8 +5,8 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-08-02
 heroImage:
-  src: "/images/sourced/venue-ten-minutes-by-tractor-01.jpg"
-  alt: "Winter hinterland view from Main Ridge, Mornington Peninsula, overcast skies over vineyard rows"
+  src: "/images/sourced/category-restaurant-03.webp"
+  alt: "Mornington Peninsula landscape - representative image for Mr Vincenzo's"
   credit: "Peninsula Insider"
   license: "other-licensed"
 format: "insider-edit"

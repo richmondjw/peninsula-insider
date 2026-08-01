@@ -355,6 +355,23 @@ def run_daily(log: RunLog, state: dict, today: str, now_aest: datetime):
     call_openclaw_agent("dispatch-desk", dispatch_brief, article_path)
     log.step("dispatch-desk", "DONE", f"→ {article_path.name}")
 
+    # 2b. Hero image selection. Runs after the column exists so the image can
+    # follow the picks rather than a hardcoded season map — that map put the
+    # same TMBT photo on seven of twelve consecutive columns.
+    log.step("hero-image", "START")
+    try:
+        sys.path.insert(0, str(Path(__file__).resolve().parent))
+        import hero_image as _hero
+        from datetime import date as _date
+        _res = _hero.stamp(article_path, today=_date.fromisoformat(today))
+        if _res.get("ok"):
+            _note = " RECYCLED" if _res.get("recycled") else ""
+            log.step("hero-image", "DONE", f"{_res['src']} ({_res['reason']}){_note}")
+        else:
+            log.step("hero-image", "WARN", _res.get("reason", "no selection"))
+    except Exception as _e:
+        log.step("hero-image", "WARN", f"selection failed, hero left as written: {_e}")
+
     # 3. Style gate
     log.step("style-gate", "START")
     style_result = run_style_gate(article_path)

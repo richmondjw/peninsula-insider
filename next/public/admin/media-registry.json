@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-01T21:01:37.589Z",
+  "generatedAt": "2026-08-01T21:26:49.276Z",
   "source": "next/scripts/build-media-registry.mjs",
   "assetCount": 143,
   "assets": [
@@ -1741,6 +1741,12 @@
       "updatedAt": "2026-05-21T20:39:52.496Z",
       "usages": [
         {
+          "file": "src/content/articles/insider-picks-2026-08-02.md",
+          "purpose": "hero",
+          "entityType": "article",
+          "entitySlug": "insider-picks-2026-08-02"
+        },
+        {
           "file": "src/content/events/ten-minutes-by-tractor-terroir-masterclass.json",
           "purpose": "hero",
           "entityType": "event",
@@ -2156,6 +2162,12 @@
       "updatedAt": "2026-05-21T20:39:52.682Z",
       "usages": [
         {
+          "file": "src/content/articles/insider-picks-2026-07-27.md",
+          "purpose": "hero",
+          "entityType": "article",
+          "entitySlug": "insider-picks-2026-07-27"
+        },
+        {
           "file": "src/content/events/archive/faux-snow-flurries-arthurs-seat-eagle-2026.json",
           "purpose": "hero",
           "entityType": "event",
@@ -2328,6 +2340,12 @@
           "purpose": "hero",
           "entityType": "article",
           "entitySlug": "first-time-peninsula"
+        },
+        {
+          "file": "src/content/articles/insider-picks-2026-08-01.md",
+          "purpose": "hero",
+          "entityType": "article",
+          "entitySlug": "insider-picks-2026-08-01"
         },
         {
           "file": "src/content/articles/walks-cape-schanck-hot-springs-day.mdx",
@@ -2503,12 +2521,6 @@
       "bytes": 440106,
       "updatedAt": "2026-05-21T20:39:52.750Z",
       "usages": [
-        {
-          "file": "src/content/articles/insider-picks-2026-07-27.md",
-          "purpose": "hero",
-          "entityType": "article",
-          "entitySlug": "insider-picks-2026-07-27"
-        },
         {
           "file": "src/content/articles/peninsula-this-weekend-may-23.md",
           "purpose": "hero",
@@ -2883,6 +2895,12 @@
       "bytes": 210980,
       "updatedAt": "2026-05-21T20:39:52.844Z",
       "usages": [
+        {
+          "file": "src/content/articles/insider-picks-2026-07-31.md",
+          "purpose": "hero",
+          "entityType": "article",
+          "entitySlug": "insider-picks-2026-07-31"
+        },
         {
           "file": "src/content/experiences/portsea-front-beach.json",
           "purpose": "hero",
@@ -3644,6 +3662,12 @@
       "updatedAt": "2026-05-21T20:39:53.037Z",
       "usages": [
         {
+          "file": "src/content/articles/insider-picks-2026-07-28.md",
+          "purpose": "hero",
+          "entityType": "article",
+          "entitySlug": "insider-picks-2026-07-28"
+        },
+        {
           "file": "src/content/events/archive/mothers-day-classic-moonah-links-2026.json",
           "purpose": "hero",
           "entityType": "event",
@@ -3919,6 +3943,12 @@
       "bytes": 292448,
       "updatedAt": "2026-05-21T20:39:53.117Z",
       "usages": [
+        {
+          "file": "src/content/articles/insider-picks-2026-07-30.md",
+          "purpose": "hero",
+          "entityType": "article",
+          "entitySlug": "insider-picks-2026-07-30"
+        },
         {
           "file": "src/content/places/mornington.json",
           "purpose": "hero",
@@ -4940,6 +4970,12 @@
       "updatedAt": "2026-05-21T20:39:53.300Z",
       "usages": [
         {
+          "file": "src/content/articles/insider-picks-2026-07-29.md",
+          "purpose": "hero",
+          "entityType": "article",
+          "entitySlug": "insider-picks-2026-07-29"
+        },
+        {
           "file": "src/content/venues/avani-wines.json",
           "purpose": "hero",
           "entityType": "venue",
@@ -5380,42 +5416,6 @@
           "purpose": "hero",
           "entityType": "article",
           "entitySlug": "insider-picks-2026-07-24"
-        },
-        {
-          "file": "src/content/articles/insider-picks-2026-07-28.md",
-          "purpose": "hero",
-          "entityType": "article",
-          "entitySlug": "insider-picks-2026-07-28"
-        },
-        {
-          "file": "src/content/articles/insider-picks-2026-07-29.md",
-          "purpose": "hero",
-          "entityType": "article",
-          "entitySlug": "insider-picks-2026-07-29"
-        },
-        {
-          "file": "src/content/articles/insider-picks-2026-07-30.md",
-          "purpose": "hero",
-          "entityType": "article",
-          "entitySlug": "insider-picks-2026-07-30"
-        },
-        {
-          "file": "src/content/articles/insider-picks-2026-07-31.md",
-          "purpose": "hero",
-          "entityType": "article",
-          "entitySlug": "insider-picks-2026-07-31"
-        },
-        {
-          "file": "src/content/articles/insider-picks-2026-08-01.md",
-          "purpose": "hero",
-          "entityType": "article",
-          "entitySlug": "insider-picks-2026-08-01"
-        },
-        {
-          "file": "src/content/articles/insider-picks-2026-08-02.md",
-          "purpose": "hero",
-          "entityType": "article",
-          "entitySlug": "insider-picks-2026-08-02"
         },
         {
           "file": "src/content/tours/localing-private-wine-day.json",

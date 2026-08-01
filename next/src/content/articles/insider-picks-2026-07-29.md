@@ -5,9 +5,9 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-07-29
 heroImage:
-  src: "/images/sourced/venue-ten-minutes-by-tractor-01.jpg"
-  alt: "Winter cellar door tasting on the Mornington Peninsula, Red Hill"
-  credit: "Peninsula Insider"
+  src: "/images/sourced/venue-avani-wines-01.jpg"
+  alt: "A glass of Avani pinot held above a row of barrels in the cellar"
+  credit: "C McConville for Avani Wines"
   license: "other-licensed"
 format: "insider-edit"
 tags: [insider-picks, winter, weekly]

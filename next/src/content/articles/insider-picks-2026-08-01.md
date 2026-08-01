@@ -5,8 +5,8 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-08-01
 heroImage:
-  src: "/images/sourced/venue-ten-minutes-by-tractor-01.jpg"
-  alt: "Rolling winter vineyard rows on the Mornington Peninsula under grey August skies"
+  src: "/images/sourced/explore-cape-schanck-boardwalk-01.webp"
+  alt: "Mornington Peninsula landscape - representative image for St Andrews Beach Brewery"
   credit: "Peninsula Insider"
   license: "other-licensed"
 format: "insider-edit"

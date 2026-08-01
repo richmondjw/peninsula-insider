@@ -5,10 +5,10 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-07-27
 heroImage:
-  src: "/images/sourced/explore-farnsworth-track-01.webp"
-  alt: "Clifftop coastal heath on the Farnsworth Track between Portsea Ocean Beach and London Bridge, Point Nepean"
-  credit: "Wikimedia Commons"
-  license: "tmp-wikimedia"
+  src: "/images/sourced/explore-arthurs-seat-lookout-01.webp"
+  alt: "Mornington Peninsula landscape - representative image for Jetty Road Brewery"
+  credit: "Peninsula Insider"
+  license: "other-licensed"
 format: "insider-edit"
 tags: [insider-picks, winter, weekly]
 relatedVenues: []

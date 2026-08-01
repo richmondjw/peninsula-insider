@@ -5,8 +5,8 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-07-31
 heroImage:
-  src: "/images/sourced/venue-ten-minutes-by-tractor-01.jpg"
-  alt: "Winter vines on the Mornington Peninsula, bare rows under low grey sky"
+  src: "/images/sourced/explore-portsea-front-beach-01.webp"
+  alt: "Mornington Peninsula landscape - representative image for The Sorrento Hotel"
   credit: "Peninsula Insider"
   license: "other-licensed"
 format: "insider-edit"
