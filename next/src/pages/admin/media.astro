@@ -99,6 +99,13 @@ const breadcrumbItems = [
     storagePath?: string | null;
     usages: StaticUsage[];
     slots: ImageSlot[];
+    intelligence?: {
+      metadataState: string;
+      rightsStatus: string;
+      taxonomy: string[];
+      altText: string | null;
+      orientation: string | null;
+    };
   };
   type ImageSlot = {
     id: string;
@@ -204,7 +211,12 @@ const breadcrumbItems = [
     if (error) throw new Error(error.message);
     return (data ?? []) as ImageSlot[];
   }
-  function combineAssets(staticAssets: MediaAsset[], slots: ImageSlot[]): MediaAsset[] {
+  async function fetchApprovedIntelligence() {
+    const response = await fetch('/admin/image-intelligence-search-index.json', { cache: 'no-store' }).catch(() => null);
+    if (!response?.ok) return [];
+    return (await response.json()).assets ?? [];
+  }
+  function combineAssets(staticAssets: MediaAsset[], slots: ImageSlot[], intelligenceRows: any[] = []): MediaAsset[] {
     const bySrc = new Map<string, MediaAsset>();
     for (const asset of staticAssets) bySrc.set(asset.src, asset);
     for (const slot of slots) {
@@ -227,6 +239,10 @@ const breadcrumbItems = [
       }
       asset.slots.push(slot);
       if (!asset.updatedAt || slot.updated_at > asset.updatedAt) asset.updatedAt = slot.updated_at;
+    }
+    for (const intelligence of intelligenceRows) {
+      const asset = bySrc.get(intelligence.canonicalUri);
+      if (asset) asset.intelligence = intelligence;
     }
     return Array.from(bySrc.values()).sort((a, b) => {
       const au = a.slots.length + a.usages.length;
@@ -253,6 +269,9 @@ const breadcrumbItems = [
       asset.filename,
       ...asset.usages.map((u) => `${u.file} ${u.entityType ?? ''} ${u.entitySlug ?? ''}`),
       ...asset.slots.map((s) => `${s.entity_type} ${s.entity_slug} ${s.field_path} ${s.label ?? ''}`),
+      asset.intelligence?.altText ?? '',
+      ...(asset.intelligence?.taxonomy ?? []),
+      asset.intelligence?.orientation ?? '',
     ].join(' ').toLowerCase();
     return haystack.includes(query);
   }
@@ -311,6 +330,8 @@ const breadcrumbItems = [
         <div><dt>Path</dt><dd><code>${escapeHtml(asset.src)}</code></dd></div>
         ${asset.bytes ? `<div><dt>Size</dt><dd>${Math.round(asset.bytes / 1024)} KB</dd></div>` : ''}
         ${asset.updatedAt ? `<div><dt>Updated</dt><dd>${new Date(asset.updatedAt).toLocaleString()}</dd></div>` : ''}
+        ${asset.intelligence ? `<div><dt>Registry</dt><dd>${escapeHtml(asset.intelligence.metadataState)} · rights ${escapeHtml(asset.intelligence.rightsStatus)}</dd></div>` : ''}
+        ${asset.intelligence?.taxonomy?.length ? `<div><dt>Approved labels</dt><dd>${escapeHtml(asset.intelligence.taxonomy.join(', '))}</dd></div>` : ''}
       </dl>
       <div class="media-detail__actions">
         ${slotContext ? '<button type="button" class="media-admin__primary" data-action="assign">Use for current slot</button>' : ''}
@@ -420,8 +441,8 @@ const breadcrumbItems = [
     if (fresh) renderDetail(fresh);
   }
   async function loadAll() {
-    const [staticAssets, slots] = await Promise.all([fetchStaticRegistry(), fetchCmsSlots()]);
-    allAssets = combineAssets(staticAssets, slots);
+    const [staticAssets, slots, intelligenceRows] = await Promise.all([fetchStaticRegistry(), fetchCmsSlots(), fetchApprovedIntelligence()]);
+    allAssets = combineAssets(staticAssets, slots, intelligenceRows);
     renderGrid();
     const current = slotContext?.currentSrc ? allAssets.find((asset) => asset.src === slotContext?.currentSrc) : null;
     if (current) renderDetail(current);

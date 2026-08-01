@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+---
+
+<BaseLayout title="Image intelligence review · Peninsula Insider" description="Review proposed image metadata." section="home" noindex={true} searchExclude={true}>
+  <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Admin', href: '/admin/' }, { label: 'Image intelligence' }]} />
+  <section class="ii-review">
+    <div class="container">
+      <p class="ii-review__eyebrow">Editorial admin · pilot</p>
+      <h1>Image intelligence review</h1>
+      <p>All labels and alt text below are proposals. Decisions are immutable audit events; this screen never changes a live image or CMS field.</p>
+      <div data-ii-status>Loading review queue…</div>
+      <div class="ii-review__queue" data-ii-queue></div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  import { getSupabase, isAuthEnabled } from '../../lib/auth';
+
+  const status = document.querySelector<HTMLElement>('[data-ii-status]');
+  const queue = document.querySelector<HTMLElement>('[data-ii-queue]');
+  const escape = (value: unknown) => String(value ?? '').replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char] || char));
+
+  async function record(item: any, decision: 'accepted' | 'rejected') {
+    const client = getSupabase();
+    if (!client) return;
+    const { data } = await client.auth.getUser();
+    const scoped = client.schema('pi_image');
+    const { error } = await scoped.from('review_decisions').insert({
+      subject_type: item.subjectType,
+      subject_id: item.subjectId,
+      decision,
+      before_json: item.proposal,
+      after_json: decision === 'accepted' ? item.proposal : null,
+      reviewer: data.user?.id,
+      reason: 'Decision recorded in PI image intelligence pilot review surface',
+    });
+    if (status) status.textContent = error ? `Decision failed: ${error.message}` : `Recorded ${decision}; no public fields changed.`;
+  }
+
+  async function init() {
+    if (!isAuthEnabled()) { if (status) status.textContent = 'Auth is not configured.'; return; }
+    const client = getSupabase();
+    const session = await client?.auth.getSession();
+    if (!session?.data.session) { location.replace(`/admin/login/?next=${encodeURIComponent(location.pathname)}`); return; }
+    const response = await fetch('/admin/image-intelligence-review-queue.json', { cache: 'no-store' });
+    const payload = await response.json();
+    const items = payload.items ?? [];
+    if (status) status.textContent = `${items.length} proposal${items.length === 1 ? '' : 's'} awaiting review.`;
+    if (!queue) return;
+    queue.innerHTML = items.map((item: any, index: number) => `<article class="ii-card" data-index="${index}"><p><strong>${escape(item.priority)}</strong> · ${escape(item.assetId)}</p><p>${escape(item.proposal.altText)}</p><p>${escape(item.proposal.labels.map((label: any) => `${label.id} (${label.confidence})`).join(', '))}</p><button data-decision="accepted">Accept registry metadata</button><button data-decision="rejected">Reject</button></article>`).join('');
+    queue.querySelectorAll<HTMLElement>('[data-index]').forEach((card) => card.querySelectorAll<HTMLButtonElement>('[data-decision]').forEach((button) => button.addEventListener('click', () => void record(items[Number(card.dataset.index)], button.dataset.decision as 'accepted' | 'rejected'))));
+  }
+  document.addEventListener('DOMContentLoaded', () => void init());
+</script>
+
+<style>
+  .ii-review { padding: 3rem 0 6rem; }
+  .ii-review__eyebrow { text-transform: uppercase; letter-spacing: .14em; color: var(--accent); font-weight: 700; }
+  .ii-review__queue { display: grid; gap: 1rem; margin-top: 1.5rem; }
+  .ii-card { border: 1px solid rgba(0,0,0,.15); border-radius: .5rem; padding: 1rem; background: var(--paper, #faf7f0); }
+  .ii-card button { margin-right: .5rem; padding: .5rem .75rem; }
+</style>

@@ -34,7 +34,10 @@
     "lint:content-caps": "node scripts/lint-content-caps.mjs",
     "lint:content-caps:strict": "node scripts/lint-content-caps.mjs --strict",
     "lint:editorial-quality": "python3 ../ops/scripts/editorial-quality-check.py",
-    "lint:filter-chips": "node scripts/lint-filter-chips.mjs"
+    "lint:filter-chips": "node scripts/lint-filter-chips.mjs",
+    "image-intelligence:discover": "node scripts/image-intelligence-pilot.mjs discover",
+    "image-intelligence:pilot": "node scripts/image-intelligence-pilot.mjs pilot",
+    "test:image-intelligence": "node --test scripts/image-intelligence/pilot-core.test.mjs"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.0",
