@@ -3,16 +3,16 @@
   "@type": "ItemList",
   "name": "What's on — Mornington Peninsula (upcoming)",
   "description": "Machine-readable feed of upcoming Mornington Peninsula events for AI assistants and agents. Forward-dated; regenerated on each build. See https://peninsulainsider.com.au/llms.txt for the full site map.",
-  "generated": "2026-08-01",
+  "generated": "2026-08-02",
   "site": "https://peninsulainsider.com.au",
   "windowDays": 90,
   "thisWeekend": {
     "start": "2026-08-01",
     "end": "2026-08-02",
     "label": "1 to 2 August",
-    "count": 25
+    "count": 24
   },
-  "count": 85,
+  "count": 84,
   "events": [
     {
       "title": "Michael Vale Exhibition at MPRG",
@@ -961,19 +961,6 @@
       "venue": null,
       "freePaid": "Paid",
       "summary": "Winter school holiday family experience: kids get a hot chocolate and cookie while adults enjoy wine. All-day Sculpture Park access included. Booking required.",
-      "thisWeekend": true
-    },
-    {
-      "title": "Southern Peninsula Sleepout at The Ranch Adventure Park",
-      "url": "https://peninsulainsider.com.au/whats-on/southern-peninsula-sleepout-the-ranch-2026/",
-      "startDate": "2026-07-31",
-      "endDate": "2026-08-01",
-      "recurrence": "one-off",
-      "category": "community",
-      "place": "boneo",
-      "venue": null,
-      "freePaid": "Paid",
-      "summary": "Community winter sleep out: participants spend the night in their cars to understand rough sleeping and raise funds for local support services (SPCS). Food pack, soup and hot cuppa provided. Registration required.",
       "thisWeekend": true
     },
     {
