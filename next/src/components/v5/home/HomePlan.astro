@@ -32,6 +32,33 @@ const moodLabel = featured
       .replace(/-/g, ' ')
       .replace(/^\w/, (c: string) => c.toUpperCase())
   : '';
+
+const audienceLabel = featured
+  ? ({ couple: 'Couples', family: 'Family', friends: 'Friends', solo: 'Solo', locals: 'Locals' } as Record<string, string>)[
+      featured.data.audience
+    ] ?? ''
+  : '';
+
+const seasonLabel = featured
+  ? String(featured.data.season ?? '')
+      .replace(/-/g, ' ')
+      .replace(/^\w/, (c: string) => c.toUpperCase())
+  : '';
+
+const dayCount = featured ? (featured.data.lengthNights ?? 0) + 1 : 0;
+const firstStop = featured
+  ? [...(featured.data.stops ?? [])].sort((a: any, b: any) => a.day - b.day || a.order - b.order)[0]
+  : null;
+const firstStopDetail = firstStop?.note
+  ? String(firstStop.note).split(/(?<=[.!?])\s+/)[0]
+  : featured?.data.editorNote
+    ? String(featured.data.editorNote).split(/(?<=[.!?])\s+/)[0]
+    : '';
+const planShape = [
+  dayCount ? `${dayCount} ${dayCount === 1 ? 'day' : 'days'}` : '',
+  audienceLabel,
+  seasonLabel === 'Year round' ? '' : seasonLabel,
+].filter(Boolean);
 ---
 
 {featured && hero && (
@@ -47,25 +74,50 @@ const moodLabel = featured
         </p>
       </div>
 
-      {/* showEyebrow is off: the section heading is already "Featured plan",
-          so a PLAN stamp on the single card below it says nothing new. */}
-      <div class="home-plan__card">
-        <Card
-          as="article"
-          variant="plan"
-          title={featured.data.title}
-          href={`/explore/plans/${slug}/`}
-          entityType="itinerary"
-          entitySlug={slug}
-          image={{ src: hero.src, alt: hero.alt || featured.data.title }}
-          verdict={featured.data.dek}
-          showEyebrow={false}
-          dayCount={(featured.data.lengthNights ?? 1) + 1}
-          meta={[moodLabel].filter(Boolean)}
-          freshness={featured.data.lastVerified ? String(featured.data.lastVerified) : undefined}
-          surface="home-plan"
-          position={0}
-        />
+      <div class="home-plan__layout">
+        {/* showEyebrow is off: the section heading is already "Featured plan",
+            so a PLAN stamp on the single card below it says nothing new. */}
+        <div class="home-plan__card">
+          <Card
+            as="article"
+            variant="plan"
+            title={featured.data.title}
+            href={`/explore/plans/${slug}/`}
+            entityType="itinerary"
+            entitySlug={slug}
+            image={{ src: hero.src, alt: hero.alt || featured.data.title }}
+            verdict={featured.data.dek}
+            showEyebrow={false}
+            dayCount={dayCount}
+            meta={[moodLabel].filter(Boolean)}
+            freshness={featured.data.lastVerified ? String(featured.data.lastVerified) : undefined}
+            surface="home-plan"
+            position={0}
+          />
+        </div>
+
+        <aside class="home-plan__rail" aria-label="Plan details and alternatives">
+          <div class="home-plan__shape">
+            <p class="home-plan__rail-label">This plan's shape</p>
+            {planShape.length > 0 && <p class="home-plan__shape-list">{planShape.join(' · ')}</p>}
+          </div>
+
+          {firstStopDetail && (
+            <div class="home-plan__start">
+              <p class="home-plan__rail-label">Start here</p>
+              <p>{firstStopDetail}</p>
+            </div>
+          )}
+
+          <nav class="home-plan__alternatives" aria-label="Browse plans by context">
+            <p class="home-plan__rail-label">If today looks different</p>
+            <ul>
+              <li><a href="/plans/?context=one-day">One day <span aria-hidden="true">→</span></a></li>
+              <li><a href="/plans/?context=family">With kids <span aria-hidden="true">→</span></a></li>
+              <li><a href="/plans/?context=rainy-day">Rainy day <span aria-hidden="true">→</span></a></li>
+            </ul>
+          </nav>
+        </aside>
       </div>
     </div>
   </section>
@@ -130,7 +182,121 @@ const moodLabel = featured
     color: var(--accent);
   }
 
+  .home-plan__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(15rem, 1fr);
+    align-items: stretch;
+    border-top: 1px solid var(--border, color-mix(in srgb, var(--text) 16%, transparent));
+  }
+
   .home-plan__card {
-    max-width: 34rem;
+    min-width: 0;
+    padding: var(--space-5) var(--space-6) var(--space-5) 0;
+  }
+
+  .home-plan__rail {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+    padding: var(--space-5) 0 var(--space-5) var(--space-6);
+    border-left: 1px solid var(--border, color-mix(in srgb, var(--text) 16%, transparent));
+    color: var(--text);
+  }
+
+  .home-plan__rail-label {
+    margin: 0 0 var(--space-2);
+    font-family: var(--font-ui);
+    font-size: var(--fs-100);
+    font-weight: var(--fw-semibold);
+    letter-spacing: var(--ls-eyebrow);
+    text-transform: uppercase;
+    color: var(--teal-text);
+  }
+
+  .home-plan__shape-list,
+  .home-plan__start p:last-child {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: var(--fs-400);
+    line-height: 1.35;
+    letter-spacing: var(--ls-display);
+  }
+
+  .home-plan__alternatives {
+    margin-top: auto;
+    padding-top: var(--space-5);
+    border-top: 1px solid var(--border, color-mix(in srgb, var(--text) 16%, transparent));
+  }
+
+  .home-plan__alternatives ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .home-plan__alternatives a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 44px;
+    color: var(--text);
+    font-family: var(--font-ui);
+    font-size: var(--fs-300);
+    font-weight: var(--fw-semibold);
+    text-decoration: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--text) 18%, transparent);
+  }
+
+  .home-plan__alternatives a:hover {
+    color: var(--accent);
+  }
+
+  @media (max-width: 63.99rem) {
+    .home-plan__layout {
+      grid-template-columns: 1fr;
+    }
+
+    .home-plan__card {
+      padding-right: 0;
+    }
+
+    .home-plan__rail {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--space-4);
+      padding: var(--space-5) 0 0;
+      border-top: 1px solid var(--border, color-mix(in srgb, var(--text) 16%, transparent));
+      border-left: 0;
+    }
+
+    .home-plan__alternatives {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: 0;
+    }
+  }
+
+  @media (max-width: 39.99rem) {
+    .home-plan__card {
+      padding: var(--space-4) 0;
+    }
+
+    .home-plan__rail {
+      display: block;
+      padding-top: var(--space-4);
+    }
+
+    .home-plan__start,
+    .home-plan__alternatives {
+      margin-top: var(--space-4);
+    }
+
+    .home-plan__alternatives {
+      padding-top: var(--space-4);
+      border-top: 1px solid var(--border, color-mix(in srgb, var(--text) 16%, transparent));
+    }
   }
 </style>
