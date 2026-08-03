@@ -70,7 +70,7 @@ jobs:
           PUBLIC_CONCIERGE_API_URL: https://peninsula-insider-platform-api.vercel.app
           # Set to 'off' to remove the temporary client-side password gate
           # and launch the site publicly.
-          PUBLIC_ACCESS_GATE: 'on'
+          PUBLIC_ACCESS_GATE: 'off'
 
       - name: Generate agent index (llms.txt)
         # Build the agent-discoverability layer from the freshly-built sitemap so
