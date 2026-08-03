@@ -1,8 +1,6 @@
-> **Superseded 2026-08-03.** The newsletter was renamed "Field Notes" → "The Insider Note" (James's call). This file is kept as an accurate record of the brief as originally written; the live standing process is `INSIDER-NOTE-PROCESS.md`.
+# The Insider Note — standing production process
 
-# Field Notes — standing production process
-
-Source of truth for the weekly "Field Notes" email (Peninsula Insider's subscriber newsletter), effective issue No. VII onward. Supersedes any brief-per-issue workflow. Captured verbatim from James's brief dated 2026-08-01; see `field-notes-no-vi-revision-brief-2026-08-01.md` for the issue-specific revisions that preceded this standing process.
+Source of truth for The Insider Note, Peninsula Insider's weekly subscriber newsletter (renamed from "Field Notes" on 2026-08-03; James's call, see rationale in `weekly-picks-2026-08-03.html`'s commit history). Effective issue No. VII onward, supersedes any brief-per-issue workflow. Rules below captured verbatim from James's brief dated 2026-08-01, with the name updated throughout; see `field-notes-no-vi-revision-brief-2026-08-01.md` for the issue-specific revisions that preceded this standing process (kept under its original filename as an accurate historical record).
 
 ## 1. The fixed module order
 
@@ -10,7 +8,7 @@ Every issue is these modules, in this order. A module with nothing worth saying 
 
 | # | Module | Rules |
 |---|---|---|
-| 1 | Masthead | "Field Notes" + "Written from inside the region" + roman-numeral issue no. + date range. Never changes. |
+| 1 | Masthead | "The Insider Note" + "Written from inside the region" + roman-numeral issue no. + date range. Never changes. |
 | 2 | Intro | Two lines maximum. Past tense, sets the week's mood. Editorial writes it; design never pads it. |
 | 3 | The lead: today's move | The one actionable pick for send day. Exactly one CTA and it is a verb ("Book…", "Go before…"), never "Read more." |
 | 4 | Weather strip | One line: day, temperature, sky, sunset time. Small caps between hairlines. |
@@ -55,7 +53,7 @@ The send is the Thursday morning slot the following week, aligned with the site'
 
 - [ ] Zero em-dashes (search the export for the em-dash character)
 - [ ] Zero prices (search for "$")
-- [ ] Every link carries `utm_source=email&utm_medium=newsletter&utm_campaign=field-notes-<nn>`
+- [ ] Every link carries `utm_source=email&utm_medium=newsletter&utm_campaign=insider-note-<nn>`
 - [ ] Every link clicked once in the built email; no 404s, links land on live pages
 - [ ] Lead CTA is a verb and points at a booking/action URL
 - [ ] Every image is on this week's cleared list and has alt text
