@@ -1,0 +1,70 @@
+name: Content Gate
+
+# Placeholder stubs and schema-invalid frontmatter must be rejected BEFORE they
+# reach main. build-and-deploy.yml runs the same gate, but only on push to main
+# — by then a red deploy already exists. This workflow runs on every branch push
+# and every pull request, so a bad content file fails CI on the branch that
+# introduced it.
+#
+# Source of truth is never duplicated here: the gate shells out to
+# next/scripts/validate-content.mjs, which greps for placeholder markers and
+# then runs `astro sync` to validate every collection entry against the real
+# schema in next/src/content.config.ts. A parallel schema copy would drift.
+
+on:
+  pull_request:
+    branches: ['**']
+  push:
+    branches-ignore:
+      - gh-pages
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: content-gate-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  content-gate:
+    name: Reject placeholder stubs and schema-invalid content
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: next/package-lock.json
+
+      - name: Install dependencies
+        run: |
+          cd next
+          npm ci --prefer-offline
+
+      - name: Self-test — the gate must reject a deliberately bad stub
+        # Guards the guard: writes a placeholder fixture, asserts the validator
+        # exits non-zero, removes it. If this passes silently the gate is dead.
+        run: |
+          cd next
+          npm run test:content-admission
+
+      - name: Content admission gate
+        # Placeholder markers + real Astro collection-schema validation
+        # (astro sync against src/content.config.ts).
+        run: |
+          cd next
+          npm run validate:content
+
+      - name: Explain failure
+        if: failure()
+        run: |
+          echo "::error title=Content gate failed::A content file is a placeholder shell or fails its collection schema. Fix or delete the file — do not merge. Reproduce locally with: cd next && npm run validate:content"
