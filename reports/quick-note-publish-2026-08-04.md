@@ -24,6 +24,6 @@
 
 - Content fields use the established quick-note schema and all claims carry current primary-source citations.
 - `npm run lint:house-style`, `npm run validate:content`, and `npm run build` must pass before commit.
-- External post-publish verification is required after the GitHub Pages deployment resolves; its result will be recorded in `ops/reports/verify/`.
+- External post-publish verification at 2026-08-04T20:38Z failed because all three new URLs returned HTTP 404 before the GitHub Pages deployment was externally available. The exception is recorded as `EXC-2026-08-04-012`; rerun verification after deployment.
 
-**Verification result:** pending deployment.
+**Verification result:** failed — deployment pending.
