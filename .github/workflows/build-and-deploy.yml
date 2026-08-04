@@ -104,11 +104,35 @@ jobs:
           force_orphan: false
           commit_message: "deploy: ${{ github.sha }} — ${{ github.event.head_commit.message }}"
 
-      - name: Notify on failure
+      - name: Alert on failure (non-silent)
+        # Red main must surface immediately. Uses the repo's existing alert path
+        # (engine/alert.py — structured file under ops/alerts/ plus a deduplicated
+        # `pi-alert` GitHub issue), the same channel the daily/weekly/monthly
+        # content workflows use, so deploy failures land where operators already
+        # look instead of opening a fresh untriaged issue on every red run.
         if: failure()
         env:
-          GH_TOKEN: ${{ github.token }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          PI_REPO_ROOT: ${{ github.workspace }}
+          # Interpolated via env, never inline: a quote or backtick in a commit
+          # message must not break the one step whose job is to raise the alarm.
+          COMMIT_URL: ${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}
+          COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
-          gh issue create \
-            --title "Deploy failed: ${{ github.sha }}" \
-            --body "Build and Deploy failed for [${{ github.sha }}](${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}).\n\nRun: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}\n\nCommit: ${{ github.event.head_commit.message }}" || echo "::error::Could not create deploy-failure issue"
+          BODY=$(printf '%s\n' \
+            "Build and Deploy failed - the live site is no longer being updated from main." \
+            "" \
+            "Commit: ${COMMIT_URL}" \
+            "Message: ${COMMIT_MESSAGE}" \
+            "Run: ${RUN_URL}" \
+            "" \
+            "If the failing step is the content admission gate, a placeholder stub or" \
+            "schema-invalid content file reached main. Find it with:" \
+            "    cd next && npm run validate:content" \
+            "then fix or remove the offending file.")
+          python3 engine/alert.py \
+            --title "Deploy failed on main (run #${{ github.run_number }})" \
+            --body "$BODY" \
+            --dedup deploy-main-failure --severity fatal
