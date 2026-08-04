@@ -42,12 +42,11 @@ Every issue is these modules, in this order. A module with nothing worth saying 
 | When | What | Who |
 |---|---|---|
 | Mon | Week's picks + fact sheet + cleared-image list delivered | Editorial |
-| Tue | First layout in beehiiv; queries on any unsourced claim sent back | Design |
-| Wed | Copy corrections + "From the replies" selection + booking note | Editorial |
-| Thu AM | Final layout + 3 subject/preview pairs + self-QA (§5) complete | Design |
-| Thu PM | James approves subject choice and sends/schedules | James |
+| Tue 09:00 | First layout, source/QA pack and desktop/mobile previews prepared; Beehiiv draft created where supported | Design |
+| Wed 08:15 | Final fact, availability, link and mobile re-check; three subject/preview pairs prepared | Design |
+| Wed | James reviews and explicitly approves, then chooses whether and when to schedule | James |
 
-The send is the Thursday morning slot the following week, aligned with the site's weekly campaign publish. The email never goes out before the site content it links to is live.
+Wednesday is the target release day. The email never goes out before the site content it links to is live, or before James gives explicit approval in the active review thread. A target release is not a scheduled send: no automation may schedule or send it.
 
 ## 5. Pre-send QA checklist (designer runs, every issue, no exceptions)
 
