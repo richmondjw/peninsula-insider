@@ -28,15 +28,15 @@ Five images, all from the site's own licensed library (`next/public/images/sourc
 
 | Slot | Source | Output |
 | --- | --- | --- |
-| Cover band | `places-hub-hero-01.webp` (2400×1131 source, centre crop) | `note-band-storm.jpg` 1200×420, 49 kB |
+| Cover band | `explore-sorrento-ocean-baths-01.webp` (1400×788 source, 50%/55% crop) | `note-band-winterbeach.jpg` 1200×420, 66 kB |
 | Lead — Stonier | `venue-avani-wines-01.jpg` | `note-lead-stonier.jpg` 1200×760, 57 kB |
 | Thursday — Hastings | `category-market-02.webp` (that event's own hero) | `note-thu-hastings.jpg` 600×440, 68 kB |
 | Friday — Bass & Flinders | `category-brewery-01.webp` (that event's own hero) | `note-fri-gin.jpg` 600×440, 53 kB |
 | Editorial — MPRG | `explore-mprg-01.webp` | `note-editorial-mprg.jpg` 1080×600, 102 kB |
 
-All exported at 2× display width. Hosted at `peninsulainsider.com.au/images/email/` — committed and pushed in `796772bf6a`, cover band replaced in `5442863ff4`, so the draft renders in a real inbox. Unlinked directory; it publishes no page.
+All exported at 2× display width. Hosted at `peninsulainsider.com.au/images/email/` — committed and pushed in `796772bf6a`, cover band replaced in `5442863ff4` and again in the commit that carries this line. Unlinked directory; it publishes no page.
 
-The cover band is Wikimedia Commons, CC-BY-SA-4.0, titled *Victoria Mornington Peninsula Arthurs Seat*, uncredited contributor. Chosen over Cape Schanck at dawn and a winter Portsea beach because the near-monochrome cloud mass carries the standfirst line about leaving room for the weather, and it does not compete with the sand CTA. Exported baseline JPEG, not progressive — the earlier four images are progressive; the encoder available here writes baseline only.
+The cover band is Wikimedia Commons, CC-BY-SA-4.0, *Portsea beaches* by Simone Kealy, filed in the library under the wrong name (`explore-sorrento-ocean-baths-01`) — the licence record says Portsea in winter and the photograph agrees, so the alt text credits Portsea, not Sorrento. Chosen by James over Cape Schanck at dawn and an Arthurs Seat storm cloud. Its muted greys and greens leave the sand CTA as the only warm element in the email. Exported baseline JPEG, not progressive — the earlier four images are progressive; the encoder available here writes baseline only.
 
 Note on the library, which needs a real audit pass:
 
