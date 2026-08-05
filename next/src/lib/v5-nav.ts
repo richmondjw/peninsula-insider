@@ -111,6 +111,7 @@ export const v5Pillars: V5Pillar[] = [
       { key: 'cellar-door', label: 'Cellar doors',              href: '/wine/cellar-doors/' },
       { key: 'producers',   label: 'Appointment producers',     href: '/wine/appointment-producers/' },
       { key: 'shortlist',   label: 'The cellar-door shortlist', href: '/journal/the-cellar-door-short-list/' },
+      { key: 'winery-weddings', label: 'Winery wedding venues', href: '/weddings/winery-wedding-venues-mornington-peninsula/' },
     ],
     browse: [
       { key: 'all-wine', label: 'All wine regions', href: '/wine/' },
@@ -161,6 +162,7 @@ export const v5Pillars: V5Pillar[] = [
       { key: 'sorrento',  label: 'Sorrento, off-season',     href: '/plans/sorrento-off-season-weekend/' },
       { key: 'one-night', label: 'The one-night escape',     href: '/plans/the-one-night-escape/' },
       { key: 'family',    label: 'The family day out',       href: '/plans/the-family-day-out/' },
+      { key: 'weddings',  label: 'Weddings',                 href: '/weddings/' },
     ],
     browse: [
       { key: 'all-plans', label: 'All plans', href: '/plans/' },
@@ -300,6 +302,10 @@ export const v5FooterSections: V5NavLink[] = [
   { key: 'plans',    label: 'Plans',       href: '/plans/' },
   { key: 'whats-on', label: "What's On",   href: '/whats-on/' },
   { key: 'journal',  label: 'Journal',     href: '/journal/' },
+  // Weddings is not a masthead pillar (the seven are kept verbatim per
+  // future-ia.md), but it is a real hub with commercial intent, so it earns a
+  // permanent site-wide internal link here alongside its home in the Plans panel.
+  { key: 'weddings', label: 'Weddings',    href: '/weddings/' },
 ];
 
 export const v5FooterAbout: V5NavLink[] = [
