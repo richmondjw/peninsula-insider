@@ -1,0 +1,14 @@
+---
+/**
+ * /journal/rainy-day-mornington-peninsula/ → the winter indoors circuit.
+ *
+ * This slug never existed as a page. It was hard-coded into the Insider Note
+ * email template and shipped in Issue VII (5 August 2026) on the "Read the
+ * winter indoors circuit" CTA, so it is live in subscriber inboxes and cannot
+ * be edited there. The redirect makes those clicks land on the piece the link
+ * label actually promises.
+ */
+import Redirect from '../../components/Redirect.astro';
+export const prerender = true;
+---
+<Redirect to="/journal/winter-indoors-mprg-rainy-day-circuit/" />
