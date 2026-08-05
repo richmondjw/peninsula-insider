@@ -37,6 +37,7 @@ import CookieBanner from '../components/CookieBanner.astro';
 import SaveSiteController from '../components/SaveSiteController.astro';
 import CloudSync from '../components/CloudSync.astro';
 import InlineEditor from '../components/admin/InlineEditor.astro';
+import InsiderNotePopup from '../components/InsiderNotePopup.astro';
 
 export interface Props {
   title: string;
@@ -140,6 +141,10 @@ const searchImageAbsolute = searchImageSource.startsWith('http')
 // Don't render the floating drawer when the visitor is on /ask itself.
 // /ask IS the full-screen chat, the drawer would be a duplicate.
 const isAskPage = rawPathname.startsWith('/ask');
+// The same component supports preview builds and the production rollout.
+// Keep the switch explicit so an emergency rollback is one environment edit.
+const newsletterPopupMode = import.meta.env.PUBLIC_NEWSLETTER_POPUP;
+const showNewsletterPopup = newsletterPopupMode === 'preview' || newsletterPopupMode === 'on';
 ---
 
 <!doctype html>
@@ -473,6 +478,9 @@ const isAskPage = rawPathname.startsWith('/ask');
        session and lights up [data-pi-edit] elements for click-to-edit text
        and right-click-to-replace images. Inert for non-admin visitors. -->
   <InlineEditor />
+
+  {/* Vanilla-JS signup overlay, controlled by the build environment. */}
+  {showNewsletterPopup && <InsiderNotePopup />}
 
   <!-- Image slot hydration - reads all published cms_image_slots from Supabase
        and swaps matching <img> src values on every page load. Covers every page

@@ -71,6 +71,8 @@ jobs:
           # Set to 'off' to remove the temporary client-side password gate
           # and launch the site publicly.
           PUBLIC_ACCESS_GATE: 'off'
+          # Site-wide Insider Note signup popup. Set to 'off' for rollback.
+          PUBLIC_NEWSLETTER_POPUP: 'on'
 
       - name: Generate agent index (llms.txt)
         # Build the agent-discoverability layer from the freshly-built sitemap so
