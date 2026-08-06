@@ -13,7 +13,7 @@ sources:
     url: "https://api.open-meteo.com/v1/forecast?latitude=-38.40&longitude=145.00&current=temperature_2m,apparent_temperature,precipitation,weather_code,wind_speed_10m,wind_direction_10m,is_day&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_sum,precipitation_probability_max,wind_speed_10m_max&timezone=Australia%2FMelbourne&forecast_days=7"
     note: "Open-Meteo Main Ridge retrieval 2026-08-03T20:35Z. Mon 4 Aug: 100%/5.6mm, 7.4-11.8°C, 29.7 km/h max. Tue 5 Aug: 78%/6.4mm, 8.8-12.3°C. Wed 6 Aug: 21%/0mm, 7.4-12.4°C. Thu 7 Aug: 13%/1.7mm, 8.9-14.4°C."
     checkedAt: 2026-08-04T06:35:00+10:00
-status: published
+status: archived
 ---
 Monday is not the day to extract an outdoor plan from a reluctant forecast. The air is cold, the north-westerly is up, and the forecast holds one hundred percent rain probability with 5.6 millimetres expected. There is a useful honesty in taking that at face value.
 

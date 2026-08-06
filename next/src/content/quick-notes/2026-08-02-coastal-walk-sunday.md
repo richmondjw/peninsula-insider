@@ -13,7 +13,7 @@ sources:
     url: "https://api.open-meteo.com/v1/forecast?latitude=-38.40&longitude=145.00&current=temperature_2m,apparent_temperature,precipitation,weather_code,wind_speed_10m,wind_direction_10m,is_day&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_sum,precipitation_probability_max,wind_speed_10m_max&timezone=Australia%2FMelbourne&forecast_days=7"
     note: "Open-Meteo Main Ridge retrieval 2026-08-01T20:35Z. Current at 06:30 AEST: 9.5°C, apparent 5.1°C, N 20.5 km/h. Sun 2 Aug: 0%/0mm, maximum 14.3°C, 26.9 km/h maximum wind. Mon 3 Aug: 73%/0.9mm. Tue 4 Aug: 73%/12.4mm, 31.9 km/h maximum wind, weathercode 95."
     checkedAt: 2026-08-02T06:35:00+10:00
-status: published
+status: archived
 ---
 Sunday is the day to take the Peninsula on foot. The forecast is dry from the start, with a maximum of fourteen point three degrees and no rainfall expected. The northerly will be noticeable on exposed coastal sections, especially early, but it is a layer-and-go condition rather than a reason to abandon the plan.
 
