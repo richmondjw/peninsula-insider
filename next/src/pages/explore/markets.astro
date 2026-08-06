@@ -188,7 +188,7 @@ const calendarRows: CalDay[] = [
 const collectionSchema = buildCollectionPageSchema({
   name: 'Mornington Peninsula Markets - Ranked and Calendarised',
   description: 'Ranked guide to the best markets on the Mornington Peninsula - Red Hill, Balnarring, Mornington, Rye, and Mount Eliza. With a month-at-a-glance calendar.',
-  path: '/explore/markets',
+  path: '/explore/markets/',
   dateModified: '2026-05-17',
 });
 const itemListSchema = buildItemListSchema({
@@ -199,7 +199,7 @@ const itemListSchema = buildItemListSchema({
   // canonical paths cannot drift from what the page actually links to.
   items: markets.map((m) => ({
     name: m.data.name,
-    path: `/eat/${m.venueSlug}`,
+    path: `/eat/${m.venueSlug}/`,
     itemType: 'TouristAttraction' as const,
     addressLocality: m.data.address?.split(',')[1]?.trim() ?? titleize(String(m.data.place ?? '')),
   })),
@@ -233,7 +233,7 @@ const breadcrumbSchema = buildBreadcrumbSchema([
 ]);
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
-  { label: 'Explore', href: '/explore' },
+  { label: 'Explore', href: '/explore/' },
   { label: 'Markets' },
 ];
 export const prerender = true;

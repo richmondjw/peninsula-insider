@@ -30,7 +30,7 @@ const metaLine = [tripType, `Best for ${audienceLabel}`, regionLabel, driveLabel
 <article class="itinerary-card">
   {(hero.override || data.heroImage) && (
     <a
-      href={`/explore/plans/${slug}`}
+      href={`/explore/plans/${slug}/`}
       class="itinerary-card__hero"
       style={hero.style}
       aria-hidden="true"
@@ -51,12 +51,12 @@ const metaLine = [tripType, `Best for ${audienceLabel}`, regionLabel, driveLabel
     </span>
   </div>
   <h3 class="itinerary-card__title">
-    <a href={`/explore/plans/${slug}`}>{data.title}</a>
+    <a href={`/explore/plans/${slug}/`}>{data.title}</a>
   </h3>
   <p class="itinerary-card__dek">{data.dek}</p>
   <p class="itinerary-card__meta">{metaLine}</p>
   <div class="itinerary-card__actions">
-    <a href={`/explore/plans/${slug}`} class="itinerary-card__cta pi-btn pi-btn--text">View Plan →</a>
+    <a href={`/explore/plans/${slug}/`} class="itinerary-card__cta pi-btn pi-btn--text">View Plan →</a>
     <PiSaveActions
       kind="itinerary"
       slug={slug}

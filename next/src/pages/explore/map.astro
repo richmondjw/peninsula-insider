@@ -12,7 +12,7 @@ import {
 const articleSchema = buildArticleSchema({
   headline: 'The Mornington Peninsula - How the Geography Actually Works',
   description: 'Subregions, road structure, surprising distances, and the geographic facts first-timers always get wrong. The editorial map guide to the Mornington Peninsula, Victoria, Australia.',
-  path: '/explore/map',
+  path: '/explore/map/',
   datePublished: '2026-04-23',
   dateModified: '2026-04-23',
   imageUrl: 'https://peninsulainsider.com.au/images/sourced/home-cover.webp',
@@ -51,7 +51,7 @@ const breadcrumbSchema = buildBreadcrumbSchema([
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
-  { label: 'Explore', href: '/explore' },
+  { label: 'Explore', href: '/explore/' },
   { label: 'Map' },
 ];
 export const prerender = true;

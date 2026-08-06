@@ -24,7 +24,7 @@ const itemListSchema = buildItemListSchema({
   name: 'Best Pinot Noir producers - Mornington Peninsula',
   description: 'The Mornington Peninsula cellar doors producing the most compelling Pinot Noir.',
   listPath: '/wine/pinot-noir',
-  items: venues.map((v) => ({ name: v.data.name, path: `/wine/${routeSlug(v)}`, itemType: 'Winery' })),
+  items: venues.map((v) => ({ name: v.data.name, path: `/wine/${routeSlug(v)}/`, itemType: 'Winery' })),
 });
 
 const breadcrumbSchema = buildBreadcrumbSchema([
@@ -55,7 +55,7 @@ What separates the best Peninsula Pinot from the rest of Victoria isn't power - 
     venues={venues}
     breadcrumbs={[
       { label: 'Home', href: '/' },
-      { label: 'Wine Country', href: '/wine' },
+      { label: 'Wine Country', href: '/wine/' },
       { label: 'Pinot Noir' },
     ]}
     faqItems={[

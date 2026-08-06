@@ -26,7 +26,7 @@ const itemListSchema = buildItemListSchema({
   name: 'Main Ridge wineries - Mornington Peninsula',
   description: 'The cellar doors of the Main Ridge sub-region - the highest and coolest part of the Mornington Peninsula wine region.',
   listPath: '/wine/main-ridge',
-  items: venues.map((v) => ({ name: v.data.name, path: `/wine/${routeSlug(v)}`, itemType: 'Winery' })),
+  items: venues.map((v) => ({ name: v.data.name, path: `/wine/${routeSlug(v)}/`, itemType: 'Winery' })),
 });
 
 const breadcrumbSchema = buildBreadcrumbSchema([
@@ -100,7 +100,7 @@ Designated driver, an organised tour, or staying overnight at one of the on-ridg
     place={place}
     breadcrumbs={[
       { label: 'Home', href: '/' },
-      { label: 'Wine Country', href: '/wine' },
+      { label: 'Wine Country', href: '/wine/' },
       { label: 'Main Ridge' },
     ]}
     faqItems={[

@@ -48,11 +48,11 @@ These are the spas that anchor a weekend on their own. A reader can plan a Penin
 
 ### Peninsula Hot Springs
 
-The original. <a href="/stay/peninsula-hot-springs">Peninsula Hot Springs</a> has been operating since 2005 and has expanded into the largest geothermal wellness complex in the country: more than seventy pools, multiple bathhouse tiers, treatment rooms at the Spa Dreaming Centre, and the Fire & Ice hot-and-cold circuit. For serious bathers, groups, and anyone who wants the full ritual-to-treatment program, this is the anchor. Crowds are real on weekend afternoons; book midweek or Twilight to make it work.
+The original. <a href="/stay/peninsula-hot-springs/">Peninsula Hot Springs</a> has been operating since 2005 and has expanded into the largest geothermal wellness complex in the country: more than seventy pools, multiple bathhouse tiers, treatment rooms at the Spa Dreaming Centre, and the Fire & Ice hot-and-cold circuit. For serious bathers, groups, and anyone who wants the full ritual-to-treatment program, this is the anchor. Crowds are real on weekend afternoons; book midweek or Twilight to make it work.
 
 ### Alba Thermal Springs
 
-The newer, architecturally tighter, adults-focused alternative. <a href="/stay/alba-thermal-springs">Alba Thermal Springs</a> opened in 2022 with twenty-two geothermal pools, a sensible vitality circuit, and session caps that keep the experience calm. For couples, design lovers, and first-time Peninsula visitors, Alba is often the stronger single booking. Read our full <a href="/journal/peninsula-hot-springs-vs-alba">Peninsula Hot Springs vs Alba comparison</a> for the honest side-by-side.
+The newer, architecturally tighter, adults-focused alternative. <a href="/stay/alba-thermal-springs/">Alba Thermal Springs</a> opened in 2022 with twenty-two geothermal pools, a sensible vitality circuit, and session caps that keep the experience calm. For couples, design lovers, and first-time Peninsula visitors, Alba is often the stronger single booking. Read our full <a href="/journal/peninsula-hot-springs-vs-alba/">Peninsula Hot Springs vs Alba comparison</a> for the honest side-by-side.
 
 ## Tier 2: The resort and boutique spas
 
@@ -60,11 +60,11 @@ These are not thermal bathhouses: they are treatment-room-led venues that work a
 
 ### One Spa at RACV Cape Schanck
 
-The Peninsula's most complete resort spa offering. <a href="/stay/one-spa-racv-cape-schanck">One Spa at RACV Cape Schanck</a> sits inside the cliff-top RACV resort with Southern Ocean views, proper wet-area facilities (steam, sauna, vitality pool), and a treatment menu better executed than most Peninsula day spas. The pairing with golf at RACV Cape Schanck or a walk on Cape Schanck lighthouse trail is the obvious weekend shape. Non-resort guests welcome.
+The Peninsula's most complete resort spa offering. <a href="/stay/one-spa-racv-cape-schanck/">One Spa at RACV Cape Schanck</a> sits inside the cliff-top RACV resort with Southern Ocean views, proper wet-area facilities (steam, sauna, vitality pool), and a treatment menu better executed than most Peninsula day spas. The pairing with golf at RACV Cape Schanck or a walk on Cape Schanck lighthouse trail is the obvious weekend shape. Non-resort guests welcome.
 
 ### Spa by Jackalope
 
-The most design-led boutique spa on the Peninsula. <a href="/stay/spa-by-jackalope">Spa by Jackalope</a> is small, precise, and uncompromising: dark treatment rooms, Subtle Energies botanical range, and the best single one-on-one treatment experience the Peninsula offers. Built to serve Jackalope Hotel guests first; day-visitor appointments available but limited. The full Jackalope stay with a treatment, a Doot Doot Doot dinner, and a spa morning is one of the Peninsula's flagship weekends.
+The most design-led boutique spa on the Peninsula. <a href="/stay/spa-by-jackalope/">Spa by Jackalope</a> is small, precise, and uncompromising: dark treatment rooms, Subtle Energies botanical range, and the best single one-on-one treatment experience the Peninsula offers. Built to serve Jackalope Hotel guests first; day-visitor appointments available but limited. The full Jackalope stay with a treatment, a Doot Doot Doot dinner, and a spa morning is one of the Peninsula's flagship weekends.
 
 ## Tier 3: The reliable day spas
 
@@ -72,7 +72,7 @@ These are the practical, sensibly-priced day-spa options that make a Peninsula w
 
 ### Endota Spa Mornington
 
-<a href="/stay/endota-spa-mornington">Endota Mornington</a> is the bayside day spa for visitors who want a treatment without the drive to a resort. Consistent therapists, a sensible sixty-to-ninety-minute treatment menu, and a Mornington town location that pairs with a long lunch on Main Street. National chain branding, which some readers dismiss on principle, but for the middle-tier day-spa category it is the most reliable option in northern Peninsula.
+<a href="/stay/endota-spa-mornington/">Endota Mornington</a> is the bayside day spa for visitors who want a treatment without the drive to a resort. Consistent therapists, a sensible sixty-to-ninety-minute treatment menu, and a Mornington town location that pairs with a long lunch on Main Street. National chain branding, which some readers dismiss on principle, but for the middle-tier day-spa category it is the most reliable option in northern Peninsula.
 
 ## Which tier for which weekend
 
@@ -89,10 +89,10 @@ These are the practical, sensibly-priced day-spa options that make a Peninsula w
 
 ## Related guides
 
-- <a href="/journal/peninsula-hot-springs-vs-alba">Peninsula Hot Springs vs Alba: the honest comparison</a>
-- <a href="/journal/mornington-peninsula-stay-and-soak">Where to stay near the hot springs</a>
-- <a href="/spa">The spa section hub</a>
-- <a href="/journal/rainy-day-peninsula">The Peninsula on a rainy day: spa-first itineraries</a>
+- <a href="/journal/peninsula-hot-springs-vs-alba/">Peninsula Hot Springs vs Alba: the honest comparison</a>
+- <a href="/journal/mornington-peninsula-stay-and-soak/">Where to stay near the hot springs</a>
+- <a href="/spa/">The spa section hub</a>
+- <a href="/journal/rainy-day-peninsula/">The Peninsula on a rainy day: spa-first itineraries</a>
 
 
 *Prices may change. Confirm current rates directly with the venue or operator before booking.*

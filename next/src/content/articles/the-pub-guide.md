@@ -66,7 +66,7 @@ This is not a ranking. It is a guide to five pubs that do distinctly different t
 
 The **Flinders Hotel** is the pub most weekenders end up wishing they had booked when they realise, at about six o'clock on a Saturday, that the pub is in the right town at the right time of day and they are staying twenty minutes away.
 
-The pub runs as a full hotel with well-designed rooms upstairs, a dining room that takes its produce seriously without becoming a restaurant, and a beer garden that catches the late light. The village of [Flinders](/places/flinders) is small, quiet, and entirely walkable (bakery, general store, pier) and the pub sits at the crossroads of all of it.
+The pub runs as a full hotel with well-designed rooms upstairs, a dining room that takes its produce seriously without becoming a restaurant, and a beer garden that catches the late light. The village of [Flinders](/places/flinders/) is small, quiet, and entirely walkable (bakery, general store, pier) and the pub sits at the crossroads of all of it.
 
 The food has lifted over the past few years: Peninsula produce handled with pub confidence rather than fine-dining anxiety. The steak is excellent. The fish changes with what comes off the boats. The wine list runs heavily to local producers.
 
@@ -92,7 +92,7 @@ Best for families and groups. The beer garden on a Saturday after the beach. Cou
 
 ## Balnarring Pub, the one the locals protect
 
-The **Balnarring Pub** is the pub the locals talk about when they are not talking to weekenders. Tucked away in the hinterland behind the bayside strip, [Balnarring](/places/balnarring) is the town that most visitors drive through without stopping, and the pub is the reason they should.
+The **Balnarring Pub** is the pub the locals talk about when they are not talking to weekenders. Tucked away in the hinterland behind the bayside strip, [Balnarring](/places/balnarring/) is the town that most visitors drive through without stopping, and the pub is the reason they should.
 
 The food is excellent: modern pub cooking with genuine Peninsula sourcing, and a kitchen that punches above the size of the room. The beer garden is small, shaded, and personal. The wine list is short and local. The crowd is farmers, families from the village, and the occasional weekender who has been told about it by someone who lives here.
 

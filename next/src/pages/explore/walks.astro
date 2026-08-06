@@ -19,7 +19,7 @@ const walks = experiences
 const collectionSchema = buildCollectionPageSchema({
   name: 'Best Walks on the Mornington Peninsula',
   description: "Ranked editorial guide to the Peninsula's best walks - coastal, hinterland, and national park. Effort, distance, and payoff rated.",
-  path: '/explore/walks',
+  path: '/explore/walks/',
   dateModified: '2026-04-23',
 });
 
@@ -28,17 +28,17 @@ const itemListSchema = buildItemListSchema({
   description: "Ranked editorial guide to the Peninsula's best walks - coastal, hinterland, and national park.",
   listPath: '/explore/walks',
   items: [
-    { name: 'Cape Schanck boardwalk', path: '/explore/cape-schanck-boardwalk', itemType: 'TouristAttraction', addressLocality: 'Cape Schanck' },
-    { name: 'Bushrangers Bay walk', path: '/explore/bushrangers-bay-walk', itemType: 'TouristAttraction', addressLocality: 'Cape Schanck' },
-    { name: 'Two Bays Walking Track - Greens Bush section', path: '/explore/greens-bush-two-bays-section', itemType: 'TouristAttraction', addressLocality: 'Rosebud' },
-    { name: 'Point Nepean fort walk', path: '/explore/point-nepean-fort-walk', itemType: 'TouristAttraction', addressLocality: 'Portsea' },
-    { name: 'Cape Schanck lighthouse walk', path: '/explore/cape-schanck-lighthouse-walk', itemType: 'TouristAttraction', addressLocality: 'Cape Schanck' },
-    { name: 'Two Bays Walking Track - full route', path: '/explore/two-bays-walking-track', itemType: 'TouristAttraction', addressLocality: 'Dromana' },
-    { name: 'Arthurs Seat summit circuit', path: '/explore/summit-circuit-arthurs-seat', itemType: 'TouristAttraction', addressLocality: 'Arthurs Seat' },
-    { name: 'Coppins Track', path: '/explore/coppins-track', itemType: 'TouristAttraction', addressLocality: 'Sorrento' },
-    { name: 'Mornington foreshore walk', path: '/explore/mornington-foreshore-walk', itemType: 'TouristAttraction', addressLocality: 'Mornington' },
-    { name: 'Farnsworth Track', path: '/explore/farnsworth-track', itemType: 'TouristAttraction', addressLocality: 'Portsea' },
-    { name: 'Coastal walk at Cape Schanck', path: '/explore/coastal-walk-cape-schanck', itemType: 'TouristAttraction', addressLocality: 'Cape Schanck' },
+    { name: 'Cape Schanck boardwalk', path: '/explore/cape-schanck-boardwalk/', itemType: 'TouristAttraction', addressLocality: 'Cape Schanck' },
+    { name: 'Bushrangers Bay walk', path: '/explore/bushrangers-bay-walk/', itemType: 'TouristAttraction', addressLocality: 'Cape Schanck' },
+    { name: 'Two Bays Walking Track - Greens Bush section', path: '/explore/greens-bush-two-bays-section/', itemType: 'TouristAttraction', addressLocality: 'Rosebud' },
+    { name: 'Point Nepean fort walk', path: '/explore/point-nepean-fort-walk/', itemType: 'TouristAttraction', addressLocality: 'Portsea' },
+    { name: 'Cape Schanck lighthouse walk', path: '/explore/cape-schanck-lighthouse-walk/', itemType: 'TouristAttraction', addressLocality: 'Cape Schanck' },
+    { name: 'Two Bays Walking Track - full route', path: '/explore/two-bays-walking-track/', itemType: 'TouristAttraction', addressLocality: 'Dromana' },
+    { name: 'Arthurs Seat summit circuit', path: '/explore/summit-circuit-arthurs-seat/', itemType: 'TouristAttraction', addressLocality: 'Arthurs Seat' },
+    { name: 'Coppins Track', path: '/explore/coppins-track/', itemType: 'TouristAttraction', addressLocality: 'Sorrento' },
+    { name: 'Mornington foreshore walk', path: '/explore/mornington-foreshore-walk/', itemType: 'TouristAttraction', addressLocality: 'Mornington' },
+    { name: 'Farnsworth Track', path: '/explore/farnsworth-track/', itemType: 'TouristAttraction', addressLocality: 'Portsea' },
+    { name: 'Coastal walk at Cape Schanck', path: '/explore/coastal-walk-cape-schanck/', itemType: 'TouristAttraction', addressLocality: 'Cape Schanck' },
   ],
 });
 
@@ -73,7 +73,7 @@ const breadcrumbSchema = buildBreadcrumbSchema([
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
-  { label: 'Explore', href: '/explore' },
+  { label: 'Explore', href: '/explore/' },
   { label: 'Walks' },
 ];
 export const prerender = true;

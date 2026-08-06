@@ -236,7 +236,7 @@ export const prerender = true;
             <p class="v5j-lead__mark">Lead feature</p>
             <h2 class="v5j-lead__title">
               <a
-                href={`/journal/${leadSlug}`}
+                href={`/journal/${leadSlug}/`}
                 data-evt="card_click"
                 data-entity-type="article"
                 data-entity-slug={leadSlug}
@@ -274,7 +274,7 @@ export const prerender = true;
             <Card
               variant="compact-row"
               title={article.data.title}
-              href={`/journal/${routeSlug(article)}`}
+              href={`/journal/${routeSlug(article)}/`}
               entityType="article"
               entitySlug={routeSlug(article)}
               fieldPath="hero"
@@ -311,7 +311,7 @@ export const prerender = true;
               <ul class="v5j-list" aria-label={`${theme.title} articles`}>
                 {theme.articles.map((article) => (
                   <li>
-                    <a href={`/journal/${routeSlug(article)}`}>{article.data.title}</a>
+                    <a href={`/journal/${routeSlug(article)}/`}>{article.data.title}</a>
                     <span class="v5j-list__meta">
                       <time datetime={isoDate(article.data.publishedAt)}>{shortDate(article.data.publishedAt)}</time>
                     </span>
@@ -345,7 +345,7 @@ export const prerender = true;
                 <ul class="v5j-list" aria-label={`Articles from ${month.label}`}>
                   {month.items.map((article) => (
                     <li>
-                      <a href={`/journal/${routeSlug(article)}`}>{article.data.title}</a>
+                      <a href={`/journal/${routeSlug(article)}/`}>{article.data.title}</a>
                       <span class="v5j-list__meta">
                         <time datetime={isoDate(article.data.publishedAt)}>{shortDate(article.data.publishedAt)}</time>
                         {article.data.readingTimeMinutes && (

@@ -32,7 +32,7 @@ const itemListSchema = buildItemListSchema({
   name: 'Flinders & southern Peninsula wineries - Mornington Peninsula',
   description: 'The cellar doors of the Flinders and southern Peninsula coast - small, cool-climate producers on the ocean side.',
   listPath: '/wine/flinders',
-  items: venues.map((v) => ({ name: v.data.name, path: `/wine/${routeSlug(v)}`, itemType: 'Winery' })),
+  items: venues.map((v) => ({ name: v.data.name, path: `/wine/${routeSlug(v)}/`, itemType: 'Winery' })),
 });
 
 const breadcrumbSchema = buildBreadcrumbSchema([
@@ -98,7 +98,7 @@ Flinders Road is the main spine, sealed all the way, but it's a slower drive tha
     place={place}
     breadcrumbs={[
       { label: 'Home', href: '/' },
-      { label: 'Wine Country', href: '/wine' },
+      { label: 'Wine Country', href: '/wine/' },
       { label: 'Flinders' },
     ]}
     faqItems={[

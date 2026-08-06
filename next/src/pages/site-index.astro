@@ -66,56 +66,56 @@ export const prerender = true;
         <h2>Places</h2>
         <ul>
           {places.map((place) => (
-            <li><a href={`/explore/places/${routeSlug(place)}`}>{place.data.name}</a></li>
+            <li><a href={`/explore/places/${routeSlug(place)}/`}>{place.data.name}</a></li>
           ))}
         </ul>
 
         <h2>Selected Eat & Drink pages</h2>
         <ul>
           {eatVenues.map((venue) => (
-            <li><a href={`/eat/${routeSlug(venue)}`}>{venue.data.name}</a></li>
+            <li><a href={`/eat/${routeSlug(venue)}/`}>{venue.data.name}</a></li>
           ))}
         </ul>
 
         <h2>Selected Stay pages</h2>
         <ul>
           {stayVenues.map((venue) => (
-            <li><a href={`/stay/${routeSlug(venue)}`}>{venue.data.name}</a></li>
+            <li><a href={`/stay/${routeSlug(venue)}/`}>{venue.data.name}</a></li>
           ))}
         </ul>
 
         <h2>Selected Wine pages</h2>
         <ul>
           {wineVenues.map((venue) => (
-            <li><a href={`/wine/${routeSlug(venue)}`}>{venue.data.name}</a></li>
+            <li><a href={`/wine/${routeSlug(venue)}/`}>{venue.data.name}</a></li>
           ))}
         </ul>
 
         <h2>Experiences</h2>
         <ul>
           {experiences.map((entry) => (
-            <li><a href={`/explore/${routeSlug(entry)}`}>{entry.data.name}</a></li>
+            <li><a href={`/explore/${routeSlug(entry)}/`}>{entry.data.name}</a></li>
           ))}
         </ul>
 
         <h2>Plans</h2>
         <ul>
           {itineraries.map((entry) => (
-            <li><a href={`/explore/plans/${routeSlug(entry)}`}>{entry.data.title}</a></li>
+            <li><a href={`/explore/plans/${routeSlug(entry)}/`}>{entry.data.title}</a></li>
           ))}
         </ul>
 
         <h2>What's On</h2>
         <ul>
           {events.map((entry) => (
-            <li><a href={`/whats-on/${routeSlug(entry)}`}>{entry.data.title}</a></li>
+            <li><a href={`/whats-on/${routeSlug(entry)}/`}>{entry.data.title}</a></li>
           ))}
         </ul>
 
         <h2>Journal</h2>
         <ul>
           {articles.slice(0, 50).map((entry) => (
-            <li><a href={`/journal/${routeSlug(entry)}`}>{entry.data.title}</a></li>
+            <li><a href={`/journal/${routeSlug(entry)}/`}>{entry.data.title}</a></li>
           ))}
         </ul>
       </div>

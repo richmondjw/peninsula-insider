@@ -36,7 +36,7 @@ const readingTime = article.data.readingTimeMinutes;
     {readingTime && <span class="venue-card__price">{readingTime} min</span>}
   </div>
   <h3 class="venue-card__name">
-    <a href={`${articleBase}/${slug}`}>{article.data.title}</a>
+    <a href={`${articleBase}/${slug}/`}>{article.data.title}</a>
   </h3>
   {meta && <p class="venue-card__place">{meta}</p>}
   <p class="venue-card__signature">{article.data.dek}</p>

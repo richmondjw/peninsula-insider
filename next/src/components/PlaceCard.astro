@@ -52,7 +52,7 @@ const heroSrc = heroMatch ? heroMatch[1].replace(/^['"]|['"]$/g, '') : undefined
 
 <article class="place-card">
   <a
-    href={`/explore/places/${slug}`}
+    href={`/explore/places/${slug}/`}
     class={imgClass}
     aria-hidden="true"
     tabindex="-1"
@@ -68,7 +68,7 @@ const heroSrc = heroMatch ? heroMatch[1].replace(/^['"]|['"]$/g, '') : undefined
   <div class="place-card__body">
     {showDetails && showMeta && (<p class="place-card__zone">{zoneLabel} · {data.kind}</p>)}
     <h3 class="place-card__name">
-      <a href={`/explore/places/${slug}`}>{data.name}</a>
+      <a href={`/explore/places/${slug}/`}>{data.name}</a>
     </h3>
     {showDetails && (<p class="place-card__intro">{displayIntro}</p>)}
   </div>

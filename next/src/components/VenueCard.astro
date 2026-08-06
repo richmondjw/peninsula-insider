@@ -39,7 +39,7 @@ export interface Props {
 const { venue, hrefPrefix = '/eat' } = Astro.props;
 const data = venue.data;
 const slug = venue.id ?? data.slug;
-const href = `${hrefPrefix}/${slug}`;
+const href = `${hrefPrefix}/${slug}/`;
 
 const placeLabel = String(data.place?.id ?? data.place ?? '')
   .replace(/-/g, ' ')
@@ -95,7 +95,7 @@ const verifiedTier = verificationFreshness(data.lastVerified);
     <span class="venue-card__type">
       {typeLabel[data.type] ?? data.type}
     </span>
-    <a href={`/explore/places/${data.place?.id ?? data.place}`} class="venue-card__place-link">{placeLabel}</a>
+    <a href={`/explore/places/${data.place?.id ?? data.place}/`} class="venue-card__place-link">{placeLabel}</a>
   </div>
   <h3 class="venue-card__name">
     <a href={href}>{data.name}</a>

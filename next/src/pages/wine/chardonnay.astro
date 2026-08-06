@@ -23,7 +23,7 @@ const itemListSchema = buildItemListSchema({
   name: 'Best Chardonnay producers - Mornington Peninsula',
   description: 'The Mornington Peninsula cellar doors producing the most compelling Chardonnay.',
   listPath: '/wine/chardonnay',
-  items: venues.map((v) => ({ name: v.data.name, path: `/wine/${routeSlug(v)}`, itemType: 'Winery' })),
+  items: venues.map((v) => ({ name: v.data.name, path: `/wine/${routeSlug(v)}/`, itemType: 'Winery' })),
 });
 
 const breadcrumbSchema = buildBreadcrumbSchema([
@@ -54,7 +54,7 @@ Ten Minutes by Tractor and Kooyong made the reputations early. The generation th
     venues={venues}
     breadcrumbs={[
       { label: 'Home', href: '/' },
-      { label: 'Wine Country', href: '/wine' },
+      { label: 'Wine Country', href: '/wine/' },
       { label: 'Chardonnay' },
     ]}
     faqItems={[

@@ -12,7 +12,7 @@ import {
 const collectionSchema = buildCollectionPageSchema({
   name: 'Rainy Day Things to Do on the Mornington Peninsula',
   description: 'Indoor and weather-proof activities on the Mornington Peninsula - hot springs, cellar doors, galleries, and indoor dining.',
-  path: '/explore/rainy-day',
+  path: '/explore/rainy-day/',
   dateModified: '2026-04-23',
 });
 
@@ -21,13 +21,13 @@ const itemListSchema = buildItemListSchema({
   description: 'Weather-proof and indoor activities on the Mornington Peninsula.',
   listPath: '/explore/rainy-day',
   items: [
-    { name: 'Peninsula Hot Springs', path: '/explore/hot-springs', itemType: 'TouristAttraction', addressLocality: 'Fingal' },
-    { name: 'Alba Thermal Springs', path: '/stay/alba-thermal-springs', itemType: 'TouristAttraction', addressLocality: 'Rye' },
-    { name: 'Montalto winery lunch', path: '/eat/montalto', itemType: 'TouristAttraction', addressLocality: 'Red Hill' },
-    { name: 'Ten Minutes by Tractor winery lunch', path: '/eat/ten-minutes-by-tractor', itemType: 'TouristAttraction', addressLocality: 'Main Ridge' },
-    { name: 'Spa by Jackalope', path: '/stay/spa-by-jackalope', itemType: 'SportsActivityLocation', addressLocality: 'Merricks North' },
-    { name: 'Endota Spa Mornington', path: '/stay/endota-spa-mornington', itemType: 'SportsActivityLocation', addressLocality: 'Mornington' },
-    { name: 'Mornington Peninsula Regional Gallery', path: '/explore/places/mornington', itemType: 'TouristAttraction', addressLocality: 'Mornington' },
+    { name: 'Peninsula Hot Springs', path: '/explore/hot-springs/', itemType: 'TouristAttraction', addressLocality: 'Fingal' },
+    { name: 'Alba Thermal Springs', path: '/stay/alba-thermal-springs/', itemType: 'TouristAttraction', addressLocality: 'Rye' },
+    { name: 'Montalto winery lunch', path: '/eat/montalto/', itemType: 'TouristAttraction', addressLocality: 'Red Hill' },
+    { name: 'Ten Minutes by Tractor winery lunch', path: '/eat/ten-minutes-by-tractor/', itemType: 'TouristAttraction', addressLocality: 'Main Ridge' },
+    { name: 'Spa by Jackalope', path: '/stay/spa-by-jackalope/', itemType: 'SportsActivityLocation', addressLocality: 'Merricks North' },
+    { name: 'Endota Spa Mornington', path: '/stay/endota-spa-mornington/', itemType: 'SportsActivityLocation', addressLocality: 'Mornington' },
+    { name: 'Mornington Peninsula Regional Gallery', path: '/explore/places/mornington/', itemType: 'TouristAttraction', addressLocality: 'Mornington' },
   ],
 });
 
@@ -58,7 +58,7 @@ const breadcrumbSchema = buildBreadcrumbSchema([
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
-  { label: 'Explore', href: '/explore' },
+  { label: 'Explore', href: '/explore/' },
   { label: 'Rainy Day' },
 ];
 export const prerender = true;

@@ -12,7 +12,7 @@ import {
 const collectionSchema = buildCollectionPageSchema({
   name: 'Free Things to Do on the Mornington Peninsula',
   description: 'Beaches, walks, lookouts, foreshore, and markets - the best free activities on the Mornington Peninsula.',
-  path: '/explore/free',
+  path: '/explore/free/',
   dateModified: '2026-04-23',
 });
 
@@ -21,16 +21,16 @@ const itemListSchema = buildItemListSchema({
   description: 'Free beaches, walks, lookouts, and markets on the Mornington Peninsula.',
   listPath: '/explore/free',
   items: [
-    { name: 'Balnarring Beach', path: '/explore/balnarring-beach', itemType: 'Beach', addressLocality: 'Balnarring' },
-    { name: 'Sorrento Back Beach', path: '/explore/sorrento-back-beach', itemType: 'Beach', addressLocality: 'Sorrento' },
-    { name: 'Gunnamatta Ocean Beach', path: '/explore/gunnamatta-ocean-beach', itemType: 'Beach', addressLocality: 'Rye' },
-    { name: 'Cape Schanck boardwalk', path: '/explore/cape-schanck-boardwalk', itemType: 'TouristAttraction', addressLocality: 'Cape Schanck' },
-    { name: 'Bushrangers Bay walk', path: '/explore/bushrangers-bay-walk', itemType: 'TouristAttraction', addressLocality: 'Cape Schanck' },
-    { name: 'Mornington foreshore walk', path: '/explore/mornington-foreshore-walk', itemType: 'TouristAttraction', addressLocality: 'Mornington' },
-    { name: 'Greens Bush, Two Bays Walking Track', path: '/explore/greens-bush-two-bays-section', itemType: 'TouristAttraction', addressLocality: 'Dromana' },
-    { name: 'Arthurs Seat State Park summit (drive-in)', path: '/explore/arthurs-seat-lookout', itemType: 'TouristAttraction', addressLocality: 'Arthurs Seat' },
-    { name: 'Red Hill Community Market', path: '/explore/red-hill-market', itemType: 'TouristAttraction', addressLocality: 'Red Hill' },
-    { name: 'Balnarring Farmers Market', path: '/eat/balnarring-market', itemType: 'TouristAttraction', addressLocality: 'Balnarring' },
+    { name: 'Balnarring Beach', path: '/explore/balnarring-beach/', itemType: 'Beach', addressLocality: 'Balnarring' },
+    { name: 'Sorrento Back Beach', path: '/explore/sorrento-back-beach/', itemType: 'Beach', addressLocality: 'Sorrento' },
+    { name: 'Gunnamatta Ocean Beach', path: '/explore/gunnamatta-ocean-beach/', itemType: 'Beach', addressLocality: 'Rye' },
+    { name: 'Cape Schanck boardwalk', path: '/explore/cape-schanck-boardwalk/', itemType: 'TouristAttraction', addressLocality: 'Cape Schanck' },
+    { name: 'Bushrangers Bay walk', path: '/explore/bushrangers-bay-walk/', itemType: 'TouristAttraction', addressLocality: 'Cape Schanck' },
+    { name: 'Mornington foreshore walk', path: '/explore/mornington-foreshore-walk/', itemType: 'TouristAttraction', addressLocality: 'Mornington' },
+    { name: 'Greens Bush, Two Bays Walking Track', path: '/explore/greens-bush-two-bays-section/', itemType: 'TouristAttraction', addressLocality: 'Dromana' },
+    { name: 'Arthurs Seat State Park summit (drive-in)', path: '/explore/arthurs-seat-lookout/', itemType: 'TouristAttraction', addressLocality: 'Arthurs Seat' },
+    { name: 'Red Hill Community Market', path: '/explore/red-hill-market/', itemType: 'TouristAttraction', addressLocality: 'Red Hill' },
+    { name: 'Balnarring Farmers Market', path: '/eat/balnarring-market/', itemType: 'TouristAttraction', addressLocality: 'Balnarring' },
   ],
 });
 
@@ -57,7 +57,7 @@ const breadcrumbSchema = buildBreadcrumbSchema([
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
-  { label: 'Explore', href: '/explore' },
+  { label: 'Explore', href: '/explore/' },
   { label: 'Free Things to Do' },
 ];
 export const prerender = true;

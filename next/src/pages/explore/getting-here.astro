@@ -12,7 +12,7 @@ import {
 const articleSchema = buildArticleSchema({
   headline: 'How to Get to the Mornington Peninsula from Melbourne',
   description: 'Drive times, routes, public transport options, and the Sorrento–Queenscliff ferry - everything you need to reach the Mornington Peninsula from Melbourne CBD, the airport, or interstate.',
-  path: '/explore/getting-here',
+  path: '/explore/getting-here/',
   datePublished: '2026-04-23',
   dateModified: '2026-04-23',
   imageUrl: 'https://peninsulainsider.com.au/images/sourced/home-cover.webp',
@@ -51,7 +51,7 @@ const breadcrumbSchema = buildBreadcrumbSchema([
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
-  { label: 'Explore', href: '/explore' },
+  { label: 'Explore', href: '/explore/' },
   { label: 'Getting Here' },
 ];
 export const prerender = true;

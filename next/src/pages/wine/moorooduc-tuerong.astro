@@ -25,7 +25,7 @@ const itemListSchema = buildItemListSchema({
   name: 'Moorooduc and Tuerong wineries - Mornington Peninsula',
   description: 'The cellar doors of Moorooduc and Tuerong - the warmer, bay-side subregions of the Mornington Peninsula wine region.',
   listPath: '/wine/moorooduc-tuerong',
-  items: venues.map((v) => ({ name: v.data.name, path: `/wine/${routeSlug(v)}`, itemType: 'Winery' })),
+  items: venues.map((v) => ({ name: v.data.name, path: `/wine/${routeSlug(v)}/`, itemType: 'Winery' })),
 });
 
 const breadcrumbSchema = buildBreadcrumbSchema([
@@ -56,7 +56,7 @@ Cellar doors in this corridor are generally more accessible from Melbourne and o
     venues={venues}
     breadcrumbs={[
       { label: 'Home', href: '/' },
-      { label: 'Wine Country', href: '/wine' },
+      { label: 'Wine Country', href: '/wine/' },
       { label: 'Moorooduc & Tuerong' },
     ]}
     faqItems={[

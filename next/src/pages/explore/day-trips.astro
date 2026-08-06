@@ -12,7 +12,7 @@ import {
 const collectionSchema = buildCollectionPageSchema({
   name: 'Mornington Peninsula Day Trips from Melbourne',
   description: 'Five day-trip routes for visiting the Mornington Peninsula in a single day - hinterland, coast, tip, wine, and walk routes.',
-  path: '/explore/day-trips',
+  path: '/explore/day-trips/',
   dateModified: '2026-04-23',
 });
 
@@ -21,11 +21,11 @@ const itemListSchema = buildItemListSchema({
   description: 'Five distinct day-trip routes from Melbourne to the Mornington Peninsula.',
   listPath: '/explore/day-trips',
   items: [
-    { name: 'The Hinterland Loop', path: '/explore/day-trips', itemType: 'TouristAttraction', addressLocality: 'Red Hill' },
-    { name: 'The Bay Coast Run', path: '/explore/day-trips', itemType: 'TouristAttraction', addressLocality: 'Mornington' },
-    { name: 'The Sorrento Tip', path: '/explore/day-trips', itemType: 'TouristAttraction', addressLocality: 'Sorrento' },
-    { name: 'The Wine Crawl', path: '/explore/day-trips', itemType: 'TouristAttraction', addressLocality: 'Main Ridge' },
-    { name: 'The Walk and Soak', path: '/explore/day-trips', itemType: 'TouristAttraction', addressLocality: 'Cape Schanck' },
+    { name: 'The Hinterland Loop', path: '/explore/day-trips/', itemType: 'TouristAttraction', addressLocality: 'Red Hill' },
+    { name: 'The Bay Coast Run', path: '/explore/day-trips/', itemType: 'TouristAttraction', addressLocality: 'Mornington' },
+    { name: 'The Sorrento Tip', path: '/explore/day-trips/', itemType: 'TouristAttraction', addressLocality: 'Sorrento' },
+    { name: 'The Wine Crawl', path: '/explore/day-trips/', itemType: 'TouristAttraction', addressLocality: 'Main Ridge' },
+    { name: 'The Walk and Soak', path: '/explore/day-trips/', itemType: 'TouristAttraction', addressLocality: 'Cape Schanck' },
   ],
 });
 
@@ -56,7 +56,7 @@ const breadcrumbSchema = buildBreadcrumbSchema([
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
-  { label: 'Explore', href: '/explore' },
+  { label: 'Explore', href: '/explore/' },
   { label: 'Day Trips' },
 ];
 export const prerender = true;

@@ -13,7 +13,7 @@ import {
 const articleSchema = buildArticleSchema({
   headline: 'Easy Walks on the Mornington Peninsula',
   description: 'The best easy walks on the Mornington Peninsula - Cape Schanck boardwalk, Mornington foreshore, Farnsworth Track, Arthurs Seat circuit, and more. Honest difficulty notes, dog access, and what to do after.',
-  path: '/walks/easy-walks-mornington-peninsula',
+  path: '/walks/easy-walks-mornington-peninsula/',
   datePublished: '2026-04-23',
   dateModified: '2026-04-23',
   imageUrl: 'https://peninsulainsider.com.au/images/sourced/explore-bushrangers-bay-walk-01.webp',
@@ -52,7 +52,7 @@ const breadcrumbSchema = buildBreadcrumbSchema([
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
-  { label: 'Walks', href: '/walks' },
+  { label: 'Walks', href: '/walks/' },
   { label: 'Easy Walks' },
 ];
 export const prerender = true;

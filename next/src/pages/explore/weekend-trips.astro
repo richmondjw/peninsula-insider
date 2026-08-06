@@ -25,7 +25,7 @@ const itineraries = itinerarySlugs
 const collectionSchema = buildCollectionPageSchema({
   name: 'Mornington Peninsula Weekend Trips - Planning Guide',
   description: 'How to plan a Mornington Peninsula weekend - 2 nights, 1 night, and base options. Linked itineraries for every style.',
-  path: '/explore/weekend-trips',
+  path: '/explore/weekend-trips/',
   dateModified: '2026-04-23',
 });
 
@@ -34,12 +34,12 @@ const itemListSchema = buildItemListSchema({
   description: 'Six weekend formats for visiting the Mornington Peninsula.',
   listPath: '/explore/weekend-trips',
   items: [
-    { name: 'The default Peninsula weekend', path: '/explore/plans/how-to-plan-a-peninsula-weekend', itemType: 'TouristTrip', addressLocality: 'Mornington Peninsula' },
-    { name: 'The Sorrento weekend', path: '/journal/the-sorrento-weekend', itemType: 'TouristTrip', addressLocality: 'Sorrento' },
-    { name: 'The Flinders weekend', path: '/journal/a-flinders-weekend', itemType: 'TouristTrip', addressLocality: 'Flinders' },
-    { name: 'The couples weekend', path: '/journal/the-couples-weekend', itemType: 'TouristTrip', addressLocality: 'Mornington Peninsula' },
-    { name: 'The winter Peninsula weekend', path: '/journal/a-winter-peninsula-weekend', itemType: 'TouristTrip', addressLocality: 'Mornington Peninsula' },
-    { name: 'The hinterland-first weekend', path: '/explore/plans/ridge-to-sea-two-night-escape', itemType: 'TouristTrip', addressLocality: 'Red Hill' },
+    { name: 'The default Peninsula weekend', path: '/explore/plans/how-to-plan-a-peninsula-weekend/', itemType: 'TouristTrip', addressLocality: 'Mornington Peninsula' },
+    { name: 'The Sorrento weekend', path: '/journal/the-sorrento-weekend/', itemType: 'TouristTrip', addressLocality: 'Sorrento' },
+    { name: 'The Flinders weekend', path: '/journal/a-flinders-weekend/', itemType: 'TouristTrip', addressLocality: 'Flinders' },
+    { name: 'The couples weekend', path: '/journal/the-couples-weekend/', itemType: 'TouristTrip', addressLocality: 'Mornington Peninsula' },
+    { name: 'The winter Peninsula weekend', path: '/journal/a-winter-peninsula-weekend/', itemType: 'TouristTrip', addressLocality: 'Mornington Peninsula' },
+    { name: 'The hinterland-first weekend', path: '/explore/plans/ridge-to-sea-two-night-escape/', itemType: 'TouristTrip', addressLocality: 'Red Hill' },
   ],
 });
 
@@ -66,7 +66,7 @@ const breadcrumbSchema = buildBreadcrumbSchema([
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
-  { label: 'Explore', href: '/explore' },
+  { label: 'Explore', href: '/explore/' },
   { label: 'Weekend Trips' },
 ];
 export const prerender = true;

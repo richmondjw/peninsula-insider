@@ -117,7 +117,7 @@ function hasRanking(course: (typeof golfCourses)[0]): boolean {
 const collectionSchema = buildCollectionPageSchema({
   name: 'Mornington Peninsula Golf Courses - Peninsula Insider',
   description: 'All 11 Mornington Peninsula golf courses ranked. Public vs private, what to book, best value, best views.',
-  path: '/explore/golf',
+  path: '/explore/golf/',
   dateModified: '2026-04-30',
 });
 const itemListSchema = buildItemListSchema({
@@ -125,17 +125,17 @@ const itemListSchema = buildItemListSchema({
   description: '11 Mornington Peninsula golf courses ranked by editorial value.',
   listPath: '/explore/golf',
   items: [
-    { name: 'Moonah Links', path: '/explore/moonah-links', itemType: 'GolfCourse', addressLocality: 'Fingal' },
-    { name: 'St Andrews Beach Golf Course', path: '/explore/st-andrews-beach-golf-course', itemType: 'GolfCourse', addressLocality: 'Fingal' },
-    { name: 'The National Golf Club', path: '/explore/the-national-golf-club', itemType: 'GolfCourse', addressLocality: 'Cape Schanck' },
-    { name: 'RACV Cape Schanck Resort Golf Course', path: '/explore/racv-cape-schanck-golf-course', itemType: 'GolfCourse', addressLocality: 'Cape Schanck' },
-    { name: 'Flinders Golf Club', path: '/explore/flinders-golf-club', itemType: 'GolfCourse', addressLocality: 'Flinders' },
-    { name: 'Eagle Ridge Golf Course', path: '/explore/eagle-ridge-golf-course', itemType: 'GolfCourse', addressLocality: 'Merricks North' },
-    { name: 'The Dunes Golf Links', path: '/explore/the-dunes-golf-links', itemType: 'GolfCourse', addressLocality: 'Rye' },
-    { name: 'Mornington Golf Club', path: '/explore/mornington-golf-club', itemType: 'GolfCourse', addressLocality: 'Mornington' },
-    { name: 'Rosebud Country Club', path: '/explore/rosebud-country-club', itemType: 'GolfCourse', addressLocality: 'Rosebud' },
-    { name: 'Sorrento Golf Club', path: '/explore/sorrento-golf-club', itemType: 'GolfCourse', addressLocality: 'Sorrento' },
-    { name: 'Portsea Golf Club', path: '/explore/portsea-golf-club', itemType: 'GolfCourse', addressLocality: 'Portsea' },
+    { name: 'Moonah Links', path: '/explore/moonah-links/', itemType: 'GolfCourse', addressLocality: 'Fingal' },
+    { name: 'St Andrews Beach Golf Course', path: '/explore/st-andrews-beach-golf-course/', itemType: 'GolfCourse', addressLocality: 'Fingal' },
+    { name: 'The National Golf Club', path: '/explore/the-national-golf-club/', itemType: 'GolfCourse', addressLocality: 'Cape Schanck' },
+    { name: 'RACV Cape Schanck Resort Golf Course', path: '/explore/racv-cape-schanck-golf-course/', itemType: 'GolfCourse', addressLocality: 'Cape Schanck' },
+    { name: 'Flinders Golf Club', path: '/explore/flinders-golf-club/', itemType: 'GolfCourse', addressLocality: 'Flinders' },
+    { name: 'Eagle Ridge Golf Course', path: '/explore/eagle-ridge-golf-course/', itemType: 'GolfCourse', addressLocality: 'Merricks North' },
+    { name: 'The Dunes Golf Links', path: '/explore/the-dunes-golf-links/', itemType: 'GolfCourse', addressLocality: 'Rye' },
+    { name: 'Mornington Golf Club', path: '/explore/mornington-golf-club/', itemType: 'GolfCourse', addressLocality: 'Mornington' },
+    { name: 'Rosebud Country Club', path: '/explore/rosebud-country-club/', itemType: 'GolfCourse', addressLocality: 'Rosebud' },
+    { name: 'Sorrento Golf Club', path: '/explore/sorrento-golf-club/', itemType: 'GolfCourse', addressLocality: 'Sorrento' },
+    { name: 'Portsea Golf Club', path: '/explore/portsea-golf-club/', itemType: 'GolfCourse', addressLocality: 'Portsea' },
   ],
 });
 const faqSchema = buildFaqSchema([
@@ -167,7 +167,7 @@ const breadcrumbSchema = buildBreadcrumbSchema([
 ]);
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
-  { label: 'Explore', href: '/explore' },
+  { label: 'Explore', href: '/explore/' },
   { label: 'Golf' },
 ];
 export const prerender = true;

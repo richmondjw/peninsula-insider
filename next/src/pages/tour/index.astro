@@ -38,7 +38,7 @@ const itemListSchema = buildItemListSchema({
   listPath: '/tour/',
   items: allTours.map(t => ({
     name: t.data.name,
-    path: `/tour/${t.data.slug}`,
+    path: `/tour/${t.data.slug}/`,
     description: t.data.intro,
     itemType: 'TouristTrip',
   })),

@@ -435,7 +435,7 @@ export const buildTouristTripSchema = ({
 const TOUR_SITE = 'https://peninsulainsider.com.au';
 
 export function buildTourSchema(tour: any, operatorData: any) {
-  const pageUrl = absUrl(`/tour/${tour.slug}`);
+  const pageUrl = absUrl(`/tour/${tour.slug}/`);
   const graph: any[] = [
     {
       '@type': ['TouristTrip', 'Service'],
@@ -450,7 +450,7 @@ export function buildTourSchema(tour: any, operatorData: any) {
       availableLanguage: tour.languages || ['en'],
       provider: {
         '@type': 'LocalBusiness',
-        '@id': absUrl(`/tour/operators/${tour.operatorSlug}`) + '#LocalBusiness',
+        '@id': absUrl(`/tour/operators/${tour.operatorSlug}/`) + '#LocalBusiness',
         name: operatorData?.name || tour.operatorSlug,
         url: operatorData?.website || undefined,
       },
@@ -482,7 +482,7 @@ export function buildTourSchema(tour: any, operatorData: any) {
 }
 
 export function buildTourPackageSchema(pkg: any, componentToursData: any[]) {
-  const pageUrl = absUrl(`/tour-packages/${pkg.slug}`);
+  const pageUrl = absUrl(`/tour-packages/${pkg.slug}/`);
   const graph: any[] = [
     {
       '@type': 'TouristTrip',
@@ -494,16 +494,16 @@ export function buildTourPackageSchema(pkg: any, componentToursData: any[]) {
       ...(pkg.anchorStaySlug ? {
         locationCreatedIn: {
           '@type': 'LodgingBusiness',
-          '@id': absUrl(`/stay/${pkg.anchorStaySlug}`) + '#LodgingBusiness',
+          '@id': absUrl(`/stay/${pkg.anchorStaySlug}/`) + '#LodgingBusiness',
           name: pkg.anchorStaySlug.replace(/-/g, ' '),
-          url: absUrl(`/stay/${pkg.anchorStaySlug}`),
+          url: absUrl(`/stay/${pkg.anchorStaySlug}/`),
         }
       } : {}),
       subTrip: (pkg.componentTourSlugs || []).map((slug: string) => ({
         '@type': 'TouristTrip',
-        '@id': absUrl(`/tour/${slug}`) + '#TouristTrip',
+        '@id': absUrl(`/tour/${slug}/`) + '#TouristTrip',
         name: componentToursData.find((t: any) => t.slug === slug)?.name || slug,
-        url: absUrl(`/tour/${slug}`),
+        url: absUrl(`/tour/${slug}/`),
       })),
       // AggregateOffer block intentionally removed. BRAND-PI rule (2026-05-15):
       // "No pricing on site. Ever." - including JSON-LD price emission.
@@ -532,7 +532,7 @@ export function buildTourPackageSchema(pkg: any, componentToursData: any[]) {
 }
 
 export function buildOperatorProfileSchema(operator: any, toursList: any[]) {
-  const pageUrl = absUrl(`/tour/operators/${operator.slug}`);
+  const pageUrl = absUrl(`/tour/operators/${operator.slug}/`);
   const graph: any[] = [
     {
       '@type': 'LocalBusiness',
@@ -554,9 +554,9 @@ export function buildOperatorProfileSchema(operator: any, toursList: any[]) {
         position: i + 1,
         item: {
           '@type': 'TouristTrip',
-          '@id': absUrl(`/tour/${t.slug}`) + '#TouristTrip',
+          '@id': absUrl(`/tour/${t.slug}/`) + '#TouristTrip',
           name: t.name,
-          url: absUrl(`/tour/${t.slug}`),
+          url: absUrl(`/tour/${t.slug}/`),
         },
       })),
     },

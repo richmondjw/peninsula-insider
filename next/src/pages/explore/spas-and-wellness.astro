@@ -12,7 +12,7 @@ import {
 const collectionSchema = buildCollectionPageSchema({
   name: 'Day Spas and Wellness on the Mornington Peninsula',
   description: 'Ranked editorial guide to day spas and wellness experiences on the Mornington Peninsula - treatments, hot springs, and spa days.',
-  path: '/explore/spas-and-wellness',
+  path: '/explore/spas-and-wellness/',
   dateModified: '2026-04-23',
 });
 
@@ -21,10 +21,10 @@ const itemListSchema = buildItemListSchema({
   description: 'Ranked guide to day spas and wellness experiences on the Mornington Peninsula.',
   listPath: '/explore/spas-and-wellness',
   items: [
-    { name: 'Spa by Jackalope', path: '/stay/spa-by-jackalope', itemType: 'SportsActivityLocation', addressLocality: 'Merricks North' },
-    { name: 'Endota Spa Mornington', path: '/stay/endota-spa-mornington', itemType: 'SportsActivityLocation', addressLocality: 'Mornington' },
-    { name: 'Peninsula Hot Springs spa treatments', path: '/stay/peninsula-hot-springs', itemType: 'SportsActivityLocation', addressLocality: 'Fingal' },
-    { name: 'One Spa at RACV Cape Schanck', path: '/stay/one-spa-racv-cape-schanck', itemType: 'SportsActivityLocation', addressLocality: 'Cape Schanck' },
+    { name: 'Spa by Jackalope', path: '/stay/spa-by-jackalope/', itemType: 'SportsActivityLocation', addressLocality: 'Merricks North' },
+    { name: 'Endota Spa Mornington', path: '/stay/endota-spa-mornington/', itemType: 'SportsActivityLocation', addressLocality: 'Mornington' },
+    { name: 'Peninsula Hot Springs spa treatments', path: '/stay/peninsula-hot-springs/', itemType: 'SportsActivityLocation', addressLocality: 'Fingal' },
+    { name: 'One Spa at RACV Cape Schanck', path: '/stay/one-spa-racv-cape-schanck/', itemType: 'SportsActivityLocation', addressLocality: 'Cape Schanck' },
   ],
 });
 
@@ -55,7 +55,7 @@ const breadcrumbSchema = buildBreadcrumbSchema([
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
-  { label: 'Explore', href: '/explore' },
+  { label: 'Explore', href: '/explore/' },
   { label: 'Spas and Wellness' },
 ];
 export const prerender = true;

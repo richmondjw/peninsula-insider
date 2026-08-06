@@ -117,7 +117,7 @@ const seasonalNoteEntries: [string, string][] = data.seasonalNotes
   ? (Object.entries(data.seasonalNotes) as [string, string][]).filter(([, v]) => v)
   : [];
 const sectionLabel = section === 'stay' ? 'Stay' : section === 'wine' ? 'Wine Country' : 'Eat & Drink';
-const sectionHref = `/${section}`;
+const sectionHref = `/${section}/`;
 const hats = data.authority?.hats ?? 0;
 const awards = data.authority?.awards ?? [];
 const pressMentions = data.authority?.pressMentions ?? [];
@@ -245,7 +245,7 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
       <span class="venue-detail__dot" aria-hidden="true"></span>
       <span class="venue-detail__price">{typeLabel[data.type] ?? data.type}</span>
       <span class="venue-detail__dot" aria-hidden="true"></span>
-      <a href={`/explore/places/${data.place?.id ?? data.place}`} class="venue-detail__place">{placeLabel(data.place)}</a>
+      <a href={`/explore/places/${data.place?.id ?? data.place}/`} class="venue-detail__place">{placeLabel(data.place)}</a>
       {subregionLabel && (
         <><span class="venue-detail__dot" aria-hidden="true"></span>
         <span class="venue-detail__subregion">{subregionLabel}</span></>

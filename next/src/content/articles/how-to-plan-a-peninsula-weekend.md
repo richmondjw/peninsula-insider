@@ -59,7 +59,7 @@ This is the decision that determines everything else, and it is the one people m
 
 **A group of friends.** The Peninsula group weekend works when someone takes charge of the plan. The critical decision: one shared dinner at a long table, everything else loosely coordinated. Six adults rarely stay on the same schedule for a full weekend, and the trip is better for it. Budget: the cheapest per person once the house is split.
 
-**Solo.** The underrated Peninsula trip. A long walk, a counter lunch, a cellar door tasting where you can talk to the winemaker without a group dynamic. The Peninsula solo day is covered in our [four-hour guide](/journal/the-four-hour-peninsula). Budget: the lightest of the four; one good lunch is the only real expense.
+**Solo.** The underrated Peninsula trip. A long walk, a counter lunch, a cellar door tasting where you can talk to the winemaker without a group dynamic. The Peninsula solo day is covered in our [four-hour guide](/journal/the-four-hour-peninsula/). Budget: the lightest of the four; one good lunch is the only real expense.
 
 ## Decision two: where to stay
 

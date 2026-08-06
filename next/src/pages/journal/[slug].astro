@@ -504,13 +504,13 @@ export const prerender = true;
       <div class="container">
         <div class="article-nav__inner">
           {prevArticle ? (
-            <a href={`/journal/${routeSlug(prevArticle)}`} class="article-nav__link article-nav__link--prev">
+            <a href={`/journal/${routeSlug(prevArticle)}/`} class="article-nav__link article-nav__link--prev">
               <span class="article-nav__direction">← Previous</span>
               <span class="article-nav__link-title">{prevArticle.data.title}</span>
             </a>
           ) : <div />}
           {nextArticle ? (
-            <a href={`/journal/${routeSlug(nextArticle)}`} class="article-nav__link article-nav__link--next">
+            <a href={`/journal/${routeSlug(nextArticle)}/`} class="article-nav__link article-nav__link--next">
               <span class="article-nav__direction">Next →</span>
               <span class="article-nav__link-title">{nextArticle.data.title}</span>
             </a>

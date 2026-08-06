@@ -327,10 +327,10 @@ export const prerender = true;
                 <p class="pi-card__meta">{article.data.readingTimeMinutes ? `${article.data.readingTimeMinutes} min` : ''}</p>
               
               <h3 class="pi-card__title">
-                <a href={`/journal/${routeSlug(article)}`}>{article.data.title}</a>
+                <a href={`/journal/${routeSlug(article)}/`}>{article.data.title}</a>
               </h3>
               <p class="pi-card__dek">{article.data.dek}</p>
-              <div class="pi-card__actions"><a href={`/journal/${routeSlug(article)}`} class="pi-btn pi-btn--solid">Read →</a></div>
+              <div class="pi-card__actions"><a href={`/journal/${routeSlug(article)}/`} class="pi-btn pi-btn--solid">Read →</a></div>
             </div></article>
           ))}
         </div>

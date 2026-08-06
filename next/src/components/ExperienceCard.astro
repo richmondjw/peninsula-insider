@@ -37,7 +37,7 @@ const hero = await resolveHero('experience', slug, data);
 
 <article class="experience-card">
   <a
-    href={`/explore/${slug}`}
+    href={`/explore/${slug}/`}
     class={`experience-card__visual experience-card__visual--${data.type}`}
     aria-hidden="true"
     tabindex="-1"
@@ -60,16 +60,16 @@ const hero = await resolveHero('experience', slug, data);
   </a>
   <div class="experience-card__body">
     <div class="experience-card__meta">
-      <a href={`/explore/places/${data.place?.id ?? data.place}`} class="experience-card__place-link">{placeLabel(data.place)}</a>
+      <a href={`/explore/places/${data.place?.id ?? data.place}/`} class="experience-card__place-link">{placeLabel(data.place)}</a>
       {(duration || difficulty) && (
         <span>{[duration, difficulty].filter(Boolean).join(' · ')}</span>
       )}
     </div>
     <h3 class="experience-card__title">
-      <a href={`/explore/${slug}`}>{data.name}</a>
+      <a href={`/explore/${slug}/`}>{data.name}</a>
     </h3>
     <p class="experience-card__summary">{data.editorNote}</p>
-    <a href={`/explore/${slug}`} class="experience-card__cta pi-btn pi-btn--text">Open the guide →</a>
+    <a href={`/explore/${slug}/`} class="experience-card__cta pi-btn pi-btn--text">Open the guide →</a>
   </div>
   <PiSaveActions
     kind="experience"

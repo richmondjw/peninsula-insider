@@ -26,7 +26,7 @@ const itemListSchema = buildItemListSchema({
   name: 'Merricks wineries - Mornington Peninsula',
   description: 'The cellar doors of the Merricks sub-region - the Peninsula\'s gentler eastern slope toward Western Port Bay.',
   listPath: '/wine/merricks',
-  items: venues.map((v) => ({ name: v.data.name, path: `/wine/${routeSlug(v)}`, itemType: 'Winery' })),
+  items: venues.map((v) => ({ name: v.data.name, path: `/wine/${routeSlug(v)}/`, itemType: 'Winery' })),
 });
 
 const breadcrumbSchema = buildBreadcrumbSchema([
@@ -100,7 +100,7 @@ Merricks Beach Road and Stanleys Road are the spine. Both are sealed but narrow.
     place={place}
     breadcrumbs={[
       { label: 'Home', href: '/' },
-      { label: 'Wine Country', href: '/wine' },
+      { label: 'Wine Country', href: '/wine/' },
       { label: 'Merricks' },
     ]}
     faqItems={[

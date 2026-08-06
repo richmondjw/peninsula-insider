@@ -52,23 +52,23 @@ Both major hot springs sit in Fingal, within about fifteen minutes of each other
 
 ### Peninsula Hot Springs Glamping: the onsite option
 
-For serious bathers, the simplest stay-and-soak combination is <a href="/stay/peninsula-hot-springs-glamping">Peninsula Hot Springs Glamping</a>. Tented accommodation on the Peninsula Hot Springs property itself, with bathhouse access included. No drive. You finish the evening session and walk to your tent. The limitation: design is functional rather than luxurious, and the weather dependency is real in winter. For summer or shoulder-season bathers who want zero commute, this is the unmatched option.
+For serious bathers, the simplest stay-and-soak combination is <a href="/stay/peninsula-hot-springs-glamping/">Peninsula Hot Springs Glamping</a>. Tented accommodation on the Peninsula Hot Springs property itself, with bathhouse access included. No drive. You finish the evening session and walk to your tent. The limitation: design is functional rather than luxurious, and the weather dependency is real in winter. For summer or shoulder-season bathers who want zero commute, this is the unmatched option.
 
 ### Jackalope Hotel: the premium ridge stay
 
-<a href="/stay/jackalope">Jackalope Hotel</a> in Merricks North is twenty minutes from both hot springs and the single most editorially coherent pairing on the Peninsula. Dark architecture, Subtle Energies treatments at <a href="/stay/spa-by-jackalope">Spa by Jackalope</a>, and Doot Doot Doot's two-hat restaurant on-property. This is the weekend to book for an anniversary, a birthday, or a first serious Peninsula couples trip. Pair a Jackalope spa morning with an Alba afternoon session and you have one of the country's best wellness weekends.
+<a href="/stay/jackalope/">Jackalope Hotel</a> in Merricks North is twenty minutes from both hot springs and the single most editorially coherent pairing on the Peninsula. Dark architecture, Subtle Energies treatments at <a href="/stay/spa-by-jackalope/">Spa by Jackalope</a>, and Doot Doot Doot's two-hat restaurant on-property. This is the weekend to book for an anniversary, a birthday, or a first serious Peninsula couples trip. Pair a Jackalope spa morning with an Alba afternoon session and you have one of the country's best wellness weekends.
 
 ### Lindenderry Country House: the winery stay
 
-<a href="/stay/lindenderry">Lindenderry</a> at Red Hill sits on one of the Peninsula's most established wine estates and is fifteen to twenty minutes from both hot springs. The building is English-country-estate in style rather than design-hotel, which suits a different traveller: quieter, more classical, with a good onsite restaurant and tennis courts for non-spa partners. Excellent for two-to-four-night stays.
+<a href="/stay/lindenderry/">Lindenderry</a> at Red Hill sits on one of the Peninsula's most established wine estates and is fifteen to twenty minutes from both hot springs. The building is English-country-estate in style rather than design-hotel, which suits a different traveller: quieter, more classical, with a good onsite restaurant and tennis courts for non-spa partners. Excellent for two-to-four-night stays.
 
 ### Hotel Sorrento: the village alternative
 
-<a href="/stay/hotel-sorrento">Hotel Sorrento</a> is twenty-five minutes from the hot springs but puts you in the centre of Sorrento village, which solves the dining and non-spa hours of the weekend. For mixed couples where one partner wants bathing and the other wants ocean walks and long lunches, Hotel Sorrento is the better base than a ridge hotel.
+<a href="/stay/hotel-sorrento/">Hotel Sorrento</a> is twenty-five minutes from the hot springs but puts you in the centre of Sorrento village, which solves the dining and non-spa hours of the weekend. For mixed couples where one partner wants bathing and the other wants ocean walks and long lunches, Hotel Sorrento is the better base than a ridge hotel.
 
 ## The southern tip: One Spa at RACV Cape Schanck
 
-<a href="/stay/one-spa-racv-cape-schanck">One Spa at RACV Cape Schanck</a> is at the southern end of the Peninsula, with the simplest possible stay-and-soak pairing.
+<a href="/stay/one-spa-racv-cape-schanck/">One Spa at RACV Cape Schanck</a> is at the southern end of the Peninsula, with the simplest possible stay-and-soak pairing.
 
 ### RACV Cape Schanck Resort: walk from your room
 
@@ -76,11 +76,11 @@ Staying at RACV Cape Schanck is the obvious move: you are already on the propert
 
 ### Jackalope: the ridge alternative
 
-For couples who want the RACV spa but not the RACV stay, <a href="/stay/jackalope">Jackalope</a> is twenty minutes away through the hinterland. The drive is scenic, the contrast between boutique stay and resort spa is actually interesting, and the dinner-at-Doot-Doot-Doot layer makes this the more editorially coherent weekend for design-led travellers.
+For couples who want the RACV spa but not the RACV stay, <a href="/stay/jackalope/">Jackalope</a> is twenty minutes away through the hinterland. The drive is scenic, the contrast between boutique stay and resort spa is actually interesting, and the dinner-at-Doot-Doot-Doot layer makes this the more editorially coherent weekend for design-led travellers.
 
 ## The Merricks North corridor: Spa by Jackalope
 
-<a href="/stay/spa-by-jackalope">Spa by Jackalope</a> is designed to serve Jackalope Hotel guests first. The right pairing is obvious.
+<a href="/stay/spa-by-jackalope/">Spa by Jackalope</a> is designed to serve Jackalope Hotel guests first. The right pairing is obvious.
 
 ### Jackalope: walk from your room
 
@@ -92,7 +92,7 @@ Endota Mornington is a main-street day spa: short treatments, reliable therapist
 
 ### Mornington stays paired with Endota Mornington
 
-Mornington town has several bayside hotel options, all within walking distance of <a href="/stay/endota-spa-mornington">Endota Mornington</a>. For a weekend centred on the Wednesday farmers market, Main Street dining, and foreshore walks, this is the compact, sensible shape: spa adds polish rather than defining the trip.
+Mornington town has several bayside hotel options, all within walking distance of <a href="/stay/endota-spa-mornington/">Endota Mornington</a>. For a weekend centred on the Wednesday farmers market, Main Street dining, and foreshore walks, this is the compact, sensible shape: spa adds polish rather than defining the trip.
 
 ## The three stay-and-soak weekends worth treating as products
 
@@ -116,7 +116,7 @@ RACV Cape Schanck Resort. One spa half-day at One Spa. One round at RACV Cape Sc
 
 ## Related guides
 
-- <a href="/journal/peninsula-hot-springs-vs-alba">Peninsula Hot Springs vs Alba, the comparison</a>
-- <a href="/journal/best-spas-mornington-peninsula">Best spas on the Mornington Peninsula, tier guide</a>
-- <a href="/spa">The spa section hub</a>
-- <a href="/stay/best-accommodation">Best accommodation on the Mornington Peninsula</a>
+- <a href="/journal/peninsula-hot-springs-vs-alba/">Peninsula Hot Springs vs Alba, the comparison</a>
+- <a href="/journal/best-spas-mornington-peninsula/">Best spas on the Mornington Peninsula, tier guide</a>
+- <a href="/spa/">The spa section hub</a>
+- <a href="/stay/best-accommodation/">Best accommodation on the Mornington Peninsula</a>

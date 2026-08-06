@@ -26,7 +26,7 @@ const itemListSchema = buildItemListSchema({
   name: 'Red Hill wineries - Mornington Peninsula',
   description: 'The cellar doors of the Red Hill sub-region on the Mornington Peninsula.',
   listPath: '/wine/red-hill',
-  items: venues.map((v) => ({ name: v.data.name, path: `/wine/${routeSlug(v)}`, itemType: 'Winery' })),
+  items: venues.map((v) => ({ name: v.data.name, path: `/wine/${routeSlug(v)}/`, itemType: 'Winery' })),
 });
 
 const breadcrumbSchema = buildBreadcrumbSchema([
@@ -100,7 +100,7 @@ Designated drivers, organised peninsula tour operators, and Uber from Mornington
     place={place}
     breadcrumbs={[
       { label: 'Home', href: '/' },
-      { label: 'Wine Country', href: '/wine' },
+      { label: 'Wine Country', href: '/wine/' },
       { label: 'Red Hill' },
     ]}
     faqItems={[

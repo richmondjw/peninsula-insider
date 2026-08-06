@@ -78,7 +78,7 @@ const relatedArticles = articles
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
-  { label: 'Explore', href: '/explore' },
+  { label: 'Explore', href: '/explore/' },
   { label: experience.data.name },
 ];
 
@@ -167,7 +167,7 @@ export const prerender = true;
       <div class="experience-detail__meta">
         <a href="/explore/" class="experience-detail__type">{typeLabel[experience.data.type] ?? titleize(experience.data.type)}</a>
         <span class="experience-detail__dot" aria-hidden="true"></span>
-        <a href={`/explore/places/${placeSlug}`} class="experience-detail__place">{experiencePlace}</a>
+        <a href={`/explore/places/${placeSlug}/`} class="experience-detail__place">{experiencePlace}</a>
         {duration && (
           <>
             <span class="experience-detail__dot" aria-hidden="true"></span>
@@ -202,7 +202,7 @@ export const prerender = true;
           <p class="facts__title">At a glance</p>
           <dl>
             <dt>Place</dt>
-            <dd><a href={`/explore/places/${placeSlug}`}>{experiencePlace}</a></dd>
+            <dd><a href={`/explore/places/${placeSlug}/`}>{experiencePlace}</a></dd>
 
             <dt>Type</dt>
             <dd>{typeLabel[experience.data.type] ?? titleize(experience.data.type)}</dd>
@@ -243,7 +243,7 @@ export const prerender = true;
             )}
           </dl>
 
-          <a class="facts__cta pi-btn pi-btn--ghost pi-btn--block" href={`/explore/places/${placeSlug}`}>Open place hub</a>
+          <a class="facts__cta pi-btn pi-btn--ghost pi-btn--block" href={`/explore/places/${placeSlug}/`}>Open place hub</a>
         </aside>
       </div>
     </div>
@@ -258,7 +258,7 @@ export const prerender = true;
             <h2 class="venues__title">Where to eat, drink, or stay nearby</h2>
             <p class="venues__sub">The best explore pages should lead somewhere next.</p>
           </div>
-          <a href={`/explore/places/${placeSlug}`} class="venues__link">See {experiencePlace} →</a>
+          <a href={`/explore/places/${placeSlug}/`} class="venues__link">See {experiencePlace} →</a>
         </div>
         <div class="venues__grid">
           {nearbyVenues.map((venue) => <VenueCard venue={venue} hrefPrefix={venueHrefPrefix(venue.data.type)} />)}

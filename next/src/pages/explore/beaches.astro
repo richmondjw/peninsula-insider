@@ -46,7 +46,7 @@ const oceanBeaches = beaches.filter((b) => !isBayBeach(b));
 const collectionSchema = buildCollectionPageSchema({
   name: 'Best Beaches on the Mornington Peninsula',
   description: "Ranked editorial guide to the Mornington Peninsula's best beaches - bay and ocean, family, surf, dog, and sunset.",
-  path: '/explore/beaches',
+  path: '/explore/beaches/',
   dateModified: '2026-04-23',
 });
 
@@ -55,14 +55,14 @@ const itemListSchema = buildItemListSchema({
   description: "Ranked editorial guide to the Mornington Peninsula's best beaches.",
   listPath: '/explore/beaches',
   items: [
-    { name: 'Balnarring Beach', path: '/explore/balnarring-beach', itemType: 'Beach', addressLocality: 'Balnarring' },
-    { name: 'Mount Martha Beach', path: '/explore/mount-martha-beach', itemType: 'Beach', addressLocality: 'Mount Martha' },
-    { name: 'Safety Beach foreshore', path: '/explore/safety-beach-foreshore', itemType: 'Beach', addressLocality: 'Safety Beach' },
-    { name: 'Dromana Beach', path: '/explore/dromana-beach', itemType: 'Beach', addressLocality: 'Dromana' },
-    { name: 'Portsea Front Beach', path: '/explore/portsea-front-beach', itemType: 'Beach', addressLocality: 'Portsea' },
-    { name: 'Sorrento Back Beach', path: '/explore/sorrento-back-beach', itemType: 'Beach', addressLocality: 'Sorrento' },
-    { name: 'Rye Ocean Beach', path: '/explore/rye-ocean-beach', itemType: 'Beach', addressLocality: 'Rye' },
-    { name: 'Gunnamatta Ocean Beach', path: '/explore/gunnamatta-ocean-beach', itemType: 'Beach', addressLocality: 'Rye' },
+    { name: 'Balnarring Beach', path: '/explore/balnarring-beach/', itemType: 'Beach', addressLocality: 'Balnarring' },
+    { name: 'Mount Martha Beach', path: '/explore/mount-martha-beach/', itemType: 'Beach', addressLocality: 'Mount Martha' },
+    { name: 'Safety Beach foreshore', path: '/explore/safety-beach-foreshore/', itemType: 'Beach', addressLocality: 'Safety Beach' },
+    { name: 'Dromana Beach', path: '/explore/dromana-beach/', itemType: 'Beach', addressLocality: 'Dromana' },
+    { name: 'Portsea Front Beach', path: '/explore/portsea-front-beach/', itemType: 'Beach', addressLocality: 'Portsea' },
+    { name: 'Sorrento Back Beach', path: '/explore/sorrento-back-beach/', itemType: 'Beach', addressLocality: 'Sorrento' },
+    { name: 'Rye Ocean Beach', path: '/explore/rye-ocean-beach/', itemType: 'Beach', addressLocality: 'Rye' },
+    { name: 'Gunnamatta Ocean Beach', path: '/explore/gunnamatta-ocean-beach/', itemType: 'Beach', addressLocality: 'Rye' },
   ],
 });
 
@@ -97,7 +97,7 @@ const breadcrumbSchema = buildBreadcrumbSchema([
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
-  { label: 'Explore', href: '/explore' },
+  { label: 'Explore', href: '/explore/' },
   { label: 'Beaches' },
 ];
 export const prerender = true;

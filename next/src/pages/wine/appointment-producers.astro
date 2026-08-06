@@ -24,7 +24,7 @@ const itemListSchema = buildItemListSchema({
   name: 'Appointment-only and small-production Mornington Peninsula wineries',
   description: 'The boutique and appointment-only producers on the Mornington Peninsula worth planning a dedicated visit for.',
   listPath: '/wine/appointment-producers',
-  items: venues.map((v) => ({ name: v.data.name, path: `/wine/${routeSlug(v)}`, itemType: 'Winery' })),
+  items: venues.map((v) => ({ name: v.data.name, path: `/wine/${routeSlug(v)}/`, itemType: 'Winery' })),
 });
 
 const breadcrumbSchema = buildBreadcrumbSchema([
@@ -55,7 +55,7 @@ Contact each producer directly. Booking windows vary; some open seasonally. Most
     venues={venues}
     breadcrumbs={[
       { label: 'Home', href: '/' },
-      { label: 'Wine Country', href: '/wine' },
+      { label: 'Wine Country', href: '/wine/' },
       { label: 'Appointment Producers' },
     ]}
     faqItems={[

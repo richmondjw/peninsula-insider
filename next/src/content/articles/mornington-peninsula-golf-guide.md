@@ -35,13 +35,13 @@ The Mornington Peninsula is not the only place in Australia with good golf. It m
 
 That distinction matters.
 
-Too much golf writing assumes the reader is already committed, already fluent, already willing to drive three hours for one round and call that a trip. The Peninsula works differently. Here, the golf is strong enough for serious players, but the region around it is what turns a round into a proper escape. You can play in the morning, sit down to a long lunch in <a href="/places/red-hill">Red Hill</a>, disappear into the <a href="/journal/mornington-peninsula-hot-springs-guide">hot springs</a> in the afternoon, and still make dinner feel like part of the same story rather than an afterthought.
+Too much golf writing assumes the reader is already committed, already fluent, already willing to drive three hours for one round and call that a trip. The Peninsula works differently. Here, the golf is strong enough for serious players, but the region around it is what turns a round into a proper escape. You can play in the morning, sit down to a long lunch in <a href="/places/red-hill/">Red Hill</a>, disappear into the <a href="/journal/mornington-peninsula-hot-springs-guide/">hot springs</a> in the afternoon, and still make dinner feel like part of the same story rather than an afterthought.
 
 That is the Peninsula's edge.
 
 ## The public-access advantage
 
-The Peninsula is also one of the few Australian regions where the conversation is not just about prestige. Yes, <a href="/journal/best-golf-courses-mornington-peninsula">The National matters</a>. So do Moonah Links and The Dunes. <a href="/journal/st-andrews-beach-golf-course">St Andrews Beach</a> matters most of all because it gives the Peninsula a story very few destinations can make with a straight face: a globally recognised golf experience that an ordinary visitor can actually book.
+The Peninsula is also one of the few Australian regions where the conversation is not just about prestige. Yes, <a href="/journal/best-golf-courses-mornington-peninsula/">The National matters</a>. So do Moonah Links and The Dunes. <a href="/journal/st-andrews-beach-golf-course/">St Andrews Beach</a> matters most of all because it gives the Peninsula a story very few destinations can make with a straight face: a globally recognised golf experience that an ordinary visitor can actually book.
 
 That public-access point is not a footnote. It is the difference between a golf culture and a golf myth.
 
@@ -52,7 +52,7 @@ Most Australian golf writing revolves around prestige clubs that the average rea
 The Peninsula's other advantage is concentration. The best regions create options. The best golf regions create contrast. On the Peninsula you can play highly regarded modern architecture, then spend the rest of the day doing things that make sense for the rest of your group. That changes who the destination is for.
 
 It is not just golfers chasing rankings. It is:
-- **Couples where only one person plays**: the non-golfer gets an excellent day at <a href="/places/red-hill">Red Hill cellar doors</a> or <a href="/journal/mornington-peninsula-hot-springs-guide">the springs</a>
+- **Couples where only one person plays**: the non-golfer gets an excellent day at <a href="/places/red-hill/">Red Hill cellar doors</a> or <a href="/journal/mornington-peninsula-hot-springs-guide/">the springs</a>
 - **Small groups trying to balance one serious round with a proper weekend**: a single world-class round leaves time for food, wine, and landscape
 - **Melbourne visitors who want to feel they have actually gone somewhere** without losing a full day to transit: 90 minutes each way beats a flight-required interstate trip
 
@@ -64,8 +64,8 @@ The best version of a Peninsula golf trip is **not** a heroic 36-hole grind. It 
 
 Something like:
 
-- **Saturday morning:** tee off at <a href="/journal/st-andrews-beach-golf-course">St Andrews Beach</a>
-- **Saturday lunch:** late, leisurely, at <a href="/eat/montalto">Montalto</a> or <a href="/eat/laura-pt-leo">Laura at Pt Leo Estate</a>
+- **Saturday morning:** tee off at <a href="/journal/st-andrews-beach-golf-course/">St Andrews Beach</a>
+- **Saturday lunch:** late, leisurely, at <a href="/eat/montalto/">Montalto</a> or <a href="/eat/laura-pt-leo/">Laura at Pt Leo Estate</a>
 - **Saturday afternoon:** hot springs session, coastal walk, or nothing at all
 - **Sunday morning:** slow start, bakery breakfast, short coastal drive
 - **Sunday lunch:** one more cellar door, then home
@@ -84,11 +84,11 @@ That is the real category opening. Not golf for golf's sake. Golf as one of the 
 
 ## Where to start
 
-Read <a href="/journal/best-golf-courses-mornington-peninsula">the tier guide</a> for the ranked shortlist. Read <a href="/journal/st-andrews-beach-golf-course">the St Andrews Beach piece</a> if you want one course to build a trip around. Check <a href="/stay">where to stay</a> if you want accommodation within 20 minutes of the tee. Check <a href="/eat">where to eat</a> if the point is also a proper long lunch afterwards.
+Read <a href="/journal/best-golf-courses-mornington-peninsula/">the tier guide</a> for the ranked shortlist. Read <a href="/journal/st-andrews-beach-golf-course/">the St Andrews Beach piece</a> if you want one course to build a trip around. Check <a href="/stay/">where to stay</a> if you want accommodation within 20 minutes of the tee. Check <a href="/eat/">where to eat</a> if the point is also a proper long lunch afterwards.
 
 ## Related guides
 
-- <a href="/journal/best-golf-courses-mornington-peninsula">Best golf courses on the Mornington Peninsula, tier guide</a>
-- <a href="/journal/st-andrews-beach-golf-course">St Andrews Beach Golf Course profile</a>
-- <a href="/journal/mornington-peninsula-itinerary">3-Day Peninsula Itinerary</a>
-- <a href="/journal/mornington-peninsula-hot-springs-guide">Hot springs guide</a>
+- <a href="/journal/best-golf-courses-mornington-peninsula/">Best golf courses on the Mornington Peninsula, tier guide</a>
+- <a href="/journal/st-andrews-beach-golf-course/">St Andrews Beach Golf Course profile</a>
+- <a href="/journal/mornington-peninsula-itinerary/">3-Day Peninsula Itinerary</a>
+- <a href="/journal/mornington-peninsula-hot-springs-guide/">Hot springs guide</a>

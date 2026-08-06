@@ -21,7 +21,7 @@ import {
 const collectionSchema = buildCollectionPageSchema({
   name: 'Mornington Peninsula Hot Springs - Peninsula Insider Guide',
   description: 'Peninsula Hot Springs vs Alba: when to go, how to book, what to pair with your soak. The editorial guide to thermal springs on the Mornington Peninsula.',
-  path: '/explore/hot-springs',
+  path: '/explore/hot-springs/',
   dateModified: '2026-05-17',
 });
 
@@ -30,8 +30,8 @@ const itemListSchema = buildItemListSchema({
   description: 'Thermal springs operators on the Mornington Peninsula - Peninsula Hot Springs and Alba Thermal Springs.',
   listPath: '/explore/hot-springs',
   items: [
-    { name: 'Peninsula Hot Springs', path: '/stay/peninsula-hot-springs', itemType: 'TouristAttraction', addressLocality: 'Fingal' },
-    { name: 'Alba Thermal Springs', path: '/stay/alba-thermal-springs', itemType: 'TouristAttraction', addressLocality: 'Fingal' },
+    { name: 'Peninsula Hot Springs', path: '/stay/peninsula-hot-springs/', itemType: 'TouristAttraction', addressLocality: 'Fingal' },
+    { name: 'Alba Thermal Springs', path: '/stay/alba-thermal-springs/', itemType: 'TouristAttraction', addressLocality: 'Fingal' },
   ],
 });
 
@@ -71,7 +71,7 @@ const breadcrumbSchema = buildBreadcrumbSchema([
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
-  { label: 'Explore', href: '/explore' },
+  { label: 'Explore', href: '/explore/' },
   { label: 'Hot Springs' },
 ];
 

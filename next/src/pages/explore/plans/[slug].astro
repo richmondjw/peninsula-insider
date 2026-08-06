@@ -112,7 +112,7 @@ const aOgImage = isArticle
   ? (ad.heroImage?.src && !ad.heroImage.src.includes('placeholder') ? ad.heroImage.src : '/images/sourced/home-cover.webp')
   : '';
 const aBreadcrumbs = isArticle
-  ? [{ label: 'Home', href: '/' }, { label: 'Plans', href: '/plans' }, { label: ad.title }]
+  ? [{ label: 'Home', href: '/' }, { label: 'Plans', href: '/plans/' }, { label: ad.title }]
   : [];
 
 // ─── Itinerary branch data ─────────────────────────────────────────────────
@@ -154,7 +154,7 @@ const anchorStay = anchorStaySlug ? venueMap.get(anchorStaySlug) : undefined;
 const fallbackStay = highlightedVenues.find((v: any) => stayTypes.includes(v.data.type));
 const effectiveStay: any = anchorStay ?? fallbackStay;
 const effectiveStayHref = effectiveStay
-  ? `${venueHrefPrefix(effectiveStay.data.type)}/${routeSlug(effectiveStay)}`
+  ? `${venueHrefPrefix(effectiveStay.data.type)}/${routeSlug(effectiveStay)}/`
   : undefined;
 
 const altStaySlugs: string[] = data
@@ -187,9 +187,9 @@ const groupedStops = dayNumbers.map((day) => {
       const experience = eSlug ? experienceMap.get(eSlug) : null;
       const entry = venue ?? experience;
       const href = venue
-        ? `${venueHrefPrefix(venue.data.type)}/${routeSlug(venue)}`
+        ? `${venueHrefPrefix(venue.data.type)}/${routeSlug(venue)}/`
         : experience
-        ? `/explore/${routeSlug(experience)}`
+        ? `/explore/${routeSlug(experience)}/`
         : undefined;
       const label = (venue as any)?.data?.name ?? (experience as any)?.data?.name ?? 'Stop';
       return { ...stop, entry, href, label };
@@ -320,7 +320,7 @@ const lastVerifiedLabel = lastVerified
 
 // ─── Misc ─────────────────────────────────────────────────────────────────
 const breadcrumbItems = data
-  ? [{ label: 'Home', href: '/' }, { label: 'Plans', href: '/plans' }, { label: data.title }]
+  ? [{ label: 'Home', href: '/' }, { label: 'Plans', href: '/plans/' }, { label: data.title }]
   : [];
 const canonical = data ? `https://peninsulainsider.com.au/explore/plans/${slug}/` : '';
 const ogImage = data
@@ -508,7 +508,7 @@ export const prerender = true;
         {anchorTown && (
           <>
             <span class="itinerary-detail__dot" aria-hidden="true"></span>
-            <a href={`/explore/places/${routeSlug(anchorTown)}`} class="itinerary-detail__back">{(anchorTown as any).data.name}</a>
+            <a href={`/explore/places/${routeSlug(anchorTown)}/`} class="itinerary-detail__back">{(anchorTown as any).data.name}</a>
           </>
         )}
       </div>

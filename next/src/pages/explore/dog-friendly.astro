@@ -12,7 +12,7 @@ import {
 const collectionSchema = buildCollectionPageSchema({
   name: 'Dog-Friendly Mornington Peninsula - Beaches, Walks, Cafés, Wineries',
   description: 'Complete guide to bringing a dog to the Mornington Peninsula - off-leash beaches, dog-friendly walks, cafés, and cellar doors.',
-  path: '/explore/dog-friendly',
+  path: '/explore/dog-friendly/',
   dateModified: '2026-04-23',
 });
 
@@ -21,11 +21,11 @@ const itemListSchema = buildItemListSchema({
   description: 'Off-leash beaches, dog-friendly walks, cafés, and cellar doors on the Mornington Peninsula.',
   listPath: '/explore/dog-friendly',
   items: [
-    { name: 'Balnarring Beach - off-leash area', path: '/explore/balnarring-beach', itemType: 'Beach', addressLocality: 'Balnarring' },
-    { name: 'Sorrento Back Beach - national park foreshore sections', path: '/explore/sorrento-back-beach', itemType: 'Beach', addressLocality: 'Sorrento' },
-    { name: 'Mount Martha Beach - designated off-leash sections', path: '/explore/mount-martha-beach', itemType: 'Beach', addressLocality: 'Mount Martha' },
-    { name: 'Mornington foreshore - off-leash sections', path: '/explore/mornington-foreshore-walk', itemType: 'TouristAttraction', addressLocality: 'Mornington' },
-    { name: 'Foxeys Hangout - dog-welcoming cellar door', path: '/wine/foxeys-hangout', itemType: 'Winery', addressLocality: 'Red Hill' },
+    { name: 'Balnarring Beach - off-leash area', path: '/explore/balnarring-beach/', itemType: 'Beach', addressLocality: 'Balnarring' },
+    { name: 'Sorrento Back Beach - national park foreshore sections', path: '/explore/sorrento-back-beach/', itemType: 'Beach', addressLocality: 'Sorrento' },
+    { name: 'Mount Martha Beach - designated off-leash sections', path: '/explore/mount-martha-beach/', itemType: 'Beach', addressLocality: 'Mount Martha' },
+    { name: 'Mornington foreshore - off-leash sections', path: '/explore/mornington-foreshore-walk/', itemType: 'TouristAttraction', addressLocality: 'Mornington' },
+    { name: 'Foxeys Hangout - dog-welcoming cellar door', path: '/wine/foxeys-hangout/', itemType: 'Winery', addressLocality: 'Red Hill' },
   ],
 });
 
@@ -56,7 +56,7 @@ const breadcrumbSchema = buildBreadcrumbSchema([
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
-  { label: 'Explore', href: '/explore' },
+  { label: 'Explore', href: '/explore/' },
   { label: 'Dog Friendly' },
 ];
 export const prerender = true;

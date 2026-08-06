@@ -26,7 +26,7 @@ const itemListSchema = buildItemListSchema({
   name: 'Balnarring wineries - Mornington Peninsula',
   description: 'The cellar doors of the Balnarring sub-region - the Peninsula\'s quieter Western Port edge.',
   listPath: '/wine/balnarring',
-  items: venues.map((v) => ({ name: v.data.name, path: `/wine/${routeSlug(v)}`, itemType: 'Winery' })),
+  items: venues.map((v) => ({ name: v.data.name, path: `/wine/${routeSlug(v)}/`, itemType: 'Winery' })),
 });
 
 const breadcrumbSchema = buildBreadcrumbSchema([
@@ -100,7 +100,7 @@ The roads here are quieter and less direct than the ridge - allow extra time. Mo
     place={place}
     breadcrumbs={[
       { label: 'Home', href: '/' },
-      { label: 'Wine Country', href: '/wine' },
+      { label: 'Wine Country', href: '/wine/' },
       { label: 'Balnarring' },
     ]}
     faqItems={[

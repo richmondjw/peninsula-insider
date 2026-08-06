@@ -82,39 +82,39 @@ The choice of base matters more on a one-night trip than a three-night one, beca
 
 ### Base one: Sorrento, for the town-life version
 
-Stay at [The Continental](/stay/the-continental-sorrento).
+Stay at [The Continental](/stay/the-continental-sorrento/).
 
 The Continental's reopening reshaped the one-night Peninsula trip, because it compresses the entire Sorrento experience into a single block of limestone. Check-in on the main street. Rooms two blocks from the ocean. A bathhouse in the basement you can book on the way to dinner. A rooftop bar that catches the sunset. Two restaurants downstairs. A ferry five minutes away if you want one pre-dinner walk to see the sunset hit the water.
 
-This is the version for a couple who want the arrival ritual to be cocktails on a rooftop, dinner somewhere walkable, and a morning on the back beach. The shape: arrive by 3pm, check in, bathhouse appointment 4pm, rooftop drink 6pm, dinner 7.30pm downstairs, bed. Saturday: coffee on the main street, [Sorrento back beach](/explore/sorrento-back-beach) at 9am, breakfast at a cafe on the main drag, home by 11.30. That is the full Sorrento arc, compressed to twenty hours, and you will feel like you had a weekend.
+This is the version for a couple who want the arrival ritual to be cocktails on a rooftop, dinner somewhere walkable, and a morning on the back beach. The shape: arrive by 3pm, check in, bathhouse appointment 4pm, rooftop drink 6pm, dinner 7.30pm downstairs, bed. Saturday: coffee on the main street, [Sorrento back beach](/explore/sorrento-back-beach/) at 9am, breakfast at a cafe on the main drag, home by 11.30. That is the full Sorrento arc, compressed to twenty hours, and you will feel like you had a weekend.
 
 Sorrento works best as a base when you plan to use the main street. The point is that you don't touch the car from arrival to departure.
 
 ### Base two: Red Hill, for the country-house version
 
-Stay at [Lindenderry at Red Hill](/stay/lindenderry).
+Stay at [Lindenderry at Red Hill](/stay/lindenderry/).
 
 This is the version for the weekend where you want the opposite of Sorrento: a hotel set in a garden, a breakfast terrace, almost no one in the lobby, and a room that lets you forget you have a phone. Lindenderry suits the country-house overnight because its sensibility is quiet rather than performed. The gardens are forty acres. The rooms do not compete with the landscape outside. The attached restaurant is genuine and small.
 
-Shape: arrive by 2.30pm, park, walk the gardens for forty minutes without urgency. Book the 4pm cellar-door tasting at [Montalto](/journal/the-cellar-door-short-list) or keep it simple and stay on property. Dinner at Lindenderry itself, early, light. Bed. In the morning, breakfast on the terrace at 8am (the meal you are really coming for) and then one short walk on the ridge before driving out. If you want a full lunch before heading home, book a [Tedesca Osteria](/eat/tedesca-osteria) Sunday lunch six weeks in advance. Otherwise, leave at 11 and let Saturday have done the work.
+Shape: arrive by 2.30pm, park, walk the gardens for forty minutes without urgency. Book the 4pm cellar-door tasting at [Montalto](/journal/the-cellar-door-short-list/) or keep it simple and stay on property. Dinner at Lindenderry itself, early, light. Bed. In the morning, breakfast on the terrace at 8am (the meal you are really coming for) and then one short walk on the ridge before driving out. If you want a full lunch before heading home, book a [Tedesca Osteria](/eat/tedesca-osteria/) Sunday lunch six weeks in advance. Otherwise, leave at 11 and let Saturday have done the work.
 
 Red Hill on an overnight rewards restraint. One tasting, properly, and let the rest of the plateau wait.
 
 ### Base three: Flinders, for the recovery version
 
-Stay at [Flinders Hotel](/stay/flinders-hotel) or a small cottage in the farmland around the village.
+Stay at [Flinders Hotel](/stay/flinders-hotel/) or a small cottage in the farmland around the village.
 
 This is the overnight that fixes a hard week. It is not glamorous, which is part of why it works. Flinders is small, cool, slower than the rest of the Peninsula, and pointed at Bass Strait, which means you are dealing with ocean weather and ocean light instead of bay-reflecting brightness. For a reset trip (anyone recovering from surgery, burnout, a grief, a deadline) this is the right zone.
 
-Shape: arrive 2pm. Walk the cliff track from the end of Cook Street to West Head, ninety minutes return, wind in your face, Bass Strait going about its business on your right. Come back to the room. Dinner at the Flinders Hotel bistro, early, nothing complicated: a piece of fish, a glass of wine, a shared dessert. Bed by 9.30. In the morning, open the curtains, walk to [Flinders Sourdough](/eat/flinders-sourdough) the moment it opens, order a loaf and a pastry and a long black, sit on the low wall outside, watch the village wake up. It is one of the most restorative breakfasts on the Peninsula, and the trip pays for itself in that twenty minutes. Drive home slowly via [Cape Schanck](/explore/cape-schanck-boardwalk) or [Bushrangers Bay](/explore/bushrangers-bay-walk) if the weather holds.
+Shape: arrive 2pm. Walk the cliff track from the end of Cook Street to West Head, ninety minutes return, wind in your face, Bass Strait going about its business on your right. Come back to the room. Dinner at the Flinders Hotel bistro, early, nothing complicated: a piece of fish, a glass of wine, a shared dessert. Bed by 9.30. In the morning, open the curtains, walk to [Flinders Sourdough](/eat/flinders-sourdough/) the moment it opens, order a loaf and a pastry and a long black, sit on the low wall outside, watch the village wake up. It is one of the most restorative breakfasts on the Peninsula, and the trip pays for itself in that twenty minutes. Drive home slowly via [Cape Schanck](/explore/cape-schanck-boardwalk/) or [Bushrangers Bay](/explore/bushrangers-bay-walk/) if the weather holds.
 
-For more on why Flinders rewards the quiet version of the weekend, see our full piece on the [quiet side of the Peninsula](/journal/a-flinders-weekend). The one-night trip is the version that gives you an honest taste of that argument without asking for three days.
+For more on why Flinders rewards the quiet version of the weekend, see our full piece on the [quiet side of the Peninsula](/journal/a-flinders-weekend/). The one-night trip is the version that gives you an honest taste of that argument without asking for three days.
 
 ## One optional upgrade: the thermal arrival
 
-All three versions absorb the same single add-on: a short thermal bath session on arrival. Not a day at the springs, a targeted 90-minute slot at [Alba Thermal Springs](/stay/alba-thermal-springs) between 2pm and 4pm, before check-in at the hotel. Done well it acts as a physiological on-ramp to the weekend: by the time you get to the room, the body has already decided it is on holiday. It adds the most to the Red Hill version and the Sorrento version. On a pure Flinders recovery trip, skip it and let the wind do the same job for free.
+All three versions absorb the same single add-on: a short thermal bath session on arrival. Not a day at the springs, a targeted 90-minute slot at [Alba Thermal Springs](/stay/alba-thermal-springs/) between 2pm and 4pm, before check-in at the hotel. Done well it acts as a physiological on-ramp to the weekend: by the time you get to the room, the body has already decided it is on holiday. It adds the most to the Red Hill version and the Sorrento version. On a pure Flinders recovery trip, skip it and let the wind do the same job for free.
 
-If you want to make the bath the centre of the trip instead of the warm-up, a full [thermal springs weekend](/journal/the-thermal-springs-weekend) is the better shape. Different trip, different sequence, different length.
+If you want to make the bath the centre of the trip instead of the warm-up, a full [thermal springs weekend](/journal/the-thermal-springs-weekend/) is the better shape. Different trip, different sequence, different length.
 
 ## The rules of compression
 

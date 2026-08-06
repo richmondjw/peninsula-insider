@@ -12,7 +12,7 @@ import {
 const collectionSchema = buildCollectionPageSchema({
   name: 'Family-Friendly Things to Do on the Mornington Peninsula',
   description: 'Kid-tested picks for families visiting the Mornington Peninsula - beaches, attractions, walks, cafés, and markets.',
-  path: '/explore/family-friendly',
+  path: '/explore/family-friendly/',
   dateModified: '2026-04-23',
 });
 
@@ -21,14 +21,14 @@ const itemListSchema = buildItemListSchema({
   description: 'Kid-tested picks for families on the Mornington Peninsula.',
   listPath: '/explore/family-friendly',
   items: [
-    { name: 'Arthurs Seat Eagle gondola', path: '/explore/arthurs-seat-lookout', itemType: 'TouristAttraction', addressLocality: 'Arthurs Seat' },
-    { name: 'Balnarring Beach', path: '/explore/balnarring-beach', itemType: 'Beach', addressLocality: 'Balnarring' },
-    { name: 'Safety Beach foreshore', path: '/explore/safety-beach-foreshore', itemType: 'Beach', addressLocality: 'Safety Beach' },
-    { name: 'Mount Martha Beach', path: '/explore/mount-martha-beach', itemType: 'Beach', addressLocality: 'Mount Martha' },
-    { name: 'Ashcombe Maze and Lavender Gardens', path: '/journal/ashcombe-maze-visitor-guide', itemType: 'TouristAttraction', addressLocality: 'Shoreham' },
-    { name: 'Cape Schanck boardwalk', path: '/explore/cape-schanck-boardwalk', itemType: 'TouristAttraction', addressLocality: 'Cape Schanck' },
-    { name: 'Mornington foreshore walk', path: '/explore/mornington-foreshore-walk', itemType: 'TouristAttraction', addressLocality: 'Mornington' },
-    { name: 'Red Hill Community Market', path: '/explore/red-hill-market', itemType: 'TouristAttraction', addressLocality: 'Red Hill' },
+    { name: 'Arthurs Seat Eagle gondola', path: '/explore/arthurs-seat-lookout/', itemType: 'TouristAttraction', addressLocality: 'Arthurs Seat' },
+    { name: 'Balnarring Beach', path: '/explore/balnarring-beach/', itemType: 'Beach', addressLocality: 'Balnarring' },
+    { name: 'Safety Beach foreshore', path: '/explore/safety-beach-foreshore/', itemType: 'Beach', addressLocality: 'Safety Beach' },
+    { name: 'Mount Martha Beach', path: '/explore/mount-martha-beach/', itemType: 'Beach', addressLocality: 'Mount Martha' },
+    { name: 'Ashcombe Maze and Lavender Gardens', path: '/journal/ashcombe-maze-visitor-guide/', itemType: 'TouristAttraction', addressLocality: 'Shoreham' },
+    { name: 'Cape Schanck boardwalk', path: '/explore/cape-schanck-boardwalk/', itemType: 'TouristAttraction', addressLocality: 'Cape Schanck' },
+    { name: 'Mornington foreshore walk', path: '/explore/mornington-foreshore-walk/', itemType: 'TouristAttraction', addressLocality: 'Mornington' },
+    { name: 'Red Hill Community Market', path: '/explore/red-hill-market/', itemType: 'TouristAttraction', addressLocality: 'Red Hill' },
   ],
 });
 
@@ -59,7 +59,7 @@ const breadcrumbSchema = buildBreadcrumbSchema([
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
-  { label: 'Explore', href: '/explore' },
+  { label: 'Explore', href: '/explore/' },
   { label: 'Family Friendly' },
 ];
 export const prerender = true;

@@ -89,7 +89,7 @@ const eventSchema = eventJsonLd(event, 'https://peninsulainsider.com.au');
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
-  { label: "What's On", href: '/whats-on' },
+  { label: "What's On", href: '/whats-on/' },
   { label: event.data.title },
 ];
 export const prerender = true;
@@ -180,7 +180,7 @@ export const prerender = true;
               <ul class="event-detail__hosted-actions" role="list">
                 {venue && (
                   <li>
-                    <a href={`${venueHrefPrefix(venue.data.type)}/${routeSlug(venue)}`}>
+                    <a href={`${venueHrefPrefix(venue.data.type)}/${routeSlug(venue)}/`}>
                       Read the Insider's review &rarr;
                     </a>
                   </li>
@@ -231,7 +231,7 @@ export const prerender = true;
               {place && (
                 <div>
                   <dt>Where</dt>
-                  <dd><a href={`/explore/places/${routeSlug(place)}`}>{place.data.name}</a></dd>
+                  <dd><a href={`/explore/places/${routeSlug(place)}/`}>{place.data.name}</a></dd>
                 </div>
               )}
               <div>
