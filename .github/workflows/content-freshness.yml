@@ -12,6 +12,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 concurrency:
   group: content-freshness
@@ -43,6 +44,15 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: next/package-lock.json
+
+      - name: Install next dependencies (content admission gate)
+        # The pre-commit hook finishes with `npm run validate:content`. Its
+        # Astro dependency must be installed before a freshness diff can commit.
+        run: |
+          cd next
+          npm ci --prefer-offline
 
       - name: Configure git identity
         run: |
@@ -81,3 +91,15 @@ jobs:
           fi
           git commit -m "chore(content): daily content freshness pass $(date -u +%Y-%m-%d) [skip-review]"
           git push
+
+      - name: Alert on failure (non-silent)
+        if: failure()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          PI_REPO_ROOT: ${{ github.workspace }}
+        run: |
+          python engine/alert.py \
+            --title "Content freshness pass failed (run #${{ github.run_number }})" \
+            --body "The freshness workflow failed before its changes could publish. Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            --dedup content-freshness-failure --severity fatal
