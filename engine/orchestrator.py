@@ -212,7 +212,13 @@ def call_openclaw_agent(agent_name: str, brief: dict, output_path: Path, fallbac
             print(f"    ✓ Generated via content_generator")
             return True
         else:
-            print(f"    ✗ Generator failed: {result.stderr[:300]}")
+            # The LLM client reports provider/model failures on stdout while
+            # argparse and hard failures land on stderr. Keep both in the run
+            # log (bounded, and never containing the credential) so an alert
+            # identifies an exhausted/invalid route instead of just saying
+            # "no publishable article".
+            diagnostic = (result.stderr + "\n" + result.stdout).strip()
+            print(f"    ✗ Generator failed: {diagnostic[:1200]}")
             # Publishable content may not fall through to the generic stub.
             # Preserve an existing source file, but return failure so it cannot
             # be re-published as if a refresh succeeded.
