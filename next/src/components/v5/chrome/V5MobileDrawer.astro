@@ -145,10 +145,18 @@ const groups = [
   .v5-drawer {
     position: fixed;
     inset: 0;
+    /* iOS Safari can expose composited page layers during the drawer
+       transition unless this surface owns both the visual viewport and its
+       own stacking context. Use a literal opaque fallback as --bg may be
+       overridden by an experimental theme. */
+    min-height: 100dvh;
     z-index: 10010;
     display: flex;
     flex-direction: column;
-    background: var(--bg);
+    background-color: #fff;
+    background: var(--bg, #fff);
+    isolation: isolate;
+    contain: paint;
     overflow-y: auto;
     /* Contain scroll so the page behind the full-screen drawer cannot
        rubber-band on iOS; clear the status bar / notch under viewport-fit. */
