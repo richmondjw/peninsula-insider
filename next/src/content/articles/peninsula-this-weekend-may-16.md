@@ -85,7 +85,7 @@ This is one of the last Sundays of the season. It won't run again until spring.
 
 ## If the weather changes
 
-If Saturday's forest conditions or Sunday's outdoor market aren't working, [Mornington Peninsula Regional Gallery](/places/mornington/) is the clearest indoor option right now. Two exhibitions are running through May - New Wave 26 and Michael Vale - and the gallery pairs naturally with a slow Main Street Mornington lunch afterwards. Free entry, no booking. One gallery and one long lunch covers a Peninsula afternoon completely.
+If Saturday's forest conditions or Sunday's outdoor market aren't working, [Mornington Peninsula Regional Gallery](/explore/places/mornington/) is the clearest indoor option right now. Two exhibitions are running through May - New Wave 26 and Michael Vale - and the gallery pairs naturally with a slow Main Street Mornington lunch afterwards. Free entry, no booking. One gallery and one long lunch covers a Peninsula afternoon completely.
 
 ## Weekend shape
 

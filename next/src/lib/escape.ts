@@ -185,7 +185,7 @@ export function buildEscapeItinerarySchema(input: ItinerarySchemaInput) {
 
   const breadcrumbSchema = buildBreadcrumbSchema([
     { name: 'Home', url: absUrl('/') },
-    { name: 'Plans', url: absUrl('/explore/plans/') },
+    { name: 'Plans', url: absUrl('/plans/') },
     { name: input.title },
   ]);
 

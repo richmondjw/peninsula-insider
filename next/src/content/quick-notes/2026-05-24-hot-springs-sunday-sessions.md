@@ -14,7 +14,7 @@ sources:
     note: "Peninsula Hot Springs what's-on page checked 20:38 AEST Saturday 23 May 2026. Sunday Sessions with Kinematic confirmed 24 May 12pm. Next events: Paul Dillon 31 May, Melissa Fist 7 June. Weekend daily activities confirmed: studio yoga daily 7:30am; hot springs yoga daily 9:15am; body clay ritual weekends 10:30am, 12pm, 1pm, 3pm; fire and ice workshop weekends 12pm, 2pm, 4pm, 5pm; cacao circle weekends 12pm; sauna infusion daily 5pm. Verify thermal circuit pricing and availability directly with venue before travel."
     checkedAt: 2026-05-24T06:40:00+10:00
   - kind: gov
-    url: "https://www.bom.gov.au/places/vic/main-ridge/forecast/"
+    url: "https://www.bom.gov.au/explore/places/vic/main-ridge/forecast/"
     note: "Bureau of Meteorology Main Ridge forecast issued 6:07 AM AEST 24 May 2026. Sunday: cloudy, 90% showers most likely afternoon and evening, 1–5mm, 8–17°C."
     checkedAt: 2026-05-24T06:38:00+10:00
 status: archived

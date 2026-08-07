@@ -42,7 +42,7 @@ clusterLinks:
   - label: "Mornington Peninsula Winery Guide"
     href: "/journal/mornington-peninsula-winery-guide/"
   - label: "Best Wineries in Red Hill"
-    href: "/journal/best-wineries-red-hill/"
+    href: "/wine/red-hill/"
   - label: "How to Build a Red Hill Saturday"
     href: "/journal/how-to-build-a-red-hill-saturday/"
   - label: "The Long Lunch - where to land after the tasting"
@@ -74,7 +74,7 @@ Five cellar doors. All of them have a waiting list.
 
 ## 1. Kooyong  -  the benchmark
 
-[Kooyong](/wine/kooyong/) is the single-vineyard producer most serious wine people will name if you ask them to identify the Peninsula's ceiling. The estate sits on the [Main Ridge](/places/main-ridge/) plateau with roughly forty hectares under vine, split into named blocks that have given the region some of its most collectible bottles. The tasting walks you through side-by-side pinots from adjacent slopes (Haven, Meres, Ferrous, Faultline) and shows you, in under an hour, what terroir actually means in practice.
+[Kooyong](/wine/kooyong/) is the single-vineyard producer most serious wine people will name if you ask them to identify the Peninsula's ceiling. The estate sits on the [Main Ridge](/explore/places/main-ridge/) plateau with roughly forty hectares under vine, split into named blocks that have given the region some of its most collectible bottles. The tasting walks you through side-by-side pinots from adjacent slopes (Haven, Meres, Ferrous, Faultline) and shows you, in under an hour, what terroir actually means in practice.
 
 The cellar door is calm and contemplative. Book the single-vineyard flight. Go midweek.
 
@@ -92,13 +92,13 @@ The Verve and Aylward Pinot Noirs are among the most ageable wines being made on
 
 ## 4. Polperro  -  the room you want to linger in
 
-[Polperro](/wine/polperro/) is the one cellar door on this list that is also a pleasant place to spend a whole afternoon. The tasting room is tucked into the [Red Hill](/places/red-hill/) vines with views across the ridge, the pours are generous, and the estate has its own restaurant and [villa rental next door](/stay/polperro-villas/) if you want to stretch the visit into a lunch or a night.
+[Polperro](/wine/polperro/) is the one cellar door on this list that is also a pleasant place to spend a whole afternoon. The tasting room is tucked into the [Red Hill](/explore/places/red-hill/) vines with views across the ridge, the pours are generous, and the estate has its own restaurant and [villa rental next door](/stay/polperro-villas/) if you want to stretch the visit into a lunch or a night.
 
-The wines themselves are excellent (a Halliday 97-point estate with a genuine reputation for pinot, [profiled in our Even Keel x Polperro piece](/journal/even-keel-polperro-wines/)) and the second label, Pennon Hill, is often the sweet spot for buying. Come for a late morning tasting, walk the vineyard, and decide afterwards whether you want the lunch.
+The wines themselves are excellent (a Halliday 97-point estate with a genuine reputation for pinot; see the [Polperro profile](/wine/polperro/)) and the second label, Pennon Hill, is often the sweet spot for buying. Come for a late morning tasting, walk the vineyard, and decide afterwards whether you want the lunch.
 
 ## 5. Quealy Winemakers  -  the one with the most soul
 
-Kathleen Quealy and Kevin McCarthy were early believers in alternative Italian varieties on the Peninsula (pinot grigio, friulano, moscato giallo, and other food-first grapes that made sense in this climate before most locals knew what to do with them) and the [Quealy Winemakers](/wine/quealy-winemakers/) cellar door is still grounded in that experimental, pioneering spirit. The room itself, tucked into a working vineyard near [Balnarring](/places/balnarring/), is unpretentious. The wines are distinctive and food-friendly. The pricing is fair. We've written about the philosophy in more depth in our [Quealy producer profile](/journal/quealy-winemakers-balnarring/).
+Kathleen Quealy and Kevin McCarthy were early believers in alternative Italian varieties on the Peninsula (pinot grigio, friulano, moscato giallo, and other food-first grapes that made sense in this climate before most locals knew what to do with them) and the [Quealy Winemakers](/wine/quealy-winemakers/) cellar door is still grounded in that experimental, pioneering spirit. The room itself, tucked into a working vineyard near [Balnarring](/explore/places/balnarring/), is unpretentious. The wines are distinctive and food-friendly. The pricing is fair. We've written about the philosophy in more depth in our [Quealy producer profile](/journal/quealy-winemakers-balnarring/).
 
 This is where locals send friends who say they want to understand the Peninsula rather than just photograph it. Go before lunch nearby and buy a mixed six on the way out.
 

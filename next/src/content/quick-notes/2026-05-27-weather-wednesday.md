@@ -10,7 +10,7 @@ verifiedBy: quick-note-desk
 verdict: "Drizzle, 17°C. Morning is the wettest part. Afternoon eases. Indoor and covered Peninsula experiences are the correct frame before midday."
 sources:
   - kind: gov
-    url: "https://www.bom.gov.au/places/vic/main-ridge/forecast/"
+    url: "https://www.bom.gov.au/explore/places/vic/main-ridge/forecast/"
     note: "Bureau of Meteorology Main Ridge forecast issued 6:18 AM AEST Wednesday 27 May 2026. Wednesday: cloudy, medium chance of drizzle becoming less likely this afternoon, 80% chance of rain, 0–5mm, min 12°C, max 17°C, southerly 15–20 km/h turning westerly in the evening, UV 2 (Low). Thursday 28: cloudy, 40%, 0–1mm, 11–17°C, showers most likely morning and afternoon. Friday 29: cloudy, 40%, 0–1mm, 10–16°C, light winds. Saturday 30: partly cloudy, 80%, 0–4mm, 9–16°C, showers most likely afternoon and evening, NW 15–25 km/h. Sunday 31: partly cloudy, 80%, 1–6mm, 8–15°C, W 25–35 km/h. Monday 1 June: partly cloudy, 95%, 3–10mm, 7–15°C."
     checkedAt: 2026-05-27T06:39:00+10:00
 status: archived

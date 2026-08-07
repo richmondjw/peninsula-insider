@@ -28,6 +28,7 @@ const slug = routeSlug(venue);
 const allVenues = await getCollection('venues');
 const related = allVenues
   .filter((entry) => routeSlug(entry) !== slug)
+  .filter((entry) => entry.data.status !== 'permanently_closed')
   .filter((entry) => eatTypes.includes(entry.data.type))
   .filter((entry) => String(entry.data.place?.id ?? entry.data.place) === String(venue.data.place?.id ?? venue.data.place))
   .slice(0, 3);

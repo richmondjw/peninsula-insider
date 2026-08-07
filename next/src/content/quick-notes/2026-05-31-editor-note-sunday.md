@@ -10,7 +10,7 @@ verifiedBy: editor
 verdict: "Today is a covered-Peninsula day, and the week behind it is the same shape. Book the anchor and let the rain do what it is going to do."
 sources:
   - kind: gov
-    url: "https://www.bom.gov.au/places/vic/main-ridge/forecast/"
+    url: "https://www.bom.gov.au/explore/places/vic/main-ridge/forecast/"
     note: "Editorial desk, Sunday 31 May 2026. Weather from BOM Main Ridge daily forecast (last successful retrieval 20:50 UTC 29 May 2026, held for Sunday 31 May) cross-checked against Open-Meteo for Main Ridge coordinates retrieved 20:50 UTC 30 May 2026. Sunday 31: 80%, 0–4mm, 8–14°C, W to NW 25–40 km/h. Monday 1 June: 100%, 6–15mm, 7–14°C (Open-Meteo: max 12.6°C, 6.4mm, 41.6 km/h N). Tuesday 2 June: 100%, 5–15mm. Peninsula Hot Springs what's-on re-verified 20:50 UTC 30 May 2026: Sunday Sessions Paul Dillon 31 May 12pm at the Bath House Café, complimentary with bathing, confirmed."
     checkedAt: 2026-05-31T06:46:00+10:00
 status: archived

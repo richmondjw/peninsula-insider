@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+export const prerender = true;
+---
+<BaseLayout
+  title="Events by mood · Peninsula Insider"
+  description="Browse current Mornington Peninsula events by mood."
+  section="whats-on"
+  canonical="https://peninsulainsider.com.au/whats-on/"
+  noindex={true}
+>
+  <main class="container">
+    <h1>Events by mood</h1>
+    <p><a href="/whats-on/">Browse all current events.</a></p>
+  </main>
+</BaseLayout>

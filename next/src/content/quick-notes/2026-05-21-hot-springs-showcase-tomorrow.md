@@ -14,7 +14,7 @@ sources:
     note: "Peninsula Hot Springs what's-on page, checked 21 May 2026 06:46 AEST. Showcase performance with Chloe Gill confirmed 23 May 7pm. Sunday Sessions with Kinematic 24 May 12pm confirmed. Sunday Sessions with Paul Dillon 31 May 12pm. Sunday Sessions with Melissa Fist 7 June 12pm. Daily activities confirmed: studio yoga 7:30am daily, hot springs yoga 9:15am daily, fire and ice workshop weekdays 10:30am, 4pm, 5pm; body clay ritual weekdays 12pm, 2pm; sauna infusion daily 5pm. Cacao circle weekends 12pm. Thermal circuit pricing and availability - verify with venue before travel."
     checkedAt: 2026-05-21T06:46:00+10:00
   - kind: gov
-    url: "https://www.bom.gov.au/places/vic/main-ridge/forecast/"
+    url: "https://www.bom.gov.au/explore/places/vic/main-ridge/forecast/"
     note: "Bureau of Meteorology Main Ridge forecast issued 6:39 AM AEST Thursday 21 May. Friday 22 May: mostly sunny, 5% rain, 0mm possible, light winds, min 6°C max 16°C."
     checkedAt: 2026-05-21T06:46:00+10:00
 status: archived

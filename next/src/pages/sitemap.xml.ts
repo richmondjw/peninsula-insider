@@ -129,13 +129,12 @@ export const GET: APIRoute = async () => {
   // /events/ hub removed 2026-07-11: the /events/* signature-event tree is a
   // consolidation loser awaiting the §3.4 migration into /whats-on/*.
   const TOP_HUBS = new Set(['dog-friendly', 'whats-on', 'corporate-events', 'fishing', 'ask']);
-  for (const section of ['eat', 'stay', 'wine', 'explore', 'explore/plans', 'journal', 'explore/places', 'whats-on', 'dog-friendly', 'weddings', 'corporate-events', 'fishing', 'boating']) {
+  for (const section of ['eat', 'stay', 'wine', 'explore', 'plans', 'journal', 'explore/places', 'whats-on', 'dog-friendly', 'weddings', 'corporate-events', 'fishing', 'boating']) {
     entries.push(url(`/${section}`, TOP_HUBS.has(section) ? 1.0 : 0.9, 'weekly'));
   }
-  // NOTE (found during SEOMIG, out of lease to fix here): the built
-  // /explore/plans/ hub carries canonical -> /plans/ while /plans/ is still a
-  // redirect stub back into /explore/plans/ (pages/explore/plans/index.astro
-  // line ~181). That canonical should stay self until the §3.5 tree flip.
+  // /plans/ is the indexable plans hub. The legacy /explore/plans/ hub is
+  // noindex and canonicalises here; plan detail pages remain under
+  // /explore/plans/<slug>/ until their separate route migration.
   for (const hub of ['tour', 'awards', 'guides']) {
     entries.push(url(`/${hub}`, 0.8, 'weekly'));
   }

@@ -70,7 +70,7 @@ The simplest stay-and-play combo on the Peninsula. <a href="/explore/racv-cape-s
 
 ## Mornington: Mornington Golf Club
 
-<a href="/explore/mornington-golf-club/">Mornington Golf Club</a> is a 10-minute drive from the centre of Mornington town. Any stay in Mornington works: the main street is your dinner and brunch strip. <a href="/places/mornington/">Mornington</a> also works well for non-golfers, who get the Wednesday farmers market, foreshore walk, bathing boxes, and strong dining scene. The most practical golf-and-city-town weekend on the Peninsula.
+<a href="/explore/mornington-golf-club/">Mornington Golf Club</a> is a 10-minute drive from the centre of Mornington town. Any stay in Mornington works: the main street is your dinner and brunch strip. <a href="/explore/places/mornington/">Mornington</a> also works well for non-golfers, who get the Wednesday farmers market, foreshore walk, bathing boxes, and strong dining scene. The most practical golf-and-city-town weekend on the Peninsula.
 
 ## The members' clubs: Portsea GC, Sorrento GC, The National
 

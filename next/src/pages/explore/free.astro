@@ -12,7 +12,7 @@ import {
 const collectionSchema = buildCollectionPageSchema({
   name: 'Free Things to Do on the Mornington Peninsula',
   description: 'Beaches, walks, lookouts, foreshore, and markets - the best free activities on the Mornington Peninsula.',
-  path: '/explore/free/',
+  path: '/journal/free-things-to-do-mornington-peninsula/',
   dateModified: '2026-04-23',
 });
 
@@ -67,7 +67,8 @@ export const prerender = true;
   title="Free Things to Do on the Mornington Peninsula · Peninsula Insider"
   description="Beaches, walks, lookouts, foreshore, and markets - the best free activities on the Mornington Peninsula. All free, no booking required."
   section="explore"
-  canonical="https://peninsulainsider.com.au/explore/free/"
+  canonical="https://peninsulainsider.com.au/journal/free-things-to-do-mornington-peninsula/"
+  noindex={true}
 >
   <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />

@@ -44,7 +44,7 @@ const lanes = [
     items: newest(experiences).map((e) => ({ label: e.data.name ?? e.data.title, href: `/explore/${routeSlug(e)}/` })),
   },
   {
-    label: 'Plans', href: '/explore/plans/',
+    label: 'Plans', href: '/plans/',
     items: newest(itineraries).map((p) => ({ label: p.data.title, href: `/explore/plans/${routeSlug(p)}/` })),
   },
   {

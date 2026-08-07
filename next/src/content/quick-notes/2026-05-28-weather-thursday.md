@@ -10,7 +10,7 @@ verifiedBy: quick-note-desk
 verdict: "40% and easing, 16°C. Thursday and Friday are the dry windows. Use them before the weekend reaches 80 to 95%."
 sources:
   - kind: gov
-    url: "https://www.bom.gov.au/places/vic/main-ridge/forecast/"
+    url: "https://www.bom.gov.au/explore/places/vic/main-ridge/forecast/"
     note: "Bureau of Meteorology Main Ridge daily forecast (api.weather.bom.gov.au, geohash r1pjdfj) retrieved 20:56 UTC 27 May 2026, 06:56 AEST Thursday 28 May. Thursday 28: partly cloudy, medium chance of showers becoming less likely late afternoon and evening, 40% chance, 0–1mm, min 10°C max 16°C, westerly 15–20 km/h easing to light early. Friday 29: partly cloudy, slight chance of a shower, 20%, 0mm, 8–15°C, light winds tending NW late. Saturday 30: high chance of showers afternoon and evening, 80%, 2–4mm, 9–16°C, NW 20–30 km/h. Sunday 31: very high chance of showers, 95%, 6–10mm, 7–14°C, NW 20–30 km/h. Monday 1 June: very high chance, 90%, 6–15mm, 8–16°C. Cross-checked against Open-Meteo for the same coordinates: Thu 31%/0.6mm, Fri 10%/0.1mm, Sat 66%/3.4mm, Sun 80%/5.9mm, agreement across both models."
     checkedAt: 2026-05-28T06:39:00+10:00
 status: archived

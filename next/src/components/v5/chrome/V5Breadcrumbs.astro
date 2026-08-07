@@ -89,6 +89,13 @@ function labelFor(segment: string): string {
   return SEGMENT_LABELS[segment] ?? titleCase(segment);
 }
 
+function hrefForSegment(index: number): string {
+  // /plans/ is the canonical hub while plan detail routes remain under
+  // /explore/plans/<slug>/. Never send crawlers back through the legacy hub.
+  if (index === 1 && segments[0] === 'explore' && segments[1] === 'plans') return '/plans/';
+  return `/${segments.slice(0, index + 1).join('/')}/`;
+}
+
 // Final crumb: prefer the page title with the site/section suffix
 // stripped, when it is usable; fall back to the title-cased slug.
 function finalLabel(): string {
@@ -113,7 +120,7 @@ const crumbs: Crumb[] = show
         const isLast = i === segments.length - 1;
         return {
           label: isLast ? finalLabel() : labelFor(seg),
-          href: isLast ? undefined : `/${segments.slice(0, i + 1).join('/')}/`,
+          href: isLast ? undefined : hrefForSegment(i),
         };
       }),
     ]

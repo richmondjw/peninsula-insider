@@ -210,7 +210,7 @@ export const footerSectionLinks: NavItem[] = [
   { key: 'spa',              label: 'Spa & Wellness',  href: '/explore/spas-and-wellness/' },
   { key: 'fishing',          label: 'Fishing',         href: '/fishing/' },
   { key: 'boating',          label: 'Boating',         href: '/boating/' },
-  { key: 'escape',           label: 'Plans',           href: '/explore/plans/' },
+  { key: 'escape',           label: 'Plans',           href: '/plans/' },
   { key: 'tour',             label: 'Tours',           href: '/tour/' },
   { key: 'tour-packages',    label: 'Tour Packages',   href: '/tour-packages/' },
   { key: 'whats-on',         label: "What's On",       href: '/whats-on/' },

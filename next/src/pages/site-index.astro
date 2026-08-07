@@ -15,9 +15,10 @@ const [venues, experiences, places, articles, itineraries, events] = await Promi
 
 const eatTypes = ['restaurant', 'cafe', 'bakery', 'pub', 'market', 'winery'];
 
-const eatVenues = venues.filter((v) => eatTypes.includes(v.data.type)).slice(0, 40);
-const stayVenues = venues.filter((v) => stayTypes.includes(v.data.type)).slice(0, 20);
-const wineVenues = venues.filter((v) => wineTypes.includes(v.data.type)).slice(0, 30);
+const activeVenues = venues.filter((v) => v.data.status !== 'permanently_closed');
+const eatVenues = activeVenues.filter((v) => eatTypes.includes(v.data.type)).slice(0, 40);
+const stayVenues = activeVenues.filter((v) => stayTypes.includes(v.data.type)).slice(0, 20);
+const wineVenues = activeVenues.filter((v) => wineTypes.includes(v.data.type)).slice(0, 30);
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },

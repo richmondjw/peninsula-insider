@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "node scripts/clear-content-cache.mjs && npm run media:registry && npm run lint:no-pricing && npm run lint:region-images && npm run lint:surfaces && npm run lint:nav-budget && npm run lint:css-budget && astro build && npm run lint:filter-chips",
+    "build": "node scripts/clear-content-cache.mjs && npm run media:registry && npm run lint:no-pricing && npm run lint:region-images && npm run lint:surfaces && npm run lint:nav-budget && npm run lint:css-budget && astro build && npm run lint:seo-architecture && npm run lint:filter-chips",
     "build:search": "npm run media:registry && npm run lint:no-pricing && npm run lint:house-style && npm run lint:region-images && npm run lint:surfaces && npm run lint:nav-budget && npm run lint:css-budget && astro build && npm run lint:filter-chips && npx pagefind --site dist",
     "preview": "astro preview",
     "astro": "astro",
@@ -37,6 +37,7 @@
     "lint:content-caps:strict": "node scripts/lint-content-caps.mjs --strict",
     "lint:editorial-quality": "python3 ../ops/scripts/editorial-quality-check.py",
     "lint:filter-chips": "node scripts/lint-filter-chips.mjs",
+    "lint:seo-architecture": "node scripts/lint-seo-architecture.mjs",
     "image-intelligence:discover": "node scripts/image-intelligence-pilot.mjs discover",
     "image-intelligence:pilot": "node scripts/image-intelligence-pilot.mjs pilot",
     "test:image-intelligence": "node --test scripts/image-intelligence/pilot-core.test.mjs"

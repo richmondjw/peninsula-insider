@@ -10,7 +10,7 @@ verifiedBy: quick-note-desk
 verdict: "Thursday is the transition day - cloud, a 20% shower risk, but no wet sequence. Friday is mostly sunny. Plan accordingly."
 sources:
   - kind: gov
-    url: "https://www.bom.gov.au/places/vic/main-ridge/forecast/"
+    url: "https://www.bom.gov.au/explore/places/vic/main-ridge/forecast/"
     note: "Bureau of Meteorology Main Ridge (Mornington Peninsula area) forecast, issued 6:39 AM AEST Thursday 21 May 2026. Thursday rest of day: cloudy, slight chance of shower, 20% rain, 0mm possible, light winds. Min 9°C max 16°C. Friday 22 May: mostly sunny, 5% chance of rain, 0mm possible, light winds, min 6°C max 16°C. Saturday 23: partly cloudy, 5% rain, min 6°C max 18°C. Sunday 24: partly cloudy, 60% showers most likely afternoon and evening, 0–2mm, northerly 15–20 km/h. UV index 2 (Low) Thu–Sat."
     checkedAt: 2026-05-21T06:46:00+10:00
 status: archived

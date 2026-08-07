@@ -30,13 +30,13 @@ const schema = {
   '@type': 'CollectionPage',
   name: 'Dog-Friendly Restaurants Mornington Peninsula',
   description: 'Dog-friendly dining on the Mornington Peninsula - outdoor seating at cafes, village pubs with beer gardens, and a few winery options where dogs are welcome.',
-  url: 'https://peninsulainsider.com.au/eat/dog-friendly/',
+  url: 'https://peninsulainsider.com.au/journal/dog-friendly-cafes-pubs-wineries-mornington-peninsula/',
   breadcrumb: {
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://peninsulainsider.com.au/' },
       { '@type': 'ListItem', position: 2, name: 'Eat & Drink', item: 'https://peninsulainsider.com.au/eat/' },
-      { '@type': 'ListItem', position: 3, name: 'Dog-Friendly Dining', item: 'https://peninsulainsider.com.au/eat/dog-friendly/' },
+      { '@type': 'ListItem', position: 3, name: 'Dog-Friendly Dining', item: 'https://peninsulainsider.com.au/journal/dog-friendly-cafes-pubs-wineries-mornington-peninsula/' },
     ],
   },
   mainEntity: {
@@ -78,7 +78,8 @@ export const prerender = true;
   title="Dog-Friendly Restaurants Mornington Peninsula · Peninsula Insider"
   description="Dog-friendly dining on the Mornington Peninsula - confirmed outdoor seating at cafes, pubs with beer gardens, and winery casual areas where dogs are welcome. Verified April 2026."
   section="eat"
-  canonical="https://peninsulainsider.com.au/eat/dog-friendly/"
+  canonical="https://peninsulainsider.com.au/journal/dog-friendly-cafes-pubs-wineries-mornington-peninsula/"
+  noindex={true}
   modifiedTime="2026-04-24"
 >
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />

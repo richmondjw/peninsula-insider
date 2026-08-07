@@ -45,7 +45,7 @@ export const audiencePersonas: AudiencePersona[] = [
     mark: '◆',
     routes: {
       eat: '/eat/date-night/',
-      stay: '/stay/couples/',
+      stay: '/stay/couples-retreats/',
       wine: '/wine/best-cellar-doors/',
       explore: '/explore/spas-and-wellness/',
       escape: '/explore/plans/mornington-peninsula-itinerary/',
@@ -114,9 +114,9 @@ export const audiencePersonas: AudiencePersona[] = [
     dek: 'Tables, beaches, and rooms where dogs sit at the foot.',
     mark: '◐',
     routes: {
-      eat: '/eat/dog-friendly/',
-      stay: '/stay/dog-friendly/',
-      wine: '/wine/dog-friendly/',
+      eat: '/journal/dog-friendly-cafes-pubs-wineries-mornington-peninsula/',
+      stay: '/journal/dog-friendly-accommodation-mornington-peninsula/',
+      wine: '/journal/dog-friendly-wineries-mornington-peninsula/',
       explore: '/dog-friendly/',
       escape: '/dog-friendly/',
       default: '/dog-friendly/',

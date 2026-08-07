@@ -10,7 +10,7 @@ verifiedBy: quick-note-desk
 verdict: "Mostly sunny, 18°C, light winds. Sunday closes with 80% showers. The outdoor programme runs today."
 sources:
   - kind: gov
-    url: "https://www.bom.gov.au/places/vic/main-ridge/forecast/"
+    url: "https://www.bom.gov.au/explore/places/vic/main-ridge/forecast/"
     note: "Bureau of Meteorology Main Ridge (Mornington Peninsula area) forecast, issued 4:54 AM AEST Saturday 23 May 2026. Saturday rest of day: mostly sunny, light winds, 5% rain chance, 0mm possible, min 7°C max 18°C. Sunday 24 May: partly cloudy, high chance of showers in afternoon and evening, 80% rain, 0–6mm, light winds, min 7°C max 18°C. Monday 25: partly cloudy, 60% showers most likely morning, 0–4mm, winds SE 15–25 km/h afternoon. Tuesday 26: cloudy, 80% showers, 1–9mm, winds SE–E 20–30 km/h. UV index 2 (Low) through to end of week."
     checkedAt: 2026-05-23T06:48:00+10:00
 status: archived

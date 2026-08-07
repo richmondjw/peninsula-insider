@@ -138,7 +138,9 @@ const estateSlug = data.estateSlug as string | undefined;
 let estateVenues: any[] = [];
 if (estateSlug) {
   const allEstateVenues = await getCollection('venues');
-  estateVenues = allEstateVenues.filter((v) => v.data.estateSlug === estateSlug);
+  estateVenues = allEstateVenues.filter(
+    (v) => v.data.estateSlug === estateSlug && v.data.status !== 'permanently_closed',
+  );
 }
 
 const placeId = data.place?.id ?? data.place;

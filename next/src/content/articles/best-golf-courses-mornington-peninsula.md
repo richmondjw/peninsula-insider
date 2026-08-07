@@ -39,7 +39,7 @@ This guide uses tiers rather than a one-to-fifteen ladder because access matters
 
 ### St Andrews Beach Golf Course
 
-The lead story. Serious architecture by Tom Doak, public access, genuine global reputation (regular appearances in world top-100 lists), and one of the clearest reasons to make a Peninsula golf trip happen. Near <a href="/places/cape-schanck/">Cape Schanck</a> on the southern end: pair with a hot springs session and you have a complete day. Read the full course review in <a href="/journal/st-andrews-beach-golf-course/">our St Andrews Beach profile</a>.
+The lead story. Serious architecture by Tom Doak, public access, genuine global reputation (regular appearances in world top-100 lists), and one of the clearest reasons to make a Peninsula golf trip happen. Near <a href="/explore/places/cape-schanck/">Cape Schanck</a> on the southern end: pair with a hot springs session and you have a complete day. Read the full course review in <a href="/journal/st-andrews-beach-golf-course/">our St Andrews Beach profile</a>.
 
 ### The National Golf Club
 
@@ -71,10 +71,10 @@ Part of the Cape Schanck Resort. Scenic coastal holes and full resort integratio
 Classic Peninsula member's club on the tip. Beautiful setting. Access depends on membership or reciprocal rights.
 
 ### Flinders Golf Club
-Compact but scenic. Sits above the southern coast in <a href="/places/flinders/">Flinders</a>. More a local favourite than a destination round.
+Compact but scenic. Sits above the southern coast in <a href="/explore/places/flinders/">Flinders</a>. More a local favourite than a destination round.
 
 ### Sorrento Golf Club
-Parkland course in <a href="/places/sorrento/">Sorrento</a>. Pleasant, manicured, social. A friendly member's club rather than a bucket-list round.
+Parkland course in <a href="/explore/places/sorrento/">Sorrento</a>. Pleasant, manicured, social. A friendly member's club rather than a bucket-list round.
 
 This is the band where context matters. Some are scenic, some are useful if you are already staying nearby, some are stronger socially than architecturally, and some need access or pricing clarity before you can make a clean recommendation.
 

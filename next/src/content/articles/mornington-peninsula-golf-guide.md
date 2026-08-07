@@ -35,7 +35,7 @@ The Mornington Peninsula is not the only place in Australia with good golf. It m
 
 That distinction matters.
 
-Too much golf writing assumes the reader is already committed, already fluent, already willing to drive three hours for one round and call that a trip. The Peninsula works differently. Here, the golf is strong enough for serious players, but the region around it is what turns a round into a proper escape. You can play in the morning, sit down to a long lunch in <a href="/places/red-hill/">Red Hill</a>, disappear into the <a href="/journal/mornington-peninsula-hot-springs-guide/">hot springs</a> in the afternoon, and still make dinner feel like part of the same story rather than an afterthought.
+Too much golf writing assumes the reader is already committed, already fluent, already willing to drive three hours for one round and call that a trip. The Peninsula works differently. Here, the golf is strong enough for serious players, but the region around it is what turns a round into a proper escape. You can play in the morning, sit down to a long lunch in <a href="/explore/places/red-hill/">Red Hill</a>, disappear into the <a href="/journal/mornington-peninsula-hot-springs-guide/">hot springs</a> in the afternoon, and still make dinner feel like part of the same story rather than an afterthought.
 
 That is the Peninsula's edge.
 
@@ -52,7 +52,7 @@ Most Australian golf writing revolves around prestige clubs that the average rea
 The Peninsula's other advantage is concentration. The best regions create options. The best golf regions create contrast. On the Peninsula you can play highly regarded modern architecture, then spend the rest of the day doing things that make sense for the rest of your group. That changes who the destination is for.
 
 It is not just golfers chasing rankings. It is:
-- **Couples where only one person plays**: the non-golfer gets an excellent day at <a href="/places/red-hill/">Red Hill cellar doors</a> or <a href="/journal/mornington-peninsula-hot-springs-guide/">the springs</a>
+- **Couples where only one person plays**: the non-golfer gets an excellent day at <a href="/explore/places/red-hill/">Red Hill cellar doors</a> or <a href="/journal/mornington-peninsula-hot-springs-guide/">the springs</a>
 - **Small groups trying to balance one serious round with a proper weekend**: a single world-class round leaves time for food, wine, and landscape
 - **Melbourne visitors who want to feel they have actually gone somewhere** without losing a full day to transit: 90 minutes each way beats a flight-required interstate trip
 

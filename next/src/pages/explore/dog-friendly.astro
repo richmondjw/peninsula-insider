@@ -12,7 +12,7 @@ import {
 const collectionSchema = buildCollectionPageSchema({
   name: 'Dog-Friendly Mornington Peninsula - Beaches, Walks, Cafés, Wineries',
   description: 'Complete guide to bringing a dog to the Mornington Peninsula - off-leash beaches, dog-friendly walks, cafés, and cellar doors.',
-  path: '/explore/dog-friendly/',
+  path: '/dog-friendly/',
   dateModified: '2026-04-23',
 });
 
@@ -66,7 +66,8 @@ export const prerender = true;
   title="Dog-Friendly Mornington Peninsula - Beaches, Walks, Cafés · Peninsula Insider"
   description="Complete guide to bringing a dog to the Mornington Peninsula - off-leash beaches, dog-friendly walks, cafés, and cellar doors that welcome dogs."
   section="explore"
-  canonical="https://peninsulainsider.com.au/explore/dog-friendly/"
+  canonical="https://peninsulainsider.com.au/dog-friendly/"
+  noindex={true}
 >
   <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />

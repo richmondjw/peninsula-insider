@@ -10,7 +10,7 @@ verifiedBy: quick-note-desk
 verdict: "80% chance, 0–4mm, W to NW 25–40 km/h. A short pre-noon window before showers settle in for the afternoon."
 sources:
   - kind: gov
-    url: "https://www.bom.gov.au/places/vic/main-ridge/forecast/"
+    url: "https://www.bom.gov.au/explore/places/vic/main-ridge/forecast/"
     note: "Bureau of Meteorology Main Ridge daily forecast (api.weather.bom.gov.au, geohash r1pjdfj) most recent successful retrieval 20:50 UTC 29 May 2026 (yesterday's cron cycle), held for Sunday 31 May. Sunday 31: partly cloudy, high chance of showers most likely afternoon and evening, 80%, 0–4mm, 8–14°C, W to NW 25–40 km/h. Monday 1 June: cloudy, very high chance, 100%, 6–15mm, 7–14°C, N 30–45 km/h easing. Tuesday 2 June: cloudy, very high chance, 100%, 5–15mm, 8–16°C. Re-attempted at 20:50 UTC 30 May; BOM endpoint timed out, so the Sunday line stands on yesterday's pull plus Open-Meteo cross-check."
     checkedAt: 2026-05-31T06:45:00+10:00
   - kind: gov

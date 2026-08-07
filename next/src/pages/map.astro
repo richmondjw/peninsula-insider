@@ -57,6 +57,7 @@ function placeRef(ref: unknown): string {
 }
 
 const venueItems: MapViewItem[] = venuesAll
+  .filter((v) => v.data.status !== 'permanently_closed')
   .filter((v) => v.data.coordinates && Number.isFinite(v.data.coordinates.lat))
   .map((v) => {
     const slug = routeSlug(v);

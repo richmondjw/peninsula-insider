@@ -534,7 +534,7 @@ const factual = place.data.factualLede ?? '';
           <h2 class="venues__title">Escapes that already route through {place.data.name}</h2>
           <p class="venues__sub">These plans have been written around the landscape here - not bolted on after.</p>
         </div>
-        <a href="/explore/plans/" class="venues__link">Plan a {place.data.name} weekend →</a>
+        <a href="/plans/" class="venues__link">Plan a {place.data.name} weekend →</a>
       </div>
       <div class="itinerary-grid">
         {itineraries.map((itinerary) => <ItineraryCard itinerary={itinerary} />)}
@@ -576,7 +576,7 @@ const factual = place.data.factualLede ?? '';
     </div>
     <div class="venues__grid venues__grid--links">
       <a href="/journal/mornington-peninsula-itinerary/" class="pi-btn pi-btn--solid">3-Day Peninsula Itinerary →</a>
-      <a href="/explore/plans/" class="pi-btn pi-btn--solid">Weekend Plans →</a>
+      <a href="/plans/" class="pi-btn pi-btn--solid">Weekend Plans →</a>
       {(place.data.zone === 'red-hill' || place.data.zone === 'hinterland') && (
         <a href="/journal/mornington-peninsula-winery-tour/" class="pi-btn pi-btn--solid">Self-Drive Winery Tour →</a>
       )}

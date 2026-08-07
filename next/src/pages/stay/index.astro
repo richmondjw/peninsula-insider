@@ -143,7 +143,7 @@ const bestOfGuides = [
   { slug: 'vineyard-stays', title: 'Vineyard stays', verdict: 'Sleep between the rows and walk to the cellar door.' },
   { slug: 'coastal-stays', title: 'Coastal stays', verdict: 'Bases within earshot of the water, Sorrento to Flinders.' },
   { slug: 'hot-springs-accommodation', title: 'Hot springs stays', verdict: 'Stay inside the thermal precinct and beat the day queue.' },
-  { slug: 'dog-friendly', title: 'Dog-friendly stays', verdict: 'Stays where the dog is a guest, not a problem.' },
+  { slug: 'dog-friendly', href: '/journal/dog-friendly-accommodation-mornington-peninsula/', title: 'Dog-friendly stays', verdict: 'Stays where the dog is a guest, not a problem.' },
 ];
 
 // ── From the Journal (3, retained slugs from the v4 companion set) ──────────
@@ -235,7 +235,7 @@ export const prerender = true;
           <Card
             variant="guide"
             title={guide.title}
-            href={`/stay/${guide.slug}/`}
+            href={'href' in guide ? guide.href : `/stay/${guide.slug}/`}
             entityType="page"
             entitySlug={`stay-${guide.slug}`}
             showEyebrow={false}
