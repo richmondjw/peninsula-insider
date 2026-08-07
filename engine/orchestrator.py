@@ -10,6 +10,7 @@ Usage:
 """
 
 import argparse
+import hashlib
 import json
 import os
 import subprocess
@@ -211,7 +212,13 @@ def call_openclaw_agent(agent_name: str, brief: dict, output_path: Path, fallbac
             print(f"    ✓ Generated via content_generator")
             return True
         else:
-            print(f"    ✗ Generator failed: {result.stderr[:300]}")
+            # The LLM client reports provider/model failures on stdout while
+            # argparse and hard failures land on stderr. Keep both in the run
+            # log (bounded, and never containing the credential) so an alert
+            # identifies an exhausted/invalid route instead of just saying
+            # "no publishable article".
+            diagnostic = (result.stderr + "\n" + result.stdout).strip()
+            print(f"    ✗ Generator failed: {diagnostic[:1200]}")
             # Publishable content may not fall through to the generic stub.
             # Preserve an existing source file, but return failure so it cannot
             # be re-published as if a refresh succeeded.
@@ -342,6 +349,8 @@ def run_daily(log: RunLog, state: dict, today: str, now_aest: datetime):
     log.step("dispatch-desk", "START")
     article_slug = f"insider-picks-{today}"
     article_path = CONTENT_DIR / f"{article_slug}.md"
+    before_hash = (hashlib.sha256(article_path.read_bytes()).hexdigest()
+                   if article_path.exists() else None)
     dispatch_brief = {
         "task": "daily-insider-picks",
         "date": today,
@@ -352,7 +361,15 @@ def run_daily(log: RunLog, state: dict, today: str, now_aest: datetime):
         "format": "insider-edit",
         "target_words": 700,
     }
-    call_openclaw_agent("dispatch-desk", dispatch_brief, article_path)
+    generated = call_openclaw_agent("dispatch-desk", dispatch_brief, article_path)
+    after_hash = (hashlib.sha256(article_path.read_bytes()).hexdigest()
+                  if article_path.exists() else None)
+    if not generated or after_hash is None:
+        log.error("Daily Insider Picks commission produced no publishable article; aborting instead of reusing stale output")
+        return
+    if before_hash == after_hash:
+        log.error("Daily Insider Picks commission left the dated article unchanged; aborting no-op publication")
+        return
     log.step("dispatch-desk", "DONE", f"→ {article_path.name}")
 
     # 2b. Hero image selection. Runs after the column exists so the image can
@@ -410,6 +427,19 @@ def run_daily(log: RunLog, state: dict, today: str, now_aest: datetime):
     # 5. Set status to published in frontmatter
     set_published(article_path, today)
     log.step("frontmatter-update", "DONE")
+
+    # A dated, published and verified record is the minimum proof that this is
+    # a refresh rather than yesterday's fallback being reported as success.
+    freshness = subprocess.run(
+        [sys.executable, str(Path(__file__).parent / "publication_freshness.py"),
+         "--expected-date", today, "--article", str(article_path)],
+        capture_output=True, text=True,
+    )
+    if freshness.returncode != 0:
+        log.error("Publication freshness gate failed before commit: "
+                  + (freshness.stderr or freshness.stdout).strip())
+        return
+    log.step("publication-freshness", "PASS", "dated source record is current and publishable")
 
     # 6. Commit + push
     log.step("git-push", "START")
@@ -1085,7 +1115,7 @@ See: `.claude/signals/thematic-gaps-{month_key}.md`
 
 
 # ── Main Entry Point ──────────────────────────────────────────────────────
-def main():
+def main() -> int:
     parser = argparse.ArgumentParser(description="Peninsula Insider Content Engine")
     parser.add_argument("--tempo", choices=["daily", "weekly", "monthly"], required=True)
     parser.add_argument("--dry-run", action="store_true", help="Plan only, no commits")
@@ -1128,6 +1158,10 @@ def main():
                    f"{args.tempo} run had {log.stalls} stall(s):\n- " + "\n- ".join(log.errors[:10]), log)
 
     print(f"\n✓ {args.tempo.title()} run complete — {log.pieces_shipped} piece(s) shipped")
+    # A run that stalled is not successful publication. Returning non-zero makes
+    # the workflow's failure alert and artifact path authoritative instead of
+    # allowing a green scheduler result to mask a stale homepage.
+    return 2 if log.stalls else 0
 
 
 def _alert(tempo: str, severity: str, body: str, log: "RunLog") -> None:
@@ -1143,4 +1177,4 @@ def _alert(tempo: str, severity: str, body: str, log: "RunLog") -> None:
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

@@ -18,7 +18,7 @@ sources:
     url: "https://api.open-meteo.com/v1/forecast?latitude=-38.40&longitude=145.00&daily=temperature_2m_max,precipitation_sum,precipitation_probability_max,wind_speed_10m_max&timezone=Australia%2FMelbourne&forecast_days=3"
     note: "Open-Meteo Main Ridge retrieval 2026-08-03T20:35Z. Mon 4 Aug: 100% rain probability, 5.6mm, 11.8°C maximum and 29.7 km/h maximum wind."
     checkedAt: 2026-08-04T06:35:00+10:00
-status: published
+status: archived
 ---
 The Monday forecast makes a booked, contained experience more appealing than an itinerary with several exposed stops. Main Ridge is forecast for 5.6 millimetres of rain, a top of 11.8 degrees and winds up to 29.7 kilometres per hour.
 

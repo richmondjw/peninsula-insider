@@ -13,7 +13,7 @@ sources:
     url: "https://api.open-meteo.com/v1/forecast?latitude=-38.40&longitude=145.00&current=temperature_2m,apparent_temperature,precipitation,weather_code,wind_speed_10m,wind_direction_10m,is_day&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_sum,precipitation_probability_max,wind_speed_10m_max&timezone=Australia%2FMelbourne&forecast_days=7"
     note: "Open-Meteo Main Ridge retrieval 2026-08-01T20:35Z. Sun 2 Aug: 0%/0mm, 8.3–14.3°C. Mon 3 Aug: 73%/0.9mm, 9.0–12.5°C. Tue 4 Aug: 73%/12.4mm, 7.9–10.6°C, 31.9 km/h max, weathercode 95. Wed 5 Aug: 37%/5.3mm. Thu 6 Aug: 20%/0.3mm."
     checkedAt: 2026-08-02T06:35:00+10:00
-status: published
+status: archived
 ---
 Sunday is the useful pause in this forecast. The day is dry, clear at first light, and expected to reach fourteen point three degrees. It is not a still day, but the northerly is manageable and there is no rain to negotiate.
 

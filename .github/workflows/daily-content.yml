@@ -45,6 +45,15 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: next/package-lock.json
+
+      - name: Install next dependencies (content admission gate)
+        # The pre-commit hook runs this gate before an automated content commit.
+        # Without the local Astro binary it fails closed and no publish occurs.
+        run: |
+          cd next
+          npm ci --prefer-offline
 
       - name: Install engine dependencies
         run: |
