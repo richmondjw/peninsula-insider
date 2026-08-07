@@ -3,7 +3,7 @@
 **Date:** Friday, 7 August 2026 (UTC) / Saturday, 8 August 2026 (AEST)
 **Job:** `pi-daily-quick-note-qa-publish`
 **Agent:** Remy
-**Status:** PUBLISHED — awaiting external deployment verification
+**Status:** PUBLISHED — external deployment verification failed; live notification blocked
 
 ## Published content
 
@@ -24,4 +24,4 @@
 
 - All three entries use the established quick-note schema, current citations, sensible expiry windows, and no unsupported operational claim.
 - `npm run lint:house-style` and `npm run validate:content` passed before commit.
-- External post-publish verification is required after the GitHub Pages deployment is externally available.
+- External post-publish verification at 2026-08-07T20:38:57Z returned HTTP 404 for all three routes before deployment availability. `EXC-2026-08-07-013` is open; rerun verification after GitHub Pages deployment completes.
