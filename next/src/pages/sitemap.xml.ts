@@ -55,7 +55,6 @@ const JOURNAL_STUB_OR_NOINDEX_SLUGS = new Set([
   'mornington-peninsula-boat-ramps',
   'mornington-peninsula-fishing-charters',
   'mornington-peninsula-golf-guide',
-  'mornington-peninsula-itinerary', // hand-coded page, noindex (rule 2)
   'mornington-peninsula-winery-tour', // hand-coded stub -> /tour/wine-tours/
   'snapper-mornington-peninsula',
   'snapper-season-port-phillip-bay',
@@ -185,6 +184,7 @@ export const GET: APIRoute = async () => {
     '/journal/mornington-peninsula-with-kids',
     '/journal/dog-friendly-mornington-peninsula',
     '/journal/mornington-peninsula-day-trip',
+    '/journal/mornington-peninsula-itinerary',
     '/journal/mornington-peninsula-hot-springs-guide',
     '/journal/free-things-to-do-mornington-peninsula',
     '/journal/best-brunch-mornington-peninsula',
