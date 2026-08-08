@@ -12,6 +12,7 @@
  */
 import { getCollection } from 'astro:content';
 import { routeSlug } from '../../lib/editorial';
+import Redirect from '../../components/Redirect.astro';
 
 export async function getStaticPaths() {
   const itineraries = await getCollection('itineraries');
@@ -22,20 +23,6 @@ export async function getStaticPaths() {
 }
 
 const { slug } = Astro.props;
-const to = `/explore/plans/${slug}/`;
-const canonical = `https://peninsulainsider.com.au${to}`;
 export const prerender = true;
 ---
-<!doctype html>
-<html lang="en-AU">
-  <head>
-    <meta charset="utf-8">
-    <title>Redirecting…</title>
-    <style>html,body{display:none;visibility:hidden}</style>
-    <script define:vars={{ to }}>window.location.replace(to);</script>
-    <meta http-equiv="refresh" content={`0;url=${to}`}>
-    <meta name="robots" content="noindex">
-    <link rel="canonical" href={canonical}>
-  </head>
-  <body></body>
-</html>
+<Redirect to={`/explore/plans/${slug}/`} consolidate />

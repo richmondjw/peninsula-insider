@@ -252,7 +252,11 @@ export const prerender = true;
       <style is:global set:html={'html,body{display:none;visibility:hidden}'} />
       <script type="text/javascript" set:html={`window.location.replace(${JSON.stringify(ptwRedirectTo)});`} />
       <meta http-equiv="refresh" content={`0;url=${ptwRedirectTo}`} />
-      <meta name="robots" content="noindex" />
+      {/* No noindex: this is a permanent URL migration, not a utility hop.
+          noindex+canonical is contradictory - Google drops the page and
+          ignores the canonical, discarding the old URL's equity instead of
+          passing it to the archive URL. Canonical alone consolidates.
+          See components/Redirect.astro `consolidate`. (2026-08-08) */}
       <link rel="canonical" href={`https://peninsulainsider.com.au${ptwRedirectTo}`} />
     </head>
     <body></body>
