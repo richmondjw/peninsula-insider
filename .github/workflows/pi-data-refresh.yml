@@ -1,9 +1,6 @@
 name: PI Data Refresh — Peninsula Insider
 
 on:
-  schedule:
-    # 03:00 UTC daily — belt-and-braces data layer alignment
-    - cron: '0 3 * * *'
   workflow_dispatch:
 
 concurrency:
