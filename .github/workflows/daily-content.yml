@@ -1,10 +1,6 @@
 name: Daily Content Engine — Peninsula Insider
 
 on:
-  schedule:
-    # 6:00 AM AEST = 20:00 UTC (AEST is UTC+10)
-    # Run every day at 20:00 UTC
-    - cron: '0 20 * * *'
   workflow_dispatch:
     inputs:
       dry_run:
