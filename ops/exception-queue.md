@@ -42,6 +42,16 @@ Resolution rule: when fixed, **move** the entry to the Resolved section, prepend
 
 ## Active
 
+### EXC-2026-08-09-014 — Monday quick-note deployment not externally resolvable
+- **Severity:** P1
+- **Source:** post-publish-verify
+- **Surface:** `https://peninsulainsider.com.au/quick-note/2026-08-10-{weather,editor-note}-monday/`
+- **Detail:** Both freshly pushed quick-note URLs returned HTTP 404 at 2026-08-09T20:38:23Z, before the deployed revision was externally available. Live notification is blocked pending deployment and a passing verification rerun.
+- **First seen:** 2026-08-09
+- **Owner:** PI publisher + deployment operator
+- **Target resolution:** next GitHub Pages deployment
+- **Linked artifact:** `ops/reports/verify/2026-08-09-quick-note.md`
+
 ### EXC-2026-08-07-013 — Saturday quick-note deployment not externally resolvable
 - **Severity:** P1
 - **Source:** post-publish-verify

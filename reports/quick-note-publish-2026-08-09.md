@@ -3,7 +3,7 @@
 **Date:** Sunday, 9 August 2026 (UTC) / Monday, 10 August 2026 (AEST)
 **Job:** `pi-daily-quick-note-qa-publish`
 **Agent:** Remy
-**Status:** PUBLISHED — awaiting external deployment verification
+**Status:** PUBLISHED — external deployment verification failed; live notification blocked
 
 ## Published content
 
@@ -21,4 +21,4 @@
 
 ## Verification
 
-External post-publish verification must run after the GitHub Pages deployment resolves. Its result will be recorded in the publication ledger and verification report; no live notification is sent until it passes.
+External post-publish verification at 2026-08-09T20:38:23Z returned HTTP 404 for both URLs before the deployed revision was externally available. `EXC-2026-08-09-014` is open; rerun verification after GitHub Pages deployment completes. No live notification was sent.
