@@ -1,9 +1,6 @@
 name: Weekly Content Engine — Peninsula Insider
 
 on:
-  schedule:
-    # Monday 7:00 AM AEST = Sunday 21:00 UTC
-    - cron: '0 21 * * 0'
   workflow_dispatch:
     inputs:
       week_override:
