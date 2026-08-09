@@ -2,11 +2,11 @@
 
 **North star:** Become the number-1 destination — for people and AI agents — for what's on, and where to stay, eat, drink and explore on the Mornington Peninsula.
 
-**Loop health:** 🔴 stalled — Loop stalled: 3 days since last snapshot (2026-08-06).
+**Loop health:** 🟢 healthy — Actions recorded but none re-measured yet — learning signal not flowing (expected until GSC re-crawls the actioned pages).
 
-**Generated:** 2026-08-09 06:31 AEST  
+**Generated:** 2026-08-10 06:33 AEST  
 **Season:** Winter  
-**Inputs used:** gsc-search-analytics, gsc-coverage, sitemap-inventory, events-calendar:7-upcoming, seasonal-calendar:winter  
+**Inputs used:** gsc-search-analytics, gsc-coverage, sitemap-inventory, events-calendar:6-upcoming, seasonal-calendar:winter  
 
 ## Where we stand
 
@@ -19,11 +19,11 @@
 | Pages indexed by Google | 0 |
 | Pages known-not-indexed | 26 |
 | Pages in sitemap | 408 |
-| Open opportunities | 54 |
+| Open opportunities | 53 |
 
 ## Day-over-day (is the strategy improving?)
 
-_Compared with 2026-08-06._
+_Compared with 2026-08-09._
 
 - Average position held by 0.00.
 - Clicks flat 0 vs last snapshot.
@@ -88,9 +88,9 @@ Ranked by the strategy model (performance + season + coverage + effort). The orc
 - **Why:** 'mornington cup 2026 date' ranks avg position 8.8 on 23 impressions — small, targeted improvement could reach page 1 and start earning clicks.
 - **Do:** Strengthen the ranking page for this exact query: expand the relevant section, add an FAQ answer, tighten the H1/intro, add internal links from related hub pages.
 
-### 7. [EVENT · score 2.992] Preview: National Works on Paper 2026 (NWOP) (27d out)
+### 7. [EVENT · score 2.992] Preview: National Works on Paper 2026 (NWOP) (26d out)
 - **Desk:** dispatch-desk
-- **Why:** National Works on Paper 2026 (NWOP) is 27 days out (2026-09-05, Mornington) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** National Works on Paper 2026 (NWOP) is 26 days out (2026-09-05, Mornington) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
 ### 8. [RANK · score 2.883] Push 'dog friendly guide mornington peninsula' onto page 1
