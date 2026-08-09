@@ -40,8 +40,8 @@ interface Tier {
 
 const tiers: Tier[] = [
   {
-    title: 'Tier 1: High payoff, low-to-moderate effort',
-    standfirst: 'Start here. These four give you the most for the least.',
+    title: 'Start here',
+    standfirst: 'High payoff, low-to-moderate effort. These four give you the most for the least.',
     walks: [
       {
         rank: 1,
@@ -98,8 +98,8 @@ const tiers: Tier[] = [
     ],
   },
   {
-    title: 'Tier 2: Moderate effort, strong payoff',
-    standfirst: 'Proper walks. Worth the extra commitment when you have the time.',
+    title: 'Proper walks',
+    standfirst: 'Moderate effort, strong payoff. Worth it when you have the time.',
     walks: [
       {
         rank: 5,
@@ -156,8 +156,8 @@ const tiers: Tier[] = [
     ],
   },
   {
-    title: 'Tier 3: Good walks, specific contexts',
-    standfirst: 'Right walk, right day. Each earns its place for a particular reader.',
+    title: 'Right walk, right day',
+    standfirst: 'Good walks in specific contexts. Each earns its place for a particular reader.',
     walks: [
       {
         rank: 9,
@@ -214,6 +214,13 @@ for (const w of allRanked) {
   const hero = exp ? await resolveHero('experience', w.slug, exp.data) : null;
   if (hero) heroes.set(w.slug, { src: hero.src, alt: hero.alt });
 }
+
+/* Cover art: the Cape Schanck storm-light shot. Static art direction for
+   this page (the per-walk imagery below stays CMS-editable per entry). */
+const cover = {
+  src: '/images/sourced/home-cover-cape-schanck-rainbow-01.webp',
+  alt: 'Storm light breaking over the Cape Schanck coastline, Mornington Peninsula',
+};
 
 /* FAQ: one array feeds both the visible block and the JSON-LD, so the
    structured data can never say something the page does not. */
@@ -287,52 +294,87 @@ export const prerender = true;
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   <Breadcrumbs items={breadcrumbItems} />
 
-  <article class="article">
+  <header class="wk-hero">
     <div class="container">
-      <h1 class="article__title">The best walks on the Mornington Peninsula</h1>
-
-      <div class="prose">
-        <blockquote>
-          <p><strong>TL;DR</strong></p>
-          <ul>
-            <li>Eleven ranked walks below, from a 20-minute boardwalk to a 26 km full-day track.</li>
-            <li><a href="#cape-schanck-boardwalk">Cape Schanck boardwalk</a> is the best effort-to-payoff ratio on the Peninsula.</li>
-            <li><a href="#two-bays-walking-track">Two Bays Walking Track</a> (26 km) is the Peninsula's flagship long walk; most visitors do sections.</li>
-            <li><a href="#bushrangers-bay-walk">Bushrangers Bay</a> has some of the best coastal scenery and the least foot traffic of any good walk here.</li>
-            <li>All walks are accessible without specialist equipment; none require permits.</li>
-          </ul>
-        </blockquote>
-
-        <p>The Mornington Peninsula has one of the most varied walking menus of any coastal region in Victoria. Bay-side foreshore paths. Clifftop boardwalks over Bass Strait. National park bush trails. A 26 km coast-to-coast route. And hinterland ridge-top paths through old-growth manna gum that see almost nobody outside school holidays. This hub ranks 11 walks by effort and payoff - the combination of physical demand and the quality of what you get for it.</p>
+      <div class="wk-hero__cover">
+        <img
+          class="wk-hero__image"
+          src={cover.src}
+          alt={cover.alt}
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+        <div class="wk-hero__scrim" aria-hidden="true"></div>
+        <div class="wk-hero__content">
+          <h1 class="wk-hero__title">The best walks on the Mornington Peninsula</h1>
+          <p class="wk-hero__standfirst">
+            Bay-side foreshore paths, clifftop boardwalks over Bass Strait, national-park
+            bush and a 26 km coast-to-coast route. Eleven walks, ranked by what they
+            demand and what they give back.
+          </p>
+        </div>
       </div>
+    </div>
+  </header>
 
-      <nav class="wr-index" aria-label="The ranking at a glance">
-        {tiers.map((tier) => (
-          <div class="wr-index__tier">
-            <p class="wr-index__tier-name">{tier.title.split(':')[0]}</p>
-            <ol class="wr-index__list" start={tier.walks[0].rank}>
+  <section class="wk-calls" aria-label="The short version">
+    <div class="container">
+      <div class="wk-calls__panel">
+        <div class="wk-calls__lead">
+          <h2 class="wk-calls__title">The short version</h2>
+          <ul class="wk-calls__list">
+            <li>
+              <span class="wk-calls__num" aria-hidden="true">1</span>
+              <p><a href="#cape-schanck-boardwalk">Cape Schanck boardwalk</a> is the best effort-to-payoff ratio on the Peninsula. Forty minutes, fully accessible.</p>
+            </li>
+            <li>
+              <span class="wk-calls__num" aria-hidden="true">2</span>
+              <p><a href="#bushrangers-bay-walk">Bushrangers Bay</a> has the best coastal scenery with the least foot traffic of any good walk here.</p>
+            </li>
+            <li>
+              <span class="wk-calls__num" aria-hidden="true">6</span>
+              <p><a href="#two-bays-walking-track">Two Bays Walking Track</a> is the flagship: 26 km, bay to ocean. Most people walk it in sections.</p>
+            </li>
+          </ul>
+          <p class="wk-calls__note">No permits, no specialist gear, walkable all year. Prams or limited mobility: start with the boardwalk or the Mornington foreshore.</p>
+        </div>
+        <nav class="wk-calls__index" aria-label="The full ranking">
+          <p class="wk-calls__index-title">The full ranking</p>
+          {tiers.map((tier) => (
+            <ol class="wk-index__list" start={tier.walks[0].rank}>
               {tier.walks.map((w) => (
                 <li>
                   <a href={`#${w.slug}`}>
-                    <span class="wr-index__name">{w.name}</span>
-                    <span class="wr-index__time">{w.time}</span>
+                    <span class="wk-index__name">{w.name}</span>
+                    <span class="wk-index__time">{w.time}</span>
                   </a>
                 </li>
               ))}
             </ol>
-          </div>
-        ))}
-      </nav>
+          ))}
+        </nav>
+      </div>
     </div>
-  </article>
+  </section>
 
-  <section class="wr-ranking">
+  <section class="wk-ranking">
     <div class="container">
+      <p class="wk-ranking__intro">
+        The Mornington Peninsula has one of the most varied walking menus of any coastal
+        region in Victoria: foreshore paths on the bay, boardwalks over Bass Strait,
+        national park bush trails, and hinterland ridge-tops through old-growth manna gum
+        that see almost nobody outside school holidays. Every walk below has been done by
+        us and is re-verified on a rolling basis. The ranking weighs effort against
+        payoff - what a walk asks of you, against what it gives back.
+      </p>
+
       {tiers.map((tier) => (
-        <section class="wr-tier">
-          <header class="wr-tier__head">
-            <h2 class="wr-tier__title">{tier.title}</h2>
-            <p class="wr-tier__standfirst">{tier.standfirst}</p>
+        <section class="wk-tier">
+          <header class="wk-tier__head">
+            <span class="wk-tier__rule" aria-hidden="true"></span>
+            <h2 class="wk-tier__title">{tier.title}</h2>
+            <p class="wk-tier__standfirst">{tier.standfirst}</p>
           </header>
 
           {tier.walks.map((w) => {
@@ -345,11 +387,10 @@ export const prerender = true;
                       src={hero.src}
                       alt={hero.alt}
                       loading={w.rank === 1 ? 'eager' : 'lazy'}
-                      fetchpriority={w.rank === 1 ? 'high' : undefined}
                       decoding="async"
                       width="800"
                       height="600"
-                      sizes="(max-width: 760px) 92vw, 380px"
+                      sizes="(max-width: 760px) 92vw, 420px"
                       {...editableImage({
                         entityType: 'experience',
                         entitySlug: w.slug,
@@ -358,6 +399,8 @@ export const prerender = true;
                         purpose: 'hero',
                       })}
                     />
+                    <span class="wr__fog" aria-hidden="true"></span>
+                    <span class="wr__tag">{w.locality}</span>
                   </a>
                 )}
                 <div class="wr__body">
@@ -365,14 +408,13 @@ export const prerender = true;
                     <span class="wr__rank" aria-hidden="true">{w.rank}</span>
                     <a href={`/explore/${w.slug}/`}>{w.name}</a>
                   </h3>
-                  <p class="wr__place">{w.locality}</p>
                   <ul class="wr__meta">
                     <li>{w.distance}</li>
                     <li>{w.time}</li>
                     <li>{w.effort}</li>
                   </ul>
                   <p class="wr__verdict">{w.verdict}</p>
-                  <p class="wr__bestfor"><strong>Best for:</strong> {w.bestFor}</p>
+                  <p class="wr__bestfor"><strong>Best for</strong> {w.bestFor}</p>
                   <p class="wr__start">Start: {w.start}</p>
                 </div>
                 <PiSaveActions
@@ -388,22 +430,22 @@ export const prerender = true;
           })}
         </section>
       ))}
-      <p class="wr-ranking__return"><a href="#top">Back to the top of the ranking</a></p>
+      <p class="wk-ranking__return"><a href="#top">Back to the top of the ranking</a></p>
     </div>
   </section>
 
-  <section class="article wr-notes">
+  <section class="wk-notes">
     <div class="container">
       <div class="prose">
         <h2>What to bring</h2>
         <p>No walk on this list requires specialist equipment. For any walk over 5 km: water (1 L minimum), sunscreen, a hat, and footwear with grip. Ocean-side tracks can be slippery when wet.</p>
 
         <h2>FAQ</h2>
-        <div class="wr-faq">
+        <div class="wk-faq">
           {faqs.map((f) => (
-            <details class="wr-faq__item">
-              <summary class="wr-faq__q">{f.q}</summary>
-              <p class="wr-faq__a">{f.a}</p>
+            <details class="wk-faq__item">
+              <summary class="wk-faq__q">{f.q}</summary>
+              <p class="wk-faq__a">{f.a}</p>
             </details>
           ))}
         </div>
@@ -425,91 +467,239 @@ export const prerender = true;
 </BaseLayout>
 
 <style>
-  /* ── The ranking at a glance ── */
-  .wr-index {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-5) var(--space-6);
-    margin: var(--space-7) 0 var(--space-4);
-    padding-top: var(--space-5);
-    border-top: 1px solid var(--border);
+  /* ── Cover hero: the photograph opens the page; harbour-deep scrim
+     guarantees the reversed type over any crop. ── */
+  .wk-hero {
+    padding: var(--space-4) 0 var(--space-6);
   }
-  .wr-index__tier-name {
+  .wk-hero__cover {
+    position: relative;
+    border-radius: var(--radius-l);
+    overflow: hidden;
+    aspect-ratio: 16 / 7;
+    background: var(--bg-dark, #0B2E4A);
+  }
+  .wk-hero__image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .wk-hero__scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(11, 46, 74, 0.94) 0%,
+      rgba(11, 46, 74, 0.78) 38%,
+      rgba(11, 46, 74, 0.3) 62%,
+      rgba(11, 46, 74, 0) 80%
+    );
+  }
+  .wk-hero__content {
+    position: absolute;
+    inset: auto 0 0 0;
+    padding: clamp(1.5rem, 3.5vw, 3rem);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  .wk-hero__title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: var(--fs-900);
+    font-weight: var(--fw-display);
+    line-height: var(--lh-display);
+    letter-spacing: var(--ls-display);
+    color: var(--white);
+    max-width: 18ch;
+    text-wrap: balance;
+  }
+  .wk-hero__standfirst {
+    margin: 0;
+    font-size: var(--fs-500);
+    line-height: var(--lh-dek);
+    color: rgba(237, 241, 245, 0.92);
+    max-width: var(--measure-dek);
+  }
+  @media (max-width: 760px) {
+    .wk-hero__cover { aspect-ratio: 4 / 5; }
+    .wk-hero__title { font-size: var(--fs-800); }
+  }
+
+  /* ── The short version: verdict panel + full-ranking index ── */
+  .wk-calls {
+    padding: 0 0 var(--space-7);
+  }
+  .wk-calls__panel {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    gap: clamp(2rem, 4vw, 4rem);
+    background: var(--bg-dark, #0B2E4A);
+    border-radius: var(--radius-l);
+    padding: clamp(1.75rem, 3.5vw, 3rem);
+    color: var(--white);
+  }
+  .wk-calls__title {
+    margin: 0 0 var(--space-5);
+    font-family: var(--font-display);
+    font-size: var(--fs-700);
+    font-weight: var(--fw-display);
+    letter-spacing: var(--ls-display);
+    color: var(--white);
+  }
+  .wk-calls__list {
+    list-style: none;
+    margin: 0 0 var(--space-5);
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+  .wk-calls__list li {
+    display: flex;
+    gap: var(--space-4);
+    align-items: baseline;
+  }
+  .wk-calls__num {
+    flex-shrink: 0;
+    font-family: var(--font-display);
+    font-size: var(--fs-600);
+    font-weight: var(--fw-bold);
+    line-height: 1;
+    color: var(--mint, #F5C177);
+    font-variant-numeric: tabular-nums;
+    min-width: 1.4ch;
+    text-align: right;
+  }
+  .wk-calls__list p {
+    margin: 0;
+    font-size: var(--fs-400);
+    line-height: var(--lh-dek);
+    color: rgba(237, 241, 245, 0.92);
+    max-width: 52ch;
+  }
+  .wk-calls__list a {
+    color: var(--white);
+    font-weight: var(--fw-semibold);
+    text-decoration: underline;
+    text-decoration-color: rgba(245, 193, 119, 0.55);
+    text-underline-offset: 3px;
+    transition: text-decoration-color var(--dur-fast) var(--ease-enter);
+  }
+  .wk-calls__list a:hover { text-decoration-color: var(--mint, #F5C177); }
+  .wk-calls__note {
+    margin: 0;
+    padding-top: var(--space-4);
+    border-top: 1px solid rgba(237, 241, 245, 0.18);
+    font-size: var(--fs-300);
+    line-height: var(--lh-dek);
+    color: var(--soft-inverse);
+    max-width: 52ch;
+  }
+
+  .wk-calls__index-title {
+    margin: 0 0 var(--space-3);
     font-family: var(--font-display);
     font-size: var(--fs-300);
     font-weight: var(--fw-semibold);
-    color: var(--dark);
-    margin-bottom: var(--space-3);
+    color: var(--white);
   }
-  .wr-index__list {
-    margin: 0;
-    padding-left: 1.4rem;
+  .wk-index__list {
+    margin: 0 0 var(--space-3);
+    padding-left: 1.6rem;
   }
-  .wr-index__list li + li { margin-top: var(--space-1); }
-  .wr-index__list li::marker {
+  .wk-index__list:last-child { margin-bottom: 0; }
+  .wk-index__list li + li { margin-top: 0.15rem; }
+  .wk-index__list li::marker {
     font-family: var(--font-ui);
     font-size: var(--fs-300);
     font-weight: var(--fw-semibold);
-    color: var(--accent);
+    color: var(--mint, #F5C177);
   }
-  .wr-index__list a {
+  .wk-index__list a {
     display: flex;
     align-items: baseline;
     justify-content: space-between;
     gap: var(--space-3);
-    padding: var(--space-1) 0;
+    padding: 0.2rem 0;
     font-size: var(--fs-300);
     line-height: var(--lh-ui);
-    color: var(--text);
+    color: rgba(237, 241, 245, 0.92);
     text-decoration: none;
   }
-  .wr-index__list a:hover .wr-index__name { color: var(--accent); }
-  .wr-index__name {
-    border-bottom: 1px solid var(--border);
-    transition: color var(--dur-fast) var(--ease-enter);
+  .wk-index__name {
+    border-bottom: 1px solid rgba(237, 241, 245, 0.25);
+    transition: color var(--dur-fast) var(--ease-enter), border-color var(--dur-fast) var(--ease-enter);
   }
-  .wr-index__time {
+  .wk-index__list a:hover .wk-index__name {
+    color: var(--mint, #F5C177);
+    border-color: var(--mint, #F5C177);
+  }
+  .wk-index__time {
     flex-shrink: 0;
     font-size: var(--fs-200);
-    color: var(--soft);
+    color: var(--soft-inverse);
     font-variant-numeric: tabular-nums;
   }
+  @media (max-width: 900px) {
+    .wk-calls__panel { grid-template-columns: 1fr; }
+  }
 
-  /* ── Ranked entries ── */
-  .wr-ranking { padding-bottom: var(--space-7); }
-  .wr-tier__head {
+  /* ── The ranking ── */
+  .wk-ranking { padding-bottom: var(--space-8); }
+  .wk-ranking__intro {
+    max-width: var(--measure-prose);
+    font-size: var(--fs-400);
+    line-height: var(--lh-body);
+    color: var(--text);
+    margin: 0 0 var(--space-6);
+  }
+  .wk-tier__head {
     margin: var(--space-8) 0 var(--space-5);
     max-width: var(--measure-prose);
   }
-  .wr-tier:first-of-type .wr-tier__head { margin-top: var(--space-6); }
-  .wr-tier__title {
+  .wk-tier:first-of-type .wk-tier__head { margin-top: var(--space-6); }
+  .wk-tier__rule {
+    display: block;
+    width: 3rem;
+    height: 3px;
+    border-radius: 2px;
+    background: var(--mint, #F5C177);
+    margin-bottom: var(--space-4);
+  }
+  .wk-tier__title {
     font-family: var(--font-display);
     font-size: var(--fs-700);
     font-weight: var(--fw-display);
     letter-spacing: var(--ls-display);
     line-height: var(--lh-heading);
     color: var(--dark);
-    margin-bottom: var(--space-2);
+    margin: 0 0 var(--space-2);
   }
-  .wr-tier__standfirst {
+  .wk-tier__standfirst {
     font-size: var(--fs-500);
     line-height: var(--lh-dek);
     color: var(--soft);
     max-width: var(--measure-dek);
+    margin: 0;
   }
 
   .wr {
     position: relative;
     display: grid;
-    grid-template-columns: minmax(240px, 360px) 1fr;
-    gap: var(--space-5) var(--space-6);
+    grid-template-columns: minmax(260px, 420px) 1fr;
+    gap: var(--space-5) clamp(1.5rem, 3vw, 3rem);
     padding: var(--space-6) 0 var(--space-7);
     border-top: 1px solid var(--border);
     scroll-margin-top: 6rem;
   }
   .wr__media {
     display: block;
-    aspect-ratio: 4 / 3;
+    position: relative;
+    aspect-ratio: 16 / 11;
     border-radius: var(--radius-m);
     overflow: hidden;
     background: var(--bg-alt);
@@ -522,13 +712,25 @@ export const prerender = true;
     transition: transform var(--dur-slow) var(--ease-enter);
   }
   .wr:hover .wr__media img { transform: scale(1.025); }
-  @media (prefers-reduced-motion: reduce) {
-    .wr:hover .wr__media img { transform: none; }
+  .wr__fog {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(11, 46, 74, 0.55) 0%, rgba(11, 46, 74, 0) 45%);
+  }
+  .wr__tag {
+    position: absolute;
+    bottom: 0.9rem;
+    left: 1rem;
+    font-family: var(--font-ui);
+    font-size: var(--fs-100);
+    font-weight: var(--fw-semibold);
+    letter-spacing: var(--ls-eyebrow);
+    text-transform: uppercase;
+    color: rgba(253, 252, 250, 0.95);
   }
 
   .wr__body {
     max-width: var(--measure-prose);
-    /* Reserve the bottom-right zone for the floating Save/Share pills. */
     padding-bottom: var(--space-2);
   }
   .wr__name {
@@ -541,22 +743,18 @@ export const prerender = true;
     letter-spacing: -0.015em;
     line-height: var(--lh-heading);
     color: var(--dark);
-    margin: 0 0 var(--space-1);
+    margin: 0 0 var(--space-4);
   }
   .wr__name a { color: inherit; text-decoration: none; }
   .wr__name a:hover { color: var(--accent); }
   .wr__rank {
     flex-shrink: 0;
-    font-size: var(--fs-600);
+    font-family: var(--font-display);
+    font-size: var(--fs-700);
     font-weight: var(--fw-bold);
+    line-height: 1;
     color: var(--accent);
     font-variant-numeric: tabular-nums;
-  }
-  .wr__place {
-    font-size: var(--fs-200);
-    font-weight: var(--fw-medium);
-    color: var(--soft);
-    margin: 0 0 var(--space-4);
   }
   .wr__meta {
     list-style: none;
@@ -571,11 +769,10 @@ export const prerender = true;
     font-size: var(--fs-200);
     font-weight: var(--fw-medium);
     line-height: var(--lh-label);
-    color: var(--text);
+    color: var(--dark);
     background: var(--bg-alt);
-    border: 1px solid var(--border);
     border-radius: var(--radius-pill);
-    padding: 0.3rem 0.75rem;
+    padding: 0.35rem 0.85rem;
   }
   .wr__verdict {
     font-size: var(--fs-400);
@@ -589,28 +786,37 @@ export const prerender = true;
     color: var(--text);
     margin: 0 0 var(--space-2);
   }
-  .wr__bestfor strong { font-weight: var(--fw-semibold); color: var(--dark); }
+  .wr__bestfor strong {
+    font-weight: var(--fw-semibold);
+    color: var(--tide-text, #1D6491);
+    text-transform: uppercase;
+    font-size: var(--fs-100);
+    letter-spacing: 0.08em;
+    margin-right: 0.35rem;
+  }
   .wr__start {
     font-size: var(--fs-300);
     line-height: var(--lh-ui);
     color: var(--soft);
     margin: 0;
   }
-  .wr-ranking__return {
+  .wk-ranking__return {
     margin-top: var(--space-6);
     font-size: var(--fs-300);
   }
-  .wr-ranking__return a { color: var(--accent); }
+  .wk-ranking__return a { color: var(--accent); }
 
-  .wr-notes { padding-top: var(--space-2); }
-
-  /* ── FAQ ── */
-  .wr-faq { margin: var(--space-4) 0 var(--space-6); }
-  .wr-faq__item {
+  /* ── Notes: alt ground for rhythm before the dark newsletter close ── */
+  .wk-notes {
+    background: var(--bg-alt);
     border-top: 1px solid var(--border);
+    padding: var(--space-7) 0;
   }
-  .wr-faq__item:last-child { border-bottom: 1px solid var(--border); }
-  .wr-faq__q {
+
+  .wk-faq { margin: var(--space-4) 0 var(--space-6); }
+  .wk-faq__item { border-top: 1px solid var(--border); }
+  .wk-faq__item:last-child { border-bottom: 1px solid var(--border); }
+  .wk-faq__q {
     cursor: pointer;
     list-style: none;
     display: flex;
@@ -623,8 +829,8 @@ export const prerender = true;
     font-weight: var(--fw-semibold);
     color: var(--dark);
   }
-  .wr-faq__q::-webkit-details-marker { display: none; }
-  .wr-faq__q::after {
+  .wk-faq__q::-webkit-details-marker { display: none; }
+  .wk-faq__q::after {
     content: '+';
     flex-shrink: 0;
     font-family: var(--font-ui);
@@ -634,8 +840,8 @@ export const prerender = true;
     line-height: 1;
     transition: transform var(--dur-med) var(--ease-enter);
   }
-  .wr-faq__item[open] .wr-faq__q::after { transform: rotate(45deg); }
-  .wr-faq__a {
+  .wk-faq__item[open] .wk-faq__q::after { transform: rotate(45deg); }
+  .wk-faq__a {
     margin: 0;
     padding: 0 0 var(--space-5);
     max-width: var(--measure-prose);
@@ -644,8 +850,7 @@ export const prerender = true;
 
   /* ── Responsive ── */
   @media (max-width: 900px) {
-    .wr-index { grid-template-columns: 1fr; gap: var(--space-5); }
-    .wr { grid-template-columns: minmax(200px, 280px) 1fr; gap: var(--space-4) var(--space-5); }
+    .wr { grid-template-columns: minmax(220px, 300px) 1fr; gap: var(--space-4) var(--space-5); }
   }
   @media (max-width: 760px) {
     .wr {
@@ -653,7 +858,9 @@ export const prerender = true;
       padding-top: var(--space-5);
       padding-bottom: var(--space-6);
     }
-    .wr__media { max-width: 100%; }
     .wr__body { padding-bottom: var(--space-6); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .wr:hover .wr__media img { transform: none; }
   }
 </style>

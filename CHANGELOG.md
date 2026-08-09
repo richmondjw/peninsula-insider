@@ -1,3 +1,36 @@
+## 2026-08-09 (later) — Claude local agent — walks v2 beauty pass + journal lead cover
+
+### Summary
+James reviewed the shipped walks hub and called it under-designed ("TL;DR" label,
+no visual opening). Second pass, same content architecture:
+- **Cover hero**: Cape Schanck storm-light photograph opens the page inside a
+  contained radius-l panel with a harbour-deep bottom scrim; H1 + standfirst
+  reversed in white. (Static art direction; per-walk imagery stays CMS-bound.)
+- **"TL;DR" is gone**: replaced by "The short version", a designed harbour-navy
+  verdict panel - three ranked calls with sand rank numerals on the left, the
+  full 11-walk jump index with time stamps on the right.
+- **Editorial tier titles**: "Start here" / "Proper walks" / "Right walk, right
+  day" (was "Tier 1/2/3: ..." systems language), each with a sand rule accent.
+- **Entry cards refined**: 16/11 imagery with fog gradient + uppercase locality
+  tag on the photo, larger harbour rank numeral, chip restyle, "BEST FOR" label
+  in tide-blue small caps.
+- **Page rhythm**: white ranking → cream notes band (What to bring / FAQ /
+  Further reading) → dark newsletter close. The cream token finally earns its keep.
+- **Journal lead feature** (James-approved option 2): rebuilt as a full-bleed
+  magazine cover - photo fills the panel, bottom-up harbour scrim (>=0.82 alpha
+  through the whole content zone), white Sora title, whole cover clickable via
+  stretched link, mint focus ring. This also removes the layout bug where the
+  4/3 media's intrinsic width overflowed its grid column and slid under the
+  navy text. The "Lead feature" kicker is gone.
+
+### Files changed
+- next/src/pages/explore/walks.astro
+- next/src/pages/journal/index.astro
+
+### Why it matters
+The walks hub is the template candidate for all best-of hubs; it now looks like
+the product it argues for. The journal lead was shipping navy-on-photo text.
+
 ## 2026-08-09 — Claude local agent — /explore/walks/ redesign + walks IA consolidation
 
 ### Summary

@@ -222,18 +222,18 @@ export const prerender = true;
   {lead && (
     <section class="v5j-lead" aria-label="Lead feature">
       <div class="container">
-        <article class="v5j-lead__inner">
-          <div class="v5j-lead__media">
-            <img
-              src={leadHero!.src}
-              alt={leadHero!.alt}
-              loading="eager"
-              decoding="async"
-              {...editableImage({ entityType: 'article', entitySlug: leadSlug!, fieldPath: 'hero', label: `${lead.data.title} hero`, purpose: 'hero' })}
-            />
-          </div>
+        <article class="v5j-lead__cover">
+          <img
+            class="v5j-lead__image"
+            src={leadHero!.src}
+            alt={leadHero!.alt}
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+            {...editableImage({ entityType: 'article', entitySlug: leadSlug!, fieldPath: 'hero', label: `${lead.data.title} hero`, purpose: 'hero' })}
+          />
+          <div class="v5j-lead__scrim" aria-hidden="true"></div>
           <div class="v5j-lead__content">
-            <p class="v5j-lead__mark">Lead feature</p>
             <h2 class="v5j-lead__title">
               <a
                 href={`/journal/${leadSlug}/`}
@@ -370,42 +370,49 @@ export const prerender = true;
 </BaseLayout>
 
 <style>
-  /* Lead feature: editorial surface, serif title, provenance visible. */
+  /* Lead feature: full-bleed magazine cover. The photo is the panel; a
+     bottom-up harbour-deep scrim guarantees the reversed type reads over
+     any CMS-chosen image (>=0.82 alpha through the whole content zone). */
   .v5j-lead {
     padding: var(--space-7, 3rem) 0;
   }
-  .v5j-lead__inner {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-5, 1.5rem);
-    background: var(--bg-alt);
-    border-radius: var(--radius-l, 16px);
+  .v5j-lead__cover {
+    position: relative;
+    border-radius: var(--radius-l, 28px);
     overflow: hidden;
+    aspect-ratio: 16 / 9;
+    background: var(--bg-dark, #0B2E4A);
   }
-  .v5j-lead__media {
-    aspect-ratio: 3 / 2;
-    overflow: hidden;
-  }
-  .v5j-lead__media img {
+  .v5j-lead__image {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
+    transition: transform var(--dur-slow, 320ms) var(--ease-enter, ease-out);
+  }
+  .v5j-lead__cover:hover .v5j-lead__image {
+    transform: scale(1.02);
+  }
+  .v5j-lead__scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(11, 46, 74, 0.94) 0%,
+      rgba(11, 46, 74, 0.82) 42%,
+      rgba(11, 46, 74, 0.35) 62%,
+      rgba(11, 46, 74, 0) 78%
+    );
   }
   .v5j-lead__content {
+    position: absolute;
+    inset: auto 0 0 0;
     display: flex;
     flex-direction: column;
     gap: var(--space-3, 0.75rem);
-    padding: 0 var(--space-5, 1.5rem) var(--space-5, 1.5rem);
-  }
-  .v5j-lead__mark {
-    margin: 0;
-    font-family: var(--font-ui, var(--font-ui));
-    font-size: var(--fs-100, 0.75rem);
-    font-weight: var(--fw-semibold, 600);
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--gold-text);
+    padding: clamp(1.25rem, 3.5vw, 2.5rem);
   }
   .v5j-lead__title {
     margin: 0;
@@ -413,18 +420,32 @@ export const prerender = true;
     font-size: var(--fs-800, clamp(2rem, 1.6rem + 2vw, 2.75rem));
     font-weight: var(--fw-display, 600);
     line-height: var(--lh-display, 1.08);
+    letter-spacing: var(--ls-display, -0.02em);
     max-width: 22ch;
+    text-wrap: balance;
   }
   .v5j-lead__title a {
-    color: var(--text);
+    color: var(--white, #FDFCFA);
     text-decoration: none;
   }
   .v5j-lead__title a:hover {
     text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+  }
+  /* The whole cover is the click target. */
+  .v5j-lead__title a::after {
+    content: '';
+    position: absolute;
+    inset: 0;
   }
   .v5j-lead__title a:focus-visible {
-    outline: var(--focus-ring, 2px solid var(--accent));
-    outline-offset: 2px;
+    outline: none;
+  }
+  .v5j-lead__title a:focus-visible::after {
+    outline: 3px solid var(--mint, #F5C177);
+    outline-offset: -6px;
+    border-radius: var(--radius-l, 28px);
   }
   .v5j-lead__dek {
     margin: 0;
@@ -432,7 +453,7 @@ export const prerender = true;
     font-style: normal;
     font-size: var(--fs-500, 1.1875rem);
     line-height: var(--lh-dek, 1.45);
-    color: var(--text);
+    color: rgba(237, 241, 245, 0.92);
     max-width: var(--measure-dek, 52ch);
   }
   .v5j-lead__byline {
@@ -444,24 +465,35 @@ export const prerender = true;
     font-family: var(--font-ui, var(--font-ui));
     font-size: var(--fs-200, 0.8125rem);
     line-height: var(--lh-ui, 1.4);
-    color: var(--soft);
+    color: rgba(237, 241, 245, 0.78);
   }
   .v5j-lead__author {
     font-weight: var(--fw-semibold, 600);
-    color: var(--text);
+    color: var(--white, #FDFCFA);
   }
 
   @media (min-width: 64em) {
-    .v5j-lead__inner {
-      grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
-      align-items: center;
+    .v5j-lead__cover {
+      aspect-ratio: 21 / 9;
     }
-    .v5j-lead__media {
-      aspect-ratio: 4 / 3;
-      height: 100%;
+  }
+  @media (max-width: 40em) {
+    .v5j-lead__cover {
+      aspect-ratio: 3 / 4;
     }
-    .v5j-lead__content {
-      padding: var(--space-5, 1.5rem);
+    .v5j-lead__title {
+      font-size: var(--fs-700, clamp(1.75rem, 1.4rem + 1.6vw, 2.25rem));
+    }
+    .v5j-lead__dek {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .v5j-lead__cover:hover .v5j-lead__image {
+      transform: none;
     }
   }
 
