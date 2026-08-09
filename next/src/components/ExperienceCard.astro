@@ -30,7 +30,13 @@ export interface Props {
 const { experience } = Astro.props;
 const data = experience.data;
 const slug = routeSlug(experience);
-const duration = data.durationMinutes ? `${data.durationMinutes} min` : null;
+/* Humanised duration: nobody thinks in "600 min". */
+function formatDuration(m: number): string {
+  if (m < 60) return `${m} min`;
+  const whole = Math.floor(m / 60);
+  return m % 60 >= 30 ? `${whole}.5 h` : `${whole} h`;
+}
+const duration = data.durationMinutes ? formatDuration(data.durationMinutes) : null;
 const difficulty = data.difficulty ? difficultyLabel[data.difficulty] ?? titleize(data.difficulty) : null;
 const hero = await resolveHero('experience', slug, data);
 ---
@@ -39,12 +45,11 @@ const hero = await resolveHero('experience', slug, data);
   <a
     href={`/explore/${slug}/`}
     class={`experience-card__visual experience-card__visual--${data.type}`}
-    aria-hidden="true"
     tabindex="-1"
   >
     <img
       src={hero.src}
-      alt=""
+      alt={hero.alt}
       loading="lazy"
       decoding="async"
       {...editableImage({

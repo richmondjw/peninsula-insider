@@ -85,7 +85,13 @@ const breadcrumbItems = [
 const seasonBest = experience.data.seasonBest?.length
   ? experience.data.seasonBest.map((entry: string) => titleize(entry)).join(' · ')
   : null;
-const duration = experience.data.durationMinutes ? `${experience.data.durationMinutes} min` : null;
+/* Humanised duration: nobody thinks in "600 min". */
+function formatDuration(m: number): string {
+  if (m < 60) return `${m} min`;
+  const whole = Math.floor(m / 60);
+  return m % 60 >= 30 ? `${whole}.5 h` : `${whole} h`;
+}
+const duration = experience.data.durationMinutes ? formatDuration(experience.data.durationMinutes) : null;
 const difficulty = experience.data.difficulty ? difficultyLabel[experience.data.difficulty] ?? titleize(experience.data.difficulty) : null;
 const heroClass = heroVariant[experience.data.type] ?? 'feature__image-block--hinterland';
 

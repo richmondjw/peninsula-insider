@@ -87,6 +87,13 @@ const groupedStops = days.map((day: any) => ({
 }));
 
 const editorParas = String(data.editorNote ?? '').split(/\n\n+/).filter(Boolean);
+/* Humanised duration: nobody thinks in "600 min". */
+function formatDuration(m: number): string {
+  if (m < 60) return `${m} min`;
+  const whole = Math.floor(m / 60);
+  return m % 60 >= 30 ? `${whole}.5 h` : `${whole} h`;
+}
+
 ---
 
 <section class="hero" aria-label={`${data.title} cover`}>
@@ -250,7 +257,7 @@ const editorParas = String(data.editorNote ?? '').split(/\n\n+/).filter(Boolean)
               <span>{placeLabel(e.data.place)}</span>
               {e.data.durationMinutes && (<>
                 <span class="venue__meta-sep"></span>
-                <span>{e.data.durationMinutes} min</span>
+                <span>{formatDuration(e.data.durationMinutes)}</span>
               </>)}
             </div>
             <a href={`${base}explore/${routeSlug(e)}/`}><h3 class="venue__name">{e.data.name}</h3></a>

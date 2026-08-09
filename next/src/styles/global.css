@@ -176,7 +176,7 @@ h1, h2, h3, h4, h5 {
 
 .label {
   font-family: var(--font-ui);
-  font-size: 0.65rem;
+  font-size: var(--fs-100);
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -1146,7 +1146,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   font-style: normal;
 }
 .venues__link {
-  font-size: 0.73rem;
+  font-size: var(--fs-100);
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -2854,7 +2854,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .newsletter__disclaimer {
   font-size: 0.72rem;
-  color: rgba(253,252,250,0.5);
+  color: var(--soft-inverse);
   line-height: 1.6;
   text-align: center;
 }
@@ -3083,7 +3083,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .experience-card__tag {
   position: absolute;
   top: 1rem; left: 1rem;
-  font-size: 0.6rem;
+  font-size: var(--fs-100);
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -3103,7 +3103,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   justify-content: space-between;
   align-items: center;
   margin-bottom: 0.75rem;
-  font-size: 0.65rem;
+  font-size: var(--fs-100);
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -4512,7 +4512,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .insider-stripe__form .newsletter__submit:hover { background: var(--acc-h); }
 .insider-stripe__form .newsletter__disclaimer {
   font-size: 0.7rem;
-  color: rgba(253, 252, 250, 0.5);
+  color: var(--soft-inverse);
   margin: 0;
 }
 .insider-stripe__form .newsletter__disclaimer a {
@@ -7745,11 +7745,11 @@ p.has-drop-cap::first-letter {
 }
 .newsletter__disclaimer {
   font-size: 0.72rem;
-  color: rgba(253,252,250,0.4);
+  color: var(--soft-inverse);
   line-height: 1.6;
 }
 .newsletter__disclaimer a {
-  color: rgba(253,252,250,0.5);
+  color: var(--soft-inverse);
   text-decoration: underline;
 }
 

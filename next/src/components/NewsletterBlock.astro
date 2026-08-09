@@ -101,10 +101,6 @@ const showPreview = !hidePreview && resolvedHeadline && resolvedPicks.length > 0
   <div class="v2-newsletter__container">
     <div class={`v2-newsletter__frame${showPreview ? ' v2-newsletter__frame--has-preview' : ''}`}>
       <div class="v2-newsletter__copy">
-        <div
-          class="v2-newsletter__eyebrow"
-          {...editableText({ entityType: 'page', entitySlug: '_global', fieldPath: 'newsletter.eyebrow', label: 'Newsletter eyebrow' })}
-        >Curated by our editors.</div>
         <h2
           class="v2-newsletter__title"
           id="newsletter-title"
@@ -314,14 +310,6 @@ const showPreview = !hidePreview && resolvedHeadline && resolvedPicks.length > 0
     }
   }
   .v2-newsletter__copy { max-width: 64ch; }
-  .v2-newsletter__eyebrow {
-    font-size: 0.7rem;
-    letter-spacing: 0.3em;
-    font-weight: 600;
-    text-transform: uppercase;
-    color: var(--gold, #56b6a0);
-    margin-bottom: 1.2rem;
-  }
   .v2-newsletter__title {
     font-family: var(--serif, 'Newsreader', 'Times New Roman', serif);
     font-size: clamp(2.4rem, 5.5vw, 4.2rem);
@@ -351,7 +339,7 @@ const showPreview = !hidePreview && resolvedHeadline && resolvedPicks.length > 0
     font-style: normal;
     font-size: 0.92rem;
     line-height: 1.5;
-    color: rgba(250,247,240,0.5);
+    color: rgba(250,247,240,0.66);
     max-width: 48ch;
     margin: 0 0 2rem;
   }
@@ -384,14 +372,16 @@ const showPreview = !hidePreview && resolvedHeadline && resolvedPicks.length > 0
     font-weight: 700;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    background: var(--gold, #56b6a0);
-    color: var(--deep, #201B17);
+    /* Sand on the dark ground: the palette's one warm pop, 8.9:1 with
+       the deep-navy label (the old bronze-on-navy pairing was 4.3:1). */
+    background: var(--mint, #F5C177);
+    color: var(--bg-dark, #0B2E4A);
     border: 0;
     cursor: pointer;
     transition: background .25s ease;
     white-space: nowrap;
   }
-  .v2-newsletter__submit:hover { background: #67c9b2; }
+  .v2-newsletter__submit:hover { background: #EDB05F; }
   .v2-newsletter__submit:disabled { opacity: 0.6; cursor: default; }
   .v2-newsletter__status {
     margin-top: 0.85rem;
@@ -401,12 +391,12 @@ const showPreview = !hidePreview && resolvedHeadline && resolvedPicks.length > 0
     font-family: var(--serif, 'Newsreader', 'Times New Roman', serif);
     font-style: normal;
   }
-  .v2-newsletter__status--err { color: #a3e7d7; }
+  .v2-newsletter__status--err { color: var(--error-text-inverse, #FF9A8F); }
   .v2-newsletter__status--ok  { color: var(--gold, #56b6a0); }
   .v2-newsletter__meta {
     margin-top: 1.5rem;
     font-size: 0.78rem;
-    color: rgba(250,247,240,0.4);
+    color: rgba(250,247,240,0.66);
     display: flex;
     gap: 1.2rem;
     flex-wrap: wrap;

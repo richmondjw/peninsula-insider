@@ -1,3 +1,78 @@
+## 2026-08-09 — Claude local agent — /explore/walks/ redesign + walks IA consolidation
+
+### Summary
+Full design lift on the walks hub, driven by an Impeccable dual-agent critique
+(scored 19/36; snapshot in `.impeccable/critique/`). The ranked editorial list
+and the duplicate "All walking tracks" card grid were merged into one designed
+surface: each ranked entry is now a photo card (rank numeral, locality, distance/
+time/effort chips, verdict, Best for, start point, Save/Share), grouped under
+tier headings with a jump index under the intro. FAQ is now rendered visibly
+(details/summary) from the same array that feeds the JSON-LD, closing a
+rich-results compliance gap (schema previously had no visible counterpart).
+
+### Data integrity (the critique's P0)
+- Deleted `mornington-peninsula-walk.json` — a second Two Bays entry ("The Two
+  Bays Walking Track", 180 min) that contradicted `two-bays-walking-track.json`
+  (600 min) card-to-card. Its URL already redirects via
+  `explore/mornington-peninsula-walk.astro`.
+- `coastal-walk-cape-schanck.json`: editorNote rewritten — dropped
+  tourism-register copy ("spectacular", "most impressive", "hidden coves"),
+  reconciled the 26 km full-route vs 13 km ranked-section distances.
+- Fixed the collection-wide "  -  " doubled-space artifact (all experiences).
+- Descriptive alt text on the six walk entries that had "Name - Peninsula
+  Insider" placeholders.
+
+### IA consolidation
+- `/explore/walks/` is the single walks hub. `/explore/best-walks/` (identical
+  title tag) and `/walks/` are now consolidating redirects (`Redirect`
+  component, canonical → /explore/walks/). Internal links updated in
+  site-index, weddings, corporate-events, easy-walks, explore index.
+- H1 aligned with the title tag ("The best walks on the Mornington Peninsula").
+
+### Accessibility / design-system fixes (site-wide)
+- Footer newsletter form used the light variant on the navy footer — disclaimer
+  measured 1.9:1. Switched to dark variant; dark disclaimer colors lifted to
+  `--soft-inverse` (7.38:1). Same for the duplicate/insider-stripe blocks.
+- NewsletterBlock: removed the "Curated by our editors." kicker (banned pattern,
+  4.3:1); submit button bronze→sand (`--mint`) with navy label (4.3:1 → 8.9:1);
+  error status now uses `--error-text-inverse`; muted metadata lifted to ≥0.66
+  alpha.
+- Label floor: `.label`, `.experience-card__meta`, `.experience-card__tag`,
+  `.venues__link` lifted from 10.4px/9.6px to the token floor `--fs-100` (12px).
+- ExperienceCard/detail/V2 detail durations humanised ("600 min" → "10 h").
+- ExperienceCard images now carry real alt text (was `alt=""` on all cards).
+- v6-tokens.css header comment corrected: palette is Harbour (2026-07-25);
+  header still said Evergreen Coast. Wordmark weight (Sora 700) verified —
+  PRODUCT.md was accurate; no drift.
+
+### Files changed
+- next/src/pages/explore/walks.astro (rebuilt)
+- next/src/pages/explore/best-walks.astro, next/src/pages/walks/index.astro (→ redirects)
+- next/src/pages/explore/[slug].astro, next/src/pages/explore/index.astro
+- next/src/pages/site-index.astro, weddings/index.astro, corporate-events/index.astro,
+  walks/easy-walks-mornington-peninsula.astro
+- next/src/components/ExperienceCard.astro, NewsletterBlock.astro,
+  SubscribeForm usage in v5/chrome/V5Footer.astro, v2/V2EscapeDetail.astro,
+  v2/V2PlaceDetail.astro
+- next/src/styles/global.css, v6-tokens.css
+- next/src/content/experiences/: mornington-peninsula-walk.json (deleted),
+  coastal-walk-cape-schanck.json + walk alt/spacing fixes across the collection
+
+### Why it matters
+The walks hub is a top SERP-snippet candidate; the page previously contradicted
+itself on distances within one scroll (brand risk for "locally verified"),
+split walks equity across four URLs, and carried WCAG failures in the site-wide
+newsletter/footer chrome.
+
+### Follow-up
+- Responsive `srcset` generation for hero images (source files up to 4032px
+  ship at ~380px display width; `sizes` + dimensions added, but no smaller
+  renditions exist yet).
+- The per-card Supabase `cms_image_slots` N+1 (fired twice per page view) is a
+  client-runtime issue in the inline-edit layer, untouched here.
+- Apply the same merged-ranked-surface pattern to the other best-of hubs
+  (eat/best-restaurants, wine/best-cellar-doors, stay/best-accommodation).
+
 ## 2026-07-06 — Human out of the loop: autonomous CTR execution
 
 ### What changed
