@@ -3,13 +3,13 @@
   "@type": "ItemList",
   "name": "What's on — Mornington Peninsula (upcoming)",
   "description": "Machine-readable feed of upcoming Mornington Peninsula events for AI assistants and agents. Forward-dated; regenerated on each build. See https://peninsulainsider.com.au/llms.txt for the full site map.",
-  "generated": "2026-08-09",
+  "generated": "2026-08-10",
   "site": "https://peninsulainsider.com.au",
   "windowDays": 90,
   "thisWeekend": {
-    "start": "2026-08-08",
-    "end": "2026-08-09",
-    "label": "8 to 9 August",
+    "start": "2026-08-15",
+    "end": "2026-08-16",
+    "label": "15 to 16 August",
     "count": 24
   },
   "count": 83,
@@ -974,7 +974,7 @@
       "venue": null,
       "freePaid": "Paid",
       "summary": "Stonier's annual winter party. Food cooked over coals, new release Stonier wines, fires lit, live music, masterclasses and tours through the day. Sells out fast.",
-      "thisWeekend": true
+      "thisWeekend": false
     },
     {
       "title": "Red Hill Brewery Secret Stash Weekend",
@@ -987,7 +987,7 @@
       "venue": null,
       "freePaid": "Paid",
       "summary": "Head Brewer David Golding pulls cellar-aged and rare beers (Imperial Stout, Pancho Mole, Christmas Ale, Temptation, Mulled Mead) for guided vertical tastings. Club members get first dibs.",
-      "thisWeekend": false
+      "thisWeekend": true
     },
     {
       "title": "Hill & Ridge Community Market, September 2026 (Restart)",
