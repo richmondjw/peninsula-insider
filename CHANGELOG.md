@@ -1,3 +1,39 @@
+## 2026-08-10 — Claude local agent — /explore/spas-and-wellness/ redesign
+
+### Summary
+Third page in the design-lift series (James-approved plan), same family as the
+walks v2 pattern, tuned to the spa subject: cover hero (rose treatment room,
+harbour scrim, reversed type), "The short version" navy verdict panel with the
+three calls + 4-spa index (booking-lead chips instead of walk times), four
+generous ranked venue cards (fog + locality tag on photography, harbour rank
+numerals, spa-type and booking-lead chips), a "Bathing or treatments?" two-way
+decision panel linking the hot-springs guide, "Building a spa day" as three
+itinerary cards (morning/lunch/afternoon sequencing), FAQ accordion sharing one
+array with its JSON-LD, cream notes band before the dark newsletter close.
+
+### Copy
+- "TL;DR" removed (house pattern now: "The short version").
+- Robotic SEO opener rewritten in house voice.
+- "Price point: Premium" cut (brushed the no-prices rule, inconsistent);
+  replaced with the honest booking-lead signal ("Book 2 to 3 weeks out" /
+  "Easy to book") across all four entries.
+
+### Data
+- Fixed drifted venue hero images whose alts described different photos:
+  endota-spa-mornington (town shot → spa-wellness-stones-01), one-spa-racv-
+  cape-schanck (boardwalk shot → spa-coastal-pool-01).
+
+### Files changed
+- next/src/pages/explore/spas-and-wellness.astro (rebuilt)
+- next/src/content/venues/endota-spa-mornington.json,
+  one-spa-racv-cape-schanck.json (heroImage src corrections)
+
+### Note for the content team
+The pricing lint currently fails against two UNCOMMITTED files from another
+agent session (dollar figures in content/articles/peninsula-hot-springs-vs-alba.mdx
+and an events draft verification note). Main is clean; whoever owns those edits
+must strip the figures before committing or their build will red.
+
 ## 2026-08-09 (later) — Claude local agent — walks v2 beauty pass + journal lead cover
 
 ### Summary
