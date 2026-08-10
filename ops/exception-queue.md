@@ -42,6 +42,16 @@ Resolution rule: when fixed, **move** the entry to the Resolved section, prepend
 
 ## Active
 
+### EXC-2026-08-10-015 — Tuesday quick-note post-publish gate: sitemap + meta-description checks failed
+- **Severity:** P2
+- **Source:** post-publish-verify
+- **Surface:** `https://peninsulainsider.com.au/quick-note/2026-08-11-{weather,editor-note}-tuesday/`
+- **Detail:** Ran after the `Build and Deploy` workflow completed (not a deploy-timing race like prior entries). HTTP, canonical, title, OG, stylesheet and target-copy checks all passed. Two findings: (1) `sitemap: not in sitemap.xml` for both URLs — by design, `next/src/pages/sitemap.xml.ts` only lists `/quick-note/` (the index), not individual daily entries, and quick-note frontmatter has no `sitemapExclude` field, so the gate's item 10 fails literally even though the omission looks intentional for ephemeral daily content; (2) `meta-description: 7 chars` on the editor-note URL on two consecutive script runs, which did not reproduce on a direct `curl` fetch of the same URL (description tag present, single instance, 91 chars, correct content) — looks like a transient edge-cache or script-timing artifact rather than a real content defect. Live notification is blocked per gate policy pending review.
+- **First seen:** 2026-08-10
+- **Owner:** PI publisher + PI-quick-note-desk (decide: add `sitemapExclude: true` to the quick-note content schema/frontmatter, or extend the sitemap generator to include current/unexpired quick notes)
+- **Target resolution:** next quick-note schema or sitemap-generator update
+- **Linked artifact:** `ops/reports/verify/2026-08-10-quick-note.md`
+
 ### EXC-2026-08-09-014 — Monday quick-note deployment not externally resolvable
 - **Severity:** P1
 - **Source:** post-publish-verify

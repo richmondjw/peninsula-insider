@@ -3,7 +3,7 @@
 **Date:** Monday, 10 August 2026 (UTC) / Tuesday, 11 August 2026 (AEST)
 **Job:** `pi-daily-quick-note-qa-publish`
 **Agent:** Remy
-**Status:** PUBLISHED — awaiting external deployment verification
+**Status:** PUBLISHED — external deployment verification failed; live notification blocked
 
 ## Published content
 
@@ -21,4 +21,9 @@
 
 ## Verification
 
-External post-publish verification must run after the GitHub Pages deployment resolves. Its result will be recorded in the publication ledger and verification report; no live notification is sent until it passes.
+External post-publish verification ran after the `Build and Deploy` workflow completed (confirmed via `gh run list`), so this was not the usual deploy-timing race. HTTP, canonical, title, OG, stylesheet and target-copy checks all passed on both URLs. Two findings caused a FAIL:
+
+1. **Sitemap** — neither URL is in `sitemap.xml`. By design, `next/src/pages/sitemap.xml.ts` only lists `/quick-note/` (the index page), not individual daily entries, and the quick-note content schema has no `sitemapExclude` field to make that exclusion explicit. This looks like an intentional omission for ephemeral daily content that the gate isn't currently told about.
+2. **Meta description** — the editor-note URL read as 7 characters on two consecutive script runs, but a direct `curl` fetch of the same URL shows a single, correct 91-character description tag. Likely a transient edge-cache or script-timing artifact, not a real content defect.
+
+`EXC-2026-08-10-015` is open for both findings. No live notification was sent; rerun/owner review needed before the item can be closed.
