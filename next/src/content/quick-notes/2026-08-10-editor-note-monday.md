@@ -13,7 +13,7 @@ sources:
     url: "https://api.open-meteo.com/v1/forecast?latitude=-38.40&longitude=145.00&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,precipitation_probability_max,wind_speed_10m_max&timezone=Australia%2FMelbourne&forecast_days=3"
     note: "Open-Meteo Main Ridge retrieval 2026-08-09T20:35Z. Mon 10 Aug: 100% rain probability, 18.0mm, 8.9-13.9°C. Tue 11 Aug: 29%, 1.1mm, 9.2-13.0°C."
     checkedAt: 2026-08-10T06:35:00+10:00
-status: published
+status: archived
 ---
 There is a pleasing kind of decisiveness available on a wet day: choose one place that is good to be in, and stop asking the weather to cooperate with everything else.
 
