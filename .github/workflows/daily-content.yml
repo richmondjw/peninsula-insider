@@ -1,6 +1,10 @@
 name: Daily Content Engine — Peninsula Insider
 
 on:
+  schedule:
+    # Canonical daily Insider Picks publisher: 06:00 AEST (20:00 UTC).
+    # This is the sole scheduled publisher; freshness verification runs separately.
+    - cron: '0 20 * * *'
   workflow_dispatch:
     inputs:
       dry_run:
