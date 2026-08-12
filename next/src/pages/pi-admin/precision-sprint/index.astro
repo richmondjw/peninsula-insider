@@ -1,0 +1,206 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+/**
+ * Living tracker for the Precision Sprint. Keep this page current as each
+ * pass is completed. The public URL is intentionally no-index and excluded
+ * from site search: it is a transparent project record, not editorial content.
+ */
+const project = {
+  name: 'Peninsula Insider Precision Sprint',
+  objective: 'Make Peninsula Insider feel effortlessly precise by removing brand contradictions, protecting factual freshness and strengthening the planning loop.',
+  due: '26 August 2026',
+  trackerUpdated: '12 August 2026',
+  status: 'In progress',
+  asanaUrl: 'https://app.asana.com/1/233540066981051/project/1216946484367930/task/1217412580304611',
+};
+
+const principles = [
+  'Precision over quantity. No new homepage redesign or net-new feature work during this sprint.',
+  'Every public factual claim needs an owner, source and review date where the claim can change.',
+  'Editorial judgement stays independent. Commercial placement must be labelled and cannot rewrite editorial recommendations.',
+  'Fix the source model and validation rules, not only the visible page.',
+];
+
+const passes = [
+  {
+    number: '01',
+    title: 'Newsletter identity and seasonal freshness',
+    status: 'Not started',
+    priority: 'P0',
+    outcome: 'One email identity, one cadence and no prominently stale seasonal calls.',
+    scope: [
+      'Set the public email brand to The Insider Note, with the promise “Your Peninsula week, sorted.” and the cadence “Every Wednesday.”',
+      'Keep Peninsula This Weekend as an email section and Insider Picks as the web editorial series.',
+      'Retire Dispatch as a public brand while preserving legacy redirects and subscriber links.',
+      'Sweep footer, modal, signup forms, account opt-in, dispatch/newsletter routes, SEO titles and automated email copy.',
+      'Replace the Journal autumn introduction, expired MPRG July school-holiday recommendation, autumn editor’s pick and any other seasonal calls that no longer hold.',
+      'Add expiry dates and an evergreen fallback for seasonal mega-menu recommendations.',
+    ],
+    proof: 'Production sweep shows one newsletter name and Wednesday cadence. Seasonal placements resolve to current or evergreen content.',
+  },
+  {
+    number: '02',
+    title: 'What’s On accuracy and freshness safeguards',
+    status: 'Not started',
+    priority: 'P0',
+    outcome: 'The dynamic events product is reliable enough to earn repeat use.',
+    scope: [
+      'Clarify the Sunday empty state so it does not contradict multi-day experiences: “No Sunday-only event made our edit.”',
+      'Audit all events marked Free against an operator source, beginning with Flinders Truffles and other paid seasonal experiences.',
+      'Add a source URL and last-verified date to price and operating claims where applicable.',
+      'Alert on expired events, free claims without verification, recurring events without a future occurrence, out-of-season events, duplicates and events shown on dates when they do not operate.',
+    ],
+    proof: 'Production date checks pass, sample pricing is source-verified and alerts identify failing records before they reach readers.',
+  },
+  {
+    number: '03',
+    title: 'Category and location data integrity',
+    status: 'Not started',
+    priority: 'P1',
+    outcome: 'Every collection behaves like a clean editorial catalogue, not a mixed database.',
+    scope: [
+      'Remove Endota Mornington from Stay and apply the rule that Stay inventory must offer an overnight stay.',
+      'Confirm legitimate overnight inventory, including Alba accommodation, against the same rule.',
+      'Split locality from regional grouping in the source model: Town is the actual locality, Region is the broader Peninsula area.',
+      'QA known examples including Somers General and Mount Eliza Farmers Market, then sweep remaining live records.',
+      'Add owner, source and review-date fields for changeable venue facts and revisit older reviewed or verified records.',
+    ],
+    proof: 'Stay cards meet the overnight eligibility rule and sampled venues display their true town and region consistently across the site.',
+  },
+  {
+    number: '04',
+    title: 'Reader-first filters and trust proof',
+    status: 'Not started',
+    priority: 'P1',
+    outcome: 'Section journeys use the reader’s mental model while site-wide discovery stays in search.',
+    scope: [
+      'Eat & Drink filters: food type, town, occasion, price, party and booking style.',
+      'Stay filters: town, accommodation type, price, trip type and amenities.',
+      'Explore filters: activity, town, weather, party, time required and free or paid.',
+      'Keep cross-site taxonomy available to global search, not every section filter.',
+      'Add a compact trust proof near high-intent editorial sections: “Independent editorial. No paid rankings. Every pick earns its place.”',
+      'Audit “visited”, “firsthand” and “verified” claims, including the Wine navigation, so public language matches the real editorial workflow.',
+    ],
+    proof: 'Section filter sets are contextual in production and public trust claims are supported by the editorial record.',
+  },
+  {
+    number: '05',
+    title: 'Plans to My Trip activation loop',
+    status: 'Not started',
+    priority: 'P1',
+    outcome: 'Plans become the defensible planning product, not just another content section.',
+    scope: [
+      'Replace the old /explore/plans/ moved page with a permanent server-side redirect to /plans/, preserving query parameters.',
+      'Audit legacy indexed pages and navigation language such as Escape, Newsletter and weekly dispatch.',
+      'Map and test the core loop: discover, choose a plan, make it a trip, customise, save, email reminder, return.',
+      'Prioritise strong existing intents first: This weekend, Food and wine, With kids and Surprise me.',
+      'Defer new homepage sections and feature expansion until this loop is coherent and measurable.',
+    ],
+    proof: 'The old route redirects permanently, priority plan routes have working next steps and the save-to-return journey can be measured end to end.',
+  },
+];
+---
+
+<BaseLayout
+  title="Precision Sprint tracker · Peninsula Insider"
+  description="Internal project tracker for the Peninsula Insider Precision Sprint."
+  section="home"
+  noindex={true}
+  searchExclude={true}
+>
+  <main class="tracker">
+    <div class="container">
+      <header class="tracker__hero">
+        <p class="tracker__eyebrow">Internal project tracker</p>
+        <h1>{project.name}</h1>
+        <p class="tracker__lede">{project.objective}</p>
+        <dl class="tracker__facts">
+          <div><dt>Status</dt><dd><span class="tracker__status">{project.status}</span></dd></div>
+          <div><dt>Due</dt><dd>{project.due}</dd></div>
+          <div><dt>Last updated</dt><dd>{project.trackerUpdated}</dd></div>
+          <div><dt>Work of record</dt><dd><a href={project.asanaUrl}>Asana project card</a></dd></div>
+        </dl>
+      </header>
+
+      <section class="tracker__section" aria-labelledby="operating-principles">
+        <p class="tracker__label">Operating rule</p>
+        <h2 id="operating-principles">Protect trust before adding more surface area.</h2>
+        <ul class="tracker__principles">
+          {principles.map((principle) => <li>{principle}</li>)}
+        </ul>
+      </section>
+
+      <section class="tracker__section" aria-labelledby="passes-heading">
+        <div class="tracker__section-heading">
+          <div>
+            <p class="tracker__label">Five passes</p>
+            <h2 id="passes-heading">The work in order.</h2>
+          </div>
+          <p>Each pass is only complete when its production verification gate is met.</p>
+        </div>
+        <ol class="tracker__passes">
+          {passes.map((pass) => (
+            <li class="tracker__pass">
+              <div class="tracker__pass-number">{pass.number}</div>
+              <div class="tracker__pass-content">
+                <div class="tracker__pass-topline">
+                  <p class="tracker__priority">{pass.priority}</p>
+                  <p class="tracker__pass-status">{pass.status}</p>
+                </div>
+                <h3>{pass.title}</h3>
+                <p class="tracker__outcome">{pass.outcome}</p>
+                <h4>Scope</h4>
+                <ul>
+                  {pass.scope.map((item) => <li>{item}</li>)}
+                </ul>
+                <div class="tracker__proof"><strong>Verification gate:</strong> {pass.proof}</div>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section class="tracker__section tracker__close" aria-labelledby="not-in-scope">
+        <p class="tracker__label">Explicitly deferred</p>
+        <h2 id="not-in-scope">No homepage redesign. No feature pile-on.</h2>
+        <p>The sprint succeeds when the existing system is current, coherent and precise. Visual redesign and net-new feature work wait until the five verification gates are met.</p>
+      </section>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .tracker { padding: clamp(2.5rem, 5vw, 5rem) 0 6rem; background: var(--surface, #f7f5ef); color: var(--text, #172a36); }
+  .tracker__hero { max-width: 70rem; padding-bottom: 2.5rem; border-bottom: 1px solid color-mix(in srgb, var(--text, #172a36) 18%, transparent); }
+  .tracker__eyebrow, .tracker__label, .tracker__priority { margin: 0 0 .75rem; color: var(--soft, #58707b); font: 700 .72rem/1.2 var(--font-ui, sans-serif); letter-spacing: .12em; text-transform: uppercase; }
+  h1, h2, h3 { font-family: var(--font-display, Georgia, serif); color: var(--text, #172a36); }
+  .tracker h1 { max-width: 16ch; margin: 0; font-size: clamp(2.6rem, 5.6vw, 5.4rem); line-height: .98; }
+  .tracker__lede { max-width: 48rem; margin: 1.25rem 0 0; font: 400 clamp(1.1rem, 2vw, 1.4rem)/1.5 var(--font-ui, sans-serif); color: var(--soft, #58707b); }
+  .tracker__facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; margin: 2rem 0 0; }
+  .tracker__facts div { padding: 1rem 0 0; border-top: 2px solid var(--text, #172a36); }
+  .tracker__facts dt { margin-bottom: .35rem; color: var(--soft, #58707b); font: 700 .72rem/1.2 var(--font-ui, sans-serif); letter-spacing: .08em; text-transform: uppercase; }
+  .tracker__facts dd { margin: 0; font: 600 .96rem/1.4 var(--font-ui, sans-serif); }
+  .tracker__facts a { color: inherit; text-underline-offset: .2em; }
+  .tracker__status, .tracker__pass-status { display: inline-block; padding: .27rem .55rem; border-radius: 999px; background: #dce8df; color: #244a36; font: 700 .75rem/1 var(--font-ui, sans-serif); }
+  .tracker__section { max-width: 70rem; padding: 3.5rem 0; border-bottom: 1px solid color-mix(in srgb, var(--text, #172a36) 18%, transparent); }
+  .tracker h2 { max-width: 28ch; margin: 0; font-size: clamp(1.8rem, 3vw, 2.7rem); line-height: 1.05; }
+  .tracker__principles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem 2.25rem; margin: 1.5rem 0 0; padding: 0; list-style: none; }
+  .tracker__principles li { padding-left: 1.1rem; font: 400 1rem/1.5 var(--font-ui, sans-serif); }
+  .tracker__principles li::before { content: '•'; position: absolute; margin-left: -1.1rem; color: #a94b3a; }
+  .tracker__section-heading { display: flex; justify-content: space-between; gap: 2rem; align-items: end; }
+  .tracker__section-heading > p { max-width: 26rem; margin: 0; color: var(--soft, #58707b); font: 400 .95rem/1.5 var(--font-ui, sans-serif); }
+  .tracker__passes { margin: 2rem 0 0; padding: 0; list-style: none; }
+  .tracker__pass { display: grid; grid-template-columns: 5rem minmax(0, 1fr); gap: 1.25rem; padding: 2rem 0; border-top: 1px solid color-mix(in srgb, var(--text, #172a36) 18%, transparent); }
+  .tracker__pass-number { color: #a94b3a; font: 700 1rem/1 var(--font-ui, sans-serif); letter-spacing: .08em; }
+  .tracker__pass-topline { display: flex; align-items: center; gap: .65rem; }
+  .tracker__pass-topline p { margin: 0; }
+  .tracker__pass h3 { margin: .55rem 0 0; font-size: clamp(1.45rem, 2vw, 2rem); line-height: 1.1; }
+  .tracker__outcome { max-width: 48rem; margin: .6rem 0 0; color: var(--soft, #58707b); font: 400 1.05rem/1.5 var(--font-ui, sans-serif); }
+  .tracker__pass h4 { margin: 1.4rem 0 .65rem; font: 700 .72rem/1.2 var(--font-ui, sans-serif); letter-spacing: .1em; text-transform: uppercase; }
+  .tracker__pass ul { max-width: 58rem; margin: 0; padding-left: 1.15rem; }
+  .tracker__pass li { margin: .35rem 0; font: 400 .98rem/1.5 var(--font-ui, sans-serif); }
+  .tracker__proof { max-width: 58rem; margin-top: 1.25rem; padding: .9rem 1rem; border-left: 3px solid #a94b3a; background: color-mix(in srgb, #a94b3a 8%, transparent); font: 400 .94rem/1.5 var(--font-ui, sans-serif); }
+  .tracker__close p:last-child { max-width: 52rem; margin: 1rem 0 0; font: 400 1.05rem/1.55 var(--font-ui, sans-serif); color: var(--soft, #58707b); }
+  @media (max-width: 720px) { .tracker__facts, .tracker__principles { grid-template-columns: 1fr; } .tracker__section-heading { display: block; } .tracker__section-heading > p { margin-top: 1rem; } .tracker__pass { grid-template-columns: 2.8rem minmax(0, 1fr); gap: .75rem; } }
+</style>
