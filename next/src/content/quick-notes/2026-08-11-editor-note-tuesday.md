@@ -13,7 +13,7 @@ sources:
     url: "https://api.open-meteo.com/v1/forecast?latitude=-38.40&longitude=145.00&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,precipitation_probability_max,wind_speed_10m_max&timezone=Australia%2FMelbourne&forecast_days=3"
     note: "Open-Meteo Main Ridge retrieval 2026-08-10T20:35Z. Tue 11 Aug: 37% rain probability, 0.90mm, 9.4-13.1°C. Wed 12 Aug: 87%, 4.40mm, 9.5-13.2°C."
     checkedAt: 2026-08-11T06:35:00+10:00
-status: published
+status: archived
 ---
 After a wet Monday, Tuesday gives a break worth using. Rain probability drops to 37 percent, with less than a millimetre forecast and a top of 13.1 degrees (mild enough to make the outdoor plan comfortable again).
 
