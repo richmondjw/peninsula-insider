@@ -55,7 +55,7 @@ faq:
     answer: "Foxeys Hangout runs a Vegetable Feast lunch at Morning Sun Vineyard, ticketed, with matched wines included (confirm the date and current price via foxeys-hangout.com.au). On Sunday, the Mornington Racecourse Monthly Market (free, walk-in, 9am–2pm) is the unhurried move, followed by Stonier 2025 Pinot Noir at the Merricks cellar door, the post-long-weekend tasting room with room to breathe."
 ---
 
-_Peninsula This Weekend is our weekly dispatch: the plan we'd actually make for the weekend ahead, the booking worth locking in, and the bit of weekend thinking we'd happily do for you._
+_Peninsula This Weekend is a recurring section inside The Insider Note: the plan we'd actually make for the weekend ahead, the booking worth locking in, and the bit of weekend thinking we'd happily do for you._
 
 King's Birthday has passed. The Winter Wine Festival marquees came down, the long-weekend crowd has gone home, and the Peninsula has exhaled. The same truffle season that launched last weekend is still running at Red Hill Truffles. The cellar doors that were three-deep on Saturday are open, staffed, and unhurried. This is mid-June at its best: the quietest premium-accommodation window of winter, truffle hunts with realistic advance booking, and a Sunday market that most visitors never find.
 

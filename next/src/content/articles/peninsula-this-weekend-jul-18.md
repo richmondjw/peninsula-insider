@@ -69,7 +69,7 @@ faq:
     answer: "Mornington Peninsula Regional Gallery has opened its winter program, with Helen Britton and Natalia Milosz-Piekarska among the new exhibitions. Free entry, no booking required, and central Mornington means good coffee is close. A grey morning here is a reasonable plan in its own right."
 ---
 
-*Peninsula This Weekend is our weekly dispatch: the plan we'd actually make for the weekend ahead, the booking worth locking in, and the bit of weekend thinking we'd happily do for you.*
+*Peninsula This Weekend is a recurring section inside The Insider Note: the plan we'd actually make for the weekend ahead, the booking worth locking in, and the bit of weekend thinking we'd happily do for you.*
 
 July sits in the quieter stretch of Peninsula winter, and that is the point. The reward for coming down on a cold weekend is the version of the Peninsula that runs at a different pace. There is less traffic, more room at the table, and the seasonal things that only happen now.
 

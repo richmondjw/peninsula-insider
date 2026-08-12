@@ -30,7 +30,7 @@ faq:
     answer: "Book one Mother's Day anchor and let the rest of the day taper around it. The Mother's Day Classic at Moonah Links is the active morning version. Flinders Hotel, Pier 10 and Jetty Road Brewery are the cleaner lunch-led versions. A settled base south or north works better than a three-stop loop."
 ---
 
-_Peninsula This Weekend is our weekly dispatch: the plan we'd actually make for the weekend ahead, the booking worth locking in, and the bit of weekend thinking we'd happily do for you._
+_Peninsula This Weekend is a recurring section inside The Insider Note: the plan we'd actually make for the weekend ahead, the booking worth locking in, and the bit of weekend thinking we'd happily do for you._
 
 The second weekend of May has a clear organising principle.
 

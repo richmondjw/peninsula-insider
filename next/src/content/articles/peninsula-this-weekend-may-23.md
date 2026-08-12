@@ -57,7 +57,7 @@ faq:
     answer: "The Rocky Road Festival's final structured Sunday tasting sessions run at Flinders Chocolaterie - sessions at 11am, 12pm and 1:30pm, ticketed, bookings required. If the gallery is the plan, Mornington Peninsula Regional Gallery has two exhibitions closing 31 May: New Wave 26 and Michael Vale. Free entry, no booking."
 ---
 
-_Peninsula This Weekend is our weekly dispatch: the plan we'd actually make for the weekend ahead, the booking worth locking in, and the bit of weekend thinking we'd happily do for you._
+_Peninsula This Weekend is a recurring section inside The Insider Note: the plan we'd actually make for the weekend ahead, the booking worth locking in, and the bit of weekend thinking we'd happily do for you._
 
 The Saturday market circuit is dark this weekend. Red Hill, Boneo, Emu Plains: all closed. Truffle season opens next Saturday at Red Hill Truffles. In between, the Peninsula settles into a different register - not thin, but unhurried, with a particular quality of light and pace that the busier weekends rarely allow.
 

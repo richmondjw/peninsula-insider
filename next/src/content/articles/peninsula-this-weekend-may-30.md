@@ -56,7 +56,7 @@ faq:
     answer: "The Enchanted Market at The Briars Wildlife Reserve in Mount Martha runs from 10am - free, no booking. The reserve loop adds an hour of native bush walking alongside kangaroos and emus. Three exhibitions also close Sunday 31 May at MPRG and Lander-Se in Mornington: New Wave 26, Michael Vale, and the TRACE Duo Exhibition. All free."
 ---
 
-_Peninsula This Weekend is our weekly dispatch: the plan we'd actually make for the weekend ahead, the booking worth locking in, and the bit of weekend thinking we'd happily do for you._
+_Peninsula This Weekend is a recurring section inside The Insider Note: the plan we'd actually make for the weekend ahead, the booking worth locking in, and the bit of weekend thinking we'd happily do for you._
 
 The season turns on Saturday. Main Ridge runs its last Wild Mushroom Forage of the year at 11am. On the same plateau, within the same hour, Red Hill Truffles opens the first Périgord black truffle hunt of 2026. One chapter closes; another begins. The Peninsula has its own calendar, and this weekend is the pivot.
 

@@ -35,6 +35,9 @@ export interface V5Rail {
   verdict: string;
   href: string;
   cta?: string;
+  /** An optional build-time expiry. Expired seasonal pins resolve to fallback. */
+  expiresAt?: string;
+  fallback?: Omit<V5Rail, 'expiresAt' | 'fallback'>;
 }
 
 export interface V5Pillar {
@@ -52,7 +55,7 @@ export interface V5Pillar {
   rail: V5Rail;
 }
 
-export const v5Pillars: V5Pillar[] = [
+const configuredV5Pillars = [
 
   // 1. EAT & DRINK ----------------------------------------------------------
   {
@@ -105,7 +108,7 @@ export const v5Pillars: V5Pillar[] = [
     key: 'wine',
     label: 'Wine',
     hub: '/wine/',
-    intro: 'The cellar doors worth your afternoon, every one visited first.',
+    intro: 'The cellar doors we would actually send you to.',
     curated: [
       { key: 'best-cellar', label: 'Best cellar doors',         href: '/wine/best-cellar-doors/' },
       { key: 'cellar-door', label: 'Cellar doors',              href: '/wine/cellar-doors/' },
@@ -143,7 +146,7 @@ export const v5Pillars: V5Pillar[] = [
     rail: {
       eyebrow: "Editor's pick · Winter '26",
       title: 'Bushrangers Bay walk',
-      verdict: 'Two hours, almost nobody on it after lunch, and the wildflowers come out late April. Park at Cape Schanck, not Boneo.',
+      verdict: 'A properly wild coast walk with a steep descent and a real payoff. Check conditions before you go, then allow enough time for the climb back.',
       href: '/explore/bushrangers-bay-walk/',
       cta: 'Plan the walk',
     },
@@ -196,6 +199,14 @@ export const v5Pillars: V5Pillar[] = [
       verdict: 'Starts 1 July in Mornington, indoor, practical, and actually useful if the school-holiday weather turns. Book early.',
       href: '/whats-on/mornington-peninsula-regional-gallery-school-holiday-workshops/',
       cta: 'Plan your visit',
+      expiresAt: '2026-08-01',
+      fallback: {
+        eyebrow: "Editor's note",
+        title: 'The weekend edit',
+        verdict: 'Three calls, selected for the days ahead. Check dates before you make the drive.',
+        href: '/whats-on/',
+        cta: 'See what is on',
+      },
     },
   },
 
@@ -216,13 +227,35 @@ export const v5Pillars: V5Pillar[] = [
     ],
     rail: {
       eyebrow: "Editor's pick · Winter '26",
-      title: 'On the quiet authority of a good autumn',
-      verdict: 'The season the Peninsula stops performing. Vintage trucks finished, weekend crowds thinning, the producers finally with time.',
-      href: '/journal/',
-      cta: 'Read the cover',
+      title: 'Insider Picks, 12 August',
+      verdict: 'Three things worth making time for this week, chosen by the desk.',
+      href: '/journal/insider-picks-2026-08-12/',
+      cta: 'Read the picks',
+      expiresAt: '2026-08-19',
+      fallback: {
+        eyebrow: "Editor's note",
+        title: 'The Journal',
+        verdict: 'Guides and stories to help shape the next Peninsula day.',
+        href: '/journal/',
+        cta: 'Browse the Journal',
+      },
     },
   },
 ];
+
+/**
+ * Seasonal rails must fail closed. A stale recommendation is worse than an
+ * evergreen one, so an expired pin is replaced at build time with its neutral
+ * fallback rather than remaining visible until someone remembers to edit it.
+ */
+const today = new Date().toISOString().slice(0, 10);
+export const v5Pillars: V5Pillar[] = configuredV5Pillars.map((pillar) => {
+  const { rail } = pillar;
+  if (rail.expiresAt && rail.fallback && rail.expiresAt < today) {
+    return { ...pillar, rail: rail.fallback };
+  }
+  return pillar;
+});
 
 /**
  * Masthead utilities. Three choices, both breakpoints (NAV-05: one
@@ -268,7 +301,7 @@ export const v5DrawerItems: V5DrawerItem[] = [
 export const v5DrawerCta = {
   key: 'dispatch',
   label: 'The Insider Note',
-  dek: "The Sunday email. What's worth your weekend, chosen by PI.",
+  dek: 'Your Peninsula week, sorted. Every Wednesday.',
   ctaLabel: 'Join The Insider Note',
   href: '/dispatch/',
 };

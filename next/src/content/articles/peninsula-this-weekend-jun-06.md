@@ -56,7 +56,7 @@ faq:
     answer: "Stonier Pies & Pinot at Merricks runs Sunday 11am–5pm. Free entry, walk-in, fires lit, and the new-release 2025 Pinot Noir is available across the weekend. Vineyard tours and in-depth tastings run Sunday and Monday. Tall Poppy at Kelli Lundberg in Moorooduc, a Melbourne Design Week exhibition marking a first for the Peninsula, closes the same day. Free, no booking."
 ---
 
-_Peninsula This Weekend is our weekly dispatch: the plan we'd actually make for the weekend ahead, the booking worth locking in, and the bit of weekend thinking we'd happily do for you._
+_Peninsula This Weekend is a recurring section inside The Insider Note: the plan we'd actually make for the weekend ahead, the booking worth locking in, and the bit of weekend thinking we'd happily do for you._
 
 King's Birthday is the Peninsula's loudest winter weekend. Forty-plus cellar doors are open across both days. The Winter Wine Festival fills the Showgrounds on Saturday. The twelfth Mornington Winter Music Festival is running across twenty Mornington venues. Truffle season is on at Red Hill and Flinders. Stonier has its King's Birthday lawn open at Merricks. Melbourne comes down.
 

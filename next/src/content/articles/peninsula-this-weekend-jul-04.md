@@ -61,7 +61,7 @@ faq:
     answer: "Red Hill Truffles remains the strongest winter booking if you want a distinctly seasonal Peninsula day. For a quieter alternative, Flinders Truffles is the softer, less polished option and often the better fit if you want the winter farm atmosphere without the busier ridge-lunch format."
 ---
 
-*Peninsula This Weekend is our weekly dispatch: the plan we'd actually make for the weekend ahead, the booking worth locking in, and the bit of weekend thinking we'd happily do for you.*
+*Peninsula This Weekend is a recurring section inside The Insider Note: the plan we'd actually make for the weekend ahead, the booking worth locking in, and the bit of weekend thinking we'd happily do for you.*
 
 School holidays have started, but the right Peninsula weekend still comes from restraint rather than volume. You do not need three bookings and a route plan. You need one thing that feels seasonal, one Sunday move with enough shape already built in, and one backup if the weather goes sideways.
 

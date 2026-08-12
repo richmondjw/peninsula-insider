@@ -30,7 +30,7 @@ faq:
     answer: "Yes. The first Saturday of May is one of the better Red Hill Market days of the year - the long-weekend crowd has cleared, the produce stalls are still at full autumn strength, and the hinterland air has the first proper edge of winter in it. Go before 10am. Stay south afterwards."
 ---
 
-_Peninsula This Weekend is our weekly dispatch: the plan we'd actually make for the weekend ahead, the booking worth locking in, and the bit of weekend thinking we'd happily do for you._
+_Peninsula This Weekend is a recurring section inside The Insider Note: the plan we'd actually make for the weekend ahead, the booking worth locking in, and the bit of weekend thinking we'd happily do for you._
 
 The first weekend of May is a good one to plan properly.
 

@@ -59,7 +59,7 @@ faq:
     answer: "Shoreham Community Market runs Sunday morning - one of the final Sundays of the season before it closes for winter. Quiet, local, and sits naturally within a southern Peninsula drive toward Merricks or Point Leo for lunch. If the weather breaks, Mornington Peninsula Regional Gallery has two good exhibitions running through May, free entry, no booking."
 ---
 
-_Peninsula This Weekend is our weekly dispatch: the plan we'd actually make for the weekend ahead, the booking worth locking in, and the bit of weekend thinking we'd happily do for you._
+_Peninsula This Weekend is a recurring section inside The Insider Note: the plan we'd actually make for the weekend ahead, the booking worth locking in, and the bit of weekend thinking we'd happily do for you._
 
 The big autumn weekends are behind us. ANZAC, Mother's Day, the long-weekend traffic. Mid-May on the Peninsula is quieter, more local, and better for it. The cellar doors are less crowded, the coastline feels softer, and the Red Hill plateau has that particular late-autumn light that only shows up when the tourist pressure drops.
 

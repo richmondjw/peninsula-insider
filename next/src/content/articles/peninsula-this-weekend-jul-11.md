@@ -61,7 +61,7 @@ faq:
     answer: "For a cultural indoor option, National Works on Paper at Mornington Peninsula Regional Gallery is free and runs through July. For something more active, Peninsula Hot Springs in Rye is the clearest call when the weather has already decided the day is a cold one."
 ---
 
-*Peninsula This Weekend is our weekly dispatch: the plan we'd actually make for the weekend ahead, the booking worth locking in, and the bit of weekend thinking we'd happily do for you.*
+*Peninsula This Weekend is a recurring section inside The Insider Note: the plan we'd actually make for the weekend ahead, the booking worth locking in, and the bit of weekend thinking we'd happily do for you.*
 
 Mid-July rain on the Peninsula concentrates things. This is not a weekend that rewards an itinerary. It rewards one deliberate choice: the booking or the plan that stops competing with the weather and uses it instead.
 

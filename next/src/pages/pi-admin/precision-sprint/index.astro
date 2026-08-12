@@ -10,7 +10,7 @@ const project = {
   name: 'Peninsula Insider Precision Sprint',
   objective: 'Make Peninsula Insider feel effortlessly precise by removing brand contradictions, protecting factual freshness and strengthening the planning loop.',
   due: '26 August 2026',
-  trackerUpdated: '12 August 2026',
+  trackerUpdated: '12 August 2026 · Pass 1 complete',
   status: 'In progress',
   asanaUrl: 'https://app.asana.com/1/233540066981051/project/1216946484367930/task/1217412580304611',
 };
@@ -26,7 +26,7 @@ const passes = [
   {
     number: '01',
     title: 'Newsletter identity and seasonal freshness',
-    status: 'Not started',
+    status: 'Complete',
     priority: 'P0',
     outcome: 'One email identity, one cadence and no prominently stale seasonal calls.',
     scope: [
@@ -38,6 +38,7 @@ const passes = [
       'Add expiry dates and an evergreen fallback for seasonal mega-menu recommendations.',
     ],
     proof: 'Production sweep shows one newsletter name and Wednesday cadence. Seasonal placements resolve to current or evergreen content.',
+    evidence: 'Public navigation, footer, signup surfaces, account opt-in and legacy newsletter routes now use The Insider Note and the Wednesday cadence. Journal seasonal copy is winter-led. Mega-menu seasonal pins now carry expiry dates and an evergreen fallback. Full production build, SEO architecture and filter-chip checks passed on 12 August 2026.',
   },
   {
     number: '02',
@@ -52,6 +53,7 @@ const passes = [
       'Alert on expired events, free claims without verification, recurring events without a future occurrence, out-of-season events, duplicates and events shown on dates when they do not operate.',
     ],
     proof: 'Production date checks pass, sample pricing is source-verified and alerts identify failing records before they reach readers.',
+    evidence: '',
   },
   {
     number: '03',
@@ -67,6 +69,7 @@ const passes = [
       'Add owner, source and review-date fields for changeable venue facts and revisit older reviewed or verified records.',
     ],
     proof: 'Stay cards meet the overnight eligibility rule and sampled venues display their true town and region consistently across the site.',
+    evidence: '',
   },
   {
     number: '04',
@@ -83,6 +86,7 @@ const passes = [
       'Audit “visited”, “firsthand” and “verified” claims, including the Wine navigation, so public language matches the real editorial workflow.',
     ],
     proof: 'Section filter sets are contextual in production and public trust claims are supported by the editorial record.',
+    evidence: '',
   },
   {
     number: '05',
@@ -98,6 +102,7 @@ const passes = [
       'Defer new homepage sections and feature expansion until this loop is coherent and measurable.',
     ],
     proof: 'The old route redirects permanently, priority plan routes have working next steps and the save-to-return journey can be measured end to end.',
+    evidence: '',
   },
 ];
 ---
@@ -155,6 +160,7 @@ const passes = [
                   {pass.scope.map((item) => <li>{item}</li>)}
                 </ul>
                 <div class="tracker__proof"><strong>Verification gate:</strong> {pass.proof}</div>
+                {pass.evidence && <p class="tracker__evidence"><strong>Current evidence:</strong> {pass.evidence}</p>}
               </div>
             </li>
           ))}
@@ -201,6 +207,7 @@ const passes = [
   .tracker__pass ul { max-width: 58rem; margin: 0; padding-left: 1.15rem; }
   .tracker__pass li { margin: .35rem 0; font: 400 .98rem/1.5 var(--font-ui, sans-serif); }
   .tracker__proof { max-width: 58rem; margin-top: 1.25rem; padding: .9rem 1rem; border-left: 3px solid #a94b3a; background: color-mix(in srgb, #a94b3a 8%, transparent); font: 400 .94rem/1.5 var(--font-ui, sans-serif); }
+  .tracker__evidence { max-width: 58rem; margin: .9rem 0 0; color: var(--soft, #58707b); font: 400 .94rem/1.5 var(--font-ui, sans-serif); }
   .tracker__close p:last-child { max-width: 52rem; margin: 1rem 0 0; font: 400 1.05rem/1.55 var(--font-ui, sans-serif); color: var(--soft, #58707b); }
   @media (max-width: 720px) { .tracker__facts, .tracker__principles { grid-template-columns: 1fr; } .tracker__section-heading { display: block; } .tracker__section-heading > p { margin-top: 1rem; } .tracker__pass { grid-template-columns: 2.8rem minmax(0, 1fr); gap: .75rem; } }
 </style>
