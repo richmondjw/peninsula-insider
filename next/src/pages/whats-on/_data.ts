@@ -21,6 +21,7 @@
 import { rotateDaily } from '../../lib/daily-rotation';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { routeSlug, eventCategoryLabel } from '../../lib/editorial';
+import { emptyDayMessage } from '../../lib/whatson-empty-state.mjs';
 
 export type EventEntry = CollectionEntry<'events'>;
 
@@ -325,6 +326,8 @@ export async function loadLiveEvents(now: Date): Promise<LiveEvent[]> {
 export interface DayGroup {
   iso: string;
   heading: string;
+  continuingCount: number;
+  emptyMessage: string;
   items: { live: LiveEvent; spanLabel: string }[];
 }
 
@@ -341,10 +344,14 @@ export function groupByDay(events: LiveEvent[], win: ScopeWindow): DayGroup[] {
   for (let i = 0; i < Math.min(dayCount, 62); i += 1) {
     const day = addDays(win.start, i);
     const items: DayGroup['items'] = [];
+    let continuingCount = 0;
     for (const live of events) {
       if (!occursOnDay(live.rule, day)) continue;
       if (live.rule.kind === 'range') {
-        if (seenRanges.has(live.slug)) continue;
+        if (seenRanges.has(live.slug)) {
+          continuingCount += 1;
+          continue;
+        }
         seenRanges.add(live.slug);
         const runsTo = startOfDay(live.rule.end) < startOfDay(win.end) ? live.rule.end : win.end;
         const spanLabel =
@@ -357,7 +364,13 @@ export function groupByDay(events: LiveEvent[], win: ScopeWindow): DayGroup[] {
       }
     }
     items.sort((a, b) => b.live.appeal - a.live.appeal || a.live.title.localeCompare(b.live.title));
-    groups.push({ iso: isoDate(day), heading: dayHeading(day), items });
+    groups.push({
+      iso: isoDate(day),
+      heading: dayHeading(day),
+      continuingCount,
+      emptyMessage: emptyDayMessage(continuingCount),
+      items,
+    });
   }
   return groups;
 }
