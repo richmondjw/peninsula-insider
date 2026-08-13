@@ -5,6 +5,7 @@
  *
  * Usage:
  *   node scripts/audit-agent-readiness.mjs [--site dist] [--now YYYY-MM-DD]
+ *   node scripts/audit-agent-readiness.mjs [--site dist] [--instant ISO-8601]
  */
 
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
@@ -28,7 +29,13 @@ const sydneyDate = (date = new Date()) => {
 };
 
 const siteDir = resolve(valueFor('--site', 'dist'));
-const nowArg = valueFor('--now', sydneyDate());
+const instantArg = valueFor('--instant', null);
+const instant = instantArg ? new Date(instantArg) : new Date();
+if (!Number.isFinite(instant.getTime())) {
+  console.error(`Agent-readiness audit: invalid --instant value: ${instantArg}`);
+  process.exit(1);
+}
+const nowArg = valueFor('--now', sydneyDate(instant));
 const today = new Date(`${nowArg}T00:00:00Z`);
 const failures = [];
 

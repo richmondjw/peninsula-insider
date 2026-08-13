@@ -10,6 +10,10 @@ on:
       - 'next/package.json'
       - '.github/workflows/build-and-deploy.yml'
   schedule:
+    # The event feed and rolling weekend page are generated at build time.
+    # Rebuild daily just after midnight in Melbourne so yesterday's
+    # occurrences cannot remain published until the next editorial deploy.
+    - cron: '10 14 * * *'
     # Rebuild twice per Melbourne weekend day. UTC remains safely within the
     # weekend when DST shifts (08:00/14:00 AEST, 09:00/15:00 AEDT).
     - cron: '0 22 * * 5'
@@ -37,6 +41,8 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    env:
+      TZ: Australia/Sydney
 
     steps:
       - name: Checkout
@@ -63,6 +69,7 @@ jobs:
         run: |
           cd next
           npm run test:content-admission
+          npm run test:agent-readiness
           npm run validate:content
 
       - name: Build
@@ -70,8 +77,8 @@ jobs:
           cd next
           npm run build:search
         env:
-          PUBLIC_SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-          PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+          PUBLIC_SUPABASE_URL: ${{ secrets.PUBLIC_SUPABASE_URL }}
+          PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.PUBLIC_SUPABASE_ANON_KEY }}
           PUBLIC_CONCIERGE_API_URL: https://peninsula-insider-platform-api.vercel.app
           # Set to 'off' to remove the temporary client-side password gate
           # and launch the site publicly.

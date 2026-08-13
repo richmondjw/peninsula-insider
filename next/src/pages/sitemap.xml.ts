@@ -75,6 +75,10 @@ const EXPERIENCE_STUB_SLUGS = new Set([
   'mornington-peninsula-walk',
 ]);
 
+const EAT_STUB_SLUGS = new Set([
+  'port-phillip-estate-restaurant',
+]);
+
 export const GET: APIRoute = async () => {
   const [
     venues,
@@ -116,7 +120,9 @@ export const GET: APIRoute = async () => {
   const stayTypes = ['hotel', 'villa', 'cottage', 'glamping', 'farm-stay', 'spa'];
   const wineTypes = ['winery', 'producer', 'brewery', 'distillery'];
 
-  const eatVenues = venues.filter((v) => eatTypes.includes(v.data.type) && notExcluded(v));
+  const eatVenues = venues.filter(
+    (v) => eatTypes.includes(v.data.type) && notExcluded(v) && !EAT_STUB_SLUGS.has(routeSlug(v)),
+  );
   const stayVenues = venues.filter((v) => stayTypes.includes(v.data.type) && notExcluded(v));
   const wineVenues = venues.filter((v) => wineTypes.includes(v.data.type) && notExcluded(v));
 
@@ -129,7 +135,7 @@ export const GET: APIRoute = async () => {
 
   // Section index pages. /spa/ and /walks/ are intentionally omitted:
   // /spa/ redirects to /explore/spas-and-wellness/ and /walks/ now
-  // canonicalises to /explore/best-walks/ (SEO plan §3.6 #12) - losers
+  // canonicalises to /explore/walks/ (SEO plan §3.6 #12) - losers
   // never enter. /golf/ removed 2026-05-05 (noindex stub -> /explore/golf/).
   // /events/ hub removed 2026-07-11: the /events/* signature-event tree is a
   // consolidation loser awaiting the §3.4 migration into /whats-on/*.
@@ -175,7 +181,7 @@ export const GET: APIRoute = async () => {
   // pages now canonicalise elsewhere or await redirect, and never enter).
   entries.push(url('/eat/best-restaurants', 0.9, 'weekly'));
   entries.push(url('/wine/best-cellar-doors', 0.9, 'weekly'));
-  entries.push(url('/explore/best-walks', 0.8, 'weekly'));
+  entries.push(url('/explore/walks', 0.8, 'weekly'));
   entries.push(url('/stay/best-accommodation', 0.8, 'weekly'));
 
   // SEO journal landing pages (hand-coded article pages that do not live in
