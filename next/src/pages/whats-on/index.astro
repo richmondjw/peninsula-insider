@@ -116,7 +116,7 @@ const pickCards = picks.map((p, i) => {
       ? { src: data.heroImage.src as string, alt: (data.heroImage.alt ?? p.live.title) as string }
       : undefined,
     verdict: p.verdict,
-    meta: [p.dayLabel, p.live.placeLabel, p.live.free ? 'Free' : p.live.categoryLabel]
+    meta: [p.dayLabel, p.live.placeLabel, p.live.accessLabel ?? p.live.categoryLabel]
       .filter(Boolean)
       .slice(0, 3),
     dateISO: p.dateISO,

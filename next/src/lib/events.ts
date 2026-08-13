@@ -7,6 +7,7 @@
  */
 
 import type { CollectionEntry } from 'astro:content';
+import { eventAccessLabel } from './event-access.mjs';
 
 export type Event = CollectionEntry<'events'>;
 
@@ -353,10 +354,7 @@ export function eventJsonLd(event: Event, siteUrl: string): Record<string, unkno
  * organiser where the live price lives.
  */
 export function eventPriceLabel(data: Event['data']): string {
-  if (data.priceTier === 'free' || data.freePaid?.toLowerCase().includes('free')) {
-    return 'Free';
-  }
-  return 'Check organiser for pricing';
+  return eventAccessLabel(data) ?? 'Check organiser for pricing';
 }
 
 /**
@@ -365,9 +363,7 @@ export function eventPriceLabel(data: Event['data']): string {
  * stale dollar figure.
  */
 export function eventHasKnownPrice(data: Event['data']): boolean {
-  if (data.priceTier === 'free') return true;
-  if (data.freePaid?.toLowerCase().includes('free')) return true;
-  return false;
+  return eventAccessLabel(data) !== null;
 }
 
 /**

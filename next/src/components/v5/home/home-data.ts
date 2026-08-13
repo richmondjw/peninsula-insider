@@ -13,6 +13,7 @@
  */
 
 import { rotateByMelbourneHours } from '../../../lib/daily-rotation';
+import { eventIsUnqualifiedFree } from '../../../lib/event-access.mjs';
 export interface WeekendWindow {
   /** ISO date (YYYY-MM-DD) of the weekend's Saturday, Melbourne calendar. */
   satISO: string;
@@ -290,9 +291,7 @@ export function recurrenceChip(e: any): string | undefined {
 }
 
 export function isFreeEvent(e: any): boolean {
-  const d = e.data;
-  if (d.priceTier === 'free') return true;
-  return /\bfree\b/i.test(String(d.freePaid ?? ''));
+  return eventIsUnqualifiedFree(e.data);
 }
 
 const SMALL_NUMBERS = [

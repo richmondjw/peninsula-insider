@@ -19,6 +19,8 @@
  * indexes '1'..'4' plus 'free'; labels use band glyphs only).
  */
 
+import { eventIsUnqualifiedFree } from './event-access.mjs';
+
 export type FacetKey = 'place' | 'cat' | 'mood' | 'price' | 'party' | 'date';
 
 export interface FacetOption {
@@ -664,10 +666,10 @@ function facetsForEvent(data: Record<string, any>, out: Facets) {
   if (data.familyFriendly === true) emit(out, 'party', 'family');
   if (data.petFriendly === true) emit(out, 'party', 'dog-friendly');
 
-  if (typeof data.priceTier === 'string') {
-    emit(out, 'price', ...(PRICE_TIER_TO_VALUES[data.priceTier] ?? []));
-  } else if (typeof data.freePaid === 'string' && /free/i.test(data.freePaid)) {
+  if (eventIsUnqualifiedFree(data)) {
     emit(out, 'price', 'free');
+  } else if (typeof data.priceTier === 'string') {
+    emit(out, 'price', ...(PRICE_TIER_TO_VALUES[data.priceTier] ?? []));
   }
 
   const start = toDate(data.nextOccurrence) ?? toDate(data.startDate);
