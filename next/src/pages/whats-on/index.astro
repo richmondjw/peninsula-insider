@@ -227,7 +227,7 @@ const pageDescription = `What is actually worth it on the Mornington Peninsula t
                 ))}
               </ul>
             ) : (
-              <p class="wo-day__empty">A quiet one. Nothing we would send you to.</p>
+              <p class="wo-day__empty">{g.emptyMessage}</p>
             )}
           </section>
         ))}
@@ -291,6 +291,7 @@ const pageDescription = `What is actually worth it on the Mornington Peninsula t
   // the month+ horizon is a JSON island, never hidden DOM (HUB-11).
   import { initV5Analytics } from '../../lib/v5-analytics';
   import { tripAdd } from '../../lib/v5-store';
+  import { emptyDayMessage } from '../../lib/whatson-empty-state.mjs';
 
   initV5Analytics();
 
@@ -423,10 +424,14 @@ const pageDescription = `What is actually worth it on the Mornington Peninsula t
       for (let i = 0; i < dayCount; i += 1) {
         const day = addDays(start, i);
         const matches: { e: FeedEntry; span: string }[] = [];
+        let continuingCount = 0;
         for (const e of entries) {
           if (!occursOn(e, day)) continue;
           if (e.k === 'range') {
-            if (seenRanges.has(e.slug)) continue;
+            if (seenRanges.has(e.slug)) {
+              continuingCount += 1;
+              continue;
+            }
             seenRanges.add(e.slug);
             const ruleEnd = parseISO(e.e);
             const runsTo = ruleEnd < end ? ruleEnd : end;
@@ -458,7 +463,7 @@ const pageDescription = `What is actually worth it on the Mornington Peninsula t
         } else {
           const p = document.createElement('p');
           p.className = 'wo-day__empty';
-          p.textContent = 'A quiet one. Nothing we would send you to.';
+          p.textContent = emptyDayMessage(continuingCount);
           section.appendChild(p);
         }
         daysEl.appendChild(section);
