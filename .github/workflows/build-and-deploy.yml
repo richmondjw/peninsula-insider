@@ -16,6 +16,11 @@ on:
     - cron: '0 4 * * 6'
     - cron: '0 22 * * 6'
     - cron: '0 4 * * 0'
+    # Midweek rebuild so build-time-derived content (e.g. HomePlan.astro's
+    # featured-plan rotation) doesn't sit stale for the ~5.75-day gap
+    # between the Sunday weekend run and the next Friday one. 06:00 AEST/
+    # AEDT-ish, safely mid-morning Melbourne either way.
+    - cron: '0 20 * * 2'
   workflow_dispatch:
 
 # GITHUB_TOKEN must be able to push the built site to gh-pages.

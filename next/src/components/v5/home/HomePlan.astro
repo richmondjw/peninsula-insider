@@ -4,13 +4,22 @@
  * wireframes.html #home note 4: "The Decide door, one plan only").
  *
  * One plan Card (v5 plan variant: day-count chip, fork SaveControl) chosen
- * deterministically at build time: in-season plans first, year-round next,
- * then most recently published. Closes with "All plans" into the hub.
+ * deterministically at build time: in-season plans first, year-round next
+ * form the eligible pool; within that pool the pick rotates on a fixed
+ * calendar window (ROTATION_WINDOW_DAYS) rather than always favoring the
+ * most recently published plan. Same UTC window always yields the same
+ * plan (deterministic, reproducible for a given build), but the pick
+ * changes once the window rolls over (rotating) - see
+ * .github/workflows/build-and-deploy.yml `schedule` for the rebuild
+ * cadence that makes the rotation actually reach the live site. Closes
+ * with "All plans" into the hub.
  */
 import { getCollection } from 'astro:content';
 import Card from '../Card.astro';
 import { resolveHero } from '../../../lib/inline-edit/resolve-hero';
 import { currentSeason } from '../../../lib/editorial';
+
+const ROTATION_WINDOW_DAYS = 5;
 
 const plans = await getCollection('itineraries');
 const season = currentSeason();
@@ -18,11 +27,21 @@ const season = currentSeason();
 const seasonScore = (p: any) =>
   p.data.season === season ? 2 : p.data.season === 'year-round' ? 1 : 0;
 
-const featured = [...plans].sort(
-  (a, b) =>
-    seasonScore(b) - seasonScore(a) ||
-    (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0),
-)[0];
+const topScore = plans.reduce((max, p) => Math.max(max, seasonScore(p)), 0);
+
+// Eligibility: same season-priority tier as before (in-season beats
+// year-round beats out-of-season). Everything tied for the top tier is a
+// fair pick - this is where rotation replaces "always most recent".
+const eligible = [...plans]
+  .filter((p) => seasonScore(p) === topScore)
+  .sort((a, b) => (a.data.slug ?? a.id).localeCompare(b.data.slug ?? b.id));
+
+const epochDay = Math.floor(Date.now() / 86_400_000);
+const rotationIndex = eligible.length
+  ? Math.floor(epochDay / ROTATION_WINDOW_DAYS) % eligible.length
+  : 0;
+
+const featured = eligible[rotationIndex];
 
 const slug = featured ? (featured.data.slug ?? featured.id) : '';
 const hero = featured ? await resolveHero('itinerary', slug, featured.data) : null;
