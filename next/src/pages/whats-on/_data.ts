@@ -22,6 +22,7 @@ import { rotateDaily } from '../../lib/daily-rotation';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { routeSlug, eventCategoryLabel } from '../../lib/editorial';
 import { emptyDayMessage } from '../../lib/whatson-empty-state.mjs';
+import { eventAccessLabel, eventIsUnqualifiedFree } from '../../lib/event-access.mjs';
 
 export type EventEntry = CollectionEntry<'events'>;
 
@@ -242,6 +243,7 @@ export interface LiveEvent {
   categoryLabel: string;
   placeLabel: string;
   free: boolean;
+  accessLabel: string | null;
   appeal: number;
 }
 
@@ -286,14 +288,12 @@ export async function loadLiveEvents(now: Date): Promise<LiveEvent[]> {
     const categoryLabel = eventCategoryLabel[data.category] ?? '';
     const placeLabel = data.suburb || data.venueName || '';
     const timeLabel = timeLabelFor(data.startTime);
-    const free =
-      data.priceTier === 'free' ||
-      /free/i.test(data.freePaid ?? '') ||
-      (Array.isArray(data.lens) && data.lens.includes('free'));
+    const free = eventIsUnqualifiedFree(data);
+    const accessLabel = eventAccessLabel(data);
     const meta = [timeLabel, placeLabel, categoryLabel].filter(Boolean).slice(0, 3);
-    if (free) {
-      if (meta.length === 3) meta[2] = 'Free';
-      else meta.push('Free');
+    if (accessLabel) {
+      if (meta.length === 3) meta[2] = accessLabel;
+      else meta.push(accessLabel);
     }
     const appeal =
       (data.visitorAppealScore ?? 0) +
@@ -313,6 +313,7 @@ export async function loadLiveEvents(now: Date): Promise<LiveEvent[]> {
       categoryLabel,
       placeLabel,
       free,
+      accessLabel,
       appeal,
     });
   }
