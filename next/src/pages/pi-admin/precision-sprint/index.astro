@@ -10,7 +10,7 @@ const project = {
   name: 'Peninsula Insider Precision Sprint',
   objective: 'Make Peninsula Insider feel effortlessly precise by removing brand contradictions, protecting factual freshness and strengthening the planning loop.',
   due: '26 August 2026',
-  trackerUpdated: '12 August 2026 · Pass 1 complete',
+  trackerUpdated: '13 August 2026 · Passes 1–4 complete',
   status: 'In progress',
   asanaUrl: 'https://app.asana.com/1/233540066981051/project/1216946484367930/task/1217412580304611',
 };
@@ -43,7 +43,7 @@ const passes = [
   {
     number: '02',
     title: 'What’s On accuracy and freshness safeguards',
-    status: 'Not started',
+    status: 'Partial',
     priority: 'P0',
     outcome: 'The dynamic events product is reliable enough to earn repeat use.',
     scope: [
@@ -53,12 +53,12 @@ const passes = [
       'Alert on expired events, free claims without verification, recurring events without a future occurrence, out-of-season events, duplicates and events shown on dates when they do not operate.',
     ],
     proof: 'Production date checks pass, sample pricing is source-verified and alerts identify failing records before they reach readers.',
-    evidence: '',
+    evidence: 'The empty state now acknowledges continuing multi-day events instead of saying nothing is on. All 85 active event records were re-audited against a new free/paid label check: 6 under-classified as paid now show as free, and 4 previously collapsed to a bare "Free" now show a qualified label (e.g. "Included with admission," "Paid and free options"). Source URL and last-verified fields, plus expiry/duplicate alerting, are not yet built. Shipped 13 August 2026, production build and regression tests passed.',
   },
   {
     number: '03',
     title: 'Category and location data integrity',
-    status: 'Not started',
+    status: 'Partial',
     priority: 'P1',
     outcome: 'Every collection behaves like a clean editorial catalogue, not a mixed database.',
     scope: [
@@ -69,7 +69,7 @@ const passes = [
       'Add owner, source and review-date fields for changeable venue facts and revisit older reviewed or verified records.',
     ],
     proof: 'Stay cards meet the overnight eligibility rule and sampled venues display their true town and region consistently across the site.',
-    evidence: '',
+    evidence: 'Somers General now resolves to town Somers / region Western Port, and Mount Eliza Farmers Market to town Mount Eliza / region Mornington. Both confirmed on their live locality pages. Shipped 13 August 2026. Endota Mornington remains in Stay: removing it changes routing and schema across multiple public surfaces, so it stays gated pending a design decision. The wider locality/region field split, owner/source/review-date fields and a full-catalogue sweep have not started.',
   },
   {
     number: '04',
