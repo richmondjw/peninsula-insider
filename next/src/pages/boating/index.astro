@@ -5,7 +5,7 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import SectionHero from '../../components/SectionHero.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import BfAnalytics from '../../components/BfAnalytics.astro';
-import { buildBfHubSchema, buildBreadcrumbSchema } from '../../lib/schema';
+import { buildBfHubSchema } from '../../lib/schema';
 import { BF_EXTERNAL, formatVerifiedStamp } from '../../lib/bf';
 
 // Source: peninsula_insider_boating_fishing_v1/content-bf/hub_boating_index.md
@@ -50,10 +50,6 @@ const hubSchema = buildBfHubSchema({
   ],
 });
 
-const breadcrumbSchema = buildBreadcrumbSchema([
-  { name: 'Home', url: 'https://peninsulainsider.com.au/' },
-  { name: 'Boating', url: 'https://peninsulainsider.com.au/boating/' },
-]);
 export const prerender = true;
 ---
 
@@ -65,7 +61,6 @@ export const prerender = true;
   modifiedTime={lastVerifiedISO}
 >
   <script type="application/ld+json" set:html={JSON.stringify(hubSchema)} />
-  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   <BfAnalytics />
 
   <Breadcrumbs items={breadcrumbItems} />

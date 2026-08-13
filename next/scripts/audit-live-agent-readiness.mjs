@@ -34,6 +34,22 @@ export function validateLivePayloads(payloads, { expectedDate, expectedSha } = {
   if (!Number.isInteger(feed?.count) || feed.count !== events.length) {
     failures.push(`feed count ${JSON.stringify(feed?.count)} does not match ${events.length} events`);
   }
+  if (feed?.numberOfItems !== events.length || feed?.itemListElement?.length !== events.length) {
+    failures.push('schema.org ItemList counts do not match the stable events payload');
+  }
+  for (const [index, event] of events.entries()) {
+    const listItem = feed?.itemListElement?.[index];
+    if (
+      listItem?.['@type'] !== 'ListItem' ||
+      listItem?.position !== index + 1 ||
+      listItem?.item?.['@type'] !== 'Event' ||
+      listItem?.item?.url !== event?.url ||
+      listItem?.item?.startDate !== event?.startDate ||
+      listItem?.item?.endDate !== event?.endDate
+    ) {
+      failures.push(`schema.org ItemList entry ${index + 1} disagrees with the stable events payload`);
+    }
+  }
   if (!Number.isInteger(feed?.thisWeekend?.count) || feed.thisWeekend.count !== weekendEvents.length) {
     failures.push(
       `weekend count ${JSON.stringify(feed?.thisWeekend?.count)} does not match ${weekendEvents.length} flagged events`,

@@ -6,13 +6,14 @@
  *
  * Auto-derives the trail from the URL path so no page file needs
  * editing; the final crumb prefers the page <title> (suffix stripped)
- * over a title-cased slug. Emits BreadcrumbList JSON-LD.
+ * over a title-cased slug. Page templates own BreadcrumbList JSON-LD so the
+ * global visual trail cannot create duplicate structured data.
  *
  * Coexistence with page-authored <Breadcrumbs>: pages that already
  * render their own trail inside <main> keep it (their labels are
  * richer). This component defers to them: a :has() rule hides the
- * auto trail visually, and a tiny script removes the auto nav and its
- * JSON-LD from the DOM so assistive tech and crawlers see one trail.
+ * auto trail visually, and a tiny script removes the auto nav from the DOM
+ * so assistive tech sees one trail.
  *
  * v6 token pass (P3-6, 2026-07-25): no buttons here, so nothing moves
  * to .pi-btn. Two contrast corrections only - the separator glyph and
@@ -25,8 +26,6 @@ export interface Props {
 }
 
 const { pageTitle } = Astro.props;
-
-const SITE_URL = 'https://peninsulainsider.com.au';
 
 const rawPathname = Astro.url.pathname.replace(/^\/V2/, '') || '/';
 const segments = rawPathname.split('/').filter(Boolean);
@@ -126,21 +125,6 @@ const crumbs: Crumb[] = show
     ]
   : [];
 
-const normalizedPath = rawPathname !== '/' ? rawPathname.replace(/\/$/, '') : rawPathname;
-const currentUrl = `${SITE_URL}${normalizedPath}`;
-
-const breadcrumbSchema = show
-  ? {
-      '@context': 'https://schema.org',
-      '@type': 'BreadcrumbList',
-      itemListElement: crumbs.map((item, index) => ({
-        '@type': 'ListItem',
-        position: index + 1,
-        name: item.label,
-        item: item.href ? `${SITE_URL}${item.href === '/' ? '' : item.href}` || SITE_URL : currentUrl,
-      })),
-    }
-  : null;
 ---
 
 {show && (
@@ -161,21 +145,15 @@ const breadcrumbSchema = show
   </nav>
 )}
 
-{show && breadcrumbSchema && (
-  <script type="application/ld+json" id="v5BreadcrumbsLd" set:html={JSON.stringify(breadcrumbSchema)} />
-)}
-
 <script is:inline>
     // Defer to a page-authored trail: if the page renders its own
     // <Breadcrumbs> (which carries better labels and its own JSON-LD),
-    // remove the auto trail and its schema so exactly one remains.
+    // remove the auto visual trail.
     (function () {
       function dedupeV5Crumbs() {
         var auto = document.getElementById('v5Breadcrumbs');
         if (!auto) return;
         if (document.querySelector('main .breadcrumbs')) {
-          var ld = document.getElementById('v5BreadcrumbsLd');
-          if (ld) ld.remove();
           auto.remove();
         }
       }

@@ -5,7 +5,7 @@ import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import SectionHero from '../../../components/SectionHero.astro';
 import NewsletterBlock from '../../../components/NewsletterBlock.astro';
 import BfAnalytics from '../../../components/BfAnalytics.astro';
-import { buildBfHubSchema, buildBreadcrumbSchema } from '../../../lib/schema';
+import { buildBfHubSchema } from '../../../lib/schema';
 import { REGION_LABEL, formatVerifiedStamp } from '../../../lib/bf';
 
 const lastVerifiedISO = '2026-04-30';
@@ -44,11 +44,6 @@ const hubSchema = buildBfHubSchema({
   })),
 });
 
-const breadcrumbSchema = buildBreadcrumbSchema([
-  { name: 'Home', url: 'https://peninsulainsider.com.au/' },
-  { name: 'Fishing', url: 'https://peninsulainsider.com.au/fishing/' },
-  { name: 'Locations', url: 'https://peninsulainsider.com.au/fishing/locations/' },
-]);
 export const prerender = true;
 ---
 
@@ -60,7 +55,6 @@ export const prerender = true;
   modifiedTime={lastVerifiedISO}
 >
   <script type="application/ld+json" set:html={JSON.stringify(hubSchema)} />
-  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   <BfAnalytics />
 
   <Breadcrumbs items={breadcrumbItems} />

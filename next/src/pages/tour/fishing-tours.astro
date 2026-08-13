@@ -5,7 +5,7 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import SectionHero from '../../components/SectionHero.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import BfAnalytics from '../../components/BfAnalytics.astro';
-import { buildBfHubSchema, buildBreadcrumbSchema } from '../../lib/schema';
+import { buildBfHubSchema } from '../../lib/schema';
 import { formatVerifiedStamp } from '../../lib/bf';
 
 // /tour/ ↔ /fishing/charters/ bidirectional rail. This page is the "I want
@@ -52,11 +52,6 @@ const hubSchema = buildBfHubSchema({
   })),
 });
 
-const breadcrumbSchema = buildBreadcrumbSchema([
-  { name: 'Home', url: 'https://peninsulainsider.com.au/' },
-  { name: 'Tours', url: 'https://peninsulainsider.com.au/tour/' },
-  { name: 'Fishing tours', url: `https://peninsulainsider.com.au${path}` },
-]);
 export const prerender = true;
 ---
 
@@ -68,7 +63,6 @@ export const prerender = true;
   modifiedTime={lastVerifiedISO}
 >
   <script type="application/ld+json" set:html={JSON.stringify(hubSchema)} />
-  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   <BfAnalytics />
 
   <Breadcrumbs items={breadcrumbItems} />

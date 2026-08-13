@@ -74,6 +74,20 @@ export const GET: APIRoute = async () => {
       label: weekend.label,
       count: upcoming.filter((x) => x.thisWeekend).length,
     },
+    numberOfItems: upcoming.length,
+    itemListElement: upcoming.map((event, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@type': 'Event',
+        name: event.title,
+        url: event.url,
+        startDate: event.startDate,
+        endDate: event.endDate,
+        description: event.summary,
+        eventStatus: 'https://schema.org/EventScheduled',
+      },
+    })),
     count: upcoming.length,
     events: upcoming,
   };

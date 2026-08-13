@@ -18,7 +18,18 @@ function writeFixture(root, generated = '2026-08-15', endDate = '2026-08-15') {
     JSON.stringify({
       generated,
       count: 1,
+      numberOfItems: 1,
       thisWeekend: { count: 1 },
+      itemListElement: [{
+        '@type': 'ListItem',
+        position: 1,
+        item: {
+          '@type': 'Event',
+          url: 'https://peninsulainsider.com.au/whats-on/fixture/',
+          startDate: endDate,
+          endDate,
+        },
+      }],
       events: [{
         title: 'Fixture event',
         url: 'https://peninsulainsider.com.au/whats-on/fixture/',
