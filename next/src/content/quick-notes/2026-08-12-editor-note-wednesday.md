@@ -13,7 +13,7 @@ sources:
     url: "https://api.open-meteo.com/v1/forecast?latitude=-38.40&longitude=145.00&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,precipitation_probability_max,wind_speed_10m_max&timezone=Australia%2FMelbourne&forecast_days=3"
     note: "Open-Meteo Main Ridge retrieval 2026-08-11T20:35Z. Wed 12 Aug: 82% rain probability, 3.30mm, 10.0-13.5°C and 26.9km/h maximum wind. Thu 13 Aug: 75%, 2.00mm, 9.6-14.1°C."
     checkedAt: 2026-08-12T06:35:00+10:00
-status: published
+status: archived
 ---
 Some days are improved by fewer decisions. Wednesday is one of them: pick a place that is satisfying to settle into, and let the weather take care of the rest.
 
