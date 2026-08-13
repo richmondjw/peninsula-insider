@@ -164,6 +164,9 @@ export function ruleFor(event: EventEntry, now: Date): OccurrenceRule | null {
   const start: Date | undefined = data.startDate ? startOfDay(data.startDate) : undefined;
   const endRaw: Date | undefined = data.endDate ? startOfDay(data.endDate) : start;
   const next: Date | undefined = data.nextOccurrence ? startOfDay(data.nextOccurrence) : undefined;
+  // A computed occurrence before a future series start contradicts the
+  // record's own bounds. Ignore it instead of publishing the impossible date.
+  const validNext = next && (!start || next >= start) ? next : undefined;
   const recur: string = data.recurrence ?? 'one-off';
   const noteText = [data.recurrenceNote, data.title, data.summary].filter(Boolean).join(' ');
 
@@ -175,9 +178,12 @@ export function ruleFor(event: EventEntry, now: Date): OccurrenceRule | null {
       : addDays(today, FAR_HORIZON_DAYS);
 
   if (recur === 'weekly') {
-    const day = parseWeekday(noteText);
+    // Prefer explicit copy, but a weekly series' start date is also a valid
+    // weekday anchor. Falling back to a continuous range made Friday-only
+    // events appear on every day when the prose omitted the weekday.
+    const day = parseWeekday(noteText) ?? start?.getDay();
     if (day !== undefined) return { kind: 'weekly', start: seriesStart, end: seriesEnd, day };
-    if (next && next >= today) return { kind: 'range', start: next, end: next };
+    if (validNext && validNext >= today) return { kind: 'range', start: validNext, end: validNext };
     return start && endRaw ? { kind: 'range', start, end: endRaw } : null;
   }
 
@@ -187,8 +193,11 @@ export function ruleFor(event: EventEntry, now: Date): OccurrenceRule | null {
     if (day !== undefined && nth !== undefined) {
       return { kind: 'monthly', start: seriesStart, end: seriesEnd, day, nth };
     }
-    if (next && next >= today) return { kind: 'range', start: next, end: next };
-    return null;
+    // Do not invent a monthly cadence from a stale nextOccurrence. Without an
+    // explicit weekday + ordinal, expose only a dated future occurrence and
+    // let the record drop out once that date passes.
+    if (validNext && validNext >= today) return { kind: 'range', start: validNext, end: validNext };
+    return start && start >= today && endRaw ? { kind: 'range', start, end: endRaw } : null;
   }
 
   if (!start || !endRaw) return null;
@@ -196,9 +205,9 @@ export function ruleFor(event: EventEntry, now: Date): OccurrenceRule | null {
   // Annual / seasonal / one-off / ongoing: a plain date range. When the
   // listed dates are past but the cron has computed a fresh occurrence,
   // shift the same span onto it.
-  if (endRaw < today && next && next >= today) {
+  if (endRaw < today && validNext && validNext >= today) {
     const spanDays = Math.round((endRaw.getTime() - start.getTime()) / 86400000);
-    return { kind: 'range', start: next, end: addDays(next, Math.max(0, spanDays)) };
+    return { kind: 'range', start: validNext, end: addDays(validNext, Math.max(0, spanDays)) };
   }
   return { kind: 'range', start, end: endRaw };
 }
@@ -387,7 +396,7 @@ export interface Pick {
   dayLabel: string;
 }
 
-function firstDayInWindow(rule: OccurrenceRule, win: ScopeWindow): Date | null {
+export function firstDayInWindow(rule: OccurrenceRule, win: ScopeWindow): Date | null {
   const days =
     Math.round((startOfDay(win.end).getTime() - startOfDay(win.start).getTime()) / 86400000) + 1;
   for (let i = 0; i < days; i += 1) {

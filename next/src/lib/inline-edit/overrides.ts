@@ -47,6 +47,7 @@ export interface CmsOverrides {
 
 const EMPTY: CmsOverrides = { text: {}, image: {} };
 const cache = new Map<string, Promise<CmsOverrides>>();
+const SKIP_LIVE_READS = process.env.PI_SKIP_CMS_LIVE_READS === '1';
 
 type BakedImageSlot = {
   src?: string | null;
@@ -87,6 +88,9 @@ async function fetchOverrides(
   entitySlug: string,
 ): Promise<CmsOverrides> {
   const baked = loadBakedImages(entityType, entitySlug);
+  // Deterministic local/CI verification can opt into the checked-in snapshot.
+  // Production builds leave this unset and continue to fetch published rows.
+  if (SKIP_LIVE_READS) return { text: {}, image: baked };
   const client = createCmsAnonClient();
   if (!client) return { text: {}, image: baked };
 

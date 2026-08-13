@@ -1,6 +1,7 @@
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
 import { routeSlug } from '../lib/editorial';
+import { loadLiveEvents } from './whats-on/_data';
 
 // SEOMIG rebuild 2026-07-11 (seo-migration-plan.md §4.1).
 // Inclusion contract - a URL enters the sitemap iff ALL of:
@@ -16,14 +17,12 @@ import { routeSlug } from '../lib/editorial';
 // double listing of /journal/free-things-to-do-mornington-peninsula/).
 
 const SITE_URL = 'https://peninsulainsider.com.au';
-const TODAY = new Date().toISOString().split('T')[0];
 
 function url(path: string, priority: number, changefreq: string, lastmod?: string): string {
   const loc = path === '/' ? path : (path.endsWith('/') ? path : path + '/');
   return `  <url>
     <loc>${SITE_URL}${loc}</loc>
-    <lastmod>${lastmod ?? TODAY}</lastmod>
-    <changefreq>${changefreq}</changefreq>
+${lastmod ? `    <lastmod>${lastmod}</lastmod>\n` : ''}    <changefreq>${changefreq}</changefreq>
     <priority>${priority.toFixed(1)}</priority>
   </url>`;
 }
@@ -68,6 +67,14 @@ const JOURNAL_STUB_OR_NOINDEX_SLUGS = new Set([
   'where-to-stay-mornington-peninsula',
 ]);
 
+// Experience records whose generated /explore/<slug>/ path is shadowed by
+// a hand-authored redirect/noindex page. Their canonical winners are emitted
+// elsewhere, so including these slugs would violate the sitemap contract.
+const EXPERIENCE_STUB_SLUGS = new Set([
+  'bushrangers-bay',
+  'mornington-peninsula-walk',
+]);
+
 export const GET: APIRoute = async () => {
   const [
     venues,
@@ -76,7 +83,6 @@ export const GET: APIRoute = async () => {
     regions,
     articles,
     itineraries,
-    events,
     tours,
     tourOperators,
     tourPackages,
@@ -92,7 +98,6 @@ export const GET: APIRoute = async () => {
     getCollection('regions'),
     getCollection('articles', ({ data }) => data.status === 'published'),
     getCollection('itineraries'),
-    getCollection('events'),
     getCollection('tours'),
     getCollection('tourOperators'),
     getCollection('tourPackages'),
@@ -235,7 +240,9 @@ export const GET: APIRoute = async () => {
   }
 
   // Experiences
-  for (const experience of experiences.filter(notExcluded)) {
+  for (const experience of experiences.filter(
+    (entry) => notExcluded(entry) && !EXPERIENCE_STUB_SLUGS.has(routeSlug(entry)),
+  )) {
     entries.push(url(`/explore/${routeSlug(experience)}`, 0.7, 'weekly', dateStr(experience.data.publishedAt)));
   }
 
@@ -359,16 +366,13 @@ export const GET: APIRoute = async () => {
     entries.push(url(`/whats-on/by-mood/${mood}`, 0.5, 'weekly'));
   }
 
-  // Event detail pages - current/future or recurring only (§4.1 rule 4:
-  // expired one-off events stay live for history but leave the sitemap).
+  // Event detail pages - only records with an occurrence from today onward.
+  // loadLiveEvents is recurrence-aware and rejects ended series, so a stale
+  // recurring label can no longer keep an expired URL in machine indexes.
   const today = new Date();
-  for (const event of events.filter(notExcluded)) {
-    const recurrence = event.data.recurrence ?? 'one-off';
-    const isRecurring = recurrence !== 'one-off';
-    const endish = event.data.endDate ?? event.data.startDate;
-    const stillCurrent = endish && endish.getTime() >= today.getTime() - 24 * 60 * 60 * 1000;
-    if (!isRecurring && !stillCurrent) continue;
-    entries.push(url(`/whats-on/${routeSlug(event)}`, 0.6, 'weekly', dateStr(event.data.publishedAt)));
+  const liveEvents = await loadLiveEvents(today);
+  for (const live of liveEvents) {
+    entries.push(url(live.href, 0.6, 'weekly', dateStr(live.event.data.publishedAt)));
   }
 
   // NOTE: /events/* signature pages, /picks/, /walks/*, /itinerary/, /plan/,

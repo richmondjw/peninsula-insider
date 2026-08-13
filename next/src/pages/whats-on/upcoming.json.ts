@@ -1,7 +1,14 @@
 import type { APIRoute } from 'astro';
-import { getCollection } from 'astro:content';
-import { routeSlug } from '../../lib/editorial';
-import { upcomingWeekend, eventInWindow } from '../../lib/events';
+import {
+  addDays,
+  firstDayInWindow,
+  isoDate,
+  loadLiveEvents,
+  occursInWindow,
+  startOfDay,
+  weekendWindow,
+  type ScopeWindow,
+} from './_data';
 
 // Machine-readable "what's on" feed for AI assistants and agents. The site
 // already emits rich Event JSON-LD per page and llms.txt for site structure;
@@ -12,44 +19,43 @@ import { upcomingWeekend, eventInWindow } from '../../lib/events';
 
 const SITE = 'https://peninsulainsider.com.au';
 const WINDOW_DAYS = 90;
-const DAY_MS = 24 * 60 * 60 * 1000;
-
-const iso = (d: Date): string => d.toISOString().split('T')[0];
 
 export const GET: APIRoute = async () => {
   const now = new Date();
-  const horizon = new Date(now.getTime() + WINDOW_DAYS * DAY_MS);
-  const weekend = upcomingWeekend(now);
-
-  const events = await getCollection('events', ({ data }) => !data.sitemapExclude);
+  const today = startOfDay(now);
+  const window: ScopeWindow = {
+    start: today,
+    end: addDays(today, WINDOW_DAYS),
+    label: '',
+  };
+  const weekend = weekendWindow(now);
+  const events = await loadLiveEvents(now);
 
   const upcoming = events
-    .filter((e) => {
-      const start = e.data.startDate;
-      const end = e.data.endDate ?? e.data.startDate;
-      const recurring = e.data.recurrence && e.data.recurrence !== 'one-off';
-      if (recurring) return true; // recurring events remain valid
-      const stillCurrent = end && end.getTime() >= now.getTime() - DAY_MS;
-      const withinHorizon = start && start.getTime() <= horizon.getTime();
-      return Boolean(stillCurrent && withinHorizon);
-    })
-    .sort((a, b) => (a.data.startDate?.getTime() ?? 0) - (b.data.startDate?.getTime() ?? 0))
-    .map((e) => {
-      const slug = routeSlug(e);
+    .filter((live) => occursInWindow(live.rule, window))
+    .map((live) => {
+      const e = live.event;
+      const nextOccurrence = firstDayInWindow(live.rule, window);
+      if (!nextOccurrence) return null;
+      const occurrenceEnd = live.rule.kind === 'range'
+        ? new Date(Math.min(live.rule.end.getTime(), window.end.getTime()))
+        : nextOccurrence;
       return {
         title: e.data.title,
-        url: `${SITE}/whats-on/${slug}/`,
-        startDate: e.data.startDate ? iso(e.data.startDate) : null,
-        endDate: e.data.endDate ? iso(e.data.endDate) : null,
+        url: `${SITE}${live.href}`,
+        startDate: isoDate(nextOccurrence),
+        endDate: isoDate(occurrenceEnd),
         recurrence: e.data.recurrence ?? 'one-off',
         category: e.data.category ?? null,
         place: (e.data.place as { id?: string } | undefined)?.id ?? null,
         venue: (e.data.venue as { id?: string } | undefined)?.id ?? null,
         freePaid: e.data.freePaid ?? null,
         summary: e.data.summary ?? '',
-        thisWeekend: eventInWindow(e, weekend.start, weekend.end),
+        thisWeekend: occursInWindow(live.rule, weekend),
       };
-    });
+    })
+    .filter((event): event is NonNullable<typeof event> => event !== null)
+    .sort((a, b) => a.startDate.localeCompare(b.startDate) || a.title.localeCompare(b.title));
 
   const body = {
     '@context': 'https://schema.org',
@@ -59,12 +65,12 @@ export const GET: APIRoute = async () => {
       'Machine-readable feed of upcoming Mornington Peninsula events for AI ' +
       'assistants and agents. Forward-dated; regenerated on each build. See ' +
       `${SITE}/llms.txt for the full site map.`,
-    generated: iso(now),
+    generated: isoDate(now),
     site: SITE,
     windowDays: WINDOW_DAYS,
     thisWeekend: {
-      start: iso(weekend.start),
-      end: iso(weekend.end),
+      start: isoDate(weekend.start),
+      end: isoDate(weekend.end),
       label: weekend.label,
       count: upcoming.filter((x) => x.thisWeekend).length,
     },

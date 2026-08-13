@@ -49,5 +49,10 @@ if (!existsSync(astro)) {
 
 // `sync` loads and validates content collections without failing on unrelated
 // page-level TypeScript diagnostics (which belong to the full build gate).
-const result = spawnSync(astro, ['sync'], { cwd: nextRoot, stdio: 'inherit' });
+const result = spawnSync(astro, ['sync'], {
+  cwd: nextRoot,
+  stdio: 'inherit',
+  shell: process.platform === 'win32',
+});
+if (result.error) console.error(`Content admission failed to start Astro: ${result.error.message}`);
 process.exit(result.status ?? 1);
