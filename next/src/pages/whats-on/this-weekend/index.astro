@@ -16,7 +16,7 @@
  * Legacy /journal/peninsula-this-weekend-{slug}/ URLs redirect into the
  * dated archive (see src/pages/journal/[slug].astro).
  */
-import { getCollection, getEntry, render } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import NewsletterBlock from '../../../components/NewsletterBlock.astro';
@@ -37,6 +37,13 @@ import {
 import { isPeninsulaThisWeekend } from '../../../lib/peninsula-this-weekend';
 import { formatHeroCredit, routeSlug } from '../../../lib/editorial';
 import { resolveHero } from '../../../lib/inline-edit/resolve-hero';
+import {
+  loadLiveEvents,
+  occursInWindow,
+  startOfDay,
+  weekendWindow,
+  type ScopeWindow,
+} from '../_data';
 
 const allArticles = await getCollection('articles', ({ data }) => data.status === 'published');
 const ptwArticles = sortPtwLatestFirst(allArticles.filter(isPeninsulaThisWeekend));
@@ -49,10 +56,16 @@ if (!latest) {
 const { Content } = await render(latest);
 
 const canonical = 'https://peninsulainsider.com.au/whats-on/this-weekend/';
-const weekendLabel = ptwWeekendLabel(latest);
-const weekendEndIso = ptwWeekendEndIso(latest);
-const eventSchema = buildPtwEventSchema(latest, canonical);
-const dispatch = latest.data.dispatch;
+const now = new Date();
+const currentWeekend = weekendWindow(now);
+const latestWeekendEnd = new Date(ptwWeekendEndIso(latest));
+const hasCurrentDispatch = latestWeekendEnd >= startOfDay(now);
+const weekendLabel = hasCurrentDispatch ? ptwWeekendLabel(latest) : currentWeekend.label;
+const weekendEndIso = hasCurrentDispatch
+  ? ptwWeekendEndIso(latest)
+  : new Date(currentWeekend.end.getFullYear(), currentWeekend.end.getMonth(), currentWeekend.end.getDate(), 23, 59, 0).toISOString();
+const eventSchema = hasCurrentDispatch ? buildPtwEventSchema(latest, canonical) : null;
+const dispatch = hasCurrentDispatch ? latest.data.dispatch : null;
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
@@ -60,9 +73,12 @@ const breadcrumbItems = [
   { label: 'This Weekend' },
 ];
 
-const latestHero = await resolveHero('article', routeSlug(latest), latest.data, 'hero');
-const heroStyle = latestHero.style;
-const ogImage = latestHero.src;
+const latestHero = hasCurrentDispatch
+  ? await resolveHero('article', routeSlug(latest), latest.data, 'hero')
+  : null;
+const fallbackHero = '/images/sourced/whats-on-winter-wine.webp';
+const heroStyle = latestHero?.style ?? `background-image: url('${fallbackHero}')`;
+const ogImage = latestHero?.src ?? fallbackHero;
 
 const breadcrumbSchema = {
   '@context': 'https://schema.org',
@@ -75,9 +91,47 @@ const breadcrumbSchema = {
   })),
 };
 
-// ItemList JSON-LD: machine-readable index of the weekend picks so AI
-// assistants and search rich results can extract the dispatch's curated
-// list cleanly without parsing prose.
+const archiveItems = ptwArticles
+  .slice(hasCurrentDispatch ? 1 : 0, hasCurrentDispatch ? 9 : 8)
+  .map((a) => ({
+    href: ptwArchivePath(a),
+    label: a.data.title,
+    dek: a.data.dek,
+    date: a.data.publishedAt,
+  }));
+
+// Cadence/refresh string: PTW publishes Sunday-ahead for the upcoming
+// weekend (publish + 6, publish + 7). The hero status pill shows when
+// this dispatch was last refreshed and what weekend it covers.
+const publishedFmt = latest.data.publishedAt.toLocaleDateString('en-AU', {
+  day: 'numeric',
+  month: 'short',
+});
+
+// Live events for this weekend, pulled from the events collection
+// where startDate or endDate falls within the dispatch's Fri-Sun window.
+// Lets us show "Also on this weekend" venue/event cards beneath the
+// editor's curated picks, without re-editing them by hand each week.
+const friday = hasCurrentDispatch ? ptwWeekendFriday(latest) : currentWeekend.start;
+const sunday = hasCurrentDispatch ? new Date(friday) : currentWeekend.end;
+if (hasCurrentDispatch) sunday.setUTCDate(friday.getUTCDate() + 2);
+sunday.setHours(23, 59, 0, 0);
+const activeWindow: ScopeWindow = { start: friday, end: sunday, label: weekendLabel };
+const dispatchPickEventSlugs = new Set(
+  [dispatch?.lead, dispatch?.saturday, dispatch?.sunday, dispatch?.rainyDay]
+    .map((p: any) => p?.eventRef)
+    .filter(Boolean),
+);
+const liveThisWeekend = (await loadLiveEvents(now))
+  .filter((live) => occursInWindow(live.rule, activeWindow))
+  .filter((live) => !dispatchPickEventSlugs.has(live.slug))
+  .sort((a, b) => b.appeal - a.appeal || a.title.localeCompare(b.title))
+  .map((live) => live.event)
+  .slice(0, 6);
+
+// Machine-readable list follows the current surface. When an edited weekly
+// dispatch has aged out, the rolling URL exposes only current registry events
+// and keeps the old edition in the archive instead of asserting stale picks.
 const itemListSchema = dispatch
   ? {
       '@context': 'https://schema.org',
@@ -101,69 +155,48 @@ const itemListSchema = dispatch
             : canonical,
         })),
     }
-  : null;
-
-const archiveItems = ptwArticles
-  .slice(1, 9)
-  .map((a) => ({
-    href: ptwArchivePath(a),
-    label: a.data.title,
-    dek: a.data.dek,
-    date: a.data.publishedAt,
-  }));
-
-// Cadence/refresh string: PTW publishes Sunday-ahead for the upcoming
-// weekend (publish + 6, publish + 7). The hero status pill shows when
-// this dispatch was last refreshed and what weekend it covers.
-const publishedFmt = latest.data.publishedAt.toLocaleDateString('en-AU', {
-  day: 'numeric',
-  month: 'short',
-});
-
-// Live events for this weekend, pulled from the events collection
-// where startDate or endDate falls within the dispatch's Fri-Sun window.
-// Lets us show "Also on this weekend" venue/event cards beneath the
-// editor's curated picks, without re-editing them by hand each week.
-const friday = ptwWeekendFriday(latest);
-const sunday = new Date(friday);
-sunday.setUTCDate(friday.getUTCDate() + 2);
-sunday.setUTCHours(23, 59, 0, 0);
-const allEvents = await getCollection('events', ({ data }) => data.status === 'published');
-const dispatchPickEventSlugs = new Set(
-  [dispatch?.lead, dispatch?.saturday, dispatch?.sunday, dispatch?.rainyDay]
-    .map((p: any) => p?.eventRef)
-    .filter(Boolean),
-);
-const liveThisWeekend = allEvents
-  .filter((e) => {
-    const start = e.data.startDate;
-    const end = e.data.endDate ?? e.data.startDate;
-    return start <= sunday && end >= friday;
-  })
-  .filter((e) => !dispatchPickEventSlugs.has(routeSlug(e)))
-  .sort((a, b) => (a.data.startDate?.getTime() ?? 0) - (b.data.startDate?.getTime() ?? 0))
-  .slice(0, 6);
+  : {
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      name: `What's on this weekend, ${weekendLabel}`,
+      itemListOrder: 'https://schema.org/ItemListOrderAscending',
+      numberOfItems: liveThisWeekend.length,
+      itemListElement: liveThisWeekend.map((event, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name: event.data.title,
+        url: `https://peninsulainsider.com.au/whats-on/${routeSlug(event)}/`,
+      })),
+    };
 export const prerender = true;
 ---
 
 <BaseLayout
-  title={`Peninsula This Weekend - ${weekendLabel} · Peninsula Insider`}
-  description={latest.data.dek}
+  title={hasCurrentDispatch
+    ? `Peninsula This Weekend - ${weekendLabel} · Peninsula Insider`
+    : `What's on this weekend - ${weekendLabel} · Peninsula Insider`}
+  description={hasCurrentDispatch
+    ? latest.data.dek
+    : `Current Mornington Peninsula events for ${weekendLabel}. The next edited Peninsula This Weekend dispatch is in preparation.`}
   section="whats-on"
   canonical={canonical}
   ogImage={ogImage}
   searchImage={ogImage}
   ogType="article"
-  publishedTime={latest.data.publishedAt.toISOString()}
-  modifiedTime={(latest.data.updatedAt ?? latest.data.publishedAt).toISOString()}
+  publishedTime={hasCurrentDispatch ? latest.data.publishedAt.toISOString() : undefined}
+  modifiedTime={hasCurrentDispatch ? (latest.data.updatedAt ?? latest.data.publishedAt).toISOString() : undefined}
 >
-  <script type="application/ld+json" set:html={JSON.stringify(eventSchema)} />
+  {eventSchema && <script type="application/ld+json" set:html={JSON.stringify(eventSchema)} />}
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   {itemListSchema && <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />}
 
   <Breadcrumbs items={breadcrumbItems} />
 
-  <article class="article ptw">
+  <article
+    class="article ptw"
+    data-weekend-end={weekendEndIso}
+    data-source-mode={hasCurrentDispatch ? 'editorial-dispatch' : 'registry-fallback'}
+  >
 
     <!-- ─── Hero ───────────────────────────────────────────────────── -->
     <header class="ptw-hero">
@@ -179,21 +212,31 @@ export const prerender = true;
                 moment the weekend closes. If the reader arrives after
                 Sunday night, say so honestly rather than presenting a past
                 weekend as current. */}
-            <p class="ptw-hero__stale" data-weekend-end={weekendEndIso} hidden>
-              This dispatch covered the weekend of {weekendLabel}. The next
-              edition lands Sunday. <a href="/whats-on/">Browse everything on
-              now instead</a>.
+            {hasCurrentDispatch && (
+              <p class="ptw-hero__stale" data-weekend-end={weekendEndIso} hidden>
+                This dispatch covered the weekend of {weekendLabel}. The next
+                edition is in preparation. <a href="/whats-on/">Browse everything on
+                now instead</a>.
+              </p>
+            )}
+            {hasCurrentDispatch && (
+              <script is:inline>
+                (function () {
+                  var el = document.querySelector('.ptw-hero__stale');
+                  if (!el) return;
+                  var end = new Date(el.getAttribute('data-weekend-end'));
+                  if (!isNaN(end) && Date.now() > end.getTime()) el.hidden = false;
+                })();
+              </script>
+            )}
+            <h1 class="ptw-hero__title">
+              {hasCurrentDispatch ? latest.data.title : 'What’s on this weekend'}
+            </h1>
+            <p class="ptw-hero__dek">
+              {hasCurrentDispatch
+                ? latest.data.dek
+                : `Current events across the Mornington Peninsula for ${weekendLabel}. Our next edited dispatch is in preparation; this list comes from the live events registry.`}
             </p>
-            <script is:inline>
-              (function () {
-                var el = document.querySelector('.ptw-hero__stale');
-                if (!el) return;
-                var end = new Date(el.getAttribute('data-weekend-end'));
-                if (!isNaN(end) && Date.now() > end.getTime()) el.hidden = false;
-              })();
-            </script>
-            <h1 class="ptw-hero__title">{latest.data.title}</h1>
-            <p class="ptw-hero__dek">{latest.data.dek}</p>
 
             {dispatch?.weather && (
               <div class="ptw-hero__weather">
@@ -202,29 +245,39 @@ export const prerender = true;
               </div>
             )}
 
-            <PiArticleActions
-              slug={latest.id}
-              section="whats-on"
-              title={latest.data.title}
-              dek={latest.data.dek}
-              imageUrl={latest.data.heroImage?.src}
-              href="/whats-on/this-weekend/"
-            />
+            {hasCurrentDispatch ? (
+              <>
+                <PiArticleActions
+                  slug={latest.id}
+                  section="whats-on"
+                  title={latest.data.title}
+                  dek={latest.data.dek}
+                  imageUrl={latest.data.heroImage?.src}
+                  href="/whats-on/this-weekend/"
+                />
 
-            <p class="ptw-hero__cadence">
-              <strong>Refreshed {publishedFmt}</strong> for the weekend of <strong>{weekendLabel}</strong>.
-              A new dispatch lands weekly for the weekend ahead.
-            </p>
+                <p class="ptw-hero__cadence">
+                  <strong>Refreshed {publishedFmt}</strong> for the weekend of <strong>{weekendLabel}</strong>.
+                  A new dispatch lands weekly for the weekend ahead.
+                </p>
+              </>
+            ) : (
+              <p class="ptw-hero__cadence">
+                <strong>Current window: {weekendLabel}.</strong> No expired dispatch is being presented as current.
+              </p>
+            )}
           </div>
 
           <figure class="ptw-hero__figure">
             <div
               class="ptw-hero__image"
               role="img"
-              aria-label={latest.data.heroImage.alt}
+              aria-label={hasCurrentDispatch
+                ? latest.data.heroImage.alt
+                : 'Mornington Peninsula wine-country events in winter'}
               style={heroStyle}
             ></div>
-            {latest.data.heroImage.credit && (
+            {hasCurrentDispatch && latest.data.heroImage.credit && (
               <figcaption class="ptw-hero__credit">{formatHeroCredit(latest.data.heroImage.credit)}</figcaption>
             )}
           </figure>
@@ -303,6 +356,27 @@ export const prerender = true;
         </section>
       )}
 
+      {!hasCurrentDispatch && (
+        <section class="ptw-current" aria-labelledby="ptw-current-title">
+          <div class="ptw-also__head">
+            <p class="ptw-also__eyebrow">Current registry</p>
+            <h2 id="ptw-current-title" class="ptw-also__title">Events running this weekend</h2>
+            <p class="ptw-also__sub">
+              These listings are date-checked at build time. The most recent edited dispatch is available in the archive below.
+            </p>
+          </div>
+          {liveThisWeekend.length > 0 ? (
+            <div class="event-grid">
+              {liveThisWeekend.map((event) => <EventCard event={event} />)}
+            </div>
+          ) : (
+            <p class="ptw-current__empty">
+              No verified listings are currently available for this weekend. <a href="/whats-on/">Browse the full events index</a>.
+            </p>
+          )}
+        </section>
+      )}
+
       {/* ─── Mid-page newsletter CTA ────────────────────────────────── */}
       <aside class="ptw-cta" aria-label="Newsletter signup">
         <p class="ptw-cta__eyebrow">Get the dispatch in your inbox</p>
@@ -314,12 +388,14 @@ export const prerender = true;
       </aside>
 
       {/* ─── Editor's long-form body (existing markdown) ────────────── */}
-      <div class="prose ptw-body">
-        <Content />
-      </div>
+      {hasCurrentDispatch && (
+        <div class="prose ptw-body">
+          <Content />
+        </div>
+      )}
 
       {/* ─── Also on this weekend (live events) ─────────────────────── */}
-      {liveThisWeekend.length > 0 && (
+      {hasCurrentDispatch && liveThisWeekend.length > 0 && (
         <section class="ptw-also" aria-labelledby="ptw-also-title">
           <div class="ptw-also__head">
             <p class="ptw-also__eyebrow">Also running</p>
@@ -337,11 +413,11 @@ export const prerender = true;
         </section>
       )}
 
-      {latest.data.clusterLinks && latest.data.clusterLinks.length > 0 && (
+      {hasCurrentDispatch && latest.data.clusterLinks && latest.data.clusterLinks.length > 0 && (
         <ClusterLinks links={latest.data.clusterLinks} heading="Explore this hub" />
       )}
 
-      {latest.data.faq && latest.data.faq.length > 0 && (
+      {hasCurrentDispatch && latest.data.faq && latest.data.faq.length > 0 && (
         <section class="article-faq" aria-labelledby="ptw-faq-title">
           <div class="article-faq__header">
             <p class="article-faq__eyebrow">Questions readers actually ask</p>

@@ -237,6 +237,15 @@ export function eventJsonLd(event: Event, siteUrl: string): Record<string, unkno
       const d = eventEndDate.toISOString().slice(0, 10);
       return `${d}T${data.endTime}:00+10:00`;
     }
+    // A same-day record with a start time but no explicit end time is a
+    // point-in-time event. Midnight on that date would precede startISO and
+    // emit invalid Event schema, so use the known instant for both bounds.
+    if (
+      data.startTime &&
+      eventEndDate.toISOString().slice(0, 10) === eventStartDate.toISOString().slice(0, 10)
+    ) {
+      return startISO;
+    }
     return eventEndDate.toISOString();
   })();
 
@@ -475,4 +484,3 @@ export function eventRecurrenceLabel(data: Event['data']): string {
       return data.recurrence;
   }
 }
-
