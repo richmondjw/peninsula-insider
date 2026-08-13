@@ -28,7 +28,7 @@
     "entity-index:report": "node scripts/refresh-entity-index.mjs --report",
     "search:audit": "node scripts/audit-search-links.mjs",
     "audit:agent-readiness": "node scripts/audit-agent-readiness.mjs",
-    "test:agent-readiness": "node --test scripts/test-agent-readiness.mjs",
+    "test:agent-readiness": "node --test scripts/test-agent-readiness.mjs scripts/test-live-agent-readiness.mjs",
     "bf:lint": "node ../scripts/bf-import/verify-lint.mjs",
     "bf:lint:strict": "node ../scripts/bf-import/verify-lint.mjs --strict",
     "pdfs": "node scripts/render-pdfs.mjs",
