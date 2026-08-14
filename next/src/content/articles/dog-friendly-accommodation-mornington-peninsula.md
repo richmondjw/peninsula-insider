@@ -14,11 +14,11 @@ tags: ["dogs", "accommodation", "peninsula", "service", "explore", "pet-friendly
 lastVerified: 2026-04-22
 clusterLinks:
   - label: "The Dog-Friendly Peninsula - Full Weekend Guide"
-    href: "/journal/the-dog-friendly-peninsula/"
+    href: "/journal/dog-friendly-mornington-peninsula/"
   - label: "Dog-Friendly Beaches on the Mornington Peninsula"
     href: "/journal/dog-friendly-beaches-mornington-peninsula/"
   - label: "Where to Stay on the Mornington Peninsula"
-    href: "/journal/where-to-stay-mornington-peninsula/"
+    href: "/stay/best-accommodation/"
 faq:
   - question: "Are there dog-friendly hotels on the Mornington Peninsula?"
     answer: "Most Peninsula luxury hotels (Jackalope, InterContinental Sorrento, Lancemore Lindenderry, RACV Cape Schanck) do not confirm dogs. Dog-friendly stays are predominantly holiday houses, cottages, and self-contained accommodation booked through platforms like Stayz, Airbnb, and pet-specific booking sites. Search specifically for 'pet-friendly' and 'fenced' as separate filters - both matter."

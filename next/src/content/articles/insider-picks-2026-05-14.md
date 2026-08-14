@@ -19,7 +19,7 @@ status: "draft"
 lastVerified: 2026-05-14
 clusterLinks:
   - label: "Peninsula This Weekend - 16 to 17 May"
-    href: "/journal/peninsula-this-weekend-may-16/"
+    href: "/whats-on/this-weekend/archive/2026-05-11/"
   - label: "The Autumn Weekend Edit"
     href: "/journal/autumn-weekend-edit/"
   - label: "Tedesca, Tractor, Laura: The Three Peninsula Dinners"

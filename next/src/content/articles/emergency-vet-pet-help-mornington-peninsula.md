@@ -16,7 +16,7 @@ clusterLinks:
   - label: "Dog-Friendly Beaches on the Mornington Peninsula"
     href: "/journal/dog-friendly-beaches-mornington-peninsula/"
   - label: "The Dog-Friendly Peninsula - Full Weekend Guide"
-    href: "/journal/the-dog-friendly-peninsula/"
+    href: "/journal/dog-friendly-mornington-peninsula/"
   - label: "Where to Walk the Dog on the Mornington Peninsula"
     href: "/journal/where-to-walk-the-dog-mornington-peninsula/"
 faq:

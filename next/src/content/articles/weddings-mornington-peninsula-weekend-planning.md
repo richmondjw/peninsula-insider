@@ -22,7 +22,7 @@ clusterLinks:
   - label: "Where Wedding Guests Should Stay on the Mornington Peninsula"
     href: "/journal/weddings-where-guests-stay-mornington-peninsula/"
   - label: "Where to Stay on the Mornington Peninsula"
-    href: "/journal/where-to-stay-mornington-peninsula/"
+    href: "/stay/best-accommodation/"
   - label: "Hatted Restaurants on the Mornington Peninsula 2025"
     href: "/journal/hatted-restaurants-mornington-peninsula-2025/"
 faq:

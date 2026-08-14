@@ -37,11 +37,11 @@ status: "published"
 lastVerified: 2026-04-22
 clusterLinks:
   - label: "The Market Saturday - Two Weekends Built Around the Markets"
-    href: "/journal/the-market-saturday/"
+    href: "/explore/plans/the-market-saturday/"
   - label: "Breakfast Before the Crowds - Where Locals Eat at 8am"
     href: "/journal/breakfast-before-the-crowds/"
   - label: "How to Build a Red Hill Saturday"
-    href: "/journal/how-to-build-a-red-hill-saturday/"
+    href: "/explore/plans/how-to-build-a-red-hill-saturday/"
 faq:
   - question: "What is the best shopping route for Peninsula produce on a Saturday?"
     answer: "In order: Mornington Farmers Market (second Saturday) for protein, eggs, cheese, and oil. Then Flinders Sourdough for bread. One cellar door - Quealy or Ocean Eight. Then Epicurean Red Hill or Merricks General Wine Store for pantry fill-in. Optional: Red Hill Brewery or Bass & Flinders for beer or gin. The full circuit runs about three hours and sets you up for a serious Saturday night dinner in the rental."

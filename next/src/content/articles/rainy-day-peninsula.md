@@ -23,7 +23,7 @@ clusterLinks:
   - label: "Peninsula Hot Springs vs Alba - The Honest Comparison"
     href: "/journal/peninsula-hot-springs-vs-alba/"
   - label: "Best Spas on the Mornington Peninsula - The Tier Guide"
-    href: "/journal/best-spas-mornington-peninsula/"
+    href: "/explore/spas-and-wellness/"
 faq:
   - question: "Is the Mornington Peninsula worth visiting in bad weather?"
     answer: "Yes - often more so than in good weather. The hot springs are better in the cold, the best dining rooms light their fires, booking availability improves, and the coastal walks become dramatic rather than simply scenic. Build the day around indoor anchors and the weather becomes an asset."

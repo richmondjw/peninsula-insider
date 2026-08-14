@@ -24,7 +24,7 @@ clusterLinks:
   - label: "Best Restaurants on the Mornington Peninsula"
     href: "/eat/best-restaurants/"
   - label: "Things to Do on the Mornington Peninsula"
-    href: "/journal/things-to-do-mornington-peninsula/"
+    href: "/explore/things-to-do/"
 faq:
   - question: "How far ahead do I need to book Doot Doot Doot?"
     answer: "Weeks, not days. Doot Doot Doot is the restaurant at Jackalope Hotel on Balnarring Road, Red Hill. Book via the Jackalope website. Weekend sittings fill first; midweek is your best chance at short notice."

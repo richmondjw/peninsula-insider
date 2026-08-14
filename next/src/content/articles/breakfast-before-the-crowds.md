@@ -31,9 +31,9 @@ clusterLinks:
   - label: "The Peninsula Pantry - Shopping the Region's Larder"
     href: "/journal/the-peninsula-pantry/"
   - label: "The Market Saturday - Two Weekends Built Around the Markets"
-    href: "/journal/the-market-saturday/"
+    href: "/explore/plans/the-market-saturday/"
   - label: "The Four-Hour Peninsula - Compact Day Guide"
-    href: "/journal/the-four-hour-peninsula/"
+    href: "/explore/plans/the-four-hour-peninsula/"
 faq:
   - question: "Where do locals eat breakfast on the Mornington Peninsula?"
     answer: "Commonfolk Coffee in Mornington for serious filter coffee (no smashed avo, no queues after nine). Flinders Sourdough on Cook Street for wood-fired croissants and country loaf - arrive before 9am before the pastries go. The Continental Sorrento for the most complete sit-down hotel breakfast on the Peninsula."

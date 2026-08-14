@@ -25,7 +25,7 @@ clusterLinks:
   - label: "Ashcombe Maze - Visitor Guide"
     href: "/journal/ashcombe-maze-visitor-guide/"
   - label: "Best Spas on the Mornington Peninsula - The Tier Guide"
-    href: "/journal/best-spas-mornington-peninsula/"
+    href: "/explore/spas-and-wellness/"
 faq:
   - question: "Is the Mornington Peninsula worth visiting at Easter?"
     answer: "Yes, but only with the right plan. Easter is the Peninsula's first major crowd-pressure weekend of the year. Book accommodation in February, invert the standard weekend rhythm (quiet moves on Friday and Saturday, booked lunch on Sunday), and leave Monday morning before 11am."

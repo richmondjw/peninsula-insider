@@ -1,0 +1,376 @@
+{
+  "generatedAt": "2026-08-14T23:50:11.946Z",
+  "dist": "/home/node/.openclaw/workspace/peninsula-insider/next/dist",
+  "totals": {
+    "pages": 947,
+    "indexable": 689,
+    "selfCanonical": 722,
+    "redirectStubs": 225,
+    "noindexSurfaces": 0,
+    "noindexWithForeignCanonical": 0,
+    "fullDuplicateRenders": 0,
+    "duplicateBytes": 0,
+    "indexSurfaces": 25,
+    "chromeLinks": 228,
+    "chromeNonCanonicalLinks": 33,
+    "chromeSitewideNonCanonicalLinks": 0,
+    "zeroEditorialInbound": 111,
+    "zeroInboundOfAnyKind": 23
+  },
+  "editorialInboundBuckets": {
+    "0": 111,
+    "1-2": 169,
+    "3-5": 157,
+    "6-10": 125,
+    "11-25": 83,
+    "26+": 44
+  },
+  "chromeNonCanonical": [
+    {
+      "link": "/journal/mornington-day-guide/",
+      "canonical": "/explore/plans/mornington-day-guide/",
+      "onPages": 2,
+      "sitewide": false,
+      "targetIsStub": true
+    },
+    {
+      "link": "/journal/the-market-saturday/",
+      "canonical": "/explore/plans/the-market-saturday/",
+      "onPages": 2,
+      "sitewide": false,
+      "targetIsStub": true
+    },
+    {
+      "link": "/journal/the-rainy-day-peninsula-without-a-booking/",
+      "canonical": "/journal/rainy-day-peninsula/",
+      "onPages": 2,
+      "sitewide": false,
+      "targetIsStub": true
+    },
+    {
+      "link": "/journal/peninsula-this-weekend-jul-11/",
+      "canonical": "/whats-on/this-weekend/archive/2026-07-10/",
+      "onPages": 2,
+      "sitewide": false,
+      "targetIsStub": true
+    },
+    {
+      "link": "/journal/peninsula-this-weekend-jul-18/",
+      "canonical": "/whats-on/this-weekend/archive/2026-07-13/",
+      "onPages": 2,
+      "sitewide": false,
+      "targetIsStub": true
+    },
+    {
+      "link": "/journal/mornington-peninsula-beach-guide/",
+      "canonical": "/explore/beaches/",
+      "onPages": 2,
+      "sitewide": false,
+      "targetIsStub": true
+    },
+    {
+      "link": "/journal/the-one-booking-peninsula-day/",
+      "canonical": "/explore/plans/the-one-booking-peninsula-day/",
+      "onPages": 2,
+      "sitewide": false,
+      "targetIsStub": true
+    },
+    {
+      "link": "/journal/peninsula-this-weekend-jun-13/",
+      "canonical": "/whats-on/this-weekend/archive/2026-06-07/",
+      "onPages": 2,
+      "sitewide": false,
+      "targetIsStub": true
+    },
+    {
+      "link": "/journal/things-to-do-mornington-peninsula/",
+      "canonical": "/explore/things-to-do/",
+      "onPages": 2,
+      "sitewide": false,
+      "targetIsStub": true
+    },
+    {
+      "link": "/journal/the-one-night-escape/",
+      "canonical": "/explore/plans/the-one-night-escape/",
+      "onPages": 2,
+      "sitewide": false,
+      "targetIsStub": true
+    },
+    {
+      "link": "/journal/the-thermal-springs-weekend/",
+      "canonical": "/explore/plans/the-thermal-springs-weekend/",
+      "onPages": 2,
+      "sitewide": false,
+      "targetIsStub": true
+    },
+    {
+      "link": "/journal/how-to-build-a-red-hill-saturday/",
+      "canonical": "/explore/plans/how-to-build-a-red-hill-saturday/",
+      "onPages": 2,
+      "sitewide": false,
+      "targetIsStub": true
+    },
+    {
+      "link": "/journal/the-school-holidays-survival-guide/",
+      "canonical": "/explore/plans/the-school-holidays-survival-guide/",
+      "onPages": 2,
+      "sitewide": false,
+      "targetIsStub": true
+    },
+    {
+      "link": "/journal/the-birthday-weekend/",
+      "canonical": "/explore/plans/the-birthday-weekend/",
+      "onPages": 2,
+      "sitewide": false,
+      "targetIsStub": true
+    },
+    {
+      "link": "/journal/the-point-nepean-half-day/",
+      "canonical": "/explore/plans/the-point-nepean-half-day/",
+      "onPages": 1,
+      "sitewide": false,
+      "targetIsStub": true
+    },
+    {
+      "link": "/journal/peninsula-this-weekend-may-03/",
+      "canonical": "/whats-on/this-weekend/archive/2026-05-03/",
+      "onPages": 1,
+      "sitewide": false,
+      "targetIsStub": true
+    },
+    {
+      "link": "/journal/peninsula-this-weekend-april-24/",
+      "canonical": "/whats-on/this-weekend/archive/2026-04-24/",
+      "onPages": 1,
+      "sitewide": false,
+      "targetIsStub": true
+    },
+    {
+      "link": "/journal/corporate-events-how-to-plan-peninsula-retreat/",
+      "canonical": "/explore/plans/corporate-events-how-to-plan-peninsula-retreat/",
+      "onPages": 1,
+      "sitewide": false,
+      "targetIsStub": true
+    },
+    {
+      "link": "/journal/the-easter-peninsula/",
+      "canonical": "/explore/plans/the-easter-peninsula/",
+      "onPages": 1,
+      "sitewide": false,
+      "targetIsStub": true
+    },
+    {
+      "link": "/journal/how-to-plan-a-peninsula-weekend/",
+      "canonical": "/explore/plans/how-to-plan-a-peninsula-weekend/",
+      "onPages": 1,
+      "sitewide": false,
+      "targetIsStub": true
+    },
+    {
+      "link": "/journal/peninsula-this-weekend-jul-04/",
+      "canonical": "/whats-on/this-weekend/archive/2026-06-29/",
+      "onPages": 1,
+      "sitewide": false,
+      "targetIsStub": true
+    },
+    {
+      "link": "/journal/mornington-peninsula-stay-and-soak/",
+      "canonical": "/explore/plans/mornington-peninsula-stay-and-soak/",
+      "onPages": 1,
+      "sitewide": false,
+      "targetIsStub": true
+    },
+    {
+      "link": "/journal/peninsula-this-weekend-april-26/",
+      "canonical": "/whats-on/this-weekend/archive/2026-04-26/",
+      "onPages": 1,
+      "sitewide": false,
+      "targetIsStub": true
+    },
+    {
+      "link": "/journal/peninsula-this-weekend-jun-20/",
+      "canonical": "/whats-on/this-weekend/archive/2026-06-15/",
+      "onPages": 1,
+      "sitewide": false,
+      "targetIsStub": true
+    },
+    {
+      "link": "/journal/the-peninsula-beach-swimming-guide/",
+      "canonical": "/explore/beaches/",
+      "onPages": 1,
+      "sitewide": false,
+      "targetIsStub": true
+    },
+    {
+      "link": "/journal/the-pub-crawl/",
+      "canonical": "/explore/plans/the-pub-crawl/",
+      "onPages": 1,
+      "sitewide": false,
+      "targetIsStub": true
+    },
+    {
+      "link": "/journal/the-dog-friendly-peninsula/",
+      "canonical": "/journal/dog-friendly-mornington-peninsula/",
+      "onPages": 1,
+      "sitewide": false,
+      "targetIsStub": true
+    },
+    {
+      "link": "/journal/walks-cape-schanck-hot-springs-day/",
+      "canonical": "/explore/plans/walks-cape-schanck-hot-springs-day/",
+      "onPages": 1,
+      "sitewide": false,
+      "targetIsStub": true
+    },
+    {
+      "link": "/journal/where-to-eat-mornington-peninsula/",
+      "canonical": "/eat/",
+      "onPages": 1,
+      "sitewide": false,
+      "targetIsStub": true
+    },
+    {
+      "link": "/journal/weddings-mornington-peninsula-weekend-planning/",
+      "canonical": "/explore/plans/weddings-mornington-peninsula-weekend-planning/",
+      "onPages": 1,
+      "sitewide": false,
+      "targetIsStub": true
+    },
+    {
+      "link": "/journal/the-producer-trail/",
+      "canonical": "/explore/plans/the-producer-trail/",
+      "onPages": 1,
+      "sitewide": false,
+      "targetIsStub": true
+    },
+    {
+      "link": "/journal/peninsula-this-weekend-jun-06/",
+      "canonical": "/whats-on/this-weekend/archive/2026-05-31/",
+      "onPages": 1,
+      "sitewide": false,
+      "targetIsStub": true
+    },
+    {
+      "link": "/walks/",
+      "canonical": "/explore/walks/",
+      "onPages": 1,
+      "sitewide": false,
+      "targetIsStub": true
+    }
+  ],
+  "noindexForeignCanonical": [],
+  "duplicates": [],
+  "orphans": [
+    "/accessibility/",
+    "/awards/",
+    "/careers/",
+    "/corporate-events/best-corporate-retreat-venues-mornington-peninsula/",
+    "/eat/breweries/",
+    "/eat/distilleries/",
+    "/eat/family-friendly/",
+    "/eat/georgie-bass/",
+    "/eat/markets/",
+    "/eat/moke-dining/",
+    "/eat/mornington-peninsula-brewery/",
+    "/eat/mr-vincenzos/",
+    "/eat/no-booking/",
+    "/eat/ouest-france-bistro/",
+    "/eat/paddock-to-plate/",
+    "/eat/providores/",
+    "/eat/pubs/",
+    "/eat/small-stone-pantry/",
+    "/eat/two-bays-brewing/",
+    "/eat/via-boffe/",
+    "/events/",
+    "/explore/day-trips/",
+    "/explore/places/mccrae/",
+    "/explore/places/merricks-north/",
+    "/explore/places/point-leo/",
+    "/explore/places/red-hill-south/",
+    "/explore/places/st-andrews-beach/",
+    "/explore/plans/build/",
+    "/explore/plans/mornington-peninsula-itinerary/",
+    "/explore/red-hill-hinterland-cycling/",
+    "/explore/red-hill-truffles/",
+    "/explore/regions/",
+    "/explore/sea-search-encounters/",
+    "/explore/things-to-do/",
+    "/explore/weekend-trips/",
+    "/fishing/seasons/snapper-run-oct-dec/",
+    "/guides/",
+    "/insiders-30/2026/",
+    "/journal/cellar-door/",
+    "/journal/insider-picks-2026-07-24/",
+    "/journal/insider-picks-2026-07-25/",
+    "/journal/insider-picks-2026-07-27/",
+    "/journal/insider-picks-2026-07-28/",
+    "/journal/insider-picks-2026-07-29/",
+    "/journal/insider-picks-2026-07-30/",
+    "/journal/local-secrets/",
+    "/journal/mornington-peninsula-in-autumn/",
+    "/partners/apply/",
+    "/picks/",
+    "/quick-note/",
+    "/site-index/",
+    "/stay/boutique-hotels/",
+    "/stay/cape-schanck/",
+    "/stay/coastal-stays/",
+    "/stay/cottages/",
+    "/stay/flinders/",
+    "/stay/glamping/",
+    "/stay/luxury/",
+    "/stay/mornington/",
+    "/stay/red-hill/",
+    "/stay/resorts/",
+    "/stay/sorrento/",
+    "/walks/easy-walks-mornington-peninsula/",
+    "/weddings/winery-wedding-venues-mornington-peninsula/",
+    "/whats-on/by-mood/after-dark/",
+    "/whats-on/by-mood/this-weekend/",
+    "/whats-on/by-mood/when-it-rains/",
+    "/whats-on/by-mood/worth-the-drive/",
+    "/whats-on/flinders-hotel-mothers-day-2026/",
+    "/whats-on/jetty-road-brewery-mothers-day-2026/",
+    "/whats-on/mornington-peninsula-winter-wine-weekend-2026/",
+    "/whats-on/mornington-peninsula-winter-wine-weekend-winter-wine-festival/",
+    "/whats-on/mornington-racecourse-market-may-2026/",
+    "/whats-on/mornington-tourist-railway-santa-specials/",
+    "/whats-on/mornington-tourist-railway-school-holiday-special-runs/",
+    "/whats-on/mothers-day-classic-moonah-links-2026/",
+    "/whats-on/mt-martha-south-beach-market/",
+    "/whats-on/pearcedale-community-market/",
+    "/whats-on/peninsula-hot-springs-kodomo-no-hi/",
+    "/whats-on/pier-10-mothers-day-lunch-2026/",
+    "/whats-on/point-nepean-portsea-market/",
+    "/whats-on/rocky-road-festival-mornington-peninsula-chocolaterie/",
+    "/whats-on/soil-cellar-flinders-truffles-x-polperro-winery/",
+    "/whats-on/songs-of-dreams-and-destiny/",
+    "/whats-on/sorrento-solstice-festival-2026/",
+    "/whats-on/sorrento-solstice-festival-fire-night/",
+    "/whats-on/soul-night-market-mornington/",
+    "/whats-on/soul-night-market-sorrento-beach/",
+    "/whats-on/stonier-fire-wine-winter-lunch/",
+    "/whats-on/stonier-vineyard-tours-new-release-pinot-tasting/",
+    "/whats-on/sunny-ridge-strawberry-picking/",
+    "/whats-on/tall-poppy-melbourne-design-week-exhibition/",
+    "/whats-on/the-bloody-long-walk-mornington-peninsula-2026/",
+    "/whats-on/the-enchanted-market-at-the-briars/",
+    "/whats-on/this-weekend/archive/2026-04-24/",
+    "/whats-on/this-weekend/archive/2026-04-26/",
+    "/whats-on/this-weekend/archive/2026-05-03/",
+    "/whats-on/this-weekend/archive/2026-05-11/",
+    "/whats-on/this-weekend/archive/2026-05-17/",
+    "/whats-on/trace-duo-exhibition-at-lander-se/",
+    "/whats-on/trace-duo-exhibition/",
+    "/whats-on/wild-mushroom-forage-lunch-with-the-kitchen/",
+    "/whats-on/winter-camp-2026-the-ranch/",
+    "/whats-on/winter-wine-weekend-full-3-day-peninsula-program/",
+    "/whats-on/winter-wine-weekend-winter-wine-festival-red-hill-showgrounds/",
+    "/wine/appointment-producers/",
+    "/wine/flinders/",
+    "/wine/moorooduc-tuerong/",
+    "/wine/stumpy-gully-vineyard/",
+    "/wine/trofeo-estate/",
+    "/wine/wine-region/"
+  ]
+}

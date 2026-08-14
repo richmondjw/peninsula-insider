@@ -3,12 +3,12 @@
   "version": "0.0.1",
   "private": true,
   "type": "module",
-  "description": "Astro rebuild of Peninsula Insider — atomic content layer, JSON-first authoring, editorial-grade design system. Phase 1 scaffold per roadmap-2026-04-09.md.",
+  "description": "Astro rebuild of Peninsula Insider \u2014 atomic content layer, JSON-first authoring, editorial-grade design system. Phase 1 scaffold per roadmap-2026-04-09.md.",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "node scripts/clear-content-cache.mjs && npm run media:registry && npm run lint:no-pricing && npm run lint:region-images && npm run lint:surfaces && npm run lint:nav-budget && npm run lint:css-budget && astro build && npm run lint:seo-architecture && npm run lint:filter-chips && npm run audit:agent-readiness",
-    "build:search": "npm run media:registry && npm run lint:no-pricing && npm run lint:house-style && npm run lint:region-images && npm run lint:surfaces && npm run lint:nav-budget && npm run lint:css-budget && astro build && npm run lint:filter-chips && npx pagefind --site dist && npm run audit:agent-readiness",
+    "build": "node scripts/clear-content-cache.mjs && npm run media:registry && npm run lint:no-pricing && npm run lint:region-images && npm run lint:surfaces && npm run lint:nav-budget && npm run lint:css-budget && astro build && npm run lint:seo-architecture && npm run lint:filter-chips && npm run audit:agent-readiness && npm run assert:link-graph",
+    "build:search": "npm run media:registry && npm run lint:no-pricing && npm run lint:house-style && npm run lint:region-images && npm run lint:surfaces && npm run lint:nav-budget && npm run lint:css-budget && astro build && npm run lint:filter-chips && npx pagefind --site dist && npm run audit:agent-readiness && npm run assert:link-graph",
     "preview": "astro preview",
     "astro": "astro",
     "check": "astro check",
@@ -42,7 +42,9 @@
     "lint:seo-architecture": "node scripts/lint-seo-architecture.mjs",
     "image-intelligence:discover": "node scripts/image-intelligence-pilot.mjs discover",
     "image-intelligence:pilot": "node scripts/image-intelligence-pilot.mjs pilot",
-    "test:image-intelligence": "node --test scripts/image-intelligence/pilot-core.test.mjs"
+    "test:image-intelligence": "node --test scripts/image-intelligence/pilot-core.test.mjs",
+    "audit:link-graph": "node scripts/audit-link-graph.mjs --dist dist --json ../ops/reports/seo/link-graph.json",
+    "assert:link-graph": "node scripts/audit-link-graph.mjs --dist dist --assert --json ../ops/reports/seo/link-graph.json"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.0",

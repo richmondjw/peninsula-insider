@@ -36,11 +36,11 @@ planShape: "one-night"
 lastVerified: 2026-04-22
 clusterLinks:
   - label: "The Couples' Weekend on the Mornington Peninsula"
-    href: "/journal/the-couples-weekend/"
+    href: "/explore/plans/the-couples-weekend/"
   - label: "Where to Stay Near the Hot Springs"
-    href: "/journal/mornington-peninsula-stay-and-soak/"
+    href: "/explore/plans/mornington-peninsula-stay-and-soak/"
   - label: "Best Spas on the Mornington Peninsula - The Tier Guide"
-    href: "/journal/best-spas-mornington-peninsula/"
+    href: "/explore/spas-and-wellness/"
 faq:
   - question: "Is a one-night trip to the Mornington Peninsula worth it?"
     answer: "Yes - done with the right shape, a single overnight delivers real restoration. The key is choosing one base and staying inside it, booking everything in advance, and protecting the slow morning. A one-night trip that leaves at 8am is a round trip."

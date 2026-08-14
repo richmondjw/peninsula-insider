@@ -23,9 +23,9 @@ clusterLinks:
   - label: "The Peninsula Pantry - Shopping the Region's Larder"
     href: "/journal/the-peninsula-pantry/"
   - label: "The Peninsula Picnic - How to Assemble One Properly"
-    href: "/journal/the-peninsula-picnic/"
+    href: "/explore/plans/the-peninsula-picnic/"
   - label: "The Market Saturday - Two Weekends Built Around the Markets"
-    href: "/journal/the-market-saturday/"
+    href: "/explore/plans/the-market-saturday/"
 faq:
   - question: "What is the Peninsula producer trail?"
     answer: "A day built around four farm-gate and artisan producer visits in a single driving loop - cheese dairies, strawberry farms, olive groves, bakeries - rather than cellar doors and restaurants. The northern loop runs through Main Ridge and Red Hill (cheese, strawberries, truffles or chocolates). The southern loop runs through Somers and Balnarring (organic vegetables, bakehouse, cider). Each stop is 15–30 minutes."

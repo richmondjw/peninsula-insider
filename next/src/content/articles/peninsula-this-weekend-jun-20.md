@@ -20,9 +20,9 @@ clusterLinks:
   - label: "The Cellar Door Short List"
     href: "/journal/the-cellar-door-short-list/"
   - label: "How to Build a Red Hill Saturday"
-    href: "/journal/how-to-build-a-red-hill-saturday/"
+    href: "/explore/plans/how-to-build-a-red-hill-saturday/"
   - label: "Things to Do on the Mornington Peninsula"
-    href: "/journal/things-to-do-mornington-peninsula/"
+    href: "/explore/things-to-do/"
 dispatch:
   editorLine: "The solstice is the Peninsula's biggest winter night. Saturday is the festival. Sunday is the recovery, and the better half of the weekend."
   weather: "Mid-June Peninsula: 12–14°C, showers possible. Saturday forecast currently favourable for the outdoor festival. Sunday clearing to partly cloudy."

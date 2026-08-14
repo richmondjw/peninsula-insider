@@ -18,11 +18,11 @@ status: "published"
 lastVerified: 2026-07-12
 clusterLinks:
   - label: "How to Build a Red Hill Saturday"
-    href: "/journal/how-to-build-a-red-hill-saturday/"
+    href: "/explore/plans/how-to-build-a-red-hill-saturday/"
   - label: "The Cellar Door Short List"
     href: "/journal/the-cellar-door-short-list/"
   - label: "Things to Do on the Mornington Peninsula"
-    href: "/journal/things-to-do-mornington-peninsula/"
+    href: "/explore/things-to-do/"
 dispatch:
   editorLine: "July sits in the quieter stretch of Peninsula winter, and that is the point. The reward for coming down on a cold weekend is the version of the Peninsula that runs at a different pace."
   weather: "Mid-July on the Peninsula: expect grey skies, cool temperatures around 12–13°C, and the quiet roads that come with the off-season. Less traffic, more room at the table."

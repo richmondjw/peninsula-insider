@@ -20,7 +20,7 @@ lastVerified: 2026-08-06
 agentRun: 2026-08-06-manual-recovery
 clusterLinks:
   - label: "Where to Eat on the Mornington Peninsula"
-    href: "/journal/where-to-eat-mornington-peninsula/"
+    href: "/eat/"
   - label: "Best Cellar Doors on the Mornington Peninsula"
     href: "/wine/best-cellar-doors/"
   - label: "Mornington Peninsula in Winter"

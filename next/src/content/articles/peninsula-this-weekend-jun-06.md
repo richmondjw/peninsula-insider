@@ -20,9 +20,9 @@ clusterLinks:
   - label: "The Cellar Door Short List"
     href: "/journal/the-cellar-door-short-list/"
   - label: "How to Build a Red Hill Saturday"
-    href: "/journal/how-to-build-a-red-hill-saturday/"
+    href: "/explore/plans/how-to-build-a-red-hill-saturday/"
   - label: "Things to Do on the Mornington Peninsula"
-    href: "/journal/things-to-do-mornington-peninsula/"
+    href: "/explore/things-to-do/"
 dispatch:
   editorLine: "King's Birthday weekend pays back loose planning more than tight. Two clear moves, and the rest of the weekend kept open."
   weather: "Cold, early-June Peninsula weather with rain possible across the long weekend. Everything worth doing is built for fires, pavilions, or thermal water."

@@ -14,7 +14,7 @@ tags: ["dogs", "peninsula", "service", "boarding", "grooming", "pet-shops"]
 lastVerified: 2026-04-22
 clusterLinks:
   - label: "The Dog-Friendly Peninsula - Full Weekend Guide"
-    href: "/journal/the-dog-friendly-peninsula/"
+    href: "/journal/dog-friendly-mornington-peninsula/"
   - label: "Dog-Friendly Accommodation on the Mornington Peninsula"
     href: "/journal/dog-friendly-accommodation-mornington-peninsula/"
   - label: "Emergency Vet and Pet Help"

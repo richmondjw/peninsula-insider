@@ -18,9 +18,9 @@ status: "published"
 lastVerified: 2026-05-17
 clusterLinks:
   - label: "Things to Do on the Mornington Peninsula"
-    href: "/journal/things-to-do-mornington-peninsula/"
+    href: "/explore/things-to-do/"
   - label: "How to Build a Red Hill Saturday"
-    href: "/journal/how-to-build-a-red-hill-saturday/"
+    href: "/explore/plans/how-to-build-a-red-hill-saturday/"
   - label: "The Cellar Door Short List"
     href: "/journal/the-cellar-door-short-list/"
 dispatch:

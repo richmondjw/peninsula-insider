@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import VenueDetailTemplate from '../../components/VenueDetailTemplate.astro';
 import EventStrip from '../../components/EventStrip.astro';
+import Redirect from '../../components/Redirect.astro';
 import { routeSlug, typeLabel, titleize, isUpcoming } from '../../lib/editorial';
 import { buildKnownForProperties } from '../../lib/schema';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
@@ -68,12 +69,22 @@ const editorLead = (venue.data.editorNote ?? '').split(/\n\s*\n/)[0].replace(/\s
 const description = sigDesc.length >= 90 ? sigDesc : (editorLead || sigDesc).slice(0, 158);
 // Wineries get a /wine/{slug}/ page as their canonical home (see
 // next/src/lib/editorial.ts venueHrefPrefix). They also get a /eat/{slug}/
-// page emitted from this template because wineries serve food too. To stop
-// Google from indexing both URLs as competing duplicates, we set the
-// canonical on /eat/{winery-slug}/ to the /wine/{winery-slug}/ URL.
-// Pre-fix data showed kerri-greens, polperro, and others indexed at both
-// URLs. See ops/reports/seo/experiments.md experiment 2026-05-05-03.
-const canonical = venue.data.type === 'winery'
+// URL emitted from this template because wineries serve food too.
+//
+// Until 15 Aug 2026 that meant a *full ~130 KB render* at /eat/{winery}/ with a
+// canonical pointing at /wine/{winery}/. A canonical says which URL to index; it
+// does not say to stop crawling the other one - Googlebot has to fetch the whole
+// page to read it. Across 40 wineries that was 5.1 MB of crawl budget spent on
+// pages whose only purpose was to be discarded, on a site where /boating/ had
+// gone 105 days without a fetch and three town pages had never been crawled.
+//
+// So the alias now emits the Redirect `consolidate` stub instead: the URL stays
+// alive for existing inbound links and still passes its equity, at ~1 KB rather
+// than ~130 KB. Asserted at 0 by scripts/audit-link-graph.mjs.
+// Prior context: pre-fix data showed kerri-greens, polperro and others indexed at
+// both URLs. See ops/reports/seo/experiments.md experiment 2026-05-05-03.
+const isWineryAlias = venue.data.type === 'winery';
+const canonical = isWineryAlias
   ? `https://peninsulainsider.com.au/wine/${slug}/`
   : `https://peninsulainsider.com.au/eat/${slug}/`;
 const hero = await resolveHero('venue', slug, venue.data);
@@ -114,6 +125,9 @@ const venueSchema = {
 export const prerender = true;
 ---
 
+{isWineryAlias ? (
+  <Redirect to={`/wine/${slug}/`} consolidate />
+) : (
 <BaseLayout
   title={`${venue.data.name}, ${venuePlaceName} · Peninsula Insider`}
   description={description}
@@ -136,3 +150,4 @@ export const prerender = true;
     variant="alt"
   />
 </BaseLayout>
+)}

@@ -22,9 +22,9 @@ clusterLinks:
   - label: "Mornington Peninsula in Winter"
     href: "/journal/mornington-peninsula-in-winter/"
   - label: "Where to Eat on the Mornington Peninsula"
-    href: "/journal/where-to-eat-mornington-peninsula/"
+    href: "/eat/"
   - label: "Best Walks on the Mornington Peninsula"
-    href: "/explore/best-walks/"
+    href: "/explore/walks/"
 faq:
   - question: "When does Sourdough Kitchen open on weekends?"
     answer: "Sourdough Kitchen is on Mornington Main Street and opens early on weekends. The morning buns sell out by 11am - plan to arrive well before then. No bookings; walk in."

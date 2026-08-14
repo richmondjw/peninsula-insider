@@ -20,9 +20,9 @@ clusterLinks:
   - label: "The Cellar Door Short List"
     href: "/journal/the-cellar-door-short-list/"
   - label: "How to Build a Red Hill Saturday"
-    href: "/journal/how-to-build-a-red-hill-saturday/"
+    href: "/explore/plans/how-to-build-a-red-hill-saturday/"
   - label: "Things to Do on the Mornington Peninsula"
-    href: "/journal/things-to-do-mornington-peninsula/"
+    href: "/explore/things-to-do/"
 dispatch:
   editorLine: "The first school-holiday weekend is not about trying to do everything. Book one proper winter move, leave room for a slow Sunday, and keep one indoor family option in reserve."
   weather: "Early July on the Peninsula is proper winter: cold mornings, early dark, and enough weather variation that an indoor backup matters. Check Friday's local forecast before locking in outdoor-only plans."

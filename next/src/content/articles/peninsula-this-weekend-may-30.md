@@ -18,11 +18,11 @@ status: "published"
 lastVerified: 2026-05-24
 clusterLinks:
   - label: "How to Build a Red Hill Saturday"
-    href: "/journal/how-to-build-a-red-hill-saturday/"
+    href: "/explore/plans/how-to-build-a-red-hill-saturday/"
   - label: "The Cellar Door Short List"
     href: "/journal/the-cellar-door-short-list/"
   - label: "Things to Do on the Mornington Peninsula"
-    href: "/journal/things-to-do-mornington-peninsula/"
+    href: "/explore/things-to-do/"
 dispatch:
   editorLine: "Autumn closes and winter opens on the same patch of Main Ridge on Saturday: the Peninsula marking its own calendar."
   weather: "Grey and cool, 12–13°C, chance of rain. Quiet roads. The King's Birthday weekend arrives in seven days."

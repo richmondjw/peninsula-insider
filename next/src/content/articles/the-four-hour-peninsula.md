@@ -25,7 +25,7 @@ clusterLinks:
   - label: "Arthurs Seat Eagle - Visitor Guide"
     href: "/journal/arthurs-seat-eagle-visitor-guide/"
   - label: "The Couples' Weekend on the Mornington Peninsula"
-    href: "/journal/the-couples-weekend/"
+    href: "/explore/plans/the-couples-weekend/"
 faq:
   - question: "Can you visit the Mornington Peninsula in just half a day?"
     answer: "Yes, if you plan a single axis rather than a loop. The Red Hill axis - lunch at Merricks General Wine Store or Red Hill Brewery, one cellar door, Mornington foreshore - is the strongest four-hour plan. Three stops, no doubling back, and you are home by 4.30pm."

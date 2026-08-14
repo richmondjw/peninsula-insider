@@ -23,7 +23,7 @@ clusterLinks:
   - label: "The Peninsula Pantry - Shopping the Region's Larder"
     href: "/journal/the-peninsula-pantry/"
   - label: "The Market Saturday - Two Weekends Built Around the Markets"
-    href: "/journal/the-market-saturday/"
+    href: "/explore/plans/the-market-saturday/"
   - label: "The Spring Peninsula - What Changes in October"
     href: "/journal/the-spring-peninsula/"
 faq:

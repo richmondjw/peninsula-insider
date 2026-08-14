@@ -29,9 +29,9 @@ status: "published"
 lastVerified: 2026-04-22
 clusterLinks:
   - label: "Where to Stay on the Mornington Peninsula"
-    href: "/journal/where-to-stay-mornington-peninsula/"
+    href: "/stay/best-accommodation/"
   - label: "The One-Night Peninsula Escape"
-    href: "/journal/the-one-night-escape/"
+    href: "/explore/plans/the-one-night-escape/"
   - label: "The Peninsula Pantry - Shopping the Region's Larder"
     href: "/journal/the-peninsula-pantry/"
 faq:

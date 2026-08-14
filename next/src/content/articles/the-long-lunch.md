@@ -21,9 +21,9 @@ clusterLinks:
   - label: "Hatted Restaurants on the Mornington Peninsula 2025"
     href: "/journal/hatted-restaurants-mornington-peninsula-2025/"
   - label: "Where to Stay on the Mornington Peninsula"
-    href: "/journal/where-to-stay-mornington-peninsula/"
+    href: "/stay/best-accommodation/"
   - label: "The Couples' Weekend on the Mornington Peninsula"
-    href: "/journal/the-couples-weekend/"
+    href: "/explore/plans/the-couples-weekend/"
 faq:
   - question: "Which are the best restaurants for a long lunch on the Mornington Peninsula?"
     answer: "Ten Minutes by Tractor (two hats GFG 2025) for the highest-precision degustation. Montalto for a warmer estate experience with a sculpture garden. Laura at Pt Leo Estate for the most cinematic setting with bay views. Tedesca Osteria for something more intimate and farmhouse-style. All require advance booking."

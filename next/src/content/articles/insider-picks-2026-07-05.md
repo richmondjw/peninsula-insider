@@ -20,9 +20,9 @@ lastVerified: 2026-07-05
 agentRun: 2026-07-05-daily
 clusterLinks:
   - label: "Things to Do on the Mornington Peninsula"
-    href: "/journal/things-to-do-mornington-peninsula/"
+    href: "/explore/things-to-do/"
   - label: "Where to Eat on the Mornington Peninsula"
-    href: "/journal/where-to-eat-mornington-peninsula/"
+    href: "/eat/"
   - label: "Best Cellar Doors on the Mornington Peninsula"
     href: "/wine/best-cellar-doors/"
 faq:

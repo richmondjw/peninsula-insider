@@ -19,9 +19,9 @@ clusterLinks:
   - label: "St Andrews Beach Golf Course"
     href: "/journal/st-andrews-beach-golf-course/"
   - label: "Mornington Peninsula Golf - Why It's Australia's Best Golf Region"
-    href: "/journal/mornington-peninsula-golf-guide/"
+    href: "/explore/golf/"
   - label: "Mornington Peninsula Stay and Play Golf"
-    href: "/journal/mornington-peninsula-golf-stay-and-play/"
+    href: "/explore/plans/mornington-peninsula-golf-stay-and-play/"
 faq:
   - question: "What is the best public golf course on the Mornington Peninsula?"
     answer: "St Andrews Beach - world-ranked Tom Doak design, public access, bookable online. If it's full, The Dunes and Moonah Links are the next tier. All three are in the Cape Schanck–Fingal corridor at the southern end of the Peninsula."
@@ -97,6 +97,6 @@ If the point is a Peninsula weekend that still works for the rest of your group,
 
 ## Related guides
 
-- <a href="/journal/mornington-peninsula-golf-guide/">Why the Mornington Peninsula is Australia's golf country</a>
+- <a href="/explore/golf/">Why the Mornington Peninsula is Australia's golf country</a>
 - <a href="/journal/st-andrews-beach-golf-course/">St Andrews Beach Golf Course: the world-ranked course anyone can book</a>
 - <a href="/journal/mornington-peninsula-itinerary/">Mornington Peninsula 3-Day Itinerary</a>

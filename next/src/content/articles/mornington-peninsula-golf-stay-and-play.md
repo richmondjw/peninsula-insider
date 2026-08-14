@@ -20,11 +20,11 @@ planShape: "two-night"
 lastVerified: 2026-04-22
 clusterLinks:
   - label: "Best Golf Courses on the Mornington Peninsula - Tier Guide"
-    href: "/journal/best-golf-courses-mornington-peninsula/"
+    href: "/explore/golf/"
   - label: "Mornington Peninsula Golf - Why It's Australia's Best Golf Region"
-    href: "/journal/mornington-peninsula-golf-guide/"
+    href: "/explore/golf/"
   - label: "Where to Stay on the Mornington Peninsula"
-    href: "/journal/where-to-stay-mornington-peninsula/"
+    href: "/stay/best-accommodation/"
 faq:
   - question: "Where is the best place to stay for a Mornington Peninsula golf weekend?"
     answer: "Match the stay to the course. RACV Cape Schanck Resort for on-property golf (walk from room to first tee). Jackalope Hotel (15 min) for St Andrews Beach with a serious dinner at Doot Doot Doot. Peppers Moonah Links Resort for a 36-hole weekend. Staying within 10 minutes of the course is the single biggest improvement you can make to a golf trip."
@@ -100,8 +100,8 @@ Jackalope or Port Phillip Estate. One round at St Andrews Beach, one round at Th
 
 ## Related guides
 
-- <a href="/journal/best-golf-courses-mornington-peninsula/">Best golf courses on the Mornington Peninsula, tier guide</a>
-- <a href="/journal/mornington-peninsula-golf-guide/">Why the Mornington Peninsula is Australia's golf country</a>
+- <a href="/explore/golf/">Best golf courses on the Mornington Peninsula, tier guide</a>
+- <a href="/explore/golf/">Why the Mornington Peninsula is Australia's golf country</a>
 - <a href="/explore/plans/the-peninsula-golf-weekend/">The Peninsula Golf Weekend itinerary</a>
 - <a href="/stay/best-accommodation/">Best accommodation on the Mornington Peninsula</a>
 

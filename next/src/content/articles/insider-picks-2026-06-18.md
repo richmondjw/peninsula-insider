@@ -19,11 +19,11 @@ status: "draft"
 lastVerified: 2026-06-18
 clusterLinks:
   - label: "Peninsula This Weekend - 20 to 21 June"
-    href: "/journal/peninsula-this-weekend-jun-20/"
+    href: "/whats-on/this-weekend/archive/2026-06-15/"
   - label: "Things to Do on the Mornington Peninsula"
-    href: "/journal/things-to-do-mornington-peninsula/"
+    href: "/explore/things-to-do/"
   - label: "Where to Eat on the Mornington Peninsula"
-    href: "/journal/where-to-eat-mornington-peninsula/"
+    href: "/eat/"
 faq:
   - question: "When does the MPRG Autumn Exhibition close?"
     answer: "The Mornington Peninsula Regional Gallery Autumn Exhibition closes on Monday 30 June 2026. Entry is free and no booking is required. Open most days; check mprg.mornpen.vic.gov.au for current hours."

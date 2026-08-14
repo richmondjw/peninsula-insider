@@ -23,7 +23,7 @@ clusterLinks:
   - label: "First Time on the Peninsula - The Honest Starter Guide"
     href: "/journal/first-time-peninsula/"
   - label: "The Four-Hour Peninsula - Compact Day Guide"
-    href: "/journal/the-four-hour-peninsula/"
+    href: "/explore/plans/the-four-hour-peninsula/"
   - label: "Dog-Friendly Cafés, Pubs and Wineries on the Mornington Peninsula"
     href: "/journal/dog-friendly-cafes-pubs-wineries-mornington-peninsula/"
 faq:

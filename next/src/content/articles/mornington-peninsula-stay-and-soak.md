@@ -22,9 +22,9 @@ clusterLinks:
   - label: "Peninsula Hot Springs vs Alba - The Honest Comparison"
     href: "/journal/peninsula-hot-springs-vs-alba/"
   - label: "Best Spas on the Mornington Peninsula - The Tier Guide"
-    href: "/journal/best-spas-mornington-peninsula/"
+    href: "/explore/spas-and-wellness/"
   - label: "Where to Stay on the Mornington Peninsula"
-    href: "/journal/where-to-stay-mornington-peninsula/"
+    href: "/stay/best-accommodation/"
 faq:
   - question: "Where should I stay if I'm visiting Peninsula Hot Springs or Alba Thermal Springs?"
     answer: "The Red Hill plateau (10–20 min north) or the Cape Schanck–Sorrento corridor (10–20 min south-west) are the best bases. Avoid Mornington town for a pure spa weekend - it adds 35 minutes of driving each way and dilutes the bathing ritual."
@@ -117,6 +117,6 @@ RACV Cape Schanck Resort. One spa half-day at One Spa. One round at RACV Cape Sc
 ## Related guides
 
 - <a href="/journal/peninsula-hot-springs-vs-alba/">Peninsula Hot Springs vs Alba, the comparison</a>
-- <a href="/journal/best-spas-mornington-peninsula/">Best spas on the Mornington Peninsula, tier guide</a>
-- <a href="/spa/">The spa section hub</a>
+- <a href="/explore/spas-and-wellness/">Best spas on the Mornington Peninsula, tier guide</a>
+- <a href="/explore/spas-and-wellness/">The spa section hub</a>
 - <a href="/stay/best-accommodation/">Best accommodation on the Mornington Peninsula</a>

@@ -18,11 +18,11 @@ status: "published"
 lastVerified: 2026-04-22
 clusterLinks:
   - label: "Where to Stay on the Mornington Peninsula"
-    href: "/journal/where-to-stay-mornington-peninsula/"
+    href: "/stay/best-accommodation/"
   - label: "The Vineyard Villa Weekend"
     href: "/journal/the-vineyard-villa-weekend/"
   - label: "The Couples' Weekend on the Mornington Peninsula"
-    href: "/journal/the-couples-weekend/"
+    href: "/explore/plans/the-couples-weekend/"
 faq:
   - question: "Where is the best place to stay on the Mornington Peninsula for a two-night escape?"
     answer: "Depends on the trip. For food and wine: Jackalope (design hotel, theatrical) or Lindenderry (country house, softer, often the better choice). For coast and town life: The Continental Sorrento (walkable main street, ferry nearby) or Hotel Sorrento (looser, older, good front rooms with bay views). For quiet: Flinders Hotel - clean, comfortable, village base at the ocean end of the Peninsula."

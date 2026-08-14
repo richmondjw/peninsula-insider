@@ -19,9 +19,9 @@ clusterLinks:
   - label: "Peninsula Hot Springs vs Alba - The Honest Comparison"
     href: "/journal/peninsula-hot-springs-vs-alba/"
   - label: "Where to Stay Near the Hot Springs"
-    href: "/journal/mornington-peninsula-stay-and-soak/"
+    href: "/explore/plans/mornington-peninsula-stay-and-soak/"
   - label: "Where to Stay on the Mornington Peninsula"
-    href: "/journal/where-to-stay-mornington-peninsula/"
+    href: "/stay/best-accommodation/"
 status: "published"
 faq:
   - question: "What is the best spa on the Mornington Peninsula?"
@@ -90,8 +90,8 @@ These are the practical, sensibly-priced day-spa options that make a Peninsula w
 ## Related guides
 
 - <a href="/journal/peninsula-hot-springs-vs-alba/">Peninsula Hot Springs vs Alba: the honest comparison</a>
-- <a href="/journal/mornington-peninsula-stay-and-soak/">Where to stay near the hot springs</a>
-- <a href="/spa/">The spa section hub</a>
+- <a href="/explore/plans/mornington-peninsula-stay-and-soak/">Where to stay near the hot springs</a>
+- <a href="/explore/spas-and-wellness/">The spa section hub</a>
 - <a href="/journal/rainy-day-peninsula/">The Peninsula on a rainy day: spa-first itineraries</a>
 
 

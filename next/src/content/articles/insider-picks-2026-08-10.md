@@ -22,9 +22,9 @@ clusterLinks:
   - label: "Mornington Peninsula in Winter"
     href: "/journal/mornington-peninsula-in-winter/"
   - label: "Where to Eat on the Mornington Peninsula"
-    href: "/journal/where-to-eat-mornington-peninsula/"
+    href: "/eat/"
   - label: "Things to Do on the Mornington Peninsula"
-    href: "/journal/things-to-do-mornington-peninsula/"
+    href: "/explore/things-to-do/"
 faq:
   - question: "When is the Red Hill Brewery Secret Stash Weekend?"
     answer: "Saturday 15 and Sunday 16 August 2026, 11am–6pm at Red Hill Brewery, 88 Shoreham Road, Red Hill South. Book or check details at redhillbrewery.com.au."

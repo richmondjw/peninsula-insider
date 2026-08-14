@@ -18,7 +18,7 @@ status: "published"
 lastVerified: 2026-04-26
 clusterLinks:
   - label: "How to Build a Red Hill Saturday"
-    href: "/journal/how-to-build-a-red-hill-saturday/"
+    href: "/explore/plans/how-to-build-a-red-hill-saturday/"
   - label: "The Cellar Door Short List"
     href: "/journal/the-cellar-door-short-list/"
   - label: "Peninsula Hot Springs vs Alba - The Honest Comparison"

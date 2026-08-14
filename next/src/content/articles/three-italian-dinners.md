@@ -22,7 +22,7 @@ clusterLinks:
   - label: "The Long Lunch - The Peninsula's Best Format"
     href: "/journal/the-long-lunch/"
   - label: "How to Plan a Peninsula Weekend"
-    href: "/journal/how-to-plan-a-peninsula-weekend/"
+    href: "/explore/plans/how-to-plan-a-peninsula-weekend/"
 faq:
   - question: "What is the difference between Tedesca Osteria, Ten Minutes by Tractor, and Laura at Pt Leo?"
     answer: "Tedesca is the most honest room - one set menu, farmhouse atmosphere, wood oven, best for autumn lunches with small groups who want to be surprised. Ten Minutes by Tractor is technically ambitious fine dining with precise seasonal cooking and a strong estate wine program - best for anniversaries or when the meal should be the headline. Laura at Pt Leo is the smallest and most considered: ten courses, chef's counter, twenty seats, the top of the Peninsula's market."

@@ -18,9 +18,9 @@ status: "published"
 lastVerified: 2026-04-22
 clusterLinks:
   - label: "How to Plan a Mornington Peninsula Wedding Weekend"
-    href: "/journal/weddings-mornington-peninsula-weekend-planning/"
+    href: "/explore/plans/weddings-mornington-peninsula-weekend-planning/"
   - label: "Where to Stay on the Mornington Peninsula"
-    href: "/journal/where-to-stay-mornington-peninsula/"
+    href: "/stay/best-accommodation/"
   - label: "Dog-Friendly Accommodation on the Mornington Peninsula"
     href: "/journal/dog-friendly-accommodation-mornington-peninsula/"
 faq:

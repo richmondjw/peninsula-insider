@@ -17,7 +17,7 @@ status: "published"
 lastVerified: 2026-08-07
 clusterLinks:
   - label: "The Peninsula with Kids"
-    href: "/journal/the-peninsula-with-kids/"
+    href: "/journal/mornington-peninsula-with-kids/"
   - label: "The Rainy Day Peninsula"
     href: "/journal/rainy-day-peninsula/"
   - label: "Free Things to Do on the Mornington Peninsula"

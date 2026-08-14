@@ -23,9 +23,9 @@ clusterLinks:
   - label: "The Peninsula Pub Guide"
     href: "/journal/the-pub-guide/"
   - label: "The Friday Night Arrival"
-    href: "/journal/the-friday-night-arrival/"
+    href: "/explore/plans/the-friday-night-arrival/"
   - label: "How to Plan a Peninsula Weekend"
-    href: "/journal/how-to-plan-a-peninsula-weekend/"
+    href: "/explore/plans/how-to-plan-a-peninsula-weekend/"
 faq:
   - question: "Which Mornington Peninsula pub crawl route is best?"
     answer: "The hinterland circuit for people who care about what they are drinking - Balnarring Pub for lunch, Red Hill Brewery for the hop garden and pizza, St Andrews Beach Brewery for a more experimental range. The bay-side run (Mornington → Dromana → Rye → Portsea) is the most scenic. The Sorrento strip is the only route walkable without a car."

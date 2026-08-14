@@ -37,11 +37,11 @@ planShape: "two-night"
 lastVerified: 2026-04-22
 clusterLinks:
   - label: "How to Plan a Peninsula Weekend"
-    href: "/journal/how-to-plan-a-peninsula-weekend/"
+    href: "/explore/plans/how-to-plan-a-peninsula-weekend/"
   - label: "A Flinders Weekend - The Quiet Side of the Peninsula"
     href: "/journal/a-flinders-weekend/"
   - label: "The Couples' Weekend on the Mornington Peninsula"
-    href: "/journal/the-couples-weekend/"
+    href: "/explore/plans/the-couples-weekend/"
 faq:
   - question: "What should I do on Friday night when arriving on the Mornington Peninsula?"
     answer: "Three options depending on energy and planning: the pub (no booking needed; Balnarring Pub for hinterland stays, Flinders Hotel for the south, Hotel Sorrento front bar for the coast); the provisions stop (bread, cheese, chicken, and wine from the nearest good deli en route, eaten on the deck); or a booked dinner at Tedesca Osteria, Rare Hare, or similar if arranged a week ahead. The pub is the most reliable no-planning option."

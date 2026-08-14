@@ -22,9 +22,9 @@ clusterLinks:
   - label: "Mornington Peninsula in Winter"
     href: "/journal/mornington-peninsula-in-winter/"
   - label: "Where to Eat on the Mornington Peninsula"
-    href: "/journal/where-to-eat-mornington-peninsula/"
+    href: "/eat/"
   - label: "Best Walks on the Mornington Peninsula"
-    href: "/explore/best-walks/"
+    href: "/explore/walks/"
 faq:
   - question: "When does St Andrews Beach Brewery serve their Sunday roast?"
     answer: "St Andrews Beach Brewery is at 65 Sandy Track, Rye. The Sunday roast runs weekly from midday. Book ahead via their website - it fills quickly in winter when the heritage stables fill up fast."

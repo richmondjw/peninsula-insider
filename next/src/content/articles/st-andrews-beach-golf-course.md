@@ -17,9 +17,9 @@ status: "published"
 lastVerified: 2026-04-22
 clusterLinks:
   - label: "Best Golf Courses on the Mornington Peninsula - Tier Guide"
-    href: "/journal/best-golf-courses-mornington-peninsula/"
+    href: "/explore/golf/"
   - label: "Mornington Peninsula Stay and Play Golf"
-    href: "/journal/mornington-peninsula-golf-stay-and-play/"
+    href: "/explore/plans/mornington-peninsula-golf-stay-and-play/"
   - label: "Peninsula Hot Springs vs Alba - The Honest Comparison"
     href: "/journal/peninsula-hot-springs-vs-alba/"
 faq:
@@ -53,13 +53,13 @@ It works for **serious golfers** because the architecture is not a gimmick. The 
 
 It works for **occasional golfers** because the experience still feels distinct, coastal, and destination-worthy. You are not playing a suburban muni and pretending it is a trip.
 
-And it works for a **mixed weekend** because <a href="/explore/places/cape-schanck/">Cape Schanck</a>, <a href="/journal/mornington-peninsula-hot-springs-guide/">the hot springs</a>, strong lunch options, and the southern end of the Peninsula all fit naturally around it.
+And it works for a **mixed weekend** because <a href="/explore/places/cape-schanck/">Cape Schanck</a>, <a href="/explore/hot-springs/">the hot springs</a>, strong lunch options, and the southern end of the Peninsula all fit naturally around it.
 
 ## How to build the day around it
 
 The best way to think about St Andrews Beach is not as an isolated sports venue. It is the anchor round in a Peninsula weekend that still leaves room for the rest of the trip.
 
-**A morning tee time** gets you off the course by mid-afternoon. That leaves the second half of the day for a late lunch on the <a href="/explore/places/red-hill/">Red Hill</a> plateau (<a href="/eat/montalto/">Montalto</a> piazza is the easiest walk-up), a hot springs session (<a href="/journal/mornington-peninsula-hot-springs-guide/">Peninsula Hot Springs or Alba</a>, 15 minutes away), or a coastal walk at <a href="/explore/places/cape-schanck/">Cape Schanck</a>.
+**A morning tee time** gets you off the course by mid-afternoon. That leaves the second half of the day for a late lunch on the <a href="/explore/places/red-hill/">Red Hill</a> plateau (<a href="/wine/montalto/">Montalto</a> piazza is the easiest walk-up), a hot springs session (<a href="/explore/hot-springs/">Peninsula Hot Springs or Alba</a>, 15 minutes away), or a coastal walk at <a href="/explore/places/cape-schanck/">Cape Schanck</a>.
 
 **An afternoon tee time** means you take the Peninsula properly on the way down: morning cellar doors, an early lunch, then the course, then a quiet stay within 20 minutes of the first tee. This is the shape if the group includes non-golfers.
 
@@ -83,6 +83,6 @@ That is the Peninsula pitch, and St Andrews Beach is why it works.
 
 ## Related guides
 
-- <a href="/journal/best-golf-courses-mornington-peninsula/">Best golf courses on the Mornington Peninsula, our tier guide</a>
-- <a href="/journal/mornington-peninsula-golf-guide/">Why the Mornington Peninsula is Australia's golf country</a>
-- <a href="/journal/mornington-peninsula-hot-springs-guide/">Hot springs guide</a>
+- <a href="/explore/golf/">Best golf courses on the Mornington Peninsula, our tier guide</a>
+- <a href="/explore/golf/">Why the Mornington Peninsula is Australia's golf country</a>
+- <a href="/explore/hot-springs/">Hot springs guide</a>

@@ -18,11 +18,11 @@ status: "published"
 lastVerified: 2026-04-22
 clusterLinks:
   - label: "How to Plan a Mornington Peninsula Corporate Retreat"
-    href: "/journal/corporate-events-how-to-plan-peninsula-retreat/"
+    href: "/explore/plans/corporate-events-how-to-plan-peninsula-retreat/"
   - label: "Best Spas on the Mornington Peninsula"
-    href: "/journal/best-spas-mornington-peninsula/"
+    href: "/explore/spas-and-wellness/"
   - label: "Where to Stay on the Mornington Peninsula"
-    href: "/journal/where-to-stay-mornington-peninsula/"
+    href: "/stay/best-accommodation/"
 faq:
   - question: "Is Red Hill better than Sorrento for a corporate offsite?"
     answer: "Red Hill suits strategy retreats, executive offsites, and winery-led programmes - the hinterland slows the day in a useful way. Sorrento suits client events, partner gatherings, and social-layer offsites. Neither is universally better; the choice depends on what the event is actually trying to do."

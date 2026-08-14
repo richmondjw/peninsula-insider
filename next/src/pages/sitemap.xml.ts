@@ -54,6 +54,7 @@ const JOURNAL_STUB_OR_NOINDEX_SLUGS = new Set([
   'mornington-peninsula-boat-ramps',
   'mornington-peninsula-fishing-charters',
   'mornington-peninsula-golf-guide',
+  'mornington-peninsula-hot-springs-guide', // stub -> /explore/hot-springs/ (14 Aug consolidation)
   'mornington-peninsula-winery-tour', // hand-coded stub -> /tour/wine-tours/
   'snapper-mornington-peninsula',
   'snapper-season-port-phillip-bay',
@@ -64,6 +65,7 @@ const JOURNAL_STUB_OR_NOINDEX_SLUGS = new Set([
   'the-peninsula-with-kids',
   'the-rainy-day-peninsula-without-a-booking',
   'things-to-do-mornington-peninsula',
+  'where-to-eat-mornington-peninsula', // stub -> /eat/ (14 Aug consolidation)
   'where-to-stay-mornington-peninsula',
 ]);
 
@@ -195,7 +197,9 @@ export const GET: APIRoute = async () => {
     '/journal/dog-friendly-mornington-peninsula',
     '/journal/mornington-peninsula-day-trip',
     '/journal/mornington-peninsula-itinerary',
-    '/journal/mornington-peninsula-hot-springs-guide',
+    // '/journal/mornington-peninsula-hot-springs-guide' removed 15 Aug 2026: the page
+    // is now a consolidation stub -> /explore/hot-springs/, which is already emitted
+    // via exploreGuidePages. A stub in the sitemap violates §4.1 rule 1.
     '/journal/free-things-to-do-mornington-peninsula',
     '/journal/best-brunch-mornington-peninsula',
     '/journal/mornington-peninsula-wedding-venues',

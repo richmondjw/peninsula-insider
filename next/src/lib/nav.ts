@@ -62,8 +62,8 @@ export const mastheadNav: NavItem[] = [
   {
     key: 'wine', label: 'Wine', href: '/wine/',
     children: [
-      { label: 'Cellar Doors',         href: '/wine/cellar-doors/' },
-      { label: 'Best Wineries',        href: '/wine/best-wineries-mornington-peninsula/' },
+      { label: 'Cellar Doors',         href: '/wine/best-cellar-doors/' },
+      { label: 'Best Wineries',        href: '/wine/best-cellar-doors/' },
       { label: 'Pinot Noir',           href: '/wine/pinot-noir/' },
       { label: 'Chardonnay',           href: '/wine/chardonnay/' },
       { label: 'By Appointment',       href: '/wine/appointment-producers/' },
@@ -99,7 +99,7 @@ export const mastheadMoreNav: NavItem[] = [
   { key: 'insiders-30',      label: "The Insider's 30", href: '/insiders-30/',    dek: 'The annual ranked list - thirty places that defined the year.' },
   { key: 'tour',             label: 'Tours',          href: '/tour/',             dek: 'Operator-led day trips and packages.' },
   { key: 'boating',          label: 'Boating',        href: '/boating/',          dek: 'Charters, hire, ramps, and tides.' },
-  { key: 'golf',             label: 'Golf',           href: '/golf/',             dek: 'Courses on the cape.' },
+  { key: 'golf',             label: 'Golf',           href: '/explore/golf/',             dek: 'Courses on the cape.' },
   { key: 'spa',              label: 'Spa & Wellness', href: '/explore/spas-and-wellness/',              dek: 'Hot springs, saunas, retreats.' },
   { key: 'fishing',          label: 'Fishing',        href: '/fishing/',          dek: 'Species, spots, charters.' },
   { key: 'dog-friendly',     label: 'Dog Friendly',   href: '/dog-friendly/',     dek: 'Where the whole family is welcome.' },
@@ -188,7 +188,7 @@ export const pillarNav: NavItem[] = [
   },
   {
     key: 'spa',
-    href: '/spa/',
+    href: '/explore/spas-and-wellness/',
     label: 'Spa',
     sub: 'Hot Springs · Wellness',
     dek: 'Hot springs, steam, soak, and sauna country.',
@@ -206,7 +206,7 @@ export const footerSectionLinks: NavItem[] = [
   { key: 'stay',             label: 'Stay',            href: '/stay/' },
   { key: 'wine',             label: 'Wine Country',    href: '/wine/' },
   { key: 'explore',          label: 'Explore',         href: '/explore/' },
-  { key: 'golf',             label: 'Golf',            href: '/golf/' },
+  { key: 'golf',             label: 'Golf',            href: '/explore/golf/' },
   { key: 'spa',              label: 'Spa & Wellness',  href: '/explore/spas-and-wellness/' },
   { key: 'fishing',          label: 'Fishing',         href: '/fishing/' },
   { key: 'boating',          label: 'Boating',         href: '/boating/' },

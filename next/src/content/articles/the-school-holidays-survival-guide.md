@@ -21,11 +21,11 @@ planShape: "seasonal"
 lastVerified: 2026-04-22
 clusterLinks:
   - label: "The Peninsula with Kids - Family Day Guide"
-    href: "/journal/the-peninsula-with-kids/"
+    href: "/journal/mornington-peninsula-with-kids/"
   - label: "The Four-Hour Peninsula - Compact Day Guide"
-    href: "/journal/the-four-hour-peninsula/"
+    href: "/explore/plans/the-four-hour-peninsula/"
   - label: "How to Plan a Peninsula Weekend"
-    href: "/journal/how-to-plan-a-peninsula-weekend/"
+    href: "/explore/plans/how-to-plan-a-peninsula-weekend/"
 faq:
   - question: "What are the best activities for children on the Mornington Peninsula during school holidays?"
     answer: "Arthurs Seat Eagle gondola (book online during school holidays - walk-up queues can reach 45 minutes). Ashcombe Maze for 90 minutes of hedge maze and lavender garden. Point Nepean Fort Walk for children over eight - military tunnels and ocean views on both sides. Sunny Ridge Strawberry Farm for fruit picking in season. All four are morning activities; pair with a pub lunch and something low-key in the afternoon."

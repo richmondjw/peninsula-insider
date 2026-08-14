@@ -36,7 +36,7 @@ const itemListSchema = buildItemListSchema({
     { name: 'Point Nepean National Park', path: '/explore/point-nepean-national-park/', itemType: 'TouristAttraction', addressLocality: 'Portsea' },
     { name: 'Alba Thermal Springs', path: '/stay/alba-thermal-springs/', itemType: 'TouristAttraction', addressLocality: 'Rye' },
     { name: 'Ashcombe Maze and Lavender Gardens', path: '/explore/ashcombe-maze/', itemType: 'TouristAttraction', addressLocality: 'Shoreham' },
-    { name: 'Red Hill Community Market', path: '/explore/red-hill-market/', itemType: 'TouristAttraction', addressLocality: 'Red Hill' },
+    { name: 'Red Hill Community Market', path: '/eat/red-hill-market/', itemType: 'TouristAttraction', addressLocality: 'Red Hill' },
     { name: 'Swimming at Balnarring or Mount Martha', path: '/explore/beaches/', itemType: 'Beach', addressLocality: 'Balnarring' },
     { name: 'Mornington foreshore walk and town', path: '/explore/mornington-foreshore-walk/', itemType: 'TouristAttraction', addressLocality: 'Mornington' },
     { name: 'A spa day', path: '/explore/spas-and-wellness/', itemType: 'TouristAttraction', addressLocality: 'Mornington Peninsula' },
@@ -49,7 +49,7 @@ const itemListSchema = buildItemListSchema({
     { name: 'Gunnamatta Ocean Beach', path: '/explore/gunnamatta-ocean-beach/', itemType: 'Beach', addressLocality: 'Rye' },
     { name: 'Dromana Beach', path: '/explore/dromana-beach/', itemType: 'Beach', addressLocality: 'Dromana' },
     { name: 'Moonlit Sanctuary wildlife park', path: '/explore/moonlit-sanctuary/', itemType: 'TouristAttraction', addressLocality: 'Pearcedale' },
-    { name: 'The Peninsula orientation drive', path: '/journal/the-peninsula-orientation-drive/', itemType: 'TouristAttraction', addressLocality: 'Mornington Peninsula' },
+    { name: 'The Peninsula orientation drive', path: '/explore/plans/the-peninsula-orientation-drive/', itemType: 'TouristAttraction', addressLocality: 'Mornington Peninsula' },
   ],
 });
 
@@ -141,7 +141,7 @@ export const prerender = true;
         <p><em>Best for:</em> Serious walkers, nature lovers, those with a full day.</p>
 
         <h3>4. A winery lunch in Red Hill or Main Ridge</h3>
-        <p>This is not a specific entity - it's a mode of spending a hinterland afternoon. Montalto, Ten Minutes by Tractor, and Polperro are the anchors. <a href="/journal/how-to-build-a-red-hill-saturday/">How to build a Red Hill Saturday</a> lays out the full sequence. Reserve well in advance; walk-in lunch at the better tables is not realistic in summer.</p>
+        <p>This is not a specific entity - it's a mode of spending a hinterland afternoon. Montalto, Ten Minutes by Tractor, and Polperro are the anchors. <a href="/explore/plans/how-to-build-a-red-hill-saturday/">How to build a Red Hill Saturday</a> lays out the full sequence. Reserve well in advance; walk-in lunch at the better tables is not realistic in summer.</p>
         <p><em>Best for:</em> Food-and-wine visitors, birthdays, long lunches.</p>
 
         <h3>5. Arthurs Seat Eagle gondola</h3>
@@ -173,7 +173,7 @@ export const prerender = true;
         <p><em>Best for:</em> Families, garden enthusiasts, photographers.</p>
 
         <h3>12. Red Hill Community Market</h3>
-        <p><a href="/explore/red-hill-market/">Red Hill Market</a> runs on the first Saturday of each month at Red Hill Showgrounds. The best of the Peninsula's markets for produce, local craft, and prepared food. Arrive before 9am in summer. Full comparison at <a href="/explore/markets/">Peninsula markets</a>.</p>
+        <p><a href="/eat/red-hill-market/">Red Hill Market</a> runs on the first Saturday of each month at Red Hill Showgrounds. The best of the Peninsula's markets for produce, local craft, and prepared food. Arrive before 9am in summer. Full comparison at <a href="/explore/markets/">Peninsula markets</a>.</p>
         <p><em>Best for:</em> A hinterland Saturday morning anchor.</p>
 
         <h3>13. Swimming at Balnarring or Mount Martha</h3>
@@ -181,7 +181,7 @@ export const prerender = true;
         <p><em>Best for:</em> Families, toddler-age children, uncrowded swimming.</p>
 
         <h3>14. Mornington foreshore walk and town</h3>
-        <p><a href="/explore/mornington-foreshore-walk/">Mornington foreshore walk</a> runs along the harbour esplanade with good café access. The town has a walkable main street with genuine independent retailers. See the <a href="/journal/mornington-day-guide/">Mornington day guide</a>.</p>
+        <p><a href="/explore/mornington-foreshore-walk/">Mornington foreshore walk</a> runs along the harbour esplanade with good café access. The town has a walkable main street with genuine independent retailers. See the <a href="/explore/plans/mornington-day-guide/">Mornington day guide</a>.</p>
         <p><em>Best for:</em> Bay-town day visits, walkers, families.</p>
 
         <h3>15. A spa day</h3>
@@ -209,7 +209,7 @@ export const prerender = true;
         <p><em>Best for:</em> Those who want coastal walking without a specific destination.</p>
 
         <h3>21. Wine tasting in Merricks and Main Ridge</h3>
-        <p>Main Ridge's small-block, cool-climate pinot is genuinely world-competitive. Paringa Estate and Foxeys Hangout are the accessible starting points. For a more structured experience, read <a href="/journal/how-to-build-a-red-hill-saturday/">how to plan a Red Hill Saturday</a>.</p>
+        <p>Main Ridge's small-block, cool-climate pinot is genuinely world-competitive. Paringa Estate and Foxeys Hangout are the accessible starting points. For a more structured experience, read <a href="/explore/plans/how-to-build-a-red-hill-saturday/">how to plan a Red Hill Saturday</a>.</p>
         <p><em>Best for:</em> Wine-engaged visitors, those who want cellar door conversation rather than a production-line tasting.</p>
 
         <h3>22. Gunnamatta Ocean Beach</h3>
@@ -255,7 +255,7 @@ export const prerender = true;
         <p>Arthurs Seat Eagle for the gondola, Ashcombe Maze for engagement, and Balnarring Beach or Safety Beach for easy swimming. See the <a href="/journal/mornington-peninsula-with-kids/">with-kids guide</a>.</p>
 
         <h3>Where should I base myself on the Mornington Peninsula?</h3>
-        <p>Sorrento and Red Hill are the two strongest bases for different kinds of trips. Sorrento suits beach-focused visitors; Red Hill suits hinterland-focused visits. See <a href="/explore/where-to-base-yourself/">where to base yourself</a>.</p>
+        <p>Sorrento and Red Hill are the two strongest bases for different kinds of trips. Sorrento suits beach-focused visitors; Red Hill suits hinterland-focused visits. See <a href="/stay/best-accommodation/">where to base yourself</a>.</p>
       </div>
     </div>
   </section>

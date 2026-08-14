@@ -23,7 +23,7 @@ clusterLinks:
   - label: "Cape Schanck Guide"
     href: "/journal/cape-schanck-guide/"
   - label: "The One-Night Peninsula Escape"
-    href: "/journal/the-one-night-escape/"
+    href: "/explore/plans/the-one-night-escape/"
 faq:
   - question: "What is there to do in Flinders on the Mornington Peninsula?"
     answer: "Walk the cliff track from Cook Street toward West Head (90 min return, empty, Bass Strait views). Breakfast at Flinders Sourdough. Lunch at Georgie Bass (all-day cafe, Cook Street, open until 2:30–3pm). The pier at dusk. Two things and a walk is the right day - Flinders rewards slowness and punishes over-scheduling."

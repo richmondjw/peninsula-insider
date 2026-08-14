@@ -21,9 +21,9 @@ clusterLinks:
   - label: "The Peninsula Pub Guide"
     href: "/journal/the-pub-guide/"
   - label: "The Peninsula Pub Crawl"
-    href: "/journal/the-pub-crawl/"
+    href: "/explore/plans/the-pub-crawl/"
   - label: "How to Plan a Peninsula Weekend"
-    href: "/journal/how-to-plan-a-peninsula-weekend/"
+    href: "/explore/plans/how-to-plan-a-peninsula-weekend/"
 faq:
   - question: "Which Peninsula restaurants take walk-ins without a booking?"
     answer: "The pub network is the most reliable: Flinders Hotel (best for a walk-in lunch), Dromana Hotel (most reliably available), Rye Hotel, and Balnarring Pub. Breweries: Red Hill Brewery, St Andrews Beach Brewery, and Jetty Road Brewery all take walk-ins. Bakeries and cafés including Flinders Sourdough, Commonfolk Coffee, and Red Hill Bakery are counter service only, no booking required."

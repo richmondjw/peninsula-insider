@@ -38,7 +38,7 @@ clusterLinks:
   - label: "The Sunset Hour - Where to Be at the End of the Day"
     href: "/journal/the-sunset-hour/"
   - label: "The Couples' Weekend on the Mornington Peninsula"
-    href: "/journal/the-couples-weekend/"
+    href: "/explore/plans/the-couples-weekend/"
   - label: "The Sorrento Weekend"
     href: "/journal/the-sorrento-weekend/"
 faq:

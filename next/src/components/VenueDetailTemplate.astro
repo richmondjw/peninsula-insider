@@ -835,20 +835,20 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
       {(section === 'eat') && (
         <>
           <a href="/journal/the-long-lunch/" class="pi-btn pi-btn--solid">The long lunch guide →</a>
-          <a href="/journal/mornington-peninsula-winery-tour/" class="pi-btn pi-btn--solid">Winery tour route →</a>
-          <a href="/journal/the-rainy-day-peninsula-without-a-booking/" class="pi-btn pi-btn--solid">Rainy-day Peninsula →</a>
+          <a href="/tour/wine-tours/" class="pi-btn pi-btn--solid">Winery tour route →</a>
+          <a href="/journal/rainy-day-peninsula/" class="pi-btn pi-btn--solid">Rainy-day Peninsula →</a>
         </>
       )}
       {(section === 'wine') && (
         <>
           <a href="/journal/the-cellar-door-short-list/" class="pi-btn pi-btn--solid">Cellar door shortlist →</a>
-          <a href="/journal/mornington-peninsula-winery-tour/" class="pi-btn pi-btn--solid">Self-drive winery tour →</a>
+          <a href="/tour/wine-tours/" class="pi-btn pi-btn--solid">Self-drive winery tour →</a>
           <a href="/journal/mornington-peninsula-in-winter/" class="pi-btn pi-btn--solid">Winter on the Peninsula →</a>
         </>
       )}
       {(section === 'stay') && (
         <>
-          <a href="/journal/the-one-night-escape/" class="pi-btn pi-btn--solid">The one-night escape →</a>
+          <a href="/explore/plans/the-one-night-escape/" class="pi-btn pi-btn--solid">The one-night escape →</a>
           <a href="/journal/mornington-peninsula-in-winter/" class="pi-btn pi-btn--solid">Winter on the Peninsula →</a>
           <a href="/plans/" class="pi-btn pi-btn--solid">Weekend plans →</a>
         </>
@@ -857,7 +857,7 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
         <a href="/dog-friendly/" class="pi-btn pi-btn--solid">Dog-friendly Peninsula →</a>
       )}
       {(moodTags.includes('rainy-day') || seasonTags.includes('winter')) && (
-        <a href="/journal/the-rainy-day-peninsula-without-a-booking/" class="pi-btn pi-btn--solid">Rainy-day Peninsula →</a>
+        <a href="/journal/rainy-day-peninsula/" class="pi-btn pi-btn--solid">Rainy-day Peninsula →</a>
       )}
     </div>
   </div>
@@ -899,7 +899,7 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
         <p class="venue-footnote__verified">
           <span>{verifiedLabel} by Peninsula Insider</span>
           <span class="venue-footnote__sep" aria-hidden="true"> · </span>
-          <a href="/methodology/">How we check</a>
+          <a href="/editorial-approach/">How we check</a>
         </p>
       )}
       <p class="venue-footnote__claim">

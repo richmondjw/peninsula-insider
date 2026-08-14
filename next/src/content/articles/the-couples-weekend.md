@@ -51,7 +51,7 @@ clusterLinks:
   - label: "Hatted Restaurants on the Mornington Peninsula 2025"
     href: "/journal/hatted-restaurants-mornington-peninsula-2025/"
   - label: "Where to Stay on the Mornington Peninsula"
-    href: "/journal/where-to-stay-mornington-peninsula/"
+    href: "/stay/best-accommodation/"
 faq:
   - question: "What's the ideal couples' weekend structure on the Mornington Peninsula?"
     answer: "Arrive Friday afternoon, one anchor event for Saturday, a long lunch at a hatted restaurant, and leave Sunday with one stop en route home. The Peninsula works best when the itinerary has one clear centrepiece and the rest of the time fills itself."

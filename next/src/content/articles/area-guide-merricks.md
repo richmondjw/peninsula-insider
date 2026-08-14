@@ -18,7 +18,7 @@ status: "published"
 lastVerified: 2026-05-02
 clusterLinks:
   - label: "How to Plan a Peninsula Weekend"
-    href: "/journal/how-to-plan-a-peninsula-weekend/"
+    href: "/explore/plans/how-to-plan-a-peninsula-weekend/"
 faq:
   - question: "What is Merricks best known for?"
     answer: "Understated wine-country living - the General Wine Store, the pub, estate lunches and a softer, more local mood than Red Hill proper."

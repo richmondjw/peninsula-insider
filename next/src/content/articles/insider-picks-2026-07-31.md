@@ -22,9 +22,9 @@ clusterLinks:
   - label: "Mornington Peninsula in Winter"
     href: "/journal/mornington-peninsula-in-winter/"
   - label: "Where to Eat on the Mornington Peninsula"
-    href: "/journal/where-to-eat-mornington-peninsula/"
+    href: "/eat/"
   - label: "Best Walks on the Mornington Peninsula"
-    href: "/explore/best-walks/"
+    href: "/explore/walks/"
 faq:
   - question: "Where is The Sorrento Hotel and when does it serve lunch?"
     answer: "The Sorrento Hotel is on Ocean Beach Road, Sorrento. It serves lunch daily. No booking required for bar meals, but arrive early on weekends - the front bar fills up by 12:30pm."

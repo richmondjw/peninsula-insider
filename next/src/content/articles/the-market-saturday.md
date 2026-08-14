@@ -23,9 +23,9 @@ clusterLinks:
   - label: "The Peninsula Pantry - Shopping the Region's Larder"
     href: "/journal/the-peninsula-pantry/"
   - label: "How to Build a Red Hill Saturday"
-    href: "/journal/how-to-build-a-red-hill-saturday/"
+    href: "/explore/plans/how-to-build-a-red-hill-saturday/"
   - label: "How to Plan a Peninsula Weekend"
-    href: "/journal/how-to-plan-a-peninsula-weekend/"
+    href: "/explore/plans/how-to-plan-a-peninsula-weekend/"
 faq:
   - question: "When do the Mornington Peninsula markets run?"
     answer: "Mornington Farmers Market - second Saturday of each month, Mornington Racecourse, 8am–1pm. Red Hill Community Market - first Saturday September to May, Red Hill Community Centre on Arthurs Seat Road, 8am–1pm. Balnarring Emu Plains Market - third Saturday September to April, Balnarring Racecourse, 9am–2pm. Somers Makers Market - first Sunday of alternate months, Somers village precinct."

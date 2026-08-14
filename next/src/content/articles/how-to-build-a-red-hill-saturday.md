@@ -23,7 +23,7 @@ clusterLinks:
   - label: "The Cellar Door Short List - Five Producers Worth the Appointment"
     href: "/journal/the-cellar-door-short-list/"
   - label: "How to Plan a Peninsula Weekend"
-    href: "/journal/how-to-plan-a-peninsula-weekend/"
+    href: "/explore/plans/how-to-plan-a-peninsula-weekend/"
   - label: "Hatted Restaurants on the Mornington Peninsula 2025"
     href: "/journal/hatted-restaurants-mornington-peninsula-2025/"
 aiSummary:

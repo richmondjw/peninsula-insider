@@ -143,8 +143,8 @@ export const audiencePersonas: AudiencePersona[] = [
     mark: '✚',
     routes: {
       eat: '/eat/best-restaurants/',
-      stay: '/stay/where-to-stay-mornington-peninsula/',
-      wine: '/wine/best-wineries-mornington-peninsula/',
+      stay: '/stay/best-accommodation/',
+      wine: '/wine/best-cellar-doors/',
       explore: '/explore/plans/mornington-peninsula-itinerary/',
       escape: '/explore/plans/mornington-peninsula-itinerary/',
       default: '/explore/plans/mornington-peninsula-itinerary/',

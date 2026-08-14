@@ -25,7 +25,7 @@ clusterLinks:
   - label: "The Sorrento Weekend"
     href: "/journal/the-sorrento-weekend/"
   - label: "The Four-Hour Peninsula - Compact Day Guide"
-    href: "/journal/the-four-hour-peninsula/"
+    href: "/explore/plans/the-four-hour-peninsula/"
 faq:
   - question: "How do you get to Fort Nepean at Point Nepean National Park?"
     answer: "From the main entrance at the Quarantine Station: shuttle bus (20 min, modest fare, runs every 30–40 min in peak season), walk (5.5km each way on a flat sealed road), or bike hire near the entrance. Recommended shape: shuttle out, walk back - you arrive at the fort fresh and walk the return with the sea on your right."

@@ -18,7 +18,7 @@ status: "published"
 lastVerified: 2026-05-02
 clusterLinks:
   - label: "How to Plan a Peninsula Weekend"
-    href: "/journal/how-to-plan-a-peninsula-weekend/"
+    href: "/explore/plans/how-to-plan-a-peninsula-weekend/"
 faq:
   - question: "What is Portsea best known for?"
     answer: "Point Nepean, old Peninsula wealth kept mostly out of sight, protected bay water on one side and serious back-beach country on the other."

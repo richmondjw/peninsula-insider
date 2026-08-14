@@ -24,7 +24,7 @@ clusterLinks:
   - label: "Best Cellar Doors on the Mornington Peninsula"
     href: "/wine/best-cellar-doors/"
   - label: "Best Walks on the Mornington Peninsula"
-    href: "/explore/best-walks/"
+    href: "/explore/walks/"
 faq:
   - question: "How do I book the Stonier Fire & Wine Winter Lunch?"
     answer: "Check availability and book through stonier.com.au/visit. The lunch runs today, Sunday 9 August 2026, so book immediately if you haven't already - seats go fast."

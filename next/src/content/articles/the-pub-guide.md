@@ -44,9 +44,9 @@ clusterLinks:
   - label: "Dog-Friendly Cafés, Pubs and Wineries on the Mornington Peninsula"
     href: "/journal/dog-friendly-cafes-pubs-wineries-mornington-peninsula/"
   - label: "Where to Stay on the Mornington Peninsula"
-    href: "/journal/where-to-stay-mornington-peninsula/"
+    href: "/stay/best-accommodation/"
   - label: "The Dog-Friendly Peninsula - Full Weekend Guide"
-    href: "/journal/the-dog-friendly-peninsula/"
+    href: "/journal/dog-friendly-mornington-peninsula/"
 faq:
   - question: "Which is the best pub on the Mornington Peninsula?"
     answer: "Depends what you want. Flinders Hotel for rooms and location in a village that earns an overnight. Hotel Sorrento for heritage and atmosphere outside of peak summer. Balnarring Pub for food and local character."

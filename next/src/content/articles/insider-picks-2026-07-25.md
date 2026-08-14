@@ -24,7 +24,7 @@ clusterLinks:
   - label: "Best Cellar Doors on the Mornington Peninsula"
     href: "/wine/best-cellar-doors/"
   - label: "Best Walks on the Mornington Peninsula"
-    href: "/explore/best-walks/"
+    href: "/explore/walks/"
 faq:
   - question: "What time should I get to Flinders Sourdough?"
     answer: "Before mid-morning on a weekend. The almond croissants and the miche go first, and the bakery regularly sells out by early afternoon. It is at 48 Cook Street, Flinders."

@@ -78,7 +78,7 @@ export const prerender = true;
           surface="me-saved"
         >
           <div slot="actions" class="me-empty-doors">
-            <a class="me-empty-doors__link" href="/eat-drink/" data-evt="empty_state_cta" data-surface="me-saved">Eat &amp; Drink</a>
+            <a class="me-empty-doors__link" href="/eat/" data-evt="empty_state_cta" data-surface="me-saved">Eat &amp; Drink</a>
             <a class="me-empty-doors__link" href="/whats-on/" data-evt="empty_state_cta" data-surface="me-saved">What's On</a>
             <a class="me-empty-doors__link" href="/plans/" data-evt="empty_state_cta" data-surface="me-saved">Plans</a>
           </div>
@@ -113,7 +113,7 @@ export const prerender = true;
   }
 
   const KIND_META: Record<SaveKind, KindMeta> = {
-    venue: { plural: 'Venues', hub: '/eat-drink/', hubLabel: 'Eat & Drink' },
+    venue: { plural: 'Venues', hub: '/eat/', hubLabel: 'Eat & Drink' },
     event: { plural: 'Events', hub: '/whats-on/', hubLabel: "What's On" },
     experience: { plural: 'Experiences', hub: '/explore/', hubLabel: 'Explore' },
     place: { plural: 'Places', hub: '/explore/places/', hubLabel: 'Places' },

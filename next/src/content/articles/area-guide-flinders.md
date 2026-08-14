@@ -18,7 +18,7 @@ status: "published"
 lastVerified: 2026-05-02
 clusterLinks:
   - label: "How to Plan a Peninsula Weekend"
-    href: "/journal/how-to-plan-a-peninsula-weekend/"
+    href: "/explore/plans/how-to-plan-a-peninsula-weekend/"
 faq:
   - question: "What is Flinders best known for?"
     answer: "Its southern-edge village character - bakery, pub, pier, coastal walks and a cleaner, quieter rhythm than the bay-facing Peninsula towns."

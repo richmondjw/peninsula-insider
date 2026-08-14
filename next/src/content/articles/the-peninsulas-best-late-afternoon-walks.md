@@ -22,7 +22,7 @@ clusterLinks:
   - label: "Cape Schanck Guide"
     href: "/journal/cape-schanck-guide/"
   - label: "The Point Nepean Half-Day"
-    href: "/journal/the-point-nepean-half-day/"
+    href: "/explore/plans/the-point-nepean-half-day/"
 faq:
   - question: "What is the best late-afternoon walk on the Mornington Peninsula?"
     answer: "Bushrangers Bay Walk for a full reset - enough descent and coastline to feel like an event, best in autumn or winter when the light is slanting. Cape Schanck Boardwalk when time is short - basalt, lighthouse, crashing water in forty minutes. Sorrento Back Beach for mood rather than route - the surf side catches dusk better than the bay, and it works as a pre-dinner ritual."

@@ -24,7 +24,7 @@ clusterLinks:
   - label: "Best Cellar Doors on the Mornington Peninsula"
     href: "/wine/best-cellar-doors/"
   - label: "Things to Do on the Mornington Peninsula"
-    href: "/journal/things-to-do-mornington-peninsula/"
+    href: "/explore/things-to-do/"
 faq:
   - question: "When is Avani Wines open and do I need to book?"
     answer: "Avani Wines is on Stony Creek Road, Red Hill. Cellar door hours vary in winter - book ahead via their website before making the drive."

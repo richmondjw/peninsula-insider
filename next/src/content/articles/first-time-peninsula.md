@@ -19,9 +19,9 @@ status: "published"
 lastVerified: 2026-04-22
 clusterLinks:
   - label: "The Four-Hour Peninsula - Compact Day Guide"
-    href: "/journal/the-four-hour-peninsula/"
+    href: "/explore/plans/the-four-hour-peninsula/"
   - label: "Where to Stay on the Mornington Peninsula"
-    href: "/journal/where-to-stay-mornington-peninsula/"
+    href: "/stay/best-accommodation/"
   - label: "Hatted Restaurants on the Mornington Peninsula 2025"
     href: "/journal/hatted-restaurants-mornington-peninsula-2025/"
 faq:

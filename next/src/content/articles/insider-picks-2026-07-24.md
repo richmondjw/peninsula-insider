@@ -22,7 +22,7 @@ clusterLinks:
   - label: "Mornington Peninsula in Winter"
     href: "/journal/mornington-peninsula-in-winter/"
   - label: "Best Walks on the Mornington Peninsula"
-    href: "/explore/best-walks/"
+    href: "/explore/walks/"
   - label: "Best Cellar Doors on the Mornington Peninsula"
     href: "/wine/best-cellar-doors/"
 faq:

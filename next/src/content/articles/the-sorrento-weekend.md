@@ -21,7 +21,7 @@ clusterLinks:
   - label: "Point Nepean National Park Guide"
     href: "/journal/point-nepean-national-park-guide/"
   - label: "Where to Stay on the Mornington Peninsula"
-    href: "/journal/where-to-stay-mornington-peninsula/"
+    href: "/stay/best-accommodation/"
   - label: "Waterfront Restaurants on the Mornington Peninsula"
     href: "/journal/waterfront-restaurants-mornington-peninsula/"
 faq:

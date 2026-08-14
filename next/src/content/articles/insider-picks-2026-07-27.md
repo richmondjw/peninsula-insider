@@ -24,7 +24,7 @@ clusterLinks:
   - label: "Best Cellar Doors on the Mornington Peninsula"
     href: "/wine/best-cellar-doors/"
   - label: "Best Walks on the Mornington Peninsula"
-    href: "/explore/best-walks/"
+    href: "/explore/walks/"
 faq:
   - question: "Where is Jetty Road Brewery and do I need to book?"
     answer: "Jetty Road Brewery is at 12-14 Brasser Avenue, Dromana, next door to the drive-in. Walk-ins are the norm rather than the exception, though a large group on a weekend afternoon is worth ringing ahead for."

@@ -20,9 +20,9 @@ clusterLinks:
   - label: "The Cellar Door Short List"
     href: "/journal/the-cellar-door-short-list/"
   - label: "How to Build a Red Hill Saturday"
-    href: "/journal/how-to-build-a-red-hill-saturday/"
+    href: "/explore/plans/how-to-build-a-red-hill-saturday/"
   - label: "Things to Do on the Mornington Peninsula"
-    href: "/journal/things-to-do-mornington-peninsula/"
+    href: "/explore/things-to-do/"
 dispatch:
   editorLine: "A wet winter weekend removes the itinerary problem. The question is not what to do with the day - it is which one thing is worth building it around."
   weather: "Mid-July on the Peninsula is proper winter: this weekend brings heavy cloud, rain through Sunday, north-westerly winds, and a top of around twelve. Check the Bureau before committing to anything that depends on the coast being comfortable."

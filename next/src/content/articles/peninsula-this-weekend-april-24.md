@@ -18,7 +18,7 @@ status: "published"
 lastVerified: 2026-04-22
 clusterLinks:
   - label: "The Point Nepean Half-Day"
-    href: "/journal/the-point-nepean-half-day/"
+    href: "/explore/plans/the-point-nepean-half-day/"
   - label: "The Sorrento Weekend"
     href: "/journal/the-sorrento-weekend/"
   - label: "Peninsula Hot Springs vs Alba - The Honest Comparison"

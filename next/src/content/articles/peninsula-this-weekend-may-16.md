@@ -18,11 +18,11 @@ status: "published"
 lastVerified: 2026-05-14
 clusterLinks:
   - label: "How to Build a Red Hill Saturday"
-    href: "/journal/how-to-build-a-red-hill-saturday/"
+    href: "/explore/plans/how-to-build-a-red-hill-saturday/"
   - label: "The Cellar Door Short List"
     href: "/journal/the-cellar-door-short-list/"
   - label: "Things to Do on the Mornington Peninsula"
-    href: "/journal/things-to-do-mornington-peninsula/"
+    href: "/explore/things-to-do/"
 dispatch:
   editorLine: "Mid-May gives the Peninsula back to itself. One forest morning, one market Sunday, nothing that needs to be organised beyond that."
   weather: "Cool, mostly clear, late-autumn light. Rain possible Sunday afternoon."

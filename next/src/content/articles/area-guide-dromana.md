@@ -18,7 +18,7 @@ status: "published"
 lastVerified: 2026-05-02
 clusterLinks:
   - label: "How to Plan a Peninsula Weekend"
-    href: "/journal/how-to-plan-a-peninsula-weekend/"
+    href: "/explore/plans/how-to-plan-a-peninsula-weekend/"
 faq:
   - question: "What is Dromana best known for?"
     answer: "Being the Peninsula's hinge town - bay beach below, Arthurs Seat above, and some of the region's earliest wine country immediately inland."

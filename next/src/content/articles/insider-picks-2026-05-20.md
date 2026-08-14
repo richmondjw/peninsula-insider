@@ -19,11 +19,11 @@ status: "draft"
 lastVerified: 2026-05-20
 clusterLinks:
   - label: "Peninsula This Weekend - 23 to 24 May"
-    href: "/journal/peninsula-this-weekend-may-23/"
+    href: "/whats-on/this-weekend/archive/2026-05-17/"
   - label: "Things to Do on the Mornington Peninsula"
-    href: "/journal/things-to-do-mornington-peninsula/"
+    href: "/explore/things-to-do/"
   - label: "Where to Eat on the Mornington Peninsula"
-    href: "/journal/where-to-eat-mornington-peninsula/"
+    href: "/eat/"
 faq:
   - question: "When is the last Wild Mushroom Forage session for 2026?"
     answer: "The final Wild Mushroom Forage and Lunch with The Kitchen session runs Saturday 30 May 2026. Guided forage through the Red Hill and Main Ridge forests, then a cook-up with what the morning found: mushrooms, butter, herbs, warm bread. Ticketed, strictly capped at 15. The Kitchen takes no online bookings - contact them directly this week for the current price and the final session."

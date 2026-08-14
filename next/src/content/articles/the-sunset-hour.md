@@ -19,7 +19,7 @@ status: "published"
 lastVerified: 2026-04-22
 clusterLinks:
   - label: "The Couples' Weekend on the Mornington Peninsula"
-    href: "/journal/the-couples-weekend/"
+    href: "/explore/plans/the-couples-weekend/"
   - label: "The Sorrento Weekend"
     href: "/journal/the-sorrento-weekend/"
   - label: "The Peninsula's Best Late-Afternoon Walks"

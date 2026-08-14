@@ -12,6 +12,7 @@
 import { getCollection } from 'astro:content';
 import { editableText } from '../lib/inline-edit/attrs';
 import { routeSlug } from '../lib/editorial';
+import { isPeninsulaThisWeekend, ptwArchivePath } from '../lib/peninsula-this-weekend';
 
 export interface Props {
   title?: string;
@@ -88,7 +89,14 @@ const resolvedIssueLabel =
     ? `${issueNumber} · ${issueDate}`
     : (issueNumber || issueDate || deriveIssueLabel(dispatch));
 const resolvedPicks = previewItems.length > 0 ? previewItems : derivePicks(dispatch);
-const dispatchHref = dispatch ? `/journal/${routeSlug(dispatch)}/` : '';
+// Link the canonical archive URL, not the legacy /journal/ one. The journal
+// path emits a consolidate redirect into /whats-on/this-weekend/archive/,
+// and this component renders on 730 pages - so pointing at the legacy URL
+// made the single most-linked target on the entire site a redirect hop.
+// Measured 2026-08-15: 730 inbound links, more than any real page receives.
+const dispatchHref = dispatch
+  ? (isPeninsulaThisWeekend(dispatch) ? ptwArchivePath(dispatch) : `/journal/${routeSlug(dispatch)}/`)
+  : '';
 const readMinutes = dispatch?.data?.readingTimeMinutes ?? 4;
 const resolvedFoot = dispatch
   ? `Read in ${readMinutes} ${readMinutes === 1 ? 'minute' : 'minutes'} · Used all weekend`

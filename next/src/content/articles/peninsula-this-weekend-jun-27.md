@@ -20,9 +20,9 @@ clusterLinks:
   - label: "The Cellar Door Short List"
     href: "/journal/the-cellar-door-short-list/"
   - label: "How to Build a Red Hill Saturday"
-    href: "/journal/how-to-build-a-red-hill-saturday/"
+    href: "/explore/plans/how-to-build-a-red-hill-saturday/"
   - label: "Things to Do on the Mornington Peninsula"
-    href: "/journal/things-to-do-mornington-peninsula/"
+    href: "/explore/things-to-do/"
 dispatch:
   editorLine: "The post-solstice weekend is when the Peninsula feels like it belongs to locals again. Saturday is for markets and truffles. Sunday is for the final hot springs session of the season."
   weather: "Late June Peninsula: 11–14°C, morning frost in the hinterland, showers possible. Saturday looks dry and cold. Sunday partly cloudy. Rug up for market mornings and truffle hunts."

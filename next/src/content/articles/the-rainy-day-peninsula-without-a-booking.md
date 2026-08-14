@@ -21,9 +21,9 @@ clusterLinks:
   - label: "The Rainy Day Peninsula - Where to Go When the Weather Turns"
     href: "/journal/rainy-day-peninsula/"
   - label: "Best Spas on the Mornington Peninsula - The Tier Guide"
-    href: "/journal/best-spas-mornington-peninsula/"
+    href: "/explore/spas-and-wellness/"
   - label: "How to Plan a Peninsula Weekend"
-    href: "/journal/how-to-plan-a-peninsula-weekend/"
+    href: "/explore/plans/how-to-plan-a-peninsula-weekend/"
 faq:
   - question: "What can I do on the Mornington Peninsula on a rainy day without a booking?"
     answer: "Bayside route: Commonfolk Coffee at 9am, then Mornington Peninsula Regional Gallery (free entry, 45 minutes), then a ridge drive to Red Hill for lunch at Merricks General Wine Store or Red Hill Brewery. Southern route: Flinders Sourdough at 9:30am, Cape Schanck Boardwalk in moderate conditions, then Flinders Hotel for a pub lunch by the fire."

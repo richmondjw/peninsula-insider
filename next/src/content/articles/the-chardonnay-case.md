@@ -34,7 +34,7 @@ clusterLinks:
   - label: "Mornington Peninsula Winery Guide"
     href: "/journal/mornington-peninsula-winery-guide/"
   - label: "How to Plan a Peninsula Weekend"
-    href: "/journal/how-to-plan-a-peninsula-weekend/"
+    href: "/explore/plans/how-to-plan-a-peninsula-weekend/"
 faq:
   - question: "Is the Mornington Peninsula known for chardonnay as well as pinot noir?"
     answer: "Yes - and the case for chardonnay has strengthened significantly over the last three vintages. The 2022–2024 chardonnays from producers like Kooyong, Ocean Eight, and Ten Minutes by Tractor are tighter, more mineral, and more ageable than the pinot narrative would suggest. Serious collectors are buying Peninsula chardonnay ahead of pinot in those vintages."

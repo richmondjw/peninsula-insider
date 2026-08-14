@@ -20,9 +20,9 @@ clusterLinks:
   - label: "Peninsula Hot Springs vs Alba - The Honest Comparison"
     href: "/journal/peninsula-hot-springs-vs-alba/"
   - label: "Things to Do on the Mornington Peninsula"
-    href: "/journal/things-to-do-mornington-peninsula/"
+    href: "/explore/things-to-do/"
   - label: "Mornington Peninsula Beach Guide"
-    href: "/journal/mornington-peninsula-beach-guide/"
+    href: "/explore/beaches/"
 faq:
   - question: "What is the best thing to do on the Mornington Peninsula this weekend, 9–10 May?"
     answer: "Treat Mother's Day as the lead story. If you want one clear booking, make it lunch - Flinders Hotel for a family-friendly version, Pier 10 for a vineyard-table version, or Jetty Road Brewery for an easier bayside one. Saturday can stay light unless you want Kodomo no Hi at Peninsula Hot Springs."

@@ -18,7 +18,7 @@ status: "published"
 lastVerified: 2026-05-02
 clusterLinks:
   - label: "How to Plan a Peninsula Weekend"
-    href: "/journal/how-to-plan-a-peninsula-weekend/"
+    href: "/explore/plans/how-to-plan-a-peninsula-weekend/"
 faq:
   - question: "What is Red Hill best known for?"
     answer: "Cool-climate wine, long lunches, and the Peninsula's most concentrated run of genuinely destination-worthy food addresses. If you care about where lunch is, you care about Red Hill."

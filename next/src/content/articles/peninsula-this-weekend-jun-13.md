@@ -20,9 +20,9 @@ clusterLinks:
   - label: "The Cellar Door Short List"
     href: "/journal/the-cellar-door-short-list/"
   - label: "How to Build a Red Hill Saturday"
-    href: "/journal/how-to-build-a-red-hill-saturday/"
+    href: "/explore/plans/how-to-build-a-red-hill-saturday/"
   - label: "Things to Do on the Mornington Peninsula"
-    href: "/journal/things-to-do-mornington-peninsula/"
+    href: "/explore/things-to-do/"
 dispatch:
   editorLine: "The post-long-weekend Peninsula is the quietest and most available it will be all winter. One truffle hunt, one Sunday market, one cellar door with room to breathe."
   weather: "Mid-June Peninsula: 12–14°C, showers possible Saturday and Sunday. Everything recommended here is built for indoors, fires, or coats."

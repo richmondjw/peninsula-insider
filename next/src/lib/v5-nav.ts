@@ -87,8 +87,8 @@ const configuredV5Pillars = [
     hub: '/stay/',
     intro: 'Rooms by what the trip needs, not by star count.',
     curated: [
-      { key: 'one-night', label: 'The one-night escape', href: '/journal/the-one-night-escape/' },
-      { key: 'kids',      label: 'With kids',            href: '/journal/the-peninsula-with-kids/' },
+      { key: 'one-night', label: 'The one-night escape', href: '/explore/plans/the-one-night-escape/' },
+      { key: 'kids',      label: 'With kids',            href: '/journal/mornington-peninsula-with-kids/' },
       { key: 'villas',    label: 'Villas & houses',      href: '/stay/villas/' },
       { key: 'glamping',  label: 'Glamping',             href: '/stay/glamping/' },
     ],
@@ -111,7 +111,7 @@ const configuredV5Pillars = [
     intro: 'The cellar doors we would actually send you to.',
     curated: [
       { key: 'best-cellar', label: 'Best cellar doors',         href: '/wine/best-cellar-doors/' },
-      { key: 'cellar-door', label: 'Cellar doors',              href: '/wine/cellar-doors/' },
+      { key: 'cellar-door', label: 'Cellar doors',              href: '/wine/best-cellar-doors/' },
       { key: 'producers',   label: 'Appointment producers',     href: '/wine/appointment-producers/' },
       { key: 'shortlist',   label: 'The cellar-door shortlist', href: '/journal/the-cellar-door-short-list/' },
       { key: 'winery-weddings', label: 'Winery wedding venues', href: '/weddings/winery-wedding-venues-mornington-peninsula/' },
@@ -161,10 +161,10 @@ const configuredV5Pillars = [
     hub: '/plans/',
     intro: 'The weekend, already shaped. Pick one and make it yours.',
     curated: [
-      { key: 'ridge-sea', label: 'Ridge to Sea, two nights', href: '/plans/ridge-to-sea-two-night-escape/' },
-      { key: 'sorrento',  label: 'Sorrento, off-season',     href: '/plans/sorrento-off-season-weekend/' },
-      { key: 'one-night', label: 'The one-night escape',     href: '/plans/the-one-night-escape/' },
-      { key: 'family',    label: 'The family day out',       href: '/plans/the-family-day-out/' },
+      { key: 'ridge-sea', label: 'Ridge to Sea, two nights', href: '/explore/plans/ridge-to-sea-two-night-escape/' },
+      { key: 'sorrento',  label: 'Sorrento, off-season',     href: '/explore/plans/sorrento-off-season-weekend/' },
+      { key: 'one-night', label: 'The one-night escape',     href: '/explore/plans/the-one-night-escape/' },
+      { key: 'family',    label: 'The family day out',       href: '/explore/plans/the-family-day-out/' },
       { key: 'weddings',  label: 'Weddings',                 href: '/weddings/' },
     ],
     browse: [
@@ -174,7 +174,7 @@ const configuredV5Pillars = [
       eyebrow: "Editor's pick · Winter '26",
       title: 'Ridge to Sea',
       verdict: 'Two nights, Red Hill down to Flinders. The order matters: ridge first, coast second, and the Friday-night arrival makes the whole thing work.',
-      href: '/plans/ridge-to-sea-two-night-escape/',
+      href: '/explore/plans/ridge-to-sea-two-night-escape/',
       cta: 'Open the plan',
     },
   },
@@ -187,8 +187,8 @@ const configuredV5Pillars = [
     intro: 'The events calendar with an opinion attached.',
     curated: [
       { key: 'weekend-edit', label: 'The weekend edit', href: '/journal/autumn-weekend-edit/' },
-      { key: 'rainy',        label: 'When it rains',    href: '/journal/the-rainy-day-peninsula-without-a-booking/' },
-      { key: 'kids',         label: 'With kids',        href: '/journal/the-peninsula-with-kids/' },
+      { key: 'rainy',        label: 'When it rains',    href: '/journal/rainy-day-peninsula/' },
+      { key: 'kids',         label: 'With kids',        href: '/journal/mornington-peninsula-with-kids/' },
     ],
     browse: [
       { key: 'all-whats-on', label: 'Everything on this weekend', href: '/whats-on/' },
@@ -219,8 +219,8 @@ const configuredV5Pillars = [
     curated: [
       { key: 'shortlist',   label: 'The cellar-door shortlist', href: '/journal/the-cellar-door-short-list/' },
       { key: 'long-lunch',  label: 'The long lunch',            href: '/journal/the-long-lunch/' },
-      { key: 'one-night',   label: 'The one-night escape',      href: '/journal/the-one-night-escape/' },
-      { key: 'orientation', label: 'The first-visit drive',     href: '/journal/the-peninsula-orientation-drive/' },
+      { key: 'one-night',   label: 'The one-night escape',      href: '/explore/plans/the-one-night-escape/' },
+      { key: 'orientation', label: 'The first-visit drive',     href: '/explore/plans/the-peninsula-orientation-drive/' },
     ],
     browse: [
       { key: 'all-journal', label: 'Every issue, every piece', href: '/journal/' },

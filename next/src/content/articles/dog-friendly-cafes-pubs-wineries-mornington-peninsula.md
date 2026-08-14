@@ -16,7 +16,7 @@ clusterLinks:
   - label: "Dog-Friendly Wineries on the Mornington Peninsula"
     href: "/journal/dog-friendly-wineries-mornington-peninsula/"
   - label: "The Dog-Friendly Peninsula - Full Weekend Guide"
-    href: "/journal/the-dog-friendly-peninsula/"
+    href: "/journal/dog-friendly-mornington-peninsula/"
   - label: "Dog-Friendly Beaches on the Mornington Peninsula"
     href: "/journal/dog-friendly-beaches-mornington-peninsula/"
 faq:
