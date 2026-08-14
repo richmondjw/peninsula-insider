@@ -11,23 +11,34 @@ const expectedSha = 'a'.repeat(40);
 const execFileAsync = promisify(execFile);
 
 function fixture(overrides = {}) {
+  const event = {
+    title: 'Market',
+    url: 'https://peninsulainsider.com.au/whats-on/market/',
+    startDate: '2026-08-15',
+    thisWeekend: true,
+  };
   return {
     root: '<link rel="canonical" href="https://peninsulainsider.com.au/" />',
     feed: {
       generated: '2026-08-15',
       count: 1,
+      numberOfItems: 1,
       thisWeekend: {
         start: '2026-08-15',
         end: '2026-08-16',
         count: 1,
         label: 'Sat 15 – Sun 16 August',
       },
-      events: [{
-        title: 'Market',
-        url: 'https://peninsulainsider.com.au/whats-on/market/',
-        startDate: '2026-08-15',
-        thisWeekend: true,
+      itemListElement: [{
+        '@type': 'ListItem',
+        position: 1,
+        item: {
+          '@type': 'Event',
+          url: event.url,
+          startDate: event.startDate,
+        },
       }],
+      events: [event],
     },
     weekend: '<h1>This weekend</h1><p>Sat 15 – Sun 16 August</p>',
     llms: 'https://peninsulainsider.com.au/whats-on/',

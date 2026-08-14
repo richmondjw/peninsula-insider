@@ -60,6 +60,24 @@ if (!existsSync(upcomingPath)) {
   if (feed.count !== feed.events?.length) {
     fail(`/whats-on/upcoming.json count=${feed.count}; events=${feed.events?.length ?? 'missing'}`);
   }
+  if (feed.numberOfItems !== feed.events?.length || feed.itemListElement?.length !== feed.events?.length) {
+    fail(
+      `/whats-on/upcoming.json ItemList counts do not match events=${feed.events?.length ?? 'missing'}`,
+    );
+  }
+  for (const [index, event] of (feed.events ?? []).entries()) {
+    const listItem = feed.itemListElement?.[index];
+    if (
+      listItem?.['@type'] !== 'ListItem' ||
+      listItem?.position !== index + 1 ||
+      listItem?.item?.['@type'] !== 'Event' ||
+      listItem?.item?.url !== event.url ||
+      listItem?.item?.startDate !== event.startDate ||
+      listItem?.item?.endDate !== event.endDate
+    ) {
+      fail(`/whats-on/upcoming.json ItemList entry ${index + 1} disagrees with events payload`);
+    }
+  }
   const weekendCount = (feed.events ?? []).filter((event) => event.thisWeekend).length;
   if (feed.thisWeekend?.count !== weekendCount) {
     fail(`/whats-on/upcoming.json thisWeekend.count=${feed.thisWeekend?.count}; actual=${weekendCount}`);
@@ -106,6 +124,7 @@ walk(siteDir);
 for (const path of htmlFiles) {
   const html = read(path);
   const scripts = html.matchAll(/<script[^>]+type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi);
+  let breadcrumbLists = 0;
   for (const match of scripts) {
     let data;
     try {
@@ -115,6 +134,7 @@ for (const path of htmlFiles) {
     }
     const visit = (node) => {
       if (!node || typeof node !== 'object') return;
+      if (node['@type'] === 'BreadcrumbList') breadcrumbLists += 1;
       if (node['@type'] === 'Event' && node.startDate && node.endDate) {
         const start = new Date(node.startDate);
         const end = new Date(node.endDate);
@@ -128,6 +148,9 @@ for (const path of htmlFiles) {
       }
     };
     visit(data);
+  }
+  if (breadcrumbLists > 1) {
+    fail(`Duplicate BreadcrumbList schemas in ${relative(siteDir, path)} (${breadcrumbLists})`);
   }
 }
 
