@@ -156,14 +156,12 @@ Peninsula <span data-astro-cid-tclszsem>Insider</span> </a> <div class="v5-masth
   </script>   <script>
     // Defer to a page-authored trail: if the page renders its own
     // <Breadcrumbs> (which carries better labels and its own JSON-LD),
-    // remove the auto trail and its schema so exactly one remains.
+    // remove the auto visual trail.
     (function () {
       function dedupeV5Crumbs() {
         var auto = document.getElementById('v5Breadcrumbs');
         if (!auto) return;
         if (document.querySelector('main .breadcrumbs')) {
-          var ld = document.getElementById('v5BreadcrumbsLd');
-          if (ld) ld.remove();
           auto.remove();
         }
       }
