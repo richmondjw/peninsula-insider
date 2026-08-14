@@ -13,7 +13,7 @@ sources:
     url: "https://api.open-meteo.com/v1/forecast?latitude=-38.40&longitude=145.00&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,precipitation_probability_max,wind_speed_10m_max&timezone=Australia%2FMelbourne&forecast_days=3"
     note: "Open-Meteo Main Ridge retrieval 2026-08-12T22:11Z. Thu 13 Aug: 57% rain probability, 1.30mm, 10.6-14.2°C and 20.3km/h maximum wind. Fri 14 Aug: 30%, 0.50mm, 8.1-13.9°C and 11.1km/h maximum wind."
     checkedAt: 2026-08-13T08:11:00+10:00
-status: published
+status: archived
 ---
 Thursday does not need an elaborate weather strategy. Start with the place that will be good even if a shower arrives: a long table, a gallery room, a cellar-door tasting or the errand that has been waiting for a quieter day.
 
