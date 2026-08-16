@@ -50,7 +50,7 @@
   "editorialPriority": 4,
   "nearbyAttractions": "Arthurs Seat Eagle; Rye foreshore; local restaurants",
   "suggestedItineraryPairing": "Evening hot springs session followed by dinner in Rye or Dromana",
-  "status": "published",
+  "status": "archived",
   "publishedAt": "2026-05-04",
   "worthTheDrive": false,
   "firstTimer": false,
@@ -68,5 +68,7 @@
     "alt": "Outdoor thermal pool at Peninsula Hot Springs",
     "credit": "Peninsula Insider",
     "license": "other-licensed"
-  }
+  },
+  "archivedAt": "2026-08-14T20:00:36.675Z",
+  "archivedReason": "endDate < today"
 }

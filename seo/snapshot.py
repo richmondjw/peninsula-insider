@@ -12,6 +12,15 @@ so it is the only source that can answer "did positions actually move?" at
 PI's current traffic volume. GSC remains the source for clicks, impressions,
 indexation and crawl state — DataForSEO cannot see any of those.
 
+STALENESS GUARD (added 2026-08-16). DataForSEO Labs is a periodically rebuilt
+database, NOT a live SERP scrape. Between 2026-08-08 and 2026-08-16 it refreshed
+exactly once: the 08-08/08-10 pair and the 08-13/08-16 pair are byte-identical
+keyword sets with zero position changes. Reading two snapshots from the same DB
+build and reporting "+0 / no movement" is a false negative, and the 510->445
+footprint drop reported on 08-13 was a single DB rebuild, not a five-day trend.
+Every snapshot now carries a `fingerprint` over the keyword set and positions;
+`summarise` refuses to print deltas when it matches the prior snapshot.
+
 Usage:
     python3 seo/snapshot.py [--date YYYY-MM-DD] [--dry-run]
 
@@ -26,6 +35,7 @@ from __future__ import annotations
 import argparse
 import base64
 import datetime as dt
+import hashlib
 import json
 import os
 import pathlib
@@ -207,6 +217,7 @@ def build(token: str, date: str) -> dict:
         "target": TARGET,
         "location": "Australia",
         "cost_usd": round(cost, 4),
+        "fingerprint": fingerprint(pi),
         "totals": {
             "keywords": len(pi),
             "etv": round(sum(v["volume"] for v in pi.values() if v["pos"] <= 10)),
@@ -226,6 +237,18 @@ def build(token: str, date: str) -> dict:
     }
 
 
+def fingerprint(pi: dict) -> str:
+    """Stable hash of the keyword set and its positions.
+
+    Identical fingerprint across two snapshots means DataForSEO served the same
+    database build — the run measured nothing and its deltas must not be quoted.
+    """
+    payload = json.dumps(
+        {k: v["pos"] for k, v in sorted(pi.items())}, sort_keys=True
+    ).encode()
+    return hashlib.sha256(payload).hexdigest()[:16]
+
+
 def latest_prior(date: str) -> dict | None:
     if not SNAP_DIR.exists():
         return None
@@ -237,6 +260,18 @@ def summarise(snap: dict, prior: dict | None) -> str:
     L: list[str] = []
     t, b = snap["totals"], snap["totals"]["buckets"]
     L.append(f"Peninsula Insider — DataForSEO snapshot {snap['date']}")
+
+    stale = bool(prior) and snap.get("fingerprint") == prior.get("fingerprint")
+    if stale:
+        L.append("")
+        L.append("  *** SAME DATABASE BUILD AS " + prior["date"] + " — NO DELTAS AVAILABLE ***")
+        L.append("  DataForSEO Labs has not rebuilt since the prior snapshot. Every")
+        L.append("  difference below would read as +0 regardless of what happened in")
+        L.append("  the SERPs. Do NOT report this run as 'no movement'. It is 'not")
+        L.append("  measured'. Use GSC for anything time-sensitive until the")
+        L.append("  fingerprint changes.")
+        L.append("")
+        prior = None
 
     if prior:
         pt = prior["totals"]
