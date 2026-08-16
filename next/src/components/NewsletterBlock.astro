@@ -12,7 +12,7 @@
 import { getCollection } from 'astro:content';
 import { editableText } from '../lib/inline-edit/attrs';
 import { routeSlug } from '../lib/editorial';
-import { isPeninsulaThisWeekend, ptwArchivePath } from '../lib/peninsula-this-weekend';
+import { isPeninsulaThisWeekend, ptwArchivePath, ptwWeekendEndIso } from '../lib/peninsula-this-weekend';
 
 export interface Props {
   title?: string;
@@ -57,8 +57,19 @@ const dispatchArticles = await getCollection(
   'articles',
   ({ data }) => data.status === 'published' && data.format === 'weekend-picker',
 );
-const dispatch = dispatchArticles
+const latestDispatch = dispatchArticles
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime())[0] ?? null;
+
+// Staleness guard (2026-08-16): the editorial dispatch pipeline can miss a
+// week (or several), and this card has no other cutoff - it would otherwise
+// keep presenting a weeks-old "this weekend" edition as current indefinitely.
+// Mirrors the hasCurrentDispatch check on /whats-on/this-weekend/. Non-PTW
+// weekend-picker articles (no weekend window) are exempt.
+const dispatchIsStale =
+  latestDispatch &&
+  isPeninsulaThisWeekend(latestDispatch) &&
+  new Date(ptwWeekendEndIso(latestDispatch)) < new Date();
+const dispatch = dispatchIsStale ? null : latestDispatch;
 
 // "Peninsula This Weekend - 16 to 17 May" → "16 to 17 May"
 function deriveIssueLabel(d: any | null): string {
