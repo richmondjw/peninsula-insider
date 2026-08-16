@@ -51,7 +51,7 @@ export const GET: APIRoute = async () => {
         venue: (e.data.venue as { id?: string } | undefined)?.id ?? null,
         freePaid: e.data.freePaid ?? null,
         summary: e.data.summary ?? '',
-        thisWeekend: occursInWindow(live.rule, weekend),
+        thisWeekend: isoDate(nextOccurrence) <= isoDate(weekend.end) && occursInWindow(live.rule, weekend),
       };
     })
     .filter((event): event is NonNullable<typeof event> => event !== null)
