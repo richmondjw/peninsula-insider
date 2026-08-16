@@ -262,6 +262,15 @@ route and kept the live record out of `loadLiveEvents`, `upcoming.json` and the 
 **4. F14 is retracted.** Zero *indexable* pages lack a canonical. All 8 pages without one
 are already `noindex`, which is correct — a noindex page needs no canonical.
 
+**5. One real page slipped through F14's scope, found afterwards and fixed** (`3fe29bcdff`).
+The canonical audit scanned Astro-*generated* output. Three hand-authored `.html` files are
+served straight from `public/` and never pass through that pipeline. Two already carried
+`noindex,nofollow,noarchive`; `/preview/welcome.html` did not. It returns **200 on the live
+site** with no robots directive and no canonical, and it is an email-render preview, not a
+destination page. Now `noindex`ed in both tracked copies. The lesson is the scope of the
+scan, not the finding: *"zero indexable pages lack a canonical"* was true of the Astro
+routes and silently excluded a class of live URL.
+
 ### Not in this batch, and why
 - **F15** (46 redirects) — needs the Cloudflare dashboard; Page Rules capped at 3 on Free.
 - **F8/F11** (expired events) — the noindex-on-expiry decision interacts with the 42
