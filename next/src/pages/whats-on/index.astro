@@ -22,6 +22,7 @@ import Card from '../../components/v5/Card.astro';
 import CardGrid from '../../components/v5/CardGrid.astro';
 import WhatsOnScopeBar from '../../components/v5/whatson/WhatsOnScopeBar.astro';
 import WhatsOnRow from '../../components/v5/whatson/WhatsOnRow.astro';
+import TrustNote from '../../components/v5/hub/TrustNote.astro';
 import {
   loadLiveEvents,
   weekendWindow,
@@ -169,6 +170,7 @@ const pageDescription = `What is actually worth it on the Mornington Peninsula t
         : null}
       todayISO={todayISO}
     />
+    <TrustNote surface="whatson" />
   </div>
 
   {picks.length > 0 && (
