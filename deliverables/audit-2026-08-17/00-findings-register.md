@@ -93,21 +93,21 @@ pending manual Coverage-report reading in the GSC UI.
 
 | ID | Finding | Sev | Conf | I | E | **Priority** |
 |---|---|---|---|---|---|---|
-| F4 | 19 future-dated events invisible — one-way archive gate, `recompute-occurrence.py:97` | High | Confirmed | 3 | 1 | **3.00** |
+| ~~F4~~ | ~~Future-dated events invisible — one-way archive gate, `recompute-occurrence.py:97`~~ — **FIXED + DEPLOYED 17 Aug, `288cddc127`. 10 markets live. Count corrected from 19; see §H** | High | Confirmed | 3 | 1 | **3.00** |
 | F1 | 3 towns (93k/mo) never crawled; `/boating/` 107 days stale | Critical | Confirmed | 5 | 2 | **2.50** |
-| F7 | Breadcrumb schema absent on 161 of 183 `/eat/` + `/stay/` pages (UI renders it) | Medium | Confirmed | 2 | 1 | **2.00** |
-| F10 | 148 of 600 sitemap URLs carry no `<lastmod>` | Low | Confirmed | 2 | 1 | **2.00** |
+| ~~F7~~ | ~~Breadcrumb schema absent on `/eat/` + `/stay/` pages (UI renders it)~~ — **FIXED + DEPLOYED 17 Aug. 135/135 real pages now carry exactly one; denominator corrected from 161/183, see §H** | Medium | Confirmed | 2 | 1 | **2.00** |
+| ~~F10~~ | ~~148 of 600 sitemap URLs carry no `<lastmod>`~~ — **FIXED + DEPLOYED 17 Aug. 610/610 URLs, 66 distinct dates, git-sourced not build-stamped** | Low | Confirmed | 2 | 1 | **2.00** |
 | F17 | GA4 dead, no PageSpeed API key — measurement blindness | Medium | Confirmed | 2 | 1 | **2.00** |
 | F5 | All 833 `ImageObject` nodes point at `home-cover.webp` | Medium | Confirmed | 3 | 2 | **1.50** |
-| F6 | 46 duplicate slug basenames (`events/` vs `events/archive/`) colliding at build | High | Confirmed | 3 | 2 | **1.50** |
+| F6 | 46 duplicate slug basenames (`events/` vs `events/archive/`) colliding at build — **4 resolved 17 Aug (`bc98b89bd1`); severity raised, this actively suppresses fixes, see §H** | High | Confirmed | 4 | 2 | **2.00** |
 | F8 | 90 indexable pages absent from sitemap (72 whats-on, 12 events) | Medium | Confirmed | 3 | 2 | **1.50** |
 | F15 | 46 reconciled redirects ready to import, not yet live | Medium | Confirmed | 3 | 2 | **1.50** |
 | F2 | 436 pages render photography as CSS background; 732/952 have zero `<img>` | High | Confirmed | 4 | 3 | **1.33** |
 | F3 | 1,438 entity nodes carry no `@id` — no entity graph | High | Confirmed | 4 | 3 | **1.33** |
 | F9 | 57 indexable pages with zero editorial inbound; 59 unreachable from homepage | High | Confirmed | 4 | 4 | **1.00** |
 | F11 | 72 expired event pages indexable, orphaned, unsubmitted | Medium | Confirmed | 2 | 2 | **1.00** |
-| F13 | 35 `<img>` missing alt (fishing + boating templates) | Low | Confirmed | 1 | 1 | **1.00** |
-| F14 | 11 pages emit no canonical (`/access/`, `/preview/*`, 5 seasonal `/guides/*`) | Low | Confirmed | 1 | 1 | **1.00** |
+| ~~F13~~ | ~~35 `<img>` missing alt (fishing + boating templates)~~ — **RETRACTED 17 Aug, see §D** | — | **Refuted** | — | — | **—** |
+| ~~F14~~ | ~~11 pages emit no canonical~~ — **RETRACTED 17 Aug. Zero *indexable* pages lack a canonical; all 8 without one are already noindex. Clean pass, see §D** | — | **Refuted** | — | — | **—** |
 | F12 | No build-time image optimisation; 1.17 MB heroes; 17/1471 with width+height | Medium | Confirmed | 2 | 3 | **0.67** |
 | F16 | `/plans/` vs `/explore/plans/` canonical direction split | Medium | Confirmed | 2 | 3 | **0.67** |
 
@@ -123,6 +123,18 @@ Stated plainly rather than padded into findings:
 - **Taxonomies and pagination (§17): PASS by absence.** Zero tag, category, author or
   date-archive routes. Zero pagination anywhere. Nothing to consolidate or noindex.
 - **JSON-LD syntax (§14): PASS.** All 1,618 blocks parse. Zero syntax failures.
+- **Alt text (§18): PASS. F13 RETRACTED 17 Aug.** Re-measured with `html.parser` over all
+  952 built HTML files (0 parse errors): **773 `<img>` elements, 0 missing an `alt`
+  attribute**, 8 correct decorative `alt=""` (concierge/hero icons), 765 descriptive.
+  Source-level cross-check of 432 `.astro`/`.tsx` files found 2 apparent hits, both
+  inside HTML comments in `BaseLayout.astro`. The fishing and boating page templates
+  contain **zero** raw `<img>` tags and their markdown collections contain zero `![]()`
+  syntax, so WS5's "35 missing on fishing/boating pages" has no target in this repo state.
+  **Every prior figure quoted for this finding was wrong** — my 725 and 751 were regex
+  artefacts counting `<img>` text inside HTML comments; WS5's 35 could not be reproduced
+  against any current artifact. Verified independently by me, not accepted from the
+  fix agent. No files edited. **The real image-SEO finding is F2** (photography rendered
+  as CSS `background-image`, so it never becomes markup that could carry alt text at all).
 - **Publisher identity (§14): PASS.** `Organization` / `NewsMediaOrganization` are
   correctly unconflicted. I suspected a conflict; there isn't one.
 - **AI crawler access (§19): PASS as of 16 Aug 16:22 UTC.** OAI-SearchBot, GPTBot,
@@ -152,7 +164,8 @@ Stated plainly rather than padded into findings:
 7. **F6** — collapse the duplicate `events/` + `events/archive/` sources of truth.
 8. **F8** — decide the expired-event architecture, then make the sitemap match it.
 9. **F9** — demand-weighted editorial linking (this is Phase 2, already scoped).
-10. **F7 + F10 + F13 + F14** — the cheap correctness batch. All four are ≤1 effort.
+10. **F7 + F10 + F14** — the cheap correctness batch. All three are ≤1 effort.
+    (F13 was in this batch and has been retracted — see §D.)
 
 ---
 
@@ -168,7 +181,9 @@ F16 decide the `/plans/` direction.
 
 **Week 3 — rendering, images, structured data**
 F2 markup conversion · F5 build-order fix · F3 `@id` identity layer · F7 breadcrumbs ·
-F13 alt text · F12 `astro:assets` adoption.
+F12 `astro:assets` adoption. (Alt text drops out — F13 retracted. Note that F2 will
+*create* new `<img>` elements, so alt text must be authored as part of that conversion
+rather than audited afterwards.)
 
 **Week 4 — validation and monitoring**
 Re-crawl, re-measure the funnel, confirm F1 fetches landed, stand up the monitoring
@@ -183,14 +198,77 @@ Measured against the local build at `next/dist` (952 files) and the live edge vi
 workstream reports informed this register and are filed alongside it; **every
 load-bearing claim was independently re-verified before entering this document.**
 
-Three subagent claims were corrected during verification:
+Four subagent claims were corrected during verification:
 - WS1 claimed the sitemap has **no** `<lastmod>`. False — 452 of 600 have it.
 - WS1 claimed competitors "completely block" AI crawlers. Overstated — Tripadvisor
   allows OAI-SearchBot and PerplexityBot; Broadsheet doesn't name OAI-SearchBot.
 - WS2's breadcrumb-gap count (135) differed from mine (161) on indexable scope. Mine used.
+- **WS5's "35 `<img>` missing alt" could not be reproduced against any current
+  artifact.** F13 is retracted; true figure is 0 of 773. See §D.
 
-One error of my own was corrected: I reported 725 of 1,471 images missing alt text.
-The true figure is 35 of 809. My parser counted an HTML comment as markup.
+One error of my own was corrected twice, which is the more useful lesson. I first
+reported 725 of 1,471 images missing alt text, then 751 — both regex artefacts counting
+`<img>` text inside HTML comments. I then accepted WS5's 35 as the correction without
+re-measuring it. Only a third pass, with a real HTML parser over all 952 built files,
+produced the actual answer: **0 missing.** Three wrong numbers were quoted to the
+client before the right one. **Rule adopted: markup counts are measured with a parser,
+never a regex, and a correction is verified as rigorously as the claim it replaces.**
 
 **Unavailable:** CrUX field data (no PageSpeed API key), GA4 behaviour data (credential
 gone), and GSC indexed counts (API field deprecated, returns 0 unconditionally).
+
+---
+
+## H. EXECUTION RECORD — 2026-08-17 overnight quick-win batch
+
+Two commits, both deployed and verified against the **live site**, not the build:
+`bc98b89bd1` (content deletion, isolated and revertible) and `288cddc127` (the fixes).
+
+### Delivered
+
+| Finding | Result | Live verification |
+|---|---|---|
+| F4 | 10 recurring markets restored to published | 200 on every URL; rendered `startDate` matches stated cadence 10/10; all 10 in live sitemap |
+| F7 | BreadcrumbList on `/eat/` + `/stay/` | 135/135 real pages carry exactly one; 0 duplicates; 48 redirect stubs correctly untouched |
+| F10 | `<lastmod>` on every sitemap URL | 610/610, 66 distinct dates, git-sourced |
+| F6 | 4 of 46 duplicate pairs resolved | the 4 that were suppressing F4 |
+
+### Four corrections to the register, all found by verifying rather than trusting
+
+**1. F4's fix, as first written, would have published wrong dates on ten live pages.**
+`next_monthly()` did day-of-month arithmetic. That is the wrong rule for an nth-weekday
+market: every one of the ten restored records landed on the wrong weekday — Boneo's
+"3rd Saturday of every month" came out as **Thursday 20 August**. The script now parses
+the cadence from `recurrenceNote`/`title`/`summary`, mirroring `parseWeekday`/`parseNth`
+in `whats-on/_data.ts`. This was invisible in the source diff and only surfaced by
+checking rendered dates against stated cadence.
+
+**2. F4's scope was wrong in both directions.** The first cut restored 35 records, not 19.
+Of those, 20 were `annual` — dated editions ("Mornington Cup 2026", "Winter Camp 2026")
+whose body copy describes the 2026 running. Publishing them on 2027 recurrence maths
+would put an unverified date on last year's facts. Three more had seasonal or hand-picked
+cadences: Shoreham Community Market runs **September–May**, and the arithmetic happily
+returned 17 August — a month it does not run. Restore is now gated on weekly/monthly,
+a 120-day horizon, a parseable cadence, and no seasonal/irregular note. **23 records
+deliberately left archived for editorial refresh** — listed by the script on each run.
+
+**3. F6 is not a filing problem, it is a suppression mechanism — severity raised 3 → 4.**
+The six top-level records F4 restored stayed invisible after deploy. Cause: each had a
+byte-identical `archive/` twin sharing the same `slug`. Astro's loader warns
+`Duplicate id … later items overwrite earlier ones`, so the *archived* twin won the
+route and kept the live record out of `loadLiveEvents`, `upcoming.json` and the sitemap.
+**A fix can be correct, committed and deployed and still do nothing.** 42 pairs remain.
+
+**4. F14 is retracted.** Zero *indexable* pages lack a canonical. All 8 pages without one
+are already `noindex`, which is correct — a noindex page needs no canonical.
+
+### Not in this batch, and why
+- **F15** (46 redirects) — needs the Cloudflare dashboard; Page Rules capped at 3 on Free.
+- **F8/F11** (expired events) — the noindex-on-expiry decision interacts with the 42
+  remaining duplicate pairs; sequencing it after F6 avoids doing it twice.
+- **F2/F5** (image markup + `ImageObject`) — one architectural fix, not a quick win.
+
+### Standing method note
+Three of the four corrections above were only visible in **built or live output**. Source
+diffs and subagent reports were internally consistent and wrong. Verify the artefact, not
+the change.
