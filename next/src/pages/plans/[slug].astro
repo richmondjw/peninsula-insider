@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 import { routeSlug } from '../../lib/editorial';
 import Redirect from '../../components/Redirect.astro';
 
-// Legacy /explore/plans/[slug]/ -> /explore/plans/[slug]/ (PR-5 URL migration).
+// Legacy /plans/[slug]/ -> /explore/plans/[slug]/ (PR-5 URL migration).
 export async function getStaticPaths() {
   const itineraries = await getCollection('itineraries');
   const plansArticles = await getCollection('articles', ({ data }) =>

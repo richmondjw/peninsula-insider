@@ -308,6 +308,7 @@ const faqSchema = currentFaqs ? {
 const placeSchema = {
   '@context': 'https://schema.org',
   '@type': 'TouristDestination',
+  '@id': `${canonical}#TouristDestination`,
   name: place.data.name,
   // Prefer the factual lede for JSON-LD description (schema-friendly, AI-extractable);
   // fall back to the editorial intro for places that haven't been given a lede yet.

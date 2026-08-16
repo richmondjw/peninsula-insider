@@ -36,7 +36,7 @@ const PAGES = [
   { route: '/explore/', name: 'Explore hub', before: '/explore/' },
   { route: '/whats-on/', name: "What's On hub", before: '/whats-on/' },
   { route: '/journal/', name: 'Journal hub', before: '/journal/' },
-  { route: '/plans/', name: 'Plans hub (was /explore/plans/)', before: '/explore/plans/' },
+  { route: '/explore/plans/', name: 'Plans hub', before: '/explore/plans/' },
   { route: '/map/', name: 'Map tool', before: '/map/' },
 ];
 

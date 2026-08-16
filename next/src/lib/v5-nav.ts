@@ -153,12 +153,11 @@ const configuredV5Pillars = [
   },
 
   // 5. PLANS ----------------------------------------------------------------
-  // Canonical decision engine now lives at /plans/ (v5). Plan detail pages
-  // resolve at /plans/<slug>/ via pages/plans/[slug].astro.
+  // Canonical decision engine and plan detail pages live under /explore/plans/.
   {
     key: 'plans',
     label: 'Plans',
-    hub: '/plans/',
+    hub: '/explore/plans/',
     intro: 'The weekend, already shaped. Pick one and make it yours.',
     curated: [
       { key: 'ridge-sea', label: 'Ridge to Sea, two nights', href: '/explore/plans/ridge-to-sea-two-night-escape/' },
@@ -168,7 +167,7 @@ const configuredV5Pillars = [
       { key: 'weddings',  label: 'Weddings',                 href: '/weddings/' },
     ],
     browse: [
-      { key: 'all-plans', label: 'All plans', href: '/plans/' },
+      { key: 'all-plans', label: 'All plans', href: '/explore/plans/' },
     ],
     rail: {
       eyebrow: "Editor's pick · Winter '26",
@@ -286,7 +285,7 @@ export const v5DrawerItems: V5DrawerItem[] = [
   { key: 'stay',      label: 'Stay',               href: '/stay/',                group: 'pillars' },
   { key: 'wine',      label: 'Wine',               href: '/wine/',                group: 'pillars' },
   { key: 'explore',   label: 'Explore',            href: '/explore/',             group: 'pillars' },
-  { key: 'plans',     label: 'Plans',              href: '/plans/',               group: 'pillars' },
+  { key: 'plans',     label: 'Plans',              href: '/explore/plans/',       group: 'pillars' },
   { key: 'whats-on',  label: "What's On",          href: '/whats-on/',            group: 'pillars' },
   { key: 'journal',   label: 'Journal',            href: '/journal/',             group: 'pillars' },
   { key: 'saved',     label: 'Saved',              href: '/me/saved/',            group: 'mine' },
@@ -332,7 +331,7 @@ export const v5FooterSections: V5NavLink[] = [
   { key: 'stay',     label: 'Stay',        href: '/stay/' },
   { key: 'wine',     label: 'Wine',        href: '/wine/' },
   { key: 'explore',  label: 'Explore',     href: '/explore/' },
-  { key: 'plans',    label: 'Plans',       href: '/plans/' },
+  { key: 'plans',    label: 'Plans',       href: '/explore/plans/' },
   { key: 'whats-on', label: "What's On",   href: '/whats-on/' },
   { key: 'journal',  label: 'Journal',     href: '/journal/' },
   // Weddings is not a masthead pillar (the seven are kept verbatim per

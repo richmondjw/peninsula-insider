@@ -12,6 +12,19 @@ export const absUrl = (path: string): string => {
   return `${SITE}${withSlash}`;
 };
 
+// Entity fragments intentionally follow the site's existing convention
+// (`.../#LocalBusiness`, `.../#Place`).  Keeping the schema type in the
+// fragment makes a canonical URL the one stable identity source for both the
+// page's primary declaration and references from listing pages.
+export const entityId = (path: string, schemaType: string): string =>
+  `${absUrl(path)}#${schemaType}`;
+
+// Schema.org permits multiple types on one entity.  The first declared type is
+// our primary identity type: detail pages and ItemList references must use that
+// same fragment so they describe one node rather than parallel entities.
+export const primarySchemaType = (schemaType: string | readonly string[]): string =>
+  Array.isArray(schemaType) ? schemaType[0] : schemaType;
+
 const PENINSULA_PLACE = {
   '@type': 'Place',
   name: 'Mornington Peninsula',
@@ -48,6 +61,7 @@ export function buildWinerySchema(data: any, slug: string, section = 'wine') {
   const schema: any = {
     '@context': 'https://schema.org',
     '@type': ['Winery', 'LocalBusiness'],
+    '@id': entityId(`/${section}/${slug}`, 'Winery'),
     name: data.name,
     url: pageUrl,
     ...(data.signature || data.editorVerdict
@@ -116,13 +130,15 @@ export function buildRestaurantSchema(data: any, slug: string, section = 'wine')
   return {
     '@context': 'https://schema.org',
     '@type': 'Restaurant',
+    '@id': `${pageUrl}#Restaurant`,
     name: data.restaurant.name,
-    url: `${pageUrl}#restaurant`,
+    url: `${pageUrl}#Restaurant`,
     ...(data.restaurant.cuisine ? { servesCuisine: data.restaurant.cuisine } : {}),
     // priceRange intentionally omitted (BRAND-PI: no pricing on site).
     address: data.address,
     containedInPlace: {
       '@type': 'Winery',
+      '@id': `${pageUrl}#Winery`,
       name: data.name,
       url: pageUrl,
     },
@@ -135,10 +151,12 @@ export function buildAccommodationSchema(data: any, slug: string, section = 'win
   return {
     '@context': 'https://schema.org',
     '@type': 'LodgingBusiness',
+    '@id': `${pageUrl}#LodgingBusiness`,
     name: data.accommodation.name,
-    url: `${pageUrl}#accommodation`,
+    url: `${pageUrl}#LodgingBusiness`,
     containedInPlace: {
       '@type': 'Winery',
+      '@id': `${pageUrl}#Winery`,
       name: data.name,
     },
   };
@@ -208,6 +226,7 @@ export const buildItemListSchema = ({
     position: idx + 1,
     item: {
       '@type': it.itemType ?? 'Thing',
+      '@id': entityId(it.path, it.itemType ?? 'Thing'),
       name: it.name,
       url: absUrl(it.path),
       ...(it.description ? { description: it.description } : {}),
@@ -280,6 +299,7 @@ export const buildTouristDestinationSchema = ({
 }: BuildTouristDestinationInput) => ({
   '@context': 'https://schema.org',
   '@type': 'TouristDestination',
+  '@id': entityId(path, 'TouristDestination'),
   name,
   url: absUrl(path),
   description,
@@ -288,6 +308,7 @@ export const buildTouristDestinationSchema = ({
     ? {
         includesAttraction: includesAttractions.map((a) => ({
           '@type': 'TouristAttraction',
+          '@id': entityId(a.path, 'TouristAttraction'),
           name: a.name,
           url: absUrl(a.path),
         })),
@@ -345,6 +366,7 @@ export const buildTouristAttractionSchema = ({
 }: BuildTouristAttractionInput) => ({
   '@context': 'https://schema.org',
   '@type': subtype ? ['TouristAttraction', subtype] : 'TouristAttraction',
+  '@id': entityId(path, subtype ?? 'TouristAttraction'),
   name,
   url: absUrl(path),
   description,

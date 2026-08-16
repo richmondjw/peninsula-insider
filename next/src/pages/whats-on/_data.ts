@@ -27,18 +27,35 @@ import { eventAccessLabel, eventIsUnqualifiedFree } from '../../lib/event-access
 export type EventEntry = CollectionEntry<'events'>;
 
 // ---------------------------------------------------------------------------
-// Small date helpers (local time; the site is single-timezone editorial)
+// Small date helpers. The site's editorial calendar is Mornington Peninsula
+// time, not the build machine's timezone. Represent calendar days as UTC
+// midnight so the existing date-only arithmetic stays deterministic in CI.
 // ---------------------------------------------------------------------------
 
+const EDITORIAL_TIME_ZONE = 'Australia/Melbourne';
+
+function editorialDateParts(d: Date): { year: number; month: number; day: number } {
+  const parts = new Intl.DateTimeFormat('en-CA', {
+    timeZone: EDITORIAL_TIME_ZONE,
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).formatToParts(d);
+  const get = (type: string) => Number(parts.find((part) => part.type === type)?.value);
+  return { year: get('year'), month: get('month'), day: get('day') };
+}
+
 export function startOfDay(d: Date): Date {
-  return new Date(d.getFullYear(), d.getMonth(), d.getDate());
+  const { year, month, day } = editorialDateParts(d);
+  return new Date(Date.UTC(year, month - 1, day));
 }
 export function addDays(d: Date, n: number): Date {
-  return new Date(d.getFullYear(), d.getMonth(), d.getDate() + n);
+  return new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate() + n));
 }
 export function isoDate(d: Date): string {
+  const { year, month, day } = editorialDateParts(d);
   const p = (n: number) => String(n).padStart(2, '0');
-  return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`;
+  return `${year}-${p(month)}-${p(day)}`;
 }
 function parseIsoLocal(s: string): Date {
   const [y, m, d] = s.split('-').map(Number);
@@ -256,6 +273,21 @@ export interface LiveEvent {
   appeal: number;
 }
 
+/**
+ * Whether an event is still a current, indexable event destination.
+ *
+ * `status` remains the editorial safety switch: a record deliberately marked
+ * archived must not regain indexability merely because a generic recurrence
+ * rule can be inferred from old prose. For published records, the shared
+ * recurrence rule is the source of truth, so recurring series stay live when
+ * their original dated occurrence has passed but a valid future cadence exists.
+ */
+export function isCurrentEvent(event: EventEntry, now: Date): boolean {
+  if (event.data.status !== 'published') return false;
+  const rule = ruleFor(event, now);
+  return rule !== null && startOfDay(rule.end) >= startOfDay(now);
+}
+
 export function truncateWords(text: unknown, maxWords: number): string {
   const words = String(text ?? '').replace(/\s+/g, ' ').trim().split(' ').filter(Boolean);
   if (words.length <= maxWords) return words.join(' ');
@@ -283,15 +315,13 @@ function isCancelled(data: Record<string, any>): boolean {
 
 /** All live events with their rule and display fields, appeal-sorted. */
 export async function loadLiveEvents(now: Date): Promise<LiveEvent[]> {
-  const today = startOfDay(now);
   const entries = await getCollection('events', ({ data }) => data.status === 'published');
   const out: LiveEvent[] = [];
   for (const event of entries) {
     const data = event.data as Record<string, any>;
     if (isCancelled(data)) continue;
     const rule = ruleFor(event, now);
-    if (!rule) continue;
-    if (startOfDay(rule.end) < today) continue;
+    if (!rule || !isCurrentEvent(event, now)) continue;
 
     const slug = routeSlug(event);
     const categoryLabel = eventCategoryLabel[data.category] ?? '';

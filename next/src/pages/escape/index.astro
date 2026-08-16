@@ -1,11 +1,9 @@
 ---
 /**
- * /explore/plans/ → /explore/plans/ redirect
+ * /escape/ → /explore/plans/ redirect
  *
- * The Plans section was renamed from /explore/plans/ to /explore/plans/ to close the
- * URL/label mismatch (footer + nav already labelled it "Plans"). This
- * page handles inbound /explore/plans/ traffic - old bookmarks, social shares,
- * external backlinks - and forwards to the canonical /explore/plans/ URL.
+ * This page handles inbound /escape/ traffic and forwards it to the canonical
+ * /explore/plans/ URL.
  *
  * The custom Redirect component fires window.location.replace() in <head>
  * so the browser navigates before first paint. noindex on the redirect
@@ -17,4 +15,4 @@
 import Redirect from '../../components/Redirect.astro';
 export const prerender = true;
 ---
-<Redirect to="/plans/" consolidate />
+<Redirect to="/explore/plans/" consolidate />

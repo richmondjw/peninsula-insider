@@ -46,7 +46,7 @@ const notExcluded = (e: { data: { sitemapExclude?: boolean } }) => !e.data.sitem
 // all-dates-equal bug fixed 2026-08-13.
 const SECTION_LASTMOD: Record<string, string> = {
   eat: '2026-08-07', stay: '2026-08-13', wine: '2026-08-07', explore: '2026-08-14',
-  plans: '2026-07-24', journal: '2026-08-12', 'explore/places': '2026-08-14',
+  'explore/plans': '2026-08-16', journal: '2026-08-12', 'explore/places': '2026-08-14',
   'whats-on': '2026-08-14', 'dog-friendly': '2026-08-14', weddings: '2026-08-12',
   'corporate-events': '2026-08-12', fishing: '2026-08-14', boating: '2026-08-14',
 };
@@ -223,12 +223,11 @@ export const GET: APIRoute = async () => {
   // /events/ hub removed 2026-07-11: the /events/* signature-event tree is a
   // consolidation loser awaiting the §3.4 migration into /whats-on/*.
   const TOP_HUBS = new Set(['dog-friendly', 'whats-on', 'corporate-events', 'fishing', 'ask']);
-  for (const section of ['eat', 'stay', 'wine', 'explore', 'plans', 'journal', 'explore/places', 'whats-on', 'dog-friendly', 'weddings', 'corporate-events', 'fishing', 'boating']) {
+  for (const section of ['eat', 'stay', 'wine', 'explore', 'explore/plans', 'journal', 'explore/places', 'whats-on', 'dog-friendly', 'weddings', 'corporate-events', 'fishing', 'boating']) {
     entries.push(url(`/${section}`, TOP_HUBS.has(section) ? 1.0 : 0.9, 'weekly', SECTION_LASTMOD[section]));
   }
-  // /plans/ is the indexable plans hub. The legacy /explore/plans/ hub is
-  // noindex and canonicalises here; plan detail pages remain under
-  // /explore/plans/<slug>/ until their separate route migration.
+  // /explore/plans/ is the indexable plans hub. /plans/ is a consolidation
+  // stub and stays out of the sitemap with the legacy detail-route stubs.
   for (const hub of ['tour', 'awards', 'guides']) {
     entries.push(url(`/${hub}`, 0.8, 'weekly', HUB_LASTMOD[hub]));
   }

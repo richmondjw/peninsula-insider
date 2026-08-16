@@ -18,7 +18,7 @@ export interface Props {
 
 const { article, hideType = false, typeLabel } = Astro.props;
 const slug = routeSlug(article);
-const articleBase = (article.data.section ?? 'journal') === 'plans' ? '/plans' : '/journal';
+const articleBase = (article.data.section ?? 'journal') === 'plans' ? '/explore/plans' : '/journal';
 
 const namedAuthor = !article.data.houseByline
   ? String(article.data.author?.id ?? article.data.author ?? '').trim()

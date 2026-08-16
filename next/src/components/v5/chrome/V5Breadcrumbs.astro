@@ -89,9 +89,8 @@ function labelFor(segment: string): string {
 }
 
 function hrefForSegment(index: number): string {
-  // /plans/ is the canonical hub while plan detail routes remain under
-  // /explore/plans/<slug>/. Never send crawlers back through the legacy hub.
-  if (index === 1 && segments[0] === 'explore' && segments[1] === 'plans') return '/plans/';
+  // Keep the plans breadcrumb within the canonical /explore/plans/ tree.
+  if (index === 1 && segments[0] === 'explore' && segments[1] === 'plans') return '/explore/plans/';
   return `/${segments.slice(0, index + 1).join('/')}/`;
 }
 

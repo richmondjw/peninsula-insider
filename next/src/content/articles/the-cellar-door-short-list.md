@@ -111,7 +111,7 @@ If you only have one day for a tasting circuit, this sequence works well:
 - **1:30**  -  Lunch, which is not on this list. See [How to Build a Red Hill Saturday](/journal/how-to-build-a-red-hill-saturday/) for the eating half of the day, or [The Long Lunch](/journal/the-long-lunch/) if you want to make the meal itself the centrepiece.
 - **3:30**  -  [Ocean Eight](/wine/ocean-eight/) for the structured pinots and the family story
 
-[Dexter Wines](/wine/dexter-wines/) and [Polperro](/wine/polperro/) reward a second visit, since both ask for the kind of unhurried attention that's harder to give after three other cellar doors. If you want to turn the circuit into a proper weekend, the [Ridge-to-Sea two-night escape](/plans/ridge-to-sea-two-night-escape/) folds wine, walking, and a coastal pivot into a single itinerary.
+[Dexter Wines](/wine/dexter-wines/) and [Polperro](/wine/polperro/) reward a second visit, since both ask for the kind of unhurried attention that's harder to give after three other cellar doors. If you want to turn the circuit into a proper weekend, the [Ridge-to-Sea two-night escape](/explore/plans/ridge-to-sea-two-night-escape/) folds wine, walking, and a coastal pivot into a single itinerary.
 
 ## The cellar door rule
 

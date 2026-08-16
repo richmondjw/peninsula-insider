@@ -6175,6 +6175,14 @@ p.has-drop-cap::first-letter {
   color: var(--soft);
   margin-bottom: 1.4rem;
 }
+.event-detail__ended {
+  margin: 1.25rem 0 0;
+  padding: 0.9rem 1rem;
+  color: var(--dark);
+  background: var(--bg-alt);
+  border-left: 3px solid var(--accent);
+}
+.event-detail__ended a { color: inherit; text-decoration: underline; }
 .event-detail__body {
   display: grid;
   grid-template-columns: 1.7fr 1fr;

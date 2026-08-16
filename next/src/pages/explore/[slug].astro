@@ -10,6 +10,7 @@ import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { placeLabel, routeSlug, titleize, venueHrefPrefix } from '../../lib/editorial';
 import { editableText, editableImage } from '../../lib/inline-edit/attrs';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
+import { primarySchemaType } from '../../lib/schema';
 
 const difficultyLabel: Record<string, string> = {
   easy: 'Easy',
@@ -123,10 +124,12 @@ const schemaTypeMap: Record<string, string | string[]> = {
   'workshop': 'LocalBusiness',
 };
 const schemaType = schemaTypeMap[experience.data.type] ?? 'TouristAttraction';
+const primaryType = primarySchemaType(schemaType);
 
 const experienceSchema: Record<string, unknown> = {
   '@context': 'https://schema.org',
   '@type': schemaType,
+  '@id': `${canonical}#${primaryType}`,
   name: experience.data.name,
   description: experience.data.editorNote,
   address: {
@@ -142,6 +145,16 @@ const experienceSchema: Record<string, unknown> = {
     longitude: experience.data.coordinates?.lng,
   },
   url: canonical,
+  ...(placeSlug
+    ? {
+        containedInPlace: {
+          '@type': 'TouristDestination',
+          '@id': `https://peninsulainsider.com.au/explore/places/${placeSlug}/#TouristDestination`,
+          name: experiencePlace,
+          url: `https://peninsulainsider.com.au/explore/places/${placeSlug}/`,
+        },
+      }
+    : {}),
   ...(experience.data.website ? { sameAs: [experience.data.website] } : {}),
 };
 
@@ -281,7 +294,7 @@ export const prerender = true;
             <p class="label label--accent">Use it in a weekend</p>
             <h2 class="venues__title">Plans that already sequence this stop properly</h2>
           </div>
-          <a href="/plans/" class="venues__link">All plans →</a>
+          <a href="/explore/plans/" class="venues__link">All plans →</a>
         </div>
         <div class="itinerary-grid">
           {relatedItineraries.map((itinerary) => <ItineraryCard itinerary={itinerary} />)}

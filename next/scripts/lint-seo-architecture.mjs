@@ -9,7 +9,7 @@ const loserPaths = new Set([
   '/explore/dog-friendly/',
   '/stay/couples/',
   '/explore/free/',
-  '/explore/plans/',
+  '/plans/',
   '/places/',
 ]);
 

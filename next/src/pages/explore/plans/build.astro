@@ -18,7 +18,7 @@ import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
-  { label: 'Plans', href: '/plans/' },
+  { label: 'Plans', href: '/explore/plans/' },
   { label: 'Build a plan' },
 ];
 
@@ -153,7 +153,7 @@ export const prerender = true;
       <div class="container">
         <div id="planBuilderResults" class="plan-builder__results" aria-live="polite"></div>
         <div id="planBuilderUnavailable" class="plan-builder__unavailable" hidden>
-          <p>The live planner isn't reachable right now. Try the <a href="/plans/">curated plans hub</a>, or ask <a href="/ask/">The Insider</a> directly.</p>
+          <p>The live planner isn't reachable right now. Try the <a href="/explore/plans/">curated plans hub</a>, or ask <a href="/ask/">The Insider</a> directly.</p>
         </div>
       </div>
     </section>

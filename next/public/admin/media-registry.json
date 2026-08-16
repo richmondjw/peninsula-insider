@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-14T23:51:17.230Z",
+  "generatedAt": "2026-08-16T23:04:05.316Z",
   "source": "next/scripts/build-media-registry.mjs",
   "assetCount": 149,
   "assets": [
@@ -314,24 +314,6 @@
           "entitySlug": "the-school-holidays-survival-guide"
         },
         {
-          "file": "src/content/events/archive/moonlit-sanctuary-easter-program.json",
-          "purpose": "hero",
-          "entityType": "event",
-          "entitySlug": "moonlit-sanctuary-easter-program"
-        },
-        {
-          "file": "src/content/events/archive/peninsula-hot-springs-kodomo-no-hi.json",
-          "purpose": "hero",
-          "entityType": "event",
-          "entitySlug": "peninsula-hot-springs-kodomo-no-hi"
-        },
-        {
-          "file": "src/content/events/archive/winter-camp-2026-the-ranch.json",
-          "purpose": "hero",
-          "entityType": "event",
-          "entitySlug": "winter-camp-2026-the-ranch"
-        },
-        {
           "file": "src/content/events/family-mystery-picnic-mornington-peninsula-2026.json",
           "purpose": "hero",
           "entityType": "event",
@@ -506,12 +488,6 @@
           "purpose": "hero",
           "entityType": "article",
           "entitySlug": "the-peninsula-picnic"
-        },
-        {
-          "file": "src/content/events/archive/shoreham-community-market.json",
-          "purpose": "hero",
-          "entityType": "event",
-          "entitySlug": "shoreham-community-market"
         },
         {
           "file": "src/content/events/shoreham-community-market.json",
@@ -692,12 +668,6 @@
           "entitySlug": "pearcedale-community-market"
         },
         {
-          "file": "src/content/events/archive/red-hill-market-first-saturday.json",
-          "purpose": "hero",
-          "entityType": "event",
-          "entitySlug": "red-hill-market-first-saturday"
-        },
-        {
           "file": "src/content/events/red-hill-market-first-saturday.json",
           "purpose": "hero",
           "entityType": "event",
@@ -778,12 +748,6 @@
           "entitySlug": "the-sorrento-weekend"
         },
         {
-          "file": "src/content/events/archive/sorrento-solstice-festival-2026.json",
-          "purpose": "hero",
-          "entityType": "event",
-          "entitySlug": "sorrento-solstice-festival-2026"
-        },
-        {
           "file": "src/content/events/sorrento-solstice-festival-2026.json",
           "purpose": "hero",
           "entityType": "event",
@@ -848,14 +812,14 @@
           "entitySlug": "melbourne-elite-private-hens-day"
         },
         {
-          "file": "src/pages/guides/index.astro",
-          "purpose": "hero",
+          "file": "src/pages/explore/plans/index.astro",
+          "purpose": "seo",
           "entityType": null,
           "entitySlug": null
         },
         {
-          "file": "src/pages/plans/index.astro",
-          "purpose": "seo",
+          "file": "src/pages/guides/index.astro",
+          "purpose": "hero",
           "entityType": null,
           "entitySlug": null
         },
@@ -1018,12 +982,6 @@
       "updatedAt": "2026-05-21T20:39:52.232Z",
       "usages": [
         {
-          "file": "src/content/events/archive/jetty-road-brewery-mothers-day-2026.json",
-          "purpose": "hero",
-          "entityType": "event",
-          "entitySlug": "jetty-road-brewery-mothers-day-2026"
-        },
-        {
           "file": "src/content/events/bass-flinders-gin-masterclass.json",
           "purpose": "hero",
           "entityType": "event",
@@ -1083,18 +1041,6 @@
       "bytes": 294934,
       "updatedAt": "2026-05-21T20:39:52.267Z",
       "usages": [
-        {
-          "file": "src/content/events/archive/chocolaterie-junior-chocolatier.json",
-          "purpose": "hero",
-          "entityType": "event",
-          "entitySlug": "chocolaterie-junior-chocolatier"
-        },
-        {
-          "file": "src/content/events/archive/rocky-road-festival-mornington-peninsula-chocolaterie.json",
-          "purpose": "hero",
-          "entityType": "event",
-          "entitySlug": "rocky-road-festival-mornington-peninsula-chocolaterie"
-        },
         {
           "file": "src/content/events/chocolaterie-junior-chocolatier.json",
           "purpose": "hero",
@@ -1174,18 +1120,6 @@
           "purpose": "hero",
           "entityType": "event",
           "entitySlug": "emu-plains-market-balnarring"
-        },
-        {
-          "file": "src/content/events/archive/heart-of-the-community-market-rosebud.json",
-          "purpose": "hero",
-          "entityType": "event",
-          "entitySlug": "heart-of-the-community-market-rosebud"
-        },
-        {
-          "file": "src/content/events/archive/mornington-racecourse-market-may-2026.json",
-          "purpose": "hero",
-          "entityType": "event",
-          "entitySlug": "mornington-racecourse-market-may-2026"
         },
         {
           "file": "src/content/events/archive/mornington-racecourse-monthly-market-june-2026.json",
@@ -1298,12 +1232,6 @@
       "updatedAt": "2026-05-21T20:39:52.377Z",
       "usages": [
         {
-          "file": "src/content/events/archive/wild-mushroom-forage-lunch-with-the-kitchen.json",
-          "purpose": "hero",
-          "entityType": "event",
-          "entitySlug": "wild-mushroom-forage-lunch-with-the-kitchen"
-        },
-        {
           "file": "src/content/events/wild-mushroom-forage-lunch-with-the-kitchen.json",
           "purpose": "hero",
           "entityType": "event",
@@ -1335,12 +1263,6 @@
       "bytes": 66414,
       "updatedAt": "2026-05-21T20:39:52.399Z",
       "usages": [
-        {
-          "file": "src/content/events/archive/rocky-road-festival-tasting-sessions.json",
-          "purpose": "hero",
-          "entityType": "event",
-          "entitySlug": "rocky-road-festival-tasting-sessions"
-        },
         {
           "file": "src/content/events/archive/sunny-ridge-strawberry-picking.json",
           "purpose": "hero",
@@ -1504,12 +1426,6 @@
       "updatedAt": "2026-05-21T20:39:52.542Z",
       "usages": [
         {
-          "file": "src/content/events/archive/mornington-peninsula-winter-wine-weekend-winter-wine-festival.json",
-          "purpose": "hero",
-          "entityType": "event",
-          "entitySlug": "mornington-peninsula-winter-wine-weekend-winter-wine-festival"
-        },
-        {
           "file": "src/content/events/mornington-peninsula-winter-wine-weekend-winter-wine-festival.json",
           "purpose": "hero",
           "entityType": "event",
@@ -1537,24 +1453,6 @@
       "bytes": 90220,
       "updatedAt": "2026-05-21T20:39:52.553Z",
       "usages": [
-        {
-          "file": "src/content/events/archive/autumn-winery-walk-2026.json",
-          "purpose": "hero",
-          "entityType": "event",
-          "entitySlug": "autumn-winery-walk-2026"
-        },
-        {
-          "file": "src/content/events/archive/pier-10-mothers-day-lunch-2026.json",
-          "purpose": "hero",
-          "entityType": "event",
-          "entitySlug": "pier-10-mothers-day-lunch-2026"
-        },
-        {
-          "file": "src/content/events/archive/winter-wine-weekend-full-3-day-peninsula-program.json",
-          "purpose": "hero",
-          "entityType": "event",
-          "entitySlug": "winter-wine-weekend-full-3-day-peninsula-program"
-        },
         {
           "file": "src/content/events/autumn-winery-walk-2026.json",
           "purpose": "hero",
@@ -1601,12 +1499,6 @@
       "bytes": 31954,
       "updatedAt": "2026-05-21T20:39:52.561Z",
       "usages": [
-        {
-          "file": "src/content/events/archive/mornington-peninsula-winter-wine-weekend-2026.json",
-          "purpose": "hero",
-          "entityType": "event",
-          "entitySlug": "mornington-peninsula-winter-wine-weekend-2026"
-        },
         {
           "file": "src/content/events/mornington-peninsula-winter-wine-weekend-2026.json",
           "purpose": "hero",
@@ -2206,18 +2098,6 @@
           "entitySlug": "peninsula-this-weekend-may-16"
         },
         {
-          "file": "src/content/events/archive/briars-eco-explorers-autumn.json",
-          "purpose": "hero",
-          "entityType": "event",
-          "entitySlug": "briars-eco-explorers-autumn"
-        },
-        {
-          "file": "src/content/events/archive/coastrek-mornington-peninsula-2026.json",
-          "purpose": "hero",
-          "entityType": "event",
-          "entitySlug": "coastrek-mornington-peninsula-2026"
-        },
-        {
           "file": "src/content/events/briars-eco-explorers-autumn.json",
           "purpose": "hero",
           "entityType": "event",
@@ -2326,12 +2206,6 @@
           "entitySlug": "mornington-cup-2026"
         },
         {
-          "file": "src/content/events/archive/songs-of-dreams-and-destiny.json",
-          "purpose": "hero",
-          "entityType": "event",
-          "entitySlug": "songs-of-dreams-and-destiny"
-        },
-        {
           "file": "src/content/events/songs-of-dreams-and-destiny.json",
           "purpose": "hero",
           "entityType": "event",
@@ -2410,24 +2284,6 @@
           "purpose": "hero",
           "entityType": "article",
           "entitySlug": "insider-picks-2026-08-06"
-        },
-        {
-          "file": "src/content/events/archive/mprg-autumn-exhibition.json",
-          "purpose": "hero",
-          "entityType": "event",
-          "entitySlug": "mprg-autumn-exhibition"
-        },
-        {
-          "file": "src/content/events/archive/new-wave-26-at-mprg.json",
-          "purpose": "hero",
-          "entityType": "event",
-          "entitySlug": "new-wave-26-at-mprg"
-        },
-        {
-          "file": "src/content/events/archive/sorrento-writers-festival-2026.json",
-          "purpose": "hero",
-          "entityType": "event",
-          "entitySlug": "sorrento-writers-festival-2026"
         },
         {
           "file": "src/content/events/helen-britton-story-so-far-mprg-2026.json",
@@ -3364,12 +3220,6 @@
           "purpose": "hero",
           "entityType": "article",
           "entitySlug": "insider-picks-2026-07-28"
-        },
-        {
-          "file": "src/content/events/archive/mothers-day-classic-moonah-links-2026.json",
-          "purpose": "hero",
-          "entityType": "event",
-          "entitySlug": "mothers-day-classic-moonah-links-2026"
         },
         {
           "file": "src/content/events/mothers-day-classic-moonah-links-2026.json",
@@ -4516,12 +4366,6 @@
       "updatedAt": "2026-05-21T20:39:53.195Z",
       "usages": [
         {
-          "file": "src/content/events/archive/sustainable-house-day-2026.json",
-          "purpose": "hero",
-          "entityType": "event",
-          "entitySlug": "sustainable-house-day-2026"
-        },
-        {
           "file": "src/content/events/sustainable-house-day-2026.json",
           "purpose": "hero",
           "entityType": "event",
@@ -4569,12 +4413,6 @@
         },
         {
           "file": "src/content/events/anzac-day-sorrento-dawn.json",
-          "purpose": "hero",
-          "entityType": "event",
-          "entitySlug": "anzac-day-sorrento-dawn"
-        },
-        {
-          "file": "src/content/events/archive/anzac-day-sorrento-dawn.json",
           "purpose": "hero",
           "entityType": "event",
           "entitySlug": "anzac-day-sorrento-dawn"
@@ -4700,12 +4538,6 @@
           "entitySlug": "alba-fire-and-ice-sessions"
         },
         {
-          "file": "src/content/events/archive/alba-fire-and-ice-sessions.json",
-          "purpose": "hero",
-          "entityType": "event",
-          "entitySlug": "alba-fire-and-ice-sessions"
-        },
-        {
           "file": "src/content/events/brunch-thyme-alba-thermal-springs-winter-2026.json",
           "purpose": "hero",
           "entityType": "event",
@@ -4739,12 +4571,6 @@
       "bytes": 169466,
       "updatedAt": "2026-05-21T20:39:53.237Z",
       "usages": [
-        {
-          "file": "src/content/events/archive/peninsula-hot-springs-allara-briggs-pattison.json",
-          "purpose": "hero",
-          "entityType": "event",
-          "entitySlug": "peninsula-hot-springs-allara-briggs-pattison"
-        },
         {
           "file": "src/content/events/archive/peninsula-hot-springs-bathe-in-cinema-thursdays.json",
           "purpose": "hero",
@@ -4836,12 +4662,6 @@
           "purpose": "hero",
           "entityType": "article",
           "entitySlug": "peninsula-this-weekend-jun-27"
-        },
-        {
-          "file": "src/content/events/archive/peninsula-hot-springs-sunday-sessions.json",
-          "purpose": "hero",
-          "entityType": "event",
-          "entitySlug": "peninsula-hot-springs-sunday-sessions"
         },
         {
           "file": "src/content/events/peninsula-hot-springs-sunday-sessions.json",
@@ -5051,12 +4871,6 @@
       "bytes": 280716,
       "updatedAt": "2026-05-21T20:39:53.329Z",
       "usages": [
-        {
-          "file": "src/content/events/archive/flinders-hotel-mothers-day-2026.json",
-          "purpose": "hero",
-          "entityType": "event",
-          "entitySlug": "flinders-hotel-mothers-day-2026"
-        },
         {
           "file": "src/content/events/flinders-hotel-mothers-day-2026.json",
           "purpose": "hero",

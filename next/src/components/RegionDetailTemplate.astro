@@ -41,6 +41,7 @@ const pillarOf = (type: string) => venueHrefPrefix(type).replace(/\//g, '');
 const touristDestination = {
   '@context': 'https://schema.org',
   '@type': 'TouristDestination',
+  '@id': `${url}#TouristDestination`,
   name: d.name,
   description: d.tagline ?? (d.intro.split('. ')[0] + '.'),
   url,
@@ -49,7 +50,8 @@ const touristDestination = {
     ? { geo: { '@type': 'GeoCoordinates', latitude: String(d.coordinates.lat), longitude: String(d.coordinates.lng) } }
     : {}),
   containsPlace: places.map((p) => ({
-    '@type': 'Place',
+    '@type': 'TouristDestination',
+    '@id': `${SITE}/explore/places/${routeSlug(p)}/#TouristDestination`,
     name: p.data.name,
     url: `${SITE}/explore/places/${routeSlug(p)}/`,
   })),

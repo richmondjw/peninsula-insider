@@ -794,7 +794,7 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
           <h2 class="venues__title">Weekend plans that already include {data.name}</h2>
           <p class="venues__sub">Skip the planning  -  these itineraries sequence this venue into a proper Peninsula weekend.</p>
         </div>
-        <a href="/plans/" class="venues__link">All plans →</a>
+        <a href="/explore/plans/" class="venues__link">All plans →</a>
       </div>
       <div class="itinerary-grid">
         {itineraries.map((itinerary) => <ItineraryCard itinerary={itinerary} />)}
@@ -850,7 +850,7 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
         <>
           <a href="/explore/plans/the-one-night-escape/" class="pi-btn pi-btn--solid">The one-night escape →</a>
           <a href="/journal/mornington-peninsula-in-winter/" class="pi-btn pi-btn--solid">Winter on the Peninsula →</a>
-          <a href="/plans/" class="pi-btn pi-btn--solid">Weekend plans →</a>
+          <a href="/explore/plans/" class="pi-btn pi-btn--solid">Weekend plans →</a>
         </>
       )}
       {data.dogFriendly && (

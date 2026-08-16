@@ -104,7 +104,7 @@ const COLLECTIONS = [
   { folder: 'regions',        entityType: 'region',        hrefPrefix: '/explore/regions/', titleField: 'name' },
   { folder: 'articles',       entityType: 'article',       hrefPrefix: '/journal/',  titleField: 'title' },
   { folder: 'events',         entityType: 'event',         hrefPrefix: '/whats-on/', titleField: 'title' },
-  { folder: 'itineraries',    entityType: 'itinerary',     hrefPrefix: '/plans/',    titleField: 'title' },
+  { folder: 'itineraries',    entityType: 'itinerary',     hrefPrefix: '/explore/plans/', titleField: 'title' },
   { folder: 'tours',          entityType: 'tour',          hrefPrefix: '/tour/',     titleField: 'name'  },
   { folder: 'tour-packages',  entityType: 'tour-package',  hrefPrefix: '/tour-packages/', titleField: 'name' },
   { folder: 'quick-notes',    entityType: 'quick-note',    hrefPrefix: '/quick-note/', titleField: 'headline' },
