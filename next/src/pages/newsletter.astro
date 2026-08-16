@@ -1,22 +1,12 @@
 ---
 /**
- * /newsletter/ → /dispatch/ permanent redirect.
- * Keeps old links working; canonical content lives at /dispatch/.
+ * /newsletter/ -> /dispatch/ permanent rename.
+ * Keeps old links (and their UTM params) working; canonical content lives at
+ * /dispatch/. Was hand-rolled before components/Redirect.astro existed -
+ * migrated to the shared component so it gets query/hash preservation and
+ * the standard consolidate-canonical treatment for a URL migration.
  */
+import Redirect from '../components/Redirect.astro';
 export const prerender = true;
-
-const redirectUrl = '/dispatch/';
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="refresh" content="0; url=/dispatch/" />
-  <link rel="canonical" href="https://peninsulainsider.com.au/dispatch/" />
-  <title>Redirecting…</title>
-</head>
-<body>
-  <p>Redirecting to <a href="/dispatch/">The Insider Note</a>…</p>
-  <script>window.location.replace('/dispatch/');</script>
-</body>
-</html>
+<Redirect to="/dispatch/" consolidate />

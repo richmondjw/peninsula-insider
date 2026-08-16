@@ -5,7 +5,13 @@
  * Fires window.location.replace() synchronously in <head> so the browser
  * navigates before it ever paints the body. The html/body are hidden via
  * CSS as a belt-and-braces guard against any subpixel flash. Meta-refresh
- * stays as a no-JS fallback.
+ * stays as a no-JS fallback (targets the bare `to` - a static <meta> tag
+ * can't read the incoming URL, so the no-JS path can't carry query/hash;
+ * accepted degradation since it only affects non-JS clients).
+ *
+ * The JS path preserves the incoming query string and hash by appending
+ * them to `to` before navigating, so tracked links (UTM campaign params,
+ * in-page anchors) survive the hop instead of being dropped at the old URL.
  *
  * Indexing behaviour depends on why the redirect exists:
  *
@@ -47,7 +53,18 @@ const canonical = new URL(to, 'https://peninsulainsider.com.au').href;
     <!-- Hide everything before JS fires -->
     <style>html,body{display:none;visibility:hidden}</style>
     <!-- JS redirect fires synchronously - browser navigates before first paint -->
-    <script define:vars={{ to }}>window.location.replace(to);</script>
+    <script define:vars={{ to }}>
+      (function () {
+        var target = to;
+        if (window.location.search) {
+          target += (target.indexOf('?') === -1 ? '?' : '&') + window.location.search.slice(1);
+        }
+        if (window.location.hash) {
+          target += window.location.hash;
+        }
+        window.location.replace(target);
+      })();
+    </script>
     <!-- No-JS fallback -->
     <meta http-equiv="refresh" content={`0;url=${to}`}>
     {!consolidate && <meta name="robots" content="noindex" />}
