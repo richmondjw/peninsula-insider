@@ -3,5 +3,9 @@ import Redirect from '../../components/Redirect.astro';
 export const prerender = true;
 ---
 
-<!-- The broad dining guide now belongs to the stronger /eat/ planning hub. -->
-<Redirect to="/eat/" consolidate />
+<!-- Consolidated onto the purpose-built best-restaurants guide, not the
+     broad /eat/ hub - "best restaurants"/"where to eat" query intent maps
+     directly to that page's title, ItemList + FAQ schema, and editorial
+     ranking, so it should receive the equity rather than the general hub.
+     (2026-08-16) -->
+<Redirect to="/eat/best-restaurants/" consolidate />
