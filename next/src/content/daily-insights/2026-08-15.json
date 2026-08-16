@@ -1,0 +1,50 @@
+{
+  "date": "2026-08-15",
+  "title": "PI Daily Insights: Saturday 15 August 2026",
+  "generatedAt": "2026-08-14T19:31:00Z",
+  "runLabel": "19:30–19:31 UTC (5:30AM AEST)",
+  "method": "Brave Search API + six Tier 1 scrapes",
+  "summary": "1 Band A item: H5N1 bird-flu safety guidance; official-source human review required.",
+  "actToday": [
+    {
+      "title": "H5N1 bird flu reported on the Peninsula and Phillip Island",
+      "score": "22/25",
+      "band": "A",
+      "source": "MP News + MP Shire",
+      "observed": "Observed 14 Aug 19:30 UTC",
+      "url": "https://www.mpnews.com.au/2026/08/12/bird-flu-detected-on-the-peninsula-and-phillip-island/",
+      "sourceLabel": "mpnews.com.au",
+      "scores": "R5·U5·V5·N3·A4",
+      "description": "MP News reports bird flu detected on the Peninsula on 12 August. The Shire’s current notice says H5N1 has been detected in Victoria and says people should avoid contact with sick or dead birds and report observations to DEECA or the Emergency Animal Disease Hotline (1800 675 888).",
+      "interpretation": "High-utility safety information, but use only the Shire/DEECA guidance. Do not extend the reported location or make claims beyond the official advice.",
+      "recommendation": "Telegram PI group + safety/hub update, subject to human editorial approval."
+    }
+  ],
+  "news": [
+    { "item": "EMO7 temporary landslide planning-control update", "source": "MP Shire", "url": "https://www.mornpen.vic.gov.au/Services/Planning-and-building/Strategic-planning/Planning-Scheme-amendments/Amendment-C314morn-%E2%80%93-EMO7-update", "score": "18", "band": "B", "note": "Updates temporary landslide-control mapping and requirements. Monitor only; planning sensitivity requires human call." },
+    { "item": "Mr Vincenzo’s reopens at triple its former size", "source": "Hospitality Magazine", "url": "https://www.hospitalitymagazine.com.au/mr-vincenzos-reopens-on-the-mornington-peninsula-at-triple-the-size/", "score": "18", "band": "B", "note": "Verify venue details directly before any PI opening note." },
+    { "item": "In-home aged care change reported for 2027", "source": "The Age (paywalled)", "score": "16", "band": "B", "note": "Seek a primary Shire statement before use." }
+  ],
+  "events": [
+    { "event": "Devilbend Trail Run", "when": "Sun 16 Aug", "score": "18", "band": "B", "recommendation": "Confirm organiser, timing and registrations before any listing." },
+    { "event": "World Suicide Prevention Day Walk 2026", "when": "September", "score": "ESCALATE", "band": "escalate", "recommendation": "Sensitivity class; human editorial decision only." }
+  ],
+  "competitors": [
+    { "name": "MP News", "note": "leading with bird-flu and landslide-planning coverage: a public-interest utility edge this week." },
+    { "name": "Mornington Peninsula Magazine", "note": "August issue and a weekend-events push include Devilbend Trail Run." },
+    { "name": "Peninsula Essence", "note": "August lifestyle/arts mix; no fresh high-priority move surfaced." },
+    { "name": "Visit Mornington Peninsula", "note": "no new time-sensitive guide returned in this scan." }
+  ],
+  "opportunities": [
+    "Official wildlife-safety utility after editorial approval.",
+    "Verify Mr Vincenzo’s reopening directly for a locally reported opening note.",
+    "Confirm Devilbend Trail Run logistics for a Sunday outdoors listing.",
+    "Obtain the Shire’s primary aged-care statement before considering a service explainer."
+  ],
+  "rawCaptures": [
+    "MP News letters to the editor: 9/25.",
+    "MP News table-tennis flooring upgrade: 10/25.",
+    "ABC agricultural labour-law report: 10/25.",
+    "MP Magazine August astrology feature: 8/25."
+  ]
+}
