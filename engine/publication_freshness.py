@@ -73,16 +73,23 @@ def main() -> int:
     parser.add_argument("--url", help="Optional deployed article URL to verify")
     args = parser.parse_args()
 
-    failures = source_failures(args.article, args.expected_date)
+    source = source_failures(args.article, args.expected_date)
+    live: list[str] = []
     if args.url:
         failure = live_failure(args.url, args.expected_date)
         if failure:
-            failures.append(failure)
-    if failures:
+            live.append(failure)
+
+    all_failures = source + live
+    if all_failures:
         print("PUBLICATION FRESHNESS FAILED:", file=sys.stderr)
-        for failure in failures:
+        for failure in all_failures:
             print(f"- {failure}", file=sys.stderr)
-        return 2
+        # Exit 2 when the source record itself is missing or stale — this is
+        # always a hard failure that retrying cannot fix.
+        # Exit 1 when only the live page is unavailable — this is transient
+        # (GitHub Pages deploy lag) and the caller may choose to retry.
+        return 2 if source else 1
     print(f"Publication freshness passed: {args.article} ({args.expected_date})")
     return 0
 
