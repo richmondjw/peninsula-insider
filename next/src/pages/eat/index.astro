@@ -23,6 +23,7 @@ import type { DirectoryRowItem } from '../../components/v5/hub/DirectoryRows.ast
 import JournalModule from '../../components/v5/hub/JournalModule.astro';
 import type { JournalItem } from '../../components/v5/hub/JournalModule.astro';
 import AskBand from '../../components/v5/hub/AskBand.astro';
+import TrustNote from '../../components/v5/hub/TrustNote.astro';
 import FilterBar from '../../components/v5/FilterBar.astro';
 import { routeSlug, resolveHeroSrc, hasOwnHeroImage } from '../../lib/editorial';
 import { getFacets } from '../../lib/facets';
@@ -302,6 +303,9 @@ export const prerender = true;
        directory so the sticky bar has the full list height to stick
        against). ONE state still governs The Six AND the directory
        (URL-persisted; restoration per pi:restore:v1 contract). -->
+  <div class="container">
+    <TrustNote surface="eat" />
+  </div>
   <DirectoryRows
     id="directory"
     eyebrow="The full list"
@@ -314,7 +318,14 @@ export const prerender = true;
     emptyHeading="Nothing matches those filters yet"
     emptyBody="Loosen one and the list comes back."
   >
-    <FilterBar slot="before-list" surface="eat" noun="places" label="Filter places to eat" sticky>
+    <FilterBar
+      slot="before-list"
+      surface="eat"
+      noun="places"
+      label="Filter places to eat"
+      sticky
+      facets={['cat', 'place', 'mood', 'price', 'party']}
+    >
     </FilterBar>
     <div
       slot="before-list"

@@ -13,7 +13,7 @@
  * contract. This component renders the page's single polite live region
  * (#pi-results-status), so keep exactly one FilterBar per page.
  */
-import { CHIP_PRESETS } from '../../lib/facets';
+import { CHIP_PRESETS, type FacetKey } from '../../lib/facets';
 import FilterSheet from './FilterSheet.astro';
 
 export interface Props {
@@ -27,6 +27,13 @@ export interface Props {
   sticky?: boolean;
   /** Render the paired FilterSheet (turn off if the page composes its own). */
   withSheet?: boolean;
+  /**
+   * Restrict the paired FilterSheet to these facet groups (contextual filters,
+   * P1.2). Omit for the full shared taxonomy; every hub surface should pass
+   * only the groups its readers actually expect (page-redesigns-hubs.md /
+   * precision-sprint pass 04 "Reader-first filters").
+   */
+  facets?: FacetKey[];
 }
 
 const {
@@ -35,6 +42,7 @@ const {
   label = 'Filters',
   sticky = false,
   withSheet = true,
+  facets,
 } = Astro.props;
 
 const presets = CHIP_PRESETS[surface] ?? [];
@@ -85,7 +93,7 @@ const presets = CHIP_PRESETS[surface] ?? [];
   <p id="pi-results-status" class="v5-vh" role="status" aria-live="polite"></p>
 </div>
 
-{withSheet && <FilterSheet noun={noun} />}
+{withSheet && <FilterSheet noun={noun} facets={facets} />}
 
 <style>
   .v5-filterbar {
