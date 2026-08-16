@@ -10,9 +10,9 @@
     "start": "2026-08-21",
     "end": "2026-08-23",
     "label": "Fri 21 – Sun 23 August",
-    "count": 16
+    "count": 18
   },
-  "numberOfItems": 29,
+  "numberOfItems": 39,
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -305,6 +305,45 @@
       "position": 23,
       "item": {
         "@type": "Event",
+        "name": "Tootgarook Primary School Market",
+        "url": "https://peninsulainsider.com.au/whats-on/tootgarook-primary-school-market/",
+        "startDate": "2026-08-22",
+        "endDate": "2026-08-22",
+        "description": "Fourth-Saturday-of-the-month fundraiser market run by Tootgarook Primary, 250 stalls of everything from produce to second-hand. Proceeds back into the school.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 24,
+      "item": {
+        "@type": "Event",
+        "name": "Mt Eliza Farmers Market",
+        "url": "https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/",
+        "startDate": "2026-08-23",
+        "endDate": "2026-08-23",
+        "description": "The only VFMA-accredited farmers market on the Mornington Peninsula. Only genuine farmers and specialty makers. Monthly on the 4th Sunday. Produce includes Flinders Sourdough, Mumma Made jams, Red Hill Apples, Blue Bay cheese. VFMA accreditation guarantees farm-gate authenticity.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 25,
+      "item": {
+        "@type": "Event",
+        "name": "Dromana Community Market",
+        "url": "https://peninsulainsider.com.au/whats-on/dromana-community-market/",
+        "startDate": "2026-08-29",
+        "endDate": "2026-08-29",
+        "description": "Community market at Dromana Park on the last Saturday of every month. Mix of produce, craft, plants and local makers.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 26,
+      "item": {
+        "@type": "Event",
         "name": "Peninsula Hot Springs, Sound Healing Sessions",
         "url": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-sound-healing-sessions/",
         "startDate": "2026-09-01",
@@ -315,7 +354,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 24,
+      "position": 27,
       "item": {
         "@type": "Event",
         "name": "Sound Circle: Full Moon Sound Journey at Peninsula Hot Springs",
@@ -328,7 +367,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 25,
+      "position": 28,
       "item": {
         "@type": "Event",
         "name": "Hill & Ridge Community Market, September 2026 (Restart)",
@@ -341,7 +380,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 26,
+      "position": 29,
       "item": {
         "@type": "Event",
         "name": "National Works on Paper 2026 (NWOP)",
@@ -354,7 +393,98 @@
     },
     {
       "@type": "ListItem",
-      "position": 27,
+      "position": 30,
+      "item": {
+        "@type": "Event",
+        "name": "Red Hill Market  -  First Saturday, Every Month",
+        "url": "https://peninsulainsider.com.au/whats-on/red-hill-market-first-saturday/",
+        "startDate": "2026-09-05",
+        "endDate": "2026-09-05",
+        "description": "Victoria's largest artisan craft market. 200+ stalls, the whole ridge in one place, and a morning that pulls the entire Peninsula into orbit.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 31,
+      "item": {
+        "@type": "Event",
+        "name": "Crib Point Community Market",
+        "url": "https://peninsulainsider.com.au/whats-on/crib-point-community-market/",
+        "startDate": "2026-09-12",
+        "endDate": "2026-09-12",
+        "description": "Community market at Crib Point every second Saturday of the month. Spirit of community support and inclusion; promotes locally made handcrafted products and local produce.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 32,
+      "item": {
+        "@type": "Event",
+        "name": "Heart of the Community Market (Rosebud)",
+        "url": "https://peninsulainsider.com.au/whats-on/heart-of-the-community-market-rosebud/",
+        "startDate": "2026-09-12",
+        "endDate": "2026-09-12",
+        "description": "Community market at Rosebud on the second Saturday of the month. Approximately 160 stalls with craft, handmade and new products, fresh produce and plants. No used goods policy. Located near Rosebud foreshore.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 33,
+      "item": {
+        "@type": "Event",
+        "name": "Mornington Racecourse Market",
+        "url": "https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/",
+        "startDate": "2026-09-13",
+        "endDate": "2026-09-13",
+        "description": "Monthly craft market at Mornington Racecourse. 300+ stalls of hand-made, home-made and Australian-designed goods. Street food vendors, live music, animal farm and face painting for kids. Paid parking. Dogs not permitted (service dogs exempt).",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 34,
+      "item": {
+        "@type": "Event",
+        "name": "Boneo Community Market",
+        "url": "https://peninsulainsider.com.au/whats-on/boneo-community-market/",
+        "startDate": "2026-09-19",
+        "endDate": "2026-09-19",
+        "description": "Peninsula's longest-running volunteer-run community market. Third Saturday, year-round, all weather. Make it, grow it, bake it: real homemade and homegrown.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 35,
+      "item": {
+        "@type": "Event",
+        "name": "Emu Plains Market, Balnarring",
+        "url": "https://peninsulainsider.com.au/whats-on/emu-plains-market-balnarring/",
+        "startDate": "2026-09-19",
+        "endDate": "2026-09-19",
+        "description": "Monthly artisan market at Emu Plains Reserve (Coolart Road, Balnarring). Showcases craft, design, vintage, music, and food. Family and community favourite under stringybark gums.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 36,
+      "item": {
+        "@type": "Event",
+        "name": "Pearcedale Community Market",
+        "url": "https://peninsulainsider.com.au/whats-on/pearcedale-community-market/",
+        "startDate": "2026-09-19",
+        "endDate": "2026-09-19",
+        "description": "Monthly third-Saturday community market under the eucalypts at Pearcedale: fresh bread, honey, jam, craft, plants, coffee. Dogs on lead welcome.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 37,
       "item": {
         "@type": "Event",
         "name": "Emu Plains Market",
@@ -367,7 +497,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 28,
+      "position": 38,
       "item": {
         "@type": "Event",
         "name": "Main Street Mornington Festival 2026",
@@ -380,7 +510,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 29,
+      "position": 39,
       "item": {
         "@type": "Event",
         "name": "The Bloody Long Walk – Mornington Peninsula 2026",
@@ -392,7 +522,7 @@
       }
     }
   ],
-  "count": 29,
+  "count": 39,
   "events": [
     {
       "title": "Brunch Thyme at Alba Thermal Springs & Spa",
@@ -681,6 +811,45 @@
       "thisWeekend": true
     },
     {
+      "title": "Tootgarook Primary School Market",
+      "url": "https://peninsulainsider.com.au/whats-on/tootgarook-primary-school-market/",
+      "startDate": "2026-08-22",
+      "endDate": "2026-08-22",
+      "recurrence": "monthly",
+      "category": "market",
+      "place": null,
+      "venue": null,
+      "freePaid": "Free",
+      "summary": "Fourth-Saturday-of-the-month fundraiser market run by Tootgarook Primary, 250 stalls of everything from produce to second-hand. Proceeds back into the school.",
+      "thisWeekend": true
+    },
+    {
+      "title": "Mt Eliza Farmers Market",
+      "url": "https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/",
+      "startDate": "2026-08-23",
+      "endDate": "2026-08-23",
+      "recurrence": "monthly",
+      "category": "market",
+      "place": null,
+      "venue": null,
+      "freePaid": "Free",
+      "summary": "The only VFMA-accredited farmers market on the Mornington Peninsula. Only genuine farmers and specialty makers. Monthly on the 4th Sunday. Produce includes Flinders Sourdough, Mumma Made jams, Red Hill Apples, Blue Bay cheese. VFMA accreditation guarantees farm-gate authenticity.",
+      "thisWeekend": true
+    },
+    {
+      "title": "Dromana Community Market",
+      "url": "https://peninsulainsider.com.au/whats-on/dromana-community-market/",
+      "startDate": "2026-08-29",
+      "endDate": "2026-08-29",
+      "recurrence": "monthly",
+      "category": "market",
+      "place": "dromana",
+      "venue": null,
+      "freePaid": "Free",
+      "summary": "Community market at Dromana Park on the last Saturday of every month. Mix of produce, craft, plants and local makers.",
+      "thisWeekend": false
+    },
+    {
       "title": "Peninsula Hot Springs, Sound Healing Sessions",
       "url": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-sound-healing-sessions/",
       "startDate": "2026-09-01",
@@ -730,6 +899,97 @@
       "venue": null,
       "freePaid": "Free",
       "summary": "MPRG's biennial acquisitive prize survey of contemporary Australian work on paper: prints, drawings, collage, mixed media. Free, Tue to Sun 11am to 4pm.",
+      "thisWeekend": false
+    },
+    {
+      "title": "Red Hill Market  -  First Saturday, Every Month",
+      "url": "https://peninsulainsider.com.au/whats-on/red-hill-market-first-saturday/",
+      "startDate": "2026-09-05",
+      "endDate": "2026-09-05",
+      "recurrence": "monthly",
+      "category": "market",
+      "place": "red-hill",
+      "venue": "red-hill-market",
+      "freePaid": null,
+      "summary": "Victoria's largest artisan craft market. 200+ stalls, the whole ridge in one place, and a morning that pulls the entire Peninsula into orbit.",
+      "thisWeekend": false
+    },
+    {
+      "title": "Crib Point Community Market",
+      "url": "https://peninsulainsider.com.au/whats-on/crib-point-community-market/",
+      "startDate": "2026-09-12",
+      "endDate": "2026-09-12",
+      "recurrence": "monthly",
+      "category": "market",
+      "place": null,
+      "venue": null,
+      "freePaid": "Free",
+      "summary": "Community market at Crib Point every second Saturday of the month. Spirit of community support and inclusion; promotes locally made handcrafted products and local produce.",
+      "thisWeekend": false
+    },
+    {
+      "title": "Heart of the Community Market (Rosebud)",
+      "url": "https://peninsulainsider.com.au/whats-on/heart-of-the-community-market-rosebud/",
+      "startDate": "2026-09-12",
+      "endDate": "2026-09-12",
+      "recurrence": "monthly",
+      "category": "market",
+      "place": "rosebud",
+      "venue": null,
+      "freePaid": "Free",
+      "summary": "Community market at Rosebud on the second Saturday of the month. Approximately 160 stalls with craft, handmade and new products, fresh produce and plants. No used goods policy. Located near Rosebud foreshore.",
+      "thisWeekend": false
+    },
+    {
+      "title": "Mornington Racecourse Market",
+      "url": "https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/",
+      "startDate": "2026-09-13",
+      "endDate": "2026-09-13",
+      "recurrence": "monthly",
+      "category": "market",
+      "place": "mornington",
+      "venue": null,
+      "freePaid": "Paid",
+      "summary": "Monthly craft market at Mornington Racecourse. 300+ stalls of hand-made, home-made and Australian-designed goods. Street food vendors, live music, animal farm and face painting for kids. Paid parking. Dogs not permitted (service dogs exempt).",
+      "thisWeekend": false
+    },
+    {
+      "title": "Boneo Community Market",
+      "url": "https://peninsulainsider.com.au/whats-on/boneo-community-market/",
+      "startDate": "2026-09-19",
+      "endDate": "2026-09-19",
+      "recurrence": "monthly",
+      "category": "market",
+      "place": null,
+      "venue": null,
+      "freePaid": "Free",
+      "summary": "Peninsula's longest-running volunteer-run community market. Third Saturday, year-round, all weather. Make it, grow it, bake it: real homemade and homegrown.",
+      "thisWeekend": false
+    },
+    {
+      "title": "Emu Plains Market, Balnarring",
+      "url": "https://peninsulainsider.com.au/whats-on/emu-plains-market-balnarring/",
+      "startDate": "2026-09-19",
+      "endDate": "2026-09-19",
+      "recurrence": "monthly",
+      "category": "market",
+      "place": "balnarring",
+      "venue": null,
+      "freePaid": "Free entry",
+      "summary": "Monthly artisan market at Emu Plains Reserve (Coolart Road, Balnarring). Showcases craft, design, vintage, music, and food. Family and community favourite under stringybark gums.",
+      "thisWeekend": false
+    },
+    {
+      "title": "Pearcedale Community Market",
+      "url": "https://peninsulainsider.com.au/whats-on/pearcedale-community-market/",
+      "startDate": "2026-09-19",
+      "endDate": "2026-09-19",
+      "recurrence": "monthly",
+      "category": "market",
+      "place": null,
+      "venue": null,
+      "freePaid": "Free",
+      "summary": "Monthly third-Saturday community market under the eucalypts at Pearcedale: fresh bread, honey, jam, craft, plants, coffee. Dogs on lead welcome.",
       "thisWeekend": false
     },
     {
