@@ -4,6 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import { buildBreadcrumbSchema, absUrl } from '../../lib/schema';
 
 const allVenues = await getCollection('venues');
 const venues = allVenues.filter((v) => v.data.type === 'distillery');
@@ -13,6 +14,11 @@ const breadcrumbItems = [
   { label: 'Eat & Drink', href: '/eat/' },
   { label: 'Distilleries' },
 ];
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', url: absUrl('/') },
+  { name: 'Eat & Drink', url: absUrl('/eat/') },
+  { name: 'Distilleries', url: absUrl('/eat/distilleries/') },
+]);
 export const prerender = true;
 ---
 
@@ -22,6 +28,7 @@ export const prerender = true;
   section="eat"
   canonical="https://peninsulainsider.com.au/eat/distilleries/"
 >
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   <Breadcrumbs items={breadcrumbItems} />
 
   <article class="article">

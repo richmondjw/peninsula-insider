@@ -5,6 +5,7 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { routeSlug } from '../../lib/editorial';
+import { buildBreadcrumbSchema, absUrl } from '../../lib/schema';
 
 const allVenues = await getCollection('venues');
 
@@ -46,6 +47,11 @@ const breadcrumbItems = [
   { label: 'Stay', href: '/stay/' },
   { label: 'B&Bs & Cottages' },
 ];
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', url: absUrl('/') },
+  { name: 'Stay', url: absUrl('/stay/') },
+  { name: 'B&Bs & Cottages', url: absUrl('/stay/cottages/') },
+]);
 export const prerender = true;
 ---
 <BaseLayout
@@ -55,6 +61,7 @@ export const prerender = true;
   canonical="https://peninsulainsider.com.au/stay/cottages/"
   modifiedTime="2026-05-08"
 >
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   <Breadcrumbs items={breadcrumbItems} />
   <article class="article">
     <div class="container">

@@ -30,6 +30,7 @@ import JournalModule from '../../components/v5/hub/JournalModule.astro';
 import AskBand from '../../components/v5/hub/AskBand.astro';
 import { getFacets, type FacetKey } from '../../lib/facets';
 import { routeSlug, stayTypes, typeLabel, titleize, resolveHeroSrc } from '../../lib/editorial';
+import { buildBreadcrumbSchema, absUrl } from '../../lib/schema';
 
 // ── Data ─────────────────────────────────────────────────────────────────────
 const venues = (await getCollection('venues')).filter((v) => stayTypes.includes(v.data.type));
@@ -178,6 +179,10 @@ const breadcrumbItems = [
   { label: 'Home', href: '/' },
   { label: 'Stay' },
 ];
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', url: absUrl('/') },
+  { name: 'Stay', url: absUrl('/stay/') },
+]);
 
 // FAQ schema retained verbatim from v4 (title/meta/schema unchanged).
 const faqSchema = {
@@ -203,6 +208,7 @@ export const prerender = true;
   ogImage="/images/sourced/venue-jackalope-hotel-01.webp"
 >
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 
   <Breadcrumbs items={breadcrumbItems} />
 

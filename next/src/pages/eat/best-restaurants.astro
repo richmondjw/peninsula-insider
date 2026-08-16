@@ -6,6 +6,7 @@ import SubpageHero from '../../components/SubpageHero.astro';
 import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { routeSlug, titleize } from '../../lib/editorial';
+import { buildBreadcrumbSchema, absUrl } from '../../lib/schema';
 
 const eatTypes = ['restaurant', 'cafe', 'winery'];
 const venues = (await getCollection('venues'))
@@ -69,6 +70,11 @@ const breadcrumbItems = [
   { label: 'Eat & Drink', href: '/eat/' },
   { label: 'Best Restaurants' },
 ];
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', url: absUrl('/') },
+  { name: 'Eat & Drink', url: absUrl('/eat/') },
+  { name: 'Best Restaurants', url: absUrl('/eat/best-restaurants/') },
+]);
 export const prerender = true;
 ---
 
@@ -80,6 +86,7 @@ export const prerender = true;
 >
   <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   <Breadcrumbs items={breadcrumbItems} />
 
   <SubpageHero
