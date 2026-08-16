@@ -40,18 +40,27 @@ export const GET: APIRoute = async () => {
       const occurrenceEnd = live.rule.kind === 'range'
         ? new Date(Math.min(live.rule.end.getTime(), window.end.getTime()))
         : nextOccurrence;
+      const startIso = isoDate(nextOccurrence);
+      const endIso = isoDate(occurrenceEnd);
       return {
         title: e.data.title,
         url: `${SITE}${live.href}`,
-        startDate: isoDate(nextOccurrence),
-        endDate: isoDate(occurrenceEnd),
+        startDate: startIso,
+        endDate: endIso,
         recurrence: e.data.recurrence ?? 'one-off',
         category: e.data.category ?? null,
         place: (e.data.place as { id?: string } | undefined)?.id ?? null,
         venue: (e.data.venue as { id?: string } | undefined)?.id ?? null,
         freePaid: e.data.freePaid ?? null,
         summary: e.data.summary ?? '',
-        thisWeekend: occursInWindow(live.rule, weekend),
+        // Derive thisWeekend from the event's computed startDate/endDate so
+        // the flag is always consistent with those fields.  Calling
+        // occursInWindow(live.rule, weekend) directly could mark a weekly
+        // Friday event as "this weekend" on Saturday because the Friday falls
+        // in the Fri–Sun window, while startDate in the feed is already the
+        // *next* occurrence (the following Friday) — causing the
+        // audit-live-agent-readiness validator to reject the feed.
+        thisWeekend: startIso <= isoDate(weekend.end) && endIso >= isoDate(weekend.start),
       };
     })
     .filter((event): event is NonNullable<typeof event> => event !== null)
