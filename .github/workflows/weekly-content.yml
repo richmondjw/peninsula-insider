@@ -40,7 +40,7 @@ jobs:
 
       - name: Install engine dependencies
         run: |
-          pip install anthropic requests python-dateutil semrush-api-client
+          pip install anthropic requests python-dateutil
 
       - name: Configure git identity
         run: |
