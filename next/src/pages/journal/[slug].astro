@@ -12,11 +12,12 @@ import ItineraryCard from '../../components/ItineraryCard.astro';
 import PlaceCard from '../../components/PlaceCard.astro';
 import CorrectionNote from '../../components/CorrectionNote.astro';
 import HubGuideTOC from '../../components/HubGuideTOC.astro';
-import { formatLabel, routeSlug, venueHrefPrefix, titleize, heroBackgroundStyle, formatHeroCredit } from '../../lib/editorial';
+import { formatLabel, routeSlug, venueHrefPrefix, titleize, formatHeroCredit } from '../../lib/editorial';
 import { pickRelatedArticles, resolveRefs } from '../../lib/related';
 import { isPeninsulaThisWeekend, ptwArchivePath } from '../../lib/peninsula-this-weekend';
 import { editableText, editableImage } from '../../lib/inline-edit/attrs';
 import { loadOverrides } from '../../lib/inline-edit/overrides';
+import { resolveHero } from '../../lib/inline-edit/resolve-hero';
 
 export async function getStaticPaths() {
   const STATIC_JOURNAL_OVERRIDES = new Set([
@@ -156,16 +157,11 @@ const blockOverridesEntries = Object.entries(articleOverrides.text)
   .filter(([k]) => k.startsWith('body.block:'))
   .map(([k, v]) => [k.slice('body.block:'.length), v] as const);
 const blockOverrides = Object.fromEntries(blockOverridesEntries);
-const articleHeroStyle = overrideHero?.src
-  ? `background-image: url('${overrideHero.src.replace(/["\\]/g, (m: string) => `\\${m}`)}'); background-size: cover; background-position: center;`
-  : heroBackgroundStyle(article.data);
-const heroAlt = overrideHero?.alt ?? article.data.heroImage?.alt ?? article.data.title;
+const hero = await resolveHero('article', slug, article.data, 'hero');
+const heroAlt = hero.alt || article.data.title;
 
 const canonical = `https://peninsulainsider.com.au/journal/${slug}/`;
-const ogImage = overrideHero?.src
-  ?? (article.data.heroImage?.src && !article.data.heroImage.src.includes('placeholder')
-      ? article.data.heroImage.src
-      : '/images/sourced/home-cover.webp');
+const ogImage = hero.src;
 
 // Region-aware breadcrumb for planning-utility formats with a single related
 // place that carries a regionSlug: Home -> Region -> Place -> Title. Otherwise
@@ -229,7 +225,11 @@ const articleSchema = {
       url: 'https://peninsulainsider.com.au/images/sourced/home-cover.webp',
     },
   },
-  ...(ogImage !== '/images/sourced/home-cover.webp' ? { image: `https://peninsulainsider.com.au${ogImage}` } : {}),
+  image: {
+    '@type': 'ImageObject',
+    url: ogImage.startsWith('http') ? ogImage : `https://peninsulainsider.com.au${ogImage}`,
+    caption: heroAlt,
+  },
   mainEntityOfPage: canonical,
   url: canonical,
   about: {
@@ -331,10 +331,10 @@ export const prerender = true;
             )}
           </div>
           <figure class="article-hero__figure">
-            <div class="article-hero__image" role="img" aria-label={heroAlt} style={articleHeroStyle} {...editableImage({
+            <img class="article-hero__image" src={hero.src} alt={heroAlt} fetchpriority="high" decoding="async" {...editableImage({
               entityType: 'article', entitySlug: slug, fieldPath: 'hero',
               label: `${article.data.title} hero`, purpose: 'hero',
-            })}></div>
+            })} />
             {article.data.heroImage.credit && (
               <figcaption class="article-hero__credit">{formatHeroCredit(article.data.heroImage.credit)}</figcaption>
             )}

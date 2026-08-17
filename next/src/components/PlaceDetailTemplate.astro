@@ -30,9 +30,9 @@ import ExperienceCard from './ExperienceCard.astro';
 import ItineraryCard from './ItineraryCard.astro';
 import ArticleCard from './ArticleCard.astro';
 import NewsletterBlock from './NewsletterBlock.astro';
-import { titleize, resolveHeroSrc, formatHeroCredit } from '../lib/editorial';
+import { titleize, formatHeroCredit } from '../lib/editorial';
 import { editableText, editableImage } from '../lib/inline-edit/attrs';
-import { loadOverrides } from '../lib/inline-edit/overrides';
+import { resolveHero } from '../lib/inline-edit/resolve-hero';
 
 export interface Props {
   place: any;
@@ -65,9 +65,7 @@ const placeSlug = place.id ?? place.slug ?? place.data?.slug ?? place.data?.id;
 // ships in the static HTML. No client-side swap, no flicker. Restores the
 // override propagation the client-side patcher used to provide before
 // PR #162 gated it to admin-click.
-const placeOverrides = placeSlug ? await loadOverrides('place', placeSlug) : null;
-const overrideHero = placeOverrides?.image['hero'];
-const heroSrc = overrideHero?.src ?? resolveHeroSrc(place.data);
+const hero = await resolveHero('place', placeSlug, place.data);
 const heroCredit = formatHeroCredit(place.data.heroImage?.credit);
 
 // Category sub-page lookup - editorial, not file-system-driven.
@@ -186,11 +184,12 @@ const factual = place.data.factualLede ?? '';
 <!-- ═══════════════════════════════════════════════════════════════════════
      1. FULL-BLEED CINEMATIC HERO
      ═══════════════════════════════════════════════════════════════════════ -->
-<section class="pdv2-hero" style={`background-image: url(${heroSrc});`}
+<section class="pdv2-hero"
   {...editableImage({
     entityType: 'place', entitySlug: placeSlug, fieldPath: 'heroImage',
     label: `${place.data.name} hero`, purpose: 'hero',
   })}>
+  <img class="pdv2-hero__image" src={hero.src} alt={hero.alt || place.data.name} fetchpriority="high" decoding="async" />
   <div class="pdv2-hero__scrim"></div>
   <div class="pdv2-hero__inner container">
     {/* ONE eyebrow (2026-07-24, per James - the old zone · kind line doubled

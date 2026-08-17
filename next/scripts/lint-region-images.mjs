@@ -56,12 +56,12 @@ assertComponentContains('RegionDetailTemplate.astro', [
   "fieldPath: 'heroImage'",
 ]);
 assertComponentContains('PlaceCard.astro', [
-  "loadOverrides('place'",
+  "resolveHero('place'",
   "entityType: 'place'",
   "fieldPath: 'heroImage'",
 ]);
 assertComponentContains('VenueCard.astro', [
-  "loadOverrides('venue'",
+  "resolveHero('venue'",
   "entityType: 'venue'",
   "fieldPath: 'heroImage'",
 ]);

@@ -1,5 +1,5 @@
 ---
-import { placeLabel, typeLabel, routeSlug, titleize, venueHrefPrefix, heroBackgroundStyle, formatHeroCredit } from '../lib/editorial';
+import { placeLabel, typeLabel, routeSlug, titleize, venueHrefPrefix, formatHeroCredit } from '../lib/editorial';
 import { resolveLiveStatusUrl, verifiedFreshnessLabel } from '../lib/venues';
 import Breadcrumbs from './Breadcrumbs.astro';
 import NewsletterBlock from './NewsletterBlock.astro';
@@ -8,7 +8,7 @@ import ArticleCard from './ArticleCard.astro';
 import ItineraryCard from './ItineraryCard.astro';
 import PiArticleActions from './PiArticleActions.astro';
 import { getCollection } from 'astro:content';
-import { loadOverrides } from '../lib/inline-edit/overrides';
+import { resolveHero } from '../lib/inline-edit/resolve-hero';
 import { editableImage, editableText } from '../lib/inline-edit/attrs';
 import EstateCluster from './EstateCluster.astro';
 
@@ -126,12 +126,8 @@ const heroLabel = `${data.name} · ${placeLabel(data.place)}`;
 // Per-venue CMS override consult. If an editor has uploaded a venue-specific
 // hero via the inline editor, it wins over the content-JSON default.
 const venueSlug = venue.id ?? data.slug;
-const venueOverrides = await loadOverrides('venue', venueSlug);
-const overrideHero = venueOverrides.image['hero'];
-const heroStyle = overrideHero?.src
-  ? `background-image: url('${overrideHero.src.replace(/["\\]/g, (m: string) => `\\${m}`)}'); background-size: cover; background-position: center;`
-  : heroBackgroundStyle(data);
-const heroAlt = overrideHero?.alt ?? data.heroImage?.alt ?? heroLabel;
+const hero = await resolveHero('venue', venueSlug, data);
+const heroAlt = hero.alt || heroLabel;
 
 // Sibling venues within a multi-venue estate (EstateCluster block).
 const estateSlug = data.estateSlug as string | undefined;
@@ -323,11 +319,8 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
       </div>
     )}
 
-    <div
+    <figure
       class="venue-detail__hero"
-      aria-hidden="true"
-      style={heroStyle}
-      aria-label={heroAlt}
       {...editableImage({
         entityType: 'venue',
         entitySlug: venueSlug,
@@ -336,9 +329,10 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
         purpose: 'hero',
       })}
     >
+      <img src={hero.src} alt={heroAlt} fetchpriority="high" decoding="async" />
       <div class="venue-detail__hero-fog"></div>
       <span class="venue-detail__hero-label">{heroLabel}</span>
-    </div>
+    </figure>
     {data.heroImage?.credit && (
       <p class="venue-detail__hero-credit">{formatHeroCredit(data.heroImage.credit)}</p>
     )}
