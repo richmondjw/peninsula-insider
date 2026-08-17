@@ -11,6 +11,11 @@
  *
  * The statement is CMS-editable: override slot (page/home, cover.statement)
  * is resolved server-side so editor rewrites survive rebuilds.
+ *
+ * The hero photo has a slow CSS-only Ken Burns zoom (2026-08-17, James)
+ * for visual "buzz" on the masthead. Still no client JS: the motion is a
+ * pure transform:scale() keyframe animation, GPU-compositor only, and it
+ * backs off automatically under prefers-reduced-motion.
  */
 import { editableText, editableImage } from '../../../lib/inline-edit/attrs';
 import { loadOverrides } from '../../../lib/inline-edit/overrides';
@@ -114,6 +119,21 @@ const season = getSeason(now).toLowerCase();
     /* Bias upward so the horizon, headland, and rainbow stay in frame
        rather than centring on empty water. */
     object-position: center 38%;
+    /* Ken Burns: slow compositor-only zoom, no JS. .home-cover has
+       overflow:hidden so the scaled-up edges never show. */
+    animation: home-cover-kenburns 36s ease-in-out infinite alternate;
+    will-change: transform;
+  }
+
+  @keyframes home-cover-kenburns {
+    from { transform: scale(1); }
+    to { transform: scale(1.08); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .home-cover__media {
+      animation: none;
+    }
   }
 
   .home-cover__scrim {
