@@ -46,7 +46,7 @@ They arrive with a list of five cellar doors, two lunch possibilities, maybe a p
 
 ## The plan: start at the market, if it's on
 
-The **Red Hill Community Market** gives the day a centre of gravity. It is local without becoming performative about it, and it tells you what kind of weekend you are actually in for. Come early, buy something small, drink a coffee, then leave before the whole morning disappears.
+The **Red Hill Community Market** gives the day a centre of gravity. It is local without becoming performative about it, and it tells you what kind of weekend you are actually in for. Come early, buy something small, drink a coffee, then leave before the whole morning disappears. Check the [complete Peninsula market guide](/eat/markets/) before you go: Red Hill is only one part of the Peninsula's market calendar.
 
 ## The plan: pick one cellar door, not a crawl
 

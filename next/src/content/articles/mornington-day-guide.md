@@ -56,7 +56,7 @@ Breakfast here if you are hungry, but keep it light. The better eating happens l
 
 Main Street Mornington runs downhill from the clock tower toward the bay. Walk it once north to south without stopping except at the shops that catch your eye: the homewares stores are better than the ones in Red Hill, the bookshop on Main Street is genuinely useful, and the secondhand and vintage places are worth the loop. Drop down to the foreshore at the bottom and walk back along the bay path.
 
-If it is the second Saturday of the month, this is when the **Mornington Farmers' Market** is running in the park on the Esplanade. Bag it in. This is the best monthly market on the Peninsula and it will handle your lunch, your produce for home, and your cheese for dinner.
+If it is the second Saturday of the month, this is when the **Mornington Farmers' Market** is running in the park on the Esplanade. Bag it in. This is the best monthly market on the Peninsula and it will handle your lunch, your produce for home, and your cheese for dinner. Use the [complete Peninsula market guide](/eat/markets/) to confirm the right market day before you build the trip around it.
 
 ## 12:30: The gallery
 

@@ -77,7 +77,7 @@ Arrive by nine. By ten-thirty the good bread is gone, the best fish has been bou
 - **One piece of cheese.** The Main Ridge Dairy or Red Hill Cheese stalls if either is there. One good piece, not three mediocre ones.
 - **Olive oil, if the grove is at market.** The Peninsula produces some of the best extra-virgin in Australia; a bottle for home is worth the slot in the bag.
 
-If it is not the second Saturday (most weekends it won't be), the fallback is the [Red Hill Market](/explore/red-hill-market/) on the first Saturday of the month, which is broader, more craft-focused, and less serious about food, or the smaller farm gates scattered along Red Hill Road. The farm gates are a quietly underrated option on a non-market weekend. You will need to drive between three or four of them. Bring a map.
+If it is not the second Saturday (most weekends it won't be), the fallback is the [Red Hill Market](/explore/red-hill-market/) on the first Saturday of the month, which is broader, more craft-focused, and less serious about food, or the smaller farm gates scattered along Red Hill Road. Check the [complete Peninsula market guide](/eat/markets/) before setting out: dates and formats vary more than a single market listing suggests. The farm gates are a quietly underrated option on a non-market weekend. You will need to drive between three or four of them. Bring a map.
 
 ## Step two: the bakery (Saturday, 10:30am)
 

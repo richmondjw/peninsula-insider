@@ -45,6 +45,8 @@ There is a quiet rhythm on the Peninsula: if you are already on the ridge on a m
 
 Markets are the Peninsula's highest-value gathering point. The producers you would otherwise drive fifteen kilometres between are briefly in one location, the chefs shop there, and the weekend's pantry for the cottage rental gets filled in under an hour. A good market hour is a tasting flight, a grocery run, a walking breakfast, and a social event at the same time.
 
+For dates, locations and the right market for the kind of Saturday you want, start with our [complete Peninsula market guide](/eat/markets/), then use this plan to build the rest of the day around it.
+
 Here is the Peninsula's market calendar, properly ordered, with the two weekends that actually get the most out of it.
 
 ## The four markets that matter
