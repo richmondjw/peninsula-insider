@@ -5,7 +5,13 @@ name: Publication Freshness — Peninsula Insider
 on:
   schedule:
     # 08:30 AEST / 09:30 AEDT: after the 06:00 daily writer and deploy window.
+    # Acts as a backstop; the primary trigger is workflow_run below.
     - cron: '30 22 * * *'
+  workflow_run:
+    # Fire automatically after the daily content engine completes so failures
+    # are caught within minutes rather than waiting for the 08:30 cron.
+    workflows: ["Daily Content Engine — Peninsula Insider"]
+    types: [completed]
   workflow_dispatch:
 
 permissions:
@@ -19,7 +25,7 @@ concurrency:
 jobs:
   verify-publication:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
         with:
@@ -32,12 +38,40 @@ jobs:
       - name: Verify current source and live Insider Picks page
         env:
           TZ: Australia/Sydney
+        # Retry up to 3 times with a 5-minute sleep between attempts.
+        # Exit code 2 = source record missing/stale (fatal, no retry).
+        # Exit code 1 = live page not yet deployed (transient, retriable).
+        # Exit code 0 = fully passing.
         run: |
           EXPECTED_DATE="$(date +%F)"
-          python engine/publication_freshness.py \
-            --expected-date "$EXPECTED_DATE" \
-            --article "next/src/content/articles/insider-picks-${EXPECTED_DATE}.md" \
-            --url "https://peninsulainsider.com.au/journal/insider-picks-${EXPECTED_DATE}/"
+          MAX_ATTEMPTS=3
+          ATTEMPT=0
+          EXIT_CODE=0
+          while [ $ATTEMPT -lt $MAX_ATTEMPTS ]; do
+            ATTEMPT=$((ATTEMPT + 1))
+            echo "Freshness check attempt ${ATTEMPT}/${MAX_ATTEMPTS} for ${EXPECTED_DATE}"
+            python engine/publication_freshness.py \
+              --expected-date "$EXPECTED_DATE" \
+              --article "next/src/content/articles/insider-picks-${EXPECTED_DATE}.md" \
+              --url "https://peninsulainsider.com.au/journal/insider-picks-${EXPECTED_DATE}/"
+            EXIT_CODE=$?
+            if [ $EXIT_CODE -eq 0 ]; then
+              echo "Freshness check passed on attempt ${ATTEMPT}."
+              break
+            elif [ $EXIT_CODE -eq 2 ]; then
+              echo "Source record failure (exit 2) — not retriable."
+              break
+            else
+              # Exit code 1: live-page transient failure — wait and retry.
+              if [ $ATTEMPT -lt $MAX_ATTEMPTS ]; then
+                echo "Live-page transient failure (exit 1) — sleeping 5 minutes before retry..."
+                sleep 300
+              else
+                echo "Live-page failure persists after ${MAX_ATTEMPTS} attempts."
+              fi
+            fi
+          done
+          exit $EXIT_CODE
 
       - name: Alert on stale or unavailable publication
         if: failure()

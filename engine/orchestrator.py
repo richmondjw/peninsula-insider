@@ -13,6 +13,7 @@ import argparse
 import hashlib
 import json
 import os
+import re
 import subprocess
 import sys
 from datetime import date, datetime, timedelta, timezone
@@ -430,6 +431,11 @@ def run_daily(log: RunLog, state: dict, today: str, now_aest: datetime):
 
     # A dated, published and verified record is the minimum proof that this is
     # a refresh rather than yesterday's fallback being reported as success.
+    # Guard: if the verify gate swapped article_path to a fallback from a
+    # previous day, abort loudly rather than publishing a stale article as today's.
+    if today not in article_path.name:
+        log.error(f"Date assertion failed: article_path '{article_path.name}' does not contain today's date '{today}' — aborting to prevent stale publication")
+        return
     freshness = subprocess.run(
         [sys.executable, str(Path(__file__).parent / "publication_freshness.py"),
          "--expected-date", today, "--article", str(article_path)],
@@ -847,7 +853,11 @@ def set_published(article_path: Path, today: str):
     content = article_path.read_text()
     content = content.replace('status: "draft"', 'status: "published"')
     if "lastVerified:" not in content:
+        # Field absent — insert it immediately after status.
         content = content.replace("status: \"published\"", f"status: \"published\"\nlastVerified: {today}")
+    else:
+        # Field present but may carry a stale date — unconditionally update it.
+        content = re.sub(r"^lastVerified:.*$", f"lastVerified: {today}", content, flags=re.M)
     article_path.write_text(content)
 
 
