@@ -28,6 +28,7 @@ import TheSix from '../../components/v5/hub/TheSix.astro';
 import DirectoryRows from '../../components/v5/hub/DirectoryRows.astro';
 import JournalModule from '../../components/v5/hub/JournalModule.astro';
 import AskBand from '../../components/v5/hub/AskBand.astro';
+import TrustNote from '../../components/v5/hub/TrustNote.astro';
 import { getFacets, type FacetKey } from '../../lib/facets';
 import { routeSlug, stayTypes, typeLabel, titleize, resolveHeroSrc } from '../../lib/editorial';
 import { buildBreadcrumbSchema, absUrl } from '../../lib/schema';
@@ -259,6 +260,9 @@ export const prerender = true;
        (moved from the top of the page 2026-07-24 per James; slotted inside
        the directory so the sticky bar has the full list height to stick
        against). ONE filter state still governs The Six + directory. -->
+  <div class="container">
+    <TrustNote surface="stay" />
+  </div>
   <DirectoryRows
     eyebrow="The full list"
     heading={`All ${stayCount} places to stay`}
@@ -267,7 +271,14 @@ export const prerender = true;
     items={directoryItems}
     topLink={{ label: 'Ranked: the best places to stay', href: '/stay/best-accommodation/' }}
   >
-    <FilterBar slot="before-list" surface="stay" noun="stays" label="Filter stays" sticky={true}>
+    <FilterBar
+      slot="before-list"
+      surface="stay"
+      noun="stays"
+      label="Filter stays"
+      sticky={true}
+      facets={['place', 'cat', 'price', 'party']}
+    >
       <SortControl />
     </FilterBar>
   </DirectoryRows>

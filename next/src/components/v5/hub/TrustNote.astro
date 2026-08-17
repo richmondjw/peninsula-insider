@@ -1,0 +1,68 @@
+---
+/**
+ * TrustNote (v5 hub module, precision-sprint pass 04 "Reader-first filters
+ * and trust proof") - a compact, factual trust-proof line for high-intent
+ * hubs. Copy is fixed to the line already agreed in the Precision Sprint
+ * tracker (src/pages/pi-admin/precision-sprint/index.astro pass 04): do not
+ * strengthen the claim (no "personally visited", no "every venue verified")
+ * without Emma's sign-off; the wording here mirrors what /editorial-approach/
+ * already publishes, so it does not introduce a new claim.
+ *
+ * One per hub, placed near the filter bar or directory (the high-intent
+ * decision point), not in the hero.
+ */
+export interface Props {
+  /** Analytics surface (eat, stay, explore, whatson). */
+  surface?: string;
+}
+
+const { surface } = Astro.props;
+---
+
+<p class="v5-trustnote" data-surface={surface}>
+  <span class="v5-trustnote__mark" aria-hidden="true">PI</span>
+  Independent editorial. No paid rankings. Every pick earns its place.
+  <a href="/editorial-approach/">How we review</a>
+</p>
+
+<style>
+  .v5-trustnote {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0 0 var(--space-4, 1rem);
+    padding: 0.5rem 0.85rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-s, 8px);
+    background: var(--bg-alt, var(--bg));
+    font-family: var(--font-ui);
+    font-size: var(--fs-200, 0.8125rem);
+    line-height: var(--lh-ui, 1.4);
+    color: var(--soft);
+  }
+  .v5-trustnote__mark {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-family: var(--font-display);
+    font-weight: var(--fw-display, 600);
+    font-size: 0.68rem;
+    color: var(--gold-text);
+    background: var(--bg, #fff);
+  }
+  .v5-trustnote a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    white-space: nowrap;
+  }
+  .v5-trustnote a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+</style>
