@@ -290,7 +290,9 @@ const journal = await Promise.all(
       const slug = routeSlug(a);
       return {
         slug,
-        href: `/journal/${slug}/`,
+        href: a.data.section === 'plans'
+          ? `/explore/plans/${slug}/`
+          : `/journal/${slug}/`,
         title: a.data.title,
         verdict: clipLine(a.data.dek, 25),
         readTime: a.data.readingTimeMinutes ? `${a.data.readingTimeMinutes} min read` : undefined,

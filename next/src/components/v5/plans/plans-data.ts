@@ -194,7 +194,9 @@ export async function buildPlansModel(now: Date = new Date()): Promise<PlansMode
   const articleRecords: PlanRecord[] = await Promise.all(
     plansArticles.map(async (a) => {
       const slug = routeSlug(a) as string;
-      const href = `/journal/${slug}/`;
+      // These records are rendered by /explore/plans/[slug]. The former
+      // journal URL is a legacy redirect stub, never a valid internal target.
+      const href = `/explore/plans/${slug}/`;
       const title = a.data.title as string;
       const facets = getFacets('article', a.data);
       const base: PlanRecord = {

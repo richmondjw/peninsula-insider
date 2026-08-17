@@ -226,7 +226,12 @@ function buildPlan(spec: PlanSpec): PlanCard | null {
     duration: spec.duration,
     title: spec.title,
     dek: spec.dek || article.data.dek,
-    href: `/journal/${spec.slug}/`,
+    // Plan articles were moved out of the Journal. Sending readers and
+    // crawlers to the old 200/meta-refresh stub wastes a crawl on every
+    // card, so resolve the canonical route at the source.
+    href: article.data.section === 'plans'
+      ? `/explore/plans/${spec.slug}/`
+      : `/journal/${spec.slug}/`,
     image: spec.image || heroImage?.src || '/images/sourced/article-sunset-01.webp',
     imageAlt: spec.imageAlt || heroImage?.alt || article.data.title,
     accent: spec.accent,

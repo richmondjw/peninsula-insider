@@ -160,7 +160,9 @@ const journalItems = journalSlugs
   .slice(0, 3)
   .map((a) => ({
     title: a.data.title as string,
-    href: `/journal/${routeSlug(a)}/`,
+    href: a.data.section === 'plans'
+      ? `/explore/plans/${routeSlug(a)}/`
+      : `/journal/${routeSlug(a)}/`,
     entitySlug: routeSlug(a) as string,
     image: a.data.heroImage?.src
       ? { src: a.data.heroImage.src as string, alt: (a.data.heroImage.alt ?? a.data.title) as string }

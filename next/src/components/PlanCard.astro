@@ -13,7 +13,7 @@ interface Props {
 }
 const { plan, axes, regionLabel } = Astro.props;
 const d = plan.data;
-const href = `/journal/${routeSlug(plan)}/`;
+const href = `/explore/plans/${routeSlug(plan)}/`;
 
 const DURATION_LABEL: Record<string, string> = {
   'day-trip': 'Day trip', 'one-night': 'One night', 'two-night': 'Weekend', 'seasonal': 'Seasonal',
