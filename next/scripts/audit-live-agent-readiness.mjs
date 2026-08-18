@@ -22,14 +22,28 @@ export function sydneyDate(instant = new Date()) {
   return `${values.year}-${values.month}-${values.day}`;
 }
 
+function addIsoDays(date, days) {
+  const parsed = new Date(`${date}T00:00:00Z`);
+  return new Date(parsed.getTime() + days * 86_400_000).toISOString().slice(0, 10);
+}
+
 export function validateLivePayloads(payloads, { expectedDate, expectedSha } = {}) {
   const failures = [];
   const feed = payloads.feed;
   const events = Array.isArray(feed?.events) ? feed.events : [];
   const weekendEvents = events.filter((event) => event?.thisWeekend === true);
 
-  if (feed?.generated !== expectedDate) {
-    failures.push(`feed generated ${JSON.stringify(feed?.generated)}; expected ${expectedDate}`);
+  if (!isIsoDate(feed?.generated)) {
+    failures.push(`feed generated ${JSON.stringify(feed?.generated)} is not a valid YYYY-MM-DD date`);
+  } else if (expectedSha && feed.generated !== expectedDate) {
+    failures.push(`feed generated ${JSON.stringify(feed.generated)}; expected ${expectedDate}`);
+  } else if (!expectedSha) {
+    const earliestAllowedGenerated = addIsoDays(expectedDate, -1);
+    if (feed.generated < earliestAllowedGenerated || feed.generated > expectedDate) {
+      failures.push(
+        `feed generated ${JSON.stringify(feed.generated)}; expected ${expectedDate} or ${earliestAllowedGenerated} for schedule checks`,
+      );
+    }
   }
   if (!Number.isInteger(feed?.count) || feed.count !== events.length) {
     failures.push(`feed count ${JSON.stringify(feed?.count)} does not match ${events.length} events`);

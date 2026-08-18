@@ -64,6 +64,26 @@ test('scheduled checks may validate semantic freshness without an expected deplo
   assert.deepEqual(validateLivePayloads(fixture(), { expectedDate: '2026-08-15' }), []);
 });
 
+test('scheduled checks allow a one-day generated-date lag', () => {
+  const payloads = fixture();
+  payloads.feed.generated = '2026-08-14';
+  assert.deepEqual(validateLivePayloads(payloads, { expectedDate: '2026-08-15' }), []);
+});
+
+test('scheduled checks reject generated dates older than one day', () => {
+  const payloads = fixture();
+  payloads.feed.generated = '2026-08-13';
+  const failures = validateLivePayloads(payloads, { expectedDate: '2026-08-15' });
+  assert.ok(failures.some((failure) => failure.includes('expected 2026-08-15 or 2026-08-14')));
+});
+
+test('deployment-bound checks remain strict about generated date', () => {
+  const payloads = fixture();
+  payloads.feed.generated = '2026-08-14';
+  const failures = validateLivePayloads(payloads, { expectedDate: '2026-08-15', expectedSha });
+  assert.ok(failures.some((failure) => failure.includes('expected 2026-08-15')));
+});
+
 test('rejects stale events, stale provenance, and redirect sitemap entries', () => {
   const payloads = fixture();
   payloads.feed.events[0].startDate = '2026-08-14';
