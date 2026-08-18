@@ -74,7 +74,9 @@ test('scheduled checks reject generated dates older than one day', () => {
   const payloads = fixture();
   payloads.feed.generated = '2026-08-13';
   const failures = validateLivePayloads(payloads, { expectedDate: '2026-08-15' });
-  assert.ok(failures.some((failure) => failure.includes('expected 2026-08-15 or 2026-08-14')));
+  assert.ok(
+    failures.some((failure) => failure.includes('expected 2026-08-15 or 2026-08-14 for scheduled checks')),
+  );
 });
 
 test('deployment-bound checks remain strict about generated date', () => {
