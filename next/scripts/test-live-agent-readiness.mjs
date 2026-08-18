@@ -81,7 +81,7 @@ test('deployment-bound checks remain strict about generated date', () => {
   const payloads = fixture();
   payloads.feed.generated = '2026-08-14';
   const failures = validateLivePayloads(payloads, { expectedDate: '2026-08-15', expectedSha });
-  assert.ok(failures.some((failure) => failure.includes('expected 2026-08-15')));
+  assert.ok(failures.includes('feed generated "2026-08-14"; expected 2026-08-15'));
 });
 
 test('rejects stale events, stale provenance, and redirect sitemap entries', () => {

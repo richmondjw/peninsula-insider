@@ -41,7 +41,7 @@ export function validateLivePayloads(payloads, { expectedDate, expectedSha } = {
     const earliestAllowedGenerated = addIsoDays(expectedDate, -1);
     if (feed.generated < earliestAllowedGenerated || feed.generated > expectedDate) {
       failures.push(
-        `feed generated ${JSON.stringify(feed.generated)}; expected ${expectedDate} or ${earliestAllowedGenerated} for schedule checks`,
+        `feed generated ${JSON.stringify(feed.generated)}; expected ${expectedDate} or ${earliestAllowedGenerated} for scheduled checks`,
       );
     }
   }
