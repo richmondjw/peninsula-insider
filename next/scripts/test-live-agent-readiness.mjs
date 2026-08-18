@@ -107,6 +107,55 @@ test('rejects an event flagged for a weekend it does not intersect', () => {
   assert.ok(failures.some((failure) => failure.includes('outside the weekend window')));
 });
 
+test('CLI passes when build generatedAt is the previous Sydney date (midnight-crossing)', async (context) => {
+  // Simulates a build that ran just before midnight Sydney time: the feed's
+  // `generated` is "2026-08-14" but the deployment.generatedAt is also from
+  // that same build. The audit is told to expect "2026-08-15" (post-midnight).
+  // The fix: auditOnce uses sydneyDate(deployment.generatedAt) for the feed
+  // date check, so the one-day gap from midnight-crossing is not a failure.
+  const payloads = fixture({
+    feed: { ...fixture().feed, generated: '2026-08-14' },
+    deployment: { sourceSha: expectedSha, generatedAt: '2026-08-14T13:45:00.000Z' },
+  });
+  const routes = new Map([
+    ['/', ['text/html', payloads.root]],
+    ['/whats-on/upcoming.json', ['application/json', JSON.stringify(payloads.feed)]],
+    ['/whats-on/this-weekend/', ['text/html', payloads.weekend]],
+    ['/llms.txt', ['text/plain', payloads.llms]],
+    ['/llms-full.txt', ['text/plain', payloads.llmsFull]],
+    ['/sitemap.xml', ['application/xml', payloads.sitemap]],
+    ['/deployment.json', ['application/json', JSON.stringify(payloads.deployment)]],
+  ]);
+  const server = createServer((request, response) => {
+    const path = new URL(request.url, 'http://localhost').pathname;
+    const route = routes.get(path);
+    if (!route) {
+      response.writeHead(404, { 'content-type': 'text/plain' });
+      response.end('not found');
+      return;
+    }
+    response.writeHead(200, { 'content-type': route[0] });
+    response.end(route[1]);
+  });
+  await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
+  context.after(() => server.close());
+
+  const address = server.address();
+  const script = fileURLToPath(new URL('./audit-live-agent-readiness.mjs', import.meta.url));
+  const { stdout } = await execFileAsync(process.execPath, [
+    script,
+    '--base',
+    `http://127.0.0.1:${address.port}`,
+    '--expected-date',
+    '2026-08-15',
+    '--expected-sha',
+    expectedSha,
+    '--attempts',
+    '1',
+  ]);
+  assert.match(stdout, /Live agent-readiness passed/);
+});
+
 test('command-line audit verifies HTTP status, provenance, and semantic payloads', async (context) => {
   const payloads = fixture();
   const routes = new Map([

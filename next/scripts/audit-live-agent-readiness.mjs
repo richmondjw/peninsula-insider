@@ -168,10 +168,33 @@ async function auditOnce(args) {
     throw new Error(`deployment provenance is not valid JSON: ${error.message}`);
   }
 
-  return validateLivePayloads(
+  // Use the build's Sydney date for the generated-freshness check so that a
+  // build that started just before midnight Sydney time does not fail the
+  // audit that runs after midnight (when sydneyDate() has already rolled over).
+  const buildSydneyDate = deployment?.generatedAt
+    ? sydneyDate(new Date(deployment.generatedAt))
+    : args.expectedDate;
+
+  const failures = validateLivePayloads(
     { root, feed, weekend, llms, llmsFull, sitemap, deployment },
-    { expectedDate: args.expectedDate, expectedSha: args.expectedSha },
+    { expectedDate: buildSydneyDate, expectedSha: args.expectedSha },
   );
+
+  // Staleness gate: a build from the day before the expected date is acceptable
+  // (midnight-crossing case), but anything older is genuinely stale. Compare
+  // against args.expectedDate - 1 day so the test works with historical dates.
+  if (buildSydneyDate < args.expectedDate) {
+    const prev = new Date(`${args.expectedDate}T00:00:00Z`);
+    prev.setUTCDate(prev.getUTCDate() - 1);
+    const dayBeforeExpected = prev.toISOString().slice(0, 10);
+    if (buildSydneyDate < dayBeforeExpected) {
+      failures.push(
+        `deployment was built on ${buildSydneyDate}; Sydney date is ${args.expectedDate} (stale beyond one day)`,
+      );
+    }
+  }
+
+  return failures;
 }
 
 async function main() {
