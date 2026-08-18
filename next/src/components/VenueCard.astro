@@ -39,7 +39,11 @@ export interface Props {
 const { venue, hrefPrefix = '/eat' } = Astro.props;
 const data = venue.data;
 const slug = venue.id ?? data.slug;
-const href = `${hrefPrefix}/${slug}/`;
+// Normalise the prefix before joining. Callers legitimately hold a trailing
+// slash (VenueDetailTemplate's `sectionHref` is "/wine/" for its breadcrumb
+// and back-links), and naive interpolation turned that into "/wine//slug/":
+// 1,644 hard-404 links across 138 built pages before this guard. (2026-08-18)
+const href = `${String(hrefPrefix).replace(/\/+$/, '')}/${slug}/`;
 
 const placeLabel = String(data.place?.id ?? data.place ?? '')
   .replace(/-/g, ' ')
