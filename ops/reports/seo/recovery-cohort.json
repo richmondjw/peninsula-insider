@@ -1,0 +1,1152 @@
+{
+  "establishedAt": "2026-08-18",
+  "ledgerSource": "ops/reports/seo/ledger/url-ledger.json",
+  "policy": "FIXED cohort. Do not add, remove or reselect members without recording the reason here — longitudinal comparability is the whole value.",
+  "googleFieldsNote": "google.* stay null until a Search Console pull succeeds. They are never inferred from the artefact: production state is not Google state.",
+  "size": 42,
+  "byGroup": {
+    "A_restored_from_bulk_noindex": 10,
+    "B_migration_loser": 5,
+    "B_migration_winner": 5,
+    "C_high_value_awaiting_index": 8,
+    "D_weak_signal_candidate": 8,
+    "E_healthy_control": 6
+  },
+  "missingFromBuild": [],
+  "members": [
+    {
+      "route": "/wine/onannon/",
+      "group": "A_restored_from_bulk_noindex",
+      "rationale": "Hidden by the April bulk sitemapExclude; cleared 7 Aug. Tests whether hidden pages regain indexation.",
+      "pairedWith": null,
+      "present": true,
+      "baseline": {
+        "inSitemap": true,
+        "noindex": false,
+        "selfCanonical": true,
+        "canonical": "/wine/onannon/",
+        "isRedirectStub": false,
+        "redirectTarget": null,
+        "words": 1364,
+        "internalInboundLinks": 16,
+        "internalInboundPages": 8,
+        "clickDepth": 2,
+        "recoveryBucket": "CRAWL_PRIORITY"
+      },
+      "google": {
+        "lastCrawl": null,
+        "coverageState": null,
+        "googleCanonical": null,
+        "impressions": null,
+        "clicks": null
+      }
+    },
+    {
+      "route": "/wine/avani-wines/",
+      "group": "A_restored_from_bulk_noindex",
+      "rationale": "Hidden by the April bulk sitemapExclude; cleared 7 Aug. Tests whether hidden pages regain indexation.",
+      "pairedWith": null,
+      "present": true,
+      "baseline": {
+        "inSitemap": true,
+        "noindex": false,
+        "selfCanonical": true,
+        "canonical": "/wine/avani-wines/",
+        "isRedirectStub": false,
+        "redirectTarget": null,
+        "words": 1412,
+        "internalInboundLinks": 170,
+        "internalInboundPages": 60,
+        "clickDepth": 2,
+        "recoveryBucket": "CRAWL_PRIORITY"
+      },
+      "google": {
+        "lastCrawl": null,
+        "coverageState": null,
+        "googleCanonical": null,
+        "impressions": null,
+        "clicks": null
+      }
+    },
+    {
+      "route": "/wine/baillieu-vineyard/",
+      "group": "A_restored_from_bulk_noindex",
+      "rationale": "Hidden by the April bulk sitemapExclude; cleared 7 Aug. Tests whether hidden pages regain indexation.",
+      "pairedWith": null,
+      "present": true,
+      "baseline": {
+        "inSitemap": true,
+        "noindex": false,
+        "selfCanonical": true,
+        "canonical": "/wine/baillieu-vineyard/",
+        "isRedirectStub": false,
+        "redirectTarget": null,
+        "words": 1305,
+        "internalInboundLinks": 162,
+        "internalInboundPages": 58,
+        "clickDepth": 2,
+        "recoveryBucket": "CRAWL_PRIORITY"
+      },
+      "google": {
+        "lastCrawl": null,
+        "coverageState": null,
+        "googleCanonical": null,
+        "impressions": null,
+        "clicks": null
+      }
+    },
+    {
+      "route": "/wine/barmah-park-vineyard/",
+      "group": "A_restored_from_bulk_noindex",
+      "rationale": "Hidden by the April bulk sitemapExclude; cleared 7 Aug. Tests whether hidden pages regain indexation.",
+      "pairedWith": null,
+      "present": true,
+      "baseline": {
+        "inSitemap": true,
+        "noindex": false,
+        "selfCanonical": true,
+        "canonical": "/wine/barmah-park-vineyard/",
+        "isRedirectStub": false,
+        "redirectTarget": null,
+        "words": 1337,
+        "internalInboundLinks": 151,
+        "internalInboundPages": 53,
+        "clickDepth": 2,
+        "recoveryBucket": "CRAWL_PRIORITY"
+      },
+      "google": {
+        "lastCrawl": null,
+        "coverageState": null,
+        "googleCanonical": null,
+        "impressions": null,
+        "clicks": null
+      }
+    },
+    {
+      "route": "/wine/eldridge-estate/",
+      "group": "A_restored_from_bulk_noindex",
+      "rationale": "Hidden by the April bulk sitemapExclude; cleared 7 Aug. Tests whether hidden pages regain indexation.",
+      "pairedWith": null,
+      "present": true,
+      "baseline": {
+        "inSitemap": true,
+        "noindex": false,
+        "selfCanonical": true,
+        "canonical": "/wine/eldridge-estate/",
+        "isRedirectStub": false,
+        "redirectTarget": null,
+        "words": 1549,
+        "internalInboundLinks": 18,
+        "internalInboundPages": 8,
+        "clickDepth": 2,
+        "recoveryBucket": "CRAWL_PRIORITY"
+      },
+      "google": {
+        "lastCrawl": null,
+        "coverageState": null,
+        "googleCanonical": null,
+        "impressions": null,
+        "clicks": null
+      }
+    },
+    {
+      "route": "/stay/hotel-sorrento/",
+      "group": "A_restored_from_bulk_noindex",
+      "rationale": "Hidden by the April bulk sitemapExclude; cleared 7 Aug. Tests whether hidden pages regain indexation.",
+      "pairedWith": null,
+      "present": true,
+      "baseline": {
+        "inSitemap": true,
+        "noindex": false,
+        "selfCanonical": true,
+        "canonical": "/stay/hotel-sorrento/",
+        "isRedirectStub": false,
+        "redirectTarget": null,
+        "words": 1571,
+        "internalInboundLinks": 71,
+        "internalInboundPages": 26,
+        "clickDepth": 2,
+        "recoveryBucket": "CRAWL_PRIORITY"
+      },
+      "google": {
+        "lastCrawl": null,
+        "coverageState": null,
+        "googleCanonical": null,
+        "impressions": null,
+        "clicks": null
+      }
+    },
+    {
+      "route": "/stay/alba-thermal-springs/",
+      "group": "A_restored_from_bulk_noindex",
+      "rationale": "Hidden by the April bulk sitemapExclude; cleared 7 Aug. Tests whether hidden pages regain indexation.",
+      "pairedWith": null,
+      "present": true,
+      "baseline": {
+        "inSitemap": true,
+        "noindex": false,
+        "selfCanonical": true,
+        "canonical": "/stay/alba-thermal-springs/",
+        "isRedirectStub": false,
+        "redirectTarget": null,
+        "words": 1661,
+        "internalInboundLinks": 172,
+        "internalInboundPages": 61,
+        "clickDepth": 2,
+        "recoveryBucket": "CRAWL_PRIORITY"
+      },
+      "google": {
+        "lastCrawl": null,
+        "coverageState": null,
+        "googleCanonical": null,
+        "impressions": null,
+        "clicks": null
+      }
+    },
+    {
+      "route": "/stay/arthurs-views/",
+      "group": "A_restored_from_bulk_noindex",
+      "rationale": "Hidden by the April bulk sitemapExclude; cleared 7 Aug. Tests whether hidden pages regain indexation.",
+      "pairedWith": null,
+      "present": true,
+      "baseline": {
+        "inSitemap": true,
+        "noindex": false,
+        "selfCanonical": true,
+        "canonical": "/stay/arthurs-views/",
+        "isRedirectStub": false,
+        "redirectTarget": null,
+        "words": 1281,
+        "internalInboundLinks": 126,
+        "internalInboundPages": 44,
+        "clickDepth": 2,
+        "recoveryBucket": "CRAWL_PRIORITY"
+      },
+      "google": {
+        "lastCrawl": null,
+        "coverageState": null,
+        "googleCanonical": null,
+        "impressions": null,
+        "clicks": null
+      }
+    },
+    {
+      "route": "/eat/garagiste/",
+      "group": "A_restored_from_bulk_noindex",
+      "rationale": "Hidden by the April bulk sitemapExclude; cleared 7 Aug. Tests whether hidden pages regain indexation.",
+      "pairedWith": null,
+      "present": true,
+      "baseline": {
+        "inSitemap": false,
+        "noindex": false,
+        "selfCanonical": false,
+        "canonical": "/wine/garagiste/",
+        "isRedirectStub": true,
+        "redirectTarget": "/wine/garagiste/",
+        "words": 0,
+        "internalInboundLinks": 37,
+        "internalInboundPages": 13,
+        "clickDepth": 2,
+        "recoveryBucket": "MIGRATION_PENDING"
+      },
+      "google": {
+        "lastCrawl": null,
+        "coverageState": null,
+        "googleCanonical": null,
+        "impressions": null,
+        "clicks": null
+      }
+    },
+    {
+      "route": "/eat/doot-doot-doot/",
+      "group": "A_restored_from_bulk_noindex",
+      "rationale": "Hidden by the April bulk sitemapExclude; cleared 7 Aug. Tests whether hidden pages regain indexation.",
+      "pairedWith": null,
+      "present": true,
+      "baseline": {
+        "inSitemap": true,
+        "noindex": false,
+        "selfCanonical": true,
+        "canonical": "/eat/doot-doot-doot/",
+        "isRedirectStub": false,
+        "redirectTarget": null,
+        "words": 1681,
+        "internalInboundLinks": 58,
+        "internalInboundPages": 25,
+        "clickDepth": 2,
+        "recoveryBucket": "CRAWL_PRIORITY"
+      },
+      "google": {
+        "lastCrawl": null,
+        "coverageState": null,
+        "googleCanonical": null,
+        "impressions": null,
+        "clicks": null
+      }
+    },
+    {
+      "route": "/journal/the-one-night-escape/",
+      "group": "B_migration_loser",
+      "rationale": "Permanent migration stub. Tests whether Google accepts the consolidation instead of retaining the legacy URL.",
+      "pairedWith": "/explore/plans/the-one-night-escape/",
+      "present": true,
+      "baseline": {
+        "inSitemap": false,
+        "noindex": false,
+        "selfCanonical": false,
+        "canonical": "/explore/plans/the-one-night-escape/",
+        "isRedirectStub": true,
+        "redirectTarget": "/explore/plans/the-one-night-escape/",
+        "words": 0,
+        "internalInboundLinks": 4,
+        "internalInboundPages": 4,
+        "clickDepth": 2,
+        "recoveryBucket": "MIGRATION_PENDING"
+      },
+      "google": {
+        "lastCrawl": null,
+        "coverageState": null,
+        "googleCanonical": null,
+        "impressions": null,
+        "clicks": null
+      }
+    },
+    {
+      "route": "/explore/plans/the-one-night-escape/",
+      "group": "B_migration_winner",
+      "rationale": "Destination of a permanent migration. Tests whether legacy equity arrives.",
+      "pairedWith": "/journal/the-one-night-escape/",
+      "present": true,
+      "baseline": {
+        "inSitemap": true,
+        "noindex": false,
+        "selfCanonical": true,
+        "canonical": "/explore/plans/the-one-night-escape/",
+        "isRedirectStub": false,
+        "redirectTarget": null,
+        "words": 2798,
+        "internalInboundLinks": 1929,
+        "internalInboundPages": 627,
+        "clickDepth": 1,
+        "recoveryBucket": "CRAWL_PRIORITY"
+      },
+      "google": {
+        "lastCrawl": null,
+        "coverageState": null,
+        "googleCanonical": null,
+        "impressions": null,
+        "clicks": null
+      }
+    },
+    {
+      "route": "/journal/the-peninsula-orientation-drive/",
+      "group": "B_migration_loser",
+      "rationale": "Permanent migration stub. Tests whether Google accepts the consolidation instead of retaining the legacy URL.",
+      "pairedWith": "/explore/plans/the-peninsula-orientation-drive/",
+      "present": true,
+      "baseline": {
+        "inSitemap": false,
+        "noindex": false,
+        "selfCanonical": false,
+        "canonical": "/explore/plans/the-peninsula-orientation-drive/",
+        "isRedirectStub": true,
+        "redirectTarget": "/explore/plans/the-peninsula-orientation-drive/",
+        "words": 0,
+        "internalInboundLinks": 1,
+        "internalInboundPages": 1,
+        "clickDepth": 2,
+        "recoveryBucket": "MIGRATION_PENDING"
+      },
+      "google": {
+        "lastCrawl": null,
+        "coverageState": null,
+        "googleCanonical": null,
+        "impressions": null,
+        "clicks": null
+      }
+    },
+    {
+      "route": "/explore/plans/the-peninsula-orientation-drive/",
+      "group": "B_migration_winner",
+      "rationale": "Destination of a permanent migration. Tests whether legacy equity arrives.",
+      "pairedWith": "/journal/the-peninsula-orientation-drive/",
+      "present": true,
+      "baseline": {
+        "inSitemap": true,
+        "noindex": false,
+        "selfCanonical": true,
+        "canonical": "/explore/plans/the-peninsula-orientation-drive/",
+        "isRedirectStub": false,
+        "redirectTarget": null,
+        "words": 2684,
+        "internalInboundLinks": 639,
+        "internalInboundPages": 627,
+        "clickDepth": 1,
+        "recoveryBucket": "CRAWL_PRIORITY"
+      },
+      "google": {
+        "lastCrawl": null,
+        "coverageState": null,
+        "googleCanonical": null,
+        "impressions": null,
+        "clicks": null
+      }
+    },
+    {
+      "route": "/journal/mornington-peninsula-winery-tour/",
+      "group": "B_migration_loser",
+      "rationale": "Permanent migration stub. Tests whether Google accepts the consolidation instead of retaining the legacy URL.",
+      "pairedWith": "/tour/wine-tours/",
+      "present": true,
+      "baseline": {
+        "inSitemap": false,
+        "noindex": false,
+        "selfCanonical": false,
+        "canonical": "/tour/wine-tours/",
+        "isRedirectStub": true,
+        "redirectTarget": "/tour/wine-tours/",
+        "words": 0,
+        "internalInboundLinks": 0,
+        "internalInboundPages": 0,
+        "clickDepth": null,
+        "recoveryBucket": "MIGRATION_PENDING"
+      },
+      "google": {
+        "lastCrawl": null,
+        "coverageState": null,
+        "googleCanonical": null,
+        "impressions": null,
+        "clicks": null
+      }
+    },
+    {
+      "route": "/tour/wine-tours/",
+      "group": "B_migration_winner",
+      "rationale": "Destination of a permanent migration. Tests whether legacy equity arrives.",
+      "pairedWith": "/journal/mornington-peninsula-winery-tour/",
+      "present": true,
+      "baseline": {
+        "inSitemap": true,
+        "noindex": false,
+        "selfCanonical": true,
+        "canonical": "/tour/wine-tours/",
+        "isRedirectStub": false,
+        "redirectTarget": null,
+        "words": 1427,
+        "internalInboundLinks": 123,
+        "internalInboundPages": 121,
+        "clickDepth": 2,
+        "recoveryBucket": "CRAWL_PRIORITY"
+      },
+      "google": {
+        "lastCrawl": null,
+        "coverageState": null,
+        "googleCanonical": null,
+        "impressions": null,
+        "clicks": null
+      }
+    },
+    {
+      "route": "/journal/the-producer-trail/",
+      "group": "B_migration_loser",
+      "rationale": "Permanent migration stub. Tests whether Google accepts the consolidation instead of retaining the legacy URL.",
+      "pairedWith": "/explore/plans/the-producer-trail/",
+      "present": true,
+      "baseline": {
+        "inSitemap": false,
+        "noindex": false,
+        "selfCanonical": false,
+        "canonical": "/explore/plans/the-producer-trail/",
+        "isRedirectStub": true,
+        "redirectTarget": "/explore/plans/the-producer-trail/",
+        "words": 0,
+        "internalInboundLinks": 3,
+        "internalInboundPages": 3,
+        "clickDepth": 2,
+        "recoveryBucket": "MIGRATION_PENDING"
+      },
+      "google": {
+        "lastCrawl": null,
+        "coverageState": null,
+        "googleCanonical": null,
+        "impressions": null,
+        "clicks": null
+      }
+    },
+    {
+      "route": "/explore/plans/the-producer-trail/",
+      "group": "B_migration_winner",
+      "rationale": "Destination of a permanent migration. Tests whether legacy equity arrives.",
+      "pairedWith": "/journal/the-producer-trail/",
+      "present": true,
+      "baseline": {
+        "inSitemap": true,
+        "noindex": false,
+        "selfCanonical": true,
+        "canonical": "/explore/plans/the-producer-trail/",
+        "isRedirectStub": false,
+        "redirectTarget": null,
+        "words": 3064,
+        "internalInboundLinks": 3,
+        "internalInboundPages": 2,
+        "clickDepth": 2,
+        "recoveryBucket": "CRAWL_PRIORITY"
+      },
+      "google": {
+        "lastCrawl": null,
+        "coverageState": null,
+        "googleCanonical": null,
+        "impressions": null,
+        "clicks": null
+      }
+    },
+    {
+      "route": "/explore/bushrangers-bay/",
+      "group": "B_migration_loser",
+      "rationale": "Permanent migration stub. Tests whether Google accepts the consolidation instead of retaining the legacy URL.",
+      "pairedWith": "/explore/bushrangers-bay-walk/",
+      "present": true,
+      "baseline": {
+        "inSitemap": false,
+        "noindex": false,
+        "selfCanonical": false,
+        "canonical": "/explore/bushrangers-bay-walk/",
+        "isRedirectStub": true,
+        "redirectTarget": "/explore/bushrangers-bay-walk/",
+        "words": 0,
+        "internalInboundLinks": 49,
+        "internalInboundPages": 18,
+        "clickDepth": 2,
+        "recoveryBucket": "MIGRATION_PENDING"
+      },
+      "google": {
+        "lastCrawl": null,
+        "coverageState": null,
+        "googleCanonical": null,
+        "impressions": null,
+        "clicks": null
+      }
+    },
+    {
+      "route": "/explore/bushrangers-bay-walk/",
+      "group": "B_migration_winner",
+      "rationale": "Destination of a permanent migration. Tests whether legacy equity arrives.",
+      "pairedWith": "/explore/bushrangers-bay/",
+      "present": true,
+      "baseline": {
+        "inSitemap": true,
+        "noindex": false,
+        "selfCanonical": true,
+        "canonical": "/explore/bushrangers-bay-walk/",
+        "isRedirectStub": false,
+        "redirectTarget": null,
+        "words": 1739,
+        "internalInboundLinks": 698,
+        "internalInboundPages": 627,
+        "clickDepth": 1,
+        "recoveryBucket": "CRAWL_PRIORITY"
+      },
+      "google": {
+        "lastCrawl": null,
+        "coverageState": null,
+        "googleCanonical": null,
+        "impressions": null,
+        "clicks": null
+      }
+    },
+    {
+      "route": "/map/",
+      "group": "C_high_value_awaiting_index",
+      "rationale": "Substantial page (7688w, 627 linking pages) that should earn indexation on merit.",
+      "pairedWith": null,
+      "present": true,
+      "baseline": {
+        "inSitemap": true,
+        "noindex": false,
+        "selfCanonical": true,
+        "canonical": "/map/",
+        "isRedirectStub": false,
+        "redirectTarget": null,
+        "words": 7688,
+        "internalInboundLinks": 1207,
+        "internalInboundPages": 627,
+        "clickDepth": 1,
+        "recoveryBucket": "CRAWL_PRIORITY"
+      },
+      "google": {
+        "lastCrawl": null,
+        "coverageState": null,
+        "googleCanonical": null,
+        "impressions": null,
+        "clicks": null
+      }
+    },
+    {
+      "route": "/explore/regions/red-hill-wine-country/",
+      "group": "C_high_value_awaiting_index",
+      "rationale": "Substantial page (6968w, 14 linking pages) that should earn indexation on merit.",
+      "pairedWith": null,
+      "present": true,
+      "baseline": {
+        "inSitemap": true,
+        "noindex": false,
+        "selfCanonical": true,
+        "canonical": "/explore/regions/red-hill-wine-country/",
+        "isRedirectStub": false,
+        "redirectTarget": null,
+        "words": 6968,
+        "internalInboundLinks": 14,
+        "internalInboundPages": 14,
+        "clickDepth": 3,
+        "recoveryBucket": "CRAWL_PRIORITY"
+      },
+      "google": {
+        "lastCrawl": null,
+        "coverageState": null,
+        "googleCanonical": null,
+        "impressions": null,
+        "clicks": null
+      }
+    },
+    {
+      "route": "/journal/",
+      "group": "C_high_value_awaiting_index",
+      "rationale": "Substantial page (5285w, 627 linking pages) that should earn indexation on merit.",
+      "pairedWith": null,
+      "present": true,
+      "baseline": {
+        "inSitemap": true,
+        "noindex": false,
+        "selfCanonical": true,
+        "canonical": "/journal/",
+        "isRedirectStub": false,
+        "redirectTarget": null,
+        "words": 5285,
+        "internalInboundLinks": 2340,
+        "internalInboundPages": 627,
+        "clickDepth": 1,
+        "recoveryBucket": "CRAWL_PRIORITY"
+      },
+      "google": {
+        "lastCrawl": null,
+        "coverageState": null,
+        "googleCanonical": null,
+        "impressions": null,
+        "clicks": null
+      }
+    },
+    {
+      "route": "/explore/",
+      "group": "C_high_value_awaiting_index",
+      "rationale": "Substantial page (4581w, 627 linking pages) that should earn indexation on merit.",
+      "pairedWith": null,
+      "present": true,
+      "baseline": {
+        "inSitemap": true,
+        "noindex": false,
+        "selfCanonical": true,
+        "canonical": "/explore/",
+        "isRedirectStub": false,
+        "redirectTarget": null,
+        "words": 4581,
+        "internalInboundLinks": 1607,
+        "internalInboundPages": 627,
+        "clickDepth": 1,
+        "recoveryBucket": "CRAWL_PRIORITY"
+      },
+      "google": {
+        "lastCrawl": null,
+        "coverageState": null,
+        "googleCanonical": null,
+        "impressions": null,
+        "clicks": null
+      }
+    },
+    {
+      "route": "/explore/regions/ocean-coast/",
+      "group": "C_high_value_awaiting_index",
+      "rationale": "Substantial page (4431w, 9 linking pages) that should earn indexation on merit.",
+      "pairedWith": null,
+      "present": true,
+      "baseline": {
+        "inSitemap": true,
+        "noindex": false,
+        "selfCanonical": true,
+        "canonical": "/explore/regions/ocean-coast/",
+        "isRedirectStub": false,
+        "redirectTarget": null,
+        "words": 4431,
+        "internalInboundLinks": 9,
+        "internalInboundPages": 9,
+        "clickDepth": 3,
+        "recoveryBucket": "CRAWL_PRIORITY"
+      },
+      "google": {
+        "lastCrawl": null,
+        "coverageState": null,
+        "googleCanonical": null,
+        "impressions": null,
+        "clicks": null
+      }
+    },
+    {
+      "route": "/explore/regions/peninsula-tip/",
+      "group": "C_high_value_awaiting_index",
+      "rationale": "Substantial page (4384w, 8 linking pages) that should earn indexation on merit.",
+      "pairedWith": null,
+      "present": true,
+      "baseline": {
+        "inSitemap": true,
+        "noindex": false,
+        "selfCanonical": true,
+        "canonical": "/explore/regions/peninsula-tip/",
+        "isRedirectStub": false,
+        "redirectTarget": null,
+        "words": 4384,
+        "internalInboundLinks": 8,
+        "internalInboundPages": 8,
+        "clickDepth": 3,
+        "recoveryBucket": "CRAWL_PRIORITY"
+      },
+      "google": {
+        "lastCrawl": null,
+        "coverageState": null,
+        "googleCanonical": null,
+        "impressions": null,
+        "clicks": null
+      }
+    },
+    {
+      "route": "/explore/regions/mornington-bay-coast/",
+      "group": "C_high_value_awaiting_index",
+      "rationale": "Substantial page (4257w, 12 linking pages) that should earn indexation on merit.",
+      "pairedWith": null,
+      "present": true,
+      "baseline": {
+        "inSitemap": true,
+        "noindex": false,
+        "selfCanonical": true,
+        "canonical": "/explore/regions/mornington-bay-coast/",
+        "isRedirectStub": false,
+        "redirectTarget": null,
+        "words": 4257,
+        "internalInboundLinks": 12,
+        "internalInboundPages": 12,
+        "clickDepth": 3,
+        "recoveryBucket": "CRAWL_PRIORITY"
+      },
+      "google": {
+        "lastCrawl": null,
+        "coverageState": null,
+        "googleCanonical": null,
+        "impressions": null,
+        "clicks": null
+      }
+    },
+    {
+      "route": "/explore/places/cape-schanck/",
+      "group": "C_high_value_awaiting_index",
+      "rationale": "Substantial page (4175w, 62 linking pages) that should earn indexation on merit.",
+      "pairedWith": null,
+      "present": true,
+      "baseline": {
+        "inSitemap": true,
+        "noindex": false,
+        "selfCanonical": true,
+        "canonical": "/explore/places/cape-schanck/",
+        "isRedirectStub": false,
+        "redirectTarget": null,
+        "words": 4175,
+        "internalInboundLinks": 215,
+        "internalInboundPages": 62,
+        "clickDepth": 2,
+        "recoveryBucket": "CRAWL_PRIORITY"
+      },
+      "google": {
+        "lastCrawl": null,
+        "coverageState": null,
+        "googleCanonical": null,
+        "impressions": null,
+        "clicks": null
+      }
+    },
+    {
+      "route": "/careers/",
+      "group": "D_weak_signal_candidate",
+      "rationale": "Thin or weakly linked (984w, 0 linking pages). Candidate for crawled-not-indexed.",
+      "pairedWith": null,
+      "present": true,
+      "baseline": {
+        "inSitemap": true,
+        "noindex": false,
+        "selfCanonical": true,
+        "canonical": "/careers/",
+        "isRedirectStub": false,
+        "redirectTarget": null,
+        "words": 984,
+        "internalInboundLinks": 0,
+        "internalInboundPages": 0,
+        "clickDepth": null,
+        "recoveryBucket": "CRAWL_PRIORITY"
+      },
+      "google": {
+        "lastCrawl": null,
+        "coverageState": null,
+        "googleCanonical": null,
+        "impressions": null,
+        "clicks": null
+      }
+    },
+    {
+      "route": "/corporate-events/best-corporate-retreat-venues-mornington-peninsula/",
+      "group": "D_weak_signal_candidate",
+      "rationale": "Thin or weakly linked (2016w, 0 linking pages). Candidate for crawled-not-indexed.",
+      "pairedWith": null,
+      "present": true,
+      "baseline": {
+        "inSitemap": true,
+        "noindex": false,
+        "selfCanonical": true,
+        "canonical": "/corporate-events/best-corporate-retreat-venues-mornington-peninsula/",
+        "isRedirectStub": false,
+        "redirectTarget": null,
+        "words": 2016,
+        "internalInboundLinks": 0,
+        "internalInboundPages": 0,
+        "clickDepth": null,
+        "recoveryBucket": "CRAWL_PRIORITY"
+      },
+      "google": {
+        "lastCrawl": null,
+        "coverageState": null,
+        "googleCanonical": null,
+        "impressions": null,
+        "clicks": null
+      }
+    },
+    {
+      "route": "/eat/distilleries/",
+      "group": "D_weak_signal_candidate",
+      "rationale": "Thin or weakly linked (887w, 0 linking pages). Candidate for crawled-not-indexed.",
+      "pairedWith": null,
+      "present": true,
+      "baseline": {
+        "inSitemap": true,
+        "noindex": false,
+        "selfCanonical": true,
+        "canonical": "/eat/distilleries/",
+        "isRedirectStub": false,
+        "redirectTarget": null,
+        "words": 887,
+        "internalInboundLinks": 0,
+        "internalInboundPages": 0,
+        "clickDepth": null,
+        "recoveryBucket": "CRAWL_PRIORITY"
+      },
+      "google": {
+        "lastCrawl": null,
+        "coverageState": null,
+        "googleCanonical": null,
+        "impressions": null,
+        "clicks": null
+      }
+    },
+    {
+      "route": "/eat/family-friendly/",
+      "group": "D_weak_signal_candidate",
+      "rationale": "Thin or weakly linked (1483w, 0 linking pages). Candidate for crawled-not-indexed.",
+      "pairedWith": null,
+      "present": true,
+      "baseline": {
+        "inSitemap": true,
+        "noindex": false,
+        "selfCanonical": true,
+        "canonical": "/eat/family-friendly/",
+        "isRedirectStub": false,
+        "redirectTarget": null,
+        "words": 1483,
+        "internalInboundLinks": 0,
+        "internalInboundPages": 0,
+        "clickDepth": null,
+        "recoveryBucket": "CRAWL_PRIORITY"
+      },
+      "google": {
+        "lastCrawl": null,
+        "coverageState": null,
+        "googleCanonical": null,
+        "impressions": null,
+        "clicks": null
+      }
+    },
+    {
+      "route": "/eat/markets/",
+      "group": "D_weak_signal_candidate",
+      "rationale": "Thin or weakly linked (1240w, 0 linking pages). Candidate for crawled-not-indexed.",
+      "pairedWith": null,
+      "present": true,
+      "baseline": {
+        "inSitemap": true,
+        "noindex": false,
+        "selfCanonical": true,
+        "canonical": "/eat/markets/",
+        "isRedirectStub": false,
+        "redirectTarget": null,
+        "words": 1240,
+        "internalInboundLinks": 0,
+        "internalInboundPages": 0,
+        "clickDepth": null,
+        "recoveryBucket": "CRAWL_PRIORITY"
+      },
+      "google": {
+        "lastCrawl": null,
+        "coverageState": null,
+        "googleCanonical": null,
+        "impressions": null,
+        "clicks": null
+      }
+    },
+    {
+      "route": "/eat/paddock-to-plate/",
+      "group": "D_weak_signal_candidate",
+      "rationale": "Thin or weakly linked (1565w, 0 linking pages). Candidate for crawled-not-indexed.",
+      "pairedWith": null,
+      "present": true,
+      "baseline": {
+        "inSitemap": true,
+        "noindex": false,
+        "selfCanonical": true,
+        "canonical": "/eat/paddock-to-plate/",
+        "isRedirectStub": false,
+        "redirectTarget": null,
+        "words": 1565,
+        "internalInboundLinks": 0,
+        "internalInboundPages": 0,
+        "clickDepth": null,
+        "recoveryBucket": "CRAWL_PRIORITY"
+      },
+      "google": {
+        "lastCrawl": null,
+        "coverageState": null,
+        "googleCanonical": null,
+        "impressions": null,
+        "clicks": null
+      }
+    },
+    {
+      "route": "/eat/providores/",
+      "group": "D_weak_signal_candidate",
+      "rationale": "Thin or weakly linked (1036w, 0 linking pages). Candidate for crawled-not-indexed.",
+      "pairedWith": null,
+      "present": true,
+      "baseline": {
+        "inSitemap": true,
+        "noindex": false,
+        "selfCanonical": true,
+        "canonical": "/eat/providores/",
+        "isRedirectStub": false,
+        "redirectTarget": null,
+        "words": 1036,
+        "internalInboundLinks": 0,
+        "internalInboundPages": 0,
+        "clickDepth": null,
+        "recoveryBucket": "CRAWL_PRIORITY"
+      },
+      "google": {
+        "lastCrawl": null,
+        "coverageState": null,
+        "googleCanonical": null,
+        "impressions": null,
+        "clicks": null
+      }
+    },
+    {
+      "route": "/eat/pubs/",
+      "group": "D_weak_signal_candidate",
+      "rationale": "Thin or weakly linked (1363w, 0 linking pages). Candidate for crawled-not-indexed.",
+      "pairedWith": null,
+      "present": true,
+      "baseline": {
+        "inSitemap": true,
+        "noindex": false,
+        "selfCanonical": true,
+        "canonical": "/eat/pubs/",
+        "isRedirectStub": false,
+        "redirectTarget": null,
+        "words": 1363,
+        "internalInboundLinks": 0,
+        "internalInboundPages": 0,
+        "clickDepth": null,
+        "recoveryBucket": "CRAWL_PRIORITY"
+      },
+      "google": {
+        "lastCrawl": null,
+        "coverageState": null,
+        "googleCanonical": null,
+        "impressions": null,
+        "clicks": null
+      }
+    },
+    {
+      "route": "/",
+      "group": "E_healthy_control",
+      "rationale": "Established indexed page. Separates sitewide Google movement from remediation effect.",
+      "pairedWith": null,
+      "present": true,
+      "baseline": {
+        "inSitemap": true,
+        "noindex": false,
+        "selfCanonical": true,
+        "canonical": "/",
+        "isRedirectStub": false,
+        "redirectTarget": null,
+        "words": 1100,
+        "internalInboundLinks": 2478,
+        "internalInboundPages": 627,
+        "clickDepth": 0,
+        "recoveryBucket": "CRAWL_PRIORITY"
+      },
+      "google": {
+        "lastCrawl": null,
+        "coverageState": null,
+        "googleCanonical": null,
+        "impressions": null,
+        "clicks": null
+      }
+    },
+    {
+      "route": "/eat/best-restaurants/",
+      "group": "E_healthy_control",
+      "rationale": "Established indexed page. Separates sitewide Google movement from remediation effect.",
+      "pairedWith": null,
+      "present": true,
+      "baseline": {
+        "inSitemap": true,
+        "noindex": false,
+        "selfCanonical": true,
+        "canonical": "/eat/best-restaurants/",
+        "isRedirectStub": false,
+        "redirectTarget": null,
+        "words": 1887,
+        "internalInboundLinks": 30,
+        "internalInboundPages": 22,
+        "clickDepth": 2,
+        "recoveryBucket": "CRAWL_PRIORITY"
+      },
+      "google": {
+        "lastCrawl": null,
+        "coverageState": null,
+        "googleCanonical": null,
+        "impressions": null,
+        "clicks": null
+      }
+    },
+    {
+      "route": "/wine/best-cellar-doors/",
+      "group": "E_healthy_control",
+      "rationale": "Established indexed page. Separates sitewide Google movement from remediation effect.",
+      "pairedWith": null,
+      "present": true,
+      "baseline": {
+        "inSitemap": true,
+        "noindex": false,
+        "selfCanonical": true,
+        "canonical": "/wine/best-cellar-doors/",
+        "isRedirectStub": false,
+        "redirectTarget": null,
+        "words": 1691,
+        "internalInboundLinks": 1290,
+        "internalInboundPages": 627,
+        "clickDepth": 1,
+        "recoveryBucket": "CRAWL_PRIORITY"
+      },
+      "google": {
+        "lastCrawl": null,
+        "coverageState": null,
+        "googleCanonical": null,
+        "impressions": null,
+        "clicks": null
+      }
+    },
+    {
+      "route": "/explore/walks/",
+      "group": "E_healthy_control",
+      "rationale": "Established indexed page. Separates sitewide Google movement from remediation effect.",
+      "pairedWith": null,
+      "present": true,
+      "baseline": {
+        "inSitemap": true,
+        "noindex": false,
+        "selfCanonical": true,
+        "canonical": "/explore/walks/",
+        "isRedirectStub": false,
+        "redirectTarget": null,
+        "words": 2035,
+        "internalInboundLinks": 650,
+        "internalInboundPages": 627,
+        "clickDepth": 1,
+        "recoveryBucket": "CRAWL_PRIORITY"
+      },
+      "google": {
+        "lastCrawl": null,
+        "coverageState": null,
+        "googleCanonical": null,
+        "impressions": null,
+        "clicks": null
+      }
+    },
+    {
+      "route": "/stay/best-accommodation/",
+      "group": "E_healthy_control",
+      "rationale": "Established indexed page. Separates sitewide Google movement from remediation effect.",
+      "pairedWith": null,
+      "present": true,
+      "baseline": {
+        "inSitemap": true,
+        "noindex": false,
+        "selfCanonical": true,
+        "canonical": "/stay/best-accommodation/",
+        "isRedirectStub": false,
+        "redirectTarget": null,
+        "words": 2653,
+        "internalInboundLinks": 62,
+        "internalInboundPages": 47,
+        "clickDepth": 2,
+        "recoveryBucket": "CRAWL_PRIORITY"
+      },
+      "google": {
+        "lastCrawl": null,
+        "coverageState": null,
+        "googleCanonical": null,
+        "impressions": null,
+        "clicks": null
+      }
+    },
+    {
+      "route": "/explore/places/sorrento/",
+      "group": "E_healthy_control",
+      "rationale": "Established indexed page. Separates sitewide Google movement from remediation effect.",
+      "pairedWith": null,
+      "present": true,
+      "baseline": {
+        "inSitemap": true,
+        "noindex": false,
+        "selfCanonical": true,
+        "canonical": "/explore/places/sorrento/",
+        "isRedirectStub": false,
+        "redirectTarget": null,
+        "words": 3217,
+        "internalInboundLinks": 205,
+        "internalInboundPages": 73,
+        "clickDepth": 2,
+        "recoveryBucket": "CRAWL_PRIORITY"
+      },
+      "google": {
+        "lastCrawl": null,
+        "coverageState": null,
+        "googleCanonical": null,
+        "impressions": null,
+        "clicks": null
+      }
+    }
+  ]
+}
