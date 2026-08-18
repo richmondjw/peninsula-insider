@@ -44,11 +44,16 @@ export async function getStaticPaths() {
 
 const { article } = Astro.props;
 
-// Plans articles live at /explore/plans/[slug] - redirect with 301 so inbound
-// /journal/ URLs resolve cleanly without serving duplicate content.
-if (article.data.section === 'plans') {
-  return Astro.redirect(`/explore/plans/${routeSlug(article)}/`, 301);
-}
+// Plans articles live at /explore/plans/[slug]. Astro.redirect(..., 301) looks
+// right but cannot work here: under static prerendering it emits a redirect
+// *document* carrying noindex, so these URLs shipped as noindex + foreign
+// canonical - the one combination that makes Google drop the page and ignore
+// the canonical, discarding the legacy URL's equity instead of passing it on.
+// Use the same canonical-only consolidation stub as the PTW migration below.
+// (2026-08-18; see components/Redirect.astro `consolidate`.)
+const planRedirectTo = article.data.section === 'plans'
+  ? `/explore/plans/${routeSlug(article)}/`
+  : null;
 
 // Peninsula This Weekend dispatches were migrated to a stable rolling URL
 // (/whats-on/this-weekend/) with per-week archive (Wave 2 Brief 2,
@@ -58,7 +63,10 @@ if (article.data.section === 'plans') {
 // URL rather than the article content. See lib/peninsula-this-weekend.ts.
 const ptwRedirectTo = isPeninsulaThisWeekend(article) ? ptwArchivePath(article) : null;
 
-const { Content, headings } = ptwRedirectTo
+// Both migrations render the same canonical-only consolidation stub.
+const consolidateRedirectTo = planRedirectTo ?? ptwRedirectTo;
+
+const { Content, headings } = consolidateRedirectTo
   ? { Content: null as any, headings: [] as Array<{ slug: string; text: string; depth: number }> }
   : await render(article);
 
@@ -245,20 +253,20 @@ const faqSchema = article.data.faq && article.data.faq.length > 0 ? {
 export const prerender = true;
 ---
 
-{ptwRedirectTo ? (
+{consolidateRedirectTo ? (
   <html lang="en-AU">
     <head>
       <meta charset="utf-8" />
       <title>Redirecting…</title>
       <style is:global set:html={'html,body{display:none;visibility:hidden}'} />
-      <script type="text/javascript" set:html={`window.location.replace(${JSON.stringify(ptwRedirectTo)});`} />
-      <meta http-equiv="refresh" content={`0;url=${ptwRedirectTo}`} />
+      <script type="text/javascript" set:html={`window.location.replace(${JSON.stringify(consolidateRedirectTo)});`} />
+      <meta http-equiv="refresh" content={`0;url=${consolidateRedirectTo}`} />
       {/* No noindex: this is a permanent URL migration, not a utility hop.
           noindex+canonical is contradictory - Google drops the page and
           ignores the canonical, discarding the old URL's equity instead of
           passing it to the archive URL. Canonical alone consolidates.
           See components/Redirect.astro `consolidate`. (2026-08-08) */}
-      <link rel="canonical" href={`https://peninsulainsider.com.au${ptwRedirectTo}`} />
+      <link rel="canonical" href={`https://peninsulainsider.com.au${consolidateRedirectTo}`} />
     </head>
     <body></body>
   </html>

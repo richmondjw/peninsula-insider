@@ -1,4 +1,15 @@
 ---
-return Astro.redirect('/tour/wine-tours/', 301);
+/**
+ * Permanent migration: /journal/mornington-peninsula-winery-tour/ → /tour/wine-tours/.
+ *
+ * Astro.redirect(..., 301) cannot serve a real 301 from static hosting; it
+ * prerenders a redirect document carrying noindex. noindex + a canonical to
+ * another URL is self-contradictory, so Google drops this page and ignores the
+ * canonical, discarding the legacy URL's accumulated equity rather than
+ * passing it to the destination. Use the canonical-only consolidation stub.
+ * (2026-08-18; see components/Redirect.astro.)
+ */
+import Redirect from '../../components/Redirect.astro';
 export const prerender = true;
 ---
+<Redirect to="/tour/wine-tours/" consolidate />
