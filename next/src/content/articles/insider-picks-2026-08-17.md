@@ -8,7 +8,7 @@ heroImage:
   src: "/images/sourced/ten-minutes-by-tractor-01.webp"
   alt: "Ten Minutes by Tractor winery restaurant on the Mornington Peninsula"
   credit: "editorial"
-  license: "editorial"
+  license: "venue-media-kit"
 format: "insider-edit"
 tags: [insider-picks, winter, weekly]
 relatedVenues: []
