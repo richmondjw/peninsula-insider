@@ -115,6 +115,20 @@ jobs:
           rm -rf next/dist/dev
           echo "Pruned next/dist/admin and next/dist/dev from deploy output"
 
+      - name: SEO artefact integrity gate
+        # Asserts the BUILT site, not source declarations. The April 2026 bulk
+        # sitemapExclude shipped noindex,nofollow to ~127 published pages and
+        # survived every source-level lint for 100 days, so this gate reads what
+        # next/dist actually emits: sitemap URLs that are noindex, redirects or
+        # not self-canonical; permanent migrations pairing noindex with a foreign
+        # canonical; redirect/canonical loops and multi-hop chains; malformed
+        # internal hrefs. Runs before deploy so a regression never reaches Google.
+        run: |
+          node ops/scripts/seo/build-url-ledger.mjs \
+            --dist next/dist \
+            --out ops/reports/seo/ledger \
+            --assert
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:

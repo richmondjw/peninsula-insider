@@ -26,10 +26,11 @@ const ORIGIN = 'https://peninsulainsider.com.au';
 // ---------------------------------------------------------------- args
 
 function parseArgs(argv) {
-  const args = { dist: null, out: 'ops/reports/seo/ledger' };
+  const args = { dist: null, out: 'ops/reports/seo/ledger', assert: false };
   for (let i = 0; i < argv.length; i += 1) {
     if (argv[i] === '--dist') args.dist = argv[i + 1];
     if (argv[i] === '--out') args.out = argv[i + 1];
+    if (argv[i] === '--assert') args.assert = true;
   }
   if (!args.dist) {
     console.error('usage: build-url-ledger.mjs --dist <built-site-dir> [--out <dir>]');
@@ -417,6 +418,10 @@ for (const link of linksToLosers) {
 // --- sitemap entries with no built page --------------------------------
 const sitemapOrphans = [...sitemapRoutes].filter((r) => !records.has(r));
 
+const allLinkedLosers = [...loserTotals.values()]
+  .map((e) => ({ target: e.target, links: e.links, sourcePages: e.sourcePages.size, reason: e.reason }))
+  .sort((a, b) => b.links - a.links);
+
 // ---------------------------------------------------------------- output
 
 mkdirSync(args.out, { recursive: true });
@@ -461,10 +466,8 @@ const summary = {
     if (r.isRedirectStub) f.redirectStub += 1;
     return acc;
   }, {}),
-  topLinkedLosers: [...loserTotals.values()]
-    .map((e) => ({ target: e.target, links: e.links, sourcePages: e.sourcePages.size, reason: e.reason }))
-    .sort((a, b) => b.links - a.links)
-    .slice(0, 40),
+  allLinkedLosers,
+  topLinkedLosers: allLinkedLosers.slice(0, 40),
   brokenInternalTargets: [...brokenTargets.entries()]
     .map(([to, froms]) => ({ target: to, sourcePages: froms.size }))
     .sort((a, b) => b.sourcePages - a.sourcePages)
@@ -500,4 +503,116 @@ writeFileSync(join(args.out, 'link-graph.json'), `${JSON.stringify({
   brokenTargets: summary.brokenInternalTargets,
 }, null, 2)}\n`);
 
-console.log(JSON.stringify(summary, null, 2));
+if (!args.assert) {
+  console.log(JSON.stringify(summary, null, 2));
+  process.exit(0);
+}
+
+// ---------------------------------------------------------------- assertions
+//
+// Build-time prevention for the defect classes that produced the 2026 indexation
+// incident. These assert the BUILT artefact, so a source refactor that silently
+// changes what ships still trips them.
+//
+// Each documented exception needs a reason, so a future bulk change cannot
+// quietly widen an allowlist the way sitemapExclude was widened in April.
+
+const EXPECTED_NOINDEX_WITH_FOREIGN_CANONICAL = new Map([
+  ['/account/likes/', 'Utility hop to /account/saved/. Account surface, robots-disallowed, never held search equity.'],
+  ['/me/', 'Utility hop to /me/saved/. Account surface, robots-disallowed, never held search equity.'],
+]);
+
+const failures = [];
+const fail = (rule, detail) => failures.push({ rule, detail });
+
+const v = summary.constitutionViolations;
+
+for (const route of v.sitemapNoindex) fail('sitemap-url-is-noindex', route);
+for (const entry of v.sitemapNonSelfCanonical) fail('sitemap-url-not-self-canonical', `${entry.route} -> ${entry.canonical}`);
+for (const route of v.sitemapRedirect) fail('sitemap-url-is-a-redirect', route);
+for (const route of v.sitemapEntriesWithoutPage) fail('sitemap-url-has-no-built-page', route);
+for (const entry of v.indexableCanonicalLosers) fail('indexable-canonical-loser', `${entry.route} -> ${entry.canonical}`);
+for (const entry of v.multiHopRedirects) fail('redirect-chain-exceeds-one-hop', `${entry.route} (${entry.hops} hops) -> ${entry.final}`);
+for (const route of v.redirectLoops) fail('redirect-loop', route);
+for (const route of v.canonicalLoops) fail('canonical-loop', route);
+for (const entry of v.canonicalToMissingPage) fail('canonical-points-at-missing-page', `${entry.route} -> ${entry.canonical}`);
+
+// The May incident's exact signature: a permanent migration shipping noindex
+// alongside a canonical to its winner, which discards the legacy URL's equity.
+for (const entry of v.noindexPlusForeignCanonical) {
+  if (EXPECTED_NOINDEX_WITH_FOREIGN_CANONICAL.has(entry.route)) continue;
+  fail('noindex-plus-foreign-canonical', `${entry.route} -> ${entry.canonical}`);
+}
+
+// Internal navigation must point at winners, not at pages Google is being told
+// to ignore. Redirect stubs and noindex editorial URLs both qualify; account and
+// search utilities are linked globally by design and are not editorial targets.
+//
+// This class carries inherited debt: the bulk remediation took the worst targets
+// from 1,348 inbound links down to double digits, but a tail survives. Failing
+// outright would block every deploy, so it ratchets instead — the count may fall
+// and may not rise. Burning the tail to zero lets this become a plain assertion.
+const UTILITY_PREFIXES = ['/account/', '/me/', '/search/', '/partners/', '/saved/', '/admin/', '/access/'];
+// allLinkedLosers, not the top-40 display slice: a ratchet built on a truncated
+// list would read as "no regression" while the tail grew past the cutoff.
+const loserTargets = summary.allLinkedLosers.filter(
+  (l) => !UTILITY_PREFIXES.some((p) => l.target.startsWith(p))
+    && (l.reason === 'redirect-stub' || l.reason === 'canonical-loser'),
+);
+
+let baseline = null;
+try {
+  baseline = JSON.parse(readFileSync('ops/reports/seo/link-loser-baseline.json', 'utf8'));
+} catch {
+  baseline = null;
+}
+
+if (baseline && typeof baseline.maxTargets === 'number') {
+  if (loserTargets.length > baseline.maxTargets) {
+    fail(
+      'internal-links-point-at-canonical-loser',
+      `${loserTargets.length} targets exceeds the recorded baseline of ${baseline.maxTargets}. `
+      + `New: ${loserTargets.map((l) => l.target).filter((t) => !(baseline.targets ?? []).includes(t)).join(', ') || '(none named)'}`,
+    );
+  } else if (loserTargets.length < baseline.maxTargets) {
+    console.log(
+      `NOTE - internal links to canonical losers improved: ${loserTargets.length} targets `
+      + `vs baseline ${baseline.maxTargets}. Lower ops/reports/seo/link-loser-baseline.json to lock the gain.`,
+    );
+  }
+} else {
+  for (const loser of loserTargets) {
+    fail('internal-links-point-at-canonical-loser', `${loser.target} (${loser.links} links from ${loser.sourcePages} pages)`);
+  }
+}
+
+// Malformed hrefs that resolve to nothing. This is the class that shipped 1,644
+// links to hard 404s undetected, because source review cannot see emitted URLs.
+for (const broken of summary.brokenInternalTargets) {
+  if (broken.target.includes('//')) fail('malformed-internal-href', broken.target);
+}
+
+if (failures.length === 0) {
+  const t = summary.totals;
+  console.log('PASS - SEO artefact integrity.');
+  console.log(`  built pages ................ ${t.builtPages}`);
+  console.log(`  sitemap entries ............ ${t.sitemapEntries}`);
+  console.log(`  indexable self-canonical ... ${t.indexableSelfCanonical}`);
+  console.log(`  noindex .................... ${t.noindex}`);
+  console.log(`  redirect stubs ............. ${t.redirectStubs}`);
+  process.exit(0);
+}
+
+console.error(`FAIL - SEO artefact integrity: ${failures.length} violation(s).\n`);
+const grouped = new Map();
+for (const f of failures) {
+  if (!grouped.has(f.rule)) grouped.set(f.rule, []);
+  grouped.get(f.rule).push(f.detail);
+}
+for (const [rule, details] of grouped) {
+  console.error(`  ${rule} (${details.length})`);
+  for (const d of details.slice(0, 12)) console.error(`      ${d}`);
+  if (details.length > 12) console.error(`      ... and ${details.length - 12} more`);
+}
+console.error('\nThese assert the built artefact. A source-only fix does not clear them.');
+process.exit(1);
