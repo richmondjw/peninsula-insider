@@ -180,9 +180,9 @@ async function auditOnce(args) {
     { expectedDate: buildSydneyDate, expectedSha: args.expectedSha },
   );
 
-  // Staleness gate: a build from the day before the expected date is acceptable
-  // (midnight-crossing case), but anything older is genuinely stale. Compare
-  // against args.expectedDate - 1 day so the test works with historical dates.
+  // Staleness gate: a build from the previous calendar day is acceptable
+  // (midnight-crossing case where the build started before midnight but the
+  // audit runs after), but anything two or more days old is genuinely stale.
   if (buildSydneyDate < args.expectedDate) {
     const prev = new Date(`${args.expectedDate}T00:00:00Z`);
     prev.setUTCDate(prev.getUTCDate() - 1);
