@@ -8,7 +8,7 @@ import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { routeSlug } from '../../lib/editorial';
 
 const allVenues = await getCollection('venues');
-const slugs = ['red-gum-bbq','merricks-general-wine-store','green-olive-red-hill','montalto','johnny-ripe','balnarring-pub','rye-hotel','sorrento-gelato','commonfolk-coffee','flinders-general-store'];
+const slugs = ['red-gum-bbq','merricks-general-wine-store','green-olive-red-hill','montalto','johnny-ripe','balnarring-pub','rye-hotel','commonfolk-coffee','flinders-general-store'];
 const venues = slugs.map(s=>allVenues.find(v=>routeSlug(v)===s)).filter((v):v is NonNullable<typeof v>=>Boolean(v));
 
 const breadcrumbItems=[{label:'Home',href:'/'},{label:'Eat & Drink',href:'/eat/'},{label:'Family-Friendly'}];

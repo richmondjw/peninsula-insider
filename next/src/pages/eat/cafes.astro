@@ -11,7 +11,7 @@ const allVenues = await getCollection('venues');
 
 const cafeTypes = ['cafe'];
 const cafeSlugs = ['commonfolk-coffee','many-little','somers-general',  'merricks-general-wine-store','store-ten','stringers-mornington','flinders-general-store',
-  'rocker','sorrento-gelato'];
+  'rocker'];
 
 const venues = cafeSlugs
   .map(s => allVenues.find(v => routeSlug(v) === s))

@@ -11,7 +11,7 @@ heroImage:
   license: "tmp-wikimedia"
 format: "service"
 tags: ["point-nepean", "sorrento", "portsea", "walks", "history", "explore", "families", "all-year"]
-relatedVenues: ["portsea-hotel", "hotel-sorrento", "the-continental-sorrento", "sorrento-gelato"]
+relatedVenues: ["portsea-hotel", "hotel-sorrento", "the-continental-sorrento"]
 relatedExperiences: ["point-nepean-fort-walk", "point-nepean-national-park", "portsea-front-beach", "sorrento-back-beach", "coppins-track", "sorrento-ocean-baths"]
 readingTimeMinutes: 7
 featured: false
