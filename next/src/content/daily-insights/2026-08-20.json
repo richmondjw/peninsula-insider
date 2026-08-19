@@ -1,0 +1,55 @@
+{
+  "date": "2026-08-20",
+  "title": "PI Daily Insights: Thursday 20 August 2026",
+  "generatedAt": "2026-08-19T19:33:00Z",
+  "runLabel": "19:30–19:33 UTC (5:30AM AEST)",
+  "method": "Tier 1 source pass: six scrapes; Tier 2 scan: 12 searches attempted",
+  "summary": "2 Band A safety items: fatal Rosebud collision and Shire waste-bin fire warning. Both require facts-only human escalation.",
+  "actToday": [
+    {
+      "title": "Fatal collision under investigation in Rosebud",
+      "score": "24/25",
+      "band": "A",
+      "source": "MP News",
+      "observed": "Observed 19 Aug 19:31 UTC",
+      "url": "https://www.mpnews.com.au/",
+      "sourceLabel": "mpnews.com.au",
+      "scores": "R5·U5·V5·N4·A5",
+      "description": "MP News says Major Collision Investigation Unit detectives are investigating a fatal collision in Rosebud on the previous evening, alleging a vehicle crossed onto the wrong side of Jetty Road and collided with another vehicle.",
+      "interpretation": "Sensitivity-class incident. Facts-only escalation and human handling only.",
+      "recommendation": "Telegram PI group: facts-only escalation; no automated editorial or social action."
+    },
+    {
+      "title": "Bin fires put residents and drivers at risk",
+      "score": "21/25",
+      "band": "A",
+      "source": "Mornington Peninsula Shire",
+      "observed": "Published 17 Aug; observed 19 Aug 19:32 UTC",
+      "url": "https://www.mornpen.vic.gov.au/The-Shire/News-media-and-publications/News-and-media-releases/Bin-fires-put-residents-and-drivers-at-risk",
+      "sourceLabel": "mornpen.vic.gov.au",
+      "scores": "R5·U4·V5·N3·A4",
+      "description": "The Shire says a series of winter fires has highlighted hazards posed by inappropriate items in household waste to collection drivers and communities.",
+      "interpretation": "Useful official-source safety reminder, subject to human review.",
+      "recommendation": "Telegram PI group: facts-only escalation; consider a safety/hub note only after editorial approval."
+    }
+  ],
+  "news": [
+    {"item":"Council seeks input on kindergarten infrastructure challenge","source":"Mornington Peninsula Shire","url":"https://www.mornpen.vic.gov.au/The-Shire/News-media-and-publications/News-and-media-releases/Council-seeks-input-on-kindergarten-infrastructure-challenge","score":"19","band":"B","note":"The Shire is seeking community input while finalising its review. Monitor consultation; council-policy sensitivity requires a human editorial call."},
+    {"item":"Consultation opens on plan to protect four bushland reserves","source":"Mornington Peninsula Shire","url":"https://www.mornpen.vic.gov.au/The-Shire/News-media-and-publications/News-and-media-releases/Consultation-opens-on-plan-to-protect-four-bushland-reserves","score":"18","band":"B","note":"The Shire invites feedback on permanent legal protection for four Shire-owned reserves. Bank for a neutral consultation explainer with human review."},
+    {"item":"Flinders pier restoration call continues","source":"Mornington Peninsula Shire","url":"https://www.mornpen.vic.gov.au/The-Shire/News-media-and-publications/News-and-media-releases/Community-Council-unite-behind-call-to-finish-Flinders-pier-restoration","score":"17","band":"B","note":"The Shire says the project has unfinished offshore piles. Follow official project status before considering coverage."}
+  ],
+  "events": [
+    {"event":"Seek the Heat at Peninsula Hot Springs","when":"Through Sun 4 Oct","score":"18","band":"B","recommendation":"Verify session availability and pricing before listing.","url":"https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Seek-the-Heat-at-Peninsula-Hot-Springs"},
+    {"event":"Hastings Community Art Space: Glenn Walker","when":"From Thu 20 Aug","score":"16","band":"B","recommendation":"Confirm exhibition dates before an arts round-up.","url":"https://artsandculture.mornpen.vic.gov.au/Galleries/Community-Art-Spaces/Current-Exhibitions/Hastings-Glenn-Walker"},
+    {"event":"Doggy Day Out","when":"From Thu 20 Aug","score":"16","band":"B","recommendation":"Verify operator and inclusions before listing.","url":"https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Doggy-Day-Out-1"}
+  ],
+  "competitors": [
+    {"name":"MP News","note":"Leading with public-interest local material including the Rosebud fatal collision, waste-truck fire risk and Portsea tourism award.","url":"https://www.mpnews.com.au/"},
+    {"name":"Mornington Peninsula Shire","note":"Dense current release cycle around early-years infrastructure, bushland consultation, waste safety, Flinders pier and Portsea's Top Tourism Town award.","url":"https://www.mornpen.vic.gov.au/The-Shire/News-media-and-publications/News-and-media-releases"},
+    {"name":"Peninsula Essence","note":"Foregrounding arts, local makers and food/lifestyle profiles, including a Sorrento Ferry Terminal dining-room feature.","url":"https://peninsulaessence.com.au/"},
+    {"name":"Mornington Peninsula Magazine","note":"Pushing winter whale content and a local music tribute-show feature.","url":"https://www.morningtonpeninsulamagazine.com.au/"},
+    {"name":"Visit Mornington Peninsula","note":"Homepage emphasis remains broad winter escape, spa, food-and-wine and trail discovery rather than a new time-sensitive guide.","url":"https://www.visitmorningtonpeninsula.org/"}
+  ],
+  "opportunities": ["Use the Shire's waste-safety material only as an official-source utility item after human review.","Build a verified winter arts mini-round-up from Hastings, Somerville and Mornington community art spaces.","Watch Portsea's national-finalist tourism-award journey for a local visitor-economy follow-up."],
+  "rawCaptures": ["Peninsula Essence fashion and wedding features: 8–10/25; lifestyle texture only.","MP Magazine astronomy and tribute-show features: 9–10/25; no immediate PI action.","Visit Mornington Peninsula evergreen attraction listings: 10/25; no new campaign move identified."]
+}
