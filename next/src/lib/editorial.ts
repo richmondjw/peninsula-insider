@@ -180,6 +180,22 @@ export function routeSlug(entry: any) {
   return entry.slug ?? entry.id ?? entry?.data?.slug ?? entry?.data?.id;
 }
 
+/* Historic venue records that deliberately render only a redirect must send
+   readers straight to their canonical page. A redirect document hides its
+   body before navigation, so reaching it from a card can present as a blank
+   page when the browser does not complete the script redirect promptly. */
+const venueRouteOverrides: Record<string, string> = {
+  'port-phillip-estate-restaurant': '/wine/port-phillip-estate/',
+};
+
+export function venueHref(entry: any, hrefPrefix?: string) {
+  const slug = routeSlug(entry);
+  if (!slug) return '/eat/';
+  if (venueRouteOverrides[slug]) return venueRouteOverrides[slug];
+  const prefix = hrefPrefix ?? venueHrefPrefix(entry?.data?.type ?? entry?.type ?? '');
+  return `${String(prefix).replace(/\/+$/, '')}/${slug}/`;
+}
+
 /**
  * Places that have a matching `/images/sourced/place-{slug}-01.webp`.
  * Used as the middle rung of the hero fallback chain so any venue,
@@ -484,4 +500,3 @@ export function experienceInSeason(experience: any, season: string): boolean {
   if (seasons.length === 0) return true;
   return seasons.includes(season) || seasons.includes('all-year');
 }
-

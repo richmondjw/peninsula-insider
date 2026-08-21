@@ -50,8 +50,9 @@ const canonical = new URL(to, 'https://peninsulainsider.com.au').href;
   <head>
     <meta charset="utf-8">
     <title>Redirecting…</title>
-    <!-- Hide everything before JS fires -->
-    <style>html,body{display:none;visibility:hidden}</style>
+    <!-- Do not hide html/body here. Component CSS is collected from the whole
+         module graph, so a redirect branch once hid ordinary venue pages.
+         The synchronous script below redirects before the empty body paints. -->
     <!-- JS redirect fires synchronously - browser navigates before first paint -->
     <script define:vars={{ to }}>
       (function () {

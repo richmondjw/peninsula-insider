@@ -7,6 +7,7 @@
  */
 
 import { verifiedFreshnessLabel, verificationFreshness } from '../lib/venues';
+import { routeSlug, venueHref } from '../lib/editorial';
 import PiSaveActions from './PiSaveActions.astro';
 import { editableImage } from '../lib/inline-edit/attrs';
 import { resolveHero } from '../lib/inline-edit/resolve-hero';
@@ -37,12 +38,15 @@ export interface Props {
 
 const { venue, hrefPrefix = '/eat' } = Astro.props;
 const data = venue.data;
-const slug = venue.id ?? data.slug;
+// Keep card links on the same canonical slug resolver used by getStaticPaths
+// and every venue detail template.  Using the raw collection id here allowed
+// cards to diverge from the route when an entry exposed a normalised `slug`.
+const slug = routeSlug(venue);
 // Normalise the prefix before joining. Callers legitimately hold a trailing
 // slash (VenueDetailTemplate's `sectionHref` is "/wine/" for its breadcrumb
 // and back-links), and naive interpolation turned that into "/wine//slug/":
 // 1,644 hard-404 links across 138 built pages before this guard. (2026-08-18)
-const href = `${String(hrefPrefix).replace(/\/+$/, '')}/${slug}/`;
+const href = venueHref(venue, hrefPrefix);
 
 const placeLabel = String(data.place?.id ?? data.place ?? '')
   .replace(/-/g, ' ')
