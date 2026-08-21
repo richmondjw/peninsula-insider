@@ -60,6 +60,7 @@ const active = activePillar(path, section);
   <div class="v5-masthead__brand">
     <div class="v5-masthead__brand-inner">
       <a href="/" class="v5-masthead__logo" aria-label="Peninsula Insider, home">
+        <img src="/images/pi-avatar.svg" alt="" class="v5-masthead__mark" width="22" height="22" />
         Peninsula <span>Insider</span>
       </a>
 
@@ -253,6 +254,9 @@ const active = activePillar(path, section);
   }
 
   .v5-masthead__logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
     font-family: var(--font-display);
     font-weight: var(--fw-bold);
     /* Was a bespoke clamp (21.6 -> 28px) that sat off the v6 scale.
@@ -279,6 +283,22 @@ const active = activePillar(path, section);
   .v5-masthead__logo span {
     font-weight: var(--fw-bold);
     color: var(--accent);
+  }
+
+  .v5-masthead__mark {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+  }
+
+  /* Below this width the brand row has no slack left (see the wordmark
+     comment above) - drop the mark rather than risk the utility labels
+     truncating. */
+  @media (max-width: 22.5em) {
+    .v5-masthead__mark {
+      display: none;
+    }
   }
 
   .v5-masthead__utilities {
