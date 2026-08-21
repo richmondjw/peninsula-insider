@@ -3,10 +3,16 @@ import helmet from 'helmet';
 import { z } from 'zod';
 import { ArtifactEditSchema, ArtifactUpdateSchema, ReviewDecisionSchema } from '../shared/contracts.js';
 import { buildPatch, FIXTURE_ID, runFixture, runUrlArticleFixture, URL_ARTICLE_FIXTURE_ID } from './fixture-runner.js';
+import {
+  EXPLAINER_FIXTURE_ID,
+  PODCAST_FIXTURE_ID,
+  runPreproductionFixture,
+  SHORT_VIDEO_FIXTURE_ID,
+} from './preproduction-fixtures.js';
 import { FileFoundryStore, VersionConflictError } from './store.js';
 
 const CreateRunSchema = z.object({
-  fixtureId: z.enum([FIXTURE_ID, URL_ARTICLE_FIXTURE_ID]),
+  fixtureId: z.enum([FIXTURE_ID, URL_ARTICLE_FIXTURE_ID, EXPLAINER_FIXTURE_ID, PODCAST_FIXTURE_ID, SHORT_VIDEO_FIXTURE_ID]),
   actor: z.string().min(1).default('local-editor'),
   idempotencyKey: z.string().min(1).optional(),
   fixtureVariant: z.enum(['complete', 'text_only', 'partial_optional_failure']).default('complete'),
@@ -40,11 +46,22 @@ export function createApp(store: FileFoundryStore, options: { staticDir?: string
   app.get('/api/health', (_request, response) => response.json({ ok: true, service: 'pi-content-foundry', mode: 'fixture-only' }));
   app.get('/api/capabilities', (_request, response) => response.json({
     sourceTypes: ['frozen_fixture'],
-    recipes: ['quick_note_v1', 'url_article_v1'],
-    artifactTypes: ['quick_note', 'article_draft', 'article_metadata', 'ask_answer', 'internal_link_plan', 'seo_metadata_proposal'],
+    recipes: ['quick_note_v1', 'url_article_v1', 'explainer_preproduction_v1', 'podcast_preproduction_v1', 'short_video_preproduction_v1'],
+    artifactTypes: [
+      'quick_note', 'article_draft', 'article_metadata', 'ask_answer', 'internal_link_plan', 'seo_metadata_proposal',
+      'explainer_core', 'explainer_faq', 'explainer_carousel', 'explainer_voiceover', 'explainer_visualisation',
+      'podcast_evidence_dossier', 'podcast_angle', 'podcast_run_sheet', 'podcast_interview_guide', 'podcast_script', 'podcast_show_notes', 'podcast_chapters',
+      'video_hooks', 'video_script', 'video_shot_list', 'video_scenes', 'video_overlays', 'video_subtitles', 'video_thumbnail', 'video_platform_captions',
+    ],
     publicationAdapters: ['downloadable_patch'],
     externalCalls: false,
     productionMutation: false,
+    recording: false,
+    rendering: false,
+    scheduling: false,
+    sending: false,
+    publishing: false,
+    syntheticVoice: false,
   }));
 
   app.get('/api/foundry/runs', async (_request, response, next) => {
@@ -60,11 +77,18 @@ export function createApp(store: FileFoundryStore, options: { staticDir?: string
       if (existing) return response.status(200).json(existing);
       const run = input.fixtureId === FIXTURE_ID
         ? runFixture(input.actor, idempotencyKey)
-        : runUrlArticleFixture(input.actor, idempotencyKey, {
+        : input.fixtureId === URL_ARTICLE_FIXTURE_ID
+          ? runUrlArticleFixture(input.actor, idempotencyKey, {
           includeClearedHero: input.fixtureVariant === 'complete',
           failOptionalDerivative: input.fixtureVariant === 'partial_optional_failure' ? 'seo_metadata_proposal' : undefined,
           omitPlans: input.fixtureVariant === 'text_only',
-        });
+          })
+          : runPreproductionFixture(
+            input.fixtureId === EXPLAINER_FIXTURE_ID ? 'explainer' : input.fixtureId === PODCAST_FIXTURE_ID ? 'podcast' : 'short_video',
+            input.actor,
+            idempotencyKey,
+            { failOptionalDerivative: input.fixtureVariant === 'partial_optional_failure' },
+          );
       const created = await store.create(run);
       return response.status(201).json(created);
     } catch (error) { return next(error); }

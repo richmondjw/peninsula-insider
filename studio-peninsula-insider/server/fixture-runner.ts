@@ -21,6 +21,13 @@ import {
   type LegacyFoundryRun,
   type RecipeDefinition,
 } from '../shared/contracts.js';
+import {
+  isPreproductionArtifactType,
+  parsePreproductionPayload,
+  PreproductionPayloadSchema,
+  requiredPreproductionLineagePaths,
+} from '../shared/preproduction-contracts.js';
+import { mediaReadinessCurrent } from './preproduction-policy.js';
 
 export const hash = (value: string) => createHash('sha256').update(value).digest('hex');
 export const hashValue = (value: unknown) => hash(JSON.stringify(value));
@@ -49,7 +56,7 @@ export function resolveArtifactPath(payload: unknown, path: string): unknown {
   return current;
 }
 
-function bindClaimUsage<T extends Array<{ segmentId: string; path: string; claimIds: string[] }>>(payload: unknown, usage: T) {
+export function bindClaimUsage<T extends Array<{ segmentId: string; path: string; claimIds: string[] }>>(payload: unknown, usage: T) {
   return usage.map((item) => ({ ...item, contentHash: hashValue(resolveArtifactPath(payload, item.path)) }));
 }
 
@@ -144,7 +151,15 @@ export function evaluateArtifactGates(
     && (payload as { body: string }).body.split(/\n\s*\n/).length === paragraphUsages.length
     && paragraphUsages.every((usage, index) => usage.path === `$.body::paragraph[${index}]`)
   );
-  const lineageComplete = completeUsage && paragraphCoverage;
+  const preproductionPayload = PreproductionPayloadSchema.safeParse(payload);
+  const preproductionCoverage = !preproductionPayload.success || (() => {
+    const requiredPaths = requiredPreproductionLineagePaths(preproductionPayload.data);
+    const mappedPaths = claimUsage.map((usage) => usage.path);
+    return requiredPaths.length === mappedPaths.length
+      && new Set(mappedPaths).size === mappedPaths.length
+      && requiredPaths.every((path) => mappedPaths.includes(path));
+  })();
+  const lineageComplete = completeUsage && paragraphCoverage && preproductionCoverage;
   const supportedClaims = usedClaimIds.length > 0 && usedClaimIds.every((claimId) => claimIsUsable(claimsById.get(claimId), asOf));
   const results: GateResult[] = [
     gate('no_price', !PRICE_PATTERN.test(publicCopy), 'Public artifact content must not contain pricing.'),
@@ -174,7 +189,7 @@ export function evaluateQuickNoteGates(
   );
 }
 
-function fixtureSource(actor: string) {
+export function fixtureSource(actor: string) {
   const capturedAt = '2026-08-21T05:00:00.000Z';
   const sourceUrl = 'https://example.test/red-hill-winter-lunch';
   const sourceId = 'source-url-red-hill';
@@ -227,15 +242,15 @@ function fixtureSource(actor: string) {
   return { capturedAt, sourceUrl, claims, claimSet, bundle, angle };
 }
 
-function claimSetDependency(claimSet: ClaimSetVersion) {
+export function claimSetDependency(claimSet: ClaimSetVersion) {
   return { kind: 'claim_set' as const, id: claimSet.id, version: claimSet.version, contentHash: claimSet.contentHash };
 }
 
-function angleDependency(angle: { id: string; version: number; label: string; framing: string; evidenceClaimIds: string[] }) {
+export function angleDependency(angle: { id: string; version: number; label: string; framing: string; evidenceClaimIds: string[] }) {
   return { kind: 'angle' as const, id: angle.id, version: angle.version, contentHash: hashValue(angle) };
 }
 
-function withArtifactHash<T extends Omit<ArtifactVersion, 'contentHash'>>(artifact: T): ArtifactVersion {
+export function withArtifactHash<T extends Omit<ArtifactVersion, 'contentHash'>>(artifact: T): ArtifactVersion {
   return ArtifactVersionSchema.parse({ ...artifact, contentHash: hashValue(artifact.payload) });
 }
 
@@ -253,6 +268,9 @@ export function artifactDependenciesCurrent(
   const mediaDependencies = artifact.dependencies.filter((dependency) => dependency.kind === 'media_rights');
   if (artifact.type === 'article_metadata') {
     if (artifact.payload.astroPatchReady !== Boolean(artifact.payload.heroImage && mediaDependencies.length === 1)) return false;
+  } else if (isPreproductionArtifactType(artifact.type)) {
+    const payload = parsePreproductionPayload(artifact.type, artifact.payload);
+    if (!mediaReadinessCurrent(payload, artifact.dependencies)) return false;
   } else if (mediaDependencies.length > 0) return false;
 
   const completedById = new Map(run.artifactPack.completed.map((candidate) => [candidate.id, candidate]));
@@ -268,10 +286,20 @@ export function artifactDependenciesCurrent(
           && dependency.version === run.angle.version
           && dependency.contentHash === hashValue(run.angle);
       case 'media_rights':
-        return artifact.type === 'article_metadata'
-          && Boolean(artifact.payload.heroImage)
-          && dependency.status === 'cleared'
-          && dependency.contentHash === hashValue(artifact.payload.heroImage);
+        if (artifact.type === 'article_metadata') {
+          return Boolean(artifact.payload.heroImage)
+            && dependency.status === 'cleared'
+            && dependency.contentHash === hashValue(artifact.payload.heroImage);
+        }
+        if (isPreproductionArtifactType(artifact.type)) {
+          const payload = parsePreproductionPayload(artifact.type, artifact.payload);
+          return payload.boundary.rightsSnapshots.some((snapshot) => (
+            snapshot.id === dependency.id
+            && snapshot.version === dependency.version
+            && snapshot.contentHash === dependency.contentHash
+          ));
+        }
+        return false;
       case 'artifact': {
         const target = completedById.get(dependency.id);
         if (!target || visiting.has(target.id)) return false;

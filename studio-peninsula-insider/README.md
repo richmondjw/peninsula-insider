@@ -16,6 +16,8 @@ The shell performs no model calls, Git writes, CMS writes, publication or extern
 
 `url_article_v1` can produce article body, article metadata, Ask answer, internal-link plan and SEO metadata proposal artifacts. Text-only packs remain valid and reviewable. Astro patch export stays unavailable until a separately rights-cleared hero placement exists. Reviews approve draft handoff only and never grant publication authority.
 
+V1 pre-production fixture recipes add governed explainer, podcast and short-video planning packs. Every factual or spoken segment retains claim lineage and exact upstream artifact versions. Text plans are reviewable with media unassigned. Recording and render readiness remain unavailable until exact rights, releases, approvals and disclosures exist, and the application exposes no record, render, schedule, send or publish endpoint.
+
 ## Run locally
 
 ```powershell

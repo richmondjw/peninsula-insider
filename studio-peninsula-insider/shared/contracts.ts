@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { PreproductionArtifactTypeSchema, PreproductionPayloadSchema } from './preproduction-contracts.js';
 
 const Sha256Schema = z.string().regex(/^[a-f0-9]{64}$/);
 const IsoDateTimeSchema = z.string().datetime();
@@ -67,6 +68,7 @@ export const ArtifactTypeSchema = z.enum([
   'ask_answer',
   'internal_link_plan',
   'seo_metadata_proposal',
+  ...PreproductionArtifactTypeSchema.options,
 ]);
 
 export const RecipeArtifactRequirementSchema = z.object({
@@ -97,6 +99,9 @@ export const GateCodeSchema = z.enum([
   'astro_article_contract',
   'ask_answer_contract',
   'astro_patch_ready',
+  'preproduction_policy',
+  'timing_valid',
+  'media_render_ready',
 ]);
 
 const GateResultBaseSchema = z.object({
@@ -309,13 +314,22 @@ export const SeoMetadataProposalArtifactSchema = ArtifactVersionBaseSchema.exten
   payload: SeoMetadataProposalPayloadSchema,
 });
 
-export const ArtifactVersionSchema = z.discriminatedUnion('type', [
+export const PreproductionArtifactSchema = ArtifactVersionBaseSchema.extend({
+  type: PreproductionArtifactTypeSchema,
+  payload: PreproductionPayloadSchema,
+}).refine((artifact) => artifact.type === artifact.payload.kind, {
+  message: 'Pre-production artifact type must match its discriminated payload kind.',
+  path: ['payload', 'kind'],
+});
+
+export const ArtifactVersionSchema = z.union([
   QuickNoteArtifactSchema,
   ArticleDraftArtifactSchema,
   ArticleMetadataArtifactSchema,
   AskAnswerArtifactSchema,
   InternalLinkPlanArtifactSchema,
   SeoMetadataProposalArtifactSchema,
+  PreproductionArtifactSchema,
 ]);
 
 export const ArtifactFailureSchema = z.object({
