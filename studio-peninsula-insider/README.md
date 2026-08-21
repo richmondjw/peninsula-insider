@@ -1,6 +1,6 @@
 # Peninsula Insider Workbench
 
-Private, fixture-only Content Foundry shell for DELI-693.
+Private, human-governed Content Foundry V1 workbench for DELI-693 and GitHub issue #331.
 
 ## Current vertical slice
 
@@ -8,13 +8,19 @@ The v0.1 path remains available:
 
 `frozen URL fixture -> evidence ledger -> quick-note draft -> human review -> downloadable patch`
 
-The v0.2 fixture path adds reusable artifact packs:
+The V1 path adds default-off real URL capture and reusable artifact packs:
 
-`frozen URL fixture -> locked claim set -> Article + Ask pack -> per-artifact draft-handoff review -> downloadable article patch when media rights are cleared`
+`real URL -> immutable capture -> human source/claim/angle confirmation -> Quick Note + Article + metadata + Ask -> independent review receipts -> safe draft handoffs`
 
 The shell performs no model calls, Git writes, CMS writes, publication or external distribution. Its atomic file-backed store is a single-process development/test adapter behind the durable run contract; startup fails closed in production. PostgreSQL, authentication and private storage remain explicit later gates.
 
-`url_article_v1` can produce article body, article metadata, Ask answer, internal-link plan and SEO metadata proposal artifacts. Text-only packs remain valid and reviewable. Astro patch export stays unavailable until a separately rights-cleared hero placement exists. Reviews approve draft handoff only and never grant publication authority.
+`url_article_v1` produces the required V1 pack after the human confirmation lock. Every factual public field carries exact evidence lineage and immutable hashes. Source refresh stales only artifacts that depend on the changed capture or selected claims, including their transitive dependants. Text-only Article and Ask artifacts remain reviewable and exportable. Astro patch export is a separate boundary and stays unavailable until the exact hero asset, placement, rights version and any required releases match a server-held dependency. Reviews approve draft handoff only and never grant publication authority.
+
+All generation, editing, gate re-evaluation, review and export paths enforce the shared editorial law: no prices or price implications (including free, no-charge, cost, fees and surcharges) and no literal or HTML-encoded em dash. Quick source notes and Ask provenance footers are exact server-owned templates. The workbench exposes explicit negative capabilities for providers, models, publishing, sending, scheduling and production mutation.
+
+Patch adapters are artifact-specific at `/api/foundry/runs/:runId/artifacts/:artifactId/patch`: an accepted Quick Note can export its own patch even inside an Article pack, while an Article adapter always validates the current Article and metadata receipts plus exact hero rights together.
+
+Each run references a stable `pi.run-origin-authority.v1` receipt held in a private, content-addressed repository outside `runs.json`. That receipt binds the run, recipe and bundle to either the exact frozen fixture or the original immutable capture attempt and revisions. The server verifies it on every read, mutation, review and export, preventing mutable run data from changing a fixture into a captured source or downgrading a captured source into a fixture. Source refresh retains the original authority anchor while validating the newer capture projection separately.
 
 ## Run locally
 
@@ -46,7 +52,11 @@ docker compose down
 npm run typecheck
 npm test
 npm run build
+npm run check:capture-boundary
+npm audit --audit-level=high
 ```
+
+The store reads historical v0.1, artifact-pack v1/v2 and #325 single-artifact v2 snapshots. The first mutation writes `pi.foundry-file-store.v3`. Unsealed legacy reviews become `legacy_unsealed`; valid sealed #325 receipts remain historical as `schema_migrated` and cannot authorise a V1 export. Legacy origin authority is sealed only when an exact server-owned recipe-and-bundle fixture pair can be reconstructed or the complete immutable capture resolves; cross-paired, renamed, unsupported or altered origins fail closed.
 
 Runtime state is written under `.foundry-data/` and is ignored by the repository-wide `node_modules/` rule plus the Studio-specific ignore entry added with this module.
 

@@ -1,13 +1,17 @@
-import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
+import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
+import { spawnSync } from 'node:child_process';
 import { tmpdir } from 'node:os';
-import { join } from 'node:path';
+import { dirname, join } from 'node:path';
 import request from 'supertest';
 import { afterEach, describe, expect, it } from 'vitest';
 import { createApp } from '../server/app.js';
 import { loadRuntimeConfig } from '../server/config.js';
-import { artifactDependenciesCurrent, buildPatch, evaluateArtifactGates, evaluateQuickNoteGates, hashValue, runFixture, runUrlArticleFixture, validateNewFilePatch } from '../server/fixture-runner.js';
+import { artifactDependenciesCurrent, assertArtifactPublicLineage, buildArtifactHandoff, buildPatch, evaluateArtifactGates, evaluateQuickNoteGates, hashValue, runFixture, runUrlArticleFixture, validateNewFilePatch, withArtifactHash } from '../server/fixture-runner.js';
 import { FileFoundryStore } from '../server/store.js';
-import type { ArtifactVersion, FoundryRun } from '../shared/contracts.js';
+import { buildLegacyReviewReceipt, FileReviewReceiptRepository } from '../server/review-receipts.js';
+import { ClaimSchema, LegacySingleArtifactRealUrlRunV2Schema, StoryAngleSchema, type ArtifactVersion, type FoundryRun } from '../shared/contracts.js';
+import { patchReadiness } from '../shared/patch-readiness.js';
+import { nextArtifactTabIndex } from '../shared/artifact-tabs.js';
 
 const temporaryDirectories: string[] = [];
 
@@ -23,6 +27,18 @@ function completed(run: FoundryRun, type: ArtifactVersion['type']): ArtifactVers
   const artifact = run.artifactPack.completed.find((candidate) => candidate.type === type);
   if (!artifact) throw new Error(`Missing ${type}`);
   return artifact;
+}
+
+async function expectGitApplyCheck(patch: string) {
+  const repositoryRoot = await mkdtemp(join(tmpdir(), 'pi-foundry-git-apply-'));
+  temporaryDirectories.push(repositoryRoot);
+  const initialised = spawnSync('git', ['init', '--quiet'], { cwd: repositoryRoot, encoding: 'utf8' });
+  expect(initialised.status, initialised.stderr || initialised.stdout).toBe(0);
+  const targets = [...patch.matchAll(/^\+\+\+ b\/(.+)$/gm)].map((match) => match[1]);
+  expect(targets.length).toBeGreaterThan(0);
+  await Promise.all(targets.map((target) => mkdir(dirname(join(repositoryRoot, target)), { recursive: true })));
+  const result = spawnSync('git', ['apply', '--check', '--whitespace=error-all', '-'], { cwd: repositoryRoot, input: patch, encoding: 'utf8' });
+  expect(result.status, result.stderr || result.stdout).toBe(0);
 }
 
 async function reviewArtifact(app: ReturnType<typeof createApp>, run: FoundryRun, artifact: ArtifactVersion, decision: 'accepted' | 'rejected' = 'accepted') {
@@ -76,6 +92,12 @@ afterEach(async () => {
 });
 
 describe('generic Content Foundry contracts', () => {
+  it('implements wrapping arrow and boundary keyboard movement for artifact tabs', () => {
+    expect(nextArtifactTabIndex(0, 6, 'ArrowLeft')).toBe(5);
+    expect(nextArtifactTabIndex(5, 6, 'ArrowRight')).toBe(0);
+    expect(nextArtifactTabIndex(3, 6, 'Home')).toBe(0);
+    expect(nextArtifactTabIndex(1, 6, 'End')).toBe(5);
+  });
   it('preserves the v0.1 quick-note API projection and idempotency', async () => {
     const { app } = await harness();
     const payload = { fixtureId: 'red-hill-winter-lunch', actor: 'test-editor', idempotencyKey: 'same-source-v2' };
@@ -83,7 +105,7 @@ describe('generic Content Foundry contracts', () => {
     const replay = await request(app).post('/api/foundry/runs').send(payload).expect(200);
 
     expect(replay.body.id).toBe(first.body.id);
-    expect(first.body.schemaVersion).toBe('pi.foundry-run.v2');
+    expect(first.body.schemaVersion).toBe('pi.foundry-run.v3');
     expect(first.body.recipe.id).toBe('quick_note_v1');
     expect(first.body.claims).toEqual(first.body.claimSet.claims);
     expect(first.body.artifact.type).toBe('quick_note');
@@ -129,12 +151,196 @@ describe('generic Content Foundry contracts', () => {
     const secondRestart = new FileFoundryStore(file, directory);
     const migratedAgain = await secondRestart.get(legacy.id);
 
-    expect(migrated?.schemaVersion).toBe('pi.foundry-run.v2');
+    expect(migrated?.schemaVersion).toBe('pi.foundry-run.v3');
     expect(migrated?.status).toBe('needs_revision');
     expect(migrated?.artifactPack.completed[0].id).toBe(legacy.artifact.id);
     expect(migrated?.claimSet.contentHash).toBe(migratedAgain?.claimSet.contentHash);
     expect(migrated?.artifactPack.completed[0].contentHash).toBe(migratedAgain?.artifactPack.completed[0].contentHash);
-    expect(migrated?.audit.at(-1)?.type).toBe('legacy_run_migrated');
+    expect(migrated?.audit.at(-1)?.type).toMatch(/(?:legacy_run|single_artifact_schema)_migrated/);
+  });
+
+  it('reads artifact-pack v2 and writes explicit file-store v3 on the first mutation', async () => {
+    const { directory, file } = await harness();
+    const current = runUrlArticleFixture('legacy-editor', 'legacy-pack-v2', { omitPlans: true });
+    const legacyPack = {
+      ...current,
+      schemaVersion: 'pi.foundry-run.v2',
+      evaluationAsOf: undefined,
+      artifactPack: {
+        ...current.artifactPack,
+        schemaVersion: 'pi.artifact-pack.v1',
+        completed: current.artifactPack.completed.map(({ publicFieldLineage: _lineage, ...artifact }) => artifact),
+      },
+    };
+    await writeFile(file, `${JSON.stringify({ schemaVersion: 'pi.foundry-file-store.v1', runs: [legacyPack] })}\n`, 'utf8');
+    const store = new FileFoundryStore(file, directory, undefined, () => '2026-08-21T06:00:00.000Z');
+    const migrated = await store.get(current.id);
+    expect(migrated).toMatchObject({ schemaVersion: 'pi.foundry-run.v3', artifactPack: { schemaVersion: 'pi.artifact-pack.v2' } });
+    expect(migrated?.artifactPack.completed.every((artifact) => artifact.publicFieldLineage.length > 0)).toBe(true);
+    if (!migrated) throw new Error('Migrated pack missing');
+    const article = completed(migrated, 'article_draft');
+    await store.review(migrated.id, {
+      artifactId: article.id, expectedArtifactVersion: article.version,
+      decision: 'accepted', reviewer: 'migration-reviewer', expectedVersion: migrated.version,
+    });
+    expect(JSON.parse(await readFile(file, 'utf8')).schemaVersion).toBe('pi.foundry-file-store.v3');
+  });
+
+  it('migrates #325 sealed receipts as historical and unsealed reviews as legacy stale', async () => {
+    const { directory, file } = await harness();
+    const snapshot = legacySnapshot(runFixture('legacy-editor', 'legacy-single-v2'));
+    snapshot.version = 2;
+    const decidedAt = '2026-08-21T05:30:00.000Z';
+    const sealedDraft = LegacySingleArtifactRealUrlRunV2Schema.parse({
+      ...snapshot,
+      review: { decision: 'accepted', reviewer: 'legacy-reviewer', decidedAt, receiptHash: '0'.repeat(64) },
+      reviewHistory: [{ decision: 'accepted', reviewer: 'legacy-reviewer', decidedAt, receiptHash: '0'.repeat(64), validity: 'current' }],
+    });
+    const receipts = new FileReviewReceiptRepository(join(directory, 'review-receipts'), directory);
+    const receiptHash = await receipts.put(buildLegacyReviewReceipt(sealedDraft));
+    const sealed = LegacySingleArtifactRealUrlRunV2Schema.parse({
+      ...sealedDraft,
+      review: { ...sealedDraft.review, receiptHash },
+      reviewHistory: sealedDraft.reviewHistory.map((review) => ({ ...review, receiptHash })),
+    });
+    const unsealedSnapshot = legacySnapshot(runFixture('legacy-editor', 'legacy-single-v2-unsealed'));
+    const unsealed = LegacySingleArtifactRealUrlRunV2Schema.parse({
+      ...unsealedSnapshot,
+      review: undefined,
+      reviewHistory: [{ decision: 'accepted', reviewer: 'legacy-reviewer', decidedAt, validity: 'current' }],
+    });
+    await writeFile(file, `${JSON.stringify({ schemaVersion: 'pi.foundry-file-store.v2', runs: [sealed, unsealed], captureProjections: [] })}\n`, 'utf8');
+
+    const store = new FileFoundryStore(file, directory, undefined, () => '2026-08-21T06:00:00.000Z');
+    const [migratedSealed, migratedUnsealed] = await Promise.all([store.get(sealed.id), store.get(unsealed.id)]);
+    expect(migratedSealed?.artifactPack.reviews[0]).toMatchObject({ status: 'stale', staleReason: 'schema_migrated', receiptHash });
+    expect(migratedUnsealed?.artifactPack.reviews[0]).toMatchObject({ status: 'stale', staleReason: 'legacy_unsealed' });
+    expect(migratedUnsealed?.artifactPack.reviews[0].receiptHash).toBeUndefined();
+  });
+
+  it('preserves a sealed artifact v1 review when the legacy current artifact is v2', async () => {
+    const { directory, file } = await harness();
+    const snapshot = legacySnapshot(runFixture('legacy-editor', 'legacy-stale-v1-current-v2'));
+    snapshot.version = 2;
+    const decidedAt = '2026-08-21T05:10:00.000Z';
+    const reviewed = LegacySingleArtifactRealUrlRunV2Schema.parse({
+      ...snapshot,
+      artifact: { ...snapshot.artifact, version: 1 },
+      review: { decision: 'accepted', reviewer: 'legacy-reviewer', decidedAt, receiptHash: '0'.repeat(64) },
+      reviewHistory: [],
+    });
+    const receipts = new FileReviewReceiptRepository(join(directory, 'review-receipts'), directory);
+    const receiptHash = await receipts.put(buildLegacyReviewReceipt(reviewed));
+    const currentPayload = { ...snapshot.artifact.payload, body: `${snapshot.artifact.payload.body}\n\nEditor clarification.` };
+    const current = LegacySingleArtifactRealUrlRunV2Schema.parse({
+      ...snapshot,
+      version: 3,
+      status: 'ready_for_review',
+      artifact: { ...snapshot.artifact, version: 2, payload: currentPayload },
+      review: undefined,
+      reviewHistory: [{
+        decision: 'accepted', reviewer: 'legacy-reviewer', decidedAt, receiptHash,
+        validity: 'stale', staleReason: 'artifact_edited', staledAt: '2026-08-21T05:20:00.000Z',
+      }],
+    });
+    await writeFile(file, `${JSON.stringify({ schemaVersion: 'pi.foundry-file-store.v2', runs: [current], captureProjections: [] })}\n`, 'utf8');
+
+    const store = new FileFoundryStore(file, directory, undefined, () => '2026-08-21T06:00:00.000Z');
+    const migrated = await store.get(current.id);
+    const historicalReview = migrated?.artifactPack.reviews[0];
+    expect(historicalReview).toMatchObject({
+      artifactVersion: 1, receiptHash, status: 'stale', staleReason: 'schema_migrated',
+      staledAt: '2026-08-21T05:20:00.000Z',
+    });
+    const historicalAngle = StoryAngleSchema.parse({ ...reviewed.angle, version: 1 });
+    expect(historicalReview?.dependencySnapshot).toEqual([{
+      kind: 'angle', id: reviewed.angle.id, version: 1, contentHash: hashValue(historicalAngle),
+    }]);
+    expect(historicalReview?.dependencySnapshot).not.toEqual(migrated?.artifactPack.completed[0].dependencies);
+
+    await store.create(runFixture('migration-writer', 'persist-migrated-v3'));
+    const persisted = JSON.parse(await readFile(file, 'utf8')) as { schemaVersion: string; runs: FoundryRun[] };
+    expect(persisted.schemaVersion).toBe('pi.foundry-file-store.v3');
+    const persistedLegacy = persisted.runs.find((run) => run.id === current.id);
+    if (!persistedLegacy) throw new Error('Persisted migrated run missing');
+    persistedLegacy.artifactPack.reviews[0].artifactVersion = 2;
+    await writeFile(file, `${JSON.stringify(persisted)}\n`, 'utf8');
+    await expect(new FileFoundryStore(file, directory).get(current.id)).rejects.toThrow(/historical review/i);
+  });
+
+  it('rejects legacy sealed history newer than the current artifact or conflicting at the same version', async () => {
+    const { directory, file } = await harness();
+    const base = legacySnapshot(runFixture('legacy-editor', 'legacy-unreconcilable-history'));
+    base.version = 3;
+    const decidedAt = '2026-08-21T05:10:00.000Z';
+    const receipts = new FileReviewReceiptRepository(join(directory, 'review-receipts'), directory);
+    const sealedHistory = async (artifactVersion: number, payload = base.artifact.payload) => {
+      const reviewed = LegacySingleArtifactRealUrlRunV2Schema.parse({
+        ...base,
+        artifact: { ...base.artifact, version: artifactVersion, payload },
+        review: { decision: 'accepted', reviewer: 'legacy-reviewer', decidedAt, receiptHash: '0'.repeat(64) },
+        reviewHistory: [],
+      });
+      return receipts.put(buildLegacyReviewReceipt(reviewed));
+    };
+    const assertRejected = async (receiptHash: string, artifactVersion: number, payload = base.artifact.payload) => {
+      const stored = LegacySingleArtifactRealUrlRunV2Schema.parse({
+        ...base,
+        version: 4,
+        artifact: { ...base.artifact, version: artifactVersion, payload },
+        review: undefined,
+        reviewHistory: [{ decision: 'accepted', reviewer: 'legacy-reviewer', decidedAt, receiptHash, validity: 'stale', staleReason: 'artifact_edited' }],
+      });
+      await writeFile(file, `${JSON.stringify({ schemaVersion: 'pi.foundry-file-store.v2', runs: [stored], captureProjections: [] })}\n`, 'utf8');
+      await expect(new FileFoundryStore(file, directory).get(stored.id)).rejects.toThrow(/migration validation|same artifact version/i);
+    };
+
+    await assertRejected(await sealedHistory(3), 2);
+    const reviewedPayload = { ...base.artifact.payload, body: `${base.artifact.payload.body}\n\nReviewed wording.` };
+    await assertRejected(await sealedHistory(2, reviewedPayload), 2, base.artifact.payload);
+  });
+
+  it('uses one injected evaluation time per operation and stales an expired reviewed artifact deterministically', async () => {
+    const { directory, file } = await harness();
+    let asOf = '2026-08-21T06:00:00.000Z';
+    const base = runFixture('clock-editor', 'clock-v3');
+    const claims = base.claimSet.claims.map((claim) => ClaimSchema.parse(claim.id === 'claim-location'
+      ? { ...claim, expiresAt: '2026-08-22T00:00:00.000Z' }
+      : claim));
+    const claimSet = { ...base.claimSet, claims, contentHash: hashValue(claims) };
+    if (!base.artifact) throw new Error('Quick Note missing');
+    const dependencies = base.artifact.dependencies.map((dependency) => dependency.kind === 'claim_set'
+      ? { ...dependency, contentHash: claimSet.contentHash }
+      : dependency);
+    const artifact = withArtifactHash({
+      ...base.artifact,
+      dependencies,
+      gateResults: evaluateQuickNoteGates(base.artifact.payload, claims, base.artifact.claimIds, asOf),
+    }, claims);
+    if (artifact.type !== 'quick_note') throw new Error('Quick Note narrowing failed');
+    assertArtifactPublicLineage(artifact, claims);
+    const candidate = {
+      ...base, evaluationAsOf: asOf, claimSet, claims, artifact,
+      artifactPack: {
+        ...base.artifactPack,
+        claimSetRef: { id: claimSet.id, version: claimSet.version, contentHash: claimSet.contentHash },
+        completed: [artifact],
+      },
+    };
+    const store = new FileFoundryStore(file, directory, undefined, () => asOf);
+    let run = await store.create(candidate);
+    run = await store.review(run.id, {
+      artifactId: artifact.id, expectedArtifactVersion: artifact.version,
+      decision: 'accepted', reviewer: 'clock-reviewer', expectedVersion: run.version,
+    });
+    expect(run.evaluationAsOf).toBe(asOf);
+    expect(run.artifactPack.reviews[0].status).toBe('current');
+    asOf = '2026-08-23T06:00:00.000Z';
+    const expired = await store.get(run.id);
+    expect(expired?.evaluationAsOf).toBe(asOf);
+    expect(expired?.artifactPack.reviews[0]).toMatchObject({ status: 'stale', staleReason: 'gate_re_evaluated', staledAt: asOf });
+    if (!expired) throw new Error('Expired run missing');
+    expect(() => buildArtifactHandoff(expired, artifact.id)).toThrow(/review|gates/i);
   });
 
   it('keeps a text-only Article and Ask pack valid without inventing media', async () => {
@@ -186,11 +392,10 @@ describe('generic Content Foundry contracts', () => {
     await request(app).put(`/api/foundry/runs/${run.id}/artifacts/${article.id}`).send({
       editor: 'test-editor', expectedVersion: run.version, expectedArtifactVersion: article.version, payload: appended,
     }).expect(400);
-    const staleLineage = (await request(app).put(`/api/foundry/runs/${run.id}/artifacts/${article.id}`).send({
+    await request(app).put(`/api/foundry/runs/${run.id}/artifacts/${article.id}`).send({
       editor: 'test-editor', expectedVersion: run.version, expectedArtifactVersion: article.version, payload: appended,
       factualSegmentIds: article.factualSegmentIds, claimUsage: article.claimUsage,
-    }).expect(200)).body as FoundryRun;
-    expect(completed(staleLineage, 'article_draft').gateResults.find((gate) => gate.gate === 'claim_usage_complete')).toMatchObject({ passed: false, blocking: true });
+    }).expect(400);
 
     const second = runUrlArticleFixture('test-editor', 'article-invalid-locator-v1');
     const secondArticle = completed(second, 'article_draft');
@@ -252,11 +457,7 @@ describe('generic Content Foundry contracts', () => {
     await writeFile(file, `${JSON.stringify(stored)}\n`, 'utf8');
 
     const restarted = new FileFoundryStore(file, directory);
-    const reconciled = await restarted.get(run.id);
-    if (!reconciled) throw new Error('Restarted run missing');
-    expect(reconciled.artifactPack.reviews.every((review) => review.status === 'stale')).toBe(true);
-    expect(reconciled.artifactPack.completed.every((artifact) => artifact.gateResults.some((gate) => gate.gate === 'dependency_current' && !gate.passed))).toBe(true);
-    expect(() => buildPatch(reconciled)).toThrow(/unresolved gates|current accepted/);
+    await expect(restarted.get(run.id)).rejects.toThrow(/lineage|content hash/i);
   });
 
   it('cascades A to B to C review invalidation while preserving an unrelated sibling', async () => {
@@ -371,7 +572,10 @@ describe('generic Content Foundry contracts', () => {
     }).expect(201)).body as FoundryRun;
     await request(app).get(`/api/foundry/runs/${run.id}/patch`).expect(400);
     run = await reviewArtifact(app, run, completed(run, 'article_draft'));
+    expect(patchReadiness(run, false)).toMatchObject({ ready: false, reason: expect.stringMatching(/metadata/i) });
     run = await reviewArtifact(app, run, completed(run, 'article_metadata'));
+    expect(patchReadiness(run, false)).toMatchObject({ ready: true });
+    expect(patchReadiness(run, true)).toMatchObject({ ready: false, reason: expect.stringMatching(/refresh/i) });
     const patch = await request(app).get(`/api/foundry/runs/${run.id}/patch`).expect(200);
 
     expect(patch.text).toContain('next/src/content/articles/red-hill-wet-weather-lunch.md');
@@ -379,6 +583,7 @@ describe('generic Content Foundry contracts', () => {
     expect(patch.text).toContain('+clusterLinks: [{"label":"Explore Red Hill","href":"/explore/places/red-hill/"}]');
     expect(patch.text).not.toMatch(/\$\s?\d|—|price_band/);
     expect(validateNewFilePatch(patch.text)).toBe(true);
+    await expectGitApplyCheck(patch.text);
   });
 
   it('preserves quick-note review, edit and multiline patch compatibility', async () => {
@@ -407,6 +612,7 @@ describe('generic Content Foundry contracts', () => {
     const reaccepted = await reviewArtifact(app, edited, edited.artifact);
     const patch = await request(app).get(`/api/foundry/runs/${reaccepted.id}/patch`).expect(200);
     expect(patch.text).toContain('+First paragraph.\n+\n+Second paragraph.');
+    await expectGitApplyCheck(patch.text);
   });
 
   it('requires idempotency, serializes mutations and fails closed outside local fixture mode', async () => {

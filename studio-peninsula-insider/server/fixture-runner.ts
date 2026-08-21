@@ -3,9 +3,11 @@ import type { z } from 'zod';
 import {
   ArticleDraftPayloadSchema,
   ArticleMetadataPayloadSchema,
+  ArtifactPackFoundryRunV2Schema,
   ArtifactVersionSchema,
   AskAnswerPayloadSchema,
   ClaimSchema,
+  FIXTURE_ASK_PROVENANCE_TEMPLATE,
   FoundryRunSchema,
   InternalLinkPlanPayloadSchema,
   LegacyFoundryRunSchema,
@@ -13,6 +15,7 @@ import {
   RecipeDefinitionSchema,
   SeoMetadataProposalPayloadSchema,
   type ArtifactVersion,
+  type ArtifactPackFoundryRunV2,
   type ArtifactDependency,
   type Claim,
   type ClaimSetVersion,
@@ -21,6 +24,8 @@ import {
   type LegacyFoundryRun,
   type RecipeDefinition,
 } from '../shared/contracts.js';
+import { containsEmDash, containsPriceLanguage } from '../shared/editorial-laws.js';
+import { buildFixtureOriginAuthorityReceipt, withFixtureOriginAuthority } from './origin-authority.js';
 
 export const hash = (value: string) => createHash('sha256').update(value).digest('hex');
 export const hashValue = (value: unknown) => hash(JSON.stringify(value));
@@ -56,8 +61,6 @@ function bindClaimUsage<T extends Array<{ segmentId: string; path: string; claim
 export const FIXTURE_ID = 'red-hill-winter-lunch';
 export const URL_ARTICLE_FIXTURE_ID = 'red-hill-url-article';
 
-const PRICE_PATTERN = /(?:\$\s?\d|\bAUD\b|\bprice(?:d|s|band)?\b)/i;
-
 export const QUICK_NOTE_RECIPE: RecipeDefinition = RecipeDefinitionSchema.parse({
   schemaVersion: 'pi.recipe-definition.v1',
   id: 'quick_note_v1',
@@ -82,6 +85,7 @@ export const URL_ARTICLE_RECIPE: RecipeDefinition = RecipeDefinitionSchema.parse
   label: 'URL article and Ask pack',
   sourceKinds: ['url'],
   artifacts: [
+    { key: 'quick-note', type: 'quick_note', required: true, dependsOnKeys: [], targetContract: 'astro.quick-notes.v1' },
     { key: 'article-draft', type: 'article_draft', required: true, dependsOnKeys: [], targetContract: 'astro.articles.body.v1' },
     { key: 'article-metadata', type: 'article_metadata', required: true, dependsOnKeys: ['article-draft'], targetContract: 'astro.articles.frontmatter.v2026-08-21' },
     { key: 'ask-answer', type: 'ask_answer', required: true, dependsOnKeys: [], targetContract: 'concierge.ask.response.v1' },
@@ -91,6 +95,32 @@ export const URL_ARTICLE_RECIPE: RecipeDefinition = RecipeDefinitionSchema.parse
   textOnlyAllowed: true,
   externalCalls: false,
 });
+
+export function assertKnownFrozenFixtureOrigin(run: FoundryRun): void {
+  if (run.capture) throw new Error('Captured runs are not deterministic fixture authority');
+  const catalogue = [
+    {
+      recipe: QUICK_NOTE_RECIPE,
+      bundleId: `bundle-${FIXTURE_ID}`,
+      build: () => runFixture(run.bundle.submittedBy, run.idempotencyKey),
+    },
+    {
+      recipe: URL_ARTICLE_RECIPE,
+      bundleId: `bundle-${URL_ARTICLE_FIXTURE_ID}`,
+      build: () => runUrlArticleFixture(run.bundle.submittedBy, run.idempotencyKey),
+    },
+  ];
+  const authority = catalogue.find((candidate) => (
+    candidate.bundleId === run.bundle.id
+    && JSON.stringify(candidate.recipe) === JSON.stringify(run.recipe)
+  ));
+  const expected = authority?.build();
+  const actualReceipt = buildFixtureOriginAuthorityReceipt(run);
+  const expectedReceipt = expected ? buildFixtureOriginAuthorityReceipt(expected) : undefined;
+  if (!expectedReceipt || JSON.stringify(actualReceipt) !== JSON.stringify(expectedReceipt)) {
+    throw new Error('Fixture origin does not reproduce the frozen deterministic fixture contract');
+  }
+}
 
 function gate(
   gateName: GateResult['gate'],
@@ -147,8 +177,8 @@ export function evaluateArtifactGates(
   const lineageComplete = completeUsage && paragraphCoverage;
   const supportedClaims = usedClaimIds.length > 0 && usedClaimIds.every((claimId) => claimIsUsable(claimsById.get(claimId), asOf));
   const results: GateResult[] = [
-    gate('no_price', !PRICE_PATTERN.test(publicCopy), 'Public artifact content must not contain pricing.'),
-    gate('no_em_dash', !/—/.test(publicCopy), 'Public artifact content must not contain em dashes; en dashes remain valid for ranges.'),
+    gate('no_price', !containsPriceLanguage(publicCopy), 'Public artifact content must not contain pricing, currency, cost, fee, charge or free wording.'),
+    gate('no_em_dash', !containsEmDash(publicCopy), 'Public artifact content must not contain em dashes; en dashes remain valid for ranges.'),
     gate('claim_usage_complete', lineageComplete, lineageComplete ? 'Every factual segment resolves to current content and maps to at least one claim.' : 'A factual segment is missing, changed, unresolved or lacks a claim mapping.', usedClaimIds),
     gate('supported_claims_only', supportedClaims, supportedClaims ? 'Every used claim is current, supported, evidenced and unrestricted.' : 'A used claim is missing, expired, unsupported, unevidenced or restricted.', usedClaimIds),
     gate('dependency_current', true, 'Every dependency points to the current locked version.'),
@@ -164,13 +194,14 @@ export function evaluateQuickNoteGates(
   payload: { headline: string; dek?: string; body: string },
   claims: Claim[],
   claimIds: string[],
+  asOf = '2026-08-21T05:00:00.000Z',
 ): GateResult[] {
   return evaluateArtifactGates(
     payload,
     claims,
     ['quick-note-copy'],
     bindClaimUsage(payload, [{ segmentId: 'quick-note-copy', path: '$', claimIds }]),
-    '2026-08-21T05:00:00.000Z',
+    asOf,
   );
 }
 
@@ -235,8 +266,128 @@ function angleDependency(angle: { id: string; version: number; label: string; fr
   return { kind: 'angle' as const, id: angle.id, version: angle.version, contentHash: hashValue(angle) };
 }
 
-function withArtifactHash<T extends Omit<ArtifactVersion, 'contentHash'>>(artifact: T): ArtifactVersion {
-  return ArtifactVersionSchema.parse({ ...artifact, contentHash: hashValue(artifact.payload) });
+interface PublicLeaf {
+  path: string;
+  value: unknown;
+  factual: boolean;
+}
+
+function leafPathIsFactual(type: ArtifactVersion['type'], path: string): boolean {
+  if (type === 'quick_note') return /^\$(?:\.headline|\.dek|\.body::paragraph\[|\.sources\[)/.test(path) && !/\.note$/.test(path);
+  if (type === 'article_draft') return path.startsWith('$.body::paragraph[');
+  if (type === 'article_metadata') {
+    return /^\$(?:\.title|\.dek|\.tags\[|\.related|\.clusterLinks\[|\.aiSummary\[|\.faq\[|\.heroImage\.(?:src|alt|credit))/.test(path);
+  }
+  if (type === 'ask_answer') return path !== '$.provenance_footer';
+  if (type === 'internal_link_plan') return true;
+  if (type === 'seo_metadata_proposal') return true;
+  return false;
+}
+
+function collectPublicLeaves(type: ArtifactVersion['type'], payload: unknown): PublicLeaf[] {
+  if (type === 'quick_note' && payload && typeof payload === 'object') {
+    const note = payload as {
+      headline?: unknown; dek?: unknown; section?: unknown; tag?: unknown; publishedAt?: unknown; expiresAt?: unknown;
+      verifiedAt?: unknown; verifiedBy?: unknown; sources?: Array<{ kind?: unknown; url?: unknown; note?: unknown; checkedAt?: unknown }>;
+      status?: unknown; body?: unknown;
+    };
+    const leaves: PublicLeaf[] = [];
+    for (const key of ['headline', 'dek', 'section', 'tag', 'publishedAt', 'expiresAt', 'verifiedAt', 'verifiedBy', 'status'] as const) {
+      if (note[key] !== undefined) leaves.push({ path: `$.${key}`, value: note[key], factual: leafPathIsFactual(type, `$.${key}`) });
+    }
+    note.sources?.forEach((source, index) => {
+      for (const key of ['kind', 'url', 'note', 'checkedAt'] as const) {
+        if (source[key] !== undefined) {
+          const path = `$.sources[${index}].${key}`;
+          leaves.push({ path, value: source[key], factual: leafPathIsFactual(type, path) });
+        }
+      }
+    });
+    if (typeof note.body === 'string') {
+      note.body.split(/\n\s*\n/).forEach((paragraph, index) => leaves.push({ path: `$.body::paragraph[${index}]`, value: paragraph, factual: true }));
+    }
+    return leaves;
+  }
+  if (type === 'article_draft' && payload && typeof payload === 'object') {
+    const draft = payload as { slug?: unknown; body?: unknown };
+    const leaves: PublicLeaf[] = [];
+    if (draft.slug !== undefined) leaves.push({ path: '$.slug', value: draft.slug, factual: false });
+    if (typeof draft.body === 'string') {
+      draft.body.split(/\n\s*\n/).forEach((paragraph, index) => {
+        leaves.push({ path: `$.body::paragraph[${index}]`, value: paragraph, factual: true });
+      });
+    }
+    return leaves;
+  }
+  const leaves: PublicLeaf[] = [];
+  const visit = (value: unknown, path: string): void => {
+    if (value === undefined) return;
+    if (Array.isArray(value)) {
+      value.forEach((item, index) => visit(item, `${path}[${index}]`));
+      return;
+    }
+    if (value !== null && typeof value === 'object') {
+      Object.entries(value as Record<string, unknown>).forEach(([key, item]) => visit(item, `${path}.${key}`));
+      return;
+    }
+    leaves.push({ path, value, factual: leafPathIsFactual(type, path) });
+  };
+  visit(payload, '$');
+  return leaves;
+}
+
+export function buildPublicFieldLineage(
+  type: ArtifactVersion['type'],
+  payload: unknown,
+  claimUsage: ArtifactVersion['claimUsage'],
+  claims: Claim[],
+): ArtifactVersion['publicFieldLineage'] {
+  const claimsById = new Map(claims.map((claim) => [claim.id, claim]));
+  return collectPublicLeaves(type, payload).map((leaf) => {
+    const exact = claimUsage.find((usage) => usage.path === leaf.path)
+      ?? (type === 'quick_note' ? claimUsage.find((usage) => usage.path === '$') : undefined);
+    const claimIds = exact?.claimIds ?? [];
+    if (leaf.factual && claimIds.length === 0) throw new Error(`Factual public field ${leaf.path} has no immutable claim binding`);
+    const textHash = hashValue(leaf.value);
+    return {
+      path: leaf.path,
+      contentHash: textHash,
+      factual: leaf.factual,
+      segments: leaf.factual
+        ? claimIds.map((claimId) => {
+          const claim = claimsById.get(claimId);
+          if (!claim) throw new Error(`Public field ${leaf.path} references missing claim ${claimId}`);
+          return { source: 'claim' as const, claimId, claimHash: hashValue(claim), textHash };
+        })
+        : [{ source: 'system_template' as const, textHash }],
+    };
+  });
+}
+
+export function assertArtifactPublicLineage(artifact: ArtifactVersion, claims: Claim[]): void {
+  const expected = buildPublicFieldLineage(artifact.type, artifact.payload, artifact.claimUsage, claims);
+  if (JSON.stringify(expected) !== JSON.stringify(artifact.publicFieldLineage)) {
+    throw new Error(`Artifact ${artifact.id} public-field lineage is incomplete or does not match its payload`);
+  }
+}
+
+export function withArtifactHash<T extends {
+  type: ArtifactVersion['type'];
+  payload: unknown;
+  claimUsage: ArtifactVersion['claimUsage'];
+  gateResults: GateResult[];
+}>(artifact: T, claims: Claim[]): ArtifactVersion {
+  const publicFieldLineage = buildPublicFieldLineage(artifact.type, artifact.payload, artifact.claimUsage, claims);
+  const gateResults = [
+    ...artifact.gateResults.filter((result) => result.gate !== 'field_lineage_complete'),
+    gate('field_lineage_complete', true, 'Every public field is hash-bound to immutable claims or an explicit system template.'),
+  ];
+  return ArtifactVersionSchema.parse({
+    ...artifact,
+    contentHash: hashValue(artifact.payload),
+    publicFieldLineage,
+    gateResults,
+  });
 }
 
 export function artifactDependenciesCurrent(
@@ -247,12 +398,13 @@ export function artifactDependenciesCurrent(
   if (artifact.contentHash !== hashValue(artifact.payload)
     || artifact.angleId !== run.angle.id
     || artifact.angleVersion !== run.angle.version) return false;
+  try { assertArtifactPublicLineage(artifact, run.claimSet.claims); } catch { return false; }
   const claimSetDependencies = artifact.dependencies.filter((dependency) => dependency.kind === 'claim_set');
   const angleDependencies = artifact.dependencies.filter((dependency) => dependency.kind === 'angle');
   if (claimSetDependencies.length !== 1 || angleDependencies.length !== 1) return false;
   const mediaDependencies = artifact.dependencies.filter((dependency) => dependency.kind === 'media_rights');
   if (artifact.type === 'article_metadata') {
-    if (artifact.payload.astroPatchReady !== Boolean(artifact.payload.heroImage && mediaDependencies.length === 1)) return false;
+    if (artifact.payload.astroPatchReady !== Boolean(artifact.payload.heroImage && artifact.payload.heroBinding && mediaDependencies.length === 1)) return false;
   } else if (mediaDependencies.length > 0) return false;
 
   const completedById = new Map(run.artifactPack.completed.map((candidate) => [candidate.id, candidate]));
@@ -270,8 +422,52 @@ export function artifactDependenciesCurrent(
       case 'media_rights':
         return artifact.type === 'article_metadata'
           && Boolean(artifact.payload.heroImage)
+          && Boolean(artifact.payload.heroBinding)
           && dependency.status === 'cleared'
-          && dependency.contentHash === hashValue(artifact.payload.heroImage);
+          && dependency.id === artifact.payload.heroBinding?.rights.id
+          && dependency.version === artifact.payload.heroBinding?.rights.version
+          && dependency.contentHash === artifact.payload.heroBinding?.contentHash
+          && artifact.payload.heroBinding?.asset.contentHash === hashValue(artifact.payload.heroImage)
+          && artifact.payload.heroBinding?.contentHash === hashValue({
+            schemaVersion: artifact.payload.heroBinding.schemaVersion,
+            asset: artifact.payload.heroBinding.asset,
+            placementPath: artifact.payload.heroBinding.placementPath,
+            surface: artifact.payload.heroBinding.surface,
+            rights: artifact.payload.heroBinding.rights,
+            recognisablePeople: artifact.payload.heroBinding.recognisablePeople,
+            releaseIds: [...artifact.payload.heroBinding.releaseIds].sort(),
+          })
+          && (!artifact.payload.heroBinding.recognisablePeople || artifact.payload.heroBinding.releaseIds.length > 0);
+      case 'capture_source': {
+        const revision = run.capture?.revisions.find((candidate) => candidate.attemptId === dependency.attemptId);
+        const confirmation = run.sourceConfirmation;
+        return Boolean(
+          run.capture
+          && confirmation
+          && run.capture.artifactAttemptId === dependency.attemptId
+          && run.capture.currentAttemptId === dependency.attemptId
+          && revision?.requestFingerprint === dependency.requestFingerprint
+          && revision.sourceRevision?.id === dependency.sourceRevisionId
+          && revision.extractionRevision?.id === dependency.extractionRevisionId
+          && confirmation.captureAttemptId === dependency.attemptId
+          && confirmation.confirmedClaimIds.length === dependency.selectedClaimIds.length
+          && confirmation.confirmedClaimIds.every((claimId, index) => claimId === dependency.selectedClaimIds[index])
+          && confirmation.confirmedClaimHashes.every((claimHash, index) => (
+            claimHash === hashValue(run.claimSet.claims.find((claim) => claim.id === dependency.selectedClaimIds[index]))
+          ))
+          && dependency.selectedClaimsHash === hashValue(dependency.selectedClaimIds.map((claimId) => (
+            run.claimSet.claims.find((claim) => claim.id === claimId)
+          )))
+          && dependency.contentHash === hashValue({
+            attemptId: dependency.attemptId,
+            requestFingerprint: dependency.requestFingerprint,
+            sourceRevisionId: dependency.sourceRevisionId,
+            extractionRevisionId: dependency.extractionRevisionId,
+            selectedClaimIds: dependency.selectedClaimIds,
+            selectedClaimsHash: dependency.selectedClaimsHash,
+          })
+        );
+      }
       case 'artifact': {
         const target = completedById.get(dependency.id);
         if (!target || visiting.has(target.id)) return false;
@@ -311,16 +507,17 @@ export function runFixture(actor: string, idempotencyKey: string): FoundryRun {
     claimIds,
     dependencies: [claimSetDependency(claimSet), angleDependency(angle)],
     payload,
-    gateResults: evaluateQuickNoteGates(payload, claims, claimIds),
-  });
-  return FoundryRunSchema.parse({
-    schemaVersion: 'pi.foundry-run.v2',
+    gateResults: evaluateQuickNoteGates(payload, claims, claimIds, capturedAt),
+  }, claims);
+  return FoundryRunSchema.parse(withFixtureOriginAuthority({
+    schemaVersion: 'pi.foundry-run.v3',
     id: `run-${hash(idempotencyKey).slice(0, 12)}`,
     idempotencyKey,
     version: 1,
     status: 'ready_for_review',
     createdAt: capturedAt,
     updatedAt: capturedAt,
+    evaluationAsOf: capturedAt,
     bundle,
     recipe: QUICK_NOTE_RECIPE,
     claimSet,
@@ -328,7 +525,7 @@ export function runFixture(actor: string, idempotencyKey: string): FoundryRun {
     angle,
     artifact,
     artifactPack: {
-      schemaVersion: 'pi.artifact-pack.v1',
+      schemaVersion: 'pi.artifact-pack.v2',
       id: `pack-${hash(idempotencyKey).slice(0, 12)}`,
       version: 1,
       recipeId: QUICK_NOTE_RECIPE.id,
@@ -343,7 +540,7 @@ export function runFixture(actor: string, idempotencyKey: string): FoundryRun {
     },
     blockers: [],
     audit: [{ at: capturedAt, actor, type: 'fixture_run_created', detail: 'Deterministic quick-note fixture reached review without external calls.' }],
-  });
+  }));
 }
 
 export function migrateLegacyRun(input: unknown): FoundryRun {
@@ -378,7 +575,7 @@ export function migrateLegacyRun(input: unknown): FoundryRun {
     dependencies: [dependency, selectedAngleDependency],
     payload: legacy.artifact.payload,
     gateResults,
-  });
+  }, legacy.claims);
   const reviews = legacy.review ? [{
     id: `review-${hashValue([legacy.id, legacy.review]).slice(0, 16)}`,
     artifactId: artifact.id,
@@ -387,18 +584,21 @@ export function migrateLegacyRun(input: unknown): FoundryRun {
     reviewer: legacy.review.reviewer,
     note: legacy.review.note,
     decidedAt: legacy.review.decidedAt,
-    status: 'current' as const,
+    status: 'stale' as const,
     dependencySnapshot: artifact.dependencies,
     authority: 'draft_handoff_only' as const,
+    staleReason: 'legacy_unsealed' as const,
+    staledAt: legacy.updatedAt,
   }] : [];
-  return FoundryRunSchema.parse({
-    schemaVersion: 'pi.foundry-run.v2',
+  return FoundryRunSchema.parse(withFixtureOriginAuthority({
+    schemaVersion: 'pi.foundry-run.v3',
     id: legacy.id,
     idempotencyKey: legacy.idempotencyKey,
     version: legacy.version,
     status: legacy.status,
     createdAt: legacy.createdAt,
     updatedAt: legacy.updatedAt,
+    evaluationAsOf: legacy.updatedAt,
     bundle: legacy.bundle,
     recipe: QUICK_NOTE_RECIPE,
     claimSet,
@@ -406,7 +606,7 @@ export function migrateLegacyRun(input: unknown): FoundryRun {
     angle: { ...legacy.angle, version: 1 },
     artifact,
     artifactPack: {
-      schemaVersion: 'pi.artifact-pack.v1',
+      schemaVersion: 'pi.artifact-pack.v2',
       id: `pack-${legacy.id}`,
       version: Math.max(1, legacy.artifact.version),
       recipeId: QUICK_NOTE_RECIPE.id,
@@ -420,14 +620,69 @@ export function migrateLegacyRun(input: unknown): FoundryRun {
       reviews,
     },
     blockers: legacy.blockers,
-    review: legacy.review,
     audit: [...legacy.audit, {
       at: legacy.updatedAt,
       actor: 'store-migration',
       type: 'legacy_run_migrated',
-      detail: 'Loaded the v0.1 quick-note snapshot into the v2 artifact-pack contract.',
+      detail: 'Loaded the v0.1 quick-note snapshot into the v3 run and v2 artifact-pack contract; its unsealed review is historical only.',
     }],
-  });
+  }));
+}
+
+export function migrateArtifactPackV2Run(input: unknown): FoundryRun {
+  const legacy: ArtifactPackFoundryRunV2 = ArtifactPackFoundryRunV2Schema.parse(input);
+  const migratePayload = (artifact: ArtifactPackFoundryRunV2['artifactPack']['completed'][number]): unknown => {
+    if (artifact.type === 'article_metadata') {
+      const candidate = artifact.payload as Record<string, unknown>;
+      return ArticleMetadataPayloadSchema.parse({ ...candidate, heroBinding: undefined, astroPatchReady: false });
+    }
+    switch (artifact.type) {
+      case 'quick_note': return QuickNoteSchema.parse(artifact.payload);
+      case 'article_draft': return ArticleDraftPayloadSchema.parse(artifact.payload);
+      case 'ask_answer': return AskAnswerPayloadSchema.parse(artifact.payload);
+      case 'internal_link_plan': return InternalLinkPlanPayloadSchema.parse(artifact.payload);
+      case 'seo_metadata_proposal': return SeoMetadataProposalPayloadSchema.parse(artifact.payload);
+    }
+  };
+  const completed = legacy.artifactPack.completed.map((artifact) => withArtifactHash({
+    ...artifact,
+    payload: migratePayload(artifact),
+    dependencies: artifact.type === 'article_metadata'
+      ? artifact.dependencies.filter((dependency) => dependency.kind !== 'media_rights')
+      : artifact.dependencies,
+    gateResults: artifact.gateResults.filter((result) => result.gate !== 'astro_patch_ready'),
+  }, legacy.claimSet.claims));
+  const currentById = new Map(completed.map((artifact) => [artifact.id, artifact]));
+  const reviews = legacy.artifactPack.reviews.map((review) => ({
+    ...review,
+    status: 'stale' as const,
+    dependencySnapshot: currentById.get(review.artifactId)?.dependencies ?? review.dependencySnapshot,
+    staleReason: 'legacy_unsealed' as const,
+    staledAt: legacy.updatedAt,
+  }));
+  const compatibilityArtifact = legacy.artifact
+    ? completed.find((artifact) => artifact.id === legacy.artifact?.id && artifact.type === 'quick_note')
+    : undefined;
+  return FoundryRunSchema.parse(withFixtureOriginAuthority({
+    ...legacy,
+    schemaVersion: 'pi.foundry-run.v3',
+    evaluationAsOf: legacy.updatedAt,
+    status: compatibilityArtifact ? 'ready_for_review' : legacy.status,
+    artifact: compatibilityArtifact,
+    review: undefined,
+    artifactPack: {
+      ...legacy.artifactPack,
+      schemaVersion: 'pi.artifact-pack.v2',
+      completed,
+      reviews,
+    },
+    audit: [...legacy.audit, {
+      at: legacy.updatedAt,
+      actor: 'store-migration',
+      type: 'artifact_pack_schema_migrated',
+      detail: 'Migrated the v2 run and v1 artifact pack to receipt-ready v3/v2 contracts; unsealed reviews became historical.',
+    }],
+  }));
 }
 
 export function runUrlArticleFixture(
@@ -438,6 +693,22 @@ export function runUrlArticleFixture(
   const { capturedAt, claims, claimSet, bundle, angle } = fixtureSource(actor);
   const dependency = claimSetDependency(claimSet);
   const selectedAngleDependency = angleDependency(angle);
+  const quickPayload = QuickNoteSchema.parse({
+    headline: 'A wet-weather lunch option in Red Hill',
+    dek: 'A covered dining room and a confirmed Saturday service make this a practical rainy-day anchor.',
+    section: 'eat', tag: 'event', publishedAt: capturedAt, expiresAt: '2026-08-30T00:00:00.000Z',
+    sources: [{ kind: 'venue-site', url: bundle.sourceItems[0].uri, checkedAt: capturedAt }],
+    status: 'draft',
+    body: 'The venue is in Red Hill.\n\nThe winter lunch is available on Saturday 29 August.\n\nBooking is required for the winter lunch.\n\nThe covered dining room suits a wet-weather lunch.',
+  });
+  const quickClaimIds = ['claim-location', 'claim-date', 'claim-booking', 'claim-observation'];
+  const quickUsage = bindClaimUsage(quickPayload, [{ segmentId: 'quick-note-copy', path: '$', claimIds: quickClaimIds }]);
+  const quick = withArtifactHash({
+    id: 'artifact-article-pack-quick-note-red-hill', key: 'quick-note', version: 1, type: 'quick_note' as const,
+    angleId: angle.id, angleVersion: angle.version, factualSegmentIds: ['quick-note-copy'], claimUsage: quickUsage,
+    claimIds: quickClaimIds, dependencies: [dependency, selectedAngleDependency], payload: quickPayload,
+    gateResults: evaluateQuickNoteGates(quickPayload, claims, quickClaimIds, capturedAt),
+  }, claims);
   const articlePayload = ArticleDraftPayloadSchema.parse({
     slug: 'red-hill-wet-weather-lunch',
     body: [
@@ -459,7 +730,7 @@ export function runUrlArticleFixture(
     factualSegmentIds: articleUsage.map((usage) => usage.segmentId), claimUsage: articleUsage,
     dependencies: [dependency, selectedAngleDependency], payload: articlePayload,
     gateResults: evaluateArtifactGates(articlePayload, claims, articleUsage.map((usage) => usage.segmentId), articleUsage, capturedAt),
-  });
+  }, claims);
   const articleDependency = { kind: 'artifact' as const, id: article.id, version: article.version, contentHash: article.contentHash };
   const clearedHero = options.includeClearedHero ? {
     src: '/images/sourced/place-red-hill-01.webp',
@@ -467,6 +738,18 @@ export function runUrlArticleFixture(
     credit: 'Peninsula Insider',
     license: 'other-licensed' as const,
   } : undefined;
+  const heroBinding = clearedHero ? (() => {
+    const unsigned = {
+      schemaVersion: 'pi.media-rights-binding.v1' as const,
+      asset: { id: 'asset-place-red-hill-01', version: 1, contentHash: hashValue(clearedHero) },
+      placementPath: '$.heroImage' as const,
+      surface: 'image' as const,
+      rights: { id: 'rights-place-red-hill-01', version: 1 },
+      recognisablePeople: false,
+      releaseIds: [] as string[],
+    };
+    return { ...unsigned, contentHash: hashValue(unsigned) };
+  })() : undefined;
   const metadataPayload = ArticleMetadataPayloadSchema.parse({
     title: 'A wet-weather lunch option in Red Hill',
     dek: 'A covered dining room and a confirmed Saturday service make this a practical rainy-day anchor.',
@@ -474,7 +757,8 @@ export function runUrlArticleFixture(
     houseByline: true,
     publishedAt: '2026-08-21',
     heroImage: clearedHero,
-    astroPatchReady: Boolean(clearedHero),
+    heroBinding,
+    astroPatchReady: Boolean(clearedHero && heroBinding),
     format: 'service',
     tags: ['red-hill', 'eat', 'rainy-day'],
     relatedVenues: [], relatedExperiences: [], relatedPlaces: [], relatedArticles: [], relatedItineraries: [],
@@ -486,9 +770,21 @@ export function runUrlArticleFixture(
     clusterLinks: [{ label: 'Explore Red Hill', href: '/explore/places/red-hill/' }],
   });
   const metadataUsage = bindClaimUsage(metadataPayload, [
+    { segmentId: 'metadata-title', path: '$.title', claimIds: ['claim-location', 'claim-observation'] },
     { segmentId: 'metadata-dek', path: '$.dek', claimIds: ['claim-location', 'claim-date', 'claim-observation'] },
+    ...(clearedHero ? [
+      { segmentId: 'metadata-hero-src', path: '$.heroImage.src', claimIds: ['claim-location'] },
+      { segmentId: 'metadata-hero-alt', path: '$.heroImage.alt', claimIds: ['claim-location', 'claim-observation'] },
+      { segmentId: 'metadata-hero-credit', path: '$.heroImage.credit', claimIds: ['claim-location'] },
+    ] : []),
+    { segmentId: 'metadata-tag-1', path: '$.tags[0]', claimIds: ['claim-location'] },
+    { segmentId: 'metadata-tag-2', path: '$.tags[1]', claimIds: ['claim-observation'] },
+    { segmentId: 'metadata-tag-3', path: '$.tags[2]', claimIds: ['claim-observation'] },
+    { segmentId: 'metadata-cluster-label', path: '$.clusterLinks[0].label', claimIds: ['claim-location'] },
+    { segmentId: 'metadata-cluster-href', path: '$.clusterLinks[0].href', claimIds: ['claim-location'] },
     { segmentId: 'metadata-summary-1', path: '$.aiSummary[0]', claimIds: ['claim-observation'] },
     { segmentId: 'metadata-summary-2', path: '$.aiSummary[1]', claimIds: ['claim-date'] },
+    { segmentId: 'metadata-faq-question', path: '$.faq[0].question', claimIds: ['claim-location', 'claim-date'] },
     { segmentId: 'metadata-faq-answer', path: '$.faq[0].answer', claimIds: ['claim-date', 'claim-booking'] },
   ]);
   const metadataGates = evaluateArtifactGates(
@@ -501,18 +797,18 @@ export function runUrlArticleFixture(
   );
   metadataGates.push(gate(
     'astro_patch_ready',
-    Boolean(clearedHero),
-    clearedHero ? 'A separately rights-cleared hero placement makes the Astro patch adapter available.' : 'Text artifacts remain reviewable, but Astro patch export waits for a rights-cleared hero placement.',
+    Boolean(clearedHero && heroBinding),
+    clearedHero && heroBinding ? 'An exact hero asset, placement, rights and release snapshot makes the Astro patch adapter available.' : 'Text artifacts remain reviewable, but Astro patch export waits for an exact hero rights binding.',
     [],
     false,
   ));
   const metadataDependencies: ArtifactVersion['dependencies'] = [dependency, selectedAngleDependency, articleDependency];
-  if (clearedHero) {
+  if (heroBinding) {
     metadataDependencies.push({
       kind: 'media_rights' as const,
-      id: 'rights-place-red-hill-01',
-      version: 1,
-      contentHash: hashValue(clearedHero),
+      id: heroBinding.rights.id,
+      version: heroBinding.rights.version,
+      contentHash: heroBinding.contentHash,
       status: 'cleared' as const,
     });
   }
@@ -522,7 +818,7 @@ export function runUrlArticleFixture(
     factualSegmentIds: metadataUsage.map((usage) => usage.segmentId), claimUsage: metadataUsage,
     dependencies: metadataDependencies, payload: metadataPayload,
     gateResults: metadataGates,
-  });
+  }, claims);
   const askPayload = AskAnswerPayloadSchema.parse({
     answer: 'For a rainy Red Hill lunch, this covered dining room is a practical option. The fixture source lists the winter lunch for Saturday 29 August, with booking required.',
     recommendations: [{
@@ -533,11 +829,16 @@ export function runUrlArticleFixture(
       region: 'red-hill',
     }],
     follow_on: ['What else works in Red Hill when it rains?'],
-    provenance_footer: 'Drafted from a locked Peninsula Insider fixture claim set. Verify live details before visiting.',
+    provenance_footer: FIXTURE_ASK_PROVENANCE_TEMPLATE,
   });
   const askUsage = bindClaimUsage(askPayload, [
     { segmentId: 'ask-answer', path: '$.answer', claimIds: ['claim-location', 'claim-date', 'claim-booking', 'claim-observation'] },
-    { segmentId: 'ask-recommendation', path: '$.recommendations[0].why', claimIds: ['claim-date', 'claim-booking', 'claim-observation'] },
+    { segmentId: 'ask-recommendation-title', path: '$.recommendations[0].title', claimIds: ['claim-location', 'claim-observation'] },
+    { segmentId: 'ask-recommendation-href', path: '$.recommendations[0].href', claimIds: ['claim-location', 'claim-observation'] },
+    { segmentId: 'ask-recommendation-why', path: '$.recommendations[0].why', claimIds: ['claim-date', 'claim-booking', 'claim-observation'] },
+    { segmentId: 'ask-recommendation-type', path: '$.recommendations[0].venue_type', claimIds: ['claim-observation'] },
+    { segmentId: 'ask-recommendation-region', path: '$.recommendations[0].region', claimIds: ['claim-location'] },
+    { segmentId: 'ask-follow-on', path: '$.follow_on[0]', claimIds: ['claim-location', 'claim-observation'] },
   ]);
   const ask = withArtifactHash({
     id: 'artifact-ask-red-hill', key: 'ask-answer', version: 1, type: 'ask_answer' as const,
@@ -545,8 +846,8 @@ export function runUrlArticleFixture(
     factualSegmentIds: askUsage.map((usage) => usage.segmentId), claimUsage: askUsage,
     dependencies: [dependency, selectedAngleDependency], payload: askPayload,
     gateResults: evaluateArtifactGates(askPayload, claims, askUsage.map((usage) => usage.segmentId), askUsage, capturedAt, { gate: 'ask_answer_contract', schema: AskAnswerPayloadSchema }),
-  });
-  const completed: ArtifactVersion[] = [article, metadata, ask];
+  }, claims);
+  const completed: ArtifactVersion[] = [quick, article, metadata, ask];
   const failed = [];
   const omitted = [];
   if (options.omitPlans) {
@@ -556,13 +857,17 @@ export function runUrlArticleFixture(
     );
   } else {
     const linkPayload = InternalLinkPlanPayloadSchema.parse({ links: [{ label: 'Explore Red Hill', href: '/explore/places/red-hill/', placement: 'After the second paragraph' }] });
-    const linkUsage = bindClaimUsage(linkPayload, [{ segmentId: 'link-label', path: '$.links[0].label', claimIds: ['claim-location'] }]);
+    const linkUsage = bindClaimUsage(linkPayload, [
+      { segmentId: 'link-label', path: '$.links[0].label', claimIds: ['claim-location'] },
+      { segmentId: 'link-href', path: '$.links[0].href', claimIds: ['claim-location'] },
+      { segmentId: 'link-placement', path: '$.links[0].placement', claimIds: ['claim-location', 'claim-observation'] },
+    ]);
     completed.push(withArtifactHash({
       id: 'artifact-links-red-hill', key: 'internal-link-plan', version: 1, type: 'internal_link_plan' as const,
-      angleId: angle.id, angleVersion: angle.version, factualSegmentIds: ['link-label'], claimUsage: linkUsage,
+      angleId: angle.id, angleVersion: angle.version, factualSegmentIds: linkUsage.map((usage) => usage.segmentId), claimUsage: linkUsage,
       dependencies: [dependency, selectedAngleDependency, articleDependency], payload: linkPayload,
-      gateResults: evaluateArtifactGates(linkPayload, claims, ['link-label'], linkUsage, capturedAt),
-    }));
+      gateResults: evaluateArtifactGates(linkPayload, claims, linkUsage.map((usage) => usage.segmentId), linkUsage, capturedAt),
+    }, claims));
     if (options.failOptionalDerivative === 'seo_metadata_proposal') {
       failed.push({
         key: 'seo-metadata', type: 'seo_metadata_proposal' as const, required: false,
@@ -575,29 +880,34 @@ export function runUrlArticleFixture(
         description: 'A covered Red Hill dining room with a winter lunch listed for Saturday 29 August.',
         canonicalPath: '/journal/red-hill-wet-weather-lunch/',
       });
-      const seoUsage = bindClaimUsage(seoPayload, [{ segmentId: 'seo-description', path: '$.description', claimIds: ['claim-location', 'claim-date', 'claim-observation'] }]);
+      const seoUsage = bindClaimUsage(seoPayload, [
+        { segmentId: 'seo-title', path: '$.title', claimIds: ['claim-location', 'claim-observation'] },
+        { segmentId: 'seo-description', path: '$.description', claimIds: ['claim-location', 'claim-date', 'claim-observation'] },
+        { segmentId: 'seo-canonical', path: '$.canonicalPath', claimIds: ['claim-location', 'claim-observation'] },
+      ]);
       completed.push(withArtifactHash({
         id: 'artifact-seo-red-hill', key: 'seo-metadata', version: 1, type: 'seo_metadata_proposal' as const,
-        angleId: angle.id, angleVersion: angle.version, factualSegmentIds: ['seo-description'], claimUsage: seoUsage,
+        angleId: angle.id, angleVersion: angle.version, factualSegmentIds: seoUsage.map((usage) => usage.segmentId), claimUsage: seoUsage,
         dependencies: [dependency, selectedAngleDependency, articleDependency], payload: seoPayload,
-        gateResults: evaluateArtifactGates(seoPayload, claims, ['seo-description'], seoUsage, capturedAt),
-      }));
+        gateResults: evaluateArtifactGates(seoPayload, claims, seoUsage.map((usage) => usage.segmentId), seoUsage, capturedAt),
+      }, claims));
     }
   }
-  return FoundryRunSchema.parse({
-    schemaVersion: 'pi.foundry-run.v2',
+  return FoundryRunSchema.parse(withFixtureOriginAuthority({
+    schemaVersion: 'pi.foundry-run.v3',
     id: `run-${hash(idempotencyKey).slice(0, 12)}`,
     idempotencyKey,
     version: 1,
     status: 'ready_for_review',
     createdAt: capturedAt,
     updatedAt: capturedAt,
+    evaluationAsOf: capturedAt,
     bundle: { ...bundle, id: `bundle-${URL_ARTICLE_FIXTURE_ID}`, title: 'Red Hill URL article fixture' },
     recipe: URL_ARTICLE_RECIPE,
     claimSet,
     angle,
     artifactPack: {
-      schemaVersion: 'pi.artifact-pack.v1', id: `pack-${hash(idempotencyKey).slice(0, 12)}`, version: 1,
+      schemaVersion: 'pi.artifact-pack.v2', id: `pack-${hash(idempotencyKey).slice(0, 12)}`, version: 1,
       recipeId: URL_ARTICLE_RECIPE.id, recipeVersion: URL_ARTICLE_RECIPE.version,
       claimSetRef: dependency, angleRef: { id: angle.id, version: angle.version },
       status: failed.length > 0 || omitted.length > 0 ? 'partial' : 'complete',
@@ -605,7 +915,7 @@ export function runUrlArticleFixture(
     },
     blockers: [],
     audit: [{ at: capturedAt, actor, type: 'fixture_run_created', detail: 'Deterministic URL article pack reached review without external calls.' }],
-  });
+  }));
 }
 
 function acceptedCurrentReview(run: FoundryRun, artifact: ArtifactVersion): boolean {
@@ -647,13 +957,13 @@ export function validateNewFilePatch(patch: string): boolean {
 function assertArtifactReady(run: FoundryRun, artifact: ArtifactVersion): void {
   if (artifact.gateResults.some((result) => !result.passed && result.blocking)) throw new Error(`Artifact ${artifact.id} has unresolved gates`);
   const freshGates = artifact.type === 'quick_note'
-    ? evaluateQuickNoteGates(artifact.payload, run.claimSet.claims, artifact.claimIds)
+    ? evaluateQuickNoteGates(artifact.payload, run.claimSet.claims, artifact.claimIds, run.evaluationAsOf)
     : evaluateArtifactGates(
       artifact.payload,
       run.claimSet.claims,
       artifact.factualSegmentIds,
       artifact.claimUsage,
-      new Date().toISOString(),
+      run.evaluationAsOf,
       artifact.type === 'ask_answer'
         ? { gate: 'ask_answer_contract', schema: AskAnswerPayloadSchema }
         : artifact.type === 'article_metadata' && artifact.payload.astroPatchReady
@@ -661,19 +971,44 @@ function assertArtifactReady(run: FoundryRun, artifact: ArtifactVersion): void {
           : undefined,
     );
   if (freshGates.some((result) => !result.passed && result.blocking)) throw new Error(`Artifact ${artifact.id} failed fresh export gates`);
+  assertArtifactPublicLineage(artifact, run.claimSet.claims);
   if (!artifactDependenciesCurrent(run, artifact)) throw new Error(`Artifact ${artifact.id} has stale dependencies`);
   if (!acceptedCurrentReview(run, artifact)) throw new Error(`Artifact ${artifact.id} requires a current accepted draft-handoff review`);
   const publicCopy = JSON.stringify(artifact.payload);
-  if (PRICE_PATTERN.test(publicCopy)) throw new Error('PI outputs cannot contain pricing');
-  if (/—/.test(publicCopy)) throw new Error('PI outputs cannot contain em dashes');
+  if (containsPriceLanguage(publicCopy)) throw new Error('PI outputs cannot contain prices, cost, fee, charge or free wording');
+  if (containsEmDash(publicCopy)) throw new Error('PI outputs cannot contain em dashes');
 }
 
-export function buildPatch(run: FoundryRun): string {
+export function buildArtifactHandoff(run: FoundryRun, artifactId: string): string {
   if (run.blockers.length > 0) throw new Error('Run has unresolved blockers');
-  if (run.recipe.id === QUICK_NOTE_RECIPE.id) {
-    if (!run.artifact) throw new Error('Quick-note compatibility artifact is missing');
-    assertArtifactReady(run, run.artifact);
-    const note = run.artifact.payload;
+  const artifact = run.artifactPack.completed.find((candidate) => candidate.id === artifactId);
+  if (!artifact) throw new Error('Artifact not found');
+  assertArtifactReady(run, artifact);
+  return `${JSON.stringify({
+    schemaVersion: 'pi.draft-handoff.v1',
+    authority: 'draft_handoff_only',
+    publicationAuthority: false,
+    runId: run.id,
+    runVersion: run.version,
+    artifactId: artifact.id,
+    artifactVersion: artifact.version,
+    artifactType: artifact.type,
+    evaluationAsOf: run.evaluationAsOf,
+    sourceConfirmation: run.sourceConfirmation ?? null,
+    dependencies: artifact.dependencies,
+    publicFieldLineage: artifact.publicFieldLineage,
+    payload: artifact.payload,
+  }, null, 2)}\n`;
+}
+
+export function buildPatch(run: FoundryRun, artifactId?: string): string {
+  if (run.blockers.length > 0) throw new Error('Run has unresolved blockers');
+  const selected = artifactId ? run.artifactPack.completed.find((artifact) => artifact.id === artifactId) : undefined;
+  if (artifactId && !selected) throw new Error('Artifact not found');
+  const quick = selected?.type === 'quick_note' ? selected : !artifactId && run.recipe.id === QUICK_NOTE_RECIPE.id ? run.artifact : undefined;
+  if (quick?.type === 'quick_note') {
+    assertArtifactReady(run, quick);
+    const note = quick.payload;
     const path = 'next/src/content/quick-notes/2026-08-21-red-hill-wet-weather-lunch.md';
     const content = [
       '---',
@@ -699,6 +1034,7 @@ export function buildPatch(run: FoundryRun): string {
     return diffForNewFile(path, content);
   }
 
+  if (selected && !['article_draft', 'article_metadata'].includes(selected.type)) throw new Error(`Artifact ${selected.id} has no patch adapter`);
   const article = run.artifactPack.completed.find((item) => item.type === 'article_draft');
   const metadata = run.artifactPack.completed.find((item) => item.type === 'article_metadata');
   if (!article || article.type !== 'article_draft' || !metadata || metadata.type !== 'article_metadata') {
@@ -707,8 +1043,8 @@ export function buildPatch(run: FoundryRun): string {
   assertArtifactReady(run, article);
   assertArtifactReady(run, metadata);
   const meta = metadata.payload;
-  if (!meta.astroPatchReady || !meta.heroImage) {
-    throw new Error('Article patch export requires a separately rights-cleared hero placement');
+  if (!meta.astroPatchReady || !meta.heroImage || !meta.heroBinding) {
+    throw new Error('Article patch export requires an exact hero asset, placement, rights and release binding');
   }
   const content = [
     '---',
