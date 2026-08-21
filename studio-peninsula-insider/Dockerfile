@@ -1,15 +1,21 @@
 FROM node:22.23.2-bookworm-slim AS build
 
 WORKDIR /app
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends git \
+    && rm -rf /var/lib/apt/lists/*
 COPY package.json package-lock.json ./
 RUN npm ci
 COPY . .
 COPY --from=pi_fonts . /pi-fonts-source/
-RUN PI_FONT_SOURCE=/pi-fonts-source npm run build
+RUN npm run check:capture-boundary \
+    && npm test \
+    && PI_FONT_SOURCE=/pi-fonts-source npm run build
 
 FROM node:22.23.2-bookworm-slim AS runtime
 
 ENV NODE_ENV=development \
+    FOUNDRY_REAL_URLS_ENABLED=0 \
     FOUNDRY_HOST=0.0.0.0 \
     FOUNDRY_PORT=4310 \
     FOUNDRY_STATIC_DIR=/app/dist \
@@ -25,6 +31,6 @@ RUN mkdir -p /data && chown node:node /data
 USER node
 EXPOSE 4310
 HEALTHCHECK --interval=5s --timeout=3s --start-period=10s --retries=6 \
-  CMD ["node", "-e", "fetch('http://127.0.0.1:4310/api/health').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))"]
+  CMD ["node", "-e", "require('node:net').connect(4310,'127.0.0.1').on('connect',function(){this.end()}).on('error',()=>process.exit(1))"]
 
 CMD ["npm", "start"]
