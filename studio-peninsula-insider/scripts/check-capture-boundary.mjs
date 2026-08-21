@@ -42,6 +42,9 @@ async function walk(directory) {
     if (/\b(?:WebSocket|EventSource)\s*\(|navigator\.sendBeacon\s*\(/.test(source)) {
       violations.push(`${path}: alternate browser network surfaces are forbidden`);
     }
+    if (/dangerouslySetInnerHTML|\.(?:inner|outer)HTML\s*=|insertAdjacentHTML\s*\(/.test(source)) {
+      violations.push(`${path}: captured source markup must stay inert; raw HTML injection is forbidden`);
+    }
   }
 }
 
@@ -52,5 +55,5 @@ if (violations.length > 0) {
   process.stderr.write(`${violations.join('\n')}\n`);
   process.exitCode = 1;
 } else {
-  process.stdout.write('Capture boundary verified: outbound resolution and HTTPS remain inside the sealed kernel modules.\n');
+  process.stdout.write('Capture boundary verified: outbound resolution and HTTPS remain inside the sealed kernel modules, and captured markup is never injected as HTML.\n');
 }

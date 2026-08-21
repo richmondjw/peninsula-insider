@@ -87,3 +87,23 @@ h1 { font-size: clamp(2.7rem, 7vw, 5.5rem); line-height: 0.98; }
   .workspace-grid { grid-template-columns: 1fr; }
   .gates { grid-template-columns: 1fr; }
 }
+
+.intake-panel { margin-bottom: 18px; }
+.intake-off { margin: 0; color: #53636e; font-size: 0.9rem; line-height: 1.55; }
+.intake-off code { background: #f2efea; border-radius: 5px; padding: 1px 5px; font-size: 0.85em; }
+.editor-field input { width: 100%; border: 1px solid #cfcac2; border-radius: 10px; background: white; color: #14202a; padding: 13px 14px; font: 600 1rem/1.45 Figtree, Inter, sans-serif; }
+.editor-field input:focus { outline: 3px solid #10527e; outline-offset: 2px; border-color: #10527e; }
+.intake-ledger { margin-top: 18px; border-top: 1px solid #ded9d1; }
+.intake-row { display: grid; grid-template-columns: 108px minmax(0, 1fr); gap: 6px 12px; padding: 12px 0; border-bottom: 1px solid #e5e1da; align-items: start; }
+.intake-row:last-child { border-bottom: 0; }
+.intake-url { overflow-wrap: anywhere; font-weight: 600; font-size: 0.9rem; }
+.intake-detail { grid-column: 2; color: #53636e; font-size: 0.76rem; overflow-wrap: anywhere; }
+.pill.capturing, .pill.no_story, .pill.held { background: #fff2d8; color: #6d4c12; }
+.pill.failed, .pill.rejected { background: #f3dfda; color: #8f2f28; }
+.pill.extracted { background: #e4ede8; color: #1d6d54; }
+.capture-provenance { padding-bottom: 18px; border-bottom: 1px solid #ded9d1; }
+.capture-provenance h3 { margin: 0 0 10px; }
+.capture-provenance .evidence-detail { margin-bottom: 10px; }
+.capture-provenance .actions { margin-top: 12px; }
+dl.provenance div { grid-template-columns: 88px minmax(0, 1fr); }
+.hop { display: block; overflow-wrap: anywhere; }
