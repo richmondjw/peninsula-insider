@@ -3,6 +3,13 @@ import helmet from 'helmet';
 import { z } from 'zod';
 import { ArtifactEditSchema, ArtifactUpdateSchema, ReviewDecisionSchema, SourceConfirmationInputSchema } from '../shared/contracts.js';
 import { buildArtifactHandoff, buildPatch, FIXTURE_ID, runFixture, runUrlArticleFixture, URL_ARTICLE_FIXTURE_ID } from './fixture-runner.js';
+import { NEWSLETTER_SOCIAL_FIXTURE_ID, runNewsletterSocialFixture } from './newsletter-social-fixtures.js';
+import {
+  EXPLAINER_FIXTURE_ID,
+  PODCAST_FIXTURE_ID,
+  SHORT_VIDEO_FIXTURE_ID,
+  runPreproductionFixture,
+} from './preproduction-fixtures.js';
 import type { RealUrlCoordinator } from './real-url-coordinator.js';
 import { CaptureSourceMismatchError } from './real-url-coordinator.js';
 import {
@@ -14,12 +21,18 @@ import {
   VersionConflictError,
 } from './store.js';
 
-const CreateRunSchema = z.object({
-  fixtureId: z.enum([FIXTURE_ID, URL_ARTICLE_FIXTURE_ID]),
+const CreateRunBaseSchema = z.object({
   actor: z.string().min(1).default('local-editor'),
   idempotencyKey: z.string().min(1).optional(),
-  fixtureVariant: z.enum(['complete', 'text_only', 'partial_optional_failure']).default('complete'),
 });
+const CreateRunSchema = z.discriminatedUnion('fixtureId', [
+  CreateRunBaseSchema.extend({ fixtureId: z.literal(FIXTURE_ID), fixtureVariant: z.literal('complete').default('complete') }),
+  CreateRunBaseSchema.extend({ fixtureId: z.literal(URL_ARTICLE_FIXTURE_ID), fixtureVariant: z.enum(['complete', 'text_only', 'partial_optional_failure']).default('complete') }),
+  CreateRunBaseSchema.extend({ fixtureId: z.literal(NEWSLETTER_SOCIAL_FIXTURE_ID), fixtureVariant: z.enum(['complete', 'missing_authoritative_inputs', 'rights_not_cleared']).default('complete') }),
+  CreateRunBaseSchema.extend({ fixtureId: z.literal(EXPLAINER_FIXTURE_ID), fixtureVariant: z.enum(['complete', 'partial_optional_failure']).default('complete') }),
+  CreateRunBaseSchema.extend({ fixtureId: z.literal(PODCAST_FIXTURE_ID), fixtureVariant: z.enum(['complete', 'partial_optional_failure']).default('complete') }),
+  CreateRunBaseSchema.extend({ fixtureId: z.literal(SHORT_VIDEO_FIXTURE_ID), fixtureVariant: z.enum(['complete', 'partial_optional_failure']).default('complete') }),
+]);
 
 const UrlCaptureSchema = z.object({
   url: z.string().min(1).max(2_048),
@@ -112,8 +125,8 @@ export function createApp(store: FileFoundryStore, options: {
   app.get('/api/health', (_request, response) => response.json({ ok: true, service: 'pi-content-foundry', mode: realUrlsEnabled ? 'local-real-url-enabled' : 'fixture-only' }));
   app.get('/api/capabilities', (_request, response) => response.json({
     sourceTypes: realUrlsEnabled ? ['frozen_fixture', 'https_url'] : ['frozen_fixture'],
-    recipes: ['quick_note_v1', 'url_article_v1'],
-    artifactTypes: ['quick_note', 'article_draft', 'article_metadata', 'ask_answer', 'internal_link_plan', 'seo_metadata_proposal'],
+    recipes: ['quick_note_v1', 'url_article_v1', 'newsletter_social_v1', 'explainer_preproduction_v1', 'podcast_preproduction_v1', 'short_video_preproduction_v1'],
+    artifactTypes: ['quick_note', 'article_draft', 'article_metadata', 'ask_answer', 'internal_link_plan', 'seo_metadata_proposal', 'insider_note_issue', 'insider_note_subject_set', 'linkedin_post', 'instagram_caption', 'instagram_first_comment', 'instagram_carousel_script', 'social_media_brief', 'explainer_core', 'explainer_faq', 'explainer_carousel', 'explainer_voiceover', 'explainer_visualisation', 'podcast_evidence_dossier', 'podcast_angle', 'podcast_run_sheet', 'podcast_interview_guide', 'podcast_script', 'podcast_show_notes', 'podcast_chapters', 'video_hooks', 'video_script', 'video_shot_list', 'video_scenes', 'video_overlays', 'video_subtitles', 'video_thumbnail', 'video_platform_captions'],
     publicationAdapters: ['downloadable_patch'],
     externalCalls: realUrlsEnabled,
     providerCalls: false,
@@ -121,6 +134,9 @@ export function createApp(store: FileFoundryStore, options: {
     publishing: false,
     sending: false,
     scheduling: false,
+    recording: false,
+    rendering: false,
+    syntheticMediaGeneration: false,
     productionMutation: false,
     realUrlCapture: {
       enabled: realUrlsEnabled,
@@ -185,13 +201,20 @@ export function createApp(store: FileFoundryStore, options: {
       if (!idempotencyKey) return response.status(400).json({ error: 'Idempotency-Key is required' });
       const existing = await store.getByIdempotencyKey(idempotencyKey);
       if (existing) return response.status(200).json(existing);
-      const run = input.fixtureId === FIXTURE_ID
-        ? runFixture(input.actor, idempotencyKey)
-        : runUrlArticleFixture(input.actor, idempotencyKey, {
+      const run = (() => {
+        if (input.fixtureId === FIXTURE_ID) return runFixture(input.actor, idempotencyKey);
+        if (input.fixtureId === URL_ARTICLE_FIXTURE_ID) return runUrlArticleFixture(input.actor, idempotencyKey, {
           includeClearedHero: input.fixtureVariant === 'complete',
           failOptionalDerivative: input.fixtureVariant === 'partial_optional_failure' ? 'seo_metadata_proposal' : undefined,
           omitPlans: input.fixtureVariant === 'text_only',
         });
+        if (input.fixtureId === NEWSLETTER_SOCIAL_FIXTURE_ID) return runNewsletterSocialFixture(input.actor, idempotencyKey, {
+          omitAuthoritativeInputs: input.fixtureVariant === 'missing_authoritative_inputs',
+          clearInstagramRights: input.fixtureVariant !== 'rights_not_cleared',
+        });
+        const family = input.fixtureId === EXPLAINER_FIXTURE_ID ? 'explainer' : input.fixtureId === PODCAST_FIXTURE_ID ? 'podcast' : 'short_video';
+        return runPreproductionFixture(family, input.actor, idempotencyKey, { failOptionalDerivative: input.fixtureVariant === 'partial_optional_failure' });
+      })();
       const created = await store.create(run);
       return response.status(201).json(created);
     } catch (error) { return next(error); }

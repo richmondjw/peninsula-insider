@@ -11,7 +11,7 @@ import { FileFoundryStore } from '../server/store.js';
 import { buildLegacyReviewReceipt, FileReviewReceiptRepository } from '../server/review-receipts.js';
 import { ClaimSchema, LegacySingleArtifactRealUrlRunV2Schema, StoryAngleSchema, type ArtifactVersion, type FoundryRun } from '../shared/contracts.js';
 import { patchReadiness } from '../shared/patch-readiness.js';
-import { nextArtifactTabIndex } from '../shared/artifact-tabs.js';
+import { focusTabAtIndex, nextArtifactTabIndex, rovingTabIndex } from '../shared/artifact-tabs.js';
 
 const temporaryDirectories: string[] = [];
 
@@ -97,6 +97,26 @@ describe('generic Content Foundry contracts', () => {
     expect(nextArtifactTabIndex(5, 6, 'ArrowRight')).toBe(0);
     expect(nextArtifactTabIndex(3, 6, 'Home')).toBe(0);
     expect(nextArtifactTabIndex(1, 6, 'End')).toBe(5);
+  });
+
+  it('focuses the computed recipe target and exposes exactly one roving tab stop', () => {
+    const focused: number[] = [];
+    const tabs = Array.from({ length: 6 }, (_, index) => ({ focus: () => focused.push(index) }));
+    const keys = ['ArrowRight', 'ArrowLeft', 'Home', 'End'] as const;
+    const expected = [2, 0, 0, 5];
+    keys.forEach((key, index) => focusTabAtIndex(tabs, nextArtifactTabIndex(1, tabs.length, key)));
+    expect(focused).toEqual(expected);
+    expect(tabs.map((_, index) => rovingTabIndex(index, 5))).toEqual([-1, -1, -1, -1, -1, 0]);
+  });
+
+  it('does not leave deferred artifact focus that can steal focus from a recipe tab', () => {
+    const focusLog: string[] = [];
+    const artifactTabs = Array.from({ length: 6 }, (_, index) => ({ focus: () => focusLog.push(`artifact-${index}`) }));
+    const recipeTabs = Array.from({ length: 6 }, (_, index) => ({ focus: () => focusLog.push(`recipe-${index}`) }));
+    focusTabAtIndex(artifactTabs, nextArtifactTabIndex(5, artifactTabs.length, 'Home'));
+    focusTabAtIndex(recipeTabs, nextArtifactTabIndex(1, recipeTabs.length, 'ArrowRight'));
+    expect(focusLog).toEqual(['artifact-0', 'recipe-2']);
+    expect(focusLog.at(-1)).toBe('recipe-2');
   });
   it('preserves the v0.1 quick-note API projection and idempotency', async () => {
     const { app } = await harness();
@@ -633,7 +653,14 @@ describe('generic Content Foundry contracts', () => {
     const page = await request(app).get('/').expect(200).expect('Content-Type', /html/).expect('Content-Security-Policy', /default-src 'self'/);
     expect(page.text).toContain('Foundry container marker');
     const capabilities = await request(app).get('/api/capabilities').expect(200).expect('Cache-Control', 'no-store');
-    expect(capabilities.body.recipes).toEqual(['quick_note_v1', 'url_article_v1']);
+    expect(capabilities.body.recipes).toEqual([
+      'quick_note_v1',
+      'url_article_v1',
+      'newsletter_social_v1',
+      'explainer_preproduction_v1',
+      'podcast_preproduction_v1',
+      'short_video_preproduction_v1',
+    ]);
     expect(capabilities.body.externalCalls).toBe(false);
   });
 });

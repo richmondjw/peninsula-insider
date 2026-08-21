@@ -14,6 +14,7 @@ import {
   QuickNoteSchema,
   RecipeDefinitionSchema,
   SeoMetadataProposalPayloadSchema,
+  SocialMediaBriefPayloadSchema,
   type ArtifactVersion,
   type ArtifactPackFoundryRunV2,
   type ArtifactDependency,
@@ -25,7 +26,16 @@ import {
   type RecipeDefinition,
 } from '../shared/contracts.js';
 import { containsEmDash, containsPriceLanguage } from '../shared/editorial-laws.js';
+import { isPreproductionArtifactType, parsePreproductionPayload, requiredPreproductionLineagePaths } from '../shared/preproduction-contracts.js';
 import { buildFixtureOriginAuthorityReceipt, withFixtureOriginAuthority } from './origin-authority.js';
+import { mediaReadinessCurrent, mediaRightsBindingHash } from './preproduction-policy.js';
+import { NEWSLETTER_SOCIAL_RECIPE, runNewsletterSocialFixture } from './newsletter-social-fixtures.js';
+import {
+  EXPLAINER_RECIPE,
+  PODCAST_RECIPE,
+  SHORT_VIDEO_RECIPE,
+  runPreproductionFixture,
+} from './preproduction-fixtures.js';
 
 export const hash = (value: string) => createHash('sha256').update(value).digest('hex');
 export const hashValue = (value: unknown) => hash(JSON.stringify(value));
@@ -54,7 +64,7 @@ export function resolveArtifactPath(payload: unknown, path: string): unknown {
   return current;
 }
 
-function bindClaimUsage<T extends Array<{ segmentId: string; path: string; claimIds: string[] }>>(payload: unknown, usage: T) {
+export function bindClaimUsage<T extends Array<{ segmentId: string; path: string; claimIds: string[] }>>(payload: unknown, usage: T) {
   return usage.map((item) => ({ ...item, contentHash: hashValue(resolveArtifactPath(payload, item.path)) }));
 }
 
@@ -109,6 +119,26 @@ export function assertKnownFrozenFixtureOrigin(run: FoundryRun): void {
       bundleId: `bundle-${URL_ARTICLE_FIXTURE_ID}`,
       build: () => runUrlArticleFixture(run.bundle.submittedBy, run.idempotencyKey),
     },
+    {
+      recipe: NEWSLETTER_SOCIAL_RECIPE,
+      bundleId: 'bundle-red-hill-newsletter-social',
+      build: () => runNewsletterSocialFixture(run.bundle.submittedBy, run.idempotencyKey),
+    },
+    {
+      recipe: EXPLAINER_RECIPE,
+      bundleId: 'bundle-red-hill-explainer-preproduction',
+      build: () => runPreproductionFixture('explainer', run.bundle.submittedBy, run.idempotencyKey),
+    },
+    {
+      recipe: PODCAST_RECIPE,
+      bundleId: 'bundle-red-hill-podcast-preproduction',
+      build: () => runPreproductionFixture('podcast', run.bundle.submittedBy, run.idempotencyKey),
+    },
+    {
+      recipe: SHORT_VIDEO_RECIPE,
+      bundleId: 'bundle-red-hill-short-video-preproduction',
+      build: () => runPreproductionFixture('short_video', run.bundle.submittedBy, run.idempotencyKey),
+    },
   ];
   const authority = catalogue.find((candidate) => (
     candidate.bundleId === run.bundle.id
@@ -151,6 +181,7 @@ export function evaluateArtifactGates(
   claimUsage: ArtifactVersion['claimUsage'],
   asOf: string,
   contract?: { gate: 'astro_article_contract' | 'ask_answer_contract'; schema: z.ZodType },
+  artifactType?: ArtifactVersion['type'],
 ): GateResult[] {
   const publicCopy = JSON.stringify(payload);
   const claimsById = new Map(claims.map((claim) => [claim.id, claim]));
@@ -174,7 +205,8 @@ export function evaluateArtifactGates(
     && (payload as { body: string }).body.split(/\n\s*\n/).length === paragraphUsages.length
     && paragraphUsages.every((usage, index) => usage.path === `$.body::paragraph[${index}]`)
   );
-  const lineageComplete = completeUsage && paragraphCoverage;
+  const exhaustiveCoverage = artifactType ? artifactClaimUsageCurrent(artifactType, payload, claimUsage) : true;
+  const lineageComplete = completeUsage && paragraphCoverage && exhaustiveCoverage;
   const supportedClaims = usedClaimIds.length > 0 && usedClaimIds.every((claimId) => claimIsUsable(claimsById.get(claimId), asOf));
   const results: GateResult[] = [
     gate('no_price', !containsPriceLanguage(publicCopy), 'Public artifact content must not contain pricing, currency, cost, fee, charge or free wording.'),
@@ -205,7 +237,7 @@ export function evaluateQuickNoteGates(
   );
 }
 
-function fixtureSource(actor: string) {
+export function fixtureSource(actor: string) {
   const capturedAt = '2026-08-21T05:00:00.000Z';
   const sourceUrl = 'https://example.test/red-hill-winter-lunch';
   const sourceId = 'source-url-red-hill';
@@ -258,11 +290,11 @@ function fixtureSource(actor: string) {
   return { capturedAt, sourceUrl, claims, claimSet, bundle, angle };
 }
 
-function claimSetDependency(claimSet: ClaimSetVersion) {
+export function claimSetDependency(claimSet: ClaimSetVersion) {
   return { kind: 'claim_set' as const, id: claimSet.id, version: claimSet.version, contentHash: claimSet.contentHash };
 }
 
-function angleDependency(angle: { id: string; version: number; label: string; framing: string; evidenceClaimIds: string[] }) {
+export function angleDependency(angle: { id: string; version: number; label: string; framing: string; evidenceClaimIds: string[] }) {
   return { kind: 'angle' as const, id: angle.id, version: angle.version, contentHash: hashValue(angle) };
 }
 
@@ -281,6 +313,15 @@ function leafPathIsFactual(type: ArtifactVersion['type'], path: string): boolean
   if (type === 'ask_answer') return path !== '$.provenance_footer';
   if (type === 'internal_link_plan') return true;
   if (type === 'seo_metadata_proposal') return true;
+  if (type === 'insider_note_issue') {
+    return /\.(?:text|headline|body|label|href|day|temperatureC|sky|sunsetTime|dayStamp|category|name|path|firstName|quote|date|locator|src|alt)$/.test(path);
+  }
+  if (type === 'insider_note_subject_set') return /\.(?:subject|previewText)$/.test(path);
+  if (type === 'linkedin_post') return /\.(?:text|destinationUrl|hashtags\[\d+\])$/.test(path);
+  if (type === 'instagram_caption') return /\.(?:captionDraft|destinationPath)$/.test(path);
+  if (type === 'instagram_first_comment') return /\.(?:commentDraft|hashtagCandidates\[\d+\])$/.test(path);
+  if (type === 'instagram_carousel_script') return /\.(?:heading|body)$/.test(path);
+  if (type === 'social_media_brief') return /\.(?:description|altText)$/.test(path);
   return false;
 }
 
@@ -320,6 +361,9 @@ function collectPublicLeaves(type: ArtifactVersion['type'], payload: unknown): P
     return leaves;
   }
   const leaves: PublicLeaf[] = [];
+  const preproductionFactualPaths = isPreproductionArtifactType(type)
+    ? new Set(requiredPreproductionLineagePaths(payload as never))
+    : undefined;
   const visit = (value: unknown, path: string): void => {
     if (value === undefined) return;
     if (Array.isArray(value)) {
@@ -330,7 +374,7 @@ function collectPublicLeaves(type: ArtifactVersion['type'], payload: unknown): P
       Object.entries(value as Record<string, unknown>).forEach(([key, item]) => visit(item, `${path}.${key}`));
       return;
     }
-    leaves.push({ path, value, factual: leafPathIsFactual(type, path) });
+    leaves.push({ path, value, factual: preproductionFactualPaths?.has(path) ?? leafPathIsFactual(type, path) });
   };
   visit(payload, '$');
   return leaves;
@@ -364,6 +408,47 @@ export function buildPublicFieldLineage(
   });
 }
 
+export function completePublicClaimUsage(
+  type: ArtifactVersion['type'],
+  payload: unknown,
+  usage: ArtifactVersion['claimUsage'],
+): ArtifactVersion['claimUsage'] {
+  const legacyTypes = new Set(['quick_note', 'article_draft', 'article_metadata', 'ask_answer', 'internal_link_plan', 'seo_metadata_proposal']);
+  if (legacyTypes.has(type)) return usage;
+  const allClaimIds = [...new Set(usage.flatMap((item) => item.claimIds))];
+  const completed = [...usage];
+  for (const leaf of collectPublicLeaves(type, payload).filter((candidate) => candidate.factual)) {
+    if (completed.some((item) => item.path === leaf.path)) continue;
+    const parent = completed
+      .filter((item) => leaf.path.startsWith(`${item.path}.`) || leaf.path.startsWith(`${item.path}[`))
+      .sort((left, right) => right.path.length - left.path.length)[0];
+    const claimIds = parent?.claimIds ?? allClaimIds;
+    if (claimIds.length === 0) throw new Error(`Factual public field ${leaf.path} has no server-owned claim set`);
+    completed.push({
+      segmentId: `public-${leaf.path.replace(/[^A-Za-z0-9]+/g, '-').replace(/^-|-$/g, '')}`,
+      path: leaf.path,
+      claimIds,
+      contentHash: hashValue(leaf.value),
+    });
+  }
+  return completed;
+}
+
+export function artifactClaimUsageCurrent(
+  type: ArtifactVersion['type'],
+  payload: unknown,
+  usage: ArtifactVersion['claimUsage'],
+): boolean {
+  const factualLeaves = collectPublicLeaves(type, payload).filter((candidate) => candidate.factual);
+  if (type === 'quick_note') return usage.some((item) => item.path === '$');
+  return factualLeaves.every((leaf) => {
+    const exact = usage.filter((item) => item.path === leaf.path);
+    return exact.length === 1
+      && exact[0].claimIds.length > 0
+      && exact[0].contentHash === hashValue(leaf.value);
+  });
+}
+
 export function assertArtifactPublicLineage(artifact: ArtifactVersion, claims: Claim[]): void {
   const expected = buildPublicFieldLineage(artifact.type, artifact.payload, artifact.claimUsage, claims);
   if (JSON.stringify(expected) !== JSON.stringify(artifact.publicFieldLineage)) {
@@ -375,18 +460,42 @@ export function withArtifactHash<T extends {
   type: ArtifactVersion['type'];
   payload: unknown;
   claimUsage: ArtifactVersion['claimUsage'];
+  factualSegmentIds: string[];
   gateResults: GateResult[];
-}>(artifact: T, claims: Claim[]): ArtifactVersion {
-  const publicFieldLineage = buildPublicFieldLineage(artifact.type, artifact.payload, artifact.claimUsage, claims);
-  const gateResults = [
-    ...artifact.gateResults.filter((result) => result.gate !== 'field_lineage_complete'),
-    gate('field_lineage_complete', true, 'Every public field is hash-bound to immutable claims or an explicit system template.'),
-  ];
+}>(artifact: T, claims: Claim[], options: { completeClaimUsage?: boolean } = {}): ArtifactVersion {
+  const completeClaimUsage = options.completeClaimUsage ?? true;
+  const claimUsage = completeClaimUsage
+    ? completePublicClaimUsage(artifact.type, artifact.payload, artifact.claimUsage)
+    : artifact.claimUsage;
+  const factualSegmentIds = claimUsage.map((item) => item.segmentId);
+  const publicFieldLineage = buildPublicFieldLineage(artifact.type, artifact.payload, claimUsage, claims);
+  const gateResults = completeClaimUsage
+    ? [
+      ...artifact.gateResults.filter((result) => !['claim_usage_complete', 'field_lineage_complete'].includes(result.gate)),
+      gate('claim_usage_complete', true, 'Every factual public field resolves to current content and maps to immutable claims.', [...new Set(claimUsage.flatMap((item) => item.claimIds))]),
+      gate('field_lineage_complete', true, 'Every public field is hash-bound to immutable claims or an explicit system template.'),
+    ]
+    : artifact.gateResults;
   return ArtifactVersionSchema.parse({
     ...artifact,
+    claimUsage,
+    factualSegmentIds,
     contentHash: hashValue(artifact.payload),
     publicFieldLineage,
     gateResults,
+  });
+}
+
+export function socialMediaRightsBindingHash(payloadInput: unknown): string {
+  const payload = SocialMediaBriefPayloadSchema.parse(payloadInput);
+  return hashValue({
+    asset: { id: payload.assetId, version: payload.assetVersion, contentHash: payload.assetContentHash },
+    targetSurface: payload.targetSurface,
+    placement: payload.placement,
+    mediaType: payload.mediaType,
+    rights: { id: payload.placementRights.rightsId, version: payload.placementRights.rightsVersion },
+    recognisablePeople: payload.placementRights.recognisablePeople,
+    releaseIds: [...payload.placementRights.releaseIds].sort(),
   });
 }
 
@@ -405,6 +514,16 @@ export function artifactDependenciesCurrent(
   const mediaDependencies = artifact.dependencies.filter((dependency) => dependency.kind === 'media_rights');
   if (artifact.type === 'article_metadata') {
     if (artifact.payload.astroPatchReady !== Boolean(artifact.payload.heroImage && artifact.payload.heroBinding && mediaDependencies.length === 1)) return false;
+  } else if (artifact.type === 'social_media_brief') {
+    const rightsCleared = artifact.payload.placementRights.status === 'cleared'
+      && artifact.payload.placementRights.allowedSurfaces.includes(artifact.payload.targetSurface)
+      && !['unknown', 'unreleased'].includes(artifact.payload.placementRights.recognisablePeople)
+      && (artifact.payload.placementRights.recognisablePeople === 'none'
+        ? artifact.payload.placementRights.releaseIds.length === 0
+        : artifact.payload.placementRights.releaseIds.length > 0);
+    if (mediaDependencies.length !== (rightsCleared ? 1 : 0)) return false;
+  } else if (isPreproductionArtifactType(artifact.type)) {
+    if (!mediaReadinessCurrent(parsePreproductionPayload(artifact.type, artifact.payload), artifact.dependencies)) return false;
   } else if (mediaDependencies.length > 0) return false;
 
   const completedById = new Map(run.artifactPack.completed.map((candidate) => [candidate.id, candidate]));
@@ -420,24 +539,41 @@ export function artifactDependenciesCurrent(
           && dependency.version === run.angle.version
           && dependency.contentHash === hashValue(run.angle);
       case 'media_rights':
-        return artifact.type === 'article_metadata'
-          && Boolean(artifact.payload.heroImage)
-          && Boolean(artifact.payload.heroBinding)
-          && dependency.status === 'cleared'
-          && dependency.id === artifact.payload.heroBinding?.rights.id
-          && dependency.version === artifact.payload.heroBinding?.rights.version
-          && dependency.contentHash === artifact.payload.heroBinding?.contentHash
-          && artifact.payload.heroBinding?.asset.contentHash === hashValue(artifact.payload.heroImage)
-          && artifact.payload.heroBinding?.contentHash === hashValue({
-            schemaVersion: artifact.payload.heroBinding.schemaVersion,
-            asset: artifact.payload.heroBinding.asset,
-            placementPath: artifact.payload.heroBinding.placementPath,
-            surface: artifact.payload.heroBinding.surface,
-            rights: artifact.payload.heroBinding.rights,
-            recognisablePeople: artifact.payload.heroBinding.recognisablePeople,
-            releaseIds: [...artifact.payload.heroBinding.releaseIds].sort(),
-          })
-          && (!artifact.payload.heroBinding.recognisablePeople || artifact.payload.heroBinding.releaseIds.length > 0);
+        if (artifact.type === 'article_metadata') {
+          return Boolean(artifact.payload.heroImage)
+            && Boolean(artifact.payload.heroBinding)
+            && dependency.status === 'cleared'
+            && dependency.id === artifact.payload.heroBinding?.rights.id
+            && dependency.version === artifact.payload.heroBinding?.rights.version
+            && dependency.contentHash === artifact.payload.heroBinding?.contentHash
+            && artifact.payload.heroBinding?.asset.contentHash === hashValue(artifact.payload.heroImage)
+            && artifact.payload.heroBinding?.contentHash === hashValue({
+              schemaVersion: artifact.payload.heroBinding.schemaVersion,
+              asset: artifact.payload.heroBinding.asset,
+              placementPath: artifact.payload.heroBinding.placementPath,
+              surface: artifact.payload.heroBinding.surface,
+              rights: artifact.payload.heroBinding.rights,
+              recognisablePeople: artifact.payload.heroBinding.recognisablePeople,
+              releaseIds: [...artifact.payload.heroBinding.releaseIds].sort(),
+            })
+            && (!artifact.payload.heroBinding.recognisablePeople || artifact.payload.heroBinding.releaseIds.length > 0);
+        }
+        if (artifact.type === 'social_media_brief') {
+          return dependency.status === 'cleared'
+            && dependency.id === artifact.payload.placementRights.rightsId
+            && dependency.version === artifact.payload.placementRights.rightsVersion
+            && dependency.contentHash === socialMediaRightsBindingHash(artifact.payload);
+        }
+        if (isPreproductionArtifactType(artifact.type)) {
+          const payload = parsePreproductionPayload(artifact.type, artifact.payload);
+          return payload.boundary.mediaAssignments.some((assignment) => (
+            assignment.rights.id === dependency.id
+            && assignment.rights.version === dependency.version
+            && mediaRightsBindingHash(assignment) === dependency.contentHash
+            && dependency.status === 'cleared'
+          ));
+        }
+        return false;
       case 'capture_source': {
         const revision = run.capture?.revisions.find((candidate) => candidate.attemptId === dependency.attemptId);
         const confirmation = run.sourceConfirmation;
