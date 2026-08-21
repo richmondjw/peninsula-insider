@@ -1,14 +1,15 @@
 import express from 'express';
 import helmet from 'helmet';
 import { z } from 'zod';
-import { ArtifactEditSchema, ReviewDecisionSchema } from '../shared/contracts.js';
-import { buildPatch, FIXTURE_ID, runFixture } from './fixture-runner.js';
+import { ArtifactEditSchema, ArtifactUpdateSchema, ReviewDecisionSchema } from '../shared/contracts.js';
+import { buildPatch, FIXTURE_ID, runFixture, runUrlArticleFixture, URL_ARTICLE_FIXTURE_ID } from './fixture-runner.js';
 import { FileFoundryStore, VersionConflictError } from './store.js';
 
 const CreateRunSchema = z.object({
-  fixtureId: z.literal(FIXTURE_ID),
+  fixtureId: z.enum([FIXTURE_ID, URL_ARTICLE_FIXTURE_ID]),
   actor: z.string().min(1).default('local-editor'),
   idempotencyKey: z.string().min(1).optional(),
+  fixtureVariant: z.enum(['complete', 'text_only', 'partial_optional_failure']).default('complete'),
 });
 
 export function createApp(store: FileFoundryStore, options: { staticDir?: string } = {}) {
@@ -39,7 +40,8 @@ export function createApp(store: FileFoundryStore, options: { staticDir?: string
   app.get('/api/health', (_request, response) => response.json({ ok: true, service: 'pi-content-foundry', mode: 'fixture-only' }));
   app.get('/api/capabilities', (_request, response) => response.json({
     sourceTypes: ['frozen_fixture'],
-    artifactTypes: ['quick_note'],
+    recipes: ['quick_note_v1', 'url_article_v1'],
+    artifactTypes: ['quick_note', 'article_draft', 'article_metadata', 'ask_answer', 'internal_link_plan', 'seo_metadata_proposal'],
     publicationAdapters: ['downloadable_patch'],
     externalCalls: false,
     productionMutation: false,
@@ -56,7 +58,14 @@ export function createApp(store: FileFoundryStore, options: { staticDir?: string
       if (!idempotencyKey) return response.status(400).json({ error: 'Idempotency-Key is required' });
       const existing = await store.getByIdempotencyKey(idempotencyKey);
       if (existing) return response.status(200).json(existing);
-      const created = await store.create(runFixture(input.actor, idempotencyKey));
+      const run = input.fixtureId === FIXTURE_ID
+        ? runFixture(input.actor, idempotencyKey)
+        : runUrlArticleFixture(input.actor, idempotencyKey, {
+          includeClearedHero: input.fixtureVariant === 'complete',
+          failOptionalDerivative: input.fixtureVariant === 'partial_optional_failure' ? 'seo_metadata_proposal' : undefined,
+          omitPlans: input.fixtureVariant === 'text_only',
+        });
+      const created = await store.create(run);
       return response.status(201).json(created);
     } catch (error) { return next(error); }
   });
@@ -83,6 +92,16 @@ export function createApp(store: FileFoundryStore, options: { staticDir?: string
     try {
       const edit = ArtifactEditSchema.parse(request.body);
       return response.json(await store.updateArtifact(request.params.id, edit));
+    } catch (error) {
+      if (error instanceof VersionConflictError) return response.status(409).json({ error: error.message });
+      return next(error);
+    }
+  });
+
+  app.put('/api/foundry/runs/:id/artifacts/:artifactId', async (request, response, next) => {
+    try {
+      const update = ArtifactUpdateSchema.parse(request.body);
+      return response.json(await store.updatePackArtifact(request.params.id, request.params.artifactId, update));
     } catch (error) {
       if (error instanceof VersionConflictError) return response.status(409).json({ error: error.message });
       return next(error);

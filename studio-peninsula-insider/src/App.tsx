@@ -2,9 +2,15 @@ import { useEffect, useState } from 'react';
 import type { FoundryRun } from '../shared/contracts';
 
 const FIXTURE_ID = 'red-hill-winter-lunch';
+type QuickNoteRun = FoundryRun & { artifact: NonNullable<FoundryRun['artifact']>; claims: NonNullable<FoundryRun['claims']> };
+
+function asQuickNoteRun(run: FoundryRun): QuickNoteRun | null {
+  if (!run.artifact || run.artifact.type !== 'quick_note') return null;
+  return { ...run, claims: run.claims ?? run.claimSet.claims, artifact: run.artifact };
+}
 
 export function App() {
-  const [run, setRun] = useState<FoundryRun | null>(null);
+  const [run, setRun] = useState<QuickNoteRun | null>(null);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
   const [draft, setDraft] = useState({ headline: '', dek: '', body: '' });
@@ -12,7 +18,10 @@ export function App() {
   useEffect(() => {
     fetch('/api/foundry/runs')
       .then((response) => response.json())
-      .then((data) => setRun(data.runs?.[0] ?? null))
+      .then((data: { runs?: FoundryRun[] }) => {
+        const quickNote = data.runs?.map(asQuickNoteRun).find((item): item is QuickNoteRun => Boolean(item));
+        setRun(quickNote ?? null);
+      })
       .catch(() => setError('The local API is not available yet.'));
   }, []);
 
@@ -35,7 +44,9 @@ export function App() {
         body: JSON.stringify({ fixtureId: FIXTURE_ID, actor: 'local-editor', idempotencyKey: 'fixture-red-hill-v1' }),
       });
       if (!response.ok) throw new Error('The fixture run could not start.');
-      setRun(await response.json());
+      const created = asQuickNoteRun(await response.json());
+      if (!created) throw new Error('The quick-note fixture returned an incompatible artifact pack.');
+      setRun(created);
     } catch (cause) {
       setError(cause instanceof Error ? cause.message : 'The fixture run failed.');
     } finally { setBusy(false); }
@@ -53,7 +64,9 @@ export function App() {
       });
       const body = await response.json();
       if (!response.ok) throw new Error(body.error ?? 'Review decision failed.');
-      setRun(body);
+      const reviewed = asQuickNoteRun(body);
+      if (!reviewed) throw new Error('The reviewed run is not quick-note compatible.');
+      setRun(reviewed);
     } catch (cause) {
       setError(cause instanceof Error ? cause.message : 'Review decision failed.');
     } finally { setBusy(false); }
@@ -71,7 +84,9 @@ export function App() {
       });
       const body = await response.json();
       if (!response.ok) throw new Error(body.error ?? 'The draft could not be saved.');
-      setRun(body);
+      const saved = asQuickNoteRun(body);
+      if (!saved) throw new Error('The saved run is not quick-note compatible.');
+      setRun(saved);
     } catch (cause) {
       setError(cause instanceof Error ? cause.message : 'The draft could not be saved.');
     } finally { setBusy(false); }

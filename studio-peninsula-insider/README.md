@@ -4,9 +4,17 @@ Private, fixture-only Content Foundry shell for DELI-693.
 
 ## Current vertical slice
 
+The v0.1 path remains available:
+
 `frozen URL fixture -> evidence ledger -> quick-note draft -> human review -> downloadable patch`
 
+The v0.2 fixture path adds reusable artifact packs:
+
+`frozen URL fixture -> locked claim set -> Article + Ask pack -> per-artifact draft-handoff review -> downloadable article patch when media rights are cleared`
+
 The shell performs no model calls, Git writes, CMS writes, publication or external distribution. Its atomic file-backed store is a single-process development/test adapter behind the durable run contract; startup fails closed in production. PostgreSQL, authentication and private storage remain explicit later gates.
+
+`url_article_v1` can produce article body, article metadata, Ask answer, internal-link plan and SEO metadata proposal artifacts. Text-only packs remain valid and reviewable. Astro patch export stays unavailable until a separately rights-cleared hero placement exists. Reviews approve draft handoff only and never grant publication authority.
 
 ## Run locally
 
