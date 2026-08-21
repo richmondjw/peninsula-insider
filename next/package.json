@@ -20,6 +20,7 @@
     "lint:nav-budget": "node scripts/lint-nav-budget.mjs",
     "lint:css-budget": "node scripts/check-css-budget.mjs",
     "lint:coordinates": "node scripts/lint-coordinates.mjs",
+    "audit:coordinates-landmask": "node scripts/audit-coordinates-landmask.mjs",
     "media:registry": "node scripts/build-media-registry.mjs",
     "lint:taxonomy": "node scripts/taxonomy-lint.mjs",
     "lint:taxonomy:strict": "node scripts/taxonomy-lint.mjs --strict",
