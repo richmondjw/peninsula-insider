@@ -1,0 +1,36 @@
+name: Content Foundry CI
+
+on:
+  pull_request:
+    paths:
+      - 'studio-peninsula-insider/**'
+      - '.github/workflows/content-foundry-ci.yml'
+  push:
+    branches:
+      - 'feature/content-foundry-*'
+    paths:
+      - 'studio-peninsula-insider/**'
+      - '.github/workflows/content-foundry-ci.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: studio-peninsula-insider
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: studio-peninsula-insider/package-lock.json
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run build
+      - run: npm audit --audit-level=moderate
