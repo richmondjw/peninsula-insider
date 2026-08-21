@@ -14,6 +14,7 @@
     "build:client": "node scripts/copy-fonts.mjs && vite build",
     "build:server": "tsc -p tsconfig.server.build.json",
     "check:capture-boundary": "node scripts/check-capture-boundary.mjs",
+    "verify:patches": "npm run build:server && node scripts/verify-generated-patches.mjs",
     "start": "node .server-build/server/index.js",
     "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.server.json",
     "test": "vitest run"

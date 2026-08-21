@@ -1,11 +1,36 @@
 import { useEffect, useMemo, useRef, useState, type KeyboardEvent } from 'react';
 import type { ArtifactVersion, CaptureProjection, FoundryRun } from '../shared/contracts';
 import { patchReadiness } from '../shared/patch-readiness';
-import { nextArtifactTabIndex } from '../shared/artifact-tabs';
+import { focusTabAtIndex, nextArtifactTabIndex, rovingTabIndex } from '../shared/artifact-tabs';
+import {
+  focusReviewTarget,
+  reviewFocusAfterFailure,
+  reviewFocusAfterSuccess,
+  shouldRestoreReviewFocus,
+  type BoundReviewFocus,
+  type ReviewFocusTargetContext,
+} from '../shared/review-focus';
+import {
+  EMPTY_LIVE_STATUS,
+  MEDIA_WAIT_MESSAGE,
+  fixtureReadyStatus,
+  liveStatusAnnouncement,
+  mediaWaitStatus,
+  nextLiveStatus,
+  reviewResultStatus,
+} from '../shared/live-status';
 
-const FIXTURE_ID = 'red-hill-url-article';
 const TERMINAL_CAPTURE_STATES = new Set(['extracted', 'held', 'no_story', 'failed']);
 const SOURCE_KINDS = ['web', 'venue-site', 'press', 'social', 'gov', 'partner'] as const;
+
+const FIXTURE_RECIPES = [
+  { id: 'quick_note_v1', label: 'Quick Note', fixtureId: 'red-hill-winter-lunch', description: 'One compact, patchable editorial note.', variants: [{ id: 'complete', label: 'Complete' }] },
+  { id: 'url_article_v1', label: 'Article', fixtureId: 'red-hill-url-article', description: 'Quick Note, article, metadata, Ask and optional derivatives.', variants: [{ id: 'complete', label: 'Complete' }, { id: 'text_only', label: 'Text only' }, { id: 'partial_optional_failure', label: 'Optional failure' }] },
+  { id: 'newsletter_social_v1', label: 'Newsletter + social', fixtureId: 'red-hill-newsletter-social', description: 'Eleven-position Insider Note plus draft-only social derivatives.', variants: [{ id: 'complete', label: 'Complete' }, { id: 'missing_authoritative_inputs', label: 'Missing inputs' }, { id: 'rights_not_cleared', label: 'Rights not cleared' }] },
+  { id: 'explainer_preproduction_v1', label: 'Explainer', fixtureId: 'red-hill-explainer-preproduction', description: 'Five governed text and visual-planning artifacts.', variants: [{ id: 'complete', label: 'Complete' }, { id: 'partial_optional_failure', label: 'Optional failure' }] },
+  { id: 'podcast_preproduction_v1', label: 'Podcast', fixtureId: 'red-hill-podcast-preproduction', description: 'Seven evidence, interview and script handoff artifacts.', variants: [{ id: 'complete', label: 'Complete' }, { id: 'partial_optional_failure', label: 'Optional failure' }] },
+  { id: 'short_video_preproduction_v1', label: 'Short video', fixtureId: 'red-hill-short-video-preproduction', description: 'Nine script, scene, overlay and platform handoff artifacts.', variants: [{ id: 'complete', label: 'Complete' }, { id: 'partial_optional_failure', label: 'Optional failure' }] },
+] as const;
 
 interface Capabilities {
   realUrlCapture?: { enabled?: boolean };
@@ -37,6 +62,7 @@ function safeApiError(body: unknown, fallback: string): string {
 }
 
 function artifactLabel(artifact: ArtifactVersion): string {
+  if (artifact.type === 'video_script' && artifact.payload.kind === 'video_script') return `${artifact.payload.targetSeconds}-second video script`;
   return artifact.type.replaceAll('_', ' ');
 }
 
@@ -55,6 +81,7 @@ export function App() {
   const [capabilities, setCapabilities] = useState<Capabilities | null>(null);
   const [loading, setLoading] = useState(true);
   const [operation, setOperation] = useState('');
+  const [liveStatus, setLiveStatus] = useState(EMPTY_LIVE_STATUS);
   const [error, setError] = useState('');
   const [pollError, setPollError] = useState('');
   const [url, setUrl] = useState('');
@@ -62,7 +89,17 @@ export function App() {
   const [selectedClaimIds, setSelectedClaimIds] = useState<string[]>([]);
   const [angleLabel, setAngleLabel] = useState('Source-led local explainer');
   const [angleFraming, setAngleFraming] = useState('A bounded internal draft assembled only from the selected immutable source assertions.');
+  const [selectedRecipeId, setSelectedRecipeId] = useState<(typeof FIXTURE_RECIPES)[number]['id']>('url_article_v1');
+  const [selectedFixtureVariant, setSelectedFixtureVariant] = useState('complete');
+  const [pendingReviewFocus, setPendingReviewFocus] = useState<BoundReviewFocus | null>(null);
   const urlInput = useRef<HTMLInputElement>(null);
+  const recipeTabs = useRef<Array<HTMLButtonElement | null>>([]);
+  const artifactTabs = useRef<Array<HTMLButtonElement | null>>([]);
+  const rejectActions = useRef(new Map<string, HTMLButtonElement>());
+  const approveActions = useRef(new Map<string, HTMLButtonElement>());
+  const acceptedHandoffs = useRef(new Map<string, HTMLAnchorElement>());
+  const reviewRequestToken = useRef(0);
+  const navigationEpoch = useRef(0);
 
   const realUrlsEnabled = capabilities?.realUrlCapture?.enabled === true;
   const run = runs.find((candidate) => candidate.id === activeRunId) ?? runs[0] ?? null;
@@ -74,9 +111,15 @@ export function App() {
   const currentReview = activeArtifact && run?.artifactPack.reviews.find((review) => review.artifactId === activeArtifact.id && review.status === 'current');
   const activeBlockingGates = activeArtifact?.gateResults.filter((gate) => gate.blocking && !gate.passed) ?? [];
   const patchState = run ? patchReadiness(run, Boolean(activeCapture)) : null;
+  const selectedRecipe = FIXTURE_RECIPES.find((recipe) => recipe.id === selectedRecipeId) ?? FIXTURE_RECIPES[1];
 
-  function upsertRun(updated: FoundryRun) {
+  function announceStatus(event: { key: string; message: string }) {
+    setLiveStatus((current) => nextLiveStatus(current, event));
+  }
+
+  function upsertRun(updated: FoundryRun, activate = true) {
     setRuns((current) => [updated, ...current.filter((candidate) => candidate.id !== updated.id)]);
+    if (!activate) return;
     setActiveRunId(updated.id);
     setActiveArtifactId((current) => updated.artifactPack.completed.some((artifact) => artifact.id === current)
       ? current : updated.artifactPack.completed[0]?.id ?? '');
@@ -86,8 +129,19 @@ export function App() {
     if (!run || !['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
     event.preventDefault();
     const next = nextArtifactTabIndex(index, run.artifactPack.completed.length, event.key as 'ArrowLeft' | 'ArrowRight' | 'Home' | 'End');
+    navigationEpoch.current += 1;
     setActiveArtifactId(run.artifactPack.completed[next].id);
-    window.requestAnimationFrame(() => document.getElementById(`artifact-tab-${next}`)?.focus());
+    focusTabAtIndex(artifactTabs.current, next);
+  }
+
+  function navigateRecipeTabs(event: KeyboardEvent<HTMLButtonElement>, index: number) {
+    if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+    event.preventDefault();
+    const next = nextArtifactTabIndex(index, FIXTURE_RECIPES.length, event.key as 'ArrowLeft' | 'ArrowRight' | 'Home' | 'End');
+    navigationEpoch.current += 1;
+    setSelectedRecipeId(FIXTURE_RECIPES[next].id);
+    setSelectedFixtureVariant('complete');
+    focusTabAtIndex(recipeTabs.current, next);
   }
 
   async function loadRuns(preferredRunId?: string) {
@@ -159,11 +213,22 @@ export function App() {
     try {
       const response = await fetch('/api/foundry/runs', {
         method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Foundry-CSRF': '1' },
-        body: JSON.stringify({ fixtureId: FIXTURE_ID, fixtureVariant: 'complete', actor: 'local-editor', idempotencyKey: 'fixture-url-article-v1' }),
+        body: JSON.stringify({
+          fixtureId: selectedRecipe.fixtureId,
+          fixtureVariant: selectedFixtureVariant,
+          actor: 'local-editor',
+          idempotencyKey: idempotencyKey(`fixture-${selectedRecipe.id}`),
+        }),
       });
       const body = await response.json();
       if (!response.ok) throw new Error(safeApiError(body, 'The fixture run could not start.'));
       upsertRun(body);
+      announceStatus(fixtureReadyStatus(
+        body.id,
+        selectedRecipe.label,
+        body.artifactPack?.completed?.length ?? 0,
+        body.artifactPack?.failed ?? [],
+      ));
     } catch (cause) { setError(cause instanceof Error ? cause.message : 'The fixture run failed.'); }
     finally { setOperation(''); }
   }
@@ -182,6 +247,7 @@ export function App() {
       if (!response.ok) throw new Error(safeApiError(body, 'The capture request failed safely.'));
       setCaptures((current) => [body, ...current.filter((capture) => capture.id !== body.id)]);
       setUrl('');
+      announceStatus({ key: `capture:${body.id}:${body.state}`, message: refresh ? 'Source refresh queued locally.' : 'Source capture queued locally.' });
     } catch (cause) { setError(cause instanceof Error ? cause.message : 'The capture request failed safely.'); }
     finally { setOperation(''); }
   }
@@ -197,12 +263,20 @@ export function App() {
       const body = await response.json();
       if (!response.ok) throw new Error(safeApiError(body, 'Source confirmation failed.'));
       upsertRun(body);
+      announceStatus({ key: `confirmation:${body.id}:${body.version}`, message: 'Source, claims and angle locked. The real-source V1 pack is ready for review.' });
     } catch (cause) { setError(cause instanceof Error ? cause.message : 'Source confirmation failed.'); }
     finally { setOperation(''); }
   }
 
   async function decide(decision: 'accepted' | 'rejected') {
     if (!run || !activeArtifact) return;
+    const request: ReviewFocusTargetContext = {
+      requestToken: reviewRequestToken.current + 1,
+      runId: run.id,
+      artifactId: activeArtifact.id,
+      navigationEpoch: navigationEpoch.current,
+    };
+    reviewRequestToken.current = request.requestToken;
     setOperation('review'); setError('');
     try {
       const response = await fetch(`/api/foundry/runs/${run.id}/review`, {
@@ -214,14 +288,46 @@ export function App() {
       });
       const body = await response.json();
       if (!response.ok) throw new Error(safeApiError(body, 'Review decision failed.'));
-      upsertRun(body);
-    } catch (cause) { setError(cause instanceof Error ? cause.message : 'Review decision failed.'); }
+      upsertRun(body, false);
+      announceStatus(reviewResultStatus(body.id, body.version, activeArtifact.id, artifactLabel(activeArtifact), decision));
+      if (request.requestToken === reviewRequestToken.current) {
+        setPendingReviewFocus({ ...request, target: reviewFocusAfterSuccess(decision) });
+      }
+    } catch (cause) {
+      setError(cause instanceof Error ? cause.message : 'Review decision failed.');
+      if (request.requestToken === reviewRequestToken.current) {
+        setPendingReviewFocus({ ...request, target: reviewFocusAfterFailure(decision) });
+      }
+    }
     finally { setOperation(''); }
   }
 
   const sourceById = new Map(run?.bundle.sourceItems.map((source) => [source.id, source]) ?? []);
   const currentRevision = useMemo(() => run?.capture?.revisions.find((revision) => revision.attemptId === run.capture?.currentAttemptId), [run]);
   const confirmationCurrent = Boolean(run?.sourceConfirmation && run.capture?.currentAttemptId === run.sourceConfirmation.captureAttemptId);
+
+  useEffect(() => {
+    if (run && activeArtifact?.gateResults.some((gate) => gate.gate === 'media_render_ready' && !gate.passed && !gate.blocking)) {
+      announceStatus(mediaWaitStatus(run.id, activeArtifact.id, activeArtifact.version, artifactLabel(activeArtifact)));
+    }
+  }, [run?.id, activeArtifact?.id, activeArtifact?.version]);
+
+  useEffect(() => {
+    if (operation || !pendingReviewFocus) return;
+    if (shouldRestoreReviewFocus(pendingReviewFocus, {
+      latestRequestToken: reviewRequestToken.current,
+      runId: run?.id ?? null,
+      artifactId: activeArtifact?.id ?? null,
+      navigationEpoch: navigationEpoch.current,
+    })) {
+      focusReviewTarget(pendingReviewFocus.target, {
+        acceptedHandoff: acceptedHandoffs.current.get(pendingReviewFocus.artifactId) ?? null,
+        rejectAction: rejectActions.current.get(pendingReviewFocus.artifactId) ?? null,
+        approveAction: approveActions.current.get(pendingReviewFocus.artifactId) ?? null,
+      });
+    }
+    setPendingReviewFocus(null);
+  }, [operation, pendingReviewFocus, run?.id, run?.version, activeArtifact?.id, currentReview?.decision]);
 
   return <main>
     <header className="masthead">
@@ -231,39 +337,59 @@ export function App() {
 
     <section className="hero">
       <p className="eyebrow">Content Foundry V1</p>
-      <h1>One captured source. A reviewable content pack.</h1>
-      <p>Lock source classification, claims and angle before Article or Ask materialises. Review stays human and per artifact. Nothing publishes from this screen.</p>
+      <h1>One source. Every governed handoff.</h1>
+      <p>Launch deterministic V1 recipe packs, or lock a real source before Article and Ask materialise. Review stays human and per artifact. Nothing records, renders, schedules, sends or publishes from this screen.</p>
     </section>
 
     <section className="intake panel" aria-labelledby="source-intake-title">
       <div className="panel-heading"><h2 id="source-intake-title">Source intake</h2><span className={`capability ${realUrlsEnabled ? 'on' : 'off'}`}>Real URL capture {realUrlsEnabled ? 'on' : 'off'}</span></div>
       <div className="intake-grid">
-        <div><h3>Frozen artifact pack</h3><p>Deterministic and offline. Includes exact hero rights for safe patch-adapter testing.</p>
-          <button className="secondary" onClick={startFixture} disabled={Boolean(operation)}>{operation === 'fixture' ? 'Starting…' : 'Run fixture'}</button></div>
+        <div className="fixture-launcher"><h3>Frozen recipe packs</h3><p>Deterministic and offline. Choose a governed lane and its exact test condition.</p>
+          <div className="tab-rail"><div className="fixture-tabs" role="tablist" aria-label="Fixture recipe">{FIXTURE_RECIPES.map((recipe, index) => <button
+            role="tab" id={`recipe-tab-${index}`} aria-controls="fixture-recipe-panel" aria-selected={selectedRecipe.id === recipe.id}
+            ref={(element) => { recipeTabs.current[index] = element; }}
+            tabIndex={rovingTabIndex(index, FIXTURE_RECIPES.findIndex((candidate) => candidate.id === selectedRecipe.id))} className={selectedRecipe.id === recipe.id ? 'secondary active' : 'secondary'}
+            key={recipe.id} onKeyDown={(event) => navigateRecipeTabs(event, index)} onClick={() => { navigationEpoch.current += 1; setSelectedRecipeId(recipe.id); setSelectedFixtureVariant('complete'); }}
+          >{recipe.label}</button>)}</div></div>
+          <div id="fixture-recipe-panel" role="tabpanel" aria-labelledby={`recipe-tab-${FIXTURE_RECIPES.findIndex((recipe) => recipe.id === selectedRecipe.id)}`}>
+            <p className="recipe-description">{selectedRecipe.description}</p>
+            <label className="url-field" htmlFor="fixture-variant">Fixture condition</label>
+            <select id="fixture-variant" value={selectedFixtureVariant} onChange={(event) => setSelectedFixtureVariant(event.target.value)}>
+              {selectedRecipe.variants.map((variant) => <option value={variant.id} key={variant.id}>{variant.label}</option>)}
+            </select>
+            <button className="secondary launch-button" onClick={startFixture} disabled={Boolean(operation)}>{operation === 'fixture' ? 'Starting…' : `Launch ${selectedRecipe.label}`}</button>
+          </div></div>
         <form onSubmit={(event) => { event.preventDefault(); void submitCapture(false); }}>
           <h3>Real URL capture</h3><label className="url-field" htmlFor="source-url">HTTPS source URL</label>
           <div className="url-row"><input ref={urlInput} id="source-url" type="url" required inputMode="url" autoCapitalize="none" autoCorrect="off" spellCheck={false}
             value={url} onChange={(event) => setUrl(event.target.value)} disabled={!realUrlsEnabled || Boolean(activeCapture)} placeholder="https://example.com/page" />
             <button type="submit" disabled={!realUrlsEnabled || Boolean(operation) || Boolean(activeCapture)}>{operation === 'capture' ? 'Starting…' : 'Capture URL'}</button></div>
           <p>{realUrlsEnabled ? 'HTTPS only, port 443. One page. Saved query values are redacted.' : 'Real URL capture is off by default. Enable only in the native loopback runtime.'}</p>
+          <p className="scope-limit"><strong>V1 limit:</strong> real sources produce Quick Note, Article, metadata and Ask only. Newsletter, social, explainer, podcast and short-video lanes remain deterministic fixtures.</p>
         </form>
       </div>
     </section>
 
     {error && <div className="notice error" role="alert">{error}</div>}
+    <div className="visually-hidden" role="status" aria-live="polite" aria-atomic="true">{liveStatusAnnouncement(liveStatus)}</div>
     {pollError && <div className="notice warning" role="status">{pollError}</div>}
     {activeCapture && <div className="capture-live" role="status" aria-live="polite"><strong>{captureCopy[activeCapture.state]}</strong></div>}
     {loading && <section className="empty" role="status"><h2>Loading Workbench</h2><p>Reading local run and capture ledgers.</p></section>}
     {!loading && !run && <section className="empty"><h2>No run yet</h2><p>Use the fixture, or enable bounded local URL capture.</p></section>}
 
     {run && <>
-      <div className="run-select-row"><label htmlFor="active-run">Visible run</label><select id="active-run" value={run.id} onChange={(event) => setActiveRunId(event.target.value)}>
-        {runs.map((candidate) => <option value={candidate.id} key={candidate.id}>{candidate.capture ? 'URL' : 'Fixture'} · {candidate.id}</option>)}
+      <div className="run-select-row"><label htmlFor="active-run">Visible run</label><select id="active-run" value={run.id} onChange={(event) => { navigationEpoch.current += 1; setActiveRunId(event.target.value); }}>
+        {runs.map((candidate) => <option value={candidate.id} key={candidate.id}>{candidate.capture ? 'Real URL' : 'Fixture'} · {candidate.recipe.label} · {candidate.id}</option>)}
       </select></div>
-      <section className="runbar" aria-live="polite">
+      <section className="runbar">
         <div><span>RUN</span><strong>{run.id}</strong></div><div><span>STATUS</span><strong className={`status ${run.status}`}>{run.status.replaceAll('_', ' ')}</strong></div>
         <div><span>PACK</span><strong>v{run.artifactPack.version} · {run.artifactPack.completed.length} artifacts</strong></div><div><span>AI / PUBLISH</span><strong>Off / Off</strong></div>
       </section>
+
+      {run.artifactPack.failed.length > 0 && <section className="notice warning pack-failures" aria-labelledby="pack-failures-title">
+        <strong id="pack-failures-title">Partial pack: {run.artifactPack.failed.length} optional derivative failed</strong>
+        <ul>{run.artifactPack.failed.map((failure) => <li key={`${failure.key}-${failure.attemptedAt}`}><span>{failure.key.replaceAll('-', ' ')}</span>: {failure.detail}</li>)}</ul>
+      </section>}
 
       {run.capture && currentRevision && <section className="provenance panel" aria-labelledby="provenance-title">
         <div className="panel-heading"><h2 id="provenance-title">Source provenance</h2><span>{run.capture.revisions.length} immutable revision{run.capture.revisions.length === 1 ? '' : 's'}</span></div>
@@ -296,19 +422,21 @@ export function App() {
         </section>
 
         <section className="panel artifact-panel"><div className="panel-heading"><h2>Artifact workbench</h2><span>Draft handoff only</span></div>
-          <div className="artifact-tabs" role="tablist" aria-label="Artifact pack">{run.artifactPack.completed.map((artifact, index) => <button role="tab" id={`artifact-tab-${index}`}
-            aria-controls={`artifact-panel-${index}`} aria-selected={activeArtifact?.id === artifact.id} tabIndex={activeArtifact?.id === artifact.id ? 0 : -1}
+          <div className="tab-rail"><div className="artifact-tabs" role="tablist" aria-label="Artifact pack">{run.artifactPack.completed.map((artifact, index) => <button role="tab" id={`artifact-tab-${index}`}
+            ref={(element) => { artifactTabs.current[index] = element; }}
+            aria-controls={`artifact-panel-${index}`} aria-selected={activeArtifact?.id === artifact.id} tabIndex={rovingTabIndex(index, activeArtifactIndex)}
             className={activeArtifact?.id === artifact.id ? 'secondary active' : 'secondary'} key={artifact.id} onKeyDown={(event) => navigateArtifactTabs(event, index)}
-            onClick={() => setActiveArtifactId(artifact.id)}>{artifactLabel(artifact)}</button>)}</div>
+            onClick={() => { navigationEpoch.current += 1; setActiveArtifactId(artifact.id); }}>{artifactLabel(artifact)}</button>)}</div></div>
           <div role="tabpanel" id={`artifact-panel-${Math.max(0, activeArtifactIndex)}`} aria-labelledby={`artifact-tab-${Math.max(0, activeArtifactIndex)}`}>
           {activeArtifact ? <><p className="section-label">{activeArtifact.id} · v{activeArtifact.version}</p><pre className="artifact-preview">{payloadPreview(activeArtifact)}</pre>
             <div className="gates">{activeArtifact.gateResults.map((gate) => <div key={gate.gate} className={gate.passed ? 'gate pass' : gate.blocking ? 'gate fail' : 'gate'}><strong>{gate.passed ? 'PASS' : gate.blocking ? 'BLOCK' : 'WAIT'}</strong><span>{gate.gate.replaceAll('_', ' ')}</span></div>)}</div>
+            {activeArtifact.gateResults.some((gate) => gate.gate === 'media_render_ready' && !gate.passed && !gate.blocking) && <div className="notice media-wait">{MEDIA_WAIT_MESSAGE}</div>}
             {currentReview && <div className={`notice ${currentReview.decision === 'accepted' ? '' : 'warning'}`}>Current {currentReview.decision} review · receipt {currentReview.receiptHash?.slice(0, 12)}…</div>}
-            <div className="actions"><button className="secondary" onClick={() => decide('rejected')} disabled={Boolean(operation) || Boolean(activeCapture)}>Reject</button>
-              <button onClick={() => decide('accepted')} disabled={Boolean(operation) || Boolean(activeCapture) || activeBlockingGates.length > 0}>Approve draft handoff</button></div>
-            {currentReview?.decision === 'accepted' && <a className="download" href={`/api/foundry/runs/${run.id}/artifacts/${activeArtifact.id}/handoff`}>Download reviewed text handoff</a>}
+            <div className="actions"><button ref={(element) => { if (element) rejectActions.current.set(activeArtifact.id, element); else rejectActions.current.delete(activeArtifact.id); }} className="secondary" onClick={() => decide('rejected')} disabled={Boolean(operation) || Boolean(activeCapture)}>Reject</button>
+              <button ref={(element) => { if (element) approveActions.current.set(activeArtifact.id, element); else approveActions.current.delete(activeArtifact.id); }} onClick={() => decide('accepted')} disabled={Boolean(operation) || Boolean(activeCapture) || activeBlockingGates.length > 0}>Approve draft handoff</button></div>
+            {currentReview?.decision === 'accepted' && <a ref={(element) => { if (element) acceptedHandoffs.current.set(activeArtifact.id, element); else acceptedHandoffs.current.delete(activeArtifact.id); }} className="download" href={`/api/foundry/runs/${run.id}/artifacts/${activeArtifact.id}/handoff`}>Download reviewed text handoff</a>}
             {activeArtifact.type === 'quick_note' && currentReview?.decision === 'accepted' && <a className="download" href={`/api/foundry/runs/${run.id}/artifacts/${activeArtifact.id}/patch`}>Download reviewed Quick Note patch</a>}
-            {activeArtifact.type === 'article_metadata' && patchState && <div className="patch-action" role="status">
+            {activeArtifact.type === 'article_metadata' && patchState && <div className="patch-action">
               {patchState.ready
                 ? <a className="download" href={`/api/foundry/runs/${run.id}/artifacts/${activeArtifact.id}/patch`}>Download reviewed Astro patch</a>
                 : <button className="download" type="button" disabled aria-describedby="patch-blocked-reason">Astro patch unavailable</button>}

@@ -36,6 +36,15 @@ jobs:
       - run: npm run typecheck
       - run: npm test
       - run: npm run build
+      - name: Apply generated patches and validate the Astro content contracts
+        run: |
+          TARGET="$(mktemp -d)"
+          trap 'rm -rf "$TARGET"' EXIT
+          git clone --quiet --no-local "$GITHUB_WORKSPACE" "$TARGET"
+          PI_PATCH_TARGET_ROOT="$TARGET" npm run verify:patches
+          cd "$TARGET/next"
+          npm ci --prefer-offline
+          npm run validate:content
       - run: npm audit --audit-level=moderate
 
   container-smoke:

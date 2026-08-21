@@ -6,3 +6,14 @@ export function nextArtifactTabIndex(current: number, count: number, key: 'Arrow
   if (key === 'ArrowRight') return current === last ? 0 : current + 1;
   return current === 0 ? last : current - 1;
 }
+
+export function focusTabAtIndex(
+  tabs: ArrayLike<{ focus: () => void } | null | undefined>,
+  index: number,
+): void {
+  tabs[index]?.focus();
+}
+
+export function rovingTabIndex(index: number, selectedIndex: number): 0 | -1 {
+  return index === selectedIndex ? 0 : -1;
+}

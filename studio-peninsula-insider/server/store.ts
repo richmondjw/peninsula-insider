@@ -1,6 +1,7 @@
 import { randomUUID } from 'node:crypto';
 import { lstat, mkdir, open, readFile, realpath, rename, rm } from 'node:fs/promises';
 import { dirname, isAbsolute, relative, resolve } from 'node:path';
+import { z } from 'zod';
 import {
   ArticleDraftPayloadSchema,
   ArticleMetadataPayloadSchema,
@@ -14,9 +15,17 @@ import {
   InternalLinkPlanPayloadSchema,
   LegacyFoundryRunSchema,
   LegacySingleArtifactRealUrlRunV2Schema,
+  InsiderNoteIssuePayloadSchema,
+  InsiderNoteSubjectSetPayloadSchema,
+  InstagramCaptionPayloadSchema,
+  InstagramCarouselScriptPayloadSchema,
+  InstagramFirstCommentPayloadSchema,
+  LinkedInPostPayloadSchema,
+  LegacyStoredArtifactReviewDecisionSchema,
   QuickNoteSchema,
   REAL_URL_ASK_PROVENANCE_TEMPLATE,
   SeoMetadataProposalPayloadSchema,
+  SocialMediaBriefPayloadSchema,
   SourceConfirmationInputSchema,
   StoryAngleSchema,
   type ArtifactEdit,
@@ -31,6 +40,7 @@ import {
   type SourceConfirmationInput,
 } from '../shared/contracts.js';
 import type { CaptureRecord } from '../shared/capture-contracts.js';
+import { isPreproductionArtifactType, parsePreproductionPayload } from '../shared/preproduction-contracts.js';
 import {
   QUICK_NOTE_RECIPE,
   URL_ARTICLE_RECIPE,
@@ -44,8 +54,17 @@ import {
   migrateArtifactPackV2Run,
   migrateLegacyRun,
   resolveArtifactPath,
+  socialMediaRightsBindingHash,
   withArtifactHash,
 } from './fixture-runner.js';
+import { NEWSLETTER_SOCIAL_RECIPE, runNewsletterSocialFixture } from './newsletter-social-fixtures.js';
+import {
+  EXPLAINER_RECIPE,
+  PODCAST_RECIPE,
+  SHORT_VIDEO_RECIPE,
+  runPreproductionFixture,
+  type PreproductionFamily,
+} from './preproduction-fixtures.js';
 import {
   buildRealUrlRun,
   confirmRealUrlRun,
@@ -72,6 +91,8 @@ import {
   withFixtureOriginAuthority,
   withRealUrlOriginAuthority,
 } from './origin-authority.js';
+import { evaluateArtifactFormatGates } from './newsletter-social-fixtures.js';
+import { evaluatePreproductionGates, mediaRightsBindingHash } from './preproduction-policy.js';
 
 interface StoreFile {
   schemaVersion: 'pi.foundry-file-store.v3';
@@ -120,7 +141,35 @@ function parsePayloadForArtifact(artifact: ArtifactVersion, payload: unknown): A
     case 'ask_answer': return AskAnswerPayloadSchema.parse(payload);
     case 'internal_link_plan': return InternalLinkPlanPayloadSchema.parse(payload);
     case 'seo_metadata_proposal': return SeoMetadataProposalPayloadSchema.parse(payload);
+    case 'insider_note_issue': return InsiderNoteIssuePayloadSchema.parse(payload);
+    case 'insider_note_subject_set': return InsiderNoteSubjectSetPayloadSchema.parse(payload);
+    case 'linkedin_post': return LinkedInPostPayloadSchema.parse(payload);
+    case 'instagram_caption': return InstagramCaptionPayloadSchema.parse(payload);
+    case 'instagram_first_comment': return InstagramFirstCommentPayloadSchema.parse(payload);
+    case 'instagram_carousel_script': return InstagramCarouselScriptPayloadSchema.parse(payload);
+    case 'social_media_brief': return SocialMediaBriefPayloadSchema.parse(payload);
+    default:
+      if (isPreproductionArtifactType(artifact.type)) return parsePreproductionPayload(artifact.type, payload);
+      throw new Error(`Unsupported artifact type ${(artifact as ArtifactVersion).type}`);
   }
+}
+
+function collectEmbeddedClaimReferences(value: unknown, path = '$'): Array<{ path: string; claimIds: string[] }> {
+  if (Array.isArray(value)) return value.flatMap((item, index) => collectEmbeddedClaimReferences(item, `${path}[${index}]`));
+  if (!value || typeof value !== 'object') return [];
+  return Object.entries(value as Record<string, unknown>).flatMap(([key, item]) => {
+    const itemPath = `${path}.${key}`;
+    if (/claimIds$/i.test(key) && Array.isArray(item)) {
+      return [{ path: itemPath, claimIds: item.filter((claimId): claimId is string => typeof claimId === 'string') }];
+    }
+    return collectEmbeddedClaimReferences(item, itemPath);
+  });
+}
+
+function containsPropertyNamed(value: unknown, property: string): boolean {
+  if (Array.isArray(value)) return value.some((item) => containsPropertyNamed(item, property));
+  if (!value || typeof value !== 'object') return false;
+  return Object.entries(value as Record<string, unknown>).some(([key, item]) => key === property || containsPropertyNamed(item, property));
 }
 
 function staleReview(review: FoundryRun['artifactPack']['reviews'][number], at: string, reason: 'artifact_edited' | 'dependency_changed' | 'source_refreshed' | 'review_superseded' | 'gate_re_evaluated') {
@@ -202,7 +251,14 @@ export class FileFoundryStore {
           : artifact.type === 'article_metadata' && artifact.payload.astroPatchReady
             ? { gate: 'astro_article_contract', schema: ArticleMetadataPayloadSchema }
             : undefined,
+        artifact.type,
       );
+    if (['insider_note_issue', 'insider_note_subject_set', 'linkedin_post', 'instagram_caption', 'instagram_first_comment', 'instagram_carousel_script', 'social_media_brief'].includes(artifact.type)) {
+      gates.push(...evaluateArtifactFormatGates(artifact.type, artifact.payload, run.claimSet.claims, asOf));
+    }
+    if (isPreproductionArtifactType(artifact.type)) {
+      gates.push(...evaluatePreproductionGates(parsePreproductionPayload(artifact.type, artifact.payload), artifact.dependencies));
+    }
     gates = gates.filter((gate) => !['dependency_current', 'field_lineage_complete', 'human_confirmation_current', 'astro_patch_ready'].includes(gate.gate));
     let lineageCurrent = true;
     try { assertArtifactPublicLineage(artifact, run.claimSet.claims); } catch { lineageCurrent = false; }
@@ -501,6 +557,61 @@ export class FileFoundryStore {
     if (input && typeof input === 'object' && (input as { schemaVersion?: unknown }).schemaVersion === 'pi.foundry-run.v3') {
       throw new Error('Current Foundry v3 run is missing or has an invalid origin authority receipt reference');
     }
+    const acceptedLane = z.object({
+      schemaVersion: z.literal('pi.foundry-run.v2'),
+      idempotencyKey: z.string().min(1),
+      updatedAt: z.string().datetime(),
+      bundle: z.object({ id: z.string().min(1), submittedBy: z.string().min(1) }).passthrough(),
+      recipe: z.object({ id: z.string().min(1) }).passthrough(),
+      artifactPack: z.object({ reviews: z.array(z.unknown()).default([]) }).passthrough(),
+    }).passthrough().safeParse(input);
+    if (acceptedLane.success) {
+      const pairs: Array<{
+        recipeId: string;
+        bundleId: string;
+        build: (actor: string, idempotencyKey: string) => FoundryRun;
+      }> = [
+        { recipeId: NEWSLETTER_SOCIAL_RECIPE.id, bundleId: 'bundle-red-hill-newsletter-social', build: runNewsletterSocialFixture },
+        ...([
+          ['explainer', EXPLAINER_RECIPE.id, 'bundle-red-hill-explainer-preproduction'],
+          ['podcast', PODCAST_RECIPE.id, 'bundle-red-hill-podcast-preproduction'],
+          ['short_video', SHORT_VIDEO_RECIPE.id, 'bundle-red-hill-short-video-preproduction'],
+        ] as const).map(([family, recipeId, bundleId]) => ({
+          recipeId,
+          bundleId,
+          build: (actor: string, idempotencyKey: string) => runPreproductionFixture(family as PreproductionFamily, actor, idempotencyKey),
+        })),
+      ];
+      const pair = pairs.find((candidate) => candidate.recipeId === acceptedLane.data.recipe.id
+        && candidate.bundleId === acceptedLane.data.bundle.id);
+      if (pair) {
+        const reconstructed = pair.build(acceptedLane.data.bundle.submittedBy, acceptedLane.data.idempotencyKey);
+        const currentArtifacts = new Map(reconstructed.artifactPack.completed.map((artifact) => [artifact.id, artifact]));
+        const historicalReviews = acceptedLane.data.artifactPack.reviews.flatMap((rawReview) => {
+          const review = LegacyStoredArtifactReviewDecisionSchema.safeParse(rawReview);
+          if (!review.success || !currentArtifacts.has(review.data.artifactId)) return [];
+          return [{
+            ...review.data,
+            status: 'stale' as const,
+            staleReason: 'legacy_unsealed' as const,
+            staledAt: acceptedLane.data.updatedAt,
+          }];
+        });
+        const migrated = FoundryRunSchema.parse({
+          ...reconstructed,
+          artifactPack: { ...reconstructed.artifactPack, reviews: historicalReviews },
+          audit: [...reconstructed.audit, {
+            at: acceptedLane.data.updatedAt,
+            actor: 'store-migration',
+            type: 'accepted_lane_fixture_reconstructed',
+            detail: 'Reconstructed the exact frozen V1 recipe and bundle; prior unsealed reviews remain stale historical records only.',
+          }],
+        });
+        const normalized = this.normalizeDerivedStatus(migrated, asOf);
+        await this.sealProvenOriginAuthority(normalized);
+        return normalized;
+      }
+    }
     const packV2 = ArtifactPackFoundryRunV2Schema.safeParse(input);
     if (packV2.success) {
       const migrated = this.normalizeDerivedStatus(migrateArtifactPackV2Run(packV2.data), asOf);
@@ -720,7 +831,17 @@ export class FileFoundryStore {
     if (artifactIndex < 0) throw new Error('Artifact not found');
     const current = run.artifactPack.completed[artifactIndex];
     if (current.version !== update.expectedArtifactVersion) throw new VersionConflictError(`Expected artifact version ${update.expectedArtifactVersion}; current version is ${current.version}`);
+    if (current.type === 'insider_note_issue' && containsPropertyNamed(update.payload, 'image')) {
+      throw new Error('Newsletter images are blocked until exact asset, placement, rights and release binding is implemented');
+    }
     let payload = parsePayloadForArtifact(current, update.payload);
+    const legacyEditableLineageTypes = new Set<ArtifactVersion['type']>([
+      'quick_note', 'article_draft', 'article_metadata', 'ask_answer', 'internal_link_plan', 'seo_metadata_proposal',
+    ]);
+    if (!legacyEditableLineageTypes.has(current.type)
+        && JSON.stringify(collectEmbeddedClaimReferences(payload)) !== JSON.stringify(collectEmbeddedClaimReferences(current.payload))) {
+      throw new Error('Payload-declared claim references are immutable server-owned lineage metadata');
+    }
     if (current.type === 'quick_note') {
       const next = QuickNoteSchema.parse(payload);
       if (JSON.stringify(next.sources.map((source) => source.note)) !== JSON.stringify(current.payload.sources.map((source) => source.note))) {
@@ -755,16 +876,38 @@ export class FileFoundryStore {
       dependencies = [...current.dependencies.filter((dependency) => dependency.kind !== 'media_rights'), ...retained];
       payload = ArticleMetadataPayloadSchema.parse({ ...metadata, astroPatchReady: Boolean(metadata.heroImage && metadata.heroBinding && retained.length === 1) });
     }
-    const claimUsage = current.claimUsage.map((usage) => {
-      const value = resolveArtifactPath(payload, usage.path);
-      if (value === undefined || value === null || value === '') throw new Error(`Server lineage policy cannot resolve ${usage.path} after the edit`);
-      return { ...usage, contentHash: hashValue(value) };
-    });
+    if (current.type === 'social_media_brief') {
+      const brief = SocialMediaBriefPayloadSchema.parse(payload);
+      const retained = current.dependencies.filter((dependency) => dependency.kind === 'media_rights'
+        && dependency.id === brief.placementRights.rightsId
+        && dependency.version === brief.placementRights.rightsVersion
+        && dependency.contentHash === socialMediaRightsBindingHash(brief)
+        && dependency.status === 'cleared');
+      dependencies = [...current.dependencies.filter((dependency) => dependency.kind !== 'media_rights'), ...retained];
+    }
+    if (isPreproductionArtifactType(current.type)) {
+      const preproduction = parsePreproductionPayload(current.type, payload);
+      const retained = current.dependencies.filter((dependency) => dependency.kind === 'media_rights'
+        && preproduction.boundary.mediaAssignments.some((assignment) => (
+          assignment.rights.id === dependency.id
+          && assignment.rights.version === dependency.version
+          && mediaRightsBindingHash(assignment) === dependency.contentHash
+          && dependency.status === 'cleared'
+        )));
+      dependencies = [...current.dependencies.filter((dependency) => dependency.kind !== 'media_rights'), ...retained];
+    }
+    const claimUsage = legacyEditableLineageTypes.has(current.type)
+      ? current.claimUsage.map((usage) => {
+        const value = resolveArtifactPath(payload, usage.path);
+        if (value === undefined || value === null || value === '') throw new Error(`Server lineage policy cannot resolve ${usage.path} after the edit`);
+        return { ...usage, contentHash: hashValue(value) };
+      })
+      : current.claimUsage;
     const changed = withArtifactHash({
       ...current, version: current.version + 1, payload, claimUsage, dependencies,
       publicFieldLineage: buildPublicFieldLineage(current.type, payload, claimUsage, run.claimSet.claims),
       gateResults: current.gateResults,
-    }, run.claimSet.claims);
+    }, run.claimSet.claims, { completeClaimUsage: false });
     const completed = run.artifactPack.completed.map((artifact, index) => index === artifactIndex ? changed : artifact);
     const candidate = FoundryRunSchema.parse({
       ...run, version: run.version + 1, updatedAt: asOf, evaluationAsOf: asOf,
