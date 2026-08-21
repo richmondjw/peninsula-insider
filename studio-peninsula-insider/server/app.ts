@@ -2,14 +2,23 @@ import express from 'express';
 import helmet from 'helmet';
 import { z } from 'zod';
 import { ArtifactEditSchema, ArtifactUpdateSchema, ReviewDecisionSchema } from '../shared/contracts.js';
-import { buildPatch, FIXTURE_ID, runFixture, runUrlArticleFixture, URL_ARTICLE_FIXTURE_ID } from './fixture-runner.js';
+import {
+  buildArtifactHandoff,
+  buildPatch,
+  FIXTURE_ID,
+  NEWSLETTER_SOCIAL_FIXTURE_ID,
+  runFixture,
+  runNewsletterSocialFixture,
+  runUrlArticleFixture,
+  URL_ARTICLE_FIXTURE_ID,
+} from './fixture-runner.js';
 import { FileFoundryStore, VersionConflictError } from './store.js';
 
 const CreateRunSchema = z.object({
-  fixtureId: z.enum([FIXTURE_ID, URL_ARTICLE_FIXTURE_ID]),
+  fixtureId: z.enum([FIXTURE_ID, URL_ARTICLE_FIXTURE_ID, NEWSLETTER_SOCIAL_FIXTURE_ID]),
   actor: z.string().min(1).default('local-editor'),
   idempotencyKey: z.string().min(1).optional(),
-  fixtureVariant: z.enum(['complete', 'text_only', 'partial_optional_failure']).default('complete'),
+  fixtureVariant: z.enum(['complete', 'text_only', 'partial_optional_failure', 'missing_authoritative_inputs', 'rights_not_cleared']).default('complete'),
 });
 
 export function createApp(store: FileFoundryStore, options: { staticDir?: string } = {}) {
@@ -40,9 +49,13 @@ export function createApp(store: FileFoundryStore, options: { staticDir?: string
   app.get('/api/health', (_request, response) => response.json({ ok: true, service: 'pi-content-foundry', mode: 'fixture-only' }));
   app.get('/api/capabilities', (_request, response) => response.json({
     sourceTypes: ['frozen_fixture'],
-    recipes: ['quick_note_v1', 'url_article_v1'],
-    artifactTypes: ['quick_note', 'article_draft', 'article_metadata', 'ask_answer', 'internal_link_plan', 'seo_metadata_proposal'],
-    publicationAdapters: ['downloadable_patch'],
+    recipes: ['quick_note_v1', 'url_article_v1', 'newsletter_social_v1'],
+    artifactTypes: [
+      'quick_note', 'article_draft', 'article_metadata', 'ask_answer', 'internal_link_plan', 'seo_metadata_proposal',
+      'insider_note_issue', 'insider_note_subject_set', 'linkedin_post', 'instagram_caption',
+      'instagram_first_comment', 'instagram_carousel_script', 'social_media_brief',
+    ],
+    publicationAdapters: ['downloadable_patch', 'reviewed_draft_handoff'],
     externalCalls: false,
     productionMutation: false,
   }));
@@ -60,10 +73,13 @@ export function createApp(store: FileFoundryStore, options: { staticDir?: string
       if (existing) return response.status(200).json(existing);
       const run = input.fixtureId === FIXTURE_ID
         ? runFixture(input.actor, idempotencyKey)
-        : runUrlArticleFixture(input.actor, idempotencyKey, {
+        : input.fixtureId === URL_ARTICLE_FIXTURE_ID ? runUrlArticleFixture(input.actor, idempotencyKey, {
           includeClearedHero: input.fixtureVariant === 'complete',
           failOptionalDerivative: input.fixtureVariant === 'partial_optional_failure' ? 'seo_metadata_proposal' : undefined,
           omitPlans: input.fixtureVariant === 'text_only',
+        }) : runNewsletterSocialFixture(input.actor, idempotencyKey, {
+          omitAuthoritativeInputs: input.fixtureVariant === 'missing_authoritative_inputs',
+          clearInstagramRights: input.fixtureVariant !== 'rights_not_cleared',
         });
       const created = await store.create(run);
       return response.status(201).json(created);
@@ -116,6 +132,17 @@ export function createApp(store: FileFoundryStore, options: { staticDir?: string
       response.type('text/x-diff');
       response.setHeader('Content-Disposition', `attachment; filename="${run.id}.patch"`);
       return response.send(patch);
+    } catch (error) { return next(error); }
+  });
+
+  app.get('/api/foundry/runs/:id/artifacts/:artifactId/handoff', async (request, response, next) => {
+    try {
+      const run = await store.get(request.params.id);
+      if (!run) return response.status(404).json({ error: 'Run not found' });
+      const handoff = buildArtifactHandoff(run, request.params.artifactId);
+      response.type('application/json');
+      response.setHeader('Content-Disposition', `attachment; filename="${handoff.filename}"`);
+      return response.send(handoff.body);
     } catch (error) { return next(error); }
   });
 

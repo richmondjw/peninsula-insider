@@ -8,9 +8,16 @@ import {
   ArtifactVersionSchema,
   AskAnswerPayloadSchema,
   FoundryRunSchema,
+  InstagramCaptionPayloadSchema,
+  InstagramCarouselScriptPayloadSchema,
+  InstagramFirstCommentPayloadSchema,
+  InsiderNoteIssuePayloadSchema,
+  InsiderNoteSubjectSetPayloadSchema,
   InternalLinkPlanPayloadSchema,
+  LinkedInPostPayloadSchema,
   QuickNoteSchema,
   SeoMetadataProposalPayloadSchema,
+  SocialMediaBriefPayloadSchema,
   type ArtifactEdit,
   type ArtifactUpdate,
   type ArtifactVersion,
@@ -18,7 +25,7 @@ import {
   type GateResult,
   type ReviewDecision,
 } from '../shared/contracts.js';
-import { artifactDependenciesCurrent, evaluateArtifactGates, evaluateQuickNoteGates, hashValue, migrateLegacyRun } from './fixture-runner.js';
+import { artifactDependenciesCurrent, evaluateArtifactFormatGates, evaluateArtifactGates, evaluateQuickNoteGates, hashValue, migrateLegacyRun, socialMediaRightsSnapshot } from './fixture-runner.js';
 
 interface StoreFile {
   schemaVersion: 'pi.foundry-file-store.v1';
@@ -55,8 +62,7 @@ function deriveRunStatus(run: FoundryRun): FoundryRun['status'] {
   return 'ready_for_review';
 }
 
-function normalizeDerivedStatus(run: FoundryRun): FoundryRun {
-  const asOf = new Date().toISOString();
+function normalizeDerivedStatus(run: FoundryRun, asOf: string): FoundryRun {
   const completed = run.artifactPack.completed.map((artifact) => {
     const current = artifactDependenciesCurrent(run, artifact);
     const evaluatedGates = gatesForUpdatedArtifact(
@@ -96,6 +102,7 @@ function normalizeDerivedStatus(run: FoundryRun): FoundryRun {
   ));
   const normalized = FoundryRunSchema.parse({
     ...run,
+    evaluationAsOf: asOf,
     artifact: compatibilityArtifact,
     review: compatibilityReviewCurrent ? run.review : undefined,
     artifactPack: { ...run.artifactPack, completed, reviews },
@@ -103,9 +110,9 @@ function normalizeDerivedStatus(run: FoundryRun): FoundryRun {
   return FoundryRunSchema.parse({ ...normalized, status: deriveRunStatus(normalized) });
 }
 
-function parseStoredRun(input: unknown): FoundryRun {
+function parseStoredRun(input: unknown, asOf: string): FoundryRun {
   const current = FoundryRunSchema.safeParse(input);
-  return normalizeDerivedStatus(current.success ? current.data : migrateLegacyRun(input));
+  return normalizeDerivedStatus(current.success ? current.data : migrateLegacyRun(input), asOf);
 }
 
 function parsePayloadForArtifact(artifact: ArtifactVersion, payload: unknown): ArtifactVersion['payload'] {
@@ -116,6 +123,13 @@ function parsePayloadForArtifact(artifact: ArtifactVersion, payload: unknown): A
     case 'ask_answer': return AskAnswerPayloadSchema.parse(payload);
     case 'internal_link_plan': return InternalLinkPlanPayloadSchema.parse(payload);
     case 'seo_metadata_proposal': return SeoMetadataProposalPayloadSchema.parse(payload);
+    case 'insider_note_issue': return InsiderNoteIssuePayloadSchema.parse(payload);
+    case 'insider_note_subject_set': return InsiderNoteSubjectSetPayloadSchema.parse(payload);
+    case 'linkedin_post': return LinkedInPostPayloadSchema.parse(payload);
+    case 'instagram_caption': return InstagramCaptionPayloadSchema.parse(payload);
+    case 'instagram_first_comment': return InstagramFirstCommentPayloadSchema.parse(payload);
+    case 'instagram_carousel_script': return InstagramCarouselScriptPayloadSchema.parse(payload);
+    case 'social_media_brief': return SocialMediaBriefPayloadSchema.parse(payload);
   }
 }
 
@@ -125,7 +139,7 @@ function gatesForUpdatedArtifact(
   payload: unknown,
   factualSegmentIds: string[],
   claimUsage: ArtifactVersion['claimUsage'],
-  asOf = run.updatedAt,
+  asOf: string,
 ): GateResult[] {
   if (artifact.type === 'quick_note') {
     const note = QuickNoteSchema.parse(payload);
@@ -144,6 +158,7 @@ function gatesForUpdatedArtifact(
     asOf,
     contract,
   );
+  results.push(...evaluateArtifactFormatGates(artifact.type, payload, run.claimSet.claims, asOf));
   if (artifact.type === 'article_metadata') {
     const metadata = ArticleMetadataPayloadSchema.parse(payload);
     results.push(metadata.astroPatchReady
@@ -159,13 +174,23 @@ export class FileFoundryStore {
   private mutationQueue: Promise<void> = Promise.resolve();
   private readonly filePath: string;
 
-  constructor(filePath: string, allowedRoot = dirname(filePath)) {
+  constructor(
+    filePath: string,
+    allowedRoot = dirname(filePath),
+    private readonly evaluationClock: () => string = () => new Date().toISOString(),
+  ) {
     const root = resolve(allowedRoot);
     this.filePath = resolve(filePath);
     const candidate = relative(root, this.filePath);
     if (candidate.startsWith('..') || isAbsolute(candidate)) {
       throw new Error('Foundry store path must remain inside its configured data root');
     }
+  }
+
+  private evaluationAsOf(): string {
+    const asOf = this.evaluationClock();
+    if (!Number.isFinite(Date.parse(asOf))) throw new Error('Foundry evaluation clock must return an ISO timestamp');
+    return asOf;
   }
 
   private async mutate<T>(operation: () => Promise<T>): Promise<T> {
@@ -180,12 +205,12 @@ export class FileFoundryStore {
     }
   }
 
-  private async read(): Promise<StoreFile> {
+  private async read(asOf = this.evaluationAsOf()): Promise<StoreFile> {
     try {
       const raw = await readFile(this.filePath, 'utf8');
       const parsed = JSON.parse(raw) as { schemaVersion?: string; runs?: unknown[] };
       if (parsed.schemaVersion !== 'pi.foundry-file-store.v1' || !Array.isArray(parsed.runs)) throw new Error('Unsupported Foundry store schema');
-      return { schemaVersion: parsed.schemaVersion, runs: parsed.runs.map(parseStoredRun) };
+      return { schemaVersion: parsed.schemaVersion, runs: parsed.runs.map((run) => parseStoredRun(run, asOf)) };
     } catch (error) {
       if ((error as NodeJS.ErrnoException).code === 'ENOENT') return { schemaVersion: 'pi.foundry-file-store.v1', runs: [] };
       throw error;
@@ -222,10 +247,11 @@ export class FileFoundryStore {
 
   async create(run: FoundryRun): Promise<FoundryRun> {
     return this.mutate(async () => {
-      const data = await this.read();
+      const asOf = this.evaluationAsOf();
+      const data = await this.read(asOf);
       const existing = data.runs.find((item) => item.idempotencyKey === run.idempotencyKey);
       if (existing) return existing;
-      const parsed = normalizeDerivedStatus(FoundryRunSchema.parse(run));
+      const parsed = normalizeDerivedStatus(FoundryRunSchema.parse(run), asOf);
       data.runs.unshift(parsed);
       await this.write(data);
       return parsed;
@@ -234,7 +260,8 @@ export class FileFoundryStore {
 
   async review(id: string, decision: ReviewDecision): Promise<FoundryRun> {
     return this.mutate(async () => {
-      const data = await this.read();
+      const asOf = this.evaluationAsOf();
+      const data = await this.read(asOf);
       const index = data.runs.findIndex((run) => run.id === id);
       if (index < 0) throw new Error('Run not found');
       const run = data.runs[index];
@@ -251,7 +278,7 @@ export class FileFoundryStore {
       if (decision.decision === 'accepted' && blockingGateFailed(artifact)) {
         throw new Error('Artifact has unresolved blocking gates');
       }
-      const now = new Date().toISOString();
+      const now = asOf;
       const reviews = run.artifactPack.reviews
         .map((review) => review.artifactId === artifact.id && review.status === 'current' ? { ...review, status: 'stale' as const } : review);
       reviews.push({
@@ -284,7 +311,7 @@ export class FileFoundryStore {
           detail: `${decision.decision} draft handoff for artifact ${artifact.id}; publication authority was not granted.`,
         }],
       });
-      const updated = normalizeDerivedStatus(candidate);
+      const updated = normalizeDerivedStatus(candidate, asOf);
       data.runs[index] = updated;
       await this.write(data);
       return updated;
@@ -299,14 +326,15 @@ export class FileFoundryStore {
       payload: undefined,
     });
     return this.mutate(async () => {
-      const data = await this.read();
+      const asOf = this.evaluationAsOf();
+      const data = await this.read(asOf);
       const index = data.runs.findIndex((run) => run.id === id);
       if (index < 0) throw new Error('Run not found');
       const run = data.runs[index];
       if (!run.artifact) throw new Error('Compatibility edit endpoint supports quick-note runs only');
       input.expectedArtifactVersion = run.artifact.version;
       input.payload = QuickNoteSchema.parse({ ...run.artifact.payload, headline: edit.headline, dek: edit.dek, body: edit.body });
-      const updated = this.applyArtifactUpdate(run, run.artifact.id, input);
+      const updated = this.applyArtifactUpdate(run, run.artifact.id, input, asOf);
       data.runs[index] = updated;
       await this.write(data);
       return updated;
@@ -316,17 +344,18 @@ export class FileFoundryStore {
   async updatePackArtifact(id: string, artifactId: string, rawUpdate: ArtifactUpdate): Promise<FoundryRun> {
     const update = ArtifactUpdateSchema.parse(rawUpdate);
     return this.mutate(async () => {
-      const data = await this.read();
+      const asOf = this.evaluationAsOf();
+      const data = await this.read(asOf);
       const index = data.runs.findIndex((run) => run.id === id);
       if (index < 0) throw new Error('Run not found');
-      const updated = this.applyArtifactUpdate(data.runs[index], artifactId, update);
+      const updated = this.applyArtifactUpdate(data.runs[index], artifactId, update, asOf);
       data.runs[index] = updated;
       await this.write(data);
       return updated;
     });
   }
 
-  private applyArtifactUpdate(run: FoundryRun, artifactId: string, update: ArtifactUpdate): FoundryRun {
+  private applyArtifactUpdate(run: FoundryRun, artifactId: string, update: ArtifactUpdate, asOf: string): FoundryRun {
     if (run.version !== update.expectedVersion) {
       throw new VersionConflictError(`Expected version ${update.expectedVersion}; current version is ${run.version}`);
     }
@@ -365,6 +394,19 @@ export class FileFoundryStore {
         astroPatchReady: Boolean(metadata.heroImage && retainedMedia.length === 1),
       });
     }
+    if (current.type === 'social_media_brief') {
+      const brief = SocialMediaBriefPayloadSchema.parse(payload);
+      const retainedMedia = current.dependencies.filter((dependency) => (
+        dependency.kind === 'media_rights'
+        && brief.placementRights.status === 'cleared'
+        && brief.placementRights.rightsId === dependency.id
+        && dependency.contentHash === hashValue(socialMediaRightsSnapshot(brief))
+      ));
+      dependencies = [
+        ...current.dependencies.filter((dependency) => dependency.kind !== 'media_rights'),
+        ...retainedMedia,
+      ];
+    }
     const changed = ArtifactVersionSchema.parse({
       ...current,
       version: current.version + 1,
@@ -373,10 +415,10 @@ export class FileFoundryStore {
       factualSegmentIds,
       claimUsage,
       dependencies,
-      gateResults: gatesForUpdatedArtifact(run, current, payload, factualSegmentIds, claimUsage),
+      gateResults: gatesForUpdatedArtifact(run, current, payload, factualSegmentIds, claimUsage, asOf),
     });
     const completed = run.artifactPack.completed.map((artifact, index) => index === artifactIndex ? changed : artifact);
-    const now = new Date().toISOString();
+    const now = asOf;
     const candidate = FoundryRunSchema.parse({
       ...run,
       version: run.version + 1,
@@ -396,6 +438,6 @@ export class FileFoundryStore {
         detail: `Edited artifact ${changed.id}; read-time dependency reconciliation invalidated its review and all transitive dependent reviews.`,
       }],
     });
-    return normalizeDerivedStatus(candidate);
+    return normalizeDerivedStatus(candidate, asOf);
   }
 }

@@ -67,6 +67,13 @@ export const ArtifactTypeSchema = z.enum([
   'ask_answer',
   'internal_link_plan',
   'seo_metadata_proposal',
+  'insider_note_issue',
+  'insider_note_subject_set',
+  'linkedin_post',
+  'instagram_caption',
+  'instagram_first_comment',
+  'instagram_carousel_script',
+  'social_media_brief',
 ]);
 
 export const RecipeArtifactRequirementSchema = z.object({
@@ -97,6 +104,27 @@ export const GateCodeSchema = z.enum([
   'astro_article_contract',
   'ask_answer_contract',
   'astro_patch_ready',
+  'insider_note_contract',
+  'subject_set_contract',
+  'locked_copy_unchanged',
+  'cta_limit',
+  'email_utm_complete',
+  'authoritative_input_present',
+  'venue_name_current',
+  'intro_shape',
+  'secondary_picks_shape',
+  'chronological_rows',
+  'booking_note_contract',
+  'poll_manual_only',
+  'subject_pairs_distinct',
+  'james_selection_required',
+  'social_contract',
+  'linkedin_post_contract',
+  'instagram_caption_contract',
+  'instagram_first_comment_contract',
+  'carousel_script_contract',
+  'media_placement_rights',
+  'no_external_action',
 ]);
 
 const GateResultBaseSchema = z.object({
@@ -230,6 +258,294 @@ export const SeoMetadataProposalPayloadSchema = z.object({
   canonicalPath: z.string().regex(/^\//),
 });
 
+const ClaimIdsSchema = z.array(z.string().min(1)).min(1);
+const DraftLineSchema = z.object({
+  id: z.string().min(1),
+  text: z.string().min(1),
+  claimIds: ClaimIdsSchema,
+});
+const DraftLinkSchema = z.object({
+  label: z.string().min(1),
+  href: z.string().url(),
+  claimIds: ClaimIdsSchema,
+});
+const OmittedPositionSchema = z.object({
+  status: z.literal('omitted'),
+  reason: z.enum(['no_applicable_content', 'missing_authoritative_input', 'no_usable_reply', 'rights_not_cleared']),
+});
+
+export const InsiderNoteMastheadPositionSchema = z.object({
+  id: z.literal('insider_note.position.01.masthead'),
+  position: z.literal(1),
+  key: z.literal('masthead'),
+  status: z.literal('locked'),
+  name: z.literal('The Insider Note'),
+  tagline: z.literal('Written from inside the region'),
+  issueNumberRoman: z.string().regex(/^[IVXLCDM]+$/),
+  dateRange: z.string().min(1),
+});
+
+export const InsiderNoteIntroPositionSchema = z.object({
+  id: z.literal('insider_note.position.02.intro'),
+  position: z.literal(2),
+  key: z.literal('intro'),
+  status: z.literal('included'),
+  tense: z.literal('past'),
+  lines: z.array(DraftLineSchema).min(1).max(2),
+});
+
+export const InsiderNoteLeadPositionSchema = z.object({
+  id: z.literal('insider_note.position.03.lead_today_move'),
+  position: z.literal(3),
+  key: z.literal('lead_today_move'),
+  status: z.literal('included'),
+  headline: DraftLineSchema,
+  body: DraftLineSchema,
+  cta: DraftLinkSchema,
+});
+
+export const InsiderNoteWeatherPositionSchema = z.union([
+  z.object({
+    id: z.literal('insider_note.position.04.weather_strip'),
+    position: z.literal(4),
+    key: z.literal('weather_strip'),
+    status: z.literal('included'),
+    day: z.string().min(1),
+    temperatureC: z.number().int(),
+    sky: z.string().min(1),
+    sunsetTime: z.string().regex(/^\d{1,2}:\d{2}\s?(?:am|pm)$/i),
+    claimIds: ClaimIdsSchema,
+  }),
+  OmittedPositionSchema.extend({ id: z.literal('insider_note.position.04.weather_strip'), position: z.literal(4), key: z.literal('weather_strip') }),
+]);
+
+const InsiderNotePickSchema = z.object({
+  id: z.string().min(1),
+  dayStamp: z.string().min(1),
+  category: z.enum(['EAT', 'WINE', 'STAY', 'EXPLORE', 'CULTURE']),
+  venue: z.object({
+    name: z.string().min(1),
+    path: z.string().regex(/^\/[a-z-]+\/[a-z0-9-]+\/$/),
+    claimIds: ClaimIdsSchema,
+  }).optional(),
+  line: DraftLineSchema,
+  cta: DraftLinkSchema.optional(),
+  image: z.object({
+    src: z.string().min(1),
+    alt: z.string().min(1),
+    rightsId: z.string().min(1),
+    clearedFor: z.literal('email'),
+  }).optional(),
+});
+
+export const InsiderNoteSecondaryPicksPositionSchema = z.union([
+  z.object({
+    id: z.literal('insider_note.position.05.secondary_picks'),
+    position: z.literal(5),
+    key: z.literal('secondary_picks'),
+    status: z.literal('included'),
+    picks: z.tuple([InsiderNotePickSchema, InsiderNotePickSchema]),
+  }),
+  OmittedPositionSchema.extend({ id: z.literal('insider_note.position.05.secondary_picks'), position: z.literal(5), key: z.literal('secondary_picks') }),
+]);
+
+export const InsiderNoteReaderReplyPositionSchema = z.union([
+  z.object({
+    id: z.literal('insider_note.position.06.reader_reply'),
+    position: z.literal(6),
+    key: z.literal('reader_reply'),
+    status: z.literal('included'),
+    firstName: z.string().min(1).regex(/^[^\s]+$/),
+    quote: z.string().min(1),
+    claimIds: ClaimIdsSchema,
+    privacy: z.literal('first_name_only'),
+    sourceLocator: z.object({
+      sourceItemId: z.string().min(1),
+      locator: z.string().min(1),
+      excerptHash: Sha256Schema,
+    }),
+  }),
+  OmittedPositionSchema.extend({ id: z.literal('insider_note.position.06.reader_reply'), position: z.literal(6), key: z.literal('reader_reply') }),
+]);
+
+export const InsiderNoteAlsoThisWeekPositionSchema = z.union([
+  z.object({
+    id: z.literal('insider_note.position.07.also_this_week'),
+    position: z.literal(7),
+    key: z.literal('also_this_week'),
+    status: z.literal('included'),
+    rows: z.array(z.object({
+      id: z.string().min(1),
+      date: z.string().date(),
+      dayStamp: z.string().min(1),
+      line: DraftLineSchema,
+      link: DraftLinkSchema.optional(),
+    })).min(1).max(3).refine((rows) => rows.every((row, index) => index === 0 || row.date >= rows[index - 1].date), 'Rows must be chronological.'),
+  }),
+  OmittedPositionSchema.extend({ id: z.literal('insider_note.position.07.also_this_week'), position: z.literal(7), key: z.literal('also_this_week') }),
+]);
+
+export const InsiderNoteBookingPositionSchema = z.union([
+  z.object({
+    id: z.literal('insider_note.position.08.booking_note'),
+    position: z.literal(8),
+    key: z.literal('booking_note'),
+    status: z.literal('included'),
+    line: DraftLineSchema.extend({
+      text: z.string().min(1).refine((text) => (text.match(/[.!?](?:\s|$)/g) ?? []).length === 1, 'Booking note must be exactly one sentence.'),
+    }),
+    link: DraftLinkSchema,
+    timeSensitiveClaimIds: ClaimIdsSchema,
+  }),
+  OmittedPositionSchema.extend({ id: z.literal('insider_note.position.08.booking_note'), position: z.literal(8), key: z.literal('booking_note') }),
+]);
+
+export const InsiderNotePollPositionSchema = z.object({
+  id: z.literal('insider_note.position.09.poll'),
+  position: z.literal(9),
+  key: z.literal('poll'),
+  status: z.enum(['editorial_decision', 'editorial_supplied']),
+  delivery: z.literal('beehiiv_native'),
+  suppliedQuestion: z.string().min(1).nullable(),
+  suppliedBy: z.string().min(1).nullable(),
+}).superRefine((value, context) => {
+  const supplied = value.status === 'editorial_supplied';
+  if (supplied !== Boolean(value.suppliedQuestion && value.suppliedBy)) {
+    context.addIssue({ code: 'custom', message: 'A poll question must be supplied manually with its editor, or remain unset.' });
+  }
+});
+
+export const InsiderNoteReplySignoffPositionSchema = z.object({
+  id: z.literal('insider_note.position.10.reply_prompt_signoff'),
+  position: z.literal(10),
+  key: z.literal('reply_prompt_signoff'),
+  status: z.literal('locked'),
+  replyPrompt: z.literal('Been somewhere brilliant this week that we should know about? Just hit reply. We read everything.'),
+  signoff: z.literal('The Insider.'),
+});
+
+export const InsiderNoteFooterPositionSchema = z.object({
+  id: z.literal('insider_note.position.11.footer'),
+  position: z.literal(11),
+  key: z.literal('footer'),
+  status: z.literal('locked'),
+  issueNumberRoman: z.string().regex(/^[IVXLCDM]+$/),
+  dateRange: z.string().min(1),
+  navigation: z.tuple([
+    z.object({ id: z.literal('footer-weekend'), key: z.literal('this_weekend'), label: z.literal('this weekend'), href: z.string().url().refine((href) => new URL(href).pathname === '/this-weekend/'), claimIds: ClaimIdsSchema }),
+    z.object({ id: z.literal('footer-whats-on'), key: z.literal('whats_on'), label: z.literal("what's on"), href: z.string().url().refine((href) => new URL(href).pathname === '/whats-on/'), claimIds: ClaimIdsSchema }),
+    z.object({ id: z.literal('footer-journal'), key: z.literal('journal'), label: z.literal('journal'), href: z.string().url().refine((href) => new URL(href).pathname === '/journal/'), claimIds: ClaimIdsSchema }),
+  ]),
+  includeUnsubscribe: z.literal(true),
+  includeStreetAddress: z.literal(true),
+});
+
+export const InsiderNoteIssuePayloadSchema = z.object({
+  schemaVersion: z.literal('pi.insider-note-issue.v1'),
+  issueNumber: z.number().int().positive(),
+  campaignCode: z.string().regex(/^insider-note-\d{2,}$/),
+  positions: z.tuple([
+    InsiderNoteMastheadPositionSchema,
+    InsiderNoteIntroPositionSchema,
+    InsiderNoteLeadPositionSchema,
+    InsiderNoteWeatherPositionSchema,
+    InsiderNoteSecondaryPicksPositionSchema,
+    InsiderNoteReaderReplyPositionSchema,
+    InsiderNoteAlsoThisWeekPositionSchema,
+    InsiderNoteBookingPositionSchema,
+    InsiderNotePollPositionSchema,
+    InsiderNoteReplySignoffPositionSchema,
+    InsiderNoteFooterPositionSchema,
+  ]),
+  targetReleaseDate: z.string().date(),
+  scheduleAt: z.null(),
+  sendAuthority: z.literal('james_only'),
+  operationalState: z.literal('draft_only'),
+});
+
+export const InsiderNoteSubjectSetPayloadSchema = z.object({
+  schemaVersion: z.literal('pi.insider-note-subject-set.v1'),
+  pairs: z.tuple([
+    z.object({ id: z.literal('subject-a'), subject: z.string().min(1).max(120), previewText: z.string().min(1).max(180) }),
+    z.object({ id: z.literal('subject-b'), subject: z.string().min(1).max(120), previewText: z.string().min(1).max(180) }),
+    z.object({ id: z.literal('subject-c'), subject: z.string().min(1).max(120), previewText: z.string().min(1).max(180) }),
+  ]),
+  selectedPairId: z.null(),
+  selectionAuthority: z.literal('james_only'),
+  scheduleAt: z.null(),
+  sendAuthority: z.literal('james_only'),
+});
+
+const DraftOnlySocialSchema = z.object({
+  schemaVersion: z.string().min(1),
+  scheduleAt: z.null(),
+  publicationAuthority: z.literal('james_only'),
+  operationalState: z.literal('draft_only'),
+});
+
+export const LinkedInPostPayloadSchema = DraftOnlySocialSchema.extend({
+  schemaVersion: z.literal('pi.linkedin-post.v1'),
+  openingMode: z.literal('specific_observation'),
+  text: z.string().min(1)
+    .refine((text) => !/https?:\/\//i.test(text), 'The body must not contain an embedded link.')
+    .refine((text) => {
+      const words = text.trim().split(/\s+/).filter(Boolean).length;
+      return words >= 50 && words <= 300;
+    }, 'LinkedIn body must contain 50 to 300 words.')
+    .refine((text) => !/(?:like if|comment below|tag someone|agree\?|thoughts\?)/i.test(text), 'Engagement bait is not allowed.'),
+  destinationUrl: z.string().url(),
+  hashtags: z.array(z.string().regex(/^#[A-Za-z0-9_]+$/)).max(3),
+});
+
+export const InstagramCaptionPayloadSchema = DraftOnlySocialSchema.extend({
+  schemaVersion: z.literal('pi.instagram-caption.v1'),
+  openingMode: z.literal('observation'),
+  captionDraft: z.string().min(1).superRefine((text, context) => {
+    const lines = text.split(/\r?\n/).filter((line) => line.trim());
+    if (lines.length < 2 || lines.length > 4) context.addIssue({ code: 'custom', message: 'Instagram caption must contain 2 to 4 non-empty lines.' });
+    if (/#\w+/.test(text)) context.addIssue({ code: 'custom', message: 'Caption hashtags remain outside the caption draft.' });
+    if (/\bwe recommend\b/i.test(text)) context.addIssue({ code: 'custom', message: 'Caption must not use generic recommendation language.' });
+  }),
+  destinationPath: z.string().regex(/^\//),
+  cadenceDecision: z.literal('unresolved'),
+  hashtagPlacementDecision: z.literal('unresolved'),
+});
+
+export const InstagramFirstCommentPayloadSchema = DraftOnlySocialSchema.extend({
+  schemaVersion: z.literal('pi.instagram-first-comment.v1'),
+  commentDraft: z.string().min(1),
+  hashtagCandidates: z.array(z.string().regex(/^#[A-Za-z0-9_]+$/)).min(3).max(5)
+    .refine((values) => new Set(values.map((value) => value.toLocaleLowerCase())).size === values.length, 'Hashtag candidates must be unique.'),
+  placementDecision: z.literal('unresolved'),
+  cadenceDecision: z.literal('unresolved'),
+});
+
+export const InstagramCarouselScriptPayloadSchema = DraftOnlySocialSchema.extend({
+  schemaVersion: z.literal('pi.instagram-carousel-script.v1'),
+  slides: z.array(z.object({
+    number: z.number().int().positive(),
+    heading: z.string().min(1),
+    body: z.string().min(1),
+    claimIds: ClaimIdsSchema,
+  })).min(3).max(5).refine((slides) => slides.every((slide, index) => slide.number === index + 1), 'Slides must be ordered from 1 without gaps.'),
+});
+
+export const SocialMediaBriefPayloadSchema = DraftOnlySocialSchema.extend({
+  schemaVersion: z.literal('pi.social-media-brief.v1'),
+  assetId: z.string().min(1),
+  targetSurface: z.literal('instagram'),
+  placement: z.enum(['feed', 'carousel']),
+  mediaType: z.enum(['image', 'carousel']),
+  description: z.string().min(1),
+  altText: z.string().min(1),
+  placementRights: z.object({
+    status: z.enum(['cleared', 'not_cleared', 'expired', 'revoked']),
+    allowedSurfaces: z.array(z.enum(['website', 'email', 'instagram', 'linkedin'])),
+    recognisablePeople: z.enum(['none', 'released', 'unreleased', 'unknown']),
+    rightsId: z.string().min(1).optional(),
+  }),
+});
+
 export const ClaimUsageSchema = z.object({
   segmentId: z.string().min(1),
   path: z.string().min(1),
@@ -309,6 +625,41 @@ export const SeoMetadataProposalArtifactSchema = ArtifactVersionBaseSchema.exten
   payload: SeoMetadataProposalPayloadSchema,
 });
 
+export const InsiderNoteIssueArtifactSchema = ArtifactVersionBaseSchema.extend({
+  type: z.literal('insider_note_issue'),
+  payload: InsiderNoteIssuePayloadSchema,
+});
+
+export const InsiderNoteSubjectSetArtifactSchema = ArtifactVersionBaseSchema.extend({
+  type: z.literal('insider_note_subject_set'),
+  payload: InsiderNoteSubjectSetPayloadSchema,
+});
+
+export const LinkedInPostArtifactSchema = ArtifactVersionBaseSchema.extend({
+  type: z.literal('linkedin_post'),
+  payload: LinkedInPostPayloadSchema,
+});
+
+export const InstagramCaptionArtifactSchema = ArtifactVersionBaseSchema.extend({
+  type: z.literal('instagram_caption'),
+  payload: InstagramCaptionPayloadSchema,
+});
+
+export const InstagramFirstCommentArtifactSchema = ArtifactVersionBaseSchema.extend({
+  type: z.literal('instagram_first_comment'),
+  payload: InstagramFirstCommentPayloadSchema,
+});
+
+export const InstagramCarouselScriptArtifactSchema = ArtifactVersionBaseSchema.extend({
+  type: z.literal('instagram_carousel_script'),
+  payload: InstagramCarouselScriptPayloadSchema,
+});
+
+export const SocialMediaBriefArtifactSchema = ArtifactVersionBaseSchema.extend({
+  type: z.literal('social_media_brief'),
+  payload: SocialMediaBriefPayloadSchema,
+});
+
 export const ArtifactVersionSchema = z.discriminatedUnion('type', [
   QuickNoteArtifactSchema,
   ArticleDraftArtifactSchema,
@@ -316,6 +667,13 @@ export const ArtifactVersionSchema = z.discriminatedUnion('type', [
   AskAnswerArtifactSchema,
   InternalLinkPlanArtifactSchema,
   SeoMetadataProposalArtifactSchema,
+  InsiderNoteIssueArtifactSchema,
+  InsiderNoteSubjectSetArtifactSchema,
+  LinkedInPostArtifactSchema,
+  InstagramCaptionArtifactSchema,
+  InstagramFirstCommentArtifactSchema,
+  InstagramCarouselScriptArtifactSchema,
+  SocialMediaBriefArtifactSchema,
 ]);
 
 export const ArtifactFailureSchema = z.object({
@@ -407,6 +765,7 @@ export const FoundryRunSchema = z.object({
   status: z.enum(['ready_for_review', 'needs_revision', 'accepted', 'rejected', 'failed']),
   createdAt: IsoDateTimeSchema,
   updatedAt: IsoDateTimeSchema,
+  evaluationAsOf: IsoDateTimeSchema.optional(),
   bundle: IntakeBundleSchema,
   recipe: RecipeDefinitionSchema,
   claimSet: ClaimSetVersionSchema,
