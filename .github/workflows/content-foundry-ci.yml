@@ -30,6 +30,7 @@ jobs:
           cache: npm
           cache-dependency-path: studio-peninsula-insider/package-lock.json
       - run: npm ci
+      - run: npm run check:capture-boundary
       - run: npm run typecheck
       - run: npm test
       - run: npm run build

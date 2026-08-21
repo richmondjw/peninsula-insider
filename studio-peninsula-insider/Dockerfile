@@ -5,11 +5,14 @@ COPY package.json package-lock.json ./
 RUN npm ci
 COPY . .
 COPY --from=pi_fonts . /pi-fonts-source/
-RUN PI_FONT_SOURCE=/pi-fonts-source npm run build
+RUN npm run check:capture-boundary \
+    && npm test \
+    && PI_FONT_SOURCE=/pi-fonts-source npm run build
 
 FROM node:22.23.2-bookworm-slim AS runtime
 
 ENV NODE_ENV=development \
+    FOUNDRY_REAL_URLS_ENABLED=0 \
     FOUNDRY_HOST=0.0.0.0 \
     FOUNDRY_PORT=4310 \
     FOUNDRY_STATIC_DIR=/app/dist \

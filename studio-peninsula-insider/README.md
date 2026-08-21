@@ -16,6 +16,8 @@ The shell performs no model calls, Git writes, CMS writes, publication or extern
 
 `url_article_v1` can produce article body, article metadata, Ask answer, internal-link plan and SEO metadata proposal artifacts. Text-only packs remain valid and reviewable. Astro patch export stays unavailable until a separately rights-cleared hero placement exists. Reviews approve draft handoff only and never grant publication authority.
 
+The URL-ingestion foundation is present as a sealed backend kernel. `FOUNDRY_REAL_URLS_ENABLED` defaults to `0`, Compose pins it to `0`, and no route, UI or provider invokes it yet. Enabling the flag alone exposes nothing. Wiring the private caller after the capture boundary and threat model are accepted is tracked under issue #325.
+
 ## Run locally
 
 ```powershell
@@ -46,6 +48,7 @@ docker compose down
 npm run typecheck
 npm test
 npm run build
+npm run check:capture-boundary
 ```
 
 Runtime state is written under `.foundry-data/` and is ignored by the repository-wide `node_modules/` rule plus the Studio-specific ignore entry added with this module.

@@ -10,6 +10,8 @@ services:
       - no-new-privileges:true
     cap_drop:
       - ALL
+    environment:
+      FOUNDRY_REAL_URLS_ENABLED: "0"
     ports:
       - "127.0.0.1:4310:4310"
     volumes:
