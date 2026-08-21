@@ -1,0 +1,95 @@
+---
+/**
+ * TextScaleControl - three-step reader text-size control (A A A).
+ *
+ * Sets data-text-scale="1|2|3" on <html>; global.css maps steps 2 and 3
+ * to a larger root font-size (108.75% / 118%), so the whole rem-based
+ * sheet scales. The choice persists in localStorage ('pi-text-scale')
+ * and is re-applied before first paint by an inline script in
+ * BaseLayout, so there is no size flash on navigation.
+ *
+ * Rendered inside the PiArticleActions byline row on reading surfaces.
+ */
+---
+
+<div class="text-scale" role="group" aria-label="Text size" data-text-scale-control>
+  <button type="button" class="text-scale__btn text-scale__btn--1" data-scale="1" aria-pressed="true" aria-label="Default text size">A</button>
+  <button type="button" class="text-scale__btn text-scale__btn--2" data-scale="2" aria-pressed="false" aria-label="Larger text size">A</button>
+  <button type="button" class="text-scale__btn text-scale__btn--3" data-scale="3" aria-pressed="false" aria-label="Largest text size">A</button>
+</div>
+
+<script is:inline>
+  (function () {
+    var KEY = 'pi-text-scale';
+
+    function applyScale(scale) {
+      if (scale === '1') {
+        delete document.documentElement.dataset.textScale;
+      } else {
+        document.documentElement.dataset.textScale = scale;
+      }
+      document.querySelectorAll('[data-text-scale-control]').forEach(function (group) {
+        group.querySelectorAll('.text-scale__btn').forEach(function (btn) {
+          btn.setAttribute('aria-pressed', btn.dataset.scale === scale ? 'true' : 'false');
+        });
+      });
+    }
+
+    function init() {
+      var current = '1';
+      try { current = localStorage.getItem(KEY) || '1'; } catch (e) {}
+      applyScale(current);
+      document.querySelectorAll('[data-text-scale-control]').forEach(function (group) {
+        if (group._piWired) return;
+        group._piWired = true;
+        group.addEventListener('click', function (e) {
+          var btn = e.target.closest('.text-scale__btn');
+          if (!btn) return;
+          try { localStorage.setItem(KEY, btn.dataset.scale); } catch (e2) {}
+          applyScale(btn.dataset.scale);
+        });
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+    document.addEventListener('astro:page-load', init);
+  })();
+</script>
+
+<style is:global>
+  .text-scale {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.15rem;
+  }
+
+  .text-scale__btn {
+    appearance: none;
+    background: none;
+    border: 0;
+    min-width: 2.75rem;
+    min-height: 2.75rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    font-family: var(--font-ui);
+    font-weight: 600;
+    line-height: 1;
+    color: var(--soft);
+    border-bottom: 2px solid transparent;
+    transition: color .2s var(--ease), border-color .2s var(--ease);
+  }
+
+  .text-scale__btn--1 { font-size: 0.8rem; }
+  .text-scale__btn--2 { font-size: 0.95rem; }
+  .text-scale__btn--3 { font-size: 1.1rem; }
+
+  .text-scale__btn:hover { color: var(--accent); }
+  .text-scale__btn[aria-pressed="true"] {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+</style>

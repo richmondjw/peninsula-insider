@@ -10,4 +10,4 @@ export async function getStaticPaths() {
 }
 const { slug } = Astro.params;
 ---
-<Redirect to={`/explore/places/${slug}/`} />
+<Redirect to={`/explore/places/${slug}/`} consolidate />

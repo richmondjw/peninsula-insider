@@ -1,0 +1,213 @@
+---
+/**
+ * HomeCover - block 2 of the v5 homepage (page-redesigns.md section 1,
+ * hierarchy item 2).
+ *
+ * One Editor-voice masthead statement (the page's single h1, <= 18 words,
+ * carries "Mornington Peninsula" server-rendered for search) plus the date
+ * context line ("Friday 11 July · winter on the Peninsula"). Date and
+ * season are computed at build time on the Melbourne clock; no client JS,
+ * no motion.
+ *
+ * The statement is CMS-editable: override slot (page/home, cover.statement)
+ * is resolved server-side so editor rewrites survive rebuilds.
+ *
+ * The hero photo has a slow CSS-only Ken Burns zoom (2026-08-17, James)
+ * for visual "buzz" on the masthead. Still no client JS: the motion is a
+ * pure transform:scale() keyframe animation, GPU-compositor only, and it
+ * backs off automatically under prefers-reduced-motion.
+ */
+import { editableText, editableImage } from '../../../lib/inline-edit/attrs';
+import { loadOverrides } from '../../../lib/inline-edit/overrides';
+import { getSeason } from '../../../lib/edition';
+
+const DEFAULT_STATEMENT = 'The Mornington Peninsula, sorted.';
+
+// Hero photograph behind the masthead statement. Swappable via the inline
+// CMS (right-click replace) and resolved through the page/home override
+// slot so an editor's replacement survives rebuilds.
+const DEFAULT_HERO_SRC = '/images/sourced/home-cover-cape-schanck-rainbow-01.webp';
+const DEFAULT_HERO_ALT =
+  'A rainbow arcs over the bay at Cape Schanck on a still winter morning, Mornington Peninsula';
+
+const overrides = await loadOverrides('page', 'home');
+const statement = overrides.text['cover.statement'] ?? DEFAULT_STATEMENT;
+
+const heroOverride = overrides.image['cover.image'];
+const heroSrc = heroOverride?.src ?? DEFAULT_HERO_SRC;
+const heroAlt = heroOverride?.alt ?? DEFAULT_HERO_ALT;
+
+if (statement.trim().split(/\s+/).length > 18) {
+  console.warn('[v5 home] cover statement over 18 words; trim it (page-redesigns.md 1.9)');
+}
+
+const now = new Date();
+const dateLabel = now.toLocaleDateString('en-AU', {
+  weekday: 'long',
+  day: 'numeric',
+  month: 'long',
+  timeZone: 'Australia/Melbourne',
+});
+const isoDate = new Intl.DateTimeFormat('en-CA', {
+  timeZone: 'Australia/Melbourne',
+}).format(now);
+const season = getSeason(now).toLowerCase();
+---
+
+<section class="home-cover" aria-label="Cover">
+  <img
+    class="home-cover__media"
+    src={heroSrc}
+    alt={heroAlt}
+    fetchpriority="high"
+    decoding="async"
+    width="2400"
+    height="1350"
+    {...editableImage({
+      entityType: 'page',
+      entitySlug: 'home',
+      fieldPath: 'cover.image',
+      label: 'Cover background image',
+      purpose: 'hero',
+    })}
+  />
+  <span class="home-cover__scrim" aria-hidden="true"></span>
+  <div class="container home-cover__inner">
+    <p class="home-cover__eyebrow">{season} on the Peninsula</p>
+    <h1
+      class="home-cover__statement"
+      {...editableText({
+        entityType: 'page',
+        entitySlug: 'home',
+        fieldPath: 'cover.statement',
+        label: 'Cover statement',
+      })}
+    >
+      {statement}
+    </h1>
+    <p class="home-cover__context">
+      <time datetime={isoDate}>{dateLabel}</time>
+    </p>
+    <div class="home-cover__actions">
+      <a class="pi-btn pi-btn--solid pi-btn--lg pi-btn--inverse" href="/whats-on/">See this weekend</a>
+      <a class="pi-btn pi-btn--ghost pi-btn--lg pi-btn--inverse" href="/search/" data-open-search data-evt="search_open">Search</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Immersive giant-type hero over a full-bleed Peninsula landscape. The
+     photo sits under a forest-teal scrim, weighted to the lower-left where
+     the statement, date, and CTAs live, so the white type stays legible
+     while the headland and sky read through. Tokens only. */
+  .home-cover {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: var(--bg-deep);
+    padding: clamp(3rem, 9vw, 6.4rem) 0;
+  }
+
+  .home-cover__media {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    object-fit: cover;
+    /* Bias upward so the horizon, headland, and rainbow stay in frame
+       rather than centring on empty water. */
+    object-position: center 38%;
+    /* Ken Burns: slow compositor-only zoom, no JS. .home-cover has
+       overflow:hidden so the scaled-up edges never show. */
+    animation: home-cover-kenburns 36s ease-in-out infinite alternate;
+    will-change: transform;
+  }
+
+  @keyframes home-cover-kenburns {
+    from { transform: scale(1); }
+    to { transform: scale(1.08); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .home-cover__media {
+      animation: none;
+    }
+  }
+
+  .home-cover__scrim {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--bg-deep) 28%, transparent) 0%,
+        color-mix(in srgb, var(--bg-deep) 52%, transparent) 55%,
+        color-mix(in srgb, var(--bg-deep) 86%, transparent) 100%
+      ),
+      linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--bg-deep) 62%, transparent) 0%,
+        color-mix(in srgb, var(--bg-deep) 26%, transparent) 46%,
+        transparent 78%
+      );
+  }
+
+  .home-cover__inner {
+    position: relative;
+  }
+
+  .home-cover__eyebrow {
+    margin: 0 0 var(--space-4);
+    font-family: var(--font-ui);
+    font-size: var(--fs-100);
+    font-weight: var(--fw-semibold);
+    letter-spacing: var(--ls-eyebrow);
+    text-transform: uppercase;
+    color: var(--mint);
+  }
+
+  .home-cover__statement {
+    margin: 0;
+    max-width: 18ch;
+    font-family: var(--font-display);
+    font-weight: var(--fw-display);
+    font-size: var(--fs-950);
+    line-height: var(--lh-display);
+    letter-spacing: var(--ls-display);
+    color: var(--white);
+    text-wrap: balance;
+    text-shadow: 0 1px 28px color-mix(in srgb, var(--bg-deep) 55%, transparent);
+  }
+
+  .home-cover__context {
+    margin: var(--space-5) 0 0;
+    font-family: var(--font-ui);
+    font-size: var(--fs-300);
+    line-height: var(--lh-ui);
+    color: var(--soft-inverse);
+    letter-spacing: 0.02em;
+  }
+
+  .home-cover__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-top: var(--space-6);
+  }
+  /* Narrow phones: stack the hero CTAs full-width so they are easy thumb
+     targets instead of two half-stranded pills. */
+  @media (max-width: 26em) {
+    .home-cover__actions { flex-direction: column; align-items: stretch; }
+  }
+
+
+  @media (max-width: 47.94em) {
+    .home-cover {
+      padding: clamp(2.5rem, 12vw, 4rem) 0;
+    }
+  }
+</style>

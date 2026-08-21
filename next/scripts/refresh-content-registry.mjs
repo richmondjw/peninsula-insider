@@ -64,10 +64,10 @@ const COLLECTIONS = [
   { folder: 'articles',       entityType: 'article',       hrefPrefix: '/journal/' },
   { folder: 'events',         entityType: 'event',         hrefPrefix: '/whats-on/' },
   { folder: 'experiences',    entityType: 'experience',    hrefPrefix: '/explore/' },
-  { folder: 'itineraries',    entityType: 'itinerary',     hrefPrefix: '/plans/' },
+  { folder: 'itineraries',    entityType: 'itinerary',     hrefPrefix: '/explore/plans/' },
   { folder: 'tours',          entityType: 'tour',          hrefPrefix: '/tours/' },
   { folder: 'tour-operators', entityType: 'tour-operator', hrefPrefix: '/tour-operators/' },
-  { folder: 'tour-packages',  entityType: 'tour-package',  hrefPrefix: '/plans/' },
+  { folder: 'tour-packages',  entityType: 'tour-package',  hrefPrefix: '/explore/plans/' },
   { folder: 'quick-notes',    entityType: 'quick-note',    hrefPrefix: '/quick-note/' },
   { folder: 'local-secrets',  entityType: 'local-secret',  hrefPrefix: '/journal/local-secrets/' },
 ];

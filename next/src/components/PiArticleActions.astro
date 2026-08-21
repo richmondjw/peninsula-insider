@@ -1,6 +1,6 @@
 ---
 /**
- * PiArticleActions — article-level Save + Share.
+ * PiArticleActions - article-level Save + Share.
  *
  * Renders both placements the brief calls for:
  *   - An inline Save + Share pair near the byline (always visible).
@@ -17,9 +17,10 @@
  * v2/SaveButton. Wave 3 of the Save & Share rebuild.
  */
 import PiSaveActions from './PiSaveActions.astro';
+import TextScaleControl from './TextScaleControl.astro';
 
 export interface Props {
-  /** Save kind — defaults to 'article' for journal pieces. */
+  /** Save kind - defaults to 'article' for journal pieces. */
   kind?: 'article' | 'venue' | 'place' | 'event' | 'experience' | 'itinerary' | 'tour' | 'tour-operator' | 'tour-package';
   slug: string;
   section: string;
@@ -45,25 +46,8 @@ const resolvedHref = href ?? `/${section}/${slug}/`;
     imageUrl={imageUrl}
     floating={false}
   />
+  <TextScaleControl />
 </div>
-
-<aside
-  class="pi-article-sticky"
-  data-pi-article-sticky
-  aria-hidden="true"
-  hidden
->
-  <PiSaveActions
-    kind={kind}
-    slug={slug}
-    section={section}
-    title={title}
-    href={resolvedHref}
-    dek={dek}
-    imageUrl={imageUrl}
-    floating={false}
-  />
-</aside>
 
 <style is:global>
   .pi-article-actions {
@@ -74,7 +58,7 @@ const resolvedHref = href ?? `/${section}/${slug}/`;
   }
 
   .pi-article-actions__hint {
-    font-family: 'Outfit', system-ui, sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.65rem;
     font-weight: 600;
     letter-spacing: 0.18em;
@@ -82,136 +66,4 @@ const resolvedHref = href ?? `/${section}/${slug}/`;
     color: var(--ink-muted, #6E655C);
   }
 
-  /* Sticky pair — bottom-right, fades in after scroll. */
-  .pi-article-sticky {
-    position: fixed;
-    bottom: clamp(1rem, 3vw, 1.5rem);
-    right: clamp(1rem, 3vw, 1.5rem);
-    z-index: 30;
-    padding: 0;
-    background: transparent;
-    opacity: 0;
-    transform: translateY(8px);
-    transition: opacity 0.2s ease, transform 0.2s ease;
-    pointer-events: none;
-  }
-
-  .pi-article-sticky[data-visible="1"] {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-  }
-
-  /* Compact the buttons inside the sticky pair — slightly chunkier so
-     it reads as a deliberate floating control, not a card decoration. */
-  .pi-article-sticky .pi-actions__btn {
-    width: 2.4rem;
-    height: 2.4rem;
-    background: var(--ink, #171413);
-    color: var(--paper, #FAF7F0);
-    border-color: rgba(255, 255, 255, 0.12);
-    box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.4);
-  }
-
-  .pi-article-sticky .pi-actions__btn:hover {
-    background: var(--ochre, #A0541F);
-    color: var(--paper, #FAF7F0);
-    border-color: var(--ochre, #A0541F);
-  }
-
-  .pi-article-sticky .pi-actions__btn--save[aria-pressed="true"] {
-    background: var(--ochre, #A0541F);
-    border-color: var(--ochre, #A0541F);
-  }
-
-  @media (max-width: 640px) {
-    /* Mobile: keep both pieces but tuck the sticky a little tighter and
-       avoid clashing with thumb-reach for the navbar. */
-    .pi-article-sticky {
-      bottom: 0.85rem;
-      right: 0.85rem;
-    }
-  }
-
-  /* Don't show the sticky pair when print or reduced-motion users want
-     a calm experience. */
-  @media print {
-    .pi-article-sticky { display: none; }
-  }
 </style>
-
-<script>
-  /**
-   * Sticky pair visibility — uses IntersectionObserver to watch the inline
-   * `.pi-article-actions` element. The sticky floater only appears once the
-   * inline save is fully scrolled off-screen, preventing both from showing
-   * simultaneously. It hides again when the reader scrolls back up (inline
-   * re-enters viewport) or reaches the bottom 10% of the article.
-   *
-   * Falls back to display:none when IntersectionObserver is unavailable.
-   */
-  function bindSticky() {
-    const sticky = document.querySelector<HTMLElement>('[data-pi-article-sticky]');
-    const inline = document.querySelector<HTMLElement>('[data-pi-article-actions]');
-    if (!sticky || !inline || (sticky as any)._piInit) return;
-    (sticky as any)._piInit = true;
-
-    // Track whether the inline element is visible.
-    let inlineVisible = true;
-
-    // Track whether we're past 90% of the article (tuck sticky away at end).
-    const article = document.querySelector('article') || document.body;
-
-    function showSticky() {
-      sticky.hidden = false;
-      sticky.setAttribute('data-visible', '1');
-      sticky.setAttribute('aria-hidden', 'false');
-    }
-
-    function hideSticky() {
-      sticky.removeAttribute('data-visible');
-      sticky.setAttribute('aria-hidden', 'true');
-      setTimeout(() => {
-        if (!sticky.hasAttribute('data-visible')) sticky.hidden = true;
-      }, 220);
-    }
-
-    function updateVisibility() {
-      const rect = article.getBoundingClientRect();
-      const articleHeight = rect.height;
-      const viewport = window.innerHeight;
-      const scrolled = -rect.top;
-      const progress = articleHeight > viewport
-        ? scrolled / (articleHeight - viewport)
-        : 0;
-      const pastEnd = progress > 0.9;
-
-      if (!inlineVisible && !pastEnd) {
-        showSticky();
-      } else {
-        hideSticky();
-      }
-    }
-
-    // IntersectionObserver: watch the inline element.
-    const observer = new IntersectionObserver(
-      (entries) => {
-        inlineVisible = entries[0].isIntersecting;
-        updateVisibility();
-      },
-      { threshold: 0 }
-    );
-    observer.observe(inline);
-
-    // Also track near-end-of-article to hide the sticky gracefully.
-    window.addEventListener('scroll', updateVisibility, { passive: true });
-    window.addEventListener('resize', updateVisibility, { passive: true });
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', bindSticky);
-  } else {
-    bindSticky();
-  }
-  document.addEventListener('astro:page-load', bindSticky);
-</script>

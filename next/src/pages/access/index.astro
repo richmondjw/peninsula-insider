@@ -9,13 +9,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Peninsula Insider — Coming Soon</title>
+  <title>Peninsula Insider - Coming Soon</title>
   <meta name="robots" content="noindex, nofollow" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: 'Georgia', serif;
-      background: #f7f5f0;
+      font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+      background: #F2EFEA;
       min-height: 100dvh;
       display: flex;
       flex-direction: column;
@@ -39,51 +39,51 @@
       margin: 0 auto 0.75rem;
     }
     .gate__logo-text {
-      font-family: 'Georgia', serif;
+      font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
       font-size: 1.25rem;
       font-weight: 400;
       letter-spacing: 0.04em;
-      color: #1a1a1a;
+      color: #14202A;
       margin-bottom: 2rem;
     }
     .gate__logo-text em {
-      font-style: italic;
-      color: #A0541F;
+      font-style: normal;
+      color: #10527E;
     }
 
     /* Teaser strip */
     .gate__teaser {
       background: #fff;
-      border: 1px solid #e5e0d8;
+      border: 1px solid #83857E;
       border-radius: 6px;
       padding: 1.75rem 1.5rem 1.5rem;
       margin-bottom: 2rem;
       text-align: left;
     }
     .gate__teaser-eyebrow {
-      font-family: 'Outfit', system-ui, sans-serif;
+      font-family: var(--font-ui);
       font-size: 0.65rem;
       font-weight: 600;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: #A0541F;
+      color: #10527E;
       display: block;
       margin-bottom: 0.75rem;
     }
     .gate__teaser-heading {
-      font-family: 'Georgia', serif;
+      font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
       font-size: 1.2rem;
       font-weight: 400;
       line-height: 1.4;
-      color: #1a1a1a;
+      color: #14202A;
       margin-bottom: 0.65rem;
     }
     .gate__teaser-heading em {
-      font-style: italic;
-      color: #A0541F;
+      font-style: normal;
+      color: #10527E;
     }
     .gate__teaser-body {
-      font-family: 'Outfit', system-ui, sans-serif;
+      font-family: var(--font-ui);
       font-size: 0.88rem;
       line-height: 1.6;
       color: #555;
@@ -97,41 +97,24 @@
       flex: 1;
       min-width: 0;
       padding: 0.7rem 0.85rem;
-      font-family: 'Outfit', system-ui, sans-serif;
+      font-family: var(--font-ui);
       font-size: 0.88rem;
-      border: 1.5px solid #d0ccc4;
-      background: #f7f5f0;
-      color: #1a1a1a;
+      border: 1.5px solid #83857E;
+      background: #F2EFEA;
+      color: #14202A;
       border-radius: 4px;
       outline: none;
       transition: border-color 0.2s;
     }
-    .gate__subscribe-input:focus { border-color: #A0541F; }
-    .gate__subscribe-btn {
-      padding: 0.7rem 1rem;
-      background: #A0541F;
-      color: #fff;
-      font-family: 'Outfit', system-ui, sans-serif;
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: background 0.2s;
-    }
-    .gate__subscribe-btn:hover { background: #1a1a1a; }
-    .gate__subscribe-btn:disabled { opacity: 0.6; cursor: progress; }
+    .gate__subscribe-input:focus { border-color: #10527E; }
     .gate__subscribe-status {
-      font-family: 'Outfit', system-ui, sans-serif;
+      font-family: var(--font-ui);
       font-size: 0.8rem;
       color: #555;
       margin-top: 0.6rem;
       min-height: 1.2em;
     }
-    .gate__subscribe-status.success { color: #2f6e3a; }
+    .gate__subscribe-status.success { color: #0C4166; }
     .gate__subscribe-status.error { color: #c0392b; }
 
     /* Divider */
@@ -146,10 +129,10 @@
     .gate__divider::after {
       content: '';
       flex: 1;
-      border-top: 1px solid #e0dbd3;
+      border-top: 1px solid #83857E;
     }
     .gate__divider span {
-      font-family: 'Outfit', system-ui, sans-serif;
+      font-family: var(--font-ui);
       font-size: 0.68rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -157,7 +140,7 @@
 
     /* Password gate */
     .gate__label {
-      font-family: 'Outfit', system-ui, sans-serif;
+      font-family: var(--font-ui);
       font-size: 0.7rem;
       font-weight: 600;
       letter-spacing: 0.14em;
@@ -170,35 +153,19 @@
     .gate__input {
       width: 100%;
       padding: 0.85rem 1rem;
-      font-family: 'Georgia', serif;
+      font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
       font-size: 1rem;
-      border: 1.5px solid #d0ccc4;
+      border: 1.5px solid #83857E;
       background: #fff;
-      color: #1a1a1a;
+      color: #14202A;
       border-radius: 4px;
       outline: none;
       margin-bottom: 1rem;
       transition: border-color 0.2s;
     }
-    .gate__input:focus { border-color: #A0541F; }
-    .gate__btn {
-      width: 100%;
-      padding: 0.85rem 1rem;
-      background: #1a1a1a;
-      color: #fff;
-      font-family: 'Outfit', system-ui, sans-serif;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    .gate__btn:hover { background: #A0541F; }
+    .gate__input:focus { border-color: #10527E; }
     .gate__error {
-      font-family: 'Outfit', system-ui, sans-serif;
+      font-family: var(--font-ui);
       font-size: 0.8rem;
       color: #c0392b;
       margin-top: 0.75rem;
@@ -221,7 +188,7 @@
       autocomplete="current-password"
       autofocus
     />
-    <button class="gate__btn" id="btn">Enter →</button>
+    <button class="pi-btn pi-btn--solid" id="btn">Enter →</button>
     <p class="gate__error" id="err">Incorrect password</p>
 
     <div class="gate__divider"><span>Not yet an insider?</span></div>
@@ -240,7 +207,7 @@
           autocomplete="email"
           aria-label="Email address"
         />
-        <button class="gate__subscribe-btn" id="sub-btn">Notify me</button>
+        <button class="pi-btn pi-btn--solid" id="sub-btn">Notify me</button>
       </div>
       <p class="gate__subscribe-status" id="sub-status"></p>
     </div>
@@ -298,11 +265,11 @@
             setStatus("You're on the list. We'll be in touch.", 'success');
             subEmail.value = '';
           } else {
-            setStatus('Something went wrong — try again.', 'error');
+            setStatus('Something went wrong - try again.', 'error');
             subBtn.disabled = false;
           }
         } catch (e) {
-          setStatus('Something went wrong — try again.', 'error');
+          setStatus('Something went wrong - try again.', 'error');
           subBtn.disabled = false;
         }
       }

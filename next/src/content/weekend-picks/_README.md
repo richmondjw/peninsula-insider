@@ -28,7 +28,7 @@ Keep the bar high. Selectivity > volume.
   "picks": [
     {
       "eventSlug": "red-hill-market-first-saturday",
-      "editorVerdict": "The market actually worth driving for this weekend — early frost, late truffles, the last good cellar-door pours of autumn.",
+      "editorVerdict": "The market actually worth driving for this weekend - early frost, late truffles, the last good cellar-door pours of autumn.",
       "position": 1,
       "featured": true
     },
@@ -45,7 +45,7 @@ Keep the bar high. Selectivity > volume.
 ## Rules
 
 - `eventSlug` must match the `slug` field of an event in `src/content/events/`.
-- `editorVerdict` is required for every pick — keeps the bar high.
+- `editorVerdict` is required for every pick - keeps the bar high.
 - `position` is 1-based; lower numbers render first.
 - `featured` is for the larger card treatment. Recommended: 1-3 featured picks.
 - Maximum 10 picks per weekend (schema-enforced). Selectivity is the point.

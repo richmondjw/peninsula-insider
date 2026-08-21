@@ -1,0 +1,168 @@
+---
+/**
+ * JournalModule (v5 hub module) - "From the Journal": at most three
+ * contextual guides below the catalogue layer (page-redesigns section 2
+ * block 9.6; wireframes #eat note 5). Editorial cards only: Card(guide)
+ * with Sora display titles, byline provenance, zero venue cosmetics (HUB-08).
+ *
+ * Generic and prop-driven for the Eat / Wine / Stay / Explore hub agents.
+ * Pass a page-written verdict of 25 words or fewer per item; article deks
+ * usually run long, so do not pipe frontmatter deks straight through.
+ */
+import Card from '../Card.astro';
+import CardGrid from '../CardGrid.astro';
+import type { CardImage } from '../Card.astro';
+
+export interface JournalItem {
+  title: string;
+  href: string;
+  entitySlug: string;
+  image?: CardImage;
+  /** 25 words maximum (Card warns over). */
+  verdict?: string;
+  byline?: string;
+  /** e.g. "7 min read". */
+  readTime?: string;
+  /** Publish date, ISO. */
+  dateISO?: string;
+}
+
+export interface Props {
+  /** h2; defaults to the cross-hub convention. */
+  heading?: string;
+  /** Uppercase eyebrow above the heading (teal). */
+  eyebrow?: string;
+  sub?: string;
+  /** At most 3 (build warns and slices). */
+  items: JournalItem[];
+  moreHref?: string;
+  moreLabel?: string;
+  surface?: string;
+  id?: string;
+  /**
+   * Type eyebrow on each card. Off by default: the module eyebrow reads
+   * "The Journal" and the heading "From the Journal", so a GUIDE stamp on
+   * every card below repeats what the section has already said.
+   */
+  showEyebrow?: boolean;
+}
+
+const {
+  heading = 'From the Journal',
+  eyebrow = 'The Journal',
+  sub,
+  items,
+  moreHref,
+  moreLabel = 'All in the Journal',
+  surface,
+  id,
+  showEyebrow = false,
+} = Astro.props;
+
+if (items.length > 3) {
+  console.warn(`[v5 JournalModule] more than 3 items (${items.length}); rendering the first 3`);
+}
+const shown = items.slice(0, 3);
+const headingId = `${id ?? `journal-${surface ?? 'hub'}`}-heading`;
+
+/* Image-bearing row: a piece without a hero takes the Card house plate so
+   the three cards keep a level media line. All-text sets stay all-text. */
+const anyImage = shown.some((item) => Boolean(item.image?.src));
+---
+
+{shown.length > 0 && (
+  <section class="v5-journal" id={id} aria-labelledby={headingId}>
+    <div class="container">
+      <div class="v5-journal__header">
+        <div>
+          {eyebrow && <p class="v5-journal__eyebrow">{eyebrow}</p>}
+          <h2 class="v5-journal__heading" id={headingId}>{heading}</h2>
+          {sub && <p class="v5-journal__sub">{sub}</p>}
+        </div>
+        {moreHref && (
+          <a href={moreHref} class="v5-journal__more">{moreLabel} &rarr;</a>
+        )}
+      </div>
+      <CardGrid label={heading}>
+        {shown.map((item, i) => (
+          <Card
+            variant="guide"
+            title={item.title}
+            href={item.href}
+            entityType="article"
+            entitySlug={item.entitySlug}
+            image={item.image}
+            mediaFallback={anyImage}
+            showEyebrow={showEyebrow}
+            verdict={item.verdict}
+            byline={item.byline}
+            readTime={item.readTime}
+            dateISO={item.dateISO}
+            surface={surface}
+            position={i + 1}
+          />
+        ))}
+      </CardGrid>
+    </div>
+  </section>
+)}
+
+<style>
+  .v5-journal {
+    padding: var(--space-8, 4rem) 0;
+    background: var(--bg-alt);
+  }
+  .v5-journal__header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--space-4, 1rem);
+    flex-wrap: wrap;
+    margin-bottom: var(--space-5, 1.5rem);
+  }
+  .v5-journal__eyebrow {
+    margin: 0 0 var(--space-2, 0.5rem);
+    font-family: var(--font-ui);
+    font-size: var(--fs-100, 0.75rem);
+    font-weight: 600;
+    letter-spacing: var(--ls-eyebrow, 0.12em);
+    text-transform: uppercase;
+    color: var(--teal-text);
+  }
+  .v5-journal__heading {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: var(--fs-700, clamp(1.6rem, 1.35rem + 1.2vw, 2.1rem));
+    font-weight: var(--fw-display, 600);
+    line-height: var(--lh-heading, 1.14);
+    letter-spacing: -0.01em;
+    color: var(--text);
+    text-wrap: balance;
+  }
+  .v5-journal__sub {
+    margin: var(--space-3, 0.75rem) 0 0;
+    font-family: var(--font-ui);
+    font-size: var(--fs-300, 0.9375rem);
+    color: var(--soft);
+  }
+  .v5-journal__more {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-family: var(--font-ui);
+    font-size: var(--fs-200, 0.8125rem);
+    font-weight: var(--fw-semibold, 600);
+    color: var(--accent);
+    text-decoration: none;
+    white-space: nowrap;
+    border-bottom: 1.5px solid color-mix(in srgb, var(--accent) 40%, transparent);
+    padding-bottom: 2px;
+  }
+  .v5-journal__more:hover {
+    text-decoration: underline;
+  }
+  .v5-journal__more:focus-visible {
+    outline: var(--focus-ring, 2px solid var(--accent));
+    outline-offset: 2px;
+  }
+</style>

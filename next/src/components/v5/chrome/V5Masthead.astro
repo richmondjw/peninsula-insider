@@ -1,0 +1,436 @@
+---
+/**
+ * V5 Masthead (future-ia.md section 3.1, wireframes nav-desktop).
+ *
+ * Two rows: brand row (wordmark + utilities) and the 7-pillar nav row.
+ * Pillar triggers are <button>s in the APG disclosure-nav pattern:
+ * panels open on CLICK or Enter only, never on focus or hover (fixes
+ * A-01/NAV-02); Escape closes and returns focus to the trigger; click
+ * outside closes. Closed panels are `hidden`, so the tab path from the
+ * skip link to main content is short (<=5 stops: skip link, logo,
+ * launcher, Saved, menu) and screen readers never wade through closed
+ * menus. No h1-h6 anywhere in the header (fixes A-09) and no
+ * role="menu" misuse (fixes A-02/NAV-03).
+ *
+ * Utilities: one unified launcher labelled "Ask PI or search" (opens
+ * the existing SearchOverlay via [data-open-search], which carries the
+ * existing Ask PI escalation; /search/ is the no-JS fallback), Saved,
+ * and the menu button that opens V5MobileDrawer on every breakpoint.
+ *
+ * Keeps the .masthead class so the existing sticky positioning and the
+ * --masthead-h measurement script in BaseLayout keep working.
+ *
+ * v6 token pass (P3-6, 2026-07-25): the three utility controls are the
+ * shared .pi-btn primitive (--ghost --sm); ground, border, radius, type
+ * and hover all come from primitives.css, so the duplicated scoped rules
+ * are gone. What stays here is genuinely chrome-specific: the 44px touch
+ * target, the responsive icon-only collapse, and the pillar-nav row.
+ * The pillar triggers are deliberately NOT .pi-btn - they are navigation
+ * eyebrows (uppercase, tracked), which is the one place the review keeps
+ * letterspaced caps. Button labels stay sentence case.
+ */
+import { v5Pillars, v5Utilities } from '../../../lib/v5-nav';
+import V5MegaPanel from './V5MegaPanel.astro';
+
+export interface Props {
+  section?: string;
+}
+
+const { section = 'home' } = Astro.props;
+
+// Active pillar from the URL (more precise than the section prop, which
+// has no 'plans' value); section is the fallback for odd routes.
+const path = Astro.url.pathname.replace(/^\/V2/, '') || '/';
+function activePillar(p: string, fallback: string): string {
+  if (/^\/(eat|eat-drink)(\/|$)/.test(p)) return 'eat';
+  if (/^\/stay(\/|$)/.test(p)) return 'stay';
+  if (/^\/wine(\/|$)/.test(p)) return 'wine';
+  if (/^\/explore\/plans(\/|$)/.test(p) || /^\/plans(\/|$)/.test(p)) return 'plans';
+  if (/^\/(explore|dog-friendly|boating|fishing|tour|tour-packages|walks)(\/|$)/.test(p)) return 'explore';
+  if (/^\/(whats-on|events)(\/|$)/.test(p)) return 'whats-on';
+  if (/^\/journal(\/|$)/.test(p)) return 'journal';
+  return fallback;
+}
+const active = activePillar(path, section);
+---
+
+<header class="masthead v5-masthead" data-v5-masthead>
+
+  <!-- Brand row: wordmark left, utilities right. -->
+  <div class="v5-masthead__brand">
+    <div class="v5-masthead__brand-inner">
+      <a href="/" class="v5-masthead__logo" aria-label="Peninsula Insider, home">
+        <img src="/images/pi-concierge.svg" alt="" class="v5-masthead__mark" width="22" height="22" />
+        Peninsula <span>Insider</span>
+      </a>
+
+      <div class="v5-masthead__utilities">
+        {/* Signed-in profile chip mount point: ProfileDropdown.astro
+            appends itself into .v2-util__links (its legacy hook).
+            display:contents so the chip joins this flex row. */}
+        <span class="v2-util__links v5-masthead__profile-slot"></span>
+
+        <a href={v5Utilities.launcher.href} class="v5-launcher pi-btn pi-btn--ghost pi-btn--sm" data-open-search data-evt="search_open">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7" />
+            <line x1="21" y1="21" x2="16.5" y2="16.5" />
+          </svg>
+          <span class="v5-launcher__label">{v5Utilities.launcher.label}</span>
+        </a>
+
+        <a href={v5Utilities.saved.href} class="v5-utilbtn v5-utilbtn--saved pi-btn pi-btn--ghost pi-btn--sm" aria-label="Saved, your shortlist">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 3.5h12a.5.5 0 0 1 .5.5v16.6a.4.4 0 0 1-.63.33L12 16.5l-5.87 4.43a.4.4 0 0 1-.63-.33V4a.5.5 0 0 1 .5-.5Z" />
+          </svg>
+          <span class="v5-utilbtn__label">{v5Utilities.saved.label}</span>
+        </a>
+
+        <button
+          type="button"
+          class="v5-utilbtn v5-burger pi-btn pi-btn--ghost pi-btn--sm"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="v5Drawer"
+          data-v5-burger
+        >
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <line x1="4" y1="7" x2="20" y2="7" />
+            <line x1="4" y1="12" x2="20" y2="12" />
+            <line x1="4" y1="17" x2="20" y2="17" />
+          </svg>
+          <span class="v5-utilbtn__label">{v5Utilities.menu.label}</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nav row: 7 pillar disclosure triggers, desktop only. -->
+  <div class="v5-masthead__nav">
+    <nav aria-label="Primary">
+      <ul class="v5-pillars">
+        {v5Pillars.map((pillar) => (
+          <li
+            class:list={['v5-pillars__item', active === pillar.key && 'is-current']}
+            data-v5-pillar
+          >
+            <button
+              type="button"
+              class="v5-pillar-trigger"
+              aria-expanded="false"
+              aria-controls={`v5-panel-${pillar.key}`}
+              aria-current={active === pillar.key ? 'true' : undefined}
+              data-v5-pillar-trigger
+            >
+              {pillar.label}
+              <svg class="v5-pillar-trigger__chev" viewBox="0 0 12 8" width="9" height="6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="1,1.5 6,6.5 11,1.5" />
+              </svg>
+            </button>
+            <V5MegaPanel pillar={pillar} />
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+
+</header>
+
+<!-- Disclosure nav behaviour: click/Enter opens, Escape closes and
+     restores focus to the trigger, outside click closes, one panel at
+     a time. No focus-open, no hover-open. -->
+<script is:inline>
+  (function () {
+    function initV5Mega() {
+      var items = document.querySelectorAll('[data-v5-pillar]');
+      if (!items.length) return;
+
+      function panelOf(item) {
+        var trigger = item.querySelector('[data-v5-pillar-trigger]');
+        var panel = item.querySelector('[data-v5-mega]');
+        return { trigger: trigger, panel: panel };
+      }
+
+      function close(item) {
+        var p = panelOf(item);
+        if (p.panel) p.panel.hidden = true;
+        if (p.trigger) p.trigger.setAttribute('aria-expanded', 'false');
+        item.classList.remove('is-open');
+      }
+
+      function closeAll(except) {
+        items.forEach(function (n) { if (n !== except) close(n); });
+      }
+
+      items.forEach(function (item) {
+        if (item._v5Bound) return;
+        item._v5Bound = true;
+        var p = panelOf(item);
+        if (!p.trigger || !p.panel) return;
+
+        p.trigger.addEventListener('click', function () {
+          var isOpen = !p.panel.hidden;
+          closeAll(item);
+          if (isOpen) {
+            close(item);
+          } else {
+            p.panel.hidden = false;
+            p.trigger.setAttribute('aria-expanded', 'true');
+            item.classList.add('is-open');
+          }
+        });
+
+        item.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && !p.panel.hidden) {
+            e.stopPropagation();
+            close(item);
+            p.trigger.focus();
+          }
+        });
+      });
+
+      if (!document._v5MegaDocBound) {
+        document._v5MegaDocBound = true;
+        document.addEventListener('click', function (e) {
+          var t = e.target;
+          var inside = t && t.closest && t.closest('[data-v5-pillar]');
+          if (!inside) {
+            document.querySelectorAll('[data-v5-pillar].is-open').forEach(function (item) {
+              var panel = item.querySelector('[data-v5-mega]');
+              var trigger = item.querySelector('[data-v5-pillar-trigger]');
+              if (panel) panel.hidden = true;
+              if (trigger) trigger.setAttribute('aria-expanded', 'false');
+              item.classList.remove('is-open');
+            });
+          }
+        });
+      }
+    }
+
+    initV5Mega();
+    document.addEventListener('astro:page-load', initV5Mega);
+  })();
+</script>
+
+<style>
+  /* Evergreen Coast masthead: clean, generous, confident. Light
+     backdrop blur over a near-white ground; a single subtle bottom
+     hairline. Sticky positioning is owned by the outer .masthead. */
+  .v5-masthead {
+    /* Opaque, deliberately. This was a translucent ground (84%, then 92%)
+       with a backdrop blur, tuned so the masthead's OWN text stayed legible
+       over dark content scrolling under it. That solved the wrong problem:
+       the masthead is fixed and every hub opens on a full-bleed dark hero,
+       so at 92% the hero headline was still plainly readable THROUGH the
+       header. Contrast ratios do not fix that - it is the page showing
+       through the chrome, and no alpha short of 1 removes it.
+       The blur goes with it: once the ground is opaque it composites every
+       scroll frame for nothing. */
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    /* viewport-fit=cover: keep the brand row below the status bar / notch. */
+    padding-top: env(safe-area-inset-top);
+  }
+
+  .v5-masthead__brand-inner,
+  .v5-masthead__nav nav {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    /* Include the horizontal safe-area insets so the row clears the notch
+       in landscape (0 on non-notched devices / portrait). */
+    /* The gutter is capped against the viewport for the same reason the
+       type in this row is: it is rem-based, so it widened under reader
+       text scaling and ate the slack the wordmark needed. */
+    padding: 0 calc(min(var(--space-5), 6.4vw) + env(safe-area-inset-right)) 0 calc(min(var(--space-5), 6.4vw) + env(safe-area-inset-left));
+  }
+
+  .v5-masthead__brand-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: min(var(--space-4), 3.0vw);
+    /* Row height, not a spacing step: it is sized off the 44px control
+       inside it plus breathing room. Left in px deliberately. */
+    min-height: 68px;
+  }
+
+  .v5-masthead__logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    font-family: var(--font-display);
+    font-weight: var(--fw-bold);
+    /* Was a bespoke clamp (21.6 -> 28px) that sat off the v6 scale.
+       --fs-600 is the nearest step (22 -> 26px) and now matches the
+       drawer wordmark, which carried its own one-off value. */
+    /* Capped against the viewport, not just the type scale. --fs-600 is
+       rem-based, so it grows with the root font-size and there is no slack
+       in this row to absorb that: at 375px the wordmark, gap and utilities
+       already fill the line exactly. The vw arm holds the wordmark still
+       while body copy still scales, which keeps the brand name whole
+       instead of truncating it to "Peninsula ...". */
+    font-size: min(var(--fs-600), 5.9vw);
+    letter-spacing: var(--ls-display);
+    line-height: var(--lh-display);
+    color: var(--text);
+    text-decoration: none;
+    white-space: nowrap;
+    /* Deliberately NOT min-width: 0. In a space-between flex row that lets
+       the wordmark shrink below its own content, which truncated the brand
+       name to "Peninsula Insi..." even at default size. The row is kept in
+       bounds by capping type and spacing against the viewport instead, so
+       nothing here has to shrink at all. */
+  }
+  .v5-masthead__logo span {
+    font-weight: var(--fw-bold);
+    color: var(--accent);
+  }
+
+  .v5-masthead__mark {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+  }
+
+  /* Desktop-only per James (2026-08-21): didn't work on mobile - the
+     1023px cutoff below matches the rest of this component's mobile/
+     desktop split (see the two @media rules further down). */
+  @media (max-width: 1023px) {
+    .v5-masthead__mark {
+      display: none;
+    }
+  }
+
+  .v5-masthead__utilities {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    /* Never shrink and never be pushed out of the row: these are the only
+       navigation affordances on a phone. */
+    flex: 0 0 auto;
+  }
+
+  /* The masthead is fixed chrome with no spare width, so nothing in this
+     row is allowed to inflate with the root font-size. The reader's text
+     control still scales body copy, which is what it is for; letting it
+     also scale the header only cost the Menu button its place on screen
+     and truncated the wordmark to make room. Both arms are capped against
+     the viewport so the row is stable at any text size. */
+  .v5-masthead__utilities .pi-btn {
+    font-size: min(var(--fs-200), 3.5vw);
+    padding: var(--space-1) min(var(--space-3), 3.2vw);
+  }
+  .v5-masthead__profile-slot { display: contents; }
+
+  /* Search / Saved / Menu are .pi-btn --ghost --sm. The primitive owns
+     ground, border, radius (--radius-s), type, hover and transition, so
+     the three near-identical scoped rulesets that used to live here are
+     gone - along with the pill radius and the two different border
+     colours (--border vs --border-strong) they disagreed on, and the
+     --soft label colour that made the launcher read like a disabled
+     field. All that is left is the touch-target floor: --sm is a
+     small-button scale, and these are the header's only tap targets.
+     (The flex display is not a duplicate: min-height does nothing on an
+     inline <a>, so the target floor needs it to take effect.) */
+  .v5-launcher,
+  .v5-utilbtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+  }
+
+  .v5-masthead__nav {
+    border-top: 1px solid var(--border);
+  }
+  .v5-pillars {
+    list-style: none;
+    display: flex;
+    align-items: stretch;
+    gap: var(--space-6);
+  }
+  .v5-pillars__item { position: static; }
+
+  /* Nav labels: uppercase Figtree eyebrows with wide tracking. */
+  .v5-pillar-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    /* Nav row height (target size), not a spacing step. */
+    min-height: 50px;
+    padding: 0 var(--space-1);
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    font-family: var(--font-ui);
+    font-size: var(--fs-100);
+    font-weight: var(--fw-semibold);
+    letter-spacing: var(--ls-eyebrow);
+    text-transform: uppercase;
+    color: var(--text);
+    cursor: pointer;
+    transition: color var(--dur-fast) var(--ease-enter),
+                border-color var(--dur-fast) var(--ease-enter);
+  }
+  .v5-pillar-trigger:hover { color: var(--accent); }
+  .v5-pillars__item.is-current .v5-pillar-trigger {
+    border-bottom-color: var(--accent);
+    color: var(--accent);
+  }
+  .v5-pillars__item.is-open .v5-pillar-trigger {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+  .v5-pillar-trigger__chev {
+    transition: transform var(--dur-fast) var(--ease-enter);
+  }
+  .v5-pillars__item.is-open .v5-pillar-trigger__chev {
+    transform: rotate(180deg);
+  }
+
+  /* Visible focus (A-08): tokenised ring on every header control. */
+  .v5-masthead a:focus-visible,
+  .v5-masthead button:focus-visible {
+    outline: var(--focus-ring);
+    outline-offset: 2px;
+  }
+
+  /* Desktop: the pillar nav carries wayfinding and Saved lives in the
+     utility cluster, so the mobile menu button is redundant. Show the
+     burger only below the desktop breakpoint. */
+  @media (min-width: 1024px) {
+    .v5-burger { display: none; }
+  }
+
+  /* Mobile: nav row retires; the drawer carries wayfinding. The
+     utility cluster reduces to launcher (icon only) + menu; Saved
+     lives in the drawer and the bottom bar (NAV-05 capability set is
+     preserved across breakpoints). */
+  @media (max-width: 1023px) {
+    .v5-masthead__nav { display: none; }
+    .v5-utilbtn--saved { display: none; }
+    .v5-launcher__label {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+      border: 0;
+    }
+    /* Icon-only launcher: the label is still in the accessible name via
+       the visually-hidden span above, so no aria-label is needed and the
+       .pi-btn--icon variant (which requires one) is not used here. Square
+       it up and let the primitive keep the ground and border. */
+    .v5-launcher {
+      min-width: 44px;
+      padding: 0;
+    }
+    /* Mobile: the burger is the only nav entry point; guarantee a 44px target. */
+    .v5-utilbtn {
+      min-width: 44px;
+    }
+  }
+</style>

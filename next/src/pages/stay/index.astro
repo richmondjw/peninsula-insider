@@ -1,95 +1,200 @@
 ---
+/**
+ * /stay/ hub, v5 rebuild (T-503, page-redesigns-hubs.md section 3).
+ *
+ * Structure: stand-first -> party chips (CHIP_PRESETS.stay via FilterBar) ->
+ * The Six -> best-of rail -> full directory (ALL stay venues, compact rows,
+ * Book primary + Save secondary) -> From the Journal (3) -> FAQ (retained) ->
+ * Ask band. Title/meta/canonical/schema unchanged from v4. No consolidation
+ * or redirects in this wave.
+ *
+ * Shared hub modules (EAT agent, components/v5/hub/): HubStandfirst, TheSix,
+ * DirectoryRows, JournalModule, AskBand. Item payloads follow the v5 Card
+ * props API plus `facets` from getFacets('venue', data); the modules render
+ * data-facets/data-title/data-sort-container/data-filter-empty themselves.
+ *
+ * ONE filter state governs The Six and the directory: the single FilterBar
+ * below the stand-first renders #pi-results-status and the paired sheet;
+ */
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import GuideHero from '../../components/GuideHero.astro';
-import CompareBlock from '../../components/CompareBlock.astro';
-import SectionDivider from '../../components/SectionDivider.astro';
-import VenueCard from '../../components/VenueCard.astro';
-import VenueDirectory from '../../components/VenueDirectory.astro';
-import ItineraryCard from '../../components/ItineraryCard.astro';
-import ArticleCard from '../../components/ArticleCard.astro';
-import PlaceCard from '../../components/PlaceCard.astro';
-import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import { routeSlug, stayTypes, currentSeason, seasonBlurb } from '../../lib/editorial';
+import Card from '../../components/v5/Card.astro';
+import CardGrid from '../../components/v5/CardGrid.astro';
+import FilterBar from '../../components/v5/FilterBar.astro';
+import SortControl from '../../components/v5/SortControl.astro';
+import HubStandfirst from '../../components/v5/hub/HubStandfirst.astro';
+import TheSix from '../../components/v5/hub/TheSix.astro';
+import DirectoryRows from '../../components/v5/hub/DirectoryRows.astro';
+import JournalModule from '../../components/v5/hub/JournalModule.astro';
+import AskBand from '../../components/v5/hub/AskBand.astro';
+import TrustNote from '../../components/v5/hub/TrustNote.astro';
+import { getFacets, type FacetKey } from '../../lib/facets';
+import { routeSlug, stayTypes, typeLabel, titleize, resolveHeroSrc } from '../../lib/editorial';
+import { buildBreadcrumbSchema, absUrl } from '../../lib/schema';
 
-// ── Data ──────────────────────────────────────────────────────────────────────
+// ── Data ─────────────────────────────────────────────────────────────────────
 const venues = (await getCollection('venues')).filter((v) => stayTypes.includes(v.data.type));
-const itineraries = await getCollection('itineraries');
-const places = await getCollection('places');
-const season = currentSeason();
-const blurb = seasonBlurb[season];
-
-// Editorial curation via schema flag — editorPick: true on venue JSON.
-// Update venue JSON files to change what surfaces here; no source code edit needed.
-const featuredStays = venues.filter((v) => v.data.editorPick);
-
-const ridgeZones = ['red-hill', 'hinterland'];
-const coastZones = ['ocean-coast', 'peninsula-tip'];
-const bayZones = ['mornington', 'bay-coast'];
-const ridgeStays = venues.filter((v) => ridgeZones.includes(v.data.zone));
-const coastStays = venues.filter((v) => coastZones.includes(v.data.zone));
-const bayStays = venues.filter((v) => bayZones.includes(v.data.zone));
-
-const vineyardStays = venues.filter((v) => {
-  const moods: string[] = v.data.tags?.mood ?? [];
-  return moods.includes('cellar-door') || moods.includes('long-lunch') || ridgeZones.includes(v.data.zone);
-}).slice(0, 6);
-const coastalStays = venues.filter((v) => {
-  const moods: string[] = v.data.tags?.mood ?? [];
-  return moods.includes('beach') || moods.includes('waterfront') || coastZones.includes(v.data.zone);
-}).slice(0, 6);
-const wellnessStays = venues.filter((v) => {
-  const moods: string[] = v.data.tags?.mood ?? [];
-  return moods.includes('wellness') || v.data.type === 'spa';
-}).slice(0, 4);
+const stayCount = venues.length; // FULL corpus, every row server-rendered
 
 const articlesAll = (await getCollection('articles', ({ data }) => data.status === 'published'))
   .sort((a, b) => (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0));
 
-const companionSlugs = [
+// ── Helpers ──────────────────────────────────────────────────────────────────
+const iso = (d: unknown): string | undefined =>
+  d instanceof Date ? d.toISOString().slice(0, 10) : typeof d === 'string' && d ? d : undefined;
+
+const PARTNER_LABEL: Record<string, string> = {
+  airbnb: 'Books via Airbnb',
+  'booking.com': 'Books via Booking.com',
+};
+
+const PARTY_LABEL: Record<string, string> = {
+  couples: 'Couples',
+  family: 'Family',
+  group: 'Group',
+  solo: 'Solo',
+  'dog-friendly': 'Dog-friendly',
+};
+
+type Facets = Partial<Record<FacetKey, string[]>>;
+
+function partyFit(facets: Facets): string | undefined {
+  const party = facets.party ?? [];
+  if (party.includes('dog-friendly')) return 'Dog-friendly';
+  for (const key of ['couples', 'family', 'group', 'solo']) {
+    if (party.includes(key)) return PARTY_LABEL[key];
+  }
+  return undefined;
+}
+
+/** Row verdict: reuse the entry's own short line only when it fits the
+ *  25-word Critic budget; otherwise the row runs on meta alone. */
+function rowVerdict(data: any): string | undefined {
+  for (const candidate of [data.signature, data.whyWeGo]) {
+    if (typeof candidate !== 'string' || !candidate.trim()) continue;
+    if (candidate.trim().split(/\s+/).length <= 25) return candidate.trim();
+  }
+  return undefined;
+}
+
+function stayItem(v: any, overrides: { verdict?: string } = {}) {
+  const data = v.data;
+  const slug = v.id ?? data.slug;
+  const facets = getFacets('venue', data);
+  const bookingUrl: string | undefined = data.bookingUrl ?? data.website;
+  const provider = typeof data.bookingProvider === 'string' ? data.bookingProvider : '';
+  const partnerLabel = PARTNER_LABEL[provider] ?? (data.featuredPartner ? 'Partner' : undefined);
+  return {
+    title: data.name as string,
+    href: `/stay/${slug}/`,
+    entityType: 'venue' as const,
+    entitySlug: slug as string,
+    image: { src: resolveHeroSrc(data), alt: data.heroImage?.alt ?? data.name },
+    verdict: overrides.verdict ?? rowVerdict(data),
+    meta: [
+      typeLabel[data.type] ?? titleize(String(data.type ?? '')),
+      titleize(String(data.place?.id ?? data.place ?? '')),
+      partyFit(facets),
+    ].filter(Boolean).slice(0, 3) as string[],
+    priceBand: data.priceBand as string | undefined,
+    freshness: iso(data.lastVerified),
+    booking: bookingUrl
+      ? { url: bookingUrl, label: 'Book', venueName: data.name as string, partnerLabel }
+      : undefined,
+    surface: 'stay',
+    facets,
+  };
+}
+
+// ── The Six: hand-picked spread of corridor, party and price ────────────────
+// Verdicts are Critic voice, <= 25 words, written here (editorial curation).
+const SIX: { slug: string; verdict: string }[] = [
+  { slug: 'jackalope', verdict: 'The Peninsula staged as an event: a black-steel vineyard monolith, oversized baths, and dinner under ten thousand glass orbs at Doot Doot Doot.' },
+  { slug: 'polperro-villas', verdict: 'Two houses, no neighbours, a wood fire and an outdoor bath, with the cellar door a walk away through the vines.' },
+  { slug: 'hotel-sorrento', verdict: 'The classic Peninsula weekend, still unbeaten: front rooms with bay balconies above a grand old limestone pub.' },
+  { slug: 'flinders-hotel', verdict: 'The southern Peninsula’s most practical base: village on the doorstep, Bass Strait ten minutes away, and a pub that earns its keep.' },
+  { slug: 'peninsula-hot-springs-glamping', verdict: 'Thirty seconds from bed to thermal pool at dawn, before the day visitors arrive. That proximity is the entire argument, and it holds.' },
+  { slug: 'blue-moon-cottages', verdict: '1940s cottages a five-minute walk from Rye bay beach, wood fires lit, dogs welcome in the fenced Sandpiper courtyard.' },
+];
+
+const bySlug = new Map(venues.map((v) => [(v.id ?? v.data.slug) as string, v]));
+const sixItems = SIX
+  .map(({ slug, verdict }) => {
+    const v = bySlug.get(slug);
+    return v ? stayItem(v, { verdict }) : null;
+  })
+  .filter((x): x is NonNullable<typeof x> => Boolean(x));
+
+// ── Directory: the FULL corpus, The Six first, then town/name order ─────────
+const sixSlugs = new Set(SIX.map((s) => s.slug));
+const sixVenues = SIX.map(({ slug }) => bySlug.get(slug)).filter(Boolean);
+const restVenues = venues
+  .filter((v) => !sixSlugs.has((v.id ?? v.data.slug) as string))
+  .sort((a, b) => {
+    const townA = String(a.data.place?.id ?? a.data.place ?? '');
+    const townB = String(b.data.place?.id ?? b.data.place ?? '');
+    return townA.localeCompare(townB) || String(a.data.name).localeCompare(String(b.data.name));
+  });
+const directoryItems = [...sixVenues, ...restVenues].map((v) => stayItem(v));
+
+// ── Best-of rail (guide cards to existing /stay/ list pages) ────────────────
+const bestOfGuides = [
+  { slug: 'best-accommodation', title: 'The best places to stay', verdict: 'The full ranking, hotel to cottage, with the reasoning shown.' },
+  { slug: 'couples-retreats', title: 'Couples’ retreats', verdict: 'Rooms built for two, from outdoor baths to village balconies.' },
+  { slug: 'vineyard-stays', title: 'Vineyard stays', verdict: 'Sleep between the rows and walk to the cellar door.' },
+  { slug: 'coastal-stays', title: 'Coastal stays', verdict: 'Bases within earshot of the water, Sorrento to Flinders.' },
+  { slug: 'hot-springs-accommodation', title: 'Hot springs stays', verdict: 'Stay inside the thermal precinct and beat the day queue.' },
+  { slug: 'dog-friendly', href: '/journal/dog-friendly-accommodation-mornington-peninsula/', title: 'Dog-friendly stays', verdict: 'Stays where the dog is a guest, not a problem.' },
+];
+
+// ── From the Journal (3, retained slugs from the v4 companion set) ──────────
+const journalSlugs = [
   'where-to-stay-for-a-two-night-escape',
   'the-one-night-escape',
   'the-vineyard-villa-weekend',
-  'the-thermal-springs-weekend',
 ];
-const companionReads = companionSlugs
+const journalItems = journalSlugs
   .map((slug) => articlesAll.find((a) => routeSlug(a) === slug))
-  .filter((a): a is NonNullable<typeof a> => Boolean(a));
+  .filter((a): a is NonNullable<typeof a> => Boolean(a))
+  .slice(0, 3)
+  .map((a) => ({
+    title: a.data.title as string,
+    href: a.data.section === 'plans'
+      ? `/explore/plans/${routeSlug(a)}/`
+      : `/journal/${routeSlug(a)}/`,
+    entitySlug: routeSlug(a) as string,
+    image: a.data.heroImage?.src
+      ? { src: a.data.heroImage.src as string, alt: (a.data.heroImage.alt ?? a.data.title) as string }
+      : undefined,
+    verdict: a.data.dek as string | undefined,
+    readTime: a.data.readingTimeMinutes ? `${a.data.readingTimeMinutes} min read` : undefined,
+    dateISO: iso(a.data.publishedAt),
+  }));
 
-const placeHighlights = places.filter((p) => ['red-hill', 'sorrento', 'flinders'].includes(routeSlug(p)));
-
-const stayHubs = [
-  { href: '/stay/luxury/',                          label: 'Luxury',                  sub: 'Design hotels, vineyard villas' },
-  { href: '/stay/boutique-hotels/',                 label: 'Boutique Hotels',         sub: 'Character stays in Flinders, Sorrento' },
-  { href: '/stay/winery-accommodation/',            label: 'Winery Accommodation',    sub: 'Stay where the long lunch happens' },
-  { href: '/stay/couples/',                         label: 'Couples',                 sub: 'Stays that shape a weekend for two' },
-  { href: '/stay/dog-friendly/',                    label: 'Dog-Friendly',            sub: 'Useful when the dog is coming' },
-  { href: '/stay/glamping/',                        label: 'Glamping',                sub: 'Thermal and experience-led stays' },
-  { href: '/stay/hot-springs-accommodation/',       label: 'Hot Springs Stays',       sub: 'Sleep inside the thermal precinct' },
-  { href: '/stay/villas/',                          label: 'Villas',                  sub: 'Private bases with room to breathe' },
-  { href: '/stay/cottages/',                        label: 'B&Bs & Cottages',         sub: 'Self-contained cottages and named-host B&Bs' },
-  { href: '/stay/resorts/',                         label: 'Resorts & Retreats',      sub: 'Wellness and thermal stays' },
-  { href: '/stay/where-to-stay-mornington-peninsula/', label: 'Where to Base Yourself', sub: 'Choose the right Peninsula zone' },
-  { href: '/stay/sorrento/',                        label: 'Stay in Sorrento',        sub: 'Village atmosphere, beach access' },
-  { href: '/stay/red-hill/',                        label: 'Stay in Red Hill',        sub: 'Food, wine, fireplaces, hinterland' },
-  { href: '/stay/flinders/',                        label: 'Stay in Flinders',        sub: 'Quiet ocean-side village weekends' },
-  { href: '/stay/mornington/',                      label: 'Stay in Mornington',      sub: 'Practical northern Peninsula base' },
-  { href: '/stay/cape-schanck/',                    label: 'Stay in Cape Schanck',    sub: 'Retreat-led southern reset' },
-];
+// ── Stand-first (<= 80 words, carries the where-to-stay + corridor phrases) ─
+const standfirst =
+  'One decision shapes the weekend: ridge and hinterland, or coastal village. ' +
+  'Red Hill puts vineyard lunches and fireplaces in walking distance; Sorrento to Mornington ' +
+  'trade that for bay light and a livelier main street. Every property is independently researched and kept current.';
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
   { label: 'Stay' },
 ];
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', url: absUrl('/') },
+  { name: 'Stay', url: absUrl('/stay/') },
+]);
 
+// FAQ schema retained verbatim from v4 (title/meta/schema unchanged).
 const faqSchema = {
   '@context': 'https://schema.org', '@type': 'FAQPage',
   mainEntity: [
     { '@type': 'Question', name: 'Where is the best area to stay on the Mornington Peninsula?',
       acceptedAnswer: { '@type': 'Answer', text: 'Red Hill and Main Ridge for cellar door weekends, vineyard restaurants are walkable from many stays. Sorrento for coastal village atmosphere and ocean beach access. Mornington town for the most accessible base from Melbourne (60 minutes). The right answer depends on the weekend you want, wine country, beach village, or practical proximity.' } },
     { '@type': 'Question', name: 'How much does accommodation cost on the Mornington Peninsula?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Budget $250–400/night for a good mid-range self-contained villa or cottage. Luxury vineyard stays (Jackalope, Lindenderry) run $450–800/night. Budget options in Rosebud, Dromana, and Rye start from $150/night. Prices peak in summer and over long weekends, autumn midweek offers the best value.' } },
+      acceptedAnswer: { '@type': 'Answer', text: 'A good mid-range self-contained villa or cottage is the sensible baseline. Luxury vineyard stays (Jackalope, Lindenderry) sit a clear tier above that. Cheaper options in Rosebud, Dromana, and Rye bring the cost down at the price of distance from the cellar door cluster. Rates peak in summer and over long weekends, autumn midweek offers the best value.' } },
     { '@type': 'Question', name: 'Is one night enough on the Mornington Peninsula?',
       acceptedAnswer: { '@type': 'Answer', text: 'One night works for a focused escape, arrive Friday evening, spend Saturday on the ridge (cellar doors + lunch), and drive home Sunday after a morning walk. Two nights is better: it allows a beach day, a second area to explore, and the slower pace the Peninsula rewards. Base in Mornington or Sorrento for single-night trips.' } },
   ],
@@ -99,276 +204,95 @@ export const prerender = true;
 
 <BaseLayout
   title="Where to Stay on the Mornington Peninsula · Peninsula Insider"
-  description="Where to stay on the Mornington Peninsula, hotels, vineyard villas, coastal cottages, and farm stays. Every property visited and reviewed. Updated for autumn."
+  description="Where to stay on the Mornington Peninsula, hotels, vineyard villas, coastal cottages, and farm stays. Every property independently researched and reviewed. Updated for autumn."
   section="stay"
   canonical="https://peninsulainsider.com.au/stay"
   modifiedTime="2026-04-30"
   ogImage="/images/sourced/venue-jackalope-hotel-01.webp"
 >
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 
   <Breadcrumbs items={breadcrumbItems} />
 
-  <!-- ═══════════════════════════════════════════════════════════════
-       1. CINEMATIC HERO
-       ═══════════════════════════════════════════════════════════════ -->
-  <GuideHero
-    eyebrow={`Stay · ${venues.length} properties · Last verified 30 Apr 2026`}
-    title="Choose the base, and the whole <em>weekend</em> changes"
-    dek="The Peninsula is a region of distinct moods packed close together. A Red Hill country-house weekend produces a different trip from a Sorrento main-street hotel. This hub sorts the beds by the kind of weekend you actually want."
-    meta={[
-      { label: `${venues.length} stays mapped` },
-      { label: `${ridgeStays.length} ridge & hinterland` },
-      { label: `${coastStays.length} coastal village` },
-      { label: '9 min read' },
-    ]}
-    heroImage="/images/sourced/venue-jackalope-hotel-01.webp"
-    imageAlt="Jackalope Hotel, Merricks North vineyard at dusk"
-    imageCredit="Peninsula Insider"
-    entitySlug="stay"
+  <!-- 1. Stand-first: h1 retained, intro + CompareBlock compressed to <= 80 words -->
+  <HubStandfirst
+    eyebrow="Stay"
+    title="Choose the base, and the whole weekend changes"
+    standfirst={standfirst}
+    image={{ src: '/images/sourced/venue-jackalope-hotel-01.webp', alt: 'A vineyard hotel on the Mornington Peninsula at dusk' }}
   />
 
-  <!-- ═══════════════════════════════════════════════════════════════
-       2. ORIENTATION: Ridge & hinterland vs Coastal village
-       ═══════════════════════════════════════════════════════════════ -->
-  <CompareBlock
-    eyebrow="Two distinct stay corridors"
-    heading="Ridge & hinterland or Coastal village"
-    dek="The biggest decision in a Peninsula trip is not which property, it is which side of the region you wake up on. Each anchors a different weekend."
-    left={{
-      label: 'Ridge & hinterland',
-      title: 'Vineyard country. Fireplaces. Lunch within walking distance.',
-      rows: [
-        { label: 'Flagship stays', value: 'Jackalope (Merricks North), Lindenderry (Red Hill), Polperro Villas, Tucks Ridge, Montalto cottages, vineyard villa rentals' },
-        { label: 'What you get', value: 'Country-house pace, low light, eucalypts and fences, a cellar door dining room within ten minutes of the bed.' },
-        { label: 'Best for', value: 'Two-night food-and-wine weekends. Couples. Slow restorative trips. Winter visits with fires lit.' },
-        { label: 'Trade-offs', value: 'No swimming distance. Limited walk-out infrastructure. You drive to everything but the lunch.' },
-        { label: 'Pair with', value: 'A long lunch on Saturday, a cellar-door tasting on Sunday morning, and a hot-springs visit before the drive home.' },
-      ],
-    }}
-    right={{
-      label: 'Coastal village, Sorrento, Portsea, Flinders, Mornington',
-      title: 'Bay light, ferry edge, walk-out beaches, social theatre.',
-      rows: [
-        { label: 'Flagship stays', value: 'Hotel Sorrento, The Continental Sorrento, Portsea Hotel, Flinders Hotel, Mornington foreshore cottages, Mount Martha bay houses' },
-        { label: 'What you get', value: 'Walking distance to a beach and a meal. Late dusk light over the bay. The Peninsula at its most social.' },
-        { label: 'Best for', value: 'Single-night escapes. Family trips. Visitors who want to leave the car parked. Summer weekends with friends.' },
-        { label: 'Trade-offs', value: 'Busy in peak season. The cellar-door day requires a drive. Less of the inland country-house feel.' },
-        { label: 'Pair with', value: 'A Sorrento Back Beach sunset, a Hotel Sorrento dinner, the morning ferry to Queenscliff, or a Mornington cliff walk.' },
-      ],
-    }}
+  <!-- 2. The Six -->
+  <TheSix
+    eyebrow="The Six · this month"
+    heading="Six stays worth building a weekend around"
+    surface="stay"
+    items={sixItems}
   />
 
-  <!-- ═══════════════════════════════════════════════════════════════
-       3. EDITOR'S PICKS
-       ═══════════════════════════════════════════════════════════════ -->
-  {featuredStays.length > 0 && (
-    <section class="venues" id="editors">
-      <div class="container">
-        <div class="venues__header">
-          <div>
-            <p class="label label--accent">Editor's picks</p>
-            <h2 class="venues__title">Three stays worth planning the trip around</h2>
-            <p class="venues__sub venues__sub--standfirst">From design-hotel spectacle to quieter village-hotel weekends, three rooms that change what the trip feels like, each anchoring a different version of the Peninsula.</p>
-          </div>
-          <a href="/journal/where-to-stay-for-a-two-night-escape/" class="venues__link">Editor's stay guide →</a>
-        </div>
-        <div class="venues__grid">
-          {featuredStays.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}
-        </div>
-      </div>
-    </section>
-  )}
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       4. VINEYARD WEEKENDS, ridge & hinterland
-       ═══════════════════════════════════════════════════════════════ -->
-  {vineyardStays.length > 0 && (
-    <section class="venues venues--plain" id="vineyard">
-      <div class="container">
-        <div class="venues__header">
-          <div>
-            <p class="label label--accent">Vineyard weekends</p>
-            <h2 class="venues__title">Beds with a long lunch already attached</h2>
-            <p class="venues__sub venues__sub--standfirst">The stays that make the Red Hill version of the Peninsula hold together, close to cellar doors, built for pinot pacing.</p>
-          </div>
-          <a href="/wine/" class="venues__link">Wine country →</a>
-        </div>
-        <div class="venues__grid">
-          {vineyardStays.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}
-        </div>
-      </div>
-    </section>
-  )}
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       5. COASTAL WEEKENDS
-       ═══════════════════════════════════════════════════════════════ -->
-  {coastalStays.length > 0 && (
-    <section class="venues" id="coastal">
-      <div class="container">
-        <div class="venues__header">
-          <div>
-            <p class="label label--accent">Coastal weekends</p>
-            <h2 class="venues__title">For salt air, dusk walks, and back-beach weather</h2>
-            <p class="venues__sub venues__sub--standfirst">Rooms that put you near limestone, open water, and the quieter southern end of the region.</p>
-          </div>
-          <a href="/explore/places/sorrento/" class="venues__link">Sorrento hub →</a>
-        </div>
-        <div class="venues__grid">
-          {coastalStays.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}
-        </div>
-      </div>
-    </section>
-  )}
-
-  <SectionDivider />
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       6. WELLNESS & RETREATS
-       ═══════════════════════════════════════════════════════════════ -->
-  {wellnessStays.length > 0 && (
-    <section class="venues venues--plain" id="wellness">
-      <div class="container">
-        <div class="venues__header">
-          <div>
-            <p class="label label--accent">Wellness & retreats</p>
-            <h2 class="venues__title">The Peninsula's slow-down layer</h2>
-            <p class="venues__sub">Springs, spa cabins, and farm-stay beds for the weekend that has to do more with less.</p>
-          </div>
-          <a href="/journal/the-thermal-springs-weekend/" class="venues__link">Thermal springs guide →</a>
-        </div>
-        <div class="venues__grid">
-          {wellnessStays.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}
-        </div>
-      </div>
-    </section>
-  )}
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       7. HUB NAVIGATION
-       ═══════════════════════════════════════════════════════════════ -->
-  <section class="hub-formats" aria-label="Stay categories" id="browse-stay-hubs">
+  <!-- 4. Best-of rail -->
+  <section class="v5-bestof" aria-labelledby="bestof-heading">
     <div class="container">
-      <div class="hub-formats__intro">
-        <p class="label label--accent">Or browse by stay type</p>
-        <h2 class="hub-formats__title">The stay section, fully organised</h2>
-        <p class="hub-formats__dek">Sixteen lanes into the Peninsula's beds. Start with the kind of weekend you want, then move into the right zones and properties.</p>
-      </div>
-      <ul class="hub-formats__grid">
-        {stayHubs.map((hub) => (
-          <li class="hub-formats__cell">
-            <a href={hub.href} class="hub-formats__link">
-              <span class="hub-formats__label">{hub.label}</span>
-              <span class="hub-formats__sub">{hub.sub}</span>
-            </a>
-          </li>
+      <p class="v5-bestof__eyebrow">Best-of guides</p>
+      <h2 id="bestof-heading" class="v5-bestof__title">Start with a ranked list</h2>
+      {/* "Best-of guides" is stated once, in the section eyebrow. The cards
+          drop their GUIDE stamp. They are text-only by design, so no media
+          fallback either: a plate on all three would be noise, not repair. */}
+      <CardGrid label="Stay guides" layout="grid" maxCols={3}>
+        {bestOfGuides.map((guide, i) => (
+          <Card
+            variant="guide"
+            title={guide.title}
+            href={'href' in guide ? guide.href : `/stay/${guide.slug}/`}
+            entityType="page"
+            entitySlug={`stay-${guide.slug}`}
+            showEyebrow={false}
+            verdict={guide.verdict}
+            surface="stay"
+            position={i + 1}
+          />
         ))}
-      </ul>
+      </CardGrid>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════════════════════════
-       8. FULL STAY DIRECTORY (filterable, Phase 2 WS2C)
-       ═══════════════════════════════════════════════════════════════ -->
-  <VenueDirectory
-    id="stay-directory"
-    venues={venues}
-    hrefPrefix="/stay"
-    eyebrow="All stays"
-    heading={`Every bed currently mapped, hotel to cottage (${venues.length})`}
-    sub={blurb.line}
-    typeOptions={[
-      { value: 'hotel',     label: 'Hotels' },
-      { value: 'villa',     label: 'Villas' },
-      { value: 'cottage',   label: 'Cottages' },
-      { value: 'glamping',  label: 'Glamping' },
-      { value: 'farm-stay', label: 'Farm stays' },
-      { value: 'spa',       label: 'Spa retreats' },
-    ]}
-    moodOptions={[
-      { value: 'cellar-door', label: 'Cellar-door country' },
-      { value: 'beach',       label: 'Beach-side' },
-      { value: 'waterfront',  label: 'Waterfront' },
-      { value: 'wellness',    label: 'Wellness' },
-      { value: 'fireplace',   label: 'Fireplace' },
-      { value: 'view',        label: 'A view' },
-      { value: 'romance',     label: 'Romance' },
-      { value: 'big-group',   label: 'Big group' },
-    ]}
-    toggles={{ dogFriendly: true, hatted: false }}
+  <!-- 5. Directory: the FULL stay corpus as compact rows, Book primary +
+       Save. Party chips are slotted directly above the list they reshape
+       (moved from the top of the page 2026-07-24 per James; slotted inside
+       the directory so the sticky bar has the full list height to stick
+       against). ONE filter state still governs The Six + directory. -->
+  <div class="container">
+    <TrustNote surface="stay" />
+  </div>
+  <DirectoryRows
+    eyebrow="The full list"
+    heading={`All ${stayCount} places to stay`}
+    surface="stay"
+    noun="stays"
+    items={directoryItems}
+    topLink={{ label: 'Ranked: the best places to stay', href: '/stay/best-accommodation/' }}
+  >
+    <FilterBar
+      slot="before-list"
+      surface="stay"
+      noun="stays"
+      label="Filter stays"
+      sticky={true}
+      facets={['place', 'cat', 'price', 'party']}
+    >
+      <SortControl />
+    </FilterBar>
+  </DirectoryRows>
+
+  <!-- 6. From the Journal (3) -->
+  <JournalModule
+    heading="From the Journal"
+    moreHref="/journal/"
+    items={journalItems}
   />
 
-  <SectionDivider />
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       9. ITINERARIES
-       ═══════════════════════════════════════════════════════════════ -->
-  {itineraries.length > 0 && (
-    <section class="escape-callout" id="itineraries">
-      <div class="container">
-        <div class="venues__header">
-          <div>
-            <p class="label label--accent">Turn the bed into a plan</p>
-            <h2 class="venues__title">The best stays make the itinerary easier</h2>
-            <p class="venues__sub">If the room is right, the rest of the weekend starts arranging itself.</p>
-          </div>
-          <a href="/explore/plans/" class="venues__link">See plans →</a>
-        </div>
-        <div class="itinerary-grid">
-          {itineraries.map((itinerary) => <ItineraryCard itinerary={itinerary} />)}
-        </div>
-      </div>
-    </section>
-  )}
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       10. PLACES
-       ═══════════════════════════════════════════════════════════════ -->
-  {placeHighlights.length > 0 && (
-    <section class="places">
-      <div class="container">
-        <div class="places__header">
-          <p class="label label--accent places__label">Choose the district</p>
-          <h2 class="places__title">Browse stays through the places they belong to</h2>
-          <p class="places__sub">Each hub pulls together the beds, tables, and walks that belong to that stretch of the Peninsula.</p>
-        </div>
-        <div class="places__grid">
-          {placeHighlights.map((place, index) => (
-            <PlaceCard
-              place={place}
-              variant={index === 1 ? 'bay' : index === 2 ? 'sand' : 'vineyard'}
-            />
-          ))}
-        </div>
-      </div>
-    </section>
-  )}
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       11. EDITORIAL GUIDES
-       ═══════════════════════════════════════════════════════════════ -->
-  {companionReads.length > 0 && (
-    <section class="venues venues--plain">
-      <div class="container">
-        <div class="venues__header">
-          <div>
-            <p class="label label--accent">From the Journal</p>
-            <h2 class="venues__title">Read the stay logic before you book</h2>
-            <p class="venues__sub">Service pieces that make the difference between a good weekend and one that runs itself.</p>
-          </div>
-          <a href="/journal/" class="venues__link">All in the Journal →</a>
-        </div>
-        <div class="venues__grid">
-          {companionReads.map((article) => <ArticleCard article={article} />)}
-        </div>
-      </div>
-    </section>
-  )}
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       12. FAQ
-       ═══════════════════════════════════════════════════════════════ -->
+  <!-- 7. FAQ: retained from v4, in-DOM, schema above -->
   <section class="hub-faq" aria-label="Frequently asked questions">
     <div class="container">
       <div class="hub-faq__intro">
@@ -382,7 +306,7 @@ export const prerender = true;
         </details>
         <details class="hub-faq__item">
           <summary class="hub-faq__q">How much does accommodation cost?</summary>
-          <div class="hub-faq__a"><p>Budget $250–400/night for a good mid-range self-contained villa or cottage. Luxury vineyard stays (Jackalope, Lindenderry) run $450–800/night. Budget options in Rosebud, Dromana, and Rye start from $150/night. Prices peak in summer and over long weekends, autumn midweek offers the best value.</p></div>
+          <div class="hub-faq__a"><p>A good mid-range self-contained villa or cottage is the sensible baseline. Luxury vineyard stays (Jackalope, Lindenderry) sit a clear tier above that. Cheaper options in Rosebud, Dromana, and Rye bring the cost down at the price of distance from the cellar door cluster. Rates peak in summer and over long weekends, autumn midweek offers the best value.</p></div>
         </details>
         <details class="hub-faq__item">
           <summary class="hub-faq__q">Is one night enough on the Peninsula?</summary>
@@ -392,5 +316,30 @@ export const prerender = true;
     </div>
   </section>
 
-  <NewsletterBlock />
+  <!-- 8. Ask band hidden (bug fix in progress) -->
 </BaseLayout>
+
+<style>
+  .v5-bestof {
+    padding: var(--space-8, 4rem) 0;
+    background: var(--bg-alt, var(--bg));
+  }
+  .v5-bestof__eyebrow {
+    margin: 0 0 var(--space-2, 0.5rem);
+    font-family: var(--font-ui);
+    font-size: var(--fs-100, 0.75rem);
+    font-weight: 600;
+    letter-spacing: var(--ls-eyebrow, 0.12em);
+    text-transform: uppercase;
+    color: var(--teal-text);
+  }
+  .v5-bestof__title {
+    margin: 0 0 var(--space-5, 1.5rem);
+    font-family: var(--font-display);
+    font-size: var(--fs-700, clamp(1.6rem, 1.35rem + 1.2vw, 2.1rem));
+    font-weight: var(--fw-display, 600);
+    line-height: var(--lh-heading, 1.14);
+    letter-spacing: -0.01em;
+    color: var(--text);
+  }
+</style>

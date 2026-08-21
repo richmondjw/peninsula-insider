@@ -6,7 +6,7 @@ houseByline: true
 publishedAt: 2026-04-17
 heroImage:
   src: "/images/sourced/dog-lifestyle-hero-01.webp"
-  alt: "Dog resting — Peninsula Insider pet emergency guide — representative image"
+  alt: "Dog resting - Peninsula Insider pet emergency guide - representative image"
   credit: "Unsplash"
   license: "tmp-unsplash"
 format: "service"
@@ -15,8 +15,8 @@ lastVerified: 2026-04-22
 clusterLinks:
   - label: "Dog-Friendly Beaches on the Mornington Peninsula"
     href: "/journal/dog-friendly-beaches-mornington-peninsula/"
-  - label: "The Dog-Friendly Peninsula — Full Weekend Guide"
-    href: "/journal/the-dog-friendly-peninsula/"
+  - label: "The Dog-Friendly Peninsula - Full Weekend Guide"
+    href: "/journal/dog-friendly-mornington-peninsula/"
   - label: "Where to Walk the Dog on the Mornington Peninsula"
     href: "/journal/where-to-walk-the-dog-mornington-peninsula/"
 faq:

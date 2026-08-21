@@ -1,0 +1,71 @@
+---
+/**
+ * EditionAsk - the concierge as the homepage's second act.
+ *
+ * An oversized, editorial invitation to the thing no competitor has: a
+ * working concierge with taste. One statement, one input, rotating real
+ * prompts as the placeholder. Submits to /ask/?q= which auto-fires the
+ * query on arrival. Pure enhancement: with JS off it is a working form.
+ */
+---
+
+<section class="ed-ask" aria-label="Ask PI">
+  <div class="container ed-ask__frame">
+    <div class="ed-ask__mark" aria-hidden="true">
+      <img src="/images/pi-mark.svg" alt="" width="56" height="56" loading="lazy" onerror="this.parentNode.removeChild(this)" />
+    </div>
+    <h2 class="ed-ask__headline">Tell PI the weekend <em>you</em> want.</h2>
+    <p class="ed-ask__sub">
+      The concierge works from the editorial corpus: every pick earns its place, every verdict has a reason.
+      The more specific you are, the sharper the answer.
+    </p>
+    <form class="ed-ask__form" action="/ask/" method="get" data-ed-ask>
+      <input
+        class="ed-ask__input"
+        type="text"
+        name="q"
+        autocomplete="off"
+        aria-label="Ask PI"
+        placeholder="A long lunch for six in Red Hill, Saturday"
+        data-ed-ask-input
+      />
+      <button class="ed-ask__submit" type="submit">
+        Ask PI
+        <svg viewBox="0 0 16 12" width="15" height="11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 6h13M10 1.5 14.5 6 10 10.5" /></svg>
+      </button>
+    </form>
+    <p class="ed-ask__hints" data-ed-ask-hints>
+      Try: <button type="button" class="ed-ask__hint" data-q="Rainy Sunday with two kids under ten">rainy Sunday, two kids</button>
+      <button type="button" class="ed-ask__hint" data-q="One night away, wine led, leaving Friday after work">one night, wine led</button>
+      <button type="button" class="ed-ask__hint" data-q="Best walk then lunch near Flinders">walk then lunch, Flinders</button>
+    </p>
+  </div>
+</section>
+
+<script is:inline>
+  (function () {
+    var input = document.querySelector('[data-ed-ask-input]');
+    if (!input) return;
+    var prompts = [
+      'A long lunch for six in Red Hill, Saturday',
+      'Rainy Sunday with two kids under ten',
+      'One night away, wine led, leaving Friday after work',
+      'A dog-friendly beach then a decent coffee',
+      'Anniversary dinner, somewhere with a fireplace',
+    ];
+    var i = 0;
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduced) {
+      setInterval(function () {
+        if (document.activeElement === input || input.value) return;
+        i = (i + 1) % prompts.length;
+        input.setAttribute('placeholder', prompts[i]);
+      }, 4000);
+    }
+    document.querySelectorAll('.ed-ask__hint').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        window.location.href = '/ask/?q=' + encodeURIComponent(btn.getAttribute('data-q'));
+      });
+    });
+  })();
+</script>

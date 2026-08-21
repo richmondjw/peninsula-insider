@@ -6,7 +6,7 @@ houseByline: true
 publishedAt: 2026-04-10
 heroImage:
   src: "/images/sourced/category-pub-02.webp"
-  alt: "A beer garden at a Peninsula pub on a late autumn afternoon with locals at timber tables — representative image"
+  alt: "A beer garden at a Peninsula pub on a late autumn afternoon with locals at timber tables - representative image"
   credit: "Peninsula Insider"
   license: "tmp-unsplash"
 format: "insider-edit"
@@ -44,16 +44,16 @@ clusterLinks:
   - label: "Dog-Friendly Cafés, Pubs and Wineries on the Mornington Peninsula"
     href: "/journal/dog-friendly-cafes-pubs-wineries-mornington-peninsula/"
   - label: "Where to Stay on the Mornington Peninsula"
-    href: "/journal/where-to-stay-mornington-peninsula/"
-  - label: "The Dog-Friendly Peninsula — Full Weekend Guide"
-    href: "/journal/the-dog-friendly-peninsula/"
+    href: "/stay/best-accommodation/"
+  - label: "The Dog-Friendly Peninsula - Full Weekend Guide"
+    href: "/journal/dog-friendly-mornington-peninsula/"
 faq:
   - question: "Which is the best pub on the Mornington Peninsula?"
     answer: "Depends what you want. Flinders Hotel for rooms and location in a village that earns an overnight. Hotel Sorrento for heritage and atmosphere outside of peak summer. Balnarring Pub for food and local character."
   - question: "Are Peninsula pubs dog-friendly?"
     answer: "Some are. Balnarring Pub beer garden and The Rocks at Mornington are confirmed dog-friendly. Portsea Hotel beer garden allows dogs on-leash outside peak season. Always confirm with the venue directly before bringing a dog."
   - question: "Which Peninsula pubs have accommodation?"
-    answer: "Flinders Hotel and Hotel Sorrento both have well-renovated rooms above the bar — Flinders from about $280, Hotel Sorrento slightly higher. Portsea Hotel also has renovated accommodation. All three are significantly better than a standard pub room."
+    answer: "Flinders Hotel and Hotel Sorrento both have well-renovated rooms above the bar; current rates are on each hotel's site. Portsea Hotel also has renovated accommodation. All three are significantly better than a standard pub room."
 ---
 
 There is a version of the Mornington Peninsula that has nothing to do with cellar doors, degustation menus, or hot springs, and it runs on pubs.
@@ -66,11 +66,11 @@ This is not a ranking. It is a guide to five pubs that do distinctly different t
 
 The **Flinders Hotel** is the pub most weekenders end up wishing they had booked when they realise, at about six o'clock on a Saturday, that the pub is in the right town at the right time of day and they are staying twenty minutes away.
 
-The pub runs as a full hotel with well-designed rooms upstairs, a dining room that takes its produce seriously without becoming a restaurant, and a beer garden that catches the late light. The village of [Flinders](/places/flinders) is small, quiet, and entirely walkable (bakery, general store, pier) and the pub sits at the crossroads of all of it.
+The pub runs as a full hotel with well-designed rooms upstairs, a dining room that takes its produce seriously without becoming a restaurant, and a beer garden that catches the late light. The village of [Flinders](/explore/places/flinders/) is small, quiet, and entirely walkable (bakery, general store, pier) and the pub sits at the crossroads of all of it.
 
 The food has lifted over the past few years: Peninsula produce handled with pub confidence rather than fine-dining anxiety. The steak is excellent. The fish changes with what comes off the boats. The wine list runs heavily to local producers.
 
-Stay here if you want the ocean side of the Peninsula without giving up a good dinner. Rooms from about $280.
+Stay here if you want the ocean side of the Peninsula without giving up a good dinner. Room rates sit in the upper half of Peninsula pub accommodation; current prices are on the hotel's site.
 
 ## Hotel Sorrento, the one everyone knows
 
@@ -92,7 +92,7 @@ Best for families and groups. The beer garden on a Saturday after the beach. Cou
 
 ## Balnarring Pub, the one the locals protect
 
-The **Balnarring Pub** is the pub the locals talk about when they are not talking to weekenders. Tucked away in the hinterland behind the bayside strip, [Balnarring](/places/balnarring) is the town that most visitors drive through without stopping, and the pub is the reason they should.
+The **Balnarring Pub** is the pub the locals talk about when they are not talking to weekenders. Tucked away in the hinterland behind the bayside strip, [Balnarring](/explore/places/balnarring/) is the town that most visitors drive through without stopping, and the pub is the reason they should.
 
 The food is excellent: modern pub cooking with genuine Peninsula sourcing, and a kitchen that punches above the size of the room. The beer garden is small, shaded, and personal. The wine list is short and local. The crowd is farmers, families from the village, and the occasional weekender who has been told about it by someone who lives here.
 

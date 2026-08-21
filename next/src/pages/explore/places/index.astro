@@ -16,7 +16,7 @@ const places = (await getCollection('places')).sort((a, b) => a.data.name.locale
 const venues = await getCollection('venues');
 const experiences = await getCollection('experiences');
 
-// Curated destination order — editorial priority, not alphabetical or regional.
+// Curated destination order - editorial priority, not alphabetical or regional.
 // Reflects search importance, Peninsula recognition, and editorial strength.
 // Update this array to change what appears and in what order.
 // Curated primary destinations in editorial priority order.
@@ -29,12 +29,12 @@ const CURATED_ORDER = [
   'blairgowrie', 'rye',
 ];
 
-// Primary curated destinations — shown in editorial order at the top of the hub
+// Primary curated destinations - shown in editorial order at the top of the hub
 const primaryDestinations = CURATED_ORDER
   .map((slug) => places.find((p) => routeSlug(p) === slug))
   .filter((p): p is NonNullable<typeof p> => Boolean(p));
 
-// Secondary destinations — remaining places not in the curated primary list
+// Secondary destinations - remaining places not in the curated primary list
 const secondaryDestinations = places.filter(
   (p) => !CURATED_ORDER.includes(routeSlug(p))
 ).sort((a, b) => a.data.name.localeCompare(b.data.name));
@@ -58,8 +58,8 @@ const breadcrumbItems = [
 ];
 
 const collectionSchema = buildCollectionPageSchema({
-  name: 'Mornington Peninsula Towns — Peninsula Insider',
-  description: 'From Red Hill\'s cool-climate cellar doors to Portsea\'s clifftop mansions and Flinders\' historic pier — the complete editorial guide to every town on the Mornington Peninsula.',
+  name: 'Mornington Peninsula Towns - Peninsula Insider',
+  description: 'From Red Hill\'s cool-climate cellar doors to Portsea\'s clifftop mansions and Flinders\' historic pier - the complete editorial guide to every town on the Mornington Peninsula.',
   path: '/places',
   dateModified: '2026-04-30',
 });
@@ -68,11 +68,11 @@ const faqSchema = buildFaqSchema([
   { q: 'Which town should I stay in on the Mornington Peninsula?',
     a: 'It depends on what you\'re doing. For wineries and restaurants: Red Hill or Merricks. For the most dramatic scenery and beach options: Sorrento or Portsea. For a family-friendly bay beach base: Rosebud, Dromana, or Mount Martha. For something understated and local: Flinders or Balnarring.' },
   { q: 'How many towns can I cover in a day trip from Melbourne?',
-    a: 'Realistically two, maybe three if they\'re adjacent. Red Hill and Mornington pair well. Sorrento and Portsea are 10 minutes apart. Cape Schanck and Flinders work together. Don\'t try to cross from the bay coast to the tip in a single day trip — it\'s 90 minutes of driving.' },
+    a: 'Realistically two, maybe three if they\'re adjacent. Red Hill and Mornington pair well. Sorrento and Portsea are 10 minutes apart. Cape Schanck and Flinders work together. Don\'t try to cross from the bay coast to the tip in a single day trip - it\'s 90 minutes of driving.' },
   { q: 'Are all the towns accessible by public transport?',
-    a: 'Most towns have bus connections from Frankston (which has a train from Melbourne). Sorrento, Portsea, Dromana, Rosebud, and Rye are covered by bus route 788. Flinders, Balnarring, and Shoreham are on route 782. Hastings has its own train station on the Stony Point line. Red Hill, Main Ridge, and Merricks have limited or no public transport — a car is required.' },
+    a: 'Most towns have bus connections from Frankston (which has a train from Melbourne). Sorrento, Portsea, Dromana, Rosebud, and Rye are covered by bus route 788. Flinders, Balnarring, and Shoreham are on route 782. Hastings has its own train station on the Stony Point line. Red Hill, Main Ridge, and Merricks have limited or no public transport - a car is required.' },
   { q: "What's the difference between the bay beaches and the ocean beaches?",
-    a: 'Bay beaches (Port Phillip side) are calm, shallow, and safe for young children — think bathing boxes and paddling. Ocean beaches (Bass Strait side) have surf, rips, and a wild energy — better for surfing and dramatic walks. Sorrento and Portsea uniquely have both: a front beach on the bay, a back beach on the ocean.' },
+    a: 'Bay beaches (Port Phillip side) are calm, shallow, and safe for young children - think bathing boxes and paddling. Ocean beaches (Bass Strait side) have surf, rips, and a wild energy - better for surfing and dramatic walks. Sorrento and Portsea uniquely have both: a front beach on the bay, a back beach on the ocean.' },
   { q: 'Is the Mornington Peninsula worth visiting in winter?',
     a: 'Strongly yes. The restaurants are quieter, the cellar doors are unhurried, and the dramatic ocean beaches are at their best in cold weather. Winter is when Peninsula Insider recommends Flinders and Cape Schanck most aggressively.' },
 ]);
@@ -85,8 +85,8 @@ export const prerender = true;
 ---
 
 <BaseLayout
-  title="Mornington Peninsula Towns — a guide to every locality · Peninsula Insider"
-  description="From Red Hill's cool-climate cellar doors to Portsea's clifftop mansions and Flinders' historic pier — the complete editorial guide to every town on the Mornington Peninsula."
+  title="Mornington Peninsula Towns - a guide to every locality · Peninsula Insider"
+  description="From Red Hill's cool-climate cellar doors to Portsea's clifftop mansions and Flinders' historic pier - the complete editorial guide to every town on the Mornington Peninsula."
   section="explore"
   canonical="https://peninsulainsider.com.au/explore/places/"
   modifiedTime="2026-04-30"
@@ -100,19 +100,19 @@ export const prerender = true;
 
   <!-- ═══════════════════════════════════════════════════════════════
        1. LIGHTWEIGHT PAGE HEADER
-       Minimal. Destinations are the page's primary function — the header
+       Minimal. Destinations are the page's primary function - the header
        introduces, the grid delivers. No hero image on this page.
        ═══════════════════════════════════════════════════════════════ -->
   <div class="places-page-header">
     <div class="container">
       <p class="label label--accent places-page-header__eyebrow">Peninsula Insider</p>
-      <h1 class="places-page-header__title" {...editableText({ entityType: 'page', entitySlug: 'places', fieldPath: 'hero.title', label: 'Places — title' })}>Peninsula destinations</h1>
-      <p class="places-page-header__dek" {...editableText({ entityType: 'page', entitySlug: 'places', fieldPath: 'hero.dek', label: 'Places — dek' })}>Choose where you want to be. Each page is a complete guide.</p>
+      <h1 class="places-page-header__title" {...editableText({ entityType: 'page', entitySlug: 'places', fieldPath: 'hero.title', label: 'Places - title' })}>Peninsula destinations</h1>
+      <p class="places-page-header__dek" {...editableText({ entityType: 'page', entitySlug: 'places', fieldPath: 'hero.dek', label: 'Places - dek' })}>Choose where you want to be. Each page is a complete guide.</p>
     </div>
   </div>
 
   <!-- ═══════════════════════════════════════════════════════════════
-       2. PRIMARY DESTINATIONS — immediately after hero, destination-first.
+       2. PRIMARY DESTINATIONS - immediately after hero, destination-first.
        Curated editorial order. No regional groupings.
        ═══════════════════════════════════════════════════════════════ -->
   {primaryDestinations.length > 0 && (
@@ -136,15 +136,15 @@ export const prerender = true;
   <SectionDivider />
 
   <!-- ═══════════════════════════════════════════════════════════════
-       3. GEOGRAPHIC FRAME — planning orientation, below destinations.
-       Bay coast vs ocean — practical planning utility, not branded regions.
+       3. GEOGRAPHIC FRAME - planning orientation, below destinations.
+       Bay coast vs ocean - practical planning utility, not branded regions.
        ═══════════════════════════════════════════════════════════════ -->
   <CompareBlock
     eyebrow="The decision before the booking"
     heading="Bay coast or the Ocean side"
     dek="The Peninsula splits cleanly along which water each place faces. Knowing this changes what you book."
     left={{
-      label: 'Bay side — Port Phillip',
+      label: 'Bay side - Port Phillip',
       title: 'Calm water. Family-tilted. Summer-bright.',
       rows: [
         { label: 'Towns', value: 'Mornington, Mount Martha, Dromana, Rosebud, Safety Beach' },
@@ -153,7 +153,7 @@ export const prerender = true;
       ],
     }}
     right={{
-      label: 'Ocean side — Bass Strait',
+      label: 'Ocean side - Bass Strait',
       title: 'Wild water. Limestone cliffs. Year-round drama.',
       rows: [
         { label: 'Towns', value: 'Sorrento, Portsea, Rye, Cape Schanck, Flinders, Shoreham' },
@@ -162,7 +162,7 @@ export const prerender = true;
       ],
     }}
   />
-  <!-- Map — geographic orientation, positioned after the CompareBlock so users
+  <!-- Map - geographic orientation, positioned after the CompareBlock so users
        can visualise the Peninsula spatially while still in the destination-selection
        moment. Supports orientation without dominating the planning flow. -->
   <section class="places-map-cta">
@@ -173,13 +173,13 @@ export const prerender = true;
           <h2 class="places-map-cta__title">Every destination on one map</h2>
           <p class="places-map-cta__dek">Destinations, venues, walks and experiences plotted. Useful for understanding distances, finding what’s nearby, and orienting a new trip.</p>
         </div>
-        <a href="/map/" class="places-map-cta__link">Open the map →</a>
+        <a href="/map/" class="pi-btn pi-btn--solid">Open the map →</a>
       </div>
     </div>
   </section>
 
   <!-- ═══════════════════════════════════════════════════════════════
-       4. MORE PENINSULA PLACES — secondary destinations, alphabetical
+       4. MORE PENINSULA PLACES - secondary destinations, alphabetical
        ═══════════════════════════════════════════════════════════════ -->
   {secondaryDestinations.length > 0 && (
     <section class="places places--secondary" id="more-places">
@@ -199,7 +199,7 @@ export const prerender = true;
 
 
   <!-- ═══════════════════════════════════════════════════════════════
-       6. EDITORIAL GUIDES — formerly section 7
+       6. EDITORIAL GUIDES - formerly section 7
        ═══════════════════════════════════════════════════════════════ -->
   {townReads.length > 0 && (
     <section class="venues venues--plain">
@@ -231,19 +231,19 @@ export const prerender = true;
       <div class="hub-faq__list">
         <details class="hub-faq__item">
           <summary class="hub-faq__q">Which town should I stay in on the Peninsula?</summary>
-          <div class="hub-faq__a"><p>It depends on what you're doing. For wineries and restaurants: Red Hill or Merricks. For the most dramatic scenery and beach options: Sorrento or Portsea. For a family-friendly bay beach base: Rosebud, Dromana, or Mount Martha. For something understated and local: Flinders or Balnarring. Read <a href="/explore/where-to-base-yourself/">where to base yourself</a> for the full breakdown.</p></div>
+          <div class="hub-faq__a"><p>It depends on what you're doing. For wineries and restaurants: Red Hill or Merricks. For the most dramatic scenery and beach options: Sorrento or Portsea. For a family-friendly bay beach base: Rosebud, Dromana, or Mount Martha. For something understated and local: Flinders or Balnarring. Read <a href="/stay/best-accommodation/">where to base yourself</a> for the full breakdown.</p></div>
         </details>
         <details class="hub-faq__item">
           <summary class="hub-faq__q">How many towns can I cover in a day trip from Melbourne?</summary>
-          <div class="hub-faq__a"><p>Realistically two, maybe three if they're adjacent. Red Hill and Mornington pair well. Sorrento and Portsea are 10 minutes apart. Cape Schanck and Flinders work together. Don't try to cross from the bay coast to the tip in a single day trip — it's 90 minutes of driving.</p></div>
+          <div class="hub-faq__a"><p>Realistically two, maybe three if they're adjacent. Red Hill and Mornington pair well. Sorrento and Portsea are 10 minutes apart. Cape Schanck and Flinders work together. Don't try to cross from the bay coast to the tip in a single day trip - it's 90 minutes of driving.</p></div>
         </details>
         <details class="hub-faq__item">
           <summary class="hub-faq__q">Are all the towns accessible by public transport?</summary>
-          <div class="hub-faq__a"><p>Most towns have bus connections from Frankston (which has a train from Melbourne). Sorrento, Portsea, Dromana, Rosebud, and Rye are covered by bus route 788. Flinders, Balnarring, and Shoreham are on route 782. Hastings has its own train station on the Stony Point line. Moorooduc, Tuerong, Red Hill, Main Ridge, and Merricks have limited or no public transport — a car is required.</p></div>
+          <div class="hub-faq__a"><p>Most towns have bus connections from Frankston (which has a train from Melbourne). Sorrento, Portsea, Dromana, Rosebud, and Rye are covered by bus route 788. Flinders, Balnarring, and Shoreham are on route 782. Hastings has its own train station on the Stony Point line. Moorooduc, Tuerong, Red Hill, Main Ridge, and Merricks have limited or no public transport - a car is required.</p></div>
         </details>
         <details class="hub-faq__item">
           <summary class="hub-faq__q">What's the difference between the bay beaches and the ocean beaches?</summary>
-          <div class="hub-faq__a"><p>Bay beaches (Port Phillip side) are calm, shallow, and safe for young children — think bathing boxes and paddling. Ocean beaches (Bass Strait side) have surf, rips, and a wild energy — better for surfing and dramatic walks. Sorrento and Portsea uniquely have both: a front beach on the bay, a back beach on the ocean.</p></div>
+          <div class="hub-faq__a"><p>Bay beaches (Port Phillip side) are calm, shallow, and safe for young children - think bathing boxes and paddling. Ocean beaches (Bass Strait side) have surf, rips, and a wild energy - better for surfing and dramatic walks. Sorrento and Portsea uniquely have both: a front beach on the bay, a back beach on the ocean.</p></div>
         </details>
         <details class="hub-faq__item">
           <summary class="hub-faq__q">Is the Peninsula worth visiting in winter?</summary>
@@ -267,7 +267,7 @@ export const prerender = true;
     margin-bottom: 0.35rem;
   }
   .places-page-header__title {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-size: clamp(1.75rem, 4vw, 2.5rem);
     font-weight: 600;
     color: var(--dark);
@@ -289,7 +289,7 @@ export const prerender = true;
     }
   }
 
-  /* Primary destinations — leads the page, full editorial weight */
+  /* Primary destinations - leads the page, full editorial weight */
   .places--primary {
     padding: clamp(2rem, 4vw, 3rem) 0 clamp(3rem, 5vw, 4.5rem);
   }
@@ -297,7 +297,7 @@ export const prerender = true;
     margin-bottom: 2.5rem;
   }
   .places__title--primary {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 600;
     color: var(--dark);
@@ -305,7 +305,7 @@ export const prerender = true;
     line-height: 1.05;
   }
 
-  /* Secondary destinations — quieter, supporting layer */
+  /* Secondary destinations - quieter, supporting layer */
   .places--secondary {
     padding: clamp(2rem, 4vw, 3.5rem) 0;
     background: var(--bg-alt);
@@ -322,7 +322,7 @@ export const prerender = true;
   .places__grid--secondary {
     opacity: 0.9;
   }
-  /* Tighter card grid on secondary — smaller minimum so more fit per row */
+  /* Tighter card grid on secondary - smaller minimum so more fit per row */
   .places--secondary .places__grid {
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   }
@@ -340,7 +340,7 @@ export const prerender = true;
     }
   }
 
-  /* Map section — geographic orientation, sits after CompareBlock.
+  /* Map section - geographic orientation, sits after CompareBlock.
      Slightly more vertical presence than a simple CTA strip: it’s doing
      spatial work in the orientation flow, not just a footer action. */
   .places-map-cta {
@@ -349,7 +349,7 @@ export const prerender = true;
     position: relative;
     overflow: hidden;
   }
-  /* Subtle topographic-grid texture — signals spatial/map without imagery */
+  /* Subtle topographic-grid texture - signals spatial/map without imagery */
   .places-map-cta::before {
     content: '';
     position: absolute;
@@ -379,7 +379,7 @@ export const prerender = true;
     margin-bottom: 0.5rem;
   }
   .places-map-cta__title {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-size: clamp(1.4rem, 2.5vw, 2rem);
     font-weight: 600;
     color: var(--white);
@@ -391,27 +391,6 @@ export const prerender = true;
     color: rgba(253,252,250,0.6);
     margin: 0;
     max-width: 36rem;
-  }
-  .places-map-cta__link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    background: transparent;
-    color: var(--white);
-    font-size: 0.82rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    text-decoration: none;
-    border: 1px solid rgba(255,255,255,0.3);
-    white-space: nowrap;
-    transition: background 0.2s ease, border-color 0.2s ease;
-    flex-shrink: 0;
-  }
-  .places-map-cta__link:hover {
-    background: rgba(255,255,255,0.08);
-    border-color: rgba(255,255,255,0.6);
   }
   @media (max-width: 600px) {
     .places-map-cta { padding: 2.5rem 0; }
@@ -430,7 +409,7 @@ export const prerender = true;
 
   .peninsula-glance__title {
     margin: 0.35rem 0 0;
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-size: clamp(2.1rem, 4vw, 4rem);
     line-height: 0.98;
     letter-spacing: -0.04em;
@@ -456,13 +435,13 @@ export const prerender = true;
     padding: clamp(1.25rem, 2vw, 1.75rem);
     border: 1px solid rgba(31, 27, 22, 0.12);
     border-radius: 22px;
-    background: rgba(255, 252, 247, 0.72);
-    box-shadow: 0 18px 45px rgba(39, 30, 19, 0.06);
+    background: rgba(251, 253, 252, 0.72);
+    box-shadow: 0 18px 45px rgba(19, 39, 34, 0.06);
   }
 
   .peninsula-glance__kicker {
     margin: 0 0 1.1rem;
-    color: #9b6a2f;
+    color: #2f9b82;
     font-size: 0.74rem;
     font-weight: 700;
     letter-spacing: 0.12em;
@@ -471,7 +450,7 @@ export const prerender = true;
 
   .peninsula-glance__card h3 {
     margin: 0;
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-size: clamp(1.25rem, 2vw, 1.65rem);
     line-height: 1.08;
     letter-spacing: -0.03em;

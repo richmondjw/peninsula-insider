@@ -1,0 +1,250 @@
+---
+/**
+ * V5 footer (future-ia.md section 3.3).
+ *
+ * Trimmed from 31 links / 5 columns to 3 columns: Sections (7),
+ * Peninsula Insider (About, Editorial approach, Partners, Contact),
+ * The fine print (Privacy, Terms, Accessibility, Corrections), plus a
+ * single Dispatch signup block (the one-instance rule) reusing the
+ * existing SubscribeForm component. Keeps the Acknowledgement of
+ * Country and the legal entity line from the v4 footer; the cookie
+ * settings trigger stays on the legal row so consent management
+ * remains reachable from every page.
+ *
+ * v6 token pass (P3-6, 2026-07-25): the footer carries no buttons of its
+ * own (the Dispatch signup is SubscribeForm's), so nothing here moves to
+ * .pi-btn. Every colour is already a v6 role token; the one correction
+ * is the hairline alpha, which was effectively invisible on the dark
+ * ground. Focus stays on the inverse ring: --mint is 11.60:1 here.
+ */
+import { v5FooterSections, v5FooterAbout, v5FooterFinePrint } from '../../../lib/v5-nav';
+import SubscribeForm from '../../SubscribeForm.astro';
+
+const year = new Date().getFullYear();
+// One-instance rule: the homepage carries its own Dispatch block (block 8),
+// so the footer signup yields there and renders a link instead.
+const isHome = Astro.url.pathname === '/';
+---
+
+<footer class="v5-foot" role="contentinfo">
+  <div class="v5-foot__container">
+
+    <div class="v5-foot__masthead">
+      <p class="v5-foot__wordmark">Peninsula <em>Insider</em></p>
+      <p class="v5-foot__motto">Every pick earns its place. Every verdict, a reason.</p>
+    </div>
+
+    <div class="v5-foot__grid">
+      <nav class="v5-foot__col" aria-labelledby="v5-foot-sections">
+        <h2 id="v5-foot-sections" class="v5-foot__col-title">Sections</h2>
+        <ul>
+          {v5FooterSections.map((link) => (
+            <li><a href={link.href}>{link.label}</a></li>
+          ))}
+        </ul>
+      </nav>
+
+      <nav class="v5-foot__col" aria-labelledby="v5-foot-insider">
+        <h2 id="v5-foot-insider" class="v5-foot__col-title">Peninsula Insider</h2>
+        <ul>
+          {v5FooterAbout.map((link) => (
+            <li><a href={link.href}>{link.label}</a></li>
+          ))}
+        </ul>
+      </nav>
+
+      <nav class="v5-foot__col" aria-labelledby="v5-foot-fineprint">
+        <h2 id="v5-foot-fineprint" class="v5-foot__col-title">The fine print</h2>
+        <ul>
+          {v5FooterFinePrint.map((link) => (
+            <li><a href={link.href}>{link.label}</a></li>
+          ))}
+        </ul>
+      </nav>
+
+      <div class="v5-foot__dispatch">
+        <h2 class="v5-foot__col-title">The Insider Note</h2>
+        <p class="v5-foot__dispatch-dek">
+          Your Peninsula week, sorted. Every Wednesday.
+        </p>
+        {isHome
+          ? <p class="v5-foot__dispatch-dek"><a href="/dispatch/">Join The Insider Note</a></p>
+          : <SubscribeForm variant="dark" source="footer" />}
+      </div>
+    </div>
+
+    <p class="v5-foot__aoc">
+      Peninsula Insider acknowledges the Bunurong people of the Kulin Nation as the
+      Traditional Custodians of the lands and waters of the Mornington Peninsula.
+      We pay our respects to Elders past and present and acknowledge their continuing
+      connection to Country, culture and community.
+    </p>
+
+    <div class="v5-foot__legal">
+      <p class="v5-foot__legal-copy">
+        &copy; {year} <strong>Peninsula Insider</strong>, a trading name of Optiflows Pty Ltd
+        <span class="v5-foot__dot">&middot;</span> ABN 71 155 199 637
+      </p>
+      <ul class="v5-foot__legal-links">
+        <li><a href="#cookie-settings" data-pi-consent="open">Cookie settings</a></li>
+        <li><a href="/site-index/">Site index</a></li>
+      </ul>
+    </div>
+
+  </div>
+</footer>
+
+<style>
+  /* Signature forest-teal footer ground. Light text via tokens
+     (--white full-strength, --soft-inverse muted), mint used
+     sparingly for accents, low-opacity white hairlines. */
+  .v5-foot {
+    /* Raised from 16% to 40%. At 16% the footer's own hairlines measured
+       1.61:1 against --bg-deep - the same invisible-rule failure P0-4
+       fixed on the light side by taking --border to 3.45:1. 40% is
+       3.35:1, so the column rules and the Acknowledgement band actually
+       register, and it now matches the mint 40% rule along the top. */
+    --foot-line: color-mix(in srgb, var(--white) 40%, transparent);
+    background: var(--bg-deep);
+    border-top: 1px solid color-mix(in srgb, var(--mint) 40%, transparent);
+    padding: var(--space-9) 0 var(--space-6);
+    color: var(--soft-inverse);
+  }
+  .v5-foot__container {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 var(--space-5);
+  }
+
+  .v5-foot__masthead {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: var(--space-3) var(--space-6);
+    padding-bottom: var(--space-6);
+    border-bottom: 1px solid var(--foot-line);
+    margin-bottom: var(--space-7);
+  }
+  .v5-foot__wordmark {
+    font-family: var(--font-display);
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-800);
+    letter-spacing: var(--ls-display);
+    line-height: var(--lh-display);
+    color: var(--white);
+  }
+  .v5-foot__wordmark em {
+    color: var(--mint);
+    font-style: normal;
+    font-weight: var(--fw-bold);
+  }
+  .v5-foot__motto {
+    font-family: var(--font-ui);
+    font-size: var(--fs-400);
+    color: var(--soft-inverse);
+  }
+
+  .v5-foot__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) 1.4fr;
+    gap: var(--space-6);
+    margin-bottom: var(--space-7);
+  }
+  @media (max-width: 900px) {
+    .v5-foot__grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 520px) {
+    .v5-foot__grid { grid-template-columns: 1fr; }
+  }
+
+  .v5-foot__col-title {
+    font-family: var(--font-ui);
+    font-size: var(--fs-100);
+    font-weight: var(--fw-semibold);
+    letter-spacing: var(--ls-eyebrow);
+    text-transform: uppercase;
+    color: var(--white);
+    margin: 0 0 var(--space-4);
+    padding-bottom: var(--space-2);
+    border-bottom: 1px solid var(--foot-line);
+    line-height: var(--lh-label);
+  }
+  .v5-foot__col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  .v5-foot__col a {
+    display: inline-flex;
+    align-items: center;
+    /* Touch target, not a spacing step. */
+    min-height: 44px;
+    font-family: var(--font-ui);
+    font-size: var(--fs-300);
+    color: var(--soft-inverse);
+    text-decoration: none;
+    transition: color var(--dur-fast) var(--ease-enter);
+  }
+  .v5-foot__col a:hover { color: var(--mint); }
+
+  .v5-foot__dispatch-dek {
+    font-family: var(--font-ui);
+    font-size: var(--fs-400);
+    line-height: var(--lh-body);
+    color: var(--soft-inverse);
+    margin-bottom: var(--space-3);
+    max-width: var(--measure-card);
+  }
+  .v5-foot__dispatch-dek a {
+    color: var(--mint);
+    text-decoration: none;
+    font-weight: var(--fw-semibold);
+    transition: color var(--dur-fast) var(--ease-enter);
+  }
+  .v5-foot__dispatch-dek a:hover { color: var(--white); }
+
+  .v5-foot__aoc {
+    margin: 0 auto var(--space-6);
+    padding: var(--space-6) 0;
+    border-top: 1px solid var(--foot-line);
+    border-bottom: 1px solid var(--foot-line);
+    max-width: var(--measure-prose);
+    text-align: center;
+    font-family: var(--font-ui);
+    font-size: var(--fs-300);
+    line-height: var(--lh-body);
+    color: var(--soft-inverse);
+  }
+
+  .v5-foot__legal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-3) var(--space-5);
+    font-family: var(--font-ui);
+    font-size: var(--fs-200);
+    color: var(--soft-inverse);
+  }
+  .v5-foot__legal-copy strong { font-weight: var(--fw-semibold); color: var(--white); }
+  .v5-foot__dot { color: var(--mint); margin: 0 var(--space-1); }
+  .v5-foot__legal-links {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-5);
+  }
+  .v5-foot__legal-links a {
+    color: var(--soft-inverse);
+    text-decoration: none;
+    transition: color var(--dur-fast) var(--ease-enter);
+  }
+  .v5-foot__legal-links a:hover { color: var(--mint); }
+
+  .v5-foot a:focus-visible {
+    outline: 2px solid var(--focus-ring-color-inverse);
+    outline-offset: 2px;
+  }
+</style>

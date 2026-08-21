@@ -1,13 +1,13 @@
 ---
 /**
- * ConciergeDrawer — right-edge slide-in panel for PI.
+ * ConciergeDrawer - right-edge slide-in panel for PI.
  *
  * Lives in BaseLayout so every page has access. Reuses the /ask
  * chat machinery (.ask-* classes, all global) inside a drawer chrome.
  *
  * State (persisted in sessionStorage):
  *   pi-drawer-state    : 'closed' | 'open' | 'minimised'
- *   pi-drawer-history  : array of {role, data} — conversation
+ *   pi-drawer-history  : array of {role, data} - conversation
  *
  * Trigger from anywhere: window.openConcierge() / window.openConcierge(prefill)
  */
@@ -23,12 +23,12 @@ const conciergeIcon = '/images/pi-concierge.svg';
   class="pi-drawer"
   id="pi-drawer"
   data-state="closed"
-  aria-label="Ask The Insider — Peninsula Insider concierge"
+  aria-label="Ask The Insider - Peninsula Insider concierge"
 >
   <!-- Backdrop (mobile only) -->
   <div class="pi-drawer__backdrop" id="pi-drawer-backdrop" aria-hidden="true"></div>
 
-  <!-- Floating "Ask The Insider" button — always visible on mobile, only when
+  <!-- Floating "Ask The Insider" button - always visible on mobile, only when
        minimised on desktop. Bottom-right corner. -->
   <button
     class="pi-drawer__bubble"
@@ -182,7 +182,7 @@ const conciergeIcon = '/images/pi-concierge.svg';
 
 <style is:global>
   /* ===========================================================
-     CONCIERGE DRAWER — right-edge slide-in panel
+     CONCIERGE DRAWER - right-edge slide-in panel
      Sits above the page. Reuses the .ask-* / .pi-avatar / .pi-chip
      editorial styles from /ask, wrapped in drawer chrome.
   =========================================================== */
@@ -199,21 +199,21 @@ const conciergeIcon = '/images/pi-concierge.svg';
     pointer-events: none;
     /* Local design tokens (mirror /ask) */
     --pi-paper:       #FAF6EE;
-    --pi-paper-deep:  #F0E9DA;
+    --pi-paper-deep:  #daf0eb;
     --pi-paper-warm:  #FFFCF6;
-    --pi-ink:         #2B2520;
-    --pi-ink-soft:    #5C4F40;
-    --pi-ink-muted:   #8A7E6E;
-    --pi-terra:       #8B4E3B;
-    --pi-terra-deep:  #6D3A2B;
-    --pi-terra-haze:  rgba(139, 78, 59, 0.08);
-    --pi-rule:        rgba(139, 78, 59, 0.18);
-    --pi-rule-soft:   rgba(139, 78, 59, 0.10);
-    --pi-sage:        #7A8B6D;
+    --pi-ink:         var(--text);
+    --pi-ink-soft:    #405c55;
+    --pi-ink-muted:   #6e8a83;
+    --pi-terra:       var(--accent);
+    --pi-terra-deep:  var(--acc-h);
+    --pi-terra-haze:  rgba(11, 90, 72, 0.08);
+    --pi-rule:        rgba(11, 90, 72, 0.18);
+    --pi-rule-soft:   rgba(11, 90, 72, 0.10);
+    --pi-sage:        var(--sage);
     --ease-soft:      cubic-bezier(0.22, 0.61, 0.36, 1);
   }
 
-  /* Mobile: full-screen — covers the whole viewport including the masthead.
+  /* Mobile: full-screen - covers the whole viewport including the masthead.
      The drawer becomes the primary surface; nothing else is visible. */
   @media (max-width: 640px) {
     .pi-drawer {
@@ -224,11 +224,11 @@ const conciergeIcon = '/images/pi-concierge.svg';
     }
   }
 
-  /* Backdrop — mobile only when open */
+  /* Backdrop - mobile only when open */
   .pi-drawer__backdrop {
     position: fixed;
     inset: 0;
-    background: rgba(34, 24, 16, 0.35);
+    background: rgba(0, 40, 34, 0.35);
     backdrop-filter: blur(2px);
     opacity: 0;
     pointer-events: none;
@@ -241,7 +241,7 @@ const conciergeIcon = '/images/pi-concierge.svg';
     }
   }
 
-  /* ── PANEL — floating, bottom-right, rounded all-around ── */
+  /* ── PANEL - floating, bottom-right, rounded all-around ── */
   .pi-drawer__panel {
     position: fixed;
     bottom: var(--pi-drawer-margin);
@@ -251,13 +251,13 @@ const conciergeIcon = '/images/pi-concierge.svg';
     max-width: calc(100vw - 2 * var(--pi-drawer-margin));
     max-height: calc(100vh - 2 * var(--pi-drawer-margin));
     background: var(--pi-paper-warm);
-    border: 1px solid rgba(139, 78, 59, 0.18);
+    border: 1px solid rgba(11, 90, 72, 0.18);
     border-radius: 18px;          /* rounded all-around */
     box-shadow:
-      0 1px 0 rgba(255, 252, 247, 0.8) inset,
-      0 4px 12px rgba(34, 24, 16, 0.06),
-      0 18px 40px rgba(34, 24, 16, 0.12),
-      0 40px 80px rgba(34, 24, 16, 0.10);
+      0 1px 0 rgba(251, 253, 252, 0.8) inset,
+      0 4px 12px rgba(0, 40, 34, 0.06),
+      0 18px 40px rgba(0, 40, 34, 0.12),
+      0 40px 80px rgba(0, 40, 34, 0.10);
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -271,23 +271,23 @@ const conciergeIcon = '/images/pi-concierge.svg';
     pointer-events: none;
   }
 
-  /* Gilt edge along top of panel — kept rounded */
+  /* Gilt edge along top of panel - kept rounded */
   .pi-drawer__panel::before {
     content: '';
     position: absolute;
     inset: 0 0 auto 0;
     height: 3px;
     background: linear-gradient(90deg,
-      rgba(139, 78, 59, 0) 0%,
-      rgba(167, 118, 55, 0.85) 18%,
-      rgba(223, 197, 158, 0.95) 50%,
-      rgba(167, 118, 55, 0.85) 82%,
-      rgba(139, 78, 59, 0) 100%);
+      rgba(11, 90, 72, 0) 0%,
+      rgba(7, 158, 165, 0.85) 18%,
+      rgba(158, 223, 208, 0.95) 50%,
+      rgba(7, 158, 165, 0.85) 82%,
+      rgba(11, 90, 72, 0) 100%);
     border-radius: 18px 18px 0 0;
     z-index: 5;
   }
 
-  /* Mobile: full-screen panel — covers viewport top to bottom.
+  /* Mobile: full-screen panel - covers viewport top to bottom.
      No rounded corners, no slide-from-bottom (that hid the top under the
      sticky masthead). Slides up from below into a flush full-screen surface. */
   @media (max-width: 640px) {
@@ -311,7 +311,7 @@ const conciergeIcon = '/images/pi-concierge.svg';
     }
   }
 
-  /* OPEN — slides + fades into place */
+  /* OPEN - slides + fades into place */
   .pi-drawer[data-state="open"] .pi-drawer__panel {
     transform: translateY(0) scale(1);
     opacity: 1;
@@ -323,7 +323,7 @@ const conciergeIcon = '/images/pi-concierge.svg';
     }
   }
 
-  /* CLOSED / MINIMISED — slide back down + fade */
+  /* CLOSED / MINIMISED - slide back down + fade */
   .pi-drawer[data-state="closed"] .pi-drawer__panel,
   .pi-drawer[data-state="minimised"] .pi-drawer__panel {
     transform: translateY(20px) scale(0.985);
@@ -363,7 +363,7 @@ const conciergeIcon = '/images/pi-concierge.svg';
     min-width: 0;
   }
   .pi-drawer__name {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-size: 1.32rem;
     font-weight: 600;
     color: var(--pi-ink);
@@ -380,7 +380,7 @@ const conciergeIcon = '/images/pi-concierge.svg';
     transform: translateY(-0.18em);
   }
   .pi-drawer__status {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.68rem;
     color: var(--pi-ink-muted);
     margin: 0.18rem 0 0;
@@ -392,13 +392,13 @@ const conciergeIcon = '/images/pi-concierge.svg';
     width: 6px; height: 6px;
     border-radius: 50%;
     background: var(--pi-sage);
-    box-shadow: 0 0 0 0 rgba(122, 139, 109, 0.5);
+    box-shadow: 0 0 0 0 rgba(79, 183, 158, 0.5);
     animation: pi-drawer-pulse 2.4s ease-out infinite;
   }
   @keyframes pi-drawer-pulse {
-    0%   { box-shadow: 0 0 0 0   rgba(122, 139, 109, 0.6); }
-    70%  { box-shadow: 0 0 0 8px rgba(122, 139, 109, 0); }
-    100% { box-shadow: 0 0 0 0   rgba(122, 139, 109, 0); }
+    0%   { box-shadow: 0 0 0 0   rgba(79, 183, 158, 0.6); }
+    70%  { box-shadow: 0 0 0 8px rgba(79, 183, 158, 0); }
+    100% { box-shadow: 0 0 0 0   rgba(79, 183, 158, 0); }
   }
 
   .pi-drawer__actions {
@@ -433,12 +433,12 @@ const conciergeIcon = '/images/pi-concierge.svg';
     }
     .pi-drawer__icon-btn--close {
       background: var(--pi-terra-haze);
-      border-color: rgba(139, 78, 59, 0.32);
+      border-color: rgba(11, 90, 72, 0.32);
       color: var(--pi-terra);
     }
   }
 
-  /* Drag handle at the top of the mobile sheet — tells the user "I'm a sheet,
+  /* Drag handle at the top of the mobile sheet - tells the user "I'm a sheet,
      you can dismiss me." Tappable region triggers minimise. */
   .pi-drawer__handle {
     display: none;
@@ -449,7 +449,7 @@ const conciergeIcon = '/images/pi-concierge.svg';
       width: 40px;
       height: 4px;
       border-radius: 2px;
-      background: rgba(139, 78, 59, 0.32);
+      background: rgba(11, 90, 72, 0.32);
       margin: 8px auto -2px;
       cursor: pointer;
       flex-shrink: 0;
@@ -476,14 +476,14 @@ const conciergeIcon = '/images/pi-concierge.svg';
   }
   .pi-drawer__body::-webkit-scrollbar { width: 6px; }
   .pi-drawer__body::-webkit-scrollbar-track {
-    background: rgba(139, 78, 59, 0.06);
+    background: rgba(11, 90, 72, 0.06);
     border-radius: 3px;
   }
   .pi-drawer__body::-webkit-scrollbar-thumb {
-    background: rgba(139, 78, 59, 0.3);
+    background: rgba(11, 90, 72, 0.3);
     border-radius: 3px;
   }
-  .pi-drawer__body::-webkit-scrollbar-thumb:hover { background: rgba(139, 78, 59, 0.5); }
+  .pi-drawer__body::-webkit-scrollbar-thumb:hover { background: rgba(11, 90, 72, 0.5); }
 
   /* ── COMPOSER ─────────────────────────────────────────── */
   .pi-drawer__composer {
@@ -505,7 +505,7 @@ const conciergeIcon = '/images/pi-concierge.svg';
   }
   .pi-drawer__disclaimer {
     flex-shrink: 0;
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.62rem;
     color: var(--pi-ink-muted);
     text-align: center;
@@ -522,13 +522,14 @@ const conciergeIcon = '/images/pi-concierge.svg';
      Both:    pinned bottom-right with a hat avatar + sage pulse dot.
   ──────────────────────────────────────────────────────────── */
   .pi-drawer__bubble {
+    display: none; /* hidden - re-enable when concierge is ready to surface again */
     position: fixed;
     bottom: 22px;
     right: 22px;
     z-index: 9001;
     cursor: pointer;
     pointer-events: auto;
-    /* Pill shape — avatar left, label right */
+    /* Pill shape - avatar left, label right */
     display: inline-flex;
     align-items: center;
     gap: 0.55rem;
@@ -540,10 +541,10 @@ const conciergeIcon = '/images/pi-concierge.svg';
     font-family: inherit;
     text-align: left;
     box-shadow:
-      0 1px 0 rgba(255, 252, 247, 0.85) inset,
-      0 4px 14px rgba(34, 24, 16, 0.10),
-      0 14px 36px rgba(34, 24, 16, 0.14);
-    /* Visible by default at every breakpoint — only concealed while the
+      0 1px 0 rgba(251, 253, 252, 0.85) inset,
+      0 4px 14px rgba(0, 40, 34, 0.10),
+      0 14px 36px rgba(0, 40, 34, 0.14);
+    /* Visible by default at every breakpoint - only concealed while the
        drawer panel is open (handled below). Animates in/out via transform. */
     transform: translateY(0);
     opacity: 1;
@@ -563,9 +564,9 @@ const conciergeIcon = '/images/pi-concierge.svg';
   .pi-drawer__bubble:hover {
     transform: translateY(-2px);
     box-shadow:
-      0 1px 0 rgba(255, 252, 247, 0.85) inset,
-      0 6px 18px rgba(34, 24, 16, 0.13),
-      0 18px 42px rgba(34, 24, 16, 0.16);
+      0 1px 0 rgba(251, 253, 252, 0.85) inset,
+      0 6px 18px rgba(0, 40, 34, 0.13),
+      0 18px 42px rgba(0, 40, 34, 0.16);
     border-color: rgba(23, 20, 19, 0.28);
   }
 
@@ -576,8 +577,8 @@ const conciergeIcon = '/images/pi-concierge.svg';
     border-radius: 50%;
     overflow: hidden;
     flex-shrink: 0;
-    background: radial-gradient(circle at 30% 30%, #FBF1DE 0%, #F0E2C7 70%, #E5D2AF 100%);
-    border: 1px solid rgba(139, 78, 59, 0.25);
+    background: radial-gradient(circle at 30% 30%, #e1f8f2 0%, #c7f0e6 70%, #afe5d8 100%);
+    border: 1px solid rgba(11, 90, 72, 0.25);
     display: grid;
     place-items: center;
   }
@@ -589,7 +590,7 @@ const conciergeIcon = '/images/pi-concierge.svg';
     z-index: 1;
   }
   .pi-drawer__bubble-label {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     text-transform: uppercase;
     letter-spacing: 0.16em;
     font-size: 0.66rem;
@@ -599,8 +600,8 @@ const conciergeIcon = '/images/pi-concierge.svg';
     white-space: nowrap;
   }
   .pi-drawer__bubble-label em {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-style: italic;
+    font-family: var(--font-display);
+    font-style: normal;
     font-weight: 600;
     text-transform: none;
     font-size: 1.15em;
@@ -613,12 +614,12 @@ const conciergeIcon = '/images/pi-concierge.svg';
     top: 6px; right: 12px;
     width: 6px; height: 6px;
     border-radius: 50%;
-    background: rgba(122, 139, 109, 0.55);
-    box-shadow: 0 0 0 0 rgba(122, 139, 109, 0.3);
+    background: rgba(79, 183, 158, 0.55);
+    box-shadow: 0 0 0 0 rgba(79, 183, 158, 0.3);
     animation: pi-drawer-pulse 3s ease-out infinite;
   }
 
-  /* ── MOBILE — tighter spacing for thumb reach.
+  /* ── MOBILE - tighter spacing for thumb reach.
      Visibility is the same as desktop: visible unless the drawer is open
      (handled by the generic rules above). ── */
   @media (max-width: 720px) {
@@ -649,24 +650,24 @@ const conciergeIcon = '/images/pi-concierge.svg';
   }
   @keyframes ask-stream-breathe {
     0%, 100% { box-shadow:
-      0 1px 0 rgba(255, 252, 247, 0.9) inset,
-      0 1px 3px rgba(34, 24, 16, 0.04),
-      0 8px 22px rgba(34, 24, 16, 0.05); }
+      0 1px 0 rgba(251, 253, 252, 0.9) inset,
+      0 1px 3px rgba(0, 40, 34, 0.04),
+      0 8px 22px rgba(0, 40, 34, 0.05); }
     50% { box-shadow:
-      0 1px 0 rgba(255, 252, 247, 0.9) inset,
-      0 1px 3px rgba(34, 24, 16, 0.05),
-      0 8px 28px rgba(139, 78, 59, 0.08); }
+      0 1px 0 rgba(251, 253, 252, 0.9) inset,
+      0 1px 3px rgba(0, 40, 34, 0.05),
+      0 8px 28px rgba(11, 90, 72, 0.08); }
   }
 
   .pi-drawer .ask-stream-thinking em {
-    font-style: italic;
-    color: #5C4F40;
+    font-style: normal;
+    color: #405c55;
   }
 
   .pi-drawer .ask-stream-prose {
     white-space: pre-line;
     /* Streaming text uses simpler treatment than the final paragraph;
-       no dropcap, no asterism — those would flicker mid-stream. */
+       no dropcap, no asterism - those would flicker mid-stream. */
   }
 
   /* Inline typing dots, sized to sit beside the thinking line */
@@ -690,7 +691,7 @@ const conciergeIcon = '/images/pi-concierge.svg';
     30%           { transform: translateY(-3px); opacity: 0.85; }
   }
 
-  /* ── LEGIBILITY OVERRIDE — force every readable word inside the drawer
+  /* ── LEGIBILITY OVERRIDE - force every readable word inside the drawer
         to pure black for maximum contrast against the paper background.
         Decorative glyphs (sparkle ✦, asterism ⁂, byline rule) stay terracotta. */
   .pi-drawer .ask-msg__prose p,
@@ -716,7 +717,7 @@ const conciergeIcon = '/images/pi-concierge.svg';
 
 <script is:inline>
 (function () {
-  // Idempotent boot — handles Astro view transitions
+  // Idempotent boot - handles Astro view transitions
   function bootDrawer() {
     const drawer = document.getElementById('pi-drawer');
     if (!drawer || drawer._piBound) return;
@@ -735,7 +736,7 @@ const conciergeIcon = '/images/pi-concierge.svg';
 
     // Resolved fresh on every request so a late-binding window.PI_API_URL
     // still works (defensive against script-load-order issues).
-    const apiUrl = () => window.PI_API_URL || 'http://localhost:8787';
+    const apiUrl = () => window.PI_API_URL || 'https://peninsula-insider-platform-api.vercel.app';
     const isMobile = () => window.matchMedia('(max-width: 640px)').matches;
 
     // ── State ────────────────────────────────────────
@@ -755,7 +756,7 @@ const conciergeIcon = '/images/pi-concierge.svg';
       drawer.setAttribute('data-state', s);
       sessionStorage.setItem(STATE_KEY, s);
       document.body.classList.toggle('pi-drawer-open-mobile', s === 'open' && isMobile());
-      // Global "concierge open" flag — used by site CSS to hide the masthead
+      // Global "concierge open" flag - used by site CSS to hide the masthead
       // and other sticky chrome while the drawer occupies the screen.
       document.body.classList.toggle('concierge-open', s === 'open');
     }
@@ -907,7 +908,7 @@ const conciergeIcon = '/images/pi-concierge.svg';
     }
 
     /**
-     * Phase 3 WS3D — concierge itinerary helpers.
+     * Phase 3 WS3D - concierge itinerary helpers.
      *
      * The backend can optionally include an `itinerary` field in the
      * meta payload of a response. When present, the drawer renders a
@@ -1111,7 +1112,7 @@ const conciergeIcon = '/images/pi-concierge.svg';
     const handle = document.getElementById('pi-drawer-handle');
     if (handle) handle.addEventListener('click', minimiseDrawer);
 
-    // ESC key — minimises (preserves convo) when open
+    // ESC key - minimises (preserves convo) when open
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && getState() === 'open') minimiseDrawer();
     });
@@ -1124,7 +1125,7 @@ const conciergeIcon = '/images/pi-concierge.svg';
       if (getState() !== 'open') return;
       const link = e.target.closest('a[href]');
       if (!link) return;
-      if (drawer.contains(link)) return; // chip / link inside drawer — leave alone
+      if (drawer.contains(link)) return; // chip / link inside drawer - leave alone
       minimiseDrawer();
     }, true);
 
@@ -1156,7 +1157,7 @@ const conciergeIcon = '/images/pi-concierge.svg';
       const placeholderEl = appendThinking(pickThinkingLine());
 
       // 60s overall timeout. With streaming, the user starts seeing tokens
-      // around 1.5-2s, so a long timeout is fine — we want the full reply.
+      // around 1.5-2s, so a long timeout is fine - we want the full reply.
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 60000);
 
@@ -1212,7 +1213,7 @@ const conciergeIcon = '/images/pi-concierge.svg';
           proseContainer.insertAdjacentElement('afterend', rail);
         }
 
-        // Phase 3 WS3D — recognise structured itinerary payloads from the
+        // Phase 3 WS3D - recognise structured itinerary payloads from the
         // concierge backend and render a "Sequence in builder" CTA. The
         // backend doesn't speak this format yet; until it does, the
         // condition below is silently false and nothing renders.
@@ -1233,7 +1234,7 @@ const conciergeIcon = '/images/pi-concierge.svg';
             +   titleHtml
             +   framingHtml
             +   '<p class="ask-itinerary-cta__count">' + itineraryPayload.items.length + ' stops</p>'
-            +   '<a class="ask-itinerary-cta__link" href="' + escapeHtml(aiHref) + '">Open in the itinerary builder →</a>'
+            +   '<a class="pi-btn pi-btn--text" href="' + escapeHtml(aiHref) + '">Open in the itinerary builder →</a>'
             + '</div>';
           proseContainer.insertAdjacentElement('afterend', cta);
         }
@@ -1321,7 +1322,7 @@ const conciergeIcon = '/images/pi-concierge.svg';
         removeStreaming();
         let msg;
         if (err && err.name === 'AbortError') {
-          msg = "That took too long — your connection or the server. Try once more, the second go is usually faster.";
+          msg = "That took too long - your connection or the server. Try once more, the second go is usually faster.";
         } else if (err instanceof Error && err.message) {
           msg = err.message;
         } else {

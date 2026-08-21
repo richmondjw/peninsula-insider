@@ -27,7 +27,7 @@ accessibleSpecies:
   - australian-salmon
 nearestHireSlug: mornington-boat-hire
 intro: Public ramp at Mornington serving the central Peninsula bay shore. All-tide for standard trailer boats, free to launch, but parking is constrained and the precinct shares space with the pier and yacht club. Note the adjacent Schnapper Point Boat Ramp is closed for upgrade April to September 2026.
-metaDescription: Mornington Park Boat Ramp — Schnapper Point Drive, all-tide, free, central-Peninsula bay access. Parking competes with the pier precinct. Schnapper Point ramp closed for upgrade April–September 2026.
+metaDescription: Mornington Park Boat Ramp - Schnapper Point Drive, all-tide, free, central-Peninsula bay access. Parking competes with the pier precinct. Schnapper Point ramp closed for upgrade April–September 2026.
 faq:
   - question: Is the Mornington ramp open during the 2026 upgrade?
     answer: 'The Schnapper Point Boat Ramp itself (the two-lane facility adjacent to the pier and yacht club) is closed April to September 2026 for a major upgrade including DDA-compliant jetties and a Hansa hoist. The Mornington Park ramp serves the precinct during this period. Confirm current arrangements with Mornington Peninsula Shire before driving with a trailer.'

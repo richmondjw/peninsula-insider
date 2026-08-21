@@ -1,0 +1,39 @@
+---
+/**
+ * EditionContents - the magazine table of contents.
+ *
+ * The seven lanes of the masthead rendered as a numbered contents block:
+ * hairline rows, dry one-line deks in voice, ochre on hover. Replaces the
+ * old tile grid; a contents page says "publication", tiles say "portal".
+ */
+const contents = [
+  { n: 'I',   label: 'Eat & Drink', href: '/eat/',           dek: 'The tables worth booking and the ones worth walking into.' },
+  { n: 'II',  label: 'Wine',        href: '/wine/',          dek: 'Cellar doors ranked by the pour, not the view.' },
+  { n: 'III', label: 'Stay',        href: '/stay/',          dek: 'Rooms we have actually slept in.' },
+  { n: 'IV',  label: 'Explore',     href: '/explore/',       dek: 'Walks, beaches, springs, and the roads between them.' },
+  { n: 'V',   label: 'Plans',       href: '/explore/plans/', dek: 'The weekend, already shaped. Swap what you like.' },
+  { n: 'VI',  label: "What's On",   href: '/whats-on/',      dek: 'The calendar with an opinion attached.' },
+  { n: 'VII', label: 'Journal',     href: '/journal/',       dek: 'Long reads from the resident editor.' },
+];
+---
+
+<section class="ed-contents" aria-label="Contents">
+  <div class="container">
+    <div class="ed-contents__head">
+      <h2 class="ed-contents__title">Contents</h2>
+      <p class="ed-contents__note">Every pick earns its place. Every verdict, a reason.</p>
+    </div>
+    <ol class="ed-contents__list">
+      {contents.map((c) => (
+        <li class="ed-contents__row">
+          <a href={c.href}>
+            <span class="ed-contents__no">{c.n}</span>
+            <span class="ed-contents__label">{c.label}</span>
+            <span class="ed-contents__dek">{c.dek}</span>
+            <span class="ed-contents__arrow" aria-hidden="true">→</span>
+          </a>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

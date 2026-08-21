@@ -3,13 +3,14 @@
  * EventCard  -  the primary card for the What's On index.
  *
  * Standard card structure: category, title, location, short description,
- * and CTA. No plain directory rows — every event carries at least one
+ * and CTA. No plain directory rows - every event carries at least one
  * sentence of context.
  */
 import PiSaveActions from './PiSaveActions.astro';
 import { eventCategoryLabel, routeSlug } from '../lib/editorial';
 import { editableImage } from '../lib/inline-edit/attrs';
 import { resolveHero } from '../lib/inline-edit/resolve-hero';
+import { eventIsUnqualifiedFree } from '../lib/event-access.mjs';
 
 export interface Props {
   event: any;
@@ -19,9 +20,13 @@ export interface Props {
    * What's On surfaces cleaner and less review-site driven.
    */
   showVerdict?: boolean;
+  /** Override the computed date label - used by the homepage weekend rail
+      so long-running events read "On this weekend" instead of their
+      historical start date. */
+  dateLabelOverride?: string;
 }
 
-const { event, featured = false } = Astro.props;
+const { event, featured = false, dateLabelOverride } = Astro.props;
 const slug = routeSlug(event);
 const category = event.data.category;
 
@@ -51,7 +56,9 @@ function shortDate(d: Date): string {
   return d.toLocaleDateString('en-AU', { day: 'numeric', month: 'short', timeZone: 'Australia/Melbourne' });
 }
 const dateLabel: string | null =
-  event.data.recurrenceNote
+  dateLabelOverride
+    ? dateLabelOverride
+    : event.data.recurrenceNote
     ? event.data.recurrenceNote
     : event.data.nextOccurrence
     ? shortDate(event.data.nextOccurrence)
@@ -63,6 +70,12 @@ const dateLabel: string | null =
 // "Plan this" CTA so the discovery surface reads as a single system rather
 // than a hodgepodge of "Read the guide / Market detail / See the detail".
 const ctaLabel = 'Plan this \u2192';
+
+// ISO date for <time datetime> when the label represents a concrete date.
+const dateIso: string | null =
+  !dateLabelOverride && !event.data.recurrenceNote
+    ? (event.data.nextOccurrence ?? event.data.startDate)?.toISOString().split('T')[0] ?? null
+    : null;
 
 // Day-of-week badge for weekly/monthly recurrences. Parsed from
 // recurrenceNote ("Weekly - every Thursday year-round" -> "THU").
@@ -113,7 +126,7 @@ const heroImageSrc = eventHero.override?.src
   ?? fallbackHeroByCategory[category]
   ?? '/images/sourced/category-market-02.webp';
 
-// Filter data-attributes — consumed by the hub's client-side filter engine.
+// Filter data-attributes - consumed by the hub's client-side filter engine.
 // Each event encodes its location region(s), category bucket, recurrence,
 // price tier, and date range so the engine can match against URL params
 // without a server round-trip.
@@ -171,7 +184,7 @@ const FILTER_CATEGORY_MAP: Record<string, string> = {
 };
 const filterCategory = FILTER_CATEGORY_MAP[category] ?? category;
 const filterRegions = regionsFor(event.data.suburb ?? event.data.venueRegion);
-const isFree = event.data.priceTier === 'free';
+const isFree = eventIsUnqualifiedFree(event.data);
 const isoStart = event.data.startDate instanceof Date ? event.data.startDate.toISOString().slice(0, 10) : '';
 const isoEnd = event.data.endDate instanceof Date
   ? event.data.endDate.toISOString().slice(0, 10)
@@ -195,7 +208,7 @@ const recurrenceDay = recurDayMatch
   data-free={isFree ? '1' : '0'}
 >
   <a
-    href={`/whats-on/${slug}`}
+    href={`/whats-on/${slug}/`}
     class="event-card__hero"
     style={`background-image: url(${heroImageSrc});`}
     aria-hidden="true"
@@ -215,10 +228,12 @@ const recurrenceDay = recurDayMatch
   <div class="event-card__body">
     <div class="event-card__top">
       <span class="event-card__category">{eventCategoryLabel[category] ?? category}</span>
-      {dateLabel && <span class="event-card__date">{dateLabel}</span>}
+      {dateLabel && (dateIso
+        ? <time class="event-card__date" datetime={dateIso}>{dateLabel}</time>
+        : <span class="event-card__date">{dateLabel}</span>)}
     </div>
     <h3 class="event-card__name">
-      <a href={`/whats-on/${slug}`}>{event.data.title}</a>
+      <a href={`/whats-on/${slug}/`}>{event.data.title}</a>
     </h3>
     {placeLabel && (
       <p class="event-card__place">
@@ -227,7 +242,7 @@ const recurrenceDay = recurDayMatch
     )}
     {summary && (<p class="event-card__summary">{summary}</p>)}
     <div class="event-card__actions">
-      <a href={`/whats-on/${slug}`} class="event-card__cta">{ctaLabel}</a>
+      <a href={`/whats-on/${slug}/`} class="event-card__cta pi-btn pi-btn--text">{ctaLabel}</a>
     </div>
     <PiSaveActions
       kind="event"

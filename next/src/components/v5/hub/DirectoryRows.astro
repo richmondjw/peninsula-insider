@@ -1,0 +1,245 @@
+---
+/**
+ * DirectoryRows (v5 hub module) - the catalogue layer: the full corpus as
+ * compact rows, server-rendered once for SEO (page-redesigns section 2
+ * block 9.5; wireframes #eat note 4). Rows, not cards: 2 interactive
+ * elements per row (row link + save; stays add Book via `booking`).
+ *
+ * Filter contract (lib/v5-filter-state.ts): every row `li` carries
+ * `data-facets` and `data-title`; the list is a `data-sort-container` so
+ * SortControl can reorder it; a `[data-filter-empty]` EmptyState toggles at
+ * zero results and its Clear action commits an empty filter state. The page
+ * FilterBar owns counts and the live region.
+ *
+ * Generic and prop-driven for the Eat / Wine / Stay / Explore hub agents.
+ * Slots: `before-list` (e.g. a cross-link module such as Eat's "Winery
+ * kitchens") and `after-list`.
+ */
+import Card from '../Card.astro';
+import EmptyState from '../EmptyState.astro';
+import type { CardImage, CardBooking } from '../Card.astro';
+import type { CmsEntityType } from '../../../lib/inline-edit/attrs';
+import type { FacetKey } from '../../../lib/facets';
+
+export interface DirectoryRowItem {
+  title: string;
+  href: string;
+  entityType: CmsEntityType;
+  entitySlug: string;
+  /** Omit for a text-only compact row. */
+  image?: CardImage;
+  /** One-sentence verdict line, 25 words maximum (Card warns over). */
+  verdict?: string;
+  /** Up to 3 plain-text chips (town, category, caveat). */
+  meta?: string[];
+  priceBand?: string | number;
+  freshness?: string;
+  /** Unified facet payload from getFacets(kind, data). */
+  facets?: Partial<Record<FacetKey, string[]>>;
+  /** Stay surfaces: Book is the one primary row action. */
+  booking?: CardBooking;
+  partnerLabel?: string;
+  /** A-to-Z sort key override (defaults to title). */
+  sortTitle?: string;
+}
+
+export interface Props {
+  /** h2, e.g. "All 87 places to eat". */
+  heading: string;
+  /** Uppercase eyebrow above the heading (teal). */
+  eyebrow?: string;
+  sub?: string;
+  /** Plural noun used in empty-state copy, e.g. "places". */
+  noun?: string;
+  /** Analytics surface (eat, wine, stay, explore). */
+  surface: string;
+  items: DirectoryRowItem[];
+  /** Optional header link, e.g. { label: "Ranked top 15", href: ... }. */
+  topLink?: { label: string; href: string };
+  id?: string;
+  emptyHeading?: string;
+  emptyBody?: string;
+}
+
+const {
+  heading,
+  eyebrow,
+  sub,
+  noun = 'places',
+  surface,
+  items,
+  topLink,
+  id,
+  emptyHeading,
+  emptyBody,
+} = Astro.props;
+
+const headingId = `${id ?? `directory-${surface}`}-heading`;
+---
+
+<section class="v5-directory" id={id} aria-labelledby={headingId} data-directory-rows data-noun={noun}>
+  <div class="container">
+    <div class="v5-directory__header">
+      <div>
+        {eyebrow && <p class="v5-directory__eyebrow">{eyebrow}</p>}
+        <h2 class="v5-directory__heading" id={headingId}>{heading}</h2>
+        {sub && <p class="v5-directory__sub">{sub}</p>}
+      </div>
+      {topLink && (
+        <a href={topLink.href} class="v5-directory__toplink">{topLink.label} &rarr;</a>
+      )}
+    </div>
+
+    <slot name="before-list" />
+
+    <ul class="v5-directory__list" aria-label={heading} data-sort-container>
+      {items.map((item, i) => (
+        <li
+          class="v5-directory__row"
+          data-facets={item.facets ? JSON.stringify(item.facets) : undefined}
+          data-title={item.sortTitle ?? item.title}
+        >
+          <Card
+            as="div"
+            variant="compact-row"
+            title={item.title}
+            href={item.href}
+            entityType={item.entityType}
+            entitySlug={item.entitySlug}
+            image={item.image}
+            verdict={item.verdict}
+            meta={item.meta}
+            priceBand={item.priceBand}
+            freshness={item.freshness}
+            booking={item.booking}
+            partnerLabel={item.partnerLabel}
+            surface={surface}
+            position={i + 1}
+          />
+        </li>
+      ))}
+    </ul>
+
+    <div data-filter-empty hidden>
+      <EmptyState
+        variant="filter-zero"
+        heading={emptyHeading}
+        body={emptyBody}
+        surface={surface}
+      />
+    </div>
+
+    <slot name="after-list" />
+  </div>
+</section>
+
+<style>
+  .v5-directory {
+    padding: var(--space-6, 2rem) 0;
+  }
+  .v5-directory__header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--space-4, 1rem);
+    flex-wrap: wrap;
+    margin-bottom: var(--space-5, 1.5rem);
+  }
+  .v5-directory__eyebrow {
+    margin: 0 0 var(--space-2, 0.5rem);
+    font-family: var(--font-ui);
+    font-size: var(--fs-100, 0.75rem);
+    font-weight: 600;
+    letter-spacing: var(--ls-eyebrow, 0.12em);
+    text-transform: uppercase;
+    color: var(--teal-text);
+  }
+  .v5-directory__heading {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: var(--fs-700, clamp(1.6rem, 1.35rem + 1.2vw, 2.1rem));
+    font-weight: var(--fw-display, 600);
+    line-height: var(--lh-heading, 1.14);
+    letter-spacing: -0.01em;
+    color: var(--text);
+    text-wrap: balance;
+  }
+  .v5-directory__sub {
+    margin: var(--space-3, 0.75rem) 0 0;
+    font-family: var(--font-ui);
+    font-size: var(--fs-300, 0.9375rem);
+    line-height: var(--lh-ui, 1.4);
+    color: var(--soft);
+    max-width: var(--measure-dek, 52ch);
+  }
+  .v5-directory__toplink {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    gap: 0.4rem;
+    padding: 0.6rem 1.1rem;
+    border: 1.5px solid var(--accent);
+    border-radius: var(--radius-pill, 999px);
+    font-family: var(--font-ui);
+    font-size: var(--fs-200, 0.8125rem);
+    font-weight: var(--fw-semibold, 600);
+    color: var(--accent);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background var(--dur-fast, 120ms) var(--ease-enter, ease),
+      color var(--dur-fast, 120ms) var(--ease-enter, ease);
+  }
+  .v5-directory__toplink:hover {
+    background: var(--accent);
+    color: var(--white);
+  }
+  .v5-directory__toplink:focus-visible {
+    outline: var(--focus-ring, 2px solid var(--accent));
+    outline-offset: 2px;
+  }
+  .v5-directory__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .v5-directory__row {
+    border-bottom: 1px solid var(--border);
+  }
+  .v5-directory__row:last-child {
+    border-bottom: none;
+  }
+  /* Rows sit flush in the list; the Card compact-row brings its own layout. */
+  .v5-directory__row > :global(.pi-card) {
+    border: none;
+    border-radius: 0;
+  }
+  .v5-directory__row > :global(.pi-card:hover) {
+    box-shadow: none;
+    background: var(--bg-alt);
+  }
+</style>
+
+<script>
+  // EmptyState's "Clear filters" button carries data-action="clear-filters";
+  // wire it to the shared filter state so one tap restores a working list.
+  import { commit } from '../../../lib/v5-filter-state';
+
+  function init() {
+    document.querySelectorAll<HTMLElement>('[data-directory-rows]').forEach((section) => {
+      if ((section as any)._piDirInit) return;
+      (section as any)._piDirInit = true;
+      const noun = section.dataset.noun || 'results';
+      section.addEventListener('click', (e) => {
+        const target = e.target as HTMLElement | null;
+        if (target && target.closest('[data-action="clear-filters"]')) {
+          commit({}, { source: 'clear', noun });
+        }
+      });
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+  document.addEventListener('astro:page-load', init);
+</script>

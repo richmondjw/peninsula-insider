@@ -4,12 +4,12 @@
  * Helpers for the rolling "Peninsula This Weekend" surface
  * (Brief 2 / Wave 2 staging push, 2026-05-10).
  *
- * The dispatch lived at /journal/peninsula-this-weekend-{date}/ — a
+ * The dispatch lived at /journal/peninsula-this-weekend-{date}/ - a
  * weekly-changing URL that AI assistants and external sources could
  * not reliably link to as "this weekend on the Peninsula". The new
  * pattern:
  *
- *   /whats-on/this-weekend/                       (rolling — always latest)
+ *   /whats-on/this-weekend/                       (rolling - always latest)
  *   /whats-on/this-weekend/archive/YYYY-MM-DD/    (per-week archive)
  *
  * The journal URL emits a redirect into the dated archive so inbound
@@ -32,7 +32,7 @@ export function isPeninsulaThisWeekend(article: any): boolean {
 }
 
 /**
- * Stable archive slug for a PTW article — ISO date string (YYYY-MM-DD)
+ * Stable archive slug for a PTW article - ISO date string (YYYY-MM-DD)
  * derived from publishedAt. Stable, sortable, and machine-readable so
  * AI assistants can resolve "Peninsula This Weekend for May 9" cleanly.
  */
@@ -98,6 +98,20 @@ export function ptwWeekendLabel(article: any): string {
     return `${sat.getUTCDate()}–${sun.getUTCDate()} ${sunMonth}`;
   }
   return `${sat.getUTCDate()} ${satMonth} – ${sun.getUTCDate()} ${sunMonth}`;
+}
+
+/**
+ * ISO timestamp for the moment this dispatch's weekend closes
+ * (Sunday 23:59 AEST). Used by the rolling /whats-on/this-weekend/ page
+ * to detect at read time that a statically built dispatch has aged out,
+ * so the page can say so instead of presenting a past weekend as current.
+ */
+export function ptwWeekendEndIso(article: any): string {
+  const friday = ptwWeekendFriday(article);
+  const sunday = new Date(friday);
+  sunday.setUTCDate(friday.getUTCDate() + 2);
+  sunday.setUTCHours(13, 59, 0, 0); // 23:59 AEST
+  return sunday.toISOString();
 }
 
 /**

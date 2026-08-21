@@ -40,7 +40,7 @@ export interface NavItem {
 export const mastheadNav: NavItem[] = [
   { key: 'quick-note', label: 'Quick Note',  href: '/quick-note' },
   {
-    key: 'eat', label: 'Eat & Drink', href: '/eat',
+    key: 'eat', label: 'Eat & Drink', href: '/eat/',
     children: [
       { label: 'Best Restaurants',  href: '/eat/best-restaurants/' },
       { label: 'Long Lunches',      href: '/eat/long-lunch/' },
@@ -50,7 +50,7 @@ export const mastheadNav: NavItem[] = [
     ],
   },
   {
-    key: 'stay', label: 'Stay', href: '/stay',
+    key: 'stay', label: 'Stay', href: '/stay/',
     children: [
       { label: 'Best Accommodation', href: '/stay/best-accommodation/' },
       { label: 'Boutique Hotels',    href: '/stay/boutique-hotels/' },
@@ -60,17 +60,17 @@ export const mastheadNav: NavItem[] = [
     ],
   },
   {
-    key: 'wine', label: 'Wine', href: '/wine',
+    key: 'wine', label: 'Wine', href: '/wine/',
     children: [
-      { label: 'Cellar Doors',         href: '/wine/cellar-doors/' },
-      { label: 'Best Wineries',        href: '/wine/best-wineries-mornington-peninsula/' },
+      { label: 'Cellar Doors',         href: '/wine/best-cellar-doors/' },
+      { label: 'Best Wineries',        href: '/wine/best-cellar-doors/' },
       { label: 'Pinot Noir',           href: '/wine/pinot-noir/' },
       { label: 'Chardonnay',           href: '/wine/chardonnay/' },
       { label: 'By Appointment',       href: '/wine/appointment-producers/' },
     ],
   },
   {
-    key: 'explore', label: 'Explore', href: '/explore',
+    key: 'explore', label: 'Explore', href: '/explore/',
     children: [
       { label: 'Walks',              href: '/explore/walks/' },
       { label: 'Beaches',            href: '/explore/beaches/' },
@@ -79,8 +79,8 @@ export const mastheadNav: NavItem[] = [
       { label: 'Things to Do',       href: '/explore/things-to-do/' },
     ],
   },
-  { key: 'escape',   label: 'Plans',      href: '/plans'    },
-  { key: 'whats-on', label: "What's On",  href: '/whats-on' },
+  { key: 'escape',   label: 'Plans',      href: '/explore/plans/'    },
+  { key: 'whats-on', label: "What's On",  href: '/whats-on/' },
   { key: 'journal',  label: 'Journal',    href: '/journal'  },
 ];
 
@@ -99,8 +99,8 @@ export const mastheadMoreNav: NavItem[] = [
   { key: 'insiders-30',      label: "The Insider's 30", href: '/insiders-30/',    dek: 'The annual ranked list - thirty places that defined the year.' },
   { key: 'tour',             label: 'Tours',          href: '/tour/',             dek: 'Operator-led day trips and packages.' },
   { key: 'boating',          label: 'Boating',        href: '/boating/',          dek: 'Charters, hire, ramps, and tides.' },
-  { key: 'golf',             label: 'Golf',           href: '/golf/',             dek: 'Courses on the cape.' },
-  { key: 'spa',              label: 'Spa & Wellness', href: '/spa/',              dek: 'Hot springs, saunas, retreats.' },
+  { key: 'golf',             label: 'Golf',           href: '/explore/golf/',             dek: 'Courses on the cape.' },
+  { key: 'spa',              label: 'Spa & Wellness', href: '/explore/spas-and-wellness/',              dek: 'Hot springs, saunas, retreats.' },
   { key: 'fishing',          label: 'Fishing',        href: '/fishing/',          dek: 'Species, spots, charters.' },
   { key: 'dog-friendly',     label: 'Dog Friendly',   href: '/dog-friendly/',     dek: 'Where the whole family is welcome.' },
   { key: 'weddings',         label: 'Weddings',       href: '/weddings/',         dek: 'Venues for the day.' },
@@ -116,7 +116,7 @@ export const mastheadMoreNav: NavItem[] = [
 export const pillarNav: NavItem[] = [
   {
     key: 'escape',
-    href: '/plans',
+    href: '/explore/plans/',
     label: 'Plans',
     sub: 'Itineraries · Slow Travel',
     dek: 'Ready-made Peninsula days and weekends.',
@@ -124,7 +124,7 @@ export const pillarNav: NavItem[] = [
   },
   {
     key: 'whats-on',
-    href: '/whats-on',
+    href: '/whats-on/',
     label: "What's On",
     sub: 'Weekend Picks · Events',
     dek: "This week's markets, openings, and festivals.",
@@ -132,7 +132,7 @@ export const pillarNav: NavItem[] = [
   },
   {
     key: 'eat',
-    href: '/eat',
+    href: '/eat/',
     label: 'Eat & Drink',
     sub: 'Restaurants · Cellar Doors',
     dek: 'The dining rooms that justify the drive.',
@@ -140,7 +140,7 @@ export const pillarNav: NavItem[] = [
   },
   {
     key: 'stay',
-    href: '/stay',
+    href: '/stay/',
     label: 'Stay',
     sub: 'Hotels · Villas · Escapes',
     dek: 'Where to plant yourself for the weekend.',
@@ -148,7 +148,7 @@ export const pillarNav: NavItem[] = [
   },
   {
     key: 'explore',
-    href: '/explore',
+    href: '/explore/',
     label: 'Explore',
     sub: 'Walks · Beaches · Markets',
     dek: 'Coast paths, back-bay beaches, lookouts.',
@@ -156,7 +156,7 @@ export const pillarNav: NavItem[] = [
   },
   {
     key: 'wine',
-    href: '/wine',
+    href: '/wine/',
     label: 'Wine Country',
     sub: 'Wineries · Producers',
     dek: 'Walk-in cellar doors and appointment-only finds.',
@@ -188,7 +188,7 @@ export const pillarNav: NavItem[] = [
   },
   {
     key: 'spa',
-    href: '/spa',
+    href: '/explore/spas-and-wellness/',
     label: 'Spa',
     sub: 'Hot Springs · Wellness',
     dek: 'Hot springs, steam, soak, and sauna country.',
@@ -206,8 +206,8 @@ export const footerSectionLinks: NavItem[] = [
   { key: 'stay',             label: 'Stay',            href: '/stay/' },
   { key: 'wine',             label: 'Wine Country',    href: '/wine/' },
   { key: 'explore',          label: 'Explore',         href: '/explore/' },
-  { key: 'golf',             label: 'Golf',            href: '/golf/' },
-  { key: 'spa',              label: 'Spa & Wellness',  href: '/spa/' },
+  { key: 'golf',             label: 'Golf',            href: '/explore/golf/' },
+  { key: 'spa',              label: 'Spa & Wellness',  href: '/explore/spas-and-wellness/' },
   { key: 'fishing',          label: 'Fishing',         href: '/fishing/' },
   { key: 'boating',          label: 'Boating',         href: '/boating/' },
   { key: 'escape',           label: 'Plans',           href: '/explore/plans/' },
@@ -237,7 +237,7 @@ export const footerAboutLinks: NavItem[] = [
  */
 export const footerUtilityLinks: NavItem[] = [
   { key: 'map',        label: 'Map of the Peninsula', href: '/map/' },
-  { key: 'newsletter', label: 'Peninsula Dispatch',   href: '/dispatch/' },
+  { key: 'newsletter', label: 'The Insider Note',     href: '/dispatch/' },
   { key: 'privacy',    label: 'Privacy',              href: '/privacy/' },
   { key: 'cookies',    label: 'Cookie settings',      href: '#cookie-settings' },
 ];

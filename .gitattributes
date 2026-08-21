@@ -1,0 +1,4 @@
+# Git hooks and shell scripts must stay LF-only so they execute on Linux CI
+# (a CRLF shebang yields "/bin/sh^M: bad interpreter").
+.githooks/** text eol=lf
+*.sh text eol=lf

@@ -6,6 +6,7 @@ import SubpageHero from '../../components/SubpageHero.astro';
 import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { routeSlug, titleize } from '../../lib/editorial';
+import { buildBreadcrumbSchema, absUrl } from '../../lib/schema';
 
 const eatTypes = ['restaurant', 'cafe', 'winery'];
 const venues = (await getCollection('venues'))
@@ -42,7 +43,7 @@ const faqSchema = {
       name: 'What are the best restaurants on the Mornington Peninsula?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: `The strongest rooms right now are ${top3Names.join(', ')}. All three offer serious food in the vineyard-dining tradition the Peninsula does best — long lunches, estate-grown produce, and wine lists anchored by Mornington Pinot.`,
+        text: `The strongest rooms right now are ${top3Names.join(', ')}. All three offer serious food in the vineyard-dining tradition the Peninsula does best - long lunches, estate-grown produce, and wine lists anchored by Mornington Pinot.`,
       },
     },
     {
@@ -58,7 +59,7 @@ const faqSchema = {
       name: 'What is the best area for restaurants on the Mornington Peninsula?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'The Red Hill plateau — including Main Ridge and Red Hill South — has the highest concentration of serious dining. Mornington town has the strongest casual dining scene. Sorrento and Portsea dominate in summer for atmosphere. For wine-paired lunches, stick to the ridge.',
+        text: 'The Red Hill plateau - including Main Ridge and Red Hill South - has the highest concentration of serious dining. Mornington town has the strongest casual dining scene. Sorrento and Portsea dominate in summer for atmosphere. For wine-paired lunches, stick to the ridge.',
       },
     },
   ],
@@ -66,35 +67,41 @@ const faqSchema = {
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
-  { label: 'Eat & Drink', href: '/eat' },
+  { label: 'Eat & Drink', href: '/eat/' },
   { label: 'Best Restaurants' },
 ];
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', url: absUrl('/') },
+  { name: 'Eat & Drink', url: absUrl('/eat/') },
+  { name: 'Best Restaurants', url: absUrl('/eat/best-restaurants/') },
+]);
 export const prerender = true;
 ---
 
 <BaseLayout
   title="Best Restaurants Mornington Peninsula · Peninsula Insider"
-  description="The Peninsula Insider guide to the best restaurants on the Mornington Peninsula — vineyard dining rooms, cellar-door lunches, and the hatted kitchens worth booking weeks ahead."
+  description="The Peninsula Insider guide to the best restaurants on the Mornington Peninsula - vineyard dining rooms, cellar-door lunches, and the hatted kitchens worth booking weeks ahead."
   section="eat"
   canonical="https://peninsulainsider.com.au/eat/best-restaurants"
 >
   <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   <Breadcrumbs items={breadcrumbItems} />
 
   <SubpageHero
   title="The Best Restaurants on the Mornington Peninsula"
   category="Best Restaurants"
   heroImage="/images/sourced/article-hatted-restaurants-01.webp"
-  imageAlt="Open kitchen at a Peninsula fine dining restaurant — hatted dining on the Mornington Peninsula"
+  imageAlt="Open kitchen at a Peninsula fine dining restaurant - hatted dining on the Mornington Peninsula"
   imageCaption="Peninsula fine dining"
   entitySlug="eat/best-restaurants"
   entityType="page"
 >
   <div class="prose">
-    <p>The Mornington Peninsula runs on the Sunday long lunch. From the ridge-top dining rooms of Red Hill to the fisherman's-wharf-adjacent tables of Mornington, the dining options are deep, opinionated, and worth the drive. This list is built on editorial judgement — every entry has been visited and earned its sentence. No advertising, no paid placement, no sponsored rankings. If a restaurant appears here, it's because the meal was worth the drive and the editor was willing to say so.</p>
+    <p>The Mornington Peninsula runs on the Sunday long lunch. From the ridge-top dining rooms of Red Hill to the fisherman's-wharf-adjacent tables of Mornington, the dining options are deep, opinionated, and worth the drive. This list is built on editorial judgement - every entry has been visited and earned its sentence. No advertising, no paid placement, no sponsored rankings. If a restaurant appears here, it's because the meal was worth the drive and the editor was willing to say so.</p>
 
-        <p>The Peninsula's strongest category is the vineyard restaurant — a dining room attached to or embedded within a working winery, where the produce is grown within a few kilometres and the wine list is anchored by the estate. Montalto, Ten Minutes by Tractor, and Polperro operate at the serious end of this format. Below them, a deep bench of rooms doing honest, seasonal work without the fanfare.</p>
+        <p>The Peninsula's strongest category is the vineyard restaurant - a dining room attached to or embedded within a working winery, where the produce is grown within a few kilometres and the wine list is anchored by the estate. Montalto, Ten Minutes by Tractor, and Polperro operate at the serious end of this format. Below them, a deep bench of rooms doing honest, seasonal work without the fanfare.</p>
 
         <p>The list is ordered by editorial authority: top-rated rooms first, then the places doing quietly strong work below them.</p>
       </div>
@@ -123,16 +130,16 @@ export const prerender = true;
         <h2>Frequently asked questions</h2>
 
         <h3>What are the best restaurants on the Mornington Peninsula?</h3>
-        <p>The strongest rooms right now are {top3Names.join(', ')}. All three offer serious food in the vineyard-dining tradition the Peninsula does best — long lunches, estate-grown produce, and wine lists anchored by Mornington Pinot. Below them, a deep bench of cellar door restaurants and neighbourhood rooms doing honest, seasonal work.</p>
+        <p>The strongest rooms right now are {top3Names.join(', ')}. All three offer serious food in the vineyard-dining tradition the Peninsula does best - long lunches, estate-grown produce, and wine lists anchored by Mornington Pinot. Below them, a deep bench of cellar door restaurants and neighbourhood rooms doing honest, seasonal work.</p>
 
         <h3>Do I need to book restaurants on the Mornington Peninsula?</h3>
         <p>Most serious restaurants on the Peninsula require bookings, especially on weekends. Cellar door restaurants in Red Hill like Ten Minutes by Tractor and Montalto can book out weeks ahead in summer and autumn. Book as far ahead as you can for special occasions; casual venues like Allis Wine Bar and local bakeries typically operate walk-in.</p>
 
         <h3>What is the best area for restaurants on the Mornington Peninsula?</h3>
-        <p>The Red Hill plateau — including Main Ridge and Red Hill South — has the highest concentration of serious dining. Mornington town has the strongest casual dining scene. Sorrento and Portsea dominate in summer for atmosphere. For wine-paired lunches, stick to the ridge.</p>
+        <p>The Red Hill plateau - including Main Ridge and Red Hill South - has the highest concentration of serious dining. Mornington town has the strongest casual dining scene. Sorrento and Portsea dominate in summer for atmosphere. For wine-paired lunches, stick to the ridge.</p>
 
         <h3>When is the best time to visit Mornington Peninsula for food?</h3>
-        <p>Autumn is the peak dining season. Vintage is running on the ridge, fires are lit in cellar door dining rooms, and the summer crowds have thinned enough that the best tables are actually bookable. Spring is a close second — new menus, release wines, and golden light that starts early and stays late.</p>
+        <p>Autumn is the peak dining season. Vintage is running on the ridge, fires are lit in cellar door dining rooms, and the summer crowds have thinned enough that the best tables are actually bookable. Spring is a close second - new menus, release wines, and golden light that starts early and stays late.</p>
       </div>
     </div>
   </section>
@@ -142,9 +149,9 @@ export const prerender = true;
     <div class="container">
       <div class="venues__header"><div><p class="label label--accent">Go deeper</p><h2 class="venues__title">Browse by category</h2></div></div>
       <div class="venues__grid venues__grid--links">
-        <div class="venue-card"><h3 class="venue-card__name"><a href="/eat/hatted-restaurants/">Hatted Restaurants</a></h3><p class="venue-card__signature">Good Food Guide hat table with booking realities for every venue.</p><a href="/eat/hatted-restaurants/" class="venue-card__cta">See the list →</a></div>
-        <div class="venue-card"><h3 class="venue-card__name"><a href="/eat/long-lunch/">Long Lunch</a></h3><p class="venue-card__signature">The rooms that carry a whole afternoon — two to three hours at the table.</p><a href="/eat/long-lunch/" class="venue-card__cta">See the list →</a></div>
-        <div class="venue-card"><h3 class="venue-card__name"><a href="/eat/fine-dining/">Fine Dining</a></h3><p class="venue-card__signature">Destination dining rooms worth planning a whole Peninsula day around.</p><a href="/eat/fine-dining/" class="venue-card__cta">See the list →</a></div>
+        <div class="pi-card"><div class="pi-card__body"><h3 class="pi-card__title"><a href="/eat/hatted-restaurants/">Hatted Restaurants</a></h3><p class="pi-card__dek">Good Food Guide hat table with booking realities for every venue.</p><div class="pi-card__actions"><a href="/eat/hatted-restaurants/" class="pi-btn pi-btn--solid">See the list →</a></div></div></div>
+        <div class="pi-card"><div class="pi-card__body"><h3 class="pi-card__title"><a href="/eat/long-lunch/">Long Lunch</a></h3><p class="pi-card__dek">The rooms that carry a whole afternoon - two to three hours at the table.</p><div class="pi-card__actions"><a href="/eat/long-lunch/" class="pi-btn pi-btn--solid">See the list →</a></div></div></div>
+        <div class="pi-card"><div class="pi-card__body"><h3 class="pi-card__title"><a href="/eat/fine-dining/">Fine Dining</a></h3><p class="pi-card__dek">Destination dining rooms worth planning a whole Peninsula day around.</p><div class="pi-card__actions"><a href="/eat/fine-dining/" class="pi-btn pi-btn--solid">See the list →</a></div></div></div>
       </div>
     </div>
   </section>

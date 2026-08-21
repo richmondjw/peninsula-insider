@@ -6,7 +6,7 @@ houseByline: true
 publishedAt: 2026-04-16
 heroImage:
   src: "/images/sourced/article-couples-weekend-01.webp"
-  alt: "A candlelit dinner terrace at a Peninsula restaurant at dusk with vineyard rows beyond — representative image"
+  alt: "A candlelit dinner terrace at a Peninsula restaurant at dusk with vineyard rows beyond - representative image"
   credit: "Peninsula Insider"
   license: "tmp-unsplash"
 format: "service"
@@ -23,8 +23,8 @@ clusterLinks:
   - label: "Hatted Restaurants on the Mornington Peninsula 2025"
     href: "/journal/hatted-restaurants-mornington-peninsula-2025/"
   - label: "Where to Stay on the Mornington Peninsula"
-    href: "/journal/where-to-stay-mornington-peninsula/"
-  - label: "Peninsula Hot Springs vs Alba — The Honest Comparison"
+    href: "/stay/best-accommodation/"
+  - label: "Peninsula Hot Springs vs Alba - The Honest Comparison"
     href: "/journal/peninsula-hot-springs-vs-alba/"
 faq:
   - question: "Which is the best Peninsula restaurant for a milestone birthday dinner?"
@@ -34,7 +34,7 @@ faq:
   - question: "How far in advance should I book a birthday dinner on the Mornington Peninsula?"
     answer: "Three to six months for peak-season Saturdays at Laura, Tedesca Osteria, or Ten Minutes by Tractor. Six weeks for quieter weekends. Book Doot Doot Doot at Jackalope at least four weeks out for a weekend date."
 aiSummary:
-  - "A Peninsula weekend framework structured specifically for birthday celebrations — covers what makes a Peninsula birthday weekend work and what to avoid."
+  - "A Peninsula weekend framework structured specifically for birthday celebrations - covers what makes a Peninsula birthday weekend work and what to avoid."
   - "Covers: which accommodation properties are best set up for celebration contexts; how to find a table at a hatted restaurant for a group; what extras to pre-arrange."
   - "The editorial distinction: a birthday weekend needs one genuinely extraordinary meal, not a full schedule of events. The rest of the trip should be calmer and lower-key."
   - "Suits: anyone planning a milestone birthday trip for 2–6 people; couples celebrating a birthday or anniversary on the Peninsula."

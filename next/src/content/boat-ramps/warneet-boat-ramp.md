@@ -25,15 +25,15 @@ accessibleSpecies:
   - mulloway
   - pink-snapper
 safetyNotes: Tide-sensitive Western Port ramp. Launch on the upper half of the tidal cycle (two hours before high water through to two hours after high water at the Stony Point reference station). At low water, the channel approach shallows substantially.
-intro: Two-lane concrete ramp with central pontoon at Warneet on Western Port's eastern shore. Tide-sensitive — launch on the upper half of the tidal cycle. Smaller and quieter than Hastings, primary access to the productive whiting and flathead grounds of the northern Western Port arm.
-metaDescription: Warneet Boat Ramp — two concrete lanes with central pontoon, free, tide-cautious at low water. Northern Western Port whiting and flathead access; plan launch around high tide.
+intro: Two-lane concrete ramp with central pontoon at Warneet on Western Port's eastern shore. Tide-sensitive - launch on the upper half of the tidal cycle. Smaller and quieter than Hastings, primary access to the productive whiting and flathead grounds of the northern Western Port arm.
+metaDescription: Warneet Boat Ramp - two concrete lanes with central pontoon, free, tide-cautious at low water. Northern Western Port whiting and flathead access; plan launch around high tide.
 faq:
   - question: Can I launch at Warneet at any tide?
     answer: 'Cautiously. Warneet is described in primary sources as all-tide cautious at low tide. The approach shallows at low water to the point where care is required. Vessels over 4.5m or with a deeper-than-standard draft should plan launches between two hours before high water and two hours after high water at the Stony Point station.'
   - question: How busy does Warneet get?
     answer: 'Less than Hastings, but the parking is constrained relative to peak demand. The tidal launch window and the parking pressure coincide: anglers targeting the ideal high-water window arrive simultaneously. Arrive at least one hour before the preferred launch time on a summer Saturday near high tide.'
   - question: Is there an alternative ramp if Warneet is full or unsuitable?
-    answer: 'Hastings Boat Ramp 20km north is the primary Western Port alternative — four lanes, all-tide, large parking capacity, with the 2024 upgrade including all-abilities pontoon and hoist.'
+    answer: 'Hastings Boat Ramp 20km north is the primary Western Port alternative - four lanes, all-tide, large parking capacity, with the 2024 upgrade including all-abilities pontoon and hoist.'
 status: published
 verified: true
 lastVerified: 2026-04-30

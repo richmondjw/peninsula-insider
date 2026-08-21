@@ -1,6 +1,6 @@
 ---
-headline: "Sunday Sessions with Ereignis — acoustic music from 12pm at Peninsula Hot Springs, complimentary with bathing."
-dek: "Ereignis plays the Bath House Café Amphitheatre from midday. Included with any thermal bathing session. The noon start lands right at the forecast weather transition — the amphitheatre is outdoor, so morning wet may push the set slightly."
+headline: "Sunday Sessions with Ereignis - acoustic music from 12pm at Peninsula Hot Springs, complimentary with bathing."
+dek: "Ereignis plays the Bath House Café Amphitheatre from midday. Included with any thermal bathing session. The noon start lands right at the forecast weather transition - the amphitheatre is outdoor, so morning wet may push the set slightly."
 section: explore
 tag: event
 publishedAt: 2026-05-10T06:45:00+10:00
@@ -14,9 +14,9 @@ sources:
     checkedAt: 2026-05-10T06:46:00+10:00
 status: archived
 ---
-Peninsula Hot Springs has Sunday Sessions with Ereignis running from midday at the Bath House Café Amphitheatre. The programme is complimentary with any thermal bathing session — acoustic sounds, the amphitheatre setting, nourishing food and light bites from the café.
+Peninsula Hot Springs has Sunday Sessions with Ereignis running from midday at the Bath House Café Amphitheatre. The programme is complimentary with any thermal bathing session - acoustic sounds, the amphitheatre setting, nourishing food and light bites from the café.
 
-The 12pm start is the forecast transition point. The morning is still wet (patchy rain through 9am) and the sky begins to open from noon — partly cloudy through midday, sunny from around 3pm. The Springs have noted that weather conditions may affect the outdoor amphitheatre programme, so arrival before noon gives the full experience including the thermal circuit while conditions are still unsettled.
+The 12pm start is the forecast transition point. The morning is still wet (patchy rain through 9am) and the sky begins to open from noon - partly cloudy through midday, sunny from around 3pm. The Springs have noted that weather conditions may affect the outdoor amphitheatre programme, so arrival before noon gives the full experience including the thermal circuit while conditions are still unsettled.
 
 The programme runs weekly on Sundays. Next week it is Mich McManus on 17 May. If Ereignis is the draw, today is the slot.
 

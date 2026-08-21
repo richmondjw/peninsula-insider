@@ -1,9 +1,9 @@
 ---
 /**
- * /partners/update/ — operator change-request form (Phase 5 WS5C).
+ * /partners/update/ - operator change-request form (Phase 5 WS5C).
  *
  * Operators submit a structured request to update their venue's
- * listing — hours, photos, closures, events, factual corrections.
+ * listing - hours, photos, closures, events, factual corrections.
  * Posts to pi.venue_change_requests; editor reviews in Studio and
  * applies the change to next/src/content/venues/<slug>.json.
  *
@@ -55,7 +55,7 @@ export const prerender = true;
     eyebrow="Update your listing"
     subEyebrow="Operator change request"
     title="Tell us what's <em>changed</em>."
-    dek="If your venue's hours have moved, your hero photo is dated, or you've got an event that should be on the calendar — submit it here. The editor reviews every request and applies the ones that hold up to verification. No charge, no commercial relationship required, no AI moderation. Just a working desk."
+    dek="If your venue's hours have moved, your hero photo is dated, or you've got an event that should be on the calendar - submit it here. The editor reviews every request and applies the ones that hold up to verification. No charge, no commercial relationship required, no AI moderation. Just a working desk."
     gradient="journal"
     visualLabel="Peninsula Insider · operator update"
   />
@@ -75,10 +75,10 @@ export const prerender = true;
 
           <p class="partner-update-rules-label">A few notes</p>
           <ul class="partner-update-rules">
-            <li>This is for <strong>your venue</strong> — not for nominating other places. Use <a href="/submit/">/submit/</a> for those.</li>
+            <li>This is for <strong>your venue</strong> - not for nominating other places. Use <a href="/submit/">/submit/</a> for those.</li>
             <li>Hours updates apply to the next build, typically same-day.</li>
             <li>Photo updates need a URL (Drive, Dropbox, Cloudinary, your own site). Direct file upload follows once we ship operator accounts.</li>
-            <li>Event proposals get treated as event submissions — editorial discretion applies. We won't list everything.</li>
+            <li>Event proposals get treated as event submissions - editorial discretion applies. We won't list everything.</li>
             <li>Factual corrections are taken seriously and acted on fast. Always include the source.</li>
             <li>One request per submission. If you've got three changes, send three.</li>
           </ul>
@@ -105,7 +105,7 @@ export const prerender = true;
                 <datalist id="pu-venue-list">
                   {venueOptions.map((v) => <option value={v.name} data-slug={v.slug}>{v.name}</option>)}
                 </datalist>
-                <p class="partner-update-form__hint">Pick from the list — the autocomplete shows the full venue corpus. If your venue isn't listed yet, type it in and the editor will pick it up.</p>
+                <p class="partner-update-form__hint">Pick from the list - the autocomplete shows the full venue corpus. If your venue isn't listed yet, type it in and the editor will pick it up.</p>
               </div>
 
               <div class="partner-update-form__field">
@@ -185,7 +185,7 @@ export const prerender = true;
             </fieldset>
 
             <div class="partner-update-form__submit">
-              <button type="submit" class="partner-update-form__button">Send the update</button>
+              <button type="submit" class="pi-btn pi-btn--solid">Send the update</button>
               <p class="partner-update-form__caveat">By submitting you confirm the information is accurate and you have authority to submit it on the venue's behalf. Editorial may verify with a phone call or a visit.</p>
             </div>
 
@@ -243,7 +243,7 @@ export const prerender = true;
     if (!form) return;
     applyVenueQueryParam();
     const status = document.querySelector('[data-partner-update-status]');
-    const button = form.querySelector('.partner-update-form__button');
+    const button = form.querySelector('button[type="submit"]');
     const venueOptions = venueOptionsJson;
 
     function setStatus(kind, message) {
@@ -337,7 +337,7 @@ export const prerender = true;
   }
   .partner-update-process li {
     position: relative;
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.92rem;
     line-height: 1.55;
     color: var(--dark);
@@ -358,14 +358,14 @@ export const prerender = true;
     border-radius: 50%;
     background: var(--accent);
     color: var(--bg, #fff);
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.78rem;
     font-weight: 600;
   }
   .partner-update-process li:last-child { border-bottom: 0; }
 
   .partner-update-rules-label {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.7rem;
     font-weight: 600;
     letter-spacing: 0.12em;
@@ -377,7 +377,7 @@ export const prerender = true;
     list-style: disc inside;
     padding: 0;
     margin: 0;
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.9rem;
     line-height: 1.55;
     color: var(--soft);
@@ -396,7 +396,7 @@ export const prerender = true;
     padding: clamp(1rem, 2vw, 1.4rem);
   }
   .partner-update-form__legend {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.7rem;
     font-weight: 600;
     letter-spacing: 0.12em;
@@ -408,7 +408,7 @@ export const prerender = true;
   .partner-update-form__field { margin-top: 1rem; }
   .partner-update-form__label {
     display: block;
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.85rem;
     font-weight: 600;
     color: var(--dark);
@@ -418,7 +418,7 @@ export const prerender = true;
   .partner-update-form__textarea,
   .partner-update-form__select {
     width: 100%;
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.95rem;
     line-height: 1.45;
     color: var(--dark);
@@ -434,7 +434,7 @@ export const prerender = true;
     outline-offset: 1px;
   }
   .partner-update-form__hint {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.78rem;
     color: var(--soft);
     margin: 0.35rem 0 0;
@@ -446,32 +446,15 @@ export const prerender = true;
     align-items: flex-start;
     margin-top: 0.5rem;
   }
-  .partner-update-form__button {
-    font-family: 'Outfit', sans-serif;
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--bg, #fff);
-    background: var(--accent);
-    border: 1px solid var(--accent);
-    padding: 0.85rem 1.4rem;
-    cursor: pointer;
-  }
-  .partner-update-form__button:disabled { opacity: 0.6; cursor: progress; }
-  .partner-update-form__button:hover:not(:disabled) {
-    background: var(--text, #1a1a1a);
-    border-color: var(--text, #1a1a1a);
-  }
   .partner-update-form__caveat {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.78rem;
     color: var(--soft);
     margin: 0;
     max-width: 32rem;
   }
   .partner-update-form__status {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.92rem;
     padding: 0.7rem 0.95rem;
     border: 1px solid var(--border);

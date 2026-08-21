@@ -1,13 +1,12 @@
 ---
 /**
- * /guides/easter-long-weekend/ — Easter long-weekend special guide
+ * /guides/easter-long-weekend/ - Easter long-weekend special guide
  * (Phase 5 WS5A).
  *
  * Renders to /downloads/peninsula-insider-easter-long-weekend-guide.pdf
  * via the existing render-pdfs.mjs pipeline.
  *
- * "Easter long-weekend" rather than "Easter" per locked decision Q1 —
- * the framing is practical (four-day weekend timing) not religious.
+ * "Easter long-weekend" rather than "Easter" per locked decision Q1 - * the framing is practical (four-day weekend timing) not religious.
  */
 import { getCollection } from 'astro:content';
 import PrintLayout from '../../layouts/PrintLayout.astro';
@@ -42,7 +41,7 @@ export const prerender = true;
 
     <section class="guide__intro">
       <h2>Four days is the length the Peninsula was built for.</h2>
-      <p>Two-night weekends are the Peninsula's native rhythm. Easter gives you four — and the vintage, and the markets, and a calendar quiet enough that the cellar doors aren't running tour buses through the rooms. The trade-off is that everyone else has worked this out, so book ahead.</p>
+      <p>Two-night weekends are the Peninsula's native rhythm. Easter gives you four - and the vintage, and the markets, and a calendar quiet enough that the cellar doors aren't running tour buses through the rooms. The trade-off is that everyone else has worked this out, so book ahead.</p>
       <p>This long-weekend guide is six venues we'd put at the centre of an Easter Friday-to-Monday, sequenced into a four-day plan with one anchor per day and breathing room between them. Use it as a starting frame, not a fixed schedule. Easter rewards loafing more than the calendar pretends.</p>
     </section>
 
@@ -64,11 +63,11 @@ export const prerender = true;
       <ol class="guide__plan-list">
         <li>
           <h3>Good Friday</h3>
-          <p>Drive down. Light dinner near the hotel; everything closes early. The bay walks at golden hour are the best of the weekend — Friday is when nobody is on them yet.</p>
+          <p>Drive down. Light dinner near the hotel; everything closes early. The bay walks at golden hour are the best of the weekend - Friday is when nobody is on them yet.</p>
         </li>
         <li>
           <h3>Saturday</h3>
-          <p>Red Hill Market in the morning. Cellar door lunch on the ridge — book before you leave the city. Afternoon is light: a coast walk or a swim. Dinner at the hotel.</p>
+          <p>Red Hill Market in the morning. Cellar door lunch on the ridge - book before you leave the city. Afternoon is light: a coast walk or a swim. Dinner at the hotel.</p>
         </li>
         <li>
           <h3>Easter Sunday</h3>
@@ -76,13 +75,13 @@ export const prerender = true;
         </li>
         <li>
           <h3>Easter Monday</h3>
-          <p>Slow morning, no plans. Lunch is a counter meal in a Sorrento or Flinders pub. Drive home before 3 — Easter Monday traffic is its own genre of bad.</p>
+          <p>Slow morning, no plans. Lunch is a counter meal in a Sorrento or Flinders pub. Drive home before 3 - Easter Monday traffic is its own genre of bad.</p>
         </li>
       </ol>
     </section>
 
     <footer class="guide__footer">
-      <p>Peninsula Insider is independent. Every venue here was visited by the editorial desk. No paid placements. Read the Methodology at <strong>peninsulainsider.com.au/methodology</strong>.</p>
+      <p>Peninsula Insider is independent. Every venue here is independently researched by the editorial desk. No paid placements. Read the Methodology at <strong>peninsulainsider.com.au/methodology</strong>.</p>
       <p>This guide was produced May 2026. The live site supersedes; check before you book.</p>
     </footer>
   </article>
@@ -91,28 +90,28 @@ export const prerender = true;
 
 <style>
   @page { size: A4; margin: 18mm; }
-  body { background: #fbf7f0; color: #2a1f12; font-family: 'Outfit', sans-serif; font-size: 11pt; line-height: 1.55; }
+  body { background: #fbf7f0; color: #2a1f12; font-family: var(--font-ui); font-size: 11pt; line-height: 1.55; }
   .guide { max-width: 170mm; margin: 0 auto; }
   .guide__cover { border-bottom: 2px solid #a77637; padding-bottom: 18mm; margin-bottom: 14mm; page-break-after: always; }
   .guide__edition { font-size: 9pt; letter-spacing: 0.18em; text-transform: uppercase; color: #a77637; margin: 0 0 14mm; }
-  .guide__cover-title { font-family: 'Cormorant Garamond', serif; font-size: 38pt; font-weight: 500; line-height: 1.05; letter-spacing: -0.02em; margin: 0 0 8mm; }
-  .guide__cover-title em { font-style: italic; color: #a77637; }
-  .guide__cover-dek { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 16pt; line-height: 1.45; color: #5b4f3f; margin: 0 0 18mm; }
+  .guide__cover-title { font-family: var(--font-display); font-size: 38pt; font-weight: 500; line-height: 1.05; letter-spacing: -0.02em; margin: 0 0 8mm; }
+  .guide__cover-title em { font-style: normal; color: #a77637; }
+  .guide__cover-dek { font-family: var(--font-display); font-style: normal; font-size: 16pt; line-height: 1.45; color: #5b4f3f; margin: 0 0 18mm; }
   .guide__cover-meta { font-size: 9pt; letter-spacing: 0.06em; color: #5b4f3f; margin: 0; }
-  h2 { font-family: 'Cormorant Garamond', serif; font-size: 22pt; font-weight: 500; margin: 0 0 8mm; }
+  h2 { font-family: var(--font-display); font-size: 22pt; font-weight: 500; margin: 0 0 8mm; }
   .guide__intro p { margin: 0 0 5mm; }
   .guide__intro { page-break-after: always; margin-bottom: 14mm; }
   .guide__shortlist { page-break-after: always; }
   .guide__list { list-style: none; padding: 0; margin: 0; counter-reset: shortlist-step; }
   .guide__list-item { counter-increment: shortlist-step; padding: 4mm 0; border-bottom: 1px solid #d3c8b3; page-break-inside: avoid; }
-  .guide__list-item h3 { font-family: 'Cormorant Garamond', serif; font-size: 14pt; font-weight: 500; margin: 0 0 1mm; }
+  .guide__list-item h3 { font-family: var(--font-display); font-size: 14pt; font-weight: 500; margin: 0 0 1mm; }
   .guide__list-item h3::before { content: counter(shortlist-step) '. '; color: #a77637; }
   .guide__list-meta { font-size: 9pt; letter-spacing: 0.06em; text-transform: uppercase; color: #a77637; margin: 0 0 2mm; }
   .guide__list-signature { font-size: 10.5pt; line-height: 1.5; color: #5b4f3f; margin: 0; }
   .guide__plan { page-break-after: always; }
   .guide__plan-list { list-style: none; padding: 0; margin: 0; }
   .guide__plan-list li { margin-bottom: 6mm; page-break-inside: avoid; }
-  .guide__plan-list h3 { font-family: 'Cormorant Garamond', serif; font-size: 14pt; font-weight: 500; margin: 0 0 1mm; color: #a77637; }
+  .guide__plan-list h3 { font-family: var(--font-display); font-size: 14pt; font-weight: 500; margin: 0 0 1mm; color: #a77637; }
   .guide__plan-list p { font-size: 10.5pt; line-height: 1.55; margin: 0; }
   .guide__footer { border-top: 1px solid #d3c8b3; padding-top: 6mm; font-size: 9pt; line-height: 1.5; color: #5b4f3f; }
   .guide__footer p { margin: 0 0 3mm; }

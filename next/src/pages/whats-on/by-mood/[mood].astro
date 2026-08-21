@@ -1,6 +1,6 @@
 ---
 /**
- * /whats-on/by-mood/[mood]/ — chip landing pages.
+ * /whats-on/by-mood/[mood]/ - chip landing pages.
  *
  * One template renders all five mood pages by reading the chip definition
  * from src/lib/events.ts. Each chip has its own filter, sort, eyebrow,
@@ -8,14 +8,14 @@
  *
  * Emits ItemList JSON-LD so search engines understand the curated list.
  */
-import { getCollection } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import EventCard from '../../../components/EventCard.astro';
 import EventChipBar from '../../../components/EventChipBar.astro';
 import NewsletterBlock from '../../../components/NewsletterBlock.astro';
 import { chips, eventsForChip, getChip } from '../../../lib/events';
-import { isUpcoming, routeSlug } from '../../../lib/editorial';
+import { routeSlug } from '../../../lib/editorial';
+import { loadLiveEvents } from '../_data';
 
 export async function getStaticPaths() {
   return chips.map((chip) => ({
@@ -30,14 +30,10 @@ if (!chip) {
   throw new Error(`Unknown chip slug: ${chipSlug}`);
 }
 
-// Pull active events (recurring or upcoming), then apply the chip filter.
+// Pull the same date- and status-qualified event set as the What's On hub so
+// an archived record can never leak into an otherwise indexable mood lane.
 const now = new Date();
-const allEvents = (await getCollection('events'))
-  .filter((event) => {
-    if (['weekly', 'monthly', 'ongoing'].includes(event.data.recurrence)) return true;
-    const end = event.data.endDate ?? event.data.startDate;
-    return isUpcoming(end, now);
-  });
+const allEvents = (await loadLiveEvents(now)).map(({ event }) => event);
 
 const events = eventsForChip(chip, allEvents);
 
@@ -51,7 +47,7 @@ const SITE_URL = 'https://peninsulainsider.com.au';
 const itemListSchema = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
-  name: `${chip.label} — Peninsula Insider events`,
+  name: `${chip.label} - Peninsula Insider events`,
   description: chip.framing,
   itemListElement: events.map((event, i) => ({
     '@type': 'ListItem',
@@ -64,7 +60,7 @@ export const prerender = true;
 ---
 
 <BaseLayout
-  title={`${chip.label} — Peninsula Insider events`}
+  title={`${chip.label} - Peninsula Insider events`}
   description={chip.framing}
   section="whats-on"
   canonical={`${SITE_URL}/whats-on/by-mood/${chip.slug}/`}
@@ -102,7 +98,7 @@ export const prerender = true;
   <NewsletterBlock
 
     body="Thoughtful recommendations, seasonal discoveries, and what’s happening across the Mornington Peninsula."
-    sub="Curated and sent occasionally by Peninsula Insider."
+    sub="Your Peninsula week, sorted. Every Wednesday."
   />
 </BaseLayout>
 
@@ -114,7 +110,7 @@ export const prerender = true;
   }
 
   .mood-hero__eyebrow {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.7rem;
     font-weight: 500;
     letter-spacing: 0.12em;
@@ -124,7 +120,7 @@ export const prerender = true;
   }
 
   .mood-hero__heading {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: var(--font-display);
     font-size: clamp(1.8rem, 4vw, 2.6rem);
     font-weight: 500;
     line-height: 1.1;
@@ -134,7 +130,7 @@ export const prerender = true;
   }
 
   .mood-hero__framing {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.98rem;
     line-height: 1.6;
     color: var(--soft);
@@ -147,7 +143,7 @@ export const prerender = true;
   }
 
   .mood-events__empty {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     color: var(--soft);
     text-align: center;
     padding: 2rem 0;

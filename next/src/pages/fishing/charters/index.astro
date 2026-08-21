@@ -5,7 +5,7 @@ import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import SectionHero from '../../../components/SectionHero.astro';
 import NewsletterBlock from '../../../components/NewsletterBlock.astro';
 import BfAnalytics from '../../../components/BfAnalytics.astro';
-import { buildBfHubSchema, buildBreadcrumbSchema } from '../../../lib/schema';
+import { buildBfHubSchema } from '../../../lib/schema';
 import { formatVerifiedStamp, BF_CHARTERS_P5 } from '../../../lib/bf';
 
 const lastVerifiedISO = '2026-04-30';
@@ -45,11 +45,6 @@ const hubSchema = buildBfHubSchema({
   })),
 });
 
-const breadcrumbSchema = buildBreadcrumbSchema([
-  { name: 'Home', url: 'https://peninsulainsider.com.au/' },
-  { name: 'Fishing', url: 'https://peninsulainsider.com.au/fishing/' },
-  { name: 'Charters', url: 'https://peninsulainsider.com.au/fishing/charters/' },
-]);
 export const prerender = true;
 ---
 
@@ -61,7 +56,6 @@ export const prerender = true;
   modifiedTime={lastVerifiedISO}
 >
   <script type="application/ld+json" set:html={JSON.stringify(hubSchema)} />
-  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   <BfAnalytics />
 
   <Breadcrumbs items={breadcrumbItems} />
@@ -84,16 +78,16 @@ export const prerender = true;
       ) : (
         <div class="venues__grid venues__grid--links">
           {ordered.map((c) => (
-            <article class="venue-card">
+            <article class="pi-card"><div class="pi-card__body">
               <h2 class="venue-card__name">
                 <a href={`/fishing/charters/${c.data.slug}/`}>{c.data.name}</a>
               </h2>
-              <p class="venue-card__meta">
+              <p class="pi-card__meta">
                 {c.data.licenceCovered === 'covered' ? 'Licence covered' : c.data.licenceCovered === 'byo' ? 'BYO licence' : ''}
               </p>
-              <p class="venue-card__signature">{c.data.intro}</p>
-              <a href={`/fishing/charters/${c.data.slug}/`} class="venue-card__cta">Operator profile &rarr;</a>
-            </article>
+              <p class="pi-card__dek">{c.data.intro}</p>
+              <div class="pi-card__actions"><a href={`/fishing/charters/${c.data.slug}/`} class="pi-btn pi-btn--solid">Operator profile &rarr;</a></div>
+            </div></article>
           ))}
         </div>
       )}

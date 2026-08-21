@@ -45,19 +45,19 @@ Both springs fill in summer but feel different in winter: purposeful, quieter, a
 
 ## The mistake most visitors make
 
-They try to do winter the same way they do summer — two regions in two days, multiple venues, a schedule built around not missing anything.
+They try to do winter the same way they do summer - two regions in two days, multiple venues, a schedule built around not missing anything.
 
 Winter does not reward that. It rewards the opposite.
 
 The Peninsula's best winter days have a single anchor: one dining room, one walk that earns it, one cellar door before or after. The rhythm is slower than summer demands, and the region responds to it by giving you more of itself.
 
-Flinders on a cold Saturday morning — the bakery, then the walk to the beach, then a slow drive back up through the ridge — is one of the most considered days the Peninsula offers. It does not require booking six things. It requires booking one, and letting the rest find its level.
+Flinders on a cold Saturday morning - the bakery, then the walk to the beach, then a slow drive back up through the ridge - is one of the most considered days the Peninsula offers. It does not require booking six things. It requires booking one, and letting the rest find its level.
 
 ## What to book
 
 The rooms that make the most sense in winter are not necessarily the same ones that make sense in summer.
 
-**For the long lunch:** Ten Minutes by Tractor and Tedesca Osteria are at their best with a fire lit and a room that is not at capacity. Book at least two weeks ahead even in winter for weekend lunch — the rooms are small and they fill.
+**For the long lunch:** Ten Minutes by Tractor and Tedesca Osteria are at their best with a fire lit and a room that is not at capacity. Book at least two weeks ahead even in winter for weekend lunch - the rooms are small and they fill.
 
 **For the cellar door afternoon:** Montalto is the most atmospheric cold-day walk-in on the Peninsula. The garden looks better in winter than most places do in summer. Tasting at the bar, then the estate walk, then a decision about whether lunch is also happening.
 
@@ -69,7 +69,7 @@ The rooms that make the most sense in winter are not necessarily the same ones t
 
 Summer is when the Peninsula is popular. Winter is when it is good.
 
-The dining rooms, the cellar doors, the roads, the coast, the ridge — all of it is better experienced when the region is not performing for the number of people who arrived expecting summer. The Peninsula knows how to work in winter. Most visitors just have not given it the chance.
+The dining rooms, the cellar doors, the roads, the coast, the ridge - all of it is better experienced when the region is not performing for the number of people who arrived expecting summer. The Peninsula knows how to work in winter. Most visitors just have not given it the chance.
 
 ---
 

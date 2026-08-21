@@ -1,11 +1,11 @@
 ---
 /**
- * /explore/plans/build/ — Phase D wave 2 of the data architecture rollout.
+ * /explore/plans/build/ - Phase D wave 2 of the data architecture rollout.
  *
  * Interactive planner that runs pi.search against the canonical
  * facet taxonomy. The user picks any combination of audience, mood,
  * theme, season, weather, dog-friendly, price band, zone
- * — plus a free-text query — and gets a live ranked result set powered
+ * - plus a free-text query - and gets a live ranked result set powered
  * by the hybrid lexical + semantic + facet RPC.
  *
  * No Pagefind fallback on this page. The whole point of /explore/plans/build/ is
@@ -111,7 +111,7 @@ export const prerender = true;
             type="search"
             id="planBuilderQ"
             class="plan-builder__q"
-            placeholder="Optional — long lunch, fireplace, rainy day…"
+            placeholder="Optional - long lunch, fireplace, rainy day…"
             aria-label="Free-text query"
             autocomplete="off"
             spellcheck="false"
@@ -143,7 +143,7 @@ export const prerender = true;
         ))}
 
         <div class="plan-builder__actions">
-          <button type="button" id="planBuilderClear" class="plan-builder__btn plan-builder__btn--ghost">Clear all</button>
+          <button type="button" id="planBuilderClear" class="pi-btn pi-btn--ghost">Clear all</button>
           <p id="planBuilderCount" class="plan-builder__count" aria-live="polite">Pick a filter or type to see results.</p>
         </div>
       </div>
@@ -153,7 +153,7 @@ export const prerender = true;
       <div class="container">
         <div id="planBuilderResults" class="plan-builder__results" aria-live="polite"></div>
         <div id="planBuilderUnavailable" class="plan-builder__unavailable" hidden>
-          <p>The live planner isn't reachable right now. Try the <a href="/explore/plans/">curated plans hub</a>, or ask <a href="/ask/">The Insider</a> directly.</p>
+          <p>The live planner isn't reachable right now. Try the <a href="/explore/plans/">curated plans hub</a> instead.</p>
         </div>
       </div>
     </section>
@@ -301,27 +301,25 @@ export const prerender = true;
     .plan-builder__title { font-family: var(--ff-serif, Georgia, serif); font-size: clamp(1.8rem, 4vw, 2.6rem); margin: 0.4rem 0 0.5rem; }
     .plan-builder__lead { max-width: 60ch; opacity: 0.85; }
     .plan-builder__search { display: flex; gap: 0.6rem; margin-top: 1.2rem; flex-wrap: wrap; }
-    .plan-builder__q { flex: 1; min-width: 16rem; padding: 0.7rem 0.9rem; font-size: 1rem; border: 1px solid var(--c-rule, #d4cec0); border-radius: 6px; }
+    .plan-builder__q { flex: 1; min-width: 16rem; padding: 0.7rem 0.9rem; font-size: 1rem; border: 1px solid var(--c-rule, #c0d4cf); border-radius: 6px; }
     .plan-builder__type-wrap { display: inline-flex; align-items: center; gap: 0.4rem; }
     .plan-builder__type-label { font-size: 0.85rem; opacity: 0.7; }
-    .plan-builder__type { padding: 0.55rem 0.6rem; font-size: 0.95rem; border: 1px solid var(--c-rule, #d4cec0); border-radius: 6px; background: white; }
+    .plan-builder__type { padding: 0.55rem 0.6rem; font-size: 0.95rem; border: 1px solid var(--c-rule, #c0d4cf); border-radius: 6px; background: white; }
     .plan-builder__filters { padding: 1.4rem 0; border-bottom: 1px solid var(--c-rule, #e6e1d8); }
     .plan-builder__facet { border: none; margin: 0 0 0.9rem; padding: 0; }
     .plan-builder__facet-label { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.7; margin-right: 0.6rem; padding: 0; }
     .plan-builder__chips { display: inline-flex; flex-wrap: wrap; gap: 0.35rem; }
-    .plan-builder__chip { display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.3rem 0.65rem; border: 1px solid var(--c-rule, #d4cec0); border-radius: 999px; font-size: 0.85rem; cursor: pointer; user-select: none; }
+    .plan-builder__chip { display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.3rem 0.65rem; border: 1px solid var(--c-rule, #c0d4cf); border-radius: 999px; font-size: 0.85rem; cursor: pointer; user-select: none; }
     .plan-builder__chip input { margin: 0; }
     .plan-builder__chip:has(input:checked) { background: var(--c-accent, #1f3f3a); color: white; border-color: var(--c-accent, #1f3f3a); }
     .plan-builder__actions { display: flex; align-items: center; gap: 1rem; margin-top: 0.8rem; flex-wrap: wrap; }
-    .plan-builder__btn { padding: 0.45rem 0.9rem; border: 1px solid var(--c-rule, #d4cec0); border-radius: 6px; background: white; cursor: pointer; font-size: 0.9rem; }
-    .plan-builder__btn--ghost:hover { background: var(--c-paper-tint, #f6f3eb); }
     .plan-builder__count { margin: 0; font-size: 0.85rem; opacity: 0.7; }
     .plan-builder__results-section { padding: 1.4rem 0; }
     .plan-builder__list { list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr)); }
     .plan-builder__card { display: grid; grid-template-rows: 9rem 1fr; text-decoration: none; color: inherit; border: 1px solid var(--c-rule, #e6e1d8); border-radius: 10px; overflow: hidden; background: white; transition: transform 120ms ease; }
     .plan-builder__card:hover { transform: translateY(-2px); }
     .plan-builder__card-img { background-size: cover; background-position: center; background-color: var(--c-paper-tint, #f0ece2); }
-    .plan-builder__card-img--blank { background: linear-gradient(135deg, #ece8de, #d8d3c4); }
+    .plan-builder__card-img--blank { background: linear-gradient(135deg, #ece8de, #c4d8d3); }
     .plan-builder__card-body { padding: 0.8rem 0.9rem 1rem; display: flex; flex-direction: column; gap: 0.3rem; }
     .plan-builder__card-kind { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.7; }
     .plan-builder__card-title { font-family: var(--ff-serif, Georgia, serif); font-size: 1.05rem; line-height: 1.25; }

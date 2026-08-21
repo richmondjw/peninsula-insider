@@ -1,5 +1,5 @@
 /* ════════════════════════════════════════════════════════════════════
-   SITE SEARCH — masthead pill, instant overlay, /search results page
+   SITE SEARCH - masthead pill, instant overlay, /search results page
    Built 2026-05-03. Reuses tokens from global.css (--bg, --ink, --soft,
    --accent, --ease, --max).
    ════════════════════════════════════════════════════════════════════ */
@@ -27,7 +27,7 @@
 }
 .masthead__search-icon:hover,
 .masthead__search-icon:focus-visible {
-  background: rgba(167, 118, 55, 0.12);
+  background: rgba(7, 158, 165, 0.12);
   color: var(--accent);
   outline: none;
 }
@@ -52,7 +52,7 @@
   padding: clamp(2.5rem, 10vh, 7rem) 1rem 1rem;
 
   /* Bidirectional open/close transition. The overlay uses `data-open`
-     as its single source of truth for visibility — no `hidden` attribute,
+     as its single source of truth for visibility - no `hidden` attribute,
      no display:none, so close animates as smoothly as open. */
   opacity: 0;
   visibility: hidden;
@@ -66,7 +66,7 @@
   visibility: visible;
   pointer-events: auto;
 }
-/* Suppress the native [hidden] effect — the JS keeps the attribute for
+/* Suppress the native [hidden] effect - the JS keeps the attribute for
    accessibility (aria-hidden) but visibility is controlled by data-open. */
 .site-search-overlay[hidden] { display: flex; }
 @media (prefers-reduced-motion: reduce) {
@@ -87,7 +87,7 @@
   width: 100%;
   max-width: 680px;
   background: var(--bg, #FBF7F2);
-  border-radius: 14px;
+  border-radius: var(--radius-l);
   box-shadow: 0 30px 80px -10px rgba(0, 0, 0, 0.4);
   border: 1px solid rgba(0, 0, 0, 0.06);
   display: flex;
@@ -95,7 +95,7 @@
   max-height: calc(100vh - clamp(3rem, 12vh, 9rem));
   overflow: hidden;
   /* Panel slide is driven by the parent's data-open state, in concert
-     with opacity. No keyframes — easier to reverse cleanly on close. */
+     with opacity. No keyframes - easier to reverse cleanly on close. */
   transform: translateY(-8px) scale(0.985);
   transition:
     transform .26s cubic-bezier(0.16, 1, 0.3, 1),
@@ -145,13 +145,21 @@
   margin: 0 1.25rem;
   padding: 0.85rem 1rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
-  border-radius: 10px;
+  border-radius: var(--radius-s);
   background: #fff;
   transition: border-color .2s var(--ease), box-shadow .2s var(--ease);
 }
 .site-search-overlay__form:focus-within {
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(167, 118, 55, 0.18);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 22%, transparent);
+}
+/* The wrapper above IS the focus indicator: an accent border at 8.30:1 on
+   white plus a 3px ring. The global :focus-visible:focus-visible rule was
+   then drawing a SECOND outline around the input inside it, which is the
+   box-within-a-box. Suppressed here at (0,3,0) so it beats that (0,2,0)
+   rule. The input keeps a compliant indicator via the wrapper. */
+.site-search-overlay__form:focus-within .site-search-overlay__input:focus-visible {
+  outline: none;
 }
 .site-search-overlay__icon {
   display: inline-flex;
@@ -175,7 +183,7 @@
   font-size: 0.7rem;
   color: var(--soft);
   border: 1px solid rgba(0, 0, 0, 0.12);
-  border-radius: 4px;
+  border-radius: var(--radius-s);
   padding: 0.1rem 0.4rem;
   margin-left: 0.65rem;
   background: rgba(0, 0, 0, 0.03);
@@ -190,7 +198,7 @@
   font-family: ui-monospace, monospace;
   font-size: 0.7rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
-  border-radius: 3px;
+  border-radius: var(--radius-s);
   padding: 0 0.3rem;
   background: rgba(0, 0, 0, 0.03);
 }
@@ -228,7 +236,7 @@
   grid-template-rows: auto auto auto;
   gap: 0.2rem;
   padding: 0.7rem 0.85rem;
-  border-radius: 8px;
+  border-radius: var(--radius-m);
   text-decoration: none;
   color: inherit;
   background: transparent;
@@ -236,7 +244,7 @@
 }
 .site-search-overlay__result-link:hover,
 .site-search-overlay__result-link:focus-visible {
-  background: rgba(167, 118, 55, 0.08);
+  background: rgba(7, 158, 165, 0.08);
   outline: none;
 }
 .site-search-overlay__result-kind {
@@ -247,7 +255,7 @@
   font-weight: 700;
 }
 .site-search-overlay__result-title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: 1.05rem;
   font-weight: 600;
   color: var(--ink);
@@ -259,12 +267,12 @@
   line-height: 1.4;
 }
 .site-search-overlay__result-excerpt mark {
-  background: rgba(167, 118, 55, 0.18);
+  background: rgba(7, 158, 165, 0.18);
   color: inherit;
   padding: 0 0.1rem;
 }
 .site-search-overlay__result--empty .site-search-overlay__result-empty-title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: 1.1rem;
   font-weight: 600;
   margin: 0.5rem 0 0.25rem;
@@ -275,31 +283,24 @@
   margin: 0;
 }
 
+/* P3-2: .pi-btn --ghost --sm owns the control. KEPT: the gap above it. */
 .site-search-overlay__cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
   margin-top: 0.85rem;
-  padding: 0.65rem 1rem;
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  color: var(--accent);
-  border: 1px solid rgba(167, 118, 55, 0.5);
-  border-radius: 999px;
-  text-decoration: none;
-  transition: background .2s var(--ease), color .2s var(--ease);
 }
-.site-search-overlay__cta:hover {
-  background: var(--accent);
-  color: var(--bg);
+
+/* The author display rules above override the UA [hidden] rule, which left
+   the empty "See all results" pill visible before any query was typed (the
+   "weird box"). Restore hidden's meaning explicitly. */
+.site-search-overlay__results[hidden],
+.site-search-overlay__cta[hidden] {
+  display: none;
 }
 
 body.search-open { overflow: hidden; }
 
 /* ─── /search page proper ───────────────────────────────────────── */
 .search-page-v2__hero {
-  background: linear-gradient(180deg, rgba(167, 118, 55, 0.06) 0%, transparent 100%);
+  background: linear-gradient(180deg, rgba(7, 158, 165, 0.06) 0%, transparent 100%);
   padding: clamp(2rem, 5vw, 3.5rem) 0 clamp(1.5rem, 3vw, 2.5rem);
   text-align: center;
 }
@@ -312,7 +313,7 @@ body.search-open { overflow: hidden; }
   margin: 0 0 0.5rem;
 }
 .search-page-v2__title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(1.9rem, 4vw, 2.8rem);
   font-weight: 500;
   color: var(--ink);
@@ -327,13 +328,17 @@ body.search-open { overflow: hidden; }
   margin: 0 auto;
   background: #fff;
   border: 1px solid rgba(0, 0, 0, 0.12);
-  border-radius: 999px;
+  border-radius: var(--radius-s);
   padding: 0.5rem 0.55rem 0.5rem 1.2rem;
   transition: border-color .2s var(--ease), box-shadow .2s var(--ease);
 }
 .search-page-v2__bar:focus-within {
   border-color: var(--accent);
-  box-shadow: 0 0 0 4px rgba(167, 118, 55, 0.16);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 20%, transparent);
+}
+/* Same nested-indicator suppression as the overlay field above. */
+.search-page-v2__bar:focus-within .search-page-v2__input:focus-visible {
+  outline: none;
 }
 .search-page-v2__bar-icon {
   display: inline-flex;
@@ -386,7 +391,7 @@ body.search-open { overflow: hidden; }
   color: var(--soft);
   background: transparent;
   border: 1px solid rgba(0, 0, 0, 0.14);
-  border-radius: 999px;
+  border-radius: var(--radius-s);
   padding: 0.4rem 0.95rem;
   cursor: pointer;
   transition: all .15s var(--ease);
@@ -454,7 +459,7 @@ body.search-open { overflow: hidden; }
 }
 .search-result-group__title {
   margin: 0;
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(1.35rem, 2vw, 1.8rem);
   line-height: 1.1;
   color: var(--ink);
@@ -473,7 +478,7 @@ body.search-open { overflow: hidden; }
 .search-result-group__toggle {
   appearance: none;
   border: 0;
-  border-bottom: 1px solid rgba(167, 118, 55, 0.42);
+  border-bottom: 1px solid rgba(7, 158, 165, 0.42);
   border-radius: 0;
   padding: 0 0 0.1rem;
   background: transparent;
@@ -498,7 +503,7 @@ body.search-open { overflow: hidden; }
   grid-template-columns: clamp(140px, 28%, 220px) 1fr;
   gap: 1.2rem;
   padding: 0.85rem;
-  border-radius: 10px;
+  border-radius: var(--radius-m);
   border: 1px solid rgba(0, 0, 0, 0.06);
   background: #fff;
   text-decoration: none;
@@ -506,7 +511,7 @@ body.search-open { overflow: hidden; }
   transition: border-color .2s var(--ease), transform .2s var(--ease), box-shadow .2s var(--ease);
 }
 .search-card:hover {
-  border-color: rgba(167, 118, 55, 0.4);
+  border-color: rgba(7, 158, 165, 0.4);
   transform: translateY(-1px);
   box-shadow: 0 6px 20px -10px rgba(0, 0, 0, 0.18);
 }
@@ -518,7 +523,7 @@ body.search-open { overflow: hidden; }
 }
 .search-card--lead {
   grid-template-columns: clamp(180px, 34%, 280px) 1fr;
-  border-color: rgba(167, 118, 55, 0.28);
+  border-color: rgba(7, 158, 165, 0.28);
   background: #fffdf8;
 }
 .search-result-group__grid .search-card {
@@ -536,14 +541,14 @@ body.search-open { overflow: hidden; }
 }
 .search-card__hero {
   display: block;
-  border-radius: 6px;
+  border-radius: var(--radius-m);
   background-size: cover;
   background-position: center;
-  background-color: rgba(167, 118, 55, 0.08);
+  background-color: rgba(7, 158, 165, 0.08);
   aspect-ratio: 16 / 11;
 }
 .search-card__hero--placeholder {
-  background-image: linear-gradient(135deg, rgba(167, 118, 55, 0.18), rgba(167, 118, 55, 0.05));
+  background-image: linear-gradient(135deg, rgba(7, 158, 165, 0.18), rgba(7, 158, 165, 0.05));
 }
 .search-card__body {
   display: flex;
@@ -559,7 +564,7 @@ body.search-open { overflow: hidden; }
   color: var(--accent);
 }
 .search-card__title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: 1.35rem;
   font-weight: 600;
   color: var(--ink);
@@ -571,10 +576,10 @@ body.search-open { overflow: hidden; }
   color: var(--soft);
 }
 .search-card__excerpt mark {
-  background: rgba(167, 118, 55, 0.18);
+  background: rgba(7, 158, 165, 0.18);
   color: var(--ink);
   padding: 0 0.15rem;
-  border-radius: 2px;
+  border-radius: var(--radius-s);
 }
 
 @media (max-width: 640px) {
@@ -609,29 +614,31 @@ body.search-open { overflow: hidden; }
   gap: 0.4rem;
   margin: 2rem 0 0.5rem;
 }
-.search-page-v2__pager-btn,
+/* P3-2: the pager button is .pi-btn --ghost --sm. Its numbered-step
+   sibling is not a .pi-btn (it is a page number, not an action), so it
+   keeps a local rule, retuned onto the tokens and the radius scale. */
 .search-page-v2__pager-step {
-  font-family: inherit;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--ink);
+  font-family: var(--font-ui);
+  font-size: var(--fs-200);
+  font-weight: var(--fw-semibold);
+  color: var(--text);
   background: transparent;
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  border-radius: 6px;
-  padding: 0.4rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-s);
+  padding: var(--space-1) var(--space-3);
   cursor: pointer;
   transition: all .15s var(--ease);
   min-width: 36px;
 }
-.search-page-v2__pager-btn:hover,
 .search-page-v2__pager-step:not([disabled]):hover {
   border-color: var(--accent);
   color: var(--accent);
 }
+/* KEPT: the current-page state. The primitive has no selected state. */
 .search-page-v2__pager-btn.is-active {
-  background: var(--ink);
+  background: var(--text);
   color: var(--bg);
-  border-color: var(--ink);
+  border-color: var(--text);
 }
 .search-page-v2__pager-step[disabled] {
   opacity: 0.4;
@@ -645,13 +652,13 @@ body.search-open { overflow: hidden; }
 
 /* ─── Fallback "Didn't find?" block ─────────────────────────────── */
 .search-page-v2__fallback {
-  background: linear-gradient(180deg, transparent, rgba(167, 118, 55, 0.05));
+  background: linear-gradient(180deg, transparent, rgba(7, 158, 165, 0.05));
   padding: 2.5rem 0 3.5rem;
 }
 .search-page-v2__fallback-card {
   background: #1F1B16;
   color: #FBF7F2;
-  border-radius: 14px;
+  border-radius: var(--radius-l);
   padding: clamp(1.8rem, 4vw, 3rem);
   text-align: center;
   max-width: 720px;
@@ -664,8 +671,8 @@ body.search-open { overflow: hidden; }
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 30% 20%, rgba(167, 118, 55, 0.18), transparent 40%),
-    radial-gradient(circle at 80% 80%, rgba(167, 118, 55, 0.12), transparent 50%);
+    radial-gradient(circle at 30% 20%, rgba(7, 158, 165, 0.18), transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(7, 158, 165, 0.12), transparent 50%);
   pointer-events: none;
 }
 .search-page-v2__fallback-eyebrow,
@@ -683,7 +690,7 @@ body.search-open { overflow: hidden; }
   margin: 0 0 0.6rem;
 }
 .search-page-v2__fallback-title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(1.6rem, 3vw, 2.2rem);
   font-weight: 500;
   color: #FBF7F2;
@@ -697,25 +704,6 @@ body.search-open { overflow: hidden; }
   max-width: 540px;
   margin: 0 auto 1.5rem;
 }
-.search-page-v2__fallback-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-family: inherit;
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  color: #FBF7F2;
-  background: transparent;
-  border: 1px solid rgba(251, 247, 242, 0.4);
-  border-radius: 999px;
-  padding: 0.7rem 1.3rem;
-  cursor: pointer;
-  transition: all .2s var(--ease);
-}
-.search-page-v2__fallback-cta:hover {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: #fff;
-  transform: translateY(-1px);
-}
+/* P3-2: this sits on the dark fallback panel, so it is
+   .pi-btn --ghost --inverse: a full-strength white rule and white label
+   (13.43:1) in place of the old 40%-alpha border. */

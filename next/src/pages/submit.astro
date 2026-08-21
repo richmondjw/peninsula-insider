@@ -1,6 +1,6 @@
 ---
 /**
- * /submit/ — community submissions form (Phase 4 WS4D).
+ * /submit/ - community submissions form (Phase 4 WS4D).
  *
  * Reader-submitted local secrets. Form posts to Supabase via the
  * anon client (RLS allows insert; reads gated). Anonymous and signed-in
@@ -56,7 +56,7 @@ export const prerender = true;
     eyebrow="Tell us your secret"
     subEyebrow="Reader contributions"
     title="The places we'd never find <em>without you</em>."
-    dek="The Peninsula Insider editorial desk visits a lot of venues. We don't know everything. If you've got a hidden corner that doesn't get the coverage it deserves — a back-bay swimming hole, a producer's farm-gate stall, a local pub with a roast that's worth the drive — we'd like to hear about it. Send it through, and if it lands we'll publish it with your name."
+    dek="The Peninsula Insider editorial desk visits a lot of venues. We don't know everything. If you've got a hidden corner that doesn't get the coverage it deserves - a back-bay swimming hole, a producer's farm-gate stall, a local pub with a roast that's worth the drive - we'd like to hear about it. Send it through, and if it lands we'll publish it with your name."
     gradient="journal"
     visualLabel="Peninsula Insider · reader contributions"
     entitySlug="submit"
@@ -78,7 +78,7 @@ export const prerender = true;
           <p class="submit-rules-label">House rules</p>
           <ul class="submit-rules">
             <li>One spot per submission. If you have three, send three.</li>
-            <li>It must be on the Mornington Peninsula proper — Mount Martha to Portsea, plus Western Port fringe.</li>
+            <li>It must be on the Mornington Peninsula proper - Mount Martha to Portsea, plus Western Port fringe.</li>
             <li>If you own or work at the venue, say so. We won't publish it as a "secret" but we may cover it editorially.</li>
             <li>Photos are optional. If you submit one, you're confirming you took it or have permission to share it.</li>
             <li>No deceased-author plagiarism. Use your own words.</li>
@@ -195,7 +195,7 @@ export const prerender = true;
             </fieldset>
 
             <div class="submit-form__submit">
-              <button type="submit" class="submit-form__button">Send the secret</button>
+              <button type="submit" class="submit-form__button pi-btn pi-btn--solid">Send the secret</button>
               <p class="submit-form__caveat">By submitting you agree to the editor's right to lightly edit for clarity, fact-check the venue, and decline to publish.</p>
             </div>
 
@@ -260,7 +260,7 @@ export const prerender = true;
     const form = document.querySelector('[data-submit-form]') as HTMLFormElement | null;
     if (!form) return;
     const status = document.querySelector('[data-submit-status]') as HTMLParagraphElement | null;
-    const button = form.querySelector('.submit-form__button') as HTMLButtonElement | null;
+    const button = form.querySelector('button[type="submit"]') as HTMLButtonElement | null;
 
     function setStatus(kind: 'success' | 'error' | 'info', message: string) {
       if (!status) return;
@@ -304,7 +304,7 @@ export const prerender = true;
       const { error } = await c.from('submissions').insert(row);
       if (error) {
         console.warn('[submit] insert failed:', error.message);
-        setStatus('error', "Couldn't send that — try once more. If it keeps failing, email hello@peninsulainsider.com.au.");
+        setStatus('error', "Couldn't send that - try once more. If it keeps failing, email hello@peninsulainsider.com.au.");
         if (button) button.disabled = false;
         return;
       }

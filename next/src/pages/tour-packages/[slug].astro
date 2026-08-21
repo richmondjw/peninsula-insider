@@ -88,9 +88,8 @@ export const prerender = true;
     <div class="prose">
       <p {...editableText({
         entityType: 'tour-package', entitySlug: slug, fieldPath: 'intro',
-        label: `${data.name} — intro`,
+        label: `${data.name} - intro`,
       })}>{data.intro}</p>
-      <p class="venues__sub" style="font-size:0.8rem;color:var(--soft)">Last verified: {data.lastVerified?.toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
     </div>
   </SubpageHero>
 
@@ -168,7 +167,7 @@ export const prerender = true;
               <div class="tour-cta-block">
                 <h3 class="tour-cta-block__title">{tour.data.name}</h3>
                 <p>Operated by {opData?.name ?? tour.data.operatorSlug}. Book directly with the operator.</p>
-                <a href={utmUrl} target="_blank" rel="noopener noreferrer" class="tour-cta-primary">
+                <a href={utmUrl} target="_blank" rel="noopener noreferrer" class="tour-cta-primary pi-btn pi-btn--solid">
                   Book this tour &rarr;
                 </a>
               </div>
@@ -189,31 +188,31 @@ export const prerender = true;
           </div>
         </div>
         <div class="venues__grid venues__grid--links">
-          <div class="venue-card">
-            <h3 class="venue-card__name">
+          <div class="pi-card"><div class="pi-card__body">
+            <h3 class="pi-card__title">
               <a href={`/stay/${data.anchorStaySlug}/`}>
                 {data.anchorStaySlug.replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase())}
               </a>
             </h3>
-            <p class="venue-card__signature">{data.anchorStayBlurb}</p>
-            <a href={`/stay/${data.anchorStaySlug}/`} class="venue-card__cta">View stay notes &rarr;</a>
-          </div>
+            <p class="pi-card__dek">{data.anchorStayBlurb}</p>
+            <div class="pi-card__actions"><a href={`/stay/${data.anchorStaySlug}/`} class="pi-btn pi-btn--solid">View stay notes &rarr;</a></div>
+          </div></div>
           {data.altStaySlug && (
-            <div class="venue-card">
-              <h3 class="venue-card__name">
+            <div class="pi-card"><div class="pi-card__body">
+              <h3 class="pi-card__title">
                 <a href={`/stay/${data.altStaySlug}/`}>
                   Alternative stay
                 </a>
               </h3>
-              <p class="venue-card__signature">An alternative base for this package if the anchor property is unavailable.</p>
-              <a href={`/stay/${data.altStaySlug}/`} class="venue-card__cta">View stay notes &rarr;</a>
-            </div>
+              <p class="pi-card__dek">An alternative base for this package if the anchor property is unavailable.</p>
+              <div class="pi-card__actions"><a href={`/stay/${data.altStaySlug}/`} class="pi-btn pi-btn--solid">View stay notes &rarr;</a></div>
+            </div></div>
           )}
-          <div class="venue-card">
-            <h3 class="venue-card__name"><a href="/stay/">All Peninsula stays</a></h3>
-            <p class="venue-card__signature">Browse the full Peninsula stay guide by location, budget, and mood.</p>
-            <a href="/stay/" class="venue-card__cta">Browse stays &rarr;</a>
-          </div>
+          <div class="pi-card"><div class="pi-card__body">
+            <h3 class="pi-card__title"><a href="/stay/">All Peninsula stays</a></h3>
+            <p class="pi-card__dek">Browse the full Peninsula stay guide by location, budget, and mood.</p>
+            <div class="pi-card__actions"><a href="/stay/" class="pi-btn pi-btn--solid">Browse stays &rarr;</a></div>
+          </div></div>
         </div>
       </div>
     </section>

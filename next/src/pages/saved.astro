@@ -1,6 +1,6 @@
 ---
 /**
- * /saved/ — the user's saved-list view (Phase 2 WS2E).
+ * /saved/ - the user's saved-list view (Phase 2 WS2E).
  *
  * Renders the contents of localStorage on the client. Supports two modes:
  *   1. Personal mode (default): reads pi:saved:v1 from localStorage and
@@ -79,11 +79,12 @@ export const prerender = true;
     dek="Save venues, events, and recommendations as you explore the site. Return when you're planning, share with a co-traveller, or build your next Peninsula weekend from what you've collected."
     gradient="journal"
     visualLabel="Peninsula Insider · saved trips"
+    entitySlug="saved"
   />
 
   <section class="saved-page">
     <div class="container">
-      <!-- Mode banner — appears in shared mode only. Set by inline JS. -->
+      <!-- Mode banner - appears in shared mode only. Set by inline JS. -->
       <aside class="saved-banner" data-saved-banner hidden>
         <div class="saved-banner__inner">
           <p class="saved-banner__label">Shared shortlist</p>

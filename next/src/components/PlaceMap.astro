@@ -1,17 +1,17 @@
 ---
 /**
- * PlaceMap — scoped Leaflet map for /explore/places/<slug>/ (Phase 3 WS3B).
+ * PlaceMap - scoped Leaflet map for /explore/places/<slug>/ (Phase 3 WS3B).
  *
  * Reuses the /map/ infrastructure: same DivIcon palette, same popup
  * pattern, same OSM tiles. The two differences from /map/:
  *   1. Pins are scoped to a single place (≈5–25 pins typical).
- *   2. Leaflet is lazy-loaded via IntersectionObserver — the page renders
+ *   2. Leaflet is lazy-loaded via IntersectionObserver - the page renders
  *      a placeholder until the user scrolls the map into view, so place
  *      hubs without scroll-into-view stay light.
  *
  * Locked decisions (see Phase 3 plan):
- *   Q2 — Events on place maps: yes, next-30-day window.
- *   Map height — fixed 380px desktop, 4:3 aspect on mobile.
+ *   Q2 - Events on place maps: yes, next-30-day window.
+ *   Map height - fixed 380px desktop, 4:3 aspect on mobile.
  */
 import { routeSlug, venueHrefPrefix } from '../lib/editorial';
 
@@ -147,7 +147,7 @@ const mapId = `placeMap-${placeSlug}`;
       <div class="place-map__header">
         <p class="label label--accent">On the map</p>
         <h2 class="place-map__title">{place.data.name}, by location</h2>
-        <p class="place-map__sub">Every editorially verified pin in {place.data.name} on one screen — toggle a category, click any marker for the editor's note.</p>
+        <p class="place-map__sub">Every editorially verified pin in {place.data.name} on one screen - toggle a category, click any marker for the editor's note.</p>
       </div>
 
       <div class="place-map__filters">
@@ -183,8 +183,7 @@ const mapId = `placeMap-${placeSlug}`;
 <script is:inline define:vars={{ mapId }}>
   /* PlaceMap controller. Lazy-loads Leaflet from CDN via an
      IntersectionObserver so place hubs that aren't scrolled to don't pay
-     for the library. Once initialised, behaves like a scoped /map/ —
-     category toggles, click-to-popup, list-marker sync via the same
+     for the library. Once initialised, behaves like a scoped /map/ - category toggles, click-to-popup, list-marker sync via the same
      DivIcon palette.
      Multiple instances on a page would share the Leaflet load (the
      first to enter the viewport triggers it). */
@@ -254,7 +253,7 @@ const mapId = `placeMap-${placeSlug}`;
           +     (meta ? '<p class="map-popup__meta">' + meta + '</p>' : '')
           +     '<h3 class="map-popup__title">' + escapeHtml(p.name) + '</h3>'
           +     (p.blurb ? '<p class="map-popup__blurb">' + escapeHtml(p.blurb) + '</p>' : '')
-          +     '<a class="map-popup__cta" href="' + escapeHtml(p.href) + '">Read the full notes →</a>'
+          +     '<a class="map-popup__cta pi-btn pi-btn--text" href="' + escapeHtml(p.href) + '">Read the full notes →</a>'
           +   '</div>'
           + '</div>';
       }

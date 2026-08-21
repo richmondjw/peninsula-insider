@@ -1,0 +1,173 @@
+name: Build and Deploy — Peninsula Insider
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'next/src/**'
+      - 'next/public/**'
+      - 'next/astro.config.mjs'
+      - 'next/package.json'
+      - '.github/workflows/build-and-deploy.yml'
+  schedule:
+    # The event feed and rolling weekend page are generated at build time.
+    # Rebuild daily just after midnight in Melbourne so yesterday's
+    # occurrences cannot remain published until the next editorial deploy.
+    - cron: '10 14 * * *'
+    # Rebuild twice per Melbourne weekend day. UTC remains safely within the
+    # weekend when DST shifts (08:00/14:00 AEST, 09:00/15:00 AEDT).
+    - cron: '0 22 * * 5'
+    - cron: '0 4 * * 6'
+    - cron: '0 22 * * 6'
+    - cron: '0 4 * * 0'
+    # Midweek rebuild so build-time-derived content (e.g. HomePlan.astro's
+    # featured-plan rotation) doesn't sit stale for the ~5.75-day gap
+    # between the Sunday weekend run and the next Friday one. 06:00 AEST/
+    # AEDT-ish, safely mid-morning Melbourne either way.
+    - cron: '0 20 * * 2'
+  workflow_dispatch:
+
+# GITHUB_TOKEN must be able to push the built site to gh-pages.
+permissions:
+  contents: write
+  issues: write
+
+# Cancel any in-progress deploy on new push
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      TZ: Australia/Sydney
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: next/package-lock.json
+
+      - name: Install dependencies
+        run: |
+          cd next
+          npm ci --prefer-offline
+
+      - name: CMS editable-coverage gate
+        run: node next/scripts/check-editable-coverage.mjs
+
+      - name: Content admission gate
+        run: |
+          cd next
+          npm run test:content-admission
+          npm run test:agent-readiness
+          npm run validate:content
+
+      - name: Build
+        run: |
+          cd next
+          npm run build:search
+        env:
+          PUBLIC_SUPABASE_URL: ${{ secrets.PUBLIC_SUPABASE_URL }}
+          PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.PUBLIC_SUPABASE_ANON_KEY }}
+          PUBLIC_CONCIERGE_API_URL: https://peninsula-insider-platform-api.vercel.app
+          # Set to 'off' to remove the temporary client-side password gate
+          # and launch the site publicly.
+          PUBLIC_ACCESS_GATE: 'off'
+          # Site-wide Insider Note signup popup. Set to 'off' for rollback.
+          PUBLIC_NEWSLETTER_POPUP: 'on'
+
+      - name: Generate agent index (llms.txt)
+        # Build the agent-discoverability layer from the freshly-built sitemap so
+        # /llms.txt and /llms-full.txt ship in dist and can never drift from what
+        # was actually published. See ops/scripts/generate-llms-txt.mjs.
+        run: |
+          node ops/scripts/generate-llms-txt.mjs \
+            --sitemap next/dist/sitemap.xml \
+            --out-dir next/dist
+
+      - name: Write deployment provenance
+        env:
+          SOURCE_SHA: ${{ github.sha }}
+          BUILD_RUN_ID: ${{ github.run_id }}
+        run: |
+          node --input-type=module -e "import { writeFileSync } from 'node:fs'; writeFileSync('next/dist/deployment.json', JSON.stringify({ sourceSha: process.env.SOURCE_SHA, runId: process.env.BUILD_RUN_ID, generatedAt: new Date().toISOString() }, null, 2) + '\n')"
+
+      - name: Prune internal surfaces from deploy output (T-006)
+        # v5 hygiene (2026-07-11, T-006): the editorial admin surface
+        # (next/src/pages/admin + public/admin/media-registry.json) must not
+        # ship in the public static build. It remains available in local dev
+        # and PI_ADMIN_HYBRID server builds. Reversible: delete this step.
+        # NOTE: studio-peninsula-insider/ and ops/ never enter this deploy —
+        # gh-pages publishes only next/dist. They exist at the repo root only
+        # as leftovers of the retired build-live.sh root-deploy model.
+        run: |
+          rm -rf next/dist/admin
+          rm -rf next/dist/dev
+          echo "Pruned next/dist/admin and next/dist/dev from deploy output"
+
+      - name: SEO artefact integrity gate
+        # Asserts the BUILT site, not source declarations. The April 2026 bulk
+        # sitemapExclude shipped noindex,nofollow to ~127 published pages and
+        # survived every source-level lint for 100 days, so this gate reads what
+        # next/dist actually emits: sitemap URLs that are noindex, redirects or
+        # not self-canonical; permanent migrations pairing noindex with a foreign
+        # canonical; redirect/canonical loops and multi-hop chains; malformed
+        # internal hrefs. Runs before deploy so a regression never reaches Google.
+        run: |
+          node ops/scripts/seo/build-url-ledger.mjs \
+            --dist next/dist \
+            --out ops/reports/seo/ledger \
+            --assert
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./next/dist
+          publish_branch: gh-pages
+          cname: peninsulainsider.com.au
+          force_orphan: false
+          commit_message: "deploy: ${{ github.sha }} — ${{ github.event.head_commit.message }}"
+
+      - name: Alert on failure (non-silent)
+        # Red main must surface immediately. Uses the repo's existing alert path
+        # (engine/alert.py — structured file under ops/alerts/ plus a deduplicated
+        # `pi-alert` GitHub issue), the same channel the daily/weekly/monthly
+        # content workflows use, so deploy failures land where operators already
+        # look instead of opening a fresh untriaged issue on every red run.
+        if: failure()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          PI_REPO_ROOT: ${{ github.workspace }}
+          # Interpolated via env, never inline: a quote or backtick in a commit
+          # message must not break the one step whose job is to raise the alarm.
+          COMMIT_URL: ${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}
+          COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          BODY=$(printf '%s\n' \
+            "Build and Deploy failed - the live site is no longer being updated from main." \
+            "" \
+            "Commit: ${COMMIT_URL}" \
+            "Message: ${COMMIT_MESSAGE}" \
+            "Run: ${RUN_URL}" \
+            "" \
+            "If the failing step is the content admission gate, a placeholder stub or" \
+            "schema-invalid content file reached main. Find it with:" \
+            "    cd next && npm run validate:content" \
+            "then fix or remove the offending file.")
+          python3 engine/alert.py \
+            --title "Deploy failed on main (run #${{ github.run_number }})" \
+            --body "$BODY" \
+            --dedup deploy-main-failure --severity fatal

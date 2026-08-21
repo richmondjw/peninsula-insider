@@ -247,7 +247,7 @@ const factualRest = factual.slice(1);
           <p class="label label--accent">Use it in sequence</p>
           <h2 class="venues__title">Escapes that already route through {place.data.name}</h2>
         </div>
-        <a href="/explore/plans/" class="venues__link">Plans →</a>
+        <a href="/plans/" class="venues__link">Plans →</a>
       </div>
       <div class="itinerary-grid">
         {itineraries.map((itinerary) => <ItineraryCard itinerary={itinerary} />)}
@@ -334,7 +334,7 @@ const factualRest = factual.slice(1);
     text-shadow: 0 1px 12px rgba(0,0,0,0.4);
   }
   .pdv2-hero__title {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-size: clamp(3.4rem, 8.5vw, 7rem);
     font-weight: 500;
     line-height: 0.95;
@@ -350,8 +350,8 @@ const factualRest = factual.slice(1);
     line-height: 1.5;
     color: rgba(255,255,255,0.82);
     max-width: 48ch;
-    font-style: italic;
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: normal;
+    font-family: var(--font-display);
   }
   .pdv2-hero__credit {
     position: absolute;
@@ -379,7 +379,7 @@ const factualRest = factual.slice(1);
     max-width: 62ch;
   }
   .pdv2-lede__factual {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-size: clamp(1.4rem, 2vw, 1.65rem);
     line-height: 1.45;
     color: var(--dark);
@@ -387,7 +387,7 @@ const factualRest = factual.slice(1);
     font-weight: 400;
   }
   .pdv2-lede__dropcap {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     float: left;
     font-size: 4.5em;
     line-height: 0.85;
@@ -449,11 +449,11 @@ const factualRest = factual.slice(1);
     font-weight: 400;
   }
   .pdv2-card__note {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-size: 1.05rem;
     line-height: 1.55;
     color: var(--dark);
-    font-style: italic;
+    font-style: normal;
     border-top: 1px solid var(--border);
     padding-top: 1.1rem;
   }
@@ -477,13 +477,13 @@ const factualRest = factual.slice(1);
     border-bottom: 1px solid var(--border);
   }
   .pdv2-quote__text {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-size: clamp(1.9rem, 3.6vw, 2.9rem);
     line-height: 1.25;
     letter-spacing: -0.01em;
     color: var(--dark);
     font-weight: 400;
-    font-style: italic;
+    font-style: normal;
     max-width: 32ch;
     margin: 0 auto;
     text-align: center;
@@ -550,7 +550,7 @@ const factualRest = factual.slice(1);
     color: var(--accent);
   }
   .pdv2-chapters__num {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-size: 1.4rem;
     color: var(--accent);
     font-weight: 500;

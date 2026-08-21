@@ -1,12 +1,12 @@
 ---
 /**
- * ThreeMissionBar — three-panel utility bar placed immediately after the
+ * ThreeMissionBar - three-panel utility bar placed immediately after the
  * editorial cover on the homepage.
  *
  * Makes three core platform jobs visible before the fold:
- *   1. Ask The Insider  — natural-language concierge
- *   2. This Weekend     — live weekend dispatch + upcoming events
- *   3. Plan Your Trip   — intent-routed plan builder entry points
+ *   1. Ask The Insider - natural-language concierge
+ *   2. This Weekend - live weekend dispatch + upcoming events
+ *   3. Plan Your Trip - intent-routed plan builder entry points
  *
  * Strategy context: per the 2026 platform review, Ask was the most
  * differentiated feature on the site but was buried as a ghost link.
@@ -64,7 +64,7 @@ const planLinks = [
             maxlength="200"
             data-pi-trigger="true"
           />
-          <button type="submit" class="tmb__ask-btn" aria-label="Ask The Insider">
+          <button type="submit" class="pi-btn pi-btn--solid pi-btn--icon" aria-label="Ask The Insider">
             Ask
           </button>
         </form>
@@ -212,7 +212,7 @@ const planLinks = [
 
   /* ── Shared panel typography ─────────────────────────────────────────────── */
   .tmb__eyebrow {
-    font-family: 'Outfit', system-ui, sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.68rem;
     font-weight: 700;
     letter-spacing: 0.22em;
@@ -222,7 +222,7 @@ const planLinks = [
   }
 
   .tmb__heading {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-size: clamp(1.35rem, 2.2vw, 1.75rem);
     font-weight: 500;
     line-height: 1.1;
@@ -241,7 +241,7 @@ const planLinks = [
   .tmb__input {
     flex: 1;
     min-width: 0;
-    font-family: 'Outfit', system-ui, sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.9rem;
     color: var(--text);
     background: var(--white);
@@ -255,25 +255,8 @@ const planLinks = [
   .tmb__input:focus {
     outline: none;
     border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(139, 78, 59, 0.1);
+    box-shadow: 0 0 0 3px rgba(11, 90, 72, 0.1);
   }
-
-  .tmb__ask-btn {
-    flex-shrink: 0;
-    font-family: 'Outfit', system-ui, sans-serif;
-    font-size: 0.82rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    color: var(--white);
-    background: var(--accent);
-    border: none;
-    border-radius: 999px;
-    padding: 0 1.25rem;
-    cursor: pointer;
-    transition: background 0.15s ease;
-    min-height: 40px;
-  }
-  .tmb__ask-btn:hover { background: var(--text); }
 
   .tmb__chips {
     list-style: none;
@@ -285,7 +268,7 @@ const planLinks = [
   }
 
   .tmb__chip {
-    font-family: 'Outfit', system-ui, sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.8rem;
     color: var(--text);
     background: var(--white);
@@ -310,7 +293,7 @@ const planLinks = [
 
   .tmb__ask-full {
     display: inline-block;
-    font-family: 'Outfit', system-ui, sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.8rem;
     font-weight: 500;
     color: var(--soft);
@@ -350,7 +333,7 @@ const planLinks = [
   .tmb__event-link:hover .tmb__event-name { color: var(--accent); }
 
   .tmb__event-date {
-    font-family: 'Outfit', system-ui, sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.66rem;
     font-weight: 600;
     letter-spacing: 0.16em;
@@ -359,7 +342,7 @@ const planLinks = [
   }
 
   .tmb__event-name {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-size: 1.05rem;
     font-weight: 500;
     line-height: 1.25;
@@ -374,7 +357,7 @@ const planLinks = [
   }
 
   .tmb__empty {
-    font-family: 'Outfit', system-ui, sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.88rem;
     color: var(--soft);
     margin: 0 0 1.25rem;
@@ -389,7 +372,7 @@ const planLinks = [
   }
 
   .tmb__secondary-link {
-    font-family: 'Outfit', system-ui, sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.8rem;
     color: var(--soft);
     text-decoration: none;
@@ -401,7 +384,7 @@ const planLinks = [
 
   /* ── Panel 3: Plan ───────────────────────────────────────────────────────── */
   .tmb__plan-sub {
-    font-family: 'Outfit', system-ui, sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.88rem;
     line-height: 1.55;
     color: var(--soft);
@@ -434,7 +417,7 @@ const planLinks = [
   .tmb__plan-link:hover { color: var(--accent); }
 
   .tmb__plan-link-label {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-size: 1.05rem;
     font-weight: 500;
     line-height: 1.2;
@@ -454,7 +437,7 @@ const planLinks = [
   /* ── Shared "more" link ──────────────────────────────────────────────────── */
   .tmb__more {
     display: inline-block;
-    font-family: 'Outfit', system-ui, sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.8rem;
     font-weight: 500;
     color: var(--accent);

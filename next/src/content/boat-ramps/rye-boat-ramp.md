@@ -25,7 +25,7 @@ accessibleSpecies:
   - flathead
   - gummy-shark
 intro: Four-lane concrete ramp at Rye, the highest-capacity public ramp on the Peninsula's bay side. Free, with jetties, fish-cleaning facilities, and approximately 127 trailer spaces. Tide-affected at low water (dredging history); plan launches around mid-to-high tide.
-metaDescription: Rye Boat Ramp — four concrete lanes, free, 127 trailer spaces, tide-affected at low water. Southern bay snapper and whiting access without queuing.
+metaDescription: Rye Boat Ramp - four concrete lanes, free, 127 trailer spaces, tide-affected at low water. Southern bay snapper and whiting access without queuing.
 faq:
   - question: Can I launch at Rye at any tide?
     answer: 'Not fully. Rye is tide-affected at low water and has required dredging historically to maintain depth. Standard recreational vessels can launch on a mid-to-high tide. Vessels over 5 metres or with deeper draft should check the Portsea station forecast before launching.'

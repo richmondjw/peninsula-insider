@@ -28,7 +28,6 @@ relatedVenues:
   - "montalto"
   - "pt-leo-estate"
   - "commonfolk-coffee"
-  - "sorrento-bakery"
   - "flinders-sourdough"
   - "kooyong"
   - "dexter-wines"
@@ -47,21 +46,21 @@ featured: false
 status: "published"
 lastVerified: 2026-04-22
 clusterLinks:
-  - label: "Peninsula Hot Springs vs Alba — The Honest Comparison"
+  - label: "Peninsula Hot Springs vs Alba - The Honest Comparison"
     href: "/journal/peninsula-hot-springs-vs-alba/"
   - label: "Hatted Restaurants on the Mornington Peninsula 2025"
     href: "/journal/hatted-restaurants-mornington-peninsula-2025/"
   - label: "Where to Stay on the Mornington Peninsula"
-    href: "/journal/where-to-stay-mornington-peninsula/"
+    href: "/stay/best-accommodation/"
 faq:
   - question: "What's the ideal couples' weekend structure on the Mornington Peninsula?"
     answer: "Arrive Friday afternoon, one anchor event for Saturday, a long lunch at a hatted restaurant, and leave Sunday with one stop en route home. The Peninsula works best when the itinerary has one clear centrepiece and the rest of the time fills itself."
   - question: "Which restaurants are best for a couples' anniversary on the Mornington Peninsula?"
-    answer: "Ten Minutes by Tractor (two hats GFG 2025, estate degustation from $145pp) for a serious occasion; Tedesca Osteria for something more intimate and surprising (set menu, farmhouse kitchen, wood-oven cooking); Doot Doot Doot at Jackalope for hotel guests wanting atmosphere with their dinner."
+    answer: "Ten Minutes by Tractor (two hats GFG 2025, estate degustation; current menu pricing on their site) for a serious occasion; Tedesca Osteria for something more intimate and surprising (set menu, farmhouse kitchen, wood-oven cooking); Doot Doot Doot at Jackalope for hotel guests wanting atmosphere with their dinner."
   - question: "Are the hot springs good for couples?"
     answer: "Yes. Peninsula Hot Springs and Alba Thermal Springs are both well suited to couples. Alba's session caps make for a calmer, less crowded experience. Private pool sessions are available at Peninsula Hot Springs for those wanting more seclusion. Late afternoon in autumn or winter is the strongest time slot."
 aiSummary:
-  - "A two-night Peninsula itinerary structured around what works for couples — one anchor lunch, one spa experience, one walk, one good dinner. Deliberately under-scheduled."
+  - "A two-night Peninsula itinerary structured around what works for couples - one anchor lunch, one spa experience, one walk, one good dinner. Deliberately under-scheduled."
   - "The editorial argument: the best couples weekend on the Peninsula involves 3 things, not 10. Over-programming kills the feeling of having actually been away."
   - "Covers: how to choose between a vineyard stay and a coastal stay as the base; which cellar doors suit a couple's day; the correct sequence for Alba vs Peninsula Hot Springs."
   - "Suits: couples returning to the Peninsula for the second or third time; couples who want to slow down rather than see everything; anniversary or birthday trip planning."
@@ -106,7 +105,7 @@ Saturday is the day with one anchor: the long lunch. Everything before and after
 
 ### Morning
 
-Sleep in. Make coffee. If you are near a bakery, **Flinders Sourdough**, **Sorrento Bakery**, or **Commonfolk** in Mornington if you are staying up that end, walk to it. Get pastries and a flat white and bring them back. Keep breakfast light. You have a lunch coming.
+Sleep in. Make coffee. If you are near a bakery, **Flinders Sourdough**, or **Commonfolk** in Mornington if you are staying up that end, walk to it. Get pastries and a flat white and bring them back. Keep breakfast light. You have a lunch coming.
 
 If you want movement, take a walk. **Coppins Track** near Sorrento is a short coastal loop. The **Cape Schanck Boardwalk** is windblown and dramatic. **Bushrangers Bay** is the longer option if you want to earn the lunch. None of these are mandatory. Sitting on the deck with a second coffee is an equally valid Saturday morning.
 

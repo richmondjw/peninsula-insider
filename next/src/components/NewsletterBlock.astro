@@ -12,6 +12,7 @@
 import { getCollection } from 'astro:content';
 import { editableText } from '../lib/inline-edit/attrs';
 import { routeSlug } from '../lib/editorial';
+import { isPeninsulaThisWeekend, ptwArchivePath, ptwWeekendEndIso } from '../lib/peninsula-this-weekend';
 
 export interface Props {
   title?: string;
@@ -33,9 +34,9 @@ export interface Props {
 }
 
 const {
-  title = 'Peninsula This Weekend',
-  body = 'One useful Peninsula email. Where to book, what changed, what\'s worth the drive — sent when there\'s actually something worth knowing.',
-  sub = 'Independent. No affiliate links. Unsubscribe any time.',
+  title = 'The Insider Note',
+  body = 'Your Peninsula week, sorted.',
+  sub = 'Every Wednesday. Independent editorial. Unsubscribe any time.',
   issueNumber = '',
   issueDate = '',
   previewHeadline = '',
@@ -56,8 +57,19 @@ const dispatchArticles = await getCollection(
   'articles',
   ({ data }) => data.status === 'published' && data.format === 'weekend-picker',
 );
-const dispatch = dispatchArticles
+const latestDispatch = dispatchArticles
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime())[0] ?? null;
+
+// Staleness guard (2026-08-16): the editorial dispatch pipeline can miss a
+// week (or several), and this card has no other cutoff - it would otherwise
+// keep presenting a weeks-old "this weekend" edition as current indefinitely.
+// Mirrors the hasCurrentDispatch check on /whats-on/this-weekend/. Non-PTW
+// weekend-picker articles (no weekend window) are exempt.
+const dispatchIsStale =
+  latestDispatch &&
+  isPeninsulaThisWeekend(latestDispatch) &&
+  new Date(ptwWeekendEndIso(latestDispatch)) < new Date();
+const dispatch = dispatchIsStale ? null : latestDispatch;
 
 // "Peninsula This Weekend - 16 to 17 May" → "16 to 17 May"
 function deriveIssueLabel(d: any | null): string {
@@ -88,7 +100,14 @@ const resolvedIssueLabel =
     ? `${issueNumber} · ${issueDate}`
     : (issueNumber || issueDate || deriveIssueLabel(dispatch));
 const resolvedPicks = previewItems.length > 0 ? previewItems : derivePicks(dispatch);
-const dispatchHref = dispatch ? `/journal/${routeSlug(dispatch)}/` : '';
+// Link the canonical archive URL, not the legacy /journal/ one. The journal
+// path emits a consolidate redirect into /whats-on/this-weekend/archive/,
+// and this component renders on 730 pages - so pointing at the legacy URL
+// made the single most-linked target on the entire site a redirect hop.
+// Measured 2026-08-15: 730 inbound links, more than any real page receives.
+const dispatchHref = dispatch
+  ? (isPeninsulaThisWeekend(dispatch) ? ptwArchivePath(dispatch) : `/journal/${routeSlug(dispatch)}/`)
+  : '';
 const readMinutes = dispatch?.data?.readingTimeMinutes ?? 4;
 const resolvedFoot = dispatch
   ? `Read in ${readMinutes} ${readMinutes === 1 ? 'minute' : 'minutes'} · Used all weekend`
@@ -101,10 +120,6 @@ const showPreview = !hidePreview && resolvedHeadline && resolvedPicks.length > 0
   <div class="v2-newsletter__container">
     <div class={`v2-newsletter__frame${showPreview ? ' v2-newsletter__frame--has-preview' : ''}`}>
       <div class="v2-newsletter__copy">
-        <div
-          class="v2-newsletter__eyebrow"
-          {...editableText({ entityType: 'page', entitySlug: '_global', fieldPath: 'newsletter.eyebrow', label: 'Newsletter eyebrow' })}
-        >Curated by our editors.</div>
         <h2
           class="v2-newsletter__title"
           id="newsletter-title"
@@ -147,7 +162,6 @@ const showPreview = !hidePreview && resolvedHeadline && resolvedPicks.length > 0
         <a
           href={dispatchHref || '/whats-on/this-weekend/'}
           class="v2-newsletter__preview"
-          aria-label={`Read this issue: ${resolvedHeadline}`}
         >
           <div class="v2-np__head">
             <span class="v2-np__mark">Peninsula This Weekend</span>
@@ -210,7 +224,10 @@ const showPreview = !hidePreview && resolvedHeadline && resolvedPicks.length > 0
             if (btn) { btn.textContent = 'Join'; btn.disabled = false; }
             setStatus(form, msg || 'Something went wrong. Please try again.', 'err');
           }
-          if (!endpoint) { setTimeout(ok, 350); return; }
+          if (!endpoint) {
+            fail('Signups are briefly offline. Email hello@peninsulainsider.com.au and we will add you.');
+            return;
+          }
           fetch(endpoint, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -242,7 +259,7 @@ const showPreview = !hidePreview && resolvedHeadline && resolvedPicks.length > 0
     position: absolute;
     top: 0; right: -30%;
     width: 70%; height: 100%;
-    background: radial-gradient(circle at center, rgba(160,84,31,0.15), transparent 65%);
+    background: radial-gradient(circle at center, rgba(11, 90, 72,0.15), transparent 65%);
     pointer-events: none;
   }
   .v2-newsletter__container {
@@ -311,14 +328,6 @@ const showPreview = !hidePreview && resolvedHeadline && resolvedPicks.length > 0
     }
   }
   .v2-newsletter__copy { max-width: 64ch; }
-  .v2-newsletter__eyebrow {
-    font-size: 0.7rem;
-    letter-spacing: 0.3em;
-    font-weight: 600;
-    text-transform: uppercase;
-    color: var(--gold, #B69456);
-    margin-bottom: 1.2rem;
-  }
   .v2-newsletter__title {
     font-family: var(--serif, 'Newsreader', 'Times New Roman', serif);
     font-size: clamp(2.4rem, 5.5vw, 4.2rem);
@@ -330,8 +339,8 @@ const showPreview = !hidePreview && resolvedHeadline && resolvedPicks.length > 0
     font-variation-settings: 'opsz' 60;
   }
   .v2-newsletter__title em {
-    color: var(--gold, #B69456);
-    font-style: italic;
+    color: var(--gold, #56b6a0);
+    font-style: normal;
     font-weight: 300;
   }
   .v2-newsletter__body {
@@ -345,10 +354,10 @@ const showPreview = !hidePreview && resolvedHeadline && resolvedPicks.length > 0
   }
   .v2-newsletter__sub {
     font-family: var(--serif, 'Newsreader', Georgia, serif);
-    font-style: italic;
+    font-style: normal;
     font-size: 0.92rem;
     line-height: 1.5;
-    color: rgba(250,247,240,0.5);
+    color: rgba(250,247,240,0.66);
     max-width: 48ch;
     margin: 0 0 2rem;
   }
@@ -361,12 +370,12 @@ const showPreview = !hidePreview && resolvedHeadline && resolvedPicks.length > 0
     overflow: hidden;
     transition: border-color .25s ease;
   }
-  .v2-newsletter__form:focus-within { border-color: rgba(182,148,86,0.5); }
+  .v2-newsletter__form:focus-within { border-color: rgba(86, 182, 160,0.5); }
   .v2-newsletter__input {
     flex: 1;
     padding: 1rem 1.5rem;
-    font-family: var(--sans, 'Inter', system-ui, sans-serif);
-    font-size: 0.95rem;
+    font-family: var(--font-ui);
+    font-size: var(--fs-400); /* 17px: >=16px prevents iOS focus-zoom */
     background: transparent;
     color: var(--paper, #FAF7F0);
     border: none;
@@ -381,14 +390,16 @@ const showPreview = !hidePreview && resolvedHeadline && resolvedPicks.length > 0
     font-weight: 700;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    background: var(--gold, #B69456);
-    color: var(--deep, #201B17);
+    /* Sand on the dark ground: the palette's one warm pop, 8.9:1 with
+       the deep-navy label (the old bronze-on-navy pairing was 4.3:1). */
+    background: var(--mint, #F5C177);
+    color: var(--bg-dark, #0B2E4A);
     border: 0;
     cursor: pointer;
     transition: background .25s ease;
     white-space: nowrap;
   }
-  .v2-newsletter__submit:hover { background: #c9a767; }
+  .v2-newsletter__submit:hover { background: #EDB05F; }
   .v2-newsletter__submit:disabled { opacity: 0.6; cursor: default; }
   .v2-newsletter__status {
     margin-top: 0.85rem;
@@ -396,20 +407,20 @@ const showPreview = !hidePreview && resolvedHeadline && resolvedPicks.length > 0
     color: rgba(250,247,240,0.7);
     min-height: 1.2em;
     font-family: var(--serif, 'Newsreader', 'Times New Roman', serif);
-    font-style: italic;
+    font-style: normal;
   }
-  .v2-newsletter__status--err { color: #e7a7a3; }
-  .v2-newsletter__status--ok  { color: var(--gold, #B69456); }
+  .v2-newsletter__status--err { color: var(--error-text-inverse, #FF9A8F); }
+  .v2-newsletter__status--ok  { color: var(--gold, #56b6a0); }
   .v2-newsletter__meta {
     margin-top: 1.5rem;
     font-size: 0.78rem;
-    color: rgba(250,247,240,0.4);
+    color: rgba(250,247,240,0.66);
     display: flex;
     gap: 1.2rem;
     flex-wrap: wrap;
   }
   .v2-newsletter__meta span { display: inline-flex; align-items: center; gap: 0.4rem; }
-  .v2-newsletter__meta svg { color: var(--gold, #B69456); }
+  .v2-newsletter__meta svg { color: var(--gold, #56b6a0); }
 
   .v2-newsletter__preview {
     position: relative;
@@ -441,7 +452,7 @@ const showPreview = !hidePreview && resolvedHeadline && resolvedPicks.length > 0
     position: absolute;
     top: -10px; left: 20px; right: 20px;
     height: 20px;
-    background: var(--gold, #B69456);
+    background: var(--gold, #56b6a0);
     z-index: -1;
     border-radius: 2px;
     transform: rotate(0.5deg);
@@ -451,7 +462,7 @@ const showPreview = !hidePreview && resolvedHeadline && resolvedPicks.length > 0
     justify-content: space-between;
     align-items: baseline;
     padding-bottom: 0.9rem;
-    border-bottom: 1px solid var(--line, #D9D1BE);
+    border-bottom: 1px solid var(--line, #bed9d3);
     margin-bottom: 1.2rem;
     gap: 1rem;
     flex-wrap: wrap;
@@ -462,7 +473,7 @@ const showPreview = !hidePreview && resolvedHeadline && resolvedPicks.length > 0
     font-weight: 700;
     letter-spacing: 0.24em;
     text-transform: uppercase;
-    color: var(--ochre, #A0541F);
+    color: var(--ochre, #26997e);
   }
   .v2-np__issue {
     font-family: var(--sans, 'Inter', sans-serif);
@@ -480,7 +491,7 @@ const showPreview = !hidePreview && resolvedHeadline && resolvedPicks.length > 0
     margin: 0 0 1rem;
     font-variation-settings: 'opsz' 32;
   }
-  .v2-np__title em { font-style: italic; color: var(--ochre, #A0541F); font-weight: 400; }
+  .v2-np__title em { font-style: normal; color: var(--ochre, #26997e); font-weight: 400; }
   .v2-np__items {
     list-style: none;
     margin: 0 0 1.2rem;
@@ -492,14 +503,14 @@ const showPreview = !hidePreview && resolvedHeadline && resolvedPicks.length > 0
     font-variation-settings: 'opsz' 18;
   }
   .v2-np__items li { padding-left: 1rem; position: relative; margin-bottom: 0.4rem; }
-  .v2-np__items li::before { content: '\2022'; position: absolute; left: 0; color: var(--ochre, #A0541F); }
+  .v2-np__items li::before { content: '\2022'; position: absolute; left: 0; color: var(--ochre, #26997e); }
   .v2-np__foot {
     font-family: var(--sans, 'Inter', sans-serif);
     font-size: 0.7rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--ink-muted, #6E655C);
-    border-top: 1px solid var(--line, #D9D1BE);
+    border-top: 1px solid var(--line, #bed9d3);
     padding-top: 0.85rem;
   }
 </style>

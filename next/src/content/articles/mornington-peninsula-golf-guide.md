@@ -1,6 +1,6 @@
 ---
 slug: "mornington-peninsula-golf-guide"
-title: "Mornington Peninsula Golf — Why It's Australia's Best Golf Region"
+title: "Mornington Peninsula Golf - Why It's Australia's Best Golf Region"
 dek: "World-ranked public access, serious course architecture, hot springs within fifteen minutes, and a weekend shape that works even if only one person in the group plays."
 author: "editorial"
 houseByline: true
@@ -16,32 +16,32 @@ readingTimeMinutes: 8
 status: "published"
 lastVerified: 2026-04-22
 clusterLinks:
-  - label: "Best Golf Courses on the Mornington Peninsula — Tier Guide"
-    href: "/journal/best-golf-courses-mornington-peninsula/"
+  - label: "Best Golf Courses on the Mornington Peninsula - Tier Guide"
+    href: "/explore/golf/"
   - label: "St Andrews Beach Golf Course"
     href: "/journal/st-andrews-beach-golf-course/"
-  - label: "Peninsula Hot Springs vs Alba — The Honest Comparison"
+  - label: "Peninsula Hot Springs vs Alba - The Honest Comparison"
     href: "/journal/peninsula-hot-springs-vs-alba/"
 faq:
   - question: "Is the Mornington Peninsula a good golf destination?"
-    answer: "Yes — it has the rarest combination in Australian golf: world-ranked public-access courses within 90 minutes of Melbourne, alongside serious food, wine, hot springs, and accommodation. You can build a real weekend around one round and have the region justify itself even to people who don't play."
+    answer: "Yes - it has the rarest combination in Australian golf: world-ranked public-access courses within 90 minutes of Melbourne, alongside serious food, wine, hot springs, and accommodation. You can build a real weekend around one round and have the region justify itself even to people who don't play."
   - question: "Can you play golf on the Mornington Peninsula without being a member?"
-    answer: "Yes. St Andrews Beach, The Dunes, Moonah Links, and Cape Schanck (RACV) all have public tee times bookable online. The National is private member-only. For a visitor's Peninsula golf trip, St Andrews Beach is the anchor — world-class Tom Doak architecture, publicly bookable."
+    answer: "Yes. St Andrews Beach, The Dunes, Moonah Links, and Cape Schanck (RACV) all have public tee times bookable online. The National is private member-only. For a visitor's Peninsula golf trip, St Andrews Beach is the anchor - world-class Tom Doak architecture, publicly bookable."
   - question: "What's the best structure for a Peninsula golf weekend?"
-    answer: "One strong morning round, a long lunch at a hatted winery restaurant, hot springs in the afternoon, slow Sunday morning. The region is too good to fill entirely with golf — the non-golfer gets an excellent day at cellar doors or the springs while the golfer plays."
+    answer: "One strong morning round, a long lunch at a hatted winery restaurant, hot springs in the afternoon, slow Sunday morning. The region is too good to fill entirely with golf - the non-golfer gets an excellent day at cellar doors or the springs while the golfer plays."
 ---
 
 The Mornington Peninsula is not the only place in Australia with good golf. It may, however, be the place where golf makes the most sense as part of an actual weekend.
 
 That distinction matters.
 
-Too much golf writing assumes the reader is already committed, already fluent, already willing to drive three hours for one round and call that a trip. The Peninsula works differently. Here, the golf is strong enough for serious players, but the region around it is what turns a round into a proper escape. You can play in the morning, sit down to a long lunch in <a href="/places/red-hill">Red Hill</a>, disappear into the <a href="/journal/mornington-peninsula-hot-springs-guide">hot springs</a> in the afternoon, and still make dinner feel like part of the same story rather than an afterthought.
+Too much golf writing assumes the reader is already committed, already fluent, already willing to drive three hours for one round and call that a trip. The Peninsula works differently. Here, the golf is strong enough for serious players, but the region around it is what turns a round into a proper escape. You can play in the morning, sit down to a long lunch in <a href="/explore/places/red-hill/">Red Hill</a>, disappear into the <a href="/explore/hot-springs/">hot springs</a> in the afternoon, and still make dinner feel like part of the same story rather than an afterthought.
 
 That is the Peninsula's edge.
 
 ## The public-access advantage
 
-The Peninsula is also one of the few Australian regions where the conversation is not just about prestige. Yes, <a href="/journal/best-golf-courses-mornington-peninsula">The National matters</a>. So do Moonah Links and The Dunes. <a href="/journal/st-andrews-beach-golf-course">St Andrews Beach</a> matters most of all because it gives the Peninsula a story very few destinations can make with a straight face: a globally recognised golf experience that an ordinary visitor can actually book.
+The Peninsula is also one of the few Australian regions where the conversation is not just about prestige. Yes, <a href="/explore/golf/">The National matters</a>. So do Moonah Links and The Dunes. <a href="/journal/st-andrews-beach-golf-course/">St Andrews Beach</a> matters most of all because it gives the Peninsula a story very few destinations can make with a straight face: a globally recognised golf experience that an ordinary visitor can actually book.
 
 That public-access point is not a footnote. It is the difference between a golf culture and a golf myth.
 
@@ -52,7 +52,7 @@ Most Australian golf writing revolves around prestige clubs that the average rea
 The Peninsula's other advantage is concentration. The best regions create options. The best golf regions create contrast. On the Peninsula you can play highly regarded modern architecture, then spend the rest of the day doing things that make sense for the rest of your group. That changes who the destination is for.
 
 It is not just golfers chasing rankings. It is:
-- **Couples where only one person plays**: the non-golfer gets an excellent day at <a href="/places/red-hill">Red Hill cellar doors</a> or <a href="/journal/mornington-peninsula-hot-springs-guide">the springs</a>
+- **Couples where only one person plays**: the non-golfer gets an excellent day at <a href="/explore/places/red-hill/">Red Hill cellar doors</a> or <a href="/explore/hot-springs/">the springs</a>
 - **Small groups trying to balance one serious round with a proper weekend**: a single world-class round leaves time for food, wine, and landscape
 - **Melbourne visitors who want to feel they have actually gone somewhere** without losing a full day to transit: 90 minutes each way beats a flight-required interstate trip
 
@@ -64,8 +64,8 @@ The best version of a Peninsula golf trip is **not** a heroic 36-hole grind. It 
 
 Something like:
 
-- **Saturday morning:** tee off at <a href="/journal/st-andrews-beach-golf-course">St Andrews Beach</a>
-- **Saturday lunch:** late, leisurely, at <a href="/eat/montalto">Montalto</a> or <a href="/eat/laura-pt-leo">Laura at Pt Leo Estate</a>
+- **Saturday morning:** tee off at <a href="/journal/st-andrews-beach-golf-course/">St Andrews Beach</a>
+- **Saturday lunch:** late, leisurely, at <a href="/wine/montalto/">Montalto</a> or <a href="/eat/laura-pt-leo/">Laura at Pt Leo Estate</a>
 - **Saturday afternoon:** hot springs session, coastal walk, or nothing at all
 - **Sunday morning:** slow start, bakery breakfast, short coastal drive
 - **Sunday lunch:** one more cellar door, then home
@@ -84,11 +84,11 @@ That is the real category opening. Not golf for golf's sake. Golf as one of the 
 
 ## Where to start
 
-Read <a href="/journal/best-golf-courses-mornington-peninsula">the tier guide</a> for the ranked shortlist. Read <a href="/journal/st-andrews-beach-golf-course">the St Andrews Beach piece</a> if you want one course to build a trip around. Check <a href="/stay">where to stay</a> if you want accommodation within 20 minutes of the tee. Check <a href="/eat">where to eat</a> if the point is also a proper long lunch afterwards.
+Read <a href="/explore/golf/">the tier guide</a> for the ranked shortlist. Read <a href="/journal/st-andrews-beach-golf-course/">the St Andrews Beach piece</a> if you want one course to build a trip around. Check <a href="/stay/">where to stay</a> if you want accommodation within 20 minutes of the tee. Check <a href="/eat/">where to eat</a> if the point is also a proper long lunch afterwards.
 
 ## Related guides
 
-- <a href="/journal/best-golf-courses-mornington-peninsula">Best golf courses on the Mornington Peninsula, tier guide</a>
-- <a href="/journal/st-andrews-beach-golf-course">St Andrews Beach Golf Course profile</a>
-- <a href="/journal/mornington-peninsula-itinerary">3-Day Peninsula Itinerary</a>
-- <a href="/journal/mornington-peninsula-hot-springs-guide">Hot springs guide</a>
+- <a href="/explore/golf/">Best golf courses on the Mornington Peninsula, tier guide</a>
+- <a href="/journal/st-andrews-beach-golf-course/">St Andrews Beach Golf Course profile</a>
+- <a href="/journal/mornington-peninsula-itinerary/">3-Day Peninsula Itinerary</a>
+- <a href="/explore/hot-springs/">Hot springs guide</a>

@@ -1,5 +1,5 @@
 /**
- * /data/places.json — machine-readable place-hub export for AI agents.
+ * /data/places.json: machine-readable place-hub export for AI agents.
  * Static, generated at build time from the places collection.
  */
 import type { APIRoute } from 'astro';

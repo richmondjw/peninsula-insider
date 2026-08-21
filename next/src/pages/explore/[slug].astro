@@ -10,6 +10,7 @@ import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { placeLabel, routeSlug, titleize, venueHrefPrefix } from '../../lib/editorial';
 import { editableText, editableImage } from '../../lib/inline-edit/attrs';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
+import { primarySchemaType } from '../../lib/schema';
 
 const difficultyLabel: Record<string, string> = {
   easy: 'Easy',
@@ -78,14 +79,20 @@ const relatedArticles = articles
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
-  { label: 'Explore', href: '/explore' },
+  { label: 'Explore', href: '/explore/' },
   { label: experience.data.name },
 ];
 
 const seasonBest = experience.data.seasonBest?.length
   ? experience.data.seasonBest.map((entry: string) => titleize(entry)).join(' · ')
   : null;
-const duration = experience.data.durationMinutes ? `${experience.data.durationMinutes} min` : null;
+/* Humanised duration: nobody thinks in "600 min". */
+function formatDuration(m: number): string {
+  if (m < 60) return `${m} min`;
+  const whole = Math.floor(m / 60);
+  return m % 60 >= 30 ? `${whole}.5 h` : `${whole} h`;
+}
+const duration = experience.data.durationMinutes ? formatDuration(experience.data.durationMinutes) : null;
 const difficulty = experience.data.difficulty ? difficultyLabel[experience.data.difficulty] ?? titleize(experience.data.difficulty) : null;
 const heroClass = heroVariant[experience.data.type] ?? 'feature__image-block--hinterland';
 
@@ -117,10 +124,12 @@ const schemaTypeMap: Record<string, string | string[]> = {
   'workshop': 'LocalBusiness',
 };
 const schemaType = schemaTypeMap[experience.data.type] ?? 'TouristAttraction';
+const primaryType = primarySchemaType(schemaType);
 
 const experienceSchema: Record<string, unknown> = {
   '@context': 'https://schema.org',
   '@type': schemaType,
+  '@id': `${canonical}#${primaryType}`,
   name: experience.data.name,
   description: experience.data.editorNote,
   address: {
@@ -136,6 +145,16 @@ const experienceSchema: Record<string, unknown> = {
     longitude: experience.data.coordinates?.lng,
   },
   url: canonical,
+  ...(placeSlug
+    ? {
+        containedInPlace: {
+          '@type': 'TouristDestination',
+          '@id': `https://peninsulainsider.com.au/explore/places/${placeSlug}/#TouristDestination`,
+          name: experiencePlace,
+          url: `https://peninsulainsider.com.au/explore/places/${placeSlug}/`,
+        },
+      }
+    : {}),
   ...(experience.data.website ? { sameAs: [experience.data.website] } : {}),
 };
 
@@ -167,7 +186,7 @@ export const prerender = true;
       <div class="experience-detail__meta">
         <a href="/explore/" class="experience-detail__type">{typeLabel[experience.data.type] ?? titleize(experience.data.type)}</a>
         <span class="experience-detail__dot" aria-hidden="true"></span>
-        <a href={`/explore/places/${placeSlug}`} class="experience-detail__place">{experiencePlace}</a>
+        <a href={`/explore/places/${placeSlug}/`} class="experience-detail__place">{experiencePlace}</a>
         {duration && (
           <>
             <span class="experience-detail__dot" aria-hidden="true"></span>
@@ -178,7 +197,7 @@ export const prerender = true;
 
       <h1 class="experience-detail__title" {...editableText({
         entityType: 'experience', entitySlug: slug, fieldPath: 'name',
-        label: `${experience.data.name} — name`,
+        label: `${experience.data.name} - name`,
       })}>{experience.data.name}</h1>
 
       <div class={`experience-detail__hero feature__image-block ${heroClass}`} aria-hidden="true" style={heroStyle} {...editableImage({
@@ -202,7 +221,7 @@ export const prerender = true;
           <p class="facts__title">At a glance</p>
           <dl>
             <dt>Place</dt>
-            <dd><a href={`/explore/places/${placeSlug}`}>{experiencePlace}</a></dd>
+            <dd><a href={`/explore/places/${placeSlug}/`}>{experiencePlace}</a></dd>
 
             <dt>Type</dt>
             <dd>{typeLabel[experience.data.type] ?? titleize(experience.data.type)}</dd>
@@ -243,7 +262,7 @@ export const prerender = true;
             )}
           </dl>
 
-          <a class="facts__cta" href={`/explore/places/${placeSlug}`}>Open place hub</a>
+          <a class="facts__cta pi-btn pi-btn--ghost pi-btn--block" href={`/explore/places/${placeSlug}/`}>Open place hub</a>
         </aside>
       </div>
     </div>
@@ -258,7 +277,7 @@ export const prerender = true;
             <h2 class="venues__title">Where to eat, drink, or stay nearby</h2>
             <p class="venues__sub">The best explore pages should lead somewhere next.</p>
           </div>
-          <a href={`/explore/places/${placeSlug}`} class="venues__link">See {experiencePlace} →</a>
+          <a href={`/explore/places/${placeSlug}/`} class="venues__link">See {experiencePlace} →</a>
         </div>
         <div class="venues__grid">
           {nearbyVenues.map((venue) => <VenueCard venue={venue} hrefPrefix={venueHrefPrefix(venue.data.type)} />)}

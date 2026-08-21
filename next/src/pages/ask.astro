@@ -1,17 +1,17 @@
 ---
 /**
- * /ask — Peninsula Insider Concierge
+ * /ask - Peninsula Insider Concierge
  * "PI's Notebook": editorial chat with dropcap prose, postcard tiles,
  * filed-under tags. Designed as a magazine column, not a chatbot.
  */
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const API_URL = import.meta.env.PUBLIC_CONCIERGE_API_URL || 'http://localhost:8787';
+import { CONCIERGE_API_URL as API_URL } from '../lib/concierge-config';
 export const prerender = true;
 ---
 
 <BaseLayout
-  title="Ask The Insider — Your Peninsula Concierge"
+  title="Ask The Insider - Your Peninsula Concierge"
   description="Ask Peninsula Insider anything about the Mornington Peninsula. Cellar doors, dining, stays, rainy days, dog-friendly spots. Local knowledge, editorial taste."
 >
 
@@ -58,7 +58,7 @@ export const prerender = true;
           </button>
         </div>
 
-        <!-- Notebook body — paper grain, editorial column width -->
+        <!-- Notebook body - paper grain, editorial column width -->
         <!-- data-lenis-prevent: keep native scroll inside the chat (Lenis runs page-level) -->
         <div class="ask-dialog__body" id="ask-thread" aria-live="polite" data-lenis-prevent>
 

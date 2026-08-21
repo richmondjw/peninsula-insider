@@ -1,0 +1,58 @@
+---
+/**
+ * PlanNextStep (v5, /plans/ hub section 9.6) - the next-step band.
+ * Two exits when no ready-made plan fits: Ask PI to shape one, or start a
+ * blank My Trip. No Dispatch here; the footer carries the page's single
+ * Dispatch instance (hub spec 19 removed the mid-page NewsletterBlock).
+ */
+---
+
+<section class="plan-next" aria-labelledby="plan-next-heading">
+  <div class="container">
+    <div class="plan-next__inner">
+      <div>
+        <h2 class="plan-next__heading" id="plan-next-heading">None of these fit?</h2>
+        <p class="plan-next__sub">Search the places and days out on the site, or build your own from a blank trip.</p>
+      </div>
+      <div class="plan-next__actions">
+        <a class="pi-btn pi-btn--solid" href="/search/" data-open-search data-evt="search_open" data-surface="plans">Search the site</a>
+        <a class="pi-btn pi-btn--ghost" href="/me/trip/">Start a blank My Trip</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .plan-next {
+    padding: var(--space-6, 2rem) 0 var(--space-7, 2.5rem);
+  }
+  .plan-next__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4, 1rem);
+    padding: var(--space-5, 1.5rem);
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-m, 10px);
+  }
+  .plan-next__heading {
+    margin: 0 0 0.25rem;
+    font-family: var(--font-display, var(--font-display));
+    font-size: var(--fs-700, clamp(1.5rem, 1.3rem + 1vw, 1.9rem));
+    font-weight: var(--fw-display, 600);
+    line-height: var(--lh-heading, 1.15);
+  }
+  .plan-next__sub {
+    margin: 0;
+    font-family: var(--font-ui, var(--font-ui));
+    color: var(--soft);
+    max-width: 44ch;
+  }
+  .plan-next__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+</style>

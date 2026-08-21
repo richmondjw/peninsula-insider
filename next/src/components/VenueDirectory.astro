@@ -1,6 +1,6 @@
 ---
 /**
- * VenueDirectory — filterable venue grid (Phase 2 WS2A → WS2C).
+ * VenueDirectory - filterable venue grid (Phase 2 WS2A → WS2C).
  *
  * Drop into a section hub (Eat / Wine / Stay) and pass the venue list +
  * the filter dimensions to enable. Renders the grid with per-card data
@@ -16,6 +16,8 @@ import VenueCard from './VenueCard.astro';
 import { getCollection } from 'astro:content';
 
 export interface Props {
+  /** Cards shown before the reader clicks "Show more". 0 disables paging. */
+  pageSize?: number;
   /** Stable id; used to scope the filter form to its grid. */
   id: string;
   /** Pre-filtered venue list (e.g. only restaurants and cafés for /eat/). */
@@ -49,6 +51,7 @@ const {
   typeOptions,
   moodOptions = [],
   toggles = { dogFriendly: false, hatted: false },
+  pageSize = 0,
 } = Astro.props as Props;
 
 // Build the place options from the venue list itself so the dropdown only
@@ -197,12 +200,20 @@ const showHatted = !!toggles.hatted;
     </form>
 
     <div class="venues__grid" data-filter-grid={id}>
-      {venues.map((venue) => (
-        <div {...venueAttrs(venue)}>
+      {venues.map((venue, i) => (
+        <div {...venueAttrs(venue)} class:list={[{ 'is-paged-out': pageSize > 0 && i >= pageSize }]}>
           <VenueCard venue={venue} hrefPrefix={hrefPrefix} />
         </div>
       ))}
     </div>
+
+    {pageSize > 0 && venues.length > pageSize && (
+      <p class="venues__more">
+        <button type="button" class="pi-btn pi-btn--ghost" data-filter-more={id}>
+          Show more
+        </button>
+      </p>
+    )}
 
     <p class="venues__empty" data-filter-empty={id} hidden>
       No venues match those filters. Try removing one of them, or
@@ -211,7 +222,7 @@ const showHatted = !!toggles.hatted;
   </div>
 </section>
 
-<script is:inline define:vars={{ scopeId: id }}>
+<script is:inline define:vars={{ scopeId: id, pageSize }}>
   /* VenueDirectory filter controller. Scoped by id so multiple directories
      on the same page (rare, but possible later) don't trample each other. */
   (function () {
@@ -227,6 +238,8 @@ const showHatted = !!toggles.hatted;
       var totalCount = cards.length;
 
       var state = { place: '', type: '', price: '', mood: '', dog: false, hatted: false };
+      var moreBtn = document.querySelector('[data-filter-more="' + scopeId + '"]');
+      var shownLimit = pageSize > 0 ? pageSize : Infinity;
 
       function readUrl() {
         var p = new URLSearchParams(window.location.search);
@@ -266,7 +279,8 @@ const showHatted = !!toggles.hatted;
       }
 
       function apply() {
-        var visible = 0;
+        var matches = 0;
+        var shown = 0;
         cards.forEach(function (card) {
           var ok = true;
           if (state.place && card.getAttribute('data-place') !== state.place) ok = false;
@@ -279,21 +293,48 @@ const showHatted = !!toggles.hatted;
           if (ok && state.dog && card.getAttribute('data-dog-friendly') !== '1') ok = false;
           if (ok && state.hatted && card.getAttribute('data-hatted') !== '1') ok = false;
           card.classList.toggle('is-filtered-out', !ok);
-          if (ok) visible++;
+          if (ok) {
+            matches++;
+            var paged = matches > shownLimit;
+            card.classList.toggle('is-paged-out', paged);
+            if (!paged) shown++;
+          } else {
+            card.classList.remove('is-paged-out');
+          }
         });
         if (countEl) {
           var anyActive = state.place || state.type || state.price || state.mood || state.dog || state.hatted;
-          countEl.textContent = anyActive
-            ? 'Showing ' + visible + ' of ' + totalCount
-            : 'Showing all ' + totalCount;
+          var base = anyActive ? matches + ' of ' + totalCount : 'all ' + totalCount;
+          countEl.textContent = shown < matches
+            ? 'Showing ' + shown + ' of ' + matches
+            : 'Showing ' + base;
+        }
+        if (moreBtn) {
+          var remaining = matches - shown;
+          if (remaining > 0) {
+            moreBtn.removeAttribute('hidden');
+            moreBtn.textContent = 'Show ' + Math.min(remaining, pageSize) + ' more';
+          } else {
+            moreBtn.setAttribute('hidden', '');
+          }
         }
         if (emptyEl) {
-          if (visible === 0) emptyEl.removeAttribute('hidden');
+          if (matches === 0) emptyEl.removeAttribute('hidden');
           else emptyEl.setAttribute('hidden', '');
         }
       }
 
-      function commit() { syncControls(); apply(); writeUrl(); }
+      function commit() {
+        shownLimit = pageSize > 0 ? pageSize : Infinity;
+        syncControls();
+        apply();
+        writeUrl();
+      }
+
+      if (moreBtn) moreBtn.addEventListener('click', function () {
+        shownLimit += pageSize;
+        apply();
+      });
 
       form.querySelectorAll('[data-filter-value]').forEach(function (btn) {
         btn.addEventListener('click', function () {

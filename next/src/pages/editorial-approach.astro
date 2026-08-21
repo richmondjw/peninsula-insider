@@ -1,9 +1,115 @@
 ---
-/**
- * /editorial-approach/ — now redirects to /our-approach/
- * Renamed May 2026 per positioning brief.
- */
-import Redirect from '../components/Redirect.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHero from '../components/SectionHero.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import NewsletterBlock from '../components/NewsletterBlock.astro';
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'About', href: '/about/' },
+  { label: 'Editorial approach' },
+];
+
+const standards = [
+  {
+    title: 'Every pick earns its place',
+    body: 'A venue appears on Peninsula Insider because it earns a place on the merits, from research and a formed view. Not because it submitted a form, ranks well, or bought a placement. When we do not have a considered view, we say nothing rather than pad the list.',
+  },
+  {
+    title: 'Every verdict has a reason',
+    body: 'We rank, we pick, and we say when something is overrated. A guide that treats every option as equally lovely isn\'t a guide. When a kitchen has an uneven season or a room doesn\'t justify its rate, the verdict says so, and it says why.',
+  },
+  {
+    title: 'No prices, ever',
+    body: 'Prices change weekly and we can\'t verify every one. A stale price erodes trust faster than a missing one, so dollar figures don\'t appear on the site. The operator\'s own page is where the current price lives; we tell you whether it\'s worth it.',
+  },
+  {
+    title: 'The season is named',
+    body: 'A verdict written in January can mislead in June. Recommendations carry their season, dispatches carry their weekend, and we retire calls that no longer hold rather than let them age in place.',
+  },
+];
+
+const firewall = [
+  {
+    title: 'Labelled, always',
+    body: 'Advertising, partner content, and Pass marketing are part of how the publication is funded. The firewall is enforced by labelling, not absence: partner venues carry a partner label, sponsored content is marked as sponsored, no exceptions. You should know within three seconds whether you\'re reading editorial or commercial.',
+  },
+  {
+    title: 'Partners don\'t buy verdicts',
+    body: 'A commercial relationship gets an operator a label, not a recommendation. Partner venues are held to the same earns-its-place standard as everything else, and a partner that stops earning its place loses it.',
+  },
+];
 export const prerender = true;
 ---
-<Redirect to="/about/" />
+
+<BaseLayout
+  title="Editorial approach · Peninsula Insider"
+  description="How Peninsula Insider works: every pick earns its place, every verdict has a reason, commercial content always labelled, corrections fixed fast."
+  section="home"
+>
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <SectionHero
+    eyebrow="Editorial approach"
+    title="How the verdicts <em>get made.</em>"
+    dek="The standards behind every recommendation on Peninsula Insider: what earns a place, what gets a venue removed, and where the commercial line sits."
+    gradient="journal"
+    entitySlug="editorial-approach"
+  />
+
+  <section class="about-principles">
+    <div class="container">
+      <div class="split-intro">
+        <div>
+          <p class="label label--accent">Methodology</p>
+          <h2 class="split-intro__title">The standards.</h2>
+        </div>
+        <p class="split-intro__body">Four rules that govern every page on the site. They override deadlines, briefs, and partner asks.</p>
+      </div>
+      <div class="about-principles__grid">
+        {standards.map((p) => (
+          <article class="about-principle">
+            <h3 class="about-principle__title">{p.title}</h3>
+            <p class="about-principle__body">{p.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="about-mission">
+    <div class="container">
+      <div class="about-mission__grid">
+        <div class="about-mission__lead">
+          <p class="label label--accent">Independence</p>
+          <h2 class="about-mission__title">Where the commercial line sits.</h2>
+        </div>
+        <div class="about-mission__body prose">
+          {firewall.map((p) => (
+            <p><strong>{p.title}.</strong> {p.body}</p>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-mission">
+    <div class="container">
+      <div class="about-mission__grid">
+        <div class="about-mission__lead">
+          <p class="label label--accent">Corrections</p>
+          <h2 class="about-mission__title">When we get it wrong.</h2>
+        </div>
+        <div class="about-mission__body prose">
+          <p>Hours change, kitchens close, chefs move on. When a page is wrong, we want to know. Write to <a href="mailto:corrections@peninsulainsider.com.au">corrections@peninsulainsider.com.au</a> and we fix fast. Material corrections are noted on the page they correct.</p>
+          <p>If a concern is about fairness rather than fact, the <a href="/corrections/">complaints process</a> sets out how it's handled.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <NewsletterBlock
+    body="Seasonal verdicts, curated weekends, and what's worth your time on the Mornington Peninsula."
+    sub="Your Peninsula week, sorted. Every Wednesday."
+  />
+</BaseLayout>

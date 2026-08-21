@@ -3,90 +3,182 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import SectionHero from '../../components/SectionHero.astro';
-import ArticleCard from '../../components/ArticleCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import { formatLabel, routeSlug } from '../../lib/editorial';
+import Card from '../../components/v5/Card.astro';
+import CardGrid from '../../components/v5/CardGrid.astro';
+import { routeSlug } from '../../lib/editorial';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
 import { editableImage } from '../../lib/inline-edit/attrs';
+
+/*
+ * Journal index, v5 (page-redesigns-hubs.md section 8; wireframes #journal).
+ * Magazine front, not a card wall: one lead feature, a short Latest list,
+ * a themed text index, and a dated month/year archive that keeps every
+ * article URL reachable from this page. The 13-tile planning wall and the
+ * format-grouped card dump are gone; their links now render on the hubs'
+ * From-the-Journal modules (relocation map in 12-build-log/journal.md).
+ * Article URLs never change here.
+ */
 
 const articles = (await getCollection('articles', ({ data }) =>
   data.status === 'published' && (data.section ?? 'journal') !== 'plans'
 )).sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
-const featured = articles.find((article) => article.data.featured) ?? articles[0];
-const featuredSlug = featured ? routeSlug(featured) : null;
-const featuredHero = featured ? await resolveHero('article', featuredSlug!, featured.data, 'hero') : null;
-const latest = articles.filter((article) => routeSlug(article) !== featuredSlug);
 
-// Everything except the lead is available for grouping.
-const rest = latest;
+/* Byline resolution: house byline label, else the author entry's name. */
+const authorEntries = await getCollection('authors');
+const authorNameById = new Map(authorEntries.map((entry) => [entry.id, entry.data.name]));
+const bylineFor = (article: (typeof articles)[number]) =>
+  article.data.houseByline
+    ? 'Peninsula Insider'
+    : authorNameById.get(article.data.author.id) ?? 'Peninsula Insider';
 
-// Three "editor's picks"  -  the stories that are doing the most work this week.
-const pickSlugs = [
-  'the-sorrento-weekend',
-  'the-market-saturday',
-  'the-peninsula-beach-swimming-guide',
+/* Lead feature: the pinned pick, else the newest piece. Always resolves,
+   so the curation slot cannot render empty (HUB-13 guard by construction). */
+const FEATURED_TTL_MS = 14 * 24 * 60 * 60 * 1000;
+const now = Date.now();
+const lead = articles.find(
+  (article) => article.data.featured && now - article.data.publishedAt.getTime() < FEATURED_TTL_MS
+) ?? articles[0];
+const leadSlug = lead ? routeSlug(lead) : null;
+const leadHero = lead ? await resolveHero('article', leadSlug!, lead.data, 'hero') : null;
+
+/* Latest: the next four pieces after the lead, compact rows. */
+const rest = articles.filter((article) => routeSlug(article) !== leadSlug);
+const latest = rest.slice(0, 4);
+const latestHeroes = await Promise.all(
+  latest.map((article) => resolveHero('article', routeSlug(article), article.data, 'hero'))
+);
+
+/* Themes: reader-language index mapped onto the tags and formats that
+   already exist in the collection (no new taxonomy; IA section 4 rule).
+   Each theme is a text list, dated, newest first. */
+type ThemeDef = { key: string; title: string; tags: string[]; formats?: string[] };
+const themeDefs: ThemeDef[] = [
+  {
+    key: 'food-and-wine',
+    title: 'Food & wine',
+    tags: [
+      'eat', 'wine', 'food', 'food-wine', 'food-guide', 'long-lunch', 'cellar-door',
+      'cellar-doors', 'winery-dining', 'wineries', 'chardonnay', 'pinot-noir', 'alba',
+      'truffle', 'mushrooms', 'produce', 'seafood', 'market', 'markets', 'red-hill-market',
+      'pub', 'pubs', 'beer', 'bakery', 'cafes', 'coffee', 'breakfast', 'dining',
+      'restaurants', 'fine-dining', 'hatted', 'hatted-restaurants', 'michelin', 'casual',
+      'cook-in', 'evening',
+    ],
+    formats: ['long-lunch-list', 'cellar-door-dispatch'],
+  },
+  {
+    key: 'towns-and-places',
+    title: 'Towns & places',
+    tags: [
+      'area-guide', 'sub-regions', 'overview', 'sorrento', 'flinders', 'red-hill',
+      'mornington', 'main-ridge', 'merricks', 'balnarring', 'portsea', 'cape-schanck',
+      'dromana', 'rye', 'mount-martha', 'bayside', 'shoreham', 'moorooduc', 'hastings',
+      'arthurs-seat', 'point-nepean', 'fort-nepean', 'st-andrews-beach', 'back-beaches',
+      'ocean-coast', 'two-bays', 'bay',
+    ],
+  },
+  {
+    key: 'seasons',
+    title: 'The seasons',
+    tags: [
+      'autumn', 'winter', 'spring', 'summer', 'seasonal', 'solstice', 'fire', 'fireplace',
+      'may-planning', 'june-planning', 'july-planning', 'anzac-day', 'kings-birthday',
+      'mothers-day', 'lavender',
+    ],
+  },
+  {
+    key: 'walks-and-outdoors',
+    title: 'Walks & outdoors',
+    tags: [
+      'walk', 'walks', 'walking', 'walking-track', 'hikes', 'hiking', 'boardwalk',
+      'national-park', 'beach', 'beaches', 'coastal', 'swim', 'swimming', 'outdoors',
+      'golf', 'public-golf', 'sport', 'wildlife', 'gardens', 'photography', 'views',
+      'lighthouse', 'sunset', 'waterfront', 'ashcombe-maze', 'cable-car', 'gondola',
+    ],
+    formats: ['trail-guide'],
+  },
+  {
+    key: 'with-kids',
+    title: 'With kids',
+    tags: ['family', 'families', 'family-friendly', 'family-saturday', 'kids', 'school-holidays'],
+  },
+  {
+    key: 'dog-friendly',
+    title: 'Dog-friendly',
+    tags: ['dogs', 'dog-friendly', 'pet-friendly', 'pets', 'pet-shops', 'vet', 'grooming', 'boarding'],
+  },
+  {
+    key: 'hot-springs-and-wellness',
+    title: 'Hot springs & wellness',
+    tags: ['hot-springs', 'hotsprings', 'peninsula-hot-springs', 'wellness', 'spa', 'retreats'],
+  },
+  {
+    key: 'stays-and-weekends',
+    title: 'Stays & weekends',
+    tags: [
+      'stay', 'accommodation', 'boutique-hotels', 'luxury-hotels', 'luxury', 'villa',
+      'cottage', 'glamping', 'winery-stay', 'weekend', 'weekend-escape', 'weekend-pick',
+      'weekend-picker', 'weekly', 'rainy-day', 'day-trip', 'planning', 'free', 'budget',
+      'no-booking', 'walk-in', 'things-to-do', 'couples', 'romance', 'weddings',
+      'first-timers', 'insider-picks', 'locals',
+    ],
+    formats: ['weekend-picker', 'stay-notes'],
+  },
 ];
-const picks = pickSlugs
-  .map((slug) => rest.find((article) => routeSlug(article) === slug))
-  .filter((article): article is NonNullable<typeof article> => Boolean(article));
 
-// Group the rest under the five primary Journal categories.
-// Each category may map to one or more underlying format keys from the
-// content collection, but the reader only ever sees the five surfaces.
-const formatOrder: Array<{ key: string; title: string; intro: string; formats: string[] }> = [
-  {
-    key: 'peninsula-this-weekend',
-    title: 'Peninsula This Weekend',
-    intro: 'Our weekly weekend brief: one pick, one weather-proof backup, and one useful planning note for the days ahead.',
-    formats: ['weekend-picker'],
-  },
-  {
-    key: 'guides',
-    title: 'Guides',
-    intro: 'Practical, read-before-you-book guides. Weekend shapes, rainy-day plans, family trips, and the questions readers actually ask.',
-    formats: ['service'],
-  },
-  {
-    key: 'features',
-    title: 'Features',
-    intro: 'Long-form pieces, editor’s letters, interviews, and investigations  -  the writing we spend the extra weeks on.',
-    formats: ['editors-letter', 'interview', 'investigation', 'slow-peninsula'],
-  },
-  {
-    key: 'reviews-and-lists',
-    title: 'Reviews & Lists',
-    intro: 'Shortlists with a point of view  -  the tables, cellar doors, and places locals actually rotate through.',
-    formats: ['long-lunch-list', 'insider-edit', 'cellar-door-dispatch'],
-  },
-  {
-    key: 'stay-notes',
-    title: 'Stay Notes',
-    intro: 'The rooms, cottages, and villas that change the shape of a weekend.',
-    formats: ['stay-notes'],
-  },
-];
+const themes = themeDefs
+  .map((theme) => {
+    const tagSet = new Set(theme.tags);
+    const formatSet = new Set(theme.formats ?? []);
+    return {
+      ...theme,
+      articles: articles.filter(
+        (article) =>
+          article.data.tags.some((tag: string) => tagSet.has(tag)) ||
+          formatSet.has(article.data.format)
+      ),
+    };
+  })
+  .filter((theme) => theme.articles.length > 0);
 
-// Local label override so the lead story and any inline format tags on this
-// page read in the new category language, regardless of the underlying format.
-const journalFormatLabel: Record<string, string> = {
-  'weekend-picker': 'Peninsula This Weekend',
-  service: 'Guides',
-  'editors-letter': 'Features',
-  interview: 'Features',
-  investigation: 'Features',
-  'slow-peninsula': 'Features',
-  'long-lunch-list': 'Reviews & Lists',
-  'insider-edit': 'Reviews & Lists',
-  'cellar-door-dispatch': 'Reviews & Lists',
-  'stay-notes': 'Stay Notes',
-};
+/* Coverage guard: the theme index should cover at least 90% of articles
+   (acceptance criterion). Warn at build so curation rot is visible. */
+const coveredSlugs = new Set(themes.flatMap((t) => t.articles.map((a) => routeSlug(a))));
+const coverage = articles.length ? coveredSlugs.size / articles.length : 1;
+if (coverage < 0.9) {
+  const orphans = articles.map((a) => routeSlug(a)).filter((slug) => !coveredSlugs.has(slug));
+  console.warn(
+    `[journal] theme index covers ${Math.round(coverage * 100)}% of articles (target 90%). Outside every theme: ${orphans.join(', ')}`
+  );
+}
 
-const groups = formatOrder
-  .map((group) => ({
-    ...group,
-    articles: rest.filter((article) => group.formats.includes(article.data.format)),
-  }))
-  .filter((group) => group.articles.length > 0);
+/* Archive: every published journal article, grouped by year then month,
+   newest first. This is the exhaustive spine; every previously linked
+   article URL is reachable from this page. */
+type ArticleEntry = (typeof articles)[number];
+const archiveYears: Array<{ year: number; months: Array<{ label: string; monthISO: string; items: ArticleEntry[] }>; count: number }> = [];
+for (const article of articles) {
+  const d = article.data.publishedAt;
+  const year = d.getFullYear();
+  let yearGroup = archiveYears.find((g) => g.year === year);
+  if (!yearGroup) {
+    yearGroup = { year, months: [], count: 0 };
+    archiveYears.push(yearGroup);
+  }
+  const label = d.toLocaleDateString('en-AU', { month: 'long', year: 'numeric' });
+  let monthGroup = yearGroup.months.find((m) => m.label === label);
+  if (!monthGroup) {
+    monthGroup = { label, monthISO: `${year}-${String(d.getMonth() + 1).padStart(2, '0')}`, items: [] };
+    yearGroup.months.push(monthGroup);
+  }
+  monthGroup.items.push(article);
+  yearGroup.count += 1;
+}
+
+const isoDate = (d: Date) => d.toISOString().slice(0, 10);
+const longDate = (d: Date) => d.toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' });
+const shortDate = (d: Date) => d.toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' });
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
@@ -113,117 +205,422 @@ export const prerender = true;
   entitySlug="journal"
   />
 
-  <!-- Editor’s desk note  -  a short seasonal framing block that tells
-       the reader what the Journal is focused on right now. Creates the
-       sense of a living editorial desk rather than a static archive. -->
-  <section class="editors-desk editors-desk--single" aria-label="Editor’s note">
+  <!-- Editor's desk note: a short seasonal framing block, kept from v4.
+       It is the page's voice; everything below it is the magazine. -->
+  <section class="editors-desk editors-desk--single" aria-label="Editor's note">
     <div class="container">
       <div class="editors-desk__inner">
         <div class="editors-desk__col">
-          <p class="label label--accent">From the editor’s desk</p>
-          <h2 class="editors-desk__title">What we’re writing about this season</h2>
-          <p class="editors-desk__body">Autumn on the Peninsula is vintage season on the ridge and fireplace-lunch season everywhere else. The Journal is leaning into practical guides for those moods, honest stay notes, and the weekly <em>Peninsula This Weekend</em> brief.</p>
-          <p class="editors-desk__body">Every piece below answers a real question a weekend visitor actually asks.</p>
+          <p class="label label--accent">From the editor's desk</p>
+          <h2 class="editors-desk__title">What we're writing about this season</h2>
+          <p class="editors-desk__body">Winter on the Peninsula is for long lunches, thermal pools and walks that earn a fire afterwards. The Journal is leaning into practical guides for those moods, honest stay notes, and the weekly <em>Peninsula This Weekend</em> brief.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Planning guides, curated index of service-journal landing pages.
-       These are standalone Astro routes (not content-collection entries), so
-       they don't appear in the dynamic format-grouped lists below. This section
-       is the authoritative hub → service-page link so nothing gets orphaned. -->
-  <section class="planning-guides" aria-label="Planning guides">
-    <div class="container">
-      <div class="planning-guides__header">
-        <p class="label label--accent">Planning guides</p>
-        <h2 class="planning-guides__title">Read this before you book.</h2>
-        <p class="planning-guides__dek">Service pieces and seasonal guides for the specific weekend you're trying to build. Each one answers a real question a weekend visitor actually asks.</p>
-      </div>
-      <ul class="planning-guides__grid">
-        <li><a href="/journal/mornington-peninsula-itinerary/"><span class="planning-guides__eyebrow">Itinerary</span><span class="planning-guides__name">The best 3-day Mornington Peninsula plan</span></a></li>
-        <li><a href="/journal/mornington-peninsula-day-trip/"><span class="planning-guides__eyebrow">Day trip</span><span class="planning-guides__name">Mornington Peninsula day trip from Melbourne</span></a></li>
-        <li><a href="/journal/mornington-peninsula-hot-springs-guide/"><span class="planning-guides__eyebrow">Hot springs</span><span class="planning-guides__name">The Peninsula hot springs guide</span></a></li>
-        <li><a href="/journal/mornington-peninsula-winery-tour/"><span class="planning-guides__eyebrow">Cellar doors</span><span class="planning-guides__name">Self-drive winery tour, the route that works</span></a></li>
-        <li><a href="/journal/mornington-peninsula-with-kids/"><span class="planning-guides__eyebrow">Family</span><span class="planning-guides__name">Mornington Peninsula with kids, the honest guide</span></a></li>
-        <li><a href="/journal/dog-friendly-mornington-peninsula/"><span class="planning-guides__eyebrow">Dogs</span><span class="planning-guides__name">Dog-friendly Peninsula, beaches, cafés, stays</span></a></li>
-        <li><a href="/journal/mornington-peninsula-in-autumn/"><span class="planning-guides__eyebrow">Season</span><span class="planning-guides__name">The Peninsula in autumn, vintage and fires</span></a></li>
-        <li><a href="/journal/mornington-peninsula-in-winter/"><span class="planning-guides__eyebrow">Season</span><span class="planning-guides__name">The Peninsula in winter, what still runs</span></a></li>
-        <li><a href="/journal/free-things-to-do-mornington-peninsula/"><span class="planning-guides__eyebrow">Budget</span><span class="planning-guides__name">Free things to do on the Peninsula</span></a></li>
-        <li><a href="/journal/best-brunch-mornington-peninsula/"><span class="planning-guides__eyebrow">Eat</span><span class="planning-guides__name">Best brunch on the Mornington Peninsula</span></a></li>
-        <li><a href="/journal/mornington-peninsula-wedding-venues/"><span class="planning-guides__eyebrow">Wedding</span><span class="planning-guides__name">Peninsula wedding venues worth the weekend</span></a></li>
-        <li><a href="/explore/best-walks/"><span class="planning-guides__eyebrow">Walks</span><span class="planning-guides__name">Best walks on the Mornington Peninsula</span></a></li>
-        <li><a href="/journal/cellar-door/"><span class="planning-guides__eyebrow">Wine</span><span class="planning-guides__name">Peninsula cellar doors — the producers worth the appointment</span></a></li>
-      </ul>
-    </div>
-  </section>
-
-  {featured && (
-    <section class="feature feature--compact">
+  {lead && (
+    <section class="v5j-lead" aria-label="Lead feature">
       <div class="container">
-        <div class="feature__inner">
-          <div class="feature__image-block feature__image-block--bay" aria-hidden="true" style={featuredHero!.style} {...editableImage({ entityType: 'article', entitySlug: featuredSlug!, fieldPath: 'hero', label: `${featured.data.title} hero`, purpose: 'hero' })}>
-            <div class="feature__image-overlay"></div>
-            <span class="feature__image-tag">Lead story</span>
-          </div>
-          <div class="feature__content">
-            <div class="feature__label">
-              <span class="label label--accent">{journalFormatLabel[featured.data.format] ?? formatLabel[featured.data.format] ?? featured.data.format}</span>
-            </div>
-            <h2 class="feature__title">
-              <a href={`/journal/${featuredSlug}`}>{featured.data.title}</a>
+        <article class="v5j-lead__cover">
+          <img
+            class="v5j-lead__image"
+            src={leadHero!.src}
+            alt={leadHero!.alt}
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+            {...editableImage({ entityType: 'article', entitySlug: leadSlug!, fieldPath: 'hero', label: `${lead.data.title} hero`, purpose: 'hero' })}
+          />
+          <div class="v5j-lead__scrim" aria-hidden="true"></div>
+          <div class="v5j-lead__content">
+            <h2 class="v5j-lead__title">
+              <a
+                href={`/journal/${leadSlug}/`}
+                data-evt="card_click"
+                data-entity-type="article"
+                data-entity-slug={leadSlug}
+                data-surface="journal-lead"
+              >{lead.data.title}</a>
             </h2>
-            <p class="feature__dek">{featured.data.dek}</p>
-            <div class="feature__byline">
-              {featured.data.readingTimeMinutes && (
+            <p class="v5j-lead__dek">{lead.data.dek}</p>
+            <p class="v5j-lead__byline">
+              <span class="v5j-lead__author">{bylineFor(lead)}</span>
+              <span class="v5j-sep" aria-hidden="true">&middot;</span>
+              <time datetime={isoDate(lead.data.publishedAt)}>{longDate(lead.data.publishedAt)}</time>
+              {lead.data.readingTimeMinutes && (
                 <>
-                  <span class="feature__byline-name">{featured.data.readingTimeMinutes} min read</span>
-                  <span class="feature__byline-dot" aria-hidden="true"></span>
+                  <span class="v5j-sep" aria-hidden="true">&middot;</span>
+                  <span>{lead.data.readingTimeMinutes} min read</span>
                 </>
               )}
-              <span class="feature__byline-meta">{featured.data.publishedAt.toLocaleDateString('en-AU', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
-            </div>
-            <a href={`/journal/${featuredSlug}`} class="feature__cta">Read →</a>
+            </p>
           </div>
+        </article>
+      </div>
+    </section>
+  )}
+
+  {latest.length > 0 && (
+    <section class="v5j-section" id="latest" aria-labelledby="v5j-latest-title">
+      <div class="container">
+        <header class="v5j-header">
+          <p class="label label--accent">Latest</p>
+          <h2 class="v5j-title" id="v5j-latest-title">New from the desk</h2>
+          <p class="v5j-sub">The most recent pieces, in publication order. The full run is in the archive below.</p>
+        </header>
+        <CardGrid label="Latest Journal articles" layout="rows">
+          {latest.map((article, i) => (
+            <Card
+              variant="compact-row"
+              title={article.data.title}
+              href={`/journal/${routeSlug(article)}/`}
+              entityType="article"
+              entitySlug={routeSlug(article)}
+              fieldPath="hero"
+              image={{ src: latestHeroes[i].src, alt: latestHeroes[i].alt }}
+              meta={[
+                bylineFor(article),
+                shortDate(article.data.publishedAt),
+                article.data.readingTimeMinutes ? `${article.data.readingTimeMinutes} min` : 'Read',
+              ]}
+              surface="journal-latest"
+              position={i + 1}
+            />
+          ))}
+        </CardGrid>
+      </div>
+    </section>
+  )}
+
+  {themes.length > 0 && (
+    <section class="v5j-section v5j-section--alt" id="themes" aria-labelledby="v5j-themes-title">
+      <div class="container">
+        <header class="v5j-header">
+          <p class="label label--accent">By theme</p>
+          <h2 class="v5j-title" id="v5j-themes-title">The Journal, by theme</h2>
+          <p class="v5j-sub">A text index, not a card wall. Each theme opens to every dated piece we have on it, mapped from the tags the articles already carry.</p>
+        </header>
+        <div class="v5j-themes">
+          {themes.map((theme) => (
+            <details class="v5j-details">
+              <summary>
+                <span class="v5j-details__name">{theme.title}</span>
+                <span class="v5j-details__count">{theme.articles.length} {theme.articles.length === 1 ? 'piece' : 'pieces'}</span>
+              </summary>
+              <ul class="v5j-list" aria-label={`${theme.title} articles`}>
+                {theme.articles.map((article) => (
+                  <li>
+                    <a href={`/journal/${routeSlug(article)}/`}>{article.data.title}</a>
+                    <span class="v5j-list__meta">
+                      <time datetime={isoDate(article.data.publishedAt)}>{shortDate(article.data.publishedAt)}</time>
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </details>
+          ))}
         </div>
       </div>
     </section>
   )}
 
-  {picks.length > 0 && (
-    <section class="venues venues--plain">
-      <div class="container">
-        <div class="venues__header">
-          <div>
-            <p class="label label--accent">Start here</p>
-            <h2 class="venues__title">Three pieces to read first</h2>
-            <p class="venues__sub">Read first  -  the pieces doing the most work in the Journal right now.</p>
-          </div>
-        </div>
-        <div class="venues__grid">
-          {picks.map((article) => <ArticleCard article={article} typeLabel={journalFormatLabel[article.data.format] ?? formatLabel[article.data.format] ?? article.data.format} />)}
-        </div>
+  <section class="v5j-section" id="archive" aria-labelledby="v5j-archive-title">
+    <div class="container">
+      <header class="v5j-header">
+        <p class="label label--accent">Archive</p>
+        <h2 class="v5j-title" id="v5j-archive-title">Everything, by month</h2>
+        <p class="v5j-sub">The complete Journal, dated and in order. Articles keep their original addresses; nothing is unpublished when it leaves the front page.</p>
+      </header>
+      <div class="v5j-archive">
+        {archiveYears.map((yearGroup, yearIndex) => (
+          <details class="v5j-details" open={yearIndex === 0}>
+            <summary>
+              <span class="v5j-details__name">{yearGroup.year}</span>
+              <span class="v5j-details__count">{yearGroup.count} {yearGroup.count === 1 ? 'piece' : 'pieces'}</span>
+            </summary>
+            {yearGroup.months.map((month) => (
+              <div class="v5j-month">
+                <h3 class="v5j-month__label">{month.label}</h3>
+                <ul class="v5j-list" aria-label={`Articles from ${month.label}`}>
+                  {month.items.map((article) => (
+                    <li>
+                      <a href={`/journal/${routeSlug(article)}/`}>{article.data.title}</a>
+                      <span class="v5j-list__meta">
+                        <time datetime={isoDate(article.data.publishedAt)}>{shortDate(article.data.publishedAt)}</time>
+                        {article.data.readingTimeMinutes && (
+                          <>
+                            <span class="v5j-sep" aria-hidden="true">&middot;</span>
+                            <span>{article.data.readingTimeMinutes} min</span>
+                          </>
+                        )}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </details>
+        ))}
       </div>
-    </section>
-  )}
-
-  {groups.map((group) => (
-    <section class="venues venues--alt" id={group.key}>
-      <div class="container">
-        <div class="venues__header">
-          <div>
-            <p class="label label--accent">{group.title}</p>
-            <h2 class="venues__title">{group.title}</h2>
-            <p class="venues__sub">{group.intro}</p>
-          </div>
-          <span class="venues__count">{group.articles.length} pieces</span>
-        </div>
-        <div class="venues__grid">
-          {group.articles.map((article) => <ArticleCard article={article} hideType />)}
-        </div>
-      </div>
-    </section>
-  ))}
+    </div>
+  </section>
 
   <NewsletterBlock />
 </BaseLayout>
+
+<style>
+  /* Lead feature: full-bleed magazine cover. The photo is the panel; a
+     bottom-up harbour-deep scrim guarantees the reversed type reads over
+     any CMS-chosen image (>=0.82 alpha through the whole content zone). */
+  .v5j-lead {
+    padding: var(--space-7, 3rem) 0;
+  }
+  .v5j-lead__cover {
+    position: relative;
+    border-radius: var(--radius-l, 28px);
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    background: var(--bg-dark, #0B2E4A);
+  }
+  .v5j-lead__image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform var(--dur-slow, 320ms) var(--ease-enter, ease-out);
+  }
+  .v5j-lead__cover:hover .v5j-lead__image {
+    transform: scale(1.02);
+  }
+  .v5j-lead__scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(11, 46, 74, 0.94) 0%,
+      rgba(11, 46, 74, 0.82) 42%,
+      rgba(11, 46, 74, 0.35) 62%,
+      rgba(11, 46, 74, 0) 78%
+    );
+  }
+  .v5j-lead__content {
+    position: absolute;
+    inset: auto 0 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3, 0.75rem);
+    padding: clamp(1.25rem, 3.5vw, 2.5rem);
+  }
+  .v5j-lead__title {
+    margin: 0;
+    font-family: var(--font-display, var(--font-display));
+    font-size: var(--fs-800, clamp(2rem, 1.6rem + 2vw, 2.75rem));
+    font-weight: var(--fw-display, 600);
+    line-height: var(--lh-display, 1.08);
+    letter-spacing: var(--ls-display, -0.02em);
+    max-width: 22ch;
+    text-wrap: balance;
+  }
+  .v5j-lead__title a {
+    color: var(--white, #FDFCFA);
+    text-decoration: none;
+  }
+  .v5j-lead__title a:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+  }
+  /* The whole cover is the click target. */
+  .v5j-lead__title a::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+  .v5j-lead__title a:focus-visible {
+    outline: none;
+  }
+  .v5j-lead__title a:focus-visible::after {
+    outline: 3px solid var(--mint, #F5C177);
+    outline-offset: -6px;
+    border-radius: var(--radius-l, 28px);
+  }
+  .v5j-lead__dek {
+    margin: 0;
+    font-family: var(--font-display, var(--font-display));
+    font-style: normal;
+    font-size: var(--fs-500, 1.1875rem);
+    line-height: var(--lh-dek, 1.45);
+    color: rgba(237, 241, 245, 0.92);
+    max-width: var(--measure-dek, 52ch);
+  }
+  .v5j-lead__byline {
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.4rem;
+    font-family: var(--font-ui, var(--font-ui));
+    font-size: var(--fs-200, 0.8125rem);
+    line-height: var(--lh-ui, 1.4);
+    color: rgba(237, 241, 245, 0.78);
+  }
+  .v5j-lead__author {
+    font-weight: var(--fw-semibold, 600);
+    color: var(--white, #FDFCFA);
+  }
+
+  @media (min-width: 64em) {
+    .v5j-lead__cover {
+      aspect-ratio: 21 / 9;
+    }
+  }
+  @media (max-width: 40em) {
+    .v5j-lead__cover {
+      aspect-ratio: 3 / 4;
+    }
+    .v5j-lead__title {
+      font-size: var(--fs-700, clamp(1.75rem, 1.4rem + 1.6vw, 2.25rem));
+    }
+    .v5j-lead__dek {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .v5j-lead__cover:hover .v5j-lead__image {
+      transform: none;
+    }
+  }
+
+  /* Shared section scaffolding */
+  .v5j-section {
+    padding: var(--space-7, 3rem) 0;
+  }
+  .v5j-section--alt {
+    background: var(--bg-alt);
+  }
+  .v5j-header {
+    margin-bottom: var(--space-5, 1.5rem);
+  }
+  .v5j-title {
+    margin: 0 0 var(--space-2, 0.5rem);
+    font-family: var(--font-display, var(--font-display));
+    font-size: var(--fs-700, clamp(1.625rem, 1.4rem + 1.2vw, 2.125rem));
+    font-weight: var(--fw-display, 600);
+    line-height: var(--lh-heading, 1.2);
+    color: var(--text);
+  }
+  .v5j-sub {
+    margin: 0;
+    font-size: var(--fs-300, 0.9375rem);
+    line-height: var(--lh-ui, 1.4);
+    color: var(--soft);
+    max-width: var(--measure-dek, 52ch);
+  }
+  .v5j-sep {
+    color: var(--soft);
+  }
+
+  /* Disclosure blocks: themes and archive years */
+  .v5j-themes,
+  .v5j-archive {
+    display: flex;
+    flex-direction: column;
+  }
+  .v5j-details {
+    border-bottom: 1px solid var(--border);
+  }
+  .v5j-details:first-of-type {
+    border-top: 1px solid var(--border);
+  }
+  .v5j-details summary {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-3, 0.75rem);
+    padding: var(--space-4, 1rem) 0;
+    cursor: pointer;
+    list-style: none;
+  }
+  .v5j-details summary::-webkit-details-marker {
+    display: none;
+  }
+  .v5j-details summary::after {
+    content: '+';
+    font-family: var(--font-ui, var(--font-ui));
+    font-size: var(--fs-500, 1.1875rem);
+    color: var(--soft);
+    line-height: 1;
+  }
+  .v5j-details[open] summary::after {
+    content: '\2212';
+  }
+  .v5j-details summary:focus-visible {
+    outline: var(--focus-ring, 2px solid var(--accent));
+    outline-offset: 2px;
+  }
+  .v5j-details__name {
+    font-family: var(--font-display, var(--font-display));
+    font-size: var(--fs-600, clamp(1.375rem, 1.2rem + 0.8vw, 1.625rem));
+    font-weight: var(--fw-display, 600);
+    color: var(--text);
+  }
+  .v5j-details__count {
+    margin-left: auto;
+    font-family: var(--font-ui, var(--font-ui));
+    font-size: var(--fs-200, 0.8125rem);
+    color: var(--soft);
+    white-space: nowrap;
+  }
+
+  /* Text lists inside themes and archive months */
+  .v5j-list {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 var(--space-4, 1rem);
+  }
+  .v5j-list li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.25rem 0.6rem;
+    padding: 0.35rem 0;
+  }
+  .v5j-list a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: var(--fs-300, 0.9375rem);
+    line-height: var(--lh-ui, 1.4);
+  }
+  .v5j-list a:hover {
+    text-decoration: underline;
+  }
+  .v5j-list a:focus-visible {
+    outline: var(--focus-ring, 2px solid var(--accent));
+    outline-offset: 2px;
+  }
+  .v5j-list__meta {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.35rem;
+    font-family: var(--font-ui, var(--font-ui));
+    font-size: var(--fs-200, 0.8125rem);
+    color: var(--soft);
+    white-space: nowrap;
+  }
+
+  .v5j-month__label {
+    margin: var(--space-3, 0.75rem) 0 var(--space-1, 0.25rem);
+    font-family: var(--font-ui, var(--font-ui));
+    font-size: var(--fs-100, 0.75rem);
+    font-weight: var(--fw-semibold, 600);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--soft);
+  }
+</style>

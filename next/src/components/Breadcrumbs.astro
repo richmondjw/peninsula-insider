@@ -1,20 +1,14 @@
 ---
 /**
- * Breadcrumbs — visible navigation + BreadcrumbList JSON-LD.
+ * Breadcrumbs - visible semantic navigation.
  *
- * Single source of truth for breadcrumbs on Peninsula Insider. Emits both:
- *   1. Visible <nav> element (styled as before)
- *   2. BreadcrumbList schema.org JSON-LD (for SERP rich results)
- *
- * Pages should not emit a separate BreadcrumbList JSON-LD — this component
- * handles it. Pass the same `items` array you'd use for the visible nav.
+ * Page templates that have a curated BreadcrumbList own that JSON-LD. Keeping
+ * this reusable visual component schema-free prevents site-wide duplicates
+ * while preserving semantic nav for every page.
  *
  * Each item:
- *   - `label` — visible text + schema `name`
- *   - `href`  — optional. Omit on the final (current) item. Relative paths are
- *               resolved against SITE_URL; absolute URLs (http(s)://) pass through.
- *               For the final item, if `href` is omitted, the current page URL
- *               is used in the schema (visible rendering shows it as non-link text).
+ *   - `label` - visible text
+ *   - `href` - optional. Omit on the final (current) item.
  */
 
 export interface Crumb {
@@ -28,33 +22,7 @@ export interface Props {
 
 const { items } = Astro.props;
 
-const SITE_URL = 'https://peninsulainsider.com.au';
-
-// Derive current canonical URL for the final breadcrumb item when href is not supplied.
-const rawPathname = Astro.url.pathname.replace(/^\/V2/, '') || '/';
-const normalizedPath = rawPathname !== '/' ? rawPathname.replace(/\/$/, '') : rawPathname;
-const currentUrl = `${SITE_URL}${normalizedPath}`;
-
-function absolutize(href: string | undefined, fallback: string): string {
-  if (!href) return fallback;
-  if (href.startsWith('http://') || href.startsWith('https://')) return href;
-  if (href === '/') return SITE_URL;
-  return `${SITE_URL}${href.startsWith('/') ? href : '/' + href}`;
-}
-
-const breadcrumbSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: items.map((item, index) => ({
-    '@type': 'ListItem',
-    position: index + 1,
-    name: item.label,
-    item: absolutize(item.href, currentUrl),
-  })),
-};
 ---
-
-<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 
 <nav class="breadcrumbs" aria-label="Breadcrumb">
   <div class="container">

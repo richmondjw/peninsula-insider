@@ -150,7 +150,7 @@ export const eatTypes = [
   'restaurant', 'cafe', 'bakery', 'pub', 'market',
   'brewery', 'distillery', 'providore',
 ];
-// Note: 'producer' removed from all arrays — handled as deprecated in PR-3.
+// Note: 'producer' removed from all arrays - handled as deprecated in PR-3.
 
 export const zoneLabel: Record<string, string> = {
   mornington: 'Mornington',
@@ -302,7 +302,7 @@ const categoryVariantsByType: Record<string, string[]> = {
 };
 
 /**
- * Images that look wrong on Peninsula content (mislabeled stock — tropical
+ * Images that look wrong on Peninsula content (mislabeled stock - tropical
  * resort, sports car, gym, etc.). Treated like placeholders so the resolver
  * routes around them via the place/article fallback chain.
  */
@@ -323,7 +323,7 @@ const GENERIC_LOCATION_RE = /\/(?:place|explore)-[a-z-]+-\d+\.[a-z]+$/;
 
 /**
  * Returns true only when the venue/experience/etc. has a genuinely
- * dedicated hero image — not a borrowed place shot, explore image,
+ * dedicated hero image - not a borrowed place shot, explore image,
  * category fallback, or explicit placeholder.
  *
  * Use this in card components to decide whether to show the real photo

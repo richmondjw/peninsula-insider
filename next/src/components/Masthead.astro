@@ -1,11 +1,11 @@
 ---
 /**
- * Masthead — Peninsula Insider
+ * Masthead - Peninsula Insider
  *
  * Three-row editorial flag, all sticky:
- *   1. utility — issue stamp · Peninsula conditions · subscribe / about
- *   2. brand   — wordmark + italic tagline
- *   3. nav     — section pillars (Journal in italic) + Subscribe pill
+ *   1. utility - issue stamp · Peninsula conditions · subscribe / about
+ *   2. brand - wordmark + italic tagline
+ *   3. nav - section pillars (Journal in italic) + Subscribe pill
  *
  * Replaces the previous UtilityBar+Masthead two-component pattern with a
  * single unified header zone. UtilityBar component is no longer rendered
@@ -15,6 +15,7 @@
  */
 import { mastheadNav as navItems, mastheadMoreNav as moreItems } from '../lib/nav';
 import Typeahead from './Typeahead.astro';
+import { getConditionsStrip } from '../lib/conditions';
 
 export interface Props {
   section?: string;
@@ -25,18 +26,28 @@ export interface Props {
   sunset?: string;
 }
 
+/* Defaults are derived, never hardcoded. The previous literals
+   ("Autumn Insider · May 2026", "16°C", "5:48 pm") were frozen at the v5
+   build date and were quietly wrong from the day after. Issue label and
+   sunset are computed; temperature comes from the editorial data file and
+   resolves to an empty string when unobserved, so nothing is invented.
+   See src/lib/conditions.ts and src/lib/sunset.ts.
+   NOTE: this component is not currently mounted. The live conditions strip
+   and issue stamp are UtilityBar.astro, rendered from BaseLayout. */
+const strip = getConditionsStrip();
+
 const {
   section = 'home',
   issueMark = '',
-  issueLabel = 'Autumn Insider · May 2026',
-  port = 'Port Phillip',
-  portTemp = '16°C',
-  sunset = '5:48 pm',
+  issueLabel = strip.issue,
+  port = strip.place ?? '',
+  portTemp = strip.temperature ? `${strip.temperature}°C` : '',
+  sunset = strip.sunset ?? '',
 } = Astro.props;
 ---
 
 <header class="masthead">
-  <!-- Row 1 — Utility -->
+  <!-- Row 1 - Utility -->
   <div class="masthead__utility">
     <div class="container">
       <div class="masthead__utility-inner">
@@ -62,7 +73,7 @@ const {
     </div>
   </div>
 
-  <!-- Row 2 — Brand -->
+  <!-- Row 2 - Brand -->
   <div class="masthead__brand">
     <div class="container">
       <div class="masthead__brand-inner">
@@ -73,8 +84,8 @@ const {
     </div>
   </div>
 
-  <!-- Row 3 — Nav (on mobile this row absorbs the wordmark too: burger
-       left, wordmark centred, subscribe right — single-row magazine
+  <!-- Row 3 - Nav (on mobile this row absorbs the wordmark too: burger
+       left, wordmark centred, subscribe right - single-row magazine
        pattern used by NYT, Atlantic, Monocle, etc.) -->
   <div class="masthead__nav-row">
     <div class="container">
@@ -85,18 +96,6 @@ const {
         <a href="/" class="masthead__logo-mobile" aria-label="Peninsula Insider, home">
           Peninsula <span>Insider</span>
         </a>
-        <button
-          type="button"
-          class="masthead__concierge-mobile"
-          aria-label="Ask The Insider, the Peninsula concierge"
-          data-pi-trigger="true"
-        >
-          <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 3 L13.4 8.6 L19 10 L13.4 11.4 L12 17 L10.6 11.4 L5 10 L10.6 8.6 Z" />
-            <path d="M19 4 L19.6 5.6 L21 6 L19.6 6.4 L19 8 L18.4 6.4 L17 6 L18.4 5.6 Z" />
-          </svg>
-          <span class="masthead__concierge-mobile__label">Ask</span>
-        </button>
         <button class="masthead__burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
           <span></span><span></span><span></span>
         </button>
@@ -155,19 +154,19 @@ const {
           </ul>
         </nav>
         <!-- Visual order: typeahead (instant search), then Subscribe.
-             Phase 3 WS3A — replaces the prior search-icon button which
+             Phase 3 WS3A - replaces the prior search-icon button which
              opened the SearchOverlay. The overlay component is still
              mounted by BaseLayout as a fallback path; the typeahead's
              "View all results" footer link routes there if needed. -->
         <Typeahead />
-        <a href="/dispatch/" class="masthead__cta">Join</a>
-        <a href="/dispatch/" class="masthead__cta-mobile" aria-label="Join the Dispatch">Join</a>
+        <a href="/dispatch/" class="masthead__cta pi-btn pi-btn--ghost pi-btn--sm">Join</a>
+        <a href="/dispatch/" class="masthead__cta-mobile pi-btn pi-btn--text" aria-label="Join The Insider Note">Join</a>
       </div>
     </div>
   </div>
 </header>
 
-<!-- Mobile-nav full-screen overlay — opened by the burger toggle in BaseLayout -->
+<!-- Mobile-nav full-screen overlay - opened by the burger toggle in BaseLayout -->
 <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
   <div class="mobile-nav__inner">
     <div class="mobile-nav__brand">
@@ -206,7 +205,7 @@ const {
           </ul>
         </div>
       ) : (
-        /* Simple link item — no submenu */
+        /* Simple link item - no submenu */
         <a
           href={item.href}
           class={`mobile-nav__link${item.key === 'journal' ? ' mobile-nav__link--journal' : ''}`}
@@ -254,11 +253,8 @@ const {
       <span class="mobile-nav__arrow" aria-hidden="true">→</span>
     </a>
     <div class="mobile-nav__footer">
-      <a href="/ask/" class="mobile-nav__cta mobile-nav__cta--ask" data-pi-trigger="true">
-        Ask The Insider for a recommendation
-      </a>
-      <a href="/dispatch/" class="mobile-nav__cta">Join the Peninsula Dispatch</a>
-      <p class="mobile-nav__tagline">Independent editorial. Sent when it's worth sending.</p>
+      <a href="/dispatch/" class="mobile-nav__cta pi-btn pi-btn--solid pi-btn--block">Join The Insider Note</a>
+      <p class="mobile-nav__tagline">Your Peninsula week, sorted. Every Wednesday.</p>
     </div>
   </div>
 </nav>
@@ -366,8 +362,8 @@ const {
 
 <!-- Mobile nav split-button controller.
      Each [data-split-root] has:
-       [data-split-toggle] — the chevron button
-       [data-split-panel]  — the hidden submenu <ul>
+       [data-split-toggle] - the chevron button
+       [data-split-panel] - the hidden submenu <ul>
      Tap text = navigate (default <a> behaviour).
      Tap chevron = toggle submenu.
      Idempotent across astro:page-load. -->

@@ -34,11 +34,11 @@ const breadcrumbItems = [
         </div>
         <div class="admin-shell__topline-cell">
           <span class="admin-shell__topline-label">Publish rights</span>
-          <span class="admin-shell__topline-value" data-admin-publish>—</span>
+          <span class="admin-shell__topline-value" data-admin-publish> - </span>
         </div>
         <div class="admin-shell__topline-cell">
           <span class="admin-shell__topline-label">Entries</span>
-          <span class="admin-shell__topline-value" data-admin-entry-count>—</span>
+          <span class="admin-shell__topline-value" data-admin-entry-count> - </span>
         </div>
         <div class="admin-shell__topline-cell">
           <button type="button" class="admin-shell__signout" data-action="signout">Sign out</button>
@@ -70,6 +70,7 @@ const breadcrumbItems = [
           <ul class="admin-shell__quick-links">
             <li><a href="/admin/entry/?type=page&amp;slug=home">Edit homepage</a></li>
             <li><a href="/admin/media/">Media library</a></li>
+            <li><a href="/admin/image-intelligence/">Image intelligence review</a></li>
             <li><a href="/admin/login/">Login screen</a></li>
             <li><a href="/" target="_blank" rel="noopener">View live site</a></li>
           </ul>
@@ -180,7 +181,7 @@ const breadcrumbItems = [
     }
     host.innerHTML = filtered
       .map((row) => {
-        const updated = row.lastUpdatedAt ? new Date(row.lastUpdatedAt).toLocaleString() : '—';
+        const updated = row.lastUpdatedAt ? new Date(row.lastUpdatedAt).toLocaleString() : ' - ';
         const href = `/admin/entry/?type=${encodeURIComponent(row.entityType)}&slug=${encodeURIComponent(row.entitySlug)}`;
         return `
           <a class="admin-shell__entry" href="${href}">
@@ -299,7 +300,7 @@ const breadcrumbItems = [
     font: 700 0.7rem/1 var(--sans, 'Inter', system-ui, sans-serif);
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--ochre, #A0541F);
+    color: var(--ochre, #26997e);
   }
   .admin-shell__title {
     margin: 0 0 0.25rem;
@@ -427,7 +428,7 @@ const breadcrumbItems = [
     transition: border-color 0.15s ease, background 0.15s ease;
   }
   .admin-shell__entry:hover {
-    border-color: rgba(160, 84, 31, 0.6);
+    border-color: rgba(11, 90, 72, 0.6);
     background: rgba(255, 255, 255, 0.85);
   }
   .admin-shell__entry-type {
@@ -435,7 +436,7 @@ const breadcrumbItems = [
     font: 700 0.65rem/1 var(--sans, 'Inter', system-ui, sans-serif);
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--ochre, #A0541F);
+    color: var(--ochre, #26997e);
     align-self: center;
   }
   .admin-shell__entry-slug {

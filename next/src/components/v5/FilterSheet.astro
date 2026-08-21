@@ -1,0 +1,452 @@
+---
+/**
+ * FilterSheet (v5, spec 2.17) - the full facet set in a bottom sheet on
+ * mobile (max 85vh) and an anchored popover panel on desktop.
+ *
+ * Changes are STAGED: tapping options only updates the staged state and the
+ * live "Show N places" count; nothing reflows behind the sheet until Apply
+ * (one pushState, per mobile-strategy s5). Swipe-down on the grab handle,
+ * Escape, backdrop tap, or the close button dismiss without applying.
+ *
+ * Accessibility: role="dialog" aria-modal="true", focus trapped while open,
+ * focus restored to the invoking button on close, 48px targets, safe-area
+ * padding. Opened by any [data-sheet-open] button (FilterBar renders one).
+ */
+import { FACET_OPTIONS, type FacetKey } from '../../lib/facets';
+
+export interface Props {
+  /** Plural noun for the apply button: "Show 23 places". */
+  noun?: string;
+  /** Sheet title. */
+  title?: string;
+  /** Facet groups to show, in order. Defaults to the full shared taxonomy. */
+  facets?: FacetKey[];
+}
+
+const GROUP_LABELS: Record<FacetKey, string> = {
+  place: 'Town',
+  cat: 'Category',
+  price: 'Price',
+  mood: 'Mood',
+  party: 'Party',
+  date: 'When',
+};
+
+// Fixed order per mobile-strategy s5: Town, Category, Price, Mood, Party, When.
+const DEFAULT_ORDER: FacetKey[] = ['place', 'cat', 'price', 'mood', 'party', 'date'];
+
+const { noun = 'places', title = 'Filters', facets = DEFAULT_ORDER } = Astro.props;
+
+const groups = facets
+  .map((key) => ({ key, label: GROUP_LABELS[key], options: FACET_OPTIONS[key] ?? [] }))
+  .filter((g) => g.options.length > 0);
+---
+
+<div class="v5-sheet" data-v5-filtersheet data-noun={noun} hidden>
+  <div class="v5-sheet__backdrop" data-sheet-backdrop></div>
+  <div
+    class="v5-sheet__panel"
+    role="dialog"
+    aria-modal="true"
+    aria-label={title}
+    data-sheet-panel
+    tabindex="-1"
+  >
+    <button type="button" class="v5-sheet__handle" data-sheet-handle aria-label="Close filters">
+      <span class="v5-sheet__handle-bar"></span>
+    </button>
+    <header class="v5-sheet__header">
+      <h2 class="v5-sheet__title">{title}</h2>
+      <button type="button" class="v5-sheet__close" data-sheet-close aria-label="Close filters">
+        &#215;
+      </button>
+    </header>
+    <div class="v5-sheet__body">
+      {groups.map((group) => (
+        <fieldset class="v5-sheet__group">
+          <legend class="v5-sheet__legend">{group.label}</legend>
+          <div class="v5-sheet__options" role="group" aria-label={group.label}>
+            {group.options.map((opt) => (
+              <button
+                type="button"
+                class="v5-sheet__option"
+                data-sheet-option
+                data-key={group.key}
+                data-value={opt.value}
+                aria-pressed="false"
+              >
+                {opt.label}
+              </button>
+            ))}
+          </div>
+        </fieldset>
+      ))}
+    </div>
+    <footer class="v5-sheet__footer">
+      <button type="button" class="v5-sheet__clear" data-sheet-clear>Clear all</button>
+      <button type="button" class="v5-sheet__apply" data-sheet-apply data-evt="filter_apply">
+        Show all {noun}
+      </button>
+    </footer>
+  </div>
+</div>
+
+<style>
+  .v5-sheet__backdrop {
+    position: fixed;
+    inset: 0;
+    background: var(--dark);
+    opacity: 0.45;
+    z-index: 90;
+  }
+  .v5-sheet__panel {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 91;
+    display: flex;
+    flex-direction: column;
+    max-height: 85vh; /* bottom sheet cap on mobile */
+    background: var(--white);
+    border-radius: 16px 16px 0 0;
+    box-shadow: 0 -8px 30px rgb(0 0 0 / 0.18);
+    padding-bottom: env(safe-area-inset-bottom, 0);
+    transition: transform 0.2s var(--ease);
+  }
+  .v5-sheet__handle {
+    background: none;
+    border: none;
+    padding: 0.6rem 0 0.2rem;
+    cursor: grab;
+    min-height: 32px;
+  }
+  .v5-sheet__handle-bar {
+    display: block;
+    width: 44px;
+    height: 4px;
+    border-radius: 2px;
+    background: var(--border);
+    margin: 0 auto;
+  }
+  .v5-sheet__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem 0.5rem 1.25rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .v5-sheet__title {
+    font-family: var(--font-ui);
+    font-size: 1.05rem;
+    margin: 0;
+    color: var(--text);
+  }
+  .v5-sheet__close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    line-height: 1;
+    color: var(--soft);
+    cursor: pointer;
+    min-width: 48px;
+    min-height: 48px;
+  }
+  .v5-sheet__close:focus-visible,
+  .v5-sheet__handle:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+  .v5-sheet__body {
+    overflow-y: auto;
+    padding: 0.75rem 1.25rem;
+    overscroll-behavior: contain;
+    touch-action: pan-y;
+  }
+  .v5-sheet__group {
+    border: none;
+    margin: 0 0 1rem;
+    padding: 0;
+  }
+  .v5-sheet__legend {
+    font-family: var(--font-ui);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--soft);
+    padding: 0;
+    margin-bottom: 0.5rem;
+  }
+  .v5-sheet__options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .v5-sheet__option {
+    font-family: var(--font-ui);
+    font-size: 0.85rem;
+    color: var(--text);
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 0 0.9rem;
+    min-height: 48px;
+    cursor: pointer;
+  }
+  .v5-sheet__option[aria-pressed='true'] {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--white);
+  }
+  .v5-sheet__option:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+  .v5-sheet__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.75rem 1.25rem;
+    border-top: 1px solid var(--border);
+    background: var(--white);
+  }
+  .v5-sheet__clear {
+    background: none;
+    border: none;
+    color: var(--accent);
+    font-family: var(--font-ui);
+    font-size: 0.9rem;
+    text-decoration: underline;
+    cursor: pointer;
+    min-height: 48px;
+    padding: 0 0.5rem;
+  }
+  .v5-sheet__apply {
+    flex: 1 1 auto;
+    font-family: var(--font-ui);
+    font-size: 0.95rem;
+    font-weight: 600;
+    background: var(--accent);
+    color: var(--white);
+    border: none;
+    border-radius: 999px;
+    min-height: 48px;
+    padding: 0 1.25rem;
+    cursor: pointer;
+  }
+  .v5-sheet__apply:hover {
+    background: var(--acc-h);
+  }
+  .v5-sheet__apply:focus-visible,
+  .v5-sheet__clear:focus-visible {
+    outline: 2px solid var(--acc-h);
+    outline-offset: 2px;
+  }
+
+  /* Desktop: anchored popover panel instead of a bottom sheet. */
+  @media (min-width: 768px) {
+    .v5-sheet__panel {
+      right: auto;
+      bottom: auto;
+      top: 15vh;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(560px, 92vw);
+      max-height: 70vh;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+    .v5-sheet__handle {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  import {
+    getState,
+    toggleValue,
+    commit,
+    countMatches,
+    getAvailableValues,
+    isEmptyState,
+    type FilterState,
+    type FilterKey,
+  } from '../../lib/v5-filter-state';
+
+  const FOCUSABLE =
+    'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
+  function hydrate(sheet: HTMLElement) {
+    if ((sheet as any)._piInit) return;
+    (sheet as any)._piInit = true;
+
+    const noun = sheet.dataset.noun || 'results';
+    const panel = sheet.querySelector<HTMLElement>('[data-sheet-panel]')!;
+    const applyBtn = sheet.querySelector<HTMLButtonElement>('[data-sheet-apply]')!;
+    let staged: FilterState = {};
+    let invoker: HTMLElement | null = null;
+    let open = false;
+
+    /**
+     * Drop options this page cannot satisfy. The sheet markup is the whole
+     * shared taxonomy; only some of it applies to any one surface. An option
+     * that can only ever return zero results is not a filter, it is a dead
+     * control, so it is removed rather than shown disabled. A group left with
+     * nothing goes too.
+     */
+    function pruneToAvailable() {
+      const available = getAvailableValues();
+      sheet.querySelectorAll<HTMLElement>('[data-sheet-option]').forEach((btn) => {
+        const key = btn.dataset.key as FilterKey;
+        const value = btn.dataset.value || '';
+        const live = !!available[key] && available[key].has(value);
+        btn.toggleAttribute('hidden', !live);
+      });
+      sheet.querySelectorAll<HTMLElement>('.v5-sheet__group').forEach((group) => {
+        const anyLive = !!group.querySelector('[data-sheet-option]:not([hidden])');
+        group.toggleAttribute('hidden', !anyLive);
+      });
+    }
+
+    function paintOptions() {
+      sheet.querySelectorAll<HTMLButtonElement>('[data-sheet-option]').forEach((btn) => {
+        const key = btn.dataset.key as FilterKey;
+        const value = btn.dataset.value || '';
+        const on = !!staged[key] && staged[key]!.indexOf(value) !== -1;
+        btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
+    }
+
+    function paintCount() {
+      const n = countMatches(staged);
+      applyBtn.textContent = isEmptyState(staged) ? `Show all ${noun}` : `Show ${n} ${noun}`;
+    }
+
+    function openSheet(from: HTMLElement | null) {
+      if (open) return;
+      open = true;
+      invoker = from;
+      staged = getState();
+      // Recomputed per open: the vocabulary follows whatever is on the page.
+      pruneToAvailable();
+      paintOptions();
+      paintCount();
+      sheet.removeAttribute('hidden');
+      document.body.style.overflow = 'hidden'; // scroll locked behind
+      panel.style.transform = '';
+      panel.focus();
+      document.addEventListener('keydown', onKeydown, true);
+    }
+
+    function closeSheet(apply: boolean) {
+      if (!open) return;
+      if (apply) {
+        // One history entry per committed filter set (mobile-strategy s5).
+        commit(staged, { push: true, source: 'sheet', noun });
+      }
+      open = false;
+      sheet.setAttribute('hidden', '');
+      document.body.style.overflow = '';
+      document.removeEventListener('keydown', onKeydown, true);
+      // Restore focus to the button that opened the sheet.
+      invoker?.focus();
+      invoker = null;
+    }
+
+    function onKeydown(e: KeyboardEvent) {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        closeSheet(false);
+        return;
+      }
+      if (e.key !== 'Tab') return;
+      // Focus trap: cycle within the panel.
+      const focusables = Array.from(panel.querySelectorAll<HTMLElement>(FOCUSABLE)).filter(
+        (el) => el.offsetParent !== null,
+      );
+      if (!focusables.length) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      const active = document.activeElement as HTMLElement | null;
+      if (e.shiftKey && (active === first || active === panel)) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && active === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+
+    // Open triggers live outside the sheet (FilterBar's More filters button).
+    document.addEventListener('click', (e) => {
+      const btn = (e.target as HTMLElement).closest<HTMLElement>('[data-sheet-open]');
+      if (btn) openSheet(btn);
+    });
+
+    sheet.querySelector('[data-sheet-close]')?.addEventListener('click', () => closeSheet(false));
+    sheet.querySelector('[data-sheet-backdrop]')?.addEventListener('click', () => closeSheet(false));
+    sheet.querySelector('[data-sheet-clear]')?.addEventListener('click', () => {
+      staged = {};
+      paintOptions();
+      paintCount();
+    });
+    applyBtn.addEventListener('click', () => closeSheet(true));
+
+    sheet.querySelectorAll<HTMLButtonElement>('[data-sheet-option]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const key = btn.dataset.key as FilterKey;
+        const value = btn.dataset.value || '';
+        staged = toggleValue(staged, key, value);
+        paintOptions();
+        paintCount(); // live preview: count only, no reflow behind the sheet
+      });
+    });
+
+    // Swipe-down to dismiss: track touches starting on the handle or header.
+    let startY: number | null = null;
+    let delta = 0;
+    const dragZone = [
+      sheet.querySelector<HTMLElement>('[data-sheet-handle]'),
+      sheet.querySelector<HTMLElement>('.v5-sheet__header'),
+    ];
+    dragZone.forEach((zone) => {
+      if (!zone) return;
+      zone.addEventListener(
+        'touchstart',
+        (e) => {
+          startY = e.touches[0].clientY;
+          delta = 0;
+        },
+        { passive: true },
+      );
+      zone.addEventListener(
+        'touchmove',
+        (e) => {
+          if (startY === null) return;
+          delta = Math.max(0, e.touches[0].clientY - startY);
+          panel.style.transform = `translateY(${delta}px)`;
+        },
+        { passive: true },
+      );
+      zone.addEventListener('touchend', () => {
+        if (startY === null) return;
+        if (delta > 80) closeSheet(false);
+        panel.style.transform = '';
+        startY = null;
+        delta = 0;
+      });
+    });
+    // Keyboard/click fallback on the handle.
+    sheet.querySelector('[data-sheet-handle]')?.addEventListener('click', () => closeSheet(false));
+  }
+
+  function init() {
+    document.querySelectorAll<HTMLElement>('[data-v5-filtersheet]').forEach(hydrate);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+  document.addEventListener('astro:page-load', init);
+</script>

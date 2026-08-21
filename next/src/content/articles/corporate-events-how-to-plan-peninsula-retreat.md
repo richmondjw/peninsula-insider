@@ -22,7 +22,7 @@ clusterLinks:
   - label: "Red Hill vs Sorrento for a Corporate Offsite"
     href: "/journal/corporate-events-red-hill-vs-sorrento/"
   - label: "Where to Stay on the Mornington Peninsula"
-    href: "/journal/where-to-stay-mornington-peninsula/"
+    href: "/stay/best-accommodation/"
   - label: "Hatted Restaurants on the Mornington Peninsula 2025"
     href: "/journal/hatted-restaurants-mornington-peninsula-2025/"
 faq:

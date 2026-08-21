@@ -36,7 +36,7 @@ const { title, description = 'Peninsula Insider partnership document.' } = Astro
 
   <style is:global>
     /* ============================================================
-       PEN INSULA INSIDER — PRINT LAYOUT
+       PEN INSULA INSIDER - PRINT LAYOUT
        Editorial cahier. Print-first.
     ============================================================ */
     :root {
@@ -80,7 +80,7 @@ const { title, description = 'Peninsula Insider partnership document.' } = Astro
       font-feature-settings: "kern" 1, "liga" 1, "dlig" 1, "onum" 0, "lnum" 1;
     }
 
-    em { font-style: italic; }
+    em { font-style: normal; }
     strong { font-weight: 600; }
     a { color: inherit; text-decoration: none; }
 
@@ -195,7 +195,7 @@ const { title, description = 'Peninsula Insider partnership document.' } = Astro
     .pi-cover__topbar { align-items: flex-start; }
     .pi-cover__brand {
       font-family: 'Cormorant Garamond', Georgia, serif;
-      font-style: italic;
+      font-style: normal;
       font-weight: 500;
       font-size: 11pt;
       letter-spacing: 0.06em;
@@ -235,13 +235,13 @@ const { title, description = 'Peninsula Insider partnership document.' } = Astro
       margin-bottom: 8mm;
     }
     .pi-cover__title em {
-      font-style: italic;
+      font-style: normal;
       font-weight: 400;
       color: var(--pi-bg);
     }
     .pi-cover__sub {
       font-family: 'Cormorant Garamond', Georgia, serif;
-      font-style: italic;
+      font-style: normal;
       font-size: 16pt;
       line-height: 1.35;
       letter-spacing: 0.005em;
@@ -272,7 +272,7 @@ const { title, description = 'Peninsula Insider partnership document.' } = Astro
       letter-spacing: 0.18em;
     }
     .pi-running-head__brand em {
-      font-style: italic;
+      font-style: normal;
       font-weight: 400;
       letter-spacing: 0.04em;
     }
@@ -298,7 +298,7 @@ const { title, description = 'Peninsula Insider partnership document.' } = Astro
       border-top: 0.5pt solid var(--pi-border);
       margin-top: auto;
     }
-    .pi-running-foot__url { color: var(--pi-accent); letter-spacing: 0.08em; text-transform: lowercase; font-style: italic; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 9pt; }
+    .pi-running-foot__url { color: var(--pi-accent); letter-spacing: 0.08em; text-transform: lowercase; font-style: normal; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 9pt; }
     .pi-running-foot__pageno {
       font-variant-numeric: tabular-nums;
       letter-spacing: 0.18em;
@@ -318,7 +318,7 @@ const { title, description = 'Peninsula Insider partnership document.' } = Astro
     .pi-chapter__numeral {
       font-family: 'Cormorant Garamond', Georgia, serif;
       font-weight: 400;
-      font-style: italic;
+      font-style: normal;
       font-size: 38pt;
       line-height: 0.85;
       color: var(--pi-accent);
@@ -343,7 +343,7 @@ const { title, description = 'Peninsula Insider partnership document.' } = Astro
       letter-spacing: -0.015em;
       color: var(--pi-text);
     }
-    .pi-chapter__title em { font-style: italic; font-weight: 400; }
+    .pi-chapter__title em { font-style: normal; font-weight: 400; }
 
     /* ============================================================
        TYPOGRAPHY HELPERS
@@ -396,7 +396,7 @@ const { title, description = 'Peninsula Insider partnership document.' } = Astro
 
     .pi-dek {
       font-family: 'Cormorant Garamond', Georgia, serif;
-      font-style: italic;
+      font-style: normal;
       font-weight: 400;
       font-size: 14pt;
       line-height: 1.45;
@@ -417,7 +417,7 @@ const { title, description = 'Peninsula Insider partnership document.' } = Astro
 
     .pi-lede {
       font-family: 'Cormorant Garamond', Georgia, serif;
-      font-style: italic;
+      font-style: normal;
       font-size: 14pt;
       line-height: 1.45;
       color: var(--pi-text);
@@ -438,7 +438,7 @@ const { title, description = 'Peninsula Insider partnership document.' } = Astro
 
     .pi-pullquote {
       font-family: 'Cormorant Garamond', Georgia, serif;
-      font-style: italic;
+      font-style: normal;
       font-weight: 500;
       font-size: 22pt;
       line-height: 1.2;
@@ -577,7 +577,7 @@ const { title, description = 'Peninsula Insider partnership document.' } = Astro
     }
     .pi-claim__no {
       font-family: 'Cormorant Garamond', Georgia, serif;
-      font-style: italic;
+      font-style: normal;
       font-size: 22pt;
       line-height: 1;
       color: var(--pi-accent);
@@ -634,7 +634,7 @@ const { title, description = 'Peninsula Insider partnership document.' } = Astro
     }
     .pi-tier__price {
       font-family: 'Cormorant Garamond', Georgia, serif;
-      font-style: italic;
+      font-style: normal;
       font-size: 12pt;
       color: var(--pi-accent);
       padding-top: 4mm;
@@ -661,13 +661,13 @@ const { title, description = 'Peninsula Insider partnership document.' } = Astro
       font-feature-settings: "lnum" 1, "tnum" 0;
     }
     .pi-price__amount em {
-      font-style: italic;
+      font-style: normal;
       font-weight: 400;
       color: var(--pi-accent);
     }
     .pi-price__caption {
       font-family: 'Cormorant Garamond', Georgia, serif;
-      font-style: italic;
+      font-style: normal;
       font-size: 13pt;
       line-height: 1.4;
       color: var(--pi-soft);
@@ -690,7 +690,7 @@ const { title, description = 'Peninsula Insider partnership document.' } = Astro
       letter-spacing: -0.01em;
     }
     .pi-stat__value em {
-      font-style: italic;
+      font-style: normal;
       font-weight: 400;
     }
     .pi-stat__label {
@@ -729,7 +729,7 @@ const { title, description = 'Peninsula Insider partnership document.' } = Astro
     }
     .pi-table td.pi-table__price {
       font-family: 'Cormorant Garamond', Georgia, serif;
-      font-style: italic;
+      font-style: normal;
       color: var(--pi-accent);
       white-space: nowrap;
       font-size: 11pt;
@@ -756,7 +756,7 @@ const { title, description = 'Peninsula Insider partnership document.' } = Astro
     .pi-sequence__item:last-child { border-bottom: 0.5pt solid var(--pi-border); }
     .pi-sequence__no {
       font-family: 'Cormorant Garamond', Georgia, serif;
-      font-style: italic;
+      font-style: normal;
       font-size: 18pt;
       line-height: 1;
       color: var(--pi-accent);
@@ -819,7 +819,7 @@ const { title, description = 'Peninsula Insider partnership document.' } = Astro
       height: auto;
       top: 0;
       font-family: 'Cormorant Garamond', Georgia, serif;
-      font-style: italic;
+      font-style: normal;
       font-size: 12pt;
       color: var(--pi-accent);
     }
@@ -847,7 +847,7 @@ const { title, description = 'Peninsula Insider partnership document.' } = Astro
       color: var(--pi-text);
     }
     .pi-cohort__seat em {
-      font-style: italic;
+      font-style: normal;
       color: var(--pi-soft);
       font-size: 10pt;
       display: block;
@@ -896,7 +896,7 @@ const { title, description = 'Peninsula Insider partnership document.' } = Astro
     }
     .pi-letter__opening {
       font-family: 'Cormorant Garamond', Georgia, serif;
-      font-style: italic;
+      font-style: normal;
       font-size: 16pt;
       line-height: 1.45;
       color: var(--pi-text);
@@ -917,7 +917,7 @@ const { title, description = 'Peninsula Insider partnership document.' } = Astro
     }
     .pi-letter__sig {
       font-family: 'Cormorant Garamond', Georgia, serif;
-      font-style: italic;
+      font-style: normal;
       font-weight: 500;
       font-size: 18pt;
       line-height: 1.2;
@@ -938,7 +938,7 @@ const { title, description = 'Peninsula Insider partnership document.' } = Astro
     ============================================================ */
     .pi-mark {
       font-family: 'Cormorant Garamond', Georgia, serif;
-      font-style: italic;
+      font-style: normal;
       font-weight: 500;
       font-size: 13pt;
       letter-spacing: -0.01em;
@@ -956,7 +956,7 @@ const { title, description = 'Peninsula Insider partnership document.' } = Astro
 
     .pi-signoff {
       font-family: 'Cormorant Garamond', Georgia, serif;
-      font-style: italic;
+      font-style: normal;
       font-size: 12pt;
       color: var(--pi-text);
     }
@@ -980,6 +980,19 @@ const { title, description = 'Peninsula Insider partnership document.' } = Astro
         margin: 0 auto 10mm;
         box-shadow: 0 4mm 16mm rgba(0, 0, 0, 0.45);
       }
+    }
+    /* Phones: scale each A4 sheet to the viewport so the document is
+       readable without clipping. `zoom` keeps layout size in sync
+       (unlike transform). Where calc-division zoom is unsupported the
+       scrollable body still lets readers pan the full sheet. */
+    @media screen and (max-width: 830px) {
+      body {
+        padding: 4mm 0;
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+      body::-webkit-scrollbar { display: none; }
+      .pi-page { zoom: calc((100vw - 8px) / 794px); margin: 0 auto 4mm; }
     }
   </style>
 </head>

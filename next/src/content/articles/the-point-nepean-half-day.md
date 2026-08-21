@@ -11,7 +11,7 @@ heroImage:
   license: "tmp-wikimedia"
 format: "service"
 tags: ["point-nepean", "sorrento", "portsea", "walks", "history", "explore", "families", "all-year"]
-relatedVenues: ["portsea-hotel", "hotel-sorrento", "the-continental-sorrento", "sorrento-bakery", "sorrento-gelato"]
+relatedVenues: ["portsea-hotel", "hotel-sorrento", "the-continental-sorrento"]
 relatedExperiences: ["point-nepean-fort-walk", "point-nepean-national-park", "portsea-front-beach", "sorrento-back-beach", "coppins-track", "sorrento-ocean-baths"]
 readingTimeMinutes: 7
 featured: false
@@ -24,17 +24,17 @@ clusterLinks:
     href: "/journal/point-nepean-national-park-guide/"
   - label: "The Sorrento Weekend"
     href: "/journal/the-sorrento-weekend/"
-  - label: "The Four-Hour Peninsula — Compact Day Guide"
-    href: "/journal/the-four-hour-peninsula/"
+  - label: "The Four-Hour Peninsula - Compact Day Guide"
+    href: "/explore/plans/the-four-hour-peninsula/"
 faq:
   - question: "How do you get to Fort Nepean at Point Nepean National Park?"
-    answer: "From the main entrance at the Quarantine Station: shuttle bus (20 min, modest fare, runs every 30–40 min in peak season), walk (5.5km each way on a flat sealed road), or bike hire near the entrance. Recommended shape: shuttle out, walk back — you arrive at the fort fresh and walk the return with the sea on your right."
+    answer: "From the main entrance at the Quarantine Station: shuttle bus (20 min, modest fare, runs every 30–40 min in peak season), walk (5.5km each way on a flat sealed road), or bike hire near the entrance. Recommended shape: shuttle out, walk back - you arrive at the fort fresh and walk the return with the sea on your right."
   - question: "How long should I allow for Point Nepean National Park?"
     answer: "A minimum of two and a half to three hours to reach the fort and return. With the Quarantine Station, Cheviot Hill lookout, and fort tunnels, allow four hours. Entry to the park is free; the shuttle carries a small fare."
   - question: "Is Point Nepean suitable for families with young children?"
-    answer: "The sealed walking road is stroller-friendly and the shuttle removes the 11km return walk, making it accessible for families. Cheviot Hill is a short detour from the main path. The fort tunnels are dark — a phone torch helps but is not required. Allow for slower walking pace with young children."
+    answer: "The sealed walking road is stroller-friendly and the shuttle removes the 11km return walk, making it accessible for families. Cheviot Hill is a short detour from the main path. The fort tunnels are dark - a phone torch helps but is not required. Allow for slower walking pace with young children."
 aiSummary:
-  - "A planning guide for visiting Point Nepean National Park — the national park at the very end of the Peninsula, accessible by shuttle bus from the Portsea end."
+  - "A planning guide for visiting Point Nepean National Park - the national park at the very end of the Peninsula, accessible by shuttle bus from the Portsea end."
   - "Covers: the correct shuttle bus booking process; which walk to do based on fitness and time; what the historic fortifications and quarantine station offer beyond the views."
   - "The editorial argument: Point Nepean is systematically undervisited partly because the booking process is opaque and the experience isn't immediately obvious from the road."
   - "Suits: first-time visitors with a half-day, walkers, history-interested visitors, anyone staying in Sorrento or Portsea who wants to understand the Peninsula's tip properly."
@@ -93,7 +93,7 @@ The Point Nepean half-day fits cleanly into a Sorrento or Portsea weekend in one
 
 **Slot one: the Saturday afternoon after a late morning at the back beach.** Back beach by 9am for the walk and the light, coffee and pastry back in the village by 11, shuttle and walk at Point Nepean from about 1pm, back in the village by 4.30 for a pre-dinner drink and a short lie-down.
 
-**Slot two: the Sunday morning before driving home.** An early coffee in Sorrento, park entry at 9am when the shuttle starts, the fort by 10, back at the car by 12, one quick lunch in Portsea at the **Portsea Hotel** or back at **Sorrento Bakery**, and on the road by 2pm to beat the Sunday traffic. This is the version we recommend for first-time visitors, it turns the landscape of the Peninsula into the last thing you see, rather than a detour you try to squeeze before dinner on night one.
+**Slot two: the Sunday morning before driving home.** An early coffee in Sorrento, park entry at 9am when the shuttle starts, the fort by 10, back at the car by 12, one quick lunch in Portsea at the **Portsea Hotel**, and on the road by 2pm to beat the Sunday traffic. This is the version we recommend for first-time visitors, it turns the landscape of the Peninsula into the last thing you see, rather than a detour you try to squeeze before dinner on night one.
 
 ## What to bring
 

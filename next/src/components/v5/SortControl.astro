@@ -1,0 +1,94 @@
+---
+/**
+ * SortControl (v5, spec 2.18) - one ordering control for listing surfaces.
+ *
+ * A native <select> (the spec bans custom JS dropdowns; a native select IS
+ * the platform's small menu, and on mobile it opens the system sheet).
+ * Default is ALWAYS "Editor's order" - the editorial ranking is the product
+ * (P1); never alphabetical by default. Syncs to the URL as ?sort= and
+ * reorders every [data-sort-container] on the page within 300ms.
+ *
+ * Options: editors (default) | az | town.
+ */
+export interface Props {
+  /** Visible label text. */
+  label?: string;
+}
+
+const { label = 'Sort' } = Astro.props;
+const uid = 'v5-sort-' + Math.random().toString(36).slice(2, 8);
+---
+
+<div class="v5-sort" data-v5-sortcontrol>
+  <label class="v5-sort__label" for={uid}>{label}</label>
+  <select class="v5-sort__select" id={uid} data-sort-select data-evt="sort_change">
+    <option value="editors" selected>Editor's order</option>
+    <option value="az">A to Z</option>
+    <option value="town">By town</option>
+  </select>
+</div>
+
+<style>
+  .v5-sort {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-ui);
+  }
+  .v5-sort__label {
+    font-size: 0.8rem;
+    color: var(--soft);
+  }
+  .v5-sort__select {
+    font-family: inherit;
+    font-size: var(--fs-400); /* 17px: >=16px prevents iOS focus-zoom on native select */
+    color: var(--text);
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    min-height: 48px;
+    padding: 0 0.9rem;
+    cursor: pointer;
+  }
+  .v5-sort__select:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+</style>
+
+<script>
+  import { getSort, setSort, announce, type SortValue } from '../../lib/v5-filter-state';
+
+  const LABELS: Record<SortValue, string> = {
+    editors: "Editor's order",
+    az: 'A to Z',
+    town: 'by town',
+  };
+
+  function hydrate(root: HTMLElement) {
+    if ((root as any)._piInit) return;
+    (root as any)._piInit = true;
+    const select = root.querySelector<HTMLSelectElement>('[data-sort-select]');
+    if (!select) return;
+
+    select.value = getSort();
+
+    select.addEventListener('change', () => {
+      const value = (select.value === 'az' || select.value === 'town' ? select.value : 'editors') as SortValue;
+      setSort(value); // URL sync + DOM reorder
+      announce(`Sorted ${LABELS[value]}`);
+    });
+
+    // Re-sync when back/forward or another island rewrites the URL.
+    window.addEventListener('popstate', () => {
+      select.value = getSort();
+    });
+  }
+
+  function init() {
+    document.querySelectorAll<HTMLElement>('[data-v5-sortcontrol]').forEach(hydrate);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+  document.addEventListener('astro:page-load', init);
+</script>

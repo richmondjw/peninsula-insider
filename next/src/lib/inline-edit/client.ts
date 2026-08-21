@@ -1,5 +1,5 @@
 /**
- * Peninsula Insider — inline editor client.
+ * Peninsula Insider - inline editor client.
  *
  * Loads on every public page (via BaseLayout). When a signed-in admin is
  * detected, renders an "Edit mode" toggle. When edit mode is on, decorates
@@ -8,7 +8,7 @@
  *   - text  → click element → contenteditable → save on blur / Enter
  *   - image → right-click → custom menu (Replace / Edit alt / Edit caption)
  *
- * Writes go direct to Supabase via the user's JWT — RLS in the pi schema is
+ * Writes go direct to Supabase via the user's JWT - RLS in the pi schema is
  * the security boundary. This means inline editing works on both static
  * (GitHub Pages) and hybrid (Vercel) deploys; the admin API at
  * /admin/api/content/* is unused by this client.
@@ -33,6 +33,7 @@ const EDIT_MODE_FLAG = 'pi.editMode';
 let editMode = false;
 let isAdmin = false;
 let toggleEl: HTMLButtonElement | null = null;
+let themeToggleEl: HTMLButtonElement | null = null;
 let menuEl: HTMLDivElement | null = null;
 let toastEl: HTMLDivElement | null = null;
 let toastTimer: ReturnType<typeof setTimeout> | null = null;
@@ -60,14 +61,14 @@ if (typeof document !== 'undefined' && !(document as any).__piEditDelegationInst
  */
 export async function bootInlineEditor(): Promise<void> {
   if (typeof document === 'undefined') return;
-  console.log('[pi-edit] boot — auth enabled:', isAuthEnabled());
+  console.log('[pi-edit] boot - auth enabled:', isAuthEnabled());
   if (!isAuthEnabled()) return;
 
   const supa = getSupabase();
   if (!supa) { console.warn('[pi-edit] no supabase client at boot'); return; }
 
   const { data: { session } } = await supa.auth.getSession();
-  if (!session) { ensureToggleRemoved(); return; }
+  if (!session) { ensureToggleRemoved(); ensureThemeToggleRemoved(); return; }
 
   // Check allowlist membership for UX. RLS will also reject writes from
   // non-allowlisted users, but verifying upfront lets us not render UI
@@ -83,15 +84,16 @@ export async function bootInlineEditor(): Promise<void> {
   if (!isAdmin) return;
 
   // Mount/restore the floating toggle. Astro's <ClientRouter /> swaps
-  // <body> on soft navigations, so any DOM we appended is gone — we
+  // <body> on soft navigations, so any DOM we appended is gone - we
   // re-render on every page-load event. Delegation is installed at module
   // load above, so no per-boot install needed here.
   mountToggle();
+  mountThemeToggle();
 
   // Restore previous edit-mode preference. Body class is page-scoped so we
   // re-apply it here every boot. Patching overrides is gated to edit-mode
   // (handled in setEditMode), so admins browsing normally see SSR output
-  // verbatim — no client-side swap flicker.
+  // verbatim - no client-side swap flicker.
   const stored = sessionStorage.getItem(EDIT_MODE_FLAG);
   setEditMode(stored === '1');
 
@@ -99,7 +101,7 @@ export async function bootInlineEditor(): Promise<void> {
   // that auto-detected and tagged image replacements survive a refresh
   // without waiting for a rebuild. This is the safety net for slots that
   // aren't yet resolved server-side via `loadOverrides()`. Gated on the
-  // admin check above, so anon visitors are unaffected — SSR output is
+  // admin check above, so anon visitors are unaffected - SSR output is
   // still the source of truth for them.
   void applyOverridesOnLoad();
 
@@ -109,6 +111,7 @@ export async function bootInlineEditor(): Promise<void> {
       isAdmin = false;
       setEditMode(false);
       ensureToggleRemoved();
+      ensureThemeToggleRemoved();
     }
   });
 }
@@ -116,6 +119,63 @@ export async function bootInlineEditor(): Promise<void> {
 function ensureToggleRemoved() {
   document.querySelectorAll('.pi-edit-toggle').forEach((n) => n.remove());
   toggleEl = null;
+}
+
+// --------------------------------------------------------------------------
+// Theme toggle (admin-only Classic ↔ Magenta Stone preview)
+// --------------------------------------------------------------------------
+//
+// Flips html[data-theme="magenta-stone"] and persists the choice in
+// localStorage('pi-theme'). The no-flash script in BaseLayout's <head> applies
+// it before first paint on subsequent loads. Only this admin-gated button ever
+// writes the key, so general users never see the theme. The override styles
+// live in src/styles/magenta-stone.css.
+
+const THEME_KEY = 'pi-theme';
+const MAGENTA_STONE = 'magenta-stone';
+
+function currentTheme(): string {
+  try { return localStorage.getItem(THEME_KEY) || 'classic'; } catch { return 'classic'; }
+}
+
+function applyTheme(theme: string) {
+  const on = theme === MAGENTA_STONE;
+  if (on) document.documentElement.dataset.theme = MAGENTA_STONE;
+  else delete document.documentElement.dataset.theme;
+  try { localStorage.setItem(THEME_KEY, on ? MAGENTA_STONE : 'classic'); } catch {}
+  updateThemeToggleLabel(on);
+}
+
+function updateThemeToggleLabel(on: boolean) {
+  if (!themeToggleEl) return;
+  themeToggleEl.dataset.themeOn = on ? 'on' : 'off';
+  themeToggleEl.setAttribute('aria-pressed', on ? 'true' : 'false');
+  const label = themeToggleEl.querySelector('.pi-theme-toggle__label');
+  if (label) label.textContent = on ? 'Magenta Stone' : 'Classic theme';
+}
+
+function mountThemeToggle() {
+  const existing = document.querySelector<HTMLButtonElement>('.pi-theme-toggle');
+  if (existing) {
+    themeToggleEl = existing;
+    updateThemeToggleLabel(currentTheme() === MAGENTA_STONE);
+    return;
+  }
+  themeToggleEl = document.createElement('button');
+  themeToggleEl.type = 'button';
+  themeToggleEl.className = 'pi-theme-toggle';
+  themeToggleEl.setAttribute('aria-label', 'Preview site theme (admin only)');
+  themeToggleEl.innerHTML = '<span class="pi-theme-toggle__dot" aria-hidden="true"></span><span class="pi-theme-toggle__label">Classic theme</span>';
+  themeToggleEl.addEventListener('click', () => {
+    applyTheme(currentTheme() === MAGENTA_STONE ? 'classic' : MAGENTA_STONE);
+  });
+  document.body.appendChild(themeToggleEl);
+  updateThemeToggleLabel(currentTheme() === MAGENTA_STONE);
+}
+
+function ensureThemeToggleRemoved() {
+  document.querySelectorAll('.pi-theme-toggle').forEach((n) => n.remove());
+  themeToggleEl = null;
 }
 
 // --------------------------------------------------------------------------
@@ -143,7 +203,7 @@ function setEditMode(on: boolean, source: 'click' | 'restore' = 'restore') {
   if (!on) closeMenu();
   // Only fetch and apply published overrides when the admin *explicitly*
   // turns edit mode on (clicks the toggle). Restoring from sessionStorage
-  // on a fresh page load does NOT re-fire the pass — that would cause
+  // on a fresh page load does NOT re-fire the pass - that would cause
   // visible flicker as the post-paint swap clobbers SSR output. Editors
   // who want to pick up changes published since the last build can either
   // reload (rebuild-deployed pages will already have them in SSR) or
@@ -168,7 +228,7 @@ function onDocumentClick(event: MouseEvent) {
   if (!editMode) return;
 
   // Clicks inside the block toolbar / link popover are handled by their own
-  // listeners — don't fall through to text-edit / block-edit logic below.
+  // listeners - don't fall through to text-edit / block-edit logic below.
   const target = event.target as HTMLElement | null;
   if (!target) return;
   if (target.closest('.pi-block-toolbar') || target.closest('.pi-link-popover')) return;
@@ -195,7 +255,7 @@ function onDocumentClick(event: MouseEvent) {
 }
 
 /**
- * True for elements rendered as an image — `<img>` itself, or any element
+ * True for elements rendered as an image - `<img>` itself, or any element
  * whose computed style has a non-`none` background-image (covers the
  * `<div role="img" style="background-image: …">` pattern used in hero
  * sections across the site).
@@ -216,6 +276,11 @@ function onContextMenu(event: MouseEvent) {
 
   const target = event.target as HTMLElement | null;
   if (!target) return;
+
+  // The homepage hero is managed solely by the dedicated Hero Editor drawer
+  // (lib/hero-editor). Leave it entirely alone here so there is exactly one
+  // way to edit it and the generic image panel never opens on a hero slide.
+  if (target.closest('[data-pi-hero-managed]')) return;
 
   console.log('[pi-edit] contextmenu target:', target.tagName, target.className, target);
 
@@ -313,7 +378,7 @@ function startTextEdit(el: HTMLElement) {
   el.dataset.piEditing = '1';
 
   // For richtext / markdown we'd ideally show a textarea, but for v1 we use
-  // contenteditable everywhere — it keeps the WYSIWYG feel and matches the
+  // contenteditable everywhere - it keeps the WYSIWYG feel and matches the
   // existing DOM. Multi-line is handled naturally via Shift+Enter.
   el.setAttribute('contenteditable', 'plaintext-only');
   el.focus();
@@ -368,7 +433,7 @@ async function saveTextEdit(el: HTMLElement, desc: FieldDescriptor) {
   if (!supa) return toast('Supabase not configured.', 'err');
 
   const { data: { session } } = await supa.auth.getSession();
-  if (!session) return toast('Signed out — please sign in again.', 'err');
+  if (!session) return toast('Signed out - please sign in again.', 'err');
 
   // Upsert: insert; on conflict (entity_type, entity_slug, field_path),
   // update value + status. The unique INDEX covers locale via coalesce,
@@ -429,7 +494,7 @@ function stripHtml(html: string): string {
 }
 
 // --------------------------------------------------------------------------
-// Image editing — popover panel
+// Image editing - popover panel
 // --------------------------------------------------------------------------
 
 interface ImageDescriptor {
@@ -476,7 +541,7 @@ function currentPageSlug(): string {
 }
 
 /**
- * Stable identifier for an unmarked image — derived from the basename of its
+ * Stable identifier for an unmarked image - derived from the basename of its
  * src so the same source file gets the same key everywhere it appears on a
  * given page. Strips query strings, decodes URI-encoded chars, lowercases.
  */
@@ -578,7 +643,7 @@ function findAncestorEntity(el: HTMLElement): { entityType: string; entitySlug: 
  * `page/<slug>#img:<basename>` to `<entity>/<slug>#heroImage`, deleting
  * the orphaned page-scoped row. Future page renders pick up the new
  * identity via SSR (provided the rendering component is wired to call
- * loadOverrides() — see VenueCard, PlaceCard, etc.).
+ * loadOverrides() - see VenueCard, PlaceCard, etc.).
  */
 function openImagePanel(el: HTMLElement, x: number, y: number) {
   closeMenu();
@@ -710,7 +775,7 @@ async function promoteAutoDetectedSlot(
   if (!supa) return toast('Supabase not configured.', 'err');
 
   const { data: { session } } = await supa.auth.getSession();
-  if (!session) return toast('Signed out — please sign in again.', 'err');
+  if (!session) return toast('Signed out - please sign in again.', 'err');
 
   // 1. Fetch the source (auto-detected) row in full so we can copy storage
   //    + metadata forward. Bail out cleanly if there's nothing to promote.
@@ -722,7 +787,7 @@ async function promoteAutoDetectedSlot(
     .eq('field_path', desc.fieldPath)
     .maybeSingle();
   if (!source) {
-    toast('Nothing to promote — save a replacement first, then promote.', 'info');
+    toast('Nothing to promote - save a replacement first, then promote.', 'info');
     return;
   }
 
@@ -1092,7 +1157,7 @@ async function assignMediaLibraryAsset(el: HTMLElement, desc: ImageDescriptor, a
   if (!supa) return toast('Supabase not configured.', 'err');
 
   const { data: { session } } = await supa.auth.getSession();
-  if (!session) return toast('Signed out — please sign in again.', 'err');
+  if (!session) return toast('Signed out - please sign in again.', 'err');
 
   const { data: existing } = await supa
     .from('cms_image_slots')
@@ -1166,7 +1231,7 @@ async function replaceImage(el: HTMLElement, desc: ImageDescriptor, file: File) 
   if (!supa) { console.warn('[pi-edit] supabase client not configured'); return toast('Supabase not configured.', 'err'); }
 
   const { data: { session } } = await supa.auth.getSession();
-  if (!session) { console.warn('[pi-edit] no session'); return toast('Signed out — please sign in again.', 'err'); }
+  if (!session) { console.warn('[pi-edit] no session'); return toast('Signed out - please sign in again.', 'err'); }
 
   toast(`Uploading "${file.name}"…`, 'info');
   el.dataset.piUploading = '1';
@@ -1230,7 +1295,7 @@ async function replaceImage(el: HTMLElement, desc: ImageDescriptor, file: File) 
     const bustUrl = publicUrl + (publicUrl.includes('?') ? '&' : '?') + 'v=' + ts;
     console.log('[pi-edit] setting visible image src', bustUrl);
     setImageSrc(el, bustUrl);
-    // Clear placeholder chrome — strip any `*__hero--placeholder` class so the
+    // Clear placeholder chrome - strip any `*__hero--placeholder` class so the
     // "Add photo" overlay and camera icon disappear now that a real image has
     // been assigned. Covers venue, event, and any future card variant that
     // follows the same convention.
@@ -1267,7 +1332,7 @@ async function replaceImage(el: HTMLElement, desc: ImageDescriptor, file: File) 
  * runs for authenticated admins so editors see their replacements without
  * waiting for a rebuild.
  *
- * Anon visitors never call this — they see SSR-rendered output verbatim.
+ * Anon visitors never call this - they see SSR-rendered output verbatim.
  * Components that own editable images are responsible for resolving
  * overrides server-side via `loadOverrides()` and baking the published
  * `public_url` into the markup at render time. That guarantees the first
@@ -1287,7 +1352,7 @@ async function replaceImage(el: HTMLElement, desc: ImageDescriptor, file: File) 
  *      basename against the basename of every `<img>` and background-image
  *      element on the page, swapping when they line up.
  *
- * Both passes are admin-only — this function is only reachable from
+ * Both passes are admin-only - this function is only reachable from
  * `bootInlineEditor` after the allowlist check, so anon visitors never
  * see post-paint swaps. The implicit pass intentionally re-introduces
  * the flicker that the SSR-resolved tagged path avoids, but it's gated
@@ -1330,8 +1395,8 @@ async function applyOverridesOnLoad() {
       // A placeholder card has no inline bg-image at build time; once a real
       // image is applied via Supabase, remove the placeholder chrome so the
       // "Add photo" state gives way to the actual image. Cover every card
-      // type that uses the same pattern — venue, event, and any future card
-      // — by stripping all `--placeholder` modifiers via the className.
+      // type that uses the same pattern - venue, event, and any future card
+      // - by stripping all `--placeholder` modifiers via the className.
       el.className = el.className
         .split(/\s+/)
         .filter((c) => !/__hero--placeholder$/.test(c))
@@ -1376,15 +1441,17 @@ async function applyImplicitPageOverrides(supa: NonNullable<ReturnType<typeof ge
   if (byBasename.size === 0) return;
 
   // Walk every image-like element on the page and apply a matching override.
-  // We skip elements already handled by the explicit pass — those carry a
+  // We skip elements already handled by the explicit pass - those carry a
   // resolved data-pi-field-path and have just been patched above.
   const candidates: HTMLElement[] = [];
   document.querySelectorAll<HTMLImageElement>('img').forEach((img) => {
     if (img.closest('[data-pi-edit="image"][data-pi-entity-slug][data-pi-field-path]')) return;
+    if (img.closest('[data-pi-hero-managed]')) return; // hero owns its own deck
     candidates.push(img);
   });
   document.querySelectorAll<HTMLElement>('[style*="background-image"]').forEach((el) => {
     if (el.closest('[data-pi-edit="image"][data-pi-entity-slug][data-pi-field-path]')) return;
+    if (el.closest('[data-pi-hero-managed]')) return; // hero owns its own deck
     if (!isImageLike(el)) return;
     candidates.push(el);
   });
@@ -1422,7 +1489,7 @@ async function recordRevision(
   userId: string,
   rev: RevisionInput,
 ) {
-  // Best-effort — a failure here shouldn't block the user.
+  // Best-effort - a failure here shouldn't block the user.
   await supa.from('cms_revisions').insert({
     entity_type: rev.entity_type,
     entity_slug: rev.entity_slug,
@@ -1443,7 +1510,7 @@ async function recordRevision(
 // contenteditable surface with a floating toolbar that supports:
 //   - Bold (Cmd/Ctrl+B)
 //   - Italic (Cmd/Ctrl+I)
-//   - Hyperlink (Cmd/Ctrl+K) — popover with URL input and optional internal
+//   - Hyperlink (Cmd/Ctrl+K) - popover with URL input and optional internal
 //     link autocomplete from pi.content_registry
 //   - Save (Cmd/Ctrl+Enter)
 //   - Cancel (Esc)
@@ -1562,7 +1629,7 @@ function onBlockKeyDown(event: KeyboardEvent) {
 }
 
 /**
- * Paste handler — converts incoming clipboard data to plain text so editors
+ * Paste handler - converts incoming clipboard data to plain text so editors
  * pasting from Word / Google Docs / web pages don't import a mess of inline
  * styles, font tags, and tracking pixels. Formatting can still be re-applied
  * via the toolbar once the text is in.
@@ -1766,7 +1833,7 @@ function normaliseLinkUrl(raw: string): string | null {
   if (!v) return null;
   if (v.startsWith('/') || v.startsWith('#') || v.startsWith('mailto:') || v.startsWith('tel:')) return v;
   if (/^https?:\/\//i.test(v)) return v;
-  // Bare domain or path — assume https://
+  // Bare domain or path - assume https://
   return `https://${v}`;
 }
 
@@ -1882,7 +1949,7 @@ function sanitiseBlockHtml(html: string): string {
       else if (tag === 'br') stripAllAttributes(child);
       else if (tag === 'a') sanitiseAnchor(child as HTMLAnchorElement);
       else {
-        // Unrecognised tag — unwrap (keep its text content, drop the element).
+        // Unrecognised tag - unwrap (keep its text content, drop the element).
         const parent = child.parentNode;
         if (!parent) continue;
         while (child.firstChild) parent.insertBefore(child.firstChild, child);
@@ -1950,7 +2017,7 @@ async function saveBlockEdit(el: HTMLElement, desc: BlockDescriptor) {
   if (!supa) { toast('Supabase not configured.', 'err'); return; }
 
   const { data: { session } } = await supa.auth.getSession();
-  if (!session) { toast('Signed out — please sign in again.', 'err'); return; }
+  if (!session) { toast('Signed out - please sign in again.', 'err'); return; }
 
   const fieldPath = `body.block:${desc.blockId}`;
   const label = `Body block (${desc.blockKind})`;

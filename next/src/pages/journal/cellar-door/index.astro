@@ -1,6 +1,6 @@
 ---
 /**
- * /journal/cellar-door/ — index of cellar-door dispatch articles
+ * /journal/cellar-door/ - index of cellar-door dispatch articles
  *
  * Lists all published articles with format === 'cellar-door-dispatch'.
  * Follows the same pattern as other journal section indexes.
@@ -36,8 +36,8 @@ export const prerender = true;
     <div class="container">
       <div class="cellar-door-hub__header">
         <p class="label label--accent">Wine</p>
-        <h1 class="cellar-door-hub__title" {...editableText({ entityType: 'page', entitySlug: 'journal-cellar-door', fieldPath: 'hero.title', label: 'Cellar Door — title' })}>Cellar Door Dispatches</h1>
-        <p class="cellar-door-hub__dek" {...editableText({ entityType: 'page', entitySlug: 'journal-cellar-door', fieldPath: 'hero.dek', label: 'Cellar Door — dek' })}>The producers worth the appointment, the wines worth the cellar, and the arguments happening in the vines.</p>
+        <h1 class="cellar-door-hub__title" {...editableText({ entityType: 'page', entitySlug: 'journal-cellar-door', fieldPath: 'hero.title', label: 'Cellar Door - title' })}>Cellar Door Dispatches</h1>
+        <p class="cellar-door-hub__dek" {...editableText({ entityType: 'page', entitySlug: 'journal-cellar-door', fieldPath: 'hero.dek', label: 'Cellar Door - dek' })}>The producers worth the appointment, the wines worth the cellar, and the arguments happening in the vines.</p>
       </div>
 
       {dispatches.length > 0 ? (
@@ -61,25 +61,25 @@ export const prerender = true;
     margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
   }
   .cellar-door-hub__title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2rem, 4vw, 2.8rem);
-    font-weight: 500;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
+    font-family: var(--font-display);
+    font-size: var(--fs-800);
+    font-weight: var(--fw-display);
+    line-height: var(--lh-display);
+    letter-spacing: var(--ls-display);
     color: var(--text);
     margin: 0.25rem 0 0.6rem;
   }
   .cellar-door-hub__dek {
-    font-family: 'Outfit', sans-serif;
-    font-size: 1rem;
-    line-height: 1.55;
+    font-family: var(--font-ui);
+    font-size: var(--fs-500);
+    line-height: var(--lh-dek);
     color: var(--soft);
-    max-width: 44rem;
+    max-width: var(--measure-dek);
     margin: 0;
   }
   .cellar-door-hub__empty {
-    font-family: 'Outfit', sans-serif;
-    font-size: 0.95rem;
+    font-family: var(--font-ui);
+    font-size: var(--fs-400);
     color: var(--soft);
     padding: 2rem 0;
   }

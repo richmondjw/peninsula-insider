@@ -1,5 +1,5 @@
 ---
-import { placeLabel, typeLabel, routeSlug, titleize, venueHrefPrefix, heroBackgroundStyle, formatHeroCredit } from '../lib/editorial';
+import { placeLabel, typeLabel, routeSlug, titleize, venueHrefPrefix, formatHeroCredit } from '../lib/editorial';
 import { resolveLiveStatusUrl, verifiedFreshnessLabel } from '../lib/venues';
 import Breadcrumbs from './Breadcrumbs.astro';
 import NewsletterBlock from './NewsletterBlock.astro';
@@ -8,7 +8,7 @@ import ArticleCard from './ArticleCard.astro';
 import ItineraryCard from './ItineraryCard.astro';
 import PiArticleActions from './PiArticleActions.astro';
 import { getCollection } from 'astro:content';
-import { loadOverrides } from '../lib/inline-edit/overrides';
+import { resolveHero } from '../lib/inline-edit/resolve-hero';
 import { editableImage, editableText } from '../lib/inline-edit/attrs';
 import EstateCluster from './EstateCluster.astro';
 
@@ -25,6 +25,89 @@ const data = venue.data;
 const liveStatusUrl = resolveLiveStatusUrl(data);
 const verifiedLabel = verifiedFreshnessLabel(data.lastVerified);
 
+// ── Opening hours ────────────────────────────────────────────────────────
+// data.visiting.openingHours carries the schema.org shape: full day names
+// plus 24-hour "HH:MM" strings. Three appointment-only producers carry an
+// empty array, so the block is gated on length, never on presence.
+const DAY_ORDER = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+const DAY_SHORT: Record<string, string> = {
+  Monday: 'Mon', Tuesday: 'Tue', Wednesday: 'Wed', Thursday: 'Thu',
+  Friday: 'Fri', Saturday: 'Sat', Sunday: 'Sun',
+};
+
+const normaliseDay = (value: unknown): string | null => {
+  const raw = String(value ?? '').trim();
+  if (!raw) return null;
+  const cased = raw.charAt(0).toUpperCase() + raw.slice(1).toLowerCase();
+  return DAY_ORDER.includes(cased) ? cased : null;
+};
+
+interface HoursEntry { days: string[]; opens: string; closes: string }
+
+const openingHours: HoursEntry[] = (Array.isArray(data.visiting?.openingHours)
+  ? data.visiting.openingHours
+  : []
+)
+  .map((h: any) => ({
+    days: (Array.isArray(h?.days) ? h.days : h?.days ? [h.days] : [])
+      .map(normaliseDay)
+      .filter((d: string | null): d is string => Boolean(d)),
+    opens: String(h?.opens ?? ''),
+    closes: String(h?.closes ?? ''),
+  }))
+  .filter((h: HoursEntry) => h.days.length > 0 && h.opens && h.closes);
+const hasOpeningHours = openingHours.length > 0;
+
+// "Monday, Tuesday, Wednesday, Thursday" becomes "Mon to Thu". A pair stays
+// listed ("Fri, Sat"), and split runs join with a comma ("Mon to Thu, Sun").
+function formatDays(days: string[]): string {
+  const indexes = [...new Set(days.map((d) => DAY_ORDER.indexOf(d)))].sort((a, b) => a - b);
+  if (indexes.length === DAY_ORDER.length) return 'Every day';
+  const runs: number[][] = [];
+  for (const i of indexes) {
+    const last = runs[runs.length - 1];
+    if (last && i === last[last.length - 1] + 1) last.push(i);
+    else runs.push([i]);
+  }
+  return runs
+    .map((run) => {
+      const first = DAY_SHORT[DAY_ORDER[run[0]]];
+      const final = DAY_SHORT[DAY_ORDER[run[run.length - 1]]];
+      if (run.length === 1) return first;
+      if (run.length === 2) return `${first}, ${final}`;
+      return `${first} to ${final}`;
+    })
+    .join(', ');
+}
+
+// "17:00" becomes "5pm", "10:30" becomes "10:30am". Anything unparseable
+// falls through as the operator wrote it rather than rendering nonsense.
+function formatTime(value: string): string {
+  const match = /^(\d{1,2}):(\d{2})/.exec(value);
+  if (!match) return value;
+  const hours24 = Number(match[1]);
+  const minutes = match[2];
+  const suffix = hours24 < 12 || hours24 >= 24 ? 'am' : 'pm';
+  const hours12 = hours24 % 12 === 0 ? 12 : hours24 % 12;
+  return minutes === '00' ? `${hours12}${suffix}` : `${hours12}:${minutes}${suffix}`;
+}
+
+// Midnight to one minute before midnight is a 24-hour operation (reception
+// desks), not a 23-hour 59-minute one.
+const isAllDay = (h: HoursEntry) =>
+  h.opens === '00:00' && ['23:59', '24:00', '00:00'].includes(h.closes);
+const formatHoursRange = (h: HoursEntry) =>
+  isAllDay(h) ? 'Open 24 hours' : `${formatTime(h.opens)}–${formatTime(h.closes)}`;
+
+const coveredDays = new Set(openingHours.flatMap((h) => h.days));
+const closedDays = DAY_ORDER.filter((d) => !coveredDays.has(d));
+const hoursRows: { days: string; time: string; closed: boolean }[] = [
+  ...openingHours.map((h) => ({ days: formatDays(h.days), time: formatHoursRange(h), closed: false })),
+  ...(closedDays.length > 0 && closedDays.length < DAY_ORDER.length
+    ? [{ days: formatDays(closedDays), time: 'Closed', closed: true }]
+    : []),
+];
+
 // New planning/recommendation layer
 // Worth Knowing panel renders if worthKnowing object has any values, OR if bestFor tags are present
 const hasWorthKnowing = (data.bestFor && data.bestFor.length > 0) ||
@@ -33,10 +116,8 @@ const hasSeasonalNotes = data.seasonalNotes && Object.values(data.seasonalNotes)
 const seasonalNoteEntries: [string, string][] = data.seasonalNotes
   ? (Object.entries(data.seasonalNotes) as [string, string][]).filter(([, v]) => v)
   : [];
-// Ask PI query: pre-built prompt connecting this venue to broader planning
-const askPiQuery = encodeURIComponent(`What else is worth doing near ${data.name} on the Mornington Peninsula?`);
 const sectionLabel = section === 'stay' ? 'Stay' : section === 'wine' ? 'Wine Country' : 'Eat & Drink';
-const sectionHref = `/${section}`;
+const sectionHref = `/${section}/`;
 const hats = data.authority?.hats ?? 0;
 const awards = data.authority?.awards ?? [];
 const pressMentions = data.authority?.pressMentions ?? [];
@@ -45,19 +126,17 @@ const heroLabel = `${data.name} · ${placeLabel(data.place)}`;
 // Per-venue CMS override consult. If an editor has uploaded a venue-specific
 // hero via the inline editor, it wins over the content-JSON default.
 const venueSlug = venue.id ?? data.slug;
-const venueOverrides = await loadOverrides('venue', venueSlug);
-const overrideHero = venueOverrides.image['hero'];
-const heroStyle = overrideHero?.src
-  ? `background-image: url('${overrideHero.src.replace(/["\\]/g, (m: string) => `\\${m}`)}'); background-size: cover; background-position: center;`
-  : heroBackgroundStyle(data);
-const heroAlt = overrideHero?.alt ?? data.heroImage?.alt ?? heroLabel;
+const hero = await resolveHero('venue', venueSlug, data);
+const heroAlt = hero.alt || heroLabel;
 
 // Sibling venues within a multi-venue estate (EstateCluster block).
 const estateSlug = data.estateSlug as string | undefined;
 let estateVenues: any[] = [];
 if (estateSlug) {
   const allEstateVenues = await getCollection('venues');
-  estateVenues = allEstateVenues.filter((v) => v.data.estateSlug === estateSlug);
+  estateVenues = allEstateVenues.filter(
+    (v) => v.data.estateSlug === estateSlug && v.data.status !== 'permanently_closed',
+  );
 }
 
 const placeId = data.place?.id ?? data.place;
@@ -71,7 +150,34 @@ const breadcrumbItems = [
 const moodTags = data.tags?.mood ?? [];
 const seasonTags = data.tags?.season ?? [];
 const audienceTags = data.tags?.audience ?? [];
-const allTags = [...moodTags, ...seasonTags, ...audienceTags];
+
+/**
+ * The taxonomy deliberately overlaps: `solo` is a legacy `tags.mood` value
+ * that the facet taxonomy has since moved to `tags.audience`, and plenty of
+ * venue files still carry both. Merging the three arrays raw is what put
+ * "First Date · Slow · Solo · All Year · Couples · Solo" on the page.
+ *
+ * Dedupe at render, not in the data, so a bad content file can never reach
+ * the reader. Matching is case-insensitive and tolerant of whitespace,
+ * hyphens and underscores, because "first-date", "First Date" and
+ * "first_date" all titleize to the same visible label.
+ */
+function dedupeTags(tags: unknown[]): string[] {
+  const seen = new Set<string>();
+  const out: string[] = [];
+  for (const raw of tags) {
+    if (typeof raw !== 'string') continue;
+    const label = raw.trim();
+    if (!label) continue;
+    const key = label.toLowerCase().replace(/[\s_-]+/g, ' ').trim();
+    if (seen.has(key)) continue;
+    seen.add(key);
+    out.push(label);
+  }
+  return out;
+}
+
+const allTags = dedupeTags([...moodTags, ...seasonTags, ...audienceTags]);
 
 const isWinery = section === 'wine';
 const hasFaq = isWinery && data.faq?.length > 0;
@@ -102,7 +208,31 @@ const winemakerName: string | null = isWinery ? (data.wines?.winemaker ?? null) 
 const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seasonTags.includes('all-year')
   ? seasonTags.map((s: string) => s.charAt(0).toUpperCase() + s.slice(1)).join(' and ')
   : null;
+
+// Opening hours as schema.org OpeningHoursSpecification.
+// The venue's main JSON-LD node is built by the page, not here: /wine/ uses
+// buildWinerySchema (lib/schema.ts), which already emits the hours, while
+// /eat/ and /stay/ build an inline node that does not. This block fills that
+// gap, and only on the venue's own canonical surface, so a venue is never
+// described by two competing hours nodes.
+const isCanonicalSurface = venueHrefPrefix(data.type).endsWith(`/${section}`);
+const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'LocalBusiness',
+      name: data.name,
+      url: `https://peninsulainsider.com.au/${section}/${venueSlug}/`,
+      openingHoursSpecification: openingHours.map((h) => ({
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: h.days,
+        opens: h.opens,
+        closes: h.closes,
+      })),
+    }
+  : null;
 ---
+
+{hoursSchema && <script type="application/ld+json" set:html={JSON.stringify(hoursSchema)} />}
 
 <Breadcrumbs items={breadcrumbItems} />
 
@@ -113,7 +243,7 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
       <span class="venue-detail__dot" aria-hidden="true"></span>
       <span class="venue-detail__price">{typeLabel[data.type] ?? data.type}</span>
       <span class="venue-detail__dot" aria-hidden="true"></span>
-      <a href={`/explore/places/${data.place?.id ?? data.place}`} class="venue-detail__place">{placeLabel(data.place)}</a>
+      <a href={`/explore/places/${data.place?.id ?? data.place}/`} class="venue-detail__place">{placeLabel(data.place)}</a>
       {subregionLabel && (
         <><span class="venue-detail__dot" aria-hidden="true"></span>
         <span class="venue-detail__subregion">{subregionLabel}</span></>
@@ -124,24 +254,24 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
 
     <h1 class="venue-detail__title" {...editableText({
       entityType: 'venue', entitySlug: venueSlug, fieldPath: 'name',
-      label: `${data.name} — name`,
+      label: `${data.name} - name`,
     })}>{data.name}</h1>
     {isClosed && (
       <p class="venue-detail__closed-notice">This cellar door is permanently closed. The page is preserved for historical reference.</p>
     )}
     <p class="venue-detail__signature" {...editableText({
       entityType: 'venue', entitySlug: venueSlug, fieldPath: 'signature',
-      label: `${data.name} — signature`,
+      label: `${data.name} - signature`,
     })}>{data.signature}</p>
 
-    {/* ── KNOWN FOR — entity-signal line (editorial highlights, not buttons).
+    {/* ── KNOWN FOR - entity-signal line (editorial highlights, not buttons).
         Also emitted as schema.org additionalProperty in the page JSON-LD. ── */}
     {data.knownFor && data.knownFor.length > 0 && (
       <p class="venue-known-for" aria-label="Known for">
         <span class="venue-known-for__label">Known for</span>
         <span class="venue-known-for__items">
           {data.knownFor.map((item: string, i: number) => (
-            <>{i > 0 && <span class="venue-known-for__sep" aria-hidden="true">·</span>}{item}</>
+            <>{i > 0 && <span class="venue-known-for__sep" aria-hidden="true"> · </span>}{item}</>
           ))}
         </span>
       </p>
@@ -150,7 +280,7 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
     {(data.bookingUrl || data.phone) && (
       <div class="venue-detail__booking-bar">
         {data.bookingUrl && (
-          <a href={data.bookingUrl} target="_blank" rel="noopener noreferrer" class="venue-detail__book-btn">
+          <a href={data.bookingUrl} target="_blank" rel="noopener noreferrer" class="pi-btn pi-btn--solid pi-btn--lg">
             {data.type === 'hotel' || data.type === 'villa' || data.type === 'cottage' || data.type === 'glamping' || data.type === 'farm-stay'
               ? 'Check availability'
               : data.type === 'winery'
@@ -161,19 +291,23 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
           </a>
         )}
         {data.phone && (
-          <a href={`tel:${data.phone.replace(/\s/g, '')}`} class="venue-detail__phone-btn">
+          <a
+            href={`tel:${data.phone.replace(/\s/g, '')}`}
+            class="pi-btn pi-btn--ghost pi-btn--lg"
+            aria-label={`Call ${data.name} on ${data.phone}`}
+          >
             {data.phone}
           </a>
         )}
       </div>
     )}
 
-    {/* Appointment-only planning signal — wine venues only.
+    {/* Appointment-only planning signal - wine venues only.
         Positioned before the hero so it's seen before the reader
         commits to the page. Not a warning, a planning note. */}
     {isAppointmentOnly && (
       <div class="venue-appointment-note" role="note">
-        <span class="venue-appointment-note__icon" aria-hidden="true">—</span>
+        <span class="venue-appointment-note__icon" aria-hidden="true"> - </span>
         <span class="venue-appointment-note__text">
           <strong>By appointment.</strong> This producer doesn't take walk-ins.
           {data.phone
@@ -185,11 +319,8 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
       </div>
     )}
 
-    <div
+    <figure
       class="venue-detail__hero"
-      aria-hidden="true"
-      style={heroStyle}
-      aria-label={heroAlt}
       {...editableImage({
         entityType: 'venue',
         entitySlug: venueSlug,
@@ -198,17 +329,18 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
         purpose: 'hero',
       })}
     >
+      <img src={hero.src} alt={heroAlt} fetchpriority="high" decoding="async" />
       <div class="venue-detail__hero-fog"></div>
       <span class="venue-detail__hero-label">{heroLabel}</span>
-    </div>
+    </figure>
     {data.heroImage?.credit && (
       <p class="venue-detail__hero-credit">{formatHeroCredit(data.heroImage.credit)}</p>
     )}
 
     <div class="venue-detail__grid">
       <div>
-        {/* ── INSIDER VERDICT — the editorial hook, leads the page.
-            "Best for" lives once, in Worth Knowing below — not duplicated here. ── */}
+        {/* ── INSIDER VERDICT - the editorial hook, leads the page.
+            "Best for" lives once, in Worth Knowing below - not duplicated here. ── */}
         {venue.data.venueTier === 'destination' && data.whyWeGo && (
           <div class="venue-verdict">
             <blockquote class="venue-verdict__why">
@@ -218,7 +350,7 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
           </div>
         )}
 
-        {/* ── EDITOR NOTE — context and detail ── */}
+        {/* ── EDITOR NOTE - context and detail ── */}
         <div class="prose">
           {data.editorNote.split(/\n\n+/).map((paragraph: string) => (
             <p>{paragraph}</p>
@@ -234,7 +366,7 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
           />
         )}
 
-        {/* ── WORTH KNOWING — quick-scan trust layer ── */}
+        {/* ── WORTH KNOWING - quick-scan trust layer ── */}
         {hasWorthKnowing && (
           <div class="worth-knowing">
             <p class="worth-knowing__heading">Worth knowing</p>
@@ -308,16 +440,16 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
             <span class="venue-detail__filed-label">Filed under</span>
             <span class="venue-detail__filed-items">
               {allTags.map((tag: string, i: number) => (
-                <>{i > 0 && <span class="venue-detail__filed-sep" aria-hidden="true">·</span>}{titleize(tag)}</>
+                <>{i > 0 && <span class="venue-detail__filed-sep" aria-hidden="true"> · </span>}{titleize(tag)}</>
               ))}
             </span>
           </p>
         )}
 
-        {/* Wine identity panel — surfaces schema-rich wine signals with
+        {/* Wine identity panel - surfaces schema-rich wine signals with
             editorial weight. Winemaker, key varieties, signature label,
             seasonal context. Visible on wine pages only.
-            Design principle: structured but understated — no luxury-wine
+            Design principle: structured but understated - no luxury-wine
             clichés, no gold leaf, no overdesigned badges. */}
         {isWinery && (wineKeyVarieties.length > 0 || winemakerName || wineTopLabel || wineBestSeason) && (
           <div class="wine-identity">
@@ -360,7 +492,19 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
           <dd>{typeLabel[data.type] ?? data.type}</dd>
 
           <dt>Location</dt>
-          <dd>{data.address}</dd>
+          <dd>
+            {data.address}
+            {data.address && (
+              <>
+                {' '}·{' '}
+                <a
+                  href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(`${data.name}, ${data.address}`)}`}
+                  target="_blank"
+                  rel="noopener"
+                >Directions</a>
+              </>
+            )}
+          </dd>
 
           <dt>Spend</dt>
           <dd>{data.priceBand}</dd>
@@ -414,6 +558,22 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
             <>
               <dt>Hours</dt>
               <dd>{data.hoursNote}</dd>
+            </>
+          )}
+
+          {hasOpeningHours && (
+            <>
+              <dt>Opening hours</dt>
+              <dd>
+                <ul class="facts__hours">
+                  {hoursRows.map((row) => (
+                    <li class:list={['facts__hours-row', row.closed && 'facts__hours-row--closed']}>
+                      <span class="facts__hours-days">{row.days}</span>
+                      <span class="facts__hours-time">{row.time}</span>
+                    </li>
+                  ))}
+                </ul>
+              </dd>
             </>
           )}
 
@@ -473,12 +633,12 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
           {data.featuredPartner && (
             <>
               <dt>Partnership</dt>
-              <dd>Featured partner — <a href="/about/">editorial standards</a></dd>
+              <dd>Featured partner - <a href="/about/">editorial standards</a></dd>
             </>
           )}
         </dl>
 
-        {data.bookingUrl && <a class="facts__cta" href={data.bookingUrl}>Book now</a>}
+        {data.bookingUrl && <a class="facts__cta pi-btn pi-btn--ghost pi-btn--block" href={data.bookingUrl}>Book now</a>}
         {data.affiliateNote && <p class="facts__affiliate-note">{data.affiliateNote}</p>}
       </aside>
     </div>
@@ -498,13 +658,10 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
       <h2 class="venue-detail-section__title">Visiting</h2>
       <div class="prose">
         {data.visiting.tastingNote && <p>{data.visiting.tastingNote}</p>}
-        {data.visiting.openingHours?.length > 0 && (
-          <ul>
-            {data.visiting.openingHours.map((h: any) => (
-              <li>{Array.isArray(h.days) ? h.days.join(', ') : h.days}: {h.opens}–{h.closes}</li>
-            ))}
-          </ul>
-        )}
+        {/* Opening hours render once, in the At a glance panel above, where
+            readers look for the practical facts. Kept out of here so the
+            same venue never publishes two hours lists. */}
+        {data.visiting.bookingNotes && <p>{data.visiting.bookingNotes}</p>}
         {data.visiting.bookingRequired && (
           <p><strong>Booking required.</strong>{' '}
             {data.bookingUrl
@@ -580,7 +737,7 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
   </section>
 )}
 
-{/* ── SEASONAL INTELLIGENCE — optional per-season guidance ── */}
+{/* ── SEASONAL INTELLIGENCE - optional per-season guidance ── */}
 {hasSeasonalNotes && (
   <section class="venue-seasonal">
     <div class="container">
@@ -598,13 +755,13 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
   </section>
 )}
 
-{/* ── ASK PI — light planning integration ── */}
+{/* ── Search - light planning integration (was Ask PI, replaced 2026-07-24) ── */}
 <section class="venue-ask-pi">
   <div class="container">
     <div class="venue-ask-pi__inner">
       <p class="venue-ask-pi__prompt">Not sure how to build a day around {data.name}?</p>
-      <a href={`/ask/?q=${askPiQuery}`} class="venue-ask-pi__cta" data-pi-trigger="true">
-        Ask The Insider
+      <a href="/search/" class="pi-btn pi-btn--text" data-open-search data-evt="search_open">
+        Search Peninsula Insider
         <svg width="12" height="12" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M5 10h10M11 5l5 5-5 5" />
         </svg>
@@ -620,7 +777,7 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
         <div>
           <p class="label label--accent">In the journal</p>
           <h2 class="venues__title">Stories that mention {data.name}</h2>
-          <p class="venues__sub">These pieces give you the context a listing page never does — the when, the why, and the who-it’s-for.</p>
+          <p class="venues__sub">These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.</p>
         </div>
         <a href="/journal/" class="venues__link">Journal →</a>
       </div>
@@ -666,7 +823,7 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
   </section>
 )}
 
-{/* Planning pathways — connect this venue into broader Peninsula experiences */}
+{/* Planning pathways - connect this venue into broader Peninsula experiences */}
 <section class="venues venues--plain">
   <div class="container">
     <div class="venues__header">
@@ -677,33 +834,33 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
       </div>
     </div>
     <div class="venues__grid venues__grid--links">
-      <a href="/journal/mornington-peninsula-itinerary/" class="venue-card__cta">Peninsula weekend itinerary →</a>
+      <a href="/journal/mornington-peninsula-itinerary/" class="pi-btn pi-btn--solid">Peninsula weekend itinerary →</a>
       {(section === 'eat') && (
         <>
-          <a href="/journal/the-long-lunch/" class="venue-card__cta">The long lunch guide →</a>
-          <a href="/journal/mornington-peninsula-winery-tour/" class="venue-card__cta">Winery tour route →</a>
-          <a href="/journal/the-rainy-day-peninsula-without-a-booking/" class="venue-card__cta">Rainy-day Peninsula →</a>
+          <a href="/journal/the-long-lunch/" class="pi-btn pi-btn--solid">The long lunch guide →</a>
+          <a href="/tour/wine-tours/" class="pi-btn pi-btn--solid">Winery tour route →</a>
+          <a href="/journal/rainy-day-peninsula/" class="pi-btn pi-btn--solid">Rainy-day Peninsula →</a>
         </>
       )}
       {(section === 'wine') && (
         <>
-          <a href="/journal/the-cellar-door-short-list/" class="venue-card__cta">Cellar door shortlist →</a>
-          <a href="/journal/mornington-peninsula-winery-tour/" class="venue-card__cta">Self-drive winery tour →</a>
-          <a href="/journal/mornington-peninsula-in-winter/" class="venue-card__cta">Winter on the Peninsula →</a>
+          <a href="/journal/the-cellar-door-short-list/" class="pi-btn pi-btn--solid">Cellar door shortlist →</a>
+          <a href="/tour/wine-tours/" class="pi-btn pi-btn--solid">Self-drive winery tour →</a>
+          <a href="/journal/mornington-peninsula-in-winter/" class="pi-btn pi-btn--solid">Winter on the Peninsula →</a>
         </>
       )}
       {(section === 'stay') && (
         <>
-          <a href="/journal/the-one-night-escape/" class="venue-card__cta">The one-night escape →</a>
-          <a href="/journal/mornington-peninsula-in-winter/" class="venue-card__cta">Winter on the Peninsula →</a>
-          <a href="/explore/plans/" class="venue-card__cta">Weekend plans →</a>
+          <a href="/explore/plans/the-one-night-escape/" class="pi-btn pi-btn--solid">The one-night escape →</a>
+          <a href="/journal/mornington-peninsula-in-winter/" class="pi-btn pi-btn--solid">Winter on the Peninsula →</a>
+          <a href="/explore/plans/" class="pi-btn pi-btn--solid">Weekend plans →</a>
         </>
       )}
       {data.dogFriendly && (
-        <a href="/dog-friendly/" class="venue-card__cta">Dog-friendly Peninsula →</a>
+        <a href="/dog-friendly/" class="pi-btn pi-btn--solid">Dog-friendly Peninsula →</a>
       )}
       {(moodTags.includes('rainy-day') || seasonTags.includes('winter')) && (
-        <a href="/journal/the-rainy-day-peninsula-without-a-booking/" class="venue-card__cta">Rainy-day Peninsula →</a>
+        <a href="/journal/rainy-day-peninsula/" class="pi-btn pi-btn--solid">Rainy-day Peninsula →</a>
       )}
     </div>
   </div>
@@ -718,7 +875,7 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
   dek={data.editorNote}
   imageUrl={data.heroImage?.src}
 />
-{/* Destination hierarchy link — editorial return path to the parent place guide.
+{/* Destination hierarchy link - editorial return path to the parent place guide.
     Venue pages are the deepest layer of the ecosystem; this closes the loop.
     Renders only when place data is available (true for all 141 tagged venues). */}
 {(data.place?.id ?? data.place) && (
@@ -728,29 +885,59 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
         href={`/explore/places/${data.place?.id ?? data.place}/`}
         class="venue-place-link__anchor"
       >
-        ← Part of {placeLabel(data.place)} — view the destination guide
+        ← Part of {placeLabel(data.place)} - view the destination guide
       </a>
     </div>
   </div>
 )}
 
+{/* Foot matter: when we last checked this page, and the operator's route to
+    claim it. Verification discipline is worth nothing if the reader cannot
+    see it, so the date is stated plainly; both lines are deliberately quiet
+    so neither competes with the editorial above. */}
+<div class="venue-footnote">
+  <div class="container">
+    <div class="venue-footnote__inner">
+      {verifiedLabel && (
+        <p class="venue-footnote__verified">
+          <span>{verifiedLabel} by Peninsula Insider</span>
+          <span class="venue-footnote__sep" aria-hidden="true"> · </span>
+          <a href="/editorial-approach/">How we check</a>
+        </p>
+      )}
+      <p class="venue-footnote__claim">
+        Is this your venue? <a href="/partners/claim/">Claim it</a>
+      </p>
+    </div>
+  </div>
+</div>
+
 <NewsletterBlock />
 
 <style>
-  /* ── Worth Knowing panel ── */
+  /* ── Worth Knowing panel ──
+     Corner treatment is uniform --radius-m on all four corners and there
+     is no shadow: the panel is defined by the same hairline every other
+     surface uses, plus the accent edge, which is load-bearing (it marks
+     this as the trust layer, not decoration). Previously the heavy left
+     edge was the only definition the panel had, so the remaining three
+     sides dissolved into the ground and the shape read half-finished. */
   .worth-knowing {
     margin: 2rem 0 1.5rem;
     padding: 1.5rem;
-    background: var(--surface, #f9f7f4);
-    border-left: 3px solid var(--ochre, #A0541F);
-    border-radius: 2px;
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: var(--radius-m);
+    box-shadow: none;
   }
   .worth-knowing__heading {
-    font-size: 0.72rem;
+    font-family: var(--font-ui);
+    font-size: var(--fs-100);
     font-weight: 600;
-    letter-spacing: 0.08em;
+    letter-spacing: var(--ls-eyebrow);
     text-transform: uppercase;
-    color: var(--ochre, #A0541F);
+    color: var(--teal-text);
     margin: 0 0 1rem;
   }
   .worth-knowing__grid {
@@ -760,17 +947,17 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
     margin: 0;
   }
   .worth-knowing__grid dt {
-    font-size: 0.78rem;
+    font-size: var(--fs-200);
     font-weight: 600;
-    color: var(--soft, #6b6560);
+    color: var(--soft);
     white-space: nowrap;
     padding-top: 0.05rem;
   }
   .worth-knowing__grid dd {
-    font-size: 0.85rem;
-    color: var(--ink, #1a1714);
+    font-size: var(--fs-300);
+    color: var(--text);
     margin: 0;
-    line-height: 1.5;
+    line-height: var(--lh-body);
   }
   @media (max-width: 480px) {
     .worth-knowing__grid {
@@ -788,10 +975,13 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
     border-top: 1px solid var(--border);
   }
   .venue-seasonal__title {
-    font-size: 1.3rem;
+    font-family: var(--font-display);
+    font-size: var(--fs-700);
     font-weight: 600;
+    line-height: var(--lh-heading);
+    letter-spacing: var(--ls-display);
     margin: 0.4rem 0 1.5rem;
-    color: var(--ink);
+    color: var(--text);
   }
   .venue-seasonal__grid {
     display: grid;
@@ -800,21 +990,22 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
   }
   .venue-seasonal__block {
     padding: 1.2rem;
-    background: var(--surface, #f9f7f4);
-    border-radius: 2px;
+    background: var(--bg-alt);
+    border-radius: var(--radius-m);
   }
   .venue-seasonal__season {
-    font-size: 0.72rem;
+    font-family: var(--font-ui);
+    font-size: var(--fs-100);
     font-weight: 600;
-    letter-spacing: 0.08em;
+    letter-spacing: var(--ls-eyebrow);
     text-transform: uppercase;
-    color: var(--ochre, #A0541F);
+    color: var(--teal-text);
     margin: 0 0 0.5rem;
   }
   .venue-seasonal__note {
-    font-size: 0.88rem;
-    color: var(--ink);
-    line-height: 1.6;
+    font-size: var(--fs-300);
+    color: var(--text);
+    line-height: var(--lh-body);
     margin: 0;
   }
 
@@ -830,27 +1021,72 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
     flex-wrap: wrap;
   }
   .venue-ask-pi__prompt {
-    font-size: 0.9rem;
-    color: var(--soft, #6b6560);
+    font-size: var(--fs-300);
+    color: var(--soft);
     margin: 0;
     flex: 1;
     min-width: 200px;
   }
-  .venue-ask-pi__cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    font-size: 0.82rem;
-    font-weight: 600;
-    color: var(--ochre, #A0541F);
-    text-decoration: none;
-    border-bottom: 1px solid currentColor;
-    padding-bottom: 0.1rem;
-    white-space: nowrap;
-    transition: opacity 0.2s ease;
+
+  /* ── Opening hours in the At a glance panel ── */
+  .facts__hours {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.2rem;
   }
-  .venue-ask-pi__cta:hover {
-    opacity: 0.75;
+  .facts__hours-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.75rem;
+  }
+  .facts__hours-days {
+    color: var(--soft);
+    white-space: nowrap;
+  }
+  .facts__hours-time {
+    text-align: right;
+  }
+  .facts__hours-row--closed .facts__hours-time {
+    color: var(--soft);
+  }
+
+  /* ── Foot matter: verification date + operator claim ── */
+  .venue-footnote {
+    padding: 1.1rem 0 1.6rem;
+    border-top: 1px solid var(--border);
+  }
+  .venue-footnote__inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.4rem 1.5rem;
+  }
+  .venue-footnote__verified,
+  .venue-footnote__claim {
+    margin: 0;
+    font-size: 0.82rem;
+    line-height: 1.6;
+    color: var(--soft);
+  }
+  .venue-footnote__sep {
+    color: var(--border);
+  }
+  .venue-footnote__verified a,
+  .venue-footnote__claim a {
+    color: var(--soft);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.1rem;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+  .venue-footnote__verified a:hover,
+  .venue-footnote__claim a:hover {
+    color: var(--accent);
+    border-color: var(--accent);
   }
 
   /* ── Destination hierarchy return link ── */
@@ -874,7 +1110,7 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
 
   /* ── Wine: subregion in meta line ── */
   .venue-detail__subregion {
-    font-size: 0.72rem;
+    font-size: var(--fs-200);
     color: var(--soft);
     letter-spacing: 0.04em;
   }
@@ -888,8 +1124,9 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
     padding: 0.85rem 1.1rem;
     background: var(--bg-alt);
     border-left: 2px solid var(--accent);
-    font-size: 0.88rem;
-    line-height: 1.5;
+    border-radius: var(--radius-s);
+    font-size: var(--fs-300);
+    line-height: var(--lh-body);
     color: var(--text);
   }
   .venue-appointment-note__icon {
@@ -906,15 +1143,16 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
 
   /* ── Wine: Halliday score in facts aside ── */
   .facts__halliday-score {
+    font-family: var(--font-display);
     font-weight: 600;
-    color: var(--dark);
+    color: var(--text);
   }
   .facts__halliday-desc {
     display: block;
-    font-size: 0.78rem;
+    font-size: var(--fs-200);
     color: var(--soft);
     margin-top: 0.1rem;
-    font-style: italic;
+    font-style: normal;
   }
 
   /* ── Wine identity panel ── */
@@ -933,20 +1171,21 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
     align-items: baseline;
   }
   .wine-identity__label {
-    font-size: 0.65rem;
+    font-family: var(--font-ui);
+    font-size: var(--fs-100);
     font-weight: 700;
-    letter-spacing: 0.12em;
+    letter-spacing: var(--ls-eyebrow);
     text-transform: uppercase;
     color: var(--soft);
     padding-top: 0.15rem;
   }
   .wine-identity__value {
-    font-size: 0.9rem;
-    color: var(--dark);
+    font-size: var(--fs-300);
+    color: var(--text);
     line-height: 1.45;
   }
   .wine-identity__value--italic {
-    font-style: italic;
+    font-style: normal;
   }
   .wine-identity__varieties {
     display: flex;
@@ -954,11 +1193,12 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
     gap: 0.3rem;
   }
   .wine-identity__variety {
-    font-size: 0.78rem;
-    color: var(--text);
+    font-size: var(--fs-200);
+    color: var(--teal-text);
     background: var(--bg-alt);
-    padding: 0.15rem 0.55rem;
+    padding: 0.2rem 0.7rem;
     border: 1px solid var(--border);
+    border-radius: var(--radius-pill);
   }
   @media (max-width: 480px) {
     .wine-identity__row {
@@ -966,11 +1206,11 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
       gap: 0.2rem;
     }
     .wine-identity__label {
-      font-size: 0.6rem;
+      font-size: var(--fs-100);
     }
   }
 
-  /* ── Known For — entity-signal line (editorial highlights, not buttons) ── */
+  /* ── Known For - entity-signal line (editorial highlights, not buttons) ── */
   .venue-known-for {
     display: flex;
     flex-wrap: wrap;
@@ -982,48 +1222,51 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
   }
   .venue-known-for__label {
     flex: none;
-    font-size: 0.68rem;
+    font-family: var(--font-ui);
+    font-size: var(--fs-100);
     font-weight: 600;
-    letter-spacing: 0.14em;
+    letter-spacing: var(--ls-eyebrow);
     text-transform: uppercase;
-    color: var(--accent, #8B4E3B);
+    color: var(--teal-text);
   }
   .venue-known-for__items {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: var(--text, #2B2520);
+    font-size: var(--fs-400);
+    line-height: var(--lh-body);
+    color: var(--text);
   }
   .venue-known-for__sep {
-    color: var(--gold, #B69A6B);
-    margin: 0 0.55rem;
-  }
-
-  /* ── Filed under — demoted discovery tags (quiet, not pills) ── */
-  .venue-detail__filed {
-    margin: 1.5rem 0 0;
-    font-size: 0.82rem;
-    line-height: 1.7;
-    color: var(--soft, #7A726A);
-  }
-  .venue-detail__filed-label {
-    font-size: 0.64rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--soft, #7A726A);
-    margin-right: 0.7rem;
-  }
-  .venue-detail__filed-sep {
-    color: var(--border, #E5E0D6);
+    color: var(--gold);
     margin: 0 0.4rem;
   }
 
-  /* ── Insider Verdict block ── */
+  /* ── Filed under - demoted discovery tags (quiet, not pills) ── */
+  .venue-detail__filed {
+    margin: 1.5rem 0 0;
+    font-size: var(--fs-200);
+    line-height: 1.7;
+    color: var(--soft);
+  }
+  .venue-detail__filed-label {
+    font-family: var(--font-ui);
+    font-size: var(--fs-100);
+    font-weight: 600;
+    letter-spacing: var(--ls-eyebrow);
+    text-transform: uppercase;
+    color: var(--soft);
+    margin-right: 0.7rem;
+  }
+  .venue-detail__filed-sep {
+    color: var(--border);
+    margin: 0 0.25rem;
+  }
+
+  /* ── Insider Verdict block - v6 forest-teal feature panel ── */
   .venue-verdict {
     margin: 1.5rem 0 2rem;
     padding: 1.75rem 2rem;
-    background: var(--ink, #1A1208);
-    color: var(--paper, #F5F0E8);
+    background: var(--bg-deep);
+    color: var(--white);
+    border-radius: var(--radius-l);
   }
 
   .venue-verdict__why {
@@ -1034,19 +1277,21 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
 
   .venue-verdict__label {
     display: block;
-    font-size: 0.65rem;
+    font-family: var(--font-ui);
+    font-size: var(--fs-100);
     font-weight: 700;
-    letter-spacing: 0.12em;
+    letter-spacing: var(--ls-eyebrow);
     text-transform: uppercase;
-    color: var(--sand, #C9B99A);
+    color: var(--mint);
     margin-bottom: 0.4rem;
   }
 
   .venue-verdict__text {
-    font-size: 1.15rem;
-    font-style: italic;
+    font-family: var(--font-ui);
+    font-size: var(--fs-500);
+    font-style: normal;
     line-height: 1.5;
-    color: var(--paper, #F5F0E8);
+    color: var(--white);
     margin: 0;
   }
 
@@ -1058,11 +1303,12 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
   }
 
   .venue-verdict__best-for-label {
-    font-size: 0.65rem;
+    font-family: var(--font-ui);
+    font-size: var(--fs-100);
     font-weight: 700;
-    letter-spacing: 0.12em;
+    letter-spacing: var(--ls-eyebrow);
     text-transform: uppercase;
-    color: var(--sand, #C9B99A);
+    color: var(--mint);
     white-space: nowrap;
   }
 
@@ -1076,11 +1322,12 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
   }
 
   .venue-verdict__tag {
-    font-size: 0.75rem;
+    font-size: var(--fs-200);
     font-weight: 500;
-    padding: 0.2rem 0.6rem;
+    padding: 0.2rem 0.7rem;
     border: 1px solid rgba(255,255,255,0.25);
-    color: var(--paper, #F5F0E8);
+    border-radius: var(--radius-pill);
+    color: var(--white);
     letter-spacing: 0.02em;
   }
 
@@ -1091,8 +1338,8 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
     gap: 1.25rem;
     margin: 2rem 0;
     padding: 1.25rem 1.5rem;
-    border-top: 1px solid var(--line, #D9D1BE);
-    border-bottom: 1px solid var(--line, #D9D1BE);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
   }
   .venue-actions-strip__item {
     display: flex;
@@ -1100,16 +1347,17 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
     gap: 0.25rem;
   }
   .venue-actions-strip__label {
-    font-size: 0.65rem;
+    font-family: var(--font-ui);
+    font-size: var(--fs-100);
     font-weight: 700;
-    letter-spacing: 0.1em;
+    letter-spacing: var(--ls-eyebrow);
     text-transform: uppercase;
-    color: var(--ink-muted, #6E655C);
+    color: var(--soft);
     margin: 0;
   }
   .venue-actions-strip__value {
-    font-size: 0.9rem;
-    color: var(--ink, #1A1208);
+    font-size: var(--fs-300);
+    color: var(--text);
     margin: 0;
     line-height: 1.45;
   }
@@ -1121,9 +1369,10 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
     gap: 1.25rem;
     margin: 2rem 0;
     padding: 1.5rem;
-    background: var(--surface-warm, #FAF7F2);
-    border-top: 2px solid var(--ink, #1A1208);
-    border-bottom: 1px solid var(--line, #D9D1BE);
+    background: var(--bg-alt);
+    border-top: 2px solid var(--accent);
+    border-bottom: 1px solid var(--border);
+    border-radius: var(--radius-m);
   }
   .venue-editorial-strip__item {
     display: flex;
@@ -1131,16 +1380,17 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
     gap: 0.25rem;
   }
   .venue-editorial-strip__label {
-    font-size: 0.7rem;
+    font-family: var(--font-ui);
+    font-size: var(--fs-100);
     font-weight: 600;
-    letter-spacing: 0.08em;
+    letter-spacing: var(--ls-eyebrow);
     text-transform: uppercase;
-    color: var(--ink-muted, #6E655C);
+    color: var(--soft);
     margin: 0;
   }
   .venue-editorial-strip__value {
-    font-size: 0.92rem;
-    color: var(--ink, #1A1208);
+    font-size: var(--fs-300);
+    color: var(--text);
     margin: 0;
     line-height: 1.45;
   }

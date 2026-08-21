@@ -1,6 +1,6 @@
 ---
 slug: "st-andrews-beach-golf-course"
-title: "St Andrews Beach Golf Course — The World-Ranked Course Anyone Can Book"
+title: "St Andrews Beach Golf Course - The World-Ranked Course Anyone Can Book"
 dek: "If you want one golf story that explains the Peninsula properly, start here. Tom Doak architecture, genuine global ranking, and public-access bookings that turn prestige into a real weekend."
 author: "editorial"
 houseByline: true
@@ -16,17 +16,17 @@ readingTimeMinutes: 7
 status: "published"
 lastVerified: 2026-04-22
 clusterLinks:
-  - label: "Best Golf Courses on the Mornington Peninsula — Tier Guide"
-    href: "/journal/best-golf-courses-mornington-peninsula/"
+  - label: "Best Golf Courses on the Mornington Peninsula - Tier Guide"
+    href: "/explore/golf/"
   - label: "Mornington Peninsula Stay and Play Golf"
-    href: "/journal/mornington-peninsula-golf-stay-and-play/"
-  - label: "Peninsula Hot Springs vs Alba — The Honest Comparison"
+    href: "/explore/plans/mornington-peninsula-golf-stay-and-play/"
+  - label: "Peninsula Hot Springs vs Alba - The Honest Comparison"
     href: "/journal/peninsula-hot-springs-vs-alba/"
 faq:
   - question: "Can anyone book a round at St Andrews Beach Golf Course?"
-    answer: "Yes — St Andrews Beach is fully public access, bookable online directly. Book at least 4 weeks ahead for weekend tee times in peak season. No membership or member connection required."
+    answer: "Yes - St Andrews Beach is fully public access, bookable online directly. Book at least 4 weeks ahead for weekend tee times in peak season. No membership or member connection required."
   - question: "What makes St Andrews Beach Golf Course special?"
-    answer: "Tom Doak architecture (Pacific Dunes, Tara Iti, Cape Kidnappers), genuine links character on a windswept coastal site, and a regular world top-100 ranking — while remaining publicly bookable. That combination is rare in Australian golf."
+    answer: "Tom Doak architecture (Pacific Dunes, Tara Iti, Cape Kidnappers), genuine links character on a windswept coastal site, and a regular world top-100 ranking - while remaining publicly bookable. That combination is rare in Australian golf."
   - question: "What should I do after playing St Andrews Beach Golf Course?"
     answer: "The course is near Cape Schanck, 15 minutes from both Peninsula Hot Springs and Alba Thermal Springs, and a short drive from the Red Hill winery lunch corridor. A morning round followed by a late Red Hill lunch or an afternoon hot springs session is the strongest combination."
 ---
@@ -53,13 +53,13 @@ It works for **serious golfers** because the architecture is not a gimmick. The 
 
 It works for **occasional golfers** because the experience still feels distinct, coastal, and destination-worthy. You are not playing a suburban muni and pretending it is a trip.
 
-And it works for a **mixed weekend** because <a href="/places/cape-schanck">Cape Schanck</a>, <a href="/journal/mornington-peninsula-hot-springs-guide">the hot springs</a>, strong lunch options, and the southern end of the Peninsula all fit naturally around it.
+And it works for a **mixed weekend** because <a href="/explore/places/cape-schanck/">Cape Schanck</a>, <a href="/explore/hot-springs/">the hot springs</a>, strong lunch options, and the southern end of the Peninsula all fit naturally around it.
 
 ## How to build the day around it
 
 The best way to think about St Andrews Beach is not as an isolated sports venue. It is the anchor round in a Peninsula weekend that still leaves room for the rest of the trip.
 
-**A morning tee time** gets you off the course by mid-afternoon. That leaves the second half of the day for a late lunch on the <a href="/places/red-hill">Red Hill</a> plateau (<a href="/eat/montalto">Montalto</a> piazza is the easiest walk-up), a hot springs session (<a href="/journal/mornington-peninsula-hot-springs-guide">Peninsula Hot Springs or Alba</a>, 15 minutes away), or a coastal walk at <a href="/places/cape-schanck">Cape Schanck</a>.
+**A morning tee time** gets you off the course by mid-afternoon. That leaves the second half of the day for a late lunch on the <a href="/explore/places/red-hill/">Red Hill</a> plateau (<a href="/wine/montalto/">Montalto</a> piazza is the easiest walk-up), a hot springs session (<a href="/explore/hot-springs/">Peninsula Hot Springs or Alba</a>, 15 minutes away), or a coastal walk at <a href="/explore/places/cape-schanck/">Cape Schanck</a>.
 
 **An afternoon tee time** means you take the Peninsula properly on the way down: morning cellar doors, an early lunch, then the course, then a quiet stay within 20 minutes of the first tee. This is the shape if the group includes non-golfers.
 
@@ -72,7 +72,7 @@ A lot of readers will not care about routing philosophy or architecture rankings
 - **Book directly and early** rather than assuming there will always be space. Weekends fill 4+ weeks out in peak season. The course accepts online bookings.
 - **Treat live green fees as variable** and verify them directly before committing. The range sits above mid-market public golf in Australia but well below comparable international links.
 - **Pair it** with Cape Schanck, the hot springs, or a southern Peninsula lunch rather than trying to jam in too much driving afterwards.
-- **Stay nearby.** The southern Peninsula is a reasonable drive from the course: 15 minutes to <a href="/places/sorrento">Sorrento</a>, 10 minutes to <a href="/places/rye">Rye</a>. Don't base yourself in Mornington for a St Andrews Beach round.
+- **Stay nearby.** The southern Peninsula is a reasonable drive from the course: 15 minutes to <a href="/explore/places/sorrento/">Sorrento</a>, 10 minutes to <a href="/explore/places/rye/">Rye</a>. Don't base yourself in Mornington for a St Andrews Beach round.
 - **If the trip is really about access and quality**, start here before you start chasing private-club mythology.
 
 ## The shape of the weekend this course supports
@@ -83,6 +83,6 @@ That is the Peninsula pitch, and St Andrews Beach is why it works.
 
 ## Related guides
 
-- <a href="/journal/best-golf-courses-mornington-peninsula">Best golf courses on the Mornington Peninsula, our tier guide</a>
-- <a href="/journal/mornington-peninsula-golf-guide">Why the Mornington Peninsula is Australia's golf country</a>
-- <a href="/journal/mornington-peninsula-hot-springs-guide">Hot springs guide</a>
+- <a href="/explore/golf/">Best golf courses on the Mornington Peninsula, our tier guide</a>
+- <a href="/explore/golf/">Why the Mornington Peninsula is Australia's golf country</a>
+- <a href="/explore/hot-springs/">Hot springs guide</a>

@@ -1,792 +1,93 @@
 ---
-import { getCollection } from 'astro:content';
+/**
+ * /explore/plans/ - the Decide front door (v5 hub redesign, page-redesigns-hubs.md
+ * section 6, wireframes #plans). A decision engine, not a card wall: h1 and
+ * one Local-voice line, seven single-select context chips, one featured plan
+ * plus two alternates per context, the full catalogue as compact rows, and
+ * a next-step band (Ask PI / blank My Trip).
+ *
+ * Default context (Weekend) is server-rendered so the page is complete with
+ * JS disabled; other contexts swap in place from embedded JSON with the URL
+ * persisted as ?context= (canonical stays /explore/plans/, so parameterised
+ * views never index). Plan detail pages are untouched; every plan URL is
+ * linked from the index rows.
+ *
+ * This page moved here from /plans/ (2026-08-17, F16) to resolve the
+ * canonical-direction split: plan detail pages already canonicalise to
+ * /explore/plans/<slug>/, so the index now lives under the same tree.
+ * /plans/ is a consolidation stub pointing here - see pages/plans/index.astro.
+ */
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import PlanCard from '../../../components/PlanCard.astro';
-import Breadcrumbs from '../../../components/Breadcrumbs.astro';
-import GuideHero from '../../../components/GuideHero.astro';
-import CompareBlock from '../../../components/CompareBlock.astro';
-import SectionDivider from '../../../components/SectionDivider.astro';
-import ItineraryCard from '../../../components/ItineraryCard.astro';
-import VenueCard from '../../../components/VenueCard.astro';
-import PlaceCard from '../../../components/PlaceCard.astro';
-import NewsletterBlock from '../../../components/NewsletterBlock.astro';
-import { routeSlug, stayTypes } from '../../../lib/editorial';
-import EditorialSurface from '../../../components/EditorialSurface.astro';
-import { loadOverrides } from '../../../lib/inline-edit/overrides';
-import { editableImage } from '../../../lib/inline-edit/attrs';
+import PlanContextEngine from '../../../components/v5/plans/PlanContextEngine.astro';
+import PlanIndexRows from '../../../components/v5/plans/PlanIndexRows.astro';
+import PlanNextStep from '../../../components/v5/plans/PlanNextStep.astro';
+import { buildPlansModel } from '../../../components/v5/plans/plans-data';
 
-// ── Data ──────────────────────────────────────────────────────────────────────
-const itineraries = (await getCollection('itineraries')).sort(
-  (a, b) => b.data.lengthNights - a.data.lengthNights,
-);
-const allVenues = await getCollection('venues');
-const stays = allVenues.filter((venue) => stayTypes.includes(venue.data.type));
-const places = await getCollection('places');
-// Editorial curation via schema flag (editorPick: true on venue JSON).
-// No hardcoded slugs - editors update the JSON to change what surfaces here.
-const stayHighlights = stays.filter((venue) => venue.data.editorPick);
-// The Notebook - one contextual planning note for the Plans hub.
-const _pnow = new Date();
-const _pNotes = (await getCollection('quickNotes', ({ data }) => data.status === 'published' && data.expiresAt > _pnow))
-  .sort((a, b) => (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0));
-const notebookNote = _pNotes.find((n) => ['eat', 'stay', 'explore', 'wine'].includes(n.data.section)) ?? _pNotes[0] ?? null;
+const model = await buildPlansModel();
 
-const articlesAll = (await getCollection('articles', ({ data }) => data.status === 'published'))
-  .sort((a, b) => (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0));
-
-// Plans articles - articles tagged section: plans, surfaced here as the
-// editorial planning layer. These live at /journal/[slug] until the full
-// URL routing sprint lands.
-const plansArticles = articlesAll
-  .filter((a) => (a.data.section ?? 'journal') === 'plans')
-  .sort((a, b) => (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0));
-
-// ── Plans browse: four-axis client-side filter (PR-8) ──────────────────────
-const regionsForFilter = await getCollection('regions');
-const placeToRegion = new Map<string, string>();
-const regionLabelMap = new Map<string, string>();
-for (const r of regionsForFilter) {
-  regionLabelMap.set(r.data.slug, r.data.name);
-  for (const pref of r.data.places) placeToRegion.set(pref.id, r.data.slug);
-}
-const OCCASION_MAP: Record<string, string[]> = {
-  romantic: ['anniversary', 'romance', 'first-date', 'sunset', 'couples'],
-  family: ['family'],
-  'long-lunch': ['long-lunch', 'slow'],
-  wellness: ['wellness'],
-  adventure: ['walk', 'beach', 'outdoor', 'surf'],
-  'weekend-escape': ['weekend-escape', 'cellar-door'],
+const SITE_URL = 'https://peninsulainsider.com.au';
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Mornington Peninsula plans',
+  numberOfItems: model.plans.length,
+  itemListElement: [...model.plans]
+    .sort((a, b) => a.title.localeCompare(b.title))
+    .map((p, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: p.title,
+      url: `${SITE_URL}${p.href}`,
+    })),
 };
-const SEASON_SET = new Set(['summer', 'autumn', 'winter', 'spring', 'all-year']);
-const planBrowse = plansArticles.map((a) => {
-  const tags: string[] = ((a.data.tags ?? []) as string[]).map((t) => String(t).toLowerCase());
-  const occasion = Object.entries(OCCASION_MAP)
-    .filter(([, keys]) => keys.some((k) => tags.includes(k)))
-    .map(([k]) => k);
-  const season = tags.filter((t) => SEASON_SET.has(t));
-  const duration = a.data.planShape ? [String(a.data.planShape)] : [];
-  const regionSet = new Set<string>();
-  for (const pref of ((a.data.relatedPlaces ?? []) as any[])) {
-    const rg = placeToRegion.get(pref.id);
-    if (rg) regionSet.add(rg);
-  }
-  for (const t of tags) {
-    const rg = placeToRegion.get(t);
-    if (rg) regionSet.add(rg);
-  }
-  const region = [...regionSet];
-  return { article: a, axes: { occasion, duration, season, region }, regionLabel: region.length ? regionLabelMap.get(region[0]) : undefined };
-});
-const filterRegions = [...regionLabelMap.entries()];
 
-// Editorial curation via schema flag (featured: true on place JSON).
-// No hardcoded slugs - editors update the JSON to change what surfaces here.
-const placeHighlights = places.filter((place) => place.data.featured);
-
-const oneNight = itineraries.filter((it) => it.data.lengthNights <= 1);
-const twoNight = itineraries.filter((it) => it.data.lengthNights === 2);
-const longer = itineraries.filter((it) => it.data.lengthNights >= 3);
-
-// Editorial grouping for the four-section "Peninsula planning guides"
-// block below. Source of truth is the `planShape` frontmatter field on
-// each plans article - assigned per piece, no overlap, no regex luck.
-//
-// Render order is fixed (one-night → two-night → day-trip → seasonal)
-// so the page reads as a coherent length-of-trip ladder. Each group
-// shows up to 6 articles, sorted by publishedAt desc (i.e. newest
-// editorial decisions first). A plans article without a `planShape`
-// value will not appear here - it's an explicit editorial step.
-const planShapeGroups = [
-  {
-    key: 'one-night',
-    label: 'One Night',
-    dek: 'Focused resets where one anchor does most of the work.',
-  },
-  {
-    key: 'two-night',
-    label: 'Two Nights',
-    dek: 'The native Peninsula rhythm: one ridge day, one coast day, no rushing.',
-  },
-  {
-    key: 'day-trip',
-    label: 'Day Trips',
-    dek: 'Single-day plans that choose one geography and stick with it.',
-  },
-  {
-    key: 'seasonal',
-    label: 'Seasonal Escapes',
-    dek: 'Weather, harvest, and the calendar moments that ask for a specific plan.',
-  },
-] as const;
-
-const guideGroups = planShapeGroups
-  .map((group) => ({
-    ...group,
-    articles: plansArticles
-      .filter((a) => a.data.planShape === group.key)
-      .slice(0, 6),
-  }))
-  .filter((group) => group.articles.length > 0);
-
-// Resolve CMS hero overrides for the planning-guide cards. These cards used
-// to read `article.data.heroImage.src` straight from frontmatter, so an
-// editor's uploaded hero (saved to the `article/<slug>/hero` slot, the same
-// key the /journal/<slug> detail page reads) was ignored here — the card
-// reverted to the frontmatter image on every refresh. We now consult the
-// override at SSR so the editor's choice ships in the static HTML, and we
-// tag the <img> as editable with the matching key so it can be changed from
-// this page too. `hero` is the canonical slot; `heroImage` is checked as a
-// fallback for any record edited via the /explore/plans/<slug> route.
-const guideHeroBySlug = new Map<string, { src: string | undefined; alt: string }>();
-await Promise.all(
-  guideGroups.flatMap((g) => g.articles).map(async (article) => {
-    const s = routeSlug(article);
-    if (guideHeroBySlug.has(s)) return;
-    const ov = await loadOverrides('article', s);
-    const o = ov.image['hero'] ?? ov.image['heroImage'];
-    guideHeroBySlug.set(s, {
-      src: o?.src ?? article.data.heroImage?.src,
-      alt: o?.alt ?? article.data.heroImage?.alt ?? article.data.title,
-    });
-  }),
-);
-
-const breadcrumbItems = [
-  { label: 'Home', href: '/' },
-  { label: 'Plans' },
-];
-
-const faqSchema = {
-  '@context': 'https://schema.org', '@type': 'FAQPage',
-  mainEntity: [
-    { '@type': 'Question', name: 'Where should I stay on the Mornington Peninsula?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Choose the base around the trip you want most. Red Hill and Main Ridge suit food and wine weekends, Sorrento and Portsea suit the tip and bay-side stays, Flinders suits Bass Strait walks and quieter dining, and Mornington works for first-timers who want a gentler arrival.' } },
-    { '@type': 'Question', name: 'What is the best area to stay on the Peninsula?',
-      acceptedAnswer: { '@type': 'Answer', text: 'For most visitors, Red Hill is best for food and wineries, Sorrento for a classic coastal base, and Flinders for quieter weekends. The best area is the one that keeps your main lunch, walk, or soak within a short drive.' } },
-    { '@type': 'Question', name: 'Is one night enough on the Mornington Peninsula?',
-      acceptedAnswer: { '@type': 'Answer', text: 'One night is enough if you choose one geography and one anchor experience. It is not enough for a full ridge-plus-coast itinerary. Treat it as a focused reset rather than a compressed tour.' } },
-    { '@type': 'Question', name: 'What is the best Peninsula weekend itinerary?',
-      acceptedAnswer: { '@type': 'Answer', text: 'The strongest two-night shape is simple: arrive Friday, make Saturday the ridge or the coast, then use Sunday for the opposite tempo before the drive home. Let one lunch or dinner carry the weekend and leave room for weather.' } },
-    { '@type': 'Question', name: 'Where should first-time visitors stay?',
-      acceptedAnswer: { '@type': 'Answer', text: 'First-time visitors should usually stay in Sorrento, Mornington, or Red Hill. Sorrento gives the classic tip-of-the-Peninsula weekend, Mornington is easy and walkable, and Red Hill puts food and wine at the centre.' } },
-  ],
-};
 export const prerender = true;
 ---
 
 <BaseLayout
-  title="Mornington Peninsula Itineraries · Peninsula Insider"
-  description="Editorial itineraries and weekend plans for doing the Mornington Peninsula slowly and well, one-night quick escapes, two-night sweet-spot weekends, and longer reset trips."
+  title="Mornington Peninsula Plans · Peninsula Insider"
+  description="Ready-made Peninsula days and weekends. Pick the shape of the day, get one plan and two alternates, and make it your trip in one tap."
   section="explore"
-  canonical="https://peninsulainsider.com.au/plans"
-  modifiedTime="2026-04-30"
+  canonical="https://peninsulainsider.com.au/explore/plans/"
   ogImage="/images/sourced/article-sunset-01.webp"
 >
-  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
 
-  <Breadcrumbs items={breadcrumbItems} />
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       1. CINEMATIC HERO
-       ═══════════════════════════════════════════════════════════════ -->
-  <GuideHero
-    eyebrow="Plans"
-    title="Good Peninsula weekends are built in the <em>sequence</em>"
-    dek="The region is small enough to overdo and varied enough to get wrong. These escape plans are our answer, fewer bookings, better pacing, and just enough structure that the whole thing feels inevitable rather than overplanned."
-    meta={[
-      { label: 'Plans • Peninsula itineraries and escape guides' },
-    ]}
-    heroImage="/images/sourced/article-sunset-01.webp"
-    imageAlt="Golden hour on the Mornington Peninsula, the moment a weekend earns the drive"
-    entitySlug="plans"
-  />
-
-  <div class="plans-build-cta container">
-    <a href="/explore/plans/build/" class="plans-build-cta__link">
-      Build your own Peninsula plan with the live planner →
-    </a>
-  </div>
-  <style is:inline>
-    .plans-build-cta { padding: 0.8rem 0 0.4rem; }
-    .plans-build-cta__link { display: inline-block; padding: 0.6rem 1rem; border: 1px solid var(--c-rule, #d4cec0); border-radius: 6px; text-decoration: none; color: inherit; font-size: 0.95rem; }
-    .plans-build-cta__link:hover { background: var(--c-paper-tint, #f6f3eb); }
-  </style>
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       EDITORIAL SURFACE - Slow Weekend (Level 2)
-       Post-hero, pre-grid. One surface per hub. Phase 1: PI voice only.
-       ═══════════════════════════════════════════════════════════════ -->
-  <div class="plans-surface-wrap container">
-    <EditorialSurface
-      level={2}
-      surface="Slow Weekend"
-      season="Winter 2026"
-      name="Fewer decisions. Better days."
-      verdict="Winter is when the Peninsula stops performing for visitors and starts working for people who know how to use it. One table, one walk, one night somewhere quiet. The best Peninsula days have always been the ones with room in them."
-      href="/explore/plans/"
-    />
-  </div>
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       1b. PLAN BY MOOD — occasion-led entry points
-       Four moods, each linking to the relevant planning article or itinerary.
-       Keeps the trip-length grid from being the only way in.
-       ═══════════════════════════════════════════════════════════════ -->
-  <section class="plans-mood" aria-label="Plan by mood">
+  <header class="plans-hero">
     <div class="container">
-      <div class="venues__header">
-        <div>
-          <p class="label label--accent">Plan by mood</p>
-          <h2 class="venues__title">The Peninsula responds well to the right intention</h2>
-          <p class="venues__sub venues__sub--standfirst">Not every Peninsula trip is the same shape. Choose the mood first, then the plan finds you.</p>
-        </div>
-      </div>
-      <div class="mood-grid">
-        <a class="mood-card" href="/journal/a-winter-peninsula-weekend/">
-          <strong class="mood-card__title">Fireplace Weekend</strong>
-          <p class="mood-card__dek">Cellar doors with hearths, fog on the ridge, and a dining room that earns the drive. The Peninsula in winter is its most itself.</p>
-          <span class="mood-card__link">Read the plan →</span>
-        </a>
-        <a class="mood-card" href="/journal/rainy-day-peninsula/" data-fallback-href="/explore/plans/">
-          <strong class="mood-card__title">Rainy Day Plans</strong>
-          <p class="mood-card__dek">A wet Peninsula day doesn’t mean a wasted one. Hot springs, cellar door tastings, covered markets, and bakeries that justify the drive on any forecast.</p>
-          <span class="mood-card__link">Read the plan →</span>
-        </a>
-        <a class="mood-card" href="/explore/plans/wellness-weekend/">
-          <strong class="mood-card__title">Slow Wine Weekend</strong>
-          <p class="mood-card__dek">Two cellar doors, one long lunch, nowhere to be. The Peninsula’s wine region rewards the visitors who decide in advance not to rush it.</p>
-          <span class="mood-card__link">See the plan →</span>
-        </a>
-        <a class="mood-card" href="/explore/plans/sorrento-off-season-weekend/">
-          <strong class="mood-card__title">One Booking Day</strong>
-          <p class="mood-card__dek">One table, one walk, one swim if the water is right. The best Peninsula days have always been the ones with room in them rather than a schedule to execute.</p>
-          <span class="mood-card__link">See the plan →</span>
-        </a>
-      </div>
+      <h1 class="plans-hero__title">Don't plan. Pick one of ours.</h1>
+      <p class="plans-hero__standfirst">
+        Tested routes, real drive times, no backtracking. Pick the day that fits and go.
+      </p>
     </div>
-  </section>
+  </header>
 
-  <!-- ═══════════════════════════════════════════════════════════════
-       2. PLANNING GUIDES — planShape groups as hero
-       The editorial planning articles, grouped by trip length.
-       Readers choose a shape before they choose specific venues.
-       Replaces the 16-link mood grid (removed 2026-05-16 per UX review:
-       "SEO index masquerading as a planning product").
-       ═══════════════════════════════════════════════════════════════ -->
-  {guideGroups.length > 0 && (
-    <section class="venues venues--plain" id="plans-guides" aria-label="Planning guides by trip length">
-      <div class="container">
-        <div class="venues__header">
-          <div>
-            <p class="label label--accent">Peninsula planning guides</p>
-            <h2 class="venues__title">Choose the shape of your trip, then the plan finds you</h2>
-            <p class="venues__sub venues__sub--standfirst">Grouped by how long you have. Each guide is a complete editorial plan, not a list of links.</p>
-          </div>
-        </div>
-        <div class="planning-collections">
-          {guideGroups.map((group) => (
-            <section class="planning-collection" aria-label={`${group.label} planning guides`}>
-              <div class="planning-collection__header">
-                <h3>{group.label}</h3>
-                <p>{group.dek}</p>
-              </div>
-              <div class="planning-collection__grid">
-                {group.articles.map((article) => {
-                  const guideSlug = routeSlug(article);
-                  const guideHero = guideHeroBySlug.get(guideSlug);
-                  return (
-                  <a class="planning-guide-card" href={`/journal/${guideSlug}/`}>
-                    {guideHero?.src && (
-                      <img
-                        class="planning-guide-card__image"
-                        src={guideHero.src}
-                        alt={guideHero.alt}
-                        loading="lazy"
-                        decoding="async"
-                        {...editableImage({
-                          entityType: 'article',
-                          entitySlug: guideSlug,
-                          fieldPath: 'hero',
-                          label: `${article.data.title} hero`,
-                          purpose: 'card',
-                        })}
-                      />
-                    )}
-                    <span class="planning-guide-card__kicker">Guide</span>
-                    <strong>{article.data.title}</strong>
-                    <span>{article.data.dek}</span>
-                    <em>{[article.data.readingTimeMinutes ? `${article.data.readingTimeMinutes} min` : null, (article.data.tags ?? []).slice(0, 1)[0]?.replace(/-/g, ' ')].filter(Boolean).join(' · ')}</em>
-                  </a>
-                  );
-                })}
-              </div>
-            </section>
-          ))}
-        </div>
-      </div>
-    </section>
-  )}
+  <PlanContextEngine model={model} />
 
-  <SectionDivider />
+  <PlanIndexRows plans={model.plans} />
 
-  <!-- ═══════════════════════════════════════════════════════════════
-       3. ORIENTATION: One night vs Two nights
-       ═══════════════════════════════════════════════════════════════ -->
-  <CompareBlock
-    eyebrow="The decision that shapes everything"
-    heading="One night and two nights are different Peninsula trips"
-    dek="The Peninsula reads completely differently across these two windows. Get the length right and the rest of the planning is easy."
-    left={{
-      label: 'One night · quick reset',
-      title: 'A focused escape. Pick one anchor and let the rest go.',
-      rows: [
-        { label: 'Format', value: 'Drive down Friday evening, one ambitious meal, one walk on Saturday, drive home Sunday afternoon. 26 hours that earns three days of feeling.' },
-        { label: 'Best for', value: 'Couples without long weekends, friends from Melbourne, anyone with limited time who wants the Peninsula to actually land.' },
-        { label: 'Best base', value: 'Mornington or Sorrento, central, walkable, no extra driving once you arrive.' },
-        { label: 'Trade-offs', value: 'No second region. Either you do the ridge or you do the coast, not both. Choose before you book.' },
-        { label: 'Pair with', value: 'A pre-booked hatted dinner Friday night and a Saturday morning walk before brunch.' },
-      ],
-    }}
-    right={{
-      label: 'Two nights · the sweet spot',
-      title: 'The Peninsula\'s native rhythm. Long enough to soften.',
-      rows: [
-        { label: 'Format', value: 'Friday arrival, full Saturday on the ridge, full Sunday on the coast (or vice versa), Monday-morning drive home. The trip stops performing and starts settling.' },
-        { label: 'Best for', value: 'Two-region trips, wine plus walks, ridge plus tip, hot springs plus a beach. Restorative weekends that need a real second day.' },
-        { label: 'Best base', value: 'Red Hill if the food is the centre. Sorrento or Flinders if the coast is the centre. Pick one and commit.' },
-        { label: 'Trade-offs', value: 'More planning, more booking. Hatted rooms and best stays book 4-8 weeks ahead.' },
-        { label: 'Pair with', value: 'A long Saturday lunch on the ridge, hot springs Sunday morning, a coastal walk before the drive home.' },
-      ],
-    }}
-  />
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       3. TWO-NIGHT ESCAPES, the sweet spot
-       ═══════════════════════════════════════════════════════════════ -->
-  {twoNight.length > 0 && (
-    <section class="experience-index" aria-label="Two-night escapes">
-      <div class="container">
-        <div class="venues__header">
-          <div>
-            <p class="label label--accent">Two-night escapes</p>
-            <h2 class="venues__title">The sweet spot, long enough to slow down, short enough to commit</h2>
-            <p class="venues__sub venues__sub--standfirst">One lunch that earns the drive, one walk that resets the weekend, one bed that suits the mood. The Peninsula's native shape.</p>
-          </div>
-        </div>
-        <div class="itinerary-grid">
-          {twoNight.map((itinerary) => <ItineraryCard itinerary={itinerary} />)}
-        </div>
-      </div>
-    </section>
-  )}
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       4. ONE-NIGHT QUICK RESETS
-       ═══════════════════════════════════════════════════════════════ -->
-  {oneNight.length > 0 && (
-    <section class="experience-index experience-index--plain" aria-label="One-night escapes">
-      <div class="container">
-        <div class="venues__header">
-          <div>
-            <p class="label label--accent">One-night quick</p>
-            <h2 class="venues__title">When the weekend is tight but the Peninsula still earns it</h2>
-            <p class="venues__sub venues__sub--standfirst">Designed to feel three times longer than the drive down. Pick one anchor, the meal, the walk, or the soak, and let the rest find its level.</p>
-          </div>
-        </div>
-        <div class="itinerary-grid">
-          {oneNight.map((itinerary) => <ItineraryCard itinerary={itinerary} />)}
-        </div>
-      </div>
-    </section>
-  )}
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       5. THREE NIGHTS AND BEYOND
-       ═══════════════════════════════════════════════════════════════ -->
-  {longer.length > 0 && (
-    <section class="experience-index" aria-label="Longer escapes">
-      <div class="container">
-        <div class="venues__header">
-          <div>
-            <p class="label label--accent">Three nights and beyond</p>
-            <h2 class="venues__title">For the weekend that refuses to end</h2>
-            <p class="venues__sub">The longer escapes are where the Peninsula stops performing and starts settling into something quieter.</p>
-          </div>
-        </div>
-        <div class="itinerary-grid">
-          {longer.map((itinerary) => <ItineraryCard itinerary={itinerary} />)}
-        </div>
-      </div>
-    </section>
-  )}
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       6. THREE THINGS WE'VE LEARNED, editorial voice moment
-       ═══════════════════════════════════════════════════════════════ -->
-  <section class="plan-grid">
-    <div class="container">
-      <div class="venues__header">
-        <div>
-          <p class="label label--accent">Planning philosophy</p>
-          <h2 class="venues__title">Three things we've learned</h2>
-        </div>
-      </div>
-      <div class="plan-grid__inner">
-        <article class="plan-note">
-          <p class="plan-note__label">One</p>
-          <h3>Pick one geography per day</h3>
-          <p>Red Hill, Sorrento, Flinders, and Cape Schanck all ask for different tempos. Keep each day to one clean line and the spontaneous stops become part of the plan instead of a detour.</p>
-        </article>
-        <article class="plan-note">
-          <p class="plan-note__label">Two</p>
-          <h3>Let lunch or dinner be the event, not both</h3>
-          <p>The Peninsula works best when one meal carries the day. Let the other moments stay lighter so the trip has space to breathe.</p>
-        </article>
-        <article class="plan-note">
-          <p class="plan-note__label">Three</p>
-          <h3>Leave room for the unplanned</h3>
-          <p>The best additions are often ad hoc: a farm gate, a beach stop, a slower drive, or the hour you did not fill before sunset.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       8. STAY HIGHLIGHTS
-       ═══════════════════════════════════════════════════════════════ -->
-  {stayHighlights.length > 0 && (
-    <section class="venues">
-      <div class="container">
-        <div class="venues__header">
-          <div>
-            <p class="label label--accent">Choose the base first</p>
-            <h2 class="venues__title">Three stays that change the whole plan</h2>
-            <p class="venues__sub">A Peninsula itinerary improves dramatically when the bed matches the landscape you want most.</p>
-          </div>
-          <a href="/stay/" class="venues__link">All stays →</a>
-        </div>
-        <div class="venues__grid">
-          {stayHighlights.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}
-        </div>
-      </div>
-    </section>
-  )}
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       9. PLACES, sequence by geography
-       ═══════════════════════════════════════════════════════════════ -->
-  {placeHighlights.length > 0 && (
-    <section class="places">
-      <div class="container">
-        <div class="places__header">
-          <p class="label label--accent places__label">Sequence by geography</p>
-          <h2 class="places__title">The best escapes move through the Peninsula in a clean line</h2>
-          <p class="places__sub">Ridge for the lunch, coast for the light, tip for the walk and the bed.</p>
-        </div>
-        <div class="places__grid">
-          {placeHighlights.map((place, index) => (
-            <PlaceCard place={place} variant={index === 1 ? 'sand' : index === 2 ? 'bay' : 'vineyard'} />
-          ))}
-        </div>
-      </div>
-    </section>
-  )}
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       10. JOURNAL CTA
-       ═══════════════════════════════════════════════════════════════ -->
-  <section class="venues venues--plain">
-    <div class="container">
-      <div class="venues__header">
-        <div>
-          <p class="label label--accent">Read more in the Journal</p>
-          <h2 class="venues__title">Practical guides, stay notes and features for planning the trip</h2>
-          <p class="venues__sub">Use the Journal when you want the deeper answer before choosing a base, a beach, a walk, or a table.</p>
-        </div>
-        <a href="/journal/" class="venues__link">View Journal →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       11. FAQ
-       ═══════════════════════════════════════════════════════════════ -->
-  <section class="hub-faq" aria-label="Frequently asked questions">
-    <div class="container">
-      <div class="hub-faq__intro">
-        <p class="label label--accent">Frequently asked</p>
-        <h2 class="hub-faq__title">Five honest answers before you plan the weekend</h2>
-      </div>
-      <div class="hub-faq__list">
-        <details class="hub-faq__item">
-          <summary class="hub-faq__q">Where should I stay on the Mornington Peninsula?</summary>
-          <div class="hub-faq__a"><p>Choose the base around the trip you want most. Red Hill and Main Ridge suit food and wine weekends, Sorrento and Portsea suit the tip and bay-side stays, Flinders suits Bass Strait walks and quieter dining, and Mornington works for first-timers who want a gentler arrival.</p></div>
-        </details>
-        <details class="hub-faq__item">
-          <summary class="hub-faq__q">What is the best area to stay on the Peninsula?</summary>
-          <div class="hub-faq__a"><p>For most visitors, Red Hill is best for food and wineries, Sorrento for a classic coastal base, and Flinders for quieter weekends. The best area is the one that keeps your main lunch, walk, or soak within a short drive.</p></div>
-        </details>
-        <details class="hub-faq__item">
-          <summary class="hub-faq__q">Is one night enough on the Mornington Peninsula?</summary>
-          <div class="hub-faq__a"><p>One night is enough if you choose one geography and one anchor experience. It is not enough for a full ridge-plus-coast itinerary. Treat it as a focused reset rather than a compressed tour.</p></div>
-        </details>
-        <details class="hub-faq__item">
-          <summary class="hub-faq__q">What is the best Peninsula weekend itinerary?</summary>
-          <div class="hub-faq__a"><p>The strongest two-night shape is simple: arrive Friday, make Saturday the ridge or the coast, then use Sunday for the opposite tempo before the drive home. Let one lunch or dinner carry the weekend and leave room for weather.</p></div>
-        </details>
-        <details class="hub-faq__item">
-          <summary class="hub-faq__q">Where should first-time visitors stay?</summary>
-          <div class="hub-faq__a"><p>First-time visitors should usually stay in Sorrento, Mornington, or Red Hill. Sorrento gives the classic tip-of-the-Peninsula weekend, Mornington is easy and walkable, and Red Hill puts food and wine at the centre.</p></div>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  {notebookNote && (
-    <section class="hub-notebook" aria-label="From The Notebook">
-      <div class="container">
-        <div class="hub-notebook__inner">
-          <p class="label label--accent">Worth knowing</p>
-          <a class="hub-notebook__headline" href={`/quick-note/${notebookNote.id.replace(/\.md$/, '')}/`}>
-            {notebookNote.data.headline}
-          </a>
-          {notebookNote.data.verdict && (
-            <p class="hub-notebook__verdict">{notebookNote.data.verdict}</p>
-          )}
-          <a href="/quick-note/" class="hub-notebook__link">The Notebook →</a>
-        </div>
-      </div>
-    </section>
-  )}
-
-  <section class="plans-browse" id="plans-browse">
-    <div class="container">
-      <header class="plans-browse__header">
-        <h2 class="plans-browse__title">Browse all plans</h2>
-        <p class="plans-browse__sub">Filter by occasion, duration, season, or where you want to be.</p>
-        <p class="plans-browse__count" id="plans-count" aria-live="polite">{planBrowse.length} plans</p>
-      </header>
-
-      <div class="plans-browse__layout">
-        <button type="button" class="plans-browse__toggle" id="plans-filter-toggle" aria-expanded="false">Filter plans</button>
-
-        <form class="plans-filter" role="search" aria-label="Filter plans">
-          <fieldset class="plans-filter__group">
-            <legend>Occasion</legend>
-            {[['romantic', 'Romantic'], ['family', 'Family'], ['long-lunch', 'Long Lunch'], ['wellness', 'Wellness'], ['adventure', 'Adventure'], ['weekend-escape', 'Weekend Escape']].map(([v, l]) => (
-              <label class="plans-filter__opt"><input type="checkbox" name="occasion" value={v} /> {l}</label>
-            ))}
-          </fieldset>
-          <fieldset class="plans-filter__group">
-            <legend>Duration</legend>
-            {[['day-trip', 'Day trip'], ['one-night', 'One night'], ['two-night', 'Weekend'], ['seasonal', 'Seasonal']].map(([v, l]) => (
-              <label class="plans-filter__opt"><input type="checkbox" name="duration" value={v} /> {l}</label>
-            ))}
-          </fieldset>
-          <fieldset class="plans-filter__group">
-            <legend>Season</legend>
-            {[['summer', 'Summer'], ['autumn', 'Autumn'], ['winter', 'Winter'], ['spring', 'Spring'], ['all-year', 'Any time']].map(([v, l]) => (
-              <label class="plans-filter__opt"><input type="checkbox" name="season" value={v} /> {l}</label>
-            ))}
-          </fieldset>
-          <fieldset class="plans-filter__group">
-            <legend>Peninsula Area</legend>
-            {filterRegions.map(([v, l]) => (
-              <label class="plans-filter__opt"><input type="checkbox" name="region" value={v} /> {l}</label>
-            ))}
-          </fieldset>
-          <button type="button" id="clear-filters" class="plans-filter__clear">Clear all</button>
-        </form>
-
-        <div class="plans-grid" id="plans-grid">
-          {planBrowse.map((p) => <PlanCard plan={p.article} axes={p.axes} regionLabel={p.regionLabel} />)}
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <script is:inline>
-    (function () {
-      function initPlansFilter() {
-        var bar = document.querySelector('.plans-filter');
-        var grid = document.getElementById('plans-grid');
-        if (!bar || !grid) return;
-        var cards = Array.prototype.slice.call(grid.querySelectorAll('.plan-card'));
-        var countEl = document.getElementById('plans-count');
-        function active() {
-          var f = { occasion: [], duration: [], season: [], region: [] };
-          bar.querySelectorAll('input[type=checkbox]:checked').forEach(function (i) { if (f[i.name]) f[i.name].push(i.value); });
-          return f;
-        }
-        function matches(card, f) {
-          return ['occasion', 'duration', 'season', 'region'].every(function (ax) {
-            if (!f[ax].length) return true;
-            var vals = (card.getAttribute('data-' + ax) || '').split(' ');
-            return f[ax].some(function (v) { return vals.indexOf(v) !== -1; });
-          });
-        }
-        function apply() {
-          var f = active(), n = 0;
-          cards.forEach(function (c) { var s = matches(c, f); c.hidden = !s; if (s) n++; });
-          if (countEl) countEl.textContent = n + (n === 1 ? ' plan' : ' plans');
-        }
-        bar.addEventListener('change', apply);
-        var clear = document.getElementById('clear-filters');
-        if (clear) clear.addEventListener('click', function () { bar.querySelectorAll('input[type=checkbox]').forEach(function (i) { i.checked = false; }); apply(); });
-        var toggle = document.getElementById('plans-filter-toggle');
-        if (toggle) toggle.addEventListener('click', function () { var open = bar.classList.toggle('is-open'); toggle.setAttribute('aria-expanded', String(open)); });
-        apply();
-      }
-      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initPlansFilter, { once: true });
-      else initPlansFilter();
-      document.addEventListener('astro:page-load', initPlansFilter);
-    })();
-  </script>
-
-  <style>
-    .plans-browse { padding: 28px 0 8px; }
-    .plans-browse__header { margin-bottom: 18px; }
-    .plans-browse__title { font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(26px, 3.6vw, 38px); margin: 0 0 6px; }
-    .plans-browse__sub { color: var(--soft); margin: 0 0 6px; }
-    .plans-browse__count { font-family: 'Outfit', sans-serif; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin: 0; }
-    .plans-browse__layout { display: grid; grid-template-columns: 240px 1fr; gap: 28px; align-items: start; }
-    .plans-browse__toggle { display: none; }
-    .plans-filter { display: flex; flex-direction: column; gap: 18px; position: sticky; top: 84px; }
-    .plans-filter__group { border: 0; padding: 0; margin: 0; }
-    .plans-filter__group legend { font-family: 'Outfit', sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); padding: 0; margin: 0 0 8px; }
-    .plans-filter__opt { display: flex; align-items: center; gap: 8px; font-size: 0.9rem; padding: 3px 0; cursor: pointer; }
-    .plans-filter__clear { font-family: 'Outfit', sans-serif; font-size: 0.82rem; align-self: flex-start; padding: 6px 14px; border: 1px solid var(--border); border-radius: 999px; background: transparent; cursor: pointer; }
-    .plans-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
-    @media (max-width: 820px) {
-      .plans-browse__layout { grid-template-columns: 1fr; }
-      .plans-browse__toggle { display: inline-block; font-family: 'Outfit', sans-serif; font-size: 0.9rem; padding: 9px 18px; border: 1px solid var(--border); border-radius: 999px; background: var(--bg); cursor: pointer; margin-bottom: 16px; }
-      .plans-filter { display: none; position: static; }
-      .plans-filter.is-open { display: flex; padding: 16px; border: 1px solid var(--border); border-radius: 8px; margin-bottom: 18px; }
-    }
-  </style>
-
-  <NewsletterBlock />
+  <PlanNextStep />
 </BaseLayout>
 
-
 <style>
-  .planning-collections {
-    display: grid;
-    gap: clamp(1.5rem, 4vw, 3rem);
+  .plans-hero {
+    padding: var(--space-6, 2rem) 0 var(--space-3, 0.75rem);
   }
-
-  .planning-collection {
-    display: grid;
-    gap: 1rem;
-  }
-
-  .planning-collection__header h3 {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: clamp(1.4rem, 2.5vw, 2rem);
-    margin: 0 0 0.35rem;
-  }
-
-  .planning-collection__header p {
-    font-family: 'Outfit', system-ui, sans-serif;
-    color: var(--text-muted, #5f5a50);
-    line-height: 1.55;
-    margin: 0;
-    max-width: 48rem;
-  }
-
-  .planning-collection__grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1rem;
-  }
-
-  .planning-guide-card {
-    font-family: 'Outfit', system-ui, sans-serif;
-    border: 1px solid var(--border, #ded6c8);
-    background: var(--surface, #fffaf1);
-    color: inherit;
-    display: grid;
-    gap: 0.65rem;
-    min-height: 100%;
-    padding: 1rem;
-    text-decoration: none;
-  }
-
-  .planning-guide-card__image {
-    aspect-ratio: 4 / 3;
-    border-radius: 0.75rem;
-    object-fit: cover;
-    width: 100%;
-  }
-
-  .planning-guide-card__kicker {
-    font-family: 'Outfit', system-ui, sans-serif;
-    color: var(--accent, #8a6a3b);
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  .planning-guide-card strong {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 1.25rem;
-    line-height: 1.2;
-  }
-
-  .planning-guide-card span:not(.planning-guide-card__kicker) {
-    color: var(--text-muted, #5f5a50);
-    line-height: 1.5;
-  }
-
-  .planning-guide-card em {
-    color: var(--text-muted, #5f5a50);
-    font-size: 0.85rem;
-    font-style: normal;
-  }
-
-  /* ── Mood grid ——————————————————————————─ */
-  .plans-mood { padding: 3rem 0; }
-  .mood-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.25rem;
-    margin-top: 2rem;
-  }
-  @media (max-width: 900px) { .mood-grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 480px) { .mood-grid { grid-template-columns: 1fr; } }
-  .mood-card {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-    padding: 1.5rem 1.25rem;
-    border: 1px solid var(--border);
-    border-radius: 3px;
-    text-decoration: none;
-    background: var(--bg);
-    transition: border-color 0.18s, background 0.18s;
-  }
-  .mood-card:hover { border-color: var(--accent); background: var(--bg-alt, #f7f5f0); }
-  .mood-card__title {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 1.2rem;
-    font-weight: 500;
+  .plans-hero__title {
+    margin: 0 0 0.5rem;
+    font-family: var(--font-display, var(--font-display));
+    font-size: var(--fs-900, clamp(2.25rem, 1.7rem + 2.8vw, 3.5rem));
+    font-weight: var(--fw-display, 600);
+    line-height: var(--lh-display, 1.08);
     color: var(--text);
-    line-height: 1.2;
+    max-width: 22ch;
   }
-  .mood-card__dek {
-    font-size: 0.84rem;
-    line-height: 1.65;
-    color: var(--soft);
-    flex: 1;
+  .plans-hero__standfirst {
     margin: 0;
-  }
-  .mood-card__link {
-    font-family: 'Outfit', system-ui, sans-serif;
-    font-size: 0.78rem;
-    font-weight: 500;
-    color: var(--accent);
-    letter-spacing: 0.01em;
-    margin-top: 0.25rem;
+    font-family: var(--font-ui, var(--font-ui));
+    font-size: var(--fs-400, 1.0625rem);
+    line-height: var(--lh-ui, 1.5);
+    color: var(--soft);
+    max-width: 56ch;
   }
 </style>

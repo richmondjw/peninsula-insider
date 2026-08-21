@@ -11,7 +11,7 @@ heroImage:
   license: "tmp-wikimedia"
 format: "slow-peninsula"
 tags: ["sorrento", "portsea", "weekend", "stay", "bayside", "back-beaches"]
-relatedVenues: ["hotel-sorrento", "the-continental-sorrento", "sorrento-hotel", "polperro", "polperro-villas", "sorrento-bakery", "sorrento-gelato", "portsea-hotel", "the-baths-sorrento", "pt-leo-estate", "barragunda-dining"]
+relatedVenues: ["hotel-sorrento", "the-continental-sorrento", "sorrento-hotel", "polperro", "polperro-villas", "portsea-hotel", "the-baths-sorrento", "pt-leo-estate", "barragunda-dining"]
 relatedExperiences: ["sorrento-back-beach", "sorrento-ocean-baths", "sorrento-ferry", "portsea-front-beach", "coppins-track", "point-nepean-fort-walk", "point-nepean-national-park"]
 readingTimeMinutes: 8
 featured: false
@@ -21,16 +21,16 @@ clusterLinks:
   - label: "Point Nepean National Park Guide"
     href: "/journal/point-nepean-national-park-guide/"
   - label: "Where to Stay on the Mornington Peninsula"
-    href: "/journal/where-to-stay-mornington-peninsula/"
+    href: "/stay/best-accommodation/"
   - label: "Waterfront Restaurants on the Mornington Peninsula"
     href: "/journal/waterfront-restaurants-mornington-peninsula/"
 faq:
   - question: "What is the best time to visit Sorrento on the Mornington Peninsula?"
-    answer: "April through October for the off-season version — tables are bookable, the back beach is walkable without crowds, and the village operates at its natural pace. January is the worst month: the town is overwhelmed with Melbourne weekenders and the car parks fill by 9am."
+    answer: "April through October for the off-season version - tables are bookable, the back beach is walkable without crowds, and the village operates at its natural pace. January is the worst month: the town is overwhelmed with Melbourne weekenders and the car parks fill by 9am."
   - question: "Is it worth staying in Sorrento rather than Red Hill for a Peninsula weekend?"
-    answer: "For a Sorrento-focused trip, yes — staying in the village eliminates the commute and turns the whole weekend walkable. The Continental Sorrento and Hotel Sorrento are the two main options. If you also want the wineries, Red Hill is the better base."
+    answer: "For a Sorrento-focused trip, yes - staying in the village eliminates the commute and turns the whole weekend walkable. The Continental Sorrento and Hotel Sorrento are the two main options. If you also want the wineries, Red Hill is the better base."
   - question: "What are the best things to do in Sorrento apart from the beach?"
-    answer: "The Sorrento Ocean Baths and their clifftop boardwalk, the ferry crossing to Queenscliff, and Point Nepean National Park (10 minutes west at Portsea) are the strongest non-beach moves. The main street is worth an unhurried hour — limestone buildings, a strong bakery, and walkable foreshore."
+    answer: "The Sorrento Ocean Baths and their clifftop boardwalk, the ferry crossing to Queenscliff, and Point Nepean National Park (10 minutes west at Portsea) are the strongest non-beach moves. The main street is worth an unhurried hour - limestone buildings, a strong bakery, and walkable foreshore."
 ---
 
 Sorrento has two problems, and they are the same problem at different volumes.
@@ -73,7 +73,7 @@ The first is the **ferry to Queenscliff**  -  a forty-minute crossing to the Bel
 
 The second, and the one locals tend to pick, is **Point Nepean National Park**. Drive the ten minutes west out of Sorrento through Portsea, park at the visitor centre, and take either the shuttle or the longer **Point Nepean Fort Walk** out to the defensive batteries at the tip of the Peninsula. The fort walk is more interesting than its name  -  nineteenth-century gun emplacements, a quarantine station with a full Gold Rush history, and the westernmost point of the whole land mass, with the Rip churning below you. Give it a minimum of three hours. If you do nothing else at Point Nepean, walk out to Cheviot Hill for the view back along both coasts at once.
 
-Lunch on day two should be light and close to the activity. If you took the ferry, eat on the other side. If you went to Point Nepean, **Portsea Hotel** on the way back is the easy answer  -  the bistro is better than the building hints at, and the verandah looks directly over Port Phillip. Otherwise, **Sorrento Bakery** for a pie and **Sorrento Gelato** afterwards is the village move, and it is genuinely the right move on a day when you have already put walking in the bank.
+Lunch on day two should be light and close to the activity. If you took the ferry, eat on the other side. If you went to Point Nepean, **Portsea Hotel** on the way back is the easy answer  -  the bistro is better than the building hints at, and the verandah looks directly over Port Phillip.
 
 ## The dinner that matters
 

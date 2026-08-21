@@ -30,7 +30,8 @@
   "tags": {
     "mood": [
       "family",
-      "rainy-day"
+      "rainy-day",
+      "quick-bite"
     ],
     "season": [
       "all-year"
@@ -42,10 +43,10 @@
     ]
   },
   "heroImage": {
-    "src": "/images/sourced/category-producer-02.webp",
-    "alt": "Peninsula producer imagery evocative of Mornington Peninsula Chocolates, Mornington Peninsula",
-    "credit": "Unsplash",
-    "license": "tmp-unsplash"
+    "src": "/images/sourced/place-flinders-01.webp",
+    "alt": "Flinders Pier 2nd Jul 2019 - representative image for Mornington Peninsula Chocolates",
+    "credit": "Daniel Kabel",
+    "license": "wikimedia-cc-by-sa"
   },
   "gallery": [],
   "featuredPartner": false,
@@ -53,7 +54,6 @@
   "publishedAt": "2026-04-09",
   "bookingProvider": "none",
   "bookingUrl": "https://morningtonpeninsulachocolates.com.au",
-  "sitemapExclude": true,
   "knownFor": [
     "Handmade Chocolates",
     "Hot Chocolate Bar",

@@ -1,6 +1,6 @@
 ---
-headline: "Tonight — Peninsula Hot Springs Bathe in Cinema: Ocean with David Attenborough, 6:30pm. Book now."
-dek: "Peninsula Hot Springs runs Bathe in Cinema tonight, Friday 8 May at 6:30pm: David Attenborough's Ocean, screened poolside in the thermal baths. Event nights fill faster than standard sessions — book direct before the afternoon window closes."
+headline: "Tonight - Peninsula Hot Springs Bathe in Cinema: Ocean with David Attenborough, 6:30pm. Book now."
+dek: "Peninsula Hot Springs runs Bathe in Cinema tonight, Friday 8 May at 6:30pm: David Attenborough's Ocean, screened poolside in the thermal baths. Event nights fill faster than standard sessions - book direct before the afternoon window closes."
 section: spa
 tag: event
 publishedAt: 2026-05-08T06:46:00+10:00
@@ -18,7 +18,7 @@ status: archived
 ---
 Peninsula Hot Springs has Bathe in Cinema tonight: David Attenborough's *Ocean* screened at the poolside in the thermal baths, 6:30pm, Friday 8 May.
 
-The format puts the screening alongside bathing in heated pool water on a wet autumn night. The air is cold; the pools are not. The contrast is the point. Book directly through the Hot Springs site — event nights run against the same pool inventory as standard sessions but fill earlier, and wet-weather Fridays tend to consolidate demand quickly.
+The format puts the screening alongside bathing in heated pool water on a wet autumn night. The air is cold; the pools are not. The contrast is the point. Book directly through the Hot Springs site - event nights run against the same pool inventory as standard sessions but fill earlier, and wet-weather Fridays tend to consolidate demand quickly.
 
 Daily activities also running today: hot springs yoga at 9:15am, fire and ice workshop at 10:30am (also 4pm and 5pm), body clay ritual at 12pm and 2pm, sauna infusion at 5pm.
 

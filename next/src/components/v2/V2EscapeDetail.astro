@@ -87,6 +87,13 @@ const groupedStops = days.map((day: any) => ({
 }));
 
 const editorParas = String(data.editorNote ?? '').split(/\n\n+/).filter(Boolean);
+/* Humanised duration: nobody thinks in "600 min". */
+function formatDuration(m: number): string {
+  if (m < 60) return `${m} min`;
+  const whole = Math.floor(m / 60);
+  return m % 60 >= 30 ? `${whole}.5 h` : `${whole} h`;
+}
+
 ---
 
 <section class="hero" aria-label={`${data.title} cover`}>
@@ -101,7 +108,7 @@ const editorParas = String(data.editorNote ?? '').split(/\n\n+/).filter(Boolean)
         <h1 class="hero__headline">{data.title}</h1>
         <p class="hero__dek">{data.dek}</p>
         <div class="hero__byline">
-          <span>— For <strong>{audienceLabel[data.audience] ?? titleize(data.audience)}</strong></span>
+          <span> - For <strong>{audienceLabel[data.audience] ?? titleize(data.audience)}</strong></span>
           {data.totalDriveMinutes && (
             <span class="hero__byline-read">{data.totalDriveMinutes} min driving</span>
           )}
@@ -154,7 +161,7 @@ const editorParas = String(data.editorNote ?? '').split(/\n\n+/).filter(Boolean)
             </>)}
           </dl>
 
-          <a class="masthead__cta" href={`${base}stay/`} style="display:inline-block;margin-top:1.5rem;">
+          <a class="pi-btn pi-btn--solid" href={`${base}stay/`} style="margin-top:1.5rem;">
             Choose the stay
           </a>
         </div>
@@ -250,7 +257,7 @@ const editorParas = String(data.editorNote ?? '').split(/\n\n+/).filter(Boolean)
               <span>{placeLabel(e.data.place)}</span>
               {e.data.durationMinutes && (<>
                 <span class="venue__meta-sep"></span>
-                <span>{e.data.durationMinutes} min</span>
+                <span>{formatDuration(e.data.durationMinutes)}</span>
               </>)}
             </div>
             <a href={`${base}explore/${routeSlug(e)}/`}><h3 class="venue__name">{e.data.name}</h3></a>

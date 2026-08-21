@@ -11,28 +11,28 @@ heroImage:
   license: "tmp-wikimedia"
 format: "service"
 tags: ["first-timers", "guide", "overview", "planning", "explore", "weekend"]
-relatedVenues: ["montalto", "ten-minutes-by-tractor", "merricks-general-wine-store", "commonfolk-coffee", "flinders-hotel", "hotel-sorrento", "red-hill-brewery", "alba-thermal-springs", "peninsula-hot-springs", "polperro", "lindenderry", "jackalope", "flinders-sourdough", "red-hill-cheese", "sorrento-bakery", "sorrento-hotel", "portsea-hotel", "main-ridge-dairy"]
+relatedVenues: ["montalto", "ten-minutes-by-tractor", "merricks-general-wine-store", "commonfolk-coffee", "flinders-hotel", "hotel-sorrento", "red-hill-brewery", "alba-thermal-springs", "peninsula-hot-springs", "polperro", "lindenderry", "jackalope", "flinders-sourdough", "red-hill-cheese", "sorrento-hotel", "portsea-hotel", "main-ridge-dairy"]
 relatedExperiences: ["arthurs-seat-lookout", "point-nepean-national-park", "sorrento-back-beach", "sorrento-ferry", "mornington-foreshore-walk", "pt-leo-sculpture-park", "montalto-sculpture-trail", "bushrangers-bay-walk"]
 readingTimeMinutes: 9
 featured: true
 status: "published"
 lastVerified: 2026-04-22
 clusterLinks:
-  - label: "The Four-Hour Peninsula — Compact Day Guide"
-    href: "/journal/the-four-hour-peninsula/"
+  - label: "The Four-Hour Peninsula - Compact Day Guide"
+    href: "/explore/plans/the-four-hour-peninsula/"
   - label: "Where to Stay on the Mornington Peninsula"
-    href: "/journal/where-to-stay-mornington-peninsula/"
+    href: "/stay/best-accommodation/"
   - label: "Hatted Restaurants on the Mornington Peninsula 2025"
     href: "/journal/hatted-restaurants-mornington-peninsula-2025/"
 faq:
   - question: "How far is the Mornington Peninsula from Melbourne?"
-    answer: "The top of the Peninsula (Mornington, Mount Martha) is about an hour from the Melbourne CBD. The tip (Sorrento, Portsea, Point Nepean) is closer to 90 minutes to two hours depending on traffic. Saturday mornings are the slowest — leave by 8am if you want to avoid the worst of it."
+    answer: "The top of the Peninsula (Mornington, Mount Martha) is about an hour from the Melbourne CBD. The tip (Sorrento, Portsea, Point Nepean) is closer to 90 minutes to two hours depending on traffic. Saturday mornings are the slowest - leave by 8am if you want to avoid the worst of it."
   - question: "What is the Mornington Peninsula best known for?"
     answer: "Wine and food (one of Victoria's strongest cool-climate regions), hot springs (Peninsula Hot Springs and Alba Thermal Springs), coastal scenery, and boutique accommodation. The Red Hill and Main Ridge hinterland is the culinary and wine heart; Sorrento and Portsea are the coastal destinations."
   - question: "What is the best season to visit the Mornington Peninsula for the first time?"
-    answer: "Autumn (March–May) is the best for a first visit — warm enough for outdoor activities, vineyard colour in the landscape, and significantly lower crowds after mid-March. Winter is excellent for value and quiet restaurants. Summer (December–February) is the busiest and the hardest to navigate for first-timers."
+    answer: "Autumn (March–May) is the best for a first visit - warm enough for outdoor activities, vineyard colour in the landscape, and significantly lower crowds after mid-March. Winter is excellent for value and quiet restaurants. Summer (December–February) is the busiest and the hardest to navigate for first-timers."
 aiSummary:
-  - "A candid orientation guide for first-time Peninsula visitors — designed to replace the ten Google tabs with one honest starting point."
+  - "A candid orientation guide for first-time Peninsula visitors - designed to replace the ten Google tabs with one honest starting point."
   - "Covers: how to choose which part of the Peninsula to visit (the most consequential decision for first-timers); what to book first; what to leave until a second trip."
   - "The editorial argument: most first-time Peninsula trips fail because visitors don't understand the Peninsula's geography before choosing where to stay. This piece addresses the geography first."
   - "Suits: genuine first-timers; anyone who has heard about the Peninsula from friends and doesn't know where to start; visitors from interstate or overseas."
@@ -113,7 +113,7 @@ Three tiers, three different trips.
 
 ## The one-day plan vs the two-day plan
 
-**If you have one day,** read our [four-hour guide](/journal/the-four-hour-peninsula) and build around a single axis: Melbourne → Red Hill for lunch → one cellar door → Mornington for coffee → home. Do not try to reach Sorrento.
+**If you have one day,** read our [four-hour guide](/journal/the-four-hour-peninsula/) and build around a single axis: Melbourne → Red Hill for lunch → one cellar door → Mornington for coffee → home. Do not try to reach Sorrento.
 
 **If you have two days,** spend day one on the hinterland (cellar doors, lunch, producers) and day two on the coast (Sorrento village, back beach walk, Point Nepean if you are ambitious). Sleep somewhere on the ridge. This is the format that covers the most ground without turning the trip into a drive.
 

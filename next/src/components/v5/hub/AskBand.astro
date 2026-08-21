@@ -1,0 +1,217 @@
+---
+/**
+ * AskBand (v5 hub module) - the one next-step band at the foot of a hub
+ * (page-redesigns section 2 block 9.6 "Can't decide? Ask PI"; spec 2.9
+ * AskPILauncher in-page prompt-module variant). Max one per page (P9).
+ *
+ * The primary trigger opens the existing search overlay, which carries the
+ * Ask PI handoff (chrome convention: [data-open-search], /search/ is the
+ * no-JS fallback). Suggested prompts deep-link to /search/?q= so the
+ * question survives without JS. Analytics: ask_open with origin=module.
+ *
+ * Generic and prop-driven for the Eat / Wine / Stay / Explore hub agents:
+ * heading 6 words or fewer, prompts 8 words or fewer, drawn from page
+ * context (P4). Corpus disclosure line included per P6.
+ */
+export interface Props {
+  /** 6 words maximum (build warns over). */
+  heading?: string;
+  /** Uppercase eyebrow above the heading (mint, on the dark ground). */
+  eyebrow?: string;
+  body?: string;
+  /** Up to 3 suggested prompts, 8 words maximum each. */
+  prompts?: string[];
+  triggerLabel?: string;
+  /** Analytics surface (eat, wine, stay, explore). */
+  surface?: string;
+  id?: string;
+}
+
+const {
+  heading = 'Cannot decide? Ask PI',
+  eyebrow = 'Ask PI',
+  body = 'Tell PI the occasion and it answers from our reviews.',
+  prompts = [],
+  triggerLabel = 'Ask PI',
+  surface,
+  id,
+} = Astro.props;
+
+if (heading.trim().split(/\s+/).length > 6) {
+  console.warn(`[v5 AskBand] heading over 6 words: "${heading}"`);
+}
+const shownPrompts = prompts.slice(0, 3);
+for (const p of shownPrompts) {
+  if (p.trim().split(/\s+/).length > 8) {
+    console.warn(`[v5 AskBand] prompt over 8 words: "${p}"`);
+  }
+}
+const headingId = `${id ?? `ask-${surface ?? 'hub'}`}-heading`;
+---
+
+<aside class="v5-askband" id={id} aria-labelledby={headingId}>
+  <div class="container v5-askband__inner">
+    <div class="v5-askband__copy">
+      {eyebrow && <p class="v5-askband__eyebrow">{eyebrow}</p>}
+      <h2 class="v5-askband__heading" id={headingId}>{heading}</h2>
+      <p class="v5-askband__body">{body}</p>
+    </div>
+    <div class="v5-askband__actions">
+      {shownPrompts.length > 0 && (
+        <ul class="v5-askband__prompts" aria-label="Suggested questions">
+          {shownPrompts.map((prompt) => (
+            <li>
+              <a
+                href={`/search/?q=${encodeURIComponent(prompt)}`}
+                class="v5-askband__prompt"
+                data-evt="ask_open"
+                data-origin="module"
+                data-surface={surface}
+              >
+                {prompt}
+              </a>
+            </li>
+          ))}
+        </ul>
+      )}
+      <a
+        href="/search/"
+        class="v5-askband__trigger"
+        data-open-search
+        data-evt="ask_open"
+        data-origin="module"
+        data-surface={surface}
+        aria-haspopup="dialog"
+      >
+        <span class="v5-askband__mark" aria-hidden="true">PI</span>
+        {triggerLabel}
+      </a>
+      <p class="v5-askband__disclosure">Answers draw on PI reviews.</p>
+    </div>
+  </div>
+</aside>
+
+<style>
+  /* The one forest-teal feature band per hub, with mint accents. */
+  .v5-askband {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: var(--bg-deep);
+    color: var(--white);
+    padding: clamp(2.6rem, 7vw, 4.5rem) 0;
+  }
+  .v5-askband::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      radial-gradient(90% 120% at 100% 0%, color-mix(in srgb, var(--teal) 26%, transparent), transparent 55%),
+      radial-gradient(80% 120% at 0% 100%, color-mix(in srgb, var(--mint) 14%, transparent), transparent 60%);
+  }
+  .v5-askband__inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-6, 2rem);
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  .v5-askband__copy {
+    max-width: var(--measure-dek, 44ch);
+  }
+  .v5-askband__eyebrow {
+    margin: 0 0 var(--space-3, 0.75rem);
+    font-family: var(--font-ui);
+    font-size: var(--fs-100, 0.75rem);
+    font-weight: 600;
+    letter-spacing: var(--ls-eyebrow, 0.12em);
+    text-transform: uppercase;
+    color: var(--mint);
+  }
+  .v5-askband__heading {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: var(--fs-700, clamp(1.6rem, 1.35rem + 1.2vw, 2.1rem));
+    font-weight: var(--fw-display, 600);
+    line-height: var(--lh-heading, 1.14);
+    letter-spacing: -0.01em;
+    color: var(--white);
+    text-wrap: balance;
+  }
+  .v5-askband__body {
+    margin: var(--space-3, 0.75rem) 0 0;
+    font-family: var(--font-ui);
+    font-size: var(--fs-400, 1.0625rem);
+    line-height: var(--lh-ui, 1.5);
+    color: var(--soft-inverse);
+  }
+  .v5-askband__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3, 0.75rem);
+  }
+  .v5-askband__prompts {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2, 0.5rem);
+  }
+  .v5-askband__prompt {
+    display: inline-flex;
+    align-items: center;
+    min-height: 48px;
+    padding: 0 var(--space-4, 1rem);
+    border: 1.5px solid color-mix(in srgb, var(--mint) 55%, transparent);
+    border-radius: var(--radius-pill, 999px);
+    font-family: var(--font-ui);
+    font-size: var(--fs-200, 0.8125rem);
+    font-weight: var(--fw-medium, 500);
+    color: var(--white);
+    text-decoration: none;
+    transition: background var(--dur-fast, 120ms) var(--ease-enter, ease),
+      border-color var(--dur-fast, 120ms) var(--ease-enter, ease);
+  }
+  .v5-askband__prompt:hover {
+    background: color-mix(in srgb, var(--mint) 16%, transparent);
+    border-color: var(--mint);
+  }
+  .v5-askband__prompt:focus-visible,
+  .v5-askband__trigger:focus-visible {
+    outline: 2px solid var(--mint);
+    outline-offset: 2px;
+  }
+  /* On the dark ground the primary CTA is solid mint (design-system button spec). */
+  .v5-askband__trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2, 0.5rem);
+    min-height: 48px;
+    padding: 0 var(--space-5, 1.5rem);
+    background: var(--mint);
+    color: var(--bg-deep);
+    border-radius: var(--radius-s, 8px);
+    font-family: var(--font-ui);
+    font-size: var(--fs-300, 0.9375rem);
+    font-weight: var(--fw-bold, 700);
+    text-decoration: none;
+    transition: filter var(--dur-fast, 120ms) var(--ease-enter, ease);
+  }
+  .v5-askband__trigger:hover {
+    filter: brightness(1.06);
+  }
+  .v5-askband__mark {
+    font-family: var(--font-display);
+    font-weight: var(--fw-display, 600);
+    letter-spacing: 0.04em;
+  }
+  .v5-askband__disclosure {
+    margin: 0;
+    font-family: var(--font-ui);
+    font-size: var(--fs-100, 0.75rem);
+    color: var(--soft-inverse);
+  }
+</style>

@@ -89,7 +89,7 @@ const topAuthority = venues
   .filter((n) => n > 0)
   .sort((a, b) => b - a)[0];
 
-// Sub-region label without the trailing " Wineries" — used in multiple
+// Sub-region label without the trailing " Wineries" - used in multiple
 // places below, so compute once.
 const subregionLabel = h1.replace(/\s+Wineries\s*$/i, '');
 
@@ -106,7 +106,7 @@ const zoneGradient: Record<string, string> = {
 };
 const heroGradientClass = (place && zoneGradient[place.data.zone]) ?? 'hero-grad--vineyard';
 
-// Wave 1 — Wine sub-region pages inherit editorial fields from the matching
+// Wave 1 - Wine sub-region pages inherit editorial fields from the matching
 // place entry (signature, factsheet text, etc.) when available. Wave 2 will
 // allow per-page overrides via additional props.
 const inheritedSignature = place?.data?.signature ?? null;
@@ -118,14 +118,14 @@ const placeHeroCredit = place?.data?.heroImage?.credit ?? null;
 <Breadcrumbs items={breadcrumbs} />
 
 {/* ═══════════════════════════════════════════════════════════════════════
-    WAVE 1 — Magazine hero, designed factsheet, scoreboard
+    WAVE 1 - Magazine hero, designed factsheet, scoreboard
     Mirrors the visual treatment shipped on /explore/places/[slug]/ so the wine
     sub-region pages stop reading as directory headers. Inherits the
     matching place's heroImage + signature line; Wave 2 will allow
     per-page overrides via additional props.
 ═══════════════════════════════════════════════════════════════════════ */}
 
-<!-- HERO — type column + cinematic image column. Stacks at mobile.
+<!-- HERO - type column + cinematic image column. Stacks at mobile.
      Falls back to a plain title block if no `place` entry was passed in. -->
 <section class="wine-hero">
   <div class="container">
@@ -166,7 +166,7 @@ const placeHeroCredit = place?.data?.heroImage?.credit ?? null;
   </div>
 </section>
 
-<!-- FACTSHEET — 6-cell designed grid blending wine-specific numbers with
+<!-- FACTSHEET - 6-cell designed grid blending wine-specific numbers with
      place metadata. Renders only cells that have content. -->
 <section class="wine-factsheet">
   <div class="container">
@@ -252,7 +252,7 @@ const placeHeroCredit = place?.data?.heroImage?.credit ?? null;
   </section>
 )}
 
-<!-- AT-A-GLANCE SCOREBOARD — dark-ink anchor strip showing what's on the
+<!-- AT-A-GLANCE SCOREBOARD - dark-ink anchor strip showing what's on the
      page. Matches the equivalent strip on /explore/places/[slug]/. -->
 <section class="wine-scoreboard" aria-label={`${subregionLabel} sub-region contents`}>
   <div class="container">
@@ -435,19 +435,19 @@ const placeHeroCredit = place?.data?.heroImage?.credit ?? null;
 
 <style>
   /* ═══════════════════════════════════════════════════════════════════════
-     WINE SUBREGION TEMPLATE — Wave 1 visual lift (2026-05-13)
+     WINE SUBREGION TEMPLATE - Wave 1 visual lift (2026-05-13)
 
      Three new top-of-page sections (.wine-hero, .wine-factsheet,
      .wine-scoreboard) mirror the equivalent patterns on /explore/places/[slug]/.
      Rest of the template (terroir, anchors, venue grid, Chardonnay/Pinot,
      pair-with-village, logistics, map, journal, nearby, FAQ) keeps its
-     existing classes — those sections are untouched.
+     existing classes - those sections are untouched.
   ═══════════════════════════════════════════════════════════════════════ */
 
   /* ── HERO ────────────────────────────────────────────────────────────── */
   .wine-hero {
     padding: clamp(2rem, 4vw, 3.5rem) 0 clamp(2.5rem, 5vw, 4rem);
-    background: var(--paper, #FAF6EE);
+    background: var(--bg-alt);
   }
   .wine-hero__grid {
     display: grid;
@@ -466,40 +466,40 @@ const placeHeroCredit = place?.data?.heroImage?.credit ?? null;
     }
   }
   .wine-hero__eyebrow {
-    font-family: 'Outfit', system-ui, sans-serif;
-    font-size: 0.7rem;
+    font-family: var(--font-ui);
+    font-size: var(--fs-100);
     font-weight: 600;
-    letter-spacing: 0.16em;
+    letter-spacing: var(--ls-eyebrow);
     text-transform: uppercase;
-    color: var(--accent, #A0541F);
+    color: var(--teal-text);
     margin: 0 0 1rem;
   }
   .wine-hero__title {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-weight: 500;
+    font-family: var(--font-display);
+    font-weight: 600;
     font-size: clamp(2.4rem, 5.5vw, 4rem);
-    line-height: 1.05;
-    letter-spacing: -0.02em;
-    color: var(--ink, #171413);
+    line-height: var(--lh-display);
+    letter-spacing: var(--ls-display);
+    color: var(--text);
     margin: 0 0 1.2rem;
   }
   .wine-hero__signature {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-style: italic;
-    font-size: clamp(1.1rem, 1.7vw, 1.3rem);
+    font-family: var(--font-ui);
+    font-style: normal;
+    font-size: var(--fs-500);
     line-height: 1.4;
-    color: var(--accent, #A0541F);
+    color: var(--soft);
     margin: 0 0 1.3rem;
     max-width: 32rem;
   }
   .wine-hero__intro {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    color: var(--ink, #171413);
+    font-family: var(--font-ui);
+    color: var(--text);
     max-width: 36rem;
   }
   .wine-hero__intro p {
-    font-size: clamp(1rem, 1.15vw, 1.1rem);
-    line-height: 1.6;
+    font-size: var(--fs-400);
+    line-height: var(--lh-body);
     margin: 0 0 0.85rem;
   }
   .wine-hero__intro p:last-child { margin-bottom: 0; }
@@ -523,9 +523,9 @@ const placeHeroCredit = place?.data?.heroImage?.credit ?? null;
     margin: 0;
     aspect-ratio: 4 / 3;
     overflow: hidden;
-    border-radius: 4px;
+    border-radius: var(--radius-m);
     position: relative;
-    box-shadow: 0 24px 60px rgba(30, 27, 24, 0.08);
+    box-shadow: var(--elev-2);
   }
   @media (min-width: 880px) {
     .wine-hero__image { aspect-ratio: 16 / 11; }
@@ -540,7 +540,7 @@ const placeHeroCredit = place?.data?.heroImage?.credit ?? null;
     position: absolute;
     bottom: 0.65rem;
     right: 0.85rem;
-    font-family: 'Outfit', system-ui, sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.62rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -555,9 +555,9 @@ const placeHeroCredit = place?.data?.heroImage?.credit ?? null;
   /* ── FACTSHEET ──────────────────────────────────────────────────────── */
   .wine-factsheet {
     padding: clamp(2rem, 3vw, 2.75rem) 0;
-    background: var(--paper-warm, #F4EEE2);
-    border-top: 1px solid rgba(121, 92, 58, 0.12);
-    border-bottom: 1px solid rgba(121, 92, 58, 0.12);
+    background: var(--bg-alt);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
   }
   .wine-factsheet__grid {
     margin: 0;
@@ -565,16 +565,16 @@ const placeHeroCredit = place?.data?.heroImage?.credit ?? null;
     grid-template-columns: repeat(2, 1fr);
     gap: 0;
     background:
-      linear-gradient(rgba(121,92,58,0.14), rgba(121,92,58,0.14)) center / 1px 100% no-repeat,
-      linear-gradient(rgba(121,92,58,0.14), rgba(121,92,58,0.14)) center / 100% 1px no-repeat;
+      linear-gradient(var(--border), var(--border)) center / 1px 100% no-repeat,
+      linear-gradient(var(--border), var(--border)) center / 100% 1px no-repeat;
   }
   @media (min-width: 720px) {
     .wine-factsheet__grid {
       grid-template-columns: repeat(3, 1fr);
       background:
-        linear-gradient(rgba(121,92,58,0.14), rgba(121,92,58,0.14)) 33.33% 0 / 1px 100% no-repeat,
-        linear-gradient(rgba(121,92,58,0.14), rgba(121,92,58,0.14)) 66.66% 0 / 1px 100% no-repeat,
-        linear-gradient(rgba(121,92,58,0.14), rgba(121,92,58,0.14)) center / 100% 1px no-repeat;
+        linear-gradient(var(--border), var(--border)) 33.33% 0 / 1px 100% no-repeat,
+        linear-gradient(var(--border), var(--border)) 66.66% 0 / 1px 100% no-repeat,
+        linear-gradient(var(--border), var(--border)) center / 100% 1px no-repeat;
     }
   }
   .wine-factsheet__cell {
@@ -584,30 +584,30 @@ const placeHeroCredit = place?.data?.heroImage?.credit ?? null;
     gap: 0.4rem;
   }
   .wine-factsheet__cell dt {
-    font-family: 'Outfit', system-ui, sans-serif;
-    font-size: 0.62rem;
+    font-family: var(--font-ui);
+    font-size: var(--fs-100);
     font-weight: 600;
-    letter-spacing: 0.16em;
+    letter-spacing: var(--ls-eyebrow);
     text-transform: uppercase;
-    color: var(--accent, #A0541F);
+    color: var(--teal-text);
     margin: 0;
   }
   .wine-factsheet__cell dd {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: clamp(1.05rem, 1.4vw, 1.25rem);
-    line-height: 1.3;
-    color: var(--ink, #171413);
+    font-family: var(--font-display);
+    font-size: var(--fs-600);
+    line-height: var(--lh-heading);
+    color: var(--text);
     margin: 0;
   }
 
   /* ── SCOREBOARD ─────────────────────────────────────────────────────── */
   .wine-scoreboard {
     padding: clamp(2rem, 3vw, 2.75rem) 0;
-    background: var(--ink, #171413);
-    color: var(--paper, #FAF6EE);
+    background: var(--bg-deep);
+    color: var(--white);
   }
   .wine-scoreboard__label {
-    color: rgba(250, 246, 238, 0.65);
+    color: var(--mint);
     margin: 0 0 1.25rem;
   }
   .wine-scoreboard__list {
@@ -631,27 +631,27 @@ const placeHeroCredit = place?.data?.heroImage?.credit ?? null;
     padding: 0.9rem 0;
     text-decoration: none;
     color: inherit;
-    border-bottom: 1px solid rgba(250, 246, 238, 0.12);
-    transition: color 0.18s ease, border-color 0.18s ease;
+    border-bottom: 1px solid rgba(233, 244, 240, 0.16);
+    transition: color var(--dur-med) ease, border-color var(--dur-med) ease;
   }
   .wine-scoreboard__list li a:hover {
-    color: var(--accent, #C68B4F);
-    border-color: rgba(250, 246, 238, 0.4);
+    color: var(--mint);
+    border-color: var(--mint);
   }
   .wine-scoreboard__list strong {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-weight: 500;
+    font-family: var(--font-display);
+    font-weight: 600;
     font-size: clamp(1.8rem, 2.6vw, 2.4rem);
     line-height: 1;
-    color: var(--paper, #FAF6EE);
+    color: var(--white);
   }
   .wine-scoreboard__list span {
-    font-family: 'Outfit', system-ui, sans-serif;
-    font-size: 0.7rem;
+    font-family: var(--font-ui);
+    font-size: var(--fs-100);
     font-weight: 500;
-    letter-spacing: 0.08em;
+    letter-spacing: var(--ls-eyebrow);
     text-transform: uppercase;
-    color: rgba(250, 246, 238, 0.7);
+    color: var(--soft-inverse);
   }
-  .wine-scoreboard__list li a:hover strong { color: var(--accent, #C68B4F); }
+  .wine-scoreboard__list li a:hover strong { color: var(--mint); }
 </style>

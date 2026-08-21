@@ -1,6 +1,6 @@
 const SITE = 'https://peninsulainsider.com.au';
 
-// PI-EXP-045: interim publisher logo — same asset BaseLayout uses for Organization schema.
+// PI-EXP-045: interim publisher logo - same asset BaseLayout uses for Organization schema.
 // Replace with /logo.png (≥112×112px square) once a proper logo asset is created.
 export const PUBLISHER_LOGO_URL = `${SITE}/images/sourced/home-cover.webp`;
 
@@ -11,6 +11,19 @@ export const absUrl = (path: string): string => {
   const withSlash = normalised.endsWith('/') ? normalised : `${normalised}/`;
   return `${SITE}${withSlash}`;
 };
+
+// Entity fragments intentionally follow the site's existing convention
+// (`.../#LocalBusiness`, `.../#Place`).  Keeping the schema type in the
+// fragment makes a canonical URL the one stable identity source for both the
+// page's primary declaration and references from listing pages.
+export const entityId = (path: string, schemaType: string): string =>
+  `${absUrl(path)}#${schemaType}`;
+
+// Schema.org permits multiple types on one entity.  The first declared type is
+// our primary identity type: detail pages and ItemList references must use that
+// same fragment so they describe one node rather than parallel entities.
+export const primarySchemaType = (schemaType: string | readonly string[]): string =>
+  Array.isArray(schemaType) ? schemaType[0] : schemaType;
 
 const PENINSULA_PLACE = {
   '@type': 'Place',
@@ -48,6 +61,7 @@ export function buildWinerySchema(data: any, slug: string, section = 'wine') {
   const schema: any = {
     '@context': 'https://schema.org',
     '@type': ['Winery', 'LocalBusiness'],
+    '@id': entityId(`/${section}/${slug}`, 'Winery'),
     name: data.name,
     url: pageUrl,
     ...(data.signature || data.editorVerdict
@@ -78,7 +92,7 @@ export function buildWinerySchema(data: any, slug: string, section = 'wine') {
     },
     ...(data.phone ? { telephone: data.phone } : {}),
     mainEntityOfPage: pageUrl,
-    // Book-direct action for agents — current price/availability lives with
+    // Book-direct action for agents: current price/availability lives with
     // the operator, never on this site (BRAND-PI no-pricing rule).
     ...(data.bookingUrl
       ? {
@@ -110,13 +124,17 @@ export function buildWinerySchema(data: any, slug: string, section = 'wine') {
     }));
   }
 
-  if (data.editorVerdict) {
-    schema.review = {
-      '@type': 'Review',
-      author: { '@type': 'Organization', name: 'Peninsula Insider' },
-      reviewBody: data.editorVerdict,
-    };
-  }
+  // Deliberately no schema.org Review node. A Review without a reviewRating is
+  // invalid for rich results and Google flags it, but Peninsula Insider does not
+  // score venues, so there is no honest rating to supply and inventing one would
+  // contradict the editorial stance. The verdict still reaches search engines
+  // through `description` above.
+  //
+  // This branch was dormant until 2026-07-25: editorVerdict was absent from the
+  // venues schema, so Zod stripped it and data.editorVerdict was always
+  // undefined. Adding the field to the schema would have switched it on for 21
+  // wineries at once. Revisit only if a published, defensible rating scale ever
+  // exists.
 
   return schema;
 }
@@ -126,13 +144,15 @@ export function buildRestaurantSchema(data: any, slug: string, section = 'wine')
   return {
     '@context': 'https://schema.org',
     '@type': 'Restaurant',
+    '@id': `${pageUrl}#Restaurant`,
     name: data.restaurant.name,
-    url: `${pageUrl}#restaurant`,
+    url: `${pageUrl}#Restaurant`,
     ...(data.restaurant.cuisine ? { servesCuisine: data.restaurant.cuisine } : {}),
     // priceRange intentionally omitted (BRAND-PI: no pricing on site).
     address: data.address,
     containedInPlace: {
       '@type': 'Winery',
+      '@id': `${pageUrl}#Winery`,
       name: data.name,
       url: pageUrl,
     },
@@ -145,10 +165,12 @@ export function buildAccommodationSchema(data: any, slug: string, section = 'win
   return {
     '@context': 'https://schema.org',
     '@type': 'LodgingBusiness',
+    '@id': `${pageUrl}#LodgingBusiness`,
     name: data.accommodation.name,
-    url: `${pageUrl}#accommodation`,
+    url: `${pageUrl}#LodgingBusiness`,
     containedInPlace: {
       '@type': 'Winery',
+      '@id': `${pageUrl}#Winery`,
       name: data.name,
     },
   };
@@ -218,6 +240,7 @@ export const buildItemListSchema = ({
     position: idx + 1,
     item: {
       '@type': it.itemType ?? 'Thing',
+      '@id': entityId(it.path, it.itemType ?? 'Thing'),
       name: it.name,
       url: absUrl(it.path),
       ...(it.description ? { description: it.description } : {}),
@@ -290,6 +313,7 @@ export const buildTouristDestinationSchema = ({
 }: BuildTouristDestinationInput) => ({
   '@context': 'https://schema.org',
   '@type': 'TouristDestination',
+  '@id': entityId(path, 'TouristDestination'),
   name,
   url: absUrl(path),
   description,
@@ -298,6 +322,7 @@ export const buildTouristDestinationSchema = ({
     ? {
         includesAttraction: includesAttractions.map((a) => ({
           '@type': 'TouristAttraction',
+          '@id': entityId(a.path, 'TouristAttraction'),
           name: a.name,
           url: absUrl(a.path),
         })),
@@ -355,6 +380,7 @@ export const buildTouristAttractionSchema = ({
 }: BuildTouristAttractionInput) => ({
   '@context': 'https://schema.org',
   '@type': subtype ? ['TouristAttraction', subtype] : 'TouristAttraction',
+  '@id': entityId(path, subtype ?? 'TouristAttraction'),
   name,
   url: absUrl(path),
   description,
@@ -391,7 +417,7 @@ interface TripStop {
 }
 
 interface TripDay {
-  name: string;      // e.g. 'Day 1 — Red Hill'
+  name: string;      // e.g. 'Day 1 - Red Hill'
   stops: TripStop[];
 }
 
@@ -423,7 +449,7 @@ export const buildTouristTripSchema = ({
   itinerary: days.map((day) => ({
     '@type': 'ItemList',
     name: day.name,
-    // Days are chronological, not ranked — Ascending is correct here.
+    // Days are chronological, not ranked - Ascending is correct here.
     itemListOrder: 'https://schema.org/ItemListOrderAscending',
     itemListElement: day.stops.map((stop, idx) => ({
       '@type': 'ListItem',
@@ -436,7 +462,7 @@ export const buildTouristTripSchema = ({
     })),
   })),
   // Offer/price emission intentionally removed. BRAND-PI rule (2026-05-15):
-  // "No pricing on site. Ever." Including structured data — stale prices in
+  // "No pricing on site. Ever." Including structured data - stale prices in
   // JSON-LD get scraped and re-presented as out-of-date listings.
 });
 
@@ -445,7 +471,7 @@ export const buildTouristTripSchema = ({
 const TOUR_SITE = 'https://peninsulainsider.com.au';
 
 export function buildTourSchema(tour: any, operatorData: any) {
-  const pageUrl = absUrl(`/tour/${tour.slug}`);
+  const pageUrl = absUrl(`/tour/${tour.slug}/`);
   const graph: any[] = [
     {
       '@type': ['TouristTrip', 'Service'],
@@ -460,12 +486,12 @@ export function buildTourSchema(tour: any, operatorData: any) {
       availableLanguage: tour.languages || ['en'],
       provider: {
         '@type': 'LocalBusiness',
-        '@id': absUrl(`/tour/operators/${tour.operatorSlug}`) + '#LocalBusiness',
+        '@id': absUrl(`/tour/operators/${tour.operatorSlug}/`) + '#LocalBusiness',
         name: operatorData?.name || tour.operatorSlug,
         url: operatorData?.website || undefined,
       },
       // Offer block intentionally removed. BRAND-PI rule (2026-05-15):
-      // "No pricing on site. Ever." — including JSON-LD price emission.
+      // "No pricing on site. Ever." - including JSON-LD price emission.
       areaServed: { '@type': 'GeoShape', name: 'Mornington Peninsula' },
     },
   ];
@@ -492,7 +518,7 @@ export function buildTourSchema(tour: any, operatorData: any) {
 }
 
 export function buildTourPackageSchema(pkg: any, componentToursData: any[]) {
-  const pageUrl = absUrl(`/tour-packages/${pkg.slug}`);
+  const pageUrl = absUrl(`/tour-packages/${pkg.slug}/`);
   const graph: any[] = [
     {
       '@type': 'TouristTrip',
@@ -504,19 +530,19 @@ export function buildTourPackageSchema(pkg: any, componentToursData: any[]) {
       ...(pkg.anchorStaySlug ? {
         locationCreatedIn: {
           '@type': 'LodgingBusiness',
-          '@id': absUrl(`/stay/${pkg.anchorStaySlug}`) + '#LodgingBusiness',
+          '@id': absUrl(`/stay/${pkg.anchorStaySlug}/`) + '#LodgingBusiness',
           name: pkg.anchorStaySlug.replace(/-/g, ' '),
-          url: absUrl(`/stay/${pkg.anchorStaySlug}`),
+          url: absUrl(`/stay/${pkg.anchorStaySlug}/`),
         }
       } : {}),
       subTrip: (pkg.componentTourSlugs || []).map((slug: string) => ({
         '@type': 'TouristTrip',
-        '@id': absUrl(`/tour/${slug}`) + '#TouristTrip',
+        '@id': absUrl(`/tour/${slug}/`) + '#TouristTrip',
         name: componentToursData.find((t: any) => t.slug === slug)?.name || slug,
-        url: absUrl(`/tour/${slug}`),
+        url: absUrl(`/tour/${slug}/`),
       })),
       // AggregateOffer block intentionally removed. BRAND-PI rule (2026-05-15):
-      // "No pricing on site. Ever." — including JSON-LD price emission.
+      // "No pricing on site. Ever." - including JSON-LD price emission.
     },
   ];
   if (pkg.faq?.length) {
@@ -542,7 +568,7 @@ export function buildTourPackageSchema(pkg: any, componentToursData: any[]) {
 }
 
 export function buildOperatorProfileSchema(operator: any, toursList: any[]) {
-  const pageUrl = absUrl(`/tour/operators/${operator.slug}`);
+  const pageUrl = absUrl(`/tour/operators/${operator.slug}/`);
   const graph: any[] = [
     {
       '@type': 'LocalBusiness',
@@ -564,9 +590,9 @@ export function buildOperatorProfileSchema(operator: any, toursList: any[]) {
         position: i + 1,
         item: {
           '@type': 'TouristTrip',
-          '@id': absUrl(`/tour/${t.slug}`) + '#TouristTrip',
+          '@id': absUrl(`/tour/${t.slug}/`) + '#TouristTrip',
           name: t.name,
-          url: absUrl(`/tour/${t.slug}`),
+          url: absUrl(`/tour/${t.slug}/`),
         },
       })),
     },
@@ -591,7 +617,7 @@ interface BuildArticleInput {
   description: string;
   path: string;
   datePublished: string;    // ISO 8601
-  dateModified: string;     // ISO 8601 — match the on-page "Last fact-verified" stamp
+  dateModified: string;     // ISO 8601 - match the on-page "Last fact-verified" stamp
   imageUrl: string;         // absolute URL to hero image
   publisherLogoUrl: string; // absolute URL; see PI-EXP-045 for logo asset decision
   articleSection?: string;  // e.g. 'Planning', 'Seasonal'
@@ -632,7 +658,7 @@ export const buildArticleSchema = ({
 
 // ─── Boating + Fishing vertical schema builders ──────────────────────────────
 //
-// Source: peninsula_insider_boating_fishing_v1 — bf_schema_blocks.md.
+// Source: peninsula_insider_boating_fishing_v1 - bf_schema_blocks.md.
 // Six builders: species, fishing-location, charter-operator, boat-hire,
 // boat-ramp, hub. All emit @graph nodes with stable @id = {url}#{Type}.
 // No Review or AggregateRating (ACCC + authorship integrity).

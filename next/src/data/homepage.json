@@ -3,19 +3,40 @@
   "siteDescription": "An editorial guide to the Mornington Peninsula, rebuilt as a sharper cover page with weekly curation, featured stories, venue picks, and a clear newsletter invitation.",
   "brandLine": "Mornington Peninsula editorial guide",
   "navLinks": [
-    { "label": "Eat & Drink", "href": "#sections" },
-    { "label": "Stay", "href": "#sections" },
-    { "label": "Do", "href": "#weekend" },
-    { "label": "Journal", "href": "#journal" },
-    { "label": "Join", "href": "#newsletter" }
+    {
+      "label": "Eat & Drink",
+      "href": "#sections"
+    },
+    {
+      "label": "Stay",
+      "href": "#sections"
+    },
+    {
+      "label": "Do",
+      "href": "#weekend"
+    },
+    {
+      "label": "Journal",
+      "href": "#journal"
+    },
+    {
+      "label": "Join",
+      "href": "#newsletter"
+    }
   ],
   "hero": {
     "eyebrow": "Winter edition",
     "title": "The smarter way to open a Mornington Peninsula weekend.",
     "dek": "Less brochure, more editorial cover. Peninsula Insider should feel like the front page of a publication that already knows where you should book first, where you should linger, and what is actually worth the drive.",
     "meta": "Edited by Peninsula Insider · Updated for winter",
-    "primaryCta": { "label": "Read the cover story", "href": "#featured-story" },
-    "secondaryCta": { "label": "Get the weekly letter", "href": "#newsletter" },
+    "primaryCta": {
+      "label": "Read the cover story",
+      "href": "#featured-story"
+    },
+    "secondaryCta": {
+      "label": "Get the weekly letter",
+      "href": "#newsletter"
+    },
     "highlights": [
       "A lead story with a clear point of view",
       "Fast paths to eat, stay, do, and plan",
@@ -50,41 +71,44 @@
     "dek": "The crowds are gone and the Peninsula is showing a different face. Cellar doors with room to breathe, long lunches without a booking queue, and a coastline that finally feels like yours.",
     "byline": "By James Richmond",
     "date": "Winter 2026",
-    "cta": { "label": "Open the story", "href": "#journal" },
+    "cta": {
+      "label": "Open the story",
+      "href": "#journal"
+    },
     "bullets": [
-      "Why May is the month the Peninsula sheds its tourist layer and earns its regulars",
+      "Why winter is the season the Peninsula sheds its tourist layer and earns its regulars",
       "Three winter bookings worth making before the weekend fills",
       "One coastal walk, one fireside lunch, and one cellar door worth the drive"
     ]
   },
   "weekendPlanner": {
-    "eyebrow": "This weekend on the Peninsula",
-    "title": "King's Birthday weekend: Winter Wine Festival, Stonier lawn, and a design-week closing",
-    "dek": "King's Birthday is the loudest winter weekend on the Peninsula. Two clear moves, and the rest of the weekend kept open.",
+    "eyebrow": "This weekend - 7 to 9 August",
+    "title": "Winter Peninsula: art, truffles, and a Sunday lunch worth the drive",
+    "dek": "The Peninsula is in its winter groove. Truffle season is running, MPRG's exhibitions are open through August, and Stonier's fire and wine lunch lands on Sunday.",
     "cards": [
       {
-        "moment": "Saturday 6 June",
-        "title": "Winter Wine Festival at Red Hill Showgrounds",
-        "note": "The Peninsula's largest winter wine event. 11am–4pm, Red Hill Showgrounds. More than 30 cellar doors in one place, with food, live music, and room to taste without the weekday crowd. $90 GA.",
-        "tag": "Book now"
+        "moment": "Saturday 8 or Sunday 9 August",
+        "title": "Red Hill Truffles, winter truffle hunt, Main Ridge",
+        "note": "Périgord black season running through to late September. Pizza hunts, lunch bundles, and private hunts available; book direct. Slots for August weekends are filling - book early.",
+        "tag": "Booking required"
       },
       {
-        "moment": "Sunday 7 June",
-        "title": "Stonier Pies & Pinot",
-        "note": "Stonier opens its lawn for a low-key winter afternoon: artisan pies, pinot noir from the estate, and views across Merricks toward the bay. 11am–5pm. Free entry.",
-        "tag": "Free entry"
+        "moment": "Saturday 8 or Sunday 9 August",
+        "title": "Pt Leo Estate Sculpture Park, Merricks",
+        "note": "Sixty-plus sculptures across the estate's rolling hillside vineyard. A walk that earns a long lunch at Laura or a glass at the cellar door. Open daily through to April 2027.",
+        "tag": "Entry fee applies"
       },
       {
-        "moment": "Sunday 7 June",
-        "title": "Tall Poppy at Kelli Lundberg, Final Day",
-        "note": "The Tall Poppy group exhibition closes Sunday at Kelli Lundberg Gallery, Moorooduc. Local and emerging artists. Free, no booking. Last chance this season.",
-        "tag": "Closing today"
+        "moment": "Sunday 9 August from midday",
+        "title": "Country Day at Tar Barrel, Mornington",
+        "note": "Ash King plays his album launch from 12pm–3pm, Hand Over Hammer takes over from 4pm–7pm. Country day drink specials and Sunday Sippers happy hour. Entry fee applies; check the Tar Barrel website before you go.",
+        "tag": "Entry fee applies"
       },
       {
-        "moment": "Saturday–Sunday, 6–7 June",
-        "title": "Mornington Winter Music Festival",
-        "note": "Two days of live music across Mornington township venues. Folk, jazz, and acoustic sets through the long weekend. Mostly free, some ticketed events. Check venue listings for schedules.",
-        "tag": "Long weekend"
+        "moment": "Saturday 8 or Sunday 9 August",
+        "title": "Flinders Truffles, winter truffle hunt, Flinders",
+        "note": "Guided Périgord black truffle hunts through August on the Flinders farm, with truffle soup and a toastie by the fire. A quieter and more accessible alternative to Main Ridge.",
+        "tag": "Booking recommended"
       }
     ]
   },
@@ -149,13 +173,13 @@
   },
   "newsletter": {
     "eyebrow": "Newsletter",
-    "title": "The Insider's Letter, every week.",
-    "dek": "One sharp note before the weekend: what to book, what to know, and what the Peninsula looks like right now.",
+    "title": "The Insider Note, every Wednesday.",
+    "dek": "Your Peninsula week, sorted: what to book, what to know, and what the Peninsula looks like right now.",
     "benefits": [
       "Three edited recommendations, not twenty tabs to sort later",
       "Early access to new guides, lists, and itineraries",
       "The weekend's most useful booking and timing notes in five minutes"
     ],
-    "cta": "Get the weekly letter"
+    "cta": "Get The Insider Note"
   }
 }

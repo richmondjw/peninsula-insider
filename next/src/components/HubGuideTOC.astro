@@ -1,13 +1,13 @@
 ---
 /**
- * HubGuideTOC — sticky in-page table of contents for hub-guide / service
+ * HubGuideTOC - sticky in-page table of contents for hub-guide / service
  * / trail-guide / venue-guide articles.
  *
  * Renders a list of anchor links to the article's H2 headings. At desktop
  * (≥1080px) the nav becomes a sticky left rail; at mobile/tablet it
  * collapses to a horizontal scroll bar at the top of the article body.
  *
- * Active-section tracking via IntersectionObserver — the heading currently
+ * Active-section tracking via IntersectionObserver - the heading currently
  * intersecting the top portion of the viewport gets `is-active` on its
  * TOC link, with a small lookahead so the active state changes just
  * before the heading scrolls past.
@@ -25,7 +25,7 @@ export interface Props {
   title?: string;
 }
 const { headings, title = 'On this page' } = Astro.props;
-// Only top-level (H2) entries — H3s/H4s would make the rail noisy at
+// Only top-level (H2) entries - H3s/H4s would make the rail noisy at
 // desktop and unscannable at mobile.
 const items = headings.filter((h) => h.depth === 2);
 ---
@@ -84,7 +84,7 @@ const items = headings.filter((h) => h.depth === 2);
 
       targets.forEach(function (t) { io.observe(t); });
 
-      // Smooth-scroll on click — overrides the default jump so the
+      // Smooth-scroll on click - overrides the default jump so the
       // sticky masthead doesn't cover the anchor target.
       links.forEach(function (l) {
         l.addEventListener('click', function (e) {
@@ -109,12 +109,12 @@ const items = headings.filter((h) => h.depth === 2);
 </script>
 
 <style>
-  /* Mobile / tablet — horizontal scroll bar above the article body. */
+  /* Mobile / tablet - horizontal scroll bar above the article body. */
   .hub-toc {
     overflow-x: auto;
     padding: 0.85rem 0;
     margin: 0 0 1.75rem;
-    border-bottom: 1px solid rgba(121, 92, 58, 0.14);
+    border-bottom: 1px solid rgba(74, 90, 87, 0.14);
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
   }
@@ -130,7 +130,7 @@ const items = headings.filter((h) => h.depth === 2);
     white-space: nowrap;
   }
   .hub-toc__link {
-    font-family: 'Outfit', system-ui, sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.7rem;
     font-weight: 600;
     letter-spacing: 0.06em;
@@ -141,13 +141,13 @@ const items = headings.filter((h) => h.depth === 2);
     border-bottom: 2px solid transparent;
     transition: color 0.15s ease, border-color 0.15s ease;
   }
-  .hub-toc__link:hover { color: var(--accent, #A0541F); }
+  .hub-toc__link:hover { color: var(--accent, #26997e); }
   .hub-toc__link.is-active {
-    color: var(--accent, #A0541F);
-    border-bottom-color: var(--accent, #A0541F);
+    color: var(--accent, #26997e);
+    border-bottom-color: var(--accent, #26997e);
   }
 
-  /* Desktop — sticky left rail. */
+  /* Desktop - sticky left rail. */
   @media (min-width: 1080px) {
     .hub-toc {
       position: sticky;
@@ -161,12 +161,12 @@ const items = headings.filter((h) => h.depth === 2);
     }
     .hub-toc__title {
       display: block;
-      font-family: 'Outfit', system-ui, sans-serif;
+      font-family: var(--font-ui);
       font-size: 0.62rem;
       font-weight: 600;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--accent, #A0541F);
+      color: var(--accent, #26997e);
       margin: 0 0 1.15rem;
     }
     .hub-toc__list {
@@ -175,7 +175,7 @@ const items = headings.filter((h) => h.depth === 2);
       white-space: normal;
     }
     .hub-toc__item {
-      border-left: 2px solid rgba(121, 92, 58, 0.12);
+      border-left: 2px solid rgba(74, 90, 87, 0.12);
       padding: 0;
     }
     .hub-toc__link {
@@ -192,12 +192,12 @@ const items = headings.filter((h) => h.depth === 2);
     }
     .hub-toc__item:has(.hub-toc__link.is-active),
     .hub-toc__item:has(.hub-toc__link:hover) {
-      border-left-color: var(--accent, #A0541F);
-      background: rgba(160, 84, 31, 0.04);
+      border-left-color: var(--accent, #26997e);
+      background: rgba(11, 90, 72, 0.04);
     }
     .hub-toc__link.is-active,
     .hub-toc__link:hover {
-      color: var(--accent, #A0541F);
+      color: var(--accent, #26997e);
     }
   }
 </style>

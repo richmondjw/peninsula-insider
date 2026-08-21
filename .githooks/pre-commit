@@ -1,0 +1,35 @@
+#!/bin/sh
+# Pre-commit: auto-fix BRAND-PI house-style (em-dashes) on staged reader-facing
+# content, so agent / cron / manual commits cannot land em-dashes on main and
+# silently break the deploy's lint:house-style gate. Deterministic and lossless
+# (it only rewrites em-dashes to ' - '); it never blocks a commit.
+#
+# Activate per checkout with:   git config core.hooksPath .githooks
+# (set locally, and by the daily/weekly/monthly content workflows before the
+#  engine commits, so every path that writes content is covered.)
+
+staged=$(git diff --cached --name-only --diff-filter=ACM \
+  | grep -E '^next/src/(content|data|pages|components|layouts)/.*\.(md|mdx|json|astro)$' || true)
+[ -z "$staged" ] && exit 0
+
+# node is required to run the fixer; if it is unavailable, skip rather than
+# block the commit (the deploy gate remains as the backstop).
+command -v node >/dev/null 2>&1 || exit 0
+
+# The fixers run from next/ and expect paths relative to it.
+rel=$(printf '%s\n' "$staged" | sed 's#^next/##')
+
+# 1. House style: auto-fix em-dashes in all staged reader-facing content.
+( cd next && printf '%s\n' "$rel" | xargs node scripts/lint-house-style.mjs --fix ) || true
+
+# 2. Content schema: fix the recurring quick-note breaks (invalid tag enum,
+#    over-length verdict) that hard-fail the astro build.
+qn=$(printf '%s\n' "$rel" | grep -E '^src/content/quick-notes/.*\.md$' || true)
+[ -n "$qn" ] && ( cd next && printf '%s\n' "$qn" | xargs node scripts/fix-content-schema.mjs ) || true
+
+# Re-stage anything the fixers rewrote so the fixes are part of this commit.
+printf '%s\n' "$staged" | xargs git add >/dev/null 2>&1 || true
+
+# Admission gate: a content shell or invalid collection entry must never be
+# committed. This intentionally blocks rather than silently fixing bad output.
+( cd next && npm run validate:content )

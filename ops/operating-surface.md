@@ -1,5 +1,6 @@
 # Peninsula Insider — Canonical Operating Surface
 **Last reviewed:** 2026-05-10
+**Last corrected:** 2026-07-25 (Tier-2 github-actions rows only - see the content-freshness note below. The rest of this file has not been re-verified since 2026-05-10.)
 **Owner:** PI operations (Remy)
 **Authority:** This file is the single source of truth for what jobs run against PI, where they run, what they touch, and what state they are in. If an entry conflicts with another doc, this file wins until the entry is updated.
 
@@ -7,7 +8,7 @@
 
 - **Source-of-execution** — where the job is *triggered from*: `github-actions` (CI), `openclaw-cron` (containerised scheduler in `~/.openclaw/cron/jobs.json`), `manual` (no scheduler), or `composite` (multiple).
 - **Mutation** — `scan-only` produces a report and writes nothing to live. `report-only` writes to `ops/reports/` but not to live surfaces. `mutating-content` writes to `next/src/content/`. `mutating-live` writes to live HTML or deploy. `mutating-config` modifies repo configuration (rare).
-- **Status** — `live` is observably running. `partial` is registered but not all integrations are wired. `dormant` is registered but disabled. `planned` is documented but not registered.
+- **Status** — `live` is observably running. `partial` is registered but not all integrations are wired. `dormant` is registered but disabled. `planned` is documented but not registered. `unverified` (added 2026-07-25) is claimed by an earlier revision of this file but with no artifact found to back the claim.
 - **Alert path** — where failures surface. `silent` means failures are not currently surfaced anywhere visible to operators.
 
 ## Tier-1 — Daily mutating publish path (highest risk)
@@ -27,6 +28,34 @@
 
 **Daily publish-path note:** every job in this table can mutate either content files or live HTML in production. Five of them run autonomously without external review. The current alert path for nine of the ten is `silent` — operators only see failures by inspecting `ops/reports/` or live diff. **This is the highest-priority observability gap.**
 
+## Tier-1b — Daily strategy + agent-index (feeds the publish path)
+
+| Job | Source | Schedule (UTC) | Mutation | Status | Alert path |
+|---|---|---|---|---|---|
+| `pi-strategy-brain` (`engine/strategy_engine.py`) | orchestrator (daily step 0) | daily, pre-commission | mutating-content (`ops/strategy/`) | live | run-log |
+| `pi-llms-index-live` (`ops/scripts/generate-llms-txt.mjs`) | github-actions (`build-and-deploy.yml`, post-build) | on deploy | mutating-live (`dist/llms.txt`, `dist/llms-full.txt`) | live | GitHub Actions UI |
+| `pi-llms-index-artifact` (same script) | orchestrator (daily post-publish) | daily, post-publish | mutating-content (repo-root `llms.txt`) | live | run-log |
+
+**Strategy-brain note:** the strategy brain runs *before* commissioning and fuses
+GSC performance + sitemap inventory + competitive scan + seasonal calendar +
+its own prior snapshot into `ops/strategy/content-strategy.json` (the ranked
+commissioning queue the orchestrator reads). It diffs day-over-day, so strategy
+improvement is observable. Deterministic and stdlib-only.
+
+**Self-monitoring note (addresses the Tier-1 "silent alert paths" gap for the
+strategy loop):** `strategy_engine.py --health` inspects the loop's own cadence
+(days since last snapshot), input health (is GSC performance data flowing?), and
+learning health, and **exits non-zero when the loop is stalled** — so a
+monitoring cron can alert instead of failures being invisible. Every run also
+writes `ops/strategy/health.json` and a 🟢/🟡/🔴 badge into the brief. This is
+the first strategy-path job with a non-silent alert path.
+
+**Agent-index note:** the *live* `/llms.txt` and `/llms-full.txt` are generated
+in the deploy workflow from the freshly-built `next/dist/sitemap.xml`, so they
+ship with the site and can never drift from what was published. The orchestrator
+also regenerates the repo-root copies (artifact parity with root `sitemap.xml`).
+`generate-llms-txt.mjs --check` gives CI a drift gate. See `ops/strategy/README.md`.
+
 ## Tier-2 — Daily verification and cleanup (no live mutation)
 
 | Job | Source | Schedule (UTC) | Mutation | Status |
@@ -35,13 +64,32 @@
 | `pi-daily-venue-healthcheck` | openclaw-cron | daily 06:00 | report-only | live |
 | `pi-daily-seasonality-refresh` | openclaw-cron | daily 06:20 | report-only | live |
 | `pi-daily-link-audit` | openclaw-cron | daily 21:20 | report-only | live |
-| `events-archive-expired` | github-actions | daily | mutating-content | live |
-| `events-recompute-occurrence` | github-actions | daily | mutating-content | live |
-| `events-rederive-lenses` | github-actions | daily | mutating-content | live |
-| `events-editorial-research` | github-actions | scheduled | report-only | live |
-| `events-weekly-rebuild` | github-actions | weekly | mutating-content | live |
-| `insider-usage-report` | github-actions | daily | report-only | live |
-| `refresh-corpus` | github-actions | scheduled | mutating-content | live |
+| `Content Freshness` (`content-freshness.yml`) | github-actions | daily 19:00 | mutating-content | partial - workflow added 2026-07-25, first scheduled run still pending |
+| `events-editorial-research` | github-actions | scheduled | report-only | unverified - no matching file in `.github/workflows/` |
+| `events-weekly-rebuild` | github-actions | weekly | mutating-content | unverified - no matching file in `.github/workflows/` |
+| `insider-usage-report` | github-actions | daily | report-only | unverified - no matching file in `.github/workflows/` |
+| `refresh-corpus` | github-actions | scheduled | mutating-content | unverified - no matching file in `.github/workflows/` |
+
+**Content-freshness note (corrected 2026-07-25):** this row previously listed
+three separate `live` workflows (`events-archive-expired`,
+`events-recompute-occurrence`, `events-rederive-lenses`). No such workflow
+files ever existed. The three scripts were written and tested but referenced by
+nothing, so no event maintenance has actually been running. They are now wired
+into a single daily workflow, `.github/workflows/content-freshness.yml`, which
+runs them in dependency order (`recompute-occurrence.py`, then
+`archive-expired-events.py` (it reads `nextOccurrence`), then
+`rederive-lenses.py`), plus a fourth script,
+`archive-expired-quick-notes.py`, which retires quick notes past their
+`expiresAt`. The workflow commits and pushes its own diff; it does not write a
+publication-ledger entry. Alert path is the GitHub Actions UI. Promote this row
+to `live` once a scheduled run is observed.
+
+**Tier-2 github-actions note (2026-07-25):** the four `unverified` rows above
+were also listed as `live` github-actions jobs, but the repository contains
+only five workflow files (`build-and-deploy.yml`, `daily-content.yml`,
+`weekly-content.yml`, `monthly-content.yml`, `pi-data-refresh.yml`) plus the
+new `content-freshness.yml`. Whatever these four jobs are, they are not running
+as GitHub Actions. Reconciling them is part of item 11.
 
 ## Tier-3 — Weekly editorial and SEO rhythm
 
@@ -99,10 +147,112 @@ These rituals write to `next/.claude/newsroom/` (slates, perf, retros, look-ahea
 | `Warden — Daily Backup Freshness Check` | openclaw-cron | daily 07:30 | report-only | live |
 | `Runner — Stall Detection` | openclaw-cron | every 15 min | report-only | live |
 
+## Tier-0 — Content Factory (weekly campaign rhythm)
+
+**Added 2026-07-28.** The campaign layer. Selects one Featured Plan a week, packages it as a
+Content Campaign Packet, derives channel copy, and queues a staggered release ladder. Every
+stage writes a `pi_run_log` row, so this tier has **no silent alert paths by construction**.
+
+| Job | Source | Schedule (UTC) | Mutation | Status | Alert path |
+|---|---|---|---|---|---|
+| `content-factory / build` | github-actions | Sun 20:00 (Mon 06:00 AEST) | mutating-content (`ops/campaigns/`) | live | GH issue (thesis request) |
+| `content-factory / derive` | github-actions | Wed 19:00 (Thu 05:00 AEST) | mutating-content | live | `pi_run_log` + GH Actions UI |
+| `content-factory / health` | github-actions | daily 21:00 | scan-only | live | `engine/alert.py` deduped GH issue |
+| `campaign-schedule --submit` | **manual only** | on demand | **mutating-live** | live | `pi_run_log` |
+
+**Deliberate non-automation:** nothing in this tier submits to Buffer or Mailchimp. Live
+distribution is a separate manual act, gated in code on a signed thesis and `ready` L3 assets.
+Automating the build rhythm is safe; automating the send is autonomy that should be earned on
+evidence, not assumed at install time. See the graduated approval ladder in
+`docs/peninsula-insider-content-operating-system-2026-07-28.md`.
+
+**Observability:** `node ops/scripts/factory-status.mjs` is the single view. Exit code 1 means
+something is genuinely wrong (a stale job, a failed publication, a campaign past its SLA), so
+the daily job alerts on it rather than a human remembering to look.
+
+**Correction to a long-standing hazard note (verified 2026-07-28):** the "sync dist to repo
+root wipes everything except an allowlist" trap no longer applies. `build-and-deploy.yml`
+publishes only `next/dist` to `gh-pages`; the root-deploy model (`build-live.sh`) is retired.
+New top-level directories such as `ops/campaigns/` are safe. Earlier docs warning otherwise
+are describing a hazard that has been removed.
+
+## Heartbeat findings — 2026-07-28
+
+`node ops/scripts/job-heartbeat.mjs` checks the opposite way round from an alert: it knows
+what artifact each job is supposed to leave and reports when the artifact is missing. A job
+cannot hide from it by not running, which is the failure mode alerts never catch.
+
+First run found four problems, none of which were visible anywhere before:
+
+| Job | Listed status | Actual | Evidence |
+|---|---|---|---|
+| `pi-daily-link-audit` | live | **NEVER produced an artifact** | no `reports/peninsula-link-audit-*` exists |
+| `pi-daily-venue-healthcheck` | live | **NEVER produced an artifact** | no `reports/peninsula-venue-health-*` exists |
+| `pi-daily-events-scan` | live | **NEVER produced an artifact** | already flagged in `ops/editorial-jobs.json`, now confirmed |
+| `pi-opportunity-detection` | live | ~~stale~~ **CORRECTED: runs fine** | see the correction below |
+
+The link-audit and venue-healthcheck rows in Tier-2 above should be read as `unverified`
+until they produce a dated report. This is the same class of error the 2026-07-25 correction
+found for the three phantom event workflows: a row in this file is a claim, not evidence.
+
+**Causal note:** `pi-opportunity-detection` being dead for 11 days is why `signal_lift` scores
+0.00 for nearly every Plan in `score-plan-fitness.mjs`. A dead upstream job was silently
+degrading downstream commissioning quality, and nothing surfaced it. That is the whole
+argument for the heartbeat.
+
+**Correction, same day.** The `pi-opportunity-detection` "stale" verdict above was a false
+positive and the diagnosis of "dead job" was wrong. Run manually 2026-07-28: it executed
+cleanly, formed 58 clusters, made 18 LLM calls, cost $0.023, and correctly created zero
+opportunities because every cluster was irrelevant. **"No new rows" is not "did not run"** for
+a table that only gains rows when something qualifies. The heartbeat now treats
+`pi_opportunities` as a conditional-output table.
+
+The real problem is upstream, in the source mix:
+
+| Source | Tier | State | Reality |
+|---|---|---|---|
+| `venue: Doot Doot Doot` | T1 | `active` | **37 consecutive failures** and never demoted |
+| `GDELT DOC 2.0` | T2 | `active` | 15 consecutive failures |
+| `Eventbrite - Mornington` | T3 | degraded | one of only two real event feeds |
+| `Humanitix - Mornington` | T3 | degraded | the other one |
+| `ABC News - Victoria RSS` | T2 | active, healthy | flooding the pipe with statewide noise |
+
+Both dedicated event feeds are degraded while a statewide news RSS works perfectly, so the
+material reaching L3 is Albury council rate rises, Melbourne CBD attractions, and state
+politics. That is why `signal_lift` scores 0.00 for nearly every Plan: not a dead job, a
+starved one. Fixing Eventbrite and Humanitix, demoting Doot Doot Doot, and narrowing or
+dropping the ABC Victoria feed would do more for commissioning quality than any change to the
+scoring model.
+
+Exact fault per source, probed 2026-07-28:
+
+| Source | HTTP | Diagnosis | Fix |
+|---|---|---|---|
+| `venue: Doot Doot Doot` | 403 | `jackalopehotels.com` bot protection. 37 failures. | Demote to `degraded` now; needs headless client or a venue feed |
+| `GDELT DOC 2.0` | 429 | Rate limited despite the 6s courtesy sleep. Runs every 6h. | Back off to daily, or cache and widen the timespan |
+| `Eventbrite - Mornington` | 405 | Bot protection on all non-browser clients | Headless client or partner API |
+| `Humanitix - Mornington` | 403 | Bot protection | Headless client or API |
+| `MP Shire - News & Media` | 404 then 403 | Seeded URL is dead; every candidate path also 403s to curl behind the WAF | Needs a browser session to find the live path |
+
+Three of the five need a headless fetch client, which is a real piece of work rather than a
+config change. **The cheapest immediate win is demoting Doot Doot Doot** so a T1 source with 37
+consecutive failures stops being counted as active, and **backing GDELT off to daily** so it
+stops burning its rate limit every six hours.
+
+The heartbeat now reports source health on failure streak rather than on the `state` label,
+because a source can sit at `active` with 37 failures indefinitely.
+
+**Three mutating jobs are unobservable by design** because they leave no dated artifact:
+`pi-daily-quick-note-qa-publish` (mutates live), `pi-daily-image-relevance-autofix`
+(mutates content), and `pi-maintenance-sweep`. Each should either emit a dated artifact or
+be retired. A mutating job that cannot be proven to have run is a standing risk.
+
 ## Cross-cutting observations
 
 ### What is actually running on PI right now
-Counting only `live` rows above: roughly **27 jobs** are observably executing on PI on some recurring schedule. That is the operational footprint to design control around — not the 50+ jobs that documents *imply* exist.
+Counting only `live` rows above: roughly **27 jobs** are observably executing on PI on some recurring schedule. That is the operational footprint to design control around, not the 50+ jobs that documents *imply* exist.
+
+**Correction (2026-07-25):** that count was itself inflated. Seven Tier-2 rows were marked `live` as github-actions jobs with no workflow file behind them. Three of those (the event-maintenance trio) are now genuinely wired via `content-freshness.yml` but have not yet had a scheduled run; the other four remain `unverified`. Treat the live count as **20 confirmed plus 7 to re-verify** until item 11 reconciles the registries.
 
 ### Where the gaps are
 1. **Alert paths are mostly silent.** Almost every `mutating-*` job in Tier-1 has alert path `silent`. Failures are detectable by reading reports, not by being notified. **This is the single highest-impact fix in this backlog.**

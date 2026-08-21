@@ -1,6 +1,6 @@
 ---
 /**
- * /account/pass/ — Pass member dashboard (Phase 6 WS6A).
+ * /account/pass/ - Pass member dashboard (Phase 6 WS6A).
  *
  * Auth-gated. Shows the signed-in user's Pass tier, renewal date,
  * and a link to the Stripe Customer Portal for billing management.
@@ -24,7 +24,7 @@ export const prerender = true;
 
 <BaseLayout
   title="My Pass · Peninsula Insider"
-  description="Your Peninsula Insider Pass — tier, renewal date, billing."
+  description="Your Peninsula Insider Pass - tier, renewal date, billing."
   section="home"
   noindex={true}
   searchExclude={true}
@@ -53,7 +53,7 @@ export const prerender = true;
       <div class="pass-account-anon" data-pass-account-anon>
         <p class="pass-account-anon__title">Sign in to manage your Pass.</p>
         <p class="pass-account-anon__body">If you've already taken out an Insider or Founders' tier, sign in with the email you used at checkout. Otherwise, see the <a href="/pass/">Pass page</a>.</p>
-        <button type="button" class="pass-account-anon__cta" data-open-auth>Sign in</button>
+        <button type="button" class="pi-btn pi-btn--solid" data-open-auth>Sign in</button>
       </div>
 
       <!-- Loading state -->
@@ -64,30 +64,30 @@ export const prerender = true;
       <!-- No active membership -->
       <div class="pass-account-empty" data-pass-account-empty hidden>
         <p class="pass-account-empty__title">You're signed in, but you don't have an active Pass.</p>
-        <p class="pass-account-empty__body">Pick a tier on the Pass page — Insider unlocks the member benefits, Founders' Circle is a capped longer-term partnership.</p>
-        <a href="/pass/" class="pass-account-empty__cta">Open the Pass page →</a>
+        <p class="pass-account-empty__body">Pick a tier on the Pass page - Insider unlocks the member benefits, Founders' Circle is a capped longer-term partnership.</p>
+        <a href="/pass/" class="pi-btn pi-btn--text">Open the Pass page →</a>
       </div>
 
       <!-- Active membership summary -->
       <div class="pass-account-active" data-pass-account-active hidden>
         <div class="pass-account-active__head">
           <p class="pass-account-active__tier-eyebrow">Your tier</p>
-          <h2 class="pass-account-active__tier" data-pass-tier-name>—</h2>
-          <p class="pass-account-active__status" data-pass-status-text>—</p>
+          <h2 class="pass-account-active__tier" data-pass-tier-name> - </h2>
+          <p class="pass-account-active__status" data-pass-status-text> - </p>
         </div>
 
         <dl class="pass-account-active__detail">
           <div>
             <dt>Billing</dt>
-            <dd data-pass-billing-interval>—</dd>
+            <dd data-pass-billing-interval> - </dd>
           </div>
           <div>
             <dt>Active until</dt>
-            <dd data-pass-active-until>—</dd>
+            <dd data-pass-active-until> - </dd>
           </div>
           <div>
             <dt>Auto-renew</dt>
-            <dd data-pass-autorenew>—</dd>
+            <dd data-pass-autorenew> - </dd>
           </div>
         </dl>
 
@@ -189,13 +189,13 @@ export const prerender = true;
       : 'Member';
     if (statusEl) statusEl.textContent = sub?.status === 'active' ? 'Active'
       : sub?.status === 'trialing' ? 'On trial'
-      : sub?.status === 'past_due' ? 'Payment past due — please update card'
+      : sub?.status === 'past_due' ? 'Payment past due - please update card'
       : sub?.status === 'canceled' ? 'Cancelled, ends at period end'
       : sub?.status ?? 'Active';
     if (intervalEl) intervalEl.textContent =
       sub?.billing_interval === 'month' ? 'Monthly'
       : sub?.billing_interval === 'year' ? 'Annual'
-      : '—';
+      : ' - ';
     if (untilEl) {
       const until = profile?.pass_active_until || sub?.current_period_end;
       untilEl.textContent = until
@@ -203,8 +203,8 @@ export const prerender = true;
         : 'Lifetime';
     }
     if (autorenewEl) autorenewEl.textContent = sub
-      ? (sub.cancel_at_period_end ? 'Off — ends at period end' : 'On')
-      : '—';
+      ? (sub.cancel_at_period_end ? 'Off - ends at period end' : 'On')
+      : ' - ';
 
     bindPortalButton();
   }
@@ -254,19 +254,19 @@ export const prerender = true;
   .pass-account { padding: clamp(1.5rem, 3vw, 2.5rem) 0 clamp(2rem, 4vw, 3rem); }
   .pass-account-welcome {
     border: 1px solid var(--accent);
-    background: rgba(167, 118, 55, 0.08);
+    background: rgba(7, 158, 165, 0.08);
     padding: clamp(1rem, 2vw, 1.4rem);
     margin-bottom: clamp(1.25rem, 2.5vw, 1.75rem);
   }
   .pass-account-welcome__title {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: var(--font-display);
     font-size: 1.4rem;
     font-weight: 500;
     color: var(--accent);
     margin: 0 0 0.45rem;
   }
   .pass-account-welcome__body {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.95rem;
     line-height: 1.55;
     color: var(--dark);
@@ -279,43 +279,23 @@ export const prerender = true;
     text-align: center;
   }
   .pass-account-anon__title, .pass-account-empty__title, .pass-account-loading p {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: var(--font-display);
     font-size: 1.4rem;
     font-weight: 500;
     color: var(--text);
     margin: 0 0 0.5rem;
   }
   .pass-account-anon__body, .pass-account-empty__body {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.95rem;
     color: var(--soft);
     margin: 0 auto 1.25rem;
     max-width: 38rem;
   }
-  .pass-account-anon__body a, .pass-account-empty__cta {
+  .pass-account-anon__body a{
     color: var(--accent);
     text-decoration: underline;
     text-underline-offset: 3px;
-  }
-  .pass-account-anon__cta, .pass-account-empty__cta {
-    display: inline-flex;
-    align-items: center;
-    font-family: 'Outfit', sans-serif;
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    background: var(--accent);
-    color: var(--bg, #fff);
-    border: 1px solid var(--accent);
-    padding: 0.7rem 1.1rem;
-    cursor: pointer;
-    text-decoration: none;
-  }
-  .pass-account-anon__cta:hover, .pass-account-empty__cta:hover {
-    background: var(--text, #1a1a1a);
-    border-color: var(--text, #1a1a1a);
-    color: var(--bg, #fff);
   }
 
   .pass-account-active {
@@ -329,7 +309,7 @@ export const prerender = true;
     margin-bottom: 1rem;
   }
   .pass-account-active__tier-eyebrow {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.7rem;
     font-weight: 600;
     letter-spacing: 0.12em;
@@ -338,7 +318,7 @@ export const prerender = true;
     margin: 0 0 0.45rem;
   }
   .pass-account-active__tier {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: var(--font-display);
     font-size: clamp(1.55rem, 3vw, 2.1rem);
     font-weight: 500;
     color: var(--text);
@@ -346,7 +326,7 @@ export const prerender = true;
     letter-spacing: -0.01em;
   }
   .pass-account-active__status {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.92rem;
     color: var(--soft);
     margin: 0;
@@ -363,7 +343,7 @@ export const prerender = true;
     padding-top: 0.55rem;
   }
   .pass-account-active__detail dt {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.7rem;
     font-weight: 600;
     letter-spacing: 0.1em;
@@ -372,7 +352,7 @@ export const prerender = true;
     margin-bottom: 0.25rem;
   }
   .pass-account-active__detail dd {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 1rem;
     color: var(--text);
     margin: 0;
@@ -384,7 +364,7 @@ export const prerender = true;
     align-items: flex-start;
   }
   .pass-account-active__portal {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.78rem;
     font-weight: 600;
     letter-spacing: 0.06em;
@@ -397,7 +377,7 @@ export const prerender = true;
   }
   .pass-account-active__portal:disabled { opacity: 0.6; cursor: progress; }
   .pass-account-active__portal-note {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.85rem;
     color: var(--soft);
     margin: 0;

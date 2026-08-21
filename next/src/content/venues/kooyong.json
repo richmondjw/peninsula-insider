@@ -40,9 +40,9 @@
         "closes": "17:00"
       }
     ],
-    "tastingFee": "$10",
+    "tastingFee": "Charged",
     "bookingRequired": false,
-    "tastingNote": "Walk-ins available; bookings essential for structured tastings. Standard $10/person (non-refundable); Single Block & Single Vineyard $30; Wine & Cheese $35. Shared cellar door with Port Phillip Estate."
+    "tastingNote": "Walk-ins available; bookings essential for structured tastings. Standard tasting charged per person (non-refundable); Single Block & Single Vineyard and Wine & Cheese tiers also run. Shared cellar door with Port Phillip Estate."
   },
   "wines": {
     "winemaker": "Tim Perrin",
@@ -84,7 +84,7 @@
     },
     {
       "q": "Are dogs allowed at Kooyong?",
-      "a": "No explicit dog policy confirmed in official sources — check before visiting."
+      "a": "No explicit dog policy confirmed in official sources - check before visiting."
     }
   ],
   "sameAs": {
@@ -106,10 +106,10 @@
     ]
   },
   "heroImage": {
-    "src": "/images/sourced/article-hatted-restaurants-01.webp",
-    "alt": "Mornington Peninsula landscape — representative image for Kooyong",
-    "credit": "Peninsula Insider",
-    "license": "other-licensed"
+    "src": "/images/sourced/place-main-ridge-01.webp",
+    "alt": "CSIRO ScienceImage 1961 Chardonnay grapes at the Main Ridge Estate - representative image for Kooyong",
+    "credit": "CSIRO",
+    "license": "wikimedia-cc-by"
   },
   "gallery": [],
   "featuredPartner": false,

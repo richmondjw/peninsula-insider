@@ -1,5 +1,5 @@
 ---
-headline: "Hot Springs stays weather-proof today — Fingal is sitting around 14.6°C this morning"
+headline: "Hot Springs stays weather-proof today - Fingal is sitting around 14.6°C this morning"
 dek: "Peninsula Hot Springs is showing cool, workable conditions in Fingal this morning, which makes it one of the safer Sunday plays if the rain patch lands on schedule."
 section: spa
 tag: weather

@@ -4,9 +4,17 @@
 User-agent: *
 Allow: /
 Disallow: /api/
-Disallow: /_astro/
-# Deployed source tree and preview routes — duplicate of production, keep out of the index.
+# Internal and account surfaces, not for the index.
+Disallow: /admin/
+Disallow: /access/
+Disallow: /account/
+Disallow: /ops/
+# Defence-in-depth: internal trees that must never be crawled if they
+# ever reach the served branch again.
 Disallow: /next/
+Disallow: /docs/
+Disallow: /reports/
+Disallow: /engine/
 Disallow: /preview/
 
 # AI assistants and crawlers are welcome. A curated map of the site for
@@ -17,3 +25,7 @@ Disallow: /preview/
 # * group entirely for that bot.
 
 Sitemap: https://peninsulainsider.com.au/sitemap.xml
+
+# AI agents and LLMs — curated, human-readable map of the site (https://llmstxt.org/)
+# LLM-Index: https://peninsulainsider.com.au/llms.txt
+# LLM-Full-Index: https://peninsulainsider.com.au/llms-full.txt

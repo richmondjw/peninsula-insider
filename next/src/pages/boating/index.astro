@@ -5,7 +5,7 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import SectionHero from '../../components/SectionHero.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import BfAnalytics from '../../components/BfAnalytics.astro';
-import { buildBfHubSchema, buildBreadcrumbSchema } from '../../lib/schema';
+import { buildBfHubSchema } from '../../lib/schema';
 import { BF_EXTERNAL, formatVerifiedStamp } from '../../lib/bf';
 
 // Source: peninsula_insider_boating_fishing_v1/content-bf/hub_boating_index.md
@@ -50,10 +50,6 @@ const hubSchema = buildBfHubSchema({
   ],
 });
 
-const breadcrumbSchema = buildBreadcrumbSchema([
-  { name: 'Home', url: 'https://peninsulainsider.com.au/' },
-  { name: 'Boating', url: 'https://peninsulainsider.com.au/boating/' },
-]);
 export const prerender = true;
 ---
 
@@ -65,7 +61,6 @@ export const prerender = true;
   modifiedTime={lastVerifiedISO}
 >
   <script type="application/ld+json" set:html={JSON.stringify(hubSchema)} />
-  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   <BfAnalytics />
 
   <Breadcrumbs items={breadcrumbItems} />
@@ -113,26 +108,26 @@ export const prerender = true;
         </div>
       </div>
       <div class="venues__grid venues__grid--links">
-        <div class="venue-card">
-          <h3 class="venue-card__name"><a href="/boating/ramps/">Boat ramps</a></h3>
-          <p class="venue-card__signature">Schnapper Point, Sorrento, Safety Beach, Rye, Hastings, Warneet, Tooradin. Tide dependence, parking pressure, and the alternative when this one's full.</p>
-          <a href="/boating/ramps/" class="venue-card__cta">Browse ramps &rarr;</a>
-        </div>
-        <div class="venue-card">
-          <h3 class="venue-card__name"><a href="/boating/hire/">Boat hire</a></h3>
-          <p class="venue-card__signature">Self-drive hire by location: Mornington, Sorrento, Rye, Safety Beach. Polycraft and tinnies for the bay, no-licence options, gear-included rates.</p>
-          <a href="/boating/hire/" class="venue-card__cta">Browse hire &rarr;</a>
-        </div>
-        <div class="venue-card">
-          <h3 class="venue-card__name"><a href="/fishing/charters/">Fishing charters</a></h3>
-          <p class="venue-card__signature">Want to fish without managing a vessel? The charter side lives in /fishing/. Skippered, licence-covered, gear-included.</p>
-          <a href="/fishing/charters/" class="venue-card__cta">Compare charters &rarr;</a>
-        </div>
-        <div class="venue-card">
-          <h3 class="venue-card__name"><a href="/fishing/">Fishing</a></h3>
-          <p class="venue-card__signature">Once you've sorted your access, the fishing decisions: which species, which tide, which technique, which target.</p>
-          <a href="/fishing/" class="venue-card__cta">Fishing hub &rarr;</a>
-        </div>
+        <div class="pi-card"><div class="pi-card__body">
+          <h3 class="pi-card__title"><a href="/boating/ramps/">Boat ramps</a></h3>
+          <p class="pi-card__dek">Schnapper Point, Sorrento, Safety Beach, Rye, Hastings, Warneet, Tooradin. Tide dependence, parking pressure, and the alternative when this one's full.</p>
+          <div class="pi-card__actions"><a href="/boating/ramps/" class="pi-btn pi-btn--solid">Browse ramps &rarr;</a></div>
+        </div></div>
+        <div class="pi-card"><div class="pi-card__body">
+          <h3 class="pi-card__title"><a href="/boating/hire/">Boat hire</a></h3>
+          <p class="pi-card__dek">Self-drive hire by location: Mornington, Sorrento, Rye, Safety Beach. Polycraft and tinnies for the bay, no-licence options, gear-included rates.</p>
+          <div class="pi-card__actions"><a href="/boating/hire/" class="pi-btn pi-btn--solid">Browse hire &rarr;</a></div>
+        </div></div>
+        <div class="pi-card"><div class="pi-card__body">
+          <h3 class="pi-card__title"><a href="/fishing/charters/">Fishing charters</a></h3>
+          <p class="pi-card__dek">Want to fish without managing a vessel? The charter side lives in /fishing/. Skippered, licence-covered, gear-included.</p>
+          <div class="pi-card__actions"><a href="/fishing/charters/" class="pi-btn pi-btn--solid">Compare charters &rarr;</a></div>
+        </div></div>
+        <div class="pi-card"><div class="pi-card__body">
+          <h3 class="pi-card__title"><a href="/fishing/">Fishing</a></h3>
+          <p class="pi-card__dek">Once you've sorted your access, the fishing decisions: which species, which tide, which technique, which target.</p>
+          <div class="pi-card__actions"><a href="/fishing/" class="pi-btn pi-btn--solid">Fishing hub &rarr;</a></div>
+        </div></div>
       </div>
     </div>
   </section>

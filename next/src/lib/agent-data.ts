@@ -8,7 +8,7 @@
  *
  * Rules:
  *  - Public fields only. Internal editorial fields (price bands, workflow
- *    flags, CMS plumbing) are never exported — BRAND-PI "no pricing on
+ *    flags, CMS plumbing) are never exported: BRAND-PI "no pricing on
  *    site" applies to these surfaces too.
  *  - Entries flagged sitemapExclude or permanently closed are skipped, so
  *    the exports mirror exactly what the HTML site publishes.

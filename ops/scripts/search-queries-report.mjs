@@ -135,8 +135,7 @@ async function fetchSearchQueries() {
   ].join(",");
   const url =
     `${SUPABASE_URL}/rest/v1/site_search_queries` +
-    `?schema=pi` +
-    `&select=${select}` +
+    `?select=${select}` +
     `&created_at=gte.${encodeURIComponent(sinceISO)}` +
     `&order=created_at.desc` +
     `&limit=5000`;

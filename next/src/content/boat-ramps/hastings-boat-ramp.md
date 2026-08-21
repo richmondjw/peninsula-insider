@@ -25,7 +25,7 @@ accessibleSpecies:
   - gummy-shark
   - australian-salmon
 intro: Four-lane all-tide concrete ramp at Hastings, the busiest and best-equipped public ramp in Western Port. Recently upgraded (2024) with new pontoons including an all-abilities Hansa hoist on the southern pontoon. Adjacent to Westernport Marina; the primary departure point for Western Port charter operations.
-metaDescription: Hastings Boat Ramp — four lanes, all-tide, free, 40m concrete with new pontoons including all-abilities hoist. The best-equipped Western Port public ramp.
+metaDescription: Hastings Boat Ramp - four lanes, all-tide, free, 40m concrete with new pontoons including all-abilities hoist. The best-equipped Western Port public ramp.
 faq:
   - question: Can I launch at Hastings at any tide?
     answer: 'Yes. Hastings has all-tide access. The 2024 upgrade and dredging confirmed the approach depth supports standard recreational vessels at any tidal state. This is the defining advantage over Warneet, where caution is required at low tide.'

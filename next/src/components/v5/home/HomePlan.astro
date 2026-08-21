@@ -1,0 +1,321 @@
+---
+/**
+ * HomePlan - block 5, the featured plan (page-redesigns.md 1.9 item 5;
+ * wireframes.html #home note 4: "The Decide door, one plan only").
+ *
+ * One plan Card (v5 plan variant: day-count chip, fork SaveControl) chosen
+ * deterministically at build time: in-season plans first, year-round next
+ * form the eligible pool; within that pool the pick rotates on a fixed
+ * calendar window (ROTATION_WINDOW_DAYS) rather than always favoring the
+ * most recently published plan. Same UTC window always yields the same
+ * plan (deterministic, reproducible for a given build), but the pick
+ * changes once the window rolls over (rotating) - see
+ * .github/workflows/build-and-deploy.yml `schedule` for the rebuild
+ * cadence that makes the rotation actually reach the live site. Closes
+ * with "All plans" into the hub.
+ */
+import { getCollection } from 'astro:content';
+import Card from '../Card.astro';
+import { resolveHero } from '../../../lib/inline-edit/resolve-hero';
+import { currentSeason } from '../../../lib/editorial';
+
+const ROTATION_WINDOW_DAYS = 5;
+
+const plans = await getCollection('itineraries');
+const season = currentSeason();
+
+const seasonScore = (p: any) =>
+  p.data.season === season ? 2 : p.data.season === 'year-round' ? 1 : 0;
+
+const topScore = plans.reduce((max, p) => Math.max(max, seasonScore(p)), 0);
+
+// Eligibility: same season-priority tier as before (in-season beats
+// year-round beats out-of-season). Everything tied for the top tier is a
+// fair pick - this is where rotation replaces "always most recent".
+const eligible = [...plans]
+  .filter((p) => seasonScore(p) === topScore)
+  .sort((a, b) => (a.data.slug ?? a.id).localeCompare(b.data.slug ?? b.id));
+
+const epochDay = Math.floor(Date.now() / 86_400_000);
+const rotationIndex = eligible.length
+  ? Math.floor(epochDay / ROTATION_WINDOW_DAYS) % eligible.length
+  : 0;
+
+const featured = eligible[rotationIndex];
+
+const slug = featured ? (featured.data.slug ?? featured.id) : '';
+const hero = featured ? await resolveHero('itinerary', slug, featured.data) : null;
+
+const moodLabel = featured
+  ? String(featured.data.mood ?? '')
+      .replace(/-/g, ' ')
+      .replace(/^\w/, (c: string) => c.toUpperCase())
+  : '';
+
+const audienceLabel = featured
+  ? ({ couple: 'Couples', family: 'Family', friends: 'Friends', solo: 'Solo', locals: 'Locals' } as Record<string, string>)[
+      featured.data.audience
+    ] ?? ''
+  : '';
+
+const seasonLabel = featured
+  ? String(featured.data.season ?? '')
+      .replace(/-/g, ' ')
+      .replace(/^\w/, (c: string) => c.toUpperCase())
+  : '';
+
+const dayCount = featured ? (featured.data.lengthNights ?? 0) + 1 : 0;
+const firstStop = featured
+  ? [...(featured.data.stops ?? [])].sort((a: any, b: any) => a.day - b.day || a.order - b.order)[0]
+  : null;
+const firstStopDetail = firstStop?.note
+  ? String(firstStop.note).split(/(?<=[.!?])\s+/)[0]
+  : featured?.data.editorNote
+    ? String(featured.data.editorNote).split(/(?<=[.!?])\s+/)[0]
+    : '';
+const planShape = [
+  dayCount ? `${dayCount} ${dayCount === 1 ? 'day' : 'days'}` : '',
+  audienceLabel,
+  seasonLabel === 'Year round' ? '' : seasonLabel,
+].filter(Boolean);
+---
+
+{featured && hero && (
+  <section class="home-plan" aria-labelledby="home-plan-title">
+    <div class="container">
+      <div class="home-plan__head">
+        <div class="home-plan__heading">
+          <p class="home-plan__eyebrow">Plan it</p>
+          <h2 id="home-plan-title" class="home-plan__title">Featured plan</h2>
+        </div>
+        <p class="home-plan__all">
+          <a href="/explore/plans/">All plans &rarr;</a>
+        </p>
+      </div>
+
+      <div class="home-plan__layout">
+        {/* showEyebrow is off: the section heading is already "Featured plan",
+            so a PLAN stamp on the single card below it says nothing new. */}
+        <div class="home-plan__card">
+          <Card
+            as="article"
+            variant="plan"
+            title={featured.data.title}
+            href={`/explore/plans/${slug}/`}
+            entityType="itinerary"
+            entitySlug={slug}
+            image={{ src: hero.src, alt: hero.alt || featured.data.title }}
+            verdict={featured.data.dek}
+            showEyebrow={false}
+            dayCount={dayCount}
+            meta={[moodLabel].filter(Boolean)}
+            freshness={featured.data.lastVerified ? String(featured.data.lastVerified) : undefined}
+            surface="home-plan"
+            position={0}
+          />
+        </div>
+
+        <aside class="home-plan__rail" aria-label="Plan details and alternatives">
+          <div class="home-plan__shape">
+            <p class="home-plan__rail-label">This plan's shape</p>
+            {planShape.length > 0 && <p class="home-plan__shape-list">{planShape.join(' · ')}</p>}
+          </div>
+
+          {firstStopDetail && (
+            <div class="home-plan__start">
+              <p class="home-plan__rail-label">Start here</p>
+              <p>{firstStopDetail}</p>
+            </div>
+          )}
+
+          <nav class="home-plan__alternatives" aria-label="Browse plans by context">
+            <p class="home-plan__rail-label">If today looks different</p>
+            <ul>
+              <li><a href="/explore/plans/?context=one-day">One day <span aria-hidden="true">→</span></a></li>
+              <li><a href="/explore/plans/?context=family">With kids <span aria-hidden="true">→</span></a></li>
+              <li><a href="/explore/plans/?context=rainy-day">Rainy day <span aria-hidden="true">→</span></a></li>
+            </ul>
+          </nav>
+        </aside>
+      </div>
+    </div>
+  </section>
+)}
+
+<style>
+  .home-plan {
+    padding: var(--space-7) 0;
+  }
+
+  .home-plan__head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-bottom: var(--space-5);
+  }
+
+  .home-plan__heading {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .home-plan__eyebrow {
+    margin: 0;
+    font-family: var(--font-ui);
+    font-size: var(--fs-100);
+    font-weight: var(--fw-semibold);
+    letter-spacing: var(--ls-eyebrow);
+    text-transform: uppercase;
+    color: var(--teal-text);
+  }
+
+  .home-plan__title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: var(--fw-display);
+    font-size: var(--fs-700);
+    line-height: var(--lh-heading);
+    letter-spacing: var(--ls-display);
+    color: var(--text);
+  }
+
+  .home-plan__all {
+    margin: 0;
+    font-family: var(--font-ui);
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-300);
+  }
+
+  .home-plan__all a {
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 1.5px solid var(--accent);
+    padding-bottom: 2px;
+    transition: color var(--dur-fast) var(--ease-enter);
+  }
+
+  .home-plan__all a:hover {
+    color: var(--accent);
+  }
+
+  .home-plan__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(15rem, 1fr);
+    align-items: stretch;
+    border-top: 1px solid var(--border, color-mix(in srgb, var(--text) 16%, transparent));
+  }
+
+  .home-plan__card {
+    min-width: 0;
+    padding: var(--space-5) var(--space-6) var(--space-5) 0;
+  }
+
+  .home-plan__rail {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+    padding: var(--space-5) 0 var(--space-5) var(--space-6);
+    border-left: 1px solid var(--border, color-mix(in srgb, var(--text) 16%, transparent));
+    color: var(--text);
+  }
+
+  .home-plan__rail-label {
+    margin: 0 0 var(--space-2);
+    font-family: var(--font-ui);
+    font-size: var(--fs-100);
+    font-weight: var(--fw-semibold);
+    letter-spacing: var(--ls-eyebrow);
+    text-transform: uppercase;
+    color: var(--teal-text);
+  }
+
+  .home-plan__shape-list,
+  .home-plan__start p:last-child {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: var(--fs-400);
+    line-height: 1.35;
+    letter-spacing: var(--ls-display);
+  }
+
+  .home-plan__alternatives {
+    margin-top: auto;
+    padding-top: var(--space-5);
+    border-top: 1px solid var(--border, color-mix(in srgb, var(--text) 16%, transparent));
+  }
+
+  .home-plan__alternatives ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .home-plan__alternatives a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 44px;
+    color: var(--text);
+    font-family: var(--font-ui);
+    font-size: var(--fs-300);
+    font-weight: var(--fw-semibold);
+    text-decoration: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--text) 18%, transparent);
+  }
+
+  .home-plan__alternatives a:hover {
+    color: var(--accent);
+  }
+
+  @media (max-width: 63.99rem) {
+    .home-plan__layout {
+      grid-template-columns: 1fr;
+    }
+
+    .home-plan__card {
+      padding-right: 0;
+    }
+
+    .home-plan__rail {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--space-4);
+      padding: var(--space-5) 0 0;
+      border-top: 1px solid var(--border, color-mix(in srgb, var(--text) 16%, transparent));
+      border-left: 0;
+    }
+
+    .home-plan__alternatives {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: 0;
+    }
+  }
+
+  @media (max-width: 39.99rem) {
+    .home-plan__card {
+      padding: var(--space-4) 0;
+    }
+
+    .home-plan__rail {
+      display: block;
+      padding-top: var(--space-4);
+    }
+
+    .home-plan__start,
+    .home-plan__alternatives {
+      margin-top: var(--space-4);
+    }
+
+    .home-plan__alternatives {
+      padding-top: var(--space-4);
+      border-top: 1px solid var(--border, color-mix(in srgb, var(--text) 16%, transparent));
+    }
+  }
+</style>

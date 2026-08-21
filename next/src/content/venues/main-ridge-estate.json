@@ -17,7 +17,7 @@
   "priceBand": "$$",
   "authority": {
     "awards": [
-      "Planted 1975 — The Peninsula's Original Vineyard",
+      "Planted 1975 - The Peninsula's Original Vineyard",
       "James Halliday 5-Red-Star Winery"
     ],
     "hats": 0
@@ -36,9 +36,9 @@
         "closes": "17:00"
       }
     ],
-    "tastingFee": "$30",
+    "tastingFee": "Charged",
     "bookingRequired": true,
-    "tastingNote": "Bookings required via the estate reservation system (including for dogs). Open Friday–Sunday 11am–5pm, tastings until 4pm. $30 per person for a selection of 6 wines."
+    "tastingNote": "Bookings required via the estate reservation system (including for dogs). Open Friday–Sunday 11am–5pm, tastings until 4pm. Tastings cover a selection of 6 wines, charged per person."
   },
   "wines": {
     "winemaker": "James Sexton",
@@ -77,11 +77,11 @@
     },
     {
       "q": "Does Main Ridge Estate have a restaurant?",
-      "a": "Yes — The Kitchen serves seasonal shared plates and casual lunch on weekends. No current Good Food Guide hat."
+      "a": "Yes - The Kitchen serves seasonal shared plates and casual lunch on weekends. No current Good Food Guide hat."
     },
     {
       "q": "Are dogs allowed at Main Ridge Estate?",
-      "a": "Confirmed yes — well-behaved dogs on a leash are welcome in the outdoor deck area, but must be pre-booked via the reservation system."
+      "a": "Confirmed yes - well-behaved dogs on a leash are welcome in the outdoor deck area, but must be pre-booked via the reservation system."
     }
   ],
   "sameAs": {
@@ -92,9 +92,9 @@
   "tags": {
     "mood": [
       "cellar-door",
-      "slow",
       "fireplace",
-      "weekend-escape"
+      "weekend-escape",
+      "worth-the-drive"
     ],
     "season": [
       "all-year"
@@ -105,10 +105,10 @@
     ]
   },
   "heroImage": {
-    "src": "/images/sourced/article-chardonnay-case-01.webp",
-    "alt": "Mornington Peninsula landscape — representative image for Main Ridge Estate",
-    "credit": "Peninsula Insider",
-    "license": "other-licensed"
+    "src": "/images/sourced/place-main-ridge-01.webp",
+    "alt": "CSIRO ScienceImage 1961 Chardonnay grapes at the Main Ridge Estate",
+    "credit": "CSIRO",
+    "license": "wikimedia-cc-by"
   },
   "gallery": [],
   "featuredPartner": false,

@@ -1,0 +1,672 @@
+/* =========================================================
+   Peninsula Insider  -  Component primitives
+   ---------------------------------------------------------
+   P3-1 / P3-2 / P3-4 (visual design review 2026-07-25, section 4.4).
+
+   Two primitives, one API:
+
+     .pi-btn    base + 3 variants (solid / ghost / text)
+                + 3 sizes (sm / default / lg)
+                + 3 modifiers (block / inverse / icon)
+     .pi-card   base + 6 elements + 2 variants
+
+   This sheet is imported from global.css immediately after
+   v6-tokens.css, so it is the FIRST rule source in the cascade.
+   Every value is a v6 token. No brand hue is introduced here.
+
+   MIGRATION CONTRACT (read before editing)
+   ----------------------------------------
+   The 40+ legacy button/CTA families and the 7 legacy card
+   families are grouped onto the primitive declarations below
+   rather than deleted, so old markup and new markup both render
+   correctly while the markup migration is in flight. The full
+   old-class to new-class mapping is in:
+     docs/patches/component-migration-map-2026-07-25.md
+
+   Because this sheet loads first, any surviving legacy rule in
+   global.css (or a later sheet) at equal specificity WINS. The
+   legacy base blocks have therefore been stripped down to their
+   genuinely distinct residue (placement, occurrence-specific
+   sizing, state). Do not re-add ground, border, radius, type or
+   hover to a legacy selector: put it here or override it in a
+   scoped component style.
+
+   ACCESSIBILITY CONTRACT (computed 2026-07-25, not estimated)
+   ----------------------------------------------------------
+     --white  on --accent  (solid label)          8.00:1
+     --white  on --acc-h   (solid hover)         10.46:1
+     --text   on --mint    (inverse solid label) 14.38:1
+     --text   on #FFFFFF   (ghost label)         16.64:1
+     --accent on #FFFFFF   (text label / focus)   8.17:1
+     #FFFFFF  on --bg-dark (inverse ghost label) 13.43:1
+     --mint   on --bg-dark (inverse focus ring)  11.60:1
+     --border-strong on #FFFFFF (ghost border)    5.10:1
+     --border on #FFFFFF   (card hairline)        3.45:1
+     --soft   on #FFFFFF   (card meta / dek)      7.26:1
+   ========================================================= */
+
+/* =========================================================
+   BUTTON  -  .pi-btn
+   ========================================================= */
+
+/* --- base ------------------------------------------------
+   Sentence case is the house rule. text-transform and
+   letter-spacing are pinned to their neutral values (not
+   merely omitted) so the uppercase-letterspaced pattern the
+   review flagged as dated cannot leak back in through a
+   surviving legacy declaration or an inherited rule. */
+.pi-btn,
+/* legacy: solid */
+.venue-detail__book-btn,
+.venue-card__cta,
+.venue-card__book,
+.itinerary-detail__cta,
+.news-close__cta,
+.mobile-nav__cta,
+.itinerary-empty__cta,
+.submit-form__button,
+.guide-card__form-button,
+.tour-cta-primary,
+.newsletter__submit,
+.newsletter__cta-button,
+.v2-account-page__cta,
+.v2-account-page__save,
+.subscribe-pill,
+.v3-btn,
+.v3-btn--solid,
+.v3-btn--vine,
+.v3-subscribe-cta,
+.v4-subscribe-cta,
+/* legacy: ghost */
+.venue-detail__phone-btn,
+.article__share-btn,
+.save-button,
+.masthead__cta,
+.facts__cta,
+.venues__more-btn,
+.weekend-picker__cta,
+.weekend-picker__cta--ghost,
+.itinerary-empty__cta--ghost,
+.site-search-overlay__cta,
+.search-page-v2__pager-btn,
+.search-page-v2__fallback-cta,
+.ed-cover__cta,
+.ask-dialog__reset,
+.v3-btn--ghost,
+/* legacy: icon */
+.v3-iconbtn,
+.v4-iconbtn,
+.typeahead__close,
+/* legacy: text */
+.feature__cta,
+.experience-card__cta,
+.itinerary-card__cta,
+.event-card__cta,
+.tour-card__cta,
+.where-you-sleep__cta,
+.map-popup__cta,
+.place-submit-cta__link,
+.masthead__cta-mobile,
+.ask-itinerary-cta__link,
+.ed-notebook__cta,
+.ed-builder__slot-cta,
+.v3-pillarcard__cta,
+.v3-weekend__cta,
+.v4-pin__cta,
+.v4-mega__top-banner-cta,
+.v4-drawer__pillar-banner-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 44px;              /* touch target floor */
+  padding: var(--space-2) var(--space-5);
+  font-family: var(--font-ui);
+  font-size: var(--fs-300);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-ui);
+  text-transform: none;          /* sentence case, always */
+  letter-spacing: normal;        /* no tracking on button labels */
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius-s);
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  transition:
+    background-color var(--dur-med) var(--ease-enter),
+    border-color var(--dur-med) var(--ease-enter),
+    color var(--dur-med) var(--ease-enter);
+}
+
+.pi-btn:focus-visible,
+.venue-detail__book-btn:focus-visible,
+.venue-card__cta:focus-visible,
+.venue-card__book:focus-visible,
+.itinerary-detail__cta:focus-visible,
+.news-close__cta:focus-visible,
+.mobile-nav__cta:focus-visible,
+.itinerary-empty__cta:focus-visible,
+.submit-form__button:focus-visible,
+.guide-card__form-button:focus-visible,
+.tour-cta-primary:focus-visible,
+.newsletter__submit:focus-visible,
+.newsletter__cta-button:focus-visible,
+.v2-account-page__cta:focus-visible,
+.v2-account-page__save:focus-visible,
+.subscribe-pill:focus-visible,
+.v3-btn:focus-visible,
+.v3-subscribe-cta:focus-visible,
+.v4-subscribe-cta:focus-visible,
+.venue-detail__phone-btn:focus-visible,
+.article__share-btn:focus-visible,
+.save-button:focus-visible,
+.masthead__cta:focus-visible,
+.facts__cta:focus-visible,
+.venues__more-btn:focus-visible,
+.weekend-picker__cta:focus-visible,
+.itinerary-empty__cta--ghost:focus-visible,
+.site-search-overlay__cta:focus-visible,
+.search-page-v2__pager-btn:focus-visible,
+.search-page-v2__fallback-cta:focus-visible,
+.ed-cover__cta:focus-visible,
+.ask-dialog__reset:focus-visible,
+.v3-iconbtn:focus-visible,
+.v4-iconbtn:focus-visible,
+.typeahead__close:focus-visible,
+.feature__cta:focus-visible,
+.experience-card__cta:focus-visible,
+.itinerary-card__cta:focus-visible,
+.event-card__cta:focus-visible,
+.tour-card__cta:focus-visible,
+.where-you-sleep__cta:focus-visible,
+.map-popup__cta:focus-visible,
+.place-submit-cta__link:focus-visible,
+.masthead__cta-mobile:focus-visible,
+.ask-itinerary-cta__link:focus-visible,
+.ed-notebook__cta:focus-visible,
+.ed-builder__slot-cta:focus-visible,
+.v3-pillarcard__cta:focus-visible,
+.v3-weekend__cta:focus-visible,
+.v4-pin__cta:focus-visible,
+.v4-mega__top-banner-cta:focus-visible,
+.v4-drawer__pillar-banner-cta:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.pi-btn[disabled],
+.pi-btn[aria-disabled='true'],
+.submit-form__button[disabled],
+.guide-card__form-button[disabled] {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* --- variant: solid --------------------------------------
+   --white on --accent = 8.00:1; hover --acc-h = 10.46:1. */
+.pi-btn--solid,
+.venue-detail__book-btn,
+.venue-card__cta,
+.venue-card__book,
+.itinerary-detail__cta,
+.news-close__cta,
+.mobile-nav__cta,
+.itinerary-empty__cta,
+.submit-form__button,
+.guide-card__form-button,
+.tour-cta-primary,
+.newsletter__submit,
+.v2-account-page__cta,
+.v2-account-page__save,
+.subscribe-pill,
+.v3-btn--solid,
+.v3-btn--vine,
+.v3-subscribe-cta,
+.v4-subscribe-cta {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: var(--white);
+}
+.pi-btn--solid:hover,
+.venue-detail__book-btn:hover,
+.venue-card__cta:hover,
+.venue-card__book:hover,
+.itinerary-detail__cta:hover,
+.news-close__cta:hover,
+.mobile-nav__cta:hover,
+.itinerary-empty__cta:hover,
+.submit-form__button:hover:not([disabled]),
+.guide-card__form-button:hover:not([disabled]),
+.tour-cta-primary:hover,
+.newsletter__submit:hover,
+.v2-account-page__cta:hover,
+.v2-account-page__save:hover,
+.subscribe-pill:hover,
+.v3-btn--solid:hover,
+.v3-btn--vine:hover,
+.v3-subscribe-cta:hover,
+.v4-subscribe-cta:hover {
+  background-color: var(--acc-h);
+  border-color: var(--acc-h);
+  color: var(--white);
+}
+
+/* --- variant: ghost --------------------------------------
+   --text label on white = 16.64:1; --border-strong rule = 5.10:1.
+   This also lands P3-3: the venue phone control used --soft on a
+   --border hairline, which read as a disabled field. It now
+   carries the same affordance as every other secondary action. */
+.pi-btn--ghost,
+.venue-detail__phone-btn,
+.article__share-btn,
+.save-button,
+.masthead__cta,
+.facts__cta,
+.venues__more-btn,
+.weekend-picker__cta,
+.weekend-picker__cta--ghost,
+.itinerary-empty__cta--ghost,
+.site-search-overlay__cta,
+.search-page-v2__pager-btn,
+.search-page-v2__fallback-cta,
+.ed-cover__cta,
+.ask-dialog__reset,
+.v3-btn--ghost,
+.v3-iconbtn,
+.v4-iconbtn,
+.typeahead__close {
+  background-color: transparent;
+  border: 1px solid var(--border-strong);
+  color: var(--text);
+}
+.pi-btn--ghost:hover,
+.venue-detail__phone-btn:hover,
+.article__share-btn:hover,
+.save-button:hover,
+.masthead__cta:hover,
+.facts__cta:hover,
+.venues__more-btn:hover,
+.weekend-picker__cta:hover,
+.itinerary-empty__cta--ghost:hover,
+.site-search-overlay__cta:hover,
+.search-page-v2__pager-btn:hover,
+.ed-cover__cta:hover,
+.ask-dialog__reset:hover,
+.v3-iconbtn:hover,
+.v4-iconbtn:hover,
+.typeahead__close:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* --- variant: text ---------------------------------------
+   No box. --accent label on white = 8.17:1, with a 1px rule.
+   The 44px floor is dropped (a text action is a link, not a
+   box) but a 24px target is kept for WCAG 2.5.8. */
+.pi-btn--text,
+.feature__cta,
+.experience-card__cta,
+.itinerary-card__cta,
+.event-card__cta,
+.tour-card__cta,
+.where-you-sleep__cta,
+.map-popup__cta,
+.place-submit-cta__link,
+.masthead__cta-mobile,
+.ask-itinerary-cta__link,
+.ed-notebook__cta,
+.ed-builder__slot-cta,
+.v3-pillarcard__cta,
+.v3-weekend__cta,
+.v4-pin__cta,
+.v4-mega__top-banner-cta,
+.v4-drawer__pillar-banner-cta {
+  display: inline-flex;
+  min-height: 1.5rem;            /* 24px target, WCAG 2.5.8 AA */
+  padding: var(--space-1) 0;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.28em;
+  white-space: normal;
+}
+.pi-btn--text:hover,
+.feature__cta:hover,
+.experience-card__cta:hover,
+.itinerary-card__cta:hover,
+.event-card__cta:hover,
+.tour-card__cta:hover,
+.where-you-sleep__cta:hover,
+.map-popup__cta:hover,
+.place-submit-cta__link:hover,
+.masthead__cta-mobile:hover,
+.ask-itinerary-cta__link:hover,
+.ed-notebook__cta:hover,
+.v3-pillarcard__cta:hover,
+.v3-weekend__cta:hover,
+.v4-pin__cta:hover,
+.v4-mega__top-banner-cta:hover {
+  color: var(--acc-h);
+}
+
+/* --- sizes -----------------------------------------------
+   Default (no modifier) is medium. --sm drops below the 44px
+   floor on purpose: it is the dense-chrome scale, and any
+   consumer that is a primary tap target restores min-height
+   in its own scoped rule (see V5Masthead). */
+.pi-btn--sm {
+  min-height: 36px;
+  padding: var(--space-1) var(--space-3);
+  font-size: var(--fs-200);
+  gap: var(--space-1);
+}
+.pi-btn--lg {
+  min-height: 52px;
+  padding: var(--space-3) var(--space-6);
+  font-size: var(--fs-400);
+}
+
+/* --- modifier: block -------------------------------------- */
+.pi-btn--block,
+.facts__cta {
+  display: flex;
+  width: 100%;
+}
+
+/* --- modifier: icon ---------------------------------------
+   Square footprint, icon only, 44px floor. Icon buttons are
+   one of the two places the radius policy allows the pill. */
+.pi-btn--icon,
+.v3-iconbtn,
+.v4-iconbtn,
+.typeahead__close {
+  width: 44px;
+  min-width: 44px;
+  height: 44px;
+  min-height: 44px;
+  padding: 0;
+  gap: 0;
+  border-radius: var(--radius-pill);
+}
+.pi-btn--icon.pi-btn--sm {
+  width: 36px;
+  min-width: 36px;
+  height: 36px;
+  min-height: 36px;
+}
+.pi-btn--icon.pi-btn--lg {
+  width: 52px;
+  min-width: 52px;
+  height: 52px;
+  min-height: 52px;
+}
+
+/* --- modifier: inverse ------------------------------------
+   For dark grounds (--bg-dark and photographic scrims).
+   solid: --mint fill, --text label   = 14.38:1
+   ghost: white rule, white label     = 13.43:1
+   focus ring switches to --mint      = 11.60:1 */
+.pi-btn--inverse.pi-btn--solid,
+.newsletter__cta-button {
+  background-color: var(--mint);
+  border-color: var(--mint);
+  color: var(--text);
+}
+.pi-btn--inverse.pi-btn--solid:hover,
+.newsletter__cta-button:hover {
+  background-color: var(--white);
+  border-color: var(--white);
+  color: var(--text);
+}
+
+.pi-btn--inverse.pi-btn--ghost,
+.search-page-v2__fallback-cta,
+.ed-cover__cta,
+.v3-btn--ghost {
+  background-color: transparent;
+  border-color: #FFFFFF;
+  color: #FFFFFF;
+}
+.pi-btn--inverse.pi-btn--ghost:hover,
+.search-page-v2__fallback-cta:hover,
+.ed-cover__cta:hover,
+.v3-btn--ghost:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: #FFFFFF;
+  color: #FFFFFF;
+}
+
+.pi-btn--inverse.pi-btn--text,
+.ed-builder__slot-cta,
+.v4-drawer__pillar-banner-cta {
+  color: var(--mint);
+}
+.pi-btn--inverse.pi-btn--text:hover,
+.ed-builder__slot-cta:hover,
+.v4-drawer__pillar-banner-cta:hover {
+  color: #FFFFFF;
+}
+
+.pi-btn--inverse:focus-visible,
+.search-page-v2__fallback-cta:focus-visible,
+.ed-cover__cta:focus-visible,
+.ed-builder__slot-cta:focus-visible,
+.newsletter__cta-button:focus-visible,
+.v4-drawer__pillar-banner-cta:focus-visible {
+  outline: 2px solid var(--focus-ring-color-inverse);
+  outline-offset: 2px;
+}
+
+/* =========================================================
+   CARD  -  .pi-card
+   ---------------------------------------------------------
+   No box-shadow, by design (P0-4). Definition comes from the
+   --border hairline, which measures 3.45:1 on #FFFFFF.
+   ========================================================= */
+
+/* .place-card is deliberately NOT in this group. See global.css: the place
+   tile is a photograph with a caption under it, not a contained card, and its
+   body carries no horizontal padding. Giving it the hairline ran the border
+   straight into the text. */
+.pi-card,
+.venue-card,
+.event-card,
+.itinerary-card,
+.tour-card,
+.experience-card,
+.guide-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-m);
+  overflow: hidden;
+  box-shadow: none;
+  transition:
+    border-color var(--dur-med) var(--ease-enter),
+    transform var(--dur-med) var(--ease-enter);
+}
+.pi-card:hover,
+.venue-card:hover,
+.event-card:hover,
+.itinerary-card:hover,
+.tour-card:hover,
+.experience-card:hover,
+.guide-card:hover {
+  border-color: var(--border-strong);
+}
+
+/* --- __media ---------------------------------------------
+   The card clips its own corners, so the media needs no
+   radius of its own. Standalone editorial images that are
+   NOT inside a card carry --radius-m directly. */
+.pi-card__media {
+  position: relative;
+  flex: 0 0 auto;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  background: var(--bg-alt);
+}
+.pi-card__media img,
+.pi-card__media picture,
+.pi-card__media video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --- __body ---------------------------------------------- */
+/* Padding is --space-4, matching the v5 card this primitive replaced.
+   The refactor is meant to be visually neutral: --space-5 added 16px of
+   height to every card, which compounded to roughly 800px on the hub
+   pages and pulled the dek into an earlier wrap. */
+.pi-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-4);
+}
+
+/* --- __eyebrow ------------------------------------------- */
+.pi-card__eyebrow {
+  font-family: var(--font-ui);
+  font-size: var(--fs-100);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-label);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--soft);
+}
+
+/* --- __title --------------------------------------------- */
+.pi-card__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-600);
+  font-weight: var(--fw-display);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--ls-display);
+  color: var(--text);
+}
+.pi-card__title a {
+  color: inherit;
+  text-decoration: none;
+}
+.pi-card__title a:hover {
+  color: var(--accent);
+}
+
+/* --- __dek ------------------------------------------------
+   Two-line clamp. The height reservation is in em, not px or
+   rem, so it tracks the element's own font-size and therefore
+   still scales with the reader text-size control
+   (html[data-text-scale]). A px floor would freeze the box
+   while the type grew and clip the second line. */
+.pi-card__dek {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  min-height: calc(2em * var(--lh-dek));
+  max-width: var(--measure-card);
+  /* --fs-300 matches .venue-card__signature (0.96rem), which is what the
+     284 converted page cards used. v5/Card.astro's verdict line ran at
+     --fs-500 and restores that in its own scoped block: the two card
+     families genuinely disagreed, and the larger population wins the
+     default. */
+  font-size: var(--fs-300);
+  line-height: var(--lh-dek);
+  color: var(--soft);
+}
+
+/* --- __meta -----------------------------------------------
+   Pinned to the foot so card bottoms resolve on a common
+   baseline regardless of how long the title runs. */
+.pi-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1) var(--space-3);
+  margin-top: auto;
+  /* No padding-top: __body already separates its children with a gap,
+     and adding one here stacked 12px onto every card, which compounded
+     to roughly 690px on the hub grids. */
+  /* One-line floor so a row with three chips and a row with one still
+     land on the same baseline (the P0-5 metadata reservation). */
+  min-height: calc(1em * var(--lh-ui));
+  font-family: var(--font-ui);
+  font-size: var(--fs-200);
+  line-height: var(--lh-ui);
+  color: var(--soft);
+}
+
+/* --- __actions --------------------------------------------
+   Also pinned to the foot: a card whose foot is an actions row
+   with no meta row above it still has to land on the common
+   baseline. The adjacent-sibling rule below hands the pin back
+   to __meta whenever both are present, so only one of the two
+   ever consumes the free space. */
+.pi-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: auto;
+  padding-top: var(--space-2);
+}
+.pi-card__meta + .pi-card__actions {
+  margin-top: 0;
+}
+
+/* --- variant: compact (horizontal row) --------------------- */
+.pi-card--compact {
+  flex-direction: row;
+  align-items: stretch;
+}
+.pi-card--compact .pi-card__media {
+  flex: 0 0 38%;
+  max-width: 38%;
+  aspect-ratio: 1 / 1;
+}
+.pi-card--compact .pi-card__body {
+  gap: var(--space-1);
+  padding: var(--space-4);
+}
+.pi-card--compact .pi-card__title {
+  font-size: var(--fs-500);
+}
+.pi-card--compact .pi-card__dek {
+  font-size: var(--fs-200);
+}
+
+@media (max-width: 480px) {
+  .pi-card--compact .pi-card__media {
+    flex-basis: 32%;
+    max-width: 32%;
+  }
+}
+
+/* --- variant: feature (larger) ----------------------------- */
+.pi-card--feature .pi-card__media {
+  aspect-ratio: 16 / 9;
+}
+.pi-card--feature .pi-card__body {
+  gap: var(--space-3);
+  padding: var(--space-6);
+}
+.pi-card--feature .pi-card__title {
+  font-size: var(--fs-700);
+}
+.pi-card--feature .pi-card__dek {
+  font-size: var(--fs-500);
+}

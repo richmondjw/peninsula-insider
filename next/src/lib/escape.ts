@@ -1,5 +1,5 @@
 /**
- * /explore/plans/ — itinerary helpers (file kept named escape.ts for git history;
+ * /explore/plans/ - itinerary helpers (file kept named escape.ts for git history;
  * URL section migrated from /explore/plans/ to /explore/plans/ on 2026-05-10).
  *
  * Implements the conversion-vertical specs from peninsula_insider_escape_v1:
@@ -133,7 +133,7 @@ interface SchemaItineraryDay {
 }
 
 export interface ItinerarySchemaInput {
-  /** Page slug under /explore/plans/ — drives canonical URL. */
+  /** Page slug under /explore/plans/ - drives canonical URL. */
   slug: string;
   title: string;
   description: string;
@@ -197,7 +197,7 @@ export function buildEscapeItinerarySchema(input: ItinerarySchemaInput) {
 }
 
 export interface EscapeHubSchemaInput {
-  /** Hub path under /explore/plans/ — e.g. /explore/plans/the-weekend-peninsula/ */
+  /** Hub path under /explore/plans/ - e.g. /explore/plans/the-weekend-peninsula/ */
   path: string;
   name: string;
   description: string;

@@ -1,6 +1,6 @@
 ---
 /**
- * /partners/dashboard/ — operator dashboard (Phase 6 WS6B).
+ * /partners/dashboard/ - operator dashboard (Phase 6 WS6B).
  *
  * Auth-gated. When signed in, shows:
  *   - Each claimed venue as a card with the live listing summary,
@@ -52,7 +52,7 @@ export const prerender = true;
 
 <BaseLayout
   title="Operator Dashboard · Peninsula Insider"
-  description="Manage your Peninsula Insider venue listing — submit hours / photo / event changes, see recent change-request history, claim a new venue."
+  description="Manage your Peninsula Insider venue listing - submit hours / photo / event changes, see recent change-request history, claim a new venue."
   section="home"
   noindex={true}
   searchExclude={true}
@@ -71,13 +71,13 @@ export const prerender = true;
   <section class="dashboard-page">
     <div class="container">
 
-      <!-- Auth state — anonymous user prompt -->
+      <!-- Auth state - anonymous user prompt -->
       <div class="dashboard-anonymous" data-dashboard-anonymous>
         <p class="dashboard-anonymous__title">Sign in to your operator account.</p>
         <p class="dashboard-anonymous__body">The dashboard is auth-gated. Sign in (or create an account, free) to claim your venue and start managing your listing.</p>
-        <button type="button" class="dashboard-anonymous__cta" data-open-auth>Sign in</button>
+        <button type="button" class="pi-btn pi-btn--solid" data-open-auth>Sign in</button>
         <p class="dashboard-anonymous__alt">
-          Just want to send a quick update without signing in? You can still <a href="/partners/update/">submit anonymously</a> — that path stays open.
+          Just want to send a quick update without signing in? You can still <a href="/partners/update/">submit anonymously</a> - that path stays open.
         </p>
       </div>
 
@@ -86,11 +86,11 @@ export const prerender = true;
         <p>Loading your dashboard…</p>
       </div>
 
-      <!-- Empty state — signed in, no claims -->
+      <!-- Empty state - signed in, no claims -->
       <div class="dashboard-empty" data-dashboard-empty hidden>
         <p class="dashboard-empty__title">No venues claimed yet.</p>
-        <p class="dashboard-empty__body">Claim your venue to manage hours, photos, and events from one place. Editor approves the claim manually — usually within a working day.</p>
-        <a href="/partners/claim/" class="dashboard-empty__cta">Claim your venue →</a>
+        <p class="dashboard-empty__body">Claim your venue to manage hours, photos, and events from one place. Editor approves the claim manually - usually within a working day.</p>
+        <a href="/partners/claim/" class="pi-btn pi-btn--solid">Claim your venue →</a>
       </div>
 
       <!-- Claims grid -->
@@ -226,7 +226,7 @@ export const prerender = true;
       }
     }
 
-    // History panel — show always when signed in (lets the operator
+    // History panel - show always when signed in (lets the operator
     // confirm that anonymous-then-claimed change requests still attach).
     setVisible('[data-dashboard-history]', true);
     const histList = document.querySelector('[data-dashboard-history-list]');
@@ -242,7 +242,7 @@ export const prerender = true;
 
   async function init() {
     if (!isAuthEnabled()) {
-      // Auth not configured — show the anonymous prompt with a note.
+      // Auth not configured - show the anonymous prompt with a note.
       setVisible('[data-dashboard-anonymous]', true);
       const anon = document.querySelector('[data-dashboard-anonymous] .dashboard-anonymous__body');
       if (anon) anon.textContent = "Operator accounts aren't currently configured. The anonymous /partners/update/ form still works for ad-hoc updates.";
@@ -279,7 +279,7 @@ export const prerender = true;
   .dashboard-loading p,
   .dashboard-anonymous__title,
   .dashboard-empty__title {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: var(--font-display);
     font-size: 1.4rem;
     font-weight: 500;
     color: var(--text);
@@ -287,36 +287,15 @@ export const prerender = true;
   }
   .dashboard-anonymous__body,
   .dashboard-empty__body {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.95rem;
     line-height: 1.55;
     color: var(--soft);
     margin: 0 auto 1.25rem;
     max-width: 38rem;
   }
-  .dashboard-anonymous__cta,
-  .dashboard-empty__cta {
-    display: inline-flex;
-    align-items: center;
-    font-family: 'Outfit', sans-serif;
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    background: var(--accent);
-    color: var(--bg, #fff);
-    border: 1px solid var(--accent);
-    padding: 0.7rem 1.1rem;
-    cursor: pointer;
-    text-decoration: none;
-  }
-  .dashboard-anonymous__cta:hover,
-  .dashboard-empty__cta:hover {
-    background: var(--text, #1a1a1a);
-    border-color: var(--text, #1a1a1a);
-  }
   .dashboard-anonymous__alt {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.85rem;
     color: var(--soft);
     margin: 1rem 0 0;
@@ -338,7 +317,7 @@ export const prerender = true;
     margin-bottom: clamp(1rem, 2vw, 1.5rem);
   }
   .dashboard-claims__count {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.85rem;
     letter-spacing: 0.06em;
     text-transform: uppercase;
@@ -346,14 +325,14 @@ export const prerender = true;
     margin: 0;
   }
   .dashboard-claims__add {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.78rem;
     font-weight: 600;
     letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--accent);
     text-decoration: none;
-    border-bottom: 1px solid rgba(167, 118, 55, 0.5);
+    border-bottom: 1px solid rgba(7, 158, 165, 0.5);
   }
   .dashboard-claims__list {
     list-style: none;
@@ -374,7 +353,7 @@ export const prerender = true;
     background: var(--bg, #fff);
     overflow: hidden;
   }
-  .dashboard-claim--pending { border-color: rgba(167, 118, 55, 0.5); }
+  .dashboard-claim--pending { border-color: rgba(7, 158, 165, 0.5); }
   .dashboard-claim--approved { border-color: var(--border); }
   .dashboard-claim--revoked { opacity: 0.55; }
 
@@ -385,7 +364,7 @@ export const prerender = true;
     background-color: var(--paper, #fbf7f0);
   }
   .dashboard-claim__hero--empty {
-    background: linear-gradient(135deg, rgba(167, 118, 55, 0.12), rgba(223, 197, 158, 0.08));
+    background: linear-gradient(135deg, rgba(7, 158, 165, 0.12), rgba(158, 223, 208, 0.08));
   }
   .dashboard-claim__body {
     padding: clamp(0.85rem, 1.5vw, 1.2rem);
@@ -394,7 +373,7 @@ export const prerender = true;
     gap: 0.4rem;
   }
   .dashboard-claim__status {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.7rem;
     font-weight: 600;
     letter-spacing: 0.12em;
@@ -402,12 +381,12 @@ export const prerender = true;
     color: var(--accent);
     margin: 0;
   }
-  .dashboard-claim--pending .dashboard-claim__status { color: #b3592a; }
+  .dashboard-claim--pending .dashboard-claim__status { color: #2cb192; }
   .dashboard-claim--approved .dashboard-claim__status { color: #2f6e3a; }
   .dashboard-claim--revoked .dashboard-claim__status { color: var(--soft); }
 
   .dashboard-claim__name {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: var(--font-display);
     font-size: 1.4rem;
     font-weight: 500;
     line-height: 1.2;
@@ -415,14 +394,14 @@ export const prerender = true;
     margin: 0;
   }
   .dashboard-claim__meta {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.78rem;
     letter-spacing: 0.04em;
     color: var(--soft);
     margin: 0;
   }
   .dashboard-claim__signature {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.92rem;
     line-height: 1.55;
     color: var(--dark);
@@ -435,7 +414,7 @@ export const prerender = true;
     margin-top: 0.5rem;
   }
   .dashboard-claim__action {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.72rem;
     font-weight: 600;
     letter-spacing: 0.06em;
@@ -466,7 +445,7 @@ export const prerender = true;
     border-top: 1px solid var(--border);
   }
   .dashboard-history__title {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: var(--font-display);
     font-size: 1.55rem;
     font-weight: 500;
     color: var(--text);
@@ -491,7 +470,7 @@ export const prerender = true;
     gap: 0.85rem;
   }
   .dashboard-history-item__type {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.7rem;
     font-weight: 600;
     letter-spacing: 0.12em;
@@ -500,7 +479,7 @@ export const prerender = true;
     margin: 0;
   }
   .dashboard-history-item__status {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.7rem;
     font-weight: 600;
     letter-spacing: 0.12em;
@@ -511,13 +490,13 @@ export const prerender = true;
   .dashboard-history-item--applied .dashboard-history-item__status { color: #2f6e3a; }
   .dashboard-history-item--declined .dashboard-history-item__status { color: #b14b3a; }
   .dashboard-history-item__venue {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.85rem;
     color: var(--soft);
     margin: 0.35rem 0 0.2rem;
   }
   .dashboard-history-item__body {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.9rem;
     line-height: 1.5;
     color: var(--dark);
@@ -528,7 +507,7 @@ export const prerender = true;
     padding: 1rem;
     border: 1px dashed var(--border);
     text-align: center;
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.92rem;
     color: var(--soft);
   }

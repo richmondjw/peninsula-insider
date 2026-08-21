@@ -1,6 +1,6 @@
 ---
 /**
- * SearchOverlay — instant search modal
+ * SearchOverlay - instant search modal
  *
  * Triggered by any element with [data-open-search] (the masthead pill,
  * mobile-nav search row, etc). Opens a centered modal with a Pagefind-
@@ -78,7 +78,7 @@
 
       <ul class="site-search-overlay__results" id="siteSearchOverlayResults" role="listbox" aria-label="Search suggestions" hidden></ul>
 
-      <a class="site-search-overlay__cta" id="siteSearchOverlayCTA" href="/search/" hidden>
+      <a class="pi-btn pi-btn--ghost" id="siteSearchOverlayCTA" href="/search/" hidden>
         <span>See all results</span>
         <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M5 10h10M11 5l5 5-5 5" />
@@ -93,7 +93,7 @@
    * SearchOverlay boot script.
    *
    * Note: Astro's ClientRouter swaps the body on every navigation. Inline
-   * scripts (this one) execute exactly once on the initial parse — they do
+   * scripts (this one) execute exactly once on the initial parse - they do
    * NOT re-run on subsequent view transitions. That means caching DOM
    * references in a closure breaks on the second navigation: the cached
    * `overlay` variable points to a detached element from the previous page.
@@ -110,7 +110,7 @@
     if (typeof window === 'undefined') return;
 
     // Module-scope state survives view transitions because inline scripts
-    // share the same realm — the closure persists, only the DOM is replaced.
+    // share the same realm - the closure persists, only the DOM is replaced.
     if (!window.__piSearchState) {
       window.__piSearchState = {
         pagefindModule: null,
@@ -179,14 +179,38 @@
       };
     }
 
+    // Remember what opened the overlay so focus can return there on close
+    // (WCAG 2.4.3 focus order; A-15 in the redesign a11y register).
+    function trapTab(e) {
+      if (e.key !== 'Tab') return;
+      const els = getEls();
+      if (!els || els.overlay.dataset.open !== 'true') return;
+      const focusable = els.overlay.querySelectorAll(
+        'a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      );
+      const visible = Array.prototype.filter.call(focusable, (el) => el.offsetParent !== null || el === document.activeElement);
+      if (!visible.length) return;
+      const first = visible[0];
+      const last = visible[visible.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+
     function openOverlay() {
       const els = getEls();
       if (!els) return;
       const { overlay, input } = els;
       if (overlay.dataset.open === 'true') return;
+      state.lastFocus = document.activeElement;
       overlay.dataset.open = 'true';
       overlay.setAttribute('aria-hidden', 'false');
       document.body.classList.add('search-open');
+      document.addEventListener('keydown', trapTab, true);
       // Two RAFs so the transition has the first frame to paint before focus
       // moves the caret in (avoids a tiny visual jolt on some browsers).
       requestAnimationFrame(() => {
@@ -208,7 +232,14 @@
       overlay.dataset.open = 'false';
       overlay.setAttribute('aria-hidden', 'true');
       document.body.classList.remove('search-open');
+      document.removeEventListener('keydown', trapTab, true);
       if (document.activeElement === input) input.blur();
+      // Restore focus to the trigger so keyboard users are not dropped at
+      // the top of the document (WCAG 2.4.3).
+      if (state.lastFocus && typeof state.lastFocus.focus === 'function') {
+        state.lastFocus.focus();
+        state.lastFocus = null;
+      }
     }
 
     function showSuggestions(els) {
@@ -225,7 +256,7 @@
           els.list.innerHTML =
             '<li class="site-search-overlay__result site-search-overlay__result--empty">' +
               '<p class="site-search-overlay__result-empty-title">Nothing matched "' + escapeHtml(query) + '".</p>' +
-              '<p class="site-search-overlay__result-empty-hint">Hit Enter to try the full results page, or ask The Insider directly.</p>' +
+              '<p class="site-search-overlay__result-empty-hint">Hit Enter to try the full results page.</p>' +
             '</li>';
         } else {
           els.list.innerHTML = results.slice(0, 6).map((item) => {
@@ -307,7 +338,7 @@
             return;
           }
         } catch (err) {
-          // Swallow — fall through to Pagefind below.
+          // Swallow - fall through to Pagefind below.
           console.warn('[search] RPC failed, falling back to Pagefind:', err);
         }
       }
@@ -331,7 +362,7 @@
       }
     }
 
-    // Per-instance handlers (input, form submit). Idempotent — guarded by
+    // Per-instance handlers (input, form submit). Idempotent - guarded by
     // a flag on the element so reattaching after view transitions doesn't
     // double-bind.
     function initOverlayInstance() {
@@ -339,7 +370,7 @@
       if (!els) return;
       const { overlay, form, input } = els;
 
-      // Reset visible state on every page-load — close any leftover open
+      // Reset visible state on every page-load - close any leftover open
       // state, clear the input, restore suggestion view.
       if (overlay.dataset.open !== 'true' && input) input.value = '';
       showSuggestions(els);
@@ -367,7 +398,7 @@
       }
     }
 
-    // Document-level listeners — bind ONCE per realm. Guarded by a flag on
+    // Document-level listeners - bind ONCE per realm. Guarded by a flag on
     // window so they survive HMR / dev reloads cleanly. Handlers re-query
     // the DOM each time, so the overlay reference is always fresh.
     if (!window.__piSearchBound) {
@@ -425,7 +456,7 @@
   to the inline script above. The bootstrap is a module so Astro bundles
   search-client.ts + supabase-js together; it loads once per page-shell.
   `available` is false when window.__PI_SB is missing or when @supabase
-  cannot construct a client — the runSearch path falls back to Pagefind
+  cannot construct a client - the runSearch path falls back to Pagefind
   in that case.
 -->
 <script>

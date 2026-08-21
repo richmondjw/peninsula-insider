@@ -104,9 +104,8 @@ export const prerender = true;
     <div class="prose">
       <p {...editableText({
         entityType: 'tour', entitySlug: slug, fieldPath: 'intro',
-        label: `${data.name} — intro`,
+        label: `${data.name} - intro`,
       })}>{data.intro}</p>
-      <p class="venues__sub" style="font-size:0.8rem;color:var(--soft)">Last verified: {data.lastVerified?.toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
     </div>
   </SubpageHero>
 
@@ -131,7 +130,7 @@ export const prerender = true;
           <div class="at-a-glance__label">Group size</div>
           <div class="at-a-glance__value">
             {groupSizeLabel[data.groupSize] ?? data.groupSize}
-            {data.maxGroupSize ? ` — max ${data.maxGroupSize} guests` : ''}
+            {data.maxGroupSize ? ` - max ${data.maxGroupSize} guests` : ''}
           </div>
         </div>
         <div class="at-a-glance__row">
@@ -165,9 +164,9 @@ export const prerender = true;
   {primaryBookingUrl && (
     <div class="container">
       <div class="tour-cta-block">
-        <h3 class="tour-cta-block__title">Check availability{operatorData?.name ? ` — ${operatorData.name}` : ''}</h3>
+        <h3 class="tour-cta-block__title">Check availability{operatorData?.name ? ` - ${operatorData.name}` : ''}</h3>
         <p>Pricing and availability are managed directly by the operator. Booking through the link below confirms your place directly with {operatorData?.name ?? 'the operator'}.</p>
-        <a href={primaryBookingUrl} target="_blank" rel="noopener noreferrer" class="tour-cta-primary">
+        <a href={primaryBookingUrl} target="_blank" rel="noopener noreferrer" class="tour-cta-primary pi-btn pi-btn--solid">
           Book this tour &rarr;
         </a>
         {data.aggregatorGYG && !data.bookingUrl && (
@@ -233,22 +232,22 @@ export const prerender = true;
         </div>
       </div>
       <div class="venues__grid venues__grid--links">
-        <div class="venue-card">
-          <h3 class="venue-card__name"><a href="/tour-packages/">Tour packages</a></h3>
-          <p class="venue-card__signature">We pair this and similar tours with an anchor stay to create complete Peninsula weekends. Browse multi-day packages built around operator-led experiences.</p>
-          <a href="/tour-packages/" class="venue-card__cta">Browse packages &rarr;</a>
-        </div>
-        <div class="venue-card">
-          <h3 class="venue-card__name"><a href="/stay/">Where to stay</a></h3>
-          <p class="venue-card__signature">The right base changes the whole trip. Our stay guide covers the Peninsula's best properties by location, budget, and mood.</p>
-          <a href="/stay/" class="venue-card__cta">Find a stay &rarr;</a>
-        </div>
+        <div class="pi-card"><div class="pi-card__body">
+          <h3 class="pi-card__title"><a href="/tour-packages/">Tour packages</a></h3>
+          <p class="pi-card__dek">We pair this and similar tours with an anchor stay to create complete Peninsula weekends. Browse multi-day packages built around operator-led experiences.</p>
+          <div class="pi-card__actions"><a href="/tour-packages/" class="pi-btn pi-btn--solid">Browse packages &rarr;</a></div>
+        </div></div>
+        <div class="pi-card"><div class="pi-card__body">
+          <h3 class="pi-card__title"><a href="/stay/">Where to stay</a></h3>
+          <p class="pi-card__dek">The right base changes the whole trip. Our stay guide covers the Peninsula's best properties by location, budget, and mood.</p>
+          <div class="pi-card__actions"><a href="/stay/" class="pi-btn pi-btn--solid">Find a stay &rarr;</a></div>
+        </div></div>
         {operatorData && (
-          <div class="venue-card">
-            <h3 class="venue-card__name"><a href={`/tour/operators/${data.operatorSlug}/`}>{operatorData.name}</a></h3>
-            <p class="venue-card__signature">View all tours from this operator, including seasonal departures and private charter options.</p>
-            <a href={`/tour/operators/${data.operatorSlug}/`} class="venue-card__cta">All {operatorData.name} tours &rarr;</a>
-          </div>
+          <div class="pi-card"><div class="pi-card__body">
+            <h3 class="pi-card__title"><a href={`/tour/operators/${data.operatorSlug}/`}>{operatorData.name}</a></h3>
+            <p class="pi-card__dek">View all tours from this operator, including seasonal departures and private charter options.</p>
+            <div class="pi-card__actions"><a href={`/tour/operators/${data.operatorSlug}/`} class="pi-btn pi-btn--solid">All {operatorData.name} tours &rarr;</a></div>
+          </div></div>
         )}
       </div>
     </div>

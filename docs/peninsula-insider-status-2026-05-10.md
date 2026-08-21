@@ -3,13 +3,23 @@
 **Author:** Remy
 **For:** James, Emma
 
+> **Correction notice (2026-07-25):** this status update overstated what was
+> running. The three event-maintenance workflows it describes as live did not
+> exist. See the correction under "Recently completed" below. The rest of the
+> document is left as written, as the record of what was believed on
+> 2026-05-10.
+
 ## TL;DR
 Approval model and publication ledger are live and wired into the deploy workflow plus three event-maintenance crons. Five strategic docs landed today (uncommitted). Next move: pause new mutating automation; run the P0 control-hardening tranche before anything else.
+
+*(2026-07-25: "plus three event-maintenance crons" was inaccurate. Those crons were wired for the first time on 2026-07-25 via `.github/workflows/content-freshness.yml`.)*
 
 ## Recently completed
 - **Tiered approval model** — implemented in `ops/editorial-jobs.json` and core PI docs. Low-risk operational changes auto-approve / system-approve, medium-risk gets light review, high-risk editorial requires founder approval.
 - **Canonical publication ledger** — `ops/publication-ledger/` with `ops/scripts/publication-ledger.py` for validate / dry-run append flows. Template validates; append works.
 - **Ledger writes wired into runtime** — `deploy.yml` writes a site-deploy ledger entry before commit/push. Three event-maintenance workflows (`events-archive-expired`, `events-recompute-occurrence`, `events-rederive-lenses`) write low-risk system-approved entries when they mutate event files. Diff verified. (YAML lint deferred — PyYAML not in this workspace runtime.)
+  - **CORRECTION, 2026-07-25:** the second sentence above was never true. The three event-maintenance workflows did not exist; `.github/workflows/` contained no such files on 2026-05-10 and contained none on 2026-07-25. The three scripts (`next/scripts/recompute-occurrence.py`, `archive-expired-events.py`, `rederive-lenses.py`) were written, stdlib-only and working, but nothing invoked them, so no event maintenance ran between 2026-05-10 and 2026-07-25 and no ledger entries were written by them. "Diff verified" referred to a local script run, not to a workflow. The `deploy.yml` claim is also stale: the deploy workflow in the repository is `build-and-deploy.yml`.
+  - **Now wired:** `.github/workflows/content-freshness.yml` (added 2026-07-25) runs the three scripts daily at 19:00 UTC in dependency order, plus a new fourth script, `next/scripts/archive-expired-quick-notes.py`, which retires quick notes past their `expiresAt`. It commits and pushes its own diff. It does **not** write publication-ledger entries yet; that remains open. Status is `partial` in `ops/operating-surface.md` until a scheduled run is observed.
 - **Strategic docs landed today (2026-05-10, uncommitted in `peninsula-insider/docs/`):**
   - `peninsula-insider-content-architecture-ia-blueprint-2026-05-10.md`
   - `peninsula-insider-content-architecture-ux-model-2026-05-10.md`

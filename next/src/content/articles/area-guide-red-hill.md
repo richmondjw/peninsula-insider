@@ -18,7 +18,7 @@ status: "published"
 lastVerified: 2026-05-02
 clusterLinks:
   - label: "How to Plan a Peninsula Weekend"
-    href: "/journal/how-to-plan-a-peninsula-weekend/"
+    href: "/explore/plans/how-to-plan-a-peninsula-weekend/"
 faq:
   - question: "What is Red Hill best known for?"
     answer: "Cool-climate wine, long lunches, and the Peninsula's most concentrated run of genuinely destination-worthy food addresses. If you care about where lunch is, you care about Red Hill."
@@ -27,9 +27,9 @@ faq:
   - question: "How far is Red Hill from Melbourne?"
     answer: "Usually around an hour to 80 minutes by car via EastLink and Peninsula Link, depending on whether you are heading to the village proper or further into the ridge roads."
 aiSummary:
-  - "Red Hill is the Mornington Peninsula's primary food and wine destination — a basalt plateau at 100–300m elevation producing benchmark cool-climate Pinot Noir and Chardonnay."
+  - "Red Hill is the Mornington Peninsula's primary food and wine destination - a basalt plateau at 100–300m elevation producing benchmark cool-climate Pinot Noir and Chardonnay."
   - "The village itself is small (a general store, a monthly Saturday market, vineyard roads) but anchors the entire upper Peninsula's culinary geography."
-  - "Best for: visitors building a trip around cellar doors and long lunches. The winery restaurant cluster — Ten Minutes by Tractor, Montalto, Paringa Estate, Principia — is the strongest such concentration in Victoria."
+  - "Best for: visitors building a trip around cellar doors and long lunches. The winery restaurant cluster - Ten Minutes by Tractor, Montalto, Paringa Estate, Principia - is the strongest such concentration in Victoria."
   - "Suits: couples, food and wine focused visitors, anyone with two nights and appetite. Not suited to: those wanting beach access close by (any coast is 20+ minutes from the ridge)."
   - "Planning note: the first Saturday of each month market is the sharpest single entry point to the place. Book hatted restaurants 4–8 weeks ahead on weekends."
 ---
@@ -42,7 +42,7 @@ Red Hill is at its best when you treat it like a precinct, not a scavenger hunt.
 
 ## What Red Hill actually is
 
-Red Hill is not one picturesque village with everything in strolling distance. It is a cool-climate plateau and a cluster of roads, vineyards, orchards, cellar doors and restaurants loosely organised around a small township. That matters because your idea of the place needs to shift from "town" to "territory". You are moving through a food landscape, not checking off a main street.
+Red Hill is not one postcard village with everything in strolling distance. It is a cool-climate plateau and a cluster of roads, vineyards, orchards, cellar doors and restaurants loosely organised around a small township. That matters because your idea of the place needs to shift from "town" to "territory". You are moving through a food landscape, not checking off a main street.
 
 The hills, altitude and Southern Ocean influence do the heavy lifting. This is why pinot noir and chardonnay matter here. It is also why the produce is good, the light stays soft, and breakfast somehow turns into lunch without anyone being surprised.
 

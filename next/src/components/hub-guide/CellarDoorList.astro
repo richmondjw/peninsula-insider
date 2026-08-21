@@ -1,6 +1,6 @@
 ---
 /**
- * CellarDoorList — designed list of cellar-door reviews inside a hub-guide
+ * CellarDoorList - designed list of cellar-door reviews inside a hub-guide
  * MDX article. Each item is one venue (by slug) plus a hand-written
  * editorial verdict that overlays the venue's canonical card data.
  *
@@ -8,7 +8,7 @@
  * review per venue under an H3, then the template rendered generic
  * "Mentioned in this piece" VenueCards below for the SAME venues with
  * no editorial detail. Reader got the same venue twice in two formats.
- * This component fuses the two — single rendered card with hero image,
+ * This component fuses the two - single rendered card with hero image,
  * canonical hours/location, AND the writer's specific verdict.
  *
  * Usage in MDX:
@@ -34,7 +34,7 @@ export interface CellarDoorItem {
   /** Optional small-caps eyebrow above the title (e.g. sub-region). */
   eyebrow?: string;
   /** Required hand-written editorial verdict. The whole point of the
-   *  component — the writer's specific opinion on this venue. */
+   *  component - the writer's specific opinion on this venue. */
   verdict: string;
   /** Optional list of small badge tags ("Dog-friendly", "Walk-in", etc).
    *  Render below the verdict as chip badges. */
@@ -99,7 +99,7 @@ const resolved = items
               </ul>
             )}
             <div class="hub-cellar__actions">
-              <a href={href} class="hub-cellar__cta">Open the editor's note <span aria-hidden="true">→</span></a>
+              <a href={href} class="pi-btn pi-btn--text">Open the editor's note <span aria-hidden="true">→</span></a>
             </div>
           </div>
           <PiSaveActions
@@ -125,16 +125,16 @@ const resolved = items
     max-width: 50rem;
   }
   .hub-cellars__eyebrow {
-    font-family: 'Outfit', system-ui, sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.7rem;
     font-weight: 600;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: var(--accent, #A0541F);
+    color: var(--accent, #26997e);
     margin: 0 0 0.5rem;
   }
   .hub-cellars__heading {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-size: clamp(1.5rem, 2.4vw, 2rem);
     font-weight: 500;
     letter-spacing: -0.01em;
@@ -156,8 +156,8 @@ const resolved = items
     position: relative;
     display: flex;
     flex-direction: column;
-    background: rgba(255, 252, 247, 0.7);
-    border: 1px solid rgba(121, 92, 58, 0.14);
+    background: rgba(251, 253, 252, 0.7);
+    border: 1px solid rgba(74, 90, 87, 0.14);
     border-radius: 6px;
     overflow: hidden;
     padding-bottom: 3.25rem; /* room for floating save/share pills */
@@ -165,7 +165,7 @@ const resolved = items
   .hub-cellar__image {
     display: block;
     aspect-ratio: 16 / 10;
-    background: rgba(121, 92, 58, 0.08);
+    background: rgba(74, 90, 87, 0.08);
     overflow: hidden;
   }
   .hub-cellar__image img {
@@ -179,7 +179,7 @@ const resolved = items
   .hub-cellar__image-placeholder {
     display: block;
     height: 100%;
-    background: linear-gradient(135deg, #C9B99A 0%, #A89278 60%, #8B7055 100%);
+    background: linear-gradient(135deg, #9ac9be 0%, #78a89d 60%, #558b7e 100%);
   }
   .hub-cellar__body {
     padding: clamp(1.1rem, 2vw, 1.5rem) clamp(1.25rem, 2vw, 1.6rem) 0;
@@ -189,16 +189,16 @@ const resolved = items
     flex: 1;
   }
   .hub-cellar__eyebrow {
-    font-family: 'Outfit', system-ui, sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.62rem;
     font-weight: 600;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--accent, #A0541F);
+    color: var(--accent, #26997e);
     margin: 0;
   }
   .hub-cellar__title {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-size: clamp(1.3rem, 1.9vw, 1.6rem);
     font-weight: 500;
     line-height: 1.15;
@@ -210,9 +210,9 @@ const resolved = items
     color: inherit;
     text-decoration: none;
   }
-  .hub-cellar__title a:hover { color: var(--accent, #A0541F); }
+  .hub-cellar__title a:hover { color: var(--accent, #26997e); }
   .hub-cellar__verdict {
-    font-family: 'Outfit', system-ui, sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.92rem;
     line-height: 1.55;
     color: var(--ink-soft, #3A3531);
@@ -227,35 +227,24 @@ const resolved = items
     gap: 0.4rem;
   }
   .hub-cellar__badge {
-    font-family: 'Outfit', system-ui, sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.62rem;
     font-weight: 600;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     padding: 0.25rem 0.55rem;
-    background: rgba(121, 92, 58, 0.08);
+    background: rgba(74, 90, 87, 0.08);
     color: var(--ink-soft, #3A3531);
-    border: 1px solid rgba(121, 92, 58, 0.15);
+    border: 1px solid rgba(74, 90, 87, 0.15);
     border-radius: 999px;
   }
   .hub-cellar__badge--authority {
-    background: rgba(160, 84, 31, 0.1);
-    color: var(--accent, #A0541F);
-    border-color: rgba(160, 84, 31, 0.25);
+    background: rgba(11, 90, 72, 0.1);
+    color: var(--accent, #26997e);
+    border-color: rgba(11, 90, 72, 0.25);
   }
   .hub-cellar__actions {
     margin-top: auto;
     padding-top: 0.5rem;
   }
-  .hub-cellar__cta {
-    font-family: 'Outfit', system-ui, sans-serif;
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: var(--accent, #A0541F);
-    text-decoration: none;
-    transition: opacity 0.15s ease;
-  }
-  .hub-cellar__cta:hover { opacity: 0.75; }
 </style>

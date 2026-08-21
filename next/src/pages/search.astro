@@ -1,6 +1,6 @@
 ---
 /**
- * /search — Peninsula Insider site search
+ * /search - Peninsula Insider site search
  *
  * Pagefind-powered search results page. Supports:
  *   - ?q=<query> deep-link (auto-focus + auto-run on load)
@@ -8,7 +8,7 @@
  *     What's On / Journal / Places) wired to Pagefind filters
  *   - Card results with hero image, kind eyebrow, title, excerpt
  *   - Pagination (12 cards per page)
- *   - Empty / no-result states with PI-voiced "ask The Insider" fallback
+ *   - Empty / no-result states with a plain "no matches" fallback card
  *   - noindex (the search results page itself shouldn't be Google-indexed)
  *
  * Pagefind's index is built by `npm run build:search` and lives at
@@ -40,7 +40,7 @@ export const prerender = true;
 
 <BaseLayout
   title="Explore · Peninsula Insider"
-  description="Explore Peninsula Insider — discover places, stays, long lunches, beaches, itineraries, events, and local seasonal intelligence across the Mornington Peninsula."
+  description="Explore Peninsula Insider - discover places, stays, long lunches, beaches, itineraries, events, and local seasonal intelligence across the Mornington Peninsula."
   section="home"
   noindex={true}
   searchExclude={true}
@@ -114,14 +114,8 @@ export const prerender = true;
       <div class="container">
         <div class="search-page-v2__fallback-card">
           <p class="search-page-v2__fallback-eyebrow">Didn't find it?</p>
-          <h2 class="search-page-v2__fallback-title">The Insider can take a guess.</h2>
-          <p class="search-page-v2__fallback-body">Search is keyword-strict. The Insider is opinionated, semantic, and happy to interpret. Try the same question over there.</p>
-          <button type="button" class="search-page-v2__fallback-cta" id="searchFallbackCTA" data-pi-trigger="true">
-            <span>Ask The Insider</span>
-            <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M5 10h10M11 5l5 5-5 5" />
-            </svg>
-          </button>
+          <h2 class="search-page-v2__fallback-title">No matches yet.</h2>
+          <p class="search-page-v2__fallback-body">Search is keyword-strict. Try a different word, or browse by category above.</p>
         </div>
       </div>
     </section>
@@ -136,7 +130,6 @@ export const prerender = true;
       const meta = document.getElementById('searchResultsMeta');
       const pagination = document.getElementById('searchPagination');
       const fallback = document.getElementById('searchFallback');
-      const fallbackCTA = document.getElementById('searchFallbackCTA');
       const chips = Array.from(document.querySelectorAll('.search-page-v2__chip'));
 
       const PER_PAGE = 12;
@@ -263,7 +256,6 @@ export const prerender = true;
         if (pagination) pagination.hidden = true;
         if (fallback) {
           fallback.hidden = false;
-          if (fallbackCTA) fallbackCTA.dataset.query = query || '';
         }
         setMeta(query
           ? `No matches for "${query}". Try a broader phrase or a place name.`
@@ -274,7 +266,7 @@ export const prerender = true;
         if (list) {
           list.innerHTML = `
             <div class="search-page-v2__idle">
-              <p>Try a place, a mood, or a season — "Rainy day", "Long lunch", "Winter wineries", "Coming from Melbourne", "Weekend escape", "Dog friendly".</p>
+              <p>Try a place, a mood, or a season - "Rainy day", "Long lunch", "Winter wineries", "Coming from Melbourne", "Weekend escape", "Dog friendly".</p>
             </div>
           `;
         }
@@ -510,7 +502,6 @@ export const prerender = true;
         `;
         hydrateSearchResultImages();
         if (fallback) fallback.hidden = false;
-        if (fallbackCTA) fallbackCTA.dataset.query = currentQuery;
         setMeta(`Showing grouped results from ${total} match${total === 1 ? '' : 'es'}.`);
       }
 
@@ -524,7 +515,6 @@ export const prerender = true;
         list.innerHTML = `<div class="search-page-v2__grid">${cards}</div>`;
         hydrateSearchResultImages();
         if (fallback) fallback.hidden = false;
-        if (fallbackCTA) fallbackCTA.dataset.query = currentQuery;
         setMeta(`Showing ${(page - 1) * PER_PAGE + 1}–${Math.min(page * PER_PAGE, total)} of ${total} result${total === 1 ? '' : 's'}.`);
       }
 
@@ -746,7 +736,7 @@ export const prerender = true;
           logSearch(q, currentResults.length, currentKind);
         } catch (err) {
           console.warn('[search] error', err);
-          if (list) list.innerHTML = '<div class="search-page-v2__loading"><p>Search isn\'t available right now. Try again in a moment, or ask The Insider.</p></div>';
+          if (list) list.innerHTML = '<div class="search-page-v2__loading"><p>Search isn\'t available right now. Try again in a moment.</p></div>';
           if (fallback) fallback.hidden = false;
         }
         updateUrl(q);
@@ -767,7 +757,7 @@ export const prerender = true;
         runSearch();
       });
 
-      // Debounced live search as the user types — Pagefind is fast enough
+      // Debounced live search as the user types - Pagefind is fast enough
       // that this feels instant.
       let inputDebounce = null;
       input?.addEventListener('input', () => {
@@ -825,20 +815,6 @@ export const prerender = true;
         }
       });
 
-      // "Ask The Insider" fallback button — pre-fill the concierge with the
-      // failed query and open the masthead drawer.
-      fallbackCTA?.addEventListener('click', (e) => {
-        e.preventDefault();
-        const q = fallbackCTA.dataset.query || currentQuery || '';
-        if (q && typeof window.openConcierge === 'function') {
-          window.openConcierge({ prefillQuery: q });
-        } else if (q) {
-          window.location.href = `/ask/?q=${encodeURIComponent(q)}`;
-        } else if (typeof window.openConcierge === 'function') {
-          window.openConcierge();
-        }
-      });
-
       // Initialise from URL params (?q=… &kind=…)
       const params = new URLSearchParams(window.location.search);
       const initialQ = params.get('q') || '';
@@ -865,7 +841,7 @@ export const prerender = true;
 
   <!--
     Phase D wave 1: expose pi.search RPC to the inline script.
-    Same pattern as SearchOverlay — module script bundled by Astro,
+    Same pattern as SearchOverlay - module script bundled by Astro,
     imports search-client which carries supabase-js. `available` is
     false when window.__PI_SB is missing, so the inline runSearch
     falls through to Pagefind without any visible regression.

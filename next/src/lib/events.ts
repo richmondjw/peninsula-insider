@@ -1,5 +1,5 @@
 /**
- * Events helpers — chip filters, weekend bucketing, JSON-LD shapers.
+ * Events helpers - chip filters, weekend bucketing, JSON-LD shapers.
  *
  * Kept separate from editorial.ts because that module is generic to all
  * collections; this is events-specific. Imported by /whats-on/ and the
@@ -7,6 +7,7 @@
  */
 
 import type { CollectionEntry } from 'astro:content';
+import { eventAccessLabel } from './event-access.mjs';
 
 export type Event = CollectionEntry<'events'>;
 
@@ -47,7 +48,7 @@ function formatWeekendLabel(sat: Date, sun: Date): string {
 
 /**
  * True if the event runs at any point within the supplied window.
- * Recurring events (weekly, monthly, ongoing) always pass — they are
+ * Recurring events (weekly, monthly, ongoing) always pass - they are
  * assumed to occur in any given weekend window.
  */
 /**
@@ -57,7 +58,7 @@ function formatWeekendLabel(sat: Date, sun: Date): string {
  *  - one-off / annual / seasonal: single occurrence at startDate (or range
  *    if endDate is set). True if that range overlaps the window.
  *  - weekly: occurs every week on the same weekday. True if any day in
- *    the window shares that weekday — or trivially if the window is 7+
+ *    the window shares that weekday - or trivially if the window is 7+
  *    days long (every weekday is covered).
  *  - monthly: occurs once per month. We trust startDate to be the NEXT
  *    occurrence; true if startDate falls in the window.
@@ -215,21 +216,37 @@ export function eventJsonLd(event: Event, siteUrl: string): Record<string, unkno
   const data = event.data;
   const slug = data.slug;
   const url = `${siteUrl}/whats-on/${slug}/`;
+  const nextOccurrence = (data as any).nextOccurrence
+    ? new Date((data as any).nextOccurrence)
+    : undefined;
+  const usesNextOccurrence =
+    ['weekly', 'monthly', 'annual'].includes(String((data as any).recurrence ?? '')) &&
+    nextOccurrence;
+  const eventStartDate = usesNextOccurrence ? nextOccurrence : data.startDate;
+  const eventEndDate = usesNextOccurrence ? nextOccurrence : (data.endDate ?? data.startDate);
 
   const startISO = (() => {
     if (data.startTime) {
-      const d = data.startDate.toISOString().slice(0, 10);
+      const d = eventStartDate.toISOString().slice(0, 10);
       return `${d}T${data.startTime}:00+10:00`;
     }
-    return data.startDate.toISOString();
+    return eventStartDate.toISOString();
   })();
   const endISO = (() => {
-    const endDate = data.endDate ?? data.startDate;
     if (data.endTime) {
-      const d = endDate.toISOString().slice(0, 10);
+      const d = eventEndDate.toISOString().slice(0, 10);
       return `${d}T${data.endTime}:00+10:00`;
     }
-    return endDate.toISOString();
+    // A same-day record with a start time but no explicit end time is a
+    // point-in-time event. Midnight on that date would precede startISO and
+    // emit invalid Event schema, so use the known instant for both bounds.
+    if (
+      data.startTime &&
+      eventEndDate.toISOString().slice(0, 10) === eventStartDate.toISOString().slice(0, 10)
+    ) {
+      return startISO;
+    }
+    return eventEndDate.toISOString();
   })();
 
   const location: Record<string, unknown> = {
@@ -296,7 +313,7 @@ export function eventJsonLd(event: Event, siteUrl: string): Record<string, unkno
     };
   }
 
-  // Schedule for recurring events — lets AI assistants and Google answer
+  // Schedule for recurring events - lets AI assistants and Google answer
   // "what happens every Thursday on the Mornington Peninsula?" reliably.
   // Per Operational Definitions v1.2 (What's On layer): recurring programmes
   // need stable Event schema with recurrence rules so they're discoverable
@@ -346,10 +363,7 @@ export function eventJsonLd(event: Event, siteUrl: string): Record<string, unkno
  * organiser where the live price lives.
  */
 export function eventPriceLabel(data: Event['data']): string {
-  if (data.priceTier === 'free' || data.freePaid?.toLowerCase().includes('free')) {
-    return 'Free';
-  }
-  return 'Check organiser for pricing';
+  return eventAccessLabel(data) ?? 'Check organiser for pricing';
 }
 
 /**
@@ -358,9 +372,7 @@ export function eventPriceLabel(data: Event['data']): string {
  * stale dollar figure.
  */
 export function eventHasKnownPrice(data: Event['data']): boolean {
-  if (data.priceTier === 'free') return true;
-  if (data.freePaid?.toLowerCase().includes('free')) return true;
-  return false;
+  return eventAccessLabel(data) !== null;
 }
 
 /**
@@ -391,8 +403,16 @@ export function eventCalendarUrl(data: Event['data'], canonical: string): string
   const fmtDateTime = (d: Date) =>
     `${d.getUTCFullYear()}${pad(d.getUTCMonth() + 1)}${pad(d.getUTCDate())}T${pad(d.getUTCHours())}${pad(d.getUTCMinutes())}00Z`;
 
-  const start = new Date(data.startDate);
-  const end = data.endDate ? new Date(data.endDate) : new Date(start);
+  const nextOccurrence = (data as any).nextOccurrence
+    ? new Date((data as any).nextOccurrence)
+    : undefined;
+  const usesNextOccurrence =
+    ['weekly', 'monthly', 'annual'].includes(String((data as any).recurrence ?? '')) &&
+    nextOccurrence;
+  const start = usesNextOccurrence ? new Date(nextOccurrence) : new Date(data.startDate);
+  const end = usesNextOccurrence
+    ? new Date(nextOccurrence)
+    : (data.endDate ? new Date(data.endDate) : new Date(start));
 
   let dates: string;
   if (data.startTime) {
@@ -405,7 +425,7 @@ export function eventCalendarUrl(data: Event['data'], canonical: string): string
     let endLocal: Date;
     if (data.endTime) {
       const [eh, em] = data.endTime.split(':').map((n) => parseInt(n, 10) || 0);
-      const endDate = data.endDate ? new Date(data.endDate) : start;
+      const endDate = end;
       endLocal = new Date(Date.UTC(endDate.getFullYear(), endDate.getMonth(), endDate.getDate(), eh - 10, em));
     } else {
       // Default to 2-hour event when no end-time given.
@@ -464,4 +484,3 @@ export function eventRecurrenceLabel(data: Event['data']): string {
       return data.recurrence;
   }
 }
-

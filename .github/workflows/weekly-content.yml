@@ -1,0 +1,102 @@
+name: Weekly Content Engine — Peninsula Insider
+
+on:
+  workflow_dispatch:
+    inputs:
+      week_override:
+        description: 'Override week (format: YYYY-WNN)'
+        required: false
+        type: string
+
+permissions:
+  contents: write
+  issues: write   # non-silent alert path opens an issue on failure
+
+jobs:
+  weekly-content:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          # Prefer the PAT (its pushes trigger build-and-deploy); fall back to
+          # the workflow token so the engine still runs when the secret is
+          # unset. GITHUB_TOKEN pushes do NOT trigger other workflows, so with
+          # the fallback a content commit needs a manual deploy dispatch.
+          token: ${{ secrets.PAT_CONTENT_PUSH || github.token }}
+          fetch-depth: 1
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install engine dependencies
+        run: |
+          pip install anthropic requests python-dateutil
+
+      - name: Configure git identity
+        run: |
+          git config user.name "Peninsula Insider Engine"
+          git config user.email "engine@peninsulainsider.com.au"
+          # Auto-fix BRAND-PI house style (em-dashes) on staged content before
+          # the engine commits, so generated content can't break the deploy.
+          git config core.hooksPath .githooks
+
+      - name: Run signal engine
+        env:
+          SEMRUSH_API_KEY: ${{ secrets.SEMRUSH_API_KEY }}
+          PI_REPO_ROOT: ${{ github.workspace }}
+        run: |
+          python engine/signal_engine.py \
+            --task weekly-signal \
+            --output .claude/signals/signal-brief-latest.md
+
+      - name: Run competitive scan
+        env:
+          FIRECRAWL_API_KEY: ${{ secrets.FIRECRAWL_API_KEY }}
+          PI_REPO_ROOT: ${{ github.workspace }}
+        run: |
+          python engine/signal_engine.py \
+            --task competitive-scan \
+            --output .claude/signals/competitive-latest.json
+
+      - name: Run weekly content engine
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          PI_REPO_ROOT: ${{ github.workspace }}
+        run: |
+          python engine/orchestrator.py --tempo weekly
+
+      - name: Upload weekly log
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: weekly-run-log-${{ github.run_number }}
+          path: |
+            .claude/newsroom/runs/
+            .claude/signals/
+            .claude/newsroom/slates/
+          retention-days: 90
+
+      - name: Alert on failure (non-silent)
+        if: failure()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          PI_REPO_ROOT: ${{ github.workspace }}
+        run: |
+          python engine/alert.py \
+            --title "Weekly content run failed (run #${{ github.run_number }})" \
+            --body "The weekly content workflow failed. Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            --dedup weekly-workflow-failure --severity fatal

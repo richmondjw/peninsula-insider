@@ -39,9 +39,9 @@
         "closes": "17:00"
       }
     ],
-    "tastingFee": "$10",
+    "tastingFee": "Charged",
     "bookingRequired": false,
-    "tastingNote": "Walk-ins welcome daily 10am–5pm. Bookings recommended on weekends. $10 per person for a guided 30-minute tasting of five wines. Restaurant bookings via OpenTable. No dogs."
+    "tastingNote": "Walk-ins welcome daily 10am–5pm. Bookings recommended on weekends. Guided 30-minute tasting of five wines, charged per person. Restaurant bookings via OpenTable. No dogs."
   },
   "wines": {
     "winemaker": "Tom Shanahan",
@@ -57,9 +57,9 @@
     "hats": 0,
     "cuisine": "Italian-inspired",
     "reservations": false,
-    "description": "Italian-inspired winery dining with updated menu. Daily walk-in — the Peninsula's most relaxed food-and-wine proposition."
+    "description": "Italian-inspired winery dining with updated menu. Daily walk-in - the Peninsula's most relaxed food-and-wine proposition."
   },
-  "editorVerdict": "T'Gallant's story is tangled but worth knowing: founded in 1990 as Australia's first serious Pinot Grigio operation, sold to Treasury Wine Estates, then sold again in 2022 to independent owners for AUD 9.7 million. The wines remain centred on Pinot Grigio and Gris — historical weight as Australian pioneers of the dual-style approach. And the Italian-inspired wood-fired food makes this the Peninsula's easiest drop-in for a weekday lunch.",
+  "editorVerdict": "T'Gallant's story is tangled but worth knowing: founded in 1990 as Australia's first serious Pinot Grigio operation, sold to Treasury Wine Estates, then sold again in 2022 to independent owners for AUD 9.7 million. The wines remain centred on Pinot Grigio and Gris - historical weight as Australian pioneers of the dual-style approach. And the Italian-inspired wood-fired food makes this the Peninsula's easiest drop-in for a weekday lunch.",
   "whyWeGo": "Not every cellar door visit needs to be a serious wine occasion. T'Gallant is where you go when the table is mixed, the afternoon is loose, and you want food that keeps up with the wine.",
   "bestFor": [
     "Family outings",
@@ -78,11 +78,11 @@
     },
     {
       "q": "Does T'Gallant have a restaurant?",
-      "a": "Yes — Italian-inspired dining daily with an updated menu concept. Casual, walk-in friendly."
+      "a": "Yes - Italian-inspired dining daily with an updated menu concept. Casual, walk-in friendly."
     },
     {
       "q": "Are dogs allowed at T'Gallant?",
-      "a": "No — the official FAQ explicitly states dogs are not allowed on site."
+      "a": "No - the official FAQ explicitly states dogs are not allowed on site."
     }
   ],
   "sameAs": {
@@ -109,10 +109,10 @@
     ]
   },
   "heroImage": {
-    "src": "/images/sourced/article-italian-dinners-01.webp",
-    "alt": "Mornington Peninsula landscape — representative image for T'Gallant",
-    "credit": "Peninsula Insider",
-    "license": "other-licensed"
+    "src": "/images/sourced/place-main-ridge-01.webp",
+    "alt": "CSIRO ScienceImage 1961 Chardonnay grapes at the Main Ridge Estate - representative image for T'Gallant",
+    "credit": "CSIRO",
+    "license": "wikimedia-cc-by"
   },
   "gallery": [],
   "featuredPartner": false,

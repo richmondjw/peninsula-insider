@@ -1,5 +1,5 @@
 /**
- * /data/venues.json — machine-readable venue export for AI agents.
+ * /data/venues.json: machine-readable venue export for AI agents.
  * Static, generated at build time from the venues collection.
  * Public fields only; see src/lib/agent-data.ts for the rules.
  */

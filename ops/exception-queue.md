@@ -42,6 +42,66 @@ Resolution rule: when fixed, **move** the entry to the Resolved section, prepend
 
 ## Active
 
+### EXC-2026-08-16-017 — Monday quick-note deployment not externally resolvable
+- **Severity:** P1
+- **Source:** post-publish-verify
+- **Surface:** `https://peninsulainsider.com.au/quick-note/2026-08-17-weather-monday/`
+- **Detail:** The freshly pushed quick-note URL returned HTTP 404 at 2026-08-16T20:38Z and again at 20:39Z, before the deployed revision was externally available. Live notification is blocked pending deployment and a passing verification rerun.
+- **First seen:** 2026-08-16
+- **Owner:** PI publisher + deployment operator
+- **Target resolution:** next GitHub Pages deployment
+- **Linked artifact:** `ops/reports/verify/2026-08-16-quick-note.md`
+
+### EXC-2026-08-15-016 — Sunday quick-note deployment not externally resolvable
+- **Severity:** P1
+- **Source:** post-publish-verify
+- **Surface:** `https://peninsulainsider.com.au/quick-note/2026-08-16-weather-sunday/`
+- **Detail:** The freshly pushed quick-note URL returned HTTP 404 at 2026-08-15T20:40Z, before the deployed revision was externally available. Live notification is blocked pending deployment and a passing verification rerun.
+- **First seen:** 2026-08-15
+- **Owner:** PI publisher + deployment operator
+- **Target resolution:** next GitHub Pages deployment
+- **Linked artifact:** `ops/reports/verify/2026-08-15-quick-note.md`
+
+### EXC-2026-08-10-015 — Tuesday quick-note post-publish gate: sitemap + meta-description checks failed
+- **Severity:** P2
+- **Source:** post-publish-verify
+- **Surface:** `https://peninsulainsider.com.au/quick-note/2026-08-11-{weather,editor-note}-tuesday/`
+- **Detail:** Ran after the `Build and Deploy` workflow completed (not a deploy-timing race like prior entries). HTTP, canonical, title, OG, stylesheet and target-copy checks all passed. Two findings: (1) `sitemap: not in sitemap.xml` for both URLs — by design, `next/src/pages/sitemap.xml.ts` only lists `/quick-note/` (the index), not individual daily entries, and quick-note frontmatter has no `sitemapExclude` field, so the gate's item 10 fails literally even though the omission looks intentional for ephemeral daily content; (2) `meta-description: 7 chars` on the editor-note URL on two consecutive script runs, which did not reproduce on a direct `curl` fetch of the same URL (description tag present, single instance, 91 chars, correct content) — looks like a transient edge-cache or script-timing artifact rather than a real content defect. Live notification is blocked per gate policy pending review.
+- **First seen:** 2026-08-10
+- **Owner:** PI publisher + PI-quick-note-desk (decide: add `sitemapExclude: true` to the quick-note content schema/frontmatter, or extend the sitemap generator to include current/unexpired quick notes)
+- **Target resolution:** next quick-note schema or sitemap-generator update
+- **Linked artifact:** `ops/reports/verify/2026-08-10-quick-note.md`
+
+### EXC-2026-08-09-014 — Monday quick-note deployment not externally resolvable
+- **Severity:** P1
+- **Source:** post-publish-verify
+- **Surface:** `https://peninsulainsider.com.au/quick-note/2026-08-10-{weather,editor-note}-monday/`
+- **Detail:** Both freshly pushed quick-note URLs returned HTTP 404 at 2026-08-09T20:38:23Z, before the deployed revision was externally available. Live notification is blocked pending deployment and a passing verification rerun.
+- **First seen:** 2026-08-09
+- **Owner:** PI publisher + deployment operator
+- **Target resolution:** next GitHub Pages deployment
+- **Linked artifact:** `ops/reports/verify/2026-08-09-quick-note.md`
+
+### EXC-2026-08-07-013 — Saturday quick-note deployment not externally resolvable
+- **Severity:** P1
+- **Source:** post-publish-verify
+- **Surface:** `https://peninsulainsider.com.au/quick-note/2026-08-08-{weather,editor-note,hot-springs}-saturday/`
+- **Detail:** All three freshly pushed quick-note URLs returned HTTP 404 at 2026-08-07T20:38:57Z, before the deployed revision was externally available. Live notification is blocked pending deployment and a passing verification rerun.
+- **First seen:** 2026-08-07
+- **Owner:** PI publisher + deployment operator
+- **Target resolution:** next GitHub Pages deployment
+- **Linked artifact:** `ops/reports/verify/2026-08-07-quick-note.md`
+
+### EXC-2026-08-04-012 — Tuesday quick-note deployment not externally resolvable
+- **Severity:** P1
+- **Source:** post-publish-verify
+- **Surface:** `https://peninsulainsider.com.au/quick-note/2026-08-05-{weather,editor-note,hot-springs}-tuesday/`
+- **Detail:** All three freshly pushed quick-note URLs returned HTTP 404 at 2026-08-04T20:38Z, before the deployed revision was externally available. Live notification is blocked pending deployment and a passing verification rerun.
+- **First seen:** 2026-08-04
+- **Owner:** PI publisher + deployment operator
+- **Target resolution:** next GitHub Pages deployment
+- **Linked artifact:** `ops/reports/verify/2026-08-04-quick-note.md`
+
 ### EXC-2026-05-10-001 — 144 articles use placeholder hero licenses (`tmp-wikimedia` / `tmp-unsplash`)
 - **Severity:** P1
 - **Source:** governance-audit

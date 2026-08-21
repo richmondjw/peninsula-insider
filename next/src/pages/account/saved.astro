@@ -6,7 +6,7 @@ export const prerender = true;
 ---
 
 <BaseLayout
-  title="Your Peninsula plan — Peninsula Insider"
+  title="Your Peninsula plan - Peninsula Insider"
   description="The articles, venues, events, and itineraries you've saved to read or visit."
   noindex={true}
 >
@@ -25,7 +25,7 @@ export const prerender = true;
       </div>
 
       <div class="saved-toolbar" data-saved-toolbar hidden>
-        <button type="button" class="saved-toolbar__btn" data-action="share-plan">
+        <button type="button" class="pi-btn pi-btn--solid pi-btn--sm" data-action="share-plan">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
             <polyline points="16 6 12 2 8 6" />
@@ -33,7 +33,7 @@ export const prerender = true;
           </svg>
           Share this plan
         </button>
-        <button type="button" class="saved-toolbar__btn saved-toolbar__btn--ghost" data-action="print-plan">
+        <button type="button" class="pi-btn pi-btn--ghost pi-btn--sm" data-action="print-plan">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <polyline points="6 9 6 2 18 2 18 9" />
             <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
@@ -41,7 +41,7 @@ export const prerender = true;
           </svg>
           Print
         </button>
-        <button type="button" class="saved-toolbar__btn saved-toolbar__btn--ghost" data-action="clear-plan">
+        <button type="button" class="pi-btn pi-btn--ghost pi-btn--sm" data-action="clear-plan">
           Clear all
         </button>
       </div>
@@ -59,7 +59,7 @@ export const prerender = true;
           </svg>
         </div>
         <p>Nothing saved yet. Tap the bookmark on any card or article to build your plan.</p>
-        <a class="v2-account-page__cta" href="/journal/">Browse the Journal</a>
+        <a class="pi-btn pi-btn--solid" href="/journal/">Browse the Journal</a>
       </div>
     </div>
   </main>
@@ -251,41 +251,6 @@ export const prerender = true;
     margin: 0 0 2rem;
   }
 
-  .saved-toolbar__btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.7rem 1.1rem;
-    background: var(--ink, #171413);
-    color: var(--paper, #FAF7F0);
-    border: 1px solid var(--ink, #171413);
-    border-radius: 100px;
-    font-family: 'Outfit', system-ui, sans-serif;
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
-  }
-
-  .saved-toolbar__btn:hover {
-    background: var(--ochre, #A0541F);
-    border-color: var(--ochre, #A0541F);
-  }
-
-  .saved-toolbar__btn--ghost {
-    background: transparent;
-    color: var(--ink-soft, #3A3531);
-    border-color: var(--line, #D9D1BE);
-  }
-
-  .saved-toolbar__btn--ghost:hover {
-    color: var(--ink, #171413);
-    background: rgba(0, 0, 0, 0.03);
-    border-color: var(--ink-soft, #3A3531);
-  }
-
   .saved-groups {
     display: grid;
     gap: 2.5rem;
@@ -294,12 +259,12 @@ export const prerender = true;
   .saved-group__head { margin: 0 0 1.1rem; }
 
   .saved-group__eyebrow {
-    font-family: 'Outfit', system-ui, sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.6rem;
     font-weight: 700;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: var(--ochre, #A0541F);
+    color: var(--ochre, #26997e);
     margin: 0 0 0.35rem;
   }
 
@@ -332,7 +297,7 @@ export const prerender = true;
     gap: 1rem;
     padding: 0.85rem;
     background: #fff;
-    border: 1px solid var(--line, #D9D1BE);
+    border: 1px solid var(--line, #bed9d3);
     border-radius: 8px;
     text-decoration: none;
     color: inherit;
@@ -340,9 +305,9 @@ export const prerender = true;
   }
 
   .saved-card:hover {
-    border-color: var(--ochre, #A0541F);
+    border-color: var(--ochre, #26997e);
     transform: translateY(-1px);
-    box-shadow: 0 10px 20px -10px rgba(34, 24, 16, 0.18);
+    box-shadow: 0 10px 20px -10px rgba(0, 40, 34, 0.18);
   }
 
   .saved-card__img {
@@ -350,23 +315,23 @@ export const prerender = true;
     background-size: cover;
     background-position: center;
     border-radius: 4px;
-    background-color: var(--paper-warm, #F3EDDE);
+    background-color: var(--paper-warm, #def3ee);
   }
 
   .saved-card__img--blank {
     background:
-      linear-gradient(135deg, var(--paper-warm, #F3EDDE), #EDE3CC);
+      linear-gradient(135deg, var(--paper-warm, #def3ee), #ccede5);
   }
 
   .saved-card__body { min-width: 0; }
 
   .saved-card__eyebrow {
-    font-family: 'Outfit', system-ui, sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.58rem;
     font-weight: 700;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--ochre, #A0541F);
+    color: var(--ochre, #26997e);
     margin: 0 0 0.35rem;
   }
 
@@ -429,7 +394,7 @@ export const prerender = true;
     background: var(--ink, #171413);
     color: var(--paper, #FAF7F0);
     border-radius: 100px;
-    font-family: 'Outfit', system-ui, sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.78rem;
     font-weight: 500;
     letter-spacing: 0.04em;
@@ -473,7 +438,7 @@ export const prerender = true;
 
     .v2-account-page__eyebrow { font-size: 0.6rem !important; color: #6e655c !important; margin: 0 0 0.3rem !important; }
     .v2-account-page__title { font-size: 1.6rem !important; margin: 0 0 1rem !important; }
-    .v2-account-page__title em { color: #a0541f !important; }
+    .v2-account-page__title em { color: #26997e !important; }
 
     .saved-print-mast {
       display: flex !important;
@@ -481,7 +446,7 @@ export const prerender = true;
       justify-content: space-between;
       gap: 1rem;
       padding: 0.6rem 0 1rem;
-      border-bottom: 1px solid #d9d1be;
+      border-bottom: 1px solid #bed9d3;
       margin-bottom: 1.5rem;
     }
 
@@ -491,12 +456,12 @@ export const prerender = true;
       font-weight: 500;
     }
     .saved-print-mast__brand em {
-      font-style: italic;
-      color: #a0541f;
+      font-style: normal;
+      color: #26997e;
       font-weight: 300;
     }
     .saved-print-mast__tag {
-      font-family: 'Outfit', system-ui, sans-serif;
+      font-family: var(--font-ui);
       font-size: 0.55rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
@@ -506,7 +471,7 @@ export const prerender = true;
     .saved-groups { gap: 1.2rem !important; }
     .saved-group__head { margin: 0 0 0.5rem !important; }
     .saved-group__title { font-size: 0.95rem !important; }
-    .saved-group__eyebrow { color: #a0541f !important; }
+    .saved-group__eyebrow { color: #26997e !important; }
     .saved-group__count { color: #6e655c !important; }
 
     .saved-group__grid {
@@ -518,14 +483,14 @@ export const prerender = true;
       grid-template-columns: 3.5rem 1fr !important;
       gap: 0.65rem !important;
       padding: 0.5rem !important;
-      border: 1px solid #d9d1be !important;
+      border: 1px solid #bed9d3 !important;
       box-shadow: none !important;
       transform: none !important;
       page-break-inside: avoid;
       break-inside: avoid;
     }
     .saved-card:hover {
-      border-color: #d9d1be !important;
+      border-color: #bed9d3 !important;
       transform: none !important;
       box-shadow: none !important;
     }

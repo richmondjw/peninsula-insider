@@ -1,0 +1,528 @@
+#!/usr/bin/env python3
+"""
+Self-test harness for the Content Strategy Brain.
+
+A fully-automated daily loop is only trustworthy if its parsing and scoring
+can't silently break. These tests lock the behaviour the brain depends on:
+markdown-table parsing (the classic failure was matching a summary row instead
+of a real heading), position-aware CTR classification, scoring monotonicity,
+the learning loop's movement detection, day-over-day diffing, and graceful
+degradation when an input is missing.
+
+Run:  python3 engine/test_strategy_engine.py            # verbose
+      python3 engine/test_strategy_engine.py --quiet     # dots only
+Exit code is non-zero on any failure, so CI / a cron gate can fail loudly
+instead of publishing a broken strategy.
+"""
+
+import sys
+import unittest
+from datetime import date
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import strategy_engine as se
+
+
+# A realistic slice of the GSC report, including the trap: a Summary table whose
+# "CTR opportunities" row must NOT be mistaken for the "## CTR Opportunities"
+# section heading.
+GSC_MD = """# Peninsula Insider — Search Analytics
+
+_Period: 2026-03-23 → 2026-04-19_
+
+## Summary
+
+| Metric | Value |
+|---|---|
+| Total clicks | 14 |
+| Total impressions | 630 |
+| CTR opportunities | 6 |
+| Avg position (imp-weighted) | 15.2 |
+
+## Top Pages by Impressions
+
+| Page | Impressions | Clicks | CTR | Avg Pos | In sitemap |
+|---|---|---|---|---|---|
+| `/whats-on/mornington-cup-2026` | 216 | 1 | 0.46% | 7.5 | — |
+| `http://peninsulainsider.com.au/` | 15 | 9 | 60.0% | 2.1 | — |
+
+## Top Queries
+
+| Query | Impressions | Clicks | CTR | Avg Pos |
+|---|---|---|---|---|
+| peninsula cup 2026 | 34 | 0 | 0% | 8.1 |
+
+## Keyword Gaps (Position 4–20, ≥5 impressions)
+
+| Query | Impressions | Avg Pos | Clicks |
+|---|---|---|---|
+| peninsula cup 2026 | 34 | 8.1 | 0 |
+
+## CTR Opportunities (≥20 impressions, <2% CTR)
+
+| Page | Impressions | CTR | Avg Pos |
+|---|---|---|---|
+| `/whats-on/mornington-cup-2026` | 216 | 0.46% | 7.5 |
+| `/stay/hotel-sorrento` | 59 | 0% | 54.3 |
+"""
+
+COVERAGE_MD = """# Coverage Report
+
+_Generated 2026-04-22 04:19 UTC_
+
+## URL Inspection Results
+
+| URL | Verdict | Coverage | Last Crawl |
+|---|---|---|---|
+| `/eat` | NEUTRAL | Discovered – currently not indexed | Never |
+| `/journal/x` | NEUTRAL | URL is unknown to Google | Never |
+
+## Summary
+
+- Indexed (PASS): **0**
+"""
+
+
+def _write(tmp: Path, name: str, body: str) -> Path:
+    p = tmp / name
+    p.write_text(body, encoding="utf-8")
+    return p
+
+
+class TableParsing(unittest.TestCase):
+    def test_selects_heading_not_summary_row(self):
+        """CTR Opportunities must parse the section table, not the summary row."""
+        rows = se.parse_markdown_table(GSC_MD, r"^#+.*CTR Opportunities")
+        self.assertEqual(len(rows), 2)
+        self.assertEqual(rows[0]["Page"], "/whats-on/mornington-cup-2026")
+
+    def test_gsc_parse_full(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as d:
+            p = _write(Path(d), "gsc.md", GSC_MD)
+            gsc = se.load_gsc(p)
+        self.assertTrue(gsc["available"])
+        self.assertEqual(gsc["summary"].get("Total clicks"), "14")
+        # CTR opps must be exactly the two real rows — not polluted by top pages.
+        self.assertEqual(len(gsc["ctr_opportunities"]), 2)
+        paths = {r["path"] for r in gsc["ctr_opportunities"]}
+        self.assertEqual(paths, {"/whats-on/mornington-cup-2026/", "/stay/hotel-sorrento/"})
+        # The 60%-CTR home page must NOT be a CTR opportunity.
+        self.assertNotIn("/", paths)
+
+    def test_coverage_parse(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as d:
+            p = _write(Path(d), "cov.md", COVERAGE_MD)
+            cov = se.load_coverage(p)
+        self.assertTrue(cov["available"])
+        self.assertEqual(cov["indexed"], 0)
+        self.assertEqual(len(cov["not_indexed"]), 2)
+
+
+class CtrClassification(unittest.TestCase):
+    def test_page1_is_snippet_fix(self):
+        gsc = {"ctr_opportunities": [{"path": "/a/", "impressions": 100, "ctr": 0.5, "avg_position": 7.0}],
+               "striking_distance": [], "top_pages": [], "top_queries": []}
+        opps = se.build_opportunities(gsc, {"stale": []}, {"gaps": []}, "winter", {"not_indexed": []})
+        ctr = [o for o in opps if o.kind == "ctr-fix"][0]
+        self.assertIn("Rewrite title", ctr.title)
+
+    def test_deep_page_is_ranking_fix(self):
+        gsc = {"ctr_opportunities": [{"path": "/b/", "impressions": 100, "ctr": 0.0, "avg_position": 54.0}],
+               "striking_distance": [], "top_pages": [], "top_queries": []}
+        opps = se.build_opportunities(gsc, {"stale": []}, {"gaps": []}, "winter", {"not_indexed": []})
+        ctr = [o for o in opps if o.kind == "ctr-fix"][0]
+        self.assertIn("Strengthen ranking", ctr.title)
+
+
+class Scoring(unittest.TestCase):
+    def _score(self, **kw):
+        o = se.Opportunity(**kw)
+        se.score_opportunity(o, {})
+        return o.score
+
+    def test_more_impressions_scores_higher(self):
+        low = self._score(kind="ctr-fix", title="", target="/a/", impressions=10,
+                          avg_position=8, ctr=0.0)
+        high = self._score(kind="ctr-fix", title="", target="/b/", impressions=200,
+                           avg_position=8, ctr=0.0)
+        self.assertGreater(high, low)
+
+    def test_indexation_hub_beats_deep(self):
+        hub = self._score(kind="indexation", title="", target="/eat/")
+        deep = self._score(kind="indexation", title="", target="/eat/foo/bar/")
+        self.assertGreater(hub, deep)
+
+    def test_closer_to_page1_scores_higher(self):
+        near = self._score(kind="striking-distance", title="", target="/a/", impressions=20,
+                          avg_position=5)
+        far = self._score(kind="striking-distance", title="", target="/b/", impressions=20,
+                         avg_position=25)
+        self.assertGreater(near, far)
+
+
+class LearningLoop(unittest.TestCase):
+    GSC = {"top_pages": [{"path": "/win/", "impressions": 50, "clicks": 3, "ctr": 3.0, "avg_position": 6.0}],
+           "ctr_opportunities": [], "top_queries": [], "striking_distance": []}
+
+    def test_detects_improvement(self):
+        actioned = [{"date": "2026-07-01", "kind": "ctr-fix", "target": "/win/", "query": "",
+                     "baseline": {"impressions": 40, "ctr": 0.0, "avg_position": 12.0}}]
+        res = se.evaluate_actioned(actioned, self.GSC)
+        self.assertEqual(res["measurable"], 1)
+        self.assertTrue(res["results"][0]["moved"])
+        self.assertEqual(res["hit_rate_by_kind"]["ctr-fix"], {"wins": 1, "measured": 1})
+
+    def test_pending_when_not_in_gsc(self):
+        actioned = [{"date": "2026-07-01", "kind": "indexation", "target": "/about/", "query": "",
+                     "baseline": {"impressions": None, "ctr": None, "avg_position": None}}]
+        res = se.evaluate_actioned(actioned, self.GSC)
+        self.assertEqual(res["measurable"], 0)
+        self.assertIsNone(res["results"][0]["moved"])
+
+    def test_regression_counts_as_no_win(self):
+        gsc = {"top_pages": [{"path": "/slip/", "impressions": 30, "clicks": 0, "ctr": 0.0, "avg_position": 20.0}],
+               "ctr_opportunities": [], "top_queries": [], "striking_distance": []}
+        actioned = [{"date": "2026-07-01", "kind": "ctr-fix", "target": "/slip/", "query": "",
+                     "baseline": {"impressions": 30, "ctr": 1.0, "avg_position": 10.0}}]
+        res = se.evaluate_actioned(actioned, gsc)
+        self.assertFalse(res["results"][0]["moved"])
+        self.assertEqual(res["hit_rate_by_kind"]["ctr-fix"], {"wins": 0, "measured": 1})
+
+
+class DayOverDay(unittest.TestCase):
+    def test_first_run(self):
+        d = se.compute_diff(None, {"total_clicks": 1}, [])
+        self.assertTrue(d["first_run"])
+
+    def test_detects_position_improvement(self):
+        prev = {"date": "2026-07-05", "metrics": {"total_clicks": 9, "avg_position": 17.0},
+                "commissioning_queue": []}
+        d = se.compute_diff(prev, {"total_clicks": 14, "avg_position": 15.2}, [])
+        self.assertFalse(d["first_run"])
+        self.assertAlmostEqual(d["deltas"]["avg_position"], -1.8)
+        self.assertTrue(any("improved" in n for n in d["notes"]))
+
+
+class GracefulDegradation(unittest.TestCase):
+    def test_missing_gsc_report(self):
+        gsc = se.load_gsc(Path("/nonexistent/gsc.md"))
+        self.assertFalse(gsc["available"])
+        self.assertEqual(gsc["ctr_opportunities"], [])
+
+    def test_missing_coverage_report(self):
+        cov = se.load_coverage(Path("/nonexistent/cov.md"))
+        self.assertFalse(cov["available"])
+
+    def test_build_opportunities_with_no_inputs(self):
+        # Empty GSC + no competitive + no coverage: still yields seasonal prompts, no crash.
+        opps = se.build_opportunities(
+            {"ctr_opportunities": [], "striking_distance": [], "top_pages": [], "top_queries": []},
+            {"stale": []}, {"gaps": []}, "winter", {"not_indexed": []})
+        self.assertTrue(all(o.kind == "coverage-gap" for o in opps))
+        self.assertGreater(len(opps), 0)
+
+
+class AdaptiveModel(unittest.TestCase):
+    def _prev(self):
+        return {k: 1.0 for k in se.ALL_KINDS}
+
+    def test_holds_below_min_measured(self):
+        """Fewer than the minimum measured outcomes → no adaptation (anti-noise)."""
+        hit = {"ctr-fix": {"wins": 1, "measured": 1}}
+        new, notes = se.adapt_weights(self._prev(), hit, date(2026, 7, 6))
+        self.assertEqual(new["ctr-fix"], 1.0)
+        self.assertEqual(notes, [])
+
+    def test_rewards_winning_kind(self):
+        hit = {"ctr-fix": {"wins": 8, "measured": 8}}  # 100% win rate
+        new, notes = se.adapt_weights(self._prev(), hit, date(2026, 7, 6))
+        self.assertGreater(new["ctr-fix"], 1.0)
+        self.assertTrue(notes)
+
+    def test_penalises_losing_kind(self):
+        hit = {"freshness": {"wins": 0, "measured": 10}}  # 0% win rate
+        new, _ = se.adapt_weights(self._prev(), hit, date(2026, 7, 6))
+        self.assertLess(new["freshness"], 1.0)
+
+    def test_stays_within_clamp(self):
+        prev = {k: 1.3 for k in se.ALL_KINDS}
+        hit = {"ctr-fix": {"wins": 20, "measured": 20}}
+        new, _ = se.adapt_weights(prev, hit, date(2026, 7, 6))
+        lo, hi = se.ADAPT_CLAMP
+        self.assertLessEqual(new["ctr-fix"], hi)
+        self.assertGreaterEqual(new["ctr-fix"], lo)
+
+    def test_multiplier_changes_score(self):
+        se._KIND_MULT = {"ctr-fix": 1.2}
+        try:
+            o = se.Opportunity(kind="ctr-fix", title="", target="/a/", impressions=100,
+                              avg_position=8, ctr=0.0)
+            se.score_opportunity(o, {})
+            self.assertEqual(o.score_breakdown["learned_multiplier"], 1.2)
+        finally:
+            se._KIND_MULT = {}
+
+
+class EventCoverage(unittest.TestCase):
+    def test_urgency_peaks_in_window(self):
+        self.assertEqual(se._event_urgency(30), 1.0)          # prime window
+        self.assertLess(se._event_urgency(5), se._event_urgency(30))    # too soon
+        self.assertLess(se._event_urgency(80), se._event_urgency(30))   # too far
+        self.assertEqual(se._event_urgency(None), 0.0)
+        self.assertEqual(se._event_urgency(-3), 0.0)
+
+    def test_load_events_filters_window_and_significance(self):
+        import tempfile, json as _json
+        with tempfile.TemporaryDirectory() as d:
+            dd = Path(d)
+            (dd / "gala.json").write_text(_json.dumps({
+                "slug": "gala", "title": "Winter Wine Gala", "startDate": "2026-07-26",
+                "recurrence": "one-off", "freePaid": "Paid", "category": "food-wine"}))
+            (dd / "market.json").write_text(_json.dumps({
+                "slug": "mkt", "title": "Village Community Market", "startDate": "2026-07-20",
+                "recurrence": "monthly", "freePaid": "Free", "category": "market"}))
+            (dd / "past.json").write_text(_json.dumps({
+                "slug": "past", "title": "Old Event", "startDate": "2026-01-01",
+                "recurrence": "one-off", "freePaid": "Paid"}))
+            (dd / "faraway.json").write_text(_json.dumps({
+                "slug": "far", "title": "Next Year", "startDate": "2027-06-01",
+                "recurrence": "one-off", "freePaid": "Paid"}))
+            ev = se.load_events(dd, date(2026, 7, 6))
+        slugs = {e["slug"]: e for e in ev["upcoming"]}
+        self.assertIn("gala", slugs)          # upcoming, in window
+        self.assertIn("mkt", slugs)            # upcoming market (kept, but not "major")
+        self.assertNotIn("past", slugs)        # past — excluded
+        self.assertNotIn("far", slugs)         # beyond window — excluded
+        self.assertTrue(slugs["gala"]["major"])
+        self.assertFalse(slugs["mkt"]["major"])  # recurring market is evergreen
+
+    def test_only_major_events_become_opportunities(self):
+        events = {"upcoming": [
+            {"slug": "gala", "title": "Gala", "start": "2026-07-26", "days_until": 20,
+             "major": True, "region": "Red Hill", "summary": "", "category": "food-wine"},
+            {"slug": "mkt", "title": "Market", "start": "2026-07-20", "days_until": 14,
+             "major": False, "region": "", "summary": "", "category": "market"},
+        ]}
+        opps = se.build_opportunities(
+            {"ctr_opportunities": [], "striking_distance": [], "top_pages": [], "top_queries": []},
+            {"stale": []}, {"gaps": []}, "winter", {"not_indexed": []}, events)
+        ev_opps = [o for o in opps if o.kind == "event-coverage"]
+        self.assertEqual(len(ev_opps), 1)
+        self.assertIn("Gala", ev_opps[0].title)
+
+
+class Health(unittest.TestCase):
+    def _with_snaps(self, dates):
+        import tempfile
+        d = tempfile.mkdtemp()
+        for ds in dates:
+            (Path(d) / f"{ds}.json").write_text("{}")
+        return Path(d)
+
+    def setUp(self):
+        self._orig = se.SNAPSHOT_DIR
+
+    def tearDown(self):
+        se.SNAPSHOT_DIR = self._orig
+
+    def test_stalled_when_snapshot_old(self):
+        se.SNAPSHOT_DIR = self._with_snaps(["2026-07-01"])
+        h = se.check_health(date(2026, 7, 10), ["gsc-search-analytics", "gsc-coverage"], {})
+        self.assertEqual(h["status"], "stalled")
+
+    def test_ok_when_fresh_and_fed(self):
+        se.SNAPSHOT_DIR = self._with_snaps(
+            [f"2026-07-{d:02d}" for d in range(1, 8)])  # 7 consecutive days
+        h = se.check_health(date(2026, 7, 7), ["gsc-search-analytics", "gsc-coverage"], {})
+        self.assertEqual(h["status"], "ok")
+
+    def test_warning_without_performance_data(self):
+        se.SNAPSHOT_DIR = self._with_snaps([f"2026-07-{d:02d}" for d in range(1, 8)])
+        h = se.check_health(date(2026, 7, 7), [], {})  # no GSC input
+        self.assertEqual(h["status"], "warning")
+        self.assertTrue(any("without performance signal" in n for n in h["notes"]))
+
+
+class DeskRouting(unittest.TestCase):
+    def test_routes(self):
+        self.assertEqual(se.route_desk("/stay/hotel-sorrento/"), "escapes-desk")
+        self.assertEqual(se.route_desk("/eat/polperro/"), "table-desk")
+        self.assertEqual(se.route_desk("/wine/montalto/"), "table-desk")
+        self.assertEqual(se.route_desk("/explore/best-walks/"), "field-desk")
+        self.assertEqual(se.route_desk("/whats-on/mornington-cup-2026/"), "dispatch-desk")
+
+
+class AutoExecutor(unittest.TestCase):
+    """Guards the deterministic parts of the autonomous executor — a bug here
+    would let it edit the wrong file or write malformed frontmatter live."""
+
+    SAMPLE = ('---\ntitle: "Old Title"\ndek: "Old description here."\n'
+              'author: "editorial"\nformat: "service"\n---\n\nBody stays.\n')
+
+    def _aa(self):
+        import auto_act as aa
+        return aa
+
+    def test_resolves_only_journal_articles(self):
+        aa = self._aa()
+        self.assertIsNone(aa.resolve_article_source("/stay/hotel-sorrento/"))
+        self.assertIsNone(aa.resolve_article_source("/whats-on/x/"))
+        self.assertIsNone(aa.resolve_article_source("/journal/definitely-not-a-real-slug-xyz/"))
+
+    def test_frontmatter_roundtrip_preserves_body_and_other_keys(self):
+        aa = self._aa()
+        self.assertEqual(aa.get_fm_field(self.SAMPLE, "title"), "Old Title")
+        out = aa.set_fm_field(self.SAMPLE, "title", "New Title")
+        out = aa.set_fm_field(out, "dek", "A fresh, longer meta description.")
+        self.assertEqual(aa.get_fm_field(out, "title"), "New Title")
+        self.assertEqual(aa.get_fm_field(out, "dek"), "A fresh, longer meta description.")
+        self.assertIn('author: "editorial"', out)   # untouched
+        self.assertIn("Body stays.", out)            # body untouched
+
+    def test_validate_accepts_good_and_rejects_bad(self):
+        aa = self._aa()
+        good_dek = "A concrete, useful meta description about dog-friendly beaches on the Peninsula today."
+        self.assertIsNone(aa.validate("A Good Specific Title", good_dek))
+        self.assertIsNotNone(aa.validate("x" * 80, good_dek))            # title too long
+        self.assertIsNotNone(aa.validate("Title", "too short"))          # dek too short
+        self.assertIsNotNone(aa.validate("A stunning title here", good_dek))  # prohibited word
+
+
+class HouseStyleSanitizer(unittest.TestCase):
+    """Guards the em-dash sanitizer in the orchestrator's style gate — an
+    em-dash regression here silently breaks every content deploy."""
+
+    def _sanitize(self, text: str) -> str:
+        import tempfile
+        import orchestrator as orch
+        with tempfile.TemporaryDirectory() as d:
+            p = Path(d) / "a.md"
+            p.write_text(text)
+            orch.sanitize_house_style(p)
+            return p.read_text()
+
+    def test_replaces_spaced_em_dash(self):
+        self.assertEqual(self._sanitize("winter menu — and the tart"),
+                         "winter menu - and the tart")
+
+    def test_replaces_bare_and_tight_em_dash(self):
+        self.assertEqual(self._sanitize("A—B"), "A - B")
+
+    def test_leaves_hyphen_rule_and_en_dash(self):
+        # Markdown '---' rule and en-dashes (Thu–Sun) must survive untouched.
+        out = self._sanitize("---\nOpen Thu–Sun\n---")
+        self.assertIn("---", out)
+        self.assertIn("Thu–Sun", out)
+
+    def test_result_has_no_em_dashes(self):
+        out = self._sanitize("Title — sub — end. Days — see site.")
+        self.assertNotIn("—", out)
+
+
+class AutoActScope(unittest.TestCase):
+    def test_actionable_kinds(self):
+        import auto_act as aa
+        self.assertIn("ctr-fix", aa.ACTIONABLE_KINDS)
+        self.assertIn("striking-distance", aa.ACTIONABLE_KINDS)
+        self.assertNotIn("coverage-gap", aa.ACTIONABLE_KINDS)
+        self.assertNotIn("indexation", aa.ACTIONABLE_KINDS)
+
+    def test_query_aware_prompt(self):
+        import auto_act as aa
+        with_q = aa._draft_prompt("dog-friendly", "T", "D", query="dog beaches mornington")
+        without_q = aa._draft_prompt("dog-friendly", "T", "D")
+        self.assertIn("dog beaches mornington", with_q)
+        self.assertNotIn("search query:", without_q)
+
+
+class AlertPath(unittest.TestCase):
+    def test_writes_alert_file(self):
+        import os, tempfile
+        from unittest import mock
+        with tempfile.TemporaryDirectory() as d:
+            with mock.patch.dict(os.environ, {"PI_REPO_ROOT": d}, clear=False):
+                import importlib
+                import alert
+                importlib.reload(alert)  # pick up PI_REPO_ROOT
+                r = alert.emit_alert("Test fail", "body here", "error", "unit-key")
+                self.assertIsNotNone(r["file"])
+                self.assertTrue(Path(r["file"]).exists())
+                payload = __import__("json").loads(Path(r["file"]).read_text())
+                self.assertEqual(payload["severity"], "error")
+                self.assertEqual(payload["dedup_key"], "unit-key")
+
+    def test_no_issue_without_token(self):
+        import os
+        from unittest import mock
+        import alert
+        with mock.patch.dict(os.environ, {}, clear=True):
+            self.assertIsNone(alert.open_or_reuse_issue("t", "b", "k"))
+
+
+class LLMClient(unittest.TestCase):
+    def test_sdk_skipped_without_key(self):
+        import os
+        from unittest import mock
+        import llm
+        with mock.patch.dict(os.environ, {}, clear=True):
+            self.assertIsNone(llm._try_sdk("hi", "", "claude-sonnet-5", 100, 5))
+
+    def test_available_returns_valid_backend(self):
+        import llm
+        self.assertIn(llm.available(), {"sdk", "cli", "none"})
+
+
+class VerifyGate(unittest.TestCase):
+    """Guards the real factual verify gate — it can BLOCK a live publish, so its
+    hard-fail logic must not silently regress."""
+
+    def _run(self, body: str, *, slugs=("real-venue",), paths=("/eat/real-venue",)):
+        import tempfile
+        import verify_gate as vg
+        with tempfile.TemporaryDirectory() as d:
+            content = Path(d) / "content"
+            (content / "venues").mkdir(parents=True)
+            for s in slugs:
+                (content / "venues" / f"{s}.json").write_text("{}")
+            sitemap = Path(d) / "sitemap.xml"
+            locs = "".join(f"<loc>https://peninsulainsider.com.au{p}/</loc>" for p in paths)
+            sitemap.write_text(f"<urlset>{locs}</urlset>")
+            f = Path(d) / "a.md"
+            f.write_text(body)
+            return vg.verify_content(f, content_dir=content, sitemap_path=sitemap)
+
+    def test_clean_passes(self):
+        body = ('---\ntitle: "x"\npublishedAt: 2026-07-06\nrelatedVenues: [real-venue]\n---\n'
+                "A calm note with no dates or risky claims.")
+        self.assertEqual(self._run(body)["result"], "PASS")
+
+    def test_missing_venue_fails(self):
+        body = ('---\npublishedAt: 2026-07-06\nrelatedVenues: [ghost-venue]\n---\nhi')
+        r = self._run(body)
+        self.assertEqual(r["result"], "FAIL")
+        self.assertTrue(any("ghost-venue" in f for f in r["fails"]))
+
+    def test_wrong_weekday_fails(self):
+        # 26 July 2026 is a Sunday, not a Saturday.
+        body = ('---\npublishedAt: 2026-07-06\n---\nJoin us Saturday 26 July.')
+        r = self._run(body)
+        self.assertEqual(r["result"], "FAIL")
+        self.assertTrue(any("26 Jul" in f for f in r["fails"]))
+
+    def test_correct_weekday_passes(self):
+        # 26 July 2026 is a Sunday.
+        body = ('---\npublishedAt: 2026-07-06\n---\nJoin us Sunday 26 July.')
+        self.assertNotEqual(self._run(body)["result"], "FAIL")
+
+    def test_unknown_section_link_fails(self):
+        body = ('---\npublishedAt: 2026-07-06\nclusterLinks:\n  - href: "/made-up/x/"\n---\nhi')
+        self.assertEqual(self._run(body)["result"], "FAIL")
+
+
+if __name__ == "__main__":
+    verbosity = 1 if "--quiet" in sys.argv else 2
+    argv = [a for a in sys.argv if a != "--quiet"]
+    unittest.main(argv=argv, verbosity=verbosity)

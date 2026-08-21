@@ -1,5 +1,5 @@
 ---
-headline: "Tedesca remains an online-booking-only lunch — don't drive out without a seat"
+headline: "Tedesca remains an online-booking-only lunch - don't drive out without a seat"
 dek: "The Red Hill osteria is still positioning itself as a 30-seat room with bookings handled through the online system, and Graceburn guests are told to confirm the restaurant sitting before locking the stay."
 section: eat
 tag: opening-window

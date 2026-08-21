@@ -1,0 +1,796 @@
+---
+/**
+ * /me/saved/ - everything the reader has saved, one projection (T-604 UI).
+ *
+ * Fixes TOOL-01: all nine save kinds are visible and filterable from one
+ * page with honest counts (the legacy /saved/ shim showed venues and events
+ * only). Reads the unified v5-store (pi:saves:v2); every card carries open,
+ * "+ Trip" (writes to the same store's trip view, TOOL-02) and remove.
+ *
+ * Signed-out sync upsell appears only after the third save (value first,
+ * tools spec 4.22); dismissal is permanent via pi:me:upsell-dismissed.
+ * Entire /me/ tree is noindex + search-excluded (spec 4.27).
+ *
+ * Cards here are client-rendered from localStorage snapshots, so images are
+ * store snapshots (image_url captured at save time), not CMS-editable
+ * fields; editableImage() is a build-time helper for entity surfaces and
+ * does not apply to reader-owned data.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import MeShell from '../../components/v5/me/MeShell.astro';
+import EmptyState from '../../components/v5/EmptyState.astro';
+export const prerender = true;
+---
+
+<BaseLayout
+  title="Saved · Peninsula Insider"
+  description="Everything you have saved on Peninsula Insider, in one place."
+  noindex={true}
+  searchExclude={true}
+>
+  <div class="me-page">
+    <div class="me-page__container">
+      <MeShell active="saved" heading="Saved">
+        <span slot="count" class="me-count" data-me-count aria-hidden="true"></span>
+      </MeShell>
+
+      <p id="pi-results-status" class="me-sr" role="status" aria-live="polite"></p>
+
+      <div class="me-chips" role="group" aria-label="Filter saved items by kind" data-me-chips hidden>
+        <button type="button" class="me-chip" data-me-chip="" aria-pressed="true">All</button>
+        <button type="button" class="me-chip" data-me-chip="venue" aria-pressed="false">Venues</button>
+        <button type="button" class="me-chip" data-me-chip="event" aria-pressed="false">Events</button>
+        <button type="button" class="me-chip" data-me-chip="experience" aria-pressed="false">Experiences</button>
+        <button type="button" class="me-chip" data-me-chip="place" aria-pressed="false">Places</button>
+        <button type="button" class="me-chip" data-me-chip="itinerary" aria-pressed="false">Plans</button>
+        <button type="button" class="me-chip" data-me-chip="article" aria-pressed="false">Articles</button>
+        <button type="button" class="me-chip" data-me-chip="tour" aria-pressed="false">Tours</button>
+        <button type="button" class="me-chip" data-me-chip="tour-operator" aria-pressed="false">Operators</button>
+        <button type="button" class="me-chip" data-me-chip="tour-package" aria-pressed="false">Packages</button>
+      </div>
+
+      <!-- Sync upsell: signed out, third save made, not dismissed. -->
+      <aside class="me-upsell" data-me-upsell hidden>
+        <div class="me-upsell__body">
+          <p class="me-upsell__title">Saved on this phone for now.</p>
+          <p class="me-upsell__text">Sign in and your saves follow you to the laptop. Google or a magic link, ten seconds.</p>
+        </div>
+        <div class="me-upsell__actions">
+          <button type="button" class="me-upsell__primary" data-open-auth data-me-upsell-signin>Keep them everywhere</button>
+          <button type="button" class="me-upsell__ghost" data-me-upsell-dismiss>Later</button>
+        </div>
+      </aside>
+
+      <div class="me-groups" data-me-groups></div>
+
+      <!-- Filtered to a kind with zero items. -->
+      <div class="me-filter-empty" data-me-filter-empty hidden>
+        <p class="me-filter-empty__text" data-me-filter-empty-text></p>
+        <a class="me-filter-empty__link" data-me-filter-empty-link href="/">Browse</a>
+      </div>
+
+      <!-- Never saved anything. -->
+      <div data-me-empty hidden>
+        <EmptyState
+          variant="saved-zero"
+          heading="Nothing saved yet"
+          body="Tap the bookmark on any place, plan, or story and it lands here. No account needed, it stays on this device."
+          surface="me-saved"
+        >
+          <div slot="actions" class="me-empty-doors">
+            <a class="me-empty-doors__link" href="/eat/" data-evt="empty_state_cta" data-surface="me-saved">Eat &amp; Drink</a>
+            <a class="me-empty-doors__link" href="/whats-on/" data-evt="empty_state_cta" data-surface="me-saved">What's On</a>
+            <a class="me-empty-doors__link" href="/explore/plans/" data-evt="empty_state_cta" data-surface="me-saved">Plans</a>
+          </div>
+        </EmptyState>
+      </div>
+
+      <!-- Quiet signed-out line: always present once anything is saved. -->
+      <p class="me-footline" data-me-footline hidden>
+        Saves live on this device.
+        <button type="button" class="me-footline__signin" data-open-auth>Sign in</button>
+        to keep them everywhere.
+      </p>
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  import * as store from '../../lib/v5-store';
+  import type { SaveKind, SavedItem } from '../../lib/v5-store';
+  import { trackEvent, initV5Analytics } from '../../lib/v5-analytics';
+  import { getSession } from '../../lib/auth';
+
+  initV5Analytics();
+
+  const UPSELL_DISMISSED_KEY = 'pi:me:upsell-dismissed';
+  const UPSELL_THRESHOLD = 3;
+
+  interface KindMeta {
+    plural: string;
+    hub: string;
+    hubLabel: string;
+  }
+
+  const KIND_META: Record<SaveKind, KindMeta> = {
+    venue: { plural: 'Venues', hub: '/eat/', hubLabel: 'Eat & Drink' },
+    event: { plural: 'Events', hub: '/whats-on/', hubLabel: "What's On" },
+    experience: { plural: 'Experiences', hub: '/explore/', hubLabel: 'Explore' },
+    place: { plural: 'Places', hub: '/explore/places/', hubLabel: 'Places' },
+    itinerary: { plural: 'Plans', hub: '/explore/plans/', hubLabel: 'Plans' },
+    article: { plural: 'Articles', hub: '/journal/', hubLabel: 'the Journal' },
+    tour: { plural: 'Tours', hub: '/tour/', hubLabel: 'Tours' },
+    'tour-operator': { plural: 'Operators', hub: '/tour/', hubLabel: 'Tours' },
+    'tour-package': { plural: 'Packages', hub: '/tour/', hubLabel: 'Tours' },
+  };
+
+  /** Display order for the grouped grid (mirrors /account/saved/). */
+  const KIND_ORDER: SaveKind[] = [
+    'itinerary', 'event', 'venue', 'experience', 'place', 'article',
+    'tour-package', 'tour', 'tour-operator',
+  ];
+
+  function esc(s: string): string {
+    return s.replace(/[&<>"']/g, (c) => (
+      { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' } as Record<string, string>
+    )[c] as string);
+  }
+
+  function cssUrl(src: string): string {
+    return src.replace(/["\\]/g, (m) => `\\${m}`);
+  }
+
+  function currentKind(): SaveKind | '' {
+    const raw = new URLSearchParams(location.search).get('kind') || '';
+    return raw in KIND_META ? (raw as SaveKind) : '';
+  }
+
+  function imageFor(item: SavedItem): string {
+    const metaImg = item.meta && typeof item.meta.image_url === 'string' ? item.meta.image_url : '';
+    return item.image_url || metaImg;
+  }
+
+  function renderCard(item: SavedItem, inTrip: boolean): string {
+    const meta = KIND_META[item.kind];
+    const img = imageFor(item);
+    const media = img
+      ? `<div class="me-card__media" style="background-image:url('${cssUrl(esc(img))}')"></div>`
+      : `<div class="me-card__media me-card__media--tile"><span aria-hidden="true">${esc(meta.plural.slice(0, 2))}</span></div>`;
+    const dek = item.dek ? `<p class="me-card__dek">${esc(item.dek)}</p>` : '';
+    const tripMark = inTrip ? `<span class="me-card__intrip">In My Trip</span>` : '';
+    return `
+      <li class="me-card">
+        ${media}
+        <div class="me-card__body">
+          <p class="me-card__mark">${esc(meta.plural)}${tripMark}</p>
+          <h3 class="me-card__title">
+            <a href="${esc(item.href)}" class="me-card__link" data-evt="card_click" data-entity-type="${esc(item.kind)}" data-entity-slug="${esc(item.slug)}" data-surface="me-saved">${esc(item.title)}</a>
+          </h3>
+          ${dek}
+        </div>
+        <div class="me-card__actions">
+          <button type="button" class="me-card__trip" data-me-trip data-kind="${esc(item.kind)}" data-slug="${esc(item.slug)}" aria-label="Add ${esc(item.title)} to My Trip">+ Trip</button>
+          <button type="button" class="me-card__remove" data-me-remove data-kind="${esc(item.kind)}" data-slug="${esc(item.slug)}" aria-label="Remove ${esc(item.title)} from your saves">Remove</button>
+        </div>
+      </li>`;
+  }
+
+  function tripMembership(): Set<string> {
+    const keys = new Set<string>();
+    for (const e of store.tripEntries()) {
+      if (e.kind && e.slug) keys.add(`${e.kind}/${e.slug}`);
+    }
+    return keys;
+  }
+
+  function announce(text: string): void {
+    const el = document.getElementById('pi-results-status');
+    if (el) el.textContent = text;
+  }
+
+  function render(): void {
+    const groupsEl = document.querySelector<HTMLElement>('[data-me-groups]');
+    const emptyEl = document.querySelector<HTMLElement>('[data-me-empty]');
+    const filterEmptyEl = document.querySelector<HTMLElement>('[data-me-filter-empty]');
+    const chipsEl = document.querySelector<HTMLElement>('[data-me-chips]');
+    const countEl = document.querySelector<HTMLElement>('[data-me-count]');
+    if (!groupsEl || !emptyEl || !filterEmptyEl || !chipsEl) return;
+
+    const all = store.listSaves();
+    const kind = currentKind();
+    const inTrip = tripMembership();
+
+    // Honest counts on every chip, all nine kinds always visible (TOOL-01).
+    const counts = new Map<string, number>();
+    for (const it of all) counts.set(it.kind, (counts.get(it.kind) || 0) + 1);
+    chipsEl.querySelectorAll<HTMLButtonElement>('[data-me-chip]').forEach((chip) => {
+      const k = chip.dataset.meChip || '';
+      const n = k === '' ? all.length : counts.get(k) || 0;
+      const label = k === '' ? 'All' : KIND_META[k as SaveKind].plural;
+      chip.textContent = `${label} (${n})`;
+      chip.setAttribute('aria-pressed', k === kind ? 'true' : 'false');
+    });
+
+    if (countEl) countEl.textContent = all.length > 0 ? `(${all.length})` : '';
+
+    if (all.length === 0) {
+      groupsEl.innerHTML = '';
+      chipsEl.hidden = true;
+      filterEmptyEl.hidden = true;
+      emptyEl.hidden = false;
+      announce('Nothing saved yet');
+      return;
+    }
+
+    emptyEl.hidden = true;
+    chipsEl.hidden = false;
+
+    const shown = kind ? all.filter((it) => it.kind === kind) : all;
+
+    if (shown.length === 0 && kind) {
+      groupsEl.innerHTML = '';
+      const meta = KIND_META[kind];
+      const textEl = filterEmptyEl.querySelector<HTMLElement>('[data-me-filter-empty-text]');
+      const linkEl = filterEmptyEl.querySelector<HTMLAnchorElement>('[data-me-filter-empty-link]');
+      if (textEl) textEl.textContent = `No saved ${meta.plural.toLowerCase()} yet.`;
+      if (linkEl) {
+        linkEl.href = meta.hub;
+        linkEl.textContent = `Browse ${meta.hubLabel}`;
+      }
+      filterEmptyEl.hidden = false;
+      announce(`0 saved items shown`);
+      return;
+    }
+
+    filterEmptyEl.hidden = true;
+
+    const grouped = new Map<SaveKind, SavedItem[]>();
+    for (const it of shown) {
+      const arr = grouped.get(it.kind) || [];
+      arr.push(it);
+      grouped.set(it.kind, arr);
+    }
+
+    groupsEl.innerHTML = KIND_ORDER
+      .filter((k) => grouped.has(k))
+      .map((k) => {
+        const items = grouped.get(k)!;
+        return `
+          <section class="me-group">
+            <h2 class="me-group__title">${esc(KIND_META[k].plural)} <span class="me-group__count">${items.length}</span></h2>
+            <ul class="me-grid" aria-label="Saved ${esc(KIND_META[k].plural.toLowerCase())}">
+              ${items.map((it) => renderCard(it, inTrip.has(`${it.kind}/${it.slug}`))).join('')}
+            </ul>
+          </section>`;
+      })
+      .join('');
+
+    announce(`${shown.length} saved item${shown.length === 1 ? '' : 's'} shown`);
+  }
+
+  function showToast(message: string): void {
+    let toast = document.querySelector<HTMLElement>('[data-me-toast]');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.className = 'me-toast';
+      toast.setAttribute('data-me-toast', '');
+      toast.setAttribute('role', 'status');
+      document.body.appendChild(toast);
+    }
+    toast.textContent = message;
+    toast.classList.add('me-toast--visible');
+    window.setTimeout(() => toast?.classList.remove('me-toast--visible'), 2400);
+  }
+
+  function bindChips(): void {
+    document.querySelectorAll<HTMLButtonElement>('[data-me-chip]').forEach((chip) => {
+      chip.addEventListener('click', () => {
+        const k = chip.dataset.meChip || '';
+        const url = new URL(location.href);
+        if (k) url.searchParams.set('kind', k);
+        else url.searchParams.delete('kind');
+        history.replaceState(null, '', url.pathname + url.search);
+        trackEvent('me_filter', { kind: k || 'all' });
+        render();
+      });
+    });
+  }
+
+  function bindCardActions(): void {
+    document.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement | null;
+
+      const tripBtn = target?.closest<HTMLElement>('[data-me-trip]');
+      if (tripBtn) {
+        const kind = tripBtn.dataset.kind as SaveKind;
+        const slug = tripBtn.dataset.slug || '';
+        const item = store.listSaves().find((it) => it.kind === kind && it.slug === slug);
+        if (!item) return;
+        store.tripAdd({ kind: item.kind, slug: item.slug, title: item.title, href: item.href, meta: item.meta });
+        trackEvent('trip_add', { entity_type: kind, entity_slug: slug, src: 'saved' });
+        showToast('Added to My Trip');
+        return;
+      }
+
+      const removeBtn = target?.closest<HTMLElement>('[data-me-remove]');
+      if (removeBtn) {
+        const kind = removeBtn.dataset.kind as SaveKind;
+        const slug = removeBtn.dataset.slug || '';
+        store.unsave(kind, slug);
+        trackEvent('save_remove', { entity_type: kind, entity_slug: slug, surface: 'me-saved' });
+      }
+    });
+  }
+
+  function bindUpsell(): void {
+    const dismiss = document.querySelector<HTMLElement>('[data-me-upsell-dismiss]');
+    dismiss?.addEventListener('click', () => {
+      try { localStorage.setItem(UPSELL_DISMISSED_KEY, String(Date.now())); } catch { /* private mode */ }
+      const banner = document.querySelector<HTMLElement>('[data-me-upsell]');
+      if (banner) banner.hidden = true;
+      trackEvent('me_upsell_dismiss', {});
+    });
+    const signin = document.querySelector<HTMLElement>('[data-me-upsell-signin]');
+    signin?.addEventListener('click', () => trackEvent('me_upsell_signin', {}));
+  }
+
+  async function applyAuthState(): Promise<void> {
+    let signedIn = false;
+    try {
+      signedIn = Boolean(await getSession());
+    } catch {
+      signedIn = false;
+    }
+    if (signedIn) return;
+
+    const count = store.listSaves().length;
+    const footline = document.querySelector<HTMLElement>('[data-me-footline]');
+    if (footline && count > 0) footline.hidden = false;
+
+    let dismissed = false;
+    try { dismissed = Boolean(localStorage.getItem(UPSELL_DISMISSED_KEY)); } catch { /* ignore */ }
+    if (count >= UPSELL_THRESHOLD && !dismissed) {
+      const banner = document.querySelector<HTMLElement>('[data-me-upsell]');
+      if (banner) {
+        banner.hidden = false;
+        trackEvent('me_upsell_view', { count });
+      }
+    }
+  }
+
+  function init(): void {
+    bindChips();
+    bindCardActions();
+    bindUpsell();
+    render();
+    void applyAuthState();
+    const all = store.listSaves();
+    trackEvent('me_saved_view', { count: all.length, kinds: new Set(all.map((i) => i.kind)).size });
+    store.subscribe(() => render());
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+</script>
+
+<style>
+  .me-page {
+    background: var(--bg);
+    min-height: 60vh;
+    padding-bottom: var(--space-8, 4rem);
+  }
+
+  .me-page__container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 var(--space-5, 1.5rem);
+  }
+
+  .me-count {
+    font-size: var(--fs-500, 1.1875rem);
+    color: var(--soft);
+    font-weight: var(--fw-body, 400);
+  }
+
+  .me-sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .me-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2, 0.5rem);
+    margin: var(--space-5, 1.5rem) 0;
+  }
+
+  .me-chip {
+    appearance: none;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 var(--space-4, 1rem);
+    background: var(--bg, #fff);
+    color: var(--soft);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-family: var(--font-ui, var(--font-ui));
+    font-size: var(--fs-200, 0.8125rem);
+    font-weight: var(--fw-medium, 500);
+    cursor: pointer;
+    transition: border-color var(--dur-fast, 120ms) var(--ease, ease), color var(--dur-fast, 120ms) var(--ease, ease);
+  }
+
+  .me-chip:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .me-chip[aria-pressed='true'] {
+    background: var(--text);
+    border-color: var(--text);
+    color: var(--white, #fff);
+  }
+
+  .me-chip:focus-visible {
+    outline: var(--focus-ring, 2px solid var(--accent));
+    outline-offset: 2px;
+  }
+
+  .me-upsell {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4, 1rem);
+    margin: 0 0 var(--space-5, 1.5rem);
+    padding: var(--space-4, 1rem) var(--space-5, 1.5rem);
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-m, 10px);
+  }
+
+  .me-upsell__title {
+    margin: 0 0 var(--space-1, 0.25rem);
+    font-family: var(--font-display, var(--font-display));
+    font-size: var(--fs-500, 1.1875rem);
+    font-weight: var(--fw-display, 600);
+    color: var(--text);
+  }
+
+  .me-upsell__text {
+    margin: 0;
+    font-family: var(--font-ui, var(--font-ui));
+    font-size: var(--fs-300, 0.9375rem);
+    color: var(--soft);
+    max-width: var(--measure-dek, 52ch);
+  }
+
+  .me-upsell__actions {
+    display: flex;
+    gap: var(--space-2, 0.5rem);
+  }
+
+  .me-upsell__primary,
+  .me-upsell__ghost {
+    display: inline-flex;
+    align-items: center;
+    min-height: 48px;
+    padding: 0 var(--space-4, 1rem);
+    border-radius: var(--radius-s, 4px);
+    font-family: var(--font-ui, var(--font-ui));
+    font-size: var(--fs-300, 0.9375rem);
+    font-weight: var(--fw-medium, 500);
+    cursor: pointer;
+  }
+
+  .me-upsell__primary {
+    background: var(--accent);
+    color: var(--white, #fff);
+    border: none;
+  }
+  .me-upsell__primary:hover { background: var(--acc-h); }
+
+  .me-upsell__ghost {
+    background: transparent;
+    color: var(--soft);
+    border: 1px solid var(--border);
+  }
+  .me-upsell__ghost:hover { color: var(--text); border-color: var(--border-strong, var(--border)); }
+
+  .me-upsell__primary:focus-visible,
+  .me-upsell__ghost:focus-visible {
+    outline: var(--focus-ring, 2px solid var(--accent));
+    outline-offset: 2px;
+  }
+
+  .me-filter-empty {
+    padding: var(--space-6, 2rem) 0;
+    text-align: center;
+  }
+
+  .me-filter-empty__text {
+    margin: 0 0 var(--space-3, 0.75rem);
+    font-family: var(--font-ui, var(--font-ui));
+    font-size: var(--fs-300, 0.9375rem);
+    color: var(--soft);
+  }
+
+  .me-filter-empty__link {
+    color: var(--accent);
+    font-family: var(--font-ui, var(--font-ui));
+    font-size: var(--fs-300, 0.9375rem);
+    font-weight: var(--fw-medium, 500);
+  }
+
+  .me-empty-doors {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-2, 0.5rem);
+  }
+
+  .me-empty-doors__link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 48px;
+    padding: 0 var(--space-4, 1rem);
+    border: 1px solid var(--text);
+    border-radius: var(--radius-s, 4px);
+    color: var(--text);
+    text-decoration: none;
+    font-family: var(--font-ui, var(--font-ui));
+    font-size: var(--fs-300, 0.9375rem);
+    font-weight: var(--fw-medium, 500);
+  }
+
+  .me-empty-doors__link:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .me-empty-doors__link:focus-visible {
+    outline: var(--focus-ring, 2px solid var(--accent));
+    outline-offset: 2px;
+  }
+
+  .me-footline {
+    margin: var(--space-7, 3rem) 0 0;
+    font-family: var(--font-ui, var(--font-ui));
+    font-size: var(--fs-200, 0.8125rem);
+    color: var(--soft);
+    text-align: center;
+  }
+
+  .me-footline__signin {
+    appearance: none;
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    color: var(--accent);
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  .me-footline__signin:focus-visible {
+    outline: var(--focus-ring, 2px solid var(--accent));
+    outline-offset: 2px;
+  }
+</style>
+
+<style is:global>
+  /* Client-rendered card + grid markup (injected via innerHTML, so these
+     rules cannot be Astro-scoped). Namespaced under .me-page to keep them
+     from leaking. Token-only styling per BUILD-CONTRACT. */
+  .me-page .me-groups {
+    display: grid;
+    gap: var(--space-6, 2rem);
+  }
+
+  .me-page .me-group__title {
+    margin: 0 0 var(--space-4, 1rem);
+    font-family: var(--font-display, var(--font-display));
+    font-size: var(--fs-600, 1.5rem);
+    font-weight: var(--fw-display, 600);
+    color: var(--text);
+  }
+
+  .me-page .me-group__count {
+    font-size: var(--fs-300, 0.9375rem);
+    color: var(--soft);
+    font-weight: var(--fw-body, 400);
+    margin-left: var(--space-1, 0.25rem);
+  }
+
+  .me-page .me-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-4, 1rem);
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 48em) {
+    .me-page .me-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (min-width: 64em) {
+    .me-page .me-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .me-page .me-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: var(--bg, #fff);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-m, 10px);
+    overflow: hidden;
+    transition: border-color var(--dur-fast, 120ms) var(--ease, ease), box-shadow var(--dur-fast, 120ms) var(--ease, ease);
+  }
+
+  .me-page .me-card:hover {
+    border-color: var(--border-strong, var(--border));
+    box-shadow: var(--elev-1, none);
+  }
+
+  .me-page .me-card__media {
+    aspect-ratio: 3 / 2;
+    background-size: cover;
+    background-position: center;
+    background-color: var(--bg-alt);
+  }
+
+  .me-page .me-card__media--tile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display, var(--font-display));
+    font-size: var(--fs-700, 1.75rem);
+    color: var(--gold-text);
+  }
+
+  .me-page .me-card__body {
+    flex: 1;
+    padding: var(--space-4, 1rem);
+  }
+
+  .me-page .me-card__mark {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2, 0.5rem);
+    margin: 0 0 var(--space-1, 0.25rem);
+    font-family: var(--font-ui, var(--font-ui));
+    font-size: var(--fs-100, 0.75rem);
+    font-weight: var(--fw-semibold, 600);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold-text);
+  }
+
+  .me-page .me-card__intrip {
+    letter-spacing: 0.06em;
+    text-transform: none;
+    font-weight: var(--fw-medium, 500);
+    color: var(--soft);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 0.1rem 0.5rem;
+  }
+
+  .me-page .me-card__title {
+    margin: 0;
+    font-family: var(--font-display, var(--font-display));
+    font-size: var(--fs-500, 1.1875rem);
+    font-weight: var(--fw-display, 600);
+    line-height: var(--lh-heading, 1.2);
+  }
+
+  .me-page .me-card__link {
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  /* Stretched link over the card; actions sit above it. */
+  .me-page .me-card__link::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+
+  .me-page .me-card__link:focus-visible {
+    outline: var(--focus-ring, 2px solid var(--accent));
+    outline-offset: 2px;
+  }
+
+  .me-page .me-card__dek {
+    margin: var(--space-2, 0.5rem) 0 0;
+    font-family: var(--font-ui, var(--font-ui));
+    font-size: var(--fs-200, 0.8125rem);
+    line-height: var(--lh-ui, 1.4);
+    color: var(--soft);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .me-page .me-card__actions {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    gap: var(--space-2, 0.5rem);
+    padding: 0 var(--space-4, 1rem) var(--space-4, 1rem);
+  }
+
+  .me-page .me-card__trip,
+  .me-page .me-card__remove {
+    appearance: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0 var(--space-3, 0.75rem);
+    border-radius: 999px;
+    font-family: var(--font-ui, var(--font-ui));
+    font-size: var(--fs-200, 0.8125rem);
+    font-weight: var(--fw-semibold, 600);
+    cursor: pointer;
+    transition: border-color var(--dur-fast, 120ms) var(--ease, ease), color var(--dur-fast, 120ms) var(--ease, ease);
+  }
+
+  .me-page .me-card__trip {
+    background: var(--bg, #fff);
+    color: var(--text);
+    border: 1px solid var(--text);
+  }
+  .me-page .me-card__trip:hover { border-color: var(--accent); color: var(--accent); }
+
+  .me-page .me-card__remove {
+    background: transparent;
+    color: var(--soft);
+    border: 1px solid var(--border);
+  }
+  .me-page .me-card__remove:hover { color: var(--error-text, var(--text)); border-color: var(--border-strong, var(--border)); }
+
+  .me-page .me-card__trip:focus-visible,
+  .me-page .me-card__remove:focus-visible {
+    outline: var(--focus-ring, 2px solid var(--accent));
+    outline-offset: 2px;
+  }
+
+  .me-toast {
+    position: fixed;
+    bottom: calc(var(--space-5, 1.5rem) + env(safe-area-inset-bottom, 0px));
+    left: 50%;
+    transform: translateX(-50%) translateY(1rem);
+    padding: var(--space-3, 0.75rem) var(--space-5, 1.5rem);
+    background: var(--text);
+    color: var(--white, #fff);
+    border-radius: 999px;
+    font-family: var(--font-ui, var(--font-ui));
+    font-size: var(--fs-200, 0.8125rem);
+    font-weight: var(--fw-medium, 500);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity var(--dur-med, 200ms) var(--ease, ease), transform var(--dur-med, 200ms) var(--ease, ease);
+    pointer-events: none;
+    box-shadow: var(--elev-2, none);
+  }
+
+  .me-toast--visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+</style>

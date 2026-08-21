@@ -1,154 +1,224 @@
 ---
+/**
+ * /eat/ - v5 hub rebuild (page-redesigns.md section 2; wireframes #eat).
+ *
+ * Verdict first, catalogue underneath, one job: a confident shortlist for a
+ * specific occasion in under a minute. Structure: breadcrumbless h1 + Editor
+ * stand-first, intent chips + FilterBar (ONE filter state governs The Six
+ * AND the directory), The Six, best-of rail, full non-winery directory as
+ * compact rows (server-rendered, SEO), Winery kitchens bridge module,
+ * From the Journal, FAQ (in-DOM, mirrors schema), Ask band.
+ *
+ * SEO: URL, title, meta, canonical and both schemas unchanged (protect
+ * list). Wineries are excluded from the directory (HUB-01); their links
+ * move to /wine/ via the Winery kitchens module.
+ */
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import GuideHero from '../../components/GuideHero.astro';
-import AudiencePicker from '../../components/AudiencePicker.astro';
-import CompareBlock from '../../components/CompareBlock.astro';
-import SectionDivider from '../../components/SectionDivider.astro';
-import VenueCard from '../../components/VenueCard.astro';
-import VenueDirectory from '../../components/VenueDirectory.astro';
-import ArticleCard from '../../components/ArticleCard.astro';
-import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import EventStrip from '../../components/EventStrip.astro';
-import { isUpcoming, routeSlug, currentSeason } from '../../lib/editorial';
-import EditorialSurface from '../../components/EditorialSurface.astro';
+import HubStandfirst from '../../components/v5/hub/HubStandfirst.astro';
+import TheSix from '../../components/v5/hub/TheSix.astro';
+import type { SixItem } from '../../components/v5/hub/TheSix.astro';
+import DirectoryRows from '../../components/v5/hub/DirectoryRows.astro';
+import type { DirectoryRowItem } from '../../components/v5/hub/DirectoryRows.astro';
+import JournalModule from '../../components/v5/hub/JournalModule.astro';
+import type { JournalItem } from '../../components/v5/hub/JournalModule.astro';
+import AskBand from '../../components/v5/hub/AskBand.astro';
+import TrustNote from '../../components/v5/hub/TrustNote.astro';
+import FilterBar from '../../components/v5/FilterBar.astro';
+import { routeSlug, resolveHeroSrc, hasOwnHeroImage } from '../../lib/editorial';
+import { getFacets } from '../../lib/facets';
+import { loadOverrides } from '../../lib/inline-edit/overrides';
 
 // ── Data ──────────────────────────────────────────────────────────────────────
 const eatTypes = ['restaurant', 'cafe', 'bakery', 'pub', 'market', 'winery'];
-const venues = (await getCollection('venues'))
+const venuesAll = (await getCollection('venues'))
   .filter((venue) => eatTypes.includes(venue.data.type))
   .filter((v) => v.data.status !== 'permanently_closed')
   .sort((a, b) => Number(b.data.authority?.hats ?? 0) - Number(a.data.authority?.hats ?? 0));
 
-// Filter dimensions for the directory grid (Phase 2, WS2A). Built from the
-// venue corpus so the filter row only ever shows values that actually have
-// matches. Place lookup uses the live places collection so the dropdown
-// shows pretty names rather than slugs.
+// Wineries are excluded from the /eat/ directory (one venue, one URL; HUB-01)
+// and bridge to /wine/ via the Winery kitchens module below.
+const wineries = venuesAll.filter((v) => v.data.type === 'winery');
+const venues = venuesAll.filter((v) => v.data.type !== 'winery');
+
 const placesAll = await getCollection('places');
 const placeNameBySlug = new Map<string, string>(
   placesAll.map((p) => [p.id ?? p.data.slug, p.data.name]),
 );
-const venuePlaceSlugs = Array.from(
-  new Set(
-    venues
-      .map((v) => (typeof v.data.place === 'string' ? v.data.place : v.data.place?.id))
-      .filter((slug): slug is string => Boolean(slug)),
-  ),
-);
-const filterPlaceOptions = venuePlaceSlugs
-  .map((slug) => ({ slug, name: placeNameBySlug.get(slug) ?? slug }))
-  .sort((a, b) => a.name.localeCompare(b.name));
+const placeLabel = (v: any): string => {
+  const slug = typeof v.data.place === 'string' ? v.data.place : v.data.place?.id ?? '';
+  return placeNameBySlug.get(slug) ?? slug.replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase());
+};
 
-const venueTypeOptions: Array<{ value: string; label: string }> = [
-  { value: 'restaurant', label: 'Restaurants' },
-  { value: 'cafe',       label: 'Cafés' },
-  { value: 'bakery',     label: 'Bakeries' },
-  { value: 'pub',        label: 'Pubs' },
-  { value: 'market',     label: 'Markets' },
-  { value: 'winery',     label: 'Wineries' },
-];
+const typeLabel: Record<string, string> = {
+  restaurant: 'Restaurant',
+  cafe: 'Cafe',
+  bakery: 'Bakery',
+  pub: 'Pub',
+  market: 'Market',
+  winery: 'Winery',
+};
 
-const moodFilterOptions: Array<{ value: string; label: string }> = [
-  { value: 'long-lunch',   label: 'Long lunch' },
-  { value: 'family',       label: 'Family' },
-  { value: 'romance',      label: 'Romance' },
-  { value: 'view',         label: 'A view' },
-  { value: 'fireplace',    label: 'Fireplace' },
-  { value: 'rainy-day',    label: 'Rainy day' },
-  { value: 'waterfront',   label: 'Waterfront' },
-  { value: 'garden',       label: 'Garden' },
-];
-
-/**
- * Build the data-* attribute payload for one venue's wrapper. Encodes the
- * filterable dimensions in a form the inline JS can match against without
- * any per-venue lookup.
- */
-function venueFilterAttrs(venue: typeof venues[number]): Record<string, string> {
-  const placeSlug = typeof venue.data.place === 'string' ? venue.data.place : venue.data.place?.id ?? '';
-  const moods: string[] = Array.isArray(venue.data.tags?.mood) ? venue.data.tags.mood : [];
-  const hats = Number(venue.data.authority?.hats ?? 0);
-  return {
-    'data-venue': '',
-    'data-place': placeSlug,
-    'data-type': venue.data.type,
-    'data-price': venue.data.priceBand ?? '',
-    'data-mood': moods.join(' '),
-    'data-dog-friendly': venue.data.dogFriendly ? '1' : '0',
-    'data-hatted': hats > 0 ? '1' : '0',
-  };
+/** Card image: CMS override first, then the venue's own hero. Text-only when
+ *  the venue has no photo of its own (compact-row tolerates that). */
+async function cardImage(venue: any): Promise<{ src: string; alt: string } | undefined> {
+  const slug = routeSlug(venue);
+  const overrides = await loadOverrides('venue', slug);
+  const heroOverride = overrides.image['heroImage'];
+  if (heroOverride?.src) {
+    return { src: heroOverride.src, alt: heroOverride.alt ?? venue.data.name };
+  }
+  if (!hasOwnHeroImage(venue.data)) return undefined;
+  return { src: resolveHeroSrc(venue.data), alt: venue.data.heroImage?.alt ?? venue.data.name };
 }
 
-const hattedCount = venues.filter((v) => Number(v.data.authority?.hats ?? 0) > 0).length;
-const twoHatCount = venues.filter((v) => Number(v.data.authority?.hats ?? 0) >= 2).length;
-const totalHats = venues.reduce((acc, v) => acc + Number(v.data.authority?.hats ?? 0), 0);
+/** lastVerified arrives as a Date via z.coerce; Card wants an ISO string. */
+function isoDate(v: unknown): string | undefined {
+  if (v instanceof Date) return v.toISOString();
+  return typeof v === 'string' ? v : undefined;
+}
 
-const editorPickSlugs = ['tedesca-osteria', 'barragunda-dining', 'laura-pt-leo'];
-const editorPicks = editorPickSlugs
-  .map((slug) => venues.find((venue) => routeSlug(venue) === slug))
-  .filter((venue): venue is NonNullable<typeof venue> => Boolean(venue));
+/** Directory verdict line: the signature's first sentence when it fits the
+ *  25-word Critic budget; otherwise the row runs meta-only (copy is never
+ *  truncated or rewritten at render time). */
+function verdictLine(signature?: string): string | undefined {
+  if (!signature) return undefined;
+  const first = signature.split(/(?<=[.?])\s+/)[0]?.trim();
+  if (!first) return undefined;
+  return first.split(/\s+/).length <= 25 ? first : undefined;
+}
 
-const longLunchSlugs = ['montalto', 'polperro', 'pt-leo-estate', 'ten-minutes-by-tractor'];
-const longLunches = longLunchSlugs
-  .map((slug) => venues.find((venue) => routeSlug(venue) === slug))
-  .filter((venue): venue is NonNullable<typeof venue> => Boolean(venue));
+// ── The Six: editorially pinned for the winter season. Verdicts are Critic
+//    voice, 25 words maximum, distilled from each venue's own editorial copy.
+const sixPicks: Array<{ slug: string; verdict: string }> = [
+  {
+    slug: 'tedesca-osteria',
+    verdict: 'The winter long lunch, settled: wood oven, fire lit, one set menu built for cold weather. Book lunch, not dinner.',
+  },
+  {
+    slug: 'doot-doot-doot',
+    verdict: 'The cold-night occasion room: two hats, winter produce, and the glass orb chandelier earning its theatre when the ridge goes quiet.',
+  },
+  {
+    slug: 'barragunda-dining',
+    verdict: 'The winter farm booking: a thousand-acre estate, weekly-changing menu, and cooking that makes most sense in the cold months.',
+  },
+  {
+    slug: 'merricks-general-wine-store',
+    verdict: 'The softer ridge lunch: cellar door, bakery, fireplace, and produce-led plates without the two-hat booking pressure.',
+  },
+  {
+    slug: 'portsea-hotel',
+    verdict: 'The bay-front pub for a cold blue day: fireplace inside, winter acoustic sessions on the calendar, and the view still doing the work.',
+  },
+  {
+    slug: 'commonfolk-coffee',
+    verdict: 'The quick winter warm-up: serious coffee in a Mornington warehouse, best before ten, with the egg sandwich still the order.',
+  },
+];
 
-const casualStops = venues.filter((venue) => ['cafe', 'bakery'].includes(venue.data.type)).slice(0, 6);
+const sixItems: SixItem[] = [];
+for (const pick of sixPicks) {
+  const venue = venues.find((v) => routeSlug(v) === pick.slug);
+  if (!venue) continue;
+  sixItems.push({
+    title: venue.data.name,
+    href: `/eat/${routeSlug(venue)}/`,
+    entityType: 'venue',
+    entitySlug: routeSlug(venue),
+    image: await cardImage(venue),
+    verdict: pick.verdict,
+    meta: [placeLabel(venue), typeLabel[venue.data.type] ?? venue.data.type],
+    priceBand: venue.data.priceBand,
+    freshness: isoDate(venue.data.lastVerified),
+    facets: getFacets('venue', venue.data),
+    saveSection: 'eat',
+  });
+}
 
-// Food + wine events coming up — surfaces from /whats-on/ on the section hub.
-const eatEventCategories = ['food-wine', 'cellar-door', 'market'];
-const eatEvents = (await getCollection('events'))
-  .filter((event) => eatEventCategories.includes(event.data.category))
-  .filter((event) => {
-    if (['weekly', 'monthly', 'ongoing'].includes(event.data.recurrence)) return true;
-    return isUpcoming(event.data.endDate ?? event.data.startDate);
-  })
-  .sort((a, b) => (b.data.visitorAppealScore ?? 0) - (a.data.visitorAppealScore ?? 0))
-  .slice(0, 3);
+// ── Best-of rail: at most 6 links into the strongest guide lanes. ─────────────
+const bestOfRail = [
+  { href: '/eat/best-restaurants/', label: 'Best restaurants' },
+  { href: '/eat/long-lunch/', label: 'Long lunch' },
+  { href: '/eat/cellar-door-lunch/', label: 'Cellar-door lunch' },
+  { href: '/eat/fine-dining/', label: 'Fine dining' },
+  { href: '/eat/no-booking/', label: 'No booking' },
+  { href: '/eat/bakeries/', label: 'Bakeries' },
+];
 
+// ── Directory rows: every non-winery venue, server-rendered in full. ─────────
+const directoryItems: DirectoryRowItem[] = [];
+for (const venue of venues) {
+  directoryItems.push({
+    title: venue.data.name,
+    href: `/eat/${routeSlug(venue)}/`,
+    entityType: 'venue',
+    entitySlug: routeSlug(venue),
+    image: await cardImage(venue),
+    verdict: verdictLine(venue.data.signature),
+    meta: [placeLabel(venue), typeLabel[venue.data.type] ?? venue.data.type],
+    priceBand: venue.data.priceBand,
+    facets: getFacets('venue', venue.data),
+    partnerLabel: venue.data.featuredPartner ? 'Partner venue' : undefined,
+  });
+}
+
+// ── Winery kitchens: the bridge to /wine/ (spec block 18). Kitchens first
+//    (lunch-attached facet), then every remaining cellar door link. ───────────
+const wineryKitchens = wineries.filter((v) =>
+  (getFacets('venue', v.data).mood ?? []).includes('lunch-attached'),
+);
+const wineryOther = wineries.filter((v) => !wineryKitchens.includes(v));
+
+// ── From the Journal (3 maximum, winter-contextual). ─────────────────────────
 const articlesAll = (await getCollection('articles', ({ data }) => data.status === 'published'))
   .sort((a, b) => (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0));
 
-const featuredGuideSlugs = [
-  'where-to-eat-mornington-peninsula',
-  'waterfront-restaurants-mornington-peninsula',
-  'hatted-restaurants-mornington-peninsula-2025',
-];
-const featuredGuides = featuredGuideSlugs
-  .map((slug) => articlesAll.find((a) => routeSlug(a) === slug))
-  .filter((a): a is NonNullable<typeof a> => Boolean(a));
+const articleJournalItem = (slug: string, verdict: string, displayTitle?: string): JournalItem | null => {
+  const article = articlesAll.find((a) => routeSlug(a) === slug);
+  if (!article) return null;
+  return {
+    title: displayTitle ?? article.data.title,
+    href: `/journal/${routeSlug(article)}/`,
+    entitySlug: routeSlug(article),
+    image: article.data.heroImage?.src
+      ? { src: article.data.heroImage.src, alt: article.data.heroImage.alt ?? article.data.title }
+      : undefined,
+    verdict,
+    byline: article.data.houseByline ? 'Peninsula Insider editors' : article.data.author,
+    readTime: article.data.readingTimeMinutes ? `${article.data.readingTimeMinutes} min read` : undefined,
+    dateISO: article.data.publishedAt?.toISOString?.(),
+  };
+};
 
-const hubs = [
-  { href: '/eat/best-restaurants/',     label: 'Best Restaurants',     sub: 'Ranked by authority' },
-  { href: '/eat/hatted-restaurants/',   label: 'Hatted Restaurants',   sub: '4 two-hat · 7 one-hat' },
-  { href: '/eat/long-lunch/',           label: 'Long Lunch',           sub: 'Two-to-three hour tables' },
-  { href: '/eat/cellar-door-lunch/',    label: 'Cellar Door Lunch',    sub: 'Estate wine, estate produce' },
-  { href: '/eat/fine-dining/',          label: 'Fine Dining',          sub: 'Destination dining rooms' },
-  { href: '/eat/waterfront/',           label: 'Waterfront Dining',    sub: 'Bay-facing positions' },
-  { href: '/eat/seafood/',              label: 'Seafood',              sub: 'Waterfront fish, hatted seafood' },
-  { href: '/eat/brunch/',               label: 'Best Brunch',          sub: 'Coffee rooms worth the drive' },
-  { href: '/eat/cafes/',                label: 'Best Cafes',           sub: 'Village stops · roasters' },
-  { href: '/eat/bakeries/',             label: 'Best Bakeries',        sub: '6 bakeries across the Peninsula' },
-  { href: '/eat/dog-friendly/',         label: 'Dog-Friendly',         sub: 'Confirmed outdoor options' },
-  { href: '/eat/family-friendly/',      label: 'Family-Friendly',      sub: 'Relaxed formats for kids' },
-  { href: '/eat/date-night/',           label: 'Date Night',           sub: 'Intimate rooms worth booking' },
-  { href: '/eat/pubs/',                 label: 'Best Pubs',            sub: 'Bay views and village locals' },
-  { href: '/eat/paddock-to-plate/',     label: 'Paddock to Plate',     sub: 'Farm kitchens, produce trails' },
-  { href: '/eat/markets/',              label: 'Markets',              sub: 'Red Hill · Mornington · Balnarring' },
-];
+const journalItems = [
+  {
+    title: 'Mornington Peninsula in Winter',
+    href: '/journal/mornington-peninsula-in-winter/',
+    entitySlug: 'mornington-peninsula-in-winter',
+    image: { src: '/images/sourced/article-cellar-door-01.webp', alt: 'Cellar door season on the Red Hill plateau' },
+    verdict: 'The full winter case: cellar door fires, pub lunches, coastal walks in weather, and why July is the insider season.',
+    byline: 'Peninsula Insider editors',
+    readTime: '7 min read',
+    dateISO: '2026-04-14',
+  },
+  articleJournalItem(
+    'a-winter-peninsula-weekend',
+    'A two-night winter plan that works: one thermal session, one big dinner, and enough structure without overbooking the weekend.',
+  ),
+  articleJournalItem(
+    'insider-picks-2026-07-28',
+    "This week's table: Doot Doot Doot in winter, plus the closing MPRG shows to pair with lunch.",
+    'Doot Doot Doot in winter',
+  ),
+].filter((item): item is JournalItem => Boolean(item));
 
-// ── Schemas ───────────────────────────────────────────────────────────────────
-const breadcrumbItems = [
-  { label: 'Home', href: '/' },
-  { label: 'Eat & Drink' },
-];
-
+// ── Schemas (unchanged: protect-list page) ────────────────────────────────────
 const pillarSchema = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
   name: 'Where to Eat on the Mornington Peninsula',
-  description: 'The best restaurants, long lunches, cellar door dining, cafes, bakeries, and waterfront dining on the Mornington Peninsula.',
+  description: 'The best restaurants, long lunches, cellar door dining, cafes, bakeries, and winter fireside tables on the Mornington Peninsula.',
   url: 'https://peninsulainsider.com.au/eat/',
   breadcrumb: {
     '@type': 'BreadcrumbList',
@@ -166,266 +236,139 @@ const faqSchema = {
     { '@type': 'Question', name: 'What are the best restaurants on the Mornington Peninsula?',
       acceptedAnswer: { '@type': 'Answer', text: 'The Good Food Guide awarded 15 hats across 11 Peninsula venues. The four two-hat restaurants, Barragunda Dining, Laura at Pt. Leo Estate, Tedesca Osteria, and Ten Minutes by Tractor, are the clearest destination dining choices.' } },
     { '@type': 'Question', name: 'Do I need to book restaurants on the Mornington Peninsula?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Most serious restaurants require bookings, especially on weekends. Hatted venues can book out weeks or months in advance. Walk-in options exist: Montalto Piazza (daily), Foxeys Hangout (no bookings taken), Rare Hare at Willow Creek (walk-in from 2pm weekends), and most cafes and bakeries.' } },
+      acceptedAnswer: { '@type': 'Answer', text: 'Most serious restaurants require bookings, especially on weekends. Hatted venues can book out weeks or months in advance. Walk-in options exist: Montalto Piazza (daily), Foxeys Hangout (no bookings taken), Rare Hare at Willow Creek (walk-in from 2pm weekends), and most cafes and bakeries. Check winter hours before driving.' } },
     { '@type': 'Question', name: 'What is the best area for food on the Mornington Peninsula?',
       acceptedAnswer: { '@type': 'Answer', text: 'The Red Hill plateau, including Main Ridge and Red Hill South, has the highest concentration of serious dining. Mornington town has the strongest casual eating scene. Sorrento and Portsea have the best waterfront and atmosphere-first dining. For wine-paired long lunches, stick to the ridge.' } },
     { '@type': 'Question', name: 'When is the best time to visit the Mornington Peninsula for food?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Autumn (March to May) is the peak dining season, vintage is running on the ridge, fires are lit in cellar door dining rooms, and the summer crowds have thinned enough that the best tables are actually bookable. Spring is a close second.' } },
+      acceptedAnswer: { '@type': 'Answer', text: 'Winter (June to August) is the insider season: fires are lit, the best tables are more bookable, and menus lean into braises, roots and slow cooking. Autumn remains the peak vintage season; spring is a close second.' } },
     { '@type': 'Question', name: 'Are there dog-friendly restaurants on the Mornington Peninsula?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Yes, outdoor seating options at cafes, village pub beer gardens, and a small number of winery casual dining areas permit dogs. Commonfolk Coffee (back courtyard), The Rocks Mornington (outdoor deck), Portsea Hotel (beer garden), and Green Olive at Red Hill (garden) are confirmed dog-friendly as of April 2026. Verify directly before visiting.' } },
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes, outdoor seating options at cafes, village pub beer gardens, and a small number of winery casual dining areas permit dogs. Commonfolk Coffee (back courtyard), The Rocks Mornington (outdoor deck), Portsea Hotel (beer garden), and Green Olive at Red Hill (garden) are listed as dog-friendly in PI venue records. Verify directly before visiting.' } },
     { '@type': 'Question', name: 'What is the signature food experience on the Mornington Peninsula?',
-      acceptedAnswer: { '@type': 'Answer', text: 'The long lunch, a two-to-three-hour table at a vineyard restaurant with estate wine and unhurried service. The Peninsula does this better than almost anywhere else in Victoria. Montalto, Laura, Polperro, and Ten Minutes by Tractor are the definitive versions of the format.' } },
+      acceptedAnswer: { '@type': 'Answer', text: 'The long lunch, a two-to-three-hour table at a vineyard restaurant with estate wine and unhurried service. In winter the format sharpens: wood ovens, fires, estate Pinot Noir, and menus built for cold weather.' } },
   ],
 };
+
+const standfirst =
+  'Winter is the Peninsula food scene at its most useful: fires lit, cellar doors with time to talk, and the best tables actually bookable. ' +
+  `Six tables worth planning around first, then all ${venues.length} places we cover, ` +
+  'filterable by occasion and town.';
+
 export const prerender = true;
 ---
 
 <BaseLayout
   title="Where to Eat on the Mornington Peninsula · Peninsula Insider"
-  description="The best restaurants, long lunches, cellar door dining, cafes, and bakeries on the Mornington Peninsula, editorial picks, not a directory. Updated April 2026."
+  description="The best restaurants, long lunches, cellar door dining, cafes, and bakeries on the Mornington Peninsula, editorial picks, not a directory. Updated July 2026."
   section="eat"
   canonical="https://peninsulainsider.com.au/eat/"
-  modifiedTime="2026-04-30"
-  ogImage="/images/sourced/venue-italian-dining-01.webp"
+  modifiedTime="2026-07-30"
+  ogImage="/images/sourced/article-cellar-door-01.webp"
 >
   <script type="application/ld+json" set:html={JSON.stringify(pillarSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
-  <Breadcrumbs items={breadcrumbItems} />
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       1. CINEMATIC HERO
-       ═══════════════════════════════════════════════════════════════ -->
-  <GuideHero
-    eyebrow={`Eat & Drink · ${venues.length} venues mapped · Last verified 30 Apr 2026`}
-    title="The dining rooms that justify the <em>drive</em>"
-    dek="The Peninsula has more serious cellar door restaurants, more hatted venues, and more long-lunch tables than any region within ninety minutes of Melbourne. This is the editorial guide, not the directory."
-    meta={[
-      { label: `${twoHatCount} two-hat restaurants` },
-      { label: `${totalHats} GFG hats total` },
-      { label: `${hattedCount} hatted venues` },
-      { label: '10 min read' },
-    ]}
-    heroImage="/images/sourced/venue-italian-dining-01.webp"
-    imageAlt="An Italian-leaning Peninsula dining room, table laid, light low"
-    imageCredit="Peninsula Insider"
-    entitySlug="eat"
+  <!-- 1. Orient: h1 + Editor stand-first (content-guidelines example 1) -->
+  <HubStandfirst
+    eyebrow="Eat & Drink"
+    title="Where to eat on the Mornington Peninsula"
+    standfirst={standfirst}
+    image={{ src: '/images/sourced/article-cellar-door-01.webp', alt: 'A Peninsula cellar door set for a winter tasting' }}
   />
 
-  <!-- ═══════════════════════════════════════════════════════════════
-       1.5 AREA QUICK-NAV (mobile-only)
-       Geographic orientation strip — helps mobile users place themselves
-       before scrolling into venue grids. Hidden on desktop where the
-       CompareBlock below already does this job.
-       ═══════════════════════════════════════════════════════════════ -->
-  <nav class="hub-area-nav" aria-label="Browse by area">
+  <!-- 2. The verdict layer -->
+  <TheSix
+    id="the-six"
+    eyebrow="The Six · winter edit"
+    heading="Six tables worth planning around this winter"
+    surface="eat"
+    items={sixItems}
+  />
+
+  <!-- Best-of rail: the strongest guide lanes, 6 maximum -->
+  <nav class="eat-rail" aria-label="Best-of guides">
     <div class="container">
-      <p class="hub-area-nav__label">Browse by area</p>
-      <ul class="hub-area-nav__chips">
-        <li><a href="/explore/places/red-hill/" class="hub-area-nav__chip">Red Hill</a></li>
-        <li><a href="/explore/places/mornington/" class="hub-area-nav__chip">Mornington</a></li>
-        <li><a href="/explore/places/sorrento/" class="hub-area-nav__chip">Sorrento</a></li>
-        <li><a href="/explore/places/portsea/" class="hub-area-nav__chip">Portsea</a></li>
-        <li><a href="/explore/places/flinders/" class="hub-area-nav__chip">Flinders</a></li>
-        <li><a href="/explore/places/main-ridge/" class="hub-area-nav__chip">Main Ridge</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       EDITORIAL SURFACE — Featured Long Lunch (Level 1)
-       Post-hero, pre-grid. One surface maximum per hub page.
-       Placement principles: docs/editorial-surface-placement-principles-2026-05-16.md
-       Phase 1: PI curatorial voice only. No partner language.
-       Phase 2: eyebrow line evolves — no redesign required.
-       ═══════════════════════════════════════════════════════════════ -->
-  <div class="eat-surface-wrap container">
-    <EditorialSurface
-      level={1}
-      surface="Featured Long Lunch"
-      season="Winter 2026"
-      name="Ten Minutes by Tractor, Main Ridge"
-      verdict="The most serious room on the Peninsula in winter. Three single-vineyard labels, a kitchen that doesn't rush, and a dining room that earns the drive up the ridge. Book well ahead and give it the full afternoon — this is not a two-hour lunch."
-      meta={["Main Ridge", "Bookings recommended", "Lunch Wed–Sun"]}
-      href="/wine/ten-minutes-by-tractor/"
-      image="/images/sourced/article-long-lunch-01.webp"
-      imageAlt="The long lunch table, Mornington Peninsula"
-    />
-  </div>
-
-  <AudiencePicker section="eat" />
-
-  <EventStrip
-    events={eatEvents}
-    eyebrow="Food and wine events coming up"
-    heading="Cellar door weekends and food events worth pencilling in"
-    intro="Pulled from the events registry. Tap an event for editorial notes, or see the full calendar for everything coming up."
-    moreHref="/whats-on/"
-    moreLabel="All events"
-    variant="alt"
-  />
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       2. ORIENTATION: Red Hill plateau vs Bay corridor
-       ═══════════════════════════════════════════════════════════════ -->
-  <CompareBlock
-    eyebrow="Two dining cultures, one Peninsula"
-    heading="Red Hill plateau or the Bay corridor"
-    dek="The Peninsula's food scene splits cleanly along geography. Knowing which side you're eating on decides the rest of the day."
-    left={{
-      label: 'Red Hill plateau',
-      title: 'Long lunch country. Estate wine, fires, three-hour tables.',
-      rows: [
-        { label: 'Flagship rooms', value: 'Tedesca Osteria, Laura at Pt. Leo, Ten Minutes by Tractor, Barragunda, Montalto, Polperro, Foxeys Hangout' },
-        { label: 'Format', value: 'Vineyard kitchens with estate wine, kitchen-garden produce, and service built for unhurried multi-hour sittings.' },
-        { label: 'Best for', value: 'Long lunch, special occasions, wine-paired meals, the slow afternoon you came for.' },
-        { label: 'Booking', value: 'Hatted rooms book 4–8 weeks ahead for weekends. Walk-in is rare. Plan first, drive after.' },
-        { label: 'Pair with', value: 'A cellar-door tasting before the table; an Arthurs Seat lookout or Red Hill walk after.' },
-      ],
-    }}
-    right={{
-      label: 'Bay corridor, Mornington to Portsea',
-      title: 'Casual eating, waterfront positions, walk-in possible.',
-      rows: [
-        { label: 'Standout venues', value: 'Commonfolk, The Rocks Mornington, Hotel Sorrento, Portsea Hotel, Mornington and Sorrento bakeries, the village cafes between' },
-        { label: 'Format', value: 'Cafes, bakeries, pubs, waterfront seafood. Day-to-day eating that does not demand a four-hour commitment.' },
-        { label: 'Best for', value: 'Brunch, families, walk-in flexibility, drinks with a view, the meal between activities.' },
-        { label: 'Booking', value: 'Most casual venues take walk-ins. Pub lunches book a day or two ahead. Sorrento Front Beach restaurants book up in summer.' },
-        { label: 'Pair with', value: 'A bay-side beach walk; a Mornington Peninsula winery drive afterwards.' },
-      ],
-    }}
-  />
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       3. EDITOR'S PICKS, The hatted tier
-       ═══════════════════════════════════════════════════════════════ -->
-  {editorPicks.length > 0 && (
-    <section class="venues" id="picks">
-      <div class="container">
-        <div class="venues__header">
-          <div>
-            <p class="label label--accent">The hatted tier</p>
-            <h2 class="venues__title">Three rooms doing the heaviest lifting</h2>
-            <p class="venues__sub venues__sub--standfirst">If lunch is the event and you only have one booking, start with one of these three. Each is a two-hat venue; each is a different argument for what fine dining on the Peninsula should feel like.</p>
-          </div>
-          <a href="/eat/hatted-restaurants/" class="venues__link">All hatted venues →</a>
-        </div>
-        <div class="venues__grid">
-          {editorPicks.map((venue) => <VenueCard venue={venue} hrefPrefix="/eat" />)}
-        </div>
-      </div>
-    </section>
-  )}
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       4. LONG LUNCH SHORTLIST
-       ═══════════════════════════════════════════════════════════════ -->
-  {longLunches.length > 0 && (
-    <section class="venues venues--plain" id="long-lunch">
-      <div class="container">
-        <div class="venues__header">
-          <div>
-            <p class="label label--accent">Long lunch shortlist</p>
-            <h2 class="venues__title">The tables that carry the whole afternoon</h2>
-            <p class="venues__sub venues__sub--standfirst">Below the hatted tier, the rooms that earn three hours without a Good Food Guide rosette. Estate wine, kitchen-garden produce, and service that knows when to leave you alone.</p>
-          </div>
-          <a href="/eat/long-lunch/" class="venues__link">Full long lunch list →</a>
-        </div>
-        <div class="venues__grid">
-          {longLunches.map((venue) => <VenueCard venue={venue} hrefPrefix="/eat" />)}
-        </div>
-      </div>
-    </section>
-  )}
-
-  <SectionDivider />
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       5. HUB NAVIGATION, find what you're looking for
-       ═══════════════════════════════════════════════════════════════ -->
-  <section class="hub-formats" aria-label="Eat and drink categories">
-    <div class="container">
-      <div class="hub-formats__intro">
-        <p class="label label--accent">Or jump to a format</p>
-        <h2 class="hub-formats__title">Find the right table for the day</h2>
-        <p class="hub-formats__dek">Sixteen ways to slice the Peninsula's eating. Each lane is a curated list with editorial notes, not a directory dump.</p>
-      </div>
-      <ul class="hub-formats__grid">
-        {hubs.map((hub) => (
-          <li class="hub-formats__cell">
-            <a href={hub.href} class="hub-formats__link">
-              <span class="hub-formats__label">{hub.label}</span>
-              <span class="hub-formats__sub">{hub.sub}</span>
-            </a>
+      <ul class="eat-rail__list">
+        {bestOfRail.map((item) => (
+          <li>
+            <a href={item.href} class="eat-rail__link">{item.label} &rarr;</a>
           </li>
         ))}
       </ul>
     </div>
-  </section>
+  </nav>
 
-  <!-- ═══════════════════════════════════════════════════════════════
-       6. CASUAL STOPS, cafes & bakeries
-       ═══════════════════════════════════════════════════════════════ -->
-  {casualStops.length > 0 && (
-    <section class="venues venues--plain">
-      <div class="container">
-        <div class="venues__header">
-          <div>
-            <p class="label label--accent">Before and after the booking</p>
-            <h2 class="venues__title">Coffee rooms and bakeries that keep the day inhabited</h2>
-            <p class="venues__sub">Not the destination lunch, the village stops that make a Peninsula day feel local.</p>
-          </div>
-          <a href="/eat/cafes/" class="venues__link">All cafes →</a>
-        </div>
-        <div class="venues__grid">
-          {casualStops.map((venue) => <VenueCard venue={venue} hrefPrefix="/eat" />)}
-        </div>
-      </div>
-    </section>
-  )}
+  <!-- 4. The catalogue layer: every non-winery venue, one render, in-DOM.
+       Intent chips + filters are slotted directly above the list they
+       reshape (moved below The Six 2026-07-24 per James; slotted inside the
+       directory so the sticky bar has the full list height to stick
+       against). ONE state still governs The Six AND the directory
+       (URL-persisted; restoration per pi:restore:v1 contract). -->
+  <div class="container">
+    <TrustNote surface="eat" />
+  </div>
+  <DirectoryRows
+    id="directory"
+    eyebrow="The full list"
+    heading={`All ${directoryItems.length} places to eat`}
+    sub="Ordered by editorial weight. The filters reshape this list."
+    noun="places"
+    surface="eat"
+    items={directoryItems}
+    topLink={{ label: 'Ranked top 15', href: '/eat/best-restaurants/' }}
+    emptyHeading="Nothing matches those filters yet"
+    emptyBody="Loosen one and the list comes back."
+  >
+    <FilterBar
+      slot="before-list"
+      surface="eat"
+      noun="places"
+      label="Filter places to eat"
+      sticky
+      facets={['cat', 'place', 'mood', 'price', 'party']}
+    >
+    </FilterBar>
+    <div
+      slot="before-list"
+      class="eat-winery-kitchens"
+      data-facets='{"cat":["winery"]}'
+      data-title="Winery kitchens"
+    >
+      <h3 class="eat-winery-kitchens__heading">Winery kitchens</h3>
+      <p class="eat-winery-kitchens__sub">
+        The vineyard dining rooms live with their wineries, one page per venue. Winter is when the fires and long lunches make the detour worth it.
+      </p>
+      <ul class="eat-winery-kitchens__list">
+        {wineryKitchens.map((venue) => (
+          <li>
+            <a href={`/wine/${routeSlug(venue)}/`} class="eat-winery-kitchens__link">{venue.data.name}</a>
+          </li>
+        ))}
+      </ul>
+      {wineryOther.length > 0 && (
+        <p class="eat-winery-kitchens__more">
+          Plus {wineryOther.length} more cellar doors without a kitchen:
+          <a href="/wine/">all wineries on /wine/ &rarr;</a>
+        </p>
+      )}
+    </div>
+  </DirectoryRows>
 
-  <SectionDivider />
+  <!-- What's On, one line + link (spec block 18: strip becomes a line) -->
+  <p class="eat-whatson container">
+    Winter food and wine events coming up on the Peninsula:
+    <a href="/whats-on/">see What&rsquo;s On &rarr;</a>
+  </p>
 
-  <!-- ═══════════════════════════════════════════════════════════════
-       7. EDITORIAL GUIDES
-       ═══════════════════════════════════════════════════════════════ -->
-  {featuredGuides.length > 0 && (
-    <section class="venues" id="guides">
-      <div class="container">
-        <div class="venues__header">
-          <div>
-            <p class="label label--accent">Editorial guides</p>
-            <h2 class="venues__title">Read before you book</h2>
-            <p class="venues__sub">Service pieces that give you the context to make a better dining decision on the Peninsula.</p>
-          </div>
-          <a href="/journal/" class="venues__link">All in the Journal →</a>
-        </div>
-        <div class="venues__grid">
-          {featuredGuides.map((article) => <ArticleCard article={article} />)}
-        </div>
-      </div>
-    </section>
-  )}
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       8. FULL DIRECTORY (filterable, Phase 2 WS2A — uses VenueDirectory)
-       ═══════════════════════════════════════════════════════════════ -->
-  <VenueDirectory
-    id="eat-directory"
-    venues={venues}
-    hrefPrefix="/eat"
-    eyebrow="Complete dining directory"
-    heading={`All ${venues.length} eat-and-drink venues`}
-    sub="Ordered by editorial weight. Filter by town, format, price, mood, or suitability — the list re-shapes itself as you go."
-    topLink={{ label: 'Ranked top 15 →', href: '/eat/best-restaurants/' }}
-    typeOptions={venueTypeOptions}
-    moodOptions={moodFilterOptions}
-    toggles={{ dogFriendly: true, hatted: true }}
+  <!-- 5. From the Journal (3 maximum) -->
+  <JournalModule
+    id="journal"
+    heading="From the Journal"
+    items={journalItems}
+    moreHref="/journal/"
+    surface="eat"
   />
 
-  <!-- ═══════════════════════════════════════════════════════════════
-       9. FAQ
-       ═══════════════════════════════════════════════════════════════ -->
+  <!-- 6. FAQ: in-DOM, mirrors faqSchema -->
   <section class="hub-faq" aria-label="Frequently asked questions">
     <div class="container">
       <div class="hub-faq__intro">
@@ -439,7 +382,7 @@ export const prerender = true;
         </details>
         <details class="hub-faq__item">
           <summary class="hub-faq__q">Do I need to book?</summary>
-          <div class="hub-faq__a"><p>Most serious restaurants require bookings, especially on weekends. Hatted venues book weeks or months ahead. Walk-in options: Montalto Piazza (daily), Foxeys Hangout (no bookings taken), Rare Hare at Willow Creek (from 2pm weekends), and most cafes and bakeries.</p></div>
+          <div class="hub-faq__a"><p>Most serious restaurants require bookings, especially on weekends. Hatted venues book weeks or months ahead. Walk-in options: Montalto Piazza (daily), Foxeys Hangout (no bookings taken), Rare Hare at Willow Creek (from 2pm weekends), and most cafes and bakeries. Check winter hours before driving.</p></div>
         </details>
         <details class="hub-faq__item">
           <summary class="hub-faq__q">What is the best area for food?</summary>
@@ -447,20 +390,124 @@ export const prerender = true;
         </details>
         <details class="hub-faq__item">
           <summary class="hub-faq__q">When is the best time to visit for food?</summary>
-          <div class="hub-faq__a"><p>Autumn (March–May), vintage running, summer crowds thinned, best tables actually bookable. Spring is a close second. Winter cellar door lunches with fires are underrated.</p></div>
+          <div class="hub-faq__a"><p>Winter (June to August) is the insider season: fires are lit, the best tables are more bookable, and menus lean into braises, roots and slow cooking. Autumn remains the peak vintage season; spring is a close second.</p></div>
         </details>
         <details class="hub-faq__item">
           <summary class="hub-faq__q">Are there dog-friendly dining options?</summary>
-          <div class="hub-faq__a"><p>Yes, outdoor seating at cafes, village pub beer gardens, and a small number of winery casual areas. Commonfolk (back courtyard), Portsea Hotel (beer garden), The Rocks Mornington (outdoor deck), and Green Olive at Red Hill (garden) are confirmed as of April 2026. Verify before visiting.</p></div>
+          <div class="hub-faq__a"><p>Yes, outdoor seating at cafes, village pub beer gardens, and a small number of winery casual areas. Commonfolk (back courtyard), Portsea Hotel (beer garden), The Rocks Mornington (outdoor deck), and Green Olive at Red Hill (garden) are listed as dog-friendly in PI venue records. Verify before visiting.</p></div>
         </details>
         <details class="hub-faq__item">
           <summary class="hub-faq__q">What is the Peninsula's signature food experience?</summary>
-          <div class="hub-faq__a"><p>The long lunch. A two-to-three-hour table at a vineyard restaurant with estate wine and unhurried service. The Peninsula does this better than almost anywhere else in Victoria. Montalto, Laura, Polperro, and Ten Minutes by Tractor are the definitive versions.</p></div>
+          <div class="hub-faq__a"><p>The long lunch. A two-to-three-hour table at a vineyard restaurant with estate wine and unhurried service. In winter the format sharpens: wood ovens, fires, estate Pinot Noir, and menus built for cold weather.</p></div>
         </details>
       </div>
     </div>
   </section>
 
-  <NewsletterBlock />
+  <!-- 7. Ask PI band hidden (bug fix in progress) -->
 </BaseLayout>
 
+<style>
+  .eat-rail {
+    padding: var(--space-4, 1rem) 0 var(--space-6, 2rem);
+  }
+  .eat-rail__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2, 0.5rem) var(--space-3, 0.75rem);
+  }
+  .eat-rail__link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 48px;
+    padding: 0 var(--space-4, 1rem);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-pill, 999px);
+    background: var(--white);
+    font-family: var(--font-ui);
+    font-size: var(--fs-300, 0.9375rem);
+    font-weight: var(--fw-semibold, 600);
+    color: var(--text);
+    text-decoration: none;
+    transition: border-color var(--dur-fast, 120ms) var(--ease-enter, ease),
+      color var(--dur-fast, 120ms) var(--ease-enter, ease);
+  }
+  .eat-rail__link:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .eat-rail__link:focus-visible {
+    outline: var(--focus-ring, 2px solid var(--accent));
+    outline-offset: 2px;
+  }
+
+  .eat-winery-kitchens {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-l, 28px);
+    background: var(--bg-alt);
+    padding: var(--space-6, 2rem);
+    margin-bottom: var(--space-6, 2rem);
+  }
+  .eat-winery-kitchens__heading {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: var(--fs-600, 1.4rem);
+    font-weight: var(--fw-display, 600);
+    letter-spacing: -0.01em;
+    color: var(--text);
+  }
+  .eat-winery-kitchens__sub {
+    margin: var(--space-2, 0.5rem) 0 var(--space-3, 0.75rem);
+    font-family: var(--font-ui, var(--font-ui));
+    font-size: var(--fs-200, 0.8125rem);
+    color: var(--soft);
+  }
+  .eat-winery-kitchens__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+    gap: var(--space-1, 0.25rem) var(--space-4, 1rem);
+  }
+  .eat-winery-kitchens__link {
+    display: inline-block;
+    padding: var(--space-1, 0.25rem) 0;
+    font-family: var(--font-ui, var(--font-ui));
+    font-size: var(--fs-300, 0.9375rem);
+    color: var(--text);
+    text-decoration: underline;
+    text-decoration-color: var(--border);
+    text-underline-offset: 3px;
+  }
+  .eat-winery-kitchens__link:hover {
+    color: var(--accent);
+    text-decoration-color: var(--accent);
+  }
+  .eat-winery-kitchens__link:focus-visible {
+    outline: var(--focus-ring, 2px solid var(--accent));
+    outline-offset: 2px;
+  }
+  .eat-winery-kitchens__more {
+    margin: var(--space-3, 0.75rem) 0 0;
+    font-family: var(--font-ui, var(--font-ui));
+    font-size: var(--fs-200, 0.8125rem);
+    color: var(--soft);
+  }
+  .eat-winery-kitchens__more a {
+    color: var(--accent);
+  }
+
+  .eat-whatson {
+    margin: 0 auto var(--space-5, 1.5rem);
+    font-family: var(--font-ui, var(--font-ui));
+    font-size: var(--fs-300, 0.9375rem);
+    color: var(--soft);
+  }
+  .eat-whatson a {
+    color: var(--accent);
+  }
+</style>

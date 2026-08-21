@@ -59,6 +59,13 @@ function resolveImage(src?: string) {
   if (!src || src.includes('placeholder')) return `${base}images/sourced/home-cover.webp`;
   return src.startsWith('/') ? `${base}${src.slice(1)}` : src;
 }
+/* Humanised duration: nobody thinks in "600 min". */
+function formatDuration(m: number): string {
+  if (m < 60) return `${m} min`;
+  const whole = Math.floor(m / 60);
+  return m % 60 >= 30 ? `${whole}.5 h` : `${whole} h`;
+}
+
 ---
 
 <section class="hero" aria-label={`${data.name} cover`}>
@@ -73,7 +80,7 @@ function resolveImage(src?: string) {
         <h1 class="hero__headline">{data.name}</h1>
         {introParas[0] && <p class="hero__dek">{introParas[0]}</p>}
         <div class="hero__byline">
-          <span>— A guide to <strong>{data.name}</strong></span>
+          <span> - A guide to <strong>{data.name}</strong></span>
           {totalVenues > 0 && (
             <span class="hero__byline-read">{totalVenues} venue{totalVenues === 1 ? '' : 's'} mapped</span>
           )}
@@ -82,7 +89,7 @@ function resolveImage(src?: string) {
       <figure>
         <img class="hero__image" src={heroImage} alt={`${data.name}, Mornington Peninsula`} loading="eager" fetchpriority="high">
         <figcaption class="hero__image-cap">
-          <span>{data.name} <span class="ornament">—</span> {zoneLabel[data.zone] ?? titleize(data.zone)}</span>
+          <span>{data.name} <span class="ornament"> - </span> {zoneLabel[data.zone] ?? titleize(data.zone)}</span>
           <span>Photography <span class="ornament">/</span> The Insider</span>
         </figcaption>
       </figure>
@@ -163,7 +170,7 @@ function resolveImage(src?: string) {
         <div class="dept__titles">
           <span class="eyebrow eyebrow--ochre">Department <span class="ornament">·</span> I</span>
           <h2 class="dept__title" id="eat-drink-title">Eat <em>&amp;</em> drink in {data.name}</h2>
-          <p class="dept__dek">The restaurants, cafés, bakeries, and pubs on our current list — visited this season and worth the seat.</p>
+          <p class="dept__dek">The restaurants, cafés, bakeries, and pubs on our current list - visited this season and worth the seat.</p>
         </div>
         <a href={`${base}eat/`} class="well__head-link">All restaurants →</a>
       </div>
@@ -271,7 +278,7 @@ function resolveImage(src?: string) {
               <span>{data.name}</span>
               {e.data.durationMinutes && (<>
                 <span class="venue__meta-sep"></span>
-                <span>{e.data.durationMinutes} min</span>
+                <span>{formatDuration(e.data.durationMinutes)}</span>
               </>)}
             </div>
             <a href={`${base}explore/${routeSlug(e)}/`}><h3 class="venue__name">{e.data.name}</h3></a>
@@ -329,7 +336,7 @@ function resolveImage(src?: string) {
           <article class={i === 0 ? 'feat feat--lead' : 'feat feat--std'}>
             <img class="feat__image" src={resolveImage(a.data.heroImage?.src)} alt={a.data.title} loading="lazy">
             <div class="feat__body">
-              <div class="feat__eyebrow">Journal <span class="ornament">—</span> {titleize(a.data.format ?? 'guide')}</div>
+              <div class="feat__eyebrow">Journal <span class="ornament"> - </span> {titleize(a.data.format ?? 'guide')}</div>
               <a href={`${base}journal/${routeSlug(a)}/`}><h3 class="feat__title">{a.data.title}</h3></a>
               {a.data.dek && <p class="feat__excerpt">{a.data.dek}</p>}
               <div class="feat__byline">

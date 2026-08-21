@@ -1,4 +1,5 @@
 ---
+import { CONCIERGE_API_URL } from '../lib/concierge-config';
 /**
  * Peninsula Insider  -  BaseLayout
  *
@@ -10,16 +11,25 @@
 import '../styles/global.css';
 import '../styles/concierge.css';   // chat & drawer styles, loaded on every page
 import '../styles/search.css';      // site-search overlay + /search page styles
-import '../styles/v4.css';          // V4 mega-menu chrome, additive tokens scoped --v4-*
 import '../styles/inline-edit.css'; // admin-only inline editor chrome, inert unless edit mode is on
+import '../styles/magenta-stone.css'; // Magenta Stone theme - inert unless html[data-theme="magenta-stone"]
 import { ClientRouter } from 'astro:transitions';
-// V4 menu promotion (2026-05-06): the V2 Masthead is replaced by V4Masthead.
-// V2 Masthead.astro stays in the codebase as reference but is no longer
-// imported here. The V4MobileDrawer replaces V2's #mobileNav overlay.
-import V4Masthead from '../components/v4/V4Masthead.astro';
-import V4MobileDrawer from '../components/v4/V4MobileDrawer.astro';
-import Footer from '../components/Footer.astro';
+// V5 chrome promotion (2026-07-11, redesign-v5): V4Masthead /
+// V4MobileDrawer / Footer are replaced by the v5 chrome set
+// (future-ia.md section 3). The v4 components stay in the codebase as
+// reference but are no longer mounted here. V5Breadcrumbs mounts
+// globally so every below-level-1 template carries a trail; the
+// V5BottomBar carries the mobile quick actions.
+import V5Masthead from '../components/v5/chrome/V5Masthead.astro';
+// The conditions strip and issue stamp (visual design review finding #1,
+// P0-1 / P0-2). Sits above the masthead in normal flow, site-wide.
+import UtilityBar from '../components/UtilityBar.astro';
+import V5MobileDrawer from '../components/v5/chrome/V5MobileDrawer.astro';
+import V5BottomBar from '../components/v5/chrome/V5BottomBar.astro';
+import V5Breadcrumbs from '../components/v5/chrome/V5Breadcrumbs.astro';
+import V5Footer from '../components/v5/chrome/V5Footer.astro';
 import ConciergeDrawer from '../components/ConciergeDrawer.astro';
+import { SHOW_ASK_PI } from '../lib/features';
 import SearchOverlay from '../components/SearchOverlay.astro';
 import AuthModal from '../components/v2/AuthModal.astro';
 import ProfileDropdown from '../components/v2/ProfileDropdown.astro';
@@ -27,6 +37,7 @@ import CookieBanner from '../components/CookieBanner.astro';
 import SaveSiteController from '../components/SaveSiteController.astro';
 import CloudSync from '../components/CloudSync.astro';
 import InlineEditor from '../components/admin/InlineEditor.astro';
+import InsiderNotePopup from '../components/InsiderNotePopup.astro';
 
 export interface Props {
   title: string;
@@ -45,10 +56,11 @@ export interface Props {
   /** Exclude this page from the Pagefind index entirely (e.g. /search itself). */
   searchExclude?: boolean;
   /**
-   * Extra Pagefind facets/metadata beyond `kind` — e.g. { place: 'Sorrento',
-   * type: 'Winery', verdict: '...' }. Each entry is emitted as both a
-   * data-pagefind-filter (facet on /search) and data-pagefind-meta (available
-   * on the result card). Keys must be lowercase a–z.
+   * Extra Pagefind facets/metadata beyond `kind`, e.g. { place: 'Sorrento',
+   * type: 'Winery', verdict: '...' }. Each entry is emitted as
+   * data-pagefind-meta (available on the result card); short values (<= 40
+   * chars) also become data-pagefind-filter facets on /search. Keys must be
+   * lowercase a–z.
    */
   searchMeta?: Record<string, string>;
 }
@@ -98,8 +110,7 @@ const {
   searchMeta,
 } = Astro.props;
 
-// Map the editorial section to a search-chip label. Reader-facing strings —
-// these populate the "kind" filter chips on /search.
+// Map the editorial section to a search-chip label. Reader-facing strings - // these populate the "kind" filter chips on /search.
 const SECTION_TO_SEARCH_KIND: Record<string, string> = {
   home: 'Home',
   eat: 'Eat',
@@ -139,20 +150,22 @@ const searchImageAbsolute = searchImageSource.startsWith('http')
 // Don't render the floating drawer when the visitor is on /ask itself.
 // /ask IS the full-screen chat, the drawer would be a duplicate.
 const isAskPage = rawPathname.startsWith('/ask');
+// The same component supports preview builds and the production rollout.
+// Keep the switch explicit so an emergency rollback is one environment edit.
+const newsletterPopupMode = import.meta.env.PUBLIC_NEWSLETTER_POPUP;
+const showNewsletterPopup = newsletterPopupMode === 'preview' || newsletterPopupMode === 'on';
 ---
 
 <!doctype html>
 <html lang="en-AU">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta http-equiv="content-language" content="en-AU" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400&display=swap"
-    rel="stylesheet"
-  />
+  <!-- v6: fonts are self-hosted via @font-face in v6-tokens.css (no external
+       Google Fonts request). Preload the two hero-critical faces. -->
+  <link rel="preload" href="/fonts/sora-600.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/figtree-400.woff2" as="font" type="font/woff2" crossorigin />
   <title>{title}</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <meta name="description" content={description} />
@@ -190,7 +203,7 @@ const isAskPage = rawPathname.startsWith('/ask');
       url: `${SITE_URL}/images/sourced/home-cover.webp`,
     },
     description:
-      'The independent editorial guide to the Mornington Peninsula: honest, opinionated, first-hand coverage of eating, drinking, staying, and exploring. Every recommendation is earned by visiting.',
+      'The independent editorial guide to the Mornington Peninsula: honest, opinionated coverage of eating, drinking, staying, and exploring. Every pick is independently researched and earns its place.',
     foundingDate: '2024',
     areaServed: {
       '@type': 'Place',
@@ -242,13 +255,39 @@ const isAskPage = rawPathname.startsWith('/ask');
   <!-- View transitions: client-side routing with page fade -->
   <ClientRouter />
 
-  <link rel="stylesheet" href="/assets/styles.css" />
 
   <!-- Enhancement layers -->
   <link rel="stylesheet" href="/assets/mobile-fixes.css" />
   <link rel="stylesheet" href="/assets/scroll-animations.css" />
 
-  <!-- Google tag (gtag.js) — gated on user consent.
+  <!-- Reader text-size preference - applied before first paint so pages
+       don't flash at the default size. The control itself lives in
+       TextScaleControl.astro (rendered on article surfaces); steps are
+       mapped to root font-size in global.css. -->
+  <script is:inline>
+    (function () {
+      try {
+        var s = localStorage.getItem('pi-text-scale');
+        if (s === '2' || s === '3') document.documentElement.dataset.textScale = s;
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Admin theme preview - applied before first paint so a previewing admin
+       doesn't see a flash of the classic theme. Only the admin-gated toggle
+       (lib/inline-edit/client.ts) ever writes 'pi-theme', so general users
+       never have the key set and the override stylesheet stays inert. -->
+  <script is:inline>
+    (function () {
+      try {
+        if (localStorage.getItem('pi-theme') === 'magenta-stone') {
+          document.documentElement.dataset.theme = 'magenta-stone';
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Google tag (gtag.js) - gated on user consent.
        The loader checks localStorage 'pi-consent-v1' and only injects
        gtag if analytics consent is true. CookieBanner dispatches
        'pi:consent-changed' when the user opts in/out, and we wire that
@@ -289,21 +328,52 @@ const isAskPage = rawPathname.startsWith('/ask');
     })();
   </script>
 
-  <!-- TEMPORARY PASSWORD GATE -->
-  <script is:inline>
-    (function() {
-      var KEY  = 'pi-access-v1';
-      if (localStorage.getItem(KEY) === '1') return;
-      var path = window.location.pathname;
-      if (path === '/access/' || path === '/access') return;
-      window.location.replace('/access/?r=' + encodeURIComponent(window.location.href));
-    })();
+  {/* Global [data-evt] listener.
+      initV5Analytics() installs one delegated, capture-phase click handler on
+      document. It used to be called only from the 13 components that happen to
+      import it, which meant markup carrying data-evt on any other page (Card,
+      FilterBar, WhatsOnScopeBar, MapToggle and friends) recorded nothing, so
+      card_click was measured on an arbitrary subset of pages. Binding it once
+      here from the layout covers every template.
+
+      The listener sits on document, which survives Astro view transitions, and
+      initV5Analytics is idempotent, so the existing per-component calls stay
+      harmless. trackEvent is itself consent-gated, matching the gtag loader
+      above: no consent, no events. */}
+  <script>
+    import { initV5Analytics } from '../lib/v5-analytics';
+    initV5Analytics();
   </script>
-  <!-- END TEMPORARY PASSWORD GATE -->
+
+  {/* TEMPORARY PASSWORD GATE.
+      Client-side only, so it is a soft courtesy gate, not security: the
+      content ships in the HTML regardless and crawlers that run JS get
+      redirected (which is fatal for SEO while the gate is on). Controlled
+      by PUBLIC_ACCESS_GATE so launching is a one-line env change in
+      .github/workflows/build-and-deploy.yml: set PUBLIC_ACCESS_GATE=off. */}
+  {import.meta.env.PUBLIC_ACCESS_GATE !== 'off' && (
+    <script is:inline>
+      (function() {
+        var KEY  = 'pi-access-v1';
+        if (localStorage.getItem(KEY) === '1') return;
+        var path = window.location.pathname;
+        if (path === '/access/' || path === '/access') return;
+        window.location.replace('/access/?r=' + encodeURIComponent(window.location.href));
+      })();
+    </script>
+  )}
 </head>
 <body data-page={section} data-path={rawPathname} data-v4="true">
 
-  <V4Masthead section={section} />
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  {/* Conditions strip + issue stamp. Deliberately above the masthead and
+      deliberately NOT sticky: it reads as a printed dateline and scrolls
+      away, leaving the sticky masthead (and its --masthead-h measurement
+      below) exactly as they were. */}
+  <UtilityBar />
+
+  <V5Masthead section={section} />
 
   {/* Measure the masthead height and publish it as --masthead-h on
       <html> so .breadcrumbs (and any other element that wants to pin
@@ -336,7 +406,12 @@ const isAskPage = rawPathname.startsWith('/ask');
       data-pagefind-meta makes the same value available on each result card
       so the UI can render the type eyebrow without a second lookup.
       data-pagefind-ignore opts the page out of the search index entirely. */}
+  {/* Auto breadcrumbs on every below-level-1 template (future-ia §3.1).
+      Defers to any page-authored <Breadcrumbs> inside main. */}
+  {!noindex && <V5Breadcrumbs pageTitle={title} />}
+
   <main
+    id="main-content"
     data-pagefind-body={searchExclude ? undefined : ''}
     data-pagefind-filter={searchExclude ? undefined : `kind:${resolvedSearchKind}`}
     data-pagefind-meta={searchExclude ? undefined : `kind:${resolvedSearchKind}`}
@@ -345,7 +420,7 @@ const isAskPage = rawPathname.startsWith('/ask');
     {/* Pagefind search-result image source. Mirrors the page's ogImage
         (which every page already sets for social sharing) into the search
         index as `meta.image`. Without this, Pagefind tries to auto-detect
-        an image from the first <img> tag in the body — which fails for
+        an image from the first <img> tag in the body - which fails for
         most page types here because heroes use CSS background-image, not
         real img elements. Single source of truth: ogImage.
 
@@ -356,7 +431,7 @@ const isAskPage = rawPathname.startsWith('/ask');
     {!searchExclude && searchImageSource && (
       <span data-pagefind-meta={`image:${searchImageAbsolute}`}></span>
     )}
-    {/* Extra facets/metadata (place, type, verdict, ...) — same no-`hidden`
+    {/* Extra facets/metadata (place, type, verdict, ...): same no-`hidden`
         constraint as the image span above. Short values double as facets;
         long free-text values (e.g. a verdict line) are metadata only. */}
     {!searchExclude && searchMeta &&
@@ -371,11 +446,16 @@ const isAskPage = rawPathname.startsWith('/ask');
     <slot />
   </main>
 
-  <Footer />
+  <V5Footer />
 
-  <!-- V4 mobile drawer — replaces the V2 #mobileNav overlay.
-       Bound by the V4 mega+drawer script below. -->
-  <V4MobileDrawer />
+  <!-- V5 mobile drawer - wayfinding only, 13 rows + Dispatch CTA.
+       Self-binding (script lives inside the component). -->
+  <V5MobileDrawer />
+
+  <!-- V5 bottom action bar - Ask · Map · Save · Trip on mobile.
+       Self-suppressing on journal articles, form flows, open sheets,
+       and while the virtual keyboard is up. -->
+  <V5BottomBar />
 
   <!-- V2 auth phase 1, modal + profile dropdown.
        Modal hidden until any [data-open-auth] element triggers it.
@@ -385,21 +465,21 @@ const isAskPage = rawPathname.startsWith('/ask');
 
   <!-- Set API URL BEFORE the drawer renders, its boot script reads
        window.PI_API_URL at parse time, so this must come first. -->
-  <script is:inline define:vars={{ API_URL: import.meta.env.PUBLIC_CONCIERGE_API_URL || 'http://localhost:8787' }}>
+  <script is:inline define:vars={{ API_URL: CONCIERGE_API_URL }}>
     window.PI_API_URL = API_URL;
   </script>
 
   <!-- Supabase config for browser-side analytics (search query logging etc).
-       Anon key is safe to expose — RLS ensures anon can only INSERT, not read. -->
-  <script is:inline define:vars={{ SB_URL: import.meta.env.PUBLIC_SUPABASE_URL || 'https://tjjhpvslpysfklwpqmgz.supabase.co', SB_ANON_KEY: import.meta.env.PUBLIC_SUPABASE_ANON_KEY || '' }}>
+       Anon key is safe to expose - RLS ensures anon can only INSERT, not read. -->
+  <script is:inline define:vars={{ SB_URL: import.meta.env.PUBLIC_SUPABASE_URL || 'https://tjjhpvslpysfklwpqmgz.supabase.co', SB_ANON_KEY: import.meta.env.PUBLIC_SUPABASE_ANON_KEY || 'sb_publishable_JlZuo95QvNZi2ZNrFyK-Cw_2y0U7HLp' }}>
     window.__PI_SB = { url: SB_URL, key: SB_ANON_KEY };
   </script>
 
   <!-- PI concierge drawer, slides in from the right edge.
        Suppressed on /ask itself (which is the full-page version). -->
-  {!isAskPage && <ConciergeDrawer />}
+  {SHOW_ASK_PI && !isAskPage && <ConciergeDrawer />}
 
-  <!-- Site search overlay — instant Pagefind dropdown, opened by any
+  <!-- Site search overlay - instant Pagefind dropdown, opened by any
        [data-open-search] trigger or the `/` keyboard shortcut. -->
   <SearchOverlay />
 
@@ -420,12 +500,15 @@ const isAskPage = rawPathname.startsWith('/ask');
        and right-click-to-replace images. Inert for non-admin visitors. -->
   <InlineEditor />
 
-  <!-- Image slot hydration — reads all published cms_image_slots from Supabase
+  {/* Vanilla-JS signup overlay, controlled by the build environment. */}
+  {showNewsletterPopup && <InsiderNotePopup />}
+
+  <!-- Image slot hydration - reads all published cms_image_slots from Supabase
        and swaps matching <img> src values on every page load. Covers every page
        so right-click image edits on any page (events, places, venues, home) are
        visible immediately on next load without waiting for a rebuild.
        Non-fatal: if Supabase is unreachable the static images remain. -->
-  <script is:inline define:vars={{ __SB_URL: import.meta.env.PUBLIC_SUPABASE_URL || 'https://tjjhpvslpysfklwpqmgz.supabase.co', __SB_ANON: import.meta.env.PUBLIC_SUPABASE_ANON_KEY || '' }}>
+  <script is:inline define:vars={{ __SB_URL: import.meta.env.PUBLIC_SUPABASE_URL || 'https://tjjhpvslpysfklwpqmgz.supabase.co', __SB_ANON: import.meta.env.PUBLIC_SUPABASE_ANON_KEY || 'sb_publishable_JlZuo95QvNZi2ZNrFyK-Cw_2y0U7HLp' }}>
     (function () {
       if (!__SB_URL || !__SB_ANON) return;
       function applySlots() {
@@ -489,7 +572,7 @@ const isAskPage = rawPathname.startsWith('/ask');
        scroll mark. Mobile-only. Hidden on /newsletter, /ask, /account
        via CSS rules keyed on body[data-path]. Bottom-LEFT so it sits
        opposite the concierge FAB (bottom-right) and they don't collide. -->
-  <a href="/dispatch/" class="subscribe-pill" aria-label="Join the Peninsula Dispatch">
+  <a href="/dispatch/" class="subscribe-pill" aria-label="Join The Insider Note">
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
       <polyline points="22,6 12,13 2,6"/>

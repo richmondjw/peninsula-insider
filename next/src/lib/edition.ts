@@ -1,5 +1,5 @@
 /**
- * edition.ts — Publication identity helpers.
+ * edition.ts - Publication identity helpers.
  *
  * Returns the current seasonal edition string for Peninsula Insider.
  * Season is Southern Hemisphere meteorological:
@@ -23,8 +23,8 @@ export function getSeason(date: Date = new Date()): 'Autumn' | 'Winter' | 'Sprin
 /**
  * Returns { mark, label } for the masthead edition slot.
  *
- * mark  — empty; the Vol/issue badge is retired.
- * label — e.g. "Autumn Insider · May 2026"
+ * mark - empty; the Vol/issue badge is retired.
+ * label - e.g. "Autumn Insider · May 2026"
  */
 export function getPublicationEdition(date: Date = new Date()): {
   mark: string;

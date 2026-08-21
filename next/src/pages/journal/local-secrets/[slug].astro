@@ -1,6 +1,6 @@
 ---
 /**
- * /journal/local-secrets/<slug>/ — single reader-submitted secret.
+ * /journal/local-secrets/<slug>/ - single reader-submitted secret.
  *
  * Renders the markdown body plus contributor credit, optional editor
  * note (we may add context the reader didn't include), and related
@@ -103,18 +103,20 @@ export const prerender = true;
 </BaseLayout>
 
 <style>
+  /* v6 Evergreen Coast: Sora display title, no serif, sea-fog editor
+     note at radius-s with Sora-italic verdict voice. */
   .local-secret-detail { padding: clamp(1.5rem, 3vw, 2.5rem) 0 clamp(2rem, 4vw, 3rem); }
   .local-secret-detail__title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2rem, 5vw, 3rem);
-    font-weight: 500;
-    line-height: 1.05;
-    letter-spacing: -0.02em;
+    font-family: var(--font-display);
+    font-size: var(--fs-800);
+    font-weight: var(--fw-display);
+    line-height: var(--lh-display);
+    letter-spacing: var(--ls-display);
     margin: 0.45rem 0 0.5rem;
   }
   .local-secret-detail__place {
-    font-family: 'Outfit', sans-serif;
-    font-size: 0.95rem;
+    font-family: var(--font-ui);
+    font-size: var(--fs-300);
     color: var(--soft);
     margin: 0 0 1.5rem;
   }
@@ -125,35 +127,37 @@ export const prerender = true;
     width: 100%;
     height: auto;
     display: block;
+    border-radius: var(--radius-m);
   }
   .local-secret-detail__hero figcaption {
-    font-family: 'Outfit', sans-serif;
-    font-size: 0.78rem;
+    font-family: var(--font-ui);
+    font-size: var(--fs-200);
     color: var(--soft);
     margin-top: 0.4rem;
   }
-  .local-secret-detail__body { max-width: 38rem; }
+  .local-secret-detail__body { max-width: var(--measure-prose); }
   .local-secret-detail__editor {
     margin: 1.75rem 0;
-    padding: 1.1rem 1.25rem;
+    padding: var(--space-4) var(--space-5);
     border-left: 3px solid var(--accent);
-    background: var(--paper, #fbf7f0);
-    max-width: 38rem;
+    background: var(--bg-alt);
+    border-radius: var(--radius-s);
+    max-width: var(--measure-prose);
   }
   .local-secret-detail__editor-label {
-    font-family: 'Outfit', sans-serif;
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
+    font-family: var(--font-ui);
+    font-size: var(--fs-100);
+    font-weight: var(--fw-semibold);
+    letter-spacing: var(--ls-eyebrow);
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--teal-text);
     margin: 0 0 0.45rem;
   }
   .local-secret-detail__editor-body {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 1.05rem;
-    line-height: 1.55;
+    font-family: var(--font-display);
+    font-style: normal;
+    font-size: var(--fs-500);
+    line-height: var(--lh-dek);
     color: var(--text);
     margin: 0;
   }
@@ -164,8 +168,8 @@ export const prerender = true;
     margin-top: 2rem;
     padding-top: 1.5rem;
     border-top: 1px dashed var(--border);
-    font-family: 'Outfit', sans-serif;
-    font-size: 0.95rem;
+    font-family: var(--font-ui);
+    font-size: var(--fs-300);
     color: var(--soft);
   }
   .local-secret-detail__contribute a {

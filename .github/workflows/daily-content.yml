@@ -1,0 +1,132 @@
+name: Daily Content Engine — Peninsula Insider
+
+on:
+  schedule:
+    # Canonical daily Insider Picks publisher: 06:00 AEST (20:00 UTC).
+    # This is the sole scheduled publisher; freshness verification runs separately.
+    - cron: '0 20 * * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run (plan only, no commits)'
+        type: boolean
+        default: false
+      force:
+        description: 'Force run even if already ran today'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  issues: write   # non-silent alert path opens an issue on failure
+
+jobs:
+  daily-content:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          # Prefer the PAT (its pushes trigger build-and-deploy); fall back to
+          # the workflow token so the engine still runs when the secret is
+          # unset. GITHUB_TOKEN pushes do NOT trigger other workflows, so with
+          # the fallback a content commit needs a manual deploy dispatch.
+          token: ${{ secrets.PAT_CONTENT_PUSH || github.token }}
+          fetch-depth: 1
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Setup Node.js (for content scripts)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: next/package-lock.json
+
+      - name: Install next dependencies (content admission gate)
+        # The pre-commit hook runs this gate before an automated content commit.
+        # Without the local Astro binary it fails closed and no publish occurs.
+        run: |
+          cd next
+          npm ci --prefer-offline
+
+      - name: Install engine dependencies
+        run: |
+          pip install anthropic requests python-dateutil
+          # Google API libs for the same-day GSC pull. If GSC_TOKEN_JSON isn't
+          # set as a secret, the pull no-ops and the brain uses the last
+          # committed report — these libs are cheap insurance, not a hard dep.
+          pip install google-api-python-client google-auth-oauthlib google-auth-httplib2
+
+      - name: Configure git identity
+        run: |
+          git config user.name "Peninsula Insider Engine"
+          git config user.email "engine@peninsulainsider.com.au"
+          # Auto-fix BRAND-PI house style (em-dashes) on staged content before
+          # the engine commits, so generated content can't break the deploy.
+          git config core.hooksPath .githooks
+
+      - name: Validate strategy engine (pre-flight gate)
+        # A broken parser or scoring path would silently publish bad strategy
+        # every day. Fail loudly here before the engine runs. Fast, no deps.
+        env:
+          PI_REPO_ROOT: ${{ github.workspace }}
+        run: |
+          python engine/test_strategy_engine.py --quiet
+
+      - name: Run daily content engine
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          # Live GSC pull (headless). Set GSC_TOKEN_JSON to a token minted once
+          # locally (see ops/gsc-auth/README.md). Absent → strategy brain uses
+          # the last committed report, no failure.
+          GSC_TOKEN_JSON: ${{ secrets.GSC_TOKEN_JSON }}
+          GSC_CLIENT_SECRET_JSON: ${{ secrets.GSC_CLIENT_SECRET_JSON }}
+          PI_REPO_ROOT: ${{ github.workspace }}
+          DRY_RUN: ${{ inputs.dry_run || 'false' }}
+          # T-007 (2026-07-11): pause the autonomous title/dek rewriter
+          # (engine/auto_act.py, the "CTR fix" step) while the v5 redesign
+          # lands. It rewrites journal titles + meta descriptions with no
+          # human in the loop; paused until the v5 content guidelines
+          # (workspace/peninsula-insider-redesign/06-content-system/
+          # content-guidelines.md) are adopted and the rewriter is aligned
+          # to their caps. Restart: set to '1' or delete this line.
+          # Only this step is disabled — research/publish/verify still run.
+          PI_AUTO_ACT: '0'
+        run: |
+          python engine/orchestrator.py --tempo daily ${{ inputs.dry_run == true && '--dry-run' || '' }} ${{ inputs.force == true && '--force' || '' }}
+
+      - name: Upload run log
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: daily-run-log-${{ github.run_number }}
+          path: .claude/newsroom/runs/
+          retention-days: 30
+
+      - name: Alert on failure (non-silent)
+        # Backstop for hard crashes (pre-flight gate, non-zero exit) the
+        # in-process alert can't reach. Opens/reuses a GitHub issue. See engine/alert.py.
+        if: failure()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          PI_REPO_ROOT: ${{ github.workspace }}
+        run: |
+          python engine/alert.py \
+            --title "Daily content run failed (run #${{ github.run_number }})" \
+            --body "The daily content workflow failed. Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            --dedup daily-workflow-failure --severity fatal
+
+      - name: Trigger deploy if content was pushed
+        if: success()
+        run: |
+          echo "Content push complete — GitHub Pages deploy will trigger automatically on push to main"

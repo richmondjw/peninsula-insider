@@ -5,7 +5,7 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import SectionHero from '../../components/SectionHero.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import BfAnalytics from '../../components/BfAnalytics.astro';
-import { buildBfHubSchema, buildBreadcrumbSchema } from '../../lib/schema';
+import { buildBfHubSchema } from '../../lib/schema';
 import { formatVerifiedStamp } from '../../lib/bf';
 
 // /tour/ ↔ /fishing/charters/ bidirectional rail. This page is the "I want
@@ -21,7 +21,7 @@ const path = '/tour/fishing-tours/';
 const allCharters = await getCollection('fishingCharters', ({ data }) => data.status === 'published');
 
 // Existing /tour/ entries with cruise-sailing, surf-water, or wildlife-nature
-// experience type that touch fishing intent — surfaced here as adjacent options.
+// experience type that touch fishing intent - surfaced here as adjacent options.
 const allTours = await getCollection('tours');
 const adjacentTours = allTours.filter((t) =>
   ['cruise-sailing', 'surf-water'].includes(t.data.experienceType),
@@ -52,11 +52,6 @@ const hubSchema = buildBfHubSchema({
   })),
 });
 
-const breadcrumbSchema = buildBreadcrumbSchema([
-  { name: 'Home', url: 'https://peninsulainsider.com.au/' },
-  { name: 'Tours', url: 'https://peninsulainsider.com.au/tour/' },
-  { name: 'Fishing tours', url: `https://peninsulainsider.com.au${path}` },
-]);
 export const prerender = true;
 ---
 
@@ -68,7 +63,6 @@ export const prerender = true;
   modifiedTime={lastVerifiedISO}
 >
   <script type="application/ld+json" set:html={JSON.stringify(hubSchema)} />
-  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   <BfAnalytics />
 
   <Breadcrumbs items={breadcrumbItems} />
@@ -112,8 +106,8 @@ export const prerender = true;
           <p>Operator profiles are being verified. Check back soon.</p>
         ) : (
           allCharters.map((c) => (
-            <article class="venue-card">
-              <h3 class="venue-card__name">
+            <article class="pi-card"><div class="pi-card__body">
+              <h3 class="pi-card__title">
                 <a
                   href={`/fishing/charters/${c.data.slug}/`}
                   data-bf-event="bf_cross_vertical_click"
@@ -121,12 +115,12 @@ export const prerender = true;
                   data-bf-operator={c.data.slug}
                 >{c.data.name}</a>
               </h3>
-              <p class="venue-card__meta">
+              <p class="pi-card__meta">
                 {c.data.licenceCovered === 'covered' ? 'Licence covered' : c.data.licenceCovered === 'byo' ? 'BYO licence' : ''}
               </p>
-              <p class="venue-card__signature">{c.data.intro}</p>
-              <a href={`/fishing/charters/${c.data.slug}/`} class="venue-card__cta" data-bf-event="bf_cross_vertical_click" data-bf-from="tour-fishing-tours" data-bf-operator={c.data.slug}>Operator profile &rarr;</a>
-            </article>
+              <p class="pi-card__dek">{c.data.intro}</p>
+              <div class="pi-card__actions"><a href={`/fishing/charters/${c.data.slug}/`} class="pi-btn pi-btn--solid" data-bf-event="bf_cross_vertical_click" data-bf-from="tour-fishing-tours" data-bf-operator={c.data.slug}>Operator profile &rarr;</a></div>
+            </div></article>
           ))
         )}
       </div>
@@ -146,11 +140,11 @@ export const prerender = true;
         </div>
         <div class="venues__grid venues__grid--links">
           {adjacentTours.slice(0, 6).map((t) => (
-            <article class="venue-card">
-              <h3 class="venue-card__name"><a href={`/tour/${t.data.slug}/`}>{t.data.name}</a></h3>
-              <p class="venue-card__signature">{t.data.intro}</p>
-              <a href={`/tour/${t.data.slug}/`} class="venue-card__cta">Tour profile &rarr;</a>
-            </article>
+            <article class="pi-card"><div class="pi-card__body">
+              <h3 class="pi-card__title"><a href={`/tour/${t.data.slug}/`}>{t.data.name}</a></h3>
+              <p class="pi-card__dek">{t.data.intro}</p>
+              <div class="pi-card__actions"><a href={`/tour/${t.data.slug}/`} class="pi-btn pi-btn--solid">Tour profile &rarr;</a></div>
+            </div></article>
           ))}
         </div>
       </div>

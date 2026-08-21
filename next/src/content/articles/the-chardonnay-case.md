@@ -29,19 +29,19 @@ featured: true
 status: "published"
 lastVerified: 2026-04-22
 clusterLinks:
-  - label: "The Cellar Door Short List — Five Producers Worth the Appointment"
+  - label: "The Cellar Door Short List - Five Producers Worth the Appointment"
     href: "/journal/the-cellar-door-short-list/"
   - label: "Mornington Peninsula Winery Guide"
     href: "/journal/mornington-peninsula-winery-guide/"
   - label: "How to Plan a Peninsula Weekend"
-    href: "/journal/how-to-plan-a-peninsula-weekend/"
+    href: "/explore/plans/how-to-plan-a-peninsula-weekend/"
 faq:
   - question: "Is the Mornington Peninsula known for chardonnay as well as pinot noir?"
-    answer: "Yes — and the case for chardonnay has strengthened significantly over the last three vintages. The 2022–2024 chardonnays from producers like Kooyong, Ocean Eight, and Ten Minutes by Tractor are tighter, more mineral, and more ageable than the pinot narrative would suggest. Serious collectors are buying Peninsula chardonnay ahead of pinot in those vintages."
+    answer: "Yes - and the case for chardonnay has strengthened significantly over the last three vintages. The 2022–2024 chardonnays from producers like Kooyong, Ocean Eight, and Ten Minutes by Tractor are tighter, more mineral, and more ageable than the pinot narrative would suggest. Serious collectors are buying Peninsula chardonnay ahead of pinot in those vintages."
   - question: "Which Mornington Peninsula producers make the best chardonnay?"
-    answer: "Kooyong (Farrago single-vineyard, benchmark and ages 10+ years), Ocean Eight (Aylward Chardonnay, minimal oak, saline backbone, best drunk fresh), Ten Minutes by Tractor (single-vineyard flights — Wallis, McCutcheon, Judd), and Paringa Estate Reserve (richer house style, remarkable at 10 years of age). Port Phillip Estate is the most accessible price point with similar attention to detail."
+    answer: "Kooyong (Farrago single-vineyard, benchmark and ages 10+ years), Ocean Eight (Aylward Chardonnay, minimal oak, saline backbone, best drunk fresh), Ten Minutes by Tractor (single-vineyard flights - Wallis, McCutcheon, Judd), and Paringa Estate Reserve (richer house style, remarkable at 10 years of age). Port Phillip Estate is the most accessible price point with similar attention to detail."
   - question: "Should I cellar Mornington Peninsula chardonnay?"
-    answer: "Yes — more so than the pinot. The Kooyong Farrago and Ten Minutes by Tractor single-vineyard chardonnays reward four to eight years in bottle; Paringa Estate Reserve is worth ten to twelve years. Ocean Eight's Aylward is the exception — best drunk within four years while the freshness is intact. Buy the reserve bottles and open the second labels while you wait."
+    answer: "Yes - more so than the pinot. The Kooyong Farrago and Ten Minutes by Tractor single-vineyard chardonnays reward four to eight years in bottle; Paringa Estate Reserve is worth ten to twelve years. Ocean Eight's Aylward is the exception - best drunk within four years while the freshness is intact. Buy the reserve bottles and open the second labels while you wait."
 ---
 
 The Mornington Peninsula sells itself as pinot noir country and always has. Every tourism brochure, every estate map, every long-lunch menu leans on it. Pinot is the hero varietal, the grape that tells the cool-climate story, the thing the collectors came down from Melbourne to buy. None of this is wrong. The region does grow genuinely serious pinot noir, the kind that sits credibly alongside the Yarra Valley's best at ten years of age, and the argument for pinot has been settled, mostly, for a decade.
@@ -60,39 +60,39 @@ The pinot has stayed excellent. The chardonnay has caught up, then edged ahead.
 
 ## The six producers to taste to understand it
 
-If you want the shortest possible introduction to the argument, taste across these six producers, ideally on the Main Ridge plateau where most of the serious work is happening. Better to pick three at a time across two visits than to chase all six in one day; our [cellar door short list discipline](/journal/the-cellar-door-short-list) explains why.
+If you want the shortest possible introduction to the argument, taste across these six producers, ideally on the Main Ridge plateau where most of the serious work is happening. Better to pick three at a time across two visits than to chase all six in one day; our [cellar door short list discipline](/journal/the-cellar-door-short-list/) explains why.
 
 ### 1. Kooyong, the benchmark, again
 
-[Kooyong's](/wine/kooyong) single-vineyard Farrago Chardonnay is the wine most serious Peninsula drinkers will name if you push them to identify the region's ceiling in white. The Farrago block sits on north-facing iron-rich soils on the Main Ridge and delivers a chardonnay that is structured, slow to open, and, crucially, ages for a decade without losing its line. It is not an easy wine. The first glass reads as reserved to the point of severity; the second glass is where the texture and the fruit arrive. This is the wine to taste if you want to understand what the Peninsula is actually capable of at the top end.
+[Kooyong's](/wine/kooyong/) single-vineyard Farrago Chardonnay is the wine most serious Peninsula drinkers will name if you push them to identify the region's ceiling in white. The Farrago block sits on north-facing iron-rich soils on the Main Ridge and delivers a chardonnay that is structured, slow to open, and, crucially, ages for a decade without losing its line. It is not an easy wine. The first glass reads as reserved to the point of severity; the second glass is where the texture and the fruit arrive. This is the wine to taste if you want to understand what the Peninsula is actually capable of at the top end.
 
 **What to taste:** the single-vineyard flight. Ask for the current and previous release Farrago back-to-back if it is available. The difference between a fresh release and a three-year-old bottle is the entire point.
 
 ### 2. Ocean Eight, the purity argument
 
-Mike Aylward's [Ocean Eight](/wine/ocean-eight) makes the chardonnay we would personally put in a cellar before almost any other Peninsula white. The Aylward Chardonnay is worked minimally, wild fermentation, minimal new oak, long lees contact, and the result is a wine that tastes like the vineyard rather than the winemaker. Green apple, citrus pith, a saline backbone that reads as distinctly coastal, and the kind of quiet intensity that opens up slowly over an hour rather than arriving all at once.
+Mike Aylward's [Ocean Eight](/wine/ocean-eight/) makes the chardonnay we would personally put in a cellar before almost any other Peninsula white. The Aylward Chardonnay is worked minimally, wild fermentation, minimal new oak, long lees contact, and the result is a wine that tastes like the vineyard rather than the winemaker. Green apple, citrus pith, a saline backbone that reads as distinctly coastal, and the kind of quiet intensity that opens up slowly over an hour rather than arriving all at once.
 
 This is a wine that needs to be drunk at the correct temperature (twelve degrees, not eight) and with a proper glass. Ocean Eight is not a tourism cellar door. Book ahead and treat the tasting as the serious twenty-minute commitment it actually is.
 
 ### 3. Port Phillip Estate, the accessible one
 
-[Port Phillip Estate](/wine/port-phillip-estate) sits in the same ownership as Kooyong and shares a cellar and some of the viticultural thinking, which means the chardonnays are made with the same attention as the Kooyong wines but released at a friendlier price. The Serrat-style single-vineyard work is among the best value on the Peninsula, and the estate's main room, with its dramatic architecture and the Arthurs Seat view behind the cellar door, is also one of the more pleasant places to sit through a tasting.
+[Port Phillip Estate](/wine/port-phillip-estate/) sits in the same ownership as Kooyong and shares a cellar and some of the viticultural thinking, which means the chardonnays are made with the same attention as the Kooyong wines but released at a friendlier price. The Serrat-style single-vineyard work is among the best value on the Peninsula, and the estate's main room, with its dramatic architecture and the Arthurs Seat view behind the cellar door, is also one of the more pleasant places to sit through a tasting.
 
 **What to taste:** the Reserve Chardonnay, especially if the 2023 is still pouring. It is the wine we keep recommending to sceptics because it converts them.
 
 ### 4. Paringa Estate, the unfashionable benchmark
 
-[Paringa Estate](/wine/paringa-estate) has been making Peninsula chardonnay for longer than almost anyone else, and the Paringa Estate Reserve Chardonnay is the wine that won the international medals in the early 2000s when the Peninsula was still being dismissed as a boutique curiosity. The house style is richer than the newer producers, more oak, more malo, more texture, and for that reason it tends to get overlooked by the people chasing the tight, mineral, European-leaning wines. It rewards the second look. A ten-year-old Paringa Reserve Chardonnay is one of the most complete Peninsula whites you will taste, and the cellar door is one of the few places in the region where vertical tastings of older vintages are sometimes available on request.
+[Paringa Estate](/wine/paringa-estate/) has been making Peninsula chardonnay for longer than almost anyone else, and the Paringa Estate Reserve Chardonnay is the wine that won the international medals in the early 2000s when the Peninsula was still being dismissed as a boutique curiosity. The house style is richer than the newer producers, more oak, more malo, more texture, and for that reason it tends to get overlooked by the people chasing the tight, mineral, European-leaning wines. It rewards the second look. A ten-year-old Paringa Reserve Chardonnay is one of the most complete Peninsula whites you will taste, and the cellar door is one of the few places in the region where vertical tastings of older vintages are sometimes available on request.
 
 ### 5. Ten Minutes by Tractor, the restaurant wine
 
-[Ten Minutes by Tractor](/eat/ten-minutes-by-tractor) is best known as a hatted restaurant and a Wine List of the Year winner, but the estate wine program is the serious other half of the story. The single-vineyard chardonnays, Wallis, McCutcheon, Judd, are among the most compelling white wines being made on the Peninsula right now, in part because the kitchen next door provides a constant, brutal stress test for whether the wines actually work at the table. They do.
+[Ten Minutes by Tractor](/eat/ten-minutes-by-tractor/) is best known as a hatted restaurant and a Wine List of the Year winner, but the estate wine program is the serious other half of the story. The single-vineyard chardonnays, Wallis, McCutcheon, Judd, are among the most compelling white wines being made on the Peninsula right now, in part because the kitchen next door provides a constant, brutal stress test for whether the wines actually work at the table. They do.
 
-The cellar door tasting is tied to the restaurant's rhythm and tends to be quieter on weekday mornings. Book the single-vineyard chardonnay flight specifically. If you can stay for lunch, this is also the room that makes the case for chardonnay with food most clearly. (See our [review of the three serious dinners](/journal/three-italian-dinners) for the broader context.)
+The cellar door tasting is tied to the restaurant's rhythm and tends to be quieter on weekday mornings. Book the single-vineyard chardonnay flight specifically. If you can stay for lunch, this is also the room that makes the case for chardonnay with food most clearly. (See our [review of the three serious dinners](/journal/three-italian-dinners/) for the broader context.)
 
 ### 6. Dexter Wines, the quiet obsessive
 
-[Dexter](/wine/dexter-wines) makes a single chardonnay from a single block and is almost entirely by appointment. Tod Dexter has been working Peninsula fruit for long enough that the wine has a distinctive hand, a slightly riper core, a little more texture, and an ability to age that surprises even regular Dexter drinkers. This is the one to taste if you want to meet the winemaker and understand the wine as a product of one person's three decades of decisions rather than a house style.
+[Dexter](/wine/dexter-wines/) makes a single chardonnay from a single block and is almost entirely by appointment. Tod Dexter has been working Peninsula fruit for long enough that the wine has a distinctive hand, a slightly riper core, a little more texture, and an ability to age that surprises even regular Dexter drinkers. This is the one to taste if you want to meet the winemaker and understand the wine as a product of one person's three decades of decisions rather than a house style.
 
 ## What to buy
 

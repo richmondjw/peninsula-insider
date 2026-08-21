@@ -6,7 +6,7 @@ houseByline: true
 publishedAt: 2026-04-10
 heroImage:
   src: "/images/sourced/article-sunset-01.webp"
-  alt: "A car pulling into a Peninsula rental property at dusk with warm interior light spilling through the windows — representative image"
+  alt: "A car pulling into a Peninsula rental property at dusk with warm interior light spilling through the windows - representative image"
   credit: "Peninsula Insider"
   license: "tmp-unsplash"
 format: "service"
@@ -23,7 +23,6 @@ relatedVenues:
   - "mornington-hotel"
   - "dromana-hotel"
   - "balnarring-pub"
-  - "sorrento-bakery"
   - "tedesca-osteria"
   - "rare-hare"
   - "bistro-elba"
@@ -38,11 +37,11 @@ planShape: "two-night"
 lastVerified: 2026-04-22
 clusterLinks:
   - label: "How to Plan a Peninsula Weekend"
-    href: "/journal/how-to-plan-a-peninsula-weekend/"
-  - label: "A Flinders Weekend — The Quiet Side of the Peninsula"
+    href: "/explore/plans/how-to-plan-a-peninsula-weekend/"
+  - label: "A Flinders Weekend - The Quiet Side of the Peninsula"
     href: "/journal/a-flinders-weekend/"
   - label: "The Couples' Weekend on the Mornington Peninsula"
-    href: "/journal/the-couples-weekend/"
+    href: "/explore/plans/the-couples-weekend/"
 faq:
   - question: "What should I do on Friday night when arriving on the Mornington Peninsula?"
     answer: "Three options depending on energy and planning: the pub (no booking needed; Balnarring Pub for hinterland stays, Flinders Hotel for the south, Hotel Sorrento front bar for the coast); the provisions stop (bread, cheese, chicken, and wine from the nearest good deli en route, eaten on the deck); or a booked dinner at Tedesca Osteria, Rare Hare, or similar if arranged a week ahead. The pub is the most reliable no-planning option."
@@ -51,7 +50,7 @@ faq:
   - question: "Can I do a provisions stop instead of eating out on Friday night on the Peninsula?"
     answer: "Yes, and it is often the better option. Stop at Epicurean Red Hill or the Red Hill Bakery strip for bread, cheese, and a roast chicken, then Merricks General Wine Store for wine. Alternatively, the Flinders General Store carries a curated range of exactly this combination. The deck dinner of bread, cheese, cold chicken, and wine is one of the simplest pleasures the Peninsula offers."
 aiSummary:
-  - "A planning framework for arriving at the Mornington Peninsula on a Friday evening — the most common arrival pattern and the one most likely to go wrong without a clear plan."
+  - "A planning framework for arriving at the Mornington Peninsula on a Friday evening - the most common arrival pattern and the one most likely to go wrong without a clear plan."
   - "The framework: book dinner as the first anchor (arriving hungry with no plan on a Friday evening at Sorrento or Red Hill is the most common Peninsula disaster), then get to the accommodation before 8pm."
   - "Covers: which restaurants are worth a Friday evening booking versus which to leave for Saturday; how to sequence the first few hours to make the weekend feel like it started well."
   - "Suits: any visitor arriving on a Friday; couples planning a weekend where Friday evening matters."
@@ -68,7 +67,7 @@ Here are the three ways to handle it.
 
 The simplest and most reliable Friday night arrival on the Peninsula is the pub. You need no booking, no planning, and no cooking. You need to know which pub is nearest to where you are staying and whether it does food on Friday nights. All of these do:
 
-**Staying in the Red Hill hinterland:** Drive to **Balnarring Pub**. The garden is sheltered and the kitchen runs a solid pub menu. Call ahead on Fridays — the room is small. Order at the counter. Sit outside. You are now on Peninsula time.
+**Staying in the Red Hill hinterland:** Drive to **Balnarring Pub**. The garden is sheltered and the kitchen runs a solid pub menu. Call ahead on Fridays - the room is small. Order at the counter. Sit outside. You are now on Peninsula time.
 
 **Staying in Flinders or Shoreham:** **Flinders Hotel** bistro. Walk-ins are usually fine on a Friday. The food is a step above standard pub fare. The rooms upstairs are the backup plan if the drive back to the rental feels too far after two bottles.
 
@@ -92,7 +91,7 @@ The principle: stop once, on the way in, and buy everything you need for Friday 
 
 **The Flinders stop:** **Flinders General Store** carries a curated range of provisions (local cheese, bread, smallgoods, wine) designed for exactly this scenario. It closes early, so time it right. If you miss it, the Flinders Hotel bottle shop is the fallback.
 
-**The Sorrento stop:** **Sorrento Bakery** for bread and pastries (if you arrive before five). The IGA in Sorrento for basics. The Continental bottle shop for wine if you want to spend more.
+**The Sorrento stop:** The IGA in Sorrento for basics. The Continental bottle shop for wine if you want to spend more.
 
 The provisions-stop dinner looks like this: bread torn from a loaf, cheese on a board, olives, cold chicken or charcuterie, a salad if you are feeling virtuous, wine, and the deck. It takes ten minutes to assemble and costs less than a pub dinner for two. On a still autumn evening, it is one of the loveliest dinners the Peninsula offers.
 

@@ -1,0 +1,228 @@
+---
+/**
+ * V5 breadcrumbs, mounted globally from BaseLayout (future-ia.md
+ * section 3.1: "Breadcrumbs on every template below level 1, no
+ * exceptions" - coverage was 65%).
+ *
+ * Auto-derives the trail from the URL path so no page file needs
+ * editing; the final crumb prefers the page <title> (suffix stripped)
+ * over a title-cased slug. Page templates own BreadcrumbList JSON-LD so the
+ * global visual trail cannot create duplicate structured data.
+ *
+ * Coexistence with page-authored <Breadcrumbs>: pages that already
+ * render their own trail inside <main> keep it (their labels are
+ * richer). This component defers to them: a :has() rule hides the
+ * auto trail visually, and a tiny script removes the auto nav from the DOM
+ * so assistive tech sees one trail.
+ *
+ * v6 token pass (P3-6, 2026-07-25): no buttons here, so nothing moves
+ * to .pi-btn. Two contrast corrections only - the separator glyph and
+ * the current-crumb colour - both noted at the rules below.
+ */
+
+export interface Props {
+  /** Page title from BaseLayout, used for the final crumb label. */
+  pageTitle?: string;
+}
+
+const { pageTitle } = Astro.props;
+
+const rawPathname = Astro.url.pathname.replace(/^\/V2/, '') || '/';
+const segments = rawPathname.split('/').filter(Boolean);
+
+// Level 1 and the homepage carry no breadcrumbs; gate/admin surfaces
+// and the 404 page are excluded.
+const excluded = ['access', 'admin', '404', '404.html'];
+const show = segments.length >= 2 && !excluded.includes(segments[0]);
+
+const SEGMENT_LABELS: Record<string, string> = {
+  eat: 'Eat & Drink',
+  'eat-drink': 'Eat & Drink',
+  stay: 'Stay',
+  wine: 'Wine',
+  explore: 'Explore',
+  plans: 'Plans',
+  'whats-on': "What's On",
+  events: 'Events',
+  journal: 'Journal',
+  map: 'Map',
+  ask: 'Ask PI',
+  saved: 'Saved',
+  itinerary: 'My Trip',
+  account: 'Account',
+  dispatch: 'The Insider Note',
+  places: 'Places',
+  regions: 'Regions',
+  tour: 'Tours',
+  'tour-packages': 'Tour packages',
+  'dog-friendly': 'Dog friendly',
+  boating: 'Boating',
+  fishing: 'Fishing',
+  golf: 'Golf',
+  walks: 'Walks',
+  guides: 'Guides',
+  picks: 'Picks',
+  partners: 'Partners',
+  about: 'About',
+  contact: 'Contact',
+  corrections: 'Corrections',
+  'editorial-approach': 'Editorial approach',
+  'quick-note': 'Quick notes',
+  'insiders-30': "The Insider's 30",
+  awards: 'Awards',
+  'corporate-events': 'Corporate events',
+  weddings: 'Weddings',
+  'site-index': 'Site index',
+  do: 'Things to do',
+  escape: 'Escapes',
+};
+
+function titleCase(slug: string): string {
+  return slug
+    .split('-')
+    .map((w) => (w ? w[0].toUpperCase() + w.slice(1) : w))
+    .join(' ');
+}
+
+function labelFor(segment: string): string {
+  return SEGMENT_LABELS[segment] ?? titleCase(segment);
+}
+
+function hrefForSegment(index: number): string {
+  // Keep the plans breadcrumb within the canonical /explore/plans/ tree.
+  if (index === 1 && segments[0] === 'explore' && segments[1] === 'plans') return '/explore/plans/';
+  return `/${segments.slice(0, index + 1).join('/')}/`;
+}
+
+// Final crumb: prefer the page title with the site/section suffix
+// stripped, when it is usable; fall back to the title-cased slug.
+function finalLabel(): string {
+  const slugLabel = labelFor(segments[segments.length - 1]);
+  if (!pageTitle) return slugLabel;
+  const candidate = pageTitle.split('|')[0].split(' · ')[0].trim();
+  if (candidate && candidate.length <= 70 && candidate.toLowerCase() !== 'peninsula insider') {
+    return candidate;
+  }
+  return slugLabel;
+}
+
+interface Crumb {
+  label: string;
+  href?: string;
+}
+
+const crumbs: Crumb[] = show
+  ? [
+      { label: 'Home', href: '/' },
+      ...segments.map((seg, i) => {
+        const isLast = i === segments.length - 1;
+        return {
+          label: isLast ? finalLabel() : labelFor(seg),
+          href: isLast ? undefined : hrefForSegment(i),
+        };
+      }),
+    ]
+  : [];
+
+---
+
+{show && (
+  <nav class="v5-breadcrumbs" id="v5Breadcrumbs" aria-label="Breadcrumb">
+    <div class="v5-breadcrumbs__container">
+      <ol class="v5-breadcrumbs__list">
+        {crumbs.map((item, index) => (
+          <li class="v5-breadcrumbs__item">
+            {item.href ? (
+              <a href={item.href}>{item.label}</a>
+            ) : (
+              <span aria-current={index === crumbs.length - 1 ? 'page' : undefined}>{item.label}</span>
+            )}
+          </li>
+        ))}
+      </ol>
+    </div>
+  </nav>
+)}
+
+<script is:inline>
+    // Defer to a page-authored trail: if the page renders its own
+    // <Breadcrumbs> (which carries better labels and its own JSON-LD),
+    // remove the auto visual trail.
+    (function () {
+      function dedupeV5Crumbs() {
+        var auto = document.getElementById('v5Breadcrumbs');
+        if (!auto) return;
+        if (document.querySelector('main .breadcrumbs')) {
+          auto.remove();
+        }
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', dedupeV5Crumbs, { once: true });
+      } else {
+        dedupeV5Crumbs();
+      }
+      document.addEventListener('astro:page-load', dedupeV5Crumbs);
+    })();
+</script>
+
+<style>
+  .v5-breadcrumbs {
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+  }
+  .v5-breadcrumbs__container {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: var(--space-2) var(--space-5);
+  }
+  .v5-breadcrumbs__list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-ui);
+    font-size: var(--fs-200);
+    color: var(--soft);
+  }
+  .v5-breadcrumbs__item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    /* Trail row height (target size), not a spacing step. */
+    min-height: 28px;
+  }
+  .v5-breadcrumbs__item + .v5-breadcrumbs__item::before {
+    content: '\203A';
+    /* Was opacity 0.45, which dropped the separator to roughly 2.6:1.
+       --border-strong is the token for exactly this job and measures
+       5.10:1 on --bg while still reading lighter than the crumb links. */
+    color: var(--border-strong);
+  }
+  .v5-breadcrumbs__item a {
+    display: inline-block;
+    padding: var(--space-2) 0;
+    margin: calc(var(--space-2) * -1) 0;
+    color: var(--soft);
+    text-decoration: none;
+    transition: color var(--dur-fast) var(--ease-enter);
+  }
+  .v5-breadcrumbs__item a:hover { color: var(--accent); }
+  .v5-breadcrumbs__item a:focus-visible {
+    outline: var(--focus-ring);
+    outline-offset: 2px;
+  }
+  .v5-breadcrumbs__item [aria-current='page'] {
+    /* The current crumb is a "you are here" marker, not an accent: --text
+       at 16.64:1 reads as the strongest item in the trail, and it takes
+       one more --teal-text instance out of the chrome. */
+    color: var(--text);
+    font-weight: var(--fw-medium);
+  }
+</style>
+
+<style is:global>
+  /* No-JS / pre-JS guard for the page-authored-trail case: hide the
+     auto trail the moment a legacy .breadcrumbs exists inside main. */
+  body:has(main .breadcrumbs) .v5-breadcrumbs { display: none; }
+</style>

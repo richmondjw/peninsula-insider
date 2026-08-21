@@ -5,14 +5,14 @@ import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import SectionHero from '../../../components/SectionHero.astro';
 import NewsletterBlock from '../../../components/NewsletterBlock.astro';
 import BfAnalytics from '../../../components/BfAnalytics.astro';
-import { buildBfHubSchema, buildBreadcrumbSchema } from '../../../lib/schema';
+import { buildBfHubSchema } from '../../../lib/schema';
 import { BF_EXTERNAL, BF_SPECIES_ORDER, REGION_LABEL, formatVerifiedStamp } from '../../../lib/bf';
 
 const lastVerifiedISO = '2026-04-30';
 const lastVerifiedStamp = formatVerifiedStamp(lastVerifiedISO);
 
 const allSpecies = await getCollection('species', ({ data }) => data.status === 'published');
-// Editorial order from the pack — flagship species first, secondary later.
+// Editorial order from the pack - flagship species first, secondary later.
 const orderIdx = (slug: string) => {
   const i = (BF_SPECIES_ORDER as readonly string[]).indexOf(slug);
   return i === -1 ? 999 : i;
@@ -44,11 +44,6 @@ const hubSchema = buildBfHubSchema({
   })),
 });
 
-const breadcrumbSchema = buildBreadcrumbSchema([
-  { name: 'Home', url: 'https://peninsulainsider.com.au/' },
-  { name: 'Fishing', url: 'https://peninsulainsider.com.au/fishing/' },
-  { name: 'Species', url: 'https://peninsulainsider.com.au/fishing/species/' },
-]);
 export const prerender = true;
 ---
 
@@ -60,7 +55,6 @@ export const prerender = true;
   modifiedTime={lastVerifiedISO}
 >
   <script type="application/ld+json" set:html={JSON.stringify(hubSchema)} />
-  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   <BfAnalytics />
 
   <Breadcrumbs items={breadcrumbItems} />
@@ -76,7 +70,7 @@ export const prerender = true;
   <p class="affiliate-disclosure container">
     Bag and size limits sourced from the
     <a href={BF_EXTERNAL.vfa} rel="external">Victorian Fisheries Authority</a>.
-    Last fact-verified {lastVerifiedStamp}. Regulations change — confirm with
+    Last fact-verified {lastVerifiedStamp}. Regulations change - confirm with
     VFA before fishing.
   </p>
 
@@ -89,16 +83,16 @@ export const prerender = true;
       ) : (
         <div class="venues__grid venues__grid--links">
           {ordered.map((s) => (
-            <article class="venue-card">
+            <article class="pi-card"><div class="pi-card__body">
               <h2 class="venue-card__name">
                 <a href={`/fishing/species/${s.data.slug}/`}>{s.data.commonName}</a>
               </h2>
-              <p class="venue-card__meta">
+              <p class="pi-card__meta">
                 {s.data.scientificName} · Primary water: {REGION_LABEL[s.data.primaryRegion]} · Peak: {s.data.peakSeason}
               </p>
-              <p class="venue-card__signature">{s.data.intro}</p>
-              <a href={`/fishing/species/${s.data.slug}/`} class="venue-card__cta">Read species guide &rarr;</a>
-            </article>
+              <p class="pi-card__dek">{s.data.intro}</p>
+              <div class="pi-card__actions"><a href={`/fishing/species/${s.data.slug}/`} class="pi-btn pi-btn--solid">Read species guide &rarr;</a></div>
+            </div></article>
           ))}
         </div>
       )}

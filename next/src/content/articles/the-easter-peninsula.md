@@ -6,12 +6,12 @@ houseByline: true
 publishedAt: 2026-04-17
 heroImage:
   src: "/images/sourced/article-cellar-door-01.webp"
-  alt: "An Easter Sunday brunch table on a Peninsula garden terrace with hot cross buns and chocolate eggs — representative image"
+  alt: "An Easter Sunday brunch table on a Peninsula garden terrace with hot cross buns and chocolate eggs - representative image"
   credit: "Peninsula Insider"
   license: "tmp-unsplash"
 format: "service"
 tags: ["easter", "long-weekend", "seasonal", "family", "weekend", "autumn"]
-relatedVenues: ["red-hill-bakery", "sorrento-bakery", "balnarring-bakehouse", "flinders-sourdough", "johnny-ripe", "mornington-peninsula-chocolates", "sunny-ridge-strawberry-farm", "ashcombe-maze", "merricks-general-wine-store", "balnarring-pub", "flinders-hotel", "red-hill-brewery", "lindenderry", "polperro-villas", "crittenden-villas", "alba-thermal-springs", "peninsula-hot-springs"]
+relatedVenues: ["red-hill-bakery", "balnarring-bakehouse", "flinders-sourdough", "johnny-ripe", "mornington-peninsula-chocolates", "merricks-general-wine-store", "balnarring-pub", "flinders-hotel", "red-hill-brewery", "lindenderry", "polperro-villas", "crittenden-villas", "alba-thermal-springs", "peninsula-hot-springs"]
 relatedExperiences: ["bushrangers-bay-walk", "cape-schanck-boardwalk", "mornington-foreshore-walk", "balnarring-beach", "mount-martha-beach", "red-hill-market"]
 readingTimeMinutes: 7
 featured: false
@@ -22,10 +22,10 @@ lastVerified: 2026-04-22
 clusterLinks:
   - label: "The Two Bays Walking Track"
     href: "/journal/two-bays-walk-mornington-peninsula/"
-  - label: "Ashcombe Maze — Visitor Guide"
+  - label: "Ashcombe Maze - Visitor Guide"
     href: "/journal/ashcombe-maze-visitor-guide/"
-  - label: "Best Spas on the Mornington Peninsula — The Tier Guide"
-    href: "/journal/best-spas-mornington-peninsula/"
+  - label: "Best Spas on the Mornington Peninsula - The Tier Guide"
+    href: "/explore/spas-and-wellness/"
 faq:
   - question: "Is the Mornington Peninsula worth visiting at Easter?"
     answer: "Yes, but only with the right plan. Easter is the Peninsula's first major crowd-pressure weekend of the year. Book accommodation in February, invert the standard weekend rhythm (quiet moves on Friday and Saturday, booked lunch on Sunday), and leave Monday morning before 11am."
@@ -34,11 +34,11 @@ faq:
   - question: "When is the best time to leave the Mornington Peninsula on Easter Monday?"
     answer: "Before 11.30am. The Mornington Peninsula Freeway typically slows significantly from about 1pm on Easter Monday. Leaving before midday puts you home well ahead of the worst of it."
 aiSummary:
-  - "A planning guide specific to Easter on the Mornington Peninsula — the Peninsula's busiest long weekend — covering timing, booking, and how to manage the crowds intelligently."
+  - "A planning guide specific to Easter on the Mornington Peninsula - the Peninsula's busiest long weekend - covering timing, booking, and how to manage the crowds intelligently."
   - "The editorial argument: Easter on the Peninsula is worth doing if you book correctly and choose the right activities. The piece sequences what to book first and which parts of the Peninsula are most congested."
   - "Covers: what is worth booking 6–8 weeks ahead for Easter; where to avoid (Sorrento foreshore on Saturday); where is quieter than expected (inland hinterland, Flinders, Balnarring)."
   - "Suits: anyone committed to visiting at Easter; visitors who have flexibility about which days they go and want to minimise crowd exposure."
-  - "Planning note: the cellar doors are quieter than restaurants on Good Friday. Monday is usually the best day on the Peninsula for food — fewer day-trippers, same quality."
+  - "Planning note: the cellar doors are quieter than restaurants on Good Friday. Monday is usually the best day on the Peninsula for food - fewer day-trippers, same quality."
 ---
 
 Easter on the Mornington Peninsula is its own weekend.
@@ -76,7 +76,7 @@ Friday is the day everyone else uses to drive down. Either be down already or ar
 
 Most cellar doors are closed on Good Friday. Most bakeries and cafes are open with reduced hours. Friday rewards a slow shape:
 
-**8.30am:** Bakery breakfast. **Red Hill Bakery** if you are based on the ridge, **Sorrento Bakery** if you are at the tip, **Flinders Sourdough** if you are south. Hot cross buns are the day's organising food and most of the bakeries make them properly. Buy more than you think you need; you will eat them across all four days.
+**8.30am:** Bakery breakfast. **Red Hill Bakery** if you are based on the ridge, **Flinders Sourdough** if you are south. Hot cross buns are the day's organising food and most of the bakeries make them properly. Buy more than you think you need; you will eat them across all four days.
 
 **10am:** A village walk. Friday morning on the Peninsula is the right time to walk a village without anyone else there. The Mornington foreshore from the pier to Mills Beach. The Sorrento foreshore from the village to the front beach. The Flinders pier and back along the village street.
 

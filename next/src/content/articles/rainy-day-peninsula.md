@@ -11,28 +11,28 @@ heroImage:
   license: "tmp-wikimedia"
 format: "service"
 tags: ["winter", "rainy-day", "indoor", "hot-springs", "fireplace"]
-relatedVenues: ["alba-thermal-springs", "peninsula-hot-springs", "tedesca-osteria", "lindenderry", "bass-and-flinders", "ashcombe-maze", "stringers-sorrento", "mornington-peninsula-chocolates", "red-hill-cheese", "via-boffe"]
+relatedVenues: ["alba-thermal-springs", "peninsula-hot-springs", "tedesca-osteria", "lindenderry", "bass-and-flinders", "stringers-sorrento", "mornington-peninsula-chocolates", "red-hill-cheese", "via-boffe"]
 relatedExperiences: ["mornington-peninsula-gallery"]
 readingTimeMinutes: 6
 featured: false
 status: "published"
 lastVerified: 2026-04-22
 clusterLinks:
-  - label: "A Winter Peninsula Weekend — The Case for Coming in July"
+  - label: "A Winter Peninsula Weekend - The Case for Coming in July"
     href: "/journal/a-winter-peninsula-weekend/"
-  - label: "Peninsula Hot Springs vs Alba — The Honest Comparison"
+  - label: "Peninsula Hot Springs vs Alba - The Honest Comparison"
     href: "/journal/peninsula-hot-springs-vs-alba/"
-  - label: "Best Spas on the Mornington Peninsula — The Tier Guide"
-    href: "/journal/best-spas-mornington-peninsula/"
+  - label: "Best Spas on the Mornington Peninsula - The Tier Guide"
+    href: "/explore/spas-and-wellness/"
 faq:
   - question: "Is the Mornington Peninsula worth visiting in bad weather?"
-    answer: "Yes — often more so than in good weather. The hot springs are better in the cold, the best dining rooms light their fires, booking availability improves, and the coastal walks become dramatic rather than simply scenic. Build the day around indoor anchors and the weather becomes an asset."
+    answer: "Yes - often more so than in good weather. The hot springs are better in the cold, the best dining rooms light their fires, booking availability improves, and the coastal walks become dramatic rather than simply scenic. Build the day around indoor anchors and the weather becomes an asset."
   - question: "What is the best rainy day activity on the Mornington Peninsula?"
-    answer: "Alba Thermal Springs or Peninsula Hot Springs — outdoor geothermal bathing is better in cold, grey weather. For indoor alternatives: Bass and Flinders Distillery gin school, Mornington Peninsula Regional Gallery (free entry), or Red Hill Brewery's indoor barn with wood-fired pizza."
+    answer: "Alba Thermal Springs or Peninsula Hot Springs - outdoor geothermal bathing is better in cold, grey weather. For indoor alternatives: Bass and Flinders Distillery gin school, Mornington Peninsula Regional Gallery (free entry), or Red Hill Brewery's indoor barn with wood-fired pizza."
   - question: "Which Peninsula restaurants are best for a rainy day?"
-    answer: "Tedesca Osteria in winter — the wood oven and open fire work hardest in cold weather and the set menu leans into braises and heavier plates. Lindenderry's dining room is built for winter. Both are significantly more atmospheric on a grey day than in summer."
+    answer: "Tedesca Osteria in winter - the wood oven and open fire work hardest in cold weather and the set menu leans into braises and heavier plates. Lindenderry's dining room is built for winter. Both are significantly more atmospheric on a grey day than in summer."
 aiSummary:
-  - "A practical guide to the Mornington Peninsula in wet or cold weather — structured around what actually improves in the rain versus what to avoid on a grey day."
+  - "A practical guide to the Mornington Peninsula in wet or cold weather - structured around what actually improves in the rain versus what to avoid on a grey day."
   - "The editorial argument: cellar doors, hot springs, and hatted restaurants are all better in cool, wet weather when the Peninsula is quieter and the experience is more genuine."
   - "Key recommendations: cellar door tastings as the primary rainy-day activity (not impacted by weather); Peninsula Hot Springs in rain (the experience improves when fewer people are outside); the Peninsula's best all-weather cafés."
   - "Suits: visitors who have arrived on a grey day; anyone who wants to understand that the Peninsula's strongest experiences are not weather-dependent."
@@ -71,7 +71,7 @@ A handful of specific spots turn wet-weather Peninsula weekends from a compromis
 
 **Mornington Peninsula Regional Gallery.** Free entry, good shows, and fifty minutes well spent. The best wet-afternoon move on the bay side.
 
-**Bass & Flinders Distillery.** The gin school is one of the region's better hands-on experiences and is perfect for a grey afternoon. Book ahead.
+**Bass & Flinders Distillery.** The gin school is one of the region's better hands-on afternoons, and a grey sky costs it nothing. Book ahead.
 
 **Red Hill Brewery.** The cellar door is a low barn with a wood-fired pizza oven and enough indoor seating to sit out a genuinely wet afternoon. The hop garden walk is better in autumn than summer anyway.
 

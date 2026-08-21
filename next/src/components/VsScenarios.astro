@@ -1,0 +1,90 @@
+---
+/**
+ * VsScenarios - "which one for which day" card grid for A-vs-B
+ * comparison articles. Each card pairs a reader scenario (rendered as a
+ * quoted line) with the verdict and an optional supporting note.
+ *
+ * Designed for the 680px prose column in MDX articles
+ * (first use: /journal/peninsula-hot-springs-vs-alba/).
+ */
+export interface ScenarioItem {
+  /** The reader's situation, e.g. "I want a serious couples weekend". */
+  scenario: string;
+  /** The verdict, e.g. "Alba Thermal Springs". */
+  pick: string;
+  /** Optional link for the pick. */
+  href?: string;
+  /** Optional supporting sentence. May contain inline HTML links. */
+  note?: string;
+}
+
+export interface Props {
+  items: ScenarioItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="vs-scenarios">
+  {items.map((item) => (
+    <article class="vs-scenarios__card">
+      <p class="vs-scenarios__q">“{item.scenario}”</p>
+      <p class="vs-scenarios__pick">
+        {item.href ? <a href={item.href}>{item.pick}</a> : item.pick}
+      </p>
+      {item.note && <p class="vs-scenarios__note" set:html={item.note} />}
+    </article>
+  ))}
+</div>
+
+<style is:global>
+  .vs-scenarios {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.9rem;
+    margin: 1.75rem 0 2.25rem;
+  }
+  @media (max-width: 640px) {
+    .vs-scenarios { grid-template-columns: 1fr; }
+  }
+  .vs-scenarios__card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-card-sm);
+    background: var(--bg);
+    padding: 1.15rem 1.2rem 1.25rem;
+  }
+  .vs-scenarios__q {
+    font-family: var(--font-display);
+    font-size: 1.18rem;
+    font-weight: 500;
+    line-height: 1.3;
+    color: var(--dark);
+    margin: 0 0 0.55rem;
+  }
+  .vs-scenarios__pick {
+    font-family: var(--font-ui);
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 0.4rem;
+  }
+  .vs-scenarios__pick a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(11, 90, 72, 0.35);
+  }
+  .vs-scenarios__pick a:hover { color: var(--acc-h); border-color: var(--acc-h); }
+  .vs-scenarios__note {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    color: var(--soft);
+    margin: 0;
+  }
+  .vs-scenarios__note a {
+    color: var(--accent);
+    border-bottom: 1px solid rgba(11, 90, 72, 0.35);
+    text-decoration: none;
+  }
+</style>

@@ -11,7 +11,7 @@ heroImage:
   license: "tmp-wikimedia"
 format: "service"
 tags: ["picnic", "producers", "outdoor", "family", "couples", "budget", "autumn", "spring"]
-relatedVenues: ["red-hill-cheese", "main-ridge-dairy", "flinders-sourdough", "red-hill-bakery", "green-olive-red-hill", "mornington-peninsula-chocolates", "peninsula-fresh-organics", "balnarring-bakehouse", "somers-general", "johnny-ripe", "sorrento-bakery", "merricks-general-wine-store", "red-hill-market", "mornington-farmers-market"]
+relatedVenues: ["red-hill-cheese", "main-ridge-dairy", "flinders-sourdough", "red-hill-bakery", "green-olive-red-hill", "mornington-peninsula-chocolates", "peninsula-fresh-organics", "balnarring-bakehouse", "somers-general", "johnny-ripe", "merricks-general-wine-store", "red-hill-market", "mornington-farmers-market"]
 relatedExperiences: ["montalto-sculpture-trail", "pt-leo-sculpture-park", "arthurs-seat-lookout", "mount-martha-beach", "balnarring-beach", "point-nepean-national-park", "mornington-foreshore-walk", "red-hill-market"]
 readingTimeMinutes: 7
 featured: false
@@ -20,21 +20,21 @@ section: plans
 planShape: "day-trip"
 lastVerified: 2026-04-22
 clusterLinks:
-  - label: "The Peninsula Pantry — Shopping the Region's Larder"
+  - label: "The Peninsula Pantry - Shopping the Region's Larder"
     href: "/journal/the-peninsula-pantry/"
-  - label: "The Market Saturday — Two Weekends Built Around the Markets"
-    href: "/journal/the-market-saturday/"
-  - label: "The Spring Peninsula — What Changes in October"
+  - label: "The Market Saturday - Two Weekends Built Around the Markets"
+    href: "/explore/plans/the-market-saturday/"
+  - label: "The Spring Peninsula - What Changes in October"
     href: "/journal/the-spring-peninsula/"
 faq:
   - question: "Where are the best picnic spots on the Mornington Peninsula?"
-    answer: "Pt Leo Estate sculpture park for the most scenic option — coastal hillside views over Western Port, free entry, maintained grounds. Montalto's sculpture trail for the hinterland vineyard setting. Arthurs Seat summit for bay views and a family-friendly option with playground. Mount Martha Beach (northern end, near the bathing boxes) for a sheltered bay picnic. Point Nepean National Park near the fort for the most dramatic setting."
+    answer: "Pt Leo Estate sculpture park for the most scenic option - coastal hillside views over Western Port, free entry, maintained grounds. Montalto's sculpture trail for the hinterland vineyard setting. Arthurs Seat summit for bay views and a family-friendly option with playground. Mount Martha Beach (northern end, near the bathing boxes) for a sheltered bay picnic. Point Nepean National Park near the fort for the most dramatic setting."
   - question: "How do I assemble a Peninsula picnic from the farm gate?"
-    answer: "Three stops: bread from Flinders Sourdough (walnut sourdough loaf, holds well for hours); cheese from Red Hill Cheese or Main Ridge Dairy (one washed-rind, one cheddar or halloumi); and olives, tapenade, and cured meats from Green Olive at Red Hill. Add fruit from Peninsula Fresh Organics and one bottle of local pinot from Merricks General Wine Store. One hour, under $100 for two people."
+    answer: "Three stops: bread from Flinders Sourdough (walnut sourdough loaf, holds well for hours); cheese from Red Hill Cheese or Main Ridge Dairy (one washed-rind, one cheddar or halloumi); and olives, tapenade, and cured meats from Green Olive at Red Hill. Add fruit from Peninsula Fresh Organics and one bottle of local pinot from Merricks General Wine Store. One hour of shopping, and it costs about a single restaurant main and a glass of wine for two."
   - question: "What time of year is best for a Peninsula picnic?"
-    answer: "March to May and September to November. Summer is too hot and too crowded; the cheese sweats, the wine warms, and the good spots are taken. Autumn is the sweet spot — warm enough to sit on grass, cool enough to keep food fresh, quiet enough that the sculpture parks and beaches are not crowded. Arrive before noon, eat by 12:30, and pack up by 3pm before the autumn chill arrives."
+    answer: "March to May and September to November. Summer is too hot and too crowded; the cheese sweats, the wine warms, and the good spots are taken. Autumn is the sweet spot - warm enough to sit on grass, cool enough to keep food fresh, quiet enough that the sculpture parks and beaches are not crowded. Arrive before noon, eat by 12:30, and pack up by 3pm before the autumn chill arrives."
 aiSummary:
-  - "A guide to the best picnic spots and picnic-enabling food sources on the Mornington Peninsula — structured as a half-day or full-day itinerary."
+  - "A guide to the best picnic spots and picnic-enabling food sources on the Mornington Peninsula - structured as a half-day or full-day itinerary."
   - "The route: buy from one of the Peninsula's farm-gate or market sources, choose a location based on the season and the group, arrive before midday."
   - "Key locations: Red Hill Market on a first Saturday (best produce selection), Arthurs Seat lookout reserve, Point Leo Estate grounds (public access), Cape Schanck clifftop."
   - "Suits: families; couples wanting a low-key Peninsula day; anyone who wants an alternative to restaurant lunch on a good weather day."
@@ -127,18 +127,11 @@ The Peninsula picnic has a season and a clock, and both matter.
 
 ## What a Peninsula picnic actually costs
 
-For two people, assembled from the farm gate:
+For two people, assembled from the farm gate, the wine is the biggest single line. The cheese comes second. Bread, fruit, charcuterie, and chocolate are small change by comparison.
 
-- Bread: $8–12
-- Cheese (two wedges): $15–20
-- Charcuterie/olives/tapenade: $12–18
-- Fruit and extras: $5–10
-- Wine (one bottle, local): $25–40
-- Chocolate: $8–12
+**The total for two lands around the cost of a single main course and a glass of wine at a booked restaurant**, and the setting is better.
 
-**Total: $73–112 for two.** About the same as a single main course and a glass of wine at a booked restaurant, and the setting is better.
-
-For a family of four, swap the wine for sparkling water and juice, add a larger loaf and more fruit, and the total comes in under $70.
+For a family of four, swap the wine for sparkling water and juice, add a larger loaf and more fruit, and the total drops well below the couples' version.
 
 ## The principle
 

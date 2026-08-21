@@ -30,19 +30,19 @@ featured: false
 status: "published"
 lastVerified: 2026-04-22
 clusterLinks:
-  - label: "The Peninsula Pantry — Shopping the Region's Larder"
+  - label: "The Peninsula Pantry - Shopping the Region's Larder"
     href: "/journal/the-peninsula-pantry/"
-  - label: "The Long Lunch — The Peninsula's Best Format"
+  - label: "The Long Lunch - The Peninsula's Best Format"
     href: "/journal/the-long-lunch/"
-  - label: "A Flinders Weekend — The Quiet Side of the Peninsula"
+  - label: "A Flinders Weekend - The Quiet Side of the Peninsula"
     href: "/journal/a-flinders-weekend/"
 faq:
   - question: "Where do I buy fresh seafood on the Mornington Peninsula?"
-    answer: "Pier Street Seafood in Flinders for fresh local catch from the pier-side fleet — pier-side operations selling what came in that day, not tourist fish-and-chip shops."
+    answer: "Pier Street Seafood in Flinders for fresh local catch from the pier-side fleet - pier-side operations selling what came in that day, not tourist fish-and-chip shops."
   - question: "Where is the best fish and chips on the Mornington Peninsula?"
-    answer: "The Flinders pier precinct — fresh fish, hot chips, seats outside with the boats below you and Bass Strait behind. Legitimately fresh because the supply chain is measured in minutes rather than days."
+    answer: "The Flinders pier precinct - fresh fish, hot chips, seats outside with the boats below you and Bass Strait behind. Legitimately fresh because the supply chain is measured in minutes rather than days."
   - question: "What seafood is in season on the Mornington Peninsula?"
-    answer: "Summer: snapper, calamari, King George whiting, excellent oysters. Autumn: flathead, outstanding mussels, crayfish begins. Winter: mussel peak — cold water produces sweeter, meatier product; flathead reliable; restaurant menus lean into chowder and bouillabaisse. Spring: broad variety, garfish, calamari returns, oysters begin their summer run."
+    answer: "Summer: snapper, calamari, King George whiting, excellent oysters. Autumn: flathead, outstanding mussels, crayfish begins. Winter: mussel peak - cold water produces sweeter, meatier product; flathead reliable; restaurant menus lean into chowder and bouillabaisse. Spring: broad variety, garfish, calamari returns, oysters begin their summer run."
 ---
 
 The Mornington Peninsula's food identity is pinot and long lunches, and that identity is accurate but incomplete. The Peninsula is a literal peninsula  -  water on three sides, commercial fishing out of Hastings, Mornington, and Flinders, mussel farms in Western Port Bay, oyster beds in the channel. The seafood exists at a level that most visitors never encounter because they are driving past the docks on the way to a cellar door.

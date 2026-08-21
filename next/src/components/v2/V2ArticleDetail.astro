@@ -35,12 +35,12 @@ const format = data.format ?? 'guide';
         <div class="hero__meta">
           <span class="hero__meta-tag">Journal</span>
           <span class="hero__meta-divider"></span>
-          <span class="hero__meta-date">{titleize(format)} <span class="ornament">—</span> {pubDate}</span>
+          <span class="hero__meta-date">{titleize(format)} <span class="ornament"> - </span> {pubDate}</span>
         </div>
         <h1 class="hero__headline">{data.title}</h1>
         {data.excerpt && <p class="hero__dek">{data.excerpt}</p>}
         <div class="hero__byline">
-          <span>— By <strong>{byline}</strong></span>
+          <span> - By <strong>{byline}</strong></span>
           <span class="hero__byline-read">{readMin} min read</span>
         </div>
       </div>
@@ -63,7 +63,7 @@ const format = data.format ?? 'guide';
           <Content />
         </div>
         <div class="letter__sig">
-          <span class="letter__sig-mark">—</span>
+          <span class="letter__sig-mark"> - </span>
           <div>
             <div class="letter__sig-name">{byline}</div>
             <div class="letter__sig-role">Peninsula Insider <span class="ornament">·</span> {pubDate}</div>
@@ -94,7 +94,7 @@ const format = data.format ?? 'guide';
             <article class={i === 0 ? 'feat feat--lead' : 'feat feat--std'}>
               <img class="feat__image" src={aHero} alt={aData.title} loading="lazy">
               <div class="feat__body">
-                <div class="feat__eyebrow">Journal <span class="ornament">—</span> {titleize(aData.format ?? 'guide')}</div>
+                <div class="feat__eyebrow">Journal <span class="ornament"> - </span> {titleize(aData.format ?? 'guide')}</div>
                 <a href={`${base}journal/${routeSlug(a)}/`}><h3 class="feat__title">{aData.title}</h3></a>
                 {aData.excerpt && <p class="feat__excerpt">{aData.excerpt}</p>}
                 <div class="feat__byline">
@@ -131,7 +131,7 @@ const format = data.format ?? 'guide';
     padding-left: 1.25rem;
     margin: 2rem 0;
     font-family: var(--serif, 'Newsreader'), serif;
-    font-style: italic;
+    font-style: normal;
     font-size: 1.2rem;
   }
   .v2-article-body ul, .v2-article-body ol {

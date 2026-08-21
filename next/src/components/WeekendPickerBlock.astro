@@ -1,6 +1,6 @@
 ---
 /**
- * WeekendPickerBlock — prominent "Peninsula This Weekend" dispatch block
+ * WeekendPickerBlock - prominent "Peninsula This Weekend" dispatch block
  * rendered at the top of the What's On index and the homepage.
  *
  * Pulls the newest published article with format=weekend-picker and
@@ -23,15 +23,16 @@ export interface Props {
 const { dispatch, weekend } = Astro.props;
 const target = '/whats-on/this-weekend/';
 
-// Astro 6 glob-loader collections use `id` as the unique key — no separate
+// Astro 6 glob-loader collections use `id` as the unique key - no separate
 // `slug` property. Falls back to the file id (filename without extension).
 const dispatchSlug: string | undefined = dispatch?.slug ?? dispatch?.id;
 
 const globalOv = await loadOverrides('page', '_global');
 const articleOv = dispatchSlug ? await loadOverrides('article', dispatchSlug) : { text: {}, image: {} };
 
-const eyebrow      = globalOv.text['weekend.eyebrow']     ?? 'Peninsula This Weekend';
-const cadence      = globalOv.text['weekend.cadence']     ?? 'Published for the weekend ahead · one pick, one backup, one useful planning note';
+// Simplified 2026-06-10 (homepage cognitive-load pass): the eyebrow +
+// cadence label column repeated what the kicker and the dispatch title
+// already say. One label, one title, one dek, two CTAs.
 const ctaPrimary   = globalOv.text['weekend.cta.primary'] ?? "Read this week's dispatch →";
 const ctaGhostRaw  = globalOv.text['weekend.cta.ghost']   ?? 'View What’s On →';
 const ctaGhost     = /all events/i.test(ctaGhostRaw) ? 'View What’s On →' : ctaGhostRaw;
@@ -43,22 +44,6 @@ const dispatchDek   = articleOv.text['dek']   ?? dispatch?.data?.dek   ?? '';
 <section class="weekend-picker" aria-label="Peninsula This Weekend">
   <div class="container">
     <div class="weekend-picker__inner">
-      <div class="weekend-picker__label-block">
-        <span
-          class="label label--accent"
-          {...editableText({
-            entityType: 'page', entitySlug: '_global',
-            fieldPath: 'weekend.eyebrow', label: 'Weekend block eyebrow',
-          })}
-        >{eyebrow}</span>
-        <p
-          class="weekend-picker__cadence"
-          {...editableText({
-            entityType: 'page', entitySlug: '_global',
-            fieldPath: 'weekend.cadence', label: 'Weekend block cadence note',
-          })}
-        >{cadence}</p>
-      </div>
       <div class="weekend-picker__content">
         <p class="weekend-picker__kicker">
           {weekend ?? 'This weekend'}
@@ -79,10 +64,13 @@ const dispatchDek   = articleOv.text['dek']   ?? dispatch?.data?.dek   ?? '';
             fieldPath: 'dek', label: 'Dispatch dek',
           }) : {})}
         >{dispatchDek}</p>
+      </div>
+
+      <div class="weekend-picker__actions">
         <div class="weekend-picker__ctas">
           <a
             href={target}
-            class="weekend-picker__cta"
+            class="weekend-picker__cta pi-btn pi-btn--ghost"
             {...editableText({
               entityType: 'page', entitySlug: '_global',
               fieldPath: 'weekend.cta.primary', label: 'Primary CTA label',
@@ -90,14 +78,19 @@ const dispatchDek   = articleOv.text['dek']   ?? dispatch?.data?.dek   ?? '';
           >{ctaPrimary}</a>
           <a
             href="/whats-on/"
-            class="weekend-picker__cta weekend-picker__cta--ghost"
+            class="weekend-picker__cta pi-btn pi-btn--ghost"
             {...editableText({
               entityType: 'page', entitySlug: '_global',
               fieldPath: 'weekend.cta.ghost', label: 'Ghost CTA label',
             })}
           >{ctaGhost}</a>
         </div>
+        <p class="weekend-picker__melb">
+          Coming from Melbourne?
+          <a href="/explore/plans/?intent=melbourne-weekend">Here&rsquo;s where to start →</a>
+        </p>
       </div>
+
     </div>
   </div>
 </section>

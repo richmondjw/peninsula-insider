@@ -5,7 +5,7 @@ import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import SectionHero from '../../../components/SectionHero.astro';
 import NewsletterBlock from '../../../components/NewsletterBlock.astro';
 import BfAnalytics from '../../../components/BfAnalytics.astro';
-import { buildBfHubSchema, buildBreadcrumbSchema } from '../../../lib/schema';
+import { buildBfHubSchema } from '../../../lib/schema';
 import { REGION_LABEL, formatVerifiedStamp, BF_EXTERNAL } from '../../../lib/bf';
 
 const lastVerifiedISO = '2026-04-30';
@@ -42,11 +42,6 @@ const hubSchema = buildBfHubSchema({
   })),
 });
 
-const breadcrumbSchema = buildBreadcrumbSchema([
-  { name: 'Home', url: 'https://peninsulainsider.com.au/' },
-  { name: 'Boating', url: 'https://peninsulainsider.com.au/boating/' },
-  { name: 'Boat ramps', url: 'https://peninsulainsider.com.au/boating/ramps/' },
-]);
 export const prerender = true;
 ---
 
@@ -58,7 +53,6 @@ export const prerender = true;
   modifiedTime={lastVerifiedISO}
 >
   <script type="application/ld+json" set:html={JSON.stringify(hubSchema)} />
-  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   <BfAnalytics />
 
   <Breadcrumbs items={breadcrumbItems} />
@@ -97,19 +91,19 @@ export const prerender = true;
           </div>
           <div class="venues__grid venues__grid--links">
             {items.map((r) => (
-              <article class="venue-card">
-                <h3 class="venue-card__name">
+              <article class="pi-card"><div class="pi-card__body">
+                <h3 class="pi-card__title">
                   <a href={`/boating/ramps/${r.data.slug}/`}>{r.data.name}</a>
                 </h3>
-                <p class="venue-card__meta">
+                <p class="pi-card__meta">
                   {r.data.laneCount ? `${r.data.laneCount} lane${r.data.laneCount === 1 ? '' : 's'}` : 'Lanes [VERIFY]'}
                   {' · '}
                   {r.data.tideDependence === 'all-tide' ? 'All-tide' : r.data.tideDependence === 'high-tide-only' ? 'High-tide only' : r.data.tideDependence === 'mid-to-high' ? 'Mid–high tide' : 'Tidal extreme'}
                   {r.data.fee ? ` · ${r.data.fee}` : ''}
                 </p>
-                <p class="venue-card__signature">{r.data.intro}</p>
-                <a href={`/boating/ramps/${r.data.slug}/`} class="venue-card__cta">Ramp guide &rarr;</a>
-              </article>
+                <p class="pi-card__dek">{r.data.intro}</p>
+                <div class="pi-card__actions"><a href={`/boating/ramps/${r.data.slug}/`} class="pi-btn pi-btn--solid">Ramp guide &rarr;</a></div>
+              </div></article>
             ))}
           </div>
         </div>

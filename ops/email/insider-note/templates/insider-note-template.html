@@ -1,0 +1,355 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="en-AU">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="x-apple-disable-message-reformatting" />
+<meta name="color-scheme" content="light" />
+<meta name="supported-color-schemes" content="light" />
+<title>The Insider Note No. {{ISSUE_ROMAN}}</title>
+<!--[if mso]>
+<noscript><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml></noscript>
+<![endif]-->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+<style type="text/css">
+  /* ── The Insider Note ─ Harbour palette, Sora display, Figtree body.
+       Mirrors next/src/styles/v6-tokens.css + global.css :root.
+       v3 spec build — TEMPLATE. Fill every token; do not alter structure or values.
+       Spec: docs/insider-note-design-spec.md ── */
+  body,table,td,a{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}
+  table,td{mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse}
+  img{-ms-interpolation-mode:bicubic;border:0;outline:none;text-decoration:none;display:block}
+  body{margin:0;padding:0;width:100%!important;background:#E7E2DA}
+  a{color:#10527E}
+  .display{font-family:'Sora','Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:-0.02em}
+  .body-font{font-family:'Figtree','Helvetica Neue',Helvetica,Arial,sans-serif}
+  .eyebrow{font-family:'Figtree','Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:0.12em;text-transform:uppercase}
+  @media only screen and (max-width:620px){
+    .wrap{width:100%!important}
+    .inset{padding-left:10px!important;padding-right:10px!important}
+    .pad{padding-left:20px!important;padding-right:20px!important}
+    .pad-sm{padding-left:18px!important;padding-right:18px!important}
+    .stack{display:block!important;width:100%!important;max-width:100%!important}
+    .stack-img{width:100%!important;height:auto!important}
+    .gap{height:26px!important;line-height:26px!important;font-size:26px!important}
+    .vdiv{display:none!important;width:0!important;max-width:0!important;height:0!important;overflow:hidden!important}
+    .name{font-size:36px!important;line-height:0.96!important}
+    .h-lead{font-size:32px!important;line-height:1.04!important}
+    .h-sec{font-size:26px!important;line-height:1.1!important}
+    .h-card{font-size:22px!important}
+    .h-stand{font-size:20px!important;line-height:1.34!important}
+    .h-rail{font-size:16px!important}
+    .h-poll{font-size:24px!important}
+    .band{height:180px!important}
+    .num{font-size:38px!important}
+    .spine-num{font-size:15px!important}
+    .spine-lab{font-size:9px!important;letter-spacing:0.08em!important}
+    .rail-day{width:92px!important;font-size:9px!important}
+  }
+</style>
+<!--[if mso]>
+<style type="text/css">
+  /* Outlook's Word engine cannot load webfonts; keep it out of Times New Roman. */
+  .display,.body-font,.eyebrow,h1,h2,p,div,td,a{font-family:Arial,Helvetica,sans-serif!important}
+</style>
+<![endif]-->
+</head>
+<body style="margin:0;padding:0;background:#E7E2DA;">
+
+<!--
+  SEND FIELDS — set these in Beehiiv on import.
+  Subject:  {{SUBJECT}}                (≤42 chars, one concrete proper noun + the day)
+  Preview:  {{PREHEADER}}              (85–110 chars, must NOT repeat the subject)
+  Rationale and alternates: ops/email/insider-note-{{SEND_DATE}}-qa.md § Subject line
+-->
+
+<!-- preheader -->
+<div style="display:none;max-height:0;overflow:hidden;opacity:0;mso-hide:all;font-size:1px;line-height:1px;color:#E7E2DA;">
+  {{PREHEADER}}&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+</div>
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#E7E2DA;">
+<tr><td align="center" style="padding:24px 10px 36px 10px;">
+
+<table role="presentation" class="wrap" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px;max-width:600px;background:#0B2E4A;">
+
+  <!-- ══ GOLD EDGE ═════════════════════════════════════════════ -->
+  <tr><td height="6" style="height:6px;line-height:6px;font-size:6px;background:#F5C177;">&nbsp;</td></tr>
+
+  <!-- ══ NAMEPLATE ═════════════════════════════════════════════ -->
+  <tr><td class="pad" style="padding:32px 30px 0 30px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+      <td valign="top" class="display name" style="font-family:'Sora','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:46px;line-height:0.94;mso-line-height-rule:exactly;font-weight:800;letter-spacing:-0.045em;color:#FFFFFF;">Peninsula<br /><span style="color:#7FB2D4;font-weight:300;letter-spacing:-0.035em;">Insider</span></td>
+      <td align="right" valign="top" width="92" style="width:92px;">
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="right"><tr>
+          <td align="center" style="border:1px solid #6B5A3E;padding:10px 12px 11px 12px;">
+            <div class="eyebrow" style="font-family:'Figtree','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:9px;line-height:1;mso-line-height-rule:exactly;letter-spacing:0.18em;text-transform:uppercase;font-weight:600;color:#B9925A;padding-bottom:6px;">Issue</div>
+            <div class="display" style="font-family:'Sora','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:20px;line-height:1;mso-line-height-rule:exactly;font-weight:700;letter-spacing:0.02em;color:#F5C177;">{{ISSUE_ROMAN}}</div>
+          </td>
+        </tr></table>
+      </td>
+    </tr></table>
+  </td></tr>
+
+  <tr><td class="pad" style="padding:26px 30px 20px 30px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+      <tr><td height="1" style="height:1px;line-height:1px;font-size:1px;background:#2E4A63;">&nbsp;</td></tr>
+      <tr><td style="padding-top:16px;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+          <td class="eyebrow" style="font-family:'Figtree','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;line-height:1.2;mso-line-height-rule:exactly;letter-spacing:0.18em;text-transform:uppercase;font-weight:700;color:#FFFFFF;white-space:nowrap;">The Insider Note</td>
+          <td align="right" class="eyebrow" style="font-family:'Figtree','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;line-height:1.2;mso-line-height-rule:exactly;letter-spacing:0.12em;text-transform:uppercase;color:#9FC3DC;white-space:nowrap;">{{DATE_RANGE}}</td>
+        </tr></table>
+      </td></tr>
+    </table>
+  </td></tr>
+
+  <!-- ══ WEEK SPINE ════════════════════════════════════════════ -->
+  <tr><td class="inset" style="padding:0 14px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#07223A;"><tr>
+      <td align="center" width="20%" valign="middle" style="width:20%;padding:15px 0 14px 0;">
+        <div class="eyebrow spine-lab" style="font-family:'Figtree','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:10px;line-height:1;mso-line-height-rule:exactly;letter-spacing:0.14em;text-transform:uppercase;font-weight:600;color:#7A9CB6;padding-bottom:8px;">{{D1_DOW}}</div>
+        <div class="display spine-num" style="font-family:'Sora','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:18px;line-height:1;mso-line-height-rule:exactly;font-weight:600;color:#D7E2EA;">{{D1_NUM}}</div>
+      </td>
+      <td align="center" width="20%" valign="middle" style="width:20%;padding:15px 0 14px 0;">
+        <div class="eyebrow spine-lab" style="font-family:'Figtree','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:10px;line-height:1;mso-line-height-rule:exactly;letter-spacing:0.14em;text-transform:uppercase;font-weight:600;color:#7A9CB6;padding-bottom:8px;">{{D2_DOW}}</div>
+        <div class="display spine-num" style="font-family:'Sora','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:18px;line-height:1;mso-line-height-rule:exactly;font-weight:600;color:#D7E2EA;">{{D2_NUM}}</div>
+      </td>
+      <td align="center" width="20%" valign="middle" style="width:20%;padding:15px 0 14px 0;">
+        <div class="eyebrow spine-lab" style="font-family:'Figtree','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:10px;line-height:1;mso-line-height-rule:exactly;letter-spacing:0.14em;text-transform:uppercase;font-weight:600;color:#7A9CB6;padding-bottom:8px;">{{D3_DOW}}</div>
+        <div class="display spine-num" style="font-family:'Sora','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:18px;line-height:1;mso-line-height-rule:exactly;font-weight:600;color:#D7E2EA;">{{D3_NUM}}</div>
+      </td>
+      <td align="center" width="20%" valign="middle" style="width:20%;padding:15px 0 14px 0;background:#0F3A5C;">
+        <div class="eyebrow spine-lab" style="font-family:'Figtree','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:10px;line-height:1;mso-line-height-rule:exactly;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;color:#F5C177;padding-bottom:8px;">{{D4_DOW}}</div>
+        <div class="display spine-num" style="font-family:'Sora','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:18px;line-height:1;mso-line-height-rule:exactly;font-weight:800;color:#F5C177;">{{D4_NUM}}</div>
+      </td>
+      <td align="center" width="20%" valign="middle" style="width:20%;padding:15px 0 14px 0;">
+        <div class="eyebrow spine-lab" style="font-family:'Figtree','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:10px;line-height:1;mso-line-height-rule:exactly;letter-spacing:0.14em;text-transform:uppercase;font-weight:600;color:#7A9CB6;padding-bottom:8px;">{{D5_DOW}}</div>
+        <div class="display spine-num" style="font-family:'Sora','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:18px;line-height:1;mso-line-height-rule:exactly;font-weight:600;color:#D7E2EA;">{{D5_NUM}}</div>
+      </td>
+    </tr></table>
+  </td></tr>
+
+  <!-- ══ COVER BAND ════════════════════════════════════════════ -->
+  <tr><td class="inset" style="padding:0 14px;font-size:0;line-height:0;">
+    <img src="https://peninsulainsider.com.au/images/email/{{BAND_IMG}}" width="572" height="200" alt="{{BAND_ALT}}" class="band stack-img" style="display:block;width:100%;max-width:572px;height:auto;border:0;" />
+  </td></tr>
+
+  <!-- ══ STANDFIRST ════════════════════════════════════════════ -->
+  <tr><td class="inset" style="padding:0 14px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#F2EFEA;">
+      <tr><td class="pad-sm" style="padding:32px 30px 34px 30px;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+          <tr><td width="52" style="width:52px;"><table role="presentation" width="52" cellpadding="0" cellspacing="0" border="0"><tr><td height="3" style="width:52px;height:3px;line-height:3px;font-size:3px;background:#8A5620;">&nbsp;</td></tr></table></td></tr>
+          <tr><td class="eyebrow" style="font-family:'Figtree','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;line-height:1.2;mso-line-height-rule:exactly;letter-spacing:0.18em;text-transform:uppercase;font-weight:700;color:#8A5620;padding:14px 0 14px 0;">The week ahead</td></tr>
+          <tr><td class="display h-stand" style="font-family:'Sora','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:23px;line-height:1.36;mso-line-height-rule:exactly;font-weight:500;color:#14202A;letter-spacing:-0.015em;">{{STANDFIRST}}</td></tr>
+        </table>
+      </td></tr>
+    </table>
+  </td></tr>
+
+  <!-- ══ THE ONE (LEAD) ════════════════════════════════════════ -->
+  <tr><td class="inset" style="padding:26px 14px 0 14px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+      <td class="eyebrow" valign="middle" style="background:#F5C177;padding:8px 14px 7px 14px;font-family:'Figtree','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:10px;line-height:1.1;mso-line-height-rule:exactly;letter-spacing:0.2em;text-transform:uppercase;font-weight:700;color:#14202A;white-space:nowrap;">The one</td>
+      <td valign="middle" width="100%" style="padding-left:14px;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td height="1" style="height:1px;line-height:1px;font-size:1px;background:#3E5A72;">&nbsp;</td></tr></table>
+      </td>
+    </tr></table>
+  </td></tr>
+
+  <tr><td class="inset" style="padding:20px 14px 0 14px;font-size:0;line-height:0;">
+    <img src="https://peninsulainsider.com.au/images/email/{{LEAD_IMG}}" width="572" height="362" alt="{{LEAD_ALT}}" class="stack-img" style="display:block;width:100%;max-width:572px;height:auto;border:0;" />
+  </td></tr>
+
+  <tr><td class="pad" style="padding:26px 30px 34px 30px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+      <tr><td class="eyebrow" style="font-family:'Figtree','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:10px;line-height:1.2;mso-line-height-rule:exactly;letter-spacing:0.16em;text-transform:uppercase;font-weight:700;color:#F5C177;padding-bottom:14px;">{{LEAD_DAY}} &nbsp;&middot;&nbsp; {{LEAD_PLACE}}</td></tr>
+      <tr><td class="display h-lead" style="font-family:'Sora','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:44px;line-height:1.0;mso-line-height-rule:exactly;font-weight:800;letter-spacing:-0.04em;color:#FFFFFF;padding-bottom:16px;">{{LEAD_HEADLINE}}</td></tr>
+      <tr><td>
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+          <td width="3" style="width:3px;background:#F5C177;font-size:0;line-height:0;">&nbsp;</td>
+          <td style="padding-left:14px;">
+            <div class="display" style="font-family:'Sora','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:19px;line-height:1.3;mso-line-height-rule:exactly;font-weight:600;letter-spacing:-0.02em;color:#F5C177;">{{LEAD_EVENT_NAME}}</div>
+          </td>
+        </tr></table>
+      </td></tr>
+      <tr><td class="body-font" style="font-family:'Figtree','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:16.5px;line-height:1.64;mso-line-height-rule:exactly;color:#D7E2EA;padding:18px 0 28px 0;">{{LEAD_BODY}}</td></tr>
+      <tr><td>
+        <!--[if mso]>
+        <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{LEAD_URL}}" style="height:50px;v-text-anchor:middle;width:262px;" arcsize="0%" strokecolor="#F5C177" fillcolor="#F5C177">
+          <w:anchorlock/><center style="color:#14202A;font-family:Arial,sans-serif;font-size:13px;font-weight:bold;letter-spacing:1px;">{{LEAD_CTA_CAPS}}</center>
+        </v:roundrect>
+        <![endif]-->
+        <!--[if !mso]><!-- -->
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>
+          <td align="center" style="background:#F5C177;border-bottom:3px solid #C08F45;white-space:nowrap;">
+            <a href="{{LEAD_URL}}" class="eyebrow" style="display:block;white-space:nowrap;padding:17px 30px;font-family:'Figtree','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:12px;line-height:1;mso-line-height-rule:exactly;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#14202A;text-decoration:none;">{{LEAD_CTA}} &rarr;</a>
+          </td>
+        </tr></table>
+        <!--<![endif]-->
+      </td></tr>
+    </table>
+  </td></tr>
+
+  <!-- ══ BEFORE SUNDAY ═════════════════════════════════════════ -->
+  <tr><td class="inset" style="padding:0 14px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#F2EFEA;">
+
+      <tr><td class="pad-sm" style="padding:30px 30px 0 30px;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+          <td class="eyebrow" valign="middle" style="font-family:'Figtree','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;line-height:1.2;mso-line-height-rule:exactly;letter-spacing:0.18em;text-transform:uppercase;font-weight:700;color:#8A5620;white-space:nowrap;">Before Sunday</td>
+          <td width="100%" valign="middle" style="padding-left:14px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td height="1" style="height:1px;line-height:1px;font-size:1px;background:#D3D5CF;">&nbsp;</td></tr></table></td>
+        </tr></table>
+      </td></tr>
+
+      <tr><td class="pad-sm" style="padding:24px 30px 30px 30px;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+
+          <!-- Thursday -->
+          <td class="stack" width="240" valign="top" style="width:240px;">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr><td style="font-size:0;line-height:0;"><img src="https://peninsulainsider.com.au/images/email/{{C1_IMG}}" width="240" height="176" alt="{{C1_ALT}}" class="stack-img" style="display:block;width:100%;max-width:240px;height:auto;border:0;" /></td></tr>
+              <tr><td style="padding:16px 0 6px 0;">
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>
+                  <td class="display num" valign="middle" style="font-family:'Sora','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:40px;line-height:0.9;mso-line-height-rule:exactly;font-weight:800;letter-spacing:-0.05em;color:#C9A26B;padding-right:12px;">{{C1_NUM}}</td>
+                  <td class="eyebrow" valign="middle" style="font-family:'Figtree','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:10px;line-height:1.5;mso-line-height-rule:exactly;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;color:#1D6491;">{{C1_DAY}}<br />{{C1_PLACE}}</td>
+                </tr></table>
+              </td></tr>
+              <tr><td class="display h-card" style="font-family:'Sora','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:23px;line-height:1.12;mso-line-height-rule:exactly;font-weight:700;letter-spacing:-0.03em;color:#14202A;padding:8px 0 10px 0;">{{C1_HEADLINE}}</td></tr>
+              <tr><td class="body-font" style="font-family:'Figtree','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:14.5px;line-height:1.58;mso-line-height-rule:exactly;color:#4B5862;padding-bottom:14px;">{{C1_BODY}}</td></tr>
+              <tr><td><a href="{{C1_URL}}" class="body-font" style="font-family:'Figtree','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:13.5px;font-weight:700;color:#10527E;text-decoration:none;border-bottom:2px solid #7FB2D4;padding-bottom:2px;">{{C1_LINK_LABEL}} &rarr;</a></td></tr>
+            </table>
+          </td>
+
+          <td class="stack gap" width="32" style="width:32px;font-size:0;line-height:0;">&nbsp;</td>
+
+          <!-- Friday -->
+          <td class="stack" width="240" valign="top" style="width:240px;">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr><td style="font-size:0;line-height:0;"><img src="https://peninsulainsider.com.au/images/email/{{C2_IMG}}" width="240" height="176" alt="{{C2_ALT}}" class="stack-img" style="display:block;width:100%;max-width:240px;height:auto;border:0;" /></td></tr>
+              <tr><td style="padding:16px 0 6px 0;">
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>
+                  <td class="display num" valign="middle" style="font-family:'Sora','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:40px;line-height:0.9;mso-line-height-rule:exactly;font-weight:800;letter-spacing:-0.05em;color:#C9A26B;padding-right:12px;">{{C2_NUM}}</td>
+                  <td class="eyebrow" valign="middle" style="font-family:'Figtree','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:10px;line-height:1.5;mso-line-height-rule:exactly;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;color:#1D6491;">{{C2_DAY}}<br />{{C2_PLACE}}</td>
+                </tr></table>
+              </td></tr>
+              <tr><td class="display h-card" style="font-family:'Sora','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:23px;line-height:1.12;mso-line-height-rule:exactly;font-weight:700;letter-spacing:-0.03em;color:#14202A;padding:8px 0 10px 0;">{{C2_HEADLINE}}</td></tr>
+              <tr><td class="body-font" style="font-family:'Figtree','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:14.5px;line-height:1.58;mso-line-height-rule:exactly;color:#4B5862;padding-bottom:14px;">{{C2_BODY}}</td></tr>
+              <tr><td><a href="{{C2_URL}}" class="body-font" style="font-family:'Figtree','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:13.5px;font-weight:700;color:#10527E;text-decoration:none;border-bottom:2px solid #7FB2D4;padding-bottom:2px;">{{C2_LINK_LABEL}} &rarr;</a></td></tr>
+            </table>
+          </td>
+
+        </tr></table>
+      </td></tr>
+
+    </table>
+  </td></tr>
+
+  <!-- ══ EDITORIAL (rotating slot) ═════════════════════════════ -->
+  <tr><td class="inset" style="padding:26px 14px 0 14px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#FFFFFF;">
+      <tr><td height="4" style="height:4px;line-height:4px;font-size:4px;background:#8A5620;">&nbsp;</td></tr>
+      <tr><td class="pad-sm" style="padding:30px 30px 22px 30px;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+          <tr><td class="eyebrow" style="font-family:'Figtree','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;line-height:1.2;mso-line-height-rule:exactly;letter-spacing:0.18em;text-transform:uppercase;font-weight:700;color:#8A5620;padding-bottom:14px;">The editorial &nbsp;&middot;&nbsp; {{ED_WHEN}}</td></tr>
+          <tr><td class="display h-sec" style="font-family:'Sora','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:32px;line-height:1.06;mso-line-height-rule:exactly;font-weight:800;letter-spacing:-0.04em;color:#14202A;">{{ED_HEADLINE}}</td></tr>
+        </table>
+      </td></tr>
+      <tr><td style="font-size:0;line-height:0;">
+        <img src="https://peninsulainsider.com.au/images/email/{{ED_IMG}}" width="572" height="318" alt="{{ED_ALT}}" class="stack-img" style="display:block;width:100%;max-width:572px;height:auto;border:0;" />
+      </td></tr>
+      <tr><td class="pad-sm" style="padding:24px 30px 32px 30px;">
+        <p class="body-font" style="margin:0 0 18px 0;font-family:'Figtree','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:16.5px;line-height:1.65;mso-line-height-rule:exactly;color:#3A4750;">{{ED_BODY}}</p>
+        <a href="{{ED_URL}}" class="body-font" style="font-family:'Figtree','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:14px;font-weight:700;color:#10527E;text-decoration:none;border-bottom:2px solid #7FB2D4;padding-bottom:2px;">{{ED_LINK_LABEL}} &rarr;</a>
+      </td></tr>
+    </table>
+  </td></tr>
+
+  <!-- ══ CALENDAR RAIL ═════════════════════════════════════════ -->
+  <tr><td class="pad" style="padding:36px 30px 0 30px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+      <td class="eyebrow" valign="middle" style="font-family:'Figtree','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;line-height:1.2;mso-line-height-rule:exactly;letter-spacing:0.18em;text-transform:uppercase;font-weight:700;color:#F5C177;white-space:nowrap;">Also on the calendar</td>
+      <td width="100%" valign="middle" style="padding-left:14px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td height="1" style="height:1px;line-height:1px;font-size:1px;background:#3E5A72;">&nbsp;</td></tr></table></td>
+    </tr></table>
+  </td></tr>
+
+  <tr><td class="pad" style="padding:6px 30px 0 30px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+
+      <tr><td style="padding:18px 0 16px 0;border-bottom:1px solid #24455F;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+          <td class="rail-day eyebrow" width="120" valign="top" style="width:120px;font-family:'Figtree','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:10px;line-height:1.5;mso-line-height-rule:exactly;letter-spacing:0.13em;text-transform:uppercase;font-weight:700;color:#7FB2D4;padding-right:14px;">{{R1_WHEN}}<br />{{R1_PLACE}}</td>
+          <td class="display h-rail" valign="top" style="font-family:'Sora','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:17px;line-height:1.28;mso-line-height-rule:exactly;font-weight:600;letter-spacing:-0.025em;color:#FFFFFF;">{{R1_TITLE}}</td>
+        </tr></table>
+      </td></tr>
+
+      <tr><td style="padding:16px 0;border-bottom:1px solid #24455F;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+          <td class="rail-day eyebrow" width="120" valign="top" style="width:120px;font-family:'Figtree','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:10px;line-height:1.5;mso-line-height-rule:exactly;letter-spacing:0.13em;text-transform:uppercase;font-weight:700;color:#7FB2D4;padding-right:14px;">{{R2_WHEN}}<br />{{R2_PLACE}}</td>
+          <td class="display h-rail" valign="top" style="font-family:'Sora','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:17px;line-height:1.28;mso-line-height-rule:exactly;font-weight:600;letter-spacing:-0.025em;color:#FFFFFF;">{{R2_TITLE}}</td>
+        </tr></table>
+      </td></tr>
+
+      <tr><td style="padding:16px 0 18px 0;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+          <td class="rail-day eyebrow" width="120" valign="top" style="width:120px;font-family:'Figtree','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:10px;line-height:1.5;mso-line-height-rule:exactly;letter-spacing:0.13em;text-transform:uppercase;font-weight:700;color:#7FB2D4;padding-right:14px;">{{R3_WHEN}}<br />{{R3_PLACE}}</td>
+          <td class="display h-rail" valign="top" style="font-family:'Sora','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:17px;line-height:1.28;mso-line-height-rule:exactly;font-weight:600;letter-spacing:-0.025em;color:#FFFFFF;">{{R3_TITLE}}</td>
+        </tr></table>
+      </td></tr>
+
+      <tr><td style="padding:16px 0 0 0;">
+        <a href="https://peninsulainsider.com.au/whats-on/?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=insider-note-{{ISSUE_NUM}}" class="body-font" style="font-family:'Figtree','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:14px;font-weight:700;color:#F5C177;text-decoration:none;border-bottom:2px solid #6B5A3E;padding-bottom:2px;">The full What&rsquo;s On calendar &rarr;</a>
+      </td></tr>
+
+    </table>
+  </td></tr>
+
+  <!-- ══ ONE TAP ═══════════════════════════════════════════════ -->
+  <tr><td class="inset" style="padding:34px 14px 0 14px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#F5C177;">
+      <tr><td align="center" class="pad-sm" style="padding:30px 30px 32px 30px;">
+        <div class="eyebrow" style="font-family:'Figtree','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:10px;line-height:1.2;mso-line-height-rule:exactly;letter-spacing:0.22em;text-transform:uppercase;font-weight:700;color:#7A5320;padding-bottom:12px;">One tap</div>
+        <div class="display h-poll" style="font-family:'Sora','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:27px;line-height:1.14;mso-line-height-rule:exactly;font-weight:800;letter-spacing:-0.035em;color:#14202A;padding-bottom:12px;">{{POLL_QUESTION}}</div>
+        <div class="body-font" style="font-family:'Figtree','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:13.5px;line-height:1.55;mso-line-height-rule:exactly;color:#6B5222;">[ Beehiiv poll block goes here: {{POLL_OPTIONS}} ]</div>
+      </td></tr>
+    </table>
+  </td></tr>
+
+  <!-- ══ SIGN OFF ══════════════════════════════════════════════ -->
+  <tr><td class="pad" style="padding:34px 30px 36px 30px;">
+    <p class="body-font" style="margin:0 0 20px 0;font-family:'Figtree','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:16px;line-height:1.65;mso-line-height-rule:exactly;color:#D7E2EA;">Been somewhere good this week that we should know about? Hit reply. We read everything.</p>
+    <table role="presentation" width="240" cellpadding="0" cellspacing="0" border="0" style="width:240px;">
+      <tr><td width="36" style="width:36px;"><table role="presentation" width="36" cellpadding="0" cellspacing="0" border="0"><tr><td height="2" style="width:36px;height:2px;line-height:2px;font-size:2px;background:#F5C177;">&nbsp;</td></tr></table></td></tr>
+      <tr><td class="display" style="font-family:'Sora','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:21px;line-height:1.2;mso-line-height-rule:exactly;font-weight:700;letter-spacing:-0.03em;color:#FFFFFF;padding-top:14px;white-space:nowrap;">The Insider</td></tr>
+    </table>
+  </td></tr>
+
+  <!-- ══ FOOTER ════════════════════════════════════════════════ -->
+  <tr><td class="pad" style="background:#07223A;padding:30px 30px 32px 30px;" align="center">
+    <div class="display" style="font-family:'Sora','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:19px;line-height:1.1;mso-line-height-rule:exactly;font-weight:800;letter-spacing:-0.035em;color:#FFFFFF;padding-bottom:18px;">Peninsula&nbsp;<span style="color:#7FB2D4;font-weight:300;">Insider</span></div>
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center"><tr>
+      <td class="eyebrow" style="font-family:'Figtree','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;line-height:1.2;mso-line-height-rule:exactly;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;padding:0 10px;white-space:nowrap;"><a href="https://peninsulainsider.com.au/whats-on/this-weekend/?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=insider-note-{{ISSUE_NUM}}" style="color:#F5C177;text-decoration:none;">This weekend</a></td>
+      <td style="color:#2E4A63;">&middot;</td>
+      <td class="eyebrow" style="font-family:'Figtree','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;line-height:1.2;mso-line-height-rule:exactly;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;padding:0 10px;white-space:nowrap;"><a href="https://peninsulainsider.com.au/whats-on/?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=insider-note-{{ISSUE_NUM}}" style="color:#F5C177;text-decoration:none;">What&rsquo;s on</a></td>
+      <td style="color:#2E4A63;">&middot;</td>
+      <td class="eyebrow" style="font-family:'Figtree','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;line-height:1.2;mso-line-height-rule:exactly;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;padding:0 10px;white-space:nowrap;"><a href="https://peninsulainsider.com.au/journal/?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=insider-note-{{ISSUE_NUM}}" style="color:#F5C177;text-decoration:none;">Journal</a></td>
+    </tr></table>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="font-size:0;line-height:0;padding-top:22px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td height="1" style="height:1px;line-height:1px;font-size:1px;background:#24455F;">&nbsp;</td></tr></table></td></tr></table>
+    <div class="body-font" style="font-family:'Figtree','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:12px;line-height:1.7;mso-line-height-rule:exactly;color:#9FC3DC;padding-top:18px;">
+      Peninsula Insider &middot; The Insider Note No. {{ISSUE_ROMAN}} &middot; {{DATE_RANGE_LONG}}<br />
+      The definitive local guide to the Mornington Peninsula.
+    </div>
+    <div class="body-font" style="font-family:'Figtree','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;line-height:1.6;mso-line-height-rule:exactly;color:#6E93AE;padding-top:10px;">
+      <a href="{{unsubscribe_url}}" style="color:#6E93AE;text-decoration:underline;">Unsubscribe</a> &nbsp;&middot;&nbsp; <a href="{{web_url}}" style="color:#6E93AE;text-decoration:underline;">View in browser</a>
+    </div>
+  </td></tr>
+
+</table>
+
+</td></tr>
+</table>
+</body>
+</html>

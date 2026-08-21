@@ -1,6 +1,6 @@
 ---
 /**
- * EventChipBar — the editorial entry points for the events registry.
+ * EventChipBar - the editorial entry points for the events registry.
  *
  * Five chips, each a curated answer to a question a real visitor asks.
  * Faceted filtering is the fallback (one click further down). Chips
@@ -51,7 +51,7 @@ const { active = 'hub', items = chips } = Astro.props;
   }
 
   .event-chips__chip {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.85rem;
     font-weight: 500;
     color: var(--text);

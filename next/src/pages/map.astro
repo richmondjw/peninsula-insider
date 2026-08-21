@@ -1,30 +1,26 @@
 ---
 /**
- * /map/ — The Insider Map (Phase 2 WS2D).
+ * /map/ - The Insider Map, v5 (page-redesigns-hubs.md section 9).
  *
- * Map-led discovery across venues, experiences, and place hubs. Static-first
- * approach: every coordinate-bearing entry is serialised at build time into
- * a JSON payload and shipped with the page; Leaflet plus the markercluster
- * plugin are pulled from a CDN at runtime.
+ * The destination instance of the ONE MapView component: full-height map,
+ * shared facet chip bar (FACET_OPTIONS cat + place), URL-persisted filter
+ * state per the v5 filter contract, clustered self-hosted Leaflet pins, a
+ * keyboard-navigable list panel as the accessible path, and a peek card
+ * (Save, + Trip, View) replacing the old mouse-only Leaflet popups.
  *
- * The Peninsula's geography is dense (lots of cellar doors clustered around
- * Red Hill and dining rooms in Sorrento), so clustering is essential — a
- * raw pin map turns into a smear at default zoom.
+ * Every coordinate-bearing venue, experience and place is serialised at
+ * build time; facets come from getFacets() so a reader arriving from
+ * /eat/?mood=long-lunch&place=red-hill sees the same result set here
+ * (the state contract that ends the map-as-silo, spec block 20).
  *
- * Layout: list panel + map. List is filterable by category; clicking a list
- * item flies the map to the marker and opens the popup. Conversely, marker
- * clicks open the same popup with a "Read full notes" link to the canonical
- * detail page.
- *
- * Why Leaflet over Mapbox:
- *  - No API key needed for OSM tiles.
- *  - ~40KB gzipped vs Mapbox GL's ~200KB+.
- *  - Sufficient for a regional discovery map; we don't need vector tiles or
- *    3D for this product.
+ * Pin verdicts use the same editorial fields the cards read (signature /
+ * editorNote / intro), trimmed to 25 words (spec block 14). No geolocation.
  */
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
+import MapView, { type MapViewItem } from '../components/v5/MapView.astro';
+import { getFacets } from '../lib/facets';
 import { routeSlug, venueHrefPrefix } from '../lib/editorial';
 
 const venuesAll = await getCollection('venues');
@@ -35,517 +31,140 @@ const placeNameBySlug = new Map<string, string>(
   placesAll.map((p) => [p.id ?? p.data.slug, p.data.name]),
 );
 
-/** Map-pin payload kinds. The colour palette below keys off `category`, not
- *  raw type, so we group venue subtypes into the same colour band. */
-type MapEntry = {
-  id: string;
-  category: 'eat' | 'wine' | 'stay' | 'experience' | 'place';
-  /** Sub-category — used for the popup chip and list meta line. */
-  type: string;
-  name: string;
-  href: string;
-  lat: number;
-  lng: number;
-  hero: string;
-  placeName: string;
-  /** Free text for the popup body. Trimmed for payload weight. */
-  blurb: string;
-};
-
-function venueCategory(type: string): MapEntry['category'] {
+/** Pin colour group; grouping only, filtering uses the shared facets. */
+function venueGroup(type: string): MapViewItem['group'] {
   if (['winery', 'brewery', 'distillery', 'producer'].includes(type)) return 'wine';
   if (['hotel', 'villa', 'cottage', 'glamping', 'farm-stay', 'spa'].includes(type)) return 'stay';
   return 'eat';
 }
 
-function venueHref(slug: string, type: string): string {
-  return `${venueHrefPrefix(type)}/${slug}/`;
+function typeLabel(type: string): string {
+  const t = String(type || '').replace(/-/g, ' ');
+  return t.charAt(0).toUpperCase() + t.slice(1);
 }
 
-const venuePins: MapEntry[] = venuesAll
+/** Verdict line: same source field as the cards, capped at 25 words. */
+function verdictLine(text: unknown): string {
+  if (typeof text !== 'string' || !text.trim()) return '';
+  const words = text.trim().split(/\s+/);
+  return words.length <= 25 ? words.join(' ') : words.slice(0, 25).join(' ') + '…';
+}
+
+function placeRef(ref: unknown): string {
+  if (typeof ref === 'string') return ref;
+  if (ref && typeof ref === 'object' && typeof (ref as any).id === 'string') return (ref as any).id;
+  return '';
+}
+
+const venueItems: MapViewItem[] = venuesAll
+  .filter((v) => v.data.status !== 'permanently_closed')
   .filter((v) => v.data.coordinates && Number.isFinite(v.data.coordinates.lat))
   .map((v) => {
     const slug = routeSlug(v);
-    const placeId = typeof v.data.place === 'string' ? v.data.place : v.data.place?.id ?? '';
+    const placeName = placeNameBySlug.get(placeRef(v.data.place)) ?? '';
+    const priceBand = typeof v.data.priceBand === 'string' ? v.data.priceBand : '';
     return {
       id: `venue:${slug}`,
-      category: venueCategory(v.data.type),
-      type: v.data.type,
-      name: v.data.name,
-      href: venueHref(slug, v.data.type),
+      kind: 'venue',
+      slug,
+      title: v.data.name,
+      href: `${venueHrefPrefix(v.data.type)}/${slug}/`,
       lat: v.data.coordinates!.lat,
       lng: v.data.coordinates!.lng,
-      hero: v.data.heroImage?.src ?? '',
-      placeName: placeNameBySlug.get(placeId) ?? '',
-      blurb: (v.data.signature ?? '').slice(0, 160),
+      verdict: verdictLine(v.data.signature),
+      meta: [typeLabel(v.data.type), placeName, priceBand].filter(Boolean),
+      group: venueGroup(v.data.type),
+      facets: getFacets('venue', v.data),
     };
   });
 
-const experiencePins: MapEntry[] = experiencesAll
+const experienceItems: MapViewItem[] = experiencesAll
   .filter((e) => e.data.coordinates && Number.isFinite(e.data.coordinates.lat))
   .filter((e) => !e.data.sitemapExclude)
   .map((e) => {
     const slug = routeSlug(e);
-    const placeId = typeof e.data.place === 'string' ? e.data.place : e.data.place?.id ?? '';
+    const placeName = placeNameBySlug.get(placeRef(e.data.place)) ?? '';
     return {
       id: `experience:${slug}`,
-      category: 'experience' as const,
-      type: e.data.type,
-      name: e.data.name,
+      kind: 'experience',
+      slug,
+      title: e.data.name,
       href: `/explore/${slug}/`,
       lat: e.data.coordinates!.lat,
       lng: e.data.coordinates!.lng,
-      hero: e.data.heroImage?.src ?? '',
-      placeName: placeNameBySlug.get(placeId) ?? '',
-      blurb: (e.data.editorNote ?? '').slice(0, 160),
+      verdict: verdictLine(e.data.editorNote),
+      meta: [typeLabel(e.data.type), placeName].filter(Boolean),
+      group: 'do' as const,
+      facets: getFacets('experience', e.data),
     };
   });
 
-const placePins: MapEntry[] = placesAll
+const placeItems: MapViewItem[] = placesAll
   .filter((p) => p.data.coordinates && Number.isFinite(p.data.coordinates.lat))
   .filter((p) => !p.data.sitemapExclude)
   .map((p) => {
     const slug = p.id ?? p.data.slug;
     return {
       id: `place:${slug}`,
-      category: 'place' as const,
-      type: p.data.kind,
-      name: p.data.name,
+      kind: 'place',
+      slug,
+      title: p.data.name,
       href: `/explore/places/${slug}/`,
       lat: p.data.coordinates!.lat,
       lng: p.data.coordinates!.lng,
-      hero: p.data.heroImage?.src ?? '',
-      placeName: '',
-      blurb: (p.data.intro ?? '').slice(0, 160),
+      verdict: verdictLine(p.data.intro),
+      meta: [typeLabel(p.data.kind)].filter(Boolean),
+      group: 'place' as const,
+      facets: getFacets('place', { slug }),
     };
   });
 
-const allPins: MapEntry[] = [...placePins, ...venuePins, ...experiencePins];
+const allItems: MapViewItem[] = [...placeItems, ...venueItems, ...experienceItems];
 
-const breadcrumbItems = [
-  { label: 'Home', href: '/' },
-  { label: 'The Insider Map' },
-];
-
-const categoryLegend: Array<{ key: MapEntry['category']; label: string; count: number }> = [
-  { key: 'place',      label: 'Places',      count: placePins.length },
-  { key: 'eat',        label: 'Eat & Drink', count: venuePins.filter((p) => p.category === 'eat').length },
-  { key: 'wine',       label: 'Wine',        count: venuePins.filter((p) => p.category === 'wine').length },
-  { key: 'stay',       label: 'Stay',        count: venuePins.filter((p) => p.category === 'stay').length },
-  { key: 'experience', label: 'Experiences', count: experiencePins.length },
-];
+const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'The Insider Map' }];
 export const prerender = true;
 ---
 
 <BaseLayout
   title="The Insider Map · Peninsula Insider"
-  description="The whole Mornington Peninsula on one map. Cellar doors, restaurants, stays, walks, beaches, towns — every entry editorially verified, all on one screen."
+  description="The whole Mornington Peninsula on one map. Cellar doors, restaurants, stays, walks, beaches, towns - every entry editorially verified, all on one screen."
   section="map"
   canonical="https://peninsulainsider.com.au/map/"
 >
-  <!-- Leaflet CSS, loaded from a CDN. The library is small enough that we
-       skip self-hosting for this v1; the script tag below loads the JS. -->
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-    crossorigin=""
-  />
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"
-  />
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"
-  />
-
   <Breadcrumbs items={breadcrumbItems} />
 
-  <section class="map-page">
-    <div class="map-page__intro">
-      <div class="container">
-        <p class="label label--accent">The Insider Map</p>
-        <h1 class="map-page__title">The whole Peninsula, on one screen.</h1>
-        <p class="map-page__sub">{allPins.length} editorially verified entries across the region — places, dining rooms, cellar doors, stays, and the experiences worth the drive. Filter by category, click a pin for the editor's note, or open any entry in full.</p>
-      </div>
+  <section class="v5-map-page">
+    <div class="container">
+      <header class="v5-map-page__intro">
+        <h1 class="v5-map-page__title">The Insider Map</h1>
+        <p class="v5-map-page__sub">Everything we cover, on one screen, filtered exactly like the list you came from.</p>
+      </header>
     </div>
 
-    <div class="map-page__chrome">
-      <div class="map-page__filters" data-map-filters>
-        {categoryLegend.map((cat) => (
-          <button
-            type="button"
-            class={`map-pin-toggle map-pin-toggle--${cat.key}`}
-            data-map-toggle={cat.key}
-            aria-pressed="true"
-          >
-            <span class="map-pin-toggle__dot" aria-hidden="true"></span>
-            <span class="map-pin-toggle__label">{cat.label}</span>
-            <span class="map-pin-toggle__count">{cat.count}</span>
-          </button>
-        ))}
-      </div>
-
-      <!-- Mobile tab bar: List / Map. Desktop hides this. -->
-      <div class="map-page__tabs" role="tablist" aria-label="Map view" data-map-tabs>
-        <button type="button" class="map-page__tab map-page__tab--active" role="tab" aria-selected="true" data-map-tab="list">List</button>
-        <button type="button" class="map-page__tab" role="tab" aria-selected="false" data-map-tab="map">Map</button>
-      </div>
-
-      <div class="map-page__layout">
-        <aside class="map-page__list" aria-label="Map entries list" data-map-panel="list">
-          <div class="map-page__list-header">
-            <input
-              type="search"
-              class="map-page__search"
-              placeholder="Search the map…"
-              aria-label="Search map entries"
-              data-map-search
-            />
-            <p class="map-page__list-count" data-map-list-count>{allPins.length} entries</p>
-          </div>
-          <ul class="map-page__entries" data-map-entries></ul>
-          <p class="map-page__list-empty" data-map-list-empty hidden>
-            No entries match — clear the search or re-enable a category above.
-          </p>
-        </aside>
-
-        <div class="map-page__canvas" data-map-panel="map">
-          <div id="theInsiderMap" class="map-page__map" aria-label="Map of the Mornington Peninsula"></div>
-          <p class="map-page__attribution-note">Tiles by OpenStreetMap contributors. Editorial pins by Peninsula Insider.</p>
-        </div>
-      </div>
-    </div>
+    <MapView items={allItems} standalone noun="pins" surface="map" label="The Insider Map" />
   </section>
-
-  <!-- Leaflet + markercluster, loaded after page render so the rest of the
-       site doesn't pay for these bytes when it doesn't need them. -->
-  <script
-    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-    crossorigin=""
-    is:inline
-  ></script>
-  <script
-    src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"
-    is:inline
-  ></script>
-
-  <script is:inline define:vars={{ pins: allPins }}>
-    /* The Insider Map controller. Initialises Leaflet, plots clustered
-       markers, wires the list↔map sync, and implements the category and
-       text filters. Idempotent across astro:page-load. */
-    (function () {
-      function init() {
-        var container = document.getElementById('theInsiderMap');
-        if (!container || container._piMapBound) return;
-        if (typeof L === 'undefined') {
-          // Leaflet hasn't finished loading yet — retry once on next tick.
-          setTimeout(init, 100);
-          return;
-        }
-        container._piMapBound = true;
-
-        var map = L.map(container, {
-          attributionControl: true,
-          scrollWheelZoom: false, // ergonomic default; user can two-finger or +/- zoom
-        }).setView([-38.4, 145.0], 11);
-        // Store map on container so tab controller can call invalidateSize
-        container._piLeafletMap = map;
-        window.piLeafletMap = map;
-        // Re-enable scroll-wheel zoom on focus to keep the keyboard path useful.
-        container.addEventListener('focus', function () { map.scrollWheelZoom.enable(); });
-        container.addEventListener('blur', function () { map.scrollWheelZoom.disable(); });
-        // Click on map to enable scroll zoom (desktop convenience).
-        map.on('click', function () { map.scrollWheelZoom.enable(); });
-
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          maxZoom: 18,
-          attribution: '© OpenStreetMap contributors',
-        }).addTo(map);
-
-        // Per-category icon. We use Leaflet DivIcons so we don't need image
-        // assets — the colour comes from CSS classes keyed off category.
-        function iconFor(cat) {
-          return L.divIcon({
-            className: 'map-pin map-pin--' + cat,
-            html: '<span class="map-pin__inner" aria-hidden="true"></span>',
-            iconSize: [22, 22],
-            iconAnchor: [11, 11],
-            popupAnchor: [0, -10],
-          });
-        }
-
-        function escapeHtml(s) {
-          return String(s ?? '')
-            .replace(/&/g, '&amp;')
-            .replace(/</g, '&lt;')
-            .replace(/>/g, '&gt;')
-            .replace(/"/g, '&quot;')
-            .replace(/'/g, '&#39;');
-        }
-
-        function popupHtml(p) {
-          var hero = p.hero
-            ? '<div class="map-popup__hero" style="background-image:url(' + escapeHtml(p.hero) + ')"></div>'
-            : '';
-          var meta = [p.type, p.placeName].filter(Boolean).map(escapeHtml).join(' · ');
-          return ''
-            + '<div class="map-popup">'
-            +   hero
-            +   '<div class="map-popup__body">'
-            +     (meta ? '<p class="map-popup__meta">' + meta + '</p>' : '')
-            +     '<h3 class="map-popup__title">' + escapeHtml(p.name) + '</h3>'
-            +     (p.blurb ? '<p class="map-popup__blurb">' + escapeHtml(p.blurb) + '</p>' : '')
-            +     '<a class="map-popup__cta" href="' + escapeHtml(p.href) + '">Read the full notes →</a>'
-            +   '</div>'
-            + '</div>';
-        }
-
-        var clusterGroup = L.markerClusterGroup({
-          showCoverageOnHover: false,
-          maxClusterRadius: 45,
-        });
-
-        var markersById = {};
-        var entriesById = {};
-
-        pins.forEach(function (p) {
-          if (!Number.isFinite(p.lat) || !Number.isFinite(p.lng)) return;
-          var marker = L.marker([p.lat, p.lng], { icon: iconFor(p.category) });
-          marker.bindPopup(popupHtml(p), { maxWidth: 280, autoPanPadding: [40, 40] });
-          marker._piData = p;
-          clusterGroup.addLayer(marker);
-          markersById[p.id] = marker;
-          entriesById[p.id] = p;
-        });
-        map.addLayer(clusterGroup);
-
-        // Fit bounds to all markers, padded.
-        if (Object.keys(markersById).length > 0) {
-          var group = L.featureGroup(Object.values(markersById));
-          map.fitBounds(group.getBounds(), { padding: [30, 30], maxZoom: 13 });
-        }
-
-        // ─── List rendering & sync ─────────────────────────────────────
-        var listEl = document.querySelector('[data-map-entries]');
-        var listCountEl = document.querySelector('[data-map-list-count]');
-        var listEmptyEl = document.querySelector('[data-map-list-empty]');
-
-        // Filter state
-        var enabledCats = { place: true, eat: true, wine: true, stay: true, experience: true };
-        var query = '';
-
-        function entryMatches(p) {
-          if (!enabledCats[p.category]) return false;
-          if (!query) return true;
-          var hay = (p.name + ' ' + p.placeName + ' ' + p.type + ' ' + p.blurb).toLowerCase();
-          return hay.indexOf(query) !== -1;
-        }
-
-        function renderList() {
-          var visible = pins.filter(entryMatches);
-          // Sort: places first, then by name within category.
-          visible.sort(function (a, b) {
-            var rank = { place: 0, eat: 1, wine: 2, stay: 3, experience: 4 };
-            if (rank[a.category] !== rank[b.category]) return rank[a.category] - rank[b.category];
-            return a.name.localeCompare(b.name);
-          });
-          var html = visible.map(function (p) {
-            var meta = [p.type, p.placeName].filter(Boolean).map(escapeHtml).join(' · ');
-            return ''
-              + '<li class="map-page__entry map-page__entry--' + p.category + '" data-entry-id="' + escapeHtml(p.id) + '">'
-              +   '<button type="button" class="map-page__entry-button" data-entry-focus="' + escapeHtml(p.id) + '">'
-              +     '<span class="map-page__entry-dot map-page__entry-dot--' + p.category + '" aria-hidden="true"></span>'
-              +     '<span class="map-page__entry-text">'
-              +       '<span class="map-page__entry-name">' + escapeHtml(p.name) + '</span>'
-              +       (meta ? '<span class="map-page__entry-meta">' + meta + '</span>' : '')
-              +     '</span>'
-              +   '</button>'
-              + '</li>';
-          }).join('');
-          if (listEl) listEl.innerHTML = html;
-          if (listCountEl) {
-            listCountEl.textContent = visible.length === pins.length
-              ? pins.length + ' entries'
-              : visible.length + ' of ' + pins.length + ' entries';
-          }
-          if (listEmptyEl) {
-            if (visible.length === 0) listEmptyEl.removeAttribute('hidden');
-            else listEmptyEl.setAttribute('hidden', '');
-          }
-          // Bind clicks
-          if (listEl) {
-            listEl.querySelectorAll('[data-entry-focus]').forEach(function (btn) {
-              btn.addEventListener('click', function () {
-                var id = btn.getAttribute('data-entry-focus');
-                var marker = markersById[id];
-                if (!marker) return;
-                // On mobile: switch to Map tab first so the canvas is visible,
-                // then zoom once the map is ready. On desktop always visible.
-                var isMobile = window.matchMedia('(max-width: 879px)').matches;
-                if (isMobile && typeof window.piMapActivateTab === 'function') {
-                  window.piMapActivateTab('map', function () {
-                    // Callback fires after Leaflet is init'd and invalidated
-                    clusterGroup.zoomToShowLayer(marker, function () {
-                      marker.openPopup();
-                    });
-                  });
-                } else {
-                  clusterGroup.zoomToShowLayer(marker, function () {
-                    marker.openPopup();
-                  });
-                }
-              });
-            });
-          }
-        }
-
-        function applyMarkerVisibility() {
-          // Markercluster doesn't support per-marker hiding cleanly; we
-          // remove and re-add markers for filter-out behaviour.
-          clusterGroup.clearLayers();
-          pins.forEach(function (p) {
-            if (!entryMatches(p)) return;
-            var marker = markersById[p.id];
-            if (marker) clusterGroup.addLayer(marker);
-          });
-        }
-
-        function commit() {
-          applyMarkerVisibility();
-          renderList();
-        }
-
-        // Bind category toggles
-        document.querySelectorAll('[data-map-toggle]').forEach(function (btn) {
-          btn.addEventListener('click', function () {
-            var cat = btn.getAttribute('data-map-toggle');
-            enabledCats[cat] = !enabledCats[cat];
-            btn.setAttribute('aria-pressed', enabledCats[cat] ? 'true' : 'false');
-            commit();
-          });
-        });
-
-        // Bind search box (debounced)
-        var searchEl = document.querySelector('[data-map-search]');
-        if (searchEl) {
-          var debounce = null;
-          searchEl.addEventListener('input', function () {
-            clearTimeout(debounce);
-            debounce = setTimeout(function () {
-              query = searchEl.value.trim().toLowerCase();
-              commit();
-            }, 150);
-          });
-        }
-
-        // Initial render
-        renderList();
-      }
-
-      // Always init on page load — including mobile. The init function does
-      // two things: (1) renderList() which needs no Leaflet container size,
-      // and (2) Leaflet map setup. Previously init was deferred on mobile
-      // until the Map tab was clicked, which left the List view stuck empty
-      // because renderList() never ran. Leaflet in a hidden container is
-      // fine — the tab controller calls invalidateSize() when the map tab
-      // becomes visible, which re-measures and re-renders tiles correctly.
-      // (Bug fix 2026-05-16: list blank on mobile despite '202 entries' label.)
-      init();
-      // Still expose piInitMap as a no-op fallback so the tab controller's
-      // existing 'first activation' code path doesn't break.
-      window.piInitMap = null;
-      document.addEventListener('astro:page-load', function () {
-        window.piInitMap = null;
-        init();
-      });
-    })();
-  </script>
-
-  <!-- Mobile List/Map tab controller.
-       Only active on small screens (CSS hides .map-page__tabs on desktop).
-       Switches between the list panel and map canvas; invalidates Leaflet
-       size when the map tab is first shown so tiles load correctly. -->
-  <script is:inline>
-  (function () {
-    function bindMapTabs() {
-      var tabBar = document.querySelector('[data-map-tabs]');
-      if (!tabBar || tabBar._piTabsBound) return;
-      tabBar._piTabsBound = true;
-
-      var tabs   = tabBar.querySelectorAll('[data-map-tab]');
-      var panels = document.querySelectorAll('[data-map-panel]');
-      var mapInvalidated = false;
-
-      function showMapPanel() {
-        panels.forEach(function (p) {
-          p.hidden = p.dataset.mapPanel !== 'map';
-        });
-      }
-
-      function activateTab(key, callback) {
-        tabs.forEach(function (t) {
-          var active = t.dataset.mapTab === key;
-          t.classList.toggle('map-page__tab--active', active);
-          t.setAttribute('aria-selected', active ? 'true' : 'false');
-        });
-        panels.forEach(function (p) {
-          p.hidden = p.dataset.mapPanel !== key;
-        });
-
-        if (key === 'map') {
-          // Lazy-init Leaflet if this is the first time the map tab is shown
-          if (typeof window.piInitMap === 'function') {
-            window.piInitMap();
-            window.piInitMap = null; // only once
-            // Give Leaflet time to measure the now-visible container
-            setTimeout(function () {
-              var mapObj = window.piLeafletMap;
-              if (mapObj) mapObj.invalidateSize();
-              if (callback) callback();
-            }, 250);
-          } else {
-            // Already initialised — just invalidate size
-            setTimeout(function () {
-              var mapObj = window.piLeafletMap;
-              if (mapObj) mapObj.invalidateSize();
-              if (callback) callback();
-            }, 80);
-          }
-        } else {
-          if (callback) callback();
-        }
-      }
-
-      tabs.forEach(function (tab) {
-        tab.addEventListener('click', function () {
-          activateTab(tab.dataset.mapTab);
-        });
-      });
-
-      // On desktop breakpoint, always show both panels regardless of tab state
-      var mq = window.matchMedia('(min-width: 880px)');
-      function onBreakpoint(e) {
-        panels.forEach(function (p) { p.hidden = !e.matches && p.dataset.mapPanel !== 'list'; });
-        if (e.matches) {
-          panels.forEach(function (p) { p.hidden = false; });
-        }
-      }
-      mq.addEventListener ? mq.addEventListener('change', onBreakpoint) : mq.addListener(onBreakpoint);
-
-      // Default state: list visible on mobile
-      activateTab('list');
-
-      // Expose globally so the map marker-click handler can switch tabs
-      window.piMapActivateTab = activateTab;
-    }
-    bindMapTabs();
-    document.addEventListener('astro:page-load', function () {
-      document.querySelector('[data-map-tabs]') && (document.querySelector('[data-map-tabs]')._piTabsBound = false);
-      bindMapTabs();
-    });
-  })();
-  </script>
 </BaseLayout>
+
+<style>
+  .v5-map-page {
+    padding-bottom: var(--space-6, 2rem);
+  }
+  .v5-map-page__intro {
+    padding: var(--space-4, 1rem) 0 var(--space-3, 0.75rem);
+  }
+  .v5-map-page__title {
+    margin: 0 0 0.25rem;
+    font-family: var(--font-display, var(--font-display));
+    font-size: var(--fs-800, clamp(2.125rem, 1.5rem + 2.8vw, 3rem));
+    font-weight: var(--fw-display, 600);
+    line-height: var(--lh-heading, 1.2);
+    color: var(--text);
+  }
+  .v5-map-page__sub {
+    margin: 0;
+    font-family: var(--font-ui, var(--font-ui));
+    font-size: var(--fs-400, 1.0625rem);
+    color: var(--soft);
+    max-width: var(--measure-dek, 52ch);
+  }
+</style>

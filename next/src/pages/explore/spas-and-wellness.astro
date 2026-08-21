@@ -1,7 +1,11 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import PiSaveActions from '../../components/PiSaveActions.astro';
+import { editableImage } from '../../lib/inline-edit/attrs';
+import { resolveHero } from '../../lib/inline-edit/resolve-hero';
 import {
   buildCollectionPageSchema,
   buildItemListSchema,
@@ -9,29 +13,128 @@ import {
   buildBreadcrumbSchema,
 } from '../../lib/schema';
 
-const collectionSchema = buildCollectionPageSchema({
-  name: 'Day Spas and Wellness on the Mornington Peninsula',
-  description: 'Ranked editorial guide to day spas and wellness experiences on the Mornington Peninsula — treatments, hot springs, and spa days.',
-  path: '/explore/spas-and-wellness',
-  dateModified: '2026-04-23',
-});
+/* The ranking is the page. Each entry is the editorial call - rank, facts,
+   verdict - and joins its venue record (by slug) for the photo, the detail
+   link, and Save/Share. Venue records supply imagery; the ranking stays the
+   single source of truth for what we say about each spa here. */
 
-const itemListSchema = buildItemListSchema({
-  name: 'Day Spas and Wellness on the Mornington Peninsula',
-  description: 'Ranked guide to day spas and wellness experiences on the Mornington Peninsula.',
-  listPath: '/explore/spas-and-wellness',
-  items: [
-    { name: 'Spa by Jackalope', path: '/stay/spa-by-jackalope', itemType: 'SportsActivityLocation', addressLocality: 'Merricks North' },
-    { name: 'Endota Spa Mornington', path: '/stay/endota-spa-mornington', itemType: 'SportsActivityLocation', addressLocality: 'Mornington' },
-    { name: 'Peninsula Hot Springs spa treatments', path: '/stay/peninsula-hot-springs', itemType: 'SportsActivityLocation', addressLocality: 'Fingal' },
-    { name: 'One Spa at RACV Cape Schanck', path: '/stay/one-spa-racv-cape-schanck', itemType: 'SportsActivityLocation', addressLocality: 'Cape Schanck' },
-  ],
-});
+interface RankedSpa {
+  rank: number;
+  slug: string;
+  name: string;
+  locality: string;
+  type: string;
+  booking: string;
+  verdict: string;
+  bestFor: string;
+}
 
-const faqSchema = buildFaqSchema([
+const ranked: RankedSpa[] = [
+  {
+    rank: 1,
+    slug: 'spa-by-jackalope',
+    name: 'Spa by Jackalope',
+    locality: 'Merricks North',
+    type: 'Hotel spa',
+    booking: 'Book 2 to 3 weeks out',
+    verdict:
+      "The Peninsula's most architecturally considered spa experience, integrated into the Jackalope hotel on the Red Hill to Merricks corridor. Treatment rooms are among the best-appointed in regional Victoria. Menu covers massage, facials, and body treatments. A non-guest spa day is bookable, though treatments sell out; book 2 to 3 weeks ahead for weekends.",
+    bestFor: 'Couples seeking a design-led spa experience; those staying at Jackalope.',
+  },
+  {
+    rank: 2,
+    slug: 'endota-spa-mornington',
+    name: 'Endota Spa Mornington',
+    locality: 'Mornington',
+    type: 'Day spa',
+    booking: 'Easy to book',
+    verdict:
+      'The Mornington outpost of the Endota chain - the Peninsula\'s strongest mid-market spa option. Good treatment menu, reliable quality, easy to book compared with Jackalope. Combines naturally with a Mornington town day or a morning at the farmers market.',
+    bestFor: 'Northern Peninsula stays; mid-range spa days; uncomplicated booking.',
+  },
+  {
+    rank: 3,
+    slug: 'peninsula-hot-springs',
+    name: 'Peninsula Hot Springs: spa treatments',
+    locality: 'Fingal',
+    type: 'Springs + treatments',
+    booking: 'Book spa separately',
+    verdict:
+      'Peninsula Hot Springs has an on-site spa treatment facility in addition to its bathing pools. The combination of thermal bathing and a treatment in a single visit is the most complete wellness day on the Peninsula. Book the spa element separately from the bathing entry.',
+    bestFor: 'Those already visiting Peninsula Hot Springs who want treatments added.',
+  },
+  {
+    rank: 4,
+    slug: 'one-spa-racv-cape-schanck',
+    name: 'One Spa at RACV Cape Schanck',
+    locality: 'Cape Schanck',
+    type: 'Resort spa',
+    booking: 'Book with your stay',
+    verdict:
+      'Resort-integrated spa at the RACV Cape Schanck property. Good for those staying at the resort or wanting to combine golf with a treatment. Standard resort spa quality.',
+    bestFor: 'Resort guests; golf and spa combinations.',
+  },
+];
+
+/* Join each ranked spa to its venue record for hero + save metadata. */
+const venues = await getCollection('venues');
+const bySlug = new Map(venues.map((v) => [v.data.slug ?? v.id.replace(/\.json$/, ''), v]));
+
+const heroes = new Map<string, { src: string; alt: string }>();
+for (const s of ranked) {
+  const venue = bySlug.get(s.slug);
+  const hero = venue ? await resolveHero('venue', s.slug, venue.data) : null;
+  if (hero) heroes.set(s.slug, { src: hero.src, alt: hero.alt });
+}
+
+/* Cover art: the rose treatment room. Static art direction for this page;
+   the per-spa imagery below stays CMS-bound per venue. */
+const cover = {
+  src: '/images/sourced/spa-treatment-room-rose-01.webp',
+  alt: 'Softly lit spa treatment room set for a session, Mornington Peninsula',
+};
+
+/* Day-plan combinations - the page's most useful material, promoted from
+   buried prose to designed cards. */
+const dayPlans = [
+  {
+    title: 'The thermal-and-treatment day',
+    note: 'The full circuit. Watch the booking windows.',
+    steps: [
+      { when: 'Morning', what: 'Bathing session at Peninsula Hot Springs or Alba' },
+      { when: 'Afternoon', what: 'Treatment at Endota Spa Mornington' },
+    ],
+    href: '/explore/hot-springs/',
+    linkLabel: 'The hot springs guide',
+  },
+  {
+    title: 'The Jackalope day',
+    note: "The Peninsula's most elevated single-day combination.",
+    steps: [
+      { when: 'Morning', what: 'Spa by Jackalope' },
+      { when: 'Lunch', what: 'The Red Hill corridor' },
+      { when: 'Afternoon', what: 'Winery session' },
+    ],
+    href: '/stay/spa-by-jackalope/',
+    linkLabel: 'Spa by Jackalope',
+  },
+  {
+    title: 'The wellness weekend',
+    note: 'The full two-day version, accommodation included.',
+    steps: [
+      { when: 'Day one', what: 'Springs, treatment, slow dinner' },
+      { when: 'Day two', what: 'Coast walk, bathe, long lunch' },
+    ],
+    href: '/explore/plans/wellness-weekend/',
+    linkLabel: 'The wellness weekend plan',
+  },
+];
+
+/* FAQ: one array feeds both the visible block and the JSON-LD. */
+const faqs = [
   {
     q: 'What is the best spa on the Mornington Peninsula?',
-    a: 'Spa by Jackalope is the highest design standard. Endota Spa Mornington offers the best mid-range experience. For a combination of thermal bathing and treatment, Peninsula Hot Springs\' on-site spa is the most comprehensive.',
+    a: "Spa by Jackalope is the highest design standard. Endota Spa Mornington offers the best mid-range experience. For a combination of thermal bathing and treatment, Peninsula Hot Springs' on-site spa is the most comprehensive.",
   },
   {
     q: 'Can you do a spa day on the Mornington Peninsula without staying overnight?',
@@ -39,13 +142,34 @@ const faqSchema = buildFaqSchema([
   },
   {
     q: 'What is the difference between Peninsula Hot Springs and a day spa?',
-    a: 'Peninsula Hot Springs is primarily a thermal bathing experience — outdoor pools at various temperatures. A day spa offers booked treatment sessions with a therapist. Peninsula Hot Springs also has on-site treatment facilities, bridging the two.',
+    a: 'Peninsula Hot Springs is primarily a thermal bathing experience - outdoor pools at various temperatures. A day spa offers booked treatment sessions with a therapist. Peninsula Hot Springs also has on-site treatment facilities, bridging the two.',
   },
   {
     q: 'Is Jackalope Spa open to non-guests?',
-    a: 'Yes, treatments are bookable for non-guests. Availability is limited — book 2–3 weeks ahead for weekend slots.',
+    a: 'Yes, treatments are bookable for non-guests. Availability is limited - book 2–3 weeks ahead for weekend slots.',
   },
-]);
+];
+
+const collectionSchema = buildCollectionPageSchema({
+  name: 'Day Spas and Wellness on the Mornington Peninsula',
+  description: 'Ranked editorial guide to day spas and wellness experiences on the Mornington Peninsula - treatments, hot springs, and spa days.',
+  path: '/explore/spas-and-wellness/',
+  dateModified: '2026-08-10',
+});
+
+const itemListSchema = buildItemListSchema({
+  name: 'Day Spas and Wellness on the Mornington Peninsula',
+  description: 'Ranked guide to day spas and wellness experiences on the Mornington Peninsula.',
+  listPath: '/explore/spas-and-wellness',
+  items: [
+    { name: 'Spa by Jackalope', path: '/stay/spa-by-jackalope/', itemType: 'SportsActivityLocation', addressLocality: 'Merricks North' },
+    { name: 'Endota Spa Mornington', path: '/stay/endota-spa-mornington/', itemType: 'SportsActivityLocation', addressLocality: 'Mornington' },
+    { name: 'Peninsula Hot Springs spa treatments', path: '/stay/peninsula-hot-springs/', itemType: 'SportsActivityLocation', addressLocality: 'Fingal' },
+    { name: 'One Spa at RACV Cape Schanck', path: '/stay/one-spa-racv-cape-schanck/', itemType: 'SportsActivityLocation', addressLocality: 'Cape Schanck' },
+  ],
+});
+
+const faqSchema = buildFaqSchema(faqs);
 
 const breadcrumbSchema = buildBreadcrumbSchema([
   { name: 'Home', url: 'https://peninsulainsider.com.au/' },
@@ -55,7 +179,7 @@ const breadcrumbSchema = buildBreadcrumbSchema([
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
-  { label: 'Explore', href: '/explore' },
+  { label: 'Explore', href: '/explore/' },
   { label: 'Spas and Wellness' },
 ];
 export const prerender = true;
@@ -63,7 +187,7 @@ export const prerender = true;
 
 <BaseLayout
   title="Day Spas and Wellness on the Mornington Peninsula · Peninsula Insider"
-  description="Ranked editorial guide to day spas and wellness experiences on the Mornington Peninsula — Jackalope, Endota, Peninsula Hot Springs treatments, and more."
+  description="Ranked editorial guide to day spas and wellness experiences on the Mornington Peninsula - Jackalope, Endota, Peninsula Hot Springs treatments, and more."
   section="explore"
   canonical="https://peninsulainsider.com.au/explore/spas-and-wellness/"
   ogImage="/images/sourced/spa-dark-boutique-room-01.webp"
@@ -74,76 +198,708 @@ export const prerender = true;
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   <Breadcrumbs items={breadcrumbItems} />
 
-  <article class="article">
+  <header class="sp-hero">
     <div class="container">
-      <h1 class="article__title">Day Spas and Wellness on the Mornington Peninsula</h1>
+      <div class="sp-hero__cover">
+        <img
+          class="sp-hero__image"
+          src={cover.src}
+          alt={cover.alt}
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+        <div class="sp-hero__scrim" aria-hidden="true"></div>
+        <div class="sp-hero__content">
+          <h1 class="sp-hero__title">Day spas and wellness on the Mornington Peninsula</h1>
+          <p class="sp-hero__standfirst">
+            Thermal springs, treatment rooms in converted properties, resort spas above
+            the ocean. This is the treatment side of the Peninsula's wellness offering,
+            ranked.
+          </p>
+        </div>
+      </div>
+    </div>
+  </header>
 
-      <div class="prose">
-        <blockquote>
-          <p><strong>TL;DR</strong></p>
-          <ul>
-            <li>The Mornington Peninsula has the best spa-and-wellness offering of any region within 90 minutes of Melbourne.</li>
-            <li>Thermal springs (<a href="/explore/hot-springs/">Peninsula Hot Springs</a>, <a href="/stay/alba-thermal-springs/">Alba</a>) and treatment-focused day spas are different experiences — this page covers the treatment side.</li>
-            <li><a href="/stay/spa-by-jackalope/">Spa by Jackalope</a> is the Peninsula's highest-design standalone spa. Book treatments well in advance.</li>
-            <li><a href="/stay/endota-spa-mornington/">Endota Spa Mornington</a> is the accessible mid-range option with a good treatment menu.</li>
+  <section class="sp-calls" aria-label="The short version">
+    <div class="container">
+      <div class="sp-calls__panel">
+        <div class="sp-calls__lead">
+          <h2 class="sp-calls__title">The short version</h2>
+          <ul class="sp-calls__list">
+            <li>
+              <span class="sp-calls__num" aria-hidden="true">1</span>
+              <p><a href="#spa-by-jackalope">Spa by Jackalope</a> is the design benchmark. Treatments sell out; book 2 to 3 weeks ahead for weekends.</p>
+            </li>
+            <li>
+              <span class="sp-calls__num" aria-hidden="true">2</span>
+              <p><a href="#endota-spa-mornington">Endota Spa Mornington</a> is the mid-range call: reliable menu, easy to book.</p>
+            </li>
+            <li>
+              <span class="sp-calls__num" aria-hidden="true">3</span>
+              <p><a href="#peninsula-hot-springs">Peninsula Hot Springs</a> bathing plus an on-site treatment is the most complete wellness day here.</p>
+            </li>
           </ul>
-        </blockquote>
+          <p class="sp-calls__note">This page covers treatment-led spas. For the bathing side, <a href="/explore/hot-springs/">the hot springs guide</a> has the full picture.</p>
+        </div>
+        <nav class="sp-calls__index" aria-label="The full ranking">
+          <p class="sp-calls__index-title">The ranking</p>
+          <ol class="sp-index__list">
+            {ranked.map((s) => (
+              <li>
+                <a href={`#${s.slug}`}>
+                  <span class="sp-index__name">{s.name}</span>
+                  <span class="sp-index__meta">{s.booking}</span>
+                </a>
+              </li>
+            ))}
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </section>
 
-        <p>The Mornington Peninsula, Victoria, Australia has, within an hour's drive from Mornington to Cape Schanck, more genuine spa and wellness options than most Australian regions manage across a whole state. Thermal springs. Treatment-focused day spas in converted properties. Resort spa facilities integrated with accommodation.</p>
+  <section class="sp-ranking">
+    <div class="container">
+      <p class="sp-ranking__intro">
+        Within an hour's drive, Mornington to Cape Schanck, the Peninsula holds more
+        genuine spa and wellness options than most Australian regions manage across a
+        whole state: thermal springs, treatment-focused day spas in converted
+        properties, and resort spa facilities. Every spa below has been visited by us
+        and is re-verified on a rolling basis.
+      </p>
 
-        <p>This page covers the treatment-focused spa options. Thermal springs (bathing without treatments) are covered in the <a href="/explore/hot-springs/">Peninsula hot springs guide</a>.</p>
+      {ranked.map((s) => {
+        const hero = heroes.get(s.slug);
+        return (
+          <article class="sr" id={s.slug}>
+            {hero && (
+              <a class="sr__media" href={`/stay/${s.slug}/`} tabindex="-1">
+                <img
+                  src={hero.src}
+                  alt={hero.alt}
+                  loading={s.rank === 1 ? 'eager' : 'lazy'}
+                  decoding="async"
+                  width="800"
+                  height="600"
+                  sizes="(max-width: 760px) 92vw, 460px"
+                  {...editableImage({
+                    entityType: 'venue',
+                    entitySlug: s.slug,
+                    fieldPath: 'heroImage',
+                    label: `${s.name} hero`,
+                    purpose: 'hero',
+                  })}
+                />
+                <span class="sr__fog" aria-hidden="true"></span>
+                <span class="sr__tag">{s.locality}</span>
+              </a>
+            )}
+            <div class="sr__body">
+              <h2 class="sr__name">
+                <span class="sr__rank" aria-hidden="true">{s.rank}</span>
+                <a href={`/stay/${s.slug}/`}>{s.name}</a>
+              </h2>
+              <ul class="sr__meta">
+                <li>{s.type}</li>
+                <li>{s.booking}</li>
+              </ul>
+              <p class="sr__verdict">{s.verdict}</p>
+              <p class="sr__bestfor"><strong>Best for</strong> {s.bestFor}</p>
+            </div>
+            <PiSaveActions
+              kind="venue"
+              slug={s.slug}
+              title={s.name}
+              href={`/stay/${s.slug}/`}
+              dek={s.verdict}
+              imageUrl={hero?.src}
+            />
+          </article>
+        );
+      })}
+    </div>
+  </section>
 
-        <h2>Hot springs vs day spa: the distinction</h2>
-        <p>A hot springs visit is primarily a bathing experience — thermal pools at various temperatures, outdoor soaking, no appointments. A spa day involves booked treatments: massages, facials, body wraps, hydrotherapy circuits with a therapist element. Many Peninsula operators offer both. This page focuses on those where the treatment experience is the point.</p>
+  <section class="sp-split" aria-label="Bathing or treatments">
+    <div class="container">
+      <div class="sp-split__panel">
+        <h2 class="sp-split__title">Bathing or treatments?</h2>
+        <div class="sp-split__cols">
+          <div class="sp-split__col">
+            <h3>Bathing</h3>
+            <p>Thermal pools at various temperatures, outdoor soaking, no appointments. Turn up and get in the water.</p>
+            <a class="sp-split__link" href="/explore/hot-springs/">The hot springs guide →</a>
+          </div>
+          <div class="sp-split__col">
+            <h3>Treatments</h3>
+            <p>Booked sessions with a therapist: massage, facials, body work, hydrotherapy circuits. The ranking above covers these.</p>
+            <a class="sp-split__link" href="#spa-by-jackalope">Back to the ranking →</a>
+          </div>
+        </div>
+        <p class="sp-split__note">Many Peninsula operators offer both. Peninsula Hot Springs bridges the two with pools and an on-site treatment facility.</p>
+      </div>
+    </div>
+  </section>
 
-        <h2>The spa options ranked</h2>
+  <section class="sp-days" aria-labelledby="sp-days-title">
+    <div class="container">
+      <header class="sp-days__head">
+        <span class="sp-days__rule" aria-hidden="true"></span>
+        <h2 class="sp-days__title" id="sp-days-title">Building a spa day</h2>
+        <p class="sp-days__standfirst">Three ways to structure it, from a single booking to a full weekend.</p>
+      </header>
+      <div class="sp-days__grid">
+        {dayPlans.map((plan) => (
+          <article class="sp-day">
+            <h3 class="sp-day__title">{plan.title}</h3>
+            <ol class="sp-day__steps">
+              {plan.steps.map((step) => (
+                <li>
+                  <span class="sp-day__when">{step.when}</span>
+                  <span class="sp-day__what">{step.what}</span>
+                </li>
+              ))}
+            </ol>
+            <p class="sp-day__note">{plan.note}</p>
+            <a class="sp-day__link" href={plan.href}>{plan.linkLabel} →</a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
 
-        <h3>1. Spa by Jackalope — Merricks North</h3>
-        <p>The Peninsula's most architecturally considered spa experience, integrated into the <a href="/stay/jackalope/">Jackalope hotel</a> on the Red Hill–Merricks corridor. Treatment rooms are among the best-appointed in regional Victoria. Menu covers massage, facials, and body treatments. A non-guest spa day is bookable, though treatments sell out; book 2–3 weeks ahead on weekends.</p>
-        <p><em>Best for:</em> Couples seeking a design-led spa experience. Those staying at Jackalope.</p>
-        <p><em>Price point:</em> Premium.</p>
-
-        <h3>2. Endota Spa Mornington — Mornington</h3>
-        <p>The Mornington outpost of the Endota chain — the Peninsula's strongest mid-market spa option. Good treatment menu, reliable quality, easy to book compared with Jackalope. Combines naturally with a <a href="/explore/places/mornington/">Mornington town</a> day or a morning at the Mornington Farmers Market.</p>
-        <p><em>Best for:</em> Northern Peninsula stays. Mid-range spa days. Uncomplicated booking.</p>
-
-        <h3>3. Peninsula Hot Springs — spa treatments</h3>
-        <p>Peninsula Hot Springs has an on-site spa treatment facility in addition to its bathing pools. The combination of thermal bathing and a treatment in a single visit is the most complete wellness day on the Peninsula. Book the spa element separately from the bathing entry.</p>
-        <p><em>Best for:</em> Those already visiting Peninsula Hot Springs who want treatments added.</p>
-
-        <h3>4. One Spa at RACV Cape Schanck — Cape Schanck</h3>
-        <p>Resort-integrated spa at the RACV Cape Schanck property. Good for those staying at the resort or wanting to combine golf with a treatment. Standard resort spa quality.</p>
-        <p><em>Best for:</em> Resort guests. Golf + spa combinations.</p>
-
-        <h2>Building a spa day</h2>
-        <p><strong>The thermal-and-treatment day:</strong> Morning bathing session at <a href="/explore/hot-springs/">Peninsula Hot Springs or Alba</a> → afternoon treatment at Endota Spa Mornington. This requires managing booking windows carefully.</p>
-        <p><strong>The Jackalope day:</strong> Morning at <a href="/stay/spa-by-jackalope/">Spa by Jackalope</a> → lunch along the <a href="/explore/places/red-hill/">Red Hill</a> corridor → afternoon winery session. The Peninsula's most elevated single-day combination.</p>
-        <p><strong>The wellness weekend:</strong> The full built-out version is at <a href="/explore/plans/wellness-weekend/">the wellness weekend</a> — a structured two-day itinerary with accommodation included.</p>
+  <section class="sp-notes">
+    <div class="container">
+      <div class="prose">
+        <h2>FAQ</h2>
+        <div class="sp-faq">
+          {faqs.map((f) => (
+            <details class="sp-faq__item">
+              <summary class="sp-faq__q">{f.q}</summary>
+              <p class="sp-faq__a">{f.a}</p>
+            </details>
+          ))}
+        </div>
 
         <h2>Also consider</h2>
         <ul>
-          <li><a href="/explore/hot-springs/">Peninsula hot springs guide</a> — the full bathing experience picture</li>
-          <li><a href="/explore/plans/wellness-weekend/">The wellness weekend package</a> — stay-based full itinerary</li>
+          <li><a href="/explore/hot-springs/">Peninsula hot springs guide</a> - the full bathing experience picture</li>
+          <li><a href="/explore/plans/wellness-weekend/">The wellness weekend</a> - a structured two-day itinerary with accommodation included</li>
+          <li><a href="/explore/">All Peninsula experiences</a></li>
         </ul>
 
         <p><em>Last fact-verified 23 April 2026</em></p>
-
-        <h2>FAQ</h2>
-
-        <h3>What is the best spa on the Mornington Peninsula?</h3>
-        <p>Spa by Jackalope is the highest design standard. Endota Spa Mornington offers the best mid-range experience. For a combination of thermal bathing and treatment, Peninsula Hot Springs' on-site spa is the most comprehensive.</p>
-
-        <h3>Can you do a spa day on the Mornington Peninsula without staying overnight?</h3>
-        <p>Yes. All day spas listed offer day-visitor bookings. Peninsula Hot Springs also accepts day visitors for bathing. Book treatments well in advance for weekends.</p>
-
-        <h3>What is the difference between Peninsula Hot Springs and a day spa?</h3>
-        <p>Peninsula Hot Springs is primarily a thermal bathing experience — outdoor pools at various temperatures. A day spa offers booked treatment sessions with a therapist. Full comparison at <a href="/explore/hot-springs/">Peninsula hot springs guide</a>.</p>
-
-        <h3>Is Jackalope Spa open to non-guests?</h3>
-        <p>Yes, treatments are bookable for non-guests. Availability is limited — book 2–3 weeks ahead for weekend slots.</p>
       </div>
     </div>
-  </article>
+  </section>
 
   <NewsletterBlock />
 </BaseLayout>
+
+<style>
+  /* ── Cover hero ── */
+  .sp-hero {
+    padding: var(--space-4) 0 var(--space-6);
+  }
+  .sp-hero__cover {
+    position: relative;
+    border-radius: var(--radius-l);
+    overflow: hidden;
+    aspect-ratio: 16 / 7;
+    background: var(--bg-dark, #0B2E4A);
+  }
+  .sp-hero__image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .sp-hero__scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(11, 46, 74, 0.94) 0%,
+      rgba(11, 46, 74, 0.78) 38%,
+      rgba(11, 46, 74, 0.3) 62%,
+      rgba(11, 46, 74, 0) 80%
+    );
+  }
+  .sp-hero__content {
+    position: absolute;
+    inset: auto 0 0 0;
+    padding: clamp(1.5rem, 3.5vw, 3rem);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  .sp-hero__title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: var(--fs-900);
+    font-weight: var(--fw-display);
+    line-height: var(--lh-display);
+    letter-spacing: var(--ls-display);
+    color: var(--white);
+    max-width: 20ch;
+    text-wrap: balance;
+  }
+  .sp-hero__standfirst {
+    margin: 0;
+    font-size: var(--fs-500);
+    line-height: var(--lh-dek);
+    color: rgba(237, 241, 245, 0.92);
+    max-width: var(--measure-dek);
+  }
+  @media (max-width: 760px) {
+    .sp-hero__cover { aspect-ratio: 4 / 5; }
+    .sp-hero__title { font-size: var(--fs-800); }
+  }
+
+  /* ── The short version ── */
+  .sp-calls {
+    padding: 0 0 var(--space-7);
+  }
+  .sp-calls__panel {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    gap: clamp(2rem, 4vw, 4rem);
+    background: var(--bg-dark, #0B2E4A);
+    border-radius: var(--radius-l);
+    padding: clamp(1.75rem, 3.5vw, 3rem);
+    color: var(--white);
+  }
+  .sp-calls__title {
+    margin: 0 0 var(--space-5);
+    font-family: var(--font-display);
+    font-size: var(--fs-700);
+    font-weight: var(--fw-display);
+    letter-spacing: var(--ls-display);
+    color: var(--white);
+  }
+  .sp-calls__list {
+    list-style: none;
+    margin: 0 0 var(--space-5);
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+  .sp-calls__list li {
+    display: flex;
+    gap: var(--space-4);
+    align-items: baseline;
+  }
+  .sp-calls__num {
+    flex-shrink: 0;
+    font-family: var(--font-display);
+    font-size: var(--fs-600);
+    font-weight: var(--fw-bold);
+    line-height: 1;
+    color: var(--mint, #F5C177);
+    font-variant-numeric: tabular-nums;
+    min-width: 1.4ch;
+    text-align: right;
+  }
+  .sp-calls__list p {
+    margin: 0;
+    font-size: var(--fs-400);
+    line-height: var(--lh-dek);
+    color: rgba(237, 241, 245, 0.92);
+    max-width: 52ch;
+  }
+  .sp-calls__list a {
+    color: var(--white);
+    font-weight: var(--fw-semibold);
+    text-decoration: underline;
+    text-decoration-color: rgba(245, 193, 119, 0.55);
+    text-underline-offset: 3px;
+    transition: text-decoration-color var(--dur-fast) var(--ease-enter);
+  }
+  .sp-calls__list a:hover { text-decoration-color: var(--mint, #F5C177); }
+  .sp-calls__note {
+    margin: 0;
+    padding-top: var(--space-4);
+    border-top: 1px solid rgba(237, 241, 245, 0.18);
+    font-size: var(--fs-300);
+    line-height: var(--lh-dek);
+    color: var(--soft-inverse);
+    max-width: 52ch;
+  }
+  .sp-calls__note a {
+    color: rgba(237, 241, 245, 0.92);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .sp-calls__index-title {
+    margin: 0 0 var(--space-3);
+    font-family: var(--font-display);
+    font-size: var(--fs-300);
+    font-weight: var(--fw-semibold);
+    color: var(--white);
+  }
+  .sp-index__list {
+    margin: 0;
+    padding-left: 1.6rem;
+  }
+  .sp-index__list li + li { margin-top: var(--space-2); }
+  .sp-index__list li::marker {
+    font-family: var(--font-ui);
+    font-size: var(--fs-300);
+    font-weight: var(--fw-semibold);
+    color: var(--mint, #F5C177);
+  }
+  .sp-index__list a {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-3);
+    padding: 0.2rem 0;
+    font-size: var(--fs-300);
+    line-height: var(--lh-ui);
+    color: rgba(237, 241, 245, 0.92);
+    text-decoration: none;
+  }
+  .sp-index__name {
+    border-bottom: 1px solid rgba(237, 241, 245, 0.25);
+    transition: color var(--dur-fast) var(--ease-enter), border-color var(--dur-fast) var(--ease-enter);
+  }
+  .sp-index__list a:hover .sp-index__name {
+    color: var(--mint, #F5C177);
+    border-color: var(--mint, #F5C177);
+  }
+  .sp-index__meta {
+    flex-shrink: 0;
+    font-size: var(--fs-200);
+    color: var(--soft-inverse);
+  }
+  @media (max-width: 900px) {
+    .sp-calls__panel { grid-template-columns: 1fr; }
+  }
+
+  /* ── The ranking: four generous entries ── */
+  .sp-ranking { padding-bottom: var(--space-7); }
+  .sp-ranking__intro {
+    max-width: var(--measure-prose);
+    font-size: var(--fs-400);
+    line-height: var(--lh-body);
+    color: var(--text);
+    margin: 0 0 var(--space-6);
+  }
+  .sr {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(280px, 460px) 1fr;
+    gap: var(--space-5) clamp(1.5rem, 3vw, 3rem);
+    padding: var(--space-7) 0;
+    border-top: 1px solid var(--border);
+    scroll-margin-top: 6rem;
+  }
+  .sr__media {
+    display: block;
+    position: relative;
+    aspect-ratio: 4 / 3;
+    border-radius: var(--radius-m);
+    overflow: hidden;
+    background: var(--bg-alt);
+  }
+  .sr__media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--dur-slow) var(--ease-enter);
+  }
+  .sr:hover .sr__media img { transform: scale(1.025); }
+  .sr__fog {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(11, 46, 74, 0.55) 0%, rgba(11, 46, 74, 0) 45%);
+  }
+  .sr__tag {
+    position: absolute;
+    bottom: 0.9rem;
+    left: 1rem;
+    font-family: var(--font-ui);
+    font-size: var(--fs-100);
+    font-weight: var(--fw-semibold);
+    letter-spacing: var(--ls-eyebrow);
+    text-transform: uppercase;
+    color: rgba(253, 252, 250, 0.95);
+  }
+  .sr__body {
+    max-width: var(--measure-prose);
+    padding-bottom: var(--space-2);
+  }
+  .sr__name {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-3);
+    font-family: var(--font-display);
+    font-size: var(--fs-600);
+    font-weight: var(--fw-display);
+    letter-spacing: -0.015em;
+    line-height: var(--lh-heading);
+    color: var(--dark);
+    margin: 0 0 var(--space-4);
+  }
+  .sr__name a { color: inherit; text-decoration: none; }
+  .sr__name a:hover { color: var(--accent); }
+  .sr__rank {
+    flex-shrink: 0;
+    font-family: var(--font-display);
+    font-size: var(--fs-700);
+    font-weight: var(--fw-bold);
+    line-height: 1;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+  }
+  .sr__meta {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin: 0 0 var(--space-4);
+    padding: 0;
+  }
+  .sr__meta li {
+    font-family: var(--font-ui);
+    font-size: var(--fs-200);
+    font-weight: var(--fw-medium);
+    line-height: var(--lh-label);
+    color: var(--dark);
+    background: var(--bg-alt);
+    border-radius: var(--radius-pill);
+    padding: 0.35rem 0.85rem;
+  }
+  .sr__verdict {
+    font-size: var(--fs-400);
+    line-height: var(--lh-body);
+    color: var(--text);
+    margin: 0 0 var(--space-4);
+  }
+  .sr__bestfor {
+    font-size: var(--fs-300);
+    line-height: var(--lh-ui);
+    color: var(--text);
+    margin: 0;
+  }
+  .sr__bestfor strong {
+    font-weight: var(--fw-semibold);
+    color: var(--tide-text, #1D6491);
+    text-transform: uppercase;
+    font-size: var(--fs-100);
+    letter-spacing: 0.08em;
+    margin-right: 0.35rem;
+  }
+
+  /* ── Bathing or treatments: decision panel ── */
+  .sp-split { padding: 0 0 var(--space-7); }
+  .sp-split__panel {
+    background: var(--bg-alt);
+    border-radius: var(--radius-l);
+    padding: clamp(1.75rem, 3.5vw, 3rem);
+  }
+  .sp-split__title {
+    margin: 0 0 var(--space-5);
+    font-family: var(--font-display);
+    font-size: var(--fs-700);
+    font-weight: var(--fw-display);
+    letter-spacing: var(--ls-display);
+    color: var(--dark);
+  }
+  .sp-split__cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(1.5rem, 3vw, 3rem);
+  }
+  .sp-split__col h3 {
+    margin: 0 0 var(--space-2);
+    font-family: var(--font-display);
+    font-size: var(--fs-500);
+    font-weight: var(--fw-semibold);
+    color: var(--dark);
+  }
+  .sp-split__col p {
+    margin: 0 0 var(--space-3);
+    font-size: var(--fs-300);
+    line-height: var(--lh-dek);
+    color: var(--text);
+    max-width: 44ch;
+  }
+  .sp-split__link {
+    font-size: var(--fs-300);
+    font-weight: var(--fw-semibold);
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .sp-split__link:hover { text-decoration: underline; text-underline-offset: 3px; }
+  .sp-split__note {
+    margin: var(--space-5) 0 0;
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--border);
+    font-size: var(--fs-300);
+    color: var(--soft);
+    max-width: var(--measure-prose);
+  }
+  @media (max-width: 700px) {
+    .sp-split__cols { grid-template-columns: 1fr; }
+  }
+
+  /* ── Building a spa day ── */
+  .sp-days { padding: 0 0 var(--space-8); }
+  .sp-days__head {
+    margin: 0 0 var(--space-5);
+    max-width: var(--measure-prose);
+  }
+  .sp-days__rule {
+    display: block;
+    width: 3rem;
+    height: 3px;
+    border-radius: 2px;
+    background: var(--mint, #F5C177);
+    margin-bottom: var(--space-4);
+  }
+  .sp-days__title {
+    margin: 0 0 var(--space-2);
+    font-family: var(--font-display);
+    font-size: var(--fs-700);
+    font-weight: var(--fw-display);
+    letter-spacing: var(--ls-display);
+    color: var(--dark);
+  }
+  .sp-days__standfirst {
+    margin: 0;
+    font-size: var(--fs-500);
+    line-height: var(--lh-dek);
+    color: var(--soft);
+    max-width: var(--measure-dek);
+  }
+  .sp-days__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(1rem, 1.6vw, 1.4rem);
+  }
+  .sp-day {
+    display: flex;
+    flex-direction: column;
+    background: var(--paper, #FDFCFA);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-m);
+    padding: var(--space-5);
+  }
+  .sp-day__title {
+    margin: 0 0 var(--space-4);
+    font-family: var(--font-display);
+    font-size: var(--fs-500);
+    font-weight: var(--fw-semibold);
+    color: var(--dark);
+  }
+  .sp-day__steps {
+    list-style: none;
+    margin: 0 0 var(--space-4);
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  .sp-day__steps li {
+    display: flex;
+    gap: var(--space-3);
+    align-items: baseline;
+  }
+  .sp-day__when {
+    flex-shrink: 0;
+    min-width: 5.5ch;
+    font-family: var(--font-ui);
+    font-size: var(--fs-100);
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--tide-text, #1D6491);
+  }
+  .sp-day__what {
+    font-size: var(--fs-300);
+    line-height: var(--lh-ui);
+    color: var(--text);
+  }
+  .sp-day__note {
+    margin: 0 0 var(--space-4);
+    font-size: var(--fs-300);
+    line-height: var(--lh-dek);
+    color: var(--soft);
+  }
+  .sp-day__link {
+    margin-top: auto;
+    font-size: var(--fs-300);
+    font-weight: var(--fw-semibold);
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .sp-day__link:hover { text-decoration: underline; text-underline-offset: 3px; }
+  @media (max-width: 900px) {
+    .sp-days__grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── Notes band ── */
+  .sp-notes {
+    background: var(--bg-alt);
+    border-top: 1px solid var(--border);
+    padding: var(--space-7) 0;
+  }
+  .sp-faq { margin: var(--space-4) 0 var(--space-6); }
+  .sp-faq__item { border-top: 1px solid var(--border); }
+  .sp-faq__item:last-child { border-bottom: 1px solid var(--border); }
+  .sp-faq__q {
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-4);
+    padding: var(--space-4) 0;
+    font-family: var(--font-display);
+    font-size: var(--fs-400);
+    font-weight: var(--fw-semibold);
+    color: var(--dark);
+  }
+  .sp-faq__q::-webkit-details-marker { display: none; }
+  .sp-faq__q::after {
+    content: '+';
+    flex-shrink: 0;
+    font-family: var(--font-ui);
+    font-weight: var(--fw-body);
+    font-size: var(--fs-500);
+    color: var(--accent);
+    line-height: 1;
+    transition: transform var(--dur-med) var(--ease-enter);
+  }
+  .sp-faq__item[open] .sp-faq__q::after { transform: rotate(45deg); }
+  .sp-faq__a {
+    margin: 0;
+    padding: 0 0 var(--space-5);
+    max-width: var(--measure-prose);
+    color: var(--text);
+  }
+
+  /* ── Responsive + motion ── */
+  @media (max-width: 900px) {
+    .sr { grid-template-columns: minmax(220px, 320px) 1fr; gap: var(--space-4) var(--space-5); }
+  }
+  @media (max-width: 760px) {
+    .sr {
+      grid-template-columns: 1fr;
+      padding-top: var(--space-5);
+      padding-bottom: var(--space-6);
+    }
+    .sr__body { padding-bottom: var(--space-6); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .sr:hover .sr__media img { transform: none; }
+  }
+</style>

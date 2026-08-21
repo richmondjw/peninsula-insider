@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Peninsula Insider — Retro-Futurist Homepage Draft (2026-07-17)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..100,0..1&family=Archivo:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   PENINSULA INSIDER — "TRANSISTOR COAST"
+   Retro-futurist editorial system draft.
+   Warm 1970s analogue surfaces, one fluorescent signal.
+   Ratio discipline: 55% parchment/sage · 25% espresso/brown
+   · 15% orange · 5% pink.
+   ============================================================ */
+:root {
+  --brand-orange: #FC9002;
+  --brand-pink:   #FE2FFD;
+  --sage-300:     #A8B49B;
+  --sage-500:     #90A085;
+  --sage-700:     #73835A;
+  --moss-900:     #545533;
+  --parchment-100:#E4E2CB;
+  --parchment-200:#CDD1B5;
+  --sand-300:     #C7B285;
+  --tobacco-700:  #794A1F;
+  --espresso-950: #4B2709;
+  --espresso-990: #351904;
+
+  --background:   var(--parchment-200);
+  --surface:      var(--parchment-100);
+  --text-primary: var(--espresso-950);
+  --text-muted:   #69623F;
+
+  --font-display: "Fraunces", "Cooper Black", serif;
+  --font-heading: "Archivo", sans-serif;
+  --font-body:    "Manrope", sans-serif;
+  --font-mono:    "Space Mono", monospace;
+
+  --soft: "SOFT" 100, "WONK" 1;
+
+  --radius-card: 26px;
+  --radius-pill: 999px;
+  --border-thin: 1.5px solid var(--tobacco-700);
+  --shadow-print: 5px 6px 0 rgba(75, 39, 9, 0.14);
+
+  --space-gutter: clamp(1.25rem, 4vw, 3.5rem);
+  --measure: 62ch;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background: var(--background);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+/* Analogue grain over everything — very quiet, print-stock feel */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  pointer-events: none;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--brand-orange); outline-offset: 3px; border-radius: 4px; }
+
+.container { max-width: 1240px; margin-inline: auto; padding-inline: var(--space-gutter); }
+
+.mono-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.85rem 1.7rem;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.15s ease-out, box-shadow 0.15s ease-out, background 0.15s ease-out;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn:active { transform: translateY(0); }
+.btn--primary {
+  background: var(--brand-orange);
+  color: var(--espresso-950);
+  box-shadow: 0 3px 0 rgba(75,39,9,0.35);
+}
+.btn--primary:hover { background: #ffa022; box-shadow: 0 5px 0 rgba(75,39,9,0.35); }
+.btn--ghost {
+  background: transparent;
+  color: var(--espresso-950);
+  border-color: var(--tobacco-700);
+}
+.btn--ghost:hover { background: rgba(228, 226, 203, 0.7); }
+.btn--ghost-light {
+  background: transparent;
+  color: var(--parchment-100);
+  border-color: var(--sand-300);
+}
+.btn--ghost-light:hover { background: rgba(199,178,133,0.15); }
+
+/* ============================================================
+   1 · SIGNAL TICKER
+   ============================================================ */
+.ticker {
+  background: var(--brand-orange);
+  color: var(--espresso-950);
+  overflow: hidden;
+  border-bottom: 2px solid var(--espresso-950);
+}
+.ticker__track {
+  display: flex;
+  width: max-content;
+  animation: ticker 46s linear infinite;
+}
+.ticker__group {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  padding-block: 0.5rem;
+}
+.ticker__item {
+  font-family: var(--font-mono);
+  font-size: 0.73rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding-inline: 1.4rem;
+}
+.ticker__star { font-size: 0.8rem; }
+@keyframes ticker { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) {
+  .ticker__track { animation: none; flex-wrap: wrap; width: auto; }
+  .ticker__group + .ticker__group { display: none; }
+}
+
+/* ============================================================
+   2 · MASTHEAD
+   ============================================================ */
+.masthead {
+  background: var(--background);
+  border-bottom: var(--border-thin);
+}
+.masthead__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-block: 1.1rem;
+}
+.masthead__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  text-decoration: none;
+}
+.masthead__sun { width: 44px; height: 44px; flex: none; }
+.masthead__wordmark {
+  font-family: var(--font-display);
+  font-variation-settings: var(--soft);
+  font-weight: 900;
+  font-size: 1.55rem;
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+}
+.masthead__wordmark small {
+  display: block;
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: 0.58rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--moss-900);
+  margin-top: 0.3rem;
+}
+.masthead__nav { display: flex; align-items: center; gap: 1.6rem; }
+.masthead__link {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding-block: 0.4rem;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.15s;
+}
+.masthead__link:hover { border-bottom-color: var(--brand-orange); }
+.masthead__cta { padding: 0.6rem 1.3rem; font-size: 0.85rem; }
+@media (max-width: 880px) {
+  .masthead__nav { display: none; }
+  .masthead__inner { gap: 1rem; }
+  .masthead__wordmark { font-size: 1.3rem; }
+  .masthead__wordmark small { display: none; }
+}
+
+/* ============================================================
+   3 · COVER
+   ============================================================ */
+.cover {
+  position: relative;
+  background: var(--sage-500);
+  border-bottom: var(--border-thin);
+  overflow: hidden;
+}
+.cover__rings {
+  position: absolute;
+  right: -12%;
+  bottom: -34%;
+  width: min(62vw, 780px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: repeating-radial-gradient(
+    circle at center,
+    var(--brand-orange) 0 11%,
+    var(--sand-300) 11% 22%,
+    var(--sage-300) 22% 33%,
+    var(--parchment-100) 33% 44%
+  );
+  opacity: 0.5;
+  pointer-events: none;
+}
+.cover__inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: center;
+  padding-block: clamp(3rem, 7vw, 5.5rem);
+}
+.cover__eyebrow {
+  color: var(--parchment-100);
+  background: var(--moss-900);
+  display: inline-block;
+  padding: 0.4rem 0.95rem;
+  border-radius: var(--radius-pill);
+  margin-bottom: 1.6rem;
+}
+.cover__statement {
+  font-family: var(--font-display);
+  font-variation-settings: var(--soft);
+  font-weight: 900;
+  font-size: clamp(2.9rem, 6.6vw, 5.6rem);
+  line-height: 0.98;
+  letter-spacing: -0.015em;
+  color: var(--espresso-950);
+  text-wrap: balance;
+  max-width: 15ch;
+}
+.cover__statement em {
+  font-style: normal;
+  color: var(--parchment-100);
+  position: relative;
+  white-space: nowrap;
+}
+.cover__statement em::after {
+  /* the one pink moment above the fold */
+  content: "";
+  position: absolute;
+  left: 2%;
+  bottom: -0.08em;
+  width: 96%;
+  height: 0.09em;
+  background: var(--brand-pink);
+  border-radius: 999px;
+}
+.cover__context {
+  margin-top: 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--espresso-950);
+}
+.cover__actions { display: flex; flex-wrap: wrap; gap: 0.9rem; margin-top: 2.2rem; }
+.cover__figure {
+  position: relative;
+  justify-self: end;
+  width: min(100%, 430px);
+}
+.cover__figure img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 999px 999px var(--radius-card) var(--radius-card);
+  border: var(--border-thin);
+  filter: sepia(0.24) saturate(1.05) contrast(1.02);
+}
+.cover__sticker {
+  position: absolute;
+  top: 6%;
+  left: -9%;
+  transform: rotate(-9deg);
+  background: var(--parchment-100);
+  border: var(--border-thin);
+  border-radius: var(--radius-pill);
+  padding: 0.55rem 1.1rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  box-shadow: var(--shadow-print);
+}
+.cover__caption {
+  position: absolute;
+  bottom: 4%;
+  right: -4%;
+  transform: rotate(3deg);
+  background: var(--espresso-950);
+  color: var(--parchment-100);
+  border-radius: 8px;
+  padding: 0.45rem 0.9rem;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+@media (max-width: 880px) {
+  .cover__inner { grid-template-columns: 1fr; }
+  .cover__figure { justify-self: start; width: min(100%, 380px); margin-top: 1rem; }
+  .cover__sticker { left: auto; right: -2%; }
+}
+
+/* ============================================================
+   4 · THIS WEEKEND
+   ============================================================ */
+.weekend { padding-block: clamp(3.5rem, 7vw, 6rem); }
+.weekend__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  margin-bottom: 2.5rem;
+}
+.weekend__eyebrow { color: var(--sage-700); margin-bottom: 0.6rem; }
+.weekend__title {
+  font-family: var(--font-display);
+  font-variation-settings: var(--soft);
+  font-weight: 900;
+  font-size: clamp(2.1rem, 4.4vw, 3.4rem);
+  line-height: 1;
+}
+.weekend__title span { color: var(--brand-orange); }
+.weekend__dates {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding-bottom: 0.4rem;
+  white-space: nowrap;
+}
+.weekend__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.6rem;
+}
+.pick {
+  position: relative;
+  background: var(--surface);
+  border: var(--border-thin);
+  border-radius: var(--radius-card);
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.18s ease-out, box-shadow 0.18s ease-out;
+}
+.pick:hover { transform: translateY(-4px); box-shadow: var(--shadow-print); }
+.pick__media {
+  border-radius: 999px 999px 0 0;
+  overflow: hidden;
+  margin: 0.65rem 0.65rem 0;
+  border: 1px solid var(--sand-300);
+}
+.pick__media img {
+  width: 100%;
+  aspect-ratio: 4 / 3.4;
+  object-fit: cover;
+  filter: sepia(0.22) saturate(1.04);
+  transition: transform 0.35s ease-out;
+}
+.pick:hover .pick__media img { transform: scale(1.035); }
+.pick__body { padding: 1.35rem 1.5rem 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; flex: 1; }
+.pick__chip {
+  align-self: flex-start;
+  font-family: var(--font-mono);
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--parchment-100);
+  background: var(--moss-900);
+  border-radius: var(--radius-pill);
+  padding: 0.3rem 0.75rem;
+}
+.pick__title {
+  font-family: var(--font-display);
+  font-variation-settings: var(--soft);
+  font-weight: 800;
+  font-size: 1.45rem;
+  line-height: 1.12;
+  text-wrap: balance;
+}
+.pick__title a { text-decoration: none; }
+.pick__title a:hover { color: var(--tobacco-700); }
+.pick__verdict { font-size: 0.95rem; color: var(--text-primary); }
+.pick__verdict strong { color: var(--tobacco-700); }
+.pick__meta {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.pick__actions { margin-top: auto; display: flex; gap: 0.6rem; padding-top: 0.5rem; }
+.pick__action {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.82rem;
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid var(--tobacco-700);
+  background: transparent;
+  color: var(--espresso-950);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.pick__action:hover { background: var(--sand-300); }
+.pick__sticker {
+  /* the one pink moment in this section */
+  position: absolute;
+  top: -0.85rem;
+  right: 1.1rem;
+  transform: rotate(6deg);
+  background: var(--brand-pink);
+  color: var(--espresso-990);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border: 1.5px solid var(--espresso-950);
+  border-radius: var(--radius-pill);
+  padding: 0.35rem 0.85rem;
+  box-shadow: var(--shadow-print);
+  z-index: 2;
+}
+.weekend__more { margin-top: 2.2rem; }
+.weekend__more a {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.98rem;
+  text-decoration: none;
+  border-bottom: 2px solid var(--brand-orange);
+  padding-bottom: 2px;
+}
+.weekend__more a:hover { color: var(--tobacco-700); }
+
+/* ============================================================
+   5 · FOUR DOORS  (the espresso band)
+   ============================================================ */
+.doors {
+  background: var(--espresso-950);
+  color: var(--parchment-100);
+  padding-block: clamp(3.5rem, 7vw, 6rem);
+  border-block: 2px solid var(--espresso-990);
+}
+.doors__head { display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 2.6rem; flex-wrap: wrap; }
+.doors__title {
+  font-family: var(--font-display);
+  font-variation-settings: var(--soft);
+  font-weight: 900;
+  font-size: clamp(2rem, 4.2vw, 3.2rem);
+  color: var(--brand-orange);
+}
+.doors__sub { color: var(--sand-300); font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase; }
+.doors__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.4rem;
+}
+.door {
+  position: relative;
+  border-radius: 999px 999px var(--radius-card) var(--radius-card);
+  overflow: hidden;
+  border: 1.5px solid var(--tobacco-700);
+  text-decoration: none;
+  display: block;
+  aspect-ratio: 3 / 4;
+  background: var(--espresso-990);
+}
+.door img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: sepia(0.35) saturate(0.9) brightness(0.72);
+  transition: transform 0.4s ease-out, filter 0.4s ease-out;
+}
+.door:hover img { transform: scale(1.05); filter: sepia(0.2) saturate(1) brightness(0.85); }
+.door__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(53,25,4,0.92) 0%, rgba(53,25,4,0.25) 45%, rgba(53,25,4,0.05) 70%);
+}
+.door__body { position: absolute; inset-inline: 0; bottom: 0; padding: 1.4rem 3.6rem 1.5rem 1.4rem; display: block; }
+.door__num {
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  translate: -50% 0;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--parchment-100);
+  background: rgba(53,25,4,0.55);
+  border: 1px solid var(--sand-300);
+  border-radius: var(--radius-pill);
+  padding: 0.3rem 0.8rem;
+  backdrop-filter: blur(2px);
+}
+.door__label {
+  display: block;
+  font-family: var(--font-display);
+  font-variation-settings: var(--soft);
+  font-weight: 900;
+  font-size: 1.85rem;
+  line-height: 1;
+  color: var(--parchment-100);
+  margin-bottom: 0.5rem;
+}
+.door__line { display: block; font-size: 0.85rem; color: var(--sand-300); line-height: 1.45; }
+.door__arrow {
+  position: absolute;
+  right: 1.2rem;
+  bottom: 1.35rem;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--brand-orange);
+  color: var(--espresso-950);
+  font-weight: 800;
+  font-size: 1rem;
+  transition: transform 0.2s ease-out;
+}
+.door:hover .door__arrow { transform: translateX(3px); }
+
+/* ============================================================
+   6 · THE PLAN  (sage panel)
+   ============================================================ */
+.plan { padding-block: clamp(3.5rem, 7vw, 6rem); }
+.plan__panel {
+  background: var(--sage-500);
+  border: var(--border-thin);
+  border-radius: calc(var(--radius-card) + 8px);
+  padding: clamp(1.8rem, 4vw, 3.2rem);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr);
+  gap: clamp(1.8rem, 4vw, 3.5rem);
+  align-items: center;
+}
+.plan__figure img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 50% 50% var(--radius-card) var(--radius-card);
+  border: var(--border-thin);
+  filter: sepia(0.24) saturate(1.02);
+}
+.plan__eyebrow { color: var(--espresso-950); opacity: 0.75; margin-bottom: 0.7rem; }
+.plan__title {
+  font-family: var(--font-display);
+  font-variation-settings: var(--soft);
+  font-weight: 900;
+  font-size: clamp(1.9rem, 3.8vw, 2.9rem);
+  line-height: 1.02;
+  margin-bottom: 1.6rem;
+  color: var(--espresso-950);
+}
+.plan__stops { list-style: none; display: grid; gap: 0.85rem; margin-bottom: 1.9rem; }
+.plan__stop {
+  display: flex;
+  gap: 1rem;
+  align-items: baseline;
+  background: rgba(228,226,203,0.55);
+  border: 1px solid var(--sage-700);
+  border-radius: 14px;
+  padding: 0.7rem 1rem;
+  font-size: 0.95rem;
+}
+.plan__time {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--tobacco-700);
+  white-space: nowrap;
+}
+.plan__actions { display: flex; flex-wrap: wrap; gap: 0.9rem; }
+@media (max-width: 880px) {
+  .plan__panel { grid-template-columns: 1fr; }
+  .plan__figure { max-width: 340px; }
+}
+
+/* ============================================================
+   7 · JOURNAL FEATURE
+   ============================================================ */
+.journal {
+  padding-block: clamp(3.5rem, 7vw, 6rem);
+  background: var(--surface);
+  border-block: var(--border-thin);
+}
+.journal__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: center;
+}
+.journal__kicker { color: var(--sage-700); margin-bottom: 1rem; }
+.journal__kicker b { color: var(--brand-orange); }
+.journal__headline {
+  font-family: var(--font-display);
+  font-variation-settings: var(--soft);
+  font-weight: 900;
+  font-size: clamp(2.2rem, 4.6vw, 3.7rem);
+  line-height: 1.02;
+  text-wrap: balance;
+  margin-bottom: 1.2rem;
+}
+.journal__headline a { text-decoration: none; }
+.journal__headline a:hover { color: var(--tobacco-700); }
+.journal__dek { font-size: 1.08rem; max-width: var(--measure); color: var(--text-primary); margin-bottom: 1.4rem; }
+.journal__byline {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.journal__figure { position: relative; }
+.journal__figure img {
+  width: 100%;
+  aspect-ratio: 4 / 4.6;
+  object-fit: cover;
+  border-radius: var(--radius-card);
+  border: var(--border-thin);
+  filter: sepia(0.25) saturate(1.03);
+}
+.journal__stamp {
+  position: absolute;
+  top: -1.4rem;
+  right: -0.9rem;
+  width: 108px;
+  height: 108px;
+  animation: spin 24s linear infinite;
+}
+@keyframes spin { to { rotate: 360deg; } }
+@media (prefers-reduced-motion: reduce) { .journal__stamp { animation: none; } }
+@media (max-width: 880px) {
+  .journal__inner { grid-template-columns: 1fr; }
+  .journal__figure { order: -1; max-width: 420px; }
+}
+
+/* ============================================================
+   8 · THE INSIDER NOTE
+   ============================================================ */
+.dispatch { padding-block: clamp(3.5rem, 7vw, 6rem); background: var(--sand-300); border-bottom: var(--border-thin); }
+.dispatch__card {
+  max-width: 880px;
+  margin-inline: auto;
+  background: var(--surface);
+  border: 2px solid var(--espresso-950);
+  border-radius: calc(var(--radius-card) + 6px);
+  padding: clamp(2rem, 5vw, 3.4rem);
+  text-align: center;
+  box-shadow: var(--shadow-print);
+  position: relative;
+}
+.dispatch__eyebrow { color: var(--sage-700); margin-bottom: 0.9rem; }
+.dispatch__title {
+  font-family: var(--font-display);
+  font-variation-settings: var(--soft);
+  font-weight: 900;
+  font-size: clamp(2rem, 4.4vw, 3.1rem);
+  line-height: 1;
+  margin-bottom: 1.1rem;
+}
+.dispatch__title span { color: var(--brand-orange); }
+.dispatch__body { max-width: 54ch; margin-inline: auto; margin-bottom: 1.8rem; font-size: 1.02rem; }
+.dispatch__form {
+  display: flex;
+  gap: 0.7rem;
+  max-width: 480px;
+  margin-inline: auto;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.dispatch__input {
+  flex: 1 1 240px;
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  padding: 0.85rem 1.3rem;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid var(--tobacco-700);
+  background: var(--parchment-200);
+  color: var(--espresso-950);
+}
+.dispatch__input::placeholder { color: var(--text-muted); }
+.dispatch__sub { font-size: 0.85rem; color: var(--text-muted); }
+.dispatch__trust {
+  margin-top: 2rem;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--espresso-950);
+}
+.dispatch__trust a { text-decoration: none; border-bottom: 1.5px solid var(--brand-orange); }
+.dispatch__trust .sep { margin-inline: 0.8rem; }
+
+/* ============================================================
+   9 · FOOTER
+   ============================================================ */
+.footer {
+  background: var(--espresso-950);
+  color: var(--parchment-100);
+  padding-block: clamp(3rem, 6vw, 4.5rem) 2rem;
+}
+.footer__grid {
+  display: grid;
+  grid-template-columns: 1.4fr repeat(3, 1fr);
+  gap: 2.5rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--tobacco-700);
+}
+.footer__wordmark {
+  font-family: var(--font-display);
+  font-variation-settings: var(--soft);
+  font-weight: 900;
+  font-size: 1.7rem;
+  line-height: 1;
+  color: var(--brand-orange);
+  margin-bottom: 0.9rem;
+}
+.footer__tag { font-size: 0.92rem; color: var(--sand-300); max-width: 30ch; }
+.footer__heading {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--sand-300);
+  margin-bottom: 1rem;
+}
+.footer__list { list-style: none; display: grid; gap: 0.55rem; }
+.footer__list a {
+  font-size: 0.92rem;
+  text-decoration: none;
+  color: var(--parchment-100);
+  border-bottom: 1px solid transparent;
+}
+.footer__list a:hover { border-bottom-color: var(--brand-orange); }
+.footer__legal {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sand-300);
+}
+@media (max-width: 880px) {
+  .footer__grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- 1 · SIGNAL TICKER -->
+<div class="ticker" role="marquee" aria-label="This weekend on the Peninsula">
+  <div class="ticker__track">
+    <div class="ticker__group" aria-hidden="false">
+      <span class="ticker__item">Saturday 18 July · 13° and clearing by noon</span><span class="ticker__star">✶</span>
+      <span class="ticker__item">Winter Wine Weekend pours across Red Hill</span><span class="ticker__star">✶</span>
+      <span class="ticker__item">King tide at the back beaches, Sunday morning</span><span class="ticker__star">✶</span>
+      <span class="ticker__item">Truffle season: three weeks left</span><span class="ticker__star">✶</span>
+      <span class="ticker__item">Hot springs after dark, book the 8pm</span><span class="ticker__star">✶</span>
+    </div>
+    <div class="ticker__group" aria-hidden="true">
+      <span class="ticker__item">Saturday 18 July · 13° and clearing by noon</span><span class="ticker__star">✶</span>
+      <span class="ticker__item">Winter Wine Weekend pours across Red Hill</span><span class="ticker__star">✶</span>
+      <span class="ticker__item">King tide at the back beaches, Sunday morning</span><span class="ticker__star">✶</span>
+      <span class="ticker__item">Truffle season: three weeks left</span><span class="ticker__star">✶</span>
+      <span class="ticker__item">Hot springs after dark, book the 8pm</span><span class="ticker__star">✶</span>
+    </div>
+  </div>
+</div>
+
+<!-- 2 · MASTHEAD -->
+<header class="masthead">
+  <div class="container masthead__inner">
+    <a class="masthead__brand" href="/">
+      <svg class="masthead__sun" viewBox="0 0 48 48" aria-hidden="true">
+        <path d="M4 34 A20 20 0 0 1 44 34 Z" fill="#FC9002"/>
+        <path d="M10 34 A14 14 0 0 1 38 34 Z" fill="#C7B285"/>
+        <path d="M16 34 A8 8 0 0 1 32 34 Z" fill="#4B2709"/>
+        <rect x="2" y="36" width="44" height="3" rx="1.5" fill="#4B2709"/>
+        <path d="M6 42 q6 -3 12 0 t12 0 t12 0" stroke="#545533" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+      </svg>
+      <span class="masthead__wordmark">Peninsula Insider<small>The Mornington Peninsula, reviewed</small></span>
+    </a>
+    <nav class="masthead__nav" aria-label="Primary">
+      <a class="masthead__link" href="/eat/">Eat &amp; Drink</a>
+      <a class="masthead__link" href="/stay/">Stay</a>
+      <a class="masthead__link" href="/wine/">Wine</a>
+      <a class="masthead__link" href="/explore/">Explore</a>
+      <a class="masthead__link" href="/journal/">Journal</a>
+      <a class="masthead__link" href="/whats-on/">What&rsquo;s On</a>
+    </nav>
+    <a class="btn btn--primary masthead__cta" href="/ask/">Ask PI</a>
+  </div>
+</header>
+
+<main>
+
+<!-- 3 · COVER -->
+<section class="cover" aria-label="Cover">
+  <div class="cover__rings" aria-hidden="true"></div>
+  <div class="container cover__inner">
+    <div>
+      <p class="cover__eyebrow mono-label">Winter on the Peninsula</p>
+      <h1 class="cover__statement">The Mornington Peninsula, <em>sorted.</em></h1>
+      <p class="cover__context"><time datetime="2026-07-17">Friday 17 July</time> · Every pick earns its place</p>
+      <div class="cover__actions">
+        <a class="btn btn--primary" href="/whats-on/">See this weekend</a>
+        <a class="btn btn--ghost" href="/ask/">Ask PI anything</a>
+      </div>
+    </div>
+    <figure class="cover__figure">
+      <span class="cover__sticker">Independent since day one</span>
+      <img src="https://peninsulainsider.com.au/images/sourced/home-cover-back-beach-horses-01.jpg" alt="Horses on a Mornington Peninsula back beach at low tide" loading="eager">
+      <figcaption class="cover__caption">Back beach · 7:42am</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 4 · THIS WEEKEND -->
+<section class="weekend" aria-labelledby="weekend-title">
+  <div class="container">
+    <div class="weekend__head">
+      <div>
+        <p class="weekend__eyebrow mono-label">The short list</p>
+        <h2 class="weekend__title" id="weekend-title">This <span>weekend</span></h2>
+      </div>
+      <p class="weekend__dates">Sat 18 – Sun 19 July</p>
+    </div>
+    <div class="weekend__grid">
+
+      <article class="pick">
+        <span class="pick__sticker">Editor&rsquo;s pick</span>
+        <div class="pick__media">
+          <img src="https://peninsulainsider.com.au/images/sourced/whats-on-winter-wine.webp" alt="Winter Wine Weekend, a cellar door fire and glasses of pinot" loading="lazy">
+        </div>
+        <div class="pick__body">
+          <span class="pick__chip">Food &amp; wine</span>
+          <h3 class="pick__title"><a href="/whats-on/">Winter Wine Weekend, Red Hill</a></h3>
+          <p class="pick__verdict">Forty cellar doors pouring by the fire. <strong>Start at Paringa,</strong> and skip the shuttle queue after two.</p>
+          <p class="pick__meta">Red Hill &amp; surrounds · Ticketed</p>
+          <div class="pick__actions">
+            <button class="pick__action" type="button">&#9825; Save</button>
+            <button class="pick__action" type="button">+ Trip</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="pick">
+        <div class="pick__media">
+          <img src="https://peninsulainsider.com.au/images/sourced/spa-peninsula-hot-springs-hilltop-01.webp" alt="Peninsula Hot Springs hilltop pool steaming in cold air" loading="lazy">
+        </div>
+        <div class="pick__body">
+          <span class="pick__chip">Wellness</span>
+          <h3 class="pick__title"><a href="/whats-on/">Hot springs after dark</a></h3>
+          <p class="pick__verdict">Steam, cold air, no coaches in the car park. <strong>The 8pm bathing slot</strong> is the one locals actually book.</p>
+          <p class="pick__meta">Fingal · From $75</p>
+          <div class="pick__actions">
+            <button class="pick__action" type="button">&#9825; Save</button>
+            <button class="pick__action" type="button">+ Trip</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="pick">
+        <div class="pick__media">
+          <img src="https://peninsulainsider.com.au/images/sourced/explore-bushrangers-bay-walk-01.webp" alt="Bushrangers Bay walking track above a wild winter coastline" loading="lazy">
+        </div>
+        <div class="pick__body">
+          <span class="pick__chip">Nature</span>
+          <h3 class="pick__title"><a href="/whats-on/">Bushrangers Bay, king-tide edition</a></h3>
+          <p class="pick__verdict">The Peninsula&rsquo;s best hour of winter drama. <strong>Two hours return</strong> from Cape Schanck, waterproof boots not optional.</p>
+          <p class="pick__meta">Cape Schanck · Free</p>
+          <div class="pick__actions">
+            <button class="pick__action" type="button">&#9825; Save</button>
+            <button class="pick__action" type="button">+ Trip</button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+    <p class="weekend__more"><a href="/whats-on/">Everything on this weekend &rarr;</a></p>
+  </div>
+</section>
+
+<!-- 5 · FOUR DOORS -->
+<section class="doors" aria-labelledby="doors-title">
+  <div class="container">
+    <div class="doors__head">
+      <h2 class="doors__title" id="doors-title">The four ways in</h2>
+      <p class="doors__sub">Pick a door, we&rsquo;ve done the legwork</p>
+    </div>
+    <div class="doors__grid">
+
+      <a class="door" href="/eat/">
+        <img src="https://peninsulainsider.com.au/images/sourced/venue-italian-dining-01.webp" alt="A Peninsula dining room, table laid, light low" loading="lazy">
+        <span class="door__scrim" aria-hidden="true"></span>
+        <span class="door__num">No. 01</span>
+        <span class="door__body">
+          <span class="door__label">Eat &amp; Drink</span>
+          <span class="door__line">141 places, six worth planning around</span>
+        </span>
+        <span class="door__arrow" aria-hidden="true">&rarr;</span>
+      </a>
+
+      <a class="door" href="/stay/">
+        <img src="https://peninsulainsider.com.au/images/sourced/venue-jackalope-hotel-01.webp" alt="Jackalope Hotel, Merricks North vineyard at dusk" loading="lazy">
+        <span class="door__scrim" aria-hidden="true"></span>
+        <span class="door__num">No. 02</span>
+        <span class="door__body">
+          <span class="door__label">Stay</span>
+          <span class="door__line">38 stays, from shack to cliff house</span>
+        </span>
+        <span class="door__arrow" aria-hidden="true">&rarr;</span>
+      </a>
+
+      <a class="door" href="/wine/">
+        <img src="https://peninsulainsider.com.au/images/sourced/article-cellar-door-01.webp" alt="A Peninsula cellar door, bottles open, glasses poured" loading="lazy">
+        <span class="door__scrim" aria-hidden="true"></span>
+        <span class="door__num">No. 03</span>
+        <span class="door__body">
+          <span class="door__label">Wine</span>
+          <span class="door__line">54 cellar doors, ranked by the pour, not the view</span>
+        </span>
+        <span class="door__arrow" aria-hidden="true">&rarr;</span>
+      </a>
+
+      <a class="door" href="/explore/">
+        <img src="https://peninsulainsider.com.au/images/sourced/explore-cape-schanck-lighthouse-01.webp" alt="Cape Schanck Lighthouse and the Bass Strait coast" loading="lazy">
+        <span class="door__scrim" aria-hidden="true"></span>
+        <span class="door__num">No. 04</span>
+        <span class="door__body">
+          <span class="door__label">Explore</span>
+          <span class="door__line">Walks, beaches, springs, and the roads between them</span>
+        </span>
+        <span class="door__arrow" aria-hidden="true">&rarr;</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- 6 · THE PLAN -->
+<section class="plan" aria-labelledby="plan-title">
+  <div class="container">
+    <div class="plan__panel">
+      <figure class="plan__figure">
+        <img src="https://peninsulainsider.com.au/images/sourced/article-rainy-day-01.webp" alt="Rain on a cafe window on the Mornington Peninsula" loading="lazy">
+      </figure>
+      <div>
+        <p class="plan__eyebrow mono-label">Featured plan · Rain-proof</p>
+        <h2 class="plan__title" id="plan-title">The wet Saturday plan</h2>
+        <ol class="plan__stops">
+          <li class="plan__stop"><span class="plan__time">09:00</span><span>Pastries first: the Balnarring bakery run before the queue forms</span></li>
+          <li class="plan__stop"><span class="plan__time">11:00</span><span>MPRG in Mornington, the Peninsula&rsquo;s best free hour indoors</span></li>
+          <li class="plan__stop"><span class="plan__time">13:00</span><span>Long lunch in Red Hill, the fireplace table if you call ahead</span></li>
+          <li class="plan__stop"><span class="plan__time">16:00</span><span>Hot springs while the rain does its thing overhead</span></li>
+        </ol>
+        <div class="plan__actions">
+          <a class="btn btn--primary" href="/plan/">Follow this plan</a>
+          <a class="btn btn--ghost" href="/plan/">Swap any stop</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 · JOURNAL FEATURE -->
+<section class="journal" aria-labelledby="journal-title">
+  <div class="container journal__inner">
+    <div>
+      <p class="journal__kicker mono-label">From the Journal · <b>Feature</b></p>
+      <h2 class="journal__headline" id="journal-title"><a href="/journal/">Chasing the four o&rsquo;clock light</a></h2>
+      <p class="journal__dek">Winter compresses the Peninsula&rsquo;s day into one golden hour. A field guide to spending it on foot, from the Flinders pier steps to the Greens Bush clearings, with the exact minute to be standing at each one.</p>
+      <p class="journal__byline">By the Editor · 14 July 2026 · 9 min read</p>
+    </div>
+    <figure class="journal__figure">
+      <img src="https://peninsulainsider.com.au/images/sourced/journal-late-afternoon-walks-01.webp" alt="Late afternoon winter light across a Peninsula walking track" loading="lazy">
+      <svg class="journal__stamp" viewBox="0 0 100 100" aria-hidden="true">
+        <defs><path id="circ" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs>
+        <circle cx="50" cy="50" r="49" fill="#FC9002" stroke="#4B2709" stroke-width="2"/>
+        <circle cx="50" cy="50" r="26" fill="#E4E2CB" stroke="#4B2709" stroke-width="1.5"/>
+        <text font-family="Space Mono, monospace" font-size="10.5" font-weight="700" fill="#4B2709" letter-spacing="2.5">
+          <textPath href="#circ">READ · THE · JOURNAL · READ · THE ·</textPath>
+        </text>
+        <text x="50" y="55" text-anchor="middle" font-family="Fraunces, serif" font-size="15" font-weight="900" fill="#4B2709">PI</text>
+      </svg>
+    </figure>
+  </div>
+</section>
+
+<!-- 8 · THE INSIDER NOTE -->
+<section class="dispatch" aria-labelledby="dispatch-title">
+  <div class="container">
+    <div class="dispatch__card">
+      <p class="dispatch__eyebrow mono-label">The Dispatch</p>
+      <h2 class="dispatch__title" id="dispatch-title">The <span>Insider</span> Note</h2>
+      <p class="dispatch__body">One pick, one weather-proof backup, one thing to skip. Written on the Peninsula, sent only when there is something worth knowing.</p>
+      <form class="dispatch__form" action="#" method="post">
+        <label for="dispatch-email" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">Email address</label>
+        <input class="dispatch__input" id="dispatch-email" type="email" name="email" placeholder="your@email.com" autocomplete="email" required>
+        <button class="btn btn--primary" type="submit">Get the Note</button>
+      </form>
+      <p class="dispatch__sub">No sponsors in the copy, no affiliate links. Unsubscribe any time.</p>
+    </div>
+    <p class="dispatch__trust">
+      <a href="/editorial-approach/">How we review &rarr;</a>
+      <span class="sep" aria-hidden="true">·</span>
+      <span>Partner content is always labelled.</span>
+    </p>
+  </div>
+</section>
+
+</main>
+
+<!-- 9 · FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <p class="footer__wordmark">Peninsula Insider</p>
+        <p class="footer__tag">An independent editorial guide to the Mornington Peninsula. Every pick earns its place. Every verdict has a reason.</p>
+      </div>
+      <nav aria-label="The four doors">
+        <p class="footer__heading">The four doors</p>
+        <ul class="footer__list">
+          <li><a href="/eat/">Eat &amp; Drink</a></li>
+          <li><a href="/stay/">Stay</a></li>
+          <li><a href="/wine/">Wine</a></li>
+          <li><a href="/explore/">Explore</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="The paper">
+        <p class="footer__heading">The paper</p>
+        <ul class="footer__list">
+          <li><a href="/journal/">Journal</a></li>
+          <li><a href="/whats-on/">What&rsquo;s On</a></li>
+          <li><a href="/plan/">Plans</a></li>
+          <li><a href="/awards/">The Awards</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="The fine print">
+        <p class="footer__heading">The fine print</p>
+        <ul class="footer__list">
+          <li><a href="/editorial-approach/">How we review</a></li>
+          <li><a href="/partners/">Partner labelling</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer__legal">
+      <span>We live and work on Bunurong Country.</span>
+      <span>&copy; 2026 Peninsula Insider · Design draft: Transistor Coast</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

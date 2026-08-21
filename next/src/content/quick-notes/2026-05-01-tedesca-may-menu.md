@@ -1,5 +1,5 @@
 ---
-headline: "Tedesca's May menu is on — the asparagus is on Sunday"
+headline: "Tedesca's May menu is on - the asparagus is on Sunday"
 dek: "Brigitte Hafner's seasonal flip drops one new course per week through May. This Sunday: charcoal asparagus with a fresh sheep's curd from Glenarbon."
 section: eat
 tag: menu-change
@@ -16,4 +16,4 @@ relatedVenue: tedesca-osteria
 status: archived
 ---
 
-Hafner's three-month menus stay still; the weekly course is the editorial freshness. May's first one — charcoal asparagus, sheep's curd, lemon zest — is the best argument for the lunch-only dining room of any course this year.
+Hafner's three-month menus stay still; the weekly course is the editorial freshness. May's first one - charcoal asparagus, sheep's curd, lemon zest - is the best argument for the lunch-only dining room of any course this year.

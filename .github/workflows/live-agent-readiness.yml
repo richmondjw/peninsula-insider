@@ -1,0 +1,56 @@
+name: Live Agent Readiness — Peninsula Insider
+
+on:
+  workflow_run:
+    workflows: ['Build and Deploy — Peninsula Insider']
+    types: [completed]
+  schedule:
+    # Independent daily proof 30 minutes after the 14:10 UTC rebuild.
+    # That is 00:40 AEST / 01:40 AEDT, after the local date has rolled over.
+    - cron: '40 14 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: live-agent-readiness
+  cancel-in-progress: true
+
+jobs:
+  verify-live-agent-readiness:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      TZ: Australia/Sydney
+      EXPECTED_SHA: ${{ github.event.workflow_run.head_sha }}
+
+    steps:
+      - name: Checkout current source of truth
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          ref: main
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with:
+          node-version: '22'
+
+      - name: Verify deployed provenance and agent-facing surfaces
+        run: node next/scripts/audit-live-agent-readiness.mjs
+
+      - name: Alert on stale, incomplete, or unsafe live output
+        if: failure()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          PI_REPO_ROOT: ${{ github.workspace }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          python3 engine/alert.py \
+            --title "Live agent-readiness gate failed (run #${{ github.run_number }})" \
+            --body "The deployed site did not match the expected source commit or failed a semantic agent-readiness check. Run: ${RUN_URL}" \
+            --dedup live-agent-readiness --severity fatal

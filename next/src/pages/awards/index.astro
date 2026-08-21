@@ -1,6 +1,6 @@
 ---
 /**
- * /awards/ — Peninsula Insider Awards landing page (Phase 4 WS4E).
+ * /awards/ - Peninsula Insider Awards landing page (Phase 4 WS4E).
  *
  * Annual editorial moment combining editor-selected categories and
  * reader-voted ones. v1 ships the *infrastructure*: voting, nomination,
@@ -9,9 +9,9 @@
  * up the year's slate via Supabase Studio without a code change.
  *
  * Annual cycle:
- *   August  — nominations open (visitors POST to pi.award_nominations)
- *   September — voting open (signed-in users POST to pi.award_votes)
- *   First weekend of October — results announced (published=true)
+ *   August - nominations open (visitors POST to pi.award_nominations)
+ *   September - voting open (signed-in users POST to pi.award_votes)
+ *   First weekend of October - results announced (published=true)
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
@@ -99,7 +99,7 @@ export const prerender = true;
         <p class="awards-nominate-cta__body">
           Got a spot or a moment that should be on the slate? Send it in. Editorial reviews every nomination; the strongest go on the public ballot.
         </p>
-        <a href="/awards/nominate/" class="awards-nominate-cta__link">Nominate something →</a>
+        <a href="/awards/nominate/" class="pi-btn pi-btn--text">Nominate something →</a>
       </aside>
     </div>
   </section>
@@ -164,7 +164,7 @@ export const prerender = true;
         li.setAttribute('data-category-slug', row.slug);
         const state = votingState(row);
         const stateLabel =
-          state === 'open'      ? 'Voting open — cast yours' :
+          state === 'open'      ? 'Voting open - cast yours' :
           state === 'closed'    ? 'Voting closed' :
           state === 'published' ? 'Results published' :
                                   'Voting opens September';
@@ -208,14 +208,14 @@ export const prerender = true;
   }
   @media (min-width: 720px) { .awards-cycle__list { grid-template-columns: 1fr 1fr 1fr; } }
   .awards-cycle__phase {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: var(--font-display);
     font-size: 1.2rem;
     font-weight: 500;
     color: var(--accent);
     margin: 0 0 0.3rem;
   }
   .awards-cycle__what {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.92rem;
     line-height: 1.55;
     color: var(--dark);
@@ -223,7 +223,7 @@ export const prerender = true;
   }
 
   .awards-status {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.85rem;
     letter-spacing: 0.04em;
     color: var(--soft);
@@ -251,7 +251,7 @@ export const prerender = true;
     gap: 0.4rem;
   }
   .award-category__eyebrow {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.7rem;
     font-weight: 600;
     letter-spacing: 0.12em;
@@ -260,7 +260,7 @@ export const prerender = true;
     margin: 0;
   }
   .award-category__title {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: var(--font-display);
     font-size: 1.4rem;
     font-weight: 500;
     line-height: 1.15;
@@ -272,14 +272,14 @@ export const prerender = true;
   }
   .award-category__title a:hover { color: var(--accent); }
   .award-category__description {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.92rem;
     line-height: 1.55;
     color: var(--dark);
     margin: 0;
   }
   .award-category__meta {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.78rem;
     letter-spacing: 0.04em;
     color: var(--soft);
@@ -292,25 +292,11 @@ export const prerender = true;
     border-top: 1px solid var(--border);
   }
   .awards-nominate-cta__body {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 1rem;
     line-height: 1.6;
     color: var(--dark);
     max-width: 36rem;
     margin: 0.55rem 0 1rem;
   }
-  .awards-nominate-cta__link {
-    display: inline-flex;
-    align-items: center;
-    font-family: 'Outfit', sans-serif;
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--accent);
-    text-decoration: none;
-    border-bottom: 1px solid rgba(167, 118, 55, 0.5);
-    padding-bottom: 0.1rem;
-  }
-  .awards-nominate-cta__link:hover { border-bottom-color: var(--accent); color: var(--text); }
 </style>

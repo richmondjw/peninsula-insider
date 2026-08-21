@@ -1,0 +1,139 @@
+---
+/**
+ * EditionWeekendBuilder - the shape of the weekend, interactive.
+ *
+ * Five moods, three slots (Friday night, Saturday, Sunday). Picking a
+ * mood recomposes the weekend from real published plans; every slot
+ * links to the plan it names. Data is baked at build time from a curated
+ * map of existing plan slugs - deterministic, no fetches, and the build
+ * fails if a slug ever stops resolving (they are plain hrefs into pages
+ * this same build generates).
+ */
+const MOODS = [
+  {
+    key: 'wine',
+    label: 'Wine-led',
+    slots: {
+      fri: { title: 'The Friday night arrival', note: 'Get down before dark, one booked table, no ambition.', href: '/explore/plans/the-friday-night-arrival/' },
+      sat: { title: 'A Red Hill Saturday', note: 'Ridge first, cellar doors before lunch, lunch long.', href: '/explore/plans/how-to-build-a-red-hill-saturday/' },
+      sun: { title: 'The producer trail', note: 'Farm gates and providores on the slow road home.', href: '/explore/plans/the-producer-trail/' },
+    },
+  },
+  {
+    key: 'coastal',
+    label: 'Coastal',
+    slots: {
+      fri: { title: 'The Friday night arrival', note: 'Sorrento side. Fish and chips beats a booking tonight.', href: '/explore/plans/the-friday-night-arrival/' },
+      sat: { title: 'Cape Schanck to the springs', note: 'The clifftop walk first, hot water after. That order.', href: '/explore/plans/walks-cape-schanck-hot-springs-day/' },
+      sun: { title: 'The Point Nepean half-day', note: 'Forts, quarantine station, and the narrowest bit of the bay.', href: '/explore/plans/the-point-nepean-half-day/' },
+    },
+  },
+  {
+    key: 'family',
+    label: 'Family',
+    slots: {
+      fri: { title: 'The one-booking day', note: 'Book one thing. Let the rest of the day bend around it.', href: '/explore/plans/the-one-booking-peninsula-day/' },
+      sat: { title: 'The family day out', note: 'Built for short legs and early finishes.', href: '/explore/plans/the-family-day-out/' },
+      sun: { title: 'The market Saturday, Sunday edition', note: 'Producers, a beach hour, home by three.', href: '/explore/plans/the-market-saturday/' },
+    },
+  },
+  {
+    key: 'rainy',
+    label: 'Rainy day',
+    slots: {
+      fri: { title: 'The pub crawl', note: 'Front bars with fires. The weather is the point.', href: '/explore/plans/the-pub-crawl/' },
+      sat: { title: 'The thermal springs weekend', note: 'Rain on hot water is the Peninsula at its best.', href: '/explore/plans/the-thermal-springs-weekend/' },
+      sun: { title: 'The four-hour Peninsula', note: 'One gallery, one long lunch, one drive. Done.', href: '/explore/plans/the-four-hour-peninsula/' },
+    },
+  },
+  {
+    key: 'slow',
+    label: 'No bookings',
+    slots: {
+      fri: { title: 'The Friday night arrival', note: 'Walk-ins only. The bar seats are the good seats.', href: '/explore/plans/the-friday-night-arrival/' },
+      sat: { title: 'The market Saturday', note: 'Turn up early, buy lunch from the stalls, improvise.', href: '/explore/plans/the-market-saturday/' },
+      sun: { title: 'Flinders and the Cape reset', note: 'No reservations. Just the ocean side of the Peninsula.', href: '/explore/plans/flinders-and-cape-reset/' },
+    },
+  },
+];
+
+const initial = MOODS[0];
+const SLOT_LABELS = [
+  { key: 'fri', label: 'Friday night' },
+  { key: 'sat', label: 'Saturday' },
+  { key: 'sun', label: 'Sunday' },
+];
+---
+
+<section class="ed-builder" aria-label="Shape the weekend">
+  <div class="container">
+    <div class="ed-builder__head">
+      <h2 class="ed-builder__title">The shape of the <em>weekend.</em></h2>
+      <p class="ed-builder__sub">Pick a mood. PI recomposes the two days from plans the editors have already driven, eaten, and slept.</p>
+    </div>
+
+    <div class="ed-builder__chips" role="tablist" aria-label="Weekend mood">
+      {MOODS.map((m, i) => (
+        <button
+          type="button"
+          role="tab"
+          class={`ed-builder__chip${i === 0 ? ' is-active' : ''}`}
+          aria-selected={i === 0 ? 'true' : 'false'}
+          data-ed-mood={m.key}
+        >{m.label}</button>
+      ))}
+    </div>
+
+    <div class="ed-builder__slots" data-ed-slots>
+      {SLOT_LABELS.map((s) => (
+        <a class="ed-builder__slot" href={initial.slots[s.key].href} data-ed-slot={s.key}>
+          <span class="ed-builder__slot-day">{s.label}</span>
+          <span class="ed-builder__slot-title" data-ed-slot-title>{initial.slots[s.key].title}</span>
+          <span class="ed-builder__slot-note" data-ed-slot-note>{initial.slots[s.key].note}</span>
+          <span class="ed-builder__slot-cta" aria-hidden="true">Open the plan →</span>
+        </a>
+      ))}
+    </div>
+
+    <p class="ed-builder__foot">
+      Want it your way? <a href="/explore/plans/build/">Open the plan builder →</a>
+    </p>
+  </div>
+
+  <script type="application/json" data-ed-moods set:html={JSON.stringify(MOODS)} />
+</section>
+
+<script is:inline>
+  (function () {
+    var dataEl = document.querySelector('[data-ed-moods]');
+    if (!dataEl) return;
+    var moods;
+    try { moods = JSON.parse(dataEl.textContent); } catch { return; }
+    var byKey = {};
+    moods.forEach(function (m) { byKey[m.key] = m; });
+
+    var chips = Array.from(document.querySelectorAll('[data-ed-mood]'));
+    chips.forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        var mood = byKey[chip.getAttribute('data-ed-mood')];
+        if (!mood) return;
+        chips.forEach(function (c) {
+          var on = c === chip;
+          c.classList.toggle('is-active', on);
+          c.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
+        ['fri', 'sat', 'sun'].forEach(function (key) {
+          var slot = document.querySelector('[data-ed-slot="' + key + '"]');
+          var s = mood.slots[key];
+          if (!slot || !s) return;
+          slot.setAttribute('href', s.href);
+          slot.querySelector('[data-ed-slot-title]').textContent = s.title;
+          slot.querySelector('[data-ed-slot-note]').textContent = s.note;
+          slot.classList.remove('is-swapped');
+          void slot.offsetWidth;
+          slot.classList.add('is-swapped');
+        });
+      });
+    });
+  })();
+</script>

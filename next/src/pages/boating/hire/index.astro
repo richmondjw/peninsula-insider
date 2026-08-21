@@ -5,7 +5,7 @@ import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import SectionHero from '../../../components/SectionHero.astro';
 import NewsletterBlock from '../../../components/NewsletterBlock.astro';
 import BfAnalytics from '../../../components/BfAnalytics.astro';
-import { buildBfHubSchema, buildBreadcrumbSchema } from '../../../lib/schema';
+import { buildBfHubSchema } from '../../../lib/schema';
 import { formatVerifiedStamp } from '../../../lib/bf';
 
 const lastVerifiedISO = '2026-04-30';
@@ -38,23 +38,17 @@ const hubSchema = buildBfHubSchema({
   })),
 });
 
-const breadcrumbSchema = buildBreadcrumbSchema([
-  { name: 'Home', url: 'https://peninsulainsider.com.au/' },
-  { name: 'Boating', url: 'https://peninsulainsider.com.au/boating/' },
-  { name: 'Boat hire', url: 'https://peninsulainsider.com.au/boating/hire/' },
-]);
 export const prerender = true;
 ---
 
 <BaseLayout
   title="Mornington Peninsula boat hire · Peninsula Insider"
-  description="Self-drive boat hire on the Mornington Peninsula. Operator profiles, vessel types, no-licence options, and gear-included pricing — by location."
+  description="Self-drive boat hire on the Mornington Peninsula. Operator profiles, vessel types, no-licence options, and gear-included pricing - by location."
   section="boating"
   canonical="https://peninsulainsider.com.au/boating/hire/"
   modifiedTime={lastVerifiedISO}
 >
   <script type="application/ld+json" set:html={JSON.stringify(hubSchema)} />
-  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   <BfAnalytics />
 
   <Breadcrumbs items={breadcrumbItems} />
@@ -62,7 +56,7 @@ export const prerender = true;
   <SectionHero
     eyebrow="Boating · Hire"
     title="Self-drive boat hire on the <em>Peninsula</em>"
-    dek="Tinnies and polycraft from Mornington, Sorrento, Rye, and Safety Beach. No-licence options for visitors. Half-day and full-day rates with the gear sometimes included — confirm with the operator."
+    dek="Tinnies and polycraft from Mornington, Sorrento, Rye, and Safety Beach. No-licence options for visitors. Half-day and full-day rates with the gear sometimes included - confirm with the operator."
     gradient="vineyard"
   entitySlug="boating-hire"
   />
@@ -76,17 +70,17 @@ export const prerender = true;
       ) : (
         <div class="venues__grid venues__grid--links">
           {allHire.map((h) => (
-            <article class="venue-card">
+            <article class="pi-card"><div class="pi-card__body">
               <h2 class="venue-card__name">
                 <a href={`/boating/hire/${h.data.slug}/`}>{h.data.name}</a>
               </h2>
-              <p class="venue-card__meta">
+              <p class="pi-card__meta">
                 {h.data.departurePoint}
                 {h.data.licenceRequired === false ? ' · No licence required' : ' · Licence required'}
               </p>
-              <p class="venue-card__signature">{h.data.intro}</p>
-              <a href={`/boating/hire/${h.data.slug}/`} class="venue-card__cta">Operator profile &rarr;</a>
-            </article>
+              <p class="pi-card__dek">{h.data.intro}</p>
+              <div class="pi-card__actions"><a href={`/boating/hire/${h.data.slug}/`} class="pi-btn pi-btn--solid">Operator profile &rarr;</a></div>
+            </div></article>
           ))}
         </div>
       )}

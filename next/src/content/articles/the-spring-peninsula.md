@@ -6,12 +6,12 @@ houseByline: true
 publishedAt: 2026-04-16
 heroImage:
   src: "/images/sourced/article-vineyard-villa-01.webp"
-  alt: "Red Hill vineyards bursting back into leaf in October with wildflowers along the fence lines — representative image"
+  alt: "Red Hill vineyards bursting back into leaf in October with wildflowers along the fence lines - representative image"
   credit: "Peninsula Insider"
   license: "tmp-unsplash"
 format: "editors-letter"
 tags: ["spring", "seasonal", "weekend", "red-hill", "markets", "walks"]
-relatedVenues: ["montalto", "merricks-general-wine-store", "lindenderry", "ten-minutes-by-tractor", "polperro", "crittenden-estate", "paringa-estate", "red-hill-brewery", "flinders-hotel", "tedesca-osteria", "pt-leo-estate", "sunny-ridge-strawberry-farm", "mornington-farmers-market", "red-hill-market", "balnarring-market"]
+relatedVenues: ["montalto", "merricks-general-wine-store", "lindenderry", "ten-minutes-by-tractor", "polperro", "crittenden-estate", "paringa-estate", "red-hill-brewery", "flinders-hotel", "tedesca-osteria", "pt-leo-estate", "mornington-farmers-market", "red-hill-market", "balnarring-market"]
 relatedExperiences: ["bushrangers-bay-walk", "red-hill-market", "arthurs-seat-lookout", "mount-martha-beach", "mornington-foreshore-walk", "red-hill-hinterland-cycling", "farnsworth-track"]
 readingTimeMinutes: 7
 featured: false
@@ -20,7 +20,7 @@ lastVerified: 2026-04-22
 clusterLinks:
   - label: "The Bushrangers Bay Walk"
     href: "/journal/walks-bushrangers-bay-walk-guide/"
-  - label: "Arthurs Seat Eagle — Visitor Guide"
+  - label: "Arthurs Seat Eagle - Visitor Guide"
     href: "/journal/arthurs-seat-eagle-visitor-guide/"
   - label: "Hatted Restaurants on the Mornington Peninsula 2025"
     href: "/journal/hatted-restaurants-mornington-peninsula-2025/"

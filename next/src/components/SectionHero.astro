@@ -39,7 +39,7 @@ const {
 
 const editable = !!entitySlug;
 
-// Build-time override consult — eliminate flash where the default
+// Build-time override consult - eliminate flash where the default
 // title / dek / hero paints before the client-side patcher swaps.
 const overrides = editable ? await loadOverrides(entityType, entitySlug!) : null;
 const titleOverride = overrides?.text['hero.title'];
@@ -51,7 +51,6 @@ const resolvedDek = dekOverride ?? dek;
 const resolvedHeroImage = imageOverride?.src ?? heroImage;
 
 const gradClass = `section-hero__visual hero-grad--${gradient}`;
-const heroStyle = resolvedHeroImage ? `background-image: url(${resolvedHeroImage})` : undefined;
 
 const titleAttrs = editable
   ? editableText({ entityType, entitySlug: entitySlug!, fieldPath: 'hero.title', label: `${entitySlug} hero title` })
@@ -76,7 +75,17 @@ const imageAttrs = editable
         <h1 class="section-hero__title" set:html={resolvedTitle} {...titleAttrs} />
         <p class="section-hero__dek" {...dekAttrs}>{resolvedDek}</p>
       </div>
-      <div class={gradClass} aria-hidden="true" style={heroStyle} {...imageAttrs}>
+      <div class={gradClass} {...imageAttrs}>
+        {resolvedHeroImage && (
+          <img
+            class="section-hero__visual-image"
+            src={resolvedHeroImage}
+            alt=""
+            aria-hidden="true"
+            loading="eager"
+            decoding="async"
+          />
+        )}
         <div class="section-hero__visual-fog"></div>
         {visualLabel && <span class="section-hero__visual-label">{visualLabel}</span>}
       </div>

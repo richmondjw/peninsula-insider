@@ -12,7 +12,7 @@
 //
 // Usage: node scripts/lint-schema.mjs   (run from next/, after astro build)
 // Exits 1 on any violation. Run after `npm run build`; not wired into the
-// build chain itself so a markup audit can't block an urgent deploy —
+// build chain itself so a markup audit can't block an urgent deploy -
 // CI should run it as a separate step.
 
 import fs from 'node:fs';

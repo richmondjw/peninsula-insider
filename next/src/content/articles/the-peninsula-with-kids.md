@@ -11,30 +11,30 @@ heroImage:
   license: "tmp-wikimedia"
 format: "service"
 tags: ["family", "kids", "day-trip", "explore", "mount-martha", "arthurs-seat"]
-relatedVenues: ["red-hill-brewery", "merricks-general-wine-store", "commonfolk-coffee", "epicurean-red-hill", "sunny-ridge-strawberry-farm", "main-ridge-dairy", "ashcombe-maze", "red-gum-bbq", "st-andrews-beach-brewery", "dromana-hotel", "rye-hotel", "sorrento-gelato", "johnny-ripe"]
+relatedVenues: ["red-hill-brewery", "merricks-general-wine-store", "commonfolk-coffee", "epicurean-red-hill", "main-ridge-dairy", "red-gum-bbq", "st-andrews-beach-brewery", "dromana-hotel", "rye-hotel", "johnny-ripe"]
 relatedExperiences: ["arthurs-seat-lookout", "mount-martha-beach", "balnarring-beach", "mornington-peninsula-gallery"]
 readingTimeMinutes: 7
 featured: false
 status: "published"
 lastVerified: 2026-04-22
 clusterLinks:
-  - label: "Arthurs Seat Eagle — Visitor Guide"
+  - label: "Arthurs Seat Eagle - Visitor Guide"
     href: "/journal/arthurs-seat-eagle-visitor-guide/"
-  - label: "Ashcombe Maze — Visitor Guide"
+  - label: "Ashcombe Maze - Visitor Guide"
     href: "/journal/ashcombe-maze-visitor-guide/"
   - label: "Free Things to Do on the Mornington Peninsula"
     href: "/journal/free-things-to-do-mornington-peninsula/"
 faq:
   - question: "What's the best thing to do on the Mornington Peninsula with kids?"
-    answer: "Arthurs Seat Eagle gondola is the strongest single move for children between 4 and 12 — about 20 minutes each way, summit views across both bays, a playground, and a café. Red Hill Brewery follows well for a family lunch with outdoor grass, wood-fired pizza, and space to run."
+    answer: "Arthurs Seat Eagle gondola is the strongest single move for children between 4 and 12 - about 20 minutes each way, summit views across both bays, a playground, and a café. Red Hill Brewery follows well for a family lunch with outdoor grass, wood-fired pizza, and space to run."
   - question: "Is the Mornington Peninsula good for young children and toddlers?"
-    answer: "Yes, with the right itinerary. Mount Martha Beach on the bay side is ideal for young children — gentle shallow water, easy parking, no rip. Avoid the ocean back beaches (Sorrento, Gunnamatta) with under-fives: the surf is serious and the car parks are further from the sand than they look."
+    answer: "Yes, with the right itinerary. Mount Martha Beach on the bay side is ideal for young children - gentle shallow water, easy parking, no rip. Avoid the ocean back beaches (Sorrento, Gunnamatta) with under-fives: the surf is serious and the car parks are further from the sand than they look."
   - question: "Which are the most family-friendly restaurants on the Mornington Peninsula?"
-    answer: "Red Hill Brewery (outdoor grass, wood-fired pizza, room to move), Merricks General Wine Store (relaxed dining, fast kitchen), and Epicurean Red Hill are the strongest family lunch options. Avoid long degustation formats or formal terrace restaurants — they don't work with children and neither side will enjoy it."
+    answer: "Red Hill Brewery (outdoor grass, wood-fired pizza, room to move), Merricks General Wine Store (relaxed dining, fast kitchen), and Epicurean Red Hill are the strongest family lunch options. Avoid long degustation formats or formal terrace restaurants - they don't work with children and neither side will enjoy it."
 aiSummary:
-  - "A practical guide to visiting the Mornington Peninsula with children — structured around what actually works and what to avoid, rather than an exhaustive list of family-friendly attractions."
+  - "A practical guide to visiting the Mornington Peninsula with children - structured around what actually works and what to avoid, rather than an exhaustive list of family-friendly attractions."
   - "Key recommendations: calm bay beaches for young children (Rosebud, Dromana, Mount Martha); Arthurs Seat Eagle gondola as the standout family activity; Red Hill Market on a first Saturday; Ashcombe Maze for a half-day."
-  - "The editorial angle: Peninsula beaches are divided — bay side is calm and safe for young children, ocean side has surf and rips. The piece helps parents choose the right beach for their children's ages and swimming ability."
+  - "The editorial angle: Peninsula beaches are divided - bay side is calm and safe for young children, ocean side has surf and rips. The piece helps parents choose the right beach for their children's ages and swimming ability."
   - "Suits: families with children under 12; first-time Peninsula visitors with kids; anyone planning a Peninsula trip around school holiday activities."
   - "Planning note: the most common mistake is choosing ocean-side accommodation when young children need bay-side beaches. This piece helps sequence that decision correctly."
 ---

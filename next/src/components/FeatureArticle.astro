@@ -47,7 +47,7 @@ const featureImgStyle = hero.style;
           <span class="label label--accent">From the Journal</span>
         </div>
         <h2 class="feature__title">
-          <a href={`/journal/${slug}`}>{article.data.title}</a>
+          <a href={`/journal/${slug}/`}>{article.data.title}</a>
         </h2>
         <p class="feature__dek">{article.data.dek}</p>
         <div class="feature__byline">
@@ -59,7 +59,7 @@ const featureImgStyle = hero.style;
             </>
           )}
         </div>
-        <a href={`/journal/${slug}`} class="feature__cta">
+        <a href={`/journal/${slug}/`} class="feature__cta pi-btn pi-btn--text">
           Read the full piece &nbsp;→
         </a>
       </div>

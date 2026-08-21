@@ -1,5 +1,5 @@
 /**
- * Peninsula Insider — CMS server-side helpers.
+ * Peninsula Insider - CMS server-side helpers.
  *
  * Used by:
  *   - src/middleware.ts (when PI_ADMIN_HYBRID=1) to gate admin paths
@@ -12,7 +12,7 @@
  * RLS-protected views the migration wires up.
  *
  * Importantly, every Supabase call here passes the user's JWT in the
- * Authorization header so RLS evaluates as that user — never the service-role
+ * Authorization header so RLS evaluates as that user - never the service-role
  * key. RLS is the security boundary; this helper is the auditable path to it.
  */
 
@@ -26,7 +26,12 @@ const SUPABASE_URL =
 
 const SUPABASE_ANON_KEY =
   (import.meta.env.PUBLIC_SUPABASE_ANON_KEY as string | undefined) ||
-  process.env.PUBLIC_SUPABASE_ANON_KEY;
+  process.env.PUBLIC_SUPABASE_ANON_KEY ||
+  // Publishable key: public by design, RLS is the gate. Without this
+  // fallback, a build on a machine without env vars silently skips ALL
+  // CMS text/image overrides and ships stale content - which is exactly
+  // how the July 2026 homepage regression happened.
+  'sb_publishable_JlZuo95QvNZi2ZNrFyK-Cw_2y0U7HLp';
 
 export const PI_AUTH_COOKIE_PREFIX = 'sb-';
 export const PI_AUTH_TOKEN_COOKIE = 'pi-sb-access-token';
@@ -155,7 +160,7 @@ export interface ResolvedCmsAccess {
  *
  * The chain is:
  *   1. Read access token cookie
- *   2. supabase.auth.getUser(token) — verifies signature with the auth server
+ *   2. supabase.auth.getUser(token) - verifies signature with the auth server
  *   3. profiles.select(is_editor)
  *   4. admin_user_allowlist.select(role, can_publish)
  */

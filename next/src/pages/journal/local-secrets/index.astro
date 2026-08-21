@@ -1,6 +1,6 @@
 ---
 /**
- * /journal/local-secrets/ — index of reader-submitted local secrets
+ * /journal/local-secrets/ - index of reader-submitted local secrets
  * (Phase 4 WS4D).
  *
  * Lists every published submission. Empty state until the first reader
@@ -36,7 +36,7 @@ export const prerender = true;
     eyebrow="Local Secrets"
     subEyebrow="Reader contributions"
     title="The Peninsula our <em>readers</em> see."
-    dek="Spots, stories, and recommendations that came in from readers — vetted by the editor, published with named credit, never paid for."
+    dek="Spots, stories, and recommendations that came in from readers - vetted by the editor, published with named credit, never paid for."
     gradient="journal"
     visualLabel="Peninsula Insider · local secrets"
   entitySlug="journal-local-secrets"
@@ -71,7 +71,7 @@ export const prerender = true;
           <p class="local-secrets-empty__body">
             We open this section with reader-submitted spots that pass our editorial review. If you have a Peninsula corner the rest of us should know about, send it through.
           </p>
-          <a href="/submit/" class="local-secrets-empty__cta">Tell us your secret →</a>
+          <a href="/submit/" class="pi-btn pi-btn--solid">Tell us your secret →</a>
         </div>
       )}
     </div>
@@ -95,11 +95,19 @@ export const prerender = true;
   @media (min-width: 1080px) {
     .local-secrets-grid { grid-template-columns: 1fr 1fr 1fr; }
   }
+  /* v6 Evergreen Coast: reader-secret cards on white at radius-m,
+     teal-text kicker, Sora title, evergreen solid CTA. */
   .local-secret-card {
     border: 1px solid var(--border);
-    background: var(--paper, #fbf7f0);
+    background: var(--white);
+    border-radius: var(--radius-m);
+    overflow: hidden;
     display: flex;
     flex-direction: column;
+    transition: box-shadow var(--dur-med) var(--ease-enter);
+  }
+  .local-secret-card:hover {
+    box-shadow: var(--elev-2);
   }
   .local-secret-card__hero {
     aspect-ratio: 16 / 10;
@@ -107,26 +115,26 @@ export const prerender = true;
     background-position: center;
   }
   .local-secret-card__body {
-    padding: 0.95rem 1.05rem 1.1rem;
+    padding: var(--space-4);
     display: flex;
     flex-direction: column;
     gap: 0.3rem;
   }
   .local-secret-card__category {
-    font-family: 'Outfit', sans-serif;
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
+    font-family: var(--font-ui);
+    font-size: var(--fs-100);
+    font-weight: var(--fw-semibold);
+    letter-spacing: var(--ls-eyebrow);
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--teal-text);
     margin: 0;
   }
   .local-secret-card__title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.2rem;
-    font-weight: 500;
-    line-height: 1.2;
-    letter-spacing: -0.01em;
+    font-family: var(--font-display);
+    font-size: var(--fs-600);
+    font-weight: var(--fw-display);
+    line-height: var(--lh-heading);
+    letter-spacing: var(--ls-display);
     margin: 0;
   }
   .local-secret-card__title a {
@@ -135,54 +143,39 @@ export const prerender = true;
   }
   .local-secret-card__title a:hover { color: var(--accent); }
   .local-secret-card__place {
-    font-family: 'Outfit', sans-serif;
-    font-size: 0.85rem;
+    font-family: var(--font-ui);
+    font-size: var(--fs-200);
     color: var(--soft);
     margin: 0;
   }
   .local-secret-card__contributor {
-    font-family: 'Outfit', sans-serif;
-    font-size: 0.78rem;
+    font-family: var(--font-ui);
+    font-size: var(--fs-200);
     color: var(--soft);
     margin: 0.25rem 0 0;
   }
 
   .local-secrets-empty {
     border: 1px dashed var(--border);
+    border-radius: var(--radius-m);
     padding: clamp(1.5rem, 3vw, 2.5rem) 1.5rem;
     text-align: center;
   }
   .local-secrets-empty__title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.4rem;
-    font-weight: 500;
+    font-family: var(--font-display);
+    font-size: var(--fs-700);
+    font-weight: var(--fw-display);
+    line-height: var(--lh-heading);
+    letter-spacing: var(--ls-display);
     color: var(--text);
     margin: 0 0 0.75rem;
   }
   .local-secrets-empty__body {
-    font-family: 'Outfit', sans-serif;
-    font-size: 0.95rem;
-    line-height: 1.55;
+    font-family: var(--font-ui);
+    font-size: var(--fs-400);
+    line-height: var(--lh-body);
     color: var(--soft);
-    max-width: 36rem;
+    max-width: var(--measure-dek);
     margin: 0 auto 1.25rem;
-  }
-  .local-secrets-empty__cta {
-    display: inline-flex;
-    align-items: center;
-    font-family: 'Outfit', sans-serif;
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    background: var(--accent);
-    color: var(--bg, #fff);
-    border: 1px solid var(--accent);
-    padding: 0.7rem 1.1rem;
-    text-decoration: none;
-  }
-  .local-secrets-empty__cta:hover {
-    background: var(--text, #1a1a1a);
-    border-color: var(--text, #1a1a1a);
   }
 </style>

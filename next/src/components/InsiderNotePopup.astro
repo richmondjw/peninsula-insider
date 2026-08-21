@@ -1,0 +1,178 @@
+---
+/**
+ * Preview-only, vanilla-JS Beehiiv signup overlay.
+ *
+ * Subscription is delegated to the existing Supabase edge function, which
+ * keeps the Beehiiv API credential on the server. This component is mounted
+ * only when PUBLIC_NEWSLETTER_POPUP=preview.
+ */
+const endpoint = 'https://tjjhpvslpysfklwpqmgz.supabase.co/functions/v1/pi-newsletter-subscribe';
+---
+
+<div class="inote" id="inote" data-inote-reveal="false" hidden>
+  <div class="inote__scrim" data-inote-dismiss></div>
+  <div class="inote__wrap" role="dialog" aria-modal="true" aria-labelledby="inote-title" aria-describedby="inote-desc">
+    <div class="inote__card" role="document">
+      <div class="inote__edge"></div>
+      <div class="inote__grid">
+        <div class="inote__panel inote__panel--navy">
+          <button class="inote__close" type="button" aria-label="Close signup" data-inote-dismiss>&times;</button>
+          <p class="inote__eyebrow">The Insider Note</p>
+          <h2 class="inote__lede" id="inote-title">Your Peninsula week, sorted.</h2>
+          <p class="inote__sub" id="inote-desc">One considered note for the week ahead. Written on the Peninsula, every Wednesday.</p>
+          <div class="inote__rule"></div>
+          <p class="inote__issue"><span>Wednesdays</span></p>
+        </div>
+        <div class="inote__panel inote__panel--form">
+          <form class="inote__form" novalidate data-endpoint={endpoint}>
+            <p class="inote__kicker">Join free</p>
+            <p class="inote__ask">Get the week ahead, every Wednesday.</p>
+            <label class="inote__label" for="inote-email">Email address</label>
+            <input class="inote__input" id="inote-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="your@email.com" required />
+            <button class="inote__button" type="submit">Join the Insider Note <span aria-hidden="true">→</span></button>
+            <p class="inote__status" role="status" aria-live="polite"></p>
+            <p class="inote__fine">No sponsors in the copy, no affiliate links. Unsubscribe any time.</p>
+            <button class="inote__not-now" type="button" data-inote-dismiss>Not now</button>
+          </form>
+          <div class="inote__done" hidden>
+            <i></i>
+            <h2>You’re on the list.</h2>
+            <p>The next issue lands Wednesday. Check your inbox for a note confirming the address.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="inote__bar" id="inote-bar" data-inote-reveal="false" hidden>
+  <div class="inote__bar-inner">
+    <p>The Insider Note. Your Peninsula week, sorted. Every Wednesday.</p>
+    <div class="inote__bar-actions">
+      <button class="inote__bar-cta" type="button">Join free <span aria-hidden="true">→</span></button>
+      <button class="inote__bar-close" type="button" aria-label="Dismiss signup invitation">&times;</button>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  (function () {
+    var KEY = 'inote.state';
+    var DAYS = 30;
+    function init() {
+      var root = document.getElementById('inote');
+      var bar = document.getElementById('inote-bar');
+      if (!root || !bar || root.dataset.inoteInit) return;
+      if (typeof window.__inoteCleanup === 'function') window.__inoteCleanup();
+      root.dataset.inoteInit = 'true';
+      var form = root.querySelector('.inote__form');
+      var input = root.querySelector('.inote__input');
+      var status = root.querySelector('.inote__status');
+      var done = root.querySelector('.inote__done');
+      var button = root.querySelector('.inote__button');
+      var lastFocus, dwellTimer, fallbackTimer, poll;
+
+      function read() { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch (_) { return {}; } }
+      function write(value) { try { localStorage.setItem(KEY, JSON.stringify(value)); } catch (_) {} }
+      function blocked() {
+        var saved = read();
+        var params = new URLSearchParams(window.location.search);
+        return saved.joined || (saved.until && Date.now() < saved.until) ||
+          /^\/newsletter\/?$/.test(window.location.pathname) ||
+          /^\/dispatch\/?$/.test(window.location.pathname) ||
+          params.get('utm_medium') === 'email';
+      }
+      function track(name, detail) {
+        document.dispatchEvent(new CustomEvent(name, { detail: detail || {} }));
+        if (typeof window.gtag === 'function') window.gtag('event', name, detail || {});
+      }
+      function reveal(el) { el.hidden = false; window.setTimeout(function () { el.dataset.inoteReveal = 'true'; }, 40); }
+      function hide(el, callback) {
+        el.dataset.inoteReveal = 'false';
+        window.setTimeout(function () { el.hidden = true; if (callback) callback(); }, 360);
+      }
+      function stopWatching() {
+        window.removeEventListener('scroll', watch);
+        window.clearTimeout(dwellTimer); window.clearTimeout(fallbackTimer); window.clearInterval(poll);
+      }
+      function open(source) {
+        if ((source !== 'bar' && blocked()) || root.dataset.inoteReveal === 'true') return;
+        stopWatching(); lastFocus = document.activeElement; bar.hidden = true;
+        reveal(root); document.body.classList.add('inote-open');
+        window.setTimeout(function () { input.focus({ preventScroll: true }); }, 400);
+        track('note_popup_shown', { source: source });
+      }
+      function dismiss(showBar) {
+        document.body.classList.remove('inote-open');
+        var saved = read(); saved.until = Date.now() + DAYS * 864e5; write(saved);
+        hide(root, function () { if (lastFocus && lastFocus.focus) lastFocus.focus(); });
+        if (showBar) reveal(bar);
+        track('note_popup_dismissed', {});
+      }
+      function scrollY() { return Math.max(window.scrollY || 0, document.documentElement.scrollTop || 0); }
+      function watch() {
+        if (scrollY() < 380 || dwellTimer) return;
+        dwellTimer = window.setTimeout(function () { open('scroll'); }, 1500);
+      }
+      function trap(event) {
+        if (root.hidden) return;
+        if (event.key === 'Escape') { dismiss(true); return; }
+        if (event.key !== 'Tab') return;
+        var focusable = Array.prototype.filter.call(
+          root.querySelectorAll('button, input, [href]'),
+          function (el) { return !el.disabled && el.getClientRects().length > 0; }
+        );
+        if (!focusable.length) return;
+        var first = focusable[0], last = focusable[focusable.length - 1];
+        if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+        if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+      }
+      root.querySelectorAll('[data-inote-dismiss]').forEach(function (el) { el.addEventListener('click', function () { dismiss(true); }); });
+      bar.querySelector('.inote__bar-cta').addEventListener('click', function () { open('bar'); });
+      bar.querySelector('.inote__bar-close').addEventListener('click', function () { hide(bar); });
+      document.addEventListener('keydown', trap);
+      window.__inoteCleanup = function () {
+        stopWatching();
+        document.removeEventListener('keydown', trap);
+        document.body.classList.remove('inote-open');
+        window.__inoteCleanup = null;
+      };
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        var email = input.value.trim();
+        if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { status.textContent = 'Enter a valid email address.'; input.focus(); return; }
+        button.disabled = true; button.textContent = 'Joining…'; status.textContent = '';
+        fetch(form.dataset.endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: email, source: 'site-popup', utm_source: 'site', utm_medium: 'popup' }) })
+          .then(function (response) { return response.json().then(function (data) { return { ok: response.ok, data: data }; }); })
+          .then(function (result) {
+            if (!result.ok || !(result.data.ok || result.data.success)) throw new Error('subscribe failed');
+            var saved = read(); saved.joined = true; write(saved);
+            form.hidden = true; done.hidden = false; track('note_popup_subscribed', {});
+          })
+          .catch(function () { button.disabled = false; button.innerHTML = 'Join the Insider Note <span aria-hidden="true">→</span>'; status.textContent = 'Something went wrong. Try again, or use the form in the footer.'; });
+      });
+      if (blocked()) return;
+      window.addEventListener('scroll', watch, { passive: true });
+      poll = window.setInterval(watch, 250);
+      fallbackTimer = window.setTimeout(function () { open('fallback'); }, 20000);
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, { once: true }); else init();
+    document.addEventListener('astro:page-load', init);
+  })();
+</script>
+
+<style is:global>
+  .inote, .inote * { box-sizing: border-box; }
+  .inote__scrim { position:fixed; inset:0; z-index:10000; background:rgba(7,26,42,.62); backdrop-filter:blur(3px); opacity:0; transition:opacity .32s ease-out; }
+  .inote__wrap { position:fixed; inset:0; z-index:10001; display:flex; align-items:center; justify-content:center; padding:20px; pointer-events:none; overflow:auto; }
+  .inote__card { width:min(820px,100%); max-height:calc(100vh - 40px); overflow-y:auto; pointer-events:auto; background:#fff; color:#14202A; box-shadow:0 40px 90px rgba(7,26,42,.45); opacity:0; transform:translateY(14px) scale(.985); transition:opacity .38s ease-out,transform .42s cubic-bezier(.16,.84,.44,1); }
+  .inote[data-inote-reveal=true] .inote__scrim { opacity:1; } .inote[data-inote-reveal=true] .inote__card { opacity:1; transform:none; }
+  .inote__edge { height:6px; background:#F5C177; } .inote__grid { display:flex; flex-wrap:wrap; } .inote__panel { flex:1 1 340px; min-width:0; padding:38px 36px 36px; position:relative; }
+  .inote__panel--navy { background:#0B2E4A; color:#fff; } .inote__panel--navy::before { content:''; position:absolute; inset:0; background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.045) 0 10px,transparent 10px 20px); } .inote__panel--navy>* { position:relative; }
+  .inote__panel--form { flex-basis:320px; background:#F2EFEA; display:flex; flex-direction:column; } .inote__eyebrow,.inote__kicker { margin:0; font:700 10px/1.2 var(--sans,Arial,sans-serif); letter-spacing:.2em; text-transform:uppercase; } .inote__eyebrow { color:#F5C177; } .inote__lede { margin:16px 0 14px; font:800 clamp(1.8rem,5vw,2.25rem)/1.02 var(--display,'Sora',Arial,sans-serif); letter-spacing:-.04em; color:#fff; } .inote__sub { margin:0; font:400 15px/1.6 var(--sans,Arial,sans-serif); color:#D7E2EA; } .inote__rule { height:1px; background:#2E4A63; margin:26px 0 18px; } .inote__issue { margin:0; color:#7A9CB6; font:700 11px/1.2 var(--sans,Arial,sans-serif); letter-spacing:.14em; text-transform:uppercase; }
+  .inote__close { position:absolute; top:10px; right:12px; z-index:2; border:0; background:none; color:#D7E2EA; cursor:pointer; padding:6px; font-size:22px; line-height:1; } .inote__kicker { color:#8A5620; } .inote__ask { margin:12px 0 22px; font:600 21px/1.2 var(--display,'Sora',Arial,sans-serif); letter-spacing:-.025em; } .inote__label { display:block; margin-bottom:8px; color:#6A7680; font:400 12.5px/1.2 var(--sans,Arial,sans-serif); } .inote__input { width:100%; border:1px solid #C9C4BA; border-radius:0; background:#fff; padding:15px 16px; color:#14202A; font:400 15px/1.2 var(--sans,Arial,sans-serif); outline:none; } .inote__input:focus { border-color:#0B2E4A; box-shadow:0 0 0 2px rgba(11,46,74,.15); }
+  .inote__button { width:100%; margin-top:12px; border:0; border-bottom:3px solid #C08F45; background:#F5C177; color:#14202A; cursor:pointer; padding:16px 20px; font:700 12px/1 var(--sans,Arial,sans-serif); letter-spacing:.16em; text-transform:uppercase; } .inote__button:hover { background:#F0B45E; } .inote__button:disabled { opacity:.6; cursor:default; } .inote__status { min-height:1.25em; margin:10px 0 0; color:#9B2C2C; font:400 13px/1.4 var(--sans,Arial,sans-serif); } .inote__fine { margin:14px 0 0; color:#6A7680; font:400 12.5px/1.6 var(--sans,Arial,sans-serif); } .inote__not-now { align-self:flex-start; margin-top:18px; border:0; border-bottom:1px solid #C9C4BA; background:none; color:#6A7680; cursor:pointer; padding:0; font:400 13px/1.4 var(--sans,Arial,sans-serif); } .inote__done { margin:auto 0; } .inote__done i { display:block; width:52px; height:3px; background:#8A5620; } .inote__done h2 { margin:16px 0 10px; font:700 26px/1.12 var(--display,'Sora',Arial,sans-serif); letter-spacing:-.03em; } .inote__done p { margin:0; color:#4B5862; font:400 14.5px/1.6 var(--sans,Arial,sans-serif); }
+  .inote__bar { position:fixed; right:0; bottom:0; left:0; z-index:10002; border-top:3px solid #F5C177; background:#0B2E4A; opacity:0; transform:translateY(100%); transition:opacity .3s ease-out,transform .34s cubic-bezier(.16,.84,.44,1); } .inote__bar[data-inote-reveal=true] { opacity:1; transform:none; } .inote__bar-inner { display:flex; max-width:1000px; align-items:center; justify-content:space-between; gap:20px; margin:0 auto; padding:14px 28px; } .inote__bar p { margin:0; color:#D7E2EA; font:400 14px/1.4 var(--sans,Arial,sans-serif); } .inote__bar-actions { display:flex; align-items:center; gap:16px; } .inote__bar-cta { border:0; background:#F5C177; color:#14202A; cursor:pointer; padding:11px 20px; font:700 11px/1 var(--sans,Arial,sans-serif); letter-spacing:.16em; text-transform:uppercase; white-space:nowrap; } .inote__bar-close { border:0; background:none; color:#D7E2EA; cursor:pointer; padding:6px; font-size:18px; line-height:1; } body.inote-open { overflow:hidden; }
+  @media (max-width:640px) { .inote__panel { padding:24px 22px; } .inote__card { max-height:calc(100vh - 32px); } .inote__bar-inner { flex-direction:column; align-items:stretch; gap:12px; padding:14px 18px; } .inote__bar-actions { justify-content:space-between; } .inote__bar-cta { flex:1; min-height:48px; } }
+  @media (prefers-reduced-motion:reduce) { .inote__scrim,.inote__card,.inote__bar { transition:none!important; transform:none!important; } }
+</style>

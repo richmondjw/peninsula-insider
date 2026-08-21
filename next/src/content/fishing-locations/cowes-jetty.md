@@ -18,7 +18,7 @@ primarySpecies:
 tideStation: Stony Point
 tideNotes: Running tide is the productive window; rising preferred for snapper. Western Port's 2.5 to 2.8m tidal range produces strong current at peak run; size your sinker accordingly.
 intro: 'Cowes Jetty sits on Phillip Island''s northern shore, accessible by car via the San Remo bridge or by ferry from Stony Point. The jetty fishes Western Port''s northern channel system, putting you on the same productive ground as Hastings and Stony Point but from the eastern side of the bay. Snapper through summer, whiting on the running tide, squid year-round.'
-metaDescription: 'Cowes Jetty fishing — snapper, KGW, squid on the Phillip Island side of Western Port. Running tide essential; family-suitable inner sections.'
+metaDescription: 'Cowes Jetty fishing - snapper, KGW, squid on the Phillip Island side of Western Port. Running tide essential; family-suitable inner sections.'
 faq:
   - question: How do I get to Cowes Jetty?
     answer: 'Two ways. By car via the San Remo bridge to Phillip Island and through to Cowes (approximately 90 minutes from Melbourne CBD). By passenger ferry from Stony Point (Inter Island Ferries; check timetable, infrequent compared with metropolitan services). The ferry option is one of the few Peninsula fishing locations accessible by public transport-and-ferry combination.'

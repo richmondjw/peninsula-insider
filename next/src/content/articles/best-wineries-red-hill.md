@@ -19,11 +19,11 @@ status: "review"
 lastVerified: 2026-05-01
 clusterLinks:
   - label: "What to Do in Red Hill This Weekend: The Saturday Plan"
-    href: "/journal/how-to-build-a-red-hill-saturday/"
-  - label: "The Cellar Door Short List — Five Producers Worth the Appointment"
+    href: "/explore/plans/how-to-build-a-red-hill-saturday/"
+  - label: "The Cellar Door Short List - Five Producers Worth the Appointment"
     href: "/journal/the-cellar-door-short-list/"
   - label: "How to Plan a Peninsula Weekend"
-    href: "/journal/how-to-plan-a-peninsula-weekend/"
+    href: "/explore/plans/how-to-plan-a-peninsula-weekend/"
 aiSummary:
   - "Start with Montalto if you want the easiest all-rounder: strong wine, serious lunch, sculpture grounds, and enough space to make a day of it."
   - "Choose Polperro if the point is a focused tasting rather than a broad estate experience."

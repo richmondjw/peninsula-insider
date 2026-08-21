@@ -9,6 +9,24 @@
 /* =========================================================
    TOKENS  -  matched to live site (css/styles.css)
    ========================================================= */
+/* Skip link: first focusable element, revealed on keyboard focus. */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 1000;
+  padding: 0.6rem 1rem;
+  background: var(--text, #2B2520);
+  color: #fff;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+.skip-link:focus {
+  left: 0.5rem;
+  top: 0.5rem;
+}
+
 :root {
   /* White base for legibility, with a subtle warm tint on alternating
      sections so editorial section breaks still read. Borders nudged
@@ -21,10 +39,15 @@
   --bg-alt:     #F6F2EA;
   --bg-dark:    #1E1B18;
   --text:       #2B2520;
-  --soft:       #7A726A;
+  --soft:       #5F574E;
   --accent:     #8B4E3B;
   --acc-h:      #6D3A2B;
   --gold:       #B69A6B;
+  /* Gold as READABLE text on light surfaces — --gold itself is 2.7:1 on
+     white, decorative use only. This darker cut passes WCAG AA (5.7:1 on
+     white, 5.1:1 on bg-alt). */
+  --gold-text:  #7A6340;
+  --sage-text:  #5C6B52; /* AA-safe sage for text on light surfaces */
   --dark:       #1E1B18;
   --white:      #FDFCFA;
   --border:     #E5E0D6;
@@ -33,6 +56,13 @@
   --prose-w:    680px;
   --ease:       cubic-bezier(0.25, 0.46, 0.45, 0.94);
   --tile-image-radius: 10px;
+  /* Card surface radii — collapse the bespoke card radii onto one scale.
+     sm = nested elements inside a card (embed slots, sub-tiles).
+     md = standard panel (CompareBlock column, typeahead grid).
+     lg = hero-weight panel (Weekend Picker, newsletter frame). */
+  --radius-card-sm: 0.85rem;
+  --radius-card-md: 1.25rem;
+  --radius-card-lg: 1.5rem;
 }
 
 /* Shared image treatment for editorial tiles/cards */
@@ -50,7 +80,13 @@
    RESET
    ========================================================= */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: auto; font-size: 16px; }
+/* 100% (not a fixed px value) so the reader's browser font-size
+   preference is respected. The whole sheet is rem-based, so everything
+   scales with it — including the three-step reader text-size control,
+   which sets data-text-scale on <html> (see TextScaleControl.astro). */
+html { scroll-behavior: auto; font-size: 100%; }
+html[data-text-scale="2"] { font-size: 108.75%; }
+html[data-text-scale="3"] { font-size: 118%; }
 
 /* =========================================================
    VIEW TRANSITIONS — page fade between routes
@@ -78,8 +114,8 @@ body {
   background: var(--bg);
   color: var(--text);
   line-height: 1.75;
-  font-size: 0.95rem;
-  font-weight: 300;
+  font-size: 1rem;
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -549,7 +585,6 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   color: var(--bg);
   border-color: var(--accent);
 }
-
 /* Mobile-only wordmark — sits in the centre of the merged mobile nav
    row. Hidden on desktop, where the dedicated brand row carries the
    full wordmark + tagline. */
@@ -647,7 +682,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   line-height: 1.65;
   color: var(--soft);
   max-width: 42ch;
-  font-weight: 300;
+  font-weight: 400;
 }
 .cover__visual {
   position: relative;
@@ -713,7 +748,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   line-height: 1.7;
   color: var(--soft);
   max-width: 50ch;
-  font-weight: 300;
+  font-weight: 400;
 }
 .section-hero__visual {
   position: relative;
@@ -898,7 +933,8 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .pillar-row__dek {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: clamp(0.95rem, 1.05vw, 1.05rem);
-  font-style: italic;
+  font-style: normal;
+  font-weight: 500;
   color: var(--soft);
   line-height: 1.35;
 }
@@ -1147,7 +1183,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   display: flex;
   flex-direction: column;
   gap: 0;
-  border-radius: 1.5rem;
+  border-radius: var(--radius-card-lg);
   border: 1px solid rgba(121, 92, 58, 0.14);
   box-shadow: 0 18px 40px rgba(34, 24, 16, 0.06);
   transition: transform 0.22s var(--ease), box-shadow 0.22s var(--ease), border-color 0.22s var(--ease);
@@ -1681,7 +1717,8 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .article-hero__title em { color: var(--accent); font-style: italic; font-weight: 600; }
 .article-hero__dek {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-style: italic;
+  font-style: normal;
+  font-weight: 500;
   font-size: clamp(1.1rem, 1.6vw, 1.32rem);
   line-height: 1.55;
   color: #44372b;
@@ -1851,10 +1888,10 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .prose {
   max-width: var(--prose-w);
   margin: 0 auto;
-  font-size: 1.05rem;
+  font-size: 1.0625rem;
   line-height: 1.85;
   color: var(--text);
-  font-weight: 300;
+  font-weight: 400;
 }
 .prose p {
   margin-bottom: 1.5rem;
@@ -1886,7 +1923,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .prose blockquote {
   border-left: 2px solid var(--accent);
   padding-left: 1.25rem;
-  font-style: italic;
+  font-style: normal;
   color: var(--soft);
   margin: 2rem 0;
 }
@@ -2164,7 +2201,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   font-size: 1.1rem;
   line-height: 1.7;
   color: var(--soft);
-  font-weight: 300;
+  font-weight: 400;
   margin-bottom: 2.5rem;
 }
 .place-detail__hero {
@@ -2344,7 +2381,8 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .news-hero__dek {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-style: italic;
+  font-style: normal;
+  font-weight: 500;
   font-size: clamp(1.15rem, 1.6vw, 1.35rem);
   line-height: 1.5;
   color: var(--soft);
@@ -2483,7 +2521,8 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .news-sample__sub {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-style: italic;
+  font-style: normal;
+  font-weight: 500;
   font-size: 1.1rem;
   line-height: 1.55;
   color: #6b4f33;
@@ -2579,7 +2618,8 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .news-editions__note {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-style: italic;
+  font-style: normal;
+  font-weight: 500;
   font-size: 0.95rem;
   color: var(--soft);
   line-height: 1.5;
@@ -2728,7 +2768,8 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .news-close__title em { color: rgba(245, 220, 178, 0.95); font-style: italic; }
 .news-close__dek {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-style: italic;
+  font-style: normal;
+  font-weight: 500;
   font-size: 1.1rem;
   line-height: 1.55;
   color: rgba(253, 252, 250, 0.78);
@@ -2859,7 +2900,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   max-width: 480px;
   margin-left: auto;
   margin-right: auto;
-  border-radius: 0.9rem;
+  border-radius: var(--radius-card-sm);
 }
 .newsletter__stack .newsletter__proofs {
   display: grid;
@@ -2884,7 +2925,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   color: var(--white);
   font-family: 'Outfit', sans-serif;
   font-size: 0.9rem;
-  font-weight: 300;
+  font-weight: 400;
   outline: none;
   transition: background .2s var(--ease), border-color .2s var(--ease);
 }
@@ -2961,7 +3002,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
    ========================================================= */
 @media (max-width: 900px) {
   .venues__grid { grid-template-columns: repeat(2, 1fr); }
-  .venue-detail__grid { grid-template-columns: 1fr; }
+  .venue-detail__grid { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 768px) {
   .cover__inner { grid-template-columns: 1fr; }
@@ -3096,6 +3137,12 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   background: linear-gradient(135deg, #C9B99A 0%, #A89278 30%, #8B7055 60%, #6E5440 100%);
   overflow: hidden;
   flex-shrink: 0;
+}
+.experience-card__visual img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .experience-card__visual--walk,
 .experience-card__visual--park { background: linear-gradient(135deg, #8B7B62 0%, #7A8B6D 50%, #4E6B52 100%); }
@@ -4019,7 +4066,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .editors-desk__formats .label {
   font-size: 0.65rem;
   letter-spacing: 0.2em;
-  color: var(--gold);
+  color: var(--gold-text);
   margin-bottom: 1.25rem;
 }
 .editors-desk__format-list {
@@ -4390,13 +4437,9 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   position: relative;
   background: linear-gradient(180deg, rgba(255,252,247,0.98) 0%, rgba(248,243,236,0.98) 100%);
   border: 1px solid rgba(121, 92, 58, 0.14);
-  border-radius: 1.5rem;
+  border-radius: var(--radius-card-lg);
   box-shadow: 0 18px 40px rgba(34, 24, 16, 0.06);
   padding: clamp(2rem, 4vw, 3rem);
-  display: grid;
-  grid-template-columns: 1fr 2.2fr;
-  gap: clamp(2rem, 4vw, 4rem);
-  align-items: start;
   overflow: hidden;
 }
 .weekend-picker__inner::before {
@@ -4405,15 +4448,6 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   inset: 0 0 auto 0;
   height: 5px;
   background: linear-gradient(90deg, rgba(167,118,55,0.95), rgba(223,197,158,0.65), rgba(167,118,55,0.14));
-}
-.weekend-picker__label-block .label--accent { color: var(--accent); }
-.weekend-picker__cadence {
-  margin-top: 0.9rem;
-  font-size: 0.78rem;
-  letter-spacing: 0.02em;
-  color: var(--soft);
-  line-height: 1.5;
-  max-width: 28ch;
 }
 .weekend-picker__kicker {
   font-size: 0.68rem;
@@ -4473,6 +4507,24 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   color: var(--dark);
   border-color: rgba(121, 92, 58, 0.4);
 }
+/* Quiet Melbourne entry line — absorbed the former MelbourneEntryStrip
+   (2026-06-10) so weekend intent has a single surface on the homepage. */
+.weekend-picker__melb {
+  margin-top: 1.4rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--soft);
+}
+.weekend-picker__melb a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(139, 78, 59, 0.35);
+  transition: color .18s var(--ease), border-color .18s var(--ease);
+}
+.weekend-picker__melb a:hover {
+  color: var(--acc-h);
+  border-color: var(--acc-h);
+}
 
 /* =========================================================
    INSIDER STRIPE  -  slim mid-page newsletter conversion block.
@@ -4530,7 +4582,8 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .insider-stripe__body {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-style: italic;
+  font-style: normal;
+  font-weight: 500;
   font-size: 1.05rem;
   line-height: 1.55;
   color: rgba(253, 252, 250, 0.78);
@@ -4673,7 +4726,8 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .shortlist__body {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-style: italic;
+  font-style: normal;
+  font-weight: 500;
   font-size: 1.1rem;
   line-height: 1.55;
   color: #44372b;
@@ -4814,7 +4868,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   align-items: start;
 }
 @media (max-width: 840px) {
-  .letter__frame { grid-template-columns: 1fr; gap: 2rem; }
+  .letter__frame { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
 }
 .letter__body-col {
   max-width: 42ch;
@@ -5001,7 +5055,8 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .home-cover__dek {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-style: italic;
+  font-style: normal;
+  font-weight: 500;
   font-size: clamp(1.1rem, 1.6vw, 1.35rem);
   line-height: 1.55;
   color: #44372b;
@@ -5143,7 +5198,8 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .guide-hero__dek {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-style: italic;
+  font-style: normal;
+  font-weight: 500;
   font-size: clamp(1.05rem, 1.5vw, 1.28rem);
   line-height: 1.55;
   color: #44372b;
@@ -5239,6 +5295,36 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   background: var(--bg);
   border-bottom: 1px solid var(--border);
 }
+/* CompareBlock embedded in article prose (MDX) — drop the full-bleed
+   section chrome and the nested container gutters so it sits flush in
+   the 680px column. */
+.prose .compare-block {
+  padding: 0.5rem 0 0;
+  border-bottom: none;
+  margin: 0 0 2.25rem;
+}
+.prose .compare-block .container {
+  padding: 0;
+  max-width: none;
+}
+/* Article body figures (MDX) */
+.prose .article-figure {
+  margin: 2rem 0;
+}
+.prose .article-figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--tile-image-radius);
+}
+.prose .article-figure figcaption {
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--soft);
+  margin-top: 0.6rem;
+}
 .compare-block__intro {
   max-width: 60ch;
   margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
@@ -5270,7 +5356,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   position: relative;
   background: linear-gradient(180deg, rgba(255,252,247,0.98) 0%, rgba(248,243,236,0.98) 100%);
   border: 1px solid rgba(121, 92, 58, 0.14);
-  border-radius: 1.25rem;
+  border-radius: var(--radius-card-md);
   padding: clamp(1.6rem, 3vw, 2.2rem);
   box-shadow: 0 18px 40px rgba(34, 24, 16, 0.06);
   overflow: hidden;
@@ -5494,7 +5580,7 @@ p.has-drop-cap::first-letter {
 .section-standfirst,
 .venues__sub--standfirst {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-style: italic;
+  font-style: normal;
   font-size: clamp(1.1rem, 1.55vw, 1.32rem);
   line-height: 1.5;
   color: #6b4f33;
@@ -5531,7 +5617,8 @@ p.has-drop-cap::first-letter {
 }
 .hub-formats__dek {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-style: italic;
+  font-style: normal;
+  font-weight: 500;
   font-size: 1.1rem;
   line-height: 1.55;
   color: #6b4f33;
@@ -5546,7 +5633,7 @@ p.has-drop-cap::first-letter {
   gap: 1px;
   background: rgba(121, 92, 58, 0.18);
   border: 1px solid rgba(121, 92, 58, 0.18);
-  border-radius: 0.85rem;
+  border-radius: var(--radius-card-sm);
   overflow: hidden;
 }
 .hub-formats__cell {
@@ -6067,7 +6154,8 @@ p.has-drop-cap::first-letter {
 }
 .event-card__verdict p {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-style: italic;
+  font-style: normal;
+  font-weight: 500;
   font-size: 1rem;
   line-height: 1.45;
   color: var(--dark);
@@ -6247,7 +6335,8 @@ p.has-drop-cap::first-letter {
 }
 .event-verdict__body {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-style: italic;
+  font-style: normal;
+  font-weight: 500;
   font-size: 1.2rem;
   line-height: 1.5;
   color: var(--dark);
@@ -6594,7 +6683,7 @@ p.has-drop-cap::first-letter {
   margin: 0;
 }
 .about-masthead__credits dd a {
-  color: var(--sage);
+  color: var(--sage-text);
   text-decoration: none;
   border-bottom: 1px solid currentColor;
 }
@@ -6839,8 +6928,8 @@ p.has-drop-cap::first-letter {
   color: var(--accent);
 }
 .article__share-btn.is-copied {
-  border-color: var(--gold);
-  color: var(--gold);
+  border-color: var(--gold-text);
+  color: var(--gold-text);
   background: rgba(182,154,107,0.06);
 }
 @media (max-width: 600px) {
@@ -7778,8 +7867,11 @@ p.has-drop-cap::first-letter {
   min-height: 1.2em;
 }
 .newsletter__status--ok {
-  color: var(--sage);
+  color: var(--sage-text);
   font-weight: 500;
+}
+.newsletter .newsletter__status--ok {
+  color: #A9BA9C; /* light sage: AA on the dark newsletter band */
 }
 .newsletter__status--err {
   color: #c0392b;
@@ -7857,7 +7949,7 @@ p.has-drop-cap::first-letter {
   color: var(--accent);
 }
 .newsletter__form--standalone .newsletter__status--ok {
-  color: var(--sage);
+  color: var(--sage-text);
 }
 .newsletter__form--standalone .newsletter__status--err {
   color: #c0392b;
@@ -7902,7 +7994,7 @@ p.has-drop-cap::first-letter {
   width: min(100%, 30rem);
   margin: 0 auto;
   padding: 0.55rem;
-  border-radius: 1.35rem;
+  border-radius: var(--radius-card-lg);
   background: linear-gradient(180deg, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0.06) 100%);
   border: 1px solid rgba(214, 196, 154, 0.24);
   box-shadow: 0 24px 50px rgba(0,0,0,0.24);
@@ -7985,14 +8077,14 @@ p.has-drop-cap::first-letter {
   .newsletter__form-frame {
     width: min(100%, 23rem);
     padding: 0.45rem;
-    border-radius: 1.05rem;
+    border-radius: var(--radius-card-md);
   }
 
   .newsletter__embed {
     min-height: 112px !important;
     height: 112px !important;
     max-height: 112px !important;
-    border-radius: 0.85rem;
+    border-radius: var(--radius-card-sm);
   }
 
   .newsletter__proof-row {
@@ -8053,7 +8145,7 @@ p.has-drop-cap::first-letter {
   width: min(100%, 30rem);
   margin: 0 auto;
   padding: 1.4rem 1.25rem;
-  border-radius: 1.35rem;
+  border-radius: var(--radius-card-lg);
   background: linear-gradient(180deg, rgba(36, 31, 28, 0.94) 0%, rgba(24, 21, 19, 0.92) 100%);
   border: 1px solid rgba(193, 173, 123, 0.24);
   box-shadow: 0 24px 52px rgba(0,0,0,0.24), inset 0 1px 0 rgba(255,255,255,0.05);
@@ -8427,7 +8519,7 @@ body[data-path^="/ask"] .concierge-fab {
     font-weight: inherit;
     font-style: inherit;
   }
-  .letter__frame { grid-template-columns: 1fr; gap: 1.2rem; }
+  .letter__frame { grid-template-columns: minmax(0, 1fr); gap: 1.2rem; }
   .letter__side { order: -1; max-width: 280px; }
   .letter__image { aspect-ratio: 16 / 10; }
   .letter__image-cap { font-size: 0.82rem; }
@@ -9185,9 +9277,12 @@ body.menu-open .subscribe-pill {
   padding-left: 0.2rem;
 }
 
-/* Mobile List/Map tab bar — hidden on desktop */
+/* List/Map tab bar — retired 2026-06-11: mobile is map-only (the list
+   is hidden on phones per James), desktop always shows both panels, so
+   the bar has no remaining job. Markup + controller kept for an easy
+   revert. */
 .map-page__tabs {
-  display: flex;
+  display: none;
   border-bottom: 2px solid var(--border);
   background: var(--paper, #fbf7f0);
 }
@@ -9230,6 +9325,10 @@ body.menu-open .subscribe-pill {
   }
 }
 
+@media (max-width: 879px) {
+  /* Mobile is map-only — hide the list panel (James 2026-06-11). */
+  .map-page__list { display: none !important; }
+}
 .map-page__list {
   border-bottom: 1px solid var(--border);
   display: flex;

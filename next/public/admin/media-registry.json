@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-06-03T11:07:43.045Z",
+  "generatedAt": "2026-08-21T10:24:50.259Z",
   "source": "next/scripts/build-media-registry.mjs",
-  "assetCount": 141,
+  "assetCount": 149,
   "assets": [
     {
       "src": "/images/sourced/article-beach-swimming-01.webp",
@@ -9,7 +9,7 @@
       "filename": "article-beach-swimming-01.webp",
       "extension": "webp",
       "bytes": 168960,
-      "updatedAt": "2026-06-01T13:01:42.777Z",
+      "updatedAt": "2026-08-18T18:55:00.307Z",
       "usages": [
         {
           "file": "src/content/articles/the-peninsula-beach-swimming-guide.md",
@@ -22,18 +22,6 @@
           "purpose": "hero",
           "entityType": "event",
           "entitySlug": "portsea-swim-classic"
-        },
-        {
-          "file": "src/content/venues/elgee-park.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "elgee-park"
-        },
-        {
-          "file": "src/content/venues/two-bays-brewing.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "two-bays-brewing"
         }
       ]
     },
@@ -43,7 +31,7 @@
       "filename": "article-cellar-door-01.webp",
       "extension": "webp",
       "bytes": 291672,
-      "updatedAt": "2026-06-01T13:01:42.778Z",
+      "updatedAt": "2026-08-18T18:55:00.307Z",
       "usages": [
         {
           "file": "src/content/articles/the-cellar-door-short-list.md",
@@ -64,20 +52,26 @@
           "entitySlug": "autopia-mornington-peninsula-day-tour"
         },
         {
-          "file": "src/content/venues/bass-and-flinders.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "bass-and-flinders"
-        },
-        {
-          "file": "src/content/venues/eldridge-estate.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "eldridge-estate"
-        },
-        {
           "file": "src/pages/eat/cellar-door-lunch.astro",
           "purpose": "hero",
+          "entityType": null,
+          "entitySlug": null
+        },
+        {
+          "file": "src/pages/eat/index.astro",
+          "purpose": "inline",
+          "entityType": null,
+          "entitySlug": null
+        },
+        {
+          "file": "src/pages/eat/index.astro",
+          "purpose": "seo",
+          "entityType": null,
+          "entitySlug": null
+        },
+        {
+          "file": "src/pages/eat/index.astro",
+          "purpose": "inline",
           "entityType": null,
           "entitySlug": null
         },
@@ -136,37 +130,19 @@
           "entitySlug": null
         },
         {
-          "file": "src/pages/v3/index.astro",
+          "file": "src/pages/wine/index.astro",
+          "purpose": "seo",
+          "entityType": null,
+          "entitySlug": null
+        },
+        {
+          "file": "src/pages/wine/index.astro",
           "purpose": "inline",
           "entityType": null,
           "entitySlug": null
         },
         {
-          "file": "src/pages/v4/wine/index.astro",
-          "purpose": "seo",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v4/wine/index.astro",
-          "purpose": "hero",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/wine/index.astro",
-          "purpose": "seo",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/wine/index.astro",
-          "purpose": "hero",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/wine/index.astro",
+          "file": "src/components/v5/home/HomeDoors.astro",
           "purpose": "inline",
           "entityType": null,
           "entitySlug": null
@@ -179,25 +155,13 @@
       "filename": "article-chardonnay-case-01.webp",
       "extension": "webp",
       "bytes": 242658,
-      "updatedAt": "2026-06-01T13:01:42.778Z",
+      "updatedAt": "2026-08-18T18:55:00.307Z",
       "usages": [
         {
           "file": "src/content/articles/the-chardonnay-case.md",
           "purpose": "hero",
           "entityType": "article",
           "entitySlug": "the-chardonnay-case"
-        },
-        {
-          "file": "src/content/venues/main-ridge-estate.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "main-ridge-estate"
-        },
-        {
-          "file": "src/content/venues/mornington-peninsula-brewery.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "mornington-peninsula-brewery"
         }
       ]
     },
@@ -207,7 +171,7 @@
       "filename": "article-couples-weekend-01.webp",
       "extension": "webp",
       "bytes": 210980,
-      "updatedAt": "2026-06-01T13:01:42.779Z",
+      "updatedAt": "2026-08-18T18:55:00.310Z",
       "usages": [
         {
           "file": "src/content/articles/the-birthday-weekend.md",
@@ -234,20 +198,8 @@
           "entitySlug": "anniversary-long-weekend"
         },
         {
-          "file": "src/content/venues/prancing-horse-estate.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "prancing-horse-estate"
-        },
-        {
           "file": "src/pages/eat/date-night.astro",
           "purpose": "hero",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v3/index.astro",
-          "purpose": "inline",
           "entityType": null,
           "entitySlug": null
         }
@@ -259,7 +211,7 @@
       "filename": "article-dog-friendly-01.webp",
       "extension": "webp",
       "bytes": 140158,
-      "updatedAt": "2026-06-01T13:01:42.780Z",
+      "updatedAt": "2026-08-18T18:55:00.310Z",
       "usages": [
         {
           "file": "src/content/articles/the-dog-friendly-peninsula.mdx",
@@ -268,16 +220,10 @@
           "entitySlug": "the-dog-friendly-peninsula"
         },
         {
-          "file": "src/content/venues/barmah-park.json",
+          "file": "src/content/events/doggy-day-out-mornington-peninsula-2026.json",
           "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "barmah-park"
-        },
-        {
-          "file": "src/pages/eat/dog-friendly.astro",
-          "purpose": "hero",
-          "entityType": null,
-          "entitySlug": null
+          "entityType": "event",
+          "entitySlug": "doggy-day-out-mornington-peninsula-2026"
         }
       ]
     },
@@ -287,7 +233,7 @@
       "filename": "article-flinders-weekend-01.webp",
       "extension": "webp",
       "bytes": 384994,
-      "updatedAt": "2026-06-01T13:01:42.781Z",
+      "updatedAt": "2026-08-18T18:55:00.318Z",
       "usages": [
         {
           "file": "src/content/articles/a-flinders-weekend.md",
@@ -302,20 +248,14 @@
           "entitySlug": "global-ballooning-peninsula-sunrise"
         },
         {
-          "file": "src/content/venues/red-hill-market.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "red-hill-market"
-        },
-        {
-          "file": "src/content/venues/scorpo-wines.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "scorpo-wines"
-        },
-        {
           "file": "src/pages/tour-packages/index.astro",
           "purpose": "hero",
+          "entityType": null,
+          "entitySlug": null
+        },
+        {
+          "file": "src/data/home-hero-slides.json",
+          "purpose": "inline",
           "entityType": null,
           "entitySlug": null
         }
@@ -327,26 +267,8 @@
       "filename": "article-hatted-restaurants-01.webp",
       "extension": "webp",
       "bytes": 793440,
-      "updatedAt": "2026-06-01T13:01:42.783Z",
+      "updatedAt": "2026-08-18T18:55:00.322Z",
       "usages": [
-        {
-          "file": "src/content/venues/kooyong.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "kooyong"
-        },
-        {
-          "file": "src/content/venues/port-phillip-estate.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "port-phillip-estate"
-        },
-        {
-          "file": "src/content/venues/red-hill-cheese.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "red-hill-cheese"
-        },
         {
           "file": "src/pages/eat/best-restaurants.astro",
           "purpose": "hero",
@@ -361,19 +283,13 @@
       "filename": "article-italian-dinners-01.webp",
       "extension": "webp",
       "bytes": 553616,
-      "updatedAt": "2026-06-01T13:01:42.784Z",
+      "updatedAt": "2026-08-18T18:55:00.330Z",
       "usages": [
         {
           "file": "src/content/articles/three-italian-dinners.md",
           "purpose": "hero",
           "entityType": "article",
           "entitySlug": "three-italian-dinners"
-        },
-        {
-          "file": "src/content/venues/t-gallant.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "t-gallant"
         }
       ]
     },
@@ -383,7 +299,7 @@
       "filename": "article-kids-peninsula-01.webp",
       "extension": "webp",
       "bytes": 200002,
-      "updatedAt": "2026-06-01T13:01:42.785Z",
+      "updatedAt": "2026-08-18T18:55:00.330Z",
       "usages": [
         {
           "file": "src/content/articles/the-peninsula-with-kids.md",
@@ -396,6 +312,12 @@
           "purpose": "hero",
           "entityType": "article",
           "entitySlug": "the-school-holidays-survival-guide"
+        },
+        {
+          "file": "src/content/events/family-mystery-picnic-mornington-peninsula-2026.json",
+          "purpose": "hero",
+          "entityType": "event",
+          "entitySlug": "family-mystery-picnic-mornington-peninsula-2026"
         },
         {
           "file": "src/content/events/moonlit-sanctuary-easter-program.json",
@@ -416,20 +338,8 @@
           "entitySlug": "winter-camp-2026-the-ranch"
         },
         {
-          "file": "src/content/venues/small-stone-pantry.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "small-stone-pantry"
-        },
-        {
           "file": "src/pages/eat/family-friendly.astro",
           "purpose": "hero",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v3/index.astro",
-          "purpose": "inline",
           "entityType": null,
           "entitySlug": null
         },
@@ -447,7 +357,7 @@
       "filename": "article-long-lunch-01.webp",
       "extension": "webp",
       "bytes": 291672,
-      "updatedAt": "2026-06-01T13:01:42.786Z",
+      "updatedAt": "2026-08-18T18:55:00.334Z",
       "usages": [
         {
           "file": "src/content/articles/the-long-lunch.md",
@@ -456,28 +366,16 @@
           "entitySlug": "the-long-lunch"
         },
         {
+          "file": "src/content/articles/the-winter-long-lunch.md",
+          "purpose": "hero",
+          "entityType": "article",
+          "entitySlug": "the-winter-long-lunch"
+        },
+        {
           "file": "src/content/tour-packages/long-weekend.json",
           "purpose": "hero",
           "entityType": "tour",
           "entitySlug": "long-weekend"
-        },
-        {
-          "file": "src/content/venues/garagiste.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "garagiste"
-        },
-        {
-          "file": "src/content/venues/red-hill-brewery.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "red-hill-brewery"
-        },
-        {
-          "file": "src/pages/eat/index.astro",
-          "purpose": "inline",
-          "entityType": null,
-          "entitySlug": null
         },
         {
           "file": "src/pages/eat/long-lunch.astro",
@@ -493,12 +391,6 @@
         },
         {
           "file": "src/pages/search.astro",
-          "purpose": "inline",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v3/index.astro",
           "purpose": "inline",
           "entityType": null,
           "entitySlug": null
@@ -523,7 +415,7 @@
       "filename": "article-orientation-drive-01.webp",
       "extension": "webp",
       "bytes": 65536,
-      "updatedAt": "2026-06-01T13:01:42.787Z",
+      "updatedAt": "2026-08-18T18:55:00.334Z",
       "usages": [
         {
           "file": "src/content/articles/how-to-plan-a-peninsula-weekend.md",
@@ -532,20 +424,8 @@
           "entitySlug": "how-to-plan-a-peninsula-weekend"
         },
         {
-          "file": "src/content/venues/moorooduc-estate.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "moorooduc-estate"
-        },
-        {
           "file": "src/pages/partners/founders-prospectus/index.astro",
           "purpose": "hero",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v3/index.astro",
-          "purpose": "inline",
           "entityType": null,
           "entitySlug": null
         }
@@ -557,7 +437,7 @@
       "filename": "article-orientation-drive-02.webp",
       "extension": "webp",
       "bytes": 381724,
-      "updatedAt": "2026-06-01T13:01:42.788Z",
+      "updatedAt": "2026-08-18T18:55:00.338Z",
       "usages": [
         {
           "file": "src/content/articles/the-peninsula-orientation-drive.md",
@@ -573,7 +453,7 @@
       "filename": "article-peninsula-pantry-01.webp",
       "extension": "webp",
       "bytes": 287866,
-      "updatedAt": "2026-06-01T13:01:42.789Z",
+      "updatedAt": "2026-08-18T18:55:00.342Z",
       "usages": [
         {
           "file": "src/content/articles/mornington-day-guide.md",
@@ -592,18 +472,6 @@
           "purpose": "hero",
           "entityType": "article",
           "entitySlug": "the-peninsula-pantry"
-        },
-        {
-          "file": "src/content/venues/kerri-greens.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "kerri-greens"
-        },
-        {
-          "file": "src/content/venues/mornington-farmers-market.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "mornington-farmers-market"
         }
       ]
     },
@@ -613,7 +481,7 @@
       "filename": "article-picnic-01.webp",
       "extension": "webp",
       "bytes": 470156,
-      "updatedAt": "2026-06-01T13:01:42.790Z",
+      "updatedAt": "2026-08-18T18:55:00.346Z",
       "usages": [
         {
           "file": "src/content/articles/the-peninsula-picnic.md",
@@ -628,26 +496,8 @@
           "entitySlug": "shoreham-community-market"
         },
         {
-          "file": "src/content/venues/balnarring-market.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "balnarring-market"
-        },
-        {
-          "file": "src/content/venues/red-hill-estate.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "red-hill-estate"
-        },
-        {
           "file": "src/pages/tour/for-couples.astro",
           "purpose": "hero",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v3/index.astro",
-          "purpose": "inline",
           "entityType": null,
           "entitySlug": null
         }
@@ -659,25 +509,13 @@
       "filename": "article-point-nepean-01.webp",
       "extension": "webp",
       "bytes": 295180,
-      "updatedAt": "2026-06-01T13:01:42.791Z",
+      "updatedAt": "2026-08-18T18:55:00.346Z",
       "usages": [
         {
           "file": "src/content/articles/the-point-nepean-half-day.md",
           "purpose": "hero",
           "entityType": "article",
           "entitySlug": "the-point-nepean-half-day"
-        },
-        {
-          "file": "src/content/venues/onannon.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "onannon"
-        },
-        {
-          "file": "src/content/venues/point-nepean-discovery-tents.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "point-nepean-discovery-tents"
         }
       ]
     },
@@ -687,7 +525,7 @@
       "filename": "article-producer-trail-01.webp",
       "extension": "webp",
       "bytes": 291672,
-      "updatedAt": "2026-06-01T13:01:42.792Z",
+      "updatedAt": "2026-08-18T18:55:00.350Z",
       "usages": [
         {
           "file": "src/content/articles/the-producer-trail.md",
@@ -700,18 +538,6 @@
           "purpose": "hero",
           "entityType": "tour",
           "entitySlug": "local-way-wine-cheese-tour"
-        },
-        {
-          "file": "src/content/venues/lightfoot-wines.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "lightfoot-wines"
-        },
-        {
-          "file": "src/content/venues/main-ridge-dairy.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "main-ridge-dairy"
         },
         {
           "file": "src/pages/eat/paddock-to-plate.astro",
@@ -727,8 +553,20 @@
       "filename": "article-rainy-day-01.webp",
       "extension": "webp",
       "bytes": 369846,
-      "updatedAt": "2026-06-01T13:01:42.793Z",
+      "updatedAt": "2026-08-18T18:55:00.354Z",
       "usages": [
+        {
+          "file": "src/content/articles/indoor-play-mornington-peninsula.md",
+          "purpose": "hero",
+          "entityType": "article",
+          "entitySlug": "indoor-play-mornington-peninsula"
+        },
+        {
+          "file": "src/content/articles/peninsula-this-weekend-jul-11.md",
+          "purpose": "hero",
+          "entityType": "article",
+          "entitySlug": "peninsula-this-weekend-jul-11"
+        },
         {
           "file": "src/content/articles/rainy-day-peninsula.md",
           "purpose": "hero",
@@ -742,10 +580,16 @@
           "entitySlug": "the-rainy-day-peninsula-without-a-booking"
         },
         {
-          "file": "src/content/venues/peninsula-fresh-organics.json",
+          "file": "src/content/articles/winter-indoors-mprg-rainy-day-circuit.md",
           "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "peninsula-fresh-organics"
+          "entityType": "article",
+          "entitySlug": "winter-indoors-mprg-rainy-day-circuit"
+        },
+        {
+          "file": "src/content/events/archive/mugs-keep-cups-workshop-peninsula-ceramics-studio-july-2026.json",
+          "purpose": "hero",
+          "entityType": "event",
+          "entitySlug": "mugs-keep-cups-workshop-peninsula-ceramics-studio-july-2026"
         },
         {
           "file": "src/pages/explore/rainy-day.astro",
@@ -764,12 +608,6 @@
           "purpose": "inline",
           "entityType": null,
           "entitySlug": null
-        },
-        {
-          "file": "src/pages/v3/index.astro",
-          "purpose": "inline",
-          "entityType": null,
-          "entitySlug": null
         }
       ]
     },
@@ -779,7 +617,7 @@
       "filename": "article-red-hill-saturday-01.webp",
       "extension": "webp",
       "bytes": 287866,
-      "updatedAt": "2026-06-01T13:01:42.794Z",
+      "updatedAt": "2026-08-18T18:55:00.358Z",
       "usages": [
         {
           "file": "src/content/articles/autumn-weekend-edit.md",
@@ -800,10 +638,22 @@
           "entitySlug": "how-to-build-a-red-hill-saturday"
         },
         {
+          "file": "src/content/articles/peninsula-this-weekend-jul-04.md",
+          "purpose": "hero",
+          "entityType": "article",
+          "entitySlug": "peninsula-this-weekend-jul-04"
+        },
+        {
           "file": "src/content/articles/peninsula-this-weekend-jun-06.md",
           "purpose": "hero",
           "entityType": "article",
           "entitySlug": "peninsula-this-weekend-jun-06"
+        },
+        {
+          "file": "src/content/articles/peninsula-this-weekend-jun-13.md",
+          "purpose": "hero",
+          "entityType": "article",
+          "entitySlug": "peninsula-this-weekend-jun-13"
         },
         {
           "file": "src/content/articles/the-one-booking-peninsula-day.md",
@@ -812,7 +662,7 @@
           "entitySlug": "the-one-booking-peninsula-day"
         },
         {
-          "file": "src/content/events/pearcedale-community-market.json",
+          "file": "src/content/events/archive/pearcedale-community-market.json",
           "purpose": "hero",
           "entityType": "event",
           "entitySlug": "pearcedale-community-market"
@@ -828,18 +678,6 @@
           "purpose": "hero",
           "entityType": "tour",
           "entitySlug": "wine-discovery-weekend"
-        },
-        {
-          "file": "src/content/venues/balnarring-bakehouse.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "balnarring-bakehouse"
-        },
-        {
-          "file": "src/content/venues/foxeys-hangout.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "foxeys-hangout"
         },
         {
           "file": "src/pages/eat/markets.astro",
@@ -873,7 +711,7 @@
       "filename": "article-seafood-01.webp",
       "extension": "webp",
       "bytes": 384994,
-      "updatedAt": "2026-06-01T13:01:42.795Z",
+      "updatedAt": "2026-08-18T18:55:00.362Z",
       "usages": [
         {
           "file": "src/content/articles/the-seafood-list.md",
@@ -895,8 +733,14 @@
       "filename": "article-sorrento-weekend-01.webp",
       "extension": "webp",
       "bytes": 553616,
-      "updatedAt": "2026-06-01T13:01:42.797Z",
+      "updatedAt": "2026-08-18T18:55:00.366Z",
       "usages": [
+        {
+          "file": "src/content/articles/sorrento-solstice-festival-2026-guide.md",
+          "purpose": "hero",
+          "entityType": "article",
+          "entitySlug": "sorrento-solstice-festival-2026-guide"
+        },
         {
           "file": "src/content/articles/the-sorrento-weekend.md",
           "purpose": "hero",
@@ -910,16 +754,10 @@
           "entitySlug": "sorrento-solstice-festival-2026"
         },
         {
-          "file": "src/content/venues/phaedrus-estate.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "phaedrus-estate"
-        },
-        {
-          "file": "src/content/venues/sorrento-bakery.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "sorrento-bakery"
+          "file": "src/pages/_archive/newsletter-pre-emma-2026-05-15.astro",
+          "purpose": "seo",
+          "entityType": null,
+          "entitySlug": null
         },
         {
           "file": "src/pages/dispatch.astro",
@@ -930,12 +768,6 @@
         {
           "file": "src/pages/explore/golf.astro",
           "purpose": "hero",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/_archive/newsletter-pre-emma-2026-05-15.astro",
-          "purpose": "seo",
           "entityType": null,
           "entitySlug": null
         },
@@ -953,7 +785,7 @@
       "filename": "article-sunset-01.webp",
       "extension": "webp",
       "bytes": 440106,
-      "updatedAt": "2026-06-01T13:01:42.798Z",
+      "updatedAt": "2026-08-18T18:55:00.370Z",
       "usages": [
         {
           "file": "src/content/articles/the-friday-night-arrival.md",
@@ -980,43 +812,13 @@
           "entitySlug": "melbourne-elite-private-hens-day"
         },
         {
-          "file": "src/content/venues/commonfolk-coffee.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "commonfolk-coffee"
-        },
-        {
-          "file": "src/content/venues/morning-sun.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "morning-sun"
-        },
-        {
           "file": "src/pages/explore/plans/index.astro",
           "purpose": "seo",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/explore/plans/index.astro",
-          "purpose": "hero",
           "entityType": null,
           "entitySlug": null
         },
         {
           "file": "src/pages/guides/index.astro",
-          "purpose": "hero",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v4/escape/index.astro",
-          "purpose": "seo",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v4/escape/index.astro",
           "purpose": "hero",
           "entityType": null,
           "entitySlug": null
@@ -1047,7 +849,7 @@
       "filename": "article-vineyard-villa-01.webp",
       "extension": "webp",
       "bytes": 470156,
-      "updatedAt": "2026-06-01T13:01:42.799Z",
+      "updatedAt": "2026-08-18T18:55:00.374Z",
       "usages": [
         {
           "file": "src/content/articles/corporate-events-how-to-plan-peninsula-retreat.md",
@@ -1092,12 +894,6 @@
           "entitySlug": "localing-tours"
         },
         {
-          "file": "src/content/venues/baillieu-vineyard.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "baillieu-vineyard"
-        },
-        {
           "file": "src/pages/journal/mornington-peninsula-wedding-venues.astro",
           "purpose": "seo",
           "entityType": "article",
@@ -1123,30 +919,6 @@
         },
         {
           "file": "src/pages/search.astro",
-          "purpose": "inline",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/journal/mornington-peninsula-wedding-venues.astro",
-          "purpose": "hero",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/weddings/index.astro",
-          "purpose": "seo",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/weddings/winery-wedding-venues-mornington-peninsula.astro",
-          "purpose": "seo",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v3/index.astro",
           "purpose": "inline",
           "entityType": null,
           "entitySlug": null
@@ -1189,7 +961,7 @@
       "filename": "category-bakery-01.webp",
       "extension": "webp",
       "bytes": 208568,
-      "updatedAt": "2026-06-01T13:01:42.800Z",
+      "updatedAt": "2026-08-18T18:55:00.374Z",
       "usages": []
     },
     {
@@ -1198,7 +970,7 @@
       "filename": "category-bakery-02.webp",
       "extension": "webp",
       "bytes": 572938,
-      "updatedAt": "2026-06-01T13:01:42.801Z",
+      "updatedAt": "2026-08-18T18:55:00.382Z",
       "usages": []
     },
     {
@@ -1207,7 +979,7 @@
       "filename": "category-brewery-01.webp",
       "extension": "webp",
       "bytes": 350026,
-      "updatedAt": "2026-06-01T13:01:42.802Z",
+      "updatedAt": "2026-08-18T18:55:00.386Z",
       "usages": [
         {
           "file": "src/content/events/bass-flinders-gin-masterclass.json",
@@ -1220,6 +992,12 @@
           "purpose": "hero",
           "entityType": "event",
           "entitySlug": "jetty-road-brewery-mothers-day-2026"
+        },
+        {
+          "file": "src/content/events/trivia-jetty-road-brewery-winter-2026.json",
+          "purpose": "hero",
+          "entityType": "event",
+          "entitySlug": "trivia-jetty-road-brewery-winter-2026"
         }
       ]
     },
@@ -1229,8 +1007,15 @@
       "filename": "category-brewery-02.webp",
       "extension": "webp",
       "bytes": 22980,
-      "updatedAt": "2026-06-01T13:01:42.803Z",
-      "usages": []
+      "updatedAt": "2026-08-18T18:55:00.386Z",
+      "usages": [
+        {
+          "file": "src/content/events/country-day-tar-barrel-august-2026.json",
+          "purpose": "hero",
+          "entityType": "event",
+          "entitySlug": "country-day-tar-barrel-august-2026"
+        }
+      ]
     },
     {
       "src": "/images/sourced/category-cafe-01.webp",
@@ -1238,7 +1023,7 @@
       "filename": "category-cafe-01.webp",
       "extension": "webp",
       "bytes": 294934,
-      "updatedAt": "2026-06-01T13:01:42.804Z",
+      "updatedAt": "2026-08-18T18:55:00.390Z",
       "usages": [
         {
           "file": "src/content/articles/breakfast-before-the-crowds.md",
@@ -1254,7 +1039,7 @@
       "filename": "category-cafe-02.webp",
       "extension": "webp",
       "bytes": 294934,
-      "updatedAt": "2026-06-01T13:01:42.805Z",
+      "updatedAt": "2026-08-18T18:55:00.390Z",
       "usages": [
         {
           "file": "src/content/events/chocolaterie-junior-chocolatier.json",
@@ -1267,18 +1052,6 @@
           "purpose": "hero",
           "entityType": "event",
           "entitySlug": "rocky-road-festival-mornington-peninsula-chocolaterie"
-        },
-        {
-          "file": "src/content/venues/flinders-general-store.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "flinders-general-store"
-        },
-        {
-          "file": "src/content/venues/georgie-bass.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "georgie-bass"
         }
       ]
     },
@@ -1288,7 +1061,7 @@
       "filename": "category-cafe-03.webp",
       "extension": "webp",
       "bytes": 412018,
-      "updatedAt": "2026-06-01T13:01:42.806Z",
+      "updatedAt": "2026-08-18T18:55:00.394Z",
       "usages": []
     },
     {
@@ -1297,7 +1070,7 @@
       "filename": "category-cafe-04.webp",
       "extension": "webp",
       "bytes": 412018,
-      "updatedAt": "2026-06-01T13:01:42.807Z",
+      "updatedAt": "2026-08-18T18:55:00.398Z",
       "usages": []
     },
     {
@@ -1306,7 +1079,7 @@
       "filename": "category-cottage-01.webp",
       "extension": "webp",
       "bytes": 310290,
-      "updatedAt": "2026-06-01T13:01:42.808Z",
+      "updatedAt": "2026-08-18T18:55:00.402Z",
       "usages": [
         {
           "file": "src/pages/explore/markets.astro",
@@ -1322,7 +1095,7 @@
       "filename": "category-glamping-01.webp",
       "extension": "webp",
       "bytes": 281358,
-      "updatedAt": "2026-06-01T13:01:42.809Z",
+      "updatedAt": "2026-08-18T18:55:00.406Z",
       "usages": []
     },
     {
@@ -1331,7 +1104,7 @@
       "filename": "category-hotel-02.webp",
       "extension": "webp",
       "bytes": 319984,
-      "updatedAt": "2026-06-01T13:01:42.810Z",
+      "updatedAt": "2026-08-18T18:55:00.406Z",
       "usages": []
     },
     {
@@ -1340,13 +1113,25 @@
       "filename": "category-market-01.webp",
       "extension": "webp",
       "bytes": 405978,
-      "updatedAt": "2026-06-01T13:01:42.811Z",
+      "updatedAt": "2026-08-18T18:55:00.410Z",
       "usages": [
         {
-          "file": "src/content/events/emu-plains-market-balnarring.json",
+          "file": "src/content/events/archive/emu-plains-market-balnarring.json",
           "purpose": "hero",
           "entityType": "event",
           "entitySlug": "emu-plains-market-balnarring"
+        },
+        {
+          "file": "src/content/events/archive/mornington-racecourse-monthly-market-june-2026.json",
+          "purpose": "hero",
+          "entityType": "event",
+          "entitySlug": "mornington-racecourse-monthly-market-june-2026"
+        },
+        {
+          "file": "src/content/events/archive/mt-eliza-farmers-market.json",
+          "purpose": "hero",
+          "entityType": "event",
+          "entitySlug": "mt-eliza-farmers-market"
         },
         {
           "file": "src/content/events/heart-of-the-community-market-rosebud.json",
@@ -1367,34 +1152,16 @@
           "entitySlug": "mornington-racecourse-market-may-2026"
         },
         {
-          "file": "src/content/events/mornington-racecourse-monthly-market-june-2026.json",
-          "purpose": "hero",
-          "entityType": "event",
-          "entitySlug": "mornington-racecourse-monthly-market-june-2026"
-        },
-        {
           "file": "src/content/events/mornington-wednesday-market-main-street-market.json",
           "purpose": "hero",
           "entityType": "event",
           "entitySlug": "mornington-wednesday-market-main-street-market"
         },
         {
-          "file": "src/content/events/mt-eliza-farmers-market.json",
-          "purpose": "hero",
-          "entityType": "event",
-          "entitySlug": "mt-eliza-farmers-market"
-        },
-        {
           "file": "src/content/signature-events/main-street-mornington-festival.json",
           "purpose": "hero",
           "entityType": "event",
           "entitySlug": "main-street-mornington-festival"
-        },
-        {
-          "file": "src/content/venues/mount-eliza-farmers-market.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "mount-eliza-farmers-market"
         },
         {
           "file": "src/components/EventCard.astro",
@@ -1410,25 +1177,25 @@
       "filename": "category-market-02.webp",
       "extension": "webp",
       "bytes": 405978,
-      "updatedAt": "2026-06-01T13:01:42.812Z",
+      "updatedAt": "2026-08-18T18:55:00.414Z",
       "usages": [
         {
-          "file": "src/content/events/boneo-community-market.json",
+          "file": "src/content/events/archive/boneo-community-market.json",
           "purpose": "hero",
           "entityType": "event",
           "entitySlug": "boneo-community-market"
+        },
+        {
+          "file": "src/content/events/archive/mornington-racecourse-market.json",
+          "purpose": "hero",
+          "entityType": "event",
+          "entitySlug": "mornington-racecourse-market"
         },
         {
           "file": "src/content/events/hastings-thursday-street-market.json",
           "purpose": "hero",
           "entityType": "event",
           "entitySlug": "hastings-thursday-street-market"
-        },
-        {
-          "file": "src/content/events/mornington-racecourse-market.json",
-          "purpose": "hero",
-          "entityType": "event",
-          "entitySlug": "mornington-racecourse-market"
         },
         {
           "file": "src/content/signature-events/annual-festivals.json",
@@ -1438,18 +1205,6 @@
         },
         {
           "file": "src/pages/guides/index.astro",
-          "purpose": "hero",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v4/whats-on/index.astro",
-          "purpose": "seo",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v4/whats-on/index.astro",
           "purpose": "hero",
           "entityType": null,
           "entitySlug": null
@@ -1474,19 +1229,13 @@
       "filename": "category-producer-01.webp",
       "extension": "webp",
       "bytes": 186278,
-      "updatedAt": "2026-06-01T13:01:42.812Z",
+      "updatedAt": "2026-08-18T18:55:00.414Z",
       "usages": [
         {
           "file": "src/content/events/wild-mushroom-forage-lunch-with-the-kitchen.json",
           "purpose": "hero",
           "entityType": "event",
           "entitySlug": "wild-mushroom-forage-lunch-with-the-kitchen"
-        },
-        {
-          "file": "src/content/experiences/sunny-ridge-strawberry-farm.json",
-          "purpose": "hero",
-          "entityType": "experience",
-          "entitySlug": "sunny-ridge-strawberry-farm"
         }
       ]
     },
@@ -1496,19 +1245,13 @@
       "filename": "category-producer-02.webp",
       "extension": "webp",
       "bytes": 28034,
-      "updatedAt": "2026-06-01T13:01:42.813Z",
+      "updatedAt": "2026-08-18T18:55:00.418Z",
       "usages": [
         {
           "file": "src/content/events/red-hill-truffles-winter-truffle-hunt-season.json",
           "purpose": "hero",
           "entityType": "event",
           "entitySlug": "red-hill-truffles-winter-truffle-hunt-season"
-        },
-        {
-          "file": "src/content/venues/mornington-peninsula-chocolates.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "mornington-peninsula-chocolates"
         }
       ]
     },
@@ -1518,8 +1261,14 @@
       "filename": "category-producer-03.webp",
       "extension": "webp",
       "bytes": 66414,
-      "updatedAt": "2026-06-01T13:01:42.813Z",
+      "updatedAt": "2026-08-18T18:55:00.418Z",
       "usages": [
+        {
+          "file": "src/content/events/archive/sunny-ridge-strawberry-picking.json",
+          "purpose": "hero",
+          "entityType": "event",
+          "entitySlug": "sunny-ridge-strawberry-picking"
+        },
         {
           "file": "src/content/events/foxeys-hangout-vegetable-feast-morning-sun-vineyard.json",
           "purpose": "hero",
@@ -1531,12 +1280,6 @@
           "purpose": "hero",
           "entityType": "event",
           "entitySlug": "rocky-road-festival-tasting-sessions"
-        },
-        {
-          "file": "src/content/events/sunny-ridge-strawberry-picking.json",
-          "purpose": "hero",
-          "entityType": "event",
-          "entitySlug": "sunny-ridge-strawberry-picking"
         }
       ]
     },
@@ -1546,7 +1289,7 @@
       "filename": "category-producer-04.webp",
       "extension": "webp",
       "bytes": 911344,
-      "updatedAt": "2026-06-01T13:01:42.815Z",
+      "updatedAt": "2026-08-18T18:55:00.426Z",
       "usages": [
         {
           "file": "src/content/events/flinders-truffles-winter-truffle-hunt-season.json",
@@ -1562,7 +1305,7 @@
       "filename": "category-pub-01.webp",
       "extension": "webp",
       "bytes": 226708,
-      "updatedAt": "2026-06-01T13:01:42.816Z",
+      "updatedAt": "2026-08-18T18:55:00.426Z",
       "usages": [
         {
           "file": "src/content/articles/the-pub-crawl.md",
@@ -1578,7 +1321,7 @@
       "filename": "category-pub-02.webp",
       "extension": "webp",
       "bytes": 226708,
-      "updatedAt": "2026-06-01T13:01:42.817Z",
+      "updatedAt": "2026-08-18T18:55:00.430Z",
       "usages": [
         {
           "file": "src/content/articles/the-pub-guide.md",
@@ -1594,7 +1337,7 @@
       "filename": "category-pub-03.webp",
       "extension": "webp",
       "bytes": 226708,
-      "updatedAt": "2026-06-01T13:01:42.817Z",
+      "updatedAt": "2026-08-18T18:55:00.430Z",
       "usages": []
     },
     {
@@ -1603,7 +1346,7 @@
       "filename": "category-restaurant-01.webp",
       "extension": "webp",
       "bytes": 427902,
-      "updatedAt": "2026-06-01T13:01:42.819Z",
+      "updatedAt": "2026-08-18T18:55:00.438Z",
       "usages": [
         {
           "file": "src/content/articles/hatted-restaurants-mornington-peninsula-2025.mdx",
@@ -1622,66 +1365,6 @@
           "purpose": "hero",
           "entityType": "event",
           "entitySlug": "polperro-cellar-table-private-dining-experience"
-        },
-        {
-          "file": "src/content/venues/bistro-elba.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "bistro-elba"
-        },
-        {
-          "file": "src/content/venues/many-little.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "many-little"
-        },
-        {
-          "file": "src/content/venues/moke-dining.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "moke-dining"
-        },
-        {
-          "file": "src/content/venues/red-gum-bbq.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "red-gum-bbq"
-        },
-        {
-          "file": "src/content/venues/stringers-sorrento.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "stringers-sorrento"
-        },
-        {
-          "file": "src/content/venues/via-boffe.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "via-boffe"
-        },
-        {
-          "file": "src/pages/index.astro",
-          "purpose": "inline",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/preview-home-redesign.astro",
-          "purpose": "inline",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/test/index.astro",
-          "purpose": "inline",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/test/index.astro",
-          "purpose": "inline",
-          "entityType": null,
-          "entitySlug": null
         }
       ]
     },
@@ -1691,15 +1374,8 @@
       "filename": "category-restaurant-02.webp",
       "extension": "webp",
       "bytes": 427902,
-      "updatedAt": "2026-06-01T13:01:42.820Z",
-      "usages": [
-        {
-          "file": "src/content/venues/allis-wine-bar.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "allis-wine-bar"
-        }
-      ]
+      "updatedAt": "2026-08-18T18:55:00.442Z",
+      "usages": []
     },
     {
       "src": "/images/sourced/category-restaurant-03.webp",
@@ -1707,37 +1383,19 @@
       "filename": "category-restaurant-03.webp",
       "extension": "webp",
       "bytes": 394928,
-      "updatedAt": "2026-06-01T13:01:42.821Z",
+      "updatedAt": "2026-08-18T18:55:00.446Z",
       "usages": [
+        {
+          "file": "src/content/articles/insider-picks-2026-08-02.md",
+          "purpose": "hero",
+          "entityType": "article",
+          "entitySlug": "insider-picks-2026-08-02"
+        },
         {
           "file": "src/content/events/ten-minutes-by-tractor-terroir-masterclass.json",
           "purpose": "hero",
           "entityType": "event",
           "entitySlug": "ten-minutes-by-tractor-terroir-masterclass"
-        },
-        {
-          "file": "src/content/venues/green-olive-red-hill.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "green-olive-red-hill"
-        },
-        {
-          "file": "src/content/venues/la-baracca-tgallant.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "la-baracca-tgallant"
-        },
-        {
-          "file": "src/content/venues/mr-vincenzos.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "mr-vincenzos"
-        },
-        {
-          "file": "src/content/venues/the-rocks-mornington.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "the-rocks-mornington"
         }
       ]
     },
@@ -1747,27 +1405,8 @@
       "filename": "category-restaurant-04.webp",
       "extension": "webp",
       "bytes": 1031896,
-      "updatedAt": "2026-06-01T13:01:42.823Z",
-      "usages": [
-        {
-          "file": "src/content/venues/barragunda-dining.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "barragunda-dining"
-        },
-        {
-          "file": "src/content/venues/maxs-red-hill-estate.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "maxs-red-hill-estate"
-        },
-        {
-          "file": "src/content/venues/port-phillip-estate-restaurant.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "port-phillip-estate-restaurant"
-        }
-      ]
+      "updatedAt": "2026-08-18T18:55:00.454Z",
+      "usages": []
     },
     {
       "src": "/images/sourced/category-restaurant-06.webp",
@@ -1775,7 +1414,7 @@
       "filename": "category-restaurant-06.webp",
       "extension": "webp",
       "bytes": 394928,
-      "updatedAt": "2026-06-01T13:01:42.825Z",
+      "updatedAt": "2026-08-18T18:55:00.458Z",
       "usages": []
     },
     {
@@ -1784,7 +1423,7 @@
       "filename": "category-winery-01.webp",
       "extension": "webp",
       "bytes": 369466,
-      "updatedAt": "2026-06-01T13:01:42.826Z",
+      "updatedAt": "2026-08-18T18:55:00.462Z",
       "usages": [
         {
           "file": "src/content/events/mornington-peninsula-winter-wine-weekend-winter-wine-festival.json",
@@ -1797,12 +1436,6 @@
           "purpose": "hero",
           "entityType": "tour",
           "entitySlug": "amour-of-the-grape-boutique-wine-tour"
-        },
-        {
-          "file": "src/pages/test/index.astro",
-          "purpose": "inline",
-          "entityType": null,
-          "entitySlug": null
         },
         {
           "file": "src/components/EventCard.astro",
@@ -1818,7 +1451,7 @@
       "filename": "category-winery-02.webp",
       "extension": "webp",
       "bytes": 90220,
-      "updatedAt": "2026-06-01T13:01:42.826Z",
+      "updatedAt": "2026-08-18T18:55:00.462Z",
       "usages": [
         {
           "file": "src/content/events/autumn-winery-walk-2026.json",
@@ -1864,7 +1497,7 @@
       "filename": "category-winery-03.webp",
       "extension": "webp",
       "bytes": 31954,
-      "updatedAt": "2026-06-01T13:01:42.826Z",
+      "updatedAt": "2026-08-18T18:55:00.462Z",
       "usages": [
         {
           "file": "src/content/events/mornington-peninsula-winter-wine-weekend-2026.json",
@@ -1877,12 +1510,6 @@
           "purpose": "hero",
           "entityType": "tour",
           "entitySlug": "amour-of-the-grape"
-        },
-        {
-          "file": "src/content/venues/stillwater-crittenden.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "stillwater-crittenden"
         }
       ]
     },
@@ -1892,10 +1519,10 @@
       "filename": "category-winery-04.webp",
       "extension": "webp",
       "bytes": 239106,
-      "updatedAt": "2026-06-01T13:01:42.828Z",
+      "updatedAt": "2026-08-18T18:55:00.466Z",
       "usages": [
         {
-          "file": "src/content/events/crittenden-wines-king-s-birthday-wine-weekend-events.json",
+          "file": "src/content/events/archive/crittenden-wines-king-s-birthday-wine-weekend-events.json",
           "purpose": "hero",
           "entityType": "event",
           "entitySlug": "crittenden-wines-king-s-birthday-wine-weekend-events"
@@ -1914,10 +1541,10 @@
       "filename": "category-winery-06.webp",
       "extension": "webp",
       "bytes": 164212,
-      "updatedAt": "2026-06-01T13:01:42.829Z",
+      "updatedAt": "2026-08-18T18:55:00.466Z",
       "usages": [
         {
-          "file": "src/content/events/stonier-pies-pinot-king-s-birthday-weekend.json",
+          "file": "src/content/events/archive/stonier-pies-pinot-king-s-birthday-weekend.json",
           "purpose": "hero",
           "entityType": "event",
           "entitySlug": "stonier-pies-pinot-king-s-birthday-weekend"
@@ -1936,10 +1563,10 @@
       "filename": "category-winery-08.webp",
       "extension": "webp",
       "bytes": 156238,
-      "updatedAt": "2026-06-01T13:01:42.830Z",
+      "updatedAt": "2026-08-18T18:55:00.470Z",
       "usages": [
         {
-          "file": "src/content/events/stonier-vineyard-tours-new-release-pinot-tasting.json",
+          "file": "src/content/events/archive/stonier-vineyard-tours-new-release-pinot-tasting.json",
           "purpose": "hero",
           "entityType": "event",
           "entitySlug": "stonier-vineyard-tours-new-release-pinot-tasting"
@@ -1958,7 +1585,7 @@
       "filename": "dog-beach-emma-01-bright.webp",
       "extension": "webp",
       "bytes": 345612,
-      "updatedAt": "2026-06-01T13:01:42.911Z",
+      "updatedAt": "2026-08-18T18:55:00.694Z",
       "usages": []
     },
     {
@@ -1967,7 +1594,7 @@
       "filename": "dog-beach-emma-01.webp",
       "extension": "webp",
       "bytes": 345612,
-      "updatedAt": "2026-06-01T13:01:42.831Z",
+      "updatedAt": "2026-08-18T18:55:00.474Z",
       "usages": [
         {
           "file": "src/content/articles/dog-friendly-beaches-mornington-peninsula.mdx",
@@ -1998,18 +1625,6 @@
           "purpose": "inline",
           "entityType": null,
           "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/dog-friendly/index.astro",
-          "purpose": "seo",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/explore/dog-friendly.astro",
-          "purpose": "seo",
-          "entityType": null,
-          "entitySlug": null
         }
       ]
     },
@@ -2019,7 +1634,7 @@
       "filename": "dog-beach-hero-01.webp",
       "extension": "webp",
       "bytes": 467991,
-      "updatedAt": "2026-06-01T13:01:42.833Z",
+      "updatedAt": "2026-08-18T18:55:00.478Z",
       "usages": []
     },
     {
@@ -2028,7 +1643,7 @@
       "filename": "dog-lifestyle-hero-01.webp",
       "extension": "webp",
       "bytes": 342844,
-      "updatedAt": "2026-06-01T13:01:42.834Z",
+      "updatedAt": "2026-08-18T18:55:00.482Z",
       "usages": [
         {
           "file": "src/content/articles/dog-friendly-accommodation-mornington-peninsula.md",
@@ -2050,7 +1665,7 @@
       "filename": "dog-walk-hero-01.webp",
       "extension": "webp",
       "bytes": 199791,
-      "updatedAt": "2026-06-01T13:01:42.836Z",
+      "updatedAt": "2026-08-18T18:55:00.486Z",
       "usages": [
         {
           "file": "src/content/articles/dog-daycare-boarding-groomers-pet-shops-mornington-peninsula.md",
@@ -2072,7 +1687,7 @@
       "filename": "eat-epicurean-red-hill-01.webp",
       "extension": "webp",
       "bytes": 562940,
-      "updatedAt": "2026-06-01T13:01:42.838Z",
+      "updatedAt": "2026-08-18T18:55:00.490Z",
       "usages": [
         {
           "file": "src/content/articles/peninsula-this-weekend-may-30.md",
@@ -2094,7 +1709,7 @@
       "filename": "event-portsea-polo-01.webp",
       "extension": "webp",
       "bytes": 157892,
-      "updatedAt": "2026-06-01T13:01:42.838Z",
+      "updatedAt": "2026-08-18T18:55:00.494Z",
       "usages": [
         {
           "file": "src/content/signature-events/portsea-polo.json",
@@ -2110,8 +1725,20 @@
       "filename": "explore-arthurs-seat-lookout-01.webp",
       "extension": "webp",
       "bytes": 139822,
-      "updatedAt": "2026-06-01T13:01:42.839Z",
+      "updatedAt": "2026-08-18T18:55:00.494Z",
       "usages": [
+        {
+          "file": "src/content/articles/insider-picks-2026-07-27.md",
+          "purpose": "hero",
+          "entityType": "article",
+          "entitySlug": "insider-picks-2026-07-27"
+        },
+        {
+          "file": "src/content/events/archive/faux-snow-flurries-arthurs-seat-eagle-2026.json",
+          "purpose": "hero",
+          "entityType": "event",
+          "entitySlug": "faux-snow-flurries-arthurs-seat-eagle-2026"
+        },
         {
           "file": "src/content/experiences/arthurs-seat-lookout.json",
           "purpose": "hero",
@@ -2143,25 +1770,7 @@
           "entitySlug": "arthurs-views"
         },
         {
-          "file": "src/content/venues/dromana-estate.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "dromana-estate"
-        },
-        {
-          "file": "src/content/venues/jetty-road-brewery.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "jetty-road-brewery"
-        },
-        {
           "file": "src/pages/tour/full-day-tours.astro",
-          "purpose": "hero",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/index.astro",
           "purpose": "hero",
           "entityType": null,
           "entitySlug": null
@@ -2174,7 +1783,7 @@
       "filename": "explore-balnarring-beach-01.webp",
       "extension": "webp",
       "bytes": 238162,
-      "updatedAt": "2026-06-01T13:01:42.840Z",
+      "updatedAt": "2026-08-18T18:55:00.498Z",
       "usages": [
         {
           "file": "src/content/experiences/balnarring-beach.json",
@@ -2193,12 +1802,6 @@
           "purpose": "hero",
           "entityType": "tour",
           "entitySlug": "moonraker-whale-watching-tour"
-        },
-        {
-          "file": "src/content/venues/balnarring-pub.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "balnarring-pub"
         }
       ]
     },
@@ -2208,7 +1811,7 @@
       "filename": "explore-bushrangers-bay-walk-01.webp",
       "extension": "webp",
       "bytes": 85032,
-      "updatedAt": "2026-06-01T13:01:42.840Z",
+      "updatedAt": "2026-08-18T18:55:00.498Z",
       "usages": [
         {
           "file": "src/content/articles/insider-picks-2026-05-14.md",
@@ -2241,12 +1844,6 @@
           "entitySlug": null
         },
         {
-          "file": "src/pages/index.astro",
-          "purpose": "inline",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
           "file": "src/pages/journal/free-things-to-do-mornington-peninsula.astro",
           "purpose": "seo",
           "entityType": "article",
@@ -2263,42 +1860,6 @@
           "purpose": "hero",
           "entityType": "article",
           "entitySlug": "free-things-to-do-mornington-peninsula"
-        },
-        {
-          "file": "src/pages/preview-home-redesign.astro",
-          "purpose": "inline",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/test/index.astro",
-          "purpose": "inline",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/explore/best-walks.astro",
-          "purpose": "seo",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/explore/walks.astro",
-          "purpose": "seo",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/index.astro",
-          "purpose": "hero",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/walks/easy-walks-mornington-peninsula.astro",
-          "purpose": "seo",
-          "entityType": null,
-          "entitySlug": null
         },
         {
           "file": "src/pages/walks/easy-walks-mornington-peninsula.astro",
@@ -2320,13 +1881,19 @@
       "filename": "explore-cape-schanck-boardwalk-01.webp",
       "extension": "webp",
       "bytes": 280634,
-      "updatedAt": "2026-06-01T13:01:42.841Z",
+      "updatedAt": "2026-08-18T18:55:00.502Z",
       "usages": [
         {
           "file": "src/content/articles/first-time-peninsula.md",
           "purpose": "hero",
           "entityType": "article",
           "entitySlug": "first-time-peninsula"
+        },
+        {
+          "file": "src/content/articles/insider-picks-2026-08-01.md",
+          "purpose": "hero",
+          "entityType": "article",
+          "entitySlug": "insider-picks-2026-08-01"
         },
         {
           "file": "src/content/articles/walks-cape-schanck-hot-springs-day.mdx",
@@ -2359,32 +1926,8 @@
           "entitySlug": "arthurs-seat-eagle-gondola"
         },
         {
-          "file": "src/content/venues/one-spa-racv-cape-schanck.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "one-spa-racv-cape-schanck"
-        },
-        {
-          "file": "src/content/venues/st-andrews-beach-brewery.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "st-andrews-beach-brewery"
-        },
-        {
-          "file": "src/content/venues/yabby-lake.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "yabby-lake"
-        },
-        {
           "file": "src/pages/explore/hot-springs.astro",
           "purpose": "inline",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/index.astro",
-          "purpose": "hero",
           "entityType": null,
           "entitySlug": null
         },
@@ -2408,13 +1951,25 @@
       "filename": "explore-cape-schanck-lighthouse-01.webp",
       "extension": "webp",
       "bytes": 47580,
-      "updatedAt": "2026-06-01T13:01:42.842Z",
+      "updatedAt": "2026-08-18T18:55:00.502Z",
       "usages": [
         {
           "file": "src/content/articles/cape-schanck-guide.mdx",
           "purpose": "hero",
           "entityType": "article",
           "entitySlug": "cape-schanck-guide"
+        },
+        {
+          "file": "src/content/articles/insider-picks-2026-06-18.md",
+          "purpose": "hero",
+          "entityType": "article",
+          "entitySlug": "insider-picks-2026-06-18"
+        },
+        {
+          "file": "src/content/articles/insider-picks-2026-07-05.md",
+          "purpose": "hero",
+          "entityType": "article",
+          "entitySlug": "insider-picks-2026-07-05"
         },
         {
           "file": "src/content/experiences/cape-schanck-lighthouse-walk.json",
@@ -2447,44 +2002,14 @@
           "entitySlug": null
         },
         {
-          "file": "src/pages/explore/index.astro",
+          "file": "src/components/v5/home/HomeDoors.astro",
           "purpose": "inline",
           "entityType": null,
           "entitySlug": null
         },
         {
-          "file": "src/pages/index.astro",
+          "file": "src/data/home-hero-slides.json",
           "purpose": "inline",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/preview-home-redesign.astro",
-          "purpose": "inline",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/test/index.astro",
-          "purpose": "inline",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/index.astro",
-          "purpose": "hero",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v4/explore/index.astro",
-          "purpose": "seo",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v4/explore/index.astro",
-          "purpose": "hero",
           "entityType": null,
           "entitySlug": null
         }
@@ -2496,7 +2021,7 @@
       "filename": "explore-dromana-beach-01.webp",
       "extension": "webp",
       "bytes": 115598,
-      "updatedAt": "2026-06-01T13:01:42.842Z",
+      "updatedAt": "2026-08-18T18:55:00.502Z",
       "usages": [
         {
           "file": "src/content/experiences/dromana-beach.json",
@@ -2509,6 +2034,12 @@
           "purpose": "hero",
           "entityType": "tour",
           "entitySlug": "moonraker-charters"
+        },
+        {
+          "file": "src/content/venues/pier-street-seafood.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "pier-street-seafood"
         },
         {
           "file": "src/pages/eat/bakeries.astro",
@@ -2524,7 +2055,7 @@
       "filename": "explore-farnsworth-track-01.webp",
       "extension": "webp",
       "bytes": 440106,
-      "updatedAt": "2026-06-01T13:01:42.844Z",
+      "updatedAt": "2026-08-18T18:55:00.506Z",
       "usages": [
         {
           "file": "src/content/articles/peninsula-this-weekend-may-23.md",
@@ -2543,12 +2074,6 @@
           "purpose": "hero",
           "entityType": "tour",
           "entitySlug": "global-ballooning"
-        },
-        {
-          "file": "src/pages/v2-staging/index.astro",
-          "purpose": "hero",
-          "entityType": null,
-          "entitySlug": null
         }
       ]
     },
@@ -2558,7 +2083,7 @@
       "filename": "explore-greens-bush-01.webp",
       "extension": "webp",
       "bytes": 316494,
-      "updatedAt": "2026-06-01T13:01:42.845Z",
+      "updatedAt": "2026-08-18T18:55:00.510Z",
       "usages": [
         {
           "file": "src/content/articles/insider-picks-2026-05-20.md",
@@ -2597,18 +2122,6 @@
           "entitySlug": "moonlit-sanctuary"
         },
         {
-          "file": "src/content/venues/iluka-retreat.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "iluka-retreat"
-        },
-        {
-          "file": "src/pages/v2-staging/index.astro",
-          "purpose": "hero",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
           "file": "src/components/EventCard.astro",
           "purpose": "inline",
           "entityType": null,
@@ -2622,7 +2135,7 @@
       "filename": "explore-gunnamatta-01.webp",
       "extension": "webp",
       "bytes": 140158,
-      "updatedAt": "2026-06-01T13:01:42.845Z",
+      "updatedAt": "2026-08-18T18:55:00.514Z",
       "usages": [
         {
           "file": "src/content/experiences/gunnamatta-ocean-beach.json",
@@ -2662,7 +2175,7 @@
       "filename": "explore-hub-hero-01.webp",
       "extension": "webp",
       "bytes": 178080,
-      "updatedAt": "2026-06-01T13:01:42.846Z",
+      "updatedAt": "2026-08-18T18:55:00.514Z",
       "usages": [
         {
           "file": "src/content/articles/things-to-do-mornington-peninsula.mdx",
@@ -2671,94 +2184,10 @@
           "entitySlug": "things-to-do-mornington-peninsula"
         },
         {
-          "file": "src/pages/v2-staging/explore/day-trips.astro",
-          "purpose": "seo",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/explore/family-friendly.astro",
-          "purpose": "seo",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/explore/free.astro",
-          "purpose": "seo",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/explore/getting-around.astro",
-          "purpose": "seo",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/explore/getting-here.astro",
-          "purpose": "seo",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/explore/hot-springs.astro",
-          "purpose": "seo",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/explore/index.astro",
-          "purpose": "seo",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/explore/map.astro",
-          "purpose": "seo",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/explore/markets.astro",
-          "purpose": "seo",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/explore/rainy-day.astro",
-          "purpose": "seo",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/explore/things-to-do.astro",
-          "purpose": "seo",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/explore/weekend-trips.astro",
-          "purpose": "seo",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/explore/where-to-base-yourself.astro",
-          "purpose": "seo",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/walks/index.astro",
-          "purpose": "seo",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/walks/index.astro",
+          "file": "src/content/events/southern-peninsula-sleepout-the-ranch-2026.json",
           "purpose": "hero",
-          "entityType": null,
-          "entitySlug": null
+          "entityType": "event",
+          "entitySlug": "southern-peninsula-sleepout-the-ranch-2026"
         }
       ]
     },
@@ -2768,10 +2197,10 @@
       "filename": "explore-mornington-foreshore-01.webp",
       "extension": "webp",
       "bytes": 297760,
-      "updatedAt": "2026-06-01T13:01:42.847Z",
+      "updatedAt": "2026-08-18T18:55:00.518Z",
       "usages": [
         {
-          "file": "src/content/events/mornington-cup-2026.json",
+          "file": "src/content/events/archive/mornington-cup-2026.json",
           "purpose": "hero",
           "entityType": "event",
           "entitySlug": "mornington-cup-2026"
@@ -2795,12 +2224,6 @@
           "entitySlug": "temptation-sailing"
         },
         {
-          "file": "src/content/venues/mornington-hotel.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "mornington-hotel"
-        },
-        {
           "file": "src/pages/eat/no-booking.astro",
           "purpose": "hero",
           "entityType": null,
@@ -2820,7 +2243,7 @@
       "filename": "explore-mount-martha-beach-01.webp",
       "extension": "webp",
       "bytes": 103236,
-      "updatedAt": "2026-06-01T13:01:42.847Z",
+      "updatedAt": "2026-08-18T18:55:00.518Z",
       "usages": [
         {
           "file": "src/content/articles/peninsula-this-weekend-may-03.md",
@@ -2841,19 +2264,7 @@
           "entitySlug": "bunyip-tours"
         },
         {
-          "file": "src/content/venues/the-bay-hotel-mornington.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "the-bay-hotel-mornington"
-        },
-        {
           "file": "src/pages/eat/brunch.astro",
-          "purpose": "hero",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/index.astro",
           "purpose": "hero",
           "entityType": null,
           "entitySlug": null
@@ -2866,13 +2277,31 @@
       "filename": "explore-mprg-01.webp",
       "extension": "webp",
       "bytes": 267456,
-      "updatedAt": "2026-06-01T13:01:42.848Z",
+      "updatedAt": "2026-08-18T18:55:00.522Z",
       "usages": [
+        {
+          "file": "src/content/articles/insider-picks-2026-08-06.md",
+          "purpose": "hero",
+          "entityType": "article",
+          "entitySlug": "insider-picks-2026-08-06"
+        },
+        {
+          "file": "src/content/events/helen-britton-story-so-far-mprg-2026.json",
+          "purpose": "hero",
+          "entityType": "event",
+          "entitySlug": "helen-britton-story-so-far-mprg-2026"
+        },
         {
           "file": "src/content/events/mprg-autumn-exhibition.json",
           "purpose": "hero",
           "entityType": "event",
           "entitySlug": "mprg-autumn-exhibition"
+        },
+        {
+          "file": "src/content/events/natalia-milosz-piekarska-sifted-light-mprg-2026.json",
+          "purpose": "hero",
+          "entityType": "event",
+          "entitySlug": "natalia-milosz-piekarska-sifted-light-mprg-2026"
         },
         {
           "file": "src/content/events/new-wave-26-at-mprg.json",
@@ -2924,19 +2353,13 @@
       "filename": "explore-point-nepean-fort-01.webp",
       "extension": "webp",
       "bytes": 208664,
-      "updatedAt": "2026-06-01T13:01:42.849Z",
+      "updatedAt": "2026-08-18T18:55:00.522Z",
       "usages": [
         {
           "file": "src/content/experiences/point-nepean-fort-walk.json",
           "purpose": "hero",
           "entityType": "experience",
           "entitySlug": "point-nepean-fort-walk"
-        },
-        {
-          "file": "src/pages/v2-staging/index.astro",
-          "purpose": "hero",
-          "entityType": null,
-          "entitySlug": null
         }
       ]
     },
@@ -2946,8 +2369,14 @@
       "filename": "explore-portsea-front-beach-01.webp",
       "extension": "webp",
       "bytes": 210980,
-      "updatedAt": "2026-06-01T13:01:42.850Z",
+      "updatedAt": "2026-08-18T18:55:00.526Z",
       "usages": [
+        {
+          "file": "src/content/articles/insider-picks-2026-07-31.md",
+          "purpose": "hero",
+          "entityType": "article",
+          "entitySlug": "insider-picks-2026-07-31"
+        },
         {
           "file": "src/content/experiences/portsea-front-beach.json",
           "purpose": "hero",
@@ -2967,12 +2396,6 @@
           "entitySlug": "coastal-adventure-weekend"
         },
         {
-          "file": "src/content/venues/sorrento-hotel.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "sorrento-hotel"
-        },
-        {
           "file": "src/pages/boating/index.astro",
           "purpose": "hero",
           "entityType": null,
@@ -2989,12 +2412,6 @@
           "purpose": "hero",
           "entityType": null,
           "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/index.astro",
-          "purpose": "hero",
-          "entityType": null,
-          "entitySlug": null
         }
       ]
     },
@@ -3004,7 +2421,7 @@
       "filename": "explore-rye-ocean-beach-01.webp",
       "extension": "webp",
       "bytes": 434496,
-      "updatedAt": "2026-06-01T13:01:42.851Z",
+      "updatedAt": "2026-08-18T18:55:00.530Z",
       "usages": [
         {
           "file": "src/content/experiences/rye-ocean-beach.json",
@@ -3017,6 +2434,12 @@
           "purpose": "hero",
           "entityType": "venue",
           "entitySlug": "rye-hotel"
+        },
+        {
+          "file": "src/content/venues/st-andrews-beach-brewery.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "st-andrews-beach-brewery"
         }
       ]
     },
@@ -3026,7 +2449,7 @@
       "filename": "explore-sorrento-ferry-01.webp",
       "extension": "webp",
       "bytes": 159498,
-      "updatedAt": "2026-06-01T13:01:42.852Z",
+      "updatedAt": "2026-08-18T18:55:00.530Z",
       "usages": [
         {
           "file": "src/content/experiences/sea-search-encounters.json",
@@ -3071,12 +2494,6 @@
           "entitySlug": "wine-hop-coastal-tour"
         },
         {
-          "file": "src/content/venues/pier-street-seafood.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "pier-street-seafood"
-        },
-        {
           "file": "src/content/venues/the-baths-sorrento.json",
           "purpose": "hero",
           "entityType": "venue",
@@ -3096,7 +2513,7 @@
       "filename": "explore-sorrento-ocean-baths-01.webp",
       "extension": "webp",
       "bytes": 104894,
-      "updatedAt": "2026-06-01T13:01:42.852Z",
+      "updatedAt": "2026-08-18T18:55:00.534Z",
       "usages": [
         {
           "file": "src/content/articles/mornington-peninsula-beach-guide.mdx",
@@ -3115,12 +2532,6 @@
           "purpose": "hero",
           "entityType": "experience",
           "entitySlug": "sorrento-ocean-baths"
-        },
-        {
-          "file": "src/pages/v2-staging/index.astro",
-          "purpose": "hero",
-          "entityType": null,
-          "entitySlug": null
         }
       ]
     },
@@ -3130,19 +2541,13 @@
       "filename": "explore-two-bays-walk-01.webp",
       "extension": "webp",
       "bytes": 350808,
-      "updatedAt": "2026-06-01T13:01:42.853Z",
+      "updatedAt": "2026-08-18T18:55:00.538Z",
       "usages": [
         {
-          "file": "src/content/experiences/coppins-track.json",
+          "file": "src/content/articles/insider-picks-2026-07-25.md",
           "purpose": "hero",
-          "entityType": "experience",
-          "entitySlug": "coppins-track"
-        },
-        {
-          "file": "src/content/experiences/mornington-peninsula-walk.json",
-          "purpose": "hero",
-          "entityType": "experience",
-          "entitySlug": "mornington-peninsula-walk"
+          "entityType": "article",
+          "entitySlug": "insider-picks-2026-07-25"
         },
         {
           "file": "src/content/experiences/two-bays-walking-track.json",
@@ -3151,19 +2556,7 @@
           "entitySlug": "two-bays-walking-track"
         },
         {
-          "file": "src/content/venues/flinders-sourdough.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "flinders-sourdough"
-        },
-        {
           "file": "src/pages/tour/for-families.astro",
-          "purpose": "hero",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/index.astro",
           "purpose": "hero",
           "entityType": null,
           "entitySlug": null
@@ -3176,7 +2569,7 @@
       "filename": "golf-rye-sunrise-01.webp",
       "extension": "webp",
       "bytes": 106878,
-      "updatedAt": "2026-06-01T13:01:42.854Z",
+      "updatedAt": "2026-08-18T18:55:00.538Z",
       "usages": [
         {
           "file": "src/content/articles/best-golf-courses-mornington-peninsula.md",
@@ -3197,6 +2590,12 @@
           "entitySlug": "mornington-peninsula-golf-stay-and-play"
         },
         {
+          "file": "src/content/experiences/the-dunes-golf-links.json",
+          "purpose": "hero",
+          "entityType": "experience",
+          "entitySlug": "the-dunes-golf-links"
+        },
+        {
           "file": "src/pages/explore/golf.astro",
           "purpose": "hero",
           "entityType": null,
@@ -3216,24 +2615,6 @@
         },
         {
           "file": "src/pages/explore/golf.astro",
-          "purpose": "hero",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/explore/golf.astro",
-          "purpose": "seo",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/golf/index.astro",
-          "purpose": "seo",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/index.astro",
           "purpose": "hero",
           "entityType": null,
           "entitySlug": null
@@ -3252,7 +2633,7 @@
       "filename": "home-cover-back-beach-horses-01.jpg",
       "extension": "jpg",
       "bytes": 782845,
-      "updatedAt": "2026-06-01T13:01:42.858Z",
+      "updatedAt": "2026-08-18T18:55:00.546Z",
       "usages": [
         {
           "file": "src/content/articles/the-four-hour-peninsula.md",
@@ -3261,31 +2642,13 @@
           "entitySlug": "the-four-hour-peninsula"
         },
         {
-          "file": "src/pages/about.astro",
+          "file": "src/pages/_archive/editorial-approach-pre-emma-2026-05-15.astro",
           "purpose": "hero",
           "entityType": null,
           "entitySlug": null
         },
         {
-          "file": "src/pages/index.astro",
-          "purpose": "inline",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/preview-home-redesign.astro",
-          "purpose": "inline",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/test/index.astro",
-          "purpose": "inline",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/_archive/editorial-approach-pre-emma-2026-05-15.astro",
+          "file": "src/pages/about.astro",
           "purpose": "hero",
           "entityType": null,
           "entitySlug": null
@@ -3298,17 +2661,11 @@
       "filename": "home-cover-bay-umbrella-01.webp",
       "extension": "webp",
       "bytes": 405458,
-      "updatedAt": "2026-06-01T13:01:42.859Z",
+      "updatedAt": "2026-08-18T18:55:00.550Z",
       "usages": [
         {
           "file": "src/pages/guides/index.astro",
           "purpose": "hero",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v3/index.astro",
-          "purpose": "inline",
           "entityType": null,
           "entitySlug": null
         }
@@ -3320,7 +2677,7 @@
       "filename": "home-cover-cape-schanck-rainbow-01.webp",
       "extension": "webp",
       "bytes": 313788,
-      "updatedAt": "2026-06-01T13:01:42.860Z",
+      "updatedAt": "2026-08-18T18:55:00.554Z",
       "usages": [
         {
           "file": "src/content/articles/a-winter-peninsula-weekend.md",
@@ -3335,14 +2692,14 @@
           "entitySlug": "why-winter-works-on-the-peninsula"
         },
         {
-          "file": "src/pages/index.astro",
+          "file": "src/pages/explore/walks.astro",
           "purpose": "inline",
           "entityType": null,
           "entitySlug": null
         },
         {
-          "file": "src/pages/preview-home-redesign.astro",
-          "purpose": "inline",
+          "file": "src/components/v5/home/HomeCover.astro",
+          "purpose": "hero",
           "entityType": null,
           "entitySlug": null
         }
@@ -3354,7 +2711,7 @@
       "filename": "home-cover-flinders-pier-steps-01.jpg",
       "extension": "jpg",
       "bytes": 1199032,
-      "updatedAt": "2026-06-01T13:01:42.864Z",
+      "updatedAt": "2026-08-18T18:55:00.566Z",
       "usages": []
     },
     {
@@ -3363,7 +2720,7 @@
       "filename": "home-cover-sorrento-pier-01.jpg",
       "extension": "jpg",
       "bytes": 1199032,
-      "updatedAt": "2026-06-01T13:01:42.868Z",
+      "updatedAt": "2026-08-18T18:55:00.578Z",
       "usages": []
     },
     {
@@ -3372,7 +2729,7 @@
       "filename": "home-cover-south-coast-rainbow-01.webp",
       "extension": "webp",
       "bytes": 628738,
-      "updatedAt": "2026-06-01T13:01:42.869Z",
+      "updatedAt": "2026-08-18T18:55:00.582Z",
       "usages": []
     },
     {
@@ -3381,16 +2738,16 @@
       "filename": "home-cover-sunset-bay-01.jpg",
       "extension": "jpg",
       "bytes": 1001971,
-      "updatedAt": "2026-06-01T13:01:42.872Z",
+      "updatedAt": "2026-08-18T18:55:00.594Z",
       "usages": [
         {
-          "file": "src/pages/contact.astro",
+          "file": "src/pages/_archive/contact-pre-emma-2026-05-15.astro",
           "purpose": "inline",
           "entityType": null,
           "entitySlug": null
         },
         {
-          "file": "src/pages/_archive/contact-pre-emma-2026-05-15.astro",
+          "file": "src/pages/contact.astro",
           "purpose": "inline",
           "entityType": null,
           "entitySlug": null
@@ -3402,8 +2759,8 @@
       "source": "static",
       "filename": "home-cover.webp",
       "extension": "webp",
-      "bytes": 490600,
-      "updatedAt": "2026-06-01T13:01:42.875Z",
+      "bytes": 129134,
+      "updatedAt": "2026-08-21T10:13:05.297Z",
       "usages": [
         {
           "file": "src/content/insiders-thirty/2026.json",
@@ -3442,10 +2799,10 @@
           "entitySlug": null
         },
         {
-          "file": "src/pages/explore/where-to-base-yourself.astro",
+          "file": "src/pages/journal/[slug].astro",
           "purpose": "inline",
-          "entityType": null,
-          "entitySlug": null
+          "entityType": "article",
+          "entitySlug": "routeSlug"
         },
         {
           "file": "src/pages/journal/best-brunch-mornington-peninsula.astro",
@@ -3470,12 +2827,6 @@
           "purpose": "inline",
           "entityType": "article",
           "entitySlug": "mornington-peninsula-day-trip"
-        },
-        {
-          "file": "src/pages/journal/mornington-peninsula-hot-springs-guide.astro",
-          "purpose": "inline",
-          "entityType": "article",
-          "entitySlug": "mornington-peninsula-hot-springs-guide"
         },
         {
           "file": "src/pages/journal/mornington-peninsula-in-autumn.astro",
@@ -3508,104 +2859,8 @@
           "entitySlug": "mornington-peninsula-with-kids"
         },
         {
-          "file": "src/pages/journal/[slug].astro",
-          "purpose": "hero",
-          "entityType": "article",
-          "entitySlug": "routeSlug"
-        },
-        {
-          "file": "src/pages/journal/[slug].astro",
-          "purpose": "inline",
-          "entityType": "article",
-          "entitySlug": "routeSlug"
-        },
-        {
-          "file": "src/pages/journal/[slug].astro",
-          "purpose": "seo",
-          "entityType": "article",
-          "entitySlug": "routeSlug"
-        },
-        {
           "file": "src/pages/partners/advertising-kit/index.astro",
           "purpose": "hero",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/preview-hero.astro",
-          "purpose": "hero",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/index.astro",
-          "purpose": "hero",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/journal/best-brunch-mornington-peninsula.astro",
-          "purpose": "inline",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/journal/dog-friendly-mornington-peninsula.astro",
-          "purpose": "inline",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/journal/free-things-to-do-mornington-peninsula.astro",
-          "purpose": "inline",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/journal/mornington-peninsula-day-trip.astro",
-          "purpose": "inline",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/journal/mornington-peninsula-hot-springs-guide.astro",
-          "purpose": "inline",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/journal/mornington-peninsula-in-autumn.astro",
-          "purpose": "inline",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/journal/mornington-peninsula-in-winter.astro",
-          "purpose": "inline",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/journal/mornington-peninsula-itinerary.astro",
-          "purpose": "inline",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/journal/mornington-peninsula-wedding-venues.astro",
-          "purpose": "inline",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/journal/mornington-peninsula-winery-tour.astro",
-          "purpose": "inline",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/journal/mornington-peninsula-with-kids.astro",
-          "purpose": "inline",
           "entityType": null,
           "entitySlug": null
         },
@@ -3618,24 +2873,50 @@
       ]
     },
     {
+      "src": "/images/sourced/home-hero-cover-story.webp",
+      "source": "static",
+      "filename": "home-hero-cover-story.webp",
+      "extension": "webp",
+      "bytes": 407842,
+      "updatedAt": "2026-08-21T10:13:05.297Z",
+      "usages": [
+        {
+          "file": "src/data/home-hero-slides.json",
+          "purpose": "inline",
+          "entityType": null,
+          "entitySlug": null
+        }
+      ]
+    },
+    {
+      "src": "/images/sourced/home-hero-winter-weekend.webp",
+      "source": "static",
+      "filename": "home-hero-winter-weekend.webp",
+      "extension": "webp",
+      "bytes": 314156,
+      "updatedAt": "2026-08-21T10:13:05.297Z",
+      "usages": [
+        {
+          "file": "src/data/home-hero-slides.json",
+          "purpose": "inline",
+          "entityType": null,
+          "entitySlug": null
+        }
+      ]
+    },
+    {
       "src": "/images/sourced/journal-hub-hero-01.webp",
       "source": "static",
       "filename": "journal-hub-hero-01.webp",
       "extension": "webp",
       "bytes": 46748,
-      "updatedAt": "2026-06-01T13:01:42.875Z",
+      "updatedAt": "2026-08-18T18:55:00.602Z",
       "usages": [
         {
           "file": "src/pages/journal/index.astro",
           "purpose": "hero",
           "entityType": "article",
           "entitySlug": "index"
-        },
-        {
-          "file": "src/pages/v4/journal/index.astro",
-          "purpose": "hero",
-          "entityType": null,
-          "entitySlug": null
         }
       ]
     },
@@ -3645,7 +2926,7 @@
       "filename": "journal-late-afternoon-walks-01.webp",
       "extension": "webp",
       "bytes": 202772,
-      "updatedAt": "2026-06-01T13:01:42.875Z",
+      "updatedAt": "2026-08-18T18:55:00.602Z",
       "usages": [
         {
           "file": "src/content/articles/the-peninsulas-best-late-afternoon-walks.md",
@@ -3658,16 +2939,76 @@
           "purpose": "inline",
           "entityType": null,
           "entitySlug": null
+        },
+        {
+          "file": "src/data/home-hero-slides.json",
+          "purpose": "inline",
+          "entityType": null,
+          "entitySlug": null
         }
       ]
+    },
+    {
+      "src": "/images/email/note-band-bay.jpg",
+      "source": "static",
+      "filename": "note-band-bay.jpg",
+      "extension": "jpg",
+      "bytes": 23014,
+      "updatedAt": "2026-08-21T10:13:05.289Z",
+      "usages": []
+    },
+    {
+      "src": "/images/email/note-band-winterbeach.jpg",
+      "source": "static",
+      "filename": "note-band-winterbeach.jpg",
+      "extension": "jpg",
+      "bytes": 67171,
+      "updatedAt": "2026-08-21T10:13:05.292Z",
+      "usages": []
+    },
+    {
+      "src": "/images/email/note-editorial-mprg.jpg",
+      "source": "static",
+      "filename": "note-editorial-mprg.jpg",
+      "extension": "jpg",
+      "bytes": 104702,
+      "updatedAt": "2026-08-21T10:13:05.293Z",
+      "usages": []
+    },
+    {
+      "src": "/images/email/note-fri-gin.jpg",
+      "source": "static",
+      "filename": "note-fri-gin.jpg",
+      "extension": "jpg",
+      "bytes": 54637,
+      "updatedAt": "2026-08-21T10:13:05.293Z",
+      "usages": []
+    },
+    {
+      "src": "/images/email/note-lead-stonier.jpg",
+      "source": "static",
+      "filename": "note-lead-stonier.jpg",
+      "extension": "jpg",
+      "bytes": 58275,
+      "updatedAt": "2026-08-21T10:13:05.293Z",
+      "usages": []
+    },
+    {
+      "src": "/images/email/note-thu-hastings.jpg",
+      "source": "static",
+      "filename": "note-thu-hastings.jpg",
+      "extension": "jpg",
+      "bytes": 70113,
+      "updatedAt": "2026-08-21T10:13:05.293Z",
+      "usages": []
     },
     {
       "src": "/images/pi-avatar.svg",
       "source": "static",
       "filename": "pi-avatar.svg",
       "extension": "svg",
-      "bytes": 5608,
-      "updatedAt": "2026-06-01T13:01:42.774Z",
+      "bytes": 5416,
+      "updatedAt": "2026-08-18T18:55:00.292Z",
       "usages": []
     },
     {
@@ -3675,8 +3016,8 @@
       "source": "static",
       "filename": "pi-concierge.svg",
       "extension": "svg",
-      "bytes": 662776,
-      "updatedAt": "2026-06-01T13:01:42.775Z",
+      "bytes": 662605,
+      "updatedAt": "2026-08-18T18:55:00.298Z",
       "usages": [
         {
           "file": "src/pages/404.astro",
@@ -3709,48 +3050,6 @@
           "entitySlug": null
         },
         {
-          "file": "src/pages/v2-staging/logo-preview.astro",
-          "purpose": "inline",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/logo-preview.astro",
-          "purpose": "inline",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/logo-preview.astro",
-          "purpose": "inline",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/logo-preview.astro",
-          "purpose": "inline",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/logo-preview.astro",
-          "purpose": "inline",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/logo-preview.astro",
-          "purpose": "inline",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/logo-preview.astro",
-          "purpose": "inline",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
           "file": "src/components/AskPICTA.astro",
           "purpose": "inline",
           "entityType": null,
@@ -3773,6 +3072,12 @@
           "purpose": "inline",
           "entityType": null,
           "entitySlug": null
+        },
+        {
+          "file": "src/components/v5/chrome/V5Masthead.astro",
+          "purpose": "inline",
+          "entityType": null,
+          "entitySlug": null
         }
       ]
     },
@@ -3782,82 +3087,10 @@
       "filename": "pi-logo-new.svg",
       "extension": "svg",
       "bytes": 28681,
-      "updatedAt": "2026-06-01T13:01:42.775Z",
+      "updatedAt": "2026-08-18T18:55:00.298Z",
       "usages": [
         {
           "file": "src/pages/access/index.astro",
-          "purpose": "inline",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/logo-preview.astro",
-          "purpose": "inline",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/logo-preview.astro",
-          "purpose": "inline",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/logo-preview.astro",
-          "purpose": "inline",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/logo-preview.astro",
-          "purpose": "inline",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/logo-preview.astro",
-          "purpose": "inline",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/logo-preview.astro",
-          "purpose": "inline",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/logo-preview.astro",
-          "purpose": "inline",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/logo-preview.astro",
-          "purpose": "inline",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/logo-preview.astro",
-          "purpose": "inline",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/logo-preview.astro",
-          "purpose": "inline",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/logo-preview.astro",
-          "purpose": "inline",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/logo-preview.astro",
           "purpose": "inline",
           "entityType": null,
           "entitySlug": null
@@ -3869,9 +3102,16 @@
       "source": "static",
       "filename": "pi-mark.svg",
       "extension": "svg",
-      "bytes": 1915,
-      "updatedAt": "2026-06-01T13:01:42.775Z",
-      "usages": []
+      "bytes": 1868,
+      "updatedAt": "2026-08-18T18:55:00.298Z",
+      "usages": [
+        {
+          "file": "src/components/edition/EditionAsk.astro",
+          "purpose": "inline",
+          "entityType": null,
+          "entitySlug": null
+        }
+      ]
     },
     {
       "src": "/images/sourced/place-balnarring-01.webp",
@@ -3879,13 +3119,43 @@
       "filename": "place-balnarring-01.webp",
       "extension": "webp",
       "bytes": 175224,
-      "updatedAt": "2026-06-01T13:01:42.876Z",
+      "updatedAt": "2026-08-18T18:55:00.606Z",
       "usages": [
+        {
+          "file": "src/content/articles/insider-picks-2026-08-10.md",
+          "purpose": "hero",
+          "entityType": "article",
+          "entitySlug": "insider-picks-2026-08-10"
+        },
+        {
+          "file": "src/content/experiences/eagle-ridge-golf-course.json",
+          "purpose": "hero",
+          "entityType": "experience",
+          "entitySlug": "eagle-ridge-golf-course"
+        },
         {
           "file": "src/content/places/balnarring.json",
           "purpose": "hero",
           "entityType": "place",
           "entitySlug": "balnarring"
+        },
+        {
+          "file": "src/content/venues/balnarring-bakehouse.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "balnarring-bakehouse"
+        },
+        {
+          "file": "src/content/venues/balnarring-market.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "balnarring-market"
+        },
+        {
+          "file": "src/content/venues/balnarring-pub.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "balnarring-pub"
         },
         {
           "file": "src/content/venues/elan-vineyard.json",
@@ -3894,10 +3164,28 @@
           "entitySlug": "elan-vineyard"
         },
         {
+          "file": "src/content/venues/hurley-vineyard.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "hurley-vineyard"
+        },
+        {
+          "file": "src/content/venues/iluka-retreat.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "iluka-retreat"
+        },
+        {
           "file": "src/content/venues/mantons-creek-estate.json",
           "purpose": "hero",
           "entityType": "venue",
           "entitySlug": "mantons-creek-estate"
+        },
+        {
+          "file": "src/content/venues/quealy-winemakers.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "quealy-winemakers"
         },
         {
           "file": "src/content/venues/somers-general.json",
@@ -3919,13 +3207,43 @@
       "filename": "place-cape-schanck-01.webp",
       "extension": "webp",
       "bytes": 323084,
-      "updatedAt": "2026-06-01T13:01:42.877Z",
+      "updatedAt": "2026-08-18T18:55:00.610Z",
       "usages": [
+        {
+          "file": "src/content/articles/insider-picks-2026-07-28.md",
+          "purpose": "hero",
+          "entityType": "article",
+          "entitySlug": "insider-picks-2026-07-28"
+        },
         {
           "file": "src/content/events/mothers-day-classic-moonah-links-2026.json",
           "purpose": "hero",
           "entityType": "event",
           "entitySlug": "mothers-day-classic-moonah-links-2026"
+        },
+        {
+          "file": "src/content/experiences/moonah-links.json",
+          "purpose": "hero",
+          "entityType": "experience",
+          "entitySlug": "moonah-links"
+        },
+        {
+          "file": "src/content/experiences/racv-cape-schanck-golf-course.json",
+          "purpose": "hero",
+          "entityType": "experience",
+          "entitySlug": "racv-cape-schanck-golf-course"
+        },
+        {
+          "file": "src/content/experiences/st-andrews-beach-golf-course.json",
+          "purpose": "hero",
+          "entityType": "experience",
+          "entitySlug": "st-andrews-beach-golf-course"
+        },
+        {
+          "file": "src/content/experiences/the-national-golf-club.json",
+          "purpose": "hero",
+          "entityType": "experience",
+          "entitySlug": "the-national-golf-club"
         },
         {
           "file": "src/content/itineraries/the-peninsula-golf-weekend.json",
@@ -3946,25 +3264,19 @@
           "entitySlug": "fingal"
         },
         {
+          "file": "src/content/venues/barragunda-dining.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "barragunda-dining"
+        },
+        {
           "file": "src/content/venues/cape-retreat.json",
           "purpose": "hero",
           "entityType": "venue",
           "entitySlug": "cape-retreat"
         },
         {
-          "file": "src/content/venues/doot-doot-doot.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "doot-doot-doot"
-        },
-        {
           "file": "src/pages/explore/golf.astro",
-          "purpose": "hero",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/index.astro",
           "purpose": "hero",
           "entityType": null,
           "entitySlug": null
@@ -3977,7 +3289,7 @@
       "filename": "place-dromana-01.webp",
       "extension": "webp",
       "bytes": 115598,
-      "updatedAt": "2026-06-01T13:01:42.878Z",
+      "updatedAt": "2026-08-18T18:55:00.610Z",
       "usages": [
         {
           "file": "src/content/articles/area-guide-dromana.md",
@@ -4008,6 +3320,42 @@
           "purpose": "hero",
           "entityType": "venue",
           "entitySlug": "crittenden-villas"
+        },
+        {
+          "file": "src/content/venues/jetty-road-brewery.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "jetty-road-brewery"
+        },
+        {
+          "file": "src/content/venues/phaedrus-estate.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "phaedrus-estate"
+        },
+        {
+          "file": "src/content/venues/small-stone-pantry.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "small-stone-pantry"
+        },
+        {
+          "file": "src/content/venues/stillwater-crittenden.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "stillwater-crittenden"
+        },
+        {
+          "file": "src/content/venues/trofeo-estate.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "trofeo-estate"
+        },
+        {
+          "file": "src/content/venues/two-bays-brewing.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "two-bays-brewing"
         }
       ]
     },
@@ -4017,13 +3365,25 @@
       "filename": "place-flinders-01.webp",
       "extension": "webp",
       "bytes": 253732,
-      "updatedAt": "2026-06-01T13:01:42.879Z",
+      "updatedAt": "2026-08-18T18:55:00.614Z",
       "usages": [
         {
           "file": "src/content/articles/area-guide-flinders.md",
           "purpose": "hero",
           "entityType": "article",
           "entitySlug": "area-guide-flinders"
+        },
+        {
+          "file": "src/content/articles/insider-picks-2026-08-12.md",
+          "purpose": "hero",
+          "entityType": "article",
+          "entitySlug": "insider-picks-2026-08-12"
+        },
+        {
+          "file": "src/content/experiences/flinders-golf-club.json",
+          "purpose": "hero",
+          "entityType": "experience",
+          "entitySlug": "flinders-golf-club"
         },
         {
           "file": "src/content/itineraries/flinders-and-cape-reset.json",
@@ -4044,19 +3404,43 @@
           "entitySlug": "australian-journeys"
         },
         {
-          "file": "src/content/venues/paradigm-hill.json",
+          "file": "src/content/venues/flinders-general-store.json",
           "purpose": "hero",
           "entityType": "venue",
-          "entitySlug": "paradigm-hill"
+          "entitySlug": "flinders-general-store"
+        },
+        {
+          "file": "src/content/venues/flinders-sourdough.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "flinders-sourdough"
+        },
+        {
+          "file": "src/content/venues/georgie-bass.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "georgie-bass"
+        },
+        {
+          "file": "src/content/venues/moke-dining.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "moke-dining"
+        },
+        {
+          "file": "src/content/venues/mornington-peninsula-chocolates.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "mornington-peninsula-chocolates"
+        },
+        {
+          "file": "src/content/venues/pier-street-flinders.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "pier-street-flinders"
         },
         {
           "file": "src/pages/partners/advertising-kit/index.astro",
-          "purpose": "hero",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/index.astro",
           "purpose": "hero",
           "entityType": null,
           "entitySlug": null
@@ -4069,7 +3453,7 @@
       "filename": "place-main-ridge-01.webp",
       "extension": "webp",
       "bytes": 288046,
-      "updatedAt": "2026-06-01T13:01:42.880Z",
+      "updatedAt": "2026-08-18T18:55:00.614Z",
       "usages": [
         {
           "file": "src/content/articles/area-guide-main-ridge.md",
@@ -4084,10 +3468,10 @@
           "entitySlug": "free-things-to-do-mornington-peninsula"
         },
         {
-          "file": "src/content/experiences/red-hill-hinterland-cycling.json",
+          "file": "src/content/experiences/sunny-ridge-strawberry-farm.json",
           "purpose": "hero",
           "entityType": "experience",
-          "entitySlug": "red-hill-hinterland-cycling"
+          "entitySlug": "sunny-ridge-strawberry-farm"
         },
         {
           "file": "src/content/places/main-ridge.json",
@@ -4096,22 +3480,76 @@
           "entitySlug": "main-ridge"
         },
         {
+          "file": "src/content/venues/allis-wine-bar.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "allis-wine-bar"
+        },
+        {
           "file": "src/content/venues/dexter-wines.json",
           "purpose": "hero",
           "entityType": "venue",
           "entitySlug": "dexter-wines"
         },
         {
-          "file": "src/content/venues/point-leo-wine-terrace.json",
+          "file": "src/content/venues/johnny-ripe.json",
           "purpose": "hero",
           "entityType": "venue",
-          "entitySlug": "point-leo-wine-terrace"
+          "entitySlug": "johnny-ripe"
         },
         {
-          "file": "src/pages/v2-staging/index.astro",
+          "file": "src/content/venues/kooyong.json",
           "purpose": "hero",
-          "entityType": null,
-          "entitySlug": null
+          "entityType": "venue",
+          "entitySlug": "kooyong"
+        },
+        {
+          "file": "src/content/venues/la-baracca-tgallant.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "la-baracca-tgallant"
+        },
+        {
+          "file": "src/content/venues/lightfoot-wines.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "lightfoot-wines"
+        },
+        {
+          "file": "src/content/venues/main-ridge-dairy.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "main-ridge-dairy"
+        },
+        {
+          "file": "src/content/venues/main-ridge-estate.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "main-ridge-estate"
+        },
+        {
+          "file": "src/content/venues/morning-sun.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "morning-sun"
+        },
+        {
+          "file": "src/content/venues/ocean-eight.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "ocean-eight"
+        },
+        {
+          "file": "src/content/venues/t-gallant.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "t-gallant"
+        },
+        {
+          "file": "src/content/venues/via-boffe.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "via-boffe"
         }
       ]
     },
@@ -4121,7 +3559,7 @@
       "filename": "place-merricks-01.webp",
       "extension": "webp",
       "bytes": 348814,
-      "updatedAt": "2026-06-01T13:01:42.881Z",
+      "updatedAt": "2026-08-18T18:55:00.618Z",
       "usages": [
         {
           "file": "src/content/articles/area-guide-merricks.md",
@@ -4130,16 +3568,34 @@
           "entitySlug": "area-guide-merricks"
         },
         {
+          "file": "src/content/articles/dog-friendly-wineries-mornington-peninsula.mdx",
+          "purpose": "hero",
+          "entityType": "article",
+          "entitySlug": "dog-friendly-wineries-mornington-peninsula"
+        },
+        {
+          "file": "src/content/articles/mornington-peninsula-winery-guide.mdx",
+          "purpose": "hero",
+          "entityType": "article",
+          "entitySlug": "montalto"
+        },
+        {
           "file": "src/content/places/merricks.json",
           "purpose": "hero",
           "entityType": "place",
           "entitySlug": "merricks"
         },
         {
-          "file": "src/content/venues/barmah-park-vineyard.json",
+          "file": "src/content/venues/baillieu-vineyard.json",
           "purpose": "hero",
           "entityType": "venue",
-          "entitySlug": "barmah-park-vineyard"
+          "entitySlug": "baillieu-vineyard"
+        },
+        {
+          "file": "src/content/venues/elgee-park.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "elgee-park"
         },
         {
           "file": "src/content/venues/happy-glamper.json",
@@ -4148,16 +3604,46 @@
           "entitySlug": "happy-glamper"
         },
         {
+          "file": "src/content/venues/kerri-greens.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "kerri-greens"
+        },
+        {
+          "file": "src/content/venues/merricks-estate.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "merricks-estate"
+        },
+        {
           "file": "src/content/venues/merricks-general-wine-store.json",
           "purpose": "hero",
           "entityType": "venue",
           "entitySlug": "merricks-general-wine-store"
         },
         {
-          "file": "src/content/venues/spa-by-jackalope.json",
+          "file": "src/content/venues/paradigm-hill.json",
           "purpose": "hero",
           "entityType": "venue",
-          "entitySlug": "spa-by-jackalope"
+          "entitySlug": "paradigm-hill"
+        },
+        {
+          "file": "src/content/venues/scorpo-wines.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "scorpo-wines"
+        },
+        {
+          "file": "src/content/venues/stonier-wines.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "stonier-wines"
+        },
+        {
+          "file": "src/content/venues/willow-creek-vineyard.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "willow-creek-vineyard"
         }
       ]
     },
@@ -4167,14 +3653,8 @@
       "filename": "place-moorooduc-01.webp",
       "extension": "webp",
       "bytes": 287866,
-      "updatedAt": "2026-06-01T13:01:42.882Z",
+      "updatedAt": "2026-08-18T18:55:00.622Z",
       "usages": [
-        {
-          "file": "src/content/experiences/red-hill-truffles.json",
-          "purpose": "hero",
-          "entityType": "experience",
-          "entitySlug": "red-hill-truffles"
-        },
         {
           "file": "src/content/places/moorooduc.json",
           "purpose": "hero",
@@ -4188,16 +3668,52 @@
           "entitySlug": "tuerong"
         },
         {
-          "file": "src/content/venues/ocean-eight.json",
+          "file": "src/content/venues/barmah-park-vineyard.json",
           "purpose": "hero",
           "entityType": "venue",
-          "entitySlug": "ocean-eight"
+          "entitySlug": "barmah-park-vineyard"
+        },
+        {
+          "file": "src/content/venues/barmah-park.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "barmah-park"
+        },
+        {
+          "file": "src/content/venues/dromana-estate.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "dromana-estate"
+        },
+        {
+          "file": "src/content/venues/moorooduc-estate.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "moorooduc-estate"
+        },
+        {
+          "file": "src/content/venues/onannon.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "onannon"
+        },
+        {
+          "file": "src/content/venues/stumpy-gully-vineyard.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "stumpy-gully-vineyard"
         },
         {
           "file": "src/content/venues/woodman-estate.json",
           "purpose": "hero",
           "entityType": "venue",
           "entitySlug": "woodman-estate"
+        },
+        {
+          "file": "src/content/venues/yabby-lake.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "yabby-lake"
         }
       ]
     },
@@ -4207,13 +3723,25 @@
       "filename": "place-mornington-01.webp",
       "extension": "webp",
       "bytes": 292448,
-      "updatedAt": "2026-06-01T13:01:42.883Z",
+      "updatedAt": "2026-08-18T18:55:00.622Z",
       "usages": [
         {
-          "file": "src/content/articles/area-guide-mornington.md",
+          "file": "src/content/articles/insider-picks-2026-07-30.md",
           "purpose": "hero",
           "entityType": "article",
-          "entitySlug": "area-guide-mornington"
+          "entitySlug": "insider-picks-2026-07-30"
+        },
+        {
+          "file": "src/content/articles/insider-picks-2026-08-09.md",
+          "purpose": "hero",
+          "entityType": "article",
+          "entitySlug": "insider-picks-2026-08-09"
+        },
+        {
+          "file": "src/content/experiences/mornington-golf-club.json",
+          "purpose": "hero",
+          "entityType": "experience",
+          "entitySlug": "mornington-golf-club"
         },
         {
           "file": "src/content/places/mornington.json",
@@ -4240,10 +3768,34 @@
           "entitySlug": "peninsula-film-festival"
         },
         {
-          "file": "src/content/venues/endota-spa-mornington.json",
+          "file": "src/content/venues/bass-and-flinders.json",
           "purpose": "hero",
           "entityType": "venue",
-          "entitySlug": "endota-spa-mornington"
+          "entitySlug": "bass-and-flinders"
+        },
+        {
+          "file": "src/content/venues/commonfolk-coffee.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "commonfolk-coffee"
+        },
+        {
+          "file": "src/content/venues/garagiste.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "garagiste"
+        },
+        {
+          "file": "src/content/venues/mornington-farmers-market.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "mornington-farmers-market"
+        },
+        {
+          "file": "src/content/venues/mornington-hotel.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "mornington-hotel"
         },
         {
           "file": "src/content/venues/mornington-main-street-market.json",
@@ -4252,10 +3804,52 @@
           "entitySlug": "mornington-main-street-market"
         },
         {
+          "file": "src/content/venues/mornington-peninsula-brewery.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "mornington-peninsula-brewery"
+        },
+        {
+          "file": "src/content/venues/mount-eliza-farmers-market.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "mount-eliza-farmers-market"
+        },
+        {
+          "file": "src/content/venues/mr-vincenzos.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "mr-vincenzos"
+        },
+        {
+          "file": "src/content/venues/ouest-france-bistro.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "ouest-france-bistro"
+        },
+        {
+          "file": "src/content/venues/peninsula-fresh-organics.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "peninsula-fresh-organics"
+        },
+        {
           "file": "src/content/venues/sourdough-kitchen.json",
           "purpose": "hero",
           "entityType": "venue",
           "entitySlug": "sourdough-kitchen"
+        },
+        {
+          "file": "src/content/venues/the-bay-hotel-mornington.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "the-bay-hotel-mornington"
+        },
+        {
+          "file": "src/content/venues/the-rocks-mornington.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "the-rocks-mornington"
         },
         {
           "file": "src/pages/journal/best-brunch-mornington-peninsula.astro",
@@ -4300,18 +3894,6 @@
           "entitySlug": null
         },
         {
-          "file": "src/pages/v2-staging/journal/mornington-peninsula-with-kids.astro",
-          "purpose": "hero",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/whats-on/index.astro",
-          "purpose": "seo",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
           "file": "src/components/EventCard.astro",
           "purpose": "inline",
           "entityType": null,
@@ -4331,25 +3913,13 @@
       "filename": "place-mount-martha-01.webp",
       "extension": "webp",
       "bytes": 103236,
-      "updatedAt": "2026-06-01T13:01:42.883Z",
+      "updatedAt": "2026-08-18T18:55:00.626Z",
       "usages": [
         {
           "file": "src/content/places/mount-martha.json",
           "purpose": "hero",
           "entityType": "place",
           "entitySlug": "mount-martha"
-        },
-        {
-          "file": "src/content/venues/merricks-estate.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "merricks-estate"
-        },
-        {
-          "file": "src/content/venues/ouest-france-bistro.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "ouest-france-bistro"
         },
         {
           "file": "src/content/venues/villa-mallorca.json",
@@ -4365,7 +3935,7 @@
       "filename": "place-point-nepean-01.webp",
       "extension": "webp",
       "bytes": 126270,
-      "updatedAt": "2026-06-01T13:01:42.884Z",
+      "updatedAt": "2026-08-18T18:55:00.626Z",
       "usages": [
         {
           "file": "src/content/articles/point-nepean-national-park-guide.mdx",
@@ -4384,12 +3954,6 @@
           "purpose": "hero",
           "entityType": "place",
           "entitySlug": "point-nepean"
-        },
-        {
-          "file": "src/content/venues/willow-creek-vineyard.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "willow-creek-vineyard"
         }
       ]
     },
@@ -4399,13 +3963,19 @@
       "filename": "place-portsea-01.webp",
       "extension": "webp",
       "bytes": 117036,
-      "updatedAt": "2026-06-01T13:01:42.884Z",
+      "updatedAt": "2026-08-18T18:55:00.626Z",
       "usages": [
         {
           "file": "src/content/articles/area-guide-portsea.md",
           "purpose": "hero",
           "entityType": "article",
           "entitySlug": "area-guide-portsea"
+        },
+        {
+          "file": "src/content/experiences/portsea-golf-club.json",
+          "purpose": "hero",
+          "entityType": "experience",
+          "entitySlug": "portsea-golf-club"
         },
         {
           "file": "src/content/places/portsea.json",
@@ -4426,19 +3996,13 @@
           "entitySlug": "bayplay-sea-dragon-snorkel-tour"
         },
         {
-          "file": "src/content/venues/tucks-ridge.json",
+          "file": "src/content/venues/point-nepean-discovery-tents.json",
           "purpose": "hero",
           "entityType": "venue",
-          "entitySlug": "tucks-ridge"
+          "entitySlug": "point-nepean-discovery-tents"
         },
         {
           "file": "src/pages/eat/pubs.astro",
-          "purpose": "hero",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/index.astro",
           "purpose": "hero",
           "entityType": null,
           "entitySlug": null
@@ -4451,7 +4015,7 @@
       "filename": "place-red-hill-01.webp",
       "extension": "webp",
       "bytes": 122654,
-      "updatedAt": "2026-06-01T13:01:42.885Z",
+      "updatedAt": "2026-08-18T18:55:00.630Z",
       "usages": [
         {
           "file": "src/content/articles/area-guide-red-hill.md",
@@ -4470,6 +4034,18 @@
           "purpose": "hero",
           "entityType": "article",
           "entitySlug": "peninsula-this-weekend-april-26"
+        },
+        {
+          "file": "src/content/experiences/red-hill-hinterland-cycling.json",
+          "purpose": "hero",
+          "entityType": "experience",
+          "entitySlug": "red-hill-hinterland-cycling"
+        },
+        {
+          "file": "src/content/experiences/red-hill-truffles.json",
+          "purpose": "hero",
+          "entityType": "experience",
+          "entitySlug": "red-hill-truffles"
         },
         {
           "file": "src/content/itineraries/ridge-to-sea-two-night-escape.json",
@@ -4514,28 +4090,88 @@
           "entitySlug": "cassis"
         },
         {
+          "file": "src/content/venues/eldridge-estate.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "eldridge-estate"
+        },
+        {
+          "file": "src/content/venues/foxeys-hangout.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "foxeys-hangout"
+        },
+        {
+          "file": "src/content/venues/green-olive-red-hill.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "green-olive-red-hill"
+        },
+        {
           "file": "src/content/venues/hideaways-red-hill.json",
           "purpose": "hero",
           "entityType": "venue",
           "entitySlug": "hideaways-red-hill"
         },
         {
-          "file": "src/content/venues/johnny-ripe.json",
+          "file": "src/content/venues/many-little.json",
           "purpose": "hero",
           "entityType": "venue",
-          "entitySlug": "johnny-ripe"
+          "entitySlug": "many-little"
         },
         {
-          "file": "src/content/venues/polperro-villas.json",
+          "file": "src/content/venues/maxs-red-hill-estate.json",
           "purpose": "hero",
           "entityType": "venue",
-          "entitySlug": "polperro-villas"
+          "entitySlug": "maxs-red-hill-estate"
         },
         {
-          "file": "src/content/venues/polperro.json",
+          "file": "src/content/venues/port-phillip-estate-restaurant.json",
           "purpose": "hero",
           "entityType": "venue",
-          "entitySlug": "polperro"
+          "entitySlug": "port-phillip-estate-restaurant"
+        },
+        {
+          "file": "src/content/venues/port-phillip-estate.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "port-phillip-estate"
+        },
+        {
+          "file": "src/content/venues/prancing-horse-estate.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "prancing-horse-estate"
+        },
+        {
+          "file": "src/content/venues/red-gum-bbq.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "red-gum-bbq"
+        },
+        {
+          "file": "src/content/venues/red-hill-brewery.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "red-hill-brewery"
+        },
+        {
+          "file": "src/content/venues/red-hill-cheese.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "red-hill-cheese"
+        },
+        {
+          "file": "src/content/venues/red-hill-estate.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "red-hill-estate"
+        },
+        {
+          "file": "src/content/venues/red-hill-market.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "red-hill-market"
         },
         {
           "file": "src/content/venues/the-orchard-red-hill.json",
@@ -4548,6 +4184,12 @@
           "purpose": "hero",
           "entityType": "venue",
           "entitySlug": "treetops-red-hill"
+        },
+        {
+          "file": "src/content/venues/tucks-ridge.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "tucks-ridge"
         },
         {
           "file": "src/pages/explore/markets.astro",
@@ -4604,30 +4246,6 @@
           "entitySlug": null
         },
         {
-          "file": "src/pages/v2-staging/index.astro",
-          "purpose": "hero",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/journal/mornington-peninsula-itinerary.astro",
-          "purpose": "hero",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v3/index.astro",
-          "purpose": "card",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v3/index.astro",
-          "purpose": "inline",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
           "file": "src/components/InsiderPlans.astro",
           "purpose": "inline",
           "entityType": null,
@@ -4641,19 +4259,19 @@
       "filename": "place-rosebud-01.webp",
       "extension": "webp",
       "bytes": 200002,
-      "updatedAt": "2026-06-01T13:01:42.886Z",
+      "updatedAt": "2026-08-18T18:55:00.630Z",
       "usages": [
+        {
+          "file": "src/content/experiences/rosebud-country-club.json",
+          "purpose": "hero",
+          "entityType": "experience",
+          "entitySlug": "rosebud-country-club"
+        },
         {
           "file": "src/content/places/rosebud.json",
           "purpose": "hero",
           "entityType": "place",
           "entitySlug": "rosebud"
-        },
-        {
-          "file": "src/content/venues/stonier-wines.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "stonier-wines"
         }
       ]
     },
@@ -4663,7 +4281,7 @@
       "filename": "place-rye-01.webp",
       "extension": "webp",
       "bytes": 168960,
-      "updatedAt": "2026-06-01T13:01:42.886Z",
+      "updatedAt": "2026-08-18T18:55:00.634Z",
       "usages": [
         {
           "file": "src/content/places/rye.json",
@@ -4696,12 +4314,6 @@
           "entitySlug": "mp-beach-club-cottages"
         },
         {
-          "file": "src/content/venues/pier-street-flinders.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "pier-street-flinders"
-        },
-        {
           "file": "src/content/venues/plantation-house-whitecliffs.json",
           "purpose": "hero",
           "entityType": "venue",
@@ -4712,12 +4324,6 @@
           "purpose": "hero",
           "entityType": "venue",
           "entitySlug": "rye-beachside-market"
-        },
-        {
-          "file": "src/content/venues/stumpy-gully-vineyard.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "stumpy-gully-vineyard"
         },
         {
           "file": "src/content/venues/yurt-hideaway.json",
@@ -4742,24 +4348,6 @@
           "purpose": "hero",
           "entityType": "article",
           "entitySlug": "dog-friendly-mornington-peninsula"
-        },
-        {
-          "file": "src/pages/journal/mornington-peninsula-hot-springs-guide.astro",
-          "purpose": "seo",
-          "entityType": "article",
-          "entitySlug": "mornington-peninsula-hot-springs-guide"
-        },
-        {
-          "file": "src/pages/journal/mornington-peninsula-hot-springs-guide.astro",
-          "purpose": "seo",
-          "entityType": "article",
-          "entitySlug": "mornington-peninsula-hot-springs-guide"
-        },
-        {
-          "file": "src/pages/journal/mornington-peninsula-hot-springs-guide.astro",
-          "purpose": "hero",
-          "entityType": "article",
-          "entitySlug": "mornington-peninsula-hot-springs-guide"
         }
       ]
     },
@@ -4769,7 +4357,7 @@
       "filename": "place-safety-beach-01.webp",
       "extension": "webp",
       "bytes": 276996,
-      "updatedAt": "2026-06-01T13:01:42.888Z",
+      "updatedAt": "2026-08-18T18:55:00.634Z",
       "usages": [
         {
           "file": "src/content/events/sustainable-house-day-2026.json",
@@ -4790,12 +4378,6 @@
           "entitySlug": "safety-beach"
         },
         {
-          "file": "src/content/venues/hurley-vineyard.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "hurley-vineyard"
-        },
-        {
           "file": "src/content/venues/martha-s-table.json",
           "purpose": "hero",
           "entityType": "venue",
@@ -4809,14 +4391,8 @@
       "filename": "place-sorrento-01.webp",
       "extension": "webp",
       "bytes": 351724,
-      "updatedAt": "2026-06-01T13:01:42.889Z",
+      "updatedAt": "2026-08-18T18:55:00.638Z",
       "usages": [
-        {
-          "file": "src/content/articles/area-guide-sorrento.md",
-          "purpose": "hero",
-          "entityType": "article",
-          "entitySlug": "area-guide-sorrento"
-        },
         {
           "file": "src/content/articles/corporate-events-red-hill-vs-sorrento.md",
           "purpose": "hero",
@@ -4834,6 +4410,18 @@
           "purpose": "hero",
           "entityType": "event",
           "entitySlug": "anzac-day-sorrento-dawn"
+        },
+        {
+          "file": "src/content/experiences/coppins-track.json",
+          "purpose": "hero",
+          "entityType": "experience",
+          "entitySlug": "coppins-track"
+        },
+        {
+          "file": "src/content/experiences/sorrento-golf-club.json",
+          "purpose": "hero",
+          "entityType": "experience",
+          "entitySlug": "sorrento-golf-club"
         },
         {
           "file": "src/content/itineraries/sorrento-off-season-weekend.json",
@@ -4860,22 +4448,16 @@
           "entitySlug": "polperro-dolphin-swim"
         },
         {
-          "file": "src/content/venues/sorrento-gelato.json",
+          "file": "src/content/venues/bistro-elba.json",
           "purpose": "hero",
           "entityType": "venue",
-          "entitySlug": "sorrento-gelato"
+          "entitySlug": "bistro-elba"
         },
         {
-          "file": "src/content/venues/trofeo-estate.json",
+          "file": "src/content/venues/stringers-sorrento.json",
           "purpose": "hero",
           "entityType": "venue",
-          "entitySlug": "trofeo-estate"
-        },
-        {
-          "file": "src/pages/v2-staging/index.astro",
-          "purpose": "hero",
-          "entityType": null,
-          "entitySlug": null
+          "entitySlug": "stringers-sorrento"
         }
       ]
     },
@@ -4885,79 +4467,13 @@
       "filename": "placeholder-golf.svg",
       "extension": "svg",
       "bytes": 746,
-      "updatedAt": "2026-06-01T13:01:42.775Z",
+      "updatedAt": "2026-08-18T18:55:00.298Z",
       "usages": [
         {
           "file": "src/content/articles/st-andrews-beach-golf-course.md",
           "purpose": "hero",
           "entityType": "article",
           "entitySlug": "st-andrews-beach-golf-course"
-        },
-        {
-          "file": "src/content/experiences/eagle-ridge-golf-course.json",
-          "purpose": "hero",
-          "entityType": "experience",
-          "entitySlug": "eagle-ridge-golf-course"
-        },
-        {
-          "file": "src/content/experiences/flinders-golf-club.json",
-          "purpose": "hero",
-          "entityType": "experience",
-          "entitySlug": "flinders-golf-club"
-        },
-        {
-          "file": "src/content/experiences/moonah-links.json",
-          "purpose": "hero",
-          "entityType": "experience",
-          "entitySlug": "moonah-links"
-        },
-        {
-          "file": "src/content/experiences/mornington-golf-club.json",
-          "purpose": "hero",
-          "entityType": "experience",
-          "entitySlug": "mornington-golf-club"
-        },
-        {
-          "file": "src/content/experiences/portsea-golf-club.json",
-          "purpose": "hero",
-          "entityType": "experience",
-          "entitySlug": "portsea-golf-club"
-        },
-        {
-          "file": "src/content/experiences/racv-cape-schanck-golf-course.json",
-          "purpose": "hero",
-          "entityType": "experience",
-          "entitySlug": "racv-cape-schanck-golf-course"
-        },
-        {
-          "file": "src/content/experiences/rosebud-country-club.json",
-          "purpose": "hero",
-          "entityType": "experience",
-          "entitySlug": "rosebud-country-club"
-        },
-        {
-          "file": "src/content/experiences/sorrento-golf-club.json",
-          "purpose": "hero",
-          "entityType": "experience",
-          "entitySlug": "sorrento-golf-club"
-        },
-        {
-          "file": "src/content/experiences/st-andrews-beach-golf-course.json",
-          "purpose": "hero",
-          "entityType": "experience",
-          "entitySlug": "st-andrews-beach-golf-course"
-        },
-        {
-          "file": "src/content/experiences/the-dunes-golf-links.json",
-          "purpose": "hero",
-          "entityType": "experience",
-          "entitySlug": "the-dunes-golf-links"
-        },
-        {
-          "file": "src/content/experiences/the-national-golf-club.json",
-          "purpose": "hero",
-          "entityType": "experience",
-          "entitySlug": "the-national-golf-club"
         }
       ]
     },
@@ -4967,7 +4483,7 @@
       "filename": "places-hub-hero-01.webp",
       "extension": "webp",
       "bytes": 133784,
-      "updatedAt": "2026-06-01T13:01:42.889Z",
+      "updatedAt": "2026-08-18T18:55:00.638Z",
       "usages": [
         {
           "file": "src/pages/explore/places/index.astro",
@@ -4983,13 +4499,19 @@
       "filename": "spa-alba-thermal-springs-01.webp",
       "extension": "webp",
       "bytes": 242438,
-      "updatedAt": "2026-06-01T13:01:42.890Z",
+      "updatedAt": "2026-08-18T18:55:00.642Z",
       "usages": [
         {
           "file": "src/content/articles/best-spas-mornington-peninsula.md",
           "purpose": "hero",
           "entityType": "article",
           "entitySlug": "best-spas-mornington-peninsula"
+        },
+        {
+          "file": "src/content/articles/peninsula-hot-springs-vs-alba.mdx",
+          "purpose": "inline",
+          "entityType": "article",
+          "entitySlug": "peninsula-hot-springs-vs-alba"
         },
         {
           "file": "src/content/articles/the-thermal-springs-weekend.md",
@@ -5004,6 +4526,12 @@
           "entitySlug": "alba-fire-and-ice-sessions"
         },
         {
+          "file": "src/content/events/brunch-thyme-alba-thermal-springs-winter-2026.json",
+          "purpose": "hero",
+          "entityType": "event",
+          "entitySlug": "brunch-thyme-alba-thermal-springs-winter-2026"
+        },
+        {
           "file": "src/content/tours/bunyip-hot-springs-day-tour.json",
           "purpose": "hero",
           "entityType": "tour",
@@ -5016,38 +4544,8 @@
           "entitySlug": "alba-thermal-springs"
         },
         {
-          "file": "src/content/venues/sanctuary-at-alba.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "sanctuary-at-alba"
-        },
-        {
           "file": "src/pages/explore/hot-springs.astro",
           "purpose": "inline",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/spa/index.astro",
-          "purpose": "seo",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/spa/index.astro",
-          "purpose": "hero",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/explore/spas-and-wellness.astro",
-          "purpose": "seo",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/spa/index.astro",
-          "purpose": "seo",
           "entityType": null,
           "entitySlug": null
         }
@@ -5059,8 +4557,14 @@
       "filename": "spa-coastal-pool-01.webp",
       "extension": "webp",
       "bytes": 169466,
-      "updatedAt": "2026-06-01T13:01:42.891Z",
+      "updatedAt": "2026-08-18T18:55:00.642Z",
       "usages": [
+        {
+          "file": "src/content/events/archive/peninsula-hot-springs-bathe-in-cinema-thursdays.json",
+          "purpose": "hero",
+          "entityType": "event",
+          "entitySlug": "peninsula-hot-springs-bathe-in-cinema-thursdays"
+        },
         {
           "file": "src/content/events/peninsula-hot-springs-allara-briggs-pattison.json",
           "purpose": "hero",
@@ -5068,16 +4572,16 @@
           "entitySlug": "peninsula-hot-springs-allara-briggs-pattison"
         },
         {
-          "file": "src/content/events/peninsula-hot-springs-bathe-in-cinema-thursdays.json",
-          "purpose": "hero",
-          "entityType": "event",
-          "entitySlug": "peninsula-hot-springs-bathe-in-cinema-thursdays"
-        },
-        {
           "file": "src/content/tours/plunge-hot-springs-wine-tour.json",
           "purpose": "hero",
           "entityType": "tour",
           "entitySlug": "plunge-hot-springs-wine-tour"
+        },
+        {
+          "file": "src/content/venues/one-spa-racv-cape-schanck.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "one-spa-racv-cape-schanck"
         },
         {
           "file": "src/components/EventCard.astro",
@@ -5093,7 +4597,7 @@
       "filename": "spa-dark-boutique-room-01.webp",
       "extension": "webp",
       "bytes": 116040,
-      "updatedAt": "2026-06-01T13:01:42.892Z",
+      "updatedAt": "2026-08-18T18:55:00.646Z",
       "usages": [
         {
           "file": "src/content/events/peninsula-hot-springs-daily-studio-yoga.json",
@@ -5106,6 +4610,12 @@
           "purpose": "hero",
           "entityType": "tour",
           "entitySlug": "thermal-springs-wine-weekend"
+        },
+        {
+          "file": "src/content/venues/spa-by-jackalope.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "spa-by-jackalope"
         },
         {
           "file": "src/pages/explore/spas-and-wellness.astro",
@@ -5121,7 +4631,7 @@
       "filename": "spa-peninsula-hot-springs-hilltop-01.webp",
       "extension": "webp",
       "bytes": 85354,
-      "updatedAt": "2026-06-01T13:01:42.892Z",
+      "updatedAt": "2026-08-18T18:55:00.646Z",
       "usages": [
         {
           "file": "src/content/articles/mornington-peninsula-stay-and-soak.md",
@@ -5130,10 +4640,16 @@
           "entitySlug": "mornington-peninsula-stay-and-soak"
         },
         {
-          "file": "src/content/articles/peninsula-hot-springs-vs-alba.md",
+          "file": "src/content/articles/peninsula-hot-springs-vs-alba.mdx",
           "purpose": "hero",
           "entityType": "article",
           "entitySlug": "peninsula-hot-springs-vs-alba"
+        },
+        {
+          "file": "src/content/articles/peninsula-this-weekend-jun-27.md",
+          "purpose": "hero",
+          "entityType": "article",
+          "entitySlug": "peninsula-this-weekend-jun-27"
         },
         {
           "file": "src/content/events/peninsula-hot-springs-sunday-sessions.json",
@@ -5178,12 +4694,6 @@
           "entitySlug": null
         },
         {
-          "file": "src/pages/test/index.astro",
-          "purpose": "inline",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
           "file": "src/pages/tour/hot-springs-tours.astro",
           "purpose": "hero",
           "entityType": null,
@@ -5203,7 +4713,7 @@
       "filename": "spa-treatment-room-rose-01.webp",
       "extension": "webp",
       "bytes": 93024,
-      "updatedAt": "2026-06-01T13:01:42.893Z",
+      "updatedAt": "2026-08-18T18:55:00.646Z",
       "usages": [
         {
           "file": "src/content/events/restore-pamper-retreat-at-polperro-farmhouse.json",
@@ -5213,6 +4723,12 @@
         },
         {
           "file": "src/pages/explore/hot-springs.astro",
+          "purpose": "inline",
+          "entityType": null,
+          "entitySlug": null
+        },
+        {
+          "file": "src/pages/explore/spas-and-wellness.astro",
           "purpose": "inline",
           "entityType": null,
           "entitySlug": null
@@ -5231,7 +4747,7 @@
       "filename": "spa-wellness-stones-01.webp",
       "extension": "webp",
       "bytes": 64544,
-      "updatedAt": "2026-06-01T13:01:42.893Z",
+      "updatedAt": "2026-08-18T18:55:00.646Z",
       "usages": [
         {
           "file": "src/content/events/peninsula-hot-springs-sound-healing-sessions.json",
@@ -5244,6 +4760,18 @@
           "purpose": "hero",
           "entityType": "tour",
           "entitySlug": "mornington-peninsula-plunge"
+        },
+        {
+          "file": "src/content/venues/endota-spa-mornington.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "endota-spa-mornington"
+        },
+        {
+          "file": "src/content/venues/sanctuary-at-alba.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "sanctuary-at-alba"
         }
       ]
     },
@@ -5253,7 +4781,7 @@
       "filename": "venue-ashcombe-maze-01.webp",
       "extension": "webp",
       "bytes": 472062,
-      "updatedAt": "2026-06-01T13:01:42.895Z",
+      "updatedAt": "2026-08-18T18:55:00.650Z",
       "usages": [
         {
           "file": "src/content/experiences/ashcombe-maze.json",
@@ -5269,8 +4797,14 @@
       "filename": "venue-avani-wines-01.jpg",
       "extension": "jpg",
       "bytes": 264486,
-      "updatedAt": "2026-06-01T13:01:42.896Z",
+      "updatedAt": "2026-08-18T18:55:00.654Z",
       "usages": [
+        {
+          "file": "src/content/articles/insider-picks-2026-07-29.md",
+          "purpose": "hero",
+          "entityType": "article",
+          "entitySlug": "insider-picks-2026-07-29"
+        },
         {
           "file": "src/content/venues/avani-wines.json",
           "purpose": "hero",
@@ -5285,7 +4819,7 @@
       "filename": "venue-continental-sorrento-01.webp",
       "extension": "webp",
       "bytes": 143100,
-      "updatedAt": "2026-06-01T13:01:42.896Z",
+      "updatedAt": "2026-08-18T18:55:00.654Z",
       "usages": [
         {
           "file": "src/content/signature-events/sorrento-writers-festival.json",
@@ -5307,7 +4841,7 @@
       "filename": "venue-dromana-pier-01.webp",
       "extension": "webp",
       "bytes": 72562,
-      "updatedAt": "2026-06-01T13:01:42.897Z",
+      "updatedAt": "2026-08-18T18:55:00.658Z",
       "usages": [
         {
           "file": "src/content/venues/dromana-hotel.json",
@@ -5323,7 +4857,7 @@
       "filename": "venue-flinders-hotel-01.webp",
       "extension": "webp",
       "bytes": 280716,
-      "updatedAt": "2026-06-01T13:01:42.898Z",
+      "updatedAt": "2026-08-18T18:55:00.658Z",
       "usages": [
         {
           "file": "src/content/events/flinders-hotel-mothers-day-2026.json",
@@ -5345,29 +4879,17 @@
       "filename": "venue-italian-dining-01.webp",
       "extension": "webp",
       "bytes": 417928,
-      "updatedAt": "2026-06-01T13:01:42.899Z",
+      "updatedAt": "2026-08-18T18:55:00.662Z",
       "usages": [
         {
-          "file": "src/pages/eat/index.astro",
-          "purpose": "seo",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/eat/index.astro",
+          "file": "src/content/venues/doot-doot-doot.json",
           "purpose": "hero",
-          "entityType": null,
-          "entitySlug": null
+          "entityType": "venue",
+          "entitySlug": "doot-doot-doot"
         },
         {
-          "file": "src/pages/v4/eat/index.astro",
-          "purpose": "seo",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v4/eat/index.astro",
-          "purpose": "hero",
+          "file": "src/components/v5/home/HomeDoors.astro",
+          "purpose": "inline",
           "entityType": null,
           "entitySlug": null
         }
@@ -5379,7 +4901,7 @@
       "filename": "venue-jackalope-hotel-01.webp",
       "extension": "webp",
       "bytes": 293238,
-      "updatedAt": "2026-06-01T13:01:42.900Z",
+      "updatedAt": "2026-08-18T18:55:00.666Z",
       "usages": [
         {
           "file": "src/content/articles/luxury-hotels-mornington-peninsula.mdx",
@@ -5443,31 +4965,13 @@
         },
         {
           "file": "src/pages/stay/index.astro",
-          "purpose": "hero",
+          "purpose": "inline",
           "entityType": null,
           "entitySlug": null
         },
         {
-          "file": "src/pages/v2-staging/corporate-events/best-corporate-retreat-venues-mornington-peninsula.astro",
-          "purpose": "seo",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/corporate-events/index.astro",
-          "purpose": "seo",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v4/stay/index.astro",
-          "purpose": "seo",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v4/stay/index.astro",
-          "purpose": "hero",
+          "file": "src/components/v5/home/HomeDoors.astro",
+          "purpose": "inline",
           "entityType": null,
           "entitySlug": null
         }
@@ -5479,7 +4983,7 @@
       "filename": "venue-lindenderry-01.webp",
       "extension": "webp",
       "bytes": 121754,
-      "updatedAt": "2026-06-01T13:01:42.900Z",
+      "updatedAt": "2026-08-18T18:55:00.666Z",
       "usages": [
         {
           "file": "src/content/articles/where-to-stay-mornington-peninsula.mdx",
@@ -5513,8 +5017,14 @@
       "filename": "venue-montalto-banner-01.webp",
       "extension": "webp",
       "bytes": 122654,
-      "updatedAt": "2026-06-01T13:01:42.901Z",
+      "updatedAt": "2026-08-18T18:55:00.666Z",
       "usages": [
+        {
+          "file": "src/content/experiences/montalto-sculpture-trail.json",
+          "purpose": "hero",
+          "entityType": "experience",
+          "entitySlug": "montalto-sculpture-trail"
+        },
         {
           "file": "src/content/venues/montalto.json",
           "purpose": "hero",
@@ -5535,7 +5045,7 @@
       "filename": "venue-nazaaray-estate-01.webp",
       "extension": "webp",
       "bytes": 74070,
-      "updatedAt": "2026-06-01T13:01:42.901Z",
+      "updatedAt": "2026-08-18T18:55:00.670Z",
       "usages": [
         {
           "file": "src/content/venues/nazaaray-estate.json",
@@ -5551,7 +5061,7 @@
       "filename": "venue-paringa-estate-01.webp",
       "extension": "webp",
       "bytes": 193244,
-      "updatedAt": "2026-06-01T13:01:42.902Z",
+      "updatedAt": "2026-08-18T18:55:00.670Z",
       "usages": [
         {
           "file": "src/content/tours/australian-journeys-luxury-peninsula-day.json",
@@ -5573,13 +5083,25 @@
       "filename": "venue-polperro-sorrento-pier-01.webp",
       "extension": "webp",
       "bytes": 145352,
-      "updatedAt": "2026-06-01T13:01:42.903Z",
+      "updatedAt": "2026-08-18T18:55:00.670Z",
       "usages": [
         {
           "file": "src/content/tour-operators/polperro-dolphin-swims.json",
           "purpose": "hero",
           "entityType": "tour",
           "entitySlug": "polperro-dolphin-swims"
+        },
+        {
+          "file": "src/content/venues/polperro-villas.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "polperro-villas"
+        },
+        {
+          "file": "src/content/venues/polperro.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "polperro"
         }
       ]
     },
@@ -5589,8 +5111,14 @@
       "filename": "venue-portsea-hotel-01.webp",
       "extension": "webp",
       "bytes": 200644,
-      "updatedAt": "2026-06-01T13:01:42.903Z",
+      "updatedAt": "2026-08-18T18:55:00.674Z",
       "usages": [
+        {
+          "file": "src/content/events/winter-acoustic-sessions-portsea-hotel-2026.json",
+          "purpose": "hero",
+          "entityType": "event",
+          "entitySlug": "winter-acoustic-sessions-portsea-hotel-2026"
+        },
         {
           "file": "src/content/venues/portsea-hotel.json",
           "purpose": "hero",
@@ -5605,8 +5133,26 @@
       "filename": "venue-pt-leo-sculpture-01.webp",
       "extension": "webp",
       "bytes": 102880,
-      "updatedAt": "2026-06-01T13:01:42.904Z",
+      "updatedAt": "2026-08-18T18:55:00.674Z",
       "usages": [
+        {
+          "file": "src/content/articles/peninsula-this-weekend-jul-18.md",
+          "purpose": "hero",
+          "entityType": "article",
+          "entitySlug": "peninsula-this-weekend-jul-18"
+        },
+        {
+          "file": "src/content/events/archive/sip-sketch-sculpture-park-pt-leo-estate-school-holidays-2026.json",
+          "purpose": "hero",
+          "entityType": "event",
+          "entitySlug": "sip-sketch-sculpture-park-pt-leo-estate-school-holidays-2026"
+        },
+        {
+          "file": "src/content/events/pt-leo-estate-local-complimentary-sculpture-park-winter-2026.json",
+          "purpose": "hero",
+          "entityType": "event",
+          "entitySlug": "pt-leo-estate-local-complimentary-sculpture-park-winter-2026"
+        },
         {
           "file": "src/content/events/pt-leo-estate-sculpture-park.json",
           "purpose": "hero",
@@ -5638,6 +5184,12 @@
           "entitySlug": "point-leo-estate-villas"
         },
         {
+          "file": "src/content/venues/point-leo-wine-terrace.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "point-leo-wine-terrace"
+        },
+        {
           "file": "src/content/venues/pt-leo-estate.json",
           "purpose": "hero",
           "entityType": "venue",
@@ -5657,7 +5209,7 @@
       "filename": "venue-red-hill-general-store-01.webp",
       "extension": "webp",
       "bytes": 136992,
-      "updatedAt": "2026-06-01T13:01:42.904Z",
+      "updatedAt": "2026-08-18T18:55:00.678Z",
       "usages": [
         {
           "file": "src/content/venues/red-hill-bakery.json",
@@ -5673,13 +5225,25 @@
       "filename": "venue-sorrento-hotel-01.webp",
       "extension": "webp",
       "bytes": 137208,
-      "updatedAt": "2026-06-01T13:01:42.905Z",
+      "updatedAt": "2026-08-18T18:55:00.678Z",
       "usages": [
+        {
+          "file": "src/content/articles/the-sorrento-off-season-weekend-2026-w33.md",
+          "purpose": "hero",
+          "entityType": "article",
+          "entitySlug": "the-sorrento-off-season-weekend-2026-w33"
+        },
         {
           "file": "src/content/venues/hotel-sorrento.json",
           "purpose": "hero",
           "entityType": "venue",
           "entitySlug": "hotel-sorrento"
+        },
+        {
+          "file": "src/content/venues/sorrento-hotel.json",
+          "purpose": "hero",
+          "entityType": "venue",
+          "entitySlug": "sorrento-hotel"
         }
       ]
     },
@@ -5689,7 +5253,7 @@
       "filename": "venue-tedesca-osteria-01.webp",
       "extension": "webp",
       "bytes": 122654,
-      "updatedAt": "2026-06-01T13:01:42.905Z",
+      "updatedAt": "2026-08-18T18:55:00.678Z",
       "usages": [
         {
           "file": "src/content/venues/tedesca-osteria.json",
@@ -5705,8 +5269,20 @@
       "filename": "venue-ten-minutes-by-tractor-01.jpg",
       "extension": "jpg",
       "bytes": 118986,
-      "updatedAt": "2026-06-01T13:01:42.906Z",
+      "updatedAt": "2026-08-18T18:55:00.682Z",
       "usages": [
+        {
+          "file": "src/content/articles/insider-picks-2026-07-24.md",
+          "purpose": "hero",
+          "entityType": "article",
+          "entitySlug": "insider-picks-2026-07-24"
+        },
+        {
+          "file": "src/content/tours/localing-private-wine-day.json",
+          "purpose": "hero",
+          "entityType": "tour",
+          "entitySlug": "localing-private-wine-day"
+        },
         {
           "file": "src/content/venues/ten-minutes-by-tractor.json",
           "purpose": "hero",
@@ -5721,13 +5297,13 @@
       "filename": "venue-ten-minutes-by-tractor-01.webp",
       "extension": "webp",
       "bytes": 214322,
-      "updatedAt": "2026-06-01T13:01:42.907Z",
+      "updatedAt": "2026-08-18T18:55:00.682Z",
       "usages": [
         {
-          "file": "src/content/tours/localing-private-wine-day.json",
+          "file": "src/content/articles/insider-picks-2026-08-17.md",
           "purpose": "hero",
-          "entityType": "tour",
-          "entitySlug": "localing-private-wine-day"
+          "entityType": "article",
+          "entitySlug": "insider-picks-2026-08-17"
         }
       ]
     },
@@ -5737,19 +5313,19 @@
       "filename": "venue-wine-tasting-01.webp",
       "extension": "webp",
       "bytes": 471796,
-      "updatedAt": "2026-06-01T13:01:42.908Z",
+      "updatedAt": "2026-08-18T18:55:00.686Z",
       "usages": [
+        {
+          "file": "src/content/events/aperitivo-hour-trofeo-estate-winter-2026.json",
+          "purpose": "hero",
+          "entityType": "event",
+          "entitySlug": "aperitivo-hour-trofeo-estate-winter-2026"
+        },
         {
           "file": "src/content/tours/ricks-mornington-peninsula-wine-tour.json",
           "purpose": "hero",
           "entityType": "tour",
           "entitySlug": "ricks-mornington-peninsula-wine-tour"
-        },
-        {
-          "file": "src/content/venues/quealy-winemakers.json",
-          "purpose": "hero",
-          "entityType": "venue",
-          "entitySlug": "quealy-winemakers"
         }
       ]
     },
@@ -5759,7 +5335,7 @@
       "filename": "whats-on-winter-wine.jpg",
       "extension": "jpg",
       "bytes": 176197,
-      "updatedAt": "2026-06-01T13:01:42.909Z",
+      "updatedAt": "2026-08-18T18:55:00.690Z",
       "usages": []
     },
     {
@@ -5768,8 +5344,14 @@
       "filename": "whats-on-winter-wine.webp",
       "extension": "webp",
       "bytes": 100602,
-      "updatedAt": "2026-06-01T13:01:42.909Z",
+      "updatedAt": "2026-08-18T18:55:00.690Z",
       "usages": [
+        {
+          "file": "src/content/events/acoustic-saturdays-peppers-moonah-links-2026.json",
+          "purpose": "hero",
+          "entityType": "event",
+          "entitySlug": "acoustic-saturdays-peppers-moonah-links-2026"
+        },
         {
           "file": "src/pages/whats-on/index.astro",
           "purpose": "seo",
@@ -5778,6 +5360,12 @@
         },
         {
           "file": "src/pages/whats-on/index.astro",
+          "purpose": "hero",
+          "entityType": null,
+          "entitySlug": null
+        },
+        {
+          "file": "src/pages/whats-on/this-weekend/index.astro",
           "purpose": "hero",
           "entityType": null,
           "entitySlug": null
@@ -5790,10 +5378,10 @@
       "filename": "wine-hub-hero-01.webp",
       "extension": "webp",
       "bytes": 154426,
-      "updatedAt": "2026-06-01T13:01:42.910Z",
+      "updatedAt": "2026-08-18T18:55:00.690Z",
       "usages": [
         {
-          "file": "src/content/events/winter-wine-weekend-june.json",
+          "file": "src/content/events/archive/winter-wine-weekend-june.json",
           "purpose": "hero",
           "entityType": "event",
           "entitySlug": "winter-wine-weekend-june"
@@ -5824,18 +5412,6 @@
         },
         {
           "file": "src/pages/tour/index.astro",
-          "purpose": "hero",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/index.astro",
-          "purpose": "hero",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/v2-staging/journal/mornington-peninsula-winery-tour.astro",
           "purpose": "hero",
           "entityType": null,
           "entitySlug": null

@@ -1,0 +1,204 @@
+---
+/**
+ * HomeJournalFeature - block 6, the one flagship Journal feature
+ * (page-redesigns.md 1.9 item 6; wireframes.html #home note 5: "Exactly
+ * one Journal feature; more editorial lives behind Journal").
+ *
+ * Same deterministic selection the Edition cover used: the featured
+ * published article wins, otherwise the latest, weekend-picker dispatches
+ * excluded. Hero resolves through resolveHero so CMS image overrides
+ * survive rebuilds; the img carries the editableImage slot.
+ */
+import { getCollection } from 'astro:content';
+import { routeSlug, formatLabel } from '../../../lib/editorial';
+import { resolveHero } from '../../../lib/inline-edit/resolve-hero';
+import { editableImage } from '../../../lib/inline-edit/attrs';
+
+// The homepage flagship feature is an editorial piece, not a weekend-picker
+// dispatch or a B2B service page (past-dated event guides are dropped by
+// clearing their `featured` flag).
+const published = (await getCollection('articles', ({ data }) => data.status === 'published'))
+  .filter((a) => a.data.format !== 'weekend-picker' && a.data.format !== 'service')
+  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+
+// `published` is sorted newest-first, so published[0] is the current
+// edition (today's Insider Picks daily drumbeat). We deliberately do NOT
+// honour the `featured` pin here: that flag is set on ~19 evergreen guides
+// dated back to April, so "featured wins" pinned a months-stale piece
+// (the 14 July daily pick) while newer editions piled up unseen. The
+// homepage flagship should always be the latest edition.
+const lead = published[0];
+const slug = lead ? routeSlug(lead) : '';
+const hero = lead ? await resolveHero('article', slug, lead.data, 'hero') : null;
+const kicker = lead ? (formatLabel[lead.data.format] ?? 'Feature') : '';
+---
+
+{lead && hero && (
+  <section class="home-journal" aria-labelledby="home-journal-title">
+    <figure class="home-journal__media">
+      <img
+        src={hero.src}
+        alt={hero.alt || lead.data.title}
+        loading="lazy"
+        decoding="async"
+        {...editableImage({
+          entityType: 'article',
+          entitySlug: slug,
+          fieldPath: 'hero',
+          label: `${lead.data.title} image`,
+          purpose: 'hero',
+        })}
+      />
+    </figure>
+    <span class="home-journal__scrim" aria-hidden="true"></span>
+    <div class="container home-journal__body">
+      <p class="home-journal__kicker">From the Journal <span aria-hidden="true">&middot;</span> {kicker}</p>
+      <h2 id="home-journal-title" class="home-journal__headline">
+        <a
+          href={`/journal/${slug}/`}
+          data-evt="card_click"
+          data-entity-type="article"
+          data-entity-slug={slug}
+          data-surface="home-journal"
+        >
+          {lead.data.title}
+        </a>
+      </h2>
+      {lead.data.dek && <p class="home-journal__dek">{lead.data.dek}</p>}
+      <p class="home-journal__cta">
+        <a href={`/journal/${slug}/`} tabindex="-1" aria-hidden="true">Read the story &rarr;</a>
+      </p>
+    </div>
+  </section>
+)}
+
+<script>
+  import { initV5Analytics } from '../../../lib/v5-analytics';
+  initV5Analytics();
+</script>
+
+<style>
+  /* Immersive editorial feature band: full-bleed hero image under a
+     forest-teal scrim, text overlaid bottom-left. Tokens only. */
+  .home-journal {
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    align-items: flex-end;
+    min-height: min(78vh, 40rem);
+    /* No bottom margin: the Dispatch band below sits flush against this one. */
+    margin: var(--space-7) 0 0;
+    overflow: hidden;
+    background: var(--bg-deep);
+  }
+
+  .home-journal__media {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    margin: 0;
+  }
+
+  .home-journal__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform var(--dur-slow) var(--ease-enter);
+  }
+
+  .home-journal:hover .home-journal__media img {
+    transform: scale(1.03);
+  }
+
+  .home-journal__scrim {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(
+      to top,
+      color-mix(in srgb, var(--bg-deep) 90%, transparent) 0%,
+      color-mix(in srgb, var(--bg-deep) 24%, transparent) 55%,
+      transparent 88%
+    );
+  }
+
+  .home-journal__body {
+    position: relative;
+    padding-block: var(--space-7);
+    max-width: var(--max-w);
+  }
+
+  .home-journal__kicker {
+    margin: 0 0 var(--space-3);
+    font-family: var(--font-ui);
+    font-size: var(--fs-200);
+    font-weight: var(--fw-semibold);
+    letter-spacing: var(--ls-eyebrow);
+    text-transform: uppercase;
+    color: var(--mint);
+  }
+
+  .home-journal__headline {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: var(--fw-display);
+    font-size: var(--fs-800);
+    line-height: var(--lh-display);
+    letter-spacing: var(--ls-display);
+    max-width: 24ch;
+    text-wrap: balance;
+  }
+
+  .home-journal__headline a {
+    color: var(--white);
+    text-decoration: none;
+    transition: color var(--dur-fast) var(--ease-enter);
+  }
+
+  .home-journal__headline a:hover {
+    color: var(--mint);
+  }
+
+  .home-journal__headline a:focus-visible {
+    outline: 2px solid var(--focus-ring-color-inverse);
+    outline-offset: 3px;
+  }
+
+  .home-journal__dek {
+    margin: var(--space-3) 0 0;
+    font-family: var(--font-ui);
+    font-size: var(--fs-400);
+    line-height: var(--lh-dek);
+    color: var(--soft-inverse);
+    max-width: var(--measure-dek);
+  }
+
+  .home-journal__cta {
+    margin: var(--space-5) 0 0;
+    font-family: var(--font-ui);
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-400);
+  }
+
+  .home-journal__cta a {
+    color: var(--white);
+    text-decoration: none;
+    border-bottom: 1.5px solid var(--mint);
+    padding-bottom: 2px;
+    transition: color var(--dur-fast) var(--ease-enter);
+  }
+
+  .home-journal__cta a:hover {
+    color: var(--mint);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .home-journal__media img {
+      transition: none;
+    }
+    .home-journal:hover .home-journal__media img {
+      transform: none;
+    }
+  }
+</style>

@@ -6,7 +6,7 @@ houseByline: true
 publishedAt: 2026-04-10
 heroImage:
   src: "/images/sourced/category-pub-01.webp"
-  alt: "A busy Peninsula pub beer garden on a Saturday afternoon with local craft beer on the table — representative image"
+  alt: "A busy Peninsula pub beer garden on a Saturday afternoon with local craft beer on the table - representative image"
   credit: "Peninsula Insider"
   license: "tmp-unsplash"
 format: "service"
@@ -23,18 +23,18 @@ clusterLinks:
   - label: "The Peninsula Pub Guide"
     href: "/journal/the-pub-guide/"
   - label: "The Friday Night Arrival"
-    href: "/journal/the-friday-night-arrival/"
+    href: "/explore/plans/the-friday-night-arrival/"
   - label: "How to Plan a Peninsula Weekend"
-    href: "/journal/how-to-plan-a-peninsula-weekend/"
+    href: "/explore/plans/how-to-plan-a-peninsula-weekend/"
 faq:
   - question: "Which Mornington Peninsula pub crawl route is best?"
-    answer: "The hinterland circuit for people who care about what they are drinking — Balnarring Pub for lunch, Red Hill Brewery for the hop garden and pizza, St Andrews Beach Brewery for a more experimental range. The bay-side run (Mornington → Dromana → Rye → Portsea) is the most scenic. The Sorrento strip is the only route walkable without a car."
+    answer: "The hinterland circuit for people who care about what they are drinking - Balnarring Pub for lunch, Red Hill Brewery for the hop garden and pizza, St Andrews Beach Brewery for a more experimental range. The bay-side run (Mornington → Dromana → Rye → Portsea) is the most scenic. The Sorrento strip is the only route walkable without a car."
   - question: "What is the best pub on the Mornington Peninsula?"
-    answer: "Flinders Hotel — the dining room is generous, the beer garden faces the village green, the fire is real, and Flinders itself is the most underrated town on the coast. Balnarring Pub for the quiet side with a garden and genuine local atmosphere."
+    answer: "Flinders Hotel - the dining room is generous, the beer garden faces the village green, the fire is real, and Flinders itself is the most underrated town on the coast. Balnarring Pub for the quiet side with a garden and genuine local atmosphere."
   - question: "Can you do a pub crawl on the Mornington Peninsula without a car?"
-    answer: "Only on the Sorrento strip — three venues within a five-minute walk of each other on Ocean Beach Road. All other routes require driving, which means a designated driver or limiting yourself to one to two drinks per stop and spacing them across the day. The Peninsula's roads are narrow and winding. Plan the logistics before you start."
+    answer: "Only on the Sorrento strip - three venues within a five-minute walk of each other on Ocean Beach Road. All other routes require driving, which means a designated driver or limiting yourself to one to two drinks per stop and spacing them across the day. The Peninsula's roads are narrow and winding. Plan the logistics before you start."
 aiSummary:
-  - "An editorial guide to the Mornington Peninsula's best pubs — structured as a curated shortlist rather than a comprehensive directory."
+  - "An editorial guide to the Mornington Peninsula's best pubs - structured as a curated shortlist rather than a comprehensive directory."
   - "Key picks: Balnarring Pub (village setting, genuine country pub energy), Portsea Hotel (bay views, the Peninsula's most reliably good pub food), Flinders Hotel (the correct pub for a southern-edge day), Red Hill Hotel (a peninsula institution)."
   - "The editorial argument: pub dining on the Peninsula is systematically underrated and is often the correct choice when hatted bookings aren't available."
   - "Suits: groups; spontaneous visitors; anyone who wants good, honest food in a setting that doesn't require performance."

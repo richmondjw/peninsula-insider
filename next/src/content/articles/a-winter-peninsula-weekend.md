@@ -18,12 +18,12 @@ featured: false
 status: "published"
 lastVerified: 2026-04-22
 clusterLinks:
-  - label: "Peninsula Hot Springs vs Alba — The Honest Comparison"
+  - label: "Peninsula Hot Springs vs Alba - The Honest Comparison"
     href: "/journal/peninsula-hot-springs-vs-alba/"
   - label: "The Bushrangers Bay Walk"
     href: "/journal/walks-bushrangers-bay-walk-guide/"
-  - label: "Best Spas on the Mornington Peninsula — The Tier Guide"
-    href: "/journal/best-spas-mornington-peninsula/"
+  - label: "Best Spas on the Mornington Peninsula - The Tier Guide"
+    href: "/explore/spas-and-wellness/"
 faq:
   - question: "Why visit the Mornington Peninsula in winter?"
     answer: "Accommodation drops 20–40 per cent, the best restaurants are bookable on short notice, and the hot springs make significantly more sense in cold weather. The coastal landscape is also more dramatic in winter: blacker cliffs, heavier seas, more honest light."

@@ -1,0 +1,185 @@
+---
+/**
+ * EditionCover - the Edition homepage's living cover.
+ *
+ * One dominant cover story (the featured article) rendered at magazine
+ * scale over its full-bleed hero, with an "In this edition" index of the
+ * next three stories. Article-driven and deterministic, same selection
+ * rules as the previous carousel: featured leads, latest published fill,
+ * weekend-pickers excluded.
+ *
+ * The living layer: an edition stamp with today's date, a computed local
+ * sunset time (NOAA approximation for Sorrento, client-side, falls back
+ * to nothing rather than a wrong number), and a time-aware line in the
+ * Local's voice that reads differently on a Friday evening than a Tuesday
+ * morning. Slow ken-burns breathe on the image and a film-grain wash give
+ * the cover its texture; both sit behind prefers-reduced-motion guards.
+ */
+import { getCollection } from 'astro:content';
+import { formatLabel, routeSlug } from '../../lib/editorial';
+import { resolveHero } from '../../lib/inline-edit/resolve-hero';
+
+const published = (await getCollection('articles', ({ data }) => data.status === 'published'))
+  .filter((a) => a.data.format !== 'weekend-picker')
+  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+
+const lead = published.find((a) => a.data.featured) ?? published[0];
+const rest = published.filter((a) => a !== lead).slice(0, 3);
+
+const leadSlug = routeSlug(lead);
+const leadHero = await resolveHero('article', leadSlug, lead.data, 'hero');
+
+const dateLabel = new Date().toLocaleDateString('en-AU', {
+  weekday: 'long', day: 'numeric', month: 'long', year: 'numeric',
+  timeZone: 'Australia/Melbourne',
+});
+
+const indexItems = rest.map((a, i) => ({
+  n: String(i + 2).padStart(2, '0'),
+  label: formatLabel[a.data.format] ?? 'Feature',
+  title: a.data.title,
+  href: `/journal/${routeSlug(a)}/`,
+}));
+---
+
+<section class="ed-cover" aria-label="Cover story">
+  <figure class="ed-cover__media" aria-hidden="true">
+    <img
+      src={leadHero.src}
+      alt=""
+      loading="eager"
+      fetchpriority="high"
+    />
+  </figure>
+  <div class="ed-cover__scrim" aria-hidden="true"></div>
+  <div class="ed-cover__grain" aria-hidden="true"></div>
+
+  <div class="container ed-cover__frame">
+    <p class="ed-cover__stamp">
+      <span class="ed-cover__stamp-item">The Edition</span>
+      <span class="ed-cover__stamp-sep" aria-hidden="true">·</span>
+      <time class="ed-cover__stamp-item" datetime={new Date().toISOString().split('T')[0]}>{dateLabel}</time>
+      <span class="ed-cover__stamp-sep ed-cover__sunset-sep" aria-hidden="true" hidden>·</span>
+      <span class="ed-cover__stamp-item ed-cover__sunset" data-ed-sunset hidden></span>
+    </p>
+
+    <div class="ed-cover__grid">
+      <div class="ed-cover__story">
+        <p class="ed-cover__kicker">
+          <span class="ed-cover__kicker-no">01</span>
+          {formatLabel[lead.data.format] ?? 'The cover story'}
+        </p>
+        <a class="ed-cover__headline-link" href={`/journal/${leadSlug}/`}>
+          <h1 class="ed-cover__headline">{lead.data.title}</h1>
+        </a>
+        <p class="ed-cover__dek">{lead.data.dek}</p>
+        <a class="pi-btn pi-btn--ghost" href={`/journal/${leadSlug}/`}>
+          Read the cover story
+          <svg viewBox="0 0 16 12" width="15" height="11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 6h13M10 1.5 14.5 6 10 10.5" /></svg>
+        </a>
+      </div>
+
+      <nav class="ed-cover__index" aria-label="Also in this edition">
+        <p class="ed-cover__index-title">In this edition</p>
+        <ol class="ed-cover__index-list">
+          {indexItems.map((item) => (
+            <li class="ed-cover__index-item">
+              <a href={item.href}>
+                <span class="ed-cover__index-no">{item.n}</span>
+                <span class="ed-cover__index-body">
+                  <span class="ed-cover__index-label">{item.label}</span>
+                  <span class="ed-cover__index-headline">{item.title}</span>
+                </span>
+              </a>
+            </li>
+          ))}
+          <li class="ed-cover__index-item ed-cover__index-item--dispatch">
+            <a href="/whats-on/this-weekend/">
+              <span class="ed-cover__index-no">◆</span>
+              <span class="ed-cover__index-body">
+                <span class="ed-cover__index-label">The dispatch</span>
+                <span class="ed-cover__index-headline">Peninsula This Weekend</span>
+              </span>
+            </a>
+          </li>
+        </ol>
+      </nav>
+    </div>
+
+    <p class="ed-cover__hourline" data-ed-hourline>The Peninsula, edited weekly. Read on.</p>
+  </div>
+</section>
+
+<script is:inline>
+  (function () {
+    /* Time-aware line, Local archetype: dry, declarative, no exclamation. */
+    function melbourneNow() {
+      return new Date(new Date().toLocaleString('en-US', { timeZone: 'Australia/Melbourne' }));
+    }
+
+    /* NOAA-style sunset approximation for Sorrento (-38.34, 144.74). Good to
+       a couple of minutes, which is all a masthead heartbeat needs. */
+    function sunsetHHMM(d) {
+      var lat = -38.34, lng = 144.74;
+      var rad = Math.PI / 180;
+      var start = Date.UTC(d.getFullYear(), 0, 0);
+      var doy = Math.floor((Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()) - start) / 864e5);
+      var gamma = 2 * Math.PI / 365 * (doy - 1 + 0.5);
+      var eqtime = 229.18 * (0.000075 + 0.001868 * Math.cos(gamma) - 0.032077 * Math.sin(gamma)
+        - 0.014615 * Math.cos(2 * gamma) - 0.040849 * Math.sin(2 * gamma));
+      var decl = 0.006918 - 0.399912 * Math.cos(gamma) + 0.070257 * Math.sin(gamma)
+        - 0.006758 * Math.cos(2 * gamma) + 0.000907 * Math.sin(2 * gamma)
+        - 0.002697 * Math.cos(3 * gamma) + 0.00148 * Math.sin(3 * gamma);
+      var cosHa = (Math.cos(90.833 * rad) / (Math.cos(lat * rad) * Math.cos(decl)))
+        - Math.tan(lat * rad) * Math.tan(decl);
+      if (cosHa < -1 || cosHa > 1) return null;
+      var ha = Math.acos(cosHa) / rad;
+      var minutesUTC = 720 - 4 * (lng - ha) - eqtime;
+      // AEST only (the Peninsula's winter); DST months are close enough +60.
+      var month = d.getMonth() + 1;
+      var offset = (month >= 4 && month <= 9) ? 600 : 660;
+      var local = (minutesUTC + offset + 1440) % 1440;
+      var h = Math.floor(local / 60), m = Math.round(local % 60);
+      if (m === 60) { h += 1; m = 0; }
+      var h12 = ((h + 11) % 12) + 1;
+      return h12 + ':' + String(m).padStart(2, '0') + ' pm';
+    }
+
+    var now = melbourneNow();
+    var day = now.getDay(); /* 0 Sun ... 6 Sat */
+    var hour = now.getHours();
+    var sunset = sunsetHHMM(now);
+
+    var line;
+    if (day === 5 && hour >= 15) {
+      line = sunset
+        ? 'Friday. The weekend starts at sunset, ' + sunset + ' tonight.'
+        : 'Friday. The weekend starts at sunset.';
+    } else if (day === 6 && hour < 11) {
+      line = 'Saturday, early. The bakeries are ahead of you.';
+    } else if (day === 6) {
+      line = 'Saturday afternoon. The cellar doors pour until five.';
+    } else if (day === 0) {
+      line = 'Sunday. Take the long way back.';
+    } else if (hour < 10) {
+      line = 'A quiet Peninsula morning. The locals have it to themselves.';
+    } else {
+      line = 'Midweek on the Peninsula. Quieter roads, better tables.';
+    }
+
+    var hourEl = document.querySelector('[data-ed-hourline]');
+    if (hourEl) hourEl.textContent = line;
+
+    if (sunset) {
+      var sEl = document.querySelector('[data-ed-sunset]');
+      var sep = document.querySelector('.ed-cover__sunset-sep');
+      if (sEl) { sEl.textContent = 'Sunset ' + sunset; sEl.hidden = false; }
+      if (sep) sep.hidden = false;
+      /* Keep the masthead's hardcoded prototype value honest too: one
+         computation, one number, everywhere it appears. */
+      document.querySelectorAll('.masthead__conditions-item').forEach(function (el) {
+        if (/^Sunset\s/.test(el.textContent.trim())) el.textContent = 'Sunset ' + sunset;
+      });
+    }
+  })();
+</script>

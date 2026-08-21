@@ -20,10 +20,10 @@ const venues = chardonnaySlugs
   .filter(Boolean) as typeof allVenues;
 
 const itemListSchema = buildItemListSchema({
-  name: 'Best Chardonnay producers — Mornington Peninsula',
+  name: 'Best Chardonnay producers - Mornington Peninsula',
   description: 'The Mornington Peninsula cellar doors producing the most compelling Chardonnay.',
   listPath: '/wine/chardonnay',
-  items: venues.map((v) => ({ name: v.data.name, path: `/wine/${routeSlug(v)}`, itemType: 'Winery' })),
+  items: venues.map((v) => ({ name: v.data.name, path: `/wine/${routeSlug(v)}/`, itemType: 'Winery' })),
 });
 
 const breadcrumbSchema = buildBreadcrumbSchema([
@@ -36,7 +36,7 @@ export const prerender = true;
 
 <BaseLayout
   title="Mornington Peninsula Chardonnay · Best Producers · Peninsula Insider"
-  description="The Peninsula Insider guide to Mornington Peninsula Chardonnay — the producers making the most compelling cool-climate white in Victoria and what to look for."
+  description="The Peninsula Insider guide to Mornington Peninsula Chardonnay - the producers making the most compelling cool-climate white in Victoria and what to look for."
   section="wine"
   canonical={canonical}
 >
@@ -46,25 +46,25 @@ export const prerender = true;
   <WineHubTemplate
     h1="Mornington Peninsula Chardonnay"
     badgeLabel="Varietal guide · Chardonnay"
-    introText={`Chardonnay is the Peninsula's white benchmark and, arguably, where the region makes its most internationally competitive wines. The cool climate preserves natural acidity; the best examples sit at the elegant end of the Australian Chardonnay spectrum — closer to Burgundy in feel than to the richer, toasty styles that defined the variety in warmer parts of Australia.
+    introText={`Chardonnay is the Peninsula's white benchmark and, arguably, where the region makes its most internationally competitive wines. The cool climate preserves natural acidity; the best examples sit at the elegant end of the Australian Chardonnay spectrum - closer to Burgundy in feel than to the richer, toasty styles that defined the variety in warmer parts of Australia.
 
 The shift happened over the 2000s and 2010s as producers moved to whole-bunch pressing, older oak, and lower-intervention ferments. The results speak clearly: wines with texture, length, and the kind of citrus-and-stone character that reads well at a decade old.
 
-Ten Minutes by Tractor and Kooyong made the reputations early. The generation that followed — Polperro, Ocean Eight, Scorpo — has added its own vocabulary to the grape. The variety rewards patience: single-vineyard Chardonnay from a good producer in a good vintage is worth five years minimum.`}
+Ten Minutes by Tractor and Kooyong made the reputations early. The generation that followed - Polperro, Ocean Eight, Scorpo - has added its own vocabulary to the grape. The variety rewards patience: single-vineyard Chardonnay from a good producer in a good vintage is worth five years minimum.`}
     venues={venues}
     breadcrumbs={[
       { label: 'Home', href: '/' },
-      { label: 'Wine Country', href: '/wine' },
+      { label: 'Wine Country', href: '/wine/' },
       { label: 'Chardonnay' },
     ]}
     faqItems={[
       {
         q: 'How does Mornington Peninsula Chardonnay differ from Yarra Valley Chardonnay?',
-        a: 'Both regions produce fine, restrained Chardonnay, but the Peninsula has a more saline, mineral character driven by maritime influence. Yarra Valley Chardonnay tends to be slightly richer and more textural. The differences are real but subtle — both are among the best expressions of the variety in Australia.',
+        a: 'Both regions produce fine, restrained Chardonnay, but the Peninsula has a more saline, mineral character driven by maritime influence. Yarra Valley Chardonnay tends to be slightly richer and more textural. The differences are real but subtle - both are among the best expressions of the variety in Australia.',
       },
       {
         q: 'Should you age Mornington Peninsula Chardonnay?',
-        a: 'The single-vineyard and reserve labels reward 3–8 years. Estate labels are usually approachable within 1–2 years of release. The best Chardonnays — Ten Minutes by Tractor McCutcheon, Kooyong Faultline, Polperro Baillieu Vineyard — develop genuine complexity in bottle. Most cellar doors sell back vintages; ask at the counter.',
+        a: 'The single-vineyard and reserve labels reward 3–8 years. Estate labels are usually approachable within 1–2 years of release. The best Chardonnays - Ten Minutes by Tractor McCutcheon, Kooyong Faultline, Polperro Baillieu Vineyard - develop genuine complexity in bottle. Most cellar doors sell back vintages; ask at the counter.',
       },
     ]}
   />

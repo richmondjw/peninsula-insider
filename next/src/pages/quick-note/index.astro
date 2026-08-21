@@ -243,7 +243,7 @@ export const prerender = true;
     margin: 0 0 0.7rem;
   }
   .qn__dateline {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-size: clamp(2.2rem, 5vw, 3.6rem);
     font-weight: 500;
     line-height: 1.05;
@@ -256,10 +256,10 @@ export const prerender = true;
     display: flex; flex-wrap: wrap;
     gap: 0.4rem 0.8rem;
     font-size: 0.82rem;
-    color: #44372b;
+    color: #2b443e;
     margin: 0;
-    font-style: italic;
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: normal;
+    font-family: var(--font-display);
   }
   .qn__sep { color: var(--accent); }
 
@@ -267,7 +267,7 @@ export const prerender = true;
   .qn__band-head { padding: 2.4rem 0 1.6rem; border-top: 1px solid var(--border); margin-top: 2rem; }
   .qn__band-head:first-child { border-top: 0; margin-top: 0; }
   .qn__band-title {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-size: clamp(1.6rem, 3.2vw, 2.2rem);
     font-weight: 500;
     margin: 0 0 0.3rem;
@@ -289,8 +289,8 @@ export const prerender = true;
     100% { box-shadow: 0 0 0 0 rgba(217,42,42,0); }
   }
   .qn__band-sub {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-style: italic;
+    font-family: var(--font-display);
+    font-style: normal;
     color: var(--soft);
     font-size: 0.95rem;
     margin: 0;
@@ -339,7 +339,7 @@ export const prerender = true;
     grid-template-columns: 9rem 1fr;
     gap: 2rem;
     padding: 1.4rem 0;
-    border-top: 1px solid rgba(121, 92, 58, 0.10);
+    border-top: 1px solid rgba(74, 90, 87, 0.10);
   }
   @media (max-width: 760px) {
     .qn__today .qn__sect { grid-template-columns: 1fr; gap: 0.6rem; }
@@ -359,12 +359,12 @@ export const prerender = true;
   }
   .qn__empty {
     padding: 1.2rem 0 0.4rem;
-    border-top: 1px solid rgba(121, 92, 58, 0.10);
+    border-top: 1px solid rgba(74, 90, 87, 0.10);
     max-width: 48rem;
   }
   .qn__empty-title,
   .qn__empty-copy {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     margin: 0;
   }
   .qn__empty-title {
@@ -417,7 +417,7 @@ export const prerender = true;
     margin-left: auto;
   }
   .qn__brief-headline {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-weight: 500;
     line-height: 1.18;
     letter-spacing: -0.01em;
@@ -430,15 +430,15 @@ export const prerender = true;
   .qn__brief--card .qn__brief-headline { font-size: 1rem; }
 
   .qn__brief-dek {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-size: 0.96rem;
     line-height: 1.55;
-    color: #44372b;
+    color: #2b443e;
     margin: 0 0 0.6rem;
   }
   .qn__brief-verdict {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-style: italic;
+    font-family: var(--font-display);
+    font-style: normal;
     font-size: 0.92rem;
     line-height: 1.45;
     color: var(--accent);
@@ -450,7 +450,7 @@ export const prerender = true;
     font-size: 0.72rem;
     color: var(--soft);
     margin: 0;
-    font-style: italic;
+    font-style: normal;
   }
 
   /* This week, small card grid */
@@ -462,7 +462,7 @@ export const prerender = true;
   .qn__brief--card {
     padding: 1rem;
     background: #fff;
-    border: 1px solid rgba(121, 92, 58, 0.10);
+    border: 1px solid rgba(74, 90, 87, 0.10);
     border-radius: 3px;
   }
 
@@ -473,8 +473,8 @@ export const prerender = true;
     border-top: 1px solid var(--border);
   }
   .qn__about p {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-style: italic;
+    font-family: var(--font-display);
+    font-style: normal;
     color: var(--soft);
     font-size: 0.9rem;
     line-height: 1.6;

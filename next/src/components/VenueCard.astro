@@ -6,11 +6,10 @@
  * Expects a full Astro content-collection entry from `venues`.
  */
 
-import { resolveHeroSrc, hasOwnHeroImage } from '../lib/editorial';
 import { verifiedFreshnessLabel, verificationFreshness } from '../lib/venues';
 import PiSaveActions from './PiSaveActions.astro';
 import { editableImage } from '../lib/inline-edit/attrs';
-import { loadOverrides } from '../lib/inline-edit/overrides';
+import { resolveHero } from '../lib/inline-edit/resolve-hero';
 
 const typeLabel: Record<string, string> = {
   restaurant:  'Restaurant',
@@ -39,7 +38,11 @@ export interface Props {
 const { venue, hrefPrefix = '/eat' } = Astro.props;
 const data = venue.data;
 const slug = venue.id ?? data.slug;
-const href = `${hrefPrefix}/${slug}`;
+// Normalise the prefix before joining. Callers legitimately hold a trailing
+// slash (VenueDetailTemplate's `sectionHref` is "/wine/" for its breadcrumb
+// and back-links), and naive interpolation turned that into "/wine//slug/":
+// 1,644 hard-404 links across 138 built pages before this guard. (2026-08-18)
+const href = `${String(hrefPrefix).replace(/\/+$/, '')}/${slug}/`;
 
 const placeLabel = String(data.place?.id ?? data.place ?? '')
   .replace(/-/g, ' ')
@@ -47,17 +50,27 @@ const placeLabel = String(data.place?.id ?? data.place ?? '')
 
 const shortAddress = data.address?.split(',').slice(-2).join(',').trim() ?? '';
 const hats = data.authority?.hats ?? 0;
-const moodTags = Array.isArray(data.tags?.mood) ? data.tags.mood.slice(0, 2) : [];
+/* Dedupe before the slice, otherwise a repeated value in tags.mood spends
+   one of the two visible chip slots on a label the reader already sees.
+   Case-insensitive and separator-tolerant: the chips render hyphens as
+   spaces, so "first-date" and "First Date" are the same chip. */
+const moodTagSeen = new Set<string>();
+const moodTags: string[] = (Array.isArray(data.tags?.mood) ? data.tags.mood : [])
+  .filter((tag: unknown): tag is string => typeof tag === 'string' && tag.trim() !== '')
+  .filter((tag: string) => {
+    const key = tag.trim().toLowerCase().replace(/[\s_-]+/g, ' ');
+    if (moodTagSeen.has(key)) return false;
+    moodTagSeen.add(key);
+    return true;
+  })
+  .slice(0, 2);
 const summaryLine = [shortAddress, data.priceBand].filter(Boolean).join(' · ');
 
 // Resolve CMS image override at SSR. When an editor has replaced this venue's
 // hero via the inline editor, the published row overrides whatever the content
-// file specifies — so the rebuilt page renders the new image directly.
-const overrides = await loadOverrides('venue', slug);
-const heroOverride = overrides.image['heroImage'];
-const heroSrc = heroOverride?.src ?? resolveHeroSrc(data);
-const heroAlt = heroOverride?.alt ?? data.heroImage?.alt ?? data.name ?? '';
-const hasPhoto = !!heroOverride || hasOwnHeroImage(data);
+// file specifies - so the rebuilt page renders the new image directly.
+const hero = await resolveHero('venue', slug, data);
+const hasPhoto = hero.hasPhoto;
 const verifiedLabel = verifiedFreshnessLabel(data.lastVerified);
 const verifiedTier = verificationFreshness(data.lastVerified);
 ---
@@ -69,7 +82,6 @@ const verifiedTier = verificationFreshness(data.lastVerified);
     class={`venue-card__hero${hasPhoto ? '' : ' venue-card__hero--placeholder'}`}
     aria-hidden="true"
     tabindex="-1"
-    style={hasPhoto ? `background-image: url(${heroSrc})` : undefined}
     {...editableImage({
       entityType: 'venue',
       entitySlug: slug,
@@ -77,12 +89,12 @@ const verifiedTier = verificationFreshness(data.lastVerified);
       label: `${data.name} hero`,
       purpose: 'hero',
     })}
-  ></a>
+  >{hasPhoto && <img src={hero.src} alt="" loading="lazy" decoding="async" />}</a>
   <div class="venue-card__top">
     <span class="venue-card__type">
       {typeLabel[data.type] ?? data.type}
     </span>
-    <a href={`/explore/places/${data.place?.id ?? data.place}`} class="venue-card__place-link">{placeLabel}</a>
+    <a href={`/explore/places/${data.place?.id ?? data.place}/`} class="venue-card__place-link">{placeLabel}</a>
   </div>
   <h3 class="venue-card__name">
     <a href={href}>{data.name}</a>
@@ -102,9 +114,9 @@ const verifiedTier = verificationFreshness(data.lastVerified);
     </div>
   )}
   <div class="venue-card__actions">
-    <a href={href} class="venue-card__cta">Read notes</a>
+    <a href={href} class="pi-btn pi-btn--solid">Read notes</a>
     {data.bookingUrl && data.bookingProvider !== 'none' && (
-      <a href={data.bookingUrl} target="_blank" rel="noopener noreferrer" class="venue-card__book" onClick={(e: any) => e.stopPropagation()}>{hrefPrefix === '/stay' ? 'View stay' : 'Book'}</a>
+      <a href={data.bookingUrl} target="_blank" rel="noopener noreferrer" class="pi-btn pi-btn--ghost" onClick={(e: any) => e.stopPropagation()}>{hrefPrefix === '/stay' ? 'View stay' : 'Book'}</a>
     )}
   </div>
   {data.featuredPartner && (
@@ -116,7 +128,7 @@ const verifiedTier = verificationFreshness(data.lastVerified);
     title={data.name}
     href={href}
     dek={data.signature}
-    imageUrl={heroSrc}
+    imageUrl={hero.src}
   />
 </article>
 

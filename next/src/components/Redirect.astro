@@ -1,25 +1,48 @@
 ---
 /**
- * Redirect — flash-free redirect page for static hosting (GitHub Pages).
+ * Redirect - flash-free redirect page for static hosting (GitHub Pages).
  *
  * Fires window.location.replace() synchronously in <head> so the browser
  * navigates before it ever paints the body. The html/body are hidden via
  * CSS as a belt-and-braces guard against any subpixel flash. Meta-refresh
- * stays as a no-JS fallback. Both noindex and canonical point at the
- * destination so search engines follow the chain correctly.
+ * stays as a no-JS fallback (targets the bare `to` - a static <meta> tag
+ * can't read the incoming URL, so the no-JS path can't carry query/hash;
+ * accepted degradation since it only affects non-JS clients).
+ *
+ * The JS path preserves the incoming query string and hash by appending
+ * them to `to` before navigating, so tracked links (UTM campaign params,
+ * in-page anchors) survive the hop instead of being dropped at the old URL.
+ *
+ * Indexing behaviour depends on why the redirect exists:
+ *
+ * - Default (`consolidate` omitted): emit `noindex`. Correct for utility hops
+ *   (login, newsletter handoffs) that never held search equity.
+ * - `consolidate` (URL migrations): emit canonical WITHOUT noindex. Google
+ *   treats noindex+canonical as contradictory and resolves it by dropping the
+ *   page and ignoring the canonical, so the old URL's accumulated equity is
+ *   discarded instead of passed to the new one. GitHub Pages cannot serve a
+ *   301, so a canonical-only thin page is the strongest consolidation signal
+ *   available. Verified 2026-08-08: /places/sorrento/ was "Excluded by
+ *   'noindex' tag" with googleCanonical pointing at itself, not the target.
  *
  * Usage:
  *   ---
  *   import Redirect from '../../components/Redirect.astro';
  *   ---
  *   <Redirect to="/explore/golf/" />
+ *   <Redirect to="/explore/places/sorrento/" consolidate />
  */
 export interface Props {
   /** Destination path or URL, e.g. "/explore/golf/" */
   to: string;
+  /**
+   * Set for permanent URL migrations so search engines consolidate signals
+   * onto `to`. Suppresses the noindex tag. Leave unset for utility redirects.
+   */
+  consolidate?: boolean;
 }
 
-const { to } = Astro.props;
+const { to, consolidate = false } = Astro.props;
 const canonical = new URL(to, 'https://peninsulainsider.com.au').href;
 ---
 <!doctype html>
@@ -29,11 +52,22 @@ const canonical = new URL(to, 'https://peninsulainsider.com.au').href;
     <title>Redirecting…</title>
     <!-- Hide everything before JS fires -->
     <style>html,body{display:none;visibility:hidden}</style>
-    <!-- JS redirect fires synchronously — browser navigates before first paint -->
-    <script define:vars={{ to }}>window.location.replace(to);</script>
+    <!-- JS redirect fires synchronously - browser navigates before first paint -->
+    <script define:vars={{ to }}>
+      (function () {
+        var target = to;
+        if (window.location.search) {
+          target += (target.indexOf('?') === -1 ? '?' : '&') + window.location.search.slice(1);
+        }
+        if (window.location.hash) {
+          target += window.location.hash;
+        }
+        window.location.replace(target);
+      })();
+    </script>
     <!-- No-JS fallback -->
     <meta http-equiv="refresh" content={`0;url=${to}`}>
-    <meta name="robots" content="noindex">
+    {!consolidate && <meta name="robots" content="noindex" />}
     <link rel="canonical" href={canonical}>
   </head>
   <body></body>

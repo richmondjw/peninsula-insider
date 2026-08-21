@@ -10,11 +10,23 @@ Full process for taking a weekly social pack (copy + PNG assets) and scheduling 
 
 ## Channel IDs
 
-| Platform  | Handle              | Channel ID                   |
-|-----------|---------------------|------------------------------|
-| LinkedIn  | peninsula-insider   | `69e58e43031bfa423c20f0bf`  |
-| Facebook  | Peninsula Insider   | `69e5913b031bfa423c20f7cf`  |
-| Instagram | peninsula.insider   | `69e5d3b7031bfa423c21c0d8`  |
+> **Corrected 2026-07-28.** Two of the three ids below were stale and resolved to
+> "Channel not found" against the live API. They are re-verified as at that date.
+> Do not trust this table: run `node ops/scripts/distribution-preflight.mjs`, which
+> queries the live channel list and also reports disconnected, locked, and paused
+> channels. A stale id fails loudly; a disconnected channel fails silently.
+
+| Platform  | Handle              | Channel ID (verified 2026-07-28) | State |
+|-----------|---------------------|----------------------------------|-------|
+| LinkedIn  | Peninsula Insider   | `69e58e43031bfa423c20f0bf`       | connected |
+| Facebook  | Peninsula Insider   | `69f5f7a55c4c051afa024938`       | connected |
+| Instagram | peninsula_insider   | `69f5f6ca5c4c051afa0243e0`       | **DISCONNECTED — reconnect in Buffer before any IG send** |
+
+Previously recorded (now invalid): Facebook `69e5913b031bfa423c20f7cf`,
+Instagram `69e5d3b7031bfa423c21c0d8`.
+
+Note: the API token cannot read `account.channels` (FORBIDDEN). Use the
+org-scoped query instead: `channels(input: { organizationId: "68d0ae8232af2ad45b4fc1c6" })`.
 
 Org ID: `68d0ae8232af2ad45b4fc1c6`
 

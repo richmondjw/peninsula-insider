@@ -1,6 +1,6 @@
 ---
 /**
- * SaveSiteController — site-wide controller for the save-toggle button system.
+ * SaveSiteController - site-wide controller for the save-toggle button system.
  *
  * Injected once at the bottom of BaseLayout. Binds click handlers to every
  * `[data-save-toggle]` element on the page, keeps the saved-count badge in
@@ -68,7 +68,7 @@
     syncAll();
   }
 
-  // Public API — preserved for the existing /account/saved/ page (Wave 4
+  // Public API - preserved for the existing /account/saved/ page (Wave 4
   // rebuilds that page; for now keep the surface stable so nothing breaks).
   (window as any).PISave = {
     list() {
@@ -124,7 +124,7 @@
     },
   };
 
-  // Keep button state in sync with store changes from any source — direct
+  // Keep button state in sync with store changes from any source - direct
   // PISave.toggle() calls, the unified UI in Wave 2, cross-tab updates, etc.
   Saves.onChange(syncAll);
   window.addEventListener('storage', (e) => {

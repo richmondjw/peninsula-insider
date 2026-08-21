@@ -6,7 +6,7 @@ houseByline: true
 publishedAt: 2026-04-10
 heroImage:
   src: "/images/sourced/article-orientation-drive-01.webp"
-  alt: "A notebook and coffee on a table with a Peninsula map and vineyard views through the window — representative image"
+  alt: "A notebook and coffee on a table with a Peninsula map and vineyard views through the window - representative image"
   credit: "Peninsula Insider"
   license: "tmp-unsplash"
 format: "service"
@@ -20,19 +20,19 @@ section: plans
 planShape: "two-night"
 lastVerified: 2026-04-22
 clusterLinks:
-  - label: "First Time on the Peninsula — The Honest Starter Guide"
+  - label: "First Time on the Peninsula - The Honest Starter Guide"
     href: "/journal/first-time-peninsula/"
   - label: "Where to Stay on the Mornington Peninsula"
-    href: "/journal/where-to-stay-mornington-peninsula/"
+    href: "/stay/best-accommodation/"
   - label: "Hatted Restaurants on the Mornington Peninsula 2025"
     href: "/journal/hatted-restaurants-mornington-peninsula-2025/"
 faq:
   - question: "What is the most important booking to make for a Mornington Peninsula weekend?"
-    answer: "The anchor meal — the Saturday lunch or dinner the weekend is built around. Book it before the accommodation if necessary. Peninsula Hot Springs and Alba also require advance booking (3–4 weeks in peak season). Everything else can flex around those two bookings."
+    answer: "The anchor meal - the Saturday lunch or dinner the weekend is built around. Book it before the accommodation if necessary. Peninsula Hot Springs and Alba also require advance booking (3–4 weeks in peak season). Everything else can flex around those two bookings."
   - question: "How far in advance should I book a Mornington Peninsula weekend?"
     answer: "Accommodation: 4–8 weeks for peak season (December–February, Easter, school holidays). Hatted restaurant lunches: 4–6 weeks for weekends. Peninsula Hot Springs and Alba: 3–4 weeks for weekend sessions. Cellar doors, galleries, and beaches require no advance booking."
   - question: "How much does a Mornington Peninsula weekend cost?"
-    answer: "A mid-range couple's weekend with one night's accommodation and one hatted lunch runs approximately $800–1,200 all-in. A splurge version (Jackalope or Lindenderry, hatted dinner) runs $1,500–2,500. Family rentals with casual dining are typically $500–900."
+    answer: "Accommodation and the anchor meal carry most of the cost; a hatted lunch for two often matches the night's stay. A splurge version (Jackalope or Lindenderry, hatted dinner) costs roughly double a mid-range weekend. Family rentals with casual dining are the cheapest format per head."
 aiSummary:
   - "A decision-framework article for planning a Mornington Peninsula weekend, structured around the questions that actually matter rather than comprehensive venue listings."
   - "The decisions covered in order: length of trip (one vs two nights), which part of the Peninsula, where to stay, what the anchor experience is, what to book first."
@@ -53,13 +53,13 @@ There are five decisions. Make them in this order.
 
 This is the decision that determines everything else, and it is the one people make last instead of first.
 
-**A couple.** The Peninsula's default format. The wine-and-food weekend, the anniversary, the escape from the children. This version optimises for one great dinner, one great lunch, a cellar door circuit, and a stay somewhere with a view and a fireplace. Budget: $600–1,200 for the weekend.
+**A couple.** The Peninsula's default format. The wine-and-food weekend, the anniversary, the escape from the children. This version optimises for one great dinner, one great lunch, a cellar door circuit, and a stay somewhere with a view and a fireplace. Budget: the dearest format per head; the anchor meal and the room carry most of it.
 
-**A family.** Different trip entirely. The version that works has one anchor activity per day (gondola, beach, farm), a lunch that tolerates children, and accommodation with a kitchen so you can cook dinner instead of managing a restaurant with tired kids. Budget: $400–900.
+**A family.** Different trip entirely. The version that works has one anchor activity per day (gondola, beach, farm), a lunch that tolerates children, and accommodation with a kitchen so you can cook dinner instead of managing a restaurant with tired kids. Budget: cheaper than the couple's version; the rental kitchen does the saving.
 
-**A group of friends.** The Peninsula group weekend works when someone takes charge of the plan. The critical decision: one shared dinner at a long table, everything else loosely coordinated. Six adults rarely stay on the same schedule for a full weekend, and the trip is better for it. Budget: $200–400 per person.
+**A group of friends.** The Peninsula group weekend works when someone takes charge of the plan. The critical decision: one shared dinner at a long table, everything else loosely coordinated. Six adults rarely stay on the same schedule for a full weekend, and the trip is better for it. Budget: the cheapest per person once the house is split.
 
-**Solo.** The underrated Peninsula trip. A long walk, a counter lunch, a cellar door tasting where you can talk to the winemaker without a group dynamic. The Peninsula solo day is covered in our [four-hour guide](/journal/the-four-hour-peninsula). Budget: $100–250.
+**Solo.** The underrated Peninsula trip. A long walk, a counter lunch, a cellar door tasting where you can talk to the winemaker without a group dynamic. The Peninsula solo day is covered in our [four-hour guide](/journal/the-four-hour-peninsula/). Budget: the lightest of the four; one good lunch is the only real expense.
 
 ## Decision two: where to stay
 
@@ -126,14 +126,7 @@ The decisions that people agonise over but shouldn't.
 
 **What to pack.** Walking shoes, a jacket (the ridge is cooler than Melbourne even in summer), swimmers, a cooler bag for producer purchases, and a corkscrew. If staying in a rental, bring breakfast supplies, the nearest good café might be twenty minutes away.
 
-**How much it costs.** A realistic Peninsula weekend budget:
-
-| Trip type | Accommodation | Dining | Activities | Total |
-|---|---|---|---|---|
-| Couple, mid-range | $250–400/night | $200–400 | $50–100 | $600–1,000 |
-| Couple, splurge | $400–700/night | $400–700 | $100–200 | $1,000–2,000 |
-| Family, rental | $200–350/night | $150–250 | $50–100 | $450–800 |
-| Friends (per person) | $80–150/night | $100–200 | $30–60 | $200–450 |
+**How much it costs.** Accommodation and the anchor meal carry most of the weekend; activities are the smallest line, and several of the best (beaches, the gallery, Pt Leo Sculpture Park) are free. A splurge couple's weekend costs roughly double the mid-range version. A family rental with a kitchen, or a group house split between friends, is the cheapest way in per head.
 
 ## The skeleton plan
 

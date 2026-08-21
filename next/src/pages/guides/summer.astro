@@ -1,6 +1,6 @@
 ---
 /**
- * /guides/summer/ — printable Summer guide (Phase 5 WS5A).
+ * /guides/summer/ - printable Summer guide (Phase 5 WS5A).
  *
  * Renders to /downloads/peninsula-insider-summer-guide.pdf via the
  * existing render-pdfs.mjs pipeline.
@@ -33,14 +33,14 @@ export const prerender = true;
     <header class="guide__cover">
       <p class="guide__edition">Peninsula Insider · Issue Vol 04 · Seasonal Guide</p>
       <h1 class="guide__cover-title">A Mornington Peninsula <em>Summer</em></h1>
-      <p class="guide__cover-dek">Bay swims at 7 am, long lunches with the doors open, rooms above the water at the tip — the Peninsula at its loudest and most loved.</p>
+      <p class="guide__cover-dek">Bay swims at 7 am, long lunches with the doors open, rooms above the water at the tip - the Peninsula at its loudest and most loved.</p>
       <p class="guide__cover-meta">Eight pages · Six venues · One sample weekend · Updated May 2026</p>
     </header>
 
     <section class="guide__intro">
-      <h2>Summer is the busy season — book it like you mean it.</h2>
+      <h2>Summer is the busy season - book it like you mean it.</h2>
       <p>Summer on the Peninsula is the one season everyone knows about. The trade-off is that the rooms are full, the cellar door staff are stretched, and the long lunches need three weeks of notice. The reward is bay swims at sunrise, ocean coast walks under afternoon light, and the rare combination of warm water and serious dining within a 40-minute drive.</p>
-      <p>This guide skews to venues that scale into the season — places with the room and the kitchen depth to deliver when the booking sheet is full. Six venues, sequenced into a sample two-night plan that puts the heat on the right side of the day.</p>
+      <p>This guide skews to venues that scale into the season - places with the room and the kitchen depth to deliver when the booking sheet is full. Six venues, sequenced into a sample two-night plan that puts the heat on the right side of the day.</p>
     </section>
 
     <section class="guide__shortlist">
@@ -65,11 +65,11 @@ export const prerender = true;
         </li>
         <li>
           <h3>Saturday morning</h3>
-          <p>Bay swim at 7 — the water is warmest in the first hour. Coffee at a Sorrento or Mornington local. Brunch is light; the long lunch is the event.</p>
+          <p>Bay swim at 7 - the water is warmest in the first hour. Coffee at a Sorrento or Mornington local. Brunch is light; the long lunch is the event.</p>
         </li>
         <li>
           <h3>Saturday afternoon</h3>
-          <p>Long lunch at one of the six. Two-and-a-half hours, bottle on the deck, the wine list paying the room rent. Cabs back to base — driving in summer afternoon traffic is the slow way to lose two hours.</p>
+          <p>Long lunch at one of the six. Two-and-a-half hours, bottle on the deck, the wine list paying the room rent. Cabs back to base - driving in summer afternoon traffic is the slow way to lose two hours.</p>
         </li>
         <li>
           <h3>Sunday morning</h3>
@@ -79,7 +79,7 @@ export const prerender = true;
     </section>
 
     <footer class="guide__footer">
-      <p>Peninsula Insider is independent. Every venue here was visited by the editorial desk. No paid placements. Read the Methodology at <strong>peninsulainsider.com.au/methodology</strong>.</p>
+      <p>Peninsula Insider is independent. Every venue here is independently researched by the editorial desk. No paid placements. Read the Methodology at <strong>peninsulainsider.com.au/methodology</strong>.</p>
       <p>This guide was produced May 2026. The live site supersedes; check before you book.</p>
     </footer>
   </article>
@@ -88,28 +88,28 @@ export const prerender = true;
 
 <style>
   @page { size: A4; margin: 18mm; }
-  body { background: #fbf7f0; color: #2a1f12; font-family: 'Outfit', sans-serif; font-size: 11pt; line-height: 1.55; }
+  body { background: #fbf7f0; color: #2a1f12; font-family: var(--font-ui); font-size: 11pt; line-height: 1.55; }
   .guide { max-width: 170mm; margin: 0 auto; }
   .guide__cover { border-bottom: 2px solid #a77637; padding-bottom: 18mm; margin-bottom: 14mm; page-break-after: always; }
   .guide__edition { font-size: 9pt; letter-spacing: 0.18em; text-transform: uppercase; color: #a77637; margin: 0 0 14mm; }
-  .guide__cover-title { font-family: 'Cormorant Garamond', serif; font-size: 42pt; font-weight: 500; line-height: 1.05; letter-spacing: -0.02em; margin: 0 0 8mm; }
-  .guide__cover-title em { font-style: italic; color: #a77637; }
-  .guide__cover-dek { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 16pt; line-height: 1.45; color: #5b4f3f; margin: 0 0 18mm; }
+  .guide__cover-title { font-family: var(--font-display); font-size: 42pt; font-weight: 500; line-height: 1.05; letter-spacing: -0.02em; margin: 0 0 8mm; }
+  .guide__cover-title em { font-style: normal; color: #a77637; }
+  .guide__cover-dek { font-family: var(--font-display); font-style: normal; font-size: 16pt; line-height: 1.45; color: #5b4f3f; margin: 0 0 18mm; }
   .guide__cover-meta { font-size: 9pt; letter-spacing: 0.06em; color: #5b4f3f; margin: 0; }
-  h2 { font-family: 'Cormorant Garamond', serif; font-size: 22pt; font-weight: 500; margin: 0 0 8mm; }
+  h2 { font-family: var(--font-display); font-size: 22pt; font-weight: 500; margin: 0 0 8mm; }
   .guide__intro p { margin: 0 0 5mm; }
   .guide__intro { page-break-after: always; margin-bottom: 14mm; }
   .guide__shortlist { page-break-after: always; }
   .guide__list { list-style: none; padding: 0; margin: 0; counter-reset: shortlist-step; }
   .guide__list-item { counter-increment: shortlist-step; padding: 4mm 0; border-bottom: 1px solid #d3c8b3; page-break-inside: avoid; }
-  .guide__list-item h3 { font-family: 'Cormorant Garamond', serif; font-size: 14pt; font-weight: 500; margin: 0 0 1mm; }
+  .guide__list-item h3 { font-family: var(--font-display); font-size: 14pt; font-weight: 500; margin: 0 0 1mm; }
   .guide__list-item h3::before { content: counter(shortlist-step) '. '; color: #a77637; }
   .guide__list-meta { font-size: 9pt; letter-spacing: 0.06em; text-transform: uppercase; color: #a77637; margin: 0 0 2mm; }
   .guide__list-signature { font-size: 10.5pt; line-height: 1.5; color: #5b4f3f; margin: 0; }
   .guide__plan { page-break-after: always; }
   .guide__plan-list { list-style: none; padding: 0; margin: 0; }
   .guide__plan-list li { margin-bottom: 6mm; page-break-inside: avoid; }
-  .guide__plan-list h3 { font-family: 'Cormorant Garamond', serif; font-size: 14pt; font-weight: 500; margin: 0 0 1mm; color: #a77637; }
+  .guide__plan-list h3 { font-family: var(--font-display); font-size: 14pt; font-weight: 500; margin: 0 0 1mm; color: #a77637; }
   .guide__plan-list p { font-size: 10.5pt; line-height: 1.55; margin: 0; }
   .guide__footer { border-top: 1px solid #d3c8b3; padding-top: 6mm; font-size: 9pt; line-height: 1.5; color: #5b4f3f; }
   .guide__footer p { margin: 0 0 3mm; }

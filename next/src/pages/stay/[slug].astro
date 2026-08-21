@@ -3,8 +3,8 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import VenueDetailTemplate from '../../components/VenueDetailTemplate.astro';
 import EventStrip from '../../components/EventStrip.astro';
-import { routeSlug, typeLabel, titleize, isUpcoming } from '../../lib/editorial';
-import { buildKnownForProperties } from '../../lib/schema';
+import { routeSlug, typeLabel, titleize, isUpcoming, placeLabel } from '../../lib/editorial';
+import { buildKnownForProperties, buildBreadcrumbSchema, absUrl } from '../../lib/schema';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
 
 export async function getStaticPaths() {
@@ -61,9 +61,20 @@ const canonical = `https://peninsulainsider.com.au/stay/${slug}/`;
 const hero = await resolveHero('venue', slug, venue.data);
 const ogImage = hero.src;
 
+// Mirrors the visible trail built in VenueDetailTemplate.astro exactly
+// (Home > Stay > place > venue) so JSON-LD never disagrees with the UI.
+const placeId = venue.data.place?.id ?? venue.data.place;
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', url: absUrl('/') },
+  { name: 'Stay', url: absUrl('/stay/') },
+  { name: placeLabel(venue.data.place), url: absUrl(`/explore/places/${placeId}/`) },
+  { name: venue.data.name, url: canonical },
+]);
+
 const venueSchema = {
   '@context': 'https://schema.org',
   '@type': 'LodgingBusiness',
+  '@id': `${canonical}#LodgingBusiness`,
   name: venue.data.name,
   description: venue.data.signature,
   mainEntityOfPage: canonical,
@@ -84,7 +95,17 @@ const venueSchema = {
     : {}),
   ...(venue.data.website ? { url: venue.data.website } : {}),
   ...(venue.data.phone ? { telephone: venue.data.phone } : {}),
-  // Book-direct action for agents — current price/availability lives with
+  ...(placeId
+    ? {
+        containedInPlace: {
+          '@type': 'TouristDestination',
+          '@id': `https://peninsulainsider.com.au/explore/places/${placeId}/#TouristDestination`,
+          name: placeLabel(venue.data.place),
+          url: `https://peninsulainsider.com.au/explore/places/${placeId}/`,
+        },
+      }
+    : {}),
+  // Book-direct action for agents: current price/availability lives with
   // the operator, never on this site (BRAND-PI no-pricing rule).
   ...(venue.data.bookingUrl
     ? {
@@ -114,6 +135,7 @@ export const prerender = true;
   searchMeta={{ place: venuePlaceName, type: venueTypeLabel, verdict: venue.data.signature ?? '' }}
 >
   <script type="application/ld+json" set:html={JSON.stringify(venueSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   <VenueDetailTemplate venue={venue} section="stay" related={related} articles={articles} itineraries={itineraries} />
 
   <EventStrip

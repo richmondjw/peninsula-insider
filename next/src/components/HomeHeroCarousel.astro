@@ -1,0 +1,243 @@
+---
+/**
+ * HomeHeroCarousel - the homepage full-screen cover slider.
+ *
+ * Rebuilt 2026-07-05 after the CMS-deck regression: the previous version's
+ * source of truth was a Supabase "deck" document written by the Hero Editor,
+ * with a committed JSON file as silent fallback. Any build without database
+ * access (CI, a fresh machine) quietly shipped the stale fallback deck - old
+ * stories, old images - with no error. That failure mode is designed out.
+ *
+ * SINGLE SOURCE OF TRUTH = the articles collection, resolved at build time:
+ *
+ *   1. The featured article (data.featured, newest first) leads if present.
+ *   2. The remaining slots fill with the latest published articles.
+ *   3. Weekend-picker dispatches are excluded (the What's On rail owns them).
+ *   4. SLIDE_COUNT slides total. No manual deck, no database dependency,
+ *      no hidden fallback: every build renders the same cover for the same
+ *      content, and the cover refreshes itself as articles publish.
+ *
+ * Images resolve through resolveHero, so a published CMS image-slot override
+ * for an article still wins over its frontmatter image - image curation
+ * stays possible without reintroducing a second source of story truth.
+ *
+ * CSS: the `.cover*` rules live in the homepage <style is:global> in
+ * src/pages/index.astro (they depend on load order to neutralise the legacy
+ * sitewide /assets/styles.css `.cover` reset).
+ */
+import { getCollection } from 'astro:content';
+import { formatLabel, routeSlug } from '../lib/editorial';
+import { resolveHero } from '../lib/inline-edit/resolve-hero';
+
+const SLIDE_COUNT = 4;
+
+const published = (await getCollection('articles', ({ data }) => data.status === 'published'))
+  .filter((a) => a.data.format !== 'weekend-picker')
+  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+
+const lead = published.find((a) => a.data.featured);
+const rest = published.filter((a) => a !== lead);
+const coverArticles = [lead, ...rest].filter(Boolean).slice(0, SLIDE_COUNT);
+
+const dateLabel = (d: Date) =>
+  d.toLocaleDateString('en-AU', { day: 'numeric', month: 'long', timeZone: 'Australia/Melbourne' });
+
+const deck = await Promise.all(
+  coverArticles.map(async (article) => {
+    const slug = routeSlug(article);
+    const hero = await resolveHero('article', slug, article.data, 'hero');
+    return {
+      id: slug,
+      image: hero.src,
+      imageAlt: article.data.heroImage?.alt ?? article.data.title,
+      label: formatLabel[article.data.format] ?? 'Feature',
+      hours: dateLabel(article.data.publishedAt),
+      headline: article.data.title,
+      dispatch: article.data.dek ?? '',
+      primaryHref: `/journal/${slug}/`,
+      primaryLabel: 'Read the story',
+    };
+  }),
+);
+
+if (deck.length === 0) {
+  throw new Error('[HomeHeroCarousel] no published articles available for the cover');
+}
+---
+
+{/* ── ZONE 1: Cover carousel. Static article-driven slides; the controller
+    script below owns rotation, arrows, pager, and swipe. */}
+{/* data-pi-hero-managed keeps the generic inline editor away from the cover:
+    the slides are article-driven, so the article page is where edits belong. */}
+<section class="cover" aria-label="Cover stories" data-pi-hero-managed>
+  <div class="cover__carousel" id="cover-carousel">
+    {deck.map((scene, i) => (
+      <div
+        class={`cover__slide${i === 0 ? ' is-active' : ''}`}
+        data-slide-index={i}
+        data-slide-id={scene.id}
+      >
+        <figure class="cover__media">
+          <img
+            src={scene.image}
+            alt={scene.imageAlt}
+            loading={i === 0 ? 'eager' : 'lazy'}
+            fetchpriority={i === 0 ? 'high' : undefined}
+          />
+        </figure>
+        <div class="cover__scrim" aria-hidden="true"></div>
+        <div class="container cover__overlay">
+          <p class="cover__meta">
+            <span class="cover__chip">{scene.label}</span>
+            <span class="cover__dot" aria-hidden="true">·</span>
+            <span class="cover__hours">{scene.hours}</span>
+          </p>
+          <a href={scene.primaryHref} class="cover__headline-link">
+            {i === 0
+              ? <h1 class="cover__headline">{scene.headline}</h1>
+              : <p class="cover__headline">{scene.headline}</p>
+            }
+          </a>
+          <p class="cover__dispatch">{scene.dispatch}</p>
+          <a href={scene.primaryHref} class="pi-btn pi-btn--solid pi-btn--lg">
+            {scene.primaryLabel}
+            <svg viewBox="0 0 16 12" width="15" height="11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M1 6h13M10 1.5 14.5 6 10 10.5" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  {/* Control strip - prev/next arrows + dash pager, overlaid bottom edge. */}
+  <div class="container cover__controls">
+    <button class="cover__arrow" type="button" data-cover-prev aria-label="Previous story">
+      <svg viewBox="0 0 10 16" width="9" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M8 1.5 2 8l6 6.5" />
+      </svg>
+    </button>
+    <nav class="cover__nav" aria-label="Switch story">
+      {deck.map((scene, i) => (
+        <button
+          class={`cover__nav-btn${i === 0 ? ' is-active' : ''}`}
+          data-target={i}
+          type="button"
+          aria-label={`Story ${i + 1} of ${deck.length}: ${scene.headline}`}
+        >
+          <span class="cover__nav-bar" aria-hidden="true"></span>
+        </button>
+      ))}
+    </nav>
+    <button class="cover__arrow" type="button" data-cover-next aria-label="Next story">
+      <svg viewBox="0 0 10 16" width="9" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M2 1.5 8 8l-6 6.5" />
+      </svg>
+    </button>
+  </div>
+</section>
+
+{/* Cover carousel controller. Scoped to #cover-carousel, self-guards via
+    el.dataset.carouselReady, idempotent across astro:page-load. */}
+<script is:inline>
+  (function () {
+    var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var INTERVAL_MS = 10000;
+
+    function initCarousel(el, force) {
+      if (el.dataset.carouselReady && !force) return;
+      if (el.__coverCleanup) { el.__coverCleanup(); el.__coverCleanup = null; }
+      var slides = Array.from(el.querySelectorAll('.cover__slide'));
+      var navBtns = Array.from(document.querySelectorAll('.cover__nav-btn'));
+      if (slides.length < 2) { el.dataset.carouselReady = '1'; return; }
+
+      var current = Math.max(0, slides.findIndex(function(s) { return s.classList.contains('is-active'); }));
+      var timer;
+
+      function setInert(slide, on) {
+        if (on) { slide.setAttribute('inert', ''); slide.setAttribute('aria-hidden', 'true'); }
+        else    { slide.removeAttribute('inert'); slide.removeAttribute('aria-hidden'); }
+      }
+
+      function goTo(idx) {
+        var prev = current;
+        current = ((idx % slides.length) + slides.length) % slides.length;
+        if (prev === current) return;
+        slides[prev].classList.remove('is-active');
+        setInert(slides[prev], true);
+        if (navBtns[prev]) navBtns[prev].classList.remove('is-active');
+        slides[current].classList.add('is-active');
+        setInert(slides[current], false);
+        if (navBtns[current]) {
+          navBtns[current].classList.remove('is-active');
+          void navBtns[current].offsetWidth;
+          navBtns[current].classList.add('is-active');
+        }
+      }
+
+      slides.forEach(function (s, i) { if (i !== current) setInert(s, true); });
+      el.dataset.carouselReady = '1';
+
+      var coverEl = el.closest('.cover');
+      function sizeCover() {
+        var top = Math.max(0, Math.round(coverEl.getBoundingClientRect().top + window.scrollY));
+        coverEl.style.setProperty('--masthead-h', top + 'px');
+      }
+      sizeCover();
+      window.addEventListener('resize', sizeCover);
+      window.addEventListener('load', sizeCover);
+      var mastheadEl = document.querySelector('.masthead');
+      var ro = null;
+      if (window.ResizeObserver && mastheadEl) { ro = new ResizeObserver(sizeCover); ro.observe(mastheadEl); }
+      [120, 400, 900, 1800, 3200].forEach(function (ms) { setTimeout(sizeCover, ms); });
+
+      function restartTimer() {
+        clearInterval(timer);
+        if (!reducedMotion) timer = setInterval(function () { goTo(current + 1); }, INTERVAL_MS);
+      }
+
+      navBtns.forEach(function (btn, i) {
+        btn.addEventListener('click', function () { goTo(i); restartTimer(); });
+      });
+      var prevBtn = document.querySelector('[data-cover-prev]');
+      var nextBtn = document.querySelector('[data-cover-next]');
+      if (prevBtn) prevBtn.addEventListener('click', function () { goTo(current - 1); restartTimer(); });
+      if (nextBtn) nextBtn.addEventListener('click', function () { goTo(current + 1); restartTimer(); });
+
+      var touchX = null, touchY = null;
+      function onTouchStart(e) { touchX = e.touches[0].clientX; touchY = e.touches[0].clientY; }
+      function onTouchEnd(e) {
+        if (touchX === null) return;
+        var dx = e.changedTouches[0].clientX - touchX;
+        var dy = e.changedTouches[0].clientY - touchY;
+        touchX = touchY = null;
+        if (Math.abs(dx) < 48 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
+        goTo(dx < 0 ? current + 1 : current - 1);
+        restartTimer();
+      }
+      el.addEventListener('touchstart', onTouchStart, { passive: true });
+      el.addEventListener('touchend', onTouchEnd, { passive: true });
+
+      if (!reducedMotion) { timer = setInterval(function () { goTo(current + 1); }, INTERVAL_MS); }
+
+      el.__coverCleanup = function () {
+        clearInterval(timer);
+        window.removeEventListener('resize', sizeCover);
+        window.removeEventListener('load', sizeCover);
+        if (ro) ro.disconnect();
+        el.removeEventListener('touchstart', onTouchStart);
+        el.removeEventListener('touchend', onTouchEnd);
+      };
+    }
+
+    /* Kept for backwards compatibility with anything that re-inits the cover. */
+    window.piHeroInitCarousel = initCarousel;
+
+    function setup() {
+      var el = document.getElementById('cover-carousel');
+      if (el) initCarousel(el);
+    }
+    document.addEventListener('astro:page-load', setup);
+    setup();
+  })();
+</script>

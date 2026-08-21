@@ -10,9 +10,9 @@ import {
 } from '../../lib/schema';
 
 const articleSchema = buildArticleSchema({
-  headline: 'Getting Around the Mornington Peninsula — Transport, Drives, and Parking',
-  description: 'Self-drive is essential. Parking realities, scenic drive routes, the Bay Trail by bike, and when the Sorrento–Queenscliff ferry works as a day loop — practical transport guide for the Mornington Peninsula.',
-  path: '/explore/getting-around',
+  headline: 'Getting Around the Mornington Peninsula - Transport, Drives, and Parking',
+  description: 'Self-drive is essential. Parking realities, scenic drive routes, the Bay Trail by bike, and when the Sorrento–Queenscliff ferry works as a day loop - practical transport guide for the Mornington Peninsula.',
+  path: '/explore/getting-around/',
   datePublished: '2026-04-23',
   dateModified: '2026-04-23',
   imageUrl: 'https://peninsulainsider.com.au/images/sourced/home-cover.webp',
@@ -35,11 +35,11 @@ const faqSchema = buildFaqSchema([
   },
   {
     q: 'Can you cycle between towns on the Mornington Peninsula?',
-    a: 'The Bay Trail foreshore path suits cycling between bay towns (Mornington south to Dromana). It is a leisure path, not a transport route. Cycling on Point Nepean Road is possible but the road carries fast-moving traffic with no dedicated bike lane for large sections — experienced cyclists only.',
+    a: 'The Bay Trail foreshore path suits cycling between bay towns (Mornington south to Dromana). It is a leisure path, not a transport route. Cycling on Point Nepean Road is possible but the road carries fast-moving traffic with no dedicated bike lane for large sections - experienced cyclists only.',
   },
   {
     q: 'How long does it take to get from Sorrento to Red Hill?',
-    a: 'About 30–35 minutes by car. The roads wind through the hinterland. If you are based in Sorrento and planning a wine day in Red Hill, allow the travel time — it is not a short hop.',
+    a: 'About 30–35 minutes by car. The roads wind through the hinterland. If you are based in Sorrento and planning a wine day in Red Hill, allow the travel time - it is not a short hop.',
   },
 ]);
 
@@ -51,14 +51,14 @@ const breadcrumbSchema = buildBreadcrumbSchema([
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
-  { label: 'Explore', href: '/explore' },
+  { label: 'Explore', href: '/explore/' },
   { label: 'Getting Around' },
 ];
 export const prerender = true;
 ---
 
 <BaseLayout
-  title="Getting Around the Mornington Peninsula — Transport and Parking · Peninsula Insider"
+  title="Getting Around the Mornington Peninsula - Transport and Parking · Peninsula Insider"
   description="Self-drive is essential on the Mornington Peninsula. Parking realities, scenic drive routes, the Bay Trail, and when the ferry works as a day loop."
   section="explore"
   canonical="https://peninsulainsider.com.au/explore/getting-around/"
@@ -77,28 +77,28 @@ export const prerender = true;
           <p><strong>TL;DR</strong></p>
           <ul>
             <li><strong>Driving is the only practical way to get around.</strong> Public transport is thin, infrequent, and stops early.</li>
-            <li><strong>Parking is manageable most of the year</strong> — tight in <a href="/explore/places/sorrento/">Sorrento</a>, <a href="/explore/places/portsea/">Portsea</a>, and <a href="/explore/places/red-hill/">Red Hill</a> on summer weekends.</li>
-            <li><strong>The scenic loop</strong> — Nepean Highway bayside in, Point Nepean Road along the Tip, return via the hinterland — is worth doing deliberately if you have a full day.</li>
+            <li><strong>Parking is manageable most of the year</strong> - tight in <a href="/explore/places/sorrento/">Sorrento</a>, <a href="/explore/places/portsea/">Portsea</a>, and <a href="/explore/places/red-hill/">Red Hill</a> on summer weekends.</li>
+            <li><strong>The scenic loop</strong> - Nepean Highway bayside in, Point Nepean Road along the Tip, return via the hinterland - is worth doing deliberately if you have a full day.</li>
             <li><strong>The Bay Trail</strong> suits cycling between bay towns. It is not a Peninsula-wide solution.</li>
-            <li><strong>The Sorrento–Queenscliff ferry</strong> can anchor a great one-way loop — drive Peninsula, cross to Queenscliff, return via Geelong or the Great Ocean Road.</li>
+            <li><strong>The Sorrento–Queenscliff ferry</strong> can anchor a great one-way loop - drive Peninsula, cross to Queenscliff, return via Geelong or the Great Ocean Road.</li>
           </ul>
         </blockquote>
 
-        <p>Once you're on the Mornington Peninsula, a car is not optional — it's the trip. The Peninsula is 40 km long, spread across two coastlines and a hinterland, with almost no public transport connecting the interesting places. Two main roads run the length of it: Nepean Highway / Point Nepean Road (bayside) and Frankston–Flinders Road (hinterland spine). Know these roads and you'll navigate without a second thought.</p>
+        <p>Once you're on the Mornington Peninsula, a car is not optional - it's the trip. The Peninsula is 40 km long, spread across two coastlines and a hinterland, with almost no public transport connecting the interesting places. Two main roads run the length of it: Nepean Highway / Point Nepean Road (bayside) and Frankston–Flinders Road (hinterland spine). Know these roads and you'll navigate without a second thought.</p>
 
         <h2>Why public transport doesn't work here</h2>
         <p>The PTV bus network covers the main bayside corridor (Frankston → Portsea), but buses run every 30–60 minutes during the day and stop around 8 pm. No service connects the bayside corridor with the hinterland wine country at all. <a href="/explore/places/red-hill/">Red Hill</a>, <a href="/explore/places/main-ridge/">Main Ridge</a>, <a href="/explore/places/merricks/">Merricks</a>, and <a href="/explore/places/balnarring/">Balnarring</a> are functionally inaccessible without a car.</p>
-        <p>For visitors based in <a href="/explore/places/sorrento/">Sorrento</a>, <a href="/explore/places/rosebud/">Rosebud</a>, or <a href="/explore/places/mornington/">Mornington</a>, the bus is useful for reaching a single restaurant and returning — if the timetable cooperates. For any itinerary involving multiple locations in a day, you're driving.</p>
+        <p>For visitors based in <a href="/explore/places/sorrento/">Sorrento</a>, <a href="/explore/places/rosebud/">Rosebud</a>, or <a href="/explore/places/mornington/">Mornington</a>, the bus is useful for reaching a single restaurant and returning - if the timetable cooperates. For any itinerary involving multiple locations in a day, you're driving.</p>
 
         <h2>The road structure</h2>
         <p>Two primary roads run the length of the Peninsula:</p>
-        <p><strong>Bayside spine: Nepean Highway → Point Nepean Road</strong> — the busier road, threading through <a href="/explore/places/mornington/">Mornington</a>, <a href="/explore/places/safety-beach/">Safety Beach</a>, <a href="/explore/places/dromana/">Dromana</a>, <a href="/explore/places/rosebud/">Rosebud</a>, <a href="/explore/places/rye/">Rye</a>, <a href="/explore/places/sorrento/">Sorrento</a>, and <a href="/explore/places/portsea/">Portsea</a>. Most cafes, shops, and beach carparks are off this road.</p>
-        <p><strong>Hinterland spine: Frankston–Flinders Road</strong> — runs through <a href="/explore/places/balnarring/">Balnarring</a>, <a href="/explore/places/merricks/">Merricks</a>, <a href="/explore/places/red-hill/">Red Hill</a>, <a href="/explore/places/main-ridge/">Main Ridge</a>, and reaches <a href="/explore/places/flinders/">Flinders</a> and the Western Port coast. Slower, more scenic, essential for wine-country access.</p>
+        <p><strong>Bayside spine: Nepean Highway → Point Nepean Road</strong> - the busier road, threading through <a href="/explore/places/mornington/">Mornington</a>, <a href="/explore/places/safety-beach/">Safety Beach</a>, <a href="/explore/places/dromana/">Dromana</a>, <a href="/explore/places/rosebud/">Rosebud</a>, <a href="/explore/places/rye/">Rye</a>, <a href="/explore/places/sorrento/">Sorrento</a>, and <a href="/explore/places/portsea/">Portsea</a>. Most cafes, shops, and beach carparks are off this road.</p>
+        <p><strong>Hinterland spine: Frankston–Flinders Road</strong> - runs through <a href="/explore/places/balnarring/">Balnarring</a>, <a href="/explore/places/merricks/">Merricks</a>, <a href="/explore/places/red-hill/">Red Hill</a>, <a href="/explore/places/main-ridge/">Main Ridge</a>, and reaches <a href="/explore/places/flinders/">Flinders</a> and the Western Port coast. Slower, more scenic, essential for wine-country access.</p>
         <p><strong>Cross-roads:</strong> Arthurs Seat Road and Red Hill Road connect the two spines near Dromana/Red Hill. This mid-Peninsula crossing lets you move between bayside and hinterland in about 20–25 minutes.</p>
 
         <h2>Parking realities</h2>
         <ul>
-          <li><strong><a href="/explore/places/sorrento/">Sorrento</a>:</strong> Fills in summer. The main car park near the pier is the pressure point — early morning arrivals (before 9 am) find spots; noon arrivals in January circulate. Overflow street parking in residential streets above Ocean Beach Road.</li>
+          <li><strong><a href="/explore/places/sorrento/">Sorrento</a>:</strong> Fills in summer. The main car park near the pier is the pressure point - early morning arrivals (before 9 am) find spots; noon arrivals in January circulate. Overflow street parking in residential streets above Ocean Beach Road.</li>
           <li><strong><a href="/explore/places/portsea/">Portsea</a>:</strong> Very limited parking around the hotel and village. Portsea Back Beach carpark fills on summer weekends. Point Nepean National Park has its own separate entrance and parking.</li>
           <li><strong><a href="/explore/places/red-hill/">Red Hill</a>:</strong> Tight on market Saturdays and busy summer Sundays. Arrive early or accept a short walk from street parking.</li>
           <li><strong><a href="/explore/places/mornington/">Mornington</a>:</strong> Over 3,000 CBD parking spaces, mostly free with 2-hour limits. The most parking-friendly Peninsula town.</li>
@@ -106,14 +106,14 @@ export const prerender = true;
         </ul>
 
         <h2>Scenic drives worth planning deliberately</h2>
-        <p><strong>The Tip Loop:</strong> Drive down Nepean Highway along the bay, stopping at Mornington, Dromana, Rosebud, Rye, and Sorrento. Continue to <a href="/explore/places/portsea/">Portsea</a> and Point Nepean National Park. Return via Frankston–Flinders Road through the hinterland, passing <a href="/explore/places/flinders/">Flinders</a>, <a href="/explore/places/balnarring/">Balnarring</a>, and <a href="/explore/places/red-hill/">Red Hill</a>. The Peninsula's great day-loop — bay coast out, hinterland back.</p>
+        <p><strong>The Tip Loop:</strong> Drive down Nepean Highway along the bay, stopping at Mornington, Dromana, Rosebud, Rye, and Sorrento. Continue to <a href="/explore/places/portsea/">Portsea</a> and Point Nepean National Park. Return via Frankston–Flinders Road through the hinterland, passing <a href="/explore/places/flinders/">Flinders</a>, <a href="/explore/places/balnarring/">Balnarring</a>, and <a href="/explore/places/red-hill/">Red Hill</a>. The Peninsula's great day-loop - bay coast out, hinterland back.</p>
         <p><strong>The Hinterland Wander:</strong> Enter via Moorooduc Highway toward <a href="/explore/places/moorooduc/">Moorooduc</a> or Red Hill Road toward <a href="/explore/places/red-hill/">Red Hill</a>. Wind through vine-covered ridges via <a href="/explore/places/main-ridge/">Main Ridge</a> and <a href="/explore/places/merricks/">Merricks</a>, down to <a href="/explore/places/balnarring/">Balnarring</a>. Finish at <a href="/explore/places/flinders/">Flinders</a> for the pier and a late lunch. Suits wine-focused trips.</p>
         <p><strong>Red Hill to Cape Schanck:</strong> Shoreham Road south from Red Hill connects to the Cape Schanck / Boneo area. The views as you descend toward the national park are among the best on the Peninsula.</p>
 
-        <h2>Cycling — the Bay Trail and when it works</h2>
-        <p>The Bay Trail is a shared path running along the Port Phillip foreshore from <a href="/explore/places/mornington/">Mornington</a> south toward <a href="/explore/places/dromana/">Dromana</a>. It is a recreational path — excellent for a morning or afternoon ride, family-safe and flat.</p>
+        <h2>Cycling - the Bay Trail and when it works</h2>
+        <p>The Bay Trail is a shared path running along the Port Phillip foreshore from <a href="/explore/places/mornington/">Mornington</a> south toward <a href="/explore/places/dromana/">Dromana</a>. It is a recreational path - excellent for a morning or afternoon ride, family-safe and flat.</p>
         <p><strong>When it makes sense:</strong> Staying in Mornington or <a href="/explore/places/mount-martha/">Mount Martha</a> and wanting a gentle ride to a beach café. Doing the trail as the day's main activity.</p>
-        <p><strong>When it doesn't:</strong> The trail does not connect to Red Hill, Sorrento, Flinders, or anywhere hinterland-side. It is a bayside foreshore path. Cycling on Point Nepean Road requires traffic experience — no dedicated bike lane for large sections.</p>
+        <p><strong>When it doesn't:</strong> The trail does not connect to Red Hill, Sorrento, Flinders, or anywhere hinterland-side. It is a bayside foreshore path. Cycling on Point Nepean Road requires traffic experience - no dedicated bike lane for large sections.</p>
         <p>Bike hire is available in Mornington. Operators change seasonally; check locally on arrival.</p>
 
         <h2>The Sorrento–Queenscliff ferry as a day loop</h2>
@@ -134,9 +134,9 @@ export const prerender = true;
 
         <h2>Further reading</h2>
         <ul>
-          <li><a href="/explore/getting-here/">Getting to the Peninsula</a> — how to reach the Peninsula from Melbourne</li>
-          <li><a href="/explore/where-to-base-yourself/">Where to base yourself</a> — your base choice affects your transport reality</li>
-          <li><a href="/explore/map/">The Peninsula map</a> — how the geography lays out</li>
+          <li><a href="/explore/getting-here/">Getting to the Peninsula</a> - how to reach the Peninsula from Melbourne</li>
+          <li><a href="/stay/best-accommodation/">Where to base yourself</a> - your base choice affects your transport reality</li>
+          <li><a href="/explore/map/">The Peninsula map</a> - how the geography lays out</li>
         </ul>
 
         <p><em>Last fact-verified 23 April 2026</em></p>

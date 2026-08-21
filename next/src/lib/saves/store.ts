@@ -1,7 +1,7 @@
 /**
- * Peninsula Insider — unified saves store (v2).
+ * Peninsula Insider - unified saves store (v2).
  *
- * One canonical local store for every kind of saved item — articles,
+ * One canonical local store for every kind of saved item - articles,
  * venues, places, events, experiences, itineraries, tours, operators,
  * packages. Replaces the two competing v1 stores:
  *
@@ -83,7 +83,7 @@ function writeRaw(store: SavesStore): void {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(store));
   } catch {
-    /* private mode / quota / disabled — fail silently */
+    /* private mode / quota / disabled - fail silently */
   }
 }
 
@@ -279,7 +279,7 @@ export function onChange(fn: Listener): () => void {
 
 function emit(event: ChangeEvent): void {
   for (const fn of listeners) {
-    try { fn(event); } catch { /* swallow — one listener's bug shouldn't break the rest */ }
+    try { fn(event); } catch { /* swallow - one listener's bug shouldn't break the rest */ }
   }
   if (typeof window !== 'undefined') {
     window.dispatchEvent(new CustomEvent('pi:saves-changed', { detail: event }));

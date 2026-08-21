@@ -18,7 +18,7 @@ tideStation: Stony Point
 tideNotes: 'Flood tide is the productive window. Fish from 2 hours before high water to high water; the bite drops sharply on the ebb. Tooradin Inlet is shallow at low tide and the inlet channel narrows substantially.'
 safetyNotes: 'Shallow tidal estuary. Vessels with deeper draft cannot navigate at low tide; check the tide before launching. The adjacent Tooradin Boat Ramp is tide-cautious comparable to Warneet.'
 intro: 'Tooradin Inlet is the tidal estuary at the northern arc of Western Port. Less well-known than the bay piers, productive for bream and flathead in the inlet channels and shallow margins, with night sessions for mulloway during the warmer months. The location requires the same Western Port tide planning as the rest of the bay; the shallow inlet character means the fishing window is narrower than at deeper Western Port locations.'
-metaDescription: 'Tooradin Inlet fishing — bream, flathead, estuary technique on the northern Western Port shallow inlet. Tide-critical; less crowded than the bay piers.'
+metaDescription: 'Tooradin Inlet fishing - bream, flathead, estuary technique on the northern Western Port shallow inlet. Tide-critical; less crowded than the bay piers.'
 faq:
   - question: Is Tooradin worth the drive?
     answer: 'Yes, for the right session. Tooradin is less crowded than Hastings or Stony Point, with productive bream and flathead grounds in the inlet channels. The constraint is tide; outside the productive flood-tide window, the inlet shallows and the fishing dies. Plan around high water at the Stony Point reference station; arrive 2 hours before to fish through to the turn.'

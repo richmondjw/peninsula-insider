@@ -1,0 +1,147 @@
+---
+/**
+ * HomeAsk - block 7, the Ask PI band (page-redesigns.md 1.9 item 7;
+ * wireframes.html #home note 6).
+ *
+ * One line in PI's voice (Local archetype) plus a real labelled input.
+ * Plain GET form to /ask/?q=... - the Ask page auto-fires on a ?q param
+ * (pages/ask.astro), so this works with zero JS here and prefills the
+ * unified Ask surface exactly as the spec asks. The submit carries
+ * data-evt="ask_open" for the shared v5 analytics listener.
+ */
+---
+
+<section class="home-ask" aria-labelledby="home-ask-title">
+  <div class="container home-ask__inner">
+    <h2 id="home-ask-title" class="home-ask__sr">Ask Peninsula Insider</h2>
+    <p class="home-ask__line">
+      Tell me what you're after. The more specific, the sharper the answer.
+    </p>
+    <form class="home-ask__form" action="/ask/" method="get">
+      <label class="home-ask__sr" for="home-ask-q">Ask Peninsula Insider a question</label>
+      <input
+        class="home-ask__input"
+        id="home-ask-q"
+        name="q"
+        type="text"
+        placeholder="Long lunch, Red Hill, six people"
+        autocomplete="off"
+        minlength="3"
+      />
+      <button
+        class="home-ask__submit"
+        type="submit"
+        data-evt="ask_open"
+        data-src="home"
+      >
+        Ask PI
+      </button>
+    </form>
+  </div>
+</section>
+
+<script>
+  import { initV5Analytics } from '../../../lib/v5-analytics';
+  initV5Analytics();
+</script>
+
+<style>
+  /* Forest-teal feature band: PI's voice in light type, mint primary CTA. */
+  .home-ask {
+    padding: var(--space-8) 0;
+    background: var(--bg-deep);
+  }
+
+  .home-ask__sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .home-ask__inner {
+    display: flex;
+    align-items: center;
+    gap: var(--space-5);
+    flex-wrap: wrap;
+  }
+
+  .home-ask__line {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: var(--fw-display);
+    font-size: var(--fs-700);
+    line-height: var(--lh-heading);
+    letter-spacing: var(--ls-display);
+    color: var(--white);
+    max-width: 26ch;
+    flex: 1 1 18rem;
+  }
+
+  .home-ask__form {
+    display: flex;
+    gap: var(--space-2);
+    flex: 1 1 22rem;
+    max-width: 32rem;
+  }
+
+  .home-ask__input {
+    flex: 1;
+    min-height: 48px;
+    padding: 0 var(--space-4);
+    font-family: var(--font-ui);
+    font-size: var(--fs-400);
+    color: var(--text);
+    background: var(--white);
+    border: 1.5px solid transparent;
+    border-radius: var(--radius-s);
+  }
+
+  .home-ask__input::placeholder {
+    color: var(--soft);
+  }
+
+  .home-ask__input:focus-visible {
+    outline: 2px solid var(--focus-ring-color-inverse);
+    outline-offset: 2px;
+  }
+
+  /* Primary on dark: solid mint, forest-teal ink. */
+  .home-ask__submit {
+    min-height: 48px;
+    padding: 0 var(--space-5);
+    font-family: var(--font-ui);
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-400);
+    color: var(--bg-deep);
+    background: var(--mint);
+    border: none;
+    border-radius: var(--radius-s);
+    cursor: pointer;
+    transition: background var(--dur-fast) var(--ease-enter);
+  }
+
+  .home-ask__submit:hover {
+    background: color-mix(in srgb, var(--mint) 82%, var(--white));
+  }
+
+  .home-ask__submit:focus-visible {
+    outline: 2px solid var(--focus-ring-color-inverse);
+    outline-offset: 2px;
+  }
+
+  @media (max-width: 47.94em) {
+    .home-ask__form {
+      flex-wrap: wrap;
+    }
+
+    .home-ask__submit {
+      flex: 1 1 auto;
+    }
+  }
+</style>

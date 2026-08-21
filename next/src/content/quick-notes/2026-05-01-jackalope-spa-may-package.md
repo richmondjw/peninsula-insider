@@ -1,6 +1,6 @@
 ---
 headline: "Jackalope's Spa by Jackalope opens a May twilight package"
-dek: "90-minute treatment plus thermal soak plus dinner at Doot Doot Doot for $385. Tuesday-to-Thursday only. Bookings live, four windows per day."
+dek: "90-minute treatment plus thermal soak plus dinner at Doot Doot Doot, packaged at one price. Tuesday-to-Thursday only. Bookings live, four windows per day."
 section: stay
 tag: opening-window
 publishedAt: 2026-05-01T08:30:00+10:00
@@ -16,6 +16,6 @@ relatedVenue: jackalope-hotel
 status: archived
 ---
 
-The midweek slot is the smart booking — same room, half the noise, and Doot Doot Doot's Tuesday and Wednesday menus are where the kitchen is most experimental. The treatment quality is unchanged from the weekend tariff; only the surrounding crowd thins out.
+The midweek slot is the smart booking - same room, half the noise, and Doot Doot Doot's Tuesday and Wednesday menus are where the kitchen is most experimental. The treatment quality is unchanged from the weekend tariff; only the surrounding crowd thins out.
 
 > Prices may change. Confirm current rates directly with the venue or operator before booking.

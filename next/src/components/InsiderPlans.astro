@@ -1,6 +1,6 @@
 ---
 /**
- * InsiderPlans — homepage conversion block
+ * InsiderPlans - homepage conversion block
  * "Start with an Insider Plan"
  *
  * Keep the strongest five first, then continue the rest
@@ -39,7 +39,7 @@ const featuredSpecs: PlanSpec[] = [
     duration: '1 day',
     title: 'Red Hill Day',
     dek: 'Market, long lunch, then stay south.',
-    accent: '#5C3D1A',
+    accent: '#1a5c4d',
   },
   {
     slug: 'the-four-hour-peninsula',
@@ -60,7 +60,7 @@ const featuredSpecs: PlanSpec[] = [
     duration: '2 days',
     title: 'Food & Wine Weekend',
     dek: 'The best of the hinterland.',
-    accent: '#4A2C1A',
+    accent: '#1a4a3f',
     image: '/images/sourced/place-red-hill-01.webp',
     imageAlt: 'Red Hill vineyards in late spring on the Mornington Peninsula',
   },
@@ -82,7 +82,7 @@ const allPlanSpecs: PlanSpec[] = [
     duration: '1 day',
     title: 'Hot Springs Day',
     dek: 'Thermal pools, then lunch.',
-    accent: '#6A5545',
+    accent: '#456a61',
     image: '/images/sourced/spa-peninsula-hot-springs-hilltop-01.webp',
     imageAlt: 'Aerial view of the Peninsula Hot Springs hilltop pool at dusk',
   },
@@ -91,28 +91,28 @@ const allPlanSpecs: PlanSpec[] = [
     duration: '1 day',
     title: 'Cellar Door Saturday',
     dek: 'Three doors, no agenda.',
-    accent: '#5D3A24',
+    accent: '#245d50',
   },
   {
     slug: 'the-sunset-drink',
     duration: 'Evening',
     title: 'The Sunset Drink',
     dek: 'One venue, one drink, before it gets dark.',
-    accent: '#7A4C3D',
+    accent: '#3d7a6c',
   },
   {
     slug: 'the-peninsula-with-kids',
     duration: '1–2 days',
     title: 'Peninsula with Kids',
     dek: 'Beaches, eagle, maze. Keep it moving.',
-    accent: '#6A5332',
+    accent: '#326a5d',
   },
   {
     slug: 'autumn-weekend-edit',
     duration: '2 days',
     title: 'Autumn Peninsula',
     dek: 'Best season, least people.',
-    accent: '#70533B',
+    accent: '#3b7064',
   },
   {
     slug: 'the-sorrento-weekend',
@@ -126,14 +126,14 @@ const allPlanSpecs: PlanSpec[] = [
     duration: 'Half day',
     title: 'The Long Lunch',
     dek: 'Pick a table. Stay too long.',
-    accent: '#4F392A',
+    accent: '#2a4f46',
   },
   {
     slug: 'the-market-saturday',
     duration: 'Half day',
     title: 'The Market Morning',
     dek: 'Red Hill Market, then wherever it takes you.',
-    accent: '#8A5C33',
+    accent: '#338a76',
   },
   {
     slug: 'a-flinders-weekend',
@@ -161,7 +161,7 @@ const allPlanSpecs: PlanSpec[] = [
     duration: '2 days',
     title: 'Dog Weekend',
     dek: 'Beaches that say yes.',
-    accent: '#6B5A46',
+    accent: '#466b62',
   },
   {
     slug: 'mornington-peninsula-golf-stay-and-play',
@@ -196,14 +196,14 @@ const allPlanSpecs: PlanSpec[] = [
     duration: '2–3 days',
     title: 'Corporate Retreat',
     dek: 'The hinterland, for work that needs space to think.',
-    accent: '#4C4339',
+    accent: '#394c48',
   },
   {
     slug: 'the-thermal-springs-weekend',
     duration: '2 days',
     title: 'Thermal Springs',
     dek: 'Soak, soften, and keep the schedule light.',
-    accent: '#4B4032',
+    accent: '#324b45',
   },
   {
     slug: 'a-winter-peninsula-weekend',
@@ -226,7 +226,12 @@ function buildPlan(spec: PlanSpec): PlanCard | null {
     duration: spec.duration,
     title: spec.title,
     dek: spec.dek || article.data.dek,
-    href: `/journal/${spec.slug}/`,
+    // Plan articles were moved out of the Journal. Sending readers and
+    // crawlers to the old 200/meta-refresh stub wastes a crawl on every
+    // card, so resolve the canonical route at the source.
+    href: article.data.section === 'plans'
+      ? `/explore/plans/${spec.slug}/`
+      : `/journal/${spec.slug}/`,
     image: spec.image || heroImage?.src || '/images/sourced/article-sunset-01.webp',
     imageAlt: spec.imageAlt || heroImage?.alt || article.data.title,
     accent: spec.accent,
@@ -257,7 +262,7 @@ const orderedPlans = allPlanSpecs
             class="plan-card"
             role="listitem"
             style={`--plan-accent: ${plan.accent};`}
-            aria-label={`${plan.title} — ${plan.duration}. ${plan.dek}`}
+            aria-label={`${plan.title} - ${plan.duration}. ${plan.dek}`}
           >
             <div class="plan-card__image" style={`background-image: url('${plan.image}');`} role="img" aria-label={plan.imageAlt}></div>
             <div class="plan-card__overlay"></div>
@@ -310,7 +315,7 @@ const orderedPlans = allPlanSpecs
     font-size: 1rem;
     color: var(--ink-muted, #6E655C);
     margin: 0;
-    font-style: italic;
+    font-style: normal;
   }
 
   .insider-plans__scroll-wrapper {
@@ -318,7 +323,7 @@ const orderedPlans = allPlanSpecs
     overflow-x: auto;
     overflow-y: hidden;
     /* iOS native inertia. Combined with no touch-action override the
-       browser handles axis-locking, momentum, and edge bounce — which
+       browser handles axis-locking, momentum, and edge bounce - which
        is faster and smoother than any JS we could write. */
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
@@ -386,7 +391,7 @@ const orderedPlans = allPlanSpecs
 
   .plan-card:hover {
     /* `translate3d` keeps the card on the same compositor layer as
-       the scroll-time transform — no relayout, no jank. */
+       the scroll-time transform - no relayout, no jank. */
     transform: translate3d(0, -4px, 0);
     box-shadow: 0 18px 40px rgba(0,0,0,0.22);
   }
@@ -471,7 +476,7 @@ const orderedPlans = allPlanSpecs
           horizontal motion while hovering the rail.
        3. Drag-vs-click discrimination so a deliberate tap on a card
           still navigates.
-     On TOUCH devices we skip this entirely — the browser's native
+     On TOUCH devices we skip this entirely - the browser's native
      -webkit-overflow-scrolling momentum is faster, lower-latency,
      and indistinguishable from a native app carousel. Any JS we
      add on touch can only make it worse. The hover + fine-pointer
@@ -565,7 +570,7 @@ const orderedPlans = allPlanSpecs
         el.classList.remove('is-dragging');
         try { el.releasePointerCapture(e.pointerId); } catch (_e) {}
         if (wasDragging) {
-          // Don't fire the click that follows — user was scrolling.
+          // Don't fire the click that follows - user was scrolling.
           const swallowClick = (ev: MouseEvent) => {
             ev.stopPropagation();
             ev.preventDefault();
@@ -585,7 +590,7 @@ const orderedPlans = allPlanSpecs
       el.addEventListener('wheel', (e) => {
         const absX = Math.abs(e.deltaX);
         const absY = Math.abs(e.deltaY);
-        if (absX > absY) return;        // already horizontal — let it run
+        if (absX > absY) return;        // already horizontal - let it run
         if (absY < 1) return;
         e.preventDefault();
         cancelInertia();

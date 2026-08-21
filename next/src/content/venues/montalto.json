@@ -39,9 +39,9 @@
         "closes": "17:00"
       }
     ],
-    "tastingFee": "$20",
+    "tastingFee": "Charged",
     "bookingRequired": false,
-    "tastingNote": "Walk-ins welcome for groups of 1–8; tasting fee redeemable on $45+ purchase. Wine & Cheese tasting $40/person also available."
+    "tastingNote": "Walk-ins welcome for groups of 1\u20138; tasting fee redeemable on a qualifying purchase. Wine & Cheese tasting also available."
   },
   "wines": {
     "winemaker": "Simon Black",
@@ -61,7 +61,7 @@
     "reservations": true,
     "description": "Estate-to-plate kitchen using produce from the on-site garden. 1 Hat, Age Good Food Guide 2025. The Piazza offers a casual dining alternative."
   },
-  "editorVerdict": "Montalto is one of the Peninsula's most complete estates: the wines are genuinely good, the restaurant earns its hat, and the kitchen garden is not decorative — it supplies the kitchen. Simon Black's winemaking respects site above all, and the single-vineyard releases make an honest case for what Red Hill South terroir can do. If you only have time for one estate that covers all bases — vines, table, grounds — this is the call.",
+  "editorVerdict": "Montalto is one of the Peninsula's most complete estates: the wines are genuinely good, the restaurant earns its hat, and the kitchen garden is not decorative - it supplies the kitchen. Simon Black's winemaking respects site above all, and the single-vineyard releases make an honest case for what Red Hill South terroir can do. If you only have time for one estate that covers all bases - vines, table, grounds - this is the call.",
   "whyWeGo": "The Peninsula's most complete estate experience, sculpture, garden, cellar door, and a one-hat kitchen, done at a scale that still feels human rather than corporate.",
   "bestFor": [
     "Long lunches",
@@ -78,7 +78,7 @@
   "faq": [
     {
       "q": "Does Montalto take walk-ins or do you need to book?",
-      "a": "Walk-ins are welcome for groups of 1–8 people. Bookings are available for those who prefer a reserved session. The restaurant requires a separate booking."
+      "a": "Walk-ins are welcome for groups of 1\u20138 people. Bookings are available for those who prefer a reserved session. The restaurant requires a separate booking."
     },
     {
       "q": "Does Montalto have a restaurant?",
@@ -86,7 +86,7 @@
     },
     {
       "q": "Are dogs allowed at Montalto?",
-      "a": "No — the official site explicitly states no pets allowed onsite at Montalto."
+      "a": "No - the official site explicitly states no pets allowed onsite at Montalto."
     }
   ],
   "sameAs": {
@@ -99,7 +99,9 @@
       "long-lunch",
       "cellar-door",
       "garden",
-      "sunset"
+      "sunset",
+      "worth-the-drive",
+      "big-group"
     ],
     "season": [
       "spring",
@@ -115,7 +117,7 @@
   },
   "heroImage": {
     "src": "/images/sourced/venue-montalto-banner-01.webp",
-    "alt": "Montalto Vineyard and Olive Grove — cellar door, restaurant and estate at Red Hill South, Mornington Peninsula",
+    "alt": "Montalto Vineyard and Olive Grove - cellar door, restaurant and estate at Red Hill South, Mornington Peninsula",
     "credit": "Montalto",
     "license": "venue-media-kit"
   },

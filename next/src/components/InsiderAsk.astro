@@ -1,6 +1,6 @@
 ---
 /**
- * InsiderAsk — primary "Ask The Insider" block.
+ * InsiderAsk - primary "Ask The Insider" block.
  *
  * Sits between the HomeCover and the PillarNav on the homepage (Option C).
  * Reusable on section hubs with section-specific prompts.
@@ -26,7 +26,7 @@ export interface Props {
 const {
   eyebrow = 'Ask The Insider',
   heading = 'What are you looking for on the Peninsula?',
-  framing = "The Insider answers from our editorial research. Every recommendation has been visited. Every opinion earned.",
+  framing = "The Insider answers from our editorial research. Every pick earns its place. Every verdict has a reason.",
   placeholder = 'Ask The Insider...',
   prompts = [
     'Cellar door lunch this weekend',
@@ -168,7 +168,7 @@ const {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-weight: 600;
     font-size: 0.85rem;
     color: var(--soft);
@@ -178,7 +178,7 @@ const {
   .insider-ask__heading-block { flex: 1; min-width: 0; }
 
   .insider-ask__eyebrow {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.7rem;
     font-weight: 500;
     letter-spacing: 0.12em;
@@ -188,7 +188,7 @@ const {
   }
 
   .insider-ask__heading {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: var(--font-display);
     font-size: clamp(1.7rem, 3.6vw, 2.4rem);
     font-weight: 500;
     line-height: 1.1;
@@ -198,7 +198,7 @@ const {
   }
 
   .insider-ask__framing {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.95rem;
     line-height: 1.6;
     color: var(--soft);
@@ -214,7 +214,7 @@ const {
 
   .insider-ask__input {
     flex: 1;
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 1rem;
     color: var(--text);
     background: var(--white);
@@ -227,11 +227,11 @@ const {
   .insider-ask__input:focus {
     outline: none;
     border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(155, 90, 60, 0.12);
+    box-shadow: 0 0 0 3px rgba(60, 155, 133, 0.12);
   }
 
   .insider-ask__submit {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.92rem;
     font-weight: 500;
     letter-spacing: 0.04em;
@@ -254,7 +254,7 @@ const {
     gap: 0.5rem;
   }
   .insider-ask__chip {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.88rem;
     color: var(--text);
     background: var(--white);

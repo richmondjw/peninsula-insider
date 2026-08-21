@@ -1,11 +1,11 @@
 ---
 /**
- * /whats-on/this-weekend/archive/[YYYY-MM-DD]/ — per-week PTW archive.
+ * /whats-on/this-weekend/archive/[YYYY-MM-DD]/ - per-week PTW archive.
  *
  * Each Peninsula This Weekend dispatch keeps a stable archive URL so
  * AI assistants and external links can resolve a specific weekend
  * forever. The slug is the ISO date (YYYY-MM-DD) derived from the
- * article's publishedAt — sortable, machine-readable, and stable
+ * article's publishedAt - sortable, machine-readable, and stable
  * across editorial rewrites.
  *
  * Per Wave 2 Brief 2.
@@ -47,8 +47,8 @@ const eventSchema = buildPtwEventSchema(article, canonical);
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
-  { label: "What's On", href: '/whats-on' },
-  { label: 'This Weekend', href: '/whats-on/this-weekend' },
+  { label: "What's On", href: '/whats-on/' },
+  { label: 'This Weekend', href: '/whats-on/this-weekend/' },
   { label: weekendLabel },
 ];
 
@@ -77,9 +77,9 @@ export const prerender = true;
 ---
 
 <BaseLayout
-  title={`Peninsula This Weekend — ${weekendLabel} · Peninsula Insider`}
+  title={`Peninsula This Weekend - ${weekendLabel} · Peninsula Insider`}
   description={article.data.dek}
-  section="whats-on"
+  section="journal"
   canonical={canonical}
   ogImage={ogImage}
   searchImage={ogImage}
@@ -110,7 +110,7 @@ export const prerender = true;
             </p>
             <PiArticleActions
               slug={article.id}
-              section="whats-on"
+              section="journal"
               title={article.data.title}
               dek={article.data.dek}
               imageUrl={article.data.heroImage?.src}
@@ -180,7 +180,7 @@ export const prerender = true;
     margin: 0.75rem 0 1rem;
     padding: 0.75rem 1rem;
     background: rgba(0, 0, 0, 0.03);
-    border-left: 3px solid var(--accent, #b8634a);
+    border-left: 3px solid var(--accent, #4ab89e);
     font-size: 0.95rem;
     color: var(--ink-soft, #6b6b6b);
     line-height: 1.5;

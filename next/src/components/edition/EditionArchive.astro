@@ -1,0 +1,65 @@
+---
+/**
+ * EditionArchive - "From the archive" (the Atlantic's institutional-memory
+ * move, tuned for a seasonal publication).
+ *
+ * Resurfaces pieces at least 45 days old that still fit the season:
+ * priority to articles matching the current season's vocabulary, then
+ * evergreen service and guide formats. Each card is stamped with its
+ * original month, worn proudly - the point is that the masthead's back
+ * catalogue holds up. Omits itself while the archive is thin.
+ */
+import { getCollection } from 'astro:content';
+import { formatLabel, routeSlug } from '../../lib/editorial';
+
+const now = new Date();
+const month = Number(
+  new Intl.DateTimeFormat('en-AU', { month: 'numeric', timeZone: 'Australia/Melbourne' }).format(now),
+);
+const season =
+  month >= 6 && month <= 8 ? 'winter'
+  : month >= 9 && month <= 11 ? 'spring'
+  : month === 12 || month <= 2 ? 'summer'
+  : 'autumn';
+
+const EVERGREEN = new Set(['service', 'hub-guide', 'trail-guide', 'slow-peninsula']);
+const cutoff = new Date(now.getTime() - 45 * 864e5);
+
+const published = (await getCollection('articles', ({ data }) => data.status === 'published'))
+  .filter((a) => a.data.format !== 'weekend-picker' && a.data.publishedAt < cutoff);
+
+const seasonal = published.filter((a) =>
+  `${a.data.title} ${(a.data.tags ?? []).join(' ')}`.toLowerCase().includes(season),
+);
+const evergreen = published.filter((a) => EVERGREEN.has(a.data.format) && !seasonal.includes(a));
+
+const picks = [...seasonal, ...evergreen]
+  .sort((a, b) => a.data.publishedAt.getTime() - b.data.publishedAt.getTime())
+  .slice(0, 3);
+
+const stamp = (d: Date) =>
+  d.toLocaleDateString('en-AU', { month: 'long', year: 'numeric', timeZone: 'Australia/Melbourne' });
+const iso = (d: Date) => d.toISOString().split('T')[0];
+const seasonLabel = season.charAt(0).toUpperCase() + season.slice(1);
+---
+
+{picks.length === 3 && (
+  <section class="ed-archive" aria-label="From the archive">
+    <div class="container">
+      <div class="ed-archive__head">
+        <h2 class="ed-archive__title">From the <em>archive.</em></h2>
+        <p class="ed-archive__note">Still true this {seasonLabel.toLowerCase()}. That is the test.</p>
+      </div>
+      <div class="ed-archive__grid">
+        {picks.map((a) => (
+          <a class="ed-archive__card" href={`/journal/${routeSlug(a)}/`}>
+            <time class="ed-archive__stamp" datetime={iso(a.data.publishedAt)}>{stamp(a.data.publishedAt)}</time>
+            <p class="ed-archive__kicker">{formatLabel[a.data.format] ?? 'Feature'}</p>
+            <h3 class="ed-archive__headline">{a.data.title}</h3>
+            {a.data.dek && <p class="ed-archive__dek">{a.data.dek}</p>}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+)}

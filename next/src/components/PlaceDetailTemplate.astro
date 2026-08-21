@@ -1,6 +1,6 @@
 ---
 /**
- * PlaceDetailTemplate — canonical place page template (consolidated May 2026).
+ * PlaceDetailTemplate - canonical place page template (consolidated May 2026).
  *
  * Merges PlaceDetailTemplateV2 (upper structure) with PlaceDetailTemplate v1
  * (mature downstream substance). Resolves the two-template situation into one
@@ -8,16 +8,16 @@
  *
  * Structure:
  *   1. Full-bleed cinematic hero (V2)
- *   2. Editorial lede — 2-col factual prose + At a glance card (V2)
+ *   2. Editorial lede - 2-col factual prose + At a glance card (V2)
  *   3. Signature pull-quote band (V2)
- *   4. Who this place rewards — fit panel, bestFor/notFor/skip (V1)
- *   5. TL;DR — numbered editorial summary (V1)
- *   6. A Perfect Day — signature PI feature (V1)
- *   7. Chapter navigation — numbered, links to downstream (V2)
- *   8. Scoreboard — what's mapped, with anchor links (V1)
+ *   4. Who this place rewards - fit panel, bestFor/notFor/skip (V1)
+ *   5. TL;DR - numbered editorial summary (V1)
+ *   6. A Perfect Day - signature PI feature (V1)
+ *   7. Chapter navigation - numbered, links to downstream (V2)
+ *   8. Scoreboard - what's mapped, with anchor links (V1)
  *   9. Downstream sections: eat, wine, stay, explore, escapes, journal (V1 copy)
- *  10. Service guide links — internal linking + SEO (V1)
- *  11. Location map — lazy Leaflet (V1)
+ *  10. Service guide links - internal linking + SEO (V1)
+ *  11. Location map - lazy Leaflet (V1)
  *  12. Related places (both)
  *  13. Reader submission CTA (V1)
  *  14. Newsletter block
@@ -30,9 +30,9 @@ import ExperienceCard from './ExperienceCard.astro';
 import ItineraryCard from './ItineraryCard.astro';
 import ArticleCard from './ArticleCard.astro';
 import NewsletterBlock from './NewsletterBlock.astro';
-import { titleize, resolveHeroSrc, formatHeroCredit } from '../lib/editorial';
+import { titleize, formatHeroCredit } from '../lib/editorial';
 import { editableText, editableImage } from '../lib/inline-edit/attrs';
-import { loadOverrides } from '../lib/inline-edit/overrides';
+import { resolveHero } from '../lib/inline-edit/resolve-hero';
 
 export interface Props {
   place: any;
@@ -60,17 +60,15 @@ const zoneLabel = titleize(place.data.zone);
 const kindLabel = titleize(place.data.kind);
 const placeSlug = place.id ?? place.slug ?? place.data?.slug ?? place.data?.id;
 
-// CMS override consult at SSR — if an editor uploaded a place-specific
+// CMS override consult at SSR - if an editor uploaded a place-specific
 // hero via the inline editor, it wins over the content-JSON default and
 // ships in the static HTML. No client-side swap, no flicker. Restores the
 // override propagation the client-side patcher used to provide before
 // PR #162 gated it to admin-click.
-const placeOverrides = placeSlug ? await loadOverrides('place', placeSlug) : null;
-const overrideHero = placeOverrides?.image['hero'];
-const heroSrc = overrideHero?.src ?? resolveHeroSrc(place.data);
+const hero = await resolveHero('place', placeSlug, place.data);
 const heroCredit = formatHeroCredit(place.data.heroImage?.credit);
 
-// Category sub-page lookup — editorial, not file-system-driven.
+// Category sub-page lookup - editorial, not file-system-driven.
 // Extend this map as new place-specific sub-pages are created.
 type SubpageLink = { label: string; href: string; desc: string };
 const PLACE_SUBPAGES: Record<string, SubpageLink[]> = {
@@ -114,11 +112,11 @@ const PLACE_SUBPAGES: Record<string, SubpageLink[]> = {
 };
 const placeSubpages: SubpageLink[] = PLACE_SUBPAGES[placeSlug] ?? [];
 
-// Wine sub-page exists for these places — link directly rather than to the hub
+// Wine sub-page exists for these places - link directly rather than to the hub
 const WINE_SUBPAGE_SLUGS = new Set([
   'red-hill', 'main-ridge', 'merricks', 'balnarring', 'flinders', 'moorooduc',
 ]);
-// Stay sub-page exists for these places — link directly
+// Stay sub-page exists for these places - link directly
 const STAY_SUBPAGE_SLUGS = new Set([
   'red-hill', 'flinders', 'mornington', 'sorrento', 'cape-schanck',
 ]);
@@ -136,7 +134,7 @@ const breadcrumbItems = [
   { label: place.data.name },
 ];
 
-// Chapter navigation — built from what data exists.
+// Chapter navigation - built from what data exists.
 // "A perfect day" chapter only added when bestDay is present.
 const chapters: { href: string; label: string }[] = [];
 if (place.data.bestDay)     chapters.push({ href: '#perfect-day', label: 'A perfect day' });
@@ -147,12 +145,12 @@ if (experiences.length > 0) chapters.push({ href: '#explore',     label: 'Explor
 if (itineraries.length > 0) chapters.push({ href: '#escapes',     label: 'Escape plans' });
 if (articles.length > 0)    chapters.push({ href: '#journal',     label: 'From the journal' });
 
-// Scoreboard gate — only shown when at least one downstream section has content.
+// Scoreboard gate - only shown when at least one downstream section has content.
 const hasContent = eatVenues.length > 0 || wineVenues.length > 0 || stayVenues.length > 0
   || experiences.length > 0 || itineraries.length > 0 || articles.length > 0;
 
 // Category-specific local guides linked from this place page.
-// Only surfaces guides that actually exist — no placeholder links.
+// Only surfaces guides that actually exist - no placeholder links.
 // Maintained here as a data mapping rather than a data field to keep it
 // lightweight and easy to extend when new category sub-pages are built.
 const categoryGuides: Record<string, Array<{ label: string; href: string; desc: string }>> = {
@@ -160,7 +158,7 @@ const categoryGuides: Record<string, Array<{ label: string; href: string; desc: 
     { label: 'Red Hill Wine', href: '/wine/red-hill/', desc: 'Cellar doors, terroir, tasting routes and producers on the plateau.' },
   ],
   'main-ridge': [
-    { label: 'Main Ridge Wine', href: '/wine/main-ridge/', desc: 'The highest, coolest sub-region — small producers, serious pinot.' },
+    { label: 'Main Ridge Wine', href: '/wine/main-ridge/', desc: 'The highest, coolest sub-region - small producers, serious pinot.' },
   ],
   'merricks': [
     { label: 'Merricks Wine', href: '/wine/merricks/', desc: 'Pt. Leo Estate, Stonier, Scorpo and the eastern slope producers.' },
@@ -169,10 +167,10 @@ const categoryGuides: Record<string, Array<{ label: string; href: string; desc: 
     { label: 'Flinders Wine', href: '/wine/flinders/', desc: 'Southern-edge producers with a cooler, ocean-facing character.' },
   ],
   'balnarring': [
-    { label: 'Balnarring Wine', href: '/wine/balnarring/', desc: 'The Western Port edge — Quealy, Hurley and a quieter wine scene.' },
+    { label: 'Balnarring Wine', href: '/wine/balnarring/', desc: 'The Western Port edge - Quealy, Hurley and a quieter wine scene.' },
   ],
   'moorooduc': [
-    { label: 'Moorooduc & Tuerong Wine', href: '/wine/moorooduc-tuerong/', desc: 'Bay-facing slopes — warmer, more approachable, Yabby Lake country.' },
+    { label: 'Moorooduc & Tuerong Wine', href: '/wine/moorooduc-tuerong/', desc: 'Bay-facing slopes - warmer, more approachable, Yabby Lake country.' },
   ],
 };
 const placeGuides = categoryGuides[placeSlug] ?? [];
@@ -186,23 +184,28 @@ const factual = place.data.factualLede ?? '';
 <!-- ═══════════════════════════════════════════════════════════════════════
      1. FULL-BLEED CINEMATIC HERO
      ═══════════════════════════════════════════════════════════════════════ -->
-<section class="pdv2-hero" style={`background-image: url(${heroSrc});`}
+<section class="pdv2-hero"
   {...editableImage({
     entityType: 'place', entitySlug: placeSlug, fieldPath: 'heroImage',
     label: `${place.data.name} hero`, purpose: 'hero',
   })}>
+  <img class="pdv2-hero__image" src={hero.src} alt={hero.alt || place.data.name} fetchpriority="high" decoding="async" />
   <div class="pdv2-hero__scrim"></div>
   <div class="pdv2-hero__inner container">
-    <p class="pdv2-hero__eyebrow">{zoneLabel} · {kindLabel}</p>
-    {place.data.regionSlug && (
+    {/* ONE eyebrow (2026-07-24, per James - the old zone · kind line doubled
+        up with the region link). Region link when the place has one, else
+        the zone · kind fallback. */}
+    {place.data.regionSlug ? (
       <a
         href={`/explore/regions/${place.data.regionSlug}/`}
         class="pdv2-hero__eyebrow pdv2-hero__region"
         style="display:inline-block;text-decoration:none;border-bottom:1px solid currentColor;margin:2px 0 8px;"
       >{place.data.regionLabel ?? place.data.regionSlug}</a>
+    ) : (
+      <p class="pdv2-hero__eyebrow">{zoneLabel} · {kindLabel}</p>
     )}
     <h1 class="pdv2-hero__title"
-      {...editableText({ entityType: 'place', entitySlug: placeSlug, fieldPath: 'name', label: `${place.data.name} — name` })}
+      {...editableText({ entityType: 'place', entitySlug: placeSlug, fieldPath: 'name', label: `${place.data.name} - name` })}
     >{place.data.name}</h1>
     {place.data.heroImage?.alt && (
       <p class="pdv2-hero__alt">{place.data.heroImage.alt}</p>
@@ -212,20 +215,20 @@ const factual = place.data.factualLede ?? '';
 </section>
 
 <!-- ═══════════════════════════════════════════════════════════════════════
-     2. EDITORIAL LEDE — factual prose + at-a-glance sidebar card
+     2. EDITORIAL LEDE - factual prose + at-a-glance sidebar card
      ═══════════════════════════════════════════════════════════════════════ -->
 <section class="pdv2-lede">
   <div class="container pdv2-lede__grid">
     <div class="pdv2-lede__main">
       {factual && (
         <p class="pdv2-lede__factual"
-          {...editableText({ entityType: 'place', entitySlug: placeSlug, fieldPath: 'factualLede', label: `${place.data.name} — factual lede` })}>
+          {...editableText({ entityType: 'place', entitySlug: placeSlug, fieldPath: 'factualLede', label: `${place.data.name} - factual lede` })}>
           {factual}
         </p>
       )}
       {place.data.intro && (
         <p class="pdv2-lede__intro"
-          {...editableText({ entityType: 'place', entitySlug: placeSlug, fieldPath: 'intro', label: `${place.data.name} — intro` })}>
+          {...editableText({ entityType: 'place', entitySlug: placeSlug, fieldPath: 'intro', label: `${place.data.name} - intro` })}>
           {place.data.intro}
         </p>
       )}
@@ -264,17 +267,17 @@ const factual = place.data.factualLede ?? '';
   <section class="pdv2-quote">
     <div class="container">
       <blockquote class="pdv2-quote__text"
-        {...editableText({ entityType: 'place', entitySlug: placeSlug, fieldPath: 'signature', label: `${place.data.name} — signature` })}>
+        {...editableText({ entityType: 'place', entitySlug: placeSlug, fieldPath: 'signature', label: `${place.data.name} - signature` })}>
         <span class="pdv2-quote__mark" aria-hidden="true">&ldquo;</span>
         {place.data.signature}
       </blockquote>
-      <p class="pdv2-quote__byline">Peninsula Insider — editor's note</p>
+      <p class="pdv2-quote__byline">Peninsula Insider - editor's note</p>
     </div>
   </section>
 )}
 
 <!-- ═══════════════════════════════════════════════════════════════════════
-     4. WHO THIS PLACE REWARDS — editorial fit panel
+     4. WHO THIS PLACE REWARDS - editorial fit panel
      bestFor / notFor / skip: the most differentiated editorial layer.
      ═══════════════════════════════════════════════════════════════════════ -->
 {(place.data.bestFor?.length || place.data.notFor?.length || place.data.skip) && (
@@ -282,7 +285,7 @@ const factual = place.data.factualLede ?? '';
     <div class="container">
       <div class="place-fit__intro">
         <p class="label label--accent">Is {place.data.name} the right base?</p>
-        <h2 class="place-fit__title">Who this place rewards — and who should keep driving</h2>
+        <h2 class="place-fit__title">Who this place rewards - and who should keep driving</h2>
       </div>
       <div class="place-fit__grid">
         {place.data.bestFor?.length > 0 && (
@@ -314,7 +317,7 @@ const factual = place.data.factualLede ?? '';
 )}
 
 <!-- ═══════════════════════════════════════════════════════════════════════
-     5. TL;DR — numbered editorial summary
+     5. TL;DR - numbered editorial summary
      ═══════════════════════════════════════════════════════════════════════ -->
 {place.data.tldr?.length > 0 && (
   <section class="place-tldr">
@@ -336,7 +339,7 @@ const factual = place.data.factualLede ?? '';
 )}
 
 <!-- ═══════════════════════════════════════════════════════════════════════
-     6. A PERFECT DAY — the signature Peninsula Insider planning feature
+     6. A PERFECT DAY - the signature Peninsula Insider planning feature
      ═══════════════════════════════════════════════════════════════════════ -->
 {place.data.bestDay && (
   <section class="place-day" id="perfect-day">
@@ -349,7 +352,7 @@ const factual = place.data.factualLede ?? '';
       {place.data.insiderNote && (
         <blockquote class="place-day__note">
           <p>{place.data.insiderNote}</p>
-          <cite>— Editor's note</cite>
+          <cite> - Editor's note</cite>
         </blockquote>
       )}
     </div>
@@ -357,7 +360,7 @@ const factual = place.data.factualLede ?? '';
 )}
 
 <!-- ═══════════════════════════════════════════════════════════════════════
-     7. CHAPTER NAVIGATION — numbered, links to each downstream section
+     7. CHAPTER NAVIGATION - numbered, links to each downstream section
      ═══════════════════════════════════════════════════════════════════════ -->
 {chapters.length > 0 && (
   <nav class="pdv2-chapters" aria-label={`${place.data.name} guide contents`}>
@@ -378,7 +381,7 @@ const factual = place.data.factualLede ?? '';
 )}
 
 <!-- ═══════════════════════════════════════════════════════════════════════
-     8. SCOREBOARD — what's mapped, counts with anchor links
+     8. SCOREBOARD - what's mapped, counts with anchor links
      ═══════════════════════════════════════════════════════════════════════ -->
 {hasContent && (
   <section class="place-scoreboard" aria-label={`${place.data.name} contents`}>
@@ -409,9 +412,9 @@ const factual = place.data.factualLede ?? '';
 )}
 
 <!-- ═══════════════════════════════════════════════════════════════════════
-     8b. EXPLORE BY EXPERIENCE — category-specific local guides
+     8b. EXPLORE BY EXPERIENCE - category-specific local guides
      Connects destination overview to deeper category guides that exist.
-     Only renders when placeGuides has entries — no placeholder links.
+     Only renders when placeGuides has entries - no placeholder links.
      ═══════════════════════════════════════════════════════════════════════ -->
 {placeGuides.length > 0 && (
   <section class="place-category-guides" aria-label={`${place.data.name} category guides`}>
@@ -447,7 +450,7 @@ const factual = place.data.factualLede ?? '';
         <div>
           <p class="label label--accent">Eat & drink</p>
           <h2 class="venues__title">Where to eat and drink in {place.data.name}</h2>
-          <p class="venues__sub">Restaurants, cafés, bakeries, and pubs — each with an editor note, not a star rating.</p>
+          <p class="venues__sub">Restaurants, cafés, bakeries, and pubs - each with an editor note, not a star rating.</p>
         </div>
         <a href="/eat/" class="venues__link">More to eat in {place.data.name} →</a>
       </div>
@@ -468,7 +471,7 @@ const factual = place.data.factualLede ?? '';
         <div>
           <p class="label label--accent">Wine & producers</p>
           <h2 class="venues__title">Cellar doors and makers around {place.data.name}</h2>
-          <p class="venues__sub">The producers worth the appointment — and the ones already shaping the region's vintage conversation.</p>
+          <p class="venues__sub">The producers worth the appointment - and the ones already shaping the region's vintage conversation.</p>
         </div>
         <a href={wineHref} class="venues__link">{WINE_SUBPAGE_SLUGS.has(placeSlug) ? `${place.data.name} wine guide` : "All cellar doors"} →</a>
       </div>
@@ -528,7 +531,7 @@ const factual = place.data.factualLede ?? '';
         <div>
           <p class="label label--accent">Use it in sequence</p>
           <h2 class="venues__title">Escapes that already route through {place.data.name}</h2>
-          <p class="venues__sub">These plans have been written around the landscape here — not bolted on after.</p>
+          <p class="venues__sub">These plans have been written around the landscape here - not bolted on after.</p>
         </div>
         <a href="/explore/plans/" class="venues__link">Plan a {place.data.name} weekend →</a>
       </div>
@@ -558,7 +561,7 @@ const factual = place.data.factualLede ?? '';
 )}
 
 <!-- ═══════════════════════════════════════════════════════════════════════
-     10. SERVICE GUIDE LINKS — internal linking + SEO
+     10. SERVICE GUIDE LINKS - internal linking + SEO
      ═══════════════════════════════════════════════════════════════════════ -->
 <section class="venues venues--plain">
   <div class="container">
@@ -571,30 +574,30 @@ const factual = place.data.factualLede ?? '';
       <a href="/journal/" class="venues__link">All Peninsula guides →</a>
     </div>
     <div class="venues__grid venues__grid--links">
-      <a href="/journal/mornington-peninsula-itinerary/" class="venue-card__cta">3-Day Peninsula Itinerary →</a>
-      <a href="/explore/plans/" class="venue-card__cta">Weekend Plans →</a>
+      <a href="/journal/mornington-peninsula-itinerary/" class="pi-btn pi-btn--solid">3-Day Peninsula Itinerary →</a>
+      <a href="/explore/plans/" class="pi-btn pi-btn--solid">Weekend Plans →</a>
       {(place.data.zone === 'red-hill' || place.data.zone === 'hinterland') && (
-        <a href="/journal/mornington-peninsula-winery-tour/" class="venue-card__cta">Self-Drive Winery Tour →</a>
+        <a href="/tour/wine-tours/" class="pi-btn pi-btn--solid">Self-Drive Winery Tour →</a>
       )}
       {(place.data.zone === 'peninsula-tip' || place.data.zone === 'bay-coast' || place.data.zone === 'mornington') && (
-        <a href="/journal/free-things-to-do-mornington-peninsula/" class="venue-card__cta">Free Things to Do →</a>
+        <a href="/journal/free-things-to-do-mornington-peninsula/" class="pi-btn pi-btn--solid">Free Things to Do →</a>
       )}
-      <a href="/journal/best-brunch-mornington-peninsula/" class="venue-card__cta">Best Brunch Guide →</a>
-      <a href="/journal/mornington-peninsula-hot-springs-guide/" class="venue-card__cta">Hot Springs Guide →</a>
-      <a href="/journal/mornington-peninsula-in-winter/" class="venue-card__cta">Winter Guide →</a>
-      <a href="/dog-friendly/" class="venue-card__cta">Dog-Friendly Peninsula →</a>
+      <a href="/journal/best-brunch-mornington-peninsula/" class="pi-btn pi-btn--solid">Best Brunch Guide →</a>
+      <a href="/explore/hot-springs/" class="pi-btn pi-btn--solid">Hot Springs Guide →</a>
+      <a href="/journal/mornington-peninsula-in-winter/" class="pi-btn pi-btn--solid">Winter Guide →</a>
+      <a href="/dog-friendly/" class="pi-btn pi-btn--solid">Dog-Friendly Peninsula →</a>
       {place.data.kind === 'town' && (
-        <a href="/journal/mornington-peninsula-wedding-venues/" class="venue-card__cta">Wedding Venues →</a>
+        <a href="/journal/mornington-peninsula-wedding-venues/" class="pi-btn pi-btn--solid">Wedding Venues →</a>
       )}
       {(place.data.zone === 'ocean-coast' || place.data.zone === 'peninsula-tip') && (
-        <a href="/golf/" class="venue-card__cta">Best Golf Courses →</a>
+        <a href="/explore/golf/" class="pi-btn pi-btn--solid">Best Golf Courses →</a>
       )}
     </div>
   </div>
 </section>
 
 <!-- ═══════════════════════════════════════════════════════════════════════
-     11. LOCATION MAP — lazy Leaflet
+     11. LOCATION MAP - lazy Leaflet
      ═══════════════════════════════════════════════════════════════════════ -->
 {place.data.coordinates && (
   <section class="place-map" aria-label={`${place.data.name} location`}>
@@ -624,7 +627,7 @@ const factual = place.data.factualLede ?? '';
 )}
 
 <!-- ═══════════════════════════════════════════════════════════════════════
-     12. EXPLORE BY EXPERIENCE — category sub-pages
+     12. EXPLORE BY EXPERIENCE - category sub-pages
      Surfaces category-specific local guides when they exist for this place.
      Strengthens hierarchy, internal linking, and SEO clustering.
      ═══════════════════════════════════════════════════════════════════════ -->
@@ -634,7 +637,7 @@ const factual = place.data.factualLede ?? '';
       <div class="place-subpages__header">
         <p class="label label--accent">Go deeper</p>
         <h2 class="place-subpages__title">Explore {place.data.name} by experience</h2>
-        <p class="place-subpages__dek">Each guide focuses on one experience category — useful when you already know what you’re here for.</p>
+        <p class="place-subpages__dek">Each guide focuses on one experience category - useful when you already know what you’re here for.</p>
       </div>
       <ul class="place-subpages__grid" role="list">
         {placeSubpages.map((sub: SubpageLink) => (
@@ -653,6 +656,7 @@ const factual = place.data.factualLede ?? '';
 
 <!-- ═══════════════════════════════════════════════════════════════════════
      13. RELATED PLACES
+     ═══════════════════════════════════════════════════════════════════════ -->
 {relatedPlaces.length > 0 && (
   <section class="places">
     <div class="container">
@@ -673,7 +677,7 @@ const factual = place.data.factualLede ?? '';
 <!-- ═══════════════════════════════════════════════════════════════════════
      13. READER SUBMISSION CTA
      ═══════════════════════════════════════════════════════════════════════ -->
-<!-- Places ecosystem back-link — reinforces hierarchy, completes the loop
+<!-- Places ecosystem back-link - reinforces hierarchy, completes the loop
      Peninsula Insider → Places hub → Destination → Category guide
      Positioned before the reader submission CTA, after all content. -->
 <div class="place-ecosystem-link">
@@ -687,8 +691,8 @@ const factual = place.data.factualLede ?? '';
 <aside class="place-submit-cta">
   <div class="container place-submit-cta__inner">
     <p class="place-submit-cta__label">Got a {place.data.name} secret?</p>
-    <p class="place-submit-cta__body">If there's a {place.data.name} corner you think we'd cover better with your help — a back-bay swimming hole, a producer's farm-gate, a local pub that hits — send it through. Editorial review, named credit if we publish it.</p>
-    <a href="/submit/" class="place-submit-cta__link">Tell us about {place.data.name} →</a>
+    <p class="place-submit-cta__body">If there's a {place.data.name} corner you think we'd cover better with your help - a back-bay swimming hole, a producer's farm-gate, a local pub that hits - send it through. Editorial review, named credit if we publish it.</p>
+    <a href="/submit/" class="pi-btn pi-btn--text">Tell us about {place.data.name} →</a>
   </div>
 </aside>
 
@@ -752,7 +756,7 @@ const factual = place.data.factualLede ?? '';
 
 <style>
   /* ═══════════════════════════════════════════════════════════════════════
-     PlaceDetailTemplate — consolidated canonical styles (May 2026)
+     PlaceDetailTemplate - consolidated canonical styles (May 2026)
      Upper sections use pdv2- prefix (from V2).
      Lower sections use place- prefix (from V1, unchanged).
      ═══════════════════════════════════════════════════════════════════════ */
@@ -784,20 +788,21 @@ const factual = place.data.factualLede ?? '';
     width: 100%;
   }
   .pdv2-hero__eyebrow {
-    font-size: 0.72rem;
-    letter-spacing: 0.22em;
+    font-family: var(--font-ui);
+    font-size: var(--fs-100);
+    letter-spacing: var(--ls-eyebrow);
     text-transform: uppercase;
     font-weight: 600;
-    color: var(--gold);
+    color: var(--mint);
     margin-bottom: 1.1rem;
     text-shadow: 0 1px 12px rgba(0,0,0,0.4);
   }
   .pdv2-hero__title {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-size: clamp(3.4rem, 8.5vw, 7rem);
-    font-weight: 500;
-    line-height: 0.95;
-    letter-spacing: -0.02em;
+    font-weight: 600;
+    line-height: var(--lh-display);
+    letter-spacing: var(--ls-display);
     color: var(--white);
     margin: 0;
     text-shadow: 0 2px 24px rgba(0,0,0,0.35);
@@ -805,12 +810,12 @@ const factual = place.data.factualLede ?? '';
   }
   .pdv2-hero__alt {
     margin-top: 1.25rem;
-    font-size: 0.95rem;
+    font-size: var(--fs-300);
     line-height: 1.5;
     color: rgba(255,255,255,0.82);
     max-width: 48ch;
-    font-style: italic;
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: normal;
+    font-family: var(--font-ui);
   }
   .pdv2-hero__credit {
     position: absolute;
@@ -839,7 +844,7 @@ const factual = place.data.factualLede ?? '';
   }
   .pdv2-lede__main { max-width: 62ch; }
   .pdv2-lede__factual {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-size: clamp(1.4rem, 2vw, 1.65rem);
     line-height: 1.45;
     color: var(--dark);
@@ -847,7 +852,7 @@ const factual = place.data.factualLede ?? '';
     font-weight: 400;
   }
   .pdv2-lede__factual::first-letter {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     float: left;
     font-size: 4.5em;
     line-height: 0.85;
@@ -863,7 +868,7 @@ const factual = place.data.factualLede ?? '';
     font-weight: 300;
   }
   .pdv2-lede__intro--lead {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-size: clamp(1.2rem, 1.6vw, 1.4rem);
     line-height: 1.6;
     color: var(--dark);
@@ -873,17 +878,18 @@ const factual = place.data.factualLede ?? '';
   .pdv2-card {
     background: var(--bg-alt);
     border: 1px solid var(--border);
-    border-radius: 4px;
+    border-radius: var(--radius-m);
     padding: 1.6rem 1.6rem 1.4rem;
-    font-size: 0.92rem;
+    font-size: var(--fs-300);
     position: sticky;
     top: 6rem;
   }
   .pdv2-card__label {
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
+    font-family: var(--font-ui);
+    font-size: var(--fs-100);
+    letter-spacing: var(--ls-eyebrow);
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--teal-text);
     font-weight: 600;
     margin-bottom: 1rem;
   }
@@ -910,22 +916,22 @@ const factual = place.data.factualLede ?? '';
   }
   .pdv2-card__list dd { color: var(--dark); line-height: 1.45; font-weight: 400; }
   .pdv2-card__note {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-size: 1.05rem;
     line-height: 1.55;
     color: var(--dark);
-    font-style: italic;
+    font-style: normal;
     border-top: 1px solid var(--border);
     padding-top: 1.1rem;
   }
   .pdv2-card__note span {
     display: block;
-    font-family: inherit;
+    font-family: var(--font-ui);
     font-style: normal;
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
+    font-size: var(--fs-100);
+    letter-spacing: var(--ls-eyebrow);
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--teal-text);
     font-weight: 600;
     margin-bottom: 0.35rem;
   }
@@ -947,13 +953,13 @@ const factual = place.data.factualLede ?? '';
     border-bottom: 1px solid var(--border);
   }
   .pdv2-quote__text {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-size: clamp(1.9rem, 3.6vw, 2.9rem);
     line-height: 1.25;
     letter-spacing: -0.01em;
     color: var(--dark);
     font-weight: 400;
-    font-style: italic;
+    font-style: normal;
     max-width: 32ch;
     margin: 0 auto;
     text-align: center;
@@ -985,7 +991,7 @@ const factual = place.data.factualLede ?? '';
   }
   .place-fit__intro { max-width: 50rem; margin-bottom: clamp(1.75rem, 3vw, 2.5rem); }
   .place-fit__title {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-size: clamp(1.6rem, 2.5vw, 2.1rem);
     font-weight: 500;
     letter-spacing: -0.01em;
@@ -997,26 +1003,27 @@ const factual = place.data.factualLede ?? '';
   @media (min-width: 720px) { .place-fit__grid { grid-template-columns: 1fr 1fr; } }
   .place-fit__col {
     padding: clamp(1.5rem, 2.5vw, 2rem);
-    border-radius: 6px;
-    background: rgba(255,252,247,0.6);
-    border: 1px solid rgba(121,92,58,0.12);
+    border-radius: var(--radius-m);
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
   }
-  .place-fit__col--not { background: rgba(121,92,58,0.04); }
+  .place-fit__col--not { background: var(--bg-alt); }
   .place-fit__col-title {
-    font-size: 0.7rem;
+    font-family: var(--font-ui);
+    font-size: var(--fs-100);
     font-weight: 600;
-    letter-spacing: 0.16em;
+    letter-spacing: var(--ls-eyebrow);
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--teal-text);
     margin: 0 0 1rem;
   }
-  .place-fit__col--not .place-fit__col-title { color: rgba(121,92,58,0.7); }
+  .place-fit__col--not .place-fit__col-title { color: var(--soft); }
   .place-fit__list {
     list-style: none; margin: 0; padding: 0;
     display: flex; flex-direction: column; gap: 0.55rem;
   }
   .place-fit__list li {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-size: clamp(1.1rem, 1.4vw, 1.25rem);
     line-height: 1.4;
     color: var(--dark);
@@ -1031,20 +1038,20 @@ const factual = place.data.factualLede ?? '';
   .place-fit__list--not li {
     color: var(--soft);
     text-decoration: line-through;
-    text-decoration-color: rgba(121,92,58,0.4);
+    text-decoration-color: var(--border-strong);
     text-decoration-thickness: 1px;
   }
-  .place-fit__list--not li::before { background: rgba(121,92,58,0.35); }
+  .place-fit__list--not li::before { background: var(--soft); }
   .place-fit__skip {
     margin: 1.5rem 0 0;
     padding: 1rem 1.2rem;
-    border-left: 3px solid rgba(121,92,58,0.45);
-    background: rgba(121,92,58,0.06);
-    border-radius: 0 4px 4px 0;
+    border-left: 3px solid var(--accent);
+    background: var(--bg-alt);
+    border-radius: var(--radius-m);
   }
   .place-fit__skip p {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-style: italic;
+    font-family: var(--font-display);
+    font-style: normal;
     font-size: 1rem;
     line-height: 1.5;
     color: var(--soft);
@@ -1058,7 +1065,7 @@ const factual = place.data.factualLede ?? '';
   }
   .place-tldr__intro { max-width: 50rem; margin-bottom: clamp(1.75rem, 3vw, 2.5rem); }
   .place-tldr__title {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-size: clamp(1.6rem, 2.5vw, 2.1rem);
     font-weight: 500;
     letter-spacing: -0.01em;
@@ -1080,14 +1087,15 @@ const factual = place.data.factualLede ?? '';
     align-items: baseline;
   }
   .place-tldr__num {
-    font-size: 0.68rem;
+    font-family: var(--font-ui);
+    font-size: var(--fs-100);
     font-weight: 600;
-    letter-spacing: 0.16em;
-    color: var(--accent);
+    letter-spacing: var(--ls-eyebrow);
+    color: var(--teal-text);
     padding-top: 0.2em;
   }
   .place-tldr__body {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-size: clamp(1.05rem, 1.3vw, 1.2rem);
     line-height: 1.55;
     color: var(--dark);
@@ -1100,7 +1108,7 @@ const factual = place.data.factualLede ?? '';
   }
   .place-day__intro { max-width: 50rem; margin-bottom: clamp(1.5rem, 2.5vw, 2rem); }
   .place-day__title {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-size: clamp(1.6rem, 2.5vw, 2.1rem);
     font-weight: 500;
     letter-spacing: -0.01em;
@@ -1109,7 +1117,7 @@ const factual = place.data.factualLede ?? '';
     color: var(--dark);
   }
   .place-day__body {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-size: clamp(1.2rem, 1.55vw, 1.4rem);
     line-height: 1.55;
     color: var(--dark);
@@ -1119,25 +1127,26 @@ const factual = place.data.factualLede ?? '';
   .place-day__note {
     margin: clamp(1.75rem, 3vw, 2.5rem) 0 0;
     padding: clamp(1.25rem, 2vw, 1.75rem) clamp(1.5rem, 2.5vw, 2.25rem);
-    background: rgba(121,92,58,0.06);
+    background: var(--bg-alt);
     border-left: 3px solid var(--accent);
-    border-radius: 0 4px 4px 0;
+    border-radius: var(--radius-m);
     max-width: 50rem;
   }
   .place-day__note p {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-style: italic;
+    font-family: var(--font-display);
+    font-style: normal;
     font-size: clamp(1.05rem, 1.3vw, 1.2rem);
     line-height: 1.55;
     color: var(--dark);
     margin: 0 0 0.65rem;
   }
   .place-day__note cite {
-    font-size: 0.7rem;
+    font-family: var(--font-ui);
+    font-size: var(--fs-100);
     font-weight: 600;
-    letter-spacing: 0.12em;
+    letter-spacing: var(--ls-eyebrow);
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--teal-text);
     font-style: normal;
   }
 
@@ -1148,10 +1157,11 @@ const factual = place.data.factualLede ?? '';
     border-bottom: 1px solid var(--border);
   }
   .pdv2-chapters__label {
-    font-size: 0.65rem;
-    letter-spacing: 0.22em;
+    font-family: var(--font-ui);
+    font-size: var(--fs-100);
+    letter-spacing: var(--ls-eyebrow);
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--teal-text);
     font-weight: 600;
     margin-bottom: 1.4rem;
   }
@@ -1176,7 +1186,7 @@ const factual = place.data.factualLede ?? '';
   }
   .pdv2-chapters__list li a:hover { background: var(--bg-alt); color: var(--accent); }
   .pdv2-chapters__num {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-size: 1.4rem;
     color: var(--accent);
     font-weight: 500;
@@ -1188,10 +1198,10 @@ const factual = place.data.factualLede ?? '';
   /* ── 8. SCOREBOARD ──────────────────────────────────────────────────── */
   .place-scoreboard {
     padding: clamp(2rem, 3vw, 2.75rem) 0;
-    background: var(--dark);
-    color: var(--bg);
+    background: var(--bg-deep);
+    color: var(--white);
   }
-  .place-scoreboard .label { color: rgba(250,246,238,0.65); margin: 0 0 1.25rem; }
+  .place-scoreboard .label { color: var(--mint); margin: 0 0 1.25rem; }
   .place-scoreboard__list {
     list-style: none; margin: 0; padding: 0;
     display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem 1rem;
@@ -1202,31 +1212,32 @@ const factual = place.data.factualLede ?? '';
     display: flex; flex-direction: column; gap: 0.25rem;
     padding: 0.9rem 0;
     text-decoration: none; color: inherit;
-    border-bottom: 1px solid rgba(250,246,238,0.12);
-    transition: color 0.18s, border-color 0.18s;
+    border-bottom: 1px solid rgba(233,244,240,0.16);
+    transition: color var(--dur-med), border-color var(--dur-med);
   }
-  .place-scoreboard__list li a:hover { color: var(--accent); border-color: rgba(250,246,238,0.4); }
+  .place-scoreboard__list li a:hover { color: var(--mint); border-color: var(--mint); }
   .place-scoreboard__list strong {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-weight: 500;
+    font-family: var(--font-display);
+    font-weight: 600;
     font-size: clamp(1.8rem, 2.6vw, 2.4rem);
     line-height: 1;
-    color: var(--bg);
+    color: var(--white);
   }
   .place-scoreboard__list span {
-    font-size: 0.7rem;
+    font-family: var(--font-ui);
+    font-size: var(--fs-100);
     font-weight: 500;
-    letter-spacing: 0.08em;
+    letter-spacing: var(--ls-eyebrow);
     text-transform: uppercase;
-    color: rgba(250,246,238,0.7);
+    color: var(--soft-inverse);
   }
-  .place-scoreboard__list li a:hover strong { color: var(--accent); }
+  .place-scoreboard__list li a:hover strong { color: var(--mint); }
 
   /* ── MAP ─────────────────────────────────────────────────────────────── */
   .place-map { padding: clamp(3rem, 5vw, 4.5rem) 0; background: var(--bg-alt); }
   .place-map__intro { max-width: 50rem; margin-bottom: clamp(1.5rem, 2.5vw, 2rem); }
   .place-map__title {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-size: clamp(1.6rem, 2.5vw, 2.1rem);
     font-weight: 500;
     letter-spacing: -0.01em; line-height: 1.2;
@@ -1239,9 +1250,9 @@ const factual = place.data.factualLede ?? '';
   .place-map__full-link:hover { opacity: 0.75; }
   .place-map__embed {
     height: clamp(280px, 40vw, 420px);
-    border-radius: 6px; overflow: hidden;
-    background: rgba(121,92,58,0.08);
-    box-shadow: 0 18px 40px rgba(30,27,24,0.06);
+    border-radius: var(--radius-m); overflow: hidden;
+    background: var(--bg-alt);
+    box-shadow: var(--elev-2);
     position: relative;
   }
   .place-map__noscript {
@@ -1252,14 +1263,14 @@ const factual = place.data.factualLede ?? '';
   }
 
   /* ── SUBMIT CTA ─────────────────────────────────────────────────────── */
-  /* ── Explore by experience — category sub-pages ── */
+  /* ── Explore by experience - category sub-pages ── */
   .place-subpages {
     padding: 3.5rem 0;
     background: var(--bg-alt);
   }
   .place-subpages__header { margin-bottom: 1.75rem; }
   .place-subpages__title {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-size: clamp(1.4rem, 2.5vw, 1.9rem);
     font-weight: 600;
     color: var(--dark);
@@ -1288,18 +1299,18 @@ const factual = place.data.factualLede ?? '';
     transition: background 0.18s ease;
     height: 100%;
   }
-  .place-subpages__link:hover { background: rgba(139,78,59,0.04); }
+  .place-subpages__link:hover { background: color-mix(in oklab, var(--accent) 6%, transparent); }
   .place-subpages__label {
     grid-column: 1; grid-row: 1;
-    font-size: 0.95rem; font-weight: 600; color: var(--dark);
+    font-size: var(--fs-300); font-weight: 600; color: var(--text);
   }
   .place-subpages__desc {
     grid-column: 1; grid-row: 2;
-    font-size: 0.8rem; color: var(--soft); line-height: 1.45;
+    font-size: var(--fs-200); color: var(--soft); line-height: 1.45;
   }
   .place-subpages__arrow {
     grid-column: 2; grid-row: 1;
-    font-size: 0.9rem; color: var(--accent); padding-top: 0.1rem;
+    font-size: var(--fs-300); color: var(--accent); padding-top: 0.1rem;
   }
   @media (max-width: 600px) {
     .place-subpages__grid { grid-template-columns: 1fr; }
@@ -1332,30 +1343,21 @@ const factual = place.data.factualLede ?? '';
   }
   .place-submit-cta__inner { max-width: 48rem; }
   .place-submit-cta__label {
-    font-size: 0.7rem;
+    font-family: var(--font-ui);
+    font-size: var(--fs-100);
     font-weight: 600;
-    letter-spacing: 0.16em;
+    letter-spacing: var(--ls-eyebrow);
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--teal-text);
     margin: 0 0 0.75rem;
   }
   .place-submit-cta__body {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-size: clamp(1.1rem, 1.4vw, 1.25rem);
     line-height: 1.55;
     color: var(--dark);
     margin: 0 0 1.4rem;
   }
-  .place-submit-cta__link {
-    display: inline-block;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--accent);
-    text-decoration: none;
-    border-bottom: 1px solid currentColor;
-    padding-bottom: 1px;
-  }
-  .place-submit-cta__link:hover { opacity: 0.75; }
 
   /* ── CATEGORY GUIDES (Explore by Experience) ─────────────────────── */
   .place-category-guides {
@@ -1368,7 +1370,7 @@ const factual = place.data.factualLede ?? '';
     margin-bottom: clamp(1.75rem, 3vw, 2.5rem);
   }
   .place-category-guides__title {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-size: clamp(1.6rem, 2.5vw, 2.1rem);
     font-weight: 500;
     letter-spacing: -0.01em;
@@ -1395,19 +1397,19 @@ const factual = place.data.factualLede ?? '';
     flex-direction: column;
     gap: 0.4rem;
     padding: 1.5rem 1.6rem;
-    background: var(--bg);
+    background: var(--white);
     border: 1px solid var(--border);
-    border-radius: 4px;
+    border-radius: var(--radius-m);
     text-decoration: none;
     color: inherit;
-    transition: border-color 0.18s, background 0.18s;
+    transition: border-color var(--dur-med), background var(--dur-med);
   }
   .place-category-guides__link:hover {
     border-color: var(--accent);
     background: var(--bg);
   }
   .place-category-guides__label {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-size: 1.25rem;
     font-weight: 500;
     color: var(--dark);
@@ -1419,9 +1421,10 @@ const factual = place.data.factualLede ?? '';
     line-height: 1.55;
   }
   .place-category-guides__cta {
-    font-size: 0.78rem;
-    font-weight: 500;
-    color: var(--accent);
+    font-family: var(--font-ui);
+    font-size: var(--fs-200);
+    font-weight: 600;
+    color: var(--teal-text);
     margin-top: 0.5rem;
   }
 </style>

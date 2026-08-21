@@ -41,9 +41,9 @@
         "closes": "16:00"
       }
     ],
-    "tastingFee": "$10",
+    "tastingFee": "Charged",
     "bookingRequired": false,
-    "tastingNote": "Walk-in daily 10am–4pm for groups under 6. Groups of 6+ require bookings. $10 per person, redeemable on wine purchase. Dogs welcome outdoors on leash."
+    "tastingNote": "Walk-in daily 10am–4pm for groups under 6. Groups of 6+ require bookings. Charged per person, redeemable on wine purchase. Dogs welcome outdoors on leash."
   },
   "wines": {
     "winemaker": "Tom Carson",
@@ -82,11 +82,11 @@
     },
     {
       "q": "Does Yabby Lake have a restaurant?",
-      "a": "Yes — Yabby Lake Restaurant, 1 Hat in the 2026 Good Food Guide; classic seasonal fare."
+      "a": "Yes - Yabby Lake Restaurant, 1 Hat in the 2026 Good Food Guide; classic seasonal fare."
     },
     {
       "q": "Are dogs allowed at Yabby Lake?",
-      "a": "Yes — dogs on a leash are welcome in outdoor spaces. Not permitted inside the tasting room or restaurant."
+      "a": "Yes - dogs on a leash are welcome in outdoor spaces. Not permitted inside the tasting room or restaurant."
     }
   ],
   "sameAs": {
@@ -110,8 +110,8 @@
     ]
   },
   "heroImage": {
-    "src": "/images/sourced/explore-cape-schanck-boardwalk-01.webp",
-    "alt": "Mornington Peninsula landscape — representative image for Yabby Lake Vineyard",
+    "src": "/images/sourced/place-moorooduc-01.webp",
+    "alt": "Moorooduc, Mornington Peninsula - representative image for Yabby Lake Vineyard",
     "credit": "Peninsula Insider",
     "license": "other-licensed"
   },

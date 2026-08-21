@@ -1,6 +1,6 @@
 ---
 /**
- * AskPICTA — editorial pull-tag inviting the reader to ask PI.
+ * AskPICTA - editorial pull-tag inviting the reader to ask PI.
  *
  * Drop into article / venue templates near the end of body copy.
  * Pre-fills the drawer's input with a context-aware question if `prefill` is provided.
@@ -33,7 +33,7 @@ const {
   role="complementary"
 >
   <span class="pi-cta__rule" aria-hidden="true"></span>
-  <button class="pi-cta__btn" type="button" aria-label={label}>
+  <button class="pi-btn pi-btn--solid" type="button" aria-label={label}>
     <span class="pi-cta__avatar" aria-hidden="true">
       <span class="pi-cta__fallback">PI</span>
       <img src="/images/pi-concierge.svg" alt="" width="36" height="36" onerror="this.remove()" />
@@ -52,9 +52,9 @@ const {
   /* ── Editorial "Ask The Insider" pull-tag ── for end-of-article placement ── */
   .pi-cta {
     --pi-cta-paper:  #FFFCF6;
-    --pi-cta-terra:  #8B4E3B;
-    --pi-cta-ink:    #2B2520;
-    --pi-cta-rule:   rgba(139, 78, 59, 0.2);
+    --pi-cta-terra:  var(--accent);
+    --pi-cta-ink:    var(--text);
+    --pi-cta-rule:   rgba(11, 90, 72, 0.2);
 
     margin: 3rem auto;
     max-width: 680px;
@@ -72,51 +72,17 @@ const {
   .pi-cta--inline .pi-cta__rule:first-child,
   .pi-cta--inline .pi-cta__rule:last-child { display: none; }
 
-  .pi-cta__btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.85rem;
-    padding: 0.85rem 1.35rem 0.85rem 0.95rem;
-    background: var(--pi-cta-paper);
-    border: 1px solid rgba(139, 78, 59, 0.22);
-    border-radius: 100px;
-    cursor: pointer;
-    font-family: inherit;
-    color: inherit;
-    text-align: left;
-    box-shadow:
-      0 1px 0 rgba(255, 252, 247, 0.8) inset,
-      0 1px 2px rgba(34, 24, 16, 0.04),
-      0 8px 22px rgba(34, 24, 16, 0.06);
-    transition:
-      transform 0.22s cubic-bezier(0.22, 0.61, 0.36, 1),
-      box-shadow 0.22s cubic-bezier(0.22, 0.61, 0.36, 1),
-      border-color 0.22s cubic-bezier(0.22, 0.61, 0.36, 1);
-  }
-  .pi-cta__btn:hover {
-    transform: translateY(-2px);
-    border-color: rgba(139, 78, 59, 0.45);
-    box-shadow:
-      0 1px 0 rgba(255, 252, 247, 0.8) inset,
-      0 4px 12px rgba(34, 24, 16, 0.07),
-      0 16px 36px rgba(34, 24, 16, 0.10);
-  }
-  .pi-cta__btn:hover .pi-cta__arrow {
-    transform: translateX(4px);
-    color: var(--pi-cta-terra);
-  }
-
   .pi-cta__avatar {
     position: relative;
     width: 44px; height: 44px;
     border-radius: 50%;
     overflow: hidden;
     flex-shrink: 0;
-    background: radial-gradient(circle at 30% 30%, #FBF1DE 0%, #F0E2C7 70%, #E5D2AF 100%);
-    border: 1px solid rgba(139, 78, 59, 0.22);
+    background: radial-gradient(circle at 30% 30%, #e1f8f2 0%, #c7f0e6 70%, #afe5d8 100%);
+    border: 1px solid rgba(11, 90, 72, 0.22);
     display: grid;
     place-items: center;
-    box-shadow: 0 1px 4px rgba(34, 24, 16, 0.08);
+    box-shadow: 0 1px 4px rgba(0, 40, 34, 0.08);
   }
   .pi-cta__avatar img {
     position: absolute;
@@ -126,8 +92,8 @@ const {
     z-index: 1;
   }
   .pi-cta__fallback {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-style: italic;
+    font-family: var(--font-display);
+    font-style: normal;
     font-weight: 600;
     color: var(--pi-cta-terra);
     font-size: 1rem;
@@ -141,7 +107,7 @@ const {
     min-width: 0;
   }
   .pi-cta__eyebrow {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.6rem;
     font-weight: 700;
     letter-spacing: 0.24em;
@@ -149,25 +115,25 @@ const {
     color: var(--pi-cta-terra);
   }
   .pi-cta__label {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-size: 1.18rem;
-    font-style: italic;
+    font-style: normal;
     font-weight: 600;
     color: var(--pi-cta-ink);
     line-height: 1.18;
     letter-spacing: -0.005em;
   }
   .pi-cta__hint {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.78rem;
-    color: rgba(43, 37, 32, 0.6);
+    color: rgba(18, 33, 30, 0.6);
     line-height: 1.4;
   }
   .pi-cta__arrow {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-size: 1.5rem;
     font-weight: 600;
-    color: rgba(43, 37, 32, 0.55);
+    color: rgba(18, 33, 30, 0.55);
     flex-shrink: 0;
     transition: transform 0.22s ease, color 0.22s ease;
     margin-left: 0.5rem;
@@ -175,7 +141,6 @@ const {
 
   @media (max-width: 640px) {
     .pi-cta { gap: 0.85rem; margin: 2.25rem auto; }
-    .pi-cta__btn { gap: 0.7rem; padding: 0.7rem 1rem 0.7rem 0.7rem; }
     .pi-cta__hint { display: none; }
     .pi-cta__label { font-size: 1.05rem; }
   }
@@ -188,7 +153,7 @@ const {
       if (el._piCtaBound) return;
       el._piCtaBound = true;
       const prefill = el.getAttribute('data-pi-prefill') || '';
-      el.querySelector('.pi-cta__btn').addEventListener('click', () => {
+      el.querySelector('button[type="button"]').addEventListener('click', () => {
         if (typeof window.openConcierge === 'function') {
           window.openConcierge(prefill);
         } else {

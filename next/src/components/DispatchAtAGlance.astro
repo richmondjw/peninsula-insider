@@ -1,6 +1,6 @@
 ---
 /**
- * DispatchAtAGlance — the top-of-page summary strip for Peninsula This
+ * DispatchAtAGlance - the top-of-page summary strip for Peninsula This
  * Weekend dispatches. Three compact tiles (Lead / Saturday / Sunday) that
  * let a reader decide whether to read further inside ten seconds.
  *
@@ -50,7 +50,7 @@ const { tiles } = Astro.props;
     font-size: 0.72rem;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--accent, #8B4E3B);
+    color: var(--accent, var(--accent));
     font-weight: 600;
   }
   .ataglance__list {
@@ -78,10 +78,10 @@ const { tiles } = Astro.props;
   .ataglance__link:hover { background: rgba(255, 255, 255, 0.6); }
   .ataglance__num {
     font-family: var(--serif, 'Newsreader', Georgia, serif);
-    font-style: italic;
+    font-style: normal;
     font-size: 2rem;
     line-height: 1;
-    color: var(--accent, #8B4E3B);
+    color: var(--accent, var(--accent));
     font-weight: 400;
     flex: 0 0 auto;
   }

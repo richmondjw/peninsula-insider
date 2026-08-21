@@ -1,0 +1,216 @@
+/* =========================================================
+   Peninsula Insider - V6 "HARBOUR" DESIGN TOKENS
+   ---------------------------------------------------------
+   (Header renamed 2026-08-09: the palette block below adopted Harbour
+   on 2026-07-25, superseding the Evergreen Coast palette this file
+   originally shipped with. Structure remains the Destination Vancouver
+   lift, tuned to the Mornington Peninsula.)
+   Replaces v5-tokens.css as
+   the single token layer imported at the top of global.css.
+
+   Reference / sign-off:
+     02-brand/v6-evergreen-coast-design-system.md
+   Design generation: v6 (supersedes the warm-editorial v5 that
+   shipped 2026-07-11). Fonts: open substitutes (Sora for the
+   Nohemi-style display, Figtree for the Proxima-style body/UI),
+   self-hosted. No serif. No grain.
+
+   Core palette values (--bg, --bg-alt, --bg-dark, --text, --soft,
+   --accent, --acc-h, --gold, --sage, --border, --white, --dark)
+   remain canonical in global.css :root, retargeted to this palette.
+   New named tokens (--evergreen, --mint, --teal, --slate, --signal,
+   --wine, --radius-pill) are defined here.
+   ========================================================= */
+
+/* ── Self-hosted faces (served from /public/fonts) ── */
+@font-face{font-family:'Sora';src:url('/fonts/sora-400.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Sora';src:url('/fonts/sora-500.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'Sora';src:url('/fonts/sora-600.woff2') format('woff2');font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:'Sora';src:url('/fonts/sora-700.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'Sora';src:url('/fonts/sora-800.woff2') format('woff2');font-weight:800;font-style:normal;font-display:swap}
+@font-face{font-family:'Figtree';src:url('/fonts/figtree-300.woff2') format('woff2');font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:'Figtree';src:url('/fonts/figtree-400.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Figtree';src:url('/fonts/figtree-500.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'Figtree';src:url('/fonts/figtree-600.woff2') format('woff2');font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:'Figtree';src:url('/fonts/figtree-700.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}
+
+:root {
+  /* ── Font families (two only; the serif is gone) ──
+     --font-display: big geometric display (Nohemi substitute: Sora).
+     --font-ui:      humanist body/UI (Proxima substitute: Figtree). */
+  --font-display: 'Sora', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-ui:      'Figtree', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* ── Type scale - 9 tokens, clamp(), rem-based.
+     Top end raised toward the reference's giant hero. --fs-100 (12px)
+     stays the hard floor. The display is now sans, so it renders at
+     every size/weight (no serif size gate). ── */
+  --fs-950: clamp(3rem, 1.4rem + 7vw, 6.5rem);        /* 48→104 hero cover display */
+  --fs-900: clamp(2.5rem, 1.6rem + 4vw, 4rem);        /* 40→64  section cover / big h1 */
+  --fs-800: clamp(2.125rem, 1.5rem + 2.8vw, 3rem);    /* 34→48  page h1 */
+  --fs-700: clamp(1.75rem, 1.4rem + 1.6vw, 2.25rem);  /* 28→36  h2 / section titles */
+  --fs-600: clamp(1.375rem, 1.2rem + 0.8vw, 1.625rem);/* 22→26  h3 / card titles */
+  --fs-500: clamp(1.1875rem, 1.1rem + 0.4vw, 1.3125rem); /* 19→21 deks, verdicts */
+  --fs-400: 1.0625rem;  /* 17px BODY */
+  --fs-300: 0.9375rem;  /* 15px secondary body, captions, nav */
+  --fs-200: 0.8125rem;  /* 13px metadata, bylines, button-small */
+  --fs-100: 0.75rem;    /* 12px FLOOR - eyebrows/labels only */
+
+  /* ── Line heights (unitless). Display tightened for the big geometric look. ── */
+  --lh-display: 1.02;
+  --lh-heading: 1.14;
+  --lh-dek:     1.45;
+  --lh-body:    1.65;
+  --lh-ui:      1.4;
+  --lh-label:   1.2;
+
+  /* ── Weights ── */
+  --fw-display:    600;  /* display headings */
+  --fw-display-em: 600;  /* emphasis (verdict/tagline) - now sans italic */
+  --fw-body:       400;  /* Figtree body */
+  --fw-medium:     500;  /* nav, buttons, deks */
+  --fw-semibold:   600;  /* labels, table heads, emphasis */
+  --fw-bold:       700;  /* CTA labels */
+
+  /* ── Letter-spacing helpers ── */
+  --ls-display: -0.02em; /* tight for big geometric display */
+  --ls-eyebrow:  0.12em; /* uppercase eyebrows */
+
+  /* ── Measure ── */
+  --measure-prose: 68ch;
+  --measure-dek:   52ch;
+  --measure-card:  38ch;
+
+  /* ── Spacing - 4px base scale (rem) ── */
+  --space-1:  0.25rem;  /*   4px */
+  --space-2:  0.5rem;   /*   8px */
+  --space-3:  0.75rem;  /*  12px */
+  --space-4:  1rem;     /*  16px */
+  --space-5:  1.5rem;   /*  24px */
+  --space-6:  2rem;     /*  32px */
+  --space-7:  3rem;     /*  48px */
+  --space-8:  4rem;     /*  64px */
+  --space-9:  6rem;     /*  96px */
+  --space-10: 8rem;     /* 128px */
+  --space-para:          1.5rem;
+  --space-heading-above: 2.75rem;
+  --space-heading-below: 1rem;
+
+  /* ── Named palette tokens: HARBOUR (adopted 2026-07-25).
+     Blue does the structural work; a single sand pop carries the warm
+     signal. Replaces Evergreen Coast, whose forest greens read alpine
+     rather than coastal and fought the photography: bay water went
+     muddy under a green wash. The v6 names below are kept as aliases so
+     no component had to change.
+     Core roles (--bg, --accent, --gold, --sage, ...) are retargeted onto
+     this world in global.css :root. ── */
+  --harbour:      #10527E;  /* primary brand (CTAs, links on light) */
+  --harbour-h:    #0C4166;  /* hover */
+  --harbour-deep: #0B2E4A;  /* the signature dark ground */
+  --sand:         #F5C177;  /* the single warm pop - dark grounds only, never body text on white */
+  --sand-text:    #8A5620;  /* AA-safe warm cut for text on light (6.12:1 on white) */
+  --bronze:       #C2803A;  /* secondary warm accent, decorative */
+  --tide:         #7FB2D4;  /* light blue, decorative */
+  --tide-text:    #1D6491;  /* AA-safe blue cut for text on light (6.39:1 on white) */
+  --slate:        #2E4A63;  /* tertiary cool accent */
+  /* Live/now must stay legible AS a signal, so it cannot be another
+     amber: --sand already owns warm. This coral reads 2.28:1 against
+     --sand, which is enough separation to tell the two apart at a
+     glance. */
+  --signal:       #E2562F;
+  --signal-text:  #A63A16;  /* AA-safe cut for text (6.49:1 on white) */
+  --wine:         #4D0222;  /* rare deep flourish */
+
+  /* Legacy v6 (Evergreen Coast) names, retargeted onto Harbour. Keeping
+     them resolvable is what makes this a one-block palette swap rather
+     than a sweep through 100+ components. */
+  --evergreen:  var(--harbour);
+  --evergreen-h:var(--harbour-h);
+  --teal:       var(--bronze);
+  --teal-text:  var(--sand-text);
+  --mint:       var(--sand);
+  --bg-deep:    var(--harbour-deep);
+  --ink:        #14202A;  /* alias of --text (design-doc name); keep var(--ink) resolvable */
+
+  /* ── Legacy token aliases. Older components reference these names with WARM
+     v5 fallbacks (e.g. var(--paper, var(--bg-alt))) or a serif. They are only
+     defined in the magenta-stone admin theme, so on the live site they fell
+     back to v5. Aliasing them here retargets ~185 references to v6 at once.
+     The magenta-stone theme still overrides via its html[data-theme] selector. ── */
+  --paper:       var(--white);     /* clean card ground */
+  --surface:     var(--white);
+  --surface-mute:var(--bg-alt);
+  --ink-soft:    var(--soft);
+  --text-muted:  var(--soft);
+  --cream:       var(--bg-alt);
+  --serif:       var(--font-display); /* no serif in v6; map to Sora */
+  --sans:        var(--font-ui);       /* legacy body/UI alias (was Inter) */
+  --ochre:       var(--accent);         /* legacy warm accent -> evergreen (58 refs) */
+
+  /* ── Palette-leak plugs (P0-3, 2026-07-25).
+     These names were consumed by live components as `var(--name, <warm v5
+     hex>)` but were never defined outside the magenta-stone admin theme, so
+     the public site silently rendered the WARM fallback. That is where the
+     "#221810 newsletter band" and the warm rules/metadata in the footer came
+     from. Defining them here retargets every one of those fallbacks onto v6
+     without touching a single component. magenta-stone still wins via its
+     html[data-theme] selector. ── */
+  --deep:        var(--bg-dark);   /* newsletter / utility-bar dark ground (was #201B17) */
+  --ink-muted:   var(--soft);      /* footer + newsletter metadata (was #6E655C) */
+  --muted:       var(--soft);      /* v4.css metadata alias (was #6E655C) */
+  --body:        var(--text);      /* legacy body-copy role (undefined -> inherited) */
+  --body-light:  var(--soft);      /* was #888 = 3.5:1 on white, below AA */
+  --color-text-muted: var(--soft); /* was #9A9A9A = 2.9:1 on white, below AA */
+  --line:        var(--border);    /* hairline alias (was #BED9D3 / warm #D9D1BE) */
+  --line-soft:   var(--border);    /* was warm #E8E2D1 */
+  --color-border:var(--border);    /* was #E5E7EB */
+  --paper-warm:  var(--bg-alt);    /* footer band / reversed type (was #F3EDDE) */
+  --accent-muted: color-mix(in srgb, var(--accent) 10%, var(--white)); /* was #F5EDE4 */
+  /* Plan-builder page-local names, likewise never defined (warm creams). */
+  --c-accent:     var(--accent);
+  --c-rule:       var(--border);
+  --c-paper-tint: var(--bg-alt);
+
+  /* ── AA-safe support roles ── */
+  --soft-inverse:  rgba(237, 241, 245, 0.74); /* muted text on --bg-dark, 7.38:1 */
+  /* Non-text UI needs >=3:1, and this stays a step stronger than the
+     --border hairline. Re-cut blue-grey for Harbour: 5.50:1 on white,
+     4.80:1 on the warm tint. */
+  --border-strong: #5C6B75;
+  --error-text:    #C0392B;                    /* 5.44:1 on white */
+  /* Error text on the deep evergreen ground: #C0392B measures 2.47:1 there,
+     which fails. This lifted cut is 6.57:1 on --bg-dark. */
+  --error-text-inverse: #FF9A8F;
+
+  /* ── Radii - lifted toward the reference: 16px dominant, plus pill ── */
+  --radius-s:    8px;    /* chips, buttons, inputs */
+  --radius-m:    16px;   /* card media, tiles (dominant) */
+  --radius-l:    28px;   /* panels, sheets, modals, doors */
+  --radius-pill: 999px;  /* pill buttons, tags */
+
+  /* ── Elevation - 3 values, retinted cool ── */
+  --elev-1: 0 2px 10px rgba(0, 54, 44, 0.06);
+  --elev-2: 0 14px 28px -14px rgba(0, 40, 34, 0.26);
+  --elev-3: 0 26px 52px -18px rgba(0, 40, 34, 0.34);
+
+  /* ── Motion ── */
+  --dur-fast: 120ms;
+  --dur-med:  200ms;
+  --dur-slow: 320ms;
+  --ease-enter: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-exit:  ease-in;
+
+  /* ── Focus system: evergreen ring >=3:1 on light, mint on dark ── */
+  --focus-ring-color:         var(--evergreen);
+  --focus-ring-color-inverse: var(--mint);
+  --focus-ring: 2px solid var(--focus-ring-color);
+}
+
+/* Reduced motion: collapse tokenised durations to zero. */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 0ms;
+    --dur-med:  0ms;
+    --dur-slow: 0ms;
+  }
+}

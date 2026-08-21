@@ -1,11 +1,11 @@
 /**
- * Peninsula Insider — V2 auth (client-side).
+ * Peninsula Insider - V2 auth (client-side).
  *
  * Single Supabase JS client for the whole app, plus thin wrappers for
  * the operations our UI needs: sign in, sign out, get profile, like an
  * article, save an article.
  *
- * Auth state is cached in localStorage by Supabase JS — no extra work
+ * Auth state is cached in localStorage by Supabase JS - no extra work
  * needed across page navigations or view transitions.
  *
  * All queries are scoped via Row-Level Security on the database side, so
@@ -34,7 +34,11 @@ const SUPABASE_URL =
   (import.meta.env.PUBLIC_SUPABASE_URL as string | undefined) ||
   'https://tjjhpvslpysfklwpqmgz.supabase.co';
 
-const SUPABASE_ANON_KEY = import.meta.env.PUBLIC_SUPABASE_ANON_KEY as string | undefined;
+const SUPABASE_ANON_KEY =
+  (import.meta.env.PUBLIC_SUPABASE_ANON_KEY as string | undefined) ||
+  // Publishable key: safe to ship client-side by design; RLS is the gate.
+  // Fallback so a build without env vars still produces working auth.
+  'sb_publishable_JlZuo95QvNZi2ZNrFyK-Cw_2y0U7HLp';
 
 let _client: SupabaseClient | null = null;
 

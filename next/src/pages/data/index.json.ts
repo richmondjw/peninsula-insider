@@ -1,5 +1,5 @@
 /**
- * /data/index.json — entity registry for AI agents.
+ * /data/index.json: entity registry for AI agents.
  * One row per published entity (venues, places, experiences, itineraries,
  * articles, events) with its type, slug, name, and canonical URL, plus
  * pointers to the richer per-collection exports. Static, build-time.
@@ -83,7 +83,9 @@ export const GET: APIRoute = async () => {
     exports: {
       venues: `${SITE_URL}/data/venues.json`,
       places: `${SITE_URL}/data/places.json`,
-      events: `${SITE_URL}/data/events.json`,
+      // Events ship via the audited consolidated feed (kept current by the
+      // daily content tempo), not a bespoke export here.
+      events: `${SITE_URL}/whats-on/upcoming.json`,
       llms: `${SITE_URL}/llms.txt`,
       llmsFull: `${SITE_URL}/llms-full.txt`,
       sitemap: `${SITE_URL}/sitemap.xml`,

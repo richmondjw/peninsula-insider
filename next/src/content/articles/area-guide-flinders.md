@@ -18,16 +18,16 @@ status: "published"
 lastVerified: 2026-05-02
 clusterLinks:
   - label: "How to Plan a Peninsula Weekend"
-    href: "/journal/how-to-plan-a-peninsula-weekend/"
+    href: "/explore/plans/how-to-plan-a-peninsula-weekend/"
 faq:
   - question: "What is Flinders best known for?"
-    answer: "Its southern-edge village character — bakery, pub, pier, coastal walks and a cleaner, quieter rhythm than the bay-facing Peninsula towns."
+    answer: "Its southern-edge village character - bakery, pub, pier, coastal walks and a cleaner, quieter rhythm than the bay-facing Peninsula towns."
   - question: "When is the best time to visit Flinders?"
     answer: "Cooler months suit it best. Autumn, winter sun and spring all sharpen the place because the walks improve and the village's quiet confidence comes forward."
   - question: "How far is Flinders from Melbourne?"
     answer: "Usually around 90 minutes to 1 hour 45 minutes by car, depending on traffic and exactly where you start."
 aiSummary:
-  - "Flinders is the Mornington Peninsula's quiet southern village — compact, salt-air confident, and deliberately different in character from the busier bay-facing towns to the north."
+  - "Flinders is the Mornington Peninsula's quiet southern village - compact, salt-air confident, and deliberately different in character from the busier bay-facing towns to the north."
   - "Known for: a world-ranked golf course (Flinders Golf Club), a village bakery (Flinders Sourdough), direct ocean-coast access, and proximity to the marine sanctuary and back beach."
   - "Suits: golfers; visitors who have already done Sorrento and want something quieter; anyone who wants the wild Bass Strait coast as their base. Not suited to: visitors expecting village activity or a restaurant scene beyond pub dining."
   - "Best season: cooler months (autumn, winter, spring) when the walks are best and the coastal drama is sharpest. Winter is specifically recommended in the editorial."

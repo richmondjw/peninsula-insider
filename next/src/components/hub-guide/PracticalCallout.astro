@@ -1,13 +1,13 @@
 ---
 /**
- * PracticalCallout — designed callout for the "before you go" logistics
+ * PracticalCallout - designed callout for the "before you go" logistics
  * paragraph that's typically buried at the bottom of hub-guide articles.
  * Pulls the trip-planning intelligence out of the prose flow and gives
  * it a visually distinct treatment so it scans as actionable rather than
  * reading as a footnote.
  *
  * Also used for verification statements ("how we sourced this") via the
- * `variant="trust"` prop — same visual rhythm, different colour intent.
+ * `variant="trust"` prop - same visual rhythm, different colour intent.
  *
  * Usage in MDX:
  *
@@ -48,30 +48,30 @@ const { eyebrow, heading, variant = 'practical' } = Astro.props;
     margin: clamp(2rem, 4vw, 3rem) 0;
     padding: clamp(1.5rem, 3vw, 2.25rem) clamp(1.5rem, 3vw, 2.5rem);
     border-radius: 6px;
-    background: rgba(160, 84, 31, 0.05);
-    border-left: 3px solid var(--accent, #A0541F);
+    background: rgba(11, 90, 72, 0.05);
+    border-left: 3px solid var(--accent, #26997e);
   }
   .hub-callout--trust {
-    background: rgba(121, 92, 58, 0.04);
-    border-left-color: rgba(121, 92, 58, 0.4);
+    background: rgba(74, 90, 87, 0.04);
+    border-left-color: rgba(74, 90, 87, 0.4);
   }
   .hub-callout__inner {
     max-width: 50rem;
   }
   .hub-callout__eyebrow {
-    font-family: 'Outfit', system-ui, sans-serif;
+    font-family: var(--font-ui);
     font-size: 0.7rem;
     font-weight: 600;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: var(--accent, #A0541F);
+    color: var(--accent, #26997e);
     margin: 0 0 0.65rem;
   }
   .hub-callout--trust .hub-callout__eyebrow {
-    color: rgba(121, 92, 58, 0.7);
+    color: rgba(74, 90, 87, 0.7);
   }
   .hub-callout__heading {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     font-size: clamp(1.3rem, 2vw, 1.6rem);
     font-weight: 500;
     letter-spacing: -0.01em;
@@ -80,7 +80,7 @@ const { eyebrow, heading, variant = 'practical' } = Astro.props;
     color: var(--ink, #171413);
   }
   .hub-callout__body {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-display);
     color: var(--ink, #171413);
   }
   .hub-callout__body :global(p) {
@@ -94,7 +94,7 @@ const { eyebrow, heading, variant = 'practical' } = Astro.props;
     color: var(--ink, #171413);
   }
   .hub-callout--trust .hub-callout__body {
-    font-style: italic;
+    font-style: normal;
   }
   .hub-callout--trust .hub-callout__body :global(p) {
     font-size: clamp(0.92rem, 1vw, 1rem);

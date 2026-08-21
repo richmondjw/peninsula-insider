@@ -1,0 +1,78 @@
+---
+/**
+ * EditionFooterIndex - the sectioned index (the Atlantic's dense footer,
+ * mapped to the seven lanes).
+ *
+ * Each lane shows its two freshest entries drawn from the lane's own
+ * collection: venues for Eat/Wine/Stay, experiences for Explore, plans
+ * for Plans, events for What's On, articles for Journal. Real content,
+ * regenerated every build, so the index doubles as a freshness signal
+ * and an internal-linking layer. Sits above the main site footer.
+ */
+import { getCollection } from 'astro:content';
+import { routeSlug, venueHrefPrefix } from '../../lib/editorial';
+
+const [venues, experiences, itineraries, events, articles] = await Promise.all([
+  getCollection('venues'),
+  getCollection('experiences'),
+  getCollection('itineraries'),
+  getCollection('events'),
+  getCollection('articles', ({ data }) => data.status === 'published'),
+]);
+
+const newest = (list: any[], n = 2) =>
+  [...list]
+    .sort((a, b) => (b.data.publishedAt?.getTime?.() ?? 0) - (a.data.publishedAt?.getTime?.() ?? 0))
+    .slice(0, n);
+
+const EAT = new Set(['restaurant', 'cafe', 'bakery', 'pub', 'market']);
+const WINE = new Set(['winery', 'producer', 'brewery', 'distillery']);
+const STAY = new Set(['hotel', 'villa', 'cottage', 'glamping', 'farm-stay', 'spa']);
+
+const venueLinks = (types: Set<string>) =>
+  newest(venues.filter((v) => types.has(v.data.type))).map((v) => ({
+    label: v.data.name,
+    href: `${venueHrefPrefix(v.data.type)}${routeSlug(v)}/`,
+  }));
+
+const lanes = [
+  { label: 'Eat & Drink', href: '/eat/', items: venueLinks(EAT) },
+  { label: 'Wine', href: '/wine/', items: venueLinks(WINE) },
+  { label: 'Stay', href: '/stay/', items: venueLinks(STAY) },
+  {
+    label: 'Explore', href: '/explore/',
+    items: newest(experiences).map((e) => ({ label: e.data.name ?? e.data.title, href: `/explore/${routeSlug(e)}/` })),
+  },
+  {
+    label: 'Plans', href: '/explore/plans/',
+    items: newest(itineraries).map((p) => ({ label: p.data.title, href: `/explore/plans/${routeSlug(p)}/` })),
+  },
+  {
+    label: "What's On", href: '/whats-on/',
+    items: newest(events).map((e) => ({ label: e.data.title ?? e.data.name, href: `/whats-on/${routeSlug(e)}/` })),
+  },
+  {
+    label: 'Journal', href: '/journal/',
+    items: newest(articles.filter((a) => a.data.format !== 'weekend-picker')).map((a) => ({
+      label: a.data.title, href: `/journal/${routeSlug(a)}/`,
+    })),
+  },
+].filter((lane) => lane.items.length > 0);
+---
+
+<section class="ed-index" aria-label="Section index">
+  <div class="container">
+    <div class="ed-index__grid">
+      {lanes.map((lane) => (
+        <div class="ed-index__lane">
+          <h3 class="ed-index__lane-title"><a href={lane.href}>{lane.label}</a></h3>
+          <ul class="ed-index__list">
+            {lane.items.map((item) => (
+              <li><a href={item.href}>{item.label}</a></li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

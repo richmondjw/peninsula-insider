@@ -21,7 +21,7 @@ const breadcrumbItems = [
   <section class="entry-editor" data-entry-root>
     <div class="container entry-editor__container">
       <header class="entry-editor__head">
-        <p class="entry-editor__eyebrow" data-entry-type>—</p>
+        <p class="entry-editor__eyebrow" data-entry-type> - </p>
         <h1 class="entry-editor__title" data-entry-slug>Loading…</h1>
         <p class="entry-editor__status" data-entry-status>Loading…</p>
       </header>
@@ -326,7 +326,7 @@ const breadcrumbItems = [
 
   /**
    * RLS-gated CRUD against the pi schema. Returns { ok } regardless of whether
-   * the row was returned — Postgres errors are surfaced to the editor via
+   * the row was returned - Postgres errors are surfaced to the editor via
    * setStatus rather than thrown.
    */
   async function callApi(
@@ -548,7 +548,7 @@ const breadcrumbItems = [
     }
     const params = getParams();
     if (!params) {
-      setStatus('Missing or invalid ?type and ?slug — go back to /admin/.', 'err');
+      setStatus('Missing or invalid ?type and ?slug - go back to /admin/.', 'err');
       return;
     }
     renderHead(params.entityType, params.entitySlug);
@@ -610,7 +610,7 @@ const breadcrumbItems = [
     font: 700 0.7rem/1 var(--sans, 'Inter', system-ui, sans-serif);
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--ochre, #A0541F);
+    color: var(--ochre, #26997e);
   }
   .entry-editor__title {
     margin: 0;
@@ -738,7 +738,7 @@ const breadcrumbItems = [
   }
   .entry-editor__rev-action {
     font-weight: 700; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 0.08em;
-    color: var(--ochre, #A0541F);
+    color: var(--ochre, #26997e);
   }
   .entry-editor__rev-summary { color: var(--ink, #171413); }
   .entry-editor__rev-time { color: var(--ink-soft, #3A3531); font-size: 0.78rem; }

@@ -1,5 +1,5 @@
 /**
- * Audience persona registry — drives the AudiencePicker component.
+ * Audience persona registry - drives the AudiencePicker component.
  *
  * Each persona maps to a section-specific destination URL when one exists,
  * and falls back to a cross-section default when it does not. Section keys
@@ -23,7 +23,7 @@ export type SectionKey =
 export interface AudiencePersona {
   /** Stable id used in URLs and analytics. */
   slug: string;
-  /** Tile title — short noun phrase, two words ideal. */
+  /** Tile title - short noun phrase, two words ideal. */
   label: string;
   /** Editorial dek under the label. One line. */
   dek: string;
@@ -45,7 +45,7 @@ export const audiencePersonas: AudiencePersona[] = [
     mark: '◆',
     routes: {
       eat: '/eat/date-night/',
-      stay: '/stay/couples/',
+      stay: '/stay/couples-retreats/',
       wine: '/wine/best-cellar-doors/',
       explore: '/explore/spas-and-wellness/',
       escape: '/explore/plans/mornington-peninsula-itinerary/',
@@ -114,9 +114,9 @@ export const audiencePersonas: AudiencePersona[] = [
     dek: 'Tables, beaches, and rooms where dogs sit at the foot.',
     mark: '◐',
     routes: {
-      eat: '/eat/dog-friendly/',
-      stay: '/stay/dog-friendly/',
-      wine: '/wine/dog-friendly/',
+      eat: '/journal/dog-friendly-cafes-pubs-wineries-mornington-peninsula/',
+      stay: '/journal/dog-friendly-accommodation-mornington-peninsula/',
+      wine: '/journal/dog-friendly-wineries-mornington-peninsula/',
       explore: '/dog-friendly/',
       escape: '/dog-friendly/',
       default: '/dog-friendly/',
@@ -143,8 +143,8 @@ export const audiencePersonas: AudiencePersona[] = [
     mark: '✚',
     routes: {
       eat: '/eat/best-restaurants/',
-      stay: '/stay/where-to-stay-mornington-peninsula/',
-      wine: '/wine/best-wineries-mornington-peninsula/',
+      stay: '/stay/best-accommodation/',
+      wine: '/wine/best-cellar-doors/',
       explore: '/explore/plans/mornington-peninsula-itinerary/',
       escape: '/explore/plans/mornington-peninsula-itinerary/',
       default: '/explore/plans/mornington-peninsula-itinerary/',

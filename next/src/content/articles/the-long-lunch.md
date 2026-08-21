@@ -12,7 +12,7 @@ heroImage:
   license: "tmp-wikimedia"
 format: "long-lunch-list"
 tags: ["eat", "wine", "weekend", "red-hill", "long-lunch"]
-relatedVenues: ["ten-minutes-by-tractor", "montalto", "pt-leo-estate", "tedesca-osteria", "port-phillip-estate-restaurant", "paringa-estate", "crittenden-restaurant", "pt-leo-estate", "barragunda-dining", "green-olive-red-hill", "morning-sun"]
+relatedVenues: ["ten-minutes-by-tractor", "montalto", "pt-leo-estate", "tedesca-osteria", "port-phillip-estate-restaurant", "paringa-estate", "stillwater-crittenden", "pt-leo-estate", "barragunda-dining", "green-olive-red-hill", "morning-sun"]
 readingTimeMinutes: 8
 featured: true
 status: "published"
@@ -21,16 +21,16 @@ clusterLinks:
   - label: "Hatted Restaurants on the Mornington Peninsula 2025"
     href: "/journal/hatted-restaurants-mornington-peninsula-2025/"
   - label: "Where to Stay on the Mornington Peninsula"
-    href: "/journal/where-to-stay-mornington-peninsula/"
+    href: "/stay/best-accommodation/"
   - label: "The Couples' Weekend on the Mornington Peninsula"
-    href: "/journal/the-couples-weekend/"
+    href: "/explore/plans/the-couples-weekend/"
 faq:
   - question: "Which are the best restaurants for a long lunch on the Mornington Peninsula?"
     answer: "Ten Minutes by Tractor (two hats GFG 2025) for the highest-precision degustation. Montalto for a warmer estate experience with a sculpture garden. Laura at Pt Leo Estate for the most cinematic setting with bay views. Tedesca Osteria for something more intimate and farmhouse-style. All require advance booking."
   - question: "When is the best time to book a Peninsula winery long lunch?"
-    answer: "Saturday lunch is the Peninsula's strongest format — the kitchens are fully staffed and a long meal followed by an unscheduled afternoon is the experience the region was built for. Book four to six weeks ahead for hatted restaurants on summer or long-weekend Saturdays."
+    answer: "Saturday lunch is the Peninsula's strongest format - the kitchens are fully staffed and a long meal followed by an unscheduled afternoon is the experience the region was built for. Book four to six weeks ahead for hatted restaurants on summer or long-weekend Saturdays."
   - question: "How long does a proper long lunch take at a Peninsula restaurant?"
-    answer: "Two to three hours minimum at Montalto or Ten Minutes by Tractor; up to four hours at Laura at Pt Leo Estate if you include time in the sculpture park before sitting down. Plan nothing substantial in the two hours after lunch — the best Peninsula long lunches end in a slow walk, not a drive."
+    answer: "Two to three hours minimum at Montalto or Ten Minutes by Tractor; up to four hours at Laura at Pt Leo Estate if you include time in the sculpture park before sitting down. Plan nothing substantial in the two hours after lunch - the best Peninsula long lunches end in a slow walk, not a drive."
 ---
 
 The case for the Mornington Peninsula long lunch is straightforward: nowhere within ninety minutes of Melbourne pairs this kind of kitchen ambition, wine pedigree, and landscape. Sydney people know it. They fly down for it.

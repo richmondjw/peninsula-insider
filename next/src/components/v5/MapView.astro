@@ -1,0 +1,1383 @@
+---
+/**
+ * MapView (v5) - THE one map component (page-redesigns-hubs.md section 9,
+ * block 16: four implementations become one). Consumed by /map/ (standalone
+ * destination) and by any listing surface as the Map half of the List/Map
+ * toggle (followView mode, driven by MapToggle's pi:view-toggle event).
+ *
+ * Self-hosted Leaflet + markercluster via npm (no unpkg CDN, TOOL-08); the
+ * JS loads lazily on first visibility, and a visible failure state plus the
+ * always-rendered list keep the surface usable when map assets fail.
+ *
+ * Accessibility model (audit TOOL-18): the server-rendered side panel is the
+ * first-class keyboard/SR path. It mirrors the visible pins one-to-one,
+ * supports arrow-key row navigation, and every row carries a real link to
+ * the entity page. Pins are reached from rows, not by faking focusable
+ * Leaflet markers. Pin tap opens a peek (docked panel card on desktop,
+ * 40/90 percent bottom sheet on mobile) with verdict, View, Save and + Trip.
+ *
+ * Filter contract: rows carry the shared facet vocabulary (lib/facets.ts)
+ * and the island listens to pi:filters-changed from lib/v5-filter-state, so
+ * URL params (mood, place, price, party, cat, date) travel between list and
+ * map views of any surface. Standalone mode renders its own chip bar
+ * (FACET_OPTIONS cat + place), count line, Clear, More-filters sheet and the
+ * page's single #pi-results-status live region; embedded mode leaves all of
+ * that to the host page's FilterBar.
+ *
+ * No geolocation anywhere (James 2026-07-11); no fly animation under
+ * prefers-reduced-motion.
+ */
+import { FACET_OPTIONS, PLACE_TO_REGION, type FacetKey } from '../../lib/facets';
+import FilterSheet from './FilterSheet.astro';
+
+export interface MapViewItem {
+  /** Stable id, e.g. "venue:foxeys-hangout". */
+  id: string;
+  /** Save-store kind: venue | experience | place | event | ... */
+  kind: string;
+  slug: string;
+  title: string;
+  href: string;
+  lat: number;
+  lng: number;
+  /** Critic verdict line, 25 words or fewer, same source as the cards. */
+  verdict?: string;
+  /** Up to 3 short meta chips (type label, town, price band glyph). */
+  meta?: string[];
+  /** Pin colour group. */
+  group?: 'eat' | 'wine' | 'stay' | 'do' | 'place';
+  /** Shared facet vocabulary values from getFacets(kind, data). */
+  facets: Partial<Record<FacetKey, string[]>>;
+}
+
+export interface Props {
+  items: MapViewItem[];
+  /**
+   * true on /map/: full-height layout plus the island renders its own chip
+   * bar, count line, FilterSheet and #pi-results-status live region.
+   * false (default) when embedded behind a host page's FilterBar/MapToggle.
+   */
+  standalone?: boolean;
+  /**
+   * Embedded mode: keep the island hidden until the URL says view=map
+   * (MapToggle contract). The host hides its own list when view=map.
+   */
+  followView?: boolean;
+  /** Plural noun for count copy. */
+  noun?: string;
+  /** Analytics surface context. */
+  surface?: string;
+  /** Canvas height when embedded (CSS length). */
+  height?: string;
+  label?: string;
+}
+
+const {
+  items,
+  standalone = false,
+  followView = false,
+  noun = 'places',
+  surface = 'map',
+  height = '480px',
+  label = 'Map view',
+} = Astro.props;
+
+const validItems = items.filter((it) => Number.isFinite(it.lat) && Number.isFinite(it.lng));
+
+// Standalone chip bar: the five regions plus high-signal categories, values
+// and labels straight from FACET_OPTIONS (no private taxonomy terms).
+const REGION_VALUES = new Set(Object.values(PLACE_TO_REGION));
+const CAT_PICKS = ['restaurant', 'cafe', 'winery', 'brewery', 'beach', 'walk', 'market', 'hotel'];
+const chips: { key: FacetKey; value: string; label: string }[] = standalone
+  ? [
+      ...FACET_OPTIONS.cat
+        .filter((o) => CAT_PICKS.includes(o.value))
+        .sort((a, b) => CAT_PICKS.indexOf(a.value) - CAT_PICKS.indexOf(b.value))
+        .map((o) => ({ key: 'cat' as FacetKey, value: o.value, label: o.label })),
+      ...FACET_OPTIONS.place
+        .filter((o) => REGION_VALUES.has(o.value))
+        .map((o) => ({ key: 'place' as FacetKey, value: o.value, label: o.label })),
+    ]
+  : [];
+---
+
+<section
+  class:list={['v5-mapview', { 'v5-mapview--full': standalone }]}
+  data-v5-mapview
+  data-standalone={standalone ? 'true' : undefined}
+  data-follow-view={followView ? 'true' : undefined}
+  data-noun={noun}
+  data-surface={surface}
+  aria-label={label}
+  style={!standalone ? `--v5-map-h: ${height};` : undefined}
+  hidden={followView ? true : undefined}
+>
+  {
+    standalone && (
+      <div class="v5-mapview__chrome">
+        <div class="v5-mapview__chips" data-map-chip-scroll>
+          {chips.map((chip) => (
+            <button
+              type="button"
+              class="v5-mapview__chip"
+              data-map-chip
+              data-key={chip.key}
+              data-value={chip.value}
+              data-evt="filter_apply"
+              aria-pressed="false"
+            >
+              {chip.label}
+            </button>
+          ))}
+          <button
+            type="button"
+            class="v5-mapview__chip v5-mapview__chip--more"
+            data-sheet-open
+            data-evt="filter_open"
+            aria-haspopup="dialog"
+          >
+            More filters
+          </button>
+        </div>
+        <p class="v5-mapview__meta-line">
+          <span data-filter-count></span>
+          <button type="button" class="v5-mapview__clear" data-map-clear data-evt="filter_clear" hidden>
+            Clear filters
+          </button>
+        </p>
+        <p id="pi-results-status" class="v5-vh" role="status" aria-live="polite"></p>
+      </div>
+    )
+  }
+
+  <div class="v5-mapview__body">
+    <aside class="v5-mapview__panel" data-map-list-panel aria-label={`${label}: results list`}>
+      <div class="v5-mapview__panel-head">
+        <p class="v5-mapview__panel-count" data-map-panel-count>{validItems.length} on the map</p>
+        <button type="button" class="v5-mapview__panel-close" data-map-list-close aria-label="Close the list and return to the map">
+          Map
+        </button>
+      </div>
+      <ul class="v5-mapview__rows" data-map-rows>
+        {
+          validItems.map((it) => {
+            const metaLine = (it.meta ?? []).filter(Boolean).slice(0, 3).join(' · ');
+            const facetAttr = JSON.stringify(it.facets ?? {});
+            return (
+              <li
+                class="v5-mapview__row"
+                data-map-item
+                data-id={it.id}
+                data-kind={it.kind}
+                data-slug={it.slug}
+                data-href={it.href}
+                data-lat={it.lat}
+                data-lng={it.lng}
+                data-group={it.group ?? 'do'}
+                data-verdict={it.verdict ?? ''}
+                data-metaline={metaLine}
+                data-title={it.title}
+                {...(standalone ? { 'data-facets': facetAttr } : { 'data-map-facets': facetAttr })}
+              >
+                <button
+                  type="button"
+                  class="v5-mapview__rowbtn"
+                  data-row-show
+                  aria-label={`Show ${it.title} on the map`}
+                >
+                  <span class={`v5-mapview__dot v5-mapview__dot--${it.group ?? 'do'}`} aria-hidden="true"></span>
+                  <span class="v5-mapview__rowtext">
+                    <span class="v5-mapview__rowname">{it.title}</span>
+                    {it.verdict && <span class="v5-mapview__rowverdict">{it.verdict}</span>}
+                    {metaLine && <span class="v5-mapview__rowmeta">{metaLine}</span>}
+                  </span>
+                </button>
+                <a class="v5-mapview__rowlink" href={it.href} data-evt="card_click">
+                  View<span class="v5-vh">: {it.title}</span>
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+      <p
+        class="v5-mapview__empty"
+        {...(standalone ? { 'data-filter-empty': '' } : { 'data-map-empty': '' })}
+        hidden
+      >
+        Nothing matches those filters. Clear one and the pins come back.
+      </p>
+    </aside>
+
+    <div class="v5-mapview__canvas-wrap">
+      <div class="v5-mapview__canvas" data-map-canvas aria-label="Map of the Mornington Peninsula. Use the results list for keyboard access."></div>
+      <button
+        type="button"
+        class="v5-mapview__listpill"
+        data-map-list-open
+        data-evt="map_toggle"
+        aria-expanded="false"
+      >
+        List
+      </button>
+      <div class="v5-mapview__fail" data-map-fail hidden>
+        <p><strong>The map could not load.</strong> The full list of {noun} still works, and every entry links to its page.</p>
+        <button type="button" class="v5-mapview__fail-list" data-map-fail-list>Open the list</button>
+      </div>
+      <p class="v5-mapview__attribution">Tiles by OpenStreetMap contributors. Editorial pins by Peninsula Insider.</p>
+    </div>
+
+    <div class="v5-mapview__peek" data-map-peek role="region" aria-label="Selected place" tabindex="-1" hidden>
+      <button type="button" class="v5-mapview__peek-handle" data-peek-expand aria-expanded="false" aria-label="Expand details">
+        <span aria-hidden="true"></span>
+      </button>
+      <button type="button" class="v5-mapview__peek-close" data-peek-close aria-label="Close details">&times;</button>
+      <p class="v5-mapview__peek-meta" data-peek-meta></p>
+      <h3 class="v5-mapview__peek-title" data-peek-title></h3>
+      <p class="v5-mapview__peek-verdict" data-peek-verdict></p>
+      <div class="v5-mapview__peek-actions">
+        <a class="v5-mapview__peek-view" data-peek-view data-evt="card_click" href="#">View</a>
+        <button type="button" class="v5-mapview__peek-save" data-peek-save data-evt="save_add" aria-pressed="false">Save</button>
+        <button type="button" class="v5-mapview__peek-trip" data-peek-trip data-evt="trip_add">+ Trip</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+{/* Pins carry no reliable date facets; drop the When group so a date filter
+    cannot blank the map (matching model: missing key = no match). */}
+{standalone && <FilterSheet noun={noun} facets={['place', 'cat', 'price', 'mood', 'party']} />}
+
+<style>
+  .v5-mapview {
+    position: relative;
+    /* Contain the map's internal z-index stack (list panel, peek card,
+       controls run up to z-index 1200) so it cannot leak into the root
+       stacking context and paint over the sticky masthead / mega menu. */
+    isolation: isolate;
+    background: var(--bg);
+  }
+
+  /* ── Standalone chip bar ── */
+  .v5-mapview__chrome {
+    padding: var(--space-2, 0.5rem) 0 var(--space-1, 0.25rem);
+    border-bottom: 1px solid var(--border);
+    background: var(--bg);
+  }
+  .v5-mapview--full .v5-mapview__chrome {
+    padding-inline: clamp(1rem, 4vw, 2rem);
+  }
+  .v5-mapview__chips {
+    display: flex;
+    gap: var(--space-2, 0.5rem);
+    overflow-x: auto;
+    padding: 2px 2px 6px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .v5-mapview__chips::-webkit-scrollbar {
+    display: none;
+  }
+  .v5-mapview__chip {
+    font-family: var(--font-ui, var(--font-ui));
+    font-size: var(--fs-200, 0.8125rem);
+    font-weight: var(--fw-medium, 500);
+    color: var(--text);
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 0 1rem;
+    min-height: 48px;
+    white-space: nowrap;
+    cursor: pointer;
+    transition:
+      background 0.15s var(--ease),
+      border-color 0.15s var(--ease),
+      color 0.15s var(--ease);
+  }
+  .v5-mapview__chip:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .v5-mapview__chip:focus-visible {
+    outline: var(--focus-ring, 2px solid var(--accent));
+    outline-offset: 2px;
+  }
+  .v5-mapview__chip[aria-pressed='true'] {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--white);
+  }
+  .v5-mapview__chip--more {
+    border-style: dashed;
+  }
+  .v5-mapview__meta-line {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3, 0.75rem);
+    margin: 0.15rem 0 0;
+    font-family: var(--font-ui, var(--font-ui));
+    font-size: var(--fs-200, 0.8125rem);
+    color: var(--soft);
+  }
+  .v5-mapview__clear {
+    background: none;
+    border: none;
+    color: var(--accent);
+    font: inherit;
+    text-decoration: underline;
+    cursor: pointer;
+    min-height: 48px;
+    padding: 0 0.25rem;
+  }
+  .v5-mapview__clear:focus-visible {
+    outline: var(--focus-ring, 2px solid var(--accent));
+    outline-offset: 2px;
+  }
+
+  /* ── Split body ── */
+  .v5-mapview__body {
+    position: relative;
+    display: flex;
+    height: var(--v5-map-h, 480px);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-m, 10px);
+    overflow: hidden;
+    background: var(--bg-alt);
+  }
+  .v5-mapview--full .v5-mapview__body {
+    height: clamp(440px, calc(100dvh - 250px), 960px);
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+
+  /* ── Side panel: the accessible path ── */
+  .v5-mapview__panel {
+    flex: 0 0 380px;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    background: var(--white);
+    border-right: 1px solid var(--border);
+    z-index: 2;
+  }
+  .v5-mapview__panel-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2, 0.5rem);
+    padding: var(--space-3, 0.75rem) var(--space-4, 1rem) var(--space-2, 0.5rem);
+    border-bottom: 1px solid var(--border);
+  }
+  .v5-mapview__panel-count {
+    margin: 0;
+    font-family: var(--font-ui, var(--font-ui));
+    font-size: var(--fs-200, 0.8125rem);
+    color: var(--soft);
+  }
+  .v5-mapview__panel-close {
+    display: none;
+    font-family: var(--font-ui, var(--font-ui));
+    font-size: var(--fs-200, 0.8125rem);
+    font-weight: var(--fw-medium, 500);
+    color: var(--text);
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    min-height: 48px;
+    padding: 0 1rem;
+    cursor: pointer;
+  }
+  .v5-mapview__rows {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+    flex: 1 1 auto;
+  }
+  .v5-mapview__row {
+    display: flex;
+    align-items: stretch;
+    gap: var(--space-1, 0.25rem);
+    border-bottom: 1px solid var(--border);
+  }
+  .v5-mapview__row[data-selected='true'] {
+    background: var(--bg-alt);
+  }
+  .v5-mapview__rowbtn {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3, 0.75rem);
+    text-align: left;
+    background: none;
+    border: none;
+    padding: var(--space-3, 0.75rem) var(--space-2, 0.5rem) var(--space-3, 0.75rem) var(--space-4, 1rem);
+    min-height: 48px;
+    cursor: pointer;
+    min-width: 0;
+  }
+  .v5-mapview__rowbtn:focus-visible {
+    outline: var(--focus-ring, 2px solid var(--accent));
+    outline-offset: -2px;
+  }
+  .v5-mapview__dot {
+    flex: 0 0 auto;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-top: 0.35rem;
+    border: 2px solid var(--white);
+    box-shadow: 0 0 0 1px var(--border);
+  }
+  .v5-mapview__dot--eat {
+    background: var(--accent);
+  }
+  .v5-mapview__dot--wine {
+    background: var(--acc-h);
+  }
+  .v5-mapview__dot--stay {
+    background: var(--sage-text);
+  }
+  .v5-mapview__dot--do {
+    background: var(--gold-text);
+  }
+  .v5-mapview__dot--place {
+    background: var(--dark);
+  }
+  .v5-mapview__rowtext {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    min-width: 0;
+  }
+  .v5-mapview__rowname {
+    font-family: var(--font-ui, var(--font-ui));
+    font-size: var(--fs-300, 0.9375rem);
+    font-weight: var(--fw-semibold, 600);
+    color: var(--text);
+    line-height: var(--lh-ui, 1.4);
+  }
+  .v5-mapview__rowverdict {
+    font-family: var(--font-display, var(--font-display));
+    font-style: normal;
+    font-weight: var(--fw-display-em, 600);
+    font-size: var(--fs-300, 0.9375rem);
+    color: var(--text);
+    line-height: var(--lh-dek, 1.45);
+  }
+  .v5-mapview__rowmeta {
+    font-family: var(--font-ui, var(--font-ui));
+    font-size: var(--fs-200, 0.8125rem);
+    color: var(--soft);
+  }
+  .v5-mapview__rowlink {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    align-self: center;
+    font-family: var(--font-ui, var(--font-ui));
+    font-size: var(--fs-200, 0.8125rem);
+    font-weight: var(--fw-medium, 500);
+    color: var(--accent);
+    text-decoration: underline;
+    min-height: 48px;
+    padding: 0 var(--space-4, 1rem) 0 var(--space-2, 0.5rem);
+  }
+  .v5-mapview__rowlink:focus-visible {
+    outline: var(--focus-ring, 2px solid var(--accent));
+    outline-offset: -2px;
+  }
+  .v5-mapview__empty {
+    margin: 0;
+    padding: var(--space-4, 1rem);
+    font-family: var(--font-ui, var(--font-ui));
+    font-size: var(--fs-300, 0.9375rem);
+    color: var(--soft);
+  }
+
+  /* ── Canvas ── */
+  .v5-mapview__canvas-wrap {
+    position: relative;
+    flex: 1 1 auto;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .v5-mapview__canvas {
+    flex: 1 1 auto;
+    min-height: 0;
+    background: var(--bg-alt);
+  }
+  .v5-mapview__listpill {
+    display: none;
+    position: absolute;
+    top: var(--space-3, 0.75rem);
+    /* Top-right so it clears Leaflet's top-left zoom control on mobile
+       (both were stacking in the same corner and overlapping). */
+    right: var(--space-3, 0.75rem);
+    z-index: 900;
+    font-family: var(--font-ui, var(--font-ui));
+    font-size: var(--fs-300, 0.9375rem);
+    font-weight: var(--fw-medium, 500);
+    color: var(--text);
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    min-height: 48px;
+    padding: 0 1.25rem;
+    cursor: pointer;
+    box-shadow: var(--elev-1, 0 4px 12px -6px rgba(14, 40, 34, 0.25));
+  }
+  .v5-mapview__listpill:focus-visible {
+    outline: var(--focus-ring, 2px solid var(--accent));
+    outline-offset: 2px;
+  }
+  .v5-mapview__fail {
+    position: absolute;
+    inset: 0;
+    z-index: 950;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-3, 0.75rem);
+    padding: var(--space-5, 1.5rem);
+    text-align: center;
+    background: var(--bg-alt);
+    font-family: var(--font-ui, var(--font-ui));
+    color: var(--text);
+  }
+  /* The failure overlay is opt-in via the [hidden] attribute (removed by
+     showFailure() only when Leaflet or map init actually throws). Without
+     this guard the class rule's display:flex overrides the UA [hidden]
+     rule and the overlay covers a perfectly working map. */
+  .v5-mapview__fail[hidden] {
+    display: none;
+  }
+  .v5-mapview__fail p {
+    margin: 0;
+    max-width: 34ch;
+  }
+  .v5-mapview__fail-list {
+    display: none;
+    font: inherit;
+    font-weight: var(--fw-medium, 500);
+    color: var(--white);
+    background: var(--accent);
+    border: none;
+    border-radius: 999px;
+    min-height: 48px;
+    padding: 0 1.5rem;
+    cursor: pointer;
+  }
+  .v5-mapview__attribution {
+    margin: 0;
+    padding: 0.3rem var(--space-3, 0.75rem);
+    font-family: var(--font-ui, var(--font-ui));
+    font-size: var(--fs-100, 0.75rem);
+    color: var(--soft);
+    background: var(--white);
+    border-top: 1px solid var(--border);
+  }
+
+  /* ── Peek: docked card on desktop ── */
+  .v5-mapview__peek {
+    position: absolute;
+    top: var(--space-3, 0.75rem);
+    left: var(--space-3, 0.75rem);
+    width: min(352px, calc(100% - 1.5rem));
+    z-index: 980;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-m, 10px);
+    box-shadow: var(--elev-2, 0 12px 24px -12px rgba(14, 40, 34, 0.28));
+    padding: var(--space-4, 1rem) var(--space-4, 1rem) var(--space-3, 0.75rem);
+  }
+  .v5-mapview__peek:focus-visible {
+    outline: var(--focus-ring, 2px solid var(--accent));
+    outline-offset: 2px;
+  }
+  .v5-mapview__peek-handle {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* Clear of the 48px close button in the top-right corner. */
+    right: 56px;
+    /* 44px, not 28px. The visible grip stays a 4px bar; the button around
+       it has to be a real touch target or the sheet reads as unresponsive
+       because the tap simply misses. */
+    height: 44px;
+    background: none;
+    border: none;
+    cursor: grab;
+  }
+  .v5-mapview__peek-handle span {
+    display: block;
+    width: 44px;
+    height: 4px;
+    margin: 8px auto 0;
+    border-radius: 999px;
+    background: var(--border-strong, var(--border));
+  }
+  .v5-mapview__peek-close {
+    position: absolute;
+    top: var(--space-1, 0.25rem);
+    right: var(--space-1, 0.25rem);
+    width: 48px;
+    height: 48px;
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    line-height: 1;
+    color: var(--soft);
+    cursor: pointer;
+  }
+  .v5-mapview__peek-close:focus-visible {
+    outline: var(--focus-ring, 2px solid var(--accent));
+    outline-offset: -2px;
+  }
+  .v5-mapview__peek-meta {
+    margin: 0 2.5rem 0.2rem 0;
+    font-family: var(--font-ui, var(--font-ui));
+    font-size: var(--fs-200, 0.8125rem);
+    color: var(--soft);
+  }
+  .v5-mapview__peek-title {
+    margin: 0 2.5rem 0.25rem 0;
+    font-family: var(--font-display, var(--font-display));
+    font-size: var(--fs-600, 1.375rem);
+    font-weight: var(--fw-display, 600);
+    color: var(--text);
+    line-height: var(--lh-heading, 1.2);
+  }
+  .v5-mapview__peek-verdict {
+    margin: 0 0 var(--space-3, 0.75rem);
+    font-family: var(--font-display, var(--font-display));
+    font-style: normal;
+    font-weight: var(--fw-display-em, 600);
+    font-size: var(--fs-400, 1.0625rem);
+    color: var(--text);
+    line-height: var(--lh-dek, 1.45);
+  }
+  .v5-mapview__peek-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2, 0.5rem);
+    flex-wrap: wrap;
+  }
+  .v5-mapview__peek-view {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-ui, var(--font-ui));
+    font-size: var(--fs-300, 0.9375rem);
+    font-weight: var(--fw-medium, 500);
+    color: var(--white);
+    background: var(--accent);
+    border-radius: 999px;
+    min-height: 48px;
+    padding: 0 1.4rem;
+    text-decoration: none;
+  }
+  .v5-mapview__peek-view:hover {
+    background: var(--acc-h);
+  }
+  .v5-mapview__peek-view:focus-visible {
+    outline: var(--focus-ring, 2px solid var(--accent));
+    outline-offset: 2px;
+  }
+  .v5-mapview__peek-save,
+  .v5-mapview__peek-trip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-ui, var(--font-ui));
+    font-size: var(--fs-300, 0.9375rem);
+    font-weight: var(--fw-medium, 500);
+    color: var(--text);
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    min-height: 48px;
+    padding: 0 1.1rem;
+    cursor: pointer;
+  }
+  .v5-mapview__peek-save[aria-pressed='true'] {
+    background: var(--bg-alt);
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .v5-mapview__peek-save:focus-visible,
+  .v5-mapview__peek-trip:focus-visible {
+    outline: var(--focus-ring, 2px solid var(--accent));
+    outline-offset: 2px;
+  }
+
+  .v5-vh {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* ── Mobile: full-bleed map, list one tap away, peek as bottom sheet ── */
+  @media (max-width: 879px) {
+    .v5-mapview__panel {
+      position: absolute;
+      inset: 0;
+      transform: translateX(-102%);
+      transition: transform 0.25s var(--ease);
+      flex-basis: auto;
+      width: 100%;
+      z-index: 960;
+    }
+    .v5-mapview--list-open .v5-mapview__panel {
+      transform: translateX(0);
+    }
+    .v5-mapview__panel-close {
+      display: inline-flex;
+      align-items: center;
+    }
+    .v5-mapview__listpill {
+      display: inline-flex;
+      align-items: center;
+    }
+    .v5-mapview--full .v5-mapview__body {
+      height: calc(100dvh - 210px);
+      min-height: 380px;
+    }
+    .v5-mapview__peek {
+      position: fixed;
+      top: auto;
+      left: 0;
+      right: 0;
+      /* Sit above V5BottomBar, which is fixed at bottom 0, 56px tall plus a
+         1px top border, at z-index 10000. The sheet is z-index 1200, so at
+         bottom: 0 its lowest 57px were painted UNDER the tab bar - which is
+         exactly where the View / Save / + Trip row lands, making the primary
+         actions unreachable rather than merely hidden. */
+      bottom: calc(57px + env(safe-area-inset-bottom));
+      width: 100%;
+      /* Content-driven, not a fixed 40dvh. The old fixed height did both
+         halves of the bug: too short for the content when collapsed, so the
+         actions fell into the covered zone, and at 90dvh expanded it left a
+         large dead region below a short card. Sizing to content and capping
+         means the sheet is only ever as tall as it needs to be. */
+      height: auto;
+      max-height: 46dvh;
+      border-radius: var(--radius-m, 10px) var(--radius-m, 10px) 0 0;
+      border-left: none;
+      border-right: none;
+      border-bottom: none;
+      /* 44px: the handle owns this strip, so content starts below it. */
+      padding-top: 2.75rem;
+      padding-bottom: var(--space-4, 1rem);
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      z-index: 1200;
+      transition: max-height 0.25s var(--ease);
+    }
+    .v5-mapview__peek--expanded {
+      max-height: 82dvh;
+    }
+    /* Collapsed, the verdict is clamped so the expand control has something
+       to reveal. Without this the sheet already showed everything and
+       tapping the handle changed nothing visible, which reads as broken. */
+    .v5-mapview__peek .v5-mapview__peek-verdict {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      overflow: hidden;
+    }
+    .v5-mapview__peek--expanded .v5-mapview__peek-verdict {
+      -webkit-line-clamp: unset;
+      line-clamp: unset;
+      overflow: visible;
+    }
+    /* Genuinely nothing folded away: no control rather than a dead one. */
+    .v5-mapview__peek--nofold .v5-mapview__peek-handle {
+      display: none;
+    }
+    .v5-mapview__peek-handle {
+      display: block;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .v5-mapview__panel,
+    .v5-mapview__peek,
+    .v5-mapview__chip {
+      transition: none;
+    }
+  }
+</style>
+
+<!-- Pin and cluster elements are created by Leaflet at runtime, outside the
+     scope of Astro's scoped styles, so these rules are global. Tokens only. -->
+<style is:global>
+  .v5-map-pin {
+    background: none;
+    border: none;
+  }
+  .v5-map-pin__dot {
+    display: block;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid var(--white);
+    box-shadow: 0 1px 4px color-mix(in srgb, var(--dark) 35%, transparent);
+  }
+  .v5-map-pin--eat .v5-map-pin__dot {
+    background: var(--accent);
+  }
+  .v5-map-pin--wine .v5-map-pin__dot {
+    background: var(--acc-h);
+  }
+  .v5-map-pin--stay .v5-map-pin__dot {
+    background: var(--sage-text);
+  }
+  .v5-map-pin--do .v5-map-pin__dot {
+    background: var(--gold-text);
+  }
+  .v5-map-pin--place .v5-map-pin__dot {
+    background: var(--dark);
+  }
+  .v5-mapview .marker-cluster-small,
+  .v5-mapview .marker-cluster-medium,
+  .v5-mapview .marker-cluster-large {
+    background-color: color-mix(in srgb, var(--accent) 25%, transparent);
+  }
+  .v5-mapview .marker-cluster-small div,
+  .v5-mapview .marker-cluster-medium div,
+  .v5-mapview .marker-cluster-large div {
+    background-color: var(--accent);
+    color: var(--white);
+    font-family: var(--font-ui, var(--font-ui));
+    font-weight: var(--fw-semibold, 600);
+  }
+  .v5-mapview .leaflet-container {
+    font-family: var(--font-ui, var(--font-ui));
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .v5-mapview .leaflet-zoom-anim .leaflet-zoom-animated,
+    .v5-mapview .leaflet-fade-anim .leaflet-tile {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  import 'leaflet/dist/leaflet.css';
+  import 'leaflet.markercluster/dist/MarkerCluster.css';
+  import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
+  import {
+    initFilterState,
+    getState,
+    getView,
+    commit,
+    toggleValue,
+    isEmptyState,
+    itemMatches,
+    parseItemFacets,
+    announce,
+    type FilterState,
+    type FilterKey,
+  } from '../../lib/v5-filter-state';
+  import { toggleSave, isSaved, tripAdd, type SaveKind } from '../../lib/v5-store';
+  import { initV5Analytics } from '../../lib/v5-analytics';
+
+  interface RowItem {
+    id: string;
+    kind: string;
+    slug: string;
+    href: string;
+    title: string;
+    verdict: string;
+    metaLine: string;
+    group: string;
+    lat: number;
+    lng: number;
+    facets: FilterState;
+    row: HTMLElement;
+    visible: boolean;
+    marker: any | null;
+  }
+
+  const REDUCED = () =>
+    typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const MOBILE = () =>
+    typeof window !== 'undefined' && window.matchMedia('(max-width: 879px)').matches;
+
+  /** Lazy, memoised Leaflet loader. markercluster augments the same module
+   *  namespace, so one await gives us L.markerClusterGroup too. */
+  let leafletPromise: Promise<any> | null = null;
+  function loadLeaflet(): Promise<any> {
+    if (!leafletPromise) {
+      leafletPromise = import('leaflet').then(async (mod) => {
+        await import('leaflet.markercluster');
+        return (mod as any).default ?? mod;
+      });
+    }
+    return leafletPromise;
+  }
+
+  function hydrate(root: HTMLElement) {
+    if ((root as any)._piInit) return;
+    (root as any)._piInit = true;
+
+    const standalone = root.dataset.standalone === 'true';
+    const followView = root.dataset.followView === 'true';
+    const noun = root.dataset.noun || 'places';
+
+    initV5Analytics();
+    initFilterState({ noun });
+
+    /* ---------- collect rows ---------- */
+    const items: RowItem[] = [];
+    root.querySelectorAll<HTMLElement>('[data-map-item]').forEach((row) => {
+      const facetRaw = row.getAttribute('data-facets') ?? row.getAttribute('data-map-facets');
+      items.push({
+        id: row.dataset.id || '',
+        kind: row.dataset.kind || 'venue',
+        slug: row.dataset.slug || '',
+        href: row.dataset.href || '#',
+        title: row.dataset.title || '',
+        verdict: row.dataset.verdict || '',
+        metaLine: row.dataset.metaline || '',
+        group: row.dataset.group || 'do',
+        lat: Number(row.dataset.lat),
+        lng: Number(row.dataset.lng),
+        facets: parseItemFacets(facetRaw),
+        row,
+        visible: true,
+        marker: null,
+      });
+    });
+
+    /* ---------- element handles ---------- */
+    const canvas = root.querySelector<HTMLElement>('[data-map-canvas]');
+    const panel = root.querySelector<HTMLElement>('[data-map-list-panel]');
+    const panelCount = root.querySelector<HTMLElement>('[data-map-panel-count]');
+    const emptyEl = root.querySelector<HTMLElement>('[data-map-empty]');
+    const failEl = root.querySelector<HTMLElement>('[data-map-fail]');
+    const peek = root.querySelector<HTMLElement>('[data-map-peek]');
+    const listPill = root.querySelector<HTMLButtonElement>('[data-map-list-open]');
+    const listClose = root.querySelector<HTMLButtonElement>('[data-map-list-close]');
+
+    let map: any = null;
+    let cluster: any = null;
+    let mapReady = false;
+    let mapFailed = false;
+    let didFitBounds = false;
+    let currentItem: RowItem | null = null;
+    let peekInvoker: HTMLElement | null = null;
+    let storeUnsub: (() => void) | null = null;
+
+    /* ---------- filters -> rows + markers ---------- */
+    function applyFilters(filters: FilterState) {
+      let shown = 0;
+      for (const it of items) {
+        const ok = itemMatches(it.facets, filters);
+        it.visible = ok;
+        if (ok) shown += 1;
+        // Standalone rows carry data-facets and were already toggled by
+        // applyToDom; repeating the toggle is idempotent. Embedded rows are
+        // ours alone to hide.
+        it.row.toggleAttribute('hidden', !ok);
+        if (mapReady && cluster && it.marker) {
+          if (ok && !cluster.hasLayer(it.marker)) cluster.addLayer(it.marker);
+          if (!ok && cluster.hasLayer(it.marker)) cluster.removeLayer(it.marker);
+        }
+      }
+      if (panelCount) {
+        panelCount.textContent = isEmptyState(filters)
+          ? `${items.length} on the map`
+          : `${shown} of ${items.length} on the map`;
+      }
+      if (emptyEl) emptyEl.toggleAttribute('hidden', shown !== 0);
+      if (currentItem && !currentItem.visible) closePeek(false);
+    }
+
+    document.addEventListener('pi:filters-changed', ((e: CustomEvent) => {
+      applyFilters(e.detail.filters as FilterState);
+    }) as EventListener);
+
+    /* ---------- standalone chip bar ---------- */
+    if (standalone) {
+      const paintChips = (state: FilterState) => {
+        root.querySelectorAll<HTMLButtonElement>('[data-map-chip]').forEach((chip) => {
+          const key = chip.dataset.key as FilterKey;
+          const value = chip.dataset.value || '';
+          const on = !!state[key] && state[key]!.indexOf(value) !== -1;
+          chip.setAttribute('aria-pressed', on ? 'true' : 'false');
+        });
+        const clear = root.querySelector<HTMLElement>('[data-map-clear]');
+        if (clear) clear.toggleAttribute('hidden', isEmptyState(state));
+      };
+      paintChips(getState());
+      root.querySelectorAll<HTMLButtonElement>('[data-map-chip]').forEach((chip) => {
+        chip.addEventListener('click', () => {
+          const key = chip.dataset.key as FilterKey;
+          const value = chip.dataset.value || '';
+          if (!key || !value) return;
+          commit(toggleValue(getState(), key, value), { source: 'chip', noun });
+        });
+      });
+      root.querySelector('[data-map-clear]')?.addEventListener('click', () => {
+        commit({}, { source: 'clear', noun });
+      });
+      document.addEventListener('pi:filters-changed', ((e: CustomEvent) => {
+        paintChips(e.detail.filters as FilterState);
+      }) as EventListener);
+    }
+
+    /* ---------- peek ---------- */
+    function paintSaveState(it: RowItem) {
+      const btn = peek?.querySelector<HTMLButtonElement>('[data-peek-save]');
+      if (!btn) return;
+      let saved = false;
+      try {
+        saved = isSaved(it.kind as SaveKind, it.slug);
+      } catch {
+        saved = false;
+      }
+      btn.setAttribute('aria-pressed', saved ? 'true' : 'false');
+      btn.textContent = saved ? 'Saved' : 'Save';
+      btn.setAttribute('data-evt', saved ? 'save_remove' : 'save_add');
+      btn.setAttribute('aria-label', saved ? `Remove ${it.title} from saved` : `Save ${it.title}`);
+    }
+
+    function openPeek(it: RowItem, opts: { focus?: boolean; invoker?: HTMLElement | null } = {}) {
+      if (!peek) return;
+      currentItem = it;
+      peekInvoker = opts.invoker ?? null;
+      const set = (sel: string, text: string) => {
+        const el = peek.querySelector<HTMLElement>(sel);
+        if (el) {
+          el.textContent = text;
+          el.toggleAttribute('hidden', !text);
+        }
+      };
+      set('[data-peek-meta]', it.metaLine);
+      set('[data-peek-title]', it.title);
+      set('[data-peek-verdict]', it.verdict);
+      const view = peek.querySelector<HTMLAnchorElement>('[data-peek-view]');
+      if (view) {
+        view.href = it.href;
+        view.setAttribute('aria-label', `View ${it.title}`);
+      }
+      const trip = peek.querySelector<HTMLButtonElement>('[data-peek-trip]');
+      if (trip) {
+        trip.disabled = false;
+        trip.textContent = '+ Trip';
+        trip.setAttribute('aria-label', `Add ${it.title} to my trip`);
+      }
+      paintSaveState(it);
+      peek.classList.remove('v5-mapview__peek--expanded');
+      peek.querySelector('[data-peek-expand]')?.setAttribute('aria-expanded', 'false');
+      peek.removeAttribute('hidden');
+      /* The sheet scrolls, so a retained scrollTop from the previous place
+         left the meta line clipped under the top padding. */
+      peek.scrollTop = 0;
+      /* Hide the expand control when the verdict is not actually clamped,
+         so the handle never sits there doing nothing. Measured after paint
+         because the text has only just been written. */
+      requestAnimationFrame(() => {
+        const v = peek.querySelector<HTMLElement>('[data-peek-verdict]');
+        const folded = !!v && v.scrollHeight > v.clientHeight + 1;
+        peek.classList.toggle('v5-mapview__peek--nofold', !folded);
+      });
+      items.forEach((x) => x.row.removeAttribute('data-selected'));
+      it.row.setAttribute('data-selected', 'true');
+      if (mapReady && cluster && it.marker) {
+        try {
+          cluster.zoomToShowLayer(it.marker, () => {});
+        } catch {
+          map?.setView([it.lat, it.lng], Math.max(map.getZoom(), 14), { animate: !REDUCED() });
+        }
+      }
+      if (opts.focus) peek.focus();
+      announce(`${it.title}. Details open.`);
+    }
+
+    function closePeek(restoreFocus: boolean) {
+      if (!peek || peek.hasAttribute('hidden')) return;
+      peek.setAttribute('hidden', '');
+      peek.classList.remove('v5-mapview__peek--expanded');
+      items.forEach((x) => x.row.removeAttribute('data-selected'));
+      if (restoreFocus && peekInvoker && document.contains(peekInvoker)) peekInvoker.focus();
+      currentItem = null;
+      peekInvoker = null;
+    }
+
+    peek?.querySelector('[data-peek-close]')?.addEventListener('click', () => closePeek(true));
+
+    peek?.querySelector('[data-peek-save]')?.addEventListener('click', () => {
+      if (!currentItem) return;
+      const it = currentItem;
+      try {
+        toggleSave({ kind: it.kind as SaveKind, slug: it.slug, title: it.title, href: it.href });
+      } catch {
+        return;
+      }
+      paintSaveState(it);
+    });
+
+    peek?.querySelector('[data-peek-trip]')?.addEventListener('click', (e) => {
+      if (!currentItem) return;
+      const it = currentItem;
+      const btn = e.currentTarget as HTMLButtonElement;
+      try {
+        tripAdd({ kind: it.kind as SaveKind, slug: it.slug, title: it.title, href: it.href });
+      } catch {
+        return;
+      }
+      btn.textContent = 'Added to trip';
+      btn.disabled = true;
+      announce(`${it.title} added to your trip.`);
+      window.setTimeout(() => {
+        btn.textContent = '+ Trip';
+        btn.disabled = false;
+      }, 2000);
+    });
+
+    // Keep the Save state honest when the store changes elsewhere (other
+    // tabs, SaveControl instances, cloud pulls).
+    const onStoreChange = () => {
+      if (currentItem) paintSaveState(currentItem);
+    };
+    window.addEventListener('pi:store-changed', onStoreChange);
+    storeUnsub = () => window.removeEventListener('pi:store-changed', onStoreChange);
+    void storeUnsub;
+
+    // Expand / collapse the mobile sheet.
+    const expandBtn = peek?.querySelector<HTMLButtonElement>('[data-peek-expand]');
+    expandBtn?.addEventListener('click', () => {
+      if (!peek) return;
+      const expanded = peek.classList.toggle('v5-mapview__peek--expanded');
+      expandBtn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+      if (!expanded) peek.scrollTop = 0;
+    });
+
+    // Swipe on the sheet handle: up expands, down collapses then closes.
+    let touchY: number | null = null;
+    expandBtn?.addEventListener(
+      'touchstart',
+      (e) => {
+        touchY = e.touches[0]?.clientY ?? null;
+      },
+      { passive: true },
+    );
+    expandBtn?.addEventListener(
+      'touchend',
+      (e) => {
+        if (touchY === null || !peek) return;
+        const delta = (e.changedTouches[0]?.clientY ?? touchY) - touchY;
+        touchY = null;
+        if (delta < -40) {
+          peek.classList.add('v5-mapview__peek--expanded');
+          expandBtn.setAttribute('aria-expanded', 'true');
+        } else if (delta > 40) {
+          if (peek.classList.contains('v5-mapview__peek--expanded')) {
+            peek.classList.remove('v5-mapview__peek--expanded');
+            expandBtn.setAttribute('aria-expanded', 'false');
+          } else {
+            closePeek(false);
+          }
+        }
+      },
+      { passive: true },
+    );
+
+    root.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && peek && !peek.hasAttribute('hidden')) {
+        e.stopPropagation();
+        closePeek(true);
+      }
+    });
+
+    /* ---------- rows: click + arrow-key navigation ---------- */
+    items.forEach((it) => {
+      const showBtn = it.row.querySelector<HTMLButtonElement>('[data-row-show]');
+      showBtn?.addEventListener('click', () => {
+        void ensureMap().then(() => {
+          openPeek(it, { focus: true, invoker: showBtn });
+        });
+      });
+    });
+
+    root.querySelector('[data-map-rows]')?.addEventListener('keydown', (e) => {
+      const ev = e as KeyboardEvent;
+      if (['ArrowDown', 'ArrowUp', 'Home', 'End'].indexOf(ev.key) === -1) return;
+      const buttons = items
+        .filter((it) => it.visible)
+        .map((it) => it.row.querySelector<HTMLButtonElement>('[data-row-show]'))
+        .filter((b): b is HTMLButtonElement => !!b);
+      if (!buttons.length) return;
+      const active = document.activeElement as HTMLElement | null;
+      const idx = buttons.findIndex((b) => b === active || b.contains(active as Node));
+      if (idx === -1 && ev.key !== 'Home' && ev.key !== 'End') return;
+      ev.preventDefault();
+      let next = idx;
+      if (ev.key === 'ArrowDown') next = Math.min(idx + 1, buttons.length - 1);
+      if (ev.key === 'ArrowUp') next = Math.max(idx - 1, 0);
+      if (ev.key === 'Home') next = 0;
+      if (ev.key === 'End') next = buttons.length - 1;
+      buttons[next]?.focus();
+      buttons[next]?.scrollIntoView({ block: 'nearest' });
+    });
+
+    /* ---------- mobile list overlay ---------- */
+    function setListOpen(open: boolean) {
+      root.classList.toggle('v5-mapview--list-open', open);
+      listPill?.setAttribute('aria-expanded', open ? 'true' : 'false');
+      announce(open ? 'Results list open.' : 'Map shown.');
+      if (open) {
+        panel?.querySelector<HTMLElement>('[data-row-show]')?.focus();
+      } else {
+        listPill?.focus();
+      }
+    }
+    listPill?.addEventListener('click', () => setListOpen(true));
+    listClose?.addEventListener('click', () => setListOpen(false));
+    root.querySelector('[data-map-fail-list]')?.addEventListener('click', () => setListOpen(true));
+
+    /* ---------- Leaflet ---------- */
+    function showFailure() {
+      mapFailed = true;
+      if (failEl) {
+        failEl.removeAttribute('hidden');
+        const failBtn = failEl.querySelector<HTMLElement>('[data-map-fail-list]');
+        if (failBtn && MOBILE()) failBtn.style.display = 'inline-flex';
+      }
+      announce('The map could not load. The results list still works.');
+    }
+
+    async function ensureMap(): Promise<void> {
+      if (mapReady || mapFailed || !canvas) return;
+      let L: any;
+      try {
+        L = await loadLeaflet();
+      } catch (err) {
+        console.error('[v5-mapview] Leaflet failed to load', err);
+        showFailure();
+        return;
+      }
+      if (mapReady) return;
+      try {
+        const reduced = REDUCED();
+        map = L.map(canvas, {
+          attributionControl: true,
+          scrollWheelZoom: false,
+          zoomAnimation: !reduced,
+          fadeAnimation: !reduced,
+          markerZoomAnimation: !reduced,
+        }).setView([-38.4, 145.0], 11);
+        canvas.addEventListener('focus', () => map.scrollWheelZoom.enable());
+        canvas.addEventListener('blur', () => map.scrollWheelZoom.disable());
+        map.on('click', () => map.scrollWheelZoom.enable());
+        // Panning dismisses the mobile sheet; the map stays live behind it.
+        map.on('dragstart', () => {
+          if (MOBILE()) closePeek(false);
+        });
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 18,
+          attribution: '&copy; OpenStreetMap contributors',
+        }).addTo(map);
+
+        // Cluster tap zooms to the cluster bounds (markercluster default).
+        cluster = L.markerClusterGroup({
+          showCoverageOnHover: false,
+          maxClusterRadius: 45,
+          zoomToBoundsOnClick: true,
+        });
+
+        const iconFor = (group: string) =>
+          L.divIcon({
+            className: `v5-map-pin v5-map-pin--${group}`,
+            html: '<span class="v5-map-pin__dot"></span>',
+            iconSize: [22, 22],
+            iconAnchor: [11, 11],
+          });
+
+        for (const it of items) {
+          if (!Number.isFinite(it.lat) || !Number.isFinite(it.lng)) continue;
+          const marker = L.marker([it.lat, it.lng], {
+            icon: iconFor(it.group),
+            keyboard: false,
+            title: it.title,
+          });
+          marker.on('click', () => openPeek(it, { focus: false }));
+          it.marker = marker;
+          if (it.visible) cluster.addLayer(marker);
+        }
+        map.addLayer(cluster);
+        mapReady = true;
+        fitToVisible();
+      } catch (err) {
+        console.error('[v5-mapview] map init failed', err);
+        showFailure();
+      }
+    }
+
+    function fitToVisible() {
+      if (!mapReady || didFitBounds) return;
+      const layers = items.filter((it) => it.visible && it.marker).map((it) => it.marker);
+      if (!layers.length) return;
+      void loadLeaflet().then((L: any) => {
+        const group = L.featureGroup(layers);
+        map.fitBounds(group.getBounds(), { padding: [30, 30], maxZoom: 13, animate: false });
+        didFitBounds = true;
+      });
+    }
+
+    /* ---------- visibility: standalone vs followView ---------- */
+    function showIsland() {
+      root.removeAttribute('hidden');
+      void ensureMap().then(() => {
+        window.setTimeout(() => {
+          map?.invalidateSize();
+          fitToVisible();
+        }, 60);
+      });
+    }
+
+    if (followView) {
+      const sync = (view: string) => {
+        if (view === 'map') showIsland();
+        else {
+          root.setAttribute('hidden', '');
+          closePeek(false);
+        }
+      };
+      sync(getView());
+      document.addEventListener('pi:view-toggle', ((e: CustomEvent) => {
+        sync(e.detail.view);
+      }) as EventListener);
+      window.addEventListener('popstate', () => sync(getView()));
+    } else {
+      showIsland();
+    }
+
+    // Initial filter pass from the URL (initFilterState already emitted its
+    // event before we subscribed, so run once by hand).
+    applyFilters(getState());
+  }
+
+  function init() {
+    document.querySelectorAll<HTMLElement>('[data-v5-mapview]').forEach(hydrate);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+  document.addEventListener('astro:page-load', init);
+</script>

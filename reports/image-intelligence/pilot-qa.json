@@ -1,0 +1,470 @@
+{
+  "generatedAt": "2026-08-01T21:01:28.726Z",
+  "mode": "dry-run",
+  "summary": {
+    "assets": 226,
+    "placements": 583,
+    "pilotPlacements": 583,
+    "directlyResolvedRate": 0.8096054888507719,
+    "resolvedOrExplicitlyExceptedRate": 1,
+    "structuredOutputValidityRate": 1,
+    "reviewItems": 226,
+    "publicWrites": 0,
+    "providerCalls": 0,
+    "estimatedCostAud": 27.12,
+    "lowMatchPlacements": 583
+  },
+  "assertions": {
+    "budgetWithinCap": true,
+    "allPlacementsResolvedOrExcepted": true,
+    "noPublicMetadataWriteBack": true,
+    "allSemanticOutputQueued": true,
+    "approvedOnlySearchIndex": true
+  },
+  "exceptions": [
+    {
+      "uri": "/images/sourced/place-arthurs-seat-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/place-ashcombe-maze-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-avani-syrah-mornington-peninsula-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-baillieu-vineyard-red-hill-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-balnarring-vineyard-quealy-wines-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-barak-estate-mornington-peninsula-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-barmah-park-wines-mornington-peninsula-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-barrymore-estate-mornington-peninsula-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-bayview-estate-mornington-peninsula-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-bdarra-estate-mornington-peninsula-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-beckingham-wines-mornington-peninsula-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-blue-range-estate-wines-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-bluestone-lane-mornington-peninsula-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-boneo-plains-mornington-peninsula-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-box-stallion-winery-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-brimsmore-park-winery-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-bristol-farm-mornington-peninsula-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-cooralook-wines-mornington-peninsula-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-craig-avon-vineyard-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-darling-park-winery-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/wine-stonier-cellar-door-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-dromana-valley-wines-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-dunns-creek-estate-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-elan-vineyard-balnarring-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-even-keel-polperro-wines-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-frogspond-winery-mornington-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-gibson-estate-mornington-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-handpicked-wines-mornington-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-harlow-park-estate-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-hickinbotham-of-dromana-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-hpr-wines-mornington-peninsula-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-hurley-vineyard-balnarring-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-jones-road-winery-dromana-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-karina-vineyard-dromana-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-kings-creek-vineyard-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-lewood-estate-mornington-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-little-valley-winery-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-mantons-creek-vineyard-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-marinda-park-vineyard-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-maritime-estate-mornington-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-martha-cove-vineyard-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-massoni-wines-mornington-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-mccrae-mist-wines-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-merli-wines-mornington-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-merricks-creek-wines-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-merricks-estate-winery-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-miceli-winery-merricks-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-morning-star-estate-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-morning-sun-vineyard-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/wine-vineyard-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-myrtaceae-winery-red-hill-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-nazaaray-winery-mornington-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-northway-downs-vineyard-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-osborns-winery-mornington-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-sorrento-foreshore-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-phaedrus-estate-mornington-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-pier-10-wines-mornington-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-point-leo-road-vineyard-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-poplar-bend-winery-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-portsea-estate-winery-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-prancing-horse-estate-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-quealy-winemakers-balnarring-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-rahona-valley-vineyard-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-red-ridge-vineyard-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-rhinotiger-bear-winery-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-rigel-wines-mornington-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-scorpo-wines-merricks-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-sea-winds-vineyard-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-seaforth-estate-mornington-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-silverwood-wines-mornington-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-somerbury-estate-winery-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-staindl-wines-mornington-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-stumpy-gully-vineyard-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-summerhill-wines-mornington-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-tanglewood-estate-mornington-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-the-cups-estate-winery-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-the-duke-vineyard-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-the-garden-vineyard-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-trofeo-estate-dromana-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-tucks-ridge-winery-red-hill-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-turramurra-estate-red-hill-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/place-greens-bush-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-underground-wine-makers-mornington-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-vale-wines-mornington-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-vidoni-estate-vineyard-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/eat-the-baths-sorrento-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/food-winery-lunch-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-whinstone-estate-winery-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-wildcroft-estate-mornington-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-winbirra-vineyard-mornington-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-yal-yal-estate-winery-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/sourced/article-yrsas-vineyard-mornington-01.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/placeholder-montalto-sculpture-trail.jpg",
+      "placements": 1
+    },
+    {
+      "uri": "/images/placeholder-bittern.jpg",
+      "placements": 1
+    },
+    {
+      "uri": "/images/placeholder.webp",
+      "placements": 1
+    },
+    {
+      "uri": "/images/placeholder-boneo.jpg",
+      "placements": 1
+    },
+    {
+      "uri": "/images/placeholder-capel-sound.jpg",
+      "placements": 1
+    },
+    {
+      "uri": "/images/placeholder-crib-point.jpg",
+      "placements": 1
+    },
+    {
+      "uri": "/images/placeholder-hastings.jpg",
+      "placements": 1
+    },
+    {
+      "uri": "/images/placeholder-mccrae.jpg",
+      "placements": 1
+    },
+    {
+      "uri": "/images/placeholder-merricks-beach.jpg",
+      "placements": 1
+    },
+    {
+      "uri": "/images/placeholder-merricks-north.jpg",
+      "placements": 1
+    },
+    {
+      "uri": "/images/placeholder-mount-eliza.jpg",
+      "placements": 1
+    },
+    {
+      "uri": "/images/placeholder-point-leo.jpg",
+      "placements": 1
+    },
+    {
+      "uri": "/images/placeholder-red-hill-south.jpg",
+      "placements": 1
+    },
+    {
+      "uri": "/images/placeholder-shoreham.jpg",
+      "placements": 1
+    },
+    {
+      "uri": "/images/placeholder-somers.jpg",
+      "placements": 1
+    },
+    {
+      "uri": "/images/placeholder-st-andrews-beach.jpg",
+      "placements": 1
+    },
+    {
+      "uri": "/images/placeholder-stony-point.jpg",
+      "placements": 1
+    },
+    {
+      "uri": "/images/placeholder-tootgarook.jpg",
+      "placements": 1
+    },
+    {
+      "uri": "/images/placeholder-tyabb.jpg",
+      "placements": 1
+    }
+  ]
+}

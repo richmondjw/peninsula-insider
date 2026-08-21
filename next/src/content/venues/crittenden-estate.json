@@ -48,9 +48,9 @@
         "closes": "18:30"
       }
     ],
-    "tastingFee": "$20",
+    "tastingFee": "Charged",
     "bookingRequired": false,
-    "tastingNote": "Bookings highly preferred. Standard Tasting $20 (6–8 wines); Premium Tasting $30 (Single Vineyard); Private Tasting Room $45. No pets."
+    "tastingNote": "Bookings highly preferred. Standard Tasting (6–8 wines); Premium Tasting (Single Vineyard); Private Tasting Room is the top tier. No pets."
   },
   "wines": {
     "winemaker": "Rollo Crittenden",
@@ -94,11 +94,11 @@
     },
     {
       "q": "Does Crittenden Estate have a restaurant?",
-      "a": "Yes — Crittenden Restaurant serves Modern Australian cuisine. Open lunch Friday–Tuesday, dinner Friday–Saturday."
+      "a": "Yes - Crittenden Restaurant serves Modern Australian cuisine. Open lunch Friday–Tuesday, dinner Friday–Saturday."
     },
     {
       "q": "Are dogs allowed at Crittenden Estate?",
-      "a": "No — the official site states no pets for the Terrace and dining areas."
+      "a": "No - the official site states no pets for the Terrace and dining areas."
     }
   ],
   "sameAs": {
@@ -123,7 +123,7 @@
   },
   "heroImage": {
     "src": "/images/sourced/place-dromana-01.webp",
-    "alt": "Mornington Peninsula landscape — representative image for Crittenden Estate",
+    "alt": "Mornington Peninsula landscape - representative image for Crittenden Estate",
     "credit": "Peninsula Insider",
     "license": "other-licensed"
   },

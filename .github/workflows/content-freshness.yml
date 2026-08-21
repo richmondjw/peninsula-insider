@@ -1,0 +1,105 @@
+name: Content Freshness - Peninsula Insider
+
+on:
+  schedule:
+    # 5:00 AM AEST = 19:00 UTC (AEST is UTC+10)
+    # One hour ahead of the daily content engine (20:00 UTC) so the engine
+    # commissions against fresh nextOccurrence / lens / status values, and
+    # ahead of the quick-note cron chain (19:45 UTC) so the day's briefs are
+    # drafted onto a page that has already shed its lapsed notes.
+    - cron: '0 19 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: content-freshness
+  cancel-in-progress: false
+
+jobs:
+  content-freshness:
+    name: Recompute occurrence, archive expired, rederive lenses
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          # Prefer the PAT (its pushes trigger build-and-deploy); fall back to
+          # the workflow token so the freshness pass still runs when the secret
+          # is unset. GITHUB_TOKEN pushes do NOT trigger other workflows, so
+          # with the fallback a freshness commit needs a manual deploy dispatch.
+          token: ${{ secrets.PAT_CONTENT_PUSH || github.token }}
+          fetch-depth: 1
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Setup Node.js (for the pre-commit house-style fixers)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: next/package-lock.json
+
+      - name: Install next dependencies (content admission gate)
+        # The pre-commit hook finishes with `npm run validate:content`. Its
+        # Astro dependency must be installed before a freshness diff can commit.
+        run: |
+          cd next
+          npm ci --prefer-offline
+
+      - name: Configure git identity
+        run: |
+          git config user.name "Peninsula Insider Engine"
+          git config user.email "engine@peninsulainsider.com.au"
+          # Auto-fix BRAND-PI house style (em-dashes) on staged content before
+          # the freshness pass commits, so generated content can't break the
+          # deploy.
+          git config core.hooksPath .githooks
+
+      # The four freshness scripts are stdlib-only, take no arguments, resolve
+      # their content directories relative to their own path, and mutate JSON /
+      # frontmatter in place. None of them commits: the commit step below owns
+      # the whole diff. Order matters: archive-expired-events reads
+      # nextOccurrence to decide whether an annual event is waiting on next
+      # year's date, so recompute-occurrence must run first.
+
+      - name: Recompute event nextOccurrence
+        run: python next/scripts/recompute-occurrence.py
+
+      - name: Archive expired events
+        run: python next/scripts/archive-expired-events.py
+
+      - name: Rederive event lenses
+        run: python next/scripts/rederive-lenses.py
+
+      - name: Archive expired quick notes
+        run: python next/scripts/archive-expired-quick-notes.py
+
+      - name: Commit and push freshness diff
+        run: |
+          git add next/src/content/events next/src/content/quick-notes
+          if git diff --cached --quiet; then
+            echo "No freshness changes today."
+            exit 0
+          fi
+          git commit -m "chore(content): daily content freshness pass $(date -u +%Y-%m-%d) [skip-review]"
+          git push
+
+      - name: Alert on failure (non-silent)
+        if: failure()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          PI_REPO_ROOT: ${{ github.workspace }}
+        run: |
+          python engine/alert.py \
+            --title "Content freshness pass failed (run #${{ github.run_number }})" \
+            --body "The freshness workflow failed before its changes could publish. Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            --dedup content-freshness-failure --severity fatal

@@ -38,7 +38,7 @@ const itemListSchema = buildItemListSchema({
   listPath: '/tour/',
   items: allTours.map(t => ({
     name: t.data.name,
-    path: `/tour/${t.data.slug}`,
+    path: `/tour/${t.data.slug}/`,
     description: t.data.intro,
     itemType: 'TouristTrip',
   })),
@@ -160,21 +160,21 @@ export const prerender = true;
         </div>
       </div>
       <div class="venues__grid venues__grid--links">
-        <div class="venue-card">
-          <h3 class="venue-card__name"><a href="/explore/plans/">Self-drive itineraries</a></h3>
-          <p class="venue-card__signature">Prefer to drive yourself? Our escape itineraries map the Peninsula in detail, sequence, timing, and the anchors that make a weekend feel intentional.</p>
-          <a href="/explore/plans/" class="venue-card__cta">Browse itineraries &rarr;</a>
-        </div>
-        <div class="venue-card">
-          <h3 class="venue-card__name"><a href="/tour/wine-tours/">Peninsula wine tours</a></h3>
-          <p class="venue-card__signature">A guided wine day removes the logistics of driving between cellar doors. We compare operators so you pick the one that fits your group.</p>
-          <a href="/tour/wine-tours/" class="venue-card__cta">Compare wine tours &rarr;</a>
-        </div>
-        <div class="venue-card">
-          <h3 class="venue-card__name"><a href="/tour/private-tours/">Private and bespoke tours</a></h3>
-          <p class="venue-card__signature">For groups who want a custom itinerary, a single vehicle, and a guide who adapts to what you actually want on the day.</p>
-          <a href="/tour/private-tours/" class="venue-card__cta">Private tour options &rarr;</a>
-        </div>
+        <div class="pi-card"><div class="pi-card__body">
+          <h3 class="pi-card__title"><a href="/explore/plans/">Self-drive itineraries</a></h3>
+          <p class="pi-card__dek">Prefer to drive yourself? Our escape itineraries map the Peninsula in detail, sequence, timing, and the anchors that make a weekend feel intentional.</p>
+          <div class="pi-card__actions"><a href="/explore/plans/" class="pi-btn pi-btn--solid">Browse itineraries &rarr;</a></div>
+        </div></div>
+        <div class="pi-card"><div class="pi-card__body">
+          <h3 class="pi-card__title"><a href="/tour/wine-tours/">Peninsula wine tours</a></h3>
+          <p class="pi-card__dek">A guided wine day removes the logistics of driving between cellar doors. We compare operators so you pick the one that fits your group.</p>
+          <div class="pi-card__actions"><a href="/tour/wine-tours/" class="pi-btn pi-btn--solid">Compare wine tours &rarr;</a></div>
+        </div></div>
+        <div class="pi-card"><div class="pi-card__body">
+          <h3 class="pi-card__title"><a href="/tour/private-tours/">Private and bespoke tours</a></h3>
+          <p class="pi-card__dek">For groups who want a custom itinerary, a single vehicle, and a guide who adapts to what you actually want on the day.</p>
+          <div class="pi-card__actions"><a href="/tour/private-tours/" class="pi-btn pi-btn--solid">Private tour options &rarr;</a></div>
+        </div></div>
       </div>
     </div>
   </section>

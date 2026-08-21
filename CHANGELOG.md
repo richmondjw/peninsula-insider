@@ -1,3 +1,395 @@
+## 2026-08-21 — Claude remote agent
+
+### Merge main into the AI-agent readiness branch
+
+**Summary**
+Resolved the merge conflicts between PR #239 (June) and two months of main. Main independently grew an agent-discoverability layer in the interim, so the resolution keeps main's maintained pipeline and re-grafts only this branch's still-unique additions.
+
+**Resolution decisions**
+- Kept main's generated `llms.txt` / `llms-full.txt` (ops/scripts/generate-llms-txt.mjs, daily tempo) and dropped this branch's hand-written `next/public/llms.txt` and `llms-full.txt.ts` endpoint.
+- Dropped this branch's `/data/events.json` in favour of main's audited `/whats-on/upcoming.json`; `/data/index.json` now points there.
+- Kept and re-grafted: `/data/{index,venues,places}.json` exports, `lastFactVerified` field + Verified row, venue JSON-LD ReserveAction/dateModified/image (now alongside main's containedInPlace + @id conventions), BaseLayout `searchMeta` Pagefind facets, `/journal/peninsula-glossary/`, the /about/ facts block, and `lint:schema`.
+- Fixed em-dash violations flagged by main's new `lint:house-style` in grafted comments.
+
+**Verification**
+`npm run build:search` (CI parity) passes end to end, including `lint:house-style`, `audit:agent-readiness`, and `assert:link-graph`. `npm run lint:schema` passes (1,674 JSON-LD blocks across 954 pages). Data exports now cover 135 venues / 37 places / 396 registry entities under main's cleaned-up content flags. Note: `npm run build` (the non-CI chain) fails in `lint:seo-architecture` with 667 pre-existing findings that also exist in main's deployed output; not introduced or addressed here.
+
+---
+
+## 2026-08-10 — Claude local agent — /explore/spas-and-wellness/ redesign
+
+### Summary
+Third page in the design-lift series (James-approved plan), same family as the
+walks v2 pattern, tuned to the spa subject: cover hero (rose treatment room,
+harbour scrim, reversed type), "The short version" navy verdict panel with the
+three calls + 4-spa index (booking-lead chips instead of walk times), four
+generous ranked venue cards (fog + locality tag on photography, harbour rank
+numerals, spa-type and booking-lead chips), a "Bathing or treatments?" two-way
+decision panel linking the hot-springs guide, "Building a spa day" as three
+itinerary cards (morning/lunch/afternoon sequencing), FAQ accordion sharing one
+array with its JSON-LD, cream notes band before the dark newsletter close.
+
+### Copy
+- "TL;DR" removed (house pattern now: "The short version").
+- Robotic SEO opener rewritten in house voice.
+- "Price point: Premium" cut (brushed the no-prices rule, inconsistent);
+  replaced with the honest booking-lead signal ("Book 2 to 3 weeks out" /
+  "Easy to book") across all four entries.
+
+### Data
+- Fixed drifted venue hero images whose alts described different photos:
+  endota-spa-mornington (town shot → spa-wellness-stones-01), one-spa-racv-
+  cape-schanck (boardwalk shot → spa-coastal-pool-01).
+
+### Files changed
+- next/src/pages/explore/spas-and-wellness.astro (rebuilt)
+- next/src/content/venues/endota-spa-mornington.json,
+  one-spa-racv-cape-schanck.json (heroImage src corrections)
+
+### Note for the content team
+The pricing lint currently fails against two UNCOMMITTED files from another
+agent session (dollar figures in content/articles/peninsula-hot-springs-vs-alba.mdx
+and an events draft verification note). Main is clean; whoever owns those edits
+must strip the figures before committing or their build will red.
+
+
+## 2026-08-09 (later) — Claude local agent — walks v2 beauty pass + journal lead cover
+
+### Summary
+James reviewed the shipped walks hub and called it under-designed ("TL;DR" label,
+no visual opening). Second pass, same content architecture:
+- **Cover hero**: Cape Schanck storm-light photograph opens the page inside a
+  contained radius-l panel with a harbour-deep bottom scrim; H1 + standfirst
+  reversed in white. (Static art direction; per-walk imagery stays CMS-bound.)
+- **"TL;DR" is gone**: replaced by "The short version", a designed harbour-navy
+  verdict panel - three ranked calls with sand rank numerals on the left, the
+  full 11-walk jump index with time stamps on the right.
+- **Editorial tier titles**: "Start here" / "Proper walks" / "Right walk, right
+  day" (was "Tier 1/2/3: ..." systems language), each with a sand rule accent.
+- **Entry cards refined**: 16/11 imagery with fog gradient + uppercase locality
+  tag on the photo, larger harbour rank numeral, chip restyle, "BEST FOR" label
+  in tide-blue small caps.
+- **Page rhythm**: white ranking → cream notes band (What to bring / FAQ /
+  Further reading) → dark newsletter close. The cream token finally earns its keep.
+- **Journal lead feature** (James-approved option 2): rebuilt as a full-bleed
+  magazine cover - photo fills the panel, bottom-up harbour scrim (>=0.82 alpha
+  through the whole content zone), white Sora title, whole cover clickable via
+  stretched link, mint focus ring. This also removes the layout bug where the
+  4/3 media's intrinsic width overflowed its grid column and slid under the
+  navy text. The "Lead feature" kicker is gone.
+
+### Files changed
+- next/src/pages/explore/walks.astro
+- next/src/pages/journal/index.astro
+
+### Why it matters
+The walks hub is the template candidate for all best-of hubs; it now looks like
+the product it argues for. The journal lead was shipping navy-on-photo text.
+
+## 2026-08-09 — Claude local agent — /explore/walks/ redesign + walks IA consolidation
+
+### Summary
+Full design lift on the walks hub, driven by an Impeccable dual-agent critique
+(scored 19/36; snapshot in `.impeccable/critique/`). The ranked editorial list
+and the duplicate "All walking tracks" card grid were merged into one designed
+surface: each ranked entry is now a photo card (rank numeral, locality, distance/
+time/effort chips, verdict, Best for, start point, Save/Share), grouped under
+tier headings with a jump index under the intro. FAQ is now rendered visibly
+(details/summary) from the same array that feeds the JSON-LD, closing a
+rich-results compliance gap (schema previously had no visible counterpart).
+
+### Data integrity (the critique's P0)
+- Deleted `mornington-peninsula-walk.json` — a second Two Bays entry ("The Two
+  Bays Walking Track", 180 min) that contradicted `two-bays-walking-track.json`
+  (600 min) card-to-card. Its URL already redirects via
+  `explore/mornington-peninsula-walk.astro`.
+- `coastal-walk-cape-schanck.json`: editorNote rewritten — dropped
+  tourism-register copy ("spectacular", "most impressive", "hidden coves"),
+  reconciled the 26 km full-route vs 13 km ranked-section distances.
+- Fixed the collection-wide "  -  " doubled-space artifact (all experiences).
+- Descriptive alt text on the six walk entries that had "Name - Peninsula
+  Insider" placeholders.
+
+### IA consolidation
+- `/explore/walks/` is the single walks hub. `/explore/best-walks/` (identical
+  title tag) and `/walks/` are now consolidating redirects (`Redirect`
+  component, canonical → /explore/walks/). Internal links updated in
+  site-index, weddings, corporate-events, easy-walks, explore index.
+- H1 aligned with the title tag ("The best walks on the Mornington Peninsula").
+
+### Accessibility / design-system fixes (site-wide)
+- Footer newsletter form used the light variant on the navy footer — disclaimer
+  measured 1.9:1. Switched to dark variant; dark disclaimer colors lifted to
+  `--soft-inverse` (7.38:1). Same for the duplicate/insider-stripe blocks.
+- NewsletterBlock: removed the "Curated by our editors." kicker (banned pattern,
+  4.3:1); submit button bronze→sand (`--mint`) with navy label (4.3:1 → 8.9:1);
+  error status now uses `--error-text-inverse`; muted metadata lifted to ≥0.66
+  alpha.
+- Label floor: `.label`, `.experience-card__meta`, `.experience-card__tag`,
+  `.venues__link` lifted from 10.4px/9.6px to the token floor `--fs-100` (12px).
+- ExperienceCard/detail/V2 detail durations humanised ("600 min" → "10 h").
+- ExperienceCard images now carry real alt text (was `alt=""` on all cards).
+- v6-tokens.css header comment corrected: palette is Harbour (2026-07-25);
+  header still said Evergreen Coast. Wordmark weight (Sora 700) verified —
+  PRODUCT.md was accurate; no drift.
+
+### Files changed
+- next/src/pages/explore/walks.astro (rebuilt)
+- next/src/pages/explore/best-walks.astro, next/src/pages/walks/index.astro (→ redirects)
+- next/src/pages/explore/[slug].astro, next/src/pages/explore/index.astro
+- next/src/pages/site-index.astro, weddings/index.astro, corporate-events/index.astro,
+  walks/easy-walks-mornington-peninsula.astro
+- next/src/components/ExperienceCard.astro, NewsletterBlock.astro,
+  SubscribeForm usage in v5/chrome/V5Footer.astro, v2/V2EscapeDetail.astro,
+  v2/V2PlaceDetail.astro
+- next/src/styles/global.css, v6-tokens.css
+- next/src/content/experiences/: mornington-peninsula-walk.json (deleted),
+  coastal-walk-cape-schanck.json + walk alt/spacing fixes across the collection
+
+### Why it matters
+The walks hub is a top SERP-snippet candidate; the page previously contradicted
+itself on distances within one scroll (brand risk for "locally verified"),
+split walks equity across four URLs, and carried WCAG failures in the site-wide
+newsletter/footer chrome.
+
+### Follow-up
+- Responsive `srcset` generation for hero images (source files up to 4032px
+  ship at ~380px display width; `sizes` + dimensions added, but no smaller
+  renditions exist yet).
+- The per-card Supabase `cms_image_slots` N+1 (fired twice per page view) is a
+  client-runtime issue in the inline-edit layer, untouched here.
+- Apply the same merged-ranked-surface pattern to the other best-of hubs
+  (eat/best-restaurants, wine/best-cellar-doors, stay/best-accommodation).
+
+## 2026-07-06 — Human out of the loop: autonomous CTR execution
+
+### What changed
+The strategy brain now *acts*, not just recommends. `engine/auto_act.py` executes
+the safest, highest-ROI class of its own top queue items — CTR `title`/`dek`
+rewrites on journal articles — with no human in the loop.
+
+### Guardrails (why unattended is safe)
+- **Capped** — ≤ `PI_AUTO_ACT_LIMIT` edits/run (default 1); can't rewrite the site in one pass.
+- **Idempotent** — never re-acts a target already in `actioned.jsonl`.
+- **Grounded** — new copy drafted by Claude from the page's real title/dek; if the
+  model is unreachable it **skips, never fabricates**.
+- **Gated** — length limits + em-dash/house-style sanitizer + prohibited-word check
+  + frontmatter-still-parses check before commit.
+- **Scoped** — only `/journal/{slug}/` articles (title/dek are simple frontmatter).
+  Venue/event pages derive meta from templates and are logged, not blindly edited.
+- **Measured + reversible** — every action recorded to the learning loop and
+  re-measured next cycle; one-line git revert if it backfires.
+
+### Wiring
+- `engine/orchestrator.py`: new `run_daily` step 0b runs the executor on the fresh
+  strategy queue, sanitises + commits edits. Disable with `PI_AUTO_ACT=0`.
+- `engine/test_strategy_engine.py`: 3 tests guard the deterministic parts
+  (source resolution, frontmatter round-trip, validation) — 35 tests total.
+
+### Why it matters
+Completes the closed loop end to end — research → strategy → **action** →
+measured outcome → learning — with the human removed from the routine path.
+CTR fixes are the safe first class; broader auto-action expands as the learning
+loop proves what works.
+
+## 2026-07-06 — Events research point ("what's on" awareness)
+
+### What changed
+The strategy brain was SEO/evergreen-focused and blind to the events calendar —
+yet "what's on" is the mission's first clause. Added a fifth research point:
+`load_events()` reads `next/src/content/events/`, keeps events inside a 90-day
+advance-coverage window, and surfaces `event-coverage` opportunities for the
+significant ones (ticketed / one-off draws; recurring community markets are
+evergreen and skipped). Scored by an urgency curve that peaks in the 14–45 day
+window — where a preview page has lead time to index and rank by event week —
+and boosted for ticketed events.
+
+Against live data (2026-07-06) it surfaced 4 major upcoming events (Soil &
+Cellar +19d, Stonier Fire & Wine +34d, Red Hill Brewery +40d in the prime
+window), ranked below proven-demand fixes but no longer ignored. +3 tests
+(25 total, all pass).
+
+## 2026-07-06 — Self-tuning model (strategy that improves itself daily)
+
+### What changed
+The strategy model now **adapts its own weights from measured outcomes** — the
+last piece of "continually enhance a strategy that each day improves", now
+automated rather than a manual TODO.
+
+Each run, after the learning loop measures which fix types actually moved pages,
+`adapt_weights()` nudges a per-kind multiplier toward the winners and away from
+the losers, persists it to `ops/strategy/model-weights.json`, and scores the next
+queue with it. So the model compounds a little each cycle (demonstrated:
+`ctr-fix` 1.040→1.068→1.088 over three winning cycles while a losing kind
+declines).
+
+Guarded so it can't chase noise: a kind is only adapted once it has
+≥`ADAPT_MIN_MEASURED` (4) measured outcomes; adjustments are EMA-smoothed (0.30)
+and clamped to ±30%. With today's single GSC snapshot every kind correctly sits
+at baseline — the mechanism is live and will move as outcome data accrues.
+
+Added a "Model self-tuning" section to the brief and 5 tests (22 total, all
+passing) covering the hold/reward/penalise/clamp/score paths.
+
+## 2026-07-06 — Strategy engine self-test gate
+
+### What changed
+Made the unattended strategy brain trustworthy. `engine/test_strategy_engine.py`
+(17 stdlib tests, ~0.01s) locks the behaviour the daily loop depends on: GSC/
+coverage table parsing (including the summary-row trap that once mis-parsed the
+CTR table), position-aware CTR classification, scoring monotonicity (more
+impressions / closer-to-page-1 / indexation hub > deep all score higher), the
+learning loop's win/loss/pending detection, day-over-day diffing, and graceful
+degradation on missing inputs. Wired as a **pre-flight gate** in
+`daily-content.yml` so a broken parser fails the run loudly instead of silently
+publishing bad strategy — directly addressing the operating-surface's "alert
+paths are mostly silent" gap for the strategy path.
+
+## 2026-07-06 — Strategy learning loop + fresh-GSC wiring
+
+### What changed
+Made the strategy brain *learn*, not just score. It now measures whether acting
+on an opportunity actually moved the page, and pulls fresh performance data
+before each run.
+
+### Added
+- **Attribution / learning loop** in `engine/strategy_engine.py`. Actioned
+  opportunities are appended to `ops/strategy/actioned.jsonl` with the page's
+  metrics at action time (`--record` CLI). Each later run re-measures those
+  pages against current GSC data and reports movement (Δposition, ΔCTR) plus a
+  **hit-rate by fix type** in the "Did our fixes work?" section of the brief.
+  Seeded with this session's real indexation action (8 trust pages added to the
+  sitemap) so the loop is live.
+- **Fresh-GSC wiring** in `engine/orchestrator.py`: runs `gsc-search-analytics.py`
+  and `gsc-coverage-monitor.py` before the strategy step so performance data is
+  same-day. Guarded — no-ops cleanly without GSC credentials, using the last
+  committed report.
+
+### Why it matters
+Closes the last conceptual gap in "continually enhance a strategy that each day
+improves": the system can now tell which interventions work on *this* site and
+weight toward them, instead of assuming. Weight auto-tuning is deliberately held
+until enough outcome data accumulates (tuning on 14 clicks would be noise).
+
+## 2026-07-06 — Content Strategy Brain + agent-discoverability layer
+
+### What changed
+Closed the missing feedback loop in the content engine and made the site legible
+to AI agents. The engine already *produced* on a fixed cadence but never *learned*
+— nothing read performance data back into what got commissioned next. It now does,
+and the strategy is diffed day-over-day so improvement is observable rather than
+assumed.
+
+### Components added
+- `engine/strategy_engine.py` — the Content Strategy Brain. Each run it fuses
+  multiple research points (GSC search performance, GSC coverage/indexation,
+  sitemap content inventory, competitive scan, seasonal intent calendar, and its
+  own prior snapshot) into a single scored, ranked commissioning queue, then
+  diffs today vs yesterday. Standard-library only, degrades gracefully on missing
+  inputs, deterministic. Opportunity kinds: indexation (highest leverage — an
+  unindexed page can't rank), ctr-fix, striking-distance, coverage-gap, freshness.
+- `ops/strategy/` — machine-owned evolving strategy state: `content-strategy.json`
+  (consumed by the orchestrator), `content-strategy.md` (human brief),
+  `snapshots/YYYY-MM-DD.json` (history + day-over-day basis), and a `README.md`
+  documenting the closed loop, scoring model, and roadmap.
+- `ops/scripts/generate-llms-txt.mjs` + root `llms.txt` / `llms-full.txt` —
+  agent-discoverability layer following the llmstxt.org convention, generated
+  deterministically from `sitemap.xml` so it can't drift. Curated map (405 URLs)
+  plus a full index; trust/editorial pages surfaced explicitly.
+
+### Wiring
+- `engine/orchestrator.py` now runs the strategy brain as step 0 of the daily
+  tempo (performance shapes commissioning before anything is written), refreshes
+  `llms.txt` post-publish, and commits the strategy + agent-index artifacts.
+  Exposes `load_commissioning_queue(limit)` for desks.
+- `robots.txt` points AI agents to `llms.txt` / `llms-full.txt`.
+
+### Why it matters
+This is the keystone for the north star — being the number-1 destination for
+people *and* agents. The first real run correctly ranked the highest-leverage
+fix from live data (`/whats-on/mornington-cup-2026`: 216 impressions at 0.46% CTR)
+above 22 other opportunities.
+
+### Follow-ups
+- Refresh the GSC report immediately before each strategy run (same-day perf)
+- Replace the signal engine's hardcoded competitive gaps with a live scan
+- Auto-act on safe top-queue items (CTR rewrites first), not just log them
+- Add outcome attribution: measure whether a commissioned fix actually moved the page
+
+### Acted on
+- **Indexation fix (loop closed → action):** the brain flagged that editorial/trust
+  pages (`/about/`, `/methodology/`, `/our-approach/`, `/editorial-approach/`,
+  `/ethics/`, `/corrections/`, `/accessibility/`, `/contact/`) were absent from
+  `sitemap.xml` — real routes, footer-linked, but uncrawlable via the sitemap.
+  Added them to `next/src/pages/sitemap.xml.ts` so Google can index the site's
+  E-E-A-T surface. First concrete action driven by a strategy-brain recommendation.
+
+## 2026-07-05 — Site-wide overhaul: deployment hygiene, IA, brand compliance, UX (PRs #258-#261)
+
+### What changed
+Executed the full remediation plan from the 2026-07-04 UX/IA/brand review, then repaired the CI deploy pipeline (Node 22, contents:write, build:search) so gh-pages publishes cleanly from `next/dist` with no manual pushes.
+
+### Highlights
+- Removed staging sites, homepage drafts, source trees, and internal tooling from the public deploy; hardened robots.txt; `.nojekyll` at root
+- Concierge, auth, saves sync, and all submission forms revived (production API URL + publishable-key fallback); newsletter fake-success removed
+- Peninsula This Weekend now displays an honest staleness notice once its weekend passes
+- Plans restored as the 7th masthead pillar; Specialist guides column added to Explore; /spa/ migration finished (740 inbound links repointed)
+- About and the new /editorial-approach/ page carry the canonical positioning; tagline locked to "Every venue visited. Every opinion earned."
+- Em-dashes: 32,652 → 0 in built output; consumer prices: 686 → 0 (B2B rate cards exempt); lint-no-pricing extended to prose with the markdown blind spot closed
+- Skip link, AA-safe sage text token, <time> elements, per-venue directions, bylines + checked-dates on handwritten SEO pages
+- Venue directories on /eat/, /stay/, /wine/ now page at 30 cards with a filter-aware "Show more"
+
+### Follow-ups
+- `PUBLIC_ACCESS_GATE: 'off'` in build-and-deploy.yml launches the site publicly
+- Verify the concierge Vercel API is live; scrub em-dashes from Supabase cms_* rows; audit RLS on write tables
+
+## 2026-06-29 — Agentic Content Engine v1.0
+
+### What changed
+Installed the Peninsula Insider Agentic Content Engine — a fully autonomous, loop-engineered publication system that ships content on daily, weekly, and monthly cron cycles without human approval.
+
+### Components added
+- `engine/orchestrator.py` — master loop runner (all three tempos, stall recovery, git commit + push)
+- `engine/content_generator.py` — PI-voice content generation with seasonal template library
+- `engine/signal_engine.py` — SEO keyword gap analysis + competitive site intelligence
+- `.github/workflows/daily-content.yml` — 6:00 AM AEST daily cron
+- `.github/workflows/weekly-content.yml` — Monday 7:00 AM AEST weekly cron
+- `.github/workflows/monthly-content.yml` — 1st of month 6:00 AM AEST monthly cron
+- `.github/workflows/build-and-deploy.yml` — auto-deploy on push to main
+- `.claude/agents/remy-orchestrator.md` — REMY orchestrator agent spec v2.0
+- `.claude/agents/commissioning-agent.md` — weekly slate + brief generation
+- `.claude/agents/signal-agent.md` — SEO + competitive intelligence agent
+- `.claude/agents/research-agent.md` — web research + event intel agent
+- `.claude/agents/dispatch-desk.md` — Insider Picks + newsletter writer spec
+- `.claude/agents/style-agent.md` — voice/brand QA gate spec
+- `.claude/agents/verify-agent.md` — factual accuracy gate spec
+- `docs/agentic-content-engine-architecture-2026-06-29.md` — full architecture
+- `docs/openclaw-agent-registry-2026-06-29.md` — OpenClaw deployment guide
+
+### What this enables
+- Daily Insider Picks column auto-published to peninsulainsider.com.au at 6am AEST
+- Weekly editorial slate + Weekend Picks + SEO target piece + newsletter auto-commissioned
+- Monthly deep research → 3 long-form pieces + 2 town hub refreshes auto-produced
+- Signal feedback loop: Semrush/competitive → commissioning decisions → targeted content
+- Loop engineering: every step completion-forced; stalls degrade gracefully, never stall completely
+- All content cleared through STYLE + VERIFY gates before push; no human approval required
+
+### SEO consequence
+- Daily freshness signal to Google from recurring article format
+- Weekly SEO-targeted pieces close keyword gaps identified by signal engine
+- Monthly town hub refreshes maintain ranking authority on priority pages
+- All articles include FAQ (PAA capture), clusterLinks (internal link equity), structured frontmatter
+
+### Required follow-up
+1. Add GitHub secrets: ANTHROPIC_API_KEY, PAT_CONTENT_PUSH, SUPABASE_SERVICE_ROLE_KEY
+2. Optionally add FIRECRAWL_API_KEY and SEMRUSH_API_KEY for enhanced signal pull
+3. Enable GitHub Actions in repo settings (if not already enabled)
+4. Run first manual trigger: Actions → daily-content → Run workflow
+5. Upgrade content_generator.py to use Claude API directly (currently uses seasonal template library)
+6. Wire real Semrush API calls into signal_engine.py once API key added
+
+
+
 # Peninsula Insider Change Log
 
 This changelog records meaningful structural, content, SEO, and operational changes to the Peninsula Insider site.
@@ -71,6 +463,317 @@ The site is strong at the content/schema layer (static HTML, deep JSON-LD, rich 
 - robots.txt note: named per-bot User-agent groups override the `*` group; repeat all Disallows if ever adding them
 
 ---
+
+## 2026-06-11 — Claude (design)
+
+### Sitewide responsive audit — mobile overflow fixes
+
+**Summary**
+James reported clipped content on /stay/hotel-sorrento/ (mobile). Audited all 1,483 built pages headlessly at 390px with a clipped-text detector (text protruding past non-scrollable clip boundaries). One bug family dominated: **grid `1fr` tracks whose min-content floor lets unbreakable content blow the column past the viewport**, plus separator runs rendered with no whitespace (one giant unbreakable "word").
+
+Fixes:
+- **Venue detail pages (~600 pages)** — "Filed under" and "Known for" tag runs rendered `·` separators with no surrounding whitespace; the unbreakable run forced the mobile grid track to 477px and the page clipped. Separators now include real spaces; `.venue-detail__grid` mobile collapse hardened to `minmax(0, 1fr)`.
+- **Cookie banner (every page)** — `1fr auto` grid let the nowrap mobile body force the banner to 498px, defeating its one-line ellipsis. Now `minmax(0, 1fr) auto`.
+- **`.letter__frame`** mobile collapses (two breakpoints) hardened to `minmax(0, 1fr)` — same family, defensive.
+- **Partner print sheets** (/partners/founders-prospectus/, /partners/advertising-kit/) — A4 sheets (794px) clipped on phones. PrintLayout screen-preview now zooms sheets to viewport width ≤830px with a hidden-scrollbar pan fallback. Print output unaffected.
+
+**Out of scope**: remaining flags are all under /v2-staging/ (noindexed design sandbox, 71 prototype pages).
+
+**Verification**
+Final full sweep at 390px: zero clipped-text flags on production pages. Hotel Sorrento, Montalto, Rare Hare, region explorers, homepage rails, plans all verified; cookie banner exactly 390px with intended one-line truncation; partner sheets scale (zoom 0.48). `npm run build` passes (1484 pages, surface-hardening audit green).
+
+**Files changed**
+- `next/src/components/VenueDetailTemplate.astro`
+- `next/src/components/CookieBanner.astro`
+- `next/src/layouts/PrintLayout.astro`
+- `next/src/styles/global.css`
+
+
+
+### /journal/peninsula-hot-springs-vs-alba/ — modular redesign of the top SEO page
+
+**Summary**
+Converted the top-ranking article from plain markdown to MDX with reusable comparison modules, per James's brief (visual + modular + copy):
+
+- **`VsVerdictDuo`** (new) — "The quick answer" as two verdict panels: linked venue, one-line stance, booking conditions.
+- **`CompareBlock`** (reused — it was designed for this exact page) — the at-a-glance markdown table becomes two definition-list columns; `heading` prop made optional so the article's own H2 carries the anchor/SEO. Prose-scoped styles let it sit flush in the 680px column.
+- **`VsScenarios`** (new) — the seven "which one for which day" H3 blocks become quoted scenario cards with accent verdicts and supporting notes.
+- **`ArticleJumpNav`** (new) — "On this page" anchor chips after the intro (six sections, auto-generated heading slugs).
+- **Photography** — Alba section gains its real photo (`spa-alba-thermal-springs-01`); hero already carries PHS Hilltop. No second PHS body image — the only other spa assets are unattributed and mislabeling venue photography isn't worth it.
+- **Copy fix** — body said Alba has "thirty-one" pools while the table/FAQ say 22; now "twenty-two" everywhere.
+- FAQ accordion + FAQPage schema and clusterLinks were already rendered by the journal template — untouched.
+
+All three new components are generic for future vs-articles (Bay vs Ocean, Red Hill vs Sorrento etc.).
+
+**Files changed**
+- `next/src/content/articles/peninsula-hot-springs-vs-alba.mdx` (was .md)
+- `next/src/components/VsVerdictDuo.astro`, `VsScenarios.astro`, `ArticleJumpNav.astro` (new)
+- `next/src/components/CompareBlock.astro` (heading optional)
+- `next/src/styles/global.css` (prose-embedded CompareBlock + article-figure styles)
+
+**Verification**
+Headless Chromium at 390px: 6 jump chips with all anchors resolving, 2 verdict cards, 2 compare columns, 7 scenario cards, figure rendered, 3 FAQ items, no horizontal overflow, no page errors, contradiction gone. `check-editable-coverage` passes. `npm run build` passes (1484 pages).
+
+### Masthead: wordmark +20%, burger uniform with icons
+
+**Summary**
+Mobile wordmark scaled up ~20% (`clamp(19px, 6vw, 29px)`); the burger button is now 34×34 with 18px bars, matching the search/map/saved icon buttons. The edition stamp threshold moved to ≥460px so the larger wordmark keeps clear of it. Verified at 7 widths (320–760px): no clipping, no overlaps, burger and icons identical size.
+
+**Files changed**
+- `next/src/styles/v4.css`
+
+
+
+### Password gate removed
+
+**Summary**
+Removed the temporary password gate: the localStorage redirect script (`pi-access-v1` → `/access/`) in `BaseLayout.astro` and the `/access/` Coming Soon page itself. The site is fully public; first-time visitors land directly on content.
+
+**Files changed**
+- `next/src/layouts/BaseLayout.astro`
+- `next/src/pages/access/index.astro` (deleted)
+
+**Verification**
+- `npm run build` passes (1484 pages — one fewer with /access/ gone); no `pi-access-v1` references in built output.
+
+### Hero: 90% desktop / 75% mobile + refined text scrim
+
+**Summary**
+Hero height is now ratio-tokened (`--cover-ratio`): 0.9 on desktop, 0.75 on mobile. The scrim gains a second layer — a soft radial pool anchored bottom-left directly behind the text column (peaks at 0.42 warm-black, fades out by 66%), over the slightly deepened vertical gradient — so headlines and deks read cleanly on bright images while the photo's centre keeps its brightness.
+
+**Verification**
+Headless Chromium: slide occupies exactly 90% of available height at 1280×900 and 75% at 390×844; overlay and controls inside the slide. Screenshots shared. `npm run build` passes (1485 pages).
+
+**Files changed**
+- `next/src/pages/index.astro`
+
+### Hero at 75% height; /map/ mobile is map-only
+
+**Summary**
+1. **Homepage hero** now takes 75% of the viewport below the masthead (was 100%) — the next section peeks above the fold as a scroll affordance. Verified at exactly 75% on 390×844 and 1280×900 with overlay and controls still inside the slide.
+2. **/map/ on mobile** hides the entries list and the List/Map tab bar — the map is the single mobile view and Leaflet initialises through the existing lazy path. Desktop keeps the side-by-side list + map. Tab markup and controller retained for an easy revert.
+
+**Files changed**
+- `next/src/pages/index.astro`
+- `next/src/pages/map.astro`
+- `next/src/styles/global.css`
+
+**Verification**
+Headless Chromium: hero 75% at both form factors; map page at 390px shows map only (no list/tabs), at 1280px list renders beside the map. `npm run build` passes (1485 pages).
+
+### Three live-site fixes: mobile ribbon leak, map pins, hero slider stale images
+
+**1. Desktop pillar ribbon leaking onto mobile (regression, mine).** The Phase-1 v4.css rewrite replaced the wrong `@media (max-width: 760px)` block and dropped `.v4-masthead-nav { display: none; }` — the desktop pillar nav then rendered (wrapped, squished) on phones, which also inflated the sticky masthead and made the /map/ heading appear clipped under the sticky breadcrumb. Rule restored; verified hidden ≤760px and visible ≥765px at six widths.
+
+**2. /map/ pins never rendering after client-side navigation.** The map controller waited for `L` (Leaflet) but not for `L.markerClusterGroup`. Under Astro's ClientRouter, re-injected CDN scripts execute async, so Leaflet could land while markercluster was still in flight — the map initialised (tiles visible) and then threw at `markerClusterGroup`, leaving zero pins. Now waits for both (up to ~8s) and degrades to an unclustered `L.layerGroup()` rather than no pins. Also removed the "{n} editorially verified entries across the region — places, dining rooms…" line from the map intro per James; the how-to sentence remains.
+
+**3. Hero slider showing stale images outside edit mode.** The homepage cover scenes hard-coded image paths, bypassing `resolveHero` — exactly the bug class the resolver's "THE RULE" comment documents (the 2026-05-29 /explore/plans/ regression). Edit mode showed the current CMS images; the static build kept rendering the old hard-coded files. Each journal-linked scene now resolves through `resolveHero('article', slug, …)`: published CMS override → article frontmatter hero → hard-coded fallback. The homepage's own `cover.image` override still wins for the cover scene. Build output confirms scenes now pick up the articles' real heroes (e.g. flinders scene: `explore-bushrangers-bay-walk-01` → `article-flinders-weekend-01`).
+
+**Files changed**
+- `next/src/styles/v4.css`
+- `next/src/pages/map.astro`
+- `next/src/pages/index.astro`
+
+**Verification**
+- Pillar nav sweep at 390/430/600/760/765/1280px (hidden ≤760, visible ≥765). Map sub-text absent from built output; cluster guard present. Hero scene srcs in built homepage now match article heroes. `check-editable-coverage` passes. `npm run build` passes (1485 pages).
+
+## 2026-06-10 — Claude (design)
+
+### Vivid-style homepage uplift — Phase 4: horizontal card rails
+
+**Summary**
+Two scroll-snap card rails on the homepage, Vivid-style with the next card peeking at the viewport edge:
+
+1. **"On this weekend"** — events whose date range overlaps the dispatch weekend or whose `nextOccurrence` falls inside it (max 8), rendered with the existing `EventCard`. New `dateLabelOverride` prop on EventCard so long-running events read "On this weekend" instead of their historical start date (the earlier "1 April under a weekend heading" failure mode). Restores events to the homepage for the first time since the ThreeMissionBar removal, with correct filtering.
+2. **"From the Journal"** — editor picks via `ArticleCard`, mobile-only (the desktop Shortlist remains; `hp-shortlist-wrap` was already hidden ≤767px).
+
+Track aligns its first card with the container edge (`scroll-padding-inline` matches the inline padding — without it the initial snap dragged the first card to x=0).
+
+**Verification**
+Headless Chromium at 390px: both rails render (8 + 3 cards), track scrolls and snaps, first card aligned at the container inset, no page-level horizontal overflow, all weekend date labels honest. `node scripts/check-editable-coverage.mjs` passes (no new card components; existing CMS-bound cards reused). `npm run build` passes (1485 pages).
+
+**Files changed**
+- `next/src/pages/index.astro`
+- `next/src/components/EventCard.astro` (additive `dateLabelOverride` prop)
+
+### Vivid-style homepage uplift — Phase 3: big-four section rows
+
+**Summary**
+The mobile chip strip under the hero is replaced by Vivid-style "navigation as content": four giant Cormorant display rows (Eat & Drink / Wine / Stay / Explore) with trailing arrows and hairline separators on cream, then a quiet uppercase secondary line (What's On · Plans · Journal). Mobile only — desktop keeps the mega-menu pillars. Same single-router role as the chips, far lower cognitive load.
+
+**Verification**
+Headless Chromium: four rows render in order at 390px, block hidden at 1280px. Screenshot shared. `npm run build` passes (1485 pages).
+
+**Files changed**
+- `next/src/pages/index.astro`
+
+### Vivid-style homepage uplift — Phase 2: full-screen hero slider
+
+**Summary**
+Homepage cover rebuilt as a Vivid-Sydney-style full-screen slider: edge-to-edge photo filling the viewport below the masthead (`svh`-based with a JS measure of the hero's real offset — chrome height is observed via ResizeObserver plus a re-measure cascade), warm-dark gradient scrim, overlay bottom-left (label chip, white Cormorant headline with gold italic `em`, CTA button), and a centred control cluster (‹ dash pager ›). Mobile drops the arrows (swipe is the gesture; the bottom corners are owned by the Ask FAB and first-visit cookie banner) and left-aligns the pager; the dispatch standfirst is desktop-only. Swipe support and prev/next arrows added to the carousel script; autoplay (10s) restarts on interaction and is disabled under reduced motion. H1 remains in the first slide's overlay.
+
+Two bugs found by in-browser testing and fixed: the legacy `/assets/styles.css` still injects `.cover` padding (neutralised with explicit `padding: 0`), and corner-pinned arrows were unreachable beneath the Ask FAB / cookie banner (Playwright's pre-click auto-scroll exposed it — real users would hit the same).
+
+**Verification (headless Chromium)**
+390×844 and 1280×900: slide bottom lands exactly on the viewport edge; swipe advances slides; dash and arrow clicks switch stories with zero scroll-jump; arrows hidden on mobile. Screenshots shared. `npm run build` passes (1485 pages).
+
+**Files changed**
+- `next/src/pages/index.astro`
+
+### Vivid-style homepage uplift — Phase 1: mobile header
+
+**Summary**
+First phase of the homepage redesign benchmarked on vividsydney.com mobile (James's brief). Mobile masthead re-laid out Vivid-style: wordmark left, a two-line edition stamp beside it ("Winter / June 2026", shown ≥405px where it fits), then a right icon cluster — search · map (`/map/`) · saved bookmark · burger. Icons are borderless on mobile (circles stay on desktop nav). Replaces this morning's burger-left layout per the approved plan.
+
+**Verification**
+Headless-Chromium geometry sweep at 320/360/375/390/414/430/600/760/765/1280px: correct order, no overlaps, no wordmark clipping, no horizontal overflow, mobile controls hidden ≥761px. Screenshots shared. `npm run build` passes (1485 pages).
+
+**Files changed**
+- `next/src/components/v4/V4Masthead.astro`
+- `next/src/styles/v4.css`
+
+**Follow-up**
+- Phase 2: full-screen hero slider with text overlay; Phase 3: big-four section rows; Phase 4: horizontal card rails; Phase 5: final audit.
+
+### Mobile masthead rebuilt and browser-verified (burger · wordmark · bookmark · search)
+
+**Summary**
+The previous masthead icon fix regressed the layout: the burger button lives inside `.v4-mobile-actions`, so turning that container into a right-aligned flex item dragged the burger to the right and the three-wide cluster overflowed into the wordmark. Rebuilt properly:
+
+- Burger moved out of the cluster in `V4Masthead.astro` markup — now a direct grid child in column 1 (left). Cluster is exactly bookmark + search (that order), column 3.
+- Added a `display: none !important` guard on `.v4-burger` outside the mobile block — the legacy `global.css` shows `.masthead__burger` at ≤768px but the v4 grid only exists at ≤760px, so the burger floated loose in the 761–768px window.
+- Wordmark stays truly centred: symmetric 78px side columns, `max-width: 100%` on both the logo and `.masthead__brand-inner` (whose `justify-self: center` sized it to fit-content, letting nowrap text escape the grid track — the actual cause of the original overlap), font on a `clamp(…, 5.6vw, …)` curve, and a ≤340px step that shrinks the icon circles to 70px columns.
+
+**Verification (headless Chromium, real rendering)**
+Geometry audit at 320/340/360/375/390/414/430/600/760/765/1280px: element order burger | wordmark | saved | search, wordmark off-centre 0px at every mobile width, zero overlaps, no wordmark ellipsis, no horizontal overflow; burger and cluster hidden ≥761px. Screenshots shared with James. `npm run build` passes (1485 pages).
+
+**Files changed**
+- `next/src/components/v4/V4Masthead.astro`
+- `next/src/styles/v4.css`
+
+### Masthead icon overlap fix + count/verified tag removal
+
+**Summary**
+Two fixes from James's live-site review:
+
+1. **Mobile masthead overlap** — the saved and search icons stacked on top of each other: the mobile brand row's `display: contents` rule placed every `.v4-iconbtn` in the same 44px grid cell. The action cluster is now a single flex grid item, side cells widened to a symmetric 84px so the wordmark stays truly centred, and the wordmark scales via `clamp(21px, 6vw, 33px)` to fit the narrower middle.
+2. **Inventory counts + "Last verified" stamps removed site-wide** — hero eyebrows on 13 section/guide pages (eat, stay, wine, explore, escape, what's-on, golf, beaches, markets + v4 variants) reduced to the section name; dynamic count items removed from GuideHero meta rows (read-times and editorial facts like "3 world-ranked" kept); "Last verified:" sub-lines removed from the three tour detail templates. Kept: the fishing species "Verified stamp" block (regulatory disclaimer citing the Victorian Fisheries Authority) and preview/staging pages.
+
+**Files changed**
+- `next/src/styles/v4.css`
+- `next/src/components/GuideHero.astro` (doc comment)
+- 13 section index pages + 3 tour templates under `next/src/pages/`
+
+**Why it matters**
+The icon overlap was a visible bug on every mobile page. The count/verified tags ("41 wineries · 6 other producers · Last verified 30 Apr 2026", "0 producers") were reader-facing database noise; verification methodology lives at /methodology.
+
+**Verification**
+- `npm run build` passes (1485 pages); built eat/stay/wine/explore pages contain no count or verified strings.
+
+### Hero pager polish (post-deploy fix)
+
+**Summary**
+The story-switcher bars shipped earlier today read as stray dashes on mobile (full-width 2px lines, left-aligned, stranded between two hairline borders). Reworked as a conventional carousel pager: fixed-width 4px rounded segments, centred under the hero, with a visible focus ring. Removed the doubled hairline where the cover's border-bottom met the section-nav's border-top.
+
+**Files changed**
+- `next/src/pages/index.astro`
+
+**Pages affected**
+- `/` (homepage)
+
+**Verification**
+- `npm run build` passes (1485 pages); 5 pager segments in built homepage.
+
+### Homepage top-section simplification (cognitive-load pass)
+
+**Summary**
+Reviewed by James against mobile screenshots: the first four viewports routed the same three intents repeatedly (Ask ×3, weekend ×4, plans ×3), each repeat with its own eyebrow/heading/microcopy. Changes:
+
+- **Removed `ThreeMissionBar`** from the homepage — its Ask panel duplicated the floating Ask button, its This Weekend panel duplicated the Weekend Dispatch card (and listed long-running events like "1 April – 30 June" under a "This Weekend" heading), and its Plans panel duplicated the `hp-plans` grid below.
+- **Removed `MelbourneEntryStrip`** — its single link now lives as a quiet line inside the Weekend Dispatch card ("Coming from Melbourne? Here's where to start →").
+- **Removed the Ask chip** from `hp-section-nav` (the floating Ask button is the one Ask surface).
+- **`WeekendPickerBlock` simplified** — dropped the eyebrow + cadence label column ("Peninsula This Weekend" / "Published for the weekend ahead · one pick, one backup…"), which repeated the kicker and the dispatch title. Now: one date kicker, title, dek, two CTAs, Melbourne line. Single-column card (also renders on `/v4/whats-on/`).
+- **Hero story-switcher** — replaced the uppercase label tabs ("SLOW PENINSULA / FEATURE / WALK"), which read as content filters, with quiet equal-width progress bars; accessible names now carry "Story n of 5: {headline}".
+
+Net effect on mobile: hero → section chips → one weekend card → editorial content. Background rhythm now alternates white/cream naturally (the big cream routing zone is gone).
+
+**Files changed**
+- `next/src/pages/index.astro`
+- `next/src/components/WeekendPickerBlock.astro`
+- `next/src/styles/global.css`
+
+**Pages affected**
+- `/` (homepage), `/v4/whats-on/` (shared weekend block)
+
+**Why it matters**
+Cuts ~3 viewports of duplicated routing to one; every intent now has exactly one surface above the fold.
+
+**Verification**
+- `npm run build` passes (1485 pages). TMB/strip markup confirmed absent from built homepage; Melbourne link present in weekend card on both consumers; 5 story-nav buttons with descriptive aria-labels.
+
+**Follow-up**
+- `ThreeMissionBar.astro` and `MelbourneEntryStrip.astro` are now only used by `/preview-home-redesign/`; retire with that preview when it goes.
+- CMS text fields `weekend.eyebrow` / `weekend.cadence` no longer have a rendering surface.
+
+### Mobile/site-wide readability + reader-utility pass
+
+**Summary**
+Readability and accessibility upgrade requested by James (benchmarked against The Age Good Food mobile experience), plus three reader-utility features:
+
+1. **Typography weight/size** — body text `0.95rem`/weight 300 → `1rem`/weight 400; `.prose` to `1.0625rem`/400; cover/section-hero deks, place-detail intro, and newsletter input from 300 → 400. The light 300 weight was the main cause of low-contrast "grey" reading texture.
+2. **Contrast tokens** — `--soft` darkened `#7A726A` → `#5F574E` (4.7:1 → 7.1:1 on white; was failing AA on `--bg-alt`). New `--gold-text: #7A6340` token for gold-as-text on light surfaces (`--gold` is 2.7:1, decorative only); applied to editors-desk label and share-button copied state.
+3. **Italic cull** — 15 multi-line body-copy italic rules (article/news/home/guide deks, shortlist/insider-stripe/event-verdict bodies, prose blockquote, standfirsts) converted to roman, Cormorant blocks bumped to weight 500. Italics retained for display headline `em` accents, brand taglines, signatures, and semantic `.prose em`.
+4. **Browser font-size preference respected** — `html { font-size: 16px }` → `100%`.
+5. **Three-step text-size control (A/A/A)** — new `TextScaleControl.astro` in the `PiArticleActions` byline row (journal articles, weekend pages, venue detail). Sets `data-text-scale` on `<html>` (steps map to 108.75% / 118% root size), persists in localStorage, re-applied pre-paint by an inline BaseLayout script.
+6. **Saved shortcut in masthead** — bookmark icon (`v4-iconbtn`) next to search in both V4 masthead action clusters (desktop + mobile), linking to `/saved/`.
+7. **Google preferred-source button** — footer contact column, deeplink `https://google.com/preferences/source?q=peninsularinsider.com.au` per Google Search Central guidance.
+
+**Files changed**
+- `next/src/styles/global.css`
+- `next/src/components/TextScaleControl.astro` (new)
+- `next/src/components/PiArticleActions.astro`
+- `next/src/components/v4/V4Masthead.astro`
+- `next/src/components/Footer.astro`
+- `next/src/layouts/BaseLayout.astro`
+
+**Pages affected**
+Site-wide.
+
+**Why it matters**
+Body text was the single biggest readability complaint (weight-300 Outfit at 15.2px reads grey, especially on mobile). Secondary text was failing WCAG AA on cream sections. Multi-line Cormorant italic deks were hard to read at small sizes. The control and buttons match reader-utility patterns from major mastheads.
+
+**Verification**
+- `npm run build` passes (1485 pages); new rules confirmed in bundled output, which cascades after the legacy `/assets/styles.css`.
+
+**Follow-up**
+- `public/assets/styles.css` is a stale pre-Astro copy still linked first in `BaseLayout` — consider retiring it; it currently re-states the old typography (overridden by cascade order, but a drift risk).
+- Verify the site appears in Google's source-preferences tool for AU users (feature is region-gated).
+- Backlog: `--text-*` font-size token scale (70+ distinct sizes, tail below 12px).
+
+### Card radius tokens (design review 2026-W22)
+
+**Summary**
+Implemented the 2026-W22 design review recommendation: added `--radius-card-sm/md/lg` tokens to `:root` and collapsed the nine bespoke card `border-radius` values in `global.css` onto them (Weekend Picker, CompareBlock columns, newsletter frames/embed, place-typeahead grid, stay card panel).
+
+One deviation from the memo: `.newsletter__embed` at desktop (was `0.9rem`) maps to `--radius-card-sm`, not `md` as the memo listed — it is the same nested embed slot the memo maps to `sm` at mobile, and `sm` is the closest token (0.8px shift vs 5.6px).
+
+**Files changed**
+- `next/src/styles/global.css`
+
+**Pages affected**
+- Site-wide (any page using Weekend Picker, CompareBlock, newsletter blocks, typeahead grid)
+
+**Why it matters**
+Removes radius drift across visually-peer card surfaces and makes future radius changes one-line edits. Visual shifts are 1–4px on three surfaces (newsletter frames 1.35→1.5rem, mobile form-frame 1.05→1.25rem).
+
+**Verification**
+- `npm run build` passes (1485 pages).
+
+**Follow-up**
+- Backlog from the same memo: `--shadow-*` tokens (17 distinct values), a `--text-*` font-size scale (70+ values), and 30+ ad-hoc hex colours outside `:root`.
+
+---
+
 
 ## 2026-06-01 — Codex
 

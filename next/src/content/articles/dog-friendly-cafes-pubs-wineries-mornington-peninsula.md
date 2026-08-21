@@ -1,6 +1,6 @@
 ---
 title: "Dog-Friendly Cafés, Pubs and Wineries on the Mornington Peninsula"
-dek: "The cafés, pubs, and cellar doors that actually work when the dog is part of the Peninsula plan. Confirmed venues with known policies — plus the two wineries that explicitly say no."
+dek: "The cafés, pubs, and cellar doors that actually work when the dog is part of the Peninsula plan. Confirmed venues with known policies - plus the two wineries that explicitly say no."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-04-17
@@ -15,17 +15,17 @@ lastVerified: 2026-04-22
 clusterLinks:
   - label: "Dog-Friendly Wineries on the Mornington Peninsula"
     href: "/journal/dog-friendly-wineries-mornington-peninsula/"
-  - label: "The Dog-Friendly Peninsula — Full Weekend Guide"
-    href: "/journal/the-dog-friendly-peninsula/"
+  - label: "The Dog-Friendly Peninsula - Full Weekend Guide"
+    href: "/journal/dog-friendly-mornington-peninsula/"
   - label: "Dog-Friendly Beaches on the Mornington Peninsula"
     href: "/journal/dog-friendly-beaches-mornington-peninsula/"
 faq:
   - question: "Which cafés on the Mornington Peninsula allow dogs?"
-    answer: "Cafés with confirmed outdoor dog-friendly areas: Commonfolk Coffee (Mornington — back courtyard), Nordie Café (Red Hill — courtyard and grass), Georgie Bass Café & Cookery (Flinders — outdoor seating), Green Olive at Red Hill (Red Hill South — outdoor dining areas). Always verify on the day, especially in peak season when outdoor spaces fill up."
+    answer: "Cafés with confirmed outdoor dog-friendly areas: Commonfolk Coffee (Mornington - back courtyard), Nordie Café (Red Hill - courtyard and grass), Georgie Bass Café & Cookery (Flinders - outdoor seating), Green Olive at Red Hill (Red Hill South - outdoor dining areas). Always verify on the day, especially in peak season when outdoor spaces fill up."
   - question: "Which Peninsula pubs allow dogs?"
     answer: "Pubs with confirmed dog-friendly beer gardens or outdoor areas: Portsea Hotel (beer garden), Flinders Hotel (beer garden), Balnarring Pub (outdoor area). The Rocks at Mornington (outdoor deck) is a waterfront dining venue that also welcomes dogs. Call ahead to confirm during peak season."
   - question: "Do any hatted restaurants on the Mornington Peninsula allow dogs?"
-    answer: "Rare Hare at Jackalope Hotel (Merricks North) allows dogs in outdoor lawn areas — it is walk-in only and one-hat GFG 2025. Many Little Bar & Dining (Red Hill South, one-hat GFG 2025) has outdoor seating — enquire on booking. These are the only hatted-level venues where dogs have confirmed access."
+    answer: "Rare Hare at Jackalope Hotel (Merricks North) allows dogs in outdoor lawn areas - it is walk-in only and one-hat GFG 2025. Many Little Bar & Dining (Red Hill South, one-hat GFG 2025) has outdoor seating - enquire on booking. These are the only hatted-level venues where dogs have confirmed access."
 readingTimeMinutes: 6
 featured: false
 status: "published"
