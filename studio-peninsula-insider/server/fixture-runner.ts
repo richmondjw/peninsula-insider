@@ -1,17 +1,31 @@
 import { createHash } from 'node:crypto';
 import type { FoundryRun } from '../shared/contracts.js';
-import { FoundryRunSchema, QuickNoteSchema } from '../shared/contracts.js';
+import { ClaimSchema, FoundryRunSchema, QuickNoteSchema, type Claim } from '../shared/contracts.js';
 
 const hash = (value: string) => createHash('sha256').update(value).digest('hex');
 
 export const FIXTURE_ID = 'red-hill-winter-lunch';
 
-export function evaluateQuickNoteGates(payload: { headline: string; dek?: string; body: string }) {
+export function evaluateQuickNoteGates(
+  payload: { headline: string; dek?: string; body: string },
+  claims: Claim[],
+  claimIds: string[],
+) {
   const publicCopy = `${payload.headline} ${payload.dek ?? ''} ${payload.body}`;
+  const claimsById = new Map(claims.map((claim) => [claim.id, claim]));
+  const supportedClaimsPassed = claimIds.length > 0 && claimIds.every((claimId) => {
+    const claim = claimsById.get(claimId);
+    return Boolean(
+      claim
+      && !claim.restrictedFromArtifacts
+      && ['supported', 'approved'].includes(claim.verification)
+      && claim.evidence.length > 0,
+    );
+  });
   return [
     { gate: 'no_price', passed: !/(?:\$\s?\d|\bAUD\b|\bprice(?:d|s)?\b)/i.test(publicCopy), detail: 'Public copy must not contain pricing.' },
-    { gate: 'no_em_dash', passed: !/[—–]/.test(publicCopy), detail: 'Public copy must not contain em dashes or en dashes.' },
-    { gate: 'supported_claims_only', passed: true, detail: 'Unsupported and restricted claims were excluded.' },
+    { gate: 'no_em_dash', passed: !/—/.test(publicCopy), detail: 'Public copy must not contain em dashes; en dashes remain valid for ranges.' },
+    { gate: 'supported_claims_only', passed: supportedClaimsPassed, detail: supportedClaimsPassed ? 'Every selected claim is supported, evidenced and unrestricted.' : 'A selected claim is missing, unsupported, unevidenced or restricted.' },
   ];
 }
 
@@ -35,6 +49,14 @@ export function runFixture(actor: string, idempotencyKey: string): FoundryRun {
   }];
 
   const body = 'A covered dining room makes this Red Hill lunch a useful wet-weather option. The winter lunch is listed for Saturday 29 August, with booking required.';
+  const claims = ClaimSchema.array().parse([
+    { id: 'claim-location', text: locationClaim, origin: 'external_fact', verification: 'supported', evidence: evidence(locationClaim, 'p:1'), restrictedFromArtifacts: false },
+    { id: 'claim-date', text: dateClaim, origin: 'external_fact', verification: 'supported', evidence: evidence(dateClaim, 'p:2'), restrictedFromArtifacts: false },
+    { id: 'claim-observation', text: observation, origin: 'first_party_observation', verification: 'approved', evidence: evidence(observation, 'note:1'), restrictedFromArtifacts: false },
+    { id: 'claim-unsupported', text: unsupported, origin: 'inference', verification: 'unsupported', evidence: [], restrictedFromArtifacts: true, restrictionReason: 'No independent evidence supports the superlative.' },
+    { id: 'claim-price', text: restrictedPrice, origin: 'external_fact', verification: 'supported', evidence: evidence(restrictedPrice, 'p:3'), restrictedFromArtifacts: true, restrictionReason: 'PI outputs do not publish prices.' },
+  ]);
+  const artifactClaimIds = ['claim-location', 'claim-date', 'claim-observation'];
   const payload = QuickNoteSchema.parse({
     headline: 'A wet-weather lunch option in Red Hill',
     dek: 'A covered dining room and a confirmed Saturday service make this one to keep for a rainy Peninsula day.',
@@ -49,7 +71,7 @@ export function runFixture(actor: string, idempotencyKey: string): FoundryRun {
     body,
   });
 
-  const gateResults = evaluateQuickNoteGates(payload);
+  const gateResults = evaluateQuickNoteGates(payload, claims, artifactClaimIds);
 
   return FoundryRunSchema.parse({
     id: `run-${hash(idempotencyKey).slice(0, 12)}`,
@@ -66,13 +88,7 @@ export function runFixture(actor: string, idempotencyKey: string): FoundryRun {
       capturedAt,
       sourceItems: [{ id: sourceId, kind: 'url', uri: sourceUrl, contentHash: hash([locationClaim, dateClaim, observation, unsupported, restrictedPrice].join('\n')), capturedAt }],
     },
-    claims: [
-      { id: 'claim-location', text: locationClaim, origin: 'external_fact', verification: 'supported', evidence: evidence(locationClaim, 'p:1'), restrictedFromArtifacts: false },
-      { id: 'claim-date', text: dateClaim, origin: 'external_fact', verification: 'supported', evidence: evidence(dateClaim, 'p:2'), restrictedFromArtifacts: false },
-      { id: 'claim-observation', text: observation, origin: 'first_party_observation', verification: 'approved', evidence: evidence(observation, 'note:1'), restrictedFromArtifacts: false },
-      { id: 'claim-unsupported', text: unsupported, origin: 'inference', verification: 'unsupported', evidence: [], restrictedFromArtifacts: true, restrictionReason: 'No independent evidence supports the superlative.' },
-      { id: 'claim-price', text: restrictedPrice, origin: 'external_fact', verification: 'supported', evidence: evidence(restrictedPrice, 'p:3'), restrictedFromArtifacts: true, restrictionReason: 'PI outputs do not publish prices.' },
-    ],
+    claims,
     angle: {
       id: 'angle-rainy-lunch',
       label: 'Rainy-day lunch',
@@ -84,7 +100,7 @@ export function runFixture(actor: string, idempotencyKey: string): FoundryRun {
       id: 'artifact-quick-note-red-hill',
       version: 1,
       type: 'quick_note',
-      claimIds: ['claim-location', 'claim-date', 'claim-observation'],
+      claimIds: artifactClaimIds,
       angleId: 'angle-rainy-lunch',
       payload,
       gateResults,
@@ -100,7 +116,7 @@ export function buildPatch(run: FoundryRun): string {
   const publicCopy = `${note.headline} ${note.dek ?? ''} ${note.body}`;
   if (run.blockers.length > 0 || run.artifact.gateResults.some((gate) => !gate.passed)) throw new Error('Artifact has unresolved gates');
   if (note.tag === 'pricing' || /(?:\$\s?\d|\bAUD\b|\bprice(?:d|s)?\b)/i.test(publicCopy)) throw new Error('PI outputs cannot contain pricing');
-  if (/[—–]/.test(publicCopy)) throw new Error('PI outputs cannot contain em dashes or en dashes');
+  if (/—/.test(publicCopy)) throw new Error('PI outputs cannot contain em dashes');
   const slug = '2026-08-21-red-hill-wet-weather-lunch.md';
   const content = [
     '---',
@@ -121,7 +137,7 @@ export function buildPatch(run: FoundryRun): string {
     'status: draft',
     '---',
     '',
-    note.body,
+    ...note.body.split(/\r?\n/),
   ];
   return [
     `diff --git a/next/src/content/quick-notes/${slug} b/next/src/content/quick-notes/${slug}`,

@@ -11,11 +11,30 @@ const CreateRunSchema = z.object({
   idempotencyKey: z.string().min(1).optional(),
 });
 
-export function createApp(store: FileFoundryStore) {
+export function createApp(store: FileFoundryStore, options: { staticDir?: string } = {}) {
   const app = express();
   app.disable('x-powered-by');
-  app.use(helmet({ contentSecurityPolicy: false }));
+  app.use(helmet({
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"],
+        scriptSrc: ["'self'"],
+        styleSrc: ["'self'"],
+        fontSrc: ["'self'"],
+        imgSrc: ["'self'", 'data:'],
+        connectSrc: ["'self'"],
+        objectSrc: ["'none'"],
+        baseUri: ["'none'"],
+        frameAncestors: ["'none'"],
+        formAction: ["'none'"],
+      },
+    },
+  }));
   app.use(express.json({ limit: '256kb' }));
+  app.use('/api', (_request, response, next) => {
+    response.setHeader('Cache-Control', 'no-store');
+    next();
+  });
 
   app.get('/api/health', (_request, response) => response.json({ ok: true, service: 'pi-content-foundry', mode: 'fixture-only' }));
   app.get('/api/capabilities', (_request, response) => response.json({
@@ -80,6 +99,14 @@ export function createApp(store: FileFoundryStore) {
       return response.send(patch);
     } catch (error) { return next(error); }
   });
+
+  if (options.staticDir) {
+    app.use(express.static(options.staticDir, { index: false, fallthrough: true }));
+    app.get('*', (request, response, next) => {
+      if (request.path.startsWith('/api/')) return next();
+      return response.sendFile('index.html', { root: options.staticDir });
+    });
+  }
 
   app.use((error: unknown, _request: express.Request, response: express.Response, _next: express.NextFunction) => {
     if (error instanceof z.ZodError) return response.status(400).json({ error: 'Invalid request', issues: error.issues });

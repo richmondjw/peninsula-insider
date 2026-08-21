@@ -77,6 +77,16 @@ export function App() {
     } finally { setBusy(false); }
   }
 
+  const sourceById = new Map(run?.bundle.sourceItems.map((source) => [source.id, source]) ?? []);
+  const draftDirty = Boolean(run && (
+    draft.headline !== run.artifact.payload.headline
+    || draft.dek !== (run.artifact.payload.dek ?? '')
+    || draft.body !== run.artifact.payload.body
+  ));
+  const reviewBlocked = Boolean(run && (
+    run.blockers.length > 0 || run.artifact.gateResults.some((gate) => !gate.passed)
+  ));
+
   return (
     <main>
       <header className="masthead">
@@ -95,7 +105,7 @@ export function App() {
       {!run && <section className="empty"><h2>No run yet</h2><p>The first deterministic package is ready to prove the full review spine.</p></section>}
 
       {run && <>
-        <section className="runbar">
+        <section className="runbar" aria-live="polite">
           <div><span>RUN</span><strong>{run.id}</strong></div>
           <div><span>STATUS</span><strong className={`status ${run.status}`}>{run.status.replaceAll('_', ' ')}</strong></div>
           <div><span>VERSION</span><strong>{run.version}</strong></div>
@@ -104,17 +114,31 @@ export function App() {
 
         <div className="workspace-grid">
           <section className="panel">
-            <div className="panel-heading"><p className="eyebrow">Claim ledger</p><span>{run.claims.length} claims</span></div>
+            <div className="panel-heading"><h2 className="eyebrow">Claim ledger</h2><span>{run.claims.length} claims</span></div>
             {run.claims.map((claim) => <article className="claim" key={claim.id}>
               <div className="claim-top"><span className={`pill ${claim.verification}`}>{claim.verification}</span>{claim.restrictedFromArtifacts && <span className="pill restricted">held</span>}</div>
               <p>{claim.text}</p>
               <small>{claim.origin.replaceAll('_', ' ')} · {claim.evidence.length} evidence locator{claim.evidence.length === 1 ? '' : 's'}</small>
+              {claim.evidence.length > 0 && <details className="evidence-detail">
+                <summary>Inspect evidence</summary>
+                {claim.evidence.map((item) => {
+                  const source = sourceById.get(item.sourceItemId);
+                  return <div className="evidence-item" key={`${item.sourceItemId}-${item.locator}`}>
+                    <blockquote>{item.excerpt}</blockquote>
+                    <dl>
+                      <div><dt>Locator</dt><dd>{item.locatorType}: {item.locator}</dd></div>
+                      <div><dt>Captured</dt><dd>{new Date(item.capturedAt).toLocaleString('en-AU')}</dd></div>
+                      <div><dt>Source</dt><dd>{source?.uri ? <a href={source.uri} target="_blank" rel="noreferrer">{source.uri}</a> : item.sourceItemId}</dd></div>
+                    </dl>
+                  </div>;
+                })}
+              </details>}
               {claim.restrictionReason && <div className="restriction">{claim.restrictionReason}</div>}
             </article>)}
           </section>
 
           <section className="panel artifact-panel">
-            <div className="panel-heading"><p className="eyebrow">Quick-note draft</p><span>Draft only</span></div>
+            <div className="panel-heading"><h2 className="eyebrow">Quick-note draft</h2><span>Draft only</span></div>
             <p className="section-label">{run.artifact.payload.section} · {run.artifact.payload.tag}</p>
             <label className="editor-field">
               <span>Headline</span>
@@ -133,12 +157,13 @@ export function App() {
                 <strong>{gate.passed ? 'PASS' : 'BLOCK'}</strong><span>{gate.gate.replaceAll('_', ' ')}</span>
               </div>)}
             </div>
+            {draftDirty && <div className="notice unsaved" role="status">Unsaved changes are not reviewed. Save them before approving a draft handoff.</div>}
             <div className="actions">
-              <button className="secondary" onClick={saveDraft} disabled={busy}>Save changes</button>
+              <button className="secondary" onClick={saveDraft} disabled={busy || !draftDirty}>Save changes</button>
               <button className="secondary" onClick={() => decide('rejected')} disabled={busy}>Reject</button>
-              <button onClick={() => decide('accepted')} disabled={busy}>Accept draft</button>
+              <button onClick={() => decide('accepted')} disabled={busy || draftDirty || reviewBlocked}>Approve draft handoff</button>
             </div>
-            {run.status === 'accepted' && <a className="download" href={`/api/foundry/runs/${run.id}/patch`}>Download reviewed patch</a>}
+            {run.status === 'accepted' && !draftDirty && <a className="download" href={`/api/foundry/runs/${run.id}/patch`}>Download reviewed patch</a>}
           </section>
         </div>
       </>}

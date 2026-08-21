@@ -9,6 +9,12 @@ interface StoreFile {
   runs: FoundryRun[];
 }
 
+function normalizeDerivedStatus(run: FoundryRun): FoundryRun {
+  const hasFailedGate = run.blockers.length > 0 || run.artifact.gateResults.some((gate) => !gate.passed);
+  if (!hasFailedGate || !['ready_for_review', 'accepted'].includes(run.status)) return run;
+  return FoundryRunSchema.parse({ ...run, status: 'needs_revision', review: undefined });
+}
+
 export class VersionConflictError extends Error {}
 
 export class FileFoundryStore {
@@ -41,7 +47,7 @@ export class FileFoundryStore {
       const raw = await readFile(this.filePath, 'utf8');
       const parsed = JSON.parse(raw) as StoreFile;
       if (parsed.schemaVersion !== 'pi.foundry-file-store.v1') throw new Error('Unsupported Foundry store schema');
-      return { schemaVersion: parsed.schemaVersion, runs: parsed.runs.map((run) => FoundryRunSchema.parse(run)) };
+      return { schemaVersion: parsed.schemaVersion, runs: parsed.runs.map((run) => normalizeDerivedStatus(FoundryRunSchema.parse(run))) };
     } catch (error) {
       if ((error as NodeJS.ErrnoException).code === 'ENOENT') return { schemaVersion: 'pi.foundry-file-store.v1', runs: [] };
       throw error;
@@ -141,17 +147,18 @@ export class FileFoundryStore {
         body: edit.body,
       });
       const now = new Date().toISOString();
+      const gateResults = evaluateQuickNoteGates(payload, run.claims, run.artifact.claimIds);
       const updated = FoundryRunSchema.parse({
         ...run,
         version: run.version + 1,
-        status: 'ready_for_review',
+        status: gateResults.some((gate) => !gate.passed) ? 'needs_revision' : 'ready_for_review',
         updatedAt: now,
         review: undefined,
         artifact: {
           ...run.artifact,
           version: run.artifact.version + 1,
           payload,
-          gateResults: evaluateQuickNoteGates(payload),
+          gateResults,
         },
         audit: [...run.audit, {
           at: now,

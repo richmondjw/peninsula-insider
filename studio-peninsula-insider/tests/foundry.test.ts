@@ -1,11 +1,11 @@
-import { mkdtemp, readFile, rm } from 'node:fs/promises';
+import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import request from 'supertest';
 import { afterEach, describe, expect, it } from 'vitest';
 import { createApp } from '../server/app.js';
 import { loadRuntimeConfig } from '../server/config.js';
-import { runFixture } from '../server/fixture-runner.js';
+import { evaluateQuickNoteGates, runFixture } from '../server/fixture-runner.js';
 import { FileFoundryStore } from '../server/store.js';
 
 const temporaryDirectories: string[] = [];
@@ -15,7 +15,7 @@ async function harness() {
   temporaryDirectories.push(directory);
   const file = join(directory, 'runs.json');
   const store = new FileFoundryStore(file, directory);
-  return { file, store, app: createApp(store) };
+  return { directory, file, store, app: createApp(store) };
 }
 
 afterEach(async () => {
@@ -33,8 +33,19 @@ describe('deterministic Foundry fixture', () => {
     expect(first.body.claims).toHaveLength(5);
     expect(first.body.artifact.claimIds).not.toContain('claim-unsupported');
     expect(first.body.artifact.claimIds).not.toContain('claim-price');
-    expect(first.body.artifact.payload.body).not.toMatch(/\$\s?\d|[—–]/);
+    expect(first.body.artifact.payload.body).not.toMatch(/\$\s?\d|—/);
     expect(first.body.artifact.gateResults.every((gate: { passed: boolean }) => gate.passed)).toBe(true);
+  });
+
+  it('derives the claim gate and permits en dashes while blocking em dashes', () => {
+    const run = runFixture('test-editor', 'style-law-v1');
+    const enDash = evaluateQuickNoteGates({ headline: 'Open 9–11am', body: 'A supported range.' }, run.claims, run.artifact.claimIds);
+    const emDash = evaluateQuickNoteGates({ headline: 'Open today — bookings required', body: 'A supported note.' }, run.claims, run.artifact.claimIds);
+    const restricted = evaluateQuickNoteGates(run.artifact.payload, run.claims, [...run.artifact.claimIds, 'claim-price']);
+
+    expect(enDash.find((gate) => gate.gate === 'no_em_dash')?.passed).toBe(true);
+    expect(emDash.find((gate) => gate.gate === 'no_em_dash')?.passed).toBe(false);
+    expect(restricted.find((gate) => gate.gate === 'supported_claims_only')?.passed).toBe(false);
   });
 
   it('requires idempotency and serializes concurrent mutations', async () => {
@@ -67,6 +78,16 @@ describe('deterministic Foundry fixture', () => {
     expect(JSON.parse(await readFile(file, 'utf8')).runs).toHaveLength(1);
   });
 
+  it('normalizes legacy ready state to needs revision when a persisted gate failed', async () => {
+    const { directory, file } = await harness();
+    const legacy = runFixture('legacy-editor', 'legacy-gate-v1');
+    legacy.artifact.gateResults[0] = { gate: 'no_price', passed: false, detail: 'Legacy failed gate.' };
+    await writeFile(file, `${JSON.stringify({ schemaVersion: 'pi.foundry-file-store.v1', runs: [legacy] })}\n`, 'utf8');
+
+    const restarted = new FileFoundryStore(file, directory);
+    expect((await restarted.get(legacy.id))?.status).toBe('needs_revision');
+  });
+
   it('versions edits, invalidates approval and blocks restricted copy', async () => {
     const { app } = await harness();
     const created = await request(app).post('/api/foundry/runs').set('Idempotency-Key', 'edit-v1').send({
@@ -85,7 +106,7 @@ describe('deterministic Foundry fixture', () => {
 
     expect(edited.body.version).toBe(3);
     expect(edited.body.artifact.version).toBe(2);
-    expect(edited.body.status).toBe('ready_for_review');
+    expect(edited.body.status).toBe('needs_revision');
     expect(edited.body.review).toBeUndefined();
     expect(edited.body.artifact.gateResults.find((gate: { gate: string }) => gate.gate === 'no_price').passed).toBe(false);
 
@@ -100,7 +121,18 @@ describe('deterministic Foundry fixture', () => {
 
   it('fails closed for production fixture mode and path escape', () => {
     expect(() => loadRuntimeConfig({ NODE_ENV: 'production' })).toThrow(/disabled in production/);
+    expect(() => loadRuntimeConfig({ NODE_ENV: 'test', FOUNDRY_HOST: 'public.example' })).toThrow(/FOUNDRY_HOST/);
     expect(() => new FileFoundryStore('C:\\outside\\runs.json', 'C:\\allowed')).toThrow(/inside its configured data root/);
+  });
+
+  it('serves the built Workbench from the same loopback service', async () => {
+    const { directory, store } = await harness();
+    await writeFile(join(directory, 'index.html'), '<!doctype html><title>Foundry container marker</title>', 'utf8');
+    const app = createApp(store, { staticDir: directory });
+
+    const page = await request(app).get('/').expect(200).expect('Content-Type', /html/).expect('Content-Security-Policy', /default-src 'self'/);
+    expect(page.text).toContain('Foundry container marker');
+    await request(app).get('/api/health').expect(200).expect('Content-Type', /json/).expect('Cache-Control', 'no-store');
   });
 
   it('exports a patch only after acceptance', async () => {
@@ -116,5 +148,24 @@ describe('deterministic Foundry fixture', () => {
     const patch = await request(app).get(`/api/foundry/runs/${created.body.id}/patch`).expect(200);
     expect(patch.text).toContain('next/src/content/quick-notes/2026-08-21-red-hill-wet-weather-lunch.md');
     expect(patch.text).toContain('status: draft');
+  });
+
+  it('preserves every physical line in multiline Markdown patches', async () => {
+    const { app } = await harness();
+    const created = await request(app).post('/api/foundry/runs').set('Idempotency-Key', 'multiline-v1').send({
+      fixtureId: 'red-hill-winter-lunch', actor: 'test-editor',
+    }).expect(201);
+    const edited = await request(app).put(`/api/foundry/runs/${created.body.id}/artifact`).send({
+      editor: 'test-editor', expectedVersion: 1,
+      headline: created.body.artifact.payload.headline,
+      dek: created.body.artifact.payload.dek,
+      body: 'First paragraph.\n\nSecond paragraph.',
+    }).expect(200);
+    await request(app).put(`/api/foundry/runs/${created.body.id}/review`).send({
+      decision: 'accepted', reviewer: 'test-editor', expectedVersion: edited.body.version,
+    }).expect(200);
+
+    const patch = await request(app).get(`/api/foundry/runs/${created.body.id}/patch`).expect(200);
+    expect(patch.text).toContain('+First paragraph.\n+\n+Second paragraph.');
   });
 });

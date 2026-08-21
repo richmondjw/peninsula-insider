@@ -103,7 +103,7 @@ export const FoundryRunSchema = z.object({
   id: z.string().min(1),
   idempotencyKey: z.string().min(1),
   version: z.number().int().positive(),
-  status: z.enum(['ready_for_review', 'accepted', 'rejected', 'failed']),
+  status: z.enum(['ready_for_review', 'needs_revision', 'accepted', 'rejected', 'failed']),
   createdAt: z.string().datetime(),
   updatedAt: z.string().datetime(),
   bundle: IntakeBundleSchema,
@@ -123,3 +123,4 @@ export const FoundryRunSchema = z.object({
 export type FoundryRun = z.infer<typeof FoundryRunSchema>;
 export type ReviewDecision = z.infer<typeof ReviewDecisionSchema>;
 export type ArtifactEdit = z.infer<typeof ArtifactEditSchema>;
+export type Claim = z.infer<typeof ClaimSchema>;

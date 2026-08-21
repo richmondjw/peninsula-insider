@@ -34,3 +34,18 @@ jobs:
       - run: npm test
       - run: npm run build
       - run: npm audit --audit-level=moderate
+
+  container-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    defaults:
+      run:
+        working-directory: studio-peninsula-insider
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker compose config --quiet
+      - run: docker compose up --build --wait
+      - run: curl --fail --silent --show-error http://127.0.0.1:4310/api/health
+      - run: curl --fail --silent --show-error http://127.0.0.1:4310/ | grep -F 'Peninsula Insider Workbench'
+      - if: always()
+        run: docker compose down

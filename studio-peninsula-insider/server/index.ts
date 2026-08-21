@@ -5,6 +5,7 @@ import { FileFoundryStore } from './store.js';
 const config = loadRuntimeConfig();
 const store = new FileFoundryStore(config.dataFile, config.dataRoot);
 
-createApp(store).listen(config.port, '127.0.0.1', () => {
-  console.log(`Peninsula Insider Workbench API listening on http://127.0.0.1:${config.port}`);
+createApp(store, { staticDir: config.staticDir }).listen(config.port, config.host, () => {
+  const displayHost = config.host === '0.0.0.0' ? '127.0.0.1' : config.host;
+  console.log(`Peninsula Insider Workbench listening on http://${displayHost}:${config.port}`);
 });
