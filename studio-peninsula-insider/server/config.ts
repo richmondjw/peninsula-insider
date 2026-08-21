@@ -1,4 +1,5 @@
 import { isAbsolute, relative, resolve } from 'node:path';
+import { realUrlCaptureEnabled } from './capture/kernel.js';
 
 export interface RuntimeConfig {
   dataFile: string;
@@ -6,6 +7,7 @@ export interface RuntimeConfig {
   environment: string;
   host: '127.0.0.1' | '0.0.0.0';
   port: number;
+  realUrlsEnabled: boolean;
   staticDir?: string;
 }
 
@@ -28,12 +30,20 @@ export function loadRuntimeConfig(environment = process.env): RuntimeConfig {
     throw new Error('FOUNDRY_HOST must be 127.0.0.1 or 0.0.0.0');
   }
 
+  // Real URL capture defaults off, and even when it is switched on locally it may never be
+  // combined with a listener that is reachable from the team network.
+  const realUrlsEnabled = realUrlCaptureEnabled(environment);
+  if (realUrlsEnabled && host !== '127.0.0.1') {
+    throw new Error('FOUNDRY_REAL_URLS_ENABLED=1 is allowed only with the loopback listener FOUNDRY_HOST=127.0.0.1');
+  }
+
   return {
     dataFile,
     dataRoot,
     environment: runtime,
     host,
     port: Number(environment.FOUNDRY_PORT ?? 4310),
+    realUrlsEnabled,
     staticDir: environment.FOUNDRY_STATIC_DIR ? resolve(environment.FOUNDRY_STATIC_DIR) : undefined,
   };
 }

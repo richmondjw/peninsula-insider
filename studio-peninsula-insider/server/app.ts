@@ -2,7 +2,10 @@ import express from 'express';
 import helmet from 'helmet';
 import { z } from 'zod';
 import { ArtifactEditSchema, ArtifactUpdateSchema, ReviewDecisionSchema } from '../shared/contracts.js';
+import { SourceRefreshRequestSchema, UrlIntakeRequestSchema } from '../shared/intake-contracts.js';
+import { CaptureDisabledError, CaptureIdempotencyConflictError } from './capture/kernel.js';
 import { buildPatch, FIXTURE_ID, runFixture, runUrlArticleFixture, URL_ARTICLE_FIXTURE_ID } from './fixture-runner.js';
+import { IntakeNotFoundError, IntakeRequestError, type UrlIntakeService } from './intake/service.js';
 import { FileFoundryStore, VersionConflictError } from './store.js';
 
 const CreateRunSchema = z.object({
@@ -12,7 +15,13 @@ const CreateRunSchema = z.object({
   fixtureVariant: z.enum(['complete', 'text_only', 'partial_optional_failure']).default('complete'),
 });
 
-export function createApp(store: FileFoundryStore, options: { staticDir?: string } = {}) {
+export function createApp(
+  store: FileFoundryStore,
+  options: { staticDir?: string; intake?: UrlIntakeService } = {},
+) {
+  // Absent or flag-off intake keeps the real-URL capability unavailable rather than merely
+  // unused: the routes answer 404 and nothing can reach the sealed kernel.
+  const intake = options.intake?.enabled ? options.intake : undefined;
   const app = express();
   app.disable('x-powered-by');
   app.use(helmet({
@@ -37,15 +46,59 @@ export function createApp(store: FileFoundryStore, options: { staticDir?: string
     next();
   });
 
-  app.get('/api/health', (_request, response) => response.json({ ok: true, service: 'pi-content-foundry', mode: 'fixture-only' }));
+  app.get('/api/health', (_request, response) => response.json({
+    ok: true,
+    service: 'pi-content-foundry',
+    mode: intake ? 'fixture-and-local-url' : 'fixture-only',
+  }));
   app.get('/api/capabilities', (_request, response) => response.json({
-    sourceTypes: ['frozen_fixture'],
+    sourceTypes: intake ? ['frozen_fixture', 'local_real_url'] : ['frozen_fixture'],
+    realUrlCapture: Boolean(intake),
     recipes: ['quick_note_v1', 'url_article_v1'],
     artifactTypes: ['quick_note', 'article_draft', 'article_metadata', 'ask_answer', 'internal_link_plan', 'seo_metadata_proposal'],
     publicationAdapters: ['downloadable_patch'],
-    externalCalls: false,
+    externalCalls: Boolean(intake),
     productionMutation: false,
   }));
+
+  function requireIntake(): UrlIntakeService {
+    if (!intake) throw new CaptureDisabledError('Real URL capture is disabled');
+    return intake;
+  }
+
+  app.get('/api/foundry/intake', async (_request, response, next) => {
+    try {
+      response.json({ enabled: Boolean(intake), attempts: intake ? await intake.list() : [] });
+    } catch (error) { next(error); }
+  });
+
+  app.post('/api/foundry/intake/url', async (request, response, next) => {
+    try {
+      const service = requireIntake();
+      const input = UrlIntakeRequestSchema.parse(request.body);
+      const result = await service.submit({
+        url: input.url,
+        actor: input.actor,
+        idempotencyKey: request.header('Idempotency-Key') ?? input.idempotencyKey,
+      });
+      const created = Boolean(result.run) && !result.replayed;
+      return response.status(created ? 201 : 200).json({ attempt: result.attempt, run: result.run ?? null });
+    } catch (error) { return next(error); }
+  });
+
+  app.post('/api/foundry/runs/:id/refresh', async (request, response, next) => {
+    try {
+      const service = requireIntake();
+      const input = SourceRefreshRequestSchema.parse(request.body);
+      const result = await service.refresh(request.params.id, {
+        actor: input.actor,
+        expectedVersion: input.expectedVersion,
+        idempotencyKey: request.header('Idempotency-Key') ?? input.idempotencyKey,
+        url: input.url,
+      });
+      return response.json({ attempt: result.attempt, run: result.run ?? null });
+    } catch (error) { return next(error); }
+  });
 
   app.get('/api/foundry/runs', async (_request, response, next) => {
     try { response.json({ runs: await store.list() }); } catch (error) { next(error); }
@@ -129,6 +182,13 @@ export function createApp(store: FileFoundryStore, options: { staticDir?: string
 
   app.use((error: unknown, _request: express.Request, response: express.Response, _next: express.NextFunction) => {
     if (error instanceof z.ZodError) return response.status(400).json({ error: 'Invalid request', issues: error.issues });
+    if (error instanceof CaptureDisabledError) {
+      return response.status(404).json({ error: 'Real URL capture is disabled', code: 'real_url_capture_disabled' });
+    }
+    if (error instanceof CaptureIdempotencyConflictError) return response.status(409).json({ error: error.message });
+    if (error instanceof VersionConflictError) return response.status(409).json({ error: error.message });
+    if (error instanceof IntakeNotFoundError) return response.status(404).json({ error: error.message });
+    if (error instanceof IntakeRequestError) return response.status(400).json({ error: error.message });
     const message = error instanceof Error ? error.message : 'Unexpected error';
     return response.status(400).json({ error: message });
   });

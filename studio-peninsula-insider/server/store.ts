@@ -129,7 +129,7 @@ function gatesForUpdatedArtifact(
 ): GateResult[] {
   if (artifact.type === 'quick_note') {
     const note = QuickNoteSchema.parse(payload);
-    return evaluateQuickNoteGates(note, run.claimSet.claims, claimUsage.flatMap((usage) => usage.claimIds));
+    return evaluateQuickNoteGates(note, run.claimSet.claims, claimUsage.flatMap((usage) => usage.claimIds), asOf);
   }
   const contract = artifact.type === 'ask_answer'
     ? { gate: 'ask_answer_contract' as const, schema: AskAnswerPayloadSchema }
@@ -229,6 +229,31 @@ export class FileFoundryStore {
       data.runs.unshift(parsed);
       await this.write(data);
       return parsed;
+    });
+  }
+
+  /**
+   * Replaces a run's captured source with the next immutable revision inside one
+   * serialised transaction. The caller supplies the already-built next run; read-time
+   * reconciliation then stales every review decision that depended on the old revision.
+   */
+  async applySourceRefresh(
+    id: string,
+    expectedVersion: number,
+    refresh: (previous: FoundryRun) => FoundryRun,
+  ): Promise<FoundryRun> {
+    return this.mutate(async () => {
+      const data = await this.read();
+      const index = data.runs.findIndex((run) => run.id === id);
+      if (index < 0) throw new Error('Run not found');
+      const previous = data.runs[index];
+      if (previous.version !== expectedVersion) {
+        throw new VersionConflictError(`Expected version ${expectedVersion}; current version is ${previous.version}`);
+      }
+      const updated = normalizeDerivedStatus(FoundryRunSchema.parse(refresh(previous)));
+      data.runs[index] = updated;
+      await this.write(data);
+      return updated;
     });
   }
 
