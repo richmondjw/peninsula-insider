@@ -292,10 +292,10 @@ const active = activePillar(path, section);
     border-radius: 50%;
   }
 
-  /* Below this width the brand row has no slack left (see the wordmark
-     comment above) - drop the mark rather than risk the utility labels
-     truncating. */
-  @media (max-width: 22.5em) {
+  /* Desktop-only per James (2026-08-21): didn't work on mobile - the
+     1023px cutoff below matches the rest of this component's mobile/
+     desktop split (see the two @media rules further down). */
+  @media (max-width: 1023px) {
     .v5-masthead__mark {
       display: none;
     }
