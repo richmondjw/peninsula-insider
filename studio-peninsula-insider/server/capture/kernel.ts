@@ -84,6 +84,10 @@ export interface CaptureInput {
   readonly idempotencyKey: string;
 }
 
+// Re-exported so callers outside the sealed boundary can classify a refusal without
+// importing the DNS and address policy module directly.
+export { CapturePolicyError };
+
 export class CaptureDisabledError extends Error {}
 export class CaptureIdempotencyConflictError extends Error {}
 

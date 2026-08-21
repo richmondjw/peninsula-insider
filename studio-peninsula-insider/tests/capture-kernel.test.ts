@@ -10,6 +10,7 @@ import { createEvidenceLocator, resolveEvidenceLocator } from '../server/capture
 import { CaptureDisabledError, CaptureIdempotencyConflictError, CaptureKernel, realUrlCaptureEnabled } from '../server/capture/kernel.js';
 import { canonicalizeCaptureUrl, isPublicAddress, type DnsResolver, type ResolvedAddress } from '../server/capture/policy.js';
 import { FileCaptureRepository } from '../server/capture/repository.js';
+import { createPinnedLookup } from '../server/capture/transport.js';
 import type { CaptureTransport, TransportRequest, TransportResponse } from '../server/capture/transport-contract.js';
 
 const temporaryDirectories: string[] = [];
@@ -89,6 +90,20 @@ async function harness(input: {
 
 afterEach(async () => {
   await Promise.all(temporaryDirectories.splice(0).map((directory) => rm(directory, { recursive: true, force: true })));
+});
+
+describe('pinned HTTPS transport', () => {
+  it('answers both address-selection callback shapes with the one validated address', () => {
+    const lookup = createPinnedLookup(PUBLIC_V4);
+    const scalar: unknown[] = [];
+    const all: unknown[] = [];
+
+    lookup('news.public-site.org', {}, (...args) => scalar.push(args));
+    lookup('news.public-site.org', { all: true }, (...args) => all.push(args));
+
+    expect(scalar).toEqual([[null, PUBLIC_V4.address, 4]]);
+    expect(all).toEqual([[null, [{ address: PUBLIC_V4.address, family: 4 }]]]);
+  });
 });
 
 describe('sealed CaptureKernel policy', () => {

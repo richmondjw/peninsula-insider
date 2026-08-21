@@ -13,12 +13,23 @@ function normalizeHeaders(rawHeaders: readonly string[]): Readonly<Record<string
   return Object.freeze(headers);
 }
 
+/**
+ * Pins the connection to the one address the policy layer already validated. Node's
+ * address-selection path asks for every candidate at once (`options.all`), so both callback
+ * shapes must be answered with the same single pinned address; answering only the scalar
+ * shape makes every real capture fail closed at connect time.
+ */
+export function createPinnedLookup(pinned: { readonly address: string; readonly family: 4 | 6 }): LookupFunction {
+  return (_hostname, options, callback) => {
+    if (options.all) callback(null, [{ address: pinned.address, family: pinned.family }]);
+    else callback(null, pinned.address, pinned.family);
+  };
+}
+
 class PinnedHttpsTransport implements CaptureTransport {
   request(input: TransportRequest): Promise<TransportResponse> {
     return new Promise((resolve, reject) => {
-      const lookup: LookupFunction = (_hostname, _options, callback) => {
-        callback(null, input.pinnedAddress.address, input.pinnedAddress.family);
-      };
+      const lookup = createPinnedLookup(input.pinnedAddress);
       const request = httpsRequest(input.url, {
         method: 'GET',
         agent: false,
