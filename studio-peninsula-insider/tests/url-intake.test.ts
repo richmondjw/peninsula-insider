@@ -1,3 +1,4 @@
+import { existsSync } from 'node:fs';
 import { mkdtemp, readFile, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
@@ -139,11 +140,15 @@ describe('real URL intake stays inert while the flag is off', () => {
 
   it('pins the flag off in the container, the compose file and CI', async () => {
     const read = async (path: string) => readFile(fileURLToPath(new URL(path, import.meta.url)), 'utf8');
-    const files = await Promise.all([
-      read('../Dockerfile'),
-      read('../compose.yaml'),
-      read('../../.github/workflows/content-foundry-ci.yml'),
-    ]);
+    const files = await Promise.all([read('../Dockerfile'), read('../compose.yaml')]);
+
+    // The workflow lives above the Docker build context, so it is only checked when the
+    // suite runs against a repository checkout rather than inside the built image.
+    const workflow = fileURLToPath(new URL('../../.github/workflows/content-foundry-ci.yml', import.meta.url));
+    if (existsSync(fileURLToPath(new URL('../../PRODUCT.md', import.meta.url)))) {
+      expect(existsSync(workflow)).toBe(true);
+      files.push(await readFile(workflow, 'utf8'));
+    }
 
     for (const contents of files) {
       const assignments = contents.match(/FOUNDRY_REAL_URLS_ENABLED[:=]\s*"?[^"\s]+"?/g) ?? [];
