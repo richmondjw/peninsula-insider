@@ -1,12 +1,12 @@
 # Content Foundry sealed capture kernel
 
 Date: 2026-08-21
-Status: implemented behind a default-off flag; no caller exposed
+Status: implemented behind a default-off flag; callable only by the loopback orchestration boundary from issue #325
 Tracks: DELI-693, GitHub issue #324, stacked base `ebe0702bd369641f3235dc7c54955c678b54eb8e`
 
 ## Decision
 
-Real URL ingestion must pass through one sealed `CaptureKernel`. The kernel is backend-only, has no Express route, UI action or provider adapter, and remains disabled unless `FOUNDRY_REAL_URLS_ENABLED=1`. The local Compose runtime explicitly sets the flag to `0`.
+Real URL ingestion must pass through one sealed `CaptureKernel`. The kernel remains backend-only and disabled unless `FOUNDRY_REAL_URLS_ENABLED=1`. Issue #325 adds one local orchestration caller and a flag-gated loopback API/UI; no other route, provider adapter or workflow may call the transport. The local Compose runtime explicitly sets the flag to `0`.
 
 The kernel owns URL policy, DNS validation, the pinned HTTPS connection, redirect handling, byte and time bounds, immutable storage and inert extraction. CI rejects direct HTTP clients or socket-opening imports outside the single pinned transport module.
 
@@ -29,7 +29,7 @@ Blobs are addressed by SHA-256 under a root-contained path. Writes use `wx`, fil
 
 ## Extraction and evidence
 
-Only `text/html` and `text/plain` with UTF-8 or US-ASCII enter extraction. Gzip, deflate and Brotli are decoded under separate wire and decoded limits. DNS, headers, body idle time, total capture time and concurrency are independently bounded; the total deadline wraps extraction, blob writes and manifest persistence as well as network work. `parse5` parses HTML without script execution or subresource fetching; script, style, template, SVG and similar non-story nodes are excluded. Prompt-like text in ordinary content remains inert evidence text.
+Only `text/html` and `text/plain` with UTF-8 or US-ASCII enter extraction. Gzip, deflate and Brotli are decoded under separate wire and decoded limits. DNS, headers, body idle time, total capture time and concurrency are independently bounded; the total deadline wraps extraction, blob writes and manifest persistence as well as network work. `parse5` parses HTML without script execution or subresource fetching; script, style, template, SVG and similar non-story nodes are excluded. Extractor v2 retains at most 256 segments and 4,000 characters per segment. Prompt-like text in ordinary content remains inert evidence text and is held from artifacts.
 
 Every extracted block has a stable locator and hash. A capture evidence locator names both the source and extraction revision and resolves only when its excerpt and hash reproduce from that immutable revision.
 

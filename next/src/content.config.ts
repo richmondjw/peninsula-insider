@@ -1279,7 +1279,7 @@ const quickNotes = defineCollection({
     verifiedBy: z.string().optional(),
     verdict: z.string().max(140).optional(),  // pull-quote-style verdict
     sources: z.array(z.object({
-      kind: z.enum(['venue-site', 'phone', 'email', 'visit', 'press', 'social', 'gov', 'partner']),
+      kind: z.enum(['web', 'venue-site', 'phone', 'email', 'visit', 'press', 'social', 'gov', 'partner']),
       url: z.string().url().optional(),
       note: z.string().optional(),
       checkedAt: z.coerce.date().optional(),

@@ -15,6 +15,9 @@ interface HtmlNode {
 
 const BLOCK_ELEMENTS = new Set(['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'li', 'blockquote', 'dt', 'dd', 'pre', 'figcaption', 'td', 'th']);
 const EXCLUDED_ELEMENTS = new Set(['script', 'style', 'noscript', 'template', 'svg', 'canvas']);
+export const MAX_EXTRACTION_BLOCK_CHARS = 4_000;
+export const MAX_EXTRACTION_BLOCKS = 256;
+export const MAX_EXTRACTION_TEXT_CHARS = 512_000;
 
 export class ExtractionError extends Error {}
 
@@ -66,7 +69,28 @@ export function decodeText(content: Uint8Array, charset: 'utf-8' | 'us-ascii'): 
 
 export function extractBlocks(content: string, mediaType: 'text/html' | 'text/plain') {
   const texts = mediaType === 'text/html' ? htmlBlocks(content) : plainTextBlocks(content);
-  return texts.map((text, index) => Object.freeze({
+  const bounded: string[] = [];
+  let retainedChars = 0;
+  for (const text of texts) {
+    let remainder = text;
+    while (remainder && bounded.length < MAX_EXTRACTION_BLOCKS && retainedChars < MAX_EXTRACTION_TEXT_CHARS) {
+      const remainingBudget = MAX_EXTRACTION_TEXT_CHARS - retainedChars;
+      const limit = Math.min(MAX_EXTRACTION_BLOCK_CHARS, remainingBudget);
+      let splitAt = Math.min(remainder.length, limit);
+      if (remainder.length > limit) {
+        const wordBoundary = remainder.slice(0, limit + 1).lastIndexOf(' ');
+        if (wordBoundary >= Math.floor(limit / 2)) splitAt = wordBoundary;
+      }
+      const segment = remainder.slice(0, splitAt).trim();
+      if (segment) {
+        bounded.push(segment);
+        retainedChars += segment.length;
+      }
+      remainder = remainder.slice(splitAt).trim();
+    }
+    if (bounded.length >= MAX_EXTRACTION_BLOCKS || retainedChars >= MAX_EXTRACTION_TEXT_CHARS) break;
+  }
+  return bounded.map((text, index) => Object.freeze({
     locator: `block:${String(index + 1).padStart(6, '0')}`,
     text,
     textHash: sha256(text),
@@ -85,7 +109,7 @@ export function buildExtractionRevision(input: {
   return ExtractionRevisionSchema.parse({
     schemaVersion: 'pi.extraction-revision.v1',
     ...input,
-    extractorVersion: 'pi.parse5-text.v1',
+    extractorVersion: 'pi.parse5-text.v2',
   });
 }
 

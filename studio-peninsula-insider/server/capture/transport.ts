@@ -1,4 +1,4 @@
-import { request as httpsRequest } from 'node:https';
+import { request as httpsRequest, type RequestOptions } from 'node:https';
 import type { LookupFunction } from 'node:net';
 import { sameIpAddress } from './policy.js';
 import type { CaptureTransport, TransportRequest, TransportResponse } from './transport-contract.js';
@@ -19,9 +19,10 @@ class PinnedHttpsTransport implements CaptureTransport {
       const lookup: LookupFunction = (_hostname, _options, callback) => {
         callback(null, input.pinnedAddress.address, input.pinnedAddress.family);
       };
-      const request = httpsRequest(input.url, {
+      const options: RequestOptions & { autoSelectFamily: false } = {
         method: 'GET',
         agent: false,
+        autoSelectFamily: false,
         lookup,
         maxHeaderSize: input.maxHeaderBytes,
         signal: input.signal,
@@ -30,7 +31,8 @@ class PinnedHttpsTransport implements CaptureTransport {
           'accept-encoding': 'gzip, deflate, br',
           'user-agent': 'PeninsulaInsider-CaptureKernel/0.1',
         },
-      }, (response) => {
+      };
+      const request = httpsRequest(input.url, options, (response) => {
         const remoteAddress = response.socket.remoteAddress;
         if (!remoteAddress || !sameIpAddress(remoteAddress, input.pinnedAddress.address)) {
           response.destroy();

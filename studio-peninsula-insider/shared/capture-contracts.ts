@@ -4,6 +4,12 @@ const Sha256Schema = z.string().regex(/^[a-f0-9]{64}$/);
 const ImmutableIdSchema = z.string().regex(/^[a-z][a-z0-9-]{7,127}$/);
 const IpAddressSchema = z.union([z.ipv4(), z.ipv6()]);
 
+export const AttemptRedirectSchema = z.object({
+  url: z.string().url(),
+  status: z.number().int().min(300).max(399),
+  location: z.string().url(),
+}).readonly();
+
 export const CaptureStateSchema = z.enum([
   'queued',
   'capturing',
@@ -42,6 +48,7 @@ export const CaptureAttemptSchema = z.object({
   completedAt: z.string().datetime(),
   state: CaptureStateSchema,
   events: z.array(CaptureStateEventSchema).min(2),
+  redirects: z.array(AttemptRedirectSchema).default([]),
   sourceRevisionId: ImmutableIdSchema.optional(),
   extractionRevisionId: ImmutableIdSchema.optional(),
   outcomeReason: z.object({
@@ -124,10 +131,17 @@ export const ExtractionRevisionSchema = z.object({
   attemptId: ImmutableIdSchema,
   sourceRevisionId: ImmutableIdSchema,
   extractedAt: z.string().datetime(),
-  extractorVersion: z.literal('pi.parse5-text.v1'),
+  extractorVersion: z.enum(['pi.parse5-text.v1', 'pi.parse5-text.v2']),
   sourceContentBlobHash: Sha256Schema,
   extractedTextBlobHash: Sha256Schema,
   blocks: z.array(ExtractedBlockSchema),
+}).superRefine((revision, context) => {
+  if (revision.extractorVersion === 'pi.parse5-text.v2') {
+    if (revision.blocks.length > 256) context.addIssue({ code: 'custom', path: ['blocks'], message: 'Extractor v2 block limit exceeded' });
+    revision.blocks.forEach((block, index) => {
+      if (block.text.length > 4_000) context.addIssue({ code: 'custom', path: ['blocks', index, 'text'], message: 'Extractor v2 segment limit exceeded' });
+    });
+  }
 }).readonly();
 
 export const CaptureEvidenceLocatorSchema = z.object({

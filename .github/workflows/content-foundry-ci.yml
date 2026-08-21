@@ -4,12 +4,14 @@ on:
   pull_request:
     paths:
       - 'studio-peninsula-insider/**'
+      - 'next/src/content.config.ts'
       - '.github/workflows/content-foundry-ci.yml'
   push:
     branches:
       - 'feature/content-foundry-*'
     paths:
       - 'studio-peninsula-insider/**'
+      - 'next/src/content.config.ts'
       - '.github/workflows/content-foundry-ci.yml'
 
 permissions:

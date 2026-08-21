@@ -87,6 +87,26 @@ export interface CaptureInput {
 export class CaptureDisabledError extends Error {}
 export class CaptureIdempotencyConflictError extends Error {}
 
+export function captureRequestIdentity(input: CaptureInput): {
+  readonly canonicalUrl: URL;
+  readonly safeRequestedUrl: string;
+  readonly requestFingerprint: string;
+  readonly idempotencyKeyHash: string;
+  readonly attemptId: string;
+} {
+  if (!input.idempotencyKey.trim() || input.idempotencyKey.length > 256) throw new Error('A bounded idempotency key is required');
+  const canonicalUrl = canonicalizeCaptureUrl(input.url);
+  const requestFingerprint = sha256(canonicalUrl.href);
+  const idempotencyKeyHash = sha256(input.idempotencyKey);
+  return Object.freeze({
+    canonicalUrl,
+    safeRequestedUrl: redactCaptureUrl(canonicalUrl),
+    requestFingerprint,
+    idempotencyKeyHash,
+    attemptId: `capture-${idempotencyKeyHash.slice(0, 24)}`,
+  });
+}
+
 class CaptureStageError extends Error {
   constructor(
     readonly stage: 'policy' | 'dns' | 'transport' | 'body' | 'extraction' | 'storage',
@@ -221,11 +241,8 @@ export class CaptureKernel {
 
   async capture(input: CaptureInput): Promise<CaptureRecord> {
     if (!this.dependencies.enabled) throw new CaptureDisabledError('Real URL capture is disabled');
-    if (!input.idempotencyKey.trim() || input.idempotencyKey.length > 256) throw new Error('A bounded idempotency key is required');
-    const canonicalUrl = canonicalizeCaptureUrl(input.url);
-    const requestFingerprint = sha256(canonicalUrl.href);
-    const safeRequestedUrl = redactCaptureUrl(canonicalUrl);
-    const keyHash = sha256(input.idempotencyKey);
+    const identity = captureRequestIdentity(input);
+    const { canonicalUrl, requestFingerprint, safeRequestedUrl, idempotencyKeyHash: keyHash } = identity;
     const deadlineAt = Date.now() + this.limits.totalTimeoutMs;
     const active = this.inFlight.get(keyHash);
     if (active) {
@@ -302,18 +319,19 @@ export class CaptureKernel {
       assertWithinDeadline('storage');
       return waitFor(this.dependencies.repository.save(record), 'storage');
     };
+    const redirects: Array<{
+      url: string;
+      status: number;
+      location: string;
+      resolvedAddresses: string[];
+      selectedAddress: string;
+      remoteAddress: string;
+    }> = [];
+    const safeRedirects = () => redirects.map(({ url, status, location }) => ({ url, status, location }));
 
     try {
       let currentUrl = initialUrl;
       events.push(event('capturing', this.now().toISOString()));
-      const redirects: Array<{
-        url: string;
-        status: number;
-        location: string;
-        resolvedAddresses: string[];
-        selectedAddress: string;
-        remoteAddress: string;
-      }> = [];
 
       for (let redirectCount = 0; ; redirectCount += 1) {
         assertWithinDeadline('dns');
@@ -475,6 +493,7 @@ export class CaptureKernel {
             completedAt: this.now().toISOString(),
             state: finalState,
             events,
+            redirects: safeRedirects(),
             sourceRevisionId,
             extractionRevisionId,
             outcomeReason: blocks.length === 0 ? { code: 'no_extractable_text', detail: 'No extractable story text was found.' } : undefined,
@@ -496,7 +515,7 @@ export class CaptureKernel {
           attempt: {
             schemaVersion: 'pi.capture-attempt.v1', id: attemptId, idempotencyKeyHash: keyHash,
             requestFingerprint,
-            requestedUrl: safeRequestedUrl, createdAt, completedAt, state: 'held', events,
+            requestedUrl: safeRequestedUrl, createdAt, completedAt, state: 'held', events, redirects: safeRedirects(),
             sourceRevisionId: sourceRevision?.id,
             outcomeReason: { code: error.code, detail: error.message },
           },
@@ -511,7 +530,7 @@ export class CaptureKernel {
         attempt: {
           schemaVersion: 'pi.capture-attempt.v1', id: attemptId, idempotencyKeyHash: keyHash,
           requestFingerprint,
-          requestedUrl: safeRequestedUrl, createdAt, completedAt, state: 'failed', events,
+          requestedUrl: safeRequestedUrl, createdAt, completedAt, state: 'failed', events, redirects: safeRedirects(),
           sourceRevisionId: sourceRevision?.id,
           failure: { stage: failure.stage, code: failure.code, message: failure.message },
         },
@@ -524,11 +543,20 @@ export class CaptureKernel {
 }
 
 export function createCaptureKernel(root: string, environment: NodeJS.ProcessEnv = process.env): CaptureKernel {
-  return new CaptureKernel({
+  return createCaptureRuntime(root, environment).kernel;
+}
+
+export function createCaptureRuntime(root: string, environment: NodeJS.ProcessEnv = process.env): {
+  readonly kernel: CaptureKernel;
+  readonly repository: FileCaptureRepository;
+} {
+  const repository = new FileCaptureRepository(root);
+  const kernel = new CaptureKernel({
     enabled: realUrlCaptureEnabled(environment),
     resolver: new NodeDnsResolver(),
     transport: createPinnedHttpsTransport(),
     blobs: new ContentAddressedBlobStore(root),
-    repository: new FileCaptureRepository(root),
+    repository,
   });
+  return Object.freeze({ kernel, repository });
 }
