@@ -142,7 +142,7 @@ export async function resolveAndValidate(
   }));
   const blocked = normalized.filter((answer) => !isPublicAddress(answer.address));
   if (blocked.length > 0) {
-    throw new CapturePolicyError('non_public_address', `DNS included blocked address ${blocked[0].address}`);
+    throw new CapturePolicyError('non_public_address', 'DNS included a non-public or special-use address');
   }
 
   const unique = new Map(normalized.map((answer) => [`${answer.family}:${answer.address}`, answer]));

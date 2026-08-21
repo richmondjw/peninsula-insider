@@ -1,6 +1,9 @@
 import { createHash } from 'node:crypto';
+import type { CaptureRecord } from '../shared/capture-contracts.js';
 import type { FoundryRun } from '../shared/contracts.js';
 import { ClaimSchema, FoundryRunSchema, QuickNoteSchema, type Claim } from '../shared/contracts.js';
+import { containsEmDash, containsPriceLanguage } from '../shared/editorial-laws.js';
+import { assertRealUrlArtifactAgainstCapture, assertRealUrlContentLineage } from './real-url-lineage.js';
 
 const hash = (value: string) => createHash('sha256').update(value).digest('hex');
 
@@ -10,6 +13,7 @@ export function evaluateQuickNoteGates(
   payload: { headline: string; dek?: string; body: string },
   claims: Claim[],
   claimIds: string[],
+  options: { requireSourceReview?: boolean; sourceReviewComplete?: boolean } = {},
 ) {
   const publicCopy = `${payload.headline} ${payload.dek ?? ''} ${payload.body}`;
   const claimsById = new Map(claims.map((claim) => [claim.id, claim]));
@@ -23,9 +27,16 @@ export function evaluateQuickNoteGates(
     );
   });
   return [
-    { gate: 'no_price', passed: !/(?:\$\s?\d|\bAUD\b|\bprice(?:d|s)?\b)/i.test(publicCopy), detail: 'Public copy must not contain pricing.' },
-    { gate: 'no_em_dash', passed: !/—/.test(publicCopy), detail: 'Public copy must not contain em dashes; en dashes remain valid for ranges.' },
+    { gate: 'no_price', passed: !containsPriceLanguage(publicCopy), detail: 'Public copy must not contain pricing.' },
+    { gate: 'no_em_dash', passed: !containsEmDash(publicCopy), detail: 'Public copy must not contain em dashes; en dashes remain valid for ranges.' },
     { gate: 'supported_claims_only', passed: supportedClaimsPassed, detail: supportedClaimsPassed ? 'Every selected claim is supported, evidenced and unrestricted.' : 'A selected claim is missing, unsupported, unevidenced or restricted.' },
+    ...(options.requireSourceReview ? [{
+      gate: 'human_source_review',
+      passed: Boolean(options.sourceReviewComplete),
+      detail: options.sourceReviewComplete
+        ? 'A human classified the source and confirmed the selected source assertions and angle.'
+        : 'A human must classify the source and confirm the selected source assertions and angle.',
+    }] : []),
   ];
 }
 
@@ -100,6 +111,7 @@ export function runFixture(actor: string, idempotencyKey: string): FoundryRun {
       id: 'artifact-quick-note-red-hill',
       version: 1,
       type: 'quick_note',
+      targetPath: 'next/src/content/quick-notes/2026-08-21-red-hill-wet-weather-lunch.md',
       claimIds: artifactClaimIds,
       angleId: 'angle-rainy-lunch',
       payload,
@@ -110,29 +122,37 @@ export function runFixture(actor: string, idempotencyKey: string): FoundryRun {
   });
 }
 
-export function buildPatch(run: FoundryRun): string {
+export function buildPatch(run: FoundryRun, immutableRecord?: CaptureRecord): string {
+  if (run.capture && !immutableRecord) {
+    throw new Error('Real URL patch export requires immutable capture validation');
+  }
+  if (run.capture) assertRealUrlArtifactAgainstCapture(run, immutableRecord!);
+  assertRealUrlContentLineage(run);
   if (run.status !== 'accepted') throw new Error('Artifact must be accepted before patch export');
+  if (run.capture && run.capture.currentAttemptId !== run.capture.artifactAttemptId) throw new Error('Artifact evidence is stale against the current source head');
+  if (run.capture && !run.artifact.sourceReview) throw new Error('Real URL artifacts require human source and claim confirmation');
   const note = run.artifact.payload;
+  if (note.sources.some((source) => source.kind === 'unclassified-web')) throw new Error('Artifact source classification is incomplete');
   const publicCopy = `${note.headline} ${note.dek ?? ''} ${note.body}`;
   if (run.blockers.length > 0 || run.artifact.gateResults.some((gate) => !gate.passed)) throw new Error('Artifact has unresolved gates');
-  if (note.tag === 'pricing' || /(?:\$\s?\d|\bAUD\b|\bprice(?:d|s)?\b)/i.test(publicCopy)) throw new Error('PI outputs cannot contain pricing');
-  if (/—/.test(publicCopy)) throw new Error('PI outputs cannot contain em dashes');
-  const slug = '2026-08-21-red-hill-wet-weather-lunch.md';
+  if (note.tag === 'pricing' || containsPriceLanguage(publicCopy)) throw new Error('PI outputs cannot contain pricing');
+  if (containsEmDash(publicCopy)) throw new Error('PI outputs cannot contain em dashes');
+  const targetPath = run.artifact.targetPath ?? 'next/src/content/quick-notes/2026-08-21-red-hill-wet-weather-lunch.md';
   const content = [
     '---',
     `headline: ${JSON.stringify(note.headline)}`,
     `dek: ${JSON.stringify(note.dek ?? '')}`,
     `section: ${note.section}`,
     `tag: ${note.tag}`,
-    `publishedAt: ${note.publishedAt}`,
-    `expiresAt: ${note.expiresAt}`,
-    ...(note.verifiedAt ? [`verifiedAt: ${note.verifiedAt}`] : []),
+    `publishedAt: ${JSON.stringify(note.publishedAt)}`,
+    `expiresAt: ${JSON.stringify(note.expiresAt)}`,
+    ...(note.verifiedAt ? [`verifiedAt: ${JSON.stringify(note.verifiedAt)}`] : []),
     ...(note.verifiedBy ? [`verifiedBy: ${JSON.stringify(note.verifiedBy)}`] : []),
     'sources:',
     ...note.sources.flatMap((source) => [
       `  - kind: ${source.kind}`,
-      ...(source.url ? [`    url: ${source.url}`] : []),
-      ...(source.checkedAt ? [`    checkedAt: ${source.checkedAt}`] : []),
+      ...(source.url ? [`    url: ${JSON.stringify(source.url)}`] : []),
+      ...(source.checkedAt ? [`    checkedAt: ${JSON.stringify(source.checkedAt)}`] : []),
     ]),
     'status: draft',
     '---',
@@ -140,10 +160,10 @@ export function buildPatch(run: FoundryRun): string {
     ...note.body.split(/\r?\n/),
   ];
   return [
-    `diff --git a/next/src/content/quick-notes/${slug} b/next/src/content/quick-notes/${slug}`,
+    `diff --git a/${targetPath} b/${targetPath}`,
     'new file mode 100644',
     '--- /dev/null',
-    `+++ b/next/src/content/quick-notes/${slug}`,
+    `+++ b/${targetPath}`,
     `@@ -0,0 +1,${content.length} @@`,
     ...content.map((line) => `+${line}`),
     '',
