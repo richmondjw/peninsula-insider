@@ -2,6 +2,11 @@ import { useEffect, useState } from 'react';
 import type { FoundryRun } from '../shared/contracts';
 
 const FIXTURE_ID = 'red-hill-winter-lunch';
+const PREPRODUCTION_FIXTURES = [
+  { id: 'red-hill-explainer-preproduction', label: 'Explainer pack' },
+  { id: 'red-hill-podcast-preproduction', label: 'Podcast pack' },
+  { id: 'red-hill-short-video-preproduction', label: 'Short-video pack' },
+] as const;
 type QuickNoteRun = FoundryRun & { artifact: NonNullable<FoundryRun['artifact']>; claims: NonNullable<FoundryRun['claims']> };
 
 function asQuickNoteRun(run: FoundryRun): QuickNoteRun | null {
@@ -11,6 +16,7 @@ function asQuickNoteRun(run: FoundryRun): QuickNoteRun | null {
 
 export function App() {
   const [run, setRun] = useState<QuickNoteRun | null>(null);
+  const [packRun, setPackRun] = useState<FoundryRun | null>(null);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
   const [draft, setDraft] = useState({ headline: '', dek: '', body: '' });
@@ -21,6 +27,7 @@ export function App() {
       .then((data: { runs?: FoundryRun[] }) => {
         const quickNote = data.runs?.map(asQuickNoteRun).find((item): item is QuickNoteRun => Boolean(item));
         setRun(quickNote ?? null);
+        setPackRun(data.runs?.find((item) => item.recipe.id.endsWith('_preproduction_v1')) ?? null);
       })
       .catch(() => setError('The local API is not available yet.'));
   }, []);
@@ -49,6 +56,45 @@ export function App() {
       setRun(created);
     } catch (cause) {
       setError(cause instanceof Error ? cause.message : 'The fixture run failed.');
+    } finally { setBusy(false); }
+  }
+
+  async function startPack(fixtureId: typeof PREPRODUCTION_FIXTURES[number]['id']) {
+    setBusy(true);
+    setError('');
+    try {
+      const response = await fetch('/api/foundry/runs', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ fixtureId, actor: 'local-editor', idempotencyKey: `ui-${fixtureId}-v1` }),
+      });
+      const body = await response.json();
+      if (!response.ok) throw new Error(body.error ?? 'The pre-production fixture could not start.');
+      setPackRun(body);
+    } catch (cause) {
+      setError(cause instanceof Error ? cause.message : 'The pre-production fixture failed.');
+    } finally { setBusy(false); }
+  }
+
+  async function decidePackArtifact(artifactId: string, decision: 'accepted' | 'rejected') {
+    if (!packRun) return;
+    const artifact = packRun.artifactPack.completed.find((candidate) => candidate.id === artifactId);
+    if (!artifact) return;
+    setBusy(true);
+    setError('');
+    try {
+      const response = await fetch(`/api/foundry/runs/${packRun.id}/review`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          artifactId, decision, reviewer: 'local-editor', expectedVersion: packRun.version, expectedArtifactVersion: artifact.version,
+        }),
+      });
+      const body = await response.json();
+      if (!response.ok) throw new Error(body.error ?? 'Artifact review failed.');
+      setPackRun(body);
+    } catch (cause) {
+      setError(cause instanceof Error ? cause.message : 'Artifact review failed.');
     } finally { setBusy(false); }
   }
 
@@ -114,6 +160,11 @@ export function App() {
         <h1>Evidence first. One source, many useful outputs.</h1>
         <p>Start with a frozen local fixture, inspect every claim, then make a human review decision. Nothing publishes from this screen.</p>
         <button onClick={startRun} disabled={busy}>{run ? 'Replay fixture safely' : 'Run the first fixture'}</button>
+        <div className="recipe-launcher" aria-label="Pre-production fixture recipes">
+          {PREPRODUCTION_FIXTURES.map((fixture) => (
+            <button className="secondary" key={fixture.id} onClick={() => startPack(fixture.id)} disabled={busy}>{fixture.label}</button>
+          ))}
+        </div>
       </section>
 
       {error && <div className="notice error" role="alert">{error}</div>}
@@ -182,6 +233,45 @@ export function App() {
           </section>
         </div>
       </>}
+
+      {packRun && <section className="artifact-pack" aria-labelledby="preproduction-pack-heading">
+        <div className="panel-heading">
+          <div>
+            <p className="eyebrow">Draft handoff only</p>
+            <h2 id="preproduction-pack-heading">{packRun.recipe.label}</h2>
+          </div>
+          <span aria-live="polite">{packRun.artifactPack.completed.length} completed · {packRun.artifactPack.failed.length} failed</span>
+        </div>
+        <p className="pack-boundary">Text pre-production can be reviewed here. Recording, media assignment, rendering, scheduling, sending and publishing remain unavailable.</p>
+        <div className="artifact-card-grid">
+          {packRun.artifactPack.completed.map((artifact) => {
+            const blocking = artifact.gateResults.some((gate) => !gate.passed && gate.blocking);
+            const review = packRun.artifactPack.reviews.find((candidate) => candidate.artifactId === artifact.id && candidate.status === 'current');
+            return <article className="artifact-card" key={artifact.id} aria-labelledby={`${artifact.id}-heading`}>
+              <div className="artifact-card-heading">
+                <div><p className="eyebrow">{artifact.type.replaceAll('_', ' ')}</p><h3 id={`${artifact.id}-heading`}>{artifact.key}</h3></div>
+                <span className={`pill ${blocking ? 'restricted' : ''}`}>{blocking ? 'blocked' : 'reviewable'}</span>
+              </div>
+              <dl className="artifact-meta">
+                <div><dt>Version</dt><dd>{artifact.version}</dd></div>
+                <div><dt>Claim segments</dt><dd>{artifact.claimUsage.length}</dd></div>
+                <div><dt>Dependencies</dt><dd>{artifact.dependencies.length}</dd></div>
+                <div><dt>Review</dt><dd>{review ? `${review.decision} · ${review.authority.replaceAll('_', ' ')}` : 'Awaiting decision'}</dd></div>
+              </dl>
+              <div className="gates">
+                {artifact.gateResults.map((gate) => <div key={gate.gate} className={gate.passed ? 'gate pass' : gate.blocking ? 'gate fail' : 'gate pending'}>
+                  <strong>{gate.passed ? 'PASS' : gate.blocking ? 'BLOCK' : 'PENDING'}</strong><span>{gate.gate.replaceAll('_', ' ')}</span>
+                </div>)}
+              </div>
+              <details className="payload-preview"><summary>Inspect draft payload and lineage</summary><pre>{JSON.stringify({ payload: artifact.payload, claimUsage: artifact.claimUsage, dependencies: artifact.dependencies }, null, 2)}</pre></details>
+              <div className="actions">
+                <button className="secondary" onClick={() => decidePackArtifact(artifact.id, 'rejected')} disabled={busy}>Reject</button>
+                <button onClick={() => decidePackArtifact(artifact.id, 'accepted')} disabled={busy || blocking}>Approve draft handoff</button>
+              </div>
+            </article>;
+          })}
+        </div>
+      </section>}
     </main>
   );
 }

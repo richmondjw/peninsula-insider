@@ -427,7 +427,10 @@ describe('generic Content Foundry contracts', () => {
     const page = await request(app).get('/').expect(200).expect('Content-Type', /html/).expect('Content-Security-Policy', /default-src 'self'/);
     expect(page.text).toContain('Foundry container marker');
     const capabilities = await request(app).get('/api/capabilities').expect(200).expect('Cache-Control', 'no-store');
-    expect(capabilities.body.recipes).toEqual(['quick_note_v1', 'url_article_v1']);
+    expect(capabilities.body.recipes).toEqual([
+      'quick_note_v1', 'url_article_v1', 'explainer_preproduction_v1', 'podcast_preproduction_v1', 'short_video_preproduction_v1',
+    ]);
     expect(capabilities.body.externalCalls).toBe(false);
+    expect(capabilities.body).toMatchObject({ recording: false, rendering: false, scheduling: false, sending: false, publishing: false, syntheticVoice: false });
   });
 });

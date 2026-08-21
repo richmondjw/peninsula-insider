@@ -18,7 +18,9 @@ import {
   type GateResult,
   type ReviewDecision,
 } from '../shared/contracts.js';
+import { isPreproductionArtifactType, parsePreproductionPayload } from '../shared/preproduction-contracts.js';
 import { artifactDependenciesCurrent, evaluateArtifactGates, evaluateQuickNoteGates, hashValue, migrateLegacyRun } from './fixture-runner.js';
+import { evaluatePreproductionGates } from './preproduction-policy.js';
 
 interface StoreFile {
   schemaVersion: 'pi.foundry-file-store.v1';
@@ -116,6 +118,9 @@ function parsePayloadForArtifact(artifact: ArtifactVersion, payload: unknown): A
     case 'ask_answer': return AskAnswerPayloadSchema.parse(payload);
     case 'internal_link_plan': return InternalLinkPlanPayloadSchema.parse(payload);
     case 'seo_metadata_proposal': return SeoMetadataProposalPayloadSchema.parse(payload);
+    default:
+      if (isPreproductionArtifactType(artifact.type)) return parsePreproductionPayload(artifact.type, payload);
+      throw new Error(`Unsupported artifact type ${String(artifact.type)}`);
   }
 }
 
@@ -149,6 +154,9 @@ function gatesForUpdatedArtifact(
     results.push(metadata.astroPatchReady
       ? { gate: 'astro_patch_ready', scope: 'artifact', passed: true, blocking: false, detail: 'A separately rights-cleared hero placement makes the Astro patch adapter available.', claimIds: [] }
       : { gate: 'astro_patch_ready', scope: 'artifact', passed: false, blocking: false, detail: 'Text artifacts remain reviewable, but Astro patch export waits for a rights-cleared hero placement.', claimIds: [] });
+  }
+  if (isPreproductionArtifactType(artifact.type)) {
+    results.push(...evaluatePreproductionGates(payload, artifact.dependencies));
   }
   return results;
 }
