@@ -49,14 +49,31 @@ export function resolveArtifactPath(payload: unknown, path: string): unknown {
   return current;
 }
 
-function bindClaimUsage<T extends Array<{ segmentId: string; path: string; claimIds: string[] }>>(payload: unknown, usage: T) {
+export function bindClaimUsage<T extends Array<{ segmentId: string; path: string; claimIds: string[] }>>(payload: unknown, usage: T) {
   return usage.map((item) => ({ ...item, contentHash: hashValue(resolveArtifactPath(payload, item.path)) }));
 }
 
 export const FIXTURE_ID = 'red-hill-winter-lunch';
+/** Frozen evaluation instant for the deterministic fixtures; real captures pass their own. */
+export const FIXTURE_AS_OF = '2026-08-21T05:00:00.000Z';
 export const URL_ARTICLE_FIXTURE_ID = 'red-hill-url-article';
 
 const PRICE_PATTERN = /(?:\$\s?\d|\bAUD\b|\bprice(?:d|s|band)?\b)/i;
+
+/**
+ * The single source of truth for the two house copy laws, applied to any excerpt before it
+ * can be reused verbatim in artifact copy. Restricted excerpts still become claims: they
+ * stay inspectable in the evidence ledger, they just cannot be used in a public artifact.
+ */
+export function houseCopyRestriction(text: string): { code: 'price_copy' | 'em_dash_copy'; reason: string } | undefined {
+  if (PRICE_PATTERN.test(text)) {
+    return { code: 'price_copy', reason: 'PI outputs never publish prices, so this excerpt cannot be reused in artifact copy.' };
+  }
+  if (/\u2014/.test(text)) {
+    return { code: 'em_dash_copy', reason: 'PI copy never uses em dashes, so this excerpt cannot be reused verbatim in artifact copy.' };
+  }
+  return undefined;
+}
 
 export const QUICK_NOTE_RECIPE: RecipeDefinition = RecipeDefinitionSchema.parse({
   schemaVersion: 'pi.recipe-definition.v1',
@@ -164,13 +181,14 @@ export function evaluateQuickNoteGates(
   payload: { headline: string; dek?: string; body: string },
   claims: Claim[],
   claimIds: string[],
+  asOf = FIXTURE_AS_OF,
 ): GateResult[] {
   return evaluateArtifactGates(
     payload,
     claims,
     ['quick-note-copy'],
     bindClaimUsage(payload, [{ segmentId: 'quick-note-copy', path: '$', claimIds }]),
-    '2026-08-21T05:00:00.000Z',
+    asOf,
   );
 }
 
@@ -227,15 +245,15 @@ function fixtureSource(actor: string) {
   return { capturedAt, sourceUrl, claims, claimSet, bundle, angle };
 }
 
-function claimSetDependency(claimSet: ClaimSetVersion) {
+export function claimSetDependency(claimSet: ClaimSetVersion) {
   return { kind: 'claim_set' as const, id: claimSet.id, version: claimSet.version, contentHash: claimSet.contentHash };
 }
 
-function angleDependency(angle: { id: string; version: number; label: string; framing: string; evidenceClaimIds: string[] }) {
+export function angleDependency(angle: { id: string; version: number; label: string; framing: string; evidenceClaimIds: string[] }) {
   return { kind: 'angle' as const, id: angle.id, version: angle.version, contentHash: hashValue(angle) };
 }
 
-function withArtifactHash<T extends Omit<ArtifactVersion, 'contentHash'>>(artifact: T): ArtifactVersion {
+export function withArtifactHash<T extends Omit<ArtifactVersion, 'contentHash'>>(artifact: T): ArtifactVersion {
   return ArtifactVersionSchema.parse({ ...artifact, contentHash: hashValue(artifact.payload) });
 }
 
@@ -619,6 +637,17 @@ function acceptedCurrentReview(run: FoundryRun, artifact: ArtifactVersion): bool
   ));
 }
 
+/** Derives a stable, collision-free patch filename from the reviewed note itself. */
+export function quickNoteFileStem(headline: string, publishedAt: string): string {
+  const slug = headline
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .slice(0, 60)
+    .replace(/-+$/, '');
+  return `${publishedAt.slice(0, 10)}-${slug || 'quick-note'}`;
+}
+
 function diffForNewFile(path: string, content: string[]): string {
   const patch = [
     `diff --git a/${path} b/${path}`,
@@ -647,7 +676,7 @@ export function validateNewFilePatch(patch: string): boolean {
 function assertArtifactReady(run: FoundryRun, artifact: ArtifactVersion): void {
   if (artifact.gateResults.some((result) => !result.passed && result.blocking)) throw new Error(`Artifact ${artifact.id} has unresolved gates`);
   const freshGates = artifact.type === 'quick_note'
-    ? evaluateQuickNoteGates(artifact.payload, run.claimSet.claims, artifact.claimIds)
+    ? evaluateQuickNoteGates(artifact.payload, run.claimSet.claims, artifact.claimIds, new Date().toISOString())
     : evaluateArtifactGates(
       artifact.payload,
       run.claimSet.claims,
@@ -674,7 +703,7 @@ export function buildPatch(run: FoundryRun): string {
     if (!run.artifact) throw new Error('Quick-note compatibility artifact is missing');
     assertArtifactReady(run, run.artifact);
     const note = run.artifact.payload;
-    const path = 'next/src/content/quick-notes/2026-08-21-red-hill-wet-weather-lunch.md';
+    const path = `next/src/content/quick-notes/${quickNoteFileStem(note.headline, note.publishedAt)}.md`;
     const content = [
       '---',
       `headline: ${JSON.stringify(note.headline)}`,

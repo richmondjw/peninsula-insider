@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { SourceCaptureSchema } from './intake-contracts.js';
 
 const Sha256Schema = z.string().regex(/^[a-f0-9]{64}$/);
 const IsoDateTimeSchema = z.string().datetime();
@@ -414,6 +415,8 @@ export const FoundryRunSchema = z.object({
   artifactPack: ArtifactPackSchema,
   blockers: z.array(z.string()),
   audit: z.array(AuditEventSchema),
+  // Ordered immutable capture provenance, oldest first. Fixture runs carry none.
+  captures: z.array(SourceCaptureSchema).optional(),
   // v0.1 compatibility projections. New recipes do not populate these fields.
   claims: z.array(ClaimSchema).optional(),
   artifact: QuickNoteArtifactSchema.optional(),
@@ -474,3 +477,7 @@ export type ArtifactPack = z.infer<typeof ArtifactPackSchema>;
 export type GateResult = z.infer<typeof GateResultSchema>;
 export type RecipeDefinition = z.infer<typeof RecipeDefinitionSchema>;
 export type LegacyFoundryRun = z.infer<typeof LegacyFoundryRunSchema>;
+export type QuickNote = z.infer<typeof QuickNoteSchema>;
+export type EvidenceLocator = z.infer<typeof EvidenceLocatorSchema>;
+export type StoryAngle = z.infer<typeof StoryAngleSchema>;
+export type IntakeBundle = z.infer<typeof IntakeBundleSchema>;
