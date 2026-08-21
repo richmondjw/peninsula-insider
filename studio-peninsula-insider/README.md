@@ -8,6 +8,8 @@ Private, fixture-only Content Foundry shell for DELI-693.
 
 The shell performs no model calls, Git writes, CMS writes, publication or external distribution. Its atomic file-backed store is a single-process development/test adapter behind the durable run contract; startup fails closed in production. PostgreSQL, authentication and private storage remain explicit later gates.
 
+The next URL-ingestion foundation is present only as a sealed backend kernel. `FOUNDRY_REAL_URLS_ENABLED` defaults to `0`, Compose pins it to `0`, and no route, UI or provider invokes it. Enabling the flag alone exposes nothing. A later reviewed change must add the private caller after the capture boundary and threat model are accepted.
+
 ## Run locally
 
 ```powershell
@@ -38,6 +40,7 @@ docker compose down
 npm run typecheck
 npm test
 npm run build
+npm run check:capture-boundary
 ```
 
 Runtime state is written under `.foundry-data/` and is ignored by the repository-wide `node_modules/` rule plus the Studio-specific ignore entry added with this module.
