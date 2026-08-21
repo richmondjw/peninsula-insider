@@ -15,6 +15,11 @@ on:
 permissions:
   contents: read
 
+# Real URL capture stays off in CI. The vertical slice is exercised entirely through
+# in-process transport doubles; CI performs no outbound capture.
+env:
+  FOUNDRY_REAL_URLS_ENABLED: "0"
+
 jobs:
   verify:
     runs-on: ubuntu-latest
