@@ -1,18 +1,171 @@
 import { randomUUID } from 'node:crypto';
 import { mkdir, open, readFile, rename, rm } from 'node:fs/promises';
 import { dirname, isAbsolute, relative, resolve } from 'node:path';
-import { FoundryRunSchema, QuickNoteSchema, type ArtifactEdit, type FoundryRun, type ReviewDecision } from '../shared/contracts.js';
-import { evaluateQuickNoteGates } from './fixture-runner.js';
+import {
+  ArticleDraftPayloadSchema,
+  ArticleMetadataPayloadSchema,
+  ArtifactUpdateSchema,
+  ArtifactVersionSchema,
+  AskAnswerPayloadSchema,
+  FoundryRunSchema,
+  InstagramCaptionPayloadSchema,
+  InstagramCarouselScriptPayloadSchema,
+  InstagramFirstCommentPayloadSchema,
+  InsiderNoteIssuePayloadSchema,
+  InsiderNoteSubjectSetPayloadSchema,
+  InternalLinkPlanPayloadSchema,
+  LinkedInPostPayloadSchema,
+  QuickNoteSchema,
+  SeoMetadataProposalPayloadSchema,
+  SocialMediaBriefPayloadSchema,
+  type ArtifactEdit,
+  type ArtifactUpdate,
+  type ArtifactVersion,
+  type FoundryRun,
+  type GateResult,
+  type ReviewDecision,
+} from '../shared/contracts.js';
+import { artifactDependenciesCurrent, evaluateArtifactFormatGates, evaluateArtifactGates, evaluateQuickNoteGates, hashValue, migrateLegacyRun, socialMediaRightsSnapshot } from './fixture-runner.js';
 
 interface StoreFile {
   schemaVersion: 'pi.foundry-file-store.v1';
   runs: FoundryRun[];
 }
 
-function normalizeDerivedStatus(run: FoundryRun): FoundryRun {
-  const hasFailedGate = run.blockers.length > 0 || run.artifact.gateResults.some((gate) => !gate.passed);
-  if (!hasFailedGate || !['ready_for_review', 'accepted'].includes(run.status)) return run;
-  return FoundryRunSchema.parse({ ...run, status: 'needs_revision', review: undefined });
+function blockingGateFailed(artifact: ArtifactVersion): boolean {
+  return artifact.gateResults.some((result) => !result.passed && result.blocking);
+}
+
+function requiredArtifactIds(run: FoundryRun): Set<string> {
+  const requiredKeys = new Set(run.recipe.artifacts.filter((requirement) => requirement.required).map((requirement) => requirement.key));
+  return new Set(run.artifactPack.completed.filter((artifact) => requiredKeys.has(artifact.key)).map((artifact) => artifact.id));
+}
+
+function deriveRunStatus(run: FoundryRun): FoundryRun['status'] {
+  const requiredKeys = new Set(run.recipe.artifacts.filter((requirement) => requirement.required).map((requirement) => requirement.key));
+  const requiredFailure = run.artifactPack.failed.some((failure) => failure.required)
+    || run.artifactPack.completed.some((artifact) => requiredKeys.has(artifact.key) && blockingGateFailed(artifact));
+  if (run.blockers.length > 0 || requiredFailure) return 'needs_revision';
+
+  const requiredIds = requiredArtifactIds(run);
+  const requiredRejected = run.artifactPack.reviews.some((review) => (
+    review.status === 'current' && review.decision === 'rejected' && requiredIds.has(review.artifactId)
+  ));
+  if (requiredRejected) return 'needs_revision';
+
+  // Run-level accepted is retained only for the single-artifact v0.1 contract.
+  if (run.recipe.id === 'quick_note_v1' && run.artifact) {
+    const current = run.artifactPack.reviews.find((review) => review.artifactId === run.artifact?.id && review.status === 'current');
+    if (current?.decision === 'accepted') return 'accepted';
+    if (current?.decision === 'rejected') return 'rejected';
+  }
+  return 'ready_for_review';
+}
+
+function normalizeDerivedStatus(run: FoundryRun, asOf: string): FoundryRun {
+  const completed = run.artifactPack.completed.map((artifact) => {
+    const current = artifactDependenciesCurrent(run, artifact);
+    const evaluatedGates = gatesForUpdatedArtifact(
+      run, artifact, artifact.payload, artifact.factualSegmentIds, artifact.claimUsage, asOf,
+    );
+    const gateResults = evaluatedGates.map((evaluated) => {
+      if (artifact.type !== 'quick_note') return evaluated;
+      const storedFailure = artifact.gateResults.find((stored) => stored.gate === evaluated.gate && !stored.passed);
+      return storedFailure ?? evaluated;
+    }).filter((result) => result.gate !== 'dependency_current');
+    gateResults.push(current
+      ? {
+        gate: 'dependency_current', scope: 'artifact', passed: true, blocking: false,
+        detail: 'Claim-set, angle, artifact and media-rights dependencies match their current snapshots.', claimIds: [],
+      }
+      : {
+        gate: 'dependency_current', scope: 'artifact', passed: false, blocking: true,
+        detail: 'One or more claim-set, angle, artifact or media-rights dependencies are stale; regenerate this artifact.', claimIds: [],
+      });
+    return ArtifactVersionSchema.parse({ ...artifact, gateResults });
+  });
+  const currentById = new Map(completed.map((artifact) => [artifact.id, artifact]));
+  const reviews = run.artifactPack.reviews.map((review) => {
+    if (review.status === 'stale') return review;
+    const artifact = currentById.get(review.artifactId);
+    const snapshotMatches = artifact
+      && review.artifactVersion === artifact.version
+      && JSON.stringify(review.dependencySnapshot) === JSON.stringify(artifact.dependencies)
+      && !blockingGateFailed(artifact);
+    return snapshotMatches ? review : { ...review, status: 'stale' as const };
+  });
+  const compatibilityArtifact = run.artifact
+    ? completed.find((artifact) => artifact.id === run.artifact?.id && artifact.type === 'quick_note')
+    : undefined;
+  const compatibilityReviewCurrent = compatibilityArtifact && reviews.some((review) => (
+    review.artifactId === compatibilityArtifact.id && review.status === 'current'
+  ));
+  const normalized = FoundryRunSchema.parse({
+    ...run,
+    evaluationAsOf: asOf,
+    artifact: compatibilityArtifact,
+    review: compatibilityReviewCurrent ? run.review : undefined,
+    artifactPack: { ...run.artifactPack, completed, reviews },
+  });
+  return FoundryRunSchema.parse({ ...normalized, status: deriveRunStatus(normalized) });
+}
+
+function parseStoredRun(input: unknown, asOf: string): FoundryRun {
+  const current = FoundryRunSchema.safeParse(input);
+  return normalizeDerivedStatus(current.success ? current.data : migrateLegacyRun(input), asOf);
+}
+
+function parsePayloadForArtifact(artifact: ArtifactVersion, payload: unknown): ArtifactVersion['payload'] {
+  switch (artifact.type) {
+    case 'quick_note': return QuickNoteSchema.parse(payload);
+    case 'article_draft': return ArticleDraftPayloadSchema.parse(payload);
+    case 'article_metadata': return ArticleMetadataPayloadSchema.parse(payload);
+    case 'ask_answer': return AskAnswerPayloadSchema.parse(payload);
+    case 'internal_link_plan': return InternalLinkPlanPayloadSchema.parse(payload);
+    case 'seo_metadata_proposal': return SeoMetadataProposalPayloadSchema.parse(payload);
+    case 'insider_note_issue': return InsiderNoteIssuePayloadSchema.parse(payload);
+    case 'insider_note_subject_set': return InsiderNoteSubjectSetPayloadSchema.parse(payload);
+    case 'linkedin_post': return LinkedInPostPayloadSchema.parse(payload);
+    case 'instagram_caption': return InstagramCaptionPayloadSchema.parse(payload);
+    case 'instagram_first_comment': return InstagramFirstCommentPayloadSchema.parse(payload);
+    case 'instagram_carousel_script': return InstagramCarouselScriptPayloadSchema.parse(payload);
+    case 'social_media_brief': return SocialMediaBriefPayloadSchema.parse(payload);
+  }
+}
+
+function gatesForUpdatedArtifact(
+  run: FoundryRun,
+  artifact: ArtifactVersion,
+  payload: unknown,
+  factualSegmentIds: string[],
+  claimUsage: ArtifactVersion['claimUsage'],
+  asOf: string,
+): GateResult[] {
+  if (artifact.type === 'quick_note') {
+    const note = QuickNoteSchema.parse(payload);
+    return evaluateQuickNoteGates(note, run.claimSet.claims, claimUsage.flatMap((usage) => usage.claimIds));
+  }
+  const contract = artifact.type === 'ask_answer'
+    ? { gate: 'ask_answer_contract' as const, schema: AskAnswerPayloadSchema }
+    : artifact.type === 'article_metadata' && ArticleMetadataPayloadSchema.parse(payload).astroPatchReady
+      ? { gate: 'astro_article_contract' as const, schema: ArticleMetadataPayloadSchema }
+      : undefined;
+  const results = evaluateArtifactGates(
+    payload,
+    run.claimSet.claims,
+    factualSegmentIds,
+    claimUsage,
+    asOf,
+    contract,
+  );
+  results.push(...evaluateArtifactFormatGates(artifact.type, payload, run.claimSet.claims, asOf));
+  if (artifact.type === 'article_metadata') {
+    const metadata = ArticleMetadataPayloadSchema.parse(payload);
+    results.push(metadata.astroPatchReady
+      ? { gate: 'astro_patch_ready', scope: 'artifact', passed: true, blocking: false, detail: 'A separately rights-cleared hero placement makes the Astro patch adapter available.', claimIds: [] }
+      : { gate: 'astro_patch_ready', scope: 'artifact', passed: false, blocking: false, detail: 'Text artifacts remain reviewable, but Astro patch export waits for a rights-cleared hero placement.', claimIds: [] });
+  }
+  return results;
 }
 
 export class VersionConflictError extends Error {}
@@ -21,13 +174,23 @@ export class FileFoundryStore {
   private mutationQueue: Promise<void> = Promise.resolve();
   private readonly filePath: string;
 
-  constructor(filePath: string, allowedRoot = dirname(filePath)) {
+  constructor(
+    filePath: string,
+    allowedRoot = dirname(filePath),
+    private readonly evaluationClock: () => string = () => new Date().toISOString(),
+  ) {
     const root = resolve(allowedRoot);
     this.filePath = resolve(filePath);
     const candidate = relative(root, this.filePath);
     if (candidate.startsWith('..') || isAbsolute(candidate)) {
       throw new Error('Foundry store path must remain inside its configured data root');
     }
+  }
+
+  private evaluationAsOf(): string {
+    const asOf = this.evaluationClock();
+    if (!Number.isFinite(Date.parse(asOf))) throw new Error('Foundry evaluation clock must return an ISO timestamp');
+    return asOf;
   }
 
   private async mutate<T>(operation: () => Promise<T>): Promise<T> {
@@ -42,12 +205,12 @@ export class FileFoundryStore {
     }
   }
 
-  private async read(): Promise<StoreFile> {
+  private async read(asOf = this.evaluationAsOf()): Promise<StoreFile> {
     try {
       const raw = await readFile(this.filePath, 'utf8');
-      const parsed = JSON.parse(raw) as StoreFile;
-      if (parsed.schemaVersion !== 'pi.foundry-file-store.v1') throw new Error('Unsupported Foundry store schema');
-      return { schemaVersion: parsed.schemaVersion, runs: parsed.runs.map((run) => normalizeDerivedStatus(FoundryRunSchema.parse(run))) };
+      const parsed = JSON.parse(raw) as { schemaVersion?: string; runs?: unknown[] };
+      if (parsed.schemaVersion !== 'pi.foundry-file-store.v1' || !Array.isArray(parsed.runs)) throw new Error('Unsupported Foundry store schema');
+      return { schemaVersion: parsed.schemaVersion, runs: parsed.runs.map((run) => parseStoredRun(run, asOf)) };
     } catch (error) {
       if ((error as NodeJS.ErrnoException).code === 'ENOENT') return { schemaVersion: 'pi.foundry-file-store.v1', runs: [] };
       throw error;
@@ -84,46 +247,71 @@ export class FileFoundryStore {
 
   async create(run: FoundryRun): Promise<FoundryRun> {
     return this.mutate(async () => {
-      const data = await this.read();
+      const asOf = this.evaluationAsOf();
+      const data = await this.read(asOf);
       const existing = data.runs.find((item) => item.idempotencyKey === run.idempotencyKey);
       if (existing) return existing;
-      data.runs.unshift(FoundryRunSchema.parse(run));
+      const parsed = normalizeDerivedStatus(FoundryRunSchema.parse(run), asOf);
+      data.runs.unshift(parsed);
       await this.write(data);
-      return run;
+      return parsed;
     });
   }
 
   async review(id: string, decision: ReviewDecision): Promise<FoundryRun> {
     return this.mutate(async () => {
-      const data = await this.read();
+      const asOf = this.evaluationAsOf();
+      const data = await this.read(asOf);
       const index = data.runs.findIndex((run) => run.id === id);
       if (index < 0) throw new Error('Run not found');
       const run = data.runs[index];
       if (run.version !== decision.expectedVersion) {
         throw new VersionConflictError(`Expected version ${decision.expectedVersion}; current version is ${run.version}`);
       }
-      if (decision.decision === 'accepted' && (run.blockers.length > 0 || run.artifact.gateResults.some((gate) => !gate.passed))) {
-        throw new Error('Artifact has unresolved blockers or failed gates');
+      const artifactId = decision.artifactId ?? run.artifact?.id;
+      if (!artifactId) throw new Error('artifactId is required for an artifact pack review');
+      const artifact = run.artifactPack.completed.find((candidate) => candidate.id === artifactId);
+      if (!artifact) throw new Error('Artifact not found in completed pack items');
+      if (decision.expectedArtifactVersion && decision.expectedArtifactVersion !== artifact.version) {
+        throw new VersionConflictError(`Expected artifact version ${decision.expectedArtifactVersion}; current version is ${artifact.version}`);
       }
-      const now = new Date().toISOString();
-      const updated = FoundryRunSchema.parse({
+      if (decision.decision === 'accepted' && blockingGateFailed(artifact)) {
+        throw new Error('Artifact has unresolved blocking gates');
+      }
+      const now = asOf;
+      const reviews = run.artifactPack.reviews
+        .map((review) => review.artifactId === artifact.id && review.status === 'current' ? { ...review, status: 'stale' as const } : review);
+      reviews.push({
+        id: `review-${randomUUID()}`,
+        artifactId: artifact.id,
+        artifactVersion: artifact.version,
+        decision: decision.decision,
+        reviewer: decision.reviewer,
+        note: decision.note,
+        decidedAt: now,
+        status: 'current',
+        dependencySnapshot: artifact.dependencies,
+        authority: 'draft_handoff_only',
+      });
+      const candidate = FoundryRunSchema.parse({
         ...run,
         version: run.version + 1,
-        status: decision.decision,
         updatedAt: now,
-        review: {
+        artifactPack: { ...run.artifactPack, version: run.artifactPack.version + 1, reviews },
+        review: run.artifact?.id === artifact.id ? {
           decision: decision.decision,
           reviewer: decision.reviewer,
           note: decision.note,
           decidedAt: now,
-        },
+        } : run.review,
         audit: [...run.audit, {
           at: now,
           actor: decision.reviewer,
-          type: 'review_decision',
-          detail: `${decision.decision} artifact ${run.artifact.id}`,
+          type: 'artifact_review_decision',
+          detail: `${decision.decision} draft handoff for artifact ${artifact.id}; publication authority was not granted.`,
         }],
       });
+      const updated = normalizeDerivedStatus(candidate, asOf);
       data.runs[index] = updated;
       await this.write(data);
       return updated;
@@ -131,45 +319,125 @@ export class FileFoundryStore {
   }
 
   async updateArtifact(id: string, edit: ArtifactEdit): Promise<FoundryRun> {
+    const input = ArtifactUpdateSchema.parse({
+      editor: edit.editor,
+      expectedVersion: edit.expectedVersion,
+      expectedArtifactVersion: 1,
+      payload: undefined,
+    });
     return this.mutate(async () => {
-      const data = await this.read();
+      const asOf = this.evaluationAsOf();
+      const data = await this.read(asOf);
       const index = data.runs.findIndex((run) => run.id === id);
       if (index < 0) throw new Error('Run not found');
       const run = data.runs[index];
-      if (run.version !== edit.expectedVersion) {
-        throw new VersionConflictError(`Expected version ${edit.expectedVersion}; current version is ${run.version}`);
-      }
-
-      const payload = QuickNoteSchema.parse({
-        ...run.artifact.payload,
-        headline: edit.headline,
-        dek: edit.dek,
-        body: edit.body,
-      });
-      const now = new Date().toISOString();
-      const gateResults = evaluateQuickNoteGates(payload, run.claims, run.artifact.claimIds);
-      const updated = FoundryRunSchema.parse({
-        ...run,
-        version: run.version + 1,
-        status: gateResults.some((gate) => !gate.passed) ? 'needs_revision' : 'ready_for_review',
-        updatedAt: now,
-        review: undefined,
-        artifact: {
-          ...run.artifact,
-          version: run.artifact.version + 1,
-          payload,
-          gateResults,
-        },
-        audit: [...run.audit, {
-          at: now,
-          actor: edit.editor,
-          type: 'artifact_edited',
-          detail: `Edited artifact ${run.artifact.id}; any prior decision was invalidated.`,
-        }],
-      });
+      if (!run.artifact) throw new Error('Compatibility edit endpoint supports quick-note runs only');
+      input.expectedArtifactVersion = run.artifact.version;
+      input.payload = QuickNoteSchema.parse({ ...run.artifact.payload, headline: edit.headline, dek: edit.dek, body: edit.body });
+      const updated = this.applyArtifactUpdate(run, run.artifact.id, input, asOf);
       data.runs[index] = updated;
       await this.write(data);
       return updated;
     });
+  }
+
+  async updatePackArtifact(id: string, artifactId: string, rawUpdate: ArtifactUpdate): Promise<FoundryRun> {
+    const update = ArtifactUpdateSchema.parse(rawUpdate);
+    return this.mutate(async () => {
+      const asOf = this.evaluationAsOf();
+      const data = await this.read(asOf);
+      const index = data.runs.findIndex((run) => run.id === id);
+      if (index < 0) throw new Error('Run not found');
+      const updated = this.applyArtifactUpdate(data.runs[index], artifactId, update, asOf);
+      data.runs[index] = updated;
+      await this.write(data);
+      return updated;
+    });
+  }
+
+  private applyArtifactUpdate(run: FoundryRun, artifactId: string, update: ArtifactUpdate, asOf: string): FoundryRun {
+    if (run.version !== update.expectedVersion) {
+      throw new VersionConflictError(`Expected version ${update.expectedVersion}; current version is ${run.version}`);
+    }
+    const artifactIndex = run.artifactPack.completed.findIndex((candidate) => candidate.id === artifactId);
+    if (artifactIndex < 0) throw new Error('Artifact not found');
+    const current = run.artifactPack.completed[artifactIndex];
+    if (current.version !== update.expectedArtifactVersion) {
+      throw new VersionConflictError(`Expected artifact version ${update.expectedArtifactVersion}; current version is ${current.version}`);
+    }
+    let payload = parsePayloadForArtifact(current, update.payload);
+    let dependencies = current.dependencies;
+    let factualSegmentIds = update.factualSegmentIds;
+    let claimUsage = update.claimUsage;
+    if (current.type === 'quick_note') {
+      factualSegmentIds = ['quick-note-copy'];
+      claimUsage = [{
+        segmentId: 'quick-note-copy', path: '$',
+        claimIds: current.claimUsage.flatMap((usage) => usage.claimIds), contentHash: hashValue(payload),
+      }];
+    } else if (!factualSegmentIds || !claimUsage) {
+      throw new Error('Non-quick artifact edits require factualSegmentIds and claimUsage to be replaced atomically with the payload');
+    }
+    if (current.type === 'article_metadata') {
+      const metadata = ArticleMetadataPayloadSchema.parse(payload);
+      const retainedMedia = current.dependencies.filter((dependency) => (
+        dependency.kind === 'media_rights'
+        && metadata.heroImage
+        && dependency.contentHash === hashValue(metadata.heroImage)
+      ));
+      dependencies = [
+        ...current.dependencies.filter((dependency) => dependency.kind !== 'media_rights'),
+        ...retainedMedia,
+      ];
+      payload = ArticleMetadataPayloadSchema.parse({
+        ...metadata,
+        astroPatchReady: Boolean(metadata.heroImage && retainedMedia.length === 1),
+      });
+    }
+    if (current.type === 'social_media_brief') {
+      const brief = SocialMediaBriefPayloadSchema.parse(payload);
+      const retainedMedia = current.dependencies.filter((dependency) => (
+        dependency.kind === 'media_rights'
+        && brief.placementRights.status === 'cleared'
+        && brief.placementRights.rightsId === dependency.id
+        && dependency.contentHash === hashValue(socialMediaRightsSnapshot(brief))
+      ));
+      dependencies = [
+        ...current.dependencies.filter((dependency) => dependency.kind !== 'media_rights'),
+        ...retainedMedia,
+      ];
+    }
+    const changed = ArtifactVersionSchema.parse({
+      ...current,
+      version: current.version + 1,
+      contentHash: hashValue(payload),
+      payload,
+      factualSegmentIds,
+      claimUsage,
+      dependencies,
+      gateResults: gatesForUpdatedArtifact(run, current, payload, factualSegmentIds, claimUsage, asOf),
+    });
+    const completed = run.artifactPack.completed.map((artifact, index) => index === artifactIndex ? changed : artifact);
+    const now = asOf;
+    const candidate = FoundryRunSchema.parse({
+      ...run,
+      version: run.version + 1,
+      updatedAt: now,
+      artifact: run.artifact?.id === changed.id && changed.type === 'quick_note' ? changed : run.artifact,
+      review: run.artifact?.id === changed.id ? undefined : run.review,
+      artifactPack: {
+        ...run.artifactPack,
+        version: run.artifactPack.version + 1,
+        completed,
+        reviews: run.artifactPack.reviews,
+      },
+      audit: [...run.audit, {
+        at: now,
+        actor: update.editor,
+        type: 'artifact_edited',
+        detail: `Edited artifact ${changed.id}; read-time dependency reconciliation invalidated its review and all transitive dependent reviews.`,
+      }],
+    });
+    return normalizeDerivedStatus(candidate, asOf);
   }
 }
