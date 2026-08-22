@@ -3,7 +3,7 @@
 **Date:** Saturday, 22 August 2026 (UTC) / Sunday, 23 August 2026 (AEST)
 **Job:** `pi-daily-quick-note-qa-publish`
 **Agent:** Remy
-**Status:** PUBLISHED — pending external verification
+**Status:** PUBLISHED — externally verified
 
 ## Published content
 
@@ -20,4 +20,6 @@
 
 ## Verification
 
-The published commit and the externally resolved `https://peninsulainsider.com.au/quick-note/` URL are recorded after the deployment verification completes.
+Published commit: `b86933ef7df153a6420440d81f208c130c25c8d9` on `origin/main`.
+
+Post-publish verification passed at 2026-08-22T20:37:16Z for `https://peninsulainsider.com.au/quick-note/`: HTTP 200, canonical, title (`Quick Note, Sunday 23 August 2026`), meta description, OpenGraph fields, stylesheet, target body hook and sitemap inclusion all passed. See `ops/reports/verify/2026-08-22-quick-note.md`.
