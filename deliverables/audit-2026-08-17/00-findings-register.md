@@ -281,3 +281,52 @@ routes and silently excluded a class of live URL.
 Three of the four corrections above were only visible in **built or live output**. Source
 diffs and subagent reports were internally consistent and wrong. Verify the artefact, not
 the change.
+
+---
+
+## I. RE-BASELINE — 2026-08-22 (5 days after compilation)
+
+The register was written as a quarterly artefact. Five days in, three findings had
+already moved far enough to mis-rank the work queue, which is the argument for
+re-measuring weekly rather than quarterly. Every figure below was re-measured
+against the current build and the live Search Console property, not inferred.
+
+| ID | Audit figure (17 Aug) | Measured 22 Aug | Verdict |
+|---|---|---|---|
+| F1 | 3 towns never crawled; `/boating/` 107 days stale | `/explore/places/rye/` crawled 9 Aug, `/explore/places/mornington/` 17 Aug, both indexed. `/boating/` indexed but last crawled **2026-05-01 — 113 days** | **Mostly closed.** Towns are in. `/boating/` staleness is real and unchanged |
+| F3 | 1,438 entity nodes carry no `@id` | **30 missing of 515** (485 carry one) | **Effectively closed** — 98% complete |
+| F5 | All 833 `ImageObject` nodes point at `home-cover.webp` | **58 distinct URLs, but 840 of ~900 nodes still `home-cover.webp`** | **Open, and now the largest remaining structured-data defect** |
+| F6 | 42 duplicate slug pairs remain | **0** | **Closed** |
+| F8 | 90 indexable pages absent from sitemap | **21** | Open, 77% reduced |
+| F10 | 148 of 600 sitemap URLs lack `<lastmod>` | **611 of 611 present** | **Closed** (confirmed live) |
+| F2 | 732 of 952 pages contain zero `<img>` | **448 of 955** | Open, 39% reduced |
+| F17 | GA4 dead, no PageSpeed key, GSC unusable | GSC **working** — `ops/scripts/seo/pull.mjs` verified end to end 22 Aug, 12/14 priority URLs PASS. GA4 and PageSpeed still unverified | Partially closed |
+
+### What this changes about the plan
+
+**Re-rank.** F3 was a P1 Month-1 ticket and is done; F5 sat below it and is now the
+biggest open structured-data item. TICKET-05 should close as complete-bar-30-nodes
+and TICKET-04 should move up.
+
+**F1's remaining half is a crawl-frequency problem, not an indexation one.** The town
+pages are indexed. `/boating/` is indexed and has simply not been fetched since May.
+That is the same constraint the 42-URL recovery cohort baseline measured the same day:
+untouched control pages recrawl every 1-3 weeks while restored pages have not been
+visited since June. No amount of on-page correctness moves that; manual Request
+Indexing and internal-link depth do.
+
+**Correction to my own §H framing.** §H said F6 had "42 pairs remaining" and treated
+it as an active suppression mechanism blocking other fixes. It is now 0 — resolved
+between 17 and 22 August. The severity call was right; the count went stale in five
+days, which is the point of this section.
+
+### Method
+
+Entity and ImageObject counts come from a recursive HTML + JSON-LD parse of all 955
+built files, not a regex and not the build's own lint — which, as of 22 Aug, was
+itself under-reporting both because it walked only top-level graph nodes (fixed in
+`a48daf9`; the gate's numbers now reconcile with this independent measurement).
+Crawl dates are from the Search Console URL Inspection API. Sitemap figures are from
+the live sitemap over HTTP, not `dist/`.
+
+*Re-baselined 2026-08-22. Next re-baseline due weekly, not quarterly.*
