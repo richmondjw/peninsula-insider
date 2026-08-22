@@ -25,6 +25,9 @@ createApp(store, {
   realUrlsEnabled: config.realUrlsEnabled,
   coordinator,
   expectedHost: config.expectedHost,
+  // No server-owned verifier exists yet, so requesting team mode here fails
+  // closed at startup rather than serving unauthenticated mutations.
+  teamWorkbench: config.teamWorkbench,
 }).listen(config.port, config.host, () => {
   const displayHost = config.host === '0.0.0.0' ? '127.0.0.1' : config.host;
   console.log(`Peninsula Insider Workbench listening on http://${displayHost}:${config.port}`);

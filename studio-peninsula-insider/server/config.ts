@@ -1,5 +1,6 @@
 import { isAbsolute, relative, resolve } from 'node:path';
 import { realUrlCaptureEnabled } from './capture/kernel.js';
+import { resolveTeamWorkbenchConfig, TEAM_MODE_ENV_VAR, type TeamWorkbenchConfig } from './team-workbench.js';
 
 export interface RuntimeConfig {
   dataFile: string;
@@ -9,6 +10,7 @@ export interface RuntimeConfig {
   port: number;
   expectedHost: string;
   realUrlsEnabled: boolean;
+  teamWorkbench: TeamWorkbenchConfig;
   staticDir?: string;
 }
 
@@ -35,6 +37,13 @@ export function loadRuntimeConfig(environment = process.env): RuntimeConfig {
     throw new Error('Real URL capture requires native loopback FOUNDRY_HOST=127.0.0.1');
   }
 
+  // Team mode is an authenticated-session boundary, not a public deployment
+  // gate. It stays on loopback until a verified external session exists.
+  const teamWorkbench = resolveTeamWorkbenchConfig(environment);
+  if (teamWorkbench.teamModeEnabled && host !== '127.0.0.1') {
+    throw new Error(`${TEAM_MODE_ENV_VAR}=enabled requires native loopback FOUNDRY_HOST=127.0.0.1`);
+  }
+
   const port = Number(environment.FOUNDRY_PORT ?? 4310);
   if (!Number.isInteger(port) || port < 1 || port > 65535) throw new Error('FOUNDRY_PORT must be a valid TCP port');
   const expectedHost = environment.FOUNDRY_EXPECTED_HOST ?? `127.0.0.1:${port}`;
@@ -52,6 +61,7 @@ export function loadRuntimeConfig(environment = process.env): RuntimeConfig {
     port,
     expectedHost,
     realUrlsEnabled,
+    teamWorkbench,
     staticDir: environment.FOUNDRY_STATIC_DIR ? resolve(environment.FOUNDRY_STATIC_DIR) : undefined,
   };
 }

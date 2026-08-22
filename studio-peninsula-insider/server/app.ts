@@ -20,6 +20,14 @@ import {
   RunRefreshInProgressError,
   VersionConflictError,
 } from './store.js';
+import {
+  createTeamWorkbench,
+  isProtectedTeamMethod,
+  resolveTeamWorkbenchConfig,
+  type TeamWorkbench,
+  type TeamWorkbenchConfig,
+  type TeamWorkbenchIdentityOptions,
+} from './team-workbench.js';
 
 const CreateRunBaseSchema = z.object({
   actor: z.string().min(1).default('local-editor'),
@@ -84,8 +92,14 @@ export function createApp(store: FileFoundryStore, options: {
   realUrlsEnabled?: boolean;
   coordinator?: RealUrlCoordinator;
   expectedHost?: string;
+  teamWorkbench?: TeamWorkbenchConfig;
+  identity?: TeamWorkbenchIdentityOptions;
 } = {}) {
   const realUrlsEnabled = options.realUrlsEnabled ?? false;
+  const team: TeamWorkbench = createTeamWorkbench(
+    options.teamWorkbench ?? resolveTeamWorkbenchConfig({}),
+    options.identity ?? {},
+  );
   if (realUrlsEnabled && !options.coordinator) throw new Error('Real URL capture requires the sealed coordinator');
   if (realUrlsEnabled && !store.hasImmutableCaptureResolver()) throw new Error('Real URL capture requires immutable manifest validation');
   const app = express();
@@ -115,6 +129,12 @@ export function createApp(store: FileFoundryStore, options: {
     response.setHeader('Cache-Control', 'no-store');
     next();
   });
+  if (team.requireVerifiedIdentity) {
+    const identityGuard = team.requireVerifiedIdentity;
+    app.use('/api', (request, response, next) => (
+      isProtectedTeamMethod(request.method) ? identityGuard(request, response, next) : next()
+    ));
+  }
   if (realUrlsEnabled) {
     const mutationGuard = requireSafeLocalMutation(options.expectedHost);
     app.use('/api', (request, response, next) => (
@@ -128,6 +148,9 @@ export function createApp(store: FileFoundryStore, options: {
     recipes: ['quick_note_v1', 'url_article_v1', 'newsletter_social_v1', 'explainer_preproduction_v1', 'podcast_preproduction_v1', 'short_video_preproduction_v1'],
     artifactTypes: ['quick_note', 'article_draft', 'article_metadata', 'ask_answer', 'internal_link_plan', 'seo_metadata_proposal', 'insider_note_issue', 'insider_note_subject_set', 'linkedin_post', 'instagram_caption', 'instagram_first_comment', 'instagram_carousel_script', 'social_media_brief', 'explainer_core', 'explainer_faq', 'explainer_carousel', 'explainer_voiceover', 'explainer_visualisation', 'podcast_evidence_dossier', 'podcast_angle', 'podcast_run_sheet', 'podcast_interview_guide', 'podcast_script', 'podcast_show_notes', 'podcast_chapters', 'video_hooks', 'video_script', 'video_shot_list', 'video_scenes', 'video_overlays', 'video_subtitles', 'video_thumbnail', 'video_platform_captions'],
     publicationAdapters: ['downloadable_patch'],
+    directReleaseAdapters: [],
+    teamMode: team.capabilities.mode,
+    teamWorkbench: team.capabilities,
     externalCalls: realUrlsEnabled,
     providerCalls: false,
     modelCalls: false,
