@@ -1,4 +1,5 @@
 import { readdir, readFile, stat, writeFile } from 'node:fs/promises';
+import { execFileSync } from 'node:child_process';
 import { join } from 'node:path';
 
 const dist = new URL('../dist/', import.meta.url);
@@ -120,6 +121,25 @@ async function routeExists(pathname) {
 // existing backlog is visible without being a blocker.
 const baselinePath = new URL('../../ops/reports/seo/seo-architecture-baseline.json', import.meta.url).pathname;
 const updateBaseline = process.argv.includes('--update-baseline');
+// A baseline taken from a dirty working tree describes a build CI will never
+// produce. The first attempt at this baseline was 5 breadcrumb findings light
+// for exactly that reason and broke the deploy on the next push. Refuse to
+// record one unless the tree is clean, or the operator opts in explicitly.
+if (updateBaseline && !process.argv.includes('--allow-dirty')) {
+  let dirty = '';
+  try {
+    dirty = execFileSync('git', ['status', '--porcelain'], { encoding: 'utf8' }).trim();
+  } catch {}
+  if (dirty) {
+    console.error('SEO architecture lint: refusing to baseline from a dirty working tree.');
+    console.error('CI builds a clean checkout, so a baseline taken here will not match it.');
+    console.error('Build a clean worktree of origin/main and baseline there, or pass --allow-dirty.');
+    console.error(`\nUncommitted paths (${dirty.split('\n').length}):`);
+    for (const line of dirty.split('\n').slice(0, 15)) console.error(`  ${line}`);
+    process.exit(1);
+  }
+}
+
 let baseline = { counts: {}, floors: {} };
 try {
   baseline = JSON.parse(await readFile(baselinePath, 'utf8'));
