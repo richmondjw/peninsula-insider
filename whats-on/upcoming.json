@@ -12,7 +12,7 @@
     "label": "Fri 21 – Sun 23 August",
     "count": 11
   },
-  "numberOfItems": 37,
+  "numberOfItems": 41,
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -461,6 +461,32 @@
       "position": 35,
       "item": {
         "@type": "Event",
+        "name": "Arj Barker Live at Barlow",
+        "url": "https://peninsulainsider.com.au/whats-on/arj-barker-live-at-barlow/",
+        "startDate": "2026-10-01",
+        "endDate": "2026-10-01",
+        "description": "Arj Barker Live at Barlow at Barlow - The Continental Sorrento.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 36,
+      "item": {
+        "@type": "Event",
+        "name": "Breast Foot Forward Annual Community Walk & Run 2026",
+        "url": "https://peninsulainsider.com.au/whats-on/breast-foot-forward-annual-community-walk-amp-run-2026/",
+        "startDate": "2026-10-16",
+        "endDate": "2026-10-17",
+        "description": "Breast Foot Forward Annual Community Walk & Run 2026 at Safety Beach Sailing club (10KM Start Line) or Anthonys Nose (5KM Start line) to Village Green (Finish Line).",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 37,
+      "item": {
+        "@type": "Event",
         "name": "Emu Plains Market",
         "url": "https://peninsulainsider.com.au/whats-on/emu-plains-market/",
         "startDate": "2026-10-17",
@@ -471,7 +497,20 @@
     },
     {
       "@type": "ListItem",
-      "position": 36,
+      "position": 38,
+      "item": {
+        "@type": "Event",
+        "name": "High Tea at Mornington Botanical Rose Gardens",
+        "url": "https://peninsulainsider.com.au/whats-on/high-tea-at-mornington-botanical-rose-gardens/",
+        "startDate": "2026-10-18",
+        "endDate": "2026-10-18",
+        "description": "High Tea at Mornington Botanical Rose Gardens at Mornington Botanical Rose Gardens Main Building.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 39,
       "item": {
         "@type": "Event",
         "name": "Main Street Mornington Festival 2026",
@@ -484,7 +523,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 37,
+      "position": 40,
       "item": {
         "@type": "Event",
         "name": "The Bloody Long Walk – Mornington Peninsula 2026",
@@ -494,9 +533,22 @@
         "description": "35km charity walk from Point Nepean Quarantine Station to Martha Cove Marina for the Mito Foundation. Walk, jog or run. Limited spots.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
+    },
+    {
+      "@type": "ListItem",
+      "position": 41,
+      "item": {
+        "@type": "Event",
+        "name": "Glamping Tents - Horror Movie Campout: Back From The Dead Tour 2026",
+        "url": "https://peninsulainsider.com.au/whats-on/glamping-tents-horror-movie-campout-back-from-the-dead-tour-2026/",
+        "startDate": "2026-11-21",
+        "endDate": "2026-11-21",
+        "description": "Glamping Tents - Horror Movie Campout: Back From The Dead Tour 2026 at Mornington Racecourse.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
     }
   ],
-  "count": 37,
+  "count": 41,
   "events": [
     {
       "title": "Brunch Thyme at Alba Thermal Springs & Spa",
@@ -941,6 +993,32 @@
       "thisWeekend": false
     },
     {
+      "title": "Arj Barker Live at Barlow",
+      "url": "https://peninsulainsider.com.au/whats-on/arj-barker-live-at-barlow/",
+      "startDate": "2026-10-01",
+      "endDate": "2026-10-01",
+      "recurrence": "one-off",
+      "category": "live-music",
+      "place": null,
+      "venue": null,
+      "freePaid": null,
+      "summary": "Arj Barker Live at Barlow at Barlow - The Continental Sorrento.",
+      "thisWeekend": false
+    },
+    {
+      "title": "Breast Foot Forward Annual Community Walk & Run 2026",
+      "url": "https://peninsulainsider.com.au/whats-on/breast-foot-forward-annual-community-walk-amp-run-2026/",
+      "startDate": "2026-10-16",
+      "endDate": "2026-10-17",
+      "recurrence": "one-off",
+      "category": "racing-sport",
+      "place": null,
+      "venue": null,
+      "freePaid": null,
+      "summary": "Breast Foot Forward Annual Community Walk & Run 2026 at Safety Beach Sailing club (10KM Start Line) or Anthonys Nose (5KM Start line) to Village Green (Finish Line).",
+      "thisWeekend": false
+    },
+    {
       "title": "Emu Plains Market",
       "url": "https://peninsulainsider.com.au/whats-on/emu-plains-market/",
       "startDate": "2026-10-17",
@@ -951,6 +1029,19 @@
       "venue": null,
       "freePaid": "Free",
       "summary": "Monthly artisan market at Emu Plains Reserve Balnarring. For lovers of craft, design, vintage, music and food. Seasonal schedule October–April (day market 9am–2pm) plus June and August dates. Site of the Womin Djeka cultural festival. Volunteer-run community hub.",
+      "thisWeekend": false
+    },
+    {
+      "title": "High Tea at Mornington Botanical Rose Gardens",
+      "url": "https://peninsulainsider.com.au/whats-on/high-tea-at-mornington-botanical-rose-gardens/",
+      "startDate": "2026-10-18",
+      "endDate": "2026-10-18",
+      "recurrence": "one-off",
+      "category": "food-wine",
+      "place": null,
+      "venue": null,
+      "freePaid": null,
+      "summary": "High Tea at Mornington Botanical Rose Gardens at Mornington Botanical Rose Gardens Main Building.",
       "thisWeekend": false
     },
     {
@@ -977,6 +1068,19 @@
       "venue": null,
       "freePaid": "Paid",
       "summary": "35km charity walk from Point Nepean Quarantine Station to Martha Cove Marina for the Mito Foundation. Walk, jog or run. Limited spots.",
+      "thisWeekend": false
+    },
+    {
+      "title": "Glamping Tents - Horror Movie Campout: Back From The Dead Tour 2026",
+      "url": "https://peninsulainsider.com.au/whats-on/glamping-tents-horror-movie-campout-back-from-the-dead-tour-2026/",
+      "startDate": "2026-11-21",
+      "endDate": "2026-11-21",
+      "recurrence": "one-off",
+      "category": "family-programs",
+      "place": null,
+      "venue": null,
+      "freePaid": null,
+      "summary": "Glamping Tents - Horror Movie Campout: Back From The Dead Tour 2026 at Mornington Racecourse.",
       "thisWeekend": false
     }
   ]
