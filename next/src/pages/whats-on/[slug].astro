@@ -100,6 +100,21 @@ const breadcrumbItems = [
   { label: "What's On", href: '/whats-on/' },
   { label: event.data.title },
 ];
+
+// Breadcrumbs.astro renders the visual trail only. Page templates own the
+// BreadcrumbList JSON-LD, and this template never emitted it, so every event
+// page carried a visible breadcrumb that Google could not read. Same shape as
+// whats-on/this-weekend/archive/[slug].astro: convention copied, not invented.
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbItems.map((item, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: item.label,
+    ...(item.href ? { item: `https://peninsulainsider.com.au${item.href}` } : {}),
+  })),
+};
 export const prerender = true;
 ---
 
@@ -113,6 +128,7 @@ export const prerender = true;
   noindex={!isCurrent}
 >
   {eventSchema && <script type="application/ld+json" set:html={JSON.stringify(eventSchema)} />}
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   <Breadcrumbs items={breadcrumbItems} />
   <article class="event-detail">
     <div class="container">
