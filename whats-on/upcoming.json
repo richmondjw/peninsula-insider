@@ -12,7 +12,7 @@
     "label": "Fri 28 – Sun 30 August",
     "count": 15
   },
-  "numberOfItems": 41,
+  "numberOfItems": 40,
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -513,19 +513,6 @@
       "position": 39,
       "item": {
         "@type": "Event",
-        "name": "Main Street Mornington Festival 2026",
-        "url": "https://peninsulainsider.com.au/whats-on/main-street-mornington-festival-2026/",
-        "startDate": "2026-10-18",
-        "endDate": "2026-10-18",
-        "description": "Annual free street festival on Mornington's Main Street: 7 stages, live music, local wine and craft beer, food stalls, artisan crafts, kids' activities, roving performers, 11am to 5pm on the third Sunday of October. 2026 contingent on sponsorship after 2025 was cancelled.",
-        "eventStatus": "https://schema.org/EventScheduled"
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 40,
-      "item": {
-        "@type": "Event",
         "name": "The Bloody Long Walk – Mornington Peninsula 2026",
         "url": "https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/",
         "startDate": "2026-10-25",
@@ -536,7 +523,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 41,
+      "position": 40,
       "item": {
         "@type": "Event",
         "name": "Glamping Tents - Horror Movie Campout: Back From The Dead Tour 2026",
@@ -548,7 +535,7 @@
       }
     }
   ],
-  "count": 41,
+  "count": 40,
   "events": [
     {
       "title": "Brunch Thyme at Alba Thermal Springs & Spa",
@@ -1042,19 +1029,6 @@
       "venue": null,
       "freePaid": null,
       "summary": "High Tea at Mornington Botanical Rose Gardens at Mornington Botanical Rose Gardens Main Building.",
-      "thisWeekend": false
-    },
-    {
-      "title": "Main Street Mornington Festival 2026",
-      "url": "https://peninsulainsider.com.au/whats-on/main-street-mornington-festival-2026/",
-      "startDate": "2026-10-18",
-      "endDate": "2026-10-18",
-      "recurrence": "annual",
-      "category": "community",
-      "place": "mornington",
-      "venue": null,
-      "freePaid": "Free",
-      "summary": "Annual free street festival on Mornington's Main Street: 7 stages, live music, local wine and craft beer, food stalls, artisan crafts, kids' activities, roving performers, 11am to 5pm on the third Sunday of October. 2026 contingent on sponsorship after 2025 was cancelled.",
       "thisWeekend": false
     },
     {
