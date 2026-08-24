@@ -278,7 +278,10 @@ export function eventJsonLd(event: Event, siteUrl: string): Record<string, unkno
     description: data.description ?? data.summary,
     startDate: startISO,
     endDate: endISO,
-    eventStatus: 'https://schema.org/EventScheduled',
+    eventStatus:
+      (data as Record<string, unknown>).cancelled === true
+        ? 'https://schema.org/EventCancelled'
+        : 'https://schema.org/EventScheduled',
     eventAttendanceMode:
       data.indoorOutdoor === 'Indoor' || data.indoorOutdoor === 'Indoor / Outdoor'
         ? 'https://schema.org/MixedEventAttendanceMode'

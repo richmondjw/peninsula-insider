@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import { isCancelledEvent } from '../../whats-on/_data';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import PlaceDetailTemplate from '../../../components/PlaceDetailTemplate.astro';
 import PlaceMap from '../../../components/PlaceMap.astro';
@@ -21,7 +22,11 @@ const places = await getCollection('places');
 const allExperiences = await getCollection('experiences');
 const allItineraries = await getCollection('itineraries');
 const allArticles = await getCollection('articles', ({ data }) => data.status === 'published');
-const allEvents = await getCollection('events');
+// Place hubs previously read the raw collection and filtered on date alone,
+// so an unpublished, archived or cancelled event still surfaced on the town
+// page. Match the gate loadLiveEvents applies everywhere else.
+const allEvents = (await getCollection('events', ({ data }) => data.status === 'published'))
+  .filter((event) => !isCancelledEvent(event));
 
 const placeSlug = routeSlug(place);
 const placeNameLower = place.data.name.toLowerCase();

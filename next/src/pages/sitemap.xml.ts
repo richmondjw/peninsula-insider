@@ -464,7 +464,10 @@ export const GET: APIRoute = async () => {
   // loadLiveEvents is recurrence-aware and rejects ended series, so a stale
   // recurring label can no longer keep an expired URL in machine indexes.
   const today = new Date();
-  const liveEvents = await loadLiveEvents(today);
+  // includeCancelled: a cancelled event keeps an indexable notice page, so it
+  // must stay in the sitemap. Dropping it here while [slug].astro still emits
+  // index would create a sitemap-absent finding and regress the SEO ratchet.
+  const liveEvents = await loadLiveEvents(today, { includeCancelled: true });
   for (const live of liveEvents) {
     entries.push(url(live.href, 0.6, 'weekly', dateStr(live.event.data.publishedAt)));
   }
