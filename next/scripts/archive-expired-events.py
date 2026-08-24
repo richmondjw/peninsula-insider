@@ -9,6 +9,9 @@ file to opt out of auto-archive (handy for post-mortem windows).
 Auto-archive rule: only one-off and annual recurring events are eligible.
 Weekly / monthly / ongoing events never auto-archive.
 
+A recurring event is never archived while `nextOccurrence` is still ahead of
+us, whatever its endDate says. See `has_future_occurrence` for why.
+
 The script writes back to the JSON files in place. Diff is committed by the
 GitHub Actions workflow.
 """
@@ -23,6 +26,11 @@ GRACE_DAYS = 1  # archive events the day after they end (was 14)
 EVENT_DIR = Path(__file__).resolve().parent.parent / 'src' / 'content' / 'events'
 ARCHIVE_ELIGIBLE_RECURRENCES = {'one-off', 'annual', 'seasonal'}
 
+# Every recurrence that describes a series rather than a single dated running.
+# For all of these, `endDate` is the end of the last occurrence the registry
+# has computed so far — not the end of the series.
+RECURRING_RECURRENCES = {'weekly', 'monthly', 'annual', 'seasonal', 'ongoing'}
+
 
 def parse_date(s: str | None) -> date | None:
     if not s:
@@ -33,11 +41,32 @@ def parse_date(s: str | None) -> date | None:
         return None
 
 
+def has_future_occurrence(data: dict, recurrence: str, today: date) -> bool:
+    """True when a recurring series still has a running scheduled ahead of us.
+
+    For a recurring event `endDate` is the end of its LAST COMPUTED occurrence,
+    so `endDate < today` says nothing about whether the series is over — it is
+    true of every healthy monthly market the morning after it runs.
+    `nextOccurrence` is the authoritative signal: while it is still ahead of us
+    the series rolls forward and must stay live.
+
+    Archiving on endDate alone is what took live markets off the site in
+    August 2026 (the records carry `archivedReason: "endDate < today"`).
+    One-off events are deliberately excluded: they have no next running to roll
+    forward to, so a passed endDate really is the end of them.
+    """
+    if recurrence not in RECURRING_RECURRENCES:
+        return False
+    next_occ = parse_date(data.get('nextOccurrence'))
+    return next_occ is not None and next_occ >= today
+
+
 def main() -> int:
     today = date.today()
     cutoff = today - timedelta(days=GRACE_DAYS)
     archived = []
     skipped_keep_live = []
+    skipped_future_occurrence = []
 
     for path in sorted(EVENT_DIR.glob('*.json')):
         try:
@@ -62,13 +91,11 @@ def main() -> int:
         if end > cutoff:
             continue
 
-        # For annual events, only archive if the event is more than 14 days
-        # past AND no nextOccurrence is set. Otherwise it's a recurring event
-        # waiting for next year's date.
-        if recurrence == 'annual' and data.get('nextOccurrence'):
-            next_occ = parse_date(data.get('nextOccurrence'))
-            if next_occ and next_occ >= today:
-                continue
+        # A passed endDate only ends a series that has nowhere left to roll to.
+        if has_future_occurrence(data, recurrence, today):
+            skipped_future_occurrence.append(
+                f"{path.stem} (next {data.get('nextOccurrence')})")
+            continue
 
         data['status'] = 'archived'
         path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + '\n',
@@ -80,6 +107,10 @@ def main() -> int:
         for slug in archived:
             print(f"  - {slug}")
     print(f"Skipped (keep-live flag): {len(skipped_keep_live)}")
+    print(f"Skipped (recurring, next occurrence still ahead): "
+          f"{len(skipped_future_occurrence)}")
+    for line in skipped_future_occurrence:
+        print(f"  - {line}")
     return 0
 
 
