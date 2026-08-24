@@ -935,6 +935,19 @@ const events = defineCollection({
     internalNotes: z.string().optional(),
     manualFollowUpRequired: z.boolean().default(false),
 
+    // ─── Cancellation ──────────────────────────────────────────────────────
+    // A cancelled event is not the same as an unpublished or expired one. The
+    // record stays published so the URL keeps serving readers who arrive from
+    // search or an old link, but it is withdrawn from every "what is on"
+    // surface and its JSON-LD reports EventCancelled. Before 2026-08 the only
+    // signal was a regex over verificationStatus/summary (see whats-on/_data.ts);
+    // this flag makes the state explicit and reviewable.
+    cancelled: z.boolean().default(false),
+    cancelledOn: z.coerce.date().optional(),
+    cancellationNote: z.string().optional(),
+    cancellationSourceUrl: z.string().optional(),
+    cancellationSourceLabel: z.string().optional(),
+
     // ─── Lifecycle ─────────────────────────────────────────────────────────
     status: z
       .enum(['draft', 'review', 'scheduled', 'published', 'expired', 'past', 'archived'])

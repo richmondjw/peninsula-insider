@@ -307,19 +307,47 @@ function timeLabelFor(startTime: unknown): string {
 
 function isCancelled(data: Record<string, any>): boolean {
   return (
+    data.cancelled === true ||
     /cancelled/i.test(data.verificationStatus ?? '') ||
     /^cancelled:/i.test(data.summary ?? '') ||
     data.skipThis === true
   );
 }
 
+/**
+ * Whether a record has been withdrawn because the event will not happen.
+ *
+ * Distinct from , which only answers "is this date still
+ * ahead of us". A cancelled event can be both published and future-dated:
+ * that is exactly the case the cancellation notice exists to serve. Exported
+ * so surfaces that read the raw collection (place hubs, the homepage rail)
+ * apply the same test as  instead of inventing their own.
+ */
+export function isCancelledEvent(event: EventEntry): boolean {
+  return isCancelled(event.data as Record<string, any>);
+}
+
+export interface LoadLiveEventsOptions {
+  /**
+   * Keep cancelled records in the result. Only the sitemap sets this. The
+   * cancellation notice stays indexable (see whats-on/[slug].astro), so
+   * omitting it from the sitemap while the page still says index would
+   * desynchronise the two and trip the sitemap-absent ratchet in
+   * lint-seo-architecture.mjs. Reader-facing listings must never set it.
+   */
+  includeCancelled?: boolean;
+}
+
 /** All live events with their rule and display fields, appeal-sorted. */
-export async function loadLiveEvents(now: Date): Promise<LiveEvent[]> {
+export async function loadLiveEvents(
+  now: Date,
+  options: LoadLiveEventsOptions = {}
+): Promise<LiveEvent[]> {
   const entries = await getCollection('events', ({ data }) => data.status === 'published');
   const out: LiveEvent[] = [];
   for (const event of entries) {
     const data = event.data as Record<string, any>;
-    if (isCancelled(data)) continue;
+    if (isCancelled(data) && !options.includeCancelled) continue;
     const rule = ruleFor(event, now);
     if (!rule || !isCurrentEvent(event, now)) continue;
 

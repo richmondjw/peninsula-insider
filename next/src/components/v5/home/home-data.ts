@@ -92,6 +92,10 @@ export function isLiveEvent(e: any): boolean {
   if (String(e.id ?? '').includes('archive')) return false;
   if (!LIVE_STATUSES.has(e.data.status ?? 'published')) return false;
   if (e.data.skipThis) return false;
+  // A cancelled record can still be published and future-dated, and this
+  // event carries the weekend-pick lens (+20 in fallbackScore). Without this
+  // test the homepage rail would promote an event that is not happening.
+  if (e.data.cancelled) return false;
   return Boolean(e.data.title);
 }
 
