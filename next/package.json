@@ -31,6 +31,8 @@
     "search:audit": "node scripts/audit-search-links.mjs",
     "audit:agent-readiness": "node scripts/audit-agent-readiness.mjs",
     "test:agent-readiness": "node --test scripts/test-agent-readiness.mjs scripts/test-live-agent-readiness.mjs",
+    "test:release-contract": "node --test scripts/release-manifest.test.mjs",
+    "release:manifest": "node scripts/release-manifest.mjs",
     "bf:lint": "node ../scripts/bf-import/verify-lint.mjs",
     "bf:lint:strict": "node ../scripts/bf-import/verify-lint.mjs --strict",
     "pdfs": "node scripts/render-pdfs.mjs",
