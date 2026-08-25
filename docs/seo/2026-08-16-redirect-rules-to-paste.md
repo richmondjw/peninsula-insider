@@ -17,7 +17,7 @@ expression, then under Then: **Type = Static**, **Status = 301 (Permanent)**,
 **Preserve query string = off**, target URL as given.
 
 Free plan allows 10 rules. These are the 10 highest-URL-count groups,
-covering 25 legacy URLs. Already covered by existing Page Rules and NOT
+covering 26 legacy URLs. Already covered by existing Page Rules and NOT
 repeated here: `/places/*`, `/escape/*`, `/spa/*`.
 
 ---

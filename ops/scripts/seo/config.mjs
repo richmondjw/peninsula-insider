@@ -27,6 +27,16 @@ export const PRIORITY_URLS = [
   'https://peninsulainsider.com.au/journal/mornington-peninsula-in-autumn/',
   'https://peninsulainsider.com.au/journal/mornington-peninsula-with-kids/',
   'https://peninsulainsider.com.au/journal/dog-friendly-mornington-peninsula/',
+  'https://peninsulainsider.com.au/explore/places/sorrento/',
+  'https://peninsulainsider.com.au/explore/places/red-hill/',
+  'https://peninsulainsider.com.au/explore/places/flinders/',
+  'https://peninsulainsider.com.au/explore/places/mornington/',
+  'https://peninsulainsider.com.au/explore/places/rye/',
+];
+
+// Redirects only. They are monitored for redirect hygiene, never counted as
+// indexation/canonical KPI losses.
+export const WATCH_ONLY_LEGACY_URLS = [
   'https://peninsulainsider.com.au/places/sorrento/',
   'https://peninsulainsider.com.au/places/red-hill/',
   'https://peninsulainsider.com.au/places/flinders/',

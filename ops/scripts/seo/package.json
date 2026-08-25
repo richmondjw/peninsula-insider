@@ -7,7 +7,8 @@
   "scripts": {
     "auth": "node auth.mjs",
     "pull": "node pull.mjs",
-    "pull:verbose": "node pull.mjs --verbose"
+    "pull:verbose": "node pull.mjs --verbose",
+    "daily-loop": "node daily-loop.mjs"
   },
   "dependencies": {
     "googleapis": "^144.0.0"

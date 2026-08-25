@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-16T23:04:05.316Z",
+  "generatedAt": "2026-08-23T10:05:13.677Z",
   "source": "next/scripts/build-media-registry.mjs",
   "assetCount": 149,
   "assets": [
@@ -668,7 +668,7 @@
           "entitySlug": "pearcedale-community-market"
         },
         {
-          "file": "src/content/events/red-hill-market-first-saturday.json",
+          "file": "src/content/events/archive/red-hill-market-first-saturday.json",
           "purpose": "hero",
           "entityType": "event",
           "entitySlug": "red-hill-market-first-saturday"
@@ -1122,6 +1122,12 @@
           "entitySlug": "emu-plains-market-balnarring"
         },
         {
+          "file": "src/content/events/archive/heart-of-the-community-market-rosebud.json",
+          "purpose": "hero",
+          "entityType": "event",
+          "entitySlug": "heart-of-the-community-market-rosebud"
+        },
+        {
           "file": "src/content/events/archive/mornington-racecourse-monthly-market-june-2026.json",
           "purpose": "hero",
           "entityType": "event",
@@ -1132,12 +1138,6 @@
           "purpose": "hero",
           "entityType": "event",
           "entitySlug": "mt-eliza-farmers-market"
-        },
-        {
-          "file": "src/content/events/heart-of-the-community-market-rosebud.json",
-          "purpose": "hero",
-          "entityType": "event",
-          "entitySlug": "heart-of-the-community-market-rosebud"
         },
         {
           "file": "src/content/events/main-street-mornington-festival-2026.json",
@@ -2800,19 +2800,7 @@
         },
         {
           "file": "src/pages/journal/[slug].astro",
-          "purpose": "hero",
-          "entityType": "article",
-          "entitySlug": "routeSlug"
-        },
-        {
-          "file": "src/pages/journal/[slug].astro",
           "purpose": "inline",
-          "entityType": "article",
-          "entitySlug": "routeSlug"
-        },
-        {
-          "file": "src/pages/journal/[slug].astro",
-          "purpose": "seo",
           "entityType": "article",
           "entitySlug": "routeSlug"
         },
@@ -3731,6 +3719,12 @@
       "bytes": 292448,
       "updatedAt": "2026-05-21T20:39:53.117Z",
       "usages": [
+        {
+          "file": "src/content/articles/boat-moorings-berths-mornington-peninsula.md",
+          "purpose": "hero",
+          "entityType": "article",
+          "entitySlug": "boat-moorings-berths-mornington-peninsula"
+        },
         {
           "file": "src/content/articles/insider-picks-2026-07-30.md",
           "purpose": "hero",
@@ -5304,7 +5298,14 @@
       "extension": "webp",
       "bytes": 214322,
       "updatedAt": "2026-05-21T20:39:53.471Z",
-      "usages": []
+      "usages": [
+        {
+          "file": "src/content/articles/insider-picks-2026-08-17.md",
+          "purpose": "hero",
+          "entityType": "article",
+          "entitySlug": "insider-picks-2026-08-17"
+        }
+      ]
     },
     {
       "src": "/images/sourced/venue-wine-tasting-01.webp",

@@ -1,0 +1,33 @@
+{
+  "pack": "PI weekly social pack — week of 2026-08-17",
+  "narrative": "Winter has room for a better plan: fewer stops, considered timing, and a strong spontaneous alternative.",
+  "posts": [
+    {
+      "id": "red-hill-saturday",
+      "platforms": ["instagram", "facebook"],
+      "asset": "exports/red-hill-saturday.png",
+      "buffer_draft_id": "6a861c7d5bebcc0cdc24339d",
+      "draft_image_url": "https://peninsulainsider.com.au/images/sourced/article-red-hill-saturday-01.webp",
+      "destination": "https://peninsulainsider.com.au/journal/how-to-build-a-red-hill-saturday/",
+      "due_at": "2026-08-20T09:30:00+10:00"
+    },
+    {
+      "id": "main-ridge-sunday",
+      "platforms": ["instagram", "facebook"],
+      "asset": "exports/main-ridge-sunday.png",
+      "buffer_draft_id": "6a861c7ef451974f18a89a39",
+      "draft_image_url": "https://peninsulainsider.com.au/images/sourced/venue-montalto-banner-01.webp",
+      "destination": "https://peninsulainsider.com.au/journal/insider-picks-2026-08-17/",
+      "due_at": "2026-08-22T08:30:00+10:00"
+    },
+    {
+      "id": "walk-in-lunch",
+      "platforms": ["linkedin", "facebook"],
+      "asset": "exports/walk-in-lunch.png",
+      "buffer_draft_id": "6a861c7facf0fe4ce1bdb85d",
+      "draft_image_url": "https://peninsulainsider.com.au/images/sourced/category-restaurant-01.webp",
+      "destination": "https://peninsulainsider.com.au/journal/where-to-eat-without-a-booking/",
+      "due_at": "2026-08-20T08:30:00+10:00"
+    }
+  ]
+}

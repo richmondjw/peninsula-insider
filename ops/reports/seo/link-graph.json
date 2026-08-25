@@ -1,29 +1,29 @@
 {
-  "generatedAt": "2026-08-16T23:08:57.254Z",
+  "generatedAt": "2026-08-23T10:06:25.847Z",
   "dist": "/home/node/.openclaw/workspace/peninsula-insider/next/dist",
   "totals": {
-    "pages": 949,
-    "indexable": 628,
-    "selfCanonical": 724,
+    "pages": 958,
+    "indexable": 629,
+    "selfCanonical": 733,
     "redirectStubs": 225,
     "noindexSurfaces": 0,
     "noindexWithForeignCanonical": 0,
     "fullDuplicateRenders": 0,
     "duplicateBytes": 0,
     "indexSurfaces": 24,
-    "chromeLinks": 229,
-    "chromeNonCanonicalLinks": 33,
+    "chromeLinks": 235,
+    "chromeNonCanonicalLinks": 36,
     "chromeSitewideNonCanonicalLinks": 0,
     "zeroEditorialInbound": 81,
     "zeroInboundOfAnyKind": 22
   },
   "editorialInboundBuckets": {
     "0": 81,
-    "1-2": 150,
-    "3-5": 131,
-    "6-10": 127,
-    "11-25": 90,
-    "26+": 49
+    "1-2": 138,
+    "3-5": 130,
+    "6-10": 126,
+    "11-25": 99,
+    "26+": 55
   },
   "chromeNonCanonical": [
     {
@@ -146,6 +146,27 @@
       "targetIsStub": true
     },
     {
+      "link": "/journal/mornington-peninsula-boat-ramps/",
+      "canonical": "/boating/ramps/",
+      "onPages": 1,
+      "sitewide": false,
+      "targetIsStub": true
+    },
+    {
+      "link": "/boating/boat-hire/",
+      "canonical": "/boating/hire/",
+      "onPages": 1,
+      "sitewide": false,
+      "targetIsStub": true
+    },
+    {
+      "link": "/places/mornington/",
+      "canonical": "/explore/places/mornington/",
+      "onPages": 1,
+      "sitewide": false,
+      "targetIsStub": true
+    },
+    {
       "link": "/journal/corporate-events-how-to-plan-peninsula-retreat/",
       "canonical": "/explore/plans/corporate-events-how-to-plan-peninsula-retreat/",
       "onPages": 1,
@@ -224,7 +245,7 @@
     },
     {
       "link": "/journal/where-to-eat-mornington-peninsula/",
-      "canonical": "/eat/",
+      "canonical": "/eat/best-restaurants/",
       "onPages": 1,
       "sitewide": false,
       "targetIsStub": true
@@ -262,15 +283,13 @@
   "duplicates": [],
   "orphans": [
     "/accessibility/",
+    "/ask/",
     "/awards/",
     "/careers/",
     "/corporate-events/best-corporate-retreat-venues-mornington-peninsula/",
     "/eat/breweries/",
     "/eat/distilleries/",
     "/eat/family-friendly/",
-    "/eat/georgie-bass/",
-    "/eat/markets/",
-    "/eat/moke-dining/",
     "/eat/mornington-peninsula-brewery/",
     "/eat/mr-vincenzos/",
     "/eat/no-booking/",
@@ -306,6 +325,7 @@
     "/journal/insider-picks-2026-07-28/",
     "/journal/insider-picks-2026-07-29/",
     "/journal/insider-picks-2026-07-30/",
+    "/journal/insider-picks-2026-07-31/",
     "/journal/local-secrets/",
     "/journal/mornington-peninsula-in-autumn/",
     "/partners/apply/",
@@ -329,6 +349,7 @@
     "/whats-on/by-mood/when-it-rains/",
     "/whats-on/by-mood/worth-the-drive/",
     "/whats-on/doggy-day-out-mornington-peninsula-2026/",
+    "/whats-on/high-tea-at-mornington-botanical-rose-gardens/",
     "/whats-on/mornington-wednesday-market-main-street-market/",
     "/whats-on/pearcedale-community-market/",
     "/whats-on/this-weekend/archive/2026-04-24/",

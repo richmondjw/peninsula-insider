@@ -100,7 +100,7 @@ const DEFAULT_HOMEPAGE_ADMIN_CONTENT: HomepageAdminContent = {
   },
   newsletter: {
     title: 'Peninsula This Weekend',
-    body: 'Your Peninsula week, sorted. Independent recommendations and planning notes, every Wednesday.',
+    body: 'What\'s on, where we\'d go and what\'s worth knowing next.',
     issueNumber: '',
     issueDate: '',
     previewHeadline: '',

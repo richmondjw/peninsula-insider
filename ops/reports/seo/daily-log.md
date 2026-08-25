@@ -805,3 +805,765 @@ Window (last 7d): 2026-05-08 → 2026-05-14
 
 ### Notes
 _Add interpretation, decisions, and actions taken below._
+
+---
+
+## 2026-08-18 — daily pull
+
+Property: `sc-domain:peninsulainsider.com.au`
+Window (last 7d): 2026-08-10 → 2026-08-16
+
+### Headline (last 7d vs previous 7d)
+
+| Metric | Last 7d | Prev 7d | Δ | Last 28d |
+|---|---:|---:|---:|---:|
+| Clicks | 4 | 2 | 4  (+2 ↑) | 6 |
+| Impressions | 527 | 237 | 527  (+290 ↑) | 1,155 |
+| CTR | 0.76% | 0.84% | 0.76%  (-0.08% ↓) | 0.52% |
+| Avg position | 68.9 | 61.2 | 68.9  (+7.6 ↓) | 62.7 |
+
+### Indexation (priority URLs): 7 / 14 indexed
+
+| URL | Verdict | Coverage |
+|---|---|---|
+| `/` | PASS | Submitted and indexed |
+| `/eat/best-restaurants/` | PASS | Submitted and indexed |
+| `/wine/best-cellar-doors/` | PASS | Submitted and indexed |
+| `/explore/best-walks/` | PASS | Submitted and indexed |
+| `/stay/best-accommodation/` | PASS | Submitted and indexed |
+| `/journal/mornington-peninsula-day-trip/` | PASS | Submitted and indexed |
+| `/journal/mornington-peninsula-in-autumn/` | PASS | Submitted and indexed |
+| `/journal/mornington-peninsula-with-kids/` | NEUTRAL | Excluded by ‘noindex’ tag |
+| `/journal/dog-friendly-mornington-peninsula/` | NEUTRAL | Crawled - currently not indexed |
+| `/places/sorrento/` | NEUTRAL | Excluded by ‘noindex’ tag |
+| `/places/red-hill/` | NEUTRAL | Page with redirect |
+| `/places/flinders/` | NEUTRAL | Excluded by ‘noindex’ tag |
+| `/places/mornington/` | NEUTRAL | Excluded by ‘noindex’ tag |
+| `/places/rye/` | NEUTRAL | Excluded by ‘noindex’ tag |
+
+### Top 10 queries by clicks (last 28d)
+
+| # | Query | Clicks | Impr | CTR | Pos |
+|---:|---|---:|---:|---:|---:|
+| 1 | mornington peninsula | 1 | 10 | 10.00% | 60.9 |
+| 2 | 10 minutes by tractor | 0 | 1 | 0.00% | 24.0 |
+| 3 | 5 star hotel mornington peninsula | 0 | 3 | 0.00% | 66.0 |
+| 4 | abelli estate | 0 | 1 | 0.00% | 72.0 |
+| 5 | accessible walks cape schanck | 0 | 1 | 0.00% | 78.0 |
+| 6 | alba hot | 0 | 1 | 0.00% | 45.0 |
+| 7 | alba hot springs | 0 | 6 | 0.00% | 65.8 |
+| 8 | alba hot springs map | 0 | 3 | 0.00% | 74.3 |
+| 9 | alba hot springs melbourne | 0 | 1 | 0.00% | 92.0 |
+| 10 | alba hot springs mornington peninsula | 0 | 2 | 0.00% | 68.5 |
+
+### Top 10 queries by impressions (last 28d)
+
+| # | Query | Impr | Clicks | CTR | Pos |
+|---:|---|---:|---:|---:|---:|
+| 1 | boat moorings mornington | 31 | 0 | 0.00% | 90.8 |
+| 2 | berths mornington | 12 | 0 | 0.00% | 85.0 |
+| 3 | mornington peninsula | 10 | 1 | 10.00% | 60.9 |
+| 4 | best hotels mornington peninsula | 9 | 0 | 0.00% | 57.9 |
+| 5 | corporate offsite activities mornington peninsula | 8 | 0 | 0.00% | 86.5 |
+| 6 | audrey’s sorrento | 7 | 0 | 0.00% | 96.1 |
+| 7 | best restaurants mornington peninsula | 7 | 0 | 0.00% | 17.4 |
+| 8 | alba hot springs | 6 | 0 | 0.00% | 65.8 |
+| 9 | best lunch spot mornington peninsula | 5 | 0 | 0.00% | 62.0 |
+| 10 | canadian bay beach | 4 | 0 | 0.00% | 66.3 |
+
+### CTR opportunity queries (≥20 impr, <2% CTR)
+
+| # | Query | Impr | CTR | Pos |
+|---:|---|---:|---:|---:|
+| 1 | boat moorings mornington | 31 | 0.00% | 90.8 |
+
+### Top 10 pages by clicks (last 28d)
+
+| # | Page | Clicks | Impr | CTR | Pos |
+|---:|---|---:|---:|---:|---:|
+| 1 | `/` | 5 | 21 | 23.81% | 33.2 |
+| 2 | `/explore/regions/peninsula-tip/` | 1 | 46 | 2.17% | 25.6 |
+| 3 | `/accessibility/` | 0 | 2 | 0.00% | 6.5 |
+| 4 | `/boating/` | 0 | 46 | 0.00% | 83.4 |
+| 5 | `/boating/ramps/hastings-boat-ramp` | 0 | 5 | 0.00% | 4.6 |
+| 6 | `/boating/ramps/safety-beach-boat-ramp/` | 0 | 3 | 0.00% | 90.7 |
+| 7 | `/boating/tides-safety/` | 0 | 8 | 0.00% | 2.8 |
+| 8 | `/careers/` | 0 | 1 | 0.00% | 4.0 |
+| 9 | `/complaints/` | 0 | 3 | 0.00% | 2.3 |
+| 10 | `/contact/` | 0 | 1 | 0.00% | 2.0 |
+
+### CTR opportunity pages (≥30 impr, <2% CTR)
+
+| # | Page | Impr | CTR | Pos |
+|---:|---|---:|---:|---:|
+| 1 | `/journal/where-to-eat-mornington-peninsula` | 159 | 0.00% | 51.8 |
+| 2 | `/explore/regions/mornington-bay-coast/` | 105 | 0.00% | 55.4 |
+| 3 | `/eat/` | 85 | 0.00% | 64.9 |
+| 4 | `/weddings/` | 76 | 0.00% | 91.3 |
+| 5 | `/explore/places/sorrento/` | 60 | 0.00% | 41.7 |
+| 6 | `/boating/` | 46 | 0.00% | 83.4 |
+| 7 | `/explore/places/red-hill/` | 46 | 0.00% | 73.5 |
+| 8 | `/journal/luxury-hotels-mornington-peninsula` | 38 | 0.00% | 50.1 |
+| 9 | `/journal/peninsula-hot-springs-vs-alba/` | 38 | 0.00% | 62.6 |
+| 10 | `/explore/golf/` | 31 | 0.00% | 81.6 |
+
+### Devices (last 28d)
+
+| Device | Clicks | Impr | CTR | Pos |
+|---|---:|---:|---:|---:|
+| MOBILE | 4 | 213 | 1.88% | 44.2 |
+| DESKTOP | 2 | 934 | 0.21% | 67.0 |
+| TABLET | 0 | 8 | 0.00% | 49.8 |
+
+### Top countries (last 28d)
+
+| Country | Clicks | Impr | CTR | Pos |
+|---|---:|---:|---:|---:|
+| aus | 6 | 867 | 0.69% | 64.0 |
+| are | 0 | 2 | 0.00% | 1.0 |
+| arg | 0 | 1 | 0.00% | 79.0 |
+| arm | 0 | 2 | 0.00% | 84.0 |
+| bgd | 0 | 6 | 0.00% | 55.8 |
+| bra | 0 | 1 | 0.00% | 15.0 |
+| can | 0 | 3 | 0.00% | 87.7 |
+| chn | 0 | 1 | 0.00% | 20.0 |
+
+---
+
+### Notes
+_Add interpretation, decisions, and actions taken below._
+
+---
+
+## 2026-08-22 — daily pull
+
+Property: `sc-domain:peninsulainsider.com.au`
+Window (last 7d): 2026-08-14 → 2026-08-20
+
+### Headline (last 7d vs previous 7d)
+
+| Metric | Last 7d | Prev 7d | Δ | Last 28d |
+|---|---:|---:|---:|---:|
+| Clicks | 7 | 2 | 7  (+5 ↑) | 10 |
+| Impressions | 508 | 437 | 508  (+71 ↑) | 1,331 |
+| CTR | 1.38% | 0.46% | 1.38%  (+0.92% ↑) | 0.75% |
+| Avg position | 65.7 | 67.7 | 65.7  (-2.0 ↑) | 65.0 |
+
+### Indexation (priority URLs): 12 / 14 indexed
+
+| URL | Verdict | Coverage |
+|---|---|---|
+| `/` | PASS | Submitted and indexed |
+| `/eat/best-restaurants/` | PASS | Submitted and indexed |
+| `/wine/best-cellar-doors/` | PASS | Submitted and indexed |
+| `/explore/best-walks/` | PASS | Submitted and indexed |
+| `/stay/best-accommodation/` | PASS | Submitted and indexed |
+| `/journal/mornington-peninsula-day-trip/` | PASS | Submitted and indexed |
+| `/journal/mornington-peninsula-in-autumn/` | PASS | Submitted and indexed |
+| `/journal/mornington-peninsula-with-kids/` | NEUTRAL | Excluded by ‘noindex’ tag |
+| `/journal/dog-friendly-mornington-peninsula/` | NEUTRAL | Crawled - currently not indexed |
+| `/explore/places/sorrento/` | PASS | Submitted and indexed |
+| `/explore/places/red-hill/` | PASS | Submitted and indexed |
+| `/explore/places/flinders/` | PASS | Submitted and indexed |
+| `/explore/places/mornington/` | PASS | Submitted and indexed |
+| `/explore/places/rye/` | PASS | Submitted and indexed |
+
+### Top 10 queries by clicks (last 28d)
+
+| # | Query | Clicks | Impr | CTR | Pos |
+|---:|---|---:|---:|---:|---:|
+| 1 | laura restaurant | 1 | 1 | 100.00% | 4.0 |
+| 2 | mornington peninsula | 1 | 10 | 10.00% | 60.9 |
+| 3 | 10 minutes by tractor | 0 | 1 | 0.00% | 24.0 |
+| 4 | 5 star hotel mornington peninsula | 0 | 3 | 0.00% | 66.0 |
+| 5 | abelli estate | 0 | 1 | 0.00% | 72.0 |
+| 6 | accessible walks cape schanck | 0 | 1 | 0.00% | 78.0 |
+| 7 | alba hot | 0 | 1 | 0.00% | 45.0 |
+| 8 | alba hot springs | 0 | 8 | 0.00% | 68.3 |
+| 9 | alba hot springs kids | 0 | 2 | 0.00% | 61.0 |
+| 10 | alba hot springs map | 0 | 3 | 0.00% | 74.3 |
+
+### Top 10 queries by impressions (last 28d)
+
+| # | Query | Impr | Clicks | CTR | Pos |
+|---:|---|---:|---:|---:|---:|
+| 1 | boat moorings mornington | 28 | 0 | 0.00% | 90.5 |
+| 2 | berths mornington | 13 | 0 | 0.00% | 85.8 |
+| 3 | mornington peninsula | 10 | 1 | 10.00% | 60.9 |
+| 4 | audrey’s sorrento | 9 | 0 | 0.00% | 95.8 |
+| 5 | best hotels mornington peninsula | 9 | 0 | 0.00% | 57.9 |
+| 6 | alba hot springs | 8 | 0 | 0.00% | 68.3 |
+| 7 | alba thermal springs | 6 | 0 | 0.00% | 67.7 |
+| 8 | best lunch spot mornington peninsula | 5 | 0 | 0.00% | 60.4 |
+| 9 | alba thermal springs mornington peninsula | 4 | 0 | 0.00% | 72.3 |
+| 10 | best restaurants mornington peninsula | 4 | 0 | 0.00% | 17.5 |
+
+### CTR opportunity queries (≥20 impr, <2% CTR)
+
+| # | Query | Impr | CTR | Pos |
+|---:|---|---:|---:|---:|
+| 1 | boat moorings mornington | 28 | 0.00% | 90.5 |
+
+### Top 10 pages by clicks (last 28d)
+
+| # | Page | Clicks | Impr | CTR | Pos |
+|---:|---|---:|---:|---:|---:|
+| 1 | `/` | 7 | 24 | 29.17% | 31.4 |
+| 2 | `/eat/best-restaurants/` | 1 | 2 | 50.00% | 13.5 |
+| 3 | `/explore/regions/mornington-bay-coast/` | 1 | 102 | 0.98% | 52.0 |
+| 4 | `/explore/regions/peninsula-tip/` | 1 | 67 | 1.49% | 16.9 |
+| 5 | `/accessibility/` | 0 | 2 | 0.00% | 6.5 |
+| 6 | `/boating/` | 0 | 44 | 0.00% | 83.0 |
+| 7 | `/boating/ramps/hastings-boat-ramp` | 0 | 5 | 0.00% | 4.6 |
+| 8 | `/boating/ramps/safety-beach-boat-ramp/` | 0 | 3 | 0.00% | 90.7 |
+| 9 | `/boating/tides-safety/` | 0 | 8 | 0.00% | 2.8 |
+| 10 | `/careers/` | 0 | 1 | 0.00% | 4.0 |
+
+### CTR opportunity pages (≥30 impr, <2% CTR)
+
+| # | Page | Impr | CTR | Pos |
+|---:|---|---:|---:|---:|
+| 1 | `/eat/` | 154 | 0.00% | 64.3 |
+| 2 | `/explore/regions/mornington-bay-coast/` | 102 | 0.98% | 52.0 |
+| 3 | `/weddings/` | 102 | 0.00% | 92.1 |
+| 4 | `/journal/where-to-eat-mornington-peninsula` | 99 | 0.00% | 54.3 |
+| 5 | `/journal/peninsula-hot-springs-vs-alba/` | 69 | 0.00% | 65.5 |
+| 6 | `/explore/regions/peninsula-tip/` | 67 | 1.49% | 16.9 |
+| 7 | `/explore/places/red-hill/` | 61 | 0.00% | 74.4 |
+| 8 | `/explore/places/sorrento/` | 52 | 0.00% | 38.8 |
+| 9 | `/explore/golf/` | 49 | 0.00% | 82.5 |
+| 10 | `/explore/walks/` | 48 | 0.00% | 70.1 |
+
+### Devices (last 28d)
+
+| Device | Clicks | Impr | CTR | Pos |
+|---|---:|---:|---:|---:|
+| MOBILE | 6 | 211 | 2.84% | 39.4 |
+| DESKTOP | 4 | 1,114 | 0.36% | 70.0 |
+| TABLET | 0 | 6 | 0.00% | 50.0 |
+
+### Top countries (last 28d)
+
+| Country | Clicks | Impr | CTR | Pos |
+|---|---:|---:|---:|---:|
+| aus | 10 | 907 | 1.10% | 65.3 |
+| are | 0 | 2 | 0.00% | 1.0 |
+| arg | 0 | 1 | 0.00% | 79.0 |
+| arm | 0 | 2 | 0.00% | 84.0 |
+| bgd | 0 | 14 | 0.00% | 68.3 |
+| can | 0 | 4 | 0.00% | 82.3 |
+| chn | 0 | 1 | 0.00% | 20.0 |
+| deu | 0 | 2 | 0.00% | 49.0 |
+
+---
+
+### Notes
+_Add interpretation, decisions, and actions taken below._
+
+---
+
+## 2026-08-22 — daily pull
+
+Property: `sc-domain:peninsulainsider.com.au`
+Window (last 7d): 2026-08-14 → 2026-08-20
+
+### Headline (last 7d vs previous 7d)
+
+| Metric | Last 7d | Prev 7d | Δ | Last 28d |
+|---|---:|---:|---:|---:|
+| Clicks | 7 | 2 | 7  (+5 ↑) | 10 |
+| Impressions | 508 | 437 | 508  (+71 ↑) | 1,331 |
+| CTR | 1.38% | 0.46% | 1.38%  (+0.92% ↑) | 0.75% |
+| Avg position | 65.7 | 67.7 | 65.7  (-2.0 ↑) | 65.0 |
+
+### Indexation (priority URLs): 12 / 14 indexed
+
+| URL | Verdict | Coverage |
+|---|---|---|
+| `/` | PASS | Submitted and indexed |
+| `/eat/best-restaurants/` | PASS | Submitted and indexed |
+| `/wine/best-cellar-doors/` | PASS | Submitted and indexed |
+| `/explore/best-walks/` | PASS | Submitted and indexed |
+| `/stay/best-accommodation/` | PASS | Submitted and indexed |
+| `/journal/mornington-peninsula-day-trip/` | PASS | Submitted and indexed |
+| `/journal/mornington-peninsula-in-autumn/` | PASS | Submitted and indexed |
+| `/journal/mornington-peninsula-with-kids/` | NEUTRAL | Excluded by ‘noindex’ tag |
+| `/journal/dog-friendly-mornington-peninsula/` | NEUTRAL | Crawled - currently not indexed |
+| `/explore/places/sorrento/` | PASS | Submitted and indexed |
+| `/explore/places/red-hill/` | PASS | Submitted and indexed |
+| `/explore/places/flinders/` | PASS | Submitted and indexed |
+| `/explore/places/mornington/` | PASS | Submitted and indexed |
+| `/explore/places/rye/` | PASS | Submitted and indexed |
+
+### Top 10 queries by clicks (last 28d)
+
+| # | Query | Clicks | Impr | CTR | Pos |
+|---:|---|---:|---:|---:|---:|
+| 1 | laura restaurant | 1 | 1 | 100.00% | 4.0 |
+| 2 | mornington peninsula | 1 | 10 | 10.00% | 60.9 |
+| 3 | 10 minutes by tractor | 0 | 1 | 0.00% | 24.0 |
+| 4 | 5 star hotel mornington peninsula | 0 | 3 | 0.00% | 66.0 |
+| 5 | abelli estate | 0 | 1 | 0.00% | 72.0 |
+| 6 | accessible walks cape schanck | 0 | 1 | 0.00% | 78.0 |
+| 7 | alba hot | 0 | 1 | 0.00% | 45.0 |
+| 8 | alba hot springs | 0 | 8 | 0.00% | 68.3 |
+| 9 | alba hot springs kids | 0 | 2 | 0.00% | 61.0 |
+| 10 | alba hot springs map | 0 | 3 | 0.00% | 74.3 |
+
+### Top 10 queries by impressions (last 28d)
+
+| # | Query | Impr | Clicks | CTR | Pos |
+|---:|---|---:|---:|---:|---:|
+| 1 | boat moorings mornington | 28 | 0 | 0.00% | 90.5 |
+| 2 | berths mornington | 13 | 0 | 0.00% | 85.8 |
+| 3 | mornington peninsula | 10 | 1 | 10.00% | 60.9 |
+| 4 | audrey’s sorrento | 9 | 0 | 0.00% | 95.8 |
+| 5 | best hotels mornington peninsula | 9 | 0 | 0.00% | 57.9 |
+| 6 | alba hot springs | 8 | 0 | 0.00% | 68.3 |
+| 7 | alba thermal springs | 6 | 0 | 0.00% | 67.7 |
+| 8 | best lunch spot mornington peninsula | 5 | 0 | 0.00% | 60.4 |
+| 9 | alba thermal springs mornington peninsula | 4 | 0 | 0.00% | 72.3 |
+| 10 | best restaurants mornington peninsula | 4 | 0 | 0.00% | 17.5 |
+
+### CTR opportunity queries (≥20 impr, <2% CTR)
+
+| # | Query | Impr | CTR | Pos |
+|---:|---|---:|---:|---:|
+| 1 | boat moorings mornington | 28 | 0.00% | 90.5 |
+
+### Top 10 pages by clicks (last 28d)
+
+| # | Page | Clicks | Impr | CTR | Pos |
+|---:|---|---:|---:|---:|---:|
+| 1 | `/` | 7 | 24 | 29.17% | 31.4 |
+| 2 | `/eat/best-restaurants/` | 1 | 2 | 50.00% | 13.5 |
+| 3 | `/explore/regions/mornington-bay-coast/` | 1 | 102 | 0.98% | 52.0 |
+| 4 | `/explore/regions/peninsula-tip/` | 1 | 67 | 1.49% | 16.9 |
+| 5 | `/accessibility/` | 0 | 2 | 0.00% | 6.5 |
+| 6 | `/boating/` | 0 | 44 | 0.00% | 83.0 |
+| 7 | `/boating/ramps/hastings-boat-ramp` | 0 | 5 | 0.00% | 4.6 |
+| 8 | `/boating/ramps/safety-beach-boat-ramp/` | 0 | 3 | 0.00% | 90.7 |
+| 9 | `/boating/tides-safety/` | 0 | 8 | 0.00% | 2.8 |
+| 10 | `/careers/` | 0 | 1 | 0.00% | 4.0 |
+
+### CTR opportunity pages (≥30 impr, <2% CTR)
+
+| # | Page | Impr | CTR | Pos |
+|---:|---|---:|---:|---:|
+| 1 | `/eat/` | 154 | 0.00% | 64.3 |
+| 2 | `/explore/regions/mornington-bay-coast/` | 102 | 0.98% | 52.0 |
+| 3 | `/weddings/` | 102 | 0.00% | 92.1 |
+| 4 | `/journal/where-to-eat-mornington-peninsula` | 99 | 0.00% | 54.3 |
+| 5 | `/journal/peninsula-hot-springs-vs-alba/` | 69 | 0.00% | 65.5 |
+| 6 | `/explore/regions/peninsula-tip/` | 67 | 1.49% | 16.9 |
+| 7 | `/explore/places/red-hill/` | 61 | 0.00% | 74.4 |
+| 8 | `/explore/places/sorrento/` | 52 | 0.00% | 38.8 |
+| 9 | `/explore/golf/` | 49 | 0.00% | 82.5 |
+| 10 | `/explore/walks/` | 48 | 0.00% | 70.1 |
+
+### Devices (last 28d)
+
+| Device | Clicks | Impr | CTR | Pos |
+|---|---:|---:|---:|---:|
+| MOBILE | 6 | 211 | 2.84% | 39.4 |
+| DESKTOP | 4 | 1,114 | 0.36% | 70.0 |
+| TABLET | 0 | 6 | 0.00% | 50.0 |
+
+### Top countries (last 28d)
+
+| Country | Clicks | Impr | CTR | Pos |
+|---|---:|---:|---:|---:|
+| aus | 10 | 907 | 1.10% | 65.3 |
+| are | 0 | 2 | 0.00% | 1.0 |
+| arg | 0 | 1 | 0.00% | 79.0 |
+| arm | 0 | 2 | 0.00% | 84.0 |
+| bgd | 0 | 14 | 0.00% | 68.3 |
+| can | 0 | 4 | 0.00% | 82.3 |
+| chn | 0 | 1 | 0.00% | 20.0 |
+| deu | 0 | 2 | 0.00% | 49.0 |
+
+---
+
+### Notes
+_Add interpretation, decisions, and actions taken below._
+
+---
+
+## 2026-08-23 — daily pull
+
+Property: `sc-domain:peninsulainsider.com.au`
+Window (last 7d): 2026-08-15 → 2026-08-21
+
+### Headline (last 7d vs previous 7d)
+
+| Metric | Last 7d | Prev 7d | Δ | Last 28d |
+|---|---:|---:|---:|---:|
+| Clicks | 7 | 3 | 7  (+4 ↑) | 11 |
+| Impressions | 487 | 466 | 487  (+21 ↑) | 1,340 |
+| CTR | 1.44% | 0.64% | 1.44%  (+0.79% ↑) | 0.82% |
+| Avg position | 65.6 | 68.7 | 65.6  (-3.2 ↑) | 65.8 |
+
+### Indexation (priority URLs): 12 / 14 indexed
+
+| URL | Verdict | Coverage |
+|---|---|---|
+| `/` | PASS | Submitted and indexed |
+| `/eat/best-restaurants/` | PASS | Submitted and indexed |
+| `/wine/best-cellar-doors/` | PASS | Submitted and indexed |
+| `/explore/best-walks/` | PASS | Submitted and indexed |
+| `/stay/best-accommodation/` | PASS | Submitted and indexed |
+| `/journal/mornington-peninsula-day-trip/` | PASS | Submitted and indexed |
+| `/journal/mornington-peninsula-in-autumn/` | PASS | Submitted and indexed |
+| `/journal/mornington-peninsula-with-kids/` | NEUTRAL | Excluded by ‘noindex’ tag |
+| `/journal/dog-friendly-mornington-peninsula/` | NEUTRAL | Crawled - currently not indexed |
+| `/explore/places/sorrento/` | PASS | Submitted and indexed |
+| `/explore/places/red-hill/` | PASS | Submitted and indexed |
+| `/explore/places/flinders/` | PASS | Submitted and indexed |
+| `/explore/places/mornington/` | PASS | Submitted and indexed |
+| `/explore/places/rye/` | PASS | Submitted and indexed |
+
+### Top 10 queries by clicks (last 28d)
+
+| # | Query | Clicks | Impr | CTR | Pos |
+|---:|---|---:|---:|---:|---:|
+| 1 | laura restaurant | 1 | 1 | 100.00% | 4.0 |
+| 2 | mornington peninsula | 1 | 10 | 10.00% | 60.9 |
+| 3 | 10 minutes by tractor | 0 | 1 | 0.00% | 24.0 |
+| 4 | 5 star hotel mornington peninsula | 0 | 3 | 0.00% | 66.0 |
+| 5 | abelli estate | 0 | 1 | 0.00% | 72.0 |
+| 6 | accessible walks cape schanck | 0 | 1 | 0.00% | 78.0 |
+| 7 | alba hot | 0 | 1 | 0.00% | 45.0 |
+| 8 | alba hot springs | 0 | 8 | 0.00% | 68.3 |
+| 9 | alba hot springs kids | 0 | 2 | 0.00% | 61.0 |
+| 10 | alba hot springs map | 0 | 3 | 0.00% | 74.3 |
+
+### Top 10 queries by impressions (last 28d)
+
+| # | Query | Impr | Clicks | CTR | Pos |
+|---:|---|---:|---:|---:|---:|
+| 1 | boat moorings mornington | 27 | 0 | 0.00% | 90.6 |
+| 2 | berths mornington | 13 | 0 | 0.00% | 85.8 |
+| 3 | mornington peninsula | 10 | 1 | 10.00% | 60.9 |
+| 4 | audrey’s sorrento | 9 | 0 | 0.00% | 95.8 |
+| 5 | best hotels mornington peninsula | 9 | 0 | 0.00% | 57.9 |
+| 6 | alba hot springs | 8 | 0 | 0.00% | 68.3 |
+| 7 | alba thermal springs | 6 | 0 | 0.00% | 67.7 |
+| 8 | best lunch spot mornington peninsula | 5 | 0 | 0.00% | 60.4 |
+| 9 | alba thermal springs mornington peninsula | 4 | 0 | 0.00% | 72.3 |
+| 10 | best casual lunch mornington peninsula | 4 | 0 | 0.00% | 54.0 |
+
+### CTR opportunity queries (≥20 impr, <2% CTR)
+
+| # | Query | Impr | CTR | Pos |
+|---:|---|---:|---:|---:|
+| 1 | boat moorings mornington | 27 | 0.00% | 90.6 |
+
+### Top 10 pages by clicks (last 28d)
+
+| # | Page | Clicks | Impr | CTR | Pos |
+|---:|---|---:|---:|---:|---:|
+| 1 | `/` | 8 | 25 | 32.00% | 30.2 |
+| 2 | `/eat/best-restaurants/` | 1 | 2 | 50.00% | 13.5 |
+| 3 | `/explore/plans/` | 1 | 1 | 100.00% | 1.0 |
+| 4 | `/explore/regions/mornington-bay-coast/` | 1 | 98 | 1.02% | 51.4 |
+| 5 | `/explore/regions/peninsula-tip/` | 1 | 65 | 1.54% | 17.1 |
+| 6 | `/accessibility/` | 0 | 1 | 0.00% | 10.0 |
+| 7 | `/boating/` | 0 | 43 | 0.00% | 82.9 |
+| 8 | `/boating/ramps/hastings-boat-ramp` | 0 | 5 | 0.00% | 4.6 |
+| 9 | `/boating/ramps/safety-beach-boat-ramp/` | 0 | 3 | 0.00% | 90.7 |
+| 10 | `/boating/tides-safety/` | 0 | 8 | 0.00% | 2.8 |
+
+### CTR opportunity pages (≥30 impr, <2% CTR)
+
+| # | Page | Impr | CTR | Pos |
+|---:|---|---:|---:|---:|
+| 1 | `/eat/` | 164 | 0.00% | 64.2 |
+| 2 | `/weddings/` | 103 | 0.00% | 92.2 |
+| 3 | `/explore/regions/mornington-bay-coast/` | 98 | 1.02% | 51.4 |
+| 4 | `/journal/where-to-eat-mornington-peninsula` | 93 | 0.00% | 55.3 |
+| 5 | `/journal/peninsula-hot-springs-vs-alba/` | 69 | 0.00% | 65.5 |
+| 6 | `/explore/regions/peninsula-tip/` | 65 | 1.54% | 17.1 |
+| 7 | `/explore/places/red-hill/` | 61 | 0.00% | 74.4 |
+| 8 | `/explore/walks/` | 52 | 0.00% | 71.4 |
+| 9 | `/explore/golf/` | 50 | 0.00% | 82.3 |
+| 10 | `/explore/places/sorrento/` | 47 | 0.00% | 42.4 |
+
+### Devices (last 28d)
+
+| Device | Clicks | Impr | CTR | Pos |
+|---|---:|---:|---:|---:|
+| MOBILE | 7 | 210 | 3.33% | 40.0 |
+| DESKTOP | 4 | 1,124 | 0.36% | 70.6 |
+| TABLET | 0 | 6 | 0.00% | 50.0 |
+
+### Top countries (last 28d)
+
+| Country | Clicks | Impr | CTR | Pos |
+|---|---:|---:|---:|---:|
+| aus | 11 | 910 | 1.21% | 66.0 |
+| are | 0 | 2 | 0.00% | 1.0 |
+| arg | 0 | 1 | 0.00% | 79.0 |
+| arm | 0 | 2 | 0.00% | 84.0 |
+| bgd | 0 | 14 | 0.00% | 68.3 |
+| can | 0 | 4 | 0.00% | 82.3 |
+| chn | 0 | 1 | 0.00% | 20.0 |
+| deu | 0 | 2 | 0.00% | 49.0 |
+
+---
+
+### Notes
+_Add interpretation, decisions, and actions taken below._
+
+---
+
+## 2026-08-24 — daily pull
+
+Property: `sc-domain:peninsulainsider.com.au`
+Window (last 7d): 2026-08-16 → 2026-08-22
+
+### Headline (last 7d vs previous 7d)
+
+| Metric | Last 7d | Prev 7d | Δ | Last 28d |
+|---|---:|---:|---:|---:|
+| Clicks | 5 | 4 | 5  (+1 ↑) | 11 |
+| Impressions | 440 | 480 | 440  (-40 ↓) | 1,317 |
+| CTR | 1.14% | 0.83% | 1.14%  (+0.30% ↑) | 0.84% |
+| Avg position | 66.4 | 69.9 | 66.4  (-3.5 ↑) | 66.2 |
+
+### Indexation (priority URLs): 12 / 14 indexed
+
+| URL | Verdict | Coverage |
+|---|---|---|
+| `/` | PASS | Submitted and indexed |
+| `/eat/best-restaurants/` | PASS | Submitted and indexed |
+| `/wine/best-cellar-doors/` | PASS | Submitted and indexed |
+| `/explore/best-walks/` | PASS | Submitted and indexed |
+| `/stay/best-accommodation/` | PASS | Submitted and indexed |
+| `/journal/mornington-peninsula-day-trip/` | PASS | Submitted and indexed |
+| `/journal/mornington-peninsula-in-autumn/` | PASS | Submitted and indexed |
+| `/journal/mornington-peninsula-with-kids/` | NEUTRAL | Excluded by ‘noindex’ tag |
+| `/journal/dog-friendly-mornington-peninsula/` | NEUTRAL | Crawled - currently not indexed |
+| `/explore/places/sorrento/` | PASS | Submitted and indexed |
+| `/explore/places/red-hill/` | PASS | Submitted and indexed |
+| `/explore/places/flinders/` | PASS | Submitted and indexed |
+| `/explore/places/mornington/` | PASS | Submitted and indexed |
+| `/explore/places/rye/` | PASS | Submitted and indexed |
+
+### Top 10 queries by clicks (last 28d)
+
+| # | Query | Clicks | Impr | CTR | Pos |
+|---:|---|---:|---:|---:|---:|
+| 1 | laura restaurant | 1 | 1 | 100.00% | 4.0 |
+| 2 | mornington peninsula | 1 | 10 | 10.00% | 60.9 |
+| 3 | 10 minutes by tractor | 0 | 1 | 0.00% | 24.0 |
+| 4 | 5 star hotel mornington peninsula | 0 | 3 | 0.00% | 66.0 |
+| 5 | abelli estate | 0 | 1 | 0.00% | 72.0 |
+| 6 | accessible walks cape schanck | 0 | 1 | 0.00% | 78.0 |
+| 7 | alba hot | 0 | 1 | 0.00% | 45.0 |
+| 8 | alba hot springs | 0 | 8 | 0.00% | 68.3 |
+| 9 | alba hot springs kids | 0 | 2 | 0.00% | 61.0 |
+| 10 | alba hot springs map | 0 | 3 | 0.00% | 74.3 |
+
+### Top 10 queries by impressions (last 28d)
+
+| # | Query | Impr | Clicks | CTR | Pos |
+|---:|---|---:|---:|---:|---:|
+| 1 | boat moorings mornington | 25 | 0 | 0.00% | 90.6 |
+| 2 | berths mornington | 13 | 0 | 0.00% | 85.8 |
+| 3 | mornington peninsula | 10 | 1 | 10.00% | 60.9 |
+| 4 | audrey’s sorrento | 9 | 0 | 0.00% | 95.8 |
+| 5 | best hotels mornington peninsula | 9 | 0 | 0.00% | 57.9 |
+| 6 | alba hot springs | 8 | 0 | 0.00% | 68.3 |
+| 7 | alba thermal springs | 6 | 0 | 0.00% | 67.7 |
+| 8 | best lunch spot mornington peninsula | 5 | 0 | 0.00% | 60.4 |
+| 9 | alba thermal springs mornington peninsula | 4 | 0 | 0.00% | 72.3 |
+| 10 | best casual lunch mornington peninsula | 4 | 0 | 0.00% | 54.0 |
+
+### CTR opportunity queries (≥20 impr, <2% CTR)
+
+| # | Query | Impr | CTR | Pos |
+|---:|---|---:|---:|---:|
+| 1 | boat moorings mornington | 25 | 0.00% | 90.6 |
+
+### Top 10 pages by clicks (last 28d)
+
+| # | Page | Clicks | Impr | CTR | Pos |
+|---:|---|---:|---:|---:|---:|
+| 1 | `/` | 8 | 25 | 32.00% | 30.2 |
+| 2 | `/eat/best-restaurants/` | 1 | 2 | 50.00% | 13.5 |
+| 3 | `/explore/plans/` | 1 | 1 | 100.00% | 1.0 |
+| 4 | `/explore/regions/mornington-bay-coast/` | 1 | 95 | 1.05% | 51.2 |
+| 5 | `/explore/regions/peninsula-tip/` | 1 | 65 | 1.54% | 17.1 |
+| 6 | `/accessibility/` | 0 | 1 | 0.00% | 10.0 |
+| 7 | `/boating/` | 0 | 41 | 0.00% | 82.5 |
+| 8 | `/boating/ramps/hastings-boat-ramp` | 0 | 4 | 0.00% | 5.0 |
+| 9 | `/boating/ramps/safety-beach-boat-ramp/` | 0 | 2 | 0.00% | 86.0 |
+| 10 | `/boating/tides-safety/` | 0 | 8 | 0.00% | 2.8 |
+
+### CTR opportunity pages (≥30 impr, <2% CTR)
+
+| # | Page | Impr | CTR | Pos |
+|---:|---|---:|---:|---:|
+| 1 | `/eat/` | 164 | 0.00% | 64.2 |
+| 2 | `/weddings/` | 103 | 0.00% | 92.2 |
+| 3 | `/explore/regions/mornington-bay-coast/` | 95 | 1.05% | 51.2 |
+| 4 | `/journal/where-to-eat-mornington-peninsula` | 90 | 0.00% | 56.5 |
+| 5 | `/journal/peninsula-hot-springs-vs-alba/` | 69 | 0.00% | 65.5 |
+| 6 | `/explore/regions/peninsula-tip/` | 65 | 1.54% | 17.1 |
+| 7 | `/explore/places/red-hill/` | 61 | 0.00% | 74.4 |
+| 8 | `/explore/walks/` | 52 | 0.00% | 71.4 |
+| 9 | `/explore/golf/` | 50 | 0.00% | 82.3 |
+| 10 | `/explore/places/sorrento/` | 43 | 0.00% | 46.0 |
+
+### Devices (last 28d)
+
+| Device | Clicks | Impr | CTR | Pos |
+|---|---:|---:|---:|---:|
+| MOBILE | 7 | 205 | 3.41% | 40.5 |
+| DESKTOP | 4 | 1,106 | 0.36% | 71.0 |
+| TABLET | 0 | 6 | 0.00% | 50.0 |
+
+### Top countries (last 28d)
+
+| Country | Clicks | Impr | CTR | Pos |
+|---|---:|---:|---:|---:|
+| aus | 11 | 893 | 1.23% | 66.6 |
+| are | 0 | 2 | 0.00% | 1.0 |
+| arg | 0 | 1 | 0.00% | 79.0 |
+| arm | 0 | 2 | 0.00% | 84.0 |
+| bgd | 0 | 14 | 0.00% | 68.3 |
+| can | 0 | 4 | 0.00% | 82.3 |
+| deu | 0 | 2 | 0.00% | 49.0 |
+| dza | 0 | 4 | 0.00% | 75.5 |
+
+---
+
+### Notes
+_Add interpretation, decisions, and actions taken below._
+
+---
+
+## 2026-08-24 — daily pull
+
+Property: `sc-domain:peninsulainsider.com.au`
+Window (last 7d): 2026-08-16 → 2026-08-22
+
+### Headline (last 7d vs previous 7d)
+
+| Metric | Last 7d | Prev 7d | Δ | Last 28d |
+|---|---:|---:|---:|---:|
+| Clicks | 5 | 4 | 5  (+1 ↑) | 11 |
+| Impressions | 472 | 480 | 472  (-8 ↓) | 1,349 |
+| CTR | 1.06% | 0.83% | 1.06%  (+0.23% ↑) | 0.82% |
+| Avg position | 67.0 | 69.9 | 67.0  (-2.9 ↑) | 66.4 |
+
+### Indexation (priority URLs): 12 / 14 indexed
+
+| URL | Verdict | Coverage |
+|---|---|---|
+| `/` | PASS | Submitted and indexed |
+| `/eat/best-restaurants/` | PASS | Submitted and indexed |
+| `/wine/best-cellar-doors/` | PASS | Submitted and indexed |
+| `/explore/best-walks/` | PASS | Submitted and indexed |
+| `/stay/best-accommodation/` | PASS | Submitted and indexed |
+| `/journal/mornington-peninsula-day-trip/` | PASS | Submitted and indexed |
+| `/journal/mornington-peninsula-in-autumn/` | PASS | Submitted and indexed |
+| `/journal/mornington-peninsula-with-kids/` | NEUTRAL | Excluded by ‘noindex’ tag |
+| `/journal/dog-friendly-mornington-peninsula/` | NEUTRAL | Crawled - currently not indexed |
+| `/explore/places/sorrento/` | PASS | Submitted and indexed |
+| `/explore/places/red-hill/` | PASS | Submitted and indexed |
+| `/explore/places/flinders/` | PASS | Submitted and indexed |
+| `/explore/places/mornington/` | PASS | Submitted and indexed |
+| `/explore/places/rye/` | PASS | Submitted and indexed |
+
+### Top 10 queries by clicks (last 28d)
+
+| # | Query | Clicks | Impr | CTR | Pos |
+|---:|---|---:|---:|---:|---:|
+| 1 | laura restaurant | 1 | 1 | 100.00% | 4.0 |
+| 2 | mornington peninsula | 1 | 10 | 10.00% | 60.9 |
+| 3 | 10 minutes by tractor | 0 | 1 | 0.00% | 24.0 |
+| 4 | 5 star hotel mornington peninsula | 0 | 3 | 0.00% | 66.0 |
+| 5 | abelli estate | 0 | 1 | 0.00% | 72.0 |
+| 6 | accessible walks cape schanck | 0 | 1 | 0.00% | 78.0 |
+| 7 | alba hot | 0 | 1 | 0.00% | 45.0 |
+| 8 | alba hot springs | 0 | 8 | 0.00% | 68.3 |
+| 9 | alba hot springs kids | 0 | 2 | 0.00% | 61.0 |
+| 10 | alba hot springs map | 0 | 3 | 0.00% | 74.3 |
+
+### Top 10 queries by impressions (last 28d)
+
+| # | Query | Impr | Clicks | CTR | Pos |
+|---:|---|---:|---:|---:|---:|
+| 1 | boat moorings mornington | 25 | 0 | 0.00% | 90.6 |
+| 2 | berths mornington | 13 | 0 | 0.00% | 85.8 |
+| 3 | mornington peninsula | 10 | 1 | 10.00% | 60.9 |
+| 4 | audrey’s sorrento | 9 | 0 | 0.00% | 95.8 |
+| 5 | best hotels mornington peninsula | 9 | 0 | 0.00% | 57.9 |
+| 6 | alba hot springs | 8 | 0 | 0.00% | 68.3 |
+| 7 | alba thermal springs | 6 | 0 | 0.00% | 67.7 |
+| 8 | best casual lunch mornington peninsula | 5 | 0 | 0.00% | 54.4 |
+| 9 | best lunch spot mornington peninsula | 5 | 0 | 0.00% | 60.4 |
+| 10 | best places for lunch mornington peninsula | 5 | 0 | 0.00% | 59.4 |
+
+### CTR opportunity queries (≥20 impr, <2% CTR)
+
+| # | Query | Impr | CTR | Pos |
+|---:|---|---:|---:|---:|
+| 1 | boat moorings mornington | 25 | 0.00% | 90.6 |
+
+### Top 10 pages by clicks (last 28d)
+
+| # | Page | Clicks | Impr | CTR | Pos |
+|---:|---|---:|---:|---:|---:|
+| 1 | `/` | 8 | 26 | 30.77% | 32.0 |
+| 2 | `/eat/best-restaurants/` | 1 | 3 | 33.33% | 28.3 |
+| 3 | `/explore/plans/` | 1 | 1 | 100.00% | 1.0 |
+| 4 | `/explore/regions/mornington-bay-coast/` | 1 | 95 | 1.05% | 51.2 |
+| 5 | `/explore/regions/peninsula-tip/` | 1 | 65 | 1.54% | 17.1 |
+| 6 | `/accessibility/` | 0 | 1 | 0.00% | 10.0 |
+| 7 | `/boating/` | 0 | 41 | 0.00% | 82.5 |
+| 8 | `/boating/ramps/hastings-boat-ramp` | 0 | 4 | 0.00% | 5.0 |
+| 9 | `/boating/ramps/safety-beach-boat-ramp/` | 0 | 2 | 0.00% | 86.0 |
+| 10 | `/boating/tides-safety/` | 0 | 8 | 0.00% | 2.8 |
+
+### CTR opportunity pages (≥30 impr, <2% CTR)
+
+| # | Page | Impr | CTR | Pos |
+|---:|---|---:|---:|---:|
+| 1 | `/eat/` | 169 | 0.00% | 64.1 |
+| 2 | `/explore/regions/mornington-bay-coast/` | 95 | 1.05% | 51.2 |
+| 3 | `/journal/where-to-eat-mornington-peninsula` | 90 | 0.00% | 56.5 |
+| 4 | `/journal/peninsula-hot-springs-vs-alba/` | 70 | 0.00% | 65.5 |
+| 5 | `/explore/regions/peninsula-tip/` | 65 | 1.54% | 17.1 |
+| 6 | `/explore/places/red-hill/` | 62 | 0.00% | 74.3 |
+| 7 | `/explore/walks/` | 55 | 0.00% | 72.0 |
+| 8 | `/explore/golf/` | 52 | 0.00% | 82.4 |
+| 9 | `/explore/places/sorrento/` | 43 | 0.00% | 46.0 |
+| 10 | `/boating/` | 41 | 0.00% | 82.5 |
+
+### Devices (last 28d)
+
+| Device | Clicks | Impr | CTR | Pos |
+|---|---:|---:|---:|---:|
+| MOBILE | 7 | 205 | 3.41% | 40.5 |
+| DESKTOP | 4 | 1,138 | 0.35% | 71.2 |
+| TABLET | 0 | 6 | 0.00% | 50.0 |
+
+### Top countries (last 28d)
+
+| Country | Clicks | Impr | CTR | Pos |
+|---|---:|---:|---:|---:|
+| aus | 11 | 903 | 1.22% | 66.7 |
+| are | 0 | 2 | 0.00% | 1.0 |
+| arg | 0 | 1 | 0.00% | 79.0 |
+| arm | 0 | 2 | 0.00% | 84.0 |
+| bgd | 0 | 14 | 0.00% | 68.3 |
+| can | 0 | 4 | 0.00% | 82.3 |
+| deu | 0 | 2 | 0.00% | 49.0 |
+| dza | 0 | 4 | 0.00% | 75.5 |
+
+---
+
+### Notes
+_Add interpretation, decisions, and actions taken below._

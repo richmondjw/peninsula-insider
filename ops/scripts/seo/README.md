@@ -19,6 +19,16 @@ cd ops/scripts/seo
 npm run pull
 ```
 
+## Read-only daily decision loop
+
+```bash
+node daily-loop.mjs
+```
+
+Consumes the latest GSC snapshot and emits an immutable daily scorecard and
+action queue in shadow mode. It recommends work only; it never publishes,
+edits content or links, performs outreach, or spends.
+
 Outputs:
 
 | Path | Purpose |

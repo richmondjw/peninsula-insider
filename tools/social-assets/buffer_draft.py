@@ -117,7 +117,7 @@ def build_metadata(platform, link, first_comment):
             meta["linkedin"]["linkAttachment"] = {"url": link}
         return meta
     if platform == "facebook":
-        return {"facebook": {}}
+        return {"facebook": {"type": "post"}}
     return None
 
 

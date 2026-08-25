@@ -23,7 +23,6 @@ import Card from '../../components/v5/Card.astro';
 import CardGrid from '../../components/v5/CardGrid.astro';
 import FilterBar from '../../components/v5/FilterBar.astro';
 import EmptyState from '../../components/v5/EmptyState.astro';
-import TrustNote from '../../components/v5/hub/TrustNote.astro';
 import { getFacets, type FacetKey } from '../../lib/facets';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
 import { routeSlug, currentSeason, seasonBlurb, placeLabel, titleize, venueHrefPrefix } from '../../lib/editorial';
@@ -363,7 +362,6 @@ export const prerender = true;
       label="Filter experiences"
       facets={['cat', 'place', 'party', 'price']}
     />
-    <TrustNote surface="explore" />
   </div>
 
   <!-- 3-5. Browse layer: shelves, towns index, verticals. Yields to the
