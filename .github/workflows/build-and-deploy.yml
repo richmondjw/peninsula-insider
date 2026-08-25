@@ -110,6 +110,17 @@ jobs:
         run: |
           node --input-type=module -e "import { writeFileSync } from 'node:fs'; writeFileSync('next/dist/deployment.json', JSON.stringify({ sourceSha: process.env.SOURCE_SHA, runId: process.env.BUILD_RUN_ID, generatedAt: new Date().toISOString() }, null, 2) + '\n')"
 
+      - name: Write immutable release manifest
+        env:
+          SOURCE_SHA: ${{ github.sha }}
+          BUILD_RUN_ID: ${{ github.run_id }}
+          RELEASE_TRIGGER: ${{ github.event_name }}
+          RELEASE_ACTOR: ${{ github.actor }}
+        run: |
+          cd next
+          npm run test:release-contract
+          npm run release:manifest
+
       - name: Prune internal surfaces from deploy output (T-006)
         # v5 hygiene (2026-07-11, T-006): the editorial admin surface
         # (next/src/pages/admin + public/admin/media-registry.json) must not
