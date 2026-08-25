@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "fe6389254207-32852080740",
+  "sourceSha": "fe6389254207f4d53b5f5a628a408235b9ef530a",
+  "buildRunId": "32852080740",
+  "generatedAt": "2026-08-25T13:16:58.003Z",
+  "trigger": "push",
+  "authority": {
+    "mode": "github-protected-release",
+    "actor": "richmondjw",
+    "note": "Approval remains the protected branch/merge decision; this manifest is evidence, not authority."
+  },
+  "artifacts": [
+    {
+      "path": "/feed.xml",
+      "bytes": 22442,
+      "sha256": "74c3ebc1afa5f3d2f7491569282cac190ab84641fed3570bcf5f9b14b920e14a"
+    },
+    {
+      "path": "/index.html",
+      "bytes": 126331,
+      "sha256": "e7ca0ab199fb8084dc4b462b21ecdf64cd06a22eee796accb46856604c0137f6"
+    },
+    {
+      "path": "/llms.txt",
+      "bytes": 14609,
+      "sha256": "d9ca1e46e38b749d0de547c41af114abd06cdb91f6fc1185dc110e31c5e1c115"
+    },
+    {
+      "path": "/sitemap.xml",
+      "bytes": 118897,
+      "sha256": "9660c3d05ef443fde66c1d8441d981900281cb325c1f8cfb56777942fc9c3048"
+    },
+    {
+      "path": "/whats-on/upcoming.json",
+      "bytes": 48129,
+      "sha256": "b8be4f6c696652b4d372d6020d78fa051055769b596a3eeb7ca9dc35faec8f96"
+    }
+  ],
+  "verification": {
+    "state": "awaiting_external_verification",
+    "expectedDeploymentSha": "fe6389254207f4d53b5f5a628a408235b9ef530a"
+  }
+}
