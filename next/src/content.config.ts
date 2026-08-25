@@ -129,6 +129,12 @@ const venues = defineCollection({
       'activity',
     ]),
     /**
+     * Whether this record represents an overnight stay and may appear in
+     * Stay inventory. Day spas and other wellness-only records remain in the
+     * venue catalogue without being misrepresented as accommodation.
+     */
+    stayEligible: z.boolean().default(true),
+    /**
      * Optional free-text sub-classification within a type.
      * Examples: type=cafe + subtype=roaster, type=providore + subtype=fishmonger.
      * Surfaced as a secondary chip on venue cards and detail pages.

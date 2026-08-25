@@ -1,5 +1,5 @@
 ---
-import { routeSlug, titleize, stayTypes, wineTypes, typeLabel, placeLabel } from '../../lib/editorial';
+import { routeSlug, titleize, isStayVenue, wineTypes, typeLabel, placeLabel } from '../../lib/editorial';
 
 export interface Props {
   itinerary: any;
@@ -54,8 +54,8 @@ function resolveImage(src?: string) {
   return src.startsWith('/') ? `${base}${src.slice(1)}` : src;
 }
 
-function venueHref(type: string) {
-  if (stayTypes.includes(type)) return `${base}stay/`;
+function venueHref(venue: any) {
+  if (isStayVenue(venue)) return `${base}stay/`;
   if (wineTypes.includes(type)) return `${base}wine/`;
   return `${base}eat/`;
 }
@@ -77,7 +77,7 @@ const groupedStops = days.map((day: any) => ({
       const venue = venueSlug ? venueMap.get(venueSlug) : null;
       const experience = experienceSlug ? experienceMap.get(experienceSlug) : null;
       const href = venue
-        ? `${venueHref(venue.data.type)}${routeSlug(venue)}/`
+        ? `${venueHref(venue)}${routeSlug(venue)}/`
         : experience
           ? `${base}explore/${routeSlug(experience)}/`
           : undefined;

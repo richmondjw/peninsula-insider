@@ -30,11 +30,11 @@ import JournalModule from '../../components/v5/hub/JournalModule.astro';
 import AskBand from '../../components/v5/hub/AskBand.astro';
 import TrustNote from '../../components/v5/hub/TrustNote.astro';
 import { getFacets, type FacetKey } from '../../lib/facets';
-import { routeSlug, stayTypes, typeLabel, titleize, resolveHeroSrc } from '../../lib/editorial';
+import { routeSlug, isStayVenue, typeLabel, titleize, resolveHeroSrc } from '../../lib/editorial';
 import { buildBreadcrumbSchema, absUrl } from '../../lib/schema';
 
 // ── Data ─────────────────────────────────────────────────────────────────────
-const venues = (await getCollection('venues')).filter((v) => stayTypes.includes(v.data.type));
+const venues = (await getCollection('venues')).filter(isStayVenue);
 const stayCount = venues.length; // FULL corpus, every row server-rendered
 
 const articlesAll = (await getCollection('articles', ({ data }) => data.status === 'published'))
