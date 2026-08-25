@@ -82,6 +82,21 @@ jobs:
       - name: Archive expired quick notes
         run: python next/scripts/archive-expired-quick-notes.py
 
+      - name: Re-verify distant event source pages
+        # Source pages frequently return HTTP 200 after an event is withdrawn.
+        # Keep this report-only so one unreachable organiser site cannot block
+        # the deterministic freshness mutations above.
+        continue-on-error: true
+        run: python next/scripts/check-event-source-freshness.py --report reports/event-source-freshness.json
+
+      - name: Upload source freshness report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: event-source-freshness-${{ github.run_id }}
+          path: reports/event-source-freshness.json
+          if-no-files-found: ignore
+
       - name: Commit and push freshness diff
         run: |
           git add next/src/content/events next/src/content/quick-notes

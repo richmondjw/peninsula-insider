@@ -310,8 +310,20 @@ def main() -> int:
             continue
 
         if not args.dry_run:
-            path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + '\n',
-                            encoding='utf-8')
+            payload = json.dumps(data, indent=2, ensure_ascii=False) + '\n'
+            # A restored record belongs in the collection root. Astro's glob
+            # includes archive/, so status alone is not enough: leaving a live
+            # record there creates the archive/-but-published split state and
+            # makes future filesystem-based jobs miss it.
+            if archived and in_archive_dir:
+                destination = EVENT_DIR / path.name
+                if destination.exists():
+                    print(f"SKIP restore (top-level copy already exists): {path.relative_to(EVENT_DIR)}")
+                    continue
+                destination.write_text(payload, encoding='utf-8')
+                path.unlink()
+            else:
+                path.write_text(payload, encoding='utf-8')
         updated.append(f"{path.relative_to(EVENT_DIR)} -> {new_value}")
 
     suffix = ' (dry run, no files written)' if args.dry_run else ''

@@ -154,5 +154,34 @@ class ArchiveExpiredEventsTest(unittest.TestCase):
         self.assertEqual(written["gig"]["status"], "published")
 
 
+class RecomputeOccurrenceRestoreTest(unittest.TestCase):
+    """The restore generator must move live records out of archive/."""
+
+    def test_restore_moves_archived_record_to_collection_root(self):
+        module_path = Path(__file__).resolve().parent / "recompute-occurrence.py"
+        spec = importlib.util.spec_from_file_location("recompute_occurrence", module_path)
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        with tempfile.TemporaryDirectory() as directory:
+            event_dir = Path(directory)
+            archive = event_dir / "archive"
+            archive.mkdir()
+            archived = archive / "market.json"
+            archived.write_text(json.dumps(event(
+                status="archived",
+                archiveReason="endDate < today",
+                recurrence="monthly",
+                recurrenceNote="Second Saturday of the month",
+            )) + "\n", encoding="utf-8")
+            with patch.object(module, "EVENT_DIR", event_dir), \
+                    patch.object(module, "date") as fake_date:
+                fake_date.today.return_value = TODAY
+                fake_date.side_effect = date
+                self.assertEqual(module.main(), 0)
+            restored = event_dir / "market.json"
+            self.assertTrue(restored.exists())
+            self.assertFalse(archived.exists())
+            self.assertEqual(json.loads(restored.read_text())["status"], "published")
+
 if __name__ == "__main__":
     unittest.main()

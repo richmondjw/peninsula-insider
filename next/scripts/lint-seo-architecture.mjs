@@ -194,8 +194,8 @@ for (const file of await htmlFiles(dist.pathname)) {
     if (node?.['@type'] === 'ImageObject' && typeof node.url === 'string') imageObjectUrls.add(node.url);
     const types = Array.isArray(node?.['@type']) ? node['@type'] : [node?.['@type']];
     if (types.some((type) => entityTypes.has(type)) && !node?.['@id']) fail('entity-missing-id', `${file}: ${types.join(',')} schema lacks @id`);
-    if (types.includes('EventScheduled') && node?.endDate && new Date(node.endDate) < new Date()) {
-      fail('stale-event-scheduled', `${file}: stale EventScheduled endDate ${node.endDate}`);
+    if (node?.eventStatus === 'https://schema.org/EventScheduled' && node?.endDate && new Date(node.endDate) < new Date()) {
+      fail('stale-event-scheduled', `${file}: stale scheduled Event endDate ${node.endDate}`);
     }
   }
   for (const tag of html.matchAll(/<img\b[^>]*>/gi)) {
