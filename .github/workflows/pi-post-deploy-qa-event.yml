@@ -1,0 +1,75 @@
+name: PI production deploy event
+
+on:
+  deployment_status:
+
+permissions:
+  actions: read
+  contents: read
+  deployments: read
+
+concurrency:
+  group: pi-production-deploy-event-${{ github.event.deployment.id }}
+  cancel-in-progress: false
+
+jobs:
+  emit:
+    if: >-
+      github.repository == 'richmondjw/peninsula-insider' &&
+      github.event.deployment_status.state == 'success' &&
+      github.event.deployment.environment == 'github-pages' &&
+      github.event.deployment_status.environment == 'github-pages' &&
+      github.event.deployment.ref == 'gh-pages'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      PI_EVENT_ENDPOINT: https://hooks.optiflows.com.au/pi/deployment
+      PI_EVENT_HMAC_SECRET: ${{ secrets.PI_RUNTIME_EVENT_HMAC_SECRET }}
+      PI_DEPLOYMENT_ID: ${{ github.event.deployment.id }}
+      PI_DEPLOYMENT_STATUS_ID: ${{ github.event.deployment_status.id }}
+      PI_DEPLOYMENT_ENVIRONMENT: ${{ github.event.deployment.environment }}
+      PI_DEPLOYMENT_STATUS_ENVIRONMENT: ${{ github.event.deployment_status.environment }}
+      PI_DEPLOYMENT_STATUS_STATE: ${{ github.event.deployment_status.state }}
+      PI_DEPLOYMENT_REF: ${{ github.event.deployment.ref }}
+      PI_DEPLOYMENT_ARTIFACT_SHA: ${{ github.event.deployment.sha }}
+      PI_DEPLOYED_AT: ${{ github.event.deployment_status.created_at }}
+      PI_REPOSITORY: ${{ github.repository }}
+      PI_DELIVERY_ID: deployment-status-${{ github.event.deployment_status.id }}
+      GITHUB_TOKEN: ${{ github.token }}
+
+    steps:
+      - name: Checkout the provenance validator from main
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          ref: ${{ github.workflow_sha }}
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Validate live provenance and sign bounded event
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "${#PI_EVENT_HMAC_SECRET}" -ge 32
+          test "$PI_REPOSITORY" = "richmondjw/peninsula-insider"
+          test "$PI_DEPLOYMENT_ENVIRONMENT" = "github-pages"
+          test "$PI_DEPLOYMENT_STATUS_ENVIRONMENT" = "github-pages"
+          test "$PI_DEPLOYMENT_REF" = "gh-pages"
+          test "${#PI_DEPLOYMENT_ARTIFACT_SHA}" -eq 40
+          node ops/scripts/pi-deploy-event-provenance.mjs
+
+      - name: Deliver once to the dedicated PI endpoint
+        shell: bash
+        run: |
+          set -euo pipefail
+          mapfile -t signed < "$RUNNER_TEMP/pi-runtime-event/headers"
+          test "${#signed[@]}" -eq 2
+          curl --silent --show-error --fail-with-body \
+            --request POST \
+            --header 'content-type: application/json' \
+            --header "x-pi-timestamp: ${signed[0]}" \
+            --header "x-pi-signature: ${signed[1]}" \
+            --header "x-pi-delivery-id: $PI_DELIVERY_ID" \
+            --data-binary "@$RUNNER_TEMP/pi-runtime-event/event.json" \
+            --output "$RUNNER_TEMP/pi-runtime-event/response.json" \
+            "$PI_EVENT_ENDPOINT"
+          test -s "$RUNNER_TEMP/pi-runtime-event/response.json"
