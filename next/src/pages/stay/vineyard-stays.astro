@@ -4,10 +4,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import { routeSlug } from '../../lib/editorial';
+import { routeSlug, isStayVenue } from '../../lib/editorial';
 
 const allVenues = await getCollection('venues');
-const stayTypes = ['hotel', 'villa', 'cottage', 'glamping', 'farm-stay', 'spa'];
 
 // Vineyard stays: ridge zones + cellar-door mood tag
 const ridgeZones = ['red-hill', 'hinterland'];
@@ -23,11 +22,11 @@ const vineyardSlugs = [
 
 const venues = vineyardSlugs
   .map((s) => allVenues.find((v) => routeSlug(v) === s))
-  .filter((v): v is NonNullable<typeof v> => Boolean(v) && stayTypes.includes(v.data.type));
+  .filter((v): v is NonNullable<typeof v> => Boolean(v) && isStayVenue(v));
 
 // Fallback: any stay in ridge zone not already captured
 const extraRidgeStays = allVenues.filter((v) =>
-  stayTypes.includes(v.data.type) &&
+  isStayVenue(v) &&
   ridgeZones.includes(v.data.zone) &&
   !vineyardSlugs.includes(routeSlug(v))
 );

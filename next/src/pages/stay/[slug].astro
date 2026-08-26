@@ -3,29 +3,27 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import VenueDetailTemplate from '../../components/VenueDetailTemplate.astro';
 import EventStrip from '../../components/EventStrip.astro';
-import { routeSlug, typeLabel, titleize, isUpcoming, placeLabel } from '../../lib/editorial';
+import { routeSlug, isStayVenue, typeLabel, titleize, isUpcoming, placeLabel } from '../../lib/editorial';
 import { buildKnownForProperties, buildBreadcrumbSchema, absUrl } from '../../lib/schema';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
 
 export async function getStaticPaths() {
-  const stayTypes = ['hotel', 'villa', 'cottage', 'glamping', 'farm-stay', 'spa'];
   const venues = await getCollection('venues');
   return venues
-    .filter((venue) => stayTypes.includes(venue.data.type))
+    .filter(isStayVenue)
     .map((venue) => ({
       params: { slug: routeSlug(venue) },
       props: { venue },
     }));
 }
 
-const stayTypes = ['hotel', 'villa', 'cottage', 'glamping', 'farm-stay', 'spa'];
 const { venue } = Astro.props;
 const slug = routeSlug(venue);
 
 const allVenues = await getCollection('venues');
 const related = allVenues
   .filter((entry) => routeSlug(entry) !== slug)
-  .filter((entry) => stayTypes.includes(entry.data.type))
+  .filter(isStayVenue)
   .slice(0, 3);
 
 // Cross-link articles that reference this venue

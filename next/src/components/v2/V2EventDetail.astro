@@ -4,7 +4,7 @@ import {
   eventDateLabel,
   eventLensLabel,
   routeSlug,
-  stayTypes,
+  isStayVenue,
   wineTypes,
   titleize,
   weatherCopy,
@@ -38,8 +38,8 @@ function resolveImage(src?: string) {
   return src.startsWith('/') ? `${base}${src.slice(1)}` : src;
 }
 
-function venueHref(type: string) {
-  if (stayTypes.includes(type)) return `${base}stay/`;
+function venueHref(venue: any) {
+  if (isStayVenue(venue)) return `${base}stay/`;
   if (wineTypes.includes(type)) return `${base}wine/`;
   return `${base}eat/`;
 }
@@ -137,7 +137,7 @@ const slug = routeSlug(event);
 
             {venue && (<>
               <dt style="font-weight:500;">Venue</dt>
-              <dd style="margin:0;"><a href={`${venueHref(venue.data.type)}${routeSlug(venue)}/`} style="color:inherit;">{venue.data.name}</a></dd>
+              <dd style="margin:0;"><a href={`${venueHref(venue)}${routeSlug(venue)}/`} style="color:inherit;">{venue.data.name}</a></dd>
             </>)}
 
             <dt style="font-weight:500;">Weather</dt>

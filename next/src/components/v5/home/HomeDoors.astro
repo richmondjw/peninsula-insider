@@ -17,7 +17,7 @@
 import { getCollection } from 'astro:content';
 import { resolveHero } from '../../../lib/inline-edit/resolve-hero';
 import { editableImage } from '../../../lib/inline-edit/attrs';
-import { stayTypes } from '../../../lib/editorial';
+import { isStayVenue } from '../../../lib/editorial';
 import { countWord } from './home-data';
 
 const venues = (await getCollection('venues')).filter(
@@ -28,7 +28,7 @@ const venues = (await getCollection('venues')).filter(
 const eatTypes = ['restaurant', 'cafe', 'bakery', 'pub', 'market', 'winery'];
 const eat = venues.filter((v) => eatTypes.includes(v.data.type));
 const eatPicks = eat.filter((v) => v.data.editorPick).length;
-const stays = venues.filter((v) => stayTypes.includes(v.data.type));
+const stays = venues.filter(isStayVenue);
 const wineries = venues.filter((v) => v.data.type === 'winery');
 
 const doors = [

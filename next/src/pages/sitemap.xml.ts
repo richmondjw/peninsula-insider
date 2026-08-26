@@ -1,6 +1,6 @@
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
-import { routeSlug } from '../lib/editorial';
+import { routeSlug, isStayVenue } from '../lib/editorial';
 import { loadLiveEvents } from './whats-on/_data';
 
 // SEOMIG rebuild 2026-07-11 (seo-migration-plan.md §4.1).
@@ -200,13 +200,12 @@ export const GET: APIRoute = async () => {
   // wineries are emitted under /wine/ only. This removes the 41-page
   // duplicate winery tree from the sitemap (SEO plan §3.3).
   const eatTypes = ['restaurant', 'cafe', 'bakery', 'pub', 'market', 'brewery', 'distillery', 'providore'];
-  const stayTypes = ['hotel', 'villa', 'cottage', 'glamping', 'farm-stay', 'spa'];
   const wineTypes = ['winery', 'producer', 'brewery', 'distillery'];
 
   const eatVenues = venues.filter(
     (v) => eatTypes.includes(v.data.type) && notExcluded(v) && !EAT_STUB_SLUGS.has(routeSlug(v)),
   );
-  const stayVenues = venues.filter((v) => stayTypes.includes(v.data.type) && notExcluded(v));
+  const stayVenues = venues.filter((v) => isStayVenue(v) && notExcluded(v));
   const wineVenues = venues.filter((v) => wineTypes.includes(v.data.type) && notExcluded(v));
 
   const entries: string[] = [];
@@ -318,7 +317,7 @@ export const GET: APIRoute = async () => {
   for (const page of eatCategoryPages) {
     entries.push(url(`/eat/${page}`, 0.7, 'weekly', EAT_CATEGORY_LASTMOD[page]));
   }
-  const stayCategoryPages = ['boutique-hotels', 'cape-schanck', 'coastal-stays', 'cottages', 'couples-retreats', 'flinders', 'glamping', 'hot-springs-accommodation', 'luxury', 'mornington', 'red-hill', 'resorts', 'sorrento', 'villas', 'vineyard-stays', 'wellness-retreats', 'winery-accommodation'];
+  const stayCategoryPages = ['boutique-hotels', 'cape-schanck', 'coastal-stays', 'cottages', 'couples-retreats', 'flinders', 'glamping', 'hot-springs-accommodation', 'luxury', 'red-hill', 'resorts', 'sorrento', 'villas', 'vineyard-stays', 'wellness-retreats', 'winery-accommodation'];
   for (const page of stayCategoryPages) {
     entries.push(url(`/stay/${page}`, 0.7, 'weekly', STAY_CATEGORY_LASTMOD[page]));
   }

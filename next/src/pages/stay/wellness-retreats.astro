@@ -4,10 +4,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import { routeSlug } from '../../lib/editorial';
+import { routeSlug, isStayVenue } from '../../lib/editorial';
 
 const allVenues = await getCollection('venues');
-const stayTypes = ['hotel', 'villa', 'cottage', 'glamping', 'farm-stay', 'spa'];
 
 // Wellness stays: wellness mood, spa type, glamping with thermal access
 const wellnessSlugs = [
@@ -21,7 +20,7 @@ const wellnessSlugs = [
 
 const venues = wellnessSlugs
   .map((s) => allVenues.find((v) => routeSlug(v) === s))
-  .filter((v): v is NonNullable<typeof v> => Boolean(v));
+  .filter((v): v is NonNullable<typeof v> => Boolean(v) && isStayVenue(v));
 
 // Also show the accommodation that pairs well with wellness (not spa-only)
 const wellnessStaySlugs = [
@@ -33,7 +32,7 @@ const wellnessStaySlugs = [
 ];
 const wellnessStays = wellnessStaySlugs
   .map((s) => allVenues.find((v) => routeSlug(v) === s))
-  .filter((v): v is NonNullable<typeof v> => Boolean(v) && stayTypes.includes(v.data.type));
+  .filter((v): v is NonNullable<typeof v> => Boolean(v) && isStayVenue(v));
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },

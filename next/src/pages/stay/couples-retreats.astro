@@ -4,10 +4,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import { routeSlug } from '../../lib/editorial';
+import { routeSlug, isStayVenue } from '../../lib/editorial';
 
 const allVenues = await getCollection('venues');
-const stayTypes = ['hotel', 'villa', 'cottage', 'glamping', 'farm-stay', 'spa'];
 
 // Romantic / couples stays: anniversary, romance, slow mood tags + audience: couples
 const romanticSlugs = [
@@ -25,7 +24,7 @@ const romanticSlugs = [
 
 const venues = romanticSlugs
   .map((s) => allVenues.find((v) => routeSlug(v) === s))
-  .filter((v): v is NonNullable<typeof v> => Boolean(v) && stayTypes.includes(v.data.type));
+  .filter((v): v is NonNullable<typeof v> => Boolean(v) && isStayVenue(v));
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },

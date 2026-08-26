@@ -72,7 +72,7 @@ These are the practical, sensibly-priced day-spa options that make a Peninsula w
 
 ### Endota Spa Mornington
 
-<a href="/stay/endota-spa-mornington/">Endota Mornington</a> is the bayside day spa for visitors who want a treatment without the drive to a resort. Consistent therapists, a sensible sixty-to-ninety-minute treatment menu, and a Mornington town location that pairs with a long lunch on Main Street. National chain branding, which some readers dismiss on principle, but for the middle-tier day-spa category it is the most reliable option in northern Peninsula.
+<a href="/explore/spas-and-wellness/#endota-spa-mornington">Endota Mornington</a> is the bayside day spa for visitors who want a treatment without the drive to a resort. Consistent therapists, a sensible sixty-to-ninety-minute treatment menu, and a Mornington town location that pairs with a long lunch on Main Street. National chain branding, which some readers dismiss on principle, but for the middle-tier day-spa category it is the most reliable option in northern Peninsula.
 
 ## Which tier for which weekend
 

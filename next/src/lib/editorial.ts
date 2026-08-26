@@ -145,6 +145,11 @@ export const typeLabel: Record<string, string> = {
 };
 
 export const stayTypes = ['hotel', 'villa', 'cottage', 'glamping', 'farm-stay', 'spa'];
+export function isStayVenue(entry: any) {
+  const data = entry?.data ?? entry;
+  const type = data?.type ?? entry;
+  return stayTypes.includes(type) && data?.stayEligible !== false;
+}
 export const wineTypes = ['winery'];
 export const eatTypes = [
   'restaurant', 'cafe', 'bakery', 'pub', 'market',

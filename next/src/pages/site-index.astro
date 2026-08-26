@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
-import { routeSlug, stayTypes, wineTypes } from '../lib/editorial';
+import { routeSlug, isStayVenue, wineTypes } from '../lib/editorial';
 
 const [venues, experiences, places, articles, itineraries, events] = await Promise.all([
   getCollection('venues'),
@@ -17,7 +17,7 @@ const eatTypes = ['restaurant', 'cafe', 'bakery', 'pub', 'market', 'winery'];
 
 const activeVenues = venues.filter((v) => v.data.status !== 'permanently_closed');
 const eatVenues = activeVenues.filter((v) => eatTypes.includes(v.data.type)).slice(0, 40);
-const stayVenues = activeVenues.filter((v) => stayTypes.includes(v.data.type)).slice(0, 20);
+const stayVenues = activeVenues.filter(isStayVenue).slice(0, 20);
 const wineVenues = activeVenues.filter((v) => wineTypes.includes(v.data.type)).slice(0, 30);
 
 const breadcrumbItems = [
