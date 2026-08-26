@@ -8,6 +8,14 @@ on:
       - 'next/public/**'
       - 'next/astro.config.mjs'
       - 'next/package.json'
+      # The build's gate set lives in next/scripts and ops/scripts, and package.json
+      # invokes it. Omitting them meant a change to a gate never exercised that gate:
+      # d442813 fixed the SEO ratchet baseline and triggered no run at all, so the
+      # fix sat unverified on main. A change to the thing that guards the build must
+      # rebuild the build.
+      - 'next/scripts/**'
+      - 'ops/scripts/seo/**'
+      - 'ops/reports/seo/seo-architecture-baseline.json'
       - '.github/workflows/build-and-deploy.yml'
   schedule:
     # The event feed and rolling weekend page are generated at build time.
@@ -101,6 +109,17 @@ jobs:
           BUILD_RUN_ID: ${{ github.run_id }}
         run: |
           node --input-type=module -e "import { writeFileSync } from 'node:fs'; writeFileSync('next/dist/deployment.json', JSON.stringify({ sourceSha: process.env.SOURCE_SHA, runId: process.env.BUILD_RUN_ID, generatedAt: new Date().toISOString() }, null, 2) + '\n')"
+
+      - name: Write immutable release manifest
+        env:
+          SOURCE_SHA: ${{ github.sha }}
+          BUILD_RUN_ID: ${{ github.run_id }}
+          RELEASE_TRIGGER: ${{ github.event_name }}
+          RELEASE_ACTOR: ${{ github.actor }}
+        run: |
+          cd next
+          npm run test:release-contract
+          npm run release:manifest
 
       - name: Prune internal surfaces from deploy output (T-006)
         # v5 hygiene (2026-07-11, T-006): the editorial admin surface

@@ -22,7 +22,7 @@ import NewsletterBlock from '../../../components/NewsletterBlock.astro';
 import PiForkPlanButton from '../../../components/PiForkPlanButton.astro';
 import {
   routeSlug,
-  stayTypes,
+  isStayVenue,
   titleize,
   venueHrefPrefix,
   heroBackgroundStyle,
@@ -151,7 +151,7 @@ const highlightedExperiences = Array.from(new Set(experienceSlugs))
 // ─── Anchor stay (conversion architecture) ────────────────────────────────
 const anchorStaySlug = data ? String((data as any).anchorStay?.id ?? (data as any).anchorStay ?? '') : '';
 const anchorStay = anchorStaySlug ? venueMap.get(anchorStaySlug) : undefined;
-const fallbackStay = highlightedVenues.find((v: any) => stayTypes.includes(v.data.type));
+const fallbackStay = highlightedVenues.find((v: any) => isStayVenue(v));
 const effectiveStay: any = anchorStay ?? fallbackStay;
 const effectiveStayHref = effectiveStay
   ? `${venueHrefPrefix(effectiveStay.data.type)}/${routeSlug(effectiveStay)}/`
@@ -163,7 +163,7 @@ const altStaySlugs: string[] = data
 const altStays = altStaySlugs.map((s) => venueMap.get(s)).filter(Boolean) as any[];
 const inferredAltStays = altStays.length === 0
   ? highlightedVenues
-      .filter((v: any) => stayTypes.includes(v.data.type) && routeSlug(v) !== routeSlug(effectiveStay ?? { data: {}, id: '' }))
+        .filter((v: any) => isStayVenue(v) && routeSlug(v) !== routeSlug(effectiveStay ?? { data: {}, id: '' }))
       .slice(0, 2)
   : [];
 const stayRail = [...altStays, ...inferredAltStays].slice(0, 2);
@@ -284,7 +284,7 @@ const schemaDays = groupedStops.map((g) => ({
     .map((s) => ({
       name: s.label,
       path: s.href!,
-      stopType: s.entry && stayTypes.includes(((s.entry as any).data?.type) ?? '')
+      stopType: s.entry && isStayVenue(s.entry)
         ? 'LodgingBusiness'
         : (s.entry as any)?.data?.type === 'restaurant' || (s.entry as any)?.data?.type === 'cafe'
         ? 'FoodEstablishment'

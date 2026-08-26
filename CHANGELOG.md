@@ -1,3 +1,15 @@
+## 2026-08-26 — Claude remote agent
+
+### Second main merge into the AI-agent readiness branch
+
+**Summary**
+Merged main again (aabb07a → fa8f8ea) after new conflicts. Main has been absorbing this branch's venue JSON-LD work (now with @id conventions) and refactored the stay template to `isStayVenue`; conflicts were the stay frontmatter and content.config. Took main's sides and re-grafted `venues.lastFactVerified`. Fixed the glossary page for main's URL consolidation (`/places/…` → `/explore/places/…`) and added `/journal/peninsula-glossary/` to the sitemap. Kept the stray Copilot bot commit (media-registry churn only, harmless).
+
+**Verification**
+Build completes; all gates pass locally except `lint:seo-architecture`'s `imageobject-diversity` floor (46 vs 58), which is a sandbox artifact: the floor depends on CMS-published hero overrides fetched live from Supabase at build, and this environment has no Supabase credentials (the baked snapshot `next/src/data/cms-image-overrides.json` is empty). CI has the credentials and should meet the floor. Manually verified against the built dist: `lint:filter-chips`, `audit:agent-readiness` (964 pages), `assert:link-graph`, `lint:no-hidden-pages`, and `lint:schema` (1,797 JSON-LD blocks) all pass.
+
+---
+
 ## 2026-08-21 — Claude remote agent
 
 ### Merge main into the AI-agent readiness branch

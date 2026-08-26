@@ -1,28 +1,28 @@
 {
-  "generatedAt": "2026-08-21T10:26:14.583Z",
+  "generatedAt": "2026-08-26T08:34:14.565Z",
   "dist": "/home/user/peninsula-insider/next/dist",
   "totals": {
-    "pages": 950,
-    "indexable": 628,
-    "selfCanonical": 725,
-    "redirectStubs": 225,
+    "pages": 960,
+    "indexable": 631,
+    "selfCanonical": 733,
+    "redirectStubs": 227,
     "noindexSurfaces": 0,
     "noindexWithForeignCanonical": 0,
     "fullDuplicateRenders": 0,
     "duplicateBytes": 0,
     "indexSurfaces": 24,
-    "chromeLinks": 229,
-    "chromeNonCanonicalLinks": 33,
+    "chromeLinks": 234,
+    "chromeNonCanonicalLinks": 36,
     "chromeSitewideNonCanonicalLinks": 0,
-    "zeroEditorialInbound": 81,
+    "zeroEditorialInbound": 82,
     "zeroInboundOfAnyKind": 23
   },
   "editorialInboundBuckets": {
-    "0": 81,
-    "1-2": 142,
-    "3-5": 128,
-    "6-10": 128,
-    "11-25": 93,
+    "0": 82,
+    "1-2": 143,
+    "3-5": 127,
+    "6-10": 127,
+    "11-25": 96,
     "26+": 56
   },
   "chromeNonCanonical": [
@@ -141,6 +141,27 @@
     {
       "link": "/journal/peninsula-this-weekend-april-24/",
       "canonical": "/whats-on/this-weekend/archive/2026-04-24/",
+      "onPages": 1,
+      "sitewide": false,
+      "targetIsStub": true
+    },
+    {
+      "link": "/journal/mornington-peninsula-boat-ramps/",
+      "canonical": "/boating/ramps/",
+      "onPages": 1,
+      "sitewide": false,
+      "targetIsStub": true
+    },
+    {
+      "link": "/boating/boat-hire/",
+      "canonical": "/boating/hire/",
+      "onPages": 1,
+      "sitewide": false,
+      "targetIsStub": true
+    },
+    {
+      "link": "/places/mornington/",
+      "canonical": "/explore/places/mornington/",
       "onPages": 1,
       "sitewide": false,
       "targetIsStub": true
@@ -317,7 +338,6 @@
     "/stay/flinders/",
     "/stay/glamping/",
     "/stay/luxury/",
-    "/stay/mornington/",
     "/stay/red-hill/",
     "/stay/resorts/",
     "/stay/sorrento/",
@@ -327,10 +347,12 @@
     "/whats-on/by-mood/this-weekend/",
     "/whats-on/by-mood/when-it-rains/",
     "/whats-on/by-mood/worth-the-drive/",
-    "/whats-on/doggy-day-out-mornington-peninsula-2026/",
-    "/whats-on/dromana-community-market/",
+    "/whats-on/high-tea-at-mornington-botanical-rose-gardens/",
+    "/whats-on/main-street-mornington-festival-2026/",
+    "/whats-on/mornington-christmas-festival-main-street-christmas-parade/",
     "/whats-on/mornington-wednesday-market-main-street-market/",
     "/whats-on/pearcedale-community-market/",
+    "/whats-on/pub-carols-thursday-17th-december/",
     "/whats-on/red-hill-brewery-secret-stash-weekend/",
     "/whats-on/this-weekend/archive/2026-04-24/",
     "/whats-on/this-weekend/archive/2026-04-26/",

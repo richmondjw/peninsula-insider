@@ -22,7 +22,7 @@ import {
   venueHrefPrefix,
   weatherCopy,
 } from '../../lib/editorial';
-import { isCurrentEvent, loadLiveEvents } from './_data';
+import { isCancelledEvent, isCurrentEvent, loadLiveEvents } from './_data';
 import { editableText, editableImage } from '../../lib/inline-edit/attrs';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
 
@@ -37,6 +37,11 @@ export async function getStaticPaths() {
 const { event } = Astro.props;
 const now = new Date();
 const isCurrent = isCurrentEvent(event, now);
+// A cancelled event keeps its URL and stays indexable: readers arriving from
+// search or an old link need to be told it is off, not redirected into a hub
+// that answers a question they did not ask. The record is withdrawn from every
+// listing surface by loadLiveEvents instead.
+const cancelled = isCancelledEvent(event);
 const place = event.data.place ? await getEntry(event.data.place).catch(() => null) : null;
 const venue = event.data.venue ? await getEntry(event.data.venue).catch(() => null) : null;
 
@@ -100,6 +105,21 @@ const breadcrumbItems = [
   { label: "What's On", href: '/whats-on/' },
   { label: event.data.title },
 ];
+
+// Breadcrumbs.astro renders the visual trail only. Page templates own the
+// BreadcrumbList JSON-LD, and this template never emitted it, so every event
+// page carried a visible breadcrumb that Google could not read. Same shape as
+// whats-on/this-weekend/archive/[slug].astro: convention copied, not invented.
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbItems.map((item, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: item.label,
+    ...(item.href ? { item: `https://peninsulainsider.com.au${item.href}` } : {}),
+  })),
+};
 export const prerender = true;
 ---
 
@@ -113,6 +133,7 @@ export const prerender = true;
   noindex={!isCurrent}
 >
   {eventSchema && <script type="application/ld+json" set:html={JSON.stringify(eventSchema)} />}
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   <Breadcrumbs items={breadcrumbItems} />
   <article class="event-detail">
     <div class="container">
@@ -141,7 +162,21 @@ export const prerender = true;
           skipThis={event.data.skipThis}
           size="md"
         />
-        {!isCurrent && (
+        {cancelled && (
+          <aside class="event-detail__ended" role="status">
+            <strong>Cancelled. This event will not go ahead.</strong>{' '}
+            {event.data.cancellationNote}
+            {event.data.cancellationSourceUrl && (
+              <>
+                {' '}
+                <a href={event.data.cancellationSourceUrl} rel="nofollow noreferrer" target="_blank">
+                  {event.data.cancellationSourceLabel ?? 'Read the report'}
+                </a>
+              </>
+            )}
+          </aside>
+        )}
+        {!isCurrent && !cancelled && (
           <aside class="event-detail__ended" role="status">
             <strong>This event has ended.</strong> For current Peninsula plans, see <a href="/whats-on/">What’s On</a>.
           </aside>
@@ -265,27 +300,33 @@ export const prerender = true;
                 </div>
               )}
             </dl>
-            <div class="event-detail__actions">
-              {bookingTarget && (
+            {cancelled ? (
+              <p class="event-detail__box-soft">
+                Booking and calendar links are withdrawn while this event is cancelled.
+              </p>
+            ) : (
+              <div class="event-detail__actions">
+                {bookingTarget && (
+                  <a
+                    href={bookingTarget.href}
+                    class="event-detail__action event-detail__action--primary"
+                    rel="nofollow noreferrer"
+                    target="_blank"
+                  >
+                    {bookingTarget.label}
+                  </a>
+                )}
                 <a
-                  href={bookingTarget.href}
-                  class="event-detail__action event-detail__action--primary"
-                  rel="nofollow noreferrer"
+                  href={calendarUrl}
+                  class="event-detail__action event-detail__action--secondary"
+                  rel="noreferrer"
                   target="_blank"
+                  aria-label={`Add ${event.data.title} to your calendar`}
                 >
-                  {bookingTarget.label}
+                  Add to calendar
                 </a>
-              )}
-              <a
-                href={calendarUrl}
-                class="event-detail__action event-detail__action--secondary"
-                rel="noreferrer"
-                target="_blank"
-                aria-label={`Add ${event.data.title} to your calendar`}
-              >
-                Add to calendar
-              </a>
-            </div>
+              </div>
+            )}
           </div>
 
           {lensList.length > 0 && (

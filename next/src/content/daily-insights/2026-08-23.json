@@ -1,0 +1,64 @@
+{
+  "date": "2026-08-23",
+  "title": "PI Daily Insights: Sunday 23 August 2026",
+  "generatedAt": "2026-08-22T19:32:00Z",
+  "runLabel": "19:30–19:32 UTC (5:30AM AEST)",
+  "method": "Eight Tier 1/2 searches + six Tier 1 scrapes; several searches returned bot challenges, so direct source pages are the evidence base.",
+  "summary": "2 Band A items: a Flinders pier restoration call and a local-business electrification webinar.",
+  "actToday": [
+    {
+      "title": "Community and Council call to finish Flinders pier restoration",
+      "score": "22/25",
+      "band": "A",
+      "source": "Mornington Peninsula Shire",
+      "observed": "Observed 22 Aug 19:31 UTC",
+      "url": "https://www.mornpen.vic.gov.au/The-Shire/News-media-and-publications/News-and-media-releases/Community-Council-unite-behind-call-to-finish-Flinders-pier-restoration",
+      "sourceLabel": "mornpen.vic.gov.au",
+      "scores": "R5·U5·V4·N4·A4",
+      "description": "The Shire says community and Council are calling to finish the State Government's Flinders pier restoration project; 13 standalone wooden piles remain offshore.",
+      "interpretation": "Timely local public-interest story with a strong visual and location angle. Keep any coverage factual and attribute government-project claims.",
+      "recommendation": "Telegram PI group plus journal short, subject to human editorial approval."
+    },
+    {
+      "title": "Lunch and Learn: Electrifying Local Businesses",
+      "score": "21/25",
+      "band": "A",
+      "source": "Mornington Peninsula Shire",
+      "observed": "Observed 22 Aug 19:31 UTC",
+      "url": "https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Lunch-and-Learn-Webinar-Electrifying-Local-Businesses",
+      "sourceLabel": "mornpen.vic.gov.au",
+      "scores": "R4·U5·V5·N3·A4",
+      "description": "The Shire lists a free 24 August lunchtime webinar for businesses on switching from gas to electric alternatives, including costs and government subsidies.",
+      "interpretation": "A practical, time-sensitive B2B utility item; verify start time and registration details first.",
+      "recommendation": "Telegram PI group plus LinkedIn-only B2B note after verification."
+    }
+  ],
+  "news": [
+    { "item": "Illegal dumpers fined after Shire investigations", "source": "Mornington Peninsula Shire", "url": "https://www.mornpen.vic.gov.au/The-Shire/News-media-and-publications/News-and-media-releases/Illegal-dumpers-fined-as-Shire-investigations-identify-offenders", "score": "20", "band": "B", "note": "Shire says officers issued fines for unlawful waste disposal and littering. Bank for a practical waste-disposal explainer; verify details in the primary release." },
+    { "item": "Kindergarten infrastructure review seeks input", "source": "Mornington Peninsula Shire", "url": "https://www.mornpen.vic.gov.au/The-Shire/News-media-and-publications/News-and-media-releases/Council-seeks-input-on-kindergarten-infrastructure-challenge", "score": "20", "band": "B", "note": "The Shire is seeking input while finalising its review. Obtain the timetable and avoid advocacy framing." },
+    { "item": "Four bushland reserves proposed for permanent protection", "source": "Mornington Peninsula Shire", "url": "https://www.mornpen.vic.gov.au/The-Shire/News-media-and-publications/News-and-media-releases/Consultation-opens-on-plan-to-protect-four-bushland-reserves", "score": "19", "band": "B", "note": "Consultation has opened on permanent legal protection for four Shire-owned reserves. Monitor dates and keep treatment politically neutral." }
+  ],
+  "events": [
+    { "event": "Seek the Heat at Peninsula Hot Springs", "when": "15 July–4 October 2026", "score": "19", "band": "B", "recommendation": "Confirm current program and tickets before a winter-escapes guide refresh." },
+    { "event": "Hastings Community Art Space: Glenn Walker", "when": "23 August 2026", "score": "17", "band": "B", "recommendation": "Include in a broader low-cost Sunday arts round-up after confirming exhibition dates." }
+  ],
+  "competitors": [
+    { "name": "MP News", "note": "Front page leads with a French Island medical emergency, Bays Hospital equipment support, a Mornington marketing-awards finalist, conservation consultation and state-election coverage." },
+    { "name": "Peninsula Essence", "note": "Strong lifestyle, arts and venue mix including Black Figs café, Onda at Sorrento Ferry Terminal, Arts and Heritage Trail, Ashcombe Maze and golf; no clearly dated fresh move surfaced." },
+    { "name": "Mornington Peninsula Magazine", "note": "Homepage emphasis is winter whale walks, student whale-conservation encounters, a Neil Diamond tribute show and Peninsula filmmaker Cam; no time-sensitive high-priority move surfaced." },
+    { "name": "Visit Mornington Peninsula", "note": "Broad destination/product roster across hot springs, walks, golf, food and accommodation; no new dated guide or campaign surfaced." }
+  ],
+  "opportunities": [
+    "Assign a factual Flinders pier restoration brief with local history, current project status and community voices.",
+    "Turn the electrification webinar into a verified B2B utility note for local operators.",
+    "Build a concise consultation tracker for kindergarten infrastructure and bushland covenants after dates and documents are confirmed.",
+    "Consider a winter arts-and-wellness round-up with a sharper local-service angle than competitor lifestyle coverage."
+  ],
+  "rawCaptures": [
+    "MP News French Island medical emergency: 10/25; insufficient confirmed detail in homepage excerpt.",
+    "MP News Bays Hospital equipment support: 10/25.",
+    "MP News Mornington marketing-awards finalist: 9/25.",
+    "MP News alleged property-contract conduct and Frankston drug-trafficking charges: 7/25; legal sensitivity, do not treat automatically.",
+    "Mornington Peninsula Magazine astronomy feature: 8/25."
+  ]
+}

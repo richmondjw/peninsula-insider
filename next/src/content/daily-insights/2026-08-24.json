@@ -1,0 +1,49 @@
+{
+  "date": "2026-08-24",
+  "title": "PI Daily Insights: Monday 24 August 2026",
+  "generatedAt": "2026-08-23T19:33:00Z",
+  "runLabel": "19:30–19:33 UTC (5:30AM AEST)",
+  "method": "Tier 1 web scrapes + Tier 2 web scan",
+  "summary": "1 Band A item: Flinders Pier restoration call; politically sensitive and requires human editorial review.",
+  "actToday": [
+    {
+      "title": "Community and Council unite to finish Flinders Pier restoration",
+      "score": "22/25",
+      "band": "A",
+      "source": "Mornington Peninsula Shire",
+      "observed": "Observed 23 Aug 19:31 UTC",
+      "url": "https://www.mornpen.vic.gov.au/The-Shire/News-media-and-publications/News-and-media-releases/Community-Council-unite-behind-call-to-finish-Flinders-pier-restoration",
+      "sourceLabel": "mornpen.vic.gov.au",
+      "scores": "R5·U4·V4·N4·A5",
+      "description": "The Shire says thirteen standalone wooden piles offshore at Flinders remain from a State Government restoration project that was started but not completed.",
+      "interpretation": "Timely public-interest infrastructure story, but politically sensitive. Use only after a human editorial call.",
+      "recommendation": "Escalate to the PI group for a human editorial decision; no automated coverage."
+    }
+  ],
+  "news": [
+    {"item":"Council seeks input on kindergarten infrastructure challenge","source":"Mornington Peninsula Shire","url":"https://www.mornpen.vic.gov.au/The-Shire/News-media-and-publications/News-and-media-releases/Council-seeks-input-on-kindergarten-infrastructure-challenge","score":"19","band":"B","note":"The Shire is seeking input while finalising its kindergarten-infrastructure review. Monitor the consultation; use a factual service angle only after editorial review."},
+    {"item":"Four bushland reserves proposed for permanent legal protection","source":"Mornington Peninsula Shire","url":"https://www.mornpen.vic.gov.au/The-Shire/News-media-and-publications/News-and-media-releases/Consultation-opens-on-plan-to-protect-four-bushland-reserves","score":"18","band":"B","note":"Consultation is open on permanent legal protection for four Shire-owned reserves. Political/council sensitivity requires human judgement."},
+    {"item":"Illegal dumpers fined after Shire investigations","source":"Mornington Peninsula Shire","url":"https://www.mornpen.vic.gov.au/The-Shire/News-media-and-publications/News-and-media-releases/Illegal-dumpers-fined-as-Shire-investigations-identify-offenders","score":"17","band":"B","note":"Shire officers issued fines after unlawful waste-disposal and littering investigations. Bank for a primary-source utility update."}
+  ],
+  "events": [
+    {"event":"Seniors Exercise Park Sessions - Mount Martha","when":"Mon 25 Aug 2026; recurring","score":"18","band":"B","recommendation":"Verify next-session details before a What's On listing or Dispatch mention."},
+    {"event":"Walk for remembrance and reflection","when":"Sun 13 Sep 2026, 9am-midday","score":"16","band":"B","recommendation":"Sensitivity-class event; human editorial decision only."}
+  ],
+  "competitors": [
+    {"name":"MP News","note":"Latest-news coverage leads with council waste expenditure, interim landslide controls, Arthurs Seat Eagle planning and green-wedge claims; primary-source checking is essential before any response."},
+    {"name":"Peninsula Essence","note":"Promoting local creative and community profiles including underwater photographer Jaye Selga, artist Lorna Wheele and Peninsula Light Operatic Society."},
+    {"name":"Mornington Peninsula Magazine","note":"Pushing whale encounters, Sorrento winter whale walks and a local Neil Diamond tribute show."},
+    {"name":"Visit Mornington Peninsula","note":"Home page continues to foreground spa, food, wine, trails and key attractions; no fresh time-sensitive campaign surfaced."}
+  ],
+  "opportunities": [
+    "Human-reviewed, factual Flinders Pier restoration explainer if editorial decides it can be handled neutrally.",
+    "Confirm Mount Martha seniors-session logistics for a useful recurring-events listing.",
+    "Develop an independent whale-watching and winter-walk practical guide after checking current conditions and operators.",
+    "Add a locally reported culture-maker profile to the next feature slate."
+  ],
+  "rawCaptures": [
+    "Visit Mornington Peninsula evergreen attraction carousel: 9/25.",
+    "Peninsula Essence wedding-fashion feature: 8/25.",
+    "Mornington Peninsula Magazine astronomy feature: 7/25."
+  ]
+}

@@ -1,10 +1,11 @@
 ---
 import { getCollection } from 'astro:content';
+import { isCancelledEvent } from '../../whats-on/_data';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import PlaceDetailTemplate from '../../../components/PlaceDetailTemplate.astro';
 import PlaceMap from '../../../components/PlaceMap.astro';
 import EventStrip from '../../../components/EventStrip.astro';
-import { routeSlug, stayTypes, wineTypes, isUpcoming } from '../../../lib/editorial';
+import { routeSlug, isStayVenue, wineTypes, isUpcoming } from '../../../lib/editorial';
 import { resolveHero } from '../../../lib/inline-edit/resolve-hero';
 
 export async function getStaticPaths() {
@@ -21,7 +22,11 @@ const places = await getCollection('places');
 const allExperiences = await getCollection('experiences');
 const allItineraries = await getCollection('itineraries');
 const allArticles = await getCollection('articles', ({ data }) => data.status === 'published');
-const allEvents = await getCollection('events');
+// Place hubs previously read the raw collection and filtered on date alone,
+// so an unpublished, archived or cancelled event still surfaced on the town
+// page. Match the gate loadLiveEvents applies everywhere else.
+const allEvents = (await getCollection('events', ({ data }) => data.status === 'published'))
+  .filter((event) => !isCancelledEvent(event));
 
 const placeSlug = routeSlug(place);
 const placeNameLower = place.data.name.toLowerCase();
@@ -58,13 +63,13 @@ const experienceSlugs = experiences.map((experience) => routeSlug(experience));
 // Prevents downstream sections becoming a directory as venue count grows.
 // "See all" links on the template route to the hub with place context.
 const eatVenues = venuesForPlace
-  .filter((venue) => !stayTypes.includes(venue.data.type) && !wineTypes.includes(venue.data.type))
+  .filter((venue) => !isStayVenue(venue) && !wineTypes.includes(venue.data.type) && venue.data.type !== 'spa')
   .slice(0, 3);
 const wineVenues = venuesForPlace
   .filter((venue) => wineTypes.includes(venue.data.type))
   .slice(0, 3);
 const stayVenues = venuesForPlace
-  .filter((venue) => stayTypes.includes(venue.data.type))
+  .filter(isStayVenue)
   .slice(0, 3);
 
 const relatedSlugs = (place.data.relatedPlaces ?? []).map((entry: any) => String(entry.id ?? entry));
@@ -97,7 +102,7 @@ const snapshotCards = [
     label: 'Eat & drink',
     title:
       eatVenues.length > 0
-        ? `${venuesForPlace.filter((venue) => !stayTypes.includes(venue.data.type) && !wineTypes.includes(venue.data.type)).length} dining picks mapped`
+        ? `${venuesForPlace.filter((venue) => !isStayVenue(venue) && !wineTypes.includes(venue.data.type) && venue.data.type !== 'spa').length} dining picks mapped`
         : 'Dining coverage coming',
     body: eatVenues.length > 0
       ? 'Restaurants, cafés, bakeries, and pubs already connected to the place layer - each with its own editor note.'
@@ -119,7 +124,7 @@ const snapshotCards = [
     label: 'Stay',
     title:
       stayVenues.length > 0
-        ? `${venuesForPlace.filter((venue) => stayTypes.includes(venue.data.type)).length} stays in the hub`
+        ? `${venuesForPlace.filter(isStayVenue).length} stays in the hub`
         : 'Stays coming',
     body: stayVenues.length > 0
       ? 'When a place has a workable bed attached, it stops being a stop and starts becoming a base.'

@@ -92,7 +92,7 @@ Endota Mornington is a main-street day spa: short treatments, reliable therapist
 
 ### Mornington stays paired with Endota Mornington
 
-Mornington town has several bayside hotel options, all within walking distance of <a href="/stay/endota-spa-mornington/">Endota Mornington</a>. For a weekend centred on the Wednesday farmers market, Main Street dining, and foreshore walks, this is the compact, sensible shape: spa adds polish rather than defining the trip.
+Mornington town has several bayside hotel options, all within walking distance of <a href="/explore/spas-and-wellness/#endota-spa-mornington">Endota Mornington</a>. For a weekend centred on the Wednesday farmers market, Main Street dining, and foreshore walks, this is the compact, sensible shape: spa adds polish rather than defining the trip.
 
 ## The three stay-and-soak weekends worth treating as products
 

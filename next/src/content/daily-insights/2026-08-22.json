@@ -1,0 +1,51 @@
+{
+  "date": "2026-08-22",
+  "title": "PI Daily Insights: Saturday 22 August 2026",
+  "generatedAt": "2026-08-21T21:44:00Z",
+  "runLabel": "21:42–21:44 UTC (7:42–7:44AM AEST)",
+  "method": "Tier 1 source scan: six scrapes, plus Tier 2 web-search sweep",
+  "summary": "1 Band A item: Shire hazardous-waste and bin-fire safety warning; human editorial review required.",
+  "actToday": [
+    {
+      "title": "Bin fires put residents and drivers at risk",
+      "score": "22/25",
+      "band": "A",
+      "source": "Mornington Peninsula Shire",
+      "observed": "Observed 21 Aug 21:44 UTC",
+      "url": "https://www.mornpen.vic.gov.au/The-Shire/News-media-and-publications/News-and-media-releases/Bin-fires-put-residents-and-drivers-at-risk",
+      "sourceLabel": "mornpen.vic.gov.au",
+      "scores": "R5·U4·V5·N3·A5",
+      "description": "The Shire says a series of fires this winter has highlighted the danger hazardous items create for waste-truck drivers and the community. The release was published 17 August.",
+      "interpretation": "Useful safety information, but retain the Shire's factual wording and verify any disposal guidance directly before publication.",
+      "recommendation": "Telegram PI group and safety/hub update, subject to human editorial approval."
+    }
+  ],
+  "news": [
+    {"item":"Community and Council unite to finish Flinders pier restoration","source":"Mornington Peninsula Shire","url":"https://www.mornpen.vic.gov.au/The-Shire/News-media-and-publications/News-and-media-releases/Community-Council-unite-behind-call-to-finish-Flinders-pier-restoration","score":"19","band":"B","note":"The Shire says 13 wooden piles remain offshore after an unfinished State Government restoration project. Treat as a fact-checked heritage/infrastructure watch item; political sensitivity requires a human editorial call."},
+    {"item":"Illegal dumpers fined after Shire investigations","source":"Mornington Peninsula Shire","url":"https://www.mornpen.vic.gov.au/The-Shire/News-media-and-publications/News-and-media-releases/Illegal-dumpers-fined-as-Shire-investigations-identify-offenders","score":"18","band":"B","note":"The Shire says enforcement officers issued fines after investigations into unlawful dumping and littering. Bank for a practical waste-disposal explainer."},
+    {"item":"Kindergarten infrastructure consultation opens","source":"Mornington Peninsula Shire","url":"https://www.mornpen.vic.gov.au/The-Shire/News-media-and-publications/News-and-media-releases/Council-seeks-input-on-kindergarten-infrastructure-challenge","score":"17","band":"B","note":"The Shire is seeking input while finalising its kindergarten-infrastructure review. Use only as a neutral consultation diary item."},
+    {"item":"Portsea named Victorian Top Tourism Town winner","source":"Mornington Peninsula Shire","url":"https://www.mornpen.vic.gov.au/The-Shire/News-media-and-publications/News-and-media-releases/Portsea-named-Victorian-Top-Tourism-Town-winner","score":"18","band":"B","note":"The Shire says Portsea won the Tiny Tourism Town category in the 2026 Victorian Top Tourism Town Awards and is a national finalist. Confirm award details before a destination-profile mention."}
+  ],
+  "events": [
+    {"event":"Science Week: TwistED Science Show - Rosebud Library","when":"Sat 22 Aug","score":"20","band":"B","recommendation":"Check same-day family listing; confirm time and booking requirements before use.","url":"https://library.mornpen.vic.gov.au/Whats-On/Events/Science-Week-TwistED-Science-Show-Rosebud-Library"},
+    {"event":"Seek the Heat at Peninsula Hot Springs","when":"15 Jul–4 Oct","score":"18","band":"B","recommendation":"Include in a winter experiences refresh after confirming ticketing and inclusions.","url":"https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Seek-the-Heat-at-Peninsula-Hot-Springs"}
+  ],
+  "competitors": [
+    {"name":"MP News","note":"Front-page mix includes a French Island medical emergency, Bays Hospital equipment support, conservation-covenant consultation and alleged property-contract failures. No automated treatment for the medical or alleged-crime items.","url":"https://www.mpnews.com.au/"},
+    {"name":"Visit Mornington Peninsula","note":"Maintaining broad winter-escape promotion around spa, food, art, golf and trails; no fresh dated campaign surfaced in this scan.","url":"https://www.visitmorningtonpeninsula.org/"},
+    {"name":"Peninsula Essence","note":"Prominent local creative/lifestyle stories and a Sorrento Ferry Terminal dining-room profile keep it active in aspirational food and arts territory.","url":"https://peninsulaessence.com.au/"},
+    {"name":"Mornington Peninsula Magazine","note":"Pushing whale encounters, winter whale walks and a Peninsula filmmaker profile.","url":"https://www.morningtonpeninsulamagazine.com.au/"}
+  ],
+  "opportunities": [
+    "Produce a vetted practical hazardous-waste and bin-fire safety note after human approval.",
+    "Build a neutral Flinders pier restoration timeline using primary project documentation.",
+    "Add the Rosebud Library Science Week session to a verified family weekend roundup.",
+    "Refresh winter guide coverage against the tourism body's ongoing spa, food and arts positioning."
+  ],
+  "rawCaptures": [
+    "MP News: Mornington marketing-business Global Search Awards finalist - 10/25.",
+    "Shire: Sammy the seal Safety Beach mural - 10/25.",
+    "Peninsula Essence: fashion and editorial lifestyle features - 9/25.",
+    "Mornington Peninsula Magazine: astronomy feature - 8/25."
+  ]
+}

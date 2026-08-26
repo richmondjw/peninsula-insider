@@ -1,6 +1,6 @@
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
-import { routeSlug } from '../lib/editorial';
+import { routeSlug, isStayVenue } from '../lib/editorial';
 import { loadLiveEvents } from './whats-on/_data';
 
 // SEOMIG rebuild 2026-07-11 (seo-migration-plan.md §4.1).
@@ -81,6 +81,7 @@ const SEO_JOURNAL_LASTMOD: Record<string, string> = {
   '/journal/mornington-peninsula-wedding-venues': '2026-08-14',
   '/journal/best-towns-to-base-yourself-with-a-dog-mornington-peninsula': '2026-06-01',
   '/journal/what-to-do-on-the-peninsula-with-a-dog-when-its-wet-or-busy': '2026-05-18',
+  '/journal/peninsula-glossary': '2026-08-26',
 };
 // eat/red-hill-cheese has no source file (eat/[slug].astro takes it and no
 // matching venue slug exists) - left without lastmod, see C1 report.
@@ -200,13 +201,12 @@ export const GET: APIRoute = async () => {
   // wineries are emitted under /wine/ only. This removes the 41-page
   // duplicate winery tree from the sitemap (SEO plan §3.3).
   const eatTypes = ['restaurant', 'cafe', 'bakery', 'pub', 'market', 'brewery', 'distillery', 'providore'];
-  const stayTypes = ['hotel', 'villa', 'cottage', 'glamping', 'farm-stay', 'spa'];
   const wineTypes = ['winery', 'producer', 'brewery', 'distillery'];
 
   const eatVenues = venues.filter(
     (v) => eatTypes.includes(v.data.type) && notExcluded(v) && !EAT_STUB_SLUGS.has(routeSlug(v)),
   );
-  const stayVenues = venues.filter((v) => stayTypes.includes(v.data.type) && notExcluded(v));
+  const stayVenues = venues.filter((v) => isStayVenue(v) && notExcluded(v));
   const wineVenues = venues.filter((v) => wineTypes.includes(v.data.type) && notExcluded(v));
 
   const entries: string[] = [];
@@ -285,6 +285,7 @@ export const GET: APIRoute = async () => {
     '/journal/mornington-peninsula-wedding-venues',
     '/journal/best-towns-to-base-yourself-with-a-dog-mornington-peninsula',
     '/journal/what-to-do-on-the-peninsula-with-a-dog-when-its-wet-or-busy',
+    '/journal/peninsula-glossary',
   ];
   for (const page of seoJournalPages) {
     entries.push(url(page, 0.8, 'monthly', SEO_JOURNAL_LASTMOD[page]));
@@ -318,7 +319,7 @@ export const GET: APIRoute = async () => {
   for (const page of eatCategoryPages) {
     entries.push(url(`/eat/${page}`, 0.7, 'weekly', EAT_CATEGORY_LASTMOD[page]));
   }
-  const stayCategoryPages = ['boutique-hotels', 'cape-schanck', 'coastal-stays', 'cottages', 'couples-retreats', 'flinders', 'glamping', 'hot-springs-accommodation', 'luxury', 'mornington', 'red-hill', 'resorts', 'sorrento', 'villas', 'vineyard-stays', 'wellness-retreats', 'winery-accommodation'];
+  const stayCategoryPages = ['boutique-hotels', 'cape-schanck', 'coastal-stays', 'cottages', 'couples-retreats', 'flinders', 'glamping', 'hot-springs-accommodation', 'luxury', 'red-hill', 'resorts', 'sorrento', 'villas', 'vineyard-stays', 'wellness-retreats', 'winery-accommodation'];
   for (const page of stayCategoryPages) {
     entries.push(url(`/stay/${page}`, 0.7, 'weekly', STAY_CATEGORY_LASTMOD[page]));
   }
@@ -464,7 +465,10 @@ export const GET: APIRoute = async () => {
   // loadLiveEvents is recurrence-aware and rejects ended series, so a stale
   // recurring label can no longer keep an expired URL in machine indexes.
   const today = new Date();
-  const liveEvents = await loadLiveEvents(today);
+  // includeCancelled: a cancelled event keeps an indexable notice page, so it
+  // must stay in the sitemap. Dropping it here while [slug].astro still emits
+  // index would create a sitemap-absent finding and regress the SEO ratchet.
+  const liveEvents = await loadLiveEvents(today, { includeCancelled: true });
   for (const live of liveEvents) {
     entries.push(url(live.href, 0.6, 'weekly', dateStr(live.event.data.publishedAt)));
   }
