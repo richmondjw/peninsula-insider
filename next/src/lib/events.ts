@@ -278,10 +278,16 @@ export function eventJsonLd(event: Event, siteUrl: string): Record<string, unkno
     description: data.description ?? data.summary,
     startDate: startISO,
     endDate: endISO,
-    eventStatus:
-      (data as Record<string, unknown>).cancelled === true
-        ? 'https://schema.org/EventCancelled'
-        : 'https://schema.org/EventScheduled',
+    // A cancelled event keeps EventCancelled forever - that cancellation is a
+    // fact Google still wants after the date passes. An event that simply ran
+    // its course must NOT keep advertising EventScheduled: endDate already
+    // marks it historical, and a stale "scheduled" status is what
+    // lint-seo-architecture's stale-event-scheduled assertion catches.
+    ...((data as Record<string, unknown>).cancelled === true
+      ? { eventStatus: 'https://schema.org/EventCancelled' }
+      : new Date(endISO) >= new Date()
+        ? { eventStatus: 'https://schema.org/EventScheduled' }
+        : {}),
     eventAttendanceMode:
       data.indoorOutdoor === 'Indoor' || data.indoorOutdoor === 'Indoor / Outdoor'
         ? 'https://schema.org/MixedEventAttendanceMode'

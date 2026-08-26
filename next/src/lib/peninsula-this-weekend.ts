@@ -139,7 +139,10 @@ export function buildPtwEventSchema(article: any, canonicalUrl: string) {
     description: article.data.dek,
     startDate: start.toISOString(),
     endDate: sunday.toISOString(),
-    eventStatus: 'https://schema.org/EventScheduled',
+    // Only the weekend that is still ahead of us is genuinely "scheduled".
+    // Archived dispatches keep their dates but drop the status, so indexable
+    // archive pages stop advertising long-finished weekends as upcoming.
+    ...(sunday >= new Date() ? { eventStatus: 'https://schema.org/EventScheduled' } : {}),
     eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
     location: {
       '@type': 'Place',
