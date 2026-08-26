@@ -63,7 +63,7 @@ jobs:
           set -euo pipefail
           mapfile -t signed < "$RUNNER_TEMP/pi-runtime-event/headers"
           test "${#signed[@]}" -eq 2
-          curl --silent --show-error --fail-with-body \
+          curl --silent --show-error \
             --request POST \
             --header 'content-type: application/json' \
             --header "x-pi-timestamp: ${signed[0]}" \
@@ -71,5 +71,9 @@ jobs:
             --header "x-pi-delivery-id: $PI_DELIVERY_ID" \
             --data-binary "@$RUNNER_TEMP/pi-runtime-event/event.json" \
             --output "$RUNNER_TEMP/pi-runtime-event/response.json" \
-            "$PI_EVENT_ENDPOINT"
-          test -s "$RUNNER_TEMP/pi-runtime-event/response.json"
+            --write-out '%{http_code}' \
+            "$PI_EVENT_ENDPOINT" \
+            > "$RUNNER_TEMP/pi-runtime-event/response.status"
+          node ops/scripts/pi-deploy-event-provenance.mjs --validate-ack \
+            "$RUNNER_TEMP/pi-runtime-event/response.status" \
+            "$RUNNER_TEMP/pi-runtime-event/response.json"

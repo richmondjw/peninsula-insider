@@ -1,7 +1,9 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 
-import { validateDeploymentProvenance } from './pi-deploy-event-provenance.mjs';
+import {
+  buildDeploymentEvent, validateAdapterAcknowledgement, validateDeploymentProvenance,
+} from './pi-deploy-event-provenance.mjs';
 
 const SOURCE = '5b9a7f14d42a6b9db1f12fc38a94209a8825ebb3';
 const ARTIFACT = '7496a0d1d2df86e496148994bf207b6270b8ac0a';
@@ -70,4 +72,34 @@ test('rejects non-pages environments, refs, failed runs and stale provenance', (
   const stale = fixture();
   stale.deploymentManifest.generatedAt = '2026-08-25T20:24:28Z';
   assert.throws(() => validateDeploymentProvenance(stale), /temporal bound/);
+});
+
+test('emits deterministic d792-compatible checks pinned to the source revision', () => {
+  const value = fixture();
+  const provenance = validateDeploymentProvenance(value);
+  const event = buildDeploymentEvent({
+    env: { PI_REPOSITORY: value.repository },
+    deployment: value.deployment,
+    deploymentStatus: value.deploymentStatus,
+    provenance,
+  });
+  assert.deepEqual(event.check_definitions, [
+    { id: 'homepage', url: 'https://peninsulainsider.com.au/', expected_status: 200 },
+    { id: 'deployment-provenance', url: 'https://peninsulainsider.com.au/deployment.json', expected_status: 200, required_text: `"sourceSha": "${SOURCE}"` },
+    { id: 'release-provenance', url: 'https://peninsulainsider.com.au/release-manifest.json', expected_status: 200, required_text: `"sourceSha": "${SOURCE}"` },
+  ]);
+});
+
+test('requires the exact newly-admitted adapter acknowledgement', () => {
+  assert.deepEqual(
+    validateAdapterAcknowledgement('202', '{"status":"ignored_binding_disabled","replayed":false}'),
+    { status: 'ignored_binding_disabled', replayed: false },
+  );
+  assert.deepEqual(
+    validateAdapterAcknowledgement('202', '{"status":"invoked_succeeded","replayed":false}'),
+    { status: 'invoked_succeeded', replayed: false },
+  );
+  assert.throws(() => validateAdapterAcknowledgement('200', '{"status":"invoked_succeeded","replayed":false}'), /must be 202/);
+  assert.throws(() => validateAdapterAcknowledgement('202', '{"status":"processing","replayed":true}'), /newly admitted/);
+  assert.throws(() => validateAdapterAcknowledgement('202', '{"status":"ignored_binding_disabled","replayed":false,"extra":1}'), /shape drift/);
 });

@@ -1,5 +1,5 @@
 import { createHmac } from 'node:crypto';
-import { mkdir, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -81,6 +81,68 @@ export function validateDeploymentProvenance({
   };
 }
 
+export function buildDeploymentEvent({ env, deployment, deploymentStatus, provenance }) {
+  const sourceShaFragment = `"sourceSha": "${provenance.sourceSha}"`;
+  return {
+    schema_version: '1.0',
+    event: 'production_deploy_succeeded',
+    repository: env.PI_REPOSITORY,
+    environment: 'github-pages',
+    deployment_ref: 'gh-pages',
+    status: 'succeeded',
+    deployment_id: String(deployment.id),
+    deployment_status_id: String(deploymentStatus.id),
+    revision: provenance.sourceSha,
+    deployment_artifact_revision: provenance.artifactSha,
+    build_run_id: provenance.buildRunId,
+    deployed_at: provenance.deployedAt,
+    provenance: {
+      deployment_manifest_source_sha: provenance.sourceSha,
+      release_manifest_source_sha: provenance.sourceSha,
+      build_run_head_sha: provenance.sourceSha,
+      deployment_manifest_generated_at: provenance.deploymentManifestGeneratedAt,
+      release_manifest_generated_at: provenance.releaseManifestGeneratedAt,
+      artifact_commit_at: provenance.artifactCommitAt,
+      build_completed_at: provenance.buildCompletedAt,
+    },
+    check_definitions: [
+      { id: 'homepage', url: 'https://peninsulainsider.com.au/', expected_status: 200 },
+      {
+        id: 'deployment-provenance',
+        url: 'https://peninsulainsider.com.au/deployment.json',
+        expected_status: 200,
+        required_text: sourceShaFragment,
+      },
+      {
+        id: 'release-provenance',
+        url: 'https://peninsulainsider.com.au/release-manifest.json',
+        expected_status: 200,
+        required_text: sourceShaFragment,
+      },
+    ],
+  };
+}
+
+export function validateAdapterAcknowledgement(httpStatus, rawBody) {
+  invariant(String(httpStatus).trim() === '202', 'adapter acknowledgement HTTP status must be 202');
+  let acknowledgement;
+  try {
+    acknowledgement = JSON.parse(rawBody);
+  } catch {
+    throw new Error('adapter acknowledgement is not JSON');
+  }
+  invariant(
+    JSON.stringify(Object.keys(acknowledgement).sort()) === JSON.stringify(['replayed', 'status']),
+    'adapter acknowledgement shape drift',
+  );
+  invariant(acknowledgement.replayed === false, 'adapter acknowledgement must be a newly admitted delivery');
+  invariant(
+    ['ignored_binding_disabled', 'invoked_succeeded'].includes(acknowledgement.status),
+    'adapter acknowledgement status is not accepted',
+  );
+  return acknowledgement;
+}
+
 async function fetchJson(url, { token } = {}) {
   const headers = { accept: 'application/json', 'cache-control': 'no-cache' };
   if (token) {
@@ -127,34 +189,7 @@ export async function emitSignedDeploymentEvent(env = process.env) {
     artifactCommit,
     buildRun,
   });
-  const event = {
-    schema_version: '1.0',
-    event: 'production_deploy_succeeded',
-    repository: env.PI_REPOSITORY,
-    environment: 'github-pages',
-    deployment_ref: 'gh-pages',
-    status: 'succeeded',
-    deployment_id: String(deployment.id),
-    deployment_status_id: String(deploymentStatus.id),
-    revision: provenance.sourceSha,
-    deployment_artifact_revision: provenance.artifactSha,
-    build_run_id: provenance.buildRunId,
-    deployed_at: provenance.deployedAt,
-    provenance: {
-      deployment_manifest_source_sha: provenance.sourceSha,
-      release_manifest_source_sha: provenance.sourceSha,
-      build_run_head_sha: provenance.sourceSha,
-      deployment_manifest_generated_at: provenance.deploymentManifestGeneratedAt,
-      release_manifest_generated_at: provenance.releaseManifestGeneratedAt,
-      artifact_commit_at: provenance.artifactCommitAt,
-      build_completed_at: provenance.buildCompletedAt,
-    },
-    check_definitions: [
-      { url: 'https://peninsulainsider.com.au/', expected_status: 200 },
-      { url: 'https://peninsulainsider.com.au/deployment.json', expected_status: 200 },
-      { url: 'https://peninsulainsider.com.au/release-manifest.json', expected_status: 200 },
-    ],
-  };
+  const event = buildDeploymentEvent({ env, deployment, deploymentStatus, provenance });
   const body = JSON.stringify(event);
   const timestamp = String(Math.floor(Date.now() / 1000));
   const signature = `sha256=${createHmac('sha256', env.PI_EVENT_HMAC_SECRET).update(`${timestamp}.${body}`).digest('hex')}`;
@@ -166,7 +201,15 @@ export async function emitSignedDeploymentEvent(env = process.env) {
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
-  emitSignedDeploymentEvent().then(({ event }) => {
+  const operation = process.argv[2] === '--validate-ack'
+    ? Promise.all([readFile(process.argv[3], 'utf8'), readFile(process.argv[4], 'utf8')])
+      .then(([status, body]) => ({ acknowledgement: validateAdapterAcknowledgement(status, body) }))
+    : emitSignedDeploymentEvent();
+  operation.then(({ event, acknowledgement }) => {
+    if (acknowledgement) {
+      process.stdout.write(`${JSON.stringify({ status: 'acknowledged', adapter_status: acknowledgement.status })}\n`);
+      return;
+    }
     process.stdout.write(`${JSON.stringify({ status: 'signed', source_revision: event.revision, artifact_revision: event.deployment_artifact_revision, build_run_id: event.build_run_id })}\n`);
   }).catch((error) => {
     process.stderr.write(`${JSON.stringify({ status: 'rejected', error: String(error?.message || error).slice(0, 500) })}\n`);
