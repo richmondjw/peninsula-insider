@@ -3,7 +3,7 @@
 **Date:** Wednesday, 26 August 2026 (UTC) / Thursday, 27 August 2026 (AEST)
 **Job:** `pi-daily-quick-note-qa-publish`
 **Agent:** Remy
-**Status:** READY TO PUBLISH
+**Status:** PUBLISH BLOCKED — deployment failed before Pages update
 
 ## Content
 
@@ -18,6 +18,9 @@
 - The note has a current citation, valid publication and expiry window, and contains no unsupported venue, booking or operational claims.
 - Validation results are recorded below before publication.
 
-## Verification
+## Deployment and verification
 
-Pending the GitHub Pages deployment and external post-publish verification of `https://peninsulainsider.com.au/quick-note/`.
+- Published-content commit: `051c6fe7695c865bb3d9e5e5672157ac9f0e335a` on `origin/main`.
+- Build and Deploy workflow run `33011374012` failed in the **Build** step at 2026-08-26T20:41:29Z. The content-admission gate passed; Pages deployment was skipped.
+- `verification_result: "failed"` — no external checks were run because the externally-resolved site was not updated. The quick note must not be described as live.
+- Failure run: https://github.com/richmondjw/peninsula-insider/actions/runs/33011374012
