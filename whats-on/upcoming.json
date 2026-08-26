@@ -12,7 +12,7 @@
     "label": "Fri 28 – Sun 30 August",
     "count": 15
   },
-  "numberOfItems": 40,
+  "numberOfItems": 41,
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -533,9 +533,22 @@
         "description": "Glamping Tents - Horror Movie Campout: Back From The Dead Tour 2026 at Mornington Racecourse.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
+    },
+    {
+      "@type": "ListItem",
+      "position": 41,
+      "item": {
+        "@type": "Event",
+        "name": "Peninsula VineHop Festival 2026",
+        "url": "https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/",
+        "startDate": "2026-11-21",
+        "endDate": "2026-11-21",
+        "description": "A one-day craft drinks festival across seven Mornington Peninsula venues on Saturday 21 November 2026, with tastings, food and live music. The event runs from 11am to 7pm and is strictly 18+, with shuttle, general admission and private bus options.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
     }
   ],
-  "count": 40,
+  "count": 41,
   "events": [
     {
       "title": "Brunch Thyme at Alba Thermal Springs & Spa",
@@ -1055,6 +1068,19 @@
       "venue": null,
       "freePaid": null,
       "summary": "Glamping Tents - Horror Movie Campout: Back From The Dead Tour 2026 at Mornington Racecourse.",
+      "thisWeekend": false
+    },
+    {
+      "title": "Peninsula VineHop Festival 2026",
+      "url": "https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/",
+      "startDate": "2026-11-21",
+      "endDate": "2026-11-21",
+      "recurrence": "annual",
+      "category": "festival",
+      "place": null,
+      "venue": null,
+      "freePaid": "Paid",
+      "summary": "A one-day craft drinks festival across seven Mornington Peninsula venues on Saturday 21 November 2026, with tastings, food and live music. The event runs from 11am to 7pm and is strictly 18+, with shuttle, general admission and private bus options.",
       "thisWeekend": false
     }
   ]
