@@ -74,6 +74,6 @@ jobs:
             --write-out '%{http_code}' \
             "$PI_EVENT_ENDPOINT" \
             > "$RUNNER_TEMP/pi-runtime-event/response.status"
-          node ops/scripts/pi-deploy-event-provenance.mjs --validate-ack \
+          node ops/scripts/pi-deploy-event-provenance.mjs --validate-ack production \
             "$RUNNER_TEMP/pi-runtime-event/response.status" \
             "$RUNNER_TEMP/pi-runtime-event/response.json"

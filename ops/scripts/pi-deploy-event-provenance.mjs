@@ -123,7 +123,12 @@ export function buildDeploymentEvent({ env, deployment, deploymentStatus, proven
   };
 }
 
-export function validateAdapterAcknowledgement(httpStatus, rawBody) {
+export function validateAdapterAcknowledgement(httpStatus, rawBody, phase) {
+  const expectedByPhase = {
+    production: 'invoked_succeeded',
+    'disabled-fixture': 'ignored_binding_disabled',
+  };
+  invariant(Object.hasOwn(expectedByPhase, phase), 'adapter acknowledgement phase is invalid');
   invariant(String(httpStatus).trim() === '202', 'adapter acknowledgement HTTP status must be 202');
   let acknowledgement;
   try {
@@ -136,10 +141,7 @@ export function validateAdapterAcknowledgement(httpStatus, rawBody) {
     'adapter acknowledgement shape drift',
   );
   invariant(acknowledgement.replayed === false, 'adapter acknowledgement must be a newly admitted delivery');
-  invariant(
-    ['ignored_binding_disabled', 'invoked_succeeded'].includes(acknowledgement.status),
-    'adapter acknowledgement status is not accepted',
-  );
+  invariant(acknowledgement.status === expectedByPhase[phase], `adapter acknowledgement status is not valid for ${phase}`);
   return acknowledgement;
 }
 
@@ -202,8 +204,8 @@ export async function emitSignedDeploymentEvent(env = process.env) {
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const operation = process.argv[2] === '--validate-ack'
-    ? Promise.all([readFile(process.argv[3], 'utf8'), readFile(process.argv[4], 'utf8')])
-      .then(([status, body]) => ({ acknowledgement: validateAdapterAcknowledgement(status, body) }))
+    ? Promise.all([readFile(process.argv[4], 'utf8'), readFile(process.argv[5], 'utf8')])
+      .then(([status, body]) => ({ acknowledgement: validateAdapterAcknowledgement(status, body, process.argv[3]) }))
     : emitSignedDeploymentEvent();
   operation.then(({ event, acknowledgement }) => {
     if (acknowledgement) {

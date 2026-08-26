@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
 import test from 'node:test';
 
 import {
@@ -92,14 +93,23 @@ test('emits deterministic d792-compatible checks pinned to the source revision',
 
 test('requires the exact newly-admitted adapter acknowledgement', () => {
   assert.deepEqual(
-    validateAdapterAcknowledgement('202', '{"status":"ignored_binding_disabled","replayed":false}'),
+    validateAdapterAcknowledgement('202', '{"status":"ignored_binding_disabled","replayed":false}', 'disabled-fixture'),
     { status: 'ignored_binding_disabled', replayed: false },
   );
   assert.deepEqual(
-    validateAdapterAcknowledgement('202', '{"status":"invoked_succeeded","replayed":false}'),
+    validateAdapterAcknowledgement('202', '{"status":"invoked_succeeded","replayed":false}', 'production'),
     { status: 'invoked_succeeded', replayed: false },
   );
-  assert.throws(() => validateAdapterAcknowledgement('200', '{"status":"invoked_succeeded","replayed":false}'), /must be 202/);
-  assert.throws(() => validateAdapterAcknowledgement('202', '{"status":"processing","replayed":true}'), /newly admitted/);
-  assert.throws(() => validateAdapterAcknowledgement('202', '{"status":"ignored_binding_disabled","replayed":false,"extra":1}'), /shape drift/);
+  assert.throws(() => validateAdapterAcknowledgement('202', '{"status":"ignored_binding_disabled","replayed":false}', 'production'), /not valid for production/);
+  assert.throws(() => validateAdapterAcknowledgement('202', '{"status":"invoked_succeeded","replayed":false}', 'disabled-fixture'), /not valid for disabled-fixture/);
+  assert.throws(() => validateAdapterAcknowledgement('200', '{"status":"invoked_succeeded","replayed":false}', 'production'), /must be 202/);
+  assert.throws(() => validateAdapterAcknowledgement('202', '{"status":"processing","replayed":true}', 'production'), /newly admitted/);
+  assert.throws(() => validateAdapterAcknowledgement('202', '{"status":"ignored_binding_disabled","replayed":false,"extra":1}', 'disabled-fixture'), /shape drift/);
+  assert.throws(() => validateAdapterAcknowledgement('202', '{"status":"invoked_succeeded","replayed":false}', 'unknown'), /phase is invalid/);
+});
+
+test('production workflow selects only the production acknowledgement phase', async () => {
+  const workflow = await readFile(new URL('../../.github/workflows/pi-post-deploy-qa-event.yml', import.meta.url), 'utf8');
+  assert.match(workflow, /--validate-ack production/);
+  assert.doesNotMatch(workflow, /--validate-ack disabled-fixture/);
 });
