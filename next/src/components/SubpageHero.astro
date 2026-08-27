@@ -21,9 +21,9 @@ export interface Props {
   /** H1 text; supports inline <em> for italic accent */
   title: string;
   /** Absolute path to hero image, e.g. /images/sourced/... */
-  heroImage: string;
+  heroImage?: string;
   /** Descriptive alt text for the image */
-  imageAlt: string;
+  imageAlt?: string;
   /** Optional photo caption. Temporarily retained for data compatibility, but not displayed until image locations are verified. */
   imageCaption?: string;
   /**
@@ -60,6 +60,7 @@ const imageOverride = overrides?.image['hero'];
 const resolvedTitle = titleOverride ?? title;
 const resolvedImageSrc = imageOverride?.src ?? heroImage;
 const resolvedImageAlt = imageOverride?.alt ?? imageAlt;
+const hasHeroImage = Boolean(resolvedImageSrc && resolvedImageAlt);
 
 const titleAttrs = editable
   ? editableText({ entityType, entitySlug: entitySlug!, fieldPath: 'hero.title', label: `${entitySlug} hero title` })
@@ -86,7 +87,7 @@ const imageAttrs = editable
       </div>
 
       <div class="subpage-hero__visual" aria-hidden="true">
-        <img src={resolvedImageSrc} alt={resolvedImageAlt} loading="lazy" decoding="async" {...imageAttrs} />
+        {hasHeroImage && <img src={resolvedImageSrc} alt={resolvedImageAlt} loading="lazy" decoding="async" {...imageAttrs} />}
         <div class="subpage-hero__fog"></div>
       </div>
 
