@@ -3,148 +3,131 @@ type: lookahead
 status: active
 domain: pi-core
 owner: Sloane
-updated: 2026-06-19
-tags: [peninsula-insider, sloane, slate, lookahead]
+updated: 2026-08-27
+tags: [peninsula-insider, sloane, slate, lookahead, restoration]
 ---
 
 # 4-Week Look-Ahead
 
-**Last refreshed:** 2026-06-19 12:00 AEST — W25 closing, W26 preliminary seeded by Sloane  
-**Cadence:** Full refresh every Friday at 12:00 per playbook §2  
-**Horizon:** W25 (closing today) → W+1 (W26) → W+2 (W27) → W+3 (W28) → W+4 (W29)
+**Last refreshed:** 2026-08-27, as part of newsroom restoration — Sloane
+**Cadence:** Full refresh every Friday at 12:00 per playbook §2. This refresh is off-cycle (Thursday), filed alongside the first checkpoint, slate, perf brief, and retro this newsroom has produced since W25 (15 June 2026). Normal Friday cadence resumes W36.
+**Horizon:** This Week (W35, in progress) → W+1 (W36) → W+2 (W37) → W+3 (W38) → W+4 (W39)
+
+**Read this first:** the previous look-ahead on file is dated 19 June 2026 and describes W25 closing into W26. Everything in it beyond that point never happened — no W26 slate, no W26 commissioning, none of the carry-overs it lists were ever resolved or formally closed. This refresh does not try to resume from that stale document. It starts fresh from the current, evidence-based state of the repo as of 27 August 2026. See `checkpoint-2026-W35-wed.md`, `slate-2026-W35.md`, `perf-2026-W34.md`, and `retro-2026-W34.md` for the full picture of how the gap happened and what is being done about it this week.
 
 ---
 
-## This Week — W25 · Mon 15 Jun → Fri 19 Jun 2026 🔒 CLOSING
+## This Week — W35 · Mon 24 Aug → Sun 30 Aug 2026 🟡 IN PROGRESS (restoration)
 
-**Status:** Final day. Retro 11:00 AEST. Perf council 10:00 AEST. Week closes EOD.
+**Status:** Slate locked out-of-cycle Thursday 27 August. Three commissioned items, all urgent, all with a compressed Fri–Sun deadline window. Full details: `slates/slate-2026-W35.md`.
 
-### Locked Slate — 5 pieces
+### Locked Slate — 3 pieces
 
-| # | Slot | Piece | Writer | Words | Deadline | Status |
-|---|---|---|---|---|---|---|
-| 1 | Cover | Truffle Season Week Three — What's On the Plate Right Now | Lucien | 750 | Thu 18 Jun 17:00 | ❓ Confirm shipped |
-| 2 | Feature/Support | Winter Feature #1 — Mid-Winter Field Guide | Margot (in-house), Tyler QC | 900 | Thu 18 Jun 17:00 | ❓ Confirm shipped |
-| 3 | Support | Weekend Picks — 20–21 June | Iris | 500 | Fri 19 Jun 08:00 | ❓ Confirm shipped |
-| 4 | Letter | Editor's Letter W25 | Tyler | ~450 | Fri 19 Jun 08:00 | ❓ Confirm shipped |
-| 5 | Newsletter-only | Peninsula Radar W25 | Sloane | 300 | Tue 17 Jun 12:00 | ❓ Confirm shipped |
+| # | Slot | Piece | Owner | Deadline | Status |
+|---|---|---|---|---|---|
+| 1 | Dispatch | Peninsula This Weekend — 29 to 30 August | Iris (write), Vera (gate) | Fri 28 Aug, 12:00 | 🔴 Commissioned — urgent |
+| 2 | Maintenance | Event card audit + replacement (homepage + What's On) | Iris / Margot / Vera (gate) | Fri 28 Aug, 16:00 | 🔴 Commissioned — urgent |
+| 3 | Governance | Sorrento Off-Season Weekend — publish or archive | Margot / Vera (gate if publishing) | Sun 30 Aug, EOD | 🟡 Commissioned |
 
-**Total words:** ~2,900 · **Freelance:** 0 (Etta + Hugo killed from slate — 4+ weeks no confirmation)
+**Not on this slate:** standing columns (Lucien, Editor's Letter, Radar) — deliberately deferred to W36 so this week's compressed slate stays achievable. See W36 below.
 
-### W25 close-out actions (before EOD)
+### W35 close-out actions (before W36 Monday commissioning)
 
-- 🔴 **Retro file** — `retros/retro-2026-W25.md` to be filed by Sloane by EOD
-- 🔴 **Perf file** — `perf/perf-2026-W25.md` to be filed by Sloane by EOD
-- 🔴 **Dex onboarding** — Hard deadline passed in W24. Tyler to confirm resolved or escalate immediately
-- 🔴 **Q3 theme review** — Must have happened before W27 (Q3 opens). Confirm date locked or run before W26 Monday commissioning
-- 🟡 **Tyler W26 Editor's Letter draft** — Per standing protocol, W26 letter drafted one week ahead. Confirm exists before W25 closes
+- 🔴 Confirm all three W35 items shipped or were formally closed — first test of whether the restored cycle actually holds
+- 🔴 Tyler: Lucien decision — in or out — before W36 Monday commissioning. Open since W25 retro (over two months)
+- 🟡 Tyler: any lightweight analytics path, even partial, before the W36/next Performance Council. Sixth-plus consecutive analytics-blind cycle
+- 🟡 Standards conversation: does the automated content pipeline (insider-picks, content-factory campaigns, daily freshness passes) route through Vera's gate going forward, or operate under a documented, bounded exception? Currently undecided and unresolved — flagged at W34 retro
 
 ---
 
-## W+1 — W26 · Mon 22 Jun → Fri 26 Jun 2026 🔵 PRELIMINARY
+## W+1 — W36 · Mon 31 Aug → Fri 4 Sep 2026 🔵 PRELIMINARY — full rhythm resumes
 
-> Commissioning meeting: Monday 22 June 09:00 AEST. Slate locks EOD Monday. Tyler sign-off required.  
-> See `slates/slate-2026-W26.md` (to be created Monday).
+> Commissioning meeting: Monday 31 August 09:00 AEST. Slate locks EOD Monday. Tyler sign-off required.
+> Wednesday checkpoint, Friday performance council, Friday retro, and Friday look-ahead refresh all resume on normal schedule this week.
+> See `slates/slate-2026-W36.md` (to be created Monday).
 
-### Standing items (auto-seeded)
+### Standing items to re-seed (not run since before the gap)
 
-| Slot | Piece | Writer | Deadline | Status |
-|---|---|---|---|---|
-| Cover or Support | Lucien weekly column — TBC angle | Lucien | Fri 26 Jun 08:00 | 🔵 Standing |
-| Support | Weekend Picks — 27–28 June | Iris | Fri 26 Jun 08:00 | 🔵 Standing |
-| Letter | Editor's Letter W26 | Tyler | Fri 26 Jun 08:00 | 🔵 Standing |
-
-**Note on Editor's Letter:** Tyler's W26 draft should have been written this week (W25 standing protocol). Confirm before W25 closes today.
-
-### Seasonal / editorial beats
-
-- **Winter solstice.** Solstice falls Sunday 21 June — the day before W26 opens. This is the editorial moment of the season: "peak winter on the Peninsula." Strong Lucien cover or Iris angle. Margot to bring a concrete pitch to Monday commissioning.
-- **Q2 close.** Q2 ends Sunday 28 June. Strong Tyler letter hook — quarter review, what winter delivered, reader themes.
-- **Winter Feature #2** — if W25's Feature #1 shipped cleanly, seed a second feature here: stay, experience, or events angle. Margot to propose owner at Monday commissioning.
-- **Victorian school holidays begin.** Start ~27 June (last day of W26). Peninsula family/day-tripper traffic ramps. Iris family picks angle or Margot commission — brief at Monday.
-
-### Carry-over candidates (freelance gate still applies)
-
-| Piece | Writer | Condition | Decision required |
+| Slot | Piece | Writer | Status |
 |---|---|---|---|
-| `wood-fired-fireplace-field-guide` | Etta Hollings | Written rate + diary confirmation | Margot: confirm or formally kill before Monday commissioning |
-| `cellar-door-winter-hours-survey` | Hugo Brennan | Differentiation check + rate + diary | Margot: confirm or formally kill before Monday commissioning |
-
-**Freelance gate:** Both pieces 4+ weeks unconfirmed. If Margot cannot produce written rate confirmation AND diary acknowledgement by W26 Monday commissioning, both pieces are formally dropped. No extensions.
-
-### Provisional commissions
-
-- Winter Feature #2 (Margot to bring owner + angle to Monday — high priority)
-- Solstice / peak-winter piece (if not covered by Lucien column — Margot or in-house)
-- School holidays family/weekend angle (Iris or commission)
-
-### Capacity check
-
-🟡 3 standing confirmed. 1–2 commissions needed to fill out the week. W26 cover is unassigned beyond Lucien standing — Margot must come to Monday with at least one concrete proposal. Week looks thin without a Feature #2 or solstice piece in commission.
-
----
-
-## W+2 — W27 · Mon 29 Jun → Fri 3 Jul 2026
-
-### Standing items (auto-seeded)
-
-- Lucien weekly column
-- Iris Weekend Picks
-- Editor's Letter (Tyler)
+| Cover or Support | Lucien weekly column | Lucien | 🔴 Contingent on Tyler's in/out decision from W35 |
+| Support | Weekend Picks — 5 to 6 September | Iris | 🔵 Standing — reinstate as commissioned piece, not automated substitute |
+| Letter | Editor's Letter W36 | Tyler | 🔴 Has not run since W25 (letter-2026-25.md). Reinstating this is a priority test of the restored rhythm |
+| Newsletter-only | Peninsula Radar W36 | Sloane | 🔴 Has not run since before the gap. Reinstate per the W25 change: write immediately after Monday commissioning |
 
 ### Seasonal / editorial beats
 
-- **Q3 opens.** Week of July 1 — Q3 theme #1 must be locked and in play. If the Q3 review still hasn't happened by W27 Monday, it is a critical failure. No more slippage.
-- **End-of-June editorial summary.** What winter has delivered: standout pieces, reader response, engagement patterns. Strong Tyler letter hook.
-- **Winter Feature #2** — hold here if not run in W26.
-- **School holidays in full swing.** Coordinate with Iris for family/weekend picks; flag to Margot if a dedicated family piece makes sense.
-- **Q2 close editorial note** — if not run as Tyler's W26 letter, carry the beat here.
+- **Late-winter to spring transition.** Free weekday entry to the Pt. Leo Estate sculpture park (mentioned in `insider-picks-2026-08-27.md`) ends 31 August — the day W36 opens. A genuine seasonal hinge point worth a Margot or Iris pitch: what changes on the Peninsula as winter closes out.
+- **Automated pipeline governance decision.** If Tyler resolves the standards question flagged this week, it needs to land as a documented process note before W37, not carried indefinitely as an open flag.
+
+### Carry-over candidates from W35
+
+| Piece | Condition |
+|---|---|
+| Any W35 item not shipped by Sunday 30 Aug EOD | Rolls to W36 with an honest note on why, per the Wednesday-gate discipline being reinstated |
 
 ### Capacity check
 
-🟡 3 standing + commissions TBC. Seed fully at W26 look-ahead refresh (Friday 26 June).
+🔴 Thin. Every standing item is either contingent on an unresolved decision (Lucien) or has not run in over two months (Letter, Radar, properly-commissioned Weekend Picks). W36 commissioning needs Margot to bring concrete proposals for at least one feature-weight piece beyond the standing reinstatements, so the week is not entirely "getting the basics running again."
 
 ---
 
-## W+3 — W28 · Mon 6 Jul → Fri 10 Jul 2026
+## W+2 — W37 · Mon 7 Sep → Fri 11 Sep 2026
 
-### Standing items (auto-seeded)
+### Standing items (auto-seeded, assuming W36 reinstatement holds)
 
-- Lucien weekly column
+- Lucien weekly column (if resolved in)
 - Iris Weekend Picks
 - Editor's Letter (Tyler)
+- Peninsula Radar (Sloane)
 
 ### Seasonal / editorial beats
 
-- Q3 theme #1 in full swing — coverage consistency check with Lucien + Margot
-- Mid-July feature slot (TBC — seed at W27 refresh)
-- School holidays continue — Peninsula family/staycation angle; Iris to brief
-- Newsletter-only slot if capacity allows
+- **Early spring on the Peninsula.** If W36 doesn't fully cover the winter-to-spring hinge, it carries here. Margot or Iris to bring an angle at W36 Friday look-ahead refresh.
+- **Four-week reliability test.** This is week two of the restored rhythm. The real test of whether restoration held is not W35 (compressed, urgent) but whether W36 and W37 both produce a full slate, checkpoint, and retro without slippage.
 
 ### Capacity check
 
-🟢 No signals yet. Seed at W27 look-ahead refresh (Friday 3 July).
+🟡 Unknown — seed fully at the W36 Friday look-ahead refresh once this week's commissioning outcomes are known.
 
 ---
 
-## W+4 — W29 · Mon 13 Jul → Fri 17 Jul 2026
+## W+3 — W38 · Mon 14 Sep → Fri 18 Sep 2026
 
 ### Standing items (auto-seeded)
 
 - Lucien weekly column
 - Iris Weekend Picks
 - Editor's Letter (Tyler)
+- Peninsula Radar (Sloane)
 
 ### Placeholders
 
-- Q3 theme #1 mid-run coverage balance check
-- School holidays end ~17 July — Peninsula transitions back to shoulder traffic; editorial note
-- Winter-to-spring transition begins: first signals of what August brings (early look to season shift)
-- Newsletter-only slot if capacity allows
+- No seasonal or feature signals identified yet — this is three weeks out from the current restoration point and genuinely unknown. Seed at the W37 look-ahead refresh (Friday 11 September) rather than guessing now.
 
 ### Capacity check
 
-🟢 No signals yet. Seed at W28 look-ahead refresh (Friday 10 July).
+🟢 No signals yet. Seed at W37 refresh.
+
+---
+
+## W+4 — W39 · Mon 21 Sep → Fri 25 Sep 2026
+
+### Standing items (auto-seeded)
+
+- Lucien weekly column
+- Iris Weekend Picks
+- Editor's Letter (Tyler)
+- Peninsula Radar (Sloane)
+
+### Placeholders
+
+- Spring school holidays typically fall in this window in Victoria — Margot/Iris to confirm actual dates against the calendar and bring a family/day-tripper angle if confirmed. Not asserted here as fact; flagged only as a beat to check.
+- No further signals identified. Seed at W38 refresh.
+
+### Capacity check
+
+🟢 No signals yet. Seed at W38 refresh (Friday 18 September).
 
 ---
 
@@ -152,22 +135,22 @@ tags: [peninsula-insider, sloane, slate, lookahead]
 
 | # | Flag | Severity | Owner | Action |
 |---|---|---|---|---|
-| 1 | W25 retro + perf not yet filed | 🔴 High | Sloane | File `retros/retro-2026-W25.md` + `perf/perf-2026-W25.md` by EOD today |
-| 2 | Dex onboarding — unconfirmed, overdue | 🔴 High | Tyler | Hard deadline was W24. Analytics blind W21–W25. Confirm resolved or escalate today |
-| 3 | Q3 theme review — status unconfirmed | 🔴 High | Tyler / Sloane | Must not slip to W27 (Q3 opens Mon 29 Jun). Confirm happened or lock date before W26 Monday commissioning |
-| 4 | W26 cover unassigned | 🟡 Medium | Margot | Nothing beyond Lucien standing. Winter Feature #2 or solstice piece must have a proposal by Monday. Week looks thin |
-| 5 | Tyler W26 Editor's Letter draft | 🟡 Medium | Tyler | Due this week per standing protocol (drafted one week ahead). Confirm exists before W25 EOD |
-| 6 | Etta Hollings — 4+ weeks unconfirmed | 🟡 Medium | Margot | Freelance gate: written rate + diary or formally drop before W26 Monday commissioning |
-| 7 | Hugo Brennan — 4+ weeks unconfirmed | 🟡 Medium | Margot | Freelance gate: differentiation + rate + diary or formally drop before W26 Monday commissioning |
-| 8 | Victorian school holidays — no angle owner | 🟡 Medium | Margot / Iris | Begins ~27 Jun. Family/weekend picks angle unassigned. Margot to brief W26 Monday commissioning |
-| 9 | W24 slate/retro/perf unconfirmed in system | 🔵 Low | Sloane | `slate-2026-W24.md`, `retro-2026-W24.md`, `perf-2026-W24.md` — confirm filed or archive stale |
-| 10 | W22/W23 retro/perf — stale carry-forward | 🔵 Low | Tyler | Unresolved 3+ weeks. Tyler to close or formally archive before W27 |
-| 11 | Path mismatch (ongoing) | 🔵 Ops | James | Cron writes to `.claude/newsroom/slates/lookahead.md`; canonical vault is `peninsula-insider-vault/03-editorial/slates/lookahead.md`. Confirm canonical or symlink |
+| 1 | Ten-week newsroom gap (W26–W34) — no slate/checkpoint/retro/perf/letter | 🔴 High — structural, now being addressed | Sloane / Tyler | Restoration in progress this week; one change agreed at W34 retro (mandatory weekly filing + Tyler-side absence check) |
+| 2 | Lucien contributor status unresolved | 🔴 High | Tyler | Decision required before W36 Monday commissioning. Open since W25 (2+ months) |
+| 3 | Dex onboarding still not resolved | 🔴 High | Tyler | Sixth-plus consecutive analytics-blind cycle. Provide any lightweight path before next Performance Council |
+| 4 | Homepage weekend dispatch + event cards stale (live now) | 🔴 High | Iris / Margot / Vera | On W35 slate — Fri 28 Aug deadlines |
+| 5 | `the-sorrento-off-season-weekend-2026-w33` stuck in review | 🟡 Medium | Margot | On W35 slate — Sun 30 Aug deadline |
+| 6 | Automated content pipeline has no defined relationship to Vera's sign-off gate | 🔴 High — structural | Tyler | Standards conversation needed before W37 |
+| 7 | Standing columns (Lucien, Letter, Radar) not reinstated on W35's compressed slate | 🟡 Medium | Sloane | Targeted for W36 Monday commissioning |
+| 8 | W25 checkpoint fallback (Margot, 11:00 AEST trigger) never tested | 🔵 Low | Sloane / Margot | Stays in effect; will be exercised for real once weekly rhythm is running again |
+| 9 | Prior look-ahead (dated 19 June) described W26 carry-overs that were never resolved | 🔵 Low — closed by this refresh | Sloane | Formally superseded by this document; nothing from the stale W26 seed carries forward without being re-verified against current reality |
 
 ---
 
 ## Operating note
 
-The freelance confirmation gate remains in full effect (agreed: W22 retro, 22 May 2026). **No freelance piece goes on a locked slate without written rate confirmation AND diary acknowledgement from the contributor.** Etta Hollings and Hugo Brennan are now 4+ weeks in provisional status with no resolution. If Margot does not produce written confirmation for both before W26 Monday commissioning, both pieces are formally dropped and do not return to the look-ahead.
+The freelance confirmation gate remains in full effect (agreed: W22 retro, 22 May 2026, referenced in the last live slate at W25): no freelance piece goes on a locked slate without written rate confirmation and diary acknowledgement from the contributor. No freelance pieces are on the W35 slate. This gate applies unchanged when freelance commissions resume.
 
-*— Sloane, Friday 19 June 2026 at 12:00 AEST (W25 Friday look-ahead refresh). Next full refresh: Friday 26 June 2026 at 12:00 AEST.*
+The Vera sign-off gate applies to every piece on every slate without exception, including maintenance and governance items — this is stated explicitly on the W35 slate and should be treated as standing practice, not a one-week emphasis.
+
+*— Sloane, Thursday 27 August 2026 (off-cycle restoration refresh). Next full refresh: Friday 4 September 2026, at the normal 12:00 AEST slot, following W36's Friday retro and performance council.*
