@@ -42,6 +42,14 @@ export const prerender = true;
   section="home"
   ogType="article"
   publishedTime={note.data.publishedAt.toISOString()}
+  {/* Sitemap policy SS4.3 is "ONE indexable index only - detail pages are
+      dated micro-notes with no query demand and never enter the sitemap"
+      (see src/pages/sitemap.xml.ts). The page contradicted that by
+      rendering index,follow, so every freshly published note became an
+      indexable page absent from the sitemap and tripped the
+      lint-seo-architecture sitemap-absent gate - turning the build red
+      each evening and stalling the daily publish. */}
+  noindex
 >
   <Breadcrumbs items={[
     { label: 'Home', href: '/' },
