@@ -20,5 +20,5 @@
 
 ## Deployment and verification
 
-- Published-content commit: pending.
+- Published-content commit: `20308e289817f0a84216067efb845bae37d8b113` on `origin/main`.
 - External verification must be run against `https://peninsulainsider.com.au/quick-note/` after the Build and Deploy workflow has completed. Per the post-publish verification gate, this edition must not be described as live until HTTP, canonical, title, metadata, OpenGraph, stylesheet, target copy and sitemap checks pass.
