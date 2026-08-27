@@ -194,7 +194,10 @@ def _try_openai(prompt: str, system: str, max_tokens: int,
 def _try_cli(prompt: str, system: str, timeout: int) -> str | None:
     cmd = ["claude", "-p", prompt]
     if system:
-        cmd += ["--system", system]
+        # Claude Code uses --system-prompt; --system is not a supported
+        # command-line option and makes the otherwise-authorised CLI fallback
+        # fail closed before it reaches the provider.
+        cmd += ["--system-prompt", system]
     try:
         r = subprocess.run(cmd, capture_output=True, text=True, timeout=timeout)
     except (FileNotFoundError, subprocess.TimeoutExpired, OSError):
