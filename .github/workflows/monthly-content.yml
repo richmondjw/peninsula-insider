@@ -59,6 +59,11 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          # Fallback tier added 2026-08-27: OPENROUTER_API_KEY ran out of
+          # funds (HTTP 402). OPENAI_API_KEY is an existing, already-funded
+          # repo secret (embeddings/concierge) reused here — no new spend
+          # authorised or required. See engine/llm.py.
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           FIRECRAWL_API_KEY: ${{ secrets.FIRECRAWL_API_KEY }}
           PI_REPO_ROOT: ${{ github.workspace }}
         run: |
@@ -70,6 +75,11 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          # Fallback tier added 2026-08-27: OPENROUTER_API_KEY ran out of
+          # funds (HTTP 402). OPENAI_API_KEY is an existing, already-funded
+          # repo secret (embeddings/concierge) reused here — no new spend
+          # authorised or required. See engine/llm.py.
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
           PI_REPO_ROOT: ${{ github.workspace }}
