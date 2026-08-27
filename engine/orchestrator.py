@@ -154,8 +154,39 @@ def git_commit_and_push(message: str, files: list[str] = None) -> bool:
             cwd=cwd, capture_output=True, text=True
         )
         if push_result.returncode != 0:
-            print(f"  Push failed: {push_result.stderr}")
-            return False
+            # The content engine can race the freshness/deploy workflows, both
+            # of which may land a commit on main between checkout and push.
+            # Reconcile once, without overwriting anyone else's work, then
+            # retry the push exactly once. A conflict is left untouched after
+            # the bounded abort so the next run can retry from a clean state.
+            print("  Push rejected — fetching origin/main and rebasing once")
+            fetch_result = subprocess.run(
+                ["git", "fetch", "origin", "main"],
+                cwd=cwd, capture_output=True, text=True
+            )
+            if fetch_result.returncode != 0:
+                print(f"  Fetch failed: {fetch_result.stderr}")
+                return False
+
+            rebase_result = subprocess.run(
+                ["git", "rebase", "origin/main"],
+                cwd=cwd, capture_output=True, text=True
+            )
+            if rebase_result.returncode != 0:
+                print(f"  Rebase conflicted — aborting safely: {rebase_result.stderr}")
+                subprocess.run(
+                    ["git", "rebase", "--abort"],
+                    cwd=cwd, capture_output=True, text=True
+                )
+                return False
+
+            retry_result = subprocess.run(
+                ["git", "push", "origin", "main"],
+                cwd=cwd, capture_output=True, text=True
+            )
+            if retry_result.returncode != 0:
+                print(f"  Push retry failed: {retry_result.stderr}")
+                return False
 
         return True
     except Exception as e:
