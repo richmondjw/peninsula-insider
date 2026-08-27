@@ -1,3 +1,33 @@
+## 2026-08-26 — Claude remote agent
+
+### Second main merge into the AI-agent readiness branch
+
+**Summary**
+Merged main again (aabb07a → fa8f8ea) after new conflicts. Main has been absorbing this branch's venue JSON-LD work (now with @id conventions) and refactored the stay template to `isStayVenue`; conflicts were the stay frontmatter and content.config. Took main's sides and re-grafted `venues.lastFactVerified`. Fixed the glossary page for main's URL consolidation (`/places/…` → `/explore/places/…`) and added `/journal/peninsula-glossary/` to the sitemap. Kept the stray Copilot bot commit (media-registry churn only, harmless).
+
+**Verification**
+Build completes; all gates pass locally except `lint:seo-architecture`'s `imageobject-diversity` floor (46 vs 58), which is a sandbox artifact: the floor depends on CMS-published hero overrides fetched live from Supabase at build, and this environment has no Supabase credentials (the baked snapshot `next/src/data/cms-image-overrides.json` is empty). CI has the credentials and should meet the floor. Manually verified against the built dist: `lint:filter-chips`, `audit:agent-readiness` (964 pages), `assert:link-graph`, `lint:no-hidden-pages`, and `lint:schema` (1,797 JSON-LD blocks) all pass.
+
+---
+
+## 2026-08-21 — Claude remote agent
+
+### Merge main into the AI-agent readiness branch
+
+**Summary**
+Resolved the merge conflicts between PR #239 (June) and two months of main. Main independently grew an agent-discoverability layer in the interim, so the resolution keeps main's maintained pipeline and re-grafts only this branch's still-unique additions.
+
+**Resolution decisions**
+- Kept main's generated `llms.txt` / `llms-full.txt` (ops/scripts/generate-llms-txt.mjs, daily tempo) and dropped this branch's hand-written `next/public/llms.txt` and `llms-full.txt.ts` endpoint.
+- Dropped this branch's `/data/events.json` in favour of main's audited `/whats-on/upcoming.json`; `/data/index.json` now points there.
+- Kept and re-grafted: `/data/{index,venues,places}.json` exports, `lastFactVerified` field + Verified row, venue JSON-LD ReserveAction/dateModified/image (now alongside main's containedInPlace + @id conventions), BaseLayout `searchMeta` Pagefind facets, `/journal/peninsula-glossary/`, the /about/ facts block, and `lint:schema`.
+- Fixed em-dash violations flagged by main's new `lint:house-style` in grafted comments.
+
+**Verification**
+`npm run build:search` (CI parity) passes end to end, including `lint:house-style`, `audit:agent-readiness`, and `assert:link-graph`. `npm run lint:schema` passes (1,674 JSON-LD blocks across 954 pages). Data exports now cover 135 venues / 37 places / 396 registry entities under main's cleaned-up content flags. Note: `npm run build` (the non-CI chain) fails in `lint:seo-architecture` with 667 pre-existing findings that also exist in main's deployed output; not introduced or addressed here.
+
+---
+
 ## 2026-08-10 — Claude local agent — /explore/spas-and-wellness/ redesign
 
 ### Summary
@@ -33,6 +63,7 @@ The pricing lint currently fails against two UNCOMMITTED files from another
 agent session (dollar figures in content/articles/peninsula-hot-springs-vs-alba.mdx
 and an events draft verification note). Main is clean; whoever owns those edits
 must strip the figures before committing or their build will red.
+
 
 ## 2026-08-09 (later) — Claude local agent — walks v2 beauty pass + journal lead cover
 
@@ -387,6 +418,64 @@ For each meaningful change, include:
 
 ---
 
+## 2026-06-11 — Claude remote agent
+
+### AI-agent readiness: implementation pass
+
+**Summary**
+Implemented the in-repo items from the AI-agent readiness review: machine-readable data exports, generated llms-full.txt, venue JSON-LD enrichment (ReserveAction, dateModified, image, mainEntityOfPage), lastFactVerified field + rendered "Verified" row, feed.xml enrichment, Pagefind place/type/verdict facets, a Peninsula glossary page with DefinedTermSet schema, a canonical facts block on /about/, and a JSON-LD validation lint.
+
+**Files changed**
+- `next/src/pages/data/{index,venues,places,events}.json.ts` (new) + `next/src/lib/agent-data.ts` (new)
+- `next/src/pages/llms-full.txt.ts` (new)
+- `next/src/pages/journal/peninsula-glossary.astro` (new)
+- `next/scripts/lint-schema.mjs` (new) + `lint:schema` npm script
+- `next/src/pages/{eat,stay,wine}/[slug].astro`, `next/src/lib/schema.ts` (venue schema enrichment, searchMeta)
+- `next/src/layouts/BaseLayout.astro` (searchMeta prop for Pagefind facets)
+- `next/src/components/VenueDetailTemplate.astro` (Verified row)
+- `next/src/content.config.ts` (venues.lastFactVerified)
+- `next/src/pages/feed.xml.ts`, `next/src/pages/about.astro`
+- `next/public/llms.txt` + root mirrors (`llms.txt`, `llms-full.txt`, `data/`, `feed.xml`)
+
+**Pages affected**
+All venue detail pages (eat/stay/wine), /about/, /feed.xml, /llms.txt, /llms-full.txt (new), /data/*.json (new), /journal/peninsula-glossary/ (new).
+
+**Why it matters**
+Turns the JSON-first content layer into published machine-readable surfaces, adds the freshness and book-direct signals AI search engines weight, and gives Pagefind richer facets. Verified: full build passes (1,486 pages); `lint:schema` validates 2,502 JSON-LD blocks.
+
+**Follow-up / open issues**
+- DECISION NEEDED: BRAND-PI.md and INFORMATION-ARCHITECTURE.md say priceBand "is never rendered publicly", but it renders on ~20 live surfaces (venue Spend row, cards, guides, /eat/ price filter) and tasting fees render dollar figures. Amend the docs or remove the renders deliberately.
+- Editorial backlog: comparison pages, FAQ passes on town hubs (need the house voice, not an agent).
+- Platform repo: concierge API docs + CORS + keys + citations; MCP server.
+- Populate lastFactVerified across venues as editors re-verify details (21 already carry it).
+
+---
+
+## 2026-06-10 — Claude remote agent
+
+### AI-agent readiness review + llms.txt shipped
+
+**Summary**
+Full assessment of the site from an AI-agent-first perspective (AI readability, entity clarity, structured data, citation worthiness, agent actions, search/concierge UX), delivered as a strategy doc with a 30/60/90 roadmap. Shipped the top quick win alongside it: an `llms.txt` curated site map for LLM assistants, plus an AI-crawler welcome note in robots.txt pointing to it.
+
+**Files changed**
+- `docs/ai-agent-readiness-review-2026-06-10.md` (new)
+- `next/public/llms.txt` (new) and root `llms.txt` copy (live immediately, survives next build)
+- `next/public/robots.txt` and root `robots.txt` (comment block only; no directive changes)
+
+**Pages affected**
+- `/llms.txt` (new), `/robots.txt`
+
+**Why it matters**
+The site is strong at the content/schema layer (static HTML, deep JSON-LD, rich entity model) but had no agent-access layer. `llms.txt` gives ChatGPT/Claude/Perplexity-class assistants a canonical statement of what the publication is, how to cite it, and that the no-pricing omission is deliberate (routing agents to operator booking links instead of letting them infer stale prices from third parties).
+
+**Follow-up / open issues**
+- 30-day items in the review: Organization schema `sameAs`/`contactPoint`, about/methodology consolidation, last-reviewed rendering, feed.xml enrichment, schema CI lint
+- 60/90-day: `/data/*.json` build-time exports, comparison pages, documented concierge API + MCP server
+- robots.txt note: named per-bot User-agent groups override the `*` group; repeat all Disallows if ever adding them
+
+---
+
 ## 2026-06-11 — Claude (design)
 
 ### Sitewide responsive audit — mobile overflow fixes
@@ -694,6 +783,9 @@ Removes radius drift across visually-peer card surfaces and makes future radius 
 
 **Follow-up**
 - Backlog from the same memo: `--shadow-*` tokens (17 distinct values), a `--text-*` font-size scale (70+ values), and 30+ ad-hoc hex colours outside `:root`.
+
+---
+
 
 ## 2026-06-01 — Codex
 

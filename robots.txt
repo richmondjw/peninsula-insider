@@ -17,6 +17,13 @@ Disallow: /reports/
 Disallow: /engine/
 Disallow: /preview/
 
+# AI assistants and crawlers are welcome. A curated map of the site for
+# LLMs, including citation guidance and the no-pricing policy, lives at:
+# https://peninsulainsider.com.au/llms.txt
+# Note for maintainers: do not add named User-agent groups (e.g. GPTBot)
+# without repeating every Disallow above — a named group overrides the
+# * group entirely for that bot.
+
 Sitemap: https://peninsulainsider.com.au/sitemap.xml
 
 # AI agents and LLMs — curated, human-readable map of the site (https://llmstxt.org/)

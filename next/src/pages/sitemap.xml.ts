@@ -81,6 +81,7 @@ const SEO_JOURNAL_LASTMOD: Record<string, string> = {
   '/journal/mornington-peninsula-wedding-venues': '2026-08-14',
   '/journal/best-towns-to-base-yourself-with-a-dog-mornington-peninsula': '2026-06-01',
   '/journal/what-to-do-on-the-peninsula-with-a-dog-when-its-wet-or-busy': '2026-05-18',
+  '/journal/peninsula-glossary': '2026-08-26',
 };
 // eat/red-hill-cheese has no source file (eat/[slug].astro takes it and no
 // matching venue slug exists) - left without lastmod, see C1 report.
@@ -284,6 +285,7 @@ export const GET: APIRoute = async () => {
     '/journal/mornington-peninsula-wedding-venues',
     '/journal/best-towns-to-base-yourself-with-a-dog-mornington-peninsula',
     '/journal/what-to-do-on-the-peninsula-with-a-dog-when-its-wet-or-busy',
+    '/journal/peninsula-glossary',
   ];
   for (const page of seoJournalPages) {
     entries.push(url(page, 0.8, 'monthly', SEO_JOURNAL_LASTMOD[page]));

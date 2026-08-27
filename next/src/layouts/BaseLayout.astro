@@ -55,6 +55,14 @@ export interface Props {
   searchKind?: string;
   /** Exclude this page from the Pagefind index entirely (e.g. /search itself). */
   searchExclude?: boolean;
+  /**
+   * Extra Pagefind facets/metadata beyond `kind`, e.g. { place: 'Sorrento',
+   * type: 'Winery', verdict: '...' }. Each entry is emitted as
+   * data-pagefind-meta (available on the result card); short values (<= 40
+   * chars) also become data-pagefind-filter facets on /search. Keys must be
+   * lowercase a–z.
+   */
+  searchMeta?: Record<string, string>;
 }
 
 const SITE_URL = 'https://peninsulainsider.com.au';
@@ -99,6 +107,7 @@ const {
   modifiedTime,
   searchKind,
   searchExclude = false,
+  searchMeta,
 } = Astro.props;
 
 // Map the editorial section to a search-chip label. Reader-facing strings - // these populate the "kind" filter chips on /search.
@@ -422,6 +431,18 @@ const showNewsletterPopup = newsletterPopupMode === 'preview' || newsletterPopup
     {!searchExclude && searchImageSource && (
       <span data-pagefind-meta={`image:${searchImageAbsolute}`}></span>
     )}
+    {/* Extra facets/metadata (place, type, verdict, ...): same no-`hidden`
+        constraint as the image span above. Short values double as facets;
+        long free-text values (e.g. a verdict line) are metadata only. */}
+    {!searchExclude && searchMeta &&
+      Object.entries(searchMeta)
+        .filter(([, v]) => Boolean(v))
+        .map(([key, value]) => (
+          <span
+            data-pagefind-filter={value.length <= 40 ? `${key}:${value}` : undefined}
+            data-pagefind-meta={`${key}:${value}`}
+          ></span>
+        ))}
     <slot />
   </main>
 

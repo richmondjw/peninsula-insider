@@ -1,6 +1,6 @@
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
-import { routeSlug } from '../lib/editorial';
+import { routeSlug, formatLabel } from '../lib/editorial';
 
 const SITE_URL = 'https://peninsulainsider.com.au';
 const FEED_TITLE = 'Peninsula Insider';
@@ -20,6 +20,29 @@ function rfc822(d: Date): string {
   return d.toUTCString();
 }
 
+// Markdown body → plain-text excerpt for the feed description. Strips the
+// common markdown syntax and takes the first few paragraphs so feed readers
+// and LLM ingestion pipelines get real content, not just the dek.
+function bodyExcerpt(md: string | undefined, maxChars = 800): string {
+  if (!md) return '';
+  const text = md
+    .replace(/^---[\s\S]*?---/, '')            // frontmatter, if present
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, '')      // images
+    .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')   // links → label
+    .replace(/^#{1,6}\s+/gm, '')               // headings
+    .replace(/^>\s?/gm, '')                    // blockquotes
+    .replace(/[*_`]/g, '')                     // emphasis / code marks
+    .replace(/<[^>]+>/g, '')                   // inline HTML
+    .trim();
+  const paragraphs = text.split(/\n\s*\n/).map((p) => p.replace(/\s+/g, ' ').trim()).filter(Boolean);
+  let out = '';
+  for (const p of paragraphs) {
+    if (out.length + p.length > maxChars) break;
+    out += (out ? ' ' : '') + p;
+  }
+  return out || text.slice(0, maxChars);
+}
+
 export const GET: APIRoute = async () => {
   const articles = await getCollection(
     'articles',
@@ -31,29 +54,36 @@ export const GET: APIRoute = async () => {
       slug: routeSlug(a),
       title: a.data.title as string,
       description: (a.data.dek ?? '') as string,
+      excerpt: bodyExcerpt((a as any).body),
+      category: formatLabel[(a.data as any).format] ?? (a.data as any).format ?? '',
       pubDate: (a.data.publishedAt as Date | undefined) ?? new Date(),
     }))
     .filter((a) => Boolean(a.slug))
     .sort((x, y) => y.pubDate.getTime() - x.pubDate.getTime())
-    .slice(0, 40);
+    .slice(0, 60);
 
   const lastBuildDate = items[0]?.pubDate ?? new Date();
 
   const itemsXml = items
     .map((item) => {
       const link = `${SITE_URL}/journal/${item.slug}/`;
+      const description = [item.description, item.excerpt]
+        .filter(Boolean)
+        .join(' ')
+        .slice(0, 1000);
       return `    <item>
       <title>${xmlEscape(item.title)}</title>
       <link>${link}</link>
       <guid isPermaLink="true">${link}</guid>
       <pubDate>${rfc822(item.pubDate)}</pubDate>
-      <description>${xmlEscape(item.description)}</description>
+      <dc:creator>Peninsula Insider</dc:creator>
+${item.category ? `      <category>${xmlEscape(item.category)}</category>\n` : ''}      <description>${xmlEscape(description)}</description>
     </item>`;
     })
     .join('\n');
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
     <title>${xmlEscape(FEED_TITLE)}</title>
     <link>${SITE_URL}/</link>

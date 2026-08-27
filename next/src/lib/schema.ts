@@ -91,6 +91,20 @@ export function buildWinerySchema(data: any, slug: string, section = 'wine') {
       name: 'Mornington Peninsula wine region',
     },
     ...(data.phone ? { telephone: data.phone } : {}),
+    mainEntityOfPage: pageUrl,
+    // Book-direct action for agents: current price/availability lives with
+    // the operator, never on this site (BRAND-PI no-pricing rule).
+    ...(data.bookingUrl
+      ? {
+          potentialAction: {
+            '@type': 'ReserveAction',
+            target: { '@type': 'EntryPoint', urlTemplate: data.bookingUrl },
+          },
+        }
+      : {}),
+    ...(data.lastFactVerified
+      ? { dateModified: new Date(data.lastFactVerified).toISOString().slice(0, 10) }
+      : {}),
     // priceRange intentionally omitted (BRAND-PI: no pricing on site).
     knowsAbout: [
       'Pinot Noir',
