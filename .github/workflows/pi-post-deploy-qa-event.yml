@@ -2,6 +2,24 @@ name: PI production deploy event
 
 on:
   deployment_status:
+  workflow_dispatch:
+    inputs:
+      deployment_id:
+        description: 'Existing successful github-pages deployment ID to emit'
+        required: true
+        type: string
+      deployment_status_id:
+        description: 'Existing successful deployment-status ID to emit'
+        required: true
+        type: string
+      deployment_artifact_sha:
+        description: 'The gh-pages artifact commit SHA from that deployment'
+        required: true
+        type: string
+      deployed_at:
+        description: 'UTC creation time of the successful deployment status'
+        required: true
+        type: string
 
 permissions:
   actions: read
@@ -16,23 +34,23 @@ jobs:
   emit:
     if: >-
       github.repository == 'richmondjw/peninsula-insider' &&
-      github.event.deployment_status.state == 'success' &&
-      github.event.deployment.environment == 'github-pages' &&
-      github.event.deployment_status.environment == 'github-pages' &&
-      github.event.deployment.ref == 'gh-pages'
+      (github.event_name == 'workflow_dispatch' || github.event.deployment_status.state == 'success') &&
+      (github.event_name == 'workflow_dispatch' || github.event.deployment.environment == 'github-pages') &&
+      (github.event_name == 'workflow_dispatch' || github.event.deployment_status.environment == 'github-pages') &&
+      (github.event_name == 'workflow_dispatch' || github.event.deployment.ref == 'gh-pages')
     runs-on: ubuntu-latest
     timeout-minutes: 5
     env:
       PI_EVENT_ENDPOINT: https://hooks.optiflows.com.au/pi/deployment
       PI_EVENT_HMAC_SECRET: ${{ secrets.PI_RUNTIME_EVENT_HMAC_SECRET }}
-      PI_DEPLOYMENT_ID: ${{ github.event.deployment.id }}
-      PI_DEPLOYMENT_STATUS_ID: ${{ github.event.deployment_status.id }}
-      PI_DEPLOYMENT_ENVIRONMENT: ${{ github.event.deployment.environment }}
-      PI_DEPLOYMENT_STATUS_ENVIRONMENT: ${{ github.event.deployment_status.environment }}
-      PI_DEPLOYMENT_STATUS_STATE: ${{ github.event.deployment_status.state }}
-      PI_DEPLOYMENT_REF: ${{ github.event.deployment.ref }}
-      PI_DEPLOYMENT_ARTIFACT_SHA: ${{ github.event.deployment.sha }}
-      PI_DEPLOYED_AT: ${{ github.event.deployment_status.created_at }}
+      PI_DEPLOYMENT_ID: ${{ github.event.deployment.id || inputs.deployment_id }}
+      PI_DEPLOYMENT_STATUS_ID: ${{ github.event.deployment_status.id || inputs.deployment_status_id }}
+      PI_DEPLOYMENT_ENVIRONMENT: ${{ github.event.deployment.environment || 'github-pages' }}
+      PI_DEPLOYMENT_STATUS_ENVIRONMENT: ${{ github.event.deployment_status.environment || 'github-pages' }}
+      PI_DEPLOYMENT_STATUS_STATE: ${{ github.event.deployment_status.state || 'success' }}
+      PI_DEPLOYMENT_REF: ${{ github.event.deployment.ref || 'gh-pages' }}
+      PI_DEPLOYMENT_ARTIFACT_SHA: ${{ github.event.deployment.sha || inputs.deployment_artifact_sha }}
+      PI_DEPLOYED_AT: ${{ github.event.deployment_status.created_at || inputs.deployed_at }}
       PI_REPOSITORY: ${{ github.repository }}
       PI_DELIVERY_ID: deployment-status-${{ github.event.deployment_status.id }}
       GITHUB_TOKEN: ${{ github.token }}
