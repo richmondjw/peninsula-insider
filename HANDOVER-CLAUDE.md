@@ -1,11 +1,21 @@
 # Peninsula Insider — Handover Brief for Local Claude Agent
 
+> **Status (reviewed 2026-08-27): PARTIALLY SUPERSEDED. Read the [project wiki](https://github.com/richmondjw/peninsula-insider/wiki) first.**
+>
+> Sections 1 to 11 are an **April 2026 work queue and SEO brief**, largely completed or overtaken. Treat them as history, not as a task list.
+>
+> **Section 12 (CMS Integrity) is still a live constitution** and remains binding, with one correction noted inline there.
+>
+> For current orientation use the wiki: [Architecture](https://github.com/richmondjw/peninsula-insider/wiki/Architecture), [Developer Guide](https://github.com/richmondjw/peninsula-insider/wiki/Developer-Guide), [Editorial Operations](https://github.com/richmondjw/peninsula-insider/wiki/Editorial-Operations), [Runbooks](https://github.com/richmondjw/peninsula-insider/wiki/Runbooks).
+>
+> **Paths below are container-absolute** (`/home/node/.openclaw/workspace/peninsula-insider/...`) and will not resolve from a normal clone. Read them as repo-relative.
+
 Date: 2026-04-13
 Prepared by: Remy
 Project: Peninsula Insider
 Repo: `/home/node/.openclaw/workspace/peninsula-insider`
 Astro app: `/home/node/.openclaw/workspace/peninsula-insider/next`
-Live domain: `https://peninsularinsider.com.au`
+Live domain: `https://peninsulainsider.com.au`
 
 ## 1. Context
 
@@ -245,12 +255,22 @@ non-negotiables for any Claude session touching cards, CMS, or content:
 4. **The DB trigger is the floor, not the ceiling.** `pi.assert_content_
    registry_match` refuses writes for unknown entities. If you see
    `foreign_key_violation` on CMS save, the entity is genuinely not in
-   `pi.content_registry` — fix the slug or wait for a deploy refresh, do
+   `pi.content_registry` — fix the slug or refresh the registry, do
    not bypass the trigger.
-5. **Open followup as of 2026-05-11:** rotate the `SUPABASE_SERVICE_KEY`
-   repo secret to authenticate against project `tjjhpvslpysfklwpqmgz`
-   (the active CMS database). Then remove `continue-on-error: true` from
-   the registry-refresh step in `.github/workflows/deploy.yml`.
+
+   **Corrected 2026-08-27:** this rule used to say "wait for a deploy
+   refresh." **There is no longer a deploy refresh to wait for.**
+   `refresh-content-registry.mjs` runs only from
+   `.github/workflows/pi-data-refresh.yml`, which is manual dispatch only.
+   Dispatch **PI Data Refresh**, then retry the save. See
+   [`docs/ARCHITECTURE.md` section 8](docs/ARCHITECTURE.md#the-supabase-refresh-gap-open-decision).
+5. **Stale followup (2026-05-11), no longer actionable as written:** the
+   original item was to rotate the `SUPABASE_SERVICE_KEY` repo secret
+   against the active CMS database, then remove `continue-on-error: true`
+   from the registry-refresh step in `.github/workflows/deploy.yml`.
+   **That workflow and that step no longer exist.** Whether the service
+   key is correct for the active CMS database is still worth confirming;
+   the second half of the item is void.
 
 For the editor-facing version of these rules, see
 [`docs/cms-editorial-guide.md`](docs/cms-editorial-guide.md).

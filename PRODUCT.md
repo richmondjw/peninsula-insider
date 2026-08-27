@@ -21,7 +21,7 @@ Peninsula Insider is a complete, independent guide to the Mornington Peninsula, 
 ## Operating Context
 
 - Site: Astro v6 static build ("v6 Harbour" chrome, adopted 2026-07-25), file-based content collections (JSON/MD/MDX), Supabase for auth/saves/CMS overrides. No image-based logo mark anywhere on the live site; the brand identity is a text wordmark only (see Brand Commitments).
-- Email: "The Insider Note," weekly, produced against a standing brief (`ops/email/INSIDER-NOTE-PROCESS.md`) with a fixed 11-module order, a hard no-em-dash/no-price copy rule, and a Mon-Thu production rhythm ending in James's Thursday send approval.
+- Email: "The Insider Note," weekly, produced against a standing brief (`ops/email/INSIDER-NOTE-PROCESS.md`) with a fixed 11-module order, a hard no-em-dash/no-price copy rule, and a Mon-Wed production rhythm ending in James's Wednesday review and explicit send approval. (Corrected 2026-08-27: this file previously said Mon-Thu / Thursday. `INSIDER-NOTE-PROCESS.md` is the source of truth and specifies Wednesday.)
 - Email delivery: beehiiv, non-Enterprise plan. The programmatic Create Post API is plan-gated (confirmed via live 403); email HTML must go in through beehiiv's manual "HTML Snippet" block, and beehiiv strips `<style>`/`<link>` tags on import, so every visual rule must survive as an inline style with no reliance on embedded CSS or web fonts.
 
 ## Capabilities and Constraints

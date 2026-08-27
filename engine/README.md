@@ -8,9 +8,15 @@ Three cron-triggered tempos run continuously:
 
 | Tempo | Trigger | Output |
 |---|---|---|
-| **Daily** | 6:00 AM AEST | Insider Picks column + corpus refresh |
-| **Weekly** | Monday 7:00 AM AEST | Signal brief + slate + Weekend Picks + SEO piece + newsletter |
-| **Monthly** | 1st of month 6:00 AM AEST | Deep research + long-form editorial batch + town hub refresh |
+| **Daily** | 6:00 AM AEST (scheduled) | Insider Picks column + corpus refresh |
+| **Weekly** | **manual dispatch only** (see note) | Signal brief + slate + Weekend Picks + SEO piece + newsletter |
+| **Monthly** | 1st of month 6:00 AM AEST (scheduled) | Deep research + long-form editorial batch + town hub refresh |
+
+> **Note (2026-08-27):** the weekly tempo is **not** currently on a schedule.
+> `weekly-content.yml` declares only `workflow_dispatch`; it has no `schedule:`
+> block. This README previously stated a Monday 07:00 AEST cadence. Daily and
+> monthly are scheduled as documented. If the weekly cadence is meant to be
+> automatic, the schedule needs restoring in the workflow.
 
 ## Quick start (local / OpenClaw)
 
@@ -53,7 +59,7 @@ All agent definitions live in `.claude/agents/`:
 
 Three workflows in `.github/workflows/`:
 - `daily-content.yml` — fires at 20:00 UTC (6:00 AM AEST)
-- `weekly-content.yml` — fires Sunday 21:00 UTC (Monday 7:00 AM AEST)
+- `weekly-content.yml` — **`workflow_dispatch` only, no schedule** (see note above)
 - `monthly-content.yml` — fires 1st of month 20:00 UTC
 
 Required secrets:

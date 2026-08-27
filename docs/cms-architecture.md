@@ -130,8 +130,20 @@ which:
 4. Deletes any rows whose `refreshed_at` is older than the run watermark —
    so deleted content pages are pruned automatically.
 
-The script requires a service-role key (`SUPABASE_SERVICE_ROLE_KEY` env var)
-and is invoked from `.github/workflows/deploy.yml` before the Astro build.
+The script requires a service-role key (`SUPABASE_SERVICE_ROLE_KEY` env var).
+
+> **Corrected 2026-08-27.** This script was invoked from `.github/workflows/deploy.yml`
+> before the Astro build. **That is no longer true.** `deploy.yml` was consolidated
+> into `build-and-deploy.yml` and the registry refresh did not move with it.
+> `refresh-content-registry.mjs` now runs from exactly one place:
+> `.github/workflows/pi-data-refresh.yml`, which is **manual dispatch only**.
+>
+> **Consequence for editors:** a newly shipped venue, article or event is not in
+> `pi.content_registry` until someone dispatches **PI Data Refresh**. Its first
+> inline CMS edit will be rejected by `pi.assert_content_registry_match()` with a
+> `foreign_key_violation`. That is the trigger working correctly, not a bug, and
+> the fix is to dispatch the refresh — not to bypass the trigger. See
+> [`ARCHITECTURE.md` section 8](ARCHITECTURE.md#the-supabase-refresh-gap-open-decision).
 
 ### Rule 3 — CI fails the build if a card forgets to tag itself
 
@@ -149,10 +161,13 @@ The enforcer warns (but does not fail) when `fieldPath` is not `'hero'` /
 `'hero.*'` / `'image'`. This is to nudge naming toward the convention while
 allowing intentional exceptions.
 
-The enforcer runs as the **"Enforce CMS editor conventions"** step in
-`.github/workflows/deploy.yml`, immediately before the Astro build. Fail
-fast — by the time the build hits this step it has only run preflight, so
-errors here are cheap.
+The enforcer runs as the **"CMS editable-coverage gate"** step in
+`.github/workflows/build-and-deploy.yml`, immediately before the content
+admission gates and the Astro build. Fail fast: by the time the build hits this
+step it has only installed dependencies, so errors here are cheap.
+
+(This gate did survive the workflow consolidation. The registry refresh above
+did not.)
 
 ## File map
 
@@ -163,9 +178,10 @@ errors here are cheap.
 | Browser-side hydration | [`next/src/lib/inline-edit/client.ts`](../next/src/lib/inline-edit/client.ts) | Right-click menu, image picker, text save flow, **and** the load-time override patcher (explicit-pass + implicit-pass) |
 | DB schema | [`ops/migrations/2026-05-09-pi-cms-admin.sql`](../ops/migrations/2026-05-09-pi-cms-admin.sql) | `cms_text_fields`, `cms_image_slots`, `cms_revisions`, `admin_user_allowlist`, RLS, Storage bucket |
 | DB integrity | [`ops/migrations/2026-05-11-pi-cms-content-registry-and-referential-integrity.sql`](../ops/migrations/2026-05-11-pi-cms-content-registry-and-referential-integrity.sql) | `pi.content_registry` + trigger + extended `entity_type` CHECK |
-| Build-time refresh | [`scripts/refresh-content-registry.mjs`](../scripts/refresh-content-registry.mjs) | Walk content collections, upsert registry, prune stale rows |
+| Registry refresh | [`scripts/refresh-content-registry.mjs`](../scripts/refresh-content-registry.mjs) | Walk content collections, upsert registry, prune stale rows. **Manual dispatch only.** |
 | CI enforcement | [`scripts/check-editable-coverage.mjs`](../scripts/check-editable-coverage.mjs) | Block deploys that omit the editor attrs |
-| CI wiring | [`.github/workflows/deploy.yml`](../.github/workflows/deploy.yml) | Runs enforcer + refresh before build |
+| CI wiring — enforcer | [`.github/workflows/build-and-deploy.yml`](../.github/workflows/build-and-deploy.yml) | Runs the coverage gate before the build |
+| CI wiring — registry | [`.github/workflows/pi-data-refresh.yml`](../.github/workflows/pi-data-refresh.yml) | Runs the registry + entity index + embedding refresh. `workflow_dispatch` only |
 
 ## Adding a new editable card
 

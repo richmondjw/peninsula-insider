@@ -24,9 +24,12 @@
 | `pi-daily-accuracy-autofix` | openclaw-cron | daily 20:35 | mutating-live | live | silent |
 | `pi-daily-image-relevance-scan` | openclaw-cron | daily 20:50 | report-only | live | silent |
 | `pi-daily-image-relevance-autofix` | openclaw-cron | daily 21:05 | mutating-content | live | silent |
-| `Build & deploy site` (`deploy.yml`) | github-actions | on push to `main` + manual | mutating-live | live | GitHub Actions UI |
+| `Build and Deploy` (`build-and-deploy.yml`) | github-actions | on push to `main` (path-filtered) + 6 crons + manual | mutating-live | live | GitHub Actions UI + `pi-alert` issue |
+| `PI Data Refresh` (`pi-data-refresh.yml`) | github-actions | **manual dispatch only** | mutating-live (Supabase registry, entity index, embeddings) | live | GitHub Actions UI |
 
-**Daily publish-path note:** every job in this table can mutate either content files or live HTML in production. Five of them run autonomously without external review. The current alert path for nine of the ten is `silent` — operators only see failures by inspecting `ops/reports/` or live diff. **This is the highest-priority observability gap.**
+**Daily publish-path note:** every job in this table can mutate either content files or live HTML in production. Five of them run autonomously without external review. The current alert path for most of them is `silent` — operators only see failures by inspecting `ops/reports/` or live diff. **This is the highest-priority observability gap.**
+
+**Supabase refresh note (added 2026-08-27):** `PI Data Refresh` is the *only* job that refreshes `pi.content_registry`, `pi.entity_index` and entity embeddings, and it is manual-dispatch only. Those steps used to run on every deploy from the retired `deploy.yml` and did not survive the consolidation into `build-and-deploy.yml`. Until that is decided either way, **shipping content does not update live search or the CMS entity registry.** Detail and the open decision: [`docs/ARCHITECTURE.md` section 8](../docs/ARCHITECTURE.md#the-supabase-refresh-gap-open-decision).
 
 ## Tier-1b — Daily strategy + agent-index (feeds the publish path)
 
@@ -273,7 +276,7 @@ Counting only `live` rows above: roughly **27 jobs** are observably executing on
 | `editorial-jobs.json` job definitions | PI editorial-ops (James) |
 | `openclaw-cron/jobs.json` registration | OpenClaw infra (Remy) |
 | `.github/workflows/` CI workflows | PI infra (James) |
-| Live HTML deploy | `deploy.yml` workflow + GitHub Pages |
+| Live HTML deploy | `build-and-deploy.yml` workflow + GitHub Pages |
 | `ops/publication-ledger/` | PI ops (Remy + James) |
 | This file | PI ops (Remy) |
 

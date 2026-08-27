@@ -1,8 +1,10 @@
 # Peninsula Insider Search Health Runbook
 
 Date: 2026-06-03
-Status: Active
+Status: Active, with one section corrected 2026-08-27 (see "Deploy workflow" below)
 Owner surface: `/search/`, masthead search overlay, `pi.search`, `pi.entity_index`, PageFind fallback
+
+> **Correction, 2026-08-27.** The "Deploy workflow" section below described `.github/workflows/deploy.yml` refreshing the search index on every deploy. **That workflow no longer exists and those steps did not move to its replacement.** The index refresh is now manual-only. The corrected text is inline below. Everything else in this runbook was re-verified and is current.
 
 ## Purpose
 
@@ -16,21 +18,55 @@ The important lesson from the June 2026 search incident is that PageFind and `pi
 
 ## Current Guardrails
 
-### Deploy workflow
+### Deploy workflow — CORRECTED 2026-08-27
 
-Workflow: `.github/workflows/deploy.yml`
+Workflow: `.github/workflows/build-and-deploy.yml`
 
-On manual deploy, the workflow now:
+`deploy.yml` was consolidated into `build-and-deploy.yml`. **The search-index steps did not survive the consolidation.**
 
-1. Refreshes `pi.content_registry`.
-2. Refreshes `pi.entity_index` with `--apply --prune`.
-3. Embeds entity vectors when `OPENAI_API_KEY` is configured.
-4. Builds Astro and PageFind via `npm run build:search`.
-5. Publishes to `gh-pages`.
-6. Runs post-publish verification.
-7. Runs `npm run search:audit -- --limit=10 --fail-on-broken`.
+What the deploy workflow does today:
 
-If the live Supabase search RPC returns broken links for representative queries, deploy fails after publish and the run log records a failed job.
+1. Runs the CMS editable-coverage gate and the content admission gates.
+2. Builds Astro and PageFind via `npm run build:search`.
+3. Generates `llms.txt` / `llms-full.txt` from the built sitemap.
+4. Writes `deployment.json` provenance.
+5. Prunes `dist/admin` and `dist/dev`.
+6. Runs the SEO artefact integrity gate against `next/dist`.
+7. Publishes to `gh-pages`.
+
+What it **no longer** does, despite the original text below claiming otherwise:
+
+- It does **not** refresh `pi.content_registry`.
+- It does **not** refresh `pi.entity_index`.
+- It does **not** embed entity vectors.
+- It does **not** run post-publish verification.
+- It does **not** run `npm run search:audit`, so a broken live search **cannot** fail a deploy.
+
+**Operational consequence.** `pi.entity_index` is refreshed only by dispatching `PI Data Refresh` by hand. Between dispatches, live `/search/` can serve stale rows indefinitely, while PageFind refreshes on every deploy. This is exactly the two-surface trap described under Purpose above, except the guardrail that used to catch it is gone.
+
+**After any content deploy that needs to be searchable, dispatch `PI Data Refresh`, then run:**
+
+```bash
+cd next && npm run search:audit -- --limit=10 --fail-on-broken
+```
+
+**Open decision:** whether to restore the index refresh and search audit to the deploy path (cost: embedding calls on every deploy, plus a new way for a deploy to fail after publish) or to keep it manual and accept the staleness window. Not yet decided.
+
+---
+
+*Original text, retained for history and no longer accurate:*
+
+> On manual deploy, the workflow now:
+>
+> 1. Refreshes `pi.content_registry`.
+> 2. Refreshes `pi.entity_index` with `--apply --prune`.
+> 3. Embeds entity vectors when `OPENAI_API_KEY` is configured.
+> 4. Builds Astro and PageFind via `npm run build:search`.
+> 5. Publishes to `gh-pages`.
+> 6. Runs post-publish verification.
+> 7. Runs `npm run search:audit -- --limit=10 --fail-on-broken`.
+>
+> If the live Supabase search RPC returns broken links for representative queries, deploy fails after publish and the run log records a failed job.
 
 ### Data refresh workflow
 
@@ -82,7 +118,7 @@ Default queries currently include:
 
 ### Entity index
 
-Use the latest deploy or data-refresh GitHub Actions run. The entity refresh step prints:
+Use the latest `PI Data Refresh` GitHub Actions run. (Deploy runs no longer touch the index, so a recent green deploy tells you nothing about index freshness.) The entity refresh step prints:
 
 - total projected rows
 - per-collection counts

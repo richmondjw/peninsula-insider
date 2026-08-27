@@ -6,7 +6,7 @@
 
 This gate runs **after every live mutation** (see `ops/operating-surface.md` for which jobs are `mutating-live`). It runs in two modes:
 
-- **Automated** — `ops/scripts/post-publish-verify.mjs` invoked from `deploy.yml` (or manually via `node ops/scripts/post-publish-verify.mjs <urls...>`)
+- **Automated** — `ops/scripts/post-publish-verify.mjs`. **Corrected 2026-08-27:** this was invoked from `deploy.yml`, which no longer exists. It is **not** called by `build-and-deploy.yml`, so it does not run automatically on a site deploy. Run it manually: `node ops/scripts/post-publish-verify.mjs <urls...>`
 - **Manual** — for ad-hoc edits or when the automated gate is unavailable, complete the checklist below
 
 ## The gate
