@@ -25,12 +25,11 @@ import type { JournalItem } from '../../components/v5/hub/JournalModule.astro';
 import AskBand from '../../components/v5/hub/AskBand.astro';
 import TrustNote from '../../components/v5/hub/TrustNote.astro';
 import FilterBar from '../../components/v5/FilterBar.astro';
-import { routeSlug, resolveHeroSrc, hasOwnHeroImage } from '../../lib/editorial';
+import { routeSlug, resolveHeroSrc, hasOwnHeroImage, eatTypes } from '../../lib/editorial';
 import { getFacets } from '../../lib/facets';
 import { loadOverrides } from '../../lib/inline-edit/overrides';
 
 // ── Data ──────────────────────────────────────────────────────────────────────
-const eatTypes = ['restaurant', 'cafe', 'bakery', 'pub', 'market', 'winery'];
 const venuesAll = (await getCollection('venues'))
   .filter((venue) => eatTypes.includes(venue.data.type))
   .filter((v) => v.data.status !== 'permanently_closed')
@@ -56,6 +55,9 @@ const typeLabel: Record<string, string> = {
   bakery: 'Bakery',
   pub: 'Pub',
   market: 'Market',
+  brewery: 'Brewery',
+  distillery: 'Distillery',
+  providore: 'Providore',
   winery: 'Winery',
 };
 

@@ -8,7 +8,7 @@ import { routeSlug, isStayVenue, titleize } from '../../lib/editorial';
 import { buildBreadcrumbSchema, absUrl } from '../../lib/schema';
 
 const venues = (await getCollection('venues'))
-  .filter(isStayVenue)
+  .filter((v) => isStayVenue(v) && v.data.type !== 'spa')
   .sort((a, b) => Number(b.data.authority?.hats ?? 0) - Number(a.data.authority?.hats ?? 0));
 
 // Segment by price band

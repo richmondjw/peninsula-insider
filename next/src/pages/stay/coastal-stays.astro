@@ -12,6 +12,7 @@ const allVenues = await getCollection('venues');
 const coastalZones = ['peninsula-tip', 'ocean-coast', 'bay-coast'];
 const coastalStays = allVenues.filter((v) =>
   isStayVenue(v) &&
+  v.data.type !== 'spa' &&
   coastalZones.includes(v.data.zone)
 );
 

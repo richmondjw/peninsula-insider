@@ -99,8 +99,8 @@ const DEFAULT_HOMEPAGE_ADMIN_CONTENT: HomepageAdminContent = {
     imageCaption: 'Cape Schanck after a southerly, <em>the kind of day the Peninsula keeps for its regulars.</em>',
   },
   newsletter: {
-    title: 'Peninsula This Weekend',
-    body: 'Your Peninsula week, sorted. Independent recommendations and planning notes, every Wednesday.',
+    title: 'The Insider Note',
+    body: "The Peninsula worth knowing. Weekly. What's on, where we'd go and what's worth knowing next.",
     issueNumber: '',
     issueDate: '',
     previewHeadline: '',

@@ -34,7 +34,10 @@ import { routeSlug, isStayVenue, typeLabel, titleize, resolveHeroSrc } from '../
 import { buildBreadcrumbSchema, absUrl } from '../../lib/schema';
 
 // ── Data ─────────────────────────────────────────────────────────────────────
-const venues = (await getCollection('venues')).filter(isStayVenue);
+// Day spas (type 'spa') pass isStayVenue but aren't accommodation - they get
+// their own detail pages (kept live for existing inbound links via
+// venueHrefPrefix) but are excluded from the reader-facing Stay directory.
+const venues = (await getCollection('venues')).filter((v) => isStayVenue(v) && v.data.type !== 'spa');
 const stayCount = venues.length; // FULL corpus, every row server-rendered
 
 const articlesAll = (await getCollection('articles', ({ data }) => data.status === 'published'))
