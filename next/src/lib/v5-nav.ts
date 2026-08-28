@@ -300,7 +300,7 @@ export const v5DrawerItems: V5DrawerItem[] = [
 export const v5DrawerCta = {
   key: 'dispatch',
   label: 'The Insider Note',
-  dek: 'Your Peninsula week, sorted. Every Wednesday.',
+  dek: "The Peninsula worth knowing. Weekly. What's on, where we'd go and what's worth knowing next.",
   ctaLabel: 'Join The Insider Note',
   href: '/dispatch/',
 };
