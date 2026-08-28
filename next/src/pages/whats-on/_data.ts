@@ -144,8 +144,12 @@ export interface OccurrenceRule {
   end: Date;
   /** 0 Sun .. 6 Sat, weekly + monthly. */
   day?: number;
+  /** Multiple weekdays for prose such as "Thursday to Sunday". */
+  days?: number[];
   /** 1..5 = nth weekday of the month, -1 = last. Monthly only. */
   nth?: number;
+  /** 1..12, when the recurrence note explicitly limits the operating season. */
+  months?: number[];
 }
 
 const DAY_WORDS: Record<string, number> = {
@@ -162,10 +166,43 @@ const NTH_WORDS: Record<string, number> = {
   fourth: 4, '4th': 4, fifth: 5, '5th': 5, last: -1,
 };
 
+const MONTH_WORDS: Record<string, number> = {
+  january: 1, february: 2, march: 3, april: 4, may: 5, june: 6,
+  july: 7, august: 8, september: 9, october: 10, november: 11, december: 12,
+};
+
+function applicableMonths(text: string): number[] | undefined {
+  const lower = text.toLowerCase();
+  const season = lower.match(/\b(spring|summer|autumn|winter)\b/);
+  if (season && /\b(?:during|in|through|from|winter|summer|autumn|spring)\b/.test(lower)) {
+    const months: Record<string, number[]> = {
+      summer: [12, 1, 2], autumn: [3, 4, 5], winter: [6, 7, 8], spring: [9, 10, 11],
+    };
+    return months[season[1]];
+  }
+  const range = lower.match(/\b(january|february|march|april|may|june|july|august|september|october|november|december)\s*(?:to|through|-)\s*(january|february|march|april|may|june|july|august|september|october|november|december)\b/);
+  if (!range) return undefined;
+  const start = MONTH_WORDS[range[1]];
+  const end = MONTH_WORDS[range[2]];
+  const result: number[] = [];
+  for (let month = start; ; month = (month % 12) + 1) {
+    result.push(month);
+    if (month === end) break;
+  }
+  return result;
+}
+
 function parseWeekday(text: string): number | undefined {
   const m = text.toLowerCase().match(/\b(sun|mon|tues?|wed(?:nes)?|thur?s?|fri|sat(?:ur)?)(?:day)?s?\b/);
   if (!m) return undefined;
   return DAY_WORDS[m[1]] ?? DAY_WORDS[`${m[1]}day`];
+}
+function parseWeekdays(text: string): number[] {
+  const matches = [...text.toLowerCase().matchAll(/\b(sun|mon|tues?|wed(?:nes)?|thur?s?|fri|sat(?:ur)?)(?:day)?s?\b/g)];
+  const days = matches
+    .map((m) => DAY_WORDS[m[1]] ?? DAY_WORDS[`${m[1]}day`])
+    .filter((day): day is number => day !== undefined);
+  return [...new Set(days)];
 }
 function parseNth(text: string): number | undefined {
   const m = text.toLowerCase().match(/\b(first|1st|second|2nd|third|3rd|fourth|4th|fifth|5th|last)\b/);
@@ -186,6 +223,7 @@ export function ruleFor(event: EventEntry, now: Date): OccurrenceRule | null {
   const validNext = next && (!start || next >= start) ? next : undefined;
   const recur: string = data.recurrence ?? 'one-off';
   const noteText = [data.recurrenceNote, data.title, data.summary].filter(Boolean).join(' ');
+  const months = applicableMonths(data.recurrenceNote ?? '');
 
   const seriesStart = start ?? today;
   // A recurring series without an explicit end runs to the far horizon.
@@ -198,8 +236,9 @@ export function ruleFor(event: EventEntry, now: Date): OccurrenceRule | null {
     // Prefer explicit copy, but a weekly series' start date is also a valid
     // weekday anchor. Falling back to a continuous range made Friday-only
     // events appear on every day when the prose omitted the weekday.
-    const day = parseWeekday(noteText) ?? start?.getDay();
-    if (day !== undefined) return { kind: 'weekly', start: seriesStart, end: seriesEnd, day };
+    const days = parseWeekdays(data.recurrenceNote ?? '');
+    const day = days[0] ?? start?.getDay();
+    if (day !== undefined) return { kind: 'weekly', start: seriesStart, end: seriesEnd, day, days: days.length ? days : undefined, months };
     if (validNext && validNext >= today) return { kind: 'range', start: validNext, end: validNext };
     return start && endRaw ? { kind: 'range', start, end: endRaw } : null;
   }
@@ -208,7 +247,7 @@ export function ruleFor(event: EventEntry, now: Date): OccurrenceRule | null {
     const day = parseWeekday(noteText);
     const nth = parseNth(noteText);
     if (day !== undefined && nth !== undefined) {
-      return { kind: 'monthly', start: seriesStart, end: seriesEnd, day, nth };
+      return { kind: 'monthly', start: seriesStart, end: seriesEnd, day, nth, months };
     }
     // Do not invent a monthly cadence from a stale nextOccurrence. Without an
     // explicit weekday + ordinal, expose only a dated future occurrence and
@@ -238,8 +277,9 @@ function nthWeekdayIndex(d: Date): { nth: number; isLast: boolean } {
 export function occursOnDay(rule: OccurrenceRule, day: Date): boolean {
   const d = startOfDay(day);
   if (d < startOfDay(rule.start) || d > startOfDay(rule.end)) return false;
+  if (rule.months && !rule.months.includes(d.getMonth() + 1)) return false;
   if (rule.kind === 'range') return true;
-  if (d.getDay() !== rule.day) return false;
+  if (!(rule.days ?? [rule.day]).includes(d.getDay())) return false;
   if (rule.kind === 'weekly') return true;
   const { nth, isLast } = nthWeekdayIndex(d);
   return rule.nth === -1 ? isLast : nth === rule.nth;
@@ -590,7 +630,9 @@ export interface FeedEntry {
   s: string; // rule start ISO date
   e: string; // rule end ISO date
   wd?: number; // weekday
+  wds?: number[]; // multiple weekdays
   nth?: number; // nth weekday of month (-1 = last)
+  months?: number[];
 }
 
 export function feedFor(events: LiveEvent[]): FeedEntry[] {
@@ -606,7 +648,9 @@ export function feedFor(events: LiveEvent[]): FeedEntry[] {
       e: isoDate(live.rule.end),
     };
     if (live.rule.day !== undefined) entry.wd = live.rule.day;
+    if (live.rule.days && live.rule.days.length > 1) entry.wds = live.rule.days;
     if (live.rule.nth !== undefined) entry.nth = live.rule.nth;
+    if (live.rule.months) entry.months = live.rule.months;
     return entry;
   });
 }

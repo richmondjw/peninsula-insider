@@ -322,7 +322,9 @@ const pageDescription = `What is actually worth it on the Mornington Peninsula t
     s: string;
     e: string;
     wd?: number;
+    wds?: number[];
     nth?: number;
+    months?: number[];
   }
 
   const daysEl = document.querySelector<HTMLElement>('[data-wo-days]');
@@ -365,8 +367,9 @@ const pageDescription = `What is actually worth it on the Mornington Peninsula t
     const occursOn = (e: FeedEntry, d: Date): boolean => {
       const local = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
       if (local < e.s || local > e.e) return false;
+      if (e.months && !e.months.includes(d.getMonth() + 1)) return false;
       if (e.k === 'range') return true;
-      if (d.getDay() !== e.wd) return false;
+      if (!(e.wds ?? [e.wd]).includes(d.getDay())) return false;
       if (e.k === 'weekly') return true;
       const nth = Math.floor((d.getDate() - 1) / 7) + 1;
       const isLast = d.getDate() + 7 > new Date(d.getFullYear(), d.getMonth() + 1, 0).getDate();
