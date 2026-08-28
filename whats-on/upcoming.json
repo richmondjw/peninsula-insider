@@ -3,189 +3,20 @@
   "@type": "ItemList",
   "name": "What's on — Mornington Peninsula (upcoming)",
   "description": "Machine-readable feed of upcoming Mornington Peninsula events for AI assistants and agents. Forward-dated; regenerated on each build. See https://peninsulainsider.com.au/llms.txt for the full site map.",
-  "generated": "2026-08-28",
+  "generated": "2026-08-29",
   "site": "https://peninsulainsider.com.au",
   "windowDays": 90,
   "thisWeekend": {
     "start": "2026-08-28",
     "end": "2026-08-30",
     "label": "Fri 28 – Sun 30 August",
-    "count": 15
+    "count": 12
   },
-  "numberOfItems": 45,
+  "numberOfItems": 43,
   "itemListElement": [
     {
       "@type": "ListItem",
       "position": 1,
-      "item": {
-        "@type": "Event",
-        "name": "Aperitivo Hour at Trofeo Estate",
-        "url": "https://peninsulainsider.com.au/whats-on/aperitivo-hour-trofeo-estate-winter-2026/",
-        "startDate": "2026-08-28",
-        "endDate": "2026-08-28",
-        "description": "Half-price wines and cellar door tastings every Friday in winter at the historic Trofeo Estate chapel and winery. Aperitivo-style evenings from 4pm.",
-        "eventStatus": "https://schema.org/EventScheduled"
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "item": {
-        "@type": "Event",
-        "name": "Bass & Flinders Gin Masterclass",
-        "url": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
-        "startDate": "2026-08-28",
-        "endDate": "2026-08-28",
-        "description": "Three hours at the still in Dromana. Learn how gin actually gets made, blend your own botanicals, and walk out with a 500ml bottle of your own recipe.",
-        "eventStatus": "https://schema.org/EventScheduled"
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "item": {
-        "@type": "Event",
-        "name": "Brunch Thyme at Alba Thermal Springs & Spa",
-        "url": "https://peninsulainsider.com.au/whats-on/brunch-thyme-alba-thermal-springs-winter-2026/",
-        "startDate": "2026-08-28",
-        "endDate": "2026-08-31",
-        "description": "Start the day with a one-course breakfast and choice of beverage in restaurant Thyme, followed by a soak in the hot springs. Available every day during winter. Booking required.",
-        "eventStatus": "https://schema.org/EventScheduled"
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 4,
-      "item": {
-        "@type": "Event",
-        "name": "Flinders Truffles: Winter Truffle Hunt Season",
-        "url": "https://peninsulainsider.com.au/whats-on/flinders-truffles-winter-truffle-hunt-season/",
-        "startDate": "2026-08-28",
-        "endDate": "2026-08-31",
-        "description": "Guided Périgord black truffle hunts on the Flinders farm through winter (June to August), with truffle soup and a toastie by the fire. Farmgate days run without booking.",
-        "eventStatus": "https://schema.org/EventScheduled"
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 5,
-      "item": {
-        "@type": "Event",
-        "name": "Foxeys Hangout Vegetable Feast (Morning Sun Vineyard)",
-        "url": "https://peninsulainsider.com.au/whats-on/foxeys-hangout-vegetable-feast-morning-sun-vineyard/",
-        "startDate": "2026-08-28",
-        "endDate": "2026-11-26",
-        "description": "Chef Bernard McCarthy's all-vegetable, multi-course feast at Morning Sun Vineyard in Main Ridge, matched to Foxeys wines. Ticketed, shared table, outdoors at a working vineyard.",
-        "eventStatus": "https://schema.org/EventScheduled"
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 6,
-      "item": {
-        "@type": "Event",
-        "name": "Peninsula Hot Springs Daily Studio Yoga",
-        "url": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/",
-        "startDate": "2026-08-28",
-        "endDate": "2026-11-26",
-        "description": "Daily 45-minute studio yoga at Peninsula Hot Springs (16+), a paid add-on to a bathing session. Book early-morning or evening slots to avoid the crowd.",
-        "eventStatus": "https://schema.org/EventScheduled"
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 7,
-      "item": {
-        "@type": "Event",
-        "name": "Peninsula Hot Springs Yoga (Complimentary)",
-        "url": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-hot-springs-yoga-complimentary/",
-        "startDate": "2026-08-28",
-        "endDate": "2026-11-26",
-        "description": "Free 25-minute outdoor yoga by the amphitheatre pools, included with bathing admission. Daily at 9:15am, all ages, no booking.",
-        "eventStatus": "https://schema.org/EventScheduled"
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 8,
-      "item": {
-        "@type": "Event",
-        "name": "Polperro Cellar Table, Private Dining Experience",
-        "url": "https://peninsulainsider.com.au/whats-on/polperro-cellar-table-private-dining-experience/",
-        "startDate": "2026-08-28",
-        "endDate": "2026-11-26",
-        "description": "Polperro's private dining room below the winery. Six to eight guests, five courses, the latest Polperro and Even Keel cuvees poured by the people who made them.",
-        "eventStatus": "https://schema.org/EventScheduled"
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 9,
-      "item": {
-        "@type": "Event",
-        "name": "Pt. Leo Estate Sculpture Park",
-        "url": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/",
-        "startDate": "2026-08-28",
-        "endDate": "2026-11-26",
-        "description": "Australia's largest privately owned outdoor sculpture park: 16.5 acres, 60+ contemporary works, two walking loops, all set inside a working winery. Open daily 11am to 5pm.",
-        "eventStatus": "https://schema.org/EventScheduled"
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 10,
-      "item": {
-        "@type": "Event",
-        "name": "Red Hill Truffles: Winter Truffle Hunt Season",
-        "url": "https://peninsulainsider.com.au/whats-on/red-hill-truffles-winter-truffle-hunt-season/",
-        "startDate": "2026-08-28",
-        "endDate": "2026-09-30",
-        "description": "Guided winter truffle hunts at the Peninsula's first truffle producer, bundled with a meal at Red Hill Estate Restaurant, The Epicurean or pizza on the farm. Ticketed; late May to August for Périgord black, August to September for Bianchetto.",
-        "eventStatus": "https://schema.org/EventScheduled"
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 11,
-      "item": {
-        "@type": "Event",
-        "name": "Restore & Pamper Retreat at Polperro Farmhouse",
-        "url": "https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/",
-        "startDate": "2026-08-28",
-        "endDate": "2026-11-26",
-        "description": "3-day, 2-night wellness retreat at Polperro Farmhouse in Red Hill. Yoga, massage at PHS or Endota, optional juice cleanse, set on a biodynamic vineyard. Booked direct via Polperro or Hut Yoga.",
-        "eventStatus": "https://schema.org/EventScheduled"
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 12,
-      "item": {
-        "@type": "Event",
-        "name": "Ten Minutes by Tractor, Terroir Masterclass",
-        "url": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/",
-        "startDate": "2026-08-28",
-        "endDate": "2026-11-26",
-        "description": "One hour in TMBT's private tasting room. Eight wines (two limited-release, six current), the three single-vineyard sites side-by-side, and the long answer to why Pinot from Main Ridge tastes the way it does.",
-        "eventStatus": "https://schema.org/EventScheduled"
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 13,
-      "item": {
-        "@type": "Event",
-        "name": "Winter Acoustic Sessions at Portsea Hotel",
-        "url": "https://peninsulainsider.com.au/whats-on/winter-acoustic-sessions-portsea-hotel-2026/",
-        "startDate": "2026-08-28",
-        "endDate": "2026-08-28",
-        "description": "Local musicians every Friday and Saturday throughout winter at Portsea Hotel. Laid-back evenings with live tunes, food and drinks by the coast.",
-        "eventStatus": "https://schema.org/EventScheduled"
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 14,
       "item": {
         "@type": "Event",
         "name": "Acoustic Saturdays at Peppers Moonah Links",
@@ -198,7 +29,20 @@
     },
     {
       "@type": "ListItem",
-      "position": 15,
+      "position": 2,
+      "item": {
+        "@type": "Event",
+        "name": "Brunch Thyme at Alba Thermal Springs & Spa",
+        "url": "https://peninsulainsider.com.au/whats-on/brunch-thyme-alba-thermal-springs-winter-2026/",
+        "startDate": "2026-08-29",
+        "endDate": "2026-08-31",
+        "description": "Start the day with a one-course breakfast and choice of beverage in restaurant Thyme, followed by a soak in the hot springs. Available every day during winter. Booking required.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
       "item": {
         "@type": "Event",
         "name": "Dromana Community Market",
@@ -211,7 +55,124 @@
     },
     {
       "@type": "ListItem",
-      "position": 16,
+      "position": 4,
+      "item": {
+        "@type": "Event",
+        "name": "Flinders Truffles: Winter Truffle Hunt Season",
+        "url": "https://peninsulainsider.com.au/whats-on/flinders-truffles-winter-truffle-hunt-season/",
+        "startDate": "2026-08-29",
+        "endDate": "2026-08-31",
+        "description": "Guided Périgord black truffle hunts on the Flinders farm through winter (June to August), with truffle soup and a toastie by the fire. Farmgate days run without booking.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "item": {
+        "@type": "Event",
+        "name": "Foxeys Hangout Vegetable Feast (Morning Sun Vineyard)",
+        "url": "https://peninsulainsider.com.au/whats-on/foxeys-hangout-vegetable-feast-morning-sun-vineyard/",
+        "startDate": "2026-08-29",
+        "endDate": "2026-11-27",
+        "description": "Chef Bernard McCarthy's all-vegetable, multi-course feast at Morning Sun Vineyard in Main Ridge, matched to Foxeys wines. Ticketed, shared table, outdoors at a working vineyard.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 6,
+      "item": {
+        "@type": "Event",
+        "name": "Peninsula Hot Springs Daily Studio Yoga",
+        "url": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/",
+        "startDate": "2026-08-29",
+        "endDate": "2026-11-27",
+        "description": "Daily 45-minute studio yoga at Peninsula Hot Springs (16+), a paid add-on to a bathing session. Book early-morning or evening slots to avoid the crowd.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 7,
+      "item": {
+        "@type": "Event",
+        "name": "Peninsula Hot Springs Yoga (Complimentary)",
+        "url": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-hot-springs-yoga-complimentary/",
+        "startDate": "2026-08-29",
+        "endDate": "2026-11-27",
+        "description": "Free 25-minute outdoor yoga by the amphitheatre pools, included with bathing admission. Daily at 9:15am, all ages, no booking.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 8,
+      "item": {
+        "@type": "Event",
+        "name": "Polperro Cellar Table, Private Dining Experience",
+        "url": "https://peninsulainsider.com.au/whats-on/polperro-cellar-table-private-dining-experience/",
+        "startDate": "2026-08-29",
+        "endDate": "2026-11-27",
+        "description": "Polperro's private dining room below the winery. Six to eight guests, five courses, the latest Polperro and Even Keel cuvees poured by the people who made them.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 9,
+      "item": {
+        "@type": "Event",
+        "name": "Pt. Leo Estate Sculpture Park",
+        "url": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/",
+        "startDate": "2026-08-29",
+        "endDate": "2026-11-27",
+        "description": "Australia's largest privately owned outdoor sculpture park: 16.5 acres, 60+ contemporary works, two walking loops, all set inside a working winery. Open daily 11am to 5pm.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 10,
+      "item": {
+        "@type": "Event",
+        "name": "Red Hill Truffles: Winter Truffle Hunt Season",
+        "url": "https://peninsulainsider.com.au/whats-on/red-hill-truffles-winter-truffle-hunt-season/",
+        "startDate": "2026-08-29",
+        "endDate": "2026-09-30",
+        "description": "Guided winter truffle hunts at the Peninsula's first truffle producer, bundled with a meal at Red Hill Estate Restaurant, The Epicurean or pizza on the farm. Ticketed; late May to August for Périgord black, August to September for Bianchetto.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 11,
+      "item": {
+        "@type": "Event",
+        "name": "Restore & Pamper Retreat at Polperro Farmhouse",
+        "url": "https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/",
+        "startDate": "2026-08-29",
+        "endDate": "2026-11-27",
+        "description": "3-day, 2-night wellness retreat at Polperro Farmhouse in Red Hill. Yoga, massage at PHS or Endota, optional juice cleanse, set on a biodynamic vineyard. Booked direct via Polperro or Hut Yoga.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 12,
+      "item": {
+        "@type": "Event",
+        "name": "Ten Minutes by Tractor, Terroir Masterclass",
+        "url": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/",
+        "startDate": "2026-08-29",
+        "endDate": "2026-11-27",
+        "description": "One hour in TMBT's private tasting room. Eight wines (two limited-release, six current), the three single-vineyard sites side-by-side, and the long answer to why Pinot from Main Ridge tastes the way it does.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 13,
       "item": {
         "@type": "Event",
         "name": "Peninsula Hot Springs, Sound Healing Sessions",
@@ -224,7 +185,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 17,
+      "position": 14,
       "item": {
         "@type": "Event",
         "name": "Sound Circle: Full Moon Sound Journey at Peninsula Hot Springs",
@@ -237,7 +198,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 18,
+      "position": 15,
       "item": {
         "@type": "Event",
         "name": "Mornington Wednesday Market (Main Street Market)",
@@ -250,7 +211,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 19,
+      "position": 16,
       "item": {
         "@type": "Event",
         "name": "Doggy Day Out on the Mornington Peninsula",
@@ -263,7 +224,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 20,
+      "position": 17,
       "item": {
         "@type": "Event",
         "name": "Family Mystery Picnic on the Mornington Peninsula",
@@ -276,7 +237,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 21,
+      "position": 18,
       "item": {
         "@type": "Event",
         "name": "Hastings Thursday Street Market",
@@ -289,7 +250,20 @@
     },
     {
       "@type": "ListItem",
-      "position": 22,
+      "position": 19,
+      "item": {
+        "@type": "Event",
+        "name": "Bass & Flinders Gin Masterclass",
+        "url": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
+        "startDate": "2026-09-04",
+        "endDate": "2026-09-04",
+        "description": "Three hours at the still in Dromana. Learn how gin actually gets made, blend your own botanicals, and walk out with a 500ml bottle of your own recipe.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 20,
       "item": {
         "@type": "Event",
         "name": "Hill & Ridge Community Market, September 2026 (Restart)",
@@ -302,7 +276,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 23,
+      "position": 21,
       "item": {
         "@type": "Event",
         "name": "National Works on Paper 2026 (NWOP)",
@@ -315,7 +289,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 24,
+      "position": 22,
       "item": {
         "@type": "Event",
         "name": "Red Hill Market  -  First Saturday, Every Month",
@@ -328,7 +302,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 25,
+      "position": 23,
       "item": {
         "@type": "Event",
         "name": "The Wellness Experience – Celebrating Women’s Health Week",
@@ -341,7 +315,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 26,
+      "position": 24,
       "item": {
         "@type": "Event",
         "name": "Crib Point Community Market",
@@ -354,7 +328,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 27,
+      "position": 25,
       "item": {
         "@type": "Event",
         "name": "Heart of the Community Market (Rosebud)",
@@ -367,7 +341,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 28,
+      "position": 26,
       "item": {
         "@type": "Event",
         "name": "Mornington Racecourse Market",
@@ -380,7 +354,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 29,
+      "position": 27,
       "item": {
         "@type": "Event",
         "name": "Archibald Prize 2026, Facing Modernity & Mitchelton Winery: MPRG Art Trip",
@@ -393,7 +367,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 30,
+      "position": 28,
       "item": {
         "@type": "Event",
         "name": "Boneo Community Market",
@@ -406,7 +380,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 31,
+      "position": 29,
       "item": {
         "@type": "Event",
         "name": "Emu Plains Market, Balnarring",
@@ -419,7 +393,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 32,
+      "position": 30,
       "item": {
         "@type": "Event",
         "name": "Pearcedale Community Market",
@@ -432,7 +406,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 33,
+      "position": 31,
       "item": {
         "@type": "Event",
         "name": "PST Art Exhibition Opening Night 2026",
@@ -445,7 +419,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 34,
+      "position": 32,
       "item": {
         "@type": "Event",
         "name": "Tootgarook Primary School Market",
@@ -458,7 +432,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 35,
+      "position": 33,
       "item": {
         "@type": "Event",
         "name": "Mt Eliza Farmers Market",
@@ -471,7 +445,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 36,
+      "position": 34,
       "item": {
         "@type": "Event",
         "name": "Author Talk: Vikki Petraitis - Mornington Library",
@@ -484,7 +458,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 37,
+      "position": 35,
       "item": {
         "@type": "Event",
         "name": "Arj Barker Live at Barlow",
@@ -497,7 +471,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 38,
+      "position": 36,
       "item": {
         "@type": "Event",
         "name": "Breast Foot Forward Annual Community Walk & Run 2026",
@@ -510,7 +484,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 39,
+      "position": 37,
       "item": {
         "@type": "Event",
         "name": "Emu Plains Market",
@@ -523,7 +497,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 40,
+      "position": 38,
       "item": {
         "@type": "Event",
         "name": "High Tea at Mornington Botanical Rose Gardens",
@@ -536,7 +510,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 41,
+      "position": 39,
       "item": {
         "@type": "Event",
         "name": "The Bloody Long Walk – Mornington Peninsula 2026",
@@ -549,7 +523,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 42,
+      "position": 40,
       "item": {
         "@type": "Event",
         "name": "Enchanting Kirtan: Sacred Music & Meditation Experience - Mornington",
@@ -562,7 +536,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 43,
+      "position": 41,
       "item": {
         "@type": "Event",
         "name": "Saturday Pottery Class",
@@ -575,7 +549,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 44,
+      "position": 42,
       "item": {
         "@type": "Event",
         "name": "Glamping Tents - Horror Movie Campout: Back From The Dead Tour 2026",
@@ -588,7 +562,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 45,
+      "position": 43,
       "item": {
         "@type": "Event",
         "name": "Peninsula VineHop Festival 2026",
@@ -600,177 +574,8 @@
       }
     }
   ],
-  "count": 45,
+  "count": 43,
   "events": [
-    {
-      "title": "Aperitivo Hour at Trofeo Estate",
-      "url": "https://peninsulainsider.com.au/whats-on/aperitivo-hour-trofeo-estate-winter-2026/",
-      "startDate": "2026-08-28",
-      "endDate": "2026-08-28",
-      "recurrence": "weekly",
-      "category": "cellar-door",
-      "place": "dromana",
-      "venue": null,
-      "freePaid": "Paid",
-      "summary": "Half-price wines and cellar door tastings every Friday in winter at the historic Trofeo Estate chapel and winery. Aperitivo-style evenings from 4pm.",
-      "thisWeekend": true
-    },
-    {
-      "title": "Bass & Flinders Gin Masterclass",
-      "url": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
-      "startDate": "2026-08-28",
-      "endDate": "2026-08-28",
-      "recurrence": "weekly",
-      "category": "food-wine",
-      "place": "dromana",
-      "venue": null,
-      "freePaid": "Paid",
-      "summary": "Three hours at the still in Dromana. Learn how gin actually gets made, blend your own botanicals, and walk out with a 500ml bottle of your own recipe.",
-      "thisWeekend": true
-    },
-    {
-      "title": "Brunch Thyme at Alba Thermal Springs & Spa",
-      "url": "https://peninsulainsider.com.au/whats-on/brunch-thyme-alba-thermal-springs-winter-2026/",
-      "startDate": "2026-08-28",
-      "endDate": "2026-08-31",
-      "recurrence": "ongoing",
-      "category": "wellness",
-      "place": "fingal",
-      "venue": null,
-      "freePaid": "Paid",
-      "summary": "Start the day with a one-course breakfast and choice of beverage in restaurant Thyme, followed by a soak in the hot springs. Available every day during winter. Booking required.",
-      "thisWeekend": true
-    },
-    {
-      "title": "Flinders Truffles: Winter Truffle Hunt Season",
-      "url": "https://peninsulainsider.com.au/whats-on/flinders-truffles-winter-truffle-hunt-season/",
-      "startDate": "2026-08-28",
-      "endDate": "2026-08-31",
-      "recurrence": "one-off",
-      "category": "nature",
-      "place": "flinders",
-      "venue": null,
-      "freePaid": "Paid (hunt) / Free entry (farmgate)",
-      "summary": "Guided Périgord black truffle hunts on the Flinders farm through winter (June to August), with truffle soup and a toastie by the fire. Farmgate days run without booking.",
-      "thisWeekend": true
-    },
-    {
-      "title": "Foxeys Hangout Vegetable Feast (Morning Sun Vineyard)",
-      "url": "https://peninsulainsider.com.au/whats-on/foxeys-hangout-vegetable-feast-morning-sun-vineyard/",
-      "startDate": "2026-08-28",
-      "endDate": "2026-11-26",
-      "recurrence": "ongoing",
-      "category": "food-wine",
-      "place": "red-hill",
-      "venue": null,
-      "freePaid": "Paid",
-      "summary": "Chef Bernard McCarthy's all-vegetable, multi-course feast at Morning Sun Vineyard in Main Ridge, matched to Foxeys wines. Ticketed, shared table, outdoors at a working vineyard.",
-      "thisWeekend": true
-    },
-    {
-      "title": "Peninsula Hot Springs Daily Studio Yoga",
-      "url": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/",
-      "startDate": "2026-08-28",
-      "endDate": "2026-11-26",
-      "recurrence": "one-off",
-      "category": "wellness",
-      "place": null,
-      "venue": null,
-      "freePaid": "Paid (add-on)",
-      "summary": "Daily 45-minute studio yoga at Peninsula Hot Springs (16+), a paid add-on to a bathing session. Book early-morning or evening slots to avoid the crowd.",
-      "thisWeekend": true
-    },
-    {
-      "title": "Peninsula Hot Springs Yoga (Complimentary)",
-      "url": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-hot-springs-yoga-complimentary/",
-      "startDate": "2026-08-28",
-      "endDate": "2026-11-26",
-      "recurrence": "one-off",
-      "category": "wellness",
-      "place": null,
-      "venue": null,
-      "freePaid": "Free (included with bathing)",
-      "summary": "Free 25-minute outdoor yoga by the amphitheatre pools, included with bathing admission. Daily at 9:15am, all ages, no booking.",
-      "thisWeekend": true
-    },
-    {
-      "title": "Polperro Cellar Table, Private Dining Experience",
-      "url": "https://peninsulainsider.com.au/whats-on/polperro-cellar-table-private-dining-experience/",
-      "startDate": "2026-08-28",
-      "endDate": "2026-11-26",
-      "recurrence": "one-off",
-      "category": "food-wine",
-      "place": "red-hill",
-      "venue": null,
-      "freePaid": "Paid",
-      "summary": "Polperro's private dining room below the winery. Six to eight guests, five courses, the latest Polperro and Even Keel cuvees poured by the people who made them.",
-      "thisWeekend": true
-    },
-    {
-      "title": "Pt. Leo Estate Sculpture Park",
-      "url": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/",
-      "startDate": "2026-08-28",
-      "endDate": "2026-11-26",
-      "recurrence": "one-off",
-      "category": "arts",
-      "place": "merricks",
-      "venue": null,
-      "freePaid": "Paid",
-      "summary": "Australia's largest privately owned outdoor sculpture park: 16.5 acres, 60+ contemporary works, two walking loops, all set inside a working winery. Open daily 11am to 5pm.",
-      "thisWeekend": true
-    },
-    {
-      "title": "Red Hill Truffles: Winter Truffle Hunt Season",
-      "url": "https://peninsulainsider.com.au/whats-on/red-hill-truffles-winter-truffle-hunt-season/",
-      "startDate": "2026-08-28",
-      "endDate": "2026-09-30",
-      "recurrence": "one-off",
-      "category": "nature",
-      "place": "main-ridge",
-      "venue": null,
-      "freePaid": "Paid",
-      "summary": "Guided winter truffle hunts at the Peninsula's first truffle producer, bundled with a meal at Red Hill Estate Restaurant, The Epicurean or pizza on the farm. Ticketed; late May to August for Périgord black, August to September for Bianchetto.",
-      "thisWeekend": true
-    },
-    {
-      "title": "Restore & Pamper Retreat at Polperro Farmhouse",
-      "url": "https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/",
-      "startDate": "2026-08-28",
-      "endDate": "2026-11-26",
-      "recurrence": "one-off",
-      "category": "wellness",
-      "place": "red-hill",
-      "venue": null,
-      "freePaid": "Paid",
-      "summary": "3-day, 2-night wellness retreat at Polperro Farmhouse in Red Hill. Yoga, massage at PHS or Endota, optional juice cleanse, set on a biodynamic vineyard. Booked direct via Polperro or Hut Yoga.",
-      "thisWeekend": true
-    },
-    {
-      "title": "Ten Minutes by Tractor, Terroir Masterclass",
-      "url": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/",
-      "startDate": "2026-08-28",
-      "endDate": "2026-11-26",
-      "recurrence": "one-off",
-      "category": "food-wine",
-      "place": "main-ridge",
-      "venue": null,
-      "freePaid": "Paid",
-      "summary": "One hour in TMBT's private tasting room. Eight wines (two limited-release, six current), the three single-vineyard sites side-by-side, and the long answer to why Pinot from Main Ridge tastes the way it does.",
-      "thisWeekend": true
-    },
-    {
-      "title": "Winter Acoustic Sessions at Portsea Hotel",
-      "url": "https://peninsulainsider.com.au/whats-on/winter-acoustic-sessions-portsea-hotel-2026/",
-      "startDate": "2026-08-28",
-      "endDate": "2026-08-28",
-      "recurrence": "weekly",
-      "category": "food-wine",
-      "place": "portsea",
-      "venue": null,
-      "freePaid": "Free",
-      "summary": "Local musicians every Friday and Saturday throughout winter at Portsea Hotel. Laid-back evenings with live tunes, food and drinks by the coast.",
-      "thisWeekend": true
-    },
     {
       "title": "Acoustic Saturdays at Peppers Moonah Links",
       "url": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
@@ -785,6 +590,19 @@
       "thisWeekend": true
     },
     {
+      "title": "Brunch Thyme at Alba Thermal Springs & Spa",
+      "url": "https://peninsulainsider.com.au/whats-on/brunch-thyme-alba-thermal-springs-winter-2026/",
+      "startDate": "2026-08-29",
+      "endDate": "2026-08-31",
+      "recurrence": "ongoing",
+      "category": "wellness",
+      "place": "fingal",
+      "venue": null,
+      "freePaid": "Paid",
+      "summary": "Start the day with a one-course breakfast and choice of beverage in restaurant Thyme, followed by a soak in the hot springs. Available every day during winter. Booking required.",
+      "thisWeekend": true
+    },
+    {
       "title": "Dromana Community Market",
       "url": "https://peninsulainsider.com.au/whats-on/dromana-community-market/",
       "startDate": "2026-08-29",
@@ -795,6 +613,123 @@
       "venue": null,
       "freePaid": "Free",
       "summary": "Community market at Dromana Park on the last Saturday of every month. Mix of produce, craft, plants and local makers.",
+      "thisWeekend": true
+    },
+    {
+      "title": "Flinders Truffles: Winter Truffle Hunt Season",
+      "url": "https://peninsulainsider.com.au/whats-on/flinders-truffles-winter-truffle-hunt-season/",
+      "startDate": "2026-08-29",
+      "endDate": "2026-08-31",
+      "recurrence": "one-off",
+      "category": "nature",
+      "place": "flinders",
+      "venue": null,
+      "freePaid": "Paid (hunt) / Free entry (farmgate)",
+      "summary": "Guided Périgord black truffle hunts on the Flinders farm through winter (June to August), with truffle soup and a toastie by the fire. Farmgate days run without booking.",
+      "thisWeekend": true
+    },
+    {
+      "title": "Foxeys Hangout Vegetable Feast (Morning Sun Vineyard)",
+      "url": "https://peninsulainsider.com.au/whats-on/foxeys-hangout-vegetable-feast-morning-sun-vineyard/",
+      "startDate": "2026-08-29",
+      "endDate": "2026-11-27",
+      "recurrence": "ongoing",
+      "category": "food-wine",
+      "place": "red-hill",
+      "venue": null,
+      "freePaid": "Paid",
+      "summary": "Chef Bernard McCarthy's all-vegetable, multi-course feast at Morning Sun Vineyard in Main Ridge, matched to Foxeys wines. Ticketed, shared table, outdoors at a working vineyard.",
+      "thisWeekend": true
+    },
+    {
+      "title": "Peninsula Hot Springs Daily Studio Yoga",
+      "url": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/",
+      "startDate": "2026-08-29",
+      "endDate": "2026-11-27",
+      "recurrence": "one-off",
+      "category": "wellness",
+      "place": null,
+      "venue": null,
+      "freePaid": "Paid (add-on)",
+      "summary": "Daily 45-minute studio yoga at Peninsula Hot Springs (16+), a paid add-on to a bathing session. Book early-morning or evening slots to avoid the crowd.",
+      "thisWeekend": true
+    },
+    {
+      "title": "Peninsula Hot Springs Yoga (Complimentary)",
+      "url": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-hot-springs-yoga-complimentary/",
+      "startDate": "2026-08-29",
+      "endDate": "2026-11-27",
+      "recurrence": "one-off",
+      "category": "wellness",
+      "place": null,
+      "venue": null,
+      "freePaid": "Free (included with bathing)",
+      "summary": "Free 25-minute outdoor yoga by the amphitheatre pools, included with bathing admission. Daily at 9:15am, all ages, no booking.",
+      "thisWeekend": true
+    },
+    {
+      "title": "Polperro Cellar Table, Private Dining Experience",
+      "url": "https://peninsulainsider.com.au/whats-on/polperro-cellar-table-private-dining-experience/",
+      "startDate": "2026-08-29",
+      "endDate": "2026-11-27",
+      "recurrence": "one-off",
+      "category": "food-wine",
+      "place": "red-hill",
+      "venue": null,
+      "freePaid": "Paid",
+      "summary": "Polperro's private dining room below the winery. Six to eight guests, five courses, the latest Polperro and Even Keel cuvees poured by the people who made them.",
+      "thisWeekend": true
+    },
+    {
+      "title": "Pt. Leo Estate Sculpture Park",
+      "url": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/",
+      "startDate": "2026-08-29",
+      "endDate": "2026-11-27",
+      "recurrence": "one-off",
+      "category": "arts",
+      "place": "merricks",
+      "venue": null,
+      "freePaid": "Paid",
+      "summary": "Australia's largest privately owned outdoor sculpture park: 16.5 acres, 60+ contemporary works, two walking loops, all set inside a working winery. Open daily 11am to 5pm.",
+      "thisWeekend": true
+    },
+    {
+      "title": "Red Hill Truffles: Winter Truffle Hunt Season",
+      "url": "https://peninsulainsider.com.au/whats-on/red-hill-truffles-winter-truffle-hunt-season/",
+      "startDate": "2026-08-29",
+      "endDate": "2026-09-30",
+      "recurrence": "one-off",
+      "category": "nature",
+      "place": "main-ridge",
+      "venue": null,
+      "freePaid": "Paid",
+      "summary": "Guided winter truffle hunts at the Peninsula's first truffle producer, bundled with a meal at Red Hill Estate Restaurant, The Epicurean or pizza on the farm. Ticketed; late May to August for Périgord black, August to September for Bianchetto.",
+      "thisWeekend": true
+    },
+    {
+      "title": "Restore & Pamper Retreat at Polperro Farmhouse",
+      "url": "https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/",
+      "startDate": "2026-08-29",
+      "endDate": "2026-11-27",
+      "recurrence": "one-off",
+      "category": "wellness",
+      "place": "red-hill",
+      "venue": null,
+      "freePaid": "Paid",
+      "summary": "3-day, 2-night wellness retreat at Polperro Farmhouse in Red Hill. Yoga, massage at PHS or Endota, optional juice cleanse, set on a biodynamic vineyard. Booked direct via Polperro or Hut Yoga.",
+      "thisWeekend": true
+    },
+    {
+      "title": "Ten Minutes by Tractor, Terroir Masterclass",
+      "url": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/",
+      "startDate": "2026-08-29",
+      "endDate": "2026-11-27",
+      "recurrence": "one-off",
+      "category": "food-wine",
+      "place": "main-ridge",
+      "venue": null,
+      "freePaid": "Paid",
+      "summary": "One hour in TMBT's private tasting room. Eight wines (two limited-release, six current), the three single-vineyard sites side-by-side, and the long answer to why Pinot from Main Ridge tastes the way it does.",
       "thisWeekend": true
     },
     {
@@ -873,6 +808,19 @@
       "venue": null,
       "freePaid": "Free",
       "summary": "Weekly outdoor street market on High Street Hastings every Thursday. 40+ stalls featuring homemade, homegrown and craft goods. Fresh produce, handmade goods, plants. Local food options available on the street.",
+      "thisWeekend": false
+    },
+    {
+      "title": "Bass & Flinders Gin Masterclass",
+      "url": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
+      "startDate": "2026-09-04",
+      "endDate": "2026-09-04",
+      "recurrence": "weekly",
+      "category": "food-wine",
+      "place": "dromana",
+      "venue": null,
+      "freePaid": "Paid",
+      "summary": "Three hours at the still in Dromana. Learn how gin actually gets made, blend your own botanicals, and walk out with a 500ml bottle of your own recipe.",
       "thisWeekend": false
     },
     {
