@@ -10,9 +10,9 @@
     "start": "2026-08-28",
     "end": "2026-08-30",
     "label": "Fri 28 – Sun 30 August",
-    "count": 12
+    "count": 15
   },
-  "numberOfItems": 43,
+  "numberOfItems": 44,
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -175,6 +175,45 @@
       "position": 13,
       "item": {
         "@type": "Event",
+        "name": "Winter Acoustic Sessions at Portsea Hotel",
+        "url": "https://peninsulainsider.com.au/whats-on/winter-acoustic-sessions-portsea-hotel-2026/",
+        "startDate": "2026-08-29",
+        "endDate": "2026-08-29",
+        "description": "Local musicians every Friday and Saturday throughout winter at Portsea Hotel. Laid-back evenings with live tunes, food and drinks by the coast.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 14,
+      "item": {
+        "@type": "Event",
+        "name": "Doggy Day Out on the Mornington Peninsula",
+        "url": "https://peninsulainsider.com.au/whats-on/doggy-day-out-mornington-peninsula-2026/",
+        "startDate": "2026-08-30",
+        "endDate": "2026-08-30",
+        "description": "Self-guided pet-friendly day following digital clues across the Peninsula. Dog cafe with pup-approved snacks, human treats, and a relaxed winery picnic lunch. Runs Thursday to Sunday weekly.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 15,
+      "item": {
+        "@type": "Event",
+        "name": "Family Mystery Picnic on the Mornington Peninsula",
+        "url": "https://peninsulainsider.com.au/whats-on/family-mystery-picnic-mornington-peninsula-2026/",
+        "startDate": "2026-08-30",
+        "endDate": "2026-08-30",
+        "description": "Self-guided family scavenger journey: solve smartphone clues, collect picnic goodies from local providers, hit activity stops, and feast at a scenic picnic location. Runs Thursday to Sunday weekly.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 16,
+      "item": {
+        "@type": "Event",
         "name": "Peninsula Hot Springs, Sound Healing Sessions",
         "url": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-sound-healing-sessions/",
         "startDate": "2026-09-01",
@@ -185,7 +224,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 14,
+      "position": 17,
       "item": {
         "@type": "Event",
         "name": "Sound Circle: Full Moon Sound Journey at Peninsula Hot Springs",
@@ -198,7 +237,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 15,
+      "position": 18,
       "item": {
         "@type": "Event",
         "name": "Mornington Wednesday Market (Main Street Market)",
@@ -211,33 +250,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 16,
-      "item": {
-        "@type": "Event",
-        "name": "Doggy Day Out on the Mornington Peninsula",
-        "url": "https://peninsulainsider.com.au/whats-on/doggy-day-out-mornington-peninsula-2026/",
-        "startDate": "2026-09-03",
-        "endDate": "2026-09-03",
-        "description": "Self-guided pet-friendly day following digital clues across the Peninsula. Dog cafe with pup-approved snacks, human treats, and a relaxed winery picnic lunch. Runs Thursday to Sunday weekly.",
-        "eventStatus": "https://schema.org/EventScheduled"
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 17,
-      "item": {
-        "@type": "Event",
-        "name": "Family Mystery Picnic on the Mornington Peninsula",
-        "url": "https://peninsulainsider.com.au/whats-on/family-mystery-picnic-mornington-peninsula-2026/",
-        "startDate": "2026-09-03",
-        "endDate": "2026-09-03",
-        "description": "Self-guided family scavenger journey: solve smartphone clues, collect picnic goodies from local providers, hit activity stops, and feast at a scenic picnic location. Runs Thursday to Sunday weekly.",
-        "eventStatus": "https://schema.org/EventScheduled"
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 18,
+      "position": 19,
       "item": {
         "@type": "Event",
         "name": "Hastings Thursday Street Market",
@@ -250,7 +263,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 19,
+      "position": 20,
       "item": {
         "@type": "Event",
         "name": "Bass & Flinders Gin Masterclass",
@@ -263,7 +276,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 20,
+      "position": 21,
       "item": {
         "@type": "Event",
         "name": "Hill & Ridge Community Market, September 2026 (Restart)",
@@ -276,7 +289,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 21,
+      "position": 22,
       "item": {
         "@type": "Event",
         "name": "National Works on Paper 2026 (NWOP)",
@@ -289,7 +302,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 22,
+      "position": 23,
       "item": {
         "@type": "Event",
         "name": "Red Hill Market  -  First Saturday, Every Month",
@@ -302,7 +315,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 23,
+      "position": 24,
       "item": {
         "@type": "Event",
         "name": "The Wellness Experience – Celebrating Women’s Health Week",
@@ -315,7 +328,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 24,
+      "position": 25,
       "item": {
         "@type": "Event",
         "name": "Crib Point Community Market",
@@ -328,7 +341,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 25,
+      "position": 26,
       "item": {
         "@type": "Event",
         "name": "Heart of the Community Market (Rosebud)",
@@ -341,7 +354,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 26,
+      "position": 27,
       "item": {
         "@type": "Event",
         "name": "Mornington Racecourse Market",
@@ -354,7 +367,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 27,
+      "position": 28,
       "item": {
         "@type": "Event",
         "name": "Archibald Prize 2026, Facing Modernity & Mitchelton Winery: MPRG Art Trip",
@@ -367,7 +380,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 28,
+      "position": 29,
       "item": {
         "@type": "Event",
         "name": "Boneo Community Market",
@@ -380,7 +393,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 29,
+      "position": 30,
       "item": {
         "@type": "Event",
         "name": "Emu Plains Market, Balnarring",
@@ -393,7 +406,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 30,
+      "position": 31,
       "item": {
         "@type": "Event",
         "name": "Pearcedale Community Market",
@@ -406,7 +419,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 31,
+      "position": 32,
       "item": {
         "@type": "Event",
         "name": "PST Art Exhibition Opening Night 2026",
@@ -419,7 +432,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 32,
+      "position": 33,
       "item": {
         "@type": "Event",
         "name": "Tootgarook Primary School Market",
@@ -432,7 +445,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 33,
+      "position": 34,
       "item": {
         "@type": "Event",
         "name": "Mt Eliza Farmers Market",
@@ -445,7 +458,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 34,
+      "position": 35,
       "item": {
         "@type": "Event",
         "name": "Author Talk: Vikki Petraitis - Mornington Library",
@@ -458,7 +471,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 35,
+      "position": 36,
       "item": {
         "@type": "Event",
         "name": "Arj Barker Live at Barlow",
@@ -471,7 +484,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 36,
+      "position": 37,
       "item": {
         "@type": "Event",
         "name": "Breast Foot Forward Annual Community Walk & Run 2026",
@@ -484,7 +497,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 37,
+      "position": 38,
       "item": {
         "@type": "Event",
         "name": "Emu Plains Market",
@@ -497,7 +510,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 38,
+      "position": 39,
       "item": {
         "@type": "Event",
         "name": "High Tea at Mornington Botanical Rose Gardens",
@@ -510,7 +523,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 39,
+      "position": 40,
       "item": {
         "@type": "Event",
         "name": "The Bloody Long Walk – Mornington Peninsula 2026",
@@ -523,7 +536,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 40,
+      "position": 41,
       "item": {
         "@type": "Event",
         "name": "Enchanting Kirtan: Sacred Music & Meditation Experience - Mornington",
@@ -536,7 +549,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 41,
+      "position": 42,
       "item": {
         "@type": "Event",
         "name": "Saturday Pottery Class",
@@ -549,7 +562,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 42,
+      "position": 43,
       "item": {
         "@type": "Event",
         "name": "Glamping Tents - Horror Movie Campout: Back From The Dead Tour 2026",
@@ -562,7 +575,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 43,
+      "position": 44,
       "item": {
         "@type": "Event",
         "name": "Peninsula VineHop Festival 2026",
@@ -574,7 +587,7 @@
       }
     }
   ],
-  "count": 43,
+  "count": 44,
   "events": [
     {
       "title": "Acoustic Saturdays at Peppers Moonah Links",
@@ -733,6 +746,45 @@
       "thisWeekend": true
     },
     {
+      "title": "Winter Acoustic Sessions at Portsea Hotel",
+      "url": "https://peninsulainsider.com.au/whats-on/winter-acoustic-sessions-portsea-hotel-2026/",
+      "startDate": "2026-08-29",
+      "endDate": "2026-08-29",
+      "recurrence": "weekly",
+      "category": "food-wine",
+      "place": "portsea",
+      "venue": null,
+      "freePaid": "Free",
+      "summary": "Local musicians every Friday and Saturday throughout winter at Portsea Hotel. Laid-back evenings with live tunes, food and drinks by the coast.",
+      "thisWeekend": true
+    },
+    {
+      "title": "Doggy Day Out on the Mornington Peninsula",
+      "url": "https://peninsulainsider.com.au/whats-on/doggy-day-out-mornington-peninsula-2026/",
+      "startDate": "2026-08-30",
+      "endDate": "2026-08-30",
+      "recurrence": "weekly",
+      "category": "food-wine",
+      "place": "mornington",
+      "venue": null,
+      "freePaid": "Paid",
+      "summary": "Self-guided pet-friendly day following digital clues across the Peninsula. Dog cafe with pup-approved snacks, human treats, and a relaxed winery picnic lunch. Runs Thursday to Sunday weekly.",
+      "thisWeekend": true
+    },
+    {
+      "title": "Family Mystery Picnic on the Mornington Peninsula",
+      "url": "https://peninsulainsider.com.au/whats-on/family-mystery-picnic-mornington-peninsula-2026/",
+      "startDate": "2026-08-30",
+      "endDate": "2026-08-30",
+      "recurrence": "weekly",
+      "category": "family-programs",
+      "place": "mornington",
+      "venue": null,
+      "freePaid": "Paid",
+      "summary": "Self-guided family scavenger journey: solve smartphone clues, collect picnic goodies from local providers, hit activity stops, and feast at a scenic picnic location. Runs Thursday to Sunday weekly.",
+      "thisWeekend": true
+    },
+    {
       "title": "Peninsula Hot Springs, Sound Healing Sessions",
       "url": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-sound-healing-sessions/",
       "startDate": "2026-09-01",
@@ -769,32 +821,6 @@
       "venue": null,
       "freePaid": "Free",
       "summary": "Victoria's longest-running street market – operating over 40 years every Wednesday on Main Street Mornington. 120+ stalls of handmade crafts, home-baked treats, home-grown plants and produce. Rain, hail or shine (high-wind policy applies). Vibrant weekly community gathering.",
-      "thisWeekend": false
-    },
-    {
-      "title": "Doggy Day Out on the Mornington Peninsula",
-      "url": "https://peninsulainsider.com.au/whats-on/doggy-day-out-mornington-peninsula-2026/",
-      "startDate": "2026-09-03",
-      "endDate": "2026-09-03",
-      "recurrence": "weekly",
-      "category": "food-wine",
-      "place": "mornington",
-      "venue": null,
-      "freePaid": "Paid",
-      "summary": "Self-guided pet-friendly day following digital clues across the Peninsula. Dog cafe with pup-approved snacks, human treats, and a relaxed winery picnic lunch. Runs Thursday to Sunday weekly.",
-      "thisWeekend": false
-    },
-    {
-      "title": "Family Mystery Picnic on the Mornington Peninsula",
-      "url": "https://peninsulainsider.com.au/whats-on/family-mystery-picnic-mornington-peninsula-2026/",
-      "startDate": "2026-09-03",
-      "endDate": "2026-09-03",
-      "recurrence": "weekly",
-      "category": "family-programs",
-      "place": "mornington",
-      "venue": null,
-      "freePaid": "Paid",
-      "summary": "Self-guided family scavenger journey: solve smartphone clues, collect picnic goodies from local providers, hit activity stops, and feast at a scenic picnic location. Runs Thursday to Sunday weekly.",
       "thisWeekend": false
     },
     {
