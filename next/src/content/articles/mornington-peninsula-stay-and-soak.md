@@ -56,7 +56,7 @@ For serious bathers, the simplest stay-and-soak combination is <a href="/stay/pe
 
 ### Jackalope Hotel: the premium ridge stay
 
-<a href="/stay/jackalope/">Jackalope Hotel</a> in Merricks North is twenty minutes from both hot springs and the single most editorially coherent pairing on the Peninsula. Dark architecture, Subtle Energies treatments at <a href="/stay/spa-by-jackalope/">Spa by Jackalope</a>, and Doot Doot Doot's two-hat restaurant on-property. This is the weekend to book for an anniversary, a birthday, or a first serious Peninsula couples trip. Pair a Jackalope spa morning with an Alba afternoon session and you have one of the country's best wellness weekends.
+<a href="/stay/jackalope/">Jackalope Hotel</a> in Merricks North is twenty minutes from both hot springs and the single most editorially coherent pairing on the Peninsula. Dark architecture, Subtle Energies treatments at <a href="/explore/spas-and-wellness/#spa-by-jackalope">Spa by Jackalope</a>, and Doot Doot Doot's two-hat restaurant on-property. This is the weekend to book for an anniversary, a birthday, or a first serious Peninsula couples trip. Pair a Jackalope spa morning with an Alba afternoon session and you have one of the country's best wellness weekends.
 
 ### Lindenderry Country House: the winery stay
 
@@ -68,7 +68,7 @@ For serious bathers, the simplest stay-and-soak combination is <a href="/stay/pe
 
 ## The southern tip: One Spa at RACV Cape Schanck
 
-<a href="/stay/one-spa-racv-cape-schanck/">One Spa at RACV Cape Schanck</a> is at the southern end of the Peninsula, with the simplest possible stay-and-soak pairing.
+<a href="/explore/spas-and-wellness/#one-spa-racv-cape-schanck">One Spa at RACV Cape Schanck</a> is at the southern end of the Peninsula, with the simplest possible stay-and-soak pairing.
 
 ### RACV Cape Schanck Resort: walk from your room
 
@@ -80,7 +80,7 @@ For couples who want the RACV spa but not the RACV stay, <a href="/stay/jackalop
 
 ## The Merricks North corridor: Spa by Jackalope
 
-<a href="/stay/spa-by-jackalope/">Spa by Jackalope</a> is designed to serve Jackalope Hotel guests first. The right pairing is obvious.
+<a href="/explore/spas-and-wellness/#spa-by-jackalope">Spa by Jackalope</a> is designed to serve Jackalope Hotel guests first. The right pairing is obvious.
 
 ### Jackalope: walk from your room
 

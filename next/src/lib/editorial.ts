@@ -191,14 +191,27 @@ export function routeSlug(entry: any) {
    page when the browser does not complete the script redirect promptly. */
 const venueRouteOverrides: Record<string, string> = {
   'port-phillip-estate-restaurant': '/wine/port-phillip-estate/',
+  // Day spas: not accommodation, so stayEligible:false and no /stay/ page of
+  // their own (job 5, 2026-08-29). Their canonical home is the Explore
+  // wellness entry; send every internal link straight there instead of
+  // through the /stay/<slug>/ redirect stub.
+  'alba-thermal-springs': '/explore/spas-and-wellness/#alba-thermal-springs',
+  'peninsula-hot-springs': '/explore/spas-and-wellness/#peninsula-hot-springs',
+  'spa-by-jackalope': '/explore/spas-and-wellness/#spa-by-jackalope',
+  'one-spa-racv-cape-schanck': '/explore/spas-and-wellness/#one-spa-racv-cape-schanck',
+  'endota-spa-mornington': '/explore/spas-and-wellness/#endota-spa-mornington',
 };
+
+export function venueHrefForSlug(slug: string | undefined, hrefPrefix = '/eat') {
+  if (!slug) return '/eat/';
+  if (venueRouteOverrides[slug]) return venueRouteOverrides[slug];
+  return `${String(hrefPrefix).replace(/\/+$/, '')}/${slug}/`;
+}
 
 export function venueHref(entry: any, hrefPrefix?: string) {
   const slug = routeSlug(entry);
-  if (!slug) return '/eat/';
-  if (venueRouteOverrides[slug]) return venueRouteOverrides[slug];
   const prefix = hrefPrefix ?? venueHrefPrefix(entry?.data?.type ?? entry?.type ?? '');
-  return `${String(prefix).replace(/\/+$/, '')}/${slug}/`;
+  return venueHrefForSlug(slug, prefix);
 }
 
 /**

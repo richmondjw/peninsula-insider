@@ -141,7 +141,7 @@ export const prerender = true;
         <a href="/explore/spas-and-wellness/" class="venues__link">Spa guide →</a>
       </div>
       <div class="venues__grid">
-        {venues.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}
+        {venues.map((venue) => <VenueCard venue={venue} href={`/explore/spas-and-wellness/#${routeSlug(venue)}`} />)}
       </div>
     </div>
   </section>

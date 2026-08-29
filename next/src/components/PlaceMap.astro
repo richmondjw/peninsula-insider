@@ -13,7 +13,7 @@
  *   Q2 - Events on place maps: yes, next-30-day window.
  *   Map height - fixed 380px desktop, 4:3 aspect on mobile.
  */
-import { routeSlug, venueHrefPrefix } from '../lib/editorial';
+import { routeSlug, venueHref } from '../lib/editorial';
 
 export interface Props {
   place: any;
@@ -68,7 +68,7 @@ venues.forEach((v) => {
     category: venueCategory(v.data.type),
     type: v.data.type,
     name: v.data.name,
-    href: `${venueHrefPrefix(v.data.type)}/${slug}/`,
+    href: venueHref(v),
     lat: v.data.coordinates.lat,
     lng: v.data.coordinates.lng,
     hero: v.data.heroImage?.src ?? '',

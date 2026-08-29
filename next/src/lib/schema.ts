@@ -1,3 +1,5 @@
+import { venueHrefForSlug } from './editorial';
+
 const SITE = 'https://peninsulainsider.com.au';
 
 // PI-EXP-045: interim publisher logo - same asset BaseLayout uses for Organization schema.
@@ -517,9 +519,9 @@ export function buildTourPackageSchema(pkg: any, componentToursData: any[]) {
       ...(pkg.anchorStaySlug ? {
         locationCreatedIn: {
           '@type': 'LodgingBusiness',
-          '@id': absUrl(`/stay/${pkg.anchorStaySlug}/`) + '#LodgingBusiness',
+          '@id': absUrl(venueHrefForSlug(pkg.anchorStaySlug, '/stay')) + '#LodgingBusiness',
           name: pkg.anchorStaySlug.replace(/-/g, ' '),
-          url: absUrl(`/stay/${pkg.anchorStaySlug}/`),
+          url: absUrl(venueHrefForSlug(pkg.anchorStaySlug, '/stay')),
         }
       } : {}),
       subTrip: (pkg.componentTourSlugs || []).map((slug: string) => ({

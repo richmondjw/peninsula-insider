@@ -21,7 +21,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import MapView, { type MapViewItem } from '../components/v5/MapView.astro';
 import { getFacets } from '../lib/facets';
-import { routeSlug, venueHrefPrefix } from '../lib/editorial';
+import { routeSlug, venueHref } from '../lib/editorial';
 
 const venuesAll = await getCollection('venues');
 const experiencesAll = await getCollection('experiences');
@@ -68,7 +68,7 @@ const venueItems: MapViewItem[] = venuesAll
       kind: 'venue',
       slug,
       title: v.data.name,
-      href: `${venueHrefPrefix(v.data.type)}/${slug}/`,
+      href: venueHref(v),
       lat: v.data.coordinates!.lat,
       lng: v.data.coordinates!.lng,
       verdict: verdictLine(v.data.signature),

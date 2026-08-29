@@ -6,7 +6,7 @@
  * contextual outlined block (distinct from full venue cards), not a hub
  * feature. Shows up to 4 siblings, then "and X more".
  */
-import { venueHrefPrefix, routeSlug, typeLabel } from '../lib/editorial';
+import { venueHref, routeSlug, typeLabel } from '../lib/editorial';
 
 interface Props {
   estateSlug: string;
@@ -25,7 +25,7 @@ const more = siblings.length - shown.length;
     <p class="estate-cluster__kicker">Part of {estateLabel}</p>
     <div class="estate-cluster__strip">
       {shown.map((v) => (
-        <a class="estate-cluster__card" href={`${venueHrefPrefix(v.data.type)}/${routeSlug(v)}/`}>
+        <a class="estate-cluster__card" href={venueHref(v)}>
           <span class="estate-cluster__name">{v.data.name}</span>
           <span class="estate-cluster__type">{typeLabel[v.data.type] ?? v.data.type}</span>
           {v.data.signature && <span class="estate-cluster__sig">{v.data.signature}</span>}

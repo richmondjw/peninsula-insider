@@ -26,7 +26,7 @@ import EmptyState from '../../components/v5/EmptyState.astro';
 import TrustNote from '../../components/v5/hub/TrustNote.astro';
 import { getFacets, type FacetKey } from '../../lib/facets';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
-import { routeSlug, currentSeason, seasonBlurb, placeLabel, titleize, venueHrefPrefix } from '../../lib/editorial';
+import { routeSlug, currentSeason, seasonBlurb, placeLabel, titleize, venueHref } from '../../lib/editorial';
 import { buildCollectionPageSchema, buildFaqSchema, buildBreadcrumbSchema } from '../../lib/schema';
 
 // ── Copy helpers ──────────────────────────────────────────────────────────────
@@ -159,7 +159,7 @@ const venueRows: Row[] = exploreVenues.map((v) => {
   return {
     slug,
     name: v.data.name,
-    href: `${venueHrefPrefix(v.data.type)}/${slug}/`,
+    href: venueHref(v),
     facets: getFacets('venue', v.data),
     verdict: clipLine(v.data.signature ?? v.data.whyWeGo ?? v.data.editorNote, 25),
     meta: [

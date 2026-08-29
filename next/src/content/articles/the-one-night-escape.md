@@ -112,7 +112,7 @@ For more on why Flinders rewards the quiet version of the weekend, see our full 
 
 ## One optional upgrade: the thermal arrival
 
-All three versions absorb the same single add-on: a short thermal bath session on arrival. Not a day at the springs, a targeted 90-minute slot at [Alba Thermal Springs](/stay/alba-thermal-springs/) between 2pm and 4pm, before check-in at the hotel. Done well it acts as a physiological on-ramp to the weekend: by the time you get to the room, the body has already decided it is on holiday. It adds the most to the Red Hill version and the Sorrento version. On a pure Flinders recovery trip, skip it and let the wind do the same job for free.
+All three versions absorb the same single add-on: a short thermal bath session on arrival. Not a day at the springs, a targeted 90-minute slot at [Alba Thermal Springs](/explore/spas-and-wellness/#alba-thermal-springs) between 2pm and 4pm, before check-in at the hotel. Done well it acts as a physiological on-ramp to the weekend: by the time you get to the room, the body has already decided it is on holiday. It adds the most to the Red Hill version and the Sorrento version. On a pure Flinders recovery trip, skip it and let the wind do the same job for free.
 
 If you want to make the bath the centre of the trip instead of the warm-up, a full [thermal springs weekend](/journal/the-thermal-springs-weekend/) is the better shape. Different trip, different sequence, different length.
 

@@ -19,6 +19,7 @@ import {
   eventDateLabel,
   eventLensLabel,
   routeSlug,
+  venueHref,
   venueHrefPrefix,
   weatherCopy,
 } from '../../lib/editorial';
@@ -234,7 +235,7 @@ export const prerender = true;
               <ul class="event-detail__hosted-actions" role="list">
                 {venue && (
                   <li>
-                    <a href={`${venueHrefPrefix(venue.data.type)}/${routeSlug(venue)}/`}>
+                    <a href={venueHref(venue)}>
                       Read the Insider's review &rarr;
                     </a>
                   </li>

@@ -24,6 +24,7 @@ import {
   routeSlug,
   isStayVenue,
   titleize,
+  venueHref,
   venueHrefPrefix,
   heroBackgroundStyle,
   formatLabel,
@@ -154,7 +155,7 @@ const anchorStay = anchorStaySlug ? venueMap.get(anchorStaySlug) : undefined;
 const fallbackStay = highlightedVenues.find((v: any) => isStayVenue(v));
 const effectiveStay: any = anchorStay ?? fallbackStay;
 const effectiveStayHref = effectiveStay
-  ? `${venueHrefPrefix(effectiveStay.data.type)}/${routeSlug(effectiveStay)}/`
+  ? venueHref(effectiveStay)
   : undefined;
 
 const altStaySlugs: string[] = data
@@ -187,7 +188,7 @@ const groupedStops = dayNumbers.map((day) => {
       const experience = eSlug ? experienceMap.get(eSlug) : null;
       const entry = venue ?? experience;
       const href = venue
-        ? `${venueHrefPrefix(venue.data.type)}/${routeSlug(venue)}/`
+        ? venueHref(venue)
         : experience
         ? `/explore/${routeSlug(experience)}/`
         : undefined;
@@ -240,7 +241,7 @@ if (data) {
       title: (v as any).data.name,
       dek: (v as any).data.signature || (v as any).data.editorNote,
       image_url: (v as any).data.heroImage?.src,
-      href: `${venueHrefPrefix((v as any).data.type)}/${vSlug}/`,
+      href: venueHref(v),
     });
   }
   for (const e of highlightedExperiences) {

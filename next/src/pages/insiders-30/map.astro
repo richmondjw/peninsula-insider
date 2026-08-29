@@ -10,7 +10,7 @@
 import { getCollection, getEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import { routeSlug, venueHrefPrefix } from '../../lib/editorial';
+import { routeSlug, venueHref } from '../../lib/editorial';
 
 const lists = (await getCollection('insidersThirty'))
   .filter((entry) => !entry.data.sitemapExclude)
@@ -51,7 +51,7 @@ for (const pick of [...current.data.picks].sort((a, b) => a.rank - b.rank)) {
 
   const slug = routeSlug(entry);
   let href = '#';
-  if (kind === 'venue')      href = `${venueHrefPrefix(entry.data.type)}/${slug}/`;
+  if (kind === 'venue')      href = venueHref(entry);
   else if (kind === 'experience') href = `/explore/${slug}/`;
   else                              href = `/explore/places/${slug}/`;
 

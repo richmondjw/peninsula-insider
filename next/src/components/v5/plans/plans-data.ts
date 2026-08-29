@@ -21,7 +21,7 @@ import {
   FACET_OPTIONS,
   type FacetKey,
 } from '../../../lib/facets';
-import { routeSlug, venueHrefPrefix, titleize } from '../../../lib/editorial';
+import { routeSlug, venueHref, titleize } from '../../../lib/editorial';
 import { loadOverrides } from '../../../lib/inline-edit/overrides';
 
 export interface PlanStop {
@@ -130,7 +130,7 @@ export async function buildPlansModel(now: Date = new Date()): Promise<PlansMode
   const venueBySlug = new Map(
     venues.map((v) => [
       routeSlug(v) as string,
-      { title: v.data.name as string, href: `${venueHrefPrefix(v.data.type)}/${routeSlug(v)}/` },
+      { title: v.data.name as string, href: venueHref(v) },
     ]),
   );
   const expBySlug = new Map(

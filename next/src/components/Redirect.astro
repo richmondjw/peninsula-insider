@@ -69,7 +69,7 @@ const canonical = new URL(to, 'https://peninsulainsider.com.au').href;
     <!-- No-JS fallback -->
     <meta http-equiv="refresh" content={`0;url=${to}`}>
     {!consolidate && <meta name="robots" content="noindex" />}
-    <link rel="canonical" href={canonical}>
+    {consolidate && <link rel="canonical" href={canonical}>}
   </head>
   <body></body>
 </html>

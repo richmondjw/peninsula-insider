@@ -64,7 +64,7 @@ If you are coming down for this specifically, and there are now plenty of reason
 
 ## The two springs, and which one to choose
 
-The Peninsula has two serious thermal bathing complexes and a handful of hotel spas that sit in a different category. For a dedicated wellness weekend, the decision is between [Alba Thermal Springs](/stay/alba-thermal-springs/) and [Peninsula Hot Springs](/stay/peninsula-hot-springs/). They are both in Fingal, fifteen minutes apart, and they solve the same problem from opposite directions.
+The Peninsula has two serious thermal bathing complexes and a handful of hotel spas that sit in a different category. For a dedicated wellness weekend, the decision is between [Alba Thermal Springs](/explore/spas-and-wellness/#alba-thermal-springs) and [Peninsula Hot Springs](/explore/spas-and-wellness/#peninsula-hot-springs). They are both in Fingal, fifteen minutes apart, and they solve the same problem from opposite directions.
 
 **Peninsula Hot Springs** is the original. Open since 2005, it has grown into the largest and most ambitious wellness complex in the country, with more than fifty bathing and wellness experiences, a Bath House, a hilltop pool, reflexology walks, private baths, and a long enough menu of add-ons that you can spend an entire day there without repeating yourself. It is also the busier of the two. Weekends can feel more crowded than relaxing, and on the wrong day the Amphitheatre pool is as much about the photograph as the temperature. The program is deeper and more varied than anything else in the category, and the twilight sessions in the cooler months remain the best value the whole operation offers. It rewards people who know how to use it.
 

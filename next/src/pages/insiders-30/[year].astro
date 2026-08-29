@@ -11,7 +11,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import SectionHero from '../../components/SectionHero.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import { routeSlug, venueHrefPrefix, resolveHeroSrc } from '../../lib/editorial';
+import { routeSlug, venueHref, resolveHeroSrc } from '../../lib/editorial';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
 
 export async function getStaticPaths() {
@@ -48,7 +48,7 @@ for (const pick of sortedPicks) {
     if (entry) {
       kind = 'venue';
       const slug = routeSlug(entry);
-      href = `${venueHrefPrefix(entry.data.type)}/${slug}/`;
+      href = venueHref(entry);
       const placeId = typeof entry.data.place === 'string' ? entry.data.place : entry.data.place?.id ?? '';
       const placeLabel = String(placeId).replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase());
       meta = [entry.data.priceBand, placeLabel].filter(Boolean).join(' · ');

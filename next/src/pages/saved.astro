@@ -18,7 +18,7 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import SectionHero from '../components/SectionHero.astro';
 import NewsletterBlock from '../components/NewsletterBlock.astro';
 import CloudSyncIndicatorScript from '../components/CloudSyncIndicatorScript.astro';
-import { routeSlug, venueHrefPrefix } from '../lib/editorial';
+import { routeSlug, venueHref } from '../lib/editorial';
 
 const venues = await getCollection('venues');
 const events = await getCollection('events');
@@ -34,7 +34,7 @@ const venueLookup = Object.fromEntries(
     {
       slug: routeSlug(v),
       title: v.data.name,
-      href: `${venueHrefPrefix(v.data.type)}/${routeSlug(v)}/`,
+      href: venueHref(v),
       hero: v.data.heroImage?.src ?? '',
       placeId: typeof v.data.place === 'string' ? v.data.place : v.data.place?.id ?? '',
       type: v.data.type,

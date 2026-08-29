@@ -17,7 +17,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import SectionHero from '../../components/SectionHero.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import { routeSlug, venueHrefPrefix } from '../../lib/editorial';
+import { routeSlug, venueHref } from '../../lib/editorial';
 
 const venuesAll = await getCollection('venues');
 // Build a slug → summary lookup that the client controller uses to
@@ -31,7 +31,7 @@ const venueIndex = Object.fromEntries(
       {
         slug,
         name: v.data.name,
-        href: `${venueHrefPrefix(v.data.type)}/${slug}/`,
+        href: venueHref(v),
         type: v.data.type,
         priceBand: v.data.priceBand ?? '',
         placeName: String(placeId).replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase()),

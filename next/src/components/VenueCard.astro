@@ -34,9 +34,17 @@ export interface Props {
   venue: any;
   /** override the section/route prefix (defaults to /eat) */
   hrefPrefix?: string;
+  /**
+   * Full href override for venues whose canonical destination isn't a
+   * `${hrefPrefix}/${slug}/` route - e.g. a day spa that lives as an anchor
+   * on /explore/spas-and-wellness/ rather than its own page. Takes priority
+   * over hrefPrefix so the card links straight at the canonical URL instead
+   * of through a redirect stub.
+   */
+  href?: string;
 }
 
-const { venue, hrefPrefix = '/eat' } = Astro.props;
+const { venue, hrefPrefix = '/eat', href: hrefOverride } = Astro.props;
 const data = venue.data;
 // Keep card links on the same canonical slug resolver used by getStaticPaths
 // and every venue detail template.  Using the raw collection id here allowed
@@ -46,7 +54,7 @@ const slug = routeSlug(venue);
 // slash (VenueDetailTemplate's `sectionHref` is "/wine/" for its breadcrumb
 // and back-links), and naive interpolation turned that into "/wine//slug/":
 // 1,644 hard-404 links across 138 built pages before this guard. (2026-08-18)
-const href = venueHref(venue, hrefPrefix);
+const href = hrefOverride ?? venueHref(venue, hrefPrefix);
 
 const placeLabel = String(data.place?.id ?? data.place ?? '')
   .replace(/-/g, ' ')

@@ -19,7 +19,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import MeShell from '../../components/v5/me/MeShell.astro';
 import EmptyState from '../../components/v5/EmptyState.astro';
-import { routeSlug, venueHrefPrefix } from '../../lib/editorial';
+import { routeSlug, venueHref } from '../../lib/editorial';
 
 const venues = await getCollection('venues');
 const events = await getCollection('events');
@@ -35,7 +35,7 @@ const lookup: Record<string, { t: string; h: string; img: string; lat: number | 
 for (const v of venues) {
   lookup[`venue/${routeSlug(v)}`] = {
     t: v.data.name,
-    h: `${venueHrefPrefix(v.data.type)}/${routeSlug(v)}/`,
+    h: venueHref(v),
     img: v.data.heroImage?.src ?? '',
     lat: v.data.coordinates?.lat ?? null,
     lng: v.data.coordinates?.lng ?? null,
