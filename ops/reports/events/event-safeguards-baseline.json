@@ -1,0 +1,21 @@
+{
+  "updatedAt": "2026-08-29T03:39:19.320Z",
+  "staleAfterDays": 90,
+  "assertedMetrics": [
+    "missingVerificationDate",
+    "duplicateTitleGroups",
+    "duplicateVenueDateGroups",
+    "unresolvableRecurrence",
+    "cancelledWithoutProvenance"
+  ],
+  "ceilings": {
+    "liveEvents": 56,
+    "cancelledEvents": 1,
+    "missingVerificationDate": 13,
+    "staleVerificationDate": 31,
+    "duplicateTitleGroups": 0,
+    "duplicateVenueDateGroups": 0,
+    "unresolvableRecurrence": 3,
+    "cancelledWithoutProvenance": 0
+  }
+}

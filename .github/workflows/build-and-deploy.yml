@@ -78,6 +78,7 @@ jobs:
           cd next
           npm run test:content-admission
           npm run test:agent-readiness
+          npm run test:event-safeguards
           npm run validate:content
 
       - name: Build

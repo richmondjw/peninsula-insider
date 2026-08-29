@@ -57,6 +57,7 @@ jobs:
           cd next
           npm run test:content-admission
           npm run test:agent-readiness
+          npm run test:event-safeguards
 
       - name: Content admission gate
         # Placeholder markers + real Astro collection-schema validation
