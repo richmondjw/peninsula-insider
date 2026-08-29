@@ -1,29 +1,29 @@
 {
-  "generatedAt": "2026-08-29T22:16:31.827Z",
+  "generatedAt": "2026-08-29T22:30:52.355Z",
   "dist": "/home/node/.openclaw/workspace/peninsula-insider/next/dist",
   "totals": {
-    "pages": 968,
-    "indexable": 636,
-    "selfCanonical": 741,
-    "redirectStubs": 227,
+    "pages": 969,
+    "indexable": 632,
+    "selfCanonical": 737,
+    "redirectStubs": 232,
     "noindexSurfaces": 0,
     "noindexWithForeignCanonical": 0,
     "fullDuplicateRenders": 0,
     "duplicateBytes": 0,
     "indexSurfaces": 24,
     "chromeLinks": 237,
-    "chromeNonCanonicalLinks": 37,
+    "chromeNonCanonicalLinks": 39,
     "chromeSitewideNonCanonicalLinks": 0,
     "zeroEditorialInbound": 85,
     "zeroInboundOfAnyKind": 22
   },
   "editorialInboundBuckets": {
     "0": 85,
-    "1-2": 142,
-    "3-5": 130,
-    "6-10": 125,
-    "11-25": 98,
-    "26+": 56
+    "1-2": 141,
+    "3-5": 131,
+    "6-10": 124,
+    "11-25": 96,
+    "26+": 55
   },
   "chromeNonCanonical": [
     {
@@ -197,6 +197,20 @@
     {
       "link": "/explore/best-walks/",
       "canonical": "/explore/walks/",
+      "onPages": 1,
+      "sitewide": false,
+      "targetIsStub": true
+    },
+    {
+      "link": "/stay/peninsula-hot-springs/",
+      "canonical": "/explore/spas-and-wellness/",
+      "onPages": 1,
+      "sitewide": false,
+      "targetIsStub": true
+    },
+    {
+      "link": "/stay/alba-thermal-springs/",
+      "canonical": "/explore/spas-and-wellness/",
       "onPages": 1,
       "sitewide": false,
       "targetIsStub": true
