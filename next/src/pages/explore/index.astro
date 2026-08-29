@@ -30,16 +30,35 @@ import { routeSlug, currentSeason, seasonBlurb, placeLabel, titleize, venueHrefP
 import { buildCollectionPageSchema, buildFaqSchema, buildBreadcrumbSchema } from '../../lib/schema';
 
 // ── Copy helpers ──────────────────────────────────────────────────────────────
-/** First sentence, clipped to a word budget at a clause boundary. */
+// Trailing words that read as unfinished if a clip lands on them (articles,
+// conjunctions, prepositions). Stripped before the ellipsis so a truncated
+// excerpt never masquerades as a complete sentence.
+const DANGLING_TAIL_WORDS = new Set([
+  'a', 'an', 'the', 'and', 'or', 'but', 'so', 'yet', 'nor', 'to', 'of', 'with',
+  'for', 'in', 'on', 'at', 'as', 'that', 'which', 'is', 'its', 'from', 'by',
+  'into', 'onto',
+]);
+
+/**
+ * First sentence, clipped to a word budget. Was previously "clipped at a
+ * clause boundary" by hunting for the last comma inside the word window,
+ * then always appending a period, e.g. Bushrangers Bay's real editorNote
+ * clipped to "...from Cape Schanck - and, remarkably." (T-EXP-CARD-1): a
+ * comma landing right after a filler word produced a fragment dressed up
+ * as a finished sentence. Clip on the word budget instead, drop any
+ * trailing filler word the cut lands on, and signal truncation honestly
+ * with an ellipsis rather than a fabricated full stop.
+ */
 function clipLine(text: string | undefined | null, maxWords = 25): string | undefined {
   if (!text) return undefined;
   const sentence = text.trim().split(/(?<=[.!?])\s+/)[0] ?? text.trim();
   const words = sentence.split(/\s+/);
   if (words.length <= maxWords) return sentence;
-  const head = words.slice(0, maxWords).join(' ');
-  const cut = head.lastIndexOf(',');
-  const clipped = cut > 40 ? head.slice(0, cut) : words.slice(0, maxWords - 2).join(' ');
-  return clipped.replace(/[,;:\s]+$/, '') + '.';
+  const cut = words.slice(0, maxWords);
+  while (cut.length > 1 && DANGLING_TAIL_WORDS.has(cut[cut.length - 1].replace(/[,;:.!?]+$/, '').toLowerCase())) {
+    cut.pop();
+  }
+  return cut.join(' ').replace(/[,;:\s]+$/, '') + '…';
 }
 
 function durationLabel(minutes: unknown): string | null {
