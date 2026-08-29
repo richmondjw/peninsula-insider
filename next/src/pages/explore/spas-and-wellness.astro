@@ -275,7 +275,7 @@ export const prerender = true;
         return (
           <article class="sr" id={s.slug}>
             {hero && (
-              <a class="sr__media" href={`/stay/${s.slug}/`} tabindex="-1">
+              <a class="sr__media" href={`/explore/spas-and-wellness/#${s.slug}`} tabindex="-1">
                 <img
                   src={hero.src}
                   alt={hero.alt}
@@ -299,7 +299,7 @@ export const prerender = true;
             <div class="sr__body">
               <h2 class="sr__name">
                 <span class="sr__rank" aria-hidden="true">{s.rank}</span>
-                <a href={`/stay/${s.slug}/`}>{s.name}</a>
+                <a href={`/explore/spas-and-wellness/#${s.slug}`}>{s.name}</a>
               </h2>
               <ul class="sr__meta">
                 <li>{s.type}</li>
@@ -312,7 +312,7 @@ export const prerender = true;
               kind="venue"
               slug={s.slug}
               title={s.name}
-              href={`/stay/${s.slug}/`}
+              href={`/explore/spas-and-wellness/#${s.slug}`}
               dek={s.verdict}
               imageUrl={hero?.src}
             />
