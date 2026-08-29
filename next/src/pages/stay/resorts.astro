@@ -8,7 +8,10 @@ import { routeSlug } from '../../lib/editorial';
 import { buildBreadcrumbSchema, absUrl } from '../../lib/schema';
 
 const allVenues = await getCollection('venues');
-const slugs = ['peninsula-hot-springs','one-spa-racv-cape-schanck','alba-thermal-springs'];
+// Peninsula Hot Springs and Alba Thermal Springs are day spas, not
+// accommodation - their overnight equivalents (glamping/eco lodges on the
+// same estate) are what belong on a "resorts and retreats" Stay page.
+const slugs = ['peninsula-hot-springs-glamping','peninsula-hot-springs-eco-lodges','sanctuary-at-alba','cape-retreat'];
 const venues = slugs.map((slug) => allVenues.find((venue) => routeSlug(venue) === slug)).filter((venue): venue is NonNullable<typeof venue> => Boolean(venue));
 const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'Stay', href: '/stay/' }, { label: 'Resorts & Retreats' }];
 const breadcrumbSchema = buildBreadcrumbSchema([{ name: 'Home', url: absUrl('/') }, { name: 'Stay', url: absUrl('/stay/') }, { name: 'Resorts & Retreats', url: absUrl('/stay/resorts/') }]);

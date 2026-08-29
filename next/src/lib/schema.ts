@@ -442,6 +442,7 @@ export const buildTouristTripSchema = ({
       position: idx + 1,
       item: {
         '@type': stop.stopType ?? 'TouristAttraction',
+        '@id': entityId(stop.path, stop.stopType ?? 'TouristAttraction'),
         name: stop.name,
         url: absUrl(stop.path),
       },

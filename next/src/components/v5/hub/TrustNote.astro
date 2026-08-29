@@ -19,11 +19,8 @@ export interface Props {
 const { surface } = Astro.props;
 ---
 
-<p class="v5-trustnote" data-surface={surface}>
-  <span class="v5-trustnote__mark" aria-hidden="true">PI</span>
-  Independent editorial. No paid rankings. Every pick earns its place.
-  <a href="/editorial-approach/">How we review</a>
-</p>
+{/* Detailed editorial standards remain available at /editorial-approach/.
+    This repeated reader-facing trust strip is intentionally not rendered. */}
 
 <style>
   .v5-trustnote {

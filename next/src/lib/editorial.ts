@@ -152,7 +152,7 @@ export function isStayVenue(entry: any) {
 }
 export const wineTypes = ['winery'];
 export const eatTypes = [
-  'restaurant', 'cafe', 'bakery', 'pub', 'market',
+  'restaurant', 'cafe', 'bakery', 'pub',
   'brewery', 'distillery', 'providore',
 ];
 // Note: 'producer' removed from all arrays - handled as deprecated in PR-3.

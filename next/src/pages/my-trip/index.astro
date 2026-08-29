@@ -1,0 +1,12 @@
+---
+import Redirect from '../../components/Redirect.astro';
+
+/**
+ * /my-trip/ never shipped (an early planning doc implied this path before
+ * the feature landed at /me/trip/) but a stale doc reference and any reader
+ * guess at the URL should not dead-end. Safety-net redirect to the real
+ * canonical My Trip page. Utility hop, not a URL migration - no prior page
+ * or search equity here, so this stays noindex (consolidate omitted).
+ */
+---
+<Redirect to="/me/trip/" />

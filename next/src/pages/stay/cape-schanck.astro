@@ -8,7 +8,10 @@ import { routeSlug } from '../../lib/editorial';
 import { buildBreadcrumbSchema, absUrl } from '../../lib/schema';
 
 const allVenues = await getCollection('venues');
-const slugs = ['one-spa-racv-cape-schanck'];
+// One Spa at RACV Cape Schanck Resort is a day spa, not accommodation, and
+// has no overnight sibling in the catalogue - The Cape Retreat is the
+// genuine overnight stay in this locality.
+const slugs = ['cape-retreat'];
 const venues = slugs.map((slug) => allVenues.find((venue) => routeSlug(venue) === slug)).filter((venue): venue is NonNullable<typeof venue> => Boolean(venue));
 const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'Stay', href: '/stay/' }, { label: 'Cape Schanck' }];
 const breadcrumbSchema = buildBreadcrumbSchema([{ name: 'Home', url: absUrl('/') }, { name: 'Stay', url: absUrl('/stay/') }, { name: 'Cape Schanck', url: absUrl('/stay/cape-schanck/') }]);

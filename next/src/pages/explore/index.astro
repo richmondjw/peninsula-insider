@@ -30,14 +30,38 @@ import { routeSlug, currentSeason, seasonBlurb, placeLabel, titleize, venueHrefP
 import { buildCollectionPageSchema, buildFaqSchema, buildBreadcrumbSchema } from '../../lib/schema';
 
 // ── Copy helpers ──────────────────────────────────────────────────────────────
-// Trailing words that read as unfinished if a clip lands on them (articles,
-// conjunctions, prepositions). Stripped before the ellipsis so a truncated
-// excerpt never masquerades as a complete sentence.
+// Trailing words that read as unfinished if a clip lands on them. English
+// function words are a closed class, so this is enumerated in full rather
+// than grown one live defect at a time: the first pass listed only 25 of
+// them and shipped four broken cards anyway (Arthurs Seat "...dangling
+// over…", Greens Bush "...one-way through…", St Andrews "...extend
+// out…"). Articles, determiners, coordinators, subordinators,
+// prepositions and bare copulas all read as mid-thought.
 const DANGLING_TAIL_WORDS = new Set([
-  'a', 'an', 'the', 'and', 'or', 'but', 'so', 'yet', 'nor', 'to', 'of', 'with',
-  'for', 'in', 'on', 'at', 'as', 'that', 'which', 'is', 'its', 'from', 'by',
-  'into', 'onto',
+  // articles + determiners
+  'a', 'an', 'the', 'its', 'this', 'that', 'these', 'those', 'their', 'his',
+  'her', 'our', 'your', 'some', 'any', 'every', 'each', 'both', 'either',
+  // coordinators + subordinators
+  'and', 'or', 'but', 'so', 'yet', 'nor', 'if', 'then', 'than', 'because',
+  'though', 'although', 'while', 'whilst', 'when', 'where', 'which', 'who',
+  'whom', 'whose', 'what', 'whether', 'unless', 'until', 'since', 'as',
+  // prepositions
+  'to', 'of', 'with', 'without', 'within', 'for', 'in', 'into', 'on', 'onto',
+  'at', 'from', 'by', 'via', 'per', 'over', 'under', 'above', 'below',
+  'beneath', 'between', 'among', 'amid', 'through', 'throughout', 'across',
+  'along', 'around', 'about', 'after', 'before', 'during', 'near', 'toward',
+  'towards', 'against', 'beyond', 'beside', 'besides', 'behind', 'upon',
+  'up', 'out', 'off', 'down', 'onto', 'past', 'like', 'unlike', 'despite',
+  // bare copulas / auxiliaries a clip can land on
+  'is', 'are', 'was', 'were', 'be', 'been', 'being', 'has', 'have', 'had',
+  'will', 'would', 'can', 'could', 'should', 'may', 'might', 'must', 'does',
+  'do', 'did',
 ]);
+
+// Punctuation a clip can land on that carries no meaning of its own. The
+// dash forms matter: Sorrento Ocean Baths read "...reputation suggests -…"
+// because only [,;:] was stripped.
+const TRAILING_PUNCT = /[,;:\u2010-\u2015-]+$/u;
 
 /**
  * First sentence, clipped to a word budget. Was previously "clipped at a
@@ -55,10 +79,16 @@ function clipLine(text: string | undefined | null, maxWords = 25): string | unde
   const words = sentence.split(/\s+/);
   if (words.length <= maxWords) return sentence;
   const cut = words.slice(0, maxWords);
-  while (cut.length > 1 && DANGLING_TAIL_WORDS.has(cut[cut.length - 1].replace(/[,;:.!?]+$/, '').toLowerCase())) {
-    cut.pop();
+  // Drop trailing tokens that read as mid-thought, alternating between bare
+  // punctuation and function words. Interleaving matters: "...and -" needs
+  // two passes, and stripping the dash first is what exposes the "and".
+  while (cut.length > 1) {
+    const bare = cut[cut.length - 1].replace(/[.!?]+$/, '').replace(TRAILING_PUNCT, '');
+    if (!bare) { cut.pop(); continue; }
+    if (DANGLING_TAIL_WORDS.has(bare.toLowerCase())) { cut.pop(); continue; }
+    break;
   }
-  return cut.join(' ').replace(/[,;:\s]+$/, '') + '…';
+  return cut.join(' ').replace(/[.!?]+$/, '').replace(TRAILING_PUNCT, '').trimEnd() + '…';
 }
 
 function durationLabel(minutes: unknown): string | null {

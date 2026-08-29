@@ -73,4 +73,4 @@ The dining rooms, the cellar doors, the roads, the coast, the ridge - all of it 
 
 ---
 
-*Updated for Winter 2026. All venues visited.*
+*Updated for Winter 2026. All venues editorially reviewed.*
