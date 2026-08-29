@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "releaseId": "88820964f0fa-33257256527",
-  "sourceSha": "88820964f0fa239ae027d4e67e82a80145a792b9",
-  "buildRunId": "33257256527",
-  "generatedAt": "2026-08-29T14:22:09.734Z",
-  "trigger": "schedule",
+  "releaseId": "a44c41cfde7c-33270258944",
+  "sourceSha": "a44c41cfde7c6db045bacf54098808b42cc63606",
+  "buildRunId": "33270258944",
+  "generatedAt": "2026-08-29T19:15:47.628Z",
+  "trigger": "push",
   "authority": {
     "mode": "github-protected-release",
     "actor": "richmondjw",
@@ -39,6 +39,6 @@
   ],
   "verification": {
     "state": "awaiting_external_verification",
-    "expectedDeploymentSha": "88820964f0fa239ae027d4e67e82a80145a792b9"
+    "expectedDeploymentSha": "a44c41cfde7c6db045bacf54098808b42cc63606"
   }
 }
