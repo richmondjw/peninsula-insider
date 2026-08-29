@@ -3,7 +3,7 @@
 **Date:** Saturday, 29 August 2026 (UTC) / Sunday, 30 August 2026 (AEST)
 **Job:** `pi-daily-quick-note-qa-publish`
 **Agent:** Remy
-**Status:** PUBLISHING — external verification pending deployment
+**Status:** PUBLISHED — external verification passed
 
 ## Published content
 
@@ -20,5 +20,5 @@
 
 ## Deployment and verification
 
-- Published-content commit: recorded with this report.
-- External verification must run against `https://peninsulainsider.com.au/quick-note/` after the Build and Deploy workflow completes. Per the post-publish verification gate, this edition must not be described as live until HTTP, canonical, title, metadata, OpenGraph, stylesheet, target copy and sitemap checks pass.
+- Published-content commit: `dd7711768b`.
+- External verification passed against `https://peninsulainsider.com.au/quick-note/` at 2026-08-29T20:39Z. HTTP, canonical, title, metadata, OpenGraph, stylesheet, target copy and sitemap checks passed; the structured ledger is `ops/reports/verify/2026-08-30-quick-note.md`.
