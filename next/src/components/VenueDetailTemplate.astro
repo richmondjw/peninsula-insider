@@ -1,5 +1,5 @@
 ---
-import { placeLabel, typeLabel, routeSlug, titleize, venueHrefPrefix, formatHeroCredit } from '../lib/editorial';
+import { placeLabel, typeLabel, routeSlug, titleize, venueHref, venueHrefPrefix, formatHeroCredit } from '../lib/editorial';
 import { resolveLiveStatusUrl, verifiedFreshnessLabel } from '../lib/venues';
 import Breadcrumbs from './Breadcrumbs.astro';
 import NewsletterBlock from './NewsletterBlock.astro';
@@ -862,7 +862,7 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
   slug={venue.id ?? data.slug}
   section={section}
   title={data.name}
-  href={`${venueHrefPrefix(data.type)}/${venue.id ?? data.slug}/`}
+  href={venueHref(venue)}
   dek={data.editorNote}
   imageUrl={data.heroImage?.src}
 />
