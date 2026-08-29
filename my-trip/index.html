@@ -1,0 +1,15 @@
+<!DOCTYPE html><html lang="en-AU"> <head><meta charset="utf-8"><title>Redirecting…</title><!-- Do not hide html/body here. Component CSS is collected from the whole
+         module graph, so a redirect branch once hid ordinary venue pages.
+         The synchronous script below redirects before the empty body paints. --><!-- JS redirect fires synchronously - browser navigates before first paint --><script>(function(){const to = "/me/trip/";
+
+      (function () {
+        var target = to;
+        if (window.location.search) {
+          target += (target.indexOf('?') === -1 ? '?' : '&') + window.location.search.slice(1);
+        }
+        if (window.location.hash) {
+          target += window.location.hash;
+        }
+        window.location.replace(target);
+      })();
+    })();</script><!-- No-JS fallback --><meta http-equiv="refresh" content="0;url=/me/trip/"><meta name="robots" content="noindex"></head> <body></body></html>
