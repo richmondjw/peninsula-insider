@@ -97,6 +97,26 @@ jobs:
           path: reports/event-source-freshness.json
           if-no-files-found: ignore
 
+      - name: Audit What's On safeguards
+        # Report-only here on purpose. The same script runs with --assert inside
+        # `npm run build`, but only over defects an author introduces. Verification
+        # age is the one safeguard metric that climbs on its own with the calendar,
+        # so this daily pass - where re-checking the source is the actual fix - is
+        # where it belongs. Blocking a deploy on it would stop publishing for a
+        # reason no deploy could ever clear.
+        continue-on-error: true
+        run: |
+          cd next
+          npm run audit:event-safeguards
+
+      - name: Upload What's On safeguard report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: event-safeguards-${{ github.run_id }}
+          path: ops/reports/events/event-safeguards.json
+          if-no-files-found: ignore
+
       - name: Commit and push freshness diff
         run: |
           git add next/src/content/events next/src/content/quick-notes

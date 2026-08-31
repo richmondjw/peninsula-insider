@@ -1,0 +1,217 @@
+{
+  "generatedAt": "2026-08-29T03:43:28.594Z",
+  "asOf": "2026-08-29",
+  "staleAfterDays": 90,
+  "assertedMetrics": [
+    "missingVerificationDate",
+    "duplicateTitleGroups",
+    "duplicateVenueDateGroups",
+    "unresolvableRecurrence",
+    "cancelledWithoutProvenance"
+  ],
+  "totals": {
+    "liveEvents": 56,
+    "cancelledEvents": 1,
+    "missingVerificationDate": 13,
+    "staleVerificationDate": 31,
+    "duplicateTitleGroups": 0,
+    "duplicateVenueDateGroups": 0,
+    "unresolvableRecurrence": 3,
+    "cancelledWithoutProvenance": 0
+  },
+  "missingVerificationDate": [
+    "archibald-prize-2026-facing-modernity-mitchelton-winery-mprg-art-trip.json",
+    "arj-barker-live-at-barlow.json",
+    "author-talk-vikki-petraitis-mornington-library.json",
+    "breast-foot-forward-annual-community-walk-and-run-2026.json",
+    "enchanting-kirtan-sacred-music-meditation-experience-mornington.json",
+    "glamping-tents-horror-movie-campout-back-from-the-dead-tour-2026.json",
+    "high-tea-at-mornington-botanical-rose-gardens.json",
+    "nancye-wynne-bolton-ola-golf-day-2026.json",
+    "pst-art-exhibition-opening-night-2026.json",
+    "pub-carols-thursday-17th-december.json",
+    "red-hill-market-first-saturday.json",
+    "saturday-pottery-class.json",
+    "the-wellness-experience-celebrating-women-s-health-week.json"
+  ],
+  "staleVerificationDate": [
+    {
+      "file": "bass-flinders-gin-masterclass.json",
+      "lastCheckedDate": "2026-05-04",
+      "ageDays": 117
+    },
+    {
+      "file": "crib-point-community-market.json",
+      "lastCheckedDate": "2026-05-04",
+      "ageDays": 117
+    },
+    {
+      "file": "emu-plains-market.json",
+      "lastCheckedDate": "2026-05-04",
+      "ageDays": 117
+    },
+    {
+      "file": "flinders-truffles-winter-truffle-hunt-season.json",
+      "lastCheckedDate": "2026-05-04",
+      "ageDays": 117
+    },
+    {
+      "file": "foxeys-hangout-vegetable-feast-morning-sun-vineyard.json",
+      "lastCheckedDate": "2026-05-04",
+      "ageDays": 117
+    },
+    {
+      "file": "hastings-thursday-street-market.json",
+      "lastCheckedDate": "2026-05-04",
+      "ageDays": 117
+    },
+    {
+      "file": "heart-of-the-community-market-rosebud.json",
+      "lastCheckedDate": "2026-05-04",
+      "ageDays": 117
+    },
+    {
+      "file": "hill-ridge-community-market-september-2026-restart.json",
+      "lastCheckedDate": "2026-05-04",
+      "ageDays": 117
+    },
+    {
+      "file": "mornington-christmas-festival-main-street-christmas-parade.json",
+      "lastCheckedDate": "2026-05-04",
+      "ageDays": 117
+    },
+    {
+      "file": "mornington-tourist-railway-santa-specials.json",
+      "lastCheckedDate": "2026-05-04",
+      "ageDays": 117
+    },
+    {
+      "file": "mornington-wednesday-market-main-street-market.json",
+      "lastCheckedDate": "2026-05-04",
+      "ageDays": 117
+    },
+    {
+      "file": "mt-eliza-farmers-market.json",
+      "lastCheckedDate": "2026-05-04",
+      "ageDays": 117
+    },
+    {
+      "file": "national-works-on-paper-2026-nwop.json",
+      "lastCheckedDate": "2026-05-04",
+      "ageDays": 117
+    },
+    {
+      "file": "peninsula-hot-springs-daily-studio-yoga.json",
+      "lastCheckedDate": "2026-05-04",
+      "ageDays": 117
+    },
+    {
+      "file": "peninsula-hot-springs-hot-springs-yoga-complimentary.json",
+      "lastCheckedDate": "2026-05-04",
+      "ageDays": 117
+    },
+    {
+      "file": "peninsula-hot-springs-sound-healing-sessions.json",
+      "lastCheckedDate": "2026-05-04",
+      "ageDays": 117
+    },
+    {
+      "file": "peninsula-summer-music-festival-2027-save-the-date.json",
+      "lastCheckedDate": "2026-05-04",
+      "ageDays": 117
+    },
+    {
+      "file": "peninsula-summer-music-festival-2027.json",
+      "lastCheckedDate": "2026-05-04",
+      "ageDays": 117
+    },
+    {
+      "file": "polperro-cellar-table-private-dining-experience.json",
+      "lastCheckedDate": "2026-05-04",
+      "ageDays": 117
+    },
+    {
+      "file": "pt-leo-estate-sculpture-park.json",
+      "lastCheckedDate": "2026-05-04",
+      "ageDays": 117
+    },
+    {
+      "file": "red-hill-brewery-secret-stash-weekend.json",
+      "lastCheckedDate": "2026-05-04",
+      "ageDays": 117
+    },
+    {
+      "file": "red-hill-truffles-winter-truffle-hunt-season.json",
+      "lastCheckedDate": "2026-05-04",
+      "ageDays": 117
+    },
+    {
+      "file": "restore-pamper-retreat-at-polperro-farmhouse.json",
+      "lastCheckedDate": "2026-05-04",
+      "ageDays": 117
+    },
+    {
+      "file": "sound-circle-full-moon-sound-journey-at-peninsula-hot-springs.json",
+      "lastCheckedDate": "2026-05-04",
+      "ageDays": 117
+    },
+    {
+      "file": "ten-minutes-by-tractor-terroir-masterclass.json",
+      "lastCheckedDate": "2026-05-04",
+      "ageDays": 117
+    },
+    {
+      "file": "the-bloody-long-walk-mornington-peninsula-2026.json",
+      "lastCheckedDate": "2026-05-04",
+      "ageDays": 117
+    },
+    {
+      "file": "tootgarook-primary-school-market.json",
+      "lastCheckedDate": "2026-05-04",
+      "ageDays": 117
+    },
+    {
+      "file": "mornington-racecourse-market.json",
+      "lastCheckedDate": "2026-05-06",
+      "ageDays": 115
+    },
+    {
+      "file": "boneo-community-market.json",
+      "lastCheckedDate": "2026-05-17",
+      "ageDays": 104
+    },
+    {
+      "file": "emu-plains-market-balnarring.json",
+      "lastCheckedDate": "2026-05-17",
+      "ageDays": 104
+    },
+    {
+      "file": "pearcedale-community-market.json",
+      "lastCheckedDate": "2026-05-17",
+      "ageDays": 104
+    }
+  ],
+  "duplicateTitleGroups": [],
+  "duplicateVenueDateGroups": [],
+  "unresolvableRecurrence": [
+    {
+      "file": "emu-plains-market.json",
+      "recurrence": "monthly",
+      "recurrenceNote": "Monthly October–April (day market); June and August also listed; no July, May or September",
+      "nextOccurrence": "2026-09-17"
+    },
+    {
+      "file": "peninsula-hot-springs-sound-healing-sessions.json",
+      "recurrence": "monthly",
+      "recurrenceNote": "Monthly",
+      "nextOccurrence": "2026-09-01"
+    },
+    {
+      "file": "sound-circle-full-moon-sound-journey-at-peninsula-hot-springs.json",
+      "recurrence": "monthly",
+      "recurrenceNote": "Monthly (full moon dates, check Eventbrite for specific dates)",
+      "nextOccurrence": "2026-09-01"
+    }
+  ],
+  "cancelledWithoutProvenance": []
+}

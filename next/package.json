@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "node scripts/clear-content-cache.mjs && npm run media:registry && npm run lint:no-pricing && npm run lint:house-style && npm run lint:region-images && npm run lint:surfaces && npm run lint:nav-budget && npm run lint:css-budget && npm run lint:coordinates && astro build && npm run lint:no-hidden-pages && npm run lint:seo-architecture && npm run lint:filter-chips && npm run audit:agent-readiness && npm run assert:link-graph",
+    "build": "node scripts/clear-content-cache.mjs && npm run media:registry && npm run lint:no-pricing && npm run lint:house-style && npm run lint:region-images && npm run lint:surfaces && npm run lint:nav-budget && npm run lint:css-budget && npm run lint:coordinates && astro build && npm run lint:no-hidden-pages && npm run lint:seo-architecture && npm run lint:filter-chips && npm run audit:agent-readiness && npm run assert:link-graph && npm run assert:event-safeguards",
     "build:search": "npm run build && npx pagefind --site dist",
     "preview": "astro preview",
     "astro": "astro",
@@ -50,7 +50,10 @@
     "image-intelligence:pilot": "node scripts/image-intelligence-pilot.mjs pilot",
     "test:image-intelligence": "node --test scripts/image-intelligence/pilot-core.test.mjs",
     "audit:link-graph": "node scripts/audit-link-graph.mjs --dist dist --json ../ops/reports/seo/link-graph.json",
-    "assert:link-graph": "node scripts/audit-link-graph.mjs --dist dist --assert --json ../ops/reports/seo/link-graph.json"
+    "assert:link-graph": "node scripts/audit-link-graph.mjs --dist dist --assert --json ../ops/reports/seo/link-graph.json",
+    "audit:event-safeguards": "node scripts/audit-event-safeguards.mjs --json ../ops/reports/events/event-safeguards.json",
+    "test:event-safeguards": "node --test scripts/audit-event-safeguards.test.mjs",
+    "assert:event-safeguards": "node scripts/audit-event-safeguards.mjs --json ../ops/reports/events/event-safeguards.json --assert"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.0",
