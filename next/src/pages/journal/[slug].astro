@@ -18,6 +18,7 @@ import { isPeninsulaThisWeekend, ptwArchivePath } from '../../lib/peninsula-this
 import { editableText, editableImage } from '../../lib/inline-edit/attrs';
 import { loadOverrides } from '../../lib/inline-edit/overrides';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
+import { absUrl, buildBreadcrumbSchema } from '../../lib/schema';
 
 export async function getStaticPaths() {
   const STATIC_JOURNAL_OVERRIDES = new Set([
@@ -182,6 +183,17 @@ const breadcrumbItems = (() => {
   return [...base, { label: 'Journal', href: '/journal/' }, { label: article.data.title }];
 })();
 
+// Keep structured breadcrumbs aligned with the visible trail. New journal
+// articles are published by the daily content engine, so owning the schema in
+// this shared template prevents each new Insider Picks page from increasing
+// the SEO architecture ratchet and blocking its production deploy.
+const breadcrumbSchema = buildBreadcrumbSchema(
+  breadcrumbItems.map((item) => ({
+    name: item.label,
+    url: item.href ? absUrl(item.href) : canonical,
+  })),
+);
+
 // Map internal format tag → human-readable articleSection for JSON-LD.
 // Per Operational Definitions v1.2 (Journal section): format must be exposed
 // in structured data so AI/search systems can distinguish editorial perspective
@@ -283,6 +295,7 @@ export const prerender = true;
   modifiedTime={(article.data.updatedAt ?? article.data.publishedAt).toISOString()}
 >
   <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
   <Breadcrumbs items={breadcrumbItems} />
 
