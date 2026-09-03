@@ -3,163 +3,20 @@
   "@type": "ItemList",
   "name": "What's on — Mornington Peninsula (upcoming)",
   "description": "Machine-readable feed of upcoming Mornington Peninsula events for AI assistants and agents. Forward-dated; regenerated on each build. See https://peninsulainsider.com.au/llms.txt for the full site map.",
-  "generated": "2026-09-03",
+  "generated": "2026-09-04",
   "site": "https://peninsulainsider.com.au",
   "windowDays": 90,
   "thisWeekend": {
     "start": "2026-09-04",
     "end": "2026-09-06",
     "label": "Fri 4 – Sun 6 September",
-    "count": 13
+    "count": 15
   },
   "numberOfItems": 42,
   "itemListElement": [
     {
       "@type": "ListItem",
       "position": 1,
-      "item": {
-        "@type": "Event",
-        "name": "Doggy Day Out on the Mornington Peninsula",
-        "url": "https://peninsulainsider.com.au/whats-on/doggy-day-out-mornington-peninsula-2026/",
-        "startDate": "2026-09-03",
-        "endDate": "2026-09-03",
-        "description": "Self-guided pet-friendly day following digital clues across the Peninsula. Dog cafe with pup-approved snacks, human treats, and a relaxed winery picnic lunch. Runs Thursday to Sunday weekly.",
-        "eventStatus": "https://schema.org/EventScheduled"
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "item": {
-        "@type": "Event",
-        "name": "Family Mystery Picnic on the Mornington Peninsula",
-        "url": "https://peninsulainsider.com.au/whats-on/family-mystery-picnic-mornington-peninsula-2026/",
-        "startDate": "2026-09-03",
-        "endDate": "2026-09-03",
-        "description": "Self-guided family scavenger journey: solve smartphone clues, collect picnic goodies from local providers, hit activity stops, and feast at a scenic picnic location. Runs Thursday to Sunday weekly.",
-        "eventStatus": "https://schema.org/EventScheduled"
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "item": {
-        "@type": "Event",
-        "name": "Foxeys Hangout Vegetable Feast (Morning Sun Vineyard)",
-        "url": "https://peninsulainsider.com.au/whats-on/foxeys-hangout-vegetable-feast-morning-sun-vineyard/",
-        "startDate": "2026-09-03",
-        "endDate": "2026-12-02",
-        "description": "Chef Bernard McCarthy's all-vegetable, multi-course feast at Morning Sun Vineyard in Main Ridge, matched to Foxeys wines. Ticketed, shared table, outdoors at a working vineyard.",
-        "eventStatus": "https://schema.org/EventScheduled"
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 4,
-      "item": {
-        "@type": "Event",
-        "name": "Hastings Thursday Street Market",
-        "url": "https://peninsulainsider.com.au/whats-on/hastings-thursday-street-market/",
-        "startDate": "2026-09-03",
-        "endDate": "2026-09-03",
-        "description": "Weekly outdoor street market on High Street Hastings every Thursday. 40+ stalls featuring homemade, homegrown and craft goods. Fresh produce, handmade goods, plants. Local food options available on the street.",
-        "eventStatus": "https://schema.org/EventScheduled"
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 5,
-      "item": {
-        "@type": "Event",
-        "name": "Peninsula Hot Springs Daily Studio Yoga",
-        "url": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/",
-        "startDate": "2026-09-03",
-        "endDate": "2026-12-02",
-        "description": "Daily 45-minute studio yoga at Peninsula Hot Springs (16+), a paid add-on to a bathing session. Book early-morning or evening slots to avoid the crowd.",
-        "eventStatus": "https://schema.org/EventScheduled"
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 6,
-      "item": {
-        "@type": "Event",
-        "name": "Peninsula Hot Springs Yoga (Complimentary)",
-        "url": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-hot-springs-yoga-complimentary/",
-        "startDate": "2026-09-03",
-        "endDate": "2026-12-02",
-        "description": "Free 25-minute outdoor yoga by the amphitheatre pools, included with bathing admission. Daily at 9:15am, all ages, no booking.",
-        "eventStatus": "https://schema.org/EventScheduled"
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 7,
-      "item": {
-        "@type": "Event",
-        "name": "Polperro Cellar Table, Private Dining Experience",
-        "url": "https://peninsulainsider.com.au/whats-on/polperro-cellar-table-private-dining-experience/",
-        "startDate": "2026-09-03",
-        "endDate": "2026-12-02",
-        "description": "Polperro's private dining room below the winery. Six to eight guests, five courses, the latest Polperro and Even Keel cuvees poured by the people who made them.",
-        "eventStatus": "https://schema.org/EventScheduled"
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 8,
-      "item": {
-        "@type": "Event",
-        "name": "Pt. Leo Estate Sculpture Park",
-        "url": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/",
-        "startDate": "2026-09-03",
-        "endDate": "2026-12-02",
-        "description": "Australia's largest privately owned outdoor sculpture park: 16.5 acres, 60+ contemporary works, two walking loops, all set inside a working winery. Open daily 11am to 5pm.",
-        "eventStatus": "https://schema.org/EventScheduled"
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 9,
-      "item": {
-        "@type": "Event",
-        "name": "Red Hill Truffles: Winter Truffle Hunt Season",
-        "url": "https://peninsulainsider.com.au/whats-on/red-hill-truffles-winter-truffle-hunt-season/",
-        "startDate": "2026-09-03",
-        "endDate": "2026-09-30",
-        "description": "Guided winter truffle hunts at the Peninsula's first truffle producer, bundled with a meal at Red Hill Estate Restaurant, The Epicurean or pizza on the farm. Ticketed; late May to August for Périgord black, August to September for Bianchetto.",
-        "eventStatus": "https://schema.org/EventScheduled"
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 10,
-      "item": {
-        "@type": "Event",
-        "name": "Restore & Pamper Retreat at Polperro Farmhouse",
-        "url": "https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/",
-        "startDate": "2026-09-03",
-        "endDate": "2026-12-02",
-        "description": "3-day, 2-night wellness retreat at Polperro Farmhouse in Red Hill. Yoga, massage at PHS or Endota, optional juice cleanse, set on a biodynamic vineyard. Booked direct via Polperro or Hut Yoga.",
-        "eventStatus": "https://schema.org/EventScheduled"
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 11,
-      "item": {
-        "@type": "Event",
-        "name": "Ten Minutes by Tractor, Terroir Masterclass",
-        "url": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/",
-        "startDate": "2026-09-03",
-        "endDate": "2026-12-02",
-        "description": "One hour in TMBT's private tasting room. Eight wines (two limited-release, six current), the three single-vineyard sites side-by-side, and the long answer to why Pinot from Main Ridge tastes the way it does.",
-        "eventStatus": "https://schema.org/EventScheduled"
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 12,
       "item": {
         "@type": "Event",
         "name": "Bass & Flinders Gin Masterclass",
@@ -172,7 +29,111 @@
     },
     {
       "@type": "ListItem",
-      "position": 13,
+      "position": 2,
+      "item": {
+        "@type": "Event",
+        "name": "Foxeys Hangout Vegetable Feast (Morning Sun Vineyard)",
+        "url": "https://peninsulainsider.com.au/whats-on/foxeys-hangout-vegetable-feast-morning-sun-vineyard/",
+        "startDate": "2026-09-04",
+        "endDate": "2026-12-03",
+        "description": "Chef Bernard McCarthy's all-vegetable, multi-course feast at Morning Sun Vineyard in Main Ridge, matched to Foxeys wines. Ticketed, shared table, outdoors at a working vineyard.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "item": {
+        "@type": "Event",
+        "name": "Peninsula Hot Springs Daily Studio Yoga",
+        "url": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/",
+        "startDate": "2026-09-04",
+        "endDate": "2026-12-03",
+        "description": "Daily 45-minute studio yoga at Peninsula Hot Springs (16+), a paid add-on to a bathing session. Book early-morning or evening slots to avoid the crowd.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "item": {
+        "@type": "Event",
+        "name": "Peninsula Hot Springs Yoga (Complimentary)",
+        "url": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-hot-springs-yoga-complimentary/",
+        "startDate": "2026-09-04",
+        "endDate": "2026-12-03",
+        "description": "Free 25-minute outdoor yoga by the amphitheatre pools, included with bathing admission. Daily at 9:15am, all ages, no booking.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "item": {
+        "@type": "Event",
+        "name": "Polperro Cellar Table, Private Dining Experience",
+        "url": "https://peninsulainsider.com.au/whats-on/polperro-cellar-table-private-dining-experience/",
+        "startDate": "2026-09-04",
+        "endDate": "2026-12-03",
+        "description": "Polperro's private dining room below the winery. Six to eight guests, five courses, the latest Polperro and Even Keel cuvees poured by the people who made them.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 6,
+      "item": {
+        "@type": "Event",
+        "name": "Pt. Leo Estate Sculpture Park",
+        "url": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/",
+        "startDate": "2026-09-04",
+        "endDate": "2026-12-03",
+        "description": "Australia's largest privately owned outdoor sculpture park: 16.5 acres, 60+ contemporary works, two walking loops, all set inside a working winery. Open daily 11am to 5pm.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 7,
+      "item": {
+        "@type": "Event",
+        "name": "Red Hill Truffles: Winter Truffle Hunt Season",
+        "url": "https://peninsulainsider.com.au/whats-on/red-hill-truffles-winter-truffle-hunt-season/",
+        "startDate": "2026-09-04",
+        "endDate": "2026-09-30",
+        "description": "Guided winter truffle hunts at the Peninsula's first truffle producer, bundled with a meal at Red Hill Estate Restaurant, The Epicurean or pizza on the farm. Ticketed; late May to August for Périgord black, August to September for Bianchetto.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 8,
+      "item": {
+        "@type": "Event",
+        "name": "Restore & Pamper Retreat at Polperro Farmhouse",
+        "url": "https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/",
+        "startDate": "2026-09-04",
+        "endDate": "2026-12-03",
+        "description": "3-day, 2-night wellness retreat at Polperro Farmhouse in Red Hill. Yoga, massage at PHS or Endota, optional juice cleanse, set on a biodynamic vineyard. Booked direct via Polperro or Hut Yoga.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 9,
+      "item": {
+        "@type": "Event",
+        "name": "Ten Minutes by Tractor, Terroir Masterclass",
+        "url": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/",
+        "startDate": "2026-09-04",
+        "endDate": "2026-12-03",
+        "description": "One hour in TMBT's private tasting room. Eight wines (two limited-release, six current), the three single-vineyard sites side-by-side, and the long answer to why Pinot from Main Ridge tastes the way it does.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 10,
       "item": {
         "@type": "Event",
         "name": "Acoustic Saturdays at Peppers Moonah Links",
@@ -185,7 +146,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 14,
+      "position": 11,
       "item": {
         "@type": "Event",
         "name": "Hill & Ridge Community Market, September 2026 (Restart)",
@@ -198,7 +159,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 15,
+      "position": 12,
       "item": {
         "@type": "Event",
         "name": "National Works on Paper 2026 (NWOP)",
@@ -211,7 +172,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 16,
+      "position": 13,
       "item": {
         "@type": "Event",
         "name": "Red Hill Market  -  First Saturday, Every Month",
@@ -224,7 +185,33 @@
     },
     {
       "@type": "ListItem",
-      "position": 17,
+      "position": 14,
+      "item": {
+        "@type": "Event",
+        "name": "Doggy Day Out on the Mornington Peninsula",
+        "url": "https://peninsulainsider.com.au/whats-on/doggy-day-out-mornington-peninsula-2026/",
+        "startDate": "2026-09-06",
+        "endDate": "2026-09-06",
+        "description": "Self-guided pet-friendly day following digital clues across the Peninsula. Dog cafe with pup-approved snacks, human treats, and a relaxed winery picnic lunch. Runs Thursday to Sunday weekly.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 15,
+      "item": {
+        "@type": "Event",
+        "name": "Family Mystery Picnic on the Mornington Peninsula",
+        "url": "https://peninsulainsider.com.au/whats-on/family-mystery-picnic-mornington-peninsula-2026/",
+        "startDate": "2026-09-06",
+        "endDate": "2026-09-06",
+        "description": "Self-guided family scavenger journey: solve smartphone clues, collect picnic goodies from local providers, hit activity stops, and feast at a scenic picnic location. Runs Thursday to Sunday weekly.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 16,
       "item": {
         "@type": "Event",
         "name": "Mornington Wednesday Market (Main Street Market)",
@@ -232,6 +219,19 @@
         "startDate": "2026-09-09",
         "endDate": "2026-09-09",
         "description": "Victoria's longest-running street market – operating over 40 years every Wednesday on Main Street Mornington. 120+ stalls of handmade crafts, home-baked treats, home-grown plants and produce. Rain, hail or shine (high-wind policy applies). Vibrant weekly community gathering.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 17,
+      "item": {
+        "@type": "Event",
+        "name": "Hastings Thursday Street Market",
+        "url": "https://peninsulainsider.com.au/whats-on/hastings-thursday-street-market/",
+        "startDate": "2026-09-10",
+        "endDate": "2026-09-10",
+        "description": "Weekly outdoor street market on High Street Hastings every Thursday. 40+ stalls featuring homemade, homegrown and craft goods. Fresh produce, handmade goods, plants. Local food options available on the street.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
@@ -564,36 +564,23 @@
   "count": 42,
   "events": [
     {
-      "title": "Doggy Day Out on the Mornington Peninsula",
-      "url": "https://peninsulainsider.com.au/whats-on/doggy-day-out-mornington-peninsula-2026/",
-      "startDate": "2026-09-03",
-      "endDate": "2026-09-03",
+      "title": "Bass & Flinders Gin Masterclass",
+      "url": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
+      "startDate": "2026-09-04",
+      "endDate": "2026-09-04",
       "recurrence": "weekly",
       "category": "food-wine",
-      "place": "mornington",
+      "place": "dromana",
       "venue": null,
       "freePaid": "Paid",
-      "summary": "Self-guided pet-friendly day following digital clues across the Peninsula. Dog cafe with pup-approved snacks, human treats, and a relaxed winery picnic lunch. Runs Thursday to Sunday weekly.",
-      "thisWeekend": false
-    },
-    {
-      "title": "Family Mystery Picnic on the Mornington Peninsula",
-      "url": "https://peninsulainsider.com.au/whats-on/family-mystery-picnic-mornington-peninsula-2026/",
-      "startDate": "2026-09-03",
-      "endDate": "2026-09-03",
-      "recurrence": "weekly",
-      "category": "family-programs",
-      "place": "mornington",
-      "venue": null,
-      "freePaid": "Paid",
-      "summary": "Self-guided family scavenger journey: solve smartphone clues, collect picnic goodies from local providers, hit activity stops, and feast at a scenic picnic location. Runs Thursday to Sunday weekly.",
-      "thisWeekend": false
+      "summary": "Three hours at the still in Dromana. Learn how gin actually gets made, blend your own botanicals, and walk out with a 500ml bottle of your own recipe.",
+      "thisWeekend": true
     },
     {
       "title": "Foxeys Hangout Vegetable Feast (Morning Sun Vineyard)",
       "url": "https://peninsulainsider.com.au/whats-on/foxeys-hangout-vegetable-feast-morning-sun-vineyard/",
-      "startDate": "2026-09-03",
-      "endDate": "2026-12-02",
+      "startDate": "2026-09-04",
+      "endDate": "2026-12-03",
       "recurrence": "ongoing",
       "category": "food-wine",
       "place": "red-hill",
@@ -603,23 +590,10 @@
       "thisWeekend": true
     },
     {
-      "title": "Hastings Thursday Street Market",
-      "url": "https://peninsulainsider.com.au/whats-on/hastings-thursday-street-market/",
-      "startDate": "2026-09-03",
-      "endDate": "2026-09-03",
-      "recurrence": "weekly",
-      "category": "market",
-      "place": "hastings",
-      "venue": null,
-      "freePaid": "Free",
-      "summary": "Weekly outdoor street market on High Street Hastings every Thursday. 40+ stalls featuring homemade, homegrown and craft goods. Fresh produce, handmade goods, plants. Local food options available on the street.",
-      "thisWeekend": false
-    },
-    {
       "title": "Peninsula Hot Springs Daily Studio Yoga",
       "url": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/",
-      "startDate": "2026-09-03",
-      "endDate": "2026-12-02",
+      "startDate": "2026-09-04",
+      "endDate": "2026-12-03",
       "recurrence": "one-off",
       "category": "wellness",
       "place": null,
@@ -631,8 +605,8 @@
     {
       "title": "Peninsula Hot Springs Yoga (Complimentary)",
       "url": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-hot-springs-yoga-complimentary/",
-      "startDate": "2026-09-03",
-      "endDate": "2026-12-02",
+      "startDate": "2026-09-04",
+      "endDate": "2026-12-03",
       "recurrence": "one-off",
       "category": "wellness",
       "place": null,
@@ -644,8 +618,8 @@
     {
       "title": "Polperro Cellar Table, Private Dining Experience",
       "url": "https://peninsulainsider.com.au/whats-on/polperro-cellar-table-private-dining-experience/",
-      "startDate": "2026-09-03",
-      "endDate": "2026-12-02",
+      "startDate": "2026-09-04",
+      "endDate": "2026-12-03",
       "recurrence": "one-off",
       "category": "food-wine",
       "place": "red-hill",
@@ -657,8 +631,8 @@
     {
       "title": "Pt. Leo Estate Sculpture Park",
       "url": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/",
-      "startDate": "2026-09-03",
-      "endDate": "2026-12-02",
+      "startDate": "2026-09-04",
+      "endDate": "2026-12-03",
       "recurrence": "one-off",
       "category": "arts",
       "place": "merricks",
@@ -670,7 +644,7 @@
     {
       "title": "Red Hill Truffles: Winter Truffle Hunt Season",
       "url": "https://peninsulainsider.com.au/whats-on/red-hill-truffles-winter-truffle-hunt-season/",
-      "startDate": "2026-09-03",
+      "startDate": "2026-09-04",
       "endDate": "2026-09-30",
       "recurrence": "one-off",
       "category": "nature",
@@ -683,8 +657,8 @@
     {
       "title": "Restore & Pamper Retreat at Polperro Farmhouse",
       "url": "https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/",
-      "startDate": "2026-09-03",
-      "endDate": "2026-12-02",
+      "startDate": "2026-09-04",
+      "endDate": "2026-12-03",
       "recurrence": "one-off",
       "category": "wellness",
       "place": "red-hill",
@@ -696,27 +670,14 @@
     {
       "title": "Ten Minutes by Tractor, Terroir Masterclass",
       "url": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/",
-      "startDate": "2026-09-03",
-      "endDate": "2026-12-02",
+      "startDate": "2026-09-04",
+      "endDate": "2026-12-03",
       "recurrence": "one-off",
       "category": "food-wine",
       "place": "main-ridge",
       "venue": null,
       "freePaid": "Paid",
       "summary": "One hour in TMBT's private tasting room. Eight wines (two limited-release, six current), the three single-vineyard sites side-by-side, and the long answer to why Pinot from Main Ridge tastes the way it does.",
-      "thisWeekend": true
-    },
-    {
-      "title": "Bass & Flinders Gin Masterclass",
-      "url": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
-      "startDate": "2026-09-04",
-      "endDate": "2026-09-04",
-      "recurrence": "weekly",
-      "category": "food-wine",
-      "place": "dromana",
-      "venue": null,
-      "freePaid": "Paid",
-      "summary": "Three hours at the still in Dromana. Learn how gin actually gets made, blend your own botanicals, and walk out with a 500ml bottle of your own recipe.",
       "thisWeekend": true
     },
     {
@@ -772,6 +733,32 @@
       "thisWeekend": true
     },
     {
+      "title": "Doggy Day Out on the Mornington Peninsula",
+      "url": "https://peninsulainsider.com.au/whats-on/doggy-day-out-mornington-peninsula-2026/",
+      "startDate": "2026-09-06",
+      "endDate": "2026-09-06",
+      "recurrence": "weekly",
+      "category": "food-wine",
+      "place": "mornington",
+      "venue": null,
+      "freePaid": "Paid",
+      "summary": "Self-guided pet-friendly day following digital clues across the Peninsula. Dog cafe with pup-approved snacks, human treats, and a relaxed winery picnic lunch. Runs Thursday to Sunday weekly.",
+      "thisWeekend": true
+    },
+    {
+      "title": "Family Mystery Picnic on the Mornington Peninsula",
+      "url": "https://peninsulainsider.com.au/whats-on/family-mystery-picnic-mornington-peninsula-2026/",
+      "startDate": "2026-09-06",
+      "endDate": "2026-09-06",
+      "recurrence": "weekly",
+      "category": "family-programs",
+      "place": "mornington",
+      "venue": null,
+      "freePaid": "Paid",
+      "summary": "Self-guided family scavenger journey: solve smartphone clues, collect picnic goodies from local providers, hit activity stops, and feast at a scenic picnic location. Runs Thursday to Sunday weekly.",
+      "thisWeekend": true
+    },
+    {
       "title": "Mornington Wednesday Market (Main Street Market)",
       "url": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/",
       "startDate": "2026-09-09",
@@ -782,6 +769,19 @@
       "venue": null,
       "freePaid": "Free",
       "summary": "Victoria's longest-running street market – operating over 40 years every Wednesday on Main Street Mornington. 120+ stalls of handmade crafts, home-baked treats, home-grown plants and produce. Rain, hail or shine (high-wind policy applies). Vibrant weekly community gathering.",
+      "thisWeekend": false
+    },
+    {
+      "title": "Hastings Thursday Street Market",
+      "url": "https://peninsulainsider.com.au/whats-on/hastings-thursday-street-market/",
+      "startDate": "2026-09-10",
+      "endDate": "2026-09-10",
+      "recurrence": "weekly",
+      "category": "market",
+      "place": "hastings",
+      "venue": null,
+      "freePaid": "Free",
+      "summary": "Weekly outdoor street market on High Street Hastings every Thursday. 40+ stalls featuring homemade, homegrown and craft goods. Fresh produce, handmade goods, plants. Local food options available on the street.",
       "thisWeekend": false
     },
     {
