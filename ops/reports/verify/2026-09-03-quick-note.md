@@ -1,4 +1,4 @@
-# Post-publish verification — 2026-09-03T20:36:06.302Z
+# Post-publish verification — 2026-09-02T20:37:21.909Z
 
 Kind: `page`
 URLs checked: 1
@@ -8,7 +8,7 @@ Result: **PASS**
 
 - ✓ `http` — status 200, final https://peninsulainsider.com.au/quick-note/
 - ✓ `canonical` — https://peninsulainsider.com.au/quick-note/
-- ✓ `title` — Quick Note, Friday 4 September 2026 · Peninsula Insider
+- ✓ `title` — Quick Note, Thursday 3 September 2026 · Peninsula Insider
 - ✓ `meta-description` — 88 chars
 - ✓ `og-title`
 - ✓ `og-description`
