@@ -12,7 +12,7 @@ Rules:
   may enter these states while the GSC blocker (B-1) is open.** Nothing below is
   marked recovered today, and that is correct rather than pessimistic.
 
-Last updated: 2026-08-18.
+Last updated: 2026-08-18 (post-deploy verification).
 
 ---
 
@@ -20,15 +20,49 @@ Last updated: 2026-08-18.
 
 | ID | Target | Issue | Evidence | Root cause | Sev | Conf | Status | Commit |
 |---|---|---|---|---|---|---|---|---|
-| P0-1 | Build pipeline | Deploy failed on every run since 17 Aug 19:37; production frozen at `e2c4057` | Runs `32061421402`, `32150413304` | `heroImage.license: "editorial"` not in schema enum → `validate:content` threw | P0 | Certain | **FIXED** | `4a25626` |
-| P0-2 | 24 migration stubs | `noindex` + canonical to destination — destroys rather than transfers equity | Deployed artefact `968f3b8`: 26 URLs; `/places/sorrento/` googleCanonical self-resolved (8 Aug) | `Astro.redirect(...,301)` prerenders a noindex redirect document on static hosting | P0 | Certain | **FIXED** | `1301050` |
-| P0-3 | 138 venue pages | 1,644 internal links to 40 non-existent URLs (`/wine//slug/`) | Deployed artefact: 1,644 occurrences; 184 links each to worst 3 targets | `VenueCard` joined `sectionHref` (`"/wine/"`) with `/${slug}/` | P0 | Certain | **FIXED** | `bde2894` |
-| P0-4 | CI | No gate could observe artefact-level indexation defects; bulk noindex survived 100 days | `lint:seo-architecture` passed throughout | Lint asserted source declarations, never built output | P0 | Certain | **FIXED** | `242c057` |
+| P0-1 | Build pipeline | Deploy failed on every run since 17 Aug 19:37; production frozen at `e2c4057` | Runs `32061421402`, `32150413304` | `heroImage.license: "editorial"` not in schema enum → `validate:content` threw | P0 | Certain | **LIVE_VERIFIED** | `4a25626` |
+| P0-2 | 24 migration stubs | `noindex` + canonical to destination — destroys rather than transfers equity | Deployed artefact `968f3b8`: 26 URLs; `/places/sorrento/` googleCanonical self-resolved (8 Aug) | `Astro.redirect(...,301)` prerenders a noindex redirect document on static hosting | P0 | Certain | **LIVE_VERIFIED** | `1301050` |
+| P0-3 | 138 venue pages | 1,644 internal links to 40 non-existent URLs (`/wine//slug/`) | Deployed artefact: 1,644 occurrences; 184 links each to worst 3 targets | `VenueCard` joined `sectionHref` (`"/wine/"`) with `/${slug}/` | P0 | Certain | **LIVE_VERIFIED** | `bde2894` |
+| P0-4 | CI | No gate could observe artefact-level indexation defects; bulk noindex survived 100 days | `lint:seo-architecture` passed throughout | Lint asserted source declarations, never built output | P0 | Certain | **LIVE_VERIFIED** | `242c057` |
 | R-1 | 86 targets / 711 links | Internal links from indexable pages to redirect stubs and canonical losers | `ops/reports/seo/link-loser-baseline.json` | Residual tail of the bulk link remediation | P1 | High | DIAGNOSED (ratcheted in CI) | — |
 | R-2 | 20 pages | Indexable, self-canonical, absent from sitemap, zero inbound — no declared policy | Ledger `indexableOrphans` | No lifecycle rule forcing an explicit sitemap/exclusion decision | P1 | High | DIAGNOSED | — |
 | R-3 | 4 utility targets | `/me/saved/` 1,799, `/search/` 1,400, `/account/` 1,256, `/me/trip/` 1,172 sitewide links | Ledger `allLinkedLosers` | Global nav links utility surfaces from every page | P2 | Med | DIAGNOSED | — |
 | R-4 | 83 of 628 | Indexable pages with zero editorial inbound links | Build link-graph report | Hub/spoke coverage gaps | P2 | High | DIAGNOSED | — |
 | R-5 | ~151 URLs | `lastmod` falls back to build date, overstating change frequency | 13 Aug audit | Sitemap generator fallback | P3 | High | DIAGNOSED | — |
+
+## Deploy verification — 2026-08-18
+
+PR #317 merged as `4c172ca3`. Deploy run `32184413517` succeeded at 20:52 UTC,
+including the new SEO artefact integrity gate (step 11, pass). `gh-pages`
+advanced `968f3b8` -> `8ec787c`.
+
+Re-measured against the newly deployed artefact, not the build:
+
+| Metric | Before (`968f3b8`) | After (`8ec787c`) |
+|---|---:|---:|
+| noindex + foreign canonical | 26 | **2** |
+| Malformed internal hrefs | 40 targets / 1,644 links | **0** |
+| Sitemap noindex / non-self-canonical | 0 / 0 | 0 / 0 |
+| Redirect + canonical loops | 0 | 0 |
+| Built pages | 946 | 946 |
+| Sitemap entries | 610 | 611 |
+| Indexable self-canonical | 628 | 628 |
+
+The two remaining are `/account/likes/` and `/me/`, the documented utility hops.
+
+`/journal/the-one-night-escape/` now serves meta-refresh plus a canonical to
+`/explore/plans/the-one-night-escape/` with **no robots directive** — the
+consolidation signal the migration needed.
+
+P0-1..P0-4 are therefore `LIVE_VERIFIED`. They stop there: `GOOGLE_RECRAWLED`
+and `RECOVERED` remain unreachable while B-1 is open.
+
+### Correction to the P0-1 attribution
+
+PR #316 merged separately and restored deploys at 20:23 UTC (run `32181936952`),
+26 minutes before #317. The deploy freeze was already lifted by that change; the
+P0-1 commit here diagnosed the same blocker independently but was redundant by
+the time it landed. Recorded so the incident history stays accurate.
 
 ## Verified complete (do not redo)
 
