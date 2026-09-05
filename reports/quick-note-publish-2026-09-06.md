@@ -3,7 +3,7 @@
 **Date:** Sunday, 6 September 2026 (AEST)
 **Job:** `pi-daily-quick-note-qa-publish`
 **Agent:** Remy
-**Status:** PUBLISHED — external verification pending deployment
+**Status:** VERIFIED LIVE
 
 ## Published content
 
@@ -20,4 +20,5 @@
 ## Deployment and verification
 
 - Content validation passed before commit. The repository-wide `astro check` remains blocked by pre-existing type errors outside this note (including a missing optional `@astrojs/vercel` module and archived-component imports).
-- GitHub Pages deployment is triggered by the pushed commit. Run `node ops/scripts/post-publish-verify.mjs https://peninsulainsider.com.au/quick-note/ --report=ops/reports/verify/2026-09-06-quick-note.md` after deployment; external verification cannot pass until the new commit is deployed.
+- Published-content commit: `bda41f43d7`.
+- External verification passed at 2026-09-05T20:37:45Z for `https://peninsulainsider.com.au/quick-note/`: HTTP 200, canonical, non-generic title for Sunday 6 September 2026, 88-character description, OpenGraph, stylesheet, body hook, and sitemap checks all passed. Structured evidence: `ops/reports/verify/2026-09-06-quick-note.md`.
