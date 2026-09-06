@@ -3,7 +3,7 @@
 **Date:** Monday, 7 September 2026 (AEST)  
 **Job:** `pi-daily-quick-note-qa-publish`  
 **Agent:** Remy  
-**Status:** PUBLISHED — external verification pending deployment
+**Status:** VERIFIED LIVE
 
 ## Published content
 
@@ -20,4 +20,5 @@
 
 ## Deployment and verification
 
-- The publication commit is pushed to `main`; GitHub Pages deployment and the required external verification follow publication.
+- Published-content commit: `f02b2f87a2`.
+- External verification passed at 2026-09-06T20:36:50Z for `https://peninsulainsider.com.au/quick-note/`: HTTP 200, canonical, non-generic title for Monday 7 September 2026, 88-character description, OpenGraph, stylesheet, body hook, and sitemap checks all passed. Structured evidence: `ops/reports/verify/2026-09-07-quick-note.md`.
