@@ -39,10 +39,11 @@
  * against a future date instead of only against the day the test happens to run.
  */
 
+import { fileURLToPath } from 'node:url';
 import { readFile, readdir, writeFile, mkdir } from 'node:fs/promises';
 import path from 'node:path';
 
-const REPO = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..', '..');
+const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 const DEFAULT_EVENTS_DIR = path.join(REPO, 'next', 'src', 'content', 'events');
 const DEFAULT_BASELINE = path.join(REPO, 'ops', 'reports', 'events', 'event-safeguards-baseline.json');
 

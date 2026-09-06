@@ -105,7 +105,7 @@ const season = getSeason(now).toLowerCase();
     isolation: isolate;
     overflow: hidden;
     background: var(--bg-deep);
-    padding: clamp(3rem, 9vw, 6.4rem) 0;
+    padding: clamp(2.75rem, 5.3vw, 4.75rem) 0;
   }
 
   .home-cover__media {
@@ -119,21 +119,7 @@ const season = getSeason(now).toLowerCase();
     /* Bias upward so the horizon, headland, and rainbow stay in frame
        rather than centring on empty water. */
     object-position: center 38%;
-    /* Ken Burns: slow compositor-only zoom, no JS. .home-cover has
-       overflow:hidden so the scaled-up edges never show. */
-    animation: home-cover-kenburns 36s ease-in-out infinite alternate;
-    will-change: transform;
-  }
-
-  @keyframes home-cover-kenburns {
-    from { transform: scale(1); }
-    to { transform: scale(1.08); }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .home-cover__media {
-      animation: none;
-    }
+    /* Static landscape: the reader controls the pace. */
   }
 
   .home-cover__scrim {
@@ -175,8 +161,8 @@ const season = getSeason(now).toLowerCase();
     max-width: 18ch;
     font-family: var(--font-display);
     font-weight: var(--fw-display);
-    font-size: var(--fs-950);
-    line-height: var(--lh-display);
+    font-size: clamp(2.5rem, 4.8vw, 4.25rem);
+    line-height: 1.09;
     letter-spacing: var(--ls-display);
     color: var(--white);
     text-wrap: balance;

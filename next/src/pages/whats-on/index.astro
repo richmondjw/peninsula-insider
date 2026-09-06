@@ -301,7 +301,7 @@ const pageDescription = `What is actually worth it on the Mornington Peninsula t
   // "+ Trip" wiring (rows + pick cards). data-evt="trip_add" analytics fires
   // via the delegated v5-analytics listener; this adds the store behaviour.
   document.addEventListener('click', (ev) => {
-    const btn = (ev.target as HTMLElement).closest<HTMLButtonElement>('[data-evt="trip_add"]');
+    const btn = (ev.target as HTMLElement).closest<HTMLButtonElement>('[data-evt="trip_add"]:not([data-card-trip])');
     if (!btn || btn.dataset.added === 'true') return;
     const slug = btn.dataset.entitySlug;
     if (!slug) return;
