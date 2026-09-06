@@ -61,7 +61,7 @@ const cards = await Promise.all(
 ---
 
 {cards.length > 0 && (
-  <section class="home-weekend" aria-labelledby="home-weekend-title">
+  <section id="home-weekend" class="home-weekend" aria-labelledby="home-weekend-title">
     <div class="container">
       <div class="home-weekend__head">
         <div class="home-weekend__heading">
@@ -102,6 +102,14 @@ const cards = await Promise.all(
 )}
 
 <style>
+  .home-weekend { scroll-margin-top: 9rem; }
+  @media (min-width: 64em) {
+    .home-weekend__scroller :global(.v5-card-grid--grid) { grid-template-columns: 1.5fr 1fr 1fr; }
+    .home-weekend__scroller :global(.pi-card:first-child .pi-card__title) { font-size: 1.875rem; }
+  }
+  .home-weekend__scroller :global(.pi-card__media) { height: 14.375rem; aspect-ratio: auto; }
+  .home-weekend__scroller :global(.pi-card__dek) { font-size: var(--fs-400); line-height: var(--lh-body); display: block; overflow: visible; -webkit-line-clamp: unset; }
+
   .home-weekend {
     padding: var(--space-7) 0;
   }

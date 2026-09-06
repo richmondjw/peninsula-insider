@@ -10,6 +10,8 @@
  * roman folios, hairline rules, restrained colour, photography-led.
  */
 
+import harbourScreenStyles from '../styles/v6-tokens.css?url';
+
 export interface Props {
   title: string;
   description?: string;
@@ -27,6 +29,7 @@ const { title, description = 'Peninsula Insider partnership document.' } = Astro
   <title>{title}</title>
   <meta name="description" content={description} />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="stylesheet" href={harbourScreenStyles} media="screen" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -995,8 +998,44 @@ const { title, description = 'Peninsula Insider partnership document.' } = Astro
       .pi-page { zoom: calc((100vw - 8px) / 794px); margin: 0 auto 4mm; }
     }
   </style>
+<style is:global>
+    /* Screen reading uses the publication identity. Print/PDF page geometry
+       and typography remain unchanged; printable assets have their own release. */
+    @media screen {
+      :root { --pi-bg: #FDFCFA; --pi-bg-deep: #0B2E4A; --pi-text: #14202A; --pi-accent: #10527E; --pi-accent-d: #0B2E4A; }
+      body { font-family: var(--font-ui); font-size: 16px; line-height: 1.65; }
+      main :is(h1,h2,h3,h4,.pi-display,.pi-serif,.pi-mark,.pi-mark__brand,.pi-signoff) { font-family: var(--font-display); line-height: 1.15; letter-spacing: -.025em; }
+      main .pi-page p { font-family: var(--font-ui); }
+      .pi-cover__brand { font-family: var(--font-display); }
+      .pi-cover__grain { display: none; }
+      .pi-page { height: auto; min-height: 297mm; overflow: visible; }
+      .pi-page--cover .pi-cover,.pi-page--cover .pi-cover__inner { min-height: 297mm; }
+    }
+    @media screen and (max-width: 600px) {
+      body { padding: 0; }
+      .pi-page { zoom: 1; width: 100%; min-height: 0; height: auto; padding: 32px 24px; margin: 0; overflow: visible; }
+      .pi-page h1 { font-size: clamp(32px,9vw,44px); }
+      .pi-page h2 { font-size: 28px; }
+      .pi-page h3 { font-size: 21px; }
+      .pi-page p,.pi-page li,.pi-page td { font-size: 16px; }
+      .pi-page [class*="grid"],.pi-page [class*="cols"] { grid-template-columns: minmax(0,1fr); }
+      .pi-page img { max-width: 100%; }
+      .pi-page { overflow-wrap: anywhere; }
+      .pi-page--cover { padding: 0; }
+      .pi-page--cover .pi-cover,.pi-page--cover .pi-cover__inner { min-height: 0; }
+      .pi-cover__inner { padding: 32px 24px; gap: 48px; }
+      .pi-cover__topbar,.pi-cover__bottombar,.pi-running-head { flex-wrap: wrap; gap: 12px; }
+      .pi-cover__title-block { max-width: 100%; }
+      .pi-cover__sub { max-width: 32ch; }
+      .pi-table { display: block; max-width: 100%; overflow-x: auto; }
+      .pi-keyvalue { grid-template-columns: minmax(0,1fr); gap: 8px; }
+      .pi-page [class*="grid"] > * { min-width: 0; }
+      .pi-figure--bleed-h { width: 100%; margin-left: 0; }
+      .pi-price__amount { font-size: clamp(32px,10vw,44px) !important; }
+    }
+  </style>
 </head>
 <body>
-  <slot />
+  <main><slot /></main>
 </body>
 </html>

@@ -4,9 +4,7 @@
  * wireframes.html #home note 3).
  *
  * Eat & Drink · Stay · Wine · Explore as four large door cards: one image,
- * one verdict-flavoured count line each. Counts are computed from the
- * venues collection at build time so the numbers stay honest; the flavour
- * is fixed Critic copy. Door images resolve through the SAME CMS slot as
+ * one short editorial description each. Door images resolve through the SAME CMS slot as
  * each hub's GuideHero (page/<hub>, fieldPath "hero"), so an editor's hub
  * hero replacement updates the door too.
  *
@@ -14,33 +12,15 @@
  * visible (spec 1.22 allows hover reveal; content must be visible by
  * default on touch, so we show it everywhere - no motion, no surprises).
  */
-import { getCollection } from 'astro:content';
 import { resolveHero } from '../../../lib/inline-edit/resolve-hero';
 import { editableImage } from '../../../lib/inline-edit/attrs';
-import { isStayVenue } from '../../../lib/editorial';
-import { countWord } from './home-data';
-
-const venues = (await getCollection('venues')).filter(
-  (v) => v.data.status !== 'permanently_closed',
-);
-
-/* Same type buckets the hubs themselves count with. */
-const eatTypes = ['restaurant', 'cafe', 'bakery', 'pub', 'market', 'winery'];
-const eat = venues.filter((v) => eatTypes.includes(v.data.type));
-const eatPicks = eat.filter((v) => v.data.editorPick).length;
-const stays = venues.filter(isStayVenue);
-const wineries = venues.filter((v) => v.data.type === 'winery');
 
 const doors = [
   {
     key: 'eat',
     label: 'Eat & Drink',
     href: '/eat/',
-    count: `${eat.length} places`,
-    line:
-      eatPicks > 0
-        ? `${eat.length} places, ${countWord(eatPicks)} worth planning around`
-        : `${eat.length} places, the bookings sorted from the walk-ins`,
+    line: 'Places worth planning lunch around',
     fallback: {
       src: '/images/sourced/venue-italian-dining-01.webp',
       alt: 'A Peninsula dining room, table laid, light low',
@@ -50,8 +30,7 @@ const doors = [
     key: 'stay',
     label: 'Stay',
     href: '/stay/',
-    count: `${stays.length} stays`,
-    line: `${stays.length} stays, from shack to cliff house`,
+    line: 'From a weekend shack to a cliff house',
     fallback: {
       src: '/images/sourced/venue-jackalope-hotel-01.webp',
       alt: 'Jackalope Hotel, Merricks North vineyard at dusk',
@@ -61,8 +40,7 @@ const doors = [
     key: 'wine',
     label: 'Wine',
     href: '/wine/',
-    count: `${wineries.length} cellar doors`,
-    line: `${wineries.length} cellar doors, ranked by the pour, not the view`,
+    line: 'Cellar doors worth taking the turn for',
     fallback: {
       src: '/images/sourced/article-cellar-door-01.webp',
       alt: 'A Peninsula cellar door, bottles open, glasses poured',
@@ -72,7 +50,6 @@ const doors = [
     key: 'explore',
     label: 'Explore',
     href: '/explore/',
-    count: 'Walks & beaches',
     line: 'Walks, beaches, springs, and the roads between them',
     fallback: {
       src: '/images/sourced/explore-cape-schanck-lighthouse-01.webp',
@@ -125,7 +102,6 @@ const resolved = await Promise.all(
               />
             </span>
             <span class="home-doors__scrim" aria-hidden="true"></span>
-            <span class="home-doors__count">{door.count}</span>
             <span class="home-doors__label">{door.label}</span>
             <span class="home-doors__line">{door.line}</span>
           </a>

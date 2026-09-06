@@ -1,0 +1,108 @@
+/* September 2026: approved Harbour refinement. Keep the brand; clarify composition. */
+body[data-v4] { --refine-section: clamp(2rem, 4.5vw, 3.5rem); --refine-gap: clamp(1.5rem, 3vw, 3rem); }
+body[data-v4] :is(.guide-hero,.section-hero,.subpage-hero) { padding-block: var(--refine-section); }
+body[data-v4] :is(.guide-hero__inner,.section-hero__inner,.subpage-hero__inner) { gap: var(--refine-gap); }
+body[data-v4] :is(.guide-hero__title,.section-hero__title,.subpage-hero__title) { font-size: clamp(2.25rem,4.3vw,3.75rem); line-height: 1.1; letter-spacing: -.035em; text-wrap: balance; overflow-wrap: anywhere; }
+body[data-v4] :is(.guide-hero__dek,.section-hero__dek,.subpage-hero__prose) { font-family: var(--font-ui); font-size: var(--fs-500); line-height: var(--lh-body); max-width: var(--measure-dek); }
+body[data-v4] :is(.guide-hero__image,.section-hero__visual-image,.subpage-hero__visual img) { filter: none; }
+/* Long headlines receive more width. Reading remains in the existing prose column. */
+body[data-v4] .article-hero__frame { grid-template-columns: minmax(0,1.25fr) minmax(0,1fr); gap: var(--refine-gap); }
+body[data-v4] .article-hero__title { font-size: clamp(2rem,3.5vw,3.125rem); line-height: 1.12; letter-spacing: -.035em; }
+body[data-v4] .article-hero__dek { font-family: var(--font-ui); font-size: var(--fs-500); color: var(--text); line-height: var(--lh-body); }
+body[data-v4] .article-hero__meta { flex-wrap: wrap; font-size: var(--fs-100); letter-spacing: .06em; gap: .5rem .75rem; }
+body[data-v4] .article-hero__byline { font-size: var(--fs-200); padding-block: var(--space-3); }
+body[data-v4] .article-hero__tag { background: transparent; border: 0; padding: 0; letter-spacing: .02em; text-transform: none; font-size: var(--fs-200); }
+body[data-v4] .article-hero__tags { gap: .5rem 1rem; }
+body[data-v4] .article-hero__image { aspect-ratio: 1; filter: none; }
+body[data-v4] :is(.article-hero__credit,.guide-hero__credit,.venue-detail__hero-credit) { font-size: var(--fs-100); line-height: 1.5; letter-spacing: .02em; text-transform: none; }
+body[data-v4] .prose { max-width: var(--measure-prose); line-height: 1.75; overflow-wrap: break-word; }
+body[data-v4] .prose :is(h2,h3) { line-height: 1.22; text-wrap: balance; scroll-margin-top: 9rem; }
+body[data-v4] .prose h2 { margin-top: var(--space-heading-above); margin-bottom: var(--space-heading-below); }
+body[data-v4] .prose a { text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1px; }
+body[data-v4] .prose a.pi-btn { text-decoration: none; }
+body[data-v4] .prose a.pi-btn--solid:not(.pi-btn--inverse) { color: var(--white); }
+body[data-v4] .prose.has-drop-cap > p:first-of-type::first-letter { float: none; font: inherit; color: inherit; margin: 0; padding: 0; }
+body[data-v4] .prose blockquote { font-family: var(--font-ui); border-left: 3px solid var(--accent); padding-left: var(--space-5); }
+/* Listings retain booking and practical facts while reducing promotional bulk. */
+body[data-v4] :is(.venue-detail__title,.itinerary-detail__title) { font-size: clamp(2rem,4vw,3.75rem); line-height: 1.1; letter-spacing: -.035em; text-wrap: balance; }
+body[data-v4] .venue-detail__signature { font-family: var(--font-ui); font-size: var(--fs-500); line-height: var(--lh-body); max-width: var(--measure-dek); }
+body[data-v4] .venue-detail__meta { flex-wrap: wrap; row-gap: .5rem; }
+body[data-v4] .venue-detail__hero { max-height: 32rem; }
+body[data-v4] .venue-detail__hero > img { filter: none; }
+body[data-v4] .venue-detail__grid { gap: var(--refine-gap); }
+body[data-v4] .facts { align-self: start; }
+body[data-v4] .facts :is(dt,dd) { overflow-wrap: anywhere; }
+body[data-v4] .facts__title { font-size: var(--fs-300); }
+body[data-v4] :is(.venue-detail-section,.venues,.experience-index) { padding-block: var(--refine-section); }
+/* Shared card hierarchy: title, useful explanation, factual metadata. */
+body[data-v4] .pi-card:not(.pi-card--compact) .pi-card__title { font-size: var(--fs-600); line-height: 1.23; letter-spacing: -.025em; }
+body[data-v4] .pi-card:not(.pi-card--compact) .pi-card__dek { font-size: var(--fs-400); line-height: 1.6; font-weight: var(--fw-body); }
+body[data-v4] .pi-card__meta { font-size: var(--fs-200); line-height: 1.55; }
+body[data-v4] .pi-card__link:focus-visible::after { outline: 3px solid var(--accent); outline-offset: -3px; border-radius: inherit; }
+body[data-v4] :is(.venue-card__verdict,.article-card__excerpt,.experience-card__verdict) { font-family: var(--font-ui); font-size: var(--fs-400); line-height: 1.6; }
+body[data-v4] :is(.v5-directory__row,.wo-row) { padding-block: var(--space-5); }
+body[data-v4] :is(.wo-row__dek,.v5-directory__sub) { font-size: var(--fs-400); line-height: 1.6; }
+body[data-v4] .wo-row__meta { font-size: var(--fs-200); line-height: 1.5; }
+/* Search, account and form surfaces share the same rhythm. */
+body[data-v4] :is(.search-page-v2__hero,.me-shell) { padding-block: var(--refine-section); }
+body[data-v4] :is(.search-page-v2__title,.me-shell__heading) { font-size: clamp(2rem,4vw,3.25rem); line-height: 1.12; letter-spacing: -.03em; }
+body[data-v4] .search-card__title { line-height: 1.25; text-wrap: balance; }
+body[data-v4] .search-card__excerpt { font-size: var(--fs-400); line-height: 1.55; }
+body[data-v4] :is(.site-search-overlay__panel,.v5-drawer) { overscroll-behavior: contain; }
+body[data-v4] .v2-newsletter { padding-block: var(--refine-section); }
+body[data-v4] :is(.news-hero,.news-editions,.news-promise,.news-trust,.news-close) { padding-block: var(--refine-section); }
+body[data-v4] :is(input,textarea,select) { scroll-margin-block: 8rem; }
+body[data-v4] :is(input,textarea,select):focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+body[data-v4] :is(button,input,textarea,select):disabled { cursor: not-allowed; }
+/* Quiet feedback, with no perpetual image movement or delayed reading. */
+@media (hover:hover) and (pointer:fine) {
+  body[data-v4] :is(.pi-card,.venue-card,.article-card):hover { transform: none; }
+  body[data-v4] :is(.pi-card,.venue-card,.article-card):hover img { transform: none; }
+  body[data-v4] :is(.pi-btn,.v5-save__btn) { transition: background-color 160ms ease,color 160ms ease,border-color 160ms ease; }
+}
+@media (min-width:64em) { body[data-v4] .home-weekend .pi-card:first-child .pi-card__title { font-size: 1.875rem; } }
+@media (max-width:47.94em) {
+  body[data-v4] .article-hero__frame { grid-template-columns: 1fr; gap: var(--space-5); }
+  body[data-v4] .article-hero__title { font-size: clamp(2rem,7.5vw,2.6rem); }
+  body[data-v4] .article-hero__image { aspect-ratio: 1.4; }
+  body[data-v4] :is(.guide-hero__dek,.section-hero__dek,.article-hero__dek,.venue-detail__signature) { font-size: var(--fs-400); }
+  body[data-v4] :is(.guide-hero__inner,.subpage-hero__inner) { gap: var(--space-5); }
+  body[data-v4] .venue-detail__hero { max-height: 22rem; }
+  body[data-v4] :is(input:not([type=checkbox]):not([type=radio]),textarea,select) { font-size: max(1rem,1em); }
+}
+@media (prefers-reduced-motion:reduce) {
+  html:focus-within { scroll-behavior: auto; }
+  body[data-v4] *,body[data-v4] *::before,body[data-v4] *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+/* Empty decorative panels become a compact text-led opening. CMS targets remain
+   in the DOM and regain their layout automatically when a real image arrives. */
+body[data-v4] .section-hero__inner:has(> .section-hero__visual:not(:has(img))) { grid-template-columns: minmax(0,1fr); }
+body[data-v4] .section-hero__visual:not(:has(img)) { display: none; }
+body[data-v4] .section-hero__inner:has(> .section-hero__visual:not(:has(img))) .section-hero__title { max-width: 24ch; }
+body[data-v4] .subpage-hero__inner:has(> .subpage-hero__visual:not(:has(img))) { grid-template-columns: minmax(0,1fr); }
+body[data-v4] .subpage-hero__visual:not(:has(img)) { display: none; }
+body[data-v4] .article:has(> .article-hero) { padding-top: 0; }
+body[data-v4] .article-hero { padding-block: var(--refine-section); }
+body[data-v4] .submit-grid { min-width: 0; }
+body[data-v4] .submit-grid > * { min-width: 0; }
+body[data-v4] fieldset { min-width: 0; max-width: 100%; }
+body[data-v4] .submit-grid :is(input,textarea,select) { max-width: 100%; }
+@media (max-width:47.94em) {
+  body[data-v4] .breadcrumbs__list { flex-wrap: nowrap; overflow: hidden; }
+  body[data-v4] .breadcrumbs__item:last-child { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  body[data-v4] .breadcrumbs__item:last-child span { display: inline; }
+}
+/* Component display rules must not expose inactive form, account or trip states. */
+body[data-v4] [hidden]:not([hidden="until-found"]) { display: none !important; }
+/* Reading is never conditional on an intersection observer or a stagger delay. */
+body[data-v4] :is(.reveal,.reveal-card,.reveal-hero) { opacity: 1; transform: none; will-change: auto; transition: none; }
+/* The existing signup dialogue uses the same type, corners and touch targets. */
+body[data-v4] :is(.inote,.inote__bar) { --sans: var(--font-ui); --display: var(--font-display); }
+body[data-v4] .inote__card { border-radius: var(--radius-m); }
+body[data-v4] .inote__panel--navy::before { background-image: none; }
+body[data-v4] .inote__lede { line-height: 1.12; }
+body[data-v4] :is(.inote__input,.inote__button) { border-radius: var(--radius-s); }
+body[data-v4] :is(.inote__close,.inote__bar-close,.inote__not-now) { min-width: 44px; min-height: 44px; }
+@media (max-width:22.5em) {
+  body[data-v4] .v5-utilbtn__label { display: none; }
+}

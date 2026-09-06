@@ -1,3 +1,4 @@
+import { fileURLToPath } from 'node:url';
 import { readdir, readFile, stat, writeFile } from 'node:fs/promises';
 import { execFileSync } from 'node:child_process';
 import { join } from 'node:path';
@@ -78,7 +79,7 @@ function jsonLdNodes(html, file, fail) {
 }
 
 function routeFromFile(file) {
-  const relative = file.slice(dist.pathname.length).replace(/index\.html$/, '');
+  const relative = file.slice(fileURLToPath(dist).length).replaceAll('\\', '/').replace(/index\.html$/, '');
   return `/${relative}`.replace(/\/+/g, '/');
 }
 
@@ -88,7 +89,7 @@ function isNoindex(html) {
 }
 
 async function sitemapEntries() {
-  const sitemap = await readFile(join(dist.pathname, 'sitemap.xml'), 'utf8');
+  const sitemap = await readFile(join(fileURLToPath(dist), 'sitemap.xml'), 'utf8');
   const entries = new Map();
   for (const match of sitemap.matchAll(/<url>([\s\S]*?)<\/url>/g)) {
     const loc = match[1].match(/<loc>([^<]+)<\/loc>/)?.[1];
@@ -101,7 +102,7 @@ async function sitemapEntries() {
 async function routeExists(pathname) {
   const clean = pathname.replace(/^\//, '');
   if (!clean) return true;
-  const direct = join(dist.pathname, clean);
+  const direct = join(fileURLToPath(dist), clean);
   try {
     if ((await stat(direct)).isFile()) return true;
   } catch {}
@@ -119,7 +120,7 @@ async function routeExists(pathname) {
 // permanently via --update-baseline. Floors (diversity metrics) ratchet upward:
 // they fail when they DROP. Regression is blocked from the first run; the
 // existing backlog is visible without being a blocker.
-const baselinePath = new URL('../../ops/reports/seo/seo-architecture-baseline.json', import.meta.url).pathname;
+const baselinePath = new URL('../../ops/reports/seo/seo-architecture-baseline.json', import.meta.url);
 const updateBaseline = process.argv.includes('--update-baseline');
 // A baseline taken from a dirty working tree describes a build CI will never
 // produce. The first attempt at this baseline was 5 breadcrumb findings light
@@ -172,7 +173,7 @@ if ([...sitemap.entries()].some(([, lastmod]) => !lastmod)) {
 
 const imageObjectUrls = new Set();
 const entityTypes = new Set(['Winery', 'Restaurant', 'TouristAttraction', 'TouristDestination', 'GolfCourse']);
-for (const file of await htmlFiles(dist.pathname)) {
+for (const file of await htmlFiles(fileURLToPath(dist))) {
   const html = await readFile(file, 'utf8');
   const route = routeFromFile(file);
   const noindex = isNoindex(html);
@@ -219,14 +220,15 @@ for (const file of await htmlFiles(dist.pathname)) {
 floor('imageobject-diversity', imageObjectUrls.size);
 floor('sitemap-lastmod-diversity', sitemapLastmods.size);
 
-const eventFiles = await filesNamed(contentEvents.pathname, (name) => /\.(?:json|md|mdx)$/i.test(name));
+const eventFiles = (await filesNamed(fileURLToPath(contentEvents), (name) => /\.(?:json|md|mdx)$/i.test(name)))
+  .map((file) => file.replaceAll('\\', '/'));
 const archive = new Set(eventFiles.filter((file) => file.includes('/archive/')).map((file) => file.split('/').pop().replace(/\.[^.]+$/, '')));
 for (const file of eventFiles.filter((file) => !file.includes('/archive/'))) {
   const slug = file.split('/').pop().replace(/\.[^.]+$/, '');
   if (archive.has(slug)) fail('duplicate-event-slug', `duplicate event content slug in events/ and events/archive/: ${slug}`);
 }
 
-for (const file of await filesNamed(publicDir.pathname, (name) => name.endsWith('.html'))) {
+for (const file of await filesNamed(fileURLToPath(publicDir), (name) => name.endsWith('.html'))) {
   const html = await readFile(file, 'utf8');
   if (!isNoindex(html)) fail('raw-public-html-noindex', `${file}: raw public HTML must declare robots noindex`);
 }

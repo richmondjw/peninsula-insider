@@ -107,7 +107,7 @@ const isHome = Astro.url.pathname === '/';
     --foot-line: color-mix(in srgb, var(--white) 40%, transparent);
     background: var(--bg-deep);
     border-top: 1px solid color-mix(in srgb, var(--mint) 40%, transparent);
-    padding: var(--space-9) 0 var(--space-6);
+    padding: var(--space-7) 0 var(--space-5);
     color: var(--soft-inverse);
   }
   .v5-foot__container {
@@ -122,14 +122,14 @@ const isHome = Astro.url.pathname === '/';
     align-items: baseline;
     flex-wrap: wrap;
     gap: var(--space-3) var(--space-6);
-    padding-bottom: var(--space-6);
+    padding-bottom: var(--space-5);
     border-bottom: 1px solid var(--foot-line);
-    margin-bottom: var(--space-7);
+    margin-bottom: var(--space-5);
   }
   .v5-foot__wordmark {
     font-family: var(--font-display);
     font-weight: var(--fw-bold);
-    font-size: var(--fs-800);
+    font-size: var(--fs-700);
     letter-spacing: var(--ls-display);
     line-height: var(--lh-display);
     color: var(--white);
@@ -149,13 +149,14 @@ const isHome = Astro.url.pathname === '/';
     display: grid;
     grid-template-columns: repeat(3, 1fr) 1.4fr;
     gap: var(--space-6);
-    margin-bottom: var(--space-7);
+    margin-bottom: var(--space-5);
   }
   @media (max-width: 900px) {
     .v5-foot__grid { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 520px) {
-    .v5-foot__grid { grid-template-columns: 1fr; }
+    .v5-foot__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .v5-foot__dispatch { grid-column: 1 / -1; }
   }
 
   .v5-foot__col-title {
@@ -247,4 +248,9 @@ const isHome = Astro.url.pathname === '/';
     outline: 2px solid var(--focus-ring-color-inverse);
     outline-offset: 2px;
   }
+  @media (hover: hover) and (pointer: fine) {
+    .v5-foot__col a { min-height: 28px; }
+    .v5-foot__col ul { gap: var(--space-1); }
+  }
+  .v5-foot__aoc { max-width: 90ch; font-size: var(--fs-200); padding-block: var(--space-5); }
 </style>

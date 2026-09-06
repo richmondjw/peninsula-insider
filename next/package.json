@@ -15,7 +15,7 @@
     "validate:content": "node scripts/validate-content.mjs",
     "test:content-admission": "node scripts/test-content-admission.mjs",
     "test:campaigns-review-page": "node --test scripts/campaigns-review-page.test.mjs",
-    "assert:campaigns-review-page": "CAMPAIGNS_GENERATED=1 node --test scripts/campaigns-review-page.test.mjs",
+    "assert:campaigns-review-page": "node scripts/assert-campaigns-review-page.mjs",
     "test:partner-portal-dashboard": "node --test scripts/partner-portal-dashboard.test.mjs",
     "assert:partner-portal-dashboard": "node --test scripts/partner-portal-dashboard.test.mjs",
     "lint:no-pricing": "node scripts/lint-no-pricing.mjs",

@@ -21,8 +21,8 @@
  *  - Save target >= 48px; focus-visible ring on the link.
  *
  * Analytics: link carries data-evt="card_click" plus entity attrs; the
- * "+ Trip" affordance carries data-evt="trip_add" (behaviour is wired by
- * the store agent later, the event fires from day one via v5-analytics).
+ * "+ Trip" affordance carries data-evt="trip_add" and writes to the shared
+ * trip store on every surface, with visible confirmation.
  */
 import { editableImage, type CmsEntityType } from '../../lib/inline-edit/attrs';
 import { freshnessLabel } from '../../lib/freshness';
@@ -95,7 +95,7 @@ export interface Props {
   partnerLabel?: string;
   /** Secondary booking action (card-action weight). */
   booking?: CardBooking;
-  /** Render the "+ Trip" affordance (store agent wires behaviour). */
+  /** Render the "+ Trip" affordance backed by the shared trip store. */
   trip?: boolean;
   /** Save metadata overrides. saveKind defaults from entityType. */
   saveKind?: SaveKind;
@@ -355,6 +355,9 @@ const hasActions = !!resolvedSaveKind || trip || !!booking;
         type="button"
         class="pi-btn pi-btn--ghost pi-btn--sm"
         data-evt="trip_add"
+        data-card-trip
+        data-save-kind={resolvedSaveKind}
+        data-entity-href={href}
         data-entity-type={entityType}
         data-entity-slug={entitySlug}
         data-entity-title={title}
@@ -378,6 +381,23 @@ const hasActions = !!resolvedSaveKind || trip || !!booking;
     )}
   </div>}
 </Tag>
+
+<script>
+  import { tripAdd, tripEntries, SAVE_KINDS, type SaveKind } from '../../lib/v5-store';
+
+  // Delegation survives Astro navigation and also covers cards on the home/hubs.
+  document.addEventListener('click', (event) => {
+    const button = (event.target as HTMLElement).closest<HTMLButtonElement>('[data-card-trip]');
+    if (!button) return;
+    const { entitySlug: slug, entityTitle: title, entityHref: href, saveKind } = button.dataset;
+    if (!slug || !title || !href || !SAVE_KINDS.includes(saveKind as SaveKind)) return;
+    if (!tripEntries().some((entry) => entry.kind === saveKind && entry.slug === slug)) {
+      tripAdd({ kind: saveKind as SaveKind, slug, title, href });
+    }
+    button.textContent = 'In trip';
+    button.setAttribute('aria-label', `${title} is in your trip`);
+  });
+</script>
 
 <style>
   /* Only what the shared primitive does NOT provide lives here.

@@ -10,6 +10,7 @@
  * passed on the day it shipped and blocked the deploy pipeline four days later
  * with no content change at all.
  */
+import { fileURLToPath } from 'node:url';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { mkdtemp, mkdir, writeFile, rm } from 'node:fs/promises';
@@ -19,7 +20,7 @@ import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 
 const run = promisify(execFile);
-const SCRIPT = new URL('./audit-event-safeguards.mjs', import.meta.url).pathname;
+const SCRIPT = fileURLToPath(new URL('./audit-event-safeguards.mjs', import.meta.url));
 
 const BASE = {
   slug: 'a-market',

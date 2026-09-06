@@ -35,6 +35,7 @@ const kicker = lead ? (formatLabel[lead.data.format] ?? 'Feature') : '';
 
 {lead && hero && (
   <section class="home-journal" aria-labelledby="home-journal-title">
+    <div class="container home-journal__layout">
     <figure class="home-journal__media">
       <img
         src={hero.src}
@@ -50,8 +51,7 @@ const kicker = lead ? (formatLabel[lead.data.format] ?? 'Feature') : '';
         })}
       />
     </figure>
-    <span class="home-journal__scrim" aria-hidden="true"></span>
-    <div class="container home-journal__body">
+    <div class="home-journal__body">
       <p class="home-journal__kicker">From the Journal <span aria-hidden="true">&middot;</span> {kicker}</p>
       <h2 id="home-journal-title" class="home-journal__headline">
         <a
@@ -69,6 +69,7 @@ const kicker = lead ? (formatLabel[lead.data.format] ?? 'Feature') : '';
         <a href={`/journal/${slug}/`} tabindex="-1" aria-hidden="true">Read the story &rarr;</a>
       </p>
     </div>
+    </div>
   </section>
 )}
 
@@ -78,127 +79,17 @@ const kicker = lead ? (formatLabel[lead.data.format] ?? 'Feature') : '';
 </script>
 
 <style>
-  /* Immersive editorial feature band: full-bleed hero image under a
-     forest-teal scrim, text overlaid bottom-left. Tokens only. */
-  .home-journal {
-    position: relative;
-    isolation: isolate;
-    display: flex;
-    align-items: flex-end;
-    min-height: min(78vh, 40rem);
-    /* No bottom margin: the Dispatch band below sits flush against this one. */
-    margin: var(--space-7) 0 0;
-    overflow: hidden;
-    background: var(--bg-deep);
-  }
-
-  .home-journal__media {
-    position: absolute;
-    inset: 0;
-    z-index: -2;
-    margin: 0;
-  }
-
-  .home-journal__media img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform var(--dur-slow) var(--ease-enter);
-  }
-
-  .home-journal:hover .home-journal__media img {
-    transform: scale(1.03);
-  }
-
-  .home-journal__scrim {
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    background: linear-gradient(
-      to top,
-      color-mix(in srgb, var(--bg-deep) 90%, transparent) 0%,
-      color-mix(in srgb, var(--bg-deep) 24%, transparent) 55%,
-      transparent 88%
-    );
-  }
-
-  .home-journal__body {
-    position: relative;
-    padding-block: var(--space-7);
-    max-width: var(--max-w);
-  }
-
-  .home-journal__kicker {
-    margin: 0 0 var(--space-3);
-    font-family: var(--font-ui);
-    font-size: var(--fs-200);
-    font-weight: var(--fw-semibold);
-    letter-spacing: var(--ls-eyebrow);
-    text-transform: uppercase;
-    color: var(--mint);
-  }
-
-  .home-journal__headline {
-    margin: 0;
-    font-family: var(--font-display);
-    font-weight: var(--fw-display);
-    font-size: var(--fs-800);
-    line-height: var(--lh-display);
-    letter-spacing: var(--ls-display);
-    max-width: 24ch;
-    text-wrap: balance;
-  }
-
-  .home-journal__headline a {
-    color: var(--white);
-    text-decoration: none;
-    transition: color var(--dur-fast) var(--ease-enter);
-  }
-
-  .home-journal__headline a:hover {
-    color: var(--mint);
-  }
-
-  .home-journal__headline a:focus-visible {
-    outline: 2px solid var(--focus-ring-color-inverse);
-    outline-offset: 3px;
-  }
-
-  .home-journal__dek {
-    margin: var(--space-3) 0 0;
-    font-family: var(--font-ui);
-    font-size: var(--fs-400);
-    line-height: var(--lh-dek);
-    color: var(--soft-inverse);
-    max-width: var(--measure-dek);
-  }
-
-  .home-journal__cta {
-    margin: var(--space-5) 0 0;
-    font-family: var(--font-ui);
-    font-weight: var(--fw-bold);
-    font-size: var(--fs-400);
-  }
-
-  .home-journal__cta a {
-    color: var(--white);
-    text-decoration: none;
-    border-bottom: 1.5px solid var(--mint);
-    padding-bottom: 2px;
-    transition: color var(--dur-fast) var(--ease-enter);
-  }
-
-  .home-journal__cta a:hover {
-    color: var(--mint);
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .home-journal__media img {
-      transition: none;
-    }
-    .home-journal:hover .home-journal__media img {
-      transform: none;
-    }
-  }
+  .home-journal { background: var(--paper, var(--bg-alt)); padding-block: clamp(2rem, 4vw, 3.5rem); border-block: 1px solid var(--border); }
+  .home-journal__layout { display: grid; grid-template-columns: 1.15fr 1fr; gap: clamp(2rem, 4vw, 4rem); align-items: center; }
+  .home-journal__media { margin: 0; min-width: 0; }
+  .home-journal__media img { display: block; width: 100%; aspect-ratio: 1.3; object-fit: cover; border-radius: var(--radius-m); }
+  .home-journal__body { min-width: 0; }
+  .home-journal__kicker { font: var(--fw-semibold) var(--fs-100)/var(--lh-ui) var(--font-ui); letter-spacing: var(--ls-eyebrow); text-transform: uppercase; color: var(--accent); margin: 0 0 var(--space-4); }
+  .home-journal__headline { font: var(--fw-display) clamp(2rem, 3vw, 3rem)/1.12 var(--font-display); letter-spacing: -.035em; text-wrap: balance; margin: 0; }
+  .home-journal__headline a { color: var(--accent); text-decoration: none; }
+  .home-journal__headline a:hover { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .15em; }
+  .home-journal__dek { font-size: var(--fs-500); line-height: var(--lh-body); margin: var(--space-5) 0; max-width: 40ch; }
+  .home-journal__cta { font-weight: var(--fw-semibold); margin-top: var(--space-5); }
+  .home-journal__cta a { color: var(--accent); text-decoration: underline; text-underline-offset: .2em; }
+  @media (max-width: 47.94em) { .home-journal__layout { grid-template-columns: 1fr; gap: var(--space-5); } .home-journal__dek { font-size: var(--fs-400); } }
 </style>
