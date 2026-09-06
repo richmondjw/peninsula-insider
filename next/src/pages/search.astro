@@ -501,7 +501,7 @@ export const prerender = true;
           </div>
         `;
         hydrateSearchResultImages();
-        if (fallback) fallback.hidden = false;
+        if (fallback) fallback.hidden = true;
         setMeta(`Showing grouped results from ${total} match${total === 1 ? '' : 'es'}.`);
       }
 
@@ -514,7 +514,7 @@ export const prerender = true;
         const cards = data.map((item) => renderCard(item)).join('');
         list.innerHTML = `<div class="search-page-v2__grid">${cards}</div>`;
         hydrateSearchResultImages();
-        if (fallback) fallback.hidden = false;
+        if (fallback) fallback.hidden = true;
         setMeta(`Showing ${(page - 1) * PER_PAGE + 1}–${Math.min(page * PER_PAGE, total)} of ${total} result${total === 1 ? '' : 's'}.`);
       }
 
@@ -737,7 +737,7 @@ export const prerender = true;
         } catch (err) {
           console.warn('[search] error', err);
           if (list) list.innerHTML = '<div class="search-page-v2__loading"><p>Search isn\'t available right now. Try again in a moment.</p></div>';
-          if (fallback) fallback.hidden = false;
+          if (fallback) fallback.hidden = true;
         }
         updateUrl(q);
       }
