@@ -1,199 +1,519 @@
 ---
+/**
+ * /partners/dashboard/ - operator dashboard (Phase 6 WS6B).
+ *
+ * Auth-gated. When signed in, shows:
+ *   - Each claimed venue as a card with the live listing summary,
+ *     a "Submit a change" CTA pre-filled to that venue, and recent
+ *     change-request history.
+ *   - When no claims, a CTA leading to /partners/claim/.
+ *   - When claims pending, an "in verification" status panel.
+ *
+ * v1: editor approves claims manually in Supabase Studio. v1.x:
+ * automated email-domain match against the venue's website.
+ */
+import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SectionHero from '../../components/SectionHero.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import { routeSlug, venueHref } from '../../lib/editorial';
+
+const venuesAll = await getCollection('venues');
+// Build a slug → summary lookup that the client controller uses to
+// hydrate claimed venues without an extra round trip.
+const venueIndex = Object.fromEntries(
+  venuesAll.map((v) => {
+    const slug = routeSlug(v);
+    const placeId = typeof v.data.place === 'string' ? v.data.place : v.data.place?.id ?? '';
+    return [
+      slug,
+      {
+        slug,
+        name: v.data.name,
+        href: venueHref(v),
+        type: v.data.type,
+        priceBand: v.data.priceBand ?? '',
+        placeName: String(placeId).replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase()),
+        signature: v.data.signature ?? '',
+        hero: v.data.heroImage?.src ?? '',
+      },
+    ];
+  }),
+);
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
-  { label: 'Partners', href: '/partners/' },
-  { label: 'Project dashboard' },
+  { label: 'Partner with us', href: '/partners/' },
+  { label: 'Operator dashboard' },
 ];
-
 export const prerender = true;
 ---
 
 <BaseLayout
-  title="Partner Portal project dashboard | Peninsula Insider"
-  description="Evidence-based delivery status for the Peninsula Insider Partner Portal."
+  title="Operator Dashboard · Peninsula Insider"
+  description="Manage your Peninsula Insider venue listing - submit hours / photo / event changes, see recent change-request history, claim a new venue."
+  section="home"
   noindex={true}
   searchExclude={true}
 >
   <Breadcrumbs items={breadcrumbItems} />
 
-  <main class="portal-dashboard">
-    <section class="portal-dashboard__hero" aria-labelledby="dashboard-title">
-      <div class="container">
-        <p class="eyebrow">Partner Portal</p>
-        <h1 id="dashboard-title">Partner Portal project dashboard</h1>
-        <p class="lede">Current status: build preparation. This is a project-status view, not a live partner portal or production release.</p>
-        <p class="evidence-note">Status comes from the governed planning evidence listed below.</p>
-      </div>
-    </section>
+  <SectionHero
+    eyebrow="Operator dashboard"
+    subEyebrow="Verified-operator surface"
+    title="Manage your <em>Peninsula Insider</em> listing."
+    dek="Submit hours updates, swap a hero photo, propose an event, or flag a closure. The editor reviews every request, applies the ones that hold up to verification, writes back if it doesn't. Claims approved manually in v1; automated email-domain verification follows."
+    gradient="journal"
+    visualLabel="Peninsula Insider · operator dashboard"
+  />
 
-    <section class="portal-dashboard__summary" aria-labelledby="summary-title">
-      <div class="container">
-        <h2 id="summary-title">At a glance</h2>
-        <div class="status-grid">
-          <article class="status-card" data-status="red">
-            <p class="status-card__label">Release state</p>
-            <p class="status-card__value">Not ready to release</p>
-            <p>Production publication, payment and partner communication are not claimed.</p>
-          </article>
-          <article class="status-card" data-status="amber">
-            <p class="status-card__label">Primary blocker</p>
-            <p class="status-card__value">Commercial routing decision required</p>
-            <p>Confirm the canonical commercial CTA destination before a public path is presented as operational.</p>
-          </article>
-          <article class="status-card" data-status="green">
-            <p class="status-card__label">Ready now</p>
-            <p class="status-card__value">Planning and dashboard build</p>
-            <p>The product contract, release gates and project visibility slice are available for review.</p>
-          </article>
+  <section class="dashboard-page">
+    <div class="container">
+
+      <!-- Auth state - anonymous user prompt -->
+      <div class="dashboard-anonymous" data-dashboard-anonymous>
+        <p class="dashboard-anonymous__title">Sign in to your operator account.</p>
+        <p class="dashboard-anonymous__body">The dashboard is auth-gated. Sign in (or create an account, free) to claim your venue and start managing your listing.</p>
+        <button type="button" class="pi-btn pi-btn--solid" data-open-auth>Sign in</button>
+        <p class="dashboard-anonymous__alt">
+          Just want to send a quick update without signing in? You can still <a href="/partners/update/">submit anonymously</a> - that path stays open.
+        </p>
+      </div>
+
+      <!-- Loading state -->
+      <div class="dashboard-loading" data-dashboard-loading hidden>
+        <p>Loading your dashboard…</p>
+      </div>
+
+      <!-- Empty state - signed in, no claims -->
+      <div class="dashboard-empty" data-dashboard-empty hidden>
+        <p class="dashboard-empty__title">No venues claimed yet.</p>
+        <p class="dashboard-empty__body">Claim your venue to manage hours, photos, and events from one place. Editor approves the claim manually - usually within a working day.</p>
+        <a href="/partners/claim/" class="pi-btn pi-btn--solid">Claim your venue →</a>
+      </div>
+
+      <!-- Claims grid -->
+      <div class="dashboard-claims" data-dashboard-claims hidden>
+        <div class="dashboard-claims__head">
+          <p class="dashboard-claims__count" data-dashboard-claims-count></p>
+          <a href="/partners/claim/" class="dashboard-claims__add">+ Claim another venue</a>
         </div>
+        <ul class="dashboard-claims__list" data-dashboard-claims-list></ul>
       </div>
-    </section>
 
-    <section class="portal-dashboard__workstreams" aria-labelledby="workstreams-title">
-      <div class="container">
-        <h2 id="workstreams-title">Workstreams and milestones</h2>
-        <div class="workstream-list">
-          <article class="workstream" data-status="green">
-            <div class="workstream__heading"><span class="status-dot" aria-hidden="true"></span><h3>Product contract</h3></div>
-            <dl>
-              <div><dt>Owner</dt><dd>Product and engineering</dd></div>
-              <div><dt>Dependency</dt><dd>Governed planning evidence</dd></div>
-              <div><dt>Next action</dt><dd>Use the acceptance matrix to split approved implementation work.</dd></div>
-              <div><dt>Verified evidence</dt><dd>Functional specification, sections 2, 5, 11 and 12.</dd></div>
-            </dl>
-          </article>
-          <article class="workstream" data-status="amber">
-            <div class="workstream__heading"><span class="status-dot" aria-hidden="true"></span><h3>Partner front door</h3></div>
-            <dl>
-              <div><dt>Owner</dt><dd>Frontend and intake owner</dd></div>
-              <div><dt>Dependency</dt><dd>Commercial CTA routing and intake ownership</dd></div>
-              <div><dt>Next action</dt><dd>Verify the destination and failure handling before enabling a self-service claim.</dd></div>
-              <div><dt>Verified evidence</dt><dd>UX copy specification, sections 3 to 5 and release gates 1 to 3.</dd></div>
-            </dl>
-          </article>
-          <article class="workstream" data-status="red">
-            <div class="workstream__heading"><span class="status-dot" aria-hidden="true"></span><h3>Private portal, review and billing</h3></div>
-            <dl>
-              <div><dt>Owner</dt><dd>Engineering, security and commercial owner</dd></div>
-              <div><dt>Dependency</dt><dd>Identity, permissions, commercial terms and privacy decisions</dd></div>
-              <div><dt>Next action</dt><dd>Commission the protected implementation lanes and decide D1, D3, D5 and D7.</dd></div>
-              <div><dt>Verified evidence</dt><dd>Functional specification, decisions D1, D3, D5 and D7.</dd></div>
-            </dl>
-          </article>
-          <article class="workstream" data-status="red">
-            <div class="workstream__heading"><span class="status-dot" aria-hidden="true"></span><h3>Publication, pause and rollback</h3></div>
-            <dl>
-              <div><dt>Owner</dt><dd>Platform and release owner</dd></div>
-              <div><dt>Dependency</dt><dd>Tested current-eligibility and withdrawal contract</dd></div>
-              <div><dt>Next action</dt><dd>Approve and test D4 action blocking, static withdrawal, outage behaviour and rollback.</dd></div>
-              <div><dt>Verified evidence</dt><dd>Functional specification, section 5.3, AC12 to AC14, AC27 and D4.</dd></div>
-            </dl>
-          </article>
-        </div>
+      <!-- Recent change requests -->
+      <div class="dashboard-history" data-dashboard-history hidden>
+        <h2 class="dashboard-history__title">Recent change requests</h2>
+        <ul class="dashboard-history__list" data-dashboard-history-list></ul>
+        <p class="dashboard-history__empty" data-dashboard-history-empty hidden>No change requests yet. <a href="/partners/update/">Submit one →</a></p>
       </div>
-    </section>
 
-    <section class="portal-dashboard__gates" aria-labelledby="gates-title">
-      <div class="container gate-grid">
-        <article class="gate-card">
-          <h2 id="gates-title">Build readiness</h2>
-          <ul>
-            <li>Exact task-scoped checkout, branch and base commit are assigned.</li>
-            <li>Dashboard slice has an automated source contract test.</li>
-            <li>Full portal implementation remains gated on protected decisions and commissioned lanes.</li>
-          </ul>
-        </article>
-        <article class="gate-card">
-          <h2>Production release</h2>
-          <ul>
-            <li>Not claimed by this dashboard or local review bundle.</li>
-            <li>Requires approved commercial, privacy and runtime decisions.</li>
-            <li>Requires release, public read-back and rollback evidence at the deployed revision.</li>
-          </ul>
-        </article>
-      </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="portal-dashboard__checklist" aria-labelledby="checklist-title">
-      <div class="container">
-        <h2 id="checklist-title">Tonight's release checklist</h2>
-        <ol class="checklist">
-          <li data-status="amber">Confirm the commercial CTA route, operational owner and durable receipt behaviour.</li>
-          <li data-status="red">Confirm protected decisions for commercial terms, identity, privacy and eligibility.</li>
-          <li data-status="red">Exercise the authorised test environment against the relevant acceptance criteria.</li>
-          <li data-status="red">Record deployment and public read-back for the exact approved revision.</li>
-          <li data-status="red">Rehearse rollback without restoring expired, paused or withdrawn content.</li>
-        </ol>
-      </div>
-    </section>
-
-    <section class="portal-dashboard__rollback" aria-labelledby="rollback-title">
-      <div class="container">
-        <h2 id="rollback-title">Deployment and rollback gate</h2>
-        <p>Do not call a build or a local review bundle a release. Release requires the approved version, current eligibility, public labels and discovery visibility to be read back after deployment. Rollback may restore only an eligible approved version. It must not revive expired terms, paused content or withdrawn media.</p>
-      </div>
-    </section>
-
-    <section class="portal-dashboard__sources" aria-labelledby="sources-title">
-      <div class="container">
-        <h2 id="sources-title">Evidence and update path</h2>
-        <p>Update this page only when the governed source changes. Replace a traffic light with its supporting task, decision or tested receipt. Do not infer progress from an unverified plan or test it has not run.</p>
-        <details>
-          <summary>View source mapping</summary>
-          <table>
-            <caption>Current source-of-truth mapping</caption>
-            <thead><tr><th scope="col">Claim</th><th scope="col">Source</th><th scope="col">Scope</th></tr></thead>
-            <tbody>
-              <tr><td>Portal product and acceptance scope</td><td>/opt/data/workspace/pi-portal-functional-spec.md, sections 2, 5, 11 and 12</td><td>Planning contract</td></tr>
-              <tr><td>Commercial CTA and mobile journey</td><td>/opt/data/workspace/pi-partnership-page-ux-copy.md, sections 3 to 5 and 8</td><td>Proposed UX, not live intake proof</td></tr>
-              <tr><td>Lane and release constraints</td><td>/spaces/jwr-theone/07-projects/peninsula-insider/brief/ACCESS.md and CHANNELS.md</td><td>Canonical operating constraints</td></tr>
-              <tr><td>Current implementation task</td><td>Source task 1218208904757613</td><td>Assigned branch and local review bundle only</td></tr>
-            </tbody>
-          </table>
-        </details>
-      </div>
-    </section>
-  </main>
+  <NewsletterBlock />
 </BaseLayout>
 
+<script define:vars={{ venueIndex }}>
+  import { getSupabase, isAuthEnabled, onAuthChange, listOwnVenueClaims, listChangeRequestsForUser } from '../../lib/auth';
+
+  function escapeHtml(s) {
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+
+  function setVisible(selector, visible) {
+    const el = document.querySelector(selector);
+    if (!el) return;
+    if (visible) el.removeAttribute('hidden');
+    else el.setAttribute('hidden', '');
+  }
+
+  function renderClaim(claim) {
+    const v = venueIndex[claim.venue_slug];
+    const fallbackName = claim.venue_name || claim.venue_slug;
+    const heroBlock = v && v.hero
+      ? '<div class="dashboard-claim__hero" style="background-image:url(' + escapeHtml(v.hero) + ')"></div>'
+      : '<div class="dashboard-claim__hero dashboard-claim__hero--empty"></div>';
+    const meta = v
+      ? [v.priceBand, v.placeName, v.type].filter(Boolean).map(escapeHtml).join(' · ')
+      : escapeHtml(claim.venue_slug);
+    const statusLabel = ({
+      pending: 'Verification pending',
+      approved: 'Active',
+      revoked: 'Revoked',
+    })[claim.status] || claim.status;
+    const updateLink = v
+      ? '<a class="dashboard-claim__action" href="/partners/update/?venue=' + encodeURIComponent(claim.venue_slug) + '">Submit a change →</a>'
+      : '<a class="dashboard-claim__action" href="/partners/update/">Submit a change →</a>';
+    const viewLink = v
+      ? '<a class="dashboard-claim__action dashboard-claim__action--ghost" href="' + escapeHtml(v.href) + '" target="_blank" rel="noreferrer">View live listing →</a>'
+      : '';
+    return ''
+      + '<li class="dashboard-claim dashboard-claim--' + escapeHtml(claim.status) + '">'
+      +   heroBlock
+      +   '<div class="dashboard-claim__body">'
+      +     '<p class="dashboard-claim__status">' + escapeHtml(statusLabel) + '</p>'
+      +     '<h3 class="dashboard-claim__name">' + escapeHtml((v && v.name) || fallbackName) + '</h3>'
+      +     '<p class="dashboard-claim__meta">' + meta + '</p>'
+      +     (v && v.signature ? '<p class="dashboard-claim__signature">' + escapeHtml(v.signature) + '</p>' : '')
+      +     '<div class="dashboard-claim__actions">'
+      +       (claim.status === 'approved' ? updateLink : '')
+      +       viewLink
+      +     '</div>'
+      +   '</div>'
+      + '</li>';
+  }
+
+  function renderHistoryItem(req) {
+    const venueLabel = req.venue_name || req.venue_slug;
+    const date = req.created_at ? new Date(req.created_at).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' }) : '';
+    const statusLabel = ({
+      pending: 'Pending',
+      'in-review': 'In review',
+      applied: 'Applied',
+      declined: 'Declined',
+    })[req.status] || req.status;
+    return ''
+      + '<li class="dashboard-history-item dashboard-history-item--' + escapeHtml(req.status) + '">'
+      +   '<div class="dashboard-history-item__head">'
+      +     '<p class="dashboard-history-item__type">' + escapeHtml(req.change_type) + '</p>'
+      +     '<p class="dashboard-history-item__status">' + escapeHtml(statusLabel) + '</p>'
+      +   '</div>'
+      +   '<p class="dashboard-history-item__venue"><strong>' + escapeHtml(venueLabel) + '</strong> · ' + escapeHtml(date) + '</p>'
+      +   '<p class="dashboard-history-item__body">' + escapeHtml(req.proposed_change || '').slice(0, 280) + (req.proposed_change && req.proposed_change.length > 280 ? '…' : '') + '</p>'
+      + '</li>';
+  }
+
+  async function load(user) {
+    if (!user) {
+      setVisible('[data-dashboard-anonymous]', true);
+      setVisible('[data-dashboard-loading]', false);
+      setVisible('[data-dashboard-empty]', false);
+      setVisible('[data-dashboard-claims]', false);
+      setVisible('[data-dashboard-history]', false);
+      return;
+    }
+
+    setVisible('[data-dashboard-anonymous]', false);
+    setVisible('[data-dashboard-loading]', true);
+
+    const [claims, history] = await Promise.all([
+      listOwnVenueClaims(user.id),
+      listChangeRequestsForUser(user.id),
+    ]);
+
+    setVisible('[data-dashboard-loading]', false);
+
+    if (claims.length === 0) {
+      setVisible('[data-dashboard-empty]', true);
+      setVisible('[data-dashboard-claims]', false);
+    } else {
+      setVisible('[data-dashboard-empty]', false);
+      setVisible('[data-dashboard-claims]', true);
+      const list = document.querySelector('[data-dashboard-claims-list]');
+      const count = document.querySelector('[data-dashboard-claims-count]');
+      if (list) list.innerHTML = claims.map(renderClaim).join('');
+      if (count) {
+        const approved = claims.filter((c) => c.status === 'approved').length;
+        const pending = claims.filter((c) => c.status === 'pending').length;
+        const bits = [];
+        if (approved > 0) bits.push(approved + ' active');
+        if (pending > 0) bits.push(pending + ' pending');
+        count.textContent = (bits.length ? bits.join(' · ') : claims.length + ' total');
+      }
+    }
+
+    // History panel - show always when signed in (lets the operator
+    // confirm that anonymous-then-claimed change requests still attach).
+    setVisible('[data-dashboard-history]', true);
+    const histList = document.querySelector('[data-dashboard-history-list]');
+    const histEmpty = document.querySelector('[data-dashboard-history-empty]');
+    if (history.length === 0) {
+      if (histList) histList.innerHTML = '';
+      if (histEmpty) histEmpty.removeAttribute('hidden');
+    } else {
+      if (histEmpty) histEmpty.setAttribute('hidden', '');
+      if (histList) histList.innerHTML = history.slice(0, 12).map(renderHistoryItem).join('');
+    }
+  }
+
+  async function init() {
+    if (!isAuthEnabled()) {
+      // Auth not configured - show the anonymous prompt with a note.
+      setVisible('[data-dashboard-anonymous]', true);
+      const anon = document.querySelector('[data-dashboard-anonymous] .dashboard-anonymous__body');
+      if (anon) anon.textContent = "Operator accounts aren't currently configured. The anonymous /partners/update/ form still works for ad-hoc updates.";
+      return;
+    }
+
+    const c = getSupabase();
+    if (!c) { load(null); return; }
+
+    const session = (await c.auth.getSession()).data.session;
+    load(session?.user ?? null);
+
+    // React to sign-in / sign-out without a page reload.
+    onAuthChange((user) => load(user));
+  }
+
+  init();
+  document.addEventListener('astro:page-load', init);
+</script>
+
 <style>
-  .portal-dashboard { background: var(--bg); color: var(--text); }
-  .portal-dashboard__hero, .portal-dashboard__summary, .portal-dashboard__workstreams, .portal-dashboard__gates, .portal-dashboard__checklist, .portal-dashboard__rollback, .portal-dashboard__sources { padding: clamp(2rem, 5vw, 4rem) 0; }
-  .portal-dashboard__hero { background: var(--bg-deep); color: var(--white); }
-  .eyebrow, .status-card__label, dt { font: var(--fw-semibold) var(--fs-100)/var(--lh-label) var(--font-ui); letter-spacing: var(--ls-eyebrow); text-transform: uppercase; }
-  .eyebrow { color: var(--mint); margin: 0 0 var(--space-3); }
-  h1, h2, h3 { font-family: var(--font-display); line-height: var(--lh-heading); }
-  h1 { font-size: var(--fs-800); margin: 0; max-width: 18ch; }
-  h2 { font-size: var(--fs-600); margin: 0 0 var(--space-5); }
-  h3 { font-size: var(--fs-500); margin: 0; }
-  .lede { font: var(--fw-body) var(--fs-500)/var(--lh-dek) var(--font-ui); max-width: 58ch; margin: var(--space-4) 0 0; }
-  .evidence-note { color: var(--soft-inverse); margin: var(--space-3) 0 0; }
-  .status-grid, .gate-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-4); }
-  .status-card, .workstream, .gate-card { border: 1px solid var(--border); border-radius: var(--radius-m); padding: var(--space-5); background: var(--white); }
-  .status-card__label { color: var(--soft); margin: 0; }
-  .status-card__value { font: var(--fw-semibold) var(--fs-500)/var(--lh-heading) var(--font-display); margin: var(--space-2) 0; }
-  .status-card[data-status="red"] { border-top: 5px solid var(--error-text); }
-  .status-card[data-status="amber"] { border-top: 5px solid var(--signal); }
-  .status-card[data-status="green"] { border-top: 5px solid var(--evergreen); }
-  .workstream-list { display: grid; gap: var(--space-4); }
-  .workstream { border-left: 5px solid var(--border-strong); }
-  .workstream[data-status="red"] { border-left-color: var(--error-text); }
-  .workstream[data-status="amber"] { border-left-color: var(--signal); }
-  .workstream[data-status="green"] { border-left-color: var(--evergreen); }
-  .workstream__heading { display: flex; align-items: center; gap: var(--space-2); }
-  .status-dot { width: 0.75rem; height: 0.75rem; border-radius: 50%; background: currentColor; }
-  .workstream[data-status="red"] .status-dot { color: var(--error-text); }
-  .workstream[data-status="amber"] .status-dot { color: var(--signal); }
-  .workstream[data-status="green"] .status-dot { color: var(--evergreen); }
-  dl { display: grid; grid-template-columns: minmax(9rem, 0.25fr) 1fr; gap: var(--space-3) var(--space-4); margin: var(--space-4) 0 0; }
-  dt { color: var(--soft); } dd { margin: 0; font-family: var(--font-ui); }
-  .portal-dashboard__gates { background: var(--bg-alt); }.gate-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .gate-card ul, .checklist { margin: 0; padding-left: 1.3rem; }.gate-card li, .checklist li { margin-bottom: var(--space-3); font-family: var(--font-ui); }
-  .checklist li::marker { font-weight: var(--fw-bold); }.checklist li[data-status="amber"]::marker { color: var(--signal); }.checklist li[data-status="red"]::marker { color: var(--error-text); }
-  .portal-dashboard__rollback { background: var(--bg-deep); color: var(--white); }.portal-dashboard__rollback p { max-width: var(--measure-prose); margin: 0; line-height: var(--lh-body); }
-  details { border: 1px solid var(--border); border-radius: var(--radius-s); padding: 0 var(--space-4); } summary { cursor: pointer; min-height: 44px; display: flex; align-items: center; font-family: var(--font-ui); font-weight: var(--fw-semibold); } table { width: 100%; border-collapse: collapse; margin: var(--space-3) 0 var(--space-4); font-family: var(--font-ui); text-align: left; } caption { text-align: left; font-weight: var(--fw-semibold); margin-bottom: var(--space-2); } th, td { border-top: 1px solid var(--border); padding: var(--space-3); vertical-align: top; }
-  @media (max-width: 640px) { .status-grid, .gate-grid { grid-template-columns: 1fr; } dl { grid-template-columns: 1fr; gap: var(--space-1); } dd { margin-bottom: var(--space-3); } table { font-size: var(--fs-100); table-layout: fixed; } th, td { overflow-wrap: anywhere; } }
+  .dashboard-page {
+    padding: clamp(1.5rem, 3vw, 2.5rem) 0 clamp(2rem, 4vw, 3rem);
+  }
+
+  .dashboard-anonymous,
+  .dashboard-empty,
+  .dashboard-loading {
+    border: 1px dashed var(--border);
+    padding: clamp(1.5rem, 3vw, 2.5rem) 1.5rem;
+    text-align: center;
+    margin-bottom: clamp(1.25rem, 2.5vw, 1.75rem);
+  }
+  .dashboard-loading p,
+  .dashboard-anonymous__title,
+  .dashboard-empty__title {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--text);
+    margin: 0 0 0.5rem;
+  }
+  .dashboard-anonymous__body,
+  .dashboard-empty__body {
+    font-family: var(--font-ui);
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--soft);
+    margin: 0 auto 1.25rem;
+    max-width: 38rem;
+  }
+  .dashboard-anonymous__alt {
+    font-family: var(--font-ui);
+    font-size: 0.85rem;
+    color: var(--soft);
+    margin: 1rem 0 0;
+  }
+  .dashboard-anonymous__alt a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .dashboard-claims__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.85rem;
+    padding: 0 0 1rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: clamp(1rem, 2vw, 1.5rem);
+  }
+  .dashboard-claims__count {
+    font-family: var(--font-ui);
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--soft);
+    margin: 0;
+  }
+  .dashboard-claims__add {
+    font-family: var(--font-ui);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(7, 158, 165, 0.5);
+  }
+  .dashboard-claims__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(0.85rem, 1.5vw, 1.25rem);
+  }
+  @media (min-width: 880px) {
+    .dashboard-claims__list { grid-template-columns: 1fr 1fr; }
+  }
+
+  .dashboard-claim {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border);
+    background: var(--bg, #fff);
+    overflow: hidden;
+  }
+  .dashboard-claim--pending { border-color: rgba(7, 158, 165, 0.5); }
+  .dashboard-claim--approved { border-color: var(--border); }
+  .dashboard-claim--revoked { opacity: 0.55; }
+
+  .dashboard-claim__hero {
+    aspect-ratio: 16 / 9;
+    background-size: cover;
+    background-position: center;
+    background-color: var(--paper, #fbf7f0);
+  }
+  .dashboard-claim__hero--empty {
+    background: linear-gradient(135deg, rgba(7, 158, 165, 0.12), rgba(158, 223, 208, 0.08));
+  }
+  .dashboard-claim__body {
+    padding: clamp(0.85rem, 1.5vw, 1.2rem);
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .dashboard-claim__status {
+    font-family: var(--font-ui);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0;
+  }
+  .dashboard-claim--pending .dashboard-claim__status { color: #2cb192; }
+  .dashboard-claim--approved .dashboard-claim__status { color: #2f6e3a; }
+  .dashboard-claim--revoked .dashboard-claim__status { color: var(--soft); }
+
+  .dashboard-claim__name {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.2;
+    color: var(--text);
+    margin: 0;
+  }
+  .dashboard-claim__meta {
+    font-family: var(--font-ui);
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    color: var(--soft);
+    margin: 0;
+  }
+  .dashboard-claim__signature {
+    font-family: var(--font-ui);
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: var(--dark);
+    margin: 0.2rem 0 0;
+  }
+  .dashboard-claim__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.5rem;
+  }
+  .dashboard-claim__action {
+    font-family: var(--font-ui);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-decoration: none;
+    border: 1px solid var(--accent);
+    padding: 0.45rem 0.7rem;
+    border-radius: 999px;
+  }
+  .dashboard-claim__action:hover {
+    background: var(--accent);
+    color: var(--bg, #fff);
+  }
+  .dashboard-claim__action--ghost {
+    color: var(--soft);
+    border-color: var(--border);
+  }
+  .dashboard-claim__action--ghost:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    background: transparent;
+  }
+
+  .dashboard-history {
+    margin-top: clamp(1.75rem, 3vw, 2.5rem);
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+  }
+  .dashboard-history__title {
+    font-family: var(--font-display);
+    font-size: 1.55rem;
+    font-weight: 500;
+    color: var(--text);
+    margin: 0 0 1rem;
+  }
+  .dashboard-history__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+  .dashboard-history-item {
+    border: 1px solid var(--border);
+    background: var(--paper, #fbf7f0);
+    padding: 0.85rem 1rem;
+  }
+  .dashboard-history-item__head {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.85rem;
+  }
+  .dashboard-history-item__type {
+    font-family: var(--font-ui);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0;
+  }
+  .dashboard-history-item__status {
+    font-family: var(--font-ui);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--soft);
+    margin: 0;
+  }
+  .dashboard-history-item--applied .dashboard-history-item__status { color: #2f6e3a; }
+  .dashboard-history-item--declined .dashboard-history-item__status { color: #b14b3a; }
+  .dashboard-history-item__venue {
+    font-family: var(--font-ui);
+    font-size: 0.85rem;
+    color: var(--soft);
+    margin: 0.35rem 0 0.2rem;
+  }
+  .dashboard-history-item__body {
+    font-family: var(--font-ui);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--dark);
+    margin: 0;
+  }
+  .dashboard-history__empty {
+    margin: 1rem 0 0;
+    padding: 1rem;
+    border: 1px dashed var(--border);
+    text-align: center;
+    font-family: var(--font-ui);
+    font-size: 0.92rem;
+    color: var(--soft);
+  }
+  .dashboard-history__empty a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
 </style>
