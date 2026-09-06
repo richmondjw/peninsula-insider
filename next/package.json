@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "node scripts/clear-content-cache.mjs && npm run media:registry && npm run lint:no-pricing && npm run lint:house-style && npm run lint:region-images && npm run lint:surfaces && npm run lint:nav-budget && npm run lint:css-budget && npm run lint:coordinates && astro build && npm run lint:no-hidden-pages && npm run lint:seo-architecture && npm run lint:filter-chips && npm run audit:agent-readiness && npm run assert:link-graph && npm run assert:event-safeguards && npm run assert:campaigns-review-page",
+    "build": "node scripts/clear-content-cache.mjs && npm run media:registry && npm run lint:no-pricing && npm run lint:house-style && npm run lint:region-images && npm run lint:surfaces && npm run lint:nav-budget && npm run lint:css-budget && npm run lint:coordinates && astro build && npm run lint:no-hidden-pages && npm run lint:seo-architecture && npm run lint:filter-chips && npm run audit:agent-readiness && npm run assert:link-graph && npm run assert:event-safeguards && npm run assert:campaigns-review-page && npm run assert:partner-portal-dashboard",
     "build:search": "npm run build && npx pagefind --site dist",
     "preview": "astro preview",
     "astro": "astro",
@@ -16,6 +16,8 @@
     "test:content-admission": "node scripts/test-content-admission.mjs",
     "test:campaigns-review-page": "node --test scripts/campaigns-review-page.test.mjs",
     "assert:campaigns-review-page": "CAMPAIGNS_GENERATED=1 node --test scripts/campaigns-review-page.test.mjs",
+    "test:partner-portal-dashboard": "node --test scripts/partner-portal-dashboard.test.mjs",
+    "assert:partner-portal-dashboard": "node --test scripts/partner-portal-dashboard.test.mjs",
     "lint:no-pricing": "node scripts/lint-no-pricing.mjs",
     "lint:region-images": "node scripts/lint-region-images.mjs",
     "lint:surfaces": "node scripts/audit-surface-hardening.mjs",

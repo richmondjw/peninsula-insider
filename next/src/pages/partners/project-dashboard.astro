@@ -1,0 +1,212 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const workboardBase = 'https://app.asana.com/1/233540066981051/project/1218200694561476/task';
+const deliveryTaskUrl = `${workboardBase}/1218202684820044`;
+const engineeringTaskUrl = `${workboardBase}/1218203367898125`;
+const dashboardTaskUrl = `${workboardBase}/1218208904757613`;
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Partner with us', href: '/partners/' },
+  { label: 'Project dashboard' },
+];
+
+export const prerender = true;
+---
+
+<BaseLayout
+  title="Partner Portal project dashboard | Peninsula Insider"
+  description="Evidence-based delivery status for the Peninsula Insider Partner Portal."
+  noindex={true}
+  searchExclude={true}
+>
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <div class="portal-dashboard">
+    <section class="portal-dashboard__hero" aria-labelledby="dashboard-title">
+      <div class="container">
+        <p class="eyebrow">Partner Portal</p>
+        <h1 id="dashboard-title">Partner Portal project dashboard</h1>
+        <p class="lede">Current status: portal build preparation. This is a project-status view, not a live partner portal or production release.</p>
+        <p class="evidence-note">Status comes from the governed planning evidence listed below. Last verified 6 September 2026.</p>
+        <nav class="dashboard-actions" aria-label="Project dashboard links">
+          <a href={deliveryTaskUrl} target="_blank" rel="noopener noreferrer">Open delivery task</a>
+          <a href={dashboardTaskUrl} target="_blank" rel="noopener noreferrer">Open dashboard task</a>
+        </nav>
+      </div>
+    </section>
+
+    <section class="portal-dashboard__summary" aria-labelledby="summary-title">
+      <div class="container">
+        <h2 id="summary-title">At a glance</h2>
+        <div class="status-grid">
+          <article class="status-card" data-status="red">
+            <p class="status-card__label">Portal release state</p>
+            <p class="status-card__value">Not ready to release</p>
+            <p>The status page may be reviewed independently. Portal publication, payment and partner communication are not claimed.</p>
+          </article>
+          <article class="status-card" data-status="amber">
+            <p class="status-card__label">Primary blocker</p>
+            <p class="status-card__value">Commercial routing decision required</p>
+            <p>Confirm the canonical commercial CTA destination before a public path is presented as operational.</p>
+          </article>
+          <article class="status-card" data-status="green">
+            <p class="status-card__label">Ready now</p>
+            <p class="status-card__value">Planning and status dashboard</p>
+            <p>The product contract, release gates and project visibility page are available for review.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="portal-dashboard__workstreams" aria-labelledby="workstreams-title">
+      <div class="container">
+        <h2 id="workstreams-title">Workstreams and milestones</h2>
+        <div class="workstream-list">
+          <article class="workstream" data-status="green">
+            <div class="workstream__heading"><span class="status-dot" aria-hidden="true"></span><h3>Product contract</h3></div>
+            <dl>
+              <div><dt>Owner</dt><dd>Product and engineering</dd></div>
+              <div><dt>Dependency</dt><dd>Governed planning evidence</dd></div>
+              <div><dt>Next action</dt><dd>Use the acceptance matrix to split approved implementation work.</dd></div>
+              <div><dt>Verified evidence</dt><dd>Functional specification, sections 2, 5, 11 and 12.</dd></div>
+            </dl>
+          </article>
+          <article class="workstream" data-status="amber">
+            <div class="workstream__heading"><span class="status-dot" aria-hidden="true"></span><h3>Partner front door</h3></div>
+            <dl>
+              <div><dt>Owner</dt><dd>Frontend and intake owner</dd></div>
+              <div><dt>Dependency</dt><dd>Commercial CTA routing and intake ownership</dd></div>
+              <div><dt>Next action</dt><dd>Verify the destination and failure handling before enabling a self-service claim.</dd></div>
+              <div><dt>Verified evidence</dt><dd>UX copy specification, sections 3 to 5 and release gates 1 to 3.</dd></div>
+            </dl>
+          </article>
+          <article class="workstream" data-status="red">
+            <div class="workstream__heading"><span class="status-dot" aria-hidden="true"></span><h3>Private portal, review and billing</h3></div>
+            <dl>
+              <div><dt>Owner</dt><dd>Engineering, security and commercial owner</dd></div>
+              <div><dt>Dependency</dt><dd>Identity, permissions, commercial terms and privacy decisions</dd></div>
+              <div><dt>Next action</dt><dd>Commission the protected implementation lanes and decide D1, D3, D5 and D7.</dd></div>
+              <div><dt>Verified evidence</dt><dd>Functional specification, decisions D1, D3, D5 and D7.</dd></div>
+            </dl>
+          </article>
+          <article class="workstream" data-status="red">
+            <div class="workstream__heading"><span class="status-dot" aria-hidden="true"></span><h3>Publication, pause and rollback</h3></div>
+            <dl>
+              <div><dt>Owner</dt><dd>Platform and release owner</dd></div>
+              <div><dt>Dependency</dt><dd>Tested current-eligibility and withdrawal contract</dd></div>
+              <div><dt>Next action</dt><dd>Approve and test D4 action blocking, static withdrawal, outage behaviour and rollback.</dd></div>
+              <div><dt>Verified evidence</dt><dd>Functional specification, section 5.3, AC12 to AC14, AC27 and D4.</dd></div>
+            </dl>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="portal-dashboard__gates" aria-labelledby="gates-title">
+      <div class="container gate-grid">
+        <article class="gate-card">
+          <h2 id="gates-title">Build readiness</h2>
+          <ul>
+            <li>Exact task-scoped checkout, branch and base commit are assigned.</li>
+            <li>Dashboard slice has an automated source contract test.</li>
+            <li>Full portal implementation remains gated on protected decisions and commissioned lanes.</li>
+          </ul>
+        </article>
+        <article class="gate-card">
+          <h2>Production release</h2>
+          <ul>
+            <li>Not claimed by this dashboard or local review bundle.</li>
+            <li>Requires approved commercial, privacy and runtime decisions.</li>
+            <li>Requires release, public read-back and rollback evidence at the deployed revision.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="portal-dashboard__checklist" aria-labelledby="checklist-title">
+      <div class="container">
+        <h2 id="checklist-title">Tonight's release checklist</h2>
+        <ol class="checklist">
+          <li data-status="amber">Confirm the commercial CTA route, operational owner and durable receipt behaviour.</li>
+          <li data-status="red">Confirm protected decisions for commercial terms, identity, privacy and eligibility.</li>
+          <li data-status="red">Exercise the authorised test environment against the relevant acceptance criteria.</li>
+          <li data-status="red">Record deployment and public read-back for the exact approved revision.</li>
+          <li data-status="red">Rehearse rollback without restoring expired, paused or withdrawn content.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="portal-dashboard__rollback" aria-labelledby="rollback-title">
+      <div class="container">
+        <h2 id="rollback-title">Deployment and rollback gate</h2>
+        <p>Do not call a build or a local review bundle a release. Release requires the approved version, current eligibility, public labels and discovery visibility to be read back after deployment. Rollback may restore only an eligible approved version. It must not revive expired terms, paused content or withdrawn media.</p>
+      </div>
+    </section>
+
+    <section class="portal-dashboard__sources" aria-labelledby="sources-title">
+      <div class="container">
+        <h2 id="sources-title">Evidence and update path</h2>
+        <p>Update this page only when the governed source changes. Replace a traffic light with its supporting task, decision or tested receipt. Do not infer progress from an unverified plan or test it has not run.</p>
+        <details>
+          <summary>View source mapping</summary>
+          <table>
+            <caption>Current source-of-truth mapping</caption>
+            <thead><tr><th scope="col">Claim</th><th scope="col">Source</th><th scope="col">Scope</th></tr></thead>
+            <tbody>
+              <tr><td>Portal product and acceptance scope</td><td><a href={deliveryTaskUrl} target="_blank" rel="noopener noreferrer">Partner Portal delivery task</a> and approved functional specification</td><td>Planning contract</td></tr>
+              <tr><td>Commercial CTA and mobile journey</td><td><a href={deliveryTaskUrl} target="_blank" rel="noopener noreferrer">Partner Portal delivery task</a> and UX copy specification</td><td>Proposed UX, not live intake proof</td></tr>
+              <tr><td>Engineering implementation</td><td><a href={engineeringTaskUrl} target="_blank" rel="noopener noreferrer">Partner Portal engineering task</a></td><td>Task evidence, not production proof</td></tr>
+              <tr><td>Current dashboard build</td><td><a href={dashboardTaskUrl} target="_blank" rel="noopener noreferrer">Dashboard task 1218208904757613</a></td><td>Assigned branch and verified review bundle</td></tr>
+            </tbody>
+          </table>
+        </details>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .portal-dashboard { background: var(--bg); color: var(--text); }
+  .portal-dashboard__hero, .portal-dashboard__summary, .portal-dashboard__workstreams, .portal-dashboard__gates, .portal-dashboard__checklist, .portal-dashboard__rollback, .portal-dashboard__sources { padding: clamp(2rem, 5vw, 4rem) 0; }
+  .portal-dashboard__hero { background: var(--bg-deep); color: var(--white); }
+  .portal-dashboard__hero h1 { color: var(--white); }
+  .eyebrow, .status-card__label, dt { font: var(--fw-semibold) var(--fs-100)/var(--lh-label) var(--font-ui); letter-spacing: var(--ls-eyebrow); text-transform: uppercase; }
+  .eyebrow { color: var(--mint); margin: 0 0 var(--space-3); }
+  h1, h2, h3 { font-family: var(--font-display); line-height: var(--lh-heading); }
+  h1 { font-size: var(--fs-800); margin: 0; max-width: 18ch; }
+  h2 { font-size: var(--fs-600); margin: 0 0 var(--space-5); }
+  h3 { font-size: var(--fs-500); margin: 0; }
+  .lede { font: var(--fw-body) var(--fs-500)/var(--lh-dek) var(--font-ui); max-width: 58ch; margin: var(--space-4) 0 0; }
+  .evidence-note { color: var(--soft-inverse); margin: var(--space-3) 0 0; }
+  .dashboard-actions { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-5); }
+  .dashboard-actions a { display: inline-flex; min-height: 44px; align-items: center; border: 1px solid currentColor; border-radius: var(--radius-s); color: var(--white); font: var(--fw-semibold) var(--fs-100)/var(--lh-label) var(--font-ui); padding: var(--space-2) var(--space-4); text-decoration: none; }
+  .dashboard-actions a:hover, .dashboard-actions a:focus-visible { background: var(--white); color: var(--bg-deep); }
+  .status-grid, .gate-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-4); }
+  .status-card, .workstream, .gate-card { border: 1px solid var(--border); border-radius: var(--radius-m); padding: var(--space-5); background: var(--white); }
+  .status-card__label { color: var(--soft); margin: 0; }
+  .status-card__value { font: var(--fw-semibold) var(--fs-500)/var(--lh-heading) var(--font-display); margin: var(--space-2) 0; }
+  .status-card[data-status="red"] { border-top: 5px solid var(--error-text); }
+  .status-card[data-status="amber"] { border-top: 5px solid var(--signal); }
+  .status-card[data-status="green"] { border-top: 5px solid var(--evergreen); }
+  .workstream-list { display: grid; gap: var(--space-4); }
+  .workstream { border-left: 5px solid var(--border-strong); }
+  .workstream[data-status="red"] { border-left-color: var(--error-text); }
+  .workstream[data-status="amber"] { border-left-color: var(--signal); }
+  .workstream[data-status="green"] { border-left-color: var(--evergreen); }
+  .workstream__heading { display: flex; align-items: center; gap: var(--space-2); }
+  .status-dot { width: 0.75rem; height: 0.75rem; border-radius: 50%; background: currentColor; }
+  .workstream[data-status="red"] .status-dot { color: var(--error-text); }
+  .workstream[data-status="amber"] .status-dot { color: var(--signal); }
+  .workstream[data-status="green"] .status-dot { color: var(--evergreen); }
+  dl { display: grid; grid-template-columns: minmax(9rem, 0.25fr) 1fr; gap: var(--space-3) var(--space-4); margin: var(--space-4) 0 0; }
+  dt { color: var(--soft); } dd { margin: 0; font-family: var(--font-ui); }
+  .portal-dashboard__gates { background: var(--bg-alt); }.gate-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .gate-card ul, .checklist { margin: 0; padding-left: 1.3rem; }.gate-card li, .checklist li { margin-bottom: var(--space-3); font-family: var(--font-ui); }
+  .checklist li::marker { font-weight: var(--fw-bold); }.checklist li[data-status="amber"]::marker { color: var(--signal); }.checklist li[data-status="red"]::marker { color: var(--error-text); }
+  .portal-dashboard__rollback { background: var(--bg-deep); color: var(--white); }.portal-dashboard__rollback p { max-width: var(--measure-prose); margin: 0; line-height: var(--lh-body); }
+  details { border: 1px solid var(--border); border-radius: var(--radius-s); padding: 0 var(--space-4); } summary { cursor: pointer; min-height: 44px; display: flex; align-items: center; font-family: var(--font-ui); font-weight: var(--fw-semibold); } table { width: 100%; border-collapse: collapse; margin: var(--space-3) 0 var(--space-4); font-family: var(--font-ui); text-align: left; } caption { text-align: left; font-weight: var(--fw-semibold); margin-bottom: var(--space-2); } th, td { border-top: 1px solid var(--border); padding: var(--space-3); vertical-align: top; } td a { color: var(--accent); text-underline-offset: 3px; }
+  @media (max-width: 640px) { .status-grid, .gate-grid { grid-template-columns: 1fr; } dl { grid-template-columns: 1fr; gap: var(--space-1); } dd { margin-bottom: var(--space-3); } table { font-size: var(--fs-100); table-layout: fixed; } th, td { overflow-wrap: anywhere; } }
+</style>
