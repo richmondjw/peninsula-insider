@@ -8,7 +8,6 @@ import { editableImage } from '../../lib/inline-edit/attrs';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
 import {
   buildCollectionPageSchema,
-  buildItemListSchema,
   buildFaqSchema,
   buildBreadcrumbSchema,
 } from '../../lib/schema';
@@ -27,6 +26,7 @@ interface RankedSpa {
   booking: string;
   verdict: string;
   bestFor: string;
+  sourceUrl?: string;
 }
 
 const ranked: RankedSpa[] = [
@@ -73,6 +73,18 @@ const ranked: RankedSpa[] = [
     verdict:
       'Resort-integrated spa at the RACV Cape Schanck property. Good for those staying at the resort or wanting to combine golf with a treatment. Standard resort spa quality.',
     bestFor: 'Resort guests; golf and spa combinations.',
+  },
+  {
+    rank: 5,
+    slug: 'alba-thermal-springs',
+    name: 'Alba Thermal Springs & Spa',
+    locality: 'Fingal',
+    type: 'Springs + treatments',
+    booking: 'Check treatment inclusions',
+    verdict:
+      'Alba combines geothermal bathing with massage, facials, body treatments and water and steam therapies at 282 Browns Road, Fingal. Choose it when you want bathing and a booked treatment in the same visit. Compare the inclusions of your chosen treatment or package before booking; overnight accommodation is a separate reservation at The Sanctuary.',
+    bestFor: 'A bathing-and-treatment day in Fingal, with an overnight option at The Sanctuary.',
+    sourceUrl: 'https://albathermalsprings.com.au/alba-experiences/spa/',
   },
 ];
 
@@ -154,20 +166,29 @@ const collectionSchema = buildCollectionPageSchema({
   name: 'Day Spas and Wellness on the Mornington Peninsula',
   description: 'Ranked editorial guide to day spas and wellness experiences on the Mornington Peninsula - treatments, hot springs, and spa days.',
   path: '/explore/spas-and-wellness/',
-  dateModified: '2026-08-10',
+  dateModified: '2026-09-07',
 });
 
-const itemListSchema = buildItemListSchema({
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
   name: 'Day Spas and Wellness on the Mornington Peninsula',
   description: 'Ranked guide to day spas and wellness experiences on the Mornington Peninsula.',
-  listPath: '/explore/spas-and-wellness',
-  items: [
-    { name: 'Spa by Jackalope', path: '/explore/spas-and-wellness/#spa-by-jackalope', itemType: 'SportsActivityLocation', addressLocality: 'Merricks North' },
-    { name: 'Endota Spa Mornington', path: '/explore/spas-and-wellness/#endota-spa-mornington', itemType: 'SportsActivityLocation', addressLocality: 'Mornington' },
-    { name: 'Peninsula Hot Springs spa treatments', path: '/explore/spas-and-wellness/#peninsula-hot-springs', itemType: 'SportsActivityLocation', addressLocality: 'Fingal' },
-    { name: 'One Spa at RACV Cape Schanck', path: '/explore/spas-and-wellness/#one-spa-racv-cape-schanck', itemType: 'SportsActivityLocation', addressLocality: 'Cape Schanck' },
-  ],
-});
+  url: 'https://peninsulainsider.com.au/explore/spas-and-wellness/',
+  numberOfItems: ranked.length,
+  itemListOrder: 'https://schema.org/ItemListOrderAscending',
+  itemListElement: ranked.map((spa) => ({
+    '@type': 'ListItem',
+    position: spa.rank,
+    item: {
+      '@type': 'DaySpa',
+      '@id': `https://peninsulainsider.com.au/explore/spas-and-wellness/#${spa.slug}`,
+      name: spa.name,
+      url: `https://peninsulainsider.com.au/explore/spas-and-wellness/#${spa.slug}`,
+      address: { '@type': 'PostalAddress', addressLocality: spa.locality, addressRegion: 'VIC', addressCountry: 'AU' },
+    },
+  })),
+};
 
 const faqSchema = buildFaqSchema(faqs);
 
@@ -307,6 +328,7 @@ export const prerender = true;
               </ul>
               <p class="sr__verdict">{s.verdict}</p>
               <p class="sr__bestfor"><strong>Best for</strong> {s.bestFor}</p>
+              {s.sourceUrl && <p class="sr__bestfor"><a href={s.sourceUrl} target="_blank" rel="noopener noreferrer">View the operator's treatment menu →</a></p>}
             </div>
             <PiSaveActions
               kind="venue"
@@ -329,7 +351,7 @@ export const prerender = true;
         <div class="sp-split__cols">
           <div class="sp-split__col">
             <h3>Bathing</h3>
-            <p>Thermal pools at various temperatures, outdoor soaking, no appointments. Turn up and get in the water.</p>
+            <p>Thermal pools and outdoor soaking. Reserve your bathing entry with the operator and check session times before travelling.</p>
             <a class="sp-split__link" href="/explore/hot-springs/">The hot springs guide →</a>
           </div>
           <div class="sp-split__col">
@@ -390,7 +412,7 @@ export const prerender = true;
           <li><a href="/explore/">All Peninsula experiences</a></li>
         </ul>
 
-        <p><em>Last fact-verified 23 April 2026</em></p>
+        <p><em>Alba entry checked against its official spa menu and FAQs on 7 September 2026. The remaining entries were last fact-verified on 23 April 2026 and are being reviewed.</em></p>
       </div>
     </div>
   </section>
