@@ -30,7 +30,7 @@ faq:
   - question: "What is the best sunset walk on the Mornington Peninsula?"
     answer: "Sorrento Back Beach at dusk - sandstone cliffs catch the last indirect light, the beach empties by 5pm in autumn, and a 30-minute walk south is one of the Peninsula's most underrated experiences. Mornington Foreshore for a flat, accessible alternative facing directly west across the bay. Both are free, require no booking, and work best in autumn when the light is warmest."
   - question: "Where can I have a sunset drink on the Mornington Peninsula?"
-    answer: "Hotel Sorrento rooftop for the social version - arrive 30 minutes before sunset. The Baths Sorrento for a quieter waterfront option, better for couples than groups. Pt Leo Wine Terrace for serious wine and views across Western Port Bay to Phillip Island. Polperro cellar door on evenings they are open - the most intimate option, with vineyard views that catch the last light beautifully."
+    answer: "Hotel Sorrento rooftop for the social version - arrive 30 minutes before sunset. The Baths Sorrento for a quieter waterfront option, better for couples than groups. Pt Leo Wine Terrace for serious wine and views across Western Port Bay to Phillip Island. Polperro for a vineyard tasting before its 5pm cellar door closing time, Wednesday to Sunday; do not assume evening tasting is available."
 aiSummary:
   - "A guide to the best sunset experiences on the Mornington Peninsula - structured around specific locations and the correct timing for each."
   - "Key locations: Arthurs Seat lookout (hinterland ridge view toward Port Phillip Bay, best in autumn and winter), Sorrento foreshore (bay-facing, classic postcard), Flinders pier (ocean-side drama), the wineries on the Red Hill ridge road."
@@ -101,7 +101,7 @@ The **Flinders Hotel** beer garden faces the village green rather than the water
 
 ### Polperro cellar door
 
-**Polperro** stays open for evening tastings on selected nights, and the small deck behind the cellar door faces west over a vineyard slope that catches the last light beautifully. Check opening hours before driving down. When it is open, this is the most intimate sunset drink on the Peninsula  -  three or four tables, serious wine, and a view that belongs to a region twice the price.
+**Polperro** is an option for a vineyard tasting earlier in the afternoon. Its cellar door trades Wednesday to Sunday, 11am to 5pm; the restaurant and cellar door are closed on Mondays and Tuesdays. Do not plan around an evening tasting or assume the cellar door will be open at sunset. Check current service times before travelling.
 
 ## The dinner transition
 

@@ -86,7 +86,7 @@ A thermal weekend works better as an overnight than a day trip. The bath is not 
 
 [Lindenderry at Red Hill](/stay/lindenderry/) is the most civilised base. Thirteen minutes from Alba, fifteen from Peninsula Hot Springs, with a garden, a pool, and a terrace breakfast that is itself a reason to stay. The rhythm of a Lindenderry weekend (bath, rest, small dinner, garden walk, long sleep, slow morning) is close to ideal for this kind of trip.
 
-[Polperro Villas](/stay/polperro-villas/) is the move for a couple who want the bath to feed a private weekend. Two self-contained vineyard villas, each with an outdoor bath of their own, a wood fire, and a kitchen you will actually cook in. Drive to Alba mid-morning, do the full circuit, drive back to the villa, and spend the rest of the afternoon in your own bath with the fire lit. On a cool April or winter evening this is one of the loveliest wellness days the Peninsula offers.
+[Polperro Villas](/stay/polperro-villas/) is the move for a couple who want the bath to feed a private weekend. Four vineyard villas, each sleeping two with a king-size bed, indoor spa, open fireplace and vineyard views. There are no outdoor baths. Cooking facilities are a convection oven and microwave, with no hotplates. Drive to Alba mid-morning, do the full circuit, drive back to the villa, and spend the rest of the afternoon in your own bath with the fire lit. The Polperro restaurant and cellar door are closed on Mondays and Tuesdays. [Book accommodation directly with Polperro](https://www.polperrowines.com.au/escape/).
 
 ## What to eat
 

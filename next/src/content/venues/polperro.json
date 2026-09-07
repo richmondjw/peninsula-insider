@@ -9,7 +9,7 @@
     "lat": -38.3869,
     "lng": 145.0678
   },
-  "address": "150 Red Hill Rd, Red Hill South VIC 3937",
+  "address": "150 Red Hill Road, Red Hill VIC 3937",
   "phone": "+61 3 5989 2471",
   "website": "https://www.polperrowines.com.au",
   "bookingUrl": "https://www.polperrowines.com.au/book",
@@ -23,7 +23,7 @@
     ]
   },
   "signature": "Small-production cool-climate pinot and chardonnay poured in one of the prettiest tasting rooms on the ridge.",
-  "editorNote": "Polperro feels smaller and more intimate than some of the region's trophy estates, which is exactly its appeal. The cellar door is tucked into the vines with a line of sight over the ridge, the pours are thoughtful, and the whole place carries the tone of a producer that cares more about the wine than the performance around it.\n\nThe Pennon Hill labels are often the sweet spot if you want quality without chasing the top tier. Pair a tasting with lunch and you have one of the gentlest half-days in Red Hill South.\n\nGo midweek if you can. The room rewards quiet.",
+  "editorNote": "Polperro feels smaller and more intimate than some of the region's trophy estates, which is exactly its appeal. The cellar door is tucked into the vines with a line of sight over the ridge, the pours are thoughtful, and the whole place carries the tone of a producer that cares more about the wine than the performance around it.\n\nThe cellar door pours Polperro and Even Keel wines. Pair a tasting with lunch and you have one of the gentlest half-days in Red Hill South.\n\nFor a midweek visit, choose Wednesday, Thursday or Friday. The restaurant and cellar door are closed on Mondays and Tuesdays.",
   "visiting": {
     "openingHours": [
       {
@@ -40,7 +40,7 @@
     ],
     "tastingFee": "Charged",
     "bookingRequired": false,
-    "tastingNote": "Walk-in only, maximum 6 guests, no bookings required for cellar door. Tasting includes Polperro and Even Keel wines. Restaurant requires separate booking."
+    "tastingNote": "Walk-in only, maximum 6 guests, no bookings required for cellar door. Tasting includes Polperro and Even Keel wines. Restaurant requires separate booking. The restaurant and cellar door are closed on Mondays and Tuesdays."
   },
   "wines": {
     "winemaker": "Sam Coverdale",
@@ -56,13 +56,13 @@
     "hats": 1,
     "cuisine": "Modern Australian",
     "reservations": true,
-    "description": "1 Hat in the Age Good Food Guide 2024 and 2025. Modern Australian cuisine connected to the estate's organic ethos."
+    "description": "1 Hat in the Age Good Food Guide 2024 and 2025. Modern Australian cuisine connected to the estate's organic ethos. Closed on Mondays and Tuesdays; check current service times before booking."
   },
   "accommodation": {
     "name": "Polperro Vineyard Villas",
-    "description": "Luxury on-site villas nestled among the vines. Full stay-and-taste proposition for a Peninsula weekend."
+    "description": "Four vineyard villas, each sleeping two with a king-size bed, indoor spa, open fireplace and vineyard views. Cooking facilities are a convection oven and microwave; there are no hotplates or outdoor baths. Book at https://www.polperrowines.com.au/escape/."
   },
-  "editorVerdict": "Polperro earns its reputation quietly. Sam Coverdale's winemaking is unhurried and honest, and the organic/biodynamic certification (since 2019) is matched by a level of single-vineyard discipline that few estates sustain. The Red Hill property brings a restaurant with a hat and accommodation in the vines - one of the Peninsula's most complete stay-and-taste propositions.",
+  "editorVerdict": "Polperro earns its reputation quietly. Sam Coverdale's winemaking is unhurried and honest, and the winery identifies Talland Hill as its vineyard certified organic and biodynamic in 2019. Its single-vineyard wines let the different sites speak. The Red Hill property brings a restaurant with a hat and accommodation in the vines - one of the Peninsula's most complete stay-and-taste propositions.",
   "whyWeGo": "Polperro's scale, small, owner-operated, unhurried, is the thing itself, not just a selling point; the room rewards the kind of afternoon you don't try to plan.",
   "bestFor": [
     "Cellar door visits",
@@ -70,7 +70,7 @@
     "Couples",
     "Scenic views"
   ],
-  "ifOnlyOneThing": "Go midweek, taste the Pennon Hill alongside the estate Pinot, and stay for lunch rather than rushing on to the next stop.",
+  "ifOnlyOneThing": "Visit Wednesday to Sunday, taste Polperro and Even Keel wines, and stay for lunch rather than rushing on to the next stop.",
   "pairWith": [
     "Foxeys Hangout",
     "Green Olive at Red Hill"
@@ -78,11 +78,11 @@
   "faq": [
     {
       "q": "Does Polperro take walk-ins or do you need to book?",
-      "a": "The cellar door is walk-in only (maximum 6 guests), no bookings required. Open Wednesday to Sunday, 11am–5pm. The restaurant requires a separate booking."
+      "a": "The cellar door is walk-in only (maximum 6 guests), no bookings required. Open Wednesday to Sunday, 11am–5pm. The restaurant requires a separate booking. The restaurant and cellar door are closed on Mondays and Tuesdays."
     },
     {
       "q": "Does Polperro have a restaurant?",
-      "a": "Yes. Polperro Restaurant holds 1 Hat in The Age Good Food Guide 2024 and 2025. Modern Australian cuisine."
+      "a": "Yes. Polperro Restaurant holds 1 Hat in The Age Good Food Guide 2024 and 2025. Modern Australian cuisine. The restaurant and cellar door are closed on Mondays and Tuesdays."
     },
     {
       "q": "Are dogs allowed at Polperro?",
@@ -113,8 +113,8 @@
     ]
   },
   "heroImage": {
-    "src": "/images/sourced/venue-polperro-sorrento-pier-01.webp",
-    "alt": "Polperro's coastal heritage - Sorrento Pier, tied to the Polperro winery's Peninsula identity",
+    "src": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/venue/polperro/heroImage-1780298769986.jpg",
+    "alt": "Polperro wine bottle on a table",
     "credit": "Polperro",
     "license": "venue-media-kit"
   },
@@ -126,7 +126,7 @@
   "editorPick": true,
   "knownFor": [
     "Halliday Top 100 Winery",
-    "Pennon Hill Labels",
+    "Polperro and Even Keel Wines",
     "One-Hat Cool-Climate Pinot",
     "Red Hill South Ridge Views"
   ]
