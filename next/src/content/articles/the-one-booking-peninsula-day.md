@@ -61,7 +61,7 @@ If you are making one booking for a Peninsula day, make it the meal.
 
 The cellar doors can accommodate walk-ins, especially mid-week and in the shoulder and winter seasons. The walks do not require booking. The bakeries, the markets, the coastal stops - all of these are available without advance planning.
 
-The one thing that genuinely benefits from a reservation is the dining room. The hatted rooms - Laura, Tedesca, Ten Minutes by Tractor, Barragunda - book weeks ahead. But the second tier - Montalto, Polperro, Paringa Estate, Foxeys Hangout - is bookable within a week or two for most weekend slots, and walk-in accessible on weekday lunches.
+The one thing that genuinely benefits from a reservation is the dining room. The hatted rooms - Laura, Tedesca, Ten Minutes by Tractor, Barragunda - book weeks ahead. But the second tier - Montalto, Polperro, Paringa Estate, Foxeys Hangout - is bookable within a week or two for most weekend slots, but weekday opening and availability vary. Polperro Restaurant and Cellar Door are closed on Mondays and Tuesdays; book its restaurant separately.
 
 Book one of these. Leave the rest open.
 

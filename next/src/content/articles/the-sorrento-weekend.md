@@ -49,7 +49,7 @@ Three stays do this well.
 
 **Hotel Sorrento** is the working alternative  -  less design-forward, better value, and arguably the best bay view in the town. The bistro on the ground floor is the right place for the first night's dinner when you have come straight off the freeway and want something direct.
 
-**Polperro Villas** break the village rule on purpose. The suites sit above the vineyard at Red Hill South, a ten-minute drive up the ridge, and the trade-off is a weekend that tilts wine-country rather than ocean-town. Use it when you want the vineyard morning and the back-beach afternoon in the same trip without over-engineering the drive.
+**Polperro Villas** break the village rule on purpose. The four villas overlook the vineyard in Red Hill, each sleeping two with a king-size bed, indoor spa and open fireplace, and the trade-off is a weekend that tilts wine-country rather than ocean-town. Use it when you want the vineyard morning and the back-beach afternoon in the same trip without over-engineering the drive.
 
 If your budget is leaner or you need a house for a group, **Sorrento Coastal Retreat** is the low-key cottage move  -  walking distance to both the front beach and Ocean Beach Road, and entirely unshowy.
 

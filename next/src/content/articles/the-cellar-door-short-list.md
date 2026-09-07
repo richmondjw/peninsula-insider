@@ -63,7 +63,7 @@ faq:
   - question: "Which Peninsula cellar doors are best for serious wine enthusiasts?"
     answer: "Kooyong for the region's benchmark single-vineyard pinot flights. Dexter Wines for an appointment-only session with a quietly structured range built for cellaring. Ocean Eight for ageable small-producer pinots. Polperro for a generous tasting with vineyard views. Quealy Winemakers for Italian varieties and a different take on the Peninsula."
   - question: "Do Peninsula cellar doors require bookings?"
-    answer: "Most of the better smaller cellar doors prefer or require bookings. Dexter Wines is appointment-only (book a week ahead minimum). Kooyong and Polperro accept walk-ins but can be busy on weekends. Midweek walk-in availability is more reliable."
+    answer: "Most of the better smaller cellar doors prefer or require bookings. Dexter Wines is appointment-only (book a week ahead minimum). Kooyong and Polperro accept walk-ins but can be busy on weekends. For Polperro, choose Wednesday to Sunday; its restaurant and cellar door are closed on Mondays and Tuesdays. Check hours and restaurant bookings before travelling."
   - question: "How many cellar doors should you visit in one day?"
     answer: "Three is the maximum for a useful tasting experience. After three, the palate degrades and the wines blur together. Two is often better - one in the morning, one pre-lunch, then a long lunch. Three cellar doors in a day is wine country; eight is a different kind of trip."
 ---
@@ -94,7 +94,7 @@ The Verve and Aylward Pinot Noirs are among the most ageable wines being made on
 
 [Polperro](/wine/polperro/) is the one cellar door on this list that is also a pleasant place to spend a whole afternoon. The tasting room is tucked into the [Red Hill](/explore/places/red-hill/) vines with views across the ridge, the pours are generous, and the estate has its own restaurant and [villa rental next door](/stay/polperro-villas/) if you want to stretch the visit into a lunch or a night.
 
-The wines themselves are excellent (a Halliday 97-point estate with a genuine reputation for pinot; see the [Polperro profile](/wine/polperro/)) and the second label, Pennon Hill, is often the sweet spot for buying. Come for a late morning tasting, walk the vineyard, and decide afterwards whether you want the lunch.
+The wines themselves are excellent (a Halliday 97-point estate with a genuine reputation for pinot; see the [Polperro profile](/wine/polperro/)) and the cellar door pours both Polperro and Even Keel wines. Plan a tasting and book lunch separately. Polperro Restaurant and Cellar Door are closed on Mondays and Tuesdays.
 
 ## 5. Quealy Winemakers  -  the one with the most soul
 

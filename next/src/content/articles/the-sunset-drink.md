@@ -43,7 +43,7 @@ clusterLinks:
     href: "/journal/the-sorrento-weekend/"
 faq:
   - question: "Where is the best place for a sunset drink on the Mornington Peninsula?"
-    answer: "Hotel Sorrento front bar verandah for the bay-side golden hour - faces north-west, the limestone turns warm at around 4:30pm, and the front bar menu requires no booking. Pt Leo Wine Terrace for the most cinematic version - sunset over the sculpture park and Western Port Bay. Polperro verandah for the vineyard version - intimate, amber stripes across the pinot rows, less panoramic but more personal."
+    answer: "Hotel Sorrento front bar verandah for the bay-side golden hour - faces north-west, the limestone turns warm at around 4:30pm, and the front bar menu requires no booking. Pt Leo Wine Terrace for the most cinematic version - sunset over the sculpture park and Western Port Bay. Polperro for an afternoon vineyard tasting before its 5pm cellar door closing time, Wednesday to Sunday; it is not a guaranteed sunset venue."
   - question: "What time should I arrive for the Peninsula sunset drink?"
     answer: "Forty-five minutes before the light you want to see. The best golden-hour light lasts about twenty minutes and you want to be settled before it arrives. In autumn (the best season), that means arriving at about 4pm for a 5pm sunset. In summer, the light runs late - bay-side venues are packed and terrace bookings at Montalto and Pt Leo are needed."
   - question: "Which side of the Peninsula is better for sunset - bay or ocean?"
@@ -90,7 +90,7 @@ The most cinematic sunset drink on the Peninsula. It is also the most expensive.
 
 **Polperro** sits on a ridge above Red Hill with a tasting room that opens onto a verandah looking out across the vines. The late afternoon light rolls across the vineyard in long amber stripes, and the effect is less dramatic than the Pt. Leo version but more intimate. You are looking at vines and hillside rather than water and sculpture, and the scale of it is personal rather than panoramic.
 
-Drink the estate pinot or the Pennon Hill rosé. The tasting is generous and the staff are not in a hurry. If you are staying at one of the **Polperro Villas** next door, the walk back is about thirty seconds.
+Taste the Polperro and Even Keel wines. The tasting is generous and the staff are not in a hurry. If you are staying at **Polperro Villas**, you are already on the estate. The restaurant and cellar door are closed on Mondays and Tuesdays, and the cellar door closes at 5pm on trading days, so plan a tasting before sunset rather than assuming evening service.
 
 ### Paringa Estate: the cellar door at golden hour
 
@@ -123,7 +123,7 @@ Get there at four. Order something. Let the light come to you.
 - **Summer (December–February):** Sunset is between 8:15 and 8:45pm. The golden hour is long and forgiving. The bay-side pubs are packed. Book the terrace at Montalto or Pt. Leo if you want a seat.
 - **Autumn (March–May):** Sunset rolls back to about 5:30pm by late May. The light is warmer and lower. This is the best season for the sunset drink, fewer crowds, better colour, and you can still sit outside with a jacket.
 - **Winter (June–August):** Sunset at 5:15pm. The light is fast and dramatic. The Flinders Hotel fireplace becomes the post-sunset move. The ridge cellar doors are closed by the time the light drops, so work with the bay pubs.
-- **Spring (September–November):** Sunset stretches out again. The vineyards are in bud. Polperro and Paringa are both excellent in the second half of spring when the air is warm enough to sit outside but the summer crowds have not yet arrived.
+- **Spring (September–November):** Sunset stretches out again. The vineyards are in bud. Paringa can suit an afternoon visit; check service times before making sunset plans. At Polperro, plan an earlier tasting before the 5pm cellar door closure, Wednesday to Sunday.
 
 ## A few practical notes
 

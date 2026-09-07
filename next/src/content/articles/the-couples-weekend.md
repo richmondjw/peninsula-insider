@@ -77,7 +77,7 @@ Here is the template.
 
 The accommodation decision is the first fork, and everything else follows from it.
 
-**Lane one: the vineyard villa.** Stay at **Polperro Villas**, **Crittenden Villas**, or **Point Leo Estate Villas**, properties inside or next to working vineyards where you wake up looking at vines and the morning is built into the landscape. These places work because you are already somewhere. The coffee is made in the kitchen. The cellar door is next door. The first two hours of the day cost nothing and require no driving.
+**Lane one: the vineyard villa.** Stay at **Polperro Villas**, **Crittenden Villas**, or **Point Leo Estate Villas**, properties inside or next to working vineyards where you wake up looking at vines and the morning is built into the landscape. These places work because you are already somewhere. The coffee is made in the kitchen. At Polperro, each of the four villas sleeps two and has a king-size bed, indoor spa, open fireplace and vineyard views. Meals can be prepared with the convection oven and microwave; there are no hotplates. The restaurant and cellar door are closed on Mondays and Tuesdays.
 
 **Lane two: the design hotel.** **Jackalope** in Merricks North is the Peninsula's most design-forward hotel: black, angular, dramatic, with a pool, a spa, and a restaurant (Doot Doot Doot) that commits fully to the aesthetic. It is polarising in the best way. Some couples love the drama, others find it too deliberate. If you know you want it, you want it.
 
