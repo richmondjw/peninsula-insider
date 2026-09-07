@@ -57,6 +57,8 @@ export interface Props {
   fieldPath?: string;
   /** Omit for text-only compact rows (enforcer HERO_EXEMPT case). */
   image?: CardImage;
+  /** Responsive slot width for cards used in larger editorial placements. */
+  imageSizes?: string;
   /** Verdict line <= 25 words. The named slot `verdict` overrides this. */
   verdict?: string;
   /** Up to 3 plain-text chips, joined with a middot separator. */
@@ -116,6 +118,7 @@ const {
   entitySlug,
   fieldPath = 'heroImage',
   image,
+  imageSizes,
   verdict,
   meta = [],
   priceBand,
@@ -218,6 +221,7 @@ const hasActions = !!resolvedSaveKind || trip || !!booking;
     <div class="pi-card__media">
       <img
         src={image!.src}
+        sizes={imageSizes}
         alt={image!.alt}
         loading="lazy"
         decoding="async"

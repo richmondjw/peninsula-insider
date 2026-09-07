@@ -14,6 +14,7 @@
  */
 import { resolveHero } from '../../../lib/inline-edit/resolve-hero';
 import { editableImage } from '../../../lib/inline-edit/attrs';
+import { knownImageAlt } from '../../../lib/image-alt';
 
 const doors = [
   {
@@ -66,7 +67,7 @@ const resolved = await Promise.all(
       { heroImage: door.fallback },
       'hero',
     );
-    return { ...door, src: hero.src, alt: hero.alt || door.fallback.alt };
+    return { ...door, src: hero.src, alt: hero.override?.alt?.trim() || knownImageAlt(hero.src) || hero.alt };
   }),
 );
 ---
@@ -89,7 +90,7 @@ const resolved = await Promise.all(
             <span class="home-doors__media">
               <img
                 src={door.src}
-                alt=""
+                alt={door.alt}
                 loading="lazy"
                 decoding="async"
                 {...editableImage({

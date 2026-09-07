@@ -5,6 +5,7 @@ import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
 import remarkBlockIds from './src/lib/inline-edit/remark-block-ids.mjs';
 import cacheBustImages from './src/lib/cache-bust-integration.mjs';
+import optimizePageImages from './src/lib/optimize-images.mjs';
 
 // Peninsula Insider — Astro config.
 // Decisions locked in roadmap-2026-04-09.md § 4 and § 9:
@@ -64,6 +65,7 @@ export default defineConfig({
     cacheBustImages(), // append ?v=<contenthash> to /images/* refs in built HTML
                        // so editor byte-swaps invalidate stale CDN/browser caches.
                        // Build-only (astro:build:done); no effect on dev.
+    optimizePageImages(),
   ],
   vite: {
     plugins: [tailwindcss()], // Tailwind v4 via Vite. Preflight is disabled in

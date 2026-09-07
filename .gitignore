@@ -8,6 +8,7 @@ pnpm-debug.log*
 # Astro build output
 next/dist/
 next/.astro/
+next/.cache/
 
 # Lock files — keep package-lock for reproducibility, skip others
 next/yarn.lock

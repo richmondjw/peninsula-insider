@@ -555,6 +555,8 @@ function srcBasename(src: string | null | undefined): string {
 
 /** Current displayed src for either an <img> or a background-image div. */
 function currentImageSrc(el: HTMLElement): string {
+  // Preserve CMS identity and implicit basename bindings across renditions.
+  if (el.dataset.piSourceSrc) return el.dataset.piSourceSrc;
   if (el instanceof HTMLImageElement) return el.currentSrc || el.src;
   const bg = window.getComputedStyle(el).backgroundImage;
   const match = bg.match(/url\((['"]?)(.*?)\1\)/);
@@ -563,7 +565,13 @@ function currentImageSrc(el: HTMLElement): string {
 
 /** Update either an <img> or a background-image div with a new src. */
 function setImageSrc(el: HTMLElement, src: string) {
+  if (el.dataset.piSourceSrc === src) return;
+  delete el.dataset.piSourceSrc;
   if (el instanceof HTMLImageElement) {
+    el.removeAttribute('srcset');
+    el.removeAttribute('sizes');
+    el.removeAttribute('width');
+    el.removeAttribute('height');
     el.src = src;
     return;
   }
