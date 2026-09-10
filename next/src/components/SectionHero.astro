@@ -11,6 +11,7 @@
 
 import { editableImage, editableText, type CmsEntityType } from '../lib/inline-edit/attrs';
 import { loadOverrides } from '../lib/inline-edit/overrides';
+import { knownImageAlt } from '../lib/image-alt';
 
 export interface Props {
   eyebrow?: string;
@@ -20,6 +21,7 @@ export interface Props {
   gradient?: 'vineyard' | 'bay' | 'sand' | 'hinterland' | 'stay' | 'journal';
   visualLabel?: string;
   heroImage?: string;
+  imageAlt?: string;
   /** When provided, the title, dek, and visual panel become CMS-editable. */
   entitySlug?: string;
   entityType?: CmsEntityType;
@@ -33,6 +35,7 @@ const {
   gradient = 'vineyard',
   visualLabel,
   heroImage,
+  imageAlt = '',
   entitySlug,
   entityType = 'page',
 } = Astro.props;
@@ -49,6 +52,7 @@ const imageOverride = overrides?.image['hero'];
 const resolvedTitle = titleOverride ?? title;
 const resolvedDek = dekOverride ?? dek;
 const resolvedHeroImage = imageOverride?.src ?? heroImage;
+const resolvedImageAlt = imageOverride?.alt?.trim() || knownImageAlt(resolvedHeroImage) || (!imageOverride ? imageAlt : '');
 
 const gradClass = `section-hero__visual hero-grad--${gradient}`;
 
@@ -75,15 +79,16 @@ const imageAttrs = editable
         <h1 class="section-hero__title" set:html={resolvedTitle} {...titleAttrs} />
         <p class="section-hero__dek" {...dekAttrs}>{resolvedDek}</p>
       </div>
-      <div class={gradClass} {...imageAttrs}>
+      <div class={gradClass} {...(resolvedHeroImage ? {} : imageAttrs)}>
         {resolvedHeroImage && (
           <img
             class="section-hero__visual-image"
             src={resolvedHeroImage}
-            alt=""
-            aria-hidden="true"
+            alt={resolvedImageAlt}
+            aria-hidden={resolvedImageAlt ? undefined : 'true'}
             loading="eager"
             decoding="async"
+            {...imageAttrs}
           />
         )}
         <div class="section-hero__visual-fog"></div>

@@ -493,7 +493,7 @@ const showNewsletterPopup = newsletterPopupMode === 'preview' || newsletterPopup
       if (!__SB_URL || !__SB_ANON) return;
       function applySlots() {
         var url = new URL('/rest/v1/cms_image_slots', __SB_URL);
-        url.searchParams.set('select', 'entity_type,entity_slug,field_path,public_url');
+        url.searchParams.set('select', 'entity_type,entity_slug,field_path,public_url,alt_text');
         url.searchParams.set('status', 'eq.published');
         fetch(url.toString(), {
           headers: {
@@ -508,16 +508,27 @@ const showNewsletterPopup = newsletterPopupMode === 'preview' || newsletterPopup
           if (!Array.isArray(slots)) return;
           slots.forEach(function (slot) {
             if (!slot.public_url) return;
-            var el = document.querySelector(
-              '[data-pi-entity-type="' + slot.entity_type + '"][data-pi-entity-slug="' + slot.entity_slug + '"][data-pi-field-path="' + slot.field_path + '"]'
-            );
-            if (!el) return;
-            if (el instanceof HTMLImageElement) {
-              el.src = slot.public_url;
-            } else {
-              // Background-image element (div, a, figure, etc.)
-              el.style.backgroundImage = 'url("' + slot.public_url.replace(/"/g, '\\"') + '")';
-            }
+            document.querySelectorAll('[data-pi-edit="image"]').forEach(function (el) {
+              if (el.dataset.piEntityType !== slot.entity_type || el.dataset.piEntitySlug !== slot.entity_slug || el.dataset.piFieldPath !== slot.field_path) return;
+              if (slot.alt_text && slot.alt_text.trim()) {
+                if (el instanceof HTMLImageElement) el.alt = slot.alt_text;
+                else if (el.getAttribute('role') === 'img') el.setAttribute('aria-label', slot.alt_text);
+              }
+              // A rendition is the same published photo. Keep its responsive
+              // sources; only an actual CMS replacement should remove them.
+              if (el.dataset.piSourceSrc === slot.public_url) return;
+              delete el.dataset.piSourceSrc;
+              if (el instanceof HTMLImageElement) {
+                if (el.getAttribute('src') === slot.public_url) return;
+                el.removeAttribute('srcset');
+                el.removeAttribute('sizes');
+                el.removeAttribute('width');
+                el.removeAttribute('height');
+                el.src = slot.public_url;
+              } else {
+                el.style.backgroundImage = 'url("' + slot.public_url.replace(/"/g, '\\"') + '")';
+              }
+            });
           });
         }).catch(function () { /* non-fatal */ });
       }
