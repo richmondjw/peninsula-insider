@@ -13,7 +13,7 @@ sources:
     url: "https://api.open-meteo.com/v1/forecast?latitude=-38.40&longitude=145.00&current=temperature_2m,apparent_temperature,precipitation,weather_code,wind_speed_10m,wind_direction_10m,is_day&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_sum,precipitation_probability_max,wind_speed_10m_max&timezone=Australia%2FMelbourne&forecast_days=3"
     note: "Open-Meteo Main Ridge retrieval 2026-09-09T22:04Z. Current at 08:00 AEST 10 Sep: 11.6°C, apparent 8.6°C, dry and mainly clear, with a 14.6km/h south-south-westerly wind (209°). Thu: 0%/0.00mm, 8.5–13.7°C, 18.6km/h maximum wind. Fri: 0%/0.00mm, 7.4–15.0°C, 9.5km/h maximum wind."
     checkedAt: 2026-09-10T08:05:00+10:00
-status: published
+status: archived
 ---
 Main Ridge is dry and cool this Thursday morning: 11.6 degrees at eight o'clock, feeling closer to 8.6 in a south-south-westerly breeze. Conditions are mainly clear for now.
 
