@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "releaseId": "053e04407435-34586462011",
+  "releaseId": "053e04407435-34609814932",
   "sourceSha": "053e04407435a71e0ad7f4bead4c8cbc05064684",
-  "buildRunId": "34586462011",
-  "generatedAt": "2026-09-11T09:56:18.825Z",
-  "trigger": "push",
+  "buildRunId": "34609814932",
+  "generatedAt": "2026-09-11T14:26:36.722Z",
+  "trigger": "schedule",
   "authority": {
     "mode": "github-protected-release",
     "actor": "richmondjw",
@@ -18,8 +18,8 @@
     },
     {
       "path": "/index.html",
-      "bytes": 135131,
-      "sha256": "94f9f309e86c4138730b7f0a16366842eb6754593407ed1a98cae6a04b81ad30"
+      "bytes": 135032,
+      "sha256": "4ddb3921d4b58c306748e4f9184775523de8acd54ec0545e185d639dd359c751"
     },
     {
       "path": "/llms.txt",
@@ -28,13 +28,13 @@
     },
     {
       "path": "/sitemap.xml",
-      "bytes": 120159,
-      "sha256": "57a22261c40022cdad3df6be42de7f5428878075359983d21e895b5ea8b005f0"
+      "bytes": 119930,
+      "sha256": "00796929d465664d4d287095f717ffd725b1973939b1e9bc905b04bf3b48c153"
     },
     {
       "path": "/whats-on/upcoming.json",
-      "bytes": 51199,
-      "sha256": "ce1200da44787b244e1ad59add05da01c52b2694682bd0265ae4b4229506bb3c"
+      "bytes": 50046,
+      "sha256": "10c13a1c1a5577e4ae2b7fff3f653f015715365ef1001c8aaedf051cce9e6267"
     }
   ],
   "verification": {
