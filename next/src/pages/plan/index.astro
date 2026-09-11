@@ -190,12 +190,12 @@ const piIndex = { places: piPlaces, venues: piVenues };
     const groupsEl = document.querySelector<HTMLElement>('[data-plan-groups]');
     if (groupsEl) groupsEl.innerHTML = renderRoute(route.items);
     const btn = document.querySelector<HTMLElement>('[data-action="fork-plan"]');
-    if (btn) btn.lastChild!.textContent = " Save PI's route to my trip";
     const mine = document.querySelector<HTMLAnchorElement>('[data-plan-toolbar] a');
     if (mine) { mine.href = '/me/trip/'; mine.textContent = 'My trip'; }
     // init() runs on DOMContentLoaded and again on astro:page-load; bind once.
     if (!btn || btn.dataset.piBound) return true;
     btn.dataset.piBound = '1';
+    btn.lastChild!.textContent = " Save PI's route to my trip";
     const dayLabel = `PI's route · Case ${route.caseId}`;
     if (Store.tripDays().some((d) => d.label === dayLabel)) {
       btn.setAttribute('disabled', '');
