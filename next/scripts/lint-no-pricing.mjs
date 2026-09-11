@@ -43,9 +43,9 @@ const ALLOW = new Set([
   'lib/sanity/phase5-adapters.ts',
   'lib/sanity/queries.ts', // GROQ query definitions — data-layer field selection only, not rendered
   // Where in the Peninsula is PI? promo config. The one dollar figure is the
-  // prize-draw value (our own promotion, labelled "Prize partner" wherever it
-  // renders), never a venue price. Trade-promotion terms require the prize
-  // value to be stated. Templates only ever render PLAY.draw.prize.
+  // prize-draw value of our own promotion, never a venue price; trade-promotion
+  // terms require the prize value to be stated. Templates only ever render
+  // PLAY.draw.prize.
   'lib/play.ts',
 ]);
 

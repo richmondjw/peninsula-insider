@@ -5,8 +5,7 @@
  * Renders nothing unless this place or venue plays a part in the current
  * case (PLAY.case) or is the draw's prize partner. Data-driven from lib/play,
  * so Case 02 re-points every ribbon with one config edit and no template
- * work. The prize-partner variant carries the sponsor label per the site's
- * advertising firewall (label, never absence).
+ * work.
  */
 import { PLAY, playRole, playUrl } from '../../lib/play';
 
@@ -28,10 +27,7 @@ const copy = role === 'found'
   <aside class:list={['play-ribbon', `play-ribbon--${role}`]} aria-label="Where in the Peninsula is PI?">
     <img class="play-ribbon__mark" src="/images/play/pi-mark-still-96.png" srcset="/images/play/pi-mark-still-96.png 1x, /images/play/pi-mark-still-192.png 2x" width="40" height="37" alt="" loading="lazy" decoding="async" />
     <div class="play-ribbon__text">
-      <p class="play-ribbon__eyebrow">
-        Where in the Peninsula is PI?
-        {role === 'prize' && <span class="play-ribbon__sponsor">Prize partner</span>}
-      </p>
+      <p class="play-ribbon__eyebrow">Where in the Peninsula is PI?</p>
       <p class="play-ribbon__lead">{copy.lead} <span class="play-ribbon__body">{copy.body}</span></p>
     </div>
     <a
@@ -68,12 +64,6 @@ const copy = role === 'found'
     text-transform: uppercase;
     color: var(--sand-text);
     font-weight: var(--fw-semibold);
-    display: flex; gap: var(--space-2); flex-wrap: wrap;
-  }
-  .play-ribbon__sponsor {
-    color: var(--soft);
-    font-weight: 500;
-    letter-spacing: 0.06em;
   }
   .play-ribbon__lead { margin: 0; font-size: var(--fs-300); line-height: 1.4; font-weight: var(--fw-semibold); }
   .play-ribbon__body { font-weight: 400; color: var(--soft, #5B6770); }
