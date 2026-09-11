@@ -35,6 +35,7 @@ import SearchOverlay from '../components/SearchOverlay.astro';
 import AuthModal from '../components/v2/AuthModal.astro';
 import ProfileDropdown from '../components/v2/ProfileDropdown.astro';
 import CookieBanner from '../components/CookieBanner.astro';
+import PlayPeek from '../components/play/PlayPeek.astro';
 import SaveSiteController from '../components/SaveSiteController.astro';
 import CloudSync from '../components/CloudSync.astro';
 import InlineEditor from '../components/admin/InlineEditor.astro';
@@ -466,6 +467,11 @@ const showNewsletterPopup = newsletterPopupMode === 'preview' || newsletterPopup
   <!-- Cookie consent banner. Shows on first visit only; gates the
        gtag.js loader above via the 'pi:consent-changed' event. -->
   <CookieBanner />
+
+  <!-- Where in the Peninsula is PI? corner peek. Content pages only, once
+       per week, waits for consent and stands down if the Insider Note
+       popup is up. Master switch: PLAY.enabled in lib/play.ts. -->
+  <PlayPeek />
 
   <!-- Save / share-list controller (Phase 2 WS2E). Site-wide; binds save
        buttons on every page, owns localStorage, exposes window.PISave. -->

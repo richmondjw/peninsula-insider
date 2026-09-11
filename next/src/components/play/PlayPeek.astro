@@ -1,0 +1,134 @@
+---
+/**
+ * PlayPeek - the one gentle nudge.
+ *
+ * PI's hat slides up in the corner once, with a line of copy, on content
+ * pages only. Rules, all enforced in the script below:
+ *   - detail pages only (journal, eat, wine, stay, explore, whats-on);
+ *     never the homepage, account, plan, pass, partner or admin surfaces
+ *   - waits for the cookie banner to be answered, and stands down for the
+ *     session if the Insider Note popup has already shown itself
+ *   - fires after 45s on the page or 50% scroll, whichever is first
+ *   - once per 7 days per browser; dismiss remembered for 30 days
+ *   - reduce-motion: no slide, just appears
+ *   - mobile: a slim bar above the bottom quick-actions bar
+ */
+import { PLAY, playUrl, PRIZE_LINE } from '../../lib/play';
+const href = playUrl('peek');
+---
+
+{PLAY.enabled && (
+  <aside class="play-peek" id="play-peek" hidden aria-label="Where in the Peninsula is PI?">
+    <img class="play-peek__mark" src="/images/play/pi-mark-still-96.png" srcset="/images/play/pi-mark-still-96.png 1x, /images/play/pi-mark-still-192.png 2x" width="56" height="52" alt="" decoding="async" />
+    <div class="play-peek__text">
+      <p class="play-peek__lead">She&rsquo;s out again.</p>
+      <p class="play-peek__copy">Play Case {PLAY.case.id}, find her before sunset. {PRIZE_LINE}</p>
+    </div>
+    <a class="play-peek__cta pi-btn pi-btn--solid pi-btn--sm" href={href} data-evt="pi_play_promo" data-surface="peek" data-position="cta">Play</a>
+    <button type="button" class="play-peek__close" aria-label="Not now" data-play-peek-close>&times;</button>
+  </aside>
+)}
+
+<script>
+  const KEY = 'pi-play-peek-v1';
+  const SHOW_EVERY = 7 * 24 * 3600 * 1000;
+  const DISMISS_FOR = 30 * 24 * 3600 * 1000;
+  const CONTENT = /^\/(journal|eat|wine|stay|explore|whats-on)\/[^/]+\/?/;
+
+  function read(): { shown?: number; dismissed?: number } {
+    try { return JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch { return {}; }
+  }
+  function write(v: Record<string, number>) { try { localStorage.setItem(KEY, JSON.stringify(v)); } catch {} }
+  function consentAnswered() { try { return !!localStorage.getItem('pi-consent-v1'); } catch { return true; } }
+
+  function initPlayPeek() {
+    const el = document.getElementById('play-peek');
+    if (!el || el.dataset.bound) return;
+    el.dataset.bound = '1';
+    if (!CONTENT.test(location.pathname)) return;
+    const s = read();
+    const now = Date.now();
+    if (s.dismissed && now - s.dismissed < DISMISS_FOR) return;
+    if (s.shown && now - s.shown < SHOW_EVERY) return;
+
+    let noteShown = false;
+    document.addEventListener('inote_open', () => { noteShown = true; }, { once: true });
+    document.addEventListener('inote_impression', () => { noteShown = true; }, { once: true });
+
+    let fired = false;
+    const show = () => {
+      if (fired) return;
+      if (noteShown || !consentAnswered() || document.querySelector('#inote:not([hidden])')) { setTimeout(show, 5000); return; }
+      fired = true;
+      cleanup();
+      el.hidden = false;
+      requestAnimationFrame(() => { el.dataset.in = 'true'; });
+      write({ ...s, shown: Date.now() });
+      (window as any).gtag?.('event', 'pi_play_promo', { surface: 'peek', position: 'impression' });
+    };
+    const onScroll = () => {
+      const max = document.documentElement.scrollHeight - innerHeight;
+      if (max > 0 && scrollY / max >= 0.5) show();
+    };
+    const timer = setTimeout(show, 45000);
+    const cleanup = () => { clearTimeout(timer); removeEventListener('scroll', onScroll); };
+    addEventListener('scroll', onScroll, { passive: true });
+
+    el.querySelector('[data-play-peek-close]')?.addEventListener('click', () => {
+      el.dataset.in = 'false';
+      setTimeout(() => { el.hidden = true; }, 320);
+      write({ ...read(), dismissed: Date.now() });
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initPlayPeek);
+  else initPlayPeek();
+  document.addEventListener('astro:page-load', initPlayPeek);
+</script>
+
+<style>
+  .play-peek {
+    position: fixed;
+    right: var(--space-4);
+    bottom: var(--space-4);
+    z-index: 60;
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    width: min(380px, calc(100vw - 2 * var(--space-4)));
+    padding: var(--space-3) var(--space-4);
+    background: var(--white);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-m);
+    box-shadow: 0 16px 40px rgba(11, 46, 74, 0.16);
+    font-family: var(--font-ui);
+    transform: translateY(24px);
+    opacity: 0;
+    transition: transform 0.32s ease, opacity 0.32s ease;
+  }
+  .play-peek[data-in="true"] { transform: none; opacity: 1; }
+  .play-peek__mark { flex: none; width: 56px; height: auto; }
+  .play-peek__text { flex: 1 1 auto; min-width: 0; }
+  .play-peek__lead { margin: 0 0 2px; font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; line-height: 1.1; }
+  .play-peek__copy { margin: 0; font-size: var(--fs-200); line-height: 1.4; color: var(--soft, #5B6770); }
+  .play-peek__cta { flex: none; }
+  .play-peek__close {
+    position: absolute; top: 4px; right: 6px;
+    width: 32px; height: 32px; border: 0; background: transparent; color: var(--soft);
+    font-size: 20px; line-height: 1; cursor: pointer; border-radius: 50%;
+  }
+  .play-peek__close:hover { background: var(--bg-alt, #F7F4EE); color: var(--text); }
+  @media (max-width: 767px) {
+    .play-peek {
+      right: var(--space-3); left: var(--space-3); width: auto;
+      bottom: calc(56px + env(safe-area-inset-bottom) + var(--space-3));
+      padding: var(--space-2) var(--space-3);
+    }
+    .play-peek__mark { width: 40px; }
+    .play-peek__copy { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .play-peek { transition: opacity 0.2s ease; transform: none; }
+  }
+  @media print { .play-peek { display: none; } }
+</style>

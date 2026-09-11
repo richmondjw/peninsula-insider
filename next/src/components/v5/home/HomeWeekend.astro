@@ -19,6 +19,7 @@
 import { getCollection } from 'astro:content';
 import Card from '../Card.astro';
 import CardGrid from '../CardGrid.astro';
+import PlayCard from '../../play/PlayCard.astro';
 import { resolveHero } from '../../../lib/inline-edit/resolve-hero';
 import {
   selectWeekendPicks,
@@ -97,6 +98,8 @@ const cards = await Promise.all(
       <p class="home-weekend__all">
         <a href="/whats-on/">Everything on this weekend &rarr;</a>
       </p>
+
+      <PlayCard variant="band" />
     </div>
   </section>
 )}

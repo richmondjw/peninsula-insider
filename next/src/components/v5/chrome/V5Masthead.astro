@@ -29,6 +29,7 @@
  * eyebrows (uppercase, tracked), which is the one place the review keeps
  * letterspaced caps. Button labels stay sentence case.
  */
+import PlayBeacon from '../../play/PlayBeacon.astro';
 import { v5Pillars, v5Utilities } from '../../../lib/v5-nav';
 import V5MegaPanel from './V5MegaPanel.astro';
 
@@ -68,6 +69,8 @@ const active = activePillar(path, section);
             appends itself into .v2-util__links (its legacy hook).
             display:contents so the chip joins this flex row. */}
         <span class="v2-util__links v5-masthead__profile-slot"></span>
+
+        <PlayBeacon />
 
         <a href={v5Utilities.launcher.href} class="v5-launcher pi-btn pi-btn--ghost pi-btn--sm" data-open-search data-evt="search_open">
           <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">

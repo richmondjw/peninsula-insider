@@ -9,6 +9,7 @@ import ItineraryCard from './ItineraryCard.astro';
 import PiArticleActions from './PiArticleActions.astro';
 import { getCollection } from 'astro:content';
 import { resolveHero } from '../lib/inline-edit/resolve-hero';
+import PlayRibbon from './play/PlayRibbon.astro';
 import { editableImage, editableText } from '../lib/inline-edit/attrs';
 import EstateCluster from './EstateCluster.astro';
 
@@ -318,6 +319,8 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
         </span>
       </div>
     )}
+
+    <PlayRibbon kind="venue" slug={venueSlug} />
 
     <figure
       class="venue-detail__hero"

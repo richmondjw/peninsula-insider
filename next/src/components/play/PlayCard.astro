@@ -1,0 +1,93 @@
+---
+/**
+ * PlayCard - the editorial placements.
+ *
+ *   variant="band"   Homepage, under the This Weekend picks: the case as a
+ *                    weekly item, with the painted Mornington scene.
+ *   variant="inline" End of a Journal article: "Or let PI plan your day."
+ *
+ * Both are plain markup (not a v5 Card) so the CMS editable-coverage gate
+ * and the card enforcer leave them alone; the art is game art, not a
+ * content-registry hero.
+ */
+import { PLAY, playUrl, PRIZE_LINE } from '../../lib/play';
+
+export interface Props { variant?: 'band' | 'inline' }
+const { variant = 'band' } = Astro.props;
+const surface = variant === 'band' ? 'home-band' : 'journal-inline';
+const href = playUrl(surface);
+---
+
+{PLAY.enabled && (
+  <section class:list={['play-card', `play-card--${variant}`]} aria-labelledby={`play-card-${variant}-title`}>
+    <a class="play-card__media" href={href} tabindex="-1" aria-hidden="true" data-evt="pi_play_promo" data-surface={surface} data-position="media">
+      <img src={PLAY.case.image} alt="" width="1280" height="720" loading="lazy" decoding="async" />
+      <span class="play-card__stamp">Case<strong>{PLAY.case.id}</strong></span>
+    </a>
+    <div class="play-card__body">
+      <p class="play-card__eyebrow">{variant === 'band' ? 'Play this weekend’s case' : 'Or let PI plan your day'}</p>
+      <h2 class="play-card__title" id={`play-card-${variant}-title`}>Where in the Peninsula is PI?</h2>
+      <p class="play-card__dek">
+        {variant === 'band'
+          ? 'She took her coffee to go from Mornington pier and was gone. Ask the locals, search the scenes, read the land. Find her before sunset and the route you solved is a real day out you can save to your trip.'
+          : 'A painted Peninsula, three witnesses a stop, and the sun for a clock. Find PI before sunset and her route becomes a day you can drive.'}
+      </p>
+      <p class="play-card__prize">{PRIZE_LINE}{' '}<span class="play-card__sponsor">Prize partner.</span></p>
+      <p class="play-card__actions">
+        <a class="pi-btn pi-btn--solid" href={href} data-evt="pi_play_promo" data-surface={surface} data-position="cta">Play Case {PLAY.case.id}</a>
+        <span class="play-card__fine">Six to ten minutes. Free, no account.</span>
+      </p>
+    </div>
+  </section>
+)}
+
+<style>
+  .play-card {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    gap: var(--space-5);
+    align-items: center;
+    background: var(--bg-alt, #F7F4EE);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-m);
+    overflow: hidden;
+    font-family: var(--font-ui);
+  }
+  .play-card--band { margin-top: var(--space-6); }
+  .play-card--inline { margin: var(--space-7) auto; max-width: 62rem; padding-right: var(--space-5); }
+  .play-card__media { position: relative; display: block; height: 100%; min-height: 220px; }
+  .play-card__media img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .play-card__stamp {
+    position: absolute; top: var(--space-3); left: var(--space-3);
+    width: 56px; height: 56px; border-radius: 50%;
+    border: 2px solid #A64E36; color: #A64E36;
+    background: rgba(245, 240, 228, 0.92);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    font-family: ui-monospace, Menlo, monospace; font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
+    transform: rotate(-8deg);
+  }
+  .play-card__stamp strong { font-size: 18px; letter-spacing: 0; line-height: 1; }
+  .play-card__body { padding: var(--space-5) var(--space-5) var(--space-5) 0; }
+  .play-card--inline .play-card__body { padding: var(--space-5) 0; }
+  .play-card__eyebrow {
+    margin: 0 0 var(--space-2);
+    font-size: var(--fs-100); letter-spacing: var(--ls-eyebrow); text-transform: uppercase;
+    color: var(--sand-text); font-weight: var(--fw-semibold);
+  }
+  .play-card__title {
+    margin: 0 0 var(--space-3);
+    font-family: var(--font-display); font-weight: 700;
+    font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2.125rem); line-height: 1.05; letter-spacing: -0.02em;
+  }
+  .play-card__dek { margin: 0 0 var(--space-3); font-size: var(--fs-400); line-height: 1.5; }
+  .play-card__prize { margin: 0 0 var(--space-4); font-size: var(--fs-300); font-weight: var(--fw-semibold); }
+  .play-card__sponsor { font-weight: 400; color: var(--soft); }
+  .play-card__actions { margin: 0; display: flex; align-items: center; gap: var(--space-4); flex-wrap: wrap; }
+  .play-card__fine { font-size: var(--fs-200); color: var(--soft); }
+  @media (max-width: 767px) {
+    .play-card { grid-template-columns: 1fr; }
+    .play-card--inline { padding-right: 0; }
+    .play-card__media { min-height: 180px; }
+    .play-card__body, .play-card--inline .play-card__body { padding: var(--space-4); }
+  }
+</style>
