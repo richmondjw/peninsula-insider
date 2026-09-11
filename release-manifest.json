@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "releaseId": "d69f43806b71-34570372239",
-  "sourceSha": "d69f43806b7172366ae9417a6dabf4fa8d0412c5",
-  "buildRunId": "34570372239",
-  "generatedAt": "2026-09-11T06:36:15.831Z",
+  "releaseId": "1fc18f2dc4bc-34571070167",
+  "sourceSha": "1fc18f2dc4bca69961fad645bf30984b38b7a86f",
+  "buildRunId": "34571070167",
+  "generatedAt": "2026-09-11T06:45:37.170Z",
   "trigger": "push",
   "authority": {
     "mode": "github-protected-release",
@@ -39,6 +39,6 @@
   ],
   "verification": {
     "state": "awaiting_external_verification",
-    "expectedDeploymentSha": "d69f43806b7172366ae9417a6dabf4fa8d0412c5"
+    "expectedDeploymentSha": "1fc18f2dc4bca69961fad645bf30984b38b7a86f"
   }
 }
