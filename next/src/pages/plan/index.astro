@@ -193,8 +193,18 @@ const piIndex = { places: piPlaces, venues: piVenues };
     if (btn) btn.lastChild!.textContent = " Save PI's route to my trip";
     const mine = document.querySelector<HTMLAnchorElement>('[data-plan-toolbar] a');
     if (mine) { mine.href = '/me/trip/'; mine.textContent = 'My trip'; }
-    btn?.addEventListener('click', () => {
-      const day = Store.tripAddDay(`PI's route · Case ${route.caseId}`);
+    // init() runs on DOMContentLoaded and again on astro:page-load; bind once.
+    if (!btn || btn.dataset.piBound) return true;
+    btn.dataset.piBound = '1';
+    const dayLabel = `PI's route · Case ${route.caseId}`;
+    if (Store.tripDays().some((d) => d.label === dayLabel)) {
+      btn.setAttribute('disabled', '');
+      btn.lastChild!.textContent = ' Already in my trip';
+      return true;
+    }
+    btn.addEventListener('click', () => {
+      if (Store.tripDays().some((d) => d.label === dayLabel)) return;
+      const day = Store.tripAddDay(dayLabel);
       for (const it of route.items) {
         Store.tripAdd({ kind: it.kind, slug: it.slug, title: it.title, href: it.href, meta: { image_url: it.image_url, pi_case: route.caseId } }, { dayId: day.id });
       }
