@@ -1,0 +1,85 @@
+---
+/**
+ * PlayRibbon - "PI was found here" on the pages that are in the case.
+ *
+ * Renders nothing unless this place or venue plays a part in the current
+ * case (PLAY.case) or is the draw's prize partner. Data-driven from lib/play,
+ * so Case 02 re-points every ribbon with one config edit and no template
+ * work. The prize-partner variant carries the sponsor label per the site's
+ * advertising firewall (label, never absence).
+ */
+import { PLAY, playRole, playUrl } from '../../lib/play';
+
+export interface Props {
+  kind: 'place' | 'venue';
+  slug: string;
+}
+const { kind, slug } = Astro.props;
+const role = playRole(kind, slug);
+const href = playUrl(`ribbon-${role ?? 'none'}`);
+const copy = role === 'found'
+  ? { lead: 'PI was found here.', body: `Case ${PLAY.case.id}, ${PLAY.case.title}. Solve it and this is where the day ends.` }
+  : role === 'route'
+  ? { lead: 'PI passed through here.', body: `Case ${PLAY.case.id}, ${PLAY.case.title}. Twenty minutes ahead of you, as usual.` }
+  : { lead: 'This month’s prize.', body: `Find PI before sunset and go in the draw for ${PLAY.draw.prize} here. Draw closes ${PLAY.draw.closes}.` };
+---
+
+{role && (
+  <aside class:list={['play-ribbon', `play-ribbon--${role}`]} aria-label="Where in the Peninsula is PI?">
+    <img class="play-ribbon__mark" src="/images/play/pi-mark-still-96.png" srcset="/images/play/pi-mark-still-96.png 1x, /images/play/pi-mark-still-192.png 2x" width="40" height="37" alt="" loading="lazy" decoding="async" />
+    <div class="play-ribbon__text">
+      <p class="play-ribbon__eyebrow">
+        Where in the Peninsula is PI?
+        {role === 'prize' && <span class="play-ribbon__sponsor">Prize partner</span>}
+      </p>
+      <p class="play-ribbon__lead">{copy.lead} <span class="play-ribbon__body">{copy.body}</span></p>
+    </div>
+    <a
+      class="play-ribbon__cta pi-btn pi-btn--solid pi-btn--sm"
+      href={href}
+      data-evt="pi_play_promo"
+      data-surface={`ribbon-${role}`}
+      data-entity-type={kind}
+      data-entity-slug={slug}
+    >Play the case</a>
+  </aside>
+)}
+
+<style>
+  .play-ribbon {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    margin: var(--space-4) 0 var(--space-5);
+    padding: var(--space-3) var(--space-4);
+    background: var(--bg-alt, #F7F4EE);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--sand);
+    border-radius: var(--radius-s);
+    font-family: var(--font-ui);
+  }
+  .play-ribbon--prize { border-left-color: var(--harbour); }
+  .play-ribbon__mark { flex: none; width: 40px; height: auto; }
+  .play-ribbon__text { flex: 1 1 auto; min-width: 0; }
+  .play-ribbon__eyebrow {
+    margin: 0 0 2px;
+    font-size: var(--fs-100);
+    letter-spacing: var(--ls-eyebrow);
+    text-transform: uppercase;
+    color: var(--sand-text);
+    font-weight: var(--fw-semibold);
+    display: flex; gap: var(--space-2); flex-wrap: wrap;
+  }
+  .play-ribbon__sponsor {
+    color: var(--soft);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+  }
+  .play-ribbon__lead { margin: 0; font-size: var(--fs-300); line-height: 1.4; font-weight: var(--fw-semibold); }
+  .play-ribbon__body { font-weight: 400; color: var(--soft, #5B6770); }
+  .play-ribbon__cta { flex: none; white-space: nowrap; }
+  @media (max-width: 639px) {
+    .play-ribbon { flex-wrap: wrap; }
+    .play-ribbon__cta { width: 100%; justify-content: center; }
+  }
+</style>

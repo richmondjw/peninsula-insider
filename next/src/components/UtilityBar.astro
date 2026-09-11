@@ -29,6 +29,7 @@
  * use only v6 tokens: no hardcoded hex.
  */
 import { getConditionsStrip } from '../lib/conditions';
+import { PLAY, playUrl } from '../lib/play';
 
 export interface Props {
   /** Override the reference instant. Defaults to build time. */
@@ -57,6 +58,11 @@ const placeLabel = c.place && c.temperature
         )}
         {c.sea && (
           <span class="pi-conditions__item pi-conditions__item--sea">{c.sea}</span>
+        )}
+        {PLAY.enabled && (
+          <a class="pi-conditions__item pi-conditions__item--play" href={playUrl('ticker')} data-evt="pi_play_promo" data-surface="ticker">
+            Case {PLAY.case.id} is open<span class="pi-conditions__play-cta"> · Play</span>
+          </a>
         )}
       </p>
     )}
@@ -132,6 +138,17 @@ const placeLabel = c.place && c.temperature
     font-weight: var(--fw-semibold);
   }
   .pi-conditions__issue-short { display: none; }
+
+  /* The game's line in the dateline. Same type as the conditions; the
+     warm cut marks it as a call rather than a reading. */
+  .pi-conditions__item--play {
+    color: var(--sand);
+    text-decoration: none;
+  }
+  .pi-conditions__item--play:hover .pi-conditions__play-cta { text-decoration: underline; }
+  @media (max-width: 899px) {
+    .pi-conditions__item--play { display: none; }
+  }
 
   /* Tablet: the sea and tide read is the longest and least critical item. */
   @media (max-width: 899px) {

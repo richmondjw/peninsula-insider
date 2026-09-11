@@ -24,6 +24,7 @@
  */
 
 import Breadcrumbs from './Breadcrumbs.astro';
+import PlayRibbon from './play/PlayRibbon.astro';
 import PlaceCard from './PlaceCard.astro';
 import VenueCard from './VenueCard.astro';
 import ExperienceCard from './ExperienceCard.astro';
@@ -217,6 +218,10 @@ const factual = place.data.factualLede ?? '';
 <!-- ═══════════════════════════════════════════════════════════════════════
      2. EDITORIAL LEDE - factual prose + at-a-glance sidebar card
      ═══════════════════════════════════════════════════════════════════════ -->
+<div class="container">
+  <PlayRibbon kind="place" slug={placeSlug} />
+</div>
+
 <section class="pdv2-lede">
   <div class="container pdv2-lede__grid">
     <div class="pdv2-lede__main">

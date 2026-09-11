@@ -1,0 +1,134 @@
+---
+/**
+ * PlayBeacon - PI's mark in the masthead utility row.
+ *
+ * The site's one persistent presence for the game: 32px, on brand, and it is
+ * her (the same hat-turn loop the game uses in its own header), not a badge.
+ * Ships the 9KB still first and swaps in the animated WebP after window.load
+ * so it never competes with the page's LCP; reduce-motion keeps the still.
+ * Desktop only (the phone masthead row has no spare width); the hover/focus
+ * card carries the case and the prize.
+ */
+import { PLAY, playUrl, PRIZE_LINE } from '../../lib/play';
+const href = playUrl('masthead');
+---
+
+{PLAY.enabled && (
+  <div class="v5-play">
+    <a
+      href={href}
+      class="v5-play__link pi-btn pi-btn--ghost pi-btn--sm"
+      aria-label={`Where in the Peninsula is PI? Play Case ${PLAY.case.id}`}
+      aria-describedby="v5-play-card"
+      data-evt="pi_play_promo"
+      data-surface="masthead"
+      data-position="beacon"
+    >
+      <img
+        class="v5-play__mark"
+        src="/images/play/pi-mark-still-96.png"
+        srcset="/images/play/pi-mark-still-96.png 1x, /images/play/pi-mark-still-192.png 2x"
+        data-animated="/images/play/pi-mark-turn-80.webp"
+        data-animated-2x="/images/play/pi-mark-turn-160.webp"
+        width="32"
+        height="30"
+        alt=""
+        decoding="async"
+      />
+      <span class="v5-play__label">Play</span>
+    </a>
+    <div class="v5-play__card" id="v5-play-card" role="tooltip">
+      <p class="v5-play__eyebrow">Where in the Peninsula is PI?</p>
+      <p class="v5-play__lead">She&rsquo;s out again.</p>
+      <p class="v5-play__copy">
+        Case {PLAY.case.id}: {PLAY.case.title}. Ask the locals, read the land, find her before sunset. {PRIZE_LINE}
+      </p>
+      <p class="v5-play__fine">Prize partner. Free to play, no account.</p>
+    </div>
+  </div>
+)}
+
+<script>
+  // Swap the still for the animated mark once the page has fully loaded.
+  // After load, idle: the icon is decoration, the article is the point.
+  function animatePlayMark() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    document.querySelectorAll<HTMLImageElement>('.v5-play__mark[data-animated]').forEach((img) => {
+      const one = img.dataset.animated!;
+      const two = img.dataset.animated2x ?? one;
+      const pre = new Image();
+      pre.onload = () => {
+        img.srcset = `${one} 1x, ${two} 2x`;
+        img.src = one;
+      };
+      pre.src = one;
+    });
+  }
+  if (document.readyState === 'complete') animatePlayMark();
+  else window.addEventListener('load', animatePlayMark, { once: true });
+  document.addEventListener('astro:page-load', animatePlayMark);
+</script>
+
+<style>
+  .v5-play { position: relative; display: inline-flex; }
+  .v5-play__link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    min-height: 44px;
+  }
+  .v5-play__mark {
+    display: block;
+    width: 32px;
+    height: auto;
+    flex: none;
+  }
+  .v5-play__label { line-height: 1; }
+
+  /* Hover card: desktop only, pointer devices only. */
+  .v5-play__card {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    width: 300px;
+    padding: var(--space-4);
+    background: var(--white);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-m);
+    box-shadow: 0 12px 32px rgba(11, 46, 74, 0.14);
+    z-index: 40;
+    font-family: var(--font-ui);
+  }
+  .v5-play__eyebrow {
+    margin: 0 0 var(--space-1);
+    font-size: var(--fs-100);
+    letter-spacing: var(--ls-eyebrow);
+    text-transform: uppercase;
+    color: var(--sand-text);
+    font-weight: var(--fw-semibold);
+  }
+  .v5-play__lead {
+    margin: 0 0 var(--space-2);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.25rem;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+  .v5-play__copy { margin: 0 0 var(--space-2); font-size: var(--fs-300); line-height: 1.45; }
+  .v5-play__fine { margin: 0; font-size: var(--fs-100); color: var(--soft); }
+
+  @media (hover: hover) and (min-width: 1024px) {
+    .v5-play:hover .v5-play__card,
+    .v5-play:focus-within .v5-play__card { display: block; }
+  }
+  /* The mobile utility row is already full at 375px (Search + Menu + the
+     wordmark fill the line exactly, per the masthead's own notes), so the
+     beacon is desktop-only. Phones get the drawer row, the ribbons, the
+     band, the journal card and the peek. */
+  @media (max-width: 1023px) {
+    .v5-play { display: none; }
+  }
+</style>
