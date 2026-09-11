@@ -12,8 +12,23 @@
  * the empty container.
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { resolveHeroSrc, venueHrefPrefix } from '../../lib/editorial';
 import '../../styles/account.css';
 export const prerender = true;
+
+// `/plan/?pi-case=01&route=<place slugs>&venue=<venue slug>` is the hand-off from
+// "Where in the Peninsula is PI?" (play.peninsulainsider.com.au). The game only
+// knows slugs; this index lets the client turn them into real cards and trip stops.
+const piPlaces = Object.fromEntries((await getCollection('places')).map((p) => [
+  p.data.slug ?? p.id,
+  { title: p.data.name, href: `/places/${p.data.slug ?? p.id}/`, image: resolveHeroSrc(p.data) },
+]));
+const piVenues = Object.fromEntries((await getCollection('venues')).map((v) => [
+  v.data.slug ?? v.id,
+  { title: v.data.name, href: `${venueHrefPrefix(String(v.data.type ?? ''))}/${v.data.slug ?? v.id}/`, image: resolveHeroSrc(v.data) },
+]));
+const piIndex = { places: piPlaces, venues: piVenues };
 ---
 
 <BaseLayout
@@ -41,6 +56,7 @@ export const prerender = true;
       </div>
 
       <div data-plan-groups class="saved-groups"></div>
+      <script type="application/json" id="pi-route-index" set:html={JSON.stringify(piIndex)}></script>
 
       <div data-plan-empty class="v2-saved-empty" hidden>
         <p>This plan link looks empty or expired. Ask whoever sent it to share again.</p>
@@ -52,6 +68,7 @@ export const prerender = true;
 
 <script>
   import * as Saves from '../../lib/saves/store';
+  import * as Store from '../../lib/v5-store';
   import { decodePlan } from '../../lib/saves/share-link';
   import type { SharedItem } from '../../lib/saves/share-link';
   import { track } from '../../lib/saves/analytics';
@@ -130,8 +147,67 @@ export const prerender = true;
     setTimeout(() => toast?.classList.remove('saved-toast--visible'), 2400);
   }
 
+  const PI_CASE_TITLES: Record<string, string> = { '01': 'Took her coffee to go' };
+
+  /** Resolve the game's slugs against the build-time index into shareable items, in route order. */
+  function piRouteItems(params: URLSearchParams): { caseId: string; items: SharedItem[] } | null {
+    const caseId = (params.get('pi-case') ?? '').replace(/[^0-9a-z]/gi, '');
+    if (!caseId) return null;
+    const raw = document.getElementById('pi-route-index')?.textContent;
+    if (!raw) return null;
+    let index: { places: Record<string, { title: string; href: string; image: string }>; venues: Record<string, { title: string; href: string; image: string }> };
+    try { index = JSON.parse(raw); } catch { return null; }
+    const items: SharedItem[] = [];
+    for (const slug of (params.get('route') ?? '').split(',').map((s) => s.trim()).filter(Boolean)) {
+      const p = index.places[slug];
+      if (p) items.push({ kind: 'place', slug, title: p.title, href: p.href, image_url: p.image || undefined });
+    }
+    const venue = (params.get('venue') ?? '').trim();
+    const v = venue ? index.venues[venue] : null;
+    if (v) items.push({ kind: 'venue', slug: venue, title: v.title, href: v.href, image_url: v.image || undefined, dek: 'Where PI was found.' });
+    return items.length ? { caseId, items } : null;
+  }
+
+  function renderRoute(items: SharedItem[]): string {
+    return `
+      <section class="saved-group">
+        <header class="saved-group__head">
+          <p class="saved-group__eyebrow">In order</p>
+          <h2 class="saved-group__title">The route <span class="saved-group__count">${items.length}</span></h2>
+        </header>
+        <div class="saved-group__grid">${items.map((it, i) => renderItem({ ...it, dek: `${i + 1}. ${it.dek ?? (it.kind === 'place' ? 'Stop' : '')}`.replace(/\. $/, '.') })).join('')}</div>
+      </section>`;
+  }
+
+  function initPiRoute(params: URLSearchParams): boolean {
+    const route = piRouteItems(params);
+    if (!route) return false;
+    const caseTitle = PI_CASE_TITLES[route.caseId] ?? 'A day out, hiding in plain sight';
+    const set = (sel: string, text: string) => { const el = document.querySelector<HTMLElement>(sel); if (el) el.textContent = text; };
+    set('[data-plan-eyebrow]', `Where in the Peninsula is PI? · Case ${route.caseId}`);
+    set('[data-plan-title]', caseTitle);
+    set('[data-plan-lead]', 'The day you just solved, stop by stop, ending where you found her. Save it to your trip and it is yours to drive.');
+    const groupsEl = document.querySelector<HTMLElement>('[data-plan-groups]');
+    if (groupsEl) groupsEl.innerHTML = renderRoute(route.items);
+    const btn = document.querySelector<HTMLElement>('[data-action="fork-plan"]');
+    if (btn) btn.lastChild!.textContent = " Save PI's route to my trip";
+    const mine = document.querySelector<HTMLAnchorElement>('[data-plan-toolbar] a');
+    if (mine) { mine.href = '/me/trip/'; mine.textContent = 'My trip'; }
+    btn?.addEventListener('click', () => {
+      const day = Store.tripAddDay(`PI's route · Case ${route.caseId}`);
+      for (const it of route.items) {
+        Store.tripAdd({ kind: it.kind, slug: it.slug, title: it.title, href: it.href, meta: { image_url: it.image_url, pi_case: route.caseId } }, { dayId: day.id });
+      }
+      track('pi_plan_fork', { source: 'where-is-pi', items_added: route.items.length, items_total: route.items.length });
+      showToast(`Saved ${route.items.length} stops to your trip.`);
+      if (btn) { btn.setAttribute('disabled', ''); btn.lastChild!.textContent = ' Saved to my trip'; }
+    }, { once: true });
+    return true;
+  }
+
   function init() {
     const params = new URLSearchParams(location.search);
+    if (initPiRoute(params)) return;
     const encoded = params.get('p');
     const plan = decodePlan(encoded);
 
