@@ -258,7 +258,7 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
       label: `${data.name} - name`,
     })}>{data.name}</h1>
     {isClosed && (
-      <p class="venue-detail__closed-notice">This cellar door is permanently closed. The page is preserved for historical reference.</p>
+      <p class="venue-detail__closed-notice">This venue is closed. The page is preserved for historical reference.</p>
     )}
     <p class="venue-detail__signature" {...editableText({
       entityType: 'venue', entitySlug: venueSlug, fieldPath: 'signature',
@@ -278,7 +278,7 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
       </p>
     )}
 
-    {(data.bookingUrl || data.phone) && (
+    {(data.bookingUrl || data.phone) && !isClosed && (
       <div class="venue-detail__booking-bar">
         {data.bookingUrl && (
           <a href={data.bookingUrl} target="_blank" rel="noopener noreferrer" class="pi-btn pi-btn--solid pi-btn--lg">

@@ -1,12 +1,12 @@
 ---
-title: "Insider Picks: 13 September 2026"
-dek: "Ouest France Bistro's buckwheat galette on a spring Saturday, spider orchids along the Moorooduc Plains grassland loop, and the final Red Hill truffle hunt window before season close."
+title: "Insider Picks: Spider Orchids and Red Hill Truffles, 13 September 2026"
+dek: "Spider orchids along the Moorooduc Plains grassland loop and the final Red Hill truffle hunt window before season close."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-09-13
 heroImage:
   src: "/images/sourced/place-mornington-01.webp"
-  alt: "Mornington, Victoria Bathing boxes on the beach - representative image for Ouest France Bistro"
+  alt: "Mornington, Victoria bathing boxes on the beach"
   credit: "Simon Yeo"
   license: "wikimedia-cc-by"
 format: "insider-edit"
@@ -26,24 +26,10 @@ clusterLinks:
   - label: "Best Walks on the Mornington Peninsula"
     href: "/explore/best-walks/"
 faq:
-  - question: "Where is Ouest France Bistro and when does it open?"
-    answer: "Ouest France Bistro is in Mornington. It opens early on Saturdays - arrive before 9am for the best experience. Check their socials for current hours."
   - question: "When does the Red Hill Truffles hunt season close?"
     answer: "The 2026 truffle hunt season at Red Hill Truffles in Main Ridge runs until 30 September 2026. Bookings are essential and Saturday slots in mid-September fill fast - book at redhilltruffles.com/hunts."
   - question: "Where are the spider orchids on the Moorooduc Plains?"
     answer: "The Moorooduc Plains Flora and Fauna Reserve is off Moorooduc Road near Moorooduc. The grassland loop trails are publicly accessible. Orchids typically peak mid-September; wear shoes you can get muddy and go on a morning after recent rain for the best display."
----
-
-## EAT - Ouest France Bistro, Mornington
-
-The buckwheat galette at Ouest France Bistro is one of the Peninsula's most quietly accomplished breakfasts, and Saturday morning in spring is when it makes the most sense to go.
-
-The bistro sits on a side street in Mornington and is easy to walk past. Inside, the format is properly Breton: dark buckwheat crêpe, ham, gruyère, egg, folded at the corners. The jambon-beurre breakfast runs alongside it. Neither dish tries to do more than it should. The coffee is sharp, the room is small, and the blue-and-white awning marks the door. Spring brings the first outdoor table weather of the year - the side-street position means no wind, full morning sun by nine.
-
-Go on Saturday, arrive before 9:30am. The galette with ham and gruyère is the order. Counter service, so no booking required for breakfast - though the room fills fast once the market crowd arrives.
-
-Pair a post-breakfast walk down to Mornington Harbour with a stop at Commonfolk Coffee if you want a second coffee from the roastery.
-
 ---
 
 ## EXPERIENCE - Spider Orchids, Moorooduc Plains Flora and Fauna Reserve
@@ -71,9 +57,6 @@ Johnny Ripe bakery in Main Ridge is five minutes away; a pie in the garden befor
 ---
 
 ## Quick Reference
-
-**Ouest France Bistro**
-Side-street Mornington (check Google Maps for the exact address). Open early Saturday and Sunday mornings. No booking required for breakfast. Order the buckwheat galette with ham and gruyère.
 
 **Moorooduc Plains Flora and Fauna Reserve**
 Moorooduc Road, Moorooduc. Publicly accessible, no booking. Best visited mid-September mornings after rain. Forty-minute grassland loop. Wear boots.
