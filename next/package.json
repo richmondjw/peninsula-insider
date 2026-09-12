@@ -14,6 +14,7 @@
     "check": "astro check",
     "validate:content": "node scripts/validate-content.mjs",
     "test:content-admission": "node scripts/test-content-admission.mjs",
+    "test:closed-venue-maintenance": "node --test scripts/closed-venue-maintenance.test.mjs",
     "test:campaigns-review-page": "node --test scripts/campaigns-review-page.test.mjs",
     "assert:campaigns-review-page": "node scripts/assert-campaigns-review-page.mjs",
     "test:partner-portal-dashboard": "node --test scripts/partner-portal-dashboard.test.mjs",
