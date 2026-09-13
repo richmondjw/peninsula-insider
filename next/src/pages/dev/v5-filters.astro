@@ -9,6 +9,10 @@
  * PAGE-AGENT CONTRACT demonstrated here:
  *   1. Server-render every item; give each a data-facets JSON attribute
  *      built from getFacets(kind, data) (dummy values here) and a data-title.
+ *      Add data-filter-countable to the items that stand for distinct
+ *      results. The curated band and the directory here hold disjoint items,
+ *      so both are countable; a hub that pins its band FROM its directory
+ *      marks only the directory (see components/v5/hub/TheSix.astro).
  *   2. Put ONE FilterBar above the first result (it renders the live region
  *      #pi-results-status and the paired FilterSheet).
  *   3. Add data-sort-container to any grid whose order may change.
@@ -75,7 +79,7 @@ const directory = items.slice(6);
       <h2 id="curated-h">Editor's picks (curated band)</h2>
       <div class="demo__grid" data-sort-container>
         {curated.map((item) => (
-          <article class="demo__card demo__card--pick" data-facets={JSON.stringify(item.facets)} data-title={item.title}>
+          <article class="demo__card demo__card--pick" data-facets={JSON.stringify(item.facets)} data-filter-countable data-title={item.title}>
             <h3>{item.title}</h3>
             <p class="demo__meta">{item.town} &middot; {item.facets.cat[0]} &middot; band {item.facets.price[0]}</p>
             <p class="demo__meta">{item.facets.mood.join(', ')} &middot; {item.facets.party[0]}</p>
@@ -88,7 +92,7 @@ const directory = items.slice(6);
       <h2 id="directory-h">Directory (all {directory.length})</h2>
       <div class="demo__grid" data-sort-container>
         {directory.map((item) => (
-          <article class="demo__card" data-facets={JSON.stringify(item.facets)} data-title={item.title}>
+          <article class="demo__card" data-facets={JSON.stringify(item.facets)} data-filter-countable data-title={item.title}>
             <h3>{item.title}</h3>
             <p class="demo__meta">{item.town} &middot; {item.facets.cat[0]} &middot; band {item.facets.price[0]}</p>
             <p class="demo__meta">{item.facets.mood.join(', ')} &middot; {item.facets.party[0]}</p>

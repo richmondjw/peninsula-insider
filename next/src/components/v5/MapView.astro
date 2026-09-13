@@ -177,7 +177,9 @@ const chips: { key: FacetKey; value: string; label: string }[] = standalone
                 data-verdict={it.verdict ?? ''}
                 data-metaline={metaLine}
                 data-title={it.title}
-                {...(standalone ? { 'data-facets': facetAttr } : { 'data-map-facets': facetAttr })}
+                {...(standalone
+                  ? { 'data-facets': facetAttr, 'data-filter-countable': 'true' }
+                  : { 'data-map-facets': facetAttr })}
               >
                 <button
                   type="button"

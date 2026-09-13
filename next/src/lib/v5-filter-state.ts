@@ -13,6 +13,15 @@
  *     JSON: Partial<Record<FacetKey, string[]>> using values from the shared
  *     facets taxonomy (lib/facets.ts getFacets/FACET_OPTIONS). Example:
  *       <article data-facets='{"place":["red-hill"],"mood":["long-lunch"]}'>
+ *   - Filterable and countable are two different things. `data-facets` makes
+ *     an element filterable; `data-filter-countable` (COUNTABLE_ATTR) declares
+ *     that the element is the ONE node standing for a distinct result, and so
+ *     is what the counts describe. A page may legitimately render the same
+ *     result twice (a pinned The Six card and its directory row); both must
+ *     filter, only the directory row is countable. Containers and bridge
+ *     modules that merely carry facets are neither a result nor countable.
+ *     When a page marks nothing countable every `data-facets` element counts,
+ *     which is the original behaviour and keeps single-list surfaces working.
  *   - Optionally add `data-title="..."` (used by A-to-Z sort; falls back to
  *     the first heading's text).
  *   - Optionally wrap zero-result messaging in `[data-filter-empty]` (hidden
@@ -29,6 +38,19 @@
 /* ------------------------------------------------------------------ */
 /* Pure state helpers (DOM-free, node-testable)                        */
 /* ------------------------------------------------------------------ */
+
+/**
+ * Opt-in marker naming an element as one distinct countable result.
+ *
+ * Counting tagged nodes rather than results is what made /eat/ report
+ * "Showing all 60 places" under an "All 53 places to eat" heading: the six
+ * The Six cards are the same venues rendered a second time, and a winery
+ * bridge container carried facets while representing no venue at all.
+ *
+ * Presence is the signal; the value is ignored, so both `data-filter-countable`
+ * and `data-filter-countable="true"` count.
+ */
+export const COUNTABLE_ATTR = 'data-filter-countable';
 
 export const FILTER_KEYS = ['place', 'cat', 'mood', 'price', 'party', 'date'] as const;
 export type FilterKey = (typeof FILTER_KEYS)[number];
@@ -153,6 +175,16 @@ export function itemMatches(itemFacets: FilterState, state: FilterState): boolea
   return true;
 }
 
+/**
+ * The result set the page's counts describe: every item that opted in via
+ * COUNTABLE_ATTR, or, when a page marks none, all of them. DOM-free, so the
+ * semantics are testable without a browser.
+ */
+export function countableSubset<T extends { countable?: boolean }>(items: T[]): T[] {
+  const marked = items.filter((it) => it.countable === true);
+  return marked.length ? marked : items;
+}
+
 /* ------------------------------------------------------------------ */
 /* DOM controller (all functions guard on document)                    */
 /* ------------------------------------------------------------------ */
@@ -187,6 +219,8 @@ export function writeUrl(state: FilterState, opts: { push?: boolean } = {}): voi
 interface FacetedItem {
   el: HTMLElement;
   facets: FilterState;
+  /** Opted in via COUNTABLE_ATTR: this node is one distinct result. */
+  countable: boolean;
 }
 
 function collectItems(root: ParentNode): FacetedItem[] {
@@ -203,7 +237,11 @@ function collectItems(root: ParentNode): FacetedItem[] {
         }
       }
     }
-    items.push({ el, facets: parseItemFacets(el.getAttribute('data-facets')) });
+    items.push({
+      el,
+      facets: parseItemFacets(el.getAttribute('data-facets')),
+      countable: el.hasAttribute(COUNTABLE_ATTR),
+    });
   });
   return items;
 }
@@ -211,7 +249,7 @@ function collectItems(root: ParentNode): FacetedItem[] {
 /** Non-mutating count for the sheet's live "Show N places" preview. */
 export function countMatches(state: FilterState, root?: ParentNode): number {
   if (!hasDom()) return 0;
-  return collectItems(root || document).reduce(
+  return countableSubset(collectItems(root || document)).reduce(
     (n, it) => n + (itemMatches(it.facets, state) ? 1 : 0),
     0,
   );
@@ -259,6 +297,10 @@ export function announce(text: string): void {
  * Apply `state` to every [data-facets] item on the page: toggles the hidden
  * attribute plus a data-filtered-out marker (for CSS hooks), updates every
  * [data-filter-count], toggles [data-filter-empty], announces the count.
+ *
+ * Filtering spans every tagged element; the counts span only the countable
+ * ones, so a duplicated result (The Six over its directory row) still hides
+ * and shows in both places while counting once.
  */
 export function applyToDom(
   state: FilterState = current,
@@ -268,15 +310,16 @@ export function applyToDom(
   if (!hasDom()) return { shown: 0, total: 0 };
   const root = rootIn || document;
   const items = collectItems(root);
-  let shown = 0;
   for (const it of items) {
     const ok = itemMatches(it.facets, state);
-    if (ok) shown += 1;
     it.el.toggleAttribute('hidden', !ok);
     if (ok) delete it.el.dataset.filteredOut;
     else it.el.dataset.filteredOut = '1';
   }
-  const total = items.length;
+  const counted = countableSubset(items);
+  let shown = 0;
+  for (const it of counted) if (itemMatches(it.facets, state)) shown += 1;
+  const total = counted.length;
   const anyActive = !isEmptyState(state);
   const countText = anyActive ? `Showing ${shown} of ${total} ${noun}` : `Showing all ${total} ${noun}`;
   root.querySelectorAll<HTMLElement>('[data-filter-count]').forEach((el) => {

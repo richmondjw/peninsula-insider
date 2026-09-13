@@ -249,7 +249,10 @@ export const CHIP_PRESETS: Record<
     { key: 'mood', value: 'date-night', label: 'Date night' },
     { key: 'party', value: 'family', label: 'With kids' },
     { key: 'mood', value: 'quick', label: 'Quick & good' },
-    { key: 'cat', value: 'winery', label: 'Winery kitchens' },
+    // No winery chip on /eat/: eatTypes excludes 'winery', so the surface has
+    // never held one. The chip used to match only the empty Winery kitchens
+    // bridge container, which carried cat=winery while standing for no venue;
+    // both were removed 2026-09-13 (PI-009). Cellar doors live on /wine/.
   ],
   stay: [
     { key: 'party', value: 'couples', label: 'Couples' },

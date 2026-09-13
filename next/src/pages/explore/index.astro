@@ -11,7 +11,9 @@
  * directory rows.
  *
  * Filter model: one URL-persisted state (lib/v5-filter-state). Directory rows
- * carry data-facets; the curated browse layer (shelves/towns/verticals)
+ * carry data-facets and data-filter-countable (this list is the page's whole
+ * result set, so its rows are what the counts describe); the curated browse
+ * layer (shelves/towns/verticals)
  * yields to the filtered directory whenever any facet is active, so the
  * live count ("Showing N of 44 experiences") always matches one render of
  * the corpus. Shelf "All N" links apply the preset in page (no fetch) and
@@ -526,7 +528,12 @@ export const prerender = true;
       </p>
       <CardGrid label={`All ${directoryRows.length} experiences`} layout="rows">
         {directoryRows.map((r, i) => (
-          <li data-facets={JSON.stringify(r.facets)} data-title={r.name} class="x-directory__row">
+          <li
+            data-facets={JSON.stringify(r.facets)}
+            data-filter-countable
+            data-title={r.name}
+            class="x-directory__row"
+          >
             <Card
               as="div"
               variant="compact-row"

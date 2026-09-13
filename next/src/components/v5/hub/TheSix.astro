@@ -11,6 +11,11 @@
  * the page FilterBar shows/hides The Six AND the directory together.
  * Editorial order is fixed: no data-sort-container on this list.
  *
+ * Filterable, never countable: every pick here is pinned FROM the directory
+ * below and is rendered a second time, so these `li`s deliberately omit
+ * `data-filter-countable` (COUNTABLE_ATTR in lib/v5-filter-state). Counting
+ * them is what put "Showing all 60 places" under "All 53 places to eat".
+ *
  * Generic and prop-driven for the Eat / Wine / Stay / Explore hub agents.
  */
 import Card from '../Card.astro';

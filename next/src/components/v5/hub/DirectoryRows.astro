@@ -6,8 +6,10 @@
  * elements per row (row link + save; stays add Book via `booking`).
  *
  * Filter contract (lib/v5-filter-state.ts): every row `li` carries
- * `data-facets` and `data-title`; the list is a `data-sort-container` so
- * SortControl can reorder it; a `[data-filter-empty]` EmptyState toggles at
+ * `data-facets`, `data-title` and, unless `countable={false}`,
+ * `data-filter-countable` (this is the catalogue layer, so a row here is the
+ * page's one node standing for that result); the list is a
+ * `data-sort-container` so SortControl can reorder it; a `[data-filter-empty]` EmptyState toggles at
  * zero results and its Clear action commits an empty filter state. The page
  * FilterBar owns counts and the live region.
  *
@@ -59,6 +61,15 @@ export interface Props {
   id?: string;
   emptyHeading?: string;
   emptyBody?: string;
+  /**
+   * Do these rows stand for distinct results the page's counts describe?
+   *
+   * True for the catalogue layer, which is the default use. Pass false for a
+   * secondary module built from rows the catalogue already lists (Wine's
+   * "Winery kitchens" bridge): those rows must still filter, but counting
+   * them again would report more results than the page holds.
+   */
+  countable?: boolean;
 }
 
 const {
@@ -72,6 +83,7 @@ const {
   id,
   emptyHeading,
   emptyBody,
+  countable = true,
 } = Astro.props;
 
 const headingId = `${id ?? `directory-${surface}`}-heading`;
@@ -97,6 +109,7 @@ const headingId = `${id ?? `directory-${surface}`}-heading`;
         <li
           class="v5-directory__row"
           data-facets={item.facets ? JSON.stringify(item.facets) : undefined}
+          data-filter-countable={countable && item.facets ? 'true' : undefined}
           data-title={item.sortTitle ?? item.title}
         >
           <Card
