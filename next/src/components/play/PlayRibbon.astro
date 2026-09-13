@@ -2,12 +2,12 @@
 /**
  * PlayRibbon - "PI was found here" on the pages that are in the case.
  *
- * Renders nothing unless this place or venue plays a part in the current
- * case (PLAY.case) or is the draw's prize partner. Data-driven from lib/play,
- * so Case 02 re-points every ribbon with one config edit and no template
- * work.
+ * Renders nothing unless this place or venue plays a part in an open case
+ * (PLAY.cases) or is the draw's prize partner. Data-driven from lib/play, so
+ * a new case re-points every ribbon with one config edit and no template
+ * work. The ribbon names the case the page belongs to.
  */
-import { PLAY, playRole, playUrl } from '../../lib/play';
+import { PLAY, playCaseFor, playRole, playUrl } from '../../lib/play';
 
 export interface Props {
   kind: 'place' | 'venue';
@@ -15,11 +15,12 @@ export interface Props {
 }
 const { kind, slug } = Astro.props;
 const role = playRole(kind, slug);
+const inCase = playCaseFor(kind, slug) ?? PLAY.case;
 const href = playUrl(`ribbon-${role ?? 'none'}`);
 const copy = role === 'found'
-  ? { lead: 'PI was found here.', body: `Case ${PLAY.case.id}, ${PLAY.case.title}. Solve it and this is where the day ends.` }
+  ? { lead: 'PI was found here.', body: `Case ${inCase.id}, ${inCase.title}. Solve it and this is where the day ends.` }
   : role === 'route'
-  ? { lead: 'PI passed through here.', body: `Case ${PLAY.case.id}, ${PLAY.case.title}. Twenty minutes ahead of you, as usual.` }
+  ? { lead: 'PI passed through here.', body: `Case ${inCase.id}, ${inCase.title}. Twenty minutes ahead of you, as usual.` }
   : { lead: 'This month’s prize.', body: `Find PI before sunset and go in the draw for ${PLAY.draw.prize} here. Draw closes ${PLAY.draw.closes}.` };
 ---
 

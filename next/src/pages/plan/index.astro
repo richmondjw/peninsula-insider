@@ -153,7 +153,7 @@ const piIndex = { places: piPlaces, venues: piVenues };
     setTimeout(() => toast?.classList.remove('saved-toast--visible'), 2400);
   }
 
-  const PI_CASE_TITLES: Record<string, string> = { '01': 'Took her coffee to go' };
+  const PI_CASE_TITLES: Record<string, string> = { '01': 'Took her coffee to go', '02': 'Took the long way to dinner' };
 
   /** Resolve the game's slugs against the build-time index into shareable items, in route order. */
   function piRouteItems(params: URLSearchParams): { caseId: string; items: SharedItem[] } | null {
