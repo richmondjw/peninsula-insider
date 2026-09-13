@@ -59,6 +59,7 @@ const PILLAR_LASTMOD: Record<string, string> = {
 };
 const TRUST_LASTMOD: Record<string, string> = {
   about: '2026-08-12', 'editorial-approach': '2026-08-14', corrections: '2026-05-25',
+  'how-we-check': '2026-09-14',
   accessibility: '2026-07-04', contact: '2026-07-04',
 };
 const UTILITY_LASTMOD: Record<string, string> = {
@@ -252,7 +253,7 @@ export const GET: APIRoute = async () => {
   // Trust / editorial-standards pages. /methodology/, /our-approach/ and
   // /ethics/ removed 2026-07-11 - they are redirect stubs into
   // /editorial-approach/ (§4.1 rule 1). Utility/legal singles added.
-  for (const page of ['about', 'editorial-approach', 'corrections', 'accessibility', 'contact']) {
+  for (const page of ['about', 'editorial-approach', 'how-we-check', 'corrections', 'accessibility', 'contact']) {
     entries.push(url(`/${page}`, 0.4, 'monthly', TRUST_LASTMOD[page]));
   }
   for (const page of ['site-index', 'privacy', 'terms', 'careers', 'submit', 'pass']) {

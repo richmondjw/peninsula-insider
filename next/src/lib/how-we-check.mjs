@@ -54,14 +54,14 @@ import {
  * a performance of one.
  */
 export const PUBLISHER_LABELS = Object.freeze({
-  'venue-site': 'The business, on its own website',
-  phone: 'The business, by phone',
-  email: 'The business, by email',
+  'venue-site': "The business's own website",
+  phone: 'A phone call to the business',
+  email: 'An email from the business',
   visit: 'Our own notes from a visit',
   press: 'A news report',
-  social: 'The business, on its own social account',
+  social: "The business's own social account",
   gov: 'A government or public authority',
-  partner: 'A commercial partner of this publication',
+  partner: 'A commercial partner of ours',
   organiser: 'The people running the event',
   ticketing: 'The ticket seller',
   'regional-body': 'A tourism board or industry association',
@@ -209,6 +209,40 @@ export const AREA_LABELS = Object.freeze({
 export const INTERNAL_TYPES = Object.freeze(['claims', 'evidence', 'authors', 'editorial_blocks']);
 
 /**
+ * Collection name to the directory it loads from, which is also the name the
+ * record uses for a subject. Declared rather than read off disk: page code
+ * runs from a bundle at build time, where the content directory is not where
+ * the source says it is, and a page that reads the filesystem to describe the
+ * site is one refactor away from describing nothing.
+ *
+ * how-we-check.test.mjs holds this against src/content.config.ts, so a
+ * collection added there and forgotten here fails rather than quietly
+ * dropping a whole part of the site out of the published coverage figure.
+ */
+export const COLLECTION_DIRECTORIES = Object.freeze({
+  venues: 'venues',
+  experiences: 'experiences',
+  places: 'places',
+  regions: 'regions',
+  articles: 'articles',
+  itineraries: 'itineraries',
+  events: 'events',
+  tourOperators: 'tour-operators',
+  tours: 'tours',
+  tourPackages: 'tour-packages',
+  species: 'species',
+  fishingLocations: 'fishing-locations',
+  fishingCharters: 'fishing-charters',
+  boatRamps: 'boat-ramps',
+  boatHire: 'boat-hire',
+  quickNotes: 'quick-notes',
+  insidersThirty: 'insiders-thirty',
+  localSecrets: 'local-secrets',
+  'weekend-picks': 'weekend-picks',
+  'signature-events': 'signature-events',
+});
+
+/**
  * Subject types the record uses that are not a directory of reader-facing
  * entries, so they have no row in a coverage table counting entries. There is
  * exactly one, and it is named here rather than silently skipped: the test
@@ -318,4 +352,15 @@ export function coverageByArea(standing, sizes) {
 /** Plain plural, so the page reads as a sentence rather than as a form. */
 export function plural(count, one, many) {
   return count === 1 ? one : (many ?? one + 's');
+}
+
+/**
+ * Join a derived list the way a person would say it. Derived prose still has
+ * to read as prose, or the honesty is buried under the seams.
+ */
+export function listSentence(items) {
+  const list = (items ?? []).filter(Boolean);
+  if (list.length === 0) return '';
+  if (list.length === 1) return list[0];
+  return list.slice(0, -1).join(', ') + ' and ' + list[list.length - 1];
 }

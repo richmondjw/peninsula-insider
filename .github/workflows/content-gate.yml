@@ -63,6 +63,7 @@ jobs:
           npm run test:verification-loop
           npm run test:material-change
           npm run test:claim-support
+          npm run test:how-we-check
           npm run test:event-safeguards
           npm run test:event-occurrence
           npm run test:media-provenance

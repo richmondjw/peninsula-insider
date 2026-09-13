@@ -32,6 +32,7 @@ import { fileURLToPath } from 'node:url';
 
 import {
   AREA_LABELS,
+  COLLECTION_DIRECTORIES,
   INTERNAL_TYPES,
   NON_PAGE_TYPES,
   PUBLISHER_LABELS,
@@ -40,6 +41,7 @@ import {
   factKinds,
   intervalInWords,
   labelFor,
+  listSentence,
   plural,
   precedenceExample,
   recordStanding,
@@ -73,6 +75,7 @@ function readCorpus(dir) {
 const claims = readCorpus('claims');
 const evidence = readCorpus('evidence');
 
+/** Entry counts the way the page gets them: by the declared directories. */
 function entryCounts() {
   const counts = {};
   const walk = (at) => {
@@ -83,10 +86,16 @@ function entryCounts() {
     }
     return n;
   };
-  for (const entry of readdirSync(CONTENT, { withFileTypes: true })) {
-    if (entry.isDirectory()) counts[entry.name] = walk(path.join(CONTENT, entry.name));
+  for (const directory of Object.values(COLLECTION_DIRECTORIES)) {
+    counts[directory] = walk(path.join(CONTENT, directory));
   }
   return counts;
+}
+
+/** Every directory src/content.config.ts actually loads a collection from. */
+function declaredDirectories() {
+  const config = readFileSync(path.join(NEXT, 'src', 'content.config.ts'), 'utf8');
+  return [...config.matchAll(/base:\s*'\.\/src\/content\/([^']+)'/g)].map((m) => m[1]);
 }
 
 /** The template half of the page: everything after the frontmatter fence. */
@@ -289,7 +298,7 @@ test('a record with nothing on file reports nothing on file', () => {
 // -- 7. no part of the record leaves the table unnoticed --------------------
 
 test('every part of the site in the record is a page directory, or declared not to be', () => {
-  const dirs = new Set(Object.keys(entryCounts()));
+  const dirs = new Set(Object.values(COLLECTION_DIRECTORIES));
   for (const type of new Set(claims.map((c) => c.subject?.type).filter(Boolean))) {
     assert.ok(
       dirs.has(type) || NON_PAGE_TYPES.includes(type) || INTERNAL_TYPES.includes(type),
@@ -298,14 +307,27 @@ test('every part of the site in the record is a page directory, or declared not 
   }
 });
 
-test('every part of the site a reader can open has reader words', () => {
-  for (const [type, count] of Object.entries(entryCounts())) {
-    if (!count || INTERNAL_TYPES.includes(type)) continue;
+test('a part of the site cannot be added and left off the coverage table', () => {
+  const mapped = new Set(Object.values(COLLECTION_DIRECTORIES));
+  for (const directory of declaredDirectories()) {
     assert.ok(
-      Object.prototype.hasOwnProperty.call(AREA_LABELS, type),
-      `'${type}' has entries but no reader label; add one to AREA_LABELS`
+      mapped.has(directory) || INTERNAL_TYPES.includes(directory),
+      `src/content.config.ts loads '${directory}', which the coverage table neither counts nor declares internal`
     );
-    assert.notEqual(areaLabel(type), type);
+  }
+  const declared = new Set(declaredDirectories());
+  for (const directory of mapped) {
+    assert.ok(declared.has(directory), `the coverage table counts '${directory}', which no collection loads`);
+  }
+});
+
+test('every part of the site a reader can open has reader words', () => {
+  for (const directory of Object.values(COLLECTION_DIRECTORIES)) {
+    assert.ok(
+      Object.prototype.hasOwnProperty.call(AREA_LABELS, directory),
+      `'${directory}' has no reader label; add one to AREA_LABELS`
+    );
+    assert.notEqual(areaLabel(directory), directory);
   }
 });
 
@@ -370,6 +392,15 @@ test('the page links the reader somewhere they can act', () => {
 });
 
 // -- small helpers ----------------------------------------------------------
+
+test('a derived list still reads as a sentence', () => {
+  assert.equal(listSentence([]), '');
+  assert.equal(listSentence(['one thing']), 'one thing');
+  assert.equal(listSentence(['one', 'two']), 'one and two');
+  assert.equal(listSentence(['one', 'two', 'three']), 'one, two and three');
+  assert.equal(listSentence(['one', null, 'two']), 'one and two');
+  assert.equal(listSentence(undefined), '');
+});
 
 test('plural reads as a sentence', () => {
   assert.equal(plural(1, 'fact'), 'fact');

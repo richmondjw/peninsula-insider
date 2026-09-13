@@ -371,6 +371,7 @@ export const v5FooterSections: V5NavLink[] = [
 export const v5FooterAbout: V5NavLink[] = [
   { key: 'about',     label: 'About',              href: '/about/' },
   { key: 'editorial', label: 'Editorial approach', href: '/editorial-approach/' },
+  { key: 'checks',    label: 'How we check',       href: '/how-we-check/' },
   { key: 'partners',  label: 'Partners',           href: '/partners/' },
   { key: 'contact',   label: 'Contact',            href: '/contact/' },
 ];
