@@ -29,6 +29,30 @@ declare global {
   }
 }
 
+/**
+ * Consent, read from the same record the gtag loader and v5-analytics read
+ * (localStorage 'pi-consent-v1', written by CookieBanner).
+ *
+ * This check used to be missing. `gtag` only exists after consent, so the
+ * first branch below was gated, but the dataLayer fallback was not: a reader
+ * who had refused analytics, or who had not answered the banner at all,
+ * still had every save, unsave, share, fork, print and clear buffered into
+ * window.dataLayer. Nothing transmitted it today (the site loads gtag.js,
+ * which ignores object-form pushes, and there is no GTM container), so this
+ * was a loaded gun rather than a live leak - adding a container would have
+ * flushed the lot on the next pageview. PI-024, 2026-09-13.
+ */
+function analyticsConsented(): boolean {
+  try {
+    const raw = localStorage.getItem('pi-consent-v1');
+    if (!raw) return false;
+    const parsed = JSON.parse(raw) as { analytics?: boolean } | null;
+    return !!(parsed && parsed.analytics);
+  } catch {
+    return false;
+  }
+}
+
 export function track(name: SaveEvent, params: Record<string, unknown> = {}): void {
   if (typeof window === 'undefined') return;
   try {
@@ -36,6 +60,7 @@ export function track(name: SaveEvent, params: Record<string, unknown> = {}): vo
       window.gtag('event', name, params);
       return;
     }
+    if (!analyticsConsented()) return;
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ event: name, ...params });
   } catch {

@@ -348,8 +348,68 @@ export function commit(
   current = { ...state };
   writeUrl(current, { push: opts.push });
   const counts = applyToDom(current, document, opts.noun || 'results');
-  emitChange({ filters: getState(), ...counts, source: opts.source || 'chip' });
+  const source = opts.source || 'chip';
+  emitChange({ filters: getState(), ...counts, source });
+  trackFilterApplied(current, source, opts.noun || 'results', counts);
   return counts;
+}
+
+/**
+ * filter_applied (PI-024).
+ *
+ * Emitted from the single write path rather than from the chips, because the
+ * chips are not the only way filters change: a deep link with ?place=, a
+ * back-navigation restore and the sheet's Apply all land here too, and the
+ * pre-existing `filter_apply` click event sees none of them. It also carried
+ * no payload at all - data-key and data-value are not in the delegated
+ * listener's attribute list - so GA4 recorded that A filter happened and
+ * never which one.
+ *
+ * Values are facet slugs from a closed taxonomy (place, cat, mood, price,
+ * party, date), not reader input, so they are safe to transmit. `source:
+ * 'url'` and `source: 'restore'` are included deliberately: a filter applied
+ * by a shared link is still a filter applied, and treating it as invisible
+ * is how a referral channel comes to look like it converts nothing.
+ *
+ * The legacy `filter_apply` click event is left in place and unrenamed.
+ */
+function trackFilterApplied(
+  state: FilterState,
+  source: string,
+  noun: string,
+  counts: { shown: number; total: number },
+): void {
+  if (!hasDom()) return;
+  const track = (window as unknown as { piTrack?: (
+    name: string,
+    params: Record<string, unknown>,
+    opts?: { component?: string; dedupKey?: string; dedupMs?: number },
+  ) => boolean }).piTrack;
+  if (!track) return;
+
+  const keys = FILTER_KEYS.filter((k) => (state[k] ?? []).length > 0);
+  let values = 0;
+  for (const k of keys) values += (state[k] ?? []).length;
+
+  track(
+    'filter_applied',
+    {
+      source,
+      noun,
+      filter_keys: keys.join('|'),
+      filter_count: values,
+      results_shown: counts.shown,
+      results_total: counts.total,
+      cleared: values === 0,
+    },
+    {
+      component: 'v5-filter-state',
+      // One commit per intent. A chip click that lands inside a sheet Apply
+      // in the same tick must not count twice.
+      dedupKey: 'filter:' + noun + ':' + source + ':' + keys.join('|') + ':' + values,
+      dedupMs: 250,
+    },
+  );
 }
 
 /* --------------------------- sort + view --------------------------- */

@@ -97,6 +97,10 @@ jobs:
           PUBLIC_ACCESS_GATE: 'off'
           # Site-wide Insider Note signup popup. Set to 'off' for rollback.
           PUBLIC_NEWSLETTER_POPUP: 'on'
+          # Stamped onto every analytics event as pi_release, so a metric can be
+          # attributed to the build that produced it (PI-024). Same value as
+          # SOURCE_SHA below; PUBLIC_ so Astro exposes it to client scripts.
+          PUBLIC_RELEASE_SHA: ${{ github.sha }}
 
       - name: Generate agent index (llms.txt)
         # Build the agent-discoverability layer from the freshly-built sitemap so

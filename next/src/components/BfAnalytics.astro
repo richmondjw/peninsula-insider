@@ -54,13 +54,33 @@
     'bf_scroll_depth_80',
   ]);
 
+  /**
+   * Consent, read from the same record the gtag loader reads (localStorage
+   * 'pi-consent-v1', written by CookieBanner). The dataLayer fallback below
+   * had no consent check until PI-024 (2026-09-13): a reader who had refused
+   * analytics still had every charter and hire click buffered into
+   * window.dataLayer. Nothing drains it today, so nothing transmitted, but
+   * the buffer would have flushed the moment a container was added.
+   */
+  function analyticsConsented(): boolean {
+    try {
+      const raw = localStorage.getItem('pi-consent-v1');
+      if (!raw) return false;
+      const parsed = JSON.parse(raw) as { analytics?: boolean } | null;
+      return !!(parsed && parsed.analytics);
+    } catch {
+      return false;
+    }
+  }
+
   function emit(name: BfEventName, params: Record<string, unknown>) {
     if (typeof window.gtag === 'function') {
       window.gtag('event', name, params);
-    } else {
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({ event: name, ...params });
+      return;
     }
+    if (!analyticsConsented()) return;
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: name, ...params });
   }
 
   function payloadFromEl(el: HTMLElement): Record<string, unknown> {

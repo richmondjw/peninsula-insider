@@ -317,6 +317,10 @@ export const prerender = true;
                     class="event-detail__action event-detail__action--primary"
                     rel="nofollow noreferrer"
                     target="_blank"
+                    data-pi-book={bookingTarget.kind === 'organiser' ? undefined : bookingTarget.kind}
+                    data-pi-entity-type="event"
+                    data-pi-entity-slug={slug}
+                    data-pi-surface="event-detail"
                   >
                     {bookingTarget.label}
                   </a>

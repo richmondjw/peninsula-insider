@@ -281,7 +281,17 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
     {(data.bookingUrl || data.phone) && !isClosed && (
       <div class="venue-detail__booking-bar">
         {data.bookingUrl && (
-          <a href={data.bookingUrl} target="_blank" rel="noopener noreferrer" class="pi-btn pi-btn--solid pi-btn--lg">
+          <a
+            href={data.bookingUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="pi-btn pi-btn--solid pi-btn--lg"
+            data-pi-book="booking"
+            data-pi-entity-type={data.type}
+            data-pi-entity-slug={venueSlug}
+            data-pi-surface="venue-booking-bar"
+            data-pi-provider={data.bookingProvider}
+          >
             {data.type === 'hotel' || data.type === 'villa' || data.type === 'cottage' || data.type === 'glamping' || data.type === 'farm-stay'
               ? 'Check availability'
               : data.type === 'winery'
@@ -314,7 +324,7 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
           {data.phone
             ? <> Call <a href={`tel:${data.phone.replace(/\s/g,'')}`}>{data.phone}</a> to arrange a visit.</>  
             : data.bookingUrl
-              ? <> <a href={data.bookingUrl} target="_blank" rel="noopener noreferrer">Book online</a> to arrange a visit.</>
+              ? <> <a href={data.bookingUrl} target="_blank" rel="noopener noreferrer" data-pi-book="booking" data-pi-entity-type={data.type} data-pi-entity-slug={venueSlug} data-pi-surface="venue-appointment-note" data-pi-provider={data.bookingProvider}>Book online</a> to arrange a visit.</>
               : ' Contact the winery directly to arrange a visit.'}
         </span>
       </div>
@@ -632,7 +642,17 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
           )}
         </dl>
 
-        {data.bookingUrl && <a class="facts__cta pi-btn pi-btn--ghost pi-btn--block" href={data.bookingUrl}>Book now</a>}
+        {data.bookingUrl && (
+          <a
+            class="facts__cta pi-btn pi-btn--ghost pi-btn--block"
+            href={data.bookingUrl}
+            data-pi-book="booking"
+            data-pi-entity-type={data.type}
+            data-pi-entity-slug={venueSlug}
+            data-pi-surface="venue-facts-rail"
+            data-pi-provider={data.bookingProvider}
+          >Book now</a>
+        )}
         {data.affiliateNote && <p class="facts__affiliate-note">{data.affiliateNote}</p>}
       </aside>
     </div>
@@ -659,7 +679,7 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
         {data.visiting.bookingRequired && (
           <p><strong>Booking required.</strong>{' '}
             {data.bookingUrl
-              ? <a href={data.bookingUrl} target="_blank" rel="noopener noreferrer">Reserve a tasting</a>
+              ? <a href={data.bookingUrl} target="_blank" rel="noopener noreferrer" data-pi-book="booking" data-pi-entity-type={data.type} data-pi-entity-slug={venueSlug} data-pi-surface="venue-visiting" data-pi-provider={data.bookingProvider}>Reserve a tasting</a>
               : 'Contact the winery directly.'}
           </p>
         )}
@@ -696,7 +716,7 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
         {data.restaurant.description && <p>{data.restaurant.description}</p>}
         {data.restaurant.cuisine && <p><strong>Cuisine:</strong> {data.restaurant.cuisine}.</p>}
         {data.restaurant.reservations !== false && data.bookingUrl && (
-          <p><a href={data.bookingUrl} target="_blank" rel="noopener noreferrer">Reserve a table →</a></p>
+          <p><a href={data.bookingUrl} target="_blank" rel="noopener noreferrer" data-pi-book="booking" data-pi-entity-type={data.type} data-pi-entity-slug={venueSlug} data-pi-surface="venue-restaurant" data-pi-provider={data.bookingProvider}>Reserve a table →</a></p>
         )}
       </div>
     </div>

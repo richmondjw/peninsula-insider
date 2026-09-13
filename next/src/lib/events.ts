@@ -465,10 +465,19 @@ export function eventCalendarUrl(data: Event['data'], canonical: string): string
  * whether the link points at a true ticket platform (vs. a generic booking
  * page). Used by the event sidebar to label the CTA correctly.
  */
-export function eventBookingTarget(data: Event['data']): { href: string; label: string } | null {
-  if (data.ticketingUrl) return { href: data.ticketingUrl, label: 'Get tickets' };
-  if (data.bookingUrl) return { href: data.bookingUrl, label: 'Book or check details' };
-  if (data.organiser?.website) return { href: data.organiser.website, label: 'Visit organiser' };
+/**
+ * `kind` was added for PI-024. The three branches below are not equivalent:
+ * a ticketing or booking URL carries reservation intent, an organiser's
+ * homepage does not. booking_outbound_clicked counts only the first two, so
+ * the caller needs to know which branch it got rather than guessing from the
+ * label string.
+ */
+export function eventBookingTarget(
+  data: Event['data'],
+): { href: string; label: string; kind: 'tickets' | 'booking' | 'organiser' } | null {
+  if (data.ticketingUrl) return { href: data.ticketingUrl, label: 'Get tickets', kind: 'tickets' };
+  if (data.bookingUrl) return { href: data.bookingUrl, label: 'Book or check details', kind: 'booking' };
+  if (data.organiser?.website) return { href: data.organiser.website, label: 'Visit organiser', kind: 'organiser' };
   return null;
 }
 

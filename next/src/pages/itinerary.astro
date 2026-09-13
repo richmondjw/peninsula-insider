@@ -632,17 +632,47 @@ export const prerender = true;
       });
     });
 
+    /* PI-024 trip-copy measurement.
+       Three events, one attempt id, and the success one fires only after the
+       clipboard write actually resolves. The old handler had no measurement
+       at all, so a copy that silently failed and a copy that worked were the
+       same (invisible) thing.
+
+       The share URL is NEVER part of a payload. It encodes the stops and the
+       reader's own day labels, which they typed into a prompt - those are
+       sensitive trip details by any reading. Only counts and the delivery
+       method travel. */
+    function trackTripCopy(name, attempt, extra) {
+      if (!window.piTrack) return;
+      var params = {
+        attempt_id: attempt,
+        surface: 'itinerary',
+        stop_count: state.items.length,
+        day_count: state.days.length,
+      };
+      if (extra) for (var k in extra) if (Object.prototype.hasOwnProperty.call(extra, k)) params[k] = extra[k];
+      window.piTrack(name, params, { component: 'ItineraryToolbar' });
+    }
+
     var shareBtn = document.querySelector('[data-itinerary-share]');
     if (shareBtn) shareBtn.addEventListener('click', function () {
       var url = buildShareUrl();
+      var attempt = window.piAnalytics ? window.piAnalytics.newId() : String(Date.now());
+      trackTripCopy('trip_copy_started', attempt, { method: 'clipboard' });
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(url).then(function () {
           shareBtn.textContent = 'Copied!';
           setTimeout(function () { shareBtn.textContent = 'Copy share link'; }, 2000);
+          trackTripCopy('trip_copy_succeeded', attempt, { method: 'clipboard' });
         }, function () {
+          // The clipboard refused. The reader now has to copy by hand out of
+          // a prompt, which we cannot observe, so this is a failure and not a
+          // quieter kind of success.
+          trackTripCopy('trip_copy_failed', attempt, { method: 'clipboard', reason: 'clipboard-rejected' });
           window.prompt('Copy this share link:', url);
         });
       } else {
+        trackTripCopy('trip_copy_failed', attempt, { method: 'prompt', reason: 'clipboard-unavailable' });
         window.prompt('Copy this share link:', url);
       }
     });
