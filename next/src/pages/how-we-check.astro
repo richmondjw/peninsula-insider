@@ -172,10 +172,10 @@ export const prerender = true;
         </div>
         <div class="about-mission__body prose">
           <p>These are the only kinds of source a fact on this site can cite. There is no other category, and there is no way to record a fact as confirmed without naming one of them.</p>
-          <ul>
+          <ul class="source-list">
             {sources.map((s) => <li>{s.label}</li>)}
           </ul>
-          <p>The last one is not a formality. Plenty of what we hold was carried over from older records that never said where they got it, and calling that anything other than what it is would be the first lie on a page about accuracy.</p>
+          <p class="source-note">The last one is not a formality. Plenty of what we hold was carried over from older records that never said where they got it, and calling that anything other than what it is would be the first lie on a page about accuracy.</p>
         </div>
       </div>
     </div>
@@ -192,7 +192,7 @@ export const prerender = true;
         <p class="split-intro__body">Two sources can say different things about the same fact on the same day. Which one wins is decided in advance, by the kind of fact it is, and not case by case.</p>
       </div>
 
-      <div class="prose method-table">
+      <div class="prose method-table method-table--order">
         {example && (
           <p class="method-lede">
             On "{example.label.toLowerCase()}", we believe <strong>{example.winnerLabel.toLowerCase()}</strong> before <strong>{example.loserLabel.toLowerCase()}</strong>. That is not a nicety. A reseller's page stays up long after the event has been pulled, and reading it first is how a guide ends up sending somebody to a paddock.
@@ -209,7 +209,10 @@ export const prerender = true;
           <tbody>
             {kinds.map((k) => (
               <tr>
-                <th scope="row">{k.label}</th>
+                <th scope="row">
+                  {k.label}
+                  <span class="method-when">Looked at again after {k.recheck}</span>
+                </th>
                 <td>
                   <ol class="method-order">
                     {k.leadSources.map((source) => <li>{source}</li>)}
@@ -314,8 +317,8 @@ export const prerender = true;
       </div>
       <div class="prose method-table">
         <p class="method-lede">In May, an editor recorded that a Peninsula restaurant had closed for good. The restaurant was trading. The note was written into a part of the file the site had never been told to read, so for four months it sat there changing nothing and nobody noticed it was wrong.</p>
-        <p class="method-note">In September the site was finally taught to read that part of the file, and it did exactly as it was told: a trading restaurant dropped out of the listings and its page turned into a closure notice. That stood for about a day before it was caught and lifted. The restaurant lost a day of being findable because of something we wrote down and never checked.</p>
-        <p class="method-note">Two things came out of it, and both are in force. A closure written somewhere the site cannot see now stops the build rather than sitting silently in a file. And the published site is read back after every build to confirm that anything recorded as closed is genuinely gone from it. Neither of those would have saved the restaurant in May, because the original note was simply wrong. That is what the re-check dates and the corrections queue below are for, and it is why this page does not tell you our facts are verified. Some of them are. Most of them are on a list.</p>
+        <p>In September the site was finally taught to read that part of the file, and it did exactly as it was told: a trading restaurant dropped out of the listings and its page turned into a closure notice. That stood for about a day before it was caught and lifted. The restaurant lost a day of being findable because of something we wrote down and never checked.</p>
+        <p>Two things came out of it, and both are in force. A closure written somewhere the site cannot see now stops the build rather than sitting silently in a file. And the published site is read back after every build to confirm that anything recorded as closed is genuinely gone from it. Neither of those would have saved the restaurant in May, because the original note was simply wrong. That is what the re-check dates and the corrections queue below are for, and it is why this page does not tell you our facts are verified. Some of them are. Most of them are on a list.</p>
       </div>
     </div>
   </section>
@@ -365,13 +368,23 @@ export const prerender = true;
     color: var(--soft);
     margin-top: 1.2rem;
   }
+  /* .prose styles tbody td and thead th but not a row header, so a th in the
+     body falls back to centred, unpadded and borderless. Match it to the
+     cells beside it. */
   .method-table table th[scope='row'] {
+    text-align: left;
+    vertical-align: top;
     font-weight: 600;
     color: var(--dark);
     white-space: normal;
+    padding: 0.85rem 1rem 0.85rem 0;
+    border-bottom: 1px solid rgba(11, 90, 72, 0.15);
   }
   .method-table table td {
     vertical-align: top;
+  }
+  .method-table table tbody tr:last-child th[scope='row'] {
+    border-bottom: none;
   }
   .method-order {
     list-style: none;
@@ -394,5 +407,47 @@ export const prerender = true;
     font-size: var(--fs-200, 0.8125rem);
     color: var(--accent);
     line-height: 1.7;
+  }
+
+  /* Thirteen kinds of source is a long single column and a short two. */
+  .source-list {
+    columns: 2;
+    column-gap: 2.5rem;
+  }
+  .source-list li {
+    break-inside: avoid;
+  }
+  .source-note {
+    margin-top: 1.4rem;
+  }
+  /* Three columns is one too many on a phone. The interval moves into the
+     row header, where it reads as part of the fact rather than as a cell a
+     reader has to go looking for off the side of a scrolling table. */
+  .method-when { display: none; }
+  @media (max-width: 640px) {
+    .source-list { columns: 1; }
+    .method-table table th[scope='row'] { padding-right: 0.6rem; }
+    .method-table--order table thead th:last-child,
+    .method-table--order table tbody td:last-child { display: none; }
+    /* .prose turns a table into a horizontally scrolling block at this
+       width, which is right for a wide numeric table and wrong here: the
+       column a reader came for ends up off the side of the screen. With the
+       interval moved into the row header there are only two columns left, so
+       lay them out to fit instead. */
+    .method-table--order table {
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+    }
+    .method-table--order table tbody td,
+    .method-table--order table thead th { white-space: normal; }
+    .method-table--order table th[scope='row'] { width: 45%; }
+    .method-when {
+      display: block;
+      margin-top: 0.3rem;
+      font-weight: 400;
+      font-size: var(--fs-200, 0.8125rem);
+      color: var(--soft);
+    }
   }
 </style>
