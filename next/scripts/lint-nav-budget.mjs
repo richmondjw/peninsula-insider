@@ -14,9 +14,12 @@
  * Usage: node scripts/lint-nav-budget.mjs   (from next/, or repo root
  * via node next/scripts/lint-nav-budget.mjs). Exits 1 on any breach.
  *
- * v5-nav.ts is deliberately dependency-free with flat interfaces so
- * this script can strip the TypeScript surface and evaluate the
- * config without a TS toolchain.
+ * v5-nav.ts keeps flat interfaces and a single import so this script can
+ * strip the TypeScript surface and evaluate the config without a TS
+ * toolchain. That one import is the shared season helper
+ * (src/lib/season.ts), which drives the rail eyebrows; this lint only
+ * counts links, so it strips the import line and stubs the helper rather
+ * than resolving a module graph.
  */
 
 import { readFileSync } from 'node:fs';
@@ -36,15 +39,22 @@ const navPath = join(here, '..', 'src', 'lib', 'v5-nav.ts');
 
 let source = readFileSync(navPath, 'utf8');
 
-// Strip the TypeScript surface: interfaces (flat, no nested braces),
-// type annotations on exported consts, `as` casts on group literals.
+// Strip the TypeScript surface: imports (stubbed in the sandbox below),
+// interfaces (flat, no nested braces), type annotations on exported
+// consts, `as` casts on group literals.
 source = source
+  .replace(/^import[^\n]*;[^\n]*$/gm, '')
   .replace(/export interface [\s\S]*?\n\}/g, '')
   .replace(/export const (\w+)\s*:\s*[^=]+=/g, 'exports.$1 =')
   .replace(/export const (\w+)\s*=/g, 'exports.$1 =')
   .replace(/ as string \| null/g, '');
 
-const sandbox = { exports: {} };
+// Stubs for the symbols v5-nav.ts imports. Their values never reach a
+// link count, so a fixed placeholder is enough.
+const sandbox = {
+  exports: {},
+  getSeasonEditionTag: () => "Season '00",
+};
 try {
   vm.runInNewContext(source, sandbox, { filename: 'v5-nav.evaluated.js' });
 } catch (err) {

@@ -17,12 +17,12 @@
 import { getCollection } from 'astro:content';
 import Card from '../Card.astro';
 import { resolveHero } from '../../../lib/inline-edit/resolve-hero';
-import { currentSeason } from '../../../lib/editorial';
+import { getAustralianSeasonLower } from '../../../lib/season';
 
 const ROTATION_WINDOW_DAYS = 5;
 
 const plans = await getCollection('itineraries');
-const season = currentSeason();
+const season = getAustralianSeasonLower();
 
 const seasonScore = (p: any) =>
   p.data.season === season ? 2 : p.data.season === 'year-round' ? 1 : 0;

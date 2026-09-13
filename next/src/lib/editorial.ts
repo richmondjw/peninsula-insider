@@ -451,17 +451,12 @@ export function formatHeroCredit(credit: string | undefined | null): string {
 }
 
 /**
- * Return the current Southern-Hemisphere season from a Date.
- * Used for seasonal hooks on index pages.
+ * The season hooks on index pages read getAustralianSeasonLower() from
+ * src/lib/season.ts. The currentSeason() that used to live here derived the
+ * season from date.getMonth() on the build host's clock, which on a UTC
+ * runner lags Melbourne by a season for the first ten to fourteen hours
+ * after each changeover. seasonBlurb below is keyed by that shared value.
  */
-export function currentSeason(date: Date = new Date()): 'summer' | 'autumn' | 'winter' | 'spring' {
-  const m = date.getMonth(); // 0..11
-  if (m === 11 || m <= 1) return 'summer';    // Dec, Jan, Feb
-  if (m >= 2 && m <= 4) return 'autumn';      // Mar, Apr, May
-  if (m >= 5 && m <= 7) return 'winter';      // Jun, Jul, Aug
-  return 'spring';                             // Sep, Oct, Nov
-}
-
 export const seasonBlurb: Record<'summer' | 'autumn' | 'winter' | 'spring', { label: string; line: string }> = {
   summer: {
     label: 'The summer issue',

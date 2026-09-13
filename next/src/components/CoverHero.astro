@@ -3,7 +3,7 @@
  * CoverHero, full-bleed immersive cover module.
  * Homepage passes issueDate to get seasonal copy; other pages pass props to override.
  */
-import { currentSeason } from '../lib/editorial';
+import { getAustralianSeasonLower } from '../lib/season';
 
 export interface Props {
   issueDate?: string;
@@ -38,7 +38,7 @@ const {
   bgImage,
 } = Astro.props;
 
-const season = currentSeason();
+const season = getAustralianSeasonLower();
 
 const seasonalHeadlines: Record<string, { line1: string; line2: string; em: string }> = {
   summer: { line1: 'Where Victoria', line2: 'eats, swims,', em: 'stays late.' },
