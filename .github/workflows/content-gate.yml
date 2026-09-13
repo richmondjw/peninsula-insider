@@ -78,6 +78,36 @@ jobs:
           npm run assert:claim-support
           npm run validate:content
 
+      - name: Pre-build lints
+        # Every lint the build runs BEFORE `astro build`. None of them reads
+        # dist/, so none needs a build: they cost seconds and they were, until
+        # now, unreachable from a pull request.
+        #
+        # On 2026-09-14 that gap took main down for about two hours. #418 added
+        # lint:rls-editor-gate, forbidding any new migration that gates database
+        # access on a flag its own owner can set. #420 added a migration with six
+        # such policies. Both pull requests were green, because this workflow ran
+        # neither lint; the collision only surfaced on push to main, after both
+        # had merged. #422 fixed the migration. This step is why it cannot happen
+        # a third time.
+        #
+        # lint:firsthand-claims is deliberately absent: it already runs above as
+        # test:firsthand-claims. Post-build gates (no-hidden-pages,
+        # seo-architecture, filter-chips, link-graph and the assert:* set that
+        # reads dist/) stay in build-and-deploy, where a build exists.
+        run: |
+          cd next
+          npm run lint:no-pricing
+          npm run lint:house-style
+          npm run lint:region-images
+          npm run lint:surfaces
+          npm run lint:listener-hygiene
+          npm run lint:search-privacy
+          npm run lint:licence-default
+          npm run lint:rls-editor-gate
+          npm run lint:nav-budget
+          npm run lint:css-budget
+          npm run lint:coordinates
       - name: Commercial/editorial firewall
         # PI-021. Reads source and content, not dist/, so it costs seconds and
         # needs no build. It belongs on the branch rather than only inside
