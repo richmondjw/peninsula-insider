@@ -306,7 +306,10 @@ export const prerender = true;
         const slug = tripBtn.dataset.slug || '';
         const item = store.listSaves().find((it) => it.kind === kind && it.slug === slug);
         if (!item) return;
-        store.tripAdd({ kind: item.kind, slug: item.slug, title: item.title, href: item.href, meta: item.meta });
+        if (!store.tripAdd({ kind: item.kind, slug: item.slug, title: item.title, href: item.href, meta: item.meta })) {
+          showToast('Could not add to My Trip');
+          return;
+        }
         trackEvent('trip_add', { entity_type: kind, entity_slug: slug, src: 'saved' });
         showToast('Added to My Trip');
         return;

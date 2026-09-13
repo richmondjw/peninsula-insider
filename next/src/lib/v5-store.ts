@@ -164,13 +164,20 @@ function getRaw(key: string): string | null {
   }
 }
 
-function setRaw(key: string, value: string): void {
+/**
+ * Returns false when the write did not land - private mode, exhausted quota,
+ * storage disabled by the browser, or SSR. A false return means nothing
+ * changed; callers must not report success.
+ */
+function setRaw(key: string, value: string): boolean {
   const s = ls();
-  if (!s) return;
+  if (!s) return false;
   try {
     s.setItem(key, value);
+    return true;
   } catch {
-    /* private mode / quota - fail silently */
+    /* private mode / quota */
+    return false;
   }
 }
 
@@ -207,8 +214,8 @@ function isValidItem(it: unknown): it is SavedItem {
   return isKind(o.kind) && typeof o.slug === 'string' && o.slug.length > 0;
 }
 
-function writeSaves(store: SavesStore): void {
-  setRaw(SAVES_KEY, JSON.stringify(store));
+function writeSaves(store: SavesStore): boolean {
+  return setRaw(SAVES_KEY, JSON.stringify(store));
 }
 
 /** Same rules as lib/saves/store.ts migrateFromLegacy, condensed. */
@@ -270,8 +277,8 @@ function readTrip(): TripStore {
   return migrateTripFromItineraryV1();
 }
 
-function writeTrip(trip: TripStore): void {
-  setRaw(TRIP_KEY, JSON.stringify(trip));
+function writeTrip(trip: TripStore): boolean {
+  return setRaw(TRIP_KEY, JSON.stringify(trip));
 }
 
 interface LegacyItinItem { kind?: string; slug?: string; dayId?: string; note?: string }
@@ -396,7 +403,7 @@ function absorbLegacyItinerary(): void {
     if (!e.kind || !e.slug) nextEntries.push(e);
   }
 
-  writeTrip({ version: 1, days: legacyDaysToDays(legacy.days), entries: nextEntries });
+  if (!writeTrip({ version: 1, days: legacyDaysToDays(legacy.days), entries: nextEntries })) return;
   notify('trip');
 }
 
@@ -429,14 +436,16 @@ function notify(scope: StoreScope): void {
   }
 }
 
-function notifyTripMutation(trip: TripStore): void {
-  writeTrip(trip);
+/** Write, mirror and notify. Returns false when the trip write did not land. */
+function notifyTripMutation(trip: TripStore): boolean {
+  if (!writeTrip(trip)) return false;
   writeLegacyProjection(trip);
   notify('trip');
   if (typeof window !== 'undefined') {
     // The existing CloudSync.astro consumes this and pushes pi.user_itineraries.
     window.dispatchEvent(new CustomEvent('pi:itinerary-changed', { detail: { source: 'v5-store' } }));
   }
+  return true;
 }
 
 // Cross-writer coherence: re-broadcast external changes so v5 badges react to
@@ -465,8 +474,22 @@ if (typeof window !== 'undefined') {
 // Public API - saves
 // ---------------------------------------------------------------------------
 
-/** Idempotent upsert. Re-saving refreshes the snapshot, keeps savedAt. */
-export function save(item: Omit<SavedItem, 'savedAt'> & { savedAt?: number }): SavedItem {
+/**
+ * Outcome of a mutating call. `ok` is false when the change could not be
+ * written to localStorage, in which case nothing changed and the UI must not
+ * report success. `saved` is the state that actually holds afterwards.
+ */
+export interface SaveWriteResult {
+  ok: boolean;
+  saved: boolean;
+}
+
+/**
+ * Idempotent upsert. Re-saving refreshes the snapshot, keeps savedAt.
+ * Returns null when the write did not land (private mode, quota, storage
+ * disabled) - nothing was saved.
+ */
+export function save(item: Omit<SavedItem, 'savedAt'> & { savedAt?: number }): SavedItem | null {
   const store = readSaves();
   const idx = store.items.findIndex((it) => it.kind === item.kind && it.slug === item.slug);
   let saved: SavedItem;
@@ -477,18 +500,22 @@ export function save(item: Omit<SavedItem, 'savedAt'> & { savedAt?: number }): S
     saved = { ...item, savedAt: item.savedAt ?? Date.now() };
     store.items.push(saved);
   }
-  writeSaves(store);
+  if (!writeSaves(store)) return null;
   notify('saves');
   return saved;
 }
 
-/** Remove a save. No-op if not saved. */
-export function unsave(kind: SaveKind, slug: string): void {
+/**
+ * Remove a save. No-op if not saved. Returns false when the removal could not
+ * be written; true when the item is gone (including the no-op case).
+ */
+export function unsave(kind: SaveKind, slug: string): boolean {
   const store = readSaves();
   const next = store.items.filter((it) => !(it.kind === kind && it.slug === slug));
-  if (next.length === store.items.length) return;
-  writeSaves({ version: 2, items: next });
+  if (next.length === store.items.length) return true;
+  if (!writeSaves({ version: 2, items: next })) return false;
   notify('saves');
+  return true;
 }
 
 export function isSaved(kind: SaveKind, slug: string): boolean {
@@ -501,14 +528,16 @@ export function listSaves(kind?: SaveKind): SavedItem[] {
   return kind ? items.filter((it) => it.kind === kind) : items;
 }
 
-/** Convenience for SaveControl. Returns the new state (true = now saved). */
-export function toggleSave(item: Omit<SavedItem, 'savedAt'>): boolean {
-  if (isSaved(item.kind, item.slug)) {
-    unsave(item.kind, item.slug);
-    return false;
-  }
-  save(item);
-  return true;
+/**
+ * Convenience for SaveControl. Returns `{ ok, saved }`: `saved` is the state
+ * that holds after the attempt, and `ok` is false when the write did not land
+ * - in which case `saved` is the unchanged prior state and the button must not
+ * repaint to "Saved".
+ */
+export function toggleSave(item: Omit<SavedItem, 'savedAt'>): SaveWriteResult {
+  const wasSaved = isSaved(item.kind, item.slug);
+  const ok = wasSaved ? unsave(item.kind, item.slug) : save(item) !== null;
+  return { ok, saved: ok ? !wasSaved : wasSaved };
 }
 
 // ---------------------------------------------------------------------------
@@ -538,8 +567,10 @@ export interface TripAddOptions {
  * Append a stop to the trip. Referenced content: pass {kind, slug} plus a
  * title/href snapshot (auto-saved unless opted out). Standalone stop: omit
  * kind/slug and pass a title ("Lunch somewhere in Flinders").
+ *
+ * Returns null when the write did not land - nothing was added to the trip.
  */
-export function tripAdd(item: TripAddInput, opts: TripAddOptions = {}): TripEntry {
+export function tripAdd(item: TripAddInput, opts: TripAddOptions = {}): TripEntry | null {
   const isRef = Boolean(item.kind && item.slug);
   if (!isRef && !item.title) {
     throw new Error('tripAdd: standalone entries need a title');
@@ -564,32 +595,36 @@ export function tripAdd(item: TripAddInput, opts: TripAddOptions = {}): TripEntr
     addedAt: Date.now(),
   };
   trip.entries.push(entry);
-  notifyTripMutation(trip);
+  if (!notifyTripMutation(trip)) return null;
   return entry;
 }
 
-/** Remove a stop by entry id. No-op for unknown ids. */
-export function tripRemove(entryId: string): void {
+/**
+ * Remove a stop by entry id. No-op for unknown ids. Returns false when the
+ * removal could not be written.
+ */
+export function tripRemove(entryId: string): boolean {
   const trip = readTrip();
   const next = trip.entries.filter((e) => e.id !== entryId);
-  if (next.length === trip.entries.length) return;
-  notifyTripMutation({ ...trip, entries: next });
+  if (next.length === trip.entries.length) return true;
+  return notifyTripMutation({ ...trip, entries: next });
 }
 
 /**
  * Move a stop to `toIndex` within the canonical order, optionally changing
- * its day. `dayId` undefined keeps the current day; '' ungroups.
+ * its day. `dayId` undefined keeps the current day; '' ungroups. Returns false
+ * when the move could not be written.
  */
-export function tripMove(entryId: string, toIndex: number, dayId?: string): void {
+export function tripMove(entryId: string, toIndex: number, dayId?: string): boolean {
   const trip = readTrip();
   const from = trip.entries.findIndex((e) => e.id === entryId);
-  if (from < 0) return;
+  if (from < 0) return false;
   const entries = trip.entries.slice();
   const [entry] = entries.splice(from, 1);
   const moved: TripEntry = dayId === undefined ? entry : { ...entry, dayId };
   const clamped = Math.max(0, Math.min(toIndex, entries.length));
   entries.splice(clamped, 0, moved);
-  notifyTripMutation({ ...trip, entries });
+  return notifyTripMutation({ ...trip, entries });
 }
 
 /**
@@ -637,30 +672,37 @@ export function tripDays(): TripDay[] {
   return readTrip().days.slice();
 }
 
-export function tripAddDay(label?: string): TripDay {
+/** Append a day. Returns null when the write did not land. */
+export function tripAddDay(label?: string): TripDay | null {
   const trip = readTrip();
   const day: TripDay = { id: newId('day'), label: label || `Day ${trip.days.length + 1}` };
   trip.days.push(day);
-  notifyTripMutation(trip);
+  if (!notifyTripMutation(trip)) return null;
   return day;
 }
 
-/** Rename a day; no-op when the day does not exist or the label is empty. */
-export function tripRenameDay(dayId: string, label: string): void {
+/**
+ * Rename a day; no-op when the day does not exist or the label is empty.
+ * Returns false when the rename could not be written.
+ */
+export function tripRenameDay(dayId: string, label: string): boolean {
   const trip = readTrip();
   const day = trip.days.find((d) => d.id === dayId);
-  if (!day || !label.trim()) return;
+  if (!day || !label.trim()) return false;
   day.label = label.trim();
-  notifyTripMutation(trip);
+  return notifyTripMutation(trip);
 }
 
-/** Remove a day; its stops become ungrouped (legacy /itinerary/ behaviour). */
-export function tripRemoveDay(dayId: string): void {
+/**
+ * Remove a day; its stops become ungrouped (legacy /itinerary/ behaviour).
+ * Returns false when the removal could not be written.
+ */
+export function tripRemoveDay(dayId: string): boolean {
   const trip = readTrip();
   const days = trip.days.filter((d) => d.id !== dayId);
-  if (days.length === trip.days.length) return;
+  if (days.length === trip.days.length) return true;
   const entries = trip.entries.map((e) => (e.dayId === dayId ? { ...e, dayId: '' } : e));
-  notifyTripMutation({ version: 1, days, entries });
+  return notifyTripMutation({ version: 1, days, entries });
 }
 
 /** Total stop count (BottomBar badge). */
@@ -668,7 +710,10 @@ export function tripCount(): number {
   return readTrip().entries.length;
 }
 
-/** Wipe the trip (confirm in UI first). Days and stops both cleared. */
-export function tripClear(): void {
-  notifyTripMutation({ version: 1, days: [], entries: [] });
+/**
+ * Wipe the trip (confirm in UI first). Days and stops both cleared. Returns
+ * false when the write did not land, in which case the trip is still there.
+ */
+export function tripClear(): boolean {
+  return notifyTripMutation({ version: 1, days: [], entries: [] });
 }

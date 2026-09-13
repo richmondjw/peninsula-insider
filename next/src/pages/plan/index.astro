@@ -211,6 +211,7 @@ const piIndex = { places: piPlaces, venues: piVenues };
     btn.addEventListener('click', () => {
       if (Store.tripDays().some((d) => d.label === dayLabel)) return;
       const day = Store.tripAddDay(dayLabel);
+      if (!day) return;
       for (const it of route.items) {
         Store.tripAdd({ kind: it.kind, slug: it.slug, title: it.title, href: it.href, meta: { image_url: it.image_url, pi_case: route.caseId } }, { dayId: day.id });
       }

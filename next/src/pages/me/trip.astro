@@ -608,7 +608,8 @@ export const prerender = true;
     banner.querySelector('[data-trip-import]')?.addEventListener('click', () => {
       const dayMap: Record<string, string> = {};
       for (const d of shared.days) {
-        dayMap[d.id] = store.tripAddDay(d.label).id;
+        const created = store.tripAddDay(d.label);
+        if (created) dayMap[d.id] = created.id;
       }
       for (const it of shared.items) {
         const geo = GEO[`${it.kind}/${it.slug}`];
@@ -681,10 +682,14 @@ export const prerender = true;
         if (!item) return;
         const select = document.querySelector<HTMLSelectElement>('[data-trip-day-select]');
         const dayId = select && !select.closest('[hidden]') ? select.value : '';
-        store.tripAdd(
+        const added = store.tripAdd(
           { kind: item.kind, slug: item.slug, title: item.title, href: item.href, meta: item.meta },
           { dayId },
         );
+        if (!added) {
+          showToast('Could not add to your trip');
+          return;
+        }
         trackEvent('trip_add', { entity_type: kind, entity_slug: slug, src: 'saved' });
         const dayLabel = dayId ? store.tripDays().find((d) => d.id === dayId)?.label : '';
         showToast(dayLabel ? `Added to ${dayLabel}` : 'Added to your trip');
@@ -695,6 +700,10 @@ export const prerender = true;
   function bindToolbar(): void {
     document.querySelector('[data-trip-add-day]')?.addEventListener('click', () => {
       const day = store.tripAddDay();
+      if (!day) {
+        announce('Could not add a day. Saving is unavailable in this browser.');
+        return;
+      }
       trackEvent('trip_day_add', {});
       announce(`${day.label} added.`);
     });

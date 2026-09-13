@@ -198,7 +198,18 @@ const accessibleName = isFork ? `Copy this plan: ${title}` : `Save ${title}`;
       e.preventDefault();
       e.stopPropagation();
       const wasSaved = Saves.isSaved(kind, slug!);
-      Saves.toggle({ kind, slug: slug!, section, title, dek, image_url, href });
+      const result = Saves.toggle({ kind, slug: slug!, section, title, dek, image_url, href });
+      if (!result.ok) {
+        // Private mode / quota: nothing changed and no repaint fires. Do not
+        // paint "Saved", and do not report an event that did not happen.
+        btn!.setAttribute('title', 'Saving is unavailable in this browser');
+        if (label && variant === 'save') {
+          const previous = label.textContent;
+          label.textContent = 'Not saved';
+          setTimeout(() => { label.textContent = previous; }, 1600);
+        }
+        return;
+      }
       const evt = variant === 'fork' ? 'plan_fork' : wasSaved ? 'save_remove' : 'save_add';
       trackEvent(evt, {
         entity_type: kind,

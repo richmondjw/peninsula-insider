@@ -307,7 +307,13 @@ const pageDescription = `What is actually worth it on the Mornington Peninsula t
     if (!slug) return;
     const title = btn.dataset.entityTitle || slug;
     const href = btn.dataset.entityHref || `/whats-on/${slug}/`;
-    tripAdd({ kind: 'event', slug, title, href });
+    if (!tripAdd({ kind: 'event', slug, title, href })) {
+      // The write did not land; say so rather than painting "In trip".
+      const previous = btn.textContent;
+      btn.textContent = 'Not added';
+      setTimeout(() => { btn.textContent = previous; }, 2000);
+      return;
+    }
     btn.dataset.added = 'true';
     btn.textContent = 'In trip';
   });
