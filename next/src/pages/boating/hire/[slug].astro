@@ -5,8 +5,9 @@ import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import SubpageHero from '../../../components/SubpageHero.astro';
 import NewsletterBlock from '../../../components/NewsletterBlock.astro';
 import BfAnalytics from '../../../components/BfAnalytics.astro';
+import BookingCta from '../../../components/BookingCta.astro';
 import { buildBoatHireOperatorSchema } from '../../../lib/schema';
-import { buildBfUtm, formatVerifiedStamp } from '../../../lib/bf';
+import { formatVerifiedStamp } from '../../../lib/bf';
 
 export async function getStaticPaths() {
   const all = await getCollection('boatHire', ({ data }) => data.status === 'published');
@@ -27,17 +28,10 @@ const breadcrumbItems = [
   { label: data.name },
 ];
 
-// Build the primary booking URL with UTM. If we have a direct affiliate link
-// (preferred), use that; otherwise fall back to the operator website.
-const bookingDestination = data.affiliateUrl ?? data.operatorWebsite;
-const primaryBookingUrl = bookingDestination
-  ? buildBfUtm({
-      destination: bookingDestination,
-      campaign: `${data.slug}-boat-hire`,
-      medium: 'hire-page',
-      content: 'hero-primary',
-    })
-  : null;
+// Booking CTA. BookingCta owns the whole decision, including whether this is a
+// commercial link and therefore whether a disclosure renders (PI-021). The
+// page's only job is to hand over the two destinations and keep them apart:
+// affiliateUrl is the one PI is paid on, operatorWebsite is not.
 export const prerender = true;
 ---
 
@@ -67,22 +61,18 @@ export const prerender = true;
           {data.operatorWebsite ? <> · <a href={data.operatorWebsite} rel="external">Operator website</a></> : null}
         </p>
 
-        {primaryBookingUrl ? (
-          <p>
-            <a
-              href={primaryBookingUrl}
-              class="pi-btn pi-btn--solid"
-              rel="external sponsored"
-              data-bf-event="bf_hire_click"
-              data-bf-operator={data.slug}
-              data-bf-position="hero"
-              data-pi-book="booking"
-              data-pi-entity-type="boat-hire"
-              data-pi-entity-slug={data.slug}
-              data-pi-surface="boat-hire-hero"
-            >Book {data.name} &rarr;</a>
-          </p>
-        ) : null}
+        <BookingCta
+          name={data.name}
+          slug={data.slug}
+          affiliateUrl={data.affiliateUrl}
+          operatorWebsite={data.operatorWebsite}
+          campaign={`${data.slug}-boat-hire`}
+          medium="hire-page"
+          position="hero"
+          bfEvent="bf_hire_click"
+          entityType="boat-hire"
+          surface="boat-hire-hero"
+        />
 
         <h2>Key facts</h2>
         <table>
@@ -117,22 +107,18 @@ export const prerender = true;
           </>
         ) : null}
 
-        {primaryBookingUrl ? (
-          <p>
-            <a
-              href={primaryBookingUrl}
-              class="pi-btn pi-btn--solid"
-              rel="external sponsored"
-              data-bf-event="bf_hire_click"
-              data-bf-operator={data.slug}
-              data-bf-position="footer"
-              data-pi-book="booking"
-              data-pi-entity-type="boat-hire"
-              data-pi-entity-slug={data.slug}
-              data-pi-surface="boat-hire-footer"
-            >Book {data.name} &rarr;</a>
-          </p>
-        ) : null}
+        <BookingCta
+          name={data.name}
+          slug={data.slug}
+          affiliateUrl={data.affiliateUrl}
+          operatorWebsite={data.operatorWebsite}
+          campaign={`${data.slug}-boat-hire`}
+          medium="hire-page"
+          position="footer"
+          bfEvent="bf_hire_click"
+          entityType="boat-hire"
+          surface="boat-hire-footer"
+        />
       </div>
     </div>
   </article>

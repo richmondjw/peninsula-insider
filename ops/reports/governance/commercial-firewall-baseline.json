@@ -1,10 +1,11 @@
 {
-  "updatedAt": "2026-09-13T06:17:10.946Z",
+  "updatedAt": "2026-09-13T17:13:47.159Z",
   "commercialFields": [
     "featuredPartner",
     "affiliateNote",
     "affiliateProgram",
-    "affiliateUrl"
+    "affiliateUrl",
+    "sponsoredUrl"
   ],
   "assertedMetrics": [
     "commercialReads",
@@ -17,17 +18,17 @@
     "disclosureGap"
   ],
   "ceilings": {
-    "scannedSourceFiles": 488,
+    "scannedSourceFiles": 502,
     "sortSites": 111,
     "distinctSortKeys": 42,
-    "contentRecords": 864,
-    "featuredPartnerRecords": 135,
+    "contentRecords": 1973,
+    "featuredPartnerRecords": 134,
     "commercialReads": 6,
     "commercialSortKeys": 0,
     "unclassifiedSortKeys": 23,
     "orderArrayCommercial": 0,
-    "sponsoredMarkers": 5,
-    "sponsoredMarkersUndeclared": 5,
+    "sponsoredMarkers": 2,
+    "sponsoredMarkersUndeclared": 0,
     "commercialRelationships": 0,
     "commercialFieldsNonDefault": 7,
     "disclosureGap": 0

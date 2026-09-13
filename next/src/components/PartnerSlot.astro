@@ -3,26 +3,57 @@
  * PartnerSlot - single labelled commercial card.
  *
  * Renders only when the data file's `enabled` flag is true AND the title,
- * url, and image fields are populated. Returns null otherwise so the
+ * sponsoredUrl, and image fields are populated. Returns null otherwise so the
  * page collapses gracefully when no partner is active.
  *
  * Labelling is mandatory and prominent (top-left chip) - Peninsula
  * Insider's advertising stance is "firewall via labelling, not absence."
  * Never ship this component without the partner label visible.
+ *
+ * PI-021 changed three things about that promise, none of which alter what is
+ * for sale.
+ *
+ * First, the destination field is `sponsoredUrl` rather than `url`. This is
+ * the only unambiguously commercial surface on the site and it was the one
+ * thing scripts/audit-commercial-firewall.mjs could not see: the gate works
+ * from a list of field NAMES, and `url` is not on it, so a paid card was
+ * indistinguishable from any other link. Naming the field for what it is puts
+ * the slot inside the firewall's measurement rather than beside it.
+ *
+ * Second, "mandatory labelling" is now enforced instead of asserted. An
+ * enabled slot whose label does not read as a paid disclosure throws at build
+ * time. The old default, "Partner", does not: a reader can reasonably take
+ * "Partner" to mean a collaborator or a supplier, and the whole point of the
+ * chip is that nobody has to guess whether money changed hands. The default is
+ * now "Sponsored".
+ *
+ * Third, the slot's data is not a content collection, so Zod never saw it and
+ * a missing or malformed field would have failed silently. The check below is
+ * the substitute. It is deliberately a throw, not a console warning: a
+ * commercial card that renders unlabelled is worse than a page that fails to
+ * build.
  */
 import data from '../data/whats-on-partner.json';
+import { assertDisclosingLabel, DEFAULT_DISCLOSURE_LABEL } from '../lib/partner-slot';
 
 const enabled = data.enabled === true
   && typeof data.title === 'string' && data.title.length > 0
-  && typeof data.url === 'string' && data.url.length > 0
+  && typeof data.sponsoredUrl === 'string' && data.sponsoredUrl.length > 0
   && typeof data.image === 'string' && data.image.length > 0;
+
+const label = data.label ?? DEFAULT_DISCLOSURE_LABEL;
+
+assertDisclosingLabel(label, {
+  live: enabled,
+  surface: 'PartnerSlot (src/data/whats-on-partner.json)',
+});
 ---
 
 {enabled && (
-  <section class="partner-slot" aria-label="Partner content">
+  <section class="partner-slot" aria-label="Sponsored content">
     <div class="container">
-      <a class="partner-slot__card" href={data.url} rel="sponsored">
-        <span class="partner-slot__label">{data.label ?? 'Partner'}</span>
+      <a class="partner-slot__card" href={data.sponsoredUrl} rel="sponsored">
+        <span class="partner-slot__label">{label}</span>
         <div class="partner-slot__media" aria-hidden="true">
           <img src={data.image} alt={data.imageAlt ?? data.title} loading="lazy" decoding="async" />
         </div>

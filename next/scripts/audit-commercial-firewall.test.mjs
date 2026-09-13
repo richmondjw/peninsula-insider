@@ -379,6 +379,35 @@ test('a sponsored marker gated on a commercial field with no fallback is accepte
   assert.ok(report.sponsoredMarkers[0].declared);
 });
 
+test('a sponsored marker quoted inside a comment is documentation, not a marker', async () => {
+  // Found by writing this ticket's own component: its header comment quotes
+  // the defective markup it replaces, and the gate counted that quotation as
+  // four live paid markers. A ratchet that can be pushed over its ceiling by
+  // someone explaining the rule in a comment is a ratchet that teaches people
+  // not to explain the rule.
+  const { totals } = await audit({
+    src: {
+      'components/BookingCta.astro': [
+        '---',
+        '/**',
+        ' * The defect this replaced looked like:',
+        ' *     <a href={destination} rel="external sponsored">Book</a>',
+        ' * and the destination fell back to a link nobody paid for.',
+        ' */',
+        'const data = Astro.props.data;',
+        '---',
+        '{/* also not a marker: rel="sponsored" */}',
+        '<a href={data.operatorWebsite} rel="external">Book</a>',
+      ].join('\n'),
+    },
+    content: { 'boat-hire/a-hire.json': { slug: 'a-hire', name: 'A Hire' } },
+    assertMode: false,
+  });
+
+  assert.equal(totals.sponsoredMarkers, 0, 'a commented example must not count as a live marker');
+  assert.equal(totals.sponsoredMarkersUndeclared, 0);
+});
+
 /* -- contract cases: the gate itself must not be able to go blind --------- */
 
 test('the gate fails closed when its baseline is missing', async () => {
