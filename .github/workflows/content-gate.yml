@@ -62,6 +62,7 @@ jobs:
           npm run test:agent-readiness
           npm run test:verification-loop
           npm run test:material-change
+          npm run test:claim-support
           npm run test:event-safeguards
           npm run test:event-occurrence
           npm run test:media-provenance
@@ -74,6 +75,7 @@ jobs:
           cd next
           npm run assert:schema-drift
           npm run assert:media-provenance
+          npm run assert:claim-support
           npm run validate:content
 
       - name: Commercial/editorial firewall
