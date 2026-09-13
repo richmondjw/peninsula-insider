@@ -856,6 +856,22 @@ const articles = defineCollection({
     ...provenanceFields,
     ...sourceHealthFields,
     clusterLinks: z.array(z.object({ label: z.string(), href: z.string() })).optional(),
+    /**
+     * Which content-factory run produced this article, e.g. "2026-09-14-daily".
+     * Written by the factory on every agent-authored piece since 2026-08.
+     *
+     * It was never declared here, so Zod stripped it from all 30 articles that
+     * carry it and the site kept no record of which run wrote what. That is the
+     * provenance this programme exists to establish, discarded silently on the
+     * way in. The schema-drift ratchet caught the count crossing its ceiling on
+     * 2026-09-14 when the daily run added the thirtieth; the ceiling was the
+     * only thing that had ever noticed.
+     *
+     * Declared rather than baselined deliberately. Raising the ceiling would
+     * have licensed the loss and then failed the build again every single day,
+     * because the factory writes one more article every morning.
+     */
+    agentRun: z.string().optional(),
     aiSummary: z.array(z.string()).optional(),
     faq: z.array(z.object({ question: z.string(), answer: z.string() })).optional(),
     sitemapExclude: z.boolean().default(false),
