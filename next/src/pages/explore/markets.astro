@@ -14,6 +14,7 @@ import {
 import { routeSlug, titleize } from '../../lib/editorial';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
 import { editableImage } from '../../lib/inline-edit/attrs';
+import ProvenanceLine from '../../components/ProvenanceLine.astro';
 
 // ── Editorial-card hero lookup ────────────────────────────────────────────────
 // Cards in section 6 ("Markets editorial") that link to a journal article bind
@@ -563,7 +564,7 @@ export const prerender = true;
           </div>
         </details>
       </div>
-      <p class="market-verified">Last fact-verified 17 May 2026.</p>
+      <ProvenanceLine class="market-verified" records={marketVenues} type="venues" noun="market" />
     </div>
   </section>
 

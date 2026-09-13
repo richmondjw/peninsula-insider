@@ -6,12 +6,17 @@ import SectionHero from '../../../components/SectionHero.astro';
 import NewsletterBlock from '../../../components/NewsletterBlock.astro';
 import BfAnalytics from '../../../components/BfAnalytics.astro';
 import { buildBfHubSchema } from '../../../lib/schema';
-import { REGION_LABEL, formatVerifiedStamp } from '../../../lib/bf';
-
-const lastVerifiedISO = '2026-04-30';
-const lastVerifiedStamp = formatVerifiedStamp(lastVerifiedISO);
+import { pageProvenance } from '../../../lib/page-provenance';
+import { REGION_LABEL } from '../../../lib/bf';
 
 const allLocations = await getCollection('fishingLocations', ({ data }) => data.status === 'published');
+
+// PI-004: the stamp is derived from the records this page lists, never
+// declared. It is a fact-check date only when every record carries live
+// supporting evidence in the claim registry; otherwise it is the floor of
+// their review dates, and the page words it as a review.
+const provenance = await pageProvenance(allLocations, 'fishing-locations');
+const modifiedISO = provenance.stampISO ?? undefined;
 
 const grouped = {
   'port-phillip-bay': allLocations.filter((l) => l.data.region === 'port-phillip-bay'),
@@ -30,7 +35,7 @@ const hubSchema = buildBfHubSchema({
   description:
     'Pier, jetty, beach and headland fishing locations on the Mornington Peninsula. Access details, parking pressure, primary species, and tide windows.',
   path: '/fishing/locations/',
-  dateModified: lastVerifiedISO,
+  dateModified: modifiedISO,
   breadcrumbs: [
     { name: 'Home', path: '/' },
     { name: 'Fishing', path: '/fishing/' },
@@ -52,7 +57,7 @@ export const prerender = true;
   description="Piers, jetties, beaches, and headlands for Peninsula fishing. Access, parking, primary species, and tide notes for every spot."
   section="fishing"
   canonical="https://peninsulainsider.com.au/fishing/locations/"
-  modifiedTime={lastVerifiedISO}
+  modifiedTime={modifiedISO}
 >
   <script type="application/ld+json" set:html={JSON.stringify(hubSchema)} />
   <BfAnalytics />

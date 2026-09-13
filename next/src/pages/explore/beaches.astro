@@ -6,6 +6,7 @@ import ExperienceCard from '../../components/ExperienceCard.astro';
 import GuideHero from '../../components/GuideHero.astro';
 import CompareBlock from '../../components/CompareBlock.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import ProvenanceLine from '../../components/ProvenanceLine.astro';
 import {
   buildCollectionPageSchema,
   buildItemListSchema,
@@ -211,7 +212,7 @@ export const prerender = true;
           <li><a href="/explore/family-friendly/">Family-friendly things to do</a></li>
         </ul>
 
-        <p><em>Last fact-verified 23 April 2026</em></p>
+        <ProvenanceLine records={beaches} type="experiences" noun="beach" emphasis />
 
         <h2>FAQ</h2>
 

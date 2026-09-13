@@ -6,6 +6,7 @@ import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { routeSlug } from '../../lib/editorial';
 import { buildBreadcrumbSchema, absUrl } from '../../lib/schema';
+import ProvenanceLine from '../../components/ProvenanceLine.astro';
 
 const allVenues = await getCollection('venues');
 const slugs = [
@@ -47,7 +48,7 @@ export const prerender = true;
         <p>The tightest integration is the Peninsula Hot Springs precinct itself, near Rye. <a href="/stay/peninsula-hot-springs-glamping/">Peninsula Hot Springs Glamping</a> - ten canvas pods in garden, lake, and secluded pavilion settings - sits physically inside the grounds, thirty seconds from the Spa Dreaming Centre. Heated geothermal concrete floors, king beds, private decks, all-site bathing access included. The <a href="/stay/peninsula-hot-springs-eco-lodges/">Eco Lodges</a> at the same site are the enclosed version: private in-room geothermal baths for when canvas is not the point. Both are 16+ only. Book a two-night package if you can - arrive mid-afternoon, bathe at dusk, eat dinner at the on-site Amphitheatre restaurant, and go back to the pools before bed.</p>
         <p>The Alba thermal option: <a href="/stay/sanctuary-at-alba/">Sanctuary at Alba</a> opened June 2025 as the Peninsula's first purpose-built thermal villa stay at Alba Thermal Springs, Fingal. Five villas and two studios, each with a private heated mineral plunge pool and full all-day access to Alba's cave pools, cold plunge, and hydrotherapy circuit. The property operates on a different register to PHS - quieter, more design-conscious, adults-focused. Alba is five minutes from Peninsula Hot Springs by road, which makes a two-springs itinerary workable from this base.</p>
         <p>Beyond the precinct: <a href="/stay/yurt-hideaway/">Yurt Hideaway</a> in Tootgarook is a single six-metre Mongolian yurt five minutes from PHS - the most affordable thermal-adjacent option, with a 4.97-star host rating. The right choice when you want proximity to the springs without the on-site premium.</p>
-        <p style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 8 May 2026</p>
+        <ProvenanceLine style="font-size:0.8rem;color:var(--soft)" records={venues} type="venues" noun="venue" />
       </div>
     </div>
   </article>

@@ -4,6 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import ExperienceCard from '../../components/ExperienceCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import ProvenanceLine from '../../components/ProvenanceLine.astro';
 import {
   buildCollectionPageSchema,
   buildItemListSchema,
@@ -238,7 +239,7 @@ export const prerender = true;
           <li><a href="/journal/mornington-peninsula-with-kids/">With-kids guide</a> - child-tested by category</li>
         </ul>
 
-        <p><em>Last fact-verified 23 April 2026</em></p>
+        <ProvenanceLine records={experiences} type="experiences" noun="entry" emphasis />
 
         <h2>FAQ</h2>
 

@@ -6,6 +6,7 @@ import SubpageHero from '../../components/SubpageHero.astro';
 import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { routeSlug } from '../../lib/editorial';
+import ProvenanceLine from '../../components/ProvenanceLine.astro';
 
 const allVenues = await getCollection('venues');
 const slugs = ['pier-street-flinders','the-baths-sorrento','the-rocks-mornington','afloat-mornington','ocean-eight','flinders-pier-takeaway','portsea-hotel'];
@@ -30,7 +31,7 @@ export const prerender = true;
   entityType="page"
 >
   <div class="prose">
-    <p>The Peninsula's seafood scene is concentrated around its waterfront towns and fishing piers. Pier Street Kitchen in Flinders is the strongest all-round seafood dining room - one GFG hat, a proper kitchen, and a setting that justifies the southern drive. The Baths at Sorrento is the waterfront experience, and Flinders Pier Takeaway is the benchmark for a genuinely good casual stop that does not pretend to be anything else.</p><p>The Peninsula's fish is primarily sourced locally or from the southern Victorian coast - king george whiting, calamari, abalone in season, and Mornington Peninsula oysters when available. The category rewards finding the right venue for the right kind of afternoon.</p><p style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 23 April 2026</p></div>
+    <p>The Peninsula's seafood scene is concentrated around its waterfront towns and fishing piers. Pier Street Kitchen in Flinders is the strongest all-round seafood dining room - one GFG hat, a proper kitchen, and a setting that justifies the southern drive. The Baths at Sorrento is the waterfront experience, and Flinders Pier Takeaway is the benchmark for a genuinely good casual stop that does not pretend to be anything else.</p><p>The Peninsula's fish is primarily sourced locally or from the southern Victorian coast - king george whiting, calamari, abalone in season, and Mornington Peninsula oysters when available. The category rewards finding the right venue for the right kind of afternoon.</p><ProvenanceLine style="font-size:0.8rem;color:var(--soft)" records={venues} type="venues" noun="venue" /></div>
   </div>
 </SubpageHero>
   <section class="venues" id="rankings"><div class="container"><div class="venues__header"><div><p class="label label--accent">Seafood shortlist</p><h2 class="venues__title">{venues.length} seafood venues ranked</h2><p class="venues__sub">The hatted kitchen first, then the waterfront dining options, then the best casual stops.</p></div><a href="/eat/" class="venues__link">All dining venues →</a></div><div class="venues__grid venues__grid--ranked">{venues.map(v=><VenueCard venue={v} hrefPrefix="/eat" />)}</div></div></section>

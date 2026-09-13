@@ -35,7 +35,6 @@ import json
 import re
 import sys
 from dataclasses import dataclass, field
-from datetime import date
 from pathlib import Path
 
 # These are the editorial-overlay fields the skill is allowed to write.
@@ -135,9 +134,13 @@ def validate_editorial(editorial: dict, report: ValidationReport) -> None:
             validate_voice(k, v, report)
 
 
-def apply_to_event(slug: str, editorial: dict, dry_run: bool) -> ValidationReport:
+def apply_to_event(slug: str, editorial: dict, dry_run: bool,
+                   events_dir: Path | None = None) -> ValidationReport:
+    # events_dir is a test-harness override. Production callers pass none:
+    # the default is the real corpus, exactly as before.
     repo_root = Path(__file__).resolve().parent.parent
-    event_path = repo_root / 'src' / 'content' / 'events' / f'{slug}.json'
+    base = events_dir or (repo_root / 'src' / 'content' / 'events')
+    event_path = Path(base) / f'{slug}.json'
     if not event_path.exists():
         report = ValidationReport()
         report.errors.append(f"Event not found: {event_path}")
@@ -147,6 +150,20 @@ def apply_to_event(slug: str, editorial: dict, dry_run: bool) -> ValidationRepor
 
     report = ValidationReport()
     validate_editorial(editorial, report)
+
+    # PI-004: a visit claim needs a visit record.
+    #
+    # `editorVisited` is the flag that licenses first-hand copy, and this
+    # script cannot create the thing that would justify it. The visit belongs
+    # in the record's `editorialProvenance.visit` block, written by whoever went.
+    # records in this corpus claim a visit today, which is the correct number
+    # until one of them earns it.
+    if editorial.get('editorVisited') and not (data.get('editorialProvenance') or {}).get('visit'):
+        report.errors.append(
+            "editorVisited: refusing to assert a visit. The record carries no "
+            "editorialProvenance.visit block, so no visit is documented."
+        )
+
     if not report.ok:
         return report
 
@@ -160,8 +177,19 @@ def apply_to_event(slug: str, editorial: dict, dry_run: bool) -> ValidationRepor
             changed.append(k)
             data[k] = v
 
-    # Stamp lastVerified to today
-    data['lastCheckedDate'] = date.today().isoformat()
+    # PI-004: this script does NOT touch lastCheckedDate, and must not.
+    #
+    # It used to stamp it to today on every run. Applying a blurb is not a
+    # factual check: the editorial overlay above is prose about an event, and
+    # writing a verification date off the back of it asserts to a reader that
+    # somebody re-confirmed the dates, the venue and the ticketing on the day
+    # the copy was applied. Nobody did. lastCheckedDate advances only when a
+    # source was actually read, which is a different job than this one.
+    #
+    # The comment on the deleted line said 'Stamp lastVerified' while the code
+    # wrote lastCheckedDate. That slip is the whole ticket in miniature: the
+    # review date and the fact-check date had drifted into one field and one
+    # word. scripts/test_apply_event_editorial.py holds this line.
 
     if changed:
         if dry_run:
@@ -186,6 +214,8 @@ def main() -> int:
     p.add_argument('--research', type=Path, help="Research note path. Reads YAML block if present.")
     p.add_argument('--editorial', type=Path, help="Editorial fields YAML path.")
     p.add_argument('--check-only', action='store_true', help="Validate only, no write.")
+    p.add_argument('--events-dir', type=Path,
+                   help="Test-harness override. Production callers omit this.")
     args = p.parse_args()
 
     if not args.research and not args.editorial:
@@ -206,7 +236,8 @@ def main() -> int:
         print("ERROR: no editorial fields to apply.")
         return 2
 
-    report = apply_to_event(args.slug, editorial, dry_run=args.check_only)
+    report = apply_to_event(args.slug, editorial, dry_run=args.check_only,
+                            events_dir=args.events_dir)
 
     if report.warnings:
         print("\nWarnings:")
