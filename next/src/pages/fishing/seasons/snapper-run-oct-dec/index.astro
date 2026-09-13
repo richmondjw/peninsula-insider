@@ -1,21 +1,35 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, getEntry } from 'astro:content';
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../../../components/Breadcrumbs.astro';
 import SectionHero from '../../../../components/SectionHero.astro';
 import NewsletterBlock from '../../../../components/NewsletterBlock.astro';
 import BfAnalytics from '../../../../components/BfAnalytics.astro';
 import { buildArticleSchema, buildBreadcrumbSchema, buildFaqSchema, PUBLISHER_LOGO_URL } from '../../../../lib/schema';
+import { pageProvenance } from '../../../../lib/page-provenance';
 import { BF_EXTERNAL, formatVerifiedStamp } from '../../../../lib/bf';
 
 // Source: peninsula_insider_boating_fishing_v1/content-bf/pillar_snapper_season.md
 
-const lastVerifiedISO = '2026-04-30';
-const lastVerifiedStamp = formatVerifiedStamp(lastVerifiedISO);
+// The published date is a fact about this article, not a verification
+// claim, so it stays a constant.
+const publishedISO = '2026-04-30';
 const path = '/fishing/seasons/snapper-run-oct-dec/';
 
 const allCharters = await getCollection('fishingCharters', ({ data }) => data.status === 'published');
 const snapperCharters = allCharters.filter((c) => c.data.targetSpecies.includes('snapper'));
+
+// PI-004: the stamp is derived from the records this page is about, never
+// declared. The label is "Last fact-verified" only when every one of those
+// records carries live supporting evidence in the claim registry; otherwise
+// the floor of their review dates is published, worded as a review.
+// The bag and size limits on this page are a claim about the snapper
+// record, not about the charters listed below it, so that is the record
+// the stamp is derived from.
+const snapper = await getEntry('species', 'snapper');
+const provenance = await pageProvenance(snapper ? [snapper] : [], 'species');
+const verificationStamp = provenance.stampISO ? formatVerifiedStamp(provenance.stampISO) : null;
+const modifiedISO = provenance.stampISO ?? undefined;
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
@@ -29,8 +43,8 @@ const articleSchema = buildArticleSchema({
   description:
     'How the October to December snapper run unfolds in Port Phillip Bay and Western Port: water-temperature triggers, week-by-week tracking, charter timing, ramp selection, and where to cook your catch.',
   path,
-  datePublished: lastVerifiedISO,
-  dateModified: lastVerifiedISO,
+  datePublished: publishedISO,
+  dateModified: modifiedISO,
   imageUrl: PUBLISHER_LOGO_URL,
   publisherLogoUrl: PUBLISHER_LOGO_URL,
   articleSection: 'Fishing',
@@ -59,7 +73,7 @@ export const prerender = true;
   description="How the October to December snapper run unfolds in Port Phillip Bay and Western Port: water-temperature triggers, week-by-week tracking, charter timing, ramp selection."
   section="fishing"
   canonical={`https://peninsulainsider.com.au${path}`}
-  modifiedTime={lastVerifiedISO}
+  modifiedTime={modifiedISO}
 >
   <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
@@ -80,7 +94,7 @@ export const prerender = true;
     <div class="container">
       <div class="prose">
         <p class="prose__verified">
-          Last fact-verified {lastVerifiedStamp} against
+          {provenance.stampLabel} {verificationStamp} against
           <a href={BF_EXTERNAL.vfa} rel="external" data-bf-event="bf_licence_click" data-bf-source="pillar-snapper-season">Victorian Fisheries Authority</a>.
           Bag limit 10 per day with no more than 3 fish over 40cm; minimum size 28cm total length. Confirm before fishing.
         </p>

@@ -167,6 +167,130 @@ const authorityBlock = z
   })
   .optional();
 
+/**
+ * PI-004  -  provenance, kept apart from selection.
+ *
+ * Three dates had collapsed into one field. A record carried `lastVerified`
+ * (or `lastCheckedDate`), a publish job could advance it, a page rendered it
+ * as "Reviewed April 2026", and structured data emitted it as a modification
+ * date. So one number was answering three different questions at once:
+ *
+ *   reviewed      an editor last looked at this record and its copy
+ *   fact-checked  a source was actually read and the facts still stood
+ *   selected      the record was picked for a list this week
+ *
+ * Those move independently. A venue can be selected for this weekend's slate
+ * while the visit behind its copy happened in autumn and nothing has been
+ * rechecked since. Collapsing them means a selection refresh silently
+ * republishes a verification claim, which is the defect this block exists to
+ * make impossible.
+ *
+ * Additive by design. No legacy date field is removed: `lastVerified` and
+ * `lastCheckedDate` stay exactly where they are, and stay the fallback for
+ * the review line. Nothing here is required, and the safe answer is the
+ * default: `researched`, no check date, checked by the desk.
+ *
+ * Deliberately NOT migrated. The corpus carries bulk stamps (88 of 138
+ * venues share one date; six collections carry a single stamp applied inside
+ * 48 hours and never touched since), and a bulk stamp does not evidence a
+ * check of any particular record. Copying those dates into `checkedOn` would
+ * launder them into something stronger than they are, so `checkedOn` starts
+ * empty everywhere and fills only when a check is genuinely earned. Absent
+ * means unknown, and unknown is the honest answer today.
+ */
+const provenanceMethod = z.enum([
+  /** Desk research against published sources. The publication's normal
+   *  standard, and the default: most records are this, and it is not an
+   *  apology. */
+  'researched',
+  /** Somebody went. Requires a visit record below, always. */
+  'visited',
+  /** Assembled from other records that carry their own provenance, as a hub
+   *  page is assembled from the entries it lists. */
+  'compiled',
+]);
+
+const provenanceBlock = z
+  .object({
+    method: provenanceMethod.default('researched'),
+    /**
+     * When an editor last reviewed the record. A review is not a check: it
+     * means somebody read the copy, not that a source was re-read.
+     */
+    reviewedOn: z.coerce.date().optional(),
+    /**
+     * When a source was last actually read and the facts still stood. This
+     * is the only date a reader may be shown as a fact check, and nothing
+     * on a publish or regeneration path may advance it. Absent means no
+     * check is on file, which is a thing a reader is entitled to know.
+     */
+    checkedOn: z.coerce.date().optional(),
+    /**
+     * Who did the check, as a process rather than a person. Naming a person
+     * is a separate decision that has not been taken, so these two values
+     * are the whole enum: the desk, or the engine that ran the job.
+     */
+    checkedBy: z.enum(['desk', 'engine']).default('desk'),
+    /** Where the check was made: a URL, an authority, a phone call. */
+    source: z.string().optional(),
+    /**
+     * The visit record. Required before anything may claim a visit, which is
+     * the point of it: first-hand copy is a stronger claim than research and
+     * has to be backed by something an editor wrote down at the time.
+     */
+    visit: z
+      .object({
+        occurredOn: z.coerce.date(),
+        note: z.string().optional(),
+      })
+      .optional(),
+  })
+  .superRefine((value, ctx) => {
+    if (value.method === 'visited' && !value.visit) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ['visit'],
+        message:
+          "editorialProvenance.method 'visited' requires an editorialProvenance.visit " +
+          'record. An undocumented visit is research, so use method "researched".',
+      });
+    }
+  })
+  .optional();
+
+/**
+ * Selection is curation, not provenance: when this record was picked for a
+ * list, and which list. It sits beside provenance rather than inside it so
+ * that a selection refresh has somewhere to write that is nowhere near a
+ * check date.
+ */
+const selectionBlock = z
+  .object({
+    selectedOn: z.coerce.date().optional(),
+    /** The slate or list it was selected for. */
+    selectedFor: z.string().optional(),
+    note: z.string().optional(),
+  })
+  .optional();
+
+/**
+ * Spread into a collection schema as one line, so adding provenance to a
+ * collection is a one-line edit and the shape stays defined in one place.
+ */
+const provenanceFields = {
+  /**
+   * Named `editorialProvenance`, not `provenance`, because `provenance` is
+   * already taken on the events collection by the importer's own note: a
+   * free-text string recording which job promoted the row and from which
+   * feed. That is machine provenance, where a row came from. This is
+   * editorial provenance, how the publication knows what it is publishing.
+   * They are genuinely different facts, so they keep different names
+   * rather than one being migrated onto the other.
+   */
+  editorialProvenance: provenanceBlock,
+  selection: selectionBlock,
+};
+
 const venues = defineCollection({
   loader: glob({ pattern: '**/*.json', base: './src/content/venues' }),
   schema: z.object({
@@ -268,6 +392,7 @@ const venues = defineCollection({
      */
     editorPick: z.boolean().default(false),
     lastVerified: z.coerce.date(),
+    ...provenanceFields,
     /**
      * Free-text hours summary surfaced on the venue page (e.g.
      * "Sat–Sun 11am–5pm" or "Closed Tue–Wed"). Optional. When absent,
@@ -456,6 +581,7 @@ const experiences = defineCollection({
     gallery: z.array(imageRef).default([]),
     golf: z.any().optional(),
     lastVerified: z.coerce.date(),
+    ...provenanceFields,
     publishedAt: z.coerce.date(),
     sitemapExclude: z.boolean().default(false),
   }),
@@ -582,6 +708,7 @@ const articles = defineCollection({
     featured: z.boolean().default(false),
     status: z.enum(['draft', 'review', 'scheduled', 'published']).default('draft'),
     lastVerified: z.coerce.date().optional(),
+    ...provenanceFields,
     clusterLinks: z.array(z.object({ label: z.string(), href: z.string() })).optional(),
     aiSummary: z.array(z.string()).optional(),
     faq: z.array(z.object({ question: z.string(), answer: z.string() })).optional(),
@@ -841,6 +968,7 @@ const itineraries = defineCollection({
     editorNote: z.string(),
     publishedAt: z.coerce.date(),
     lastVerified: z.coerce.date().optional(),
+    ...provenanceFields,
     sitemapExclude: z.boolean().default(false),
   }),
 });
@@ -1084,6 +1212,7 @@ const events = defineCollection({
      */
     verification: z.enum(['verified', 'tentative', 'stub']).optional(),
     verificationNote: z.string().optional(),
+    ...provenanceFields,
     visitorAppealScore: z.number().min(0).max(5).optional(),
     editorialPriority: z.number().min(0).max(5).optional(),
 
@@ -1226,6 +1355,7 @@ const tourOperators = defineCollection({
     notSuitedFor: z.string(),
     heroImage: imageRef,
     lastVerified: z.coerce.date(),
+    ...provenanceFields,
     publishedAt: z.coerce.date(),
   }),
 });
@@ -1263,6 +1393,7 @@ const tours = defineCollection({
     faq: z.array(z.object({ question: z.string(), answer: z.string() })).default([]),
     heroImage: imageRef,
     lastVerified: z.coerce.date(),
+    ...provenanceFields,
     publishedAt: z.coerce.date(),
   }),
 });
@@ -1289,6 +1420,7 @@ const tourPackages = defineCollection({
     faq: z.array(z.object({ question: z.string(), answer: z.string() })).default([]),
     heroImage: imageRef,
     lastVerified: z.coerce.date(),
+    ...provenanceFields,
     publishedAt: z.coerce.date(),
   }),
 });
@@ -1357,6 +1489,7 @@ const species = defineCollection({
     status: bfStatus.default('draft'),
     verified: z.boolean().default(false),
     lastVerified: z.coerce.date(),
+    ...provenanceFields,
     publishedAt: z.coerce.date(),
     sitemapExclude: z.boolean().default(false),
   }),
@@ -1386,6 +1519,7 @@ const fishingLocations = defineCollection({
     status: bfStatus.default('draft'),
     verified: z.boolean().default(false),
     lastVerified: z.coerce.date(),
+    ...provenanceFields,
     publishedAt: z.coerce.date(),
     sitemapExclude: z.boolean().default(false),
   }),
@@ -1420,6 +1554,7 @@ const fishingCharters = defineCollection({
     status: bfStatus.default('draft'),
     verified: z.boolean().default(false),
     lastVerified: z.coerce.date(),
+    ...provenanceFields,
     publishedAt: z.coerce.date(),
     sitemapExclude: z.boolean().default(false),
   }),
@@ -1454,6 +1589,7 @@ const boatRamps = defineCollection({
     status: bfStatus.default('draft'),
     verified: z.boolean().default(false),
     lastVerified: z.coerce.date(),
+    ...provenanceFields,
     publishedAt: z.coerce.date(),
     sitemapExclude: z.boolean().default(false),
   }),
@@ -1485,6 +1621,7 @@ const boatHire = defineCollection({
     status: bfStatus.default('draft'),
     verified: z.boolean().default(false),
     lastVerified: z.coerce.date(),
+    ...provenanceFields,
     publishedAt: z.coerce.date(),
     sitemapExclude: z.boolean().default(false),
   }),
@@ -1552,6 +1689,7 @@ const editorial_blocks = defineCollection({
     pageHref: z.string().optional(), // canonical page this framing belongs to
     publishedAt: z.coerce.date(),
     lastVerified: z.coerce.date().optional(),
+    ...provenanceFields,
     status: z.enum(['draft', 'published']).default('published'),
   }),
 });

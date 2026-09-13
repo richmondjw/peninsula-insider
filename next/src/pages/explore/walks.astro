@@ -6,6 +6,7 @@ import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import PiSaveActions from '../../components/PiSaveActions.astro';
 import { editableImage } from '../../lib/inline-edit/attrs';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
+import ProvenanceLine from '../../components/ProvenanceLine.astro';
 import {
   buildCollectionPageSchema,
   buildItemListSchema,
@@ -458,7 +459,7 @@ export const prerender = true;
           <li><a href="/explore/">All Peninsula experiences</a></li>
         </ul>
 
-        <p><em>Last fact-verified 23 April 2026</em></p>
+        <ProvenanceLine records={experiences} type="experiences" noun="walk" emphasis />
       </div>
     </div>
   </section>

@@ -5,6 +5,7 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { routeSlug, isStayVenue } from '../../lib/editorial';
+import ProvenanceLine from '../../components/ProvenanceLine.astro';
 
 const allVenues = await getCollection('venues');
 
@@ -115,7 +116,7 @@ export const prerender = true;
         <p>The Peninsula has two distinct coasts, and they produce quite different trips. The bay coast (Port Phillip side) is calm water, limestone cliffs, and village dining - Sorrento is the centre of this version. The ocean coast (Bass Strait side) is surf beaches, strong prevailing winds, and working fishing villages - Flinders is the centre here, Cape Schanck at the southern tip is the most dramatic.</p>
         <p>The Continental Sorrento and Hotel Sorrento sit at the village end of Sorrento's main street, with the ocean baths a short walk away. Both suit couples who want a proper hotel stay with easy restaurant access. For a quieter coastal experience, the Sorrento Coastal Retreat gives bay views without the main-street activity.</p>
         <p>Flinders Hotel is the south coast benchmark: a proper country pub with good rooms, directly opposite the pier, in a village that has resisted the temptation to become a weekend destination. That resistance is the point.</p>
-        <p class="venues__sub" style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 24 April 2026</p>
+        <ProvenanceLine class="venues__sub" style="font-size:0.8rem;color:var(--soft)" records={sortedCoastalStays} type="venues" noun="venue" />
       </div>
     </div>
   </article>

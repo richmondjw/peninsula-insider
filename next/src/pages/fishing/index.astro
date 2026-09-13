@@ -6,6 +6,7 @@ import SectionHero from '../../components/SectionHero.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import BfAnalytics from '../../components/BfAnalytics.astro';
 import { buildBfHubSchema } from '../../lib/schema';
+import { pageProvenance } from '../../lib/page-provenance';
 import { BF_EXTERNAL, formatVerifiedStamp } from '../../lib/bf';
 
 // Source: peninsula_insider_boating_fishing_v1/content-bf/hub_fishing_index.md
@@ -13,12 +14,22 @@ import { BF_EXTERNAL, formatVerifiedStamp } from '../../lib/bf';
 // on every operator/venue/species mention; "Last fact-verified" stamp on
 // every published page. ItemList ordering: position 1 = best.
 
-const lastVerifiedISO = '2026-04-30';
-const lastVerifiedStamp = formatVerifiedStamp(lastVerifiedISO);
-
 const allSpecies = await getCollection('species', ({ data }) => data.status === 'published');
 const allLocations = await getCollection('fishingLocations', ({ data }) => data.status === 'published');
 const allCharters = await getCollection('fishingCharters', ({ data }) => data.status === 'published');
+
+// PI-004: the stamp is derived from the records this page is about, never
+// declared. The label is "Last fact-verified" only when every one of those
+// records carries live supporting evidence in the claim registry; otherwise
+// the floor of their review dates is published, worded as a review.
+const provenance = await pageProvenance(allSpecies, 'species');
+// The trailing space is part of the string on purpose: Astro drops a
+// whitespace-only text node between two expressions in a fragment.
+const verificationSentence = provenance.stampISO
+  ? `${provenance.stampLabel} ${formatVerifiedStamp(provenance.stampISO)}. `
+  : '';
+const verificationStamp = provenance.stampISO ? formatVerifiedStamp(provenance.stampISO) : null;
+const modifiedISO = provenance.stampISO ?? undefined;
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
@@ -30,7 +41,7 @@ const hubSchema = buildBfHubSchema({
   description:
     "Peninsula Insider's fishing hub: 12 species, three water bodies, charter selection, and the editorial layer the Victorian Fisheries Authority does not publish.",
   path: '/fishing/',
-  dateModified: lastVerifiedISO,
+  dateModified: modifiedISO,
   breadcrumbs: [
     { name: 'Home', path: '/' },
     { name: 'Fishing' },
@@ -42,7 +53,6 @@ const hubSchema = buildBfHubSchema({
     itemType: 'Article',
   })),
 });
-
 
 // Editorial seasonality calendar, derived from the pack hub draft. Not
 // schema-emitted; this is the in-page summary table.
@@ -68,7 +78,7 @@ export const prerender = true;
   description="The complete Peninsula fishing guide: 12 species, Port Phillip Bay vs Western Port vs Bass Strait, seasonality, charter vs DIY, licensing, and links to every sub-guide."
   section="fishing"
   canonical="https://peninsulainsider.com.au/fishing/"
-  modifiedTime={lastVerifiedISO}
+  modifiedTime={modifiedISO}
 >
   <script type="application/ld+json" set:html={JSON.stringify(hubSchema)} />
   <BfAnalytics />
@@ -87,7 +97,7 @@ export const prerender = true;
   <p class="affiliate-disclosure container">
     Bag and size limits are sourced from the
     <a href={BF_EXTERNAL.vfa} rel="external">Victorian Fisheries Authority</a>.
-    Last fact-verified {lastVerifiedStamp}. Regulations change, confirm with
+    {verificationSentence}Regulations change, confirm with
     VFA before fishing.
   </p>
 
@@ -219,7 +229,7 @@ export const prerender = true;
         for the duration of the trip. Confirm this with your operator at the
         time of booking. Do not assume.
       </p>
-      <p class="prose__verified">Last fact-verified {lastVerifiedStamp} against
+      <p class="prose__verified">{provenance.stampLabel} {verificationStamp} against
         <a href={BF_EXTERNAL.vfa} rel="external">Victorian Fisheries Authority</a>.
         If any bag limit, size limit, or licence requirement on this page
         differs from current VFA advice, VFA's current guidance takes precedence.

@@ -5,6 +5,7 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { routeSlug } from '../../lib/editorial';
+import ProvenanceLine from '../../components/ProvenanceLine.astro';
 
 const allVenues = await getCollection('venues');
 const slugs = [
@@ -71,7 +72,7 @@ export const prerender = true;
         <p>The best Peninsula wine weekends improve when you stop treating accommodation as an afterthought. The right base means you drink once, eat properly, and wake up where the trip actually happens, instead of spending the whole weekend running transfers between Sorrento beds and Red Hill lunches.</p>
         <p>The good options are limited, distinct, and easy to choose between once you know what sort of weekend you are building. <a href="/stay/polperro-villas/">Polperro Villas</a> and <a href="/stay/crittenden-villas/">Crittenden Estate Villas</a> are for couples who want to stay embedded in the vineyard experience. <a href="/wine/port-phillip-estate/">Port Phillip Estate</a> is the Peninsula's most architecturally serious winery stay: Wood Marsh-designed, one-hat restaurant, six suites. <a href="/stay/mantons-creek-estate/">Mantons Creek Estate</a> is the under-indexed option near Shoreham, two minutes from Ten Minutes by Tractor with on-estate Italian dining. <a href="/stay/cassis/">Cassis Red Hill</a> is not on a working winery but sits adjacent to one, and every villa has a private heated plunge pool. <a href="/stay/jackalope/">Jackalope</a> and <a href="/stay/lindenderry/">Lindenderry</a> are the hotel-format alternatives for those who want service infrastructure alongside the wine-country position.</p>
         <p>Note on Point Leo Estate: Point Leo does not operate on-estate accommodation. The Lon to Leo package pairs with Lon Retreat in Sorrento. For stays near Laura and the sculpture park, Mantons Creek Estate is the nearest vineyard-stay alternative.</p>
-        <p style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 8 May 2026</p>
+        <ProvenanceLine style="font-size:0.8rem;color:var(--soft)" records={venues} type="venues" noun="venue" />
       </div>
     </div>
   </article>

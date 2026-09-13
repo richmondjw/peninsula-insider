@@ -6,6 +6,7 @@ import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { routeSlug } from '../../lib/editorial';
 import { buildBreadcrumbSchema, absUrl } from '../../lib/schema';
+import ProvenanceLine from '../../components/ProvenanceLine.astro';
 
 const allVenues = await getCollection('venues');
 const slugs = [
@@ -51,7 +52,7 @@ export const prerender = true;
         <p>Three patterns make the format a clear choice. The on-estate weekend: Polperro, Crittenden, and Mantons Creek all operate on the same principle - you sleep on the estate, walk to the cellar door, and never need to drive between your bed and your glass. The architectural set-piece: Port Phillip Estate, Polperro, and Cassis are three completely different interpretations of the adults-only vineyard villa within five kilometres of each other. The thermal-anchored stay: The Sanctuary at Alba, opened June 2025, is the first Peninsula property to combine a genuinely luxurious villa with all-day thermal bathing access.</p>
         <p>Polperro has four villas, each sleeping two with a king-size bed, indoor spa, open fireplace and vineyard views. Cooking facilities are a convection oven and microwave, with no hotplates. There are no outdoor baths. Polperro Restaurant and Cellar Door are closed on Mondays and Tuesdays.</p>
         <p>Note on Point Leo Estate: Point Leo does not operate on-estate accommodation. The Lon to Leo package partners with Lon Retreat in Sorrento. For on-estate stays near Laura and the sculpture park, Mantons Creek Estate is the closest vineyard-stay alternative.</p>
-        <p style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 7 May 2026</p>
+        <ProvenanceLine style="font-size:0.8rem;color:var(--soft)" records={venues} type="venues" noun="venue" />
       </div>
     </div>
   </article>

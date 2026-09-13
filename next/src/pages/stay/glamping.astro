@@ -6,6 +6,7 @@ import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { routeSlug } from '../../lib/editorial';
 import { buildBreadcrumbSchema, absUrl } from '../../lib/schema';
+import ProvenanceLine from '../../components/ProvenanceLine.astro';
 
 const allVenues = await getCollection('venues');
 const slugs = [
@@ -50,7 +51,7 @@ export const prerender = true;
         <p>The category's structural logic runs through Peninsula Hot Springs. The right way to think about glamping here is not "find the best tent" - it is to build a slower, more sealed-off thermal weekend around Fingal, and let the canvas be part of how the trip is shaped. Access to the bathing precinct at 5am, the Hilltop Pool before the day visitors arrive, the Spa Dreaming Centre in the evening. If you want a wide market, this is not one. If you want the right sequence, this is the page.</p>
         <p>Beyond the thermal anchor: Iluka near Shoreham is the Peninsula's only fixed-site group glamping venue. Retro Caravans at Rye and Yurt Hideaway in Tootgarook cover the dog-friendly and couples-compact brackets. Happy Glamper is the mobile option. Point Nepean Discovery Tents are the budget gateway inside the national park.</p>
         <p>Note: The Sanctuary at Alba (five villas, Alba Thermal Springs, Fingal) is not glamping - it is fully enclosed villa accommodation on the same Fingal precinct. It belongs on the <a href="/stay/villas/">villas page</a>.</p>
-        <p style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 7 May 2026</p>
+        <ProvenanceLine style="font-size:0.8rem;color:var(--soft)" records={venues} type="venues" noun="venue" />
       </div>
     </div>
   </article>

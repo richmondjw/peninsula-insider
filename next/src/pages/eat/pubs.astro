@@ -6,6 +6,7 @@ import SubpageHero from '../../components/SubpageHero.astro';
 import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { routeSlug } from '../../lib/editorial';
+import ProvenanceLine from '../../components/ProvenanceLine.astro';
 
 const allVenues = await getCollection('venues');
 const venues = allVenues.filter(v=>v.data.type==='pub').sort((a,b)=>(a.data.name??'').localeCompare(b.data.name??''));
@@ -29,7 +30,7 @@ export const prerender = true;
   entityType="page"
 >
   <div class="prose">
-    <p>The Peninsula's pub scene is spread across its towns and coastal villages rather than concentrated in one area. Portsea Hotel leads for setting - the clifftop position above Portsea beach, bay views, and a dog-friendly beer garden make it the strongest pub experience on the Peninsula. Balnarring Pub is the most local and genuinely village-feeling. The Bay Hotel Mornington works as a practical stop for anyone based in or passing through town.</p><p>Peninsula pub kitchens range from honest bistro meals to better-than-expected seasonal menus. The general rule: pub food here is not the reason to drive; the setting is. Pair any pub stop with a coastal walk or afternoon activity nearby to get the most from it.</p><p style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 23 April 2026</p></div>
+    <p>The Peninsula's pub scene is spread across its towns and coastal villages rather than concentrated in one area. Portsea Hotel leads for setting - the clifftop position above Portsea beach, bay views, and a dog-friendly beer garden make it the strongest pub experience on the Peninsula. Balnarring Pub is the most local and genuinely village-feeling. The Bay Hotel Mornington works as a practical stop for anyone based in or passing through town.</p><p>Peninsula pub kitchens range from honest bistro meals to better-than-expected seasonal menus. The general rule: pub food here is not the reason to drive; the setting is. Pair any pub stop with a coastal walk or afternoon activity nearby to get the most from it.</p><ProvenanceLine style="font-size:0.8rem;color:var(--soft)" records={venues} type="venues" noun="venue" /></div>
   </div>
 </SubpageHero>
   <section class="venues" id="rankings"><div class="container"><div class="venues__header"><div><p class="label label--accent">Peninsula pubs</p><h2 class="venues__title">All {venues.length} Peninsula pubs</h2><p class="venues__sub">Sorted alphabetically. Location usually determines which one you visit.</p></div><a href="/eat/" class="venues__link">All dining venues →</a></div><div class="venues__grid">{venues.map(v=><VenueCard venue={v} hrefPrefix="/eat" />)}</div></div></section>

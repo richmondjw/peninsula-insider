@@ -6,15 +6,21 @@ import SectionHero from '../../components/SectionHero.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import BfAnalytics from '../../components/BfAnalytics.astro';
 import { buildBfHubSchema } from '../../lib/schema';
+import { pageProvenance } from '../../lib/page-provenance';
 import { BF_EXTERNAL, formatVerifiedStamp } from '../../lib/bf';
 
 // Source: peninsula_insider_boating_fishing_v1/content-bf/hub_boating_index.md
 
-const lastVerifiedISO = '2026-04-30';
-const lastVerifiedStamp = formatVerifiedStamp(lastVerifiedISO);
-
 const allRamps = await getCollection('boatRamps', ({ data }) => data.status === 'published');
 const allHire = await getCollection('boatHire', ({ data }) => data.status === 'published');
+
+// PI-004: the stamp is derived from the records this page is about, never
+// declared. The label is "Last fact-verified" only when every one of those
+// records carries live supporting evidence in the claim registry; otherwise
+// the floor of their review dates is published, worded as a review.
+const provenance = await pageProvenance(allRamps, 'boat-ramps');
+const verificationStamp = provenance.stampISO ? formatVerifiedStamp(provenance.stampISO) : null;
+const modifiedISO = provenance.stampISO ?? undefined;
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
@@ -29,7 +35,7 @@ const hubSchema = buildBfHubSchema({
   description:
     'Boat hire, ramp access, tides, and charter logistics on the Mornington Peninsula. Editorial Peninsula-specific guidance for owners and renters.',
   path: '/boating/',
-  dateModified: lastVerifiedISO,
+  dateModified: modifiedISO,
   breadcrumbs: [
     { name: 'Home', path: '/' },
     { name: 'Boating' },
@@ -58,7 +64,7 @@ export const prerender = true;
   description="The complete guide to boating on the Mornington Peninsula: boat hire, ramps and access, tides and safety, charter options, and the line between boating and fishing."
   section="boating"
   canonical="https://peninsulainsider.com.au/boating/"
-  modifiedTime={lastVerifiedISO}
+  modifiedTime={modifiedISO}
 >
   <script type="application/ld+json" set:html={JSON.stringify(hubSchema)} />
   <BfAnalytics />
@@ -161,7 +167,7 @@ export const prerender = true;
         before you launch. This is not hypothetical.
       </p>
       <p class="prose__verified">
-        Last fact-verified {lastVerifiedStamp} against
+        {provenance.stampLabel} {verificationStamp} against
         <a href={BF_EXTERNAL.betterBoating} rel="external">Better Boating Victoria</a>
         and <a href={BF_EXTERNAL.mornpenShire} rel="external">Mornington Peninsula Shire</a>.
       </p>
