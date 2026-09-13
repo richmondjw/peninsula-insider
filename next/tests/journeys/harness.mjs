@@ -83,6 +83,34 @@ export function distExists() {
 
 export const DIST = DIST_DIR;
 
+/**
+ * Routes in the built site whose HTML contains `marker`. Used instead of
+ * hardcoding a slug: which plan carries a fork button is editorial and will
+ * change, and a test that breaks when the corpus changes is a test people
+ * learn to ignore.
+ */
+export function routesContaining(marker, limit = 1) {
+  const found = [];
+  const stack = [DIST_DIR];
+  while (stack.length && found.length < limit) {
+    const dir = stack.pop();
+    let entries;
+    try { entries = fs.readdirSync(dir, { withFileTypes: true }); } catch { continue; }
+    for (const entry of entries) {
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) { stack.push(full); continue; }
+      if (entry.name !== 'index.html') continue;
+      let html;
+      try { html = fs.readFileSync(full, 'utf8'); } catch { continue; }
+      if (!html.includes(marker)) continue;
+      const rel = path.relative(DIST_DIR, path.dirname(full)).split(path.sep).join('/');
+      found.push(rel ? `/${rel}/` : '/');
+      if (found.length >= limit) break;
+    }
+  }
+  return found.sort();
+}
+
 function resolveFile(urlPath) {
   // The search page dynamically imports /pagefind/pagefind.js. Serve the
   // fixture in its place; see the header note.
@@ -323,7 +351,12 @@ export class Site {
    * dropped connection actually experiences.
    */
   async reader({ signedIn = false, userId = 'harness-user-a', seedStorage = {}, supabase = DEFAULT_SUPABASE, offline = false } = {}) {
-    const page = await this.browser.newPage();
+    // A fresh browser context per reader, not just a fresh page: localStorage
+    // is per origin, so two readers sharing one browser would share one saves
+    // list and each test would inherit the last one's shortlist. That is a
+    // harness that reports whatever ran before it.
+    const context = await this.browser.createBrowserContext();
+    const page = await context.newPage();
     await page.setViewport({ width: 1280, height: 900 });
     await page.evaluateOnNewDocument(instrument, {
       signedIn,
@@ -449,7 +482,7 @@ export class Site {
         try { return localStorage.getItem(k); } catch { return null; }
       }, key),
 
-      close: () => page.close(),
+      close: async () => { await page.close(); await context.close(); },
     };
     return reader;
   }
