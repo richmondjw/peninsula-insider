@@ -1,0 +1,20 @@
+{
+  "claimId": "events/pearcedale-community-market/accessibility",
+  "claimClass": "accessibility",
+  "subject": {
+    "type": "events",
+    "slug": "pearcedale-community-market",
+    "field": "accessibilityNotes"
+  },
+  "statement": "Access at Pearcedale Community Market: Grassed reserve; picnic area; generally accessible.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "pearcedale-community-market",
+      "field": "accessibilityNotes"
+    }
+  ],
+  "createdAt": "2026-05-17",
+  "origin": "migrated",
+  "note": "Migrated by scripts/migrate-event-claims.mjs (PI-005 Stage 2) from accessibilityNotes already on next/src/content/events/pearcedale-community-market.json. No editorial judgement was applied and no content record was changed."
+}

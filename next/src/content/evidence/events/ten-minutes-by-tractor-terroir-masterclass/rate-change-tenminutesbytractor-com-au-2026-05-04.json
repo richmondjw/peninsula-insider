@@ -1,0 +1,19 @@
+{
+  "evidenceId": "events/ten-minutes-by-tractor-terroir-masterclass/rate-change-tenminutesbytractor-com-au-2026-05-04",
+  "claim": "events/ten-minutes-by-tractor-terroir-masterclass/rate-change",
+  "stance": "supports",
+  "publisher": {
+    "kind": "organiser",
+    "name": "Ten Minutes by Tractor"
+  },
+  "url": "https://www.tenminutesbytractor.com.au/Experiences/Terroir-Masterclass",
+  "retrievedAt": "2026-05-04",
+  "expiresAt": "2026-10-31",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/content/events/ten-minutes-by-tractor-terroir-masterclass.json",
+    "field": "officialEventUrl",
+    "value": "https://www.tenminutesbytractor.com.au/Experiences/Terroir-Masterclass",
+    "dateField": "lastCheckedDate"
+  }
+}

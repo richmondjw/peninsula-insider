@@ -1,0 +1,20 @@
+{
+  "claimId": "events/national-works-on-paper-2026-nwop/event-schedule",
+  "claimClass": "event-schedule",
+  "subject": {
+    "type": "events",
+    "slug": "national-works-on-paper-2026-nwop",
+    "field": "startDate"
+  },
+  "statement": "National Works on Paper 2026 (NWOP) runs from 5 September 2026 to 22 November 2026, 11am to 4pm.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "national-works-on-paper-2026-nwop",
+      "field": "startDate"
+    }
+  ],
+  "createdAt": "2026-05-04",
+  "origin": "migrated",
+  "note": "Migrated by scripts/migrate-event-claims.mjs (PI-005 Stage 2) from startDate, endDate, startTime, endTime already on next/src/content/events/national-works-on-paper-2026-nwop.json. No editorial judgement was applied and no content record was changed."
+}

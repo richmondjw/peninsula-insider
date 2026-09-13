@@ -1,0 +1,20 @@
+{
+  "claimId": "events/arj-barker-live-at-barlow/event-schedule",
+  "claimClass": "event-schedule",
+  "subject": {
+    "type": "events",
+    "slug": "arj-barker-live-at-barlow",
+    "field": "startDate"
+  },
+  "statement": "Arj Barker Live at Barlow runs on 1 October 2026.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "arj-barker-live-at-barlow",
+      "field": "startDate"
+    }
+  ],
+  "createdAt": "2026-08-23",
+  "origin": "migrated",
+  "note": "Migrated by scripts/migrate-event-claims.mjs (PI-005 Stage 2) from startDate, endDate, startTime, endTime already on next/src/content/events/arj-barker-live-at-barlow.json. No editorial judgement was applied and no content record was changed."
+}

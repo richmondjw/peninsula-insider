@@ -1,0 +1,20 @@
+{
+  "claimId": "events/hastings-thursday-street-market/rate-change",
+  "claimClass": "rate-change",
+  "subject": {
+    "type": "events",
+    "slug": "hastings-thursday-street-market",
+    "field": "freePaid"
+  },
+  "statement": "Entry to Hastings Thursday Street Market is free.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "hastings-thursday-street-market",
+      "field": "freePaid"
+    }
+  ],
+  "createdAt": "2026-05-04",
+  "origin": "migrated",
+  "note": "Migrated by scripts/migrate-event-claims.mjs (PI-005 Stage 2) from freePaid already on next/src/content/events/hastings-thursday-street-market.json. No editorial judgement was applied and no content record was changed."
+}

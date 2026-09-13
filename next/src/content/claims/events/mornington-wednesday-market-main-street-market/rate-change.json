@@ -1,0 +1,20 @@
+{
+  "claimId": "events/mornington-wednesday-market-main-street-market/rate-change",
+  "claimClass": "rate-change",
+  "subject": {
+    "type": "events",
+    "slug": "mornington-wednesday-market-main-street-market",
+    "field": "freePaid"
+  },
+  "statement": "Entry to Mornington Wednesday Market (Main Street Market) is free.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "mornington-wednesday-market-main-street-market",
+      "field": "freePaid"
+    }
+  ],
+  "createdAt": "2026-05-04",
+  "origin": "migrated",
+  "note": "Migrated by scripts/migrate-event-claims.mjs (PI-005 Stage 2) from freePaid already on next/src/content/events/mornington-wednesday-market-main-street-market.json. No editorial judgement was applied and no content record was changed."
+}

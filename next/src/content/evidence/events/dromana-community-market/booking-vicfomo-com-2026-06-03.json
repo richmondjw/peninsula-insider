@@ -1,0 +1,18 @@
+{
+  "evidenceId": "events/dromana-community-market/booking-vicfomo-com-2026-06-03",
+  "claim": "events/dromana-community-market/booking",
+  "stance": "supports",
+  "publisher": {
+    "kind": "unknown"
+  },
+  "url": "https://www.vicfomo.com/mornington_peninsula_shire/",
+  "retrievedAt": "2026-06-03",
+  "expiresAt": "2026-08-02",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/content/events/dromana-community-market.json",
+    "field": "officialEventUrl",
+    "value": "https://www.vicfomo.com/mornington_peninsula_shire/",
+    "dateField": "lastCheckedDate"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "evidenceId": "events/winter-acoustic-sessions-portsea-hotel-2026/event-schedule-portseahotel-com-au-2026-07-11",
+  "claim": "events/winter-acoustic-sessions-portsea-hotel-2026/event-schedule",
+  "stance": "supports",
+  "publisher": {
+    "kind": "organiser",
+    "name": "Portsea Hotel"
+  },
+  "url": "https://www.portseahotel.com.au",
+  "retrievedAt": "2026-07-11",
+  "expiresAt": "2026-08-10",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/content/events/winter-acoustic-sessions-portsea-hotel-2026.json",
+    "field": "officialEventUrl",
+    "value": "https://www.portseahotel.com.au",
+    "dateField": "lastCheckedDate"
+  }
+}

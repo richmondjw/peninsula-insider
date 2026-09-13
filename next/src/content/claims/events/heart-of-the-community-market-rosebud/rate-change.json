@@ -1,0 +1,20 @@
+{
+  "claimId": "events/heart-of-the-community-market-rosebud/rate-change",
+  "claimClass": "rate-change",
+  "subject": {
+    "type": "events",
+    "slug": "heart-of-the-community-market-rosebud",
+    "field": "freePaid"
+  },
+  "statement": "Entry to Heart of the Community Market (Rosebud) is free.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "heart-of-the-community-market-rosebud",
+      "field": "freePaid"
+    }
+  ],
+  "createdAt": "2026-05-04",
+  "origin": "migrated",
+  "note": "Migrated by scripts/migrate-event-claims.mjs (PI-005 Stage 2) from freePaid already on next/src/content/events/heart-of-the-community-market-rosebud.json. No editorial judgement was applied and no content record was changed."
+}

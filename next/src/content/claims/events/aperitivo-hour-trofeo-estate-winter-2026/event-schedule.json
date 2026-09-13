@@ -1,0 +1,20 @@
+{
+  "claimId": "events/aperitivo-hour-trofeo-estate-winter-2026/event-schedule",
+  "claimClass": "event-schedule",
+  "subject": {
+    "type": "events",
+    "slug": "aperitivo-hour-trofeo-estate-winter-2026",
+    "field": "startDate"
+  },
+  "statement": "Aperitivo Hour at Trofeo Estate runs from 5 June 2026 to 28 August 2026, 4pm to 6pm.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "aperitivo-hour-trofeo-estate-winter-2026",
+      "field": "startDate"
+    }
+  ],
+  "createdAt": "2026-07-11",
+  "origin": "migrated",
+  "note": "Migrated by scripts/migrate-event-claims.mjs (PI-005 Stage 2) from startDate, endDate, startTime, endTime already on next/src/content/events/aperitivo-hour-trofeo-estate-winter-2026.json. No editorial judgement was applied and no content record was changed."
+}

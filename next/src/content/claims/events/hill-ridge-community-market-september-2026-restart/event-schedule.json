@@ -1,0 +1,20 @@
+{
+  "claimId": "events/hill-ridge-community-market-september-2026-restart/event-schedule",
+  "claimClass": "event-schedule",
+  "subject": {
+    "type": "events",
+    "slug": "hill-ridge-community-market-september-2026-restart",
+    "field": "startDate"
+  },
+  "statement": "Hill & Ridge Community Market, September 2026 (Restart) runs on 5 September 2026, 9am to 2pm.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "hill-ridge-community-market-september-2026-restart",
+      "field": "startDate"
+    }
+  ],
+  "createdAt": "2026-05-04",
+  "origin": "migrated",
+  "note": "Migrated by scripts/migrate-event-claims.mjs (PI-005 Stage 2) from startDate, endDate, startTime, endTime already on next/src/content/events/hill-ridge-community-market-september-2026-restart.json. No editorial judgement was applied and no content record was changed."
+}

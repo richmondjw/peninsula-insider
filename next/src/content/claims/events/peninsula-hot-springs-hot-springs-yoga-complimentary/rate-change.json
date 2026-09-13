@@ -1,0 +1,20 @@
+{
+  "claimId": "events/peninsula-hot-springs-hot-springs-yoga-complimentary/rate-change",
+  "claimClass": "rate-change",
+  "subject": {
+    "type": "events",
+    "slug": "peninsula-hot-springs-hot-springs-yoga-complimentary",
+    "field": "freePaid"
+  },
+  "statement": "Hot springs yoga at Peninsula Hot Springs is a complimentary activity for bathers.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "peninsula-hot-springs-hot-springs-yoga-complimentary",
+      "field": "freePaid"
+    }
+  ],
+  "createdAt": "2026-09-13",
+  "origin": "authored",
+  "note": "The other half of the pair the two records flag against each other. Distinct activity, distinct basis, distinct time of day."
+}

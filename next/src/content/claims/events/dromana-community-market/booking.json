@@ -1,0 +1,20 @@
+{
+  "claimId": "events/dromana-community-market/booking",
+  "claimClass": "booking",
+  "subject": {
+    "type": "events",
+    "slug": "dromana-community-market",
+    "field": "bookingRequired"
+  },
+  "statement": "Booking is not required for Dromana Community Market.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "dromana-community-market",
+      "field": "bookingRequired"
+    }
+  ],
+  "createdAt": "2026-06-03",
+  "origin": "migrated",
+  "note": "Migrated by scripts/migrate-event-claims.mjs (PI-005 Stage 2) from bookingRequired already on next/src/content/events/dromana-community-market.json. No editorial judgement was applied and no content record was changed."
+}

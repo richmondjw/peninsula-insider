@@ -1,0 +1,18 @@
+{
+  "evidenceId": "events/ten-minutes-by-tractor-terroir-masterclass/event-schedule-tripadvisor-com-2026-05-04",
+  "claim": "events/ten-minutes-by-tractor-terroir-masterclass/event-schedule",
+  "stance": "supports",
+  "publisher": {
+    "kind": "unknown"
+  },
+  "url": "https://www.tripadvisor.com/AttractionProductReview-g2055778-d25356559",
+  "retrievedAt": "2026-05-04",
+  "expiresAt": "2026-06-03",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/content/events/ten-minutes-by-tractor-terroir-masterclass.json",
+    "field": "secondarySourceUrl",
+    "value": "https://www.tripadvisor.com/AttractionProductReview-g2055778-d25356559",
+    "dateField": "lastCheckedDate"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "claimId": "events/sound-circle-full-moon-sound-journey-at-peninsula-hot-springs/accessibility",
+  "claimClass": "accessibility",
+  "subject": {
+    "type": "events",
+    "slug": "sound-circle-full-moon-sound-journey-at-peninsula-hot-springs",
+    "field": "accessibilityNotes"
+  },
+  "statement": "Access at Sound Circle: Full Moon Sound Journey at Peninsula Hot Springs: Wellness Studio accessible; check with venue for specific mobility needs.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "sound-circle-full-moon-sound-journey-at-peninsula-hot-springs",
+      "field": "accessibilityNotes"
+    }
+  ],
+  "createdAt": "2026-05-04",
+  "origin": "migrated",
+  "note": "Migrated by scripts/migrate-event-claims.mjs (PI-005 Stage 2) from accessibilityNotes already on next/src/content/events/sound-circle-full-moon-sound-journey-at-peninsula-hot-springs.json. No editorial judgement was applied and no content record was changed."
+}
