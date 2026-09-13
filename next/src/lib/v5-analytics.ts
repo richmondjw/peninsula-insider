@@ -50,15 +50,31 @@ const PARAM_ATTRS: Array<[string, string]> = [
   ['action', 'action'],
 ];
 
-function analyticsConsented(): boolean {
+/**
+ * Three-state consent, because "not granted" and "refused" are different
+ * facts and the warehouse needs to tell them apart. `unknown` means the
+ * reader has not answered the CookieBanner yet (no stored record, or a
+ * record written by an older schema version).
+ */
+export type ConsentState = 'granted' | 'denied' | 'unknown';
+
+/** Read the stored consent record. Never throws; never writes. */
+export function readConsentState(): ConsentState {
+  if (typeof window === 'undefined') return 'unknown';
   try {
     const raw = localStorage.getItem(CONSENT_KEY);
-    if (!raw) return false;
+    if (!raw) return 'unknown';
     const parsed = JSON.parse(raw) as { analytics?: boolean } | null;
-    return !!(parsed && parsed.analytics);
+    if (!parsed || typeof parsed !== 'object') return 'unknown';
+    if (typeof parsed.analytics !== 'boolean') return 'unknown';
+    return parsed.analytics ? 'granted' : 'denied';
   } catch {
-    return false;
+    return 'unknown';
   }
+}
+
+function analyticsConsented(): boolean {
+  return readConsentState() === 'granted';
 }
 
 /**

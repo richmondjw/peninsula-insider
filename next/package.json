@@ -72,7 +72,8 @@
     "audit:schema-drift": "node scripts/audit-content-schema-drift.mjs",
     "assert:schema-drift": "node scripts/audit-content-schema-drift.mjs --assert",
     "audit:commercial-firewall": "node scripts/audit-commercial-firewall.mjs",
-    "assert:commercial-firewall": "node scripts/audit-commercial-firewall.mjs --assert"
+    "assert:commercial-firewall": "node scripts/audit-commercial-firewall.mjs --assert",
+    "test:analytics-contract": "node --test src/lib/analytics-contract.test.mjs"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.0",

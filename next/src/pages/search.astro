@@ -673,6 +673,51 @@ export const prerender = true;
         return [bestBetToHandle(intent), ...filtered];
       }
 
+      /* PI-024 measurement.
+         `search_submitted` records a SUBMISSION, not a keystroke. This page
+         re-runs the search on a 100ms input debounce, so firing per run would
+         report one submission per character typed and make every downstream
+         rate meaningless. `commitTrigger` is set only by an explicit commit
+         (form submit, a kind chip applied to a live query, or arriving with
+         ?q= in the URL) and is consumed by the first runSearch that follows.
+         The event is emitted once the results settle so it can carry an
+         honest result_count. The query itself never travels - only its
+         length bucket. */
+      let commitTrigger = null;
+
+      function shapeOf(text) {
+        const a = window.piAnalytics;
+        return a && a.lengthBucket ? a.lengthBucket(text) : 'unknown';
+      }
+
+      function emitSearchSubmitted(q, resultCount, engine) {
+        if (!commitTrigger) return;
+        const trigger = commitTrigger;
+        commitTrigger = null;
+        window.piTrack?.('search_submitted', {
+          surface: 'search_page',
+          trigger,
+          engine,
+          kind_filter: currentKind,
+          query_length: shapeOf(q),
+          result_count: resultCount,
+          zero_results: resultCount === 0,
+        }, { component: 'SearchPage' });
+      }
+
+      function emitSearchFailed(q, engine, reason) {
+        const trigger = commitTrigger || 'typeahead';
+        commitTrigger = null;
+        window.piTrack?.('search_failed', {
+          surface: 'search_page',
+          trigger,
+          engine,
+          kind_filter: currentKind,
+          query_length: shapeOf(q),
+          reason,
+        }, { component: 'SearchPage' });
+      }
+
       async function runSearch() {
         const q = (input?.value || '').trim();
         currentQuery = q;
@@ -704,6 +749,7 @@ export const prerender = true;
               currentResults = withBestBet(hits.map((h) => rpcHitToHandle(h, q)), q);
               await showPage(1);
               logSearch(q, currentResults.length, currentKind);
+              emitSearchSubmitted(q, currentResults.length, 'rpc');
               updateUrl(q);
               return;
             }
@@ -734,8 +780,10 @@ export const prerender = true;
             await showPage(1);
           }
           logSearch(q, currentResults.length, currentKind);
+          emitSearchSubmitted(q, currentResults.length, 'pagefind');
         } catch (err) {
           console.warn('[search] error', err);
+          emitSearchFailed(q, 'pagefind', 'search-error');
           if (list) list.innerHTML = '<div class="search-page-v2__loading"><p>Search isn\'t available right now. Try again in a moment.</p></div>';
           if (fallback) fallback.hidden = true;
         }
@@ -754,8 +802,27 @@ export const prerender = true;
       // Wire form
       form?.addEventListener('submit', (e) => {
         e.preventDefault();
+        commitTrigger = 'submit';
         runSearch();
       });
+
+      /* result_selected. Capture phase, because a result click navigates
+         away immediately and a bubble-phase handler can lose the beacon.
+         Position is read from the rendered order rather than stored on the
+         element, so it stays correct after pagination re-renders the list. */
+      list?.addEventListener('click', (e) => {
+        const card = e.target.closest?.('a.search-card');
+        if (!card || !list.contains(card)) return;
+        const cards = Array.from(list.querySelectorAll('a.search-card'));
+        window.piTrack?.('result_selected', {
+          surface: 'search_page',
+          position: cards.indexOf(card) + 1,
+          result_count: currentResults.length,
+          kind_filter: currentKind,
+          query_length: shapeOf(currentQuery),
+          entity_type: card.querySelector('.search-card__kind')?.textContent?.trim() || '',
+        }, { component: 'SearchPage' });
+      }, true);
 
       // Debounced live search as the user types - Pagefind is fast enough
       // that this feels instant.
@@ -775,7 +842,15 @@ export const prerender = true;
           chip.classList.add('is-active');
           chip.setAttribute('aria-selected', 'true');
           currentKind = chip.dataset.kind || 'all';
-          if (currentQuery) runSearch();
+          window.piTrack?.('filter_applied', {
+            surface: 'search_page',
+            source: 'chip',
+            noun: 'result',
+            filter_keys: 'kind',
+            filter_count: currentKind === 'all' ? 0 : 1,
+            kind_filter: currentKind,
+          }, { component: 'SearchPage', dedupKey: 'filter:search:' + currentKind });
+          if (currentQuery) { commitTrigger = 'filter'; runSearch(); }
           else updateUrl(currentQuery);
         });
       });
@@ -830,6 +905,7 @@ export const prerender = true;
       }
       if (initialQ && input) {
         input.value = initialQ;
+        commitTrigger = 'url';
         runSearch();
       } else {
         renderIdle();

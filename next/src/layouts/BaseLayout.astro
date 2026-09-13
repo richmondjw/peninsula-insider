@@ -335,7 +335,9 @@ const showNewsletterPopup = newsletterPopupMode === 'preview' || newsletterPopup
       above: no consent, no events. */}
   <script>
     import { initV5Analytics } from '../lib/v5-analytics';
+    import { initContractAnalytics } from '../lib/analytics-events';
     initV5Analytics();
+    initContractAnalytics();
   </script>
 
   {/* TEMPORARY PASSWORD GATE.

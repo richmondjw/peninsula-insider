@@ -167,7 +167,17 @@ export const prerender = true;
               <div class="tour-cta-block">
                 <h3 class="tour-cta-block__title">{tour.data.name}</h3>
                 <p>Operated by {opData?.name ?? tour.data.operatorSlug}. Book directly with the operator.</p>
-                <a href={utmUrl} target="_blank" rel="noopener noreferrer" class="tour-cta-primary pi-btn pi-btn--solid">
+                <a
+                  href={utmUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="tour-cta-primary pi-btn pi-btn--solid"
+                  data-pi-book="booking"
+                  data-pi-entity-type="tour"
+                  data-pi-entity-slug={tourSlug}
+                  data-pi-surface="tour-package"
+                  data-pi-provider={tour.data.bookingUrl ? "operator" : "getyourguide"}
+                >
                   Book this tour &rarr;
                 </a>
               </div>

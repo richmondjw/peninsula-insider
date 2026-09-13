@@ -73,6 +73,10 @@ const eventHref = pick.eventRef ? `/whats-on/${pick.eventRef}/` : null;
         href={pick.bookingUrl}
         rel="nofollow noreferrer"
         target="_blank"
+        data-pi-book="booking"
+        data-pi-entity-type="dispatch-pick"
+        data-pi-entity-slug={pick.eventRef}
+        data-pi-surface="dispatch-pick-card"
       >
         {pick.bookingLabel ?? 'Book this'} →
       </a>

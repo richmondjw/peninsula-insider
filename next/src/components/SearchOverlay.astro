@@ -249,6 +249,12 @@
     }
 
     function showResults(els, results, query) {
+      // PI-024: the SHAPE of the answer set, never the query. Read back by
+      // the result_selected handler below.
+      state.lastResultCount = results.length;
+      state.lastQueryLength = window.piAnalytics
+        ? window.piAnalytics.lengthBucket(query)
+        : 'unknown';
       if (els.suggestions) els.suggestions.hidden = true;
       if (els.list) {
         els.list.hidden = false;
@@ -259,13 +265,14 @@
               '<p class="site-search-overlay__result-empty-hint">Hit Enter to try the full results page.</p>' +
             '</li>';
         } else {
-          els.list.innerHTML = results.slice(0, 6).map((item) => {
+          els.list.innerHTML = results.slice(0, 6).map((item, index) => {
             const kind = (item.meta && item.meta.kind) || (item.filters && item.filters.kind && item.filters.kind[0]) || 'Guide';
             const title = (item.meta && item.meta.title) || 'Untitled';
             const excerpt = item.excerpt || '';
             return (
               '<li class="site-search-overlay__result">' +
-                '<a href="' + escapeHtml(item.url) + '" class="site-search-overlay__result-link">' +
+                '<a href="' + escapeHtml(item.url) + '" class="site-search-overlay__result-link"' +
+                  ' data-pi-pos="' + (index + 1) + '" data-pi-kind="' + escapeHtml(kind) + '">' +
                   '<span class="site-search-overlay__result-kind">' + escapeHtml(kind) + '</span>' +
                   '<span class="site-search-overlay__result-title">' + escapeHtml(title) + '</span>' +
                   '<span class="site-search-overlay__result-excerpt">' + excerpt + '</span>' +
@@ -355,11 +362,45 @@
         logSearch(q, result.results.length);
       } catch (err) {
         console.warn('[search] error', err);
+        // Both engines are gone and the reader sees nothing. This event is
+        // the only record that it happened. docs/analytics-dictionary.md
+        if (window.piTrack) {
+          window.piTrack('search_failed', {
+            surface: 'overlay',
+            trigger: 'typeahead',
+            engine: 'pagefind',
+            query_length: window.piAnalytics ? window.piAnalytics.lengthBucket(q) : 'unknown',
+            reason: 'search-error',
+          }, { component: 'SearchOverlay', dedupKey: 'search-failed:overlay', dedupMs: 5000 });
+        }
         if (myToken === state.searchToken && els.cta) {
           els.cta.hidden = false;
           els.cta.href = '/search/?q=' + encodeURIComponent(q);
         }
       }
+    }
+
+    /* result_selected (overlay). On document, capture phase: the list is
+       rebuilt by innerHTML on every keystroke and a result click navigates
+       away. The overlay emits no search_submitted - it searches on an 80ms
+       debounce and its submit hands off to /search/, which records it there
+       with a real result_count. Rationale: docs/analytics-dictionary.md */
+    if (!window.__piSearchAnalyticsBound) {
+      window.__piSearchAnalyticsBound = true;
+      document.addEventListener('click', function (ev) {
+        const target = ev.target;
+        const link = target && target.closest
+          ? target.closest('.site-search-overlay__result-link')
+          : null;
+        if (!link || !window.piTrack) return;
+        window.piTrack('result_selected', {
+          surface: 'overlay',
+          position: Number(link.dataset.piPos) || 0,
+          result_count: state.lastResultCount || 0,
+          query_length: state.lastQueryLength || 'unknown',
+          entity_type: link.dataset.piKind || '',
+        }, { component: 'SearchOverlay' });
+      }, true);
     }
 
     // Per-instance handlers (input, form submit). Idempotent - guarded by
