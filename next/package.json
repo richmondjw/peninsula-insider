@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "type": "module",
-  "description": "Astro rebuild of Peninsula Insider \u2014 atomic content layer, JSON-first authoring, editorial-grade design system. Phase 1 scaffold per roadmap-2026-04-09.md.",
+  "description": "Astro rebuild of Peninsula Insider — atomic content layer, JSON-first authoring, editorial-grade design system. Phase 1 scaffold per roadmap-2026-04-09.md.",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -58,7 +58,8 @@
     "assert:link-graph": "node scripts/audit-link-graph.mjs --dist dist --assert --json ../ops/reports/seo/link-graph.json",
     "audit:event-safeguards": "node scripts/audit-event-safeguards.mjs --json ../ops/reports/events/event-safeguards.json",
     "test:event-safeguards": "node --test scripts/audit-event-safeguards.test.mjs",
-    "assert:event-safeguards": "node scripts/audit-event-safeguards.mjs --json ../ops/reports/events/event-safeguards.json --assert"
+    "assert:event-safeguards": "node scripts/audit-event-safeguards.mjs --json ../ops/reports/events/event-safeguards.json --assert",
+    "test:share-link": "node --test src/lib/saves/share-link.test.mjs"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.0",

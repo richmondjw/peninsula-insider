@@ -89,10 +89,16 @@ const piIndex = { places: piPlaces, venues: piVenues };
     return s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c] as string));
   }
 
-  function cssUrl(src: string): string { return src.replace(/["\\]/g, (m) => `\\${m}`); }
+  // Escapes the single quote too: the value is interpolated inside a
+  // single-quoted url('...'), so an apostrophe would otherwise break out.
+  function cssUrl(src: string): string { return src.replace(/["'\\]/g, (m) => `\\${m}`); }
 
   function renderItem(item: SharedItem): string {
     const labels = KIND_LABELS[item.kind];
+    // A kind we do not recognise skips its card rather than throwing and
+    // blanking the page. Unknown kinds are blocked at decodePlan now, but a
+    // store written before that fix can still hold one.
+    if (!labels) return '';
     return `
       <a class="saved-card" href="${escapeHtml(item.href)}">
         ${item.image_url ? `<div class="saved-card__img" style="background-image: url('${cssUrl(item.image_url)}');"></div>` : '<div class="saved-card__img saved-card__img--blank"></div>'}
