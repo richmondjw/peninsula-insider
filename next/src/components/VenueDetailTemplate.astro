@@ -11,6 +11,7 @@ import { getCollection } from 'astro:content';
 import { resolveHero } from '../lib/inline-edit/resolve-hero';
 import PlayRibbon from './play/PlayRibbon.astro';
 import MediaProvenanceNote from './MediaProvenanceNote.astro';
+import { altFor } from '../lib/media-provenance';
 import CorrectionNote from './CorrectionNote.astro';
 import { editableImage, editableText } from '../lib/inline-edit/attrs';
 import EstateCluster from './EstateCluster.astro';
@@ -130,7 +131,11 @@ const heroLabel = `${data.name} · ${placeLabel(data.place)}`;
 // hero via the inline editor, it wins over the content-JSON default.
 const venueSlug = venue.id ?? data.slug;
 const hero = await resolveHero('venue', venueSlug, data);
-const heroAlt = hero.alt || heroLabel;
+// `hero.alt || heroLabel` was the old line, and it is exactly the bug this
+// replaces: a decorative image's deliberately empty alt fell through the `||`
+// and was refilled with "<venue name> · <place>", re-asserting on a stand-in
+// photograph the very claim the empty alt existed to withdraw.
+const { alt: heroAlt, presentation: heroPresentation } = altFor(hero, heroLabel);
 // Provenance describes the image in the CONTENT record. When an editor
 // has published a CMS override the picture on screen is a different
 // file, and the record says nothing about it - so pass nothing rather
@@ -350,7 +355,7 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
         purpose: 'hero',
       })}
     >
-      <img src={hero.src} alt={heroAlt} fetchpriority="high" decoding="async" />
+      <img src={hero.src} alt={heroAlt} role={heroPresentation ? 'presentation' : undefined} fetchpriority="high" decoding="async" />
       <div class="venue-detail__hero-fog"></div>
       <span class="venue-detail__hero-label">{heroLabel}</span>
     </figure>

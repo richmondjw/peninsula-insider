@@ -6,7 +6,9 @@ houseByline: true
 publishedAt: 2026-04-16
 heroImage:
   src: "/images/sourced/article-couples-weekend-01.webp"
-  alt: "A candlelit dinner terrace at a Peninsula restaurant at dusk with vineyard rows beyond - representative image"
+  alt: "Two children sitting in shallow water beside a weathered timber jetty, a motorboat moored offshore."
+  depicts: "two children in shallow water beside a timber jetty"
+  depictionStatus: "illustrative"
   credit: "Peninsula Insider"
   license: "tmp-unsplash"
 format: "service"

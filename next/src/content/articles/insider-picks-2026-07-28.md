@@ -6,7 +6,9 @@ houseByline: true
 publishedAt: 2026-07-28
 heroImage:
   src: "/images/sourced/place-cape-schanck-01.webp"
-  alt: "Mornington Peninsula landscape - representative image for Doot Doot Doot"
+  alt: "A rocky coastal headland and an offshore sea stack at sunset, framed by twisted coastal tea-tree."
+  depicts: "a rocky headland and offshore sea stack at sunset, framed by coastal tea-tree"
+  depictionStatus: "illustrative"
   credit: "Peninsula Insider"
   license: "other-licensed"
 format: "insider-edit"

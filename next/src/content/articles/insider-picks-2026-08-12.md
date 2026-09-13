@@ -6,7 +6,9 @@ houseByline: true
 publishedAt: 2026-08-12
 heroImage:
   src: "/images/sourced/place-flinders-01.webp"
-  alt: "Flinders Pier 2nd Jul 2019 - representative image for Moke Dining"
+  alt: "From a timber pier, waves breaking over a seaweed-covered rock shelf, boats moored on the bay and a green headland beyond."
+  depicts: "a timber pier, a seaweed-covered rock shelf and moored boats on the bay"
+  depictionStatus: "illustrative"
   credit: "Daniel Kabel"
   license: "wikimedia-cc-by-sa"
 format: "insider-edit"

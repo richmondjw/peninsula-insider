@@ -6,7 +6,9 @@ houseByline: true
 publishedAt: 2026-07-30
 heroImage:
   src: "/images/sourced/place-mornington-01.webp"
-  alt: "Mornington Peninsula landscape - representative image for Sourdough Kitchen"
+  alt: "Brightly painted bathing boxes along a sandy beach, people on the sand and houses among trees on the hillside above."
+  depicts: "brightly painted bathing boxes along a bay beach below a wooded hillside"
+  depictionStatus: "illustrative"
   credit: "Peninsula Insider"
   license: "other-licensed"
 format: "insider-edit"

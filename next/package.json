@@ -102,7 +102,8 @@
     "test:analytics-contract": "node --test src/lib/analytics-contract.test.mjs",
     "audit:provenance-dates": "node scripts/audit-provenance-dates.mjs",
     "assert:provenance-dates": "node scripts/audit-provenance-dates.mjs --assert",
-    "test:provenance": "node --test src/lib/provenance.test.mjs scripts/audit-provenance-dates.test.mjs"
+    "test:provenance": "node --test src/lib/provenance.test.mjs scripts/audit-provenance-dates.test.mjs",
+    "test:media-provenance": "node --test scripts/audit-media-provenance.test.mjs src/lib/media-provenance.test.mjs"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.0",

@@ -6,7 +6,10 @@ houseByline: true
 publishedAt: 2026-04-10
 heroImage:
   src: "/images/sourced/article-kids-peninsula-01.webp"
-  alt: "Children running along a bay beach on the Peninsula on a bright morning - representative image"
+  alt: ""
+  depicts: "grassed coastal dunes and scrub running back to a low wooded ridge"
+  depictionStatus: "illustrative"
+  decorative: true
   credit: "Peninsula Insider"
   license: "tmp-unsplash"
 format: "service"

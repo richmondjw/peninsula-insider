@@ -33,6 +33,7 @@ import ArticleCard from './ArticleCard.astro';
 import NewsletterBlock from './NewsletterBlock.astro';
 import CorrectionNote from './CorrectionNote.astro';
 import MediaProvenanceNote from './MediaProvenanceNote.astro';
+import { altFor } from '../lib/media-provenance';
 import { titleize, formatHeroCredit } from '../lib/editorial';
 import { editableText, editableImage } from '../lib/inline-edit/attrs';
 import { resolveHero } from '../lib/inline-edit/resolve-hero';
@@ -73,6 +74,10 @@ const heroCredit = formatHeroCredit(place.data.heroImage?.credit);
 // See the note in VenueDetailTemplate: a published CMS override is a
 // different image with no recorded provenance of its own.
 const heroProvenance = hero.override ? null : place.data.heroImage;
+// `hero.alt || place.data.name` was the old line: the third instance of the
+// refill that turns a decorative image's empty alt back into the entity's
+// own name. No place record is decorative today; the shape is.
+const { alt: heroAlt, presentation: heroPresentation } = altFor(hero, place.data.name);
 
 // Category sub-page lookup - editorial, not file-system-driven.
 // Extend this map as new place-specific sub-pages are created.
@@ -195,7 +200,7 @@ const factual = place.data.factualLede ?? '';
     entityType: 'place', entitySlug: placeSlug, fieldPath: 'heroImage',
     label: `${place.data.name} hero`, purpose: 'hero',
   })}>
-  <img class="pdv2-hero__image" src={hero.src} alt={hero.alt || place.data.name} fetchpriority="high" decoding="async" />
+  <img class="pdv2-hero__image" src={hero.src} alt={heroAlt} role={heroPresentation ? 'presentation' : undefined} fetchpriority="high" decoding="async" />
   <div class="pdv2-hero__scrim"></div>
   <div class="pdv2-hero__inner container">
     {/* ONE eyebrow (2026-07-24, per James - the old zone · kind line doubled
@@ -213,7 +218,7 @@ const factual = place.data.factualLede ?? '';
     <h1 class="pdv2-hero__title"
       {...editableText({ entityType: 'place', entitySlug: placeSlug, fieldPath: 'name', label: `${place.data.name} - name` })}
     >{place.data.name}</h1>
-    {place.data.heroImage?.alt && (
+    {!place.data.heroImage?.decorative && place.data.heroImage?.alt && (
       <p class="pdv2-hero__alt">{place.data.heroImage.alt}</p>
     )}
   </div>

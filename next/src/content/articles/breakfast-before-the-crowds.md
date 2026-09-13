@@ -6,7 +6,9 @@ houseByline: true
 publishedAt: 2026-04-09
 heroImage:
   src: "/images/sourced/category-cafe-01.webp"
-  alt: "A plate of poached eggs on Peninsula sourdough with a flat white and a laminated pastry on a cafe bench at sunrise - representative image"
+  alt: "The interior of a cafe, with chalkboard menus above the counter, a barista at the espresso machine and rattan chairs around low tables."
+  depicts: "the interior of a cafe, with chalkboard menus and rattan chairs"
+  depictionStatus: "illustrative"
   credit: "Peninsula Insider"
   license: "tmp-unsplash"
 format: "insider-edit"

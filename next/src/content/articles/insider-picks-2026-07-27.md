@@ -6,7 +6,9 @@ houseByline: true
 publishedAt: 2026-07-27
 heroImage:
   src: "/images/sourced/explore-arthurs-seat-lookout-01.webp"
-  alt: "Mornington Peninsula landscape - representative image for Jetty Road Brewery"
+  alt: "The view from the Arthurs Seat lookout over Port Phillip Bay, chairlift cables at left and visitors on the terrace above the car park."
+  depicts: "the view over Port Phillip Bay from the Arthurs Seat lookout"
+  depictionStatus: "illustrative"
   credit: "Peninsula Insider"
   license: "other-licensed"
 format: "insider-edit"

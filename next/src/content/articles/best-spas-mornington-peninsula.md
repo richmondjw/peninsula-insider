@@ -7,7 +7,9 @@ houseByline: true
 publishedAt: 2026-04-14
 heroImage:
   src: "/images/sourced/spa-alba-thermal-springs-01.webp"
-  alt: "Alba Thermal Springs geothermal bathing complex - representative of the Mornington Peninsula's wellness category"
+  alt: "A woman in a white swimsuit sitting on the stone edge of a geothermal bathing pool at sunset."
+  depicts: "a woman sitting on the stone edge of a geothermal bathing pool at sunset"
+  depictionStatus: "illustrative"
   credit: "Alba Thermal Springs"
   license: "venue-media-kit"
 format: "insider-edit"

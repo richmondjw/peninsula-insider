@@ -6,7 +6,9 @@ houseByline: true
 publishedAt: 2026-04-16
 heroImage:
   src: "/images/sourced/article-vineyard-villa-01.webp"
-  alt: "Red Hill vineyards bursting back into leaf in October with wildflowers along the fence lines - representative image"
+  alt: "Rows of trellised vines in early leaf running across a slope to a tall cypress windbreak."
+  depicts: "rows of trellised vines running to a cypress windbreak"
+  depictionStatus: "illustrative"
   credit: "Peninsula Insider"
   license: "tmp-unsplash"
 format: "editors-letter"

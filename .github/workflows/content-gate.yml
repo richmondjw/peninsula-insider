@@ -64,6 +64,7 @@ jobs:
           npm run test:material-change
           npm run test:event-safeguards
           npm run test:event-occurrence
+          npm run test:media-provenance
           npm run test:commercial-firewall
 
       - name: Content admission gate
@@ -72,6 +73,7 @@ jobs:
         run: |
           cd next
           npm run assert:schema-drift
+          npm run assert:media-provenance
           npm run validate:content
 
       - name: Commercial/editorial firewall

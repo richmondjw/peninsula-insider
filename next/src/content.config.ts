@@ -118,6 +118,29 @@ const imageUse = z.enum(['website', 'social', 'print', 'derivative', 'commercial
 /** Has a human checked the provenance record below, and did it hold up? */
 const provenanceReview = z.enum(['unreviewed', 'verified', 'disputed']);
 
+/**
+ * How far the rights record has actually got.
+ *
+ * The distinction this exists to make is between "nobody has looked" and
+ * "somebody looked and could not find out". Both leave `creator`, `sourceUrl`
+ * and `permission` empty, and without this field they are indistinguishable,
+ * so a record that has already defeated one researcher looks identical to one
+ * nobody has opened. Worse, an absent field reads as an invitation to guess.
+ *
+ *   unrecorded  the default. Nobody has recorded where this image came from.
+ *   unknown     somebody tried and the rights could not be established. A
+ *               recorded fact, not an absence, and the state the media debt
+ *               of 28 July 2026 should have been able to occupy.
+ *   recorded    the fields below say where the image came from and on what
+ *               terms, and `rightsEstablishedOn` says when that was checked.
+ *
+ * Deliberately NOT a synonym for `license`. `license` is a coarse bucket with
+ * a permissive default (see A15), so a record can carry a licence value and
+ * still be `unrecorded` here. That gap is the point: it is what makes the
+ * default-value rights claim visible instead of silent.
+ */
+const rightsStatus = z.enum(['unrecorded', 'unknown', 'recorded']);
+
 const coordinates = z.object({
   lat: z.number().min(-90).max(90),
   lng: z.number().min(-180).max(180),
@@ -161,6 +184,42 @@ const imageRef = z.object({
   permission: z.string().optional(),
   /** Channels that permission actually covers. Empty means unrecorded. */
   permittedUses: z.array(imageUse).default([]),
+  /**
+   * Who holds the rights, where that is not the person who made the image.
+   * A gallery, an estate, an agency, an operator's media kit. Left empty when
+   * the creator holds them or when nobody has recorded it - never assumed
+   * from `credit`, which is display text.
+   */
+  rightsHolder: z.string().optional(),
+  /**
+   * The date the recorded permission was established, ISO `YYYY-MM-DD`.
+   *
+   * This is a record of when a human checked, not a clock the build reads.
+   * Nothing asserts on it and nothing expires because of it: a date-driven
+   * gate wires the calendar into `npm run build` and fails deploys with no
+   * content change, which audit-event-safeguards.mjs already documents as a
+   * mistake not to repeat. It is here so a rights claim can be dated, and so
+   * a stale one can be found deliberately rather than enforced accidentally.
+   */
+  rightsEstablishedOn: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
+  /** Unrecorded, actively unknown, or recorded. See `rightsStatus` above. */
+  rightsStatus: rightsStatus.default('unrecorded'),
+  /**
+   * Purely decorative: the frame carries no identifiable subject, so there is
+   * nothing to describe that is not filler.
+   *
+   * Renders `alt=""` plus `role="presentation"`, which is what tells a screen
+   * reader to skip the image entirely. That is the correct outcome for an
+   * atmosphere photograph and it is NOT what the corpus had: 152 records
+   * carried alt text announcing the image was "representative", which tells a
+   * screen-reader user the picture is filler while a sighted reader sees a
+   * specific place. Empty and marked is honest; "representative" is not.
+   *
+   * Decorative is about the frame, not about the rights. A decorative image
+   * that stands in for a named entity is still `illustrative`, still carries
+   * the visible disclosure, and still needs provenance.
+   */
+  decorative: z.boolean().default(false),
   /** Focal point for cropping, 0..1 from the top left of the source image. */
   focalPoint: z
     .object({ x: z.number().min(0).max(1), y: z.number().min(0).max(1) })

@@ -6,7 +6,10 @@ houseByline: true
 publishedAt: 2026-07-25
 heroImage:
   src: "/images/sourced/explore-two-bays-walk-01.webp"
-  alt: "Mornington Peninsula landscape - representative image for Flinders Sourdough"
+  alt: ""
+  depicts: "bare coastal trees above a beach curving to a rocky point"
+  depictionStatus: "illustrative"
+  decorative: true
   credit: "Peninsula Insider"
   license: "other-licensed"
 format: "insider-edit"

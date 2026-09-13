@@ -6,7 +6,9 @@ houseByline: true
 publishedAt: 2026-04-10
 heroImage:
   src: "/images/sourced/article-sunset-01.webp"
-  alt: "A car pulling into a Peninsula rental property at dusk with warm interior light spilling through the windows - representative image"
+  alt: "A rocky coastal headland and an offshore sea stack at sunset, framed by twisted coastal tea-tree."
+  depicts: "a rocky headland and offshore sea stack at sunset, framed by coastal tea-tree"
+  depictionStatus: "illustrative"
   credit: "Peninsula Insider"
   license: "tmp-unsplash"
 format: "service"
