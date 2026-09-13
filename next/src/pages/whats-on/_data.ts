@@ -26,6 +26,7 @@ import { eventAccessLabel, eventIsUnqualifiedFree } from '../../lib/event-access
 import { USE_OCCURRENCE_MODEL } from '../../lib/features';
 import {
   isCancelledRecord,
+  occurrenceSchemaStatus,
   recordDisposition,
   resolveOccurrence,
 } from '../../lib/event-occurrence.mjs';
@@ -480,22 +481,79 @@ export interface DayGroup {
   items: DayItem[];
 }
 
-export interface DayItem {
-  live: LiveEvent;
-  spanLabel: string;
-  /**
-   * PI-008, per occurrence rather than per record.
-   *
-   * A Sunday reader is allowed to look back over Friday and Saturday, which is
-   * exactly why day granularity was not enough: Friday's 10am-to-2pm market was
-   * still being offered with a live booking link at 4pm on Friday and all day
-   * Saturday. `phase` is the clock's answer, `bookable` is the reader's, and
-   * they come apart on purpose. With the flag off, every item reads
-   * upcoming/bookable, which is the previous behaviour.
-   */
+/**
+ * One occurrence of one record, resolved. PI-008, per occurrence rather than
+ * per record.
+ *
+ * A Sunday reader is allowed to look back over Friday and Saturday, which is
+ * exactly why day granularity was not enough: Friday's 10am-to-2pm market was
+ * still being offered with a live booking link at 4pm on Friday and all day
+ * Saturday. `phase` is the clock's answer, `bookable` is the reader's, and
+ * they come apart on purpose. With the flag off, every item reads
+ * upcoming/bookable, which is the previous behaviour.
+ *
+ * `schemaStatus` travels with the rest so the markup on a page cannot
+ * contradict the badge beside it. The listing used to derive its own from the
+ * raw `cancelled` flag, which is one of the four signals that record a
+ * cancellation and none of the occurrence-level exceptions; that derivation is
+ * gone and this field replaced it.
+ */
+export interface OccurrenceState {
   phase: 'upcoming' | 'running' | 'past';
   bookable: boolean;
+  status: string;
   statusLabel: string | null;
+  schemaStatus: string | null;
+}
+
+export interface DayItem extends OccurrenceState {
+  live: LiveEvent;
+  spanLabel: string;
+}
+
+/**
+ * Resolve one listing row through the occurrence model.
+ *
+ * Both the weekend grid and PI's picks come through here, so a badge and the
+ * markup beside it are two readings of one answer rather than two answers.
+ *
+ * A range row stands for its whole run, not for one day of it: measuring a
+ * festival that opens on Friday and finishes on Wednesday over `dayIso` alone
+ * marked it Ended from Friday midnight.
+ *
+ * The flag governs the CLOCK half of the model - whether a row may read as
+ * running or past, and whether its booking block disappears. It does not
+ * govern which state the record is in: reading that from the raw `cancelled`
+ * flag was wrong in every mode, so that correction is not behind the rollback
+ * switch.
+ */
+export function occurrenceStateFor(live: LiveEvent, dayIso: string, now: Date): OccurrenceState {
+  const isRange = live.rule.kind === 'range';
+  const occurrence = resolveOccurrence(
+    live.event.data as Record<string, any>,
+    isRange ? isoDate(live.rule.start) : dayIso,
+    now,
+    isRange ? { endDayIso: isoDate(live.rule.end) } : {}
+  );
+  const schemaStatus = occurrenceSchemaStatus(
+    USE_OCCURRENCE_MODEL ? occurrence : { ...occurrence, phase: 'upcoming' }
+  );
+  if (!USE_OCCURRENCE_MODEL) {
+    return {
+      phase: 'upcoming',
+      bookable: true,
+      status: occurrence.status,
+      statusLabel: live.statusLabel ?? null,
+      schemaStatus,
+    };
+  }
+  return {
+    phase: occurrence.phase,
+    bookable: occurrence.bookable,
+    status: occurrence.status,
+    statusLabel: occurrence.label ?? live.statusLabel ?? null,
+    schemaStatus,
+  };
 }
 
 /**
@@ -520,20 +578,7 @@ export function groupByDay(events: LiveEvent[], win: ScopeWindow, now: Date = ne
       // with a "runs to" label, so its phase has to be measured over the run.
       // Measuring it over `dayIso` alone marked a festival that opened on
       // Friday and finishes on Wednesday as Ended from Friday midnight.
-      const isRange = live.rule.kind === 'range';
-      const occurrence = USE_OCCURRENCE_MODEL
-        ? resolveOccurrence(
-            live.event.data as Record<string, any>,
-            isRange ? isoDate(live.rule.start) : dayIso,
-            now,
-            isRange ? { endDayIso: isoDate(live.rule.end) } : {}
-          )
-        : { phase: 'upcoming' as const, bookable: true, label: null };
-      const state = {
-        phase: occurrence.phase,
-        bookable: occurrence.bookable,
-        statusLabel: occurrence.label ?? live.statusLabel ?? null,
-      };
+      const state = occurrenceStateFor(live, dayIso, now);
       if (live.rule.kind === 'range') {
         if (seenRanges.has(live.slug)) {
           continuingCount += 1;
@@ -571,6 +616,12 @@ export interface Pick {
   verdict: string;
   dateISO: string;
   dayLabel: string;
+  /**
+   * The pick's own occurrence on `dateISO`, resolved exactly as a weekend row
+   * is. A pick is a listing too, and its JSON-LD node has to answer the same
+   * question the row beneath it answers.
+   */
+  occurrence: OccurrenceState;
 }
 
 export function firstDayInWindow(rule: OccurrenceRule, win: ScopeWindow): Date | null {
@@ -583,18 +634,24 @@ export function firstDayInWindow(rule: OccurrenceRule, win: ScopeWindow): Date |
   return null;
 }
 
-export async function getPicks(events: LiveEvent[], win: ScopeWindow): Promise<Pick[]> {
+export async function getPicks(
+  events: LiveEvent[],
+  win: ScopeWindow,
+  now: Date = new Date()
+): Promise<Pick[]> {
   const inWindow = events.filter((e) => occursInWindow(e.rule, win));
   const bySlug = new Map(inWindow.map((e) => [e.slug, e]));
   const picks: Pick[] = [];
 
-  const toPick = (live: LiveEvent, verdict: string): Pick => {
-    const day = firstDayInWindow(live.rule, win) ?? win.start;
+  const toPick = (live: LiveEvent, verdict: string, scope: ScopeWindow = win): Pick => {
+    const day = firstDayInWindow(live.rule, scope) ?? scope.start;
+    const dateISO = isoDate(day);
     return {
       live,
       verdict: truncateWords(verdict, 25),
-      dateISO: isoDate(day),
+      dateISO,
       dayLabel: day.toLocaleDateString('en-AU', { weekday: 'short', day: 'numeric', month: 'short' }),
+      occurrence: occurrenceStateFor(live, dateISO, now),
     };
   };
 
@@ -639,7 +696,7 @@ export async function getPicks(events: LiveEvent[], win: ScopeWindow): Promise<P
   // the same three surface every day the window holds. Rotate through the top
   // of the ranking once per Melbourne day. The editorial sheet above returns
   // early and is never rotated.
-  for (const { e } of rotateDaily(scored, new Date())) {
+  for (const { e } of rotateDaily(scored, now)) {
     picks.push(toPick(e, (e.event.data as any).editorVerdict ?? e.oneLiner));
     if (picks.length === 3) break;
   }
@@ -653,13 +710,7 @@ export async function getPicks(events: LiveEvent[], win: ScopeWindow): Promise<P
       // Same bar as the scored fallback above: a top-up is still a machine
       // recommendation, so it must not reach for a sold-out or unverified one.
       if (have.has(e.slug) || !e.promotable || !occursInWindow(e.rule, monthWin)) continue;
-      const day = firstDayInWindow(e.rule, monthWin) ?? monthWin.start;
-      picks.push({
-        live: e,
-        verdict: truncateWords((e.event.data as any).editorVerdict ?? e.oneLiner, 25),
-        dateISO: isoDate(day),
-        dayLabel: day.toLocaleDateString('en-AU', { weekday: 'short', day: 'numeric', month: 'short' }),
-      });
+      picks.push(toPick(e, (e.event.data as any).editorVerdict ?? e.oneLiner, monthWin));
       if (picks.length === 3) break;
     }
   }

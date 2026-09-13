@@ -229,6 +229,13 @@ test('the acceptance fixtures queue exactly the two records that need a human', 
   assert.match(out, /cancelled w\/o provenance \.+ 0/);
   assert.match(out, /postponed w\/o provenance \.+ 0/);
   assert.match(out, /exception queue entries \.+ 2/);
+
+  // Four fixtures record a cancellation and each uses a different signal: the
+  // raw flag, verificationStatus prose, summary prose, and an editor skip. Only
+  // the prose one is un-migrated, and the gate counts it so the free-text pile
+  // can shrink but never grow. The listing that reads the same four files is
+  // asserted in src/lib/event-occurrence.test.mjs.
+  assert.match(out, /free-text verificationStatus {2}1/);
   assert.match(out, /postponed-coastal-arts-weekend\.json \(postponed-without-new-date\)/);
   assert.match(out, /late-source-update-bay-fireworks\.json \(source-newer-than-verification\)/);
 
