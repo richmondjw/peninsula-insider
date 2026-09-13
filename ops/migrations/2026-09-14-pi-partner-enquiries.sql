@@ -433,6 +433,12 @@ alter table pi.partner_enquiry_events   enable row level security;
 -- too, so that a future admin tool cannot write a row the public form could
 -- not have produced.
 drop policy if exists "partner_enquiries_anonymous_insert" on pi.partner_enquiries;
+-- Editor access is gated on pi.admin_user_allowlist via pi.is_cms_admin(),
+-- NOT on pi.profiles.is_editor. That column sits on a row its own owner may
+-- update, so gating on it lets any signed-in reader grant themselves editor
+-- rights. The hole was written down on 2026-05-11 and kept being rebuilt;
+-- scripts/rls-editor-gate.test.mjs now fails any migration dated 2026-09-14
+-- or later that reintroduces it. This file was one of them.
 create policy "partner_enquiries_anonymous_insert"
   on pi.partner_enquiries for insert
   with check (
@@ -456,8 +462,8 @@ create policy "partner_enquiries_select_own_by_user"
 drop policy if exists "partner_enquiries_editor_all" on pi.partner_enquiries;
 create policy "partner_enquiries_editor_all"
   on pi.partner_enquiries for all
-  using (exists (select 1 from pi.profiles p where p.id = auth.uid() and p.is_editor = true))
-  with check (exists (select 1 from pi.profiles p where p.id = auth.uid() and p.is_editor = true));
+  using (pi.is_cms_admin())
+  with check (pi.is_cms_admin());
 
 -- --- pi.partner_enquiry_contacts -------------------------------------------
 
@@ -471,20 +477,20 @@ create policy "partner_enquiry_contacts_anonymous_insert"
 drop policy if exists "partner_enquiry_contacts_editor_all" on pi.partner_enquiry_contacts;
 create policy "partner_enquiry_contacts_editor_all"
   on pi.partner_enquiry_contacts for all
-  using (exists (select 1 from pi.profiles p where p.id = auth.uid() and p.is_editor = true))
-  with check (exists (select 1 from pi.profiles p where p.id = auth.uid() and p.is_editor = true));
+  using (pi.is_cms_admin())
+  with check (pi.is_cms_admin());
 
 -- --- pi.partner_enquiry_events ---------------------------------------------
 
 drop policy if exists "partner_enquiry_events_editor_select" on pi.partner_enquiry_events;
 create policy "partner_enquiry_events_editor_select"
   on pi.partner_enquiry_events for select
-  using (exists (select 1 from pi.profiles p where p.id = auth.uid() and p.is_editor = true));
+  using (pi.is_cms_admin());
 
 drop policy if exists "partner_enquiry_events_editor_insert" on pi.partner_enquiry_events;
 create policy "partner_enquiry_events_editor_insert"
   on pi.partner_enquiry_events for insert
-  with check (exists (select 1 from pi.profiles p where p.id = auth.uid() and p.is_editor = true));
+  with check (pi.is_cms_admin());
 
 drop policy if exists "partner_enquiry_events_select_own_by_user" on pi.partner_enquiry_events;
 create policy "partner_enquiry_events_select_own_by_user"
