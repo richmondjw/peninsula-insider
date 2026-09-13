@@ -1,0 +1,20 @@
+{
+  "claimId": "venues/the-lantern-room/trading-status",
+  "claimClass": "trading-status",
+  "subject": {
+    "type": "venues",
+    "slug": "the-lantern-room",
+    "field": "website"
+  },
+  "statement": "The Lantern Room is trading.",
+  "assertedBy": [
+    {
+      "type": "venues",
+      "slug": "the-lantern-room",
+      "field": "website"
+    }
+  ],
+  "createdAt": "2026-04-02",
+  "origin": "fixture",
+  "note": "PI-006 fixture. Seeds one named failure class so the loop can be proved to catch it."
+}
