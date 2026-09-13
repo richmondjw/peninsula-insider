@@ -1,0 +1,20 @@
+{
+  "claimId": "venues/pt-leo-estate/opening-hours",
+  "claimClass": "opening-hours",
+  "subject": {
+    "type": "venues",
+    "slug": "pt-leo-estate",
+    "field": "visiting.openingHours"
+  },
+  "statement": "Pt. Leo Estate is open Monday to Friday from 11am to 5pm and Saturday and Sunday from 11am to 9pm.",
+  "assertedBy": [
+    {
+      "type": "venues",
+      "slug": "pt-leo-estate",
+      "field": "visiting.openingHours"
+    }
+  ],
+  "createdAt": "2026-09-13",
+  "origin": "authored",
+  "note": "Deliberately authored with no evidence attached, which makes it unsupported. Nothing retrievable on 2026-09-13 stated the estate hours as distinct from the sculpture park hours, and the weekend close at 9pm is asserted by this record alone. Writing the claim down is what makes the gap visible; the alternative is an hours block on a venue page that nobody can trace. Authored by hand for the PI-005 Stage 2 pilot on the Pt. Leo Estate sculpture park cluster. Sources were read on 2026-09-13; see ops/reports/claims/2026-09-13-pilot-pt-leo-sculpture-park.md."
+}

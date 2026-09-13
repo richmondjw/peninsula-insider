@@ -1,0 +1,25 @@
+{
+  "claimId": "venues/pt-leo-estate/offering",
+  "claimClass": "offering",
+  "subject": {
+    "type": "venues",
+    "slug": "pt-leo-estate",
+    "field": "editorNote"
+  },
+  "statement": "Pt. Leo Estate is planted to 50 acres of vines.",
+  "assertedBy": [
+    {
+      "type": "venues",
+      "slug": "pt-leo-estate",
+      "field": "editorNote"
+    },
+    {
+      "type": "venues",
+      "slug": "pt-leo-estate",
+      "field": "whyWeGo"
+    }
+  ],
+  "createdAt": "2026-09-13",
+  "origin": "authored",
+  "note": "Attached because the vineyard acreage and the sculpture park acreage are routinely conflated into a single estate figure, which is the confusion corrected in this corpus earlier today. Keeping the two as separate claims is what stops them recombining. Authored by hand for the PI-005 Stage 2 pilot on the Pt. Leo Estate sculpture park cluster. Sources were read on 2026-09-13; see ops/reports/claims/2026-09-13-pilot-pt-leo-sculpture-park.md."
+}

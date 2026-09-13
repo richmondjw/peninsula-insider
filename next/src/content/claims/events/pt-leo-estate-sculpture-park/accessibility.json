@@ -1,0 +1,30 @@
+{
+  "claimId": "events/pt-leo-estate-sculpture-park/accessibility",
+  "claimClass": "accessibility",
+  "subject": {
+    "type": "events",
+    "slug": "pt-leo-estate-sculpture-park",
+    "field": "accessibilityNotes"
+  },
+  "statement": "The sculpture park pathways are on one level and are suited to prams and wheelchairs, with seating positioned through the grounds.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "pt-leo-estate-sculpture-park",
+      "field": "accessibilityNotes"
+    },
+    {
+      "type": "events",
+      "slug": "pt-leo-estate-local-complimentary-sculpture-park-winter-2026",
+      "field": "accessibilityNotes"
+    },
+    {
+      "type": "events",
+      "slug": "archive/sip-sketch-sculpture-park-pt-leo-estate-school-holidays-2026",
+      "field": "accessibilityNotes"
+    }
+  ],
+  "createdAt": "2026-09-13",
+  "origin": "authored",
+  "note": "First evidence in the accessibility class anywhere in this corpus. The Stage 1 seed drew zero rows for it. All three event records hedge with a variant of check with the venue for specific needs, while the operator and the regional body both publish a positive statement. The hedge is weaker than the evidence available, which is a different defect from being wrong. Authored by hand for the PI-005 Stage 2 pilot on the Pt. Leo Estate sculpture park cluster. Sources were read on 2026-09-13; see ops/reports/claims/2026-09-13-pilot-pt-leo-sculpture-park.md."
+}

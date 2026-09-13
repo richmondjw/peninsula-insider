@@ -1,0 +1,35 @@
+{
+  "claimId": "experiences/pt-leo-sculpture-park/opening-hours",
+  "claimClass": "opening-hours",
+  "subject": {
+    "type": "experiences",
+    "slug": "pt-leo-sculpture-park",
+    "field": "editorNote"
+  },
+  "statement": "The Pt. Leo Estate Sculpture Park is open every day from 11am to 5pm, with last entry at 4:30pm.",
+  "assertedBy": [
+    {
+      "type": "experiences",
+      "slug": "pt-leo-sculpture-park",
+      "field": "editorNote"
+    },
+    {
+      "type": "events",
+      "slug": "pt-leo-estate-sculpture-park",
+      "field": "startTime"
+    },
+    {
+      "type": "data-facts",
+      "slug": "things-to-do/pt-leo-estate-sculpture-park",
+      "field": "entities[9].hours"
+    },
+    {
+      "type": "places",
+      "slug": "point-leo",
+      "field": "insiderNote"
+    }
+  ],
+  "createdAt": "2026-09-13",
+  "origin": "authored",
+  "note": "First evidence in the opening-hours class anywhere in this corpus. The Stage 1 seed drew zero rows for it. Two independent publishers agree on the daily 11am to 5pm window; only the operator states the 4:30pm last entry. Authored by hand for the PI-005 Stage 2 pilot on the Pt. Leo Estate sculpture park cluster. Sources were read on 2026-09-13; see ops/reports/claims/2026-09-13-pilot-pt-leo-sculpture-park.md."
+}
