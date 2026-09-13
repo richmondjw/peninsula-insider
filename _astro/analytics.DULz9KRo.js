@@ -1,0 +1,1 @@
+function e(){try{const t=localStorage.getItem("pi-consent-v1");if(!t)return!1;const n=JSON.parse(t);return!!(n&&n.analytics)}catch{return!1}}function a(t,n={}){if(!(typeof window>"u"))try{if(typeof window.gtag=="function"){window.gtag("event",t,n);return}if(!e())return;window.dataLayer=window.dataLayer||[],window.dataLayer.push({event:t,...n})}catch{}}export{a as t};
