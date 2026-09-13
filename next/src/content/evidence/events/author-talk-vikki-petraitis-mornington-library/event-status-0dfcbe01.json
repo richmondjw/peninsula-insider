@@ -1,0 +1,20 @@
+{
+  "evidenceId": "events/author-talk-vikki-petraitis-mornington-library/event-status-0dfcbe01",
+  "claim": "events/author-talk-vikki-petraitis-mornington-library/event-status",
+  "stance": "supports",
+  "publisher": {
+    "kind": "importer",
+    "name": "eventbrite-mornington"
+  },
+  "retrievedAt": "2026-08-26",
+  "expiresAt": "2026-09-25",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/content/events/author-talk-vikki-petraitis-mornington-library.json",
+    "field": "provenance+source+sourceUrl",
+    "value": "{\"provenance\":\"auto-published by promote-candidates.mjs from JSON-LD event feed; not editorially rewritten\",\"source\":\"eventbrite-mornington\",\"sourceUrl\":\"https://www.eventbrite.com.au/d/australia--mornington/events/\"}",
+    "dateField": "discoveredAt"
+  },
+  "url": "https://www.eventbrite.com.au/d/australia--mornington/events/",
+  "note": "auto-published by promote-candidates.mjs from JSON-LD event feed; not editorially rewritten"
+}

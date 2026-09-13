@@ -1,0 +1,20 @@
+{
+  "claimId": "quick-notes/2026-05-31-weather-sunday/conditions",
+  "claimClass": "conditions",
+  "subject": {
+    "type": "quick-notes",
+    "slug": "2026-05-31-weather-sunday",
+    "field": "sources"
+  },
+  "statement": "Sunday - 80% with showers building from late morning, 14°C, westerly pushing harder.",
+  "assertedBy": [
+    {
+      "type": "quick-notes",
+      "slug": "2026-05-31-weather-sunday",
+      "field": "sources"
+    }
+  ],
+  "createdAt": "2026-05-31",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

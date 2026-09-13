@@ -1,0 +1,20 @@
+{
+  "claimId": "signature-events/wine-weekends/event-status",
+  "claimClass": "event-status",
+  "subject": {
+    "type": "signature-events",
+    "slug": "wine-weekends",
+    "field": "officialUrl"
+  },
+  "statement": "Major wine weekends runs as published (Recurring programs).",
+  "assertedBy": [
+    {
+      "type": "signature-events",
+      "slug": "wine-weekends",
+      "field": "officialUrl"
+    }
+  ],
+  "createdAt": "2026-05-13",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

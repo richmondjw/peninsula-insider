@@ -1,0 +1,20 @@
+{
+  "claimId": "data-facts/wine/montalto/trading-status",
+  "claimClass": "trading-status",
+  "subject": {
+    "type": "data-facts",
+    "slug": "wine/montalto",
+    "field": "wineries[0].source"
+  },
+  "statement": "Montalto: trading status as recorded in src/data/facts/wine.json.",
+  "assertedBy": [
+    {
+      "type": "data-facts",
+      "slug": "wine/montalto",
+      "field": "wineries[0].source"
+    }
+  ],
+  "createdAt": "2026-09-13",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

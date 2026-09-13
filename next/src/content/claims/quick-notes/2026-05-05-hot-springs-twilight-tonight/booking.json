@@ -1,0 +1,24 @@
+{
+  "claimId": "quick-notes/2026-05-05-hot-springs-twilight-tonight/booking",
+  "claimClass": "booking",
+  "subject": {
+    "type": "quick-notes",
+    "slug": "2026-05-05-hot-springs-twilight-tonight",
+    "field": "sources"
+  },
+  "statement": "Hot Springs twilight tonight - Tuesday is one of the quiet slots. Rain outside makes the pools better.",
+  "assertedBy": [
+    {
+      "type": "quick-notes",
+      "slug": "2026-05-05-hot-springs-twilight-tonight",
+      "field": "sources"
+    },
+    {
+      "type": "venues",
+      "slug": "peninsula-hot-springs"
+    }
+  ],
+  "createdAt": "2026-05-05",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

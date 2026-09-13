@@ -1,0 +1,18 @@
+{
+  "evidenceId": "data-facts/beaches/rye-front-beach/access-restriction-c5bfa86e",
+  "claim": "data-facts/beaches/rye-front-beach/access-restriction",
+  "stance": "supports",
+  "publisher": {
+    "kind": "unknown"
+  },
+  "retrievedAt": "2026-04-22",
+  "expiresAt": "2026-05-22",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/data/facts/beaches.json",
+    "field": "entities[11].source",
+    "value": "https://www.searoad.com.au/blog/best-mornington-peninsula-beaches",
+    "dateField": "lastUpdated"
+  },
+  "url": "https://www.searoad.com.au/blog/best-mornington-peninsula-beaches"
+}

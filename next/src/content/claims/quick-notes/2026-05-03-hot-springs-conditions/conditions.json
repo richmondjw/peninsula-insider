@@ -1,0 +1,24 @@
+{
+  "claimId": "quick-notes/2026-05-03-hot-springs-conditions/conditions",
+  "claimClass": "conditions",
+  "subject": {
+    "type": "quick-notes",
+    "slug": "2026-05-03-hot-springs-conditions",
+    "field": "sources"
+  },
+  "statement": "Hot Springs stays weather-proof today - Fingal is sitting around 14.6°C this morning",
+  "assertedBy": [
+    {
+      "type": "quick-notes",
+      "slug": "2026-05-03-hot-springs-conditions",
+      "field": "sources"
+    },
+    {
+      "type": "venues",
+      "slug": "peninsula-hot-springs"
+    }
+  ],
+  "createdAt": "2026-05-03",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

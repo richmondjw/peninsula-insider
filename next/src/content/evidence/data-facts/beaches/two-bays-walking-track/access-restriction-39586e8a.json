@@ -1,0 +1,18 @@
+{
+  "evidenceId": "data-facts/beaches/two-bays-walking-track/access-restriction-39586e8a",
+  "claim": "data-facts/beaches/two-bays-walking-track/access-restriction",
+  "stance": "supports",
+  "publisher": {
+    "kind": "gov"
+  },
+  "retrievedAt": "2026-04-22",
+  "expiresAt": "2026-05-22",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/data/facts/beaches.json",
+    "field": "entities[15].source",
+    "value": "https://www.parks.vic.gov.au/places-to-see/parks/mornington-peninsula-national-park/things-to-do/two-bays-walking-trail",
+    "dateField": "lastUpdated"
+  },
+  "url": "https://www.parks.vic.gov.au/places-to-see/parks/mornington-peninsula-national-park/things-to-do/two-bays-walking-trail"
+}

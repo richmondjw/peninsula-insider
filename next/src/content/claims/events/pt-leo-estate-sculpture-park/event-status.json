@@ -1,0 +1,18 @@
+{
+  "claimId": "events/pt-leo-estate-sculpture-park/event-status",
+  "claimClass": "event-status",
+  "subject": {
+    "type": "events",
+    "slug": "pt-leo-estate-sculpture-park"
+  },
+  "statement": "Pt. Leo Estate Sculpture Park is running as published.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "pt-leo-estate-sculpture-park"
+    }
+  ],
+  "createdAt": "2026-05-04",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

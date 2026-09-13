@@ -1,0 +1,19 @@
+{
+  "evidenceId": "events/pier-10-mothers-day-lunch-2026/event-status-2fe22cb1",
+  "claim": "events/pier-10-mothers-day-lunch-2026/event-status",
+  "stance": "supports",
+  "publisher": {
+    "kind": "venue-site",
+    "name": "Pier 10"
+  },
+  "retrievedAt": "2026-05-07",
+  "expiresAt": "2026-06-06",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/content/events/pier-10-mothers-day-lunch-2026.json",
+    "field": "primarySourceUrl",
+    "value": "https://pier10.com.au/events-mornington-peninsula/",
+    "dateField": "lastCheckedDate"
+  },
+  "url": "https://pier10.com.au/events-mornington-peninsula/"
+}

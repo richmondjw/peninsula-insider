@@ -1,0 +1,24 @@
+{
+  "claimId": "quick-notes/2026-05-04-hot-springs-monday-booking/booking",
+  "claimClass": "booking",
+  "subject": {
+    "type": "quick-notes",
+    "slug": "2026-05-04-hot-springs-monday-booking",
+    "field": "sources"
+  },
+  "statement": "Peninsula Hot Springs - Monday is typically the easiest session to book",
+  "assertedBy": [
+    {
+      "type": "quick-notes",
+      "slug": "2026-05-04-hot-springs-monday-booking",
+      "field": "sources"
+    },
+    {
+      "type": "venues",
+      "slug": "peninsula-hot-springs"
+    }
+  ],
+  "createdAt": "2026-05-04",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

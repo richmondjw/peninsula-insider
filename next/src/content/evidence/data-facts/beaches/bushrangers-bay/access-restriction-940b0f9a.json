@@ -1,0 +1,18 @@
+{
+  "evidenceId": "data-facts/beaches/bushrangers-bay/access-restriction-940b0f9a",
+  "claim": "data-facts/beaches/bushrangers-bay/access-restriction",
+  "stance": "supports",
+  "publisher": {
+    "kind": "gov"
+  },
+  "retrievedAt": "2026-04-22",
+  "expiresAt": "2026-05-22",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/data/facts/beaches.json",
+    "field": "entities[14].walk.source",
+    "value": "https://www.parks.vic.gov.au/places-to-see/sites/bushrangers-bay-walk",
+    "dateField": "lastUpdated"
+  },
+  "url": "https://www.parks.vic.gov.au/places-to-see/sites/bushrangers-bay-walk"
+}

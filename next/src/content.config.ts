@@ -1513,6 +1513,196 @@ const signatureEvents = defineCollection({
   }),
 });
 
+/**
+ * PI-005  -  the claim and evidence registry.
+ *
+ * Stage 0 is schema only. These two collections are declared and seeded;
+ * nothing in the build reads them yet. Enforcement is Stage 3, and when it
+ * lands it extends the ratchet in scripts/audit-event-safeguards.mjs rather
+ * than introducing a second gate pattern.
+ *
+ * Why sidecar collections rather than provenance fields on each record: one
+ * claim can be asserted by many records across many collections. The trading
+ * status of a venue is asserted by the venue record, by every quick note that
+ * mentions it, and by every itinerary that routes through it. No per-record
+ * field shape represents that. Supabase was rejected for a different reason:
+ * a static build cannot read it without a credentialed CI step.
+ *
+ * The join between a claim and the corpus is a plain {type, slug} pair, and
+ * deliberately not reference(). reference() binds to exactly one collection,
+ * and the point of a claim is that it is not owned by one. The pair is
+ * validated against disk by scripts/seed-claim-registry.mjs.
+ */
+const registrySubject = z.object({
+  /**
+   * A directory name under src/content/, or 'data-facts' for the orphaned
+   * fact layer in src/data/facts/. That layer has no collection and no page;
+   * naming it here is what makes the orphan visible.
+   */
+  type: z.string(),
+  /**
+   * Entry id within that directory, which may contain '/'. When type is
+   * 'data-facts' the slug is '<file>/<entity>'.
+   */
+  slug: z.string(),
+  /**
+   * The field on that record which carries the assertion, where one field
+   * carries it. Prose assertions have no field and are out of scope: no
+   * static analysis can decide whether a sentence contains a factual claim.
+   */
+  field: z.string().optional(),
+});
+
+/**
+ * Claim classes. Each names a kind of fact that changes underneath us.
+ * src/data/source-precedence.json gives every class its source order and its
+ * expiry in days, so changing either is a data edit, not a schema migration.
+ */
+const claimClass = z.enum([
+  'trading-status',     // the business is trading at all
+  'opening-hours',      // when it is open
+  'offering',           // menu, release, programme
+  'booking',            // booking windows and requirements
+  'rate-change',        // a rate moved. PI publishes no figures; it still
+                        // needs to know that the figure changed.
+  'event-status',       // running, cancelled, postponed
+  'event-schedule',     // dates and times
+  'access-restriction', // closures, track and beach restrictions, safety
+  'conditions',         // tide, swell, fire, rainfall windows
+  'fishing-rule',       // bag limits, size limits, closed seasons
+  'accessibility',      // access details
+  'regional-count',     // counts and aggregates for the region
+  'editorial',          // an editor's own note, no external source
+]);
+
+/**
+ * Who published a piece of evidence. This EXTENDS the quick-note
+ * sources[].kind enum rather than replacing it: the first eight values are
+ * that enum verbatim, so the 196 existing quick-note source rows migrate with
+ * a field rename and nothing else.
+ */
+const publisherKind = z.enum([
+  // quick-note sources[].kind, unchanged
+  'venue-site',
+  'phone',
+  'email',
+  'visit',
+  'press',
+  'social',
+  'gov',
+  'partner',
+  // added for the rest of the corpus
+  'organiser',     // the party running the event
+  'ticketing',     // Humanitix, Eventbrite and other resellers
+  'regional-body', // tourism board, industry association
+  'importer',      // our own import pipeline, recording where it looked
+  'unknown',       // the honest default. The migration does not guess.
+]);
+
+/**
+ * claims  -  one row per (record, claim class): what is being asserted, and
+ * which records assert it.
+ *
+ * There is deliberately no `state` field. Supported, unsupported, disputed
+ * and retired are derived at read time from the evidence set and the calendar
+ * (src/lib/claim-state.mjs). Storing state would mean a migration every time
+ * the calendar moved, which is the exact failure the existing bulk
+ * lastVerified stamps already demonstrate: 88 of 138 venues carry the
+ * identical date and not one of them tracks its own record.
+ */
+const claims = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/claims' }),
+  schema: z.object({
+    /**
+     * Stable identity: the file path under src/content/claims/ without the
+     * extension. Declared explicitly rather than leaning on the loader's
+     * generated id, so evidence.claim keeps pointing at the right row
+     * whatever the loader does to path segments.
+     */
+    claimId: z.string(),
+    claimClass: claimClass,
+    /** The record this claim is about. */
+    subject: registrySubject,
+    /** One plain sentence: what a reader is being told. */
+    statement: z.string(),
+    /**
+     * Every record that asserts this claim. One claim, many assertions,
+     * across collections. The subject is always the first entry.
+     */
+    assertedBy: z.array(registrySubject).default([]),
+    createdAt: z.coerce.date(),
+    /**
+     * Retirement is a state transition, never a deletion. A retired claim
+     * stays on disk so the history of what we once published survives, and
+     * git is the audit trail.
+     */
+    retiredAt: z.coerce.date().optional(),
+    retiredReason: z.string().optional(),
+    /** claimId of the claim this one replaces. Superseding is additive. */
+    supersedes: z.string().optional(),
+    /** 'migrated' means a script wrote it from data already on disk. */
+    origin: z.enum(['migrated', 'authored']).default('authored'),
+    note: z.string().optional(),
+  }),
+});
+
+/**
+ * evidence  -  one row per source attached to a claim. Support and
+ * disagreement share one shape, so an editor can inspect both.
+ */
+const evidence = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/evidence' }),
+  schema: z.object({
+    /** File path under src/content/evidence/ without the extension. */
+    evidenceId: z.string(),
+    /** claimId of the claim this row supports or disputes. */
+    claim: z.string(),
+    stance: z.enum(['supports', 'disputes']).default('supports'),
+    publisher: z.object({
+      kind: publisherKind,
+      name: z.string().optional(),
+    }),
+    url: z.string().url().optional(),
+    /** How the source was reached when there is no URL: a call, a visit. */
+    method: z.string().optional(),
+    /**
+     * When the source was actually read. For a migrated row this is the date
+     * already carried by the record it came from, never the migration date:
+     * a migration cannot make the corpus fresher than it already was.
+     */
+    retrievedAt: z.coerce.date(),
+    /**
+     * retrievedAt plus the claim class's expiry from
+     * src/data/source-precedence.json. Stored, unlike state, because it is a
+     * property of this row at the moment it was taken: a later edit to the
+     * precedence table must not silently move a promise an existing row has
+     * already made. Recomputed on every seed run.
+     */
+    expiresAt: z.coerce.date(),
+    note: z.string().optional(),
+    origin: z.enum(['migrated', 'authored']).default('authored'),
+    /**
+     * evidenceId of the row that replaces this one. The superseded row stays
+     * on disk: superseding is additive, expiry is a state transition, and
+     * neither one is a deletion.
+     */
+    supersededBy: z.string().optional(),
+    /**
+     * Everything the migration read, so the seed is reversible and nothing is
+     * lost: the field it came from, that field's value, and the file.
+     */
+    legacy: z
+      .object({
+        file: z.string(),
+        field: z.string(),
+        value: z.string(),
+        /** Which field supplied retrievedAt. */
+        dateField: z.string().optional(),
+      })
+      .optional(),
+  }),
+});
+
 export const collections = {
   venues,
   experiences,
@@ -1536,4 +1726,6 @@ export const collections = {
   insidersThirty,
   'weekend-picks': weekendPicks,
   'signature-events': signatureEvents,
+  claims,
+  evidence,
 };

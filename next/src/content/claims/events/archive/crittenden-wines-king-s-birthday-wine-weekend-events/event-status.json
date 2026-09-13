@@ -1,0 +1,18 @@
+{
+  "claimId": "events/archive/crittenden-wines-king-s-birthday-wine-weekend-events/event-status",
+  "claimClass": "event-status",
+  "subject": {
+    "type": "events",
+    "slug": "archive/crittenden-wines-king-s-birthday-wine-weekend-events"
+  },
+  "statement": "Crittenden Wines, King's Birthday Wine Weekend Events is running as published.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "archive/crittenden-wines-king-s-birthday-wine-weekend-events"
+    }
+  ],
+  "createdAt": "2026-05-04",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

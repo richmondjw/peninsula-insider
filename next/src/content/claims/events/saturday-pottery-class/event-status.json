@@ -1,0 +1,18 @@
+{
+  "claimId": "events/saturday-pottery-class/event-status",
+  "claimClass": "event-status",
+  "subject": {
+    "type": "events",
+    "slug": "saturday-pottery-class"
+  },
+  "statement": "Saturday Pottery Class is running as published.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "saturday-pottery-class"
+    }
+  ],
+  "createdAt": "2026-08-24",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

@@ -1,0 +1,20 @@
+{
+  "claimId": "quick-notes/2026-05-17-weather-sunday/conditions",
+  "claimClass": "conditions",
+  "subject": {
+    "type": "quick-notes",
+    "slug": "2026-05-17-weather-sunday",
+    "field": "sources"
+  },
+  "statement": "Sunday - 17°C, rain through the morning, easing this afternoon. A wet close to the weekend.",
+  "assertedBy": [
+    {
+      "type": "quick-notes",
+      "slug": "2026-05-17-weather-sunday",
+      "field": "sources"
+    }
+  ],
+  "createdAt": "2026-05-17",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

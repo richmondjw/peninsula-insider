@@ -1,0 +1,20 @@
+{
+  "claimId": "data-facts/things-to-do/sunny-ridge-strawberry-farm/trading-status",
+  "claimClass": "trading-status",
+  "subject": {
+    "type": "data-facts",
+    "slug": "things-to-do/sunny-ridge-strawberry-farm",
+    "field": "entities[7].source"
+  },
+  "statement": "Sunny Ridge Strawberry Farm: trading status as recorded in src/data/facts/things-to-do.json.",
+  "assertedBy": [
+    {
+      "type": "data-facts",
+      "slug": "things-to-do/sunny-ridge-strawberry-farm",
+      "field": "entities[7].source"
+    }
+  ],
+  "createdAt": "2026-09-13",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

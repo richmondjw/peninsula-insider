@@ -1,0 +1,18 @@
+{
+  "evidenceId": "data-facts/things-to-do/enchanted-adventure-garden/trading-status-a1d5830d",
+  "claim": "data-facts/things-to-do/enchanted-adventure-garden/trading-status",
+  "stance": "supports",
+  "publisher": {
+    "kind": "venue-site"
+  },
+  "retrievedAt": "2026-09-13",
+  "expiresAt": "2026-12-12",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/data/facts/things-to-do.json",
+    "field": "entities[3].source",
+    "value": "https://www.enchantedadventure.com.au",
+    "dateField": "lastUpdated"
+  },
+  "url": "https://www.enchantedadventure.com.au"
+}

@@ -1,0 +1,18 @@
+{
+  "evidenceId": "data-facts/things-to-do/peninsula-hot-springs/trading-status-e365dcf0",
+  "claim": "data-facts/things-to-do/peninsula-hot-springs/trading-status",
+  "stance": "supports",
+  "publisher": {
+    "kind": "venue-site"
+  },
+  "retrievedAt": "2026-09-13",
+  "expiresAt": "2026-12-12",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/data/facts/things-to-do.json",
+    "field": "entities[0].source",
+    "value": "https://www.peninsulahotsprings.com",
+    "dateField": "lastUpdated"
+  },
+  "url": "https://www.peninsulahotsprings.com"
+}

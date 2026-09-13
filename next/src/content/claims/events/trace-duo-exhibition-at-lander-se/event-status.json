@@ -1,0 +1,18 @@
+{
+  "claimId": "events/trace-duo-exhibition-at-lander-se/event-status",
+  "claimClass": "event-status",
+  "subject": {
+    "type": "events",
+    "slug": "trace-duo-exhibition-at-lander-se"
+  },
+  "statement": "TRACE Duo Exhibition at Lander-Se is running as published.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "trace-duo-exhibition-at-lander-se"
+    }
+  ],
+  "createdAt": "2026-05-04",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

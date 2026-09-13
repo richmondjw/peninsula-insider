@@ -1,0 +1,19 @@
+{
+  "evidenceId": "species/garfish/fishing-rule-9b03acf1",
+  "claim": "species/garfish/fishing-rule",
+  "stance": "supports",
+  "publisher": {
+    "kind": "gov",
+    "name": "Victorian Fisheries Authority"
+  },
+  "retrievedAt": "2026-04-30",
+  "expiresAt": "2027-04-30",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/content/species/garfish.md",
+    "field": "vfaCitationUrl",
+    "value": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide",
+    "dateField": "lastVerified"
+  },
+  "url": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide"
+}

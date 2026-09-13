@@ -1,0 +1,20 @@
+{
+  "claimId": "data-facts/wine/main-ridge-estate/trading-status",
+  "claimClass": "trading-status",
+  "subject": {
+    "type": "data-facts",
+    "slug": "wine/main-ridge-estate",
+    "field": "wineries[7].source"
+  },
+  "statement": "Main Ridge Estate: trading status as recorded in src/data/facts/wine.json.",
+  "assertedBy": [
+    {
+      "type": "data-facts",
+      "slug": "wine/main-ridge-estate",
+      "field": "wineries[7].source"
+    }
+  ],
+  "createdAt": "2026-09-13",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

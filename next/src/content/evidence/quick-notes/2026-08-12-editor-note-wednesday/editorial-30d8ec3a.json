@@ -1,0 +1,19 @@
+{
+  "evidenceId": "quick-notes/2026-08-12-editor-note-wednesday/editorial-30d8ec3a",
+  "claim": "quick-notes/2026-08-12-editor-note-wednesday/editorial",
+  "stance": "supports",
+  "publisher": {
+    "kind": "gov"
+  },
+  "retrievedAt": "2026-08-12",
+  "expiresAt": "2027-08-12",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/content/quick-notes/2026-08-12-editor-note-wednesday.md",
+    "field": "sources[0]",
+    "value": "{\"kind\":\"gov\",\"url\":\"https://api.open-meteo.com/v1/forecast?latitude=-38.40&longitude=145.00&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,precipitation_probability_max,wind_speed_10m_max&timezone=Australia%2FMelbourne&forecast_days=3\",\"note\":\"Open-Meteo Main Ridge retrieval 2026-08-11T20:35Z. Wed 12 Aug: 82% rain probability, 3.30mm, 10.0-13.5°C and 26.9km/h maximum wind. Thu 13 Aug: 75%, 2.00mm, 9.6-14.1°C.\",\"checkedAt\":\"2026-08-12T06:35:00+10:00\"}",
+    "dateField": "sources[0].checkedAt"
+  },
+  "url": "https://api.open-meteo.com/v1/forecast?latitude=-38.40&longitude=145.00&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,precipitation_probability_max,wind_speed_10m_max&timezone=Australia%2FMelbourne&forecast_days=3",
+  "note": "Open-Meteo Main Ridge retrieval 2026-08-11T20:35Z. Wed 12 Aug: 82% rain probability, 3.30mm, 10.0-13.5°C and 26.9km/h maximum wind. Thu 13 Aug: 75%, 2.00mm, 9.6-14.1°C."
+}
