@@ -58,6 +58,7 @@ jobs:
           npm run test:content-admission
           npm run test:firsthand-claims
           npm run test:agent-readiness
+          npm run test:verification-loop
           npm run test:event-safeguards
           npm run test:event-occurrence
 
