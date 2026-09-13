@@ -1,0 +1,1241 @@
+{
+  "generatedAt": "2026-09-13T17:57:21.289Z",
+  "assertedMetrics": [
+    "unledgeredSourceUrl",
+    "deadSourceUrlCited",
+    "staleRedirectCited"
+  ],
+  "ledger": "ops/reports/content/link-health-ledger.json",
+  "citations": 1448,
+  "distinctUrls": 433,
+  "verdictCounts": {
+    "ok": 327,
+    "moved": 16,
+    "blocked": 91,
+    "dead": 34,
+    "tls-fault": 3
+  },
+  "totals": {
+    "unledgeredSourceUrl": 0,
+    "deadSourceUrlCited": 1,
+    "staleRedirectCited": 0
+  },
+  "unledgeredSourceUrl": [],
+  "deadSourceUrlCited": [
+    {
+      "url": "https://library.mornpen.vic.gov.au/Whats-On/Events/Science-Week-TwistED-Science-Show-Rosebud-Library",
+      "file": "next/src/content/daily-insights/2026-08-22.json",
+      "field": "events[0].url",
+      "verdict": "dead",
+      "note": null
+    }
+  ],
+  "staleRedirectCited": [],
+  "blockedSourceUrlCited": [
+    {
+      "url": "https://www.ptleoestate.com.au/experience/sculpture-park/",
+      "file": "next/src/content/articles/peninsula-this-weekend-jul-18.md",
+      "field": "dispatch.sunday.bookingUrl"
+    },
+    {
+      "url": "https://events.humanitix.com/winter-wine-festival",
+      "file": "next/src/content/articles/peninsula-this-weekend-jun-06.md",
+      "field": "dispatch.lead.bookingUrl"
+    },
+    {
+      "url": "https://www.morningtonpeninsulamagazine.com.au/",
+      "file": "next/src/content/daily-insights/2026-08-20.json",
+      "field": "competitors[3].url"
+    },
+    {
+      "url": "https://www.morningtonpeninsulamagazine.com.au/",
+      "file": "next/src/content/daily-insights/2026-08-22.json",
+      "field": "competitors[3].url"
+    },
+    {
+      "url": "https://trofeoestate.com.au",
+      "file": "next/src/content/events/aperitivo-hour-trofeo-estate-winter-2026.json",
+      "field": "officialEventUrl"
+    },
+    {
+      "url": "https://trofeoestate.com.au",
+      "file": "next/src/content/events/aperitivo-hour-trofeo-estate-winter-2026.json",
+      "field": "bookingUrl"
+    },
+    {
+      "url": "https://trofeoestate.com.au",
+      "file": "next/src/content/events/aperitivo-hour-trofeo-estate-winter-2026.json",
+      "field": "organiser.website"
+    },
+    {
+      "url": "https://www.facebook.com/ourartsandculture/posts/school-holidays-at-mornington-peninsula-regional-gallery/1198531805698616/",
+      "file": "next/src/content/events/archive/mornington-peninsula-regional-gallery-school-holiday-workshops.json",
+      "field": "primarySourceUrl"
+    },
+    {
+      "url": "https://ptleoestate.com.au",
+      "file": "next/src/content/events/archive/sip-sketch-sculpture-park-pt-leo-estate-school-holidays-2026.json",
+      "field": "bookingUrl"
+    },
+    {
+      "url": "https://ptleoestate.com.au",
+      "file": "next/src/content/events/archive/sip-sketch-sculpture-park-pt-leo-estate-school-holidays-2026.json",
+      "field": "organiser.website"
+    },
+    {
+      "url": "https://mpys.com.au/",
+      "file": "next/src/content/events/archive/youth-services-school-holiday-program.json",
+      "field": "organiser.website"
+    },
+    {
+      "url": "https://events.humanitix.com/comedy-arj-barker",
+      "file": "next/src/content/events/arj-barker-live-at-barlow.json",
+      "field": "bookingUrl"
+    },
+    {
+      "url": "https://events.humanitix.com/comedy-arj-barker",
+      "file": "next/src/content/events/arj-barker-live-at-barlow.json",
+      "field": "officialEventUrl"
+    },
+    {
+      "url": "https://humanitix.com/au/events/au--sorrento--3943",
+      "file": "next/src/content/events/arj-barker-live-at-barlow.json",
+      "field": "sourceUrl"
+    },
+    {
+      "url": "https://events.humanitix.com/winery-walk-autumn-2026",
+      "file": "next/src/content/events/autumn-winery-walk-2026.json",
+      "field": "bookingUrl"
+    },
+    {
+      "url": "https://events.humanitix.com/winery-walk-autumn-2026",
+      "file": "next/src/content/events/autumn-winery-walk-2026.json",
+      "field": "officialEventUrl"
+    },
+    {
+      "url": "https://events.humanitix.com/winery-walk-autumn-2026",
+      "file": "next/src/content/events/autumn-winery-walk-2026.json",
+      "field": "primarySourceUrl"
+    },
+    {
+      "url": "https://events.humanitix.com/winery-walk-autumn-2026/accessibility",
+      "file": "next/src/content/events/autumn-winery-walk-2026.json",
+      "field": "secondarySourceUrl"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Attraction_Review-g552161-d7735933-Reviews-Bass_and_Flinders_Distillery",
+      "file": "next/src/content/events/bass-flinders-gin-masterclass.json",
+      "field": "secondarySourceUrl"
+    },
+    {
+      "url": "https://events.humanitix.com/breast-foot-forward-annual-community-walk-2026",
+      "file": "next/src/content/events/breast-foot-forward-annual-community-walk-and-run-2026.json",
+      "field": "bookingUrl"
+    },
+    {
+      "url": "https://events.humanitix.com/breast-foot-forward-annual-community-walk-2026",
+      "file": "next/src/content/events/breast-foot-forward-annual-community-walk-and-run-2026.json",
+      "field": "officialEventUrl"
+    },
+    {
+      "url": "https://humanitix.com/au/events/au--rosebud--3939",
+      "file": "next/src/content/events/breast-foot-forward-annual-community-walk-and-run-2026.json",
+      "field": "sourceUrl"
+    },
+    {
+      "url": "https://www.facebook.com/flinderstruffles/",
+      "file": "next/src/content/events/flinders-truffles-winter-truffle-hunt-season.json",
+      "field": "secondarySourceUrl"
+    },
+    {
+      "url": "https://www.foxeys-hangout.com.au",
+      "file": "next/src/content/events/foxeys-hangout-vegetable-feast-morning-sun-vineyard.json",
+      "field": "officialEventUrl"
+    },
+    {
+      "url": "https://www.foxeys-hangout.com.au",
+      "file": "next/src/content/events/foxeys-hangout-vegetable-feast-morning-sun-vineyard.json",
+      "field": "organiser.website"
+    },
+    {
+      "url": "https://events.humanitix.com/glamping-tents-horror-movie-campout-back-from-the-dead-tour-2026",
+      "file": "next/src/content/events/glamping-tents-horror-movie-campout-back-from-the-dead-tour-2026.json",
+      "field": "bookingUrl"
+    },
+    {
+      "url": "https://events.humanitix.com/glamping-tents-horror-movie-campout-back-from-the-dead-tour-2026",
+      "file": "next/src/content/events/glamping-tents-horror-movie-campout-back-from-the-dead-tour-2026.json",
+      "field": "officialEventUrl"
+    },
+    {
+      "url": "https://humanitix.com/au/events/au--mornington--3931",
+      "file": "next/src/content/events/glamping-tents-horror-movie-campout-back-from-the-dead-tour-2026.json",
+      "field": "sourceUrl"
+    },
+    {
+      "url": "https://sscbc.com.au/2025-26/",
+      "file": "next/src/content/events/harry-baker-2k-sailing-regatta.json",
+      "field": "officialEventUrl"
+    },
+    {
+      "url": "https://sscbc.com.au",
+      "file": "next/src/content/events/harry-baker-2k-sailing-regatta.json",
+      "field": "organiser.website"
+    },
+    {
+      "url": "https://sscbc.com.au/2025-26/",
+      "file": "next/src/content/events/harry-baker-2k-sailing-regatta.json",
+      "field": "primarySourceUrl"
+    },
+    {
+      "url": "https://events.humanitix.com/high-tea-at-mornington-botanical-rose-gardens-jhxvu8lx",
+      "file": "next/src/content/events/high-tea-at-mornington-botanical-rose-gardens.json",
+      "field": "bookingUrl"
+    },
+    {
+      "url": "https://events.humanitix.com/high-tea-at-mornington-botanical-rose-gardens-jhxvu8lx",
+      "file": "next/src/content/events/high-tea-at-mornington-botanical-rose-gardens.json",
+      "field": "officialEventUrl"
+    },
+    {
+      "url": "https://humanitix.com/au/events/au--mornington--3931",
+      "file": "next/src/content/events/high-tea-at-mornington-botanical-rose-gardens.json",
+      "field": "sourceUrl"
+    },
+    {
+      "url": "https://events.humanitix.com/winter-wine-festival",
+      "file": "next/src/content/events/mornington-peninsula-winter-wine-weekend-winter-wine-festival.json",
+      "field": "bookingUrl"
+    },
+    {
+      "url": "https://events.humanitix.com/winter-wine-festival",
+      "file": "next/src/content/events/mornington-peninsula-winter-wine-weekend-winter-wine-festival.json",
+      "field": "secondarySourceUrl"
+    },
+    {
+      "url": "https://communityplate.org.au/event/wednesday-main-street-mornington-market/2026-01-14/",
+      "file": "next/src/content/events/mornington-wednesday-market-main-street-market.json",
+      "field": "secondarySourceUrl"
+    },
+    {
+      "url": "https://events.humanitix.com/olagolf2026",
+      "file": "next/src/content/events/nancye-wynne-bolton-ola-golf-day-2026.json",
+      "field": "bookingUrl"
+    },
+    {
+      "url": "https://events.humanitix.com/olagolf2026",
+      "file": "next/src/content/events/nancye-wynne-bolton-ola-golf-day-2026.json",
+      "field": "officialEventUrl"
+    },
+    {
+      "url": "https://humanitix.com/au/events/au--sorrento--3943",
+      "file": "next/src/content/events/nancye-wynne-bolton-ola-golf-day-2026.json",
+      "field": "sourceUrl"
+    },
+    {
+      "url": "https://www.facebook.com/p/Pearcedale-Market-100064719966925/",
+      "file": "next/src/content/events/pearcedale-community-market.json",
+      "field": "officialEventUrl"
+    },
+    {
+      "url": "https://www.facebook.com/p/Pearcedale-Market-100064719966925/",
+      "file": "next/src/content/events/pearcedale-community-market.json",
+      "field": "secondarySourceUrl"
+    },
+    {
+      "url": "https://events.humanitix.com/peninsula-vinehop-festival-2026",
+      "file": "next/src/content/events/peninsula-vinehop-festival-2026.json",
+      "field": "secondarySourceUrl"
+    },
+    {
+      "url": "https://www.polperrowines.com.au/end-of-year-events-at-polperro-and-many-little/",
+      "file": "next/src/content/events/polperro-cellar-table-private-dining-experience.json",
+      "field": "officialEventUrl"
+    },
+    {
+      "url": "https://www.polperrowines.com.au",
+      "file": "next/src/content/events/polperro-cellar-table-private-dining-experience.json",
+      "field": "organiser.website"
+    },
+    {
+      "url": "https://www.polperrowines.com.au/end-of-year-events-at-polperro-and-many-little/",
+      "file": "next/src/content/events/polperro-cellar-table-private-dining-experience.json",
+      "field": "primarySourceUrl"
+    },
+    {
+      "url": "https://ptleoestate.com.au",
+      "file": "next/src/content/events/pt-leo-estate-local-complimentary-sculpture-park-winter-2026.json",
+      "field": "officialEventUrl"
+    },
+    {
+      "url": "https://ptleoestate.com.au",
+      "file": "next/src/content/events/pt-leo-estate-local-complimentary-sculpture-park-winter-2026.json",
+      "field": "bookingUrl"
+    },
+    {
+      "url": "https://ptleoestate.com.au",
+      "file": "next/src/content/events/pt-leo-estate-local-complimentary-sculpture-park-winter-2026.json",
+      "field": "organiser.website"
+    },
+    {
+      "url": "https://www.ptleoestate.com.au/experience/sculpture-park/",
+      "file": "next/src/content/events/pt-leo-estate-sculpture-park.json",
+      "field": "bookingUrl"
+    },
+    {
+      "url": "https://www.ptleoestate.com.au/experience/sculpture-park/",
+      "file": "next/src/content/events/pt-leo-estate-sculpture-park.json",
+      "field": "officialEventUrl"
+    },
+    {
+      "url": "https://www.ptleoestate.com.au",
+      "file": "next/src/content/events/pt-leo-estate-sculpture-park.json",
+      "field": "organiser.website"
+    },
+    {
+      "url": "https://www.ptleoestate.com.au/experience/sculpture-park/",
+      "file": "next/src/content/events/pt-leo-estate-sculpture-park.json",
+      "field": "primarySourceUrl"
+    },
+    {
+      "url": "https://humanitix.com/au/events/au--rosebud--3939",
+      "file": "next/src/content/events/pub-carols-thursday-17th-december.json",
+      "field": "sourceUrl"
+    },
+    {
+      "url": "https://craftypint.com/brewery/153/red-hill-brewery",
+      "file": "next/src/content/events/red-hill-brewery-secret-stash-weekend.json",
+      "field": "secondarySourceUrl"
+    },
+    {
+      "url": "https://www.polperrowines.com.au/restore-pamper-retreat-at-polperro-farmhouse/",
+      "file": "next/src/content/events/restore-pamper-retreat-at-polperro-farmhouse.json",
+      "field": "officialEventUrl"
+    },
+    {
+      "url": "https://www.polperrowines.com.au",
+      "file": "next/src/content/events/restore-pamper-retreat-at-polperro-farmhouse.json",
+      "field": "organiser.website"
+    },
+    {
+      "url": "https://www.polperrowines.com.au/restore-pamper-retreat-at-polperro-farmhouse/",
+      "file": "next/src/content/events/restore-pamper-retreat-at-polperro-farmhouse.json",
+      "field": "primarySourceUrl"
+    },
+    {
+      "url": "https://www.polperrowines.com.au/event/soil-cellar-flinders-truffles-x-polperro-winery/",
+      "file": "next/src/content/events/soil-cellar-flinders-truffles-x-polperro-winery.json",
+      "field": "officialEventUrl"
+    },
+    {
+      "url": "https://www.polperrowines.com.au",
+      "file": "next/src/content/events/soil-cellar-flinders-truffles-x-polperro-winery.json",
+      "field": "organiser.website"
+    },
+    {
+      "url": "https://www.polperrowines.com.au/event/soil-cellar-flinders-truffles-x-polperro-winery/",
+      "file": "next/src/content/events/soil-cellar-flinders-truffles-x-polperro-winery.json",
+      "field": "primarySourceUrl"
+    },
+    {
+      "url": "https://www.facebook.com/PolperroWines/posts/introducing-soil-cellar-a-truffle-hunt-and-dinner-collaboration-between-flinders/1743941566857063/",
+      "file": "next/src/content/events/soil-cellar-flinders-truffles-x-polperro-winery.json",
+      "field": "secondarySourceUrl"
+    },
+    {
+      "url": "https://events.humanitix.com/sorrento-solstice-festival",
+      "file": "next/src/content/events/sorrento-solstice-festival-2026.json",
+      "field": "bookingUrl"
+    },
+    {
+      "url": "https://sorrentowritersfestival.com.au",
+      "file": "next/src/content/events/sorrento-writers-festival-2026.json",
+      "field": "bookingUrl"
+    },
+    {
+      "url": "https://www.tripadvisor.com/AttractionProductReview-g2055778-d25356559",
+      "file": "next/src/content/events/ten-minutes-by-tractor-terroir-masterclass.json",
+      "field": "secondarySourceUrl"
+    },
+    {
+      "url": "https://www.bloodylongwalk.com.au/lp/mornington-peninsula/",
+      "file": "next/src/content/events/the-bloody-long-walk-mornington-peninsula-2026.json",
+      "field": "bookingUrl"
+    },
+    {
+      "url": "https://www.bloodylongwalk.com.au/lp/mornington-peninsula/",
+      "file": "next/src/content/events/the-bloody-long-walk-mornington-peninsula-2026.json",
+      "field": "officialEventUrl"
+    },
+    {
+      "url": "https://www.bloodylongwalk.com.au",
+      "file": "next/src/content/events/the-bloody-long-walk-mornington-peninsula-2026.json",
+      "field": "organiser.website"
+    },
+    {
+      "url": "https://www.bloodylongwalk.com.au/lp/mornington-peninsula/",
+      "file": "next/src/content/events/the-bloody-long-walk-mornington-peninsula-2026.json",
+      "field": "primarySourceUrl"
+    },
+    {
+      "url": "https://www.runningcalendar.com.au/event/bloody-long-walk-melbourne-mornington/",
+      "file": "next/src/content/events/the-bloody-long-walk-mornington-peninsula-2026.json",
+      "field": "secondarySourceUrl"
+    },
+    {
+      "url": "https://events.humanitix.com/winter-wine-festival",
+      "file": "next/src/content/events/winter-wine-weekend-full-3-day-peninsula-program.json",
+      "field": "secondarySourceUrl"
+    },
+    {
+      "url": "https://events.humanitix.com/winter-wine-festival",
+      "file": "next/src/content/events/winter-wine-weekend-winter-wine-festival-red-hill-showgrounds.json",
+      "field": "bookingUrl"
+    },
+    {
+      "url": "https://events.humanitix.com/winter-wine-festival",
+      "file": "next/src/content/events/winter-wine-weekend-winter-wine-festival-red-hill-showgrounds.json",
+      "field": "primarySourceUrl"
+    },
+    {
+      "url": "https://www.tripadvisor.com.au/",
+      "file": "next/src/content/evidence/data-facts/beaches/balnarring-beach/access-restriction-1961ada2.json",
+      "field": "url"
+    },
+    {
+      "url": "https://www.petstock.com.au/blog/articles/summer-travel-our-dog-friendly-guide-to-the-mornington-peninsula",
+      "file": "next/src/content/evidence/data-facts/beaches/flinders-beach-western-port-north-end/access-restriction-585e72c9.json",
+      "field": "url"
+    },
+    {
+      "url": "https://www.spiritoftasmania.com.au/things-to-do/mushroom-reef-marine-sanctuary/",
+      "file": "next/src/content/evidence/data-facts/beaches/mushroom-reef-marine-sanctuary/access-restriction-440e2f74.json",
+      "field": "url"
+    },
+    {
+      "url": "https://vinetrekker.com.au/mornington-peninsula-beaches/",
+      "file": "next/src/content/evidence/data-facts/beaches/rosebud-beach/access-restriction-0f045ef9.json",
+      "field": "url"
+    },
+    {
+      "url": "https://vinetrekker.com.au/mornington-peninsula-beaches/",
+      "file": "next/src/content/evidence/data-facts/beaches/safety-beach/access-restriction-f34df04f.json",
+      "field": "url"
+    },
+    {
+      "url": "https://www.tripadvisor.com.au",
+      "file": "next/src/content/evidence/data-facts/things-to-do/moonlit-sanctuary-wildlife-conservation-park/trading-status-fe1e5265.json",
+      "field": "url"
+    },
+    {
+      "url": "https://www.tripadvisor.com.au",
+      "file": "next/src/content/evidence/data-facts/things-to-do/polperro-dolphin-swims/trading-status-a40347cb.json",
+      "field": "url"
+    },
+    {
+      "url": "https://www.ptleoestate.com.au/whats-on-event/rediscover-more-of-your-backyard/",
+      "file": "next/src/content/evidence/data-facts/things-to-do/pt-leo-estate-sculpture-park/offering-operator-backyard-page-2026-09-13.json",
+      "field": "url"
+    },
+    {
+      "url": "https://www.ptleoestate.com.au/experience/sculpture-park/",
+      "file": "next/src/content/evidence/data-facts/things-to-do/pt-leo-estate-sculpture-park/offering-operator-sculpture-page-2026-09-13.json",
+      "field": "url"
+    },
+    {
+      "url": "https://www.ptleoestate.com.au/experience/sculpture-park/",
+      "file": "next/src/content/evidence/data-facts/things-to-do/pt-leo-estate-sculpture-park/trading-status-991e44f4.json",
+      "field": "url"
+    },
+    {
+      "url": "https://foxeys-hangout.com.au/",
+      "file": "next/src/content/evidence/data-facts/wine/foxeys-hangout/trading-status-d79cf6ae.json",
+      "field": "url"
+    },
+    {
+      "url": "https://moorooducestate.com.au/cellar-door/",
+      "file": "next/src/content/evidence/data-facts/wine/moorooduc-estate/trading-status-922f7439.json",
+      "field": "url"
+    },
+    {
+      "url": "https://www.polperrowines.com.au",
+      "file": "next/src/content/evidence/data-facts/wine/polperro/trading-status-3ea2d8c1.json",
+      "field": "url"
+    },
+    {
+      "url": "https://www.ptleoestate.com.au",
+      "file": "next/src/content/evidence/data-facts/wine/pt-leo-estate/trading-status-a077c0b4.json",
+      "field": "url"
+    },
+    {
+      "url": "https://trofeoestate.com.au",
+      "file": "next/src/content/evidence/events/aperitivo-hour-trofeo-estate-winter-2026/booking-trofeoestate-com-au-2026-07-11.json",
+      "field": "url"
+    },
+    {
+      "url": "https://trofeoestate.com.au",
+      "file": "next/src/content/evidence/events/aperitivo-hour-trofeo-estate-winter-2026/event-schedule-trofeoestate-com-au-2026-07-11.json",
+      "field": "url"
+    },
+    {
+      "url": "https://trofeoestate.com.au",
+      "file": "next/src/content/evidence/events/aperitivo-hour-trofeo-estate-winter-2026/rate-change-trofeoestate-com-au-2026-07-11.json",
+      "field": "url"
+    },
+    {
+      "url": "https://www.facebook.com/ourartsandculture/posts/school-holidays-at-mornington-peninsula-regional-gallery/1198531805698616/",
+      "file": "next/src/content/evidence/events/archive/mornington-peninsula-regional-gallery-school-holiday-workshops/event-status-60700cdb.json",
+      "field": "url"
+    },
+    {
+      "url": "https://events.humanitix.com/comedy-arj-barker",
+      "file": "next/src/content/evidence/events/arj-barker-live-at-barlow/event-schedule-events-humanitix-com-2026-08-23.json",
+      "field": "url"
+    },
+    {
+      "url": "https://humanitix.com/au/events/au--sorrento--3943",
+      "file": "next/src/content/evidence/events/arj-barker-live-at-barlow/event-schedule-humanitix-com-2026-08-23.json",
+      "field": "url"
+    },
+    {
+      "url": "https://humanitix.com/au/events/au--sorrento--3943",
+      "file": "next/src/content/evidence/events/arj-barker-live-at-barlow/event-status-ab612a45.json",
+      "field": "url"
+    },
+    {
+      "url": "https://events.humanitix.com/winery-walk-autumn-2026",
+      "file": "next/src/content/evidence/events/autumn-winery-walk-2026/event-status-287a7b23.json",
+      "field": "url"
+    },
+    {
+      "url": "https://events.humanitix.com/winery-walk-autumn-2026/accessibility",
+      "file": "next/src/content/evidence/events/autumn-winery-walk-2026/event-status-9b2eec90.json",
+      "field": "url"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Attraction_Review-g552161-d7735933-Reviews-Bass_and_Flinders_Distillery",
+      "file": "next/src/content/evidence/events/bass-flinders-gin-masterclass/event-schedule-tripadvisor-com-2026-05-04.json",
+      "field": "url"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Attraction_Review-g552161-d7735933-Reviews-Bass_and_Flinders_Distillery",
+      "file": "next/src/content/evidence/events/bass-flinders-gin-masterclass/event-status-7cfeff62.json",
+      "field": "url"
+    },
+    {
+      "url": "https://events.humanitix.com/breast-foot-forward-annual-community-walk-2026",
+      "file": "next/src/content/evidence/events/breast-foot-forward-annual-community-walk-and-run-2026/event-schedule-events-humanitix-com-2026-08-23.json",
+      "field": "url"
+    },
+    {
+      "url": "https://humanitix.com/au/events/au--rosebud--3939",
+      "file": "next/src/content/evidence/events/breast-foot-forward-annual-community-walk-and-run-2026/event-schedule-humanitix-com-2026-08-23.json",
+      "field": "url"
+    },
+    {
+      "url": "https://humanitix.com/au/events/au--rosebud--3939",
+      "file": "next/src/content/evidence/events/breast-foot-forward-annual-community-walk-and-run-2026/event-status-a63f3490.json",
+      "field": "url"
+    },
+    {
+      "url": "https://www.facebook.com/flinderstruffles/",
+      "file": "next/src/content/evidence/events/flinders-truffles-winter-truffle-hunt-season/event-status-bce79dc4.json",
+      "field": "url"
+    },
+    {
+      "url": "https://www.foxeys-hangout.com.au",
+      "file": "next/src/content/evidence/events/foxeys-hangout-vegetable-feast-morning-sun-vineyard/booking-foxeys-hangout-com-au-2026-05-04.json",
+      "field": "url"
+    },
+    {
+      "url": "https://www.foxeys-hangout.com.au",
+      "file": "next/src/content/evidence/events/foxeys-hangout-vegetable-feast-morning-sun-vineyard/event-schedule-foxeys-hangout-com-au-2026-05-04.json",
+      "field": "url"
+    },
+    {
+      "url": "https://www.foxeys-hangout.com.au",
+      "file": "next/src/content/evidence/events/foxeys-hangout-vegetable-feast-morning-sun-vineyard/rate-change-foxeys-hangout-com-au-2026-05-04.json",
+      "field": "url"
+    },
+    {
+      "url": "https://events.humanitix.com/glamping-tents-horror-movie-campout-back-from-the-dead-tour-2026",
+      "file": "next/src/content/evidence/events/glamping-tents-horror-movie-campout-back-from-the-dead-tour-2026/event-schedule-events-humanitix-com-2026-08-23.json",
+      "field": "url"
+    },
+    {
+      "url": "https://humanitix.com/au/events/au--mornington--3931",
+      "file": "next/src/content/evidence/events/glamping-tents-horror-movie-campout-back-from-the-dead-tour-2026/event-schedule-humanitix-com-2026-08-23.json",
+      "field": "url"
+    },
+    {
+      "url": "https://humanitix.com/au/events/au--mornington--3931",
+      "file": "next/src/content/evidence/events/glamping-tents-horror-movie-campout-back-from-the-dead-tour-2026/event-status-f2eebf8c.json",
+      "field": "url"
+    },
+    {
+      "url": "https://sscbc.com.au/2025-26/",
+      "file": "next/src/content/evidence/events/harry-baker-2k-sailing-regatta/event-status-998d9e27.json",
+      "field": "url"
+    },
+    {
+      "url": "https://events.humanitix.com/high-tea-at-mornington-botanical-rose-gardens-jhxvu8lx",
+      "file": "next/src/content/evidence/events/high-tea-at-mornington-botanical-rose-gardens/event-schedule-events-humanitix-com-2026-08-23.json",
+      "field": "url"
+    },
+    {
+      "url": "https://humanitix.com/au/events/au--mornington--3931",
+      "file": "next/src/content/evidence/events/high-tea-at-mornington-botanical-rose-gardens/event-schedule-humanitix-com-2026-08-23.json",
+      "field": "url"
+    },
+    {
+      "url": "https://humanitix.com/au/events/au--mornington--3931",
+      "file": "next/src/content/evidence/events/high-tea-at-mornington-botanical-rose-gardens/event-status-b78b7437.json",
+      "field": "url"
+    },
+    {
+      "url": "https://events.humanitix.com/winter-wine-festival",
+      "file": "next/src/content/evidence/events/mornington-peninsula-winter-wine-weekend-winter-wine-festival/event-status-17e20898.json",
+      "field": "url"
+    },
+    {
+      "url": "https://communityplate.org.au/event/wednesday-main-street-mornington-market/2026-01-14/",
+      "file": "next/src/content/evidence/events/mornington-wednesday-market-main-street-market/event-schedule-communityplate-org-au-2026-05-04.json",
+      "field": "url"
+    },
+    {
+      "url": "https://communityplate.org.au/event/wednesday-main-street-mornington-market/2026-01-14/",
+      "file": "next/src/content/evidence/events/mornington-wednesday-market-main-street-market/event-status-1ec2ff94.json",
+      "field": "url"
+    },
+    {
+      "url": "https://events.humanitix.com/olagolf2026",
+      "file": "next/src/content/evidence/events/nancye-wynne-bolton-ola-golf-day-2026/event-schedule-events-humanitix-com-2026-08-23.json",
+      "field": "url"
+    },
+    {
+      "url": "https://humanitix.com/au/events/au--sorrento--3943",
+      "file": "next/src/content/evidence/events/nancye-wynne-bolton-ola-golf-day-2026/event-schedule-humanitix-com-2026-08-23.json",
+      "field": "url"
+    },
+    {
+      "url": "https://humanitix.com/au/events/au--sorrento--3943",
+      "file": "next/src/content/evidence/events/nancye-wynne-bolton-ola-golf-day-2026/event-status-043e135c.json",
+      "field": "url"
+    },
+    {
+      "url": "https://www.facebook.com/p/Pearcedale-Market-100064719966925/",
+      "file": "next/src/content/evidence/events/pearcedale-community-market/booking-facebook-com-2026-05-17.json",
+      "field": "url"
+    },
+    {
+      "url": "https://www.facebook.com/p/Pearcedale-Market-100064719966925/",
+      "file": "next/src/content/evidence/events/pearcedale-community-market/event-schedule-facebook-com-2026-05-17.json",
+      "field": "url"
+    },
+    {
+      "url": "https://www.facebook.com/p/Pearcedale-Market-100064719966925/",
+      "file": "next/src/content/evidence/events/pearcedale-community-market/event-status-9448bdb0.json",
+      "field": "url"
+    },
+    {
+      "url": "https://www.facebook.com/p/Pearcedale-Market-100064719966925/",
+      "file": "next/src/content/evidence/events/pearcedale-community-market/rate-change-facebook-com-2026-05-17.json",
+      "field": "url"
+    },
+    {
+      "url": "https://events.humanitix.com/peninsula-vinehop-festival-2026",
+      "file": "next/src/content/evidence/events/peninsula-vinehop-festival-2026/event-schedule-events-humanitix-com-2026-08-25.json",
+      "field": "url"
+    },
+    {
+      "url": "https://events.humanitix.com/peninsula-vinehop-festival-2026",
+      "file": "next/src/content/evidence/events/peninsula-vinehop-festival-2026/event-status-cbd7f1dd.json",
+      "field": "url"
+    },
+    {
+      "url": "https://www.polperrowines.com.au/end-of-year-events-at-polperro-and-many-little/",
+      "file": "next/src/content/evidence/events/polperro-cellar-table-private-dining-experience/booking-polperrowines-com-au-2026-05-04.json",
+      "field": "url"
+    },
+    {
+      "url": "https://www.polperrowines.com.au/end-of-year-events-at-polperro-and-many-little/",
+      "file": "next/src/content/evidence/events/polperro-cellar-table-private-dining-experience/event-schedule-polperrowines-com-au-2026-05-04.json",
+      "field": "url"
+    },
+    {
+      "url": "https://www.polperrowines.com.au/end-of-year-events-at-polperro-and-many-little/",
+      "file": "next/src/content/evidence/events/polperro-cellar-table-private-dining-experience/event-status-e35c13c9.json",
+      "field": "url"
+    },
+    {
+      "url": "https://www.polperrowines.com.au/end-of-year-events-at-polperro-and-many-little/",
+      "file": "next/src/content/evidence/events/polperro-cellar-table-private-dining-experience/rate-change-polperrowines-com-au-2026-05-04.json",
+      "field": "url"
+    },
+    {
+      "url": "https://ptleoestate.com.au",
+      "file": "next/src/content/evidence/events/pt-leo-estate-local-complimentary-sculpture-park-winter-2026/booking-ptleoestate-com-au-2026-08-29.json",
+      "field": "url"
+    },
+    {
+      "url": "https://www.ptleoestate.com.au/whats-on-event/rediscover-more-of-your-backyard/",
+      "file": "next/src/content/evidence/events/pt-leo-estate-local-complimentary-sculpture-park-winter-2026/event-schedule-operator-2026-09-13.json",
+      "field": "url"
+    },
+    {
+      "url": "https://ptleoestate.com.au",
+      "file": "next/src/content/evidence/events/pt-leo-estate-local-complimentary-sculpture-park-winter-2026/event-schedule-ptleoestate-com-au-2026-08-29.json",
+      "field": "url"
+    },
+    {
+      "url": "https://www.ptleoestate.com.au/whats-on-event/rediscover-more-of-your-backyard/",
+      "file": "next/src/content/evidence/events/pt-leo-estate-local-complimentary-sculpture-park-winter-2026/rate-change-operator-locals-2026-09-13.json",
+      "field": "url"
+    },
+    {
+      "url": "https://ptleoestate.com.au",
+      "file": "next/src/content/evidence/events/pt-leo-estate-local-complimentary-sculpture-park-winter-2026/rate-change-ptleoestate-com-au-2026-08-29.json",
+      "field": "url"
+    },
+    {
+      "url": "https://www.ptleoestate.com.au/whats-on-event/rediscover-more-of-your-backyard/",
+      "file": "next/src/content/evidence/events/pt-leo-estate-sculpture-park/accessibility-operator-2026-09-13.json",
+      "field": "url"
+    },
+    {
+      "url": "https://www.ptleoestate.com.au/experience/sculpture-park/",
+      "file": "next/src/content/evidence/events/pt-leo-estate-sculpture-park/booking-ptleoestate-com-au-2026-05-04.json",
+      "field": "url"
+    },
+    {
+      "url": "https://www.ptleoestate.com.au/experience/sculpture-park/",
+      "file": "next/src/content/evidence/events/pt-leo-estate-sculpture-park/event-schedule-ptleoestate-com-au-2026-05-04.json",
+      "field": "url"
+    },
+    {
+      "url": "https://www.ptleoestate.com.au/experience/sculpture-park/",
+      "file": "next/src/content/evidence/events/pt-leo-estate-sculpture-park/event-status-e5eb6b53.json",
+      "field": "url"
+    },
+    {
+      "url": "https://www.ptleoestate.com.au/experience/sculpture-park/",
+      "file": "next/src/content/evidence/events/pt-leo-estate-sculpture-park/rate-change-ptleoestate-com-au-2026-05-04.json",
+      "field": "url"
+    },
+    {
+      "url": "https://humanitix.com/au/events/au--rosebud--3939",
+      "file": "next/src/content/evidence/events/pub-carols-thursday-17th-december/event-schedule-humanitix-com-2026-08-23.json",
+      "field": "url"
+    },
+    {
+      "url": "https://humanitix.com/au/events/au--rosebud--3939",
+      "file": "next/src/content/evidence/events/pub-carols-thursday-17th-december/event-status-14e73012.json",
+      "field": "url"
+    },
+    {
+      "url": "https://craftypint.com/brewery/153/red-hill-brewery",
+      "file": "next/src/content/evidence/events/red-hill-brewery-secret-stash-weekend/event-status-cfd745ff.json",
+      "field": "url"
+    },
+    {
+      "url": "https://www.polperrowines.com.au/restore-pamper-retreat-at-polperro-farmhouse/",
+      "file": "next/src/content/evidence/events/restore-pamper-retreat-at-polperro-farmhouse/booking-polperrowines-com-au-2026-05-04.json",
+      "field": "url"
+    },
+    {
+      "url": "https://www.polperrowines.com.au/restore-pamper-retreat-at-polperro-farmhouse/",
+      "file": "next/src/content/evidence/events/restore-pamper-retreat-at-polperro-farmhouse/event-schedule-polperrowines-com-au-2026-05-04.json",
+      "field": "url"
+    },
+    {
+      "url": "https://www.polperrowines.com.au/restore-pamper-retreat-at-polperro-farmhouse/",
+      "file": "next/src/content/evidence/events/restore-pamper-retreat-at-polperro-farmhouse/event-status-7109f930.json",
+      "field": "url"
+    },
+    {
+      "url": "https://www.polperrowines.com.au/restore-pamper-retreat-at-polperro-farmhouse/",
+      "file": "next/src/content/evidence/events/restore-pamper-retreat-at-polperro-farmhouse/rate-change-polperrowines-com-au-2026-05-04.json",
+      "field": "url"
+    },
+    {
+      "url": "https://www.polperrowines.com.au/event/soil-cellar-flinders-truffles-x-polperro-winery/",
+      "file": "next/src/content/evidence/events/soil-cellar-flinders-truffles-x-polperro-winery/event-status-0a206a0b.json",
+      "field": "url"
+    },
+    {
+      "url": "https://www.facebook.com/PolperroWines/posts/introducing-soil-cellar-a-truffle-hunt-and-dinner-collaboration-between-flinders/1743941566857063/",
+      "file": "next/src/content/evidence/events/soil-cellar-flinders-truffles-x-polperro-winery/event-status-fdf21046.json",
+      "field": "url"
+    },
+    {
+      "url": "https://www.tripadvisor.com/AttractionProductReview-g2055778-d25356559",
+      "file": "next/src/content/evidence/events/ten-minutes-by-tractor-terroir-masterclass/event-schedule-tripadvisor-com-2026-05-04.json",
+      "field": "url"
+    },
+    {
+      "url": "https://www.tripadvisor.com/AttractionProductReview-g2055778-d25356559",
+      "file": "next/src/content/evidence/events/ten-minutes-by-tractor-terroir-masterclass/event-status-cfa78a0f.json",
+      "field": "url"
+    },
+    {
+      "url": "https://www.runningcalendar.com.au/event/bloody-long-walk-melbourne-mornington/",
+      "file": "next/src/content/evidence/events/the-bloody-long-walk-mornington-peninsula-2026/event-status-5057fec7.json",
+      "field": "url"
+    },
+    {
+      "url": "https://www.bloodylongwalk.com.au/lp/mornington-peninsula/",
+      "file": "next/src/content/evidence/events/the-bloody-long-walk-mornington-peninsula-2026/event-status-b446e910.json",
+      "field": "url"
+    },
+    {
+      "url": "https://events.humanitix.com/winter-wine-festival",
+      "file": "next/src/content/evidence/events/winter-wine-weekend-full-3-day-peninsula-program/event-status-1ae274c5.json",
+      "field": "url"
+    },
+    {
+      "url": "https://events.humanitix.com/winter-wine-festival",
+      "file": "next/src/content/evidence/events/winter-wine-weekend-winter-wine-festival-red-hill-showgrounds/event-status-3ae97533.json",
+      "field": "url"
+    },
+    {
+      "url": "https://www.ptleoestate.com.au/experience/sculpture-park/",
+      "file": "next/src/content/evidence/experiences/pt-leo-sculpture-park/offering-operator-2026-09-13.json",
+      "field": "url"
+    },
+    {
+      "url": "https://www.ptleoestate.com.au/experience/sculpture-park/",
+      "file": "next/src/content/evidence/experiences/pt-leo-sculpture-park/opening-hours-operator-2026-09-13.json",
+      "field": "url"
+    },
+    {
+      "url": "https://www.ptleoestate.com.au/experience/sculpture-park/",
+      "file": "next/src/content/evidence/experiences/pt-leo-sculpture-park/rate-change-operator-2026-09-13.json",
+      "field": "url"
+    },
+    {
+      "url": "https://jackalopehotels.com",
+      "file": "next/src/content/evidence/quick-notes/2026-05-01-jackalope-spa-may-package/booking-917999f2.json",
+      "field": "url"
+    },
+    {
+      "url": "https://events.humanitix.com/sorrento-solstice-festival",
+      "file": "next/src/content/evidence/quick-notes/2026-06-20-solstice-festival-today/event-schedule-7cdac37b.json",
+      "field": "url"
+    },
+    {
+      "url": "https://sscbc.com.au/coutaboats/",
+      "file": "next/src/content/evidence/signature-events/sailing-regattas/event-status-c68e7d37.json",
+      "field": "url"
+    },
+    {
+      "url": "https://sorrentowritersfestival.com.au/",
+      "file": "next/src/content/evidence/signature-events/sorrento-writers-festival/event-status-92d05125.json",
+      "field": "url"
+    },
+    {
+      "url": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide/catch-limits-and-closed-seasons/types-of-fish/marine-and-estuarine-scale-fish/australian-salmon",
+      "file": "next/src/content/evidence/species/australian-salmon/fishing-rule-f0d88757.json",
+      "field": "url"
+    },
+    {
+      "url": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide/catch-limits-and-closed-seasons/types-of-fish/marine-and-estuarine-scale-fish/bream-all-species",
+      "file": "next/src/content/evidence/species/bream/fishing-rule-bb23e0fa.json",
+      "field": "url"
+    },
+    {
+      "url": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide/catch-limits-and-closed-seasons/types-of-fish/marine-and-estuarine-scale-fish/flathead-all-species-except-dusky-flathead",
+      "file": "next/src/content/evidence/species/flathead/fishing-rule-fb5de51f.json",
+      "field": "url"
+    },
+    {
+      "url": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide",
+      "file": "next/src/content/evidence/species/garfish/fishing-rule-9b03acf1.json",
+      "field": "url"
+    },
+    {
+      "url": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide/catch-limits-and-closed-seasons/types-of-fish/sharks-skates-and-rays/gummy-shark",
+      "file": "next/src/content/evidence/species/gummy-shark/fishing-rule-7b8d479d.json",
+      "field": "url"
+    },
+    {
+      "url": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide/catch-limits-and-closed-seasons/types-of-fish/marine-and-estuarine-scale-fish/king-george-whiting",
+      "file": "next/src/content/evidence/species/king-george-whiting/fishing-rule-bce614b6.json",
+      "field": "url"
+    },
+    {
+      "url": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide/catch-limits-and-closed-seasons/types-of-fish/marine-and-estuarine-scale-fish/mulloway",
+      "file": "next/src/content/evidence/species/mulloway/fishing-rule-1c4be10d.json",
+      "field": "url"
+    },
+    {
+      "url": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide/catch-limits-and-closed-seasons/types-of-fish/marine-and-estuarine-scale-fish/snapper",
+      "file": "next/src/content/evidence/species/pinkies/fishing-rule-6163abee.json",
+      "field": "url"
+    },
+    {
+      "url": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide",
+      "file": "next/src/content/evidence/species/silver-trevally/fishing-rule-7b8d47b9.json",
+      "field": "url"
+    },
+    {
+      "url": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide/catch-limits-and-closed-seasons/types-of-fish/marine-and-estuarine-scale-fish/snapper",
+      "file": "next/src/content/evidence/species/snapper/fishing-rule-5bc88e2e.json",
+      "field": "url"
+    },
+    {
+      "url": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide",
+      "file": "next/src/content/evidence/species/squid/fishing-rule-9ea33af4.json",
+      "field": "url"
+    },
+    {
+      "url": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide/catch-limits-and-closed-seasons/types-of-fish/marine-and-estuarine-scale-fish/yellowtail-kingfish",
+      "file": "next/src/content/evidence/species/yellowtail-kingfish/fishing-rule-50a2c02a.json",
+      "field": "url"
+    },
+    {
+      "url": "https://www.ptleoestate.com.au/our-story/",
+      "file": "next/src/content/evidence/venues/pt-leo-estate/offering-operator-vineyard-2026-09-13.json",
+      "field": "url"
+    },
+    {
+      "url": "https://www.ptleoestate.com.au/sculpture-park",
+      "file": "next/src/content/experiences/pt-leo-sculpture-park.json",
+      "field": "website"
+    },
+    {
+      "url": "https://www.rosebudcountryclub.com.au/",
+      "file": "next/src/content/experiences/rosebud-country-club.json",
+      "field": "website"
+    },
+    {
+      "url": "https://www.rosebudcountryclub.com.au/",
+      "file": "next/src/content/experiences/rosebud-country-club.json",
+      "field": "golf.bookingUrl"
+    },
+    {
+      "url": "https://www.thedunes.com.au/",
+      "file": "next/src/content/experiences/the-dunes-golf-links.json",
+      "field": "website"
+    },
+    {
+      "url": "https://www.thedunes.com.au/",
+      "file": "next/src/content/experiences/the-dunes-golf-links.json",
+      "field": "golf.bookingUrl"
+    },
+    {
+      "url": "https://jackalopehotels.com",
+      "file": "next/src/content/quick-notes/2026-05-01-jackalope-spa-may-package.md",
+      "field": "sources[0].url"
+    },
+    {
+      "url": "https://events.humanitix.com/sorrento-solstice-festival",
+      "file": "next/src/content/quick-notes/2026-06-20-solstice-festival-today.md",
+      "field": "sources[1].url"
+    },
+    {
+      "url": "https://sscbc.com.au/coutaboats/",
+      "file": "next/src/content/signature-events/sailing-regattas.json",
+      "field": "officialUrl"
+    },
+    {
+      "url": "https://sorrentowritersfestival.com.au/",
+      "file": "next/src/content/signature-events/sorrento-writers-festival.json",
+      "field": "officialUrl"
+    },
+    {
+      "url": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide/catch-limits-and-closed-seasons/types-of-fish/marine-and-estuarine-scale-fish/australian-salmon",
+      "file": "next/src/content/species/australian-salmon.md",
+      "field": "vfaCitationUrl"
+    },
+    {
+      "url": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide/catch-limits-and-closed-seasons/types-of-fish/marine-and-estuarine-scale-fish/bream-all-species",
+      "file": "next/src/content/species/bream.md",
+      "field": "vfaCitationUrl"
+    },
+    {
+      "url": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide/catch-limits-and-closed-seasons/types-of-fish/marine-and-estuarine-scale-fish/flathead-all-species-except-dusky-flathead",
+      "file": "next/src/content/species/flathead.md",
+      "field": "vfaCitationUrl"
+    },
+    {
+      "url": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide",
+      "file": "next/src/content/species/garfish.md",
+      "field": "vfaCitationUrl"
+    },
+    {
+      "url": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide/catch-limits-and-closed-seasons/types-of-fish/sharks-skates-and-rays/gummy-shark",
+      "file": "next/src/content/species/gummy-shark.md",
+      "field": "vfaCitationUrl"
+    },
+    {
+      "url": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide/catch-limits-and-closed-seasons/types-of-fish/marine-and-estuarine-scale-fish/king-george-whiting",
+      "file": "next/src/content/species/king-george-whiting.md",
+      "field": "vfaCitationUrl"
+    },
+    {
+      "url": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide/catch-limits-and-closed-seasons/types-of-fish/marine-and-estuarine-scale-fish/mulloway",
+      "file": "next/src/content/species/mulloway.md",
+      "field": "vfaCitationUrl"
+    },
+    {
+      "url": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide/catch-limits-and-closed-seasons/types-of-fish/marine-and-estuarine-scale-fish/snapper",
+      "file": "next/src/content/species/pinkies.md",
+      "field": "vfaCitationUrl"
+    },
+    {
+      "url": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide",
+      "file": "next/src/content/species/silver-trevally.md",
+      "field": "vfaCitationUrl"
+    },
+    {
+      "url": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide/catch-limits-and-closed-seasons/types-of-fish/marine-and-estuarine-scale-fish/snapper",
+      "file": "next/src/content/species/snapper.md",
+      "field": "vfaCitationUrl"
+    },
+    {
+      "url": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide",
+      "file": "next/src/content/species/squid.md",
+      "field": "vfaCitationUrl"
+    },
+    {
+      "url": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide/catch-limits-and-closed-seasons/types-of-fish/marine-and-estuarine-scale-fish/yellowtail-kingfish",
+      "file": "next/src/content/species/yellowtail-kingfish.md",
+      "field": "vfaCitationUrl"
+    },
+    {
+      "url": "https://australianjourneys.com.au",
+      "file": "next/src/content/tour-operators/australian-journeys.json",
+      "field": "website"
+    },
+    {
+      "url": "https://localwaytours.com.au",
+      "file": "next/src/content/tour-operators/local-way-tours.json",
+      "field": "website"
+    },
+    {
+      "url": "https://australianjourneys.com.au/product/mornington-peninsula-wine-tour-for-2/",
+      "file": "next/src/content/tours/australian-journeys-luxury-peninsula-day.json",
+      "field": "bookingUrl"
+    },
+    {
+      "url": "https://localwaytours.com.au/",
+      "file": "next/src/content/tours/local-way-wine-cheese-tour.json",
+      "field": "bookingUrl"
+    },
+    {
+      "url": "https://www.bluemooncottages.com.au",
+      "file": "next/src/content/venues/blue-moon-cottages.json",
+      "field": "website"
+    },
+    {
+      "url": "https://www.bluemooncottages.com.au",
+      "file": "next/src/content/venues/blue-moon-cottages.json",
+      "field": "bookingUrl"
+    },
+    {
+      "url": "https://www.lakesidevillas.com.au",
+      "file": "next/src/content/venues/crittenden-villas.json",
+      "field": "website"
+    },
+    {
+      "url": "https://www.lakesidevillas.com.au/book",
+      "file": "next/src/content/venues/crittenden-villas.json",
+      "field": "bookingUrl"
+    },
+    {
+      "url": "https://jackalopehotels.com/mornington-peninsula",
+      "file": "next/src/content/venues/doot-doot-doot.json",
+      "field": "website"
+    },
+    {
+      "url": "https://jackalopehotels.com/mornington-peninsula",
+      "file": "next/src/content/venues/doot-doot-doot.json",
+      "field": "bookingUrl"
+    },
+    {
+      "url": "https://www.foxeys-hangout.com.au",
+      "file": "next/src/content/venues/foxeys-hangout.json",
+      "field": "website"
+    },
+    {
+      "url": "https://foxeys-hangout.com.au",
+      "file": "next/src/content/venues/foxeys-hangout.json",
+      "field": "bookingUrl"
+    },
+    {
+      "url": "https://garagiste.com.au",
+      "file": "next/src/content/venues/garagiste.json",
+      "field": "website"
+    },
+    {
+      "url": "https://garagiste.com.au",
+      "file": "next/src/content/venues/garagiste.json",
+      "field": "bookingUrl"
+    },
+    {
+      "url": "https://greenolive.com.au",
+      "file": "next/src/content/venues/green-olive-red-hill.json",
+      "field": "website"
+    },
+    {
+      "url": "https://greenolive.com.au/dine",
+      "file": "next/src/content/venues/green-olive-red-hill.json",
+      "field": "bookingUrl"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Hotel_Review-g552249-d1437809-Reviews-Hideaways_at_Red_Hill-Red_Hill_Mornington_Peninsula_Victoria.html",
+      "file": "next/src/content/venues/hideaways-red-hill.json",
+      "field": "website"
+    },
+    {
+      "url": "https://jackalopehotels.com/mornington-peninsula",
+      "file": "next/src/content/venues/jackalope.json",
+      "field": "website"
+    },
+    {
+      "url": "https://jackalopehotels.com/mornington-peninsula",
+      "file": "next/src/content/venues/jackalope.json",
+      "field": "bookingUrl"
+    },
+    {
+      "url": "https://kanastacaravanpark.com.au/retro-caravans/",
+      "file": "next/src/content/venues/kanasta-retro-caravans.json",
+      "field": "website"
+    },
+    {
+      "url": "https://kanastacaravanpark.com.au/retro-caravans/",
+      "file": "next/src/content/venues/kanasta-retro-caravans.json",
+      "field": "bookingUrl"
+    },
+    {
+      "url": "https://www.ptleoestate.com.au/laura",
+      "file": "next/src/content/venues/laura-pt-leo.json",
+      "field": "website"
+    },
+    {
+      "url": "https://www.ptleoestate.com.au/laura-reservations",
+      "file": "next/src/content/venues/laura-pt-leo.json",
+      "field": "bookingUrl"
+    },
+    {
+      "url": "https://moorooducestate.com.au",
+      "file": "next/src/content/venues/moorooduc-estate.json",
+      "field": "website"
+    },
+    {
+      "url": "https://moorooducestate.com.au",
+      "file": "next/src/content/venues/moorooduc-estate.json",
+      "field": "bookingUrl"
+    },
+    {
+      "url": "https://foxeys-hangout.com.au/Morning-Sun/About-Morning-Sun",
+      "file": "next/src/content/venues/morning-sun.json",
+      "field": "website"
+    },
+    {
+      "url": "https://foxeys-hangout.com.au/Morning-Sun/About-Morning-Sun",
+      "file": "next/src/content/venues/morning-sun.json",
+      "field": "bookingUrl"
+    },
+    {
+      "url": "https://mpcottages.com",
+      "file": "next/src/content/venues/mp-beach-club-cottages.json",
+      "field": "website"
+    },
+    {
+      "url": "https://mpcottages.com",
+      "file": "next/src/content/venues/mp-beach-club-cottages.json",
+      "field": "bookingUrl"
+    },
+    {
+      "url": "https://www.ptleoestate.com.au/stay",
+      "file": "next/src/content/venues/point-leo-estate-villas.json",
+      "field": "website"
+    },
+    {
+      "url": "https://www.ptleoestate.com.au/accommodation",
+      "file": "next/src/content/venues/point-leo-estate-villas.json",
+      "field": "bookingUrl"
+    },
+    {
+      "url": "https://www.ptleoestate.com.au",
+      "file": "next/src/content/venues/point-leo-wine-terrace.json",
+      "field": "website"
+    },
+    {
+      "url": "https://www.ptleoestate.com.au/terrace",
+      "file": "next/src/content/venues/point-leo-wine-terrace.json",
+      "field": "bookingUrl"
+    },
+    {
+      "url": "https://www.polperrowines.com.au/escape/",
+      "file": "next/src/content/venues/polperro-villas.json",
+      "field": "website"
+    },
+    {
+      "url": "https://www.polperrowines.com.au/escape/",
+      "file": "next/src/content/venues/polperro-villas.json",
+      "field": "bookingUrl"
+    },
+    {
+      "url": "https://www.polperrowines.com.au",
+      "file": "next/src/content/venues/polperro.json",
+      "field": "website"
+    },
+    {
+      "url": "https://www.polperrowines.com.au/book",
+      "file": "next/src/content/venues/polperro.json",
+      "field": "bookingUrl"
+    },
+    {
+      "url": "https://www.ptleoestate.com.au",
+      "file": "next/src/content/venues/pt-leo-estate.json",
+      "field": "website"
+    },
+    {
+      "url": "https://www.ptleoestate.com.au/restaurant",
+      "file": "next/src/content/venues/pt-leo-estate.json",
+      "field": "bookingUrl"
+    },
+    {
+      "url": "https://jackalopehotels.com/mornington-peninsula",
+      "file": "next/src/content/venues/rare-hare.json",
+      "field": "website"
+    },
+    {
+      "url": "https://jackalopehotels.com/mornington-peninsula",
+      "file": "next/src/content/venues/rare-hare.json",
+      "field": "bookingUrl"
+    },
+    {
+      "url": "https://jackalopehotels.com/mornington-peninsula/wellness/spa",
+      "file": "next/src/content/venues/spa-by-jackalope.json",
+      "field": "website"
+    },
+    {
+      "url": "https://jackalopehotels.com/mornington-peninsula/wellness/spa",
+      "file": "next/src/content/venues/spa-by-jackalope.json",
+      "field": "bookingUrl"
+    },
+    {
+      "url": "https://trofeoestate.com.au/",
+      "file": "next/src/content/venues/trofeo-estate.json",
+      "field": "website"
+    },
+    {
+      "url": "https://www.trofeoestate.com.au/visit-us/",
+      "file": "next/src/content/venues/trofeo-estate.json",
+      "field": "bookingUrl"
+    },
+    {
+      "url": "https://yurthideaway.com.au/",
+      "file": "next/src/content/venues/yurt-hideaway.json",
+      "field": "website"
+    },
+    {
+      "url": "https://yurthideaway.com.au/",
+      "file": "next/src/content/venues/yurt-hideaway.json",
+      "field": "bookingUrl"
+    }
+  ]
+}

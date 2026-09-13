@@ -1,0 +1,13 @@
+{
+  "updatedAt": "2026-09-13T17:52:39.238Z",
+  "assertedMetrics": [
+    "unledgeredSourceUrl",
+    "deadSourceUrlCited",
+    "staleRedirectCited"
+  ],
+  "ceilings": {
+    "unledgeredSourceUrl": 0,
+    "deadSourceUrlCited": 1,
+    "staleRedirectCited": 0
+  }
+}

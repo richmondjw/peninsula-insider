@@ -1,6 +1,6 @@
 {
   "note": "Probe results for every source URL in the corpus. Written only by --probe; read offline by the gate. A verdict is what a probe saw, not an inference.",
-  "updatedAt": "2026-09-13T17:43:45.799Z",
+  "updatedAt": "2026-09-13T17:52:33.274Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -1372,6 +1372,23 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "T&#039;Gallant Vineyard - Mornington Peninsula&#039;s Favourite Winery"
+    },
+    {
+      "url": "https://tgallantvineyard.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "T&#039;Gallant Vineyard - Mornington Peninsula&#039;s Favourite Winery",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://tgallantvineyard.com.au/bookings/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "T&#039;Gallant Vineyard - Mornington Peninsula&#039;s Favourite Winery",
+      "effectiveUrl": "https://tgallantvineyard.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
     },
     {
       "url": "https://thebaths.com.au",

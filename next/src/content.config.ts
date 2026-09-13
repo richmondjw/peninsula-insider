@@ -415,6 +415,14 @@ const retiredSourceLink = z.object({
  */
 const sourceHealthFields = {
   /**
+   * What the last link probe saw at this record's source, and when. A record
+   * whose source is dead is not sourced any more, and this is the field that
+   * says so out loud instead of letting a verification date imply a source
+   * that can still be read.
+   */
+  sourceHealth: sourceHealth.optional(),
+  sourceHealthCheckedOn: z.coerce.date().optional(),
+  /**
    * Set when this record's own source no longer supports it. `unsourced`
    * means nothing stands behind the claim any more; `disputed` means two
    * sources that were both read disagree and neither was picked as the
@@ -1784,6 +1792,7 @@ const boatHire = defineCollection({
 const quickNotes = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/quick-notes' }),
   schema: z.object({
+    ...sourceHealthFields,
     headline: z.string().max(140),
     dek: z.string().max(320).optional(),
     section: z.enum([
@@ -2141,14 +2150,6 @@ const evidence = defineCollection({
       name: z.string().optional(),
     }),
     url: z.string().url().optional(),
-    /**
-     * What the last link probe saw at `url`, and when. An evidence row whose
-     * URL is dead is not evidence any more, and this is the field that says
-     * so out loud instead of letting `retrievedAt` imply a source that can
-     * still be read. PI-007. Written from the link-health ledger.
-     */
-    sourceHealth: sourceHealth.optional(),
-    sourceHealthCheckedOn: z.coerce.date().optional(),
     ...sourceHealthFields,
     /** How the source was reached when there is no URL: a call, a visit. */
     method: z.string().optional(),
