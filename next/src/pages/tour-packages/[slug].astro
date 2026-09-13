@@ -6,6 +6,7 @@ import SubpageHero from '../../components/SubpageHero.astro';
 import TourCard from '../../components/TourCard.astro';
 import TourPackageCard from '../../components/TourPackageCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import CorrectionNote from '../../components/CorrectionNote.astro';
 import { buildTourPackageSchema } from '../../lib/schema';
 import { editableText } from '../../lib/inline-edit/attrs';
 
@@ -271,6 +272,10 @@ export const prerender = true;
       </div>
     </section>
   )}
+
+  <div class="container">
+    <CorrectionNote surface="tour-package" />
+  </div>
 
   <NewsletterBlock />
 </BaseLayout>

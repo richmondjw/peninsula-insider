@@ -32,6 +32,7 @@ import TrustNote from '../../components/v5/hub/TrustNote.astro';
 import { getFacets, type FacetKey } from '../../lib/facets';
 import { routeSlug, isStayVenue, typeLabel, titleize, resolveHeroSrc } from '../../lib/editorial';
 import { buildBreadcrumbSchema, absUrl } from '../../lib/schema';
+import CorrectionNote from '../../components/CorrectionNote.astro';
 
 // ── Data ─────────────────────────────────────────────────────────────────────
 // Day spas (type 'spa') pass isStayVenue but aren't accommodation - they get
@@ -179,7 +180,7 @@ const journalItems = journalSlugs
 const standfirst =
   'One decision shapes the weekend: ridge and hinterland, or coastal village. ' +
   'Red Hill puts vineyard lunches and fireplaces in walking distance; Sorrento to Mornington ' +
-  'trade that for bay light and a livelier main street. Every property is independently researched and kept current.';
+  'trade that for bay light and a livelier main street. Every property here is independently researched.';
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
@@ -320,6 +321,9 @@ export const prerender = true;
   </section>
 
   <!-- 8. Ask band hidden (bug fix in progress) -->
+  <div class="container">
+    <CorrectionNote surface="stay-hub" />
+  </div>
 </BaseLayout>
 
 <style>

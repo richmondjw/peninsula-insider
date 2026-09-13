@@ -7,6 +7,7 @@ import PiSaveActions from '../../components/PiSaveActions.astro';
 import { editableImage } from '../../lib/inline-edit/attrs';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
 import ProvenanceLine from '../../components/ProvenanceLine.astro';
+import CorrectionNote from '../../components/CorrectionNote.astro';
 import {
   buildCollectionPageSchema,
   buildItemListSchema,
@@ -366,8 +367,9 @@ export const prerender = true;
         region in Victoria: foreshore paths on the bay, boardwalks over Bass Strait,
         national park bush trails, and hinterland ridge-tops through old-growth manna gum
         that see almost nobody outside school holidays. Every walk below is editorially
-        reviewed and re-verified on a rolling basis. The ranking weighs effort against
-        payoff - what a walk asks of you, against what it gives back.
+        reviewed, and the date it was last checked is stated at the foot of this
+        page. The ranking weighs effort against payoff - what a walk asks of you,
+        against what it gives back.
       </p>
 
       {tiers.map((tier) => (
@@ -463,6 +465,10 @@ export const prerender = true;
       </div>
     </div>
   </section>
+
+  <div class="container">
+    <CorrectionNote surface="walks-hub" />
+  </div>
 
   <NewsletterBlock />
 </BaseLayout>

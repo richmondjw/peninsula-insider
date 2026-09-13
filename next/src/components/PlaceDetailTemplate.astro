@@ -31,6 +31,7 @@ import ExperienceCard from './ExperienceCard.astro';
 import ItineraryCard from './ItineraryCard.astro';
 import ArticleCard from './ArticleCard.astro';
 import NewsletterBlock from './NewsletterBlock.astro';
+import CorrectionNote from './CorrectionNote.astro';
 import MediaProvenanceNote from './MediaProvenanceNote.astro';
 import { titleize, formatHeroCredit } from '../lib/editorial';
 import { editableText, editableImage } from '../lib/inline-edit/attrs';
@@ -709,6 +710,10 @@ const factual = place.data.factualLede ?? '';
     <a href="/submit/" class="pi-btn pi-btn--text">Tell us about {place.data.name} →</a>
   </div>
 </aside>
+
+<div class="container">
+  <CorrectionNote surface="place" />
+</div>
 
 <NewsletterBlock />
 

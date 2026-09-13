@@ -14,6 +14,7 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import EventBadges from '../../components/EventBadges.astro';
 import EventCard from '../../components/EventCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import CorrectionNote from '../../components/CorrectionNote.astro';
 import {
   eventCategoryLabel,
   eventDateLabel,
@@ -451,6 +452,10 @@ export const prerender = true;
       </div>
     </section>
   )}
+
+  <div class="container">
+    <CorrectionNote surface="event" />
+  </div>
 
   <NewsletterBlock />
 </BaseLayout>

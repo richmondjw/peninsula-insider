@@ -251,8 +251,10 @@ const articleSchema = {
   },
 };
 
-const evergreenFormats = new Set(['service', 'hub-guide', 'trail-guide', 'venue-guide', 'long-lunch-list', 'cellar-door-dispatch', 'stay-notes']);
-const showCorrectionNote = evergreenFormats.has(String(article.data.format ?? ''));
+// Every published article can carry an error, so every published article
+// carries the way to report one. This used to be gated to seven evergreen
+// formats, which left the reader of a dispatch or a news piece with no route
+// to the desk at all (PI-014).
 
 const faqSchema = article.data.faq && article.data.faq.length > 0 ? {
   '@context': 'https://schema.org',
@@ -404,7 +406,7 @@ export const prerender = true;
           </>
         )}
 
-        {showCorrectionNote && <CorrectionNote />}
+        <CorrectionNote surface="journal" />
 
         {article.data.clusterLinks && article.data.clusterLinks.length > 0 && (
           <ClusterLinks links={article.data.clusterLinks} heading="Explore this hub" />
