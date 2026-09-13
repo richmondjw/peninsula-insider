@@ -58,7 +58,9 @@ const eventSchema = {
   name: data.name,
   description: data.summary,
   url: canonical,
-  eventStatus: 'https://schema.org/EventScheduled',
+  // No eventStatus: these records carry no occurrence to describe, and a
+  // hardcoded EventScheduled told search engines a cancelled festival was
+  // going ahead while the page said it was not.
   eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
   location: {
     '@type': 'Place',

@@ -4,10 +4,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import { routeSlug, isStayVenue, venueHref } from '../../lib/editorial';
+import { routeSlug, isStayVenue, venueHref, isListableVenue } from '../../lib/editorial';
 import { buildFaqSchema } from '../../lib/schema';
 
-const allVenues = await getCollection('venues');
+const allVenues = (await getCollection('venues')).filter(isListableVenue);
 const groups = [
   { id: 'stay-at-the-springs', label: 'On-site bathing', title: 'Stay at the springs',
     note: 'Choose these when bathing is the main reason to stay. Glamping and eco lodges are at Peninsula Hot Springs; The Sanctuary is at Alba. Both operators are in Fingal. Check the inclusions of your chosen accommodation package.',

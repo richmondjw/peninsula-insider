@@ -16,6 +16,7 @@ import {
   occurrenceBounds,
   recordDisposition,
   schemaEventStatus,
+  spanBounds,
 } from './event-occurrence.mjs';
 
 export type Event = CollectionEntry<'events'>;
@@ -257,10 +258,15 @@ export function eventJsonLd(event: Event, siteUrl: string): Record<string, unkno
   const endISO = (() => {
     if (data.endTime) {
       if (!USE_OCCURRENCE_MODEL) return `${endDayIso}T${data.endTime}:00+10:00`;
-      const bounds = occurrenceBounds(data as Record<string, unknown>, startDayIso, {
-        isFirstDay: true,
-        isFinalDay: true,
-      });
+      // spanBounds, not occurrenceBounds: a multi-day run finishes on its own
+      // calendar day, which can sit on the other side of a daylight-saving
+      // transition from the day it opened. Resolving the end clock against
+      // the START day takes the offset from the wrong end of the run - NWOP
+      // 2026 (5 Sep AEST to 22 Nov AEDT) published its 16:00 close as
+      // 16:00+10:00, an hour late. For a single-day record, including a
+      // cross-midnight one, spanBounds delegates straight back to
+      // occurrenceBounds on the start day, so nothing else moves.
+      const bounds = spanBounds(data as Record<string, unknown>, startDayIso, endDayIso);
       // A cross-midnight occurrence finishes on the following calendar day.
       // Stamping the end time onto the start day produced an endDate before
       // the startDate, which is invalid Event schema.

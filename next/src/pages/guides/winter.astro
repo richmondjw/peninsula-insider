@@ -12,9 +12,9 @@
  */
 import { getCollection } from 'astro:content';
 import PrintLayout from '../../layouts/PrintLayout.astro';
-import { routeSlug } from '../../lib/editorial';
+import { routeSlug, isListableVenue } from '../../lib/editorial';
 
-const venues = await getCollection('venues');
+const venues = (await getCollection('venues')).filter(isListableVenue);
 
 // Winter shortlist: ridge cellar doors with fires, hot springs, a
 // hatted dining room, a long lunch, a coastal walk reward, a stay.

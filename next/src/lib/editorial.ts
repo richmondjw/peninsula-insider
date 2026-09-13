@@ -144,6 +144,44 @@ export const typeLabel: Record<string, string> = {
   spa: 'Spa',
 };
 
+/**
+ * Permanent closure, read from BOTH fields that carry it.
+ *
+ * `status: permanently_closed` is the field the schema has always declared.
+ * `operatingStatus: permanently-closed` is the field an editor reached for
+ * instead - the La Baracca case written up at the top of
+ * scripts/audit-content-schema-drift.mjs. That audit stopped the key being
+ * silently discarded on load, so the closure now survives into the data. It
+ * did not make anything read the value, and nothing did: that record carries
+ * no `status` at all, so `status` defaults to `active` and a venue an editor
+ * verified as closed in May 2026 kept rendering as live, with a booking link.
+ *
+ * One predicate, both fields, so a closure recorded either way delists the
+ * venue everywhere. Temporary states (`closed`, `paused`, `seasonal`) are
+ * deliberately NOT covered: a venue shut for winter still belongs in a
+ * listing, and conflating the two is how a seasonal cellar door disappears.
+ */
+export function isPermanentlyClosed(entry: any): boolean {
+  const data = entry?.data ?? entry;
+  return (
+    data?.status === 'permanently_closed' ||
+    data?.operatingStatus === 'permanently-closed'
+  );
+}
+
+/**
+ * The listing predicate. Use it on every surface that enumerates venues into
+ * cards, rows, links, map pins, lookup tables or structured data.
+ *
+ * Do NOT use it in a getStaticPaths. Which detail pages build is a separate
+ * decision with a live-URL consequence, and the detail template already has
+ * a closure branch (VenueDetailTemplate `isClosed`) that keeps the page and
+ * suppresses the booking and contact actions.
+ */
+export function isListableVenue(entry: any): boolean {
+  return !isPermanentlyClosed(entry);
+}
+
 export const stayTypes = ['hotel', 'villa', 'cottage', 'glamping', 'farm-stay', 'spa'];
 export function isStayVenue(entry: any) {
   const data = entry?.data ?? entry;

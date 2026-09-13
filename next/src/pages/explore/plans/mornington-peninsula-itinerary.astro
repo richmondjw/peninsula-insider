@@ -5,12 +5,12 @@ import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import ItineraryCard from '../../../components/ItineraryCard.astro';
 import VenueCard from '../../../components/VenueCard.astro';
 import NewsletterBlock from '../../../components/NewsletterBlock.astro';
-import { routeSlug, isStayVenue } from '../../../lib/editorial';
+import { routeSlug, isStayVenue, isListableVenue } from '../../../lib/editorial';
 
 const itineraries = (await getCollection('itineraries'))
   .sort((a, b) => b.data.lengthNights - a.data.lengthNights);
 
-const allVenues = await getCollection('venues');
+const allVenues = (await getCollection('venues')).filter(isListableVenue);
 const stays = allVenues.filter(isStayVenue);
 const anchorStays = stays.filter((v) =>
   ['jackalope', 'hotel-sorrento', 'flinders-hotel', 'lindenderry-at-red-hill'].includes(routeSlug(v))

@@ -4,10 +4,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import { routeSlug, isStayVenue } from '../../lib/editorial';
+import { routeSlug, isStayVenue, isListableVenue } from '../../lib/editorial';
 import ProvenanceLine from '../../components/ProvenanceLine.astro';
 
-const allVenues = await getCollection('venues');
+const allVenues = (await getCollection('venues')).filter(isListableVenue);
 
 // Vineyard stays: ridge zones + cellar-door mood tag
 const ridgeZones = ['red-hill', 'hinterland'];

@@ -13,7 +13,7 @@ import ItineraryCard from '../../components/ItineraryCard.astro';
 import PlaceCard from '../../components/PlaceCard.astro';
 import CorrectionNote from '../../components/CorrectionNote.astro';
 import HubGuideTOC from '../../components/HubGuideTOC.astro';
-import { formatLabel, routeSlug, venueHrefPrefix, titleize, formatHeroCredit } from '../../lib/editorial';
+import { formatLabel, routeSlug, venueHrefPrefix, titleize, formatHeroCredit, isListableVenue } from '../../lib/editorial';
 import { pickRelatedArticles, resolveRefs } from '../../lib/related';
 import { isPeninsulaThisWeekend, ptwArchivePath } from '../../lib/peninsula-this-weekend';
 import { editableText, editableImage } from '../../lib/inline-edit/attrs';
@@ -111,7 +111,7 @@ const relatedArticles = pickRelatedArticles(article, allArticles, {
   limit: 6,
 });
 
-const allVenues = await getCollection('venues');
+const allVenues = (await getCollection('venues')).filter(isListableVenue);
 const relatedVenues = resolveRefs(article.data.relatedVenues, allVenues).slice(0, 3);
 
 const allExperiences = await getCollection('experiences');

@@ -30,14 +30,14 @@ import type { JournalItem } from '../../components/v5/hub/JournalModule.astro';
 import AskBand from '../../components/v5/hub/AskBand.astro';
 import TrustNote from '../../components/v5/hub/TrustNote.astro';
 import FilterBar from '../../components/v5/FilterBar.astro';
-import { routeSlug, resolveHeroSrc, hasOwnHeroImage, eatTypes } from '../../lib/editorial';
+import { routeSlug, resolveHeroSrc, hasOwnHeroImage, eatTypes, isListableVenue } from '../../lib/editorial';
 import { getFacets } from '../../lib/facets';
 import { loadOverrides } from '../../lib/inline-edit/overrides';
 
 // ── Data ──────────────────────────────────────────────────────────────────────
 const venuesAll = (await getCollection('venues'))
   .filter((venue) => eatTypes.includes(venue.data.type))
-  .filter((v) => v.data.status !== 'permanently_closed')
+  .filter(isListableVenue)
   .sort((a, b) => Number(b.data.authority?.hats ?? 0) - Number(a.data.authority?.hats ?? 0));
 
 // eatTypes (lib/editorial) excludes 'winery', so venuesAll holds none: this

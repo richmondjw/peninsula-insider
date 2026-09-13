@@ -14,6 +14,7 @@ import EmptyState from '../../components/v5/EmptyState.astro';
 import LoadingState from '../../components/v5/LoadingState.astro';
 import ErrorState from '../../components/v5/ErrorState.astro';
 import Alert from '../../components/v5/Alert.astro';
+import { isListableVenue } from '../../lib/editorial';
 
 const hasHero = (e: any) => !!e.data.heroImage?.src;
 const slugOf = (e: any) => e.data.slug ?? e.id;
@@ -24,7 +25,7 @@ const placeName = (v: unknown) =>
 
 const venues = (await getCollection('venues'))
   .filter(hasHero)
-  .filter((v) => v.data.status !== 'permanently_closed' && v.data.signature)
+  .filter((v) => isListableVenue(v) && v.data.signature)
   .slice(0, 3);
 
 const events = (await getCollection('events'))
@@ -46,7 +47,7 @@ const itineraries = (await getCollection('itineraries')).filter(hasHero).slice(0
 const places = (await getCollection('places')).filter(hasHero).slice(0, 3);
 
 const rowVenues = (await getCollection('venues'))
-  .filter((v) => v.data.status !== 'permanently_closed' && v.data.signature)
+  .filter((v) => isListableVenue(v) && v.data.signature)
   .slice(3, 7);
 ---
 
