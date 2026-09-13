@@ -449,21 +449,21 @@ test('with the window open from before the corpus existed, every first verificat
   assert.deepEqual(result.reassurances, []);
 
   // Expectations are derived from the same data, at the same as-at date.
+  const stateByClaim = new Map(
+    corpus.claims.map((c) => [
+      c.claimId,
+      claimStateAt(c, evidenceByClaim.get(c.claimId) ?? [], { at: NOW, precedence: corpus.precedence }),
+    ])
+  );
   const expected = {
     'claim-verified': new Set(
-      corpus.claims
-        .filter((c) => claimStateAt(c, evidenceByClaim.get(c.claimId) ?? [], { at: NOW, precedence: corpus.precedence }) === 'supported')
-        .map((c) => c.claimId)
+      corpus.claims.filter((c) => stateByClaim.get(c.claimId) === 'supported').map((c) => c.claimId)
     ),
     'claim-disputed': new Set(
-      corpus.claims
-        .filter((c) => claimStateAt(c, evidenceByClaim.get(c.claimId) ?? [], { at: NOW, precedence: corpus.precedence }) === 'disputed')
-        .map((c) => c.claimId)
+      corpus.claims.filter((c) => stateByClaim.get(c.claimId) === 'disputed').map((c) => c.claimId)
     ),
     'claim-withdrawn': new Set(
-      corpus.claims
-        .filter((c) => claimStateAt(c, evidenceByClaim.get(c.claimId) ?? [], { at: NOW, precedence: corpus.precedence }) === 'retired')
-        .map((c) => c.claimId)
+      corpus.claims.filter((c) => stateByClaim.get(c.claimId) === 'retired').map((c) => c.claimId)
     ),
   };
   for (const [kind, want] of Object.entries(expected)) {
