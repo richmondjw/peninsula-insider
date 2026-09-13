@@ -18,7 +18,6 @@
     "lng": 145.0804
   },
   "indoorOutdoor": "Outdoor",
-  "officialEventUrl": "https://www.mornpen.vic.gov.au/Events-Activities/Emu-Plains-Market-3",
   "bookingRequired": "No",
   "freePaid": "Free entry",
   "priceTier": "free",
@@ -42,7 +41,6 @@
     "name": "Emu Plains Market committee",
     "website": "https://www.mornpen.vic.gov.au"
   },
-  "primarySourceUrl": "https://www.mornpen.vic.gov.au/Events-Activities/Emu-Plains-Market-3",
   "verificationStatus": "Recurring, next date confirmed",
   "lastCheckedDate": "2026-05-17",
   "visitorAppealScore": 3,
@@ -68,5 +66,23 @@
     "alt": "Emu Plains community market at Balnarring",
     "credit": "Peninsula Insider",
     "license": "other-licensed"
-  }
+  },
+  "retiredSourceLinks": [
+    {
+      "field": "officialEventUrl",
+      "url": "https://www.mornpen.vic.gov.au/Events-Activities/Emu-Plains-Market-3",
+      "verdict": "dead",
+      "disposition": "gone",
+      "checkedOn": "2026-09-13",
+      "note": "COUNCIL RESTRUCTURE, as above."
+    },
+    {
+      "field": "primarySourceUrl",
+      "url": "https://www.mornpen.vic.gov.au/Events-Activities/Emu-Plains-Market-3",
+      "verdict": "dead",
+      "disposition": "gone",
+      "checkedOn": "2026-09-13",
+      "note": "COUNCIL RESTRUCTURE, as above."
+    }
+  ]
 }

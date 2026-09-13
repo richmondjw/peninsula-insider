@@ -10,7 +10,6 @@
   },
   "address": "37 Red Hill-Shoreham Rd, Red Hill South VIC 3937",
   "phone": "+61 3 5989 8660",
-  "website": "https://tucksridge.com.au",
   "priceBand": "$$",
   "authority": {
     "awards": [
@@ -58,7 +57,6 @@
   "featuredPartner": false,
   "lastVerified": "2026-04-09",
   "publishedAt": "2026-04-09",
-  "bookingUrl": "https://tucksridge.com.au",
   "bookingProvider": "direct",
   "knownFor": [
     "Planted mid-1980s, one of the founding estates of the Red Hill cellar-door corridor",
@@ -66,5 +64,25 @@
     "Deck view to Western Port, one of the quieter great views on the ridge",
     "Repositioned under a refreshed team with renewed focus on single-vineyard wines",
     "Small-format food pairings available on weekends"
-  ]
+  ],
+  "retiredSourceLinks": [
+    {
+      "field": "website",
+      "url": "https://tucksridge.com.au",
+      "verdict": "tls-fault",
+      "disposition": "gone",
+      "checkedOn": "2026-09-13",
+      "note": "Serves a self-signed certificate, so a reader following it sees a browser security warning. www.tucksridge.com.au refuses the connection outright, and tucks.com.au is an industrial packings company. EDITOR: no fetchable operator site was found for Tuck's Ridge."
+    },
+    {
+      "field": "bookingUrl",
+      "url": "https://tucksridge.com.au",
+      "verdict": "tls-fault",
+      "disposition": "gone",
+      "checkedOn": "2026-09-13",
+      "note": "Serves a self-signed certificate, so a reader following it sees a browser security warning. www.tucksridge.com.au refuses the connection outright, and tucks.com.au is an industrial packings company. EDITOR: no fetchable operator site was found for Tuck's Ridge."
+    }
+  ],
+  "sourceStatus": "unsourced",
+  "sourceStatusNote": "Serves a self-signed certificate, so a reader following it sees a browser security warning. www.tucksridge.com.au refuses the connection outright, and tucks.com.au is an industrial packings company. EDITOR: no fetchable operator site was found for Tuck's Ridge."
 }

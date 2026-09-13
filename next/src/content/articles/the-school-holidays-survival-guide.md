@@ -88,7 +88,7 @@ For teenagers: **Gunnamatta Ocean Beach** or **Rye Ocean Beach** (surf beaches, 
 
 **Lunch (12:30–1:30).** **Red Hill Brewery**, the wood-fired pizza, the hop garden, the space to run. A reliable school-holiday family lunch room on the ridge. **St Andrews Beach Brewery** is the bigger, louder alternative with more room and a longer menu. **The Heritage** in Balnarring is the quiet-side option, with a large beer garden, a grass area and a sandpit.
 
-**Afternoon (2:30–4:30).** After an active morning, the afternoon should be passive. The **Pt Leo Sculpture Park** is free entry and the walk through the coastal sculptures is just enough activity to keep legs moving without exhausting anyone. The foreshore at Mornington, flat, paved, accessible, is the easier alternative.
+**Afternoon (2:30–4:30).** After an active morning, the afternoon should be passive. The **Pt Leo Sculpture Park** is ticketed, and the walk through the coastal sculptures is just enough activity to keep legs moving without exhausting anyone. The foreshore at Mornington, flat, paved, accessible, is the easier alternative.
 
 ## Day type three: the rainy day
 
@@ -114,7 +114,7 @@ For a family of four, the three day-types rank predictably on cost:
 - **Adventure day:** the dear one; activity entry, lunch, and a producer stop all stack
 - **Rainy day:** sits between the two (gallery is free, hot springs cost, pub lunch)
 
-Over a week, the adventure days set the budget. The money-saving moves are: pack lunches from the rental-house kitchen two days out of five, swim at free beaches instead of paying for activities, visit the gallery and sculpture parks (free), and eat at pubs instead of restaurants.
+Over a week, the adventure days set the budget. The money-saving moves are: pack lunches from the rental-house kitchen two days out of five, swim at free beaches instead of paying for activities, visit the gallery, and eat at pubs instead of restaurants.
 
 The biggest budget leak in school holidays is the impulse cellar-door visit that turns into a serious bottle purchase. Cellar doors land better without the children, or with the children and the tasting skipped.
 

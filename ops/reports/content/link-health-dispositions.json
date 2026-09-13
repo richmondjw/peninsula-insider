@@ -1,0 +1,288 @@
+[
+  {
+    "url": "https://www.bom.gov.au/explore/places/vic/main-ridge/forecast/",
+    "disposition": "moved",
+    "replacement": "https://www.bom.gov.au/places/vic/main-ridge/forecast/",
+    "note": "BoM dropped the /explore/ path segment. The new URL returns 200 and the page title is 'Main Ridge Forecast - Bureau of Meteorology'. Same publisher, same page."
+  },
+  {
+    "url": "https://aseagle.com.au/book",
+    "disposition": "moved",
+    "replacement": "https://aseagle.com.au/tickets/",
+    "note": "Operator renamed the booking path. /tickets/ returns 200, title 'Eagle Cable Car Tickets | Soar Above Arthurs Seat'."
+  },
+  {
+    "url": "https://www.arthursseat.com.au/book/",
+    "disposition": "replaced",
+    "replacement": "https://aseagle.com.au/tickets/",
+    "note": "arthursseat.com.au answers 200 from a domain-for-sale lander ('This website is for sale!'), not the operator. The gondola operator's own booking page is aseagle.com.au/tickets/, fetched 200."
+  },
+  {
+    "url": "https://www.marthastable.com.au/reservations",
+    "disposition": "moved",
+    "replacement": "https://www.marthastable.com.au/book-a-table/",
+    "note": "Same site, renamed path. Fetched 200, title 'BOOKINGS - Martha's Table'."
+  },
+  {
+    "url": "https://www.peninsulahotsprings.com/bathing",
+    "disposition": "moved",
+    "replacement": "https://www.peninsulahotsprings.com/bathe",
+    "note": "Same site, renamed path. Fetched 200, title 'Bath House Spa Experiences | Peninsula Hot Springs'."
+  },
+  {
+    "url": "https://www.portphillipestate.com.au/dine",
+    "disposition": "moved",
+    "replacement": "https://www.portphillipestate.com.au/dining-room/",
+    "note": "Same site, renamed path. Fetched 200, title 'Dining Room - Port Phillip Estate'."
+  },
+  {
+    "url": "https://www.stonier.com.au/visit/events/",
+    "disposition": "replaced",
+    "replacement": "https://www.stonier.com.au/visit",
+    "note": "The events subpage is gone; the parent visit page is live (200, 'Stonier - Visit'). The specific event this was booked against is past, so the replacement supports the venue, not the event."
+  },
+  {
+    "url": "https://www.foxeys.com.au",
+    "disposition": "moved",
+    "replacement": "https://foxeys-hangout.com.au/",
+    "note": "foxeys.com.au refuses TLS on 202.124.241.178, a NetRegistry parking address. The operator's live domain is foxeys-hangout.com.au, confirmed live and named as the official site by Wine Companion and Visit Victoria."
+  },
+  {
+    "url": "https://morningsunvineyard.com.au",
+    "disposition": "moved",
+    "replacement": "https://foxeys-hangout.com.au/Morning-Sun/About-Morning-Sun",
+    "note": "morningsunvineyard.com.au serves a certificate for another host; with verification relaxed its own server redirects to foxeys-hangout.com.au/Morning-Sun/About-Morning-Sun. Morning Sun is now Foxeys Hangout's second cellar door."
+  },
+  {
+    "url": "https://morningsunvineyard.com.au/visit",
+    "disposition": "moved",
+    "replacement": "https://foxeys-hangout.com.au/Morning-Sun/About-Morning-Sun",
+    "note": "Same redirect as the apex."
+  },
+  {
+    "url": "https://www.mpchocolaterie.com.au",
+    "disposition": "moved",
+    "replacement": "https://www.mpchoc.com.au/",
+    "note": "Domain no longer resolves. The operator trades at mpchoc.com.au, fetched 200, title 'The Chocolateries Mornington Peninsula | Chocolate, Cafe & Events'."
+  },
+  {
+    "url": "https://trofeoestate.com",
+    "disposition": "moved",
+    "replacement": "https://trofeoestate.com.au/",
+    "note": "The .com serves a self-signed certificate. The operator's live domain is the .com.au, which resolves and serves the site."
+  },
+  {
+    "url": "https://trofeoestate.com/visit",
+    "disposition": "moved",
+    "replacement": "https://www.trofeoestate.com.au/visit-us/",
+    "note": "Operator's own server redirects trofeoestate.com.au/visit to www.trofeoestate.com.au/visit-us/."
+  },
+  {
+    "url": "https://manylittle.com.au/book",
+    "disposition": "replaced",
+    "replacement": "https://www.manylittle.com.au/",
+    "note": "The /book path 404s on the operator's own site; no booking path was found. The homepage is live (200, 'Many Little | Bar & Dining, Red Hill South'). A reader gets the venue, not a dead booking form."
+  },
+  {
+    "url": "https://www.imaginefrankston.com.au/mornington/mornington-peninsula-regional-gallery",
+    "disposition": "replaced",
+    "replacement": "https://mprg.mornpen.vic.gov.au/",
+    "note": "Frankston's tourism site dropped the page. The gallery now publishes on its own council subdomain, fetched 200 with title 'Home - Mornington Peninsula Regional Gallery'. Same subject, better publisher."
+  },
+  {
+    "url": "https://www.mornpen.vic.gov.au/Arts-Culture/Mornington-Peninsula-Regional-Gallery",
+    "disposition": "replaced",
+    "replacement": "https://mprg.mornpen.vic.gov.au/",
+    "note": "The council retired /Arts-Culture/; its own 404 page renders at this URL. The gallery's current home is the mprg subdomain, fetched 200."
+  },
+
+  {
+    "url": "https://laurarestaurant.com.au",
+    "disposition": "gone",
+    "note": "Domain does not resolve. No successor found under the venue's name that could be fetched."
+  },
+  {
+    "url": "https://lightfootwines.com.au",
+    "disposition": "gone",
+    "note": "Domain does not resolve. lightfootwines.com IS live, but it is Lightfoot & Sons of Calulu in East Gippsland, roughly 250km away. The record places Lightfoot Wines at 110 Myers Rd, Main Ridge. Substituting the Gippsland winery would assert an identity nothing supports. EDITOR: this record's region may be wrong, not just its link."
+  },
+  {
+    "url": "https://mpfm.com.au",
+    "disposition": "gone",
+    "note": "Domain does not resolve. The Main Street Market at mainstreetmornington.com.au is a different market (Wednesdays, Main Street) from the Mornington Farmers' Market this record describes (Mornington Park, The Esplanade), so it is not an equivalent source."
+  },
+  {
+    "url": "https://phaedrusestate.com",
+    "disposition": "gone",
+    "note": "Domain does not resolve, and no operator-run replacement was found. EDITOR: Visit Victoria and Wine Companion both place Phaedrus Estate at 220 Mornington-Tyabb Road, Moorooduc. This record says '220 Mornington-Flinders Rd, Red Hill' with place 'dromana'. The street number matches and nothing else does."
+  },
+  {
+    "url": "https://smallstonepantry.com.au",
+    "disposition": "gone",
+    "note": "Domain does not resolve. No successor found."
+  },
+  {
+    "url": "https://viaboffe.com.au",
+    "disposition": "gone",
+    "note": "Domain does not resolve. A 'Via Boffe' trades at via-boffe.square.site, but at 59 Main Street Mornington on (03) 5976 8158, while this record says 200 Main Ridge Rd, Main Ridge on +61 3 5989 6111. Two different addresses and two different phone numbers is not enough to assert they are the same business. EDITOR."
+  },
+  {
+    "url": "https://viaboffe.com.au/bookings",
+    "disposition": "gone",
+    "note": "Same domain, same reasoning."
+  },
+  {
+    "url": "https://villamallorca.com.au",
+    "disposition": "gone",
+    "note": "Domain does not resolve. No successor found."
+  },
+  {
+    "url": "https://www.mainridgeestate.com.au/",
+    "disposition": "gone",
+    "note": "Domain does not resolve and shows no sign of ever having resolved. It was cited on 5 May 2026 as the source establishing Main Ridge Estate's Tuesday-Sunday trading. A source that cannot be reached cannot have been read, so that claim was never sourced."
+  },
+  {
+    "url": "https://www.redhellestate.com.au/",
+    "disposition": "gone",
+    "note": "Domain does not resolve. It is a misspelling of Red Hill Estate, and it was cited on 5 May 2026 as the source establishing that venue's Tuesday-Sunday trading. redhillestate.com.au does resolve, but pointing this row at it would manufacture support the row never had: whatever was written on 5 May, this URL was not read."
+  },
+  {
+    "url": "https://www.redhillmarket.com.au",
+    "disposition": "gone",
+    "note": "The domain resolves to a NetRegistry redirector that answers 200 with the two-word body 'Not found'. EDITOR, and this is the important one: the Red Hill Community Market's own site now reads 'The Red Hill Community Market is temporarily closed' and serves only a history archive. The market trading at Red Hill Recreation Reserve on the first Saturday September-May is the Hill & Ridge Community Market, run by the Red Hill Agricultural & Horticultural Society. This site holds them as two separate things and says so in prose."
+  },
+  {
+    "url": "https://www.temptationsailing.com",
+    "disposition": "gone",
+    "note": "Domain does not resolve. A Temptation Sailing operates dolphin swims from Glenelg in South Australia; it is not the Sorrento operator this record describes."
+  },
+  {
+    "url": "https://www.temptationsailing.com/bay-cruise/",
+    "disposition": "gone",
+    "note": "Same domain, same reasoning."
+  },
+  {
+    "url": "https://www.driftawayondundas.com",
+    "disposition": "gone",
+    "note": "Serves the Squarespace 'Website Expired' page. The operator stopped paying for the site; no successor found."
+  },
+  {
+    "url": "https://www.ouestfrance.com.au",
+    "disposition": "gone",
+    "note": "Serves a Wix 'ConnectYourDomain Error'. The venue is separately recorded as permanently closed."
+  },
+  {
+    "url": "https://www.kooyong.com/cellar-door",
+    "disposition": "gone",
+    "note": "404 on the operator's own site. kooyong.com now redirects to portphillipestate.com.au, which has no Kooyong cellar-door page. Sending a reader to the Port Phillip Estate cellar door instead would assert that Kooyong tastings happen there, which nothing fetched says."
+  },
+  {
+    "url": "https://www.globalballooning.com.au/mornington-peninsula/",
+    "disposition": "gone",
+    "note": "404 on the operator's own live site, and no Peninsula page was found anywhere on it. EDITOR: the site sells a Global Ballooning Peninsula sunrise tour; the operator may no longer fly the Peninsula."
+  },
+  {
+    "url": "https://www.racv.com.au/travel-leisure/resorts/cape-schanck-resort.html",
+    "disposition": "gone",
+    "note": "404 on RACV's own site. Several plausible successor paths were fetched and all 404; no replacement could be confirmed."
+  },
+  {
+    "url": "https://www.parks.vic.gov.au/places-to-see/parks/cape-schanck",
+    "disposition": "gone",
+    "note": "404 on Parks Victoria's own site. The Mornington Peninsula National Park page is live, but it covers the whole park rather than Cape Schanck, so it is not an equivalent source for this record's claims."
+  },
+  {
+    "url": "https://www.mpchoc.com.au/events/rocky-road-festival-tasting-sessions/",
+    "disposition": "gone",
+    "note": "404 on the operator's own live site. The event page was removed after the event."
+  },
+  {
+    "url": "https://events.humanitix.com/pub-carols-thursday-17th-december",
+    "disposition": "gone",
+    "note": "Humanitix answers 404 with 'This event is yet to launch'. The listing is not published."
+  },
+  {
+    "url": "https://www.humanitix.com/au/event/sorrento-solstice-festival-2026",
+    "disposition": "gone",
+    "note": "404 on Humanitix. The ticket listing was removed after the event."
+  },
+  {
+    "url": "https://library.mornpen.vic.gov.au/Whats-On/Events/Science-Week-TwistED-Science-Show-Rosebud-Library",
+    "disposition": "gone",
+    "note": "The library's own 404 page renders at this URL. A past event listing, removed."
+  },
+  {
+    "url": "https://www.mornpen.vic.gov.au/Events-Activities/Boneo-Community-Market",
+    "disposition": "gone",
+    "note": "COUNCIL RESTRUCTURE. The council's own 404 page renders at every /Events-Activities/ path; event listings now live under /Things-to-do/Events/Whats-on/. One such page was fetched successfully before the host began refusing this address, so the new structure is confirmed - but a replacement for this specific listing could not be fetched, and constructing one unread is exactly what this programme exists to stop. EDITOR."
+  },
+  {
+    "url": "https://www.mornpen.vic.gov.au/Events-Activities/Coastrek-Mornington-Peninsula-2026",
+    "disposition": "gone",
+    "note": "COUNCIL RESTRUCTURE, as above. Also a 2026 event that has passed."
+  },
+  {
+    "url": "https://www.mornpen.vic.gov.au/Events-Activities/Emu-Plains-Market-3",
+    "disposition": "gone",
+    "note": "COUNCIL RESTRUCTURE, as above."
+  },
+  {
+    "url": "https://www.mornpen.vic.gov.au/Events-Activities/Main-Street-Christmas-Parade",
+    "disposition": "gone",
+    "note": "COUNCIL RESTRUCTURE, as above."
+  },
+  {
+    "url": "https://www.mornpen.vic.gov.au/Events-Activities/Main-Street-Mornington-Festival-1",
+    "disposition": "gone",
+    "note": "COUNCIL RESTRUCTURE, as above."
+  },
+  {
+    "url": "https://www.mornpen.vic.gov.au/Events-Activities/Mothers-Day-Classic-2026",
+    "disposition": "gone",
+    "note": "COUNCIL RESTRUCTURE, as above. Also a 2026 event that has passed."
+  },
+  {
+    "url": "https://www.mornpen.vic.gov.au/Events-Activities/Songs-of-Dreams-and-Destiny",
+    "disposition": "gone",
+    "note": "COUNCIL RESTRUCTURE, as above."
+  },
+  {
+    "url": "https://www.mornpen.vic.gov.au/Events-Activities/Sorrento-Solstice-Festival",
+    "disposition": "gone",
+    "note": "COUNCIL RESTRUCTURE, as above."
+  },
+  {
+    "url": "https://www.mornpen.vic.gov.au/Events-Activities/Sound-Circle-%E2%80%93-Full-Moon-Sound-Journey-at-Peninsula-Hot-Springs",
+    "disposition": "gone",
+    "note": "COUNCIL RESTRUCTURE, as above."
+  },
+  {
+    "url": "https://www.mornpen.vic.gov.au/Events-Activities/Winter-Camp-2026",
+    "disposition": "gone",
+    "note": "COUNCIL RESTRUCTURE, as above. Also a 2026 event that has passed."
+  },
+  {
+    "url": "https://www.mornpen.vic.gov.au/Events-Activities/Winter-Wine-Weekend",
+    "disposition": "gone",
+    "note": "COUNCIL RESTRUCTURE, as above."
+  },
+
+  {
+    "url": "https://tucksridge.com.au",
+    "disposition": "gone",
+    "verdictOverride": "tls-fault",
+    "note": "Serves a self-signed certificate, so a reader following it sees a browser security warning. www.tucksridge.com.au refuses the connection outright, and tucks.com.au is an industrial packings company. EDITOR: no fetchable operator site was found for Tuck's Ridge."
+  },
+  {
+    "url": "https://www.balnarringmarket.com.au",
+    "disposition": "gone",
+    "verdictOverride": "tls-fault",
+    "note": "The certificate does not match the hostname, so HTTPS fails and a reader sees a security warning. Plain HTTP answers 200. Publishing an http:// link for a market would be a downgrade this ticket is not authorised to make. EDITOR: ask the operator to fix the certificate."
+  },
+  {
+    "url": "https://www.the-orchard.com.au",
+    "disposition": "gone",
+    "verdictOverride": "tls-fault",
+    "note": "TLS handshake fails with an internal error from the server. No fetchable replacement found."
+  }
+]

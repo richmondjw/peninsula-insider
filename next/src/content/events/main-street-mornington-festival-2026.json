@@ -18,7 +18,7 @@
     "lng": 145.0367
   },
   "indoorOutdoor": "Outdoor",
-  "officialEventUrl": "https://mainstreetfestival.com.au | https://mainstreetfestival.com.au | https://www.mornpen.vic.gov.au/Events-Activities/Main-Street-Mornington-Festival-1",
+  "officialEventUrl": "https://mainstreetfestival.com.au",
   "bookingRequired": "No",
   "freePaid": "Free",
   "priceTier": "free",
@@ -72,5 +72,15 @@
   "cancellationNote": "Northern Mornington Peninsula Tourism cancelled the 2026 festival on 11 August 2026, saying it could not secure the level of funding needed to make the event financially viable. No 2027 date has been announced.",
   "cancellationSourceUrl": "https://www.mpnews.com.au/2026/08/11/main-street-mornington-festival-cancelled-for-2026/",
   "cancellationSourceLabel": "Mornington Peninsula News, 11 August 2026",
-  "verificationStatus": "cancelled"
+  "verificationStatus": "cancelled",
+  "retiredSourceLinks": [
+    {
+      "field": "officialEventUrl",
+      "url": "https://www.mornpen.vic.gov.au/Events-Activities/Main-Street-Mornington-Festival-1",
+      "verdict": "dead",
+      "disposition": "gone",
+      "checkedOn": "2026-09-13",
+      "note": "COUNCIL RESTRUCTURE, as above."
+    }
+  ]
 }

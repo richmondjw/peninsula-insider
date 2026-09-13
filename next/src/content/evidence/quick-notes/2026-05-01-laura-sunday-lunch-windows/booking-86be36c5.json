@@ -14,5 +14,9 @@
     "value": "{\"kind\":\"venue-site\",\"url\":\"https://laurarestaurant.com.au\",\"checkedAt\":\"2026-05-01T07:30:00+10:00\"}",
     "dateField": "sources[0].checkedAt"
   },
-  "url": "https://laurarestaurant.com.au"
+  "url": "https://laurarestaurant.com.au",
+  "sourceHealth": "dead",
+  "sourceHealthCheckedOn": "2026-09-13",
+  "sourceStatus": "unsourced",
+  "sourceStatusNote": "Domain does not resolve. No successor found under the venue's name that could be fetched."
 }

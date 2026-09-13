@@ -67,15 +67,25 @@ jobs:
           npm run test:event-occurrence
           npm run test:media-provenance
           npm run test:commercial-firewall
+          npm run test:link-health
 
       - name: Content admission gate
         # Placeholder markers + real Astro collection-schema validation
         # (astro sync against src/content.config.ts).
+        #
+        # assert:link-health makes NO network request. It compares the content
+        # tree against the committed probe ledger and a ratchet baseline, so it
+        # can only fail on a change someone made in this repository. A link
+        # checker that dialled out here would go red at 3am with no code change,
+        # everyone would learn to ignore it, and the next real failure would be
+        # ignored too. Refreshing the ledger is a deliberate act:
+        #   cd next && npm run probe:link-health
         run: |
           cd next
           npm run assert:schema-drift
           npm run assert:media-provenance
           npm run assert:claim-support
+          npm run assert:link-health
           npm run validate:content
 
       - name: Pre-build lints

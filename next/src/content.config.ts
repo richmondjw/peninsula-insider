@@ -367,6 +367,73 @@ const provenanceFields = {
   selection: selectionBlock,
 };
 
+/**
+ * What a source link probe last saw. PI-007 found 45 of the corpus's 459
+ * source URLs dead, 19 of them on domains that no longer resolve, and nothing
+ * on this site could see one of them. A verification date whose source cannot
+ * be read is unfalsifiable, and the claim it stamps is unsupported without
+ * anyone ever having edited it.
+ *
+ * `blocked` is deliberately its own value and is NOT a failure. The council is
+ * this corpus's most-cited publisher and refuses most automated reads; folding
+ * that into `dead` would demand deleting a third of the site's provenance over
+ * a robots policy. An honest unknown is a legitimate state.
+ *
+ * Written from ops/reports/content/link-health-ledger.json by a probe that
+ * actually fetched the URL. Never inferred at read time.
+ */
+const sourceHealth = z.enum(['ok', 'blocked', 'moved', 'dead', 'parked', 'tls-fault', 'unknown']);
+
+/**
+ * A source link that was removed from the field a reader clicks, kept here so
+ * the removal is a record rather than a disappearance.
+ *
+ * The rule PI-007 works to: a dead source is never silently deleted. Either it
+ * is replaced with one that was fetched and read, or the claim it stood behind
+ * is marked unsourced and stays visible to the registry and the blind-spot
+ * reporting. A claim that quietly loses its citation looks better and is worse.
+ */
+const retiredSourceLink = z.object({
+  /** The field this URL used to occupy: `website`, `bookingUrl`, `url`. */
+  field: z.string(),
+  url: z.string(),
+  verdict: sourceHealth,
+  /** What was decided, in the PI-007 vocabulary. */
+  disposition: z.enum(['moved', 'replaced', 'archived', 'gone']),
+  /** Only set for moved/replaced/archived, and only after fetching it. */
+  replacement: z.string().optional(),
+  /** The date the probe ran. Not a verification date: nothing was verified. */
+  checkedOn: z.coerce.date(),
+  note: z.string().optional(),
+});
+
+/**
+ * Spread into a collection schema as one line. Zod strips unknown keys
+ * silently, so a field that is not declared here vanishes from the build with
+ * no error - which is exactly how la-baracca-tgallant.json published a closed
+ * restaurant as trading.
+ */
+const sourceHealthFields = {
+  /**
+   * What the last link probe saw at this record's source, and when. A record
+   * whose source is dead is not sourced any more, and this is the field that
+   * says so out loud instead of letting a verification date imply a source
+   * that can still be read.
+   */
+  sourceHealth: sourceHealth.optional(),
+  sourceHealthCheckedOn: z.coerce.date().optional(),
+  /**
+   * Set when this record's own source no longer supports it. `unsourced`
+   * means nothing stands behind the claim any more; `disputed` means two
+   * sources that were both read disagree and neither was picked as the
+   * winner. Both are states an editor resolves, not states a script guesses.
+   */
+  sourceStatus: z.enum(['unsourced', 'disputed']).optional(),
+  /** Free text naming what needs deciding. Read by the PI-007 editor queue. */
+  sourceStatusNote: z.string().optional(),
+  retiredSourceLinks: z.array(retiredSourceLink).default([]),
+};
+
 const venues = defineCollection({
   loader: glob({ pattern: '**/*.json', base: './src/content/venues' }),
   schema: z.object({
@@ -469,6 +536,7 @@ const venues = defineCollection({
     editorPick: z.boolean().default(false),
     lastVerified: z.coerce.date(),
     ...provenanceFields,
+    ...sourceHealthFields,
     /**
      * Free-text hours summary surfaced on the venue page (e.g.
      * "Sat–Sun 11am–5pm" or "Closed Tue–Wed"). Optional. When absent,
@@ -658,6 +726,7 @@ const experiences = defineCollection({
     golf: z.any().optional(),
     lastVerified: z.coerce.date(),
     ...provenanceFields,
+    ...sourceHealthFields,
     publishedAt: z.coerce.date(),
     sitemapExclude: z.boolean().default(false),
   }),
@@ -785,6 +854,7 @@ const articles = defineCollection({
     status: z.enum(['draft', 'review', 'scheduled', 'published']).default('draft'),
     lastVerified: z.coerce.date().optional(),
     ...provenanceFields,
+    ...sourceHealthFields,
     clusterLinks: z.array(z.object({ label: z.string(), href: z.string() })).optional(),
     aiSummary: z.array(z.string()).optional(),
     faq: z.array(z.object({ question: z.string(), answer: z.string() })).optional(),
@@ -1045,6 +1115,7 @@ const itineraries = defineCollection({
     publishedAt: z.coerce.date(),
     lastVerified: z.coerce.date().optional(),
     ...provenanceFields,
+    ...sourceHealthFields,
     sitemapExclude: z.boolean().default(false),
   }),
 });
@@ -1289,6 +1360,7 @@ const events = defineCollection({
     verification: z.enum(['verified', 'tentative', 'stub']).optional(),
     verificationNote: z.string().optional(),
     ...provenanceFields,
+    ...sourceHealthFields,
     visitorAppealScore: z.number().min(0).max(5).optional(),
     editorialPriority: z.number().min(0).max(5).optional(),
 
@@ -1432,6 +1504,7 @@ const tourOperators = defineCollection({
     heroImage: imageRef,
     lastVerified: z.coerce.date(),
     ...provenanceFields,
+    ...sourceHealthFields,
     publishedAt: z.coerce.date(),
   }),
 });
@@ -1470,6 +1543,7 @@ const tours = defineCollection({
     heroImage: imageRef,
     lastVerified: z.coerce.date(),
     ...provenanceFields,
+    ...sourceHealthFields,
     publishedAt: z.coerce.date(),
   }),
 });
@@ -1497,6 +1571,7 @@ const tourPackages = defineCollection({
     heroImage: imageRef,
     lastVerified: z.coerce.date(),
     ...provenanceFields,
+    ...sourceHealthFields,
     publishedAt: z.coerce.date(),
   }),
 });
@@ -1566,6 +1641,7 @@ const species = defineCollection({
     verified: z.boolean().default(false),
     lastVerified: z.coerce.date(),
     ...provenanceFields,
+    ...sourceHealthFields,
     publishedAt: z.coerce.date(),
     sitemapExclude: z.boolean().default(false),
   }),
@@ -1596,6 +1672,7 @@ const fishingLocations = defineCollection({
     verified: z.boolean().default(false),
     lastVerified: z.coerce.date(),
     ...provenanceFields,
+    ...sourceHealthFields,
     publishedAt: z.coerce.date(),
     sitemapExclude: z.boolean().default(false),
   }),
@@ -1631,6 +1708,7 @@ const fishingCharters = defineCollection({
     verified: z.boolean().default(false),
     lastVerified: z.coerce.date(),
     ...provenanceFields,
+    ...sourceHealthFields,
     publishedAt: z.coerce.date(),
     sitemapExclude: z.boolean().default(false),
   }),
@@ -1666,6 +1744,7 @@ const boatRamps = defineCollection({
     verified: z.boolean().default(false),
     lastVerified: z.coerce.date(),
     ...provenanceFields,
+    ...sourceHealthFields,
     publishedAt: z.coerce.date(),
     sitemapExclude: z.boolean().default(false),
   }),
@@ -1698,6 +1777,7 @@ const boatHire = defineCollection({
     verified: z.boolean().default(false),
     lastVerified: z.coerce.date(),
     ...provenanceFields,
+    ...sourceHealthFields,
     publishedAt: z.coerce.date(),
     sitemapExclude: z.boolean().default(false),
   }),
@@ -1712,6 +1792,7 @@ const boatHire = defineCollection({
 const quickNotes = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/quick-notes' }),
   schema: z.object({
+    ...sourceHealthFields,
     headline: z.string().max(140),
     dek: z.string().max(320).optional(),
     section: z.enum([
@@ -1766,6 +1847,7 @@ const editorial_blocks = defineCollection({
     publishedAt: z.coerce.date(),
     lastVerified: z.coerce.date().optional(),
     ...provenanceFields,
+    ...sourceHealthFields,
     status: z.enum(['draft', 'published']).default('published'),
   }),
 });
@@ -2068,6 +2150,7 @@ const evidence = defineCollection({
       name: z.string().optional(),
     }),
     url: z.string().url().optional(),
+    ...sourceHealthFields,
     /** How the source was reached when there is no URL: a call, a visit. */
     method: z.string().optional(),
     /**

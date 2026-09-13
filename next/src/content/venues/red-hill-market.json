@@ -10,7 +10,6 @@
     "lng": 145.055
   },
   "address": "Red Hill Recreation Reserve, 172 Arthurs Seat Rd, Red Hill VIC 3937",
-  "website": "https://www.redhillmarket.com.au",
   "priceBand": "$",
   "authority": {
     "awards": [
@@ -63,11 +62,30 @@
   "lastVerified": "2026-04-09",
   "publishedAt": "2026-04-09",
   "bookingProvider": "none",
-  "bookingUrl": "https://www.redhillmarket.com.au",
   "knownFor": [
     "First Saturday Monthly",
     "200-Plus Stalls",
     "Red Hill Recreation Reserve",
     "Handmade Craft and Gourmet Produce"
-  ]
+  ],
+  "retiredSourceLinks": [
+    {
+      "field": "website",
+      "url": "https://www.redhillmarket.com.au",
+      "verdict": "dead",
+      "disposition": "gone",
+      "checkedOn": "2026-09-13",
+      "note": "The domain resolves to a NetRegistry redirector that answers 200 with the two-word body 'Not found'. EDITOR, and this is the important one: the Red Hill Community Market's own site now reads 'The Red Hill Community Market is temporarily closed' and serves only a history archive. The market trading at Red Hill Recreation Reserve on the first Saturday September-May is the Hill & Ridge Community Market, run by the Red Hill Agricultural & Horticultural Society. This site holds them as two separate things and says so in prose."
+    },
+    {
+      "field": "bookingUrl",
+      "url": "https://www.redhillmarket.com.au",
+      "verdict": "dead",
+      "disposition": "gone",
+      "checkedOn": "2026-09-13",
+      "note": "The domain resolves to a NetRegistry redirector that answers 200 with the two-word body 'Not found'. EDITOR, and this is the important one: the Red Hill Community Market's own site now reads 'The Red Hill Community Market is temporarily closed' and serves only a history archive. The market trading at Red Hill Recreation Reserve on the first Saturday September-May is the Hill & Ridge Community Market, run by the Red Hill Agricultural & Horticultural Society. This site holds them as two separate things and says so in prose."
+    }
+  ],
+  "sourceStatus": "unsourced",
+  "sourceStatusNote": "The domain resolves to a NetRegistry redirector that answers 200 with the two-word body 'Not found'. EDITOR, and this is the important one: the Red Hill Community Market's own site now reads 'The Red Hill Community Market is temporarily closed' and serves only a history archive. The market trading at Red Hill Recreation Reserve on the first Saturday September-May is the Hill & Ridge Community Market, run by the Red Hill Agricultural & Horticultural Society. This site holds them as two separate things and says so in prose."
 }

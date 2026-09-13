@@ -4,7 +4,10 @@
   "operatorSlug": "temptation-sailing",
   "experienceType": "cruise-sailing",
   "duration": "half-day",
-  "theme": ["romantic", "relaxed"],
+  "theme": [
+    "romantic",
+    "relaxed"
+  ],
   "audience": "couples",
   "occasion": "anniversary",
   "origin": "sorrento",
@@ -15,8 +18,9 @@
   "durationHours": 3.5,
   "maxGroupSize": 18,
   "departsFrom": "Sorrento Pier",
-  "languages": ["en"],
-  "bookingUrl": "https://www.temptationsailing.com/bay-cruise/",
+  "languages": [
+    "en"
+  ],
   "intro": "Temptation Sailing's bay cruise departs Sorrento Pier aboard a classic sailing vessel for a half-day passage across Port Phillip Bay. The pace is deliberately unhurried: sailing is the primary experience, with wildlife encounters a welcome possibility rather than the focus. Dolphin sightings are common but not structured into the itinerary. Groups are capped at 18 to keep the vessel uncrowded.",
   "whatHappens": "After boarding at Sorrento Pier, the skipper sets sail into Port Phillip Bay with the course varying according to wind conditions on the day. The journey out into the open bay typically takes 30 to 45 minutes before the vessel settles into its main sailing passage. Guests can move around the deck, talk with the skipper about the vessel and the Bay, and take turns at the helm if they are interested. Dolphin pods are frequently encountered in the shipping lanes and near the Heads: when this happens, the skipper adjusts course for a closer look without disrupting the animals. The return leg brings the vessel back to Sorrento with a different heading, often with the Mornington Peninsula hills visible to the east. Total time on the water is approximately 3 to 3.5 hours. Sunset sail departures are available on selected dates and offer a different character to the morning cruise.",
   "whoSuits": "Couples looking for a relaxed, genuinely scenic outing that is not structured around ticking off sights. Adults with an interest in sailing, seamanship, or the bay's geography and ecology. Small groups (4 to 10 people) who want something more personal than a commercial wildlife charter. Suitable for anniversary occasions where the point is the experience of being on the water together rather than a specific activity.",
@@ -44,5 +48,17 @@
     "license": "venue-media-kit"
   },
   "lastVerified": "2026-04-30",
-  "publishedAt": "2026-04-30"
+  "publishedAt": "2026-04-30",
+  "retiredSourceLinks": [
+    {
+      "field": "bookingUrl",
+      "url": "https://www.temptationsailing.com/bay-cruise/",
+      "verdict": "dead",
+      "disposition": "gone",
+      "checkedOn": "2026-09-13",
+      "note": "Same domain, same reasoning."
+    }
+  ],
+  "sourceStatus": "unsourced",
+  "sourceStatusNote": "Same domain, same reasoning."
 }

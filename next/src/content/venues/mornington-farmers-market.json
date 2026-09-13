@@ -10,7 +10,6 @@
     "lng": 145.0372
   },
   "address": "Mornington Park, The Esplanade, Mornington VIC 3931",
-  "website": "https://mpfm.com.au",
   "priceBand": "$",
   "signature": "A monthly bayfront produce market that knows what it is and stays close to its growers.",
   "editorNote": "The Mornington Farmers' Market runs on the second Saturday of each month and is the best functioning produce market on the Peninsula, smaller and more consistent than the Red Hill market, closer to the growers, and set on the bayfront at Mornington Park where the walk in is already half the appeal.\n\nCome for the stone fruit in summer, the apples and pears in autumn, and the steady year-round presence of Peninsula cheese, eggs, oils, and preserves. A handful of the Peninsula's best small producers sell here without venturing further, this is where to buy from them directly, before they sell out to the regular crowd. The grower-direct format means better prices and better conversations than a retail shop.\n\nArrive by nine. Bring bags. Combine it with coffee at Commonfolk on the way out and you have one of the cleanest Saturday mornings the Peninsula offers.",
@@ -55,7 +54,6 @@
   "lastVerified": "2026-04-09",
   "publishedAt": "2026-04-09",
   "bookingProvider": "none",
-  "bookingUrl": "https://mpfm.com.au",
   "knownFor": [
     "Second Saturday Monthly",
     "Mornington Park Bayfront Setting",
@@ -63,5 +61,25 @@
     "Peninsula Cheese and Eggs"
   ],
   "operatingStatus": "verify-open",
-  "closureNote": "Recorded domain mpfm.com.au does not resolve (NXDOMAIN, checked 2026-09-13 against 1.1.1.1). Public sources disagree about the market this record describes. The Mornington Peninsula Shire markets page (https://www.mornpen.vic.gov.au/Things-to-do/Markets) lists a Mornington Racecourse Market but no farmers market at Mornington Park or The Esplanade, and a Yelp listing under the name Mornington Farmers' Market gives a Frankston-Flinders Rd, Bittern address (https://www.yelp.com/biz/mornington-farmers-market-mornington). No operator page was found. Whether a monthly bayfront market still runs at Mornington Park cannot be told from public sources. Unresolved."
+  "closureNote": "Recorded domain mpfm.com.au does not resolve (NXDOMAIN, checked 2026-09-13 against 1.1.1.1). Public sources disagree about the market this record describes. The Mornington Peninsula Shire markets page (https://www.mornpen.vic.gov.au/Things-to-do/Markets) lists a Mornington Racecourse Market but no farmers market at Mornington Park or The Esplanade, and a Yelp listing under the name Mornington Farmers' Market gives a Frankston-Flinders Rd, Bittern address (https://www.yelp.com/biz/mornington-farmers-market-mornington). No operator page was found. Whether a monthly bayfront market still runs at Mornington Park cannot be told from public sources. Unresolved.",
+  "retiredSourceLinks": [
+    {
+      "field": "website",
+      "url": "https://mpfm.com.au",
+      "verdict": "dead",
+      "disposition": "gone",
+      "checkedOn": "2026-09-13",
+      "note": "Domain does not resolve. The Main Street Market at mainstreetmornington.com.au is a different market (Wednesdays, Main Street) from the Mornington Farmers' Market this record describes (Mornington Park, The Esplanade), so it is not an equivalent source."
+    },
+    {
+      "field": "bookingUrl",
+      "url": "https://mpfm.com.au",
+      "verdict": "dead",
+      "disposition": "gone",
+      "checkedOn": "2026-09-13",
+      "note": "Domain does not resolve. The Main Street Market at mainstreetmornington.com.au is a different market (Wednesdays, Main Street) from the Mornington Farmers' Market this record describes (Mornington Park, The Esplanade), so it is not an equivalent source."
+    }
+  ],
+  "sourceStatus": "unsourced",
+  "sourceStatusNote": "Domain does not resolve. The Main Street Market at mainstreetmornington.com.au is a different market (Wednesdays, Main Street) from the Mornington Farmers' Market this record describes (Mornington Park, The Esplanade), so it is not an equivalent source."
 }

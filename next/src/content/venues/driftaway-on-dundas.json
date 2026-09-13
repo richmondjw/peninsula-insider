@@ -9,8 +9,6 @@
     "lng": 144.8164
   },
   "address": "246 Dundas St, Rye VIC 3941",
-  "website": "https://www.driftawayondundas.com",
-  "bookingUrl": "https://www.driftawayondundas.com",
   "bookingProvider": "direct",
   "priceBand": "$$",
   "signature": "Three self-contained villas on 2.5 acres of tea-tree near Rye beach, breakfast hampers, oversized spa baths, one disability-accessible villa.",
@@ -60,5 +58,25 @@
     "Disability-Accessible Villa",
     "Breakfast Hampers"
   ],
-  "closureNote": "Review marker retained after a check on 2026-09-13. driftawayondundas.com resolves, but every path tried returns HTTP 404, including the pages search engines still index, so the operator site is effectively down rather than merely moved. The property is still carried by Tripadvisor (https://www.tripadvisor.com.au/Hotel_Review-g499625-d12380220-Reviews-Driftaway_on_Dundas-Rye_Mornington_Peninsula_Victoria.html) and Google Hotels, and no closure notice was found. Trading status unresolved."
+  "closureNote": "Review marker retained after a check on 2026-09-13. driftawayondundas.com resolves, but every path tried returns HTTP 404, including the pages search engines still index, so the operator site is effectively down rather than merely moved. The property is still carried by Tripadvisor (https://www.tripadvisor.com.au/Hotel_Review-g499625-d12380220-Reviews-Driftaway_on_Dundas-Rye_Mornington_Peninsula_Victoria.html) and Google Hotels, and no closure notice was found. Trading status unresolved.",
+  "retiredSourceLinks": [
+    {
+      "field": "website",
+      "url": "https://www.driftawayondundas.com",
+      "verdict": "dead",
+      "disposition": "gone",
+      "checkedOn": "2026-09-13",
+      "note": "Serves the Squarespace 'Website Expired' page. The operator stopped paying for the site; no successor found."
+    },
+    {
+      "field": "bookingUrl",
+      "url": "https://www.driftawayondundas.com",
+      "verdict": "dead",
+      "disposition": "gone",
+      "checkedOn": "2026-09-13",
+      "note": "Serves the Squarespace 'Website Expired' page. The operator stopped paying for the site; no successor found."
+    }
+  ],
+  "sourceStatus": "unsourced",
+  "sourceStatusNote": "Serves the Squarespace 'Website Expired' page. The operator stopped paying for the site; no successor found."
 }
