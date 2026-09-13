@@ -76,6 +76,7 @@
     "verify:claims": "node scripts/run-verification-loop.mjs",
     "verify:claims:offline": "node scripts/run-verification-loop.mjs --offline",
     "test:verification-loop": "node --test scripts/verification-loop.test.mjs",
+    "test:material-change": "node --test src/lib/material-change.test.mjs",
     "lint:firsthand-claims": "node scripts/lint-firsthand-claims.mjs",
     "test:firsthand-claims": "node --test scripts/lint-firsthand-claims.test.mjs",
     "audit:schema-drift": "node scripts/audit-content-schema-drift.mjs",
