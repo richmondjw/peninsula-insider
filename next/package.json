@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "node scripts/clear-content-cache.mjs && npm run media:registry && npm run lint:no-pricing && npm run lint:house-style && npm run lint:firsthand-claims && npm run lint:region-images && npm run lint:surfaces && npm run lint:listener-hygiene && npm run lint:nav-budget && npm run lint:css-budget && npm run lint:coordinates && astro build && npm run lint:no-hidden-pages && npm run lint:seo-architecture && npm run lint:filter-chips && npm run audit:agent-readiness && npm run assert:link-graph && npm run assert:event-safeguards && npm run assert:provenance-dates && npm run assert:schema-drift && npm run assert:closed-venues && npm run assert:commercial-firewall && npm run assert:media-provenance && npm run assert:count-semantics && npm run assert:campaigns-review-page && npm run assert:partner-portal-dashboard",
+    "build": "node scripts/clear-content-cache.mjs && npm run media:registry && npm run lint:no-pricing && npm run lint:house-style && npm run lint:firsthand-claims && npm run lint:region-images && npm run lint:surfaces && npm run lint:listener-hygiene && npm run lint:search-privacy && npm run lint:nav-budget && npm run lint:css-budget && npm run lint:coordinates && astro build && npm run lint:no-hidden-pages && npm run lint:seo-architecture && npm run lint:filter-chips && npm run audit:agent-readiness && npm run assert:link-graph && npm run assert:event-safeguards && npm run assert:provenance-dates && npm run assert:schema-drift && npm run assert:closed-venues && npm run assert:commercial-firewall && npm run assert:media-provenance && npm run assert:count-semantics && npm run assert:campaigns-review-page && npm run assert:partner-portal-dashboard",
     "build:search": "npm run build && npx pagefind --site dist",
     "preview": "astro preview",
     "astro": "astro",
@@ -67,6 +67,8 @@
     "test:saves-store": "node --test src/lib/saves/store.test.mjs src/lib/v5-store.test.mjs",
     "test:trip-import": "node --test src/lib/trip-import.test.mjs",
     "lint:listener-hygiene": "node --test scripts/client-listener-hygiene.test.mjs",
+    "lint:search-privacy": "node --test scripts/search-query-privacy.test.mjs",
+    "test:search-privacy": "node --test scripts/search-query-privacy.test.mjs",
     "assert:count-semantics": "node scripts/assert-count-semantics.mjs",
     "test:count-semantics": "node --test scripts/count-semantics.test.mjs",
     "seed:claim-registry": "node scripts/seed-claim-registry.mjs",
