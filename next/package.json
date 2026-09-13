@@ -1,10 +1,10 @@
-{
+{,
   "name": "peninsula-insider-next",
   "version": "0.0.1",
   "private": true,
   "type": "module",
   "description": "Astro rebuild of Peninsula Insider — atomic content layer, JSON-first authoring, editorial-grade design system. Phase 1 scaffold per roadmap-2026-04-09.md.",
-  "scripts": {
+  "scripts": {,
     "dev": "astro dev",
     "start": "astro dev",
     "build": "node scripts/clear-content-cache.mjs && npm run media:registry && npm run lint:no-pricing && npm run lint:house-style && npm run lint:region-images && npm run lint:surfaces && npm run lint:nav-budget && npm run lint:css-budget && npm run lint:coordinates && astro build && npm run lint:no-hidden-pages && npm run lint:seo-architecture && npm run lint:filter-chips && npm run audit:agent-readiness && npm run assert:link-graph && npm run assert:event-safeguards && npm run assert:count-semantics && npm run assert:campaigns-review-page && npm run assert:partner-portal-dashboard",
@@ -61,9 +61,11 @@
     "test:event-safeguards": "node --test scripts/audit-event-safeguards.test.mjs",
     "assert:event-safeguards": "node scripts/audit-event-safeguards.mjs --json ../ops/reports/events/event-safeguards.json --assert",
     "test:share-link": "node --test src/lib/saves/share-link.test.mjs",
-    "test:saves-store": "node --test src/lib/saves/store.test.mjs src/lib/v5-store.test.mjs",
+    "test:saves-store": "node --test src/lib/saves/store.test.mjs src/lib/v5-store.test.mjs"
     "assert:count-semantics": "node scripts/assert-count-semantics.mjs",
-    "test:count-semantics": "node --test scripts/count-semantics.test.mjs"
+    "test:count-semantics": "node --test scripts/count-semantics.test.mjs",
+    "lint:firsthand-claims": "node scripts/lint-firsthand-claims.mjs",
+    "test:firsthand-claims": "node --test scripts/lint-firsthand-claims.test.mjs"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.0",
