@@ -1,0 +1,20 @@
+{
+  "claimId": "venues/peninsula-hot-springs/booking",
+  "claimClass": "booking",
+  "subject": {
+    "type": "venues",
+    "slug": "peninsula-hot-springs",
+    "field": "visiting.bookingRequired"
+  },
+  "statement": "A booking is not required to bathe at Peninsula Hot Springs, though the operator recommends booking ahead.",
+  "assertedBy": [
+    {
+      "type": "venues",
+      "slug": "peninsula-hot-springs",
+      "field": "visiting.bookingRequired"
+    }
+  ],
+  "createdAt": "2026-09-13",
+  "origin": "authored",
+  "note": "Recommended is not required, and the record's false is the correct reading of the operator's wording. Authored by hand for the PI-005 Stage 2 venue pilot. Sources were read on 2026-09-13; see ops/reports/claims/2026-09-13-pilot-venues.md."
+}
