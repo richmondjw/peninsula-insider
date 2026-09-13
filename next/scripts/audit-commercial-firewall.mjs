@@ -200,6 +200,12 @@ const ALLOWED_SORT_KEYS = new Set([
   'occurrences', 'availability', 'priceLow', 'priceHigh', 'price', 'minutes',
   'hours', 'position', 'offset', 'page', 'step', 'number', 'num', 'amount',
   'percentage', 'ratio', 'delta', 'diff', 'change', 'views', 'saves', 'clicks',
+  /* the public account of how facts are checked (PI-014). These order the
+     tables on /how-we-check/ by how perishable a kind of fact is and by how
+     much of the site the record has reached. No commercial field is within
+     reach of any of them: the inputs are src/data/source-precedence.json and
+     the claim and evidence corpus, neither of which carries one. */
+  'recheckDays', 'facts', 'records', 'withSources',
 ]);
 
 /**
