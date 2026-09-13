@@ -366,7 +366,12 @@ export const prerender = true;
             )}
             <MediaProvenanceNote
               image={heroProvenance}
-              subject={article.data.title}
+              {/* No subject: an article is not a place, and naming the
+                  headline produced "It is not a photograph of The Spring
+                  Peninsula: Why September and October Are the Region's Most
+                  Underrated Weekends." The generic phrasing is both shorter
+                  and truer - the hero stands in for the piece, not for one
+                  named place. */}
               class="article-hero__provenance"
             />
           </figure>

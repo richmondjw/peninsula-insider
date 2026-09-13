@@ -84,13 +84,21 @@ export async function resolveHero(
   // image deliberately marked decorative would re-label a stand-in
   // photograph with the entity's own name, which is the claim the mark
   // exists to withdraw.
-  const alt = decorative
-    ? ''
-    : override?.alt ??
-      data?.heroImage?.alt ??
-      data?.name ??
-      data?.title ??
-      '';
+  const name = data?.name ?? data?.title ?? '';
+  // A published override is a DIFFERENT photograph, and the content record
+  // says nothing about it. Falling through to `data.heroImage.alt` here
+  // described the uploaded image with the alt text of the file it replaced -
+  // which read as harmless while the corpus alt was vague, and reads as a
+  // confident lie now that it is a real description ('bunches of white wine
+  // grapes on the vine' over an operator's photograph of their own bar).
+  // Same reasoning as `heroProvenance` in the detail templates: one image's
+  // record may not stand in for another's. The entity name is a neutral
+  // label, not a claim about what is in the frame.
+  const alt = override
+    ? override.alt ?? name
+    : decorative
+      ? ''
+      : data?.heroImage?.alt ?? name;
   const style = override?.src
     ? `background-image: url(${override.src}); background-size: cover; background-position: center;`
     : heroBackgroundStyle(data);
