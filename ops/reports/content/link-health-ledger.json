@@ -1,6 +1,6 @@
 {
   "note": "Probe results for every source URL in the corpus. Written only by --probe; read offline by the gate. A verdict is what a probe saw, not an inference.",
-  "updatedAt": "2026-09-13T17:52:33.274Z",
+  "updatedAt": "2026-09-13T18:04:31.188Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -2432,6 +2432,24 @@
       "pageTitle": "Montalto Winery | Red Hill, Mornington Peninsula"
     },
     {
+      "url": "https://www.montalto.com.au/pages/cellar-door",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Cellar Door Experiences - Montalto Winery",
+      "effectiveUrl": "https://montalto.com.au/pages/cellar-door",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://www.montalto.com.au/pages/find-us",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Visit Our Vineyard - Montalto Winery",
+      "effectiveUrl": "https://montalto.com.au/pages/find-us",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
       "url": "https://www.montalto.com.au/restaurant",
       "verdict": "ok",
       "httpCode": "200",
@@ -2971,6 +2989,14 @@
       "pageTitle": "Paradigm Hill &ndash; ParadigmHill"
     },
     {
+      "url": "https://www.paradigmhill.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Paradigm Hill &ndash; ParadigmHill",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
       "url": "https://www.parks.vic.gov.au",
       "verdict": "ok",
       "httpCode": "200",
@@ -3173,6 +3199,14 @@
       "replacement": "https://www.peninsulahotsprings.com/bathe"
     },
     {
+      "url": "https://www.peninsulahotsprings.com/contact-us",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Contact Us | Mornington Peninsula Hot Springs Melbourne",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
       "url": "https://www.peninsulahotsprings.com/events",
       "verdict": "ok",
       "httpCode": "200",
@@ -3196,6 +3230,14 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Sunday Sessions | Peninsula Hot Springs"
+    },
+    {
+      "url": "https://www.peninsulahotsprings.com/plan-your-visit",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Getting to Peninsula Hot Springs in Melbourne",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
     },
     {
       "url": "https://www.peninsulahotsprings.com/whats-on",
