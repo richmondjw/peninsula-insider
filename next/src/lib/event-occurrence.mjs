@@ -176,6 +176,55 @@ export function addDaysIso(dayIso, days) {
   return `${shifted.getUTCFullYear()}-${p(shifted.getUTCMonth() + 1)}-${p(shifted.getUTCDate())}`;
 }
 
+/**
+ * The instant a Melbourne wall clock on one calendar day names.
+ *
+ * The addressing the editorial surfaces already use, a "YYYY-MM-DD" day and
+ * an "HH:MM" or "HH:MM:SS" clock, resolved through wallClockToInstant above.
+ * Every caller that used to build a Date by appending a literal "+10:00"
+ * belongs here. That constant is right for about five months of the year, and
+ * the same class of bug published an exhibition's closing time an hour late.
+ */
+export function zonedInstant(dayIso, clock = '00:00', tz = PENINSULA_TZ) {
+  const day = parseDayIso(dayIso);
+  if (!day) return null;
+  const [y, m, d] = day.split('-').map(Number);
+  const { hour, minute } = parseClock(clock) ?? { hour: 0, minute: 0 };
+  const second = Number(/^\s*\d{1,2}:\d{2}:(\d{2})/.exec(String(clock ?? ''))?.[1] ?? 0);
+  const at = wallClockToInstant(y, m, d, hour, minute, tz);
+  return second ? new Date(at.getTime() + second * 1000) : at;
+}
+
+/**
+ * The Melbourne instants a dispatch weekend spans: midnight opening the
+ * Saturday to the last second of the Sunday.
+ *
+ * src/lib/editorial.ts built both ends by appending "+10:00" to a Melbourne
+ * date key, so from October to April the window opened and closed an hour
+ * late and anything on either shoulder fell the wrong side of it.
+ */
+export function editorialWeekendBounds(saturdayDayIso, sundayDayIso) {
+  return {
+    start: zonedInstant(saturdayDayIso, '00:00:00'),
+    end: zonedInstant(sundayDayIso, '23:59:59'),
+  };
+}
+
+/**
+ * The Melbourne instants a "Peninsula This Weekend" dispatch covers: 17:00 on
+ * the Friday to 23:59 on the Sunday.
+ *
+ * src/lib/peninsula-this-weekend.ts set both by hand in UTC, 07:00 and 13:59,
+ * which is the same +10:00 written as arithmetic instead of as a constant.
+ * Same bug, harder to grep for.
+ */
+export function ptwWeekendBounds(fridayDayIso) {
+  return {
+    start: zonedInstant(fridayDayIso, '17:00'),
+    end: zonedInstant(addDaysIso(fridayDayIso, 2), '23:59'),
+  };
+}
+
 function toDate(value) {
   if (value == null) return null;
   const d = value instanceof Date ? value : new Date(value);
@@ -290,7 +339,17 @@ export function isCancelledRecord(data) {
   if (!data) return false;
   return (
     data.cancelled === true ||
-    /cancelled/i.test(String(data.verificationStatus ?? '')) ||
+    // Matches the noun as well as the participle. One live record reads
+    // "Updated after organiser cancellation notice", which the participle
+    // alone missed, so a cancelled market was listed as running.
+    //
+    // The trade is deliberate and asymmetric: a false positive hides an event
+    // that is on, a false negative sends a reader to one that is off. Only the
+    // second wastes somebody's Saturday. Verified against every
+    // verificationStatus value in the corpus: exactly one record newly
+    // matches, and it is the cancelled one. A future "cancellation policy"
+    // would false-positive here and should be caught by review.
+    /cancell(ed|ation|ing)/i.test(String(data.verificationStatus ?? '')) ||
     /^cancelled:/i.test(String(data.summary ?? '')) ||
     data.skipThis === true
   );
@@ -454,6 +513,30 @@ export function schemaEventStatus(status, { past = false } = {}) {
   if (status === 'rescheduled') return 'https://schema.org/EventRescheduled';
   if (past) return null;
   return 'https://schema.org/EventScheduled';
+}
+
+/**
+ * The schema.org eventStatus for an occurrence a caller has already resolved.
+ *
+ * The badge a reader sees and the markup a crawler reads must not be able to
+ * disagree, so neither surface derives this itself. The What's On listing used
+ * to: it re-read the raw `cancelled` flag, which is one of the four signals
+ * that record a cancellation and none of the occurrence-level exceptions at
+ * all, so a row badged "Cancelled this time" shipped EventScheduled beside it.
+ */
+export function occurrenceSchemaStatus(occurrence) {
+  if (!occurrence) return null;
+  return schemaEventStatus(occurrence.status, { past: occurrence.phase === 'past' });
+}
+
+/**
+ * The same answer for a record nobody has resolved yet: the status one listing
+ * node should publish for the occurrence on `dayIso`. `options` takes the same
+ * `endDayIso` as resolveOccurrence, so a run of several days is judged over the
+ * whole run rather than over its opening day.
+ */
+export function listingEventStatus(data, dayIso, now = new Date(), options = {}) {
+  return occurrenceSchemaStatus(resolveOccurrence(data, dayIso, now, options));
 }
 
 /**

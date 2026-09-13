@@ -29,15 +29,20 @@ import path from 'node:path';
 import {
   bookingAvailability,
   dayIsoOf,
+  editorialWeekendBounds,
   isCancelledRecord,
   isoOffsetFor,
+  listingEventStatus,
   occurrenceBounds,
   occurrenceExceptionQueue,
   occurrenceModelEnabled,
+  occurrenceSchemaStatus,
+  ptwWeekendBounds,
   recordDisposition,
   resolveOccurrence,
   schemaEventStatus,
   wallClockToInstant,
+  zonedInstant,
 } from './event-occurrence.mjs';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
@@ -487,4 +492,164 @@ test('the exception queue never consults the clock', () => {
   assert.equal(occurrenceExceptionQueue.length, 1);
   const data = load('postponed-coastal-arts-weekend');
   assert.deepEqual(kinds(data), occurrenceExceptionQueue(data).map((q) => q.kind));
+});
+
+// ───────────────────────────────────────────────────────────────────────────
+// The four defects the corpus happened to hide
+//
+// None of these could be seen in a build: no record exercised a postponement,
+// a reschedule, a sold-out night or an occurrence-level exception, so the code
+// paths that mishandled them had never run. The fixtures below are the point.
+// Every assertion is against a pinned instant, like everything above it.
+// ───────────────────────────────────────────────────────────────────────────
+
+test('an occurrence-level exception reaches the markup, not only the badge', () => {
+  const data = load('recurring-exception-thursday-street-market');
+  const now = at('2026-09-10T00:00:00Z'); // the Thursday before the skipped week
+
+  // The week the series skips. The row badges it; the markup has to agree, and
+  // the listing used to publish EventScheduled beside "Cancelled this time".
+  const skipped = resolveOccurrence(data, '2026-09-17', now);
+  assert.equal(skipped.label, 'Cancelled this time');
+  assert.equal(listingEventStatus(data, '2026-09-17', now), 'https://schema.org/EventCancelled');
+  assert.equal(occurrenceSchemaStatus(skipped), listingEventStatus(data, '2026-09-17', now));
+
+  // And the series itself is untouched. This is why the exception exists: one
+  // missing week must not be expressed by cancelling a weekly market.
+  assert.equal(isCancelledRecord(data), false);
+  assert.equal(listingEventStatus(data, '2026-09-24', now), 'https://schema.org/EventScheduled');
+
+  // A relocated week is still happening, and a stallholder ballot closing is
+  // not a cancellation of anything a reader can turn up to.
+  assert.equal(listingEventStatus(data, '2026-10-01', now), 'https://schema.org/EventScheduled');
+  assert.equal(listingEventStatus(data, '2026-10-08', now), 'https://schema.org/EventScheduled');
+});
+
+test('every signal that records a cancellation reaches the markup', () => {
+  const now = at('2026-06-01T00:00:00Z');
+  const signals = [
+    ['cancelled-winter-solstice-market', '2026-06-20', 'the cancelled flag'],
+    ['cancelled-in-verification-flinders-folk-night', '2026-10-16', 'verificationStatus prose'],
+    ['cancelled-in-summary-red-hill-night-market', '2026-12-05', 'summary prose'],
+    ['cancelled-by-skip-balnarring-beach-carols', '2026-12-19', 'an editor skip'],
+  ];
+  for (const [name, dayIso, how] of signals) {
+    const data = load(name);
+    assert.equal(isCancelledRecord(data), true, `${how} should read as cancelled`);
+    assert.equal(listingEventStatus(data, dayIso, now), 'https://schema.org/EventCancelled', `${how} must publish EventCancelled`);
+  }
+
+  // Exactly one of the four sets the raw flag, which is the whole defect: the
+  // listing read that field alone, so it agreed with one record in four.
+  assert.equal(signals.filter(([name]) => load(name).cancelled === true).length, 1);
+});
+
+test('the upcoming feed publishes the status the record actually holds', () => {
+  const now = at('2026-10-01T00:00:00Z');
+
+  // A postponement that has been given a new date stays listable, so it reaches
+  // the feed - which stamped EventScheduled on it, for a swim that is not on.
+  const rescheduled = load('rescheduled-pier-to-pub-swim');
+  assert.equal(recordDisposition(rescheduled, now).listable, true);
+  assert.equal(listingEventStatus(rescheduled, '2026-11-21', now), 'https://schema.org/EventRescheduled');
+
+  // Sold out is not cancelled. The long lunch is still on and still says so;
+  // what it loses is promotion, not its status.
+  const soldOut = load('sold-out-cellar-door-long-lunch');
+  assert.equal(listingEventStatus(soldOut, '2026-10-17', now), 'https://schema.org/EventScheduled');
+  assert.equal(recordDisposition(soldOut, now).promotable, false);
+
+  // A run of several days is judged over the run, not over its opening day.
+  // The feed carries one row per record with a start and an end, so without
+  // endDayIso a December programme reads as finished on 1 December.
+  const run = load('expiring-summer-programme-listing');
+  const mid = at('2026-12-15T03:00:00Z');
+  assert.equal(listingEventStatus(run, '2026-12-01', mid, { endDayIso: '2026-12-31' }), 'https://schema.org/EventScheduled');
+  assert.equal(listingEventStatus(run, '2026-12-01', mid), null);
+
+  // Nothing at all once it is over. An EventScheduled with a past endDate is
+  // what scripts/lint-seo-architecture.mjs fails the build over.
+  assert.equal(listingEventStatus(soldOut, '2026-10-17', at('2027-01-01T00:00:00Z')), null);
+});
+
+// ───────────────────────────────────────────────────────────────────────────
+// The weekend windows, on both sides of both clock changes
+//
+// 2026: Melbourne leaves daylight saving on Sunday 5 April and returns to it
+// on Sunday 4 October. Both weekends straddle a transition, so no single fixed
+// offset can be right for both ends of either window - which is exactly what
+// the two helpers had.
+// ───────────────────────────────────────────────────────────────────────────
+
+test('a Melbourne wall clock resolves through the zone, not a constant', () => {
+  assert.equal(zonedInstant('2026-04-04', '00:00').toISOString(), '2026-04-03T13:00:00.000Z');
+  assert.equal(zonedInstant('2026-04-06', '00:00').toISOString(), '2026-04-05T14:00:00.000Z');
+  // Seconds survive, because one of the two windows closes at 23:59:59.
+  assert.equal(zonedInstant('2026-10-04', '23:59:59').toISOString(), '2026-10-04T12:59:59.000Z');
+  assert.equal(zonedInstant('not-a-day', '00:00'), null);
+});
+
+test('the dispatch weekend window is Melbourne at both ends', () => {
+  // Clocks go back on the Sunday: the Saturday opens on +11:00 and the Sunday
+  // closes on +10:00. The old code appended "+10:00" to both, so the window
+  // opened an hour late every weekend from October to April.
+  const autumn = editorialWeekendBounds('2026-04-04', '2026-04-05');
+  assert.equal(autumn.start.toISOString(), '2026-04-03T13:00:00.000Z');
+  assert.equal(autumn.end.toISOString(), '2026-04-05T13:59:59.000Z');
+
+  // Clocks go forward on the Sunday: the Saturday opens on +10:00 and the
+  // Sunday closes on +11:00, so this time it is the closing end that moves.
+  const spring = editorialWeekendBounds('2026-10-03', '2026-10-04');
+  assert.equal(spring.start.toISOString(), '2026-10-02T14:00:00.000Z');
+  assert.equal(spring.end.toISOString(), '2026-10-04T12:59:59.000Z');
+
+  // A weekend clear of both transitions is unchanged by the fix.
+  const winter = editorialWeekendBounds('2026-07-04', '2026-07-05');
+  assert.equal(winter.start.toISOString(), '2026-07-03T14:00:00.000Z');
+  assert.equal(winter.end.toISOString(), '2026-07-05T13:59:59.000Z');
+});
+
+test('the this-weekend dispatch window is Melbourne at both ends', () => {
+  // 17:00 Friday to 23:59 Sunday. The old code set 07:00 and 13:59 UTC by
+  // hand, which is +10:00 written as arithmetic rather than as a constant.
+  const autumn = ptwWeekendBounds('2026-04-03');
+  assert.equal(autumn.start.toISOString(), '2026-04-03T06:00:00.000Z'); // was 07:00Z
+  assert.equal(autumn.end.toISOString(), '2026-04-05T13:59:00.000Z');
+
+  const spring = ptwWeekendBounds('2026-10-02');
+  assert.equal(spring.start.toISOString(), '2026-10-02T07:00:00.000Z');
+  assert.equal(spring.end.toISOString(), '2026-10-04T12:59:00.000Z'); // was 13:59Z
+
+  // The window is three days long whatever the clocks do, and the hour it
+  // loses or gains is real: the autumn weekend is an hour longer.
+  const hours = (w) => (w.end.getTime() - w.start.getTime()) / 3600000;
+  assert.equal(Math.round(hours(autumn) - hours(spring)), 2);
+});
+
+// ───────────────────────────────────────────────────────────────────────────
+// The call sites, so the fix cannot be undone by re-deriving somewhere else
+// ───────────────────────────────────────────────────────────────────────────
+
+test('the surfaces consult the model instead of deriving a second answer', () => {
+  const strip = (s) => s.replace(/\/\*[\s\S]*?\*\/|\/\/.*$/gm, '');
+  const read = (...parts) => strip(readFileSync(path.join(HERE, ...parts), 'utf8'));
+
+  // Two helpers that used to stamp a fixed Melbourne offset. A day is still
+  // counted in UTC in both, deliberately; it is the CLOCK that needed a zone.
+  for (const file of ['editorial.ts', 'peninsula-this-weekend.ts']) {
+    const code = read(file);
+    assert.ok(!/\+1[01]:00/.test(code), `${file} must not stamp a fixed Melbourne offset`);
+    assert.ok(!/setUTCHours\s*\(/.test(code), `${file} must not build a Melbourne clock in UTC by hand`);
+    assert.match(code, /event-occurrence\.mjs/, `${file} must resolve its wall clocks through the model`);
+  }
+
+  // The listing read the raw flag and knew nothing of exceptions.
+  const listing = read('..', 'pages', 'whats-on', 'index.astro');
+  assert.ok(!/\.cancelled\b/.test(listing), "the What's On listing must not re-read the raw cancelled flag");
+  assert.ok(!/EventScheduled/.test(listing), "the What's On listing must not stamp a status of its own");
+
+  // The feed stamped scheduled on everything it published.
+  const feed = read('..', 'pages', 'whats-on', 'upcoming.json.ts');
+  assert.ok(!/EventScheduled/.test(feed), 'the upcoming feed must not hardcode a status');
+  assert.match(feed, /listingEventStatus/, 'the upcoming feed must ask the model');
 });

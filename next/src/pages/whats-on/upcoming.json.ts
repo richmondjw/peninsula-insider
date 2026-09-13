@@ -9,6 +9,7 @@ import {
   weekendWindow,
   type ScopeWindow,
 } from './_data';
+import { listingEventStatus } from '../../lib/event-occurrence.mjs';
 
 // Machine-readable "what's on" feed for AI assistants and agents. The site
 // already emits rich Event JSON-LD per page and llms.txt for site structure;
@@ -42,6 +43,18 @@ export const GET: APIRoute = async () => {
         : nextOccurrence;
       const startIso = isoDate(nextOccurrence);
       const endIso = isoDate(occurrenceEnd);
+      // The feed used to stamp EventScheduled on every node, so a postponement
+      // that had been given a new date, and any single occurrence an editor had
+      // cancelled out of a series, both told an agent the event was going ahead
+      // as normal. The same resolver the pages render from answers it here, over
+      // the whole run for a range rather than over its opening day, and returns
+      // nothing at all when there is nothing true to say.
+      const eventStatus = listingEventStatus(
+        e.data as Record<string, any>,
+        startIso,
+        now,
+        endIso === startIso ? {} : { endDayIso: endIso }
+      );
       return {
         title: e.data.title,
         url: `${SITE}${live.href}`,
@@ -53,6 +66,9 @@ export const GET: APIRoute = async () => {
         venue: (e.data.venue as { id?: string } | undefined)?.id ?? null,
         freePaid: e.data.freePaid ?? null,
         summary: e.data.summary ?? '',
+        // undefined rather than null: JSON.stringify drops the key, so a
+        // finished occurrence says nothing instead of saying nothing loudly.
+        eventStatus: eventStatus ?? undefined,
         // Derive thisWeekend from the event's computed startDate/endDate so
         // the flag is always consistent with those fields.  Calling
         // occursInWindow(live.rule, weekend) directly could mark a weekly
@@ -94,7 +110,7 @@ export const GET: APIRoute = async () => {
         startDate: event.startDate,
         endDate: event.endDate,
         description: event.summary,
-        eventStatus: 'https://schema.org/EventScheduled',
+        ...(event.eventStatus ? { eventStatus: event.eventStatus } : {}),
       },
     })),
     count: upcoming.length,

@@ -1,3 +1,5 @@
+import { editorialWeekendBounds } from './event-occurrence.mjs';
+
 /**
  * Prefix an internal path with the site's base URL so links work
  * when the build is served from a subdirectory (e.g. /V2/).
@@ -114,8 +116,10 @@ export function dispatchWeekend(publishedAt: Date) {
   const day = 24 * 60 * 60 * 1000;
   const sat = eventWeekendOf(publishedAt);
   const sun = new Date(sat.getTime() + day);
-  const start = new Date(`${melbourneDateKey(sat)}T00:00:00+10:00`);
-  const end = new Date(`${melbourneDateKey(sun)}T23:59:59+10:00`);
+  // Melbourne, not +10:00. The literal offset was correct only from April to
+  // October; the shared helper reads the zone in force on the day in question,
+  // and src/lib/event-occurrence.test.mjs fails if a naive one comes back.
+  const { start, end } = editorialWeekendBounds(melbourneDateKey(sat), melbourneDateKey(sun));
   const monthLong = (d: Date) =>
     d.toLocaleDateString('en-AU', { month: 'long', timeZone: 'UTC' });
   const dayNum = (d: Date) => d.getUTCDate();
