@@ -14,18 +14,14 @@
  * Usage: node scripts/lint-nav-budget.mjs   (from next/, or repo root
  * via node next/scripts/lint-nav-budget.mjs). Exits 1 on any breach.
  *
- * v5-nav.ts keeps flat interfaces and a single import so this script can
- * strip the TypeScript surface and evaluate the config without a TS
- * toolchain. That one import is the shared season helper
- * (src/lib/season.ts), which drives the rail eyebrows; this lint only
- * counts links, so it strips the import line and stubs the helper rather
- * than resolving a module graph.
+ * v5-nav.ts keeps flat interfaces and a single import so it can be read
+ * without a TS toolchain. The stripping and the season stubs live in
+ * scripts/nav-config-eval.mjs, shared with src/lib/v5-nav.test.mjs so the
+ * two readers of the config cannot drift apart. This lint only counts
+ * links, so the stubbed values never reach a count.
  */
 
-import { readFileSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
-import { dirname, join } from 'node:path';
-import vm from 'node:vm';
+import { evaluateNavConfig, NAV_CONFIG_PATH } from './nav-config-eval.mjs';
 
 const HEADER_BUDGET = 55;
 const DRAWER_BUDGET = 14;
@@ -34,36 +30,20 @@ const BROWSE_MIN = 1;
 const BROWSE_MAX = 2;
 const PILLAR_COUNT = 7;
 
-const here = dirname(fileURLToPath(import.meta.url));
-const navPath = join(here, '..', 'src', 'lib', 'v5-nav.ts');
-
-let source = readFileSync(navPath, 'utf8');
-
-// Strip the TypeScript surface: imports (stubbed in the sandbox below),
-// interfaces (flat, no nested braces), type annotations on exported
-// consts, `as` casts on group literals.
-source = source
-  .replace(/^import[^\n]*;[^\n]*$/gm, '')
-  .replace(/export interface [\s\S]*?\n\}/g, '')
-  .replace(/export const (\w+)\s*:\s*[^=]+=/g, 'exports.$1 =')
-  .replace(/export const (\w+)\s*=/g, 'exports.$1 =')
-  .replace(/ as string \| null/g, '');
-
-// Stubs for the symbols v5-nav.ts imports. Their values never reach a
-// link count, so a fixed placeholder is enough.
-const sandbox = {
-  exports: {},
-  getSeasonEditionTag: () => "Season '00",
-};
+// A rail that has expired resolves to its fallback, which is still exactly
+// one rail, so the budget is the same either way. Pin the date anyway: a
+// lint whose arithmetic depends on the day it runs is the failure mode this
+// repo forbids.
+let navExports;
 try {
-  vm.runInNewContext(source, sandbox, { filename: 'v5-nav.evaluated.js' });
+  navExports = evaluateNavConfig({ todayISO: '1970-01-01' });
 } catch (err) {
-  console.error(`lint-nav-budget: could not evaluate ${navPath}`);
+  console.error(`lint-nav-budget: could not evaluate ${NAV_CONFIG_PATH}`);
   console.error(String(err && err.message ? err.message : err));
   process.exit(1);
 }
 
-const { v5Pillars, v5Utilities, v5DrawerItems, v5DrawerCta } = sandbox.exports;
+const { v5Pillars, v5Utilities, v5DrawerItems, v5DrawerCta } = navExports;
 
 const failures = [];
 

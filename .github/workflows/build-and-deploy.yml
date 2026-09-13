@@ -80,6 +80,7 @@ jobs:
           npm run test:share-link
           npm run test:saves-store
           npm run test:season
+          npm run test:nav
           npm run test:corrections
           npm run test:partner-enquiry
           npm run test:agent-readiness
