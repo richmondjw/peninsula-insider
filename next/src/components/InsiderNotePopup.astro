@@ -59,6 +59,33 @@ const endpoint = 'https://tjjhpvslpysfklwpqmgz.supabase.co/functions/v1/pi-newsl
   (function () {
     var KEY = 'inote.state';
     var DAYS = 30;
+
+    // `document` and `window` outlive an Astro client-router swap, but init()
+    // re-runs on every astro:page-load and the guard it carries sits on
+    // #inote, which the swap replaces. __inoteCleanup below is what kept these
+    // three from accumulating: it removed the previous run's listeners before
+    // the next run added its own. That worked, but it made correctness depend
+    // on a global cleanup hook firing in the right order rather than on the
+    // listeners being registered once. They are registered once at module
+    // scope here instead, forwarding to whichever handlers init() has
+    // published into these slots; publishing a slot is the same operation
+    // addEventListener was, and nulling one is the same operation
+    // removeEventListener was, so __inoteCleanup keeps its exact meaning.
+    //
+    // Unchanged by this: init() still returns early on a page that renders no
+    // #inote, without running the cleanup, so the slots keep pointing at the
+    // last popup-bearing page until one is reached again. Closing that would
+    // also drop the `inote-open` body class and the promo-bar custom property
+    // on every such navigation, which is a visible-state change and wants a
+    // browser to confirm.
+    var activeTrap = null;
+    var activeSyncBarOffset = null;
+    var activeWatch = null;
+
+    document.addEventListener('keydown', function (e) { if (activeTrap) activeTrap(e); });
+    window.addEventListener('resize', function () { if (activeSyncBarOffset) activeSyncBarOffset(); });
+    window.addEventListener('scroll', function () { if (activeWatch) activeWatch(); }, { passive: true });
+
     function init() {
       var root = document.getElementById('inote');
       var bar = document.getElementById('inote-bar');
@@ -109,7 +136,7 @@ const endpoint = 'https://tjjhpvslpysfklwpqmgz.supabase.co/functions/v1/pi-newsl
         window.setTimeout(function () { el.hidden = true; if (callback) callback(); syncBarOffset(); }, 360);
       }
       function stopWatching() {
-        window.removeEventListener('scroll', watch);
+        activeWatch = null;
         window.clearTimeout(dwellTimer); window.clearTimeout(fallbackTimer); window.clearInterval(poll);
       }
       function open(source) {
@@ -157,12 +184,12 @@ const endpoint = 'https://tjjhpvslpysfklwpqmgz.supabase.co/functions/v1/pi-newsl
       root.querySelectorAll('[data-inote-dismiss]').forEach(function (el) { el.addEventListener('click', function () { dismiss(true); }); });
       bar.querySelector('.inote__bar-cta').addEventListener('click', function () { open('bar'); });
       bar.querySelector('.inote__bar-close').addEventListener('click', function () { hide(bar); });
-      document.addEventListener('keydown', trap);
-      window.addEventListener('resize', syncBarOffset);
+      activeTrap = trap;
+      activeSyncBarOffset = syncBarOffset;
       window.__inoteCleanup = function () {
         stopWatching();
-        document.removeEventListener('keydown', trap);
-        window.removeEventListener('resize', syncBarOffset);
+        activeTrap = null;
+        activeSyncBarOffset = null;
         document.body.classList.remove('inote-open');
         document.documentElement.removeAttribute('data-pi-promo-bar');
         document.documentElement.style.removeProperty('--pi-promo-bar-height');
@@ -183,7 +210,7 @@ const endpoint = 'https://tjjhpvslpysfklwpqmgz.supabase.co/functions/v1/pi-newsl
           .catch(function () { button.disabled = false; button.innerHTML = 'Join the Insider Note <span aria-hidden="true">→</span>'; status.textContent = 'Something went wrong. Try again, or use the form in the footer.'; });
       });
       if (blocked()) return;
-      window.addEventListener('scroll', watch, { passive: true });
+      activeWatch = watch;
       poll = window.setInterval(watch, 250);
       fallbackTimer = window.setTimeout(function () { open('fallback'); }, 20000);
     }

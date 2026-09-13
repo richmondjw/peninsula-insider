@@ -88,38 +88,30 @@ const ASTRO_FILES = walk(SRC_DIR, ['.astro']);
 const SCRIPT_FILES = walk(SRC_DIR, ['.astro', '.ts', '.tsx', '.mjs']);
 
 /**
- * Sites that still have this defect, frozen as a baseline on 2026-09-13.
+ * Sites that still have this defect.
  *
- * PI-012 fixed the four surfaces the journey audit walked. The same shape is
- * present across the site chrome and several components: an element-level
- * guard (`_piBound`, `_piMoreBound`) does NOT prevent it, because the guarded
- * element is replaced by the swap while the listener on `document` is not.
- * They are listed rather than fixed because each needs its own idempotence
- * decision; the sweep is filed separately.
+ * Empty as of 2026-09-13. The baseline was frozen at 19 entries when PI-012
+ * fixed only the four surfaces the journey audit walked; the follow-up sweep
+ * cleared all nineteen, so the ratchet below is now the whole rule and any
+ * entry added here means shipping the defect.
+ *
+ * Two shapes turned up in the sweep. Eleven of the nineteen were the real
+ * thing: an element-level guard (`_piBound`, `_piMoreBound`, `dataset.bound`)
+ * does NOT prevent accumulation, because the swap replaces the guarded element
+ * while leaving the listener on `document` attached, so the guard is fresh
+ * every navigation and the listener is not.
+ *
+ * The other eight, across four sites, were already safe for a reason this
+ * scanner cannot see: a guard on `document` itself (ProfileDropdown,
+ * V5Masthead), a flag at module scope (explore/index) - neither of which the
+ * swap touches - or an explicit removeEventListener before the next
+ * registration (InsiderNotePopup). They were hoisted anyway, so that reading
+ * the code tells you what the scanner tells you and correctness stops
+ * depending on a cleanup hook firing in the right order.
  *
  * This list may only shrink. Adding a new entry means shipping the defect.
  */
-const KNOWN_UNFIXED = [
-  'src/components/CloudSyncIndicatorScript.astro: bind() -> bind() binds "pi:cloud-sync" on document/window',
-  'src/components/ConciergeDrawer.astro: bootDrawer() -> bootDrawer() binds "click" on document/window',
-  'src/components/ConciergeDrawer.astro: bootDrawer() -> bootDrawer() binds "keydown" on document/window',
-  'src/components/InsiderNotePopup.astro: init() -> init() binds "keydown" on document/window',
-  'src/components/InsiderNotePopup.astro: init() -> init() binds "resize" on document/window',
-  'src/components/InsiderNotePopup.astro: init() -> init() binds "scroll" on document/window',
-  'src/components/Masthead.astro: bindMore() -> bindMore() binds "click" on document/window',
-  'src/components/Masthead.astro: bindMore() -> bindMore() binds "keydown" on document/window',
-  'src/components/play/PlayPeek.astro: initPlayPeek() -> initPlayPeek() binds "inote_impression" on document/window',
-  'src/components/play/PlayPeek.astro: initPlayPeek() -> initPlayPeek() binds "inote_open" on document/window',
-  'src/components/v2/AuthModal.astro: init() -> init() binds "keydown" on document/window',
-  'src/components/v2/AuthModal.astro: init() -> init() binds "pi:open-auth" on document/window',
-  'src/components/v2/ProfileDropdown.astro: init() -> installGlobalCloseListeners() binds "click" on document/window',
-  'src/components/v2/ProfileDropdown.astro: init() -> installGlobalCloseListeners() binds "keydown" on document/window',
-  'src/components/v5/chrome/V5Masthead.astro: initV5Mega() -> initV5Mega() binds "click" on document/window',
-  'src/layouts/BaseLayout.astro: bootAll() -> initV4Drawer() binds "keydown" on document/window',
-  'src/layouts/BaseLayout.astro: bootAll() -> initV4Mega() binds "click" on document/window',
-  'src/pages/explore/index.astro: init() -> init() binds "click" on document/window',
-  'src/pages/explore/index.astro: init() -> init() binds "pi:filters-changed" on document/window',
-].sort();
+const KNOWN_UNFIXED = [].sort();
 
 test('no astro:page-load handler registers a document- or window-level listener', () => {
   const offences = [];
@@ -169,10 +161,15 @@ test('the four surfaces PI-012 fixed stay fixed', () => {
  * Listeners with no dispatcher that are deliberate extension points rather
  * than defects. Each entry must say why, and must be an event a future caller
  * is expected to raise - not a typo waiting to be found.
+ *
+ * Empty as of 2026-09-13. `pi:open-auth` sat here as a presumed extension
+ * point; the reading did not hold. Nothing in src/ ever dispatched it, the two
+ * components its comment named as callers do not exist, and every one of the
+ * eight real sign-in triggers goes through the `[data-open-auth]` attribute
+ * that AuthModal already binds. It was a second, dead door onto a working one,
+ * so the listener was deleted rather than allowlisted.
  */
-const INTENTIONALLY_UNDISPATCHED = new Map([
-  ['pi:open-auth', 'AuthModal extension point: any component may raise it to open the sign-in modal'],
-]);
+const INTENTIONALLY_UNDISPATCHED = new Map([]);
 
 test('every pi: event listened for is dispatched somewhere in src/', () => {
   const listened = new Map();

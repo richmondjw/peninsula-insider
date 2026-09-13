@@ -41,9 +41,61 @@ const href = playUrl('peek');
   function write(v: Record<string, number>) { try { localStorage.setItem(KEY, JSON.stringify(v)); } catch {} }
   function consentAnswered() { try { return !!localStorage.getItem('pi-consent-v1'); } catch { return true; } }
 
+  // `document` and `window` outlive an Astro client-router swap, but
+  // initPlayPeek() re-runs on every astro:page-load and the `dataset.bound`
+  // guard sits on #play-peek, which the swap replaces. The guard was therefore
+  // always fresh while the listeners were not: each navigation added another
+  // inote pair, another scroll listener and another 45s timer, all closed over
+  // the previous page's element. A stale timer firing still wrote the shown
+  // timestamp and sent a pi_play_promo impression for a peek nobody could see.
+  // Everything global is registered once at module scope here; initPlayPeek()
+  // publishes the current page's element into the slot, and clears it (and the
+  // pending timer) when the page is left.
+  let activeEl: HTMLElement | null = null;
+  let activeState: { shown?: number; dismissed?: number } = {};
+  let noteShown = false;
+  let fired = false;
+  let timer = 0;
+
+  function stopTimer() {
+    if (timer) { clearTimeout(timer); timer = 0; }
+  }
+
+  function show() {
+    const el = activeEl;
+    if (!el || fired) return;
+    if (noteShown || !consentAnswered() || document.querySelector('#inote:not([hidden])')) {
+      stopTimer();
+      timer = window.setTimeout(show, 5000);
+      return;
+    }
+    fired = true;
+    stopTimer();
+    el.hidden = false;
+    requestAnimationFrame(() => { el.dataset.in = 'true'; });
+    write({ ...activeState, shown: Date.now() });
+    (window as any).gtag?.('event', 'pi_play_promo', { surface: 'peek', position: 'impression' });
+  }
+
+  document.addEventListener('inote_open', () => { noteShown = true; });
+  document.addEventListener('inote_impression', () => { noteShown = true; });
+
+  window.addEventListener('scroll', () => {
+    if (!activeEl || fired) return;
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    if (max > 0 && window.scrollY / max >= 0.5) show();
+  }, { passive: true });
+
   function initPlayPeek() {
     const el = document.getElementById('play-peek');
-    if (!el || el.dataset.bound) return;
+    // Same element as last run (first load calls this twice): leave the
+    // pending timer and the slot exactly as they are.
+    if (el && el.dataset.bound) return;
+    stopTimer();
+    activeEl = null;
+    noteShown = false;
+    fired = false;
+    if (!el) return;
     el.dataset.bound = '1';
     if (!CONTENT.test(location.pathname)) return;
     const s = read();
@@ -51,28 +103,9 @@ const href = playUrl('peek');
     if (s.dismissed && now - s.dismissed < DISMISS_FOR) return;
     if (s.shown && now - s.shown < SHOW_EVERY) return;
 
-    let noteShown = false;
-    document.addEventListener('inote_open', () => { noteShown = true; }, { once: true });
-    document.addEventListener('inote_impression', () => { noteShown = true; }, { once: true });
-
-    let fired = false;
-    const show = () => {
-      if (fired) return;
-      if (noteShown || !consentAnswered() || document.querySelector('#inote:not([hidden])')) { setTimeout(show, 5000); return; }
-      fired = true;
-      cleanup();
-      el.hidden = false;
-      requestAnimationFrame(() => { el.dataset.in = 'true'; });
-      write({ ...s, shown: Date.now() });
-      (window as any).gtag?.('event', 'pi_play_promo', { surface: 'peek', position: 'impression' });
-    };
-    const onScroll = () => {
-      const max = document.documentElement.scrollHeight - innerHeight;
-      if (max > 0 && scrollY / max >= 0.5) show();
-    };
-    const timer = setTimeout(show, 45000);
-    const cleanup = () => { clearTimeout(timer); removeEventListener('scroll', onScroll); };
-    addEventListener('scroll', onScroll, { passive: true });
+    activeEl = el;
+    activeState = s;
+    timer = window.setTimeout(show, 45000);
 
     el.querySelector('[data-play-peek-close]')?.addEventListener('click', () => {
       el.dataset.in = 'false';

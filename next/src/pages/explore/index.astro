@@ -1034,6 +1034,21 @@ export const prerender = true;
       .forEach((el) => el.toggleAttribute('hidden', hide));
   }
 
+  // Both document listeners are registered here rather than from init(),
+  // which re-runs on every astro:page-load. The `bound` flag used to hold
+  // that line; module scope runs exactly once, so it no longer has to. Both
+  // handlers resolve their targets at fire time and so need nothing from the
+  // page that was current when they were registered.
+  document.addEventListener('pi:filters-changed', ((e: CustomEvent) => {
+    setBrowseHidden(!isEmptyState(e.detail?.filters ?? {}));
+  }) as EventListener);
+
+  // EmptyState's "Clear filters" primary action.
+  document.addEventListener('click', (ev) => {
+    const btn = (ev.target as HTMLElement).closest('[data-action="clear-filters"]');
+    if (btn) commit({}, { source: 'clear', noun: NOUN });
+  });
+
   let bound = false;
 
   function init() {
@@ -1042,10 +1057,6 @@ export const prerender = true;
     setBrowseHidden(!isEmptyState(parseFilters(window.location.search)));
     if (bound) return;
     bound = true;
-
-    document.addEventListener('pi:filters-changed', ((e: CustomEvent) => {
-      setBrowseHidden(!isEmptyState(e.detail?.filters ?? {}));
-    }) as EventListener);
 
     // Shelf "All N" links: apply the preset in page (one commit, no fetch)
     // and jump to the directory. Without JS the href performs a real
@@ -1062,12 +1073,6 @@ export const prerender = true;
         commit(filters, { source: 'chip', noun: NOUN });
         document.getElementById('directory')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
-    });
-
-    // EmptyState's "Clear filters" primary action.
-    document.addEventListener('click', (ev) => {
-      const btn = (ev.target as HTMLElement).closest('[data-action="clear-filters"]');
-      if (btn) commit({}, { source: 'clear', noun: NOUN });
     });
   }
 

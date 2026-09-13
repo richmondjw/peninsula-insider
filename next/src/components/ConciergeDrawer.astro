@@ -717,10 +717,54 @@ const conciergeIcon = '/images/pi-concierge.svg';
 
 <script is:inline>
 (function () {
+  // `document` outlives an Astro client-router swap, but bootDrawer() re-runs
+  // on every astro:page-load and the `_piBound` guard sits on #pi-drawer,
+  // which the swap replaces. The guard was therefore always fresh while the
+  // two document listeners below were not: each navigation added another pair
+  // closed over the previous page's drawer. The capture-phase link handler is
+  // the one that bites, because a stale drawer fails `drawer.contains(link)`:
+  // a tap on a link inside the live drawer reads as "outside" to every earlier
+  // copy, so each one minimises the drawer the current copy meant to leave
+  // alone. Registered once at module scope here; bootDrawer()
+  // publishes the live drawer and its handlers into the slots, and clears them
+  // on a page that renders no drawer.
+  let activeDrawer = null;
+  let activeGetState = null;
+  let activeMinimise = null;
+
+  // ESC key - minimises (preserves convo) when open
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape' || !activeMinimise) return;
+    if (activeGetState() !== 'open') return;
+    activeMinimise();
+  });
+
+  // Any link click anywhere on the page closes the drawer immediately.
+  // The user expects: tap a link -> navigate -> drawer is gone, no overlay.
+  // Anchor matches any <a href> outside the drawer itself; chips inside the
+  // drawer trigger the suggestion handler (delegated in bootDrawer) and are
+  // excluded.
+  document.addEventListener('click', (e) => {
+    if (!activeDrawer || !activeMinimise) return;
+    if (activeGetState() !== 'open') return;
+    const link = e.target.closest('a[href]');
+    if (!link) return;
+    if (activeDrawer.contains(link)) return; // chip / link inside drawer - leave alone
+    activeMinimise();
+  }, true);
+
   // Idempotent boot - handles Astro view transitions
   function bootDrawer() {
     const drawer = document.getElementById('pi-drawer');
-    if (!drawer || drawer._piBound) return;
+    if (!drawer) {
+      // No drawer on this page: drop the slots so the module-scope listeners
+      // cannot act on a detached one.
+      activeDrawer = null;
+      activeGetState = null;
+      activeMinimise = null;
+      return;
+    }
+    if (drawer._piBound) return;
     drawer._piBound = true;
 
     const tab        = document.getElementById('pi-drawer-tab');
@@ -1112,22 +1156,10 @@ const conciergeIcon = '/images/pi-concierge.svg';
     const handle = document.getElementById('pi-drawer-handle');
     if (handle) handle.addEventListener('click', minimiseDrawer);
 
-    // ESC key - minimises (preserves convo) when open
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && getState() === 'open') minimiseDrawer();
-    });
-
-    // Any link click anywhere on the page closes the drawer immediately.
-    // The user expects: tap a link → navigate → drawer is gone, no overlay.
-    // Anchor matches any <a href> outside the drawer itself; chips inside the
-    // drawer trigger the suggestion handler (delegated below) and are excluded.
-    document.addEventListener('click', (e) => {
-      if (getState() !== 'open') return;
-      const link = e.target.closest('a[href]');
-      if (!link) return;
-      if (drawer.contains(link)) return; // chip / link inside drawer - leave alone
-      minimiseDrawer();
-    }, true);
+    // Hand this page's drawer and its handlers to the module-scope listeners.
+    activeDrawer = drawer;
+    activeGetState = getState;
+    activeMinimise = minimiseDrawer;
 
     // ── Submit ───────────────────────────────────────
     // Streaming flow:
