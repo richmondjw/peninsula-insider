@@ -83,6 +83,7 @@ jobs:
           npm run test:agent-readiness
           npm run test:event-safeguards
           npm run test:event-occurrence
+          npm run test:material-change
           npm run validate:content
 
       - name: Build
