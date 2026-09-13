@@ -67,8 +67,6 @@ const canonical = `https://peninsulainsider.com.au/wine/${slug}/`;
 const hero = await resolveHero('venue', slug, venue.data);
 const ogImage = hero.src;
 
-const isVerified = Boolean(venue.data.lastFactVerified);
-
 const schemas: any[] = [
   buildWinerySchema(venue.data, slug),
 ];

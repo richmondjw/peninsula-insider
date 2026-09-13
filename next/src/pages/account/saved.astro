@@ -236,10 +236,17 @@ export const prerender = true;
     setTimeout(() => toast?.classList.remove('saved-toast--visible'), 2400);
   }
 
+  // Both of bindToolbar()'s listeners are delegated on `document`, and the
+  // store subscription is global, so all three outlive an Astro client-router
+  // swap. init() re-runs on every astro:page-load, so registering them there
+  // added one more copy per navigation: N confirm dialogs from one click on
+  // "Clear all", and N share events from one share. Register once at module
+  // scope, the pattern v5/Card.astro already uses; init() only repaints.
+  bindToolbar();
+  Saves.onChange(render);
+
   function init() {
-    bindToolbar();
     render();
-    Saves.onChange(render);
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);

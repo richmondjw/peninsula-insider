@@ -547,9 +547,88 @@ const payloadJson = JSON.stringify(payload).replace(/</g, '\\u003c');
     btn.textContent = 'Make this my trip';
   }
 
+  // Delegated listeners on `document` / `window` outlive an Astro client-router
+  // swap, but init() re-runs on every astro:page-load. Registering them inside
+  // init() therefore added one more copy of each handler per navigation, so a
+  // single tap on "Make this my trip" ran the fork N times and produced N
+  // copies of the plan. They are registered once at module scope instead (the
+  // pattern v5/Card.astro already uses); init() publishes the current page's
+  // payload and context applier to these two module-scope slots.
+  let activePayload: Payload | null = null;
+  let activeApplyContext: ((id: string, announce?: boolean) => void) | null = null;
+
+  function showToast(planTitle: string) {
+    document.querySelectorAll('.plan-trip-toast').forEach((t) => t.remove());
+    const toast = document.createElement('div');
+    toast.className = 'plan-trip-toast';
+    toast.setAttribute('role', 'status');
+    const text = document.createElement('span');
+    text.textContent = `${planTitle} copied to My Trip.`;
+    const link = document.createElement('a');
+    link.href = '/me/trip/';
+    link.textContent = 'Open My Trip';
+    toast.append(text, link);
+    document.body.appendChild(toast);
+    window.setTimeout(() => toast.remove(), 6000);
+  }
+
+  window.addEventListener('popstate', () => {
+    const data = activePayload;
+    const apply = activeApplyContext;
+    if (!data || !apply) return;
+    const id = new URLSearchParams(window.location.search).get('context') || data.defaultContextId;
+    if (data.contexts[id]) apply(id, false);
+  });
+
+  // ---- fork: copy the plan's stops into My Trip ---------------------------
+  document.addEventListener('click', (event) => {
+    const btn = (event.target as Element | null)?.closest?.('[data-plan-fork]') as HTMLButtonElement | null;
+    if (!btn) return;
+    const data = activePayload;
+    const planId = btn.getAttribute('data-plan-fork');
+    const plan = data && planId ? data.plans[planId] : undefined;
+    if (!plan) return;
+
+    try {
+      const days = Array.from(new Set(plan.stops.map((s) => s.day))).sort((a, b) => a - b);
+      const dayIds = new Map<number, string>();
+      if (days.length > 1) {
+        for (const d of days) {
+          const created = tripAddDay(`Day ${d}`);
+          if (created) dayIds.set(d, created.id);
+        }
+      }
+      for (const stop of plan.stops) {
+        tripAdd(
+          {
+            kind: stop.kind as any,
+            slug: stop.slug,
+            title: stop.title,
+            href: stop.href,
+            note: stop.note ?? '',
+          },
+          { dayId: dayIds.get(stop.day) ?? '' },
+        );
+      }
+      trackEvent('trip_fork', { entity_type: plan.entityType, entity_slug: plan.slug, surface: 'plans' });
+      btn.textContent = 'Added to My Trip';
+      btn.setAttribute('disabled', '');
+      showToast(plan.title);
+    } catch {
+      /* the store throws only on malformed input; never break the page */
+    }
+  });
+
   function init() {
     const root = document.querySelector<HTMLElement>('[data-plan-answer]');
-    if (!root || (root as any)._piInit) return;
+    if (!root) {
+      // Navigated away from the plans hub. Drop the slots so the module-scope
+      // listeners cannot act on a payload whose DOM is gone.
+      activePayload = null;
+      activeApplyContext = null;
+      return;
+    }
+    if ((root as any)._piInit) return;
     (root as any)._piInit = true;
 
     const data = readPayload();
@@ -644,69 +723,15 @@ const payloadJson = JSON.stringify(payload).replace(/</g, '\\u003c');
       });
     });
 
-    window.addEventListener('popstate', () => {
-      const id = new URLSearchParams(window.location.search).get('context') || data.defaultContextId;
-      if (data.contexts[id]) applyContext(id, false);
-    });
+    // Hand this page's payload and applier to the module-scope listeners.
+    activePayload = data;
+    activeApplyContext = applyContext;
 
     // Restore a shared or back-navigated context on load.
     const initial = new URLSearchParams(window.location.search).get('context');
     if (initial && initial !== data.defaultContextId && data.contexts[initial]) {
       applyContext(initial, false);
     }
-
-    // ---- fork: copy the plan's stops into My Trip -------------------------
-    function showToast(planTitle: string) {
-      document.querySelectorAll('.plan-trip-toast').forEach((t) => t.remove());
-      const toast = document.createElement('div');
-      toast.className = 'plan-trip-toast';
-      toast.setAttribute('role', 'status');
-      const text = document.createElement('span');
-      text.textContent = `${planTitle} copied to My Trip.`;
-      const link = document.createElement('a');
-      link.href = '/me/trip/';
-      link.textContent = 'Open My Trip';
-      toast.append(text, link);
-      document.body.appendChild(toast);
-      window.setTimeout(() => toast.remove(), 6000);
-    }
-
-    document.addEventListener('click', (event) => {
-      const btn = (event.target as Element | null)?.closest?.('[data-plan-fork]') as HTMLButtonElement | null;
-      if (!btn) return;
-      const planId = btn.getAttribute('data-plan-fork');
-      const plan = planId ? data.plans[planId] : undefined;
-      if (!plan) return;
-
-      try {
-        const days = Array.from(new Set(plan.stops.map((s) => s.day))).sort((a, b) => a - b);
-        const dayIds = new Map<number, string>();
-        if (days.length > 1) {
-          for (const d of days) {
-            const created = tripAddDay(`Day ${d}`);
-            if (created) dayIds.set(d, created.id);
-          }
-        }
-        for (const stop of plan.stops) {
-          tripAdd(
-            {
-              kind: stop.kind as any,
-              slug: stop.slug,
-              title: stop.title,
-              href: stop.href,
-              note: stop.note ?? '',
-            },
-            { dayId: dayIds.get(stop.day) ?? '' },
-          );
-        }
-        trackEvent('trip_fork', { entity_type: plan.entityType, entity_slug: plan.slug, surface: 'plans' });
-        btn.textContent = 'Added to My Trip';
-        btn.setAttribute('disabled', '');
-        showToast(plan.title);
-      } catch {
-        /* the store throws only on malformed input; never break the page */
-      }
-    });
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
