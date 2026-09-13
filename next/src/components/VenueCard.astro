@@ -138,7 +138,6 @@ const verifiedTier = verificationFreshness(data.lastVerified);
         data-pi-entity-slug={slug}
         data-pi-surface="venue-card"
         data-pi-provider={data.bookingProvider}
-        onClick={(e: any) => e.stopPropagation()}
       >{hrefPrefix === '/stay' ? 'View stay' : 'Book'}</a>
     )}
   </div>
