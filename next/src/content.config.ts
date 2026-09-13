@@ -873,6 +873,24 @@ const events = defineCollection({
     endDate: z.coerce.date().optional(),
     startTime: z.string().optional(), // "11:00"
     endTime: z.string().optional(),
+    /**
+     * The timezone the wall clocks above are written in. Every record on this
+     * site is Melbourne local, and the field exists so that stays a stated
+     * fact rather than an assumption compiled into four different helpers.
+     * src/lib/event-occurrence.mjs resolves the clock through Intl, so a
+     * daylight-saving occurrence gets its real duration instead of the
+     * hardcoded +10:00 the JSON-LD used to stamp on every event all year.
+     */
+    timezone: z.string().default('Australia/Melbourne'),
+    /**
+     * Does this occurrence finish on the following calendar day.
+     *
+     * Left unset, an endTime at or before startTime is read as crossing
+     * midnight, which is right for "21:00 to 01:00" and wrong for a typo.
+     * Set it explicitly to settle the case either way; the safeguard audit
+     * reports any single-day record that leaves it ambiguous.
+     */
+    endsNextDay: z.boolean().optional(),
     season: z.enum(['spring', 'summer', 'autumn', 'winter']).optional(),
     month: z.string().optional(), // "May", "June" etc.
 
@@ -896,6 +914,22 @@ const events = defineCollection({
     ticketingUrl: z.string().url().optional(),
     officialEventUrl: z.string().optional(), // may have multi-URL "|" separators
     bookingRequired: z.string().optional(),
+    /**
+     * Whether a reader can still get in, which is not the same question as
+     * whether the event is happening. A sold-out market is on: it appears on
+     * every listing, labelled, with its booking affordance withdrawn. Before
+     * this field the only way to express "you cannot get in" was to cancel
+     * the record, which told readers something untrue.
+     *
+     * No prices here or anywhere (BRAND-PI 2026-05-15). This maps to
+     * schema.org offer availability only.
+     */
+    bookingStatus: z
+      .enum(['open', 'sold-out', 'waitlist', 'closed', 'not-required', 'unknown'])
+      .default('unknown'),
+    bookingStatusNote: z.string().optional(),
+    bookingStatusSourceUrl: z.string().optional(),
+    bookingStatusCheckedAt: z.coerce.date().optional(),
     freePaid: z.string().optional(),
     priceRange: z.string().optional(),
     priceTier: z
@@ -924,6 +958,41 @@ const events = defineCollection({
       .enum(['one-off', 'weekly', 'monthly', 'annual', 'seasonal', 'ongoing'])
       .default('one-off'),
     recurrenceNote: z.string().optional(),
+    /**
+     * Exceptions to the cadence, one entry per affected occurrence.
+     *
+     * A weekly market that skips the long weekend, a monthly session moved to
+     * another hall, one sold-out night in a season: none of these are facts
+     * about the series, and recording them on the series is how a whole
+     * recurring event gets cancelled to express a single missing week.
+     * src/lib/event-occurrence.mjs applies these per day; everything else
+     * about the series is untouched.
+     */
+    occurrenceExceptions: z
+      .array(
+        z.object({
+          /** The Melbourne calendar day this exception applies to. */
+          date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+          status: z.enum([
+            'cancelled',
+            'postponed',
+            'rescheduled',
+            'sold-out',
+            'moved',
+            'as-scheduled',
+          ]),
+          /** Override the series times for this occurrence only. */
+          startTime: z.string().optional(),
+          endTime: z.string().optional(),
+          /** Where a rescheduled occurrence moved to. */
+          rescheduledTo: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
+          /** Where a moved occurrence is being held instead. */
+          venueName: z.string().optional(),
+          note: z.string().optional(),
+          sourceUrl: z.string().optional(),
+        })
+      )
+      .default([]),
 
     // ─── Audience ──────────────────────────────────────────────────────────
     suitableFor: z.string().optional(),
@@ -986,6 +1055,35 @@ const events = defineCollection({
     sourceUrl: z.string().optional(),
     discoveredAt: z.coerce.date().optional(),
     lastCheckedDate: z.coerce.date().optional(),
+    /**
+     * The same fact as lastCheckedDate, to the minute rather than the day.
+     * Kept separate because lastCheckedDate is written by hand and by the
+     * importer across 50-odd records and must not be redefined underneath
+     * them. Readers of either should prefer this when present.
+     */
+    lastVerifiedAt: z.coerce.date().optional(),
+    /**
+     * When the source itself last changed. A source update later than the last
+     * verification is the "late source update" case: the record is not known
+     * to be wrong, it is known to be unchecked. It keeps its listing, loses
+     * its promotion, and goes on the expiry job's exception queue.
+     */
+    sourceUpdatedAt: z.coerce.date().optional(),
+    /**
+     * Verification as a value rather than as prose.
+     *
+     * verificationStatus above is free text: 22 records, a dozen distinct
+     * spellings, one of them a 280-word paragraph, and the only code that
+     * reads it does so with a /cancelled/i regex. The signature-events
+     * collection has modelled the same idea correctly as a three-value enum
+     * since it was written, so this adopts that shape. Both fields stand:
+     * the prose is real evidence and is not being deleted to make a schema
+     * tidy. New records should set this enum and put the prose in
+     * verificationNote; the safeguard audit ratchets the free-text count so
+     * it can shrink but never grow.
+     */
+    verification: z.enum(['verified', 'tentative', 'stub']).optional(),
+    verificationNote: z.string().optional(),
     visitorAppealScore: z.number().min(0).max(5).optional(),
     editorialPriority: z.number().min(0).max(5).optional(),
 
@@ -1051,10 +1149,38 @@ const events = defineCollection({
     cancellationSourceUrl: z.string().optional(),
     cancellationSourceLabel: z.string().optional(),
 
+    // ─── Postponement ──────────────────────────────────────────────────────
+    // Cancelled and postponed are different answers. A cancelled event will
+    // not happen; a postponed one will, on a date nobody has announced yet.
+    // Collapsing the two either tells readers an event is off when it is not,
+    // or leaves it advertised under a date that has passed. A postponed record
+    // with no rescheduledTo is withdrawn from every DATED surface (there is no
+    // date to list it under) and queued for a human; one with a rescheduledTo
+    // is rescheduled, and its structured data says so with previousStartDate.
+    postponed: z.boolean().default(false),
+    postponedOn: z.coerce.date().optional(),
+    /** The date the event was originally going to run. */
+    postponedFrom: z.coerce.date().optional(),
+    /** The announced new date, when there is one. */
+    rescheduledTo: z.coerce.date().optional(),
+    postponementNote: z.string().optional(),
+    postponementSourceUrl: z.string().optional(),
+    postponementSourceLabel: z.string().optional(),
+
     // ─── Lifecycle ─────────────────────────────────────────────────────────
     status: z
       .enum(['draft', 'review', 'scheduled', 'published', 'expired', 'past', 'archived'])
       .default('published'),
+    /**
+     * When this record stops being publishable, independent of when the event
+     * finishes. The two are not the same instant: a listing whose source only
+     * guarantees the dates to the end of the month expires then, whatever its
+     * endDate says, and a record with a live recurrence never expires at all.
+     * Past this instant the record is off every reader-facing surface; the
+     * URL and the JSON on disk are untouched. Nothing here deletes or moves a
+     * record: status and this field are the only things that delist one.
+     */
+    expiresAt: z.coerce.date().optional(),
     publishedAt: z.coerce.date(),
     sitemapExclude: z.boolean().default(false),
   }),

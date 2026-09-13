@@ -23,13 +23,35 @@ export interface Props {
   /** e.g. "runs to Sun 13 Jul" for multi-day ranges. */
   spanLabel?: string;
   surface?: string;
+  /**
+   * PI-008. The occurrence's own state, not the record's: "Ended", "Sold out",
+   * "Cancelled this time". It joins the meta line rather than arriving as a new
+   * badge, so the client island that clones this markup keeps working and the
+   * CSS budget is untouched. `bookable` is exposed as a data attribute only;
+   * the row has no booking affordance of its own, and the attribute is what
+   * lets a listing be checked from the built HTML.
+   */
+  statusLabel?: string | null;
+  phase?: 'upcoming' | 'running' | 'past';
+  bookable?: boolean;
 }
 
-const { title, href, slug, oneLiner = '', meta = [], spanLabel = '', surface = 'whatson' } = Astro.props;
-const metaText = [meta.join(' · '), spanLabel].filter(Boolean).join(' · ');
+const {
+  title,
+  href,
+  slug,
+  oneLiner = '',
+  meta = [],
+  spanLabel = '',
+  surface = 'whatson',
+  statusLabel = null,
+  phase = 'upcoming',
+  bookable = true,
+} = Astro.props;
+const metaText = [meta.join(' · '), spanLabel, statusLabel].filter(Boolean).join(' · ');
 ---
 
-<li class="wo-row">
+<li class="wo-row" data-occurrence-phase={phase} data-occurrence-bookable={String(bookable)}>
   <div class="wo-row__body">
     <a
       class="wo-row__link"

@@ -23,6 +23,12 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import { routeSlug, eventCategoryLabel } from '../../lib/editorial';
 import { emptyDayMessage } from '../../lib/whatson-empty-state.mjs';
 import { eventAccessLabel, eventIsUnqualifiedFree } from '../../lib/event-access.mjs';
+import { USE_OCCURRENCE_MODEL } from '../../lib/features';
+import {
+  isCancelledRecord,
+  recordDisposition,
+  resolveOccurrence,
+} from '../../lib/event-occurrence.mjs';
 
 export type EventEntry = CollectionEntry<'events'>;
 
@@ -88,7 +94,26 @@ export interface ScopeWindow {
   label: string;
 }
 
-/** Fri-Sun window containing `now` (Sun still counts) or the next one. */
+/**
+ * The SELECTION weekend: Friday to Sunday, the window "what is on this
+ * weekend" is answered over. Sunday still belongs to the weekend that began
+ * on Friday, so a Sunday reader can look back across the whole of it.
+ *
+ * This is deliberately NOT the same window as the homepage rail's, which is
+ * labelled Saturday to Sunday (see weekendWindow in
+ * components/v5/home/home-data.ts). Both are kept, because they answer
+ * different questions: the hub is a listing and includes Friday night; the
+ * homepage is a promotion and speaks about "the weekend" as most readers name
+ * it. The pair only became a hazard while they were both called weekendWindow
+ * and neither said which it was. They are now labelled:
+ *
+ *   selection  Fri to Sun   whats-on/_data.ts     what may be listed
+ *   promotion  Sat to Sun   home/home-data.ts     what is spoken about
+ *
+ * A Friday occurrence is therefore listable on the hub all weekend, and past
+ * once Friday's end time has gone. resolveOccurrence, not this window, is what
+ * stops it looking bookable on Sunday morning.
+ */
 export function weekendWindow(now: Date, offsetWeeks = 0): ScopeWindow {
   const today = startOfDay(now);
   const dow = today.getDay(); // 0 Sun .. 6 Sat
@@ -303,6 +328,15 @@ export interface LiveEvent {
   free: boolean;
   accessLabel: string | null;
   appeal: number;
+  /**
+   * PI-008. `statusLabel` is the short reader-facing note a listing row shows
+   * ("Sold out", "Cancelled", "New date"); null when there is nothing to say.
+   * `promotable` is stricter than being listable: a pick or a homepage slot is
+   * an active recommendation, and a sold-out or unverified record has not
+   * earned one. Both are inert when the occurrence model is flagged off.
+   */
+  statusLabel: string | null;
+  promotable: boolean;
 }
 
 /**
@@ -313,9 +347,18 @@ export interface LiveEvent {
  * rule can be inferred from old prose. For published records, the shared
  * recurrence rule is the source of truth, so recurring series stay live when
  * their original dated occurrence has passed but a valid future cadence exists.
+ *
+ * PI-008 adds the two axes the rule cannot see. `expiresAt` ends a record
+ * independently of when its last occurrence runs, and a postponement with no
+ * announced date leaves nothing to list it under. Both are gated on the
+ * occurrence-model flag, so PUBLIC_EVENT_OCCURRENCE_MODEL=off returns the
+ * previous three-line test exactly.
  */
 export function isCurrentEvent(event: EventEntry, now: Date): boolean {
   if (event.data.status !== 'published') return false;
+  if (USE_OCCURRENCE_MODEL && !recordDisposition(event.data as Record<string, any>, now).listable) {
+    return false;
+  }
   const rule = ruleFor(event, now);
   return rule !== null && startOfDay(rule.end) >= startOfDay(now);
 }
@@ -338,12 +381,10 @@ function timeLabelFor(startTime: unknown): string {
 }
 
 function isCancelled(data: Record<string, any>): boolean {
-  return (
-    data.cancelled === true ||
-    /cancelled/i.test(data.verificationStatus ?? '') ||
-    /^cancelled:/i.test(data.summary ?? '') ||
-    data.skipThis === true
-  );
+  // The reading itself now lives in lib/event-occurrence.mjs so the build
+  // scripts apply the same one. Behaviour is unchanged: the raw flag, the
+  // legacy verificationStatus and summary prose, and an editor's skipThis.
+  return isCancelledRecord(data);
 }
 
 /**
@@ -382,6 +423,12 @@ export async function loadLiveEvents(
     if (isCancelled(data) && !options.includeCancelled) continue;
     const rule = ruleFor(event, now);
     if (!rule || !isCurrentEvent(event, now)) continue;
+    // Expiry and postponement are record-level facts, so they are resolved
+    // once here rather than per day. isCurrentEvent has already refused the
+    // non-listable ones; this is the same answer, kept for display.
+    const disposition = USE_OCCURRENCE_MODEL
+      ? recordDisposition(data, now)
+      : { label: null, promotable: true };
 
     const slug = routeSlug(event);
     const categoryLabel = eventCategoryLabel[data.category] ?? '';
@@ -414,6 +461,8 @@ export async function loadLiveEvents(
       free,
       accessLabel,
       appeal,
+      statusLabel: disposition.label,
+      promotable: disposition.promotable,
     });
   }
   return out.sort((a, b) => b.appeal - a.appeal || a.title.localeCompare(b.title));
@@ -428,7 +477,25 @@ export interface DayGroup {
   heading: string;
   continuingCount: number;
   emptyMessage: string;
-  items: { live: LiveEvent; spanLabel: string }[];
+  items: DayItem[];
+}
+
+export interface DayItem {
+  live: LiveEvent;
+  spanLabel: string;
+  /**
+   * PI-008, per occurrence rather than per record.
+   *
+   * A Sunday reader is allowed to look back over Friday and Saturday, which is
+   * exactly why day granularity was not enough: Friday's 10am-to-2pm market was
+   * still being offered with a live booking link at 4pm on Friday and all day
+   * Saturday. `phase` is the clock's answer, `bookable` is the reader's, and
+   * they come apart on purpose. With the flag off, every item reads
+   * upcoming/bookable, which is the previous behaviour.
+   */
+  phase: 'upcoming' | 'running' | 'past';
+  bookable: boolean;
+  statusLabel: string | null;
 }
 
 /**
@@ -436,7 +503,7 @@ export interface DayGroup {
  * their first active day, with a "runs to" span label; weekly/monthly
  * series appear on each matching day (each is a distinct occurrence).
  */
-export function groupByDay(events: LiveEvent[], win: ScopeWindow): DayGroup[] {
+export function groupByDay(events: LiveEvent[], win: ScopeWindow, now: Date = new Date()): DayGroup[] {
   const dayCount =
     Math.round((startOfDay(win.end).getTime() - startOfDay(win.start).getTime()) / 86400000) + 1;
   const seenRanges = new Set<string>();
@@ -447,6 +514,26 @@ export function groupByDay(events: LiveEvent[], win: ScopeWindow): DayGroup[] {
     let continuingCount = 0;
     for (const live of events) {
       if (!occursOnDay(live.rule, day)) continue;
+      const dayIso = isoDate(day);
+      // A weekly or monthly row is one occurrence on this day. A range row
+      // stands for the whole run: it is pushed once, on its first active day,
+      // with a "runs to" label, so its phase has to be measured over the run.
+      // Measuring it over `dayIso` alone marked a festival that opened on
+      // Friday and finishes on Wednesday as Ended from Friday midnight.
+      const isRange = live.rule.kind === 'range';
+      const occurrence = USE_OCCURRENCE_MODEL
+        ? resolveOccurrence(
+            live.event.data as Record<string, any>,
+            isRange ? isoDate(live.rule.start) : dayIso,
+            now,
+            isRange ? { endDayIso: isoDate(live.rule.end) } : {}
+          )
+        : { phase: 'upcoming' as const, bookable: true, label: null };
+      const state = {
+        phase: occurrence.phase,
+        bookable: occurrence.bookable,
+        statusLabel: occurrence.label ?? live.statusLabel ?? null,
+      };
       if (live.rule.kind === 'range') {
         if (seenRanges.has(live.slug)) {
           continuingCount += 1;
@@ -458,9 +545,9 @@ export function groupByDay(events: LiveEvent[], win: ScopeWindow): DayGroup[] {
           isoDate(runsTo) > isoDate(day)
             ? `runs to ${runsTo.toLocaleDateString('en-AU', { weekday: 'short', day: 'numeric', month: 'short' })}`
             : '';
-        items.push({ live, spanLabel });
+        items.push({ live, spanLabel, ...state });
       } else {
-        items.push({ live, spanLabel: '' });
+        items.push({ live, spanLabel: '', ...state });
       }
     }
     items.sort((a, b) => b.live.appeal - a.live.appeal || a.live.title.localeCompare(b.live.title));
@@ -527,9 +614,16 @@ export async function getPicks(events: LiveEvent[], win: ScopeWindow): Promise<P
   }
 
   // Fallback: lens/appeal scoring over what is actually on this weekend.
+  //
+  // PI-008 raises the bar here and ONLY here. A machine-generated pick is an
+  // active recommendation, so sold out, bookings closed, or a source that
+  // changed after the last verification all disqualify a record from being
+  // promoted while leaving it perfectly listable. The editorial sheet above is
+  // untouched: if an editor has chosen to lead with a sold-out signature event,
+  // that is a decision, not a scoring accident. Inert when the flag is off.
   const chosen = new Set(picks.map((p) => p.live.slug));
   const scored = inWindow
-    .filter((e) => !chosen.has(e.slug))
+    .filter((e) => !chosen.has(e.slug) && e.promotable)
     .map((e) => {
       const data = e.event.data as Record<string, any>;
       const lens: string[] = Array.isArray(data.lens) ? data.lens : [];
@@ -556,7 +650,9 @@ export async function getPicks(events: LiveEvent[], win: ScopeWindow): Promise<P
     const monthWin: ScopeWindow = { start: win.start, end: addDays(win.start, 31), label: '' };
     const have = new Set(picks.map((p) => p.live.slug));
     for (const e of events) {
-      if (have.has(e.slug) || !occursInWindow(e.rule, monthWin)) continue;
+      // Same bar as the scored fallback above: a top-up is still a machine
+      // recommendation, so it must not reach for a sold-out or unverified one.
+      if (have.has(e.slug) || !e.promotable || !occursInWindow(e.rule, monthWin)) continue;
       const day = firstDayInWindow(e.rule, monthWin) ?? monthWin.start;
       picks.push({
         live: e,
@@ -625,6 +721,13 @@ export interface FeedEntry {
   wds?: number[]; // multiple weekdays
   nth?: number; // nth weekday of month (-1 = last)
   months?: number[];
+  /**
+   * PI-008 status note ("Sold out", "New date"), omitted when there is nothing
+   * to say. The client island renders other date scopes from this payload, so
+   * a record whose booking has closed must carry that fact across the wire or
+   * the month-ahead view contradicts the weekend view above it.
+   */
+  x?: string;
 }
 
 export function feedFor(events: LiveEvent[]): FeedEntry[] {
@@ -643,6 +746,7 @@ export function feedFor(events: LiveEvent[]): FeedEntry[] {
     if (live.rule.days && live.rule.days.length > 1) entry.wds = live.rule.days;
     if (live.rule.nth !== undefined) entry.nth = live.rule.nth;
     if (live.rule.months) entry.months = live.rule.months;
+    if (live.statusLabel) entry.x = live.statusLabel;
     return entry;
   });
 }

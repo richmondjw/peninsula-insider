@@ -82,6 +82,7 @@ jobs:
           npm run test:season
           npm run test:agent-readiness
           npm run test:event-safeguards
+          npm run test:event-occurrence
           npm run validate:content
 
       - name: Build
