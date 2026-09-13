@@ -227,8 +227,8 @@ funnel that mixes two destinations measures neither.
 | | |
 |---|---|
 | **Fires when** | A reader clicks a `mailto:corrections@peninsulainsider.com.au` link that is marked `data-pi-intent="correction"`. |
-| **Marked surfaces** | `article-note` (`CorrectionNote.astro`, rendered on evergreen journal articles only, and only where the format is evergreen), `corrections-policy`, `about`, `editorial-approach`, `contact`, `terms`. |
-| **Not marked** | The live site footer. `next/src/components/Footer.astro` has a corrections address but has no importers and is dead code; the footer that actually renders, `next/src/components/v5/chrome/V5Footer.astro`, carries no corrections link at all. So the site-wide corrections affordance does not exist, which is worth knowing before reading anything into the volume of this event. |
+| **Marked surfaces** | `CorrectionNote.astro` on venue, place, journal, event, tour, tour-operator and tour-package pages and the stay, tour, tour-operator, spa and walks hubs (the `surface` value names which), plus `corrections-policy`, `about`, `editorial-approach`, `contact`, `terms`. |
+| **Not marked** | The site-wide footer link. `V5Footer.astro` renders a **Corrections** entry in its fine-print column on every page, from `v5FooterFinePrint` in `src/lib/v5-nav.ts`, but it points at `/corrections/` rather than the mailbox and carries no `data-pi-intent`, so it fires nothing. The site-wide corrections affordance therefore exists and is invisible to this event — which is worth knowing before reading anything into its volume. (`next/src/components/Footer.astro` also has a corrections address; it has no importers and is dead code.) |
 | **Dedup** | `correction:<surface>`, 1000 ms. |
 | **Payload** | `surface`. Nothing else: there is nothing else to know. |
 | **This is not `correction_submitted`** | It records a reader reaching for the channel. Whether a correction was ever sent is unobservable from this site. See "Reserved" below. |
