@@ -95,7 +95,7 @@ Here is the complete plan assuming the anchor dinner is Saturday at Laura, with 
 
 **3.30pm:** Check in. Take the late afternoon slow. Nothing planned for the first three hours. Arriving into a birthday weekend at a sprint is the easiest way to land off-balance.
 
-**5pm:** A short walk around the sculpture park. Arriving guests will want to stretch their legs. The Point Leo sculpture park is free to walk through if you are staying on site, and the first hour before sunset is when the light on the works is at its best.
+**5pm:** A short walk around the sculpture park. Arriving guests will want to stretch their legs. Entry to the Point Leo sculpture park is ticketed, and the first hour before sunset is when the light on the works is at its best.
 
 **7pm:** Dinner nearby, casual. The night-one dinner should not compete with tomorrow's anchor. Good options: **Barragunda Dining** at Cape Schanck (thirty minutes away, relaxed, farm-oriented), **Merricks General Wine Store** (closer, casual, pizzas and grilled things), or **Polperro** (serious but smaller plates and a quieter tone). Save the tasting palate for Saturday.
 

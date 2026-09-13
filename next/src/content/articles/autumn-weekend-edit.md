@@ -30,7 +30,7 @@ faq:
   - question: "Is April the best time to visit the Mornington Peninsula?"
     answer: "For most visitors, yes. Crowds thin after Easter, the vineyards are mid-harvest and at their most photogenic, the light is exceptional, and tables that were impossible in summer are bookable a week ahead. The weather is less reliable than summer but the experience is usually richer."
   - question: "What's on at the Mornington Peninsula in autumn?"
-    answer: "The Red Hill Market runs on the first Saturday of each month year-round. Autumn harvest is active at most vineyards through March and April. The walking season is at its best - the coastal paths are more dramatic in autumn light and the crowds are significantly lower."
+    answer: "The Red Hill Market runs on the first Saturday of each month from September to May. Autumn harvest is active at most vineyards through March and April. The walking season is at its best - the coastal paths are more dramatic in autumn light and the crowds are significantly lower."
   - question: "Which Peninsula restaurants are best in autumn?"
     answer: "Tedesca Osteria is the strongest autumn lunch - the set menu tilts into seasonal produce and the dining room suits cool weather. Montalto's cellar door and sculpture park are excellent through April. For the weekend, Lindenderry at Red Hill is the strongest autumn stay."
 ---
