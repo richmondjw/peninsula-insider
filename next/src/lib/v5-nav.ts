@@ -14,7 +14,7 @@
  * NOTE for the budget lint: interfaces here must stay flat (no nested
  * braces) so the lint can strip types and evaluate the config, and the
  * only import permitted is the shared season helper below, which
- * scripts/lint-nav-budget.mjs strips and stubs. Voice rules per
+ * scripts/nav-config-eval.mjs strips and stubs. Voice rules per
  * BRAND-PI.md: no em-dashes, no tourism adjectives, no exclamation
  * marks, noun-phrase links.
  *
@@ -23,7 +23,7 @@
  * V5MegaPanel marks the pin fields up with editableText() so each pin
  * is CMS-editable in place (entityType 'page', entitySlug 'nav-<key>').
  */
-import { getSeasonEditionTag } from './season';
+import { getSeasonEditionTag, melbourneISODate } from './season';
 
 /**
  * The rail eyebrow. Every pillar pin used to carry a hard-coded
@@ -256,15 +256,25 @@ const configuredV5Pillars = [
  * Seasonal rails must fail closed. A stale recommendation is worse than an
  * evergreen one, so an expired pin is replaced at build time with its neutral
  * fallback rather than remaining visible until someone remembers to edit it.
+ *
+ * The comparison day comes from melbourneISODate, not from
+ * `new Date().toISOString()`. Expiry dates are written by an editor thinking
+ * in Melbourne time, and CI builds on a UTC runner ten to eleven hours
+ * behind, so the UTC day is still yesterday for most of the Melbourne
+ * working day. A pin set to expire on the 19th survived nearly all of the
+ * 19th in Melbourne. Both halves of this file now read the same clock.
  */
-const today = new Date().toISOString().slice(0, 10);
-export const v5Pillars: V5Pillar[] = configuredV5Pillars.map((pillar) => {
-  const { rail } = pillar;
-  if (rail.expiresAt && rail.fallback && rail.expiresAt < today) {
-    return { ...pillar, rail: rail.fallback };
+export function resolveRail(rail: V5Rail, todayISO: string): V5Rail {
+  if (rail.expiresAt && rail.fallback && rail.expiresAt < todayISO) {
+    return rail.fallback;
   }
-  return pillar;
-});
+  return rail;
+}
+
+export const v5Pillars: V5Pillar[] = configuredV5Pillars.map((pillar) => ({
+  ...pillar,
+  rail: resolveRail(pillar.rail, melbourneISODate()),
+}));
 
 /**
  * Masthead utilities. Three choices, both breakpoints (NAV-05: one

@@ -27,6 +27,7 @@ const {
   getAustralianSeasonLower,
   getSeasonEditionTag,
   melbourneCalendarParts,
+  melbourneISODate,
 } = await import('./season.ts');
 
 /** The season a UTC build host would have computed from date.getMonth(). */
@@ -127,4 +128,47 @@ test("the edition tag follows the season across the new year", () => {
   assert.equal(getSeasonEditionTag(new Date('2026-12-31T13:00:00Z')), "Summer '27");
   // The last minute of 2026 in Melbourne is still '26.
   assert.equal(getSeasonEditionTag(new Date('2026-12-31T12:59:59Z')), "Summer '26");
+});
+
+/**
+ * melbourneISODate. Same thesis as the season tests one level down: the
+ * question is not "what is the date" but "whose date". Every instant below
+ * is an absolute UTC instant chosen so the Melbourne day and the UTC day
+ * disagree, and each is checked against the naive derivation
+ * (`toISOString().slice(0, 10)`) that the navigation used to run on.
+ */
+test('melbourneISODate reads the Melbourne day, not the UTC one', () => {
+  // 19 Aug 2026 09:00 Melbourne (AEST, UTC+10) is still 18 Aug in UTC.
+  const d = new Date('2026-08-18T23:00:00Z');
+  assert.equal(melbourneISODate(d), '2026-08-19');
+  assert.equal(d.toISOString().slice(0, 10), '2026-08-18');
+});
+
+test('melbourneISODate rolls the month and the year on Melbourne time', () => {
+  // 1 Sep 2026 00:00 Melbourne: UTC is still 31 August.
+  assert.equal(melbourneISODate(new Date('2026-08-31T14:00:00Z')), '2026-09-01');
+  // 1 Jan 2027 00:00 Melbourne (AEDT, UTC+11): UTC is still 31 Dec 2026.
+  assert.equal(melbourneISODate(new Date('2026-12-31T13:00:00Z')), '2027-01-01');
+  // The last second of 2026 in Melbourne is still 2026.
+  assert.equal(melbourneISODate(new Date('2026-12-31T12:59:59Z')), '2026-12-31');
+});
+
+test('melbourneISODate pads to a sortable YYYY-MM-DD', () => {
+  // Zero padding is load-bearing: callers compare these as strings, and
+  // '2026-9-1' < '2026-08-31' is true, which would resurrect expired pins.
+  const iso = melbourneISODate(new Date('2026-01-04T02:00:00Z'));
+  assert.match(iso, /^\d{4}-\d{2}-\d{2}$/);
+  assert.equal(iso, '2026-01-04');
+  assert.ok('2026-08-31' < '2026-09-01', 'ISO dates must sort lexicographically');
+});
+
+test('melbourneISODate agrees with melbourneCalendarParts', () => {
+  // One derivation, not two. If these ever disagree the module has grown a
+  // second clock, which is the fault this file exists to prevent.
+  for (const iso of ['2026-02-28T13:00:00Z', '2026-05-31T14:00:00Z', '2026-08-31T13:59:59Z']) {
+    const d = new Date(iso);
+    const { year, month, day } = melbourneCalendarParts(d);
+    const pad = (n) => String(n).padStart(2, '0');
+    assert.equal(melbourneISODate(d), `${year}-${pad(month)}-${pad(day)}`);
+  }
 });

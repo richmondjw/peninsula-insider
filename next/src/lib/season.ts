@@ -45,6 +45,8 @@ export interface MelbourneCalendarParts {
   year: number;
   /** One-indexed month, 1 to 12. */
   month: number;
+  /** One-indexed day of the month, 1 to 31. */
+  day: number;
   /** Full month name in en-AU, e.g. "September". */
   monthName: string;
 }
@@ -60,13 +62,14 @@ export function melbourneCalendarParts(date: Date = new Date()): MelbourneCalend
     timeZone: PENINSULA_TZ,
     year: 'numeric',
     month: 'numeric',
+    day: 'numeric',
   }).formatToParts(date);
   const num = (t: string) => Number(parts.find((p) => p.type === t)?.value ?? '0');
   const monthName = new Intl.DateTimeFormat('en-AU', {
     timeZone: PENINSULA_TZ,
     month: 'long',
   }).format(date);
-  return { year: num('year'), month: num('month'), monthName };
+  return { year: num('year'), month: num('month'), day: num('day'), monthName };
 }
 
 /** The Southern Hemisphere season on Melbourne time. Title case. */
@@ -95,4 +98,24 @@ export function getAustralianSeasonLower(date: Date = new Date()): AustralianSea
 export function getSeasonEditionTag(date: Date = new Date()): string {
   const { year } = melbourneCalendarParts(date);
   return `${getAustralianSeason(date)} '${String(year % 100).padStart(2, '0')}`;
+}
+
+/**
+ * The Melbourne calendar day as an ISO `YYYY-MM-DD` string.
+ *
+ * Anything that compares an editorial expiry date against "today" needs
+ * this rather than `new Date().toISOString().slice(0, 10)`, which is the
+ * UTC day. On the UTC build host those two disagree for the first ten to
+ * eleven hours of every Melbourne day, so a pin dated to expire on the
+ * 19th stayed live through most of the 19th in Melbourne -- the same
+ * timezone fault this module was written to end, one derivation further
+ * down the page.
+ *
+ * ISO `YYYY-MM-DD` strings sort lexicographically, so callers can compare
+ * them with `<` directly and do not need a Date round trip.
+ */
+export function melbourneISODate(date: Date = new Date()): string {
+  const { year, month, day } = melbourneCalendarParts(date);
+  const pad = (n: number) => String(n).padStart(2, '0');
+  return `${year}-${pad(month)}-${pad(day)}`;
 }
