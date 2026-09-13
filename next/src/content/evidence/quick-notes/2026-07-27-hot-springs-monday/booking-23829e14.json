@@ -1,0 +1,19 @@
+{
+  "evidenceId": "quick-notes/2026-07-27-hot-springs-monday/booking-23829e14",
+  "claim": "quick-notes/2026-07-27-hot-springs-monday/booking",
+  "stance": "supports",
+  "publisher": {
+    "kind": "gov"
+  },
+  "retrievedAt": "2026-07-27",
+  "expiresAt": "2026-09-25",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/content/quick-notes/2026-07-27-hot-springs-monday.md",
+    "field": "sources[0]",
+    "value": "{\"kind\":\"gov\",\"url\":\"https://api.open-meteo.com/v1/forecast?latitude=-38.40&longitude=145.00&daily=precipitation_sum,precipitation_probability_max,temperature_2m_max,temperature_2m_min,windspeed_10m_max,weathercode&current_weather=true&timezone=Australia%2FMelbourne&forecast_days=7\",\"note\":\"Open-Meteo Main Ridge retrieval 2026-07-27T08:53Z. Current at 18:45 AEST: 12.1°C, 26.8 km/h N (353°), weathercode 3. Mon 27 Jul: 4%/0mm, 29.2 km/h max. Tue 28 Jul: 100%/6.3mm, weathercode 95 (thunderstorm). Wed 29 Jul: 95%/7.9mm.\",\"checkedAt\":\"2026-07-27T18:52:00+10:00\"}",
+    "dateField": "sources[0].checkedAt"
+  },
+  "url": "https://api.open-meteo.com/v1/forecast?latitude=-38.40&longitude=145.00&daily=precipitation_sum,precipitation_probability_max,temperature_2m_max,temperature_2m_min,windspeed_10m_max,weathercode&current_weather=true&timezone=Australia%2FMelbourne&forecast_days=7",
+  "note": "Open-Meteo Main Ridge retrieval 2026-07-27T08:53Z. Current at 18:45 AEST: 12.1°C, 26.8 km/h N (353°), weathercode 3. Mon 27 Jul: 4%/0mm, 29.2 km/h max. Tue 28 Jul: 100%/6.3mm, weathercode 95 (thunderstorm). Wed 29 Jul: 95%/7.9mm."
+}

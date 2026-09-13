@@ -1,0 +1,18 @@
+{
+  "evidenceId": "quick-notes/2026-05-08-weather-friday/conditions-6e18b7e2",
+  "claim": "quick-notes/2026-05-08-weather-friday/conditions",
+  "stance": "supports",
+  "publisher": {
+    "kind": "gov"
+  },
+  "retrievedAt": "2026-05-08",
+  "expiresAt": "2026-05-15",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/content/quick-notes/2026-05-08-weather-friday.md",
+    "field": "sources[0]",
+    "value": "{\"kind\":\"gov\",\"note\":\"wttr.in live feed, Red Hill, Victoria. Current (06:40 AEST): 13°C, feels like 11°C, WSW 23km/h, 82% humidity, overcast. Friday 8 May: Max 15°C, Min 11°C - 100% rain across all hourly slots (0000 through 2100). Saturday 9 May: Max 14°C, Min 10°C - patchy rain, 0% at 0900 then returns at 1200 (80%). Sunday 10 May: Max 16°C, Min 10°C - clears from noon: 0% at 1200 and 1500, sunny at 1500, clear and 11°C at 1800. Checked live 08 May 2026 06:42 AEST.\",\"checkedAt\":\"2026-05-08T06:42:00+10:00\"}",
+    "dateField": "sources[0].checkedAt"
+  },
+  "note": "wttr.in live feed, Red Hill, Victoria. Current (06:40 AEST): 13°C, feels like 11°C, WSW 23km/h, 82% humidity, overcast. Friday 8 May: Max 15°C, Min 11°C - 100% rain across all hourly slots (0000 through 2100). Saturday 9 May: Max 14°C, Min 10°C - patchy rain, 0% at 0900 then returns at 1200 (80%). Sunday 10 May: Max 16°C, Min 10°C - clears from noon: 0% at 1200 and 1500, sunny at 1500, clear and 11°C at 1800. Checked live 08 May 2026 06:42 AEST."
+}

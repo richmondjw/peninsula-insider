@@ -67,6 +67,8 @@
     "lint:listener-hygiene": "node --test scripts/client-listener-hygiene.test.mjs",
     "assert:count-semantics": "node scripts/assert-count-semantics.mjs",
     "test:count-semantics": "node --test scripts/count-semantics.test.mjs",
+    "seed:claim-registry": "node scripts/seed-claim-registry.mjs",
+    "test:claim-registry": "node --test scripts/seed-claim-registry.test.mjs",
     "lint:firsthand-claims": "node scripts/lint-firsthand-claims.mjs",
     "test:firsthand-claims": "node --test scripts/lint-firsthand-claims.test.mjs",
     "audit:schema-drift": "node scripts/audit-content-schema-drift.mjs",

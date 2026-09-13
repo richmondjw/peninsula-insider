@@ -1,0 +1,18 @@
+{
+  "evidenceId": "signature-events/sailing-regattas/event-status-c68e7d37",
+  "claim": "signature-events/sailing-regattas/event-status",
+  "stance": "supports",
+  "publisher": {
+    "kind": "unknown"
+  },
+  "retrievedAt": "2026-05-13",
+  "expiresAt": "2026-06-12",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/content/signature-events/sailing-regattas.json",
+    "field": "officialUrl",
+    "value": "https://sscbc.com.au/coutaboats/",
+    "dateField": "lastReviewed"
+  },
+  "url": "https://sscbc.com.au/coutaboats/"
+}

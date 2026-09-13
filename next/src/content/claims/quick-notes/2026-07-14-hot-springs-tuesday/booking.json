@@ -1,0 +1,24 @@
+{
+  "claimId": "quick-notes/2026-07-14-hot-springs-tuesday/booking",
+  "claimClass": "booking",
+  "subject": {
+    "type": "quick-notes",
+    "slug": "2026-07-14-hot-springs-tuesday",
+    "field": "sources"
+  },
+  "statement": "Peninsula Hot Springs - the wet Tuesday argument for booking today rather than waiting for the weekend.",
+  "assertedBy": [
+    {
+      "type": "quick-notes",
+      "slug": "2026-07-14-hot-springs-tuesday",
+      "field": "sources"
+    },
+    {
+      "type": "venues",
+      "slug": "peninsula-hot-springs"
+    }
+  ],
+  "createdAt": "2026-07-14",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

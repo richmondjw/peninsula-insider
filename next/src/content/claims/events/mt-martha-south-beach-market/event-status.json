@@ -1,0 +1,18 @@
+{
+  "claimId": "events/mt-martha-south-beach-market/event-status",
+  "claimClass": "event-status",
+  "subject": {
+    "type": "events",
+    "slug": "mt-martha-south-beach-market"
+  },
+  "statement": "Mt Martha South Beach Market is running as published.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "mt-martha-south-beach-market"
+    }
+  ],
+  "createdAt": "2026-05-04",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

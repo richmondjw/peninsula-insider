@@ -1,0 +1,20 @@
+{
+  "claimId": "data-facts/wine/foxeys-hangout/trading-status",
+  "claimClass": "trading-status",
+  "subject": {
+    "type": "data-facts",
+    "slug": "wine/foxeys-hangout",
+    "field": "wineries[10].source"
+  },
+  "statement": "Foxeys Hangout: trading status as recorded in src/data/facts/wine.json.",
+  "assertedBy": [
+    {
+      "type": "data-facts",
+      "slug": "wine/foxeys-hangout",
+      "field": "wineries[10].source"
+    }
+  ],
+  "createdAt": "2026-09-13",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

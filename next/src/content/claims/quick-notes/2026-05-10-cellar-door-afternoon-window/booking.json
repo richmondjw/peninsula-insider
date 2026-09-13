@@ -1,0 +1,20 @@
+{
+  "claimId": "quick-notes/2026-05-10-cellar-door-afternoon-window/booking",
+  "claimClass": "booking",
+  "subject": {
+    "type": "quick-notes",
+    "slug": "2026-05-10-cellar-door-afternoon-window",
+    "field": "sources"
+  },
+  "statement": "Cellar door afternoon window - Peninsula wineries still have walk-in room this morning, but the 3pm clear will concentrate demand fast.",
+  "assertedBy": [
+    {
+      "type": "quick-notes",
+      "slug": "2026-05-10-cellar-door-afternoon-window",
+      "field": "sources"
+    }
+  ],
+  "createdAt": "2026-05-10",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

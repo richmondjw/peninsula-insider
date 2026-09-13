@@ -1,0 +1,20 @@
+{
+  "claimId": "quick-notes/2026-05-24-morning-window-explore/conditions",
+  "claimClass": "conditions",
+  "subject": {
+    "type": "quick-notes",
+    "slug": "2026-05-24-morning-window-explore",
+    "field": "sources"
+  },
+  "statement": "The morning window - coastal walks and the Red Hill corridor are accessible before noon.",
+  "assertedBy": [
+    {
+      "type": "quick-notes",
+      "slug": "2026-05-24-morning-window-explore",
+      "field": "sources"
+    }
+  ],
+  "createdAt": "2026-05-24",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

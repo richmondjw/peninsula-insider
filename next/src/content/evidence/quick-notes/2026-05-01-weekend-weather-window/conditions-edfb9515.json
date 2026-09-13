@@ -1,0 +1,18 @@
+{
+  "evidenceId": "quick-notes/2026-05-01-weekend-weather-window/conditions-edfb9515",
+  "claim": "quick-notes/2026-05-01-weekend-weather-window/conditions",
+  "stance": "supports",
+  "publisher": {
+    "kind": "gov"
+  },
+  "retrievedAt": "2026-05-01",
+  "expiresAt": "2026-05-08",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/content/quick-notes/2026-05-01-weekend-weather-window.md",
+    "field": "sources[0]",
+    "value": "{\"kind\":\"gov\",\"url\":\"http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml\",\"checkedAt\":\"2026-05-01T06:20:00+10:00\"}",
+    "dateField": "sources[0].checkedAt"
+  },
+  "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml"
+}

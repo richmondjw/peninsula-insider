@@ -1,0 +1,102 @@
+{
+  "version": 1,
+  "updated": "2026-09-13",
+  "ticket": "PI-005",
+  "note": "Source precedence and expiry for the claim registry, by claim class. Precedence orders publisher kinds from most to least authoritative for that class: where two pieces of evidence disagree, the one from the earlier kind wins, and the disagreement stays visible either way. expiryDays is added to an evidence row's retrievedAt to get its expiresAt. Expiry is a state transition, never a deletion. Nothing in the build reads this file yet; enforcement is Stage 3.",
+  "defaultExpiryDays": 90,
+  "publisherKinds": [
+    "venue-site",
+    "phone",
+    "email",
+    "visit",
+    "press",
+    "social",
+    "gov",
+    "partner",
+    "organiser",
+    "ticketing",
+    "regional-body",
+    "importer",
+    "unknown"
+  ],
+  "classes": {
+    "trading-status": {
+      "label": "The business is trading",
+      "authority": "operator",
+      "expiryDays": 90,
+      "precedence": ["venue-site", "phone", "email", "visit", "partner", "gov", "organiser", "press", "regional-body", "ticketing", "social", "importer", "unknown"]
+    },
+    "opening-hours": {
+      "label": "When it is open",
+      "authority": "operator",
+      "expiryDays": 90,
+      "precedence": ["venue-site", "phone", "email", "visit", "partner", "social", "gov", "organiser", "press", "regional-body", "ticketing", "importer", "unknown"]
+    },
+    "offering": {
+      "label": "Menu, release or programme",
+      "authority": "operator",
+      "expiryDays": 120,
+      "precedence": ["venue-site", "email", "phone", "visit", "partner", "social", "press", "organiser", "regional-body", "gov", "ticketing", "importer", "unknown"]
+    },
+    "booking": {
+      "label": "Booking window or requirement",
+      "authority": "operator",
+      "expiryDays": 60,
+      "precedence": ["venue-site", "ticketing", "phone", "email", "partner", "organiser", "visit", "social", "press", "gov", "regional-body", "importer", "unknown"]
+    },
+    "rate-change": {
+      "label": "A rate moved",
+      "authority": "operator",
+      "expiryDays": 180,
+      "precedence": ["venue-site", "email", "phone", "partner", "ticketing", "visit", "organiser", "press", "social", "gov", "regional-body", "importer", "unknown"]
+    },
+    "event-status": {
+      "label": "Running, cancelled or postponed",
+      "authority": "organiser",
+      "expiryDays": 30,
+      "precedence": ["organiser", "venue-site", "ticketing", "email", "phone", "partner", "gov", "social", "press", "regional-body", "visit", "importer", "unknown"]
+    },
+    "event-schedule": {
+      "label": "Event dates and times",
+      "authority": "organiser",
+      "expiryDays": 30,
+      "precedence": ["organiser", "ticketing", "venue-site", "email", "phone", "partner", "gov", "press", "social", "regional-body", "visit", "importer", "unknown"]
+    },
+    "access-restriction": {
+      "label": "Closure, restriction or safety warning",
+      "authority": "public authority",
+      "expiryDays": 30,
+      "precedence": ["gov", "partner", "visit", "phone", "email", "venue-site", "organiser", "press", "social", "regional-body", "ticketing", "importer", "unknown"]
+    },
+    "conditions": {
+      "label": "Tide, swell, fire or rainfall window",
+      "authority": "public authority",
+      "expiryDays": 7,
+      "precedence": ["gov", "partner", "visit", "venue-site", "social", "press", "phone", "email", "organiser", "regional-body", "ticketing", "importer", "unknown"]
+    },
+    "fishing-rule": {
+      "label": "Bag limit, size limit or closed season",
+      "authority": "public authority",
+      "expiryDays": 365,
+      "precedence": ["gov", "partner", "press", "venue-site", "phone", "email", "visit", "organiser", "regional-body", "social", "ticketing", "importer", "unknown"]
+    },
+    "accessibility": {
+      "label": "Access details",
+      "authority": "operator",
+      "expiryDays": 365,
+      "precedence": ["venue-site", "visit", "phone", "email", "gov", "partner", "organiser", "press", "regional-body", "social", "ticketing", "importer", "unknown"]
+    },
+    "regional-count": {
+      "label": "A count or aggregate for the region",
+      "authority": "regional body",
+      "expiryDays": 365,
+      "precedence": ["regional-body", "gov", "press", "partner", "venue-site", "email", "phone", "organiser", "visit", "social", "ticketing", "importer", "unknown"]
+    },
+    "editorial": {
+      "label": "An editor's own note, with no external source",
+      "authority": "editor",
+      "expiryDays": 365,
+      "precedence": ["visit", "phone", "email", "venue-site", "partner", "press", "organiser", "gov", "regional-body", "social", "ticketing", "importer", "unknown"]
+    }
+  }
+}

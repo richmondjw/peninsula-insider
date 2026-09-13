@@ -1,0 +1,18 @@
+{
+  "evidenceId": "data-facts/beaches/portsea-front-beach/access-restriction-af69785c",
+  "claim": "data-facts/beaches/portsea-front-beach/access-restriction",
+  "stance": "supports",
+  "publisher": {
+    "kind": "unknown"
+  },
+  "retrievedAt": "2026-04-22",
+  "expiresAt": "2026-05-22",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/data/facts/beaches.json",
+    "field": "entities[6].source",
+    "value": "https://exploreshaw.com/a-guide-to-the-mornington-peninsula-beaches/",
+    "dateField": "lastUpdated"
+  },
+  "url": "https://exploreshaw.com/a-guide-to-the-mornington-peninsula-beaches/"
+}

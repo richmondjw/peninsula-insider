@@ -1,0 +1,20 @@
+{
+  "claimId": "quick-notes/2026-07-14-weather-tuesday/conditions",
+  "claimClass": "conditions",
+  "subject": {
+    "type": "quick-notes",
+    "slug": "2026-07-14-weather-tuesday",
+    "field": "sources"
+  },
+  "statement": "Weather - another wet morning at Main Ridge, the dry window opens tomorrow and holds through the weekend.",
+  "assertedBy": [
+    {
+      "type": "quick-notes",
+      "slug": "2026-07-14-weather-tuesday",
+      "field": "sources"
+    }
+  ],
+  "createdAt": "2026-07-14",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

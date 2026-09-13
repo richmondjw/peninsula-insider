@@ -1,0 +1,18 @@
+{
+  "evidenceId": "events/mornington-racecourse-market/event-status-4e66d180",
+  "claim": "events/mornington-racecourse-market/event-status",
+  "stance": "supports",
+  "publisher": {
+    "kind": "regional-body"
+  },
+  "retrievedAt": "2026-05-06",
+  "expiresAt": "2026-06-05",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/content/events/mornington-racecourse-market.json",
+    "field": "secondarySourceUrl",
+    "value": "https://www.visitmorningtonpeninsula.org/Whats-On/Markets",
+    "dateField": "lastCheckedDate"
+  },
+  "url": "https://www.visitmorningtonpeninsula.org/Whats-On/Markets"
+}

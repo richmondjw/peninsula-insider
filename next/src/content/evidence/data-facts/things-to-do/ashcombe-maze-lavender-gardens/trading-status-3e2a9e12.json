@@ -1,0 +1,18 @@
+{
+  "evidenceId": "data-facts/things-to-do/ashcombe-maze-lavender-gardens/trading-status-3e2a9e12",
+  "claim": "data-facts/things-to-do/ashcombe-maze-lavender-gardens/trading-status",
+  "stance": "supports",
+  "publisher": {
+    "kind": "venue-site"
+  },
+  "retrievedAt": "2026-09-13",
+  "expiresAt": "2026-12-12",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/data/facts/things-to-do.json",
+    "field": "entities[4].source",
+    "value": "https://www.ashcombemaze.com.au",
+    "dateField": "lastUpdated"
+  },
+  "url": "https://www.ashcombemaze.com.au"
+}

@@ -1,0 +1,18 @@
+{
+  "claimId": "events/harry-baker-2k-sailing-regatta/event-status",
+  "claimClass": "event-status",
+  "subject": {
+    "type": "events",
+    "slug": "harry-baker-2k-sailing-regatta"
+  },
+  "statement": "Harry Baker 2K Sailing Regatta is running as published.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "harry-baker-2k-sailing-regatta"
+    }
+  ],
+  "createdAt": "2026-05-04",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

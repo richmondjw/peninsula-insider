@@ -1,0 +1,18 @@
+{
+  "evidenceId": "events/pier-10-mothers-day-lunch-2026/event-status-3fe8c35f",
+  "claim": "events/pier-10-mothers-day-lunch-2026/event-status",
+  "stance": "supports",
+  "publisher": {
+    "kind": "venue-site"
+  },
+  "retrievedAt": "2026-05-07",
+  "expiresAt": "2026-06-06",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/content/events/pier-10-mothers-day-lunch-2026.json",
+    "field": "secondarySourceUrl",
+    "value": "https://pier10.com.au/events-3/mothersday2023/",
+    "dateField": "lastCheckedDate"
+  },
+  "url": "https://pier10.com.au/events-3/mothersday2023/"
+}

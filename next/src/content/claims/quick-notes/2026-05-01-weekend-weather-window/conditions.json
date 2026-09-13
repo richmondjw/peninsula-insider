@@ -1,0 +1,20 @@
+{
+  "claimId": "quick-notes/2026-05-01-weekend-weather-window/conditions",
+  "claimClass": "conditions",
+  "subject": {
+    "type": "quick-notes",
+    "slug": "2026-05-01-weekend-weather-window",
+    "field": "sources"
+  },
+  "statement": "The weekend weather window - clear, cool, low wind",
+  "assertedBy": [
+    {
+      "type": "quick-notes",
+      "slug": "2026-05-01-weekend-weather-window",
+      "field": "sources"
+    }
+  ],
+  "createdAt": "2026-05-01",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

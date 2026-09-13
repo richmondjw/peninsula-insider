@@ -1,0 +1,24 @@
+{
+  "claimId": "quick-notes/2026-07-27-hot-springs-monday/booking",
+  "claimClass": "booking",
+  "subject": {
+    "type": "quick-notes",
+    "slug": "2026-07-27-hot-springs-monday",
+    "field": "sources"
+  },
+  "statement": "Peninsula Hot Springs - tonight is the last dry window before Tuesday's thunderstorm closes the working week.",
+  "assertedBy": [
+    {
+      "type": "quick-notes",
+      "slug": "2026-07-27-hot-springs-monday",
+      "field": "sources"
+    },
+    {
+      "type": "venues",
+      "slug": "peninsula-hot-springs"
+    }
+  ],
+  "createdAt": "2026-07-27",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

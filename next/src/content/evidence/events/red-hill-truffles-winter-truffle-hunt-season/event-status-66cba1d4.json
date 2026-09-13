@@ -1,0 +1,19 @@
+{
+  "evidenceId": "events/red-hill-truffles-winter-truffle-hunt-season/event-status-66cba1d4",
+  "claim": "events/red-hill-truffles-winter-truffle-hunt-season/event-status",
+  "stance": "supports",
+  "publisher": {
+    "kind": "organiser",
+    "name": "Red Hill Truffles"
+  },
+  "retrievedAt": "2026-05-04",
+  "expiresAt": "2026-06-03",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/content/events/red-hill-truffles-winter-truffle-hunt-season.json",
+    "field": "primarySourceUrl",
+    "value": "https://redhilltruffles.com/hunts",
+    "dateField": "lastCheckedDate"
+  },
+  "url": "https://redhilltruffles.com/hunts"
+}

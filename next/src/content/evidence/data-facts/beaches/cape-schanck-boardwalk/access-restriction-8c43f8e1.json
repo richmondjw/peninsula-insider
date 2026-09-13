@@ -1,0 +1,18 @@
+{
+  "evidenceId": "data-facts/beaches/cape-schanck-boardwalk/access-restriction-8c43f8e1",
+  "claim": "data-facts/beaches/cape-schanck-boardwalk/access-restriction",
+  "stance": "supports",
+  "publisher": {
+    "kind": "gov"
+  },
+  "retrievedAt": "2026-04-01",
+  "expiresAt": "2026-05-01",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/data/facts/beaches.json",
+    "field": "activeAlerts[2].source",
+    "value": "https://www.parks.vic.gov.au/coc-listing?status=Closed+Areas",
+    "dateField": "dateSince"
+  },
+  "url": "https://www.parks.vic.gov.au/coc-listing?status=Closed+Areas"
+}
