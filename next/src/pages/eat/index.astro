@@ -5,13 +5,18 @@
  * Verdict first, catalogue underneath, one job: a confident shortlist for a
  * specific occasion in under a minute. Structure: breadcrumbless h1 + Editor
  * stand-first, intent chips + FilterBar (ONE filter state governs The Six
- * AND the directory), The Six, best-of rail, full non-winery directory as
- * compact rows (server-rendered, SEO), Winery kitchens bridge module,
- * From the Journal, FAQ (in-DOM, mirrors schema), Ask band.
+ * AND the directory), The Six, best-of rail, the full directory as compact
+ * rows (server-rendered, SEO), From the Journal, FAQ (in-DOM, mirrors
+ * schema), Ask band.
  *
  * SEO: URL, title, meta, canonical and both schemas unchanged (protect
- * list). Wineries are excluded from the directory (HUB-01); their links
- * move to /wine/ via the Winery kitchens module.
+ * list). Wineries are excluded from this surface entirely (HUB-01): eatTypes
+ * has never included 'winery', so the page never held one. The Winery
+ * kitchens bridge module that used to sit above the directory was removed
+ * 2026-09-13 (PI-009); it filtered `venuesAll` for a type that filter had
+ * already excluded, so it always rendered an empty shell while its container
+ * div carried data-facets and inflated the result count by one. The
+ * reciprocal module on /wine/ still points here.
  */
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
@@ -35,9 +40,8 @@ const venuesAll = (await getCollection('venues'))
   .filter((v) => v.data.status !== 'permanently_closed')
   .sort((a, b) => Number(b.data.authority?.hats ?? 0) - Number(a.data.authority?.hats ?? 0));
 
-// Wineries are excluded from the /eat/ directory (one venue, one URL; HUB-01)
-// and bridge to /wine/ via the Winery kitchens module below.
-const wineries = venuesAll.filter((v) => v.data.type === 'winery');
+// eatTypes (lib/editorial) excludes 'winery', so venuesAll holds none: this
+// is a defensive second pass, not a split (one venue, one URL; HUB-01).
 const venues = venuesAll.filter((v) => v.data.type !== 'winery');
 
 const placesAll = await getCollection('places');
@@ -164,13 +168,6 @@ for (const venue of venues) {
     partnerLabel: venue.data.featuredPartner ? 'Partner venue' : undefined,
   });
 }
-
-// ── Winery kitchens: the bridge to /wine/ (spec block 18). Kitchens first
-//    (lunch-attached facet), then every remaining cellar door link. ───────────
-const wineryKitchens = wineries.filter((v) =>
-  (getFacets('venue', v.data).mood ?? []).includes('lunch-attached'),
-);
-const wineryOther = wineries.filter((v) => !wineryKitchens.includes(v));
 
 // ── From the Journal (3 maximum). ───────────────────────────────────────────
 //    EDITORIAL: this rail is still the winter selection. The three pieces
@@ -334,30 +331,6 @@ export const prerender = true;
       facets={['cat', 'place', 'mood', 'price', 'party']}
     >
     </FilterBar>
-    <div
-      slot="before-list"
-      class="eat-winery-kitchens"
-      data-facets='{"cat":["winery"]}'
-      data-title="Winery kitchens"
-    >
-      <h3 class="eat-winery-kitchens__heading">Winery kitchens</h3>
-      <p class="eat-winery-kitchens__sub">
-        The vineyard dining rooms live with their wineries, one page per venue. The fires, the long lunches and the estate wine are what make the detour worth it.
-      </p>
-      <ul class="eat-winery-kitchens__list">
-        {wineryKitchens.map((venue) => (
-          <li>
-            <a href={`/wine/${routeSlug(venue)}/`} class="eat-winery-kitchens__link">{venue.data.name}</a>
-          </li>
-        ))}
-      </ul>
-      {wineryOther.length > 0 && (
-        <p class="eat-winery-kitchens__more">
-          Plus {wineryOther.length} more cellar doors without a kitchen:
-          <a href="/wine/">all wineries on /wine/ &rarr;</a>
-        </p>
-      )}
-    </div>
   </DirectoryRows>
 
   <!-- What's On, one line + link (spec block 18: strip becomes a line) -->
@@ -449,63 +422,6 @@ export const prerender = true;
   .eat-rail__link:focus-visible {
     outline: var(--focus-ring, 2px solid var(--accent));
     outline-offset: 2px;
-  }
-
-  .eat-winery-kitchens {
-    border: 1px solid var(--border);
-    border-radius: var(--radius-l, 28px);
-    background: var(--bg-alt);
-    padding: var(--space-6, 2rem);
-    margin-bottom: var(--space-6, 2rem);
-  }
-  .eat-winery-kitchens__heading {
-    margin: 0;
-    font-family: var(--font-display);
-    font-size: var(--fs-600, 1.4rem);
-    font-weight: var(--fw-display, 600);
-    letter-spacing: -0.01em;
-    color: var(--text);
-  }
-  .eat-winery-kitchens__sub {
-    margin: var(--space-2, 0.5rem) 0 var(--space-3, 0.75rem);
-    font-family: var(--font-ui, var(--font-ui));
-    font-size: var(--fs-200, 0.8125rem);
-    color: var(--soft);
-  }
-  .eat-winery-kitchens__list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
-    gap: var(--space-1, 0.25rem) var(--space-4, 1rem);
-  }
-  .eat-winery-kitchens__link {
-    display: inline-block;
-    padding: var(--space-1, 0.25rem) 0;
-    font-family: var(--font-ui, var(--font-ui));
-    font-size: var(--fs-300, 0.9375rem);
-    color: var(--text);
-    text-decoration: underline;
-    text-decoration-color: var(--border);
-    text-underline-offset: 3px;
-  }
-  .eat-winery-kitchens__link:hover {
-    color: var(--accent);
-    text-decoration-color: var(--accent);
-  }
-  .eat-winery-kitchens__link:focus-visible {
-    outline: var(--focus-ring, 2px solid var(--accent));
-    outline-offset: 2px;
-  }
-  .eat-winery-kitchens__more {
-    margin: var(--space-3, 0.75rem) 0 0;
-    font-family: var(--font-ui, var(--font-ui));
-    font-size: var(--fs-200, 0.8125rem);
-    color: var(--soft);
-  }
-  .eat-winery-kitchens__more a {
-    color: var(--accent);
   }
 
   .eat-whatson {
