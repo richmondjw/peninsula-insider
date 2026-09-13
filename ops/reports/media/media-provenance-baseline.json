@@ -6,7 +6,8 @@
     "permittedUseWithoutPermission",
     "invalidDepictionStatus",
     "brokenDisclosureSurface",
-    "undisclosedRepresentativeAlt"
+    "undisclosedRepresentativeAlt",
+    "licenceUnknown"
   ],
   "ceilings": {
     "imageRecords": 572,
@@ -18,6 +19,9 @@
     "invalidDepictionStatus": 0,
     "brokenDisclosureSurface": 0,
     "undisclosedRepresentativeAlt": 153,
-    "unrecordedDepiction": 265
+    "unrecordedDepiction": 265,
+    "licenceUnknown": 1,
+    "licencePlaceholder": 209,
+    "licenceNoGrantNamed": 162
   }
 }
