@@ -12,9 +12,9 @@
 -- article had no structured route at all.
 --
 -- This migration clones the pi.venue_change_requests / pi.submissions shape
--- (anonymous insert, select-own for signed-in reporters, editor-all via
--- pi.profiles.is_editor, updated_at trigger) and adds the two things a
--- corrections queue needs that a change-request table does not:
+-- (anonymous insert, select-own for signed-in reporters, editor-all,
+-- updated_at trigger) and adds the two things a corrections queue needs that
+-- a change-request table does not:
 --
 --   1. An append-only event log (pi.correction_events) so "close" and
 --      "reopen" are recorded rather than overwriting each other. Status
@@ -289,9 +289,9 @@ create trigger corrections_set_updated_at
 
 
 -- Log intake. SECURITY DEFINER so the anonymous insert can write the opening
--- event without anon ever holding an insert grant on the log itself. Same
--- reason pi.is_cms_admin() is SECURITY DEFINER: the privileged read/write
--- happens inside the function, not in the caller's policy scope.
+-- event without anon ever holding an insert grant on the log itself: the
+-- privileged write happens inside the function, not in the caller's policy
+-- scope.
 create or replace function pi.corrections_log_intake()
 returns trigger
 language plpgsql
@@ -458,11 +458,34 @@ create policy "corrections_select_own_by_user"
   on pi.corrections for select
   using (user_id is not null and user_id = auth.uid());
 
+-- EDITOR ACCESS IS GATED ON pi.admin_user_allowlist, VIA pi.is_cms_admin(),
+-- NOT ON pi.profiles.is_editor.
+--
+-- As first written, the four editor policies below gated on
+-- `pi.profiles.is_editor = true`. That column sits on a row its own owner may
+-- UPDATE: 2026-05-05-CONSOLIDATED-phases-3-and-4.sql grants table-level UPDATE
+-- on pi.profiles to `authenticated`, and profiles_self_update scopes it to the
+-- caller's own row. RLS scopes rows, never columns, so nothing in that pair
+-- stops a signed-in reader setting their own flag - and on these tables the
+-- prize is pi.correction_reporters, the names and email addresses of people
+-- who wrote to the publication.
+--
+-- The hole was written down on 2026-05-11 and pi.is_cms_admin() introduced
+-- then, backed by pi.admin_user_allowlist, which no end user can write.
+-- Everything else kept gating on the flag; this file was written on
+-- 2026-09-13 and did the same.
+--
+-- next/scripts/rls-editor-gate.test.mjs now fails any migration dated
+-- 2026-09-14 or later that reintroduces the pattern. This file predates that
+-- cutoff and the guard does NOT reach it. It is fixed here because it has
+-- never been applied to any database, so the correction costs nothing: no
+-- live grant changes and nothing needs re-migrating. PR #422 did the same to
+-- 2026-09-14-pi-partner-enquiries.sql.
 drop policy if exists "corrections_editor_all" on pi.corrections;
 create policy "corrections_editor_all"
   on pi.corrections for all
-  using (exists (select 1 from pi.profiles p where p.id = auth.uid() and p.is_editor = true))
-  with check (exists (select 1 from pi.profiles p where p.id = auth.uid() and p.is_editor = true));
+  using (pi.is_cms_admin())
+  with check (pi.is_cms_admin());
 
 -- --- pi.correction_reporters ----------------------------------------------
 
@@ -476,8 +499,8 @@ create policy "correction_reporters_anonymous_insert"
 drop policy if exists "correction_reporters_editor_all" on pi.correction_reporters;
 create policy "correction_reporters_editor_all"
   on pi.correction_reporters for all
-  using (exists (select 1 from pi.profiles p where p.id = auth.uid() and p.is_editor = true))
-  with check (exists (select 1 from pi.profiles p where p.id = auth.uid() and p.is_editor = true));
+  using (pi.is_cms_admin())
+  with check (pi.is_cms_admin());
 
 -- --- pi.correction_events --------------------------------------------------
 
@@ -486,12 +509,12 @@ create policy "correction_reporters_editor_all"
 drop policy if exists "correction_events_editor_select" on pi.correction_events;
 create policy "correction_events_editor_select"
   on pi.correction_events for select
-  using (exists (select 1 from pi.profiles p where p.id = auth.uid() and p.is_editor = true));
+  using (pi.is_cms_admin());
 
 drop policy if exists "correction_events_editor_insert" on pi.correction_events;
 create policy "correction_events_editor_insert"
   on pi.correction_events for insert
-  with check (exists (select 1 from pi.profiles p where p.id = auth.uid() and p.is_editor = true));
+  with check (pi.is_cms_admin());
 
 -- Signed-in reporters see the history of their own cases, so a future
 -- "track your correction" surface needs no new policy. Contact details are
