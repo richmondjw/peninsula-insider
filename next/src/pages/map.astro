@@ -21,7 +21,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import MapView, { type MapViewItem } from '../components/v5/MapView.astro';
 import { getFacets } from '../lib/facets';
-import { routeSlug, venueHref } from '../lib/editorial';
+import { routeSlug, venueHref, isListableVenue } from '../lib/editorial';
 
 const venuesAll = await getCollection('venues');
 const experiencesAll = await getCollection('experiences');
@@ -57,7 +57,7 @@ function placeRef(ref: unknown): string {
 }
 
 const venueItems: MapViewItem[] = venuesAll
-  .filter((v) => v.data.status !== 'permanently_closed')
+  .filter(isListableVenue)
   .filter((v) => v.data.coordinates && Number.isFinite(v.data.coordinates.lat))
   .map((v) => {
     const slug = routeSlug(v);

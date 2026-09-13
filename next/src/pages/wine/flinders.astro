@@ -3,13 +3,13 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import WineSubregionTemplate from '../../components/WineSubregionTemplate.astro';
 import { buildItemListSchema, buildBreadcrumbSchema } from '../../lib/schema';
-import { routeSlug } from '../../lib/editorial';
+import { routeSlug, isListableVenue } from '../../lib/editorial';
 
 const SITE = 'https://peninsulainsider.com.au';
 const canonical = `${SITE}/wine/flinders/`;
 
 const wineTypes = ['winery', 'producer'];
-const allVenues = await getCollection('venues');
+const allVenues = (await getCollection('venues')).filter(isListableVenue);
 
 // Flinders proper has very few wine producers, so we extend the surface
 // to include the southern Peninsula coast - Shoreham, Boneo, Cape Schanck - // which sit within ten minutes' drive and share Flinders's cooler, ocean-

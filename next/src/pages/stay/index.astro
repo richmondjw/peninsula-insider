@@ -30,7 +30,7 @@ import JournalModule from '../../components/v5/hub/JournalModule.astro';
 import AskBand from '../../components/v5/hub/AskBand.astro';
 import TrustNote from '../../components/v5/hub/TrustNote.astro';
 import { getFacets, type FacetKey } from '../../lib/facets';
-import { routeSlug, isStayVenue, typeLabel, titleize, resolveHeroSrc } from '../../lib/editorial';
+import { routeSlug, isStayVenue, typeLabel, titleize, resolveHeroSrc, isListableVenue } from '../../lib/editorial';
 import { buildBreadcrumbSchema, absUrl } from '../../lib/schema';
 import CorrectionNote from '../../components/CorrectionNote.astro';
 
@@ -38,7 +38,7 @@ import CorrectionNote from '../../components/CorrectionNote.astro';
 // Day spas (type 'spa') pass isStayVenue but aren't accommodation - they get
 // their own detail pages (kept live for existing inbound links via
 // venueHrefPrefix) but are excluded from the reader-facing Stay directory.
-const venues = (await getCollection('venues')).filter((v) => isStayVenue(v) && v.data.type !== 'spa');
+const venues = (await getCollection('venues')).filter((v) => isListableVenue(v) && isStayVenue(v) && v.data.type !== 'spa');
 const stayCount = venues.length; // FULL corpus, every row server-rendered
 
 const articlesAll = (await getCollection('articles', ({ data }) => data.status === 'published'))

@@ -28,7 +28,7 @@ import EmptyState from '../../components/v5/EmptyState.astro';
 import TrustNote from '../../components/v5/hub/TrustNote.astro';
 import { getFacets, type FacetKey } from '../../lib/facets';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
-import { routeSlug, seasonBlurb, placeLabel, titleize, venueHref } from '../../lib/editorial';
+import { routeSlug, seasonBlurb, placeLabel, titleize, venueHref, isListableVenue } from '../../lib/editorial';
 import { getAustralianSeasonLower } from '../../lib/season';
 import { buildCollectionPageSchema, buildFaqSchema, buildBreadcrumbSchema } from '../../lib/schema';
 
@@ -153,8 +153,8 @@ const rows: Row[] = experiences.map((e) => {
 // listed, and CHIP_PRESETS.explore offers Markets and Springs & spa chips, so
 // sourcing them here is what makes those two chips match anything at all.
 const EXPLORE_VENUE_TYPES = ['market', 'spa'];
-const exploreVenues = (await getCollection('venues')).filter((v) =>
-  EXPLORE_VENUE_TYPES.includes(v.data.type),
+const exploreVenues = (await getCollection('venues')).filter(
+  (v) => isListableVenue(v) && EXPLORE_VENUE_TYPES.includes(v.data.type),
 );
 
 const venueRows: Row[] = exploreVenues.map((v) => {

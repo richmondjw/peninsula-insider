@@ -19,9 +19,9 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import MeShell from '../../components/v5/me/MeShell.astro';
 import EmptyState from '../../components/v5/EmptyState.astro';
-import { routeSlug, venueHref } from '../../lib/editorial';
+import { routeSlug, venueHref, isListableVenue } from '../../lib/editorial';
 
-const venues = await getCollection('venues');
+const venues = (await getCollection('venues')).filter(isListableVenue);
 const events = await getCollection('events');
 const experiences = await getCollection('experiences');
 

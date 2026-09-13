@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import WineHubTemplate from '../../components/WineHubTemplate.astro';
 import { buildItemListSchema, buildBreadcrumbSchema } from '../../lib/schema';
-import { routeSlug } from '../../lib/editorial';
+import { routeSlug, isListableVenue } from '../../lib/editorial';
 
 const SITE = 'https://peninsulainsider.com.au';
 const canonical = `${SITE}/wine/appointment-producers/`;
@@ -15,7 +15,7 @@ const appointmentSlugs = [
   'phaedrus-estate', 'hurley-vineyard', 'circe-wines',
 ];
 
-const allVenues = await getCollection('venues');
+const allVenues = (await getCollection('venues')).filter(isListableVenue);
 const venues = appointmentSlugs
   .map((s) => allVenues.find((v) => routeSlug(v) === s))
   .filter(Boolean) as typeof allVenues;

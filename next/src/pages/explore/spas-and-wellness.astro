@@ -7,6 +7,7 @@ import PiSaveActions from '../../components/PiSaveActions.astro';
 import { editableImage } from '../../lib/inline-edit/attrs';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
 import CorrectionNote from '../../components/CorrectionNote.astro';
+import { isListableVenue } from '../../lib/editorial';
 import {
   buildCollectionPageSchema,
   buildFaqSchema,
@@ -90,7 +91,7 @@ const ranked: RankedSpa[] = [
 ];
 
 /* Join each ranked spa to its venue record for hero + save metadata. */
-const venues = await getCollection('venues');
+const venues = (await getCollection('venues')).filter(isListableVenue);
 const bySlug = new Map(venues.map((v) => [v.data.slug ?? v.id.replace(/\.json$/, ''), v]));
 
 const heroes = new Map<string, { src: string; alt: string }>();

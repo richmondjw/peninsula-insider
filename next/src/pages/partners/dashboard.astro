@@ -17,9 +17,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import SectionHero from '../../components/SectionHero.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import { routeSlug, venueHref } from '../../lib/editorial';
+import { routeSlug, venueHref, isListableVenue } from '../../lib/editorial';
 
-const venuesAll = await getCollection('venues');
+const venuesAll = (await getCollection('venues')).filter(isListableVenue);
 // Build a slug → summary lookup that the client controller uses to
 // hydrate claimed venues without an extra round trip.
 const venueIndex = Object.fromEntries(

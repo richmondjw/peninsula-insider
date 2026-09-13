@@ -1,5 +1,5 @@
 ---
-import { placeLabel, typeLabel, routeSlug, titleize, venueHref, venueHrefPrefix, formatHeroCredit } from '../lib/editorial';
+import { placeLabel, typeLabel, routeSlug, titleize, venueHref, venueHrefPrefix, formatHeroCredit, isListableVenue, isPermanentlyClosed } from '../lib/editorial';
 import { resolveLiveStatusUrl, verifiedFreshnessLabel } from '../lib/venues';
 import Breadcrumbs from './Breadcrumbs.astro';
 import NewsletterBlock from './NewsletterBlock.astro';
@@ -144,7 +144,7 @@ let estateVenues: any[] = [];
 if (estateSlug) {
   const allEstateVenues = await getCollection('venues');
   estateVenues = allEstateVenues.filter(
-    (v) => v.data.estateSlug === estateSlug && v.data.status !== 'permanently_closed',
+    (v) => v.data.estateSlug === estateSlug && isListableVenue(v),
   );
 }
 
@@ -194,7 +194,7 @@ const hasVisiting = isWinery && data.visiting;
 const hasWines = isWinery && data.wines;
 const hasRestaurant = isWinery && data.restaurant;
 const hasAccommodation = isWinery && data.accommodation;
-const isClosed = data.status === 'closed' || data.status === 'permanently_closed';
+const isClosed = data.status === 'closed' || isPermanentlyClosed(data);
 
 // Wine-specific derived signals
 const isAppointmentOnly = isWinery && data.visiting?.bookingRequired === true;

@@ -7,13 +7,13 @@ import SectionDivider from '../../../components/SectionDivider.astro';
 import PlaceCard from '../../../components/PlaceCard.astro';
 import NewsletterBlock from '../../../components/NewsletterBlock.astro';
 import ArticleCard from '../../../components/ArticleCard.astro';
-import { routeSlug } from '../../../lib/editorial';
+import { routeSlug, isListableVenue } from '../../../lib/editorial';
 import { buildCollectionPageSchema, buildFaqSchema, buildBreadcrumbSchema } from '../../../lib/schema';
 import { editableText } from '../../../lib/inline-edit/attrs';
 
 // ── Data ──────────────────────────────────────────────────────────────────────
 const places = (await getCollection('places')).sort((a, b) => a.data.name.localeCompare(b.data.name));
-const venues = await getCollection('venues');
+const venues = (await getCollection('venues')).filter(isListableVenue);
 const experiences = await getCollection('experiences');
 
 // Curated destination order - editorial priority, not alphabetical or regional.

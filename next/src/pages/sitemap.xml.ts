@@ -1,6 +1,6 @@
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
-import { routeSlug, isStayVenue } from '../lib/editorial';
+import { routeSlug, isStayVenue, isListableVenue } from '../lib/editorial';
 import { loadLiveEvents } from './whats-on/_data';
 
 // SEOMIG rebuild 2026-07-11 (seo-migration-plan.md §4.1).
@@ -203,10 +203,16 @@ export const GET: APIRoute = async () => {
   const wineTypes = ['winery', 'producer', 'brewery', 'distillery'];
 
   const eatVenues = venues.filter(
-    (v) => eatTypes.includes(v.data.type) && notExcluded(v) && !EAT_STUB_SLUGS.has(routeSlug(v)),
+    (v) =>
+      isListableVenue(v) &&
+      eatTypes.includes(v.data.type) &&
+      notExcluded(v) &&
+      !EAT_STUB_SLUGS.has(routeSlug(v)),
   );
-  const stayVenues = venues.filter((v) => isStayVenue(v) && notExcluded(v));
-  const wineVenues = venues.filter((v) => wineTypes.includes(v.data.type) && notExcluded(v));
+  const stayVenues = venues.filter((v) => isListableVenue(v) && isStayVenue(v) && notExcluded(v));
+  const wineVenues = venues.filter(
+    (v) => isListableVenue(v) && wineTypes.includes(v.data.type) && notExcluded(v),
+  );
 
   const entries: string[] = [];
 

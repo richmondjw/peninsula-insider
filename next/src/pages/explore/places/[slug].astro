@@ -5,7 +5,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import PlaceDetailTemplate from '../../../components/PlaceDetailTemplate.astro';
 import PlaceMap from '../../../components/PlaceMap.astro';
 import EventStrip from '../../../components/EventStrip.astro';
-import { routeSlug, isStayVenue, wineTypes, isUpcoming } from '../../../lib/editorial';
+import { routeSlug, isStayVenue, wineTypes, isUpcoming, isListableVenue } from '../../../lib/editorial';
 import { resolveHero } from '../../../lib/inline-edit/resolve-hero';
 
 export async function getStaticPaths() {
@@ -33,7 +33,7 @@ const placeNameLower = place.data.name.toLowerCase();
 
 const venuesForPlace = allVenues
   .filter((venue) => String(venue.data.place?.id ?? venue.data.place) === placeSlug)
-  .filter((venue) => venue.data.status !== 'permanently_closed');
+  .filter(isListableVenue);
 
 // Events at this place: match place ref, OR suburb name (machine-imported
 // events without a clean place ref still surface if the suburb matches).

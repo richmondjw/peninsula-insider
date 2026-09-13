@@ -206,7 +206,11 @@ function buildIndexRow({ entry, entityType, folder, hrefPrefix, titleField, face
   if (NON_PUBLIC_STATUSES.has(status)) return null;
   if (entityType === 'venue') {
     if (!ROUTABLE_VENUE_TYPES.includes(entry.type)) return null;
+    // Both fields that carry permanent closure - mirrors isListableVenue in
+    // next/src/lib/editorial.ts. This script reads the JSON directly, so it
+    // cannot import it. Keep the two in step.
     if (status === 'permanently_closed') return null;
+    if (entry.operatingStatus === 'permanently-closed') return null;
   }
   const title = entry[titleField] || entry.title || entry.name || slug;
   const dek = entry.dek || entry.summary || entry.editorNote || null;

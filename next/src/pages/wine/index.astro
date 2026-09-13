@@ -26,7 +26,7 @@ import TheSix from '../../components/v5/hub/TheSix.astro';
 import DirectoryRows from '../../components/v5/hub/DirectoryRows.astro';
 import JournalModule from '../../components/v5/hub/JournalModule.astro';
 import AskBand from '../../components/v5/hub/AskBand.astro';
-import { routeSlug } from '../../lib/editorial';
+import { routeSlug, isListableVenue } from '../../lib/editorial';
 import { getFacets, FACET_OPTIONS } from '../../lib/facets';
 
 export const prerender = true;
@@ -45,6 +45,7 @@ const hatCount = (v: any) => Number(v.data.authority?.hats ?? 0);
 // Editor's order: picks first, then authority, then name. This is the
 // server-rendered default the SortControl treats as 'editors'.
 const venues = (await getCollection('venues'))
+  .filter(isListableVenue)
   .filter((v) => wineTypes.includes(v.data.type))
   .sort(
     (a, b) =>

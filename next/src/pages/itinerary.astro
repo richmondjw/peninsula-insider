@@ -26,9 +26,9 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import SectionHero from '../components/SectionHero.astro';
 import NewsletterBlock from '../components/NewsletterBlock.astro';
 import CloudSyncIndicatorScript from '../components/CloudSyncIndicatorScript.astro';
-import { routeSlug, venueHref } from '../lib/editorial';
+import { routeSlug, venueHref, isListableVenue } from '../lib/editorial';
 
-const venues = await getCollection('venues');
+const venues = (await getCollection('venues')).filter(isListableVenue);
 const events = await getCollection('events');
 const experiences = await getCollection('experiences');
 

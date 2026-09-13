@@ -16,11 +16,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import SectionHero from '../../components/SectionHero.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import { routeSlug } from '../../lib/editorial';
+import { routeSlug, isListableVenue } from '../../lib/editorial';
 
 const venues = await getCollection('venues');
 // Build a sorted lightweight list for the autocomplete datalist.
 const venueOptions = venues
+  .filter(isListableVenue)
   .filter((v) => !v.data.sitemapExclude)
   .map((v) => ({ slug: routeSlug(v), name: v.data.name }))
   .sort((a, b) => a.name.localeCompare(b.name));

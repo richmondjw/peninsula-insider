@@ -21,7 +21,7 @@ import {
   type FacetKey,
 } from '../../../lib/facets';
 import { getAustralianSeasonLower } from '../../../lib/season';
-import { routeSlug, venueHref, titleize } from '../../../lib/editorial';
+import { routeSlug, venueHref, titleize, isListableVenue } from '../../../lib/editorial';
 import { loadOverrides } from '../../../lib/inline-edit/overrides';
 
 export interface PlanStop {
@@ -125,7 +125,7 @@ export async function buildPlansModel(now: Date = new Date()): Promise<PlansMode
   const season = getAustralianSeasonLower(now);
 
   // ---- stop resolution lookups -------------------------------------------
-  const venues = await getCollection('venues');
+  const venues = (await getCollection('venues')).filter(isListableVenue);
   const experiences = await getCollection('experiences');
   const venueBySlug = new Map(
     venues.map((v) => [
