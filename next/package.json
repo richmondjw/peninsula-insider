@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "node scripts/clear-content-cache.mjs && npm run media:registry && npm run lint:no-pricing && npm run lint:house-style && npm run lint:firsthand-claims && npm run test:how-we-check && npm run lint:region-images && npm run lint:surfaces && npm run lint:listener-hygiene && npm run lint:search-privacy && npm run lint:licence-default && npm run lint:rls-editor-gate && npm run lint:nav-budget && npm run lint:css-budget && npm run lint:coordinates && astro build && npm run lint:no-hidden-pages && npm run lint:seo-architecture && npm run lint:filter-chips && npm run audit:agent-readiness && npm run assert:link-graph && npm run assert:event-safeguards && npm run assert:provenance-dates && npm run assert:link-health && npm run assert:schema-drift && npm run assert:unschemad-closures && npm run assert:closed-venues && npm run assert:commercial-firewall && npm run assert:media-provenance && npm run assert:count-semantics && npm run assert:claim-support && npm run assert:campaigns-review-page && npm run assert:partner-portal-dashboard",
+    "build": "node scripts/clear-content-cache.mjs && npm run media:registry && npm run lint:no-pricing && npm run lint:house-style && npm run lint:firsthand-claims && npm run test:how-we-check && npm run lint:region-images && npm run lint:surfaces && npm run lint:listener-hygiene && npm run lint:search-privacy && npm run lint:licence-default && npm run lint:rls-editor-gate && npm run lint:corrections-queue && npm run lint:nav-budget && npm run lint:css-budget && npm run lint:coordinates && astro build && npm run lint:no-hidden-pages && npm run lint:seo-architecture && npm run lint:filter-chips && npm run audit:agent-readiness && npm run assert:link-graph && npm run assert:event-safeguards && npm run assert:provenance-dates && npm run assert:link-health && npm run assert:schema-drift && npm run assert:unschemad-closures && npm run assert:closed-venues && npm run assert:commercial-firewall && npm run assert:media-provenance && npm run assert:count-semantics && npm run assert:claim-support && npm run assert:campaigns-review-page && npm run assert:partner-portal-dashboard",
     "build:search": "npm run build && npx pagefind --site dist",
     "preview": "astro preview",
     "astro": "astro",
@@ -17,7 +17,7 @@
     "test:season": "node --test src/lib/season.test.mjs",
     "test:nav": "node --test src/lib/v5-nav.test.mjs",
     "test:corrections": "node --test src/lib/corrections.test.mjs",
-  "test:partner-enquiry": "node --test src/lib/partner-enquiry.test.mjs",
+    "test:partner-enquiry": "node --test src/lib/partner-enquiry.test.mjs",
     "test:closed-venue-maintenance": "node --test scripts/closed-venue-maintenance.test.mjs",
     "test:campaigns-review-page": "node --test scripts/campaigns-review-page.test.mjs",
     "assert:campaigns-review-page": "node scripts/assert-campaigns-review-page.mjs",
@@ -112,7 +112,9 @@
     "test:link-health": "node --test scripts/audit-link-health.test.mjs",
     "test:how-we-check": "node --test src/lib/how-we-check.test.mjs",
     "test:provenance": "node --test src/lib/provenance.test.mjs scripts/audit-provenance-dates.test.mjs",
-    "test:media-provenance": "node --test scripts/audit-media-provenance.test.mjs src/lib/media-provenance.test.mjs"
+    "test:media-provenance": "node --test scripts/audit-media-provenance.test.mjs src/lib/media-provenance.test.mjs",
+    "test:corrections-queue": "node --test scripts/corrections-queue-contract.test.mjs",
+    "lint:corrections-queue": "node --test scripts/corrections-queue-contract.test.mjs"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.0",

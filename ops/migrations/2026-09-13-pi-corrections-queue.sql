@@ -12,9 +12,9 @@
 -- article had no structured route at all.
 --
 -- This migration clones the pi.venue_change_requests / pi.submissions shape
--- (anonymous insert, select-own for signed-in reporters, editor-all via
--- pi.profiles.is_editor, updated_at trigger) and adds the two things a
--- corrections queue needs that a change-request table does not:
+-- (anonymous insert, select-own for signed-in reporters, editor-all,
+-- updated_at trigger) and adds the two things a corrections queue needs that
+-- a change-request table does not:
 --
 --   1. An append-only event log (pi.correction_events) so "close" and
 --      "reopen" are recorded rather than overwriting each other. Status
@@ -289,9 +289,9 @@ create trigger corrections_set_updated_at
 
 
 -- Log intake. SECURITY DEFINER so the anonymous insert can write the opening
--- event without anon ever holding an insert grant on the log itself. Same
--- reason pi.is_cms_admin() is SECURITY DEFINER: the privileged read/write
--- happens inside the function, not in the caller's policy scope.
+-- event without anon ever holding an insert grant on the log itself: the
+-- privileged write happens inside the function, not in the caller's policy
+-- scope.
 create or replace function pi.corrections_log_intake()
 returns trigger
 language plpgsql
@@ -369,26 +369,79 @@ create trigger corrections_log_transition
   for each row execute function pi.corrections_log_transition();
 
 
--- Flip contact_provided when the contact row lands. The client cannot set
--- this itself (the anon insert policy forces it false), so the flag always
--- reflects reality.
+-- Flip contact_provided when the contact row lands, changes or GOES AWAY. The
+-- client cannot set this itself (the anon insert policy forces it false), so
+-- the flag always reflects reality.
+--
+-- DELETE is in the trigger's event list for a reason. pi.correction_reporters
+-- carries `grant update, delete ... to authenticated`, because erasure is the
+-- whole argument for putting contact in its own table: "one row removed; the
+-- case, its evidence and its full audit history survive intact" (see the
+-- header). As first written this trigger fired on insert and update only, so
+-- that row could be deleted and:
+--
+--   * pi.corrections.contact_provided stayed TRUE. The queue's whole purpose
+--     for that column is to show answerability without reading personal data,
+--     so it would go on saying "can be answered" about a case whose address no
+--     longer exists - and an editor would go looking for it in the one table
+--     that is not there.
+--   * pi.correction_events recorded nothing. The log is advertised as
+--     append-only and complete, and a deletion an editor performed
+--     deliberately is exactly the kind of decision it exists to hold.
+--
+-- So an erasure is now both reflected and recorded. The event carries no part
+-- of what was removed - that is the point of removing it - only that it was.
+--
+-- The row_count guard distinguishes the two ways this row disappears. On a
+-- deliberate erasure the case is still there and the UPDATE finds it. On a
+-- cascade from `delete from pi.corrections`, the parent row is already gone by
+-- the time the RI trigger runs, the UPDATE matches nothing, and no event is
+-- written - which is correct twice over: there is nothing left to annotate,
+-- and the foreign key would refuse the row anyway.
 create or replace function pi.correction_reporters_mark_contact()
 returns trigger
 language plpgsql
 security definer
 set search_path = pi, public
 as $$
+declare
+  target     uuid;
+  answerable boolean;
+  touched    integer;
 begin
+  if tg_op = 'DELETE' then
+    target := old.correction_id;
+    answerable := false;
+  else
+    target := new.correction_id;
+    answerable := (new.contact_preference = 'email' and coalesce(new.contact_email, '') <> '');
+  end if;
+
   update pi.corrections
-     set contact_provided = (new.contact_preference = 'email' and coalesce(new.contact_email, '') <> '')
-   where id = new.correction_id;
+     set contact_provided = answerable
+   where id = target;
+  get diagnostics touched = row_count;
+
+  if tg_op = 'DELETE' and touched = 1 then
+    insert into pi.correction_events (
+      correction_id, event_type, actor_user_id, actor_label, detail
+    )
+    values (
+      target, 'note', auth.uid(), 'editor',
+      'Reporter contact details removed. The case stands; it can no longer be answered.'
+    );
+  end if;
+
+  if tg_op = 'DELETE' then
+    return old;
+  end if;
   return new;
 end;
 $$;
 
 drop trigger if exists correction_reporters_mark_contact on pi.correction_reporters;
 create trigger correction_reporters_mark_contact
-  after insert or update on pi.correction_reporters
+  after insert or update or delete on pi.correction_reporters
   for each row execute function pi.correction_reporters_mark_contact();
 
 
@@ -458,11 +511,34 @@ create policy "corrections_select_own_by_user"
   on pi.corrections for select
   using (user_id is not null and user_id = auth.uid());
 
+-- EDITOR ACCESS IS GATED ON pi.admin_user_allowlist, VIA pi.is_cms_admin(),
+-- NOT ON pi.profiles.is_editor.
+--
+-- As first written, the four editor policies below gated on
+-- `pi.profiles.is_editor = true`. That column sits on a row its own owner may
+-- UPDATE: 2026-05-05-CONSOLIDATED-phases-3-and-4.sql grants table-level UPDATE
+-- on pi.profiles to `authenticated`, and profiles_self_update scopes it to the
+-- caller's own row. RLS scopes rows, never columns, so nothing in that pair
+-- stops a signed-in reader setting their own flag - and on these tables the
+-- prize is pi.correction_reporters, the names and email addresses of people
+-- who wrote to the publication.
+--
+-- The hole was written down on 2026-05-11 and pi.is_cms_admin() introduced
+-- then, backed by pi.admin_user_allowlist, which no end user can write.
+-- Everything else kept gating on the flag; this file was written on
+-- 2026-09-13 and did the same.
+--
+-- next/scripts/rls-editor-gate.test.mjs now fails any migration dated
+-- 2026-09-14 or later that reintroduces the pattern. This file predates that
+-- cutoff and the guard does NOT reach it. It is fixed here because it has
+-- never been applied to any database, so the correction costs nothing: no
+-- live grant changes and nothing needs re-migrating. PR #422 did the same to
+-- 2026-09-14-pi-partner-enquiries.sql.
 drop policy if exists "corrections_editor_all" on pi.corrections;
 create policy "corrections_editor_all"
   on pi.corrections for all
-  using (exists (select 1 from pi.profiles p where p.id = auth.uid() and p.is_editor = true))
-  with check (exists (select 1 from pi.profiles p where p.id = auth.uid() and p.is_editor = true));
+  using (pi.is_cms_admin())
+  with check (pi.is_cms_admin());
 
 -- --- pi.correction_reporters ----------------------------------------------
 
@@ -476,8 +552,8 @@ create policy "correction_reporters_anonymous_insert"
 drop policy if exists "correction_reporters_editor_all" on pi.correction_reporters;
 create policy "correction_reporters_editor_all"
   on pi.correction_reporters for all
-  using (exists (select 1 from pi.profiles p where p.id = auth.uid() and p.is_editor = true))
-  with check (exists (select 1 from pi.profiles p where p.id = auth.uid() and p.is_editor = true));
+  using (pi.is_cms_admin())
+  with check (pi.is_cms_admin());
 
 -- --- pi.correction_events --------------------------------------------------
 
@@ -486,12 +562,12 @@ create policy "correction_reporters_editor_all"
 drop policy if exists "correction_events_editor_select" on pi.correction_events;
 create policy "correction_events_editor_select"
   on pi.correction_events for select
-  using (exists (select 1 from pi.profiles p where p.id = auth.uid() and p.is_editor = true));
+  using (pi.is_cms_admin());
 
 drop policy if exists "correction_events_editor_insert" on pi.correction_events;
 create policy "correction_events_editor_insert"
   on pi.correction_events for insert
-  with check (exists (select 1 from pi.profiles p where p.id = auth.uid() and p.is_editor = true));
+  with check (pi.is_cms_admin());
 
 -- Signed-in reporters see the history of their own cases, so a future
 -- "track your correction" surface needs no new policy. Contact details are
@@ -551,6 +627,23 @@ grant select, insert on pi.correction_events    to authenticated;
 -- select event_type, from_status, to_status from pi.correction_events
 --   where correction_id = (select id from pi.corrections where case_ref = 'PI-C-TEST00-0000')
 --   order by created_at;              -- expect 4 rows, oldest 'received'
+--
+-- -- Erasure is reflected in the flag and recorded in the log, and carries none
+-- -- of what it removed:
+-- insert into pi.correction_reporters (correction_id, contact_email)
+-- values ((select id from pi.corrections where case_ref = 'PI-C-TEST00-0000'),
+--         'test@example.com');
+-- select contact_provided from pi.corrections
+--   where case_ref = 'PI-C-TEST00-0000';                          -- expect true
+-- delete from pi.correction_reporters
+--  where correction_id = (select id from pi.corrections where case_ref = 'PI-C-TEST00-0000');
+-- select contact_provided from pi.corrections
+--   where case_ref = 'PI-C-TEST00-0000';                          -- expect false
+-- select event_type, detail from pi.correction_events
+--   where correction_id = (select id from pi.corrections where case_ref = 'PI-C-TEST00-0000')
+--     and event_type = 'note';        -- expect 1 row, no address in the detail
+--
+-- -- And a cascade writes no orphan event:
 -- delete from pi.corrections where case_ref = 'PI-C-TEST00-0000';
 --
 --

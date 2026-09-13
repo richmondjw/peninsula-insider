@@ -249,9 +249,14 @@ export const prerender = true;
     CORRECTIONS_EMAIL,
     buildCorrectionRow,
     buildReporterRow,
+    classifyOutcome,
     describeMissingFields,
     generateCaseRef,
     missingRequiredFields,
+    outcomeMessage,
+    outcomeStatusKind,
+    shouldResetForm,
+    wantsReply,
   } from '../lib/corrections';
 
   /** Light dedupe signal, same shape and same non-guarantee as /submit/. */
@@ -336,52 +341,96 @@ export const prerender = true;
       if (button) button.disabled = true;
       setStatus('info', 'Filing…');
 
-      const c = getSupabase();
-      if (!c || !isAuthEnabled()) {
-        setStatus('error', 'The correction queue is not reachable from this page right now. Email ' + CORRECTIONS_EMAIL + ' instead. Same desk, same queue.');
-        if (button) button.disabled = false;
-        return;
-      }
+      // The three facts the reporter's message is decided from. They are
+      // declared out here so the catch at the bottom can report honestly
+      // rather than assume the worst: a throw after the case row landed must
+      // not tell someone nothing was recorded when something was.
+      let caseRef = '';
+      let caseInserted = false;
+      let contactInserted = false;
 
-      const session = (await c.auth.getSession()).data.session;
-      const userId = session?.user?.id ?? null;
+      // The one failure we can actually diagnose, rather than merely report.
+      // It does not change the outcome - nothing was recorded either way - so
+      // it changes only the sentence, at the single exit below.
+      let unreachable = false;
 
-      const caseRef = generateCaseRef();
-      const id = newCaseId();
-      const row = buildCorrectionRow(values, { id, caseRef, userId, clientToken: clientToken() });
-
-      const { error } = await c.from('corrections').insert(row);
-      if (error) {
-        console.warn('[corrections] insert failed:', error.message);
-        setStatus('error', 'That did not file. Try once more, and if it fails again email ' + CORRECTIONS_EMAIL + ' with the page URL and what is wrong.');
-        if (button) button.disabled = false;
-        return;
-      }
-
-      // Deliberately second, and deliberately best-effort. The case is already
-      // safe on the server by this point, so a failure here costs the reply,
-      // never the correction. Same shape as the photo upload on /submit/.
-      const reporter = buildReporterRow(values, id);
-      let answerable = false;
-      if (reporter) {
-        try {
-          const { error: contactError } = await c.from('correction_reporters').insert(reporter);
-          if (contactError) console.warn('[corrections] contact insert failed:', contactError.message);
-          else answerable = reporter.contact_preference === 'email';
-        } catch (err) {
-          console.warn('[corrections] contact insert threw:', err);
+      // Everything below can throw - a session refresh over a dead network, a
+      // storage read the browser refuses - and with no catch the async handler
+      // would simply reject. The button would stay disabled, the status would
+      // stay on 'Filing…', and the reporter would be left in front of a form
+      // that is neither working nor saying so, with no way back but a reload.
+      // That is the silent end this whole page exists to avoid, so: finally.
+      try {
+        const c = getSupabase();
+        if (!c || !isAuthEnabled()) {
+          unreachable = true;
+          return;
         }
-      }
 
-      form.reset();
-      setStatus(
-        'success',
-        'Filed. Your reference is ' + caseRef + '. ' +
-        (answerable
-          ? 'Write it down anyway, then leave it with us. We will reply when it is resolved.'
-          : 'Write it down: with no email address on the case, that reference is the only way to follow it up. Quote it to ' + CORRECTIONS_EMAIL + ' if you want an answer.'),
-      );
-      if (button) button.disabled = false;
+        // A signed-in reporter gets the case linked to their account, which is
+        // how they read it back later. That is a nicety, not a precondition
+        // for filing, so a session read that fails is logged and stepped over
+        // rather than allowed to cost the correction.
+        let userId: string | null = null;
+        try {
+          userId = (await c.auth.getSession()).data.session?.user?.id ?? null;
+        } catch (err) {
+          console.warn('[corrections] session read failed:', err);
+        }
+
+        caseRef = generateCaseRef();
+        const id = newCaseId();
+
+        // Both writes are awaited and both results are READ. supabase-js
+        // returns errors rather than throwing them, so a `try` with no error
+        // check is exactly how a form comes to congratulate someone on an
+        // insert that did not happen.
+        try {
+          const { error } = await c
+            .from('corrections')
+            .insert(buildCorrectionRow(values, { id, caseRef, userId, clientToken: clientToken() }));
+          if (error) console.warn('[corrections] insert failed:', error.message);
+          else caseInserted = true;
+        } catch (err) {
+          console.warn('[corrections] insert threw:', err);
+        }
+
+        // Deliberately second. The contact row carries a foreign key to the
+        // case, so it cannot go first, and a failure here costs the reply
+        // rather than the correction - which is why the outcome below tells
+        // the reporter that, instead of implying they never gave an address.
+        const reporter = caseInserted ? buildReporterRow(values, id) : null;
+        if (reporter) {
+          try {
+            const { error } = await c.from('correction_reporters').insert(reporter);
+            if (error) console.warn('[corrections] contact insert failed:', error.message);
+            else contactInserted = true;
+          } catch (err) {
+            console.warn('[corrections] contact insert threw:', err);
+          }
+        }
+      } catch (err) {
+        console.warn('[corrections] submit threw:', err);
+      } finally {
+        // One exit, one rule. classifyOutcome() in lib/corrections.ts decides
+        // what the reporter is told, from what the database confirmed and
+        // what they actually asked for; nothing here infers success from the
+        // absence of a thrown exception.
+        const outcome = classifyOutcome({
+          caseInserted,
+          replyRequested: wantsReply(values),
+          contactInserted,
+        });
+        if (shouldResetForm(outcome)) form.reset();
+        setStatus(
+          outcomeStatusKind(outcome),
+          unreachable
+            ? 'The correction queue is not reachable from this page right now, so nothing was recorded. Email '
+              + CORRECTIONS_EMAIL + ' instead. Same desk, same queue.'
+            : outcomeMessage(outcome, caseRef),
+        );
+        if (button) button.disabled = false;
+      }
     });
   }
 
