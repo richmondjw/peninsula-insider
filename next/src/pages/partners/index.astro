@@ -223,14 +223,14 @@ export const prerender = true;
           audience - not a generic media kit.
         </p>
 
-        <!--
+        {/*
           No `action`, no `method`, and no endpoint flag. Until PI-015 this
           form POSTed to a Formspree placeholder behind a hardcoded
           `ENDPOINT_LIVE = false`, so every submit was turned into a `mailto:`
           handoff and nothing was ever recorded. It now writes to
           pi.partner_enquiries through the anon Supabase client, exactly as
           /corrections/ does, and the submit handler is the only path out.
-        -->
+        */}
         <form class="partners-enquiry__form" data-partner-enquiry-form aria-label="Partnership enquiry">
           <div class="partners-enquiry__row">
             <label class="partners-enquiry__field">
@@ -314,14 +314,14 @@ export const prerender = true;
             <p class="partners-enquiry__fallback">Prefer email? <a href="mailto:hello@peninsulainsider.com.au?subject=Partnership%20enquiry%20-%20Peninsula%20Insider">hello@peninsulainsider.com.au</a></p>
           </div>
 
-          <!--
+          {/*
             One status region for every outcome, including the ones that are
             not success. It is empty and hidden until a submit resolves, and
             what it says is decided by outcomeMessage() in lib/partner-enquiry.ts
             rather than here, so that the test asserting a non-success outcome
             can never read as a confirmation is actually testing the words the
             reader sees.
-          -->
+          */}
           <p class="partners-enquiry__status" data-partner-enquiry-status role="status" aria-live="polite" hidden></p>
         </form>
 
@@ -432,6 +432,20 @@ export const prerender = true;
     const form = document.querySelector('[data-partner-enquiry-form]') as HTMLFormElement | null;
     if (!form) return;
 
+    // init() runs twice on a first load with the client router: once when
+    // this module executes, and again when astro:page-load fires. Without
+    // this guard the same form element carries two submit listeners and a
+    // single press files the enquiry twice - two rows, two references, one
+    // business, and the second insert is the one whose reference is shown.
+    //
+    // An element-level guard is the right instrument HERE, and only because
+    // the listener is on the element: a view transition replaces the form, so
+    // the guard and the listener are discarded together. The same guard on a
+    // document-level listener would not work, which is what
+    // scripts/client-listener-hygiene.test.mjs exists to catch.
+    if (form.dataset.piEnquiryBound === '1') return;
+    form.dataset.piEnquiryBound = '1';
+
     const status = form.querySelector('[data-partner-enquiry-status]') as HTMLParagraphElement | null;
     const button = form.querySelector('button[type="submit"]') as HTMLButtonElement | null;
     const composeField = form.querySelector('[data-compose-ms]') as HTMLInputElement | null;
@@ -514,14 +528,22 @@ export const prerender = true;
       // constraint violation.
       const verdict = classifySubmission({ honeypot: values.bot_trap, composeMs: elapsed });
       if (verdict !== 'ok') {
-        fail(
-          verdict,
-          verdict === 'honeypot'
-            ? 'That submission was blocked as automated. If you are a person, clear the form and try again, '
-              + 'or email ' + PARTNERSHIPS_EMAIL + ' instead.'
-            : 'That came through faster than a form can be filled in, so it was not sent. '
-              + 'Wait a moment and press Send enquiry again, or email ' + PARTNERSHIPS_EMAIL + '.',
-        );
+        // 'no-timing' cannot be reached from this page - `elapsed` is always a
+        // number here - but it is a verdict the classifier can return, and a
+        // branch that falls through to the wrong sentence is how a message
+        // starts lying. Each verdict gets its own words.
+        const messages: Record<string, string> = {
+          honeypot:
+            'That submission was blocked as automated, so it was not sent. If you are a person, '
+            + 'reload the page and try again, or email ' + PARTNERSHIPS_EMAIL + ' instead.',
+          'too-fast':
+            'That came through faster than a form can be filled in, so it was not sent. '
+            + 'Wait a moment and press Send enquiry again, or email ' + PARTNERSHIPS_EMAIL + '.',
+          'no-timing':
+            'Something on this page did not load properly, so the enquiry was not sent. '
+            + 'Reload and try again, or email ' + PARTNERSHIPS_EMAIL + '.',
+        };
+        fail(verdict, messages[verdict]);
         return;
       }
 
