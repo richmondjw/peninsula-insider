@@ -121,7 +121,6 @@ const configuredV5Pillars = [
     intro: 'The cellar doors we would actually send you to.',
     curated: [
       { key: 'best-cellar', label: 'Best cellar doors',         href: '/wine/best-cellar-doors/' },
-      { key: 'cellar-door', label: 'Cellar doors',              href: '/wine/best-cellar-doors/' },
       { key: 'producers',   label: 'Appointment producers',     href: '/wine/appointment-producers/' },
       { key: 'shortlist',   label: 'The cellar-door shortlist', href: '/journal/the-cellar-door-short-list/' },
       { key: 'winery-weddings', label: 'Winery wedding venues', href: '/weddings/winery-wedding-venues-mornington-peninsula/' },
@@ -148,6 +147,7 @@ const configuredV5Pillars = [
       { key: 'golf',  label: 'Golf',             href: '/explore/golf/' },
       { key: 'dog',   label: 'Dog-friendly',     href: '/dog-friendly/' },
       { key: 'tours', label: 'Tours & charters', href: '/tour/' },
+      { key: 'fishing', label: 'Fishing',        href: '/fishing/' },
     ],
     browse: [
       { key: 'all-places', label: 'All places', href: '/explore/places/' },
@@ -181,9 +181,9 @@ const configuredV5Pillars = [
     ],
     rail: {
       eyebrow: editorsPickEyebrow,
-      title: 'Ridge to Sea',
-      verdict: 'Two nights, Red Hill down to Flinders. The order matters: ridge first, coast second, and the Friday-night arrival makes the whole thing work.',
-      href: '/explore/plans/ridge-to-sea-two-night-escape/',
+      title: 'The Peninsula pub crawl',
+      verdict: 'Six pubs, three routes, and a day built around them rather than squeezed between other plans. Pick the route by which way the wind is blowing.',
+      href: '/explore/plans/the-pub-crawl/',
       cta: 'Open the plan',
     },
   },
@@ -195,12 +195,12 @@ const configuredV5Pillars = [
     hub: '/whats-on/',
     intro: 'The events calendar with an opinion attached.',
     curated: [
-      { key: 'weekend-edit', label: 'The weekend edit', href: '/journal/autumn-weekend-edit/' },
+      { key: 'weekend-edit', label: 'The weekend edit', href: '/whats-on/this-weekend/' },
       { key: 'rainy',        label: 'When it rains',    href: '/journal/rainy-day-peninsula/' },
       { key: 'kids',         label: 'With kids',        href: '/journal/mornington-peninsula-with-kids/' },
     ],
     browse: [
-      { key: 'all-whats-on', label: 'Everything on this weekend', href: '/whats-on/' },
+      { key: 'all-whats-on', label: 'The full calendar', href: '/whats-on/' },
     ],
     rail: {
       eyebrow: editorsPickEyebrow,
@@ -358,6 +358,14 @@ export const v5FooterSections: V5NavLink[] = [
   // future-ia.md), but it is a real hub with commercial intent, so it earns a
   // permanent site-wide internal link here alongside its home in the Plans panel.
   { key: 'weddings', label: 'Weddings',    href: '/weddings/' },
+  // Fishing and Boating are the same case and were missed. Both are full
+  // hubs with their own sub-guides, both carry real search demand (see the
+  // PI-010 note in the PR), and until now neither had a single site-wide
+  // link: the only route in was the Explore hub page, one click deeper than
+  // any other hub of comparable size. Fishing also has an Explore-panel slot;
+  // Boating's route in is here.
+  { key: 'fishing',  label: 'Fishing',     href: '/fishing/' },
+  { key: 'boating',  label: 'Boating',     href: '/boating/' },
 ];
 
 export const v5FooterAbout: V5NavLink[] = [

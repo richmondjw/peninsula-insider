@@ -167,3 +167,113 @@ test('the expiry rule reads the injected day, not the wall clock', () => {
     assert.notEqual(later.rail.title, pillar.rail.title, `${pillar.key} did not retire`);
   }
 });
+
+// ---------------------------------------------------------------------
+// PI-010. Rules about the shape of the navigation itself, not about
+// which links it happens to hold today. Every assertion below stays true
+// as the curation changes; each one failed against a real defect.
+// ---------------------------------------------------------------------
+
+test('no panel spends two of its slots on one destination', () => {
+  // A panel has five curated slots, one or two browse slots and one rail.
+  // Wine used to spend two of five on /wine/best-cellar-doors/ under two
+  // different labels, and Plans pointed both its first curated link and
+  // its rail at Ridge to Sea. A repeat inside one panel is not emphasis,
+  // it is a slot that shows the reader nothing new.
+  const { v5Pillars } = evaluateNavConfig();
+  for (const pillar of v5Pillars) {
+    const byHref = new Map();
+    for (const link of [...pillar.curated, ...pillar.browse]) {
+      byHref.set(link.href, [...(byHref.get(link.href) ?? []), link.label]);
+    }
+    byHref.set(pillar.rail.href, [...(byHref.get(pillar.rail.href) ?? []), `rail: ${pillar.rail.title}`]);
+    for (const [href, labels] of byHref) {
+      assert.equal(labels.length, 1, `${pillar.key} points at ${href} ${labels.length} times (${labels.join(' + ')})`);
+    }
+  }
+});
+
+test('no permanent navigation link points at a dated page', () => {
+  // The same defect as the hard-coded eyebrow, wearing a URL. What's On
+  // offered "The weekend edit" and sent the reader to
+  // /journal/autumn-weekend-edit/, an April editor's letter, from every
+  // page of the site. The label hid it, so nothing ever looked wrong.
+  //
+  // Curated links, browse links, hubs, drawer rows and footer rows have no
+  // expiry mechanism at all: whatever they point at is shown forever. So
+  // for those, a dated destination is simply a defect. Rails are the one
+  // exception, and they are the subject of the next test.
+  const { v5Pillars, v5FooterSections, v5FooterAbout, v5DrawerItems } = evaluateNavConfig();
+  const dated = /\b(summer|autumn|winter|spring)\b|\b20\d{2}\b|\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)-\d/i;
+  const permanent = [
+    ...v5Pillars.flatMap((p) => [
+      { where: `${p.key} hub`, href: p.hub },
+      ...p.curated.map((l) => ({ where: `${p.key} curated "${l.label}"`, href: l.href })),
+      ...p.browse.map((l) => ({ where: `${p.key} browse "${l.label}"`, href: l.href })),
+    ]),
+    ...[...v5FooterSections, ...v5FooterAbout, ...v5DrawerItems].map((l) => ({ where: `"${l.label}"`, href: l.href })),
+  ];
+  for (const { where, href } of permanent) {
+    assert.doesNotMatch(href, dated, `${where} links to a dated page: ${href}`);
+  }
+});
+
+test('a rail may pin a dated page only if it fails closed to one that is not', () => {
+  // Rails are the one place dated editorial belongs -- an Insider Picks
+  // from a named week is the whole point of a pick. What makes that safe
+  // is the expiry: once it passes, the rail resolves to an evergreen
+  // fallback. So the rule is not "never link a dated page", it is "a
+  // dated pin must carry the mechanism that retires it, and must not
+  // retire onto another dated page".
+  const { v5Pillars } = evaluateNavConfig();
+  const dated = /\b(summer|autumn|winter|spring)\b|\b20\d{2}\b|\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)-\d/i;
+  for (const pillar of v5Pillars) {
+    const { rail } = pillar;
+    if (dated.test(rail.href)) {
+      assert.ok(rail.expiresAt, `${pillar.key} rail pins the dated ${rail.href} with no expiry`);
+      assert.ok(rail.fallback, `${pillar.key} rail pins the dated ${rail.href} with no fallback`);
+      assert.doesNotMatch(rail.fallback.href, dated, `${pillar.key} rail falls back onto another dated page`);
+    }
+  }
+  // And once every expiry has passed, nothing dated is left anywhere.
+  const retired = evaluateNavConfig({ todayISO: '2099-12-31' });
+  for (const pillar of retired.v5Pillars) {
+    assert.doesNotMatch(pillar.rail.href, dated, `${pillar.key} rail is still dated long after its expiry`);
+  }
+});
+test('every pillar hub keeps a route in from the footer', () => {
+  // The don't-orphan rule, as a rule. Navigation is allowed to stop
+  // pointing at something -- that is what simplifying it means -- but a
+  // hub that leaves the masthead must still be reachable from every page.
+  // The footer is where that guarantee lives, so it has to actually hold.
+  const { v5Pillars, v5FooterSections } = evaluateNavConfig();
+  const footer = new Set(v5FooterSections.map((l) => l.href));
+  for (const pillar of v5Pillars) {
+    assert.ok(footer.has(pillar.hub), `${pillar.key} hub ${pillar.hub} has no footer link`);
+  }
+});
+
+test('every footer hub is a real destination, not a fragment or an offsite link', () => {
+  // Footer links are the site-wide safety net. One that is relative, or
+  // an anchor, or points off the domain, is not a route in.
+  const { v5FooterSections } = evaluateNavConfig();
+  for (const link of v5FooterSections) {
+    assert.match(link.href, /^\/[a-z0-9-]+(\/[a-z0-9-]+)*\/$/, `footer "${link.label}" is not a clean absolute path: ${link.href}`);
+  }
+});
+
+test('curated labels read as noun phrases, not as instructions or jargon', () => {
+  // BRAND-PI.md voice, asserted rather than remembered: no em-dashes, no
+  // exclamation marks, no ALL-CAPS shouting, and no label that opens with
+  // a verb ("Explore our...", "Discover..."), which is how sitemap copy
+  // creeps into a masthead a reader is supposed to read.
+  const { v5Pillars } = evaluateNavConfig();
+  const imperative = /^(explore|discover|browse|find|check|view|see|click|learn|get)\b/i;
+  for (const pillar of v5Pillars) {
+    for (const link of pillar.curated) {
+      assert.doesNotMatch(link.label, /[—!]/, `${pillar.key} "${link.label}" uses an em-dash or exclamation mark`);
+      assert.doesNotMatch(link.label, imperative, `${pillar.key} "${link.label}" opens with an instruction`);
+      assert.notEqual(link.label, link.label.toUpperCase(), `${pillar.key} "${link.label}" is shouting`);
+    }
+  }
+});
