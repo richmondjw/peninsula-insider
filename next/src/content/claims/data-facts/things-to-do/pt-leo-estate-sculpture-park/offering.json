@@ -1,0 +1,45 @@
+{
+  "claimId": "data-facts/things-to-do/pt-leo-estate-sculpture-park/offering",
+  "claimClass": "offering",
+  "subject": {
+    "type": "data-facts",
+    "slug": "things-to-do/pt-leo-estate-sculpture-park",
+    "field": "entities[9].size"
+  },
+  "statement": "The Pt. Leo Estate Sculpture Park covers 16.5 acres.",
+  "assertedBy": [
+    {
+      "type": "data-facts",
+      "slug": "things-to-do/pt-leo-estate-sculpture-park",
+      "field": "entities[9].size"
+    },
+    {
+      "type": "venues",
+      "slug": "pt-leo-estate",
+      "field": "editorNote"
+    },
+    {
+      "type": "venues",
+      "slug": "point-leo-estate-villas",
+      "field": "editorNote"
+    },
+    {
+      "type": "places",
+      "slug": "point-leo",
+      "field": "signature"
+    },
+    {
+      "type": "events",
+      "slug": "pt-leo-estate-sculpture-park",
+      "field": "summary"
+    },
+    {
+      "type": "data-facts",
+      "slug": "wine/pt-leo-estate",
+      "field": "wineries[1].familyNote"
+    }
+  ],
+  "createdAt": "2026-09-13",
+  "origin": "authored",
+  "note": "Disputed, and the dispute is the operator disagreeing with itself. Its sculpture park page gives 16.5 acres of landscaped grounds; its own local resident offer page gives 16 acres of native gardens, and Mornington Peninsula Shire repeats the 16 acre figure. Precedence cannot settle it, because the two live rows that disagree are both venue-site, which is the top ranked kind for this class. An editor has to ask the operator which figure is current. No record is changed on the strength of a dispute. Authored by hand for the PI-005 Stage 2 pilot on the Pt. Leo Estate sculpture park cluster. Sources were read on 2026-09-13; see ops/reports/claims/2026-09-13-pilot-pt-leo-sculpture-park.md."
+}

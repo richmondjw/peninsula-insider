@@ -1,0 +1,35 @@
+{
+  "claimId": "experiences/pt-leo-sculpture-park/rate-change",
+  "claimClass": "rate-change",
+  "subject": {
+    "type": "experiences",
+    "slug": "pt-leo-sculpture-park",
+    "field": "editorNote"
+  },
+  "statement": "Entry to the Pt. Leo Estate Sculpture Park is ticketed for adults. It is not free to the general public.",
+  "assertedBy": [
+    {
+      "type": "experiences",
+      "slug": "pt-leo-sculpture-park",
+      "field": "editorNote"
+    },
+    {
+      "type": "events",
+      "slug": "pt-leo-estate-sculpture-park",
+      "field": "freePaid"
+    },
+    {
+      "type": "data-facts",
+      "slug": "things-to-do/pt-leo-estate-sculpture-park",
+      "field": "entities[9].pricing"
+    },
+    {
+      "type": "data-facts",
+      "slug": "wine/pt-leo-estate",
+      "field": "wineries[1].sculptureParkEntry"
+    }
+  ],
+  "createdAt": "2026-09-13",
+  "origin": "authored",
+  "note": "This is the reader facing contradiction the pilot was chosen for. The sources agree that entry is ticketed, so the claim is supported and the records saying otherwise are wrong. Records asserting free entry as at 2026-09-13: experiences/pt-leo-sculpture-park (editorNote, corrected by this pilot), articles/the-peninsula-picnic (two places), articles/the-school-holidays-survival-guide (two places), articles/how-to-plan-a-peninsula-weekend (two places), articles/the-birthday-weekend (qualified to guests staying on site). Those are prose and are filed for an editor rather than rewritten here. The site publishes no prices, so this claim is about the basis of entry only and carries no amount. Authored by hand for the PI-005 Stage 2 pilot on the Pt. Leo Estate sculpture park cluster. Sources were read on 2026-09-13; see ops/reports/claims/2026-09-13-pilot-pt-leo-sculpture-park.md."
+}
