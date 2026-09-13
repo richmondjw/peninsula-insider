@@ -106,6 +106,10 @@
     "test:analytics-contract": "node --test src/lib/analytics-contract.test.mjs",
     "audit:provenance-dates": "node scripts/audit-provenance-dates.mjs",
     "assert:provenance-dates": "node scripts/audit-provenance-dates.mjs --assert",
+    "audit:link-health": "node scripts/audit-link-health.mjs --json ../ops/reports/content/link-health.json",
+    "assert:link-health": "node scripts/audit-link-health.mjs --json ../ops/reports/content/link-health.json --assert",
+    "probe:link-health": "node scripts/audit-link-health.mjs --probe",
+    "test:link-health": "node --test scripts/audit-link-health.test.mjs",
     "test:provenance": "node --test src/lib/provenance.test.mjs scripts/audit-provenance-dates.test.mjs",
     "test:media-provenance": "node --test scripts/audit-media-provenance.test.mjs src/lib/media-provenance.test.mjs"
   },
