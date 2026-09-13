@@ -11,9 +11,10 @@
  * Budget is CI-enforced by scripts/lint-nav-budget.mjs:
  *   total header choices <= 55, drawer items (incl. CTA) <= 14.
  *
- * NOTE for the budget lint: this file must stay dependency-free (no
- * imports) and its interfaces must stay flat (no nested braces) so the
- * lint can strip types and evaluate the config. Voice rules per
+ * NOTE for the budget lint: interfaces here must stay flat (no nested
+ * braces) so the lint can strip types and evaluate the config, and the
+ * only import permitted is the shared season helper below, which
+ * scripts/lint-nav-budget.mjs strips and stubs. Voice rules per
  * BRAND-PI.md: no em-dashes, no tourism adjectives, no exclamation
  * marks, noun-phrase links.
  *
@@ -22,6 +23,15 @@
  * V5MegaPanel marks the pin fields up with editableText() so each pin
  * is CMS-editable in place (entityType 'page', entitySlug 'nav-<key>').
  */
+import { getSeasonEditionTag } from './season';
+
+/**
+ * The rail eyebrow. Every pillar pin used to carry a hard-coded
+ * "Editor's pick · Winter '26", and the navigation renders on every page
+ * of the site, so the whole site insisted it was winter well into spring.
+ * It now follows the real Melbourne season and year.
+ */
+const editorsPickEyebrow = `Editor's pick · ${getSeasonEditionTag()}`;
 
 export interface V5NavLink {
   key: string;
@@ -73,7 +83,7 @@ const configuredV5Pillars = [
       { key: 'all-eat', label: 'All places to eat', href: '/eat/' },
     ],
     rail: {
-      eyebrow: "Editor's pick · Winter '26",
+      eyebrow: editorsPickEyebrow,
       title: 'Laura at Pt Leo Estate',
       verdict: 'Sit at the bar, not the dining room. Better view, faster service. The kingfish is the order.',
       href: '/eat/laura-pt-leo/',
@@ -96,7 +106,7 @@ const configuredV5Pillars = [
       { key: 'all-stay', label: 'All stays', href: '/stay/' },
     ],
     rail: {
-      eyebrow: "Editor's pick · Winter '26",
+      eyebrow: editorsPickEyebrow,
       title: 'Jackalope',
       verdict: 'The architecture is doing the work. Book Doot Doot Doot for dinner the same night, the room rate justifies the splurge.',
       href: '/stay/jackalope/',
@@ -120,7 +130,7 @@ const configuredV5Pillars = [
       { key: 'all-wine', label: 'All wine regions', href: '/wine/' },
     ],
     rail: {
-      eyebrow: "Editor's pick · Winter '26",
+      eyebrow: editorsPickEyebrow,
       title: 'Ten Minutes by Tractor',
       verdict: 'Three vineyards, one table, and the Wallis Pinot is the pour. The architecture does the rest.',
       href: '/wine/ten-minutes-by-tractor/',
@@ -144,7 +154,7 @@ const configuredV5Pillars = [
       { key: 'map',        label: 'Open the map', href: '/map/' },
     ],
     rail: {
-      eyebrow: "Editor's pick · Winter '26",
+      eyebrow: editorsPickEyebrow,
       title: 'Bushrangers Bay walk',
       verdict: 'A properly wild coast walk with a steep descent and a real payoff. Check conditions before you go, then allow enough time for the climb back.',
       href: '/explore/bushrangers-bay-walk/',
@@ -170,7 +180,7 @@ const configuredV5Pillars = [
       { key: 'all-plans', label: 'All plans', href: '/explore/plans/' },
     ],
     rail: {
-      eyebrow: "Editor's pick · Winter '26",
+      eyebrow: editorsPickEyebrow,
       title: 'Ridge to Sea',
       verdict: 'Two nights, Red Hill down to Flinders. The order matters: ridge first, coast second, and the Friday-night arrival makes the whole thing work.',
       href: '/explore/plans/ridge-to-sea-two-night-escape/',
@@ -193,7 +203,7 @@ const configuredV5Pillars = [
       { key: 'all-whats-on', label: 'Everything on this weekend', href: '/whats-on/' },
     ],
     rail: {
-      eyebrow: "Editor's pick · Winter '26",
+      eyebrow: editorsPickEyebrow,
       title: 'MPRG school holiday workshops',
       verdict: 'Starts 1 July in Mornington, indoor, practical, and actually useful if the school-holiday weather turns. Book early.',
       href: '/whats-on/mornington-peninsula-regional-gallery-school-holiday-workshops/',
@@ -225,7 +235,7 @@ const configuredV5Pillars = [
       { key: 'all-journal', label: 'Every issue, every piece', href: '/journal/' },
     ],
     rail: {
-      eyebrow: "Editor's pick · Winter '26",
+      eyebrow: editorsPickEyebrow,
       title: 'Insider Picks, 12 August',
       verdict: 'Three things worth making time for this week, chosen by the desk.',
       href: '/journal/insider-picks-2026-08-12/',

@@ -19,7 +19,7 @@
  */
 import { editableText, editableImage } from '../../../lib/inline-edit/attrs';
 import { loadOverrides } from '../../../lib/inline-edit/overrides';
-import { getSeason } from '../../../lib/edition';
+import { getAustralianSeasonLower } from '../../../lib/season';
 
 const DEFAULT_STATEMENT = 'The Mornington Peninsula, sorted.';
 
@@ -51,7 +51,7 @@ const dateLabel = now.toLocaleDateString('en-AU', {
 const isoDate = new Intl.DateTimeFormat('en-CA', {
   timeZone: 'Australia/Melbourne',
 }).format(now);
-const season = getSeason(now).toLowerCase();
+const season = getAustralianSeasonLower(now);
 ---
 
 <section class="home-cover" aria-label="Cover">

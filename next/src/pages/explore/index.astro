@@ -26,7 +26,8 @@ import EmptyState from '../../components/v5/EmptyState.astro';
 import TrustNote from '../../components/v5/hub/TrustNote.astro';
 import { getFacets, type FacetKey } from '../../lib/facets';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
-import { routeSlug, currentSeason, seasonBlurb, placeLabel, titleize, venueHref } from '../../lib/editorial';
+import { routeSlug, seasonBlurb, placeLabel, titleize, venueHref } from '../../lib/editorial';
+import { getAustralianSeasonLower } from '../../lib/season';
 import { buildCollectionPageSchema, buildFaqSchema, buildBreadcrumbSchema } from '../../lib/schema';
 
 // ── Copy helpers ──────────────────────────────────────────────────────────────
@@ -177,7 +178,7 @@ const directoryRows: Row[] = [...rows, ...venueRows].sort((a, b) =>
   a.name.localeCompare(b.name),
 );
 
-const season = currentSeason();
+const season = getAustralianSeasonLower();
 const blurb = seasonBlurb[season];
 
 // Live-count parity with lib/v5-filter-state itemMatches: AND across facet

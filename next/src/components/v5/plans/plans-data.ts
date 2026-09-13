@@ -16,11 +16,11 @@
 import { getCollection } from 'astro:content';
 import {
   getFacets,
-  auSeason,
   CHIP_PRESETS,
   FACET_OPTIONS,
   type FacetKey,
 } from '../../../lib/facets';
+import { getAustralianSeasonLower } from '../../../lib/season';
 import { routeSlug, venueHref, titleize } from '../../../lib/editorial';
 import { loadOverrides } from '../../../lib/inline-edit/overrides';
 
@@ -122,7 +122,7 @@ async function heroFor(
 }
 
 export async function buildPlansModel(now: Date = new Date()): Promise<PlansModel> {
-  const season = auSeason(now);
+  const season = getAustralianSeasonLower(now);
 
   // ---- stop resolution lookups -------------------------------------------
   const venues = await getCollection('venues');

@@ -62,14 +62,6 @@ function parseIsoLocal(s: string): Date {
   return new Date(y, m - 1, d);
 }
 
-export function auSeasonWord(d: Date): string {
-  const m = d.getMonth();
-  if (m === 11 || m <= 1) return 'summer';
-  if (m <= 4) return 'autumn';
-  if (m <= 7) return 'winter';
-  return 'spring';
-}
-
 /** "Fri 11 - Sun 13 July" (en dash; em dashes are banned house-wide). */
 export function rangeLabel(start: Date, end: Date): string {
   const dow = (d: Date) => d.toLocaleDateString('en-AU', { weekday: 'short' });

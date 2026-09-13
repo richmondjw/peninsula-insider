@@ -30,10 +30,10 @@ import {
   groupByDay,
   getPicks,
   getShelves,
-  auSeasonWord,
   isoDate,
   startOfDay,
 } from './_data';
+import { getAustralianSeasonLower } from '../../lib/season';
 
 export const prerender = true;
 
@@ -125,7 +125,7 @@ const pickCards = picks.map((p, i) => {
   };
 });
 
-const season = auSeasonWord(now);
+const season = getAustralianSeasonLower(now);
 const todayISO = isoDate(startOfDay(now));
 const modifiedTime = todayISO;
 const pageDescription = `What is actually worth it on the Mornington Peninsula this weekend: PI's three picks, then everything on by day. A selection, not a calendar.`;

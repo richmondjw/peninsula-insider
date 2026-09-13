@@ -20,6 +20,7 @@
  */
 
 import { eventIsUnqualifiedFree } from './event-access.mjs';
+import { getAustralianSeasonLower } from './season';
 
 export type FacetKey = 'place' | 'cat' | 'mood' | 'price' | 'party' | 'date';
 
@@ -499,15 +500,6 @@ function addDays(d: Date, n: number): Date {
   return new Date(d.getFullYear(), d.getMonth(), d.getDate() + n);
 }
 
-/** Southern-hemisphere season for a date. */
-export function auSeason(d: Date): 'summer' | 'autumn' | 'winter' | 'spring' {
-  const m = d.getMonth(); // 0-based
-  if (m === 11 || m <= 1) return 'summer';
-  if (m <= 4) return 'autumn';
-  if (m <= 7) return 'winter';
-  return 'spring';
-}
-
 function rangesOverlap(aStart: Date, aEnd: Date, bStart: Date, bEnd: Date): boolean {
   return aStart <= bEnd && bStart <= aEnd;
 }
@@ -543,11 +535,11 @@ export function dateScopesFor(
   const monthEnd = new Date(today.getFullYear(), today.getMonth() + 1, 0);
   if (rangesOverlap(s, e, monthStart, monthEnd)) scopes.push('this-month');
 
-  const season = auSeason(today);
+  const season = getAustralianSeasonLower(today);
   const overlapDays: Date[] = [s <= today ? today : s];
   // Sample the event span (start, end, today) for a same-season hit.
   overlapDays.push(e);
-  if (overlapDays.some((d) => auSeason(d) === season && d >= today)) {
+  if (overlapDays.some((d) => getAustralianSeasonLower(d) === season && d >= today)) {
     scopes.push('this-season');
   }
   return scopes;
@@ -622,7 +614,7 @@ function facetsForVenueLike(data: Record<string, any>, out: Facets) {
       ? data.seasonBest
       : [];
   if (seasons.length) {
-    const current = auSeason(new Date());
+    const current = getAustralianSeasonLower(new Date());
     if (seasons.includes('all-year') || seasons.includes(current)) {
       emit(out, 'date', 'this-season');
     }
@@ -717,12 +709,12 @@ function facetsForItinerary(data: Record<string, any>, out: Facets) {
 
   const season = typeof data.season === 'string' ? data.season : 'year-round';
   if (season === 'rainy') emit(out, 'mood', 'rainy-day');
-  if (season !== 'year-round' && season !== auSeason(new Date())) {
+  if (season !== 'year-round' && season !== getAustralianSeasonLower(new Date())) {
     if (['summer', 'autumn', 'winter', 'spring', 'christmas-period', 'easter-period', 'school-holidays', 'whale-season'].includes(season)) {
       emit(out, 'date', 'seasonal');
     }
   }
-  if (season === 'year-round' || season === auSeason(new Date())) {
+  if (season === 'year-round' || season === getAustralianSeasonLower(new Date())) {
     emit(out, 'date', 'this-season');
   }
 }
@@ -736,7 +728,7 @@ function facetsForArticle(data: Record<string, any>, out: Facets) {
   if (shape === 'seasonal') emit(out, 'date', 'seasonal');
 
   const tags: string[] = Array.isArray(data.tags) ? data.tags : [];
-  const current = auSeason(new Date());
+  const current = getAustralianSeasonLower(new Date());
   for (const raw of tags) {
     const tag = String(raw).toLowerCase();
     // Place tags (plans articles tag towns directly)

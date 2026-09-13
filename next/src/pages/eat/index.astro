@@ -90,20 +90,20 @@ function verdictLine(signature?: string): string | undefined {
   return first.split(/\s+/).length <= 25 ? first : undefined;
 }
 
-// ── The Six: editorially pinned for the winter season. Verdicts are Critic
+// ── The Six: editorially pinned by the desk. Verdicts are Critic
 //    voice, 25 words maximum, distilled from each venue's own editorial copy.
 const sixPicks: Array<{ slug: string; verdict: string }> = [
   {
     slug: 'tedesca-osteria',
-    verdict: 'The winter long lunch, settled: wood oven, fire lit, one set menu built for cold weather. Book lunch, not dinner.',
+    verdict: 'The long lunch, settled: wood oven, one set menu, and a room built for a slow table. Book lunch, not dinner.',
   },
   {
     slug: 'doot-doot-doot',
-    verdict: 'The cold-night occasion room: two hats, winter produce, and the glass orb chandelier earning its theatre when the ridge goes quiet.',
+    verdict: 'The occasion room: two hats, produce-led menus, and the glass orb chandelier earning its theatre when the ridge goes quiet.',
   },
   {
     slug: 'barragunda-dining',
-    verdict: 'The winter farm booking: a thousand-acre estate, weekly-changing menu, and cooking that makes most sense in the cold months.',
+    verdict: 'The farm booking: a thousand-acre estate, a weekly-changing menu, and cooking tied to what the estate has ready.',
   },
   {
     slug: 'merricks-general-wine-store',
@@ -111,11 +111,11 @@ const sixPicks: Array<{ slug: string; verdict: string }> = [
   },
   {
     slug: 'portsea-hotel',
-    verdict: 'The bay-front pub for a cold blue day: fireplace inside, winter acoustic sessions on the calendar, and the view still doing the work.',
+    verdict: 'The bay-front pub: fireplace inside, acoustic sessions on the calendar, and the view still doing the work.',
   },
   {
     slug: 'commonfolk-coffee',
-    verdict: 'The quick winter warm-up: serious coffee in a Mornington warehouse, best before ten, with the egg sandwich still the order.',
+    verdict: 'The quick warm-up: serious coffee in a Mornington warehouse, best before ten, with the egg sandwich still the order.',
   },
 ];
 
@@ -172,7 +172,12 @@ const wineryKitchens = wineries.filter((v) =>
 );
 const wineryOther = wineries.filter((v) => !wineryKitchens.includes(v));
 
-// ── From the Journal (3 maximum, winter-contextual). ─────────────────────────
+// ── From the Journal (3 maximum). ───────────────────────────────────────────
+//    EDITORIAL: this rail is still the winter selection. The three pieces
+//    below are real published articles and keep their winter identity, but
+//    the CURATION is seasonal and needs the desk to re-pick for the season
+//    in hand. Flagged rather than guessed: choosing which pieces lead a hub
+//    is an editorial call, not an engineering one.
 const articlesAll = (await getCollection('articles', ({ data }) => data.status === 'published'))
   .sort((a, b) => (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0));
 
@@ -220,7 +225,7 @@ const pillarSchema = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
   name: 'Where to Eat on the Mornington Peninsula',
-  description: 'The best restaurants, long lunches, cellar door dining, cafes, bakeries, and winter fireside tables on the Mornington Peninsula.',
+  description: 'The best restaurants, long lunches, cellar door dining, cafes, bakeries, and fireside tables on the Mornington Peninsula.',
   url: 'https://peninsulainsider.com.au/eat/',
   breadcrumb: {
     '@type': 'BreadcrumbList',
@@ -238,7 +243,7 @@ const faqSchema = {
     { '@type': 'Question', name: 'What are the best restaurants on the Mornington Peninsula?',
       acceptedAnswer: { '@type': 'Answer', text: 'The Good Food Guide awarded 15 hats across 11 Peninsula venues. The four two-hat restaurants, Barragunda Dining, Laura at Pt. Leo Estate, Tedesca Osteria, and Ten Minutes by Tractor, are the clearest destination dining choices.' } },
     { '@type': 'Question', name: 'Do I need to book restaurants on the Mornington Peninsula?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Most serious restaurants require bookings, especially on weekends. Hatted venues can book out weeks or months in advance. Walk-in options exist: Montalto Piazza (daily), Foxeys Hangout (no bookings taken), Rare Hare at Willow Creek (walk-in from 2pm weekends), and most cafes and bakeries. Check winter hours before driving.' } },
+      acceptedAnswer: { '@type': 'Answer', text: 'Most serious restaurants require bookings, especially on weekends. Hatted venues can book out weeks or months in advance. Walk-in options exist: Montalto Piazza (daily), Foxeys Hangout (no bookings taken), Rare Hare at Willow Creek (walk-in from 2pm weekends), and most cafes and bakeries. Check seasonal hours before driving.' } },
     { '@type': 'Question', name: 'What is the best area for food on the Mornington Peninsula?',
       acceptedAnswer: { '@type': 'Answer', text: 'The Red Hill plateau, including Main Ridge and Red Hill South, has the highest concentration of serious dining. Mornington town has the strongest casual eating scene. Sorrento and Portsea have the best waterfront and atmosphere-first dining. For wine-paired long lunches, stick to the ridge.' } },
     { '@type': 'Question', name: 'When is the best time to visit the Mornington Peninsula for food?',
@@ -251,7 +256,7 @@ const faqSchema = {
 };
 
 const standfirst =
-  'Winter is the Peninsula food scene at its most useful: fires lit, cellar doors with time to talk, and the best tables actually bookable. ' +
+  'The Peninsula food scene at its most useful: cellar doors with time to talk, kitchens with a point of view, and tables you can still get. ' +
   `Six tables worth planning around first, then all ${venues.length} places we cover, ` +
   'filterable by occasion and town.';
 
@@ -274,14 +279,14 @@ export const prerender = true;
     eyebrow="Eat & Drink"
     title="Where to eat on the Mornington Peninsula"
     standfirst={standfirst}
-    image={{ src: '/images/sourced/article-cellar-door-01.webp', alt: 'A Peninsula cellar door set for a winter tasting' }}
+    image={{ src: '/images/sourced/article-cellar-door-01.webp', alt: 'A Peninsula cellar door set for a tasting' }}
   />
 
   <!-- 2. The verdict layer -->
   <TheSix
     id="the-six"
-    eyebrow="The Six · winter edit"
-    heading="Six tables worth planning around this winter"
+    eyebrow="The Six · the desk edit"
+    heading="Six tables worth planning around"
     surface="eat"
     items={sixItems}
   />
@@ -337,7 +342,7 @@ export const prerender = true;
     >
       <h3 class="eat-winery-kitchens__heading">Winery kitchens</h3>
       <p class="eat-winery-kitchens__sub">
-        The vineyard dining rooms live with their wineries, one page per venue. Winter is when the fires and long lunches make the detour worth it.
+        The vineyard dining rooms live with their wineries, one page per venue. The fires, the long lunches and the estate wine are what make the detour worth it.
       </p>
       <ul class="eat-winery-kitchens__list">
         {wineryKitchens.map((venue) => (
@@ -357,7 +362,7 @@ export const prerender = true;
 
   <!-- What's On, one line + link (spec block 18: strip becomes a line) -->
   <p class="eat-whatson container">
-    Winter food and wine events coming up on the Peninsula:
+    Food and wine events coming up on the Peninsula:
     <a href="/whats-on/">see What&rsquo;s On &rarr;</a>
   </p>
 
@@ -384,7 +389,7 @@ export const prerender = true;
         </details>
         <details class="hub-faq__item">
           <summary class="hub-faq__q">Do I need to book?</summary>
-          <div class="hub-faq__a"><p>Most serious restaurants require bookings, especially on weekends. Hatted venues book weeks or months ahead. Walk-in options: Montalto Piazza (daily), Foxeys Hangout (no bookings taken), Rare Hare at Willow Creek (from 2pm weekends), and most cafes and bakeries. Check winter hours before driving.</p></div>
+          <div class="hub-faq__a"><p>Most serious restaurants require bookings, especially on weekends. Hatted venues book weeks or months ahead. Walk-in options: Montalto Piazza (daily), Foxeys Hangout (no bookings taken), Rare Hare at Willow Creek (from 2pm weekends), and most cafes and bakeries. Check seasonal hours before driving.</p></div>
         </details>
         <details class="hub-faq__item">
           <summary class="hub-faq__q">What is the best area for food?</summary>

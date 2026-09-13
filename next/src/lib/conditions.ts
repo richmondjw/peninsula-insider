@@ -20,7 +20,8 @@
  */
 
 import rawConditions from '../data/conditions.json';
-import { getSunsetLabel, PENINSULA_TZ } from './sunset';
+import { getSunsetLabel } from './sunset';
+import { getAustralianSeason, melbourneCalendarParts } from './season';
 
 export interface ConditionsStrip {
   /** e.g. "Sorrento", or null when no locus is configured. */
@@ -47,40 +48,16 @@ type RawConditions = {
   staleAfterHours?: number | null;
 };
 
-/** Southern Hemisphere meteorological seasons, matching src/lib/edition.ts. */
-function seasonForMonth(month: number): string {
-  if (month >= 3 && month <= 5) return 'Autumn';
-  if (month >= 6 && month <= 8) return 'Winter';
-  if (month >= 9 && month <= 11) return 'Spring';
-  return 'Summer';
-}
-
-/**
- * Melbourne-local calendar parts. The build runs in UTC, and for ten hours
- * of every day the UTC date is a day behind the Peninsula. Deriving the
- * month and year from the localised parts (rather than from getMonth())
- * keeps the issue stamp correct across month and year boundaries.
- */
-function melbourneParts(date: Date): { year: number; month: number; monthName: string } {
-  const parts = new Intl.DateTimeFormat('en-AU', {
-    timeZone: PENINSULA_TZ,
-    year: 'numeric',
-    month: 'numeric',
-  }).formatToParts(date);
-  const num = (t: string) => Number(parts.find((p) => p.type === t)?.value ?? '0');
-  const year = num('year');
-  const month = num('month');
-  const monthName = new Intl.DateTimeFormat('en-AU', {
-    timeZone: PENINSULA_TZ,
-    month: 'long',
-  }).format(date);
-  return { year, month, monthName };
-}
-
-/** "Winter Insider · July 2026" plus its short form, derived from the date. */
+/** "Winter Insider · July 2026" plus its short form, derived from the date.
+ *
+ * Season and calendar parts both come from src/lib/season.ts, which is the
+ * only place in the codebase that decides what season it is. The local
+ * seasonForMonth/melbourneParts pair that used to live here was the one
+ * timezone-correct implementation of four; it now serves the whole site
+ * from the shared module instead. */
 export function getIssueStamp(date: Date = new Date()): { full: string; short: string } {
-  const { year, month, monthName } = melbourneParts(date);
-  const season = seasonForMonth(month);
+  const { year, monthName } = melbourneCalendarParts(date);
+  const season = getAustralianSeason(date);
   return {
     full: `${season} Insider · ${monthName} ${year}`,
     short: `${season} ${year}`,
