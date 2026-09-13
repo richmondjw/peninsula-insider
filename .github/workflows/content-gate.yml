@@ -57,6 +57,8 @@ jobs:
           cd next
           npm run test:content-admission
           npm run test:firsthand-claims
+          npm run test:corrections
+          npm run test:partner-enquiry
           npm run test:agent-readiness
           npm run test:verification-loop
           npm run test:event-safeguards
