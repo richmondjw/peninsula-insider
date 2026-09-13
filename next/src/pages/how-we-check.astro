@@ -1,0 +1,381 @@
+---
+/**
+ * /how-we-check/ - PI-014, the public account of how a fact gets on this site.
+ *
+ * /editorial-approach/ says what earns a place and where the commercial line
+ * sits. It has never said how a fact is checked, which is the question a
+ * reader actually has when a page tells them a kitchen is open. Two links
+ * already promised this page before it existed: the venue template's "How we
+ * check" and the Pass page's "Read the methodology" both pointed at a page
+ * that does not answer either question.
+ *
+ * EVERYTHING MECHANICAL HERE IS DERIVED. The source order, the re-check
+ * intervals and the standing of the record are read at build time from
+ * src/data/source-precedence.json and from the claims and evidence on disk,
+ * through src/lib/how-we-check.mjs. Nothing about the mechanism is typed into
+ * this file, because a page about verification that quietly stopped matching
+ * the code would be the worst thing on the site: an unchecked claim about
+ * checking. Reorder the table and this page reorders.
+ *
+ * THE COUNTS ARE MEANT TO BE UNFLATTERING. Most of what is on file was
+ * carried over from what records already said rather than freshly confirmed,
+ * most of it is past its re-check date, and the venue write-ups have almost
+ * nothing behind them. That is the truth today, it is published as a number
+ * rather than as an adjective, and it moves on its own as the work is done.
+ * Register item A8 is the site saying "weekly" about an engine that has never
+ * run once. There is not going to be a second one of those.
+ *
+ * Rules and their tests: src/lib/how-we-check.test.mjs.
+ */
+import { readdirSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
+import { getCollection } from 'astro:content';
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHero from '../components/SectionHero.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import NewsletterBlock from '../components/NewsletterBlock.astro';
+
+import precedence from '../data/source-precedence.json';
+import {
+  coverageByArea,
+  factKinds,
+  intervalInWords,
+  plural,
+  precedenceExample,
+  recordStanding,
+  sourceKinds,
+} from '../lib/how-we-check.mjs';
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'About', href: '/about/' },
+  { label: 'How we check' },
+];
+
+/**
+ * Entry counts per content directory, counted off the corpus rather than
+ * listed here. A new part of the site appears in the coverage table on its
+ * first build, with however many sources it has, which is nought.
+ */
+function entryCounts() {
+  const base = fileURLToPath(new URL('../content/', import.meta.url));
+  const counts = {};
+  const walk = (dir) => {
+    let n = 0;
+    for (const entry of readdirSync(dir, { withFileTypes: true })) {
+      if (entry.isDirectory()) n += walk(join(dir, entry.name));
+      else n += 1;
+    }
+    return n;
+  };
+  for (const entry of readdirSync(base, { withFileTypes: true })) {
+    if (!entry.isDirectory()) continue;
+    counts[entry.name] = walk(join(base, entry.name));
+  }
+  return counts;
+}
+
+const [claims, evidence] = await Promise.all([
+  getCollection('claims'),
+  getCollection('evidence'),
+]);
+
+const kinds = factKinds(precedence);
+const sources = sourceKinds(precedence);
+const example = precedenceExample(precedence);
+const standing = recordStanding(claims, evidence, { precedence });
+const coverage = coverageByArea(standing, entryCounts());
+
+const shortest = kinds[0];
+const longest = kinds[kinds.length - 1];
+const defaultInterval = intervalInWords(precedence.defaultExpiryDays);
+
+// Which parts of the site the work reached first, which it has barely
+// touched, and which it has not reached at all: all three read off the same
+// rows the table publishes, so the prose and the table cannot disagree.
+const bestCovered = [...coverage]
+  .filter((row) => row.withSources > 0)
+  .sort((a, b) => b.withSources - a.withSources)
+  .slice(0, 2);
+const uncovered = coverage.filter((row) => row.withSources === 0);
+const thin = coverage
+  .filter((row) => row.records >= 20 && row.withSources > 0 && row.withSources < row.records / 2)
+  .slice(0, 3);
+
+export const prerender = true;
+---
+
+<BaseLayout
+  title="How we check | Peninsula Insider"
+  description="Where a fact on Peninsula Insider comes from, who we believe when sources disagree, how long a fact stays good, and how to tell us we have it wrong."
+  section="home"
+  canonical="https://peninsulainsider.com.au/how-we-check/"
+>
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <SectionHero
+    eyebrow="How we check"
+    title="How we know <em>what we tell you.</em>"
+    dek="Where a fact on this site came from, who we believe when two sources disagree, how long before we go back and look again, and what happens when we get it wrong."
+    gradient="bay"
+    entitySlug="how-we-check"
+  />
+
+  <!-- The short version -->
+  <section class="about-mission">
+    <div class="container">
+      <div class="about-mission__grid">
+        <div class="about-mission__lead">
+          <p class="label label--accent">The short version</p>
+          <h2 class="about-mission__title">Two different questions.</h2>
+        </div>
+        <div class="about-mission__body prose">
+          <p><strong>Whether a place is worth your Saturday is a judgement.</strong> It is made on the merits, from research and a formed view, and never bought. That half is set out in <a href="/editorial-approach/">our editorial approach</a>.</p>
+          <p><strong>Whether the kitchen is open on Sunday is a fact.</strong> It is either right or it is not, and this page is about how we try to keep it right: what we write down about where a fact came from, who we believe when two sources disagree, and how long we let a fact stand before going back to look again.</p>
+          <p>The two are not held to the same standard, and they should not be. You can disagree with a verdict. You should not have to check an address.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What we write down -->
+  <section class="about-principles">
+    <div class="container">
+      <div class="split-intro">
+        <div>
+          <p class="label label--accent">The record</p>
+          <h2 class="split-intro__title">Four things, for every fact we keep.</h2>
+        </div>
+        <p class="split-intro__body">A fact with no source behind it is a rumour with better typography. So a fact we keep carries its own paperwork.</p>
+      </div>
+      <div class="about-principles__grid">
+        <article class="about-principle">
+          <h3 class="about-principle__title">What is being said</h3>
+          <p class="about-principle__body">One plain sentence. Not the wording of the page, the fact underneath it: that this business is trading, that this event runs on these dates, that this track is shut.</p>
+        </article>
+        <article class="about-principle">
+          <h3 class="about-principle__title">Who said it</h3>
+          <p class="about-principle__body">The business itself, a public authority, the people running an event, a ticket seller, a news report, our own notes. Where we genuinely do not know, that is written down too, in those words.</p>
+        </article>
+        <article class="about-principle">
+          <h3 class="about-principle__title">When we read it</h3>
+          <p class="about-principle__body">The date the source was actually looked at. Not the date the page was edited, and not the date the fact was first written, both of which have been mistaken for it here before.</p>
+        </article>
+        <article class="about-principle">
+          <h3 class="about-principle__title">When to look again</h3>
+          <p class="about-principle__body">Set from the day the source was read and from the kind of fact it is. A tide window and a fishing rule are not the same sort of thing and do not keep for the same length of time.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- What counts as a source -->
+  <section class="about-mission">
+    <div class="container">
+      <div class="about-mission__grid">
+        <div class="about-mission__lead">
+          <p class="label label--accent">Sources</p>
+          <h2 class="about-mission__title">What can count as a source.</h2>
+        </div>
+        <div class="about-mission__body prose">
+          <p>These are the only kinds of source a fact on this site can cite. There is no other category, and there is no way to record a fact as confirmed without naming one of them.</p>
+          <ul>
+            {sources.map((s) => <li>{s.label}</li>)}
+          </ul>
+          <p>The last one is not a formality. Plenty of what we hold was carried over from older records that never said where they got it, and calling that anything other than what it is would be the first lie on a page about accuracy.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Precedence -->
+  <section class="about-principles">
+    <div class="container">
+      <div class="split-intro">
+        <div>
+          <p class="label label--accent">When sources disagree</p>
+          <h2 class="split-intro__title">Who we believe first.</h2>
+        </div>
+        <p class="split-intro__body">Two sources can say different things about the same fact on the same day. Which one wins is decided in advance, by the kind of fact it is, and not case by case.</p>
+      </div>
+
+      <div class="prose method-table">
+        {example && (
+          <p class="method-lede">
+            On "{example.label.toLowerCase()}", we believe <strong>{example.winnerLabel.toLowerCase()}</strong> before <strong>{example.loserLabel.toLowerCase()}</strong>. That is not a nicety. A reseller's page stays up long after the event has been pulled, and reading it first is how a guide ends up sending somebody to a paddock.
+          </p>
+        )}
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">The fact</th>
+              <th scope="col">Believed first, in this order</th>
+              <th scope="col">Looked at again after</th>
+            </tr>
+          </thead>
+          <tbody>
+            {kinds.map((k) => (
+              <tr>
+                <th scope="row">{k.label}</th>
+                <td>{k.leadSources.join(', then ')}</td>
+                <td>{k.recheck}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <p class="method-note">The order runs past the three named here; those are the ones that decide almost every case. Where the two sides of a disagreement are of equal standing, nothing resolves it automatically. The fact is marked as disputed and it waits for a person.{standing.disputed > 0 && <> Today {standing.disputed === 1 ? 'one fact is' : standing.disputed + ' facts are'} sitting in that state.</>}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Expiry -->
+  <section class="about-mission">
+    <div class="container">
+      <div class="about-mission__grid">
+        <div class="about-mission__lead">
+          <p class="label label--accent">Going out of date</p>
+          <h2 class="about-mission__title">Nothing here keeps forever.</h2>
+        </div>
+        <div class="about-mission__body prose">
+          <p>Every source we record comes with the date it should be looked at again, counted from the day it was read. {shortest && <>The shortest is {shortest.recheck}, for {shortest.label.toLowerCase()}.</>} {longest && <>The longest is {longest.recheck}, for {longest.label.toLowerCase()}.</>} {defaultInterval && <>Anything new starts at {defaultInterval} until somebody decides otherwise.</>}</p>
+          <p>When that date passes, nothing is deleted and nothing is hidden. What changes is what we are willing to say: the page stops describing the fact as checked and starts saying the sources behind it have run out of date. A page is only ever as fresh as its stalest entry, so a list of twenty carries the oldest of the twenty, never the newest.</p>
+          <p>This is why you will see the phrase "last reviewed" in some places and "last fact-verified" in others. They are not the same claim. A review means someone read the page. A verification means a source was read and the fact still stood. Only the second is earned, and the wording is decided by the record rather than by whoever wrote the page.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Where this stands today -->
+  <section class="about-principles">
+    <div class="container">
+      <div class="split-intro">
+        <div>
+          <p class="label label--accent">Where this stands today</p>
+          <h2 class="split-intro__title">How much of this is actually done.</h2>
+        </div>
+        <p class="split-intro__body">Describing the method is easy. Here is how far through it we are, counted off the files as this page was built, and not rounded up.</p>
+      </div>
+
+      <div class="prose method-table">
+        <p class="method-lede">We hold {standing.facts} individual {plural(standing.facts, 'fact')} with {standing.sources} {plural(standing.sources, 'source')} behind {standing.facts === 1 ? 'it' : 'them'}. Of those sources, {standing.current} {standing.current === 1 ? 'is' : 'are'} still inside their re-check window and {standing.lapsed} {standing.lapsed === 1 ? 'has' : 'have'} run past it. {standing.carriedOver > 0 && <>And {standing.carriedOver} of the {standing.facts} were carried over from what records already said when this record was started, rather than confirmed fresh.</>}</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Part of the site</th>
+              <th scope="col">Entries</th>
+              <th scope="col">With a source on file</th>
+            </tr>
+          </thead>
+          <tbody>
+            {coverage.map((row) => (
+              <tr>
+                <th scope="row">{row.label}</th>
+                <td>{row.records}</td>
+                <td>{row.withSources}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+
+        <p class="method-note">
+          {bestCovered.length > 0 && <>The work went first to where a wrong fact does the most damage on the day: {bestCovered.map((row) => row.label.toLowerCase()).join(' and ')}. </>}
+          {thin.length > 0 && <>It has barely started on {thin.map((row) => row.label.toLowerCase()).join(', ')}. </>}
+          {uncovered.length > 0 && <>{uncovered.length === 1 ? 'One part of the site has' : uncovered.length + ' parts of the site have'} nothing on file at all, which means the dates on those pages tell you when somebody last read them and nothing more. </>}
+          Those rows are the honest state of it. They will move as the work is done, and they are counted fresh every time this page is built, so it cannot flatter itself later.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- What is done by hand -->
+  <section class="about-mission">
+    <div class="container">
+      <div class="about-mission__grid">
+        <div class="about-mission__lead">
+          <p class="label label--accent">What is a machine and what is a person</p>
+          <h2 class="about-mission__title">Nothing on this site edits itself.</h2>
+        </div>
+        <div class="about-mission__body prose">
+          <p>Once a night, a program reads the sources we have cited, notices where a page and its source no longer agree, and writes up what it thinks should change. It cannot change anything. It has no power to edit a page, and there is no setting that gives it one. Every edit is made by a person who has looked at the thing themselves.</p>
+          <p>Some checks do run automatically on every build, and they only ever refuse: a page cannot claim someone was there when no visit is on the record, a business cannot be marked as shut in a place the site will not read, and a business recorded as shut cannot go on appearing in the listings.</p>
+          <p>And some things a machine is no use for at all. Whether a photograph actually shows the place it sits next to, whether we had the right to publish it, and whether a verdict is fair are all judgements, and they are made by people or not at all.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The failure -->
+  <section class="about-principles">
+    <div class="container">
+      <div class="split-intro">
+        <div>
+          <p class="label label--accent">What went wrong</p>
+          <h2 class="split-intro__title">The case that changed this.</h2>
+        </div>
+        <p class="split-intro__body">A method page is worth very little without the failure that produced it.</p>
+      </div>
+      <div class="prose method-table">
+        <p class="method-lede">In May, an editor recorded that a Peninsula restaurant had closed for good. The restaurant was trading. The note was written into a part of the file the site had never been told to read, so for four months it sat there changing nothing and nobody noticed it was wrong.</p>
+        <p class="method-note">In September the site was finally taught to read that part of the file, and it did exactly as it was told: a trading restaurant dropped out of the listings and its page turned into a closure notice. That stood for about a day before it was caught and lifted. The restaurant lost a day of being findable because of something we wrote down and never checked.</p>
+        <p class="method-note">Two things came out of it, and both are in force. A closure written somewhere the site cannot see now stops the build rather than sitting silently in a file. And the published site is read back after every build to confirm that anything recorded as closed is genuinely gone from it. Neither of those would have saved the restaurant in May, because the original note was simply wrong. That is what the re-check dates and the corrections queue below are for, and it is why this page does not tell you our facts are verified. Some of them are. Most of them are on a list.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Corrections -->
+  <section class="about-mission">
+    <div class="container">
+      <div class="about-mission__grid">
+        <div class="about-mission__lead">
+          <p class="label label--accent">If we have it wrong</p>
+          <h2 class="about-mission__title">Tell us, and watch what happens.</h2>
+        </div>
+        <div class="about-mission__body prose">
+          <p>You do not need a relationship with us, an account, or a reason. <a href="/corrections/">Report it here</a>. The form asks four things: the page it is on, what is wrong, what it should say instead, and how you know. Those four are what let us check it rather than write back asking for them.</p>
+          <p>You get a reference number on the screen straight away. Keep it. Every decision taken on the case is written against that reference and nothing can be written over afterwards, so a case that is closed and reopened accumulates its history rather than losing it. An email address is optional, and leaving it out changes nothing except our ability to write back.</p>
+          <p>Correcting a factual error is free, and it is handled the same way whoever reports it: a reader, the owner, or the person the piece is about. Who you are changes how we go about confirming a claim. It does not change how fast we look. <a href="mailto:corrections@peninsulainsider.com.au" data-pi-intent="correction" data-pi-surface="how-we-check">corrections@peninsulainsider.com.au</a> reaches the same desk.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <NewsletterBlock
+    body="Seasonal verdicts, curated weekends, and what's worth your time on the Mornington Peninsula."
+    sub="The Peninsula worth knowing. Weekly. What's on, where we'd go and what's worth knowing next."
+  />
+</BaseLayout>
+
+<style>
+  /* The two data tables carry the load on this page, so they get a little
+     more air than the prose default and a lede that reads as a sentence
+     rather than as a caption. Everything else reuses the about/editorial
+     vocabulary so this page sits beside /editorial-approach/ rather than
+     next to it. */
+  .method-table {
+    margin-top: 2.5rem;
+    max-width: 62rem;
+  }
+  .method-lede {
+    font-size: var(--fs-500, 1.1875rem);
+    line-height: var(--lh-dek, 1.45);
+    color: var(--dark);
+    margin-bottom: 1.6rem;
+  }
+  .method-note {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--soft);
+    margin-top: 1.2rem;
+  }
+  .method-table table th[scope='row'] {
+    font-weight: 600;
+    color: var(--dark);
+    white-space: normal;
+  }
+  .method-table table td {
+    vertical-align: top;
+  }
+</style>

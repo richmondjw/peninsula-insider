@@ -57,7 +57,7 @@ export const PUBLISHER_LABELS = Object.freeze({
   'venue-site': 'The business, on its own website',
   phone: 'The business, by phone',
   email: 'The business, by email',
-  visit: 'Our own notes from being there',
+  visit: 'Our own notes from a visit',
   press: 'A news report',
   social: 'The business, on its own social account',
   gov: 'A government or public authority',
@@ -208,6 +208,15 @@ export const AREA_LABELS = Object.freeze({
  */
 export const INTERNAL_TYPES = Object.freeze(['claims', 'evidence', 'authors', 'editorial_blocks']);
 
+/**
+ * Subject types the record uses that are not a directory of reader-facing
+ * entries, so they have no row in a coverage table counting entries. There is
+ * exactly one, and it is named here rather than silently skipped: the test
+ * fails if the corpus grows a second, which is the only way a whole part of
+ * the record could quietly drop out of the published figure.
+ */
+export const NON_PAGE_TYPES = Object.freeze(['data-facts']);
+
 export function areaLabel(type) {
   return AREA_LABELS[type] ?? type;
 }
@@ -283,6 +292,11 @@ export function recordStanding(claims, evidence, { now, precedence } = {}) {
  *
  * Entries the record has never reached are included with a zero rather than
  * omitted. Dropping them would turn this into a report on its own best work.
+ *
+ * The table is keyed on the directories, because its middle column counts
+ * things a reader can open. A subject type that is not a directory therefore
+ * has no row; NON_PAGE_TYPES names the ones that is true of, and the test
+ * fails if the corpus grows another, so nothing leaves the table unnoticed.
  */
 export function coverageByArea(standing, sizes) {
   const bySubjectType = new Map((standing?.areas ?? []).map((a) => [a.type, a]));
@@ -296,19 +310,6 @@ export function coverageByArea(standing, sizes) {
       records,
       withSources: area?.subjects ?? 0,
       facts: area?.facts ?? 0,
-    });
-  }
-  // Types held in the record that have no directory of their own, such as the
-  // background facts, still belong in the table.
-  for (const area of standing?.areas ?? []) {
-    if (rows.some((row) => row.type === area.type)) continue;
-    if (INTERNAL_TYPES.includes(area.type)) continue;
-    rows.push({
-      type: area.type,
-      label: area.label,
-      records: area.subjects,
-      withSources: area.subjects,
-      facts: area.facts,
     });
   }
   return rows.sort((a, b) => b.records - a.records || a.type.localeCompare(b.type));
