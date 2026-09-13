@@ -417,8 +417,6 @@ const BEFORE_EVERYTHING = '2000-01-01';
 
 const corpus = await loadCorpus({ nextDir: NEXT_DIR });
 const evidenceByClaim = indexEvidenceByClaim(corpus.evidence);
-const stateNow = (c) =>
-  deriveClaimState(c, evidenceByClaim.get(c.claimId) ?? [], { now: NOW, precedence: corpus.precedence });
 
 test('the corpus this suite reads is not empty, or every invariant below is vacuous', () => {
   assert.ok(corpus.claims.length > 0);
@@ -450,11 +448,23 @@ test('with the window open from before the corpus existed, every first verificat
   // Nothing can be a RE-verification when nothing was on file at `since`.
   assert.deepEqual(result.reassurances, []);
 
-  // Expectations are derived from the same data, by asking claim-state.mjs.
+  // Expectations are derived from the same data, at the same as-at date.
   const expected = {
-    'claim-verified': new Set(corpus.claims.filter((c) => stateNow(c) === 'supported').map((c) => c.claimId)),
-    'claim-disputed': new Set(corpus.claims.filter((c) => stateNow(c) === 'disputed').map((c) => c.claimId)),
-    'claim-withdrawn': new Set(corpus.claims.filter((c) => stateNow(c) === 'retired').map((c) => c.claimId)),
+    'claim-verified': new Set(
+      corpus.claims
+        .filter((c) => claimStateAt(c, evidenceByClaim.get(c.claimId) ?? [], { at: NOW, precedence: corpus.precedence }) === 'supported')
+        .map((c) => c.claimId)
+    ),
+    'claim-disputed': new Set(
+      corpus.claims
+        .filter((c) => claimStateAt(c, evidenceByClaim.get(c.claimId) ?? [], { at: NOW, precedence: corpus.precedence }) === 'disputed')
+        .map((c) => c.claimId)
+    ),
+    'claim-withdrawn': new Set(
+      corpus.claims
+        .filter((c) => claimStateAt(c, evidenceByClaim.get(c.claimId) ?? [], { at: NOW, precedence: corpus.precedence }) === 'retired')
+        .map((c) => c.claimId)
+    ),
   };
   for (const [kind, want] of Object.entries(expected)) {
     const got = new Set(result.changes.filter((e) => e.kind === kind).map((e) => e.claimId));
