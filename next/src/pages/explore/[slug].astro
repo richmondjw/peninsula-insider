@@ -10,6 +10,7 @@ import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { placeLabel, routeSlug, titleize, venueHrefPrefix, isListableVenue } from '../../lib/editorial';
 import { editableText, editableImage } from '../../lib/inline-edit/attrs';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
+import MediaProvenanceNote from '../../components/MediaProvenanceNote.astro';
 import { primarySchemaType } from '../../lib/schema';
 
 const difficultyLabel: Record<string, string> = {
@@ -205,8 +206,15 @@ export const prerender = true;
         label: `${experience.data.name} hero`, purpose: 'hero',
       })}>
         <div class="experience-detail__hero-fog"></div>
-        <span class="experience-detail__hero-label">{experience.data.heroImage.alt}</span>
+        {!experience.data.heroImage?.decorative && (
+          <span class="experience-detail__hero-label">{experience.data.heroImage.alt}</span>
+        )}
       </div>
+      <MediaProvenanceNote
+        image={experience.data.heroImage}
+        subject={experience.data.name}
+        class="experience-detail__hero-provenance"
+      />
 
       <div class="experience-detail__grid">
         <div>

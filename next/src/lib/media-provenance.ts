@@ -48,6 +48,64 @@ export interface ProvenanceImage {
   permission?: string;
   permittedUses?: string[];
   provenanceReview?: string;
+  rightsHolder?: string;
+  rightsEstablishedOn?: string;
+  rightsStatus?: string;
+  decorative?: boolean;
+}
+
+export type RightsState = 'unrecorded' | 'unknown' | 'recorded';
+
+const KNOWN_RIGHTS: ReadonlySet<string> = new Set<RightsState>([
+  'unrecorded',
+  'unknown',
+  'recorded',
+]);
+
+/**
+ * How far the rights record has got.
+ *
+ * Whitelisted the same way as `depictionStatusOf`, and for the same reason: a
+ * typo must degrade to the weakest state, never to `recorded`. An unknown
+ * string is not evidence of anything.
+ */
+export function rightsStateOf(image: ProvenanceImage | null | undefined): RightsState {
+  const raw = typeof image?.rightsStatus === 'string' ? image.rightsStatus.trim() : '';
+  return KNOWN_RIGHTS.has(raw) ? (raw as RightsState) : 'unrecorded';
+}
+
+/**
+ * Is this image purely decorative?
+ *
+ * True only on an explicit boolean `true`. A truthy string, a `1`, or the
+ * field being absent all read as false, because presenting an informative
+ * image as decorative hides it from screen-reader users entirely - a failure
+ * that is silent by construction and therefore the one to guard hardest.
+ */
+export function isDecorative(image: ProvenanceImage | null | undefined): boolean {
+  return image?.decorative === true;
+}
+
+/**
+ * The alt attribute to render, and whether to mark the image presentational.
+ *
+ * One function so that every surface answers the question the same way. The
+ * `fallback` is what a template would otherwise have used - a venue name, an
+ * article title - and it is applied ONLY to a non-decorative image with no
+ * alt of its own. On a decorative image the fallback is deliberately dropped:
+ * `alt={hero.alt || venueName}` is how an empty alt gets quietly refilled
+ * with the venue's name, which re-asserts the exact claim the empty alt was
+ * there to withdraw.
+ */
+export function altFor(
+  image: ProvenanceImage | null | undefined,
+  fallback?: string | null
+): { alt: string; presentation: boolean } {
+  if (isDecorative(image)) return { alt: '', presentation: true };
+  const own = typeof image?.alt === 'string' ? image.alt.trim() : '';
+  if (own) return { alt: own, presentation: false };
+  const spare = typeof fallback === 'string' ? fallback.trim() : '';
+  return { alt: spare, presentation: false };
 }
 
 const KNOWN: ReadonlySet<string> = new Set<DepictionStatus>([

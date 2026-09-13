@@ -285,6 +285,13 @@ async function readImageRecords() {
 const DISCLOSURE_SURFACES = {
   venues: ['src/components/VenueDetailTemplate.astro'],
   places: ['src/components/PlaceDetailTemplate.astro'],
+  // Added when the 152 inherited representative-alt records were marked. All
+  // three collections carry stand-in heroes; wiring only the two that already
+  // had the component would have meant marking an experience or an article
+  // illustrative and rendering nothing to the reader, which is the A28
+  // failure with an extra field in it.
+  experiences: ['src/pages/explore/[slug].astro'],
+  articles: ['src/pages/journal/[slug].astro'],
 };
 
 /**

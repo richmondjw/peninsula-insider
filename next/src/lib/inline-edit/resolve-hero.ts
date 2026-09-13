@@ -50,6 +50,17 @@ export interface ResolvedHero {
    * never specified one.
    */
   hasPhoto: boolean;
+  /**
+   * True when the CONTENT record marks the image purely decorative, so the
+   * surface must render `alt=""` and `role="presentation"`.
+   *
+   * Always false when a CMS override is in play: the override is a different
+   * file that the content record says nothing about, and inheriting "this is
+   * decorative" onto a photograph nobody has assessed would hide a possibly
+   * informative image from every screen-reader user, silently. Same reasoning
+   * as `heroProvenance` in the detail templates.
+   */
+  decorative: boolean;
   /** The raw published override row, if any. */
   override: CmsOverrideImage | undefined;
 }
@@ -67,12 +78,19 @@ export async function resolveHero(
     images[fieldPath] ?? images.hero ?? images.heroImage ?? undefined;
 
   const src = override?.src ?? resolveHeroSrc(data);
-  const alt =
-    override?.alt ??
-    data?.heroImage?.alt ??
-    data?.name ??
-    data?.title ??
-    '';
+  const decorative = !override && data?.heroImage?.decorative === true;
+  // A decorative image keeps its empty alt. The name/title fallback below is
+  // for a record that simply forgot to write alt text; applying it to an
+  // image deliberately marked decorative would re-label a stand-in
+  // photograph with the entity's own name, which is the claim the mark
+  // exists to withdraw.
+  const alt = decorative
+    ? ''
+    : override?.alt ??
+      data?.heroImage?.alt ??
+      data?.name ??
+      data?.title ??
+      '';
   const style = override?.src
     ? `background-image: url(${override.src}); background-size: cover; background-position: center;`
     : heroBackgroundStyle(data);
@@ -82,6 +100,7 @@ export async function resolveHero(
     alt,
     style,
     hasPhoto: Boolean(override) || hasOwnHeroImage(data),
+    decorative,
     override,
   };
 }
