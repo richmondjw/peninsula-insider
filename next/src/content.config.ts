@@ -106,6 +106,15 @@ const venues = defineCollection({
   loader: glob({ pattern: '**/*.json', base: './src/content/venues' }),
   schema: z.object({
     slug: z.string(),
+    /**
+     * The slug this venue carried before it was renamed. Informational only:
+     * the route and every cross-reference resolve from the file id, so a
+     * value here changes nothing. Declared because the Stillwater record
+     * documented its rename to crittenden-restaurant in this field and the
+     * note was discarded on load, leaving the rename untraceable from the
+     * record itself.
+     */
+    previousSlug: z.string().optional(),
     name: z.string(),
     type: z.enum([
       'restaurant',
@@ -160,6 +169,12 @@ const venues = defineCollection({
     coordinates,
     address: z.string(),
     phone: z.string().optional(),
+    /**
+     * Operator contact email. One venue records it. Nothing renders it
+     * today; declared so a contact detail an editor took the trouble to find
+     * is not deleted between the disk and the template.
+     */
+    email: z.string().email().optional(),
     website: z.string().url().optional(),
     bookingUrl: z.string().url().optional(),
     bookingProvider: z
@@ -251,6 +266,20 @@ const venues = defineCollection({
       })
       .optional(),
     /**
+     * Legacy top-level hours map, hand-authored before `visiting` existed.
+     * Free text keyed by an ad-hoc day range ("monFri", "thuFri", "sat"), so
+     * it is NOT the schema.org shape `visiting.openingHours` carries, and it
+     * is deliberately not rendered or emitted as structured data anywhere.
+     *
+     * Two venues (georgie-bass, moke-dining) hold hours only here, with both
+     * `visiting` and `hoursNote` null, so those hours have never reached a
+     * page. Declared to stop the values being deleted on load. Normalising
+     * them into `hoursNote` or `visiting.openingHours` would publish hours to
+     * a live venue page and to its JSON-LD, which is an editorial call rather
+     * than a schema one, so it is left open. Write new hours into `visiting`.
+     */
+    openingHours: z.record(z.string(), z.string()).optional(),
+    /**
      * On-site dining room, for venues whose primary type is not a restaurant
      * (14 wineries). Drives the Winery kitchens module on the wine hub, the
      * restaurant section on the venue page, and the Restaurant JSON-LD node.
@@ -265,6 +294,77 @@ const venues = defineCollection({
         description: z.string().optional(),
       })
       .optional(),
+    /**
+     * Wine-region sub-appellation, as a slug ("red-hill", "merricks-north").
+     * Rendered as a chip in the venue meta line and read by the six
+     * /wine/<subregion>/ listing pages, which match on place OR subregion.
+     * Twenty-one wineries record it and every value was discarded, so those
+     * pages have been matching on place alone.
+     */
+    subregion: z.string().optional(),
+    /**
+     * Winemaking facts for a winery record. Feeds the "The wines" section on
+     * the venue page, the winemaker row in the facts list, and the
+     * schema.org `knowsAbout` list in buildWinerySchema. `signature` is read
+     * by the template but written by no record yet; declared so the next
+     * editor who writes it is not silently ignored.
+     */
+    wines: z
+      .object({
+        winemaker: z.string().optional(),
+        keyVarieties: z.array(z.string()).default([]),
+        topLabel: z.string().optional(),
+        signature: z.string().optional(),
+      })
+      .optional(),
+    /**
+     * External authority profiles for the venue. buildWinerySchema already
+     * emits these as schema.org `sameAs`, and VenueDetailTemplate already
+     * renders the "Region listing" and "Halliday listing" links from them.
+     * Only the schema declaration was missing, so all 21 records lost every
+     * link on load and both surfaces have been empty.
+     */
+    sameAs: z
+      .object({
+        officialSite: z.string().url().optional(),
+        halliday: z.string().url().optional(),
+        mpva: z.string().url().optional(),
+      })
+      .optional(),
+    /**
+     * On-site lodging at a venue whose primary type is not accommodation
+     * (five wineries). Drives the accommodation section on the venue page and
+     * the LodgingBusiness JSON-LD node, both already wired and both empty
+     * until now. `units` is read by the template but written by no record.
+     */
+    accommodation: z
+      .object({
+        name: z.string().optional(),
+        description: z.string().optional(),
+        units: z.number().optional(),
+      })
+      .optional(),
+    /**
+     * Editor-written questions and answers for the venue: 21 wineries, 63
+     * pairs, all of it discarded on load. Uses `q`/`a`, not the
+     * `question`/`answer` pair the articles and itineraries collections use.
+     * These are the keys already on disk; do not "fix" them without
+     * migrating the data.
+     *
+     * Both consumers are already wired: VenueDetailTemplate renders a visible
+     * FAQ section and wine/[slug].astro emits a schema.org FAQPage from it.
+     * Declaring the field therefore switches both on for 21 pages at once,
+     * the same way editorVerdict did in July 2026.
+     */
+    faq: z.array(z.object({ q: z.string(), a: z.string() })).optional(),
+    /**
+     * Date the wine desk last checked the venue's facts, as the editor
+     * recorded it. Distinct from `lastVerified`, which is required on every
+     * venue; this marker sits on the 21 wineries only. wine/[slug].astro
+     * computes `isVerified` from it, so that computation has been
+     * permanently false since it was written.
+     */
+    lastFactVerified: z.coerce.date().optional(),
     /**
      * Long-form editorial verdict (21 venues). Rendered as the pull-quote
      * verdict block on the venue page and used, trimmed to its first
@@ -520,6 +620,31 @@ const articles = defineCollection({
     clusterLinks: z.array(z.object({ label: z.string(), href: z.string() })).optional(),
     aiSummary: z.array(z.string()).optional(),
     faq: z.array(z.object({ question: z.string(), answer: z.string() })).optional(),
+    /**
+     * Which agent run produced this article: a date-stamped run id such as
+     * "2026-09-12-daily" or "2026-08-06-manual-recovery", written by the
+     * dispatch and orchestrator agents whose own instructions require it.
+     * Twenty-nine articles carry it and every one was discarded, so the
+     * record of what was machine-generated survived only in the file on disk
+     * and never in the loaded content. Provenance, not display: no template
+     * reads it, and declaring it labels nothing on the page by itself.
+     */
+    agentRun: z.string().optional(),
+    /**
+     * Mirror of the route slug. The file id is authoritative, so a value here
+     * never moves a URL, and all 16 records carrying it already match their
+     * own filename. Declared so the editor's copy survives the load instead
+     * of vanishing. Rename the file to move an article, not this field.
+     */
+    slug: z.string().optional(),
+    /**
+     * Events this article is about. Plain slug strings rather than
+     * reference('events'), matching dispatch.*.eventRef below: the archive
+     * cron moves a finished event into events/archive/, which changes its
+     * collection id, and a hard reference would turn that routine move into
+     * a build failure. One article carries it; nothing renders it yet.
+     */
+    relatedEvents: z.array(z.string()).default([]),
     sitemapExclude: z.boolean().default(false),
     /**
      * Editorial section this article belongs to. Articles tagged "plans" are
@@ -596,6 +721,45 @@ const articles = defineCollection({
         }).optional(),
         // The indoor / weather-changes backup.
         rainyDay: z.object({
+          title: z.string(),
+          when: z.string(),
+          where: z.string(),
+          price: z.string().optional(),
+          summary: z.string(),
+          bookingLabel: z.string().optional(),
+          bookingUrl: z.string().url().optional(),
+          eventRef: z.string().optional(),
+        }).optional(),
+        // Three further picks the desk writes when a weekend has them, in
+        // the same shape as the day picks above. `companion` is the natural
+        // second booking beside the lead, `localEdge` is the one a visitor
+        // would not find alone, `quieterAlt` is the low-key substitute for
+        // anyone avoiding a crowd. Six weekend-picker articles carry
+        // companion and localEdge, one carries quieterAlt, and all of it was
+        // discarded on load. No template reads them, so declaring them
+        // changes nothing on the page; it stops the loss and leaves the
+        // decision to render them open.
+        companion: z.object({
+          title: z.string(),
+          when: z.string(),
+          where: z.string(),
+          price: z.string().optional(),
+          summary: z.string(),
+          bookingLabel: z.string().optional(),
+          bookingUrl: z.string().url().optional(),
+          eventRef: z.string().optional(),
+        }).optional(),
+        localEdge: z.object({
+          title: z.string(),
+          when: z.string(),
+          where: z.string(),
+          price: z.string().optional(),
+          summary: z.string(),
+          bookingLabel: z.string().optional(),
+          bookingUrl: z.string().url().optional(),
+          eventRef: z.string().optional(),
+        }).optional(),
+        quieterAlt: z.object({
           title: z.string(),
           when: z.string(),
           where: z.string(),
@@ -990,6 +1154,20 @@ const events = defineCollection({
     status: z
       .enum(['draft', 'review', 'scheduled', 'published', 'expired', 'past', 'archived'])
       .default('published'),
+    /**
+     * When the record was archived, and why. Written by the archive cron on
+     * three records and by an editor on two more, and discarded on load every
+     * time. Nothing renders them: this is the audit trail for why an event
+     * left the live surfaces, and recompute-occurrence.py reads the reason to
+     * decide whether an archived recurring series may be restored.
+     *
+     * Two records spelled the reason `archiveReason`. Both were migrated to
+     * `archivedReason` so there is a single spelling on disk;
+     * recompute-occurrence.py still accepts either, so a record restored from
+     * an older branch keeps working.
+     */
+    archivedAt: z.coerce.date().optional(),
+    archivedReason: z.string().optional(),
     publishedAt: z.coerce.date(),
     sitemapExclude: z.boolean().default(false),
   }),
