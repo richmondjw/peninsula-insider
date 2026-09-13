@@ -1,0 +1,18 @@
+{
+  "evidenceId": "events/hastings-thursday-street-market/event-schedule-stalltastic-com-au-2026-05-04",
+  "claim": "events/hastings-thursday-street-market/event-schedule",
+  "stance": "supports",
+  "publisher": {
+    "kind": "unknown"
+  },
+  "url": "https://www.stalltastic.com.au/events/hastings-thursday-street-market",
+  "retrievedAt": "2026-05-04",
+  "expiresAt": "2026-06-03",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/content/events/hastings-thursday-street-market.json",
+    "field": "secondarySourceUrl",
+    "value": "https://www.stalltastic.com.au/events/hastings-thursday-street-market",
+    "dateField": "lastCheckedDate"
+  }
+}

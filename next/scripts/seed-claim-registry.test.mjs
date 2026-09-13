@@ -331,9 +331,36 @@ test('the committed registry still matches the corpus it was seeded from', async
   const claimPlan = await planWrites(built.claims, path.join(contentDir, 'claims'), 'claimId');
   const evidencePlan = await planWrites(built.evidence, path.join(contentDir, 'evidence'), 'evidenceId');
 
-  const summarise = (plan) => ({ create: plan.create.length, update: plan.update.length, orphaned: plan.orphaned.length });
-  assert.deepEqual(summarise(claimPlan), { create: 0, update: 0, orphaned: 0 },
-    'run `npm run seed:claim-registry -- --apply` and commit the result');
-  assert.deepEqual(summarise(evidencePlan), { create: 0, update: 0, orphaned: 0 },
-    'run `npm run seed:claim-registry -- --apply` and commit the result');
+  const hint = 'run `npm run seed:claim-registry -- --apply` and commit the result';
+  const summarise = (plan) => ({ create: plan.create.length, update: plan.update.length });
+  assert.deepEqual(summarise(claimPlan), { create: 0, update: 0 }, hint);
+  assert.deepEqual(summarise(evidencePlan), { create: 0, update: 0 }, hint);
+
+  /*
+   * `plan.orphaned` is every file in the directory this run did not produce,
+   * and it used to be asserted at zero. That stopped being the right
+   * assertion the moment anything else wrote into the registry, which the
+   * first Stage 2 pilot predicted it would: "the orphan list will grow by one
+   * per authored row and will need a filter on origin before it stops being
+   * useful."
+   *
+   * It now holds two other populations. Rows an editor authored by hand, and
+   * rows scripts/migrate-event-claims.mjs emitted for the claim classes this
+   * seed cannot reach. Neither is this seed's to reproduce, and deleting
+   * either would be the one thing the design forbids.
+   *
+   * What still has to be true is narrower and is the thing the assertion was
+   * always for: nothing the SEED wrote has gone missing from its output. Seed
+   * claims say so in their note; seed evidence ids end in the eight-character
+   * fingerprint buildRegistry appends, which no other generator uses.
+   */
+  const read = async (dir, id) => JSON.parse(await readFile(path.join(contentDir, dir, `${id}.json`), 'utf8'));
+  const strandedClaims = [];
+  for (const id of claimPlan.orphaned) {
+    const record = await read('claims', id);
+    if (String(record.note ?? '').includes('seed-claim-registry.mjs')) strandedClaims.push(id);
+  }
+  assert.deepEqual(strandedClaims, [], `the seed no longer reproduces claims it wrote. ${hint}`);
+  assert.deepEqual(evidencePlan.orphaned.filter((id) => /-[0-9a-f]{8}$/.test(id)), [],
+    `the seed no longer reproduces evidence it wrote. ${hint}`);
 });

@@ -1,0 +1,20 @@
+{
+  "claimId": "events/aperitivo-hour-trofeo-estate-winter-2026/rate-change",
+  "claimClass": "rate-change",
+  "subject": {
+    "type": "events",
+    "slug": "aperitivo-hour-trofeo-estate-winter-2026",
+    "field": "freePaid"
+  },
+  "statement": "Entry to Aperitivo Hour at Trofeo Estate is ticketed.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "aperitivo-hour-trofeo-estate-winter-2026",
+      "field": "freePaid"
+    }
+  ],
+  "createdAt": "2026-07-11",
+  "origin": "migrated",
+  "note": "Migrated by scripts/migrate-event-claims.mjs (PI-005 Stage 2) from freePaid already on next/src/content/events/aperitivo-hour-trofeo-estate-winter-2026.json. No editorial judgement was applied and no content record was changed."
+}

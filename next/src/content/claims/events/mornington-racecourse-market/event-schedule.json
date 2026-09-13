@@ -1,0 +1,20 @@
+{
+  "claimId": "events/mornington-racecourse-market/event-schedule",
+  "claimClass": "event-schedule",
+  "subject": {
+    "type": "events",
+    "slug": "mornington-racecourse-market",
+    "field": "startTime"
+  },
+  "statement": "Mornington Racecourse Market runs on 14 June 2026, 9am to 2pm.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "mornington-racecourse-market",
+      "field": "startTime"
+    }
+  ],
+  "createdAt": "2026-09-13",
+  "origin": "authored",
+  "note": "Written by hand because the migration held this record back: its verificationStatus reads \"Updated after organiser cancellation notice\", and the site's shared cancellation reader tests /cancelled/i, which \"cancellation\" does not match. Whether the series carries a cancellation is a separate editorial question and is not answered here."
+}

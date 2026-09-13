@@ -71,6 +71,8 @@
     "test:count-semantics": "node --test scripts/count-semantics.test.mjs",
     "seed:claim-registry": "node scripts/seed-claim-registry.mjs",
     "test:claim-registry": "node --test scripts/seed-claim-registry.test.mjs",
+    "migrate:event-claims": "node scripts/migrate-event-claims.mjs",
+    "test:event-claims": "node --test scripts/migrate-event-claims.test.mjs",
     "verify:claims": "node scripts/run-verification-loop.mjs",
     "verify:claims:offline": "node scripts/run-verification-loop.mjs --offline",
     "test:verification-loop": "node --test scripts/verification-loop.test.mjs",

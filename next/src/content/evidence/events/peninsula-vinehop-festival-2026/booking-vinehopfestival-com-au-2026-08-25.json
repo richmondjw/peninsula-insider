@@ -1,0 +1,19 @@
+{
+  "evidenceId": "events/peninsula-vinehop-festival-2026/booking-vinehopfestival-com-au-2026-08-25",
+  "claim": "events/peninsula-vinehop-festival-2026/booking",
+  "stance": "supports",
+  "publisher": {
+    "kind": "organiser",
+    "name": "Mac Events Co."
+  },
+  "url": "https://vinehopfestival.com.au/",
+  "retrievedAt": "2026-08-25",
+  "expiresAt": "2026-10-24",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/content/events/peninsula-vinehop-festival-2026.json",
+    "field": "officialEventUrl",
+    "value": "https://vinehopfestival.com.au/",
+    "dateField": "lastCheckedDate"
+  }
+}

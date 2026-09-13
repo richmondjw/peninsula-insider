@@ -1,0 +1,20 @@
+{
+  "claimId": "events/hill-ridge-community-market-september-2026-restart/accessibility",
+  "claimClass": "accessibility",
+  "subject": {
+    "type": "events",
+    "slug": "hill-ridge-community-market-september-2026-restart",
+    "field": "accessibilityNotes"
+  },
+  "statement": "Access at Hill & Ridge Community Market, September 2026 (Restart): Mostly flat; accessible parking.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "hill-ridge-community-market-september-2026-restart",
+      "field": "accessibilityNotes"
+    }
+  ],
+  "createdAt": "2026-05-04",
+  "origin": "migrated",
+  "note": "Migrated by scripts/migrate-event-claims.mjs (PI-005 Stage 2) from accessibilityNotes already on next/src/content/events/hill-ridge-community-market-september-2026-restart.json. No editorial judgement was applied and no content record was changed."
+}

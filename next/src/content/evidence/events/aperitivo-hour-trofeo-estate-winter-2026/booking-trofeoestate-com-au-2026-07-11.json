@@ -1,0 +1,19 @@
+{
+  "evidenceId": "events/aperitivo-hour-trofeo-estate-winter-2026/booking-trofeoestate-com-au-2026-07-11",
+  "claim": "events/aperitivo-hour-trofeo-estate-winter-2026/booking",
+  "stance": "supports",
+  "publisher": {
+    "kind": "organiser",
+    "name": "Trofeo Estate"
+  },
+  "url": "https://trofeoestate.com.au",
+  "retrievedAt": "2026-07-11",
+  "expiresAt": "2026-09-09",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/content/events/aperitivo-hour-trofeo-estate-winter-2026.json",
+    "field": "bookingUrl",
+    "value": "https://trofeoestate.com.au",
+    "dateField": "lastCheckedDate"
+  }
+}

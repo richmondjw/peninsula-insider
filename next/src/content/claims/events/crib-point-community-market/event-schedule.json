@@ -1,0 +1,20 @@
+{
+  "claimId": "events/crib-point-community-market/event-schedule",
+  "claimClass": "event-schedule",
+  "subject": {
+    "type": "events",
+    "slug": "crib-point-community-market",
+    "field": "startDate"
+  },
+  "statement": "Crib Point Community Market runs on 9 May 2026, 9am to 1pm.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "crib-point-community-market",
+      "field": "startDate"
+    }
+  ],
+  "createdAt": "2026-05-04",
+  "origin": "migrated",
+  "note": "Migrated by scripts/migrate-event-claims.mjs (PI-005 Stage 2) from startDate, endDate, startTime, endTime already on next/src/content/events/crib-point-community-market.json. No editorial judgement was applied and no content record was changed."
+}

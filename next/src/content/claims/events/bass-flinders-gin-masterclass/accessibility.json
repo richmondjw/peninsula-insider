@@ -1,0 +1,20 @@
+{
+  "claimId": "events/bass-flinders-gin-masterclass/accessibility",
+  "claimClass": "accessibility",
+  "subject": {
+    "type": "events",
+    "slug": "bass-flinders-gin-masterclass",
+    "field": "accessibilityNotes"
+  },
+  "statement": "Access at Bass & Flinders Gin Masterclass: Distillery door wheelchair accessible; rooftop access, check with venue.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "bass-flinders-gin-masterclass",
+      "field": "accessibilityNotes"
+    }
+  ],
+  "createdAt": "2026-05-04",
+  "origin": "migrated",
+  "note": "Migrated by scripts/migrate-event-claims.mjs (PI-005 Stage 2) from accessibilityNotes already on next/src/content/events/bass-flinders-gin-masterclass.json. No editorial judgement was applied and no content record was changed."
+}
