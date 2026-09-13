@@ -198,7 +198,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .masthead {
   position: sticky;
   top: 0;
-  z-index: 9999;
+  z-index: var(--z-chrome);
   /* Opaque, and on the palette. This was a hardcoded rgba(245,241,235,.97)
      - a warm v5 cream - which survived every palette migration because a
      raw rgba() is invisible to a token swap. Paired with the translucent
@@ -2979,8 +2979,9 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   /* Sticky under the masthead so the reader can always see where they
      are in the hierarchy on long pages. `--masthead-h` is set in JS by
      BaseLayout (ResizeObserver on .masthead); the fallback covers SSR
-     and the brief window before the script runs. z-index sits just
-     under the masthead (9999) so dropdowns/modals still layer above. */
+     and the brief window before the script runs. The z-index stays a
+     small local value, below the --z-chrome tier the masthead sits on,
+     so dropdowns and modals still layer above. */
   position: sticky;
   top: var(--masthead-h, 6rem);
   z-index: 50;
@@ -7155,7 +7156,7 @@ p.has-drop-cap::first-letter {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 9998;
+  z-index: var(--z-drawer);
   background: var(--bg);
   padding: clamp(4rem, 10vh, 4.75rem) 0 0;
   overflow-y: auto;
@@ -8148,7 +8149,7 @@ p.has-drop-cap::first-letter {
 
 /* 1) Mobile-nav overlay sits above masthead and utility row so its
       own wordmark is not double-stacked. */
-.mobile-nav { z-index: 10010 !important; }
+.mobile-nav { z-index: calc(var(--z-drawer) + 1) !important; }
 
 /* 2) When the mobile-nav is open, hide the masthead so the wordmark
       doesn't ghost through the overlay. body.menu-open is toggled
@@ -8395,7 +8396,7 @@ body[data-path^="/ask"] .concierge-fab {
   position: fixed;
   left: 0.85rem;
   bottom: calc(env(safe-area-inset-bottom, 0px) + 0.85rem);
-  z-index: 90; /* below mobile-nav (10010) and masthead (9999) */
+  z-index: 90; /* local value: below every tier in the layering scale */
   box-shadow: 0 8px 24px rgba(0, 40, 34, 0.22);
   opacity: 0;
   transform: translateY(8px);
