@@ -234,7 +234,7 @@ record a success that did not happen.
 
 | Event | Why not, and what has to be true first |
 |---|---|
-| `correction_submitted` | There is no corrections form anywhere on the site. Every correction affordance is a `mailto:` anchor. A real corrections queue is being built on a separate branch; **this event belongs to that branch**. When it lands it should fire on the queue's confirmed write, carry the page path being corrected and a category, and never the reader's message text or address. `correction_channel_opened` is the honest measure of the current state and should be kept alongside it as the top of that funnel. |
+| `correction_submitted` | A corrections queue landed on `main` after this branch was written, so the page now carries a real form backed by a database table. **This event is not wired yet.** It should fire on the queue's confirmed write, carry the page path being corrected and a category, and never the reader's message text or address. `correction_channel_opened` stays alongside it: the page still offers the mailbox as a fallback, so it remains the honest top of that funnel. |
 | `correction_failed` | Same. No submission path, no failure path. |
 | `partner_enquiry_submitted` | The partner form has no working endpoint. Whoever provisions Formspree (or replaces it) should flip `ENDPOINT_LIVE`, POST with `fetch` rather than a native form submit so the result is observable, and fire this event **only on a 2xx response**, carrying the same `attempt_id` as `partner_enquiry_started`. The `/partners/apply.astro` form already has a real endpoint and a real `data.success` flag; it is the better first home for this event. |
 | `partner_enquiry_failed` | Fires on a non-2xx or a network error from that same fetch. Today there is no fetch. |
