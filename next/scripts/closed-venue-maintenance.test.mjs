@@ -1,11 +1,27 @@
 import assert from 'node:assert/strict';
-import { readFile } from 'node:fs/promises';
+import { readFile, readdir } from 'node:fs/promises';
 import test from 'node:test';
 
 const source = (path) => new URL(path, import.meta.url);
 
 async function text(path) {
   return readFile(source(path), 'utf8');
+}
+
+/** The two spellings the corpus uses to record a permanent closure. */
+const isClosed = (venue) =>
+  venue.status === 'permanently_closed' || venue.operatingStatus === 'permanently-closed';
+
+/** Every venue record, parsed, with its filename. */
+async function venueRecords() {
+  const dir = source('../src/content/venues/');
+  const files = (await readdir(dir)).filter((name) => name.endsWith('.json'));
+  return Promise.all(
+    files.map(async (name) => ({
+      name,
+      data: JSON.parse(await readFile(new URL(name, dir), 'utf8')),
+    })),
+  );
 }
 
 test('Ouest France Bistro is permanently closed and excluded from public routes', async () => {
@@ -23,14 +39,19 @@ test('Ouest France Bistro is permanently closed and excluded from public routes'
 });
 
 test('permanent closure is read from both fields that record it', async () => {
-  // la-baracca-tgallant carries the closure on `operatingStatus` and has no
-  // `status` at all, so `status` defaults to active. A predicate that reads
-  // only `status` published it as a live restaurant, with a booking link,
-  // for four months after an editor confirmed it had shut.
-  const baracca = JSON.parse(await text('../src/content/venues/la-baracca-tgallant.json'));
-  assert.equal(baracca.operatingStatus, 'permanently-closed');
-  assert.equal(baracca.status, undefined);
-
+  // The defect: la-baracca-tgallant carried its closure on `operatingStatus`
+  // and had no `status` at all, so `status` defaulted to active. A predicate
+  // reading only `status` published it as a live restaurant, with a booking
+  // link, for four months after an editor confirmed it had shut.
+  //
+  // This used to assert that that one venue's two fields still held those
+  // exact values, which made the test a snapshot of the corpus rather than of
+  // the rule. When PI-007 A6 correctly lifted the closure - La Baracca is
+  // trading - the assertion failed although nothing it was protecting had
+  // changed. A venue reopening is not a regression.
+  //
+  // The rule is asserted instead, and it holds whether the number of closed
+  // venues is one, none, or twenty.
   const editorial = await text('../src/lib/editorial.ts');
   assert.match(editorial, /status === 'permanently_closed'/);
   assert.match(editorial, /operatingStatus === 'permanently-closed'/);
@@ -39,6 +60,18 @@ test('permanent closure is read from both fields that record it', async () => {
   // dropping the URL.
   const template = await text('../src/components/VenueDetailTemplate.astro');
   assert.match(template, /isPermanentlyClosed\(data\)/);
+
+  // And the corpus half of the same rule: whichever field records it, a closed
+  // venue may not still be offering a booking. This is what actually reached
+  // readers, and it is checked across every venue rather than one named one.
+  const stillBookable = (await venueRecords())
+    .filter(({ data }) => isClosed(data) && data.bookingUrl)
+    .map(({ name }) => name);
+  assert.deepEqual(
+    stillBookable,
+    [],
+    `Permanently closed venues still carrying a bookingUrl: ${stillBookable.join(', ')}`,
+  );
 });
 
 test('published Insider Picks do not recommend Ouest France Bistro', async () => {

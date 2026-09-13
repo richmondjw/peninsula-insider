@@ -65,6 +65,25 @@
  *                                   done yet. Gating it would block every
  *                                   deploy over inherited debt.
  *
+ *   licenceUnknown                  An image record with no `license` on disk.
+ *                                   Until 2026-09-14 the schema defaulted
+ *                                   these to `venue-media-kit`, so absence of
+ *                                   a licence was parsed as a media-kit grant
+ *                                   nobody had recorded - a default
+ *                                   manufacturing a legal claim. The default
+ *                                   is now `unknown`, and this metric is what
+ *                                   stops `unknown` being a silent state:
+ *                                   ratcheted at today's real count, so the
+ *                                   pool can shrink but a new image without a
+ *                                   recorded licence fails the build.
+ *
+ *   licencePlaceholder              Report-only. Records on an explicitly
+ *   licenceNoGrantNamed             temporary licence (tmp-*), and records on
+ *                                   `other-licensed`, which names no grant at
+ *                                   all. Both are inherited debt with a known
+ *                                   size, not a defect to gate on, but the
+ *                                   build should say the number out loud.
+ *
  * NOTHING HERE IS TIME-DRIVEN, and that is deliberate. audit-event-safeguards
  * .mjs documents why: its `staleVerificationDate` metric climbs with the
  * calendar, so asserting on it would have wired the passage of time into
@@ -173,7 +192,23 @@ const ASSERTED_METRICS = new Set([
   'rightsDatedWithoutRecord',
   'malformedRightsDate',
   'decorativeWithAltText',
+  'licenceUnknown',
 ]);
+
+/**
+ * Licence buckets that record no grant of any kind.
+ *
+ * `unknown` is the schema default as of 2026-09-14 and means nobody has said.
+ * A record carrying no `license` key on disk parses as `unknown` too, and the
+ * two are counted together: the reader's position is identical either way.
+ */
+const UNKNOWN_LICENCES = new Set(['unknown']);
+
+/** Explicitly temporary licences - a stand-in, by their own admission. */
+const PLACEHOLDER_LICENCE_RE = /^tmp-/;
+
+/** Names a licence category but no actual grant. */
+const NO_GRANT_NAMED = 'other-licensed';
 
 // -- reading the corpus ----------------------------------------------------
 
@@ -370,6 +405,9 @@ async function main() {
   const noProvenanceAtAll = [];
   const rightsUnknownRecorded = [];
   const decorativeMarked = [];
+  const licenceUnknown = [];
+  const licencePlaceholder = [];
+  const licenceNoGrantNamed = [];
 
   for (const rec of records) {
     const img = rec.image;
@@ -453,6 +491,18 @@ async function main() {
     }
 
     if (named && recorded === null) unrecordedDepiction.push(where);
+
+    // Licence. Read as it sits on disk, so an absent key is absent rather
+    // than the schema default - the same discipline depictionStatus gets
+    // above, and for the same reason: the default used to assert a grant.
+    const licence = filled(img.license) ? img.license.trim() : null;
+    if (licence === null || UNKNOWN_LICENCES.has(licence)) {
+      licenceUnknown.push({ ...where, license: licence, recorded: licence !== null });
+    } else if (PLACEHOLDER_LICENCE_RE.test(licence)) {
+      licencePlaceholder.push({ ...where, license: licence });
+    } else if (licence === NO_GRANT_NAMED) {
+      licenceNoGrantNamed.push({ ...where, license: licence });
+    }
   }
 
   const namedEntityImages = records.filter((r) => NAMED_ENTITY_COLLECTIONS.has(r.collection));
@@ -476,6 +526,9 @@ async function main() {
     malformedRightsDate: malformedRightsDate.length,
     rightsUnknownRecorded: rightsUnknownRecorded.length,
     noProvenanceAtAll: noProvenanceAtAll.length,
+    licenceUnknown: licenceUnknown.length,
+    licencePlaceholder: licencePlaceholder.length,
+    licenceNoGrantNamed: licenceNoGrantNamed.length,
   };
 
   const report = {
@@ -498,6 +551,9 @@ async function main() {
     rightsDatedWithoutRecord,
     malformedRightsDate,
     noProvenanceAtAll,
+    licenceUnknown,
+    licencePlaceholder,
+    licenceNoGrantNamed,
   };
 
   const t = totals;
@@ -521,6 +577,10 @@ async function main() {
   console.log(`    malformed rights date ......... ${t.malformedRightsDate}   [gated]`);
   console.log(`    disclosure surface broken ..... ${t.brokenDisclosureSurface}   [gated]`);
   console.log(`    rights recorded as unknown .... ${t.rightsUnknownRecorded}   [report-only]`);
+  console.log('  Rights recorded');
+  console.log(`    licence unknown ............... ${t.licenceUnknown}   [gated, ratchet]`);
+  console.log(`    temporary placeholder licence . ${t.licencePlaceholder}   [report-only]`);
+  console.log(`    licence names no grant ........ ${t.licenceNoGrantNamed}   [report-only]`);
   console.log('  Inherited debt');
   console.log(`    alt says "representative" ..... ${t.undisclosedRepresentativeAlt}   [gated, ratchet]`);
   console.log(`    named entity, status unrecorded ${t.unrecordedDepiction}   [report-only]`);
@@ -562,6 +622,9 @@ async function main() {
   if (VERBOSE) {
     for (const r of undisclosedRepresentativeAlt) {
       console.log(`    UNDISCLOSED    ${r.file} (${r.field}) alt: ${r.alt}`);
+    }
+    for (const l of licenceUnknown) {
+      console.log(`    NO LICENCE     ${l.file} (${l.field}) ${l.recorded ? 'records "unknown"' : 'records no licence at all'}`);
     }
   }
 
@@ -614,7 +677,10 @@ async function main() {
   if (failures.length) {
     console.error('\n  FAIL: media provenance regression against the ratchet baseline');
     for (const f of failures) console.error(`    ${f}`);
-    console.error('\n  Record the image\'s depictionStatus, or re-seed deliberately with --update-baseline.');
+    console.error('\n  Record the image\'s depictionStatus or licence, or re-seed deliberately with --update-baseline.');
+    console.error('  A licence may never be inferred from a credit string or a filename. If');
+    console.error('  nobody has recorded a grant, the honest value is "unknown" and the count');
+    console.error('  does not come down.');
     process.exit(1);
   }
   console.log('  PASS: no regression against the ratchet baseline.');

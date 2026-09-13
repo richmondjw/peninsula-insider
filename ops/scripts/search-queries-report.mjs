@@ -1,9 +1,20 @@
 #!/usr/bin/env node
 /**
- * Daily search query report for Peninsula Insider.
+ * Daily search report for Peninsula Insider.
  *
- * Reads site_search_queries from Supabase, computes intent clusters,
- * surfaces zero-result gaps, and posts a digest to Telegram.
+ * Reads site_search_queries from Supabase and posts a digest to Telegram.
+ *
+ * REDACTED 2026-09-14 (action register A13). This report used to read the
+ * reader's raw query string, cluster it by token similarity, and publish the
+ * top clusters and zero-result examples verbatim into a Telegram channel.
+ * The site no longer collects that text, and this script no longer asks for
+ * it: it selects only the columns that survive.
+ *
+ * What went with it: intent clusters, the unique-query count, and the worked
+ * examples under each zero-result gap. What partly replaces the last of those
+ * is the zero-result breakdown BY PAGE, which still says where readers search
+ * and come up empty without saying what they typed. Intent clustering has no
+ * replacement, and that is the honest cost of the change.
  *
  * Modes:
  *   --dry       compute the report but do not post to Telegram
@@ -53,69 +64,6 @@ const dayLabel = now.toISOString().slice(0, 10);
 
 // ─── Helpers ──────────────────────────────────────────────────
 
-// Cluster queries by lowercased token-jaccard similarity. Deterministic,
-// no dependencies. Surfaces "long lunch" repeating across slight phrasings.
-function clusterQueries(queries) {
-  const STOP = new Set([
-    "a","an","the","and","or","of","in","on","at","to","for","with","near",
-    "is","are","do","does","this","that","what","where","when","how","why",
-    "we","i","my","our","me","you","your","s","its",
-  ]);
-  const tokenize = (q) =>
-    new Set(
-      q.toLowerCase()
-        .replace(/[^a-z0-9 ]/g, " ")
-        .split(/\s+/)
-        .filter((w) => w.length > 2 && !STOP.has(w))
-    );
-
-  const items = queries.map((q) => ({ q, tokens: tokenize(q) }));
-  const clusters = [];
-  for (const item of items) {
-    let bestCluster = null;
-    let bestOverlap = 0;
-    for (const cluster of clusters) {
-      const intersection = [...item.tokens].filter((t) => cluster.tokens.has(t)).length;
-      const union = new Set([...item.tokens, ...cluster.tokens]).size;
-      const jaccard = union ? intersection / union : 0;
-      if (jaccard >= 0.4 && jaccard > bestOverlap) {
-        bestOverlap = jaccard;
-        bestCluster = cluster;
-      }
-    }
-    if (bestCluster) {
-      bestCluster.queries.push(item.q);
-      for (const t of item.tokens) bestCluster.tokens.add(t);
-    } else {
-      clusters.push({ tokens: new Set(item.tokens), queries: [item.q] });
-    }
-  }
-  return clusters
-    .map((c) => ({
-      label: pickClusterLabel(c.queries, c.tokens),
-      count: c.queries.length,
-      examples: c.queries.slice(0, 3),
-    }))
-    .sort((a, b) => b.count - a.count);
-}
-
-function pickClusterLabel(queries, tokens) {
-  const freq = new Map();
-  for (const q of queries) {
-    const words = q.toLowerCase().match(/[a-z0-9]+/g) || [];
-    for (const w of words) {
-      if (w.length > 3 && tokens.has(w)) {
-        freq.set(w, (freq.get(w) || 0) + 1);
-      }
-    }
-  }
-  return [...freq.entries()]
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, 3)
-    .map(([w]) => w)
-    .join(" / ") || queries[0].slice(0, 40);
-}
-
 function escTg(text) {
   // Escape Telegram MarkdownV2 special characters
   return String(text || "").replace(/[_*[\]()~`>#+\-=|{}.!\\]/g, "\\$&");
@@ -124,10 +72,11 @@ function escTg(text) {
 // ─── Fetch ────────────────────────────────────────────────────
 
 async function fetchSearchQueries() {
+  // `query` is deliberately absent. The column is retired (A13), and the
+  // no-raw-query CHECK constraint means nothing new can appear in it.
   const select = [
     "id",
     "created_at",
-    "query",
     "result_count",
     "kind_filter",
     "surface",
@@ -154,17 +103,14 @@ function buildReport(rows) {
   if (total === 0) {
     return {
       total: 0,
-      uniqueQueries: 0,
       zeroResultCount: 0,
       zeroResultRate: 0,
-      topClusters: [],
-      zeroResultGaps: [],
+      zeroResultPaths: [],
       surfaceBreakdown: {},
       kindBreakdown: {},
     };
   }
 
-  const uniqueQueries = new Set(rows.map((r) => r.query.toLowerCase().trim())).size;
   const zeroRows = rows.filter((r) => r.result_count === 0);
   const zeroResultCount = zeroRows.length;
   const zeroResultRate = total > 0 ? Math.round((zeroResultCount / total) * 100) : 0;
@@ -183,23 +129,23 @@ function buildReport(rows) {
     }
   }
 
-  // Cluster all queries for intent summary
-  const allQueryTexts = rows.map((r) => r.query.trim()).filter(Boolean);
-  const topClusters = clusterQueries(allQueryTexts).slice(0, 10);
-
-  // Zero-result gaps: cluster the zero-result queries to surface intent gaps
-  const zeroQueryTexts = zeroRows.map((r) => r.query.trim()).filter(Boolean);
-  const zeroResultGaps = zeroQueryTexts.length > 0
-    ? clusterQueries(zeroQueryTexts).slice(0, 5)
-    : [];
+  // Where readers searched and came up empty. The page is ours, not theirs:
+  // it says which surface has a content gap without saying what was typed.
+  const zeroByPath = {};
+  for (const r of zeroRows) {
+    const key = r.page_path || "(unknown)";
+    zeroByPath[key] = (zeroByPath[key] || 0) + 1;
+  }
+  const zeroResultPaths = Object.entries(zeroByPath)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 5)
+    .map(([path, count]) => ({ path, count }));
 
   return {
     total,
-    uniqueQueries,
     zeroResultCount,
     zeroResultRate,
-    topClusters,
-    zeroResultGaps,
+    zeroResultPaths,
     surfaceBreakdown,
     kindBreakdown,
   };
@@ -222,7 +168,7 @@ function renderTelegramDigest(report) {
 
   lines.push(
     `${escTg(String(report.total))} searches · ` +
-    `${escTg(String(report.uniqueQueries))} unique queries · ` +
+    `${escTg(String(report.zeroResultCount))} with no results · ` +
     `${escTg(String(report.zeroResultRate))}% zero\\-result`
   );
   lines.push("");
@@ -235,24 +181,12 @@ function renderTelegramDigest(report) {
     lines.push("");
   }
 
-  // Top intent clusters
-  if (report.topClusters.length > 0) {
-    lines.push("*Top search intents*");
-    for (const cluster of report.topClusters) {
-      const examples = cluster.examples.map((e) => `"${escTg(e)}"`).join(", ");
-      lines.push(
-        `  ♦ *${escTg(cluster.label)}* ×${escTg(String(cluster.count))} — ${examples}`
-      );
-    }
-    lines.push("");
-  }
-
-  // Zero-result gaps
-  if (report.zeroResultGaps.length > 0) {
-    lines.push("*Zero\\-result gaps* \\(content opportunities\\)");
-    for (const gap of report.zeroResultGaps) {
-      const examples = gap.examples.map((e) => `"${escTg(e)}"`).join(", ");
-      lines.push(`  ⚠️ *${escTg(gap.label)}* ×${escTg(String(gap.count))} — ${examples}`);
+  // Where the empty searches happened. Query text is not collected (A13), so
+  // the page is what is left to point at - and it is enough to find the gap.
+  if (report.zeroResultPaths.length > 0) {
+    lines.push("*Zero\\-result searches by page*");
+    for (const entry of report.zeroResultPaths) {
+      lines.push(`  ⚠️ ${escTg(entry.path)} ×${escTg(String(entry.count))}`);
     }
     lines.push("");
   }
@@ -267,7 +201,7 @@ function renderTelegramDigest(report) {
     lines.push("");
   }
 
-  lines.push(`_Full data: Supabase pi\\.site\\_search\\_queries_`);
+  lines.push(`_Counts only \u2014 query text is not collected \\(A13\\)_`);
   return lines.join("\n");
 }
 
@@ -308,9 +242,9 @@ async function main() {
 
   const report = buildReport(rows);
   console.log(
-    `[search-report] total=${report.total} unique=${report.uniqueQueries} ` +
+    `[search-report] total=${report.total} ` +
     `zero=${report.zeroResultCount} (${report.zeroResultRate}%) ` +
-    `clusters=${report.topClusters.length}`
+    `zeroPaths=${report.zeroResultPaths.length}`
   );
 
   const digest = renderTelegramDigest(report);

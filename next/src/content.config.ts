@@ -57,7 +57,23 @@ const audience = z.enum([
   'first-timers',
 ]);
 
+/**
+ * The coarse licence bucket recorded against an image.
+ *
+ * `unknown` is the default and it is a real state, not a placeholder for one.
+ * Until 2026-09-14 the default was `venue-media-kit`, so every record that
+ * omitted the field was silently parsed as covered by a media-kit grant that
+ * nobody had recorded. A default must never manufacture a legal claim: a
+ * missing value means nobody has said, and "nobody has said" is not
+ * "permitted". Absence is now visible to the build - scripts/
+ * audit-media-provenance.mjs counts it as `licenceUnknown` and ratchets it,
+ * so the pool of unknown-licence images can shrink but never grow.
+ *
+ * Do not set this field from a credit string or a source filename. Neither
+ * establishes a licence; see the note on `imageUse` below.
+ */
 const imageLicense = z.enum([
+  'unknown',
   'original-commissioned',
   'venue-media-kit',
   'visit-victoria',
@@ -138,7 +154,8 @@ const imageRef = z.object({
   // render that sentinel as "Photograph by jem". Anything else renders
   // as "Photo · {credit}".
   credit: z.string(),
-  license: imageLicense.default('venue-media-kit'),
+  // Absence of a recorded licence reads as `unknown`, never as a grant.
+  license: imageLicense.default('unknown'),
   caption: z.string().optional(),
 
   // Media provenance (PI-013).
@@ -146,8 +163,8 @@ const imageRef = z.object({
   // Every field below is optional and additive. A record carrying none of
   // them is unchanged on disk and renders exactly as it did before.
   //
-  // `credit` above is a DISPLAY string and `license` is a coarse bucket with
-  // a permissive default; neither is a recorded grant. The fields here are
+  // `credit` above is a DISPLAY string and `license` is a coarse bucket
+  // defaulting to `unknown`; neither is a recorded grant. The fields here are
   // the recorded ones, and the rule for all of them is the same: never write
   // a value that cannot be sourced from the image record itself. An inferred
   // rights holder is worse than an absent one.

@@ -129,13 +129,17 @@
         .replace(/'/g, '&#039;');
     }
 
-    // Fire-and-forget: log the search query to Supabase for analytics.
-    function logSearch(query, resultCount) {
+    // Fire-and-forget: log the OUTCOME of a search to Supabase.
+    //
+    // PRIVACY CONTRACT (A13). This function is deliberately not given the
+    // reader's query text, so it cannot send it. See the long note on the
+    // same function in src/pages/search.astro; the rule is enforced by
+    // scripts/search-query-privacy.test.mjs.
+    function logSearchOutcome(resultCount) {
       try {
         var sb = window.__PI_SB;
         if (!sb || !sb.url || !sb.key) return;
         var payload = {
-          query: query,
           result_count: resultCount,
           surface: 'overlay',
           page_path: window.location.pathname,
@@ -341,7 +345,7 @@
           if (myToken !== state.searchToken) return;
           if (Array.isArray(hits) && hits.length > 0) {
             showResults(els, rpcToResults(hits, q), q);
-            logSearch(q, hits.length);
+            logSearchOutcome(hits.length);
             return;
           }
         } catch (err) {
@@ -359,7 +363,7 @@
         const data = await Promise.all(result.results.map((r) => r.data()));
         if (myToken !== state.searchToken) return;
         showResults(els, data, q);
-        logSearch(q, result.results.length);
+        logSearchOutcome(result.results.length);
       } catch (err) {
         console.warn('[search] error', err);
         // Both engines are gone and the reader sees nothing. This event is

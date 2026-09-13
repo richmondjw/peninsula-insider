@@ -80,9 +80,12 @@ jobs:
           npm run test:share-link
           npm run test:saves-store
           npm run test:season
+          npm run test:corrections
+          npm run test:partner-enquiry
           npm run test:agent-readiness
           npm run test:event-safeguards
           npm run test:event-occurrence
+          npm run test:material-change
           npm run validate:content
 
       - name: Build

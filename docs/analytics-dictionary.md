@@ -191,28 +191,36 @@ product decision, not an instrumentation one.
 | **Note** | `reason` is always `store-rejected`. `SaveWriteResult` reports `ok` and `saved` and no cause; distinguishing private mode from quota needs a change to `next/src/lib/saves/store.ts`, which this ticket must not touch. |
 | **Not covered** | Only `PiSaveActions.astro` is instrumented. The v5 `SaveControl` path writes through `v5-store.ts`, which is owned by other work in flight. The legacy `pi_save` / `pi_unsave` events still fire from `PiSaveActions` and were not renamed. |
 
-### `partner_enquiry_started` / `partner_enquiry_handoff`
+### `partner_enquiry_started` / `partner_enquiry_submitted` / `partner_enquiry_failed`
 
 Read this entry before adding anything to the partner form.
 
-The form at `next/src/pages/partners/index.astro` **does not submit**. Its action is
-`https://formspree.io/f/peninsula-insider-partners`, which is not a real Formspree
-endpoint (Formspree ids are 8-character hashes, not slugs), and the submit handler carries
-`var ENDPOINT_LIVE = false`, so 100 percent of submissions are intercepted and turned into
-a `mailto:` handoff. Once the browser hands off to a mail client, this page learns nothing:
-not whether a message was composed, not whether it was sent, not whether the reader closed
-the compose window. A success event here would be a lie, and the most expensive lie
-available, because partner enquiries are a commercial decision input.
+**Changed by PI-015 (2026-09-14).** The form used to post to
+`https://formspree.io/f/peninsula-insider-partners`, which is not a real Formspree endpoint
+(Formspree ids are 8-character hashes, not slugs), behind a hardcoded
+`var ENDPOINT_LIVE = false`. Every submission was intercepted and turned into a `mailto:`
+handoff, so nothing was recorded and the page could not tell whether a message was composed,
+sent or abandoned. `partner_enquiry_handoff` was the honest name for that, and
+`partner_enquiry_submitted` was reserved precisely because firing it would have been a lie.
+
+The form now writes to `pi.partner_enquiries` through the anon Supabase client and reads the
+result. There is a real success signal, so the reserved events are wired and
+**`partner_enquiry_handoff` is retired**: there is no mail-client handoff left to measure.
+The `mailto:` link beside the button is a fallback a reader may choose, not a path the form
+takes on their behalf, and it is not instrumented.
 
 | | |
 |---|---|
 | `partner_enquiry_started` | Fires when the reader presses "Send enquiry". Payload: `attempt_id`, `surface` (`partners-page`), `business_category`, `interest`, `has_website` (boolean), `notes_length` (bucket), `fields_provided` (count). |
-| `partner_enquiry_handoff` | Fires immediately before `window.location.href` is set to the `mailto:`. Payload: `attempt_id`, `surface`, `delivery` (`mail_client`), `outcome` (`unknown`), `business_category`, `interest`. `outcome: 'unknown'` is in the payload as well as in this document so nobody building a funnel from event names alone mistakes it for a completed enquiry. |
+| `partner_enquiry_submitted` | Fires **only** when `classifyOutcome()` in `lib/partner-enquiry.ts` returns `success`, which requires both the enquiry row and the contact row to be confirmed by the database. Payload: `attempt_id` (same value as the `started` event), `surface`, `business_category`, `interest`. Never fires from a `try` block that merely did not throw - supabase-js returns errors rather than throwing, and that is exactly how a form comes to congratulate someone on a failed insert. |
+| `partner_enquiry_failed` | Fires on every other terminal branch, with `reason` naming which: `incomplete` (validation), `honeypot` / `too-fast` / `no-timing` (spam controls), `unreachable` (no Supabase client), `insert_failed` (the enquiry row did not land), `contact_not_saved` (the enquiry landed but is unanswerable). Payload: `attempt_id`, `surface`, `reason`, `business_category`, `interest`. |
+| **The `fields_provided` count** | `bot_trap` and `compose_ms` are stripped before `partnerEnquiryShape()` sees the form. They are machinery, not answers; counting `compose_ms` would add one to every enquiry and silently move the baseline of a number someone will later read as "how much of the form do people fill in". |
 | **Never** | `business_name`, `contact_name`, `email`, the website or handle, or the note text. Only the closed-vocabulary `<select>` values, a boolean, a length bucket and a count. `partnerEnquiryShape()` in `analytics-contract.ts` is the tested reference implementation of this reduction, including the rule that a field added to the form later is treated as identifying until proven otherwise. |
 
 `/partners/apply.astro`, `/partners/claim.astro` and `/partners/update.astro` post to a
-real API and remain unmeasured. They are separate forms with a real success signal and
-should get `partner_enquiry_submitted` properly; see "Reserved" below.
+separate API and remain unmeasured. They are different forms on a different backend; if they
+are ever instrumented they need their own event names rather than sharing these, because a
+funnel that mixes two destinations measures neither.
 
 ### `correction_channel_opened`
 
@@ -236,8 +244,8 @@ record a success that did not happen.
 |---|---|
 | `correction_submitted` | A corrections queue landed on `main` after this branch was written, so the page now carries a real form backed by a database table. **This event is not wired yet.** It should fire on the queue's confirmed write, carry the page path being corrected and a category, and never the reader's message text or address. `correction_channel_opened` stays alongside it: the page still offers the mailbox as a fallback, so it remains the honest top of that funnel. |
 | `correction_failed` | Same. No submission path, no failure path. |
-| `partner_enquiry_submitted` | The partner form has no working endpoint. Whoever provisions Formspree (or replaces it) should flip `ENDPOINT_LIVE`, POST with `fetch` rather than a native form submit so the result is observable, and fire this event **only on a 2xx response**, carrying the same `attempt_id` as `partner_enquiry_started`. The `/partners/apply.astro` form already has a real endpoint and a real `data.success` flag; it is the better first home for this event. |
-| `partner_enquiry_failed` | Fires on a non-2xx or a network error from that same fetch. Today there is no fetch. |
+| ~~`partner_enquiry_submitted`~~ | **No longer reserved.** Wired by PI-015 against a confirmed database insert. See section 2. |
+| ~~`partner_enquiry_failed`~~ | **No longer reserved.** Wired by PI-015. See section 2. |
 | `booking_outbound_failed` | Structurally impossible. Once the browser follows an outbound link this page is gone. |
 | `filter_failed` | Structurally impossible. Filtering is pure client state with no I/O. |
 | `plan_context_failed` | Structurally impossible for the same reason. |

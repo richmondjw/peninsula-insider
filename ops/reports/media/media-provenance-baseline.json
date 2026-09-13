@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-13T17:16:46.073Z",
+  "updatedAt": "2026-09-13T17:31:24.932Z",
   "assertedMetrics": [
     "illustrativeWithoutDisclosure",
     "actualWithoutProvenance",
@@ -11,7 +11,8 @@
     "rightsRecordedWithoutSource",
     "rightsDatedWithoutRecord",
     "malformedRightsDate",
-    "decorativeWithAltText"
+    "decorativeWithAltText",
+    "licenceUnknown"
   ],
   "ceilings": {
     "imageRecords": 571,
@@ -31,6 +32,9 @@
     "rightsDatedWithoutRecord": 0,
     "malformedRightsDate": 0,
     "rightsUnknownRecorded": 0,
-    "noProvenanceAtAll": 571
+    "noProvenanceAtAll": 571,
+    "licenceUnknown": 1,
+    "licencePlaceholder": 209,
+    "licenceNoGrantNamed": 162
   }
 }

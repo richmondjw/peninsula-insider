@@ -9,6 +9,22 @@ const breadcrumbItems = [
   { label: 'Contact' },
 ];
 
+// Every route here is a real destination, and where a structured intake
+// exists it is named FIRST and the mailbox second. Two of these were a
+// mailbox only, which sent a reader to the slowest version of a route the
+// site already had:
+//
+//   Corrections   /corrections/ has carried a real intake form since PI-016.
+//                 A correction filed there gets a reference, a queue position
+//                 and an audit history; the same words in an email get none
+//                 of those, and usually omit the page URL - the one thing a
+//                 correction cannot be worked without.
+//   Partnerships  there was no partnership route on this page at all, despite
+//                 "partnership philosophy" being named under editorial
+//                 enquiries, so a business starting at /contact/ was pointed
+//                 at the editorial inbox. /partners/#enquire is the route,
+//                 and since PI-015 it records the enquiry rather than handing
+//                 it to a mail client and hoping.
 const contactReasons = [
   {
     icon: '✉️',
@@ -20,12 +36,22 @@ const contactReasons = [
     icon: '📝',
     title: 'Corrections',
     body: 'If we\'ve got a phone number wrong, a price band out of date, or a detail that doesn\'t match reality  -  tell us. Accuracy is the whole point.',
+    href: '/corrections/',
+    hrefLabel: 'Report a correction',
     email: 'corrections@peninsulainsider.com.au',
   },
   {
-    icon: '🤝',
+    icon: '\u{1F91D}',
+    title: 'Partnerships',
+    body: 'Running a Peninsula business and wondering whether there is a fit? Tell us about it and we will come back to you on where it sits.',
+    href: '/partners/#enquire',
+    hrefLabel: 'Start a partnership enquiry',
+    email: 'hello@peninsulainsider.com.au',
+  },
+  {
+    icon: '\u{1F4AC}',
     title: 'Editorial enquiries',
-    body: 'For questions about our editorial process, partnership philosophy, or anything that doesn\'t fit the other boxes.',
+    body: 'For questions about our editorial process, how we decide what to cover, or anything that doesn\'t fit the other boxes.',
     email: 'hello@peninsulainsider.com.au',
   },
 ];
@@ -59,6 +85,9 @@ export const prerender = true;
             <span class="contact-card__icon">{reason.icon}</span>
             <h3 class="contact-card__title">{reason.title}</h3>
             <p class="contact-card__body">{reason.body}</p>
+            {reason.href && (
+              <a href={reason.href} class="contact-card__action">{reason.hrefLabel}</a>
+            )}
             <a href={`mailto:${reason.email}`} class="contact-card__email">{reason.email}</a>
           </article>
         ))}

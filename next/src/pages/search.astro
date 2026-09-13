@@ -213,14 +213,28 @@ export const prerender = true;
           .replace(/'/g, '&#039;');
       }
 
-      // Fire-and-forget: log the search query to Supabase for analytics.
-      // Uses keepalive so the beacon survives page navigations.
-      function logSearch(query, resultCount, kindFilter) {
+      // Fire-and-forget: log the OUTCOME of a search to Supabase. Uses
+      // keepalive so the beacon survives page navigations.
+      //
+      // PRIVACY CONTRACT (A13). This function must never be able to see the
+      // reader's query text, so it is not given it. Search boxes receive
+      // names, addresses, medical and financial terms from people who have
+      // no expectation that any of it is stored, and until 2026-09-14 every
+      // completed search POSTed the raw string to pi.site_search_queries for
+      // every reader, consented or not.
+      //
+      // What survives is the part that serves the product: how many results
+      // came back (so zero-result gaps are still countable), which chip was
+      // active, which surface fired, and the path. None of it carries what
+      // the reader was looking for. Do not add a parameter carrying the
+      // query, a hash of it, or a prefix of it - a hash is still a join key,
+      // and a prefix is still the text. scripts/search-query-privacy.test.mjs
+      // enforces this as a rule, not as a snapshot.
+      function logSearchOutcome(resultCount, kindFilter) {
         try {
           const sb = window.__PI_SB;
           if (!sb || !sb.url || !sb.key) return;
           const payload = {
-            query: query,
             result_count: resultCount,
             kind_filter: kindFilter === 'all' ? null : (kindFilter || null),
             surface: 'search_page',
@@ -748,7 +762,7 @@ export const prerender = true;
             if (Array.isArray(hits) && hits.length > 0) {
               currentResults = withBestBet(hits.map((h) => rpcHitToHandle(h, q)), q);
               await showPage(1);
-              logSearch(q, currentResults.length, currentKind);
+              logSearchOutcome(currentResults.length, currentKind);
               emitSearchSubmitted(q, currentResults.length, 'rpc');
               updateUrl(q);
               return;
@@ -779,7 +793,7 @@ export const prerender = true;
           } else {
             await showPage(1);
           }
-          logSearch(q, currentResults.length, currentKind);
+          logSearchOutcome(currentResults.length, currentKind);
           emitSearchSubmitted(q, currentResults.length, 'pagefind');
         } catch (err) {
           console.warn('[search] error', err);
