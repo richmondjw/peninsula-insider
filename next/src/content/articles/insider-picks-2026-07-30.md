@@ -62,7 +62,7 @@ Pair it with a pie at Balnarring Bakehouse on the way back through.
 
 Through 31 August, Mornington Peninsula residents get free weekday entry to the Pt. Leo Estate Sculpture Park. This is the offer to use before winter ends.
 
-The sculpture park at Pt. Leo covers around 16.5 acres of the estate's landscaped grounds and hillside, with more than 70 works from Australian and international artists installed across it. In summer the place draws coachloads. On a Wednesday in July, you may have whole sections of it to yourself. The light at this time of year sits low all day, which does something interesting to the larger outdoor works - particularly the pieces on the upper hill with Port Phillip Bay behind them. Budget ninety minutes minimum; the circuit is longer than it looks on the map. Bring a coat you don't mind the wind getting into.
+The sculpture park at Pt. Leo covers around 16.5 acres of the estate's landscaped grounds and hillside, with more than 70 works from Australian and international artists installed across it. In summer the place draws coachloads. On a Wednesday in July, you may have whole sections of it to yourself. The light at this time of year sits low all day, which does something interesting to the larger outdoor works - particularly the pieces on the upper hill with Western Port behind them. Budget ninety minutes minimum; the circuit is longer than it looks on the map. Bring a coat you don't mind the wind getting into.
 
 Proof of local address required for free entry. Weekdays only, through 31 August. Check ptleoestate.com.au for opening hours before you drive out. Merricks North Road, Merricks.
 
