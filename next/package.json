@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "node scripts/clear-content-cache.mjs && npm run media:registry && npm run lint:no-pricing && npm run lint:house-style && npm run lint:firsthand-claims && npm run lint:region-images && npm run lint:surfaces && npm run lint:listener-hygiene && npm run lint:nav-budget && npm run lint:css-budget && npm run lint:coordinates && astro build && npm run lint:no-hidden-pages && npm run lint:seo-architecture && npm run lint:filter-chips && npm run audit:agent-readiness && npm run assert:link-graph && npm run assert:event-safeguards && npm run assert:schema-drift && npm run assert:commercial-firewall && npm run assert:count-semantics && npm run assert:campaigns-review-page && npm run assert:partner-portal-dashboard",
+    "build": "node scripts/clear-content-cache.mjs && npm run media:registry && npm run lint:no-pricing && npm run lint:house-style && npm run lint:firsthand-claims && npm run lint:region-images && npm run lint:surfaces && npm run lint:listener-hygiene && npm run lint:nav-budget && npm run lint:css-budget && npm run lint:coordinates && astro build && npm run lint:no-hidden-pages && npm run lint:seo-architecture && npm run lint:filter-chips && npm run audit:agent-readiness && npm run assert:link-graph && npm run assert:event-safeguards && npm run assert:schema-drift && npm run assert:commercial-firewall && npm run assert:media-provenance && npm run assert:count-semantics && npm run assert:campaigns-review-page && npm run assert:partner-portal-dashboard",
     "build:search": "npm run build && npx pagefind --site dist",
     "preview": "astro preview",
     "astro": "astro",
@@ -74,6 +74,8 @@
     "audit:schema-drift": "node scripts/audit-content-schema-drift.mjs",
     "assert:schema-drift": "node scripts/audit-content-schema-drift.mjs --assert",
     "audit:commercial-firewall": "node scripts/audit-commercial-firewall.mjs",
+    "audit:media-provenance": "node scripts/audit-media-provenance.mjs --json ../ops/reports/media/media-provenance.json",
+    "assert:media-provenance": "node scripts/audit-media-provenance.mjs --json ../ops/reports/media/media-provenance.json --assert",
     "assert:commercial-firewall": "node scripts/audit-commercial-firewall.mjs --assert",
     "test:analytics-contract": "node --test src/lib/analytics-contract.test.mjs"
   },

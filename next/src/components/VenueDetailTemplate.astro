@@ -10,6 +10,7 @@ import PiArticleActions from './PiArticleActions.astro';
 import { getCollection } from 'astro:content';
 import { resolveHero } from '../lib/inline-edit/resolve-hero';
 import PlayRibbon from './play/PlayRibbon.astro';
+import MediaProvenanceNote from './MediaProvenanceNote.astro';
 import { editableImage, editableText } from '../lib/inline-edit/attrs';
 import EstateCluster from './EstateCluster.astro';
 
@@ -129,6 +130,12 @@ const heroLabel = `${data.name} · ${placeLabel(data.place)}`;
 const venueSlug = venue.id ?? data.slug;
 const hero = await resolveHero('venue', venueSlug, data);
 const heroAlt = hero.alt || heroLabel;
+// Provenance describes the image in the CONTENT record. When an editor
+// has published a CMS override the picture on screen is a different
+// file, and the record says nothing about it - so pass nothing rather
+// than let one image's disclosure stand in for another's. Capturing
+// provenance at upload is the operator flow, which is gated separately.
+const heroProvenance = hero.override ? null : data.heroImage;
 
 // Sibling venues within a multi-venue estate (EstateCluster block).
 const estateSlug = data.estateSlug as string | undefined;
@@ -349,6 +356,11 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
     {data.heroImage?.credit && (
       <p class="venue-detail__hero-credit">{formatHeroCredit(data.heroImage.credit)}</p>
     )}
+    <MediaProvenanceNote
+      image={heroProvenance}
+      subject={data.name}
+      class="venue-detail__hero-provenance"
+    />
 
     <div class="venue-detail__grid">
       <div>
