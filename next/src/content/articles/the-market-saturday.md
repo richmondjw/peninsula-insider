@@ -99,7 +99,7 @@ This is the weekend for a **second Saturday of the month**, when the Mornington 
 
 **11am: The gallery or a bookshop hour.** **Mornington Peninsula Regional Gallery** is free entry, the rotating program is good, and forty-five minutes indoors between a market morning and a lunch sits well in the rhythm of the day.
 
-**12:30pm: Lunch in Mornington or drive out to Balnarring.** Two options. In Mornington: **Bistro Elba**, **Allis**, or **Many Little**, any of the village-centre rooms. In Balnarring: **Merricks General Wine Store** or the **Balnarring Pub**, which keeps the whole day on the same bayside corridor and puts you ten minutes from **Balnarring Beach** for the afternoon.
+**12:30pm: Lunch in Mornington or drive out to Balnarring.** Two options. In Mornington: **Bistro Elba**, **Allis**, or **Many Little**, any of the village-centre rooms. In Balnarring: **Merricks General Wine Store** or **The Heritage**, the Balnarring village pub, which keeps the whole day on the same bayside corridor and puts you ten minutes from **Balnarring Beach** for the afternoon.
 
 **3pm: A swim or a slow drive home.** In warmer months, Balnarring Beach for an hour. In cooler months, **Red Hill Cheese** and a producer loop back up the ridge. Home by five either way.
 

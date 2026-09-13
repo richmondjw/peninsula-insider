@@ -23,7 +23,7 @@ faq:
   - question: "Which cafés on the Mornington Peninsula allow dogs?"
     answer: "Cafés with confirmed outdoor dog-friendly areas: Commonfolk Coffee (Mornington - back courtyard), Nordie Café (Red Hill - courtyard and grass), Georgie Bass Café & Cookery (Flinders - outdoor seating), Green Olive at Red Hill (Red Hill South - outdoor dining areas). Always verify on the day, especially in peak season when outdoor spaces fill up."
   - question: "Which Peninsula pubs allow dogs?"
-    answer: "Pubs with confirmed dog-friendly beer gardens or outdoor areas: Portsea Hotel (beer garden), Flinders Hotel (beer garden), Balnarring Pub (outdoor area). The Rocks at Mornington (outdoor deck) is a waterfront dining venue that also welcomes dogs. Call ahead to confirm during peak season."
+    answer: "Pubs with confirmed dog-friendly beer gardens or outdoor areas: Portsea Hotel (beer garden) and Flinders Hotel (beer garden). The Rocks at Mornington (outdoor deck) is a waterfront dining venue that also welcomes dogs. Call ahead to confirm during peak season."
   - question: "Do any hatted restaurants on the Mornington Peninsula allow dogs?"
     answer: "Rare Hare at Jackalope Hotel (Merricks North) allows dogs in outdoor lawn areas - it is walk-in only and one-hat GFG 2025. Many Little Bar & Dining (Red Hill South, one-hat GFG 2025) has outdoor seating - enquire on booking. These are the only hatted-level venues where dogs have confirmed access."
 readingTimeMinutes: 6
@@ -63,9 +63,6 @@ Beer garden welcomes dogs. Lunch and dinner daily 11am–10pm. Food is a cut abo
 
 ### Portsea Hotel   -   Portsea
 Beer garden dog-friendly. Sweeping Port Phillip Bay views. Walk-in only 23 December to 31 January; bookings accepted rest of year. 3746 Point Nepean Road, Portsea. Good stop before or after Point Nepean National Park (note: dogs not permitted in the park itself).
-
-### Balnarring Pub   -   Balnarring
-Outdoor beer garden dog-welcome. Local, low-key atmosphere. Practical mid-Peninsula stop.
 
 ### The Rocks   -   Mornington
 Outdoor deck. Confirmed dog-friendly. Waterfront marina setting with bay views. 1 Schnapper Point Drive, Mornington. Wednesday to Monday (Tuesday lunch only).
