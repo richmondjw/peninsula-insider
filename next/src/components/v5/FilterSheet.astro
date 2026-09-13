@@ -380,11 +380,18 @@ const groups = facets
       }
     }
 
-    // Open triggers live outside the sheet (FilterBar's More filters button).
-    document.addEventListener('click', (e) => {
-      const btn = (e.target as HTMLElement).closest<HTMLElement>('[data-sheet-open]');
-      if (btn) openSheet(btn);
-    });
+    // Open triggers live outside the sheet (FilterBar's More filters button),
+    // so the listener has to be on `document` - and therefore cannot be
+    // registered here. The `_piInit` guard above is on the sheet element,
+    // which the client router replaces on every navigation, so the guard was
+    // fresh each visit while the listener on `document` was not: one more copy
+    // per visit to a filtered hub, each one opening a sheet that had been
+    // detached several navigations ago. Measured at +1 per navigation by
+    // tests/journeys before this change.
+    //
+    // The opener is published on the element instead, and the single
+    // module-scope listener below finds whichever sheet is live.
+    (sheet as any)._piOpenSheet = openSheet;
 
     sheet.querySelector('[data-sheet-close]')?.addEventListener('click', () => closeSheet(false));
     sheet.querySelector('[data-sheet-backdrop]')?.addEventListener('click', () => closeSheet(false));
@@ -442,6 +449,15 @@ const groups = facets
     // Keyboard/click fallback on the handle.
     sheet.querySelector('[data-sheet-handle]')?.addEventListener('click', () => closeSheet(false));
   }
+
+  // One listener for the life of the document; see the note in hydrate().
+  document.addEventListener('click', (e) => {
+    const btn = (e.target as HTMLElement).closest<HTMLElement>('[data-sheet-open]');
+    if (!btn) return;
+    const sheet = document.querySelector<HTMLElement>('[data-v5-filtersheet]');
+    const open = sheet && (sheet as any)._piOpenSheet;
+    if (typeof open === 'function') open(btn);
+  });
 
   function init() {
     document.querySelectorAll<HTMLElement>('[data-v5-filtersheet]').forEach(hydrate);

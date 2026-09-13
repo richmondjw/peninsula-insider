@@ -90,54 +90,66 @@ function isActive(href: string): boolean {
 
 <script is:inline>
     (function () {
-      function initV5Bar() {
+      var keyboardUp = false;
+      var observer = null;
+
+      // Any open sheet/drawer/dialog suppresses the bar entirely.
+      var SHEET_SELECTOR = [
+        '#v5Drawer:not([hidden])',
+        '#siteSearchOverlay[data-open="true"]',
+        '.pi-drawer[data-state="open"]',
+        '#v2-auth-modal:not([hidden])',
+      ].join(', ');
+
+      // Looks the bar up every time rather than closing over it: the client
+      // router replaces it on every navigation, along with every dialog the
+      // observer below watches.
+      function update() {
         var bar = document.getElementById('v5BottomBar');
-        if (!bar || bar._v5BarBound) return;
-        bar._v5BarBound = true;
+        if (!bar) return;
+        var hide = keyboardUp || !!document.querySelector(SHEET_SELECTOR);
+        bar.classList.toggle('is-suppressed', hide);
+      }
 
-        var keyboardUp = false;
+      // Virtual keyboard heuristic (mobile-strategy.md): the visual
+      // viewport shrinking well past browser-chrome variance means
+      // the on-screen keyboard is up.
+      //
+      // Registered once. visualViewport is a global and outlives every swap,
+      // so the previous shape - re-running the whole init from
+      // astro:page-load, guarded only by a flag on the replaced bar element -
+      // added one more of these per navigation, each one updating a bar that
+      // had been detached several navigations ago.
+      if (window.visualViewport) {
+        var vv = window.visualViewport;
+        vv.addEventListener('resize', function () {
+          keyboardUp = (window.innerHeight - vv.height) > 150;
+          update();
+        });
+      }
 
-        // Any open sheet/drawer/dialog suppresses the bar entirely.
-        var SHEET_SELECTOR = [
-          '#v5Drawer:not([hidden])',
-          '#siteSearchOverlay[data-open="true"]',
-          '.pi-drawer[data-state="open"]',
-          '#v2-auth-modal:not([hidden])',
-        ].join(', ');
-
-        function update() {
-          var hide = keyboardUp || !!document.querySelector(SHEET_SELECTOR);
-          bar.classList.toggle('is-suppressed', hide);
-        }
-
-        // Virtual keyboard heuristic (mobile-strategy.md): the visual
-        // viewport shrinking well past browser-chrome variance means
-        // the on-screen keyboard is up.
-        if (window.visualViewport) {
-          var vv = window.visualViewport;
-          var onVv = function () {
-            keyboardUp = (window.innerHeight - vv.height) > 150;
-            update();
-          };
-          vv.addEventListener('resize', onVv);
-        }
-
-        // Watch the dialogs' open-state attributes.
+      // Watch the dialogs' open-state attributes. These elements ARE replaced
+      // by a navigation, so the observer genuinely has to be re-pointed - and
+      // the old one disconnected first, or each navigation leaves one more
+      // observer watching detached nodes. tests/journeys measured three
+      // additional observations per navigation before this disconnect existed.
+      function rewatch() {
+        if (observer) observer.disconnect();
+        observer = null;
         var watched = ['v5Drawer', 'siteSearchOverlay', 'pi-drawer', 'v2-auth-modal']
           .map(function (id) { return document.getElementById(id); })
           .filter(Boolean);
         if (watched.length && 'MutationObserver' in window) {
-          var mo = new MutationObserver(update);
+          observer = new MutationObserver(update);
           watched.forEach(function (el) {
-            mo.observe(el, { attributes: true, attributeFilter: ['class', 'hidden', 'data-open', 'data-state'] });
+            observer.observe(el, { attributes: true, attributeFilter: ['class', 'hidden', 'data-open', 'data-state'] });
           });
         }
-
         update();
       }
 
-      initV5Bar();
-      document.addEventListener('astro:page-load', initV5Bar);
+      rewatch();
+      document.addEventListener('astro:page-load', rewatch);
     })();
 </script>
 

@@ -932,7 +932,7 @@ const chips: { key: FacetKey; value: string; label: string }[] = standalone
     return leafletPromise;
   }
 
-  function hydrate(root: HTMLElement) {
+  function hydrate(root: HTMLElement, signal: AbortSignal) {
     if ((root as any)._piInit) return;
     (root as any)._piInit = true;
 
@@ -1011,7 +1011,7 @@ const chips: { key: FacetKey; value: string; label: string }[] = standalone
 
     document.addEventListener('pi:filters-changed', ((e: CustomEvent) => {
       applyFilters(e.detail.filters as FilterState);
-    }) as EventListener);
+    }) as EventListener, { signal });
 
     /* ---------- standalone chip bar ---------- */
     if (standalone) {
@@ -1039,7 +1039,7 @@ const chips: { key: FacetKey; value: string; label: string }[] = standalone
       });
       document.addEventListener('pi:filters-changed', ((e: CustomEvent) => {
         paintChips(e.detail.filters as FilterState);
-      }) as EventListener);
+      }) as EventListener, { signal });
     }
 
     /* ---------- peek ---------- */
@@ -1167,7 +1167,7 @@ const chips: { key: FacetKey; value: string; label: string }[] = standalone
     const onStoreChange = () => {
       if (currentItem) paintSaveState(currentItem);
     };
-    window.addEventListener('pi:store-changed', onStoreChange);
+    window.addEventListener('pi:store-changed', onStoreChange, { signal });
     storeUnsub = () => window.removeEventListener('pi:store-changed', onStoreChange);
     void storeUnsub;
 
@@ -1375,8 +1375,8 @@ const chips: { key: FacetKey; value: string; label: string }[] = standalone
       sync(getView());
       document.addEventListener('pi:view-toggle', ((e: CustomEvent) => {
         sync(e.detail.view);
-      }) as EventListener);
-      window.addEventListener('popstate', () => sync(getView()));
+      }) as EventListener, { signal });
+      window.addEventListener('popstate', () => sync(getView()), { signal });
     } else {
       showIsland();
     }
@@ -1386,8 +1386,33 @@ const chips: { key: FacetKey; value: string; label: string }[] = standalone
     applyFilters(getState());
   }
 
+  /**
+   * The island's listeners on `document` and `window` cannot be hoisted to
+   * module scope the way FilterBar's were: they close over the map, the
+   * cluster layer and the row index, all of which belong to one rendered
+   * island. So each island gets an AbortController instead, and the previous
+   * island's listeners are torn down when the client router replaces it.
+   *
+   * Without this, the `_piInit` guard - which lives on the island element the
+   * router replaces - was fresh on every navigation while the listeners on
+   * document/window were not: one more copy of four listeners per visit to a
+   * map surface, each filtering a detached island forever.
+   *
+   * Aborting is keyed on the element actually changing, so the ordinary
+   * double call on first load (DOMContentLoaded, then astro:page-load) leaves
+   * the live island's listeners alone.
+   */
+  let scope: AbortController | null = null;
+  let scopedRoot: HTMLElement | null = null;
+
   function init() {
-    document.querySelectorAll<HTMLElement>('[data-v5-mapview]').forEach(hydrate);
+    const root = document.querySelector<HTMLElement>('[data-v5-mapview]');
+    if (root !== scopedRoot) {
+      scope?.abort();
+      scope = root ? new AbortController() : null;
+      scopedRoot = root;
+    }
+    if (root && scope) hydrate(root, scope.signal);
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();

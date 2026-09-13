@@ -164,6 +164,7 @@ function instrument(config) {
     const J = {
       listeners: Object.create(null),
       sources: Object.create(null),
+      elementBinds: Object.create(null),
       intervals: 0,
       observers: Object.create(null),
       // False in a freshly created document. navigate() sets it true before
@@ -202,12 +203,20 @@ function instrument(config) {
     EventTarget.prototype.addEventListener = function (type, fn, opts) {
       try {
         const name = targetName(this);
+        const from = origin();
         if (name) {
           const key = `${name} ${type}`;
           J.listeners[key] = (J.listeners[key] || 0) + 1;
-          const from = origin();
           J.sources[key] = J.sources[key] || Object.create(null);
           J.sources[key][from] = (J.sources[key][from] || 0) + 1;
+        } else {
+          // Element-level listeners are discarded with the element the router
+          // replaces, so they cannot accumulate - but they can go MISSING. A
+          // page whose script bound listeners on the first visit and binds
+          // none on the second has been left dead by the navigation, which is
+          // the other half of this defect class and the harder half to see:
+          // nothing throws and the static HTML still looks right.
+          J.elementBinds[from] = (J.elementBinds[from] || 0) + 1;
         }
       } catch { /* never let bookkeeping break the page */ }
       return add.call(this, type, fn, opts);
@@ -234,13 +243,20 @@ function instrument(config) {
     };
     window.clearInterval = function (...args) { J.intervals -= 1; return clearI.apply(window, args); };
 
+    // Observer accounting has to be per instance, not per call: one
+    // disconnect() drops EVERY target that instance was watching, so counting
+    // it as a single decrement would report a balanced re-point as a leak.
+    const live = new WeakMap();
     for (const name of ['MutationObserver', 'IntersectionObserver', 'ResizeObserver']) {
       const Ctor = window[name];
       if (typeof Ctor !== 'function') continue;
       const proto = Ctor.prototype;
       const observe = proto.observe;
+      const unobserve = proto.unobserve;
       const disconnect = proto.disconnect;
       proto.observe = function (...args) {
+        const held = live.get(this) || 0;
+        live.set(this, held + 1);
         J.observers[name] = (J.observers[name] || 0) + 1;
         const from = origin();
         const key = name + '.observe';
@@ -248,8 +264,16 @@ function instrument(config) {
         J.sources[key][from] = (J.sources[key][from] || 0) + 1;
         return observe.apply(this, args);
       };
+      if (typeof unobserve === 'function') {
+        proto.unobserve = function (...args) {
+          const held = live.get(this) || 0;
+          if (held > 0) { live.set(this, held - 1); J.observers[name] -= 1; }
+          return unobserve.apply(this, args);
+        };
+      }
       proto.disconnect = function (...args) {
-        if (J.observers[name]) J.observers[name] -= 1;
+        const held = live.get(this) || 0;
+        if (held > 0) { J.observers[name] -= held; live.set(this, 0); }
         return disconnect.apply(this, args);
       };
     }
@@ -328,7 +352,12 @@ export class Site {
         req.respond({
           status,
           contentType: 'application/json',
-          headers: { 'Access-Control-Allow-Origin': '*' },
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Headers': '*',
+            'Access-Control-Allow-Methods': 'GET,POST,PATCH,DELETE,OPTIONS',
+            'Access-Control-Expose-Headers': 'content-range',
+          },
           body,
         }).catch(() => {});
         return;
@@ -368,14 +397,17 @@ export class Site {
           return window.__J.pageLoads;
         });
         await page.evaluate((h) => {
-          let a = document.querySelector(`a[href="${h}"]`);
-          if (!a) {
-            a = document.createElement('a');
-            a.href = h;
-            a.textContent = 'harness';
-            a.setAttribute('data-harness-link', '');
-            document.body.appendChild(a);
-          }
+          // Always a fresh, plain anchor - never an existing link on the page.
+          // Real links carry behaviour: the masthead's `a[href="/search/"]`
+          // also carries [data-open-search] and opens the overlay instead of
+          // navigating, so reusing it would silently test the wrong thing.
+          // Clicking a real affordance is what click() is for.
+          document.querySelectorAll('[data-harness-link]').forEach((el) => el.remove());
+          const a = document.createElement('a');
+          a.href = h;
+          a.textContent = 'harness';
+          a.setAttribute('data-harness-link', '');
+          document.body.appendChild(a);
           a.click();
         }, href);
         await page.waitForFunction((n) => window.__J && window.__J.pageLoads > n, { timeout: 20000 }, before);
@@ -393,9 +425,23 @@ export class Site {
       globals: () => page.evaluate(() => ({
         listeners: { ...window.__J.listeners },
         sources: JSON.parse(JSON.stringify(window.__J.sources)),
+        elementBinds: { ...window.__J.elementBinds },
         intervals: window.__J.intervals,
         observers: { ...window.__J.observers },
       })),
+
+      /**
+       * How many element-level listeners a given source file has registered so
+       * far, cumulative. `source` is matched as a substring of the stack frame
+       * - for an inline page script that frame is the page's own path.
+       */
+      bindsFrom: (source) => page.evaluate((needle) => {
+        let n = 0;
+        for (const [src, count] of Object.entries(window.__J.elementBinds)) {
+          if (src.includes(needle)) n += count;
+        }
+        return n;
+      }, source),
 
       errors: () => page.evaluate(() => window.__J.pageErrors.slice()),
 

@@ -219,8 +219,22 @@ const accessibleName = isFork ? `Copy this plan: ${title}` : `Save ${title}`;
     });
 
     paint();
-    Saves.onChange(paint);
+    // Deliberately NOT Saves.onChange(paint) per control. onChange returns an
+    // unsubscribe nothing here could call, and the store's listener set lives
+    // in a bundled module that the client router never re-evaluates - so a
+    // per-control subscription survives the swap that discards its control,
+    // and every navigation adds one more callback repainting a detached
+    // button. One module-scope subscription below repaints whatever is live.
+    (el as any)._v5Paint = paint;
   }
+
+  function paintAll() {
+    document.querySelectorAll<HTMLElement>('[data-v5-save-control]').forEach((el) => {
+      const fn = (el as any)._v5Paint;
+      if (typeof fn === 'function') fn();
+    });
+  }
+  Saves.onChange(paintAll);
 
   function init() {
     document.querySelectorAll<HTMLElement>('[data-v5-save-control]').forEach(hydrate);

@@ -259,6 +259,21 @@ export const prerender = true;
   function init() {
     const form = document.querySelector('[data-submit-form]') as HTMLFormElement | null;
     if (!form) return;
+    // init() runs twice on a first load with the client router: once when
+    // this module executes, and again when astro:page-load fires, which it
+    // does on the initial load as well as after a navigation. Without this
+    // guard the form carries two submit listeners and one press files the
+    // submission twice. Same defect PI-015 fixed on /partners/ and
+    // /corrections/; the sweep in PI-012 found it still standing here.
+    //
+    // An element-level guard is the right instrument here, and only because
+    // the listener is on the element: a view transition replaces the form, so
+    // guard and listener are discarded together. The same guard on a
+    // document-level listener would not work, which is what
+    // scripts/client-listener-hygiene.test.mjs exists to catch.
+    if (form.dataset.piSubmitBound === '1') return;
+    form.dataset.piSubmitBound = '1';
+
     const status = document.querySelector('[data-submit-status]') as HTMLParagraphElement | null;
     const button = form.querySelector('button[type="submit"]') as HTMLButtonElement | null;
 
