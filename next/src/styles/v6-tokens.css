@@ -193,6 +193,60 @@
   --elev-2: 0 14px 28px -14px rgba(0, 40, 34, 0.26);
   --elev-3: 0 26px 52px -18px rgba(0, 40, 34, 0.34);
 
+  /* ── Layering scale - the single z-index vocabulary for site-wide
+     overlay chrome. Added 2026-09-13 (PI-011).
+
+     Before this there was no scale at all: every overlay carried an ad
+     hoc integer, each one apparently one-upping the previous highest
+     (9000 consent, 9001/10020 concierge, 9998/9999 chrome, 10000-10002
+     newsletter, 10005 search, 10010 mobile drawer, 10050/10060 editor).
+     Nothing recorded the intended order, so the newsletter strip ended up
+     above the consent card and covered its buttons.
+
+     The tiers, lowest to highest:
+       --z-base     page content, the default stacking ground
+       --z-sticky   in-page sticky furniture (breadcrumbs, filter bars)
+       --z-chrome   persistent site chrome: masthead, mobile tab bar
+       --z-drawer   full-viewport navigation surfaces: search overlay,
+                    mobile nav / mobile drawer, concierge drawer
+       --z-overlay  promotional and marketing overlays: the newsletter
+                    modal and its bottom strip
+       --z-consent  legal consent. MUST outrank promotion. A cookie
+                    banner a marketing panel can bury is not a consent
+                    mechanism, so nothing promotional may ever be raised
+                    above this tier.
+       --z-editor   admin and editor tooling. Sits on top of everything,
+                    consent included, because it is how the site gets
+                    repaired.
+
+     Rules for the next component author:
+       1. Pick a tier, not a number. Write var(--z-<tier>).
+       2. Need to order two surfaces inside one tier? Use
+          calc(var(--z-<tier>) + 1). The 1000-point gaps exist for that.
+       3. Do NOT invent a new higher integer. If nothing fits, add a tier
+          here, in order, and say why.
+       4. Small local stacking values (1 to ~1200, inside a component that
+          owns its own stacking context) are not this scale's business.
+          Leave them local. The scale deliberately starts at 2000 so that
+          every one of them stays below site chrome, exactly as before.
+       5. z-index never fixes a geometric collision. Two bottom-anchored
+          fixed elements still overlap when both sit at bottom:0, whatever
+          their stacking order. Reserve space instead - see --cb-promo in
+          CookieBanner.astro and --pi-promo-bar-height below. ── */
+  --z-base:    0;
+  --z-sticky:  2000;
+  --z-chrome:  3000;
+  --z-drawer:  4000;
+  --z-overlay: 5000;
+  --z-consent: 6000;
+  --z-editor:  7000;
+
+  /* Height of the bottom-anchored promotional strip, published by
+     InsiderNotePopup.astro onto <html> while the strip is on screen
+     (alongside data-pi-promo-bar="visible"). Bottom-anchored UI that must
+     stay clear of it reads this rather than guessing. Absent by default,
+     so every consumer needs a fallback. */
+
   /* ── Motion ── */
   --dur-fast: 120ms;
   --dur-med:  200ms;

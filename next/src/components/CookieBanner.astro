@@ -181,6 +181,11 @@
     document.addEventListener('keydown', function (e) {
       if (e.key !== 'Escape' && e.key !== 'Esc') return;
       if (banner.getAttribute('data-state') !== 'visible') return;
+      // A modal promotional overlay (InsiderNotePopup sets body.inote-open)
+      // owns Escape while it is open. One keystroke aimed at closing that
+      // must not silently drop the consent prompt for the rest of the visit
+      // as a side effect.
+      if (document.body.classList.contains('inote-open')) return;
       hide();
     });
 
@@ -221,9 +226,22 @@
     /* A hairline that actually reads: 3.24:1 on --white, so the ghost
        button and the toggle track meet WCAG 1.4.11. */
     --cb-line: color-mix(in srgb, var(--text) 50%, var(--white));
-    /* Distance from the bottom edge. Overridden on mobile to clear the
-       V5BottomBar tab strip. */
-    --cb-bottom: var(--space-5);
+    /* Distance from the bottom edge, composed from independent parts
+       rather than set in one place:
+         --cb-gap     breathing room from whatever sits directly below
+         --cb-chrome  persistent site chrome to clear (mobile tab strip)
+         --cb-promo   promotional strip to clear (the newsletter bar)
+       Two bottom-anchored fixed elements overlap whatever their stacking
+       order, so the consent card RESERVES the space it needs instead of
+       merely outranking what is down there. Splitting the parts means a
+       rule that adjusts one can never silently discard another - the old
+       single --cb-bottom had exactly that failure, with the newsletter
+       clearance living in a max-width:1023px block that never fired at
+       the desktop widths where the collision actually happens. */
+    --cb-gap:    var(--space-5);
+    --cb-chrome: 0px;
+    --cb-promo:  0px;
+    --cb-bottom: calc(var(--cb-gap) + var(--cb-chrome) + var(--cb-promo));
 
     position: fixed;
     left: var(--space-5);
@@ -233,7 +251,7 @@
     max-height: calc(100dvh - var(--cb-bottom) - var(--space-6));
     overflow-y: auto;
     overscroll-behavior: contain;
-    z-index: 9000;
+    z-index: var(--z-consent);
     background: var(--white);
     border: 1px solid var(--border-strong);
     border-radius: var(--radius-m);
@@ -250,6 +268,7 @@
     transition:
       transform var(--dur-slow) var(--ease-enter),
       opacity var(--dur-slow) var(--ease-enter),
+      bottom var(--dur-slow) var(--ease-enter),
       visibility 0s linear var(--dur-slow);
   }
   .cookie-banner[data-state='visible'] {
@@ -259,7 +278,23 @@
     transition:
       transform var(--dur-slow) var(--ease-enter),
       opacity var(--dur-slow) var(--ease-enter),
+      bottom var(--dur-slow) var(--ease-enter),
       visibility 0s linear 0s;
+  }
+
+  /* ─────────────────────────────────────────────────────────────────────
+     Clear the newsletter strip (InsiderNotePopup.astro), at EVERY width.
+     The strip is position:fixed, full-bleed, bottom:0, and it is live in
+     production. Raising the consent card above it is not enough: both want
+     the bottom of the viewport, so the card would simply sit on top of the
+     strip. It steps clear of it instead.
+     The strip publishes its measured height onto <html> as
+     --pi-promo-bar-height, together with data-pi-promo-bar="visible". The
+     fallback covers the frame before the first measurement and any future
+     caller that sets the flag without the height.
+     ───────────────────────────────────────────────────────────────────── */
+  :global(html[data-pi-promo-bar='visible']) .cookie-banner {
+    --cb-promo: calc(var(--pi-promo-bar-height, 4.5rem) + var(--space-3));
   }
 
   .cookie-banner__inner {
@@ -404,14 +439,16 @@
      ───────────────────────────────────────────────────────────────────── */
   @media (max-width: 1023px) {
     .cookie-banner {
-      --cb-bottom: calc(56px + env(safe-area-inset-bottom) + var(--space-3));
+      --cb-gap:    var(--space-3);
+      --cb-chrome: calc(56px + env(safe-area-inset-bottom));
     }
 
     /* Pages that never render the bar (journal reading, dispatch/account/
        access/ask flows) reclaim the reserved space. Browsers without :has()
-       drop this rule and keep the safe, bar-clearing default above. */
+       drop this rule and keep the safe, bar-clearing default above. Only
+       the chrome part is released; any newsletter-strip clearance stands. */
     :global(body:not(:has(#v5BottomBar))) .cookie-banner {
-      --cb-bottom: var(--space-3);
+      --cb-chrome: 0px;
     }
   }
 

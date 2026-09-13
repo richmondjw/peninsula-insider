@@ -193,9 +193,9 @@ const conciergeIcon = '/images/pi-concierge.svg';
     --pi-drawer-margin: 24px;
     position: fixed;
     inset: 0;
-    /* Sit above masthead (9999), mobile-nav (10010), utility row.
-       When open the drawer must occlude the entire header chrome. */
-    z-index: 10020;
+    /* Top of the drawer tier: when open it must occlude the masthead,
+       the mobile nav and the utility row. Scale: v6-tokens.css. */
+    z-index: calc(var(--z-drawer) + 2);
     pointer-events: none;
     /* Local design tokens (mirror /ask) */
     --pi-paper:       #FAF6EE;
@@ -526,7 +526,7 @@ const conciergeIcon = '/images/pi-concierge.svg';
     position: fixed;
     bottom: 22px;
     right: 22px;
-    z-index: 9001;
+    z-index: calc(var(--z-drawer) + 2);
     cursor: pointer;
     pointer-events: auto;
     /* Pill shape - avatar left, label right */

@@ -39,13 +39,14 @@
 }
 
 /* ─── Search overlay (instant Pagefind dropdown) ────────────────── */
-/* z-index sits above the masthead (9999) but below the mobile-nav
-   overlay (10010), so the search overlay covers the sticky header
-   when open while staying respectful of the burger-menu's primacy. */
+/* Drawer tier (see the layering scale in src/styles/v6-tokens.css): above
+   the masthead, one step below the mobile-nav overlay, so the search
+   overlay covers the sticky header when open while staying respectful of
+   the burger-menu's primacy. */
 .site-search-overlay {
   position: fixed;
   inset: 0;
-  z-index: 10005;
+  z-index: var(--z-drawer);
   display: flex;
   align-items: flex-start;
   justify-content: center;
