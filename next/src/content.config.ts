@@ -70,6 +70,38 @@ const imageLicense = z.enum([
   'other-licensed',
 ]);
 
+/**
+ * Does the photograph show the thing the page is about, or something else?
+ *
+ * This is the field the corpus did not have. A photograph OF a venue and a
+ * photograph EVOKING the region around it are two different claims, and a
+ * sighted reader looking at a hero image has had no way to tell which one is
+ * in front of them. Alt text is not that disclosure: alt text serves
+ * screen-reader users, and a reader who can see the photograph never
+ * receives it.
+ *
+ *   actual        the photograph shows this entity. A positive claim, and
+ *                 only assertable where the record says where the image came
+ *                 from (see `creator` / `sourceUrl` / `permission`).
+ *   illustrative  the photograph shows something else: the locality, the
+ *                 category, the region. Renders a visible disclosure.
+ *   unverified    nobody has recorded which of the two it is. The default,
+ *                 and deliberately NOT a synonym for `actual`. An unrecorded
+ *                 image may never be presented as a depiction of the entity.
+ */
+const depictionStatus = z.enum(['actual', 'illustrative', 'unverified']);
+
+/**
+ * What the recorded permission actually allows. Empty means nothing has been
+ * recorded, which is not the same as "nothing is permitted" and is very much
+ * not the same as "everything is permitted". A credit string and a source
+ * filename do not establish a licence, so neither may populate this.
+ */
+const imageUse = z.enum(['website', 'social', 'print', 'derivative', 'commercial']);
+
+/** Has a human checked the provenance record below, and did it hold up? */
+const provenanceReview = z.enum(['unreviewed', 'verified', 'disputed']);
+
 const coordinates = z.object({
   lat: z.number().min(-90).max(90),
   lng: z.number().min(-180).max(180),
@@ -85,6 +117,39 @@ const imageRef = z.object({
   credit: z.string(),
   license: imageLicense.default('venue-media-kit'),
   caption: z.string().optional(),
+
+  // Media provenance (PI-013).
+  //
+  // Every field below is optional and additive. A record carrying none of
+  // them is unchanged on disk and renders exactly as it did before.
+  //
+  // `credit` above is a DISPLAY string and `license` is a coarse bucket with
+  // a permissive default; neither is a recorded grant. The fields here are
+  // the recorded ones, and the rule for all of them is the same: never write
+  // a value that cannot be sourced from the image record itself. An inferred
+  // rights holder is worse than an absent one.
+  //
+  // Enforced by scripts/audit-media-provenance.mjs; the visible disclosure is
+  // rendered by src/components/MediaProvenanceNote.astro.
+
+  /** What the photograph actually shows, in the photographer's terms. */
+  depicts: z.string().optional(),
+  /** Actual depiction, illustrative stand-in, or nobody has said. */
+  depictionStatus: depictionStatus.default('unverified'),
+  /** Who made the image. Distinct from `credit`, which is display text. */
+  creator: z.string().optional(),
+  /** Where the image was obtained: file page, media kit, upload receipt. */
+  sourceUrl: z.string().optional(),
+  /** The permission as recorded at that source, verbatim. Never inferred. */
+  permission: z.string().optional(),
+  /** Channels that permission actually covers. Empty means unrecorded. */
+  permittedUses: z.array(imageUse).default([]),
+  /** Focal point for cropping, 0..1 from the top left of the source image. */
+  focalPoint: z
+    .object({ x: z.number().min(0).max(1), y: z.number().min(0).max(1) })
+    .optional(),
+  /** Moderation state of the provenance record above. */
+  provenanceReview: provenanceReview.default('unreviewed'),
 });
 
 const tagBlock = z.object({

@@ -31,6 +31,7 @@ import ExperienceCard from './ExperienceCard.astro';
 import ItineraryCard from './ItineraryCard.astro';
 import ArticleCard from './ArticleCard.astro';
 import NewsletterBlock from './NewsletterBlock.astro';
+import MediaProvenanceNote from './MediaProvenanceNote.astro';
 import { titleize, formatHeroCredit } from '../lib/editorial';
 import { editableText, editableImage } from '../lib/inline-edit/attrs';
 import { resolveHero } from '../lib/inline-edit/resolve-hero';
@@ -68,6 +69,9 @@ const placeSlug = place.id ?? place.slug ?? place.data?.slug ?? place.data?.id;
 // PR #162 gated it to admin-click.
 const hero = await resolveHero('place', placeSlug, place.data);
 const heroCredit = formatHeroCredit(place.data.heroImage?.credit);
+// See the note in VenueDetailTemplate: a published CMS override is a
+// different image with no recorded provenance of its own.
+const heroProvenance = hero.override ? null : place.data.heroImage;
 
 // Category sub-page lookup - editorial, not file-system-driven.
 // Extend this map as new place-specific sub-pages are created.
@@ -213,6 +217,11 @@ const factual = place.data.factualLede ?? '';
     )}
   </div>
   {heroCredit && <p class="pdv2-hero__credit">{heroCredit}</p>}
+  <MediaProvenanceNote
+    image={heroProvenance}
+    subject={place.data.name}
+    class="pdv2-hero__provenance"
+  />
 </section>
 
 <!-- ═══════════════════════════════════════════════════════════════════════

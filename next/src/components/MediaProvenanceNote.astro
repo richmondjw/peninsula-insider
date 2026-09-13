@@ -1,0 +1,74 @@
+---
+/**
+ * MediaProvenanceNote - the visible illustrative-image disclosure.
+ *
+ * Renders a label beneath an image that the record explicitly marks
+ * `depictionStatus: "illustrative"`, and renders absolutely nothing for
+ * anything else. Not for `actual`, not for `unverified`, not for a missing
+ * image, not for a malformed status string.
+ *
+ * It is wired into the venue and place hero surfaces and outputs nothing
+ * today, because no record in the corpus carries the field yet. That empty
+ * state is the design, not an oversight: the same shape as the disclosure
+ * tripwire in audit-commercial-firewall.mjs, armed before the first image it
+ * has to catch rather than after. When an editor marks the first illustrative
+ * image, the disclosure appears on that page in the same commit as the data,
+ * with no template change needed and no window in which a marked image ships
+ * undisclosed.
+ *
+ * The wording is assembled in lib/media-provenance.ts from fields the record
+ * carries. Nothing here infers what a photograph shows, who made it, or what
+ * licence covers it.
+ */
+import { illustrativeDisclosure, type ProvenanceImage } from '../lib/media-provenance';
+
+export interface Props {
+  /** The image record. Anything without an explicit illustrative mark renders nothing. */
+  image?: ProvenanceImage | null;
+  /** The entity the page is about, used in the disclosure sentence. */
+  subject?: string | null;
+  /** Optional extra class so a surface can position the note in its own layout. */
+  class?: string;
+}
+
+const { image = null, subject = null, class: className = '' } = Astro.props;
+
+const disclosure = illustrativeDisclosure(image, subject);
+---
+
+{disclosure && (
+  <p class:list={['media-provenance', className]} data-pi-media-disclosure="illustrative">
+    <span class="media-provenance__label">{disclosure.label}</span>
+    <span class="media-provenance__detail">{disclosure.detail}</span>
+  </p>
+)}
+
+<style>
+  .media-provenance {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.5rem;
+    margin: 0.35rem 0 0;
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: var(--ink-soft, #433d39);
+  }
+
+  .media-provenance__label {
+    flex: none;
+    padding: 0.1rem 0.45rem;
+    border: 1px solid currentcolor;
+    border-radius: 2px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    opacity: 0.85;
+  }
+
+  .media-provenance__detail {
+    flex: 1 1 12rem;
+    min-width: 0;
+  }
+</style>
