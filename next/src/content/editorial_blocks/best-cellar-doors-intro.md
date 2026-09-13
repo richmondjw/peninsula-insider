@@ -8,7 +8,7 @@ publishedAt: 2026-04-30
 status: published
 ---
 
-Mornington Peninsula Pinot Noir is one of Australia's most consistent cool-climate stories. With over 200 growers and 50-plus cellar doors concentrated on the Red Hill plateau and its surrounding sub-regions, the question is no longer whether it's worth the drive but which doors to open. This list is editorial. Every entry has been visited and the wine has been drunk at the source.
+Mornington Peninsula Pinot Noir is one of Australia's most consistent cool-climate stories. With over 200 vineyards across the region and 50-plus cellar doors concentrated on the Red Hill plateau and its surrounding sub-regions, the question is no longer whether it's worth the drive but which doors to open. This list is editorial. Every entry has been visited and the wine has been drunk at the source.
 
 The Peninsula's strengths are Pinot Noir and Chardonnay, with a handful of producers doing exceptional work in Pinot Gris, Pinot Blanc, and late-harvest styles. The best cellar door visits combine a tasting with a lunch or at minimum a board. The landscape earns more time than a thirty-minute visit allows.
 
