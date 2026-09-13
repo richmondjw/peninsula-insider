@@ -62,6 +62,7 @@ jobs:
           npm run test:material-change
           npm run test:event-safeguards
           npm run test:event-occurrence
+          npm run test:commercial-firewall
 
       - name: Content admission gate
         # Placeholder markers + real Astro collection-schema validation
@@ -70,6 +71,18 @@ jobs:
           cd next
           npm run assert:schema-drift
           npm run validate:content
+
+      - name: Commercial/editorial firewall
+        # PI-021. Reads source and content, not dist/, so it costs seconds and
+        # needs no build. It belongs on the branch rather than only inside
+        # `npm run build` on main: a commercial field reaching an editorial
+        # ordering decision must be refused at review, not discovered after a
+        # deploy. Ratchets against ops/reports/governance/
+        # commercial-firewall-baseline.json, so inherited debt never blocks a
+        # merge and any increase does.
+        run: |
+          cd next
+          npm run assert:commercial-firewall
 
       - name: Explain failure
         if: failure()

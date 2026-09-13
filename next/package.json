@@ -88,6 +88,7 @@
     "audit:media-provenance": "node scripts/audit-media-provenance.mjs --json ../ops/reports/media/media-provenance.json",
     "assert:media-provenance": "node scripts/audit-media-provenance.mjs --json ../ops/reports/media/media-provenance.json --assert",
     "assert:commercial-firewall": "node scripts/audit-commercial-firewall.mjs --assert",
+    "test:commercial-firewall": "node --test scripts/audit-commercial-firewall.test.mjs",
     "test:analytics-contract": "node --test src/lib/analytics-contract.test.mjs",
     "audit:provenance-dates": "node scripts/audit-provenance-dates.mjs",
     "assert:provenance-dates": "node scripts/audit-provenance-dates.mjs --assert",
