@@ -126,6 +126,15 @@ const DISCLOSURE_COMPONENT = 'MediaProvenanceNote';
 /** The three statuses the schema allows. Anything else is a typo. */
 const VALID_STATUS = new Set(['actual', 'illustrative', 'unverified']);
 
+/** The three rights states the schema allows. Anything else is a typo. */
+const VALID_RIGHTS = new Set(['unrecorded', 'unknown', 'recorded']);
+
+/**
+ * The shape a recorded rights date must take. A format check, not a freshness
+ * check - see the long note at the top about why nothing here reads a clock.
+ */
+const RIGHTS_DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
+
 /**
  * Collections whose pages name a specific real place or business. An
  * illustrative image matters most here: a reader on a page titled with a
@@ -159,6 +168,11 @@ const ASSERTED_METRICS = new Set([
   'invalidDepictionStatus',
   'brokenDisclosureSurface',
   'undisclosedRepresentativeAlt',
+  'invalidRightsStatus',
+  'rightsRecordedWithoutSource',
+  'rightsDatedWithoutRecord',
+  'malformedRightsDate',
+  'decorativeWithAltText',
 ]);
 
 // -- reading the corpus ----------------------------------------------------
@@ -329,6 +343,14 @@ async function disclosureCoverage() {
 
 const filled = (value) => typeof value === 'string' && value.trim().length > 0;
 
+/**
+ * Records read off disk are not parsed by zod, so a YAML frontmatter boolean
+ * arrives as the string "true" while the same field in a JSON record arrives
+ * as a real boolean. Both mean decorative; neither may be trusted to be a
+ * boolean, and a truthy-check would read the string "false" as decorative.
+ */
+const isTrue = (value) => value === true || value === 'true';
+
 async function main() {
   const records = await readImageRecords();
   const { covered, surfaces, broken } = await disclosureCoverage();
@@ -340,6 +362,14 @@ async function main() {
   const undisclosedRepresentativeAlt = [];
   const unrecordedDepiction = [];
   const illustrativeMarked = [];
+  const invalidRightsStatus = [];
+  const rightsRecordedWithoutSource = [];
+  const rightsDatedWithoutRecord = [];
+  const malformedRightsDate = [];
+  const decorativeWithAltText = [];
+  const noProvenanceAtAll = [];
+  const rightsUnknownRecorded = [];
+  const decorativeMarked = [];
 
   for (const rec of records) {
     const img = rec.image;
@@ -347,6 +377,55 @@ async function main() {
     const recorded = filled(raw) ? raw.trim() : null;
     const named = NAMED_ENTITY_COLLECTIONS.has(rec.collection);
     const where = { file: rec.file, field: rec.field, src: img.src ?? null };
+
+    // -- rights record ----------------------------------------------------
+    //
+    // `credit` and `license` are excluded from every judgement below, which
+    // is the A29 discipline in code: `credit` is display text and `license`
+    // carries a permissive schema default, so a record can claim a venue
+    // media kit while nobody has ever recorded a grant. Only creator,
+    // sourceUrl, permission and rightsHolder are evidence of anything.
+    const rightsRaw = img.rightsStatus;
+    const rights = filled(rightsRaw) ? rightsRaw.trim() : null;
+    const hasSource =
+      filled(img.creator) ||
+      filled(img.sourceUrl) ||
+      filled(img.permission) ||
+      filled(img.rightsHolder);
+    const establishedOn = filled(img.rightsEstablishedOn) ? img.rightsEstablishedOn.trim() : null;
+
+    if (rights !== null && !VALID_RIGHTS.has(rights)) {
+      invalidRightsStatus.push({ ...where, status: rights });
+    }
+    if (rights === 'recorded' && !hasSource) {
+      rightsRecordedWithoutSource.push(where);
+    }
+    if (rights === 'unknown') rightsUnknownRecorded.push(where);
+    if (establishedOn !== null) {
+      if (rights !== 'recorded') {
+        rightsDatedWithoutRecord.push({ ...where, rightsEstablishedOn: establishedOn, status: rights });
+      }
+      if (!RIGHTS_DATE_RE.test(establishedOn)) {
+        malformedRightsDate.push({ ...where, rightsEstablishedOn: establishedOn });
+      }
+    }
+    // The deliverable count: a record that says nothing at all about where
+    // the photograph came from. `unrecorded` is the schema default, so an
+    // absent rightsStatus counts the same as an explicit one.
+    if (!hasSource && (rights === null || rights === 'unrecorded')) {
+      noProvenanceAtAll.push(where);
+    }
+
+    // -- decorative -------------------------------------------------------
+    //
+    // A decorative image tells assistive technology to skip it; supplying alt
+    // text at the same time is a record contradicting itself, and whichever
+    // way a surface resolves it, one of the two instructions is silently
+    // discarded.
+    if (isTrue(img.decorative)) {
+      decorativeMarked.push(where);
+      if (filled(img.alt)) decorativeWithAltText.push({ ...where, alt: img.alt });
+    }
 
     if (recorded !== null && !VALID_STATUS.has(recorded)) {
       invalidDepictionStatus.push({ ...where, status: recorded });
@@ -389,6 +468,14 @@ async function main() {
     brokenDisclosureSurface: broken.length,
     undisclosedRepresentativeAlt: undisclosedRepresentativeAlt.length,
     unrecordedDepiction: unrecordedDepiction.length,
+    decorativeMarked: decorativeMarked.length,
+    decorativeWithAltText: decorativeWithAltText.length,
+    invalidRightsStatus: invalidRightsStatus.length,
+    rightsRecordedWithoutSource: rightsRecordedWithoutSource.length,
+    rightsDatedWithoutRecord: rightsDatedWithoutRecord.length,
+    malformedRightsDate: malformedRightsDate.length,
+    rightsUnknownRecorded: rightsUnknownRecorded.length,
+    noProvenanceAtAll: noProvenanceAtAll.length,
   };
 
   const report = {
@@ -405,6 +492,12 @@ async function main() {
     permittedUseWithoutPermission,
     invalidDepictionStatus,
     undisclosedRepresentativeAlt,
+    decorativeWithAltText,
+    invalidRightsStatus,
+    rightsRecordedWithoutSource,
+    rightsDatedWithoutRecord,
+    malformedRightsDate,
+    noProvenanceAtAll,
   };
 
   const t = totals;
@@ -416,14 +509,22 @@ async function main() {
   console.log('  Disclosure');
   console.log(`    marked illustrative ........... ${t.illustrativeMarked}   [report-only]`);
   console.log(`    illustrative, no disclosure ... ${t.illustrativeWithoutDisclosure}   [gated]`);
+  console.log(`    marked decorative ............. ${t.decorativeMarked}   [report-only]`);
+  console.log(`    decorative WITH alt text ...... ${t.decorativeWithAltText}   [gated]`);
   console.log('  Rights discipline');
   console.log(`    "actual" w/o any provenance ... ${t.actualWithoutProvenance}   [gated]`);
   console.log(`    permitted use w/o permission .. ${t.permittedUseWithoutPermission}   [gated]`);
   console.log(`    invalid depiction status ...... ${t.invalidDepictionStatus}   [gated]`);
+  console.log(`    invalid rights status ......... ${t.invalidRightsStatus}   [gated]`);
+  console.log(`    "recorded" rights, no source .. ${t.rightsRecordedWithoutSource}   [gated]`);
+  console.log(`    rights date, no rights record . ${t.rightsDatedWithoutRecord}   [gated]`);
+  console.log(`    malformed rights date ......... ${t.malformedRightsDate}   [gated]`);
   console.log(`    disclosure surface broken ..... ${t.brokenDisclosureSurface}   [gated]`);
+  console.log(`    rights recorded as unknown .... ${t.rightsUnknownRecorded}   [report-only]`);
   console.log('  Inherited debt');
   console.log(`    alt says "representative" ..... ${t.undisclosedRepresentativeAlt}   [gated, ratchet]`);
   console.log(`    named entity, status unrecorded ${t.unrecordedDepiction}   [report-only]`);
+  console.log(`    NO provenance of any kind ..... ${t.noProvenanceAtAll} of ${t.imageRecords}   [report-only]`);
   console.log('');
   console.log(`  Collections with a disclosure surface: ${[...covered].sort().join(', ') || '(none)'}`);
   console.log('');
@@ -442,6 +543,21 @@ async function main() {
   }
   for (const b of broken) {
     console.log(`    UNWIRED        ${b.file} is the declared disclosure surface for ${b.collection} (${b.reason})`);
+  }
+  for (const d of decorativeWithAltText) {
+    console.log(`    CONTRADICTION  ${d.file} (${d.field}) is decorative and still carries alt text: ${d.alt}`);
+  }
+  for (const r of invalidRightsStatus) {
+    console.log(`    BAD RIGHTS     ${r.file} (${r.field}) has rightsStatus "${r.status}"`);
+  }
+  for (const r of rightsRecordedWithoutSource) {
+    console.log(`    UNBACKED       ${r.file} (${r.field}) records rights with no creator, source, permission or rights holder`);
+  }
+  for (const r of rightsDatedWithoutRecord) {
+    console.log(`    ORPHAN DATE    ${r.file} (${r.field}) dates rights to ${r.rightsEstablishedOn} but rightsStatus is "${r.status ?? 'unrecorded'}"`);
+  }
+  for (const r of malformedRightsDate) {
+    console.log(`    BAD DATE       ${r.file} (${r.field}) rightsEstablishedOn "${r.rightsEstablishedOn}" is not YYYY-MM-DD`);
   }
   if (VERBOSE) {
     for (const r of undisclosedRepresentativeAlt) {

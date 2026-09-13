@@ -61,6 +61,7 @@ jobs:
           npm run test:verification-loop
           npm run test:event-safeguards
           npm run test:event-occurrence
+          npm run test:media-provenance
 
       - name: Content admission gate
         # Placeholder markers + real Astro collection-schema validation
@@ -68,6 +69,7 @@ jobs:
         run: |
           cd next
           npm run assert:schema-drift
+          npm run assert:media-provenance
           npm run validate:content
 
       - name: Explain failure
