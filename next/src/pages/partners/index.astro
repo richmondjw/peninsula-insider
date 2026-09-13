@@ -14,6 +14,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { editableText } from '../../lib/inline-edit/attrs';
+import {
+  BUSINESS_CATEGORIES,
+  BUSINESS_CATEGORY_LABELS,
+  ENQUIRY_INTERESTS,
+  ENQUIRY_INTEREST_LABELS,
+} from '../../lib/partner-enquiry';
 
 const breadcrumbItems = [
   { label: "Home", href: "/" },
@@ -217,40 +223,38 @@ export const prerender = true;
           audience - not a generic media kit.
         </p>
 
-        <form
-          class="partners-enquiry__form"
-          action="https://formspree.io/f/peninsula-insider-partners"
-          method="POST"
-          data-fallback-mailto="hello@peninsulainsider.com.au"
-        >
+        <!--
+          No `action`, no `method`, and no endpoint flag. Until PI-015 this
+          form POSTed to a Formspree placeholder behind a hardcoded
+          `ENDPOINT_LIVE = false`, so every submit was turned into a `mailto:`
+          handoff and nothing was ever recorded. It now writes to
+          pi.partner_enquiries through the anon Supabase client, exactly as
+          /corrections/ does, and the submit handler is the only path out.
+        -->
+        <form class="partners-enquiry__form" data-partner-enquiry-form aria-label="Partnership enquiry">
           <div class="partners-enquiry__row">
             <label class="partners-enquiry__field">
               <span class="partners-enquiry__label">Business name</span>
-              <input type="text" name="business_name" required autocomplete="organization" />
+              <input type="text" name="business_name" required maxlength="200" autocomplete="organization" />
             </label>
             <label class="partners-enquiry__field">
               <span class="partners-enquiry__label">Contact name</span>
-              <input type="text" name="contact_name" required autocomplete="name" />
+              <input type="text" name="contact_name" required maxlength="200" autocomplete="name" />
             </label>
           </div>
 
           <div class="partners-enquiry__row">
             <label class="partners-enquiry__field">
               <span class="partners-enquiry__label">Email</span>
-              <input type="email" name="email" required autocomplete="email" />
+              <input type="email" name="email" required maxlength="240" autocomplete="email" />
             </label>
             <label class="partners-enquiry__field">
               <span class="partners-enquiry__label">Business category</span>
               <select name="business_category" required>
                 <option value="" disabled selected>Select a category</option>
-                <option value="winery-cellar-door">Winery or cellar door</option>
-                <option value="restaurant-dining">Restaurant or dining venue</option>
-                <option value="accommodation">Boutique accommodation</option>
-                <option value="wellness-spa">Wellness or spa experience</option>
-                <option value="tour-attraction">Tour or attraction</option>
-                <option value="event">Premium local event</option>
-                <option value="visitor-experience">Visitor experience or destination business</option>
-                <option value="other">Other</option>
+                {BUSINESS_CATEGORIES.map((value) => (
+                  <option value={value}>{BUSINESS_CATEGORY_LABELS[value]}</option>
+                ))}
               </select>
             </label>
           </div>
@@ -258,7 +262,7 @@ export const prerender = true;
           <div class="partners-enquiry__row">
             <label class="partners-enquiry__field partners-enquiry__field--full">
               <span class="partners-enquiry__label">Website or Instagram</span>
-              <input type="text" name="website_or_instagram" placeholder="https:// or @handle" />
+              <input type="text" name="website_or_instagram" maxlength="300" placeholder="https:// or @handle" />
             </label>
           </div>
 
@@ -267,13 +271,9 @@ export const prerender = true;
               <span class="partners-enquiry__label">What are you interested in?</span>
               <select name="interest">
                 <option value="" disabled selected>Select an area of interest (optional)</option>
-                <option value="featured-profile">Featured Partner Profile</option>
-                <option value="seasonal-campaign">Seasonal Campaign</option>
-                <option value="event-promotion">Event Promotion</option>
-                <option value="newsletter">Newsletter Partnership</option>
-                <option value="offers-experiences">Offers and Experiences</option>
-                <option value="sponsorship">Destination or Category Sponsorship</option>
-                <option value="not-sure">Not sure yet, would like to talk</option>
+                {ENQUIRY_INTERESTS.map((value) => (
+                  <option value={value}>{ENQUIRY_INTEREST_LABELS[value]}</option>
+                ))}
               </select>
             </label>
           </div>
@@ -281,14 +281,48 @@ export const prerender = true;
           <div class="partners-enquiry__row">
             <label class="partners-enquiry__field partners-enquiry__field--full">
               <span class="partners-enquiry__label">Notes (optional)</span>
-              <textarea name="notes" rows="4" placeholder="Anything we should know - upcoming opening, season you want to target, audience you want to reach."></textarea>
+              <textarea name="notes" rows="4" maxlength="2000" placeholder="Anything we should know - upcoming opening, season you want to target, audience you want to reach."></textarea>
             </label>
           </div>
+
+          {/*
+            Spam control, and the whole of it: a honeypot and a timing check.
+            No CAPTCHA, because a business enquiring about a commercial
+            relationship should not be asked to identify traffic lights, and
+            no third-party script, because that is the dependency this ticket
+            exists to remove.
+
+            The trap is off-screen rather than display:none, and carries a
+            real label and autocomplete="off" so a password manager does not
+            fill it in for a real person. tabindex="-1" keeps it out of the
+            keyboard path and aria-hidden out of the screen-reader path; the
+            only thing left that fills it is something reading the DOM.
+
+            Both fields are SENT, and both are constrained by CHECK
+            constraints on pi.partner_enquiries. That is the point of sending
+            them: a bot posting straight at PostgREST never runs the script
+            below, but it still has to satisfy the database.
+          */}
+          <div class="partners-enquiry__trap" aria-hidden="true">
+            <label for="partner-enquiry-fax">Fax number (leave this field empty)</label>
+            <input id="partner-enquiry-fax" type="text" name="bot_trap" tabindex="-1" autocomplete="off" />
+          </div>
+          <input type="hidden" name="compose_ms" value="" data-compose-ms />
 
           <div class="partners-enquiry__actions">
             <button type="submit" class="pi-btn pi-btn--solid">Send enquiry</button>
             <p class="partners-enquiry__fallback">Prefer email? <a href="mailto:hello@peninsulainsider.com.au?subject=Partnership%20enquiry%20-%20Peninsula%20Insider">hello@peninsulainsider.com.au</a></p>
           </div>
+
+          <!--
+            One status region for every outcome, including the ones that are
+            not success. It is empty and hidden until a submit resolves, and
+            what it says is decided by outcomeMessage() in lib/partner-enquiry.ts
+            rather than here, so that the test asserting a non-success outcome
+            can never read as a confirmation is actually testing the words the
+            reader sees.
+          -->
+          <p class="partners-enquiry__status" data-partner-enquiry-status role="status" aria-live="polite" hidden></p>
         </form>
 
         <p class="partners-enquiry__followup">
@@ -304,107 +338,283 @@ export const prerender = true;
   <NewsletterBlock />
 </BaseLayout>
 
-<script is:inline>
+<script>
   /**
-   * Partner enquiry form - graceful fallback.
-   * Formspree endpoint placeholder; until wired, intercept submit and
-   * open a structured mailto: with the form contents so enquiries never
-   * fall through the floor.
+   * Partner enquiry form (PI-015).
+   *
+   * WHAT THIS REPLACED. A `mailto:` interceptor sitting behind
+   * `var ENDPOINT_LIVE = false`, in front of a Formspree endpoint that was
+   * never provisioned. Nothing reached a server, nothing was recorded, and
+   * once the browser handed off to a mail client this page could not tell
+   * whether a message was composed, sent or abandoned. Where no mail handler
+   * was configured, pressing Send did nothing and said nothing.
+   *
+   * The enquiry now goes to pi.partner_enquiries through the anon Supabase
+   * client, the same way /corrections/ writes a correction. There is no
+   * application server on this site: RLS is the gate, the reference is minted
+   * here because the anon role cannot read the row back, and every decision
+   * about what the reader is told comes from classifyOutcome() rather than
+   * from this file, so it can be tested.
+   *
+   * NOT is:inline, unlike the script this replaces - it has to import the
+   * shared rules, and a rule that only exists inside an inline page script is
+   * a rule no test can hold.
+   *
+   * Schema: ops/migrations/2026-09-14-pi-partner-enquiries.sql
+   * Rules and tests: src/lib/partner-enquiry.ts, src/lib/partner-enquiry.test.mjs
    */
-  (function () {
-    var form = document.querySelector('.partners-enquiry__form');
+  import { getSupabase, isAuthEnabled } from '../../lib/auth';
+  import { partnerEnquiryShape } from '../../lib/analytics-contract';
+  import {
+    PARTNERSHIPS_EMAIL,
+    buildContactRow,
+    buildEnquiryRow,
+    classifyOutcome,
+    classifySubmission,
+    describeMissingFields,
+    generateEnquiryRef,
+    missingRequiredFields,
+    outcomeMessage,
+  } from '../../lib/partner-enquiry';
+
+  /** Light dedupe signal, same shape and same non-guarantee as /corrections/. */
+  function clientToken(): string {
+    try {
+      const k = 'pi:partner-enquiry:client-token';
+      let v = localStorage.getItem(k);
+      if (!v) {
+        v = (typeof crypto !== 'undefined' && crypto.randomUUID)
+          ? crypto.randomUUID()
+          : 'tok-' + Math.random().toString(36).slice(2) + Date.now().toString(36);
+        localStorage.setItem(k, v);
+      }
+      return v;
+    } catch {
+      return 'tok-' + Math.random().toString(36).slice(2);
+    }
+  }
+
+  /**
+   * The enquiry id, minted here rather than by the database. The contact row
+   * is keyed on it and the anon role cannot select the enquiry back, so the
+   * client has to know the id before it writes either row.
+   */
+  function newEnquiryId(): string {
+    if (typeof crypto !== 'undefined' && crypto.randomUUID) return crypto.randomUUID();
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (ch) => {
+      const r = (Math.random() * 16) | 0;
+      return (ch === 'x' ? r : (r & 0x3) | 0x8).toString(16);
+    });
+  }
+
+  /**
+   * Measurement shape. The envelope's sanitiser strips anything identifying
+   * that slips past, but the reduction happens here first: partnerEnquiryShape
+   * keeps the two closed-vocabulary selects, a has_website boolean and a note
+   * length bucket, and drops business name, contact name and email entirely.
+   *
+   * bot_trap and compose_ms are removed BEFORE the reduction rather than
+   * added to it. They are machinery, not answers: counting compose_ms as a
+   * provided field would inflate fields_provided by one on every enquiry and
+   * quietly move the baseline of a metric someone will later read as
+   * "how much of the form do people fill in".
+   */
+  function measurableEntries(data: FormData): [string, unknown][] {
+    const out: [string, unknown][] = [];
+    for (const [key, value] of data.entries()) {
+      if (key === 'bot_trap' || key === 'compose_ms') continue;
+      out.push([key, typeof value === 'string' ? value : '']);
+    }
+    return out;
+  }
+
+  function init() {
+    const form = document.querySelector('[data-partner-enquiry-form]') as HTMLFormElement | null;
     if (!form) return;
-    var mailto = form.getAttribute('data-fallback-mailto');
-    if (!mailto) return;
 
-    /* PI-024 measurement. Read this before adding an event here.
+    const status = form.querySelector('[data-partner-enquiry-status]') as HTMLParagraphElement | null;
+    const button = form.querySelector('button[type="submit"]') as HTMLButtonElement | null;
+    const composeField = form.querySelector('[data-compose-ms]') as HTMLInputElement | null;
 
-       This form does not submit. ENDPOINT_LIVE is a hardcoded false, so every
-       submit is intercepted and turned into a mailto: handoff. Once the
-       browser hands off to a mail client, this page learns nothing: it cannot
-       see whether a message was composed, sent, or abandoned at the compose
-       window. Firing partner_enquiry_submitted here would be a lie, and it
-       would be the most expensive lie available, because partner enquiries
-       are a commercial decision input.
+    /**
+     * Stamped when the form becomes usable, not when the document parsed, and
+     * re-stamped on every view-transition arrival. A timestamp left over from
+     * a previous page view would make a genuine enquiry look implausibly
+     * considered, which is harmless, but it would also mean the number
+     * measures the wrong thing.
+     */
+    const readyAt = Date.now();
 
-       So two honest events are emitted instead:
-         partner_enquiry_started  - the reader pressed Send enquiry.
-         partner_enquiry_handoff  - we handed the enquiry to a mail client,
-                                    outcome unknown and unknowable from here.
-
-       partner_enquiry_submitted and partner_enquiry_failed stay RESERVED and
-       unemitted. Whoever provisions the endpoint should fire them from the
-       fetch result, not from this branch. See docs/analytics-dictionary.md.
-
-       The payload carries no name, no email address, no website and no note
-       text. partnerEnquiryShape() in lib/analytics-contract.ts reduces the
-       form to category, interest, a has_website boolean and a note LENGTH
-       bucket, and the envelope's sanitiser strips anything that slips past. */
-    function enquiryShape(data) {
-      var out = { fields_provided: 0 };
-      data.forEach(function (v, k) {
-        var filled = typeof v === 'string' ? v.trim() !== '' : !!v;
-        if (filled) out.fields_provided += 1;
-        if (k === 'business_category' || k === 'interest') {
-          if (filled) out[k] = v;
-        } else if (k === 'website_or_instagram') {
-          out.has_website = filled;
-        } else if (k === 'notes') {
-          out.notes_length = window.piAnalytics
-            ? window.piAnalytics.lengthBucket(filled ? v : '')
-            : 'unknown';
-        }
-        // business_name, contact_name and email are identifying and are not
-        // measured at all, not even as presence: they are required fields, so
-        // presence is a constant and tells nobody anything.
-      });
-      return out;
+    function composeMs(): number {
+      return Date.now() - readyAt;
     }
 
-    form.addEventListener('submit', function (e) {
-      // Quick reachability check on the Formspree endpoint - if it 404s
-      // (because the endpoint isn't provisioned yet), fall back to mailto.
-      // For now, default to mailto until the endpoint is configured.
-      var ENDPOINT_LIVE = false; // flip to true once Formspree is provisioned
+    function setStatus(kind: 'success' | 'error' | 'info', message: string) {
+      if (!status) return;
+      status.textContent = message;
+      status.setAttribute('data-status-kind', kind);
+      status.removeAttribute('hidden');
+    }
 
-      var data = new FormData(form);
-      var attempt = window.piAnalytics ? window.piAnalytics.newId() : String(Date.now());
-      var shape = enquiryShape(data);
+    function track(event: string, payload: Record<string, unknown>) {
+      const w = window as unknown as { piTrack?: (e: string, p: Record<string, unknown>, o?: unknown) => void };
+      if (typeof w.piTrack === 'function') {
+        w.piTrack(event, payload, { component: 'PartnerEnquiryForm' });
+      }
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const data = new FormData(form);
+      const values: Record<string, string> = {};
+      for (const [key, value] of data.entries()) {
+        values[key] = typeof value === 'string' ? value : '';
+      }
+
+      const elapsed = composeMs();
+      if (composeField) composeField.value = String(elapsed);
+
+      const w = window as unknown as { piAnalytics?: { newId: () => string } };
+      const attempt = w.piAnalytics ? w.piAnalytics.newId() : String(Date.now());
+      const shape = partnerEnquiryShape(measurableEntries(data));
       shape.attempt_id = attempt;
       shape.surface = 'partners-page';
-      if (window.piTrack) {
-        window.piTrack('partner_enquiry_started', shape, { component: 'PartnerEnquiryForm' });
-      }
+      track('partner_enquiry_started', shape);
 
-      if (ENDPOINT_LIVE) return;
-
-      e.preventDefault();
-      var lines = [];
-      data.forEach(function (v, k) {
-        if (!v) return;
-        var label = k.replace(/_/g, ' ').replace(/^\w/, function (m) { return m.toUpperCase(); });
-        lines.push(label + ': ' + v);
-      });
-      var subject = 'Partnership enquiry - ' + (data.get('business_name') || 'Peninsula Insider');
-      var body = lines.join('\n');
-      if (window.piTrack) {
-        window.piTrack('partner_enquiry_handoff', {
+      /** Report a non-delivery honestly, and never as a confirmation. */
+      function fail(reason: string, message: string) {
+        setStatus('error', message);
+        track('partner_enquiry_failed', {
           attempt_id: attempt,
           surface: 'partners-page',
-          delivery: 'mail_client',
-          // Say it in the payload as well as the dictionary, so nobody
-          // building a funnel from event names alone mistakes this for a
-          // completed enquiry.
-          outcome: 'unknown',
+          reason,
           business_category: shape.business_category,
           interest: shape.interest,
-        }, { component: 'PartnerEnquiryForm' });
+        });
+        if (button) {
+          button.disabled = false;
+          button.textContent = 'Send enquiry';
+        }
       }
-      window.location.href = 'mailto:' + mailto +
-        '?subject=' + encodeURIComponent(subject) +
-        '&body=' + encodeURIComponent(body);
+
+      // The browser has already enforced `required`; this catches what it
+      // does not - whitespace-only fields, an address that cannot be one, a
+      // category outside the vocabulary - and says what is outstanding in one
+      // sentence instead of leaving the sender hunting for a focused control.
+      const missing = missingRequiredFields(values);
+      if (missing.length > 0) {
+        fail('incomplete', describeMissingFields(missing));
+        return;
+      }
+
+      // Honeypot and timing. Both are re-checked by the database; this copy
+      // exists so a person who trips the timing floor is told so immediately
+      // and can simply press Send again, rather than being handed a Postgres
+      // constraint violation.
+      const verdict = classifySubmission({ honeypot: values.bot_trap, composeMs: elapsed });
+      if (verdict !== 'ok') {
+        fail(
+          verdict,
+          verdict === 'honeypot'
+            ? 'That submission was blocked as automated. If you are a person, clear the form and try again, '
+              + 'or email ' + PARTNERSHIPS_EMAIL + ' instead.'
+            : 'That came through faster than a form can be filled in, so it was not sent. '
+              + 'Wait a moment and press Send enquiry again, or email ' + PARTNERSHIPS_EMAIL + '.',
+        );
+        return;
+      }
+
+      if (button) {
+        button.disabled = true;
+        button.textContent = 'Sending…';
+      }
+      setStatus('info', 'Sending…');
+
+      const c = getSupabase();
+      if (!c || !isAuthEnabled()) {
+        fail(
+          'unreachable',
+          'The enquiry queue is not reachable from this page right now, so nothing was sent. Email '
+            + PARTNERSHIPS_EMAIL + ' instead - same desk.',
+        );
+        return;
+      }
+
+      const session = (await c.auth.getSession()).data.session;
+      const userId = session?.user?.id ?? null;
+
+      const enquiryRef = generateEnquiryRef();
+      const id = newEnquiryId();
+
+      // Both writes are awaited and both results are READ. Nothing below
+      // infers success from the absence of a thrown exception: supabase-js
+      // returns errors, it does not throw them, so a `try` with no error check
+      // is exactly how a form comes to congratulate someone on a failed
+      // insert.
+      let enquiryInserted = false;
+      let contactInserted = false;
+
+      try {
+        const { error } = await c
+          .from('partner_enquiries')
+          .insert(buildEnquiryRow(values, {
+            id,
+            enquiryRef,
+            composeMs: elapsed,
+            userId,
+            clientToken: clientToken(),
+          }));
+        if (error) console.warn('[partners] enquiry insert failed:', error.message);
+        else enquiryInserted = true;
+      } catch (err) {
+        console.warn('[partners] enquiry insert threw:', err);
+      }
+
+      // Only attempted once the enquiry row exists: the contact row carries a
+      // foreign key to it, so writing it first is not an option, and writing
+      // it after a failed enquiry insert would fail anyway.
+      if (enquiryInserted) {
+        const contact = buildContactRow(values, id);
+        if (contact) {
+          try {
+            const { error } = await c.from('partner_enquiry_contacts').insert(contact);
+            if (error) console.warn('[partners] contact insert failed:', error.message);
+            else contactInserted = true;
+          } catch (err) {
+            console.warn('[partners] contact insert threw:', err);
+          }
+        }
+      }
+
+      const outcome = classifyOutcome({ enquiryInserted, contactInserted });
+      const message = outcomeMessage(outcome, enquiryRef);
+
+      if (outcome === 'success') {
+        form.reset();
+        setStatus('success', message);
+        track('partner_enquiry_submitted', {
+          attempt_id: attempt,
+          surface: 'partners-page',
+          business_category: shape.business_category,
+          interest: shape.interest,
+        });
+        if (button) {
+          button.disabled = true;
+          button.textContent = 'Enquiry sent';
+        }
+        return;
+      }
+
+      // 'unanswerable' is a partial: the enquiry is on the server, so the
+      // form is NOT reset - retyping it would file it twice - but it is not
+      // reported as a success either, because we cannot reply to it.
+      fail(outcome === 'unanswerable' ? 'contact_not_saved' : 'insert_failed', message);
     });
-  })();
+  }
+
+  init();
+  document.addEventListener('astro:page-load', init);
 </script>
 
 <style>
@@ -765,6 +975,42 @@ export const prerender = true;
     text-decoration: none;
     padding-bottom: 1px;
   }
+  /* HONEYPOT.
+     Off-screen rather than display:none or hidden, and with a real label, so
+     that a person using a screen reader or a password manager is never
+     offered it while something parsing the DOM still finds it. If this rule
+     ever fails to load the field becomes visible and its label reads "leave
+     this field empty", which is the right way round for it to fail. */
+  .partners-enquiry__trap {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  /* OUTCOME. One region, three kinds, and an error is as visible as a
+     success: the defect this page shipped with was a form that reported
+     nothing at all. */
+  .partners-enquiry__status {
+    font-family: var(--font-ui);
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin: 1.25rem 0 0;
+    padding: 0.9rem 1.1rem;
+    border-radius: 3px;
+    border-left: 3px solid var(--border);
+    background: var(--bg-alt);
+    color: var(--text);
+  }
+  .partners-enquiry__status[data-status-kind='success'] {
+    border-left-color: var(--sage);
+  }
+  .partners-enquiry__status[data-status-kind='error'] {
+    border-left-color: #c44;
+    background: #fef3f3;
+  }
+
   .partners-enquiry__followup {
     margin-top: 2.5rem;
     padding-top: 1.5rem;
