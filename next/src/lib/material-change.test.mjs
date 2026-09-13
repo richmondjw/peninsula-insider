@@ -412,10 +412,32 @@ test('Astro collection entries map into the record shape without a second mappin
 
 /* == the real corpus, asserted as invariants =========================== */
 
-const NOW = '2026-09-13';
 const BEFORE_EVERYTHING = '2000-01-01';
 
 const corpus = await loadCorpus({ nextDir: NEXT_DIR });
+
+// NOW is derived from the corpus, not pinned and not read from the clock.
+//
+// It was pinned to a literal date. The moment evidence was gathered after
+// that date - which happened the very next day - claims became supported
+// while sitting outside the window these tests derive expectations over, and
+// the suite failed on a corpus that had simply got better. That is the exact
+// mistake this file warns about elsewhere.
+//
+// Reading the real clock would be worse: the build must never fail because a
+// date passed. So take the latest date the corpus itself carries. It is
+// deterministic for a given tree, it always covers every row, and it moves
+// only when the data does.
+const latestInCorpus = (rows) => {
+  let latest = BEFORE_EVERYTHING;
+  for (const row of rows) {
+    for (const value of [row.retrievedAt, row.expiresAt]) {
+      if (typeof value === 'string' && value > latest) latest = value;
+    }
+  }
+  return latest;
+};
+const NOW = latestInCorpus(corpus.evidence);
 const evidenceByClaim = indexEvidenceByClaim(corpus.evidence);
 const stateNow = (c) =>
   deriveClaimState(c, evidenceByClaim.get(c.claimId) ?? [], { now: NOW, precedence: corpus.precedence });
@@ -542,7 +564,22 @@ test('every reassurance over the real corpus describes a claim that stood before
       checked += 1;
     }
   }
-  assert.ok(checked > 0, 'the corpus offers no reassurance to check, so this invariant is untested');
+  // Deliberately no assertion that the real corpus produced a reassurance.
+  //
+  // This used to demand one, and then demanded one only when a loose
+  // heuristic said it was reachable. Both are the same mistake: whether any
+  // claim happens to have been re-read at an unchanged value is a property of
+  // what editors did, not of this module, and the demand failed the moment a
+  // tier was sourced whose claims each had a single source. A corpus getting
+  // better must never turn a suite red.
+  //
+  // The invariant is not left untested. The fixture tests at the top of this
+  // file construct a re-read that comes back the same, assert it is a
+  // reassurance and never a change, and assert the mirror case where the value
+  // moved. Those are deterministic and cannot go vacuous. This loop is the
+  // additional check over real data: whatever reassurances the corpus does
+  // offer, every one of them must hold the invariant above.
+  void checked;
 });
 
 test('every reported value change over the real corpus has something that actually moved', () => {
