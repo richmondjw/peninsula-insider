@@ -10,9 +10,9 @@
     "start": "2026-09-11",
     "end": "2026-09-13",
     "label": "Fri 11 – Sun 13 September",
-    "count": 12
+    "count": 11
   },
-  "numberOfItems": 42,
+  "numberOfItems": 41,
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -58,19 +58,6 @@
       "position": 4,
       "item": {
         "@type": "Event",
-        "name": "Mornington Racecourse Market",
-        "url": "https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/",
-        "startDate": "2026-09-13",
-        "endDate": "2026-09-13",
-        "description": "Monthly craft market at Mornington Racecourse. 300+ stalls of hand-made, home-made and Australian-designed goods. Street food vendors, live music, animal farm and face painting for kids. Paid parking. Dogs not permitted (service dogs exempt).",
-        "eventStatus": "https://schema.org/EventScheduled"
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 5,
-      "item": {
-        "@type": "Event",
         "name": "National Works on Paper 2026 (NWOP)",
         "url": "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/",
         "startDate": "2026-09-13",
@@ -81,7 +68,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 6,
+      "position": 5,
       "item": {
         "@type": "Event",
         "name": "Peninsula Hot Springs Daily Studio Yoga",
@@ -94,7 +81,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 7,
+      "position": 6,
       "item": {
         "@type": "Event",
         "name": "Peninsula Hot Springs Yoga (Complimentary)",
@@ -107,7 +94,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 8,
+      "position": 7,
       "item": {
         "@type": "Event",
         "name": "Polperro Cellar Table, Private Dining Experience",
@@ -120,7 +107,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 9,
+      "position": 8,
       "item": {
         "@type": "Event",
         "name": "Pt. Leo Estate Sculpture Park",
@@ -133,7 +120,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 10,
+      "position": 9,
       "item": {
         "@type": "Event",
         "name": "Red Hill Truffles: Winter Truffle Hunt Season",
@@ -146,7 +133,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 11,
+      "position": 10,
       "item": {
         "@type": "Event",
         "name": "Restore & Pamper Retreat at Polperro Farmhouse",
@@ -159,7 +146,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 12,
+      "position": 11,
       "item": {
         "@type": "Event",
         "name": "Ten Minutes by Tractor, Terroir Masterclass",
@@ -172,7 +159,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 13,
+      "position": 12,
       "item": {
         "@type": "Event",
         "name": "Archibald Prize 2026, Facing Modernity & Mitchelton Winery: MPRG Art Trip",
@@ -185,7 +172,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 14,
+      "position": 13,
       "item": {
         "@type": "Event",
         "name": "Mornington Wednesday Market (Main Street Market)",
@@ -198,7 +185,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 15,
+      "position": 14,
       "item": {
         "@type": "Event",
         "name": "Hastings Thursday Street Market",
@@ -211,7 +198,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 16,
+      "position": 15,
       "item": {
         "@type": "Event",
         "name": "Bass & Flinders Gin Masterclass",
@@ -224,7 +211,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 17,
+      "position": 16,
       "item": {
         "@type": "Event",
         "name": "Acoustic Saturdays at Peppers Moonah Links",
@@ -237,7 +224,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 18,
+      "position": 17,
       "item": {
         "@type": "Event",
         "name": "Boneo Community Market",
@@ -250,7 +237,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 19,
+      "position": 18,
       "item": {
         "@type": "Event",
         "name": "Emu Plains Market, Balnarring",
@@ -263,7 +250,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 20,
+      "position": 19,
       "item": {
         "@type": "Event",
         "name": "Pearcedale Community Market",
@@ -276,7 +263,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 21,
+      "position": 20,
       "item": {
         "@type": "Event",
         "name": "PST Art Exhibition Opening Night 2026",
@@ -289,7 +276,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 22,
+      "position": 21,
       "item": {
         "@type": "Event",
         "name": "Dromana Community Market",
@@ -302,7 +289,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 23,
+      "position": 22,
       "item": {
         "@type": "Event",
         "name": "Tootgarook Primary School Market",
@@ -315,7 +302,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 24,
+      "position": 23,
       "item": {
         "@type": "Event",
         "name": "Mt Eliza Farmers Market",
@@ -328,7 +315,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 25,
+      "position": 24,
       "item": {
         "@type": "Event",
         "name": "Author Talk: Vikki Petraitis - Mornington Library",
@@ -341,7 +328,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 26,
+      "position": 25,
       "item": {
         "@type": "Event",
         "name": "Arj Barker Live at Barlow",
@@ -354,7 +341,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 27,
+      "position": 26,
       "item": {
         "@type": "Event",
         "name": "Peninsula Hot Springs, Sound Healing Sessions",
@@ -367,7 +354,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 28,
+      "position": 27,
       "item": {
         "@type": "Event",
         "name": "Sound Circle: Full Moon Sound Journey at Peninsula Hot Springs",
@@ -380,7 +367,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 29,
+      "position": 28,
       "item": {
         "@type": "Event",
         "name": "Hill & Ridge Community Market, September 2026 (Restart)",
@@ -393,7 +380,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 30,
+      "position": 29,
       "item": {
         "@type": "Event",
         "name": "Red Hill Market  -  First Saturday, Every Month",
@@ -406,7 +393,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 31,
+      "position": 30,
       "item": {
         "@type": "Event",
         "name": "Crib Point Community Market",
@@ -419,7 +406,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 32,
+      "position": 31,
       "item": {
         "@type": "Event",
         "name": "Heart of the Community Market (Rosebud)",
@@ -432,7 +419,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 33,
+      "position": 32,
       "item": {
         "@type": "Event",
         "name": "Breast Foot Forward Annual Community Walk & Run 2026",
@@ -445,7 +432,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 34,
+      "position": 33,
       "item": {
         "@type": "Event",
         "name": "Emu Plains Market",
@@ -458,7 +445,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 35,
+      "position": 34,
       "item": {
         "@type": "Event",
         "name": "High Tea at Mornington Botanical Rose Gardens",
@@ -471,7 +458,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 36,
+      "position": 35,
       "item": {
         "@type": "Event",
         "name": "The Bloody Long Walk – Mornington Peninsula 2026",
@@ -484,7 +471,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 37,
+      "position": 36,
       "item": {
         "@type": "Event",
         "name": "Enchanting Kirtan: Sacred Music & Meditation Experience - Mornington",
@@ -497,7 +484,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 38,
+      "position": 37,
       "item": {
         "@type": "Event",
         "name": "Saturday Pottery Class",
@@ -510,7 +497,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 39,
+      "position": 38,
       "item": {
         "@type": "Event",
         "name": "Glamping Tents - Horror Movie Campout: Back From The Dead Tour 2026",
@@ -523,7 +510,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 40,
+      "position": 39,
       "item": {
         "@type": "Event",
         "name": "Peninsula VineHop Festival 2026",
@@ -536,7 +523,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 41,
+      "position": 40,
       "item": {
         "@type": "Event",
         "name": "\"Nancye Wynne Bolton\" OLA Golf Day 2026",
@@ -549,7 +536,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 42,
+      "position": 41,
       "item": {
         "@type": "Event",
         "name": "Mornington Tourist Railway, Santa Specials",
@@ -561,7 +548,7 @@
       }
     }
   ],
-  "count": 42,
+  "count": 41,
   "events": [
     {
       "title": "Doggy Day Out on the Mornington Peninsula",
@@ -574,6 +561,7 @@
       "venue": null,
       "freePaid": "Paid",
       "summary": "Self-guided pet-friendly day following digital clues across the Peninsula. Dog cafe with pup-approved snacks, human treats, and a relaxed winery picnic lunch. Runs Thursday to Sunday weekly.",
+      "eventStatus": "https://schema.org/EventScheduled",
       "thisWeekend": true
     },
     {
@@ -587,6 +575,7 @@
       "venue": null,
       "freePaid": "Paid",
       "summary": "Self-guided family scavenger journey: solve smartphone clues, collect picnic goodies from local providers, hit activity stops, and feast at a scenic picnic location. Runs Thursday to Sunday weekly.",
+      "eventStatus": "https://schema.org/EventScheduled",
       "thisWeekend": true
     },
     {
@@ -600,19 +589,7 @@
       "venue": null,
       "freePaid": "Paid",
       "summary": "Chef Bernard McCarthy's all-vegetable, multi-course feast at Morning Sun Vineyard in Main Ridge, matched to Foxeys wines. Ticketed, shared table, outdoors at a working vineyard.",
-      "thisWeekend": true
-    },
-    {
-      "title": "Mornington Racecourse Market",
-      "url": "https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/",
-      "startDate": "2026-09-13",
-      "endDate": "2026-09-13",
-      "recurrence": "monthly",
-      "category": "market",
-      "place": "mornington",
-      "venue": null,
-      "freePaid": "Paid",
-      "summary": "Monthly craft market at Mornington Racecourse. 300+ stalls of hand-made, home-made and Australian-designed goods. Street food vendors, live music, animal farm and face painting for kids. Paid parking. Dogs not permitted (service dogs exempt).",
+      "eventStatus": "https://schema.org/EventScheduled",
       "thisWeekend": true
     },
     {
@@ -626,6 +603,7 @@
       "venue": null,
       "freePaid": "Free",
       "summary": "MPRG's biennial acquisitive prize survey of contemporary Australian work on paper: prints, drawings, collage, mixed media. Free, Tue to Sun 11am to 4pm.",
+      "eventStatus": "https://schema.org/EventScheduled",
       "thisWeekend": true
     },
     {
@@ -639,6 +617,7 @@
       "venue": null,
       "freePaid": "Paid (add-on)",
       "summary": "Daily 45-minute studio yoga at Peninsula Hot Springs (16+), a paid add-on to a bathing session. Book early-morning or evening slots to avoid the crowd.",
+      "eventStatus": "https://schema.org/EventScheduled",
       "thisWeekend": true
     },
     {
@@ -652,6 +631,7 @@
       "venue": null,
       "freePaid": "Free (included with bathing)",
       "summary": "Free 25-minute outdoor yoga by the amphitheatre pools, included with bathing admission. Daily at 9:15am, all ages, no booking.",
+      "eventStatus": "https://schema.org/EventScheduled",
       "thisWeekend": true
     },
     {
@@ -665,6 +645,7 @@
       "venue": null,
       "freePaid": "Paid",
       "summary": "Polperro's private dining room below the winery. Six to eight guests, five courses, the latest Polperro and Even Keel cuvees poured by the people who made them.",
+      "eventStatus": "https://schema.org/EventScheduled",
       "thisWeekend": true
     },
     {
@@ -678,6 +659,7 @@
       "venue": null,
       "freePaid": "Paid",
       "summary": "Australia's largest privately owned outdoor sculpture park: 16.5 acres, more than 70 contemporary works, two walking loops, all set inside a working winery. Open daily 11am to 5pm.",
+      "eventStatus": "https://schema.org/EventScheduled",
       "thisWeekend": true
     },
     {
@@ -691,6 +673,7 @@
       "venue": null,
       "freePaid": "Paid",
       "summary": "Guided winter truffle hunts at the Peninsula's first truffle producer, bundled with a meal at Red Hill Estate Restaurant, The Epicurean or pizza on the farm. Ticketed; late May to August for Périgord black, August to September for Bianchetto.",
+      "eventStatus": "https://schema.org/EventScheduled",
       "thisWeekend": true
     },
     {
@@ -704,6 +687,7 @@
       "venue": null,
       "freePaid": "Paid",
       "summary": "3-day, 2-night wellness retreat at Polperro Farmhouse in Red Hill. Yoga, massage at PHS or Endota, optional juice cleanse, at the farmhouse in Red Hill. Booked direct via Polperro or Hut Yoga.",
+      "eventStatus": "https://schema.org/EventScheduled",
       "thisWeekend": true
     },
     {
@@ -717,6 +701,7 @@
       "venue": null,
       "freePaid": "Paid",
       "summary": "One hour in TMBT's private tasting room. Eight wines (two limited-release, six current), the three single-vineyard sites side-by-side, and the long answer to why Pinot from Main Ridge tastes the way it does.",
+      "eventStatus": "https://schema.org/EventScheduled",
       "thisWeekend": true
     },
     {
@@ -730,6 +715,7 @@
       "venue": null,
       "freePaid": null,
       "summary": "Join us for an unparalleled day of art, conversation, fine wine & extraordinary access with Rye based Archibald finalist, Vicky Sullivan.",
+      "eventStatus": "https://schema.org/EventScheduled",
       "thisWeekend": false
     },
     {
@@ -743,6 +729,7 @@
       "venue": null,
       "freePaid": "Free",
       "summary": "Victoria's longest-running street market – operating over 40 years every Wednesday on Main Street Mornington. 120+ stalls of handmade crafts, home-baked treats, home-grown plants and produce. Rain, hail or shine (high-wind policy applies). Vibrant weekly community gathering.",
+      "eventStatus": "https://schema.org/EventScheduled",
       "thisWeekend": false
     },
     {
@@ -756,6 +743,7 @@
       "venue": null,
       "freePaid": "Free",
       "summary": "Weekly outdoor street market on High Street Hastings every Thursday. 40+ stalls featuring homemade, homegrown and craft goods. Fresh produce, handmade goods, plants. Local food options available on the street.",
+      "eventStatus": "https://schema.org/EventScheduled",
       "thisWeekend": false
     },
     {
@@ -769,6 +757,7 @@
       "venue": null,
       "freePaid": "Paid",
       "summary": "Three hours at the still in Dromana. Learn how gin actually gets made, blend your own botanicals, and walk out with a 500ml bottle of your own recipe.",
+      "eventStatus": "https://schema.org/EventScheduled",
       "thisWeekend": false
     },
     {
@@ -782,6 +771,7 @@
       "venue": null,
       "freePaid": "Free",
       "summary": "Saturday evening acoustic sessions with local artists at Peppers Moonah Links. Happy hour 5–6pm. Free entry.",
+      "eventStatus": "https://schema.org/EventScheduled",
       "thisWeekend": false
     },
     {
@@ -795,6 +785,7 @@
       "venue": null,
       "freePaid": "Free",
       "summary": "Peninsula's longest-running volunteer-run community market. Third Saturday, year-round, all weather. Make it, grow it, bake it: real homemade and homegrown.",
+      "eventStatus": "https://schema.org/EventScheduled",
       "thisWeekend": false
     },
     {
@@ -808,6 +799,7 @@
       "venue": null,
       "freePaid": "Free entry",
       "summary": "Monthly artisan market at Emu Plains Reserve (Coolart Road, Balnarring). Showcases craft, design, vintage, music, and food. Family and community favourite under stringybark gums.",
+      "eventStatus": "https://schema.org/EventScheduled",
       "thisWeekend": false
     },
     {
@@ -821,6 +813,7 @@
       "venue": null,
       "freePaid": "Free",
       "summary": "Monthly third-Saturday community market under the eucalypts at Pearcedale: fresh bread, honey, jam, craft, plants, coffee. Dogs on lead welcome.",
+      "eventStatus": "https://schema.org/EventScheduled",
       "thisWeekend": false
     },
     {
@@ -834,6 +827,7 @@
       "venue": null,
       "freePaid": null,
       "summary": "Opening Night Fri 25 Sept 2026 6.30-8.30pm || Exhibition 26 Sept - 4 Oct 2026 10am-5pm",
+      "eventStatus": "https://schema.org/EventScheduled",
       "thisWeekend": false
     },
     {
@@ -847,6 +841,7 @@
       "venue": null,
       "freePaid": "Free",
       "summary": "Community market at Dromana Park on the last Saturday of every month. Mix of produce, craft, plants and local makers.",
+      "eventStatus": "https://schema.org/EventScheduled",
       "thisWeekend": false
     },
     {
@@ -860,6 +855,7 @@
       "venue": null,
       "freePaid": "Free",
       "summary": "Fourth-Saturday-of-the-month fundraiser market run by Tootgarook Primary, 250 stalls of everything from produce to second-hand. Proceeds back into the school.",
+      "eventStatus": "https://schema.org/EventScheduled",
       "thisWeekend": false
     },
     {
@@ -873,6 +869,7 @@
       "venue": null,
       "freePaid": "Free",
       "summary": "The only VFMA-accredited farmers market on the Mornington Peninsula. Only genuine farmers and specialty makers. Monthly on the 4th Sunday. Produce includes Flinders Sourdough, Mumma Made jams, Red Hill Apples, Blue Bay cheese. VFMA accreditation guarantees farm-gate authenticity.",
+      "eventStatus": "https://schema.org/EventScheduled",
       "thisWeekend": false
     },
     {
@@ -886,6 +883,7 @@
       "venue": null,
       "freePaid": null,
       "summary": "Join bestselling true crime author and podcaster Vikki Petraitis as she discusses her latest crime novel, The Reckoning.",
+      "eventStatus": "https://schema.org/EventScheduled",
       "thisWeekend": false
     },
     {
@@ -899,6 +897,7 @@
       "venue": null,
       "freePaid": null,
       "summary": "Arj Barker Live at Barlow at Barlow - The Continental Sorrento.",
+      "eventStatus": "https://schema.org/EventScheduled",
       "thisWeekend": false
     },
     {
@@ -912,6 +911,7 @@
       "venue": null,
       "freePaid": "Paid",
       "summary": "Monthly sound healing immersion at Peninsula Hot Springs through autumn and winter. Thermal bathing paired with a guided sound session. Adults, bookings essential.",
+      "eventStatus": "https://schema.org/EventScheduled",
       "thisWeekend": false
     },
     {
@@ -925,6 +925,7 @@
       "venue": null,
       "freePaid": "Paid",
       "summary": "Monthly full-moon sound journey in the PHS Wellness Studio followed by an afternoon in the hot springs. All-inclusive ticket covers the sound bath plus tea plus bathing from midday. Hosted by Lucy Ennis (Sound Circle).",
+      "eventStatus": "https://schema.org/EventScheduled",
       "thisWeekend": false
     },
     {
@@ -938,6 +939,7 @@
       "venue": null,
       "freePaid": "Free (entry)",
       "summary": "First market of the 2026–2027 season restart at Red Hill Recreation Reserve. Monthly artisan market celebrating local food, wine, produce, crafts and community. Fresh local products; food stalls; winemaker presence and artisan wares.",
+      "eventStatus": "https://schema.org/EventScheduled",
       "thisWeekend": false
     },
     {
@@ -951,6 +953,7 @@
       "venue": "red-hill-market",
       "freePaid": null,
       "summary": "Victoria's largest artisan craft market. 200+ stalls, the whole ridge in one place, and a morning that pulls the entire Peninsula into orbit.",
+      "eventStatus": "https://schema.org/EventScheduled",
       "thisWeekend": false
     },
     {
@@ -964,6 +967,7 @@
       "venue": null,
       "freePaid": "Free",
       "summary": "Community market at Crib Point every second Saturday of the month. Spirit of community support and inclusion; promotes locally made handcrafted products and local produce.",
+      "eventStatus": "https://schema.org/EventScheduled",
       "thisWeekend": false
     },
     {
@@ -977,6 +981,7 @@
       "venue": null,
       "freePaid": "Free",
       "summary": "Community market at Rosebud on the second Saturday of the month. Approximately 160 stalls with craft, handmade and new products, fresh produce and plants. No used goods policy. Located near Rosebud foreshore.",
+      "eventStatus": "https://schema.org/EventScheduled",
       "thisWeekend": false
     },
     {
@@ -990,6 +995,7 @@
       "venue": null,
       "freePaid": null,
       "summary": "Breast Foot Forward Annual Community Walk & Run 2026 at Safety Beach Sailing club (10KM Start Line) or Anthonys Nose (5KM Start line) to Village Green (Finish Line).",
+      "eventStatus": "https://schema.org/EventScheduled",
       "thisWeekend": false
     },
     {
@@ -1003,6 +1009,7 @@
       "venue": null,
       "freePaid": "Free",
       "summary": "Monthly artisan market at Emu Plains Reserve Balnarring. For lovers of craft, design, vintage, music and food. Seasonal schedule October–April (day market 9am–2pm) plus June and August dates. Site of the Womin Djeka cultural festival. Volunteer-run community hub.",
+      "eventStatus": "https://schema.org/EventScheduled",
       "thisWeekend": false
     },
     {
@@ -1016,6 +1023,7 @@
       "venue": null,
       "freePaid": null,
       "summary": "High Tea at Mornington Botanical Rose Gardens at Mornington Botanical Rose Gardens Main Building.",
+      "eventStatus": "https://schema.org/EventScheduled",
       "thisWeekend": false
     },
     {
@@ -1029,6 +1037,7 @@
       "venue": null,
       "freePaid": "Paid",
       "summary": "35km charity walk from Point Nepean Quarantine Station to Martha Cove Marina for the Mito Foundation. Walk, jog or run. Limited spots.",
+      "eventStatus": "https://schema.org/EventScheduled",
       "thisWeekend": false
     },
     {
@@ -1042,6 +1051,7 @@
       "venue": null,
       "freePaid": null,
       "summary": "An uplifting evening of live music, mantra meditation, candlelight, movement and connection.",
+      "eventStatus": "https://schema.org/EventScheduled",
       "thisWeekend": false
     },
     {
@@ -1055,6 +1065,7 @@
       "venue": null,
       "freePaid": null,
       "summary": "Dive into a 7 week pottery adventure! Shape, sculpt & create in a fun, hands on class at Oak Hill Gallery. All materials and firing supplied",
+      "eventStatus": "https://schema.org/EventScheduled",
       "thisWeekend": false
     },
     {
@@ -1068,6 +1079,7 @@
       "venue": null,
       "freePaid": null,
       "summary": "Glamping Tents - Horror Movie Campout: Back From The Dead Tour 2026 at Mornington Racecourse.",
+      "eventStatus": "https://schema.org/EventScheduled",
       "thisWeekend": false
     },
     {
@@ -1081,6 +1093,7 @@
       "venue": null,
       "freePaid": "Paid",
       "summary": "A one-day craft drinks festival across seven Mornington Peninsula venues on Saturday 21 November 2026, with tastings, food and live music. The event runs from 11am to 7pm and is strictly 18+, with shuttle, general admission and private bus options.",
+      "eventStatus": "https://schema.org/EventScheduled",
       "thisWeekend": false
     },
     {
@@ -1094,6 +1107,7 @@
       "venue": null,
       "freePaid": null,
       "summary": "\"Nancye Wynne Bolton\" OLA Golf Day 2026 at Sorrento Golf Club.",
+      "eventStatus": "https://schema.org/EventScheduled",
       "thisWeekend": false
     },
     {
@@ -1107,6 +1121,7 @@
       "venue": null,
       "freePaid": "Paid",
       "summary": "Heritage steam train rides with Santa on selected December Sundays. Letters to the North Pole, carols at Moorooduc Station, the full Christmas treatment. Booking essential.",
+      "eventStatus": "https://schema.org/EventScheduled",
       "thisWeekend": false
     }
   ]
