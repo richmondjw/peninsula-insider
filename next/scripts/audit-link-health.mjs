@@ -53,12 +53,18 @@
  * reviewable in a diff.
  *
  * Verdicts:
- *   ok          2xx or 3xx. The source can be read.
- *   blocked     The host refuses automation (400/401/403/406/429/503 with a
- *               live body, or a challenge page). NOT dead. The council is
- *               this site's most-cited publisher and refuses most automated
- *               reads; a checker that marked those dead would delete a third
- *               of the corpus's provenance over a robots policy.
+ *   ok          2xx or 3xx carrying a real page.
+ *   blocked     The host refuses automation (400/401/403/406/429/503, or a
+ *               2xx carrying a bot challenge - Cloudflare answers a robot
+ *               with HTTP 202 and a captcha, which naive checkers score as
+ *               healthy). NOT dead. The council is this site's most-cited
+ *               publisher and refuses most automated reads; a checker that
+ *               marked those dead would delete a third of the corpus's
+ *               provenance over a robots policy.
+ *   parked      HTTP 200 from a registrar holding page, an expired site
+ *               builder, or a domain-for-sale lander. Worse than a 404: the
+ *               link looks healthy to every status-code checker and sends a
+ *               reader nowhere. Counted dead, because it is.
  *   moved       Dead at this URL, alive at `replacement`.
  *   dead        Nothing at this URL and no equivalent found. The claim it
  *               supported is unsourced until an editor finds one.
@@ -83,7 +89,8 @@
  */
 
 import { fileURLToPath } from 'node:url';
-import { readFile, readdir, writeFile, mkdir } from 'node:fs/promises';
+import { readFile, readdir, writeFile, mkdir, rm } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import path from 'node:path';
@@ -127,8 +134,13 @@ const ASSERTED_METRICS = new Set([
   'staleRedirectCited',
 ]);
 
-/** Verdicts that mean this citation no longer supports anything. */
-const DEAD_VERDICTS = new Set(['dead']);
+/**
+ * Verdicts that mean this citation no longer supports anything. `parked` is
+ * here because a registrar holding page is a worse failure than a 404, not a
+ * lesser one: it answers 200 to every checker while sending the reader to an
+ * advertisement.
+ */
+const DEAD_VERDICTS = new Set(['dead', 'parked']);
 
 /* ------------------------------------------------------------------ */
 /* Which fields are a SOURCE                                           */
@@ -279,12 +291,45 @@ const UA =
  */
 const BOT_WALL_CODES = new Set(['400', '401', '403', '406', '429', '503']);
 
-async function curlOnce(url, extra = []) {
+/**
+ * Markers of a page that answers 200 and carries nothing. A status-code-only
+ * checker calls every one of these healthy, which is how a reader ends up on a
+ * domain-parking advertisement from a citation the site still calls a source.
+ */
+const PARKED_MARKERS = [
+  'this website is for sale',
+  'this domain is for sale',
+  'buy this domain',
+  'domain is parked',
+  'squarespace - website expired',
+  'connectyourdomain error',
+  'website coming soon',
+  'default web site page',
+  'future home of something quite cool',
+];
+
+/** Markers of an anti-bot interstitial served with a 2xx status. */
+const CHALLENGE_MARKERS = [
+  'sgcaptcha',
+  'cdn-cgi/challenge-platform',
+  'just a moment...',
+  'attention required!',
+  'security checkpoint',
+  'enable javascript and cookies to continue',
+  'checking your browser before accessing',
+  'px-captcha',
+  'are you a human',
+];
+
+const bodyTmp = (slot) =>
+  path.join(tmpdir(), `pi-link-health-${process.pid}-${slot}.html`);
+
+async function curlOnce(url, bodyPath, extra = []) {
   const curlArgs = [
     '-sSL',
     '--compressed',
     '-o',
-    '/dev/null',
+    bodyPath,
     '-A',
     UA,
     '-H',
@@ -303,19 +348,40 @@ async function curlOnce(url, extra = []) {
   try {
     const { stdout } = await execFileAsync('curl', curlArgs, { maxBuffer: 8e6 });
     const [code, effective] = stdout.trim().split('\t');
-    return { code, effective, error: null };
+    let body = '';
+    try {
+      body = (await readFile(bodyPath, 'utf8')).slice(0, 300000);
+    } catch {
+      /* a HEAD-like response, or a binary body. Absence is not an error. */
+    }
+    const title = (/<title[^>]*>([\s\S]{0,400}?)<\/title>/i.exec(body) || [, ''])[1]
+      .replace(/\s+/g, ' ')
+      .trim();
+    return { code, effective, title, body, bytes: body.length, error: null };
   } catch (error) {
     return {
       code: '000',
       effective: '',
+      title: '',
+      body: '',
+      bytes: 0,
       error: String(error.stderr || error.message).replace(/\s+/g, ' ').trim().slice(0, 200),
     };
   }
 }
 
 function verdictFor(direct) {
-  if (/^2/.test(direct.code)) return 'ok';
-  if (/^3/.test(direct.code)) return 'ok';
+  const haystack = `${direct.title} ${direct.body}`.toLowerCase();
+  if (/^2/.test(direct.code) || /^3/.test(direct.code)) {
+    if (CHALLENGE_MARKERS.some((m) => haystack.includes(m))) return 'blocked';
+    if (PARKED_MARKERS.some((m) => haystack.includes(m))) return 'parked';
+    // A NetRegistry-style redirector answers 200 with a two-word body. There
+    // is no page here; there is a parked domain wearing a success code.
+    if (direct.bytes > 0 && direct.bytes < 512 && /not found|no such|page unavailable/i.test(direct.body)) {
+      return 'parked';
+    }
+    return 'ok';
+  }
   if (BOT_WALL_CODES.has(direct.code)) return 'blocked';
   if (direct.code === '404' || direct.code === '410') return 'dead';
   if (direct.code === '000' && /SSL|certificate/i.test(direct.error || '')) return 'tls-fault';
@@ -329,17 +395,22 @@ async function probe(urls, existing) {
   const queue = [...urls];
   let done = 0;
 
-  async function worker() {
+  async function worker(slot) {
+    const bodyPath = bodyTmp(slot);
     for (;;) {
       const url = queue.shift();
-      if (!url) return;
-      const direct = await curlOnce(url);
+      if (!url) {
+        await rm(bodyPath, { force: true });
+        return;
+      }
+      const direct = await curlOnce(url, bodyPath);
       const prior = ledger.get(url) || {};
       ledger.set(url, {
         ...prior,
         url,
         verdict: verdictFor(direct),
         httpCode: direct.code,
+        pageTitle: direct.title || undefined,
         effectiveUrl: direct.effective && direct.effective !== url ? direct.effective : undefined,
         error: direct.error || undefined,
         probedOn: today,
@@ -353,7 +424,7 @@ async function probe(urls, existing) {
     }
   }
 
-  await Promise.all(Array.from({ length: Math.max(1, Math.min(CONCURRENCY, queue.length)) }, worker));
+  await Promise.all(Array.from({ length: Math.max(1, Math.min(CONCURRENCY, queue.length)) }, (_, slot) => worker(slot)));
   return [...ledger.values()].sort((a, b) => a.url.localeCompare(b.url));
 }
 
