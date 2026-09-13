@@ -84,7 +84,7 @@ The Peninsula's six year-round off-leash beaches are distributed across differen
 | Mt Martha | Hawker Beach | Briars Park (nearby), Nordie Café (10 min) |
 | Mornington | Fossil Beach | Commonfolk, The Rocks (waterfront) |
 | Flinders | Flinders Beach north end | Flinders Hotel, Moke Dining |
-| Somers | Somers Beach | Balnarring Pub, Quealy Winemakers area |
+| Somers | Somers Beach | Quealy Winemakers area |
 | Dromana | Anthony's Nose | Crittenden Estate, Dromana Hotel |
 
 Match your accommodation base to the zone that suits your itinerary rather than picking the most photographed postcode and then working backward.

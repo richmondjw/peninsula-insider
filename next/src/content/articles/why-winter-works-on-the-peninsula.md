@@ -61,7 +61,7 @@ The rooms that make the most sense in winter are not necessarily the same ones t
 
 **For the cellar door afternoon:** Montalto is the most atmospheric cold-day walk-in on the Peninsula. The garden looks better in winter than most places do in summer. Tasting at the bar, then the estate walk, then a decision about whether lunch is also happening.
 
-**For the coast:** Flinders, not Sorrento. The town is quieter, the beach is better in a southerly, and the Pier Street bakeries are operating at full attention rather than managing a queue.
+**For the coast:** Flinders, not Sorrento. The town is quieter, the beach is better in a southerly, and the village bakeries are operating at full attention rather than managing a queue.
 
 **For the hot springs:** Book a weekday if you can. Both Alba and Peninsula Hot Springs are genuinely peaceful mid-week in winter in a way they are not at any weekend in any season.
 

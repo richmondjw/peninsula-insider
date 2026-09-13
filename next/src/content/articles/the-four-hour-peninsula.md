@@ -104,7 +104,7 @@ This is the version for the second or third-time visitor who has already done th
 
 **12.30pm, Drive to Balnarring or Somers.** A thirty-minute drive along the quieter back roads gives you the hinterland feel without detour to Red Hill.
 
-**1pm, Lunch at Somers General or Balnarring Pub.** **Somers General** is the more interesting room, with a rotating kitchen that leans coastal and casual. **Balnarring Pub** is the older-school option with a garden and reliable pub food. Either is an hour.
+**1pm, Lunch at Somers General or The Heritage.** **Somers General** is the more interesting room, with a rotating kitchen that leans coastal and casual. **The Heritage**, in Balnarring village, is the older-school option, with a pub favourites menu and a big beer garden; it is closed Monday and Tuesday. Either is an hour.
 
 **2pm, Flinders village loop.** Drive ten minutes to **Flinders**, park, walk the main street, pick up sourdough from **Flinders Sourdough** for the trip home, and walk out along the Flinders pier for fifteen minutes. This is the Peninsula at its quietest and most overlooked.
 

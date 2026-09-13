@@ -9,7 +9,7 @@ import { routeSlug, isListableVenue } from '../../lib/editorial';
 import ProvenanceLine from '../../components/ProvenanceLine.astro';
 
 const allVenues = (await getCollection('venues')).filter(isListableVenue);
-const slugs = ['rare-hare','foxeys-hangout','many-little','montalto','green-olive-red-hill','commonfolk-coffee','flinders-general-store','flinders-pier-takeaway','somers-general','balnarring-pub'];
+const slugs = ['rare-hare','foxeys-hangout','many-little','montalto','green-olive-red-hill','commonfolk-coffee','flinders-general-store','flinders-pier-takeaway','somers-general'];
 const venues = slugs.map(s=>allVenues.find(v=>routeSlug(v)===s)).filter((v):v is NonNullable<typeof v>=>Boolean(v));
 
 const breadcrumbItems=[{label:'Home',href:'/'},{label:'Eat & Drink',href:'/eat/'},{label:'Walk-In Restaurants'}];

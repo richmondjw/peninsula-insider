@@ -83,7 +83,7 @@ For teenagers: **Gunnamatta Ocean Beach** or **Rye Ocean Beach** (surf beaches, 
 
 **Sunny Ridge Strawberry Farm.** Seasonal picking (strawberries in summer, other fruit through the year), a café, and enough space for children to run between the rows. The picking is the activity and the box of fruit is the souvenir. Thirty to sixty minutes.
 
-**Lunch (12:30–1:30).** **Red Hill Brewery**, the wood-fired pizza, the hop garden, the space to run. A reliable school-holiday family lunch room on the ridge. **St Andrews Beach Brewery** is the bigger, louder alternative with more room and a longer menu. **Balnarring Pub** is the quiet-side option with a garden and reliable food.
+**Lunch (12:30–1:30).** **Red Hill Brewery**, the wood-fired pizza, the hop garden, the space to run. A reliable school-holiday family lunch room on the ridge. **St Andrews Beach Brewery** is the bigger, louder alternative with more room and a longer menu. **The Heritage** in Balnarring is the quiet-side option, with a large beer garden, a grass area and a sandpit.
 
 **Afternoon (2:30–4:30).** After an active morning, the afternoon should be passive. The **Pt Leo Sculpture Park** is free entry and the walk through the coastal sculptures is just enough activity to keep legs moving without exhausting anyone. The foreshore at Mornington, flat, paved, accessible, is the easier alternative.
 

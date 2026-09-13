@@ -80,7 +80,7 @@ Most cellar doors are closed on Good Friday. Most bakeries and cafes are open wi
 
 **10am:** A village walk. Friday morning on the Peninsula is the right time to walk a village without anyone else there. The Mornington foreshore from the pier to Mills Beach. The Sorrento foreshore from the village to the front beach. The Flinders pier and back along the village street.
 
-**12pm:** Lunch at a pub. **Balnarring Pub**, **Flinders Hotel**, or **Dromana Hotel**. Casual, no-pressure, plenty of room. The cellar doors that do open on Good Friday are over-booked and under-staffed; the pubs are the calmer answer.
+**12pm:** Lunch at a pub. **The Heritage** at Balnarring, **Flinders Hotel**, or **Dromana Hotel**. Casual, no-pressure, plenty of room. The cellar doors that do open on Good Friday are over-booked and under-staffed; the pubs are the calmer answer.
 
 **2.30pm:** A garden, a maze, or a chocolate shop. **Ashcombe Maze**, **Mornington Peninsula Chocolates**, or **Sunny Ridge Strawberry Farm** for picking. All three are open, family-friendly, and shrug off the long-weekend crowd.
 
@@ -98,7 +98,7 @@ Saturday is the day the cellar doors are busiest, and the right day to be nowher
 
 **2.30pm:** A second short walk. Or a swim if the water is up to it (in late autumn most years it is at the edge of swimmable). Or a short hinterland drive, Main Ridge to Merricks via the back roads, just to see the vines turning colour for the season.
 
-**6pm:** A booked dinner. The night to book the dining room, but pick a smaller, quieter one rather than a destination room. **Bistro Elba**, **Allis**, or **Pier Street Flinders** handle a busy night without losing their temper. Save the destination dinner for Sunday.
+**6pm:** A booked dinner. The night to book the dining room, but pick a smaller, quieter one rather than a destination room. **Bistro Elba** or **Allis** handle a busy night without losing their temper. Save the destination dinner for Sunday.
 
 ### Easter Sunday  -  the booked lunch and the egg hunt
 

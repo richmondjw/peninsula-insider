@@ -91,7 +91,7 @@ Further south, the bay coast gets deeper quickly, and this is where the serious 
 
 Over on the Western Port side, **Balnarring Beach** is the Peninsula's other great family swim. It is quieter than anywhere on the Port Phillip side, backed by ti-tree scrub rather than built infrastructure, no kiosk, and a considerably more local feel. The water is slightly darker because the Western Port sands are finer, but the swim itself is equivalent in temperature and gentleness to Mount Martha. Bring your own chairs and a thermos.
 
-**Best for:** Families who want the quietest possible bay swim, local-feel picnics, combining with the Balnarring Market or a Balnarring Pub lunch.
+**Best for:** Families who want the quietest possible bay swim, local-feel picnics, combining with the Balnarring Market or a lunch at The Heritage in Balnarring.
 
 **Avoid if:** You need kiosk food or public toilets close to your towel, facilities at Balnarring are minimal.
 
