@@ -150,6 +150,7 @@ export const prerender = true;
   import { SAVE_KINDS } from '../../lib/v5-store';
   import type { SaveKind, SavedItem, TripEntry, TripGroup } from '../../lib/v5-store';
   import { trackEvent, initV5Analytics } from '../../lib/v5-analytics';
+  import { planSharedTripImport } from '../../lib/trip-import';
 
   initV5Analytics();
 
@@ -605,13 +606,24 @@ export const prerender = true;
     }
     banner.hidden = false;
 
+    // Importing is idempotent. Opening the same share link a second time and
+    // importing again used to duplicate every day and every stop, because the
+    // helpers below append unconditionally. Skip a stop the trip already
+    // holds (the dedupe v5/Card.astro does on its "+ Trip" button), reuse a
+    // day that already carries the shared label, and create a day only when
+    // a stop actually needs it so a repeat import adds nothing at all.
     banner.querySelector('[data-trip-import]')?.addEventListener('click', () => {
-      const dayMap: Record<string, string> = {};
-      for (const d of shared.days) {
+      const plan = planSharedTripImport(shared, {
+        days: store.tripDays(),
+        entries: store.tripEntries(),
+      });
+
+      const dayMap: Record<string, string> = { ...plan.reusedDayIds };
+      for (const d of plan.daysToCreate) {
         const created = store.tripAddDay(d.label);
-        if (created) dayMap[d.id] = created.id;
+        if (created) dayMap[d.sharedId] = created.id;
       }
-      for (const it of shared.items) {
+      for (const it of plan.stops) {
         const geo = GEO[`${it.kind}/${it.slug}`];
         store.tripAdd(
           { kind: it.kind, slug: it.slug, title: geo?.t || it.slug, href: geo?.h || undefined },
@@ -620,8 +632,9 @@ export const prerender = true;
       }
       history.replaceState(null, '', location.pathname);
       banner.hidden = true;
-      trackEvent('trip_shared_fork', { stops: shared.items.length });
-      showToast('Added to your trip');
+      // `stops` is what this import actually added, not what the link carried.
+      trackEvent('trip_shared_fork', { stops: plan.stops.length });
+      showToast(plan.stops.length > 0 ? 'Added to your trip' : 'Already in your trip');
     });
 
     banner.querySelector('[data-trip-shared-dismiss]')?.addEventListener('click', () => {
@@ -732,16 +745,33 @@ export const prerender = true;
     });
   }
 
+  // bindList() delegates on `document` and the store subscription is global,
+  // so both outlive an Astro client-router swap: register once at module
+  // scope, the pattern v5/Card.astro uses. The rest binds to elements the
+  // swap replaces, so it re-runs per page-load.
+  bindList();
+  store.subscribe(() => render());
+
   function init(): void {
-    bindList();
+    // astro:page-load also fires on the first load, alongside the branch
+    // below, so mark the DOM this init has already claimed. A second pass
+    // over the same elements would stack a duplicate handler on every
+    // toolbar button and on the shared-trip Import button.
+    const root = document.querySelector<HTMLElement>('[data-trip-list]');
+    if (!root || (root as any)._piInit) return;
+    (root as any)._piInit = true;
     bindToolbar();
     bootShared();
     render();
-    store.subscribe(() => render());
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
+  // The client router swaps the DOM but never re-evaluates a module it has
+  // already loaded, so on a second in-site visit within the same session
+  // nothing repainted the trip and the page came up empty. Every comparable
+  // page in the codebase registers this; this one did not.
+  document.addEventListener('astro:page-load', init);
 </script>
 
 <style>

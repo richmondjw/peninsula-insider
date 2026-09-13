@@ -361,19 +361,36 @@ export const prerender = true;
     }
   }
 
+  // Delegated on `document` and on the store, so both outlive an Astro
+  // client-router swap: register once at module scope, the pattern
+  // v5/Card.astro uses. Everything left in init() binds to elements the swap
+  // replaces, so it re-runs per page-load.
+  bindCardActions();
+  store.subscribe(() => render());
+
   function init(): void {
+    // astro:page-load also fires on the first load, alongside the branch
+    // below, so mark the DOM this init has already claimed. A second pass
+    // over the same elements would double-bind every chip and double-count
+    // the view event.
+    const root = document.querySelector<HTMLElement>('[data-me-groups]');
+    if (!root || (root as any)._piInit) return;
+    (root as any)._piInit = true;
     bindChips();
-    bindCardActions();
     bindUpsell();
     render();
     void applyAuthState();
     const all = store.listSaves();
     trackEvent('me_saved_view', { count: all.length, kinds: new Set(all.map((i) => i.kind)).size });
-    store.subscribe(() => render());
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
+  // The client router swaps the DOM but never re-evaluates a module it has
+  // already loaded, so on a second in-site visit within the same session
+  // nothing repainted the list and the page came up empty. Every comparable
+  // page in the codebase registers this; this one did not.
+  document.addEventListener('astro:page-load', init);
 </script>
 
 <style>

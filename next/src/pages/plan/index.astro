@@ -240,7 +240,14 @@ const piIndex = { places: piPlaces, venues: piVenues };
 
     if (groupsEl) groupsEl.innerHTML = renderGroups(plan.items);
 
-    document.querySelector('[data-action="fork-plan"]')?.addEventListener('click', () => {
+    // init() runs on DOMContentLoaded and again on every astro:page-load, so
+    // an unguarded bind stacked a second handler on the same button: one tap
+    // then ran the merge, the analytics event and the toast twice. Same guard
+    // the Where-is-PI branch above already uses.
+    const forkBtn = document.querySelector<HTMLElement>('[data-action="fork-plan"]');
+    if (!forkBtn || forkBtn.dataset.piBound) return;
+    forkBtn.dataset.piBound = '1';
+    forkBtn.addEventListener('click', () => {
       const items: Saves.SavedItem[] = plan.items.map((it) => ({
         kind: it.kind,
         slug: it.slug,
