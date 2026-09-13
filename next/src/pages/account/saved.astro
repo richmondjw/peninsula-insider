@@ -93,6 +93,10 @@ export const prerender = true;
 
   function renderItem(item: Saves.SavedItem): string {
     const labels = KIND_LABELS[item.kind];
+    // A kind we do not recognise skips its card rather than throwing and
+    // blanking the page. Unknown kinds are blocked at decodePlan now, but a
+    // store written before that fix can still hold one.
+    if (!labels) return '';
     return `
       <a class="saved-card" href="${escapeHtml(item.href)}">
         ${item.image_url ? `<div class="saved-card__img" style="background-image: url('${cssUrl(item.image_url)}');"></div>` : '<div class="saved-card__img saved-card__img--blank"></div>'}
