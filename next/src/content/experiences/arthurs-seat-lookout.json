@@ -10,7 +10,7 @@
   },
   "address": "795 Arthurs Seat Rd, Arthurs Seat VIC 3936",
   "website": "https://aseagle.com.au",
-  "bookingUrl": "https://aseagle.com.au/book",
+  "bookingUrl": "https://aseagle.com.au/tickets/",
   "durationMinutes": 90,
   "difficulty": "easy",
   "seasonBest": [
@@ -40,5 +40,16 @@
   },
   "gallery": [],
   "lastVerified": "2026-04-09",
-  "publishedAt": "2026-04-09"
+  "publishedAt": "2026-04-09",
+  "retiredSourceLinks": [
+    {
+      "field": "bookingUrl",
+      "url": "https://aseagle.com.au/book",
+      "verdict": "dead",
+      "disposition": "moved",
+      "replacement": "https://aseagle.com.au/tickets/",
+      "checkedOn": "2026-09-13",
+      "note": "Operator renamed the booking path. /tickets/ returns 200, title 'Eagle Cable Car Tickets | Soar Above Arthurs Seat'."
+    }
+  ]
 }

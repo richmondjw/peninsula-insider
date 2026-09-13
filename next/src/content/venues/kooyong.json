@@ -12,7 +12,6 @@
   "address": "263 Red Hill Rd, Red Hill South VIC 3937",
   "phone": "+61 3 5989 4444",
   "website": "https://www.kooyong.com",
-  "bookingUrl": "https://www.kooyong.com/cellar-door",
   "bookingProvider": "direct",
   "priceBand": "$$$",
   "authority": {
@@ -123,5 +122,15 @@
     "Named Single-Block Vineyard Program",
     "Haven, Meres, Ferrous, Faultline Blocks",
     "98-Point Winery Rating"
+  ],
+  "retiredSourceLinks": [
+    {
+      "field": "bookingUrl",
+      "url": "https://www.kooyong.com/cellar-door",
+      "verdict": "dead",
+      "disposition": "gone",
+      "checkedOn": "2026-09-13",
+      "note": "404 on the operator's own site. kooyong.com now redirects to portphillipestate.com.au, which has no Kooyong cellar-door page. Sending a reader to the Port Phillip Estate cellar door instead would assert that Kooyong tastings happen there, which nothing fetched says."
+    }
   ]
 }

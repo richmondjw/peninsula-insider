@@ -8,7 +8,6 @@
     "lat": -38.4958,
     "lng": 144.8912
   },
-  "website": "https://www.parks.vic.gov.au/places-to-see/parks/cape-schanck",
   "durationMinutes": 90,
   "difficulty": "easy",
   "seasonBest": [
@@ -41,5 +40,17 @@
   },
   "gallery": [],
   "lastVerified": "2026-04-09",
-  "publishedAt": "2026-04-09"
+  "publishedAt": "2026-04-09",
+  "retiredSourceLinks": [
+    {
+      "field": "website",
+      "url": "https://www.parks.vic.gov.au/places-to-see/parks/cape-schanck",
+      "verdict": "dead",
+      "disposition": "gone",
+      "checkedOn": "2026-09-13",
+      "note": "404 on Parks Victoria's own site. The Mornington Peninsula National Park page is live, but it covers the whole park rather than Cape Schanck, so it is not an equivalent source for this record's claims."
+    }
+  ],
+  "sourceStatus": "unsourced",
+  "sourceStatusNote": "404 on Parks Victoria's own site. The Mornington Peninsula National Park page is live, but it covers the whole park rather than Cape Schanck, so it is not an equivalent source for this record's claims."
 }

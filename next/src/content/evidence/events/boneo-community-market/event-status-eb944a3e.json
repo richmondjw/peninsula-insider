@@ -14,5 +14,9 @@
     "value": "https://www.mornpen.vic.gov.au/Events-Activities/Boneo-Community-Market",
     "dateField": "lastCheckedDate"
   },
-  "url": "https://www.mornpen.vic.gov.au/Events-Activities/Boneo-Community-Market"
+  "url": "https://www.mornpen.vic.gov.au/Events-Activities/Boneo-Community-Market",
+  "sourceHealth": "dead",
+  "sourceHealthCheckedOn": "2026-09-13",
+  "sourceStatus": "unsourced",
+  "sourceStatusNote": "COUNCIL RESTRUCTURE. The council's own 404 page renders at every /Events-Activities/ path; event listings now live under /Things-to-do/Events/Whats-on/. One such page was fetched successfully before the host began refusing this address, so the new structure is confirmed - but a replacement for this specific listing could not be fetched, and constructing one unread is exactly what this programme exists to stop. EDITOR."
 }

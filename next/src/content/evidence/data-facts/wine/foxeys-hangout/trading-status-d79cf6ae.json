@@ -14,5 +14,16 @@
     "value": "https://www.foxeys.com.au",
     "dateField": "lastUpdated"
   },
-  "url": "https://www.foxeys.com.au"
+  "url": "https://foxeys-hangout.com.au/",
+  "retiredSourceLinks": [
+    {
+      "field": "url",
+      "url": "https://www.foxeys.com.au",
+      "verdict": "dead",
+      "disposition": "moved",
+      "replacement": "https://foxeys-hangout.com.au/",
+      "checkedOn": "2026-09-13",
+      "note": "foxeys.com.au refuses TLS on 202.124.241.178, a NetRegistry parking address. The operator's live domain is foxeys-hangout.com.au, confirmed live and named as the official site by Wine Companion and Visit Victoria."
+    }
+  ]
 }

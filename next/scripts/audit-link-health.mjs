@@ -216,9 +216,21 @@ function normaliseUrl(raw) {
   return out;
 }
 
+/**
+ * Blocks that record a URL as history rather than cite it.
+ *
+ * `retiredSourceLinks` holds the dead URL a record used to carry, on purpose.
+ * `legacy` is the claim-registry migration's record of exactly what it read.
+ * Counting either as a live citation would mean the act of writing down that a
+ * link died fails the gate for the link having died, and the only way to pass
+ * would be to erase the history.
+ */
+const HISTORICAL_BLOCKS = new Set(['retiredSourceLinks', 'legacy']);
+
 function collect(node, filePath, prefix, sink) {
   if (!node || typeof node !== 'object') return;
   for (const [key, value] of Object.entries(node)) {
+    if (HISTORICAL_BLOCKS.has(key)) continue;
     const fieldPath = prefix ? `${prefix}.${key}` : key;
     if (typeof value === 'string') {
       if (!isSourceField(fieldPath)) continue;

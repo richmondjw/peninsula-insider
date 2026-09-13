@@ -10,8 +10,8 @@
   },
   "address": "337 Main Creek Rd, Main Ridge VIC 3928",
   "phone": "+61 3 5989 6571",
-  "website": "https://morningsunvineyard.com.au",
-  "bookingUrl": "https://morningsunvineyard.com.au/visit",
+  "website": "https://foxeys-hangout.com.au/Morning-Sun/About-Morning-Sun",
+  "bookingUrl": "https://foxeys-hangout.com.au/Morning-Sun/About-Morning-Sun",
   "bookingProvider": "direct",
   "priceBand": "$$",
   "authority": {
@@ -68,5 +68,25 @@
     "Italian-Style Long Lunches",
     "Main Ridge Valley Views",
     "Pinot Gris Specialist"
+  ],
+  "retiredSourceLinks": [
+    {
+      "field": "website",
+      "url": "https://morningsunvineyard.com.au",
+      "verdict": "tls-fault",
+      "disposition": "moved",
+      "replacement": "https://foxeys-hangout.com.au/Morning-Sun/About-Morning-Sun",
+      "checkedOn": "2026-09-13",
+      "note": "morningsunvineyard.com.au serves a certificate for another host; with verification relaxed its own server redirects to foxeys-hangout.com.au/Morning-Sun/About-Morning-Sun. Morning Sun is now Foxeys Hangout's second cellar door."
+    },
+    {
+      "field": "bookingUrl",
+      "url": "https://morningsunvineyard.com.au/visit",
+      "verdict": "tls-fault",
+      "disposition": "moved",
+      "replacement": "https://foxeys-hangout.com.au/Morning-Sun/About-Morning-Sun",
+      "checkedOn": "2026-09-13",
+      "note": "Same redirect as the apex."
+    }
   ]
 }

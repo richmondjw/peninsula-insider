@@ -10,7 +10,6 @@
   },
   "address": "5 Blake St, Mornington VIC 3931",
   "phone": "+61 3 5975 1500",
-  "website": "https://www.ouestfrance.com.au",
   "status": "permanently_closed",
   "priceBand": "$$",
   "signature": "Ouest France Bistro in Mornington is permanently closed.",
@@ -47,5 +46,17 @@
     "Side-Street Mornington Location"
   ],
   "operatingStatus": "verify-open",
-  "closureNote": "Recorded here as permanently closed, and that does not survive a check. Checked 2026-09-13: Ouest France Bistro is listed as open and carries reviews into 2026 on Tripadvisor (https://www.tripadvisor.com/Restaurant_Review-g552216-d25217948-Reviews-Ouest_France_Bistro-Mornington_Mornington_Peninsula_Victoria.html), is bookable on OpenTable (https://www.opentable.com/r/ouest-france-bistro-mornington) and is carried by AGFG (https://www.agfg.com.au/restaurant/ouest-france-bistro-124964). Those sources place it at 180 Main Street, Mornington, not the address recorded here. No closure announcement from the operator was found. Status left as recorded pending an editor decision; the closure claim should not be repeated until it is re-evidenced."
+  "closureNote": "Recorded here as permanently closed, and that does not survive a check. Checked 2026-09-13: Ouest France Bistro is listed as open and carries reviews into 2026 on Tripadvisor (https://www.tripadvisor.com/Restaurant_Review-g552216-d25217948-Reviews-Ouest_France_Bistro-Mornington_Mornington_Peninsula_Victoria.html), is bookable on OpenTable (https://www.opentable.com/r/ouest-france-bistro-mornington) and is carried by AGFG (https://www.agfg.com.au/restaurant/ouest-france-bistro-124964). Those sources place it at 180 Main Street, Mornington, not the address recorded here. No closure announcement from the operator was found. Status left as recorded pending an editor decision; the closure claim should not be repeated until it is re-evidenced.",
+  "retiredSourceLinks": [
+    {
+      "field": "website",
+      "url": "https://www.ouestfrance.com.au",
+      "verdict": "dead",
+      "disposition": "gone",
+      "checkedOn": "2026-09-13",
+      "note": "Serves a Wix 'ConnectYourDomain Error'. The venue is separately recorded as permanently closed."
+    }
+  ],
+  "sourceStatus": "unsourced",
+  "sourceStatusNote": "Serves a Wix 'ConnectYourDomain Error'. The venue is separately recorded as permanently closed."
 }

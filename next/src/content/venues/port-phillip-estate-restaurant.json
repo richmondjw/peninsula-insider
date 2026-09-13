@@ -13,7 +13,7 @@
   "address": "263 Red Hill Rd, Red Hill South VIC 3937",
   "phone": "+61 3 5931 0000",
   "website": "https://www.portphillipestate.com.au",
-  "bookingUrl": "https://www.portphillipestate.com.au/dine",
+  "bookingUrl": "https://www.portphillipestate.com.au/dining-room/",
   "bookingProvider": "direct",
   "priceBand": "$$$$",
   "authority": {
@@ -71,5 +71,16 @@
     "One-Hat Hatted Restaurant",
     "AIA Architecture Award",
     "Port Phillip Bay Views"
+  ],
+  "retiredSourceLinks": [
+    {
+      "field": "bookingUrl",
+      "url": "https://www.portphillipestate.com.au/dine",
+      "verdict": "dead",
+      "disposition": "moved",
+      "replacement": "https://www.portphillipestate.com.au/dining-room/",
+      "checkedOn": "2026-09-13",
+      "note": "Same site, renamed path. Fetched 200, title 'Dining Room - Port Phillip Estate'."
+    }
   ]
 }

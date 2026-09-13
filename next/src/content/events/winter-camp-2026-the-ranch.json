@@ -20,7 +20,6 @@
   "indoorOutdoor": "Outdoor / Residential",
   "bookingUrl": "https://www.theranchmp.com.au/camps-holiday-programs/holiday-camp/",
   "ticketingUrl": "https://www.theranchmp.com.au/camps-holiday-programs/holiday-camp/",
-  "officialEventUrl": "https://www.mornpen.vic.gov.au/Events-Activities/Winter-Camp-2026",
   "bookingRequired": "Yes",
   "freePaid": "Paid",
   "priceRange": "Ticketed, per person; book direct for current pricing",
@@ -44,7 +43,6 @@
     "website": "https://www.theranchmp.com.au/",
     "contact": "(03) 5988 6262; bookings@theranchmp.com.au"
   },
-  "primarySourceUrl": "https://www.mornpen.vic.gov.au/Events-Activities/Winter-Camp-2026",
   "secondarySourceUrl": "https://www.theranchmp.com.au/camps-holiday-programs/holiday-camp/",
   "lastCheckedDate": "2026-05-04",
   "editorialPriority": 4,
@@ -66,5 +64,23 @@
     "alt": "Kids adventure activities on the Mornington Peninsula",
     "credit": "Peninsula Insider",
     "license": "other-licensed"
-  }
+  },
+  "retiredSourceLinks": [
+    {
+      "field": "officialEventUrl",
+      "url": "https://www.mornpen.vic.gov.au/Events-Activities/Winter-Camp-2026",
+      "verdict": "dead",
+      "disposition": "gone",
+      "checkedOn": "2026-09-13",
+      "note": "COUNCIL RESTRUCTURE, as above. Also a 2026 event that has passed."
+    },
+    {
+      "field": "primarySourceUrl",
+      "url": "https://www.mornpen.vic.gov.au/Events-Activities/Winter-Camp-2026",
+      "verdict": "dead",
+      "disposition": "gone",
+      "checkedOn": "2026-09-13",
+      "note": "COUNCIL RESTRUCTURE, as above. Also a 2026 event that has passed."
+    }
+  ]
 }

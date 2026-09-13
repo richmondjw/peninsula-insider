@@ -10,8 +10,8 @@
   },
   "address": "420 Old Moorooduc Rd, Dromana VIC 3936",
   "phone": "+61 3 5981 4112",
-  "website": "https://trofeoestate.com",
-  "bookingUrl": "https://trofeoestate.com/visit",
+  "website": "https://trofeoestate.com.au/",
+  "bookingUrl": "https://www.trofeoestate.com.au/visit-us/",
   "bookingProvider": "direct",
   "priceBand": "$$$",
   "authority": {
@@ -65,5 +65,25 @@
     "Sangiovese and Fiano Varieties",
     "Working Cellar Tour",
     "Italian-Varietal Focus"
+  ],
+  "retiredSourceLinks": [
+    {
+      "field": "website",
+      "url": "https://trofeoestate.com",
+      "verdict": "tls-fault",
+      "disposition": "moved",
+      "replacement": "https://trofeoestate.com.au/",
+      "checkedOn": "2026-09-13",
+      "note": "The .com serves a self-signed certificate. The operator's live domain is the .com.au, which resolves and serves the site."
+    },
+    {
+      "field": "bookingUrl",
+      "url": "https://trofeoestate.com/visit",
+      "verdict": "tls-fault",
+      "disposition": "moved",
+      "replacement": "https://www.trofeoestate.com.au/visit-us/",
+      "checkedOn": "2026-09-13",
+      "note": "Operator's own server redirects trofeoestate.com.au/visit to www.trofeoestate.com.au/visit-us/."
+    }
   ]
 }

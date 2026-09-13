@@ -20,7 +20,6 @@
   "indoorOutdoor": "Indoor",
   "bookingUrl": "https://www.eventbrite.com.au/e/sound-circle-full-moon-sound-journey-at-peninsula-hot-springs-tickets-1967238998802",
   "ticketingUrl": "https://www.eventbrite.com.au/e/sound-circle-full-moon-sound-journey-at-peninsula-hot-springs-tickets-1967238998802",
-  "officialEventUrl": "https://www.mornpen.vic.gov.au/Events-Activities/Sound-Circle-%E2%80%93-Full-Moon-Sound-Journey-at-Peninsula-Hot-Springs",
   "bookingRequired": "Yes",
   "freePaid": "Paid",
   "priceRange": "Ticketed, all-inclusive",
@@ -45,7 +44,6 @@
     "name": "Sound Circle (Lucy Ennis)"
   },
   "primarySourceUrl": "https://www.eventbrite.com.au/e/sound-circle-full-moon-sound-journey-at-peninsula-hot-springs-tickets-1967238998802",
-  "secondarySourceUrl": "https://www.mornpen.vic.gov.au/Events-Activities/Sound-Circle-%E2%80%93-Full-Moon-Sound-Journey-at-Peninsula-Hot-Springs",
   "lastCheckedDate": "2026-05-04",
   "editorialPriority": 4,
   "nearbyAttractions": "Peninsula Hot Springs full bathing complex; Polperro Wellness Studio (nearby Red Hill)",
@@ -67,5 +65,23 @@
     "alt": "Peninsula Hot Springs hilltop pool under the sky",
     "credit": "Peninsula Insider",
     "license": "other-licensed"
-  }
+  },
+  "retiredSourceLinks": [
+    {
+      "field": "officialEventUrl",
+      "url": "https://www.mornpen.vic.gov.au/Events-Activities/Sound-Circle-%E2%80%93-Full-Moon-Sound-Journey-at-Peninsula-Hot-Springs",
+      "verdict": "dead",
+      "disposition": "gone",
+      "checkedOn": "2026-09-13",
+      "note": "COUNCIL RESTRUCTURE, as above."
+    },
+    {
+      "field": "secondarySourceUrl",
+      "url": "https://www.mornpen.vic.gov.au/Events-Activities/Sound-Circle-%E2%80%93-Full-Moon-Sound-Journey-at-Peninsula-Hot-Springs",
+      "verdict": "dead",
+      "disposition": "gone",
+      "checkedOn": "2026-09-13",
+      "note": "COUNCIL RESTRUCTURE, as above."
+    }
+  ]
 }

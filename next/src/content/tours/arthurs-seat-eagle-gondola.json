@@ -4,7 +4,10 @@
   "operatorSlug": "arthurs-seat-eagle",
   "experienceType": "scenic-sightseeing",
   "duration": "under-2h",
-  "theme": ["family", "relaxed"],
+  "theme": [
+    "family",
+    "relaxed"
+  ],
   "audience": "families",
   "occasion": "general",
   "origin": "dromana",
@@ -15,8 +18,10 @@
   "durationHours": 1.5,
   "maxGroupSize": 50,
   "departsFrom": "Dromana Terminal, Arthurs Seat State Park",
-  "languages": ["en"],
-  "bookingUrl": "https://www.arthursseat.com.au/book/",
+  "languages": [
+    "en"
+  ],
+  "bookingUrl": "https://aseagle.com.au/tickets/",
   "intro": "The Arthurs Seat Eagle gondola connects the Dromana foreshore to the 305-metre summit of Arthurs Seat in a 15-minute one-way ride, delivering panoramic views over Port Phillip Bay and the Peninsula hinterland along the way. The gondola system is fully accessible, with cabins that accommodate wheelchairs and prams, and there is no minimum age or fitness requirement. Return tickets are standard; one-way tickets are available for those who want to walk one leg.",
   "whatHappens": "Gondola cabins depart from the base terminal in Dromana on a continuous loop, climbing through the forested hillside of Arthurs Seat State Park before emerging to open views over Port Phillip Bay. The 15-minute ride delivers sightlines that on clear days extend across the water to Melbourne and the You Yangs on the far shore. At the summit, passengers can visit the Eagles Nest cafe, access a viewing platform, and connect to walking tracks through the surrounding state park. The gondola returns on a separate descending line, so there is no queue conflict between ascending and descending passengers. Total time including summit exploration is typically 1 to 1.5 hours, though guests can spend as long as they like at the top before returning.",
   "whoSuits": "Families with children of any age, including infants in prams. Guests with limited mobility who want genuine Peninsula views without a physical hike. Visitors looking for a reliable, weather-resilient activity, since the enclosed cabins and the summit cafe make this viable on overcast or cool days when beach activities are less appealing. Also suits travellers who want a quick, high-impact Peninsula experience without a full-day commitment.",
@@ -44,5 +49,16 @@
     "license": "venue-media-kit"
   },
   "lastVerified": "2026-04-30",
-  "publishedAt": "2026-04-30"
+  "publishedAt": "2026-04-30",
+  "retiredSourceLinks": [
+    {
+      "field": "bookingUrl",
+      "url": "https://www.arthursseat.com.au/book/",
+      "verdict": "parked",
+      "disposition": "replaced",
+      "replacement": "https://aseagle.com.au/tickets/",
+      "checkedOn": "2026-09-13",
+      "note": "arthursseat.com.au answers 200 from a domain-for-sale lander ('This website is for sale!'), not the operator. The gondola operator's own booking page is aseagle.com.au/tickets/, fetched 200."
+    }
+  ]
 }

@@ -18,7 +18,7 @@
     "lng": 145.0358
   },
   "indoorOutdoor": "Indoor",
-  "officialEventUrl": "https://www.mornpen.vic.gov.au/Arts-Culture/Mornington-Peninsula-Regional-Gallery",
+  "officialEventUrl": "https://mprg.mornpen.vic.gov.au/",
   "bookingRequired": "No (check for opening event ticketing)",
   "freePaid": "Free",
   "priceTier": "free",
@@ -41,7 +41,7 @@
   "weatherShape": "all-weather",
   "organiser": {
     "name": "Mornington Peninsula Regional Gallery",
-    "website": "https://www.mornpen.vic.gov.au/Arts-Culture/Mornington-Peninsula-Regional-Gallery",
+    "website": "https://mprg.mornpen.vic.gov.au/",
     "instagram": "https://www.instagram.com/mprg_gallery/",
     "facebook": "https://www.facebook.com/MorningtonPeninsulaRegionalGallery/"
   },
@@ -63,5 +63,25 @@
     "walk-in",
     "date-idea"
   ],
-  "place": "mornington"
+  "place": "mornington",
+  "retiredSourceLinks": [
+    {
+      "field": "officialEventUrl",
+      "url": "https://www.mornpen.vic.gov.au/Arts-Culture/Mornington-Peninsula-Regional-Gallery",
+      "verdict": "dead",
+      "disposition": "replaced",
+      "replacement": "https://mprg.mornpen.vic.gov.au/",
+      "checkedOn": "2026-09-13",
+      "note": "The council retired /Arts-Culture/; its own 404 page renders at this URL. The gallery's current home is the mprg subdomain, fetched 200."
+    },
+    {
+      "field": "organiser.website",
+      "url": "https://www.mornpen.vic.gov.au/Arts-Culture/Mornington-Peninsula-Regional-Gallery",
+      "verdict": "dead",
+      "disposition": "replaced",
+      "replacement": "https://mprg.mornpen.vic.gov.au/",
+      "checkedOn": "2026-09-13",
+      "note": "The council retired /Arts-Culture/; its own 404 page renders at this URL. The gallery's current home is the mprg subdomain, fetched 200."
+    }
+  ]
 }

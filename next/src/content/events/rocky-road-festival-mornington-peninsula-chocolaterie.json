@@ -42,7 +42,7 @@
   "weatherShape": "wet-friendly",
   "organiser": {
     "name": "Mornington Peninsula Chocolaterie",
-    "website": "https://www.mpchocolaterie.com.au"
+    "website": "https://www.mpchoc.com.au/"
   },
   "primarySourceUrl": "https://www.visitmorningtonpeninsula.org/Whats-On/View/17665/rocky-road-festival-tasting-sessions-at-mornington-peninsula-chocolaterie",
   "secondarySourceUrl": "https://www.simpletix.com/e/rocky-road-festival-tasting-session-2026-tickets-270471",
@@ -67,5 +67,16 @@
     "alt": "Artisan food display at a Peninsula cafe",
     "credit": "Peninsula Insider",
     "license": "other-licensed"
-  }
+  },
+  "retiredSourceLinks": [
+    {
+      "field": "organiser.website",
+      "url": "https://www.mpchocolaterie.com.au",
+      "verdict": "dead",
+      "disposition": "moved",
+      "replacement": "https://www.mpchoc.com.au/",
+      "checkedOn": "2026-09-13",
+      "note": "Domain no longer resolves. The operator trades at mpchoc.com.au, fetched 200, title 'The Chocolateries Mornington Peninsula | Chocolate, Cafe & Events'."
+    }
+  ]
 }

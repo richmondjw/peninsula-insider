@@ -1,6 +1,6 @@
 {
   "note": "Probe results for every source URL in the corpus. Written only by --probe; read offline by the gate. A verdict is what a probe saw, not an inference.",
-  "updatedAt": "2026-09-13T17:17:23.466Z",
+  "updatedAt": "2026-09-13T17:43:45.799Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -117,11 +117,23 @@
     },
     {
       "url": "https://aseagle.com.au/book",
-      "verdict": "dead",
+      "verdict": "moved",
       "httpCode": "404",
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
-      "pageTitle": "Page Not Found - Arthurs Seat Eagle"
+      "pageTitle": "Page Not Found - Arthurs Seat Eagle",
+      "disposition": "moved",
+      "dispositionNote": "Operator renamed the booking path. /tickets/ returns 200, title 'Eagle Cable Car Tickets | Soar Above Arthurs Seat'.",
+      "reviewedOn": "2026-09-13",
+      "replacement": "https://aseagle.com.au/tickets/"
+    },
+    {
+      "url": "https://aseagle.com.au/tickets/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Eagle Cable Car Tickets | Soar Above Arthurs Seat",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
     },
     {
       "url": "https://australianjourneys.com.au",
@@ -356,7 +368,10 @@
       "httpCode": "404",
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
-      "pageTitle": "This event is yet to launch | Humanitix"
+      "pageTitle": "This event is yet to launch | Humanitix",
+      "disposition": "gone",
+      "dispositionNote": "Humanitix answers 404 with 'This event is yet to launch'. The listing is not published.",
+      "reviewedOn": "2026-09-13"
     },
     {
       "url": "https://events.humanitix.com/sorrento-solstice-festival",
@@ -458,6 +473,20 @@
       "verdict": "blocked",
       "httpCode": "202",
       "effectiveUrl": "https://foxeys-hangout.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://foxeys-hangout.com.au/",
+      "verdict": "blocked",
+      "httpCode": "202",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://foxeys-hangout.com.au/Morning-Sun/About-Morning-Sun",
+      "verdict": "blocked",
+      "httpCode": "202",
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe"
     },
@@ -610,7 +639,10 @@
       "httpCode": "000",
       "error": "curl: (6) Could not resolve host: laurarestaurant.com.au",
       "probedOn": "2026-09-13",
-      "probedBy": "audit-link-health.mjs --probe"
+      "probedBy": "audit-link-health.mjs --probe",
+      "disposition": "gone",
+      "dispositionNote": "Domain does not resolve. No successor found under the venue's name that could be fetched.",
+      "reviewedOn": "2026-09-13"
     },
     {
       "url": "https://library.mornpen.vic.gov.au/Whats-On/Events/Science-Week-TwistED-Science-Show-Rosebud-Library",
@@ -618,7 +650,10 @@
       "httpCode": "404",
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
-      "pageTitle": "Page not found"
+      "pageTitle": "Page not found",
+      "disposition": "gone",
+      "dispositionNote": "The library's own 404 page renders at this URL. A past event listing, removed.",
+      "reviewedOn": "2026-09-13"
     },
     {
       "url": "https://lightfootwines.com.au",
@@ -626,7 +661,10 @@
       "httpCode": "000",
       "error": "curl: (6) Could not resolve host: lightfootwines.com.au",
       "probedOn": "2026-09-13",
-      "probedBy": "audit-link-health.mjs --probe"
+      "probedBy": "audit-link-health.mjs --probe",
+      "disposition": "gone",
+      "dispositionNote": "Domain does not resolve. lightfootwines.com IS live, but it is Lightfoot & Sons of Calulu in East Gippsland, roughly 250km away. The record places Lightfoot Wines at 110 Myers Rd, Main Ridge. Substituting the Gippsland winery would assert an identity nothing supports. EDITOR: this record's region may be wrong, not just its link.",
+      "reviewedOn": "2026-09-13"
     },
     {
       "url": "https://localingtours.com",
@@ -723,12 +761,16 @@
     },
     {
       "url": "https://manylittle.com.au/book",
-      "verdict": "dead",
+      "verdict": "moved",
       "httpCode": "404",
       "effectiveUrl": "https://www.manylittle.com.au/book",
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
-      "pageTitle": "Page Not Found | Many Little"
+      "pageTitle": "Page Not Found | Many Little",
+      "disposition": "replaced",
+      "dispositionNote": "The /book path 404s on the operator's own site; no booking path was found. The homepage is live (200, 'Many Little | Bar & Dining, Red Hill South'). A reader gets the venue, not a dead booking form.",
+      "reviewedOn": "2026-09-13",
+      "replacement": "https://www.manylittle.com.au/"
     },
     {
       "url": "https://marketsandfestivals.melbourne/markets/mornington-racecourse-market/",
@@ -827,19 +869,27 @@
     },
     {
       "url": "https://morningsunvineyard.com.au",
-      "verdict": "tls-fault",
+      "verdict": "moved",
       "httpCode": "000",
       "error": "curl: (60) SSL: no alternative certificate subject name matches target host name 'morningsunvineyard.com.au' More details here: https://curl.se/docs/sslcerts.html curl failed to verify the legitimacy ",
       "probedOn": "2026-09-13",
-      "probedBy": "audit-link-health.mjs --probe"
+      "probedBy": "audit-link-health.mjs --probe",
+      "disposition": "moved",
+      "dispositionNote": "morningsunvineyard.com.au serves a certificate for another host; with verification relaxed its own server redirects to foxeys-hangout.com.au/Morning-Sun/About-Morning-Sun. Morning Sun is now Foxeys Hangout's second cellar door.",
+      "reviewedOn": "2026-09-13",
+      "replacement": "https://foxeys-hangout.com.au/Morning-Sun/About-Morning-Sun"
     },
     {
       "url": "https://morningsunvineyard.com.au/visit",
-      "verdict": "tls-fault",
+      "verdict": "moved",
       "httpCode": "000",
       "error": "curl: (60) SSL: no alternative certificate subject name matches target host name 'morningsunvineyard.com.au' More details here: https://curl.se/docs/sslcerts.html curl failed to verify the legitimacy ",
       "probedOn": "2026-09-13",
-      "probedBy": "audit-link-health.mjs --probe"
+      "probedBy": "audit-link-health.mjs --probe",
+      "disposition": "moved",
+      "dispositionNote": "Same redirect as the apex.",
+      "reviewedOn": "2026-09-13",
+      "replacement": "https://foxeys-hangout.com.au/Morning-Sun/About-Morning-Sun"
     },
     {
       "url": "https://morningtonhotel.com.au",
@@ -915,7 +965,10 @@
       "httpCode": "000",
       "error": "curl: (6) Could not resolve host: mpfm.com.au",
       "probedOn": "2026-09-13",
-      "probedBy": "audit-link-health.mjs --probe"
+      "probedBy": "audit-link-health.mjs --probe",
+      "disposition": "gone",
+      "dispositionNote": "Domain does not resolve. The Main Street Market at mainstreetmornington.com.au is a different market (Wednesdays, Main Street) from the Mornington Farmers' Market this record describes (Mornington Park, The Esplanade), so it is not an equivalent source.",
+      "reviewedOn": "2026-09-13"
     },
     {
       "url": "https://mprg.mornpen.vic.gov.au",
@@ -925,6 +978,15 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Home - Mornington Peninsula Regional Gallery"
+    },
+    {
+      "url": "https://mprg.mornpen.vic.gov.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Home - Mornington Peninsula Regional Gallery",
+      "effectiveUrl": "https://mprg.mornpen.vic.gov.au/Home",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
     },
     {
       "url": "https://mpys.com.au/",
@@ -1058,7 +1120,10 @@
       "httpCode": "000",
       "error": "curl: (6) Could not resolve host: phaedrusestate.com",
       "probedOn": "2026-09-13",
-      "probedBy": "audit-link-health.mjs --probe"
+      "probedBy": "audit-link-health.mjs --probe",
+      "disposition": "gone",
+      "dispositionNote": "Domain does not resolve, and no operator-run replacement was found. EDITOR: Visit Victoria and Wine Companion both place Phaedrus Estate at 220 Mornington-Tyabb Road, Moorooduc. This record says '220 Mornington-Flinders Rd, Red Hill' with place 'dromana'. The street number matches and nothing else does.",
+      "reviewedOn": "2026-09-13"
     },
     {
       "url": "https://pier10.com.au/events-3/mothersday2023/",
@@ -1186,7 +1251,10 @@
       "httpCode": "000",
       "error": "curl: (6) Could not resolve host: smallstonepantry.com.au",
       "probedOn": "2026-09-13",
-      "probedBy": "audit-link-health.mjs --probe"
+      "probedBy": "audit-link-health.mjs --probe",
+      "disposition": "gone",
+      "dispositionNote": "Domain does not resolve. No successor found.",
+      "reviewedOn": "2026-09-13"
     },
     {
       "url": "https://solemotive.com/pages/portsea-twilight",
@@ -1378,11 +1446,15 @@
     },
     {
       "url": "https://trofeoestate.com",
-      "verdict": "tls-fault",
+      "verdict": "moved",
       "httpCode": "000",
       "error": "curl: (60) SSL certificate problem: self-signed certificate More details here: https://curl.se/docs/sslcerts.html curl failed to verify the legitimacy of the server and therefore could not establish a",
       "probedOn": "2026-09-13",
-      "probedBy": "audit-link-health.mjs --probe"
+      "probedBy": "audit-link-health.mjs --probe",
+      "disposition": "moved",
+      "dispositionNote": "The .com serves a self-signed certificate. The operator's live domain is the .com.au, which resolves and serves the site.",
+      "reviewedOn": "2026-09-13",
+      "replacement": "https://trofeoestate.com.au/"
     },
     {
       "url": "https://trofeoestate.com.au",
@@ -1393,12 +1465,23 @@
       "probedBy": "audit-link-health.mjs --probe"
     },
     {
+      "url": "https://trofeoestate.com.au/",
+      "verdict": "blocked",
+      "httpCode": "202",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
       "url": "https://trofeoestate.com/visit",
-      "verdict": "tls-fault",
+      "verdict": "moved",
       "httpCode": "000",
       "error": "curl: (60) SSL certificate problem: self-signed certificate More details here: https://curl.se/docs/sslcerts.html curl failed to verify the legitimacy of the server and therefore could not establish a",
       "probedOn": "2026-09-13",
-      "probedBy": "audit-link-health.mjs --probe"
+      "probedBy": "audit-link-health.mjs --probe",
+      "disposition": "moved",
+      "dispositionNote": "Operator's own server redirects trofeoestate.com.au/visit to www.trofeoestate.com.au/visit-us/.",
+      "reviewedOn": "2026-09-13",
+      "replacement": "https://www.trofeoestate.com.au/visit-us/"
     },
     {
       "url": "https://tucksridge.com.au",
@@ -1406,7 +1489,10 @@
       "httpCode": "000",
       "error": "curl: (60) SSL certificate problem: self-signed certificate More details here: https://curl.se/docs/sslcerts.html curl failed to verify the legitimacy of the server and therefore could not establish a",
       "probedOn": "2026-09-13",
-      "probedBy": "audit-link-health.mjs --probe"
+      "probedBy": "audit-link-health.mjs --probe",
+      "disposition": "gone",
+      "dispositionNote": "Serves a self-signed certificate, so a reader following it sees a browser security warning. www.tucksridge.com.au refuses the connection outright, and tucks.com.au is an industrial packings company. EDITOR: no fetchable operator site was found for Tuck's Ridge.",
+      "reviewedOn": "2026-09-13"
     },
     {
       "url": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide",
@@ -1486,7 +1572,10 @@
       "httpCode": "000",
       "error": "curl: (6) Could not resolve host: viaboffe.com.au",
       "probedOn": "2026-09-13",
-      "probedBy": "audit-link-health.mjs --probe"
+      "probedBy": "audit-link-health.mjs --probe",
+      "disposition": "gone",
+      "dispositionNote": "Domain does not resolve. A 'Via Boffe' trades at via-boffe.square.site, but at 59 Main Street Mornington on (03) 5976 8158, while this record says 200 Main Ridge Rd, Main Ridge on +61 3 5989 6111. Two different addresses and two different phone numbers is not enough to assert they are the same business. EDITOR.",
+      "reviewedOn": "2026-09-13"
     },
     {
       "url": "https://viaboffe.com.au/bookings",
@@ -1494,7 +1583,10 @@
       "httpCode": "000",
       "error": "curl: (6) Could not resolve host: viaboffe.com.au",
       "probedOn": "2026-09-13",
-      "probedBy": "audit-link-health.mjs --probe"
+      "probedBy": "audit-link-health.mjs --probe",
+      "disposition": "gone",
+      "dispositionNote": "Same domain, same reasoning.",
+      "reviewedOn": "2026-09-13"
     },
     {
       "url": "https://villamallorca.com.au",
@@ -1502,7 +1594,10 @@
       "httpCode": "000",
       "error": "curl: (6) Could not resolve host: villamallorca.com.au",
       "probedOn": "2026-09-13",
-      "probedBy": "audit-link-health.mjs --probe"
+      "probedBy": "audit-link-health.mjs --probe",
+      "disposition": "gone",
+      "dispositionNote": "Domain does not resolve. No successor found.",
+      "reviewedOn": "2026-09-13"
     },
     {
       "url": "https://vinehopfestival.com.au/",
@@ -1599,11 +1694,15 @@
     },
     {
       "url": "https://www.arthursseat.com.au/book/",
-      "verdict": "parked",
+      "verdict": "moved",
       "httpCode": "200",
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
-      "pageTitle": "arthursseat.com.au&nbsp;-&nbsp;This website is for sale!&nbsp;-&nbsp;arthurs seat Resources and Information."
+      "pageTitle": "arthursseat.com.au&nbsp;-&nbsp;This website is for sale!&nbsp;-&nbsp;arthurs seat Resources and Information.",
+      "disposition": "replaced",
+      "dispositionNote": "arthursseat.com.au answers 200 from a domain-for-sale lander ('This website is for sale!'), not the operator. The gondola operator's own booking page is aseagle.com.au/tickets/, fetched 200.",
+      "reviewedOn": "2026-09-13",
+      "replacement": "https://aseagle.com.au/tickets/"
     },
     {
       "url": "https://www.aseagle.com.au",
@@ -1645,7 +1744,10 @@
       "httpCode": "000",
       "error": "curl: (60) SSL: no alternative certificate subject name matches target host name 'www.balnarringmarket.com.au' More details here: https://curl.se/docs/sslcerts.html curl failed to verify the legitimac",
       "probedOn": "2026-09-13",
-      "probedBy": "audit-link-health.mjs --probe"
+      "probedBy": "audit-link-health.mjs --probe",
+      "disposition": "gone",
+      "dispositionNote": "The certificate does not match the hostname, so HTTPS fails and a reader sees a security warning. Plain HTTP answers 200. Publishing an http:// link for a market would be a downgrade this ticket is not authorised to make. EDITOR: ask the operator to fix the certificate.",
+      "reviewedOn": "2026-09-13"
     },
     {
       "url": "https://www.barragunda.com.au/",
@@ -1741,12 +1843,24 @@
     },
     {
       "url": "https://www.bom.gov.au/explore/places/vic/main-ridge/forecast/",
-      "verdict": "dead",
+      "verdict": "moved",
       "httpCode": "404",
       "effectiveUrl": "https://www.bom.gov.au/page-not-found",
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
-      "pageTitle": "Page not found | The Bureau of Meteorology"
+      "pageTitle": "Page not found | The Bureau of Meteorology",
+      "disposition": "moved",
+      "dispositionNote": "BoM dropped the /explore/ path segment. The new URL returns 200 and the page title is 'Main Ridge Forecast - Bureau of Meteorology'. Same publisher, same page.",
+      "reviewedOn": "2026-09-13",
+      "replacement": "https://www.bom.gov.au/places/vic/main-ridge/forecast/"
+    },
+    {
+      "url": "https://www.bom.gov.au/places/vic/main-ridge/forecast/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Main Ridge Forecast - Bureau of Meteorology",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
     },
     {
       "url": "https://www.bunyiptours.com",
@@ -1815,7 +1929,10 @@
       "effectiveUrl": "https://www.driftawayondundas.com/",
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
-      "pageTitle": "Squarespace - Website Expired"
+      "pageTitle": "Squarespace - Website Expired",
+      "disposition": "gone",
+      "dispositionNote": "Serves the Squarespace 'Website Expired' page. The operator stopped paying for the site; no successor found.",
+      "reviewedOn": "2026-09-13"
     },
     {
       "url": "https://www.dromanaestate.com.au",
@@ -2000,11 +2117,15 @@
     },
     {
       "url": "https://www.foxeys.com.au",
-      "verdict": "dead",
+      "verdict": "moved",
       "httpCode": "000",
       "error": "curl: (7) Failed to connect to www.foxeys.com.au port 443 after 59 ms: Couldn't connect to server",
       "probedOn": "2026-09-13",
-      "probedBy": "audit-link-health.mjs --probe"
+      "probedBy": "audit-link-health.mjs --probe",
+      "disposition": "moved",
+      "dispositionNote": "foxeys.com.au refuses TLS on 202.124.241.178, a NetRegistry parking address. The operator's live domain is foxeys-hangout.com.au, confirmed live and named as the official site by Wine Companion and Visit Victoria.",
+      "reviewedOn": "2026-09-13",
+      "replacement": "https://foxeys-hangout.com.au/"
     },
     {
       "url": "https://www.georgiebass.com.au",
@@ -2029,7 +2150,10 @@
       "httpCode": "404",
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
-      "pageTitle": "Page not found | Global Ballooning"
+      "pageTitle": "Page not found | Global Ballooning",
+      "disposition": "gone",
+      "dispositionNote": "404 on the operator's own live site, and no Peninsula page was found anywhere on it. EDITOR: the site sells a Global Ballooning Peninsula sunrise tour; the operator may no longer fly the Peninsula.",
+      "reviewedOn": "2026-09-13"
     },
     {
       "url": "https://www.happyglamper.com.au/",
@@ -2063,7 +2187,10 @@
       "effectiveUrl": "https://humanitix.com/au/event/sorrento-solstice-festival-2026",
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
-      "pageTitle": "Humanitix - Tickets for good, not greed"
+      "pageTitle": "Humanitix - Tickets for good, not greed",
+      "disposition": "gone",
+      "dispositionNote": "404 on Humanitix. The ticket listing was removed after the event.",
+      "reviewedOn": "2026-09-13"
     },
     {
       "url": "https://www.hurleyvineyard.com.au",
@@ -2085,11 +2212,15 @@
     },
     {
       "url": "https://www.imaginefrankston.com.au/mornington/mornington-peninsula-regional-gallery",
-      "verdict": "dead",
+      "verdict": "moved",
       "httpCode": "404",
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
-      "pageTitle": "Page Not Found | Imagine Frankston"
+      "pageTitle": "Page Not Found | Imagine Frankston",
+      "disposition": "replaced",
+      "dispositionNote": "Frankston's tourism site dropped the page. The gallery now publishes on its own council subdomain, fetched 200 with title 'Home - Mornington Peninsula Regional Gallery'. Same subject, better publisher.",
+      "reviewedOn": "2026-09-13",
+      "replacement": "https://mprg.mornpen.vic.gov.au/"
     },
     {
       "url": "https://www.instagram.com/foxeyshangout/",
@@ -2164,7 +2295,10 @@
       "httpCode": "404",
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
-      "pageTitle": "Page not found &#8211; Port Phillip Estate"
+      "pageTitle": "Page not found &#8211; Port Phillip Estate",
+      "disposition": "gone",
+      "dispositionNote": "404 on the operator's own site. kooyong.com now redirects to portphillipestate.com.au, which has no Kooyong cellar-door page. Sending a reader to the Port Phillip Estate cellar door instead would assert that Kooyong tastings happen there, which nothing fetched says.",
+      "reviewedOn": "2026-09-13"
     },
     {
       "url": "https://www.lakesidevillas.com.au",
@@ -2204,6 +2338,17 @@
       "httpCode": "000",
       "error": "curl: (6) Could not resolve host: www.mainridgeestate.com.au",
       "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "disposition": "gone",
+      "dispositionNote": "Domain does not resolve and shows no sign of ever having resolved. It was cited on 5 May 2026 as the source establishing Main Ridge Estate's Tuesday-Sunday trading. A source that cannot be reached cannot have been read, so that claim was never sourced.",
+      "reviewedOn": "2026-09-13"
+    },
+    {
+      "url": "https://www.manylittle.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Many Little | Bar &amp; Dining, Red Hill South",
+      "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe"
     },
     {
@@ -2216,12 +2361,24 @@
       "pageTitle": "Martha&#039;s Table &#8211; Restaurant, Grocer and Cellar"
     },
     {
+      "url": "https://www.marthastable.com.au/book-a-table/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "BOOKINGS &#8211; Martha&#039;s Table",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
       "url": "https://www.marthastable.com.au/reservations",
-      "verdict": "dead",
+      "verdict": "moved",
       "httpCode": "404",
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
-      "pageTitle": "Page not found &#8211; Martha&#039;s Table"
+      "pageTitle": "Page not found &#8211; Martha&#039;s Table",
+      "disposition": "moved",
+      "dispositionNote": "Same site, renamed path. Fetched 200, title 'BOOKINGS - Martha's Table'.",
+      "reviewedOn": "2026-09-13",
+      "replacement": "https://www.marthastable.com.au/book-a-table/"
     },
     {
       "url": "https://www.mcneillrealestate.com.au/post/Mornington-Peninsula-Mother%E2%80%99s-Day-Weekend-Guide-2026",
@@ -2382,11 +2539,15 @@
     },
     {
       "url": "https://www.mornpen.vic.gov.au/Arts-Culture/Mornington-Peninsula-Regional-Gallery",
-      "verdict": "dead",
+      "verdict": "moved",
       "httpCode": "404",
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
-      "pageTitle": "Page not found - Mornington Peninsula Shire"
+      "pageTitle": "Page not found - Mornington Peninsula Shire",
+      "disposition": "replaced",
+      "dispositionNote": "The council retired /Arts-Culture/; its own 404 page renders at this URL. The gallery's current home is the mprg subdomain, fetched 200.",
+      "reviewedOn": "2026-09-13",
+      "replacement": "https://mprg.mornpen.vic.gov.au/"
     },
     {
       "url": "https://www.mornpen.vic.gov.au/Community-Services/Youth-Services/Youth-Programs/Youth-Services-School-Holiday-Program",
@@ -2403,7 +2564,10 @@
       "httpCode": "404",
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
-      "pageTitle": "Page not found - Mornington Peninsula Shire"
+      "pageTitle": "Page not found - Mornington Peninsula Shire",
+      "disposition": "gone",
+      "dispositionNote": "COUNCIL RESTRUCTURE. The council's own 404 page renders at every /Events-Activities/ path; event listings now live under /Things-to-do/Events/Whats-on/. One such page was fetched successfully before the host began refusing this address, so the new structure is confirmed - but a replacement for this specific listing could not be fetched, and constructing one unread is exactly what this programme exists to stop. EDITOR.",
+      "reviewedOn": "2026-09-13"
     },
     {
       "url": "https://www.mornpen.vic.gov.au/Events-Activities/Coastrek-Mornington-Peninsula-2026",
@@ -2411,7 +2575,10 @@
       "httpCode": "404",
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
-      "pageTitle": "Page not found - Mornington Peninsula Shire"
+      "pageTitle": "Page not found - Mornington Peninsula Shire",
+      "disposition": "gone",
+      "dispositionNote": "COUNCIL RESTRUCTURE, as above. Also a 2026 event that has passed.",
+      "reviewedOn": "2026-09-13"
     },
     {
       "url": "https://www.mornpen.vic.gov.au/Events-Activities/Emu-Plains-Market-3",
@@ -2419,7 +2586,10 @@
       "httpCode": "404",
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
-      "pageTitle": "Page not found - Mornington Peninsula Shire"
+      "pageTitle": "Page not found - Mornington Peninsula Shire",
+      "disposition": "gone",
+      "dispositionNote": "COUNCIL RESTRUCTURE, as above.",
+      "reviewedOn": "2026-09-13"
     },
     {
       "url": "https://www.mornpen.vic.gov.au/Events-Activities/Main-Street-Christmas-Parade",
@@ -2427,7 +2597,10 @@
       "httpCode": "404",
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
-      "pageTitle": "Page not found - Mornington Peninsula Shire"
+      "pageTitle": "Page not found - Mornington Peninsula Shire",
+      "disposition": "gone",
+      "dispositionNote": "COUNCIL RESTRUCTURE, as above.",
+      "reviewedOn": "2026-09-13"
     },
     {
       "url": "https://www.mornpen.vic.gov.au/Events-Activities/Main-Street-Mornington-Festival-1",
@@ -2435,7 +2608,10 @@
       "httpCode": "404",
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
-      "pageTitle": "Page not found - Mornington Peninsula Shire"
+      "pageTitle": "Page not found - Mornington Peninsula Shire",
+      "disposition": "gone",
+      "dispositionNote": "COUNCIL RESTRUCTURE, as above.",
+      "reviewedOn": "2026-09-13"
     },
     {
       "url": "https://www.mornpen.vic.gov.au/Events-Activities/Mothers-Day-Classic-2026",
@@ -2443,7 +2619,10 @@
       "httpCode": "404",
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
-      "pageTitle": "Page not found - Mornington Peninsula Shire"
+      "pageTitle": "Page not found - Mornington Peninsula Shire",
+      "disposition": "gone",
+      "dispositionNote": "COUNCIL RESTRUCTURE, as above. Also a 2026 event that has passed.",
+      "reviewedOn": "2026-09-13"
     },
     {
       "url": "https://www.mornpen.vic.gov.au/Events-Activities/Songs-of-Dreams-and-Destiny",
@@ -2451,7 +2630,10 @@
       "httpCode": "404",
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
-      "pageTitle": "Page not found - Mornington Peninsula Shire"
+      "pageTitle": "Page not found - Mornington Peninsula Shire",
+      "disposition": "gone",
+      "dispositionNote": "COUNCIL RESTRUCTURE, as above.",
+      "reviewedOn": "2026-09-13"
     },
     {
       "url": "https://www.mornpen.vic.gov.au/Events-Activities/Sorrento-Solstice-Festival",
@@ -2459,7 +2641,10 @@
       "httpCode": "404",
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
-      "pageTitle": "Page not found - Mornington Peninsula Shire"
+      "pageTitle": "Page not found - Mornington Peninsula Shire",
+      "disposition": "gone",
+      "dispositionNote": "COUNCIL RESTRUCTURE, as above.",
+      "reviewedOn": "2026-09-13"
     },
     {
       "url": "https://www.mornpen.vic.gov.au/Events-Activities/Sound-Circle-%E2%80%93-Full-Moon-Sound-Journey-at-Peninsula-Hot-Springs",
@@ -2467,7 +2652,10 @@
       "httpCode": "404",
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
-      "pageTitle": "Page not found - Mornington Peninsula Shire"
+      "pageTitle": "Page not found - Mornington Peninsula Shire",
+      "disposition": "gone",
+      "dispositionNote": "COUNCIL RESTRUCTURE, as above.",
+      "reviewedOn": "2026-09-13"
     },
     {
       "url": "https://www.mornpen.vic.gov.au/Events-Activities/Winter-Camp-2026",
@@ -2475,7 +2663,10 @@
       "httpCode": "404",
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
-      "pageTitle": "Page not found - Mornington Peninsula Shire"
+      "pageTitle": "Page not found - Mornington Peninsula Shire",
+      "disposition": "gone",
+      "dispositionNote": "COUNCIL RESTRUCTURE, as above. Also a 2026 event that has passed.",
+      "reviewedOn": "2026-09-13"
     },
     {
       "url": "https://www.mornpen.vic.gov.au/Events-Activities/Winter-Wine-Weekend",
@@ -2483,7 +2674,10 @@
       "httpCode": "404",
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
-      "pageTitle": "Page not found - Mornington Peninsula Shire"
+      "pageTitle": "Page not found - Mornington Peninsula Shire",
+      "disposition": "gone",
+      "dispositionNote": "COUNCIL RESTRUCTURE, as above.",
+      "reviewedOn": "2026-09-13"
     },
     {
       "url": "https://www.mornpen.vic.gov.au/Services/Planning-and-building/Strategic-planning/Planning-Scheme-amendments/Amendment-C314morn-%E2%80%93-EMO7-update",
@@ -2620,15 +2814,22 @@
       "httpCode": "404",
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
-      "pageTitle": "Page not found | The Chocolateries Mornington Peninsula"
+      "pageTitle": "Page not found | The Chocolateries Mornington Peninsula",
+      "disposition": "gone",
+      "dispositionNote": "404 on the operator's own live site. The event page was removed after the event.",
+      "reviewedOn": "2026-09-13"
     },
     {
       "url": "https://www.mpchocolaterie.com.au",
-      "verdict": "dead",
+      "verdict": "moved",
       "httpCode": "000",
       "error": "curl: (6) Could not resolve host: www.mpchocolaterie.com.au",
       "probedOn": "2026-09-13",
-      "probedBy": "audit-link-health.mjs --probe"
+      "probedBy": "audit-link-health.mjs --probe",
+      "disposition": "moved",
+      "dispositionNote": "Domain no longer resolves. The operator trades at mpchoc.com.au, fetched 200, title 'The Chocolateries Mornington Peninsula | Chocolate, Cafe & Events'.",
+      "reviewedOn": "2026-09-13",
+      "replacement": "https://www.mpchoc.com.au/"
     },
     {
       "url": "https://www.mpnews.com.au/",
@@ -2738,7 +2939,10 @@
       "effectiveUrl": "https://www.ouestfrance.com.au/",
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
-      "pageTitle": "ConnectYourDomain Error | Wix.com"
+      "pageTitle": "ConnectYourDomain Error | Wix.com",
+      "disposition": "gone",
+      "dispositionNote": "Serves a Wix 'ConnectYourDomain Error'. The venue is separately recorded as permanently closed.",
+      "reviewedOn": "2026-09-13"
     },
     {
       "url": "https://www.paradigmhill.com.au",
@@ -2780,7 +2984,10 @@
       "httpCode": "404",
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
-      "pageTitle": "Parks Victoria"
+      "pageTitle": "Parks Victoria",
+      "disposition": "gone",
+      "dispositionNote": "404 on Parks Victoria's own site. The Mornington Peninsula National Park page is live, but it covers the whole park rather than Cape Schanck, so it is not an equivalent source for this record's claims.",
+      "reviewedOn": "2026-09-13"
     },
     {
       "url": "https://www.parks.vic.gov.au/places-to-see/parks/mornington-peninsula-national-park",
@@ -2939,10 +3146,14 @@
     },
     {
       "url": "https://www.peninsulahotsprings.com/bathing",
-      "verdict": "dead",
+      "verdict": "moved",
       "httpCode": "404",
       "probedOn": "2026-09-13",
-      "probedBy": "audit-link-health.mjs --probe"
+      "probedBy": "audit-link-health.mjs --probe",
+      "disposition": "moved",
+      "dispositionNote": "Same site, renamed path. Fetched 200, title 'Bath House Spa Experiences | Peninsula Hot Springs'.",
+      "reviewedOn": "2026-09-13",
+      "replacement": "https://www.peninsulahotsprings.com/bathe"
     },
     {
       "url": "https://www.peninsulahotsprings.com/events",
@@ -3085,11 +3296,23 @@
     },
     {
       "url": "https://www.portphillipestate.com.au/dine",
-      "verdict": "dead",
+      "verdict": "moved",
       "httpCode": "404",
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
-      "pageTitle": "Page not found &#8211; Port Phillip Estate"
+      "pageTitle": "Page not found &#8211; Port Phillip Estate",
+      "disposition": "moved",
+      "dispositionNote": "Same site, renamed path. Fetched 200, title 'Dining Room - Port Phillip Estate'.",
+      "reviewedOn": "2026-09-13",
+      "replacement": "https://www.portphillipestate.com.au/dining-room/"
+    },
+    {
+      "url": "https://www.portphillipestate.com.au/dining-room/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Dining Room - Port Phillip Estate",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
     },
     {
       "url": "https://www.portseagolf.com.au/",
@@ -3219,7 +3442,10 @@
       "httpCode": "404",
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
-      "pageTitle": "Sorry, we couldn’t find that page | RACV"
+      "pageTitle": "Sorry, we couldn’t find that page | RACV",
+      "disposition": "gone",
+      "dispositionNote": "404 on RACV's own site. Several plausible successor paths were fetched and all 404; no replacement could be confirmed.",
+      "reviewedOn": "2026-09-13"
     },
     {
       "url": "https://www.redhellestate.com.au/",
@@ -3227,7 +3453,10 @@
       "httpCode": "000",
       "error": "curl: (6) Could not resolve host: www.redhellestate.com.au",
       "probedOn": "2026-09-13",
-      "probedBy": "audit-link-health.mjs --probe"
+      "probedBy": "audit-link-health.mjs --probe",
+      "disposition": "gone",
+      "dispositionNote": "Domain does not resolve. It is a misspelling of Red Hill Estate, and it was cited on 5 May 2026 as the source establishing that venue's Tuesday-Sunday trading. redhillestate.com.au does resolve, but pointing this row at it would manufacture support the row never had: whatever was written on 5 May, this URL was not read.",
+      "reviewedOn": "2026-09-13"
     },
     {
       "url": "https://www.redhillbrewery.com.au",
@@ -3269,7 +3498,10 @@
       "httpCode": "000",
       "error": "curl: (7) Failed to connect to www.redhillmarket.com.au port 443 after 36 ms: Couldn't connect to server",
       "probedOn": "2026-09-13",
-      "probedBy": "audit-link-health.mjs --probe"
+      "probedBy": "audit-link-health.mjs --probe",
+      "disposition": "gone",
+      "dispositionNote": "The domain resolves to a NetRegistry redirector that answers 200 with the two-word body 'Not found'. EDITOR, and this is the important one: the Red Hill Community Market's own site now reads 'The Red Hill Community Market is temporarily closed' and serves only a history archive. The market trading at Red Hill Recreation Reserve on the first Saturday September-May is the Hill & Ridge Community Market, run by the Red Hill Agricultural & Horticultural Society. This site holds them as two separate things and says so in prose.",
+      "reviewedOn": "2026-09-13"
     },
     {
       "url": "https://www.rosebudcountryclub.com.au/",
@@ -3399,11 +3631,15 @@
     },
     {
       "url": "https://www.stonier.com.au/visit/events/",
-      "verdict": "dead",
+      "verdict": "moved",
       "httpCode": "404",
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
-      "pageTitle": "Stonier - 404 Error"
+      "pageTitle": "Stonier - 404 Error",
+      "disposition": "replaced",
+      "dispositionNote": "The events subpage is gone; the parent visit page is live (200, 'Stonier - Visit'). The specific event this was booked against is past, so the replacement supports the venue, not the event.",
+      "reviewedOn": "2026-09-13",
+      "replacement": "https://www.stonier.com.au/visit"
     },
     {
       "url": "https://www.sunnyridge.com.au",
@@ -3437,7 +3673,10 @@
       "httpCode": "000",
       "error": "curl: (6) Could not resolve host: www.temptationsailing.com",
       "probedOn": "2026-09-13",
-      "probedBy": "audit-link-health.mjs --probe"
+      "probedBy": "audit-link-health.mjs --probe",
+      "disposition": "gone",
+      "dispositionNote": "Domain does not resolve. A Temptation Sailing operates dolphin swims from Glenelg in South Australia; it is not the Sorrento operator this record describes.",
+      "reviewedOn": "2026-09-13"
     },
     {
       "url": "https://www.temptationsailing.com/bay-cruise/",
@@ -3445,7 +3684,10 @@
       "httpCode": "000",
       "error": "curl: (6) Could not resolve host: www.temptationsailing.com",
       "probedOn": "2026-09-13",
-      "probedBy": "audit-link-health.mjs --probe"
+      "probedBy": "audit-link-health.mjs --probe",
+      "disposition": "gone",
+      "dispositionNote": "Same domain, same reasoning.",
+      "reviewedOn": "2026-09-13"
     },
     {
       "url": "https://www.tenminutesbytractor.com.au",
@@ -3489,7 +3731,10 @@
       "httpCode": "000",
       "error": "curl: (35) OpenSSL/3.0.13: error:0A000438:SSL routines::tlsv1 alert internal error",
       "probedOn": "2026-09-13",
-      "probedBy": "audit-link-health.mjs --probe"
+      "probedBy": "audit-link-health.mjs --probe",
+      "disposition": "gone",
+      "dispositionNote": "TLS handshake fails with an internal error from the server. No fetchable replacement found.",
+      "reviewedOn": "2026-09-13"
     },
     {
       "url": "https://www.thedunes.com.au/",
@@ -3602,6 +3847,13 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "tripadvisor.com"
+    },
+    {
+      "url": "https://www.trofeoestate.com.au/visit-us/",
+      "verdict": "blocked",
+      "httpCode": "202",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
     },
     {
       "url": "https://www.twobays.beer/",

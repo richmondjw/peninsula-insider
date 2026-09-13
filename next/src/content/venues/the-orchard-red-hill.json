@@ -9,8 +9,6 @@
     "lng": 145.027
   },
   "address": "Red Hill South VIC 3937",
-  "website": "https://www.the-orchard.com.au",
-  "bookingUrl": "https://www.the-orchard.com.au",
   "bookingProvider": "direct",
   "priceBand": "$$",
   "signature": "Three rammed-earth self-contained apartments on ten acres of Red Hill South wine country, in-room spa baths, infrared sauna, and valley views.",
@@ -63,5 +61,25 @@
     "Lake and valley views from all units",
     "Small dogs welcome with an additional fee",
     "Host Frank Haddy's direct mobile on the website, a genuinely reachable host"
-  ]
+  ],
+  "retiredSourceLinks": [
+    {
+      "field": "website",
+      "url": "https://www.the-orchard.com.au",
+      "verdict": "tls-fault",
+      "disposition": "gone",
+      "checkedOn": "2026-09-13",
+      "note": "TLS handshake fails with an internal error from the server. No fetchable replacement found."
+    },
+    {
+      "field": "bookingUrl",
+      "url": "https://www.the-orchard.com.au",
+      "verdict": "tls-fault",
+      "disposition": "gone",
+      "checkedOn": "2026-09-13",
+      "note": "TLS handshake fails with an internal error from the server. No fetchable replacement found."
+    }
+  ],
+  "sourceStatus": "unsourced",
+  "sourceStatusNote": "TLS handshake fails with an internal error from the server. No fetchable replacement found."
 }

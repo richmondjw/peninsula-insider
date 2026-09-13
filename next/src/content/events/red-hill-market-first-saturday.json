@@ -7,7 +7,6 @@
   "endDate": "2026-06-06",
   "venue": "red-hill-market",
   "place": "red-hill",
-  "bookingUrl": "https://www.redhillmarket.com.au",
   "category": "market",
   "recurrence": "monthly",
   "worthTheDrive": true,
@@ -28,5 +27,17 @@
     "credit": "Unsplash",
     "license": "tmp-unsplash"
   },
-  "nextOccurrence": "2026-10-03"
+  "nextOccurrence": "2026-10-03",
+  "retiredSourceLinks": [
+    {
+      "field": "bookingUrl",
+      "url": "https://www.redhillmarket.com.au",
+      "verdict": "dead",
+      "disposition": "gone",
+      "checkedOn": "2026-09-13",
+      "note": "The domain resolves to a NetRegistry redirector that answers 200 with the two-word body 'Not found'. EDITOR, and this is the important one: the Red Hill Community Market's own site now reads 'The Red Hill Community Market is temporarily closed' and serves only a history archive. The market trading at Red Hill Recreation Reserve on the first Saturday September-May is the Hill & Ridge Community Market, run by the Red Hill Agricultural & Horticultural Society. This site holds them as two separate things and says so in prose."
+    }
+  ],
+  "sourceStatus": "unsourced",
+  "sourceStatusNote": "The domain resolves to a NetRegistry redirector that answers 200 with the two-word body 'Not found'. EDITOR, and this is the important one: the Red Hill Community Market's own site now reads 'The Red Hill Community Market is temporarily closed' and serves only a history archive. The market trading at Red Hill Recreation Reserve on the first Saturday September-May is the Hill & Ridge Community Market, run by the Red Hill Agricultural & Horticultural Society. This site holds them as two separate things and says so in prose."
 }
