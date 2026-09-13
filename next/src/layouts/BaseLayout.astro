@@ -607,18 +607,50 @@ const showNewsletterPopup = newsletterPopupMode === 'preview' || newsletterPopup
           drawer via window.openConcierge() (was previously inside V2 Masthead). -->
   <script is:inline>
     (function () {
+      // `document` outlives an Astro client-router swap, but bootAll() re-runs
+      // on every astro:page-load. The two listeners below used to sit inside
+      // initV4Mega() and initV4Drawer(), whose guards live on elements the
+      // swap replaces, so each navigation added another copy holding the
+      // previous page's nav. They are registered once at module scope here and
+      // resolve the nav from the live DOM when they fire.
+      function closeAllPillars(except) {
+        document.querySelectorAll('[data-v4-pillar]').forEach(function (n) {
+          if (n === except) return;
+          n.classList.remove('is-open');
+          var trig = n.querySelector('[data-v4-pillar-link]');
+          if (trig) trig.setAttribute('aria-expanded', 'false');
+        });
+      }
+
+      function closeV4Drawer() {
+        var burger = document.querySelector('.v4-burger');
+        var drawer = document.getElementById('v4Drawer');
+        if (!drawer) return;
+        drawer.classList.remove('is-open');
+        if (burger) burger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+        drawer.querySelectorAll('.v4-drawer__pillar.is-expanded').forEach(function (p) {
+          p.classList.remove('is-expanded');
+          var t = p.querySelector('[data-v4-drawer-pillar]');
+          if (t) t.setAttribute('aria-expanded', 'false');
+        });
+      }
+
+      document.addEventListener('click', function (e) {
+        var target = e.target;
+        var inside = target.closest && target.closest('[data-v4-pillar]');
+        if (!inside) closeAllPillars(null);
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key !== 'Escape') return;
+        var drawer = document.getElementById('v4Drawer');
+        if (drawer && drawer.classList.contains('is-open')) closeV4Drawer();
+      });
+
       function initV4Mega() {
         var items = document.querySelectorAll('[data-v4-pillar]');
         if (!items.length) return;
-
-        function closeAll(except) {
-          items.forEach(function (n) {
-            if (n === except) return;
-            n.classList.remove('is-open');
-            var trig = n.querySelector('[data-v4-pillar-link]');
-            if (trig) trig.setAttribute('aria-expanded', 'false');
-          });
-        }
 
         items.forEach(function (item) {
           if (item._v4Bound) return;
@@ -629,7 +661,7 @@ const showNewsletterPopup = newsletterPopupMode === 'preview' || newsletterPopup
           function open() {
             clearTimeout(closeTimer);
             openTimer = setTimeout(function () {
-              closeAll(item);
+              closeAllPillars(item);
               item.classList.add('is-open');
               if (link) link.setAttribute('aria-expanded', 'true');
             }, 70);
@@ -667,12 +699,6 @@ const showNewsletterPopup = newsletterPopupMode === 'preview' || newsletterPopup
             });
           }
         });
-
-        document.addEventListener('click', function (e) {
-          var target = e.target;
-          var inside = target.closest && target.closest('[data-v4-pillar]');
-          if (!inside) closeAll(null);
-        });
       }
 
       function initV4Drawer() {
@@ -690,25 +716,12 @@ const showNewsletterPopup = newsletterPopupMode === 'preview' || newsletterPopup
           burger.setAttribute('aria-expanded', 'true');
           document.body.style.overflow = 'hidden';
         }
-        function closeDrawer() {
-          drawer.classList.remove('is-open');
-          burger.setAttribute('aria-expanded', 'false');
-          document.body.style.overflow = '';
-          drawer.querySelectorAll('.v4-drawer__pillar.is-expanded').forEach(function (p) {
-            p.classList.remove('is-expanded');
-            var t = p.querySelector('[data-v4-drawer-pillar]');
-            if (t) t.setAttribute('aria-expanded', 'false');
-          });
-        }
 
         burger.addEventListener('click', function () {
           var isOpen = drawer.classList.contains('is-open');
-          if (isOpen) closeDrawer(); else openDrawer();
+          if (isOpen) closeV4Drawer(); else openDrawer();
         });
-        if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
-        document.addEventListener('keydown', function (e) {
-          if (e.key === 'Escape' && drawer.classList.contains('is-open')) closeDrawer();
-        });
+        if (closeBtn) closeBtn.addEventListener('click', closeV4Drawer);
 
         pillarTriggers.forEach(function (trig) {
           trig.addEventListener('click', function () {
@@ -728,7 +741,7 @@ const showNewsletterPopup = newsletterPopupMode === 'preview' || newsletterPopup
         });
 
         drawer.querySelectorAll('a').forEach(function (a) {
-          a.addEventListener('click', closeDrawer);
+          a.addEventListener('click', closeV4Drawer);
         });
       }
 

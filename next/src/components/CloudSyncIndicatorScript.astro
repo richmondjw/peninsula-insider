@@ -19,30 +19,40 @@
       error:     'Saved locally · cloud sync unavailable',
     };
 
+    // `window` outlives an Astro client-router swap, but bind() re-runs on
+    // every astro:page-load, so registering the pi:cloud-sync listener inside
+    // it added one more copy per navigation, each holding the previous page's
+    // node list. It is registered once here instead; bind() publishes the
+    // current page's indicator nodes into the slot and clears the slot when
+    // the page has none.
+    var activeNodes = null;
+
+    function apply(state) {
+      if (!activeNodes) return;
+      activeNodes.forEach(function (node) {
+        node.setAttribute('data-cloud-sync-status', state);
+        var text = node.querySelector('.cloud-sync-indicator__text');
+        if (text) text.textContent = COPY[state] || COPY.anonymous;
+        // Hide the badge entirely when the user is anonymous and the
+        // page already says "Saved on this device" elsewhere - keeps
+        // the surface uncluttered for the default case.
+        if (state === 'anonymous') node.setAttribute('hidden', '');
+        else node.removeAttribute('hidden');
+      });
+    }
+
+    window.addEventListener('pi:cloud-sync', function (e) {
+      var s = e && e.detail && e.detail.state;
+      if (s) apply(s);
+    });
+
     function bind() {
       var nodes = document.querySelectorAll('[data-cloud-sync-status]');
-      if (!nodes.length) return;
-
-      function apply(state) {
-        nodes.forEach(function (node) {
-          node.setAttribute('data-cloud-sync-status', state);
-          var text = node.querySelector('.cloud-sync-indicator__text');
-          if (text) text.textContent = COPY[state] || COPY.anonymous;
-          // Hide the badge entirely when the user is anonymous and the
-          // page already says "Saved on this device" elsewhere - keeps
-          // the surface uncluttered for the default case.
-          if (state === 'anonymous') node.setAttribute('hidden', '');
-          else node.removeAttribute('hidden');
-        });
-      }
+      activeNodes = nodes.length ? nodes : null;
+      if (!activeNodes) return;
 
       // Initial state derives from the body data attribute set by CloudSync.
       apply(document.body.getAttribute('data-cloud-sync') || 'anonymous');
-
-      window.addEventListener('pi:cloud-sync', function (e) {
-        var s = e && e.detail && e.detail.state;
-        if (s) apply(s);
-      });
     }
 
     bind();

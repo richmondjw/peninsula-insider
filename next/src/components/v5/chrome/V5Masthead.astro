@@ -142,6 +142,26 @@ const active = activePillar(path, section);
      a time. No focus-open, no hover-open. -->
 <script is:inline>
   (function () {
+    // Registered here rather than from initV5Mega(): that function re-runs on
+    // every astro:page-load, so a listener registered inside it would gain one
+    // copy per navigation. The `_v5MegaDocBound` flag used to hold that line;
+    // module scope runs exactly once, so the flag is no longer load-bearing.
+    // The handler resolves the open pillars at fire time, so it needs nothing
+    // from the page that was current when it was registered.
+    document.addEventListener('click', function (e) {
+      var t = e.target;
+      var inside = t && t.closest && t.closest('[data-v5-pillar]');
+      if (!inside) {
+        document.querySelectorAll('[data-v5-pillar].is-open').forEach(function (item) {
+          var panel = item.querySelector('[data-v5-mega]');
+          var trigger = item.querySelector('[data-v5-pillar-trigger]');
+          if (panel) panel.hidden = true;
+          if (trigger) trigger.setAttribute('aria-expanded', 'false');
+          item.classList.remove('is-open');
+        });
+      }
+    });
+
     function initV5Mega() {
       var items = document.querySelectorAll('[data-v5-pillar]');
       if (!items.length) return;
@@ -189,23 +209,6 @@ const active = activePillar(path, section);
           }
         });
       });
-
-      if (!document._v5MegaDocBound) {
-        document._v5MegaDocBound = true;
-        document.addEventListener('click', function (e) {
-          var t = e.target;
-          var inside = t && t.closest && t.closest('[data-v5-pillar]');
-          if (!inside) {
-            document.querySelectorAll('[data-v5-pillar].is-open').forEach(function (item) {
-              var panel = item.querySelector('[data-v5-mega]');
-              var trigger = item.querySelector('[data-v5-pillar-trigger]');
-              if (panel) panel.hidden = true;
-              if (trigger) trigger.setAttribute('aria-expanded', 'false');
-              item.classList.remove('is-open');
-            });
-          }
-        });
-      }
     }
 
     initV5Mega();
