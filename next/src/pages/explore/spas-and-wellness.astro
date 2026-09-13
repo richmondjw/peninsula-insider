@@ -6,6 +6,7 @@ import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import PiSaveActions from '../../components/PiSaveActions.astro';
 import { editableImage } from '../../lib/inline-edit/attrs';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
+import CorrectionNote from '../../components/CorrectionNote.astro';
 import {
   buildCollectionPageSchema,
   buildFaqSchema,
@@ -288,7 +289,8 @@ export const prerender = true;
         genuine spa and wellness options than most Australian regions manage across a
         whole state: thermal springs, treatment-focused day spas in converted
         properties, and resort spa facilities. Every spa below is editorially reviewed
-        and re-verified on a rolling basis.
+        against the operator's published information, and the date of that
+        check is stated at the foot of this page.
       </p>
 
       {ranked.map((s) => {
@@ -416,6 +418,10 @@ export const prerender = true;
       </div>
     </div>
   </section>
+
+  <div class="container">
+    <CorrectionNote surface="spa-hub" />
+  </div>
 
   <NewsletterBlock />
 </BaseLayout>

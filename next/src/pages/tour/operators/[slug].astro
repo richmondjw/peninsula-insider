@@ -5,6 +5,7 @@ import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import SubpageHero from '../../../components/SubpageHero.astro';
 import TourCard from '../../../components/TourCard.astro';
 import NewsletterBlock from '../../../components/NewsletterBlock.astro';
+import CorrectionNote from '../../../components/CorrectionNote.astro';
 import { buildOperatorProfileSchema } from '../../../lib/schema';
 
 export async function getStaticPaths() {
@@ -131,7 +132,7 @@ export const prerender = true;
       <div class="venues__grid venues__grid--links">
         <div class="pi-card"><div class="pi-card__body">
           <h3 class="pi-card__title"><a href="/tour/operators/">All operators</a></h3>
-          <p class="pi-card__dek">Compare all verified tour operators on the Peninsula.</p>
+          <p class="pi-card__dek">Compare every tour operator we have assessed on the Peninsula.</p>
           <div class="pi-card__actions"><a href="/tour/operators/" class="pi-btn pi-btn--solid">Browse operators &rarr;</a></div>
         </div></div>
         <div class="pi-card"><div class="pi-card__body">
@@ -142,6 +143,10 @@ export const prerender = true;
       </div>
     </div>
   </section>
+
+  <div class="container">
+    <CorrectionNote surface="tour-operator" />
+  </div>
 
   <NewsletterBlock />
 </BaseLayout>

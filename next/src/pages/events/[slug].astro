@@ -4,6 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import SubpageHero from '../../components/SubpageHero.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import CorrectionNote from '../../components/CorrectionNote.astro';
 import PlaceCard from '../../components/PlaceCard.astro';
 import { routeSlug } from '../../lib/editorial';
 
@@ -229,6 +230,10 @@ export const prerender = true;
       )}
     </div>
   </article>
+
+  <div class="container">
+    <CorrectionNote surface="event" />
+  </div>
 
   <NewsletterBlock />
 </BaseLayout>

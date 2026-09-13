@@ -11,6 +11,7 @@ import { getCollection } from 'astro:content';
 import { resolveHero } from '../lib/inline-edit/resolve-hero';
 import PlayRibbon from './play/PlayRibbon.astro';
 import MediaProvenanceNote from './MediaProvenanceNote.astro';
+import CorrectionNote from './CorrectionNote.astro';
 import { editableImage, editableText } from '../lib/inline-edit/attrs';
 import EstateCluster from './EstateCluster.astro';
 
@@ -934,6 +935,7 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
       <p class="venue-footnote__claim">
         Is this your venue? <a href="/partners/claim/">Claim it</a>
       </p>
+      <CorrectionNote compact surface="venue" />
     </div>
   </div>
 </div>
