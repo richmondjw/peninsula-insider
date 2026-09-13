@@ -319,6 +319,26 @@ const venues = defineCollection({
      * Venue status — for closed/paused venues.
      * Omit for active venues (defaults to active).
      */
+    /**
+     * Operational review marker, distinct from `status`.
+     *
+     * `status` is what the site renders. This is what the desk has recorded
+     * about the venue, including work still to do. They are deliberately
+     * separate: "someone should check this is still open" is not a state we
+     * want to publish, and there is no `status` value that means it.
+     *
+     * Declared here because it was already being written by editors and
+     * silently discarded. La Baracca carried `permanently-closed` plus a
+     * dated closure note from May to September 2026 and kept rendering as a
+     * live restaurant, because Zod strips keys it does not know about.
+     *
+     * Note the hyphen: these are the values already on disk. Do not "fix"
+     * them to match the underscore in `status` without migrating the data.
+     */
+    operatingStatus: z.enum(['verify-open', 'permanently-closed']).optional(),
+    /** Why and when a venue closed. Written alongside operatingStatus. */
+    closureNote: z.string().optional(),
+    closedDate: z.coerce.date().optional(),
     status: z.enum(['active', 'closed', 'paused', 'seasonal', 'permanently_closed']).default('active'),
     publishedAt: z.coerce.date(),
     sitemapExclude: z.boolean().default(false),
@@ -888,6 +908,18 @@ const events = defineCollection({
     primarySourceUrl: z.string().optional(),
     secondarySourceUrl: z.string().optional(),
     verificationStatus: z.string().optional(),
+    /**
+     * Import provenance, emitted by the event importer and, until now,
+     * thrown away on load. Twelve records carry the full triple.
+     *
+     * This is real evidence about where a record came from and when it was
+     * discovered, and it is the natural seed for the claim registry, so it
+     * is declared rather than deleted.
+     */
+    provenance: z.string().optional(),
+    source: z.string().optional(),
+    sourceUrl: z.string().optional(),
+    discoveredAt: z.coerce.date().optional(),
     lastCheckedDate: z.coerce.date().optional(),
     visitorAppealScore: z.number().min(0).max(5).optional(),
     editorialPriority: z.number().min(0).max(5).optional(),

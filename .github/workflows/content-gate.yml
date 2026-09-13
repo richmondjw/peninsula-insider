@@ -65,6 +65,7 @@ jobs:
         # (astro sync against src/content.config.ts).
         run: |
           cd next
+          npm run assert:schema-drift
           npm run validate:content
 
       - name: Explain failure
