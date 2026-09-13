@@ -339,7 +339,17 @@ export function isCancelledRecord(data) {
   if (!data) return false;
   return (
     data.cancelled === true ||
-    /cancelled/i.test(String(data.verificationStatus ?? '')) ||
+    // Matches the noun as well as the participle. One live record reads
+    // "Updated after organiser cancellation notice", which the participle
+    // alone missed, so a cancelled market was listed as running.
+    //
+    // The trade is deliberate and asymmetric: a false positive hides an event
+    // that is on, a false negative sends a reader to one that is off. Only the
+    // second wastes somebody's Saturday. Verified against every
+    // verificationStatus value in the corpus: exactly one record newly
+    // matches, and it is the cancelled one. A future "cancellation policy"
+    // would false-positive here and should be caught by review.
+    /cancell(ed|ation|ing)/i.test(String(data.verificationStatus ?? '')) ||
     /^cancelled:/i.test(String(data.summary ?? '')) ||
     data.skipThis === true
   );
