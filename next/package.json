@@ -60,6 +60,8 @@
     "assert:link-graph": "node scripts/audit-link-graph.mjs --dist dist --assert --json ../ops/reports/seo/link-graph.json",
     "audit:event-safeguards": "node scripts/audit-event-safeguards.mjs --json ../ops/reports/events/event-safeguards.json",
     "test:event-safeguards": "node --test scripts/audit-event-safeguards.test.mjs",
+    "test:event-occurrence": "node --test src/lib/event-occurrence.test.mjs",
+    "events:expire": "node scripts/expire-occurrences.mjs",
     "assert:event-safeguards": "node scripts/audit-event-safeguards.mjs --json ../ops/reports/events/event-safeguards.json --assert",
     "test:share-link": "node --test src/lib/saves/share-link.test.mjs",
     "test:saves-store": "node --test src/lib/saves/store.test.mjs src/lib/v5-store.test.mjs",

@@ -34,6 +34,7 @@ import {
   startOfDay,
 } from './_data';
 import { getAustralianSeasonLower } from '../../lib/season';
+import { schemaEventStatus } from '../../lib/event-occurrence.mjs';
 
 export const prerender = true;
 
@@ -47,7 +48,7 @@ const holidays = schoolHolidayWindow(now);
 const picks = await getPicks(events, weekend);
 const pickSlugs = new Set(picks.map((p) => p.live.slug));
 
-const dayGroups = groupByDay(events, weekend);
+const dayGroups = groupByDay(events, weekend, now);
 const weekendCount = dayGroups.reduce((n, g) => n + g.items.length, 0);
 
 const shelves = getShelves(events, now, pickSlugs).filter((s) => s.items.length > 0);
@@ -62,7 +63,25 @@ const truncate = (text: unknown, n = 200): string => {
 };
 const ldSeen = new Set<string>();
 const ldEvents: Record<string, any>[] = [];
-const pushLd = (live: (typeof events)[number], occursISO: string) => {
+const eventStatusFor = (
+  live: (typeof events)[number],
+  state?: { phase: string; statusLabel: string | null }
+): string | null => {
+  const data = live.event.data as Record<string, any>;
+  const status = data.cancelled === true ? 'cancelled' : data.postponed === true ? 'postponed' : 'scheduled';
+  return schemaEventStatus(status, { past: state?.phase === 'past' });
+};
+// PI-008: the ItemList used to stamp EventScheduled on every node, so a
+// sold-out night and a cancelled market both told search engines they were
+// going ahead as normal. Status now comes from the same resolver the page
+// renders from, and a finished occurrence emits no status at all (an
+// EventScheduled with a past endDate is what lint-seo-architecture.mjs fails
+// the build over).
+const pushLd = (
+  live: (typeof events)[number],
+  occursISO: string,
+  state?: { phase: string; statusLabel: string | null }
+) => {
   if (ldSeen.has(live.slug)) return;
   ldSeen.add(live.slug);
   const data = live.event.data as Record<string, any>;
@@ -79,7 +98,7 @@ const pushLd = (live: (typeof events)[number], occursISO: string) => {
     url: `${SITE_ORIGIN}${live.href}`,
     ...(imageUrl ? { image: imageUrl } : {}),
     description: truncate(data.summary),
-    eventStatus: 'https://schema.org/EventScheduled',
+    ...(eventStatusFor(live, state) ? { eventStatus: eventStatusFor(live, state) } : {}),
     eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
     location: {
       '@type': 'Place',
@@ -95,7 +114,11 @@ const pushLd = (live: (typeof events)[number], occursISO: string) => {
   });
 };
 for (const p of picks) pushLd(p.live, p.dateISO);
-for (const g of dayGroups) for (const it of g.items) pushLd(it.live, g.iso);
+for (const g of dayGroups) {
+  for (const it of g.items) {
+    pushLd(it.live, g.iso, { phase: it.phase, statusLabel: it.statusLabel });
+  }
+}
 const itemListLd = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
@@ -226,6 +249,9 @@ const pageDescription = `What is actually worth it on the Mornington Peninsula t
                     oneLiner={it.live.oneLiner}
                     meta={it.live.meta}
                     spanLabel={it.spanLabel}
+                    statusLabel={it.statusLabel}
+                    phase={it.phase}
+                    bookable={it.bookable}
                   />
                 ))}
               </ul>
@@ -402,7 +428,11 @@ const pageDescription = `What is actually worth it on the Mornington Peninsula t
       link.textContent = e.t;
       link.dataset.entitySlug = e.slug;
       row.querySelector<HTMLElement>('.wo-row__dek')!.textContent = e.d;
-      row.querySelector<HTMLElement>('.wo-row__meta')!.textContent = [e.m.join(' · '), spanLabel]
+      row.querySelector<HTMLElement>('.wo-row__meta')!.textContent = [
+        e.m.join(' · '),
+        spanLabel,
+        e.x ?? '',
+      ]
         .filter(Boolean)
         .join(' · ');
       const save = row.querySelector<HTMLElement>('[data-v5-save-control]');

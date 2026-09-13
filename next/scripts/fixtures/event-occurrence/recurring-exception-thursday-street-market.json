@@ -1,0 +1,38 @@
+{
+  "status": "published",
+  "publishedAt": "2026-01-01",
+  "lastCheckedDate": "2026-09-01",
+  "verification": "verified",
+  "recurrence": "weekly",
+  "slug": "recurring-exception-thursday-street-market",
+  "title": "Hastings Thursday street market",
+  "summary": "The weekly street market along the foreshore boulevard.",
+  "category": "market",
+  "venueName": "High Street, Hastings",
+  "suburb": "Hastings",
+  "recurrenceNote": "Every Thursday, all year.",
+  "startDate": "2026-07-02",
+  "startTime": "08:00",
+  "endTime": "13:00",
+  "occurrenceExceptions": [
+    {
+      "date": "2026-09-17",
+      "status": "cancelled",
+      "note": "Cancelled for one week while the boulevard is resurfaced.",
+      "sourceUrl": "https://example.com/hastings-market/roadworks"
+    },
+    {
+      "date": "2026-10-01",
+      "status": "moved",
+      "venueName": "Hastings Foreshore Reserve",
+      "note": "Relocated to the reserve for one week during the street festival.",
+      "sourceUrl": "https://example.com/hastings-market/relocated"
+    },
+    {
+      "date": "2026-10-08",
+      "status": "sold-out",
+      "note": "Stallholder ballot closed early; the market runs as normal for visitors.",
+      "sourceUrl": "https://example.com/hastings-market/stalls"
+    }
+  ]
+}

@@ -14,6 +14,8 @@
 
 import { rotateByMelbourneHours } from '../../../lib/daily-rotation';
 import { eventIsUnqualifiedFree } from '../../../lib/event-access.mjs';
+import { USE_OCCURRENCE_MODEL } from '../../../lib/features';
+import { recordDisposition } from '../../../lib/event-occurrence.mjs';
 export interface WeekendWindow {
   /** ISO date (YYYY-MM-DD) of the weekend's Saturday, Melbourne calendar. */
   satISO: string;
@@ -44,9 +46,21 @@ function isoOf(d: Date): string {
 }
 
 /**
- * The weekend the homepage speaks about. Monday to Saturday point at the
- * coming (or current) Saturday; Sunday still belongs to the weekend that
- * started yesterday.
+ * The PROMOTION weekend: labelled Saturday to Sunday, the weekend the homepage
+ * speaks about. Monday to Saturday point at the coming (or current) Saturday;
+ * Sunday still belongs to the weekend that started yesterday.
+ *
+ * This is deliberately NOT the hub's window, which is Friday to Sunday (see
+ * weekendWindow in pages/whats-on/_data.ts). Both are kept because they answer
+ * different questions, and PI-008 labels the pair rather than merging them:
+ *
+ *   selection  Fri to Sun   whats-on/_data.ts     what may be listed
+ *   promotion  Sat to Sun   this function         what is spoken about
+ *
+ * The label prints Saturday to Sunday; occursOnWeekend below still bounds on
+ * `friday`, so a Friday-night event can be promoted under a Sat-Sun headline.
+ * That is the intended editorial reading of "this weekend", not a bug, and it
+ * is written down here so nobody has to rediscover it from the arithmetic.
  */
 export function weekendWindow(now: Date = new Date()): WeekendWindow {
   const mel = melbourneNow(now);
@@ -96,6 +110,12 @@ export function isLiveEvent(e: any): boolean {
   // event carries the weekend-pick lens (+20 in fallbackScore). Without this
   // test the homepage rail would promote an event that is not happening.
   if (e.data.cancelled) return false;
+  // PI-008. The homepage rail is the site's strongest recommendation, so it
+  // holds to the promotable bar rather than the listable one: a postponement
+  // with no new date, an expired listing, a sold-out night, or a record whose
+  // source changed after we last verified it all stay on the hub and off the
+  // front page. Inert when the occurrence model is flagged off.
+  if (USE_OCCURRENCE_MODEL && !recordDisposition(e.data, new Date()).promotable) return false;
   return Boolean(e.data.title);
 }
 

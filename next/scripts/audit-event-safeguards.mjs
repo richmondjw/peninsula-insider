@@ -2,10 +2,12 @@
 /**
  * audit-event-safeguards.mjs — the What's On safeguard gate.
  *
- * Five safeguards are meant to stand between the event corpus and a reader:
+ * Six safeguards are meant to stand between the event corpus and a reader:
  * source last-verified expiry, duplicate records, recurring-event validity,
- * applicable dates/seasons, and cancellations. Three of them were already
- * enforced in code when this script was written (2026-08-29):
+ * applicable dates/seasons, cancellations, and (PI-008, 2026-09-13) the
+ * occurrence model: postponement, booking status, occurrence-level exceptions
+ * and the records the model refuses to decide on its own. Three of the first
+ * five were already enforced in code when this script was written (2026-08-29):
  *
  *   - recurring validity + applicable seasons : whats-on/_data.ts ruleFor()
  *     derives ONE occurrence rule per event and refuses to invent a cadence
@@ -37,11 +39,21 @@
  *
  * --today pins "now" so the time-driven verification-age numbers can be tested
  * against a future date instead of only against the day the test happens to run.
+ *
+ * PI-008 added four metrics, and every one of them was designed against the
+ * constraint in the ASSERTED_METRICS comment below: they compare stored fields
+ * with stored fields and never consult the calendar, so none of them can start
+ * failing on a quiet Tuesday with no content change. Expiry itself is NOT
+ * measured here for exactly that reason - a record expiring on schedule is the
+ * system working, not a regression - and lives in the expiry job's own report
+ * (ops/reports/events/event-expiry-exceptions.json) instead.
  */
 
 import { fileURLToPath } from 'node:url';
 import { readFile, readdir, writeFile, mkdir } from 'node:fs/promises';
 import path from 'node:path';
+
+import { occurrenceExceptionQueue } from '../src/lib/event-occurrence.mjs';
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 const DEFAULT_EVENTS_DIR = path.join(REPO, 'next', 'src', 'content', 'events');
@@ -83,6 +95,12 @@ const ASSERTED_METRICS = new Set([
   'duplicateVenueDateGroups',
   'unresolvableRecurrence',
   'cancelledWithoutProvenance',
+  // PI-008. All four are author-introducible and clock-independent, which is
+  // the only test for admission to this set.
+  'postponedWithoutProvenance',
+  'occurrenceQueueEntries',
+  'freeTextVerificationStatus',
+  'unboundedOccurrence',
 ]);
 
 const normalise = (value) =>
@@ -121,6 +139,7 @@ async function main() {
 
   const live = [];
   const cancelled = [];
+  const postponed = [];
   for (const rel of files) {
     const abs = path.join(EVENTS_DIR, rel);
     let data;
@@ -132,6 +151,7 @@ async function main() {
       continue;
     }
     if (data.cancelled === true) cancelled.push({ file: rel, data });
+    if (data.postponed === true) postponed.push({ file: rel, data });
     if (isLive(data, rel)) live.push({ file: rel, data });
   }
 
@@ -258,6 +278,54 @@ async function main() {
     .filter(({ data }) => !data.cancellationSourceUrl && !data.cancellationNote)
     .map(({ file }) => file);
 
+  // ── 6. the occurrence model (PI-008) ──────────────────────────────────────
+  // A postponement is a claim about the world exactly as a cancellation is, so
+  // it carries the same evidence burden: say who says so, or do not say it.
+  const postponedWithoutProvenance = postponed
+    .filter(({ data }) => !data.postponementSourceUrl && !data.postponementNote)
+    .map(({ file }) => file);
+
+  // Everything the occurrence model will not decide on its own, across the live
+  // corpus: a postponement with no new date, a source that changed after the
+  // last verification, a midnight crossing nobody disambiguated, an exception
+  // entry pointing at nothing. The expiry job writes the same list to
+  // ops/reports/events/event-expiry-exceptions.json for a human to work
+  // through; the gate here only stops the queue growing. Every class compares
+  // stored fields with stored fields, so the count is a property of the corpus
+  // and not of the date.
+  const occurrenceQueue = [];
+  for (const { file, data } of live) {
+    for (const entry of occurrenceExceptionQueue(data)) {
+      occurrenceQueue.push({ file, kind: entry.kind, detail: entry.detail });
+    }
+  }
+  const occurrenceQueueByKind = occurrenceQueue.reduce(
+    (acc, q) => ({ ...acc, [q.kind]: (acc[q.kind] ?? 0) + 1 }),
+    {}
+  );
+
+  // verificationStatus on events is free text: a dozen spellings across 22
+  // records, one of them a 280-word paragraph, and the only code that ever read
+  // it did so with a /cancelled/i regex. The signature-events collection has
+  // modelled the same idea as a three-value enum since it was written. PI-008
+  // adds that enum to events without deleting the prose, and ratchets the
+  // free-text count so it can shrink but never grow. Migrating the existing 22
+  // is editorial work, not a deploy gate.
+  const freeTextVerificationStatus = live
+    .filter(({ data }) => data.verificationStatus && !data.verification)
+    .map(({ file }) => file)
+    .sort();
+
+  // A start time with no end time means the occurrence has to be treated as
+  // running until midnight, which is what every surface already assumed. The
+  // model deliberately does not invent a duration to replace that guess; it
+  // counts the records relying on it so the corpus can be improved one record
+  // at a time. Ratcheted, so a new record cannot add to the pile.
+  const unboundedOccurrence = live
+    .filter(({ data }) => data.startTime && !data.endTime)
+    .map(({ file }) => file)
+    .sort();
+
   const report = {
     generatedAt: new Date().toISOString(),
     asOf: today.toISOString().slice(0, 10),
@@ -272,6 +340,11 @@ async function main() {
       duplicateVenueDateGroups: duplicateVenueDates.length,
       unresolvableRecurrence: unresolvableRecurrence.length,
       cancelledWithoutProvenance: cancelledWithoutProvenance.length,
+      postponedEvents: postponed.length,
+      postponedWithoutProvenance: postponedWithoutProvenance.length,
+      occurrenceQueueEntries: occurrenceQueue.length,
+      freeTextVerificationStatus: freeTextVerificationStatus.length,
+      unboundedOccurrence: unboundedOccurrence.length,
     },
     missingVerificationDate: missingVerification.sort(),
     staleVerificationDate: staleVerification,
@@ -279,6 +352,11 @@ async function main() {
     duplicateVenueDateGroups: duplicateVenueDates,
     unresolvableRecurrence,
     cancelledWithoutProvenance,
+    postponedWithoutProvenance,
+    occurrenceQueue,
+    occurrenceQueueByKind,
+    freeTextVerificationStatus,
+    unboundedOccurrence,
   };
 
   const t = report.totals;
@@ -293,6 +371,11 @@ async function main() {
   console.log('  Recurrence & cancellation');
   console.log(`    unresolvable recurrence ..... ${t.unresolvableRecurrence}   [gated]`);
   console.log(`    cancelled w/o provenance .... ${t.cancelledWithoutProvenance}   [gated]`);
+  console.log(`  Occurrence model (${t.postponedEvents} postponed)`);
+  console.log(`    postponed w/o provenance .... ${t.postponedWithoutProvenance}   [gated]`);
+  console.log(`    exception queue entries ..... ${t.occurrenceQueueEntries}   [gated]`);
+  console.log(`    free-text verificationStatus  ${t.freeTextVerificationStatus}   [gated, ratchet down]`);
+  console.log(`    start time, no end time ..... ${t.unboundedOccurrence}   [gated, ratchet down]`);
   console.log('');
 
   for (const g of [...duplicateTitles, ...duplicateVenueDates]) {
@@ -304,6 +387,12 @@ async function main() {
   }
   for (const f of cancelledWithoutProvenance) {
     console.log(`    NO SOURCE  ${f} is cancelled with neither a note nor a source URL`);
+  }
+  for (const f of postponedWithoutProvenance) {
+    console.log(`    NO SOURCE  ${f} is postponed with neither a note nor a source URL`);
+  }
+  for (const q of occurrenceQueue) {
+    console.log(`    QUEUED     ${q.file} (${q.kind}): ${q.detail}`);
   }
 
   if (JSON_OUT) {

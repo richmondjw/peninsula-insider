@@ -59,6 +59,7 @@ jobs:
           npm run test:firsthand-claims
           npm run test:agent-readiness
           npm run test:event-safeguards
+          npm run test:event-occurrence
 
       - name: Content admission gate
         # Placeholder markers + real Astro collection-schema validation
