@@ -31,7 +31,13 @@
           "Tuesday",
           "Wednesday",
           "Thursday",
-          "Friday",
+          "Friday"
+        ],
+        "opens": "11:30",
+        "closes": "16:30"
+      },
+      {
+        "days": [
           "Saturday",
           "Sunday"
         ],
@@ -41,7 +47,7 @@
     ],
     "tastingFee": "Charged",
     "bookingRequired": false,
-    "tastingNote": "Walk-ins welcome for groups of 1\u20138; tasting fee redeemable on a qualifying purchase. Wine & Cheese tasting also available."
+    "tastingNote": "Walk-ins welcome for groups of 1\u20136; tasting fee redeemable on a qualifying purchase. Wine & Cheese tasting also available."
   },
   "wines": {
     "winemaker": "Simon Black",
@@ -78,7 +84,7 @@
   "faq": [
     {
       "q": "Does Montalto take walk-ins or do you need to book?",
-      "a": "Walk-ins are welcome for groups of 1\u20138 people. Bookings are available for those who prefer a reserved session. The restaurant requires a separate booking."
+      "a": "Walk-ins are welcome for groups of 1\u20136 people. Bookings are available for those who prefer a reserved session. The restaurant requires a separate booking."
     },
     {
       "q": "Does Montalto have a restaurant?",

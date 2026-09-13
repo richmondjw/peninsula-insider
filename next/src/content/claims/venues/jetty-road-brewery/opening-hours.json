@@ -1,0 +1,20 @@
+{
+  "claimId": "venues/jetty-road-brewery/opening-hours",
+  "claimClass": "opening-hours",
+  "subject": {
+    "type": "venues",
+    "slug": "jetty-road-brewery",
+    "field": "visiting.openingHours"
+  },
+  "statement": "Jetty Road Brewery is open Wednesday and Thursday from midday to 9pm, Friday and Saturday from midday to 11pm, and Sunday from midday to 8pm.",
+  "assertedBy": [
+    {
+      "type": "venues",
+      "slug": "jetty-road-brewery",
+      "field": "visiting.openingHours"
+    }
+  ],
+  "createdAt": "2026-09-13",
+  "origin": "authored",
+  "note": "The operator publishes the same seven day pattern the record carries, including the Monday and Tuesday closure the record expresses by omission. Authored by hand for the PI-005 Stage 2 venue pilot. Sources were read on 2026-09-13; see ops/reports/claims/2026-09-13-pilot-venues.md."
+}

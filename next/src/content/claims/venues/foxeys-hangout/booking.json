@@ -1,0 +1,20 @@
+{
+  "claimId": "venues/foxeys-hangout/booking",
+  "claimClass": "booking",
+  "subject": {
+    "type": "venues",
+    "slug": "foxeys-hangout",
+    "field": "visiting.bookingRequired"
+  },
+  "statement": "The cellar door at Foxeys Hangout does not take bookings; tastings are walk-in only.",
+  "assertedBy": [
+    {
+      "type": "venues",
+      "slug": "foxeys-hangout",
+      "field": "visiting.bookingRequired"
+    }
+  ],
+  "createdAt": "2026-09-13",
+  "origin": "authored",
+  "note": "Not sourced, for the same reachability reason as the hours claim on this venue. Authored by hand for the PI-005 Stage 2 venue pilot. Sources were read on 2026-09-13; see ops/reports/claims/2026-09-13-pilot-venues.md."
+}

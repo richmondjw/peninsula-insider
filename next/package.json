@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "node scripts/clear-content-cache.mjs && npm run media:registry && npm run lint:no-pricing && npm run lint:house-style && npm run lint:firsthand-claims && npm run lint:region-images && npm run lint:surfaces && npm run lint:listener-hygiene && npm run lint:search-privacy && npm run lint:licence-default && npm run lint:rls-editor-gate && npm run lint:nav-budget && npm run lint:css-budget && npm run lint:coordinates && astro build && npm run lint:no-hidden-pages && npm run lint:seo-architecture && npm run lint:filter-chips && npm run audit:agent-readiness && npm run assert:link-graph && npm run assert:event-safeguards && npm run assert:provenance-dates && npm run assert:schema-drift && npm run assert:unschemad-closures && npm run assert:closed-venues && npm run assert:commercial-firewall && npm run assert:media-provenance && npm run assert:count-semantics && npm run assert:campaigns-review-page && npm run assert:partner-portal-dashboard",
+    "build": "node scripts/clear-content-cache.mjs && npm run media:registry && npm run lint:no-pricing && npm run lint:house-style && npm run lint:firsthand-claims && npm run lint:region-images && npm run lint:surfaces && npm run lint:listener-hygiene && npm run lint:search-privacy && npm run lint:licence-default && npm run lint:rls-editor-gate && npm run lint:nav-budget && npm run lint:css-budget && npm run lint:coordinates && astro build && npm run lint:no-hidden-pages && npm run lint:seo-architecture && npm run lint:filter-chips && npm run audit:agent-readiness && npm run assert:link-graph && npm run assert:event-safeguards && npm run assert:provenance-dates && npm run assert:schema-drift && npm run assert:unschemad-closures && npm run assert:closed-venues && npm run assert:commercial-firewall && npm run assert:media-provenance && npm run assert:count-semantics && npm run assert:claim-support && npm run assert:campaigns-review-page && npm run assert:partner-portal-dashboard",
     "build:search": "npm run build && npx pagefind --site dist",
     "preview": "astro preview",
     "astro": "astro",
@@ -75,6 +75,9 @@
     "test:count-semantics": "node --test scripts/count-semantics.test.mjs",
     "seed:claim-registry": "node scripts/seed-claim-registry.mjs",
     "test:claim-registry": "node --test scripts/seed-claim-registry.test.mjs",
+    "audit:claim-support": "node scripts/audit-claim-support.mjs",
+    "assert:claim-support": "node scripts/audit-claim-support.mjs --assert",
+    "test:claim-support": "node --test scripts/audit-claim-support.test.mjs",
     "migrate:event-claims": "node scripts/migrate-event-claims.mjs",
     "test:event-claims": "node --test scripts/migrate-event-claims.test.mjs",
     "verify:claims": "node scripts/run-verification-loop.mjs",

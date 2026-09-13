@@ -1,0 +1,20 @@
+{
+  "claimId": "venues/paradigm-hill/opening-hours",
+  "claimClass": "opening-hours",
+  "subject": {
+    "type": "venues",
+    "slug": "paradigm-hill",
+    "field": "visiting.openingHours"
+  },
+  "statement": "The cellar door at Paradigm Hill is open every Saturday and Sunday from midday to 5pm.",
+  "assertedBy": [
+    {
+      "type": "venues",
+      "slug": "paradigm-hill",
+      "field": "visiting.openingHours"
+    }
+  ],
+  "createdAt": "2026-09-13",
+  "origin": "authored",
+  "note": "Unsupported, and disputed by the operator. No record was changed on the strength of a dispute: the operator publishes no hours at all, so a source read can say the record is wrong without saying what is right. The record also contradicts itself, because its own tastingNote limits walk-in access to the first weekend of each month while the openingHours array beside it asserts every weekend and is the field that reaches JSON-LD. An editor has to ask the operator. Authored by hand for the PI-005 Stage 2 venue pilot. Sources were read on 2026-09-13; see ops/reports/claims/2026-09-13-pilot-venues.md."
+}

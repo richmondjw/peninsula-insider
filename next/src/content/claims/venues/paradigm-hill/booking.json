@@ -1,0 +1,20 @@
+{
+  "claimId": "venues/paradigm-hill/booking",
+  "claimClass": "booking",
+  "subject": {
+    "type": "venues",
+    "slug": "paradigm-hill",
+    "field": "visiting.bookingRequired"
+  },
+  "statement": "A visit to the Paradigm Hill cellar door requires an appointment.",
+  "assertedBy": [
+    {
+      "type": "venues",
+      "slug": "paradigm-hill",
+      "field": "visiting.bookingRequired"
+    }
+  ],
+  "createdAt": "2026-09-13",
+  "origin": "authored",
+  "note": "The one claim in this pilot the operator states in so many words. Authored by hand for the PI-005 Stage 2 venue pilot. Sources were read on 2026-09-13; see ops/reports/claims/2026-09-13-pilot-venues.md."
+}
