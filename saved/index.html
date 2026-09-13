@@ -1418,7 +1418,12 @@ const eventLookup = {"acoustic-saturdays-peppers-moonah-links-2026":{"slug":"aco
         btn._piRemoveBound = true;
         btn.addEventListener('click', function () {
           if (!window.PISave) return;
-          window.PISave.toggle(btn.getAttribute('data-kind'), btn.getAttribute('data-slug'), '', '');
+          var kind = btn.getAttribute('data-kind');
+          var slug = btn.getAttribute('data-slug');
+          // The button says Remove, so it only ever removes. toggle() on an
+          // item that is already gone would save it back.
+          if (!window.PISave.isSaved(kind, slug)) return;
+          window.PISave.toggle(kind, slug, '', '');
         });
       });
     }
@@ -1480,7 +1485,13 @@ const eventLookup = {"acoustic-saturdays-peppers-moonah-links-2026":{"slug":"aco
     if (clearBtn) {
       clearBtn.addEventListener('click', function () {
         if (!window.PISave) return;
-        if (window.confirm('Clear your entire saved shortlist?')) window.PISave.clear();
+        // This page renders venues and events only. An unscoped clear() wipes
+        // all nine save kinds, so saved articles, places, itineraries, tours
+        // and packages would be destroyed from a surface that never showed
+        // them. Clear exactly what is on screen, and say so.
+        if (!window.confirm('Remove every saved venue and event from this device? Anything else you have saved stays.')) return;
+        window.PISave.clear('venue');
+        window.PISave.clear('event');
       });
     }
 
@@ -1507,7 +1518,10 @@ const eventLookup = {"acoustic-saturdays-peppers-moonah-links-2026":{"slug":"aco
     }
 
     refresh();
-    window.addEventListener('pi:save-changed', refresh);
+    // The saves stores dispatch `pi:saves-changed`; there has never been a
+    // `pi:save-changed` anywhere in the codebase, so this page used to sit
+    // deaf to its own Remove button.
+    window.addEventListener('pi:saves-changed', refresh);
     document.addEventListener('astro:page-load', refresh);
   })();
 })();</script>
