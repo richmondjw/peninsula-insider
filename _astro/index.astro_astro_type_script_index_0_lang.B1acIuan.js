@@ -1,4 +1,4 @@
-import{m as y}from"./store.5aagrIxF.js";import{e as g,b as _,a as b}from"./v5-store.B2SbLRJc.js";import{d as k}from"./share-link.Bplfi8Hs.js";import{t as f}from"./analytics.B38B-A80.js";const v={article:{plural:"Articles",eyebrow:"To read"},venue:{plural:"Venues",eyebrow:"To visit"},place:{plural:"Places",eyebrow:"To explore"},event:{plural:"Events",eyebrow:"What's on"},experience:{plural:"Walks & Experiences",eyebrow:"Outdoors"},itinerary:{plural:"Plans",eyebrow:"Weekend plans"},tour:{plural:"Tours",eyebrow:"Guided"},"tour-operator":{plural:"Tour Operators",eyebrow:"Operators"},"tour-package":{plural:"Tour Packages",eyebrow:"Packages"}};function u(t){return t.replace(/[&<>"']/g,e=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[e])}function w(t){return t.replace(/["\\]/g,e=>`\\${e}`)}function h(t){const e=v[t.kind];return`
+import{m as y}from"./store.5aagrIxF.js";import{e as g,b as _,a as b}from"./v5-store.B2SbLRJc.js";import{d as k}from"./share-link.DFW_xgSk.js";import{t as f}from"./analytics.B38B-A80.js";const v={article:{plural:"Articles",eyebrow:"To read"},venue:{plural:"Venues",eyebrow:"To visit"},place:{plural:"Places",eyebrow:"To explore"},event:{plural:"Events",eyebrow:"What's on"},experience:{plural:"Walks & Experiences",eyebrow:"Outdoors"},itinerary:{plural:"Plans",eyebrow:"Weekend plans"},tour:{plural:"Tours",eyebrow:"Guided"},"tour-operator":{plural:"Tour Operators",eyebrow:"Operators"},"tour-package":{plural:"Tour Packages",eyebrow:"Packages"}};function u(t){return t.replace(/[&<>"']/g,e=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[e])}function w(t){return t.replace(/["'\\]/g,e=>`\\${e}`)}function h(t){const e=v[t.kind];return e?`
       <a class="saved-card" href="${u(t.href)}">
         ${t.image_url?`<div class="saved-card__img" style="background-image: url('${w(t.image_url)}');"></div>`:'<div class="saved-card__img saved-card__img--blank"></div>'}
         <div class="saved-card__body">
@@ -6,7 +6,7 @@ import{m as y}from"./store.5aagrIxF.js";import{e as g,b as _,a as b}from"./v5-st
           <h3 class="saved-card__title">${u(t.title)}</h3>
           ${t.dek?`<p class="saved-card__dek">${u(t.dek)}</p>`:""}
         </div>
-      </a>`}function $(t){if(t.length===0)return"";const e=new Map;for(const s of t){const o=e.get(s.kind)??[];o.push(s),e.set(s.kind,o)}return["itinerary","event","venue","experience","place","article","tour-package","tour","tour-operator"].filter(s=>e.has(s)).map(s=>{const o=e.get(s),a=v[s];return`
+      </a>`:""}function $(t){if(t.length===0)return"";const e=new Map;for(const s of t){const o=e.get(s.kind)??[];o.push(s),e.set(s.kind,o)}return["itinerary","event","venue","experience","place","article","tour-package","tour","tour-operator"].filter(s=>e.has(s)).map(s=>{const o=e.get(s),a=v[s];return`
           <section class="saved-group">
             <header class="saved-group__head">
               <p class="saved-group__eyebrow">${u(a.eyebrow)}</p>
