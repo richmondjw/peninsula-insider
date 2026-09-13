@@ -6,7 +6,9 @@ houseByline: true
 publishedAt: 2026-09-12
 heroImage:
   src: "/images/sourced/place-merricks-01.webp"
-  alt: "Vineyard Merricks Grove Victoria Australia - representative image for Elgee Park"
+  alt: "Rows of trellised vines in early leaf running across a slope to a tall cypress windbreak."
+  depicts: "rows of trellised vines running to a cypress windbreak"
+  depictionStatus: "illustrative"
   credit: "BrooksieG"
   license: "wikimedia-cc-by"
 format: "insider-edit"

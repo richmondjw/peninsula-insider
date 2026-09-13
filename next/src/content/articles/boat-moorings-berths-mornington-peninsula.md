@@ -6,7 +6,9 @@ houseByline: true
 publishedAt: 2026-08-21
 heroImage:
   src: "/images/sourced/place-mornington-01.webp"
-  alt: "Mornington waterfront and pier, Victoria - representative image for boat moorings and berths on the Mornington Peninsula"
+  alt: "Brightly painted bathing boxes along a sandy beach, people on the sand and houses among trees on the hillside above."
+  depicts: "brightly painted bathing boxes along a bay beach below a wooded hillside"
+  depictionStatus: "illustrative"
   credit: "Simon Yeo"
   license: "wikimedia-cc-by"
 format: "service"

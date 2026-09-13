@@ -6,7 +6,9 @@ houseByline: true
 publishedAt: 2026-04-10
 heroImage:
   src: "/images/sourced/category-restaurant-01.webp"
-  alt: "A couple studying a chalkboard menu outside a Peninsula pub on a Saturday afternoon - representative image"
+  alt: "A dimly lit bar with pendant lamps, a chalkboard beer list, spirits on the back shelf and stools drawn up to a copper-topped counter."
+  depicts: "a dimly lit bar with a chalkboard beer list and stools at the counter"
+  depictionStatus: "illustrative"
   credit: "Peninsula Insider"
   license: "tmp-unsplash"
 format: "service"

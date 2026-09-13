@@ -6,7 +6,10 @@ houseByline: true
 publishedAt: 2026-09-04
 heroImage:
   src: "/images/sourced/place-balnarring-01.webp"
-  alt: "Balnarring, Mornington Peninsula - representative image for The Heritage Balnarring"
+  alt: ""
+  depicts: "a bay beach with a tideline of seaweed, curving to a wooded point under a grey sky"
+  depictionStatus: "illustrative"
+  decorative: true
   credit: "Peninsula Insider"
   license: "other-licensed"
 format: "insider-edit"

@@ -6,7 +6,9 @@ houseByline: true
 publishedAt: 2026-04-17
 heroImage:
   src: "/images/sourced/dog-lifestyle-hero-01.webp"
-  alt: "Dog-friendly Peninsula cottage stay with outdoor space - representative image"
+  alt: "A chocolate Labrador looking up at the camera and licking its nose, on a footpath."
+  depicts: "a chocolate Labrador looking up at the camera"
+  depictionStatus: "illustrative"
   credit: "Unsplash"
   license: "tmp-unsplash"
 format: "service"

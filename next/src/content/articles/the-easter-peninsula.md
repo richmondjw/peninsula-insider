@@ -6,7 +6,9 @@ houseByline: true
 publishedAt: 2026-04-17
 heroImage:
   src: "/images/sourced/article-cellar-door-01.webp"
-  alt: "An Easter Sunday brunch table on a Peninsula garden terrace with hot cross buns and chocolate eggs - representative image"
+  alt: "A bunch of dark purple wine grapes ripening on the vine, close up among green vine leaves."
+  depicts: "a close-up of dark wine grapes ripening on the vine"
+  depictionStatus: "illustrative"
   credit: "Peninsula Insider"
   license: "tmp-unsplash"
 format: "service"

@@ -6,7 +6,9 @@ houseByline: true
 publishedAt: 2026-08-01
 heroImage:
   src: "/images/sourced/explore-cape-schanck-boardwalk-01.webp"
-  alt: "Mornington Peninsula landscape - representative image for St Andrews Beach Brewery"
+  alt: "A timber boardwalk above the ochre cliffs and black rock shore at Cape Schanck, with a sea stack offshore."
+  depicts: "the boardwalk above the cliffs and rock shore at Cape Schanck"
+  depictionStatus: "illustrative"
   credit: "Peninsula Insider"
   license: "other-licensed"
 format: "insider-edit"
