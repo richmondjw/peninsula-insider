@@ -369,26 +369,79 @@ create trigger corrections_log_transition
   for each row execute function pi.corrections_log_transition();
 
 
--- Flip contact_provided when the contact row lands. The client cannot set
--- this itself (the anon insert policy forces it false), so the flag always
--- reflects reality.
+-- Flip contact_provided when the contact row lands, changes or GOES AWAY. The
+-- client cannot set this itself (the anon insert policy forces it false), so
+-- the flag always reflects reality.
+--
+-- DELETE is in the trigger's event list for a reason. pi.correction_reporters
+-- carries `grant update, delete ... to authenticated`, because erasure is the
+-- whole argument for putting contact in its own table: "one row removed; the
+-- case, its evidence and its full audit history survive intact" (see the
+-- header). As first written this trigger fired on insert and update only, so
+-- that row could be deleted and:
+--
+--   * pi.corrections.contact_provided stayed TRUE. The queue's whole purpose
+--     for that column is to show answerability without reading personal data,
+--     so it would go on saying "can be answered" about a case whose address no
+--     longer exists - and an editor would go looking for it in the one table
+--     that is not there.
+--   * pi.correction_events recorded nothing. The log is advertised as
+--     append-only and complete, and a deletion an editor performed
+--     deliberately is exactly the kind of decision it exists to hold.
+--
+-- So an erasure is now both reflected and recorded. The event carries no part
+-- of what was removed - that is the point of removing it - only that it was.
+--
+-- The row_count guard distinguishes the two ways this row disappears. On a
+-- deliberate erasure the case is still there and the UPDATE finds it. On a
+-- cascade from `delete from pi.corrections`, the parent row is already gone by
+-- the time the RI trigger runs, the UPDATE matches nothing, and no event is
+-- written - which is correct twice over: there is nothing left to annotate,
+-- and the foreign key would refuse the row anyway.
 create or replace function pi.correction_reporters_mark_contact()
 returns trigger
 language plpgsql
 security definer
 set search_path = pi, public
 as $$
+declare
+  target     uuid;
+  answerable boolean;
+  touched    integer;
 begin
+  if tg_op = 'DELETE' then
+    target := old.correction_id;
+    answerable := false;
+  else
+    target := new.correction_id;
+    answerable := (new.contact_preference = 'email' and coalesce(new.contact_email, '') <> '');
+  end if;
+
   update pi.corrections
-     set contact_provided = (new.contact_preference = 'email' and coalesce(new.contact_email, '') <> '')
-   where id = new.correction_id;
+     set contact_provided = answerable
+   where id = target;
+  get diagnostics touched = row_count;
+
+  if tg_op = 'DELETE' and touched = 1 then
+    insert into pi.correction_events (
+      correction_id, event_type, actor_user_id, actor_label, detail
+    )
+    values (
+      target, 'note', auth.uid(), 'editor',
+      'Reporter contact details removed. The case stands; it can no longer be answered.'
+    );
+  end if;
+
+  if tg_op = 'DELETE' then
+    return old;
+  end if;
   return new;
 end;
 $$;
 
 drop trigger if exists correction_reporters_mark_contact on pi.correction_reporters;
 create trigger correction_reporters_mark_contact
-  after insert or update on pi.correction_reporters
+  after insert or update or delete on pi.correction_reporters
   for each row execute function pi.correction_reporters_mark_contact();
 
 
@@ -574,6 +627,23 @@ grant select, insert on pi.correction_events    to authenticated;
 -- select event_type, from_status, to_status from pi.correction_events
 --   where correction_id = (select id from pi.corrections where case_ref = 'PI-C-TEST00-0000')
 --   order by created_at;              -- expect 4 rows, oldest 'received'
+--
+-- -- Erasure is reflected in the flag and recorded in the log, and carries none
+-- -- of what it removed:
+-- insert into pi.correction_reporters (correction_id, contact_email)
+-- values ((select id from pi.corrections where case_ref = 'PI-C-TEST00-0000'),
+--         'test@example.com');
+-- select contact_provided from pi.corrections
+--   where case_ref = 'PI-C-TEST00-0000';                          -- expect true
+-- delete from pi.correction_reporters
+--  where correction_id = (select id from pi.corrections where case_ref = 'PI-C-TEST00-0000');
+-- select contact_provided from pi.corrections
+--   where case_ref = 'PI-C-TEST00-0000';                          -- expect false
+-- select event_type, detail from pi.correction_events
+--   where correction_id = (select id from pi.corrections where case_ref = 'PI-C-TEST00-0000')
+--     and event_type = 'note';        -- expect 1 row, no address in the detail
+--
+-- -- And a cascade writes no orphan event:
 -- delete from pi.corrections where case_ref = 'PI-C-TEST00-0000';
 --
 --

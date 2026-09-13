@@ -82,6 +82,7 @@ jobs:
           npm run test:season
           npm run test:nav
           npm run test:corrections
+          npm run test:corrections-queue
           npm run test:partner-enquiry
           npm run test:agent-readiness
           npm run test:event-safeguards
