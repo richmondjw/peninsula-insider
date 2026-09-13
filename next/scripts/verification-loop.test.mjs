@@ -392,7 +392,7 @@ test('a claim whose subject no reader can reach stays out of the worklist', asyn
 /* The gaps the loop must not paper over                                */
 /* ------------------------------------------------------------------ */
 
-test('claim classes with no evidence are reported as blind spots, not as all-clear', async () => {
+test('a claim class with no evidence is reported as a blind spot, not as all-clear', async () => {
   const corpus = await loadCorpus({ nextDir: NEXT });
   const scored = scoreCorpus(corpus, TODAY);
   assert.ok(scored.length > 0);
@@ -406,11 +406,34 @@ test('claim classes with no evidence are reported as blind spots, not as all-cle
   const data = JSON.parse(await readFile(out, 'utf8'));
   await rm(dir, { recursive: true, force: true });
 
-  // Nothing in this corpus attaches a source to opening hours, accessibility
-  // or a rate change. The loop reports nothing about those three, and that
-  // silence is an absence of looking rather than a clean bill of health.
-  const named = data.blindSpots.map((row) => row.claimClass).sort();
-  assert.deepEqual(named, ['accessibility', 'opening-hours', 'rate-change']);
+  // This asserts the contract, not the corpus. The first version hardcoded
+  // the three classes that happened to be empty the day it was written, so
+  // the first pilot to source one of them turned a real improvement into a
+  // failing build. A test that breaks when the data gets better is measuring
+  // the wrong thing.
+  //
+  // The contract: a class the precedence table defines, with no claim that
+  // has evidence behind it, must be named. Silence there would read as a
+  // clean bill of health when it is an absence of looking.
+  const defined = Object.keys(corpus.precedence?.classes ?? {});
+  const evidenced = new Set();
+  for (const claim of corpus.claims) {
+    if ((corpus.evidenceByClaim.get(claim.claimId) ?? []).length > 0) {
+      evidenced.add(claim.claimClass);
+    }
+  }
+  const named = new Set(data.blindSpots.map((row) => row.claimClass));
+
+  // Nothing evidenced may be called a blind spot.
+  for (const cls of named) {
+    assert.ok(!evidenced.has(cls), `${cls} has evidence and must not be a blind spot`);
+  }
+  // Nothing unevidenced may be silently omitted.
+  for (const cls of defined) {
+    if (!evidenced.has(cls)) {
+      assert.ok(named.has(cls), `${cls} has no evidence and must be named as a blind spot`);
+    }
+  }
   for (const row of data.blindSpots) assert.equal(row.evidence, 0);
 });
 
