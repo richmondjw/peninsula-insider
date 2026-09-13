@@ -137,8 +137,16 @@ test('all 9 kinds save, list, filter, and unsave', () => {
   assert.equal(store.listSaves().length, 8);
 
   // toggleSave round trip
-  assert.equal(store.toggleSave({ kind: 'place', slug: 'place-one', title: 'x', href: '/x/' }), false, 'toggle off existing');
-  assert.equal(store.toggleSave({ kind: 'place', slug: 'place-one', title: 'x', href: '/x/' }), true, 'toggle back on');
+  assert.deepEqual(
+    store.toggleSave({ kind: 'place', slug: 'place-one', title: 'x', href: '/x/' }),
+    { ok: true, saved: false },
+    'toggle off existing',
+  );
+  assert.deepEqual(
+    store.toggleSave({ kind: 'place', slug: 'place-one', title: 'x', href: '/x/' }),
+    { ok: true, saved: true },
+    'toggle back on',
+  );
 });
 
 test('save is an idempotent upsert that keeps savedAt and refreshes the snapshot', () => {

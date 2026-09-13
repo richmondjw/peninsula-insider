@@ -61,6 +61,7 @@
     "test:event-safeguards": "node --test scripts/audit-event-safeguards.test.mjs",
     "assert:event-safeguards": "node scripts/audit-event-safeguards.mjs --json ../ops/reports/events/event-safeguards.json --assert",
     "test:share-link": "node --test src/lib/saves/share-link.test.mjs",
+    "test:saves-store": "node --test src/lib/saves/store.test.mjs src/lib/v5-store.test.mjs",
     "assert:count-semantics": "node scripts/assert-count-semantics.mjs",
     "test:count-semantics": "node --test scripts/count-semantics.test.mjs"
   },

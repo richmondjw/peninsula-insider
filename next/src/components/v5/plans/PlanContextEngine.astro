@@ -682,7 +682,10 @@ const payloadJson = JSON.stringify(payload).replace(/</g, '\\u003c');
         const days = Array.from(new Set(plan.stops.map((s) => s.day))).sort((a, b) => a - b);
         const dayIds = new Map<number, string>();
         if (days.length > 1) {
-          for (const d of days) dayIds.set(d, tripAddDay(`Day ${d}`).id);
+          for (const d of days) {
+            const created = tripAddDay(`Day ${d}`);
+            if (created) dayIds.set(d, created.id);
+          }
         }
         for (const stop of plan.stops) {
           tripAdd(

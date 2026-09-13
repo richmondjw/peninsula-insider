@@ -392,7 +392,14 @@ const hasActions = !!resolvedSaveKind || trip || !!booking;
     const { entitySlug: slug, entityTitle: title, entityHref: href, saveKind } = button.dataset;
     if (!slug || !title || !href || !SAVE_KINDS.includes(saveKind as SaveKind)) return;
     if (!tripEntries().some((entry) => entry.kind === saveKind && entry.slug === slug)) {
-      tripAdd({ kind: saveKind as SaveKind, slug, title, href });
+      // null means the write did not land (private mode / quota). Do not
+      // paint "In trip" for a stop that is not in the trip.
+      if (!tripAdd({ kind: saveKind as SaveKind, slug, title, href })) {
+        const previous = button.textContent;
+        button.textContent = 'Not added';
+        setTimeout(() => { button.textContent = previous; }, 2000);
+        return;
+      }
     }
     button.textContent = 'In trip';
     button.setAttribute('aria-label', `${title} is in your trip`);

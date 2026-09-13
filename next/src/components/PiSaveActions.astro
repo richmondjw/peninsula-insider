@@ -246,7 +246,12 @@ const { kind, slug, title, href, section, dek, imageUrl, floating = true } = Ast
       e.preventDefault();
       e.stopPropagation();
       const wasSaved = Saves.isSaved(kind, slug!);
-      Saves.toggle({ kind, slug: slug!, section, title, dek, image_url, href });
+      const result = Saves.toggle({ kind, slug: slug!, section, title, dek, image_url, href });
+      if (!result.ok) {
+        // Private mode / quota: the save did not land, so do not paint it.
+        showFeedback(saveBtn!, 'Not saved');
+        return;
+      }
       track(wasSaved ? 'pi_unsave' : 'pi_save', {
         kind,
         slug,
