@@ -288,6 +288,21 @@ export const prerender = true;
   function init() {
     const form = document.querySelector('[data-corrections-form]') as HTMLFormElement | null;
     if (!form) return;
+
+    // init() runs twice on a first load with the client router: once when
+    // this module executes, and again when astro:page-load fires, which it
+    // does on the initial load as well as after a navigation. Without this
+    // guard the form carries two submit listeners and one press files the
+    // correction twice - two cases, two references, one report, and the
+    // reference shown is the second one's. Found while building the partner
+    // enquiry form on the same pattern (PI-015).
+    //
+    // An element-level guard is the right instrument here, and only because
+    // the listener is on the element: a view transition replaces the form, so
+    // guard and listener are discarded together.
+    if (form.dataset.piCorrectionsBound === '1') return;
+    form.dataset.piCorrectionsBound = '1';
+
     const status = document.querySelector('[data-corrections-status]') as HTMLParagraphElement | null;
     const button = form.querySelector('button[type="submit"]') as HTMLButtonElement | null;
 

@@ -6618,6 +6618,21 @@ p.has-drop-cap::first-letter {
   color: var(--soft);
   flex: 1;
 }
+/* A route, not a mailbox. Sits above the email address on cards where the
+   site has a structured intake (/corrections/, /partners/#enquire) so the
+   faster path reads first and the mailbox stays as the fallback. */
+.contact-card__action {
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--dark);
+  border-bottom: 1px solid var(--accent);
+  align-self: flex-start;
+  margin-bottom: 0.35rem;
+}
+.contact-card__action:hover {
+  color: var(--accent);
+}
 .contact-card__email {
   font-family: var(--font-ui);
   font-size: 0.78rem;
