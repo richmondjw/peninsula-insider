@@ -140,6 +140,52 @@ export const prerender = true;
       on first load (module execution, then the initial astro:page-load) from
       binding twice.
     */
+    // Hoisted out of initSearchPage() deliberately. It needs nothing from the
+    // page's closure - a count and a chip name - and keeping it out means the
+    // only named function that mentions pi.site_search_queries is this one, so
+    // the rule in scripts/search-query-privacy.test.mjs stays a rule about the
+    // logger rather than about every line on the page.
+    // Fire-and-forget: log the OUTCOME of a search to Supabase. Uses
+    // keepalive so the beacon survives page navigations.
+    //
+    // PRIVACY CONTRACT (A13). This function must never be able to see the
+    // reader's query text, so it is not given it. Search boxes receive
+    // names, addresses, medical and financial terms from people who have
+    // no expectation that any of it is stored, and until 2026-09-14 every
+    // completed search POSTed the raw string to pi.site_search_queries for
+    // every reader, consented or not.
+    //
+    // What survives is the part that serves the product: how many results
+    // came back (so zero-result gaps are still countable), which chip was
+    // active, which surface fired, and the path. None of it carries what
+    // the reader was looking for. Do not add a parameter carrying the
+    // query, a hash of it, or a prefix of it - a hash is still a join key,
+    // and a prefix is still the text. scripts/search-query-privacy.test.mjs
+    // enforces this as a rule, not as a snapshot.
+    function logSearchOutcome(resultCount, kindFilter) {
+      try {
+        const sb = window.__PI_SB;
+        if (!sb || !sb.url || !sb.key) return;
+        const payload = {
+          result_count: resultCount,
+          kind_filter: kindFilter === 'all' ? null : (kindFilter || null),
+          surface: 'search_page',
+          page_path: window.location.pathname,
+        };
+        fetch(sb.url + '/rest/v1/site_search_queries', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'apikey': sb.key,
+            'Authorization': 'Bearer ' + sb.key,
+            'Prefer': 'return=minimal',
+          },
+          body: JSON.stringify(payload),
+          keepalive: true,
+        }).catch(function () {});
+      } catch (_e) {}
+    }
+
     function initSearchPage() {
       const form = document.getElementById('searchPageForm');
       const input = document.getElementById('searchPageInput');
@@ -232,47 +278,6 @@ export const prerender = true;
           .replace(/>/g, '&gt;')
           .replace(/"/g, '&quot;')
           .replace(/'/g, '&#039;');
-      }
-
-      // Fire-and-forget: log the OUTCOME of a search to Supabase. Uses
-      // keepalive so the beacon survives page navigations.
-      //
-      // PRIVACY CONTRACT (A13). This function must never be able to see the
-      // reader's query text, so it is not given it. Search boxes receive
-      // names, addresses, medical and financial terms from people who have
-      // no expectation that any of it is stored, and until 2026-09-14 every
-      // completed search POSTed the raw string to pi.site_search_queries for
-      // every reader, consented or not.
-      //
-      // What survives is the part that serves the product: how many results
-      // came back (so zero-result gaps are still countable), which chip was
-      // active, which surface fired, and the path. None of it carries what
-      // the reader was looking for. Do not add a parameter carrying the
-      // query, a hash of it, or a prefix of it - a hash is still a join key,
-      // and a prefix is still the text. scripts/search-query-privacy.test.mjs
-      // enforces this as a rule, not as a snapshot.
-      function logSearchOutcome(resultCount, kindFilter) {
-        try {
-          const sb = window.__PI_SB;
-          if (!sb || !sb.url || !sb.key) return;
-          const payload = {
-            result_count: resultCount,
-            kind_filter: kindFilter === 'all' ? null : (kindFilter || null),
-            surface: 'search_page',
-            page_path: window.location.pathname,
-          };
-          fetch(sb.url + '/rest/v1/site_search_queries', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'apikey': sb.key,
-              'Authorization': 'Bearer ' + sb.key,
-              'Prefer': 'return=minimal',
-            },
-            body: JSON.stringify(payload),
-            keepalive: true,
-          }).catch(function () {});
-        } catch (_e) {}
       }
 
       async function loadPagefind() {
