@@ -1,5 +1,4 @@
 ---
-slug: "weddings-mornington-peninsula-weekend-planning"
 title: "How to Plan a Mornington Peninsula Wedding Weekend"
 dek: "The Peninsula wedding weekend only works when the event, the guest base, the food, and the next-day recovery all belong to the same idea. Here is how to shape it properly."
 author: "editorial"

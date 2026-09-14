@@ -1,5 +1,4 @@
 ---
-slug: "best-spas-mornington-peninsula"
 title: "Best Spas on the Mornington Peninsula - The Tier Guide"
 dek: "The Mornington Peninsula is Australia's most serious wellness destination. This is the tier-ranked guide to hot springs, resort spas, and day spas - which to book, and for which kind of day."
 author: "editorial"

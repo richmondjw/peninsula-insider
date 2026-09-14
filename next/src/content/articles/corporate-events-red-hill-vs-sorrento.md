@@ -1,5 +1,4 @@
 ---
-slug: "corporate-events-red-hill-vs-sorrento"
 title: "Red Hill vs Sorrento for a Corporate Offsite"
 dek: "The Peninsula's two strongest offsite moods are not interchangeable. Red Hill and Sorrento suit different formats, different teams, and different ideas of premium."
 author: "editorial"

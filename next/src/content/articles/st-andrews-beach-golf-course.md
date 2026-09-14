@@ -1,5 +1,4 @@
 ---
-slug: "st-andrews-beach-golf-course"
 title: "St Andrews Beach Golf Course - The World-Ranked Course Anyone Can Book"
 dek: "If you want one golf story that explains the Peninsula properly, start here. Tom Doak architecture, genuine global ranking, and public-access bookings that turn prestige into a real weekend."
 author: "editorial"

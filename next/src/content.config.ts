@@ -438,6 +438,14 @@ const venues = defineCollection({
   loader: glob({ pattern: '**/*.json', base: './src/content/venues' }),
   schema: z.object({
     slug: z.string(),
+    /**
+     * The slug this record used to publish under, kept when a venue is
+     * renamed so the old URL is a recorded fact rather than a disappearance.
+     * stillwater-crittenden.json is now `crittenden-restaurant` and carried
+     * the old name in this key; undeclared, so the rename left no trace the
+     * build could see and nothing could have built a redirect from it.
+     */
+    previousSlug: z.string().optional(),
     name: z.string(),
     type: z.enum([
       'restaurant',
@@ -489,10 +497,49 @@ const venues = defineCollection({
     venueTier: z.enum(['destination', 'recommended', 'directory']).default('destination'),
     place: reference('places'),
     zone,
+    /**
+     * Wine-region subregion (GI sub-area), distinct from `place` and `zone`.
+     * A vineyard's subregion is frequently not its postal town: Kooyong sits
+     * in Tuerong with a Main Ridge address, Ocean Eight in Shoreham, Yabby
+     * Lake in Moorooduc with a Tuerong address.
+     *
+     * Three subregion pages - wine/flinders, wine/merricks and
+     * wine/moorooduc-tuerong - already filter on `v.data.subregion`, and every
+     * one of those tests evaluated against `undefined`, because the key was
+     * never declared and Zod stripped it from all 21 wineries carrying one.
+     */
+    subregion: z.string().optional(),
     coordinates,
     address: z.string(),
     phone: z.string().optional(),
+    /**
+     * Operator contact address. Undeclared until now, so the one venue that
+     * recorded one had it discarded on load - the worst shape this defect
+     * takes, because the corrections and partner-enquiry desks then believe
+     * they have a way to reach an operator that the build cannot see.
+     */
+    email: z.string().email().optional(),
     website: z.string().url().optional(),
+    /**
+     * Authoritative third-party profiles, emitted as schema.org `sameAs` and
+     * rendered as the "Region listing" and "Halliday listing" rows on the
+     * venue page.
+     *
+     * lib/schema.ts reads `data.sameAs?.mpva` and `data.sameAs?.halliday` and
+     * VenueDetailTemplate renders both; neither ever saw a value, because the
+     * key was not declared and Zod stripped it from all 21 wineries that
+     * carry one. The links were written, and no reader was ever shown one.
+     */
+    sameAs: z
+      .object({
+        /** The producer's own site, where it differs from `website`. */
+        officialSite: z.string().url().optional(),
+        /** Halliday Wine Companion profile. */
+        halliday: z.string().url().optional(),
+        /** Mornington Peninsula Vignerons Association listing. */
+        mpva: z.string().url().optional(),
+      })
+      .optional(),
     bookingUrl: z.string().url().optional(),
     bookingProvider: z
       .enum([
@@ -535,6 +582,28 @@ const venues = defineCollection({
      */
     editorPick: z.boolean().default(false),
     lastVerified: z.coerce.date(),
+    /**
+     * LEGACY bulk stamp. Not a fact-check date, and never renderable as one.
+     *
+     * All 21 wine venues that carry this key carry the identical value
+     * 2026-04-01, applied to the set in one pass. That is the textbook bulk
+     * stamp the provenance block above refuses to launder: one date applied
+     * to twenty-one records evidences a batch job, not a check of any
+     * particular venue. `editorialProvenance.checkedOn` remains the ONLY date
+     * a reader may be shown as a fact check, and it stays empty here until a
+     * check is genuinely earned per record.
+     *
+     * Declared rather than deleted because this repository does not delete
+     * evidence to tidy a schema (see `verificationStatus` vs `verification`
+     * on events, and `lastVerified` / `lastCheckedDate` above). Declared
+     * rather than migrated because migrating it into `checkedOn` would turn a
+     * batch stamp into the strongest claim the publication makes. It was
+     * being silently discarded on load, which is the defect; this stops the
+     * discard without promoting the value.
+     *
+     * Do not read this field on any reader-facing surface.
+     */
+    lastFactVerified: z.coerce.date().optional(),
     ...provenanceFields,
     ...sourceHealthFields,
     /**
@@ -599,6 +668,51 @@ const venues = defineCollection({
         description: z.string().optional(),
       })
       .optional(),
+    /**
+     * The wine facts behind a producer: who makes it, what they plant, the
+     * label worth seeking out.
+     *
+     * VenueDetailTemplate renders the winemaker row, the key-varieties line
+     * and the top label, and lib/schema.ts folds `keyVarieties` into the
+     * Winery node's `knowsAbout`. All of it was dead code: 21 wineries carry
+     * this block and every one of them lost it on load.
+     *
+     * `signature` is read by the template and is not on disk anywhere yet; it
+     * is declared so the template's branch has a field to be true of.
+     */
+    wines: z
+      .object({
+        winemaker: z.string().optional(),
+        keyVarieties: z.array(z.string()).default([]),
+        topLabel: z.string().optional(),
+        signature: z.string().optional(),
+      })
+      .optional(),
+    /**
+     * On-site accommodation for a venue whose primary type is not a stay
+     * (5 wineries with villas or cottages on the estate). Drives the "Stay"
+     * section on the venue page and the Accommodation JSON-LD node that
+     * wine/[slug].astro pushes when the block is present - a node that has
+     * never once been emitted, because the key was undeclared.
+     */
+    accommodation: z
+      .object({
+        name: z.string().optional(),
+        description: z.string().optional(),
+        units: z.number().optional(),
+      })
+      .optional(),
+    /**
+     * Reader questions and their answers (21 wineries, 63 pairs). Rendered as
+     * the FAQ section on the venue page and emitted as FAQPage JSON-LD by
+     * wine/[slug].astro.
+     *
+     * Note `q`/`a`, not the `question`/`answer` used by articles and
+     * itineraries. These are the key names already on disk and in
+     * buildFaqSchema's signature; renaming them would be a data migration
+     * dressed up as a schema tidy.
+     */
+    faq: z.array(z.object({ q: z.string(), a: z.string() })).optional(),
     /**
      * Long-form editorial verdict (21 venues). Rendered as the pull-quote
      * verdict block on the venue page and used, trimmed to its first
@@ -817,6 +931,24 @@ const regions = defineCollection({
   }),
 });
 
+/**
+ * One pick inside a weekend dispatch. Declared once and reused for every slot,
+ * so adding a slot cannot be cheaper in the content than in the schema - which
+ * is how `companion`, `localEdge` and `quieterAlt` came to be written onto
+ * thirteen dispatches and thrown away by all thirteen builds.
+ */
+const dispatchPick = z.object({
+  title: z.string(),
+  when: z.string(),                 // "Saturday 16 May, 11am–1:30pm"
+  where: z.string(),                // "Red Hill & Main Ridge forests"
+  price: z.string().optional(),     // ticketing shape, never a number (BRAND-PI)
+  who: z.string().optional(),       // "Capped at 15"
+  summary: z.string(),
+  bookingLabel: z.string().optional(), // "Book via The Kitchen"
+  bookingUrl: z.string().url().optional(),
+  eventRef: z.string().optional(),  // matching events/[slug] for venue link
+});
+
 const articles = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/articles' }),
   schema: z.object({
@@ -849,6 +981,13 @@ const articles = defineCollection({
     relatedPlaces: z.array(reference('places')).default([]),
     relatedArticles: z.array(reference('articles')).default([]),
     relatedItineraries: z.array(reference('itineraries')).default([]),
+    /**
+     * The events this article is about. Every sibling relation on this list
+     * was declared and this one was not, so the single guide that names its
+     * festival lost the link on load and the article and the event it exists
+     * to cover had no edge between them anywhere in the build.
+     */
+    relatedEvents: z.array(reference('events')).default([]),
     readingTimeMinutes: z.number().positive().optional(),
     featured: z.boolean().default(false),
     status: z.enum(['draft', 'review', 'scheduled', 'published']).default('draft'),
@@ -916,49 +1055,33 @@ const articles = defineCollection({
         // write "Cool, dry, autumn light" or "Rain Saturday afternoon".
         weather: z.string().optional(),
         // The marquee booking — the one thing to lock in.
-        lead: z.object({
-          title: z.string(),
-          when: z.string(),                 // "Saturday 16 May, 11am–1:30pm"
-          where: z.string(),                // "Red Hill & Main Ridge forests"
-          price: z.string().optional(),     // "$85 per person"
-          who: z.string().optional(),       // "Capped at 15"
-          summary: z.string(),
-          bookingLabel: z.string().optional(), // "Book via The Kitchen"
-          bookingUrl: z.string().url().optional(),
-          eventRef: z.string().optional(),  // matching events/[slug] for venue link
-        }),
+        lead: dispatchPick,
         // Saturday + Sunday picks if present.
-        saturday: z.object({
-          title: z.string(),
-          when: z.string(),
-          where: z.string(),
-          price: z.string().optional(),
-          summary: z.string(),
-          bookingLabel: z.string().optional(),
-          bookingUrl: z.string().url().optional(),
-          eventRef: z.string().optional(),
-        }).optional(),
-        sunday: z.object({
-          title: z.string(),
-          when: z.string(),
-          where: z.string(),
-          price: z.string().optional(),
-          summary: z.string(),
-          bookingLabel: z.string().optional(),
-          bookingUrl: z.string().url().optional(),
-          eventRef: z.string().optional(),
-        }).optional(),
+        saturday: dispatchPick.optional(),
+        sunday: dispatchPick.optional(),
         // The indoor / weather-changes backup.
-        rainyDay: z.object({
-          title: z.string(),
-          when: z.string(),
-          where: z.string(),
-          price: z.string().optional(),
-          summary: z.string(),
-          bookingLabel: z.string().optional(),
-          bookingUrl: z.string().url().optional(),
-          eventRef: z.string().optional(),
-        }).optional(),
+        rainyDay: dispatchPick.optional(),
+        /**
+         * The three picks the desk writes when the weekend is not shaped as
+         * Saturday / Sunday / rainy day: the slower second move, the local
+         * thing a visitor would not find, and the quieter alternative to a
+         * crowded lead.
+         *
+         * Written on thirteen dispatches between May and July 2026 and
+         * discarded on every one of them, because the four slots above were
+         * declared one at a time and these three were never added. The four
+         * had identical shapes copied four times, which is the mechanism: a
+         * new pick was cheaper to write into the content than into the
+         * fifth copy of the same object. They share `dispatchPick` now.
+         *
+         * The /whats-on/this-weekend/ template renders lead, saturday, sunday
+         * and rainyDay only, so declaring these three restores the data
+         * without changing a rendered page. Surfacing them is an editorial
+         * decision, not a schema one.
+         */
+        companion: dispatchPick.optional(),
+        localEdge: dispatchPick.optional(),
+        quieterAlt: dispatchPick.optional(),
         // One-line close ("Don't add more to either day. Let the Peninsula's
         // own pace do the work.")
         weekendShape: z.string().optional(),
@@ -1127,6 +1250,13 @@ const itineraries = defineCollection({
     ),
     totalDriveMinutes: z.number().nonnegative().optional(),
     heroImage: imageRef,
+    /**
+     * Supporting images, same shape as the galleries on venues and
+     * experiences. Itineraries were the one collection with a `heroImage` and
+     * no gallery beside it, so an editor adding photographs to a plan had
+     * them discarded on load. One record already carries the key.
+     */
+    gallery: z.array(imageRef).default([]),
     editorNote: z.string(),
     publishedAt: z.coerce.date(),
     lastVerified: z.coerce.date().optional(),
@@ -1464,6 +1594,21 @@ const events = defineCollection({
     status: z
       .enum(['draft', 'review', 'scheduled', 'published', 'expired', 'past', 'archived'])
       .default('published'),
+    /**
+     * When the record was archived, and why.
+     *
+     * Both keys are written by scripts/archive-expired-events.py and read back
+     * by scripts/recompute-occurrence.py, which uses the reason to decide
+     * whether a recurring series may be restored to `published` or has
+     * genuinely finished. Neither was declared, so the decision the restore
+     * job depends on existed on disk and nowhere in the build - and an editor
+     * reading the collection could not see why anything had been archived.
+     *
+     * `archivedAt` is a timestamp on machine-written records and a plain date
+     * on the two hand-archived ones; z.coerce.date takes both.
+     */
+    archivedAt: z.coerce.date().optional(),
+    archivedReason: z.string().optional(),
     /**
      * When this record stops being publishable, independent of when the event
      * finishes. The two are not the same instant: a listing whose source only
