@@ -1,6 +1,6 @@
 {
-"note": "Probe results for source URLs cited by the corpus. Written ONLY by next/scripts/probe-link-health.mjs, by a human or a scheduled job, never by a build. Read offline by next/scripts/audit-link-health.mjs. A verdict is what a probe saw, not an inference. This file is a RECORD, not a report: it does not live under ops/reports/ because nothing here is reproducible from the tree, and reverting it destroys evidence rather than regenerating it.",
-  "updatedAt": "2026-09-14T00:33:58.585Z",
+  "note": "Probe results for source URLs cited by the corpus. Written ONLY by next/scripts/probe-link-health.mjs, by a human or a scheduled job, never by a build. Read offline by next/scripts/audit-link-health.mjs. A verdict is what a probe saw, not an inference. This file is a RECORD, not a report: it does not live under ops/reports/ because nothing here is reproducible from the tree, and reverting it destroys evidence rather than regenerating it.",
+  "updatedAt": "2026-09-14T01:30:25.340Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -773,12 +773,28 @@
       "replacement": "https://www.manylittle.com.au/"
     },
     {
+      "url": "https://marketsandfestivals.melbourne/hill-and-ridge-community-market-takes-over-red-hill-market-2024-dates-local-treasures/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Hill and Ridge Community Market Takes Over Red Hill Market: 2024 Dates and Local Treasures | marketsandfestivals",
+      "probedOn": "2026-09-14",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://marketsandfestivals.melbourne/markets/mornington-racecourse-market/",
       "verdict": "ok",
       "httpCode": "200",
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "MORNINGTON RACECOURSE MARKET | marketsandfestivals"
+    },
+    {
+      "url": "https://marketsandfestivals.melbourne/what-happened-to-the-red-hill-community-market-2024/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "What happened to the Red Hill Community Market 2024 | marketsandfestivals",
+      "probedOn": "2026-09-14",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://melbourneelitetours.com.au",
@@ -1740,6 +1756,14 @@
       "pageTitle": "Ashcombe Maze and Lavender Gardens"
     },
     {
+      "url": "https://www.atdw.com.au/marketplace/6719ba926b99aee72e06ddc8",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "ATDW",
+      "probedOn": "2026-09-14",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://www.atdw.com.au/marketplace/69c62cfbcbca25036d99c915",
       "verdict": "ok",
       "httpCode": "200",
@@ -1912,6 +1936,14 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Craft Markets Australia"
+    },
+    {
+      "url": "https://www.craftmarkets.com.au/red-hill-community-market",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Red Hill Community Market® - Temporarily closed",
+      "probedOn": "2026-09-14",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.crittendenwines.com.au",
@@ -2188,6 +2220,14 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Hill &amp; Ridge Community Market"
+    },
+    {
+      "url": "https://www.hillandridgemarket.com.au/faqs",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "FAQs &mdash; Hill &amp; Ridge Community Market, Red Hill Recreation Reserve",
+      "probedOn": "2026-09-14",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.hospitalitymagazine.com.au/mr-vincenzos-reopens-on-the-mornington-peninsula-at-triple-the-size/",
@@ -2836,6 +2876,14 @@
       "pageTitle": "Seek the Heat at Peninsula Hot Springs - Mornington Peninsula Shire"
     },
     {
+      "url": "https://www.mornpen.vic.gov.au/Things-to-do/Markets",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Markets - Mornington Peninsula Shire",
+      "probedOn": "2026-09-14",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://www.mpchoc.com.au",
       "verdict": "ok",
       "httpCode": "200",
@@ -2882,6 +2930,14 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Home New - MPNEWS"
+    },
+    {
+      "url": "https://www.mpnews.com.au/2025/10/31/hill-ridge-community-market/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Hill &amp; Ridge Community Market - MPNEWS",
+      "probedOn": "2026-09-14",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.mpnews.com.au/2026/08/11/main-street-mornington-festival-cancelled-for-2026/",
@@ -3552,6 +3608,22 @@
       "pageTitle": "Events Archives - Red Hill Brewery | Mornington Peninsula&#039;s Original Craft Brewery"
     },
     {
+      "url": "https://www.redhillcommunitymarket.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Red Hill Community Market® &#8211; The Red Hill Community Market® is temporarily closed.",
+      "probedOn": "2026-09-14",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.redhillcommunitymarket.org/about",
+      "verdict": "dead",
+      "httpCode": "000",
+      "error": "curl: (6) Could not resolve host: www.redhillcommunitymarket.org",
+      "probedOn": "2026-09-14",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://www.redhillestate.com.au",
       "verdict": "ok",
       "httpCode": "200",
@@ -3938,6 +4010,14 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Mornington Peninsula Shire Festivals and Events"
+    },
+    {
+      "url": "https://www.visitmelbourne.com/regions/mornington-peninsula/whats-on/markets-and-vintage/makers-markets/hill-and-ridge-community-market",
+      "verdict": "blocked",
+      "httpCode": "403",
+      "pageTitle": "Just a moment...",
+      "probedOn": "2026-09-14",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.visitmorningtonpeninsula.org/",

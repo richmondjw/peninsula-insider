@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-09-14T00:40:00.000Z",
+  "updatedAt": "2026-09-14T01:45:00.000Z",
   "note": "Ratchet baseline for PI-005 claim support, seeded from the real registry. A claim class listed here may not grow the number of claims with no standing supporting evidence; a class NOT listed here fails on its first unbacked claim. Expiry is deliberately excluded from the measure - a gate that moved with the calendar would fail a build no commit could fix. Tighten as each class is sourced.",
   "totals": {
-    "claims": 527,
-    "evidenceRows": 639,
-    "unbackedClaims": 39
+    "claims": 528,
+    "evidenceRows": 647,
+    "unbackedClaims": 40
   },
   "ceilings": {
     "accessibility": 29,
@@ -12,6 +12,7 @@
     "address": 3,
     "booking": 2,
     "coordinates": 1,
-    "event-schedule": 1
+    "event-schedule": 1,
+    "trading-status": 1
   }
 }
