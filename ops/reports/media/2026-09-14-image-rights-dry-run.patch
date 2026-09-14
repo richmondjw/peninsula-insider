@@ -1,0 +1,2239 @@
+# PI-013 image rights backfill
+#
+# Prepared from  next/public/images/sourced/LICENSES.md
+# Source ledger  ops/reports/media/image-rights-source-ledger.json, probed 2026-09-14
+# Checked by     nobody has checked these; this is the dry run
+# Checked on     2026-09-14
+# Records        129 planned, 47 refused
+#
+# Every value below is copied from the licences file, never inferred, and
+# only onto a record that had nothing in that field. A record whose source
+# the ledger does not corroborate is refused rather than written.
+#
+# READ THE "Checked by" LINE ABOVE BEFORE YOU RUN THIS. Applying this patch
+# asserts 129 rights claims in that person's name. If it does not name a
+# person who actually opened these source pages, the patch is a specimen of
+# what the apply path would do and not a change anybody has signed.
+#
+# Nothing has applied this. Read it, then apply it yourself:
+#
+#   git apply <this file>
+#
+--- a/next/src/content/articles/area-guide-flinders.md
++++ b/next/src/content/articles/area-guide-flinders.md
+@@ -8,7 +8,13 @@
+   src: "/images/sourced/place-flinders-01.webp"
+   alt: "Flinders Pier reaching into blue water under a bright southern sky"
+   credit: "Peninsula Insider"
+-  license: "tmp-wikimedia"
++  license: "wikimedia-cc-by-sa"
++  creator: "Daniel Kabel"
++  sourceUrl: "https://commons.wikimedia.org/wiki/File:Flinders_Pier_2nd_Jul_2019_1_of_4.jpg"
++  permission: "CC-BY-SA-4.0"
++  depicts: "Flinders Pier 2nd Jul 2019"
++  rightsStatus: "recorded"
++  rightsEstablishedOn: "2026-09-14"
+ format: "hub-guide"
+ tags: ["flinders", "area-guide", "planning"]
+ relatedVenues: []
+--- a/next/src/content/articles/area-guide-main-ridge.md
++++ b/next/src/content/articles/area-guide-main-ridge.md
+@@ -8,7 +8,13 @@
+   src: "/images/sourced/place-main-ridge-01.webp"
+   alt: "Vineyard rows and cool green farmland across Main Ridge on the Mornington Peninsula"
+   credit: "Peninsula Insider"
+-  license: "tmp-wikimedia"
++  license: "wikimedia-cc-by"
++  creator: "CSIRO"
++  sourceUrl: "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1961_Chardonnay_grapes_at_the_Main_Ridge_Estate.jpg"
++  permission: "CC-BY-3.0"
++  depicts: "CSIRO ScienceImage 1961 Chardonnay grapes at the Main Ridge Estate"
++  rightsStatus: "recorded"
++  rightsEstablishedOn: "2026-09-14"
+ format: "hub-guide"
+ tags: ["main-ridge", "area-guide", "planning"]
+ relatedVenues: []
+--- a/next/src/content/articles/area-guide-merricks.md
++++ b/next/src/content/articles/area-guide-merricks.md
+@@ -8,7 +8,13 @@
+   src: "/images/sourced/place-merricks-01.webp"
+   alt: "Vineyard landscape in Merricks under soft afternoon light"
+   credit: "Peninsula Insider"
+-  license: "tmp-wikimedia"
++  license: "wikimedia-cc-by"
++  creator: "BrooksieG"
++  sourceUrl: "https://commons.wikimedia.org/wiki/File:Vineyard_Merricks_Grove_Victoria_Australia.jpg"
++  permission: "CC-BY-4.0"
++  depicts: "Vineyard Merricks Grove Victoria Australia"
++  rightsStatus: "recorded"
++  rightsEstablishedOn: "2026-09-14"
+ format: "hub-guide"
+ tags: ["merricks", "area-guide", "planning"]
+ relatedVenues: []
+--- a/next/src/content/articles/area-guide-portsea.md
++++ b/next/src/content/articles/area-guide-portsea.md
+@@ -8,7 +8,13 @@
+   src: "/images/sourced/place-portsea-01.webp"
+   alt: "Calm bay water and foreshore at Portsea with boats near the jetty"
+   credit: "Peninsula Insider"
+-  license: "tmp-wikimedia"
++  license: "wikimedia-cc-by-sa"
++  creator: "Essiewingrove"
++  sourceUrl: "https://commons.wikimedia.org/wiki/File:Point_king_beach_in_Portsea_Victoria.jpg"
++  permission: "CC-BY-SA-4.0"
++  depicts: "Point King beach in Portsea Victoria"
++  rightsStatus: "recorded"
++  rightsEstablishedOn: "2026-09-14"
+ format: "hub-guide"
+ tags: ["portsea", "area-guide", "planning"]
+ relatedVenues: []
+--- a/next/src/content/articles/area-guide-red-hill.md
++++ b/next/src/content/articles/area-guide-red-hill.md
+@@ -8,7 +8,13 @@
+   src: "/images/sourced/place-red-hill-01.webp"
+   alt: "Rolling vineyard rows across Red Hill on the Mornington Peninsula"
+   credit: "Peninsula Insider"
+-  license: "tmp-wikimedia"
++  license: "wikimedia-cc-by"
++  creator: "CSIRO"
++  sourceUrl: "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1981_Pinot_Noir_grapes_at_the_Main_Ridge_Estate.jpg"
++  permission: "CC-BY-3.0"
++  depicts: "CSIRO ScienceImage 1981 Pinot Noir grapes at the Main Ridge Estate"
++  rightsStatus: "recorded"
++  rightsEstablishedOn: "2026-09-14"
+ format: "hub-guide"
+ tags: ["red-hill", "area-guide", "planning"]
+ relatedVenues: []
+--- a/next/src/content/articles/corporate-events-red-hill-vs-sorrento.md
++++ b/next/src/content/articles/corporate-events-red-hill-vs-sorrento.md
+@@ -8,7 +8,13 @@
+   src: "/images/sourced/place-sorrento-01.webp"
+   alt: "Sorrento's coastal village setting on the Mornington Peninsula, representing the polished offsite atmosphere discussed in the guide"
+   credit: "Peninsula Insider"
+-  license: "other-licensed"
++  license: "wikimedia-cc0"
++  creator: "Alan Travers"
++  sourceUrl: "https://commons.wikimedia.org/wiki/File:Bright_morning_Sorrento_Victoria_(51527287664).jpg"
++  permission: "CC0 (Public Domain)"
++  depicts: "Bright morning Sorrento Victoria"
++  rightsStatus: "recorded"
++  rightsEstablishedOn: "2026-09-14"
+ format: "service"
+ tags: ["corporate-events", "red-hill", "sorrento", "retreats", "offsites", "planning"]
+ readingTimeMinutes: 6
+--- a/next/src/content/articles/dog-friendly-wineries-mornington-peninsula.mdx
++++ b/next/src/content/articles/dog-friendly-wineries-mornington-peninsula.mdx
+@@ -9,6 +9,12 @@
+   alt: "Vineyard landscape in Merricks on the Mornington Peninsula"
+   credit: "BrooksieG"
+   license: "wikimedia-cc-by"
++  creator: "BrooksieG"
++  sourceUrl: "https://commons.wikimedia.org/wiki/File:Vineyard_Merricks_Grove_Victoria_Australia.jpg"
++  permission: "CC-BY-4.0"
++  depicts: "Vineyard Merricks Grove Victoria Australia"
++  rightsStatus: "recorded"
++  rightsEstablishedOn: "2026-09-14"
+ format: "service"
+ tags: ["dog-friendly", "wineries", "cellar-door", "mornington-peninsula", "pets"]
+ lastVerified: 2026-04-22
+--- a/next/src/content/articles/first-time-peninsula.md
++++ b/next/src/content/articles/first-time-peninsula.md
+@@ -8,7 +8,13 @@
+   src: "/images/sourced/explore-cape-schanck-boardwalk-01.webp"
+   alt: "The Cape Schanck boardwalk stretching toward the clifftop lighthouse at the southern tip of the Mornington Peninsula"
+   credit: "Wikimedia Commons"
+-  license: "tmp-wikimedia"
++  license: "wikimedia-cc-by-sa"
++  creator: "Danilo Ramirez"
++  sourceUrl: "https://commons.wikimedia.org/wiki/File:Cape_Schanck_Upper_Trail_View.jpg"
++  permission: "CC-BY-SA-4.0"
++  depicts: "Cape Schanck Upper Trail View"
++  rightsStatus: "recorded"
++  rightsEstablishedOn: "2026-09-14"
+ format: "service"
+ tags: ["first-timers", "guide", "overview", "planning", "explore", "weekend"]
+ relatedVenues: ["montalto", "ten-minutes-by-tractor", "merricks-general-wine-store", "commonfolk-coffee", "flinders-hotel", "hotel-sorrento", "red-hill-brewery", "alba-thermal-springs", "peninsula-hot-springs", "polperro", "lindenderry", "jackalope", "flinders-sourdough", "red-hill-cheese", "sorrento-hotel", "portsea-hotel", "main-ridge-dairy"]
+--- a/next/src/content/articles/insider-picks-2026-05-14.md
++++ b/next/src/content/articles/insider-picks-2026-05-14.md
+@@ -8,7 +8,13 @@
+   src: "/images/sourced/explore-bushrangers-bay-walk-01.webp"
+   alt: "Late-autumn light on the southern coast of the Mornington Peninsula"
+   credit: "Peninsula Insider"
+-  license: "other-licensed"
++  license: "wikimedia-cc-by-sa"
++  creator: "Kevin Graham de Valle"
++  sourceUrl: "https://commons.wikimedia.org/wiki/File:)_Bush_Rangers_Bay._The_Mornington_Peninsula_National_Park_Victoria_Australia.jpg"
++  permission: "CC-BY-SA-4.0"
++  depicts: "Bush Rangers Bay, Mornington Peninsula National Park Victoria Australia"
++  rightsStatus: "recorded"
++  rightsEstablishedOn: "2026-09-14"
+ format: "insider-edit"
+ tags: ["insider-picks", "autumn", "weekly", "long-lunch", "walks", "wine", "truffles"]
+ relatedVenues: ["paringa-estate", "tedesca-osteria"]
+--- a/next/src/content/articles/insider-picks-2026-07-28.md
++++ b/next/src/content/articles/insider-picks-2026-07-28.md
+@@ -10,7 +10,12 @@
+   depicts: "a rocky headland and offshore sea stack at sunset, framed by coastal tea-tree"
+   depictionStatus: "illustrative"
+   credit: "Peninsula Insider"
+-  license: "other-licensed"
++  license: "wikimedia-cc-by-sa"
++  creator: "Marshlung"
++  sourceUrl: "https://commons.wikimedia.org/wiki/File:Cape_schanck_looking_towards_pulpit_rock_at_dawn.jpg"
++  permission: "CC-BY-SA-4.0"
++  rightsStatus: "recorded"
++  rightsEstablishedOn: "2026-09-14"
+ format: "insider-edit"
+ tags: [insider-picks, winter, weekly]
+ relatedVenues: []
+--- a/next/src/content/articles/insider-picks-2026-08-01.md
++++ b/next/src/content/articles/insider-picks-2026-08-01.md
+@@ -10,7 +10,12 @@
+   depicts: "the boardwalk above the cliffs and rock shore at Cape Schanck"
+   depictionStatus: "illustrative"
+   credit: "Peninsula Insider"
+-  license: "other-licensed"
++  license: "wikimedia-cc-by-sa"
++  creator: "Danilo Ramirez"
++  sourceUrl: "https://commons.wikimedia.org/wiki/File:Cape_Schanck_Upper_Trail_View.jpg"
++  permission: "CC-BY-SA-4.0"
++  rightsStatus: "recorded"
++  rightsEstablishedOn: "2026-09-14"
+ format: "insider-edit"
+ tags: [insider-picks, winter, weekly]
+ relatedVenues: []
+--- a/next/src/content/articles/insider-picks-2026-08-06.md
++++ b/next/src/content/articles/insider-picks-2026-08-06.md
+@@ -8,7 +8,13 @@
+   src: "/images/sourced/explore-mprg-01.webp"
+   alt: "Mornington Peninsula Regional Gallery exterior in winter"
+   credit: "Peninsula Insider"
+-  license: "other-licensed"
++  license: "wikimedia-cc-by"
++  creator: "pru_mitchell"
++  sourceUrl: "https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_Regional_Gallery.jpg"
++  permission: "CC-BY-2.0"
++  depicts: "Mornington Peninsula Regional Gallery (MPRG), Civic Reserve, Dunns Road Mornington"
++  rightsStatus: "recorded"
++  rightsEstablishedOn: "2026-09-14"
+ format: "insider-edit"
+ tags: [insider-picks, winter, weekly]
+ relatedVenues: [trofeo-estate, stonier-wines]
+--- a/next/src/content/articles/insider-picks-2026-08-12.md
++++ b/next/src/content/articles/insider-picks-2026-08-12.md
+@@ -11,6 +11,11 @@
+   depictionStatus: "illustrative"
+   credit: "Daniel Kabel"
+   license: "wikimedia-cc-by-sa"
++  creator: "Daniel Kabel"
++  sourceUrl: "https://commons.wikimedia.org/wiki/File:Flinders_Pier_2nd_Jul_2019_1_of_4.jpg"
++  permission: "CC-BY-SA-4.0"
++  rightsStatus: "recorded"
++  rightsEstablishedOn: "2026-09-14"
+ format: "insider-edit"
+ tags: [insider-picks, winter, weekly]
+ relatedVenues: []
+--- a/next/src/content/articles/insider-picks-2026-09-01.md
++++ b/next/src/content/articles/insider-picks-2026-09-01.md
+@@ -11,6 +11,11 @@
+   depictionStatus: "illustrative"
+   credit: "CSIRO"
+   license: "wikimedia-cc-by"
++  creator: "CSIRO"
++  sourceUrl: "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1981_Pinot_Noir_grapes_at_the_Main_Ridge_Estate.jpg"
++  permission: "CC-BY-3.0"
++  rightsStatus: "recorded"
++  rightsEstablishedOn: "2026-09-14"
+ format: "insider-edit"
+ tags: [insider-picks, spring, weekly]
+ relatedVenues: []
+--- a/next/src/content/articles/insider-picks-2026-09-02.md
++++ b/next/src/content/articles/insider-picks-2026-09-02.md
+@@ -8,7 +8,13 @@
+   src: "/images/sourced/explore-bushrangers-bay-walk-01.webp"
+   alt: "Bushrangers Bay - Peninsula Insider"
+   credit: "Wikimedia Commons"
+-  license: "tmp-wikimedia"
++  license: "wikimedia-cc-by-sa"
++  creator: "Kevin Graham de Valle"
++  sourceUrl: "https://commons.wikimedia.org/wiki/File:)_Bush_Rangers_Bay._The_Mornington_Peninsula_National_Park_Victoria_Australia.jpg"
++  permission: "CC-BY-SA-4.0"
++  depicts: "Bush Rangers Bay, Mornington Peninsula National Park Victoria Australia"
++  rightsStatus: "recorded"
++  rightsEstablishedOn: "2026-09-14"
+ format: "insider-edit"
+ tags: [insider-picks, spring, weekly]
+ relatedVenues: []
+--- a/next/src/content/articles/insider-picks-2026-09-06.md
++++ b/next/src/content/articles/insider-picks-2026-09-06.md
+@@ -11,6 +11,11 @@
+   depictionStatus: "illustrative"
+   credit: "Daniel Kabel"
+   license: "wikimedia-cc-by-sa"
++  creator: "Daniel Kabel"
++  sourceUrl: "https://commons.wikimedia.org/wiki/File:Flinders_Pier_2nd_Jul_2019_1_of_4.jpg"
++  permission: "CC-BY-SA-4.0"
++  rightsStatus: "recorded"
++  rightsEstablishedOn: "2026-09-14"
+ format: "insider-edit"
+ tags: [insider-picks, spring, weekly]
+ relatedVenues: []
+--- a/next/src/content/articles/insider-picks-2026-09-08.md
++++ b/next/src/content/articles/insider-picks-2026-09-08.md
+@@ -8,7 +8,13 @@
+   src: "/images/sourced/explore-bushrangers-bay-walk-01.webp"
+   alt: "Bushrangers Bay - Peninsula Insider"
+   credit: "Wikimedia Commons"
+-  license: "tmp-wikimedia"
++  license: "wikimedia-cc-by-sa"
++  creator: "Kevin Graham de Valle"
++  sourceUrl: "https://commons.wikimedia.org/wiki/File:)_Bush_Rangers_Bay._The_Mornington_Peninsula_National_Park_Victoria_Australia.jpg"
++  permission: "CC-BY-SA-4.0"
++  depicts: "Bush Rangers Bay, Mornington Peninsula National Park Victoria Australia"
++  rightsStatus: "recorded"
++  rightsEstablishedOn: "2026-09-14"
+ format: "insider-edit"
+ tags: [insider-picks, spring, weekly]
+ relatedVenues: []
+--- a/next/src/content/articles/insider-picks-2026-09-11.md
++++ b/next/src/content/articles/insider-picks-2026-09-11.md
+@@ -11,6 +11,11 @@
+   depictionStatus: "illustrative"
+   credit: "CSIRO"
+   license: "wikimedia-cc-by"
++  creator: "CSIRO"
++  sourceUrl: "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1981_Pinot_Noir_grapes_at_the_Main_Ridge_Estate.jpg"
++  permission: "CC-BY-3.0"
++  rightsStatus: "recorded"
++  rightsEstablishedOn: "2026-09-14"
+ format: "insider-edit"
+ tags: [insider-picks, spring, weekly]
+ relatedVenues: []
+--- a/next/src/content/articles/insider-picks-2026-09-12.md
++++ b/next/src/content/articles/insider-picks-2026-09-12.md
+@@ -11,6 +11,11 @@
+   depictionStatus: "illustrative"
+   credit: "BrooksieG"
+   license: "wikimedia-cc-by"
++  creator: "BrooksieG"
++  sourceUrl: "https://commons.wikimedia.org/wiki/File:Vineyard_Merricks_Grove_Victoria_Australia.jpg"
++  permission: "CC-BY-4.0"
++  rightsStatus: "recorded"
++  rightsEstablishedOn: "2026-09-14"
+ format: "insider-edit"
+ tags: [insider-picks, spring, weekly]
+ relatedVenues: []
+--- a/next/src/content/articles/mornington-peninsula-winery-guide.mdx
++++ b/next/src/content/articles/mornington-peninsula-winery-guide.mdx
+@@ -9,6 +9,12 @@
+   alt: "Vineyard landscape in Merricks on the Mornington Peninsula"
+   credit: "BrooksieG"
+   license: "wikimedia-cc-by"
++  creator: "BrooksieG"
++  sourceUrl: "https://commons.wikimedia.org/wiki/File:Vineyard_Merricks_Grove_Victoria_Australia.jpg"
++  permission: "CC-BY-4.0"
++  depicts: "Vineyard Merricks Grove Victoria Australia"
++  rightsStatus: "recorded"
++  rightsEstablishedOn: "2026-09-14"
+ format: "hub-guide"
+ tags: ["wine", "cellar-doors", "pinot-noir", "chardonnay", "dog-friendly", "winery-dining", "sub-regions"]
+ lastVerified: 2026-04-22
+--- a/next/src/content/articles/peninsula-notes-june-2026.md
++++ b/next/src/content/articles/peninsula-notes-june-2026.md
+@@ -8,7 +8,13 @@
+   src: "/images/sourced/place-red-hill-01.webp"
+   alt: "Fog over the Red Hill plateau in the early morning, vines dormant, the ridge quiet"
+   credit: "Peninsula Insider"
+-  license: "tmp-unsplash"
++  license: "wikimedia-cc-by"
++  creator: "CSIRO"
++  sourceUrl: "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1981_Pinot_Noir_grapes_at_the_Main_Ridge_Estate.jpg"
++  permission: "CC-BY-3.0"
++  depicts: "CSIRO ScienceImage 1981 Pinot Noir grapes at the Main Ridge Estate"
++  rightsStatus: "recorded"
++  rightsEstablishedOn: "2026-09-14"
+ format: "peninsula-notes"
+ section: "journal"
+ tags: ["winter", "seasonal", "red-hill", "flinders", "truffle", "peninsula-notes"]
+--- a/next/src/content/articles/peninsula-this-weekend-april-24.md
++++ b/next/src/content/articles/peninsula-this-weekend-april-24.md
+@@ -8,7 +8,13 @@
+   src: "/images/sourced/place-sorrento-01.webp"
+   alt: "Sorrento and the southern Mornington Peninsula in soft autumn light"
+   credit: "Peninsula Insider"
+-  license: "other-licensed"
++  license: "wikimedia-cc0"
++  creator: "Alan Travers"
++  sourceUrl: "https://commons.wikimedia.org/wiki/File:Bright_morning_Sorrento_Victoria_(51527287664).jpg"
++  permission: "CC0 (Public Domain)"
++  depicts: "Bright morning Sorrento Victoria"
++  rightsStatus: "recorded"
++  rightsEstablishedOn: "2026-09-14"
+ format: "weekend-picker"
+ tags: ["weekend-picker", "anzac-day", "whats-on", "service"]
+ relatedVenues: []
+--- a/next/src/content/articles/peninsula-this-weekend-april-26.md
++++ b/next/src/content/articles/peninsula-this-weekend-april-26.md
+@@ -8,7 +8,13 @@
+   src: "/images/sourced/place-red-hill-01.webp"
+   alt: "Red Hill hinterland in late autumn"
+   credit: "Peninsula Insider"
+-  license: "other-licensed"
++  license: "wikimedia-cc-by"
++  creator: "CSIRO"
++  sourceUrl: "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1981_Pinot_Noir_grapes_at_the_Main_Ridge_Estate.jpg"
++  permission: "CC-BY-3.0"
++  depicts: "CSIRO ScienceImage 1981 Pinot Noir grapes at the Main Ridge Estate"
++  rightsStatus: "recorded"
++  rightsEstablishedOn: "2026-09-14"
+ format: "weekend-picker"
+ tags: ["weekend-picker", "autumn", "whats-on", "may-planning", "red-hill-market"]
+ relatedVenues: []
+--- a/next/src/content/articles/peninsula-this-weekend-jul-18.md
++++ b/next/src/content/articles/peninsula-this-weekend-jul-18.md
+@@ -8,7 +8,13 @@
+   src: "/images/sourced/venue-pt-leo-sculpture-01.webp"
+   alt: "Sculpture park at Pt. Leo Estate, Merricks, Mornington Peninsula, winter 2026"
+   credit: "Peninsula Insider"
+-  license: "other-licensed"
++  license: "wikimedia-cc-by-sa"
++  creator: "Emma White (uploaded by BrooksieG), 6 October 2023"
++  sourceUrl: "https://commons.wikimedia.org/wiki/File:Pt_Leo_sculpture.jpg"
++  permission: "CC-BY-SA-4.0"
++  depicts: "Pt. Leo Estate Sculpture Park, Mornington Peninsula (Barry Flanagan's \"Drummer\" hare and other works on the lawn above Western Port)"
++  rightsStatus: "recorded"
++  rightsEstablishedOn: "2026-09-14"
+ format: "weekend-picker"
+ tags: ["weekend-picker", "whats-on", "july-planning", "winter", "truffle", "sculpture", "red-hill", "merricks", "mornington", "flinders", "food-wine"]
+ relatedVenues: []
+--- a/next/src/content/articles/the-chardonnay-case.md
++++ b/next/src/content/articles/the-chardonnay-case.md
+@@ -9,6 +9,12 @@
+   alt: "White wine tasting flight at a vineyard cellar door, chardonnay in stemware against a winery backdrop"
+   credit: "Sarah Stierch / Wikimedia Commons (CC-BY-4.0)"
+   license: "wikimedia-cc-by"
++  creator: "Sarah Stierch (Missvain)"
++  sourceUrl: "https://commons.wikimedia.org/wiki/File:Tablas_Creek_Vineyard_-_Stierch_-_July_2019_03.jpg"
++  permission: "CC-BY-4.0"
++  depicts: "White wine seated tasting at Tablas Creek Vineyard"
++  rightsStatus: "recorded"
++  rightsEstablishedOn: "2026-09-14"
+ format: "cellar-door-dispatch"
+ tags: ["wine", "chardonnay", "cellar-door", "red-hill", "main-ridge", "pinot-noir"]
+ relatedVenues:
+--- a/next/src/content/articles/the-peninsulas-best-late-afternoon-walks.md
++++ b/next/src/content/articles/the-peninsulas-best-late-afternoon-walks.md
+@@ -9,6 +9,12 @@
+   alt: "Coastal scrub along the Range Area Walk at Point Nepean"
+   credit: "Philip Mallis / Wikimedia Commons (CC-BY-SA-4.0)"
+   license: "wikimedia-cc-by-sa"
++  creator: "Philip Mallis"
++  sourceUrl: "https://commons.wikimedia.org/wiki/File:Coastal_scrub_near_Range_Area_Walk_at_Point_Nepean_in_Portsea,_Victoria.jpg"
++  permission: "CC-BY-SA-4.0"
++  depicts: "Coastal scrub near Range Area Walk at Point Nepean in Portsea, Victoria"
++  rightsStatus: "recorded"
++  rightsEstablishedOn: "2026-09-14"
+ format: "service"
+ tags: ["explore", "walks", "cape-schanck", "sorrento"]
+ relatedExperiences: ["bushrangers-bay-walk", "cape-schanck-boardwalk", "sorrento-back-beach", "point-nepean-fort-walk"]
+--- a/next/src/content/articles/walks-bushrangers-bay-walk-guide.mdx
++++ b/next/src/content/articles/walks-bushrangers-bay-walk-guide.mdx
+@@ -9,6 +9,12 @@
+   alt: "Bushrangers Bay and its basalt rock stacks viewed from the clifftop near Cape Schanck"
+   credit: "Kevin Graham de Valle / Wikimedia Commons (CC-BY-SA-4.0)"
+   license: "wikimedia-cc-by-sa"
++  creator: "Kevin Graham de Valle"
++  sourceUrl: "https://commons.wikimedia.org/wiki/File:)_Bush_Rangers_Bay._The_Mornington_Peninsula_National_Park_Victoria_Australia.jpg"
++  permission: "CC-BY-SA-4.0"
++  depicts: "Bush Rangers Bay, Mornington Peninsula National Park Victoria Australia"
++  rightsStatus: "recorded"
++  rightsEstablishedOn: "2026-09-14"
+ format: "service"
+ tags: ["walks", "cape-schanck", "hikes", "coastal", "explore", "families"]
+ lastVerified: 2026-04-22
+--- a/next/src/content/articles/walks-cape-schanck-hot-springs-day.mdx
++++ b/next/src/content/articles/walks-cape-schanck-hot-springs-day.mdx
+@@ -8,7 +8,13 @@
+   src: "/images/sourced/explore-cape-schanck-boardwalk-01.webp"
+   alt: "Cape Schanck boardwalk and lighthouse on the Mornington Peninsula, Bass Strait in the background"
+   credit: "Peninsula Insider"
+-  license: "tmp-wikimedia"
++  license: "wikimedia-cc-by-sa"
++  creator: "Danilo Ramirez"
++  sourceUrl: "https://commons.wikimedia.org/wiki/File:Cape_Schanck_Upper_Trail_View.jpg"
++  permission: "CC-BY-SA-4.0"
++  depicts: "Cape Schanck Upper Trail View"
++  rightsStatus: "recorded"
++  rightsEstablishedOn: "2026-09-14"
+ format: "service"
+ tags: ["walks", "spa", "cape-schanck", "day-trip", "explore", "itinerary", "all-year"]
+ lastVerified: 2026-04-22
+--- a/next/src/content/events/anzac-day-sorrento-dawn.json
++++ b/next/src/content/events/anzac-day-sorrento-dawn.json
+@@ -24,6 +24,12 @@
+     "src": "/images/sourced/place-sorrento-01.webp",
+     "alt": "Morning light over Sorrento foreshore",
+     "credit": "Alan Travers / Wikimedia Commons",
+-    "license": "wikimedia-cc0"
++    "license": "wikimedia-cc0",
++    "creator": "Alan Travers",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bright_morning_Sorrento_Victoria_(51527287664).jpg",
++    "permission": "CC0 (Public Domain)",
++    "depicts": "Bright morning Sorrento Victoria",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   }
+ }
+--- a/next/src/content/events/archive/sip-sketch-sculpture-park-pt-leo-estate-school-holidays-2026.json
++++ b/next/src/content/events/archive/sip-sketch-sculpture-park-pt-leo-estate-school-holidays-2026.json
+@@ -62,6 +62,12 @@
+     "src": "/images/sourced/venue-pt-leo-sculpture-01.webp",
+     "alt": "Pt. Leo Estate Sculpture Park on the Mornington Peninsula",
+     "credit": "Peninsula Insider",
+-    "license": "other-licensed"
++    "license": "wikimedia-cc-by-sa",
++    "creator": "Emma White (uploaded by BrooksieG), 6 October 2023",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pt_Leo_sculpture.jpg",
++    "permission": "CC-BY-SA-4.0",
++    "depicts": "Pt. Leo Estate Sculpture Park, Mornington Peninsula (Barry Flanagan's \"Drummer\" hare and other works on the lawn above Western Port)",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   }
+ }
+\ No newline at end of file
+--- a/next/src/content/events/archive/winter-wine-weekend-june.json
++++ b/next/src/content/events/archive/winter-wine-weekend-june.json
+@@ -26,7 +26,13 @@
+     "src": "/images/sourced/wine-hub-hero-01.webp",
+     "alt": "Pinot Noir grapes on the vine at Main Ridge",
+     "credit": "CSIRO ScienceImage",
+-    "license": "wikimedia-cc-by"
++    "license": "wikimedia-cc-by",
++    "creator": "CSIRO ScienceImage",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1981_Pinot_Noir_grapes_at_the_Main_Ridge_Estate.jpg",
++    "permission": "CC-BY-3.0",
++    "depicts": "CSIRO ScienceImage 1981 Pinot Noir grapes at the Main Ridge Estate",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "nextOccurrence": "2027-06-06"
+ }
+--- a/next/src/content/events/helen-britton-story-so-far-mprg-2026.json
++++ b/next/src/content/events/helen-britton-story-so-far-mprg-2026.json
+@@ -61,6 +61,12 @@
+     "src": "/images/sourced/explore-mprg-01.webp",
+     "alt": "Mornington Peninsula Regional Gallery exterior",
+     "credit": "Peninsula Insider",
+-    "license": "other-licensed"
++    "license": "wikimedia-cc-by",
++    "creator": "pru_mitchell",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_Regional_Gallery.jpg",
++    "permission": "CC-BY-2.0",
++    "depicts": "Mornington Peninsula Regional Gallery (MPRG), Civic Reserve, Dunns Road Mornington",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   }
+ }
+--- a/next/src/content/events/mothers-day-classic-moonah-links-2026.json
++++ b/next/src/content/events/mothers-day-classic-moonah-links-2026.json
+@@ -50,7 +50,13 @@
+     "src": "/images/sourced/place-cape-schanck-01.webp",
+     "alt": "Southern Mornington Peninsula landscape near Fingal and Cape Schanck",
+     "credit": "Peninsula Insider",
+-    "license": "other-licensed"
++    "license": "wikimedia-cc-by-sa",
++    "creator": "Marshlung",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cape_schanck_looking_towards_pulpit_rock_at_dawn.jpg",
++    "permission": "CC-BY-SA-4.0",
++    "depicts": "Cape Schanck looking towards Pulpit Rock at dawn",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "nextOccurrence": "2027-05-10",
+   "retiredSourceLinks": [
+--- a/next/src/content/events/natalia-milosz-piekarska-sifted-light-mprg-2026.json
++++ b/next/src/content/events/natalia-milosz-piekarska-sifted-light-mprg-2026.json
+@@ -61,6 +61,12 @@
+     "src": "/images/sourced/explore-mprg-01.webp",
+     "alt": "Mornington Peninsula Regional Gallery",
+     "credit": "Peninsula Insider",
+-    "license": "other-licensed"
++    "license": "wikimedia-cc-by",
++    "creator": "pru_mitchell",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_Regional_Gallery.jpg",
++    "permission": "CC-BY-2.0",
++    "depicts": "Mornington Peninsula Regional Gallery (MPRG), Civic Reserve, Dunns Road Mornington",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   }
+ }
+--- a/next/src/content/events/new-wave-26-at-mprg.json
++++ b/next/src/content/events/new-wave-26-at-mprg.json
+@@ -57,7 +57,13 @@
+     "src": "/images/sourced/explore-mprg-01.webp",
+     "alt": "Mornington Peninsula Regional Gallery exhibitions - New Wave 26",
+     "credit": "Peninsula Insider",
+-    "license": "other-licensed"
++    "license": "wikimedia-cc-by",
++    "creator": "pru_mitchell",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_Regional_Gallery.jpg",
++    "permission": "CC-BY-2.0",
++    "depicts": "Mornington Peninsula Regional Gallery (MPRG), Civic Reserve, Dunns Road Mornington",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "status": "archived",
+   "publishedAt": "2026-05-04",
+--- a/next/src/content/events/pt-leo-estate-local-complimentary-sculpture-park-winter-2026.json
++++ b/next/src/content/events/pt-leo-estate-local-complimentary-sculpture-park-winter-2026.json
+@@ -58,7 +58,13 @@
+     "src": "/images/sourced/venue-pt-leo-sculpture-01.webp",
+     "alt": "Pt. Leo Estate Sculpture Park",
+     "credit": "Peninsula Insider",
+-    "license": "other-licensed"
++    "license": "wikimedia-cc-by-sa",
++    "creator": "Emma White (uploaded by BrooksieG), 6 October 2023",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pt_Leo_sculpture.jpg",
++    "permission": "CC-BY-SA-4.0",
++    "depicts": "Pt. Leo Estate Sculpture Park, Mornington Peninsula (Barry Flanagan's \"Drummer\" hare and other works on the lawn above Western Port)",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "nextOccurrence": "2026-09-14"
+ }
+--- a/next/src/content/events/pt-leo-estate-sculpture-park.json
++++ b/next/src/content/events/pt-leo-estate-sculpture-park.json
+@@ -69,6 +69,12 @@
+     "src": "/images/sourced/venue-pt-leo-sculpture-01.webp",
+     "alt": "Sculpture and art installations at Pt. Leo Estate on the Mornington Peninsula",
+     "credit": "Peninsula Insider",
+-    "license": "other-licensed"
++    "license": "wikimedia-cc-by-sa",
++    "creator": "Emma White (uploaded by BrooksieG), 6 October 2023",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pt_Leo_sculpture.jpg",
++    "permission": "CC-BY-SA-4.0",
++    "depicts": "Pt. Leo Estate Sculpture Park, Mornington Peninsula (Barry Flanagan's \"Drummer\" hare and other works on the lawn above Western Port)",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   }
+ }
+--- a/next/src/content/events/sorrento-writers-festival-2026.json
++++ b/next/src/content/events/sorrento-writers-festival-2026.json
+@@ -25,7 +25,13 @@
+     "src": "/images/sourced/explore-mprg-01.webp",
+     "alt": "Readers gathering for a literary festival event on the Mornington Peninsula",
+     "credit": "Unsplash",
+-    "license": "tmp-unsplash"
++    "license": "wikimedia-cc-by",
++    "creator": "pru_mitchell",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_Regional_Gallery.jpg",
++    "permission": "CC-BY-2.0",
++    "depicts": "Mornington Peninsula Regional Gallery (MPRG), Civic Reserve, Dunns Road Mornington",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "nextOccurrence": "2027-04-23"
+ }
+--- a/next/src/content/events/southern-peninsula-sleepout-the-ranch-2026.json
++++ b/next/src/content/events/southern-peninsula-sleepout-the-ranch-2026.json
+@@ -60,6 +60,12 @@
+     "src": "/images/sourced/explore-hub-hero-01.webp",
+     "alt": "Community event on the Mornington Peninsula",
+     "credit": "Peninsula Insider",
+-    "license": "other-licensed"
++    "license": "wikimedia-cc-by-sa",
++    "creator": "DenisFrolow",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cape_Schanck_walking_trail.jpg",
++    "permission": "CC-BY-SA-4.0",
++    "depicts": "Cape Schanck walking trail",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   }
+ }
+--- a/next/src/content/experiences/bushrangers-bay-walk.json
++++ b/next/src/content/experiences/bushrangers-bay-walk.json
+@@ -4,23 +4,48 @@
+   "type": "walk",
+   "place": "cape-schanck",
+   "zone": "ocean-coast",
+-  "coordinates": { "lat": -38.4909, "lng": 144.8856 },
++  "coordinates": {
++    "lat": -38.4909,
++    "lng": 144.8856
++  },
+   "address": "Cape Schanck Rd, Cape Schanck VIC 3939",
+   "website": "https://www.parks.vic.gov.au/places-to-see/parks/mornington-peninsula-national-park",
+   "durationMinutes": 90,
+   "difficulty": "moderate",
+-  "seasonBest": ["autumn", "winter", "spring"],
++  "seasonBest": [
++    "autumn",
++    "winter",
++    "spring"
++  ],
+   "editorNote": "Bushrangers Bay is the walk we send people to when they say they want to see the wilder side of the Peninsula without committing to a full-day hike. The track drops from the Cape Schanck lighthouse precinct through coastal scrub and opens onto a broad crescent of basalt and sand that feels much further from Melbourne than it is. The return climb is enough to justify lunch afterwards, but not so punishing that it tips into chore. Do it in the late afternoon when the light starts to flatten across the water and the whole coastline turns silver.",
+   "tags": {
+-    "mood": ["walk", "view", "slow"],
+-    "season": ["autumn", "winter", "spring"],
+-    "audience": ["couples", "locals", "first-timers"]
++    "mood": [
++      "walk",
++      "view",
++      "slow"
++    ],
++    "season": [
++      "autumn",
++      "winter",
++      "spring"
++    ],
++    "audience": [
++      "couples",
++      "locals",
++      "first-timers"
++    ]
+   },
+   "heroImage": {
+     "src": "/images/sourced/explore-bushrangers-bay-walk-01.webp",
+     "alt": "Bushrangers Bay and its distinctive rock stacks, viewed from Cape Schanck, Mornington Peninsula",
+     "credit": "Kevin Graham de Valle / Wikimedia Commons (CC-BY-SA-4.0)",
+-    "license": "wikimedia-cc-by-sa"
++    "license": "wikimedia-cc-by-sa",
++    "creator": "Kevin Graham de Valle",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:)_Bush_Rangers_Bay._The_Mornington_Peninsula_National_Park_Victoria_Australia.jpg",
++    "permission": "CC-BY-SA-4.0",
++    "depicts": "Bush Rangers Bay, Mornington Peninsula National Park Victoria Australia",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "lastVerified": "2026-04-08",
+--- a/next/src/content/experiences/bushrangers-bay.json
++++ b/next/src/content/experiences/bushrangers-bay.json
+@@ -38,7 +38,13 @@
+     "src": "/images/sourced/explore-bushrangers-bay-walk-01.webp",
+     "alt": "Bushrangers Bay - Peninsula Insider",
+     "credit": "Wikimedia Commons",
+-    "license": "tmp-wikimedia"
++    "license": "wikimedia-cc-by-sa",
++    "creator": "Kevin Graham de Valle",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:)_Bush_Rangers_Bay._The_Mornington_Peninsula_National_Park_Victoria_Australia.jpg",
++    "permission": "CC-BY-SA-4.0",
++    "depicts": "Bush Rangers Bay, Mornington Peninsula National Park Victoria Australia",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "lastVerified": "2026-04-09",
+--- a/next/src/content/experiences/cape-schanck-boardwalk.json
++++ b/next/src/content/experiences/cape-schanck-boardwalk.json
+@@ -4,23 +4,45 @@
+   "type": "lookout",
+   "place": "cape-schanck",
+   "zone": "ocean-coast",
+-  "coordinates": { "lat": -38.5041, "lng": 144.8886 },
++  "coordinates": {
++    "lat": -38.5041,
++    "lng": 144.8886
++  },
+   "address": "420 Cape Schanck Rd, Cape Schanck VIC 3939",
+   "website": "https://www.parks.vic.gov.au/places-to-see/parks/mornington-peninsula-national-park",
+   "durationMinutes": 35,
+   "difficulty": "easy",
+-  "seasonBest": ["all-year"],
++  "seasonBest": [
++    "all-year"
++  ],
+   "editorNote": "The Cape Schanck boardwalk is short, obvious, and absolutely worth doing. A lot of Peninsula viewpoints require an act of faith before they pay off; this one gives you the basalt formations, the pounding water, and the lighthouse almost immediately. Think of it as the Southern Ocean aperitif before a longer walk or a late lunch inland. It is particularly good for visitors who want scale and coastline without needing to dedicate half the day to it.",
+   "tags": {
+-    "mood": ["view", "walk", "beach"],
+-    "season": ["all-year"],
+-    "audience": ["couples", "families", "first-timers", "locals"]
++    "mood": [
++      "view",
++      "walk",
++      "beach"
++    ],
++    "season": [
++      "all-year"
++    ],
++    "audience": [
++      "couples",
++      "families",
++      "first-timers",
++      "locals"
++    ]
+   },
+   "heroImage": {
+     "src": "/images/sourced/explore-cape-schanck-boardwalk-01.webp",
+     "alt": "The upper trail and boardwalk at Cape Schanck, looking towards the southernmost tip of the Mornington Peninsula",
+     "credit": "Danilo Ramirez / Wikimedia Commons (CC-BY-SA-4.0)",
+-    "license": "wikimedia-cc-by-sa"
++    "license": "wikimedia-cc-by-sa",
++    "creator": "Danilo Ramirez",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cape_Schanck_Upper_Trail_View.jpg",
++    "permission": "CC-BY-SA-4.0",
++    "depicts": "Cape Schanck Upper Trail View",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "lastVerified": "2026-04-08",
+--- a/next/src/content/experiences/coastal-walk-cape-schanck.json
++++ b/next/src/content/experiences/coastal-walk-cape-schanck.json
+@@ -37,7 +37,13 @@
+     "src": "/images/sourced/explore-cape-schanck-boardwalk-01.webp",
+     "alt": "Clifftop section of the Cape Schanck to London Bridge coastal walk above Bass Strait",
+     "credit": "Wikimedia Commons",
+-    "license": "tmp-wikimedia"
++    "license": "wikimedia-cc-by-sa",
++    "creator": "Danilo Ramirez",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cape_Schanck_Upper_Trail_View.jpg",
++    "permission": "CC-BY-SA-4.0",
++    "depicts": "Cape Schanck Upper Trail View",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "lastVerified": "2026-04-09",
+--- a/next/src/content/experiences/coppins-track.json
++++ b/next/src/content/experiences/coppins-track.json
+@@ -39,7 +39,12 @@
+     "depicts": "a moored yacht and motor cruiser on a flat calm bay, sun low over the water",
+     "depictionStatus": "illustrative",
+     "credit": "Alan Travers",
+-    "license": "wikimedia-cc0"
++    "license": "wikimedia-cc0",
++    "creator": "Alan Travers",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bright_morning_Sorrento_Victoria_(51527287664).jpg",
++    "permission": "CC0 (Public Domain)",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "lastVerified": "2026-04-09",
+--- a/next/src/content/experiences/flinders-golf-club.json
++++ b/next/src/content/experiences/flinders-golf-club.json
+@@ -40,7 +40,12 @@
+     "depicts": "a timber pier, a seaweed-covered rock shelf and moored boats on the bay",
+     "depictionStatus": "illustrative",
+     "credit": "Daniel Kabel",
+-    "license": "wikimedia-cc-by-sa"
++    "license": "wikimedia-cc-by-sa",
++    "creator": "Daniel Kabel",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Flinders_Pier_2nd_Jul_2019_1_of_4.jpg",
++    "permission": "CC-BY-SA-4.0",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "golf": {
+--- a/next/src/content/experiences/moonah-links.json
++++ b/next/src/content/experiences/moonah-links.json
+@@ -38,7 +38,12 @@
+     "depicts": "a rocky headland and offshore sea stack at sunset, framed by coastal tea-tree",
+     "depictionStatus": "illustrative",
+     "credit": "Marshlung",
+-    "license": "wikimedia-cc-by-sa"
++    "license": "wikimedia-cc-by-sa",
++    "creator": "Marshlung",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cape_schanck_looking_towards_pulpit_rock_at_dawn.jpg",
++    "permission": "CC-BY-SA-4.0",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "golf": {
+--- a/next/src/content/experiences/mornington-peninsula-gallery.json
++++ b/next/src/content/experiences/mornington-peninsula-gallery.json
+@@ -36,7 +36,13 @@
+     "src": "/images/sourced/explore-mprg-01.webp",
+     "alt": "Mornington Peninsula Regional Gallery (MPRG) exterior, Civic Reserve, Dunns Road Mornington",
+     "credit": "pru_mitchell / Wikimedia Commons (CC-BY-2.0)",
+-    "license": "wikimedia-cc-by"
++    "license": "wikimedia-cc-by",
++    "creator": "pru_mitchell",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_Regional_Gallery.jpg",
++    "permission": "CC-BY-2.0",
++    "depicts": "Mornington Peninsula Regional Gallery (MPRG), Civic Reserve, Dunns Road Mornington",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "lastVerified": "2026-04-09",
+--- a/next/src/content/experiences/point-nepean-national-park.json
++++ b/next/src/content/experiences/point-nepean-national-park.json
+@@ -37,7 +37,13 @@
+     "src": "/images/sourced/place-point-nepean-01.webp",
+     "alt": "Point Nepean National Park - Peninsula Insider",
+     "credit": "Wikimedia Commons",
+-    "license": "tmp-wikimedia"
++    "license": "wikimedia-cc-by-sa",
++    "creator": "Philip Mallis",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Looking_out_towards_the_waves_near_Cheviot_Hill_at_Point_Nepean_in_Portsea,_Victoria.jpg",
++    "permission": "CC-BY-SA-4.0",
++    "depicts": "Looking out towards the waves near Cheviot Hill at Point Nepean in Portsea, Victoria",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "lastVerified": "2026-04-09",
+--- a/next/src/content/experiences/portsea-golf-club.json
++++ b/next/src/content/experiences/portsea-golf-club.json
+@@ -37,7 +37,12 @@
+     "depicts": "two children in shallow water beside a timber jetty",
+     "depictionStatus": "illustrative",
+     "credit": "Essiewingrove",
+-    "license": "wikimedia-cc-by-sa"
++    "license": "wikimedia-cc-by-sa",
++    "creator": "Essiewingrove",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Point_king_beach_in_Portsea_Victoria.jpg",
++    "permission": "CC-BY-SA-4.0",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "golf": {
+--- a/next/src/content/experiences/pt-leo-sculpture-park.json
++++ b/next/src/content/experiences/pt-leo-sculpture-park.json
+@@ -35,7 +35,13 @@
+     "src": "/images/sourced/venue-pt-leo-sculpture-01.webp",
+     "alt": "Pt. Leo Estate Sculpture Park - Barry Flanagan's hare and large-scale works on the lawn above Western Port",
+     "credit": "Emma White / Wikimedia Commons (CC BY-SA 4.0)",
+-    "license": "wikimedia-cc-by-sa"
++    "license": "wikimedia-cc-by-sa",
++    "creator": "Emma White (uploaded by BrooksieG), 6 October 2023",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pt_Leo_sculpture.jpg",
++    "permission": "CC-BY-SA-4.0",
++    "depicts": "Pt. Leo Estate Sculpture Park, Mornington Peninsula (Barry Flanagan's \"Drummer\" hare and other works on the lawn above Western Port)",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "lastVerified": "2026-04-09",
+--- a/next/src/content/experiences/racv-cape-schanck-golf-course.json
++++ b/next/src/content/experiences/racv-cape-schanck-golf-course.json
+@@ -38,7 +38,12 @@
+     "depicts": "a rocky headland and offshore sea stack at sunset, framed by coastal tea-tree",
+     "depictionStatus": "illustrative",
+     "credit": "Marshlung",
+-    "license": "wikimedia-cc-by-sa"
++    "license": "wikimedia-cc-by-sa",
++    "creator": "Marshlung",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cape_schanck_looking_towards_pulpit_rock_at_dawn.jpg",
++    "permission": "CC-BY-SA-4.0",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "golf": {
+--- a/next/src/content/experiences/red-hill-hinterland-cycling.json
++++ b/next/src/content/experiences/red-hill-hinterland-cycling.json
+@@ -35,7 +35,13 @@
+     "src": "/images/sourced/place-red-hill-01.webp",
+     "alt": "Red Hill hinterland, Mornington Peninsula - cycling through vineyard country",
+     "credit": "CSIRO",
+-    "license": "wikimedia-cc-by"
++    "license": "wikimedia-cc-by",
++    "creator": "CSIRO",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1981_Pinot_Noir_grapes_at_the_Main_Ridge_Estate.jpg",
++    "permission": "CC-BY-3.0",
++    "depicts": "CSIRO ScienceImage 1981 Pinot Noir grapes at the Main Ridge Estate",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "lastVerified": "2026-04-09",
+--- a/next/src/content/experiences/red-hill-truffles.json
++++ b/next/src/content/experiences/red-hill-truffles.json
+@@ -36,7 +36,12 @@
+     "depicts": "a grassed row between trellised vines in full leaf",
+     "depictionStatus": "illustrative",
+     "credit": "CSIRO",
+-    "license": "wikimedia-cc-by"
++    "license": "wikimedia-cc-by",
++    "creator": "CSIRO",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1981_Pinot_Noir_grapes_at_the_Main_Ridge_Estate.jpg",
++    "permission": "CC-BY-3.0",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "lastVerified": "2026-04-09",
+--- a/next/src/content/experiences/sorrento-back-beach.json
++++ b/next/src/content/experiences/sorrento-back-beach.json
+@@ -4,22 +4,48 @@
+   "type": "beach",
+   "place": "sorrento",
+   "zone": "peninsula-tip",
+-  "coordinates": { "lat": -38.3528, "lng": 144.7388 },
++  "coordinates": {
++    "lat": -38.3528,
++    "lng": 144.7388
++  },
+   "address": "Back Beach Rd, Sorrento VIC 3943",
+   "durationMinutes": 75,
+   "difficulty": "easy",
+-  "seasonBest": ["summer", "autumn", "spring"],
++  "seasonBest": [
++    "summer",
++    "autumn",
++    "spring"
++  ],
+   "editorNote": "The back beach is where Sorrento stops performing and starts feeling elemental. The surf side has more force, more wind, and far better dusk light than the bay, which is why locals drift here late in the day even when they have spent the morning elsewhere. Swim only when conditions suit and the flags are up, but walk it in any season. The stretch from the car park toward Diamond Bay is one of the easiest ways to understand why the southern tip of the Peninsula feels like a different region entirely.",
+   "tags": {
+-    "mood": ["beach", "sunset", "view"],
+-    "season": ["summer", "autumn", "spring"],
+-    "audience": ["couples", "families", "locals", "first-timers"]
++    "mood": [
++      "beach",
++      "sunset",
++      "view"
++    ],
++    "season": [
++      "summer",
++      "autumn",
++      "spring"
++    ],
++    "audience": [
++      "couples",
++      "families",
++      "locals",
++      "first-timers"
++    ]
+   },
+   "heroImage": {
+     "src": "/images/sourced/explore-sorrento-ocean-baths-01.webp",
+     "alt": "Sorrento back beach at dusk with limestone cliffs and rolling surf",
+     "credit": "Wikimedia Commons",
+-    "license": "tmp-wikimedia"
++    "license": "wikimedia-cc-by-sa",
++    "creator": "Simone Kealy",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Portsea_beaches.jpg",
++    "permission": "CC-BY-SA-4.0",
++    "depicts": "Beach near Portsea during winter",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "lastVerified": "2026-04-08",
+--- a/next/src/content/experiences/sorrento-golf-club.json
++++ b/next/src/content/experiences/sorrento-golf-club.json
+@@ -39,7 +39,12 @@
+     "depicts": "a moored yacht and motor cruiser on a flat calm bay, sun low over the water",
+     "depictionStatus": "illustrative",
+     "credit": "Alan Travers",
+-    "license": "wikimedia-cc0"
++    "license": "wikimedia-cc0",
++    "creator": "Alan Travers",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bright_morning_Sorrento_Victoria_(51527287664).jpg",
++    "permission": "CC0 (Public Domain)",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "golf": {
+--- a/next/src/content/experiences/sorrento-ocean-baths.json
++++ b/next/src/content/experiences/sorrento-ocean-baths.json
+@@ -39,7 +39,13 @@
+     "src": "/images/sourced/explore-sorrento-ocean-baths-01.webp",
+     "alt": "Rocky coastline near Portsea back beach, Mornington Peninsula",
+     "credit": "Simone Kealy / Wikimedia Commons (CC-BY-SA-4.0)",
+-    "license": "wikimedia-cc-by-sa"
++    "license": "wikimedia-cc-by-sa",
++    "creator": "Simone Kealy",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Portsea_beaches.jpg",
++    "permission": "CC-BY-SA-4.0",
++    "depicts": "Beach near Portsea during winter",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "lastVerified": "2026-04-09",
+--- a/next/src/content/experiences/st-andrews-beach-golf-course.json
++++ b/next/src/content/experiences/st-andrews-beach-golf-course.json
+@@ -41,7 +41,12 @@
+     "depicts": "a rocky headland and offshore sea stack at sunset, framed by coastal tea-tree",
+     "depictionStatus": "illustrative",
+     "credit": "Marshlung",
+-    "license": "wikimedia-cc-by-sa"
++    "license": "wikimedia-cc-by-sa",
++    "creator": "Marshlung",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cape_schanck_looking_towards_pulpit_rock_at_dawn.jpg",
++    "permission": "CC-BY-SA-4.0",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "golf": {
+--- a/next/src/content/experiences/sunny-ridge-strawberry-farm.json
++++ b/next/src/content/experiences/sunny-ridge-strawberry-farm.json
+@@ -38,7 +38,12 @@
+     "depicts": "bunches of white wine grapes on the vine",
+     "depictionStatus": "illustrative",
+     "credit": "CSIRO",
+-    "license": "wikimedia-cc-by"
++    "license": "wikimedia-cc-by",
++    "creator": "CSIRO",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1961_Chardonnay_grapes_at_the_Main_Ridge_Estate.jpg",
++    "permission": "CC-BY-3.0",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "lastVerified": "2026-04-09",
+--- a/next/src/content/experiences/the-national-golf-club.json
++++ b/next/src/content/experiences/the-national-golf-club.json
+@@ -35,7 +35,12 @@
+     "depicts": "a rocky headland and offshore sea stack at sunset, framed by coastal tea-tree",
+     "depictionStatus": "illustrative",
+     "credit": "Marshlung",
+-    "license": "wikimedia-cc-by-sa"
++    "license": "wikimedia-cc-by-sa",
++    "creator": "Marshlung",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cape_schanck_looking_towards_pulpit_rock_at_dawn.jpg",
++    "permission": "CC-BY-SA-4.0",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "golf": {
+--- a/next/src/content/itineraries/flinders-and-cape-reset.json
++++ b/next/src/content/itineraries/flinders-and-cape-reset.json
+@@ -47,7 +47,13 @@
+     "src": "/images/sourced/place-flinders-01.webp",
+     "alt": "Flinders village and pier",
+     "credit": "Wikimedia Commons",
+-    "license": "wikimedia-cc-by-sa"
++    "license": "wikimedia-cc-by-sa",
++    "creator": "Daniel Kabel",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Flinders_Pier_2nd_Jul_2019_1_of_4.jpg",
++    "permission": "CC-BY-SA-4.0",
++    "depicts": "Flinders Pier 2nd Jul 2019",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "editorNote": "The one-night Peninsula trip only works if you resist the temptation to cram it full. This version stays south, keeps the driving short, and gives equal weight to coastline and lunch. Flinders gives you a clean village base. Cape Schanck supplies the weather and the scale. Tedesca handles dinner. By the time you are leaving Pt. Leo after lunch the next day, it feels like you were away for longer than twenty-four hours.",
+   "publishedAt": "2026-04-08"
+--- a/next/src/content/itineraries/ridge-to-sea-two-night-escape.json
++++ b/next/src/content/itineraries/ridge-to-sea-two-night-escape.json
+@@ -61,7 +61,13 @@
+     "src": "/images/sourced/place-red-hill-01.webp",
+     "alt": "Red Hill hinterland vineyard landscape",
+     "credit": "BrooksieG / Wikimedia Commons",
+-    "license": "wikimedia-cc-by"
++    "license": "wikimedia-cc-by",
++    "creator": "CSIRO",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1981_Pinot_Noir_grapes_at_the_Main_Ridge_Estate.jpg",
++    "permission": "CC-BY-3.0",
++    "depicts": "CSIRO ScienceImage 1981 Pinot Noir grapes at the Main Ridge Estate",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "editorNote": "This is the Peninsula in the sequence that makes the most sense to us: lunch and vineyard calm on the ridge first, then a gradual drift south until the landscape finally opens out into ocean, forts, ferries, and the weathered social theatre of Sorrento. It works because each day changes register. Day one is indulgent, day two is coastal, day three is all horizon. Keep the bookings light enough that the weekend can still breathe.",
+   "publishedAt": "2026-04-08"
+--- a/next/src/content/itineraries/sorrento-off-season-weekend.json
++++ b/next/src/content/itineraries/sorrento-off-season-weekend.json
+@@ -68,7 +68,13 @@
+     "src": "/images/sourced/place-sorrento-01.webp",
+     "alt": "Morning light over Sorrento foreshore",
+     "credit": "Alan Travers / Wikimedia Commons",
+-    "license": "wikimedia-cc0"
++    "license": "wikimedia-cc0",
++    "creator": "Alan Travers",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bright_morning_Sorrento_Victoria_(51527287664).jpg",
++    "permission": "CC0 (Public Domain)",
++    "depicts": "Bright morning Sorrento Victoria",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "editorNote": "Most Sorrento weekends are built around the summer version of the town  -  crowded, bright, too warm to walk far. This plan inverts that. It assumes you are here in April, May, June, September, or October, and it treats the village as the base rather than a stop. Two nights is enough. Three is ideal.",
+   "publishedAt": "2026-04-12"
+--- a/next/src/content/itineraries/the-peninsula-golf-weekend.json
++++ b/next/src/content/itineraries/the-peninsula-golf-weekend.json
+@@ -62,7 +62,13 @@
+     "src": "/images/sourced/place-cape-schanck-01.webp",
+     "alt": "Coastal golf course landscape on the Mornington Peninsula",
+     "credit": "Peninsula Insider",
+-    "license": "tmp-wikimedia"
++    "license": "wikimedia-cc-by-sa",
++    "creator": "Marshlung",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cape_schanck_looking_towards_pulpit_rock_at_dawn.jpg",
++    "permission": "CC-BY-SA-4.0",
++    "depicts": "Cape Schanck looking towards Pulpit Rock at dawn",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "publishedAt": "2026-04-14"
+--- a/next/src/content/itineraries/wellness-weekend.json
++++ b/next/src/content/itineraries/wellness-weekend.json
+@@ -61,7 +61,13 @@
+     "src": "/images/sourced/place-red-hill-01.webp",
+     "alt": "Red Hill hinterland vineyard landscape",
+     "credit": "BrooksieG / Wikimedia Commons",
+-    "license": "wikimedia-cc-by"
++    "license": "wikimedia-cc-by",
++    "creator": "CSIRO",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1981_Pinot_Noir_grapes_at_the_Main_Ridge_Estate.jpg",
++    "permission": "CC-BY-3.0",
++    "depicts": "CSIRO ScienceImage 1981 Pinot Noir grapes at the Main Ridge Estate",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "editorNote": "This is the itinerary to use when the weekend is genuinely meant to recover something rather than impress anyone. The geography deliberately stays tight  -  one stay, one thermal session, two gentle meals, one short walk, one gallery on the way out  -  and the bookings are deliberately easy to cancel if the day turns bad. The whole plan is built to let the Peninsula do its best-known trick: slow people down.",
+   "publishedAt": "2026-04-09"
+--- a/next/src/content/places/cape-schanck.json
++++ b/next/src/content/places/cape-schanck.json
+@@ -15,7 +15,13 @@
+     "src": "/images/sourced/place-cape-schanck-01.webp",
+     "alt": "Dawn light across Pulpit Rock at Cape Schanck, Mornington Peninsula",
+     "credit": "Marshlung / Wikimedia Commons (CC-BY-SA-4.0)",
+-    "license": "wikimedia-cc-by-sa"
++    "license": "wikimedia-cc-by-sa",
++    "creator": "Marshlung",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cape_schanck_looking_towards_pulpit_rock_at_dawn.jpg",
++    "permission": "CC-BY-SA-4.0",
++    "depicts": "Cape Schanck looking towards Pulpit Rock at dawn",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "relatedPlaces": [
+     "flinders",
+--- a/next/src/content/places/flinders.json
++++ b/next/src/content/places/flinders.json
+@@ -15,7 +15,13 @@
+     "src": "/images/sourced/place-flinders-01.webp",
+     "alt": "Flinders Pier extending into Western Port Bay on a quiet winter day",
+     "credit": "Daniel Kabel / Wikimedia Commons (CC-BY-SA-4.0)",
+-    "license": "wikimedia-cc-by-sa"
++    "license": "wikimedia-cc-by-sa",
++    "creator": "Daniel Kabel",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Flinders_Pier_2nd_Jul_2019_1_of_4.jpg",
++    "permission": "CC-BY-SA-4.0",
++    "depicts": "Flinders Pier 2nd Jul 2019",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "relatedPlaces": [
+     "red-hill",
+--- a/next/src/content/places/main-ridge.json
++++ b/next/src/content/places/main-ridge.json
+@@ -15,7 +15,13 @@
+     "src": "/images/sourced/place-main-ridge-01.webp",
+     "alt": "Chardonnay grapes at the Main Ridge Estate vineyard, Mornington Peninsula",
+     "credit": "CSIRO / Wikimedia Commons (CC-BY-3.0)",
+-    "license": "wikimedia-cc-by"
++    "license": "wikimedia-cc-by",
++    "creator": "CSIRO",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1961_Chardonnay_grapes_at_the_Main_Ridge_Estate.jpg",
++    "permission": "CC-BY-3.0",
++    "depicts": "CSIRO ScienceImage 1961 Chardonnay grapes at the Main Ridge Estate",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "relatedPlaces": [
+     "red-hill",
+--- a/next/src/content/places/merricks.json
++++ b/next/src/content/places/merricks.json
+@@ -15,7 +15,13 @@
+     "src": "/images/sourced/place-merricks-01.webp",
+     "alt": "Working vineyard in early spring at Merricks, Mornington Peninsula",
+     "credit": "BrooksieG / Wikimedia Commons (CC-BY-4.0)",
+-    "license": "wikimedia-cc-by"
++    "license": "wikimedia-cc-by",
++    "creator": "BrooksieG",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vineyard_Merricks_Grove_Victoria_Australia.jpg",
++    "permission": "CC-BY-4.0",
++    "depicts": "Vineyard Merricks Grove Victoria Australia",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "relatedPlaces": [
+     "red-hill",
+--- a/next/src/content/places/point-nepean.json
++++ b/next/src/content/places/point-nepean.json
+@@ -15,7 +15,13 @@
+     "src": "/images/sourced/place-point-nepean-01.webp",
+     "alt": "Looking out towards the waves near Cheviot Hill at Point Nepean",
+     "credit": "Philip Mallis / Wikimedia Commons (CC-BY-SA-4.0)",
+-    "license": "wikimedia-cc-by-sa"
++    "license": "wikimedia-cc-by-sa",
++    "creator": "Philip Mallis",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Looking_out_towards_the_waves_near_Cheviot_Hill_at_Point_Nepean_in_Portsea,_Victoria.jpg",
++    "permission": "CC-BY-SA-4.0",
++    "depicts": "Looking out towards the waves near Cheviot Hill at Point Nepean in Portsea, Victoria",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "relatedPlaces": [
+     "sorrento",
+--- a/next/src/content/places/portsea.json
++++ b/next/src/content/places/portsea.json
+@@ -15,7 +15,13 @@
+     "src": "/images/sourced/place-portsea-01.webp",
+     "alt": "Point King Beach in Portsea, Victoria  -  calm bay water and wharf",
+     "credit": "Essiewingrove / Wikimedia Commons (CC-BY-SA-4.0)",
+-    "license": "wikimedia-cc-by-sa"
++    "license": "wikimedia-cc-by-sa",
++    "creator": "Essiewingrove",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Point_king_beach_in_Portsea_Victoria.jpg",
++    "permission": "CC-BY-SA-4.0",
++    "depicts": "Point King beach in Portsea Victoria",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "relatedPlaces": [
+     "sorrento",
+--- a/next/src/content/places/red-hill.json
++++ b/next/src/content/places/red-hill.json
+@@ -15,7 +15,13 @@
+     "src": "/images/sourced/place-red-hill-01.webp",
+     "alt": "Pinot noir grapes ripening on the vine at Main Ridge Estate, Red Hill plateau",
+     "credit": "CSIRO / Wikimedia Commons (CC-BY-3.0)",
+-    "license": "wikimedia-cc-by"
++    "license": "wikimedia-cc-by",
++    "creator": "CSIRO",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1981_Pinot_Noir_grapes_at_the_Main_Ridge_Estate.jpg",
++    "permission": "CC-BY-3.0",
++    "depicts": "CSIRO ScienceImage 1981 Pinot Noir grapes at the Main Ridge Estate",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "relatedPlaces": [
+     "merricks",
+--- a/next/src/content/places/sorrento.json
++++ b/next/src/content/places/sorrento.json
+@@ -15,7 +15,13 @@
+     "src": "/images/sourced/place-sorrento-01.webp",
+     "alt": "Bright morning light on the Sorrento coastline, Victoria",
+     "credit": "Alan Travers / Wikimedia Commons (CC0)",
+-    "license": "wikimedia-cc0"
++    "license": "wikimedia-cc0",
++    "creator": "Alan Travers",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bright_morning_Sorrento_Victoria_(51527287664).jpg",
++    "permission": "CC0 (Public Domain)",
++    "depicts": "Bright morning Sorrento Victoria",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "relatedPlaces": [
+     "flinders",
+--- a/next/src/content/regions/red-hill-wine-country.json
++++ b/next/src/content/regions/red-hill-wine-country.json
+@@ -7,7 +7,13 @@
+     "src": "/images/sourced/wine-hub-hero-01.webp",
+     "alt": "Morning light across Red Hill's vineyard rows, Mornington Peninsula",
+     "credit": "Peninsula Insider",
+-    "license": "tmp-unsplash"
++    "license": "wikimedia-cc-by",
++    "creator": "CSIRO ScienceImage",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1981_Pinot_Noir_grapes_at_the_Main_Ridge_Estate.jpg",
++    "permission": "CC-BY-3.0",
++    "depicts": "CSIRO ScienceImage 1981 Pinot Noir grapes at the Main Ridge Estate",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "zones": [
+     "red-hill",
+--- a/next/src/content/venues/allis-wine-bar.json
++++ b/next/src/content/venues/allis-wine-bar.json
+@@ -48,7 +48,12 @@
+     "depicts": "bunches of white wine grapes on the vine",
+     "depictionStatus": "illustrative",
+     "credit": "CSIRO",
+-    "license": "wikimedia-cc-by"
++    "license": "wikimedia-cc-by",
++    "creator": "CSIRO",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1961_Chardonnay_grapes_at_the_Main_Ridge_Estate.jpg",
++    "permission": "CC-BY-3.0",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "featuredPartner": false,
+--- a/next/src/content/venues/baillieu-vineyard.json
++++ b/next/src/content/venues/baillieu-vineyard.json
+@@ -50,7 +50,12 @@
+     "depicts": "rows of trellised vines running to a cypress windbreak",
+     "depictionStatus": "illustrative",
+     "credit": "BrooksieG",
+-    "license": "wikimedia-cc-by"
++    "license": "wikimedia-cc-by",
++    "creator": "BrooksieG",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vineyard_Merricks_Grove_Victoria_Australia.jpg",
++    "permission": "CC-BY-4.0",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "featuredPartner": false,
+--- a/next/src/content/venues/barragunda-dining.json
++++ b/next/src/content/venues/barragunda-dining.json
+@@ -50,7 +50,12 @@
+     "depicts": "a rocky headland and offshore sea stack at sunset, framed by coastal tea-tree",
+     "depictionStatus": "illustrative",
+     "credit": "Marshlung",
+-    "license": "wikimedia-cc-by-sa"
++    "license": "wikimedia-cc-by-sa",
++    "creator": "Marshlung",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cape_schanck_looking_towards_pulpit_rock_at_dawn.jpg",
++    "permission": "CC-BY-SA-4.0",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "featuredPartner": false,
+--- a/next/src/content/venues/birch-creek.json
++++ b/next/src/content/venues/birch-creek.json
+@@ -52,7 +52,12 @@
+     "depicts": "a grassed row between trellised vines in full leaf",
+     "depictionStatus": "illustrative",
+     "credit": "Peninsula Insider",
+-    "license": "other-licensed"
++    "license": "wikimedia-cc-by",
++    "creator": "CSIRO",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1981_Pinot_Noir_grapes_at_the_Main_Ridge_Estate.jpg",
++    "permission": "CC-BY-3.0",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "featuredPartner": false,
+--- a/next/src/content/venues/bistro-elba.json
++++ b/next/src/content/venues/bistro-elba.json
+@@ -54,7 +54,12 @@
+     "depicts": "a moored yacht and motor cruiser on a flat calm bay, sun low over the water",
+     "depictionStatus": "illustrative",
+     "credit": "Alan Travers",
+-    "license": "wikimedia-cc0"
++    "license": "wikimedia-cc0",
++    "creator": "Alan Travers",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bright_morning_Sorrento_Victoria_(51527287664).jpg",
++    "permission": "CC0 (Public Domain)",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "featuredPartner": false,
+--- a/next/src/content/venues/brewers-cottage.json
++++ b/next/src/content/venues/brewers-cottage.json
+@@ -47,7 +47,12 @@
+     "depicts": "a grassed row between trellised vines in full leaf",
+     "depictionStatus": "illustrative",
+     "credit": "Peninsula Insider",
+-    "license": "other-licensed"
++    "license": "wikimedia-cc-by",
++    "creator": "CSIRO",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1981_Pinot_Noir_grapes_at_the_Main_Ridge_Estate.jpg",
++    "permission": "CC-BY-3.0",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "featuredPartner": false,
+--- a/next/src/content/venues/cape-retreat.json
++++ b/next/src/content/venues/cape-retreat.json
+@@ -47,7 +47,12 @@
+     "depicts": "a rocky headland and offshore sea stack at sunset, framed by coastal tea-tree",
+     "depictionStatus": "illustrative",
+     "credit": "Peninsula Insider",
+-    "license": "other-licensed"
++    "license": "wikimedia-cc-by-sa",
++    "creator": "Marshlung",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cape_schanck_looking_towards_pulpit_rock_at_dawn.jpg",
++    "permission": "CC-BY-SA-4.0",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "featuredPartner": false,
+--- a/next/src/content/venues/cassis.json
++++ b/next/src/content/venues/cassis.json
+@@ -48,7 +48,12 @@
+     "depicts": "a grassed row between trellised vines in full leaf",
+     "depictionStatus": "illustrative",
+     "credit": "Peninsula Insider",
+-    "license": "other-licensed"
++    "license": "wikimedia-cc-by",
++    "creator": "CSIRO",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1981_Pinot_Noir_grapes_at_the_Main_Ridge_Estate.jpg",
++    "permission": "CC-BY-3.0",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "featuredPartner": false,
+--- a/next/src/content/venues/dexter-wines.json
++++ b/next/src/content/venues/dexter-wines.json
+@@ -50,7 +50,13 @@
+     "src": "/images/sourced/place-main-ridge-01.webp",
+     "alt": "Dexter Wines vineyard rows on Main Ridge in the upper Peninsula wine country",
+     "credit": "Wikimedia Commons",
+-    "license": "tmp-wikimedia"
++    "license": "wikimedia-cc-by",
++    "creator": "CSIRO",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1961_Chardonnay_grapes_at_the_Main_Ridge_Estate.jpg",
++    "permission": "CC-BY-3.0",
++    "depicts": "CSIRO ScienceImage 1961 Chardonnay grapes at the Main Ridge Estate",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "featuredPartner": false,
+--- a/next/src/content/venues/eldridge-estate.json
++++ b/next/src/content/venues/eldridge-estate.json
+@@ -104,7 +104,12 @@
+     "depicts": "a grassed row between trellised vines in full leaf",
+     "depictionStatus": "illustrative",
+     "credit": "CSIRO",
+-    "license": "wikimedia-cc-by"
++    "license": "wikimedia-cc-by",
++    "creator": "CSIRO",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1981_Pinot_Noir_grapes_at_the_Main_Ridge_Estate.jpg",
++    "permission": "CC-BY-3.0",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "featuredPartner": false,
+--- a/next/src/content/venues/elgee-park.json
++++ b/next/src/content/venues/elgee-park.json
+@@ -50,7 +50,12 @@
+     "depicts": "rows of trellised vines running to a cypress windbreak",
+     "depictionStatus": "illustrative",
+     "credit": "BrooksieG",
+-    "license": "wikimedia-cc-by"
++    "license": "wikimedia-cc-by",
++    "creator": "BrooksieG",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vineyard_Merricks_Grove_Victoria_Australia.jpg",
++    "permission": "CC-BY-4.0",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "featuredPartner": false,
+--- a/next/src/content/venues/flinders-general-store.json
++++ b/next/src/content/venues/flinders-general-store.json
+@@ -47,7 +47,12 @@
+     "depicts": "a timber pier, a seaweed-covered rock shelf and moored boats on the bay",
+     "depictionStatus": "illustrative",
+     "credit": "Daniel Kabel",
+-    "license": "wikimedia-cc-by-sa"
++    "license": "wikimedia-cc-by-sa",
++    "creator": "Daniel Kabel",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Flinders_Pier_2nd_Jul_2019_1_of_4.jpg",
++    "permission": "CC-BY-SA-4.0",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "featuredPartner": false,
+--- a/next/src/content/venues/flinders-sourdough.json
++++ b/next/src/content/venues/flinders-sourdough.json
+@@ -48,7 +48,12 @@
+     "depicts": "a timber pier, a seaweed-covered rock shelf and moored boats on the bay",
+     "depictionStatus": "illustrative",
+     "credit": "Daniel Kabel",
+-    "license": "wikimedia-cc-by-sa"
++    "license": "wikimedia-cc-by-sa",
++    "creator": "Daniel Kabel",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Flinders_Pier_2nd_Jul_2019_1_of_4.jpg",
++    "permission": "CC-BY-SA-4.0",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "featuredPartner": false,
+--- a/next/src/content/venues/foxeys-hangout.json
++++ b/next/src/content/venues/foxeys-hangout.json
+@@ -120,7 +120,12 @@
+     "depicts": "a grassed row between trellised vines in full leaf",
+     "depictionStatus": "illustrative",
+     "credit": "CSIRO",
+-    "license": "wikimedia-cc-by"
++    "license": "wikimedia-cc-by",
++    "creator": "CSIRO",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1981_Pinot_Noir_grapes_at_the_Main_Ridge_Estate.jpg",
++    "permission": "CC-BY-3.0",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "featuredPartner": false,
+--- a/next/src/content/venues/georgie-bass.json
++++ b/next/src/content/venues/georgie-bass.json
+@@ -51,7 +51,12 @@
+     "depicts": "a timber pier, a seaweed-covered rock shelf and moored boats on the bay",
+     "depictionStatus": "illustrative",
+     "credit": "Daniel Kabel",
+-    "license": "wikimedia-cc-by-sa"
++    "license": "wikimedia-cc-by-sa",
++    "creator": "Daniel Kabel",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Flinders_Pier_2nd_Jul_2019_1_of_4.jpg",
++    "permission": "CC-BY-SA-4.0",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "featuredPartner": false,
+--- a/next/src/content/venues/green-olive-red-hill.json
++++ b/next/src/content/venues/green-olive-red-hill.json
+@@ -52,7 +52,12 @@
+     "depicts": "a grassed row between trellised vines in full leaf",
+     "depictionStatus": "illustrative",
+     "credit": "CSIRO",
+-    "license": "wikimedia-cc-by"
++    "license": "wikimedia-cc-by",
++    "creator": "CSIRO",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1981_Pinot_Noir_grapes_at_the_Main_Ridge_Estate.jpg",
++    "permission": "CC-BY-3.0",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "featuredPartner": false,
+--- a/next/src/content/venues/happy-glamper.json
++++ b/next/src/content/venues/happy-glamper.json
+@@ -48,7 +48,12 @@
+     "depicts": "rows of trellised vines running to a cypress windbreak",
+     "depictionStatus": "illustrative",
+     "credit": "Peninsula Insider",
+-    "license": "other-licensed"
++    "license": "wikimedia-cc-by",
++    "creator": "BrooksieG",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vineyard_Merricks_Grove_Victoria_Australia.jpg",
++    "permission": "CC-BY-4.0",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "featuredPartner": false,
+--- a/next/src/content/venues/hideaways-red-hill.json
++++ b/next/src/content/venues/hideaways-red-hill.json
+@@ -49,7 +49,12 @@
+     "depicts": "a grassed row between trellised vines in full leaf",
+     "depictionStatus": "illustrative",
+     "credit": "Peninsula Insider",
+-    "license": "other-licensed"
++    "license": "wikimedia-cc-by",
++    "creator": "CSIRO",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1981_Pinot_Noir_grapes_at_the_Main_Ridge_Estate.jpg",
++    "permission": "CC-BY-3.0",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "featuredPartner": false,
+--- a/next/src/content/venues/johnny-ripe.json
++++ b/next/src/content/venues/johnny-ripe.json
+@@ -47,7 +47,12 @@
+     "depicts": "bunches of white wine grapes on the vine",
+     "depictionStatus": "illustrative",
+     "credit": "CSIRO",
+-    "license": "wikimedia-cc-by"
++    "license": "wikimedia-cc-by",
++    "creator": "CSIRO",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1961_Chardonnay_grapes_at_the_Main_Ridge_Estate.jpg",
++    "permission": "CC-BY-3.0",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "featuredPartner": false,
+--- a/next/src/content/venues/kerri-greens.json
++++ b/next/src/content/venues/kerri-greens.json
+@@ -54,7 +54,12 @@
+     "depicts": "rows of trellised vines running to a cypress windbreak",
+     "depictionStatus": "illustrative",
+     "credit": "BrooksieG",
+-    "license": "wikimedia-cc-by"
++    "license": "wikimedia-cc-by",
++    "creator": "BrooksieG",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vineyard_Merricks_Grove_Victoria_Australia.jpg",
++    "permission": "CC-BY-4.0",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "featuredPartner": false,
+--- a/next/src/content/venues/kooyong.json
++++ b/next/src/content/venues/kooyong.json
+@@ -110,7 +110,12 @@
+     "depicts": "bunches of white wine grapes on the vine",
+     "depictionStatus": "illustrative",
+     "credit": "CSIRO",
+-    "license": "wikimedia-cc-by"
++    "license": "wikimedia-cc-by",
++    "creator": "CSIRO",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1961_Chardonnay_grapes_at_the_Main_Ridge_Estate.jpg",
++    "permission": "CC-BY-3.0",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "featuredPartner": false,
+--- a/next/src/content/venues/la-baracca-tgallant.json
++++ b/next/src/content/venues/la-baracca-tgallant.json
+@@ -52,7 +52,12 @@
+     "depicts": "bunches of white wine grapes on the vine",
+     "depictionStatus": "illustrative",
+     "credit": "CSIRO",
+-    "license": "wikimedia-cc-by"
++    "license": "wikimedia-cc-by",
++    "creator": "CSIRO",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1961_Chardonnay_grapes_at_the_Main_Ridge_Estate.jpg",
++    "permission": "CC-BY-3.0",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "featuredPartner": false,
+--- a/next/src/content/venues/laura-pt-leo.json
++++ b/next/src/content/venues/laura-pt-leo.json
+@@ -56,7 +56,13 @@
+     "src": "/images/sourced/venue-pt-leo-sculpture-01.webp",
+     "alt": "Laura at Pt. Leo Estate - sculpture park and vineyard dining, Merricks",
+     "credit": "Emma White / Wikimedia Commons (CC BY-SA 4.0)",
+-    "license": "wikimedia-cc-by-sa"
++    "license": "wikimedia-cc-by-sa",
++    "creator": "Emma White (uploaded by BrooksieG), 6 October 2023",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pt_Leo_sculpture.jpg",
++    "permission": "CC-BY-SA-4.0",
++    "depicts": "Pt. Leo Estate Sculpture Park, Mornington Peninsula (Barry Flanagan's \"Drummer\" hare and other works on the lawn above Western Port)",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "featuredPartner": false,
+--- a/next/src/content/venues/lightfoot-wines.json
++++ b/next/src/content/venues/lightfoot-wines.json
+@@ -44,7 +44,12 @@
+     "depicts": "bunches of white wine grapes on the vine",
+     "depictionStatus": "illustrative",
+     "credit": "CSIRO",
+-    "license": "wikimedia-cc-by"
++    "license": "wikimedia-cc-by",
++    "creator": "CSIRO",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1961_Chardonnay_grapes_at_the_Main_Ridge_Estate.jpg",
++    "permission": "CC-BY-3.0",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "featuredPartner": false,
+--- a/next/src/content/venues/main-ridge-dairy.json
++++ b/next/src/content/venues/main-ridge-dairy.json
+@@ -79,7 +79,12 @@
+     "depicts": "bunches of white wine grapes on the vine",
+     "depictionStatus": "illustrative",
+     "credit": "CSIRO",
+-    "license": "wikimedia-cc-by"
++    "license": "wikimedia-cc-by",
++    "creator": "CSIRO",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1961_Chardonnay_grapes_at_the_Main_Ridge_Estate.jpg",
++    "permission": "CC-BY-3.0",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "featuredPartner": false,
+--- a/next/src/content/venues/main-ridge-estate.json
++++ b/next/src/content/venues/main-ridge-estate.json
+@@ -108,7 +108,13 @@
+     "src": "/images/sourced/place-main-ridge-01.webp",
+     "alt": "CSIRO ScienceImage 1961 Chardonnay grapes at the Main Ridge Estate",
+     "credit": "CSIRO",
+-    "license": "wikimedia-cc-by"
++    "license": "wikimedia-cc-by",
++    "creator": "CSIRO",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1961_Chardonnay_grapes_at_the_Main_Ridge_Estate.jpg",
++    "permission": "CC-BY-3.0",
++    "depicts": "CSIRO ScienceImage 1961 Chardonnay grapes at the Main Ridge Estate",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "featuredPartner": false,
+--- a/next/src/content/venues/many-little.json
++++ b/next/src/content/venues/many-little.json
+@@ -49,7 +49,12 @@
+     "depicts": "a grassed row between trellised vines in full leaf",
+     "depictionStatus": "illustrative",
+     "credit": "CSIRO",
+-    "license": "wikimedia-cc-by"
++    "license": "wikimedia-cc-by",
++    "creator": "CSIRO",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1981_Pinot_Noir_grapes_at_the_Main_Ridge_Estate.jpg",
++    "permission": "CC-BY-3.0",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "featuredPartner": false,
+--- a/next/src/content/venues/maxs-red-hill-estate.json
++++ b/next/src/content/venues/maxs-red-hill-estate.json
+@@ -54,7 +54,12 @@
+     "depicts": "a grassed row between trellised vines in full leaf",
+     "depictionStatus": "illustrative",
+     "credit": "CSIRO",
+-    "license": "wikimedia-cc-by"
++    "license": "wikimedia-cc-by",
++    "creator": "CSIRO",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1981_Pinot_Noir_grapes_at_the_Main_Ridge_Estate.jpg",
++    "permission": "CC-BY-3.0",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "featuredPartner": false,
+--- a/next/src/content/venues/merricks-estate.json
++++ b/next/src/content/venues/merricks-estate.json
+@@ -51,7 +51,12 @@
+     "depicts": "rows of trellised vines running to a cypress windbreak",
+     "depictionStatus": "illustrative",
+     "credit": "BrooksieG",
+-    "license": "wikimedia-cc-by"
++    "license": "wikimedia-cc-by",
++    "creator": "BrooksieG",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vineyard_Merricks_Grove_Victoria_Australia.jpg",
++    "permission": "CC-BY-4.0",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "featuredPartner": false,
+--- a/next/src/content/venues/merricks-general-wine-store.json
++++ b/next/src/content/venues/merricks-general-wine-store.json
+@@ -51,7 +51,12 @@
+     "depicts": "rows of trellised vines running to a cypress windbreak",
+     "depictionStatus": "illustrative",
+     "credit": "Peninsula Insider",
+-    "license": "other-licensed"
++    "license": "wikimedia-cc-by",
++    "creator": "BrooksieG",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vineyard_Merricks_Grove_Victoria_Australia.jpg",
++    "permission": "CC-BY-4.0",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "featuredPartner": false,
+--- a/next/src/content/venues/moke-dining.json
++++ b/next/src/content/venues/moke-dining.json
+@@ -58,7 +58,12 @@
+     "depicts": "a timber pier, a seaweed-covered rock shelf and moored boats on the bay",
+     "depictionStatus": "illustrative",
+     "credit": "Daniel Kabel",
+-    "license": "wikimedia-cc-by-sa"
++    "license": "wikimedia-cc-by-sa",
++    "creator": "Daniel Kabel",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Flinders_Pier_2nd_Jul_2019_1_of_4.jpg",
++    "permission": "CC-BY-SA-4.0",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "featuredPartner": false,
+--- a/next/src/content/venues/morning-sun.json
++++ b/next/src/content/venues/morning-sun.json
+@@ -57,7 +57,12 @@
+     "depicts": "bunches of white wine grapes on the vine",
+     "depictionStatus": "illustrative",
+     "credit": "CSIRO",
+-    "license": "wikimedia-cc-by"
++    "license": "wikimedia-cc-by",
++    "creator": "CSIRO",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1961_Chardonnay_grapes_at_the_Main_Ridge_Estate.jpg",
++    "permission": "CC-BY-3.0",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "featuredPartner": false,
+--- a/next/src/content/venues/mornington-peninsula-chocolates.json
++++ b/next/src/content/venues/mornington-peninsula-chocolates.json
+@@ -48,7 +48,12 @@
+     "depicts": "a timber pier, a seaweed-covered rock shelf and moored boats on the bay",
+     "depictionStatus": "illustrative",
+     "credit": "Daniel Kabel",
+-    "license": "wikimedia-cc-by-sa"
++    "license": "wikimedia-cc-by-sa",
++    "creator": "Daniel Kabel",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Flinders_Pier_2nd_Jul_2019_1_of_4.jpg",
++    "permission": "CC-BY-SA-4.0",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "featuredPartner": false,
+--- a/next/src/content/venues/ocean-eight.json
++++ b/next/src/content/venues/ocean-eight.json
+@@ -107,7 +107,12 @@
+     "depicts": "bunches of white wine grapes on the vine",
+     "depictionStatus": "illustrative",
+     "credit": "CSIRO",
+-    "license": "wikimedia-cc-by"
++    "license": "wikimedia-cc-by",
++    "creator": "CSIRO",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1961_Chardonnay_grapes_at_the_Main_Ridge_Estate.jpg",
++    "permission": "CC-BY-3.0",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "featuredPartner": false,
+--- a/next/src/content/venues/paradigm-hill.json
++++ b/next/src/content/venues/paradigm-hill.json
+@@ -101,7 +101,12 @@
+     "depicts": "rows of trellised vines running to a cypress windbreak",
+     "depictionStatus": "illustrative",
+     "credit": "BrooksieG",
+-    "license": "wikimedia-cc-by"
++    "license": "wikimedia-cc-by",
++    "creator": "BrooksieG",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vineyard_Merricks_Grove_Victoria_Australia.jpg",
++    "permission": "CC-BY-4.0",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "featuredPartner": false,
+--- a/next/src/content/venues/point-leo-estate-villas.json
++++ b/next/src/content/venues/point-leo-estate-villas.json
+@@ -49,7 +49,13 @@
+     "src": "/images/sourced/venue-pt-leo-sculpture-01.webp",
+     "alt": "Pt. Leo Estate Sculpture Park overlooking Western Port - Barry Flanagan's hare and other works on the lawn",
+     "credit": "Emma White / Wikimedia Commons (CC BY-SA 4.0)",
+-    "license": "wikimedia-cc-by-sa"
++    "license": "wikimedia-cc-by-sa",
++    "creator": "Emma White (uploaded by BrooksieG), 6 October 2023",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pt_Leo_sculpture.jpg",
++    "permission": "CC-BY-SA-4.0",
++    "depicts": "Pt. Leo Estate Sculpture Park, Mornington Peninsula (Barry Flanagan's \"Drummer\" hare and other works on the lawn above Western Port)",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "featuredPartner": false,
+--- a/next/src/content/venues/point-leo-wine-terrace.json
++++ b/next/src/content/venues/point-leo-wine-terrace.json
+@@ -52,7 +52,13 @@
+     "src": "/images/sourced/venue-pt-leo-sculpture-01.webp",
+     "alt": "Pt. Leo Estate, Merricks - sculpture park and lawn above Western Port, home of the Point Leo Wine Terrace",
+     "credit": "Emma White / Wikimedia Commons (CC BY-SA 4.0)",
+-    "license": "wikimedia-cc-by-sa"
++    "license": "wikimedia-cc-by-sa",
++    "creator": "Emma White (uploaded by BrooksieG), 6 October 2023",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pt_Leo_sculpture.jpg",
++    "permission": "CC-BY-SA-4.0",
++    "depicts": "Pt. Leo Estate Sculpture Park, Mornington Peninsula (Barry Flanagan's \"Drummer\" hare and other works on the lawn above Western Port)",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "featuredPartner": false,
+--- a/next/src/content/venues/point-nepean-discovery-tents.json
++++ b/next/src/content/venues/point-nepean-discovery-tents.json
+@@ -50,7 +50,12 @@
+     "depicts": "two children in shallow water beside a timber jetty",
+     "depictionStatus": "illustrative",
+     "credit": "Essiewingrove",
+-    "license": "wikimedia-cc-by-sa"
++    "license": "wikimedia-cc-by-sa",
++    "creator": "Essiewingrove",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Point_king_beach_in_Portsea_Victoria.jpg",
++    "permission": "CC-BY-SA-4.0",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "featuredPartner": false,
+--- a/next/src/content/venues/port-phillip-estate-restaurant.json
++++ b/next/src/content/venues/port-phillip-estate-restaurant.json
+@@ -60,7 +60,12 @@
+     "depicts": "a grassed row between trellised vines in full leaf",
+     "depictionStatus": "illustrative",
+     "credit": "CSIRO",
+-    "license": "wikimedia-cc-by"
++    "license": "wikimedia-cc-by",
++    "creator": "CSIRO",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1981_Pinot_Noir_grapes_at_the_Main_Ridge_Estate.jpg",
++    "permission": "CC-BY-3.0",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "featuredPartner": false,
+--- a/next/src/content/venues/port-phillip-estate.json
++++ b/next/src/content/venues/port-phillip-estate.json
+@@ -120,7 +120,12 @@
+     "depicts": "a grassed row between trellised vines in full leaf",
+     "depictionStatus": "illustrative",
+     "credit": "CSIRO",
+-    "license": "wikimedia-cc-by"
++    "license": "wikimedia-cc-by",
++    "creator": "CSIRO",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1981_Pinot_Noir_grapes_at_the_Main_Ridge_Estate.jpg",
++    "permission": "CC-BY-3.0",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "featuredPartner": false,
+--- a/next/src/content/venues/prancing-horse-estate.json
++++ b/next/src/content/venues/prancing-horse-estate.json
+@@ -54,7 +54,12 @@
+     "depicts": "a grassed row between trellised vines in full leaf",
+     "depictionStatus": "illustrative",
+     "credit": "CSIRO",
+-    "license": "wikimedia-cc-by"
++    "license": "wikimedia-cc-by",
++    "creator": "CSIRO",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1981_Pinot_Noir_grapes_at_the_Main_Ridge_Estate.jpg",
++    "permission": "CC-BY-3.0",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "featuredPartner": false,
+--- a/next/src/content/venues/pt-leo-estate.json
++++ b/next/src/content/venues/pt-leo-estate.json
+@@ -134,7 +134,13 @@
+     "src": "/images/sourced/venue-pt-leo-sculpture-01.webp",
+     "alt": "Pt. Leo Estate Sculpture Park overlooking Western Port - Barry Flanagan's hare and other large-scale works on the lawn",
+     "credit": "Emma White / Wikimedia Commons (CC BY-SA 4.0)",
+-    "license": "wikimedia-cc-by-sa"
++    "license": "wikimedia-cc-by-sa",
++    "creator": "Emma White (uploaded by BrooksieG), 6 October 2023",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pt_Leo_sculpture.jpg",
++    "permission": "CC-BY-SA-4.0",
++    "depicts": "Pt. Leo Estate Sculpture Park, Mornington Peninsula (Barry Flanagan's \"Drummer\" hare and other works on the lawn above Western Port)",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "featuredPartner": false,
+--- a/next/src/content/venues/red-gum-bbq.json
++++ b/next/src/content/venues/red-gum-bbq.json
+@@ -53,7 +53,12 @@
+     "depicts": "a grassed row between trellised vines in full leaf",
+     "depictionStatus": "illustrative",
+     "credit": "CSIRO",
+-    "license": "wikimedia-cc-by"
++    "license": "wikimedia-cc-by",
++    "creator": "CSIRO",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1981_Pinot_Noir_grapes_at_the_Main_Ridge_Estate.jpg",
++    "permission": "CC-BY-3.0",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "featuredPartner": false,
+--- a/next/src/content/venues/red-hill-brewery.json
++++ b/next/src/content/venues/red-hill-brewery.json
+@@ -50,7 +50,12 @@
+     "depicts": "a grassed row between trellised vines in full leaf",
+     "depictionStatus": "illustrative",
+     "credit": "CSIRO",
+-    "license": "wikimedia-cc-by"
++    "license": "wikimedia-cc-by",
++    "creator": "CSIRO",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1981_Pinot_Noir_grapes_at_the_Main_Ridge_Estate.jpg",
++    "permission": "CC-BY-3.0",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "featuredPartner": false,
+--- a/next/src/content/venues/red-hill-cheese.json
++++ b/next/src/content/venues/red-hill-cheese.json
+@@ -53,7 +53,12 @@
+     "depicts": "a grassed row between trellised vines in full leaf",
+     "depictionStatus": "illustrative",
+     "credit": "CSIRO",
+-    "license": "wikimedia-cc-by"
++    "license": "wikimedia-cc-by",
++    "creator": "CSIRO",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1981_Pinot_Noir_grapes_at_the_Main_Ridge_Estate.jpg",
++    "permission": "CC-BY-3.0",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "featuredPartner": false,
+--- a/next/src/content/venues/red-hill-estate.json
++++ b/next/src/content/venues/red-hill-estate.json
+@@ -119,7 +119,12 @@
+     "depicts": "a grassed row between trellised vines in full leaf",
+     "depictionStatus": "illustrative",
+     "credit": "CSIRO",
+-    "license": "wikimedia-cc-by"
++    "license": "wikimedia-cc-by",
++    "creator": "CSIRO",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1981_Pinot_Noir_grapes_at_the_Main_Ridge_Estate.jpg",
++    "permission": "CC-BY-3.0",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "featuredPartner": false,
+--- a/next/src/content/venues/red-hill-market.json
++++ b/next/src/content/venues/red-hill-market.json
+@@ -55,7 +55,12 @@
+     "depicts": "a grassed row between trellised vines in full leaf",
+     "depictionStatus": "illustrative",
+     "credit": "CSIRO",
+-    "license": "wikimedia-cc-by"
++    "license": "wikimedia-cc-by",
++    "creator": "CSIRO",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1981_Pinot_Noir_grapes_at_the_Main_Ridge_Estate.jpg",
++    "permission": "CC-BY-3.0",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "featuredPartner": false,
+--- a/next/src/content/venues/scorpo-wines.json
++++ b/next/src/content/venues/scorpo-wines.json
+@@ -53,7 +53,12 @@
+     "depicts": "rows of trellised vines running to a cypress windbreak",
+     "depictionStatus": "illustrative",
+     "credit": "BrooksieG",
+-    "license": "wikimedia-cc-by"
++    "license": "wikimedia-cc-by",
++    "creator": "BrooksieG",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vineyard_Merricks_Grove_Victoria_Australia.jpg",
++    "permission": "CC-BY-4.0",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "featuredPartner": false,
+--- a/next/src/content/venues/stonier-wines.json
++++ b/next/src/content/venues/stonier-wines.json
+@@ -105,7 +105,12 @@
+     "depicts": "rows of trellised vines running to a cypress windbreak",
+     "depictionStatus": "illustrative",
+     "credit": "BrooksieG",
+-    "license": "wikimedia-cc-by"
++    "license": "wikimedia-cc-by",
++    "creator": "BrooksieG",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vineyard_Merricks_Grove_Victoria_Australia.jpg",
++    "permission": "CC-BY-4.0",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "featuredPartner": false,
+--- a/next/src/content/venues/stringers-sorrento.json
++++ b/next/src/content/venues/stringers-sorrento.json
+@@ -45,7 +45,12 @@
+     "depicts": "a moored yacht and motor cruiser on a flat calm bay, sun low over the water",
+     "depictionStatus": "illustrative",
+     "credit": "Alan Travers",
+-    "license": "wikimedia-cc0"
++    "license": "wikimedia-cc0",
++    "creator": "Alan Travers",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bright_morning_Sorrento_Victoria_(51527287664).jpg",
++    "permission": "CC0 (Public Domain)",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "featuredPartner": false,
+--- a/next/src/content/venues/t-gallant.json
++++ b/next/src/content/venues/t-gallant.json
+@@ -114,7 +114,12 @@
+     "depicts": "bunches of white wine grapes on the vine",
+     "depictionStatus": "illustrative",
+     "credit": "CSIRO",
+-    "license": "wikimedia-cc-by"
++    "license": "wikimedia-cc-by",
++    "creator": "CSIRO",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1961_Chardonnay_grapes_at_the_Main_Ridge_Estate.jpg",
++    "permission": "CC-BY-3.0",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "featuredPartner": false,
+--- a/next/src/content/venues/the-orchard-red-hill.json
++++ b/next/src/content/venues/the-orchard-red-hill.json
+@@ -48,7 +48,12 @@
+     "depicts": "a grassed row between trellised vines in full leaf",
+     "depictionStatus": "illustrative",
+     "credit": "Peninsula Insider",
+-    "license": "other-licensed"
++    "license": "wikimedia-cc-by",
++    "creator": "CSIRO",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1981_Pinot_Noir_grapes_at_the_Main_Ridge_Estate.jpg",
++    "permission": "CC-BY-3.0",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "featuredPartner": false,
+--- a/next/src/content/venues/treetops-red-hill.json
++++ b/next/src/content/venues/treetops-red-hill.json
+@@ -47,7 +47,12 @@
+     "depicts": "a grassed row between trellised vines in full leaf",
+     "depictionStatus": "illustrative",
+     "credit": "Peninsula Insider",
+-    "license": "other-licensed"
++    "license": "wikimedia-cc-by",
++    "creator": "CSIRO",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1981_Pinot_Noir_grapes_at_the_Main_Ridge_Estate.jpg",
++    "permission": "CC-BY-3.0",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "featuredPartner": false,
+--- a/next/src/content/venues/tucks-ridge.json
++++ b/next/src/content/venues/tucks-ridge.json
+@@ -51,7 +51,12 @@
+     "depicts": "a grassed row between trellised vines in full leaf",
+     "depictionStatus": "illustrative",
+     "credit": "CSIRO",
+-    "license": "wikimedia-cc-by"
++    "license": "wikimedia-cc-by",
++    "creator": "CSIRO",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1981_Pinot_Noir_grapes_at_the_Main_Ridge_Estate.jpg",
++    "permission": "CC-BY-3.0",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "featuredPartner": false,
+--- a/next/src/content/venues/via-boffe.json
++++ b/next/src/content/venues/via-boffe.json
+@@ -52,7 +52,12 @@
+     "depicts": "bunches of white wine grapes on the vine",
+     "depictionStatus": "illustrative",
+     "credit": "CSIRO",
+-    "license": "wikimedia-cc-by"
++    "license": "wikimedia-cc-by",
++    "creator": "CSIRO",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1961_Chardonnay_grapes_at_the_Main_Ridge_Estate.jpg",
++    "permission": "CC-BY-3.0",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "featuredPartner": false,
+--- a/next/src/content/venues/willow-creek-vineyard.json
++++ b/next/src/content/venues/willow-creek-vineyard.json
+@@ -117,7 +117,12 @@
+     "depicts": "rows of trellised vines running to a cypress windbreak",
+     "depictionStatus": "illustrative",
+     "credit": "BrooksieG",
+-    "license": "wikimedia-cc-by"
++    "license": "wikimedia-cc-by",
++    "creator": "BrooksieG",
++    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vineyard_Merricks_Grove_Victoria_Australia.jpg",
++    "permission": "CC-BY-4.0",
++    "rightsStatus": "recorded",
++    "rightsEstablishedOn": "2026-09-14"
+   },
+   "gallery": [],
+   "featuredPartner": false,

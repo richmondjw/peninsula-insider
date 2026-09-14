@@ -350,7 +350,7 @@ test('running the whole CLI over the real corpus changes not one byte of it', as
 
 test('every record in the real corpus lands in a known class', async () => {
   const ledger = JSON.parse(
-    await readFile(path.join(REPO, 'ops', 'reports', 'content', 'link-health-ledger.json'), 'utf8')
+    await readFile(path.join(REPO, 'ops', 'records', 'link-health', 'probe-ledger.json'), 'utf8')
   );
   const byKey = indexLedger(ledger.links ?? []);
   const dir = path.join(NEXT, 'src', 'content', 'venues');
