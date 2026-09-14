@@ -15,7 +15,7 @@ on:
       # rebuild the build.
       - 'next/scripts/**'
       - 'ops/scripts/seo/**'
-      - 'ops/reports/seo/seo-architecture-baseline.json'
+      - 'ops/baselines/seo-architecture-baseline.json'
       - '.github/workflows/build-and-deploy.yml'
   schedule:
     # The event feed and rolling weekend page are generated at build time.

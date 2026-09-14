@@ -93,7 +93,7 @@
  * legitimate editorial ranking gets switched off within a week.
  *
  * Report-only by default. --assert compares against the ratchet baseline at
- * ops/reports/governance/commercial-firewall-baseline.json and exits 1 on
+ * ops/baselines/commercial-firewall-baseline.json and exits 1 on
  * regression, matching the contract audit-event-safeguards.mjs uses. Seeding
  * from today's real numbers means the gate can never be satisfied by making
  * things worse, but never blocks a deploy over debt it inherited. Unlike the
@@ -119,7 +119,7 @@ const REPO = path.resolve(HERE, '..', '..');
 const DEFAULT_SRC = path.join(REPO, 'next', 'src');
 const DEFAULT_CONTENT = path.join(REPO, 'next', 'src', 'content');
 const DEFAULT_BASELINE = path.join(
-  REPO, 'ops', 'reports', 'governance', 'commercial-firewall-baseline.json'
+  REPO, 'ops', 'baselines', 'commercial-firewall-baseline.json'
 );
 
 const args = process.argv.slice(2);

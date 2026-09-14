@@ -38,7 +38,7 @@
  * bar), and deleting it would delete a live URL.
  *
  * Report-only by default. `--assert` compares against the ratchet baseline in
- * ops/reports/content/closed-venue-leak-baseline.json and exits 1 on
+ * ops/baselines/closed-venue-leak-baseline.json and exits 1 on
  * regression, matching the contract audit-content-schema-drift.mjs and
  * audit-link-graph.mjs use. The ratchet is per page path rather than per
  * total: a page already in the baseline may not grow the number of closed
@@ -76,8 +76,7 @@ const REPO = path.resolve(NEXT, '..');
 const DEFAULT_BASELINE = path.join(
   REPO,
   'ops',
-  'reports',
-  'content',
+  'baselines',
   'closed-venue-leak-baseline.json'
 );
 

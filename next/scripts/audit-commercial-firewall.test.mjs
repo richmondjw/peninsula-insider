@@ -33,7 +33,7 @@ const run = promisify(execFile);
 const SCRIPT = fileURLToPath(new URL('./audit-commercial-firewall.mjs', import.meta.url));
 const CONTENT_CONFIG = fileURLToPath(new URL('../src/content.config.ts', import.meta.url));
 const BASELINE = fileURLToPath(
-  new URL('../../ops/reports/governance/commercial-firewall-baseline.json', import.meta.url)
+  new URL('../../ops/baselines/commercial-firewall-baseline.json', import.meta.url)
 );
 
 /** Every asserted metric at zero. A fixture passes only by being clean. */

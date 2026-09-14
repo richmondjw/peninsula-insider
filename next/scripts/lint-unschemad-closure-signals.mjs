@@ -46,7 +46,7 @@
  * problem, not this script's; all this does is refuse to let one hide.
  *
  * Report-only by default. `--assert` compares against the ratchet baseline in
- * ops/reports/content/unschemad-closure-baseline.json and exits 1 on
+ * ops/baselines/unschemad-closure-baseline.json and exits 1 on
  * regression, matching the contract audit-content-schema-drift.mjs and
  * audit-closed-venue-leaks.mjs use. The ratchet is per collection+key path
  * rather than per total: a key path already in the baseline may not carry the
@@ -85,8 +85,7 @@ const REPO = path.resolve(NEXT, '..');
 const DEFAULT_BASELINE = path.join(
   REPO,
   'ops',
-  'reports',
-  'content',
+  'baselines',
   'unschemad-closure-baseline.json'
 );
 

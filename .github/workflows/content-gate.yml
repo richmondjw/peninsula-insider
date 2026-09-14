@@ -154,7 +154,7 @@ jobs:
         # needs no build. It belongs on the branch rather than only inside
         # `npm run build` on main: a commercial field reaching an editorial
         # ordering decision must be refused at review, not discovered after a
-        # deploy. Ratchets against ops/reports/governance/
+        # deploy. Ratchets against ops/baselines/
         # commercial-firewall-baseline.json, so inherited debt never blocks a
         # merge and any increase does.
         run: |

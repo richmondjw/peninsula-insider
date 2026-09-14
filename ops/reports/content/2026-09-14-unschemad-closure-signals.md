@@ -86,7 +86,7 @@ shut?".
 **Contract**, matching `audit-content-schema-drift.mjs` and `audit-closed-venue-leaks.mjs`:
 
 - Report-only by default; `--assert` compares against
-  `ops/reports/content/unschemad-closure-baseline.json` and exits 1 on regression.
+  `ops/baselines/unschemad-closure-baseline.json` and exits 1 on regression.
 - The ratchet is per `collection.keyPath`: a key path already in the baseline may not carry the
   signal on more records than its ceiling, and a key path **not** in the baseline fails on its first
   appearance.

@@ -24,7 +24,7 @@
  * for duplicate event records either. This script closes both.
  *
  * Report-only by default. `--assert` compares against the ratchet baseline in
- * ops/reports/events/event-safeguards-baseline.json and exits 1 on regression,
+ * ops/baselines/event-safeguards-baseline.json and exits 1 on regression,
  * matching the contract audit-link-graph.mjs uses. A ratchet, not a hard
  * threshold: seeding the baseline with today's real numbers means the gate can
  * never be satisfied by making the corpus worse, but also never blocks a
@@ -57,7 +57,7 @@ import { occurrenceExceptionQueue } from '../src/lib/event-occurrence.mjs';
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 const DEFAULT_EVENTS_DIR = path.join(REPO, 'next', 'src', 'content', 'events');
-const DEFAULT_BASELINE = path.join(REPO, 'ops', 'reports', 'events', 'event-safeguards-baseline.json');
+const DEFAULT_BASELINE = path.join(REPO, 'ops', 'baselines', 'event-safeguards-baseline.json');
 
 /** Past this age a verification date is not evidence of anything. */
 const STALE_DAYS = 90;

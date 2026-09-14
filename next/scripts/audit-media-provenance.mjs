@@ -98,7 +98,7 @@
  * which is the distinction the whole audit turns on.
  *
  * Report-only by default. `--assert` compares against the ratchet baseline in
- * ops/reports/media/media-provenance-baseline.json and exits 1 on regression,
+ * ops/baselines/media-provenance-baseline.json and exits 1 on regression,
  * matching the contract audit-event-safeguards.mjs, audit-link-graph.mjs and
  * audit-content-schema-drift.mjs use. Seeded from the real corpus, so it can
  * never be satisfied by making the corpus worse and never blocks a deploy
@@ -122,7 +122,7 @@ import path from 'node:path';
 const SCRIPTS = path.dirname(fileURLToPath(import.meta.url));
 const NEXT = path.resolve(SCRIPTS, '..');
 const REPO = path.resolve(NEXT, '..');
-const DEFAULT_BASELINE = path.join(REPO, 'ops', 'reports', 'media', 'media-provenance-baseline.json');
+const DEFAULT_BASELINE = path.join(REPO, 'ops', 'baselines', 'media-provenance-baseline.json');
 
 const args = process.argv.slice(2);
 const getArg = (flag, fallback) => {

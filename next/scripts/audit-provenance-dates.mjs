@@ -73,7 +73,7 @@
  * The same shape as `pi-claim-lint-allow` in lint-firsthand-claims.mjs.
  *
  * Report-only by default. `--assert` compares against the ratchet baseline in
- * ops/reports/provenance/provenance-dates-baseline.json and exits 1 on
+ * ops/baselines/provenance-dates-baseline.json and exits 1 on
  * regression, matching audit-link-graph.mjs and audit-event-safeguards.mjs.
  *
  * Usage:
@@ -98,7 +98,7 @@ const getArg = (flag, fallback) => {
 };
 const JSON_OUT = getArg('--json', null);
 const BASELINE = path.resolve(
-  getArg('--baseline', path.join(REPO, 'ops', 'reports', 'provenance', 'provenance-dates-baseline.json'))
+  getArg('--baseline', path.join(REPO, 'ops', 'baselines', 'provenance-dates-baseline.json'))
 );
 const ASSERT = args.includes('--assert');
 const UPDATE_BASELINE = args.includes('--update-baseline');

@@ -39,17 +39,18 @@ re-running is what exposed the rows.
 Auditing every gate in `npm run build` on 2026-09-14 turned up no other gate asserting
 against an artefact its own build produces: the only files a build rewrites are
 `next/public/admin/media-registry.json` and five reports, none of which is anyone's
-evidence or ceiling. Two things are filed in `ops/reports/` that by the definition above
-are not reports. Neither can be manufactured by a build, so neither is the 2026-09-14
-defect, and both are left where they are rather than moved by a pull request about
-something else:
+evidence or ceiling. One thing is still filed in `ops/reports/` that by the definition
+above is not a report. It cannot be manufactured by a build, so it is not the 2026-09-14
+defect, and it is left where it is rather than moved by a pull request about something
+else:
 
 - **`ops/reports/migrations/migration-ledger.json`** — a hand-maintained record of which
   migrations have been applied, which no program writes. The tree cannot reproduce it. If
   the wholesale revert reaches it, `assert:migration-ledger` fails closed and loudly,
   which is why this is a filing problem rather than a silent one.
-- **The eight ratchet baselines** (`*-baseline.json`). A baseline is neither observed nor
-  derived; it is committed policy, and arguably wants an `ops/baselines/` of its own. The
-  hazard is narrow but real in one direction: `git checkout -- ops/reports` is the
-  habitual cleanup, and it would silently discard an unstaged deliberate ratchet-down,
-  leaving the gate looser than the author intended and nothing to say so.
+
+The ratchet baselines were listed here too, as the second thing filed in `ops/reports/`
+that is not a report. They have since moved — but not to here. A baseline is neither
+observed nor derived: it is committed policy, a ceiling somebody chose, and this directory
+is for evidence. They live in [`ops/baselines/`](../baselines/README.md), and
+`assert:baseline-placement` fails any build that files one under `ops/reports/` again.
