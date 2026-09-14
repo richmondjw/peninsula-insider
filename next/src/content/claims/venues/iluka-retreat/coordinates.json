@@ -1,0 +1,20 @@
+{
+  "claimId": "venues/iluka-retreat/coordinates",
+  "claimClass": "coordinates",
+  "subject": {
+    "type": "venues",
+    "slug": "iluka-retreat",
+    "field": "coordinates"
+  },
+  "statement": "Iluka Retreat & Camp is at latitude -38.486, longitude 145.043.",
+  "assertedBy": [
+    {
+      "type": "venues",
+      "slug": "iluka-retreat",
+      "field": "coordinates"
+    }
+  ],
+  "createdAt": "2026-09-14",
+  "origin": "authored",
+  "note": "The case that decides the scope question. The address beside this coordinate is disputed too, but not by the same amount and not by the same evidence, and one class could not have held both: a single supporting row on the street line would have stood as support for a pin 7.6 km away. Authored by hand for the PI-005 address and coordinates pilot. Sources were read on 2026-09-14; see ops/reports/claims/2026-09-14-pilot-address.md."
+}

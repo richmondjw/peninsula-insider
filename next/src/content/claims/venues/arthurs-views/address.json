@@ -1,0 +1,20 @@
+{
+  "claimId": "venues/arthurs-views/address",
+  "claimClass": "address",
+  "subject": {
+    "type": "venues",
+    "slug": "arthurs-views",
+    "field": "address"
+  },
+  "statement": "Arthurs Views is in Arthurs Seat VIC 3936.",
+  "assertedBy": [
+    {
+      "type": "venues",
+      "slug": "arthurs-views",
+      "field": "address"
+    }
+  ],
+  "createdAt": "2026-09-14",
+  "origin": "authored",
+  "note": "Second of the locality-only addresses, chosen because the operator publishes a specific street and the record does not carry it. Authored by hand for the PI-005 address and coordinates pilot. Sources were read on 2026-09-14; see ops/reports/claims/2026-09-14-pilot-address.md."
+}

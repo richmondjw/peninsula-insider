@@ -1,0 +1,25 @@
+{
+  "claimId": "venues/iluka-retreat/address",
+  "claimClass": "address",
+  "subject": {
+    "type": "venues",
+    "slug": "iluka-retreat",
+    "field": "address"
+  },
+  "statement": "Iluka Retreat & Camp is in Red Hill South VIC 3937.",
+  "assertedBy": [
+    {
+      "type": "venues",
+      "slug": "iluka-retreat",
+      "field": "address"
+    },
+    {
+      "type": "data-facts",
+      "slug": "accommodation/iluka-retreat-camp",
+      "field": "address"
+    }
+  ],
+  "createdAt": "2026-09-14",
+  "origin": "authored",
+  "note": "The headline of this pilot on the address side, and the reason it has a partner on the coordinates side. This corpus already held the operator's own answer: src/data/facts/accommodation.json, entity F012, carries \"20 Shoreham Road, Shoreham\". The layer with no page and no reader was right; the layer that renders, emits JSON-LD and drives the map was wrong. One claim, two records that assert it, and they disagree - which is the argument for a sidecar registry rather than a provenance field per record, in one venue. Authored by hand for the PI-005 address and coordinates pilot. Sources were read on 2026-09-14; see ops/reports/claims/2026-09-14-pilot-address.md."
+}

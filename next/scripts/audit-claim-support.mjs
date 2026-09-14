@@ -53,6 +53,47 @@
  * baseline as each class is sourced.
  *
  * -------------------------------------------------------------------------
+ * THE CEILINGS, AND WHAT EACH ONE IS FOR
+ * -------------------------------------------------------------------------
+ *
+ * A ceiling is a statement about how much unsupported assertion a class is
+ * carrying today, not a target. Two of them are doing different jobs and the
+ * difference is the whole point of the mechanism:
+ *
+ *   trading-status  0. Thirty-five claims, every one backed. PR #417 delisted
+ *                   a trading restaurant for a day on a four-month-old desk
+ *                   judgement, so the next status claim that lands with
+ *                   nothing behind it fails the build. Nothing to tighten.
+ *
+ *   accessibility  29. Inherited debt on the events tier. Nobody has been
+ *                   through it. The ceiling exists so that debt does not
+ *                   block a deploy and does not grow.
+ *
+ *   address         3. New class, 2026-09-14, and the ceiling is itemised
+ *   coordinates     1. rather than inherited: every claim in both classes was
+ *                   filed with an evidence row attached, and the four that
+ *                   count as unbacked are unbacked because the row DISPUTES
+ *                   the record. A contradiction is not support and this gate
+ *                   is right to say so, but it is a different fact from "no
+ *                   source was found", and the report keeps the two apart in
+ *                   the unevidenced column: both classes read 0 there.
+ *
+ *                   Zero was available for both and would have been a lie. It
+ *                   was reachable only by declining to file the four findings,
+ *                   which is the failure the registry exists to stop. What the
+ *                   non-zero ceiling still buys is that the classes are now
+ *                   LISTED: the fourth unbacked address claim and the second
+ *                   unbacked coordinates claim fail the build, and the four
+ *                   already here are named in the JSON report by claimId.
+ *
+ *                   Each is a record edit away from resolution, so this is the
+ *                   ceiling in the table most likely to be wrong soon. Tighten
+ *                   it as each dispute is settled - and note that settling one
+ *                   does NOT require re-seeding: a class may sit below its
+ *                   ceiling, and the test file explains at length why demanding
+ *                   equality would turn every improvement into a red build.
+ *
+ * -------------------------------------------------------------------------
  * WHAT IS HARD-FAILED
  * -------------------------------------------------------------------------
  *
