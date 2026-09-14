@@ -1,0 +1,266 @@
+{
+  "note": "Recorded state of every migration in ops/migrations/. Migrations on this project are applied by hand and this file is the only place that says which ones have been. A state is a claim about the live database that a human established and can defend in a diff — never something this repository inferred for itself. States: applied (carries appliedOn — an ISO date, or the literal \"unknown\" where the date is genuinely unrecoverable), pending (carries reason), unknown (carries reason). \"unknown\" is a legitimate answer; a guess is not.",
+  "updatedAt": "2026-09-13T18:22:08.402Z",
+  "project": "tjjhpvslpysfklwpqmgz",
+  "migrations": [
+    {
+      "file": "2026-04-30-concierge-chunks-fingerprint-and-event-date.sql",
+      "state": "unknown",
+      "reason": "No record exists of whether this migration was applied. Migrations on this project are applied by hand through the Supabase SQL editor and nothing has ever written down which ones ran, so from the repository a migration that ran in May and one that has never run are indistinguishable. Establish this against the live database, then replace this row with applied + appliedOn, or pending + the probe that showed it absent. Do not guess.",
+      "recordedOn": "2026-09-14",
+      "recordedBy": "PI-017 ledger seed"
+    },
+    {
+      "file": "2026-05-03-concierge-chunks-perf-indexes.sql",
+      "state": "unknown",
+      "reason": "No record exists of whether this migration was applied. Migrations on this project are applied by hand through the Supabase SQL editor and nothing has ever written down which ones ran, so from the repository a migration that ran in May and one that has never run are indistinguishable. Establish this against the live database, then replace this row with applied + appliedOn, or pending + the probe that showed it absent. Do not guess.",
+      "recordedOn": "2026-09-14",
+      "recordedBy": "PI-017 ledger seed"
+    },
+    {
+      "file": "2026-05-05-awards-2026-seed.sql",
+      "state": "unknown",
+      "reason": "No record exists of whether this migration was applied. Migrations on this project are applied by hand through the Supabase SQL editor and nothing has ever written down which ones ran, so from the repository a migration that ran in May and one that has never run are indistinguishable. Establish this against the live database, then replace this row with applied + appliedOn, or pending + the probe that showed it absent. Do not guess.",
+      "recordedOn": "2026-09-14",
+      "recordedBy": "PI-017 ledger seed"
+    },
+    {
+      "file": "2026-05-05-awards.sql",
+      "state": "unknown",
+      "reason": "No record exists of whether this migration was applied. Migrations on this project are applied by hand through the Supabase SQL editor and nothing has ever written down which ones ran, so from the repository a migration that ran in May and one that has never run are indistinguishable. Establish this against the live database, then replace this row with applied + appliedOn, or pending + the probe that showed it absent. Do not guess.",
+      "recordedOn": "2026-09-14",
+      "recordedBy": "PI-017 ledger seed"
+    },
+    {
+      "file": "2026-05-05-community-submissions.sql",
+      "state": "unknown",
+      "reason": "No record exists of whether this migration was applied. Migrations on this project are applied by hand through the Supabase SQL editor and nothing has ever written down which ones ran, so from the repository a migration that ran in May and one that has never run are indistinguishable. Establish this against the live database, then replace this row with applied + appliedOn, or pending + the probe that showed it absent. Do not guess.",
+      "recordedOn": "2026-09-14",
+      "recordedBy": "PI-017 ledger seed"
+    },
+    {
+      "file": "2026-05-05-CONSOLIDATED-phase-5.sql",
+      "state": "unknown",
+      "reason": "No record exists of whether this migration was applied. Migrations on this project are applied by hand through the Supabase SQL editor and nothing has ever written down which ones ran, so from the repository a migration that ran in May and one that has never run are indistinguishable. Establish this against the live database, then replace this row with applied + appliedOn, or pending + the probe that showed it absent. Do not guess.",
+      "recordedOn": "2026-09-14",
+      "recordedBy": "PI-017 ledger seed"
+    },
+    {
+      "file": "2026-05-05-CONSOLIDATED-phases-3-and-4.sql",
+      "state": "unknown",
+      "reason": "No record exists of whether this migration was applied. Migrations on this project are applied by hand through the Supabase SQL editor and nothing has ever written down which ones ran, so from the repository a migration that ran in May and one that has never run are indistinguishable. Establish this against the live database, then replace this row with applied + appliedOn, or pending + the probe that showed it absent. Do not guess.",
+      "recordedOn": "2026-09-14",
+      "recordedBy": "PI-017 ledger seed"
+    },
+    {
+      "file": "2026-05-05-event-alerts.sql",
+      "state": "unknown",
+      "reason": "No record exists of whether this migration was applied. Migrations on this project are applied by hand through the Supabase SQL editor and nothing has ever written down which ones ran, so from the repository a migration that ran in May and one that has never run are indistinguishable. Establish this against the live database, then replace this row with applied + appliedOn, or pending + the probe that showed it absent. Do not guess.",
+      "recordedOn": "2026-09-14",
+      "recordedBy": "PI-017 ledger seed"
+    },
+    {
+      "file": "2026-05-05-pass-membership.sql",
+      "state": "unknown",
+      "reason": "No record exists of whether this migration was applied. Migrations on this project are applied by hand through the Supabase SQL editor and nothing has ever written down which ones ran, so from the repository a migration that ran in May and one that has never run are indistinguishable. Establish this against the live database, then replace this row with applied + appliedOn, or pending + the probe that showed it absent. Do not guess.",
+      "recordedOn": "2026-09-14",
+      "recordedBy": "PI-017 ledger seed"
+    },
+    {
+      "file": "2026-05-05-user-saves-and-itineraries.sql",
+      "state": "unknown",
+      "reason": "No record exists of whether this migration was applied. Migrations on this project are applied by hand through the Supabase SQL editor and nothing has ever written down which ones ran, so from the repository a migration that ran in May and one that has never run are indistinguishable. Establish this against the live database, then replace this row with applied + appliedOn, or pending + the probe that showed it absent. Do not guess.",
+      "recordedOn": "2026-09-14",
+      "recordedBy": "PI-017 ledger seed"
+    },
+    {
+      "file": "2026-05-05-venue-change-requests.sql",
+      "state": "unknown",
+      "reason": "No record exists of whether this migration was applied. Migrations on this project are applied by hand through the Supabase SQL editor and nothing has ever written down which ones ran, so from the repository a migration that ran in May and one that has never run are indistinguishable. Establish this against the live database, then replace this row with applied + appliedOn, or pending + the probe that showed it absent. Do not guess.",
+      "recordedOn": "2026-09-14",
+      "recordedBy": "PI-017 ledger seed"
+    },
+    {
+      "file": "2026-05-05-venue-claims.sql",
+      "state": "pending",
+      "reason": "pi.venue_claims probed against the live PostgREST endpoint on 2026-09-14 returned HTTP 404 PGRST205, \"Could not find the table 'pi.venue_claims' in the schema cache\". A control probe of pi.venue_change_requests on the same endpoint with the same publishable key returned HTTP 200, so the endpoint and the key are good and the table is genuinely absent. The migration has therefore never run — the claim form at /partners/claim/ has been submitting into nothing since 2026-05-10. Evidence: JWR-TheOne 07-projects/peninsula-insider/deliverables/2026-09-14-pi-017-operator-access-gap-inventory.md.",
+      "recordedOn": "2026-09-14",
+      "recordedBy": "PI-017 access-gap inventory — live PostgREST probe"
+    },
+    {
+      "file": "2026-05-07-site-search-queries.sql",
+      "state": "unknown",
+      "reason": "No record exists of whether this migration was applied. Migrations on this project are applied by hand through the Supabase SQL editor and nothing has ever written down which ones ran, so from the repository a migration that ran in May and one that has never run are indistinguishable. Establish this against the live database, then replace this row with applied + appliedOn, or pending + the probe that showed it absent. Do not guess.",
+      "recordedOn": "2026-09-14",
+      "recordedBy": "PI-017 ledger seed"
+    },
+    {
+      "file": "2026-05-09-pi-cms-admin.sql",
+      "state": "unknown",
+      "reason": "No record exists of whether this migration was applied. Migrations on this project are applied by hand through the Supabase SQL editor and nothing has ever written down which ones ran, so from the repository a migration that ran in May and one that has never run are indistinguishable. Establish this against the live database, then replace this row with applied + appliedOn, or pending + the probe that showed it absent. Do not guess.",
+      "recordedOn": "2026-09-14",
+      "recordedBy": "PI-017 ledger seed"
+    },
+    {
+      "file": "2026-05-10-pi-cms-public-read.sql",
+      "state": "unknown",
+      "reason": "No record exists of whether this migration was applied. Migrations on this project are applied by hand through the Supabase SQL editor and nothing has ever written down which ones ran, so from the repository a migration that ran in May and one that has never run are indistinguishable. Establish this against the live database, then replace this row with applied + appliedOn, or pending + the probe that showed it absent. Do not guess.",
+      "recordedOn": "2026-09-14",
+      "recordedBy": "PI-017 ledger seed"
+    },
+    {
+      "file": "2026-05-10-pi-cms-seed-founding-editor.sql",
+      "state": "unknown",
+      "reason": "No record exists of whether this migration was applied. Migrations on this project are applied by hand through the Supabase SQL editor and nothing has ever written down which ones ran, so from the repository a migration that ran in May and one that has never run are indistinguishable. Establish this against the live database, then replace this row with applied + appliedOn, or pending + the probe that showed it absent. Do not guess.",
+      "recordedOn": "2026-09-14",
+      "recordedBy": "PI-017 ledger seed"
+    },
+    {
+      "file": "2026-05-11-pi-cms-admin-fix-recursion.sql",
+      "state": "unknown",
+      "reason": "No record exists of whether this migration was applied. Migrations on this project are applied by hand through the Supabase SQL editor and nothing has ever written down which ones ran, so from the repository a migration that ran in May and one that has never run are indistinguishable. Establish this against the live database, then replace this row with applied + appliedOn, or pending + the probe that showed it absent. Do not guess.",
+      "recordedOn": "2026-09-14",
+      "recordedBy": "PI-017 ledger seed"
+    },
+    {
+      "file": "2026-05-11-pi-cms-content-registry-and-referential-integrity.sql",
+      "state": "unknown",
+      "reason": "No record exists of whether this migration was applied. Migrations on this project are applied by hand through the Supabase SQL editor and nothing has ever written down which ones ran, so from the repository a migration that ran in May and one that has never run are indistinguishable. Establish this against the live database, then replace this row with applied + appliedOn, or pending + the probe that showed it absent. Do not guess.",
+      "recordedOn": "2026-09-14",
+      "recordedBy": "PI-017 ledger seed"
+    },
+    {
+      "file": "2026-05-11-pi-cms-strict-allowlist-gate.sql",
+      "state": "unknown",
+      "reason": "No record exists of whether this migration was applied. Migrations on this project are applied by hand through the Supabase SQL editor and nothing has ever written down which ones ran, so from the repository a migration that ran in May and one that has never run are indistinguishable. Establish this against the live database, then replace this row with applied + appliedOn, or pending + the probe that showed it absent. Do not guess.",
+      "recordedOn": "2026-09-14",
+      "recordedBy": "PI-017 ledger seed"
+    },
+    {
+      "file": "2026-05-16-pi-entity-attributes-and-index.sql",
+      "state": "unknown",
+      "reason": "No record exists of whether this migration was applied. Migrations on this project are applied by hand through the Supabase SQL editor and nothing has ever written down which ones ran, so from the repository a migration that ran in May and one that has never run are indistinguishable. Establish this against the live database, then replace this row with applied + appliedOn, or pending + the probe that showed it absent. Do not guess.",
+      "recordedOn": "2026-09-14",
+      "recordedBy": "PI-017 ledger seed"
+    },
+    {
+      "file": "2026-05-17-pi-content-registry-extend-types.sql",
+      "state": "unknown",
+      "reason": "No record exists of whether this migration was applied. Migrations on this project are applied by hand through the Supabase SQL editor and nothing has ever written down which ones ran, so from the repository a migration that ran in May and one that has never run are indistinguishable. Establish this against the live database, then replace this row with applied + appliedOn, or pending + the probe that showed it absent. Do not guess.",
+      "recordedOn": "2026-09-14",
+      "recordedBy": "PI-017 ledger seed"
+    },
+    {
+      "file": "2026-05-17-pi-search-rpc.sql",
+      "state": "unknown",
+      "reason": "No record exists of whether this migration was applied. Migrations on this project are applied by hand through the Supabase SQL editor and nothing has ever written down which ones ran, so from the repository a migration that ran in May and one that has never run are indistinguishable. Establish this against the live database, then replace this row with applied + appliedOn, or pending + the probe that showed it absent. Do not guess.",
+      "recordedOn": "2026-09-14",
+      "recordedBy": "PI-017 ledger seed"
+    },
+    {
+      "file": "2026-05-19-pi-image-bindings.sql",
+      "state": "unknown",
+      "reason": "No record exists of whether this migration was applied. Migrations on this project are applied by hand through the Supabase SQL editor and nothing has ever written down which ones ran, so from the repository a migration that ran in May and one that has never run are indistinguishable. Establish this against the live database, then replace this row with applied + appliedOn, or pending + the probe that showed it absent. Do not guess.",
+      "recordedOn": "2026-09-14",
+      "recordedBy": "PI-017 ledger seed"
+    },
+    {
+      "file": "2026-06-01-pi-explore-url-migration.sql",
+      "state": "unknown",
+      "reason": "No record exists of whether this migration was applied. Migrations on this project are applied by hand through the Supabase SQL editor and nothing has ever written down which ones ran, so from the repository a migration that ran in May and one that has never run are indistinguishable. Establish this against the live database, then replace this row with applied + appliedOn, or pending + the probe that showed it absent. Do not guess.",
+      "recordedOn": "2026-09-14",
+      "recordedBy": "PI-017 ledger seed"
+    },
+    {
+      "file": "2026-06-01-pi-market-consolidation.sql",
+      "state": "unknown",
+      "reason": "No record exists of whether this migration was applied. Migrations on this project are applied by hand through the Supabase SQL editor and nothing has ever written down which ones ran, so from the repository a migration that ran in May and one that has never run are indistinguishable. Establish this against the live database, then replace this row with applied + appliedOn, or pending + the probe that showed it absent. Do not guess.",
+      "recordedOn": "2026-09-14",
+      "recordedBy": "PI-017 ledger seed"
+    },
+    {
+      "file": "2026-06-01-pi-regions.sql",
+      "state": "unknown",
+      "reason": "No record exists of whether this migration was applied. Migrations on this project are applied by hand through the Supabase SQL editor and nothing has ever written down which ones ran, so from the repository a migration that ran in May and one that has never run are indistinguishable. Establish this against the live database, then replace this row with applied + appliedOn, or pending + the probe that showed it absent. Do not guess.",
+      "recordedOn": "2026-09-14",
+      "recordedBy": "PI-017 ledger seed"
+    },
+    {
+      "file": "2026-06-01-pi-schema-foundations.sql",
+      "state": "unknown",
+      "reason": "No record exists of whether this migration was applied. Migrations on this project are applied by hand through the Supabase SQL editor and nothing has ever written down which ones ran, so from the repository a migration that ran in May and one that has never run are indistinguishable. Establish this against the live database, then replace this row with applied + appliedOn, or pending + the probe that showed it absent. Do not guess.",
+      "recordedOn": "2026-09-14",
+      "recordedBy": "PI-017 ledger seed"
+    },
+    {
+      "file": "2026-06-01-pi-search-sync.sql",
+      "state": "unknown",
+      "reason": "No record exists of whether this migration was applied. Migrations on this project are applied by hand through the Supabase SQL editor and nothing has ever written down which ones ran, so from the repository a migration that ran in May and one that has never run are indistinguishable. Establish this against the live database, then replace this row with applied + appliedOn, or pending + the probe that showed it absent. Do not guess.",
+      "recordedOn": "2026-09-14",
+      "recordedBy": "PI-017 ledger seed"
+    },
+    {
+      "file": "2026-06-01-pi-type-routing.sql",
+      "state": "unknown",
+      "reason": "No record exists of whether this migration was applied. Migrations on this project are applied by hand through the Supabase SQL editor and nothing has ever written down which ones ran, so from the repository a migration that ran in May and one that has never run are indistinguishable. Establish this against the live database, then replace this row with applied + appliedOn, or pending + the probe that showed it absent. Do not guess.",
+      "recordedOn": "2026-09-14",
+      "recordedBy": "PI-017 ledger seed"
+    },
+    {
+      "file": "2026-06-17-pi-cms-registry-self-heal.sql",
+      "state": "unknown",
+      "reason": "No record exists of whether this migration was applied. Migrations on this project are applied by hand through the Supabase SQL editor and nothing has ever written down which ones ran, so from the repository a migration that ran in May and one that has never run are indistinguishable. Establish this against the live database, then replace this row with applied + appliedOn, or pending + the probe that showed it absent. Do not guess.",
+      "recordedOn": "2026-09-14",
+      "recordedBy": "PI-017 ledger seed"
+    },
+    {
+      "file": "2026-06-18-pi-home-hero-registry-seed.sql",
+      "state": "unknown",
+      "reason": "No record exists of whether this migration was applied. Migrations on this project are applied by hand through the Supabase SQL editor and nothing has ever written down which ones ran, so from the repository a migration that ran in May and one that has never run are indistinguishable. Establish this against the live database, then replace this row with applied + appliedOn, or pending + the probe that showed it absent. Do not guess.",
+      "recordedOn": "2026-09-14",
+      "recordedBy": "PI-017 ledger seed"
+    },
+    {
+      "file": "2026-07-28-pi-campaign-factory.sql",
+      "state": "unknown",
+      "reason": "No record exists of whether this migration was applied. Migrations on this project are applied by hand through the Supabase SQL editor and nothing has ever written down which ones ran, so from the repository a migration that ran in May and one that has never run are indistinguishable. Establish this against the live database, then replace this row with applied + appliedOn, or pending + the probe that showed it absent. Do not guess.",
+      "recordedOn": "2026-09-14",
+      "recordedBy": "PI-017 ledger seed"
+    },
+    {
+      "file": "2026-08-01-pi-image-intelligence-pilot.sql",
+      "state": "unknown",
+      "reason": "No record exists of whether this migration was applied. Migrations on this project are applied by hand through the Supabase SQL editor and nothing has ever written down which ones ran, so from the repository a migration that ran in May and one that has never run are indistinguishable. Establish this against the live database, then replace this row with applied + appliedOn, or pending + the probe that showed it absent. Do not guess.",
+      "recordedOn": "2026-09-14",
+      "recordedBy": "PI-017 ledger seed"
+    },
+    {
+      "file": "2026-09-13-pi-corrections-queue.sql",
+      "state": "pending",
+      "reason": "pi.corrections probed against the live PostgREST endpoint on 2026-09-14 returned HTTP 404. Shipped as PI-016 (PR #396) on 2026-09-13, so this is plausibly a deploy step not yet taken rather than an old defect — but nothing in the repository could tell those two apart, which is the reason this ledger exists.",
+      "recordedOn": "2026-09-14",
+      "recordedBy": "PI-017 access-gap inventory — live PostgREST probe"
+    },
+    {
+      "file": "2026-09-14-pi-partner-enquiries.sql",
+      "state": "pending",
+      "reason": "pi.partner_enquiries probed against the live PostgREST endpoint on 2026-09-14 returned HTTP 404. Created by PR #420 on 2026-09-13 to fix PI-015; same caveat as the corrections queue.",
+      "recordedOn": "2026-09-14",
+      "recordedBy": "PI-017 access-gap inventory — live PostgREST probe"
+    },
+    {
+      "file": "2026-09-14-pi-search-query-redaction.sql",
+      "state": "unknown",
+      "reason": "No record exists of whether this migration was applied. Migrations on this project are applied by hand through the Supabase SQL editor and nothing has ever written down which ones ran, so from the repository a migration that ran in May and one that has never run are indistinguishable. Establish this against the live database, then replace this row with applied + appliedOn, or pending + the probe that showed it absent. Do not guess.",
+      "recordedOn": "2026-09-14",
+      "recordedBy": "PI-017 ledger seed"
+    },
+    {
+      "file": "concierge/2026-05-17-concierge-search-entity-filter.sql",
+      "state": "unknown",
+      "reason": "No record exists of whether this migration was applied. Migrations on this project are applied by hand through the Supabase SQL editor and nothing has ever written down which ones ran, so from the repository a migration that ran in May and one that has never run are indistinguishable. Establish this against the live database, then replace this row with applied + appliedOn, or pending + the probe that showed it absent. Do not guess.",
+      "recordedOn": "2026-09-14",
+      "recordedBy": "PI-017 ledger seed"
+    }
+  ]
+}
