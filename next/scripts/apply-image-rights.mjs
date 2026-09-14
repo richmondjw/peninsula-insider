@@ -42,7 +42,7 @@
  *
  *   npm run probe:link-health
  *
- * and a commit of ops/reports/content/link-health-ledger.json, or the next
+ * and a commit of ops/records/link-health/probe-ledger.json, or the next
  * build fails on citations nobody probed. That is the gate working, not a
  * problem with it. This command prints the same reminder when it finishes.
  *
