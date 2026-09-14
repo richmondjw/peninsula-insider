@@ -98,6 +98,8 @@
     "audit:unschemad-closures": "node scripts/lint-unschemad-closure-signals.mjs",
     "assert:unschemad-closures": "node scripts/lint-unschemad-closure-signals.mjs --assert",
     "test:unschemad-closures": "node --test scripts/lint-unschemad-closure-signals.test.mjs",
+    "audit:venue-reachability": "node scripts/audit-venue-reachability.mjs",
+    "test:venue-reachability": "node --test scripts/audit-venue-reachability.test.mjs",
     "audit:closed-venues": "node scripts/audit-closed-venue-leaks.mjs --json ../ops/reports/content/closed-venue-leaks.json",
     "assert:closed-venues": "node scripts/audit-closed-venue-leaks.mjs --json ../ops/reports/content/closed-venue-leaks.json --assert",
     "test:closed-venue-leaks": "node --test scripts/audit-closed-venue-leaks.test.mjs",
