@@ -1,6 +1,6 @@
 name: Claim Verification Loop - Peninsula Insider
 
-# PI-006 Stage 1, report-only.
+# PI-006, proposal-only.
 #
 # WHY IT LIVES HERE AND NOT ON THE AGENT STACK
 # --------------------------------------------
@@ -11,11 +11,26 @@ name: Claim Verification Loop - Peninsula Insider
 #
 # WHAT IT WRITES
 # --------------
-# One report, as an artifact. It does not commit, it does not open an issue, it
-# does not push, and it has `contents: read`. That is not caution about a flag
-# somebody could flip: the loop itself cannot write to a content record, and
-# the run proves it by hashing every content and data file before and after
-# itself. The workflow's permissions are the outer ring of the same fact.
+# A report and a queue of proposals, as artifacts. It does not commit, it does
+# not open an issue, it does not push, and it has `contents: read`. That is not
+# caution about a flag somebody could flip: the loop itself cannot write to a
+# content record, and the run proves it by hashing every content and data file
+# before and after itself. The workflow's permissions are the outer ring of the
+# same fact.
+#
+# WHAT A PERSON DOES WITH THE OUTPUT
+# ----------------------------------
+# Downloads the artifact, or runs the loop locally, and works the queue:
+#
+#   npm run verify:review -- --list
+#   npm run verify:review -- --accept <id> --by "Name" --read "<url>"
+#   npm run verify:apply
+#
+# The last of those writes a patch file. A person reads it and runs git apply.
+# Nothing in this repository edits a content record on its own, and there is no
+# flag that grants it. That sentence is also on /how-we-check/, where readers
+# can see it, which is why it is treated here as a constraint on the code
+# rather than as copy to be revised later.
 #
 # WHAT LEAVES THE RUNNER
 # ----------------------
@@ -91,6 +106,7 @@ jobs:
         run: |
           cd next
           npm run test:verification-loop
+          npm run test:verification-proposals
 
       - name: Run the loop
         env:
@@ -104,7 +120,7 @@ jobs:
             --concurrency 3 \
             $EXTRA \
             --json "ops/reports/verification/verification-loop.json" \
-            --md "ops/reports/verification/verification-loop-$(date -u +%Y-%m-%d).md"
+            --md "ops/reports/verification/verification-loop-$(date -u +%Y-%m-%d).md" \n            --proposals "ops/reports/verification/proposals.json" \n            --proposals-md "ops/reports/verification/proposals-$(date -u +%Y-%m-%d).md"
 
       - name: Upload the report
         if: always()

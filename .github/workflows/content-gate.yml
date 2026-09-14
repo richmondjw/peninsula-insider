@@ -62,6 +62,7 @@ jobs:
           npm run test:partner-enquiry
           npm run test:agent-readiness
           npm run test:verification-loop
+          npm run test:verification-proposals
           npm run test:material-change
           npm run test:claim-support
           npm run test:how-we-check
