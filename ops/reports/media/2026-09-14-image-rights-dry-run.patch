@@ -106,7 +106,7 @@
  relatedVenues: []
 --- a/next/src/content/articles/corporate-events-red-hill-vs-sorrento.md
 +++ b/next/src/content/articles/corporate-events-red-hill-vs-sorrento.md
-@@ -9,7 +9,13 @@
+@@ -8,7 +8,13 @@
    src: "/images/sourced/place-sorrento-01.webp"
    alt: "Sorrento's coastal village setting on the Mornington Peninsula, representing the polished offsite atmosphere discussed in the guide"
    credit: "Peninsula Insider"
@@ -438,7 +438,7 @@
  relatedExperiences: ["bushrangers-bay-walk", "cape-schanck-boardwalk", "sorrento-back-beach", "point-nepean-fort-walk"]
 --- a/next/src/content/articles/walks-bushrangers-bay-walk-guide.mdx
 +++ b/next/src/content/articles/walks-bushrangers-bay-walk-guide.mdx
-@@ -10,6 +10,12 @@
+@@ -9,6 +9,12 @@
    alt: "Bushrangers Bay and its basalt rock stacks viewed from the clifftop near Cape Schanck"
    credit: "Kevin Graham de Valle / Wikimedia Commons (CC-BY-SA-4.0)"
    license: "wikimedia-cc-by-sa"
@@ -453,7 +453,7 @@
  lastVerified: 2026-04-22
 --- a/next/src/content/articles/walks-cape-schanck-hot-springs-day.mdx
 +++ b/next/src/content/articles/walks-cape-schanck-hot-springs-day.mdx
-@@ -9,7 +9,13 @@
+@@ -8,7 +8,13 @@
    src: "/images/sourced/explore-cape-schanck-boardwalk-01.webp"
    alt: "Cape Schanck boardwalk and lighthouse on the Mornington Peninsula, Bass Strait in the background"
    credit: "Peninsula Insider"
@@ -1562,7 +1562,7 @@
    "featuredPartner": false,
 --- a/next/src/content/venues/georgie-bass.json
 +++ b/next/src/content/venues/georgie-bass.json
-@@ -54,7 +54,12 @@
+@@ -51,7 +51,12 @@
      "depicts": "a timber pier, a seaweed-covered rock shelf and moored boats on the bay",
      "depictionStatus": "illustrative",
      "credit": "Daniel Kabel",
@@ -1820,7 +1820,7 @@
    "featuredPartner": false,
 --- a/next/src/content/venues/moke-dining.json
 +++ b/next/src/content/venues/moke-dining.json
-@@ -63,7 +63,12 @@
+@@ -58,7 +58,12 @@
      "depicts": "a timber pier, a seaweed-covered rock shelf and moored boats on the bay",
      "depictionStatus": "illustrative",
      "credit": "Daniel Kabel",
