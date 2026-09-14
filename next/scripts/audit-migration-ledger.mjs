@@ -141,12 +141,37 @@ const CREATES_RELATION =
 
 const rel = (abs) => path.relative(REPO, abs).split(path.sep).join('/');
 
+/**
+ * Which migration creates which relation, keyed `schema.table`.
+ *
+ * Shared with scripts/probe-live-tables.mjs so the probe can say, of a table it
+ * found absent, which file was supposed to have created it and what the ledger
+ * claims about that file. A table the probe cannot find whose migration the
+ * ledger calls `applied` is the single most valuable thing either tool can
+ * report: it means the written record is wrong.
+ */
+export async function relationsCreatedBy(migrationsDir) {
+  const { migrations } = await readMigrationsDir(migrationsDir);
+  /** @type {Map<string, string[]>} */
+  const byRelation = new Map();
+  for (const entry of migrations) {
+    const text = await readFile(entry.abs, 'utf8');
+    const re = new RegExp(CREATES_RELATION.source, CREATES_RELATION.flags);
+    for (const m of text.matchAll(re)) {
+      const key = `${m[5].toLowerCase()}.${m[6].toLowerCase()}`;
+      if (!byRelation.has(key)) byRelation.set(key, []);
+      if (!byRelation.get(key).includes(entry.file)) byRelation.get(key).push(entry.file);
+    }
+  }
+  return byRelation;
+}
+
 /* ------------------------------------------------------------------ */
 /* Reading the migrations directory                                    */
 /* ------------------------------------------------------------------ */
 
 /** Every .sql under the migrations dir, split into ledgered and excluded. */
-async function readMigrationsDir(dir) {
+export async function readMigrationsDir(dir) {
   const migrations = [];
   const excluded = [];
 
@@ -192,7 +217,7 @@ async function readLedger() {
  * record, it is an assertion, and an unevidenced assertion is what put the site
  * in this position.
  */
-function validateRow(row) {
+export function validateRow(row) {
   const problems = [];
   if (!row || typeof row !== 'object') return ['not an object'];
   if (typeof row.file !== 'string' || !row.file) problems.push('missing "file"');
@@ -263,13 +288,7 @@ async function main() {
   }
 
   /* Relations any migration creates, and the tables the code names. */
-  const created = new Set();
-  for (const entry of migrations) {
-    const text = await readFile(entry.abs, 'utf8');
-    for (const m of text.matchAll(CREATES_RELATION)) {
-      created.add(`${m[5].toLowerCase()}.${m[6].toLowerCase()}`);
-    }
-  }
+  const created = new Set((await relationsCreatedBy(MIGRATIONS_DIR)).keys());
 
   const { tables: expectedTables, dynamic } = await deriveExpectedTables({ srcDirs: [SRC_DIR] });
   const uncreated = expectedTables
@@ -396,7 +415,11 @@ async function main() {
   console.log('  PASS: every migration has a recorded state, and no regression against the ratchet.');
 }
 
-main().catch((error) => {
-  console.error(error);
-  process.exit(1);
-});
+/* Run only as a CLI. scripts/probe-live-tables.mjs imports relationsCreatedBy
+   from here, and an import must not audit anything or exit the process. */
+if (process.argv[1]?.endsWith('audit-migration-ledger.mjs')) {
+  main().catch((error) => {
+    console.error(error);
+    process.exit(1);
+  });
+}

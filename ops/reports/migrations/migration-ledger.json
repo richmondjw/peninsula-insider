@@ -1,6 +1,6 @@
 {
   "note": "Recorded state of every migration in ops/migrations/. Migrations on this project are applied by hand and this file is the only place that says which ones have been. A state is a claim about the live database that a human established and can defend in a diff — never something this repository inferred for itself. States: applied (carries appliedOn — an ISO date, or the literal \"unknown\" where the date is genuinely unrecoverable), pending (carries reason), unknown (carries reason). \"unknown\" is a legitimate answer; a guess is not.",
-  "updatedAt": "2026-09-13T18:22:08.402Z",
+  "updatedAt": "2026-09-14T00:18:40.743Z",
   "project": "tjjhpvslpysfklwpqmgz",
   "migrations": [
     {
@@ -61,10 +61,10 @@
     },
     {
       "file": "2026-05-05-pass-membership.sql",
-      "state": "unknown",
-      "reason": "No record exists of whether this migration was applied. Migrations on this project are applied by hand through the Supabase SQL editor and nothing has ever written down which ones ran, so from the repository a migration that ran in May and one that has never run are indistinguishable. Establish this against the live database, then replace this row with applied + appliedOn, or pending + the probe that showed it absent. Do not guess.",
+      "state": "pending",
+      "reason": "pi.pass_subscriptions — the only relation this migration creates — probed against the live PostgREST endpoint on 2026-09-14 returned HTTP 404 PGRST205, \"Could not find the table in the schema cache\", while sixteen other pi tables on the same endpoint with the same publishable key returned HTTP 200. The endpoint and key are good and the table is genuinely absent, so this migration has never run. Found by scripts/probe-live-tables.mjs; not in the PI-017 inventory, which traced the four operator routes rather than the whole expected-table set. The Pass membership page at /account/pass/ reads a table that is not there.",
       "recordedOn": "2026-09-14",
-      "recordedBy": "PI-017 ledger seed"
+      "recordedBy": "PI-017 migration ledger — scripts/probe-live-tables.mjs"
     },
     {
       "file": "2026-05-05-user-saves-and-itineraries.sql",
@@ -230,9 +230,9 @@
     {
       "file": "2026-08-01-pi-image-intelligence-pilot.sql",
       "state": "unknown",
-      "reason": "No record exists of whether this migration was applied. Migrations on this project are applied by hand through the Supabase SQL editor and nothing has ever written down which ones ran, so from the repository a migration that ran in May and one that has never run are indistinguishable. Establish this against the live database, then replace this row with applied + appliedOn, or pending + the probe that showed it absent. Do not guess.",
+      "reason": "Still unknown, and deliberately so. A live probe of pi_image.review_decisions on 2026-09-14 returned HTTP 406 PGRST106: the pi_image SCHEMA is not exposed through PostgREST. That establishes that the admin image-intelligence page cannot reach it, but it does NOT establish whether this migration ran — a schema can exist in Postgres and be absent from PostgREST's db-schemas setting, and the probe cannot see past the API to tell those apart. Resolving this needs a look at the database itself, not another probe. Recording the probe result here rather than promoting it to \"pending\" is the point of having three states.",
       "recordedOn": "2026-09-14",
-      "recordedBy": "PI-017 ledger seed"
+      "recordedBy": "PI-017 migration ledger — scripts/probe-live-tables.mjs"
     },
     {
       "file": "2026-09-13-pi-corrections-queue.sql",
