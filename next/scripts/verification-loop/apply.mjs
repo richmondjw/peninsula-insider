@@ -338,15 +338,20 @@ export function planEdit({ proposal, decision, recordPath, recordText }) {
 
   const onDisk = valueAt(data, segments);
   const expected = proposal.change?.currentValue ?? null;
+
+  // Order matters. A record that already holds the proposed value has, strictly,
+  // moved away from what the proposal was composed against, and reporting that
+  // as "moved" would send somebody hunting for a conflict that does not exist.
+  // The more specific reading comes first.
+  if (sameValue(onDisk ?? null, proposal.change?.proposedValue ?? null)) {
+    return refusal('already-applied', 'the record already holds the proposed value');
+  }
   if (!currentValueHolds(onDisk, expected)) {
     return refusal(
       'record-moved',
       `${recordPath} no longer holds the value this proposal was composed against, so applying ` +
         'it would revert whatever changed it. Re-run the loop.'
     );
-  }
-  if (sameValue(onDisk ?? null, proposal.change?.proposedValue ?? null)) {
-    return refusal('already-applied', 'the record already holds the proposed value');
   }
 
   const after = withValueAt(data, segments, proposal.change.proposedValue);
