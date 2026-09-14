@@ -88,6 +88,7 @@ jobs:
         run: |
           cd next
           npm run assert:schema-drift
+          npm run assert:declared-fields
           npm run assert:media-provenance
           npm run assert:claim-support
           npm run assert:link-health
