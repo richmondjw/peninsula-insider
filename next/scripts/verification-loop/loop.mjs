@@ -8,7 +8,7 @@
  *   check    deterministic post-conditions over the whole run
  *   escalate anything unresolved, conflicting or consequential
  *
- * In report-only the patch IS the output. Nothing applies it, and no code path
+ * In proposal-only the patch IS the output. Nothing applies it, and no code path
  * exists that could: the modules this file imports open no file for writing,
  * and report.mjs is the only writer in the directory, refusing any path
  * outside the reports tree. The value of the run is two things a write-scope
@@ -155,7 +155,7 @@ export async function runLoop({
   concurrency = 3,
   fetchSource,
   draftsForClaim = null,
-  mode = 'report-only',
+  mode = 'proposal-only',
 }) {
   const asAt = toIsoDay(now) ?? toIsoDay(new Date());
   const scored = scoreCorpus(corpus, now);
@@ -193,7 +193,7 @@ export async function runLoop({
               wouldCarryRetrievedAt: asAt,
               recorded: false,
               requiresHuman: true,
-              note: 'proposed by the report-only verification loop; accepting it is a human act',
+              note: 'proposed by the proposal-only verification loop; accepting it is a human act',
             },
           ]
         : [];
@@ -280,7 +280,7 @@ export async function runLoop({
 
   return {
     ticket: 'PI-006',
-    stage: 'report-only',
+    stage: 'proposal-only',
     mode,
     asAt,
     generator: 'next/scripts/run-verification-loop.mjs',

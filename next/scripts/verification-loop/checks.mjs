@@ -20,6 +20,7 @@ import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 
 import { listFiles } from './corpus.mjs';
+import { auditGaps } from './proposal.mjs';
 
 const EM_DASH = '\u2014';
 const FIGURE = /(?:\$|AUD\s?|A\$)\s?\d/;
@@ -138,6 +139,42 @@ export function runChecks({ run, manifestBefore, manifestAfter, allowedUrls }) {
     unread.length === 0,
     { offending: unread.map((item) => item.claimId) },
     'unreachable and blocked are source-health facts, never verdicts about a claim'
+  );
+
+  // The proposal surface. These two are the gate over the review stage, and
+  // they exist for the same reason the rest of this file does: the properties
+  // a write stage would have to keep, measured rather than asserted.
+  const proposals = run.proposals ?? [];
+  const unauditable = proposals.filter((proposal) => auditGaps(proposal).length > 0);
+  add(
+    'every-proposal-is-auditable',
+    unauditable.length === 0,
+    { offending: unauditable.map((proposal) => proposal.proposalId) },
+    'a proposal that cannot be walked back to a fetched page, by URL, fetch date and page ' +
+      'digest, is a machine opinion wearing the clothes of a citation, and it may not reach a ' +
+      'reviewer'
+  );
+
+  const selfApplying = proposals.filter(
+    (proposal) => proposal?.writes?.appliedAutomatically !== false
+  );
+  add(
+    'no-proposal-applies-itself',
+    selfApplying.length === 0,
+    { offending: selfApplying.map((proposal) => proposal.proposalId) },
+    'every proposal states on its own face that nothing applied it, so a proposal read in ' +
+      'isolation still says what could and could not act on it'
+  );
+
+  const unranked = proposals.filter(
+    (proposal) => proposal?.read?.precedence?.rank === undefined
+  );
+  add(
+    'every-proposal-states-its-precedence',
+    unranked.length === 0,
+    { offending: unranked.map((proposal) => proposal.proposalId) },
+    'a reviewer is owed the standing the read source held for this class of claim, because that ' +
+      'ordering is what decided which source was believed'
   );
 
   const serialised = JSON.stringify(run);
