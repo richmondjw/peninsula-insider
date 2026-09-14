@@ -18,7 +18,7 @@
  * NO NETWORK, EVER.
  *
  * Reachability is read from the committed link-health ledger
- * (ops/reports/content/link-health-ledger.json), which is written only by
+ * (ops/records/link-health/probe-ledger.json), which is written only by
  * `audit-link-health.mjs --probe` and reviewed in a diff. A verdict here is
  * therefore what a probe saw and a human committed, never what this script
  * guessed. That also makes the output a property of the files on disk: same
@@ -105,7 +105,7 @@ const JSON_OUT = getArg('--json', null);
 const QUIET = args.includes('--quiet');
 const VENUES_DIR = path.resolve(getArg('--venues', path.join(NEXT, 'src', 'content', 'venues')));
 const LEDGER = path.resolve(
-  getArg('--ledger', path.join(REPO, 'ops', 'reports', 'content', 'link-health-ledger.json'))
+  getArg('--record', getArg('--ledger', path.join(REPO, 'ops', 'records', 'link-health', 'probe-ledger.json')))
 );
 
 /* ------------------------------------------------------------------ */
