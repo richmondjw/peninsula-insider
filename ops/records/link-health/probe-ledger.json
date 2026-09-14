@@ -1,5 +1,5 @@
 {
-  "note": "Probe results for every source URL in the corpus. Written only by --probe; read offline by the gate. A verdict is what a probe saw, not an inference.",
+"note": "Probe results for source URLs cited by the corpus. Written ONLY by next/scripts/probe-link-health.mjs, by a human or a scheduled job, never by a build. Read offline by next/scripts/audit-link-health.mjs. A verdict is what a probe saw, not an inference. This file is a RECORD, not a report: it does not live under ops/reports/ because nothing here is reproducible from the tree, and reverting it destroys evidence rather than regenerating it.",
   "updatedAt": "2026-09-14T00:33:58.585Z",
   "links": [
     {

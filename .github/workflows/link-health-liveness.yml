@@ -1,0 +1,169 @@
+name: Source-link Liveness — have the sources the site cites gone dead?
+
+# PI-007. The companion to assert:link-health, and deliberately its opposite in
+# every respect that matters.
+#
+# The gate in content-gate.yml is offline and deterministic. It reads the
+# committed probe record and the content tree, makes no network request on any
+# code path, and fails only on a change somebody made in this repository. It
+# blocks a merge, and it is safe to block a merge because nothing outside the
+# repository can flip it.
+#
+# THIS workflow asks the live question — is the council's page still there? —
+# and that answer is a property of remote servers at a moment in time. It can go
+# from PASS to FAIL with nobody having written a line of code.
+#
+# So it is NOT in the pull-request path, and must never be moved into it.
+#
+#   - it has no `pull_request:` trigger and no `push:` trigger
+#   - nothing in content-gate.yml or build-and-deploy.yml calls it
+#   - a failure here opens an alert; it does not fail anyone's branch
+#
+# scripts/audit-link-health.test.mjs asserts that as a rule rather than a habit:
+# a workflow that reaches the prober may carry neither of those triggers.
+#
+# The reason is not squeamishness. A link checker that goes red at 3am because a
+# council server had a bad night, on a branch that touched no content, teaches
+# everyone to merge through a red tick — and the next real failure gets merged
+# through too. This repository has already deleted three checks for exactly that
+# property: one pinned to a literal date, one demanding the corpus contain a
+# particular record, and one asserting zero collisions among 2000 random draws.
+#
+# AND IT DOES NOT WRITE THE RECORD.
+#
+# The probe record is the evidence the merge gate is judged against. The whole
+# point of the 2026-09-14 fix is that the act of checking cannot manufacture it.
+# A robot that re-probed and committed would hand that power straight back — to
+# a schedule instead of a build, which is the same defect wearing a calendar. So
+# this job probes into a scratch copy under RUNNER_TEMP, asks the offline gate
+# what it would say if the evidence were current, and reports. Accepting the
+# refreshed evidence is a human act: run the prober locally and commit the diff.
+#
+# The last step proves the record is untouched, so that promise is checked
+# rather than merely written down.
+
+on:
+  schedule:
+    # 19:40 UTC Monday — 05:40 AEST / 06:40 AEDT, so a finding is on the desk at
+    # the start of the week. Weekly, not daily: link rot moves in months, and an
+    # alert arriving more often than the thing it watches changes is noise.
+    - cron: '40 19 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: link-health-liveness
+  cancel-in-progress: true
+
+jobs:
+  probe:
+    name: Re-probe every cited source and ask the gate what it would now say
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install the corpus reader's one dependency
+        # The prober shells out to curl and needs nothing else; the corpus
+        # reader parses markdown frontmatter and needs `yaml`. A full `npm ci`
+        # would pull Astro, React and Puppeteer in order to fetch some URLs.
+        run: npm install --no-save --no-package-lock yaml@^2.5.0
+
+      - name: Probe, into a scratch copy — never the committed record
+        id: probe
+        run: |
+          set -euo pipefail
+          cp ops/records/link-health/probe-ledger.json "$RUNNER_TEMP/refreshed.json"
+          node next/scripts/probe-link-health.mjs \
+            --record "$RUNNER_TEMP/refreshed.json" | tee /tmp/probe.txt
+
+      - name: What the merge gate would say if the evidence were current
+        id: gate
+        # The same offline gate against the same committed ratchet baseline,
+        # pointed at today's evidence instead of the evidence in the tree. Exit 1
+        # means a source the site still cites has died, been parked or moved
+        # since it was last probed — a fact about the world, so it is reported
+        # and never gated.
+        run: |
+          set +e
+          node next/scripts/audit-link-health.mjs \
+            --record "$RUNNER_TEMP/refreshed.json" \
+            --assert \
+            --json ops/reports/content/link-health-live.json | tee /tmp/gate.txt
+          code=${PIPESTATUS[0]}
+          echo "code=${code}" >> "$GITHUB_OUTPUT"
+          {
+            echo "## Source-link liveness"
+            echo
+            echo '```'
+            tail -c 8000 /tmp/probe.txt
+            echo '```'
+            echo
+            echo '```'
+            tail -c 8000 /tmp/gate.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+          exit 0
+
+      - name: Keep today's evidence for a human to accept or reject
+        uses: actions/upload-artifact@v4
+        with:
+          name: link-health-refreshed-probe
+          path: |
+            ${{ runner.temp }}/refreshed.json
+            ops/reports/content/link-health-live.json
+          if-no-files-found: warn
+
+      - name: The committed probe record must be exactly as checked out
+        # The promise at the top of this file, checked. If a future edit points
+        # the prober at the real record, this fails loudly instead of quietly
+        # letting a schedule write the merge gate's own evidence.
+        run: |
+          if ! git diff --quiet -- ops/records/; then
+            echo "::error title=This workflow wrote to ops/records/::A scheduled probe may not write the evidence the merge gate is judged against. Probe into RUNNER_TEMP and let a human commit what they accept."
+            git --no-pager diff --stat -- ops/records/
+            exit 1
+          fi
+          echo "ops/records/ untouched, as required."
+
+      - name: Alert — a source the site cites is no longer there
+        if: steps.gate.outputs.code == '1'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          PI_REPO_ROOT: ${{ github.workspace }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          python3 engine/alert.py \
+            --title "A source the site still cites has gone dead or moved" \
+            --body "A fresh probe of every cited source URL found at least one that has died, been parked or moved since it was last recorded, and the citing record has not disposed of it. No branch is failing: the committed probe record is unchanged and the merge gate is still green, because this is a fact about the world rather than a change anyone made. To act on it: cd next && npm run probe:link-health, review the diff, fix or dispose of the citations that came back dead (sourceStatus: unsourced / disputed), and commit the refreshed record. Run: ${RUN_URL}" \
+            --dedup link-health-liveness-dead --severity warning
+
+      - name: Note — the probe could not establish anything
+        if: failure()
+        # An unreachable runner or a prober that died is a broken-monitor
+        # problem, not a dead-source problem. Filing it under the same alert
+        # would make the serious one look routine.
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          PI_REPO_ROOT: ${{ github.workspace }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          python3 engine/alert.py \
+            --title "Source-link liveness probe was inconclusive" \
+            --body "The weekly probe did not complete, so it established nothing about which cited sources are still alive. This is NOT a report that sources are dead. Run: ${RUN_URL}" \
+            --dedup link-health-liveness-inconclusive --severity warning

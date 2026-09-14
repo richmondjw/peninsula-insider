@@ -242,20 +242,64 @@ test('no step reachable from `npm run build` can write the probe record', async 
   assert.doesNotMatch(body, /--probe/, 'the build passes --probe to something');
 });
 
-test('no CI workflow step invokes the prober', async () => {
+/** Every workflow, with its comment lines stripped so prose cannot trip a rule. */
+async function workflows() {
   const dir = join(REPO, '.github', 'workflows');
   const { readdir } = await import('node:fs/promises');
   const files = (await readdir(dir)).filter((f) => f.endsWith('.yml') || f.endsWith('.yaml'));
   assert.ok(files.length > 0, 'no workflows found - has the path moved?');
+  const out = [];
   for (const file of files) {
     const text = await readFile(join(dir, file), 'utf8');
-    // Comments explaining how a human probes are fine and wanted; a run: step
-    // that does it is not.
-    const runLines = text
+    const code = text
       .split('\n')
       .filter((line) => !/^\s*#/.test(line))
       .join('\n');
-    assert.doesNotMatch(runLines, /probe-link-health|probe:link-health/, `${file} invokes the prober`);
+    out.push({ file, text, code });
+  }
+  return out;
+}
+
+test('a workflow that reaches the prober is never in the merge path', async () => {
+  // The rule, stated as the thing that actually matters: probing is allowed on
+  // a schedule, because finding out a council page died is worth doing. It is
+  // never allowed on a pull request or a push, because then a remote server
+  // having a bad night reddens somebody's branch - and a check that cries wolf
+  // is a check everyone merges through, including the time it is right.
+  //
+  // Read crudely and strictly: any `pull_request:` or `push:` key at the start
+  // of a line counts. Over-strict is the safe direction; it can only forbid
+  // more workflows from probing, never fewer.
+  for (const { file, code } of await workflows()) {
+    if (!/probe-link-health|probe:link-health/.test(code)) continue;
+    assert.doesNotMatch(code, /^\s*pull_request:/m, `${file} probes on a pull request`);
+    assert.doesNotMatch(code, /^\s*push:/m, `${file} probes on a push`);
+  }
+});
+
+test('a workflow that reaches the prober proves it did not write the record', async () => {
+  // Probing into a scratch copy is the intent; this asserts the workflow
+  // checks its own intent at runtime rather than asserting the intent is
+  // written down. A scheduled job that re-probed and committed would hand the
+  // merge gate's evidence back to a machine - the same defect the split
+  // removed, wearing a calendar instead of a build.
+  for (const { file, code } of await workflows()) {
+    if (!/probe-link-health\.mjs/.test(code)) continue;
+    assert.match(
+      code,
+      /git diff --quiet -- ops\/records\//,
+      `${file} probes without proving ops/records/ is untouched afterwards`
+    );
+  }
+});
+
+test('no build-path workflow mentions the prober in a run step at all', async () => {
+  // Belt to the braces above: content-gate.yml and build-and-deploy.yml are the
+  // merge path. Comments there explaining how a human probes are wanted; a step
+  // that does it is not.
+  for (const { file, code } of await workflows()) {
+    if (!['content-gate.yml', 'build-and-deploy.yml'].includes(file)) continue;
+    assert.doesNotMatch(code, /probe-link-health|probe:link-health/, `${file} invokes the prober`);
   }
 });
 
