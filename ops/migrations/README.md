@@ -14,6 +14,66 @@ operator can re-run them safely against the same database.
 > intentionally **not** stored in the repo. RLS is the security boundary on
 > the request path.
 
+## The ledger — every migration's state is written down (PI-017)
+
+Migrations here are applied by hand, and until 2026-09-14 nothing recorded which
+ones had been. From this directory alone, a migration that ran in May and one
+that has never run were indistinguishable: there was no observation anyone could
+make to tell them apart, so nobody made one. `/partners/claim/` shipped on
+2026-05-10 writing into `pi.venue_claims`, whose migration is well formed and was
+simply never applied; the page's read path swallows the error and renders "no
+claims yet", so the only symptom was a failed submit in one operator's browser on
+a surface nobody measures. It lasted 127 days.
+
+**`ops/reports/migrations/migration-ledger.json` is now the record**, and
+`npm run assert:migration-ledger` fails a pull request that adds a `.sql` file
+here without a row for it.
+
+A row claims one of three states, and each must carry its evidence:
+
+| State | Carries | Means |
+|---|---|---|
+| `applied` | `appliedOn` — an ISO date, or the literal `"unknown"` | It ran. |
+| `pending` | `reason` | It has not run, and here is how that was established. |
+| `unknown` | `reason` | Nobody can currently say. |
+
+`unknown` is a legitimate answer and a guess is not. Most rows are `unknown`
+today, which is the honest state of a four-month-old hand-applied history; what
+the gate refuses is *silence*, not uncertainty.
+
+### When you apply a migration
+
+1. Apply it (SQL editor, `psql`, or the CLI — see **How to apply** below).
+2. Edit its row in `ops/reports/migrations/migration-ledger.json`:
+
+   ```json
+   { "file": "2026-05-05-venue-claims.sql",
+     "state": "applied", "appliedOn": "2026-09-15",
+     "recordedOn": "2026-09-15", "recordedBy": "James — Supabase SQL editor" }
+   ```
+
+3. If the edit lowers the number of `unknown` rows, move the ratchet down with
+   `cd next && npm run audit:migration-ledger -- --update-baseline` and commit
+   the baseline alongside it. The ratchet only ever tightens.
+
+### Checking reality
+
+`npm run probe:live-tables` asks the live endpoint whether each table the code
+names is actually there. It is **read-only** — a `GET` with `limit=0`, using only
+the publishable key already baked into the deployed bundle, and it refuses a
+service key outright.
+
+It runs on a schedule (`.github/workflows/migration-liveness.yml`), **not** in the
+pull-request path, and that boundary is deliberate. Its answer is a property of a
+remote service at a moment in time, so a build wired to it would go red at 3am
+with no code change, and everyone would learn to merge through a red tick. The
+offline ledger gate blocks merges; the live probe reports.
+
+The set of tables it probes is derived from the code by
+`next/scripts/expected-tables.mjs`, which reads every `.from('x')` under
+`next/src`. Writing a new query *is* declaring the table; there is no list to
+remember to update, because a list is what drifted here in the first place.
+
 ## Apply order — CMS admin layer (May 2026)
 
 Two migrations make up the v1 CMS admin layer. Apply in this order against
