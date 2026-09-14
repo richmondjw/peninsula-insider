@@ -58,7 +58,7 @@
         if (s && s.analytics) loadGtag();
       });
     })();
-  </script><script type="module" src="/_astro/BaseLayout.astro_astro_type_script_index_0_lang.aeVGFRnc.js"></script><link rel="stylesheet" href="/_astro/BaseLayout.DhiWsj3c.css">
+  </script><script type="module" src="/_astro/BaseLayout.astro_astro_type_script_index_0_lang.j9zgAN4i.js"></script><link rel="stylesheet" href="/_astro/BaseLayout.DhiWsj3c.css">
 <link rel="stylesheet" href="/_astro/EventStrip.BWdvjUs4.css">
 <style>.pi-actions{display:inline-flex;align-items:center;gap:.3rem}.pi-actions--floating{position:absolute;bottom:.75rem;right:.75rem;z-index:3}.pi-actions__btn{appearance:none;background:#ffffffeb;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(0,0,0,.08);border-radius:999px;color:var(--ink-soft, #3A3531);height:2rem;min-width:2rem;max-width:2rem;width:2rem;padding:0;display:inline-flex;align-items:center;justify-content:center;gap:0;cursor:pointer;overflow:hidden;white-space:nowrap;transition:max-width .24s cubic-bezier(.4,0,.2,1),padding .24s cubic-bezier(.4,0,.2,1),background .18s ease,border-color .18s ease,color .18s ease,transform .08s ease;font-family:var(--font-ui);font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase}.pi-actions__btn svg{flex-shrink:0}.pi-actions__btn:hover{border-color:#0b5a4866;color:var(--ochre, #26997e)}.pi-actions__btn:active{transform:scale(.95)}.pi-actions__label{opacity:0;max-width:0;overflow:hidden;white-space:nowrap;pointer-events:none;transition:opacity .14s ease .12s,max-width .24s cubic-bezier(.4,0,.2,1)}@media(hover:hover)and (pointer:fine){.pi-actions__btn:hover{width:auto;max-width:8rem;padding:0 .9rem 0 .7rem;gap:.45rem}.pi-actions__btn:hover .pi-actions__label{opacity:1;max-width:6rem}}.pi-actions__btn--save[aria-pressed=true]{background:var(--ink, #171413);color:var(--paper, #FAF7F0);border-color:var(--ink, #171413)}.pi-actions__btn--save[aria-pressed=true] svg path{fill:var(--paper, #FAF7F0)}.pi-actions__btn--save[aria-pressed=true]:hover{background:var(--ochre, #26997e);border-color:var(--ochre, #26997e);color:var(--paper, #FAF7F0)}.pi-actions__btn--share[data-feedback]{background:var(--ochre, #26997e);color:var(--paper, #FAF7F0);border-color:var(--ochre, #26997e)}
 .venue-card__partner-note[data-astro-cid-fcs5fbld]{font-size:.7rem;color:var(--color-text-muted, #9a9a9a);letter-spacing:.04em;text-transform:uppercase;margin:.25rem 0 0}
@@ -153,15 +153,29 @@ Case 02: Took the long way to dinner. Ask the locals, read the land, find her be
         var h = Math.round(m.getBoundingClientRect().height);
         document.documentElement.style.setProperty('--masthead-h', h + 'px');
       }
-      setMastheadH();
-      if ('ResizeObserver' in window) {
+      var ro = null;
+      // The masthead element is replaced by every client-router navigation,
+      // so an observer pointed at the first one is watching a detached node
+      // from the second page onwards and --masthead-h silently stops tracking
+      // the utility-row collapse. Re-point it, and disconnect the old one
+      // first so re-pointing does not itself accumulate observers.
+      function watchMasthead() {
         var m = document.querySelector('.masthead');
-        if (m) new ResizeObserver(setMastheadH).observe(m);
-      } else {
-        window.addEventListener('resize', setMastheadH);
+        if (!('ResizeObserver' in window)) return;
+        if (ro) ro.disconnect();
+        ro = null;
+        if (!m) return;
+        ro = new ResizeObserver(setMastheadH);
+        ro.observe(m);
       }
+      setMastheadH();
+      if ('ResizeObserver' in window) watchMasthead();
+      else window.addEventListener('resize', setMastheadH);
       // Re-measure after page transitions (Astro view-transitions).
-      document.addEventListener('astro:page-load', setMastheadH);
+      document.addEventListener('astro:page-load', function () {
+        setMastheadH();
+        watchMasthead();
+      });
     })();
   </script>   <nav class="v5-breadcrumbs" id="v5Breadcrumbs" aria-label="Breadcrumb" data-astro-cid-ma57fls6><div class="v5-breadcrumbs__container" data-astro-cid-ma57fls6><ol class="v5-breadcrumbs__list" data-astro-cid-ma57fls6><li class="v5-breadcrumbs__item" data-astro-cid-ma57fls6><a href="/" data-astro-cid-ma57fls6>Home</a></li><li class="v5-breadcrumbs__item" data-astro-cid-ma57fls6><a href="/explore/" data-astro-cid-ma57fls6>Explore</a></li><li class="v5-breadcrumbs__item" data-astro-cid-ma57fls6><a href="/explore/places/" data-astro-cid-ma57fls6>Places</a></li><li class="v5-breadcrumbs__item" data-astro-cid-ma57fls6><span aria-current="page" data-astro-cid-ma57fls6>Point Nepean Guide 2026 - Fort Walk, National Park &amp; History</span></li></ol></div></nav><script>
     // Defer to a page-authored trail: if the page renders its own
@@ -213,7 +227,7 @@ Good in almost any weather. The clifftop is exposed, so dress for the wind.</p> 
 
 This is the walk you do when you have an hour to fill and want the ocean properly in front of you. The track is well-formed, the gradient is forgiving, and the payoff comes quickly. London Bridge itself - a weathered limestone arch in the rock - is the natural turnaround point and worth the short detour off the main track.
 
-Good in almost any weather. The clifftop is exposed, so dress for the wind." data-pi-image="https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/experience/farnsworth-track/hero-1778509858359.jpg" data-pi-href="/explore/farnsworth-track/"> <button type="button" class="pi-actions__btn pi-actions__btn--save" aria-pressed="false" aria-label="Save Farnsworth Track" data-pi-save> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path> </svg> <span class="pi-actions__label">Save</span> </button> <button type="button" class="pi-actions__btn pi-actions__btn--share" aria-label="Share Farnsworth Track" data-pi-share> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path> <polyline points="16 6 12 2 8 6"></polyline> <line x1="12" y1="2" x2="12" y2="15"></line> </svg> <span class="pi-actions__label">Share</span> </button> </div>  <script type="module" src="/_astro/PiSaveActions.astro_astro_type_script_index_0_lang.BOvg9x8H.js"></script> </article><article class="experience-card"> <a href="/explore/point-nepean-fort-walk/" class="experience-card__visual experience-card__visual--attraction" tabindex="-1"> <img src="/images/sourced/explore-point-nepean-fort-01.webp?v=a08f932c" alt="Historic fort ruins at Point Nepean overlooking Port Phillip Heads" loading="lazy" decoding="async" data-pi-edit="image" data-pi-entity-type="experience" data-pi-entity-slug="point-nepean-fort-walk" data-pi-field-path="heroImage" data-pi-purpose="hero" data-pi-label="Point Nepean Fort Walk hero"> <div class="experience-card__fog"></div> <span class="experience-card__tag">Attraction</span> </a> <div class="experience-card__body"> <div class="experience-card__meta"> <a href="/explore/places/point-nepean/" class="experience-card__place-link">Point Nepean</a> <span>2 h · Easy</span> </div> <h3 class="experience-card__title"> <a href="/explore/point-nepean-fort-walk/">Point Nepean Fort Walk</a> </h3> <p class="experience-card__summary">Point Nepean rewards people who are happy to walk a little further than the average Peninsula day-tripper. The road and paths out toward Fort Nepean unfold through old quarantine buildings, scrub, and cliff-edge lookouts before the whole place gives way to bunkers and artillery emplacements looking straight across the Heads. It is a history lesson, a coastline walk, and a very good excuse to leave Sorrento for the afternoon. Hire bikes if you want to cover more ground, but walking keeps the mood right.</p> <a href="/explore/point-nepean-fort-walk/" class="experience-card__cta pi-btn pi-btn--text">Open the guide →</a> </div> <div class="pi-actions pi-actions--floating" data-pi-actions data-pi-kind="experience" data-pi-slug="point-nepean-fort-walk" data-pi-title="Point Nepean Fort Walk" data-pi-dek="Point Nepean rewards people who are happy to walk a little further than the average Peninsula day-tripper. The road and paths out toward Fort Nepean unfold through old quarantine buildings, scrub, and cliff-edge lookouts before the whole place gives way to bunkers and artillery emplacements looking straight across the Heads. It is a history lesson, a coastline walk, and a very good excuse to leave Sorrento for the afternoon. Hire bikes if you want to cover more ground, but walking keeps the mood right." data-pi-image="/images/sourced/explore-point-nepean-fort-01.webp?v=a08f932c" data-pi-href="/explore/point-nepean-fort-walk/"> <button type="button" class="pi-actions__btn pi-actions__btn--save" aria-pressed="false" aria-label="Save Point Nepean Fort Walk" data-pi-save> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path> </svg> <span class="pi-actions__label">Save</span> </button> <button type="button" class="pi-actions__btn pi-actions__btn--share" aria-label="Share Point Nepean Fort Walk" data-pi-share> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path> <polyline points="16 6 12 2 8 6"></polyline> <line x1="12" y1="2" x2="12" y2="15"></line> </svg> <span class="pi-actions__label">Share</span> </button> </div>   </article><article class="experience-card"> <a href="/explore/point-nepean-national-park/" class="experience-card__visual experience-card__visual--park" tabindex="-1"> <img src="/images/sourced/place-point-nepean-01.webp?v=75e6c5f3" alt="Point Nepean National Park - Peninsula Insider" loading="lazy" decoding="async" data-pi-edit="image" data-pi-entity-type="experience" data-pi-entity-slug="point-nepean-national-park" data-pi-field-path="heroImage" data-pi-purpose="hero" data-pi-label="Point Nepean National Park hero"> <div class="experience-card__fog"></div> <span class="experience-card__tag">Park</span> </a> <div class="experience-card__body"> <div class="experience-card__meta"> <a href="/explore/places/point-nepean/" class="experience-card__place-link">Point Nepean</a> <span>8 h · Moderate</span> </div> <h3 class="experience-card__title"> <a href="/explore/point-nepean-national-park/">Point Nepean National Park</a> </h3> <p class="experience-card__summary">Point Nepean is the Peninsula&#39;s great historic national park - a former defence installation at the very tip of the land, now a sprawling reserve with some of the most dramatic views in Victoria back up the bay and across to Queenscliff. Fort Nepean itself sits at the far end and holds a genuinely significant military history, including the gun battery that fired the first Allied shots of both World Wars.
+Good in almost any weather. The clifftop is exposed, so dress for the wind." data-pi-image="https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/experience/farnsworth-track/hero-1778509858359.jpg" data-pi-href="/explore/farnsworth-track/"> <button type="button" class="pi-actions__btn pi-actions__btn--save" aria-pressed="false" aria-label="Save Farnsworth Track" data-pi-save> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path> </svg> <span class="pi-actions__label">Save</span> </button> <button type="button" class="pi-actions__btn pi-actions__btn--share" aria-label="Share Farnsworth Track" data-pi-share> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path> <polyline points="16 6 12 2 8 6"></polyline> <line x1="12" y1="2" x2="12" y2="15"></line> </svg> <span class="pi-actions__label">Share</span> </button> </div>  <script type="module" src="/_astro/PiSaveActions.astro_astro_type_script_index_0_lang.DDZku01j.js"></script> </article><article class="experience-card"> <a href="/explore/point-nepean-fort-walk/" class="experience-card__visual experience-card__visual--attraction" tabindex="-1"> <img src="/images/sourced/explore-point-nepean-fort-01.webp?v=a08f932c" alt="Historic fort ruins at Point Nepean overlooking Port Phillip Heads" loading="lazy" decoding="async" data-pi-edit="image" data-pi-entity-type="experience" data-pi-entity-slug="point-nepean-fort-walk" data-pi-field-path="heroImage" data-pi-purpose="hero" data-pi-label="Point Nepean Fort Walk hero"> <div class="experience-card__fog"></div> <span class="experience-card__tag">Attraction</span> </a> <div class="experience-card__body"> <div class="experience-card__meta"> <a href="/explore/places/point-nepean/" class="experience-card__place-link">Point Nepean</a> <span>2 h · Easy</span> </div> <h3 class="experience-card__title"> <a href="/explore/point-nepean-fort-walk/">Point Nepean Fort Walk</a> </h3> <p class="experience-card__summary">Point Nepean rewards people who are happy to walk a little further than the average Peninsula day-tripper. The road and paths out toward Fort Nepean unfold through old quarantine buildings, scrub, and cliff-edge lookouts before the whole place gives way to bunkers and artillery emplacements looking straight across the Heads. It is a history lesson, a coastline walk, and a very good excuse to leave Sorrento for the afternoon. Hire bikes if you want to cover more ground, but walking keeps the mood right.</p> <a href="/explore/point-nepean-fort-walk/" class="experience-card__cta pi-btn pi-btn--text">Open the guide →</a> </div> <div class="pi-actions pi-actions--floating" data-pi-actions data-pi-kind="experience" data-pi-slug="point-nepean-fort-walk" data-pi-title="Point Nepean Fort Walk" data-pi-dek="Point Nepean rewards people who are happy to walk a little further than the average Peninsula day-tripper. The road and paths out toward Fort Nepean unfold through old quarantine buildings, scrub, and cliff-edge lookouts before the whole place gives way to bunkers and artillery emplacements looking straight across the Heads. It is a history lesson, a coastline walk, and a very good excuse to leave Sorrento for the afternoon. Hire bikes if you want to cover more ground, but walking keeps the mood right." data-pi-image="/images/sourced/explore-point-nepean-fort-01.webp?v=a08f932c" data-pi-href="/explore/point-nepean-fort-walk/"> <button type="button" class="pi-actions__btn pi-actions__btn--save" aria-pressed="false" aria-label="Save Point Nepean Fort Walk" data-pi-save> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path> </svg> <span class="pi-actions__label">Save</span> </button> <button type="button" class="pi-actions__btn pi-actions__btn--share" aria-label="Share Point Nepean Fort Walk" data-pi-share> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path> <polyline points="16 6 12 2 8 6"></polyline> <line x1="12" y1="2" x2="12" y2="15"></line> </svg> <span class="pi-actions__label">Share</span> </button> </div>   </article><article class="experience-card"> <a href="/explore/point-nepean-national-park/" class="experience-card__visual experience-card__visual--park" tabindex="-1"> <img src="/images/sourced/place-point-nepean-01.webp?v=75e6c5f3" alt="Point Nepean National Park - Peninsula Insider" loading="lazy" decoding="async" data-pi-edit="image" data-pi-entity-type="experience" data-pi-entity-slug="point-nepean-national-park" data-pi-field-path="heroImage" data-pi-purpose="hero" data-pi-label="Point Nepean National Park hero"> <div class="experience-card__fog"></div> <span class="experience-card__tag">Park</span> </a> <div class="experience-card__body"> <div class="experience-card__meta"> <a href="/explore/places/point-nepean/" class="experience-card__place-link">Point Nepean</a> <span>8 h · Moderate</span> </div> <h3 class="experience-card__title"> <a href="/explore/point-nepean-national-park/">Point Nepean National Park</a> </h3> <p class="experience-card__summary">Point Nepean is the Peninsula&#39;s great historic national park - a former defence installation at the very tip of the land, now a sprawling reserve with some of the most dramatic views in Victoria back up the bay and across to Queenscliff. Fort Nepean itself sits at the far end and holds a genuinely significant military history, including the gun battery that fired the first Allied shots of both World Wars.
 
 The park can be walked in full but most people treat it as a bike or shuttle day: hire bikes at the entry point, ride the main loop through the dune scrub, stop at Fort Nepean for an hour, and come back via the ocean side if the weather and tides cooperate. The fort tunnels, the old quarantine station, and the clifftop battery positions are the highlights, and the view from the tip - Port Phillip Bay on one side, Bass Strait on the other - is unlike anywhere else on the Peninsula.
 
@@ -348,12 +362,21 @@ Unsubscribe any time
         L.marker([lat, lng]).addTo(map).bindPopup(name);
       }).catch(() => { el._piMapInit = false; });
     }
+    // Held at module scope so the previous page's observer can be dropped.
+    // The `data-bound` guard is on the map element, which the client router
+    // replaces, so the guard was fresh on every visit while the observer was
+    // not - and a reader who never scrolled the map into view left it
+    // connected to a detached element. One more per place page, for the life
+    // of the tab. Found by the PI-012 sweep.
+    let mapObserver = null;
     function bindMaps() {
       const els = document.querySelectorAll('[data-place-map]:not([data-bound])');
       if (!els.length) return;
+      if (mapObserver) mapObserver.disconnect();
       const io = new IntersectionObserver((entries) => {
         entries.forEach((e) => { if (e.isIntersecting) { initMap(e.target); io.unobserve(e.target); } });
       }, { rootMargin: '200px' });
+      mapObserver = io;
       els.forEach((el) => { el.setAttribute('data-bound', '1'); io.observe(el); });
     }
     if (document.readyState === 'loading') {
@@ -647,54 +670,66 @@ Peninsula Insider acknowledges the Bunurong people of the Kulin Nation as the
        Self-suppressing on journal articles, form flows, open sheets,
        and while the virtual keyboard is up. --> <nav class="v5-bottombar" id="v5BottomBar" aria-label="Quick actions" data-v5-bottombar data-astro-cid-uz6egxka><ul class="v5-bottombar__list" data-astro-cid-uz6egxka><li data-astro-cid-uz6egxka><a href="/map/" class="v5-bottombar__item" data-evt="map_toggle" data-astro-cid-uz6egxka><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" data-astro-cid-uz6egxka><path d="M9 4 3.5 6v14L9 18l6 2 5.5-2V4L15 6 9 4Z" data-astro-cid-uz6egxka></path><line x1="9" y1="4" x2="9" y2="18" data-astro-cid-uz6egxka></line><line x1="15" y1="6" x2="15" y2="20" data-astro-cid-uz6egxka></line></svg><span class="v5-bottombar__label" data-astro-cid-uz6egxka>Map</span></a></li><li data-astro-cid-uz6egxka><a href="/me/saved/" class="v5-bottombar__item" data-astro-cid-uz6egxka><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" data-astro-cid-uz6egxka><path d="M6 3.5h12a.5.5 0 0 1 .5.5v16.6a.4.4 0 0 1-.63.33L12 16.5l-5.87 4.43a.4.4 0 0 1-.63-.33V4a.5.5 0 0 1 .5-.5Z" data-astro-cid-uz6egxka></path></svg><span class="v5-bottombar__label" data-astro-cid-uz6egxka>Saved</span></a></li><li data-astro-cid-uz6egxka><a href="/me/trip/" class="v5-bottombar__item" data-astro-cid-uz6egxka><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" data-astro-cid-uz6egxka><rect x="4" y="4" width="16" height="16" rx="2" data-astro-cid-uz6egxka></rect><line x1="8" y1="9" x2="16" y2="9" data-astro-cid-uz6egxka></line><line x1="8" y1="13" x2="16" y2="13" data-astro-cid-uz6egxka></line><line x1="8" y1="17" x2="12" y2="17" data-astro-cid-uz6egxka></line></svg><span class="v5-bottombar__label" data-astro-cid-uz6egxka>My Trip</span></a></li></ul></nav><script>
     (function () {
-      function initV5Bar() {
+      var keyboardUp = false;
+      var observer = null;
+
+      // Any open sheet/drawer/dialog suppresses the bar entirely.
+      var SHEET_SELECTOR = [
+        '#v5Drawer:not([hidden])',
+        '#siteSearchOverlay[data-open="true"]',
+        '.pi-drawer[data-state="open"]',
+        '#v2-auth-modal:not([hidden])',
+      ].join(', ');
+
+      // Looks the bar up every time rather than closing over it: the client
+      // router replaces it on every navigation, along with every dialog the
+      // observer below watches.
+      function update() {
         var bar = document.getElementById('v5BottomBar');
-        if (!bar || bar._v5BarBound) return;
-        bar._v5BarBound = true;
+        if (!bar) return;
+        var hide = keyboardUp || !!document.querySelector(SHEET_SELECTOR);
+        bar.classList.toggle('is-suppressed', hide);
+      }
 
-        var keyboardUp = false;
+      // Virtual keyboard heuristic (mobile-strategy.md): the visual
+      // viewport shrinking well past browser-chrome variance means
+      // the on-screen keyboard is up.
+      //
+      // Registered once. visualViewport is a global and outlives every swap,
+      // so the previous shape - re-running the whole init from
+      // astro:page-load, guarded only by a flag on the replaced bar element -
+      // added one more of these per navigation, each one updating a bar that
+      // had been detached several navigations ago.
+      if (window.visualViewport) {
+        var vv = window.visualViewport;
+        vv.addEventListener('resize', function () {
+          keyboardUp = (window.innerHeight - vv.height) > 150;
+          update();
+        });
+      }
 
-        // Any open sheet/drawer/dialog suppresses the bar entirely.
-        var SHEET_SELECTOR = [
-          '#v5Drawer:not([hidden])',
-          '#siteSearchOverlay[data-open="true"]',
-          '.pi-drawer[data-state="open"]',
-          '#v2-auth-modal:not([hidden])',
-        ].join(', ');
-
-        function update() {
-          var hide = keyboardUp || !!document.querySelector(SHEET_SELECTOR);
-          bar.classList.toggle('is-suppressed', hide);
-        }
-
-        // Virtual keyboard heuristic (mobile-strategy.md): the visual
-        // viewport shrinking well past browser-chrome variance means
-        // the on-screen keyboard is up.
-        if (window.visualViewport) {
-          var vv = window.visualViewport;
-          var onVv = function () {
-            keyboardUp = (window.innerHeight - vv.height) > 150;
-            update();
-          };
-          vv.addEventListener('resize', onVv);
-        }
-
-        // Watch the dialogs' open-state attributes.
+      // Watch the dialogs' open-state attributes. These elements ARE replaced
+      // by a navigation, so the observer genuinely has to be re-pointed - and
+      // the old one disconnected first, or each navigation leaves one more
+      // observer watching detached nodes. tests/journeys measured three
+      // additional observations per navigation before this disconnect existed.
+      function rewatch() {
+        if (observer) observer.disconnect();
+        observer = null;
         var watched = ['v5Drawer', 'siteSearchOverlay', 'pi-drawer', 'v2-auth-modal']
           .map(function (id) { return document.getElementById(id); })
           .filter(Boolean);
         if (watched.length && 'MutationObserver' in window) {
-          var mo = new MutationObserver(update);
+          observer = new MutationObserver(update);
           watched.forEach(function (el) {
-            mo.observe(el, { attributes: true, attributeFilter: ['class', 'hidden', 'data-open', 'data-state'] });
+            observer.observe(el, { attributes: true, attributeFilter: ['class', 'hidden', 'data-open', 'data-state'] });
           });
         }
-
         update();
       }
 
-      initV5Bar();
-      document.addEventListener('astro:page-load', initV5Bar);
+      rewatch();
+      document.addEventListener('astro:page-load', rewatch);
     })();
 </script> <!-- V2 auth phase 1, modal + profile dropdown.
        Modal hidden until any [data-open-auth] element triggers it.
@@ -1494,32 +1529,38 @@ const __SB_ANON = "sb_publishable_JlZuo95QvNZi2ZNrFyK-Cw_2y0U7HLp";
        via CSS rules keyed on body[data-path]. Bottom-LEFT so it sits
        opposite the concierge FAB (bottom-right) and they don't collide. --> <a href="/dispatch/" class="subscribe-pill" aria-label="Join The Insider Note"> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path> <polyline points="22,6 12,13 2,6"></polyline> </svg> <span class="subscribe-pill__label">Join</span> </a> <script>
     (function () {
-      function initSubscribePill() {
+      var threshold = 0.5; // 50% of scrollable page
+      var rafId = null;
+
+      // Reads document.body on every call rather than closing over it. That is
+      // the whole fix: the client router replaces <body> on every navigation,
+      // so a closed-over reference goes stale, and the previous shape dealt
+      // with that by clearing its own `_subPillBound` guard from an
+      // astro:page-load handler and re-running - which added one more scroll
+      // listener per navigation, for the life of the tab, each holding a
+      // detached body alive. tests/journeys measured +1 per navigation on
+      // every page of the site, this being in the layout.
+      function check() {
         var body = document.body;
-        if (body._subPillBound) return;
-        body._subPillBound = true;
-        var threshold = 0.5; // 50% of scrollable page
-        var rafId = null;
-        function check() {
-          var max = document.documentElement.scrollHeight - window.innerHeight;
-          if (max <= 0) {
-            body.classList.remove('show-subscribe-pill');
-            return;
-          }
-          var pct = window.scrollY / max;
-          body.classList.toggle('show-subscribe-pill', pct >= threshold);
+        if (!body) return;
+        var max = document.documentElement.scrollHeight - window.innerHeight;
+        if (max <= 0) {
+          body.classList.remove('show-subscribe-pill');
+          return;
         }
-        window.addEventListener('scroll', function () {
-          if (rafId) return;
-          rafId = requestAnimationFrame(function () { check(); rafId = null; });
-        }, { passive: true });
-        check();
+        var pct = window.scrollY / max;
+        body.classList.toggle('show-subscribe-pill', pct >= threshold);
       }
-      initSubscribePill();
-      document.addEventListener('astro:page-load', function () {
-        document.body._subPillBound = false;
-        initSubscribePill();
-      });
+
+      // One listener, registered once. `window` outlives every swap.
+      window.addEventListener('scroll', function () {
+        if (rafId) return;
+        rafId = requestAnimationFrame(function () { check(); rafId = null; });
+      }, { passive: true });
+      check();
+      // A navigation resets scroll position and page height, so recompute -
+      // but only recompute. Nothing is re-registered.
+      document.addEventListener('astro:page-load', check);
     })();
   </script> <!-- V4 mega-menu + mobile drawer behaviour.
        Replaces V2's #mobileNav burger script. Three responsibilities:

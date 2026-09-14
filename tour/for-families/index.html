@@ -58,7 +58,7 @@
         if (s && s.analytics) loadGtag();
       });
     })();
-  </script><script type="module" src="/_astro/BaseLayout.astro_astro_type_script_index_0_lang.aeVGFRnc.js"></script><link rel="stylesheet" href="/_astro/BaseLayout.DhiWsj3c.css">
+  </script><script type="module" src="/_astro/BaseLayout.astro_astro_type_script_index_0_lang.j9zgAN4i.js"></script><link rel="stylesheet" href="/_astro/BaseLayout.DhiWsj3c.css">
 <style>.pi-actions{display:inline-flex;align-items:center;gap:.3rem}.pi-actions--floating{position:absolute;bottom:.75rem;right:.75rem;z-index:3}.pi-actions__btn{appearance:none;background:#ffffffeb;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(0,0,0,.08);border-radius:999px;color:var(--ink-soft, #3A3531);height:2rem;min-width:2rem;max-width:2rem;width:2rem;padding:0;display:inline-flex;align-items:center;justify-content:center;gap:0;cursor:pointer;overflow:hidden;white-space:nowrap;transition:max-width .24s cubic-bezier(.4,0,.2,1),padding .24s cubic-bezier(.4,0,.2,1),background .18s ease,border-color .18s ease,color .18s ease,transform .08s ease;font-family:var(--font-ui);font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase}.pi-actions__btn svg{flex-shrink:0}.pi-actions__btn:hover{border-color:#0b5a4866;color:var(--ochre, #26997e)}.pi-actions__btn:active{transform:scale(.95)}.pi-actions__label{opacity:0;max-width:0;overflow:hidden;white-space:nowrap;pointer-events:none;transition:opacity .14s ease .12s,max-width .24s cubic-bezier(.4,0,.2,1)}@media(hover:hover)and (pointer:fine){.pi-actions__btn:hover{width:auto;max-width:8rem;padding:0 .9rem 0 .7rem;gap:.45rem}.pi-actions__btn:hover .pi-actions__label{opacity:1;max-width:6rem}}.pi-actions__btn--save[aria-pressed=true]{background:var(--ink, #171413);color:var(--paper, #FAF7F0);border-color:var(--ink, #171413)}.pi-actions__btn--save[aria-pressed=true] svg path{fill:var(--paper, #FAF7F0)}.pi-actions__btn--save[aria-pressed=true]:hover{background:var(--ochre, #26997e);border-color:var(--ochre, #26997e);color:var(--paper, #FAF7F0)}.pi-actions__btn--share[data-feedback]{background:var(--ochre, #26997e);color:var(--paper, #FAF7F0);border-color:var(--ochre, #26997e)}
 </style>
 <link rel="stylesheet" href="/_astro/NewsletterBlock.ClRcNTTc.css"></head> <body data-page="tour" data-path="/tour/for-families/" data-v4="true"> <a href="#main-content" class="skip-link">Skip to content</a>  <div class="pi-conditions" data-astro-cid-7kfxatlb> <div class="pi-conditions__inner" data-astro-cid-7kfxatlb> <p class="pi-conditions__now" data-astro-cid-7kfxatlb> <span class="pi-conditions__item pi-conditions__item--place" data-astro-cid-7kfxatlb>Sorrento</span> <span class="pi-conditions__item pi-conditions__item--sunset" data-astro-cid-7kfxatlb>Sunset 6:10 PM</span>  <a class="pi-conditions__item pi-conditions__item--play" href="https://play.peninsulainsider.com.au/?utm_source=peninsulainsider.com.au&amp;utm_medium=site&amp;utm_campaign=where-is-pi-case-02&amp;utm_content=ticker" data-evt="pi_play_promo" data-surface="ticker" data-astro-cid-7kfxatlb>
@@ -148,15 +148,29 @@ Case 02: Took the long way to dinner. Ask the locals, read the land, find her be
         var h = Math.round(m.getBoundingClientRect().height);
         document.documentElement.style.setProperty('--masthead-h', h + 'px');
       }
-      setMastheadH();
-      if ('ResizeObserver' in window) {
+      var ro = null;
+      // The masthead element is replaced by every client-router navigation,
+      // so an observer pointed at the first one is watching a detached node
+      // from the second page onwards and --masthead-h silently stops tracking
+      // the utility-row collapse. Re-point it, and disconnect the old one
+      // first so re-pointing does not itself accumulate observers.
+      function watchMasthead() {
         var m = document.querySelector('.masthead');
-        if (m) new ResizeObserver(setMastheadH).observe(m);
-      } else {
-        window.addEventListener('resize', setMastheadH);
+        if (!('ResizeObserver' in window)) return;
+        if (ro) ro.disconnect();
+        ro = null;
+        if (!m) return;
+        ro = new ResizeObserver(setMastheadH);
+        ro.observe(m);
       }
+      setMastheadH();
+      if ('ResizeObserver' in window) watchMasthead();
+      else window.addEventListener('resize', setMastheadH);
       // Re-measure after page transitions (Astro view-transitions).
-      document.addEventListener('astro:page-load', setMastheadH);
+      document.addEventListener('astro:page-load', function () {
+        setMastheadH();
+        watchMasthead();
+      });
     })();
   </script>   <nav class="v5-breadcrumbs" id="v5Breadcrumbs" aria-label="Breadcrumb" data-astro-cid-ma57fls6><div class="v5-breadcrumbs__container" data-astro-cid-ma57fls6><ol class="v5-breadcrumbs__list" data-astro-cid-ma57fls6><li class="v5-breadcrumbs__item" data-astro-cid-ma57fls6><a href="/" data-astro-cid-ma57fls6>Home</a></li><li class="v5-breadcrumbs__item" data-astro-cid-ma57fls6><a href="/tour/" data-astro-cid-ma57fls6>Tours</a></li><li class="v5-breadcrumbs__item" data-astro-cid-ma57fls6><span aria-current="page" data-astro-cid-ma57fls6>Family Tours Mornington Peninsula</span></li></ol></div></nav><script>
     // Defer to a page-authored trail: if the page renders its own
@@ -178,7 +192,7 @@ Case 02: Took the long way to dinner. Ask the locals, read the land, find her be
       document.addEventListener('astro:page-load', dedupeV5Crumbs);
     })();
 </script> <main id="main-content" data-pagefind-body data-pagefind-filter="kind:Guide" data-pagefind-meta="kind:Guide">  <span data-pagefind-meta="image:https://peninsulainsider.com.au/images/sourced/explore-hub-hero-01.webp?v=199413d0"></span>  <nav class="breadcrumbs" aria-label="Breadcrumb"> <div class="container"> <ol class="breadcrumbs__list"> <li class="breadcrumbs__item"> <a href="/">Home</a> </li><li class="breadcrumbs__item"> <a href="/tour/">Tours</a> </li><li class="breadcrumbs__item"> <span aria-current="page">For Families</span> </li> </ol> </div> </nav> <section class="subpage-hero"> <div class="container"> <div class="subpage-hero__inner"> <div class="subpage-hero__body"> <div class="subpage-hero__eyebrow"> <span class="label label--accent">Tours</span> <span class="subpage-hero__rule" aria-hidden="true"></span> <span class="label">For Families</span> </div> <h1 class="subpage-hero__title" data-pi-edit="text" data-pi-entity-type="page" data-pi-entity-slug="tour/for-families" data-pi-field-path="hero.title" data-pi-field-kind="text" data-pi-label="tour/for-families hero title">Family Tours on the Mornington Peninsula</h1> <div class="subpage-hero__prose">  <div class="prose"> <p>The Peninsula's family-suited guided tours concentrate around wildlife experiences, coastal activities, and walking tours that work for a range of ages. Most wine-focused tours are adult-oriented - the family-friendly options tend to sit in the wildlife, nature, and activity categories.</p> <p>Check each operator's minimum age policy before booking. Some experiences have age restrictions for safety or participation reasons that are not always obvious in the tour description.</p> </div>  </div> </div> <div class="subpage-hero__visual" aria-hidden="true"> <img src="/images/sourced/explore-two-bays-walk-01.webp?v=6c2ff09f" alt="Two Bays Walking Track on the Mornington Peninsula - family-friendly tours" loading="eager" decoding="async" data-pi-edit="image" data-pi-entity-type="page" data-pi-entity-slug="tour/for-families" data-pi-field-path="hero" data-pi-purpose="hero" data-pi-label="tour/for-families hero image"> <div class="subpage-hero__fog"></div> </div> </div> </div> </section> <section class="experience-index experience-index--plain"> <div class="container"> <div class="venues__header"> <div> <p class="label label--accent">Family tours</p> <h2 class="venues__title">5 Peninsula family-friendly tours</h2> </div> </div> <div class="tour-grid"> <article class="tour-card"> <div class="tour-card__image"> <a href="/tour/arthurs-seat-eagle-gondola/" tabindex="-1" aria-hidden="true"> <img src="https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/tour/arthurs-seat-eagle-gondola/hero-1778547921500.jpg" alt="Arthurs Seat Eagle Gondola Ride" loading="lazy" decoding="async" data-pi-edit="image" data-pi-entity-type="tour" data-pi-entity-slug="arthurs-seat-eagle-gondola" data-pi-field-path="heroImage" data-pi-purpose="hero" data-pi-label="Arthurs Seat Eagle Gondola Ride hero"> </a> </div> <div class="tour-card__body"> <div class="tour-card__meta"> <span class="tour-card__badge">Under 2 hours</span> <span class="tour-card__badge tour-card__badge--accent">Families</span> <span class="tour-card__badge">Moderate</span> </div> <h3 class="tour-card__name"> <a href="/tour/arthurs-seat-eagle-gondola/">Arthurs Seat Eagle Gondola Ride</a> </h3> <p class="tour-card__operator">
-by <a href="/tour/operators/arthurs-seat-eagle/">Arthurs Seat Eagle</a> </p> <p class="tour-card__excerpt">The Arthurs Seat Eagle gondola connects the Dromana foreshore to the 305-metre summit of Arthurs Seat in a 15-minute ...</p> <a href="/tour/arthurs-seat-eagle-gondola/" class="tour-card__cta pi-btn pi-btn--text">Read notes &rarr;</a> </div> <div class="pi-actions pi-actions--floating" data-pi-actions data-pi-kind="tour" data-pi-slug="arthurs-seat-eagle-gondola" data-pi-title="Arthurs Seat Eagle Gondola Ride" data-pi-dek="The Arthurs Seat Eagle gondola connects the Dromana foreshore to the 305-metre summit of Arthurs Seat in a 15-minute ..." data-pi-image="https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/tour/arthurs-seat-eagle-gondola/hero-1778547921500.jpg" data-pi-href="/tour/arthurs-seat-eagle-gondola/"> <button type="button" class="pi-actions__btn pi-actions__btn--save" aria-pressed="false" aria-label="Save Arthurs Seat Eagle Gondola Ride" data-pi-save> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path> </svg> <span class="pi-actions__label">Save</span> </button> <button type="button" class="pi-actions__btn pi-actions__btn--share" aria-label="Share Arthurs Seat Eagle Gondola Ride" data-pi-share> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path> <polyline points="16 6 12 2 8 6"></polyline> <line x1="12" y1="2" x2="12" y2="15"></line> </svg> <span class="pi-actions__label">Share</span> </button> </div>  <script type="module" src="/_astro/PiSaveActions.astro_astro_type_script_index_0_lang.BOvg9x8H.js"></script> </article><article class="tour-card"> <div class="tour-card__image"> <a href="/tour/bayplay-sea-dragon-snorkel-tour/" tabindex="-1" aria-hidden="true"> <img src="/images/sourced/place-portsea-01.webp?v=c16a52f4" alt="Portsea Pier on the Mornington Peninsula - Bayplay sea dragon snorkel tour departure point" loading="lazy" decoding="async" data-pi-edit="image" data-pi-entity-type="tour" data-pi-entity-slug="bayplay-sea-dragon-snorkel-tour" data-pi-field-path="heroImage" data-pi-purpose="hero" data-pi-label="Bayplay Sea Dragon Snorkel Tour hero"> </a> </div> <div class="tour-card__body"> <div class="tour-card__meta"> <span class="tour-card__badge">Under 2 hours</span> <span class="tour-card__badge tour-card__badge--accent">Families</span> <span class="tour-card__badge">Moderate</span> </div> <h3 class="tour-card__name"> <a href="/tour/bayplay-sea-dragon-snorkel-tour/">Bayplay Sea Dragon Snorkel Tour</a> </h3> <p class="tour-card__operator">
+by <a href="/tour/operators/arthurs-seat-eagle/">Arthurs Seat Eagle</a> </p> <p class="tour-card__excerpt">The Arthurs Seat Eagle gondola connects the Dromana foreshore to the 305-metre summit of Arthurs Seat in a 15-minute ...</p> <a href="/tour/arthurs-seat-eagle-gondola/" class="tour-card__cta pi-btn pi-btn--text">Read notes &rarr;</a> </div> <div class="pi-actions pi-actions--floating" data-pi-actions data-pi-kind="tour" data-pi-slug="arthurs-seat-eagle-gondola" data-pi-title="Arthurs Seat Eagle Gondola Ride" data-pi-dek="The Arthurs Seat Eagle gondola connects the Dromana foreshore to the 305-metre summit of Arthurs Seat in a 15-minute ..." data-pi-image="https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/tour/arthurs-seat-eagle-gondola/hero-1778547921500.jpg" data-pi-href="/tour/arthurs-seat-eagle-gondola/"> <button type="button" class="pi-actions__btn pi-actions__btn--save" aria-pressed="false" aria-label="Save Arthurs Seat Eagle Gondola Ride" data-pi-save> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path> </svg> <span class="pi-actions__label">Save</span> </button> <button type="button" class="pi-actions__btn pi-actions__btn--share" aria-label="Share Arthurs Seat Eagle Gondola Ride" data-pi-share> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path> <polyline points="16 6 12 2 8 6"></polyline> <line x1="12" y1="2" x2="12" y2="15"></line> </svg> <span class="pi-actions__label">Share</span> </button> </div>  <script type="module" src="/_astro/PiSaveActions.astro_astro_type_script_index_0_lang.DDZku01j.js"></script> </article><article class="tour-card"> <div class="tour-card__image"> <a href="/tour/bayplay-sea-dragon-snorkel-tour/" tabindex="-1" aria-hidden="true"> <img src="/images/sourced/place-portsea-01.webp?v=c16a52f4" alt="Portsea Pier on the Mornington Peninsula - Bayplay sea dragon snorkel tour departure point" loading="lazy" decoding="async" data-pi-edit="image" data-pi-entity-type="tour" data-pi-entity-slug="bayplay-sea-dragon-snorkel-tour" data-pi-field-path="heroImage" data-pi-purpose="hero" data-pi-label="Bayplay Sea Dragon Snorkel Tour hero"> </a> </div> <div class="tour-card__body"> <div class="tour-card__meta"> <span class="tour-card__badge">Under 2 hours</span> <span class="tour-card__badge tour-card__badge--accent">Families</span> <span class="tour-card__badge">Moderate</span> </div> <h3 class="tour-card__name"> <a href="/tour/bayplay-sea-dragon-snorkel-tour/">Bayplay Sea Dragon Snorkel Tour</a> </h3> <p class="tour-card__operator">
 by <a href="/tour/operators/bayplay/">Bayplay Adventure</a> </p> <p class="tour-card__excerpt">A guided snorkel tour at Portsea Pier on the Mornington Peninsula, built around finding and observing weedy sea drago...</p> <a href="/tour/bayplay-sea-dragon-snorkel-tour/" class="tour-card__cta pi-btn pi-btn--text">Read notes &rarr;</a> </div> <div class="pi-actions pi-actions--floating" data-pi-actions data-pi-kind="tour" data-pi-slug="bayplay-sea-dragon-snorkel-tour" data-pi-title="Bayplay Sea Dragon Snorkel Tour" data-pi-dek="A guided snorkel tour at Portsea Pier on the Mornington Peninsula, built around finding and observing weedy sea drago..." data-pi-image="/images/sourced/place-portsea-01.webp?v=c16a52f4" data-pi-href="/tour/bayplay-sea-dragon-snorkel-tour/"> <button type="button" class="pi-actions__btn pi-actions__btn--save" aria-pressed="false" aria-label="Save Bayplay Sea Dragon Snorkel Tour" data-pi-save> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path> </svg> <span class="pi-actions__label">Save</span> </button> <button type="button" class="pi-actions__btn pi-actions__btn--share" aria-label="Share Bayplay Sea Dragon Snorkel Tour" data-pi-share> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path> <polyline points="16 6 12 2 8 6"></polyline> <line x1="12" y1="2" x2="12" y2="15"></line> </svg> <span class="pi-actions__label">Share</span> </button> </div>   </article><article class="tour-card"> <div class="tour-card__image"> <a href="/tour/moonlit-sanctuary-twilight-tour/" tabindex="-1" aria-hidden="true"> <img src="https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/tour/moonlit-sanctuary-twilight-tour/hero-1778547979034.jpg" alt="Moonlit Sanctuary Twilight Tour" loading="lazy" decoding="async" data-pi-edit="image" data-pi-entity-type="tour" data-pi-entity-slug="moonlit-sanctuary-twilight-tour" data-pi-field-path="heroImage" data-pi-purpose="hero" data-pi-label="Moonlit Sanctuary Twilight Tour hero"> </a> </div> <div class="tour-card__body"> <div class="tour-card__meta"> <span class="tour-card__badge">Under 2 hours</span> <span class="tour-card__badge tour-card__badge--accent">Families</span> <span class="tour-card__badge">Moderate</span> </div> <h3 class="tour-card__name"> <a href="/tour/moonlit-sanctuary-twilight-tour/">Moonlit Sanctuary Twilight Tour</a> </h3> <p class="tour-card__operator">
 by <a href="/tour/operators/moonlit-sanctuary/">Moonlit Sanctuary Wildlife Conservation Park</a> </p> <p class="tour-card__excerpt">The Moonlit Sanctuary Twilight Tour is a guided nocturnal walk through the park after dark, timed to coincide with wh...</p> <a href="/tour/moonlit-sanctuary-twilight-tour/" class="tour-card__cta pi-btn pi-btn--text">Read notes &rarr;</a> </div> <div class="pi-actions pi-actions--floating" data-pi-actions data-pi-kind="tour" data-pi-slug="moonlit-sanctuary-twilight-tour" data-pi-title="Moonlit Sanctuary Twilight Tour" data-pi-dek="The Moonlit Sanctuary Twilight Tour is a guided nocturnal walk through the park after dark, timed to coincide with wh..." data-pi-image="https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/tour/moonlit-sanctuary-twilight-tour/hero-1778547979034.jpg" data-pi-href="/tour/moonlit-sanctuary-twilight-tour/"> <button type="button" class="pi-actions__btn pi-actions__btn--save" aria-pressed="false" aria-label="Save Moonlit Sanctuary Twilight Tour" data-pi-save> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path> </svg> <span class="pi-actions__label">Save</span> </button> <button type="button" class="pi-actions__btn pi-actions__btn--share" aria-label="Share Moonlit Sanctuary Twilight Tour" data-pi-share> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path> <polyline points="16 6 12 2 8 6"></polyline> <line x1="12" y1="2" x2="12" y2="15"></line> </svg> <span class="pi-actions__label">Share</span> </button> </div>   </article><article class="tour-card"> <div class="tour-card__image"> <a href="/tour/polperro-dolphin-swim/" tabindex="-1" aria-hidden="true"> <img src="https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/tour/polperro-dolphin-swim/hero-1778548062147.jpg" alt="Polperro Dolphin Swim" loading="lazy" decoding="async" data-pi-edit="image" data-pi-entity-type="tour" data-pi-entity-slug="polperro-dolphin-swim" data-pi-field-path="heroImage" data-pi-purpose="hero" data-pi-label="Polperro Dolphin Swim hero"> </a> </div> <div class="tour-card__body"> <div class="tour-card__meta"> <span class="tour-card__badge">Half day</span> <span class="tour-card__badge tour-card__badge--accent">Families</span> <span class="tour-card__badge">Mid-range</span> </div> <h3 class="tour-card__name"> <a href="/tour/polperro-dolphin-swim/">Polperro Dolphin Swim</a> </h3> <p class="tour-card__operator">
 by <a href="/tour/operators/polperro-dolphin-swims/">Polperro Dolphin Swims</a> </p> <p class="tour-card__excerpt">Polperro&#39;s dolphin swim tour puts participants in the water alongside wild bottlenose dolphins in Port Phillip Bay, d...</p> <a href="/tour/polperro-dolphin-swim/" class="tour-card__cta pi-btn pi-btn--text">Read notes &rarr;</a> </div> <div class="pi-actions pi-actions--floating" data-pi-actions data-pi-kind="tour" data-pi-slug="polperro-dolphin-swim" data-pi-title="Polperro Dolphin Swim" data-pi-dek="Polperro's dolphin swim tour puts participants in the water alongside wild bottlenose dolphins in Port Phillip Bay, d..." data-pi-image="https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/tour/polperro-dolphin-swim/hero-1778548062147.jpg" data-pi-href="/tour/polperro-dolphin-swim/"> <button type="button" class="pi-actions__btn pi-actions__btn--save" aria-pressed="false" aria-label="Save Polperro Dolphin Swim" data-pi-save> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path> </svg> <span class="pi-actions__label">Save</span> </button> <button type="button" class="pi-actions__btn pi-actions__btn--share" aria-label="Share Polperro Dolphin Swim" data-pi-share> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path> <polyline points="16 6 12 2 8 6"></polyline> <line x1="12" y1="2" x2="12" y2="15"></line> </svg> <span class="pi-actions__label">Share</span> </button> </div>   </article><article class="tour-card"> <div class="tour-card__image"> <a href="/tour/searoad-sorrento-queenscliff-crossing/" tabindex="-1" aria-hidden="true"> <img src="/images/sourced/explore-sorrento-ferry-01.webp?v=23a9c625" alt="Searoad Ferries at Sorrento terminal - bay crossing to Queenscliff on the Bellarine Peninsula" loading="lazy" decoding="async" data-pi-edit="image" data-pi-entity-type="tour" data-pi-entity-slug="searoad-sorrento-queenscliff-crossing" data-pi-field-path="heroImage" data-pi-purpose="hero" data-pi-label="Searoad Ferries: Sorrento–Queenscliff Bay Crossing hero"> </a> </div> <div class="tour-card__body"> <div class="tour-card__meta"> <span class="tour-card__badge">Under 2 hours</span> <span class="tour-card__badge tour-card__badge--accent">Families</span> <span class="tour-card__badge">Budget</span> </div> <h3 class="tour-card__name"> <a href="/tour/searoad-sorrento-queenscliff-crossing/">Searoad Ferries: Sorrento–Queenscliff Bay Crossing</a> </h3> <p class="tour-card__operator">
@@ -333,54 +347,66 @@ Peninsula Insider acknowledges the Bunurong people of the Kulin Nation as the
        Self-suppressing on journal articles, form flows, open sheets,
        and while the virtual keyboard is up. --> <nav class="v5-bottombar" id="v5BottomBar" aria-label="Quick actions" data-v5-bottombar data-astro-cid-uz6egxka><ul class="v5-bottombar__list" data-astro-cid-uz6egxka><li data-astro-cid-uz6egxka><a href="/map/" class="v5-bottombar__item" data-evt="map_toggle" data-astro-cid-uz6egxka><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" data-astro-cid-uz6egxka><path d="M9 4 3.5 6v14L9 18l6 2 5.5-2V4L15 6 9 4Z" data-astro-cid-uz6egxka></path><line x1="9" y1="4" x2="9" y2="18" data-astro-cid-uz6egxka></line><line x1="15" y1="6" x2="15" y2="20" data-astro-cid-uz6egxka></line></svg><span class="v5-bottombar__label" data-astro-cid-uz6egxka>Map</span></a></li><li data-astro-cid-uz6egxka><a href="/me/saved/" class="v5-bottombar__item" data-astro-cid-uz6egxka><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" data-astro-cid-uz6egxka><path d="M6 3.5h12a.5.5 0 0 1 .5.5v16.6a.4.4 0 0 1-.63.33L12 16.5l-5.87 4.43a.4.4 0 0 1-.63-.33V4a.5.5 0 0 1 .5-.5Z" data-astro-cid-uz6egxka></path></svg><span class="v5-bottombar__label" data-astro-cid-uz6egxka>Saved</span></a></li><li data-astro-cid-uz6egxka><a href="/me/trip/" class="v5-bottombar__item" data-astro-cid-uz6egxka><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" data-astro-cid-uz6egxka><rect x="4" y="4" width="16" height="16" rx="2" data-astro-cid-uz6egxka></rect><line x1="8" y1="9" x2="16" y2="9" data-astro-cid-uz6egxka></line><line x1="8" y1="13" x2="16" y2="13" data-astro-cid-uz6egxka></line><line x1="8" y1="17" x2="12" y2="17" data-astro-cid-uz6egxka></line></svg><span class="v5-bottombar__label" data-astro-cid-uz6egxka>My Trip</span></a></li></ul></nav><script>
     (function () {
-      function initV5Bar() {
+      var keyboardUp = false;
+      var observer = null;
+
+      // Any open sheet/drawer/dialog suppresses the bar entirely.
+      var SHEET_SELECTOR = [
+        '#v5Drawer:not([hidden])',
+        '#siteSearchOverlay[data-open="true"]',
+        '.pi-drawer[data-state="open"]',
+        '#v2-auth-modal:not([hidden])',
+      ].join(', ');
+
+      // Looks the bar up every time rather than closing over it: the client
+      // router replaces it on every navigation, along with every dialog the
+      // observer below watches.
+      function update() {
         var bar = document.getElementById('v5BottomBar');
-        if (!bar || bar._v5BarBound) return;
-        bar._v5BarBound = true;
+        if (!bar) return;
+        var hide = keyboardUp || !!document.querySelector(SHEET_SELECTOR);
+        bar.classList.toggle('is-suppressed', hide);
+      }
 
-        var keyboardUp = false;
+      // Virtual keyboard heuristic (mobile-strategy.md): the visual
+      // viewport shrinking well past browser-chrome variance means
+      // the on-screen keyboard is up.
+      //
+      // Registered once. visualViewport is a global and outlives every swap,
+      // so the previous shape - re-running the whole init from
+      // astro:page-load, guarded only by a flag on the replaced bar element -
+      // added one more of these per navigation, each one updating a bar that
+      // had been detached several navigations ago.
+      if (window.visualViewport) {
+        var vv = window.visualViewport;
+        vv.addEventListener('resize', function () {
+          keyboardUp = (window.innerHeight - vv.height) > 150;
+          update();
+        });
+      }
 
-        // Any open sheet/drawer/dialog suppresses the bar entirely.
-        var SHEET_SELECTOR = [
-          '#v5Drawer:not([hidden])',
-          '#siteSearchOverlay[data-open="true"]',
-          '.pi-drawer[data-state="open"]',
-          '#v2-auth-modal:not([hidden])',
-        ].join(', ');
-
-        function update() {
-          var hide = keyboardUp || !!document.querySelector(SHEET_SELECTOR);
-          bar.classList.toggle('is-suppressed', hide);
-        }
-
-        // Virtual keyboard heuristic (mobile-strategy.md): the visual
-        // viewport shrinking well past browser-chrome variance means
-        // the on-screen keyboard is up.
-        if (window.visualViewport) {
-          var vv = window.visualViewport;
-          var onVv = function () {
-            keyboardUp = (window.innerHeight - vv.height) > 150;
-            update();
-          };
-          vv.addEventListener('resize', onVv);
-        }
-
-        // Watch the dialogs' open-state attributes.
+      // Watch the dialogs' open-state attributes. These elements ARE replaced
+      // by a navigation, so the observer genuinely has to be re-pointed - and
+      // the old one disconnected first, or each navigation leaves one more
+      // observer watching detached nodes. tests/journeys measured three
+      // additional observations per navigation before this disconnect existed.
+      function rewatch() {
+        if (observer) observer.disconnect();
+        observer = null;
         var watched = ['v5Drawer', 'siteSearchOverlay', 'pi-drawer', 'v2-auth-modal']
           .map(function (id) { return document.getElementById(id); })
           .filter(Boolean);
         if (watched.length && 'MutationObserver' in window) {
-          var mo = new MutationObserver(update);
+          observer = new MutationObserver(update);
           watched.forEach(function (el) {
-            mo.observe(el, { attributes: true, attributeFilter: ['class', 'hidden', 'data-open', 'data-state'] });
+            observer.observe(el, { attributes: true, attributeFilter: ['class', 'hidden', 'data-open', 'data-state'] });
           });
         }
-
         update();
       }
 
-      initV5Bar();
-      document.addEventListener('astro:page-load', initV5Bar);
+      rewatch();
+      document.addEventListener('astro:page-load', rewatch);
     })();
 </script> <!-- V2 auth phase 1, modal + profile dropdown.
        Modal hidden until any [data-open-auth] element triggers it.
@@ -1180,32 +1206,38 @@ const __SB_ANON = "sb_publishable_JlZuo95QvNZi2ZNrFyK-Cw_2y0U7HLp";
        via CSS rules keyed on body[data-path]. Bottom-LEFT so it sits
        opposite the concierge FAB (bottom-right) and they don't collide. --> <a href="/dispatch/" class="subscribe-pill" aria-label="Join The Insider Note"> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path> <polyline points="22,6 12,13 2,6"></polyline> </svg> <span class="subscribe-pill__label">Join</span> </a> <script>
     (function () {
-      function initSubscribePill() {
+      var threshold = 0.5; // 50% of scrollable page
+      var rafId = null;
+
+      // Reads document.body on every call rather than closing over it. That is
+      // the whole fix: the client router replaces <body> on every navigation,
+      // so a closed-over reference goes stale, and the previous shape dealt
+      // with that by clearing its own `_subPillBound` guard from an
+      // astro:page-load handler and re-running - which added one more scroll
+      // listener per navigation, for the life of the tab, each holding a
+      // detached body alive. tests/journeys measured +1 per navigation on
+      // every page of the site, this being in the layout.
+      function check() {
         var body = document.body;
-        if (body._subPillBound) return;
-        body._subPillBound = true;
-        var threshold = 0.5; // 50% of scrollable page
-        var rafId = null;
-        function check() {
-          var max = document.documentElement.scrollHeight - window.innerHeight;
-          if (max <= 0) {
-            body.classList.remove('show-subscribe-pill');
-            return;
-          }
-          var pct = window.scrollY / max;
-          body.classList.toggle('show-subscribe-pill', pct >= threshold);
+        if (!body) return;
+        var max = document.documentElement.scrollHeight - window.innerHeight;
+        if (max <= 0) {
+          body.classList.remove('show-subscribe-pill');
+          return;
         }
-        window.addEventListener('scroll', function () {
-          if (rafId) return;
-          rafId = requestAnimationFrame(function () { check(); rafId = null; });
-        }, { passive: true });
-        check();
+        var pct = window.scrollY / max;
+        body.classList.toggle('show-subscribe-pill', pct >= threshold);
       }
-      initSubscribePill();
-      document.addEventListener('astro:page-load', function () {
-        document.body._subPillBound = false;
-        initSubscribePill();
-      });
+
+      // One listener, registered once. `window` outlives every swap.
+      window.addEventListener('scroll', function () {
+        if (rafId) return;
+        rafId = requestAnimationFrame(function () { check(); rafId = null; });
+      }, { passive: true });
+      check();
+      // A navigation resets scroll position and page height, so recompute -
+      // but only recompute. Nothing is re-registered.
+      document.addEventListener('astro:page-load', check);
     })();
   </script> <!-- V4 mega-menu + mobile drawer behaviour.
        Replaces V2's #mobileNav burger script. Three responsibilities:
