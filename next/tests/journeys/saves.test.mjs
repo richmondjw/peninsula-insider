@@ -242,8 +242,10 @@ test('after three returns to the hub, one press is still one save', async () => 
           } catch { return false; }
         },
         `after three returns to /eat/, the ${ordinal} press did not leave the saved store `
-        + `holding ${want} item${want === 1 ? '' : 's'}. A store that did not move at all is the `
-        + 'signature of a control bound once per visit: four handlers, four toggles, one press',
+        + `holding ${want} item${want === 1 ? '' : 's'}. A store that did not move AT ALL has two `
+        + 'causes and the value above tells you which: an inert control, bound to a DOM the router '
+        + 'already replaced, or an even number of live handlers on the same button, each toggling '
+        + 'in turn and cancelling out. A store that overshot has an odd number greater than one.',
         want,
         { describe: () => localStorage.getItem('pi:saves:v2') },
       );
