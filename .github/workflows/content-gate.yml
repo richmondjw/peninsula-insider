@@ -234,11 +234,13 @@ jobs:
     # only works if the record of what was fetched is something the act of
     # checking cannot write.
     #
-    # It was not. Probing lived on the gate itself as a flag, and the record
-    # sat in ops/reports/ — the directory this repo treats as regenerable build
-    # output. On 2026-09-14 five evidence rows citing URLs nobody had ever
-    # fetched passed a local build; reverting the build artefacts and
-    # re-running is what exposed them.
+    # It was not. Probing lived on the gate itself as `--probe`, so one command
+    # fetched the URLs, wrote the verdicts and then judged the corpus against
+    # the verdicts it had just written — and the remedy the gate printed on
+    # failure was to run that command. The record sat in ops/reports/, the
+    # directory this repo reverts wholesale as build output. On 2026-09-14 five
+    # evidence rows citing URLs nobody had ever fetched passed a local build;
+    # reverting the "build artefacts" and re-running is what exposed them.
     #
     # Every rule about the gate is asserted cheaply in the job above
     # (test:link-health, fixture trees, no build). This job exists because that

@@ -80,7 +80,11 @@ jobs:
         # The prober shells out to curl and needs nothing else; the corpus
         # reader parses markdown frontmatter and needs `yaml`. A full `npm ci`
         # would pull Astro, React and Puppeteer in order to fetch some URLs.
-        run: npm install --no-save --no-package-lock yaml@^2.5.0
+        # Installed under next/ because that is where node resolves it from,
+        # and --no-package-lock so the lockfile is not touched.
+        run: |
+          cd next
+          npm install --no-save --no-package-lock 'yaml@^2.5.0'
 
       - name: Probe, into a scratch copy — never the committed record
         id: probe

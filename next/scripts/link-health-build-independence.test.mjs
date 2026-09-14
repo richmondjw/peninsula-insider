@@ -4,11 +4,22 @@
  * Every other test in scripts/audit-link-health.test.mjs runs the gate
  * directly against a fixture tree. That is where the rules belong, and it is
  * also exactly what missed the 2026-09-14 defect: the gate was correct in
- * isolation, and the thing that went wrong happened around it, during a real
- * `npm run build`, where an earlier step could put the answer into the file a
- * later step marked. Five evidence rows citing URLs nobody had ever fetched
- * went green locally. Reverting the build artefacts and re-running is what
+ * isolation, and what went wrong happened around it, at the scale of a whole
+ * local run.
+ *
+ * Precisely what went wrong, because it is worth being exact. `npm run build`
+ * never wrote the ledger itself. But probing was a flag on the gate -
+ * `audit-link-health.mjs --probe` - so one command fetched the URLs, wrote the
+ * verdicts, and then validated the corpus against the verdicts it had just
+ * written, in one process. The remedy the gate printed when it failed was to
+ * run that command, and `npm run probe:link-health` was an alias for it. The
+ * ledger was filed in ops/reports/, the directory this repo reverts wholesale
+ * as build output. Five evidence rows citing URLs nobody had ever fetched went
+ * green locally; reverting the "build artefacts" and re-running is what
  * exposed them.
+ *
+ * So the fixture tests cannot see it, because in a fixture the gate and the
+ * prober are already two processes. Only a full run can.
  *
  * So this file does the expensive thing on purpose: it puts an unprobed URL
  * into the real corpus, runs the real `npm run build`, and asserts the build
