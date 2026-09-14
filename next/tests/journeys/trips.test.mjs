@@ -29,6 +29,25 @@ const tripEntries = async (reader) => {
   try { return JSON.parse(raw).entries || []; } catch { return []; }
 };
 
+/**
+ * Wait until the trip store holds exactly `n` entries.
+ *
+ * Every wait in this suite is on the store reaching a stated size rather than
+ * on a stopwatch. The press either moved the store or it did not; how long
+ * that took is a property of the machine and must not decide the verdict.
+ */
+const waitForTrip = (reader, n, why) => reader.waitFor(
+  (want) => {
+    try {
+      const raw = localStorage.getItem('pi:saves:v2:trip');
+      return (raw ? (JSON.parse(raw).entries || []).length : 0) === want;
+    } catch { return false; }
+  },
+  why,
+  n,
+  { describe: () => localStorage.getItem('pi:saves:v2:trip') },
+);
+
 /** Save the first two venues on a hub, so the trip journey has something to draw on. */
 async function seedSaves(reader) {
   await reader.load('/eat/');
@@ -36,7 +55,17 @@ async function seedSaves(reader) {
     document.querySelectorAll('[data-v5-save-control]')[0].querySelector('[data-v5-save-btn]').click();
     document.querySelectorAll('[data-v5-save-control]')[1].querySelector('[data-v5-save-btn]').click();
   });
-  await new Promise((r) => setTimeout(r, 200));
+  await reader.waitFor(
+    () => {
+      try {
+        const raw = localStorage.getItem('pi:saves:v2');
+        return (raw ? (JSON.parse(raw).items || []).length : 0) === 2;
+      } catch { return false; }
+    },
+    'seeding two saves on /eat/ never reached two items in the store',
+    null,
+    { describe: () => localStorage.getItem('pi:saves:v2') },
+  );
 }
 
 const stopsOnPage = (reader) => reader.page.evaluate(() => document.querySelectorAll('[data-trip-stop]').length);
@@ -47,10 +76,42 @@ test('signed out, the trip starts empty and offers a way out of the empty state'
     await reader.load('/me/trip/');
     assert.deepEqual(await tripEntries(reader), []);
     assert.equal(await stopsOnPage(reader), 0);
-    const doors = await reader.page.evaluate(
-      () => document.querySelectorAll('.trip-empty-doors a, [data-surface="me-trip"]').length,
+    // This assertion used to count `.trip-empty-doors a, [data-surface="me-trip"]`
+    // and require more than nought. It could not fail. `[data-surface="me-trip"]`
+    // also matches the "Search for something to fill a gap" link down in the add
+    // panel, which is in the static HTML of every visit whether or not the empty
+    // state exists - so deleting the empty state outright left it green.
+    //
+    // Worse, it never asked whether the reader could SEE any of it. The empty
+    // state ships `hidden` and the page's own script un-hides it when the trip
+    // has no stops. A script left dead by a client-side navigation - this
+    // ticket's entire subject - shows the reader a page with nothing on it, and
+    // the old assertion called that a pass.
+    //
+    // So: look only inside the empty state, require it to be visible, and count
+    // only links the reader could actually click.
+    const empty = await reader.page.evaluate(() => {
+      const panel = document.querySelector('[data-trip-empty]');
+      if (!panel) return { present: false, visible: false, doors: [] };
+      const shown = (el) => el.getClientRects().length > 0;
+      return {
+        present: true,
+        visible: !panel.hidden && shown(panel),
+        doors: [...panel.querySelectorAll('a[href]')].filter(shown).map((a) => a.getAttribute('href')),
+      };
+    });
+    assert.ok(empty.present, 'the trip page must ship an empty state');
+    assert.ok(
+      empty.visible,
+      'an empty trip renders its empty state hidden and the page script reveals it. '
+      + 'It is still hidden, so the script never ran and the reader is looking at a '
+      + 'page with nothing on it whatsoever.',
     );
-    assert.ok(doors > 0, 'an empty trip must offer somewhere to go, not just say it is empty');
+    assert.ok(
+      empty.doors.length >= 2,
+      'an empty trip must offer somewhere to go, not just say it is empty. Visible links '
+      + `inside the empty state: ${JSON.stringify(empty.doors)}`,
+    );
   } finally {
     await reader.close();
   }
@@ -65,12 +126,16 @@ test('adding from the saved list puts one stop in the trip per press', async () 
     assert.ok(addButtons >= 1, 'the saved list must offer "+ Trip"');
 
     await reader.page.evaluate(() => { document.querySelector('[data-me-trip]').click(); });
-    await new Promise((r) => setTimeout(r, 200));
+    await waitForTrip(reader, 1, 'one press on "+ Trip" never put a stop in the trip');
     assert.equal((await tripEntries(reader)).length, 1, 'one press, one stop');
 
     // Repeated action. Two presses, two stops - never four.
     await reader.page.evaluate(() => { document.querySelector('[data-me-trip]').click(); });
-    await new Promise((r) => setTimeout(r, 200));
+    await waitForTrip(
+      reader, 2,
+      'a second press on "+ Trip" did not leave the trip holding exactly two stops. Four '
+      + 'means the button is bound twice; one means the second press was swallowed',
+    );
     const after = await tripEntries(reader);
     assert.equal(after.length, 2, `two presses produced ${after.length} stops`);
   } finally {
@@ -84,7 +149,7 @@ test('the trip survives a navigation between the two surfaces that write it', as
     await seedSaves(reader);
     await reader.navigate('/me/saved/');
     await reader.page.evaluate(() => { document.querySelector('[data-me-trip]').click(); });
-    await new Promise((r) => setTimeout(r, 200));
+    await waitForTrip(reader, 1, 'adding the first stop from the saved list never reached the store');
 
     await reader.navigate('/me/trip/');
     assert.equal(await stopsOnPage(reader), 1, 'the trip page must render the stop that was just added');
@@ -94,7 +159,11 @@ test('the trip survives a navigation between the two surfaces that write it', as
     // from a DOM reference the router already discarded.
     await reader.navigate('/me/saved/');
     await reader.page.evaluate(() => { document.querySelectorAll('[data-me-trip]')[1].click(); });
-    await new Promise((r) => setTimeout(r, 200));
+    await waitForTrip(
+      reader, 2,
+      'adding a second stop AFTER a navigation never reached the store - the saved page is '
+      + 'painting from a DOM the router already discarded',
+    );
     assert.equal((await tripEntries(reader)).length, 2);
 
     await reader.navigate('/me/trip/');
@@ -113,7 +182,7 @@ test('removing a stop works after a navigation, and removes exactly one', async 
       document.querySelectorAll('[data-me-trip]')[0].click();
       document.querySelectorAll('[data-me-trip]')[1].click();
     });
-    await new Promise((r) => setTimeout(r, 250));
+    await waitForTrip(reader, 2, 'seeding two stops from the saved list never reached two entries');
     assert.equal((await tripEntries(reader)).length, 2);
 
     await reader.navigate('/me/trip/');
@@ -122,7 +191,11 @@ test('removing a stop works after a navigation, and removes exactly one', async 
     assert.equal(await stopsOnPage(reader), 2, 'the trip must still render after two navigations');
 
     await reader.page.evaluate(() => { document.querySelector('[data-trip-remove]').click(); });
-    await new Promise((r) => setTimeout(r, 300));
+    await waitForTrip(
+      reader, 1,
+      'Remove did not leave the trip holding exactly one stop after two navigations. Two '
+      + 'means the button is inert; nought means it fired twice',
+    );
     assert.equal((await tripEntries(reader)).length, 1, 'Remove removed nothing, or removed twice');
     assert.equal(await stopsOnPage(reader), 1, 'the trip must repaint after a removal');
   } finally {
@@ -136,7 +209,7 @@ test('signed in with the network down, the trip still holds locally', async () =
     await seedSaves(reader);
     await reader.navigate('/me/saved/');
     await reader.page.evaluate(() => { document.querySelector('[data-me-trip]').click(); });
-    await new Promise((r) => setTimeout(r, 250));
+    await waitForTrip(reader, 1, 'with the network down, adding a stop never reached the local store');
     assert.equal((await tripEntries(reader)).length, 1, 'a local trip write must not depend on the cloud');
     await reader.navigate('/me/trip/');
     assert.equal(await stopsOnPage(reader), 1);

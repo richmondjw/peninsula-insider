@@ -44,6 +44,67 @@ const PAIRS = [
   ['/explore/map/', '/eat/', 'the map surface'],
 ];
 
+/**
+ * Before any of it: prove the tape measure moves.
+ *
+ * Every assertion below is of the form "nothing grew", and a DEAD counter
+ * reports exactly that. If the wrappers in instrument() ever stopped being
+ * installed - a Chrome change, a CSP, a refactor that lands before the
+ * instrumentation script - this whole file would go green and STAY green
+ * while the defect it exists to catch shipped freely.
+ *
+ * So the first test registers a listener the harness controls and asserts the
+ * counter moved by exactly one, then removes it and asserts the counter came
+ * back down. It does not depend on how many listeners the site happens to
+ * register, so it cannot drift with the corpus or the design, and it fails
+ * loudly the day the instrumentation stops working.
+ */
+test('the instrumentation counts - every "nothing grew" below is void without this', async () => {
+  const reader = await site.reader();
+  try {
+    await reader.load('/');
+
+    const before = await reader.instrumentation();
+    assert.ok(
+      before.listenerTotal > 0,
+      'the site registered no document/window listeners at all on a cold load of "/". '
+      + 'Either the page shipped no behaviour or the counters are not installed; in both '
+      + 'cases the growth assertions below would pass on a corpse.',
+    );
+
+    await reader.page.evaluate(() => {
+      window.__probe = () => {};
+      document.addEventListener('pi-harness-probe', window.__probe);
+    });
+    const added = await reader.instrumentation();
+    assert.equal(
+      added.listenerTotal,
+      before.listenerTotal + 1,
+      'registering one listener on document did not move the counter, so the '
+      + 'addEventListener wrapper is not installed and no growth can ever be observed',
+    );
+
+    await reader.page.evaluate(() => {
+      document.removeEventListener('pi-harness-probe', window.__probe);
+    });
+    const removed = await reader.instrumentation();
+    assert.equal(
+      removed.listenerTotal,
+      before.listenerTotal,
+      'removing the listener did not bring the counter back down, so a balanced '
+      + 'teardown-and-rebind would be reported as a leak and every failure here would be noise',
+    );
+
+    assert.ok(
+      before.sourcesAttributed > 0,
+      'no registration was attributed to a source file, so a failure below could name the '
+      + 'symptom but never the file to fix',
+    );
+  } finally {
+    await reader.close();
+  }
+});
+
 for (const [a, b, why] of PAIRS) {
   test(`no listener accumulates walking between ${a} and ${b} (${why})`, async () => {
     const reader = await site.reader();
@@ -55,6 +116,15 @@ for (const [a, b, why] of PAIRS) {
       await reader.navigate(b);
       await reader.navigate(a);
       const before = await reader.globals();
+      // A page that rendered nothing registers nothing, and "nothing grew" is
+      // then true for the most boring possible reason. Refuse to report green
+      // off a blank pair.
+      assert.ok(
+        Object.keys(before.listeners).length > 0,
+        `after four navigations between ${a} and ${b}, not one listener was held on `
+        + 'document or window. Neither page is running any client behaviour, so the '
+        + 'growth check below would pass whatever the router did.',
+      );
 
       for (let i = 0; i < 3; i += 1) {
         await reader.navigate(b);

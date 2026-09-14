@@ -204,6 +204,15 @@ function instrument(config) {
     };
     Object.defineProperty(window, '__J', { value: J, writable: false, configurable: true });
 
+    // Pristine observer handles, taken before the counting wrappers below are
+    // installed. settle() watches the DOM through these, so the harness's own
+    // quiescence check can never be mistaken for an observer the site leaked.
+    J.__native = {
+      MO: window.MutationObserver,
+      observe: window.MutationObserver && window.MutationObserver.prototype.observe,
+      disconnect: window.MutationObserver && window.MutationObserver.prototype.disconnect,
+    };
+
     const targetName = function (t) {
       if (t === document) return 'document';
       if (t === window) return 'window';
@@ -476,6 +485,47 @@ export class Site {
         return n;
       }, source),
 
+      /**
+       * Wait until a predicate holds IN THE PAGE, then let the DOM settle.
+       *
+       * Every wait in these suites goes through here rather than sleeping. A
+       * sleep encodes a guess about how fast the machine is; this encodes the
+       * thing the next assertion is about to check. When it times out it says
+       * what it was waiting for and what it saw instead, so a failure is a
+       * report rather than a puzzle.
+       *
+       * `describe` is evaluated in the page on failure to render the actual
+       * state - without it a timeout can only say "it never happened".
+       */
+      waitFor: async (fn, message, arg = null, { timeout = 15000, describe = null } = {}) => {
+        try {
+          await page.waitForFunction(fn, { timeout, polling: 'raf' }, arg);
+        } catch (err) {
+          let seen = '';
+          if (describe) {
+            try { seen = ` Last seen: ${JSON.stringify(await page.evaluate(describe, arg))}.`; } catch { /* best effort */ }
+          }
+          throw new Error(`${message} (still not true after ${timeout}ms).${seen}`);
+        }
+        await settle(page);
+      },
+
+      /**
+       * The instrumentation's own vital signs.
+       *
+       * The navigation suite's central assertion is "nothing grew", which is
+       * exactly what a DEAD counter reports. If the wrappers in instrument()
+       * ever stopped being installed - a Chrome change, a CSP, a refactor -
+       * every leak test would go green and stay green. So the suite asserts
+       * this is non-trivial first, and the green only means something after it.
+       */
+      instrumentation: () => page.evaluate(() => ({
+        listenerKeys: Object.keys(window.__J.listeners).length,
+        listenerTotal: Object.values(window.__J.listeners).reduce((a, b) => a + b, 0),
+        sourcesAttributed: Object.keys(window.__J.sources).length,
+        pageLoads: window.__J.pageLoads,
+      })),
+
       errors: () => page.evaluate(() => window.__J.pageErrors.slice()),
 
       storage: (key) => page.evaluate((k) => {
@@ -488,9 +538,43 @@ export class Site {
   }
 }
 
-async function settle(page) {
-  await page.evaluate(() => new Promise((r) => requestAnimationFrame(() => setTimeout(r, 0))));
-  await new Promise((r) => setTimeout(r, 120));
+/**
+ * Wait until the document stops changing.
+ *
+ * This replaced a flat 120ms sleep. A duration is a guess about someone else's
+ * machine: too short and the run flakes on a loaded CI box, too long and every
+ * test pays the worst case on every step. The condition that actually matters
+ * is that the page has finished reacting, so watch for mutations and return
+ * once three consecutive frames have produced none.
+ *
+ * The observer is built from the pristine handles stashed in instrument(), so
+ * the harness watching the DOM can never be counted as an observer the site
+ * registered.
+ */
+async function settle(page, timeout = 10000) {
+  await page.evaluate(async (limit) => {
+    const native = window.__J && window.__J.__native;
+    await new Promise((resolve) => {
+      const deadline = Date.now() + limit;
+      let dirty = false;
+      let quiet = 0;
+      let mo = null;
+      if (native && native.MO) {
+        mo = new native.MO(() => { dirty = true; });
+        native.observe.call(mo, document.documentElement, {
+          subtree: true, childList: true, attributes: true, characterData: true,
+        });
+      }
+      const stop = () => { if (mo && native) native.disconnect.call(mo); resolve(); };
+      const tick = () => {
+        if (Date.now() > deadline) { stop(); return; }
+        if (dirty) { dirty = false; quiet = 0; } else { quiet += 1; }
+        if (quiet >= 3) { stop(); return; }
+        requestAnimationFrame(() => setTimeout(tick, 0));
+      };
+      requestAnimationFrame(() => setTimeout(tick, 0));
+    });
+  }, timeout);
 }
 
 /**
