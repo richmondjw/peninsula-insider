@@ -70,6 +70,7 @@ jobs:
           npm run test:media-provenance
           npm run test:commercial-firewall
           npm run test:link-health
+          npm run test:migration-ledger
 
       - name: Content admission gate
         # Placeholder markers + real Astro collection-schema validation
@@ -107,6 +108,24 @@ jobs:
         # test:firsthand-claims. Post-build gates (no-hidden-pages,
         # seo-architecture, filter-chips, link-graph and the assert:* set that
         # reads dist/) stay in build-and-deploy, where a build exists.
+        #
+        # assert:migration-ledger (PI-017) fails when a .sql file under
+        # ops/migrations/ has no row in ops/reports/migrations/
+        # migration-ledger.json stating whether it has been applied. Migrations
+        # here are run by hand and, until now, nothing recorded which ones had:
+        # from the repository, a migration that ran in May and one that has
+        # never run were indistinguishable, so nobody could make the
+        # observation. That is how /partners/claim/ spent 127 days writing into
+        # a table production does not have.
+        #
+        # It makes NO network request. Whether a table really exists is a live
+        # fact that changes without a commit; asking it here would produce a
+        # build that goes red at 3am with no code change — the failure mode that
+        # got a random-draw test and a date-pinned test deleted from this
+        # repository this week. That question belongs to
+        # scripts/probe-live-tables.mjs, asked on a schedule in
+        # migration-liveness.yml, where a bad night costs an alert instead of a
+        # blocked merge.
         run: |
           cd next
           npm run lint:no-pricing
@@ -120,6 +139,7 @@ jobs:
           npm run lint:nav-budget
           npm run lint:css-budget
           npm run lint:coordinates
+          npm run assert:migration-ledger
       - name: Commercial/editorial firewall
         # PI-021. Reads source and content, not dist/, so it costs seconds and
         # needs no build. It belongs on the branch rather than only inside
