@@ -14,7 +14,7 @@ Machine-readable companions, all committed:
 
 | File | What it holds |
 |---|---|
-| `ops/reports/content/link-health-ledger.json` | One row per source URL: verdict, HTTP code, page title, date probed |
+| `ops/records/link-health/probe-ledger.json` | One row per source URL: verdict, HTTP code, page title, date probed, who probed it. Moved out of `ops/reports/` on 2026-09-14: it is evidence, not output, and the reports directory is the one this repo reverts wholesale |
 | `ops/reports/content/link-health-dispositions.json` | One row per dead URL: what was decided, and the evidence |
 | `ops/reports/content/link-health-baseline.json` | The ratchet ceilings the build asserts against |
 
@@ -36,7 +36,8 @@ Two findings are larger than anything in the link queue and are in section 5.
 ## 1. Method, and the two things it corrects
 
 The inventory that produced "45 of 331" committed no artefact, so the list was re-derived rather
-than inherited. `next/scripts/audit-link-health.mjs --probe` extracts every URL sitting in a
+than inherited. `next/scripts/probe-link-health.mjs` (then a `--probe` flag on the gate itself;
+split out on 2026-09-14) extracts every URL sitting in a
 source field across all 22 collections and fetches each one with a browser user agent. That found
 459 distinct URLs, a superset of the original 331 because it counts `website` and `bookingUrl`
 alongside evidence rows — a booking link that goes nowhere is the same defect as a dead citation
