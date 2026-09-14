@@ -104,9 +104,61 @@ export function withValueAt(data, segments, value) {
   return base;
 }
 
+/**
+ * The formatting of the file as it currently sits, so a re-serialised record
+ * differs from it only where the value differs.
+ *
+ * This is not tidiness. A patch that rewrites every line because the file was
+ * checked out with one line ending and regenerated with another is a patch
+ * nobody reads, and a patch nobody reads is a patch somebody applies without
+ * reading. The whole argument for stopping at a patch file rests on a reviewer
+ * being able to see the change, so the change has to be the only thing in it.
+ */
+export function styleOf(text) {
+  const crlf = (text.match(/\r\n/g) ?? []).length;
+  const lf = (text.match(/(?<!\r)\n/g) ?? []).length;
+  const indentMatch = /\n[ \t]*[ \t]/.exec(text.replace(/\r/g, ''));
+  const firstIndented = /\n([ \t]+)\S/.exec(text.replace(/\r/g, ''));
+  return {
+    eol: crlf > lf ? '\r\n' : '\n',
+    indent: firstIndented ? firstIndented[1] : indentMatch ? '  ' : 2,
+    trailingNewline: /\r?\n$/.test(text),
+  };
+}
+
+/** Re-serialise a record in the file's own formatting. */
+export function serialiseRecord(data, style) {
+  const body = JSON.stringify(data, null, style.indent);
+  const withEol = style.eol === '\n' ? body : body.split('\n').join(style.eol);
+  return style.trailingNewline ? `${withEol}${style.eol}` : withEol;
+}
+
 /** Deep equality over the JSON shapes a record can hold. */
 export function sameValue(a, b) {
   return JSON.stringify(a ?? null) === JSON.stringify(b ?? null);
+}
+
+/**
+ * Does the record still hold the value the proposal was composed against?
+ *
+ * The awkward case is a field that is not on the record at all. An event
+ * without a `cancelled` key is not cancelled, and the composer says so: it
+ * writes `from: record.data.cancelled ?? false`. So a proposal can legitimately
+ * say the current value is `false` about a record that has no such key, and an
+ * exact comparison would refuse the one edit the loop most needs to be able to
+ * prepare, which is marking a cancelled event cancelled.
+ *
+ * The rule, therefore: an absent field is compatible with a recorded current
+ * value of `false` or `null`, which are the two ways "not set" is written in
+ * this corpus, and with nothing else. Anything present has to match exactly.
+ * The direction of the leniency matters: it permits ADDING a field the record
+ * never carried, and still refuses to overwrite a field somebody has since
+ * changed. Reverting a person's correction is the failure worth being strict
+ * about.
+ */
+export function currentValueHolds(onDisk, expected) {
+  if (onDisk === undefined) return expected === null || expected === false;
+  return sameValue(onDisk, expected);
 }
 
 /**
@@ -118,8 +170,22 @@ export function sameValue(a, b) {
  * honestly.
  */
 export function unifiedDiff(beforeText, afterText, { path, context = 3 } = {}) {
-  const before = beforeText.split('\n');
-  const after = afterText.split('\n');
+  // A file ending in a newline has N lines, not N plus an empty one. Splitting
+  // naively leaves a phantom final element, which becomes a context line
+  // consisting of a single space, and a patch carrying one of those is a patch
+  // git refuses as corrupt. Dropping it here and marking the genuinely
+  // newline-less case below is the difference between a patch that applies and
+  // one that only looks right.
+  const split = (text) => {
+    const lines = text.split('\n');
+    const endsWithNewline = lines.length > 1 && lines[lines.length - 1] === '';
+    if (endsWithNewline) lines.pop();
+    return { lines, endsWithNewline };
+  };
+  const beforeSplit = split(beforeText);
+  const afterSplit = split(afterText);
+  const before = beforeSplit.lines;
+  const after = afterSplit.lines;
 
   const lcs = Array.from({ length: before.length + 1 }, () => new Array(after.length + 1).fill(0));
   for (let i = before.length - 1; i >= 0; i -= 1) {
@@ -179,6 +245,8 @@ export function unifiedDiff(beforeText, afterText, { path, context = 3 } = {}) {
     while (cursor < ops.length && keep[cursor]) {
       const [op, text] = ops[cursor];
       body.push(`${op}${text}`);
+      const isLastBefore = op !== '+' && beforeLine === before.length;
+      const isLastAfter = op !== '-' && afterLine === after.length;
       if (op !== '+') {
         beforeLine += 1;
         countBefore += 1;
@@ -186,6 +254,12 @@ export function unifiedDiff(beforeText, afterText, { path, context = 3 } = {}) {
       if (op !== '-') {
         afterLine += 1;
         countAfter += 1;
+      }
+      if (
+        (isLastBefore && !beforeSplit.endsWithNewline && op !== '+') ||
+        (isLastAfter && !afterSplit.endsWithNewline && op === '+')
+      ) {
+        body.push('\\ No newline at end of file');
       }
       cursor += 1;
     }
@@ -264,7 +338,7 @@ export function planEdit({ proposal, decision, recordPath, recordText }) {
 
   const onDisk = valueAt(data, segments);
   const expected = proposal.change?.currentValue ?? null;
-  if (!sameValue(onDisk ?? null, expected)) {
+  if (!currentValueHolds(onDisk, expected)) {
     return refusal(
       'record-moved',
       `${recordPath} no longer holds the value this proposal was composed against, so applying ` +
@@ -276,9 +350,16 @@ export function planEdit({ proposal, decision, recordPath, recordText }) {
   }
 
   const after = withValueAt(data, segments, proposal.change.proposedValue);
+  const style = styleOf(recordText);
   const beforeText = recordText;
-  const afterText = `${JSON.stringify(after, null, 2)}\n`;
-  const diff = unifiedDiff(beforeText, afterText, { path: recordPath });
+  const afterText = serialiseRecord(after, style);
+
+  // Diff on normalised lines so a carriage return is never mistaken for a
+  // change, then keep the file's own endings in `after`, which is what a
+  // caller writing the file back would use.
+  const diff = unifiedDiff(beforeText.replace(/\r\n/g, '\n'), afterText.replace(/\r\n/g, '\n'), {
+    path: recordPath,
+  });
   if (diff.length === 0) {
     return refusal('no-op', 'the edit produces no change to the file');
   }
@@ -320,9 +401,10 @@ export function renderPatch({ proposal, decision, plan }) {
   push('#');
   push('#   git apply <this file>');
   push('#');
-  push(lines.length > 0 ? '' : '');
-  push(plan.diff.trimEnd());
   push('');
 
-  return lines.join('\n');
+  // The diff is concatenated rather than pushed as a line, because it already
+  // ends in a newline and a unified diff that loses its last byte is a patch
+  // git calls corrupt.
+  return `${lines.join('\n')}\n${plan.diff}`;
 }
