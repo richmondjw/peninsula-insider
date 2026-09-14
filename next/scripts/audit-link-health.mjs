@@ -15,42 +15,77 @@
  * A CI gate may never fail because a remote server had a bad night. Link
  * checking is the classic time-driven gate: it goes red at 3am with no code
  * change, everyone learns to ignore it, and the next real failure is ignored
- * too. So this script separates the two halves absolutely.
+ * too. So this script makes NO network request, on any code path, ever.
  *
- *   --probe   touches the network. Writes the ledger. Never runs in CI.
- *   (default) reads the ledger and the content tree. No network at all.
- *   --assert  compares the no-network metrics to a committed baseline.
+ *   scripts/probe-link-health.mjs   touches the network. Writes the record.
+ *                                   Run by a human or a scheduled job. Never
+ *                                   by a build, never by CI.
+ *   this script                     reads the record and the content tree.
+ *                                   No network, and no write to the record.
+ *   this script --assert            compares the no-network metrics to a
+ *                                   committed ratchet baseline.
  *
  * Every asserted metric is therefore a property of the files on disk. Run it
  * on any date, on any machine, offline, and the same tree yields the same
  * numbers. A remote site going down overnight changes nothing until a human
- * runs --probe and commits the result.
+ * probes it and commits the result.
+ *
+ * WHY THE PROBER IS A SEPARATE PROGRAM (2026-09-14)
+ *
+ * It used to live here, behind a `--probe` flag. That made the gate and the
+ * writer of the gate's own input one command a single flag apart - and when
+ * the gate failed, the remedy it printed was to run that flag. The record
+ * also sat in ops/reports/, the directory this repo treats as regenerable
+ * build output and routinely reverts wholesale.
+ *
+ * On 2026-09-14 five evidence rows citing URLs nobody had ever fetched passed
+ * a local build. Reverting the "build artefacts" - which is where the record
+ * was filed - and re-running is what exposed them. A gate whose input can be
+ * manufactured by the same act that runs it is not a gate; it is a mirror.
+ *
+ * So the two halves are now two programs and two files:
+ *
+ *   ops/records/link-health/probe-ledger.json   the RECORD. Written only by
+ *       the prober. Never by a build. Lives outside ops/reports/ precisely so
+ *       that "revert the build artefacts" cannot touch it.
+ *   ops/reports/content/link-health.json        the REPORT. Derived. Any
+ *       build may rewrite it freely; nothing asserts against it.
+ *
+ * This script cannot write the record. It does not import the prober, it
+ * holds no write path to the record file, and it verifies before exiting that
+ * the record's bytes are identical to the bytes it read. If the record moved
+ * under it, the run fails rather than reporting a verdict it cannot stand
+ * behind.
  *
  * WHAT IT ASSERTS
  *
- *   unledgeredSourceUrl
- *       A source URL cited by a content record with no row in the ledger.
- *       This is the metric that makes the gate ratchet forward rather than
- *       merely hold: adding a new citation without probing it fails the
- *       build. Nobody can quietly introduce an unchecked source.
+ *   unrecordedSourceUrl
+ *       A source URL cited by a content record with no probe row. This is the
+ *       metric that makes the gate ratchet forward rather than merely hold:
+ *       adding a new citation without probing it fails the build. Nobody can
+ *       quietly introduce an unchecked source. (Reported under its old name,
+ *       unledgeredSourceUrl, in the baseline too - both spellings are read, so
+ *       an in-flight branch's baseline still applies.)
  *
  *   deadSourceUrlCited
- *       A URL the ledger records as dead, still cited by a record that has
- *       not disposed of it. Disposal is explicit: the citing record carries
- *       sourceStatus "unsourced" or "disputed", so the registry and the
- *       blind-spot reporting can see the gap rather than the claim quietly
+ *       A URL the record says is dead, still cited by a content record that
+ *       has not disposed of it. Disposal is explicit: the citing record
+ *       carries sourceStatus "unsourced" or "disputed", so the registry and
+ *       the blind-spot reporting can see the gap rather than the claim quietly
  *       disappearing. Ratchets down as the queue is worked.
  *
  *   staleRedirectCited
- *       The ledger knows where a moved URL went and the record still points
+ *       The record knows where a moved URL went and the content still points
  *       at the old one. Cheap to fix, so it ratchets to zero fast.
  *
- * WHAT THE LEDGER IS
+ * WHAT A PROBE ROW MEANS
  *
- * ops/reports/content/link-health-ledger.json. One row per distinct URL: the
- * verdict, the HTTP code seen, the date probed, and a human note. A verdict is
- * never inferred at read time - it is what a probe saw, written down, and
- * reviewable in a diff.
+ * One row per distinct URL: the verdict, the HTTP code seen, the date probed,
+ * who probed it, and a human note. A verdict is never inferred at read time -
+ * it is what a probe saw, written down, and reviewable in a diff. A row
+ * missing `probedOn` or `probedBy` is not the record of a probe and is
+ * refused, because a hand-typed `{"url": "...", "verdict": "ok"}` is otherwise
+ * indistinguishable from a fetch.
  *
  * Verdicts:
  *   ok          2xx or 3xx carrying a real page.
@@ -69,8 +104,6 @@
  *   dead        Nothing at this URL and no equivalent found. The claim it
  *               supported is unsourced until an editor finds one.
  *   tls-fault   Reachable, but the certificate does not match the hostname.
- *               The content is there; the URL as written cannot be fetched
- *               safely, so a reader following it sees a browser warning.
  *   unknown     Probed and inconclusive. Never asserted on.
  *
  * WHAT IT CANNOT CATCH
@@ -83,41 +116,61 @@
  * Usage:
  *   node scripts/audit-link-health.mjs [--json out.json] [--assert]
  *                                      [--baseline path] [--update-baseline]
- *                                      [--ledger path] [--content-dir path]
- *                                      [--probe] [--probe-only substring]
- *                                      [--concurrency N]
+ *                                      [--record path] [--content-dir path]
  */
 
 import { fileURLToPath } from 'node:url';
-import { readFile, readdir, writeFile, mkdir, rm } from 'node:fs/promises';
-import { tmpdir } from 'node:os';
-import { execFile } from 'node:child_process';
-import { promisify } from 'node:util';
+import { writeFile, mkdir } from 'node:fs/promises';
+import { readFile } from 'node:fs/promises';
 import path from 'node:path';
-import YAML from 'yaml';
-
-const execFileAsync = promisify(execFile);
+import {
+  collectCitations,
+  readProbeRecord,
+  digestOfFile,
+  ProbeRecordError,
+} from './link-health/corpus.mjs';
 
 const NEXT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const REPO = path.resolve(NEXT, '..');
 
 const args = process.argv.slice(2);
+
+/**
+ * The gate does not probe. Not with a flag, not with an environment variable,
+ * not by accident in a build script someone edits in a hurry. Refusing the
+ * flag loudly is better than ignoring it: a CI line that reads
+ * `audit-link-health.mjs --probe` and quietly does nothing of the sort would
+ * be its own kind of lie.
+ */
+const NETWORK_FLAGS = ['--probe', '--probe-only', '--concurrency'];
+const offered = args.filter((a) => NETWORK_FLAGS.includes(a));
+if (offered.length) {
+  console.error(`FAIL: ${offered.join(', ')} is not accepted here.`);
+  console.error('');
+  console.error('  This script is the gate. It makes no network request and cannot write');
+  console.error('  the probe record - that is what makes it safe to run in CI, and what');
+  console.error('  stops a build entering its own citations into the record it is judged');
+  console.error('  against.');
+  console.error('');
+  console.error('  Probing is a separate, deliberate act:');
+  console.error('    cd next && npm run probe:link-health -- --unrecorded');
+  process.exit(2);
+}
+
 const getArg = (flag, fallback) => {
   const i = args.indexOf(flag);
   return i !== -1 && args[i + 1] && !args[i + 1].startsWith('--') ? args[i + 1] : fallback;
 };
 const JSON_OUT = getArg('--json', null);
-const LEDGER = path.resolve(
-  getArg('--ledger', path.join(REPO, 'ops', 'reports', 'content', 'link-health-ledger.json'))
-);
+export const DEFAULT_RECORD = path.join(REPO, 'ops', 'records', 'link-health', 'probe-ledger.json');
+// `--ledger` is the pre-split spelling, kept so an in-flight branch or a
+// scheduled job that predates the rename still resolves.
+const RECORD = path.resolve(getArg('--record', getArg('--ledger', DEFAULT_RECORD)));
 const BASELINE = path.resolve(
   getArg('--baseline', path.join(REPO, 'ops', 'reports', 'content', 'link-health-baseline.json'))
 );
 const ASSERT = args.includes('--assert');
 const UPDATE_BASELINE = args.includes('--update-baseline');
-const PROBE = args.includes('--probe');
-const PROBE_ONLY = getArg('--probe-only', null);
-const CONCURRENCY = Number(getArg('--concurrency', '6')) || 6;
 
 const multi = (flag, fallback) => {
   const found = [];
@@ -128,11 +181,16 @@ const multi = (flag, fallback) => {
 };
 const CONTENT_DIRS = multi('--content-dir', [path.join(NEXT, 'src', 'content')]);
 
-const ASSERTED_METRICS = new Set([
-  'unledgeredSourceUrl',
-  'deadSourceUrlCited',
-  'staleRedirectCited',
-]);
+/**
+ * `unledgeredSourceUrl` is the name this metric shipped under. Both spellings
+ * are accepted from a baseline so that renaming the concept cannot silently
+ * drop a ceiling of 0 and let an unprobed citation through - the exact failure
+ * this file exists to prevent, reintroduced by a rename.
+ */
+const UNRECORDED = 'unrecordedSourceUrl';
+const UNRECORDED_LEGACY = 'unledgeredSourceUrl';
+
+const ASSERTED_METRICS = new Set([UNRECORDED, 'deadSourceUrlCited', 'staleRedirectCited']);
 
 /**
  * Verdicts that mean this citation no longer supports anything. `parked` is
@@ -142,342 +200,47 @@ const ASSERTED_METRICS = new Set([
  */
 const DEAD_VERDICTS = new Set(['dead', 'parked']);
 
-/* ------------------------------------------------------------------ */
-/* Which fields are a SOURCE                                           */
-/* ------------------------------------------------------------------ */
-
-/**
- * A source is a URL the corpus offers as evidence, or as the operator's own
- * canonical page. heroImage.credit is not a source; officialEventUrl is. The
- * list is deliberately explicit rather than "any http string": a gate that
- * fires on every outbound link in prose is a gate people disable.
- */
-const SOURCE_FIELD_LEAVES = new Set([
-  'url',
-  'source',
-  'sourceUrl',
-  'sourceURL',
-  'officialUrl',
-  'officialEventUrl',
-  'primarySourceUrl',
-  'secondarySourceUrl',
-  'website',
-  'bookingUrl',
-  'vfaCitationUrl',
-  'citationUrl',
-  'authorityUrl',
-  'organiserUrl',
-]);
-
-const leafOf = (fieldPath) => fieldPath.split('.').pop().replace(/\[\d+\]$/, '');
-const isSourceField = (fieldPath) => SOURCE_FIELD_LEAVES.has(leafOf(fieldPath));
-
-/* ------------------------------------------------------------------ */
-/* Walking the corpus                                                  */
-/* ------------------------------------------------------------------ */
-
-async function walk(dir) {
-  let entries;
-  try {
-    entries = await readdir(dir, { withFileTypes: true });
-  } catch {
-    return [];
-  }
-  const out = [];
-  for (const entry of entries) {
-    const abs = path.join(dir, entry.name);
-    if (entry.isDirectory()) {
-      if (entry.name === 'node_modules' || entry.name === 'dist' || entry.name === '.astro') continue;
-      out.push(...(await walk(abs)));
-    } else if (['.json', '.md', '.mdx'].includes(path.extname(entry.name))) {
-      out.push(abs);
-    }
-  }
-  return out;
-}
-
 const rel = (abs) => path.relative(REPO, abs).split(path.sep).join('/');
 
-const FRONTMATTER = /^---\r?\n([\s\S]*?)\r?\n---/;
-
-function normaliseUrl(raw) {
-  const out = [];
-  // Several records pack two or three URLs into one string with a pipe.
-  for (const piece of String(raw).split(/[\s|,]+/)) {
-    const candidate = piece.trim().replace(/[),.;]+$/, '');
-    if (!/^https?:\/\//i.test(candidate)) continue;
-    try {
-      new URL(candidate);
-    } catch {
-      continue;
-    }
-    out.push(candidate);
+/** Exit, but only after proving the record is exactly what we read. */
+async function finish(code, recordDigest) {
+  const now = await digestOfFile(RECORD);
+  if (now !== recordDigest) {
+    console.error('');
+    console.error('  FAIL: the probe record changed while this gate was running.');
+    console.error(`    ${rel(RECORD)}`);
+    console.error('');
+    console.error('  A gate may not validate against an artefact its own run produced.');
+    console.error('  Nothing in a build is allowed to write this file; find what did.');
+    process.exit(1);
   }
-  return out;
-}
-
-/**
- * Blocks that record a URL as history rather than cite it.
- *
- * `retiredSourceLinks` holds the dead URL a record used to carry, on purpose.
- * `legacy` is the claim-registry migration's record of exactly what it read.
- * Counting either as a live citation would mean the act of writing down that a
- * link died fails the gate for the link having died, and the only way to pass
- * would be to erase the history.
- */
-const HISTORICAL_BLOCKS = new Set(['retiredSourceLinks', 'legacy']);
-
-function collect(node, filePath, prefix, sink) {
-  if (!node || typeof node !== 'object') return;
-  for (const [key, value] of Object.entries(node)) {
-    if (HISTORICAL_BLOCKS.has(key)) continue;
-    const fieldPath = prefix ? `${prefix}.${key}` : key;
-    if (typeof value === 'string') {
-      if (!isSourceField(fieldPath)) continue;
-      for (const url of normaliseUrl(value)) sink.push({ url, file: filePath, field: fieldPath });
-    } else if (Array.isArray(value)) {
-      value.forEach((item, i) => {
-        if (typeof item === 'string') {
-          if (!isSourceField(fieldPath)) return;
-          for (const url of normaliseUrl(item)) {
-            sink.push({ url, file: filePath, field: `${fieldPath}[${i}]` });
-          }
-        } else {
-          collect(item, filePath, `${fieldPath}[${i}]`, sink);
-        }
-      });
-    } else {
-      collect(value, filePath, fieldPath, sink);
-    }
-  }
-}
-
-/** Every source citation in the corpus, with the record and field it sits in. */
-async function collectCitations() {
-  const citations = [];
-  const records = new Map();
-  for (const dir of CONTENT_DIRS) {
-    for (const abs of await walk(dir)) {
-      const relPath = rel(abs);
-      let text;
-      try {
-        text = await readFile(abs, 'utf8');
-      } catch {
-        continue;
-      }
-      let data = null;
-      if (path.extname(abs) === '.json') {
-        try {
-          data = JSON.parse(text);
-        } catch {
-          continue;
-        }
-      } else {
-        const m = FRONTMATTER.exec(text);
-        if (!m) continue;
-        try {
-          data = YAML.parse(m[1]);
-        } catch {
-          continue;
-        }
-      }
-      if (!data || typeof data !== 'object') continue;
-      records.set(relPath, data);
-      collect(data, relPath, '', citations);
-    }
-  }
-  return { citations, records };
-}
-
-/* ------------------------------------------------------------------ */
-/* Probe (network). Never runs under --assert.                         */
-/* ------------------------------------------------------------------ */
-
-const UA =
-  'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36';
-
-/**
- * Codes a live host returns when it dislikes a robot rather than when the page
- * is gone. Treating these as dead is the single most damaging mistake a link
- * checker makes on this corpus - see the council note in the header.
- */
-const BOT_WALL_CODES = new Set(['400', '401', '403', '406', '429', '503']);
-
-/**
- * Markers of a page that answers 200 and carries nothing. A status-code-only
- * checker calls every one of these healthy, which is how a reader ends up on a
- * domain-parking advertisement from a citation the site still calls a source.
- */
-const PARKED_MARKERS = [
-  'this website is for sale',
-  'this domain is for sale',
-  'buy this domain',
-  'domain is parked',
-  'squarespace - website expired',
-  'connectyourdomain error',
-  'website coming soon',
-  'default web site page',
-  'future home of something quite cool',
-];
-
-/** Markers of an anti-bot interstitial served with a 2xx status. */
-const CHALLENGE_MARKERS = [
-  'sgcaptcha',
-  'cdn-cgi/challenge-platform',
-  'just a moment...',
-  'attention required!',
-  'security checkpoint',
-  'enable javascript and cookies to continue',
-  'checking your browser before accessing',
-  'px-captcha',
-  'are you a human',
-];
-
-const bodyTmp = (slot) =>
-  path.join(tmpdir(), `pi-link-health-${process.pid}-${slot}.html`);
-
-async function curlOnce(url, bodyPath, extra = []) {
-  const curlArgs = [
-    '-sSL',
-    '--compressed',
-    '-o',
-    bodyPath,
-    '-A',
-    UA,
-    '-H',
-    'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-    '-H',
-    'Accept-Language: en-AU,en;q=0.9',
-    '--max-time',
-    '30',
-    '--connect-timeout',
-    '15',
-    '-w',
-    '%{http_code}\t%{url_effective}',
-    ...extra,
-    url,
-  ];
-  try {
-    const { stdout } = await execFileAsync('curl', curlArgs, { maxBuffer: 8e6 });
-    const [code, effective] = stdout.trim().split('\t');
-    let body = '';
-    try {
-      body = (await readFile(bodyPath, 'utf8')).slice(0, 300000);
-    } catch {
-      /* a HEAD-like response, or a binary body. Absence is not an error. */
-    }
-    const title = (/<title[^>]*>([\s\S]{0,400}?)<\/title>/i.exec(body) || [, ''])[1]
-      .replace(/\s+/g, ' ')
-      .trim();
-    return { code, effective, title, body, bytes: body.length, error: null };
-  } catch (error) {
-    return {
-      code: '000',
-      effective: '',
-      title: '',
-      body: '',
-      bytes: 0,
-      error: String(error.stderr || error.message).replace(/\s+/g, ' ').trim().slice(0, 200),
-    };
-  }
-}
-
-function verdictFor(direct) {
-  const haystack = `${direct.title} ${direct.body}`.toLowerCase();
-  if (/^2/.test(direct.code) || /^3/.test(direct.code)) {
-    if (CHALLENGE_MARKERS.some((m) => haystack.includes(m))) return 'blocked';
-    if (PARKED_MARKERS.some((m) => haystack.includes(m))) return 'parked';
-    // A NetRegistry-style redirector answers 200 with a two-word body. There
-    // is no page here; there is a parked domain wearing a success code.
-    if (direct.bytes > 0 && direct.bytes < 512 && /not found|no such|page unavailable/i.test(direct.body)) {
-      return 'parked';
-    }
-    return 'ok';
-  }
-  if (BOT_WALL_CODES.has(direct.code)) return 'blocked';
-  if (direct.code === '404' || direct.code === '410') return 'dead';
-  if (direct.code === '000' && /SSL|certificate/i.test(direct.error || '')) return 'tls-fault';
-  if (direct.code === '000') return 'dead';
-  return 'unknown';
-}
-
-async function probe(urls, existing) {
-  const ledger = new Map(existing.map((row) => [row.url, row]));
-  const today = new Date().toISOString().slice(0, 10);
-  const queue = [...urls];
-  let done = 0;
-
-  async function worker(slot) {
-    const bodyPath = bodyTmp(slot);
-    for (;;) {
-      const url = queue.shift();
-      if (!url) {
-        await rm(bodyPath, { force: true });
-        return;
-      }
-      const direct = await curlOnce(url, bodyPath);
-      const prior = ledger.get(url) || {};
-      ledger.set(url, {
-        ...prior,
-        url,
-        verdict: verdictFor(direct),
-        httpCode: direct.code,
-        pageTitle: direct.title || undefined,
-        effectiveUrl: direct.effective && direct.effective !== url ? direct.effective : undefined,
-        error: direct.error || undefined,
-        probedOn: today,
-        probedBy: 'audit-link-health.mjs --probe',
-        // A human disposition (replacement, note, reviewedOn) survives a
-        // re-probe. The machine owns the verdict; the editor owns the
-        // judgement about what to do with it.
-      });
-      done += 1;
-      if (done % 25 === 0) console.log(`    probed ${done}/${urls.length}`);
-    }
-  }
-
-  await Promise.all(Array.from({ length: Math.max(1, Math.min(CONCURRENCY, queue.length)) }, (_, slot) => worker(slot)));
-  return [...ledger.values()].sort((a, b) => a.url.localeCompare(b.url));
-}
-
-/* ------------------------------------------------------------------ */
-
-async function readLedger() {
-  try {
-    const parsed = JSON.parse(await readFile(LEDGER, 'utf8'));
-    return Array.isArray(parsed.links) ? parsed.links : [];
-  } catch {
-    return [];
-  }
+  process.exit(code);
 }
 
 async function main() {
-  const { citations, records } = await collectCitations();
+  const { citations, records } = await collectCitations(CONTENT_DIRS, rel);
   const citedUrls = [...new Set(citations.map((c) => c.url))].sort();
 
-  let ledgerRows = await readLedger();
-
-  if (PROBE) {
-    const target = PROBE_ONLY ? citedUrls.filter((u) => u.includes(PROBE_ONLY)) : citedUrls;
-    console.log(`Probing ${target.length} URL(s) at concurrency ${CONCURRENCY}. This touches the network.`);
-    ledgerRows = await probe(target, ledgerRows);
-    await mkdir(path.dirname(LEDGER), { recursive: true });
-    await writeFile(
-      LEDGER,
-      `${JSON.stringify(
-        {
-          note: 'Probe results for every source URL in the corpus. Written only by --probe; read offline by the gate. A verdict is what a probe saw, not an inference.',
-          updatedAt: new Date().toISOString(),
-          links: ledgerRows,
-        },
-        null,
-        2
-      )}\n`
-    );
-    console.log(`  ledger -> ${rel(LEDGER)}`);
+  let record;
+  try {
+    record = await readProbeRecord(RECORD);
+  } catch (error) {
+    if (!(error instanceof ProbeRecordError)) throw error;
+    // Fail closed, and say which file. The old implementation swallowed this
+    // and continued with zero rows, which is technically a failure but sends
+    // the reader hunting through 1,400 citations instead of at one file.
+    console.error(`FAIL: ${error.message}`);
+    console.error('');
+    console.error('  The probe record is this gate\'s ground truth. Without it there is');
+    console.error('  nothing to check citations against, and "no rows" must never read as');
+    console.error('  "everything is fine".');
+    console.error('');
+    console.error('    cd next && npm run probe:link-health');
+    process.exit(1);
   }
 
-  const ledger = new Map(ledgerRows.map((row) => [row.url, row]));
+  const recordDigest = record.digest;
+  const ledger = new Map(record.rows.map((row) => [row.url, row]));
 
   /** A record may declare its own claim unsourced, which disposes of a dead link. */
   const disposed = (file) => {
@@ -486,7 +249,7 @@ async function main() {
     return data.sourceStatus === 'unsourced' || data.sourceStatus === 'disputed';
   };
 
-  const unledgered = [];
+  const unrecorded = [];
   const deadCited = [];
   const staleRedirect = [];
   const blockedCited = [];
@@ -494,7 +257,7 @@ async function main() {
   for (const citation of citations) {
     const row = ledger.get(citation.url);
     if (!row) {
-      unledgered.push({ ...citation });
+      unrecorded.push({ ...citation });
       continue;
     }
     if (DEAD_VERDICTS.has(row.verdict) && !disposed(citation.file)) {
@@ -507,44 +270,69 @@ async function main() {
   }
 
   const verdictCounts = {};
-  for (const row of ledgerRows) verdictCounts[row.verdict] = (verdictCounts[row.verdict] ?? 0) + 1;
+  for (const row of record.rows) verdictCounts[row.verdict] = (verdictCounts[row.verdict] ?? 0) + 1;
+
+  /**
+   * Staleness is REPORTED and never asserted. A row going stale is the
+   * calendar moving, not a change anyone made, and a gate that failed on it
+   * would fail a build no commit could fix.
+   */
+  const probeDates = record.rows.map((r) => r.probedOn).sort();
+  const staleness = {
+    oldestProbe: probeDates[0] ?? null,
+    newestProbe: probeDates[probeDates.length - 1] ?? null,
+    distinctProbeDates: new Set(probeDates).size,
+    note: 'Reported only. Never asserted: the calendar is not a code change.',
+  };
+
+  const totals = {
+    [UNRECORDED]: new Set(unrecorded.map((u) => u.url)).size,
+    deadSourceUrlCited: deadCited.length,
+    staleRedirectCited: staleRedirect.length,
+  };
 
   const report = {
     generatedAt: new Date().toISOString(),
     assertedMetrics: [...ASSERTED_METRICS],
-    ledger: rel(LEDGER),
+    probeRecord: rel(RECORD),
     citations: citations.length,
     distinctUrls: citedUrls.length,
     verdictCounts,
-    totals: {
-      unledgeredSourceUrl: new Set(unledgered.map((u) => u.url)).size,
-      deadSourceUrlCited: deadCited.length,
-      staleRedirectCited: staleRedirect.length,
-    },
-    unledgeredSourceUrl: unledgered,
+    staleness,
+    malformedRecordRows: record.malformed.length,
+    totals,
+    [UNRECORDED]: unrecorded,
     deadSourceUrlCited: deadCited,
     staleRedirectCited: staleRedirect,
     blockedSourceUrlCited: blockedCited,
   };
 
-  const t = report.totals;
   console.log('Source-link health');
   console.log('');
+  console.log(`  probe record ...................... ${rel(RECORD)}`);
   console.log(`  citations ......................... ${report.citations}`);
   console.log(`  distinct source URLs .............. ${report.distinctUrls}`);
   console.log(
-    `  ledger verdicts ................... ${Object.entries(verdictCounts)
+    `  probe verdicts .................... ${Object.entries(verdictCounts)
       .sort((a, b) => b[1] - a[1])
       .map(([k, v]) => `${k}:${v}`)
       .join('  ')}`
   );
+  console.log(
+    `  probes dated ...................... ${staleness.oldestProbe ?? 'n/a'} .. ${staleness.newestProbe ?? 'n/a'}   [reported only]`
+  );
   console.log('');
-  console.log(`    URLs cited with no ledger row ... ${t.unledgeredSourceUrl}   [gated]`);
-  console.log(`    dead URL still cited ............ ${t.deadSourceUrlCited}   [gated, ratchets down]`);
-  console.log(`    moved URL not yet followed ...... ${t.staleRedirectCited}   [gated, ratchets down]`);
+  console.log(`    URLs cited with no probe row .... ${totals[UNRECORDED]}   [gated]`);
+  console.log(`    dead URL still cited ............ ${totals.deadSourceUrlCited}   [gated, ratchets down]`);
+  console.log(`    moved URL not yet followed ...... ${totals.staleRedirectCited}   [gated, ratchets down]`);
   console.log(`    blocked host cited (not a fault)  ${blockedCited.length}   [reported only]`);
+  if (record.malformed.length) {
+    console.log(
+      `    rows refused, no probedOn/probedBy ${record.malformed.length}   [a row is not a probe unless it says who probed it, and when]`
+    );
+  }
   console.log('');
-  for (const u of unledgered.slice(0, 40)) console.log(`    UNLEDGERED  ${u.file}  ${u.field}  ${u.url}`);
+  for (const u of unrecorded.slice(0, 40)) console.log(`    UNRECORDED  ${u.file}  ${u.field}  ${u.url}`);
   for (const d of deadCited.slice(0, 60)) console.log(`    DEAD        ${d.file}  ${d.field}  ${d.url}`);
   for (const s of staleRedirect.slice(0, 40)) {
     console.log(`    MOVED       ${s.file}  ${s.field}  ${s.url} -> ${s.replacement}`);
@@ -562,16 +350,16 @@ async function main() {
     await writeFile(
       BASELINE,
       `${JSON.stringify(
-        { updatedAt: report.generatedAt, assertedMetrics: [...ASSERTED_METRICS], ceilings: t },
+        { updatedAt: report.generatedAt, assertedMetrics: [...ASSERTED_METRICS], ceilings: totals },
         null,
         2
       )}\n`
     );
     console.log(`  baseline -> ${rel(BASELINE)}`);
-    return;
+    return finish(0, recordDigest);
   }
 
-  if (!ASSERT) return;
+  if (!ASSERT) return finish(0, recordDigest);
 
   let baseline;
   try {
@@ -580,28 +368,56 @@ async function main() {
     // Fail closed. A missing baseline must not read as "no regression".
     console.error(`\n  FAIL: cannot read baseline ${rel(BASELINE)} - ${error.message}`);
     console.error('  Seed it with: npm run audit:link-health -- --update-baseline');
-    process.exit(1);
+    return finish(1, recordDigest);
   }
 
+  const ceilings = { ...(baseline.ceilings ?? {}) };
+  if (ceilings[UNRECORDED_LEGACY] !== undefined && ceilings[UNRECORDED] === undefined) {
+    ceilings[UNRECORDED] = ceilings[UNRECORDED_LEGACY];
+  }
+  delete ceilings[UNRECORDED_LEGACY];
+
   const failures = [];
-  for (const [metric, ceiling] of Object.entries(baseline.ceilings ?? {})) {
+  for (const [metric, ceiling] of Object.entries(ceilings)) {
     if (!ASSERTED_METRICS.has(metric)) continue;
-    const actual = t[metric];
+    const actual = totals[metric];
     if (typeof actual === 'number' && actual > ceiling) {
-      failures.push(`${metric}: ${actual} > baseline ${ceiling}`);
+      failures.push({ metric, actual, ceiling });
     }
   }
 
   if (failures.length) {
     console.error('\n  FAIL: source-link regression against the ratchet baseline');
-    for (const f of failures) console.error(`    ${f}`);
-    console.error('\n  A new citation must be probed before it ships:');
-    console.error('    cd next && npm run audit:link-health -- --probe');
-    console.error('  Then fix or dispose of what the probe found, or re-seed the');
-    console.error('  baseline deliberately with --update-baseline.');
-    process.exit(1);
+    for (const f of failures) console.error(`    ${f.metric}: ${f.actual} > baseline ${f.ceiling}`);
+
+    if (failures.some((f) => f.metric === UNRECORDED)) {
+      const example = unrecorded[0]?.url ?? 'https://the-url-above';
+      console.error('');
+      console.error('  A citation above has never been probed. The probe record is a record of');
+      console.error('  what someone actually fetched, so this build cannot add to it - that is');
+      console.error('  the point. Probe the URL yourself and commit the result:');
+      console.error('');
+      console.error(`    cd next`);
+      console.error(`    npm run probe:link-health -- --url ${example}`);
+      console.error(`    git add ${rel(RECORD)} && git commit`);
+      console.error('');
+      console.error('  Or probe every unprobed citation in one pass:');
+      console.error('    cd next && npm run probe:link-health -- --unrecorded');
+      console.error('');
+      console.error('  If the probe comes back dead, fix or dispose of the citation. Do not');
+      console.error('  re-seed the baseline to make the number fit.');
+    }
+    if (failures.some((f) => f.metric !== UNRECORDED)) {
+      console.error('');
+      console.error('  For dead and moved URLs: fix the citation, or dispose of it explicitly');
+      console.error('  (sourceStatus: unsourced / disputed on the citing record). Re-seed the');
+      console.error('  baseline only as a deliberate, reviewed act:');
+      console.error('    cd next && npm run audit:link-health -- --update-baseline');
+    }
+    return finish(1, recordDigest);
   }
   console.log('  PASS: no regression against the ratchet baseline.');
+  return finish(0, recordDigest);
 }
 
 main().catch((error) => {

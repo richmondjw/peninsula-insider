@@ -379,8 +379,11 @@ const provenanceFields = {
  * that into `dead` would demand deleting a third of the site's provenance over
  * a robots policy. An honest unknown is a legitimate state.
  *
- * Written from ops/reports/content/link-health-ledger.json by a probe that
- * actually fetched the URL. Never inferred at read time.
+ * Written from ops/records/link-health/probe-ledger.json by a probe that
+ * actually fetched the URL. Never inferred at read time. The record lives under
+ * ops/records/ rather than ops/reports/ because it is evidence, not output: no
+ * build may write it, and reverting it destroys what someone saw rather than
+ * regenerating it.
  */
 const sourceHealth = z.enum(['ok', 'blocked', 'moved', 'dead', 'parked', 'tls-fault', 'unknown']);
 
