@@ -193,7 +193,7 @@ defines for a trading-status claim (`venue-site`, authority `operator`).
 - 2026–27 dates: 5 September, 3 October, 7 November, 5 December, 2 January, 6 February, 3 April,
   1 May
 - "NO MARKET ON THE 6 MARCH - IT'S THE RED HILL SHOW"
-- free entry; "$5 fee" for parking, taken by the Red Hill Lions Club
+- free entry; a parking fee for the reserve, taken by the Red Hill Lions Club (the figure is on the source page and is not repeated here)
 - contact: `hello@hillandridgemarket.com.au`, (03) 5989 2357, text 0490 774 621
 - "the market runs in all weather. If conditions are deemed unsafe, we may cancel for safety
   reasons."
