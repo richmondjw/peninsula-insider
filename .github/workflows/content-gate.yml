@@ -74,6 +74,7 @@ jobs:
           npm run test:link-health
           npm run test:migration-ledger
           npm run test:venue-reachability
+          npm run test:baseline-placement
 
       - name: Content admission gate
         # Placeholder markers + real Astro collection-schema validation
@@ -135,6 +136,14 @@ jobs:
         # scripts/probe-live-tables.mjs, asked on a schedule in
         # migration-liveness.yml, where a bad night costs an alert instead of a
         # blocked merge.
+        #
+        # assert:baseline-placement keeps the ratchet ceilings out of
+        # ops/reports/. That directory is build output and is reverted wholesale
+        # before committing, so a ceiling filed there is a ceiling the habitual
+        # `git checkout -- ops/reports` can erase — silently, taking a deliberate
+        # ratchet-down with it and leaving the gate looser than its author
+        # intended. Ceilings live in ops/baselines/, which no build writes. It
+        # reads the tree and nothing else: no build, no network.
         run: |
           cd next
           npm run lint:no-pricing
@@ -149,12 +158,13 @@ jobs:
           npm run lint:css-budget
           npm run lint:coordinates
           npm run assert:migration-ledger
+          npm run assert:baseline-placement
       - name: Commercial/editorial firewall
         # PI-021. Reads source and content, not dist/, so it costs seconds and
         # needs no build. It belongs on the branch rather than only inside
         # `npm run build` on main: a commercial field reaching an editorial
         # ordering decision must be refused at review, not discovered after a
-        # deploy. Ratchets against ops/reports/governance/
+        # deploy. Ratchets against ops/baselines/
         # commercial-firewall-baseline.json, so inherited debt never blocks a
         # merge and any increase does.
         run: |

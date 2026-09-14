@@ -3,7 +3,7 @@
 Register item A27. Branch `pi/venue-contact-reachability`. Companions:
 `2026-09-14-source-links-and-contradictions.md` (the link queue this reads from),
 `2026-09-14-unschemad-closure-signals.md` (the other half of the discarded-field defect), and
-`link-health-ledger.json`, which is the evidence behind every verdict below.
+`ops/records/link-health/probe-ledger.json`, which is the evidence behind every verdict below.
 
 A27 records that the four intake tables behind the corrections workflow, the partner enquiry form
 and the operator update form do not exist in production. All three end in the same physical act:

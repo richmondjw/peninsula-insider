@@ -120,7 +120,7 @@ async function routeExists(pathname) {
 // permanently via --update-baseline. Floors (diversity metrics) ratchet upward:
 // they fail when they DROP. Regression is blocked from the first run; the
 // existing backlog is visible without being a blocker.
-const baselinePath = new URL('../../ops/reports/seo/seo-architecture-baseline.json', import.meta.url);
+const baselinePath = new URL('../../ops/baselines/seo-architecture-baseline.json', import.meta.url);
 const updateBaseline = process.argv.includes('--update-baseline');
 // A baseline taken from a dirty working tree describes a build CI will never
 // produce. The first attempt at this baseline was 5 breadcrumb findings light

@@ -562,7 +562,7 @@ const loserTargets = summary.allLinkedLosers.filter(
 
 let baseline = null;
 try {
-  baseline = JSON.parse(readFileSync('ops/reports/seo/link-loser-baseline.json', 'utf8'));
+  baseline = JSON.parse(readFileSync('ops/baselines/link-loser-baseline.json', 'utf8'));
 } catch {
   baseline = null;
 }
@@ -577,7 +577,7 @@ if (baseline && typeof baseline.maxTargets === 'number') {
   } else if (loserTargets.length < baseline.maxTargets) {
     console.log(
       `NOTE - internal links to canonical losers improved: ${loserTargets.length} targets `
-      + `vs baseline ${baseline.maxTargets}. Lower ops/reports/seo/link-loser-baseline.json to lock the gain.`,
+      + `vs baseline ${baseline.maxTargets}. Lower ops/baselines/link-loser-baseline.json to lock the gain.`,
     );
   }
 } else {

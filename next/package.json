@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "node scripts/clear-content-cache.mjs && npm run media:registry && npm run lint:no-pricing && npm run lint:house-style && npm run lint:firsthand-claims && npm run test:how-we-check && npm run lint:region-images && npm run lint:surfaces && npm run lint:listener-hygiene && npm run lint:search-privacy && npm run lint:licence-default && npm run lint:image-rights && npm run lint:rls-editor-gate && npm run lint:corrections-queue && npm run lint:nav-budget && npm run lint:css-budget && npm run lint:coordinates && astro build && npm run lint:no-hidden-pages && npm run lint:seo-architecture && npm run lint:filter-chips && npm run audit:agent-readiness && npm run assert:link-graph && npm run assert:event-safeguards && npm run assert:provenance-dates && npm run assert:link-health && npm run assert:schema-drift && npm run assert:declared-fields && npm run assert:unschemad-closures && npm run assert:closed-venues && npm run assert:commercial-firewall && npm run assert:media-provenance && npm run assert:count-semantics && npm run assert:claim-support && npm run assert:campaigns-review-page && npm run assert:partner-portal-dashboard",
+    "build": "node scripts/clear-content-cache.mjs && npm run media:registry && npm run lint:no-pricing && npm run lint:house-style && npm run lint:firsthand-claims && npm run test:how-we-check && npm run lint:region-images && npm run lint:surfaces && npm run lint:listener-hygiene && npm run lint:search-privacy && npm run lint:licence-default && npm run lint:image-rights && npm run lint:rls-editor-gate && npm run lint:corrections-queue && npm run lint:nav-budget && npm run lint:css-budget && npm run lint:coordinates && npm run assert:baseline-placement && astro build && npm run lint:no-hidden-pages && npm run lint:seo-architecture && npm run lint:filter-chips && npm run audit:agent-readiness && npm run assert:link-graph && npm run assert:event-safeguards && npm run assert:provenance-dates && npm run assert:link-health && npm run assert:schema-drift && npm run assert:declared-fields && npm run assert:unschemad-closures && npm run assert:closed-venues && npm run assert:commercial-firewall && npm run assert:media-provenance && npm run assert:count-semantics && npm run assert:claim-support && npm run assert:campaigns-review-page && npm run assert:partner-portal-dashboard",
     "build:search": "npm run build && npx pagefind --site dist",
     "preview": "astro preview",
     "astro": "astro",
@@ -29,6 +29,8 @@
     "lint:nav-budget": "node scripts/lint-nav-budget.mjs",
     "lint:css-budget": "node scripts/check-css-budget.mjs",
     "lint:coordinates": "node scripts/lint-coordinates.mjs",
+    "assert:baseline-placement": "node scripts/assert-baseline-placement.mjs",
+    "test:baseline-placement": "node --test scripts/assert-baseline-placement.test.mjs",
     "audit:coordinates-landmask": "node scripts/audit-coordinates-landmask.mjs",
     "media:registry": "node scripts/build-media-registry.mjs",
     "lint:taxonomy": "node scripts/taxonomy-lint.mjs",

@@ -498,7 +498,7 @@ test('the coordinate bounding box the build enforces cannot see a location error
 test('the committed baseline admits the committed location claims', async () => {
   const registry = await loadRegistry(NEXT);
   const baseline = JSON.parse(
-    await readFile(path.join(NEXT, '..', 'ops', 'reports', 'claims', 'claim-support-baseline.json'), 'utf8')
+    await readFile(path.join(NEXT, '..', 'ops', 'baselines', 'claim-support-baseline.json'), 'utf8')
   );
   for (const name of LOCATION_CLASSES) {
     const row = bucket({ support: supportByClass(registry) }, name);

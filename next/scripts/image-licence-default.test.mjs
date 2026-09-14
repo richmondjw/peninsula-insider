@@ -39,7 +39,7 @@ const NEXT_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..'
 const REPO_DIR = path.resolve(NEXT_DIR, '..');
 const CONFIG = path.join(NEXT_DIR, 'src', 'content.config.ts');
 const AUDIT = path.join(NEXT_DIR, 'scripts', 'audit-media-provenance.mjs');
-const BASELINE = path.join(REPO_DIR, 'ops', 'reports', 'media', 'media-provenance-baseline.json');
+const BASELINE = path.join(REPO_DIR, 'ops', 'baselines', 'media-provenance-baseline.json');
 
 /**
  * Licence values that assert nothing about what is permitted.

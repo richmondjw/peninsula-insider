@@ -167,7 +167,7 @@ export const DEFAULT_RECORD = path.join(REPO, 'ops', 'records', 'link-health', '
 // scheduled job that predates the rename still resolves.
 const RECORD = path.resolve(getArg('--record', getArg('--ledger', DEFAULT_RECORD)));
 const BASELINE = path.resolve(
-  getArg('--baseline', path.join(REPO, 'ops', 'reports', 'content', 'link-health-baseline.json'))
+  getArg('--baseline', path.join(REPO, 'ops', 'baselines', 'link-health-baseline.json'))
 );
 const ASSERT = args.includes('--assert');
 const UPDATE_BASELINE = args.includes('--update-baseline');

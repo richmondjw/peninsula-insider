@@ -13,9 +13,14 @@ on:
       # d442813 fixed the SEO ratchet baseline and triggered no run at all, so the
       # fix sat unverified on main. A change to the thing that guards the build must
       # rebuild the build.
+      #
+      # ops/baselines/** is the whole directory rather than the one SEO file it
+      # used to name: every ratchet ceiling now lives there, and changing any of
+      # them changes what the build will accept. Ratcheting one down and seeing
+      # no run at all is the same defect d442813 hit.
       - 'next/scripts/**'
       - 'ops/scripts/seo/**'
-      - 'ops/reports/seo/seo-architecture-baseline.json'
+      - 'ops/baselines/**'
       - '.github/workflows/build-and-deploy.yml'
   schedule:
     # The event feed and rolling weekend page are generated at build time.

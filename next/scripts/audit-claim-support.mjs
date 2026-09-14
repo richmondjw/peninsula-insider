@@ -178,7 +178,7 @@ import {
 const SCRIPTS = path.dirname(fileURLToPath(import.meta.url));
 const NEXT = path.resolve(SCRIPTS, '..');
 const REPO = path.resolve(NEXT, '..');
-const DEFAULT_BASELINE = path.join(REPO, 'ops', 'reports', 'claims', 'claim-support-baseline.json');
+const DEFAULT_BASELINE = path.join(REPO, 'ops', 'baselines', 'claim-support-baseline.json');
 
 const args = process.argv.slice(2);
 const getArg = (flag, fallback) => {

@@ -16,7 +16,7 @@ Machine-readable companions, all committed:
 |---|---|
 | `ops/records/link-health/probe-ledger.json` | One row per source URL: verdict, HTTP code, page title, date probed, who probed it. Moved out of `ops/reports/` on 2026-09-14: it is evidence, not output, and the reports directory is the one this repo reverts wholesale |
 | `ops/reports/content/link-health-dispositions.json` | One row per dead URL: what was decided, and the evidence |
-| `ops/reports/content/link-health-baseline.json` | The ratchet ceilings the build asserts against |
+| `ops/baselines/link-health-baseline.json` | The ratchet ceilings the build asserts against |
 
 ## Headline
 

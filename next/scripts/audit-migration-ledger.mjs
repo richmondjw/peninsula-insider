@@ -104,7 +104,7 @@ const LEDGER = path.resolve(
   getArg('--ledger', path.join(REPO, 'ops', 'reports', 'migrations', 'migration-ledger.json'))
 );
 const BASELINE = path.resolve(
-  getArg('--baseline', path.join(REPO, 'ops', 'reports', 'migrations', 'migration-ledger-baseline.json'))
+  getArg('--baseline', path.join(REPO, 'ops', 'baselines', 'migration-ledger-baseline.json'))
 );
 const SRC_DIR = path.resolve(getArg('--src', path.join(NEXT, 'src')));
 const JSON_OUT = getArg('--json', null);

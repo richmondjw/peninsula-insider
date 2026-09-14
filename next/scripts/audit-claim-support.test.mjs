@@ -42,7 +42,7 @@ import { indexEvidenceByClaim } from '../src/lib/claim-state.mjs';
 const run = promisify(execFile);
 const SCRIPT = fileURLToPath(new URL('./audit-claim-support.mjs', import.meta.url));
 const NEXT = path.dirname(fileURLToPath(new URL('.', import.meta.url)).replace(/[\\/]$/, ''));
-const BASELINE = path.join(NEXT, '..', 'ops', 'reports', 'claims', 'claim-support-baseline.json');
+const BASELINE = path.join(NEXT, '..', 'ops', 'baselines', 'claim-support-baseline.json');
 
 /* ------------------------------------------------------------------ */
 /* Fixture harness                                                      */
