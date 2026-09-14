@@ -33,3 +33,23 @@ re-running is what exposed the rows.
 | Path | Written by | Read by |
 |---|---|---|
 | `link-health/probe-ledger.json` | `next/scripts/probe-link-health.mjs` (human or scheduled job; touches the network) | `next/scripts/audit-link-health.mjs` (offline gate), `next/scripts/apply-link-dispositions.mjs` |
+
+## What does not live here yet
+
+Auditing every gate in `npm run build` on 2026-09-14 turned up no other gate asserting
+against an artefact its own build produces: the only files a build rewrites are
+`next/public/admin/media-registry.json` and five reports, none of which is anyone's
+evidence or ceiling. Two things are filed in `ops/reports/` that by the definition above
+are not reports. Neither can be manufactured by a build, so neither is the 2026-09-14
+defect, and both are left where they are rather than moved by a pull request about
+something else:
+
+- **`ops/reports/migrations/migration-ledger.json`** — a hand-maintained record of which
+  migrations have been applied, which no program writes. The tree cannot reproduce it. If
+  the wholesale revert reaches it, `assert:migration-ledger` fails closed and loudly,
+  which is why this is a filing problem rather than a silent one.
+- **The eight ratchet baselines** (`*-baseline.json`). A baseline is neither observed nor
+  derived; it is committed policy, and arguably wants an `ops/baselines/` of its own. The
+  hazard is narrow but real in one direction: `git checkout -- ops/reports` is the
+  habitual cleanup, and it would silently discard an unstaged deliberate ratchet-down,
+  leaving the gate looser than the author intended and nothing to say so.
