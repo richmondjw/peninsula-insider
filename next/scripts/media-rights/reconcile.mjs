@@ -86,7 +86,18 @@ export function compareField(field, fileValue, recordValue) {
   const b = text(recordValue);
   if (a === null && b === null) return { field, file: null, record: null, verdict: 'neither' };
   if (b === null) return { field, file: a, record: null, verdict: 'file-only' };
-  if (a === null) return { field, file: null, record: b, verdict: 'record-only' };
+  if (a === null) {
+    // A licence bucket that names no grant is not the record knowing something
+    // the file does not. `unknown` is the schema default and means nobody has
+    // said; `tmp-*` is an admitted stand-in; `other-licensed` names a category
+    // and no grant. Counting one of those as an answer would report 395
+    // records as better documented than the file, which is the exact
+    // overstatement a default-valued rights field caused in the first place.
+    if (field === 'license' && NON_ASSERTING_LICENCES.has(b)) {
+      return { field, file: null, record: b, verdict: 'neither' };
+    }
+    return { field, file: null, record: b, verdict: 'record-only' };
+  }
   if (a === b) return { field, file: a, record: b, verdict: 'agree' };
   if (field === 'license' && NON_ASSERTING_LICENCES.has(b)) {
     return { field, file: a, record: b, verdict: 'placeholder' };
