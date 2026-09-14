@@ -94,11 +94,17 @@ export function buildWinerySchema(data: any, slug: string, section = 'wine') {
     },
     ...(data.phone ? { telephone: data.phone } : {}),
     // priceRange intentionally omitted (BRAND-PI: no pricing on site).
+    // De-duplicated: the three constants below are what every Peninsula
+    // winery knows about, and most estates also list Pinot Noir and Chardonnay
+    // in wines.keyVarieties. Until 2026-09 that collision was invisible,
+    // because wines was undeclared and keyVarieties was always empty here.
     knowsAbout: [
-      'Pinot Noir',
-      'Chardonnay',
-      'Cool-climate winemaking',
-      ...(data.wines?.keyVarieties ?? []),
+      ...new Set([
+        'Pinot Noir',
+        'Chardonnay',
+        'Cool-climate winemaking',
+        ...(data.wines?.keyVarieties ?? []),
+      ]),
     ],
     ...buildKnownForProperties(data.knownFor),
   };
