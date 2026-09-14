@@ -60,10 +60,34 @@
  * carrying today, not a target. Two of them are doing different jobs and the
  * difference is the whole point of the mechanism:
  *
- *   trading-status  0. Thirty-five claims, every one backed. PR #417 delisted
- *                   a trading restaurant for a day on a four-month-old desk
- *                   judgement, so the next status claim that lands with
- *                   nothing behind it fails the build. Nothing to tighten.
+ *   trading-status  1. It was 0 - thirty-five claims, every one backed -
+ *                   because PR #417 delisted a trading restaurant for a day
+ *                   on a four-month-old desk judgement, and the ceiling
+ *                   existed so that the next status claim landing with
+ *                   nothing behind it would fail the build.
+ *
+ *                   On 2026-09-14 one landed, and it is the reason the
+ *                   ceiling was raised rather than the reason it should not
+ *                   have been: venues/red-hill-market/trading-status,
+ *                   register item A25. The corpus sends readers to a market
+ *                   whose own operator publishes that it is temporarily
+ *                   closed and no longer at that ground, across seventeen
+ *                   articles and both market guide pages. Four evidence rows
+ *                   are attached and all four DISPUTE it. None supports it,
+ *                   because no source could be found that does.
+ *
+ *                   Zero was not available honestly. It was reachable only by
+ *                   declining to file the finding, or by softening the claim
+ *                   statement until the evidence appeared to back it, and
+ *                   both of those are the failure this registry exists to
+ *                   stop. What the 1 still buys is what the address ceiling
+ *                   buys: the SECOND unbacked trading-status claim fails the
+ *                   build, and this one is named by claimId in the report.
+ *
+ *                   This is now the ceiling most likely to be wrong soonest.
+ *                   It returns to 0 the moment the A25 decision is taken -
+ *                   see ops/reports/content/2026-09-14-red-hill-market-
+ *                   identity.md - and tightening it needs no re-seed.
  *
  *   accessibility  29. Inherited debt on the events tier. Nobody has been
  *                   through it. The ceiling exists so that debt does not
