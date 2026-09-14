@@ -78,13 +78,18 @@ jobs:
         # Placeholder markers + real Astro collection-schema validation
         # (astro sync against src/content.config.ts).
         #
-        # assert:link-health makes NO network request. It compares the content
-        # tree against the committed probe ledger and a ratchet baseline, so it
-        # can only fail on a change someone made in this repository. A link
+        # assert:link-health makes NO network request, on any code path. It
+        # compares the content tree against the committed probe record
+        # (ops/records/link-health/probe-ledger.json) and a ratchet baseline, so
+        # it can only fail on a change someone made in this repository. A link
         # checker that dialled out here would go red at 3am with no code change,
         # everyone would learn to ignore it, and the next real failure would be
-        # ignored too. Refreshing the ledger is a deliberate act:
-        #   cd next && npm run probe:link-health
+        # ignored too.
+        #
+        # Refreshing the record is a separate program and a deliberate act:
+        #   cd next && npm run probe:link-health -- --unrecorded
+        # Nothing in this file, and nothing in `npm run build`, may run it. The
+        # gate-integrity job below proves that against a real build.
         run: |
           cd next
           npm run assert:schema-drift
@@ -219,3 +224,56 @@ jobs:
         if: failure()
         run: |
           echo "::error title=A journey broke::Search, saves, trips or planning failed end to end, or a navigation left listeners behind. The failure names the page pair and the file that registered the extra copy. Reproduce locally with: cd next && npx astro build && npm run test:journeys"
+
+  gate-integrity:
+    name: A build cannot manufacture the evidence it is judged against
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    # PI-007. The source-link gate refuses a citation nobody has fetched. That
+    # only works if the record of what was fetched is something the act of
+    # checking cannot write.
+    #
+    # It was not. Probing lived on the gate itself as a flag, and the record
+    # sat in ops/reports/ — the directory this repo treats as regenerable build
+    # output. On 2026-09-14 five evidence rows citing URLs nobody had ever
+    # fetched passed a local build; reverting the build artefacts and
+    # re-running is what exposed them.
+    #
+    # Every rule about the gate is asserted cheaply in the job above
+    # (test:link-health, fixture trees, no build). This job exists because that
+    # is precisely the shape of test the defect walked past: the gate was
+    # correct in isolation, and what went wrong happened around it, at the
+    # scale of a real build. So this one puts an unprobed URL into the real
+    # corpus, runs the real npm run build, and asserts it fails and the
+    # record is byte-identical afterwards.
+    #
+    # Separate job so a five-minute build cannot slow the cheap content checks,
+    # and so a failure here reads as what it is: the gate stopped being a gate.
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: next/package-lock.json
+
+      - name: Install dependencies
+        run: |
+          cd next
+          npm ci --prefer-offline
+
+      - name: The build must refuse an unprobed citation
+        run: |
+          cd next
+          npm run test:link-health:build
+
+      - name: Explain failure
+        if: failure()
+        run: |
+          echo "::error title=The source-link gate is no longer a gate::A full build either accepted a citation nothing has probed, or wrote to ops/records/link-health/probe-ledger.json while judging it. Nothing in a build may write that file. Reproduce locally with: cd next && npm run test:link-health:build"
