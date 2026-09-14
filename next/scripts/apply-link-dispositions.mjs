@@ -37,7 +37,7 @@
  *
  * Usage:
  *   node scripts/apply-link-dispositions.mjs [--dry-run]
- *                                            [--dispositions path] [--ledger path]
+ *                                            [--dispositions path] [--record path]
  */
 
 import { fileURLToPath } from 'node:url';
@@ -57,7 +57,10 @@ const DISPOSITIONS = path.resolve(
   getArg('--dispositions', path.join(REPO, 'ops', 'reports', 'content', 'link-health-dispositions.json'))
 );
 const LEDGER = path.resolve(
-  getArg('--ledger', path.join(REPO, 'ops', 'reports', 'content', 'link-health-ledger.json'))
+  getArg(
+    '--record',
+    getArg('--ledger', path.join(REPO, 'ops', 'records', 'link-health', 'probe-ledger.json'))
+  )
 );
 const CONTENT = path.join(NEXT, 'src', 'content');
 
