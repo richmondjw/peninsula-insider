@@ -109,7 +109,7 @@ believed we could use, that nobody could.
 
 The class is therefore empty by maintenance, not by construction. It refills the moment an
 operator's domain lapses, and nothing reports that until someone runs `--probe` again. The ledger
-was last written 2026-09-13; a probe is a deliberate human act and this survey does not perform one.
+carries `updatedAt` 2026-09-14T00:33Z; a probe is a deliberate human act and this survey does not perform one.
 
 ## 4. A URL that resolves and is not the business
 
@@ -198,7 +198,7 @@ record does not hold and the site cannot link.
   link health, and this survey does not read pages.
 - **Whether 43 bot-walled URLs are healthy.** `blocked` is an honest unknown, deliberately not a
   fault.
-- **Whether the ledger is current.** It was written 2026-09-13. Reachability decays without a probe,
+- **Whether the ledger is current.** Its last write is stamped 2026-09-14T00:33Z, and all but one of its 477 rows were probed on 2026-09-13. Reachability decays without a probe,
   and the number in the headline is true of the tree, not of the internet this morning.
 
 One softener on the reader-facing side, and it is only a softener: every venue page renders a
