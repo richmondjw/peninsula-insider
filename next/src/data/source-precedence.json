@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "updated": "2026-09-13",
+  "updated": "2026-09-14",
   "ticket": "PI-005",
-  "note": "Source precedence and expiry for the claim registry, by claim class. Precedence orders publisher kinds from most to least authoritative for that class: where two pieces of evidence disagree, the one from the earlier kind wins, and the disagreement stays visible either way. expiryDays is added to an evidence row's retrievedAt to get its expiresAt. Expiry is a state transition, never a deletion. Nothing in the build reads this file yet; enforcement is Stage 3.",
+  "note": "Source precedence and expiry for the claim registry, by claim class. Precedence orders publisher kinds from most to least authoritative for that class: where two pieces of evidence disagree, the one from the earlier kind wins, and the disagreement stays visible either way. expiryDays is added to an evidence row's retrievedAt to get its expiresAt. Expiry is a state transition, never a deletion. scripts/audit-claim-support.mjs reads this file on every build: a claimClass it does not define, or a publisher.kind it does not list, is a structural failure. Adding a class here without adding it to the claimClass enum in src/content.config.ts leaves the class undeclarable; adding it there without adding it here makes every claim in it a structural failure. Both edits, or neither.",
   "defaultExpiryDays": 90,
   "publisherKinds": [
     "venue-site",
@@ -79,6 +79,20 @@
       "authority": "public authority",
       "expiryDays": 365,
       "precedence": ["gov", "partner", "press", "venue-site", "phone", "email", "visit", "organiser", "regional-body", "social", "ticketing", "importer", "unknown"]
+    },
+    "address": {
+      "label": "Where the place is, as a postal address",
+      "authority": "operator",
+      "expiryDays": 180,
+      "precedence": ["venue-site", "visit", "gov", "phone", "email", "organiser", "partner", "regional-body", "press", "ticketing", "social", "importer", "unknown"],
+      "note": "Who actually knows a business's address: the occupier publishes it and wants to be found, so venue-site leads. visit is second because someone stood at the door, and that cannot be a transcription of somebody else's listing. gov is third, not first: a council or state address register is the only kind that can settle whether a street exists in that town at all, which is a failure no other kind catches, but it lags a tenancy change by months and often carries the owner's address rather than the trading name. partner is SEVENTH, deliberately. It is ranked second for three other classes and that ranking is unsettled on James's register as decision A29; it is not copied here. A commercial partner reporting its own address is as well informed as its own site, but nothing distinguishes that report from its marketing copy, and PI-021's firewall says a commercial relationship may not buy precedence. social is near the bottom because a profile location field is usually a suburb or a landmark, not a postal address."
+    },
+    "coordinates": {
+      "label": "Where the place is, as a point on the ground",
+      "authority": "public authority",
+      "expiryDays": 365,
+      "precedence": ["gov", "visit", "venue-site", "organiser", "phone", "email", "partner", "regional-body", "press", "ticketing", "social", "importer", "unknown"],
+      "note": "Separate from address, and the order is deliberately NOT the address order. gov leads because a state address-point or cadastral dataset publishes a coordinate as a measured property of a parcel, where every other kind publishes it as a byproduct of geocoding a string. visit is second: a fix taken at the door is the only kind that can catch a pin which is inside the bounding box and on the wrong side of the water. venue-site drops from first to third because an operator's embedded map pin is very often itself a geocode of its own address line. importer is second from the bottom on purpose: our own pipeline is where nearly every coordinate in this corpus came from, and a geocoder is a machine's guess at a string - that is precisely how the Point Nepean entries (2026-08-21) landed in the bay from a park-level address. partner sits seventh for the same reason as it does under address; see the note there."
     },
     "accessibility": {
       "label": "Access details",
