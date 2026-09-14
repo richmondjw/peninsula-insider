@@ -29,6 +29,25 @@ const tripEntries = async (reader) => {
   try { return JSON.parse(raw).entries || []; } catch { return []; }
 };
 
+/**
+ * Wait until the trip store holds exactly `n` entries.
+ *
+ * Every wait in this suite is on the store reaching a stated size rather than
+ * on a stopwatch. The press either moved the store or it did not; how long
+ * that took is a property of the machine and must not decide the verdict.
+ */
+const waitForTrip = (reader, n, why) => reader.waitFor(
+  (want) => {
+    try {
+      const raw = localStorage.getItem('pi:saves:v2:trip');
+      return (raw ? (JSON.parse(raw).entries || []).length : 0) === want;
+    } catch { return false; }
+  },
+  why,
+  n,
+  { describe: () => localStorage.getItem('pi:saves:v2:trip') },
+);
+
 /** Save the first two venues on a hub, so the trip journey has something to draw on. */
 async function seedSaves(reader) {
   await reader.load('/eat/');
@@ -36,7 +55,17 @@ async function seedSaves(reader) {
     document.querySelectorAll('[data-v5-save-control]')[0].querySelector('[data-v5-save-btn]').click();
     document.querySelectorAll('[data-v5-save-control]')[1].querySelector('[data-v5-save-btn]').click();
   });
-  await new Promise((r) => setTimeout(r, 200));
+  await reader.waitFor(
+    () => {
+      try {
+        const raw = localStorage.getItem('pi:saves:v2');
+        return (raw ? (JSON.parse(raw).items || []).length : 0) === 2;
+      } catch { return false; }
+    },
+    'seeding two saves on /eat/ never reached two items in the store',
+    null,
+    { describe: () => localStorage.getItem('pi:saves:v2') },
+  );
 }
 
 const stopsOnPage = (reader) => reader.page.evaluate(() => document.querySelectorAll('[data-trip-stop]').length);
