@@ -69,8 +69,10 @@ not be able to erase. Reports are what is left.
 | `seo-architecture-baseline.json` | `npm run lint:seo-architecture` | hand-edited |
 | `unschemad-closure-baseline.json` | `npm run assert:unschemad-closures` | `node scripts/lint-unschemad-closure-signals.mjs --update-baseline` |
 
-The `npm run` commands are run from `next/`. Every gate above also accepts `--baseline
-<path>`, which is how the tests point them at a fixture instead of the real ceiling.
+The `npm run` commands are run from `next/`. The ten gates with a `--update-baseline`
+refresh also accept `--baseline <path>`, which is how their tests point them at a fixture
+instead of the real ceiling. The two hand-edited ones — `lint-seo-architecture.mjs` and
+`ops/scripts/seo/build-url-ledger.mjs` — hardcode their path and take no override.
 
 ## What does not live here
 
