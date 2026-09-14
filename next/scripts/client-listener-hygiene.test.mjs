@@ -60,13 +60,29 @@ function functionBody(src, name) {
   return null;
 }
 
-const GLOBAL_BIND = /\b(?:document|window)\s*\.\s*addEventListener\s*\(\s*['"]([^'"]+)['"]/g;
+const GLOBAL_BIND = /\b(?:document|window)\s*\.\s*addEventListener\s*\(\s*['"]([^'"]+)['"]([^\n]*)/g;
+const GLOBAL_UNBIND = /\b(?:document|window)\s*\.\s*removeEventListener\s*\(\s*['"]([^'"]+)['"]/g;
 const ZERO_ARG_CALL = /\b([A-Za-z_$][\w$]*)\s*\(\s*\)/g;
 
 /**
- * Every global listener registered by `handler`, or by a same-file zero-arg
- * function `handler` calls. One level of following is enough to catch the
- * `init() { bindToolbar(); }` shape that hid the /account/saved/ defect.
+ * An identifier in argument position: `forEach(hydrate)`, `map(f)`, `then(go)`.
+ *
+ * This is the hole that let six live accumulators through the 2026-09-13
+ * sweep. Every v5 island registers as `querySelectorAll(...).forEach(hydrate)`,
+ * and following only `f()` never reaches hydrate(), which is exactly where the
+ * document-level listener sits. The browser harness in tests/journeys found
+ * them by measuring; this makes the cheap scanner see them too, so the
+ * expensive one is a backstop rather than the only net.
+ */
+const CALLBACK_ARG = /[(,]\s*([A-Za-z_$][\w$]*)\s*[,)]/g;
+
+/** An observer left pointed at a replaced node is the same defect, differently spelt. */
+const GLOBAL_OBSERVE = /new\s+(MutationObserver|IntersectionObserver|ResizeObserver)\s*\(/g;
+
+/**
+ * Every global listener or observer registered by `handler`, or by a same-file
+ * function `handler` reaches - whether it calls that function by name or hands
+ * it to something else to call.
  */
 function globalBindsReachableFrom(src, handler) {
   const found = [];
@@ -78,10 +94,35 @@ function globalBindsReachableFrom(src, handler) {
     seen.add(name);
     const body = functionBody(src, name);
     if (!body) continue;
-    for (const match of body.matchAll(GLOBAL_BIND)) found.push({ fn: name, event: match[1] });
+    for (const match of body.matchAll(GLOBAL_BIND)) {
+      // A registration carrying an AbortSignal is torn down by whoever holds
+      // the controller, so it cannot accumulate.
+      if (/\bsignal\b/.test(match[2] || '')) continue;
+      found.push({ fn: name, event: match[1] });
+    }
+    for (const match of body.matchAll(GLOBAL_OBSERVE)) found.push({ fn: name, event: `new ${match[1]}` });
     for (const match of body.matchAll(ZERO_ARG_CALL)) queue.push(match[1]);
+    for (const match of body.matchAll(CALLBACK_ARG)) queue.push(match[1]);
   }
   return found;
+}
+
+/**
+ * Events this file explicitly unbinds, and observers it explicitly
+ * disconnects. A register/unregister pair inside one component is balanced -
+ * the filter sheet's focus trap binds keydown on open and removes it on close,
+ * and the bottom bar disconnects before re-pointing - and flagging those would
+ * teach people to ignore the scanner, which is how a scanner dies.
+ */
+function tornDownIn(src) {
+  const torn = new Set();
+  for (const match of src.matchAll(GLOBAL_UNBIND)) torn.add(match[1]);
+  if (/\.\s*disconnect\s*\(/.test(src)) {
+    for (const name of ['MutationObserver', 'IntersectionObserver', 'ResizeObserver']) {
+      torn.add(`new ${name}`);
+    }
+  }
+  return torn;
 }
 
 const ASTRO_FILES = walk(SRC_DIR, ['.astro']);
@@ -110,6 +151,17 @@ const SCRIPT_FILES = walk(SRC_DIR, ['.astro', '.ts', '.tsx', '.mjs']);
  * depending on a cleanup hook firing in the right order.
  *
  * This list may only shrink. Adding a new entry means shipping the defect.
+ *
+ * Still empty as of 2026-09-14, but for a better reason than on 2026-09-13.
+ * The scanner that declared the baseline clear could only see a function
+ * called by name, and every v5 island registers by handing a function to
+ * something else: `querySelectorAll(...).forEach(hydrate)`. Six live
+ * accumulators were sitting behind that, and the browser harness in
+ * tests/journeys measured all six. The scanner now follows a function passed
+ * as an argument, treats an observer as the same defect, and reads an
+ * anonymous astro:page-load handler - and it discounts a registration that is
+ * explicitly removed, or that carries an AbortSignal, because a balanced pair
+ * is not a leak and flagging one teaches people to ignore the scanner.
  */
 const KNOWN_UNFIXED = [].sort();
 
@@ -120,8 +172,19 @@ test('no astro:page-load handler registers a document- or window-level listener'
     const handlers = [
       ...src.matchAll(/addEventListener\s*\(\s*['"]astro:page-load['"]\s*,\s*([A-Za-z_$][\w$]*)\s*\)/g),
     ].map((m) => m[1]);
+    // Anonymous handlers too. The subscribe pill in BaseLayout and the v5
+    // bottom bar both hid in one: an inline astro:page-load handler that
+    // cleared its own element-level guard and re-ran an init that binds on
+    // window. Every navigation added one more, on every page of the site.
+    for (const m of src.matchAll(
+      /addEventListener\s*\(\s*['"]astro:page-load['"]\s*,\s*(?:function\s*\([^)]*\)|\([^)]*\)\s*=>)\s*\{([\s\S]{0,600}?)\n\s*\}\s*\)/g,
+    )) {
+      for (const call of m[1].matchAll(ZERO_ARG_CALL)) handlers.push(call[1]);
+    }
+    const torn = tornDownIn(src);
     for (const handler of new Set(handlers)) {
       for (const bind of globalBindsReachableFrom(src, handler)) {
+        if (torn.has(bind.event)) continue;
         offences.push(`${rel(file)}: ${handler}() -> ${bind.fn}() binds "${bind.event}" on document/window`);
       }
     }

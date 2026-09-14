@@ -92,16 +92,39 @@ test('generateCaseRef: out-of-range indices still yield a legal reference', () =
   assert.match(generateCaseRef(new Date(2026, 8, 13), () => [-1, -33, 0, 0, 0, 0]), CASE_REF_PATTERN);
 });
 
-test('generateCaseRef: real randomness produces distinct, well-formed refs', () => {
-  const seen = new Set();
+test('generateCaseRef: every ref it mints is well formed', () => {
+  // Real randomness, format only. Drawing 2000 refs and asserting ZERO
+  // collisions is not a property of this code: the tail is six characters
+  // from a 32-letter alphabet, so 2000 draws collide about once in every
+  // 500 runs by the birthday bound alone. That assertion failed a pull
+  // request that did not touch this file. A check that can fail with no
+  // code change is exactly what this repository forbids, so distinctness is
+  // proved deterministically in the test below instead.
   for (let i = 0; i < 2000; i++) {
-    const ref = generateCaseRef();
+    assert.match(generateCaseRef(), CASE_REF_PATTERN);
+  }
+});
+
+test('generateCaseRef: distinct draws give distinct refs, deterministically', () => {
+  // generateCaseRef takes its randomness as an argument, so the property
+  // can be proved rather than sampled: feed it a counter and every ref must
+  // differ. This cannot flake, and it fails for real if the tail ever stops
+  // depending on the draw.
+  const now = new Date(2026, 8, 14);
+  const seen = new Set();
+  const total = 32 * 32;
+  for (let n = 0; n < total; n++) {
+    const ref = generateCaseRef(now, (count) => {
+      const out = [];
+      for (let k = 0; k < count; k++) {
+        out.push(k === 0 ? n % 32 : Math.floor(n / 32) % 32);
+      }
+      return out;
+    });
     assert.match(ref, CASE_REF_PATTERN);
     seen.add(ref);
   }
-  // 32^6 per day. Two thousand draws colliding even once would mean the
-  // randomness source had collapsed.
-  assert.equal(seen.size, 2000);
+  assert.equal(seen.size, total, 'two different draws must not mint the same ref');
 });
 
 test('isCaseRef: rejects near-misses', () => {

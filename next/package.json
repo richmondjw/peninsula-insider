@@ -69,6 +69,7 @@
     "test:saves-store": "node --test src/lib/saves/store.test.mjs src/lib/v5-store.test.mjs",
     "test:trip-import": "node --test src/lib/trip-import.test.mjs",
     "lint:listener-hygiene": "node --test scripts/client-listener-hygiene.test.mjs",
+    "test:journeys": "node --test --test-concurrency=1 tests/journeys/navigation.test.mjs tests/journeys/search.test.mjs tests/journeys/saves.test.mjs tests/journeys/trips.test.mjs tests/journeys/planning.test.mjs",
     "lint:search-privacy": "node --test scripts/search-query-privacy.test.mjs",
     "test:search-privacy": "node --test scripts/search-query-privacy.test.mjs",
     "assert:count-semantics": "node scripts/assert-count-semantics.mjs",

@@ -329,28 +329,19 @@
       trigger.addEventListener('click', function () { setOpen(!open); });
       if (closeBtn) closeBtn.addEventListener('click', function () { setOpen(false); });
 
-      // Click outside closes
-      document.addEventListener('click', function (e) {
-        if (!open) return;
-        if (root.contains(e.target)) return;
-        setOpen(false);
-      });
-
-      // Slash key opens search from anywhere (unless typing in another input)
-      document.addEventListener('keydown', function (e) {
-        if (e.key === '/' && !open) {
-          var t = e.target;
-          var tag = t && t.tagName ? t.tagName.toLowerCase() : '';
-          if (tag === 'input' || tag === 'textarea' || (t && t.isContentEditable)) return;
-          e.preventDefault();
-          setOpen(true);
-          return;
-        }
-        if (e.key === 'Escape' && open) {
-          setOpen(false);
-          trigger.focus();
-        }
-      });
+      // Click-outside and the slash key need listeners on `document`, which is
+      // not replaced by a navigation - while the astro:page-load handler at the
+      // bottom of this file deliberately clears `state.bound` and re-runs
+      // init() against the new DOM. Registering them here therefore added one
+      // more copy of each per navigation, for the life of the tab. The live
+      // instance publishes its controls instead, and the two module-scope
+      // listeners below find whichever one is on the page.
+      root._piTypeahead = {
+        isOpen: function () { return open; },
+        setOpen: setOpen,
+        contains: function (node) { return root.contains(node); },
+        focusTrigger: function () { trigger.focus(); },
+      };
 
       // Input handling - debounced query
       input.addEventListener('input', function () {
@@ -403,6 +394,38 @@
       // Restore on page-swap (Astro view transitions): reset state.
       showSuggestions();
     }
+
+    // One of each, for the life of the document. Both look the live instance
+    // up rather than closing over one, so a navigation cannot leave them
+    // talking to a panel that was discarded three pages ago.
+    function live() {
+      var root = document.querySelector('[data-typeahead-root]');
+      return root && root._piTypeahead ? root._piTypeahead : null;
+    }
+
+    document.addEventListener('click', function (e) {
+      var api = live();
+      if (!api || !api.isOpen()) return;
+      if (api.contains(e.target)) return;
+      api.setOpen(false);
+    });
+
+    document.addEventListener('keydown', function (e) {
+      var api = live();
+      if (!api) return;
+      if (e.key === '/' && !api.isOpen()) {
+        var t = e.target;
+        var tag = t && t.tagName ? t.tagName.toLowerCase() : '';
+        if (tag === 'input' || tag === 'textarea' || (t && t.isContentEditable)) return;
+        e.preventDefault();
+        api.setOpen(true);
+        return;
+      }
+      if (e.key === 'Escape' && api.isOpen()) {
+        api.setOpen(false);
+        api.focusTrigger();
+      }
+    });
 
     init();
     document.addEventListener('astro:page-load', function () {

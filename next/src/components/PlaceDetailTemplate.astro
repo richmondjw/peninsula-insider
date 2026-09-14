@@ -763,12 +763,21 @@ const factual = place.data.factualLede ?? '';
         L.marker([lat, lng]).addTo(map).bindPopup(name);
       }).catch(() => { el._piMapInit = false; });
     }
+    // Held at module scope so the previous page's observer can be dropped.
+    // The `data-bound` guard is on the map element, which the client router
+    // replaces, so the guard was fresh on every visit while the observer was
+    // not - and a reader who never scrolled the map into view left it
+    // connected to a detached element. One more per place page, for the life
+    // of the tab. Found by the PI-012 sweep.
+    let mapObserver = null;
     function bindMaps() {
       const els = document.querySelectorAll('[data-place-map]:not([data-bound])');
       if (!els.length) return;
+      if (mapObserver) mapObserver.disconnect();
       const io = new IntersectionObserver((entries) => {
         entries.forEach((e) => { if (e.isIntersecting) { initMap(e.target); io.unobserve(e.target); } });
       }, { rootMargin: '200px' });
+      mapObserver = io;
       els.forEach((el) => { el.setAttribute('data-bound', '1'); io.observe(el); });
     }
     if (document.readyState === 'loading') {

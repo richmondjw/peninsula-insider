@@ -85,11 +85,20 @@ const { label = 'View as' } = Astro.props;
       });
     });
 
-    window.addEventListener('popstate', () => paint(root, getView()));
-    document.addEventListener('pi:view-toggle', ((e: CustomEvent) => {
-      paint(root, e.detail.view);
-    }) as EventListener);
   }
+
+  // Module scope, not hydrate(). The `_piInit` guard is on the toggle element,
+  // which a client-router navigation replaces; `window` and `document` are not
+  // replaced, so registering these inside hydrate() left one more copy per
+  // navigation, each painting a detached toggle. Same defect class as PI-012's
+  // original four, found by the tests/journeys sweep.
+  function paintAll(view: ViewValue) {
+    document.querySelectorAll<HTMLElement>('[data-v5-maptoggle]').forEach((root) => paint(root, view));
+  }
+  window.addEventListener('popstate', () => paintAll(getView()));
+  document.addEventListener('pi:view-toggle', ((e: CustomEvent) => {
+    paintAll(e.detail.view);
+  }) as EventListener);
 
   function init() {
     document.querySelectorAll<HTMLElement>('[data-v5-maptoggle]').forEach(hydrate);

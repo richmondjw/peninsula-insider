@@ -136,3 +136,64 @@ jobs:
         if: failure()
         run: |
           echo "::error title=Content gate failed::A content file is a placeholder shell or fails its collection schema. Fix or delete the file — do not merge. Reproduce locally with: cd next && npm run validate:content"
+
+  journeys:
+    name: Search, saves, trips and planning, driven end to end
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    # PI-012. The content gate above reads source and content; this one drives
+    # the built site in a headless browser, because the defect class it exists
+    # to catch only exists at runtime: Astro's client router swaps the document
+    # without re-evaluating a script it has already run, so a listener bound
+    # once is bound to a DOM that is about to be thrown away, and a listener
+    # registered from an astro:page-load handler gains a copy per navigation.
+    # Neither is visible in a unit test of the pieces, and both have shipped.
+    #
+    # It is a separate job rather than a step in the gate above so a browser
+    # run cannot slow down or flake the cheap content checks, and so a failure
+    # here reads as what it is.
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: next/package-lock.json
+
+      - name: Install dependencies
+        run: |
+          cd next
+          npm ci --prefer-offline
+
+      - name: Listener hygiene (source scan)
+        # The cheap net. It runs first because when both fail, this one names
+        # the file and the browser run names the symptom.
+        run: |
+          cd next
+          npm run lint:listener-hygiene
+
+      - name: Build the site the journeys are driven against
+        # `astro build` rather than `npm run build`: the harness needs dist/,
+        # not the twenty content and SEO ratchets the full build also runs.
+        # Those are the job above and build-and-deploy's business; duplicating
+        # them here would make a journey failure and a ratchet failure look the
+        # same.
+        run: |
+          cd next
+          npx astro build
+
+      - name: Journeys
+        run: |
+          cd next
+          npm run test:journeys
+
+      - name: Explain failure
+        if: failure()
+        run: |
+          echo "::error title=A journey broke::Search, saves, trips or planning failed end to end, or a navigation left listeners behind. The failure names the page pair and the file that registered the extra copy. Reproduce locally with: cd next && npx astro build && npm run test:journeys"

@@ -383,15 +383,29 @@ const showNewsletterPopup = newsletterPopupMode === 'preview' || newsletterPopup
         var h = Math.round(m.getBoundingClientRect().height);
         document.documentElement.style.setProperty('--masthead-h', h + 'px');
       }
-      setMastheadH();
-      if ('ResizeObserver' in window) {
+      var ro = null;
+      // The masthead element is replaced by every client-router navigation,
+      // so an observer pointed at the first one is watching a detached node
+      // from the second page onwards and --masthead-h silently stops tracking
+      // the utility-row collapse. Re-point it, and disconnect the old one
+      // first so re-pointing does not itself accumulate observers.
+      function watchMasthead() {
         var m = document.querySelector('.masthead');
-        if (m) new ResizeObserver(setMastheadH).observe(m);
-      } else {
-        window.addEventListener('resize', setMastheadH);
+        if (!('ResizeObserver' in window)) return;
+        if (ro) ro.disconnect();
+        ro = null;
+        if (!m) return;
+        ro = new ResizeObserver(setMastheadH);
+        ro.observe(m);
       }
+      setMastheadH();
+      if ('ResizeObserver' in window) watchMasthead();
+      else window.addEventListener('resize', setMastheadH);
       // Re-measure after page transitions (Astro view-transitions).
-      document.addEventListener('astro:page-load', setMastheadH);
+      document.addEventListener('astro:page-load', function () {
+        setMastheadH();
+        watchMasthead();
+      });
     })();
   </script>
 
@@ -570,32 +584,38 @@ const showNewsletterPopup = newsletterPopupMode === 'preview' || newsletterPopup
 
   <script is:inline>
     (function () {
-      function initSubscribePill() {
+      var threshold = 0.5; // 50% of scrollable page
+      var rafId = null;
+
+      // Reads document.body on every call rather than closing over it. That is
+      // the whole fix: the client router replaces <body> on every navigation,
+      // so a closed-over reference goes stale, and the previous shape dealt
+      // with that by clearing its own `_subPillBound` guard from an
+      // astro:page-load handler and re-running - which added one more scroll
+      // listener per navigation, for the life of the tab, each holding a
+      // detached body alive. tests/journeys measured +1 per navigation on
+      // every page of the site, this being in the layout.
+      function check() {
         var body = document.body;
-        if (body._subPillBound) return;
-        body._subPillBound = true;
-        var threshold = 0.5; // 50% of scrollable page
-        var rafId = null;
-        function check() {
-          var max = document.documentElement.scrollHeight - window.innerHeight;
-          if (max <= 0) {
-            body.classList.remove('show-subscribe-pill');
-            return;
-          }
-          var pct = window.scrollY / max;
-          body.classList.toggle('show-subscribe-pill', pct >= threshold);
+        if (!body) return;
+        var max = document.documentElement.scrollHeight - window.innerHeight;
+        if (max <= 0) {
+          body.classList.remove('show-subscribe-pill');
+          return;
         }
-        window.addEventListener('scroll', function () {
-          if (rafId) return;
-          rafId = requestAnimationFrame(function () { check(); rafId = null; });
-        }, { passive: true });
-        check();
+        var pct = window.scrollY / max;
+        body.classList.toggle('show-subscribe-pill', pct >= threshold);
       }
-      initSubscribePill();
-      document.addEventListener('astro:page-load', function () {
-        document.body._subPillBound = false;
-        initSubscribePill();
-      });
+
+      // One listener, registered once. `window` outlives every swap.
+      window.addEventListener('scroll', function () {
+        if (rafId) return;
+        rafId = requestAnimationFrame(function () { check(); rafId = null; });
+      }, { passive: true });
+      check();
+      // A navigation resets scroll position and page height, so recompute -
+      // but only recompute. Nothing is re-registered.
+      document.addEventListener('astro:page-load', check);
     })();
   </script>
 
