@@ -1,5 +1,4 @@
 ---
-slug: "weddings-where-guests-stay-mornington-peninsula"
 title: "Where Wedding Guests Should Stay on the Mornington Peninsula"
 dek: "The best towns, hotels, and guest-base logic for a Peninsula wedding weekend, from Red Hill winery weddings to Sorrento coastal celebrations."
 author: "editorial"

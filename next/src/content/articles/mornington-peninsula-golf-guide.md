@@ -1,5 +1,4 @@
 ---
-slug: "mornington-peninsula-golf-guide"
 title: "Mornington Peninsula Golf - Why It's Australia's Best Golf Region"
 dek: "World-ranked public access, serious course architecture, hot springs within fifteen minutes, and a weekend shape that works even if only one person in the group plays."
 author: "editorial"

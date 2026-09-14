@@ -1,5 +1,4 @@
 ---
-slug: "mornington-peninsula-golf-stay-and-play"
 title: "Mornington Peninsula Stay and Play Golf - Where to Stay Near Every Course"
 dek: "The accommodation that makes each Peninsula golf course walkable, driveable, or otherwise properly paired. Ten courses, stay recommendations for each, and the package combinations that actually work."
 author: "editorial"

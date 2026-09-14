@@ -140,6 +140,13 @@ const ASSERTED_METRICS = new Set([
 const DATE_FIELDS = [
   'lastVerified', 'lastCheckedDate', 'lastReviewed', 'checkedOn', 'reviewedOn',
   'verifiedAt', 'checkedAt', 'retrievedAt',
+  // Declared on venues 2026-09-14 (PI-010). Until then Zod stripped it, so no
+  // rule could reach it; now that the value survives, the same rule governs it
+  // as every other verification date. Its 21 records share one bulk-stamped
+  // value and it is deliberately unrendered - but the field is real now, and
+  // the way it would go wrong is a script stamping it from the clock. That is
+  // exactly what this list forbids.
+  'lastFactVerified',
 ];
 
 /** Ways a script asks the operating system what day it is. */

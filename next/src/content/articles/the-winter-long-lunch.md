@@ -1,5 +1,4 @@
 ---
-slug: "the-winter-long-lunch"
 title: "The Winter Long Lunch: Vineyard Dining Room or Coastal Pub"
 dek: "Two very different versions of the same afternoon. Here's how to pick the right one for the day you're actually having."
 author: "editorial"

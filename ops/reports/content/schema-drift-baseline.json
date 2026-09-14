@@ -1,32 +1,12 @@
 {
-  "updatedAt": "2026-09-13T06:08:45.129Z",
+  "updatedAt": "2026-09-14T00:32:14.067Z",
   "note": "Ratchet baseline, seeded from the real corpus. A key listed here may not grow; a key NOT listed here fails on first appearance. Tighten as fields are adopted into next/src/content.config.ts or migrated out of the data.",
   "totals": {
-    "collectionsAudited": 22,
-    "filesScanned": 859,
+    "collectionsAudited": 24,
+    "filesScanned": 2000,
     "unreadableFiles": 0,
-    "distinctGhostKeys": 19,
-    "ghostKeyInstances": 184
+    "distinctGhostKeys": 0,
+    "ghostKeyInstances": 0
   },
-  "ceilings": {
-    "articles.agentRun": 29,
-    "venues.faq": 21,
-    "venues.lastFactVerified": 21,
-    "venues.sameAs": 21,
-    "venues.subregion": 21,
-    "venues.wines": 21,
-    "articles.slug": 16,
-    "articles.dispatch.companion": 6,
-    "articles.dispatch.localEdge": 6,
-    "events.archivedAt": 5,
-    "venues.accommodation": 5,
-    "events.archivedReason": 3,
-    "events.archiveReason": 2,
-    "venues.openingHours": 2,
-    "articles.dispatch.quieterAlt": 1,
-    "articles.relatedEvents": 1,
-    "itineraries.gallery": 1,
-    "venues.email": 1,
-    "venues.previousSlug": 1
-  }
+  "ceilings": {}
 }
