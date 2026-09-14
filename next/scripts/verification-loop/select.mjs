@@ -50,6 +50,14 @@ export const CONSEQUENCE = Object.freeze({
   accessibility: 'high',
   'trading-status': 'medium',
   'event-schedule': 'medium',
+  // A wrong address or a wrong pin costs a reader a drive, which is the same
+  // consequence as a wrong opening hour, not the same as a beach closure. Both
+  // are held at medium rather than inflated to high: the calibration above is
+  // "high means somebody hurt or fined", and honouring it is what keeps the
+  // high band meaning something. They rank above `offering` because every
+  // other claim about a place is anchored to where it is.
+  address: 'medium',
+  coordinates: 'medium',
   booking: 'medium',
   'opening-hours': 'medium',
   'rate-change': 'medium',

@@ -2073,6 +2073,15 @@ const claimClass = z.enum([
   'access-restriction', // closures, track and beach restrictions, safety
   'conditions',         // tide, swell, fire, rainfall windows
   'fishing-rule',       // bag limits, size limits, closed seasons
+  'address',            // where the place is, as a postal address
+  'coordinates',        // where the place is, as a point on the ground.
+                        // Deliberately NOT folded into 'address': a record can
+                        // carry a correct street address and a pin 1.4km away,
+                        // and this corpus has done exactly that. One class
+                        // cannot express both, because one supporting row
+                        // would then back both facts. See the two entries in
+                        // src/data/source-precedence.json, whose precedence
+                        // orders differ at the top for the same reason.
   'accessibility',      // access details
   'regional-count',     // counts and aggregates for the region
   'editorial',          // an editor's own note, no external source

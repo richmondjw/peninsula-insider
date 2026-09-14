@@ -65,6 +65,7 @@ jobs:
           npm run test:verification-proposals
           npm run test:material-change
           npm run test:claim-support
+          npm run test:claim-class-location
           npm run test:how-we-check
           npm run test:event-safeguards
           npm run test:event-occurrence

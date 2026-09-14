@@ -1,0 +1,14 @@
+{
+  "evidenceId": "venues/iluka-retreat/coordinates-operator-contact-2026-09-14",
+  "claim": "venues/iluka-retreat/coordinates",
+  "stance": "disputes",
+  "publisher": {
+    "kind": "venue-site",
+    "name": "Iluka Retreat & Camp"
+  },
+  "url": "https://www.ilukaretreat.com.au/contact",
+  "retrievedAt": "2026-09-14",
+  "expiresAt": "2027-09-14",
+  "note": "The operator embeds a Google Maps link for its own address on this page whose coordinates are -38.417723, 145.034479. The record stores -38.486, 145.043. The two points are 7.63 km apart, 7.59 km of it latitude. Both sit inside the bounding box lint-coordinates.mjs enforces (lat -38.6 to -38.1, lng 144.6 to 145.35), so that gate passes on this record today, passed on it on every previous build, and would pass on it however far the pin drifted inside the box. This is the gap the class closes, and the reason it is not folded into address.",
+  "origin": "authored"
+}

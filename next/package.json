@@ -79,6 +79,7 @@
     "audit:claim-support": "node scripts/audit-claim-support.mjs",
     "assert:claim-support": "node scripts/audit-claim-support.mjs --assert",
     "test:claim-support": "node --test scripts/audit-claim-support.test.mjs",
+    "test:claim-class-location": "node --test scripts/claim-class-location.test.mjs",
     "migrate:event-claims": "node scripts/migrate-event-claims.mjs",
     "test:event-claims": "node --test scripts/migrate-event-claims.test.mjs",
     "verify:claims": "node scripts/run-verification-loop.mjs",

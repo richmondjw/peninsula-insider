@@ -1,0 +1,20 @@
+{
+  "claimId": "venues/cassis/address",
+  "claimClass": "address",
+  "subject": {
+    "type": "venues",
+    "slug": "cassis",
+    "field": "address"
+  },
+  "statement": "Cassis Red Hill is in Red Hill VIC 3937.",
+  "assertedBy": [
+    {
+      "type": "venues",
+      "slug": "cassis",
+      "field": "address"
+    }
+  ],
+  "createdAt": "2026-09-14",
+  "origin": "authored",
+  "note": "Third of the locality-only addresses. Same shape, different operator, and it is the shape rather than the venue that the class has to be able to hold. Authored by hand for the PI-005 address and coordinates pilot. Sources were read on 2026-09-14; see ops/reports/claims/2026-09-14-pilot-address.md."
+}

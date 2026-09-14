@@ -1,6 +1,6 @@
 {
   "note": "Probe results for every source URL in the corpus. Written only by --probe; read offline by the gate. A verdict is what a probe saw, not an inference.",
-  "updatedAt": "2026-09-13T18:04:31.188Z",
+  "updatedAt": "2026-09-14T00:33:58.585Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -2226,6 +2226,15 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Iluka Retreat &amp; Camp | Mornington Peninsula | Glamping &amp; Group Lodges"
+    },
+    {
+      "url": "https://www.ilukaretreat.com.au/contact",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Contact Us | Iluka Retreat &amp; Camp | Mornington Peninsula | Book &amp; Enquire",
+      "effectiveUrl": "https://ilukaretreat.com.au/contact-us/",
+      "probedOn": "2026-09-14",
+      "probedBy": "audit-link-health.mjs --probe"
     },
     {
       "url": "https://www.imaginefrankston.com.au/mornington/mornington-peninsula-regional-gallery",
