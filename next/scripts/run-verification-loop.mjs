@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * run-verification-loop.mjs - PI-006 Stage 1, the report-only verification loop.
+ * run-verification-loop.mjs - PI-006, the proposal-only verification loop.
  *
  * WHAT THIS IS
  * ------------
@@ -16,13 +16,29 @@
  * WHAT IT IS NOT
  * --------------
  * It is not the write stage. It writes nothing to any content record, ever,
- * and there is no flag that makes it. PI-006 says to start in report-only,
+ * and there is no flag that makes it. PI-006 says to start without writing,
  * compare against human decisions, and only then permit narrowly defined
  * factual updates; decision D5 gates that scope and has not been taken. So
  * there is no kill switch here, because a kill switch on a component that
  * cannot write is theatre. What stands in its place is the thing a write stage
  * would actually need in order to be trusted: a deterministic gate that
  * measures, every run, on the real corpus, that nothing moved.
+ *
+ * WHAT PROPOSAL-ONLY MEANS, GIVEN THAT
+ * ------------------------------------
+ * The whole loop is built, end to end, in a mode that cannot touch published
+ * content. It reads the corpus, finds claims that are expired, unsourced or
+ * contradicted, reads the source each one cites in precedence order, and emits
+ * a PROPOSAL: one field-level change carrying the claim, the current value,
+ * the proposed value, the URL read, when it was read, what kind of publisher
+ * that is, and where that kind sits in precedence for this class of claim. A
+ * person reviews it (scripts/review-proposals.mjs), and accepting one prepares
+ * a patch file (scripts/apply-proposals.mjs) that a person applies themselves.
+ *
+ * That means D5 is no longer a decision about whether to build any of this. It
+ * is a decision about one thing only: whether an agent may run the last
+ * command, the one a person runs today with `git apply`. Everything before it
+ * exists, runs nightly and is useful now.
  *
  * WHERE IT RUNS
  * -------------
@@ -42,6 +58,9 @@
  *   node scripts/run-verification-loop.mjs --offline            no network at all
  *   node scripts/run-verification-loop.mjs --json out.json --md out.md
  *   node scripts/run-verification-loop.mjs --today 2026-09-13
+ *   node scripts/run-verification-loop.mjs \
+ *     --proposals ops/reports/verification/proposals.json \
+ *     --proposals-md ops/reports/verification/proposals.md
  *
  * Test-harness overrides (production callers pass none):
  *   --next-dir --fixtures --concurrency --timeout-ms --max-attempts
@@ -60,6 +79,7 @@ import { loadCorpus } from './verification-loop/corpus.mjs';
 import { contentManifest, runChecks } from './verification-loop/checks.mjs';
 import { createFetcher, createFixtureFetcher } from './verification-loop/fetch-source.mjs';
 import { allCitedUrls, runLoop } from './verification-loop/loop.mjs';
+import { buildProposals, renderProposalsMarkdown } from './verification-loop/proposal.mjs';
 import { renderMarkdown, writeReport } from './verification-loop/report.mjs';
 
 const NEXT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -102,7 +122,7 @@ export async function main(argv = args) {
 
   let fetchSource;
   let draftsForClaim = null;
-  let mode = 'report-only';
+  let mode = 'proposal-only';
 
   if (fixtures) {
     const bundle = await loadFixtures(path.resolve(fixtures));
@@ -114,7 +134,7 @@ export async function main(argv = args) {
           { url: artifact.url, digest: artifact.digest, fetchedAt: artifact.fetchedAt },
         ],
       }));
-    mode = 'report-only (fixtures)';
+    mode = 'proposal-only (fixtures)';
   } else if (offline) {
     // Structural pass. Every source reads as unreachable, which keeps the
     // adjudicator honest: it may not reach a verdict it did not read a page
@@ -133,7 +153,7 @@ export async function main(argv = args) {
       attempts: 0,
       note: 'offline run: no request was made',
     });
-    mode = 'report-only (offline)';
+    mode = 'proposal-only (offline)';
   } else {
     fetchSource = createFetcher({
       allowedUrls,
@@ -154,18 +174,46 @@ export async function main(argv = args) {
   });
   const manifestAfter = await contentManifest(nextDir);
 
+  // The proposals are derived from the completed run rather than composed
+  // during it, so the loop cannot be tempted to act on one mid-flight. They
+  // hang off the run because the gate below has to see them: an unauditable
+  // proposal is a gate failure, not a review problem to be discovered later by
+  // somebody reading it.
+  run.proposals = buildProposals({ run, precedence: corpus.precedence });
+  run.proposalSummary = {
+    total: run.proposals.length,
+    decidable: run.proposals.filter((item) => item.acceptability?.acceptable).length,
+    note:
+      'a proposal is a field-level change with an answer attached. An escalation is a question ' +
+      'with no answer attached. Both reach the same person; only a proposal can be applied.',
+  };
+
   const checks = runChecks({ run, manifestBefore, manifestAfter, allowedUrls });
   run.checks = checks;
 
   const jsonOut = getArg('--json', null);
   const mdOut = getArg('--md', null);
+  const proposalsOut = getArg('--proposals', null);
+  const proposalsMdOut = getArg('--proposals-md', null);
   if (jsonOut) {
     await writeReport(path.resolve(nextDir, '..', jsonOut), `${JSON.stringify(run, null, 2)}\n`);
   }
   if (mdOut) {
     await writeReport(path.resolve(nextDir, '..', mdOut), renderMarkdown(run, checks));
   }
-  if (!jsonOut && !mdOut) {
+  if (proposalsOut) {
+    await writeReport(
+      path.resolve(nextDir, '..', proposalsOut),
+      `${JSON.stringify({ schema: 'pi-006-proposals/1', ticket: 'PI-006', asAt: run.asAt, mode: run.mode, proposals: run.proposals }, null, 2)}\n`
+    );
+  }
+  if (proposalsMdOut) {
+    await writeReport(
+      path.resolve(nextDir, '..', proposalsMdOut),
+      renderProposalsMarkdown(run.proposals, { asAt: run.asAt, mode: run.mode })
+    );
+  }
+  if (!jsonOut && !mdOut && !proposalsOut && !proposalsMdOut) {
     process.stdout.write(renderMarkdown(run, checks));
   }
 
