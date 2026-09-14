@@ -17,9 +17,9 @@
  *
  * NO NETWORK, EVER.
  *
- * Reachability is read from the committed link-health ledger
+ * Reachability is read from the committed link-health probe record
  * (ops/records/link-health/probe-ledger.json), which is written only by
- * `audit-link-health.mjs --probe` and reviewed in a diff. A verdict here is
+ * `probe-link-health.mjs` and reviewed in a diff. A verdict here is
  * therefore what a probe saw and a human committed, never what this script
  * guessed. That also makes the output a property of the files on disk: same
  * tree, same numbers, any machine, any date. Nothing expires, and no remote
