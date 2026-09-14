@@ -47,14 +47,21 @@ asymmetry is itself part of the problem.**
 | Venue record | `venues/red-hill-market.json` | **none** |
 | Venue page | `/eat/red-hill-market/`, plus a consolidating redirect from `/explore/red-hill-market/` | none |
 | Event record | `events/red-hill-market-first-saturday.json` (recurring, undated) | `events/hill-ridge-community-market-september-2026-restart.json` (one dated instance) |
-| In the markets guides | ranked first on both `/eat/markets/` and `/explore/markets/` | **absent from both** |
-| Articles that recommend it | 17 | 0 |
+| In the markets guides | named first in the prose and in every FAQ answer on `/eat/markets/`; first of five on `/explore/markets/` | **absent from both** |
+| Articles that recommend it | 17 | 4 |
+| — of those, evergreen | 17 | **0** |
 | Referenced by other records | 10 | 0 |
 | Claims in the registry (before today) | 0 | 5 |
 
-So the market our evidence says is running has one dated event record and no venue, no venue page,
-no guide entry and no article. The market our evidence says is closed is the site's signature
-weekend recommendation. The corpus is exactly upside down.
+So the market our evidence says is running has one dated event record, four daily editions that
+name it, and no venue, no venue page, no guide entry and nothing evergreen. The four are the
+`insider-picks` of 1, 2, 4 and 5 September 2026 — a dated format nobody browses a fortnight later.
+The market our evidence says is closed is the site's signature weekend recommendation, in every
+surface built to be found. The corpus is exactly upside down.
+
+Those four are also, notably, the only place in the corpus where the practical facts are **right**:
+9am–2pm, Arthurs Seat Road, free entry, the organiser's website. The evergreen pages that a reader
+actually lands on carry none of it.
 
 ### The two records, side by side
 
@@ -130,6 +137,20 @@ Same claim, in a structured field: two markets, both running.
 
 So the corpus contains both the error and the diagnosis of the error, filed one day apart in two
 fields nothing reconciles. The diagnosis is in a field no reader sees.
+
+### And one published account of Hill & Ridge's own history that no source supports
+
+`articles/insider-picks-2026-09-01.md`:
+
+> This is not the same market it was before COVID reshuffled the Peninsula calendar. The Saturday
+> slot has been running since 2022, and the stallholder list has turned over.
+
+Nothing read today supports 2022. The organiser dates its own tenure at three seasons from
+September 2026, which puts season one at 2024–25; the Shire's tender did not change hands until
+2024; and local press dates the handover to 2024. This is a sourceless origin story for the market
+the recommendation should be moving *towards*, and it should be corrected whichever way A25 goes.
+The same article's FAQ also says the market "runs monthly from September through to its summer
+schedule", which describes nothing the organiser publishes — the season is September to May.
 
 ---
 
@@ -317,7 +338,7 @@ contrast and need nothing.**
 | 15 | `first-time-peninsula.md` | body, hinterland orientation paragraph | Rename. |
 | 16 | `free-things-to-do-mornington-peninsula.mdx` | body: "first Saturday of the month, September to May, Red Hill Showgrounds. Entry free" | Rename. Schedule and free entry are both correct for Hill & Ridge. |
 | 17 | `the-one-booking-peninsula-day.md` | body: "The Red Hill market loop" | Rename. |
-| — | `insider-picks-2026-09-05.md` | **contrast only**, and the article that states the two are different | **Nothing required by the rename.** Its factual content is a separate question — see below. |
+| — | `insider-picks-2026-09-05.md` | **recommends Hill & Ridge**, and names Red Hill Market only to contrast the two | **Nothing required by the rename.** Its factual content is a separate question — see below. |
 | — | `peninsula-this-weekend-jun-13.md` | **contrast only**: "Less visible than the Red Hill market" ×2 | **Nothing required.** Comparative, lowercase, no recommendation. |
 
 Of the 17, **nine carry the market only as a `relatedExperiences` entry** — and that entry points
@@ -332,6 +353,13 @@ only article that tells the reader the two markets are different, and it does so
 as running at the same reserve. If reading (b) is accepted, that passage is wrong in a more
 interesting way than the other 17 — it is wrong on purpose, with reasoning. Correcting it is an
 editorial act, not a find-and-replace, and it should not be batched with the rest.
+
+**And four articles already do it right.** The `insider-picks` of 1, 2, 4 and 5 September 2026 all
+lead on Hill & Ridge, at Red Hill Recreation Reserve, 9am–2pm, free entry, with the organiser's
+website — the correct facts, in the correct name, in FAQ blocks. They are dated daily editions, so
+they carry none of the evergreen weight; but they mean the house already knows this market exists
+and already publishes its details correctly. The gap is not knowledge. It is that nothing propagated
+from a daily edition to the venue record, the guides or the seventeen.
 
 ### 6.2 Ten other content records
 
@@ -401,9 +429,10 @@ The remaining templates (`day-trips`, `rainy-day`, `weekend-trips`, `map`, `plac
 
 | | |
 |---|---:|
-| Articles naming the market | 19 |
+| Articles naming Red Hill Market | 19 |
 | — recommending it (the exposure) | **17** |
 | — contrast only, needing nothing | 2 |
+| Articles naming Hill & Ridge | 4, all dated `insider-picks`, all factually correct |
 | Other content records | 10 |
 | Templates naming it in prose | 18 |
 | — emitting it inside structured data | **4** |
