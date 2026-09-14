@@ -39,6 +39,7 @@ const read = async (reader, key, field) => {
 };
 
 const forkOnce = async (reader) => {
+  const before = (await read(reader, TRIP_KEY, 'entries')).length;
   const clicked = await reader.page.evaluate(() => {
     const btn = document.querySelector('[data-plan-fork]:not([disabled])');
     if (!btn) return false;
@@ -46,7 +47,20 @@ const forkOnce = async (reader) => {
     return true;
   });
   assert.ok(clicked, 'expected an enabled "Make it my trip" control on the plans hub');
-  await new Promise((r) => setTimeout(r, 300));
+  // Wait for the copy to land in the store rather than for 300ms to pass. The
+  // fork either moved the trip or it did not; how long it took is a fact about
+  // the machine and must not be allowed to decide the verdict.
+  await reader.waitFor(
+    (n) => {
+      try {
+        const raw = localStorage.getItem('pi:saves:v2:trip');
+        return (raw ? (JSON.parse(raw).entries || []).length : 0) > n;
+      } catch { return false; }
+    },
+    `pressing "Make it my trip" never added a stop (the trip held ${before} before the press)`,
+    before,
+    { describe: () => localStorage.getItem('pi:saves:v2:trip') },
+  );
 };
 
 test('the plans hub offers a plan and a way to take it', async () => {
@@ -124,19 +138,43 @@ test('a plan detail page copies its items into saves once, and says so on a repe
   try {
     await reader.load(route);
     await reader.page.evaluate(() => { document.querySelector('[data-pi-fork-plan]').click(); });
-    await new Promise((r) => setTimeout(r, 250));
+    await reader.waitFor(
+      () => {
+        try {
+          const raw = localStorage.getItem('pi:saves:v2');
+          return (raw ? (JSON.parse(raw).items || []).length : 0) > 0;
+        } catch { return false; }
+      },
+      `forking ${route} never put anything in saves`,
+      null,
+      { describe: () => localStorage.getItem('pi:saves:v2') },
+    );
     const first = await read(reader, SAVES_KEY, 'items');
     assert.ok(first.length > 0, `forking ${route} must save its items`);
 
     // Repeated action: a second press must add nothing and must not claim it did.
-    await reader.page.evaluate(() => { document.querySelector('[data-pi-fork-plan]').click(); });
-    await new Promise((r) => setTimeout(r, 250));
+    //
+    // "Adds nothing" is the one condition you cannot wait for directly - the
+    // absence of an effect looks identical to an effect that has not happened
+    // yet, and the only way to tell them apart is to wait a while, which is
+    // the thing this suite refuses to do. So wait on the positive signal the
+    // same press produces: the toast changing from "Saved N items" to "already
+    // in your plan". Once that has been said, the handler has demonstrably run
+    // to completion, and the store can be asked what it did.
+    await reader.page.evaluate(() => {
+      const t = document.querySelector('[data-pi-fork-toast]');
+      if (t) t.textContent = '';
+      document.querySelector('[data-pi-fork-plan]').click();
+    });
+    await reader.waitFor(
+      () => /already/i.test(document.querySelector('[data-pi-fork-toast]')?.textContent || ''),
+      'a second fork of the same plan must say the items are already in the plan. It said '
+      + 'something else, or nothing - which means it either saved them twice or silently did nothing',
+      null,
+      { describe: () => document.querySelector('[data-pi-fork-toast]')?.textContent || '(no toast)' },
+    );
     const second = await read(reader, SAVES_KEY, 'items');
     assert.equal(second.length, first.length, 'a second fork duplicated the plan into saves');
-    const toast = await reader.page.evaluate(
-      () => document.querySelector('[data-pi-fork-toast]')?.textContent?.trim() || '',
-    );
-    assert.match(toast, /already/i, 'a fork that added nothing must say so, not report a save');
   } finally {
     await reader.close();
   }

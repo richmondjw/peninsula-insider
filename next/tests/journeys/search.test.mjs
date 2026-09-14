@@ -24,19 +24,52 @@ import { Site } from './harness.mjs';
 const site = await Site.open();
 test.after(() => site.close());
 
+/**
+ * Type a query and wait until the page has finished answering it.
+ *
+ * The previous version waited for #searchResultsMeta to stop reading
+ * "Searching…" and then slept 250ms. That wait could never block: the page
+ * writes "Searching…" into the RESULTS LIST, and never into the meta line,
+ * whose only values are "Start typing to search.", "No matches for …" and
+ * "Showing …". The predicate was therefore true on the first poll, every
+ * time, and the whole function was a 250ms sleep wearing a condition's coat -
+ * on a loaded CI box, a sleep that would report a slow search as a broken one.
+ *
+ * What is actually true of every terminal path - results, no matches, and the
+ * error branch, which writes the list but deliberately leaves the meta alone -
+ * is that the page REPLACES the contents of the list. So drop a sentinel into
+ * the list first and wait for two things in sequence: the sentinel is gone
+ * (the page has rendered at least once for this query) and the list is no
+ * longer the loading placeholder (that render was the final one).
+ *
+ * That is the condition the assertions below actually depend on, it holds for
+ * every state this suite covers, and it contains no duration.
+ */
 async function typeQuery(reader, q) {
   await reader.page.evaluate((value) => {
+    const list = document.getElementById('searchResultsList');
+    // Every render path assigns list.innerHTML, so this cannot outlive one.
+    if (list) list.innerHTML = '<i data-harness-pending></i>';
     const input = document.getElementById('searchPageInput');
     input.value = value;
     input.dispatchEvent(new Event('input', { bubbles: true }));
   }, q);
-  // The page debounces input by 100ms and the search resolves a microtask later.
-  await reader.page.waitForFunction(
-    () => document.getElementById('searchResultsMeta')
-      && document.getElementById('searchResultsMeta').textContent.trim() !== 'Searching…',
-    { timeout: 10000 },
+  await reader.waitFor(
+    () => {
+      const list = document.getElementById('searchResultsList');
+      if (!list) return false;
+      if (list.querySelector('[data-harness-pending]')) return false;
+      return !/Searching/.test(list.textContent || '');
+    },
+    `the search page never settled on an answer for "${q}"`,
+    null,
+    {
+      describe: () => ({
+        meta: (document.getElementById('searchResultsMeta') || {}).textContent,
+        list: ((document.getElementById('searchResultsList') || {}).textContent || '').slice(0, 200),
+      }),
+    },
   );
-  await new Promise((r) => setTimeout(r, 250));
 }
 
 const state = (reader) => reader.page.evaluate(() => ({
