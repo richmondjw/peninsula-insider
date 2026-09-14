@@ -203,6 +203,119 @@ test('the saved list lists what was saved, and Remove still works after a naviga
   }
 });
 
+/**
+ * The repeated action, performed where the defect actually lives.
+ *
+ * Every other repeat in this file runs on a cold load, which is the one
+ * condition under which a duplicated listener cannot exist yet. The shape this
+ * ticket keeps rediscovering needs a navigation first: a control bound from an
+ * astro:page-load handler gains a copy each time the reader returns, so the
+ * fourth visit runs the click handler four times and one press toggles the
+ * save an even number of times - landing back where it started, with the
+ * button's label the only thing that changed.
+ *
+ * That is the duplicate-submission case, and a press-count assertion taken on
+ * a cold load cannot see it. So: come back three times, THEN press.
+ */
+test('after three returns to the hub, one press is still one save', async () => {
+  const reader = await site.reader();
+  try {
+    await reader.load('/eat/');
+    for (let i = 0; i < 3; i += 1) {
+      await reader.navigate('/stay/');
+      await reader.navigate('/eat/');
+    }
+
+    // Each press must move the store by exactly one row, in the stated
+    // direction. An even number of handlers leaves it where it was; an odd
+    // number greater than one overshoots. Both fail here, and the message
+    // says which happened.
+    const press = async (want, ordinal) => {
+      await reader.page.evaluate(() => {
+        document.querySelectorAll('[data-v5-save-control]')[0].querySelector('[data-v5-save-btn]').click();
+      });
+      await reader.waitFor(
+        (n) => {
+          try {
+            const raw = localStorage.getItem('pi:saves:v2');
+            return (raw ? (JSON.parse(raw).items || []).length : 0) === n;
+          } catch { return false; }
+        },
+        `after three returns to /eat/, the ${ordinal} press did not leave the saved store `
+        + `holding ${want} item${want === 1 ? '' : 's'}. A store that did not move at all is the `
+        + 'signature of a control bound once per visit: four handlers, four toggles, one press',
+        want,
+        { describe: () => localStorage.getItem('pi:saves:v2') },
+      );
+      assert.equal((await savedItems(reader)).length, want);
+    };
+
+    await press(1, 'first');
+    assert.equal(await pressed(reader, 0), 'true', 'the button must read saved after one press');
+    await press(0, 'second');
+    assert.equal(await pressed(reader, 0), 'false', 'the button must read unsaved after the second');
+    await press(1, 'third');
+    assert.equal(await pressed(reader, 0), 'true', 'the button must read saved again after the third');
+  } finally {
+    await reader.close();
+  }
+});
+
+/**
+ * A failed network call that is a REFUSAL, not a dropped wire.
+ *
+ * The offline tests below and in the other suites abort every Supabase request
+ * at the transport, which is what a reader in a tunnel experiences. It is not
+ * what a reader experiences when the service is up and says no: that request
+ * completes, carries a status and a JSON body, and runs an entirely different
+ * branch of the client - the one that has to decide whether a rejected write
+ * may still be shown as saved. Nothing exercised that branch, and the harness
+ * grew a whole Supabase routing table that no test had ever used.
+ *
+ * The contract: the save is local-first, so a server that refuses the write
+ * must not cost the reader their save, must not throw, and must not leave the
+ * button lying in either direction.
+ */
+test('signed in, a save the server refuses is still kept locally', async () => {
+  const reader = await site.reader({
+    signedIn: true,
+    supabase: [
+      { match: 'user_saves', method: 'POST', status: 500, body: { message: 'harness: the server refused this write' } },
+    ],
+  });
+  try {
+    await reader.load('/eat/');
+    await clickSave(reader, 0);
+
+    assert.equal(
+      (await savedItems(reader)).length, 1,
+      'a save is local-first: a server that refuses the write must not cost the reader the save',
+    );
+    assert.equal(
+      await pressed(reader, 0), 'true',
+      'the button must go on reading saved - the local store is what the next page will paint from, '
+      + 'so a button that reverts here disagrees with the saved list the reader is about to open',
+    );
+    assert.deepEqual(
+      await reader.errors(), [],
+      'a rejected write must be handled, not thrown - an uncaught error here stops every '
+      + 'handler registered after it on that turn',
+    );
+
+    // And prove the refusal actually happened. Without this the test passes
+    // just as happily on a build that stopped talking to the server at all,
+    // which is a different bug wearing this green.
+    const writes = reader.supabaseCalls().filter((c) => c.method === 'POST' && c.url.includes('user_saves'));
+    assert.ok(
+      writes.length > 0,
+      'no write to user_saves was attempted, so the refusal path was never entered and this '
+      + 'test proved nothing about it',
+    );
+  } finally {
+    await reader.close();
+  }
+});
+
 test('signed in with the network down, the save still holds locally', async () => {
   const reader = await site.reader({ signedIn: true, offline: true });
   try {
