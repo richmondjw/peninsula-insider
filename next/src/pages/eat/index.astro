@@ -33,6 +33,7 @@ import FilterBar from '../../components/v5/FilterBar.astro';
 import { routeSlug, resolveHeroSrc, hasOwnHeroImage, eatTypes, isListableVenue } from '../../lib/editorial';
 import { getFacets } from '../../lib/facets';
 import { loadOverrides } from '../../lib/inline-edit/overrides';
+import { loadLiveEvents } from '../whats-on/_data';
 
 // ── Data ──────────────────────────────────────────────────────────────────────
 const venuesAll = (await getCollection('venues'))
@@ -43,6 +44,9 @@ const venuesAll = (await getCollection('venues'))
 // eatTypes (lib/editorial) excludes 'winery', so venuesAll holds none: this
 // is a defensive second pass, not a split (one venue, one URL; HUB-01).
 const venues = venuesAll.filter((v) => v.data.type !== 'winery');
+const viralFoodFestival = (await loadLiveEvents(new Date())).find(
+  (event) => event.slug === 'viral-food-festival-mornington-2026',
+);
 
 const placesAll = await getCollection('places');
 const placeNameBySlug = new Map<string, string>(
@@ -189,7 +193,11 @@ const articleJournalItem = (slug: string, verdict: string, displayTitle?: string
       ? { src: article.data.heroImage.src, alt: article.data.heroImage.alt ?? article.data.title }
       : undefined,
     verdict,
-    byline: article.data.houseByline ? 'Peninsula Insider editors' : article.data.author,
+    byline: article.data.houseByline
+      ? 'Peninsula Insider editors'
+      : typeof article.data.author === 'string'
+        ? article.data.author
+        : article.data.author?.id,
     readTime: article.data.readingTimeMinutes ? `${article.data.readingTimeMinutes} min read` : undefined,
     dateISO: article.data.publishedAt?.toISOString?.(),
   };
@@ -335,7 +343,8 @@ export const prerender = true;
 
   <!-- What's On, one line + link (spec block 18: strip becomes a line) -->
   <p class="eat-whatson container">
-    Food and wine events coming up on the Peninsula:
+    Food and wine events coming up on the Peninsula:{' '}
+    {viralFoodFestival && <><a href={viralFoodFestival.href}>VIRAL Food Festival at Mornington Racecourse, 18–20 September</a>. For the wider edit,{' '}</>}
     <a href="/whats-on/">see What&rsquo;s On &rarr;</a>
   </p>
 
