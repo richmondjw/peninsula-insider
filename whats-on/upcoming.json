@@ -10,9 +10,9 @@
     "start": "2026-09-18",
     "end": "2026-09-20",
     "label": "Fri 18 – Sun 20 September",
-    "count": 14
+    "count": 15
   },
-  "numberOfItems": 40,
+  "numberOfItems": 41,
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -201,6 +201,19 @@
       "position": 15,
       "item": {
         "@type": "Event",
+        "name": "VIRAL Food Festival, Mornington 2026",
+        "url": "https://peninsulainsider.com.au/whats-on/viral-food-festival-mornington-2026/",
+        "startDate": "2026-09-18",
+        "endDate": "2026-09-20",
+        "description": "More than 50 trending street-food dishes, carnival rides, live wrestling, DJs and market stalls at Mornington Racecourse across the 18 to 20 September weekend.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 16,
+      "item": {
+        "@type": "Event",
         "name": "Acoustic Saturdays at Peppers Moonah Links",
         "url": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
         "startDate": "2026-09-19",
@@ -211,7 +224,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 16,
+      "position": 17,
       "item": {
         "@type": "Event",
         "name": "Boneo Community Market",
@@ -224,7 +237,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 17,
+      "position": 18,
       "item": {
         "@type": "Event",
         "name": "Emu Plains Market, Balnarring",
@@ -237,7 +250,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 18,
+      "position": 19,
       "item": {
         "@type": "Event",
         "name": "Pearcedale Community Market",
@@ -250,7 +263,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 19,
+      "position": 20,
       "item": {
         "@type": "Event",
         "name": "PST Art Exhibition Opening Night 2026",
@@ -263,7 +276,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 20,
+      "position": 21,
       "item": {
         "@type": "Event",
         "name": "Dromana Community Market",
@@ -276,7 +289,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 21,
+      "position": 22,
       "item": {
         "@type": "Event",
         "name": "Tootgarook Primary School Market",
@@ -289,7 +302,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 22,
+      "position": 23,
       "item": {
         "@type": "Event",
         "name": "Mt Eliza Farmers Market",
@@ -302,7 +315,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 23,
+      "position": 24,
       "item": {
         "@type": "Event",
         "name": "Author Talk: Vikki Petraitis - Mornington Library",
@@ -315,7 +328,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 24,
+      "position": 25,
       "item": {
         "@type": "Event",
         "name": "Arj Barker Live at Barlow",
@@ -328,7 +341,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 25,
+      "position": 26,
       "item": {
         "@type": "Event",
         "name": "Peninsula Hot Springs, Sound Healing Sessions",
@@ -341,7 +354,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 26,
+      "position": 27,
       "item": {
         "@type": "Event",
         "name": "Sound Circle: Full Moon Sound Journey at Peninsula Hot Springs",
@@ -354,7 +367,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 27,
+      "position": 28,
       "item": {
         "@type": "Event",
         "name": "Hill & Ridge Community Market, September 2026 (Restart)",
@@ -367,7 +380,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 28,
+      "position": 29,
       "item": {
         "@type": "Event",
         "name": "Red Hill Market  -  First Saturday, Every Month",
@@ -380,7 +393,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 29,
+      "position": 30,
       "item": {
         "@type": "Event",
         "name": "Crib Point Community Market",
@@ -393,7 +406,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 30,
+      "position": 31,
       "item": {
         "@type": "Event",
         "name": "Heart of the Community Market (Rosebud)",
@@ -406,7 +419,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 31,
+      "position": 32,
       "item": {
         "@type": "Event",
         "name": "Breast Foot Forward Annual Community Walk & Run 2026",
@@ -419,7 +432,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 32,
+      "position": 33,
       "item": {
         "@type": "Event",
         "name": "Emu Plains Market",
@@ -432,7 +445,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 33,
+      "position": 34,
       "item": {
         "@type": "Event",
         "name": "High Tea at Mornington Botanical Rose Gardens",
@@ -445,7 +458,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 34,
+      "position": 35,
       "item": {
         "@type": "Event",
         "name": "The Bloody Long Walk – Mornington Peninsula 2026",
@@ -458,7 +471,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 35,
+      "position": 36,
       "item": {
         "@type": "Event",
         "name": "Enchanting Kirtan: Sacred Music & Meditation Experience - Mornington",
@@ -471,7 +484,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 36,
+      "position": 37,
       "item": {
         "@type": "Event",
         "name": "Saturday Pottery Class",
@@ -484,7 +497,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 37,
+      "position": 38,
       "item": {
         "@type": "Event",
         "name": "Glamping Tents - Horror Movie Campout: Back From The Dead Tour 2026",
@@ -497,7 +510,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 38,
+      "position": 39,
       "item": {
         "@type": "Event",
         "name": "Peninsula VineHop Festival 2026",
@@ -510,7 +523,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 39,
+      "position": 40,
       "item": {
         "@type": "Event",
         "name": "\"Nancye Wynne Bolton\" OLA Golf Day 2026",
@@ -523,7 +536,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 40,
+      "position": 41,
       "item": {
         "@type": "Event",
         "name": "Mornington Tourist Railway, Santa Specials",
@@ -535,7 +548,7 @@
       }
     }
   ],
-  "count": 40,
+  "count": 41,
   "events": [
     {
       "title": "Foxeys Hangout Vegetable Feast (Morning Sun Vineyard)",
@@ -730,6 +743,20 @@
       "venue": null,
       "freePaid": "Paid",
       "summary": "Three hours at the still in Dromana. Learn how gin actually gets made, blend your own botanicals, and walk out with a 500ml bottle of your own recipe.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "thisWeekend": true
+    },
+    {
+      "title": "VIRAL Food Festival, Mornington 2026",
+      "url": "https://peninsulainsider.com.au/whats-on/viral-food-festival-mornington-2026/",
+      "startDate": "2026-09-18",
+      "endDate": "2026-09-20",
+      "recurrence": "one-off",
+      "category": "festival",
+      "place": null,
+      "venue": null,
+      "freePaid": "Paid",
+      "summary": "More than 50 trending street-food dishes, carnival rides, live wrestling, DJs and market stalls at Mornington Racecourse across the 18 to 20 September weekend.",
       "eventStatus": "https://schema.org/EventScheduled",
       "thisWeekend": true
     },
