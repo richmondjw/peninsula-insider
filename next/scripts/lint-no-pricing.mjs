@@ -1,6 +1,8 @@
 // lint-no-pricing.mjs
 //
 // Enforces the BRAND-PI rule "No pricing on site. Ever." adopted 2026-05-15.
+// James approved one time-bound exception on 2026-09-16 for the verified
+// VIRAL Food Festival entry terms. The exception below is exact-file only.
 // Scans rendered surfaces (.astro templates) and JSON-LD emission sites for
 // dollar-figure pricing patterns. If anything matches, the script exits 1
 // so CI fails the build before stale prices reach production.
@@ -52,12 +54,19 @@ const ALLOW = new Set([
 // Reader-facing prose surfaces that may carry dollar figures. These sell
 // advertising and partnership inventory (B2B rate cards), not venues; the
 // trust rationale for the no-pricing rule does not apply to our own rates.
-const PROSE_ALLOW = [
+const PROSE_ALLOW_PREFIXES = [
   'pages/partners/advertising-kit/',
   'pages/partners/founders-prospectus/',
   'pages/_archive/',
   'pages-drafts/',
 ];
+
+// James approved verified, time-bound entry pricing for this one festival on
+// 2026-09-16. This file may contain the approved terms, but filename prefixes
+// and sibling files remain subject to the pricing guard.
+const PROSE_ALLOW_EXACT = new Set([
+  'content/events/viral-food-festival-mornington-2026.json',
+]);
 
 const violations = [];
 
@@ -102,7 +111,7 @@ walk(ROOT, (file) => {
   const ext = path.extname(file);
   const rel = path.relative(ROOT, file).replace(/\\/g, '/');
   if (file.endsWith('lint-no-pricing.mjs')) return;
-  if (PROSE_ALLOW.some((p) => rel.startsWith(p))) return;
+  if (PROSE_ALLOW_EXACT.has(rel) || PROSE_ALLOW_PREFIXES.some((prefix) => rel.startsWith(prefix))) return;
 
   // Prose scan: content and data files plus page templates.
   if (['.md', '.mdx', '.json', '.astro'].includes(ext)) {

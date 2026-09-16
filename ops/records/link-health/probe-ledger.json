@@ -1,6 +1,6 @@
 {
   "note": "Probe results for source URLs cited by the corpus. Written ONLY by next/scripts/probe-link-health.mjs, by a human or a scheduled job, never by a build. Read offline by next/scripts/audit-link-health.mjs. A verdict is what a probe saw, not an inference. This file is a RECORD, not a report: it does not live under ops/reports/ because nothing here is reproducible from the tree, and reverting it destroys evidence rather than regenerating it.",
-  "updatedAt": "2026-09-14T01:30:25.340Z",
+  "updatedAt": "2026-09-16T03:09:46.169Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -3996,6 +3996,15 @@
       "probedBy": "audit-link-health.mjs --probe"
     },
     {
+      "url": "https://www.trybooking.com/DPNDE",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "MORNINGTON VIRAL FOOD FESTIVAL Tickets, Mornington Racecourse, Mornington | TryBooking Australia",
+      "effectiveUrl": "https://www.trybooking.com/events/landing/1643438",
+      "probedOn": "2026-09-16",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://www.twobays.beer/",
       "verdict": "ok",
       "httpCode": "200",
@@ -4010,6 +4019,14 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Mornington Peninsula Shire Festivals and Events"
+    },
+    {
+      "url": "https://www.viralfoodfestival.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Viral Food Festival",
+      "probedOn": "2026-09-16",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.visitmelbourne.com/regions/mornington-peninsula/whats-on/markets-and-vintage/makers-markets/hill-and-ridge-community-market",
@@ -4194,6 +4211,14 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "What's On &mdash; Visit Mornington Peninsula."
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/Whats-On/View/18370/viral-food-festival-at-mornington-racecourse",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "What's On &mdash; Visit Mornington Peninsula.",
+      "probedOn": "2026-09-16",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.yabbylake.com",
