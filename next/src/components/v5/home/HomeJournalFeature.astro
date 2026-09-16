@@ -30,7 +30,7 @@ const published = (await getCollection('articles', ({ data }) => data.status ===
 const lead = published[0];
 const slug = lead ? routeSlug(lead) : '';
 const hero = lead ? await resolveHero('article', slug, lead.data, 'hero') : null;
-const kicker = lead ? (formatLabel[lead.data.format] ?? 'Feature') : '';
+const kicker = lead?.data.tags.includes('insider-picks') ? 'Insider Picks' : (lead ? (formatLabel[lead.data.format] ?? 'Feature') : '');
 ---
 
 {lead && hero && (

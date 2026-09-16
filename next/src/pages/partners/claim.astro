@@ -22,7 +22,7 @@ const venueOptions = venues
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
-  { label: 'Partner with us', href: '/partners/' },
+  { label: 'For Peninsula businesses', href: '/partners/' },
   { label: 'Claim your venue' },
 ];
 export const prerender = true;
@@ -41,13 +41,15 @@ export const prerender = true;
     eyebrow="Claim your venue"
     subEyebrow="Verified-operator surface"
     title="Tell us this is <em>your</em> venue."
-    dek="Sign in, point us at the listing, and tell us how to verify you. Editorial approves claims manually in v1 - typically within a working day. Once approved, you can manage hours, photos, and event proposals from the operator dashboard."
+    dek="Sign in, point us at the listing, and tell us how to verify you. Editorial verifies your connection with the venue before approving access. Approved operators can submit changes and event proposals for editorial review from their dashboard."
     gradient="journal"
     visualLabel="Peninsula Insider · operator claim"
   />
 
   <section class="claim-page">
     <div class="container">
+
+      <p>Only claiming a listing requires an account. <a href="/corrections/">Report a factual correction, free, without signing in</a>, or <a href="/partners/update/">send a listing update</a>.</p>
 
       <div class="claim-anonymous" data-claim-anonymous>
         <p class="claim-anonymous__title">Sign in to submit a claim.</p>
@@ -75,7 +77,7 @@ export const prerender = true;
             <datalist id="cl-venue-list">
               {venueOptions.map((v) => <option value={v.name} data-slug={v.slug}>{v.name}</option>)}
             </datalist>
-            <p class="claim-form__hint">Pick from the list. If your venue isn't on PI yet, see <a href="/partners/">/partners</a> first.</p>
+            <p class="claim-form__hint">Pick from the list. If your venue is not listed, <a href="/partners/update/#new-business">introduce it for editorial consideration, free</a>.</p>
           </div>
 
           <div class="claim-form__field">

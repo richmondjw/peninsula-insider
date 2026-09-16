@@ -88,10 +88,11 @@ const season = getAustralianSeasonLower(now);
     <p class="home-cover__context">
       <time datetime={isoDate}>{dateLabel}</time>
     </p>
-    <div class="home-cover__actions">
-      <a class="pi-btn pi-btn--solid pi-btn--lg pi-btn--inverse" href="/whats-on/">See this weekend</a>
-      <a class="pi-btn pi-btn--ghost pi-btn--lg pi-btn--inverse" href="/search/" data-open-search data-evt="search_open">Search</a>
-    </div>
+    <nav class="home-cover__actions" aria-label="Start planning your Peninsula visit">
+      <a class="pi-btn pi-btn--solid pi-btn--lg pi-btn--inverse" href="/whats-on/this-weekend/" data-evt="card_click" data-entity-type="page" data-entity-slug="weekend" data-surface="home-intents" data-position="1" data-variant="three-intents">This weekend</a>
+      <a class="pi-btn pi-btn--ghost pi-btn--lg pi-btn--inverse" href="/explore/plans/" data-evt="card_click" data-entity-type="page" data-entity-slug="plans" data-surface="home-intents" data-position="2" data-variant="three-intents">Plan a trip</a>
+      <a class="pi-btn pi-btn--ghost pi-btn--lg pi-btn--inverse" href="/search/" data-open-search data-evt="search_open" data-surface="home-intents" data-position="3" data-variant="three-intents">Search the Peninsula</a>
+    </nav>
   </div>
 </section>
 

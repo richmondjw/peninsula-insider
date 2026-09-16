@@ -128,18 +128,9 @@ export const prerender = true;
     <div class="container">
       <div class="prose">
         <h2>Frequently asked questions</h2>
-
-        <h3>What are the best restaurants on the Mornington Peninsula?</h3>
-        <p>The strongest rooms right now are {top3Names.join(', ')}. All three offer serious food in the vineyard-dining tradition the Peninsula does best - long lunches, estate-grown produce, and wine lists anchored by Mornington Pinot. Below them, a deep bench of cellar door restaurants and neighbourhood rooms doing honest, seasonal work.</p>
-
-        <h3>Do I need to book restaurants on the Mornington Peninsula?</h3>
-        <p>Most serious restaurants on the Peninsula require bookings, especially on weekends. Cellar door restaurants in Red Hill like Ten Minutes by Tractor and Montalto can book out weeks ahead in summer and autumn. Book as far ahead as you can for special occasions; casual venues like Allis Wine Bar and local bakeries typically operate walk-in.</p>
-
-        <h3>What is the best area for restaurants on the Mornington Peninsula?</h3>
-        <p>The Red Hill plateau - including Main Ridge and Red Hill South - has the highest concentration of serious dining. Mornington town has the strongest casual dining scene. Sorrento and Portsea dominate in summer for atmosphere. For wine-paired lunches, stick to the ridge.</p>
-
-        <h3>When is the best time to visit Mornington Peninsula for food?</h3>
-        <p>Autumn is the peak dining season. Vintage is running on the ridge, fires are lit in cellar door dining rooms, and the summer crowds have thinned enough that the best tables are actually bookable. Spring is a close second - new menus, release wines, and golden light that starts early and stays late.</p>
+        {faqSchema.mainEntity.map((item) => (
+          <><h3>{item.name}</h3><p>{item.acceptedAnswer.text}</p></>
+        ))}
       </div>
     </div>
   </section>

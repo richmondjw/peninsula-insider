@@ -25,7 +25,7 @@ const faqSchema = {
       name: 'Where is the best place to stay on the Mornington Peninsula?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Red Hill and Main Ridge are the best base for cellar door weekends - vineyard restaurants are walkable and the ridge has the highest concentration of serious stays. Sorrento is the best base for atmosphere, village dining, and ocean beach access. Mornington town is the most accessible from Melbourne, ideal for single-night escapes. The right answer depends on the kind of weekend you want.',
+        text: 'Red Hill and Main Ridge suit cellar-door weekends and vineyard lunches. Check distances and transport from your chosen accommodation. Sorrento is the best base for atmosphere, village dining, and ocean beach access. Mornington town is the most accessible from Melbourne, ideal for single-night escapes. The right answer depends on the kind of weekend you want.',
       },
     },
     {
@@ -33,7 +33,7 @@ const faqSchema = {
       name: 'How much does it cost to stay on the Mornington Peninsula?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'A good mid-range self-contained villa or cottage is the sensible baseline. Luxury vineyard stays (Jackalope, Lindenderry, Pt. Leo Estate) sit a clear tier above that. Cheaper options exist in Rosebud, Dromana, and Rye, though these are further from the cellar door cluster. Prices peak in summer and over long weekends - autumn midweek is the best value.',
+        text: 'A good mid-range self-contained villa or cottage is the sensible baseline. Luxury vineyard stays (Jackalope, Lindenderry) sit a clear tier above that. Cheaper options exist in Rosebud, Dromana, and Rye, though these are further from the cellar door cluster. Prices peak in summer and over long weekends - autumn midweek is the best value.',
       },
     },
     {
@@ -41,7 +41,7 @@ const faqSchema = {
       name: 'Should I stay in Sorrento or Red Hill?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Sorrento for a coastal village weekend with ocean swimming, main-street restaurants, and the ferry to Queenscliff. Red Hill for a wine-country weekend with cellar doors, vineyard lunches, and quiet ridge-top stays. They are 20 minutes apart, so you can easily visit both areas - the choice is about where you want to wake up.',
+        text: 'Sorrento for a coastal village weekend with ocean swimming, main-street restaurants, and the ferry to Queenscliff. Red Hill for a wine-country weekend with cellar doors, vineyard lunches, and quiet ridge-top stays. Allow for travel time between the coast and hinterland; check your route before booking. The choice is about where you want to wake up.',
       },
     },
   ],
@@ -153,15 +153,9 @@ export const prerender = true;
     <div class="container">
       <div class="prose">
         <h2>How to choose where to stay</h2>
-
-        <h3>Ridge vs coast vs bay</h3>
-        <p>The Red Hill ridge puts you in wine country - better for cellar door days, vineyard lunches, and escapes where the wine list is the point. The coastal properties (Flinders, Sorrento, Portsea) are better when beaches, ocean walks, and sunset drinks at the pub are the priority. Bayside properties in Mornington and Mount Martha are the most accessible from Melbourne and work well for single nights.</p>
-
-        <h3>When to book</h3>
-        <p>Summer weekends (December–February) book out months ahead. Long weekends in autumn - especially the March and April public holiday weekends - are the second hardest to book. Winter is dramatically quieter; the best stays are often available at short notice, and the Peninsula's fireplace-and-thermal-springs character is strongest when it's cold.</p>
-
-        <h3>Self-contained vs hotel</h3>
-        <p>Most Peninsula accommodation is self-contained - villas, cottages, and private houses rather than traditional hotel rooms. This suits longer stays and groups well. For single-night escapes where you'd rather not cook breakfast, the Hotel Sorrento and the Flinders Hotel offer the most hotel-appropriate experience on the Peninsula.</p>
+        {faqSchema.mainEntity.map((item) => (
+          <><h3>{item.name}</h3><p>{item.acceptedAnswer.text}</p></>
+        ))}
       </div>
     </div>
   </section>

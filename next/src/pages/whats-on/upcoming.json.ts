@@ -5,6 +5,7 @@ import {
   isoDate,
   loadLiveEvents,
   occursInWindow,
+  occursOnDay,
   startOfDay,
   weekendWindow,
   type ScopeWindow,
@@ -55,6 +56,14 @@ export const GET: APIRoute = async () => {
         now,
         endIso === startIso ? {} : { endDayIso: endIso }
       );
+      // A series may next run on Thursday AND also run this weekend. Publish
+      // those actual occurrences independently of its next upcoming date.
+      const weekendOccurrences = [];
+      for (let day = weekend.start; day <= weekend.end; day = addDays(day, 1)) {
+        if (!occursOnDay(live.rule, day)) continue;
+        const date = isoDate(day);
+        weekendOccurrences.push({ date, eventStatus: listingEventStatus(e.data, date, now) });
+      }
       return {
         title: e.data.title,
         url: `${SITE}${live.href}`,
@@ -69,14 +78,8 @@ export const GET: APIRoute = async () => {
         // undefined rather than null: JSON.stringify drops the key, so a
         // finished occurrence says nothing instead of saying nothing loudly.
         eventStatus: eventStatus ?? undefined,
-        // Derive thisWeekend from the event's computed startDate/endDate so
-        // the flag is always consistent with those fields.  Calling
-        // occursInWindow(live.rule, weekend) directly could mark a weekly
-        // Friday event as "this weekend" on Saturday because the Friday falls
-        // in the Fri–Sun window, while startDate in the feed is already the
-        // *next* occurrence (the following Friday) — causing the
-        // audit-live-agent-readiness validator to reject the feed.
-        thisWeekend: startIso <= isoDate(weekend.end) && endIso >= isoDate(weekend.start),
+        weekendOccurrences,
+        thisWeekend: weekendOccurrences.length > 0,
       };
     })
     .filter((event): event is NonNullable<typeof event> => event !== null)
