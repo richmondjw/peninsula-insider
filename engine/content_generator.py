@@ -24,6 +24,7 @@ AEST = zoneinfo.ZoneInfo("Australia/Sydney")
 PI_VOICE_SYSTEM_PROMPT = """You are writing for Peninsula Insider — a premium local's guide to the Mornington Peninsula, Victoria, Australia.
 
 VOICE RULES (non-negotiable):
+- Product naming: Insider Picks is a short recommendation edition, published when a new selection is ready. Do not promise daily or Sunday publication. Peninsula This Weekend is the dated weekend edit; The Insider Note is an occasional email; the Journal is the guide and story library.
 - Specific always beats generic. Name the dish, the wine, the trail junction, the closing date.
 - No brochure language: never write "stunning", "vibrant", "nestled", "charming", "hidden gem", "must-visit", "world-class".
 - One clear opinion per pick. Recommend or don't. No hedge.
@@ -56,7 +57,7 @@ heroImage:
   credit: "Peninsula Insider"
   license: "other-licensed"
 format: "insider-edit"
-tags: [insider-picks, [season], weekly]
+tags: [insider-picks, [season]]
 relatedVenues: []
 relatedExperiences: []
 readingTimeMinutes: 4
@@ -261,7 +262,7 @@ heroImage:
   credit: "Peninsula Insider"
   license: "other-licensed"
 format: "insider-edit"
-tags: [insider-picks, {season}, weekly, peninsula]
+tags: [insider-picks, {season}, peninsula]
 relatedVenues: [{eat.get('venue_slug', '')}]
 relatedExperiences: []
 readingTimeMinutes: 4

@@ -174,7 +174,7 @@ export const prerender = true;
 <BaseLayout
   title={hasCurrentDispatch
     ? `Peninsula This Weekend - ${weekendLabel} · Peninsula Insider`
-    : `What's on this weekend - ${weekendLabel} · Peninsula Insider`}
+    : `Peninsula This Weekend - ${weekendLabel} · Peninsula Insider`}
   description={hasCurrentDispatch
     ? latest.data.dek
     : `Current Mornington Peninsula events for ${weekendLabel}. The next edited Peninsula This Weekend dispatch is in preparation.`}
@@ -258,7 +258,7 @@ export const prerender = true;
 
                 <p class="ptw-hero__cadence">
                   <strong>Refreshed {publishedFmt}</strong> for the weekend of <strong>{weekendLabel}</strong>.
-                  A new dispatch lands weekly for the weekend ahead.
+                  A new dispatch appears when an edited weekend selection is ready.
                 </p>
               </>
             ) : (
@@ -383,7 +383,7 @@ export const prerender = true;
         <p class="ptw-cta__body">
           Thoughtful recommendations, seasonal discoveries, and what’s happening across the Mornington Peninsula.
         </p>
-        <p class="ptw-cta__sub">The Peninsula worth knowing. Weekly. What's on, where we'd go and what's worth knowing next.</p>
+        <p class="ptw-cta__sub">The Peninsula worth knowing, sent when there is something useful to share.</p>
         <a class="pi-btn pi-btn--solid" href="/dispatch/">Join</a>
       </aside>
 

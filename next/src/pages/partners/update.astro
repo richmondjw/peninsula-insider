@@ -7,9 +7,8 @@
  * Posts to pi.venue_change_requests; editor reviews in Studio and
  * applies the change to next/src/content/venues/<slug>.json.
  *
- * v1 is anonymous (no auth). Once Pass is live with operator tier,
- * we'll auth-gate this and link change requests to the operator's
- * profile.
+ * Public intake remains available without sign-in or a paid relationship.
+ * Signed-in submissions may be linked to an operator profile.
  */
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
@@ -28,7 +27,7 @@ const venueOptions = venues
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
-  { label: 'Partner with us', href: '/partners/' },
+  { label: 'For Peninsula businesses', href: '/partners/' },
   { label: 'Update your listing' },
 ];
 
@@ -56,7 +55,7 @@ export const prerender = true;
     eyebrow="Update your listing"
     subEyebrow="Operator change request"
     title="Tell us what's <em>changed</em>."
-    dek="If your venue's hours have moved, your hero photo is dated, or you've got an event that should be on the calendar - submit it here. The editor reviews every request and applies the ones that hold up to verification. No charge, no commercial relationship required, no AI moderation. Just a working desk."
+    dek="If your venue's hours have moved, your hero photo is dated, or you've got an event that should be on the calendar - submit it here. The editor reviews every request and applies the ones that hold up to verification. No charge, no sign-in and no commercial relationship required."
     gradient="journal"
     visualLabel="Peninsula Insider · operator update"
   />
@@ -66,19 +65,22 @@ export const prerender = true;
 
       <div class="partner-update-grid">
         <div class="partner-update-grid__intro">
+          <p>If a published fact is wrong, <a href="/corrections/">report a correction</a>. Corrections are free and do not require an account or a listing claim.</p>
+          <h2 id="new-business">Not listed yet?</h2>
+          <p>Use this same form to introduce your business for editorial consideration. Type its name, choose <strong>Other</strong>, and include its town, official website and useful visiting details. Tell us your role at the business. Submission is free; inclusion and coverage remain editorial decisions.</p>
           <p class="label label--accent">How it works</p>
           <ol class="partner-update-process">
             <li><strong>You submit</strong> the venue, the change, and your contact.</li>
-            <li><strong>The editor reads</strong> every request, usually within a working day.</li>
-            <li><strong>If it verifies</strong>, the change goes live on the next site build (within hours).</li>
+            <li><strong>The editor reads</strong> every request, and checks the source information.</li>
+            <li><strong>If it verifies</strong>, the approved update is prepared for publication.</li>
             <li><strong>If it doesn't</strong>, you'll hear back with what's missing.</li>
           </ol>
 
           <p class="partner-update-rules-label">A few notes</p>
           <ul class="partner-update-rules">
             <li>This is for <strong>your venue</strong> - not for nominating other places. Use <a href="/submit/">/submit/</a> for those.</li>
-            <li>Hours updates apply to the next build, typically same-day.</li>
-            <li>Photo updates need a URL (Drive, Dropbox, Cloudinary, your own site). Direct file upload follows once we ship operator accounts.</li>
+            <li>Include the date when new hours or other changes take effect.</li>
+            <li>Photo updates need a URL (Drive, Dropbox, Cloudinary, your own site). Please only send images you have permission to share.</li>
             <li>Event proposals get treated as event submissions - editorial discretion applies. We won't list everything.</li>
             <li>Factual corrections are taken seriously and acted on fast. Always include the source.</li>
             <li>One request per submission. If you've got three changes, send three.</li>
@@ -106,7 +108,7 @@ export const prerender = true;
                 <datalist id="pu-venue-list">
                   {venueOptions.map((v) => <option value={v.name} data-slug={v.slug}>{v.name}</option>)}
                 </datalist>
-                <p class="partner-update-form__hint">Pick from the list - the autocomplete shows the full venue corpus. If your venue isn't listed yet, type it in and the editor will pick it up.</p>
+                <p class="partner-update-form__hint">Choose a listed venue, or type the name of an unlisted business for editorial consideration.</p>
               </div>
 
               <div class="partner-update-form__field">
@@ -129,7 +131,7 @@ export const prerender = true;
                   class="partner-update-form__textarea"
                   placeholder="New hours: Sat–Sun 11am to 5pm, closed Tue / Wed / Thu through July."
                 ></textarea>
-                <p class="partner-update-form__hint">Be specific. Editor applies this verbatim to the JSON, so the more precise the better.</p>
+                <p class="partner-update-form__hint">Include what has changed, when it takes effect and an official source the editor can check.</p>
               </div>
 
               <div class="partner-update-form__field">
@@ -323,7 +325,7 @@ export const prerender = true;
 
       form.reset();
       const venueDisplay = venueSlug ? venueName : `${venueName} (we'll pick it up)`;
-      setStatus('success', `Got it. The editor will read this within a working day. Submitted change for ${venueDisplay}.`);
+      setStatus('success', `Received for editorial review: ${venueDisplay}. Submission does not guarantee publication.`);
       if (button) button.disabled = false;
     });
   }

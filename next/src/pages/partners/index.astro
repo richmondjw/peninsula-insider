@@ -1,6 +1,6 @@
 ---
 /**
- * /partners/  -  Partner With Us
+ * /partners/ - For Peninsula businesses
  *
  * Rewritten 2026-05-15 against Emma's "Partner With Us" brief and the
  * 2026-05-15 master strategy decision. Premium editorial partnership
@@ -23,15 +23,14 @@ import {
 
 const breadcrumbItems = [
   { label: "Home", href: "/" },
-  { label: "Partners", href: "/partners/" },
-  { label: "Partner with Peninsula Insider" },
+  { label: "For Peninsula businesses" },
 ];
 export const prerender = true;
 ---
 
 <BaseLayout
-  title="Partner with Peninsula Insider"
-  description="Peninsula Insider helps quality Peninsula businesses become part of how people experience the region. We partner selectively with businesses whose atmosphere, quality, and values align with the editorial."
+  title="For Peninsula businesses · Peninsula Insider"
+  description="Correct or claim your Peninsula listing, send updated information, introduce an unlisted business, or enquire about an optional partnership. Factual corrections are free."
 >
   <Breadcrumbs items={breadcrumbItems} />
 
@@ -50,80 +49,60 @@ export const prerender = true;
       </div>
       <div class="partners-hero__inner">
         <p class="partners-hero__eyebrow">Peninsula Insider</p>
-        <h1 class="partners-hero__heading" {...editableText({ entityType: 'page', entitySlug: 'partners', fieldPath: 'hero.title', label: 'Partners - title' })}>Partner with Peninsula Insider</h1>
+        <h1 class="partners-hero__heading" {...editableText({ entityType: 'page', entitySlug: 'partners', fieldPath: 'hero.title', label: 'Partners - title' })}>For Peninsula businesses</h1>
         <p class="partners-hero__sub" {...editableText({ entityType: 'page', entitySlug: 'partners', fieldPath: 'hero.dek', label: 'Partners - dek' })}>
-          Become part of how people experience the Peninsula.
+          Keep your listing accurate. Help readers plan their visit.
         </p>
         <p class="partners-hero__sub partners-hero__sub--second">
-          Peninsula Insider is a trusted discovery and planning companion for
-          people spending time on the Mornington Peninsula. We partner with
-          a small number of businesses whose quality, atmosphere and values
-          align with the editorial - helping them become part of how readers
-          plan, decide, and experience the region.
+          Start with the details readers need: opening hours, location, booking links
+          and what has changed. Factual corrections are free, with no account,
+          claim or commercial relationship required.
         </p>
         <div class="partners-hero__actions">
-          <a href="#enquire" class="pi-btn pi-btn--solid">Enquire about partnerships</a>
+          <a href="/corrections/" class="pi-btn pi-btn--solid">Correct a listing, free</a>
+          <a href="/partners/claim/" class="pi-btn pi-btn--ghost">Claim your listing</a>
         </div>
       </div>
     </section>
 
-    <!-- WHY BUSINESSES PARTNER WITH US -->
-    <section class="partners-section partners-pillars">
+    <section class="partners-section partners-pillars" aria-labelledby="business-help">
       <div class="partners-section__inner">
-        <p class="partners-section__eyebrow">Why businesses partner with us</p>
-        <h2 class="partners-section__heading">Trusted regional presence, not advertising placement</h2>
-
+        <p class="partners-section__eyebrow">Your next step</p>
+        <h2 id="business-help" class="partners-section__heading">How can we help your business?</h2>
         <div class="partners-pillars__grid">
-
           <article class="partners-pillar">
-            <h3 class="partners-pillar__title">Readers already planning</h3>
-            <p class="partners-pillar__body">
-              Peninsula Insider reaches people actively deciding where to eat,
-              stay, and spend time on the Peninsula. The audience arrives with
-              planning intent - and trust in what they find here.
-            </p>
+            <h3 class="partners-pillar__title">1. Correct a listing</h3>
+            <p class="partners-pillar__body">Wrong hours, an old price or a broken booking link? Send the page, the correction and a source. Editorial checks factual corrections on the same basis for every business.</p>
+            <p><a href="/corrections/">Report a correction, free →</a></p>
           </article>
-
           <article class="partners-pillar">
-            <h3 class="partners-pillar__title">Seasonal and repeat readership</h3>
-            <p class="partners-pillar__body">
-              Readers return across seasons. Many visit the Peninsula multiple
-              times a year and rely on Peninsula Insider for updated
-              recommendations each time. Partnership presence compounds.
-            </p>
+            <h3 class="partners-pillar__title">2. Claim your listing</h3>
+            <p class="partners-pillar__body">If you own or manage a listed venue, sign in to request verified operator access. Editorial reviews your association with the venue. You can report a correction without claiming it.</p>
+            <p><a href="/partners/claim/">Request a listing claim →</a></p>
           </article>
-
           <article class="partners-pillar">
-            <h3 class="partners-pillar__title">Part of the discovery experience</h3>
-            <p class="partners-pillar__body">
-              Partners can appear on relevant planning surfaces, with commercial
-              placement visibly labelled and distinct from editorial recommendations.
-              The placement should be useful and native to the reader journey,
-              never mistaken for editorial judgement.
-            </p>
+            <h3 class="partners-pillar__title">3. Improve your presence</h3>
+            <p class="partners-pillar__body">Send current photos, practical visiting details or an event proposal. These updates are free and reviewed by editorial; submitting information does not guarantee coverage or a recommendation.</p>
+            <p><a href="/partners/update/">Send a listing update →</a></p>
           </article>
-
           <article class="partners-pillar">
-            <h3 class="partners-pillar__title">Long-term regional positioning</h3>
-            <p class="partners-pillar__body">
-              The strongest outcomes come from sustained presence within a
-              trusted editorial environment - not a single campaign. Partners
-              become part of how people think about the Peninsula.
-            </p>
+            <h3 class="partners-pillar__title">4. Explore a partnership</h3>
+            <p class="partners-pillar__body">Optional paid opportunities are described below. Commercial placements are labelled, and buying one does not influence factual corrections, editorial rankings or recommendations.</p>
+            <p><a href="#partnerships">View partnership options →</a></p>
           </article>
-
         </div>
+        <p class="partners-who__line">Not listed yet? <a href="/partners/update/#new-business">Introduce your business for editorial consideration</a>. It is free to submit, with no promise of inclusion and no partnership enquiry required.</p>
       </div>
     </section>
 
     <!-- WHO WE WORK WITH -->
-    <section class="partners-section partners-who">
+    <section id="partnerships" class="partners-section partners-who">
       <div class="partners-section__inner">
-        <p class="partners-section__eyebrow">Who we work with</p>
-        <h2 class="partners-section__heading">Selective by category, premium by fit</h2>
+        <p class="partners-section__eyebrow">Optional partnerships</p>
+        <h2 class="partners-section__heading">Partnerships for Peninsula businesses</h2>
 
         <p class="partners-who__intro">
-          We typically partner with Peninsula businesses across these categories:
+          We consider partnership enquiries from Peninsula businesses in these categories:
         </p>
 
         <ul class="partners-who__list">
@@ -146,7 +125,7 @@ export const prerender = true;
     <section class="partners-section partners-opportunities">
       <div class="partners-section__inner">
         <p class="partners-section__eyebrow">Partnership opportunities</p>
-        <h2 class="partners-section__heading">Tailored to category, audience and season</h2>
+        <h2 class="partners-section__heading">Discuss the format, placement and season</h2>
 
         <ul class="partners-opportunities__list">
           <li><strong>Featured Partner Profiles.</strong> A clearly labelled commercial profile on relevant venue and planning surfaces.</li>
@@ -159,7 +138,7 @@ export const prerender = true;
 
         <p class="partners-opportunities__line">
           Partnership opportunities are tailored based on category fit,
-          audience alignment and seasonal relevance. Specifics are shared
+          the proposed placement and seasonal relevance. Specifics are shared
           during the enquiry conversation.
         </p>
       </div>
@@ -173,10 +152,9 @@ export const prerender = true;
 
         <div class="partners-independence__body">
           <p>
-            Reader trust is the reason this audience is worth reaching. That
-            trust depends on editorial independence - recommendations made on
-            merit, not on commercial relationships. Peninsula Insider keeps
-            that line firm.
+            Recommendations are made on editorial merit. A commercial
+            relationship does not buy a ranking, a favourable verdict or
+            faster treatment of a factual correction.
           </p>
           <p>
             Three things that don't change:
@@ -193,22 +171,12 @@ export const prerender = true;
       </div>
     </section>
 
-    <!-- SELECTIVE BY DESIGN -->
     <section class="partners-section partners-selective">
       <div class="partners-section__inner partners-selective__inner">
-        <p class="partners-section__eyebrow">Selective by design</p>
-        <h2 class="partners-section__heading">Quality over volume, by intention</h2>
-        <p class="partners-selective__body">
-          Peninsula Insider keeps partnership numbers intentionally small.
-          The goal is not reach for its own sake - it is meaningful presence
-          within a trusted editorial environment. Fewer partners means each
-          one matters more.
-        </p>
-        <p class="partners-selective__body">
-          The strongest partnerships are with businesses that Peninsula Insider
-          would have written about anyway. The commercial relationship adds
-          visibility; the editorial quality was already there.
-        </p>
+        <p class="partners-section__eyebrow">Before you enquire</p>
+        <h2 class="partners-section__heading">Agree the scope before making a commitment</h2>
+        <p class="partners-selective__body">A proposal sets out the placement, duration, deliverables, price and any available reporting. We do not promise audience growth, bookings, sales or a particular commercial return.</p>
+        <p class="partners-selective__body">Request current audience information during the enquiry conversation. Any figures supplied should identify the measurement period and source, with forecasts clearly distinguished from measured results.</p>
       </div>
     </section>
 
@@ -220,7 +188,7 @@ export const prerender = true;
         <p class="partners-enquiry__lede">
           Tell us about your business. We review fit and follow up with
           partnership information tailored to your category, season, and
-          audience - not a generic media kit.
+          proposed placement. There is no obligation to proceed.
         </p>
 
         {/*
@@ -748,7 +716,7 @@ export const prerender = true;
     letter-spacing: -0.01em;
   }
 
-  /* PILLARS - four reasons businesses partner */
+  /* Business routes: free listing support before optional paid activity. */
   .partners-pillars__grid {
     display: grid;
     grid-template-columns: 1fr;

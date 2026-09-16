@@ -6,7 +6,7 @@ import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { routeSlug, isListableVenue } from '../../lib/editorial';
 
-const wineTypes = ['winery', 'producer', 'brewery', 'distillery'];
+const wineTypes = ['winery', 'producer'];
 const venues = (await getCollection('venues'))
   .filter(isListableVenue)
   .filter((v) => wineTypes.includes(v.data.type))
@@ -72,7 +72,7 @@ export const prerender = true;
 
         <p>The Peninsula's strengths are Pinot Noir and Chardonnay, with a handful of producers doing exceptional work in Pinot Gris, Pinot Blanc, and late-harvest styles. The best cellar door visits combine a tasting with a lunch or at minimum a board - the landscape earns more time than a thirty-minute visit allows.</p>
 
-        <p>The list is ordered by editorial authority and Halliday score where applicable. Benchmark producers first, then the smaller rooms doing interesting work below them.</p>
+        <p>This shortlist is ordered by the Halliday score recorded in our venue entries, where available. Scores describe wine assessment, not a live audit of the visitor experience. Check current tasting arrangements directly with each producer.</p>
       </div>
     </div>
   </article>
@@ -81,9 +81,9 @@ export const prerender = true;
     <div class="container">
       <div class="venues__header">
         <div>
-          <p class="label label--accent">Editorial ranking · {new Date().getFullYear()}</p>
-          <h2 class="venues__title">The top {topVenues.length} cellar doors, by authority</h2>
-          <p class="venues__sub">Ordered by editorial weight. Benchmark producers first, then the rooms doing strong quiet work.</p>
+          <p class="label label--accent">Cellar-door shortlist</p>
+          <h2 class="venues__title">Our {topVenues.length} cellar-door selections</h2>
+          <p class="venues__sub">Ordered by recorded Halliday score where available. Check the individual venue for tasting and booking details.</p>
         </div>
         <a href="/wine/" class="venues__link">All {venues.length} producers →</a>
       </div>
@@ -97,18 +97,9 @@ export const prerender = true;
     <div class="container">
       <div class="prose">
         <h2>Frequently asked questions</h2>
-
-        <h3>Do I need an appointment for cellar doors on the Mornington Peninsula?</h3>
-        <p>Some cellar doors require appointments, particularly the smaller boutique producers. Larger estates like Montalto and Crittenden Estate are generally open without bookings. Always check the winery website before visiting - hours and booking requirements shift seasonally, especially in winter.</p>
-
-        <h3>What is the best wine region on the Mornington Peninsula?</h3>
-        <p>The Red Hill plateau and its sub-regions - Red Hill South, Main Ridge, and Merricks - form the core of the Mornington Peninsula wine region. The cool maritime climate produces elegant Pinot Noir and Chardonnay. The region has over 200 vineyards and 50-plus cellar doors open to visitors.</p>
-
-        <h3>When is the best time to visit Mornington Peninsula wineries?</h3>
-        <p>Autumn (March–May) is the peak season - vintage is underway, cellar doors have fires lit, and the plateau is at its most atmospheric. Spring (September–November) brings new vintage releases and lower crowds. Summer weekends are busy but the atmosphere is excellent; book ahead. Winter is the best-kept secret: most cellar doors are open with reduced hours and the coast is dramatically empty.</p>
-
-        <h3>What wine varieties is the Mornington Peninsula known for?</h3>
-        <p>Pinot Noir and Chardonnay are the benchmark varieties, both benefiting from the cool maritime climate and basalt soils of the Red Hill plateau. Pinot Gris, Pinot Blanc, and Viognier are strong secondary varieties. A handful of producers are also doing interesting work with Tempranillo and Gamay as the region experiments beyond its two anchor grapes.</p>
+        {faqSchema.mainEntity.map((item) => (
+          <><h3>{item.name}</h3><p>{item.acceptedAnswer.text}</p></>
+        ))}
       </div>
     </div>
   </section>

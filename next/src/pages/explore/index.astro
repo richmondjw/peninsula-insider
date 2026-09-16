@@ -357,9 +357,8 @@ const journal = await Promise.all(
 // ── Schema (title/meta unchanged from the previous build) ────────────────────
 const collectionSchema = buildCollectionPageSchema({
   name: 'Explore the Mornington Peninsula, Peninsula Insider',
-  description: 'The editorial guide to things to do on the Mornington Peninsula, Victoria. Ranked lists, experience hubs, use-case guides, and itineraries, all fact-verified.',
+  description: 'Browse Mornington Peninsula activities and places by category and area, with links to walks, beaches, hot springs, golf and cultural experiences.',
   path: '/explore/',
-  dateModified: '2026-04-30',
 });
 const faqSchema = buildFaqSchema([
   { q: 'What is the Mornington Peninsula?',
@@ -381,11 +380,10 @@ export const prerender = true;
 ---
 
 <BaseLayout
-  title="Things to Do on the Mornington Peninsula · Peninsula Insider"
-  description="The editorial guide to things to do on the Mornington Peninsula, coastal walks, beaches, hot springs, golf, markets, and the experiences worth the drive. Ranked, fact-verified, updated for autumn."
+  title="Explore the Mornington Peninsula · Activities & Places"
+  description="Explore the Mornington Peninsula by activity and area: coastal walks, beaches, hot springs, golf and cultural places. Find an experience and plan your visit."
   section="explore"
   canonical="https://peninsulainsider.com.au/explore/"
-  modifiedTime="2026-04-30"
   ogImage="/images/sourced/explore-cape-schanck-lighthouse-01.webp"
 >
   <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
@@ -603,26 +601,12 @@ export const prerender = true;
       <p class="x-eyebrow">Frequently asked</p>
       <h2 class="x-faq__heading" id="faq-heading">Five honest answers about Peninsula geography and access</h2>
       <div class="x-faq__list">
-        <details class="x-faq__item">
-          <summary class="x-faq__q">What is the Mornington Peninsula?</summary>
-          <div class="x-faq__a"><p>A peninsula and local government area in Victoria, Australia, beginning roughly 40 km south of Melbourne's CBD and extending to the tip at Point Nepean. Its bay side (Port Phillip) is calm water; its ocean side (Bass Strait, via the Mornington Peninsula National Park) is surf and cliff. The hinterland, Red Hill, Main Ridge, Merricks, is wine and food country.</p></div>
-        </details>
-        <details class="x-faq__item">
-          <summary class="x-faq__q">How far is the Peninsula from Melbourne?</summary>
-          <div class="x-faq__a"><p>The peninsula begins around 40–50 km from central Melbourne. Mornington town is about 60 km by road (50–60 min). Sorrento is 110 km by road (1 hr 20 min without traffic) or reachable via the <a href="/explore/getting-here/">Searoad Ferry from Queenscliff</a>.</p></div>
-        </details>
-        <details class="x-faq__item">
-          <summary class="x-faq__q">What is there to do on the Peninsula?</summary>
-          <div class="x-faq__a"><p>Hot springs, beaches (bay and ocean), coastal walks, golf, winery lunches, day spas, surf, markets, lookouts, and whale-watching in season. See the full ranked list at <a href="/explore/things-to-do/">things to do on the Mornington Peninsula</a>.</p></div>
-        </details>
-        <details class="x-faq__item">
-          <summary class="x-faq__q">When is the best time to visit?</summary>
-          <div class="x-faq__a"><p>Summer (December–February) is peak beach season and most crowded. Autumn (March–May) is the best eating and drinking season and the most comfortable for hinterland visits. Winter is quiet, atmospheric, and ideal for hot springs. Spring is underrated, especially for wildflowers and walking.</p></div>
-        </details>
-        <details class="x-faq__item">
-          <summary class="x-faq__q">Is a car necessary?</summary>
-          <div class="x-faq__a"><p>For most itineraries, yes. Public transport connects Melbourne to Frankston and a limited bus network extends further, but the hinterland, beaches, and most attractions are car-dependent. See <a href="/explore/getting-around/">getting around</a> for the full picture.</p></div>
-        </details>
+        {faqSchema.mainEntity.map((item) => (
+          <details class="x-faq__item">
+            <summary class="x-faq__q">{item.name}</summary>
+            <div class="x-faq__a"><p>{item.acceptedAnswer.text}</p></div>
+          </details>
+        ))}
       </div>
     </div>
   </section>

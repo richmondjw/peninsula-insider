@@ -15,14 +15,14 @@ import {
 const experiences = await getCollection('experiences');
 
 const collectionSchema = buildCollectionPageSchema({
-  name: '25 Things to Do on the Mornington Peninsula',
+  name: '25 Best Things to Do on the Mornington Peninsula',
   description: 'Editorial ranked list of the 25 best things to do on the Mornington Peninsula - beaches, hot springs, walks, golf, markets, food, and more.',
   path: '/explore/things-to-do/',
   dateModified: '2026-04-23',
 });
 
 const itemListSchema = buildItemListSchema({
-  name: '25 Things to Do on the Mornington Peninsula',
+  name: '25 Best Things to Do on the Mornington Peninsula',
   description: 'Editorial ranked list of the 25 best things to do on the Mornington Peninsula.',
   listPath: '/explore/things-to-do',
   items: [
@@ -92,7 +92,7 @@ export const prerender = true;
 ---
 
 <BaseLayout
-  title="25 Things to Do on the Mornington Peninsula · Peninsula Insider"
+  title="25 Best Things to Do on the Mornington Peninsula · Peninsula Insider"
   description="Editorial ranked list of the 25 best things to do on the Mornington Peninsula - beaches, hot springs, coastal walks, golf, markets, winery lunches, and more."
   section="explore"
   canonical="https://peninsulainsider.com.au/explore/things-to-do/"
@@ -105,7 +105,7 @@ export const prerender = true;
 
   <article class="article">
     <div class="container">
-      <h1 class="article__title">Things to Do on the Mornington Peninsula</h1>
+      <h1 class="article__title">25 Best Things to Do on the Mornington Peninsula</h1>
 
       <div class="prose">
         <blockquote>
@@ -242,21 +242,9 @@ export const prerender = true;
         <ProvenanceLine records={experiences} type="experiences" noun="entry" emphasis />
 
         <h2>FAQ</h2>
-
-        <h3>What is the single most popular thing to do on the Mornington Peninsula?</h3>
-        <p>Peninsula Hot Springs at Fingal. It is consistently the Peninsula's highest-demand paid experience and requires advance booking, particularly on weekends.</p>
-
-        <h3>What can you do on the Mornington Peninsula for free?</h3>
-        <p>Most beaches are free. The national park foreshore walks are largely free. Cape Schanck boardwalk is free; the lighthouse precinct charges an entry fee. See the full <a href="/journal/free-things-to-do-mornington-peninsula/">free Peninsula guide</a>.</p>
-
-        <h3>What are the best things to do on a rainy day on the Mornington Peninsula?</h3>
-        <p>Hot springs (Peninsula Hot Springs and Alba both operate in all weather), spa days, cellar-door lunches, and galleries. See <a href="/explore/rainy-day/">rainy-day plans</a> for a full list.</p>
-
-        <h3>What's the best thing to do on the Mornington Peninsula with kids?</h3>
-        <p>Arthurs Seat Eagle for the gondola, Ashcombe Maze for engagement, and Balnarring Beach or Safety Beach for easy swimming. See the <a href="/journal/mornington-peninsula-with-kids/">with-kids guide</a>.</p>
-
-        <h3>Where should I base myself on the Mornington Peninsula?</h3>
-        <p>Sorrento and Red Hill are the two strongest bases for different kinds of trips. Sorrento suits beach-focused visitors; Red Hill suits hinterland-focused visits. See <a href="/stay/best-accommodation/">where to base yourself</a>.</p>
+        {faqSchema.mainEntity.map((item) => (
+          <><h3>{item.name}</h3><p>{item.acceptedAnswer.text}</p></>
+        ))}
       </div>
     </div>
   </section>

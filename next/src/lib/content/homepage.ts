@@ -100,7 +100,7 @@ const DEFAULT_HOMEPAGE_ADMIN_CONTENT: HomepageAdminContent = {
   },
   newsletter: {
     title: 'The Insider Note',
-    body: "The Peninsula worth knowing. Weekly. What's on, where we'd go and what's worth knowing next.",
+    body: "The Peninsula worth knowing. An occasional email. What's on, where we'd go and what's worth knowing next.",
     issueNumber: '',
     issueDate: '',
     previewHeadline: '',

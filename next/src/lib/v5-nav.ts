@@ -243,10 +243,10 @@ const configuredV5Pillars = [
       expiresAt: '2026-08-19',
       fallback: {
         eyebrow: "Editor's note",
-        title: 'The Journal',
-        verdict: 'Guides and stories to help shape the next Peninsula day.',
-        href: '/journal/',
-        cta: 'Browse the Journal',
+        title: 'Insider Picks',
+        verdict: 'Selected recommendations from the editorial desk.',
+        href: '/picks/',
+        cta: 'Read recent selections',
       },
     },
   },
@@ -320,7 +320,7 @@ export const v5DrawerItems: V5DrawerItem[] = [
 export const v5DrawerCta = {
   key: 'dispatch',
   label: 'The Insider Note',
-  dek: "The Peninsula worth knowing. Weekly. What's on, where we'd go and what's worth knowing next.",
+  dek: "The Peninsula worth knowing, sent when there is a useful edition to share.",
   ctaLabel: 'Join The Insider Note',
   href: '/dispatch/',
 };
@@ -372,7 +372,7 @@ export const v5FooterAbout: V5NavLink[] = [
   { key: 'about',     label: 'About',              href: '/about/' },
   { key: 'editorial', label: 'Editorial approach', href: '/editorial-approach/' },
   { key: 'checks',    label: 'How we check',       href: '/how-we-check/' },
-  { key: 'partners',  label: 'Partners',           href: '/partners/' },
+  { key: 'partners',  label: 'For Peninsula businesses', href: '/partners/' },
   { key: 'contact',   label: 'Contact',            href: '/contact/' },
 ];
 
