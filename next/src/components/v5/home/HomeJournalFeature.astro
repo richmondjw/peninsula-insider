@@ -38,7 +38,7 @@ const kicker = lead?.data.tags.includes('insider-picks') ? 'Insider Picks' : (le
     <div class="container home-journal__layout">
     <figure class="home-journal__media">
       <img
-        src={hero.src}
+        src={hero.src} data-pi-responsive="(max-width: 767px) 100vw, 55vw"
         alt={hero.alt || lead.data.title}
         loading="lazy"
         decoding="async"

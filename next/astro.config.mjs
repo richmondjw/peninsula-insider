@@ -5,6 +5,7 @@ import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
 import remarkBlockIds from './src/lib/inline-edit/remark-block-ids.mjs';
 import cacheBustImages from './src/lib/cache-bust-integration.mjs';
+import responsiveImages from './src/lib/responsive-images-integration.mjs';
 
 // Peninsula Insider — Astro config.
 // Decisions locked in roadmap-2026-04-09.md § 4 and § 9:
@@ -60,6 +61,7 @@ export default defineConfig({
       // re-declared on the integration.
       remarkPlugins: [remarkBlockIds],
     }),
+    responsiveImages(), // Build responsive derivatives before cache stamping.
     react(), // scoped React islands for motion polish (ScrollReveal etc); not used on content pages
     cacheBustImages(), // append ?v=<contenthash> to /images/* refs in built HTML
                        // so editor byte-swaps invalidate stale CDN/browser caches.

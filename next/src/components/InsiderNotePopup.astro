@@ -144,7 +144,8 @@ const endpoint = 'https://tjjhpvslpysfklwpqmgz.supabase.co/functions/v1/pi-newsl
         stopWatching(); lastFocus = document.activeElement; bar.hidden = true; syncBarOffset();
         reveal(root); document.body.classList.add('inote-open');
         window.setTimeout(function () { input.focus({ preventScroll: true }); }, 400);
-        track('note_popup_shown', { source: source });
+        // Keep a UI trigger separate from Analytics acquisition source.
+        track('note_popup_shown', { popup_trigger: source });
       }
       function dismiss(showBar) {
         document.body.classList.remove('inote-open');

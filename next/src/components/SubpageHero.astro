@@ -87,7 +87,7 @@ const imageAttrs = editable
       </div>
 
       <div class="subpage-hero__visual" aria-hidden="true">
-        {hasHeroImage && <img src={resolvedImageSrc} alt={resolvedImageAlt} loading="eager" decoding="async" {...imageAttrs} />}
+        {hasHeroImage && <img src={resolvedImageSrc} alt={resolvedImageAlt} loading="eager" fetchpriority="high" decoding="async" data-pi-responsive="(max-width: 767px) 100vw, 50vw" {...imageAttrs} />}
         <div class="subpage-hero__fog"></div>
       </div>
 

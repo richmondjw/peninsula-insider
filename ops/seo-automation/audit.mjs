@@ -60,8 +60,9 @@ try {
   result.crawl = evaluateCrawl(crawl, { expectedPaths, maxUrls: policy.limits.maxUrls });
   const lighthouseDir = path.join(output, 'lighthouse');
   await mkdir(lighthouseDir, { recursive: true });
+  const lighthousePaths = profile === 'weekly' ? (policy.weeklyLighthousePaths ?? policy.lighthousePaths) : policy.lighthousePaths;
   const configuration = { ci: {
-    collect: { url: policy.lighthousePaths.map(route => origin + route), numberOfRuns: profile === 'ci' ? 3 : 1, settings: { chromeFlags: '--no-sandbox --disable-dev-shm-usage', onlyCategories: ['performance', 'accessibility', 'best-practices', 'seo'] } },
+    collect: { url: lighthousePaths.map(route => origin + route), numberOfRuns: profile === 'ci' ? 3 : 1, settings: { chromeFlags: '--no-sandbox --disable-dev-shm-usage', onlyCategories: ['performance', 'accessibility', 'best-practices', 'seo'] } },
     assert: { assertions: policy.lighthouseAssertions },
     upload: { target: 'filesystem', outputDir: lighthouseDir }
   } };
@@ -81,7 +82,7 @@ try {
     if (report.runtimeError) throw new Error(`Lighthouse runtime error: ${report.runtimeError.code}`);
     result.lighthouse.push({ url: report.requestedUrl, finalUrl: report.finalDisplayedUrl || report.finalUrl, fetchedAt: report.fetchTime, lighthouseVersion: report.lighthouseVersion, userAgent: report.userAgent, categories: Object.fromEntries(Object.entries(report.categories).map(([key, value]) => [key, value.score])), lcpMs: report.audits['largest-contentful-paint']?.numericValue, cls: report.audits['cumulative-layout-shift']?.numericValue });
   }
-  if (result.lighthouse.length !== policy.lighthousePaths.length * configuration.ci.collect.numberOfRuns) throw new Error('Lighthouse coverage incomplete');
+  if (result.lighthouse.length !== lighthousePaths.length * configuration.ci.collect.numberOfRuns) throw new Error('Lighthouse coverage incomplete');
   if (target === 'live') {
     const response = await fetch(`${origin}/deployment.json`, { signal: AbortSignal.timeout(20000) });
     if (!response.ok) throw new Error('Post-audit deployment read failed');
