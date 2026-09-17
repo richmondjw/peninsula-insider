@@ -169,7 +169,7 @@ for (const venue of venues) {
     meta: [placeLabel(venue), typeLabel[venue.data.type] ?? venue.data.type],
     priceBand: venue.data.priceBand,
     facets: getFacets('venue', venue.data),
-    partnerLabel: venue.data.featuredPartner ? 'Partner venue' : undefined,
+    partnerLabel: venue.data.featuredPartner ? 'Sponsored placement' : undefined,
   });
 }
 

@@ -317,7 +317,7 @@
       return hits.map((h) => {
         const dek = h.dek || '';
         // Lightweight highlight: wrap the first query-word match in <mark>.
-        let excerpt = escapeHtml(dek.slice(0, 220));
+        let excerpt = escapeHtml(clipExcerpt(dek, 220));
         if (q && excerpt.toLowerCase().includes(q)) {
           const i = excerpt.toLowerCase().indexOf(q);
           excerpt = excerpt.slice(0, i) + '<mark>' + excerpt.slice(i, i + q.length) + '</mark>' + excerpt.slice(i + q.length);
@@ -506,6 +506,7 @@
 -->
 <script>
   import { search, typeahead } from '../lib/search-client.ts';
+  import { clipExcerpt } from '../lib/editorial.ts';
 
   function isAvailable() {
     const sb = (window as any).__PI_SB;

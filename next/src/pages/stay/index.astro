@@ -88,7 +88,7 @@ function stayItem(v: any, overrides: { verdict?: string } = {}) {
   const facets = getFacets('venue', data);
   const bookingUrl: string | undefined = data.bookingUrl ?? data.website;
   const provider = typeof data.bookingProvider === 'string' ? data.bookingProvider : '';
-  const partnerLabel = PARTNER_LABEL[provider] ?? (data.featuredPartner ? 'Partner' : undefined);
+  const partnerLabel = PARTNER_LABEL[provider] ?? (data.featuredPartner ? 'Sponsored placement' : undefined);
   return {
     title: data.name as string,
     href: `/stay/${slug}/`,
