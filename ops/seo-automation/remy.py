@@ -28,16 +28,18 @@ def runs():
 
 
 def report(run_id, cache):
-    run = json.loads(gh("run", "view", str(run_id), "--json", "databaseId,status,conclusion,createdAt,headSha,url,workflowName"))
+    run = json.loads(gh("run", "view", str(run_id), "--json", "databaseId,attempt,status,conclusion,createdAt,headSha,url,workflowName"))
     if run["workflowName"] not in {"SEO Audit", "Build and Deploy — Peninsula Insider"}:
         raise RuntimeError("Run is not a PI SEO workflow")
     if run["status"] != "completed":
         return {"run": run, "state": "pending", "summary": None}
-    destination = cache / str(run_id)
+    # GitHub reruns retain run ID but replace evidence. Never serve a prior attempt.
+    attempt = int(run["attempt"])
+    destination = cache / str(run_id) / str(attempt)
     if not destination.exists():
         destination.mkdir(parents=True, mode=0o700)
         try:
-            gh("run", "download", str(run_id), "--pattern", "seo-*", "--dir", str(destination))
+            gh("run", "download", str(run_id), "--pattern", f"seo-*-{run_id}-{attempt}", "--dir", str(destination))
         except Exception:
             # Preserve partial data for inspection; no success marker is created.
             raise

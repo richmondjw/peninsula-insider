@@ -1,6 +1,9 @@
 import importlib.util
 from pathlib import Path
 import unittest
+from unittest.mock import patch
+import json
+import tempfile
 
 spec = importlib.util.spec_from_file_location("remy", Path(__file__).parents[1] / "remy.py")
 remy = importlib.util.module_from_spec(spec)
@@ -24,6 +27,23 @@ class ComparisonTests(unittest.TestCase):
         result = remy.compare(evidence(0.9), evidence(1.0))
         self.assertEqual(result["changes"][0]["delta"], 0.1)
         self.assertIn("do not infer causality", result["interpretation"])
+
+    def test_new_attempt_never_reuses_previous_artifact(self):
+        with tempfile.TemporaryDirectory() as directory:
+            cache = Path(directory)
+            prior = cache / "42" / "1"
+            prior.mkdir(parents=True)
+            (prior / "download.complete").write_text("complete")
+            (prior / "summary.json").write_text(json.dumps({"schemaVersion": 1, "status": "passed", "id": "old"}))
+            def fake_gh(*args):
+                if args[1] == "view":
+                    return json.dumps({"databaseId": 42, "attempt": 2, "status": "completed", "workflowName": "SEO Audit"})
+                self.assertIn("seo-*-42-2", args)
+                target = Path(args[args.index("--dir") + 1])
+                (target / "summary.json").write_text(json.dumps({"schemaVersion": 1, "status": "failed", "id": "new"}))
+                return ""
+            with patch.object(remy, "gh", side_effect=fake_gh):
+                self.assertEqual(remy.report(42, cache)["summary"]["id"], "new")
 
 
 if __name__ == "__main__":
