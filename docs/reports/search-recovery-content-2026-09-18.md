@@ -4,7 +4,7 @@ Authority: James approved the two-article refresh, supporting consistency edits,
 
 ## Scope and provenance
 
-The two primary pages retain their URLs and original publication dates. The hot-springs comparison and dog-friendly dining guide were substantially rechecked against the official sources below. Their verification date advances to 18 September. The supporting winery and weekend guides receive only dining-policy corrections, retain their earlier overall verification date, and explicitly identify the limited September update. No venue visit, direct contact or paid relationship is implied.
+The two primary pages retain their URLs and original publication dates. The hot-springs comparison and dog-friendly dining guide were substantially rechecked against the official sources below. Their verification date advances to 18 September. The supporting winery and static weekend guides receive only dining-policy corrections, retain their earlier overall verification date, and explicitly identify the limited September update. No venue visit, direct contact or paid relationship is implied.
 
 The existing components, page templates, navigation and canonical rules are unchanged. No URL merger, new article, redirect or ranking guarantee is introduced. Unverified pet policies are not interpreted as either permission or prohibition.
 
@@ -44,3 +44,7 @@ Primary intent: comparison/booking decision for hot springs; dog-suitable food-a
 Use the existing weekly search-recovery report. Compare equal 28-day windows for the two original URLs, record query changes and inspect Google crawl dates after release. Indexing or a crawl request is not evidence that the revised content was recrawled. Assess impressions, clicks and CTR over 28–56 days after a verified post-release crawl; query mix affects average position. No new reporting cadence is commissioned here.
 
 Build, render, link and production receipts are retained in the private task evidence and summarised in the canonical vault delivery report after release.
+
+## Rendered-route correction
+
+The collection entry `the-dog-friendly-peninsula.mdx` is excluded by `STATIC_JOURNAL_OVERRIDES`; its old URL redirects to the static `dog-friendly-mornington-peninsula.astro` page. The unused collection edit was reverted. Dining corrections were applied to the actual static route. Its previously hidden FAQ markup was narrowed to the current, source-checked dining FAQ and rendered from the same object. The wider beach/accommodation content was not reverified and its historical claims remain outside this dining refresh; no whole-page fresh-verification claim is made.

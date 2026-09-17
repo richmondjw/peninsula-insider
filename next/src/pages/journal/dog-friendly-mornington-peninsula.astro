@@ -20,35 +20,18 @@ const articleSchema = {
   url: 'https://peninsulainsider.com.au/journal/dog-friendly-mornington-peninsula',
 };
 
+// Keep the one current, source-checked FAQ in parity with visible copy below.
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'Are dogs allowed on Mornington Peninsula beaches?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Yes, but it varies by beach and season. Rye ocean beach and Blairgowrie ocean beach have dedicated off-leash zones year-round. The bay-side beaches at Safety Beach and Martha Cove allow off-leash dogs before 9am and after 7pm in summer, and all day in winter. Some beaches (like Sorrento main beach) are dog-free in summer. Always check the local council signage - Mornington Peninsula Shire posts seasonal rules at each beach entrance.',
-      },
+  mainEntity: [{
+    '@type': 'Question',
+    name: 'Which cafes on the Mornington Peninsula allow dogs?',
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: 'Commonfolk Coffee in Mornington explicitly welcomes dogs in its back courtyard with side access. Green Olive at Red Hill advertises a dog-friendly farm dining experience; confirm the seating area when booking. Outdoor tables elsewhere do not establish permission to bring a dog. See the linked dining guide for official policy sources checked on 18 September 2026.',
     },
-    {
-      '@type': 'Question',
-      name: 'Which cafes on the Mornington Peninsula allow dogs?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Most cafes with outdoor seating welcome dogs - Commonfolk Coffee in Mornington, Flinders General Store, Red Hill Bakery, and Green Olive at Red Hill are reliably dog-friendly with water bowls and shade. The cellar doors are mixed: Montalto welcomes dogs in its outdoor areas. Polperro does not allow pets; check the policy of each property before travelling.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Can I stay on the Mornington Peninsula with my dog?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Yes, though options narrow significantly at the luxury end. Self-contained cottages and farm stays are the most reliably dog-friendly - properties in Main Ridge, Merricks, and the hinterland often accept dogs by arrangement. Larger hotels like Jackalope and Continental Sorrento do not allow pets. Book directly and confirm the pet policy - "pet-friendly" on booking platforms sometimes means a surcharge and a list of restrictions.',
-      },
-    },
-  ],
+  }],
 };
 
 const breadcrumbSchema = {
@@ -130,15 +113,19 @@ export const prerender = true;
 
         <h2>Dog-friendly cafés</h2>
 
-        <p>The Peninsula café scene is not consistently dog-friendly in the way that the term has come to mean (dogs in the dining area, water bowls on arrival, staff who treat your dog as a welcome guest rather than a problem). What follows is honest: most cafés will tolerate a dog tied to a post outside. Actual dog-welcoming hospitality - water bowls, fenced outdoor areas, treats - is less common but exists.</p>
+        <p><strong>Commonfolk Coffee, Mornington</strong> publishes a dog-friendly back courtyard with side access. It accepts reservations and keeps tables for walk-ins; ask for the courtyard when booking.</p>
 
-        <p><strong>Commonfolk Coffee (Mornington)</strong> - The large outdoor courtyard at Commonfolk means dogs on leash are easily accommodated. The staff are consistently good about it. Good coffee, good food, manageable queues on weekday mornings.</p>
+        <p><strong>Green Olive at Red Hill</strong> advertises a dog-friendly farm dining experience. Confirm the permitted seating area and conditions with your reservation.</p>
 
-        <p><strong>Balnarring Bakehouse</strong> - External seating only, but the bakehouse has outdoor tables and is not fussy about a dog tied nearby. The bakery output is excellent and the coffee is solid.</p>
+        <p>Outdoor seating alone does not establish a venue's pet policy. Our <a href="/journal/dog-friendly-cafes-pubs-wineries-mornington-peninsula/">dog-friendly cafés, pubs and wineries guide</a> links to the official policies checked on 18 September 2026 and distinguishes confirmed options from venues that need a direct enquiry. Dining-policy references were updated on that date; this is not a new verification of the whole weekend guide.</p>
 
-        <p><strong>Village cafés in Flinders and Red Hill</strong> - The smaller village cafés generally have external seating that tolerates dogs. Call ahead or check before making a trip specifically for this - policies change and staff discretion varies.</p>
-
-        <p>Our <a href="/journal/dog-friendly-cafes-pubs-wineries-mornington-peninsula/">dog-friendly cafés, pubs and wineries guide</a> covers a wider list, including which cellar doors tolerate dogs in their outdoor areas and which ones don't.</p>
+        <h2>Dog-friendly dining question</h2>
+        {faqSchema.mainEntity.map(item => (
+          <section>
+            <h3>{item.name}</h3>
+            <p>{item.acceptedAnswer.text}</p>
+          </section>
+        ))}
 
         <h2>Dog-friendly accommodation</h2>
 
