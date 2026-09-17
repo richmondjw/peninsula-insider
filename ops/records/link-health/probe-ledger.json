@@ -1,6 +1,6 @@
 {
   "note": "Probe results for source URLs cited by the corpus. Written ONLY by next/scripts/probe-link-health.mjs, by a human or a scheduled job, never by a build. Read offline by next/scripts/audit-link-health.mjs. A verdict is what a probe saw, not an inference. This file is a RECORD, not a report: it does not live under ops/reports/ because nothing here is reproducible from the tree, and reverting it destroys evidence rather than regenerating it.",
-  "updatedAt": "2026-09-16T03:09:46.169Z",
+  "updatedAt": "2026-09-17T00:11:24.467Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -1003,6 +1003,22 @@
       "effectiveUrl": "https://mprg.mornpen.vic.gov.au/Home",
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://mprg.mornpen.vic.gov.au/Exhibitions/Current-exhibitions/National-Works-On-Paper-2026",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "National Works On Paper 2026 - Mornington Peninsula Regional Gallery",
+      "probedOn": "2026-09-17",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://mprg.mornpen.vic.gov.au/Home",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Home - Mornington Peninsula Regional Gallery",
+      "probedOn": "2026-09-17",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://mpys.com.au/",
