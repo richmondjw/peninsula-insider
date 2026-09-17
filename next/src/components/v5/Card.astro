@@ -217,7 +217,7 @@ const hasActions = !!resolvedSaveKind || trip || !!booking;
   {showMedia && (
     <div class="pi-card__media">
       <img
-        src={image!.src}
+        src={image!.src} data-pi-responsive="(max-width: 767px) 100vw, (max-width: 1100px) 50vw, 33vw"
         alt={image!.alt}
         loading="lazy"
         decoding="async"

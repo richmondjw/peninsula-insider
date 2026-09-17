@@ -28,6 +28,12 @@ The site build already checks canonical/indexability, links, content and event c
 
 ## Remy / OpenClaw
 
+Weekly Lighthouse coverage includes the home, Eat, restaurant guide, Wine, Stay,
+What's On, Journal, venue and planning templates (nine pages). Daily and deployment
+checks retain the three-page, comparable core. The weekly crawl still covers the
+whole internal site, subject to the declared URL/time limits. Template samples
+are not field Core Web Vitals or proof that every page is fast.
+
 Use the existing authenticated `gh` CLI in the gateway. No gateway restart or token copying is needed. Install the repository's `remy.py` as the capability entry point and retain its source commit in the operator record.
 
 ```sh

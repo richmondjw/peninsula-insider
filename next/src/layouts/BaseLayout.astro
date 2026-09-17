@@ -291,6 +291,8 @@ const showNewsletterPopup = newsletterPopupMode === 'preview' || newsletterPopup
       var KEY = 'pi-consent-v1';
 
       function loadGtag() {
+        // Preview and local QA must never enter the production property.
+        if (!['peninsulainsider.com.au', 'www.peninsulainsider.com.au'].includes(location.hostname)) return;
         if (window._piGtagLoaded) return;
         window._piGtagLoaded = true;
         window.dataLayer = window.dataLayer || [];

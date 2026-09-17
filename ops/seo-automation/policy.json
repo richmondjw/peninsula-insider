@@ -2,6 +2,7 @@
   "origin": "https://peninsulainsider.com.au",
   "pilotPaths": ["/", "/eat/", "/eat/best-restaurants/", "/wine/", "/stay/", "/whats-on/", "/journal/dog-friendly-mornington-peninsula/"],
   "lighthousePaths": ["/", "/eat/", "/eat/best-restaurants/"],
+  "weeklyLighthousePaths": ["/", "/eat/", "/eat/best-restaurants/", "/wine/", "/stay/", "/whats-on/", "/journal/dog-friendly-mornington-peninsula/", "/eat/doot-doot-doot/", "/explore/plans/"],
   "limits": { "workers": 2, "requestsPerSecond": 2, "memoryMB": 512, "maxUrls": 2000, "crawlTimeoutSeconds": 1200, "lighthouseTimeoutSeconds": 900 },
   "lighthouseAssertions": {
     "categories:seo": ["error", { "minScore": 0.9, "aggregationMethod": "median" }],
