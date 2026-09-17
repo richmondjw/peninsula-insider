@@ -556,6 +556,8 @@ function srcBasename(src: string | null | undefined): string {
 /** Current displayed src for either an <img> or a background-image div. */
 function currentImageSrc(el: HTMLElement): string {
   if (el instanceof HTMLImageElement) return el.currentSrc || el.src;
+  const nested = el.querySelector<HTMLImageElement>('img');
+  if (nested) return nested.currentSrc || nested.src;
   const bg = window.getComputedStyle(el).backgroundImage;
   const match = bg.match(/url\((['"]?)(.*?)\1\)/);
   return match?.[2] ?? '';
@@ -565,6 +567,15 @@ function currentImageSrc(el: HTMLElement): string {
 function setImageSrc(el: HTMLElement, src: string) {
   if (el instanceof HTMLImageElement) {
     el.src = src;
+    el.removeAttribute('srcset');
+    el.removeAttribute('sizes');
+    return;
+  }
+  const nested = el.querySelector<HTMLImageElement>('img');
+  if (nested) {
+    nested.src = src;
+    nested.removeAttribute('srcset');
+    nested.removeAttribute('sizes');
     return;
   }
   // For bg-image divs, preserve any non-url() parts of the existing inline

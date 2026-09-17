@@ -485,7 +485,7 @@ test('a search envelope carries a length bucket and never the query', () => {
 
 test('a filter_applied envelope carries facet slugs, which are a closed vocabulary', () => {
   const out = eventEnvelope('filter_applied', {
-    source: 'url',
+    interaction_source: 'url',
     noun: 'places',
     filter_keys: 'cat|mood|place',
     filter_count: 4,
@@ -496,4 +496,18 @@ test('a filter_applied envelope carries facet slugs, which are a closed vocabula
   assert.equal(out.filter_keys, 'cat|mood|place');
   assert.equal(out.filter_count, 4);
   assert.equal('pi_redacted' in out, false);
+});
+
+test('reserved GA4 attribution keys never survive a custom event envelope', () => {
+  const out = eventEnvelope('note_popup_shown', {
+    source: 'scroll',
+    medium: 'popup',
+    campaign: 'spring',
+    interaction_source: 'scroll',
+  }, CTX);
+  assert.equal(out.source, undefined);
+  assert.equal(out.medium, undefined);
+  assert.equal(out.campaign, undefined);
+  assert.equal(out.interaction_source, 'scroll');
+  assert.equal(out.pi_redacted, 3);
 });

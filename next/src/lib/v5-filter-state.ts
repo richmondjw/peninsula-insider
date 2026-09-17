@@ -366,8 +366,8 @@ export function commit(
  * never which one.
  *
  * Values are facet slugs from a closed taxonomy (place, cat, mood, price,
- * party, date), not reader input, so they are safe to transmit. `source:
- * 'url'` and `source: 'restore'` are included deliberately: a filter applied
+ * party, date), not reader input, so they are safe to transmit.
+ * `interaction_source: 'url'` and `interaction_source: 'restore'` are included deliberately: a filter applied
  * by a shared link is still a filter applied, and treating it as invisible
  * is how a referral channel comes to look like it converts nothing.
  *
@@ -394,7 +394,7 @@ function trackFilterApplied(
   track(
     'filter_applied',
     {
-      source,
+      interaction_source: source,
       noun,
       filter_keys: keys.join('|'),
       filter_count: values,

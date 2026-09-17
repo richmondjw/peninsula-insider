@@ -11,6 +11,7 @@ import { routeSlug, venueHref } from '../lib/editorial';
 import PiSaveActions from './PiSaveActions.astro';
 import { editableImage } from '../lib/inline-edit/attrs';
 import { resolveHero } from '../lib/inline-edit/resolve-hero';
+import { responsivePublicImage } from '../lib/image-delivery.mjs';
 
 const typeLabel: Record<string, string> = {
   restaurant:  'Restaurant',
@@ -83,6 +84,12 @@ const summaryLine = [shortAddress, data.priceBand].filter(Boolean).join(' · ');
 // file specifies - so the rebuilt page renders the new image directly.
 const hero = await resolveHero('venue', slug, data);
 const hasPhoto = hero.hasPhoto;
+const heroDelivery = responsivePublicImage(hero.src, {
+  widths: [320, 480, 640, 960],
+  aspectRatio: 16 / 10,
+  fallbackWidth: 640,
+  sizes: '(max-width: 48rem) 100vw, (max-width: 72rem) 50vw, 33vw',
+});
 const verifiedLabel = verifiedFreshnessLabel(data.lastVerified);
 const verifiedTier = verificationFreshness(data.lastVerified);
 ---
@@ -101,7 +108,16 @@ const verifiedTier = verificationFreshness(data.lastVerified);
       label: `${data.name} hero`,
       purpose: 'hero',
     })}
-  >{hasPhoto && <img src={hero.src} alt="" loading="lazy" decoding="async" />}</a>
+  >{hasPhoto && (
+    <img
+      src={heroDelivery.src}
+      srcset={heroDelivery.srcset}
+      sizes={heroDelivery.sizes}
+      alt=""
+      loading="lazy"
+      decoding="async"
+    />
+  )}</a>
   <div class="venue-card__top">
     <span class="venue-card__type">
       {typeLabel[data.type] ?? data.type}

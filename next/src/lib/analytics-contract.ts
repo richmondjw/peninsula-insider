@@ -33,6 +33,11 @@ export const ANALYTICS_SCHEMA_VERSION = 1;
 export const FORBIDDEN_PARAM_KEYS: readonly string[] = [
   'address',
   'body',
+  // GA4 campaign-attribution keys are reserved. A custom interaction value
+  // under any of them rewrites session acquisition (for example the popup
+  // trigger `source=scroll` became `scroll / (not set)`). Use an explicit
+  // domain key such as interaction_source or fork_origin instead.
+  'campaign',
   'comment',
   'comments',
   'contact_name',
@@ -42,6 +47,7 @@ export const FORBIDDEN_PARAM_KEYS: readonly string[] = [
   'given_name',
   'last_name',
   'message',
+  'medium',
   'mobile',
   'name',
   'note',
@@ -50,6 +56,7 @@ export const FORBIDDEN_PARAM_KEYS: readonly string[] = [
   'q',
   'query',
   'search_term',
+  'source',
   'surname',
   'tel',
   'text',

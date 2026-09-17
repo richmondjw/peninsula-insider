@@ -159,6 +159,7 @@ const showNewsletterPopup = newsletterPopupMode === 'preview' || newsletterPopup
        Google Fonts request). Preload the two hero-critical faces. -->
   <link rel="preload" href="/fonts/sora-600.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/fonts/figtree-400.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preconnect" href="https://tjjhpvslpysfklwpqmgz.supabase.co" crossorigin />
   <title>{title}</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <meta name="description" content={description} />
@@ -528,18 +529,57 @@ const showNewsletterPopup = newsletterPopupMode === 'preview' || newsletterPopup
           return res.json();
         }).then(function (slots) {
           if (!Array.isArray(slots)) return;
+          function transformed(src, width, height) {
+            try {
+              var image = new URL(src);
+              var from = '/storage/v1/object/public/';
+              if (image.protocol !== 'https:' || !image.hostname.endsWith('.supabase.co') || !image.pathname.startsWith(from)) return src;
+              image.pathname = image.pathname.replace(from, '/storage/v1/render/image/public/');
+              image.searchParams.set('width', String(width));
+              image.searchParams.set('height', String(height));
+              image.searchParams.set('resize', 'cover');
+              image.searchParams.set('quality', '75');
+              return image.toString();
+            } catch (_) { return src; }
+          }
+          function canTransform(src) {
+            try {
+              var image = new URL(src);
+              return image.protocol === 'https:'
+                && image.hostname.endsWith('.supabase.co')
+                && image.pathname.startsWith('/storage/v1/object/public/');
+            } catch (_) { return false; }
+          }
+          function applyImage(el, raw) {
+            var img = el instanceof HTMLImageElement ? el : el.querySelector('img');
+            if (img) {
+              if (!canTransform(raw)) {
+                img.src = raw;
+                img.removeAttribute('srcset');
+                img.removeAttribute('sizes');
+                return;
+              }
+              var isCover = img.classList.contains('home-cover__media');
+              var widths = isCover ? [640, 960, 1280, 1600, 1920] : [320, 480, 640, 960];
+              var isVenue = Boolean(img.closest('.venue-card__hero'));
+              var isJournal = Boolean(img.closest('.home-journal__media'));
+              var ratio = isCover ? (16 / 9) : isVenue ? (16 / 10) : isJournal ? (13 / 10) : (3 / 2);
+              var fallback = isCover ? 1280 : 640;
+              img.src = transformed(raw, fallback, Math.round(fallback / ratio));
+              img.srcset = widths.map(function (width) {
+                return transformed(raw, width, Math.round(width / ratio)) + ' ' + width + 'w';
+              }).join(', ');
+              img.sizes = isCover ? '100vw' : '(max-width: 48rem) 100vw, (max-width: 72rem) 50vw, 33vw';
+              return;
+            }
+            el.style.backgroundImage = 'url("' + transformed(raw, 1280, 720).replace(/"/g, '\\"') + '")';
+          }
           slots.forEach(function (slot) {
             if (!slot.public_url) return;
-            var el = document.querySelector(
+            var elements = document.querySelectorAll(
               '[data-pi-entity-type="' + slot.entity_type + '"][data-pi-entity-slug="' + slot.entity_slug + '"][data-pi-field-path="' + slot.field_path + '"]'
             );
-            if (!el) return;
-            if (el instanceof HTMLImageElement) {
-              el.src = slot.public_url;
-            } else {
-              // Background-image element (div, a, figure, etc.)
-              el.style.backgroundImage = 'url("' + slot.public_url.replace(/"/g, '\\"') + '")';
-            }
+            elements.forEach(function (el) { applyImage(el, slot.public_url); });
           });
         }).catch(function () { /* non-fatal */ });
       }
@@ -862,5 +902,3 @@ const showNewsletterPopup = newsletterPopupMode === 'preview' || newsletterPopup
 
 </body>
 </html>
-
-

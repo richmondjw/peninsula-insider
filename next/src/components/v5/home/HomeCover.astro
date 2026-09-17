@@ -20,6 +20,7 @@
 import { editableText, editableImage } from '../../../lib/inline-edit/attrs';
 import { loadOverrides } from '../../../lib/inline-edit/overrides';
 import { getAustralianSeasonLower } from '../../../lib/season';
+import { responsivePublicImage } from '../../../lib/image-delivery.mjs';
 
 const DEFAULT_STATEMENT = 'The Mornington Peninsula, sorted.';
 
@@ -36,6 +37,12 @@ const statement = overrides.text['cover.statement'] ?? DEFAULT_STATEMENT;
 const heroOverride = overrides.image['cover.image'];
 const heroSrc = heroOverride?.src ?? DEFAULT_HERO_SRC;
 const heroAlt = heroOverride?.alt ?? DEFAULT_HERO_ALT;
+const heroDelivery = responsivePublicImage(heroSrc, {
+  widths: [640, 960, 1280, 1600, 1920],
+  aspectRatio: 16 / 9,
+  fallbackWidth: 1280,
+  sizes: '100vw',
+});
 
 if (statement.trim().split(/\s+/).length > 18) {
   console.warn('[v5 home] cover statement over 18 words; trim it (page-redesigns.md 1.9)');
@@ -57,7 +64,9 @@ const season = getAustralianSeasonLower(now);
 <section class="home-cover" aria-label="Cover">
   <img
     class="home-cover__media"
-    src={heroSrc}
+    src={heroDelivery.src}
+    srcset={heroDelivery.srcset}
+    sizes={heroDelivery.sizes}
     alt={heroAlt}
     fetchpriority="high"
     decoding="async"

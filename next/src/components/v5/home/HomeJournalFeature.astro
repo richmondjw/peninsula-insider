@@ -13,6 +13,7 @@ import { getCollection } from 'astro:content';
 import { routeSlug, formatLabel } from '../../../lib/editorial';
 import { resolveHero } from '../../../lib/inline-edit/resolve-hero';
 import { editableImage } from '../../../lib/inline-edit/attrs';
+import { responsivePublicImage } from '../../../lib/image-delivery.mjs';
 
 // The homepage flagship feature is an editorial piece, not a weekend-picker
 // dispatch or a B2B service page (past-dated event guides are dropped by
@@ -30,6 +31,14 @@ const published = (await getCollection('articles', ({ data }) => data.status ===
 const lead = published[0];
 const slug = lead ? routeSlug(lead) : '';
 const hero = lead ? await resolveHero('article', slug, lead.data, 'hero') : null;
+const heroDelivery = hero
+  ? responsivePublicImage(hero.src, {
+      widths: [480, 720, 960, 1280],
+      aspectRatio: 13 / 10,
+      fallbackWidth: 960,
+      sizes: '(max-width: 48rem) 100vw, 55vw',
+    })
+  : null;
 const kicker = lead?.data.tags.includes('insider-picks') ? 'Insider Picks' : (lead ? (formatLabel[lead.data.format] ?? 'Feature') : '');
 ---
 
@@ -38,7 +47,9 @@ const kicker = lead?.data.tags.includes('insider-picks') ? 'Insider Picks' : (le
     <div class="container home-journal__layout">
     <figure class="home-journal__media">
       <img
-        src={hero.src}
+        src={heroDelivery!.src}
+        srcset={heroDelivery!.srcset}
+        sizes={heroDelivery!.sizes}
         alt={hero.alt || lead.data.title}
         loading="lazy"
         decoding="async"

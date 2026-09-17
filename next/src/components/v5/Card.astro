@@ -28,6 +28,7 @@ import { editableImage, type CmsEntityType } from '../../lib/inline-edit/attrs';
 import { freshnessLabel } from '../../lib/freshness';
 import SaveControl from './SaveControl.astro';
 import BookingControl from './BookingControl.astro';
+import { responsivePublicImage } from '../../lib/image-delivery.mjs';
 
 export type CardVariant = 'venue' | 'compact-row' | 'event' | 'guide' | 'plan' | 'place' | 'article';
 
@@ -191,6 +192,14 @@ const freshnessText = freshness ? freshnessLabel(freshness) : null;
 
 const isEditorial = variant === 'article' || variant === 'guide';
 const showMedia = !!image;
+const imageDelivery = image
+  ? responsivePublicImage(image.src, {
+      widths: [320, 480, 640, 960],
+      aspectRatio: 3 / 2,
+      fallbackWidth: 640,
+      sizes: '(max-width: 48rem) 100vw, (max-width: 72rem) 50vw, 33vw',
+    })
+  : null;
 /* No photo, but the row around this card has them: draw the house plate so
    the card keeps its media height and the grid stays level. compact-row is
    text-only by contract (HUB-11) and never takes a plate. */
@@ -217,7 +226,9 @@ const hasActions = !!resolvedSaveKind || trip || !!booking;
   {showMedia && (
     <div class="pi-card__media">
       <img
-        src={image!.src}
+        src={imageDelivery!.src}
+        srcset={imageDelivery!.srcset}
+        sizes={imageDelivery!.sizes}
         alt={image!.alt}
         loading="lazy"
         decoding="async"

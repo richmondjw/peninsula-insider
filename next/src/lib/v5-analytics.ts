@@ -36,6 +36,8 @@
  *   3. otherwise -> no-op. Nothing is stored, nothing leaves the page.
  */
 
+import { sanitiseParams } from './analytics-contract';
+
 const CONSENT_KEY = 'pi-consent-v1';
 
 /** Payload keys read off the element (data-* -> snake_case param). */
@@ -84,18 +86,22 @@ function analyticsConsented(): boolean {
 export function trackEvent(name: string, params: Record<string, unknown> = {}): void {
   if (typeof window === 'undefined') return;
   try {
+    const sanitised = sanitiseParams(params);
+    const safeParams = sanitised.redacted > 0
+      ? { ...sanitised.params, pi_redacted: Number(sanitised.params.pi_redacted ?? 0) + sanitised.redacted }
+      : sanitised.params;
     const w = window as unknown as {
       gtag?: (...args: unknown[]) => void;
       dataLayer?: unknown[];
     };
     if (typeof w.gtag === 'function') {
       // gtag only exists post-consent (BaseLayout loader), so this is gated.
-      w.gtag('event', name, params);
+      w.gtag('event', name, safeParams);
       return;
     }
     if (analyticsConsented()) {
       w.dataLayer = w.dataLayer || [];
-      w.dataLayer.push({ event: name, ...params });
+      w.dataLayer.push({ event: name, ...safeParams });
     }
     // No consent, no dispatch. Deliberate no-op.
   } catch {

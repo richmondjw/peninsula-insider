@@ -85,7 +85,7 @@ const encoded = JSON.stringify(items);
         const source_slug = parsed[0]?.slug;
         const source_kind = parsed[0]?.kind;
         track('pi_plan_fork', {
-          source: 'editorial',
+          interaction_source: 'editorial',
           source_kind,
           source_slug,
           items_added: added,

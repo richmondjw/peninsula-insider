@@ -13,6 +13,8 @@
  * events together in any reporting view.
  */
 
+import { sanitiseParams } from '../analytics-contract';
+
 export type SaveEvent =
   | 'pi_save'           // card or article saved
   | 'pi_unsave'         // card or article unsaved
@@ -56,13 +58,17 @@ function analyticsConsented(): boolean {
 export function track(name: SaveEvent, params: Record<string, unknown> = {}): void {
   if (typeof window === 'undefined') return;
   try {
+    const sanitised = sanitiseParams(params);
+    const safeParams = sanitised.redacted > 0
+      ? { ...sanitised.params, pi_redacted: sanitised.redacted }
+      : sanitised.params;
     if (typeof window.gtag === 'function') {
-      window.gtag('event', name, params);
+      window.gtag('event', name, safeParams);
       return;
     }
     if (!analyticsConsented()) return;
     window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({ event: name, ...params });
+    window.dataLayer.push({ event: name, ...safeParams });
   } catch {
     /* never let analytics break a click handler */
   }

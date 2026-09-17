@@ -215,7 +215,7 @@ const piIndex = { places: piPlaces, venues: piVenues };
       for (const it of route.items) {
         Store.tripAdd({ kind: it.kind, slug: it.slug, title: it.title, href: it.href, meta: { image_url: it.image_url, pi_case: route.caseId } }, { dayId: day.id });
       }
-      track('pi_plan_fork', { source: 'where-is-pi', items_added: route.items.length, items_total: route.items.length });
+      track('pi_plan_fork', { interaction_source: 'where-is-pi', items_added: route.items.length, items_total: route.items.length });
       showToast(`Saved ${route.items.length} stops to your trip.`);
       if (btn) { btn.setAttribute('disabled', ''); btn.lastChild!.textContent = ' Saved to my trip'; }
     }, { once: true });
@@ -259,7 +259,7 @@ const piIndex = { places: piPlaces, venues: piVenues };
         savedAt: Date.now(),
       }));
       const added = Saves.merge(items);
-      track('pi_plan_fork', { source: 'shared', items_added: added, items_total: items.length });
+      track('pi_plan_fork', { interaction_source: 'shared', items_added: added, items_total: items.length });
       if (added > 0) {
         showToast(`Saved ${added} ${added === 1 ? 'item' : 'items'} to your plan.`);
       } else {

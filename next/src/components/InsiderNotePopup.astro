@@ -144,7 +144,9 @@ const endpoint = 'https://tjjhpvslpysfklwpqmgz.supabase.co/functions/v1/pi-newsl
         stopWatching(); lastFocus = document.activeElement; bar.hidden = true; syncBarOffset();
         reveal(root); document.body.classList.add('inote-open');
         window.setTimeout(function () { input.focus({ preventScroll: true }); }, 400);
-        track('note_popup_shown', { source: source });
+        // `source` is a reserved GA4 attribution parameter. Sending the popup
+        // trigger under that key rewrote sessions as `scroll / (not set)`.
+        track('note_popup_shown', { interaction_source: source });
       }
       function dismiss(showBar) {
         document.body.classList.remove('inote-open');
