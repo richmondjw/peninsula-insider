@@ -2,19 +2,22 @@ import { editorialWeekendBounds } from './event-occurrence.mjs';
 
 /**
  * Clip excerpt/description text to a character budget without cutting
- * mid-word. Trims back to the last whitespace inside the budget, drops a
- * dangling trailing punctuation mark, and signals the cut honestly with an
- * ellipsis rather than a raw `.slice(0, n)`, which can land mid-word (the
- * DELI-811 Explore-card truncation bug, T-EXP-CARD-1). Used anywhere a
- * dek/editorNote is shown at a fixed character budget: search results,
- * meta descriptions.
+ * mid-word. Only trims back to the last whitespace when the budget actually
+ * lands inside a word (checked against the source text, not just the cut) -
+ * a cut that already falls on a word boundary is left alone, so a full word
+ * that fits the budget is never dropped for no reason. Drops a dangling
+ * trailing punctuation mark and signals the cut honestly with an ellipsis
+ * rather than a raw `.slice(0, n)`, which can land mid-word (the DELI-811
+ * Explore-card truncation bug, T-EXP-CARD-1). Used anywhere a dek/editorNote
+ * is shown at a fixed character budget: search results, meta descriptions.
  */
 export function clipExcerpt(text: string | undefined | null, maxChars: number): string {
   const trimmed = (text ?? '').trim();
   if (trimmed.length <= maxChars) return trimmed;
   const cut = trimmed.slice(0, maxChars);
+  const cutMidWord = /\S/.test(trimmed[maxChars] ?? '') && /\S/.test(cut[cut.length - 1] ?? '');
   const lastSpace = cut.lastIndexOf(' ');
-  const safe = lastSpace > 0 ? cut.slice(0, lastSpace) : cut;
+  const safe = cutMidWord && lastSpace > 0 ? cut.slice(0, lastSpace) : cut;
   return safe.replace(/[,;:.!?\u2010-\u2015-]+$/u, '').trimEnd() + '…';
 }
 
