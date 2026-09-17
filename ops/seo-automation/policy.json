@@ -1,0 +1,14 @@
+{
+  "origin": "https://peninsulainsider.com.au",
+  "pilotPaths": ["/", "/eat/", "/eat/best-restaurants/", "/wine/", "/stay/", "/whats-on/", "/journal/dog-friendly-mornington-peninsula/"],
+  "lighthousePaths": ["/", "/eat/", "/eat/best-restaurants/"],
+  "limits": { "workers": 2, "requestsPerSecond": 2, "memoryMB": 512, "maxUrls": 2000, "crawlTimeoutSeconds": 1200, "lighthouseTimeoutSeconds": 900 },
+  "lighthouseAssertions": {
+    "categories:seo": ["error", { "minScore": 0.9, "aggregationMethod": "median" }],
+    "categories:accessibility": ["error", { "minScore": 0.9, "aggregationMethod": "median" }],
+    "categories:performance": ["warn", { "minScore": 0.5, "aggregationMethod": "median" }],
+    "largest-contentful-paint": ["warn", { "maxNumericValue": 4000, "aggregationMethod": "median" }],
+    "cumulative-layout-shift": ["warn", { "maxNumericValue": 0.1, "aggregationMethod": "median" }],
+    "errors-in-console": "off"
+  }
+}

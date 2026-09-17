@@ -48,3 +48,8 @@ engine/__pycache__/
 # Python bytecode caches (anywhere)
 __pycache__/
 *.pyc
+
+# SEO worker binaries, private audit artifacts and Lighthouse intermediate data
+ops/seo-automation/.tools/
+ops/seo-automation/.runs/
+.lighthouseci/
