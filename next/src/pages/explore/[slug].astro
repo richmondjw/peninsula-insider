@@ -7,7 +7,7 @@ import ExperienceCard from '../../components/ExperienceCard.astro';
 import ItineraryCard from '../../components/ItineraryCard.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import { placeLabel, routeSlug, titleize, venueHrefPrefix, isListableVenue } from '../../lib/editorial';
+import { placeLabel, routeSlug, titleize, venueHrefPrefix, isListableVenue, clipExcerpt } from '../../lib/editorial';
 import { editableText, editableImage } from '../../lib/inline-edit/attrs';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
 import MediaProvenanceNote from '../../components/MediaProvenanceNote.astro';
@@ -107,11 +107,9 @@ const heroProvenance = hero.override ? null : experience.data.heroImage;
 const canonical = `https://peninsulainsider.com.au/explore/${slug}/`;
 const ogImage = hero.src;
 
-// Truncate editor note to ~155 chars
+// Truncate editor note to ~155 chars, at a word boundary (T-EXP-CARD-1 class bug).
 const description = experience.data.editorNote
-  ? experience.data.editorNote.length > 155
-    ? experience.data.editorNote.slice(0, 152) + '...'
-    : experience.data.editorNote
+  ? clipExcerpt(experience.data.editorNote, 152)
   : '';
 
 // Schema.org type mapping: specific types get richer markup

@@ -667,7 +667,7 @@ export const prerender = true;
       function rpcHitToHandle(hit, query) {
         const q = (query || '').toLowerCase();
         const dek = hit.dek || '';
-        let excerpt = escapeHtml(dek.slice(0, 260));
+        let excerpt = escapeHtml(clipExcerpt(dek, 260));
         if (q && excerpt.toLowerCase().includes(q)) {
           const i = excerpt.toLowerCase().indexOf(q);
           excerpt = excerpt.slice(0, i) + '<mark>' + excerpt.slice(i, i + q.length) + '</mark>' + excerpt.slice(i + q.length);
@@ -967,6 +967,7 @@ export const prerender = true;
   -->
   <script>
     import { search, typeahead } from '../lib/search-client.ts';
+    import { clipExcerpt } from '../lib/editorial.ts';
     function isAvailable() {
       const sb = (window as any).__PI_SB;
       return Boolean(sb && sb.url && sb.key);

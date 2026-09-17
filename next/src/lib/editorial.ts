@@ -1,6 +1,24 @@
 import { editorialWeekendBounds } from './event-occurrence.mjs';
 
 /**
+ * Clip excerpt/description text to a character budget without cutting
+ * mid-word. Trims back to the last whitespace inside the budget, drops a
+ * dangling trailing punctuation mark, and signals the cut honestly with an
+ * ellipsis rather than a raw `.slice(0, n)`, which can land mid-word (the
+ * DELI-811 Explore-card truncation bug, T-EXP-CARD-1). Used anywhere a
+ * dek/editorNote is shown at a fixed character budget: search results,
+ * meta descriptions.
+ */
+export function clipExcerpt(text: string | undefined | null, maxChars: number): string {
+  const trimmed = (text ?? '').trim();
+  if (trimmed.length <= maxChars) return trimmed;
+  const cut = trimmed.slice(0, maxChars);
+  const lastSpace = cut.lastIndexOf(' ');
+  const safe = lastSpace > 0 ? cut.slice(0, lastSpace) : cut;
+  return safe.replace(/[,;:.!?\u2010-\u2015-]+$/u, '').trimEnd() + '…';
+}
+
+/**
  * Prefix an internal path with the site's base URL so links work
  * when the build is served from a subdirectory (e.g. /V2/).
  * Set ASTRO_BASE=/V2/ at build time; without it, paths stay root-relative.
