@@ -4,6 +4,7 @@ dek: "Find dog-friendly cafés, pubs, wineries and a brewery on the Mornington P
 author: "editorial"
 houseByline: true
 publishedAt: 2026-04-17
+updatedAt: 2026-09-18
 heroImage:
   src: "/images/sourced/dog-beach-emma-01.webp"
   alt: "Wet dog sitting on a Mornington Peninsula beach"
