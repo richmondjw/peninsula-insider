@@ -1,8 +1,12 @@
 ---
+import { getEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 
+const diningGuide = await getEntry('articles', 'dog-friendly-cafes-pubs-wineries-mornington-peninsula');
+if (!diningGuide?.data.lastVerified) throw new Error('Dining guide verification date missing');
+const diningCheckedDate = new Intl.DateTimeFormat('en-AU', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Australia/Melbourne' }).format(diningGuide.data.lastVerified);
 const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'Article',
@@ -29,7 +33,7 @@ const faqSchema = {
     name: 'Which cafes on the Mornington Peninsula allow dogs?',
     acceptedAnswer: {
       '@type': 'Answer',
-      text: 'Commonfolk Coffee in Mornington explicitly welcomes dogs in its back courtyard with side access. Green Olive at Red Hill advertises a dog-friendly farm dining experience; confirm the seating area when booking. Outdoor tables elsewhere do not establish permission to bring a dog. See the linked dining guide for official policy sources checked on 18 September 2026.',
+      text: `Commonfolk Coffee in Mornington explicitly welcomes dogs in its back courtyard with side access. Green Olive at Red Hill advertises a dog-friendly farm dining experience; confirm the seating area when booking. Outdoor tables elsewhere do not establish permission to bring a dog. See the linked dining guide for official policy sources checked on ${diningCheckedDate}.`,
     },
   }],
 };
@@ -117,7 +121,7 @@ export const prerender = true;
 
         <p><strong>Green Olive at Red Hill</strong> advertises a dog-friendly farm dining experience. Confirm the permitted seating area and conditions with your reservation.</p>
 
-        <p>Outdoor seating alone does not establish a venue's pet policy. Our <a href="/journal/dog-friendly-cafes-pubs-wineries-mornington-peninsula/">dog-friendly cafés, pubs and wineries guide</a> links to the official policies checked on 18 September 2026 and distinguishes confirmed options from venues that need a direct enquiry. Dining-policy references were updated on that date; this is not a new verification of the whole weekend guide.</p>
+        <p>Outdoor seating alone does not establish a venue's pet policy. Our <a href="/journal/dog-friendly-cafes-pubs-wineries-mornington-peninsula/">dog-friendly cafés, pubs and wineries guide</a> links to the official policies checked on {diningCheckedDate} and distinguishes confirmed options from venues that need a direct enquiry. Dining-policy references were updated on that date; this is not a new verification of the whole weekend guide.</p>
 
         <h2>Dog-friendly dining question</h2>
         {faqSchema.mainEntity.map(item => (
