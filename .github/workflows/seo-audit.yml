@@ -1,0 +1,88 @@
+name: SEO Audit
+
+on:
+  pull_request:
+    paths:
+      - 'next/**'
+      - 'ops/seo-automation/**'
+      - 'ops/scripts/seo/**'
+      - '.github/workflows/seo-audit.yml'
+      - '.github/workflows/build-and-deploy.yml'
+  schedule:
+    # 07:35 AEST / 08:35 AEDT. Full internal-link crawl every Sunday.
+    - cron: '35 21 * * 0-5'
+    - cron: '35 21 * * 6'
+  workflow_dispatch:
+    inputs:
+      profile:
+        description: 'Live audit scope'
+        type: choice
+        options: [daily, weekly]
+        default: daily
+
+permissions:
+  contents: read
+
+concurrency:
+  group: seo-audit-${{ github.event.pull_request.number || 'live' }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      TZ: Australia/Melbourne
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: |
+            ops/seo-automation/package-lock.json
+            next/package-lock.json
+      - name: Install pinned SEO tools
+        working-directory: ops/seo-automation
+        run: |
+          npm ci --no-audit --no-fund
+          npm run setup
+          npm test
+      - name: Build candidate with existing SEO checks
+        if: github.event_name == 'pull_request'
+        working-directory: next
+        env:
+          PUBLIC_ACCESS_GATE: 'off'
+          PUBLIC_NEWSLETTER_POPUP: 'on'
+          PUBLIC_SUPABASE_URL: ${{ secrets.PUBLIC_SUPABASE_URL }}
+          PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.PUBLIC_SUPABASE_ANON_KEY }}
+          PUBLIC_CONCIERGE_API_URL: https://peninsula-insider-platform-api.vercel.app
+        run: |
+          npm ci --no-audit --no-fund
+          npm run build:search
+      - name: Audit candidate or production
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          SCHEDULE: ${{ github.event.schedule }}
+          REQUESTED_PROFILE: ${{ inputs.profile }}
+        working-directory: ops/seo-automation
+        run: |
+          if [ "$EVENT_NAME" = pull_request ]; then
+            npm run audit -- --target=local --profile=ci
+          elif [ "$SCHEDULE" = '35 21 * * 6' ] || [ "$REQUESTED_PROFILE" = weekly ]; then
+            npm run audit -- --target=live --profile=weekly
+          else
+            npm run audit -- --target=live --profile=daily
+          fi
+      - name: Retain audit evidence even on failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: seo-audit-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ops/seo-automation/.runs/
+          include-hidden-files: true
+          retention-days: 90
+          if-no-files-found: error
+      - name: Publish run summary
+        if: always()
+        run: find ops/seo-automation/.runs -name summary.md -exec cat {} \; >> "$GITHUB_STEP_SUMMARY"

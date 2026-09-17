@@ -20,6 +20,7 @@ on:
       # no run at all is the same defect d442813 hit.
       - 'next/scripts/**'
       - 'ops/scripts/seo/**'
+      - 'ops/seo-automation/**'
       - 'ops/baselines/**'
       - '.github/workflows/build-and-deploy.yml'
   schedule:
@@ -53,7 +54,7 @@ concurrency:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 35
     env:
       TZ: Australia/Sydney
 
@@ -169,6 +170,27 @@ jobs:
             --dist next/dist \
             --out ops/reports/seo/ledger \
             --assert
+
+      - name: Install pinned SEO tools
+        working-directory: ops/seo-automation
+        run: |
+          npm ci --no-audit --no-fund
+          npm run setup
+          npm test
+
+      - name: SiteOne and Lighthouse pre-deploy gate
+        working-directory: ops/seo-automation
+        run: npm run audit -- --target=local --profile=ci
+
+      - name: Retain SEO gate evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: seo-deploy-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ops/seo-automation/.runs/
+          include-hidden-files: true
+          retention-days: 90
+          if-no-files-found: warn
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3

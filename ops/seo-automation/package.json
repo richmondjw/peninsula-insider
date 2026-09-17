@@ -1,0 +1,13 @@
+{
+  "name": "pi-seo-automation",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "setup": "node install-siteone.mjs",
+    "audit": "node audit.mjs",
+    "test": "node --test test/*.test.mjs && python3 -m unittest discover -s test -p 'test_*.py'"
+  },
+  "devDependencies": { "@lhci/cli": "0.15.1" }
+}
