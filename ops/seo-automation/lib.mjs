@@ -1,5 +1,5 @@
 import { createServer } from 'node:http';
-import { readFile, stat } from 'node:fs/promises';
+import { readFile, stat, realpath } from 'node:fs/promises';
 import path from 'node:path';
 
 export function validateOrigin(value, liveOrigin) {
@@ -27,7 +27,7 @@ export function evaluateCrawl(report, { expectedPaths = [], maxUrls = 2000 } = {
 
 // Serves only the build, never source or credentials. No SPA fallback: missing routes must fail.
 export async function serveBuild(directory) {
-  const root = path.resolve(directory);
+  const root = await realpath(directory);
   if (!(await stat(path.join(root, 'index.html'))).isFile()) throw new Error('Build index missing');
   const mime = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.xml': 'application/xml', '.svg': 'image/svg+xml', '.webp': 'image/webp', '.png': 'image/png', '.jpg': 'image/jpeg', '.woff2': 'font/woff2' };
   const server = createServer(async (request, response) => {
@@ -36,6 +36,8 @@ export async function serveBuild(directory) {
       let file = path.resolve(root, '.' + pathname);
       if (!file.startsWith(root + path.sep) && file !== root) throw new Error('Outside build');
       if ((await stat(file)).isDirectory()) file = path.join(file, 'index.html');
+      file = await realpath(file);
+      if (!file.startsWith(root + path.sep)) throw new Error('Symlink outside build');
       const body = await readFile(file);
       response.writeHead(200, { 'content-type': mime[path.extname(file)] || 'application/octet-stream' });
       response.end(body);

@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtemp, writeFile, rm } from 'node:fs/promises';
+import { mkdtemp, writeFile, rm, symlink } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { evaluateCrawl, validateOrigin, serveBuild } from '../lib.mjs';
@@ -26,10 +26,12 @@ test('runner origin limited to production and loopback', () => {
 test('local server returns genuine 404 and never serves files outside dist', async () => {
   const dir = await mkdtemp(path.join(tmpdir(), 'pi-seo-test-'));
   await writeFile(path.join(dir, 'index.html'), '<h1>Test</h1>');
+  await symlink('/etc/passwd', path.join(dir, 'outside.txt'));
   const server = await serveBuild(dir);
   try {
     assert.equal((await fetch(server.origin)).status, 200);
     assert.equal((await fetch(server.origin + '/missing/')).status, 404);
+    assert.equal((await fetch(server.origin + '/outside.txt')).status, 404);
     assert.equal((await fetch(server.origin + '/%2e%2e%2fpackage.json')).status, 404);
   } finally { await server.close(); await rm(dir, { recursive: true, force: true }); }
 });
