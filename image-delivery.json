@@ -3027,6 +3027,96 @@
       ]
     },
     {
+      "source": "/images/sourced/home-cover-sorrento-pier-01.webp",
+      "originalBytes": 362122,
+      "variants": [
+        {
+          "src": "/_media/f314eb8f708e8abac1f2-480.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 34076
+        },
+        {
+          "src": "/_media/f314eb8f708e8abac1f2-800.webp",
+          "width": 800,
+          "height": 600,
+          "bytes": 90612
+        },
+        {
+          "src": "/_media/f314eb8f708e8abac1f2-1280.webp",
+          "width": 1280,
+          "height": 960,
+          "bytes": 209408
+        },
+        {
+          "src": "/_media/f314eb8f708e8abac1f2-1920.webp",
+          "width": 1920,
+          "height": 1440,
+          "bytes": 366330
+        }
+      ]
+    },
+    {
+      "source": "/images/sourced/home-cover-back-beach-horses-01.webp",
+      "originalBytes": 387652,
+      "variants": [
+        {
+          "src": "/_media/4c8c930674d88631e669-480.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 44254
+        },
+        {
+          "src": "/_media/4c8c930674d88631e669-800.webp",
+          "width": 800,
+          "height": 600,
+          "bytes": 114144
+        },
+        {
+          "src": "/_media/4c8c930674d88631e669-1280.webp",
+          "width": 1280,
+          "height": 960,
+          "bytes": 261488
+        },
+        {
+          "src": "/_media/4c8c930674d88631e669-1920.webp",
+          "width": 1920,
+          "height": 1440,
+          "bytes": 430398
+        }
+      ]
+    },
+    {
+      "source": "/images/sourced/home-cover-sunset-bay-01.webp",
+      "originalBytes": 353224,
+      "variants": [
+        {
+          "src": "/_media/8daa4f720f9e94388685-480.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 32980
+        },
+        {
+          "src": "/_media/8daa4f720f9e94388685-800.webp",
+          "width": 800,
+          "height": 600,
+          "bytes": 86108
+        },
+        {
+          "src": "/_media/8daa4f720f9e94388685-1280.webp",
+          "width": 1280,
+          "height": 960,
+          "bytes": 199680
+        },
+        {
+          "src": "/_media/8daa4f720f9e94388685-1920.webp",
+          "width": 1920,
+          "height": 1440,
+          "bytes": 352764
+        }
+      ]
+    },
+    {
       "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/event/viral-food-festival-mornington-2026/heroImage-1789644848662.webp",
       "originalBytes": 569178,
       "variants": [
@@ -3057,36 +3147,6 @@
       ]
     },
     {
-      "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/event/acoustic-saturdays-peppers-moonah-links-2026/heroImage-1785724600085.jpg",
-      "originalBytes": 578785,
-      "variants": [
-        {
-          "src": "/_media/9a0f2fd0310892d22be3-480.webp",
-          "width": 480,
-          "height": 290,
-          "bytes": 23820
-        },
-        {
-          "src": "/_media/9a0f2fd0310892d22be3-800.webp",
-          "width": 800,
-          "height": 484,
-          "bytes": 63070
-        },
-        {
-          "src": "/_media/9a0f2fd0310892d22be3-1280.webp",
-          "width": 1280,
-          "height": 774,
-          "bytes": 151748
-        },
-        {
-          "src": "/_media/9a0f2fd0310892d22be3-1920.webp",
-          "width": 1920,
-          "height": 1161,
-          "bytes": 297362
-        }
-      ]
-    },
-    {
       "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/event/family-mystery-picnic-mornington-peninsula-2026/heroImage-1785585971117.jpg",
       "originalBytes": 563077,
       "variants": [
@@ -3113,6 +3173,36 @@
           "width": 1920,
           "height": 1080,
           "bytes": 260650
+        }
+      ]
+    },
+    {
+      "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/event/emu-plains-market-balnarring/heroImage-1779860007921.jpg",
+      "originalBytes": 942911,
+      "variants": [
+        {
+          "src": "/_media/53d4c84ea11d6cf837eb-480.webp",
+          "width": 480,
+          "height": 319,
+          "bytes": 38060
+        },
+        {
+          "src": "/_media/53d4c84ea11d6cf837eb-800.webp",
+          "width": 800,
+          "height": 532,
+          "bytes": 84202
+        },
+        {
+          "src": "/_media/53d4c84ea11d6cf837eb-1280.webp",
+          "width": 1280,
+          "height": 852,
+          "bytes": 177272
+        },
+        {
+          "src": "/_media/53d4c84ea11d6cf837eb-1920.webp",
+          "width": 1920,
+          "height": 1278,
+          "bytes": 320444
         }
       ]
     },
