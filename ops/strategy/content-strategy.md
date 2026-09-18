@@ -2,9 +2,9 @@
 
 **North star:** Become the number-1 destination — for people and AI agents — for what's on, and where to stay, eat, drink and explore on the Mornington Peninsula.
 
-**Loop health:** 🟢 healthy — Actions recorded but none re-measured yet — learning signal not flowing (expected until GSC re-crawls the actioned pages).
+**Loop health:** 🟡 warning — Loop may be slipping: 2 days since last snapshot.
 
-**Generated:** 2026-09-17 06:08 AEST  
+**Generated:** 2026-09-19 06:07 AEST  
 **Season:** Spring  
 **Inputs used:** gsc-search-analytics, gsc-coverage, sitemap-inventory, events-calendar:15-upcoming, seasonal-calendar:spring  
 
@@ -23,7 +23,7 @@
 
 ## Day-over-day (is the strategy improving?)
 
-_Compared with 2026-09-16._
+_Compared with 2026-09-17._
 
 - Average position held by 0.00.
 - Clicks flat 0 vs last snapshot.
@@ -83,34 +83,34 @@ Ranked by the strategy model (performance + season + coverage + effort). The orc
 - **Why:** 'mornington cup 2026 date' ranks avg position 8.8 on 23 impressions — small, targeted improvement could reach page 1 and start earning clicks.
 - **Do:** Strengthen the ranking page for this exact query: expand the relevant section, add an FAQ answer, tighten the H1/intro, add internal links from related hub pages.
 
-### 6. [EVENT · score 2.992] Preview: Breast Foot Forward Annual Community Walk & Run 2026 (29d out)
+### 6. [EVENT · score 2.992] Preview: Breast Foot Forward Annual Community Walk & Run 2026 (27d out)
 - **Desk:** dispatch-desk
-- **Why:** Breast Foot Forward Annual Community Walk & Run 2026 is 29 days out (2026-10-16, ) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** Breast Foot Forward Annual Community Walk & Run 2026 is 27 days out (2026-10-16, ) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 7. [EVENT · score 2.992] Preview: High Tea at Mornington Botanical Rose Gardens (31d out)
+### 7. [EVENT · score 2.992] Preview: High Tea at Mornington Botanical Rose Gardens (29d out)
 - **Desk:** dispatch-desk
-- **Why:** High Tea at Mornington Botanical Rose Gardens is 31 days out (2026-10-18, ) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** High Tea at Mornington Botanical Rose Gardens is 29 days out (2026-10-18, ) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 8. [EVENT · score 2.992] Preview: Main Street Mornington Festival 2026 (31d out)
+### 8. [EVENT · score 2.992] Preview: Main Street Mornington Festival 2026 (29d out)
 - **Desk:** dispatch-desk
-- **Why:** Main Street Mornington Festival 2026 is 31 days out (2026-10-18, Mornington) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** Main Street Mornington Festival 2026 is 29 days out (2026-10-18, Mornington) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 9. [EVENT · score 2.992] Preview: The Bloody Long Walk – Mornington Peninsula 2026 (38d out)
+### 9. [EVENT · score 2.992] Preview: The Bloody Long Walk – Mornington Peninsula 2026 (36d out)
 - **Desk:** dispatch-desk
-- **Why:** The Bloody Long Walk – Mornington Peninsula 2026 is 38 days out (2026-10-25, Portsea) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** The Bloody Long Walk – Mornington Peninsula 2026 is 36 days out (2026-10-25, Portsea) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 10. [EVENT · score 2.992] Preview: Enchanting Kirtan: Sacred Music & Meditation Experience - Mornington (43d out)
+### 10. [EVENT · score 2.992] Preview: Enchanting Kirtan: Sacred Music & Meditation Experience - Mornington (41d out)
 - **Desk:** dispatch-desk
-- **Why:** Enchanting Kirtan: Sacred Music & Meditation Experience - Mornington is 43 days out (2026-10-30, Mornington) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** Enchanting Kirtan: Sacred Music & Meditation Experience - Mornington is 41 days out (2026-10-30, Mornington) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 11. [EVENT · score 2.992] Preview: Saturday Pottery Class (44d out)
+### 11. [EVENT · score 2.992] Preview: Saturday Pottery Class (42d out)
 - **Desk:** dispatch-desk
-- **Why:** Saturday Pottery Class is 44 days out (2026-10-31, Mornington) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** Saturday Pottery Class is 42 days out (2026-10-31, Mornington) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
 ### 12. [RANK · score 2.883] Push 'dog friendly guide mornington peninsula' onto page 1
