@@ -3,6 +3,11 @@
  *
  * SHOW_ASK_PI: false hides all Ask PI / concierge entry points sitewide.
  * Re-enable by setting to true and rebuilding.
+ *
+ * SHOW_HOME_COVER_SLIDESHOW: false renders the homepage cover as a single
+ * still photograph - slide 1 of the deck, no controls, no client JS. true
+ * cross-fades the whole deck in src/data/home-cover-deck.json with autoplay,
+ * arrows, dots and swipe.
  */
 import expiryState from '../data/event-expiry-state.json';
 import { occurrenceModelEnabled } from './event-occurrence.mjs';
@@ -45,3 +50,10 @@ if (!EVENT_OCCURRENCE_MODEL.enabled && EVENT_OCCURRENCE_MODEL.mode === 'auto') {
       'What’s On renderer. Run: npm run events:expire'
   );
 }
+
+/**
+ * Homepage cover slideshow (2026-09-18). Kill switch: set to false and the
+ * cover returns to the still photograph it was before, with no client JS on
+ * the page. The deck itself lives in src/data/home-cover-deck.json.
+ */
+export const SHOW_HOME_COVER_SLIDESHOW = true;

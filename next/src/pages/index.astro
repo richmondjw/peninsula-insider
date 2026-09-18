@@ -16,7 +16,14 @@
  *   8. The Dispatch + trust row
  *
  * Everything server-renders at build time, deterministic against the
- * content tree. No carousels, no auto-motion, no reveal animations.
+ * content tree. No reveal animations, and no carousel of editorial
+ * content: blocks 3 to 8 stay static and complete on the page.
+ *
+ * The one sanctioned exception is the cover photograph (block 2). It
+ * cross-fades through a deck of Peninsula frames, with autoplay, arrows
+ * and dots (2026-09-18, James). The rule it does not break: the copy is
+ * fixed, so there is still one h1 and nothing moves under the reader.
+ * Kill switch is SHOW_HOME_COVER_SLIDESHOW in src/lib/features.ts.
  * Title/meta/canonical are on the SEO protect list - unchanged from the
  * previous build.
  *

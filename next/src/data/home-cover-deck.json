@@ -1,0 +1,64 @@
+{
+  "_readme": [
+    "HOMEPAGE COVER DECK - the photographs behind the masthead statement.",
+    "",
+    "HOW TO EDIT, easiest first:",
+    "",
+    "1. IN EDIT MODE, ON THE SITE. Turn on Edit mode (bottom-left toggle),",
+    "   then right-click any cover photograph and choose 'Replace image'.",
+    "   Rotation pauses automatically while edit mode is on, and the arrows",
+    "   and dots stay visible, so step to the slide you want and replace it.",
+    "   A published replacement wins over this file, applies live, and is",
+    "   baked into the next deploy. Nothing here needs changing for that.",
+    "",
+    "2. IN THIS FILE, to add, remove or reorder slides. Edit the 'slides'",
+    "   array and rebuild. Order here is the order on screen.",
+    "",
+    "FIELDS",
+    "   id - stable, unique, kebab-case. The build fails on duplicates.",
+    "           Keep the id when you swap a photo for the same subject; the",
+    "           id is what the CMS slot is remembered against.",
+    "   src - path under next/public. WebP, about 2400px wide, under 400KB.",
+    "   alt - plain description for screen readers and search. Always fill.",
+    "   focal - optional object-position. The statement sits lower-left, so",
+    "           bias upward ('center 30%') on photographs with a busy or",
+    "           bright bottom edge. Defaults to 'center 38%'.",
+    "",
+    "RULES",
+    "   • Slide 1 is the LCP image: keep the lightest, calmest frame first.",
+    "   • 3 to 5 slides. More is weight the reader never sees.",
+    "   • An empty array falls back to the single default cover photograph.",
+    "   • Turn the whole slideshow off with SHOW_HOME_COVER_SLIDESHOW in",
+    "     src/lib/features.ts - slide 1 then renders exactly as it did before.",
+    "",
+    "The per-slide CMS slots are cover.image (slide 1), cover.image.2,",
+    "cover.image.3 … in order. Slide 1 keeps the original slot name so any",
+    "replacement published before the slideshow landed still applies."
+  ],
+  "slides": [
+    {
+      "id": "cape-schanck-rainbow",
+      "src": "/images/sourced/home-cover-cape-schanck-rainbow-01.webp",
+      "alt": "A rainbow arcs over the bay at Cape Schanck on a still winter morning, Mornington Peninsula",
+      "focal": "center 38%"
+    },
+    {
+      "id": "sorrento-pier",
+      "src": "/images/sourced/home-cover-sorrento-pier-01.webp",
+      "alt": "A long pier reaching into calm water past moored boats on a clear Peninsula morning",
+      "focal": "center 30%"
+    },
+    {
+      "id": "back-beach-horses",
+      "src": "/images/sourced/home-cover-back-beach-horses-01.webp",
+      "alt": "Riders on horseback along the wet sand of a Mornington Peninsula back beach",
+      "focal": "center 42%"
+    },
+    {
+      "id": "sunset-bay",
+      "src": "/images/sourced/home-cover-sunset-bay-01.webp",
+      "alt": "Sunset over a bay beach and boatsheds on the Mornington Peninsula",
+      "focal": "center 34%"
+    }
+  ]
+}
