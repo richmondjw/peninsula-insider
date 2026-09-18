@@ -3147,36 +3147,6 @@
       ]
     },
     {
-      "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/event/family-mystery-picnic-mornington-peninsula-2026/heroImage-1785585971117.jpg",
-      "originalBytes": 563077,
-      "variants": [
-        {
-          "src": "/_media/efd52cbffd1c618356ae-480.webp",
-          "width": 480,
-          "height": 270,
-          "bytes": 35432
-        },
-        {
-          "src": "/_media/efd52cbffd1c618356ae-800.webp",
-          "width": 800,
-          "height": 450,
-          "bytes": 74448
-        },
-        {
-          "src": "/_media/efd52cbffd1c618356ae-1280.webp",
-          "width": 1280,
-          "height": 720,
-          "bytes": 139510
-        },
-        {
-          "src": "/_media/efd52cbffd1c618356ae-1920.webp",
-          "width": 1920,
-          "height": 1080,
-          "bytes": 260650
-        }
-      ]
-    },
-    {
       "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/event/emu-plains-market-balnarring/heroImage-1779860007921.jpg",
       "originalBytes": 942911,
       "variants": [
@@ -3203,6 +3173,36 @@
           "width": 1920,
           "height": 1278,
           "bytes": 320444
+        }
+      ]
+    },
+    {
+      "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/event/red-hill-truffles-winter-truffle-hunt-season/heroImage-1785719503591.webp",
+      "originalBytes": 95928,
+      "variants": [
+        {
+          "src": "/_media/85bee12bed88e73089ac-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 13114
+        },
+        {
+          "src": "/_media/85bee12bed88e73089ac-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 25106
+        },
+        {
+          "src": "/_media/85bee12bed88e73089ac-1280.webp",
+          "width": 1280,
+          "height": 853,
+          "bytes": 47000
+        },
+        {
+          "src": "/_media/85bee12bed88e73089ac-1920.webp",
+          "width": 1920,
+          "height": 1280,
+          "bytes": 74464
         }
       ]
     },
@@ -4719,36 +4719,6 @@
       ]
     },
     {
-      "source": "/images/sourced/category-producer-02.webp",
-      "originalBytes": 28034,
-      "variants": [
-        {
-          "src": "/_media/b22b2a8a5298ebe4624a-480.webp",
-          "width": 480,
-          "height": 320,
-          "bytes": 5178
-        },
-        {
-          "src": "/_media/b22b2a8a5298ebe4624a-800.webp",
-          "width": 800,
-          "height": 533,
-          "bytes": 8986
-        },
-        {
-          "src": "/_media/b22b2a8a5298ebe4624a-1280.webp",
-          "width": 1280,
-          "height": 853,
-          "bytes": 16008
-        },
-        {
-          "src": "/_media/b22b2a8a5298ebe4624a-1920.webp",
-          "width": 1920,
-          "height": 1280,
-          "bytes": 26712
-        }
-      ]
-    },
-    {
       "source": "/images/sourced/category-restaurant-03.webp",
       "originalBytes": 394928,
       "variants": [
@@ -4775,6 +4745,36 @@
           "width": 1920,
           "height": 1440,
           "bytes": 383210
+        }
+      ]
+    },
+    {
+      "source": "/images/sourced/category-brewery-01.webp",
+      "originalBytes": 350026,
+      "variants": [
+        {
+          "src": "/_media/051697ae5be12b09a5ef-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 36188
+        },
+        {
+          "src": "/_media/051697ae5be12b09a5ef-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 83526
+        },
+        {
+          "src": "/_media/051697ae5be12b09a5ef-1280.webp",
+          "width": 1280,
+          "height": 853,
+          "bytes": 175442
+        },
+        {
+          "src": "/_media/051697ae5be12b09a5ef-1920.webp",
+          "width": 1920,
+          "height": 1280,
+          "bytes": 343658
         }
       ]
     },
