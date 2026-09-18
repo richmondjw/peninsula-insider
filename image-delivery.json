@@ -3207,6 +3207,30 @@
       ]
     },
     {
+      "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/itinerary/sorrento-off-season-weekend/heroImage-1779859410014.jpg",
+      "originalBytes": 234608,
+      "variants": [
+        {
+          "src": "/_media/6130dd47b8878ab984e0-480.webp",
+          "width": 480,
+          "height": 313,
+          "bytes": 34548
+        },
+        {
+          "src": "/_media/6130dd47b8878ab984e0-800.webp",
+          "width": 800,
+          "height": 521,
+          "bytes": 99634
+        },
+        {
+          "src": "/_media/6130dd47b8878ab984e0-1024.webp",
+          "width": 1024,
+          "height": 667,
+          "bytes": 174812
+        }
+      ]
+    },
+    {
       "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/article/insider-picks-2026-09-17/hero-1789644805804.jpg",
       "originalBytes": 2849996,
       "variants": [
@@ -3233,30 +3257,6 @@
           "width": 1920,
           "height": 1160,
           "bytes": 278876
-        }
-      ]
-    },
-    {
-      "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/itinerary/sorrento-off-season-weekend/heroImage-1779859410014.jpg",
-      "originalBytes": 234608,
-      "variants": [
-        {
-          "src": "/_media/6130dd47b8878ab984e0-480.webp",
-          "width": 480,
-          "height": 313,
-          "bytes": 34548
-        },
-        {
-          "src": "/_media/6130dd47b8878ab984e0-800.webp",
-          "width": 800,
-          "height": 521,
-          "bytes": 99634
-        },
-        {
-          "src": "/_media/6130dd47b8878ab984e0-1024.webp",
-          "width": 1024,
-          "height": 667,
-          "bytes": 174812
         }
       ]
     },
