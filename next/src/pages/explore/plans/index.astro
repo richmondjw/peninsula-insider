@@ -6,6 +6,10 @@
  * plus two alternates per context, the full catalogue as compact rows, and
  * a next-step band (Ask PI / blank My Trip).
  *
+ * A builder card sits under the engine (2026-09-19): three questions
+ * answered with plans that already exist, rendered into the engine's own
+ * card slots. Nothing is generated, so there is nothing to label.
+ *
  * Default context (Weekend) is server-rendered so the page is complete with
  * JS disabled; other contexts swap in place from embedded JSON with the URL
  * persisted as ?context= (canonical stays /explore/plans/, so parameterised
@@ -19,6 +23,7 @@
  */
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import PlanContextEngine from '../../../components/v5/plans/PlanContextEngine.astro';
+import PlanBuilder from '../../../components/v5/plans/PlanBuilder.astro';
 import PlanIndexRows from '../../../components/v5/plans/PlanIndexRows.astro';
 import PlanNextStep from '../../../components/v5/plans/PlanNextStep.astro';
 import { buildPlansModel } from '../../../components/v5/plans/plans-data';
@@ -63,6 +68,8 @@ export const prerender = true;
   </header>
 
   <PlanContextEngine model={model} />
+
+  <PlanBuilder model={model} />
 
   <PlanIndexRows plans={model.plans} />
 

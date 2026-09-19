@@ -1,0 +1,429 @@
+---
+/**
+ * PlanBuilder - "Build your own Peninsula day" on /explore/plans/.
+ *
+ * Three questions (how long, who's coming, what you're into) answered with
+ * plans that already exist. Nothing is generated. The answer renders into
+ * the context engine's own card slots through window.piPlansApply, so there
+ * is one set of cards on the page and the fork buttons keep working.
+ *
+ * TWO THINGS DECIDE THIS COMPONENT'S DESIGN:
+ *
+ * 1. The chip vocabulary is derived from the catalogue at build time, not
+ *    hardcoded. A chip is only offered when at least one published plan
+ *    carries that facet value, so the builder can never send a reader down
+ *    a dead end - and as facets are added to plans, the chips improve on
+ *    their own.
+ *
+ * 2. The matcher ranks, it never filters (see plan-match.ts). On 19 Sep
+ *    2026 only 12 of 28 plans carried a party facet and 9 carried a mood
+ *    facet; a filtering builder would answer "nothing matches" for most
+ *    combinations. So it always returns the best three and says plainly
+ *    whether they match everything asked or are the closest fits.
+ *
+ * No free-text field. The reference design has one, but it only works if
+ * something reads it; a box that quietly ignores what a reader typed is
+ * worse than no box. Full search is one link away instead.
+ */
+import { FACET_OPTIONS, type FacetKey } from '../../../lib/facets';
+import { matchesLength, type LengthValue } from './plan-match';
+import type { PlansModel, PlanRecord } from './plans-data';
+
+export interface Props {
+  model: PlansModel;
+}
+
+const { model } = Astro.props;
+const plans: PlanRecord[] = model.plans;
+
+const labelFor = (key: FacetKey, value: string): string =>
+  (FACET_OPTIONS[key] ?? []).find((o) => o.value === value)?.label ?? value;
+
+/** Facet values that actually occur across the catalogue, commonest first. */
+function present(key: FacetKey, exclude: string[] = []): Array<[string, number]> {
+  const counts = new Map<string, number>();
+  for (const plan of plans) {
+    for (const value of plan.facets[key] ?? []) {
+      if (exclude.includes(value)) continue;
+      counts.set(value, (counts.get(value) ?? 0) + 1);
+    }
+  }
+  return [...counts.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+}
+
+const LENGTH_ALL: Array<{ value: LengthValue; label: string }> = [
+  { value: 'one-day', label: 'One day' },
+  { value: 'weekend', label: 'Weekend' },
+  { value: 'longer', label: 'Two nights or more' },
+];
+/* PlanRecord's facets are keyed by FacetKey; the matcher takes the looser
+   shape it will see in the browser, so adapt rather than widen the matcher. */
+const matchable = plans.map((p) => ({
+  id: p.id,
+  facets: p.facets as unknown as Record<string, string[]>,
+  dayCount: p.dayCount,
+  publishedAt: p.publishedAt,
+}));
+
+const lengths = LENGTH_ALL.filter((o) => matchable.some((p) => matchesLength(p, o.value)));
+
+const who = present('party')
+  .slice(0, 4)
+  .map(([value]) => ({ value, label: labelFor('party', value) }));
+
+/* "What you're into" merges cat and mood: cat carries the subject (springs,
+   golf, walks), mood carries the pace (slow, long lunch). 'plan' is on every
+   record by definition, so it says nothing and is dropped. */
+const intoCounts = new Map<string, number>();
+for (const [value, n] of present('cat', ['plan'])) intoCounts.set(value, n);
+for (const [value, n] of present('mood')) intoCounts.set(value, (intoCounts.get(value) ?? 0) + n);
+const into = [...intoCounts.entries()]
+  .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+  .slice(0, 6)
+  .map(([value]) => ({
+    value,
+    label:
+      (FACET_OPTIONS.cat ?? []).find((o) => o.value === value)?.label ??
+      labelFor('mood', value),
+  }));
+
+if (!who.length || !into.length) {
+  console.warn('[plans] builder vocabulary is thin; add party or mood facets to plans');
+}
+
+const labels = {
+  length: Object.fromEntries(lengths.map((o) => [o.value, o.label])),
+  who: Object.fromEntries(who.map((o) => [o.value, o.label])),
+  into: Object.fromEntries(into.map((o) => [o.value, o.label])),
+};
+const labelsJson = JSON.stringify(labels).replace(/</g, '\\u003c');
+---
+
+<section class="plan-builder" id="build" aria-labelledby="plan-builder-heading">
+  <div class="container">
+    <div class="plan-builder__card">
+      <div class="plan-builder__intro">
+        <h2 class="plan-builder__heading" id="plan-builder-heading">Build your own Peninsula day</h2>
+        <p class="plan-builder__standfirst">
+          Three questions. You get the plan that fits closest, and two that also work.
+          Every one of them is a plan we published, not a plan a machine invented.
+        </p>
+      </div>
+
+      <div class="plan-builder__fields">
+        <fieldset class="plan-builder__field">
+          <legend class="plan-builder__legend">How long have you got?</legend>
+          <div class="plan-builder__chips" role="group" aria-label="How long have you got?">
+            {lengths.map((o) => (
+              <button type="button" class="plan-builder__chip" data-build-key="length" data-build-value={o.value} aria-pressed="false">
+                {o.label}
+              </button>
+            ))}
+          </div>
+        </fieldset>
+
+        {who.length > 0 && (
+          <fieldset class="plan-builder__field">
+            <legend class="plan-builder__legend">Who's coming?</legend>
+            <div class="plan-builder__chips" role="group" aria-label="Who's coming?">
+              {who.map((o) => (
+                <button type="button" class="plan-builder__chip" data-build-key="who" data-build-value={o.value} aria-pressed="false">
+                  {o.label}
+                </button>
+              ))}
+            </div>
+          </fieldset>
+        )}
+
+        {into.length > 0 && (
+          <fieldset class="plan-builder__field plan-builder__field--wide">
+            <legend class="plan-builder__legend">What are you into?</legend>
+            <div class="plan-builder__chips" role="group" aria-label="What are you into? Choose any">
+              {into.map((o) => (
+                <button type="button" class="plan-builder__chip" data-build-key="into" data-build-value={o.value} aria-pressed="false">
+                  {o.label}
+                </button>
+              ))}
+            </div>
+          </fieldset>
+        )}
+      </div>
+
+      <div class="plan-builder__actions">
+        <button type="button" class="pi-btn pi-btn--solid pi-btn--lg" data-build-go>Show me the plan</button>
+        <button type="button" class="pi-btn pi-btn--text" data-build-clear hidden>Start again</button>
+      </div>
+
+      <p class="plan-builder__note" data-build-note hidden></p>
+      <p class="plan-builder__more">
+        After something more specific? <a href="/search/" data-open-search data-evt="search_open">Search the whole Peninsula</a>.
+      </p>
+    </div>
+  </div>
+</section>
+
+<script type="application/json" id="pi-plan-builder-labels" set:html={labelsJson} />
+
+<script>
+  import { matchPlans, describeQuery, type MatchQuery, type LengthValue, type MatchablePlan } from './plan-match';
+  import { trackEvent } from '../../../lib/v5-analytics';
+
+  function init() {
+    const root = document.querySelector<HTMLElement>('.plan-builder');
+    if (!root || (root as any)._piBuilderInit) return;
+    (root as any)._piBuilderInit = true;
+
+    const payloadEl = document.getElementById('pi-plans-data');
+    const labelsEl = document.getElementById('pi-plan-builder-labels');
+    if (!payloadEl?.textContent || !labelsEl?.textContent) return;
+
+    let plans: MatchablePlan[] = [];
+    let labels: Record<string, Record<string, string>> = {};
+    try {
+      const payload = JSON.parse(payloadEl.textContent);
+      plans = Object.entries(payload.plans ?? {}).map(([id, p]: [string, any]) => ({
+        id,
+        facets: p.facets ?? {},
+        dayCount: p.dayCount,
+        publishedAt: p.publishedAt,
+      }));
+      labels = JSON.parse(labelsEl.textContent);
+    } catch {
+      return; /* a malformed payload must not take the page down */
+    }
+    if (!plans.length) return;
+
+    const chips = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-build-value]'));
+    const goBtn = root.querySelector<HTMLButtonElement>('[data-build-go]');
+    const clearBtn = root.querySelector<HTMLButtonElement>('[data-build-clear]');
+    const note = root.querySelector<HTMLElement>('[data-build-note]');
+
+    const query: MatchQuery = { length: null, who: null, into: [] };
+
+    function pressed(key: string, value: string): boolean {
+      if (key === 'into') return (query.into ?? []).includes(value);
+      return (query as any)[key] === value;
+    }
+
+    function paint() {
+      chips.forEach((chip) => {
+        const key = chip.dataset.buildKey ?? '';
+        const value = chip.dataset.buildValue ?? '';
+        chip.setAttribute('aria-pressed', pressed(key, value) ? 'true' : 'false');
+      });
+      const any = Boolean(query.length || query.who || (query.into ?? []).length);
+      if (clearBtn) clearBtn.hidden = !any;
+    }
+
+    function toggle(key: string, value: string) {
+      if (key === 'into') {
+        const list = query.into ?? [];
+        query.into = list.includes(value) ? list.filter((v) => v !== value) : [...list, value];
+      } else if (key === 'length') {
+        query.length = query.length === value ? null : (value as LengthValue);
+      } else if (key === 'who') {
+        query.who = query.who === value ? null : value;
+      }
+      paint();
+    }
+
+    function syncUrl() {
+      const url = new URL(window.location.href);
+      url.searchParams.delete('context');
+      const set = (k: string, v: string | null | undefined) =>
+        v ? url.searchParams.set(k, v) : url.searchParams.delete(k);
+      set('length', query.length);
+      set('who', query.who);
+      set('into', (query.into ?? []).join(',') || null);
+      history.replaceState(history.state, '', url);
+    }
+
+    function run(announce = true) {
+      const result = matchPlans(plans, query, 3);
+      const asked = describeQuery(query, labels as any);
+      const label = asked ? (result.exact ? asked : `Closest to ${asked.toLowerCase()}`) : 'Everything we have, best first';
+      const announcement = asked
+        ? `${result.exact ? 'Best fit' : 'Closest fit'} for ${asked}: ${result.ids.length} plans`
+        : 'Showing every plan, best first';
+
+      const apply = (window as any).piPlansApply;
+      if (typeof apply !== 'function') return;
+      apply(result.ids, label, announce ? announcement : undefined);
+
+      if (note) {
+        if (!asked) {
+          note.hidden = true;
+        } else if (result.exact) {
+          note.hidden = true;
+        } else {
+          /* Say it plainly rather than pretending the catalogue is denser
+             than it is. */
+          note.hidden = false;
+          note.textContent =
+            'Nothing carries all of that yet, so these are the closest fits. The full list is below.';
+        }
+      }
+
+      syncUrl();
+      trackEvent('filter_apply', { surface: 'plans-builder', label: asked || 'all' });
+
+      const answer = document.querySelector('[data-plan-answer]');
+      if (announce && answer) answer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    chips.forEach((chip) => {
+      chip.addEventListener('click', () => {
+        toggle(chip.dataset.buildKey ?? '', chip.dataset.buildValue ?? '');
+      });
+    });
+    goBtn?.addEventListener('click', () => run(true));
+    clearBtn?.addEventListener('click', () => {
+      query.length = null;
+      query.who = null;
+      query.into = [];
+      paint();
+      if (note) note.hidden = true;
+      syncUrl();
+      window.location.hash = '';
+    });
+
+    /* Deep link from the homepage chip strip: /explore/plans/?length=..&who=..#build */
+    const params = new URLSearchParams(window.location.search);
+    const validFor = (key: string, value: string) =>
+      chips.some((c) => c.dataset.buildKey === key && c.dataset.buildValue === value);
+    const initialLength = params.get('length');
+    const initialWho = params.get('who');
+    const initialInto = (params.get('into') ?? '').split(',').filter(Boolean);
+    if (initialLength && validFor('length', initialLength)) query.length = initialLength as LengthValue;
+    if (initialWho && validFor('who', initialWho)) query.who = initialWho;
+    query.into = initialInto.filter((v) => validFor('into', v));
+    paint();
+    if (query.length || query.who || query.into.length) {
+      /* Deep link. The engine owns the card slots, and its script may not
+         have run yet, so answer as soon as it says it is ready. */
+      if (typeof (window as any).piPlansApply === 'function') {
+        run(false);
+      } else {
+        document.addEventListener('pi:plans-ready', () => run(false), { once: true });
+      }
+    }
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+  document.addEventListener('astro:page-load', init);
+</script>
+
+<style>
+  .plan-builder {
+    padding: 1.5rem 0 2.5rem;
+  }
+
+  .plan-builder__card {
+    border: 1px solid var(--rule, color-mix(in srgb, currentColor 16%, transparent));
+    border-radius: var(--radius-m, 12px);
+    padding: clamp(1.25rem, 3vw, 2rem);
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .plan-builder__heading {
+    margin: 0 0 0.35rem;
+    font-family: var(--font-display, var(--font-display));
+    font-size: var(--fs-700, clamp(1.5rem, 1.2rem + 1.2vw, 2rem));
+    font-weight: var(--fw-display, 600);
+    line-height: 1.15;
+    color: var(--text);
+  }
+
+  .plan-builder__standfirst {
+    margin: 0;
+    max-width: 58ch;
+    font-family: var(--font-ui, var(--font-ui));
+    font-size: var(--fs-300, 0.9375rem);
+    line-height: var(--lh-ui, 1.5);
+    color: var(--soft);
+  }
+
+  .plan-builder__fields {
+    display: grid;
+    gap: 1.1rem;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  }
+  .plan-builder__field {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    min-width: 0;
+  }
+  .plan-builder__field--wide {
+    grid-column: 1 / -1;
+  }
+
+  .plan-builder__legend {
+    padding: 0;
+    margin: 0 0 0.5rem;
+    font-family: var(--font-ui, var(--font-ui));
+    font-size: var(--fs-200, 0.8125rem);
+    font-weight: var(--fw-semibold, 600);
+    letter-spacing: var(--ls-eyebrow, 0.06em);
+    text-transform: uppercase;
+    color: var(--soft);
+  }
+
+  .plan-builder__chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .plan-builder__chip {
+    font-family: var(--font-ui, var(--font-ui));
+    font-size: var(--fs-300, 0.9375rem);
+    font-weight: var(--fw-semibold, 600);
+    color: var(--text);
+    background: var(--bg, var(--white));
+    border: 1px solid var(--rule, color-mix(in srgb, currentColor 22%, transparent));
+    border-radius: 999px;
+    /* 44px target without a 44px-looking pill. */
+    padding: 0.6rem 1rem;
+    cursor: pointer;
+    transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease;
+  }
+  .plan-builder__chip:hover {
+    border-color: var(--text);
+  }
+  .plan-builder__chip[aria-pressed='true'] {
+    background: var(--text);
+    border-color: var(--text);
+    color: var(--bg, var(--white));
+  }
+
+  .plan-builder__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .plan-builder__note {
+    margin: 0;
+    font-family: var(--font-ui, var(--font-ui));
+    font-size: var(--fs-200, 0.8125rem);
+    line-height: var(--lh-ui, 1.5);
+    color: var(--soft);
+  }
+
+  .plan-builder__more {
+    margin: 0;
+    font-family: var(--font-ui, var(--font-ui));
+    font-size: var(--fs-200, 0.8125rem);
+    color: var(--soft);
+  }
+
+  @media (max-width: 26em) {
+    .plan-builder__actions .pi-btn {
+      width: 100%;
+    }
+  }
+</style>

@@ -54,6 +54,11 @@ const payload = {
         imageField: p.imageField,
         meta: p.meta,
         stops: p.stops,
+        /* The builder (PlanBuilder.astro) scores off these; the context
+           engine itself does not read them. */
+        facets: p.facets,
+        dayCount: p.dayCount,
+        publishedAt: p.publishedAt,
       },
     ]),
   ),
@@ -116,7 +121,10 @@ const payloadJson = JSON.stringify(payload).replace(/</g, '\\u003c');
               </a>
             </h3>
             <p class="plan-featured__verdict" data-slot="featured-verdict">{featured.verdict}</p>
-            <p class="plan-featured__meta" data-slot="featured-meta">{featured.meta.join(' · ')}</p>
+            <ul class="plan-chips" data-slot="featured-meta">
+              {featured.meta.map((chip) => <li class="plan-chip">{chip}</li>)}
+            </ul>
+            <p class="plan-byline" data-slot="featured-byline">Peninsula Insider editorial</p>
             <div class="plan-featured__actions">
               <button
                 type="button"
@@ -172,6 +180,9 @@ const payloadJson = JSON.stringify(payload).replace(/</g, '\\u003c');
                   {alt?.title}
                 </a>
               </h3>
+              <ul class="plan-chips plan-chips--sm" data-slot="alt-meta">
+                {(alt?.meta ?? []).map((chip) => <li class="plan-chip">{chip}</li>)}
+              </ul>
               <p class="plan-alt__verdict" data-slot="alt-verdict">{alt?.verdict}</p>
               <button
                 type="button"
@@ -330,14 +341,40 @@ const payloadJson = JSON.stringify(payload).replace(/</g, '\\u003c');
     color: var(--text);
     max-width: 52ch;
   }
-  .plan-featured__meta {
+  /* Facet chips on the cards. The values are the plan's own meta line
+     (day count, region, party), split out so the shape of a plan reads at
+     a glance instead of as a run-on sentence. */
+  .plan-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.375rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .plan-chips:empty {
+    display: none;
+  }
+  .plan-chip {
+    font-family: var(--font-ui, var(--font-ui));
+    font-size: var(--fs-100, 0.75rem);
+    line-height: 1.2;
+    color: var(--soft);
+    border: 1px solid var(--rule, color-mix(in srgb, currentColor 18%, transparent));
+    border-radius: 999px;
+    padding: 0.3rem 0.6rem;
+    white-space: nowrap;
+  }
+  .plan-chips--sm .plan-chip {
+    padding: 0.2rem 0.5rem;
+  }
+
+  .plan-byline {
     margin: 0;
     font-family: var(--font-ui, var(--font-ui));
-    font-size: var(--fs-200, 0.8125rem);
+    font-size: var(--fs-100, 0.75rem);
+    letter-spacing: 0.02em;
     color: var(--soft);
-  }
-  .plan-featured__meta:empty {
-    display: none;
   }
   .plan-featured__actions {
     display: flex;
@@ -498,6 +535,9 @@ const payloadJson = JSON.stringify(payload).replace(/</g, '\\u003c');
     imageField: string;
     meta: string[];
     stops: PlanStop[];
+    facets?: Record<string, string[]>;
+    dayCount?: number;
+    publishedAt?: number;
   }
   interface ContextData {
     label: string;
@@ -640,6 +680,19 @@ const payloadJson = JSON.stringify(payload).replace(/</g, '\\u003c');
     const emptyEl = document.querySelector<HTMLElement>('[data-plan-empty]');
     const altEls = Array.from(document.querySelectorAll<HTMLElement>('[data-plan-alt]'));
 
+    /* Chips are a list, so swapping a card rebuilds the list rather than
+       rewriting one string. Kept tiny: no innerHTML, no template. */
+    function fillChips(host: HTMLElement | null, chips: string[]) {
+      if (!host) return;
+      host.textContent = '';
+      for (const chip of chips ?? []) {
+        const li = document.createElement('li');
+        li.className = 'plan-chip';
+        li.textContent = chip;
+        host.appendChild(li);
+      }
+    }
+
     function fillFeatured(plan: PlanData, planId: string, label: string) {
       if (!featuredEl) return;
       featuredEl.hidden = false;
@@ -654,8 +707,7 @@ const payloadJson = JSON.stringify(payload).replace(/</g, '\\u003c');
       }
       const verdict = featuredEl.querySelector<HTMLElement>('[data-slot="featured-verdict"]');
       if (verdict) verdict.textContent = plan.verdict;
-      const meta = featuredEl.querySelector<HTMLElement>('[data-slot="featured-meta"]');
-      if (meta) meta.textContent = plan.meta.join(' · ');
+      fillChips(featuredEl.querySelector<HTMLElement>('[data-slot="featured-meta"]'), plan.meta);
       const read = featuredEl.querySelector<HTMLAnchorElement>('[data-slot="featured-read"]');
       if (read) read.href = plan.href;
       setImage(featuredEl.querySelector<HTMLImageElement>('[data-slot="featured-image"]'), plan);
@@ -678,6 +730,7 @@ const payloadJson = JSON.stringify(payload).replace(/</g, '\\u003c');
       }
       const verdict = el.querySelector<HTMLElement>('[data-slot="alt-verdict"]');
       if (verdict) verdict.textContent = plan.verdict;
+      fillChips(el.querySelector<HTMLElement>('[data-slot="alt-meta"]'), plan.meta);
       setImage(el.querySelector<HTMLImageElement>('[data-slot="alt-image"]'), plan);
       setFork(el.querySelector<HTMLElement>('[data-plan-fork]'), plan, planId, 'plans-alternate');
     }
@@ -722,6 +775,30 @@ const payloadJson = JSON.stringify(payload).replace(/</g, '\\u003c');
         trackEvent('filter_apply', { surface: 'plans', label: id });
       });
     });
+
+    /* The builder (PlanBuilder.astro) answers into these same slots rather
+       than rendering a second set of cards. It hands us ranked plan ids and
+       a label; we clear the context chips, because the answer on screen is
+       no longer any one context. */
+    function applyPlanIds(planIds: string[], label: string, announcement?: string) {
+      const [featuredId, ...altIds] = planIds;
+      const featuredPlan = featuredId ? data!.plans[featuredId] : undefined;
+      chips.forEach((chip) => chip.setAttribute('aria-pressed', 'false'));
+      if (featuredPlan && featuredId) {
+        fillFeatured(featuredPlan, featuredId, label);
+        if (emptyEl) emptyEl.hidden = true;
+      } else {
+        if (featuredEl) featuredEl.hidden = true;
+        if (emptyEl) emptyEl.hidden = false;
+      }
+      altEls.forEach((el, i) => fillAlt(el, altIds[i]));
+      if (status) status.textContent = announcement ?? label;
+    }
+    (window as any).piPlansApply = applyPlanIds;
+    /* The builder may initialise before this module does (script order is
+       not guaranteed across two components). Tell it we are ready rather
+       than leaving a deep-linked query silently unanswered. */
+    document.dispatchEvent(new CustomEvent('pi:plans-ready'));
 
     // Hand this page's payload and applier to the module-scope listeners.
     activePayload = data;
