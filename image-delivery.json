@@ -3165,32 +3165,32 @@
       ]
     },
     {
-      "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/article/insider-picks-2026-09-19/hero-1789809163419.webp",
-      "originalBytes": 234840,
+      "source": "/images/sourced/place-dromana-01.webp",
+      "originalBytes": 115598,
       "variants": [
         {
-          "src": "/_media/274704bf0d6a469be3b5-480.webp",
+          "src": "/_media/c936ae76b2e28d67654b-480.webp",
           "width": 480,
           "height": 320,
-          "bytes": 36568
+          "bytes": 9720
         },
         {
-          "src": "/_media/274704bf0d6a469be3b5-800.webp",
+          "src": "/_media/c936ae76b2e28d67654b-800.webp",
           "width": 800,
           "height": 534,
-          "bytes": 83936
+          "bytes": 25502
         },
         {
-          "src": "/_media/274704bf0d6a469be3b5-1280.webp",
+          "src": "/_media/c936ae76b2e28d67654b-1280.webp",
           "width": 1280,
           "height": 854,
-          "bytes": 172712
+          "bytes": 51028
         },
         {
-          "src": "/_media/274704bf0d6a469be3b5-1360.webp",
-          "width": 1360,
-          "height": 907,
-          "bytes": 232350
+          "src": "/_media/c936ae76b2e28d67654b-1600.webp",
+          "width": 1600,
+          "height": 1067,
+          "bytes": 99936
         }
       ]
     },
@@ -3255,6 +3255,36 @@
       ]
     },
     {
+      "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/article/insider-picks-2026-09-19/hero-1789809163419.webp",
+      "originalBytes": 234840,
+      "variants": [
+        {
+          "src": "/_media/274704bf0d6a469be3b5-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 36568
+        },
+        {
+          "src": "/_media/274704bf0d6a469be3b5-800.webp",
+          "width": 800,
+          "height": 534,
+          "bytes": 83936
+        },
+        {
+          "src": "/_media/274704bf0d6a469be3b5-1280.webp",
+          "width": 1280,
+          "height": 854,
+          "bytes": 172712
+        },
+        {
+          "src": "/_media/274704bf0d6a469be3b5-1360.webp",
+          "width": 1360,
+          "height": 907,
+          "bytes": 232350
+        }
+      ]
+    },
+    {
       "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/article/insider-picks-2026-09-17/hero-1789644805804.jpg",
       "originalBytes": 2849996,
       "variants": [
@@ -3299,36 +3329,6 @@
           "width": 640,
           "height": 479,
           "bytes": 88650
-        }
-      ]
-    },
-    {
-      "source": "/images/sourced/place-dromana-01.webp",
-      "originalBytes": 115598,
-      "variants": [
-        {
-          "src": "/_media/c936ae76b2e28d67654b-480.webp",
-          "width": 480,
-          "height": 320,
-          "bytes": 9720
-        },
-        {
-          "src": "/_media/c936ae76b2e28d67654b-800.webp",
-          "width": 800,
-          "height": 534,
-          "bytes": 25502
-        },
-        {
-          "src": "/_media/c936ae76b2e28d67654b-1280.webp",
-          "width": 1280,
-          "height": 854,
-          "bytes": 51028
-        },
-        {
-          "src": "/_media/c936ae76b2e28d67654b-1600.webp",
-          "width": 1600,
-          "height": 1067,
-          "bytes": 99936
         }
       ]
     },
