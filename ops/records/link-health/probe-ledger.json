@@ -1,6 +1,6 @@
 {
   "note": "Probe results for source URLs cited by the corpus. Written ONLY by next/scripts/probe-link-health.mjs, by a human or a scheduled job, never by a build. Read offline by next/scripts/audit-link-health.mjs. A verdict is what a probe saw, not an inference. This file is a RECORD, not a report: it does not live under ops/reports/ because nothing here is reproducible from the tree, and reverting it destroys evidence rather than regenerating it.",
-  "updatedAt": "2026-09-17T00:11:24.467Z",
+  "updatedAt": "2026-09-19T11:50:09.950Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -1450,6 +1450,15 @@
       "pageTitle": "The Cape Retreat | Luxury Group Accommodation in Cape Schanck, Mornington Peninsula"
     },
     {
+      "url": "https://thecontinentalsorrento.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Fine Dining, Lunch Restaurants &amp; Bars | The Continental Sorrento",
+      "effectiveUrl": "https://thecontinentalsorrento.com.au/",
+      "probedOn": "2026-09-19",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://thecontinentalsorrento.com.au/",
       "verdict": "ok",
       "httpCode": "200",
@@ -1465,6 +1474,15 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Stay &amp; Restore - The Continental Sorrento"
+    },
+    {
+      "url": "https://thecontinentalsorrento.com.au/whats-on-the-conti/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Events from September 19 &#8211; December 25 &#8211; The Continental Sorrento",
+      "effectiveUrl": "https://thecontinentalsorrento.com.au/discover/",
+      "probedOn": "2026-09-19",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://therocksmornington.com.au",
@@ -3311,6 +3329,15 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Sunday Sessions | Peninsula Hot Springs"
+    },
+    {
+      "url": "https://www.peninsulahotsprings.com/events/sunday-sessions-at-the-springs",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Sunday Sessions | Peninsula Hot Springs",
+      "effectiveUrl": "https://www.peninsulahotsprings.com/events/sunday-sessions-at-peninsula-hot-springs",
+      "probedOn": "2026-09-19",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.peninsulahotsprings.com/plan-your-visit",
