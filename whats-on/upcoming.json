@@ -12,7 +12,7 @@
     "label": "Fri 18 – Sun 20 September",
     "count": 17
   },
-  "numberOfItems": 42,
+  "numberOfItems": 45,
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -56,18 +56,6 @@
       "position": 4,
       "item": {
         "@type": "Event",
-        "name": "Emu Plains Market, Balnarring",
-        "url": "https://peninsulainsider.com.au/whats-on/emu-plains-market-balnarring/",
-        "startDate": "2026-09-19",
-        "endDate": "2026-09-19",
-        "description": "Monthly artisan market at Emu Plains Reserve (Coolart Road, Balnarring). Showcases craft, design, vintage, music, and food. Family and community favourite under stringybark gums."
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 5,
-      "item": {
-        "@type": "Event",
         "name": "Family Mystery Picnic on the Mornington Peninsula",
         "url": "https://peninsulainsider.com.au/whats-on/family-mystery-picnic-mornington-peninsula-2026/",
         "startDate": "2026-09-19",
@@ -78,7 +66,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 6,
+      "position": 5,
       "item": {
         "@type": "Event",
         "name": "Foxeys Hangout Vegetable Feast (Morning Sun Vineyard)",
@@ -91,7 +79,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 7,
+      "position": 6,
       "item": {
         "@type": "Event",
         "name": "National Works on Paper 2026 (NWOP)",
@@ -104,7 +92,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 8,
+      "position": 7,
       "item": {
         "@type": "Event",
         "name": "Pearcedale Community Market",
@@ -116,7 +104,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 9,
+      "position": 8,
       "item": {
         "@type": "Event",
         "name": "Peninsula Hot Springs Daily Studio Yoga",
@@ -129,7 +117,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 10,
+      "position": 9,
       "item": {
         "@type": "Event",
         "name": "Peninsula Hot Springs Yoga (Complimentary)",
@@ -142,7 +130,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 11,
+      "position": 10,
       "item": {
         "@type": "Event",
         "name": "Polperro Cellar Table, Private Dining Experience",
@@ -155,7 +143,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 12,
+      "position": 11,
       "item": {
         "@type": "Event",
         "name": "Pt. Leo Estate Sculpture Park",
@@ -168,7 +156,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 13,
+      "position": 12,
       "item": {
         "@type": "Event",
         "name": "Red Hill Truffles: Winter Truffle Hunt Season",
@@ -181,7 +169,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 14,
+      "position": 13,
       "item": {
         "@type": "Event",
         "name": "Restore & Pamper Retreat at Polperro Farmhouse",
@@ -194,7 +182,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 15,
+      "position": 14,
       "item": {
         "@type": "Event",
         "name": "Ten Minutes by Tractor, Terroir Masterclass",
@@ -207,7 +195,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 16,
+      "position": 15,
       "item": {
         "@type": "Event",
         "name": "VIRAL Food Festival, Mornington 2026",
@@ -215,6 +203,19 @@
         "startDate": "2026-09-19",
         "endDate": "2026-09-20",
         "description": "More than 50 trending street-food dishes, carnival rides, live wrestling, DJs and market stalls at Mornington Racecourse across the 18 to 20 September weekend.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 16,
+      "item": {
+        "@type": "Event",
+        "name": "Sunday Sessions at Peninsula Hot Springs",
+        "url": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-sunday-sessions-spring-2026/",
+        "startDate": "2026-09-20",
+        "endDate": "2026-09-20",
+        "description": "Live music every Sunday from midday at Peninsula Hot Springs, played to the pools and included with bathing. Brad Kennedy on 20 September, The Calmer Miles on 27 September.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
@@ -249,6 +250,19 @@
       "position": 19,
       "item": {
         "@type": "Event",
+        "name": "Stonier Winemaker Dinner at Ember",
+        "url": "https://peninsulainsider.com.au/whats-on/stonier-winemaker-dinner-continental-sorrento-2026/",
+        "startDate": "2026-09-24",
+        "endDate": "2026-09-24",
+        "description": "Ember at The Continental Sorrento gives over one night to Stonier, with a multi-course menu matched to the estate's wines. Thursday 24 September, booking required.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 20,
+      "item": {
+        "@type": "Event",
         "name": "Bass & Flinders Gin Masterclass",
         "url": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
         "startDate": "2026-09-25",
@@ -259,7 +273,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 20,
+      "position": 21,
       "item": {
         "@type": "Event",
         "name": "PST Art Exhibition Opening Night 2026",
@@ -272,7 +286,20 @@
     },
     {
       "@type": "ListItem",
-      "position": 21,
+      "position": 22,
+      "item": {
+        "@type": "Event",
+        "name": "AFL Grand Final Live and Loud at The Conti",
+        "url": "https://peninsulainsider.com.au/whats-on/afl-grand-final-live-and-loud-continental-sorrento-2026/",
+        "startDate": "2026-09-26",
+        "endDate": "2026-09-26",
+        "description": "The Continental Sorrento screens the 2026 AFL Grand Final across the Conti Bar, beer garden and promenade. Saturday 26 September, free entry.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 23,
       "item": {
         "@type": "Event",
         "name": "Dromana Community Market",
@@ -285,7 +312,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 22,
+      "position": 24,
       "item": {
         "@type": "Event",
         "name": "Tootgarook Primary School Market",
@@ -298,7 +325,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 23,
+      "position": 25,
       "item": {
         "@type": "Event",
         "name": "Mt Eliza Farmers Market",
@@ -311,7 +338,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 24,
+      "position": 26,
       "item": {
         "@type": "Event",
         "name": "Author Talk: Vikki Petraitis - Mornington Library",
@@ -324,20 +351,20 @@
     },
     {
       "@type": "ListItem",
-      "position": 25,
+      "position": 27,
       "item": {
         "@type": "Event",
         "name": "Arj Barker Live at Barlow",
         "url": "https://peninsulainsider.com.au/whats-on/arj-barker-live-at-barlow/",
-        "startDate": "2026-10-01",
-        "endDate": "2026-10-01",
+        "startDate": "2026-09-30",
+        "endDate": "2026-09-30",
         "description": "Arj Barker Live at Barlow at Barlow - The Continental Sorrento.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
     {
       "@type": "ListItem",
-      "position": 26,
+      "position": 28,
       "item": {
         "@type": "Event",
         "name": "Peninsula Hot Springs, Sound Healing Sessions",
@@ -350,7 +377,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 27,
+      "position": 29,
       "item": {
         "@type": "Event",
         "name": "Sound Circle: Full Moon Sound Journey at Peninsula Hot Springs",
@@ -363,7 +390,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 28,
+      "position": 30,
       "item": {
         "@type": "Event",
         "name": "Hill & Ridge Community Market, September 2026 (Restart)",
@@ -376,7 +403,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 29,
+      "position": 31,
       "item": {
         "@type": "Event",
         "name": "Red Hill Market  -  First Saturday, Every Month",
@@ -389,7 +416,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 30,
+      "position": 32,
       "item": {
         "@type": "Event",
         "name": "Crib Point Community Market",
@@ -402,7 +429,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 31,
+      "position": 33,
       "item": {
         "@type": "Event",
         "name": "Heart of the Community Market (Rosebud)",
@@ -415,12 +442,25 @@
     },
     {
       "@type": "ListItem",
-      "position": 32,
+      "position": 34,
+      "item": {
+        "@type": "Event",
+        "name": "Oktoberfest at The Continental Sorrento",
+        "url": "https://peninsulainsider.com.au/whats-on/oktoberfest-continental-sorrento-2026/",
+        "startDate": "2026-10-15",
+        "endDate": "2026-10-22",
+        "description": "Conti Bar becomes a German beer hall from 15 to 22 October, with Weihenstephaner on tap and a Bavarian menu. Free entry.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 35,
       "item": {
         "@type": "Event",
         "name": "Breast Foot Forward Annual Community Walk & Run 2026",
         "url": "https://peninsulainsider.com.au/whats-on/breast-foot-forward-annual-community-walk-and-run-2026/",
-        "startDate": "2026-10-16",
+        "startDate": "2026-10-17",
         "endDate": "2026-10-17",
         "description": "Breast Foot Forward Annual Community Walk & Run 2026 at Safety Beach Sailing club (10KM Start Line) or Anthonys Nose (5KM Start line) to Village Green (Finish Line).",
         "eventStatus": "https://schema.org/EventScheduled"
@@ -428,7 +468,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 33,
+      "position": 36,
       "item": {
         "@type": "Event",
         "name": "Emu Plains Market",
@@ -441,7 +481,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 34,
+      "position": 37,
       "item": {
         "@type": "Event",
         "name": "High Tea at Mornington Botanical Rose Gardens",
@@ -454,7 +494,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 35,
+      "position": 38,
       "item": {
         "@type": "Event",
         "name": "The Bloody Long Walk – Mornington Peninsula 2026",
@@ -467,7 +507,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 36,
+      "position": 39,
       "item": {
         "@type": "Event",
         "name": "Enchanting Kirtan: Sacred Music & Meditation Experience - Mornington",
@@ -480,7 +520,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 37,
+      "position": 40,
       "item": {
         "@type": "Event",
         "name": "Saturday Pottery Class",
@@ -493,7 +533,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 38,
+      "position": 41,
       "item": {
         "@type": "Event",
         "name": "Glamping Tents - Horror Movie Campout: Back From The Dead Tour 2026",
@@ -506,7 +546,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 39,
+      "position": 42,
       "item": {
         "@type": "Event",
         "name": "Peninsula VineHop Festival 2026",
@@ -519,7 +559,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 40,
+      "position": 43,
       "item": {
         "@type": "Event",
         "name": "\"Nancye Wynne Bolton\" OLA Golf Day 2026",
@@ -532,7 +572,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 41,
+      "position": 44,
       "item": {
         "@type": "Event",
         "name": "Mornington Tourist Railway, Santa Specials",
@@ -545,7 +585,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 42,
+      "position": 45,
       "item": {
         "@type": "Event",
         "name": "Pub Carols - Thursday 17th December",
@@ -557,7 +597,7 @@
       }
     }
   ],
-  "count": 42,
+  "count": 45,
   "events": [
     {
       "title": "Acoustic Saturdays at Peppers Moonah Links",
@@ -621,25 +661,6 @@
         {
           "date": "2026-09-20",
           "eventStatus": "https://schema.org/EventScheduled"
-        }
-      ],
-      "thisWeekend": true
-    },
-    {
-      "title": "Emu Plains Market, Balnarring",
-      "url": "https://peninsulainsider.com.au/whats-on/emu-plains-market-balnarring/",
-      "startDate": "2026-09-19",
-      "endDate": "2026-09-19",
-      "recurrence": "monthly",
-      "category": "market",
-      "place": "balnarring",
-      "venue": null,
-      "freePaid": "Free entry",
-      "summary": "Monthly artisan market at Emu Plains Reserve (Coolart Road, Balnarring). Showcases craft, design, vintage, music, and food. Family and community favourite under stringybark gums.",
-      "weekendOccurrences": [
-        {
-          "date": "2026-09-19",
-          "eventStatus": null
         }
       ],
       "thisWeekend": true
@@ -972,6 +993,26 @@
       "thisWeekend": true
     },
     {
+      "title": "Sunday Sessions at Peninsula Hot Springs",
+      "url": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-sunday-sessions-spring-2026/",
+      "startDate": "2026-09-20",
+      "endDate": "2026-09-20",
+      "recurrence": "weekly",
+      "category": "live-music",
+      "place": "fingal",
+      "venue": null,
+      "freePaid": "Paid",
+      "summary": "Live music every Sunday from midday at Peninsula Hot Springs, played to the pools and included with bathing. Brad Kennedy on 20 September, The Calmer Miles on 27 September.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [
+        {
+          "date": "2026-09-20",
+          "eventStatus": "https://schema.org/EventScheduled"
+        }
+      ],
+      "thisWeekend": true
+    },
+    {
       "title": "Mornington Wednesday Market (Main Street Market)",
       "url": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/",
       "startDate": "2026-09-23",
@@ -997,6 +1038,21 @@
       "venue": null,
       "freePaid": "Free",
       "summary": "Weekly outdoor street market on High Street Hastings every Thursday. 40+ stalls featuring homemade, homegrown and craft goods. Fresh produce, handmade goods, plants. Local food options available on the street.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [],
+      "thisWeekend": false
+    },
+    {
+      "title": "Stonier Winemaker Dinner at Ember",
+      "url": "https://peninsulainsider.com.au/whats-on/stonier-winemaker-dinner-continental-sorrento-2026/",
+      "startDate": "2026-09-24",
+      "endDate": "2026-09-24",
+      "recurrence": "one-off",
+      "category": "food-wine",
+      "place": "sorrento",
+      "venue": null,
+      "freePaid": "Paid",
+      "summary": "Ember at The Continental Sorrento gives over one night to Stonier, with a multi-course menu matched to the estate's wines. Thursday 24 September, booking required.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [],
       "thisWeekend": false
@@ -1032,6 +1088,21 @@
       "venue": null,
       "freePaid": null,
       "summary": "Opening Night Fri 25 Sept 2026 6.30-8.30pm || Exhibition 26 Sept - 4 Oct 2026 10am-5pm",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [],
+      "thisWeekend": false
+    },
+    {
+      "title": "AFL Grand Final Live and Loud at The Conti",
+      "url": "https://peninsulainsider.com.au/whats-on/afl-grand-final-live-and-loud-continental-sorrento-2026/",
+      "startDate": "2026-09-26",
+      "endDate": "2026-09-26",
+      "recurrence": "one-off",
+      "category": "racing-sport",
+      "place": "sorrento",
+      "venue": null,
+      "freePaid": "Free",
+      "summary": "The Continental Sorrento screens the 2026 AFL Grand Final across the Conti Bar, beer garden and promenade. Saturday 26 September, free entry.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [],
       "thisWeekend": false
@@ -1099,8 +1170,8 @@
     {
       "title": "Arj Barker Live at Barlow",
       "url": "https://peninsulainsider.com.au/whats-on/arj-barker-live-at-barlow/",
-      "startDate": "2026-10-01",
-      "endDate": "2026-10-01",
+      "startDate": "2026-09-30",
+      "endDate": "2026-09-30",
       "recurrence": "one-off",
       "category": "live-music",
       "place": null,
@@ -1202,9 +1273,24 @@
       "thisWeekend": false
     },
     {
+      "title": "Oktoberfest at The Continental Sorrento",
+      "url": "https://peninsulainsider.com.au/whats-on/oktoberfest-continental-sorrento-2026/",
+      "startDate": "2026-10-15",
+      "endDate": "2026-10-22",
+      "recurrence": "one-off",
+      "category": "food-wine",
+      "place": "sorrento",
+      "venue": null,
+      "freePaid": "Free",
+      "summary": "Conti Bar becomes a German beer hall from 15 to 22 October, with Weihenstephaner on tap and a Bavarian menu. Free entry.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [],
+      "thisWeekend": false
+    },
+    {
       "title": "Breast Foot Forward Annual Community Walk & Run 2026",
       "url": "https://peninsulainsider.com.au/whats-on/breast-foot-forward-annual-community-walk-and-run-2026/",
-      "startDate": "2026-10-16",
+      "startDate": "2026-10-17",
       "endDate": "2026-10-17",
       "recurrence": "one-off",
       "category": "racing-sport",
