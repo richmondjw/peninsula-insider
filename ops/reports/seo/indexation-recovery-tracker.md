@@ -12,7 +12,7 @@ Rules:
   may enter these states while the GSC blocker (B-1) is open.** Nothing below is
   marked recovered today, and that is correct rather than pessimistic.
 
-Last updated: 2026-08-18.
+Last updated: 2026-09-19.
 
 ---
 
@@ -29,6 +29,11 @@ Last updated: 2026-08-18.
 | R-3 | 4 utility targets | `/me/saved/` 1,799, `/search/` 1,400, `/account/` 1,256, `/me/trip/` 1,172 sitewide links | Ledger `allLinkedLosers` | Global nav links utility surfaces from every page | P2 | Med | DIAGNOSED | — |
 | R-4 | 83 of 628 | Indexable pages with zero editorial inbound links | Build link-graph report | Hub/spoke coverage gaps | P2 | High | DIAGNOSED | — |
 | R-5 | ~151 URLs | `lastmod` falls back to build date, overstating change frequency | 13 Aug audit | Sitemap generator fallback | P3 | High | DIAGNOSED | — |
+| R-6 | `/journal/the-producer-trail/` vs `/explore/plans/the-producer-trail/` | Migration inverted: Google indexed the retired legacy URL (self-canonical, fresh 6 Sep crawl); the declared replacement is not indexed | GSC URL Inspection, 19 Sep re-measurement | Google not honouring the site's canonical/redirect signal toward the new URL — mechanism unconfirmed | P1 | High | DIAGNOSED | — |
+| R-7 | `/explore/regions/ocean-coast/` | Indexed at 22 Aug baseline, now `Crawled — currently not indexed`, with **no new crawl in between** (`lastCrawlTime` unchanged, 11 Jun) | GSC URL Inspection, 19 Sep vs 22 Aug baseline in `recovery-cohort.json` | Algorithmic/quality re-evaluation, not a crawl or technical cause | P1 | Med | DIAGNOSED | — |
+| R-8 | `/explore/bushrangers-bay/`, `/explore/plans/the-producer-trail/` | `googleCanonical` resolves to an unrelated URL, `/explore/places/rosebud/`, instead of each page's declared target | GSC URL Inspection, 19 Sep; both carry identical `lastCrawlTime` 28 Jun 05:03:01 | Unknown — not checked against the live redirect map; do not assume cause from GSC data alone | P1 | Low (mechanism unconfirmed) | DIAGNOSED | — |
+| R-9 | Homepage, `/eat/best-restaurants/` | LCP 5.09s / 7.01s — both above Google's 4s "poor" threshold | Lighthouse CI, GH run `35397859501`, 18 Sep | Unconfirmed; candidate correlation with the 10–11 Jun homepage redesign (PRs #242–#245) — no pre-redesign Lighthouse baseline exists | P1 | Med | DIAGNOSED | — |
+| R-10 | Whole site | TLS 1.0 / 1.1 still served — SiteOne flags CRITICAL; security score 6.5/10 | SiteOne crawl, GH run `35397859501`, 18 Sep | Server/CDN TLS config not restricted to 1.2+ | P2 | High | DIAGNOSED | — |
 
 ## Verified complete (do not redo)
 
@@ -44,7 +49,7 @@ Last updated: 2026-08-18.
 
 | ID | Blocker | Impact | Owner |
 |---|---|---|---|
-| B-1 | Search Console OAuth fails `unauthorized_client` | **Critical path.** No issue can pass `LIVE_VERIFIED`; no exclusion can be confirmed stale; recovery cannot be measured | James |
+| B-1 | Search Console OAuth fails `unauthorized_client` | **RESOLVED 19 Sep** — 42 live URL Inspection calls and multiple Search Analytics queries succeeded with no auth error. Downstream states (`LIVE_VERIFIED`, `GOOGLE_RECRAWLED`, `RECOVERED`) can now be pursued. | James |
 | B-2 | Live domain blocked by egress policy from this environment (403 CONNECT) | Cloudflare edge redirects, real HTTP codes and headers unverified. Artefact conclusions unaffected (`gh-pages` measured directly) | James / infra |
 | B-3 | Repo-root leftovers from the retired root-deploy model, incl. a 408-URL stale `sitemap.xml` | Not served, but has already produced one wrong measurement | Decision needed |
 
@@ -81,3 +86,13 @@ median crawl age, canonical mismatches, impressions, clicks.
 Do not read normal Google processing delay as remediation failure. The April
 event took roughly a fortnight to become visible in GSC and months to fully land;
 the reversal will lag comparably.
+
+## Re-measurement log
+
+- **2026-09-19** — First cohort re-check since B-1 cleared (previous snapshot: 22 Aug, largely
+  against stale pre-fix crawls). Group A: 2 of 10 recovered (`/wine/onannon/`,
+  `/stay/hotel-sorrento/`), 8 unchanged/stale. Group B: 2 of 5 winner pages healthy, 2 stalled
+  not-indexed, 1 migration inverted (R-6). Group C: 1 new indexation (`/explore/places/cape-schanck/`),
+  1 new demotion with no recrawl (R-7). Group D: no change (expected). Group E: fully stable.
+  First Lighthouse/SiteOne evidence recorded LCP and TLS findings (R-9, R-10). Full detail:
+  `ops/reports/seo/indexation-recovery-forensics-2026-09-19.md`.
