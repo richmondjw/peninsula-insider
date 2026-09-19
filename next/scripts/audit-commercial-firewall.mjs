@@ -174,6 +174,15 @@ const ALLOWED_SORT_KEYS = new Set([
   'editorPick', 'venueTier', 'vetted', 'featured', 'priority', 'rank', 'weight',
   'tier', 'status', 'pinned', 'order', 'sortOrder', 'displayOrder', 'isPinned',
   'editorsPick', 'highlight', 'curated', 'verdict', 'stage', 'confidence',
+  /* plan discovery. Editorial matching, never commercial. `facets` is a plan's
+     own taxonomy (date / who / into) and HomePlan orders alternates by whether
+     that taxonomy says this-season. `plan` is the plan object inside a
+     { plan, score } tuple that plan-match orders by match score. Neither
+     reads a commercial field, and commercialSortKeys stays 0 with both
+     classified. Approved by James on 2026-09-19 to admit the
+     /explore/plans/ builder, and to allow this class of editorial ordering
+     key in future without a further exception. */
+  'facets', 'plan',
   /* third-party authority. not ours to sell */
   'authority', 'hats', 'hallidayScore', 'awards', 'pressMentions', 'score',
   'rating', 'stars',
