@@ -173,8 +173,8 @@ const labelsJson = JSON.stringify(labels).replace(/</g, '\\u003c');
      added one document listener per navigation. { once: true } did not save it:
      the copies accumulate before the event fires, then every one of them runs
      on that single dispatch, so run() fired once per prior visit. The slot
-     below carries the pending deep link instead — init() only assigns it, and
-     a later navigation overwrites it rather than stacking another listener. */
+     below carries the pending deep link instead. init() only assigns it, so a
+     later navigation overwrites it rather than stacking another listener. */
   let pendingDeepLink: (() => void) | null = null;
 
   document.addEventListener('pi:plans-ready', () => {
