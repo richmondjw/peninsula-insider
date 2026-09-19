@@ -168,6 +168,21 @@ const labelsJson = JSON.stringify(labels).replace(/</g, '\\u003c');
   import { matchPlans, describeQuery, type MatchQuery, type LengthValue, type MatchablePlan } from './plan-match';
   import { trackEvent } from '../../../lib/v5-analytics';
 
+  /* Deep-link handoff, registered once at module scope like Card.astro.
+     init() runs on every astro:page-load, so binding pi:plans-ready inside it
+     added one document listener per navigation. { once: true } did not save it:
+     the copies accumulate before the event fires, then every one of them runs
+     on that single dispatch, so run() fired once per prior visit. The slot
+     below carries the pending deep link instead — init() only assigns it, and
+     a later navigation overwrites it rather than stacking another listener. */
+  let pendingDeepLink: (() => void) | null = null;
+
+  document.addEventListener('pi:plans-ready', () => {
+    const pending = pendingDeepLink;
+    pendingDeepLink = null;
+    pending?.();
+  });
+
   function init() {
     const root = document.querySelector<HTMLElement>('.plan-builder');
     if (!root || (root as any)._piBuilderInit) return;
@@ -304,7 +319,7 @@ const labelsJson = JSON.stringify(labels).replace(/</g, '\\u003c');
       if (typeof (window as any).piPlansApply === 'function') {
         run(false);
       } else {
-        document.addEventListener('pi:plans-ready', () => run(false), { once: true });
+        pendingDeepLink = () => run(false);
       }
     }
   }
