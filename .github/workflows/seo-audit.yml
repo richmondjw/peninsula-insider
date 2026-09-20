@@ -52,7 +52,6 @@ jobs:
         if: github.event_name == 'pull_request'
         working-directory: next
         env:
-          PUBLIC_ACCESS_GATE: 'off'
           PUBLIC_NEWSLETTER_POPUP: 'on'
           PUBLIC_SUPABASE_URL: ${{ secrets.PUBLIC_SUPABASE_URL }}
           PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.PUBLIC_SUPABASE_ANON_KEY }}

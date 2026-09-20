@@ -342,23 +342,6 @@ const showNewsletterPopup = newsletterPopupMode === 'preview' || newsletterPopup
     initContractAnalytics();
   </script>
 
-  {/* TEMPORARY PASSWORD GATE.
-      Client-side only, so it is a soft courtesy gate, not security: the
-      content ships in the HTML regardless and crawlers that run JS get
-      redirected (which is fatal for SEO while the gate is on). Controlled
-      by PUBLIC_ACCESS_GATE so launching is a one-line env change in
-      .github/workflows/build-and-deploy.yml: set PUBLIC_ACCESS_GATE=off. */}
-  {import.meta.env.PUBLIC_ACCESS_GATE !== 'off' && (
-    <script is:inline>
-      (function() {
-        var KEY  = 'pi-access-v1';
-        if (localStorage.getItem(KEY) === '1') return;
-        var path = window.location.pathname;
-        if (path === '/access/' || path === '/access') return;
-        window.location.replace('/access/?r=' + encodeURIComponent(window.location.href));
-      })();
-    </script>
-  )}
 </head>
 <body data-page={section} data-path={rawPathname} data-v4="true">
 

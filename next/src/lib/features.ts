@@ -31,7 +31,7 @@ export const SHOW_ASK_PI = false;
  * the previous renderer on its own and says so in the build log. Degrading to
  * code that has been serving readers all year is the safe direction to fail.
  *
- * Follows the PUBLIC_ACCESS_GATE convention: a string sentinel read from
+ * Follows the PUBLIC_NEWSLETTER_POPUP convention: a string sentinel read from
  * import.meta.env, flipped in the deploy workflow rather than in a commit.
  */
 export const EVENT_OCCURRENCE_MODEL = occurrenceModelEnabled({

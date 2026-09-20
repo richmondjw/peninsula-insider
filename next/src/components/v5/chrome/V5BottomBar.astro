@@ -11,7 +11,7 @@
  * Suppression rules (all remove it from the tab order via display):
  *   - Journal long-form reading (path /journal/<slug>/) - build-time
  *   - Dispatch signup and auth/account form flows - build-time
- *   - the /access/ gate and /ask - build-time
+ *   - /ask - build-time
  *   - any open sheet/drawer/dialog (v5 drawer, search overlay,
  *     concierge drawer, auth modal) - runtime, MutationObserver
  *   - virtual keyboard up (visualViewport height-delta heuristic) - runtime
@@ -31,10 +31,10 @@ import { v5BottomBar } from '../../../lib/v5-nav';
 const path = Astro.url.pathname.replace(/^\/V2/, '') || '/';
 
 // Build-time suppression: journal articles (reading mode stays calm),
-// form flows (dispatch, account, access), and /ask (the sheet itself).
+// form flows (dispatch, account), and /ask (the sheet itself).
 const suppressed =
   /^\/journal\/.+/.test(path) ||
-  /^\/(dispatch|account|access|ask)(\/|$)/.test(path);
+  /^\/(dispatch|account|ask)(\/|$)/.test(path);
 
 // Active slot from the current path.
 function isActive(href: string): boolean {

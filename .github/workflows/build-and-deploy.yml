@@ -104,9 +104,6 @@ jobs:
           PUBLIC_SUPABASE_URL: ${{ secrets.PUBLIC_SUPABASE_URL }}
           PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.PUBLIC_SUPABASE_ANON_KEY }}
           PUBLIC_CONCIERGE_API_URL: https://peninsula-insider-platform-api.vercel.app
-          # Set to 'off' to remove the temporary client-side password gate
-          # and launch the site publicly.
-          PUBLIC_ACCESS_GATE: 'off'
           # Site-wide Insider Note signup popup. Set to 'off' for rollback.
           PUBLIC_NEWSLETTER_POPUP: 'on'
           # Stamped onto every analytics event as pi_release, so a metric can be

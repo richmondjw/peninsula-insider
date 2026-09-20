@@ -11,7 +11,7 @@ import { loadLiveEvents } from './whats-on/_data';
 //   3. It owns a unique search intent (duplicate-cluster losers awaiting
 //      redirect stay out even while their pages are still live).
 //   4. It is content-complete (expired one-off events drop out at build).
-//   5. It is not internal (/admin/, /account/, /ops/, /access/, /me/, /dev/,
+//   5. It is not internal (/admin/, /account/, /ops/, /me/, /dev/,
 //      studio, tool pages) - those never enter.
 // Output is deduplicated by <loc> before serialising (fixes the historical
 // double listing of /journal/free-things-to-do-mornington-peninsula/).
@@ -483,7 +483,7 @@ export const GET: APIRoute = async () => {
   }
 
   // NOTE: /events/* signature pages, /walks/*, /itinerary/, /plan/,
-  // /search/, /saved/, /alerts/, /account/*, /me/*, /admin/, /ops/, /access/
+  // /search/, /saved/, /alerts/, /account/*, /me/*, /admin/, /ops/
   // and /explore/plans/build/ are deliberately absent (§4.1 rules 3 and 5;
   // redirect targets land at Cloudflare cutover - see ops/cloudflare-redirects.csv).
 

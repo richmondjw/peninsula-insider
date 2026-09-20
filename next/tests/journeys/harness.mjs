@@ -147,14 +147,11 @@ function startServer() {
 }
 
 /**
- * Installed before any page script runs. Three jobs:
+ * Installed before any page script runs. Two jobs:
  *
- *   1. Pass the site's pre-launch access gate (BaseLayout redirects to
- *      /access/ unless this key is set), so the harness lands on the page it
- *      asked for rather than on the holding page.
- *   2. Seed or clear the Supabase auth session, which is how the site decides
+ *   1. Seed or clear the Supabase auth session, which is how the site decides
  *      whether a reader is signed in.
- *   3. Count every listener, interval and observer registered against
+ *   2. Count every listener, interval and observer registered against
  *      `document` or `window` - the three things that outlive a ClientRouter
  *      swap and can therefore accumulate.
  */
@@ -163,7 +160,6 @@ function instrument(config) {
     const { signedIn: isSignedIn, userId: uid, seedStorage: seed, authExpiresAt } = config;
 
     try {
-      localStorage.setItem('pi-access-v1', '1');
       // Consent off keeps GA out of the run; the harness asserts nothing about it.
       localStorage.setItem('pi-consent-v1', JSON.stringify({ analytics: false, version: 1 }));
       if (isSignedIn) {
