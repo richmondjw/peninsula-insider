@@ -33,7 +33,7 @@ const SITE = 'https://peninsulainsider.com.au';
 const url = `${SITE}/explore/regions/${d.slug}/`;
 const hero = await resolveHero('region', d.slug, d);
 const regionHeroSrc = hero.src;
-const regionHeroStyle = `background-image:linear-gradient(rgba(0,40,34,0.42) 0%,rgba(0,40,34,0.32) 40%,rgba(0,54,44,0.78) 100%),url('${regionHeroSrc}')`;
+const regionHeroStyle = `background-image:var(--photo-shade-copy),url('${regionHeroSrc}')`;
 const heroAbs = regionHeroSrc.startsWith('http') ? regionHeroSrc : `${SITE}${regionHeroSrc}`;
 
 const pillarOf = (type: string) => venueHrefPrefix(type).replace(/\//g, '');
