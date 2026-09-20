@@ -29,15 +29,17 @@ Browser checks on the generated static site:
 - Desktop personal disclosure and Escape; mobile menu and Escape; real search overlay; footer cookie settings, manage preferences and rejection tested.
 - Logged-in backend/account mutation journeys were not exercised. This is a layout integration, not an authentication/backend rewrite.
 
-## Existing release blockers
+## Local validation limitations
 
 `astro check` reports 147 errors across 72 files. Each error-bearing file was compared with HEAD and is unchanged (normalising line endings). No errors remain in files changed by this implementation. Do not describe the repository-wide type check as passing.
 
-The media-provenance release gate reports 13 images without recorded licences against a baseline ceiling of one. All 13 source records are unchanged from HEAD. This is not resolved by inventing licence information or raising the ceiling. The records are the luxury-hotels article and twelve species entries. The complete release must remain unmerged/unpublished until the repository's release checks are resolved or handled through its existing process.
+The Windows media-provenance audit reports 13 unknown licences against a ceiling of one. Investigation during release found a line-ending parsing discrepancy: the existing snapper record's license field is dropped when parsing the local mixed line endings and preserved after CRLF normalisation. The previous production Linux run reports one unknown licence and passes. No image licences or gate ceilings were changed. The deployment must pass the normal Linux CI gates.
+
+Current main was merged into this branch before release, preserving seasonal discovery expiry (archived stories remain available) and consolidating footer trust destinations to About and Contact. The dispatch page suppresses the duplicate footer newsletter invitation. PR: https://github.com/richmondjw/peninsula-insider/pull/456.
 
 ## Review and release
 
 Local built preview: http://127.0.0.1:18745/journal/
 Article: http://127.0.0.1:18745/journal/the-peninsulas-best-late-afternoon-walks/
 
-The original working checkout and its unrelated changes are untouched. Print layouts and the separately deployed Play game are unchanged. Bespoke static Journal guides keep their existing bodies; they receive the shared shell/frame. Review the complete preview, resolve the existing release blockers, then merge/deploy with the normal release workflow and verify production. No production change was made in this task.
+The original working checkout and its unrelated changes are untouched. Print layouts and the separately deployed Play game are unchanged. Bespoke static Journal guides keep their existing bodies; they receive the shared shell/frame. The user approved merge and live deployment on 20 September 2026. Release through the normal CI workflow and verify the production deployment source SHA; this document records implementation evidence, not a deployment receipt.
