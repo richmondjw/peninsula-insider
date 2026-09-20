@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "pages": 90,
+  "pages": 102,
   "images": [
     {
       "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/page/eat-bakeries/hero-1784719891530.jpg",
@@ -2993,6 +2993,366 @@
           "width": 1600,
           "height": 1200,
           "bytes": 303118
+        }
+      ]
+    },
+    {
+      "source": "/images/species/australian-salmon.webp",
+      "originalBytes": 261306,
+      "variants": [
+        {
+          "src": "/_media/52d14f15dc278fedbdd8-480.webp",
+          "width": 480,
+          "height": 272,
+          "bytes": 12686
+        },
+        {
+          "src": "/_media/52d14f15dc278fedbdd8-800.webp",
+          "width": 800,
+          "height": 452,
+          "bytes": 35594
+        },
+        {
+          "src": "/_media/52d14f15dc278fedbdd8-1280.webp",
+          "width": 1280,
+          "height": 724,
+          "bytes": 76898
+        },
+        {
+          "src": "/_media/52d14f15dc278fedbdd8-1600.webp",
+          "width": 1600,
+          "height": 905,
+          "bytes": 148476
+        }
+      ]
+    },
+    {
+      "source": "/images/species/bream.webp",
+      "originalBytes": 327974,
+      "variants": [
+        {
+          "src": "/_media/8c4cdb5e5c19256af46a-480.webp",
+          "width": 480,
+          "height": 272,
+          "bytes": 15260
+        },
+        {
+          "src": "/_media/8c4cdb5e5c19256af46a-800.webp",
+          "width": 800,
+          "height": 452,
+          "bytes": 43910
+        },
+        {
+          "src": "/_media/8c4cdb5e5c19256af46a-1280.webp",
+          "width": 1280,
+          "height": 724,
+          "bytes": 101000
+        },
+        {
+          "src": "/_media/8c4cdb5e5c19256af46a-1600.webp",
+          "width": 1600,
+          "height": 905,
+          "bytes": 198678
+        }
+      ]
+    },
+    {
+      "source": "/images/species/flathead.webp",
+      "originalBytes": 230970,
+      "variants": [
+        {
+          "src": "/_media/ad65639b5aff59ff1f58-480.webp",
+          "width": 480,
+          "height": 272,
+          "bytes": 7458
+        },
+        {
+          "src": "/_media/ad65639b5aff59ff1f58-800.webp",
+          "width": 800,
+          "height": 452,
+          "bytes": 22198
+        },
+        {
+          "src": "/_media/ad65639b5aff59ff1f58-1280.webp",
+          "width": 1280,
+          "height": 724,
+          "bytes": 56728
+        },
+        {
+          "src": "/_media/ad65639b5aff59ff1f58-1600.webp",
+          "width": 1600,
+          "height": 905,
+          "bytes": 114714
+        }
+      ]
+    },
+    {
+      "source": "/images/species/garfish.webp",
+      "originalBytes": 190592,
+      "variants": [
+        {
+          "src": "/_media/3a29aa5c1a00b0084a3c-480.webp",
+          "width": 480,
+          "height": 272,
+          "bytes": 5402
+        },
+        {
+          "src": "/_media/3a29aa5c1a00b0084a3c-800.webp",
+          "width": 800,
+          "height": 452,
+          "bytes": 17142
+        },
+        {
+          "src": "/_media/3a29aa5c1a00b0084a3c-1280.webp",
+          "width": 1280,
+          "height": 724,
+          "bytes": 43884
+        },
+        {
+          "src": "/_media/3a29aa5c1a00b0084a3c-1600.webp",
+          "width": 1600,
+          "height": 905,
+          "bytes": 90404
+        }
+      ]
+    },
+    {
+      "source": "/images/species/gummy-shark.webp",
+      "originalBytes": 202880,
+      "variants": [
+        {
+          "src": "/_media/f5d6223222850aedde68-480.webp",
+          "width": 480,
+          "height": 272,
+          "bytes": 6758
+        },
+        {
+          "src": "/_media/f5d6223222850aedde68-800.webp",
+          "width": 800,
+          "height": 452,
+          "bytes": 20772
+        },
+        {
+          "src": "/_media/f5d6223222850aedde68-1280.webp",
+          "width": 1280,
+          "height": 724,
+          "bytes": 51766
+        },
+        {
+          "src": "/_media/f5d6223222850aedde68-1600.webp",
+          "width": 1600,
+          "height": 905,
+          "bytes": 102146
+        }
+      ]
+    },
+    {
+      "source": "/images/species/king-george-whiting.webp",
+      "originalBytes": 242514,
+      "variants": [
+        {
+          "src": "/_media/60cb0aa7ae20b2e2d396-480.webp",
+          "width": 480,
+          "height": 272,
+          "bytes": 9726
+        },
+        {
+          "src": "/_media/60cb0aa7ae20b2e2d396-800.webp",
+          "width": 800,
+          "height": 452,
+          "bytes": 28304
+        },
+        {
+          "src": "/_media/60cb0aa7ae20b2e2d396-1280.webp",
+          "width": 1280,
+          "height": 724,
+          "bytes": 64982
+        },
+        {
+          "src": "/_media/60cb0aa7ae20b2e2d396-1600.webp",
+          "width": 1600,
+          "height": 905,
+          "bytes": 130176
+        }
+      ]
+    },
+    {
+      "source": "/images/species/mulloway.webp",
+      "originalBytes": 281234,
+      "variants": [
+        {
+          "src": "/_media/1a9e4cc5c99f9b7b0703-480.webp",
+          "width": 480,
+          "height": 272,
+          "bytes": 11058
+        },
+        {
+          "src": "/_media/1a9e4cc5c99f9b7b0703-800.webp",
+          "width": 800,
+          "height": 452,
+          "bytes": 33532
+        },
+        {
+          "src": "/_media/1a9e4cc5c99f9b7b0703-1280.webp",
+          "width": 1280,
+          "height": 724,
+          "bytes": 79116
+        },
+        {
+          "src": "/_media/1a9e4cc5c99f9b7b0703-1600.webp",
+          "width": 1600,
+          "height": 905,
+          "bytes": 154746
+        }
+      ]
+    },
+    {
+      "source": "/images/species/pinkies.webp",
+      "originalBytes": 294316,
+      "variants": [
+        {
+          "src": "/_media/3cf68edfbab5b8a83ddc-480.webp",
+          "width": 480,
+          "height": 272,
+          "bytes": 13688
+        },
+        {
+          "src": "/_media/3cf68edfbab5b8a83ddc-800.webp",
+          "width": 800,
+          "height": 452,
+          "bytes": 38816
+        },
+        {
+          "src": "/_media/3cf68edfbab5b8a83ddc-1280.webp",
+          "width": 1280,
+          "height": 724,
+          "bytes": 86848
+        },
+        {
+          "src": "/_media/3cf68edfbab5b8a83ddc-1600.webp",
+          "width": 1600,
+          "height": 905,
+          "bytes": 180886
+        }
+      ]
+    },
+    {
+      "source": "/images/species/silver-trevally.webp",
+      "originalBytes": 264700,
+      "variants": [
+        {
+          "src": "/_media/d1b24dc1d20cc9b7e002-480.webp",
+          "width": 480,
+          "height": 272,
+          "bytes": 11992
+        },
+        {
+          "src": "/_media/d1b24dc1d20cc9b7e002-800.webp",
+          "width": 800,
+          "height": 452,
+          "bytes": 34212
+        },
+        {
+          "src": "/_media/d1b24dc1d20cc9b7e002-1280.webp",
+          "width": 1280,
+          "height": 724,
+          "bytes": 77384
+        },
+        {
+          "src": "/_media/d1b24dc1d20cc9b7e002-1600.webp",
+          "width": 1600,
+          "height": 905,
+          "bytes": 151822
+        }
+      ]
+    },
+    {
+      "source": "/images/species/snapper.webp",
+      "originalBytes": 296574,
+      "variants": [
+        {
+          "src": "/_media/03864b6072e34b9f30a0-480.webp",
+          "width": 480,
+          "height": 272,
+          "bytes": 12856
+        },
+        {
+          "src": "/_media/03864b6072e34b9f30a0-800.webp",
+          "width": 800,
+          "height": 452,
+          "bytes": 36650
+        },
+        {
+          "src": "/_media/03864b6072e34b9f30a0-1280.webp",
+          "width": 1280,
+          "height": 724,
+          "bytes": 82340
+        },
+        {
+          "src": "/_media/03864b6072e34b9f30a0-1600.webp",
+          "width": 1600,
+          "height": 905,
+          "bytes": 161404
+        }
+      ]
+    },
+    {
+      "source": "/images/species/squid.webp",
+      "originalBytes": 214656,
+      "variants": [
+        {
+          "src": "/_media/e4baf4ec3facda272737-480.webp",
+          "width": 480,
+          "height": 272,
+          "bytes": 7348
+        },
+        {
+          "src": "/_media/e4baf4ec3facda272737-800.webp",
+          "width": 800,
+          "height": 452,
+          "bytes": 21816
+        },
+        {
+          "src": "/_media/e4baf4ec3facda272737-1280.webp",
+          "width": 1280,
+          "height": 724,
+          "bytes": 55006
+        },
+        {
+          "src": "/_media/e4baf4ec3facda272737-1600.webp",
+          "width": 1600,
+          "height": 905,
+          "bytes": 107204
+        }
+      ]
+    },
+    {
+      "source": "/images/species/yellowtail-kingfish.webp",
+      "originalBytes": 253542,
+      "variants": [
+        {
+          "src": "/_media/41a38357a0a7dee17549-480.webp",
+          "width": 480,
+          "height": 272,
+          "bytes": 10402
+        },
+        {
+          "src": "/_media/41a38357a0a7dee17549-800.webp",
+          "width": 800,
+          "height": 452,
+          "bytes": 29056
+        },
+        {
+          "src": "/_media/41a38357a0a7dee17549-1280.webp",
+          "width": 1280,
+          "height": 724,
+          "bytes": 66982
+        },
+        {
+          "src": "/_media/41a38357a0a7dee17549-1600.webp",
+          "width": 1600,
+          "height": 905,
+          "bytes": 133916
         }
       ]
     },
