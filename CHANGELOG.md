@@ -1,6 +1,7 @@
 ## 2026-09-20 - Journal editorial curation
 
 - Keep Insider Picks out of automatic Journal lead, Latest, themes, front-page archive and homepage Journal feature selection.
+- Filter related-story and previous/next navigation to the same editorial pool while retaining every static article path.
 - Replace Journal navigation Picks promotion with an editorial themes link.
 - Hide Daily/Weekly publishing tags on Picks detail pages; preserve all content records, URLs, canonicals, robots and sitemap rules.
 - Standardise remaining newsletter CTA, homepage data, 404, legacy cover and Pass references without promising a weekly send. About, Contact, footer and dispatch already use cadence-neutral copy.
