@@ -3507,50 +3507,56 @@
       ]
     },
     {
-      "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/event/ten-minutes-by-tractor-terroir-masterclass/heroImage-1789192750030.jpg",
-      "originalBytes": 117509,
+      "source": "/images/sourced/place-red-hill-01.webp",
+      "originalBytes": 122654,
       "variants": [
         {
-          "src": "/_media/e90e49ef21f58182da21-480.webp",
+          "src": "/_media/e18e1c454b97aa3910c0-480.webp",
           "width": 480,
-          "height": 480,
-          "bytes": 33938
+          "height": 240,
+          "bytes": 25052
         },
         {
-          "src": "/_media/e90e49ef21f58182da21-752.webp",
-          "width": 752,
-          "height": 752,
-          "bytes": 70940
+          "src": "/_media/e18e1c454b97aa3910c0-800.webp",
+          "width": 800,
+          "height": 400,
+          "bytes": 58814
+        },
+        {
+          "src": "/_media/e18e1c454b97aa3910c0-1200.webp",
+          "width": 1200,
+          "height": 600,
+          "bytes": 121894
         }
       ]
     },
     {
-      "source": "/images/sourced/place-dromana-01.webp",
-      "originalBytes": 115598,
+      "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/article/the-winter-long-lunch/hero-1786625857234.jpg",
+      "originalBytes": 2935170,
       "variants": [
         {
-          "src": "/_media/c936ae76b2e28d67654b-480.webp",
+          "src": "/_media/206e9033c1716c88e8f5-480.webp",
           "width": 480,
-          "height": 320,
-          "bytes": 9720
+          "height": 319,
+          "bytes": 28166
         },
         {
-          "src": "/_media/c936ae76b2e28d67654b-800.webp",
+          "src": "/_media/206e9033c1716c88e8f5-800.webp",
           "width": 800,
-          "height": 534,
-          "bytes": 25502
+          "height": 533,
+          "bytes": 71098
         },
         {
-          "src": "/_media/c936ae76b2e28d67654b-1280.webp",
+          "src": "/_media/206e9033c1716c88e8f5-1280.webp",
           "width": 1280,
-          "height": 854,
-          "bytes": 51028
+          "height": 853,
+          "bytes": 159464
         },
         {
-          "src": "/_media/c936ae76b2e28d67654b-1600.webp",
-          "width": 1600,
-          "height": 1067,
-          "bytes": 99936
+          "src": "/_media/206e9033c1716c88e8f5-1920.webp",
+          "width": 1920,
+          "height": 1280,
+          "bytes": 312284
         }
       ]
     },
@@ -3611,84 +3617,6 @@
           "width": 1600,
           "height": 1000,
           "bytes": 234094
-        }
-      ]
-    },
-    {
-      "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/article/insider-picks-2026-09-19/hero-1789809163419.webp",
-      "originalBytes": 234840,
-      "variants": [
-        {
-          "src": "/_media/274704bf0d6a469be3b5-480.webp",
-          "width": 480,
-          "height": 320,
-          "bytes": 36568
-        },
-        {
-          "src": "/_media/274704bf0d6a469be3b5-800.webp",
-          "width": 800,
-          "height": 534,
-          "bytes": 83936
-        },
-        {
-          "src": "/_media/274704bf0d6a469be3b5-1280.webp",
-          "width": 1280,
-          "height": 854,
-          "bytes": 172712
-        },
-        {
-          "src": "/_media/274704bf0d6a469be3b5-1360.webp",
-          "width": 1360,
-          "height": 907,
-          "bytes": 232350
-        }
-      ]
-    },
-    {
-      "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/article/insider-picks-2026-09-17/hero-1789644805804.jpg",
-      "originalBytes": 2849996,
-      "variants": [
-        {
-          "src": "/_media/f347275469cbfce50e8a-480.webp",
-          "width": 480,
-          "height": 290,
-          "bytes": 20160
-        },
-        {
-          "src": "/_media/f347275469cbfce50e8a-800.webp",
-          "width": 800,
-          "height": 483,
-          "bytes": 51122
-        },
-        {
-          "src": "/_media/f347275469cbfce50e8a-1280.webp",
-          "width": 1280,
-          "height": 773,
-          "bytes": 125856
-        },
-        {
-          "src": "/_media/f347275469cbfce50e8a-1920.webp",
-          "width": 1920,
-          "height": 1160,
-          "bytes": 278876
-        }
-      ]
-    },
-    {
-      "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/article/insider-picks-2026-09-16/hero-1789529456501.jpg",
-      "originalBytes": 77346,
-      "variants": [
-        {
-          "src": "/_media/ccf3253c43470ed39945-480.webp",
-          "width": 480,
-          "height": 359,
-          "bytes": 51968
-        },
-        {
-          "src": "/_media/ccf3253c43470ed39945-640.webp",
-          "width": 640,
-          "height": 479,
-          "bytes": 88650
         }
       ]
     },
@@ -3837,6 +3765,36 @@
       ]
     },
     {
+      "source": "/images/sourced/place-dromana-01.webp",
+      "originalBytes": 115598,
+      "variants": [
+        {
+          "src": "/_media/c936ae76b2e28d67654b-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 9720
+        },
+        {
+          "src": "/_media/c936ae76b2e28d67654b-800.webp",
+          "width": 800,
+          "height": 534,
+          "bytes": 25502
+        },
+        {
+          "src": "/_media/c936ae76b2e28d67654b-1280.webp",
+          "width": 1280,
+          "height": 854,
+          "bytes": 51028
+        },
+        {
+          "src": "/_media/c936ae76b2e28d67654b-1600.webp",
+          "width": 1600,
+          "height": 1067,
+          "bytes": 99936
+        }
+      ]
+    },
+    {
       "source": "/images/sourced/spa-wellness-stones-01.webp",
       "originalBytes": 64544,
       "variants": [
@@ -3953,30 +3911,6 @@
           "width": 1600,
           "height": 1200,
           "bytes": 85366
-        }
-      ]
-    },
-    {
-      "source": "/images/sourced/place-red-hill-01.webp",
-      "originalBytes": 122654,
-      "variants": [
-        {
-          "src": "/_media/e18e1c454b97aa3910c0-480.webp",
-          "width": 480,
-          "height": 240,
-          "bytes": 25052
-        },
-        {
-          "src": "/_media/e18e1c454b97aa3910c0-800.webp",
-          "width": 800,
-          "height": 400,
-          "bytes": 58814
-        },
-        {
-          "src": "/_media/e18e1c454b97aa3910c0-1200.webp",
-          "width": 1200,
-          "height": 600,
-          "bytes": 121894
         }
       ]
     },
