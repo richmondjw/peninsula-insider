@@ -5,6 +5,15 @@
   "audience": "couple",
   "mood": "food-wine",
   "lengthNights": 2,
+  "duration": "weekend",
+  "theme": ["food+wine", "coastal"],
+  "anchorTown": "red-hill",
+  "baseTowns": ["red-hill", "cape-schanck", "sorrento", "point-nepean"],
+  "bookingChecklist": [
+    { "item": "First night at Jackalope and second night at Hotel Sorrento", "priority": "essential" },
+    { "item": "Montalto and Polperro lunch reservations", "priority": "recommended" },
+    { "item": "Check the Red Hill Market date", "priority": "optional" }
+  ],
   "stops": [
     {
       "day": 1,
@@ -23,7 +32,7 @@
     {
       "day": 2,
       "order": 1,
-      "experience": "red-hill-market",
+      "venue": "red-hill-market",
       "note": "If the market is on, start here. If not, use the hour for a slower breakfast and village loop.",
       "timeOfDay": "morning"
     },
@@ -63,6 +72,6 @@
     "credit": "BrooksieG / Wikimedia Commons",
     "license": "wikimedia-cc-by"
   },
-  "editorNote": "This is the Peninsula in the sequence that makes the most sense to us: lunch and vineyard calm on the ridge first, then a gradual drift south until the landscape finally opens out into ocean, forts, ferries, and the weathered social theatre of Sorrento. It works because each day changes register. Day one is indulgent, day two is coastal, day three is all horizon. Keep the bookings light enough that the weekend can still breathe.",
+  "editorNote": "Start with lunch and a night on the ridge, then move south for the coast and a second night in Sorrento. Each day changes register: vineyards first, a coastal walk next, Point Nepean to finish. Book the two stays and lunches before arranging the rest. Day two has the most moving parts, so treat the market as optional and leave the coastal walk out if lunch runs long.",
   "publishedAt": "2026-04-08"
 }

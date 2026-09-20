@@ -1,10 +1,19 @@
 {
   "slug": "sorrento-off-season-weekend",
   "title": "The Sorrento Off-Season Weekend",
-  "dek": "A two-night village-based plan that uses the tip of the Peninsula properly  -  back beach, national park, a village dinner, and the fort walk that turns the weekend into a landscape.",
+  "dek": "Two nights based in Sorrento, with the back beach, Point Nepean and a village dinner. The second evening takes you out to Pt. Leo Estate.",
   "audience": "couple",
   "mood": "slow",
   "lengthNights": 2,
+  "duration": "weekend",
+  "theme": ["coastal", "food+wine"],
+  "anchorTown": "sorrento",
+  "baseTowns": ["sorrento", "point-nepean", "merricks"],
+  "bookingChecklist": [
+    { "item": "Two nights at The Continental Sorrento", "priority": "essential" },
+    { "item": "Hotel Sorrento dinner and Pt. Leo dinner service", "priority": "recommended" },
+    { "item": "Check Point Nepean access and shuttle timetable if using it", "priority": "recommended" }
+  ],
   "stops": [
     {
       "day": 1,
@@ -45,14 +54,14 @@
       "day": 2,
       "order": 3,
       "experience": "point-nepean-fort-walk",
-      "note": "The afternoon move. Shuttle out, walk back. Three hours minimum. This is the landscape move the weekend hinges on.",
+      "note": "Leave the afternoon for Point Nepean. Check current park access and the shuttle timetable if you plan to use it, then choose a walking distance that suits the group.",
       "timeOfDay": "afternoon"
     },
     {
       "day": 2,
       "order": 4,
       "venue": "pt-leo-estate",
-      "note": "Drive east for the second night's dinner. The sculpture park at dusk and a dining room that treats the occasion seriously.",
+      "note": "This dinner takes you away from Sorrento, so allow for the drive in both directions. Confirm dinner service and sculpture-park hours for your date before booking.",
       "timeOfDay": "evening"
     },
     {
@@ -66,7 +75,7 @@
   "totalDriveMinutes": 55,
   "heroImage": {
     "src": "/images/sourced/place-sorrento-01.webp",
-    "alt": "Morning light over Sorrento foreshore",
+    "alt": "Boats moored off the Sorrento foreshore in low sunlight",
     "credit": "Alan Travers / Wikimedia Commons",
     "license": "wikimedia-cc0"
   },

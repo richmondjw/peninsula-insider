@@ -72,12 +72,8 @@ const endpoint = 'https://tjjhpvslpysfklwpqmgz.supabase.co/functions/v1/pi-newsl
     // addEventListener was, and nulling one is the same operation
     // removeEventListener was, so __inoteCleanup keeps its exact meaning.
     //
-    // Unchanged by this: init() still returns early on a page that renders no
-    // #inote, without running the cleanup, so the slots keep pointing at the
-    // last popup-bearing page until one is reached again. Closing that would
-    // also drop the `inote-open` body class and the promo-bar custom property
-    // on every such navigation, which is a visible-state change and wants a
-    // browser to confirm.
+    // Clear timers and focus handlers when entering a page without a popup,
+    // including the uninterrupted Plans and My Trip journey.
     var activeTrap = null;
     var activeSyncBarOffset = null;
     var activeWatch = null;
@@ -89,8 +85,9 @@ const endpoint = 'https://tjjhpvslpysfklwpqmgz.supabase.co/functions/v1/pi-newsl
     function init() {
       var root = document.getElementById('inote');
       var bar = document.getElementById('inote-bar');
-      if (!root || !bar || root.dataset.inoteInit) return;
+      if (root && root.dataset.inoteInit) return;
       if (typeof window.__inoteCleanup === 'function') window.__inoteCleanup();
+      if (!root || !bar) return;
       root.dataset.inoteInit = 'true';
       var form = root.querySelector('.inote__form');
       var input = root.querySelector('.inote__input');

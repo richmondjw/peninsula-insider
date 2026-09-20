@@ -5,6 +5,14 @@
   "audience": "couple",
   "mood": "slow",
   "lengthNights": 1,
+  "duration": "one-night",
+  "theme": ["coastal", "food+wine"],
+  "anchorTown": "flinders",
+  "baseTowns": ["flinders", "cape-schanck", "red-hill", "merricks"],
+  "bookingChecklist": [
+    { "item": "One night at Flinders Hotel", "priority": "essential" },
+    { "item": "Tedesca service availability and Pt. Leo lunch", "priority": "recommended" }
+  ],
   "stops": [
     {
       "day": 1,
@@ -17,14 +25,14 @@
       "day": 1,
       "order": 2,
       "experience": "cape-schanck-boardwalk",
-      "note": "Take the easy dramatic option first. The view lands quickly and resets the nervous system.",
+      "note": "Make the boardwalk your first coastal stop. Check park access and the weather before leaving Flinders.",
       "timeOfDay": "afternoon"
     },
     {
       "day": 1,
       "order": 3,
       "venue": "tedesca-osteria",
-      "note": "Book ahead and let dinner be the event.",
+      "note": "Check dinner service for your chosen date before booking. Fit the afternoon walk around the reservation.",
       "timeOfDay": "evening"
     },
     {
@@ -45,7 +53,7 @@
   "totalDriveMinutes": 48,
   "heroImage": {
     "src": "/images/sourced/place-flinders-01.webp",
-    "alt": "Flinders village and pier",
+    "alt": "Flinders foreshore, with boats on the bay and the pier in the foreground",
     "credit": "Wikimedia Commons",
     "license": "wikimedia-cc-by-sa"
   },

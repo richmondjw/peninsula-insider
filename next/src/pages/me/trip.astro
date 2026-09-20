@@ -105,6 +105,8 @@ export const prerender = true;
         </div>
       </div>
 
+      <p class="trip-estimate-note" data-trip-estimate-note>Drive estimates cover mapped stops within each day, not your journey here, return travel, traffic or parking. Check opening times and bookings directly.</p>
+      <p class="trip-estimate-note">Your trip is kept in this browser. Use Share link to send its places and day order, or Print for a copy to take with you. Personal notes are not included in the share link.</p>
       <ol class="trip-list" data-trip-list aria-label="Trip stops"></ol>
 
       <!-- Empty state: Local voice (spec 3.22, wireframe note 4). -->
@@ -154,6 +156,7 @@ export const prerender = true;
   import { trackEvent, initV5Analytics } from '../../lib/v5-analytics';
   import { planSharedTripImport } from '../../lib/trip-import';
   import { parseSharedTrip, sharedTripGroups } from '../../lib/shared-trip-preview';
+  import { PLAN_SWAPS } from '../../lib/plan-swaps';
 
   initV5Analytics();
 
@@ -400,6 +403,10 @@ export const prerender = true;
       ? `<a href="${esc(h.href)}" class="trip-stop__link" data-evt="card_click" data-entity-type="${esc(stop.kind || 'page')}" data-entity-slug="${esc(stop.slug || '')}" data-surface="me-trip">${esc(h.title)}</a>`
       : esc(h.title);
     const note = stop.note ? `<span class="trip-stop__note">${esc(stop.note)}</span>` : '';
+    const alternatives = stop.kind === 'venue' && /lunch|dinner|dining|restaurant|meal/i.test(stop.note || '')
+      ? (PLAN_SWAPS[stop.slug || ''] || []).filter((option) => GEO[`venue/${option.slug}`]) : [];
+    const swaps = alternatives.length ? `<details class="trip-stop__swaps"><summary>Consider a nearby dining swap</summary><p>Keeps this stop in the same day and position. Driving estimates update; this does not transfer or cancel a booking.</p>${alternatives.map((option) => `<p><a href="${esc(GEO[`venue/${option.slug}`].h)}">${esc(GEO[`venue/${option.slug}`].t)}</a>: ${esc(option.reason)}</p><button type="button" class="pi-btn pi-btn--ghost pi-btn--sm" data-trip-swap="${esc(option.slug)}" data-entry="${esc(stop.id)}">Swap to ${esc(GEO[`venue/${option.slug}`].t)}</button>`).join('')}</details>` : '';
+
     return `
       <li class="trip-stop${moving ? ' trip-stop--moving' : ''}" data-trip-stop="${esc(stop.id)}">
         ${media}
@@ -407,6 +414,7 @@ export const prerender = true;
           <span class="trip-stop__kind">${esc(h.kindLabel)}</span>
           <span class="trip-stop__title">${title}</span>
           ${note}
+          ${swaps}
         </span>
         <span class="trip-stop__actions">
           <button type="button" class="trip-stop__move" data-trip-move data-entry="${esc(stop.id)}" aria-pressed="${moving ? 'true' : 'false'}" aria-label="Move ${esc(h.title)}. Toggle, then use arrow keys to change position, Enter to drop, Escape to cancel.">Move</button>
@@ -494,7 +502,7 @@ export const prerender = true;
           if (km != null) minutes += drivingMinutes(km);
         }
       }
-      driveEl.textContent = minutes > 0 ? `~ ${formatMinutes(minutes)} driving · est.` : 'drive estimate unavailable';
+      driveEl.textContent = minutes > 0 ? `~ ${formatMinutes(minutes)} between mapped stops · est.` : 'drive estimate unavailable';
     }
 
     renderAddPanel();
@@ -611,22 +619,25 @@ export const prerender = true;
     // day that already carries the shared label, and create a day only when
     // a stop actually needs it so a repeat import adds nothing at all.
     banner.querySelector('[data-trip-import]')?.addEventListener('click', () => {
-      const plan = planSharedTripImport(shared, {
-        days: store.tripDays(),
-        entries: store.tripEntries(),
-      });
-
+      const before = { version: 1 as const, days: store.tripDays(), entries: store.tripEntries() };
+      const plan = planSharedTripImport(shared, before);
       const dayMap: Record<string, string> = { ...plan.reusedDayIds };
-      for (const d of plan.daysToCreate) {
-        const created = store.tripAddDay(d.label);
-        if (created) dayMap[d.sharedId] = created.id;
-      }
-      for (const it of plan.stops) {
+      const stamp = Date.now();
+      const days = before.days.slice();
+      plan.daysToCreate.forEach((d, index) => {
+        const id = `shared-${stamp}-${index}`;
+        days.push({ id, label: d.label }); dayMap[d.sharedId] = id;
+      });
+      const source = JSON.stringify(shared);
+      const entries: TripEntry[] = [...before.entries, ...plan.stops.map((it, index) => {
         const geo = GEO[`${it.kind}/${it.slug}`];
-        store.tripAdd(
-          { kind: it.kind, slug: it.slug, title: geo?.t || it.slug, href: geo?.h || undefined },
-          { dayId: dayMap[it.dayId] || '', autoSave: false },
-        );
+        return { id: `shared-stop-${stamp}-${index}`, kind: it.kind as SaveKind, slug: it.slug,
+          title: geo?.t || it.slug, href: geo?.h, dayId: dayMap[it.dayId] || '', note: '', addedAt: stamp,
+          meta: { sharedSource: source, sharedDay: it.dayId } };
+      })];
+      if (!store.tripCommit({ version: 1, days, entries }, before)) {
+        showToast('Could not save this shared trip. Your current trip is unchanged.');
+        return;
       }
       history.replaceState(null, '', location.pathname);
       banner.hidden = true;
@@ -667,6 +678,20 @@ export const prerender = true;
           announce(`Moving ${h?.title ?? 'stop'}. Use arrow keys to change position, Enter to drop, Escape to cancel.`);
           focusMoveButton(id);
         }
+        return;
+      }
+
+      const swapBtn = target?.closest<HTMLElement>('[data-trip-swap]');
+      if (swapBtn) {
+        const id = swapBtn.dataset.entry || '';
+        const slug = swapBtn.dataset.tripSwap || '';
+        const existing = store.tripEntries().find((e) => e.id === id);
+        const option = existing?.kind === 'venue' ? PLAN_SWAPS[existing.slug || '']?.find((s) => s.slug === slug) : null;
+        const row = GEO[`venue/${slug}`];
+        if (!option || !row) return;
+        const success = store.tripSwap(id, { kind: 'venue', slug, title: row.t, href: row.h, note: `Dining alternative. ${option.reason}` });
+        announce(success ? `Changed to ${row.t}. Same day and position. Check your bookings.` : 'Could not save the swap. Your original stop remains.');
+        if (success) { trackEvent('trip_add', { entity_type: 'venue', entity_slug: slug, src: 'curated-swap', surface: 'me-trip' }); focusMoveButton(id); }
         return;
       }
 
@@ -1237,4 +1262,10 @@ export const prerender = true;
   .trip-preview-stop::after { content: ''; display: block; clear: both; }
   .trip-preview-stop a, .trip-preview-stop span { overflow-wrap: anywhere; font-weight: var(--fw-semibold, 600); }
   .trip-preview-stop small { display: block; color: var(--soft); margin-top: .5rem; }
+</style>
+
+<style is:global>
+  .trip-stop__swaps { margin-top: .75rem; font-size: .875rem; }
+  .trip-stop__swaps summary { cursor: pointer; text-decoration: underline; }
+  .trip-estimate-note { color: var(--soft); font-size: .875rem; max-width: 70ch; }
 </style>

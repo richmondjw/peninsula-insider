@@ -3,7 +3,7 @@
  *
  * The plans hub answers "what should I do" with a plan, and "Make it my trip"
  * copies that plan's stops into the reader's trip. The plan detail pages carry
- * the other fork - "copy this plan" - which merges the plan's items into saves.
+ * the same import flow, preserving day order and protecting an existing trip.
  *
  * States covered:
  *   - signed out
@@ -130,54 +130,69 @@ test('returning to the hub three times and forking once copies the plan once', a
   }
 });
 
-test('a plan detail page copies its items into saves once, and says so on a repeat', async () => {
+test('a plan detail page imports its sequenced stops into the trip once, and says so on a repeat', async () => {
   const [route] = routesContaining('data-pi-fork-plan', 1);
-  assert.ok(route, 'expected at least one built plan page carrying a fork control');
-
+  assert.ok(route);
   const reader = await site.reader();
   try {
     await reader.load(route);
-    await reader.page.evaluate(() => { document.querySelector('[data-pi-fork-plan]').click(); });
-    await reader.waitFor(
-      () => {
-        try {
-          const raw = localStorage.getItem('pi:saves:v2');
-          return (raw ? (JSON.parse(raw).items || []).length : 0) > 0;
-        } catch { return false; }
-      },
-      `forking ${route} never put anything in saves`,
-      null,
-      { describe: () => localStorage.getItem('pi:saves:v2') },
-    );
-    const first = await read(reader, SAVES_KEY, 'items');
-    assert.ok(first.length > 0, `forking ${route} must save its items`);
+    const expected = await reader.page.evaluate(() => JSON.parse(document.querySelector('[data-pi-fork-plan]').dataset.piPlan));
+    await reader.page.evaluate(() => document.querySelector('[data-pi-fork-plan]').click());
+    await reader.waitFor(() => /ready/i.test(document.querySelector('[data-plan-import-status]')?.textContent || ''), 'detail import must finish');
+    const first = await read(reader, TRIP_KEY, 'entries');
+    assert.equal(first.length, expected.stops.length);
+    assert.equal((await read(reader, TRIP_KEY, 'days')).length, new Set(expected.stops.map(s => s.day)).size);
+    await reader.page.evaluate(() => document.querySelector('[data-pi-fork-plan]').click());
+    await reader.waitFor(() => /already/i.test(document.querySelector('[data-plan-import-status]')?.textContent || ''), 'repeat must report existing plan');
+    assert.deepEqual(await read(reader, TRIP_KEY, 'entries'), first);
+  } finally { await reader.close(); }
+});
 
-    // Repeated action: a second press must add nothing and must not claim it did.
-    //
-    // "Adds nothing" is the one condition you cannot wait for directly - the
-    // absence of an effect looks identical to an effect that has not happened
-    // yet, and the only way to tell them apart is to wait a while, which is
-    // the thing this suite refuses to do. So wait on the positive signal the
-    // same press produces: the toast changing from "Saved N items" to "already
-    // in your plan". Once that has been said, the handler has demonstrably run
-    // to completion, and the store can be asked what it did.
-    await reader.page.evaluate(() => {
-      const t = document.querySelector('[data-pi-fork-toast]');
-      if (t) t.textContent = '';
-      document.querySelector('[data-pi-fork-plan]').click();
-    });
-    await reader.waitFor(
-      () => /already/i.test(document.querySelector('[data-pi-fork-toast]')?.textContent || ''),
-      'a second fork of the same plan must say the items are already in the plan. It said '
-      + 'something else, or nothing - which means it either saved them twice or silently did nothing',
-      null,
-      { describe: () => document.querySelector('[data-pi-fork-toast]')?.textContent || '(no toast)' },
-    );
-    const second = await read(reader, SAVES_KEY, 'items');
-    assert.equal(second.length, first.length, 'a second fork duplicated the plan into saves');
-  } finally {
-    await reader.close();
-  }
+test('existing trip offers cancel, extra days and explicit replacement', async () => {
+  const reader = await site.reader();
+  try {
+    await reader.load('/explore/plans/the-peninsula-golf-weekend/');
+    const seed = { version: 1, days: [{ id: 'mine', label: 'My day' }], entries: [{ id: 'mine', title: 'Keep my stop', dayId: 'mine', note: 'My note', addedAt: 1 }] };
+    await reader.page.evaluate((value) => localStorage.setItem('pi:saves:v2:trip', JSON.stringify(value)), seed);
+    await reader.page.evaluate(() => document.querySelector('[data-pi-fork-plan]').click());
+    await reader.waitFor(() => !!document.querySelector('.plan-import-dialog[open]'), 'existing-trip decision must open');
+    await reader.page.evaluate(() => document.querySelector('.plan-import-dialog button[value="cancel"]').click());
+    await reader.waitFor(() => !document.querySelector('.plan-import-dialog'), 'cancel closes dialog');
+    assert.deepEqual(JSON.parse(await reader.storage(TRIP_KEY)), seed);
+    await reader.page.evaluate(() => document.querySelector('[data-pi-fork-plan]').click());
+    await reader.waitFor(() => !!document.querySelector('.plan-import-dialog[open]'), 'decision opens again');
+    await reader.page.evaluate(() => document.querySelector('.plan-import-dialog button[value="append"]').click());
+    await reader.waitFor(() => /ready/i.test(document.querySelector('[data-plan-import-status]')?.textContent || ''), 'append finishes');
+    assert.deepEqual((await read(reader, TRIP_KEY, 'entries'))[0], seed.entries[0]);
+    assert.ok((await read(reader, TRIP_KEY, 'days')).length > 1);
+    // A different itinerary must also offer explicit replacement.
+    await reader.navigate('/explore/plans/the-family-day-out/');
+    await reader.page.evaluate(() => document.querySelector('[data-pi-fork-plan]').click());
+    await reader.waitFor(() => !!document.querySelector('.plan-import-dialog[open]'), 'another plan asks before replacing');
+    await reader.page.evaluate(() => document.querySelector('.plan-import-dialog button[value="replace"]').click());
+    await reader.waitFor(() => /ready/i.test(document.querySelector('[data-plan-import-status]')?.textContent || ''), 'replace finishes');
+    assert.equal((await read(reader, TRIP_KEY, 'entries')).some(e => e.id === 'mine'), false);
+  } finally { await reader.close(); }
+});
+
+test('curated dining swap keeps day and position and updates the stop', async () => {
+  const reader = await site.reader();
+  try {
+    await reader.load('/explore/plans/the-peninsula-golf-weekend/');
+    await reader.page.evaluate(() => document.querySelector('[data-pi-fork-plan]').click());
+    await reader.waitFor(() => /ready/i.test(document.querySelector('[data-plan-import-status]')?.textContent || ''), 'import finishes');
+    const before = await read(reader, TRIP_KEY, 'entries');
+    const index = before.findIndex(e => e.slug === 'montalto');
+    assert.ok(index >= 0);
+    await reader.navigate('/me/trip/');
+    await reader.page.evaluate(() => document.querySelector('[data-trip-swap="port-phillip-estate"]').click());
+    await reader.waitFor(() => /Changed to/i.test(document.querySelector('#pi-trip-status')?.textContent || ''), 'swap finishes');
+    const after = await read(reader, TRIP_KEY, 'entries');
+    assert.equal(after.length, before.length);
+    assert.equal(after[index].slug, 'port-phillip-estate');
+    assert.equal(after[index].dayId, before[index].dayId);
+    assert.equal(after[index].id, before[index].id);
+  } finally { await reader.close(); }
 });
 
 test('planning works signed out with the network down', async () => {
@@ -190,4 +205,34 @@ test('planning works signed out with the network down', async () => {
   } finally {
     await reader.close();
   }
+});
+
+
+test('sharing the wellness plan preserves repeat stays and importing twice is idempotent', async () => {
+  const author = await site.reader();
+  const recipient = await site.reader();
+  try {
+    await author.load('/explore/plans/wellness-weekend/');
+    await author.page.evaluate(() => document.querySelector('[data-pi-fork-plan]').click());
+    await author.waitFor(() => /ready/i.test(document.querySelector('[data-plan-import-status]')?.textContent || ''), 'wellness import finishes');
+    const original = await read(author, TRIP_KEY, 'entries');
+    await author.navigate('/me/trip/');
+    await author.page.evaluate(() => {
+      Object.defineProperty(navigator, 'clipboard', { configurable: true, value: { writeText: async (text) => { window.__sharedTripUrl = text; } } });
+      document.querySelector('[data-trip-share]').click();
+    });
+    await author.waitFor(() => !!window.__sharedTripUrl, 'share link is generated');
+    const url = await author.page.evaluate(() => window.__sharedTripUrl);
+    const path = new URL(url).pathname + new URL(url).search;
+    await recipient.load(path);
+    await recipient.page.evaluate(() => document.querySelector('[data-trip-import]').click());
+    await recipient.waitFor(() => document.querySelector('[data-trip-shared]')?.hidden, 'shared import finishes');
+    const imported = await read(recipient, TRIP_KEY, 'entries');
+    assert.equal(imported.length, original.length);
+    assert.equal(imported.filter(e => e.slug === 'lindenderry').length, 2);
+    await recipient.navigate(path);
+    await recipient.page.evaluate(() => document.querySelector('[data-trip-import]').click());
+    await recipient.waitFor(() => document.querySelector('[data-trip-shared]')?.hidden, 'repeat shared import finishes');
+    assert.equal((await read(recipient, TRIP_KEY, 'entries')).length, original.length);
+  } finally { await author.close(); await recipient.close(); }
 });

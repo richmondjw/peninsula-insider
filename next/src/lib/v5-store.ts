@@ -720,3 +720,22 @@ export function tripCount(): number {
 export function tripClear(): boolean {
   return notifyTripMutation({ version: 1, days: [], entries: [] });
 }
+
+/** Commit an already prepared trip in one write; never clear before importing. */
+export function tripCommit(next: TripStore, expected: TripStore): boolean {
+  if (JSON.stringify(readTrip()) !== JSON.stringify(expected)) return false;
+  return notifyTripMutation(next);
+}
+
+/** Replace one stop without changing its day, position, or source occurrence. */
+export function tripSwap(entryId: string, item: TripAddInput): boolean {
+  const trip = readTrip();
+  const index = trip.entries.findIndex((e) => e.id === entryId);
+  if (index < 0 || !item.kind || !item.slug || !item.title || !item.href) return false;
+  trip.entries[index] = { ...trip.entries[index], kind: item.kind, slug: item.slug,
+    title: item.title, href: item.href, note: item.note ?? '',
+    meta: { ...trip.entries[index].meta, ...item.meta } };
+  if (!notifyTripMutation(trip)) return false;
+  save({ kind: item.kind, slug: item.slug, title: item.title, href: item.href });
+  return true;
+}
