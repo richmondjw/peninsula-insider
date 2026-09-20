@@ -25,6 +25,10 @@
     --photo-shade-copy: linear-gradient(180deg,
       rgb(15 15 14 / .25) 0%, rgb(15 15 14 / .65) 28%,
       rgb(15 15 14 / .65) 72%, rgb(15 15 14 / .35) 100%);
+    /* Long guide headings reach higher into portrait crops. */
+    --photo-shade-bottom: linear-gradient(to top,
+      rgb(15 15 14 / .86) 0%, rgb(15 15 14 / .70) 42%,
+      rgb(15 15 14 / .52) 76%, rgb(15 15 14 / .12) 100%);
   }
 }
 
