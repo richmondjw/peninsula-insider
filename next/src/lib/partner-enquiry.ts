@@ -72,7 +72,7 @@ export const ENQUIRY_INTERESTS = [
 export type EnquiryInterest = (typeof ENQUIRY_INTERESTS)[number];
 
 export const ENQUIRY_INTEREST_LABELS: Record<string, string> = {
-  'featured-profile': 'Enhanced business page: USD99',
+  'featured-profile': 'Enhanced business page: AUD 99',
   'seasonal-campaign': 'Campaign partnership',
   'event-promotion': 'Event Promotion',
   newsletter: 'Newsletter opportunity',
