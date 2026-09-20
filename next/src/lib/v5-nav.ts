@@ -224,7 +224,7 @@ const configuredV5Pillars = [
     key: 'journal',
     label: 'Journal',
     hub: '/journal/',
-    intro: 'Long reads and the Shortlist, every issue, every piece.',
+    intro: 'Editorial stories, local guides and the Shortlist.',
     curated: [
       { key: 'shortlist',   label: 'The cellar-door shortlist', href: '/journal/the-cellar-door-short-list/' },
       { key: 'long-lunch',  label: 'The long lunch',            href: '/journal/the-long-lunch/' },
@@ -232,22 +232,14 @@ const configuredV5Pillars = [
       { key: 'orientation', label: 'The first-visit drive',     href: '/explore/plans/the-peninsula-orientation-drive/' },
     ],
     browse: [
-      { key: 'all-journal', label: 'Every issue, every piece', href: '/journal/' },
+      { key: 'all-journal', label: 'Explore the Journal', href: '/journal/' },
     ],
     rail: {
       eyebrow: editorsPickEyebrow,
-      title: 'Insider Picks, 12 August',
-      verdict: 'Three things worth making time for this week, chosen by the desk.',
-      href: '/journal/insider-picks-2026-08-12/',
-      cta: 'Read the picks',
-      expiresAt: '2026-08-19',
-      fallback: {
-        eyebrow: "Editor's note",
-        title: 'Insider Picks',
-        verdict: 'Selected recommendations from the editorial desk.',
-        href: '/picks/',
-        cta: 'Read recent selections',
-      },
+      title: 'Stories from the Peninsula',
+      verdict: 'Explore our latest editorial stories and guides, or find a subject by theme.',
+      href: '/journal/#themes',
+      cta: 'Explore the Journal',
     },
   },
 ];

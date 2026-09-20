@@ -4,12 +4,12 @@
  * (page-redesigns.md 1.9 item 6; wireframes.html #home note 5: "Exactly
  * one Journal feature; more editorial lives behind Journal").
  *
- * Same deterministic selection the Edition cover used: the featured
- * published article wins, otherwise the latest, weekend-picker dispatches
- * excluded. Hero resolves through resolveHero so CMS image overrides
+ * The latest published editorial article wins; Picks, plans, service pages
+ * and weekend-picker dispatches are excluded. Hero resolves through resolveHero so CMS image overrides
  * survive rebuilds; the img carries the editableImage slot.
  */
 import { getCollection } from 'astro:content';
+import { isJournalEditorial } from '../../../lib/journal-curation.mjs';
 import { routeSlug, formatLabel } from '../../../lib/editorial';
 import { resolveHero } from '../../../lib/inline-edit/resolve-hero';
 import { editableImage } from '../../../lib/inline-edit/attrs';
@@ -17,16 +17,11 @@ import { editableImage } from '../../../lib/inline-edit/attrs';
 // The homepage flagship feature is an editorial piece, not a weekend-picker
 // dispatch or a B2B service page (past-dated event guides are dropped by
 // clearing their `featured` flag).
-const published = (await getCollection('articles', ({ data }) => data.status === 'published'))
+const published = (await getCollection('articles', ({ data }) => isJournalEditorial(data)))
   .filter((a) => a.data.format !== 'weekend-picker' && a.data.format !== 'service')
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
 
-// `published` is sorted newest-first, so published[0] is the current
-// edition (today's Insider Picks daily drumbeat). We deliberately do NOT
-// honour the `featured` pin here: that flag is set on ~19 evergreen guides
-// dated back to April, so "featured wins" pinned a months-stale piece
-// (the 14 July daily pick) while newer editions piled up unseen. The
-// homepage flagship should always be the latest edition.
+// Newest editorial feature; dated Picks never fill this slot automatically.
 const lead = published[0];
 const slug = lead ? routeSlug(lead) : '';
 const hero = lead ? await resolveHero('article', slug, lead.data, 'hero') : null;

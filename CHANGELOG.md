@@ -1,3 +1,12 @@
+## 2026-09-20 - Journal editorial curation
+
+- Keep Insider Picks out of automatic Journal lead, Latest, themes, front-page archive and homepage Journal feature selection.
+- Replace Journal navigation Picks promotion with an editorial themes link.
+- Hide Daily/Weekly publishing tags on Picks detail pages; preserve all content records, URLs, canonicals, robots and sitemap rules.
+- Standardise remaining newsletter CTA, homepage data, 404, legacy cover and Pass references without promising a weekly send. About, Contact, footer and dispatch already use cadence-neutral copy.
+- Retain Picks discovery via /picks/ and /site-index/. Add build-enforced regression tests.
+- Normalise touched legacy CRLF HomeJournalFeature.astro and v5-nav.ts to LF so git diff --check passes.
+
 ## 2026-08-10 — Claude local agent — /explore/spas-and-wellness/ redesign
 
 ### Summary

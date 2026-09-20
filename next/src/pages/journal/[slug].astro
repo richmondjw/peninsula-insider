@@ -14,6 +14,7 @@ import PlaceCard from '../../components/PlaceCard.astro';
 import CorrectionNote from '../../components/CorrectionNote.astro';
 import MediaProvenanceNote from '../../components/MediaProvenanceNote.astro';
 import HubGuideTOC from '../../components/HubGuideTOC.astro';
+import { visibleArticleTags } from '../../lib/journal-curation.mjs';
 import { formatLabel, routeSlug, venueHrefPrefix, titleize, formatHeroCredit, isListableVenue } from '../../lib/editorial';
 import { pickRelatedArticles, resolveRefs } from '../../lib/related';
 import { isPeninsulaThisWeekend, ptwArchivePath } from '../../lib/peninsula-this-weekend';
@@ -135,7 +136,7 @@ const slug = routeSlug(article);
    tolerant of hyphens, underscores and stray whitespace, because titleize()
    collapses all of those to the same rendered label. */
 const heroTagSeen = new Set<string>();
-const heroTags: string[] = ((article.data.tags ?? []) as unknown[])
+const heroTags: string[] = (visibleArticleTags(article.data) as unknown[])
   .filter((tag): tag is string => typeof tag === 'string' && tag.trim() !== '')
   .filter((tag) => {
     const key = tag.trim().toLowerCase().replace(/[\s_-]+/g, ' ');

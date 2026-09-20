@@ -7,13 +7,14 @@ import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import Card from '../../components/v5/Card.astro';
 import CardGrid from '../../components/v5/CardGrid.astro';
 import { routeSlug } from '../../lib/editorial';
+import { isJournalEditorial } from '../../lib/journal-curation.mjs';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
 import { editableImage } from '../../lib/inline-edit/attrs';
 
 /*
  * Journal index, v5 (page-redesigns-hubs.md section 8; wireframes #journal).
  * Magazine front, not a card wall: one lead feature, a short Latest list,
- * a themed text index, and a dated month/year archive that keeps every
+ * a themed text index, and a dated month/year editorial archive that keeps selected
  * article URL reachable from this page. The 13-tile planning wall and the
  * format-grouped card dump are gone; their links now render on the hubs'
  * From-the-Journal modules (relocation map in 12-build-log/journal.md).
@@ -21,7 +22,7 @@ import { editableImage } from '../../lib/inline-edit/attrs';
  */
 
 const articles = (await getCollection('articles', ({ data }) =>
-  data.status === 'published' && (data.section ?? 'journal') !== 'plans'
+  isJournalEditorial(data)
 )).sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
 
 /* Byline resolution: house byline label, else the author entry's name. */
@@ -153,9 +154,8 @@ if (coverage < 0.9) {
   );
 }
 
-/* Archive: every published journal article, grouped by year then month,
-   newest first. This is the exhaustive spine; every previously linked
-   article URL is reachable from this page. */
+/* Editorial archive only. Picks remain published and discoverable through
+   /picks/ and /site-index/ without flooding the Journal front page. */
 type ArticleEntry = (typeof articles)[number];
 const archiveYears: Array<{ year: number; months: Array<{ label: string; monthISO: string; items: ArticleEntry[] }>; count: number }> = [];
 for (const article of articles) {
@@ -213,7 +213,7 @@ export const prerender = true;
         <div class="editors-desk__col">
           <p class="label label--accent">From the editor's desk</p>
           <h2 class="editors-desk__title">What we're writing about this season</h2>
-          <p class="editors-desk__body">The Peninsula is for long lunches, thermal pools and walks that earn a fire afterwards. The Journal is leaning into practical guides for those moods, honest stay notes, and the weekly <em>Peninsula This Weekend</em> brief.</p>
+          <p class="editors-desk__body">The Peninsula is for long lunches, thermal pools and walks that earn a fire afterwards. The Journal is leaning into practical guides for those moods, honest stay notes, and <em>The Insider Note</em>, our occasional email.</p>
         </div>
       </div>
     </div>
@@ -267,7 +267,7 @@ export const prerender = true;
         <header class="v5j-header">
           <p class="label label--accent">Latest</p>
           <h2 class="v5j-title" id="v5j-latest-title">New from the desk</h2>
-          <p class="v5j-sub">The most recent pieces, in publication order. The full run is in the archive below.</p>
+          <p class="v5j-sub">Recent editorial stories and guides, in publication order.</p>
         </header>
         <CardGrid label="Latest Journal articles" layout="rows">
           {latest.map((article, i) => (
@@ -299,7 +299,7 @@ export const prerender = true;
         <header class="v5j-header">
           <p class="label label--accent">By theme</p>
           <h2 class="v5j-title" id="v5j-themes-title">The Journal, by theme</h2>
-          <p class="v5j-sub">A text index, not a card wall. Each theme opens to every dated piece we have on it, mapped from the tags the articles already carry.</p>
+          <p class="v5j-sub">Explore our editorial stories and guides by the places, seasons and interests that bring you here.</p>
         </header>
         <div class="v5j-themes">
           {themes.map((theme) => (
@@ -329,12 +329,12 @@ export const prerender = true;
     <div class="container">
       <header class="v5j-header">
         <p class="label label--accent">Archive</p>
-        <h2 class="v5j-title" id="v5j-archive-title">Everything, by month</h2>
-        <p class="v5j-sub">The complete Journal, dated and in order. Articles keep their original addresses; nothing is unpublished when it leaves the front page.</p>
+        <h2 class="v5j-title" id="v5j-archive-title">Editorial stories, by month</h2>
+        <p class="v5j-sub">Browse the editorial archive. Previous <a href="/picks/">Insider Picks</a> remain available, with the full article index in our <a href="/site-index/">site index</a>.</p>
       </header>
       <div class="v5j-archive">
-        {archiveYears.map((yearGroup, yearIndex) => (
-          <details class="v5j-details" open={yearIndex === 0}>
+        {archiveYears.map((yearGroup) => (
+          <details class="v5j-details">
             <summary>
               <span class="v5j-details__name">{yearGroup.year}</span>
               <span class="v5j-details__count">{yearGroup.count} {yearGroup.count === 1 ? 'piece' : 'pieces'}</span>
