@@ -20,7 +20,7 @@
  * is the hairline alpha, which was effectively invisible on the dark
  * ground. Focus stays on the inverse ring: --mint is 11.60:1 here.
  */
-import { v5FooterSections, v5FooterAbout, v5FooterFinePrint } from '../../../lib/v5-nav';
+import { v5FooterAbout, v5FooterFinePrint } from '../../../lib/v5-nav';
 import SubscribeForm from '../../SubscribeForm.astro';
 
 const year = new Date().getFullYear();
@@ -38,14 +38,6 @@ const isHome = Astro.url.pathname === '/';
     </div>
 
     <div class="v5-foot__grid">
-      <nav class="v5-foot__col" aria-labelledby="v5-foot-sections">
-        <h2 id="v5-foot-sections" class="v5-foot__col-title">Sections</h2>
-        <ul>
-          {v5FooterSections.map((link) => (
-            <li><a href={link.href}>{link.label}</a></li>
-          ))}
-        </ul>
-      </nav>
 
       <nav class="v5-foot__col" aria-labelledby="v5-foot-insider">
         <h2 id="v5-foot-insider" class="v5-foot__col-title">Peninsula Insider</h2>
@@ -65,7 +57,7 @@ const isHome = Astro.url.pathname === '/';
         </ul>
       </nav>
 
-      <div class="v5-foot__dispatch">
+      {!Astro.url.pathname.startsWith('/dispatch') && <div class="v5-foot__dispatch">
         <h2 class="v5-foot__col-title">The Insider Note</h2>
         <p class="v5-foot__dispatch-dek">
           The Peninsula worth knowing. An occasional email. What's on, where we'd go and what's worth knowing next.
@@ -73,7 +65,7 @@ const isHome = Astro.url.pathname === '/';
         {isHome
           ? <p class="v5-foot__dispatch-dek"><a href="/dispatch/">Join The Insider Note</a></p>
           : <SubscribeForm variant="dark" source="footer" />}
-      </div>
+      </div>}
     </div>
 
     <p class="v5-foot__aoc">
@@ -150,7 +142,7 @@ const isHome = Astro.url.pathname === '/';
 
   .v5-foot__grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr) 1.4fr;
+    grid-template-columns: 1fr 1fr 1.4fr;
     gap: var(--space-6);
     margin-bottom: var(--space-5);
   }

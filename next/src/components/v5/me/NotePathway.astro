@@ -1,0 +1,18 @@
+---
+interface Props { surface: 'me-saved' | 'me-trip' }
+const { surface } = Astro.props;
+---
+<aside class="note-pathway" data-note-pathway hidden>
+  <h2>The Peninsula worth knowing.</h2>
+  <p>What's on, where we'd go and what's worth knowing next.</p>
+  <a href="/dispatch/" data-evt="newsletter_signup_opened" data-surface={surface}>Join The Insider Note</a>
+  <p class="note-pathway__small">Optional. Sent when there's something worth knowing. Unsubscribe any time.</p>
+</aside>
+<style>
+  .note-pathway { margin-block: var(--space-8, 4rem); padding-block: var(--space-6, 2rem); border-top: 1px solid var(--border); }
+  .note-pathway[hidden] { display: none; }
+  h2 { font-family: var(--font-display); font-size: var(--fs-600, 1.5rem); }
+  p { max-width: 60ch; }
+  a { display: inline-flex; align-items: center; min-height: 44px; color: var(--accent); font-weight: var(--fw-semibold, 600); }
+  .note-pathway__small { font-size: var(--fs-200, .8125rem); color: var(--soft); }
+</style>

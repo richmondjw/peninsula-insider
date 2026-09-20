@@ -385,10 +385,10 @@ test('the page states no fixed count of its own', () => {
   assert.deepEqual(digits, [], `a count is typed into the page: ${digits.join(', ')}`);
 });
 
-test('the page links the reader somewhere they can act', () => {
+test('the retired public methodology route consolidates into About', () => {
   const copy = readerCopy();
-  assert.match(copy, /href="\/corrections\/"/, 'the corrections route must be reachable from here');
-  assert.match(copy, /href="\/editorial-approach\/"/, 'the judgement half must be reachable too');
+  assert.match(copy, /<Redirect to="\/about\/" consolidate/, 'old links must reach About');
+  assert.doesNotMatch(copy, /<section|<article/, 'internal checking details must not render publicly');
 });
 
 // -- small helpers ----------------------------------------------------------

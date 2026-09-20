@@ -203,6 +203,7 @@ const showPreview = !hidePreview && resolvedHeadline && resolvedPicks.length > 0
         form._v2nlInit = true;
         form.addEventListener('submit', function (e) {
           e.preventDefault();
+          if (form._v2nlBusy || form._v2nlDone) return;
           var input = form.querySelector('.v2-newsletter__input');
           var btn   = form.querySelector('.v2-newsletter__submit');
           var email = ((input && input.value) || '').trim();
@@ -213,14 +214,18 @@ const showPreview = !hidePreview && resolvedHeadline && resolvedPicks.length > 0
           }
           var endpoint = form.dataset.endpoint || '';
           var source   = form.dataset.source   || 'v2-newsletter';
+          form._v2nlBusy = true;
           if (btn) { btn.disabled = true; btn.textContent = 'Joining...'; }
           setStatus(form, '', '');
           function ok() {
+            form._v2nlDone = true;
+            if (typeof window.piTrack === 'function') window.piTrack('newsletter_signup_succeeded', { surface: source }, { component: 'NewsletterBlock' });
             if (btn) btn.textContent = 'Done';
             setStatus(form, "You're in. The next edition will land in your inbox soon.", 'ok');
             if (input) { input.value = ''; input.disabled = true; }
           }
           function fail(msg) {
+            form._v2nlBusy = false;
             if (btn) { btn.textContent = 'Join'; btn.disabled = false; }
             setStatus(form, msg || 'Something went wrong. Please try again.', 'err');
           }
@@ -233,8 +238,8 @@ const showPreview = !hidePreview && resolvedHeadline && resolvedPicks.length > 0
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email: email, source: source }),
           })
-            .then(function (r) { return r.json().catch(function () { return {}; }); })
-            .then(function (d) { if (d && (d.ok || d.success)) ok(); else fail(d && d.message); })
+            .then(function (r) { if (!r.ok) throw new Error('Subscription rejected'); return r.json().catch(function () { return {}; }); })
+            .then(function (d) { if (d && (d.ok === true || d.success === true)) ok(); else fail(d && d.message); })
             .catch(function () { fail(); });
         });
       });

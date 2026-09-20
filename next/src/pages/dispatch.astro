@@ -1,176 +1,45 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Breadcrumbs from '../components/Breadcrumbs.astro';
 import SubscribeForm from '../components/SubscribeForm.astro';
-
-const breadcrumbItems = [
-  { label: 'Home', href: '/' },
-  { label: 'The Insider Note' },
-];
 export const prerender = true;
+const items = [
+  ['Weekend inspiration', "What's worth doing and where we'd go."],
+  ['Seasonal picks', 'Places, openings and experiences worth knowing now.'],
+  ['Local notes', 'Useful observations and things you might otherwise miss.'],
+  ['From the Journal', 'Selected guides and stories worth reading.'],
+];
 ---
-
-<BaseLayout
-  title="The Insider Note · Peninsula Insider"
-  description="The Insider Note: the Peninsula worth knowing. An occasional email. What's on, where we'd go and what's worth knowing next."
-  section="home"
-  canonical="https://peninsulainsider.com.au/dispatch/"
-  ogImage="/images/sourced/article-sorrento-weekend-01.webp"
->
-  <Breadcrumbs items={breadcrumbItems} />
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       1. HERO - publication front page.
-          Type, voice, white card. Signup is secondary to editorial identity.
-       ═══════════════════════════════════════════════════════════════ -->
-  <section class="news-hero" id="subscribe" aria-label="The Insider Note - Peninsula Insider newsletter">
-    <div class="container">
-      <div class="news-hero__inner">
-        <p class="news-hero__eyebrow">The Insider Note</p>
-        <h1 class="news-hero__title">The Peninsula worth <em>knowing.</em></h1>
-        <p class="news-hero__dek">An occasional email. What's on, where we'd go and what's worth knowing next.</p>
-
-        <div class="news-hero__form">
-          <SubscribeForm variant="light" source="newsletter-page" />
-        </div>
-
-        <ul class="news-hero__proof">
-          <li><strong>Occasional emails</strong>, what's worth knowing next</li>
-          <li><strong>Editorial</strong> judgement, every issue</li>
-          <li><strong>One-click</strong> unsubscribe</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       2. EDITIONS - what the publication includes.
-          Editorial rhythms within one publication, not newsletter categories.
-       ═══════════════════════════════════════════════════════════════ -->
-  <section class="news-editions" aria-label="Editions">
-    <div class="container">
-      <div class="news-editions__inner">
-        <p class="label label--accent">Inside The Insider Note</p>
-        <ul class="news-editions__list">
-          <li class="news-editions__item">Peninsula This Weekend</li>
-          <li class="news-editions__item">Seasonal recommendations</li>
-          <li class="news-editions__item">New openings worth knowing</li>
-          <li class="news-editions__item">Quiet Peninsula observations</li>
-          <li class="news-editions__item">From the Journal</li>
-        </ul>
-        <p class="news-editions__note">An occasional email. One email publication, with selected recommendations and links.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       3. SAMPLE ISSUE - what subscribers actually receive.
-          Specificity sells. The reader sees the product before promises.
-       ═══════════════════════════════════════════════════════════════ -->
-  <section class="news-sample" aria-label="Sample edition">
-    <div class="container">
-      <div class="news-sample__intro">
-        <p class="label label--accent">Example format</p>
-        <h2 class="news-sample__title">What The Insider Note sounds like</h2>
-        <p class="news-sample__sub">An illustrative edition showing the format. This is not a current event, menu or weather advisory.</p>
-      </div>
-
-      <article class="news-sample__email">
-        <header class="news-sample__email-head">
-          <p class="news-sample__email-from">From: <strong>The Peninsula Insider</strong> &lt;dispatch@peninsulainsider.com.au&gt;</p>
-          <p class="news-sample__email-subject">Peninsula This Weekend</p>
-          <p class="news-sample__email-preview">One pick · one weather-proof backup · one thing to skip…</p>
-        </header>
-        <div class="news-sample__email-body">
-          <p><em>Reader,</em></p>
-          <p>Vintage on the ridge is wrapping. The fruit is in, the cellar doors are quiet again, and Saturday looks like the first weekend in a month that does not feel like a queue. Three things shaping the weekend if you are coming down.</p>
-
-          <h3>The pick, Foxeys Hangout, Saturday lunch</h3>
-          <p>A cellar-door lunch is one way to build a day around the ridge. In each edition we link to the venue so you can check the current menu, opening days and booking options.</p>
-
-          <h3>The backup, an indoor afternoon</h3>
-          <p>Keep an indoor option in reserve if the coastal weather changes. Check the current forecast and park advice before choosing an exposed walk.</p>
-
-          <h3>Skip, the Sorrento Front Beach circus</h3>
-          <p>Long weekend leftover. Carpark fills before 10am, the queue at the bakery is twenty deep by 11. Drive ten more minutes to Portsea Front Beach and skip the theatre.</p>
-
-          <p>Until next time,<br/>The editors</p>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       4. WHAT YOU GET - four editorial promises
-       ═══════════════════════════════════════════════════════════════ -->
-  <section class="news-promise" aria-label="What you get">
-    <div class="container">
-      <div class="news-promise__intro">
-        <p class="label label--accent">What's in the inbox</p>
-        <h2 class="news-promise__title">Seasonal intelligence, not inbox noise.</h2>
-      </div>
-      <ul class="news-promise__grid">
-        <li class="news-promise__item">
-          <span class="news-promise__num">01</span>
-          <h3 class="news-promise__heading">Weekend inspiration</h3>
-          <p class="news-promise__body">A curated shortlist of what's on and where we'd go - the strongest events, the best timing, the planning notes that make the difference between a rushed trip and a good one.</p>
-        </li>
-        <li class="news-promise__item">
-          <span class="news-promise__num">02</span>
-          <h3 class="news-promise__heading">Seasonal recommendations</h3>
-          <p class="news-promise__body">What to do as the Peninsula changes with the calendar. Vintage weekends, winter cellar doors, truffle season, the summer lunches worth the drive.</p>
-        </li>
-        <li class="news-promise__item">
-          <span class="news-promise__num">03</span>
-          <h3 class="news-promise__heading">Local observations</h3>
-          <p class="news-promise__body">Short editorial notes we don't publish on the site. The cellar door we'd book again, the dish we keep ordering, the walk that's better in winter.</p>
-        </li>
-        <li class="news-promise__item">
-          <span class="news-promise__num">04</span>
-          <h3 class="news-promise__heading">New from the Peninsula</h3>
-          <p class="news-promise__body">Openings, closures, new guides, and residency dinners. The things you'd otherwise hear about three weeks late.</p>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       5. EDITORIAL PROMISES - trust + voice
-       ═══════════════════════════════════════════════════════════════ -->
-  <section class="news-trust" aria-label="Editorial promises">
-    <div class="container">
-      <div class="news-trust__intro">
-        <p class="label label--accent">The promises we keep</p>
-        <h2 class="news-trust__title">Independent · considered · occasional</h2>
-      </div>
-      <ul class="news-trust__grid">
-        <li class="news-trust__item">
-          <h3>When there is something worth knowing</h3>
-          <p>One considered note, sent when there's something worth knowing. No daily list, no auto-generated round-up.</p>
-        </li>
-        <li class="news-trust__item">
-          <h3>Plain text and links</h3>
-          <p>Reads like email, because it is email.</p>
-        </li>
-        <li class="news-trust__item">
-          <h3>Editorially independent</h3>
-          <p>Recommendations are earned and editorially independent. They are grounded in research, editorial judgement and ongoing Peninsula coverage.</p>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       6. CLOSE - single CTA back to the form.
-       ═══════════════════════════════════════════════════════════════ -->
-  <section class="news-close" aria-label="Join">
-    <div class="container">
-      <div class="news-close__inner">
-        <p class="label label--accent">Join The Insider Note</p>
-        <h2 class="news-close__title">Join <em>The Insider Note.</em></h2>
-        <p class="news-close__dek">The Peninsula worth knowing. An occasional email. What's on, where we'd go and what's worth knowing next.</p>
-        <a href="#subscribe" class="pi-btn pi-btn--solid">Join The Insider Note →</a>
-      </div>
-    </div>
-  </section>
+<BaseLayout title="The Insider Note · Peninsula Insider" description="The Peninsula worth knowing. What's on, where we'd go and what's worth knowing next. Sent when there's something worth knowing." canonical="https://peninsulainsider.com.au/dispatch/">
+  <div class="note-page container">
+    <section class="note-hero" id="subscribe">
+      <h1>The Insider Note</h1>
+      <p class="note-tagline">The Peninsula worth knowing.</p>
+      <p>What's on, where we'd go and what's worth knowing next.</p>
+      <SubscribeForm variant="light" source="newsletter-page" disclaimer="Sent when there's something worth knowing. Unsubscribe any time." />
+    </section>
+    <section class="note-inside" aria-labelledby="note-inside-title">
+      <h2 id="note-inside-title">What's inside</h2>
+      <ul>{items.map(([title, description]) => <li><h3>{title}</h3><p>{description}</p></li>)}</ul>
+    </section>
+    <section class="note-close" aria-labelledby="note-close-title">
+      <h2 id="note-close-title">Don't miss the next Note.</h2>
+      <p class="note-tagline">The Peninsula worth knowing.</p>
+      <SubscribeForm variant="light" source="newsletter-page" disclaimer="Unsubscribe any time." />
+    </section>
+  </div>
 </BaseLayout>
+<style>
+  .note-page { max-width: 64rem; }
+  section { padding: clamp(2.5rem, 6vw, 5rem) 0; }
+  .note-hero, .note-close { max-width: 44rem; margin-inline: auto; }
+  h1 { font: 500 clamp(2.8rem, 6vw, 4.8rem)/1.06 var(--font-display); letter-spacing: -.025em; margin: 0 0 1.4rem; }
+  h2 { font: 500 clamp(1.8rem, 4vw, 2.6rem)/1.15 var(--font-display); margin: 0 0 1.5rem; }
+  .note-tagline { font: 500 1.5rem/1.4 var(--font-display); }
+  p { line-height: 1.6; max-width: 65ch; }
+  .note-inside { border-block: 1px solid var(--border); }
+  ul { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem 3rem; list-style: none; padding: 0; margin: 0; }
+  h3 { font: 500 1.3rem/1.3 var(--font-display); margin: 0 0 .5rem; }
+  li p { margin: 0; color: var(--soft); }
+  :global(.note-page .newsletter__form) { margin-top: 1.5rem; }
+  @media (max-width: 40rem) { ul { grid-template-columns: 1fr; } }
+</style>

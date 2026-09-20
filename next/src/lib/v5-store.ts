@@ -1,3 +1,4 @@
+import { trackEvent } from './v5-analytics.ts';
 /**
  * Peninsula Insider v5 - THE one saves + trip store (T-604).
  *
@@ -438,7 +439,9 @@ function notify(scope: StoreScope): void {
 
 /** Write, mirror and notify. Returns false when the trip write did not land. */
 function notifyTripMutation(trip: TripStore): boolean {
+  const created = readTrip().entries.length === 0 && trip.entries.length > 0;
   if (!writeTrip(trip)) return false;
+  if (created) trackEvent('trip_created', { stops: trip.entries.length, surface: typeof window === 'undefined' ? 'unknown' : window.location?.pathname || 'unknown' });
   writeLegacyProjection(trip);
   notify('trip');
   if (typeof window !== 'undefined') {

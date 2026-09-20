@@ -69,9 +69,11 @@ export const prerender = true;
 
   <PlanContextEngine model={model} />
 
-  <PlanBuilder model={model} />
 
-  <PlanIndexRows plans={model.plans} />
+
+  <PlanIndexRows model={model} />
+
+  <PlanBuilder model={model} />
 
   <PlanNextStep />
 </BaseLayout>

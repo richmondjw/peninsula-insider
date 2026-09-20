@@ -7,7 +7,7 @@ import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import Card from '../../components/v5/Card.astro';
 import CardGrid from '../../components/v5/CardGrid.astro';
 import { routeSlug } from '../../lib/editorial';
-import { isJournalEditorial } from '../../lib/journal-curation.mjs';
+import { isJournalEditorial, isJournalDiscovery } from '../../lib/journal-curation.mjs';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
 import { editableImage } from '../../lib/inline-edit/attrs';
 
@@ -21,9 +21,11 @@ import { editableImage } from '../../lib/inline-edit/attrs';
  * Article URLs never change here.
  */
 
-const articles = (await getCollection('articles', ({ data }) =>
+const archiveArticles = (await getCollection('articles', ({ data }) =>
   isJournalEditorial(data)
 )).sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+
+const articles = archiveArticles.filter(({ data }) => isJournalDiscovery(data));
 
 /* Byline resolution: house byline label, else the author entry's name. */
 const authorEntries = await getCollection('authors');
@@ -158,7 +160,7 @@ if (coverage < 0.9) {
    /picks/ and /site-index/ without flooding the Journal front page. */
 type ArticleEntry = (typeof articles)[number];
 const archiveYears: Array<{ year: number; months: Array<{ label: string; monthISO: string; items: ArticleEntry[] }>; count: number }> = [];
-for (const article of articles) {
+for (const article of archiveArticles) {
   const d = article.data.publishedAt;
   const year = d.getFullYear();
   let yearGroup = archiveYears.find((g) => g.year === year);
