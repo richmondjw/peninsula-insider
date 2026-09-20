@@ -25,3 +25,11 @@ Recheck on 28 September for week two. Accountable owner Max. Any passed dates re
 Three Journal curation unit tests pass, including expiry boundary and continued archive eligibility. Full build, responsive inspection, internal-link checks and live deployment verification are owned by the parent release agent.
 
 Final exact-copy review COMPLETE: pi-school-holiday-publication-20260920-final-exact / receipt-178e7471ee254a0fbcb0128a6cd3c98f.json; accepted SHA256 4f09817c7b38030e01b496d01e11d4213598b4a327e31da0bae952e85fb1de70. Article body matches accepted reader copy (trimmed whitespace comparison).
+
+## Built-page verification, 20 September 2026
+
+Independent Chrome checks of the final local build passed at 1280px and 390px: no horizontal overflow, correct title and five recommendation sections, loaded hero, and all 14 internal article/template links returned HTTP 200. Journal discovery and sitemap include the article. The homepage's existing flagship selector intentionally excludes service-format articles; no homepage placement is claimed.
+
+Desktop/mobile screenshots were inspected. The first inspection exposed a cropped wordmark in the landscape SVG. The approved asset-only correction changed that original cover to square, then the exact updated source SVG was copied into the local built image path for verification. Repeated browser checks and visual inspection passed. CI must build the final source asset before production; no full local rebuild or template/prose change was made after the successful build.
+
+Evidence: [Desktop screenshot](C:/Users/James/Documents/JWR-TheOne/07-projects/peninsula-insider/deliverables/2026-09-20-school-holiday-desktop.png), [mobile screenshot](C:/Users/James/Documents/JWR-TheOne/07-projects/peninsula-insider/deliverables/2026-09-20-school-holiday-mobile.png), [browser checks](C:/Users/James/Documents/JWR-TheOne/07-projects/peninsula-insider/deliverables/2026-09-20-school-holiday-browser-evidence.json). These checks do not claim production deployment or real Safari/device testing.
