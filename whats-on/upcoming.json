@@ -153,8 +153,7 @@
         "url": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-sunday-sessions-spring-2026/",
         "startDate": "2026-09-20",
         "endDate": "2026-09-20",
-        "description": "Live music every Sunday from midday at Peninsula Hot Springs, played to the pools and included with bathing. Brad Kennedy on 20 September, The Calmer Miles on 27 September.",
-        "eventStatus": "https://schema.org/EventScheduled"
+        "description": "Live music every Sunday from midday at Peninsula Hot Springs, played to the pools and included with bathing. Brad Kennedy on 20 September, The Calmer Miles on 27 September."
       }
     },
     {
@@ -722,7 +721,7 @@
         },
         {
           "date": "2026-09-20",
-          "eventStatus": "https://schema.org/EventScheduled"
+          "eventStatus": null
         }
       ],
       "thisWeekend": true
@@ -906,11 +905,10 @@
       "venue": null,
       "freePaid": "Paid",
       "summary": "Live music every Sunday from midday at Peninsula Hot Springs, played to the pools and included with bathing. Brad Kennedy on 20 September, The Calmer Miles on 27 September.",
-      "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [
         {
           "date": "2026-09-20",
-          "eventStatus": "https://schema.org/EventScheduled"
+          "eventStatus": null
         }
       ],
       "thisWeekend": true
