@@ -1,124 +1,23 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import SectionHero from '../components/SectionHero.astro';
-import Breadcrumbs from '../components/Breadcrumbs.astro';
-import NewsletterBlock from '../components/NewsletterBlock.astro';
-
-const breadcrumbItems = [
-  { label: 'Home', href: '/' },
-  { label: 'About Peninsula Insider' },
-];
-
-const pillars = [
-  {
-    title: 'The Peninsula rewards slower attention',
-    body: 'Most visits to the Peninsula are rushed. A good cellar door missed because the timing was wrong. A walk skipped because no one mentioned the conditions. A lunch chosen by default rather than by recommendation. Peninsula Insider exists to change that: arrive with better information, leave with a better weekend.',
-  },
-  {
-    title: 'The edit, not the directory',
-    body: 'We don\'t list everything. We cover what is genuinely worth your time: the cellar door with the afternoon light, the restaurant that earns a second visit, the walk that changes in winter. What we leave out matters as much as what we include.',
-  },
-  {
-    title: 'The season is always named',
-    body: 'The Peninsula in June is a different place from the Peninsula in January. Different conditions, different crowds, different things worth doing. Our verdicts shift with the season because the region does.',
-  },
-  {
-    title: 'Editorial judgement over algorithmic ranking',
-    body: 'A recommendation is made on the merits, from research and a formed view. A venue appears because it earned a place, not because it submitted a form, paid for placement, or has the most reviews.',
-  },
-];
+import { editableText } from '../lib/inline-edit/attrs';
 export const prerender = true;
 ---
-
-<BaseLayout
-  title="About Peninsula Insider"
-  description="Peninsula Insider is the opinionated guide to the Mornington Peninsula. Every pick earns its place. Every verdict has a reason."
-  section="home"
->
-  <Breadcrumbs items={breadcrumbItems} />
-
-  <SectionHero
-    eyebrow="About Peninsula Insider"
-    title="The opinionated guide to the <em>Mornington Peninsula.</em>"
-    dek="For readers who want to spend their weekend well. Specific, considered, and current. Every pick earns its place. Every verdict has a reason."
-    gradient="journal"
-    heroImage="/images/sourced/home-cover-back-beach-horses-01.jpg"
-    visualLabel="Peninsula Insider · the back beach"
-    entitySlug="about"
-  />
-
-  <!-- Why PI exists -->
-  <section class="about-mission">
-    <div class="container">
-      <div class="about-mission__grid">
-        <div class="about-mission__lead">
-          <p class="label label--accent">Why we exist</p>
-          <h2 class="about-mission__title">A point of view, not a directory.</h2>
-        </div>
-        <div class="about-mission__body prose">
-          <p>The Mornington Peninsula has more than two hundred vineyards, more than fifty cellar doors, hatted restaurants spread across the ridge and the coast, and a coastline that changes character four times in forty minutes of driving. It rewards people who know where to look and when.</p>
-          <p>The tourism boards can't rank one operator over another. The Melbourne mastheads often treat the Peninsula as a section, not a beat. Peninsula Insider was built as a publication focused on the region, with researched guidance on where to go, what to book and what to know before a visit.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- What makes it different -->
-  <section class="about-principles">
-    <div class="container">
-      <div class="split-intro">
-        <div>
-          <p class="label label--accent">How we work</p>
-          <h2 class="split-intro__title">A different kind of Peninsula guide.</h2>
-        </div>
-        <p class="split-intro__body">Four things that shape how Peninsula Insider works, and why it's more useful than a list.</p>
-      </div>
-      <div class="about-principles__grid">
-        {pillars.map((p) => (
-          <article class="about-principle">
-            <h3 class="about-principle__title">{p.title}</h3>
-            <p class="about-principle__body">{p.body}</p>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Standards -->
-  <section class="about-mission">
-    <div class="container">
-      <div class="about-mission__grid">
-        <div class="about-mission__lead">
-          <p class="label label--accent">Standards</p>
-          <h2 class="about-mission__title">The verdict is the product.</h2>
-        </div>
-        <div class="about-mission__body prose">
-          <p>Peninsula Insider makes calls. We rank, we pick, and we say when something is overrated, because a guide that treats every option as equally lovely isn't a guide. That only works if the standards behind the verdicts hold: recommendations are researched and editorially judged, commercial relationships are always labelled, and broad price guidance is used where it helps while operators remain the source for live prices.</p>
-          <p>The full version, including how partner content is firewalled from editorial and how corrections work, is set out in <a href="/editorial-approach/">our editorial approach</a>.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Publication identity -->
-  <section class="about-colophon">
-    <div class="container">
-      <div class="about-mission__grid">
-        <div class="about-mission__lead">
-          <p class="label label--accent">The publication</p>
-          <h2 class="about-mission__title">Independent. Editorially led. Local.</h2>
-        </div>
-        <div class="about-mission__body prose">
-          <p>Peninsula Insider is independently founded and editorially led with a sustained focus on the Mornington Peninsula. Coverage is shaped by research, editorial review, seasonal openings and changing local conditions.</p>
-          <p><em>The Insider Note</em> is the publication's occasional email: curated Peninsula weekends, seasonal verdicts, and what is worth knowing before you plan. <a href="/dispatch/">Read The Insider Note.</a></p>
-          <p>Spotted an error? Write to <a href="mailto:corrections@peninsulainsider.com.au" data-pi-intent="correction" data-pi-surface="about">corrections@peninsulainsider.com.au</a> and we fix fast.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <NewsletterBlock
-    body="Seasonal verdicts, curated weekends, and what's worth your time on the Mornington Peninsula."
-    sub="The Peninsula worth knowing. An occasional email. What's on, where we'd go and what's worth knowing next."
-  />
+<BaseLayout title="About Peninsula Insider" description="The opinionated guide to the Mornington Peninsula. Specific, considered and current." canonical="https://peninsulainsider.com.au/about/">
+  <article class="about-page container">
+    <header><h1 {...editableText({entityType:'page',entitySlug:'about',fieldPath:'hero.title',label:'About title'})}>About Peninsula Insider</h1><p class="standfirst" {...editableText({entityType:'page',entitySlug:'about',fieldPath:'hero.dek',label:'About introduction'})}>The opinionated guide to the Mornington Peninsula. Specific, considered and current.</p></header>
+    <section><h2>A point of view, not a directory</h2><p>We curate the places worth knowing on the Mornington Peninsula. Every pick earns its place. Every verdict has a reason.</p></section>
+    <section><h2>How we choose</h2><p>Research, local knowledge and editorial judgement guide our choices. We consider whether a place is worth your time, who it suits, the value and experience it offers, and when to go.</p></section>
+    <section id="independent-editorial"><h2>Independent editorial</h2><p>Businesses cannot pay for a recommendation, ranking or Insider Pick. We may work commercially through advertising, sponsored content and partnerships. Commercial content is clearly identified and kept separate from our editorial choices.</p></section>
+    <section><h2>Keeping things current</h2><p>Places change. If something is inaccurate or out of date, tell us what needs fixing.</p><a class="pi-btn pi-btn--ghost" href="/contact/?type=correction#correction">Report a correction</a></section>
+    <section><h2>The Peninsula worth knowing.</h2><a class="pi-btn pi-btn--solid" href="/dispatch/">Join The Insider Note</a></section>
+  </article>
 </BaseLayout>
+<style>
+  .about-page { max-width: 52rem; padding-block: clamp(3rem, 6vw, 5rem); }
+  h1 { font: 500 clamp(2.5rem, 6vw, 4.2rem)/1.08 var(--font-display); letter-spacing: -.025em; margin: 0 0 1.5rem; }
+  .standfirst { font: 500 1.4rem/1.5 var(--font-display); }
+  section { margin-top: 3rem; }
+  h2 { font: 500 1.8rem/1.2 var(--font-display); margin: 0 0 .8rem; }
+  p { max-width: 68ch; line-height: 1.7; }
+</style>

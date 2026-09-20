@@ -304,7 +304,6 @@ export const v5DrawerItems: V5DrawerItem[] = [
   { key: 'trip',      label: 'My Trip',            href: '/me/trip/',             group: 'mine' },
   { key: 'account',   label: 'Account',            href: '/account/',             group: 'mine' },
   { key: 'about',     label: 'About',              href: '/about/',               group: 'trust' },
-  { key: 'editorial', label: 'Editorial approach', href: '/editorial-approach/',  group: 'trust' },
   { key: 'contact',   label: 'Contact',            href: '/contact/',             group: 'trust' },
 ];
 
@@ -361,16 +360,12 @@ export const v5FooterSections: V5NavLink[] = [
 ];
 
 export const v5FooterAbout: V5NavLink[] = [
-  { key: 'about',     label: 'About',              href: '/about/' },
-  { key: 'editorial', label: 'Editorial approach', href: '/editorial-approach/' },
-  { key: 'checks',    label: 'How we check',       href: '/how-we-check/' },
-  { key: 'partners',  label: 'For Peninsula businesses', href: '/partners/' },
-  { key: 'contact',   label: 'Contact',            href: '/contact/' },
+  { key: 'about', label: 'About', href: '/about/' },
+  { key: 'contact', label: 'Contact', href: '/contact/' },
+  { key: 'partners', label: 'For Peninsula Businesses', href: '/partners/' },
 ];
 
 export const v5FooterFinePrint: V5NavLink[] = [
-  { key: 'privacy',       label: 'Privacy',       href: '/privacy/' },
-  { key: 'terms',         label: 'Terms',         href: '/terms/' },
-  { key: 'accessibility', label: 'Accessibility', href: '/accessibility/' },
-  { key: 'corrections',   label: 'Corrections',   href: '/corrections/' },
+  { key: 'privacy', label: 'Privacy', href: '/privacy/' },
+  { key: 'terms', label: 'Terms', href: '/terms/' },
 ];

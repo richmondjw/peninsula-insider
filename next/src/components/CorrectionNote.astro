@@ -10,7 +10,7 @@ const { compact = false, surface = 'article-note' } = Astro.props;
 
 <p class:list={["correction-note", compact && "correction-note--compact"]}>
   Something wrong on this page, or is this your business?
-  <a href="/corrections/" data-pi-intent="correction" data-pi-surface={surface}>Tell us what to fix</a>
+  <a href="/contact/?type=correction" data-pi-intent="correction" data-pi-surface={surface}>Tell us what to fix</a>
   and you get a case reference back.
   <a href="mailto:corrections@peninsulainsider.com.au" data-pi-intent="correction" data-pi-surface={surface}>corrections@peninsulainsider.com.au</a>
   reaches the same desk.

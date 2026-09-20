@@ -11,3 +11,11 @@ export function isJournalEditorial(data) {
 export function visibleArticleTags(data) {
   return (data.tags ?? []).filter((tag) => !isInsiderPicks(data) || !/^(daily|weekly)$/i.test(String(tag).trim()));
 }
+
+/** Seasonal promotion expires without unpublishing the archived story. */
+export function isJournalDiscovery(data, now = Date.now()) {
+  if (!isJournalEditorial(data)) return false;
+  if (!data.promotionExpiresAt) return true;
+  const end = new Date(data.promotionExpiresAt).getTime();
+  return Number.isFinite(end) && end > Number(now);
+}

@@ -7,6 +7,7 @@
  */
 
 import { verifiedFreshnessLabel, verificationFreshness } from '../lib/venues';
+import { informationCheckedOn } from '../lib/verification-date.mjs';
 import { routeSlug, venueHref } from '../lib/editorial';
 import PiSaveActions from './PiSaveActions.astro';
 import { editableImage } from '../lib/inline-edit/attrs';
@@ -83,7 +84,7 @@ const summaryLine = [shortAddress, data.priceBand].filter(Boolean).join(' · ');
 // file specifies - so the rebuilt page renders the new image directly.
 const hero = await resolveHero('venue', slug, data);
 const hasPhoto = hero.hasPhoto;
-const verifiedLabel = verifiedFreshnessLabel(data.lastVerified);
+const verifiedLabel = verifiedFreshnessLabel(informationCheckedOn(data));
 const verifiedTier = verificationFreshness(data.lastVerified);
 ---
 

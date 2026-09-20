@@ -72,12 +72,12 @@ export const ENQUIRY_INTERESTS = [
 export type EnquiryInterest = (typeof ENQUIRY_INTERESTS)[number];
 
 export const ENQUIRY_INTEREST_LABELS: Record<string, string> = {
-  'featured-profile': 'Featured Partner Profile',
-  'seasonal-campaign': 'Seasonal Campaign',
+  'featured-profile': 'Enhanced business page: USD99',
+  'seasonal-campaign': 'Campaign partnership',
   'event-promotion': 'Event Promotion',
-  newsletter: 'Newsletter Partnership',
+  newsletter: 'Newsletter opportunity',
   'offers-experiences': 'Offers and Experiences',
-  sponsorship: 'Destination or Category Sponsorship',
+  sponsorship: 'Sponsored content or bespoke collaboration',
   'not-sure': 'Not sure yet, would like to talk',
 };
 
