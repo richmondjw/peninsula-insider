@@ -99,6 +99,60 @@ async function audit({ records = {}, surfaces = {}, ceilings = {}, assertMode = 
 
 const image = (extra = {}) => ({ src: '/images/x.webp', alt: 'A jetty at dusk.', credit: 'PI', ...extra });
 
+// A Windows checkout must read the same final frontmatter field as Linux.
+// Keep license directly above the closing delimiter: slicing at the LF of
+// a CRLF delimiter used to leave an orphan CR that hid this final field.
+test('a recorded licence on the final frontmatter line passes for LF and CRLF', async () => {
+  const frontmatter = [
+    '---',
+    'heroImage:',
+    '  src: /images/x.webp',
+    '  alt: A natural history illustration.',
+    '  credit: Peninsula Insider',
+    '  license: original-commissioned',
+    '---',
+    'Article body.',
+    '',
+  ];
+  const results = [];
+  for (const newline of ['\n', '\r\n']) {
+    const result = await audit({
+      records: { 'species/illustration.md': frontmatter.join(newline) },
+      ceilings: { licenceUnknown: 0 },
+    });
+    assert.equal(result.totals.imageRecords, 1);
+    assert.equal(result.totals.licenceUnknown, 0, `newline ${JSON.stringify(newline)}`);
+    assert.equal(result.code, 0, result.stdout);
+    results.push(result.totals);
+  }
+  assert.deepEqual(results[0], results[1], 'line endings cannot change provenance totals');
+});
+
+test('missing and explicitly unknown frontmatter licences still fail for LF and CRLF', async () => {
+  for (const newline of ['\n', '\r\n']) {
+    for (const licenceLine of [null, '  license: unknown']) {
+      const result = await audit({
+        records: {
+          'species/unrecorded.mdx': [
+            '---',
+            'heroImage:',
+            '  src: /images/x.webp',
+            '  alt: A natural history illustration.',
+            '  credit: Peninsula Insider',
+            ...(licenceLine ? [licenceLine] : []),
+            '---',
+            '',
+          ].join(newline),
+        },
+        ceilings: { licenceUnknown: 0 },
+      });
+      assert.equal(result.totals.imageRecords, 1);
+      assert.equal(result.totals.licenceUnknown, 1);
+      assert.equal(result.code, 1, 'normalising line endings cannot infer a licence');
+    }
+  }
+});
+
 // ── decorative ───────────────────────────────────────────────────────────
 
 test('a decorative image carrying alt text is a contradiction and fails', async () => {

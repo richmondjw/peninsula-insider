@@ -34,3 +34,16 @@ Live-weather or location personalisation and a chatbot entrance were low-ranked 
 ## Release safety
 
 Work starts from production source `af560f8a3b65635c8438986203cab8d58251744b` in an isolated worktree. The existing dirty checkout is not part of the release. Revert the resulting merge commit to roll back through the normal build and deploy workflow; existing saved trips remain compatible.
+
+## Validation evidence
+
+- Focused planning model/store/import suite: 41/41 passed.
+- Full browser regression suite: 56/56 passed, including the new six-test Plans experience coverage.
+- Separate event/discovery/business browser suite: 9/9 passed.
+- Commercial-firewall regression tests: 23/23 passed; ordering baseline unchanged.
+- Media-provenance regression tests: 35/35 passed. A Windows CRLF parser defect was reproduced and corrected; the actual unknown-licence count remains one and no rights record or baseline was changed.
+- Content schema, declared fields, claims, editorial style, source listener hygiene and the production build's other content gates passed locally. The static build generated 996 pages. Its first post-build media check hit the CRLF defect above; that check and the remaining gates were rerun successfully after the fix.
+- Manual browser review covered desktop and 390px phone layout, an honest one-day/family/markets partial match, responsive image changes, and importing the family plan into four real ordered stops in My Trip.
+- Repository-wide Astro diagnostics still report 136 errors in other files; the final diagnostic output contains no error headers for changed files. This is not a claim that the repository-wide type check is clean.
+
+The exact committed Linux build and browser results are published in [pull request 459 checks](https://github.com/richmondjw/peninsula-insider/pull/459/checks). The merged release must pass those checks and the deployment workflow. [Production provenance](https://peninsulainsider.com.au/deployment.json) records the source commit actually served; the final task response records the verified release outcome.

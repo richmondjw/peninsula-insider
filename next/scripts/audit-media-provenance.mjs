@@ -239,10 +239,13 @@ async function walk(dir, out = []) {
  * which is the shape every imageRef in the corpus takes.
  */
 function frontmatterBlocks(text) {
+  // Normalise before locating the closing delimiter: slicing at its LF in
+  // a CRLF file otherwise leaves an orphan CR on the final scalar field.
+  text = text.replace(/\r\n/g, '\n');
   if (!text.startsWith('---')) return [];
   const end = text.indexOf('\n---', 3);
   if (end === -1) return [];
-  const lines = text.slice(3, end).split(/\r?\n/);
+  const lines = text.slice(3, end).split('\n');
 
   const blocks = [];
   for (let i = 0; i < lines.length; i += 1) {
