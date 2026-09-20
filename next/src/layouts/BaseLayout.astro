@@ -143,7 +143,10 @@ const isAskPage = rawPathname.startsWith('/ask');
 // The same component supports preview builds and the production rollout.
 // Keep the switch explicit so an emergency rollback is one environment edit.
 const newsletterPopupMode = import.meta.env.PUBLIC_NEWSLETTER_POPUP;
-const showNewsletterPopup = newsletterPopupMode === 'preview' || newsletterPopupMode === 'on';
+// Keep active planning and itinerary reading free of promotional interruptions.
+// Navigation and the footer retain their normal publication links.
+const isPlanningJourney = /^\/(?:explore\/plans|plans|me\/trip)(?:\/|$)/.test(rawPathname);
+const showNewsletterPopup = !isPlanningJourney && (newsletterPopupMode === 'preview' || newsletterPopupMode === 'on');
 ---
 
 <!doctype html>
@@ -460,7 +463,7 @@ const showNewsletterPopup = newsletterPopupMode === 'preview' || newsletterPopup
   <!-- Where in the Peninsula is PI? corner peek. Content pages only, once
        per week, waits for consent and stands down if the Insider Note
        popup is up. Master switch: PLAY.enabled in lib/play.ts. -->
-  <PlayPeek />
+  {!isPlanningJourney && <PlayPeek />}
 
   <!-- Save / share-list controller (Phase 2 WS2E). Site-wide; binds save
        buttons on every page, owns localStorage, exposes window.PISave. -->

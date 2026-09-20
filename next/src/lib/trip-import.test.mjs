@@ -146,3 +146,29 @@ test('an empty share link plans nothing', () => {
   assert.deepEqual(plan.daysToCreate, []);
   assert.deepEqual(plan.reusedDayIds, {});
 });
+
+
+test('the same venue on separate days survives a shared wellness itinerary', () => {
+  const shared = { days: [{ id: 'a', label: 'Day 1' }, { id: 'b', label: 'Day 2' }], items: [
+    { kind: 'venue', slug: 'lindenderry', dayId: 'a' },
+    { kind: 'venue', slug: 'lindenderry', dayId: 'b' },
+  ] };
+  const trip = structuredClone(EMPTY_TRIP);
+  applyPlan(trip, shared);
+  assert.equal(trip.entries.length, 2);
+  assert.notEqual(trip.entries[0].dayId, trip.entries[1].dayId);
+  assert.equal(planSharedTripImport(shared, trip).stops.length, 0);
+});
+
+test('unrelated days with the same label are not reused', () => {
+  const trip = { days: [{ id: 'mine', label: 'Day 1' }], entries: [{ kind: 'venue', slug: 'other', dayId: 'mine' }] };
+  const result = planSharedTripImport(SHARED, trip);
+  assert.equal(result.reusedDayIds.d1, undefined);
+  assert.equal(result.daysToCreate.length, 2);
+  assert.equal(trip.entries[0].slug, 'other');
+});
+
+test('source metadata keeps repeat imports idempotent even after renaming a day', () => {
+  const trip = { days: [{ id: 'mine', label: 'Renamed' }], entries: SHARED.items.map((s) => ({ ...s, dayId: 'mine', meta: { sharedSource: JSON.stringify(SHARED), sharedDay: s.dayId } })) };
+  assert.equal(planSharedTripImport(SHARED, trip).stops.length, 0);
+});

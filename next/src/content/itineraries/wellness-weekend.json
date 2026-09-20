@@ -1,24 +1,33 @@
 {
   "slug": "wellness-weekend",
   "title": "The Wellness Reset: A Two-Night Peninsula Weekend",
-  "dek": "Thermal pools, a long walk, a slow lunch, and two nights of actual sleep. For people whose weekend brief is simply to stop.",
+  "dek": "Thermal pools, a coastal walk, vineyard meals and two nights in the same place. For people whose weekend brief is simply to slow down.",
   "audience": "couple",
   "mood": "wellness",
   "lengthNights": 2,
+  "duration": "weekend",
+  "theme": ["wellness", "coastal"],
+  "anchorTown": "red-hill",
+  "baseTowns": ["red-hill", "merricks", "cape-schanck", "mornington"],
+  "bookingChecklist": [
+    { "item": "Two nights at Lindenderry", "priority": "essential" },
+    { "item": "Alba thermal session", "priority": "essential" },
+    { "item": "Lunch reservations and in-house dinner service", "priority": "recommended" }
+  ],
   "stops": [
     {
       "day": 1,
       "order": 1,
-      "venue": "lindenderry",
-      "note": "Check in early enough to stretch the garden walk before the light goes. Keep the pace soft from minute one.",
-      "timeOfDay": "afternoon"
+      "venue": "merricks-general-wine-store",
+      "note": "Begin with lunch at Merricks General. Confirm the kitchen's service times before planning your arrival.",
+      "timeOfDay": "midday"
     },
     {
       "day": 1,
       "order": 2,
-      "venue": "merricks-general-wine-store",
-      "note": "Dinner should be unfussy on night one. The Merricks General kitchen handles this brief without theatre.",
-      "timeOfDay": "evening"
+      "venue": "lindenderry",
+      "note": "Check in after lunch and leave time for the garden. Arrange dinner with the property rather than assuming a late meal is available.",
+      "timeOfDay": "afternoon"
     },
     {
       "day": 2,
@@ -38,7 +47,7 @@
       "day": 2,
       "order": 3,
       "experience": "cape-schanck-boardwalk",
-      "note": "A short cliff walk resets the nervous system between lunch and dinner without overcommitting.",
+      "note": "An optional coastal stop between lunch and dinner. Check park access and weather before deciding to make the drive.",
       "timeOfDay": "afternoon"
     },
     {
@@ -63,6 +72,6 @@
     "credit": "BrooksieG / Wikimedia Commons",
     "license": "wikimedia-cc-by"
   },
-  "editorNote": "This is the itinerary to use when the weekend is genuinely meant to recover something rather than impress anyone. The geography deliberately stays tight  -  one stay, one thermal session, two gentle meals, one short walk, one gallery on the way out  -  and the bookings are deliberately easy to cancel if the day turns bad. The whole plan is built to let the Peninsula do its best-known trick: slow people down.",
+  "editorNote": "Use the same stay for both nights and make the thermal session the one fixed point of Saturday. Lunch at Merricks starts the trip; the gallery finishes it. The Cape Schanck stop is optional if you would rather return to the property after lunch. Check each booking's cancellation terms before paying, especially if keeping the weekend flexible matters to you.",
   "publishedAt": "2026-04-09"
 }

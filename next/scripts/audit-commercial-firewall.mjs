@@ -183,6 +183,12 @@ const ALLOWED_SORT_KEYS = new Set([
      /explore/plans/ builder, and to allow this class of editorial ordering
      key in future without a further exception. */
   'facets', 'plan',
+  /* Plans redesign, 2026-09-21: editorialPriority is the reviewed static order
+     in plan-curation.ts; displayTitle is its short reader-facing name. fit and
+     exact are derived only from requested duration/party/interests/weather
+     against published facets in plan-match.ts. No payment or partner input
+     contributes to any of these ordering signals. */
+  'editorialPriority', 'displayTitle', 'fit', 'exact',
   /* third-party authority. not ours to sell */
   'authority', 'hats', 'hallidayScore', 'awards', 'pressMentions', 'score',
   'rating', 'stars',

@@ -11,7 +11,7 @@
  *   2. Day-N "where you sleep tonight" block at end of each day except last
  *   3. Footer rail - anchor + alt stays
  */
-import { getCollection, render } from 'astro:content';
+import { getCollection, render, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import VenueCard from '../../../components/VenueCard.astro';
@@ -20,6 +20,7 @@ import ItineraryCard from '../../../components/ItineraryCard.astro';
 import ArticleCard from '../../../components/ArticleCard.astro';
 import NewsletterBlock from '../../../components/NewsletterBlock.astro';
 import PiForkPlanButton from '../../../components/PiForkPlanButton.astro';
+import { informationCheckedOn } from '../../../lib/verification-date.mjs';
 import {
   routeSlug,
   isStayVenue,
@@ -175,14 +176,20 @@ const anchorTownSlug = data ? String((data as any).anchorTown?.id ?? (data as an
 const anchorTown = anchorTownSlug ? placeMap.get(anchorTownSlug) : undefined;
 
 // ─── Day-by-day grouping ──────────────────────────────────────────────────
+type ItineraryStop = CollectionEntry<'itineraries'>['data']['stops'][number];
+type ResolvedStop = ItineraryStop & {
+  entry: CollectionEntry<'venues'> | CollectionEntry<'experiences'> | null | undefined;
+  href: string | undefined;
+  label: string;
+};
 const dayNumbers = data
-  ? Array.from(new Set(data.stops.map((stop: any) => stop.day))).sort((a, b) => a - b)
+  ? Array.from(new Set<number>(data.stops.map((stop: ItineraryStop) => stop.day))).sort((a, b) => a - b)
   : [];
 const groupedStops = dayNumbers.map((day) => {
-  const stops = data!.stops
+  const stops: ResolvedStop[] = data!.stops
     .filter((stop: any) => stop.day === day)
     .sort((a: any, b: any) => a.order - b.order)
-    .map((stop: any) => {
+    .map((stop: ItineraryStop): ResolvedStop => {
       const vSlug = String(stop.venue?.id ?? stop.venue ?? '');
       const eSlug = String(stop.experience?.id ?? stop.experience ?? '');
       const venue = vSlug ? venueMap.get(vSlug) : null;
@@ -211,52 +218,17 @@ const relatedItineraries = allItineraries
   .filter((entry: any) => routeSlug(entry) !== slug)
   .slice(0, 4);
 
-// ─── Fork-plan items (Wave 5) ─────────────────────────────────────────────
-// Editorial itineraries become templates: a single tap merges the itinerary
-// itself plus every referenced venue and experience into the reader's
-// pi:saves:v2 store. They can then edit, share, or print as their own plan.
-type ForkItem = {
-  kind: 'article' | 'venue' | 'place' | 'event' | 'experience' | 'itinerary' | 'tour' | 'tour-operator' | 'tour-package';
-  slug: string;
-  section?: string;
-  title: string;
-  dek?: string;
-  image_url?: string;
-  href: string;
+// The same sequenced stop payload is used by the hub and detail import.
+const forkPlan = {
+  slug, title: data?.title ?? '', entityType: 'itinerary',
+  stops: groupedStops.flatMap((group) => group.stops.map((stop) => ({
+    day: group.day,
+    kind: stop.entry ? (stop.venue ? 'venue' : 'experience') : undefined,
+    slug: stop.entry ? routeSlug(stop.entry as any) : undefined,
+    title: stop.label === 'Stop' ? (stop.note || 'Unscheduled stop') : stop.label,
+    href: stop.href, note: stop.note,
+  }))),
 };
-const forkItems: ForkItem[] = [];
-if (data) {
-  forkItems.push({
-    kind: 'itinerary',
-    slug,
-    title: data.title,
-    dek: data.dek,
-    image_url: data.heroImage?.src,
-    href: `/explore/plans/${slug}/`,
-  });
-  for (const v of highlightedVenues) {
-    const vSlug = routeSlug(v as any);
-    forkItems.push({
-      kind: 'venue',
-      slug: vSlug,
-      title: (v as any).data.name,
-      dek: (v as any).data.signature || (v as any).data.editorNote,
-      image_url: (v as any).data.heroImage?.src,
-      href: venueHref(v),
-    });
-  }
-  for (const e of highlightedExperiences) {
-    const eSlug = routeSlug(e as any);
-    forkItems.push({
-      kind: 'experience',
-      slug: eSlug,
-      title: (e as any).data.name,
-      dek: (e as any).data.editorNote,
-      image_url: (e as any).data.heroImage?.src,
-      href: `/explore/${eSlug}/`,
-    });
-  }
-}
 
 // ─── Display labels ───────────────────────────────────────────────────────
 const duration = data ? deriveDuration(data) : null;
@@ -294,13 +266,7 @@ const schemaDays = groupedStops.map((g) => ({
     })),
 }));
 
-const lastVerified = data
-  ? ((data as any).lastVerified instanceof Date
-      ? (data as any).lastVerified.toISOString().slice(0, 10)
-      : data.publishedAt instanceof Date
-      ? data.publishedAt.toISOString().slice(0, 10)
-      : undefined)
-  : undefined;
+const lastVerified = informationCheckedOn(data)?.toISOString().slice(0, 10);
 
 const { tripSchema, breadcrumbSchema, faqSchema } = data
   ? buildEscapeItinerarySchema({
@@ -530,7 +496,7 @@ export const prerender = true;
         {!themeText && <span>{moodLabel[data!.mood] ?? data!.mood}</span>}
         {occasionText && <span>{occasionText}</span>}
         {seasonText && seasonText !== 'Year-round' && <span>{seasonText}</span>}
-        {data!.totalDriveMinutes && <span>{data!.totalDriveMinutes} min driving</span>}
+        {data!.totalDriveMinutes && <span>About {data!.totalDriveMinutes} min driving (editorial estimate)</span>}
       </div>
 
       {/* Hero CTA row - anchor-stay (filled, primary) + fork-to-saves (ghost,
@@ -549,7 +515,7 @@ export const prerender = true;
             Stay at {(effectiveStay as any).data.name} →
           </a>
         )}
-        <PiForkPlanButton items={forkItems} variant="ghost" />
+        <PiForkPlanButton plan={forkPlan} variant="ghost" />
       </div>
 
       <div
@@ -607,7 +573,7 @@ export const prerender = true;
                             <p class="stop-item__practical"><em>{stop.practical}</em></p>
                           )}
                           {stop.driveMinutesToNext && (
-                            <p class="stop-item__drive">{stop.driveMinutesToNext} min drive to next stop</p>
+                            <p class="stop-item__drive">About {stop.driveMinutesToNext} min drive to next stop (editorial estimate)</p>
                           )}
                         </div>
                       </li>
@@ -722,6 +688,7 @@ export const prerender = true;
         {/* ─── 2. At-a-glance facts box ────────────────────────────── */}
         <aside class="facts">
           <p class="facts__title">At a glance</p>
+          <p>Drive times are planning estimates. My Trip estimates only travel between mapped stops within each day, excluding your journey here, return travel, traffic and parking. Check opening times and availability directly before travelling.</p>
           <dl>
             <dt>Duration</dt>
             <dd>{durationText}</dd>
@@ -763,7 +730,7 @@ export const prerender = true;
             {!(data as any).drivingDistanceKm && data!.totalDriveMinutes && (
               <>
                 <dt>Driving</dt>
-                <dd>{data!.totalDriveMinutes} min total</dd>
+                <dd>About {data!.totalDriveMinutes} min (editorial estimate)</dd>
               </>
             )}
 
@@ -806,7 +773,7 @@ export const prerender = true;
           )}
 
           {lastVerifiedLabel && (
-            <p class="facts__verified">Last fact-verified {lastVerifiedLabel}</p>
+            <p class="facts__verified">Information checked {lastVerifiedLabel}</p>
           )}
         </aside>
       </div>

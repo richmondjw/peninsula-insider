@@ -1,817 +1,274 @@
 ---
-/**
- * PlanContextEngine (v5, /plans/ decision engine, hub spec section 6).
- *
- * Single-select context chips over one answer set: 1 featured plan plus
- * up to 2 alternates, never more (P4: two choices in, three plans out).
- * The default context (Weekend) is server-rendered in the DOM so the page
- * is complete with JS disabled; other contexts swap the answer slots in
- * place from embedded JSON (URL-persisted ?context=, crawl-safe default).
- *
- * "Make this my trip" forks the plan's stops into the ONE trip store
- * (lib/v5-store tripAdd / tripAddDay), with a toast plus an Open My Trip
- * link. Works signed-out; localStorage first, cloud sync on sign-in.
- *
- * A11y: chips carry aria-pressed; the status line is the page's single
- * polite live region (#pi-results-status per the build contract); plan
- * cards are single-link with the fork button labelled
- * "Use as My Trip starting point: <plan>".
- */
-import { editableImage } from '../../../lib/inline-edit/attrs';
-import type { PlansModel, PlanRecord } from './plans-data';
-
-export interface Props {
-  model: PlansModel;
-}
-
+import type { PlansModel } from './plans-data';
+import { matchPlans } from './plan-match';
+import PlanRecommendation from './PlanRecommendation.astro';
+export interface Props { model: PlansModel; }
 const { model } = Astro.props;
-const { plans, contexts, defaultContextId } = model;
-
-const byId = new Map(plans.map((p) => [p.id, p]));
-const defaultContext = contexts.find((c) => c.id === defaultContextId) ?? contexts[0];
-const featured: PlanRecord | undefined = byId.get(defaultContext.planIds[0] ?? '');
-const alternates: (PlanRecord | undefined)[] = [
-  byId.get(defaultContext.planIds[1] ?? ''),
-  byId.get(defaultContext.planIds[2] ?? ''),
-];
-
-/* Client payload: strip stops notes down to what the fork needs. */
-const payload = {
-  defaultContextId: defaultContext.id,
-  contexts: Object.fromEntries(
-    contexts.map((c) => [c.id, { label: c.label, featuredLabel: c.featuredLabel, planIds: c.planIds.slice(0, 3) }]),
-  ),
-  plans: Object.fromEntries(
-    plans.map((p) => [
-      p.id,
-      {
-        entityType: p.entityType,
-        slug: p.slug,
-        title: p.title,
-        verdict: p.verdict,
-        href: p.href,
-        image: p.image,
-        imageField: p.imageField,
-        meta: p.meta,
-        stops: p.stops,
-        /* The builder (PlanBuilder.astro) scores off these; the context
-           engine itself does not read them. */
-        facets: p.facets,
-        dayCount: p.dayCount,
-        publishedAt: p.publishedAt,
-      },
-    ]),
-  ),
-};
-const payloadJson = JSON.stringify(payload).replace(/</g, '\\u003c');
+const initial = matchPlans(model.plans, {});
+const recommended = initial.ids.map(id => model.plans.find(plan => plan.id === id)!);
+const payload = { plans: Object.fromEntries(model.plans.map(plan => [plan.id, plan])), contexts: model.contexts };
 ---
-
 <section class="plan-engine" aria-labelledby="plan-engine-heading">
   <div class="container">
-    <h2 class="plan-engine__vh" id="plan-engine-heading">Pick the shape of the day</h2>
-
-    <div class="plan-engine__chips" role="group" aria-label="Plan contexts">
-      {contexts.map((ctx) => (
-        <button
-          type="button"
-          class="plan-engine__chip"
-          data-plan-context={ctx.id}
-          aria-pressed={ctx.id === defaultContext.id ? 'true' : 'false'}
-        >
-          {ctx.label}
-        </button>
-      ))}
+    <div class="plan-engine__intro">
+      <div><p class="plan-engine__eyebrow">Chosen by Peninsula Insider</p><h2 id="plan-engine-heading" tabindex="-1" data-plan-results-heading>A good place to start</h2></div>
+      <a href="#all-plans">See every itinerary <span aria-hidden="true">↓</span></a>
     </div>
-
-    <p id="pi-results-status" class="plan-engine__vh" role="status" aria-live="polite"></p>
-
+    <p class="plan-engine__explanation" data-plan-results-note>A weekend with a bit of everything, plus two other ways to spend your time.</p>
+    <p id="pi-results-status" class="plan-engine__sr" role="status" aria-live="polite" aria-atomic="true"></p>
     <div class="plan-engine__answer" data-plan-answer>
-      {featured && (
-        <article class="plan-featured" data-plan-featured>
-          <div class="plan-featured__media">
-            {featured.image && (
-              <img
-                src={featured.image.src}
-                alt={featured.image.alt}
-                loading="eager"
-                decoding="async"
-                data-slot="featured-image"
-                {...editableImage({
-                  entityType: featured.entityType,
-                  entitySlug: featured.slug,
-                  fieldPath: featured.imageField,
-                  label: `${featured.title} image`,
-                  purpose: 'card',
-                })}
-              />
-            )}
-          </div>
-          <div class="plan-featured__body">
-            <p class="plan-featured__mark" data-slot="featured-label">{defaultContext.featuredLabel}</p>
-            <h3 class="plan-featured__title">
-              <a
-                href={featured.href}
-                data-slot="featured-title"
-                data-evt="card_click"
-                data-entity-type={featured.entityType}
-                data-entity-slug={featured.slug}
-                data-surface="plans-featured"
-              >
-                {featured.title}
-              </a>
-            </h3>
-            <p class="plan-featured__verdict" data-slot="featured-verdict">{featured.verdict}</p>
-            <ul class="plan-chips" data-slot="featured-meta">
-              {featured.meta.map((chip) => <li class="plan-chip">{chip}</li>)}
-            </ul>
-            <p class="plan-byline" data-slot="featured-byline">Peninsula Insider editorial</p>
-            <div class="plan-featured__actions">
-              <button
-                type="button"
-                class="pi-btn pi-btn--solid"
-                data-plan-fork={featured.id}
-                data-evt="trip_add"
-                data-entity-type={featured.entityType}
-                data-entity-slug={featured.slug}
-                data-surface="plans-featured"
-                aria-label={`Use as My Trip starting point: ${featured.title}`}
-              >
-                Make this my trip
-              </button>
-              <a class="pi-btn pi-btn--ghost" href={featured.href} data-slot="featured-read">Read the plan</a>
-            </div>
-          </div>
-        </article>
-      )}
-
-      <div class="plan-alts">
-        {alternates.map((alt, i) => (
-          <article class="plan-alt" data-plan-alt={i} hidden={!alt}>
-            <div class="plan-alt__media">
-              <img
-                src={alt?.image?.src}
-                alt={alt?.image?.alt ?? ''}
-                loading="lazy"
-                decoding="async"
-                data-slot="alt-image"
-                hidden={!alt?.image}
-                {...(alt
-                  ? editableImage({
-                      entityType: alt.entityType,
-                      entitySlug: alt.slug,
-                      fieldPath: alt.imageField,
-                      label: `${alt.title} image`,
-                      purpose: 'card',
-                    })
-                  : {})}
-              />
-            </div>
-            <div class="plan-alt__body">
-              <p class="plan-alt__mark">Also fits</p>
-              <h3 class="plan-alt__title">
-                <a
-                  href={alt?.href}
-                  data-slot="alt-title"
-                  data-evt="card_click"
-                  data-entity-type={alt?.entityType}
-                  data-entity-slug={alt?.slug}
-                  data-surface="plans-alternate"
-                >
-                  {alt?.title}
-                </a>
-              </h3>
-              <ul class="plan-chips plan-chips--sm" data-slot="alt-meta">
-                {(alt?.meta ?? []).map((chip) => <li class="plan-chip">{chip}</li>)}
-              </ul>
-              <p class="plan-alt__verdict" data-slot="alt-verdict">{alt?.verdict}</p>
-              <button
-                type="button"
-                class="pi-btn pi-btn--text"
-                data-plan-fork={alt?.id}
-                data-evt="trip_add"
-                data-entity-type={alt?.entityType}
-                data-entity-slug={alt?.slug}
-                data-surface="plans-alternate"
-                aria-label={`Use as My Trip starting point: ${alt?.title ?? ''}`}
-              >
-                Make this my trip
-              </button>
-            </div>
-          </article>
-        ))}
-      </div>
-
-      <p class="plan-engine__empty" data-plan-empty hidden>
-        No plan fits that shape yet. Try another option above, or build your own trip.
-      </p>
-
-      <p class="plan-engine__all">
-        <a href="#all-plans">Explore plans</a>
-      </p>
+      {recommended.map((plan, index) => <PlanRecommendation plan={plan} index={index} />)}
     </div>
+    <div class="plan-engine__empty" data-plan-empty hidden>
+      <p class="plan-engine__eyebrow">No ready-made match yet</p>
+      <h3>We don’t have an itinerary that fits that choice.</h3>
+      <p>Try a different combination, or use our planning guides to choose your own stops.</p>
+      <a class="pi-btn pi-btn--ghost" href="#planning-guides">Browse planning guides</a>
+    </div>
+    <aside class="plan-engine__guide-suggestion" data-plan-guide-suggestion hidden>
+      <div><p class="plan-engine__eyebrow">A planning guide, to help you choose</p><h3><a data-guide-title></a></h3><p>Wet-weather ideas to read and adapt. This guide does not include a ready-made itinerary.</p></div>
+      <a class="pi-btn pi-btn--ghost" data-guide-link>Read guide <span aria-hidden="true">↗</span></a>
+    </aside>
+    <p class="plan-engine__assurance">Editorial choices. No sign-in needed to use an itinerary. <a href="/me/trip/">Open My Trip</a></p>
   </div>
 </section>
-
-<script type="application/json" id="pi-plans-data" set:html={payloadJson} />
-
-<style>
-  .plan-engine {
-    padding: 0.5rem 0 1.5rem;
-  }
-
-  .plan-engine__vh {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    padding: 0;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
-    white-space: nowrap;
-    border: 0;
-  }
-
-  /* ---- chips (single-select) ---- */
-  .plan-engine__chips {
-    display: flex;
-    gap: 0.5rem;
-    overflow-x: auto;
-    padding: 2px 2px 6px;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
-  }
-  .plan-engine__chips::-webkit-scrollbar {
-    display: none;
-  }
-  .plan-engine__chip {
-    font-family: var(--font-ui, var(--font-ui));
-    font-size: var(--fs-300, 0.9375rem);
-    font-weight: var(--fw-semibold, 600);
-    color: var(--text);
-    background: var(--bg, var(--white));
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    padding: 0 1.1rem;
-    min-height: 48px;
-    white-space: nowrap;
-    cursor: pointer;
-    transition:
-      background var(--dur-fast, 120ms) var(--ease, ease),
-      border-color var(--dur-fast, 120ms) var(--ease, ease),
-      color var(--dur-fast, 120ms) var(--ease, ease);
-  }
-  .plan-engine__chip:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-  }
-  .plan-engine__chip:focus-visible {
-    outline: var(--focus-ring, 2px solid var(--accent));
-    outline-offset: 2px;
-  }
-  .plan-engine__chip[aria-pressed='true'] {
-    background: var(--accent);
-    border-color: var(--accent);
-    color: var(--white, var(--bg));
-  }
-
-  /* ---- featured plan ---- */
-  .plan-featured {
-    display: grid;
-    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-    gap: var(--space-5, 1.5rem);
-    align-items: start;
-    margin-top: var(--space-5, 1.5rem);
-    padding: var(--space-5, 1.5rem);
-    background: var(--bg-alt);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-m, 10px);
-  }
-  .plan-featured__media {
-    aspect-ratio: 4 / 3;
-    overflow: hidden;
-    border-radius: var(--radius-s, 6px);
-    background: var(--bg);
-  }
-  .plan-featured__media:empty {
-    display: none;
-  }
-  .plan-featured__media img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .plan-featured__body {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  .plan-featured__mark {
-    margin: 0;
-    font-family: var(--font-ui, var(--font-ui));
-    font-size: var(--fs-100, 0.75rem);
-    font-weight: var(--fw-semibold, 600);
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--gold-text, var(--accent));
-  }
-  .plan-featured__title {
-    margin: 0;
-    font-family: var(--font-display, var(--font-display));
-    font-size: var(--fs-800, clamp(1.75rem, 1.4rem + 1.6vw, 2.375rem));
-    font-weight: var(--fw-display, 600);
-    line-height: var(--lh-heading, 1.15);
-  }
-  .plan-featured__title a {
-    color: var(--text);
-    text-decoration: none;
-  }
-  .plan-featured__title a:hover {
-    text-decoration: underline;
-  }
-  .plan-featured__title a:focus-visible {
-    outline: var(--focus-ring, 2px solid var(--accent));
-    outline-offset: 2px;
-  }
-  .plan-featured__verdict {
-    margin: 0;
-    font-family: var(--font-display, var(--font-display));
-    font-style: normal;
-    font-size: var(--fs-500, 1.1875rem);
-    line-height: var(--lh-dek, 1.45);
-    color: var(--text);
-    max-width: 52ch;
-  }
-  /* Facet chips on the cards. The values are the plan's own meta line
-     (day count, region, party), split out so the shape of a plan reads at
-     a glance instead of as a run-on sentence. */
-  .plan-chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.375rem;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-  .plan-chips:empty {
-    display: none;
-  }
-  .plan-chip {
-    font-family: var(--font-ui, var(--font-ui));
-    font-size: var(--fs-100, 0.75rem);
-    line-height: 1.2;
-    color: var(--soft);
-    border: 1px solid var(--rule, color-mix(in srgb, currentColor 18%, transparent));
-    border-radius: 999px;
-    padding: 0.3rem 0.6rem;
-    white-space: nowrap;
-  }
-  .plan-chips--sm .plan-chip {
-    padding: 0.2rem 0.5rem;
-  }
-
-  .plan-byline {
-    margin: 0;
-    font-family: var(--font-ui, var(--font-ui));
-    font-size: var(--fs-100, 0.75rem);
-    letter-spacing: 0.02em;
-    color: var(--soft);
-  }
-  .plan-featured__actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
-    margin-top: 0.4rem;
-  }
-
-  /* ---- alternates ---- */
-  .plan-alts {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--space-5, 1.5rem);
-    margin-top: var(--space-5, 1.5rem);
-  }
-  .plan-alt {
-    display: flex;
-    flex-direction: column;
-    background: var(--bg, var(--white));
-    border: 1px solid var(--border);
-    border-radius: var(--radius-m, 10px);
-    overflow: hidden;
-  }
-  .plan-alt__media {
-    aspect-ratio: 3 / 2;
-    overflow: hidden;
-    background: var(--bg-alt);
-  }
-  .plan-alt__media img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .plan-alt__body {
-    display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
-    padding: var(--space-4, 1rem);
-    flex: 1;
-  }
-  .plan-alt__mark {
-    margin: 0;
-    font-family: var(--font-ui, var(--font-ui));
-    font-size: var(--fs-100, 0.75rem);
-    font-weight: var(--fw-semibold, 600);
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--soft);
-  }
-  .plan-alt__title {
-    margin: 0;
-    font-family: var(--font-ui, var(--font-ui));
-    font-size: var(--fs-500, 1.1875rem);
-    font-weight: var(--fw-semibold, 600);
-    line-height: var(--lh-heading, 1.2);
-  }
-  .plan-alt__title a {
-    color: var(--text);
-    text-decoration: none;
-  }
-  .plan-alt__title a:hover {
-    text-decoration: underline;
-  }
-  .plan-alt__title a:focus-visible {
-    outline: var(--focus-ring, 2px solid var(--accent));
-    outline-offset: 2px;
-  }
-  .plan-alt__verdict {
-    margin: 0;
-    font-family: var(--font-display, var(--font-display));
-    font-style: normal;
-    font-size: var(--fs-400, 1.0625rem);
-    line-height: var(--lh-dek, 1.45);
-    color: var(--text);
-    flex: 1;
-  }
-
-  .plan-engine__empty {
-    margin: var(--space-5, 1.5rem) 0 0;
-    font-family: var(--font-ui, var(--font-ui));
-    color: var(--soft);
-  }
-
-  .plan-engine__all {
-    margin: var(--space-4, 1rem) 0 0;
-    font-family: var(--font-ui, var(--font-ui));
-    font-size: var(--fs-300, 0.9375rem);
-  }
-  .plan-engine__all a {
-    color: var(--accent);
-  }
-
-  @media (max-width: 48em) {
-    .plan-featured {
-      grid-template-columns: 1fr;
-      padding: var(--space-4, 1rem);
-    }
-    .plan-alts {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>
-
-<style is:global>
-  /* Toast is created by script, so it cannot carry the scoped attribute. */
-  .plan-trip-toast {
-    position: fixed;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: calc(72px + env(safe-area-inset-bottom, 0px));
-    z-index: 90;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 0.7rem 1rem;
-    background: var(--text);
-    color: var(--white, var(--bg));
-    border-radius: var(--radius-m, 10px);
-    font-family: var(--font-ui, var(--font-ui));
-    font-size: var(--fs-300, 0.9375rem);
-    box-shadow: var(--elev-2, 0 12px 24px -12px rgba(14, 40, 34, 0.4));
-    max-width: min(92vw, 30rem);
-  }
-  .plan-trip-toast a {
-    color: inherit;
-    font-weight: var(--fw-semibold, 600);
-    text-decoration: underline;
-    white-space: nowrap;
-  }
-  @media (min-width: 64em) {
-    .plan-trip-toast {
-      bottom: 24px;
-    }
-  }
-</style>
-
+<script type="application/json" id="pi-plans-data" set:html={JSON.stringify(payload).replace(/</g, '\\u003c')} />
 <script>
-  import { tripAdd, tripAddDay } from '../../../lib/v5-store';
-  import { trackEvent, initV5Analytics } from '../../../lib/v5-analytics';
+  import { matchPlans, assessPlan, criterionLabel, describeQuery, type MatchQuery, type PlanFit, type QueryLabels, type LengthValue } from './plan-match';
+  import type { PlanRecord, PlanContext } from './plans-data';
+  import { useEditorialPlan } from '../../../lib/plan-trip-client';
+  import { trackEvent } from '../../../lib/v5-analytics';
 
-  initV5Analytics();
-
-  interface PlanStop {
-    kind?: string;
-    slug?: string;
-    title: string;
-    href?: string;
-    note?: string;
-    day: number;
-  }
-  interface PlanData {
-    entityType: string;
-    slug: string;
-    title: string;
-    verdict: string;
-    href: string;
-    image: { src: string; alt: string } | null;
-    imageField: string;
-    meta: string[];
-    stops: PlanStop[];
-    facets?: Record<string, string[]>;
-    dayCount?: number;
-    publishedAt?: number;
-  }
-  interface ContextData {
-    label: string;
-    featuredLabel: string;
-    planIds: string[];
-  }
-  interface Payload {
-    defaultContextId: string;
-    contexts: Record<string, ContextData>;
-    plans: Record<string, PlanData>;
-  }
-
-  function readPayload(): Payload | null {
-    const el = document.getElementById('pi-plans-data');
-    if (!el?.textContent) return null;
-    try {
-      return JSON.parse(el.textContent) as Payload;
-    } catch {
-      return null;
-    }
-  }
-
-  function setImage(img: HTMLImageElement | null, plan: PlanData | undefined) {
-    if (!img) return;
-    if (!plan?.image) {
-      img.hidden = true;
-      img.removeAttribute('src');
-      return;
-    }
-    img.hidden = false;
-    img.src = plan.image.src;
-    img.alt = plan.image.alt;
-    img.setAttribute('data-pi-entity-type', plan.entityType);
-    img.setAttribute('data-pi-entity-slug', plan.slug);
-    img.setAttribute('data-pi-field-path', plan.imageField);
-    img.setAttribute('data-pi-label', `${plan.title} image`);
-  }
-
-  function setFork(btn: HTMLElement | null, plan: PlanData, planId: string, surface: string) {
-    if (!btn) return;
-    btn.setAttribute('data-plan-fork', planId);
-    btn.setAttribute('data-entity-type', plan.entityType);
-    btn.setAttribute('data-entity-slug', plan.slug);
-    btn.setAttribute('data-surface', surface);
-    btn.setAttribute('aria-label', `Use as My Trip starting point: ${plan.title}`);
-    btn.removeAttribute('disabled');
-    btn.textContent = 'Make this my trip';
-  }
-
-  // Delegated listeners on `document` / `window` outlive an Astro client-router
-  // swap, but init() re-runs on every astro:page-load. Registering them inside
-  // init() therefore added one more copy of each handler per navigation, so a
-  // single tap on "Make this my trip" ran the fork N times and produced N
-  // copies of the plan. They are registered once at module scope instead (the
-  // pattern v5/Card.astro already uses); init() publishes the current page's
-  // payload and context applier to these two module-scope slots.
+  type Payload = { plans: Record<string, PlanRecord>; contexts: PlanContext[] };
+  // These handlers are installed once; page-specific state is replaced on every navigation.
   let activePayload: Payload | null = null;
-  let activeApplyContext: ((id: string, announce?: boolean) => void) | null = null;
-
-  function showToast(planTitle: string) {
-    document.querySelectorAll('.plan-trip-toast').forEach((t) => t.remove());
-    const toast = document.createElement('div');
-    toast.className = 'plan-trip-toast';
-    toast.setAttribute('role', 'status');
-    const text = document.createElement('span');
-    text.textContent = `${planTitle} copied to My Trip.`;
-    const link = document.createElement('a');
-    link.href = '/me/trip/';
-    link.textContent = 'Open My Trip';
-    toast.append(text, link);
-    document.body.appendChild(toast);
-    window.setTimeout(() => toast.remove(), 6000);
-  }
-
-  window.addEventListener('popstate', () => {
-    const data = activePayload;
-    const apply = activeApplyContext;
-    if (!data || !apply) return;
-    const id = new URLSearchParams(window.location.search).get('context') || data.defaultContextId;
-    if (data.contexts[id]) apply(id, false);
+  let restoreQuery: (() => void) | null = null;
+  window.addEventListener('popstate', () => restoreQuery?.());
+  document.addEventListener('click', async event => {
+    const button = (event.target as Element | null)?.closest<HTMLButtonElement>('[data-plan-fork]');
+    if (!button || button.disabled || !activePayload) return;
+    if (button.dataset.planAdded === 'true') { window.location.assign('/me/trip/'); return; }
+    const plan = activePayload.plans[button.dataset.planFork ?? ''];
+    if (!plan || plan.kind !== 'itinerary') return;
+    button.disabled = true;
+    try {
+      const result = await useEditorialPlan(plan, button);
+      if (result === 'added' || result === 'existing') {
+        button.textContent = 'Open My Trip';
+        button.setAttribute('aria-label', 'Open My Trip');
+        button.dataset.planAdded = 'true';
+      }
+      if (result === 'added') trackEvent('trip_fork', { entity_type: 'itinerary', entity_slug: plan.slug, surface: 'plans' });
+    } finally { button.disabled = false; }
   });
 
-  // ---- fork: copy the plan's stops into My Trip ---------------------------
-  document.addEventListener('click', (event) => {
-    const btn = (event.target as Element | null)?.closest?.('[data-plan-fork]') as HTMLButtonElement | null;
-    if (!btn) return;
-    const data = activePayload;
-    const planId = btn.getAttribute('data-plan-fork');
-    const plan = data && planId ? data.plans[planId] : undefined;
-    if (!plan) return;
-
+  function initPlans() {
+    const root = document.querySelector<HTMLElement>('[data-plan-answer]');
+    if (!root) { activePayload = null; restoreQuery = null; return; }
+    if (root.dataset.bound) return;
+    root.dataset.bound = '1';
+    let payload: Payload;
+    let labels: QueryLabels;
     try {
-      const days = Array.from(new Set(plan.stops.map((s) => s.day))).sort((a, b) => a - b);
-      const dayIds = new Map<number, string>();
-      if (days.length > 1) {
-        for (const d of days) {
-          const created = tripAddDay(`Day ${d}`);
-          if (created) dayIds.set(d, created.id);
+      payload = JSON.parse(document.getElementById('pi-plans-data')?.textContent ?? '{}');
+      labels = JSON.parse(document.getElementById('pi-plan-builder-labels')?.textContent ?? '{}');
+    } catch { return; }
+    activePayload = payload;
+    const plans = Object.values(payload.plans);
+    const form = document.querySelector<HTMLFormElement>('[data-plan-form]');
+    const matcher = document.querySelector<HTMLDetailsElement>('[data-plan-matcher]');
+    const cards = [...root.querySelectorAll<HTMLElement>('[data-plan-card]')];
+    const responsiveImages = new Map<string, { src: string; srcset: string; sizes: string }>();
+    root.querySelectorAll<HTMLImageElement>('[data-slot="image"]').forEach(image => {
+      const original = image.dataset.piImageOriginalSrc;
+      if (original && image.srcset) responsiveImages.set(original, { src: image.getAttribute('src')!, srcset: image.srcset, sizes: image.sizes });
+    });
+    const heading = document.querySelector<HTMLElement>('[data-plan-results-heading]');
+    const explanation = document.querySelector<HTMLElement>('[data-plan-results-note]');
+    const status = document.getElementById('pi-results-status');
+    const pending = document.querySelector<HTMLElement>('[data-plan-selection-note]');
+    const empty = document.querySelector<HTMLElement>('[data-plan-empty]');
+    let query: MatchQuery = {};
+    const slot = <T extends HTMLElement = HTMLElement>(el: HTMLElement, name: string) => el.querySelector<T>(`[data-slot="${name}"]`);
+    const text = (el: HTMLElement, name: string, value: string) => { const target = slot(el, name); if (target) target.textContent = value; };
+
+    function fillCard(el: HTMLElement, plan: PlanRecord, fit: PlanFit, index: number, asked: number) {
+      el.hidden = false;
+      text(el, 'label', asked ? (fit.exact ? (index === 0 ? 'Our pick for you' : 'Also matches your choices') : 'A partial match') : (index === 0 ? 'Editor’s pick' : 'Another way to spend it'));
+      const title = slot<HTMLAnchorElement>(el, 'title');
+      if (title) { title.textContent = plan.displayTitle; title.href = plan.href; title.dataset.entityType = plan.entityType; title.dataset.entitySlug = plan.slug; }
+      text(el, 'reason', plan.editorialReason);
+      text(el, 'facts', [...plan.meta, ...(plan.pace ? [plan.pace] : [])].join(' · '));
+      const read = slot<HTMLAnchorElement>(el, 'read');
+      if (read) read.href = plan.href;
+      const button = el.querySelector<HTMLButtonElement>('[data-plan-fork]');
+      if (button) {
+        button.dataset.planFork = plan.id;
+        button.removeAttribute('data-plan-added');
+        button.disabled = false;
+        button.textContent = 'Use this itinerary';
+        button.setAttribute('aria-label', `Use this itinerary: ${plan.title}`);
+      }
+      text(el, 'copy', `${plan.stops.length} stops across ${plan.dayCount === 1 ? 'one day' : `${plan.dayCount} days`}. Yours to adjust in My Trip.`);
+      const image = slot<HTMLImageElement>(el, 'image');
+      if (image) {
+        const media = image.parentElement!;
+        media.hidden = !plan.image;
+        if (plan.image) {
+          const responsive = responsiveImages.get(plan.image.src);
+          image.src = responsive?.src ?? plan.image.src;
+          if (responsive) {
+            image.srcset = responsive.srcset;
+            image.sizes = image.dataset.piResponsive ?? responsive.sizes;
+            image.dataset.piImageOriginalSrc = plan.image.src;
+          } else {
+            image.removeAttribute('srcset'); image.removeAttribute('sizes'); image.removeAttribute('data-pi-image-original-src');
+          }
+          image.alt = plan.image.alt;
+          image.dataset.piEntityType = plan.entityType;
+          image.dataset.piEntitySlug = plan.slug;
+          image.dataset.piFieldPath = plan.imageField;
+          image.dataset.piLabel = `${plan.title} image`;
+        } else image.removeAttribute('src');
+      }
+      const fitBox = slot(el, 'fit');
+      if (fitBox) fitBox.hidden = asked === 0;
+      text(el, 'matched', fit.matched.length ? `Fits: ${fit.matched.map(token => criterionLabel(token, labels)).join(' · ')}` : '');
+      const missing = slot(el, 'missing');
+      if (missing) {
+        missing.hidden = !fit.missing.length;
+        const duration = fit.missing.filter(token => token.startsWith('length:'));
+        const unsupported = fit.missing.filter(token => !token.startsWith('length:'));
+        missing.textContent = [
+          duration.length ? `Different duration: ${plan.dayCount} day${plan.dayCount === 1 ? '' : 's'}.` : '',
+          unsupported.length ? `Not confirmed for: ${unsupported.map(token => criterionLabel(token, labels)).join(' · ')}.` : '',
+        ].filter(Boolean).join(' ');
+      }
+      const route = slot<HTMLDetailsElement>(el, 'route');
+      if (route) route.open = false;
+      text(el, 'route-count', `${plan.stops.length} stops +`);
+      const days = slot<HTMLOListElement>(el, 'days');
+      if (days) {
+        days.replaceChildren();
+        for (const day of [...new Set(plan.stops.map(stop => stop.day))].sort((a,b) => a-b)) {
+          const item = document.createElement('li');
+          const label = document.createElement('span'); label.textContent = `Day ${day}`;
+          const list = document.createElement('p'); list.textContent = plan.stops.filter(stop => stop.day === day).map(stop => stop.title).join(' → ');
+          item.append(label, list); days.append(item);
         }
       }
-      for (const stop of plan.stops) {
-        tripAdd(
-          {
-            kind: stop.kind as any,
-            slug: stop.slug,
-            title: stop.title,
-            href: stop.href,
-            note: stop.note ?? '',
-          },
-          { dayId: dayIds.get(stop.day) ?? '' },
-        );
-      }
-      trackEvent('trip_fork', { entity_type: plan.entityType, entity_slug: plan.slug, surface: 'plans' });
-      btn.textContent = 'Added to My Trip';
-      btn.setAttribute('disabled', '');
-      showToast(plan.title);
-    } catch {
-      /* the store throws only on malformed input; never break the page */
-    }
-  });
-
-  function init() {
-    const root = document.querySelector<HTMLElement>('[data-plan-answer]');
-    if (!root) {
-      // Navigated away from the plans hub. Drop the slots so the module-scope
-      // listeners cannot act on a payload whose DOM is gone.
-      activePayload = null;
-      activeApplyContext = null;
-      return;
-    }
-    if ((root as any)._piInit) return;
-    (root as any)._piInit = true;
-
-    const data = readPayload();
-    if (!data) return;
-
-    const chips = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-plan-context]'));
-    const status = document.getElementById('pi-results-status');
-    const featuredEl = document.querySelector<HTMLElement>('[data-plan-featured]');
-    const emptyEl = document.querySelector<HTMLElement>('[data-plan-empty]');
-    const altEls = Array.from(document.querySelectorAll<HTMLElement>('[data-plan-alt]'));
-
-    /* Chips are a list, so swapping a card rebuilds the list rather than
-       rewriting one string. Kept tiny: no innerHTML, no template. */
-    function fillChips(host: HTMLElement | null, chips: string[]) {
-      if (!host) return;
-      host.textContent = '';
-      for (const chip of chips ?? []) {
-        const li = document.createElement('li');
-        li.className = 'plan-chip';
-        li.textContent = chip;
-        host.appendChild(li);
-      }
+      const practical: Record<string, string> = {
+        booking: plan.bookingNote ?? '',
+        driving: plan.driveMins ? `Editorial route estimate: ${plan.driveMins} minutes driving. My Trip recalculates from your selected stops; allow extra time for traffic and parking.` : '',
+        verified: plan.verifiedAt ? `Information checked ${new Date(plan.verifiedAt).toLocaleDateString('en-AU', {day:'numeric',month:'short',year:'numeric',timeZone:'UTC'})}. Confirm current hours and booking requirements with each operator.` : '',
+      };
+      for (const [name, value] of Object.entries(practical)) { const target = slot(el, name); if (target) { target.textContent = value; target.hidden = !value; } }
     }
 
-    function fillFeatured(plan: PlanData, planId: string, label: string) {
-      if (!featuredEl) return;
-      featuredEl.hidden = false;
-      const mark = featuredEl.querySelector<HTMLElement>('[data-slot="featured-label"]');
-      if (mark) mark.textContent = label;
-      const title = featuredEl.querySelector<HTMLAnchorElement>('[data-slot="featured-title"]');
-      if (title) {
-        title.textContent = plan.title;
-        title.href = plan.href;
-        title.setAttribute('data-entity-type', plan.entityType);
-        title.setAttribute('data-entity-slug', plan.slug);
-      }
-      const verdict = featuredEl.querySelector<HTMLElement>('[data-slot="featured-verdict"]');
-      if (verdict) verdict.textContent = plan.verdict;
-      fillChips(featuredEl.querySelector<HTMLElement>('[data-slot="featured-meta"]'), plan.meta);
-      const read = featuredEl.querySelector<HTMLAnchorElement>('[data-slot="featured-read"]');
-      if (read) read.href = plan.href;
-      setImage(featuredEl.querySelector<HTMLImageElement>('[data-slot="featured-image"]'), plan);
-      setFork(featuredEl.querySelector<HTMLElement>('[data-plan-fork]'), plan, planId, 'plans-featured');
-    }
-
-    function fillAlt(el: HTMLElement, planId: string | undefined) {
-      const plan = planId ? data!.plans[planId] : undefined;
-      if (!plan || !planId) {
-        el.hidden = true;
-        return;
-      }
-      el.hidden = false;
-      const title = el.querySelector<HTMLAnchorElement>('[data-slot="alt-title"]');
-      if (title) {
-        title.textContent = plan.title;
-        title.href = plan.href;
-        title.setAttribute('data-entity-type', plan.entityType);
-        title.setAttribute('data-entity-slug', plan.slug);
-      }
-      const verdict = el.querySelector<HTMLElement>('[data-slot="alt-verdict"]');
-      if (verdict) verdict.textContent = plan.verdict;
-      fillChips(el.querySelector<HTMLElement>('[data-slot="alt-meta"]'), plan.meta);
-      setImage(el.querySelector<HTMLImageElement>('[data-slot="alt-image"]'), plan);
-      setFork(el.querySelector<HTMLElement>('[data-plan-fork]'), plan, planId, 'plans-alternate');
-    }
-
-    function applyContext(id: string, announce = true) {
-      const ctx = data!.contexts[id];
-      if (!ctx) return;
-      chips.forEach((chip) => {
-        chip.setAttribute('aria-pressed', chip.dataset.planContext === id ? 'true' : 'false');
+    function render(announce = false) {
+      const result = matchPlans(plans, query, 3);
+      cards.forEach((card, index) => {
+        const fit = result.fits[index];
+        if (fit) fillCard(card, payload.plans[fit.id], fit, index, result.asked);
+        else card.hidden = true;
       });
-      const [featuredId, ...altIds] = ctx.planIds;
-      const featuredPlan = featuredId ? data!.plans[featuredId] : undefined;
-      if (featuredPlan && featuredId) {
-        fillFeatured(featuredPlan, featuredId, ctx.featuredLabel);
-        if (emptyEl) emptyEl.hidden = true;
-      } else {
-        if (featuredEl) featuredEl.hidden = true;
-        if (emptyEl) emptyEl.hidden = false;
+      if (empty) empty.hidden = result.ids.length > 0;
+      const guideSuggestion = document.querySelector<HTMLElement>('[data-plan-guide-suggestion]');
+      if (guideSuggestion) {
+        const guide = query.weather && !result.exact ? plans.filter(plan => plan.kind === 'guide' && (plan.facets.mood ?? []).includes(query.weather!))
+          .sort((a,b) => assessPlan(b, query).score - assessPlan(a, query).score || a.id.localeCompare(b.id))[0] : undefined;
+        guideSuggestion.hidden = !guide;
+        if (guide) {
+          const title = guideSuggestion.querySelector<HTMLAnchorElement>('[data-guide-title]');
+          const link = guideSuggestion.querySelector<HTMLAnchorElement>('[data-guide-link]');
+          if (title) { title.textContent = guide.displayTitle; title.href = guide.href; }
+          if (link) link.href = guide.href;
+        }
       }
-      altEls.forEach((el, i) => fillAlt(el, altIds[i]));
+      const title = !result.asked ? 'A good place to start' : result.exact ? 'Your matching itineraries' : result.ids.length ? 'Your closest itineraries' : 'Let’s try another shape';
+      if (heading) heading.textContent = title;
+      if (explanation) explanation.textContent = !result.asked
+        ? 'A weekend with a bit of everything, plus two other ways to spend your time.'
+        : `${describeQuery(query, labels)}. ${result.exact ? 'Your best match comes first. Any compromises are shown with each alternative.' : result.ids.length ? 'No itinerary meets every choice. Check the differences beside each suggestion.' : 'No published itinerary has a confirmed match for these choices yet.'}`;
+      if (pending) pending.textContent = result.asked ? 'These choices are reflected below.' : 'All choices are optional.';
       if (announce && status) {
-        const count = ctx.planIds.length;
-        status.textContent = featuredPlan
-          ? `${ctx.label}: ${featuredPlan.title}${count > 1 ? ` plus ${count - 1} alternate${count > 2 ? 's' : ''}` : ''}`
-          : `${ctx.label}: no matching plan yet`;
+        status.textContent = `${title}. ${result.ids.length} itinerar${result.ids.length === 1 ? 'y' : 'ies'} shown. ${result.asked && !result.exact ? 'No itinerary meets every choice.' : ''}`;
+        heading?.focus({ preventScroll: true });
+        heading?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'start' });
       }
     }
 
-    function urlFor(id: string) {
-      const url = new URL(window.location.href);
-      if (id === data!.defaultContextId) url.searchParams.delete('context');
-      else url.searchParams.set('context', id);
-      return url;
+    function syncControls() {
+      if (!form) return;
+      for (const key of ['length','who','weather'] as const) {
+        const input = form.elements.namedItem(key) as HTMLSelectElement | null;
+        if (input) input.value = query[key] ?? '';
+      }
+      form.querySelectorAll<HTMLInputElement>('input[name="into"]').forEach(input => input.checked = (query.into ?? []).includes(input.value));
+      const season = form.elements.namedItem('season') as HTMLInputElement | null;
+      if (season) season.checked = Boolean(query.season);
+      const seasonControl = form.querySelector<HTMLElement>('[data-plan-season-control]');
+      if (seasonControl) seasonControl.hidden = !query.season;
     }
-
-    chips.forEach((chip) => {
-      chip.addEventListener('click', () => {
-        const id = chip.dataset.planContext;
-        if (!id || !data.contexts[id]) return;
-        applyContext(id);
-        history.pushState({ planContext: id }, '', urlFor(id));
-        trackEvent('filter_apply', { surface: 'plans', label: id });
-      });
+    function readUrl() {
+      const params = new URLSearchParams(location.search);
+      const valid = (key: keyof QueryLabels, value: string | null) => value && labels[key]?.[value] ? value : null;
+      query = { length: valid('length', params.get('length')) as LengthValue | null, who: valid('who', params.get('who')), weather: valid('weather', params.get('weather')) as 'rainy-day' | null, into: (params.get('into') ?? '').split(',').filter(value => valid('into', value)), season: params.get('season') === 'current' };
+      // Old context URLs remain useful, without a second set of controls.
+      const context = payload.contexts.find(context => context.id === params.get('context'));
+      if (context && !query.length && !query.who && !query.weather && !query.into?.length && !query.season) {
+        if (context.key === 'party') query.who = context.value;
+        if (context.value === 'one-day' || context.value === 'weekend') query.length = context.value;
+        if (context.value === 'rainy-day') query.weather = 'rainy-day';
+        else if (context.key === 'cat' || context.key === 'mood') query.into = [context.value];
+        if (context.value === 'this-season') query.season = true;
+      }
+      syncControls();
+      if (matcher && (query.length || query.who || query.weather || query.into?.length || query.season || location.hash === '#build')) matcher.open = true;
+      render();
+    }
+    function saveUrl() {
+      const url = new URL(location.href);
+      for (const key of ['context','length','who','into','weather','season']) url.searchParams.delete(key);
+      if (query.length) url.searchParams.set('length', query.length);
+      if (query.who) url.searchParams.set('who', query.who);
+      if (query.weather) url.searchParams.set('weather', query.weather);
+      if (query.into?.length) url.searchParams.set('into', query.into.join(','));
+      if (query.season) url.searchParams.set('season', 'current');
+      history.pushState({}, '', url);
+    }
+    form?.addEventListener('submit', event => {
+      event.preventDefault();
+      const values = new FormData(form);
+      query = { length: (values.get('length') || null) as LengthValue | null, who: (values.get('who') || null) as string | null, into: values.getAll('into').map(String), weather: (values.get('weather') || null) as 'rainy-day' | null, season: values.get('season') === 'current' };
+      saveUrl(); render(true);
+      trackEvent('filter_apply', { surface: 'plans-matcher', label: describeQuery(query, labels) || 'editorial picks' });
     });
-
-    /* The builder (PlanBuilder.astro) answers into these same slots rather
-       than rendering a second set of cards. It hands us ranked plan ids and
-       a label; we clear the context chips, because the answer on screen is
-       no longer any one context. */
-    function applyPlanIds(planIds: string[], label: string, announcement?: string) {
-      const [featuredId, ...altIds] = planIds;
-      const featuredPlan = featuredId ? data!.plans[featuredId] : undefined;
-      chips.forEach((chip) => chip.setAttribute('aria-pressed', 'false'));
-      if (featuredPlan && featuredId) {
-        fillFeatured(featuredPlan, featuredId, label);
-        if (emptyEl) emptyEl.hidden = true;
-      } else {
-        if (featuredEl) featuredEl.hidden = true;
-        if (emptyEl) emptyEl.hidden = false;
-      }
-      altEls.forEach((el, i) => fillAlt(el, altIds[i]));
-      if (status) status.textContent = announcement ?? label;
-    }
-    (window as any).piPlansApply = applyPlanIds;
-    /* The builder may initialise before this module does (script order is
-       not guaranteed across two components). Tell it we are ready rather
-       than leaving a deep-linked query silently unanswered. */
-    document.dispatchEvent(new CustomEvent('pi:plans-ready'));
-
-    // Hand this page's payload and applier to the module-scope listeners.
-    activePayload = data;
-    activeApplyContext = applyContext;
-
-    // Restore a shared or back-navigated context on load.
-    const initial = new URLSearchParams(window.location.search).get('context');
-    if (initial && initial !== data.defaultContextId && data.contexts[initial]) {
-      applyContext(initial, false);
-    }
+    form?.addEventListener('reset', event => { event.preventDefault(); query = {}; syncControls(); saveUrl(); render(true); });
+    form?.addEventListener('change', () => { if (pending) pending.textContent = 'Choose “Find my plan” to update the suggestions.'; });
+    restoreQuery = readUrl;
+    readUrl();
   }
-
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
-  else init();
-  document.addEventListener('astro:page-load', init);
+  initPlans();
+  document.addEventListener('astro:page-load', initPlans);
 </script>
+<style>
+  .plan-engine{padding:0 0 3.5rem}
+  .plan-engine__intro{display:flex;align-items:end;justify-content:space-between;gap:1rem}
+  .plan-engine__eyebrow{font:600 .68rem/1.4 var(--font-ui);letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 .5rem}
+  h2{font:500 clamp(1.65rem,3vw,2.2rem)/1.2 var(--font-display);letter-spacing:-.04em;margin:0;scroll-margin-top:8rem}
+  h2:focus{outline:none}h2:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+  .plan-engine__intro>a{font-size:.85rem;white-space:nowrap;text-underline-offset:.2em}
+  .plan-engine__explanation{font:.95rem/1.65 var(--font-ui);color:var(--soft);max-width:78ch;margin:.9rem 0 1.8rem}
+  .plan-engine__answer{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2rem}
+  .plan-engine__assurance{font:.8rem/1.6 var(--font-ui);color:var(--soft);margin:1.5rem 0 0}.plan-engine__assurance a{margin-left:.25rem}
+  .plan-engine__guide-suggestion{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;padding:1.5rem;border:1px solid var(--border);margin-top:1.5rem}
+  .plan-engine__guide-suggestion[hidden]{display:none}
+  .plan-engine__guide-suggestion h3{font:500 1.15rem/1.4 var(--font-display);margin:.5rem 0}.plan-engine__guide-suggestion h3 a{color:var(--text)}
+  .plan-engine__guide-suggestion div>p:last-child{font-size:.85rem;color:var(--soft);margin:0;max-width:60ch}.plan-engine__guide-suggestion>a{flex-shrink:0}
+  .plan-engine__empty{padding:2rem;background:var(--bg-alt);border-block:1px solid var(--border)}
+  .plan-engine__empty h3{font:500 1.5rem/1.3 var(--font-display);max-width:30ch;margin:0 0 .8rem}
+  .plan-engine__empty p{max-width:55ch}
+  .plan-engine__sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+  @media(max-width:45rem){.plan-engine__answer{grid-template-columns:1fr;gap:1.5rem}.plan-engine__intro{align-items:start;flex-direction:column;gap:.7rem}.plan-engine__explanation{margin-bottom:1.25rem}.plan-engine{padding-bottom:2rem}.plan-engine__guide-suggestion{align-items:start;flex-direction:column}}
+</style>

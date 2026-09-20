@@ -268,3 +268,35 @@ test('trip_created measures only persisted empty-to-populated transitions, never
     assert.equal(events.length, 2);
   } finally { delete globalThis.window; }
 });
+
+
+test('atomic trip commit protects against changed state and storage failure', () => {
+  reset();
+  store.tripAdd({ title: 'Original' });
+  const before = { version: 1, days: store.tripDays(), entries: store.tripEntries() };
+  const next = { version: 1, days: [], entries: [] };
+  store.tripAdd({ title: 'Another tab' });
+  assert.equal(store.tripCommit(next, before), false);
+  assert.equal(store.tripCount(), 2);
+  const current = { version: 1, days: store.tripDays(), entries: store.tripEntries() };
+  const originalWrite = localStorage.setItem;
+  localStorage.setItem = () => { throw new Error('quota'); };
+  try { assert.equal(store.tripCommit(next, current), false); }
+  finally { localStorage.setItem = originalWrite; }
+  assert.deepEqual(store.tripEntries(), current.entries);
+});
+
+test('swap preserves entry identity, day, ordering and imported source metadata', () => {
+  reset();
+  const day = store.tripAddDay('Lunch day');
+  const first = store.tripAdd({ title: 'Before' }, { dayId: day.id });
+  const entry = store.tripAdd({ kind: 'venue', slug: 'montalto', title: 'Montalto', href: '/wine/montalto/', meta: { planSource: 'itinerary/a', planOccurrence: 2 } }, { dayId: day.id });
+  store.tripAdd({ title: 'After' }, { dayId: day.id });
+  assert.equal(store.tripSwap(entry.id, { kind: 'venue', slug: 'port-phillip-estate', title: 'Port Phillip Estate', href: '/wine/port-phillip-estate/', note: 'Check bookings' }), true);
+  const result = store.tripEntries();
+  assert.equal(result[0].id, first.id);
+  assert.equal(result[1].id, entry.id);
+  assert.equal(result[1].dayId, day.id);
+  assert.equal(result[1].meta.planOccurrence, 2);
+  assert.equal(result[1].slug, 'port-phillip-estate');
+});

@@ -269,8 +269,8 @@ test('the saved page listens for the event the saves stores actually emit', () =
 
 test('the plans fork and popstate listeners sit at module scope, not inside init()', () => {
   const src = fs.readFileSync(path.join(SRC_DIR, 'components/v5/plans/PlanContextEngine.astro'), 'utf8');
-  const initAt = src.indexOf('function init()');
-  assert.ok(initAt > 0, 'expected an init() in PlanContextEngine.astro');
+  const initAt = src.indexOf('function initPlans()');
+  assert.ok(initAt > 0, 'expected initPlans() in PlanContextEngine.astro');
   const beforeInit = src.slice(0, initAt);
   assert.match(beforeInit, /document\.addEventListener\('click'/, 'fork listener must precede init()');
   assert.match(beforeInit, /window\.addEventListener\('popstate'/, 'popstate listener must precede init()');
