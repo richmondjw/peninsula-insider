@@ -248,15 +248,14 @@ export const GET: APIRoute = async () => {
   // explanatory content and keeps indexability (§4.3); /search/ never enters.
   entries.push(url('/ask', 1.0, 'weekly', '2026-07-27'));
   entries.push(url('/map', 0.7, 'weekly', '2026-08-07'));
-  entries.push(url('/partners/apply', 0.5, 'monthly', '2026-07-18'));
 
   // Trust / editorial-standards pages. /methodology/, /our-approach/ and
   // /ethics/ removed 2026-07-11 - they are redirect stubs into
   // /editorial-approach/ (§4.1 rule 1). Utility/legal singles added.
-  for (const page of ['about', 'editorial-approach', 'how-we-check', 'corrections', 'accessibility', 'contact']) {
+  for (const page of ['about', 'contact']) {
     entries.push(url(`/${page}`, 0.4, 'monthly', TRUST_LASTMOD[page]));
   }
-  for (const page of ['site-index', 'privacy', 'terms', 'careers', 'submit', 'pass']) {
+  for (const page of ['site-index', 'privacy', 'terms', 'careers', 'submit']) {
     entries.push(url(`/${page}`, 0.3, 'monthly', UTILITY_LASTMOD[page]));
   }
   entries.push(url('/dispatch', 0.6, 'monthly', '2026-09-16'));
@@ -264,7 +263,8 @@ export const GET: APIRoute = async () => {
   const newestPick = articles.filter((entry) => entry.data.tags.includes('insider-picks'))
     .map((entry) => dateStr(entry.data.publishedAt)).filter(Boolean).sort().at(-1);
   entries.push(url('/picks', 0.6, 'weekly', newestPick && newestPick > '2026-09-16' ? newestPick : '2026-09-16'));
-  entries.push(url('/partners', 0.5, 'monthly', '2026-09-16'));
+  entries.push(url('/partners', 0.5, 'monthly', '2026-09-20'));
+  for (const path of ['/partners/add', '/partners/update', '/partners/enquire']) entries.push(url(path, 0.4, 'monthly', '2026-09-20'));
 
   // Best-of pages (cluster canonicals only - §3.1/§3.2/§3.6 losers such as
   // /wine/cellar-doors/, /wine/best-wineries-mornington-peninsula/,

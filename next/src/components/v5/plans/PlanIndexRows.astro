@@ -1,87 +1,66 @@
 ---
-/**
- * PlanIndexRows (v5, /plans/ hub section 5) - the full plan catalogue as
- * server-rendered compact rows. An index, not a card wall (P3): every plan
- * URL stays linked and crawlable, in the DOM with zero JS.
- */
-import Card from '../Card.astro';
-import CardGrid from '../CardGrid.astro';
-import type { PlanRecord } from './plans-data';
-
-export interface Props {
-  plans: PlanRecord[];
-}
-
-const { plans } = Astro.props;
-const sorted = [...plans].sort((a, b) => a.title.localeCompare(b.title));
+import type { PlansModel } from './plans-data';
+export interface Props { model: PlansModel; }
+const { model } = Astro.props;
+const sorted = [...model.plans].sort((a,b) => a.title.localeCompare(b.title));
+const contexts = Object.fromEntries(model.contexts.map(c => [c.id, c.planIds]));
+const payload = JSON.stringify({contexts, defaultContextId:model.defaultContextId}).replace(/</g, '\\u003c');
 ---
-
-<section class="plan-index" id="all-plans" aria-labelledby="all-plans-heading">
+<section class="plan-index" id="all-plans" aria-labelledby="all-plans-heading" data-plan-index>
   <div class="container">
-    <header class="plan-index__header">
-      <p class="plan-index__label">The full catalogue</p>
-      <h2 class="plan-index__title" id="all-plans-heading">All {sorted.length} plans</h2>
-      <p class="plan-index__sub">Every plan we publish, one line each. The chips above are the short way through this list.</p>
-    </header>
-    <div class="plan-index__cols">
-      <CardGrid label="All Peninsula plans" layout="rows">
-        {sorted.map((plan, i) => (
-          <Card
-            variant="compact-row"
-            title={plan.title}
-            href={plan.href}
-            entityType={plan.entityType}
-            entitySlug={plan.slug}
-            verdict={plan.verdict}
-            meta={plan.meta}
-            saveSection={plan.entityType === 'article' ? 'plans' : undefined}
-            surface="plans-index"
-            position={i + 1}
-          />
-        ))}
-      </CardGrid>
+    <h2 id="all-plans-heading">Explore plans</h2>
+    <p class="plan-index__count" data-plan-count aria-live="polite"></p>
+    <div class="plan-index__rows">
+      {sorted.map((plan,i) => <article class="plan-index__row" data-plan-row={plan.id} hidden={i >= 6}>
+        <div><h3><a href={plan.href}>{plan.title}</a></h3><p>{plan.verdict}</p><p class="plan-index__meta">{plan.meta.join(' · ')}</p></div>
+        <button class="pi-btn pi-btn--solid" type="button" data-plan-fork={plan.id} aria-label={`Use as My Trip starting point: ${plan.title}`}>Make this my trip</button>
+      </article>)}
     </div>
+    <p data-plan-index-empty hidden>No plans match this filter yet. Try another option above.</p>
+    <button class="pi-btn pi-btn--ghost" type="button" data-plan-more>Load more</button>
+    <noscript><p>Enable JavaScript to filter plans and add them to My Trip.</p><style>.plan-index__row[hidden]{display:flex!important}[data-plan-more]{display:none}</style></noscript>
   </div>
+  <script type="application/json" data-plan-index-data set:html={payload}/>
 </section>
-
+<script>
+function initPlanIndex() {
+ const root = document.querySelector<HTMLElement>('[data-plan-index]');
+ if (!root || root.dataset.bound) return;
+ root.dataset.bound='1';
+ const data=JSON.parse(root.querySelector('[data-plan-index-data]')?.textContent || '{}');
+ const rows=Array.from(root.querySelectorAll<HTMLElement>('[data-plan-row]'));
+ const more=root.querySelector<HTMLButtonElement>('[data-plan-more]')!;
+ const count=root.querySelector<HTMLElement>('[data-plan-count]')!;
+ const empty=root.querySelector<HTMLElement>('[data-plan-index-empty]')!;
+ let limit=6;
+ let selected:string[]|null=null;
+ function render(){
+   const matching=rows.filter(row=>!selected || selected.includes(row.dataset.planRow!));
+   rows.forEach(row=>row.hidden=true);
+   matching.slice(0,limit).forEach(row=>row.hidden=false);
+   more.hidden=matching.length<=limit;
+   empty.hidden=matching.length>0;
+   count.textContent=matching.length ? `${Math.min(limit,matching.length)} of ${matching.length} matching plans` : '';
+ }
+ function applyContext(){const id=new URLSearchParams(location.search).get('context') || data.defaultContextId; selected=data.contexts[id] || null;limit=6;render();}
+ more.addEventListener('click',()=>{limit+=6;render();});
+ document.querySelectorAll<HTMLButtonElement>('[data-plan-context]').forEach(button=>button.addEventListener('click',()=>{selected=data.contexts[button.dataset.planContext!]||null;limit=6;render();}));
+ root.addEventListener('pi:plan-index-context', applyContext);
+ applyContext();
+}
+// Module listeners are installed once; element listeners are bound per page.
+window.addEventListener('popstate',()=>document.querySelector('[data-plan-index]')?.dispatchEvent(new Event('pi:plan-index-context')));
+initPlanIndex();document.addEventListener('astro:page-load',initPlanIndex);
+</script>
 <style>
-  .plan-index {
-    padding: var(--space-7, 2.5rem) 0;
-    border-top: 1px solid var(--border);
-  }
-  .plan-index__header {
-    margin-bottom: var(--space-5, 1.5rem);
-    max-width: 60ch;
-  }
-  .plan-index__label {
-    margin: 0 0 0.35rem;
-    font-family: var(--font-ui, var(--font-ui));
-    font-size: var(--fs-100, 0.75rem);
-    font-weight: var(--fw-semibold, 600);
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--accent);
-  }
-  .plan-index__title {
-    margin: 0 0 0.35rem;
-    font-family: var(--font-display, var(--font-display));
-    font-size: var(--fs-800, clamp(1.75rem, 1.4rem + 1.6vw, 2.375rem));
-    font-weight: var(--fw-display, 600);
-    line-height: var(--lh-heading, 1.15);
-  }
-  .plan-index__sub {
-    margin: 0;
-    font-family: var(--font-ui, var(--font-ui));
-    color: var(--soft);
-    line-height: var(--lh-ui, 1.5);
-  }
-
-  /* Two-column index on desktop (hub spec 23); single column below. */
-  @media (min-width: 64em) {
-    .plan-index__cols :global(.v5-card-grid--rows) {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      column-gap: var(--space-6, 2rem);
-    }
-  }
+.plan-index{padding:2.5rem 0;border-top:1px solid var(--border)}
+h2{font:500 clamp(1.8rem,4vw,2.6rem)/1.2 var(--font-display);margin:0 0 1rem}
+.plan-index__count,.plan-index__meta{color:var(--soft);font-size:.9rem}
+.plan-index__rows{margin-bottom:1.5rem}
+.plan-index__row{display:flex;gap:1.5rem;justify-content:space-between;align-items:center;padding:1.5rem 0;border-bottom:1px solid var(--border)}
+.plan-index__row[hidden]{display:none}
+h3{font:500 1.4rem/1.3 var(--font-display);margin:0 0 .5rem}
+p{max-width:65ch;line-height:1.6;margin:.5rem 0}
+button{flex-shrink:0}
+@media(max-width:40rem){.plan-index__row{align-items:flex-start;flex-direction:column}}
 </style>

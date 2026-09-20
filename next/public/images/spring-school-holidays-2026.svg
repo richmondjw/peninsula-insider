@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" width="900" height="900" role="img" aria-label="Peninsula Insider">
+  <!--
+    Seasonal editorial cover derived from Peninsula Insider original artwork.
+    Peninsula Insider original artwork, Harbour palette (production 2026-07-25):
+    ground #0B2E4A, accent #F5C177, paper #FDFCFA. No third-party asset is used,
+    so this carries license "original-commissioned" and can ship anywhere.
+    Replace per record as venue media images are cleared; do not delete this file
+    while any record still points at it.
+  -->
+  <defs>
+    <clipPath id="frame"><rect width="1600" height="900"/></clipPath>
+  </defs>
+  <g clip-path="url(#frame)">
+    <rect width="1600" height="900" fill="#0B2E4A"/>
+
+    <!-- The sand arc motif carried across Peninsula Insider covers and campaign tiles. -->
+    <circle cx="1455" cy="815" r="300" fill="none" stroke="#F5C177" stroke-width="78" opacity="0.16"/>
+    <circle cx="150" cy="95" r="215" fill="none" stroke="#F5C177" stroke-width="58" opacity="0.09"/>
+
+    <!-- Masthead lockup: the site icon in its white pill, then the wordmark. -->
+    <g transform="translate(150 372)">
+      <rect x="0" y="0" width="112" height="112" rx="26" fill="#FDFCFA"/>
+      <text x="56" y="80" text-anchor="middle" font-family="Cormorant Garamond, Baskerville, Georgia, serif"
+            font-size="66" font-weight="700" fill="#14202A">P</text>
+      <text x="150" y="52" font-family="Sora, Segoe UI, Arial, sans-serif" font-size="54" font-weight="600"
+            letter-spacing="-1.4" fill="#FDFCFA">Peninsula</text>
+      <text x="150" y="108" font-family="Sora, Segoe UI, Arial, sans-serif" font-size="54" font-weight="700"
+            letter-spacing="-1.4" fill="#F5C177">Insider</text>
+    </g>
+
+    <!-- Editorial illustration, not a depiction of a venue or event. -->
+    <text x="150" y="584" font-family="Figtree, Segoe UI, Arial, sans-serif" font-size="21" font-weight="600"
+          letter-spacing="3.4" fill="#FDFCFA" opacity="0.62">SPRING SCHOOL HOLIDAYS</text>
+    <rect x="150" y="612" width="92" height="3" rx="1.5" fill="#F5C177" opacity="0.85"/>
+  </g>
+</svg>

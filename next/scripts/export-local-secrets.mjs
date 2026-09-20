@@ -22,6 +22,7 @@
  */
 
 import { createClient } from '@supabase/supabase-js';
+import { isPrivateIntake } from '../src/lib/private-intake.mjs';
 import { mkdir, writeFile } from 'fs/promises';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
@@ -78,6 +79,10 @@ async function main() {
 
   let exported = 0;
   for (const row of rows) {
+    if (isPrivateIntake(row)) {
+      console.warn('[export] private intake excluded from publication:', row.id);
+      continue;
+    }
     const slug = row.published_slug?.trim() || slugify(row.title);
     if (!slug) {
       console.warn('[export] skipping row', row.id, '(no slug)');

@@ -18,6 +18,7 @@
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import MeShell from '../../components/v5/me/MeShell.astro';
+import NotePathway from '../../components/v5/me/NotePathway.astro';
 import EmptyState from '../../components/v5/EmptyState.astro';
 export const prerender = true;
 ---
@@ -91,6 +92,7 @@ export const prerender = true;
         <button type="button" class="me-footline__signin" data-open-auth>Sign in</button>
         to keep them everywhere.
       </p>
+      <NotePathway surface="me-saved" />
     </div>
   </div>
 </BaseLayout>
@@ -189,6 +191,8 @@ export const prerender = true;
   }
 
   function render(): void {
+    const note = document.querySelector<HTMLElement>('[data-note-pathway]');
+    if (note) note.hidden = store.listSaves().length === 0;
     const groupsEl = document.querySelector<HTMLElement>('[data-me-groups]');
     const emptyEl = document.querySelector<HTMLElement>('[data-me-empty]');
     const filterEmptyEl = document.querySelector<HTMLElement>('[data-me-filter-empty]');
@@ -310,7 +314,7 @@ export const prerender = true;
           showToast('Could not add to My Trip');
           return;
         }
-        trackEvent('trip_add', { entity_type: kind, entity_slug: slug, src: 'saved' });
+        trackEvent('trip_add', { entity_type: kind, entity_slug: slug, src: 'saved', surface: 'me-saved' });
         showToast('Added to My Trip');
         return;
       }

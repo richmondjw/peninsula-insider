@@ -1,3 +1,13 @@
+## 2026-09-20 - Reader and business journey simplification
+
+- Simplify Insider Note, About, Contact and the business pathways; retire Pass and methodology routes with working redirects while retaining free accounts.
+- Add separate free listing-update and new-business intake, a prominent USD99 enhanced-page enquiry and concise partnership pathways.
+- Protect email links from Cloudflare obfuscation, keep private enquiries out of the local-secrets export, and preserve form inputs on failure.
+- Curate plan browsing with six initial results, Load more and the primary Make this my trip action; remove the villa screenshot prompt.
+- Add a readable shared-trip preview, optional Note pathways and consent-aware intent analytics without enabling Ask PI.
+- Prepare optional reviewed venue facts and rights-checked gallery rendering without permitting paid editorial influence.
+- Publish the approved spring school holiday guide after current organiser checks, with dated promotion expiry and archive preservation.
+
 ## 2026-09-20 - Journal editorial curation
 
 - Keep Insider Picks out of automatic Journal lead, Latest, themes, front-page archive and homepage Journal feature selection.

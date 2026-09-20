@@ -245,3 +245,26 @@ test('subscribe fires per mutation with the right scope and unsubscribes cleanly
   store.save({ kind: 'venue', slug: 's2', title: 'S2', href: '/eat/s2/' });
   assert.deepEqual(seen, ['saves', 'trip', 'saves'], 'no events after unsubscribe');
 });
+
+test('trip_created measures only persisted empty-to-populated transitions, never day creation or failure', () => {
+  reset();
+  const events = [];
+  globalThis.window = { gtag: (...args) => events.push(args), dispatchEvent: () => {}, location: { pathname: '/me/trip/' } };
+  localStorage.setItem('pi-consent-v1', JSON.stringify({ analytics: true }));
+  try {
+    store.tripAddDay('Private family birthday');
+    assert.equal(events.length, 0);
+    store.tripAdd({kind: 'venue', slug: 'laura'});
+    store.tripAdd({kind: 'venue', slug: 'foxeys-hangout'});
+    assert.equal(events.filter(e => e[1] === 'trip_created').length, 1);
+    assert.equal(JSON.stringify(events).includes('Private family birthday'), false);
+    store.tripClear();
+    const original = localStorage.setItem;
+    localStorage.setItem = () => { throw new Error('quota'); };
+    assert.equal(store.tripAdd({kind: 'venue', slug: 'laura'}), null);
+    localStorage.setItem = original;
+    assert.equal(events.length, 1);
+    store.tripAdd({kind: 'venue', slug: 'laura'});
+    assert.equal(events.length, 2);
+  } finally { delete globalThis.window; }
+});

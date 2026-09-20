@@ -46,16 +46,16 @@ test('business corrections and updates are available to a signed-out visitor wit
   try {
     await reader.load('/partners/');
     const hrefs = await reader.page.$$eval('main a', links => links.map(a => a.getAttribute('href')));
-    for (const href of ['/corrections/', '/partners/claim/', '/partners/update/']) assert.ok(hrefs.includes(href), href);
+    for (const href of ['/contact/?type=correction#correction', '/partners/add/', '/partners/update/']) assert.ok(hrefs.includes(href), href);
     await reader.load('/partners/update/');
-    assert.ok(await reader.page.$('form[data-partner-update-form]'));
+    assert.ok(await reader.page.$('form[data-public-intake="listing-update"]'));
     const copy = await reader.page.$eval('main', el => el.textContent);
-    assert.match(copy, /no sign-in/i);
-    assert.match(copy, /Submission is free/i);
-    assert.ok(await reader.page.$('#new-business'));
+    assert.doesNotMatch(copy, /sign in to submit/i);
+    assert.match(copy, /updates are free/i);
+    assert.ok(await reader.page.$('a[href="/partners/add/"]'));
     await reader.load('/corrections/');
     assert.ok(await reader.page.$('main form'));
-    assert.equal(new URL(reader.page.url()).pathname, '/corrections/');
+    assert.equal(new URL(reader.page.url()).pathname, '/contact/');
   } finally { await reader.close(); }
 });
 test('high-value discovery URLs are unique sitemap entries with self-canonicals and indexable HTML', () => {

@@ -17,7 +17,7 @@ import PlaceCard from '../../components/PlaceCard.astro';
 import CorrectionNote from '../../components/CorrectionNote.astro';
 import MediaProvenanceNote from '../../components/MediaProvenanceNote.astro';
 import HubGuideTOC from '../../components/HubGuideTOC.astro';
-import { visibleArticleTags, isJournalEditorial } from '../../lib/journal-curation.mjs';
+import { visibleArticleTags, isJournalDiscovery } from '../../lib/journal-curation.mjs';
 import { formatLabel, routeSlug, venueHrefPrefix, titleize, formatHeroCredit, isListableVenue } from '../../lib/editorial';
 import { pickRelatedArticles, resolveRefs } from '../../lib/related';
 import { isPeninsulaThisWeekend, ptwArchivePath } from '../../lib/peninsula-this-weekend';
@@ -102,7 +102,7 @@ const isEditorialFormat = EDITORIAL_FORMATS.has(String(article.data.format ?? ''
 
 // Discovery and previous/next navigation use the editorial pool, never the Picks feed.
 // getStaticPaths above still emits every published article URL.
-const allArticles = (await getCollection('articles', ({ data }) => isJournalEditorial(data)))
+const allArticles = (await getCollection('articles', ({ data }) => isJournalDiscovery(data)))
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
 
 const currentIndex = allArticles.findIndex((a) => routeSlug(a) === routeSlug(article));

@@ -8,13 +8,13 @@ import { PLAY, playUrl } from '../../../lib/play';
 </a>
 <p>Every pick earns its place.<br/>Every verdict, a reason.</p>
 </div>
-<div class="footer-letter">
+{!Astro.url.pathname.startsWith('/dispatch') && <div class="footer-letter">
 <p class="eyebrow">A note from the Peninsula</p>
 <h2>Good stories travel.</h2>
 <p>The Peninsula worth knowing. An occasional email.</p>
 <a class="text-link" href="/dispatch/">Join The Insider Note <span aria-hidden="true">↗</span>
 </a>
-</div>
+</div>}
 </div>
 <div class="wrap footer-links">
 <div>
@@ -38,8 +38,6 @@ import { PLAY, playUrl } from '../../../lib/play';
 <div>
 <h2>The publication</h2>
 <a href="/about/">About us</a>
-<a href="/editorial-approach/">Editorial approach</a>
-<a href="/how-we-check/">How we check</a>
 <a href="/partners/">For Peninsula businesses</a>
 <a href="/contact/">Contact</a>
 </div>
@@ -56,8 +54,8 @@ import { PLAY, playUrl } from '../../../lib/play';
 <div class="legal-links">
 <a href="/privacy/">Privacy</a>
 <a href="/terms/">Terms</a>
-<a href="/accessibility/">Accessibility</a>
-<a href="/corrections/">Corrections</a>
+<a href="/contact/?type=accessibility">Accessibility</a>
+<a href="/contact/?type=correction">Corrections</a>
 <a href="#cookie-settings" data-pi-consent="open">Cookie settings</a>
 </div>
 <p class="company-line">© {new Date().getFullYear()} Peninsula Insider, a trading name of Optiflows Pty Ltd · ABN 71 155 199 637</p>

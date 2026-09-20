@@ -1,5 +1,6 @@
 import { defineCollection, reference, z } from 'astro:content';
 import { glob } from 'astro/loaders';
+import { visitorInformationSchema } from './lib/visitor-information.mjs';
 
 // Peninsula Insider  -  Content schema (cache-bust: 2026-05-24)
 //
@@ -565,6 +566,8 @@ const venues = defineCollection({
     tags: tagBlock,
     dogFriendly: z.boolean().default(false),
     dogFriendlyNotes: z.string().optional(),
+    // Factual additions remain subject to editorial review, never a paid ranking signal.
+    visitorInformation: visitorInformationSchema(z).optional(),
     dogsAllowedOutdoorsOnly: z.boolean().optional(),
     offLeashNearby: z.boolean().optional(),
     waterAccessNearby: z.boolean().optional(),
@@ -994,6 +997,8 @@ const articles = defineCollection({
     readingTimeMinutes: z.number().positive().optional(),
     featured: z.boolean().default(false),
     status: z.enum(['draft', 'review', 'scheduled', 'published']).default('draft'),
+    /** End active seasonal promotion; retain the dated article and archive. */
+    promotionExpiresAt: z.coerce.date().optional(),
     lastVerified: z.coerce.date().optional(),
     ...provenanceFields,
     ...sourceHealthFields,

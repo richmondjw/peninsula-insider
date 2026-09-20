@@ -6,7 +6,7 @@
  *   - Each claimed venue as a card with the live listing summary,
  *     a "Submit a change" CTA pre-filled to that venue, and recent
  *     change-request history.
- *   - When no claims, a CTA leading to /partners/claim/.
+ *   - When no claims, a CTA leading to /partners/update/.
  *   - When claims pending, an "in verification" status panel.
  *
  * v1: editor approves claims manually in Supabase Studio. v1.x:
@@ -74,7 +74,7 @@ export const prerender = true;
       <!-- Auth state - anonymous user prompt -->
       <div class="dashboard-anonymous" data-dashboard-anonymous>
         <p class="dashboard-anonymous__title">Sign in to your operator account.</p>
-        <p class="dashboard-anonymous__body">The dashboard is auth-gated. Sign in (or create an account, free) to claim your venue and start managing your listing.</p>
+        <p class="dashboard-anonymous__body">The dashboard is auth-gated. Sign in (or create an account, free) to view your business dashboard.</p>
         <button type="button" class="pi-btn pi-btn--solid" data-open-auth>Sign in</button>
         <p class="dashboard-anonymous__alt">
           Just want to send a quick update without signing in? You can still <a href="/partners/update/">submit anonymously</a> - that path stays open.
@@ -89,15 +89,15 @@ export const prerender = true;
       <!-- Empty state - signed in, no claims -->
       <div class="dashboard-empty" data-dashboard-empty hidden>
         <p class="dashboard-empty__title">No venues claimed yet.</p>
-        <p class="dashboard-empty__body">Claim your venue to manage hours, photos, and events from one place. Editor approves the claim manually - usually within a working day.</p>
-        <a href="/partners/claim/" class="pi-btn pi-btn--solid">Claim your venue →</a>
+        <p class="dashboard-empty__body">Send changes to your listing, including hours, photos and events, for review.</p>
+        <a href="/partners/update/" class="pi-btn pi-btn--solid">Manage my listing</a>
       </div>
 
       <!-- Claims grid -->
       <div class="dashboard-claims" data-dashboard-claims hidden>
         <div class="dashboard-claims__head">
           <p class="dashboard-claims__count" data-dashboard-claims-count></p>
-          <a href="/partners/claim/" class="dashboard-claims__add">+ Claim another venue</a>
+          <a href="/partners/update/" class="dashboard-claims__add">+ Claim another venue</a>
         </div>
         <ul class="dashboard-claims__list" data-dashboard-claims-list></ul>
       </div>

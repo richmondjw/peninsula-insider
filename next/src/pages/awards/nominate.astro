@@ -131,7 +131,7 @@ export const prerender = true;
     // does on the initial load as well as after a navigation. Without this
     // guard the form carries two submit listeners and one press files the
     // submission twice. Same defect PI-015 fixed on /partners/ and
-    // /corrections/; the sweep in PI-012 found it still standing here.
+    // /contact/?type=correction; the sweep in PI-012 found it still standing here.
     //
     // An element-level guard is the right instrument here, and only because
     // the listener is on the element: a view transition replaces the form, so

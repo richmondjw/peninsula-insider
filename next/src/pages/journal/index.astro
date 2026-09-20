@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import JournalStory from '../../components/journal/JournalStory.astro';
 import { routeSlug } from '../../lib/editorial';
-import { isJournalEditorial } from '../../lib/journal-curation.mjs';
+import { isJournalEditorial, isJournalDiscovery } from '../../lib/journal-curation.mjs';
 import { themeDefs } from '../../lib/journal-themes';
 import curation from '../../data/journal-front.json';
 import '../../styles/journal-editorial.css';
@@ -11,12 +11,13 @@ const articles=(await getCollection('articles',({data})=>isJournalEditorial(data
 const authors=await getCollection('authors');
 const byline=(a:typeof articles[number])=>a.data.houseByline?'Peninsula Insider':authors.find(x=>x.id===a.data.author.id)?.data.name??'Peninsula Insider';
 const themes=themeDefs.map(t=>({...t,articles:articles.filter(a=>a.data.tags.some(tag=>t.tags.includes(tag)) || t.formats?.includes(a.data.format))})).filter(t=>t.articles.length);
+const discoveryArticles=articles.filter(({data})=>isJournalDiscovery(data));
 const used=new Set<string>();
 const displayFor=(a:typeof articles[number])=>(curation.cards as Record<string,{title?:string;dek?:string;eyebrow?:string}>)[routeSlug(a)]??{};
 const fresh=Date.now()<Date.parse(curation.expires);
 function pick(slugs:string[],count:number,theme?:string){
- const pool=theme?themes.find(t=>t.key===theme)?.articles??articles:articles;
- const preferred=fresh?slugs.map(s=>articles.find(a=>routeSlug(a)===s)).filter(Boolean) as typeof articles:[];
+ const pool=theme?(themes.find(t=>t.key===theme)?.articles??discoveryArticles).filter(({data})=>isJournalDiscovery(data)):discoveryArticles;
+ const preferred=fresh?slugs.map(s=>discoveryArticles.find(a=>routeSlug(a)===s)).filter(Boolean) as typeof articles:[];
  const result:typeof articles=[];
  for(const a of [...preferred,...pool]){const slug=routeSlug(a);if(used.has(slug))continue;used.add(slug);result.push(a);if(result.length===count)break;}
  return result;
