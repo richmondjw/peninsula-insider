@@ -51,6 +51,11 @@ status: published
 verified: true
 lastVerified: 2026-04-30
 publishedAt: 2026-04-30
+heroImage:
+  src: /images/species/australian-salmon.webp
+  alt: "Illustrated natural history plate of an Australian salmon, Arripis truttaceus, in side profile"
+  credit: Peninsula Insider
+  license: original-commissioned
 ---
 
 ## What Australian salmon actually is

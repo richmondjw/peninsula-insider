@@ -49,6 +49,11 @@ status: published
 verified: true
 lastVerified: 2026-04-30
 publishedAt: 2026-04-30
+heroImage:
+  src: /images/species/pinkies.webp
+  alt: "Illustrated natural history plate of a juvenile snapper, the pinky, Chrysophrys auratus, in side profile"
+  credit: Peninsula Insider
+  license: original-commissioned
 ---
 
 ## What pinkies actually are

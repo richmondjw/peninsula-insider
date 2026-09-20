@@ -93,7 +93,13 @@ export const prerender = true;
       ) : (
         <div class="venues__grid venues__grid--links">
           {ordered.map((s) => (
-            <article class="pi-card"><div class="pi-card__body">
+            <article class="pi-card">
+              {s.data.heroImage && (
+                <a class="pi-card__media species-plate" href={`/fishing/species/${s.data.slug}/`}>
+                  <img src={s.data.heroImage.src} alt={s.data.heroImage.alt} width="1600" height="905" loading="lazy" decoding="async" />
+                </a>
+              )}
+              <div class="pi-card__body">
               <h2 class="venue-card__name">
                 <a href={`/fishing/species/${s.data.slug}/`}>{s.data.commonName}</a>
               </h2>
@@ -102,7 +108,8 @@ export const prerender = true;
               </p>
               <p class="pi-card__dek">{s.data.intro}</p>
               <div class="pi-card__actions"><a href={`/fishing/species/${s.data.slug}/`} class="pi-btn pi-btn--solid">Read species guide &rarr;</a></div>
-            </div></article>
+              </div>
+            </article>
           ))}
         </div>
       )}
@@ -111,3 +118,15 @@ export const prerender = true;
 
   <NewsletterBlock />
 </BaseLayout>
+
+<style>
+  /* Species plates are 16:9 and the animal runs nose to tail, so the card media must not
+     crop them the way the default 3:2 cover rule would. The plate ground is the same warm
+     paper as the card, so `contain` reads as one surface rather than a letterbox. */
+  .species-plate {
+    display: block;
+    aspect-ratio: 16 / 9;
+    background: #F2EFEA;
+  }
+  .species-plate img { object-fit: contain; }
+</style>

@@ -48,6 +48,11 @@ status: published
 verified: true
 lastVerified: 2026-04-30
 publishedAt: 2026-04-30
+heroImage:
+  src: /images/species/garfish.webp
+  alt: "Illustrated natural history plate of a southern sea garfish, Hyporhamphus melanochir, in side profile"
+  credit: Peninsula Insider
+  license: original-commissioned
 ---
 
 ## What garfish actually is
