@@ -1,11 +1,9 @@
-let journalAbort;
-document.addEventListener("astro:before-swap", () => journalAbort?.abort());
+let journalCleanup;
+document.addEventListener("astro:before-swap", () => journalCleanup?.());
 function initJournal() {
   const root = document.querySelector("[data-journal-index]");
   if (!root || root.dataset.bound) return;
   root.dataset.bound = "true";
-  const abort = new AbortController();
-  journalAbort = abort;
   const rows = [...root.querySelectorAll(".archive-row")];
   const search = root.querySelector("#story-search");
   const topic = root.querySelector("#topic-filter");
@@ -85,7 +83,8 @@ function initJournal() {
       root.querySelector("#archive").scrollIntoView({ block: "start" });
     }),
   );
-  window.addEventListener("popstate", restore, { signal: abort.signal });
+  window.addEventListener("popstate", restore);
+  journalCleanup = () => window.removeEventListener("popstate", restore);
   restore();
 
   root.addEventListener("click", (e) => {

@@ -51,8 +51,8 @@ const active = path.startsWith('/explore/plans') || path.startsWith('/plans') ? 
 </nav>
 </header>
 <script>
-let shellAbort:AbortController|undefined;
-document.addEventListener('astro:before-swap',()=>shellAbort?.abort());
+let shellCleanup:(()=>void)|undefined;
+document.addEventListener('astro:before-swap',()=>shellCleanup?.());
 function initEditorialShell(){
  const header=document.querySelector<HTMLElement>('.site-header');
  if(!header || header.dataset.bound)return;
@@ -60,12 +60,14 @@ function initEditorialShell(){
  const button=header.querySelector<HTMLButtonElement>('.mobile-menu')!;
  const nav=header.querySelector<HTMLElement>('#site-nav')!;
  const personal=header.querySelector<HTMLDetailsElement>('.personal-menu')!;
- const abort=new AbortController();shellAbort=abort;
+
  function close(){button.setAttribute('aria-expanded','false');button.setAttribute('aria-label','Open navigation');nav.classList.remove('open');}
  button.addEventListener('click',()=>{const open=button.getAttribute('aria-expanded')!=='true';button.setAttribute('aria-expanded',String(open));button.setAttribute('aria-label',open?'Close navigation':'Open navigation');nav.classList.toggle('open',open);});
- document.addEventListener('keydown',e=>{if(e.key!=='Escape')return;if(personal.open){personal.open=false;personal.querySelector('summary')?.focus();}else if(button.getAttribute('aria-expanded')==='true'){close();button.focus();}},{signal:abort.signal});
- document.addEventListener('click',e=>{if(!personal.contains(e.target as Node))personal.open=false;},{signal:abort.signal});
-
+ const onKeydown=(e:KeyboardEvent)=>{if(e.key!=='Escape')return;if(personal.open){personal.open=false;personal.querySelector('summary')?.focus();}else if(button.getAttribute('aria-expanded')==='true'){close();button.focus();}};
+ const onClick=(e:MouseEvent)=>{if(!personal.contains(e.target as Node))personal.open=false;};
+ document.addEventListener('keydown',onKeydown);
+ document.addEventListener('click',onClick);
+ shellCleanup=()=>{document.removeEventListener('keydown',onKeydown);document.removeEventListener('click',onClick);};
 }
 initEditorialShell();document.addEventListener('astro:page-load',initEditorialShell);
 </script>
