@@ -15,18 +15,14 @@ import '../styles/inline-edit.css'; // admin-only inline editor chrome, inert un
 import '../styles/refinement.css'; // approved Harbour editorial refinement
 import '../styles/magenta-stone.css'; // Magenta Stone theme - inert unless html[data-theme="magenta-stone"]
 import { ClientRouter } from 'astro:transitions';
-// V5 chrome promotion (2026-07-11, redesign-v5): V4Masthead /
-// V4MobileDrawer / Footer are replaced by the v5 chrome set
-// (future-ia.md section 3). The v4 components stay in the codebase as
-// reference but are no longer mounted here. V5Breadcrumbs mounts
-// globally so every below-level-1 template carries a trail; the
-// V5BottomBar carries the mobile quick actions.
+// Shared editorial shell. Search, account, consent and saved-item controllers
+// remain mounted below; navigation and footer share the wider page frame.
 import V5Masthead from '../components/v5/chrome/V5Masthead.astro';
 // The conditions strip and issue stamp (visual design review finding #1,
 // P0-1 / P0-2). Sits above the masthead in normal flow, site-wide.
 import UtilityBar from '../components/UtilityBar.astro';
-import V5MobileDrawer from '../components/v5/chrome/V5MobileDrawer.astro';
-import V5BottomBar from '../components/v5/chrome/V5BottomBar.astro';
+
+
 import V5Breadcrumbs from '../components/v5/chrome/V5Breadcrumbs.astro';
 import V5Footer from '../components/v5/chrome/V5Footer.astro';
 import ConciergeDrawer from '../components/ConciergeDrawer.astro';
@@ -429,15 +425,6 @@ const showNewsletterPopup = newsletterPopupMode === 'preview' || newsletterPopup
   </main>
 
   <V5Footer />
-
-  <!-- V5 mobile drawer - wayfinding only, 13 rows + Dispatch CTA.
-       Self-binding (script lives inside the component). -->
-  <V5MobileDrawer />
-
-  <!-- V5 bottom action bar - Ask · Map · Save · Trip on mobile.
-       Self-suppressing on journal articles, form flows, open sheets,
-       and while the virtual keyboard is up. -->
-  <V5BottomBar />
 
   <!-- V2 auth phase 1, modal + profile dropdown.
        Modal hidden until any [data-open-auth] element triggers it.

@@ -73,7 +73,7 @@
      definition comes from the rule, not from a shadow. */
   --border:     #83857E;
   --sage:       var(--tide);   /* decorative */
-  --max-w:      1100px;
+  --max-w:      1280px;
   /* v5: --prose-w now tracks the ch-based measure token (68ch at 17px
      Outfit ≈ 680px - same width, but the cap survives font scaling). */
   --prose-w:    var(--measure-prose);
@@ -169,9 +169,10 @@ h1, h2, h3, h4, h5 {
 }
 
 .container {
+  width: min(var(--max-w), calc(100% - 80px));
   max-width: var(--max-w);
   margin: 0 auto;
-  padding: 0 clamp(1.25rem, 4vw, 3rem);
+  padding: 0;
 }
 
 .label {
@@ -10843,3 +10844,7 @@ figcaption {
   background: color-mix(in srgb, var(--accent) 10%, var(--white));
   color: var(--accent);
 }
+
+/* Shared editorial frame, with narrow prose retained by its own measure. */
+@media(max-width:1100px){.container{width:calc(100% - 48px)}}
+@media(max-width:767px){.container{width:calc(100% - 32px);padding:0}}
