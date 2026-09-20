@@ -429,3 +429,5 @@ Reachable but deliberately left alone, with reasons:
 - `trip_add` from Saved/My Trip includes `entity_type`, `entity_slug`, `src` and `surface`. `newsletter_signup_opened` means the optional link to Dispatch was opened, never a subscription.
 - Automated tests verify consent, withdrawal, one-call dispatch, queue shape and redaction. Analytics-side GA4 ingestion and reporting are not proven by browser tests and require separate evidence.
 - `trip_created` is emitted centrally only after a successful empty-to-populated current-trip mutation. Adding empty days, failed storage writes, migration, cloud hydration and subsequent stops do not count as new trips. Clearing and starting again is a new creation; no trip title or day label is sent.
+
+- `newsletter_signup_succeeded` is sent by both active newsletter handlers only after HTTP success and an explicit boolean `ok` or `success` provider receipt. Failed/unknown receipts emit no success. In-flight and completed forms reject duplicate submissions; email remains only in the subscription request, never the event.
