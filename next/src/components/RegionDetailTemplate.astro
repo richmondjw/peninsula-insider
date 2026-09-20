@@ -33,7 +33,7 @@ const SITE = 'https://peninsulainsider.com.au';
 const url = `${SITE}/explore/regions/${d.slug}/`;
 const hero = await resolveHero('region', d.slug, d);
 const regionHeroSrc = hero.src;
-const regionHeroStyle = `background-image:var(--photo-shade-copy),url('${regionHeroSrc}')`;
+const regionHeroStyle = `background-image:url('${regionHeroSrc}')`;
 const heroAbs = regionHeroSrc.startsWith('http') ? regionHeroSrc : `${SITE}${regionHeroSrc}`;
 
 const pillarOf = (type: string) => venueHrefPrefix(type).replace(/\//g, '');
@@ -194,7 +194,9 @@ const touristDestination = {
   </script>
 
   <style>
-    .region-hero { background-size: cover; background-position: center; color: var(--white); padding: clamp(64px, 12vw, 160px) 0 clamp(40px, 7vw, 90px); }
+    .region-hero { position: relative; isolation: isolate; background-size: cover; background-position: center; color: var(--white); padding: clamp(64px, 12vw, 160px) 0 clamp(40px, 7vw, 90px); }
+    .region-hero::before { content: ''; position: absolute; inset: 0; z-index: 0; background: var(--photo-shade-copy); pointer-events: none; }
+    .region-hero > .container { position: relative; z-index: 1; }
     .region-hero__eyebrow { font-family: var(--font-ui); text-transform: uppercase; letter-spacing: var(--ls-eyebrow); font-size: var(--fs-100); font-weight: 600; margin: 0 0 12px; text-shadow: 0 1px 4px rgba(0,0,0,0.5); color: var(--mint); }
     .region-hero__title { font-family: var(--font-display); font-weight: 600; font-size: clamp(36px, 6vw, 72px); line-height: var(--lh-display); letter-spacing: var(--ls-display); margin: 0; text-shadow: 0 2px 12px rgba(0,0,0,0.45), 0 1px 3px rgba(0,0,0,0.3); color: var(--white); }
     .region-hero__tagline { font-family: var(--font-ui); font-style: normal; font-size: clamp(17px, 2.4vw, 24px); line-height: var(--lh-dek); max-width: 60ch; margin: 14px 0 0; text-shadow: 0 1px 6px rgba(0,0,0,0.5), 0 1px 2px rgba(0,0,0,0.3); color: rgba(255,255,255,0.92); }
