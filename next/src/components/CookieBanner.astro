@@ -92,8 +92,11 @@
   </div>
 </aside>
 
-<script is:inline>
+<script is:inline data-astro-rerun>
   (function () {
+    window.__piConsentAbort?.abort();
+    var controller = new AbortController();
+    window.__piConsentAbort = controller;
     var KEY = 'pi-consent-v1';
     var VERSION = 1;
     var banner = document.getElementById('cookie-banner');
@@ -187,7 +190,7 @@
       // as a side effect.
       if (document.body.classList.contains('inote-open')) return;
       hide();
-    });
+    }, { signal: controller.signal });
 
     // Re-open from anywhere via [data-pi-consent="open"]
     function bindReopenTriggers() {
@@ -201,7 +204,7 @@
       });
     }
     bindReopenTriggers();
-    document.addEventListener('astro:page-load', bindReopenTriggers);
+    document.addEventListener('astro:page-load', bindReopenTriggers, { signal: controller.signal });
 
     // Expose programmatic re-open
     window.openConsent = function () { show(); };
@@ -209,7 +212,7 @@
     // Initial: show only if the user has not made a choice yet.
     if (!read()) {
       // Defer slightly to avoid layout jank on first paint.
-      setTimeout(function () { show(); }, 350);
+      setTimeout(function () { if (!controller.signal.aborted) show(); }, 350);
     } else {
       // Re-broadcast so any late-bound listeners (e.g. GA loader) see state.
       window.dispatchEvent(new CustomEvent('pi:consent-changed', { detail: read() }));

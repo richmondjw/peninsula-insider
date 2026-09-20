@@ -1,5 +1,8 @@
 ---
 import { getCollection, render } from 'astro:content';
+import '../../styles/journal-article.css';
+import { existsSync } from 'node:fs';
+import { resolve } from 'node:path';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
@@ -278,6 +281,7 @@ const faqSchema = article.data.faq && article.data.faq.length > 0 ? {
     acceptedAnswer: { '@type': 'Answer', text: answer },
   })),
 } : null;
+const heroAvailable = !hero.src.startsWith('/') || existsSync(resolve('public', hero.src.split('?')[0].slice(1)));
 export const prerender = true;
 ---
 
@@ -315,7 +319,7 @@ export const prerender = true;
   {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
   <Breadcrumbs items={breadcrumbItems} />
 
-  <article class="article">
+  <article class="article editorial-article">
     <!-- Magazine-style split hero: meta + title + dek + byline LEFT,
          hero image RIGHT, on a generous cream surface. -->
     <header class="article-hero">
@@ -359,8 +363,8 @@ export const prerender = true;
               </div>
             )}
           </div>
-          <figure class="article-hero__figure">
-            <img class="article-hero__image" src={hero.src} alt={heroAlt} role={heroPresentation ? 'presentation' : undefined} fetchpriority="high" decoding="async" {...editableImage({
+          {heroAvailable && (<figure class="article-hero__figure">
+            <img class="article-hero__image" src={hero.src} data-pi-responsive="(max-width: 1360px) 100vw, 1280px" alt={heroAlt} role={heroPresentation ? 'presentation' : undefined} fetchpriority="high" decoding="async" {...editableImage({
               entityType: 'article', entitySlug: slug, fieldPath: 'hero',
               label: `${article.data.title} hero`, purpose: 'hero',
             })} />
@@ -369,21 +373,15 @@ export const prerender = true;
             )}
             <MediaProvenanceNote
               image={heroProvenance}
-              {/* No subject: an article is not a place, and naming the
-                  headline produced "It is not a photograph of The Spring
-                  Peninsula: Why September and October Are the Region's Most
-                  Underrated Weekends." The generic phrasing is both shorter
-                  and truer - the hero stands in for the piece, not for one
-                  named place. */}
               class="article-hero__provenance"
             />
-          </figure>
+          </figure>)}
         </div>
       </div>
     </header>
 
-    <div class={`container${isHubGuide ? ' article-body--hub' : ''}`}>
-      {isHubGuide && <HubGuideTOC headings={headings} />}
+    <div class={`container${headings.length ? ' article-body--hub' : ''}`}>
+      {headings.length > 0 && <HubGuideTOC headings={headings} />}
       <div class="article-body__content">
         {article.data.aiSummary && article.data.aiSummary.length > 0 && (
           <section class="article-summary" aria-label="Quick summary">

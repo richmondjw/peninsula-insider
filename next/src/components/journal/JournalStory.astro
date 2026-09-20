@@ -1,0 +1,24 @@
+---
+import { routeSlug, formatHeroCredit } from '../../lib/editorial';
+import { resolveHero } from '../../lib/inline-edit/resolve-hero';
+import { editableImage } from '../../lib/inline-edit/attrs';
+import MediaProvenanceNote from '../MediaProvenanceNote.astro';
+import { existsSync } from 'node:fs';
+import { resolve } from 'node:path';
+const { display = {}, article, large = false, lead = false, author = 'Peninsula Insider' } = Astro.props;
+const slug=routeSlug(article);
+const hero=await resolveHero('article',slug,article.data,'hero');
+const available=!hero.src.startsWith('/') || existsSync(resolve('public',hero.src.slice(1)));
+const showPhoto=hero.hasPhoto && available;
+const provenance=hero.override ? undefined : article.data.heroImage;
+---
+<article class:list={['story',large && 'large',lead && 'cover']}>
+ {showPhoto && <figure><a href={`/journal/${slug}/`}><img src={hero.src} data-pi-responsive={lead ? "(max-width: 767px) 100vw, (max-width: 1100px) 85vw, 920px" : "(max-width: 767px) 100vw, 426px"} alt={hero.alt} loading={lead?'eager':'lazy'} fetchpriority={lead?'high':'auto'} decoding="async" width="1200" height="800" {...editableImage({entityType:'article',entitySlug:slug,fieldPath:'hero',label:`${article.data.title} hero`,purpose:'hero'})}/></a>{!hero.override && article.data.heroImage?.credit && <figcaption class="image-credit">{formatHeroCredit(article.data.heroImage.credit)}</figcaption>}<MediaProvenanceNote image={provenance}/></figure>}
+ <div class:list={[lead && 'cover-copy']}>
+ <p class="eyebrow">{display.eyebrow || article.data.tags?.[0]?.replaceAll('-',' ') || 'The Journal'}</p>
+ {lead ? <h2><a href={`/journal/${slug}/`}>{display.title || article.data.title}</a></h2> : <h3><a href={`/journal/${slug}/`}>{display.title || article.data.title}</a></h3>}
+ <p class={lead?'cover-dek':'dek'}>{display.dek || article.data.dek}</p>
+ <p class="meta">{author} · <time datetime={article.data.publishedAt.toISOString()}>{article.data.publishedAt.toLocaleDateString('en-AU',{day:'numeric',month:'short',year:'numeric'})}</time>{article.data.readingTimeMinutes && ` · ${article.data.readingTimeMinutes} min read`}</p>
+ {lead && <a class="text-link" href={`/journal/${slug}/`}>Read the story <span aria-hidden="true">↗</span></a>}
+ </div>
+</article>
