@@ -5,15 +5,15 @@ export const prerender = true;
 const paths=[
  {title:'Manage my listing',copy:'Already listed? Send changes, links and photos in one request.',href:'/partners/update/',cta:'Manage my listing'},
  {title:'Add my business',copy:'Not listed? Introduce your Peninsula business for free.',href:'/partners/add/',cta:'Add my business'},
- {title:'Enhance my page: USD99',copy:'Give visitors more useful detail about your business.',href:'#enhance',cta:'Explore an enhanced page'},
+ {title:'Enhance my page: AUD 99',copy:'Give visitors more useful detail about your business.',href:'#enhance',cta:'Explore an enhanced page'},
  {title:'Partnerships and campaigns',copy:'Work with PI on a campaign, story or seasonal opportunity.',href:'#partnerships',cta:'Explore partnerships'},
 ];
 ---
-<BaseLayout title="For Peninsula Businesses · Peninsula Insider" description="Manage your listing, add a business, enhance your page for USD99 or explore partnerships and campaigns." canonical="https://peninsulainsider.com.au/partners/">
+<BaseLayout title="For Peninsula Businesses · Peninsula Insider" description="Manage your listing, add a business, enhance your page for AUD 99 or explore partnerships and campaigns." canonical="https://peninsulainsider.com.au/partners/">
 <div class="business-page container">
 <header><h1 {...editableText({entityType:'page',entitySlug:'partners',fieldPath:'hero.title',label:'Business page title'})}>For Peninsula Businesses</h1><p class="business-intro" {...editableText({entityType:'page',entitySlug:'partners',fieldPath:'hero.dek',label:'Business page introduction'})}>Reach people planning time on the Mornington Peninsula.</p></header>
 <nav class="business-paths" aria-label="Business pathways">{paths.map(path=><article><h2>{path.title}</h2><p>{path.copy}</p><a href={path.href}>{path.cta}</a></article>)}</nav>
-<section class="business-enhance" id="enhance"><h2>Enhance my page <span>USD99</span></h2><p>A richer presence with additional photos, a fuller description, key visitor information, booking and website links, and social links.</p><p>Enhancement does not buy editorial recommendation, ranking or Insider Pick status.</p><a class="pi-btn pi-btn--solid" href="/partners/enquire/?interest=featured-profile">Enquire about an enhanced page</a></section>
+<section class="business-enhance" id="enhance"><h2>Enhance my page <span>AUD 99</span></h2><p>A richer presence with additional photos, a fuller description, key visitor information, booking and website links, and social links.</p><p>Enhancement does not buy editorial recommendation, ranking or Insider Pick status.</p><a class="pi-btn pi-btn--solid" href="/partners/enquire/?interest=featured-profile">Enquire about an enhanced page</a></section>
 <section id="partnerships"><h2>Partnerships and campaigns</h2><ul><li>Campaign partnerships</li><li>Sponsored content</li><li>Newsletter opportunities</li><li>Event promotion</li><li>Bespoke collaborations</li></ul><a class="pi-btn pi-btn--solid" href="/partners/enquire/">Discuss a partnership</a></section>
 <section class="business-independence"><p>Paying Peninsula Insider never buys a recommendation, ranking or editorial inclusion. Commercial content is clearly identified.</p><a href="/about/#independent-editorial">Our editorial approach</a><p>Something incorrect on your listing? <a href="/contact/?type=correction#correction">Report a correction</a>.</p></section>
 </div>
