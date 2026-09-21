@@ -1,0 +1,14 @@
+{
+  "evidenceId": "venues/point-nepean-discovery-tents/coordinates-authority-2026-09-14",
+  "claim": "venues/point-nepean-discovery-tents/coordinates",
+  "stance": "supports",
+  "publisher": {
+    "kind": "gov",
+    "name": "Parks Victoria"
+  },
+  "url": "https://www.parks.vic.gov.au/places-to-see/parks/point-nepean-national-park/where-to-stay/point-nepean-discovery-tents",
+  "retrievedAt": "2026-09-14",
+  "expiresAt": "2027-09-14",
+  "note": "Parks Victoria publishes a map position of -38.3131, 144.69 for the tents. That is 300 m from the record's pin and consistent with it, so this row supports the claim - but only to the precision the source publishes. The longitude is given to two decimal places, a rounding cell of plus or minus 0.005 degrees, about 550 m at this latitude, so this source cannot resolve anything finer than roughly half a kilometre. The Point Nepean entries that landed in the bay on 2026-08-21 were wrong by less than that. Support, bounded in the same breath, which is why visit sits second in this class ahead of every remote publisher including this one.",
+  "origin": "authored"
+}

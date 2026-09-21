@@ -1,0 +1,24 @@
+{
+  "claimId": "quick-notes/2026-05-03-tedesca-booking-note/booking",
+  "claimClass": "booking",
+  "subject": {
+    "type": "quick-notes",
+    "slug": "2026-05-03-tedesca-booking-note",
+    "field": "sources"
+  },
+  "statement": "Tedesca remains an online-booking-only lunch - don't drive out without a seat",
+  "assertedBy": [
+    {
+      "type": "quick-notes",
+      "slug": "2026-05-03-tedesca-booking-note",
+      "field": "sources"
+    },
+    {
+      "type": "venues",
+      "slug": "tedesca-osteria"
+    }
+  ],
+  "createdAt": "2026-05-03",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

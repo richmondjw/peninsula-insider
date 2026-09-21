@@ -32,6 +32,7 @@ import {
   getShelves,
   isoDate,
   startOfDay,
+  type OccurrenceState,
 } from './_data';
 import { getAustralianSeasonLower } from '../../lib/season';
 
@@ -44,10 +45,10 @@ const weekend = weekendWindow(now);
 const nextWeekend = weekendWindow(now, 1);
 const holidays = schoolHolidayWindow(now);
 
-const picks = await getPicks(events, weekend);
+const picks = await getPicks(events, weekend, now);
 const pickSlugs = new Set(picks.map((p) => p.live.slug));
 
-const dayGroups = groupByDay(events, weekend);
+const dayGroups = groupByDay(events, weekend, now);
 const weekendCount = dayGroups.reduce((n, g) => n + g.items.length, 0);
 
 const shelves = getShelves(events, now, pickSlugs).filter((s) => s.items.length > 0);
@@ -62,7 +63,24 @@ const truncate = (text: unknown, n = 200): string => {
 };
 const ldSeen = new Set<string>();
 const ldEvents: Record<string, any>[] = [];
-const pushLd = (live: (typeof events)[number], occursISO: string) => {
+// PI-008: the ItemList used to stamp EventScheduled on every node, so a
+// sold-out night and a cancelled market both told search engines they were
+// going ahead as normal. Status now comes from the same resolver the page
+// renders from, and a finished occurrence emits no status at all (an
+// EventScheduled with a past endDate is what lint-seo-architecture.mjs fails
+// the build over).
+//
+// That was half done. The helper that lived here re-derived the status from
+// the raw `cancelled` flag: one of the four signals that record a cancellation,
+// and none of the occurrence-level exceptions at all. A weekly market cancelled
+// for a single Thursday would have rendered "Cancelled this time" with
+// EventScheduled in the markup beside it. The state _data.ts resolved is now
+// the only answer on this page.
+const pushLd = (
+  live: (typeof events)[number],
+  occursISO: string,
+  state: OccurrenceState
+) => {
   if (ldSeen.has(live.slug)) return;
   ldSeen.add(live.slug);
   const data = live.event.data as Record<string, any>;
@@ -79,7 +97,7 @@ const pushLd = (live: (typeof events)[number], occursISO: string) => {
     url: `${SITE_ORIGIN}${live.href}`,
     ...(imageUrl ? { image: imageUrl } : {}),
     description: truncate(data.summary),
-    eventStatus: 'https://schema.org/EventScheduled',
+    ...(state.schemaStatus ? { eventStatus: state.schemaStatus } : {}),
     eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
     location: {
       '@type': 'Place',
@@ -94,8 +112,12 @@ const pushLd = (live: (typeof events)[number], occursISO: string) => {
     },
   });
 };
-for (const p of picks) pushLd(p.live, p.dateISO);
-for (const g of dayGroups) for (const it of g.items) pushLd(it.live, g.iso);
+for (const p of picks) pushLd(p.live, p.dateISO, p.occurrence);
+for (const g of dayGroups) {
+  for (const it of g.items) {
+    pushLd(it.live, g.iso, it);
+  }
+}
 const itemListLd = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
@@ -128,18 +150,18 @@ const pickCards = picks.map((p, i) => {
 const season = getAustralianSeasonLower(now);
 const todayISO = isoDate(startOfDay(now));
 const modifiedTime = todayISO;
-const pageDescription = `What is actually worth it on the Mornington Peninsula this weekend: PI's three picks, then everything on by day. A selection, not a calendar.`;
+const pageDescription = `Browse Mornington Peninsula events by date: markets, live music, exhibitions and festivals. Choose this weekend, school holidays or your own dates.`;
 ---
 
 <BaseLayout
-  title="What's On Mornington Peninsula This Weekend · Peninsula Insider"
+  title="What's On Mornington Peninsula | Events Calendar"
   description={pageDescription}
   section="whats-on"
   canonical="https://peninsulainsider.com.au/whats-on"
   modifiedTime={modifiedTime}
   ogImage="/images/sourced/whats-on-winter-wine.webp"
 >
-  <script type="application/ld+json" set:html={JSON.stringify(itemListLd)} />
+  <script data-wo-event-schema type="application/ld+json" set:html={JSON.stringify(itemListLd)} />
 
   <header class="wo-head">
     <div class="wo-head__bg" style="background-image:url(/images/sourced/whats-on-winter-wine.webp)" aria-hidden="true"></div>
@@ -150,7 +172,7 @@ const pageDescription = `What is actually worth it on the Mornington Peninsula t
       <p class="wo-head__context">
         <span data-wo-range>{weekend.label}</span> · {season} on the Peninsula
       </p>
-      <p class="wo-head__rule">We list what's worth the drive, not everything on.</p>
+      <p class="wo-head__rule">Browse events by date, then check the organiser before you go.</p>
       <p class="wo-head__rule">For a slower Western Port detour between listings, start with <a href="/explore/places/hastings/">Hastings</a> and its working harbour.</p>
     </div>
   </header>
@@ -178,7 +200,7 @@ const pageDescription = `What is actually worth it on the Mornington Peninsula t
       <div class="container">
         <div class="wo-picks__head">
           <h2 class="wo-picks__title" id="wo-picks-h">PI's picks</h2>
-          <p class="wo-picks__dek">Three, chosen by us. If we would not drive to it, it is not here.</p>
+          <p class="wo-picks__dek">Selected events for this weekend. Check the organiser for the latest details.</p>
         </div>
         {/* Every card here is an event on the What's On page, under a heading
             that says so: the per-card EVENT stamp is dropped. */}
@@ -226,6 +248,9 @@ const pageDescription = `What is actually worth it on the Mornington Peninsula t
                     oneLiner={it.live.oneLiner}
                     meta={it.live.meta}
                     spanLabel={it.spanLabel}
+                    statusLabel={it.statusLabel}
+                    phase={it.phase}
+                    bookable={it.bookable}
                   />
                 ))}
               </ul>
@@ -294,6 +319,8 @@ const pageDescription = `What is actually worth it on the Mornington Peninsula t
   // the month+ horizon is a JSON island, never hidden DOM (HUB-11).
   import { initV5Analytics } from '../../lib/v5-analytics';
   import { tripAdd } from '../../lib/v5-store';
+  import { startOfDay, addDays, rangeLabel, weekendWindow, occursOnDay, isoDate } from '../../lib/event-schedule';
+  import { resolveOccurrence } from '../../lib/event-occurrence.mjs';
   import { emptyDayMessage } from '../../lib/whatson-empty-state.mjs';
 
   initV5Analytics();
@@ -331,8 +358,20 @@ const pageDescription = `What is actually worth it on the Mornington Peninsula t
     wds?: number[];
     nth?: number;
     months?: number[];
+    x?: string;
+    statusData?: Record<string, any>;
   }
 
+  let scopeHistoryHandler: ((event: PopStateEvent) => void) | null = null;
+  let disposeScope: (() => void) | null = null;
+  window.addEventListener('popstate', (event) => scopeHistoryHandler?.(event), true);
+  document.addEventListener('astro:before-swap', () => {
+    disposeScope?.();
+    disposeScope = null;
+    scopeHistoryHandler = null;
+  });
+
+  function initEventScopes() {
   const daysEl = document.querySelector<HTMLElement>('[data-wo-days]');
   const scopeNav = document.querySelector<HTMLElement>('[data-wo-scope]');
   const headingEl = document.querySelector<HTMLElement>('[data-wo-heading]');
@@ -344,43 +383,37 @@ const pageDescription = `What is actually worth it on the Mornington Peninsula t
   const rowTpl = document.querySelector<HTMLTemplateElement>('[data-wo-row-template]');
 
   if (daysEl && scopeNav && rowTpl) {
+    if (daysEl.dataset.scopeInitialized === 'true') return;
+    daysEl.dataset.scopeInitialized = 'true';
+    const scopePath = window.location.pathname;
+    history.replaceState({ ...history.state, piWhatsOnScope: true }, '');
     const defaultHTML = daysEl.innerHTML;
     const defaultRange = rangeEl?.textContent ?? '';
     if (monthBtn) monthBtn.hidden = false;
 
-    // ── date helpers (mirror _data.ts, runtime clock) ──────────────────
-    const startOfDay = (d: Date) => new Date(d.getFullYear(), d.getMonth(), d.getDate());
-    const addDays = (d: Date, n: number) =>
-      new Date(d.getFullYear(), d.getMonth(), d.getDate() + n);
-    const parseISO = (s: string) => {
-      const [y, m, d] = s.split('-').map(Number);
-      return new Date(y, m - 1, d);
-    };
-    const fmt = (d: Date, opts: Intl.DateTimeFormatOptions) => d.toLocaleDateString('en-AU', opts);
-    const rangeLabel = (a: Date, b: Date) => {
-      if (a.getTime() === b.getTime()) return fmt(a, { weekday: 'short', day: 'numeric', month: 'long' });
-      const left = fmt(a, { weekday: 'short', day: 'numeric', month: a.getMonth() === b.getMonth() ? undefined : 'long' });
-      return `${left} – ${fmt(b, { weekday: 'short', day: 'numeric', month: 'long' })}`;
-    };
-    const weekendWindow = (offset: number) => {
-      const today = startOfDay(new Date());
-      const dow = today.getDay();
-      const fri = addDays(today, dow === 0 ? -2 : 5 - dow);
-      const start = addDays(fri, offset * 7);
-      return { start, end: addDays(start, 2) };
-    };
+    // Calendar dates use Melbourne's day and UTC date-only arithmetic in all surfaces.
+    const parseISO = (s: string) => new Date(`${s}T00:00:00Z`);
+    const fmt = (d: Date, opts: Intl.DateTimeFormatOptions) => d.toLocaleDateString('en-AU', { ...opts, timeZone: 'UTC' });
+    const occursOn = (e: FeedEntry, d: Date) => occursOnDay({
+      kind: e.k, start: parseISO(e.s), end: parseISO(e.e), day: e.wd,
+      days: e.wds, nth: e.nth, months: e.months,
+    }, d);
 
-    const occursOn = (e: FeedEntry, d: Date): boolean => {
-      const local = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
-      if (local < e.s || local > e.e) return false;
-      if (e.months && !e.months.includes(d.getMonth() + 1)) return false;
-      if (e.k === 'range') return true;
-      if (!(e.wds ?? [e.wd]).includes(d.getDay())) return false;
-      if (e.k === 'weekly') return true;
-      const nth = Math.floor((d.getDate() - 1) / 7) + 1;
-      const isLast = d.getDate() + 7 > new Date(d.getFullYear(), d.getMonth() + 1, 0).getDate();
-      return e.nth === -1 ? isLast : nth === e.nth;
-    };
+    // This editorial shortlist and its Event schema belong to the default
+    // window. Detach both for other dates; restore both together on return.
+    const picksEl = document.querySelector<HTMLElement>('.wo-picks');
+    const eventSchema = document.querySelector<HTMLScriptElement>('[data-wo-event-schema]');
+    const scopedNodes = [picksEl, eventSchema].filter((node): node is HTMLElement => !!node);
+    const anchors = scopedNodes.map((node) => {
+      const anchor = document.createComment('default weekend content');
+      node.before(anchor);
+      return { node, anchor };
+    });
+    const showDefaultContent = (show: boolean) => anchors.forEach(({ node, anchor }) => {
+      if (show) anchor.after(node); else node.remove();
+    });
+    let requestVersion = 0;
+    let readingUrl = false;
 
     // ── feed island (fetched once, on first non-default scope) ─────────
     let feedPromise: Promise<FeedEntry[]> | null = null;
@@ -390,11 +423,12 @@ const pageDescription = `What is actually worth it on the Mornington Peninsula t
           if (!r.ok) throw new Error(String(r.status));
           return r.json();
         })
-        .then((j) => j.events as FeedEntry[]);
+        .then((j) => j.events as FeedEntry[])
+        .catch((error) => { feedPromise = null; throw error; });
       return feedPromise;
     };
 
-    const buildRow = (e: FeedEntry, spanLabel: string): HTMLElement => {
+    const buildRow = (e: FeedEntry, spanLabel: string, day: Date, scopeEnd: Date): HTMLElement => {
       const frag = rowTpl.content.cloneNode(true) as DocumentFragment;
       const row = frag.querySelector<HTMLElement>('.wo-row')!;
       const link = row.querySelector<HTMLAnchorElement>('.wo-row__link')!;
@@ -402,7 +436,11 @@ const pageDescription = `What is actually worth it on the Mornington Peninsula t
       link.textContent = e.t;
       link.dataset.entitySlug = e.slug;
       row.querySelector<HTMLElement>('.wo-row__dek')!.textContent = e.d;
-      row.querySelector<HTMLElement>('.wo-row__meta')!.textContent = [e.m.join(' · '), spanLabel]
+      row.querySelector<HTMLElement>('.wo-row__meta')!.textContent = [
+        e.m.join(' · '),
+        spanLabel,
+        e.statusData ? (resolveOccurrence(e.statusData, isoDate(day), new Date(), e.k === 'range' ? { endDayIso: isoDate(parseISO(e.e) < scopeEnd ? parseISO(e.e) : scopeEnd) } : {}).label ?? '') : (e.x ?? ''),
+      ]
         .filter(Boolean)
         .join(' · ');
       const save = row.querySelector<HTMLElement>('[data-v5-save-control]');
@@ -468,7 +506,7 @@ const pageDescription = `What is actually worth it on the Mornington Peninsula t
           ul.className = 'wo-day__list';
           ul.setAttribute('role', 'list');
           for (const m of matches) {
-            ul.appendChild(buildRow(m.e, m.span));
+            ul.appendChild(buildRow(m.e, m.span, day, end));
             shown += 1;
           }
           section.appendChild(ul);
@@ -510,7 +548,7 @@ const pageDescription = `What is actually worth it on the Mornington Peninsula t
       const url = new URL(window.location.href);
       if (param) url.searchParams.set('date', param);
       else url.searchParams.delete('date');
-      history.replaceState(null, '', url.pathname + url.search + url.hash);
+      if (!readingUrl && url.href !== window.location.href) history.pushState({ ...history.state, piWhatsOnScope: true }, '', url.pathname + url.search + url.hash);
     };
 
     const setHeading = (headline: string, label: string) => {
@@ -519,6 +557,8 @@ const pageDescription = `What is actually worth it on the Mornington Peninsula t
     };
 
     const applyDefault = () => {
+      requestVersion += 1;
+      showDefaultContent(true);
       daysEl.innerHTML = defaultHTML;
       setPressed('weekend');
       setHeading("What's on this weekend", defaultRange);
@@ -535,16 +575,21 @@ const pageDescription = `What is actually worth it on the Mornington Peninsula t
       param: string,
       announceLabel: string
     ) => {
+      const version = ++requestVersion;
+      showDefaultContent(false);
+      daysEl.textContent = 'Loading events for these dates…';
       setPressed(scope);
       const label = rangeLabel(start, end);
       setHeading(headline, label);
       syncUrl(param);
       try {
         const entries = await loadFeed();
+        if (version !== requestVersion) return;
         const shown = renderWindow(entries, start, end);
         announce(shown, announceLabel);
       } catch {
-        daysEl.innerHTML = defaultHTML;
+        if (version !== requestVersion) return;
+        applyDefault();
         if (statusEl) statusEl.textContent = 'Could not load those dates. Showing this weekend instead.';
         document.dispatchEvent(new Event('astro:page-load'));
       }
@@ -556,7 +601,7 @@ const pageDescription = `What is actually worth it on the Mornington Peninsula t
         return;
       }
       if (scope === 'next-weekend') {
-        const w = weekendWindow(1);
+        const w = weekendWindow(new Date(), 1);
         applyWindow(scope, w.start, w.end, "What's on next weekend", 'next-weekend', 'next weekend');
         return;
       }
@@ -576,9 +621,10 @@ const pageDescription = `What is actually worth it on the Mornington Peninsula t
       if (scope === 'custom' && from && to) {
         let a = parseISO(from);
         let b = parseISO(to);
+        if (!Number.isFinite(a.getTime()) || !Number.isFinite(b.getTime()) || isoDate(a) !== from || isoDate(b) !== to) { applyDefault(); return; }
         if (b < a) [a, b] = [b, a];
-        if ((b.getTime() - a.getTime()) / 86400000 > 62) b = addDays(a, 62);
-        applyWindow(scope, a, b, "What's on for your dates", `${from}..${to}`, 'your dates');
+        if ((b.getTime() - a.getTime()) / 86400000 > 61) b = addDays(a, 61);
+        applyWindow(scope, a, b, "What's on for your dates", `${isoDate(a)}..${isoDate(b)}`, 'your dates');
       }
     };
 
@@ -603,6 +649,8 @@ const pageDescription = `What is actually worth it on the Mornington Peninsula t
 
     // Deep links + back/forward.
     const applyFromUrl = () => {
+      readingUrl = true;
+      try {
       const v = new URLSearchParams(window.location.search).get('date');
       if (!v) {
         applyDefault();
@@ -613,11 +661,22 @@ const pageDescription = `What is actually worth it on the Mornington Peninsula t
       else if (/^\d{4}-\d{2}-\d{2}\.\.\d{4}-\d{2}-\d{2}$/.test(v)) {
         const [from, to] = v.split('..');
         applyScope('custom', from, to);
-      }
+      } else applyDefault();
+      } finally { readingUrl = false; }
     };
-    window.addEventListener('popstate', applyFromUrl);
+    const onScopeHistory = (event: PopStateEvent) => {
+      if (!daysEl.isConnected || window.location.pathname !== scopePath || !event.state?.piWhatsOnScope) return;
+      // Filter history is local to this document, not an Astro page transition.
+      event.stopImmediatePropagation();
+      applyFromUrl();
+    };
+    scopeHistoryHandler = onScopeHistory;
+    disposeScope = () => { requestVersion += 1; };
     if (new URLSearchParams(window.location.search).get('date')) applyFromUrl();
   }
+  }
+  document.addEventListener('astro:page-load', initEventScopes);
+  initEventScopes();
 </script>
 
 <style>
@@ -654,14 +713,7 @@ const pageDescription = `What is actually worth it on the Mornington Peninsula t
     position: absolute;
     inset: 0;
     z-index: -1;
-    background:
-      linear-gradient(to top,
-        color-mix(in srgb, var(--bg-deep) 96%, transparent) 0%,
-        color-mix(in srgb, var(--bg-deep) 55%, transparent) 62%,
-        color-mix(in srgb, var(--bg-deep) 30%, transparent) 100%),
-      linear-gradient(to right,
-        color-mix(in srgb, var(--bg-deep) 82%, transparent) 0%,
-        transparent 72%);
+    background: var(--photo-shade-copy);
   }
   .wo-head__inner {
     position: relative;

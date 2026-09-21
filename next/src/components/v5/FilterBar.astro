@@ -277,11 +277,6 @@ const presets = CHIP_PRESETS[surface] ?? [];
       commit({}, { source: 'clear', noun });
     });
 
-    // Keep chips in sync when the sheet, popstate, or another island commits.
-    document.addEventListener('pi:filters-changed', ((e: CustomEvent) => {
-      paint(bar, e.detail.filters);
-    }) as EventListener);
-
     // Fade affordance: drop the mask once the row is scrolled to its end.
     const scroller = bar.querySelector<HTMLElement>('[data-chip-scroll]');
     if (scroller) {
@@ -293,6 +288,21 @@ const presets = CHIP_PRESETS[surface] ?? [];
       update();
     }
   }
+
+  // Keep chips in sync when the sheet, popstate, or another island commits.
+  //
+  // This sits at module scope, not inside hydrate(). The `_piInit` guard is on
+  // the bar element, and the client router replaces that element on every
+  // navigation - so the guard is fresh each time while the listener on
+  // `document` is not. Registering here added one more copy per visit to a
+  // filtered hub, each holding the previous, detached bar alive and repainting
+  // it forever. Measured at +1 per navigation by tests/journeys before this
+  // change. The listener now paints whichever bars are live when it fires.
+  document.addEventListener('pi:filters-changed', ((e: CustomEvent) => {
+    document.querySelectorAll<HTMLElement>('[data-v5-filterbar]').forEach((bar) => {
+      paint(bar, e.detail.filters);
+    });
+  }) as EventListener);
 
   function init() {
     document.querySelectorAll<HTMLElement>('[data-v5-filterbar]').forEach(hydrate);

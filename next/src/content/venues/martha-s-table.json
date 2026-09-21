@@ -11,7 +11,7 @@
   "address": "15 Marine Dr, Safety Beach VIC 3936",
   "phone": "+61 3 5981 4277",
   "website": "https://www.marthastable.com.au",
-  "bookingUrl": "https://www.marthastable.com.au/reservations",
+  "bookingUrl": "https://www.marthastable.com.au/book-a-table/",
   "bookingProvider": "direct",
   "priceBand": "$$",
   "authority": {
@@ -53,7 +53,10 @@
   },
   "heroImage": {
     "src": "/images/sourced/place-safety-beach-01.webp",
-    "alt": "Mornington Peninsula landscape - representative image for Martha's Table",
+    "alt": "",
+    "depicts": "an empty sandy beach and clear green water under a wide cumulus sky",
+    "depictionStatus": "illustrative",
+    "decorative": true,
     "credit": "Peninsula Insider",
     "license": "other-licensed"
   },
@@ -66,5 +69,16 @@
     "Raw Bar and Oysters",
     "Bay-Facing Deck",
     "Post-Swim Lunch Spot"
+  ],
+  "retiredSourceLinks": [
+    {
+      "field": "bookingUrl",
+      "url": "https://www.marthastable.com.au/reservations",
+      "verdict": "dead",
+      "disposition": "moved",
+      "replacement": "https://www.marthastable.com.au/book-a-table/",
+      "checkedOn": "2026-09-13",
+      "note": "Same site, renamed path. Fetched 200, title 'BOOKINGS - Martha's Table'."
+    }
   ]
 }

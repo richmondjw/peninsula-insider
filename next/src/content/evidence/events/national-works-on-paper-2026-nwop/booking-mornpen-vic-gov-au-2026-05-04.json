@@ -1,0 +1,29 @@
+{
+  "evidenceId": "events/national-works-on-paper-2026-nwop/booking-mornpen-vic-gov-au-2026-05-04",
+  "claim": "events/national-works-on-paper-2026-nwop/booking",
+  "stance": "supports",
+  "publisher": {
+    "kind": "gov"
+  },
+  "url": "https://mprg.mornpen.vic.gov.au/",
+  "retrievedAt": "2026-05-04",
+  "expiresAt": "2026-07-03",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/content/events/national-works-on-paper-2026-nwop.json",
+    "field": "officialEventUrl",
+    "value": "https://www.mornpen.vic.gov.au/Arts-Culture/Mornington-Peninsula-Regional-Gallery",
+    "dateField": "lastCheckedDate"
+  },
+  "retiredSourceLinks": [
+    {
+      "field": "url",
+      "url": "https://www.mornpen.vic.gov.au/Arts-Culture/Mornington-Peninsula-Regional-Gallery",
+      "verdict": "dead",
+      "disposition": "replaced",
+      "replacement": "https://mprg.mornpen.vic.gov.au/",
+      "checkedOn": "2026-09-13",
+      "note": "The council retired /Arts-Culture/; its own 404 page renders at this URL. The gallery's current home is the mprg subdomain, fetched 200."
+    }
+  ]
+}

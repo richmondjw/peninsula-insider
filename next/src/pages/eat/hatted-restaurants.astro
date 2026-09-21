@@ -5,9 +5,10 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import SubpageHero from '../../components/SubpageHero.astro';
 import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import { routeSlug } from '../../lib/editorial';
+import { routeSlug, isListableVenue } from '../../lib/editorial';
+import ProvenanceLine from '../../components/ProvenanceLine.astro';
 
-const allVenues = await getCollection('venues');
+const allVenues = (await getCollection('venues')).filter(isListableVenue);
 
 const hattedSlugs = [
   'tedesca-osteria', 'laura-pt-leo', 'doot-doot-doot', 'pt-leo-estate',
@@ -107,7 +108,7 @@ export const prerender = true;
     <p>The Good Food Guide awarded 15 hats across 11 Peninsula venues. Four venues carry two hats - the highest recognition in the region. What distinguishes the Peninsula's hatted scene is its context: these are not city strip restaurants. You eat in a converted 1940s farmhouse on a biodynamic property, a 40-seat room inside a sculpture park estate, or a cave-like dining room beneath a boutique winery hotel. The long lunch is the defining format.</p>
         <p>The four two-hat venues are Barragunda Dining (Cape Schanck), Laura at Pt. Leo Estate (Merricks), Tedesca Osteria (Red Hill), and Ten Minutes by Tractor (Main Ridge). Each is different in character. Barragunda is the Peninsula's newest and hardest booking. Tedesca is the most farm-forward. Laura is the most internationally credentialled. Ten Minutes by Tractor is the most established.</p>
         <p>Below the two-hat tier, seven one-hat venues cover a wider range of formats - from Doot Doot Doot's formal dinner-only room at Jackalope Hotel to Rare Hare's walk-in wood-fired outdoor sessions on the same estate. The list is ordered by hat count, then by editorial weight.</p>
-        <p class="venues__sub" style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 23 April 2026 · Source: Good Food Guide 2025</p>
+        <ProvenanceLine class="venues__sub" style="font-size:0.8rem;color:var(--soft)" records={venues} type="venues" noun="venue"> · Source: Good Food Guide 2025</ProvenanceLine>
       </div>
   </div>
 </SubpageHero>

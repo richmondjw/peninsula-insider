@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import VenueDetailTemplate from '../../components/VenueDetailTemplate.astro';
 import EventStrip from '../../components/EventStrip.astro';
-import { routeSlug, isStayVenue, typeLabel, titleize, isUpcoming, placeLabel } from '../../lib/editorial';
+import { routeSlug, isStayVenue, typeLabel, titleize, isUpcoming, placeLabel, isListableVenue } from '../../lib/editorial';
 import { buildKnownForProperties, buildBreadcrumbSchema, absUrl } from '../../lib/schema';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
 
@@ -20,7 +20,7 @@ export async function getStaticPaths() {
 const { venue } = Astro.props;
 const slug = routeSlug(venue);
 
-const allVenues = await getCollection('venues');
+const allVenues = (await getCollection('venues')).filter(isListableVenue);
 const related = allVenues
   .filter((entry) => routeSlug(entry) !== slug)
   .filter(isStayVenue)

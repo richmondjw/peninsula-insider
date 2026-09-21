@@ -6,7 +6,9 @@ houseByline: true
 publishedAt: 2026-07-31
 heroImage:
   src: "/images/sourced/explore-portsea-front-beach-01.webp"
-  alt: "Mornington Peninsula landscape - representative image for The Sorrento Hotel"
+  alt: "Two children sitting in shallow water beside a weathered timber jetty, a motorboat moored offshore."
+  depicts: "two children in shallow water beside a timber jetty"
+  depictionStatus: "illustrative"
   credit: "Peninsula Insider"
   license: "other-licensed"
 format: "insider-edit"

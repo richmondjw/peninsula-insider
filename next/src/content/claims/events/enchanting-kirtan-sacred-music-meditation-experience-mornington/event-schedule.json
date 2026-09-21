@@ -1,0 +1,20 @@
+{
+  "claimId": "events/enchanting-kirtan-sacred-music-meditation-experience-mornington/event-schedule",
+  "claimClass": "event-schedule",
+  "subject": {
+    "type": "events",
+    "slug": "enchanting-kirtan-sacred-music-meditation-experience-mornington",
+    "field": "startDate"
+  },
+  "statement": "Enchanting Kirtan: Sacred Music & Meditation Experience - Mornington runs on 30 October 2026.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "enchanting-kirtan-sacred-music-meditation-experience-mornington",
+      "field": "startDate"
+    }
+  ],
+  "createdAt": "2026-08-24",
+  "origin": "migrated",
+  "note": "Migrated by scripts/migrate-event-claims.mjs (PI-005 Stage 2) from startDate, endDate, startTime, endTime already on next/src/content/events/enchanting-kirtan-sacred-music-meditation-experience-mornington.json. No editorial judgement was applied and no content record was changed."
+}

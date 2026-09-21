@@ -1,0 +1,18 @@
+{
+  "claimId": "events/rye-pier-night-dive/event-status",
+  "claimClass": "event-status",
+  "subject": {
+    "type": "events",
+    "slug": "rye-pier-night-dive"
+  },
+  "statement": "Rye Pier Night Dive is running as published.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "rye-pier-night-dive"
+    }
+  ],
+  "createdAt": "2026-06-01",
+  "origin": "fixture",
+  "note": "PI-006 fixture. Seeds one named failure class so the loop can be proved to catch it."
+}

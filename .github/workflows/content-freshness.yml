@@ -79,6 +79,17 @@ jobs:
       - name: Rederive event lenses
         run: python next/scripts/rederive-lenses.py
 
+      - name: Resolve occurrence expiry (PI-008)
+        # Deliberately NOT continue-on-error. This job writes the heartbeat the
+        # renderer reads: if it fails, it records ok:false and the site restores
+        # the previous What's On renderer by itself on the next build. Letting
+        # the step pass quietly is the one outcome that would leave a stale
+        # model live. It writes no event record, moves no file and deletes
+        # nothing; expiry is applied at render time from fields already on disk.
+        run: |
+          cd next
+          npm run events:expire
+
       - name: Archive expired quick notes
         run: python next/scripts/archive-expired-quick-notes.py
 
@@ -109,6 +120,14 @@ jobs:
           cd next
           npm run audit:event-safeguards
 
+      - name: Upload occurrence exception queue
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: event-expiry-exceptions-${{ github.run_id }}
+          path: ops/reports/events/event-expiry-exceptions.json
+          if-no-files-found: ignore
+
       - name: Upload What's On safeguard report
         if: always()
         uses: actions/upload-artifact@v4
@@ -119,7 +138,7 @@ jobs:
 
       - name: Commit and push freshness diff
         run: |
-          git add next/src/content/events next/src/content/quick-notes
+          git add next/src/content/events next/src/content/quick-notes next/src/data/event-expiry-state.json ops/reports/events/event-expiry-exceptions.json
           if git diff --cached --quiet; then
             echo "No freshness changes today."
             exit 0

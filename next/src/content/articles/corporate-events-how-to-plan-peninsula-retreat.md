@@ -1,5 +1,4 @@
 ---
-slug: "corporate-events-how-to-plan-peninsula-retreat"
 title: "How to Plan a Mornington Peninsula Corporate Retreat"
 dek: "The best Peninsula retreats balance work, hospitality, and recovery. This is how to structure an offsite that actually feels worth leaving Melbourne for."
 author: "editorial"

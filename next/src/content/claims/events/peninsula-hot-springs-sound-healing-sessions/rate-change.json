@@ -1,0 +1,20 @@
+{
+  "claimId": "events/peninsula-hot-springs-sound-healing-sessions/rate-change",
+  "claimClass": "rate-change",
+  "subject": {
+    "type": "events",
+    "slug": "peninsula-hot-springs-sound-healing-sessions",
+    "field": "freePaid"
+  },
+  "statement": "Entry to Peninsula Hot Springs, Sound Healing Sessions is ticketed.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "peninsula-hot-springs-sound-healing-sessions",
+      "field": "freePaid"
+    }
+  ],
+  "createdAt": "2026-05-04",
+  "origin": "migrated",
+  "note": "Migrated by scripts/migrate-event-claims.mjs (PI-005 Stage 2) from freePaid already on next/src/content/events/peninsula-hot-springs-sound-healing-sessions.json. No editorial judgement was applied and no content record was changed."
+}

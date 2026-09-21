@@ -1,0 +1,155 @@
+{
+  "set": "Peninsula Insider fishing species plates",
+  "generated": "2026-09-20",
+  "provider": "Higgsfield",
+  "model": "GPT Image 2.5 (gpt_image_2_5)",
+  "aspectRatio": "16:9",
+  "resolution": "2k",
+  "quality": "high",
+  "creditsPerPlate": 3,
+  "classification": "original editorial illustration, not photography",
+  "policy": "Brand OS 7.4 bars generative imagery from any surface where a reader expects a truth claim from the image, and bars anything passed off as photography. These are plainly illustrated natural history plates in the field-guide tradition, which is the approved editorial-plate use in section 4.1, and every alt text says so. They are identification aids, not evidence of a particular catch.",
+  "styleFormula": "Editorial natural history plate in the manner of a museum specimen study. Painted in translucent watercolour washes over fine sepia ink contour lines, on warm cream cotton paper with visible paper tooth. One specimen only, exact lateral profile, head to the left and tail to the right, centred in the frame with generous even margin on all sides. Soft even daylight from the upper left, one faint diffuse shadow beneath the specimen. Muted naturalistic colour, slightly desaturated, matte, no gloss, no wet sheen, no metallic glitter. Rigorous scientific accuracy in body depth, head shape, mouth position, eye placement, fin position, fin shape and scale pattern. Nothing else in the frame: no text, no lettering, no numbers, no labels, no captions, no rulers, no scale bars, no hands, no hooks, no lures, no nets, no water, no waves, no background scenery, no border, no frame. Plain warm cream paper ground, uniform.",
+  "styleAnchor": "The approved snapper plate was passed as an image reference to lock paper, technique, palette and framing across the set. It bled a deep sparid body into the first mulloway, so the three redos were anchored on a closer body plan instead: garfish for squid and flathead, yellowtail kingfish for mulloway.",
+  "accuracyNotes": [
+    "Snapper and pinky are the same species, Chrysophrys auratus, drawn as two life stages: the adult with the nape hump and worn blue spotting, the juvenile shallower bodied with no hump and vivid blue spots.",
+    "Bream is drawn as black bream, Acanthopagrus butcheri, the estuary species for Western Port, which the record lists as the primary water.",
+    "Australian salmon is an Arripis, not a salmonid, so it carries no adipose fin.",
+    "Southern calamari is Sepioteuthis australis: fins run almost the full mantle length, which separates it from an arrow squid, and it is not a cuttlefish.",
+    "The mulloway plate carries a slightly yellow-olive cast in the fins from its kingfish style anchor; mulloway fins are normally dusky bronze. Body form, mouth, lateral-line spots and square tail are correct."
+  ],
+  "plates": [
+    {
+      "slug": "australian-salmon",
+      "commonName": "Australian Salmon",
+      "scientificName": "Arripis trutta and Arripis truttaceus",
+      "jobId": "5998f207-0980-44ec-99c6-ebb8c623be55",
+      "sourcePixels": "2688x1520",
+      "file": "/images/species/australian-salmon.webp",
+      "bytes": 261306,
+      "sha256": "e17b77c579acc3684c5bd24d1a4fa5843c44de21e058b4e6b48eb5b86779fb24",
+      "promptFile": "prompts/australian-salmon.txt"
+    },
+    {
+      "slug": "bream",
+      "commonName": "Bream",
+      "scientificName": "Acanthopagrus butcheri",
+      "jobId": "97c9f721-fffa-4dd7-a91c-0105f3fbda34",
+      "sourcePixels": "2688x1520",
+      "file": "/images/species/bream.webp",
+      "bytes": 327974,
+      "sha256": "e973082e6989d4832b51bbddcf7cf17ef80145f7341d2fef2c5fb581acb69a04",
+      "promptFile": "prompts/bream.txt"
+    },
+    {
+      "slug": "flathead",
+      "commonName": "Flathead",
+      "scientificName": "Platycephalus bassensis",
+      "jobId": "17a0c78f-6b18-4f3e-a8b6-eb947ee0f28b",
+      "sourcePixels": "2688x1520",
+      "file": "/images/species/flathead.webp",
+      "bytes": 230970,
+      "sha256": "454f6b41cacb65cd40c3a22d979625174b9b011e5e5af9e0718d4fc302d90541",
+      "promptFile": "prompts/flathead.txt"
+    },
+    {
+      "slug": "garfish",
+      "commonName": "Garfish",
+      "scientificName": "Hyporhamphus melanochir",
+      "jobId": "f4dd212d-3665-4c88-8972-0b55a2ebc8bb",
+      "sourcePixels": "2688x1520",
+      "file": "/images/species/garfish.webp",
+      "bytes": 190592,
+      "sha256": "72780da060da2cae4ccd03c88a696bf52afe6530ae1abefb3a3b023c60b01b5c",
+      "promptFile": "prompts/garfish.txt"
+    },
+    {
+      "slug": "gummy-shark",
+      "commonName": "Gummy Shark",
+      "scientificName": "Mustelus antarcticus",
+      "jobId": "81e9fd2c-4933-458f-a56a-b7607754b7a8",
+      "sourcePixels": "2688x1520",
+      "file": "/images/species/gummy-shark.webp",
+      "bytes": 202880,
+      "sha256": "3ef020210bce293a8c9d91ce05c35920daec76decb33d73ebfe2b9cb4b3522c8",
+      "promptFile": "prompts/gummy-shark.txt"
+    },
+    {
+      "slug": "king-george-whiting",
+      "commonName": "King George Whiting",
+      "scientificName": "Sillaginodes punctatus",
+      "jobId": "1e945f4a-da16-4444-aba5-14d291a8da5c",
+      "sourcePixels": "2688x1520",
+      "file": "/images/species/king-george-whiting.webp",
+      "bytes": 242514,
+      "sha256": "7a58fed178c70e6209025580be16b8f079f02638933f1ed2b4cc3c601abf84b9",
+      "promptFile": "prompts/king-george-whiting.txt"
+    },
+    {
+      "slug": "mulloway",
+      "commonName": "Mulloway",
+      "scientificName": "Argyrosomus japonicus",
+      "jobId": "9d122829-80bd-4318-b951-f17229e3dcbb",
+      "sourcePixels": "2688x1520",
+      "file": "/images/species/mulloway.webp",
+      "bytes": 281234,
+      "sha256": "325091647a4d28c6abedef78dbabe21246067187b60afdf89d6b46a2ca3151c3",
+      "promptFile": "prompts/mulloway.txt"
+    },
+    {
+      "slug": "pinkies",
+      "commonName": "Pinky Snapper",
+      "scientificName": "Chrysophrys auratus (juvenile cohort)",
+      "jobId": "d48b561e-d491-4208-928e-212391f20d26",
+      "sourcePixels": "2688x1520",
+      "file": "/images/species/pinkies.webp",
+      "bytes": 294316,
+      "sha256": "83ebb5019cb89d8c6a0a646e17bc3d81fe04a4cf122964df96031253ab843959",
+      "promptFile": "prompts/pinkies.txt"
+    },
+    {
+      "slug": "silver-trevally",
+      "commonName": "Silver Trevally",
+      "scientificName": "Pseudocaranx georgianus",
+      "jobId": "afbafa27-c5d6-40ff-a318-406663a2065e",
+      "sourcePixels": "2688x1520",
+      "file": "/images/species/silver-trevally.webp",
+      "bytes": 264700,
+      "sha256": "ec40e1ec720b201d7c9533b30693686ac89866606d212d9e30c3f0ce7177adc0",
+      "promptFile": "prompts/silver-trevally.txt"
+    },
+    {
+      "slug": "snapper",
+      "commonName": "Snapper",
+      "scientificName": "Chrysophrys auratus",
+      "jobId": "20e9497f-bf80-4da2-9f26-a0bdd6c1b80d",
+      "sourcePixels": "2688x1520",
+      "file": "/images/species/snapper.webp",
+      "bytes": 296574,
+      "sha256": "2e9422fec798d13ada4cd6fc9e73683dd3bfd56e301d06757c5ea2f6719fb9c5",
+      "promptFile": "prompts/snapper.txt"
+    },
+    {
+      "slug": "squid",
+      "commonName": "Southern Calamari",
+      "scientificName": "Sepioteuthis australis",
+      "jobId": "346c975a-f366-4363-bc01-a5583bced402",
+      "sourcePixels": "2688x1520",
+      "file": "/images/species/squid.webp",
+      "bytes": 214656,
+      "sha256": "6800540aadfadf641111f38c67b795d9135fed5dbb9dbc83f111dd1cf518473f",
+      "promptFile": "prompts/squid.txt"
+    },
+    {
+      "slug": "yellowtail-kingfish",
+      "commonName": "Yellowtail Kingfish",
+      "scientificName": "Seriola lalandi",
+      "jobId": "e2e555bf-57fe-4894-a26a-811ba657aef8",
+      "sourcePixels": "2688x1520",
+      "file": "/images/species/yellowtail-kingfish.webp",
+      "bytes": 253542,
+      "sha256": "4008d8400a848af2ded86da7e6b20a92698e8f3c47134e5bdc67c9db50804ba0",
+      "promptFile": "prompts/yellowtail-kingfish.txt"
+    }
+  ]
+}

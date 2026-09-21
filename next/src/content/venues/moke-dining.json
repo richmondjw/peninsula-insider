@@ -15,12 +15,7 @@
   "bookingUrl": "https://mokedining.com.au",
   "bookingProvider": "direct",
   "priceBand": "$$$$",
-  "openingHours": {
-    "thuFri": "Dinner from 6:00pm",
-    "sat": "Lunch 12:30pm, Dinner from 6:00pm",
-    "sun": "Lunch 12:30pm",
-    "monWed": "Closed"
-  },
+  "hoursNote": "Thu–Fri dinner from 6:00pm; Sat lunch 12:30pm, dinner from 6:00pm; Sun lunch 12:30pm; Mon–Wed closed",
   "signature": "Family-run fine dining on Cook Street, a weekly-changing set menu built on Peninsula produce, led by a chef who represented Australia at Bocuse d'Or.",
   "authority": {
     "awards": [
@@ -59,7 +54,9 @@
   },
   "heroImage": {
     "src": "/images/sourced/place-flinders-01.webp",
-    "alt": "Flinders Pier 2nd Jul 2019 - representative image for Moke Dining",
+    "alt": "From a timber pier, waves breaking over a seaweed-covered rock shelf, boats moored on the bay and a green headland beyond.",
+    "depicts": "a timber pier, a seaweed-covered rock shelf and moored boats on the bay",
+    "depictionStatus": "illustrative",
     "credit": "Daniel Kabel",
     "license": "wikimedia-cc-by-sa"
   },

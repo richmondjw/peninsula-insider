@@ -30,14 +30,15 @@ import JournalModule from '../../components/v5/hub/JournalModule.astro';
 import AskBand from '../../components/v5/hub/AskBand.astro';
 import TrustNote from '../../components/v5/hub/TrustNote.astro';
 import { getFacets, type FacetKey } from '../../lib/facets';
-import { routeSlug, isStayVenue, typeLabel, titleize, resolveHeroSrc } from '../../lib/editorial';
+import { routeSlug, isStayVenue, typeLabel, titleize, resolveHeroSrc, isListableVenue } from '../../lib/editorial';
 import { buildBreadcrumbSchema, absUrl } from '../../lib/schema';
+import CorrectionNote from '../../components/CorrectionNote.astro';
 
 // ── Data ─────────────────────────────────────────────────────────────────────
 // Day spas (type 'spa') pass isStayVenue but aren't accommodation - they get
 // their own detail pages (kept live for existing inbound links via
 // venueHrefPrefix) but are excluded from the reader-facing Stay directory.
-const venues = (await getCollection('venues')).filter((v) => isStayVenue(v) && v.data.type !== 'spa');
+const venues = (await getCollection('venues')).filter((v) => isListableVenue(v) && isStayVenue(v) && v.data.type !== 'spa');
 const stayCount = venues.length; // FULL corpus, every row server-rendered
 
 const articlesAll = (await getCollection('articles', ({ data }) => data.status === 'published'))
@@ -87,7 +88,7 @@ function stayItem(v: any, overrides: { verdict?: string } = {}) {
   const facets = getFacets('venue', data);
   const bookingUrl: string | undefined = data.bookingUrl ?? data.website;
   const provider = typeof data.bookingProvider === 'string' ? data.bookingProvider : '';
-  const partnerLabel = PARTNER_LABEL[provider] ?? (data.featuredPartner ? 'Partner' : undefined);
+  const partnerLabel = PARTNER_LABEL[provider] ?? (data.featuredPartner ? 'Sponsored placement' : undefined);
   return {
     title: data.name as string,
     href: `/stay/${slug}/`,
@@ -179,7 +180,7 @@ const journalItems = journalSlugs
 const standfirst =
   'One decision shapes the weekend: ridge and hinterland, or coastal village. ' +
   'Red Hill puts vineyard lunches and fireplaces in walking distance; Sorrento to Mornington ' +
-  'trade that for bay light and a livelier main street. Every property is independently researched and kept current.';
+  'trade that for bay light and a livelier main street. Every property here is independently researched.';
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
@@ -195,11 +196,11 @@ const faqSchema = {
   '@context': 'https://schema.org', '@type': 'FAQPage',
   mainEntity: [
     { '@type': 'Question', name: 'Where is the best area to stay on the Mornington Peninsula?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Red Hill and Main Ridge for cellar door weekends, vineyard restaurants are walkable from many stays. Sorrento for coastal village atmosphere and ocean beach access. Mornington town for the most accessible base from Melbourne (60 minutes). The right answer depends on the weekend you want, wine country, beach village, or practical proximity.' } },
+      acceptedAnswer: { '@type': 'Answer', text: 'Red Hill and Main Ridge suit cellar-door weekends. Check distances and transport between your accommodation and each winery. Sorrento for coastal village atmosphere and ocean beach access. Mornington town for the most accessible base from Melbourne (60 minutes). The right answer depends on the weekend you want, wine country, beach village, or practical proximity.' } },
     { '@type': 'Question', name: 'How much does accommodation cost on the Mornington Peninsula?',
       acceptedAnswer: { '@type': 'Answer', text: 'A good mid-range self-contained villa or cottage is the sensible baseline. Luxury vineyard stays (Jackalope, Lindenderry) sit a clear tier above that. Cheaper options in Rosebud, Dromana, and Rye bring the cost down at the price of distance from the cellar door cluster. Rates peak in summer and over long weekends, autumn midweek offers the best value.' } },
     { '@type': 'Question', name: 'Is one night enough on the Mornington Peninsula?',
-      acceptedAnswer: { '@type': 'Answer', text: 'One night works for a focused escape, arrive Friday evening, spend Saturday on the ridge (cellar doors + lunch), and drive home Sunday after a morning walk. Two nights is better: it allows a beach day, a second area to explore, and the slower pace the Peninsula rewards. Base in Mornington or Sorrento for single-night trips.' } },
+      acceptedAnswer: { '@type': 'Answer', text: 'One night works for a focused escape: arrive Friday evening, spend Saturday on the ridge and return home that evening. Two nights is better: it allows a beach day, a second area to explore, and the slower pace the Peninsula rewards. Base in Mornington or Sorrento for single-night trips.' } },
   ],
 };
 export const prerender = true;
@@ -207,7 +208,7 @@ export const prerender = true;
 
 <BaseLayout
   title="Where to Stay on the Mornington Peninsula · Peninsula Insider"
-  description="Where to stay on the Mornington Peninsula, hotels, vineyard villas, coastal cottages, and farm stays. Every property independently researched and reviewed. Updated for autumn."
+  description="Choose where to stay on the Mornington Peninsula: compare coastal towns and wine-country bases, then explore hotels, vineyard villas, cottages and farm stays."
   section="stay"
   canonical="https://peninsulainsider.com.au/stay"
   modifiedTime="2026-04-30"
@@ -303,23 +304,20 @@ export const prerender = true;
         <h2 class="hub-faq__title">Three honest answers before you book the bed</h2>
       </div>
       <div class="hub-faq__list">
-        <details class="hub-faq__item">
-          <summary class="hub-faq__q">Where is the best area to stay on the Peninsula?</summary>
-          <div class="hub-faq__a"><p>Red Hill and Main Ridge for cellar-door weekends, vineyard restaurants are walkable from many stays. Sorrento for coastal village atmosphere and ocean beach access. Mornington town for the most accessible base from Melbourne (60 minutes). The right answer depends on the weekend you want, wine country, beach village, or practical proximity.</p></div>
-        </details>
-        <details class="hub-faq__item">
-          <summary class="hub-faq__q">How much does accommodation cost?</summary>
-          <div class="hub-faq__a"><p>A good mid-range self-contained villa or cottage is the sensible baseline. Luxury vineyard stays (Jackalope, Lindenderry) sit a clear tier above that. Cheaper options in Rosebud, Dromana, and Rye bring the cost down at the price of distance from the cellar door cluster. Rates peak in summer and over long weekends, autumn midweek offers the best value.</p></div>
-        </details>
-        <details class="hub-faq__item">
-          <summary class="hub-faq__q">Is one night enough on the Peninsula?</summary>
-          <div class="hub-faq__a"><p>One night works for a focused escape, arrive Friday evening, spend Saturday on the ridge (cellar doors + lunch), and drive home Sunday after a morning walk. Two nights is better: it allows a beach day, a second area to explore, and the slower pace the Peninsula rewards. Base in Mornington or Sorrento for single-night trips.</p></div>
-        </details>
+        {faqSchema.mainEntity.map((item) => (
+          <details class="hub-faq__item">
+            <summary class="hub-faq__q">{item.name}</summary>
+            <div class="hub-faq__a"><p>{item.acceptedAnswer.text}</p></div>
+          </details>
+        ))}
       </div>
     </div>
   </section>
 
   <!-- 8. Ask band hidden (bug fix in progress) -->
+  <div class="container">
+    <CorrectionNote surface="stay-hub" />
+  </div>
 </BaseLayout>
 
 <style>

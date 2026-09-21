@@ -5,12 +5,14 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { buildBreadcrumbSchema } from '../../lib/schema';
+import { isListableVenue } from '../../lib/editorial';
 
 const SITE = 'https://peninsulainsider.com.au';
 const canonical = `${SITE}/wine/wine-region/`;
 
 const wineTypes = ['winery', 'producer'];
 const venues = (await getCollection('venues'))
+  .filter(isListableVenue)
   .filter((v) => wineTypes.includes(v.data.type))
   .sort((a, b) => Number(b.data.authority?.hallidayScore ?? 0) - Number(a.data.authority?.hallidayScore ?? 0));
 
@@ -28,7 +30,7 @@ const regionSchema = {
   name: 'Mornington Peninsula wine region',
   alternateName: ['Mornington Peninsula Geographical Indication', 'Mornington Peninsula GI'],
   description:
-    'A cool-climate wine region south-east of Melbourne, Australia, recognised for Pinot Noir and Chardonnay. Home to roughly 200 vineyards across 12 identifiable subregions.',
+    'A cool-climate wine region south-east of Melbourne, Australia, recognised for Pinot Noir and Chardonnay. Its vineyards span the hinterland and coastal areas of the Peninsula.',
   url: canonical,
   containedInPlace: { '@type': 'AdministrativeArea', name: 'Victoria, Australia' },
   geo: { '@type': 'GeoShape', box: '-38.52 144.70 -38.30 145.15' },
@@ -55,8 +57,8 @@ export const prerender = true;
 ---
 
 <BaseLayout
-  title="Mornington Peninsula Wine Region · Peninsula Insider"
-  description="The definitive guide to the Mornington Peninsula wine region - cool-climate Pinot Noir and Chardonnay, 200 vineyards, 12 subregions, and the cellar doors worth the drive."
+  title="Mornington Peninsula Wine Region: Climate, Soils & Grapes"
+  description="Understand the Mornington Peninsula wine region: its maritime climate, soils, Pinot Noir and Chardonnay, and the geography behind its wines."
   section="wine"
   canonical={canonical}
 >
@@ -72,7 +74,7 @@ export const prerender = true;
       <div class="prose">
         <p>The Mornington Peninsula Geographical Indication sits 70 kilometres south-east of Melbourne on a maritime peninsula defined by Port Phillip Bay to the west and Western Port to the east. The cool mesoclimate - shaped by afternoon sea breezes from both directions and the elevation of the Red Hill plateau - produces wines of unusual precision: Pinot Noir with fine tannin and longevity, Chardonnay with taut acid and complexity.</p>
 
-        <p>The GI has roughly 200 vineyards. Around 50 cellar doors are open to visitors across 12 identifiable subregions: Red Hill, Main Ridge, Merricks, Merricks North, Balnarring, Moorooduc, Tuerong, Dromana, Arthurs Seat, Mornington, Portsea, and Flinders. The Red Hill plateau and its southern neighbours - Main Ridge and Merricks - form the historic and commercial core.</p>
+        <p>Vineyards and visitor cellar doors are spread across areas including Red Hill, Main Ridge, Merricks, Merricks North, Balnarring, Moorooduc, Tuerong, Dromana, Arthurs Seat, Mornington, Portsea, and Flinders. The Red Hill plateau and its southern neighbours - Main Ridge and Merricks - form the historic and commercial core.</p>
 
         <p>The benchmark varieties are Pinot Noir and Chardonnay. Secondary strengths include Pinot Gris, Pinot Blanc, and Viognier. A small but committed group of producers is expanding the canon with Tempranillo, Gamay, and late-harvest styles.</p>
 

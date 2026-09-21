@@ -33,7 +33,6 @@ dispatch:
     price: "Free, ticketed via Humanitix"
     summary: "The Peninsula's biggest winter set-piece: two music stages, fire performers, lantern path through the village, food trucks, and the six-metre 'Bernie' effigy burn on the bay at 6:30pm. Free but ticketed - book now. The one winter night when the Peninsula is neither quiet nor crowded."
     bookingLabel: "Book free ticket via Humanitix"
-    bookingUrl: "https://www.humanitix.com/au/event/sorrento-solstice-festival-2026"
   companion:
     title: "Peninsula Hot Springs Sunday Sessions, Rye"
     when: "Sunday 21 June, 2:00pm–5:00pm"
@@ -56,6 +55,8 @@ faq:
     answer: "Yes, the festival is free, but tickets are required via Humanitix for crowd management. Book in advance - the festival reaches capacity."
   - question: "What is the quieter option for the solstice weekend?"
     answer: "Sunday is the quieter day by design. Peninsula Hot Springs Sunday Sessions run 2–5pm with live music, included with a bathing session. For a land-based Sunday: Red Hill Truffles runs winter hunts, with Sunday morning being the quietest slot of the week."
+sourceStatus: unsourced
+sourceStatusNote: "404 on Humanitix. The ticket listing was removed after the event."
 ---
 
 The longest night of the year falls on Saturday, and the Peninsula is not pretending it doesn't matter. The Sorrento Solstice Festival is the one winter weekend when the foreshore stops feeling empty and starts feeling purposeful: two music stages, fire performers on the promenade, a lantern walk through the village, and the six-metre effigy burn on the bay at 6:30pm. It is free, ticketed, and worth planning around.

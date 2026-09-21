@@ -14,6 +14,7 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import EventBadges from '../../components/EventBadges.astro';
 import EventCard from '../../components/EventCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import CorrectionNote from '../../components/CorrectionNote.astro';
 import {
   eventCategoryLabel,
   eventDateLabel,
@@ -23,6 +24,8 @@ import {
   weatherCopy,
 } from '../../lib/editorial';
 import { isCancelledEvent, isCurrentEvent, loadLiveEvents } from './_data';
+import { USE_OCCURRENCE_MODEL } from '../../lib/features';
+import { dayIsoOf, recordDisposition, resolveOccurrence } from '../../lib/event-occurrence.mjs';
 import { editableText, editableImage } from '../../lib/inline-edit/attrs';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
 
@@ -42,6 +45,23 @@ const isCurrent = isCurrentEvent(event, now);
 // that answers a question they did not ask. The record is withdrawn from every
 // listing surface by loadLiveEvents instead.
 const cancelled = isCancelledEvent(event);
+// PI-008. Cancelled, postponed, expired and sold-out are four different
+// answers to a reader standing at a venue door, and the page had vocabulary
+// for exactly one of them. The three flags below carry the others into the
+// notices and into bookingClosed; with the occurrence model flagged off,
+// disposition is null and the page renders precisely as it did before.
+const disposition = USE_OCCURRENCE_MODEL
+  ? recordDisposition(event.data as Record<string, any>, now)
+  : null;
+const postponed = disposition?.status === 'postponed';
+const rescheduled = disposition?.status === 'rescheduled';
+const soldOut =
+  disposition?.bookingStatus === 'sold-out' || disposition?.bookingStatus === 'closed';
+const expiredRecord = disposition?.expired === true;
+// Everything that takes the booking affordance away. Cancellation already did;
+// these are the cases that used to leave a live "Book now" on a page for an
+// event nobody could attend.
+const bookingWithdrawn = cancelled || postponed || soldOut || expiredRecord;
 const place = event.data.place ? await getEntry(event.data.place).catch(() => null) : null;
 const venue = event.data.venue ? await getEntry(event.data.venue).catch(() => null) : null;
 
@@ -94,6 +114,23 @@ const usesNextOccurrence = ['weekly', 'monthly', 'annual'].includes(event.data.r
 const whenStart = usesNextOccurrence ? nextOccurrence : event.data.startDate;
 const whenEnd = usesNextOccurrence ? nextOccurrence : event.data.endDate;
 const whenLabel = eventDateLabel(whenStart, whenEnd);
+
+// PI-008. isCurrentEvent is day-granular, so a session that finished at 2pm
+// still offered a booking link at 6pm on the same day. Resolve the run this
+// page actually displays and ask whether it is over. For a recurring series
+// whenStart is the next occurrence, so this is false until that one passes.
+const displayedRun =
+  USE_OCCURRENCE_MODEL && whenStart
+    ? resolveOccurrence(event.data as Record<string, any>, dayIsoOf(whenStart), now, {
+        endDayIso: dayIsoOf(whenEnd ?? whenStart),
+      })
+    : null;
+const occurrenceOver = displayedRun?.phase === 'past';
+// A page that already tells the reader "This event has ended" must not also
+// offer them a booking and an add-to-calendar button. Seventy event pages were
+// doing exactly that: the notice and the actions block were computed from
+// different things and nobody had ever put them side by side.
+const bookingClosed = bookingWithdrawn || occurrenceOver || (USE_OCCURRENCE_MODEL && !isCurrent);
 
 // Rich Event JSON-LD: includes geo coordinates, organiser, attendance mode,
 // offers with currency, and image. Falls through gracefully when fields are
@@ -167,6 +204,42 @@ export const prerender = true;
           skipThis={event.data.skipThis}
           size="md"
         />
+        {!cancelled && postponed && (
+          <aside class="event-detail__ended" role="status">
+            <strong>Postponed. A new date has not been announced.</strong>{' '}
+            {event.data.postponementNote}
+            {event.data.postponementSourceUrl && (
+              <>
+                {' '}
+                <a href={event.data.postponementSourceUrl} rel="nofollow noreferrer" target="_blank">
+                  {event.data.postponementSourceLabel ?? 'Read the notice'}
+                </a>
+              </>
+            )}
+          </aside>
+        )}
+        {!cancelled && rescheduled && (
+          <aside class="event-detail__ended" role="status">
+            <strong>Moved to a new date.</strong>{' '}
+            {event.data.postponementNote}
+          </aside>
+        )}
+        {!cancelled && !postponed && soldOut && (
+          <aside class="event-detail__ended" role="status">
+            <strong>
+              {event.data.bookingStatus === 'closed' ? 'Bookings have closed.' : 'Sold out.'}
+            </strong>{' '}
+            {event.data.bookingStatusNote}
+            {event.data.bookingStatusSourceUrl && (
+              <>
+                {' '}
+                <a href={event.data.bookingStatusSourceUrl} rel="nofollow noreferrer" target="_blank">
+                  Check with the organiser
+                </a>
+              </>
+            )}
+          </aside>
+        )}
         {cancelled && (
           <aside class="event-detail__ended" role="status">
             <strong>Cancelled. This event will not go ahead.</strong>{' '}
@@ -305,9 +378,19 @@ export const prerender = true;
                 </div>
               )}
             </dl>
-            {cancelled ? (
+            {bookingClosed ? (
               <p class="event-detail__box-soft">
-                Booking and calendar links are withdrawn while this event is cancelled.
+                {cancelled
+                  ? 'Booking and calendar links are withdrawn while this event is cancelled.'
+                  : postponed
+                    ? 'Booking and calendar links are withdrawn until a new date is announced.'
+                    : soldOut
+                      ? 'Booking links are withdrawn while this event is sold out.'
+                      : expiredRecord
+                        ? 'Booking and calendar links are withdrawn; this listing has expired.'
+                        : occurrenceOver
+                          ? 'Booking and calendar links are withdrawn; this session has finished.'
+                          : 'Booking and calendar links are withdrawn; this event has ended.'}
               </p>
             ) : (
               <div class="event-detail__actions">
@@ -317,6 +400,10 @@ export const prerender = true;
                     class="event-detail__action event-detail__action--primary"
                     rel="nofollow noreferrer"
                     target="_blank"
+                    data-pi-book={bookingTarget.kind === 'organiser' ? undefined : bookingTarget.kind}
+                    data-pi-entity-type="event"
+                    data-pi-entity-slug={slug}
+                    data-pi-surface="event-detail"
                   >
                     {bookingTarget.label}
                   </a>
@@ -365,6 +452,10 @@ export const prerender = true;
       </div>
     </section>
   )}
+
+  <div class="container">
+    <CorrectionNote surface="event" />
+  </div>
 
   <NewsletterBlock />
 </BaseLayout>

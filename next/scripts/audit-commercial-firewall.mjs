@@ -93,7 +93,7 @@
  * legitimate editorial ranking gets switched off within a week.
  *
  * Report-only by default. --assert compares against the ratchet baseline at
- * ops/reports/governance/commercial-firewall-baseline.json and exits 1 on
+ * ops/baselines/commercial-firewall-baseline.json and exits 1 on
  * regression, matching the contract audit-event-safeguards.mjs uses. Seeding
  * from today's real numbers means the gate can never be satisfied by making
  * things worse, but never blocks a deploy over debt it inherited. Unlike the
@@ -119,7 +119,7 @@ const REPO = path.resolve(HERE, '..', '..');
 const DEFAULT_SRC = path.join(REPO, 'next', 'src');
 const DEFAULT_CONTENT = path.join(REPO, 'next', 'src', 'content');
 const DEFAULT_BASELINE = path.join(
-  REPO, 'ops', 'reports', 'governance', 'commercial-firewall-baseline.json'
+  REPO, 'ops', 'baselines', 'commercial-firewall-baseline.json'
 );
 
 const args = process.argv.slice(2);
@@ -149,6 +149,15 @@ const COMMERCIAL_FIELDS = new Set([
   'affiliateNote',
   'affiliateProgram',
   'affiliateUrl',
+  /*
+   * Not a collection field. src/data/whats-on-partner.json is the site's only
+   * outright paid slot and it lives outside the content collections, so Zod
+   * never validated it and this gate could not see it: its destination was
+   * called `url`, and a paid card was therefore lexically identical to any
+   * other link. PI-021 renamed it `sponsoredUrl` so the surface sits inside
+   * the measurement. Read only by components/PartnerSlot.astro, below.
+   */
+  'sponsoredUrl',
 ]);
 
 /**
@@ -165,6 +174,21 @@ const ALLOWED_SORT_KEYS = new Set([
   'editorPick', 'venueTier', 'vetted', 'featured', 'priority', 'rank', 'weight',
   'tier', 'status', 'pinned', 'order', 'sortOrder', 'displayOrder', 'isPinned',
   'editorsPick', 'highlight', 'curated', 'verdict', 'stage', 'confidence',
+  /* plan discovery. Editorial matching, never commercial. `facets` is a plan's
+     own taxonomy (date / who / into) and HomePlan orders alternates by whether
+     that taxonomy says this-season. `plan` is the plan object inside a
+     { plan, score } tuple that plan-match orders by match score. Neither
+     reads a commercial field, and commercialSortKeys stays 0 with both
+     classified. Approved by James on 2026-09-19 to admit the
+     /explore/plans/ builder, and to allow this class of editorial ordering
+     key in future without a further exception. */
+  'facets', 'plan',
+  /* Plans redesign, 2026-09-21: editorialPriority is the reviewed static order
+     in plan-curation.ts; displayTitle is its short reader-facing name. fit and
+     exact are derived only from requested duration/party/interests/weather
+     against published facets in plan-match.ts. No payment or partner input
+     contributes to any of these ordering signals. */
+  'editorialPriority', 'displayTitle', 'fit', 'exact',
   /* third-party authority. not ours to sell */
   'authority', 'hats', 'hallidayScore', 'awards', 'pressMentions', 'score',
   'rating', 'stars',
@@ -191,6 +215,12 @@ const ALLOWED_SORT_KEYS = new Set([
   'occurrences', 'availability', 'priceLow', 'priceHigh', 'price', 'minutes',
   'hours', 'position', 'offset', 'page', 'step', 'number', 'num', 'amount',
   'percentage', 'ratio', 'delta', 'diff', 'change', 'views', 'saves', 'clicks',
+  /* the public account of how facts are checked (PI-014). These order the
+     tables on /how-we-check/ by how perishable a kind of fact is and by how
+     much of the site the record has reached. No commercial field is within
+     reach of any of them: the inputs are src/data/source-precedence.json and
+     the claim and evidence corpus, neither of which carries one. */
+  'recheckDays', 'facts', 'records', 'withSources',
 ]);
 
 /**
@@ -198,20 +228,35 @@ const ALLOWED_SORT_KEYS = new Set([
  * Paths are posix, relative to SRC_DIR. Any read not listed here fails the gate.
  *
  * These are link-construction reads, not ordering reads: the field decides
- * where a booking button points, never what position a record occupies. Both
- * are flagged by sponsoredMarkersUndeclared for a separate defect (the
- * non-commercial fallback), which is tracked in the baseline.
+ * where a booking button points and whether a disclosure renders beside it,
+ * never what position a record occupies.
+ *
+ * Both pages now hand the value straight to components/BookingCta.astro, which
+ * is where the sponsored marker and the reader-facing disclosure are decided
+ * together. The read stays visible HERE, at the page, rather than disappearing
+ * into the component: BookingCta destructures its props, so a gate that only
+ * looks for a dotted read would see nothing inside it. Keeping the pages on
+ * this list is what keeps the hand-off on the record.
  */
 const COMMERCIAL_READ_ALLOWLIST = [
   {
     file: 'pages/boating/hire/[slug].astro',
     field: 'affiliateUrl',
-    reason: 'Booking CTA destination. Does not affect listing order on any surface.',
+    reason:
+      'Passed to BookingCta as the paid destination. Decides disclosure, never listing order.',
   },
   {
     file: 'pages/fishing/charters/[slug].astro',
     field: 'affiliateUrl',
-    reason: 'Booking CTA destination. Does not affect listing order on any surface.',
+    reason:
+      'Passed to BookingCta as the paid destination. Decides disclosure, never listing order.',
+  },
+  {
+    file: 'components/PartnerSlot.astro',
+    field: 'sponsoredUrl',
+    reason:
+      'The paid slot renders its own destination. It is a standalone card with a mandatory ' +
+      'disclosure chip, not a member of any ranked or filtered set.',
   },
 ];
 
@@ -561,12 +606,19 @@ async function main() {
 
     /* paid-placement markers */
     if (path.extname(file) === '.astro' || path.extname(file) === '.tsx') {
+      /**
+       * Scanned on comment-stripped source, not raw. A rel="...sponsored"
+       * quoted inside a doc comment is documentation, not a marker a reader
+       * ever sees, and counting it meant the gate could be pushed over its own
+       * ceiling by someone explaining the rule in a comment. Offsets survive
+       * the masking, so line numbers still point at the real file.
+       */
       const relAttr = /\brel\s*=\s*(?:"([^"]*)"|'([^']*)'|\{`([^`]*)`\}|\{\s*['"]([^'"]*)['"]\s*\})/g;
-      for (const m of raw.matchAll(relAttr)) {
+      for (const m of commentFree.matchAll(relAttr)) {
         const value = m[1] ?? m[2] ?? m[3] ?? m[4] ?? '';
         if (!PAID_MARKER_RE.test(value)) continue;
-        const elementStart = raw.lastIndexOf('<', m.index);
-        const element = raw.slice(elementStart, m.index + 400);
+        const elementStart = commentFree.lastIndexOf('<', m.index);
+        const element = commentFree.slice(elementStart, m.index + 400);
         const hrefMatch = element.match(/href\s*=\s*\{([^}]*)\}/);
         const hrefExpr = hrefMatch ? hrefMatch[1].trim() : null;
         sponsoredMarkers.push({

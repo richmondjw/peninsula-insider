@@ -1,0 +1,4284 @@
+{
+  "note": "Probe results for source URLs cited by the corpus. Written ONLY by next/scripts/probe-link-health.mjs, by a human or a scheduled job, never by a build. Read offline by next/scripts/audit-link-health.mjs. A verdict is what a probe saw, not an inference. This file is a RECORD, not a report: it does not live under ops/reports/ because nothing here is reproducible from the tree, and reverting it destroys evidence rather than regenerating it.",
+  "updatedAt": "2026-09-19T11:50:09.950Z",
+  "links": [
+    {
+      "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.bom.gov.au/search?query=mornington+peninsula",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Search | The Bureau of Meteorology"
+    },
+    {
+      "url": "https://albathermalsprings.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://albathermalsprings.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Alba Thermal Springs &amp; Spa - Mornington Peninsula, Hot Springs"
+    },
+    {
+      "url": "https://albathermalsprings.com.au/alba-experiences/dine/weekday-brunch-thyme/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Weekday Brunch Thyme - Alba Thermal Springs &amp; Spa"
+    },
+    {
+      "url": "https://albathermalsprings.com.au/alba-experiences/spa/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Spa and Wellness - Alba Thermal Springs &amp; Spa"
+    },
+    {
+      "url": "https://albathermalsprings.com.au/alba-experiences/the-sanctuary/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "The Sanctuary | Luxury Accommodation | Alba Thermal Springs &amp; Spa"
+    },
+    {
+      "url": "https://albathermalsprings.com.au/book",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://albathermalsprings.com.au/book/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Book - Alba Thermal Springs &amp; Spa"
+    },
+    {
+      "url": "https://api.open-meteo.com/v1/forecast?latitude=-38.40&longitude=145.00",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://api.open-meteo.com/v1/forecast?latitude=-38.40&longitude=145.00&current=temperature_2m",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://api.open-meteo.com/v1/forecast?latitude=-38.40&longitude=145.00&daily=precipitation_sum",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://api.open-meteo.com/v1/forecast?latitude=-38.40&longitude=145.00&daily=temperature_2m_max",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://arthursviews.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://arthursviews.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Exclusive Retreat | P. +613 5981 8400 | E. info@arthursviews.com.au"
+    },
+    {
+      "url": "https://artsandculture.mornpen.vic.gov.au/Galleries/Community-Art-Spaces/Current-Exhibitions/Hastings-Glenn-Walker",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Hastings Community Art Space: Glenn Walker - Our Arts & Culture"
+    },
+    {
+      "url": "https://aseagle.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://aseagle.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Arthurs Seat Eagle | Cable Car - Gondola Rides in Mornington Peninsula"
+    },
+    {
+      "url": "https://aseagle.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Arthurs Seat Eagle | Cable Car - Gondola Rides in Mornington Peninsula"
+    },
+    {
+      "url": "https://aseagle.com.au/book",
+      "verdict": "moved",
+      "httpCode": "404",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Page Not Found - Arthurs Seat Eagle",
+      "disposition": "moved",
+      "dispositionNote": "Operator renamed the booking path. /tickets/ returns 200, title 'Eagle Cable Car Tickets | Soar Above Arthurs Seat'.",
+      "reviewedOn": "2026-09-13",
+      "replacement": "https://aseagle.com.au/tickets/"
+    },
+    {
+      "url": "https://aseagle.com.au/tickets/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Eagle Cable Car Tickets | Soar Above Arthurs Seat",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://australianjourneys.com.au",
+      "verdict": "blocked",
+      "httpCode": "403",
+      "effectiveUrl": "https://australianjourneys.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Just a moment..."
+    },
+    {
+      "url": "https://australianjourneys.com.au/product/mornington-peninsula-wine-tour-for-2/",
+      "verdict": "blocked",
+      "httpCode": "403",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Just a moment..."
+    },
+    {
+      "url": "https://autopiatours.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://autopiatours.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Autopia Tours Australia&#039;s Award Winning Tour Specialist Since 1987"
+    },
+    {
+      "url": "https://autopiatours.com.au/eco-tours-australia/melbourne/mornington-peninsula-hot-springs-tour/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Mornington Peninsula Hot Springs Tour"
+    },
+    {
+      "url": "https://bassandflindersdistillery.com",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.bassandflindersdistillery.com/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Grape-to-Glass Gin, Brandy &amp; Liqueurs &ndash; Bass &amp; Flinders Distillery"
+    },
+    {
+      "url": "https://bayplay.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://bayplay.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "BayPlay Experiences &amp; Group Activities | Mornington Peninsula"
+    },
+    {
+      "url": "https://bayplay.com.au/book",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://bayplay.com.au/bookings/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Bookings - BayPlay Experiences &amp; Group Activities"
+    },
+    {
+      "url": "https://cassisredhill.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.cassisredhill.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Cassis Red Hill | Luxury Villas"
+    },
+    {
+      "url": "https://commonfolkcoffee.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.commonfolkcoffee.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Commonfolk Coffee - Specialty Coffee Roaster Melbourne"
+    },
+    {
+      "url": "https://communityplate.org.au/event/wednesday-main-street-mornington-market/2026-01-14/",
+      "verdict": "blocked",
+      "httpCode": "403",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "403 Forbidden"
+    },
+    {
+      "url": "https://coolart.org.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://coolart.org.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Friends of Coolart | Coolart Wetlands and Homestead, Somers"
+    },
+    {
+      "url": "https://craftypint.com/brewery/153/red-hill-brewery",
+      "verdict": "blocked",
+      "httpCode": "403",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Just a moment..."
+    },
+    {
+      "url": "https://designweek.melbourne/program/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Program &#8211; Melbourne Design Week"
+    },
+    {
+      "url": "https://dromanahotel.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://dromanahotel.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://dromanahotel.com.au/book",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://elanvineyard.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://elanvineyard.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Elan Wines - Elan Vineyard"
+    },
+    {
+      "url": "https://elgeeparkwines.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://elgeeparkwines.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Elgee Park - Wine, Sculpture &amp; Events"
+    },
+    {
+      "url": "https://endota.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://endotaspa.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Day Spa | Massage | Facials - endota spa"
+    },
+    {
+      "url": "https://epicurean.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://epicurean.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "epicurean.com.au"
+    },
+    {
+      "url": "https://epicurean.com.au/reservations",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "epicurean.com.au"
+    },
+    {
+      "url": "https://events.humanitix.com/breast-foot-forward-annual-community-walk-2026",
+      "verdict": "blocked",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Breast Foot Forward Annual Community Walk &amp; Run 2026"
+    },
+    {
+      "url": "https://events.humanitix.com/comedy-arj-barker",
+      "verdict": "blocked",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Arj Barker Live at Barlow"
+    },
+    {
+      "url": "https://events.humanitix.com/glamping-tents-horror-movie-campout-back-from-the-dead-tour-2026",
+      "verdict": "blocked",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Glamping Tents - Horror Movie Campout: Back From The Dead Tour 2026"
+    },
+    {
+      "url": "https://events.humanitix.com/high-tea-at-mornington-botanical-rose-gardens-jhxvu8lx",
+      "verdict": "blocked",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "High Tea at Mornington Botanical Rose Gardens"
+    },
+    {
+      "url": "https://events.humanitix.com/olagolf2026",
+      "verdict": "blocked",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "\"Nancye Wynne Bolton\" OLA Golf Day 2026"
+    },
+    {
+      "url": "https://events.humanitix.com/peninsula-vinehop-festival-2026",
+      "verdict": "blocked",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "PENINSULA VINEHOP FESTIVAL 2026"
+    },
+    {
+      "url": "https://events.humanitix.com/peninsula-vinehop-festival-2026/tickets",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Tickets for PENINSULA VINEHOP FESTIVAL 2026"
+    },
+    {
+      "url": "https://events.humanitix.com/pub-carols-thursday-17th-december",
+      "verdict": "dead",
+      "httpCode": "404",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "This event is yet to launch | Humanitix",
+      "disposition": "gone",
+      "dispositionNote": "Humanitix answers 404 with 'This event is yet to launch'. The listing is not published.",
+      "reviewedOn": "2026-09-13"
+    },
+    {
+      "url": "https://events.humanitix.com/sorrento-solstice-festival",
+      "verdict": "blocked",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Sorrento Solstice Festival"
+    },
+    {
+      "url": "https://events.humanitix.com/winery-walk-autumn-2026",
+      "verdict": "blocked",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Autumn Winery Walk 2026"
+    },
+    {
+      "url": "https://events.humanitix.com/winery-walk-autumn-2026/accessibility",
+      "verdict": "blocked",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Accessibility details | Autumn Winery Walk 2026"
+    },
+    {
+      "url": "https://events.humanitix.com/winter-wine-festival",
+      "verdict": "blocked",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Winter Wine Festival"
+    },
+    {
+      "url": "https://exploreshaw.com/a-guide-to-the-mornington-peninsula-beaches/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.exploreshaw.com/a-guide-to-the-mornington-peninsula-beaches/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "A Guide To The Mornington Peninsula Beaches - Explore Shaw"
+    },
+    {
+      "url": "https://flindersgeneralstore.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.flindersgeneralstore.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Home - Flinders General Store"
+    },
+    {
+      "url": "https://flindershotel.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://flindershotel.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Flinders Hotel - Historic Coastal Hospitality Since 1889"
+    },
+    {
+      "url": "https://flindershotel.com.au/accommodation",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://flindershotel.com.au/accommodation/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Quarters at Flinders Hotel - Luxury Accommodation on the Mornington Peninsula"
+    },
+    {
+      "url": "https://flinderssourdough.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.flinderssourdough.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Flinders Sourdough"
+    },
+    {
+      "url": "https://flinderstruffles.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.flinderstruffles.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Flinders Truffles | Truffle Hunts &amp; Farm Gate Mornington"
+    },
+    {
+      "url": "https://flinderstruffles.com.au/events/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.flinderstruffles.com.au/#events",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Flinders Truffles | Truffle Hunts &amp; Farm Gate Mornington"
+    },
+    {
+      "url": "https://foxeys-hangout.com.au",
+      "verdict": "blocked",
+      "httpCode": "202",
+      "effectiveUrl": "https://foxeys-hangout.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://foxeys-hangout.com.au/",
+      "verdict": "blocked",
+      "httpCode": "202",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://foxeys-hangout.com.au/Morning-Sun/About-Morning-Sun",
+      "verdict": "blocked",
+      "httpCode": "202",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://garagiste.com.au",
+      "verdict": "blocked",
+      "httpCode": "503",
+      "effectiveUrl": "https://garagiste.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "GARAGIST"
+    },
+    {
+      "url": "https://greatprivatetours.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://greatprivatetours.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Great Private Tours | Luxury Tours | Personalised Experience"
+    },
+    {
+      "url": "https://greatprivatetours.com.au/product/private-winery-tour-mornington-peninsula/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Private Winery Tour Mornington Peninsula - GPT"
+    },
+    {
+      "url": "https://greenolive.com.au",
+      "verdict": "blocked",
+      "httpCode": "202",
+      "effectiveUrl": "https://greenolive.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://greenolive.com.au/dine",
+      "verdict": "blocked",
+      "httpCode": "202",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://hotelsorrento.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://hotelsorrento.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Hotel Sorrento | Boutique Beach Hotel"
+    },
+    {
+      "url": "https://hotelsorrento.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Hotel Sorrento | Boutique Beach Hotel"
+    },
+    {
+      "url": "https://hotelsorrento.com.au/stay",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://hotelsorrento.com.au/stay/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Stay | Hotel Sorrento | | Boutique Beach Hotel"
+    },
+    {
+      "url": "https://humanitix.com/au/events/au--mornington--3931",
+      "verdict": "blocked",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Best things to do in Mornington, Australia"
+    },
+    {
+      "url": "https://humanitix.com/au/events/au--rosebud--3939",
+      "verdict": "blocked",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Best things to do in Rosebud, Australia"
+    },
+    {
+      "url": "https://humanitix.com/au/events/au--sorrento--3943",
+      "verdict": "blocked",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Best things to do in Sorrento, Australia"
+    },
+    {
+      "url": "https://jackalopehotels.com",
+      "verdict": "blocked",
+      "httpCode": "200",
+      "effectiveUrl": "https://jackalopehotels.com/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Luxury Mornington Peninsula Accommodation | Jackalope Hotel"
+    },
+    {
+      "url": "https://jackalopehotels.com/mornington-peninsula",
+      "verdict": "blocked",
+      "httpCode": "200",
+      "effectiveUrl": "https://jackalopehotels.com/mornington-peninsula-experiences/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Experience The Peninsula - Jackalope Hotels"
+    },
+    {
+      "url": "https://jackalopehotels.com/mornington-peninsula/wellness/spa",
+      "verdict": "blocked",
+      "httpCode": "200",
+      "effectiveUrl": "https://jackalopehotels.com/spa/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Mornington Peninsula Spa &amp; Infinity Pool"
+    },
+    {
+      "url": "https://johnnyripe.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://johnnyripe.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Johnny Ripe | FRESHLY MADE ON THE MORNINGTON PENINSULA"
+    },
+    {
+      "url": "https://kanastacaravanpark.com.au/retro-caravans/",
+      "verdict": "blocked",
+      "httpCode": "202",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://lancemore.com.au/properties-2/lancemore-lindenderry-red-hill",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://lancemore.com.au/hotels/lancemore-lindenderry-red-hill/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Lancemore: Lindenderry Red Hill"
+    },
+    {
+      "url": "https://laurarestaurant.com.au",
+      "verdict": "dead",
+      "httpCode": "000",
+      "error": "curl: (6) Could not resolve host: laurarestaurant.com.au",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "disposition": "gone",
+      "dispositionNote": "Domain does not resolve. No successor found under the venue's name that could be fetched.",
+      "reviewedOn": "2026-09-13"
+    },
+    {
+      "url": "https://library.mornpen.vic.gov.au/Whats-On/Events/Science-Week-TwistED-Science-Show-Rosebud-Library",
+      "verdict": "dead",
+      "httpCode": "404",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Page not found",
+      "disposition": "gone",
+      "dispositionNote": "The library's own 404 page renders at this URL. A past event listing, removed.",
+      "reviewedOn": "2026-09-13"
+    },
+    {
+      "url": "https://lightfootwines.com.au",
+      "verdict": "dead",
+      "httpCode": "000",
+      "error": "curl: (6) Could not resolve host: lightfootwines.com.au",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "disposition": "gone",
+      "dispositionNote": "Domain does not resolve. lightfootwines.com IS live, but it is Lightfoot & Sons of Calulu in East Gippsland, roughly 250km away. The record places Lightfoot Wines at 110 Myers Rd, Main Ridge. Substituting the Gippsland winery would assert an identity nothing supports. EDITOR: this record's region may be wrong, not just its link.",
+      "reviewedOn": "2026-09-13"
+    },
+    {
+      "url": "https://localingtours.com",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://localingtours.com/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Discover Australia&#039;s best private tours &amp; experiences"
+    },
+    {
+      "url": "https://localingtours.com/mornington-peninsula-private-day-tour/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Mornington Peninsula Local Tour - Private Day Tour"
+    },
+    {
+      "url": "https://localwaytours.com.au",
+      "verdict": "blocked",
+      "httpCode": "200",
+      "effectiveUrl": "https://localwaytours.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Melbourne Small Group Tours | Local Way Tours | Explore wine, wildlife, and wellness tours in Melbourne, Phillip Island, and more."
+    },
+    {
+      "url": "https://localwaytours.com.au/",
+      "verdict": "blocked",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Melbourne Small Group Tours | Local Way Tours | Explore wine, wildlife, and wellness tours in Melbourne, Phillip Island, and more."
+    },
+    {
+      "url": "https://mainstreetfestival.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://mainstreetfestival.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Home - Main Street Festival, Mornington"
+    },
+    {
+      "url": "https://mainstreetfestival.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Home - Main Street Festival, Mornington"
+    },
+    {
+      "url": "https://mainstreetmornington.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Main Street Mornington | Shopping, Fashion, Restaurants, Bars, Cafes, Business Services"
+    },
+    {
+      "url": "https://mainstreetmornington.com.au/mornington-main-street-market/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Mornington Main Street Market | Main Street Mornington"
+    },
+    {
+      "url": "https://mainstreetmornington.com.au/mornington-winter-music-festival/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Mornington Winter Music Festival | Main Street Mornington"
+    },
+    {
+      "url": "https://mantonscreekestate.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://mantonscreekestate.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Mantons Creek Estate | Winery Restaurant, Cellar Door &amp; Accommodation on the Mornington Peninsula"
+    },
+    {
+      "url": "https://manylittle.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.manylittle.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Many Little | Bar &amp; Dining, Red Hill South"
+    },
+    {
+      "url": "https://manylittle.com.au/book",
+      "verdict": "moved",
+      "httpCode": "404",
+      "effectiveUrl": "https://www.manylittle.com.au/book",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Page Not Found | Many Little",
+      "disposition": "replaced",
+      "dispositionNote": "The /book path 404s on the operator's own site; no booking path was found. The homepage is live (200, 'Many Little | Bar & Dining, Red Hill South'). A reader gets the venue, not a dead booking form.",
+      "reviewedOn": "2026-09-13",
+      "replacement": "https://www.manylittle.com.au/"
+    },
+    {
+      "url": "https://marketsandfestivals.melbourne/hill-and-ridge-community-market-takes-over-red-hill-market-2024-dates-local-treasures/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Hill and Ridge Community Market Takes Over Red Hill Market: 2024 Dates and Local Treasures | marketsandfestivals",
+      "probedOn": "2026-09-14",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://marketsandfestivals.melbourne/markets/mornington-racecourse-market/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "MORNINGTON RACECOURSE MARKET | marketsandfestivals"
+    },
+    {
+      "url": "https://marketsandfestivals.melbourne/what-happened-to-the-red-hill-community-market-2024/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "What happened to the Red Hill Community Market 2024 | marketsandfestivals",
+      "probedOn": "2026-09-14",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://melbourneelitetours.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://melbourneelitetours.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Private Day Tours - Melbourne &amp; Victoria - Melbourne Elite Tours"
+    },
+    {
+      "url": "https://melbourneelitetours.com.au/tour/mornington-peninsula-private-tour/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Mornington Peninsula Private Day Tours | Melbourne Elite Tours"
+    },
+    {
+      "url": "https://merricksestate.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.merricksestate.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Merricks Estate"
+    },
+    {
+      "url": "https://merricksstore.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://merricksstore.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Merricks General Wine Store - Merricks Store"
+    },
+    {
+      "url": "https://mokedining.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://mokedining.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Moke Dining"
+    },
+    {
+      "url": "https://montalto.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://montalto.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Montalto Winery | Red Hill, Mornington Peninsula"
+    },
+    {
+      "url": "https://moonlitsanctuary.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://moonlitsanctuary.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Moonlit Sanctuary - The best place to see Aussie animals!"
+    },
+    {
+      "url": "https://moonlitsanctuary.com.au/night-tours/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "NIGHT TOURS - Moonlit Sanctuary Wildlife Park"
+    },
+    {
+      "url": "https://moorooducestate.com.au",
+      "verdict": "blocked",
+      "httpCode": "200",
+      "effectiveUrl": "https://moorooducestate.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Home - Moorooduc Estate"
+    },
+    {
+      "url": "https://moorooducestate.com.au/cellar-door/",
+      "verdict": "blocked",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Cellar Door - Moorooduc Estate"
+    },
+    {
+      "url": "https://morningsunvineyard.com.au",
+      "verdict": "moved",
+      "httpCode": "000",
+      "error": "curl: (60) SSL: no alternative certificate subject name matches target host name 'morningsunvineyard.com.au' More details here: https://curl.se/docs/sslcerts.html curl failed to verify the legitimacy ",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "disposition": "moved",
+      "dispositionNote": "morningsunvineyard.com.au serves a certificate for another host; with verification relaxed its own server redirects to foxeys-hangout.com.au/Morning-Sun/About-Morning-Sun. Morning Sun is now Foxeys Hangout's second cellar door.",
+      "reviewedOn": "2026-09-13",
+      "replacement": "https://foxeys-hangout.com.au/Morning-Sun/About-Morning-Sun"
+    },
+    {
+      "url": "https://morningsunvineyard.com.au/visit",
+      "verdict": "moved",
+      "httpCode": "000",
+      "error": "curl: (60) SSL: no alternative certificate subject name matches target host name 'morningsunvineyard.com.au' More details here: https://curl.se/docs/sslcerts.html curl failed to verify the legitimacy ",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "disposition": "moved",
+      "dispositionNote": "Same redirect as the apex.",
+      "reviewedOn": "2026-09-13",
+      "replacement": "https://foxeys-hangout.com.au/Morning-Sun/About-Morning-Sun"
+    },
+    {
+      "url": "https://morningtonhotel.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.morningtonhotel.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "MORNINGTON HOTEL"
+    },
+    {
+      "url": "https://morningtonpeninsulawine.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://morningtonpeninsulawine.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Mornington Peninsula Wine"
+    },
+    {
+      "url": "https://morningtonpeninsulawine.com.au/autumn-winery-walk",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Autumn Winery Walk | Mornington Peninsula Wine"
+    },
+    {
+      "url": "https://morningtonpeninsulawine.com.au/events",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Events | Mornington Peninsula Wine"
+    },
+    {
+      "url": "https://morningtonpeninsulawine.com.au/region-and-history",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Region and History | Mornington Peninsula Wine"
+    },
+    {
+      "url": "https://morningtonrailway.org.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Mornington Tourist Railway"
+    },
+    {
+      "url": "https://mpbrew.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.mpbrew.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Mornington Breweries"
+    },
+    {
+      "url": "https://mpcottages.com",
+      "verdict": "blocked",
+      "httpCode": "429",
+      "effectiveUrl": "https://mpcottages.com/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "429 Too Many Requests"
+    },
+    {
+      "url": "https://mpfm.com.au",
+      "verdict": "dead",
+      "httpCode": "000",
+      "error": "curl: (6) Could not resolve host: mpfm.com.au",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "disposition": "gone",
+      "dispositionNote": "Domain does not resolve. The Main Street Market at mainstreetmornington.com.au is a different market (Wednesdays, Main Street) from the Mornington Farmers' Market this record describes (Mornington Park, The Esplanade), so it is not an equivalent source.",
+      "reviewedOn": "2026-09-13"
+    },
+    {
+      "url": "https://mprg.mornpen.vic.gov.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://mprg.mornpen.vic.gov.au/Home",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Home - Mornington Peninsula Regional Gallery"
+    },
+    {
+      "url": "https://mprg.mornpen.vic.gov.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Home - Mornington Peninsula Regional Gallery",
+      "effectiveUrl": "https://mprg.mornpen.vic.gov.au/Home",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://mprg.mornpen.vic.gov.au/Exhibitions/Current-exhibitions/National-Works-On-Paper-2026",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "National Works On Paper 2026 - Mornington Peninsula Regional Gallery",
+      "probedOn": "2026-09-17",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://mprg.mornpen.vic.gov.au/Home",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Home - Mornington Peninsula Regional Gallery",
+      "probedOn": "2026-09-17",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://mpys.com.au/",
+      "verdict": "blocked",
+      "httpCode": "202",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://mrc.racing.com",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://mrc.racing.com/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Caulfield, Sportsbet Sandown &amp; Mornington Racecourses | Melbourne Racing Club"
+    },
+    {
+      "url": "https://mrc.racing.com/calendar/2026/06/08/mornington-kings-birthday",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Mornington King&#x27;s Birthday| Melbourne Racing Club"
+    },
+    {
+      "url": "https://mre.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://mre.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Mornington Peninsula Winery | Restaurant-Cellar Door | Main Ridge Estate"
+    },
+    {
+      "url": "https://mre.com.au/visit",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://mre.com.au/visit/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Visit us at Main Ridge Estate | Cellar Door | Light Lunches | Wine Tasting"
+    },
+    {
+      "url": "https://mre.com.au/visit/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Visit us at Main Ridge Estate | Cellar Door | Light Lunches | Wine Tasting"
+    },
+    {
+      "url": "https://mrvincenzos.com",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://mrvincenzos.com/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Italian Restaurant &amp; Wine Bar Mornington Peninsula"
+    },
+    {
+      "url": "https://nazaaray.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://nazaaray.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Nazaaray Estate - Nazaaray Estate | Flinders"
+    },
+    {
+      "url": "https://oceaneight.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://oceaneight.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Ocean Eight Winery | Mornington Peninsula Pinot Noir &amp; Chardonnay &ndash; oceaneightstore"
+    },
+    {
+      "url": "https://oceaneight.com.au/pages/contact",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Ocean Eight | Contact &ndash; oceaneightstore"
+    },
+    {
+      "url": "https://paringaestate.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://paringaestate.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Paringa Estate (Aust) PTY LTD"
+    },
+    {
+      "url": "https://peninsulaessence.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Peninsula Essence Online - peninsula essence"
+    },
+    {
+      "url": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-sunday-sessions/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Peninsula Hot Springs Sunday Sessions, Rye · Peninsula Insider"
+    },
+    {
+      "url": "https://peninsulakids.com.au/events/morningtons-christmas-festival/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Mornington&#039;s Christmas Festival - Peninsula Kids"
+    },
+    {
+      "url": "https://peninsulakids.com.au/markets-3/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Markets - Peninsula Kids"
+    },
+    {
+      "url": "https://phaedrusestate.com",
+      "verdict": "dead",
+      "httpCode": "000",
+      "error": "curl: (6) Could not resolve host: phaedrusestate.com",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "disposition": "gone",
+      "dispositionNote": "Domain does not resolve, and no operator-run replacement was found. EDITOR: Visit Victoria and Wine Companion both place Phaedrus Estate at 220 Mornington-Tyabb Road, Moorooduc. This record says '220 Mornington-Flinders Rd, Red Hill' with place 'dromana'. The street number matches and nothing else does.",
+      "reviewedOn": "2026-09-13"
+    },
+    {
+      "url": "https://pier10.com.au/events-3/mothersday2023/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Mother&#039;s Day ~ 10th May 2026 - Pier 10 Winery"
+    },
+    {
+      "url": "https://pier10.com.au/events-mornington-peninsula/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Events at Pier 10 | Mornington Peninsula"
+    },
+    {
+      "url": "https://ptleoestate.com.au",
+      "verdict": "blocked",
+      "httpCode": "202",
+      "effectiveUrl": "https://ptleoestate.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://quealy.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://quealy.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Quealy Winemakers"
+    },
+    {
+      "url": "https://quealy.com.au/pages/cellar-door",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Cellar Door &ndash; Quealy Winemakers"
+    },
+    {
+      "url": "https://rarehare.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://rarehare.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Rare Hare Wine &amp; Food Store | Winery Lunch Mornington Peninsula"
+    },
+    {
+      "url": "https://redgumbbq.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://redgumbbq.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Homepage - Red Gum BBQ"
+    },
+    {
+      "url": "https://redhillbrewery.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.redhillbrewery.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Red Hill Brewery"
+    },
+    {
+      "url": "https://redhillcheese.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://redhillcheese.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Redhill Cheese"
+    },
+    {
+      "url": "https://redhilltruffles.com",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://redhilltruffles.com/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Truffle Hunting - Red Hill Truffles"
+    },
+    {
+      "url": "https://redhilltruffles.com/hunts",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Book a Hunt &mdash; Red Hill Truffles"
+    },
+    {
+      "url": "https://rickswinetours.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Wine Tours Melbourne // Private &amp; Public Tours (Best Rates)",
+      "effectiveUrl": "https://rickswinetours.com.au/"
+    },
+    {
+      "url": "https://rickswinetours.com.au/mornington-peninsula-wine-tours/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Mornington Peninsula"
+    },
+    {
+      "url": "https://ryehotel.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.ryehotel.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Rye Hotel, Rye VIC"
+    },
+    {
+      "url": "https://smallstonepantry.com.au",
+      "verdict": "dead",
+      "httpCode": "000",
+      "error": "curl: (6) Could not resolve host: smallstonepantry.com.au",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "disposition": "gone",
+      "dispositionNote": "Domain does not resolve. No successor found.",
+      "reviewedOn": "2026-09-13"
+    },
+    {
+      "url": "https://solemotive.com/pages/portsea-twilight",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Portsea Twilight | Sole Motive"
+    },
+    {
+      "url": "https://sorrentosolstice.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://sorrentosolstice.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Thank You — Sorrento Solstice 2026"
+    },
+    {
+      "url": "https://sorrentowritersfestival.com.au",
+      "verdict": "blocked",
+      "httpCode": "200",
+      "effectiveUrl": "https://sorrentowritersfestival.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Home - Sorrento Writers Festival"
+    },
+    {
+      "url": "https://sorrentowritersfestival.com.au/",
+      "verdict": "blocked",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Home - Sorrento Writers Festival"
+    },
+    {
+      "url": "https://sscbc.com.au",
+      "verdict": "blocked",
+      "httpCode": "202",
+      "effectiveUrl": "https://sscbc.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://sscbc.com.au/2025-26/",
+      "verdict": "blocked",
+      "httpCode": "202",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://sscbc.com.au/coutaboats/",
+      "verdict": "blocked",
+      "httpCode": "202",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://stringerssorrento.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://stringerssorrento.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Stringers Sorrento - Restaurant Bar &amp; Providore"
+    },
+    {
+      "url": "https://stumpygully.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://stumpygully.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Home Winery - Stumpy Gully"
+    },
+    {
+      "url": "https://sunnyridge.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://sunnyridge.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Home - Sunny Ridge"
+    },
+    {
+      "url": "https://sustainablehouseday.com/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Sustainable House Day"
+    },
+    {
+      "url": "https://tarbarrel.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://tarbarrel.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Tar Barrel Brewery &amp; Distillery | Mornington Peninsula"
+    },
+    {
+      "url": "https://tarbarrel.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Tar Barrel Brewery &amp; Distillery | Mornington Peninsula"
+    },
+    {
+      "url": "https://tgallantvineyard.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://tgallantvineyard.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "T&#039;Gallant Vineyard - Mornington Peninsula&#039;s Favourite Winery"
+    },
+    {
+      "url": "https://tgallantvineyard.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "T&#039;Gallant Vineyard - Mornington Peninsula&#039;s Favourite Winery",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://tgallantvineyard.com.au/bookings/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "T&#039;Gallant Vineyard - Mornington Peninsula&#039;s Favourite Winery",
+      "effectiveUrl": "https://tgallantvineyard.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://thebaths.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.thebaths.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "THE BATHS | Mysite"
+    },
+    {
+      "url": "https://thebayhotelmornington.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.thebayhotelmornington.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "The Bay Hotel | Discover &amp; Dine Today"
+    },
+    {
+      "url": "https://thecaperetreat.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.thecaperetreat.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "The Cape Retreat | Luxury Group Accommodation in Cape Schanck, Mornington Peninsula"
+    },
+    {
+      "url": "https://thecontinentalsorrento.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Fine Dining, Lunch Restaurants &amp; Bars | The Continental Sorrento",
+      "effectiveUrl": "https://thecontinentalsorrento.com.au/",
+      "probedOn": "2026-09-19",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://thecontinentalsorrento.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Fine Dining, Lunch Restaurants &amp; Bars | The Continental Sorrento"
+    },
+    {
+      "url": "https://thecontinentalsorrento.com.au/stay",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://thecontinentalsorrento.com.au/stay-restore/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Stay &amp; Restore - The Continental Sorrento"
+    },
+    {
+      "url": "https://thecontinentalsorrento.com.au/whats-on-the-conti/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Events from September 19 &#8211; December 25 &#8211; The Continental Sorrento",
+      "effectiveUrl": "https://thecontinentalsorrento.com.au/discover/",
+      "probedOn": "2026-09-19",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://therocksmornington.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.therocksmornington.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "The Rocks Mornington &#8211; Seaside Bar &amp; Restaurant"
+    },
+    {
+      "url": "https://timeout.com/melbourne/art/pt-leo-estate-sculpture-park",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.timeout.com/melbourne/art/pt-leo-estate-sculpture-park",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Pt Leo Estate Sculpture Park"
+    },
+    {
+      "url": "https://treetopsatredhill.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://treetopsatredhill.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Treetops at Red Hill: Peppercorn Cottage and The Winemakers Cottage"
+    },
+    {
+      "url": "https://trofeoestate.com",
+      "verdict": "moved",
+      "httpCode": "000",
+      "error": "curl: (60) SSL certificate problem: self-signed certificate More details here: https://curl.se/docs/sslcerts.html curl failed to verify the legitimacy of the server and therefore could not establish a",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "disposition": "moved",
+      "dispositionNote": "The .com serves a self-signed certificate. The operator's live domain is the .com.au, which resolves and serves the site.",
+      "reviewedOn": "2026-09-13",
+      "replacement": "https://trofeoestate.com.au/"
+    },
+    {
+      "url": "https://trofeoestate.com.au",
+      "verdict": "blocked",
+      "httpCode": "202",
+      "effectiveUrl": "https://trofeoestate.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://trofeoestate.com.au/",
+      "verdict": "blocked",
+      "httpCode": "202",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://trofeoestate.com/visit",
+      "verdict": "moved",
+      "httpCode": "000",
+      "error": "curl: (60) SSL certificate problem: self-signed certificate More details here: https://curl.se/docs/sslcerts.html curl failed to verify the legitimacy of the server and therefore could not establish a",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "disposition": "moved",
+      "dispositionNote": "Operator's own server redirects trofeoestate.com.au/visit to www.trofeoestate.com.au/visit-us/.",
+      "reviewedOn": "2026-09-13",
+      "replacement": "https://www.trofeoestate.com.au/visit-us/"
+    },
+    {
+      "url": "https://tucksridge.com.au",
+      "verdict": "tls-fault",
+      "httpCode": "000",
+      "error": "curl: (60) SSL certificate problem: self-signed certificate More details here: https://curl.se/docs/sslcerts.html curl failed to verify the legitimacy of the server and therefore could not establish a",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "disposition": "gone",
+      "dispositionNote": "Serves a self-signed certificate, so a reader following it sees a browser security warning. www.tucksridge.com.au refuses the connection outright, and tucks.com.au is an industrial packings company. EDITOR: no fetchable operator site was found for Tuck's Ridge.",
+      "reviewedOn": "2026-09-13"
+    },
+    {
+      "url": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide",
+      "verdict": "blocked",
+      "httpCode": "403",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Just a moment..."
+    },
+    {
+      "url": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide/catch-limits-and-closed-seasons/types-of-fish/marine-and-estuarine-scale-fish/australian-salmon",
+      "verdict": "blocked",
+      "httpCode": "403",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Just a moment..."
+    },
+    {
+      "url": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide/catch-limits-and-closed-seasons/types-of-fish/marine-and-estuarine-scale-fish/bream-all-species",
+      "verdict": "blocked",
+      "httpCode": "403",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Just a moment..."
+    },
+    {
+      "url": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide/catch-limits-and-closed-seasons/types-of-fish/marine-and-estuarine-scale-fish/flathead-all-species-except-dusky-flathead",
+      "verdict": "blocked",
+      "httpCode": "403",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Just a moment..."
+    },
+    {
+      "url": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide/catch-limits-and-closed-seasons/types-of-fish/marine-and-estuarine-scale-fish/king-george-whiting",
+      "verdict": "blocked",
+      "httpCode": "403",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Just a moment..."
+    },
+    {
+      "url": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide/catch-limits-and-closed-seasons/types-of-fish/marine-and-estuarine-scale-fish/mulloway",
+      "verdict": "blocked",
+      "httpCode": "403",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Just a moment..."
+    },
+    {
+      "url": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide/catch-limits-and-closed-seasons/types-of-fish/marine-and-estuarine-scale-fish/snapper",
+      "verdict": "blocked",
+      "httpCode": "403",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Just a moment..."
+    },
+    {
+      "url": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide/catch-limits-and-closed-seasons/types-of-fish/marine-and-estuarine-scale-fish/yellowtail-kingfish",
+      "verdict": "blocked",
+      "httpCode": "403",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Just a moment..."
+    },
+    {
+      "url": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide/catch-limits-and-closed-seasons/types-of-fish/sharks-skates-and-rays/gummy-shark",
+      "verdict": "blocked",
+      "httpCode": "403",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Just a moment..."
+    },
+    {
+      "url": "https://viaboffe.com.au",
+      "verdict": "dead",
+      "httpCode": "000",
+      "error": "curl: (6) Could not resolve host: viaboffe.com.au",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "disposition": "gone",
+      "dispositionNote": "Domain does not resolve. A 'Via Boffe' trades at via-boffe.square.site, but at 59 Main Street Mornington on (03) 5976 8158, while this record says 200 Main Ridge Rd, Main Ridge on +61 3 5989 6111. Two different addresses and two different phone numbers is not enough to assert they are the same business. EDITOR.",
+      "reviewedOn": "2026-09-13"
+    },
+    {
+      "url": "https://viaboffe.com.au/bookings",
+      "verdict": "dead",
+      "httpCode": "000",
+      "error": "curl: (6) Could not resolve host: viaboffe.com.au",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "disposition": "gone",
+      "dispositionNote": "Same domain, same reasoning.",
+      "reviewedOn": "2026-09-13"
+    },
+    {
+      "url": "https://villamallorca.com.au",
+      "verdict": "dead",
+      "httpCode": "000",
+      "error": "curl: (6) Could not resolve host: villamallorca.com.au",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "disposition": "gone",
+      "dispositionNote": "Domain does not resolve. No successor found.",
+      "reviewedOn": "2026-09-13"
+    },
+    {
+      "url": "https://vinehopfestival.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Home - Peninsula Vinehop Festival"
+    },
+    {
+      "url": "https://vinetrekker.com.au/mornington-peninsula-beaches/",
+      "verdict": "blocked",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "The 14 Best Mornington Peninsula Beaches For Your Holiday - Vinetrekker"
+    },
+    {
+      "url": "https://walkingmaps.com.au/walk/81",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Bushranger&#39;s Bay Trail - Walking Maps"
+    },
+    {
+      "url": "https://winehopandcoastaltours.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://winehopandcoastaltours.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Wine Hop And Coastal Tours"
+    },
+    {
+      "url": "https://winehopandcoastaltours.com.au/mornington-peninsula-coastal-tour-with-lunch/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Mornington Peninsula Scenic Tour With Lunch &#8211; Wine Hop And Coastal Tours"
+    },
+    {
+      "url": "https://winterwineweekend.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://morningtonpeninsulawine.com.au/winter-wine-weekend",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Winter Wine Weekend | Mornington Peninsula Wine"
+    },
+    {
+      "url": "https://woodmanestate.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://woodmanestate.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Woodman Estate - Luxury Accommodation - Wellness Retreat- Fine Dining"
+    },
+    {
+      "url": "https://worldseriesswims.com.au/portsea-swim-classic/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Portsea Swim Classic | Victoria Ocean Swims | World Series Swims"
+    },
+    {
+      "url": "https://www.albathermalsprings.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://albathermalsprings.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Alba Thermal Springs &amp; Spa - Mornington Peninsula, Hot Springs"
+    },
+    {
+      "url": "https://www.amourofthegrape.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.amourofthegrape.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Home - Amour Of The Grape"
+    },
+    {
+      "url": "https://www.amourofthegrape.com.au/tours/wine-tours-mornington-peninsula/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Mornington Peninsula Wine Tours - Amour Of The Grape"
+    },
+    {
+      "url": "https://www.arthursseat.com.au/book/",
+      "verdict": "moved",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "arthursseat.com.au&nbsp;-&nbsp;This website is for sale!&nbsp;-&nbsp;arthurs seat Resources and Information.",
+      "disposition": "replaced",
+      "dispositionNote": "arthursseat.com.au answers 200 from a domain-for-sale lander ('This website is for sale!'), not the operator. The gondola operator's own booking page is aseagle.com.au/tickets/, fetched 200.",
+      "reviewedOn": "2026-09-13",
+      "replacement": "https://aseagle.com.au/tickets/"
+    },
+    {
+      "url": "https://www.aseagle.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://aseagle.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Arthurs Seat Eagle | Cable Car - Gondola Rides in Mornington Peninsula"
+    },
+    {
+      "url": "https://www.ashcombemaze.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://ashcombemaze.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Ashcombe Maze and Lavender Gardens"
+    },
+    {
+      "url": "https://www.atdw.com.au/marketplace/6719ba926b99aee72e06ddc8",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "ATDW",
+      "probedOn": "2026-09-14",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.atdw.com.au/marketplace/69c62cfbcbca25036d99c915",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "ATDW"
+    },
+    {
+      "url": "https://www.australiantraveller.com/vic/mornington-peninsula/mornington-peninsula-markets/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "The best Mornington Peninsula markets for local treasures"
+    },
+    {
+      "url": "https://www.balnarringmarket.com.au",
+      "verdict": "tls-fault",
+      "httpCode": "000",
+      "error": "curl: (60) SSL: no alternative certificate subject name matches target host name 'www.balnarringmarket.com.au' More details here: https://curl.se/docs/sslcerts.html curl failed to verify the legitimac",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "disposition": "gone",
+      "dispositionNote": "The certificate does not match the hostname, so HTTPS fails and a reader sees a security warning. Plain HTTP answers 200. Publishing an http:// link for a market would be a downgrade this ticket is not authorised to make. EDITOR: ask the operator to fix the certificate.",
+      "reviewedOn": "2026-09-13"
+    },
+    {
+      "url": "https://www.barragunda.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Home - Barragunda"
+    },
+    {
+      "url": "https://www.bassandflindersdistillery.com",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.bassandflindersdistillery.com/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Grape-to-Glass Gin, Brandy &amp; Liqueurs &ndash; Bass &amp; Flinders Distillery"
+    },
+    {
+      "url": "https://www.bassandflindersdistillery.com/pages/events",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Distillery Events - Tastings, Activities &amp; Special Occasions | Bass &amp; Flinders Distillery | Australia"
+    },
+    {
+      "url": "https://www.bayplay.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://bayplay.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "BayPlay Experiences &amp; Group Activities | Mornington Peninsula"
+    },
+    {
+      "url": "https://www.beyondblue.org.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.beyondblue.org.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "24/7 Support for Anxiety, Depression and Suicide Prevention. - Beyond Blue"
+    },
+    {
+      "url": "https://www.beyondblue.org.au/get-involved/events/coastrek-mornington-peninsula-2026",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Beyond Blue"
+    },
+    {
+      "url": "https://www.birchcreek.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.birchcreek.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Birch Creek"
+    },
+    {
+      "url": "https://www.bistroelba.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.bistroelba.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Bistro Elba"
+    },
+    {
+      "url": "https://www.bloodylongwalk.com.au",
+      "verdict": "blocked",
+      "httpCode": "202",
+      "effectiveUrl": "https://www.bloodylongwalk.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://www.bloodylongwalk.com.au/lp/mornington-peninsula/",
+      "verdict": "blocked",
+      "httpCode": "202",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://www.bluemooncottages.com.au",
+      "verdict": "blocked",
+      "httpCode": "202",
+      "effectiveUrl": "https://www.bluemooncottages.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://www.bom.gov.au/explore/places/vic/main-ridge/forecast/",
+      "verdict": "moved",
+      "httpCode": "404",
+      "effectiveUrl": "https://www.bom.gov.au/page-not-found",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Page not found | The Bureau of Meteorology",
+      "disposition": "moved",
+      "dispositionNote": "BoM dropped the /explore/ path segment. The new URL returns 200 and the page title is 'Main Ridge Forecast - Bureau of Meteorology'. Same publisher, same page.",
+      "reviewedOn": "2026-09-13",
+      "replacement": "https://www.bom.gov.au/places/vic/main-ridge/forecast/"
+    },
+    {
+      "url": "https://www.bom.gov.au/places/vic/main-ridge/forecast/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Main Ridge Forecast - Bureau of Meteorology",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://www.bunyiptours.com",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.bunyiptours.com/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Bunyip Tours | Melbourne's Best Day Tours – Great Ocean Road, Penguins &amp; More"
+    },
+    {
+      "url": "https://www.bunyiptours.com/mornington-peninsula-day-trips/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Mornington Peninsula Day Trips with Bunyip Tours"
+    },
+    {
+      "url": "https://www.countryracing.com.au/mornington",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://country.racing.com:443/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "64 Country Racing Clubs | Victoria&#x27;s Great Day Out | Country Racing Victoria"
+    },
+    {
+      "url": "https://www.craftmarkets.com.au/mornington",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Craft Markets Australia"
+    },
+    {
+      "url": "https://www.craftmarkets.com.au/red-hill-community-market",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Red Hill Community Market® - Temporarily closed",
+      "probedOn": "2026-09-14",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.crittendenwines.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.crittendenwines.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Mornington Peninsula Winery - Family Owned | Crittenden Wines"
+    },
+    {
+      "url": "https://www.crittendenwines.com.au/blogs/news",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "News &ndash; Crittenden Wines"
+    },
+    {
+      "url": "https://www.dexterwines.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.dexterwines.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Dexter Wines | Experience Quality Wines – Shop Now"
+    },
+    {
+      "url": "https://www.driftawayondundas.com",
+      "verdict": "dead",
+      "httpCode": "404",
+      "effectiveUrl": "https://www.driftawayondundas.com/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Squarespace - Website Expired",
+      "disposition": "gone",
+      "dispositionNote": "Serves the Squarespace 'Website Expired' page. The operator stopped paying for the site; no successor found.",
+      "reviewedOn": "2026-09-13"
+    },
+    {
+      "url": "https://www.dromanaestate.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.dromanaestate.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Home Page - Dromana Estate"
+    },
+    {
+      "url": "https://www.eagleridge.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://eagleridge.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Eagle Ridge Golf Course &#8211; Play Your Way"
+    },
+    {
+      "url": "https://www.eldridge-estate.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.eldridge-estate.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Eldridge Estate: Best Mornington Peninsula Wine"
+    },
+    {
+      "url": "https://www.eldridge-estate.com.au/cellar-door/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Eldridge Estate | Best Red Hill Winery Mornington Peninsula"
+    },
+    {
+      "url": "https://www.enchantedadventure.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.enchantedadventure.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Enchanted Adventure: the Home of Tree Surfing - Arthurs Seat, Mornington Peninsula"
+    },
+    {
+      "url": "https://www.eventbrite.com.au/d/australia--mornington/events/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Mornington, Australia Events, Calendar &amp; Tickets | Eventbrite"
+    },
+    {
+      "url": "https://www.eventbrite.com.au/d/australia--mount-martha/events/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Mount Martha, Australia Events, Calendar &amp; Tickets | Eventbrite"
+    },
+    {
+      "url": "https://www.eventbrite.com.au/e/archibald-prize-2026-facing-modernity-mitchelton-winery-mprg-art-trip-tickets-1998397283069",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Archibald Prize 2026, Facing Modernity &amp; Mitchelton Winery: MPRG Art Trip Tickets, Tuesday 15 September • 7 AM - 6 PM | Eventbrite"
+    },
+    {
+      "url": "https://www.eventbrite.com.au/e/author-talk-vikki-petraitis-mornington-library-tickets-1997529018065",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Author Talk: Vikki Petraitis - Mornington Library Tickets, Tuesday, September 29 • 10:30 AM - 11:30 AM | Eventbrite"
+    },
+    {
+      "url": "https://www.eventbrite.com.au/e/pst-art-exhibition-opening-night-2026-tickets-1996533934744",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "PST Art Exhibition Opening Night 2026 Tickets, Friday, September 25 • 6:30 PM - 8:30 PM | Eventbrite"
+    },
+    {
+      "url": "https://www.eventbrite.com.au/e/saturday-pottery-class-tickets-1998469367676",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Saturday Pottery Class Tickets, Multiple dates | Eventbrite"
+    },
+    {
+      "url": "https://www.eventbrite.com.au/e/sound-circle-full-moon-sound-journey-at-peninsula-hot-springs-tickets-1967238998802",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Sound Circle – Full Moon Sound Journey at Peninsula Hot Springs Tickets, Friday, December 5, 2025 • 10 AM - 3 PM | Eventbrite"
+    },
+    {
+      "url": "https://www.eventbrite.com.au/e/the-wellness-experience-celebrating-womens-health-week-tickets-1998522990062",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "The Wellness Experience – Celebrating Women’s Health Week Tickets, Friday 11 September • 10 AM - 2 PM | Eventbrite"
+    },
+    {
+      "url": "https://www.eventbrite.com/e/enchanting-kirtan-sacred-music-meditation-experience-mornington-tickets-1998394282093",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Enchanting Kirtan: Sacred Music &amp; Meditation Experience - Mornington Tickets, Friday 30 October • Starts at 7 PM | Eventbrite"
+    },
+    {
+      "url": "https://www.facebook.com/flinderstruffles/",
+      "verdict": "blocked",
+      "httpCode": "400",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Error"
+    },
+    {
+      "url": "https://www.facebook.com/MorningtonPeninsulaRegionalGallery/videos/call-for-entries-national-works-on-paper-2026up-to-50000-acquisitions-and-awards/1292875862662549/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://www.facebook.com/ourartsandculture/posts/school-holidays-at-mornington-peninsula-regional-gallery/1198531805698616/",
+      "verdict": "blocked",
+      "httpCode": "400",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Error"
+    },
+    {
+      "url": "https://www.facebook.com/p/Pearcedale-Market-100064719966925/",
+      "verdict": "blocked",
+      "httpCode": "400",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Error"
+    },
+    {
+      "url": "https://www.facebook.com/PolperroWines/posts/introducing-soil-cellar-a-truffle-hunt-and-dinner-collaboration-between-flinders/1743941566857063/",
+      "verdict": "blocked",
+      "httpCode": "400",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Error"
+    },
+    {
+      "url": "https://www.flindersgolfclub.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.flindersgolfclub.com.au/cms/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Home - Flinders Golf Club"
+    },
+    {
+      "url": "https://www.flindershotel.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://flindershotel.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Flinders Hotel - Historic Coastal Hospitality Since 1889"
+    },
+    {
+      "url": "https://www.foxeys-hangout.com.au",
+      "verdict": "blocked",
+      "httpCode": "202",
+      "effectiveUrl": "https://www.foxeys-hangout.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://www.foxeys.com.au",
+      "verdict": "moved",
+      "httpCode": "000",
+      "error": "curl: (7) Failed to connect to www.foxeys.com.au port 443 after 59 ms: Couldn't connect to server",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "disposition": "moved",
+      "dispositionNote": "foxeys.com.au refuses TLS on 202.124.241.178, a NetRegistry parking address. The operator's live domain is foxeys-hangout.com.au, confirmed live and named as the official site by Wine Companion and Visit Victoria.",
+      "reviewedOn": "2026-09-13",
+      "replacement": "https://foxeys-hangout.com.au/"
+    },
+    {
+      "url": "https://www.georgiebass.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.georgiebass.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://www.globalballooning.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.globalballooning.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Melbourne, Yarra Valley and Mansfield Hot Air Balloon Flights"
+    },
+    {
+      "url": "https://www.globalballooning.com.au/mornington-peninsula/",
+      "verdict": "dead",
+      "httpCode": "404",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Page not found | Global Ballooning",
+      "disposition": "gone",
+      "dispositionNote": "404 on the operator's own live site, and no Peninsula page was found anywhere on it. EDITOR: the site sells a Global Ballooning Peninsula sunrise tour; the operator may no longer fly the Peninsula.",
+      "reviewedOn": "2026-09-13"
+    },
+    {
+      "url": "https://www.happyglamper.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "HAPPY GLAMPER"
+    },
+    {
+      "url": "https://www.hillandridgemarket.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.hillandridgemarket.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Hill &amp; Ridge Community Market"
+    },
+    {
+      "url": "https://www.hillandridgemarket.com.au/faqs",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "FAQs &mdash; Hill &amp; Ridge Community Market, Red Hill Recreation Reserve",
+      "probedOn": "2026-09-14",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.hospitalitymagazine.com.au/mr-vincenzos-reopens-on-the-mornington-peninsula-at-triple-the-size/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Mr Vincenzo’s reopens on the Mornington Peninsula at triple the size - hospitality | Magazine"
+    },
+    {
+      "url": "https://www.humanitix.com/au/event/sorrento-solstice-festival-2026",
+      "verdict": "dead",
+      "httpCode": "404",
+      "effectiveUrl": "https://humanitix.com/au/event/sorrento-solstice-festival-2026",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Humanitix - Tickets for good, not greed",
+      "disposition": "gone",
+      "dispositionNote": "404 on Humanitix. The ticket listing was removed after the event.",
+      "reviewedOn": "2026-09-13"
+    },
+    {
+      "url": "https://www.hurleyvineyard.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.hurleyvineyard.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Hurley Vineyard"
+    },
+    {
+      "url": "https://www.ilukaretreat.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://ilukaretreat.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Iluka Retreat &amp; Camp | Mornington Peninsula | Glamping &amp; Group Lodges"
+    },
+    {
+      "url": "https://www.ilukaretreat.com.au/contact",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Contact Us | Iluka Retreat &amp; Camp | Mornington Peninsula | Book &amp; Enquire",
+      "effectiveUrl": "https://ilukaretreat.com.au/contact-us/",
+      "probedOn": "2026-09-14",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://www.imaginefrankston.com.au/mornington/mornington-peninsula-regional-gallery",
+      "verdict": "moved",
+      "httpCode": "404",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Page Not Found | Imagine Frankston",
+      "disposition": "replaced",
+      "dispositionNote": "Frankston's tourism site dropped the page. The gallery now publishes on its own council subdomain, fetched 200 with title 'Home - Mornington Peninsula Regional Gallery'. Same subject, better publisher.",
+      "reviewedOn": "2026-09-13",
+      "replacement": "https://mprg.mornpen.vic.gov.au/"
+    },
+    {
+      "url": "https://www.instagram.com/foxeyshangout/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Instagram"
+    },
+    {
+      "url": "https://www.instagram.com/p/DV68r0aF3DC/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Instagram"
+    },
+    {
+      "url": "https://www.jettyroad.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.jettyroad.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Jetty Road Brewery | Beers For You | Mornington Peninsula"
+    },
+    {
+      "url": "https://www.jettyroad.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Jetty Road Brewery | Beers For You | Mornington Peninsula"
+    },
+    {
+      "url": "https://www.kellilundberg.art/exhibitions/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Exhibitions | kellilundberg.art"
+    },
+    {
+      "url": "https://www.kerrigreens.com",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://kerrigreens.com/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Kerri Greens Wine - Home"
+    },
+    {
+      "url": "https://www.kiaorasafetybeach.com/explore",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Accessible Accommodation Victoria | Kia Ora Safety Beach Mornington"
+    },
+    {
+      "url": "https://www.kooyong.com",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.portphillipestate.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "About - Port Phillip Estate"
+    },
+    {
+      "url": "https://www.kooyong.com/cellar-door",
+      "verdict": "dead",
+      "httpCode": "404",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Page not found &#8211; Port Phillip Estate",
+      "disposition": "gone",
+      "dispositionNote": "404 on the operator's own site. kooyong.com now redirects to portphillipestate.com.au, which has no Kooyong cellar-door page. Sending a reader to the Port Phillip Estate cellar door instead would assert that Kooyong tastings happen there, which nothing fetched says.",
+      "reviewedOn": "2026-09-13"
+    },
+    {
+      "url": "https://www.lakesidevillas.com.au",
+      "verdict": "blocked",
+      "httpCode": "202",
+      "effectiveUrl": "https://www.lakesidevillas.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://www.lakesidevillas.com.au/book",
+      "verdict": "blocked",
+      "httpCode": "202",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://www.lovethepen.com.au/blog/national-works-paper-2026-mprg/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "National Works On Paper 2026 at MPRG - Love the Peninsula"
+    },
+    {
+      "url": "https://www.mainridgedairy.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.mainridgedairy.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Main Ridge Dairy - Farm fresh produce and picturesque grounds"
+    },
+    {
+      "url": "https://www.mainridgeestate.com.au/",
+      "verdict": "dead",
+      "httpCode": "000",
+      "error": "curl: (6) Could not resolve host: www.mainridgeestate.com.au",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "disposition": "gone",
+      "dispositionNote": "Domain does not resolve and shows no sign of ever having resolved. It was cited on 5 May 2026 as the source establishing Main Ridge Estate's Tuesday-Sunday trading. A source that cannot be reached cannot have been read, so that claim was never sourced.",
+      "reviewedOn": "2026-09-13"
+    },
+    {
+      "url": "https://www.manylittle.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Many Little | Bar &amp; Dining, Red Hill South",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://www.marthastable.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.marthastable.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Martha&#039;s Table &#8211; Restaurant, Grocer and Cellar"
+    },
+    {
+      "url": "https://www.marthastable.com.au/book-a-table/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "BOOKINGS &#8211; Martha&#039;s Table",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://www.marthastable.com.au/reservations",
+      "verdict": "moved",
+      "httpCode": "404",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Page not found &#8211; Martha&#039;s Table",
+      "disposition": "moved",
+      "dispositionNote": "Same site, renamed path. Fetched 200, title 'BOOKINGS - Martha's Table'.",
+      "reviewedOn": "2026-09-13",
+      "replacement": "https://www.marthastable.com.au/book-a-table/"
+    },
+    {
+      "url": "https://www.mcneillrealestate.com.au/post/Mornington-Peninsula-Mother%E2%80%99s-Day-Weekend-Guide-2026",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Post | McNeill Real Estate"
+    },
+    {
+      "url": "https://www.melbourneplaygrounds.com.au/the-best-accessible-beaches",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "The Best Accessible Beaches in Melbourne and Regional Victoria - Blogs - Melbourne Playgrounds"
+    },
+    {
+      "url": "https://www.montalto.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://montalto.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Montalto Winery | Red Hill, Mornington Peninsula"
+    },
+    {
+      "url": "https://www.montalto.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://montalto.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Montalto Winery | Red Hill, Mornington Peninsula"
+    },
+    {
+      "url": "https://www.montalto.com.au/pages/cellar-door",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Cellar Door Experiences - Montalto Winery",
+      "effectiveUrl": "https://montalto.com.au/pages/cellar-door",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://www.montalto.com.au/pages/find-us",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Visit Our Vineyard - Montalto Winery",
+      "effectiveUrl": "https://montalto.com.au/pages/find-us",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://www.montalto.com.au/restaurant",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://montalto.com.au/pages/restaurant",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "The Restaurant at Montalto, Mornington Peninsula - Montalto Winery"
+    },
+    {
+      "url": "https://www.montalto.com.au/sculpture",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://montalto.com.au/pages/sculpture",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Sculpture Collection - Montalto Winery"
+    },
+    {
+      "url": "https://www.moonahlinks.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.moonahlinks.com.au/cms/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Home - Moonah Links Resort"
+    },
+    {
+      "url": "https://www.moonahlinks.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.moonahlinks.com.au/cms/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Home - Moonah Links Resort"
+    },
+    {
+      "url": "https://www.moonlitsanctuary.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://moonlitsanctuary.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Moonlit Sanctuary - The best place to see Aussie animals!"
+    },
+    {
+      "url": "https://www.moonrakerdolphinswims.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.moonrakerdolphinswims.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Moonraker Dolphin Swims"
+    },
+    {
+      "url": "https://www.moonrakerdolphinswims.com.au/tours",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Our Tours &mdash; Moonraker Dolphin Swims"
+    },
+    {
+      "url": "https://www.morningtongolf.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.morningtongolf.com.au/cms/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Mornington Peninsula, Wedding Venues, Mornington Golf ClubMornington Peninsula’s Premier Golf Club | Welcome to the Mornington Peninsula’s Premier Golf Club"
+    },
+    {
+      "url": "https://www.morningtonmusicfestival.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://mainstreetmornington.com.au/mornington-winter-music-festival/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Mornington Winter Music Festival | Main Street Mornington"
+    },
+    {
+      "url": "https://www.morningtonmusicfestival.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://mainstreetmornington.com.au/mornington-winter-music-festival/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Mornington Winter Music Festival | Main Street Mornington"
+    },
+    {
+      "url": "https://www.morningtonpeninsulamagazine.com.au/",
+      "verdict": "blocked",
+      "httpCode": "202",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://www.mornpen.vic.gov.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.mornpen.vic.gov.au/Home",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Home - Mornington Peninsula Shire"
+    },
+    {
+      "url": "https://www.mornpen.vic.gov.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.mornpen.vic.gov.au/Home",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Home - Mornington Peninsula Shire"
+    },
+    {
+      "url": "https://www.mornpen.vic.gov.au/Activities/Explore-Mornington-Peninsula/Whats-on/Markets",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.mornpen.vic.gov.au/Things-to-do/Markets",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Markets - Mornington Peninsula Shire"
+    },
+    {
+      "url": "https://www.mornpen.vic.gov.au/Arts-Culture/Mornington-Peninsula-Regional-Gallery",
+      "verdict": "moved",
+      "httpCode": "404",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Page not found - Mornington Peninsula Shire",
+      "disposition": "replaced",
+      "dispositionNote": "The council retired /Arts-Culture/; its own 404 page renders at this URL. The gallery's current home is the mprg subdomain, fetched 200.",
+      "reviewedOn": "2026-09-13",
+      "replacement": "https://mprg.mornpen.vic.gov.au/"
+    },
+    {
+      "url": "https://www.mornpen.vic.gov.au/Community-Services/Youth-Services/Youth-Programs/Youth-Services-School-Holiday-Program",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.mornpen.vic.gov.au/Services/Communities/Youth-services/Youth-programs/Youth-services-school-holiday-program",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Youth services - school holiday program - Mornington Peninsula Shire"
+    },
+    {
+      "url": "https://www.mornpen.vic.gov.au/Events-Activities/Boneo-Community-Market",
+      "verdict": "dead",
+      "httpCode": "404",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Page not found - Mornington Peninsula Shire",
+      "disposition": "gone",
+      "dispositionNote": "COUNCIL RESTRUCTURE. The council's own 404 page renders at every /Events-Activities/ path; event listings now live under /Things-to-do/Events/Whats-on/. One such page was fetched successfully before the host began refusing this address, so the new structure is confirmed - but a replacement for this specific listing could not be fetched, and constructing one unread is exactly what this programme exists to stop. EDITOR.",
+      "reviewedOn": "2026-09-13"
+    },
+    {
+      "url": "https://www.mornpen.vic.gov.au/Events-Activities/Coastrek-Mornington-Peninsula-2026",
+      "verdict": "dead",
+      "httpCode": "404",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Page not found - Mornington Peninsula Shire",
+      "disposition": "gone",
+      "dispositionNote": "COUNCIL RESTRUCTURE, as above. Also a 2026 event that has passed.",
+      "reviewedOn": "2026-09-13"
+    },
+    {
+      "url": "https://www.mornpen.vic.gov.au/Events-Activities/Emu-Plains-Market-3",
+      "verdict": "dead",
+      "httpCode": "404",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Page not found - Mornington Peninsula Shire",
+      "disposition": "gone",
+      "dispositionNote": "COUNCIL RESTRUCTURE, as above.",
+      "reviewedOn": "2026-09-13"
+    },
+    {
+      "url": "https://www.mornpen.vic.gov.au/Events-Activities/Main-Street-Christmas-Parade",
+      "verdict": "dead",
+      "httpCode": "404",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Page not found - Mornington Peninsula Shire",
+      "disposition": "gone",
+      "dispositionNote": "COUNCIL RESTRUCTURE, as above.",
+      "reviewedOn": "2026-09-13"
+    },
+    {
+      "url": "https://www.mornpen.vic.gov.au/Events-Activities/Main-Street-Mornington-Festival-1",
+      "verdict": "dead",
+      "httpCode": "404",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Page not found - Mornington Peninsula Shire",
+      "disposition": "gone",
+      "dispositionNote": "COUNCIL RESTRUCTURE, as above.",
+      "reviewedOn": "2026-09-13"
+    },
+    {
+      "url": "https://www.mornpen.vic.gov.au/Events-Activities/Mothers-Day-Classic-2026",
+      "verdict": "dead",
+      "httpCode": "404",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Page not found - Mornington Peninsula Shire",
+      "disposition": "gone",
+      "dispositionNote": "COUNCIL RESTRUCTURE, as above. Also a 2026 event that has passed.",
+      "reviewedOn": "2026-09-13"
+    },
+    {
+      "url": "https://www.mornpen.vic.gov.au/Events-Activities/Songs-of-Dreams-and-Destiny",
+      "verdict": "dead",
+      "httpCode": "404",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Page not found - Mornington Peninsula Shire",
+      "disposition": "gone",
+      "dispositionNote": "COUNCIL RESTRUCTURE, as above.",
+      "reviewedOn": "2026-09-13"
+    },
+    {
+      "url": "https://www.mornpen.vic.gov.au/Events-Activities/Sorrento-Solstice-Festival",
+      "verdict": "dead",
+      "httpCode": "404",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Page not found - Mornington Peninsula Shire",
+      "disposition": "gone",
+      "dispositionNote": "COUNCIL RESTRUCTURE, as above.",
+      "reviewedOn": "2026-09-13"
+    },
+    {
+      "url": "https://www.mornpen.vic.gov.au/Events-Activities/Sound-Circle-%E2%80%93-Full-Moon-Sound-Journey-at-Peninsula-Hot-Springs",
+      "verdict": "dead",
+      "httpCode": "404",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Page not found - Mornington Peninsula Shire",
+      "disposition": "gone",
+      "dispositionNote": "COUNCIL RESTRUCTURE, as above.",
+      "reviewedOn": "2026-09-13"
+    },
+    {
+      "url": "https://www.mornpen.vic.gov.au/Events-Activities/Winter-Camp-2026",
+      "verdict": "dead",
+      "httpCode": "404",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Page not found - Mornington Peninsula Shire",
+      "disposition": "gone",
+      "dispositionNote": "COUNCIL RESTRUCTURE, as above. Also a 2026 event that has passed.",
+      "reviewedOn": "2026-09-13"
+    },
+    {
+      "url": "https://www.mornpen.vic.gov.au/Events-Activities/Winter-Wine-Weekend",
+      "verdict": "dead",
+      "httpCode": "404",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Page not found - Mornington Peninsula Shire",
+      "disposition": "gone",
+      "dispositionNote": "COUNCIL RESTRUCTURE, as above.",
+      "reviewedOn": "2026-09-13"
+    },
+    {
+      "url": "https://www.mornpen.vic.gov.au/Services/Planning-and-building/Strategic-planning/Planning-Scheme-amendments/Amendment-C314morn-%E2%80%93-EMO7-update",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Amendment C314morn – EMO7 update - Mornington Peninsula Shire"
+    },
+    {
+      "url": "https://www.mornpen.vic.gov.au/The-Shire/News-media-and-publications/News-and-media-releases",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "News and media releases - Mornington Peninsula Shire"
+    },
+    {
+      "url": "https://www.mornpen.vic.gov.au/The-Shire/News-media-and-publications/News-and-media-releases/Bin-fires-put-residents-and-drivers-at-risk",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Bin fires put residents and drivers at risk - Mornington Peninsula Shire"
+    },
+    {
+      "url": "https://www.mornpen.vic.gov.au/The-Shire/News-media-and-publications/News-and-media-releases/Community-Council-unite-behind-call-to-finish-Flinders-pier-restoration",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Community and Council unite to finish Flinders pier restoration - Mornington Peninsula Shire"
+    },
+    {
+      "url": "https://www.mornpen.vic.gov.au/The-Shire/News-media-and-publications/News-and-media-releases/Consultation-opens-on-plan-to-protect-four-bushland-reserves",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Consultation opens on plan to protect four bushland reserves - Mornington Peninsula Shire"
+    },
+    {
+      "url": "https://www.mornpen.vic.gov.au/The-Shire/News-media-and-publications/News-and-media-releases/Council-seeks-input-on-kindergarten-infrastructure-challenge",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Council seeks input on kindergarten infrastructure challenge - Mornington Peninsula Shire"
+    },
+    {
+      "url": "https://www.mornpen.vic.gov.au/The-Shire/News-media-and-publications/News-and-media-releases/Illegal-dumpers-fined-as-Shire-investigations-identify-offenders",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Illegal dumpers fined as Shire investigations identify offenders - Mornington Peninsula Shire"
+    },
+    {
+      "url": "https://www.mornpen.vic.gov.au/The-Shire/News-media-and-publications/News-and-media-releases/Portsea-named-Victorian-Top-Tourism-Town-winner",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Portsea named Victorian Top Tourism Town winner - Mornington Peninsula Shire"
+    },
+    {
+      "url": "https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Acoustic-Saturdays-Peppers-Moonah-Links-Live-Music",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Acoustic Saturdays Peppers Moonah Links Live Music - Mornington Peninsula Shire"
+    },
+    {
+      "url": "https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Doggy-Day-Out-1",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Doggy Day Out - Mornington Peninsula Shire"
+    },
+    {
+      "url": "https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Explore-More-of-Your-Backyard-at-Pt.-Leo-Estate-Sculpture-Park",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Explore More of Your Backyard at Pt. Leo Estate Sculpture Park - Mornington Peninsula Shire"
+    },
+    {
+      "url": "https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Family-Mystery-Picnic-in-Mornington-Peninsula",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Family Mystery Picnic in Mornington Peninsula - Mornington Peninsula Shire"
+    },
+    {
+      "url": "https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Lunch-and-Learn-Webinar-Electrifying-Local-Businesses",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Lunch and Learn Webinar: Electrifying Local Businesses - Mornington Peninsula Shire"
+    },
+    {
+      "url": "https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Seek-the-Heat-at-Peninsula-Hot-Springs",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Seek the Heat at Peninsula Hot Springs - Mornington Peninsula Shire"
+    },
+    {
+      "url": "https://www.mornpen.vic.gov.au/Things-to-do/Markets",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Markets - Mornington Peninsula Shire",
+      "probedOn": "2026-09-14",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.mpchoc.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.mpchoc.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "The Chocolateries Mornington Peninsula | Chocolate, Café &amp; Events"
+    },
+    {
+      "url": "https://www.mpchoc.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "The Chocolateries Mornington Peninsula | Chocolate, Café &amp; Events"
+    },
+    {
+      "url": "https://www.mpchoc.com.au/events/rocky-road-festival-tasting-sessions/",
+      "verdict": "dead",
+      "httpCode": "404",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Page not found | The Chocolateries Mornington Peninsula",
+      "disposition": "gone",
+      "dispositionNote": "404 on the operator's own live site. The event page was removed after the event.",
+      "reviewedOn": "2026-09-13"
+    },
+    {
+      "url": "https://www.mpchocolaterie.com.au",
+      "verdict": "moved",
+      "httpCode": "000",
+      "error": "curl: (6) Could not resolve host: www.mpchocolaterie.com.au",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "disposition": "moved",
+      "dispositionNote": "Domain no longer resolves. The operator trades at mpchoc.com.au, fetched 200, title 'The Chocolateries Mornington Peninsula | Chocolate, Cafe & Events'.",
+      "reviewedOn": "2026-09-13",
+      "replacement": "https://www.mpchoc.com.au/"
+    },
+    {
+      "url": "https://www.mpnews.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Home New - MPNEWS"
+    },
+    {
+      "url": "https://www.mpnews.com.au/2025/10/31/hill-ridge-community-market/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Hill &amp; Ridge Community Market - MPNEWS",
+      "probedOn": "2026-09-14",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.mpnews.com.au/2026/08/11/main-street-mornington-festival-cancelled-for-2026/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Main Street Mornington Festival cancelled for 2026 - MPNEWS"
+    },
+    {
+      "url": "https://www.mpnews.com.au/2026/08/12/bird-flu-detected-on-the-peninsula-and-phillip-island/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Bird flu detected on the peninsula and Phillip Island - MPNEWS"
+    },
+    {
+      "url": "https://www.mpplunge.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.mpplunge.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Mornington Peninsula Wine Tours | Private Winery Tours"
+    },
+    {
+      "url": "https://www.mpva.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://morningtonpeninsulawine.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Mornington Peninsula Wine"
+    },
+    {
+      "url": "https://www.mpva.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://morningtonpeninsulawine.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Mornington Peninsula Wine"
+    },
+    {
+      "url": "https://www.nationalgolf.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://nationalgolf.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "The National Golf Club • Mornington Peninsula, Victoria, Australia"
+    },
+    {
+      "url": "https://www.noise11.com/news/peninsula-summer-music-festival-2026-20251103",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Peninsula Summer Music Festival 2026 Brings World-Class Music To Mornington Peninsula — Noise11 Music News | News |"
+    },
+    {
+      "url": "https://www.onannon.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.onannon.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "OnannonOnannnon wines"
+    },
+    {
+      "url": "https://www.onlymelbourne.com.au/hastings-s-t-reet-market",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Hastings Street Market | Only Melbourne"
+    },
+    {
+      "url": "https://www.onlymelbourne.com.au/mornington-racecourse-market",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Mornington Racecourse Craft Market | Only Melbourne"
+    },
+    {
+      "url": "https://www.onlymelbourne.com.au/pearcedale-market",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Pearcedale Market | Only Melbourne"
+    },
+    {
+      "url": "https://www.ouestfrance.com.au",
+      "verdict": "dead",
+      "httpCode": "404",
+      "effectiveUrl": "https://www.ouestfrance.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "ConnectYourDomain Error | Wix.com",
+      "disposition": "gone",
+      "dispositionNote": "Serves a Wix 'ConnectYourDomain Error'. The venue is separately recorded as permanently closed.",
+      "reviewedOn": "2026-09-13"
+    },
+    {
+      "url": "https://www.paradigmhill.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.paradigmhill.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Paradigm Hill &ndash; ParadigmHill"
+    },
+    {
+      "url": "https://www.paradigmhill.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Paradigm Hill &ndash; ParadigmHill",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://www.parks.vic.gov.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.parks.vic.gov.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Parks Victoria"
+    },
+    {
+      "url": "https://www.parks.vic.gov.au/coc-listing?status=Closed+Areas",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Changes of conditions listing"
+    },
+    {
+      "url": "https://www.parks.vic.gov.au/places-to-see/parks/arthurs-seat-state-park",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Arthurs Seat State Park"
+    },
+    {
+      "url": "https://www.parks.vic.gov.au/places-to-see/parks/cape-schanck",
+      "verdict": "dead",
+      "httpCode": "404",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Parks Victoria",
+      "disposition": "gone",
+      "dispositionNote": "404 on Parks Victoria's own site. The Mornington Peninsula National Park page is live, but it covers the whole park rather than Cape Schanck, so it is not an equivalent source for this record's claims.",
+      "reviewedOn": "2026-09-13"
+    },
+    {
+      "url": "https://www.parks.vic.gov.au/places-to-see/parks/mornington-peninsula-national-park",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Mornington Peninsula National Park"
+    },
+    {
+      "url": "https://www.parks.vic.gov.au/places-to-see/parks/mornington-peninsula-national-park/things-to-do/ocean-beaches",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Ocean Beaches"
+    },
+    {
+      "url": "https://www.parks.vic.gov.au/places-to-see/parks/mornington-peninsula-national-park/things-to-do/two-bays-walking-trail",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Two Bays Walking Trail"
+    },
+    {
+      "url": "https://www.parks.vic.gov.au/places-to-see/parks/point-nepean-national-park",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Point Nepean National Park"
+    },
+    {
+      "url": "https://www.parks.vic.gov.au/places-to-see/parks/point-nepean-national-park/where-to-stay/point-nepean-discovery-tents",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Point Nepean Discovery Tents"
+    },
+    {
+      "url": "https://www.parks.vic.gov.au/places-to-see/sites/bushrangers-bay-walk",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Bushrangers Bay Walk (Mornington Peninsula National Park)"
+    },
+    {
+      "url": "https://www.parks.vic.gov.au/places-to-see/sites/greens-bush-access---greens-road",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Greens Bush Access - Greens Road (Mornington Peninsula National Park)"
+    },
+    {
+      "url": "https://www.peninsulafestival.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.peninsulafestival.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Peninsula Summer Music Festival"
+    },
+    {
+      "url": "https://www.peninsulafestival.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Peninsula Summer Music Festival"
+    },
+    {
+      "url": "https://www.peninsulafilmfestival.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Home"
+    },
+    {
+      "url": "https://www.peninsulafresh.com/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Peninsula Fresh Organics | certified organic vegetables | 6 Henderson Road, Baxter VIC, Australia"
+    },
+    {
+      "url": "https://www.peninsulahotsprings.com",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.peninsulahotsprings.com/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Mornington Peninsula Hot Springs Spa &amp; Massage Victoria"
+    },
+    {
+      "url": "https://www.peninsulahotsprings.com/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Mornington Peninsula Hot Springs Spa &amp; Massage Victoria"
+    },
+    {
+      "url": "https://www.peninsulahotsprings.com/accommodation",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Accommodation | Peninsula Hot Springs Accommodations"
+    },
+    {
+      "url": "https://www.peninsulahotsprings.com/accommodation/eco-lodges/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.peninsulahotsprings.com/accommodation/eco-lodges",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Eco Lodges Accommodation | Peninsula Hot Springs"
+    },
+    {
+      "url": "https://www.peninsulahotsprings.com/accommodation/glamping",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Glamping Accommodation | Peninsula Hot Springs"
+    },
+    {
+      "url": "https://www.peninsulahotsprings.com/bathe",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Bath House Spa Experiences | Peninsula Hot Springs"
+    },
+    {
+      "url": "https://www.peninsulahotsprings.com/bathe/wellness-activities",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Bath House Wellness Packages | Peninsula Hot Springs"
+    },
+    {
+      "url": "https://www.peninsulahotsprings.com/bathe/wellness-activities/body-clay-ritual",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Wellness Retreat | Mornington Peninsula Hot Springs"
+    },
+    {
+      "url": "https://www.peninsulahotsprings.com/bathing",
+      "verdict": "moved",
+      "httpCode": "404",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "disposition": "moved",
+      "dispositionNote": "Same site, renamed path. Fetched 200, title 'Bath House Spa Experiences | Peninsula Hot Springs'.",
+      "reviewedOn": "2026-09-13",
+      "replacement": "https://www.peninsulahotsprings.com/bathe"
+    },
+    {
+      "url": "https://www.peninsulahotsprings.com/contact-us",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Contact Us | Mornington Peninsula Hot Springs Melbourne",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://www.peninsulahotsprings.com/events",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Upcoming Events | Peninsula Hot Springs"
+    },
+    {
+      "url": "https://www.peninsulahotsprings.com/events/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.peninsulahotsprings.com/events",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Upcoming Events | Peninsula Hot Springs"
+    },
+    {
+      "url": "https://www.peninsulahotsprings.com/events/sunday-sessions-at-peninsula-hot-springs",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Sunday Sessions | Peninsula Hot Springs"
+    },
+    {
+      "url": "https://www.peninsulahotsprings.com/events/sunday-sessions-at-the-springs",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Sunday Sessions | Peninsula Hot Springs",
+      "effectiveUrl": "https://www.peninsulahotsprings.com/events/sunday-sessions-at-peninsula-hot-springs",
+      "probedOn": "2026-09-19",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.peninsulahotsprings.com/plan-your-visit",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Getting to Peninsula Hot Springs in Melbourne",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://www.peninsulahotsprings.com/whats-on",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.peninsulahotsprings.com/events",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Upcoming Events | Peninsula Hot Springs"
+    },
+    {
+      "url": "https://www.peninsulahotsprings.com/whats-on/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.peninsulahotsprings.com/events",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Upcoming Events | Peninsula Hot Springs"
+    },
+    {
+      "url": "https://www.petstock.com.au/blog/articles/summer-travel-our-dog-friendly-guide-to-the-mornington-peninsula",
+      "verdict": "blocked",
+      "httpCode": "429",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Vercel Security Checkpoint"
+    },
+    {
+      "url": "https://www.plantationhouse.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://plantationhouse.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Homepage - Plantation House"
+    },
+    {
+      "url": "https://www.polperro.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.polperro.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Dolphin Swims Melbourne | Polperro Dolphin Swims"
+    },
+    {
+      "url": "https://www.polperro.com.au/dolphin-swim/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.polperro.com.au/dolphin-swim-permit-conditions/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Dolphin Swim Permit Conditions - Polperro"
+    },
+    {
+      "url": "https://www.polperrowines.com.au",
+      "verdict": "blocked",
+      "httpCode": "202",
+      "effectiveUrl": "https://www.polperrowines.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://www.polperrowines.com.au/book",
+      "verdict": "blocked",
+      "httpCode": "202",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://www.polperrowines.com.au/end-of-year-events-at-polperro-and-many-little/",
+      "verdict": "blocked",
+      "httpCode": "202",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://www.polperrowines.com.au/escape/",
+      "verdict": "blocked",
+      "httpCode": "202",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://www.polperrowines.com.au/event/soil-cellar-flinders-truffles-x-polperro-winery/",
+      "verdict": "blocked",
+      "httpCode": "202",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://www.polperrowines.com.au/restore-pamper-retreat-at-polperro-farmhouse/",
+      "verdict": "blocked",
+      "httpCode": "202",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://www.portphillipestate.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.portphillipestate.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "About - Port Phillip Estate"
+    },
+    {
+      "url": "https://www.portphillipestate.com.au/accommodation",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.portphillipestate.com.au/accommodation-terms-and-conditions/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Accommodation Terms and Conditions - Port Phillip Estate"
+    },
+    {
+      "url": "https://www.portphillipestate.com.au/dine",
+      "verdict": "moved",
+      "httpCode": "404",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Page not found &#8211; Port Phillip Estate",
+      "disposition": "moved",
+      "dispositionNote": "Same site, renamed path. Fetched 200, title 'Dining Room - Port Phillip Estate'.",
+      "reviewedOn": "2026-09-13",
+      "replacement": "https://www.portphillipestate.com.au/dining-room/"
+    },
+    {
+      "url": "https://www.portphillipestate.com.au/dining-room/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Dining Room - Port Phillip Estate",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://www.portseagolf.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://portseagolf.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Golf and Accommodation at Portsea, Mornington Peninsula | Portsea Golf Club"
+    },
+    {
+      "url": "https://www.portseahotel.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://portseahotel.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Restaurant, Bar, Functions, Weddings &amp; Accommodation - Portsea Hotel"
+    },
+    {
+      "url": "https://www.portseapolo.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Portsea Polo"
+    },
+    {
+      "url": "https://www.prancinghorseestate.com",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.prancinghorseestate.com/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Prancing Horse Estate| Buy Premium Organic Wines | Mornington Peninsula Cellar Door Tastings"
+    },
+    {
+      "url": "https://www.ptleoestate.com.au",
+      "verdict": "blocked",
+      "httpCode": "202",
+      "effectiveUrl": "https://www.ptleoestate.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://www.ptleoestate.com.au/accommodation",
+      "verdict": "blocked",
+      "httpCode": "202",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://www.ptleoestate.com.au/experience/sculpture-park/",
+      "verdict": "blocked",
+      "httpCode": "202",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://www.ptleoestate.com.au/laura",
+      "verdict": "blocked",
+      "httpCode": "202",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://www.ptleoestate.com.au/laura-reservations",
+      "verdict": "blocked",
+      "httpCode": "202",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://www.ptleoestate.com.au/our-story/",
+      "verdict": "blocked",
+      "httpCode": "202",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://www.ptleoestate.com.au/restaurant",
+      "verdict": "blocked",
+      "httpCode": "202",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://www.ptleoestate.com.au/sculpture-park",
+      "verdict": "blocked",
+      "httpCode": "202",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://www.ptleoestate.com.au/stay",
+      "verdict": "blocked",
+      "httpCode": "202",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://www.ptleoestate.com.au/terrace",
+      "verdict": "blocked",
+      "httpCode": "202",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://www.ptleoestate.com.au/whats-on-event/rediscover-more-of-your-backyard/",
+      "verdict": "blocked",
+      "httpCode": "202",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://www.racv.com.au/travel-leisure/racv-resorts/our-destinations/cape-schanck-resort.html",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.racv.com.au/travel-experiences/resorts/cape-schanck.html",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "RACV Cape Schanck | RACV"
+    },
+    {
+      "url": "https://www.racv.com.au/travel-leisure/resorts/cape-schanck-resort.html",
+      "verdict": "dead",
+      "httpCode": "404",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Sorry, we couldn’t find that page | RACV",
+      "disposition": "gone",
+      "dispositionNote": "404 on RACV's own site. Several plausible successor paths were fetched and all 404; no replacement could be confirmed.",
+      "reviewedOn": "2026-09-13"
+    },
+    {
+      "url": "https://www.redhellestate.com.au/",
+      "verdict": "dead",
+      "httpCode": "000",
+      "error": "curl: (6) Could not resolve host: www.redhellestate.com.au",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "disposition": "gone",
+      "dispositionNote": "Domain does not resolve. It is a misspelling of Red Hill Estate, and it was cited on 5 May 2026 as the source establishing that venue's Tuesday-Sunday trading. redhillestate.com.au does resolve, but pointing this row at it would manufacture support the row never had: whatever was written on 5 May, this URL was not read.",
+      "reviewedOn": "2026-09-13"
+    },
+    {
+      "url": "https://www.redhillbrewery.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.redhillbrewery.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Red Hill Brewery"
+    },
+    {
+      "url": "https://www.redhillbrewery.com.au/brewers-cottage/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Brewer&#039;s Cottage at Red Hill Brewery"
+    },
+    {
+      "url": "https://www.redhillbrewery.com.au/category/events/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Events Archives - Red Hill Brewery | Mornington Peninsula&#039;s Original Craft Brewery"
+    },
+    {
+      "url": "https://www.redhillcommunitymarket.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Red Hill Community Market® &#8211; The Red Hill Community Market® is temporarily closed.",
+      "probedOn": "2026-09-14",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.redhillcommunitymarket.org/about",
+      "verdict": "dead",
+      "httpCode": "000",
+      "error": "curl: (6) Could not resolve host: www.redhillcommunitymarket.org",
+      "probedOn": "2026-09-14",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.redhillestate.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.redhillestate.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Red Hill Estate - Italian Winery &amp; Restaurant"
+    },
+    {
+      "url": "https://www.redhillmarket.com.au",
+      "verdict": "dead",
+      "httpCode": "000",
+      "error": "curl: (7) Failed to connect to www.redhillmarket.com.au port 443 after 36 ms: Couldn't connect to server",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "disposition": "gone",
+      "dispositionNote": "The domain resolves to a NetRegistry redirector that answers 200 with the two-word body 'Not found'. EDITOR, and this is the important one: the Red Hill Community Market's own site now reads 'The Red Hill Community Market is temporarily closed' and serves only a history archive. The market trading at Red Hill Recreation Reserve on the first Saturday September-May is the Hill & Ridge Community Market, run by the Red Hill Agricultural & Horticultural Society. This site holds them as two separate things and says so in prose.",
+      "reviewedOn": "2026-09-13"
+    },
+    {
+      "url": "https://www.rosebudcountryclub.com.au/",
+      "verdict": "blocked",
+      "httpCode": "200",
+      "effectiveUrl": "https://rosebudcountryclub.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Welcome - Rosebud Country Club"
+    },
+    {
+      "url": "https://www.runguides.com/event/30975/the-bloody-long-walk-mornington-peninsula",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "RunGuides | Find Running Events &amp; Races Near You"
+    },
+    {
+      "url": "https://www.runningcalendar.com.au/event/bloody-long-walk-melbourne-mornington/",
+      "verdict": "blocked",
+      "httpCode": "403",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "403 Forbidden"
+    },
+    {
+      "url": "https://www.scorpowines.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://scorpowines.com/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Scorpo Vineyard &amp; Wines &#8211; Scorpo Vineyard is situated on red / brown, clay rich soils derived from Tertiary Eocene Old Volcanics (40 million years old). The vines are planted between an altitude of 70 &#8211; 100 meters on a N.N.E. facing slope of 10%."
+    },
+    {
+      "url": "https://www.searoad.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.searoad.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Sorrento & Queenscliff Ferry Service | Searoad Ferries - Searoad Ferries"
+    },
+    {
+      "url": "https://www.searoad.com.au/blog/best-mornington-peninsula-beaches",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "8 Best Beaches on the Mornington Peninsula for Sun, Surf, and Fun - Searoad Ferries"
+    },
+    {
+      "url": "https://www.searoad.com.au/blog/school-holiday-activities-mornington-peninsula",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "10 School Holiday Activities on the Mornington Peninsula (2025) - Searoad Ferries"
+    },
+    {
+      "url": "https://www.simpletix.com/e/rocky-road-festival-tasting-session-2026-tickets-270471",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Rocky Road Festival Tasting Session 2026 Tickets | The Chocolateries Mornington Peninsula"
+    },
+    {
+      "url": "https://www.sorrentogolf.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://sorrentogolf.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Sorrento Golf Club &#8211; Classic Golf in the heart of the Mornington Peninsula, Victoria, Australia"
+    },
+    {
+      "url": "https://www.spiritoftasmania.com.au/things-to-do/mushroom-reef-marine-sanctuary/",
+      "verdict": "blocked",
+      "httpCode": "202",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://www.stalltastic.com.au/events/hastings-thursday-street-market",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Hastings Thursday Street Market - Mornington Peninsula, VIC Event"
+    },
+    {
+      "url": "https://www.standrewsbeachbrewery.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://standrewsbeachbrewery.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Beer Breweries in Melbourne and Mornington"
+    },
+    {
+      "url": "https://www.standrewsbeachgolf.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://standrewsbeachgolf.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Home - St Andrews Beach"
+    },
+    {
+      "url": "https://www.stonier.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.stonier.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Discover Stonier Wines | Stonier Wines"
+    },
+    {
+      "url": "https://www.stonier.com.au/visit",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Stonier - Visit"
+    },
+    {
+      "url": "https://www.stonier.com.au/visit/events/",
+      "verdict": "moved",
+      "httpCode": "404",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Stonier - 404 Error",
+      "disposition": "replaced",
+      "dispositionNote": "The events subpage is gone; the parent visit page is live (200, 'Stonier - Visit'). The specific event this was booked against is past, so the replacement supports the venue, not the event.",
+      "reviewedOn": "2026-09-13",
+      "replacement": "https://www.stonier.com.au/visit"
+    },
+    {
+      "url": "https://www.sunnyridge.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://sunnyridge.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Home - Sunny Ridge"
+    },
+    {
+      "url": "https://www.tedesca.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.tedesca.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "G &amp; T"
+    },
+    {
+      "url": "https://www.tedesca.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "G &amp; T"
+    },
+    {
+      "url": "https://www.temptationsailing.com",
+      "verdict": "dead",
+      "httpCode": "000",
+      "error": "curl: (6) Could not resolve host: www.temptationsailing.com",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "disposition": "gone",
+      "dispositionNote": "Domain does not resolve. A Temptation Sailing operates dolphin swims from Glenelg in South Australia; it is not the Sorrento operator this record describes.",
+      "reviewedOn": "2026-09-13"
+    },
+    {
+      "url": "https://www.temptationsailing.com/bay-cruise/",
+      "verdict": "dead",
+      "httpCode": "000",
+      "error": "curl: (6) Could not resolve host: www.temptationsailing.com",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "disposition": "gone",
+      "dispositionNote": "Same domain, same reasoning.",
+      "reviewedOn": "2026-09-13"
+    },
+    {
+      "url": "https://www.tenminutesbytractor.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.tenminutesbytractor.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Ten Minutes by Tractor | Homepage"
+    },
+    {
+      "url": "https://www.tenminutesbytractor.com.au/cellar-door",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.tenminutesbytractor.com.au/visit-us#cellar-door-tastings-section",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Ten Minutes by Tractor | Cellar Door &amp; Wine Experiences | Ten Minutes…"
+    },
+    {
+      "url": "https://www.tenminutesbytractor.com.au/Experiences/Terroir-Masterclass",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.tenminutesbytractor.com.au/visit-us#terroir-masterclass",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Ten Minutes by Tractor | Cellar Door &amp; Wine Experiences | Ten Minutes…"
+    },
+    {
+      "url": "https://www.tgallant.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://tgallantvineyard.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "T&#039;Gallant Vineyard - Mornington Peninsula&#039;s Favourite Winery"
+    },
+    {
+      "url": "https://www.the-orchard.com.au",
+      "verdict": "tls-fault",
+      "httpCode": "000",
+      "error": "curl: (35) OpenSSL/3.0.13: error:0A000438:SSL routines::tlsv1 alert internal error",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "disposition": "gone",
+      "dispositionNote": "TLS handshake fails with an internal error from the server. No fetchable replacement found.",
+      "reviewedOn": "2026-09-13"
+    },
+    {
+      "url": "https://www.thedunes.com.au/",
+      "verdict": "blocked",
+      "httpCode": "202",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://www.theheritagebalnarring.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "The Heritage Balnarring"
+    },
+    {
+      "url": "https://www.theheritagebalnarring.com.au/about",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "About &mdash; The Heritage Balnarring"
+    },
+    {
+      "url": "https://www.theheritagebalnarring.com.au/visit",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Book &mdash; The Heritage Balnarring"
+    },
+    {
+      "url": "https://www.theninch.com.au/event/winter-wine-weekend-2026",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Winter Wine Festival – The Ninch"
+    },
+    {
+      "url": "https://www.theranchmp.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Adventure Park &amp; Camps - The Ranch Adventure Park, Mornington Peninsula"
+    },
+    {
+      "url": "https://www.theranchmp.com.au/camps-holiday-programs/holiday-camp/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Holiday Camp - The Ranch Adventure Park"
+    },
+    {
+      "url": "https://www.thesomersgeneral.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "The Somers General - Relaxed Cafe Mornington Peninsula"
+    },
+    {
+      "url": "https://www.travelnuity.com/dog-friendly-mornington-peninsula/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Dog-Friendly Mornington Peninsula: Visiting with a Dog - Travelnuity"
+    },
+    {
+      "url": "https://www.tripadvisor.com.au",
+      "verdict": "blocked",
+      "httpCode": "403",
+      "effectiveUrl": "https://www.tripadvisor.com.au/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "tripadvisor.com.au"
+    },
+    {
+      "url": "https://www.tripadvisor.com.au/",
+      "verdict": "blocked",
+      "httpCode": "403",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "tripadvisor.com.au"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Attraction_Review-g552161-d7735933-Reviews-Bass_and_Flinders_Distillery",
+      "verdict": "blocked",
+      "httpCode": "403",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "tripadvisor.com"
+    },
+    {
+      "url": "https://www.tripadvisor.com/AttractionProductReview-g2055778-d25356559",
+      "verdict": "blocked",
+      "httpCode": "403",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "tripadvisor.com"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Hotel_Review-g552249-d1437809-Reviews-Hideaways_at_Red_Hill-Red_Hill_Mornington_Peninsula_Victoria.html",
+      "verdict": "blocked",
+      "httpCode": "403",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "tripadvisor.com"
+    },
+    {
+      "url": "https://www.trofeoestate.com.au/visit-us/",
+      "verdict": "blocked",
+      "httpCode": "202",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://www.trybooking.com/DPNDE",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "MORNINGTON VIRAL FOOD FESTIVAL Tickets, Mornington Racecourse, Mornington | TryBooking Australia",
+      "effectiveUrl": "https://www.trybooking.com/events/landing/1643438",
+      "probedOn": "2026-09-16",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.twobays.beer/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Gluten Free Beer | TWØBAYS Brewing Co Dromana, Mornington"
+    },
+    {
+      "url": "https://www.vicfomo.com/mornington_peninsula_shire/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Mornington Peninsula Shire Festivals and Events"
+    },
+    {
+      "url": "https://www.viralfoodfestival.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Viral Food Festival",
+      "probedOn": "2026-09-16",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.visitmelbourne.com/regions/mornington-peninsula/whats-on/markets-and-vintage/makers-markets/hill-and-ridge-community-market",
+      "verdict": "blocked",
+      "httpCode": "403",
+      "pageTitle": "Just a moment...",
+      "probedOn": "2026-09-14",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Visit Mornington Peninsula &mdash; Official regional tourism website for the region."
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/Places-To-See/Beaches-Coastline",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Beaches + Coastline &mdash; Visit Mornington Peninsula."
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/Places-To-See/Trips-Itineraries/Accessible-Beaches",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Accessible Beaches &mdash; Visit Mornington Peninsula."
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/Stories/calling-all-kids-here-is-your-guide-to-ultimate-school-holiday-fun",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Calling All Kids! Here Is Your Guide To Ultimate School Holiday Fun - Visit Mornington Peninsula"
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/Stories/five-splendid-summer-events",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Five Splendid Summer Events - Visit Mornington Peninsula"
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/Stories/peninsulas-ultimate-doggy-destinations",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Peninsula’s Ultimate Doggy Destinations - Visit Mornington Peninsula"
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/Things-To-Do/Arts-Heritage/View/5bfdf483bef7a7472bb99b14/Pt-Leo-Estate-Sculpture-Park",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Explore Arts + Heritage &mdash; Visit Mornington Peninsula."
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/Things-To-Do/Markets-Shopping/Markets/View/_3cd6d1c0f0bfdc0859267462/Mornington-Racecourse-Market",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Markets &mdash; Visit Mornington Peninsula."
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/whats-on",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "What's On &mdash; Visit Mornington Peninsula."
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/Whats-On",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "What's On &mdash; Visit Mornington Peninsula."
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/Whats-On/Markets",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "What's On - Markets &mdash; Visit Mornington Peninsula."
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/Whats-On/View/17262/helen-britton-the-story-so-far-at-mprg",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "What's On &mdash; Visit Mornington Peninsula."
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/Whats-On/View/17267/natalia-milosz-piekarska-sifted-light-at-mprg",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "What's On &mdash; Visit Mornington Peninsula."
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/Whats-On/View/17566/wild-mushroom-forage-lunch-with-the-kitchen",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "What's On &mdash; Visit Mornington Peninsula."
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/Whats-On/view/17635/southern-peninsula-sleepout-at-the-ranch-adventure-park",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "What's On &mdash; Visit Mornington Peninsula."
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/Whats-On/View/17665/rocky-road-festival-tasting-sessions-at-mornington-peninsula-chocolaterie",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "What's On &mdash; Visit Mornington Peninsula."
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/Whats-On/View/17762/complimentary-sculpture-park-entry-for-mp-locals-at-pt-leo-estate-sculpture-park",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "What's On &mdash; Visit Mornington Peninsula."
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/Whats-On/View/17893/faux-snow-flurries-at-arthurs-seat-eagle",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "What's On &mdash; Visit Mornington Peninsula."
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/Whats-On/View/17932/sip-sketch-in-the-sculpture-park-at-pt-leo-estate",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "What's On &mdash; Visit Mornington Peninsula."
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/Whats-On/View/17933/winter-acoustic-sessions-at-portsea-hotel",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "What's On &mdash; Visit Mornington Peninsula."
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/Whats-On/View/17960/mugs-and-keep-cups-workshop-at-peninsula-ceramics-studio",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "What's On &mdash; Visit Mornington Peninsula."
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/whats-on/view/18001/country-day-at-tar-barrel",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "What's On &mdash; Visit Mornington Peninsula."
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/Whats-On/View/18370/viral-food-festival-at-mornington-racecourse",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "What's On &mdash; Visit Mornington Peninsula.",
+      "probedOn": "2026-09-16",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.yabbylake.com",
+      "verdict": "ok",
+      "httpCode": "200",
+      "effectiveUrl": "https://www.yabbylake.com/",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Home - Yabby Lake"
+    },
+    {
+      "url": "https://yurthideaway.com.au/",
+      "verdict": "blocked",
+      "httpCode": "503",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Yurt Hideaway"
+    }
+  ]
+}

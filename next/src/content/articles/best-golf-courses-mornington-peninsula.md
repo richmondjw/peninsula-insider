@@ -1,5 +1,4 @@
 ---
-slug: "best-golf-courses-mornington-peninsula"
 title: "Best Golf Courses on the Mornington Peninsula - The Tier Guide"
 dek: "Not all Peninsula golf is equally useful to readers. This guide separates the destination rounds from the club names, and the public-access standouts from the private mythology."
 author: "editorial"

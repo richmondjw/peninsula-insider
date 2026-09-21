@@ -18,6 +18,7 @@
 
       form.addEventListener('submit', function (e) {
         e.preventDefault();
+        if (form._piSubscribeBusy || input.disabled) return;
 
         var email = (input.value || '').trim();
         if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
@@ -27,6 +28,7 @@
           return;
         }
 
+        form._piSubscribeBusy = true;
         btn.disabled       = true;
         label.textContent  = 'Joining\u2026';
         status.textContent = '';
@@ -37,23 +39,26 @@
           headers: { 'Content-Type': 'application/json' },
           body:    JSON.stringify({ email: email, source: source }),
         })
-          .then(function (res) { return res.json(); })
+          .then(function (res) { if (!res.ok) throw new Error('Subscription rejected'); return res.json(); })
           .then(function (data) {
-            if (data.ok) {
+            if (data && (data.ok === true || data.success === true)) {
+              if (typeof window.piTrack === 'function') window.piTrack('newsletter_signup_succeeded', { surface: source }, { component: 'SubscribeForm' });
               label.textContent  = 'You\u2019re in';
               status.textContent = data.message || 'You\u2019re in. The next edition will land in your inbox soon.';
               status.className   = 'newsletter__status newsletter__status--ok';
               input.value        = '';
               input.disabled     = true;
             } else {
-              label.textContent = 'Subscribe';
+              form._piSubscribeBusy = false;
+              label.textContent = 'Join';
               btn.disabled      = false;
               status.textContent = data.message || 'Something went wrong. Please try again.';
               status.className   = 'newsletter__status newsletter__status--err';
             }
           })
           .catch(function () {
-            label.textContent  = 'Subscribe';
+            form._piSubscribeBusy = false;
+            label.textContent  = 'Join';
             btn.disabled       = false;
             status.textContent = 'Something went wrong. Please try again.';
             status.className   = 'newsletter__status newsletter__status--err';

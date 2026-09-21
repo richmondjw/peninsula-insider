@@ -13,7 +13,7 @@
   "address": "263 Red Hill Rd, Red Hill South VIC 3937",
   "phone": "+61 3 5931 0000",
   "website": "https://www.portphillipestate.com.au",
-  "bookingUrl": "https://www.portphillipestate.com.au/dine",
+  "bookingUrl": "https://www.portphillipestate.com.au/dining-room/",
   "bookingProvider": "direct",
   "priceBand": "$$$$",
   "authority": {
@@ -56,7 +56,9 @@
   },
   "heroImage": {
     "src": "/images/sourced/place-red-hill-01.webp",
-    "alt": "CSIRO ScienceImage 1981 Pinot Noir grapes at the Main Ridge Estate - representative image for Port Phillip Estate Restaurant",
+    "alt": "Looking down a grassed row between trellised vines in full leaf, a treeline and paddocks beyond.",
+    "depicts": "a grassed row between trellised vines in full leaf",
+    "depictionStatus": "illustrative",
     "credit": "CSIRO",
     "license": "wikimedia-cc-by"
   },
@@ -69,5 +71,16 @@
     "One-Hat Hatted Restaurant",
     "AIA Architecture Award",
     "Port Phillip Bay Views"
+  ],
+  "retiredSourceLinks": [
+    {
+      "field": "bookingUrl",
+      "url": "https://www.portphillipestate.com.au/dine",
+      "verdict": "dead",
+      "disposition": "moved",
+      "replacement": "https://www.portphillipestate.com.au/dining-room/",
+      "checkedOn": "2026-09-13",
+      "note": "Same site, renamed path. Fetched 200, title 'Dining Room - Port Phillip Estate'."
+    }
   ]
 }

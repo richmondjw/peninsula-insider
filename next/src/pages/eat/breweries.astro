@@ -5,8 +5,9 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { buildBreadcrumbSchema, absUrl } from '../../lib/schema';
+import { isListableVenue } from '../../lib/editorial';
 
-const allVenues = await getCollection('venues');
+const allVenues = (await getCollection('venues')).filter(isListableVenue);
 const venues = allVenues.filter((v) => v.data.type === 'brewery');
 
 const breadcrumbItems = [

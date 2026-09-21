@@ -1,0 +1,22 @@
+{
+  "evidenceId": "events/mornington-christmas-festival-main-street-christmas-parade/event-status-613daf49",
+  "claim": "events/mornington-christmas-festival-main-street-christmas-parade/event-status",
+  "stance": "supports",
+  "publisher": {
+    "kind": "gov"
+  },
+  "retrievedAt": "2026-05-04",
+  "expiresAt": "2026-06-03",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/content/events/mornington-christmas-festival-main-street-christmas-parade.json",
+    "field": "primarySourceUrl",
+    "value": "https://www.mornpen.vic.gov.au/Events-Activities/Main-Street-Christmas-Parade",
+    "dateField": "lastCheckedDate"
+  },
+  "url": "https://www.mornpen.vic.gov.au/Events-Activities/Main-Street-Christmas-Parade",
+  "sourceHealth": "dead",
+  "sourceHealthCheckedOn": "2026-09-13",
+  "sourceStatus": "unsourced",
+  "sourceStatusNote": "COUNCIL RESTRUCTURE, as above."
+}

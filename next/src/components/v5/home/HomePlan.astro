@@ -13,11 +13,20 @@
  * .github/workflows/build-and-deploy.yml `schedule` for the rebuild
  * cadence that makes the rotation actually reach the live site. Closes
  * with "All plans" into the hub.
+ *
+ * Two alternates sit beneath the featured plan (2026-09-19), and the rail
+ * now carries a chip strip instead of three fixed links. The chips do not
+ * match anything here: they carry the reader's answers to the builder on
+ * /explore/plans/ as query params, which is where the matching lives. Chip
+ * values are derived from the catalogue, so the homepage cannot offer a
+ * shape no plan has.
  */
 import { getCollection } from 'astro:content';
 import Card from '../Card.astro';
 import { resolveHero } from '../../../lib/inline-edit/resolve-hero';
 import { getAustralianSeasonLower } from '../../../lib/season';
+import { buildPlansModel } from '../plans/plans-data';
+import { FACET_OPTIONS } from '../../../lib/facets';
 
 const ROTATION_WINDOW_DAYS = 5;
 
@@ -42,6 +51,10 @@ const rotationIndex = eligible.length
   : 0;
 
 const featured = eligible[rotationIndex];
+
+/* The plans model is the same one /explore/plans/ uses, so the alternates
+   and the chip strip stay consistent with the hub they lead to. */
+const plansModel = await buildPlansModel();
 
 const slug = featured ? (featured.data.slug ?? featured.id) : '';
 const hero = featured ? await resolveHero('itinerary', slug, featured.data) : null;
@@ -78,6 +91,46 @@ const planShape = [
   audienceLabel,
   seasonLabel === 'Year round' ? '' : seasonLabel,
 ].filter(Boolean);
+
+/* Alternates: the two strongest plans for the season that are not the
+   featured one. Same ranking rule as the hub's default context. */
+const featuredId = `it-${slug}`;
+const alternates = plansModel.plans
+  .filter((p) => p.id !== featuredId && p.image)
+  .sort(
+    (a, b) =>
+      Number((b.facets.date ?? []).includes('this-season')) -
+        Number((a.facets.date ?? []).includes('this-season')) ||
+      b.publishedAt - a.publishedAt,
+  )
+  .slice(0, 2);
+
+/* Chip strip vocabulary, derived: a chip exists only if a published plan
+   carries that shape. */
+const countOf = (key: 'party', value: string) =>
+  plansModel.plans.filter((p) => (p.facets[key] ?? []).includes(value)).length;
+
+const lengthChips = [
+  { value: 'one-day', label: 'One day' },
+  { value: 'weekend', label: 'Weekend' },
+  { value: 'longer', label: 'Two nights +' },
+].filter((o) =>
+  plansModel.plans.some((p) =>
+    o.value === 'one-day'
+      ? (p.facets.date ?? []).includes('one-day') || p.dayCount === 1
+      : o.value === 'weekend'
+        ? (p.facets.date ?? []).includes('weekend') || p.dayCount === 2 || p.dayCount === 3
+        : (p.dayCount ?? 0) >= 3,
+  ),
+);
+
+const whoChips = (FACET_OPTIONS.party ?? [])
+  .filter((o) => countOf('party', o.value) > 0)
+  .slice(0, 4)
+  .map((o) => ({ value: o.value, label: o.label }));
+
+const buildHref = (key: 'length' | 'who', value: string) =>
+  `/explore/plans/?${key}=${encodeURIComponent(value)}#build`;
 ---
 
 {featured && hero && (
@@ -128,16 +181,64 @@ const planShape = [
             </div>
           )}
 
-          <nav class="home-plan__alternatives" aria-label="Browse plans by context">
-            <p class="home-plan__rail-label">If today looks different</p>
-            <ul>
-              <li><a href="/explore/plans/?context=one-day">One day <span aria-hidden="true">→</span></a></li>
-              <li><a href="/explore/plans/?context=family">With kids <span aria-hidden="true">→</span></a></li>
-              <li><a href="/explore/plans/?context=rainy-day">Rainy day <span aria-hidden="true">→</span></a></li>
-            </ul>
-          </nav>
+          <div class="home-plan__build" data-surface="home-build">
+            <p class="home-plan__rail-label">Build your own</p>
+            {lengthChips.length > 0 && (
+              <div class="home-plan__chiprow" role="group" aria-label="How long have you got?">
+                {lengthChips.map((o) => (
+                  <a
+                    class="home-plan__chip"
+                    href={buildHref('length', o.value)}
+                    data-evt="card_click"
+                    data-surface="home-build"
+                    data-entity-type="page"
+                    data-entity-slug="plans-build"
+                  >{o.label}</a>
+                ))}
+              </div>
+            )}
+            {whoChips.length > 0 && (
+              <div class="home-plan__chiprow" role="group" aria-label="Who's coming?">
+                {whoChips.map((o) => (
+                  <a
+                    class="home-plan__chip"
+                    href={buildHref('who', o.value)}
+                    data-evt="card_click"
+                    data-surface="home-build"
+                    data-entity-type="page"
+                    data-entity-slug="plans-build"
+                  >{o.label}</a>
+                ))}
+              </div>
+            )}
+            <p class="home-plan__build-note">
+              Pick one and the plans page does the matching.
+            </p>
+          </div>
         </aside>
       </div>
+
+      {alternates.length > 0 && (
+        <div class="home-plan__alts">
+          {alternates.map((alt, i) => (
+            <Card
+              as="article"
+              variant="plan"
+              title={alt.title}
+              href={alt.href}
+              entityType={alt.entityType}
+              entitySlug={alt.slug}
+              image={alt.image ? { src: alt.image.src, alt: alt.image.alt } : undefined}
+              verdict={alt.verdict}
+              showEyebrow={false}
+              dayCount={alt.dayCount}
+              meta={alt.meta}
+              surface="home-plan-alt"
+              position={i + 1}
+            />
+          ))}
+        </div>
+      )}
     </div>
   </section>
 )}
@@ -145,6 +246,47 @@ const planShape = [
 <style>
   .home-plan {
     padding: var(--space-7) 0;
+  }
+
+  .home-plan__alts {
+    display: grid;
+    gap: var(--space-4);
+    grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+    margin-top: var(--space-5);
+  }
+
+  /* Chip strip: links, not controls. They carry the answer to the builder
+     on the plans page rather than matching anything here. */
+  .home-plan__chiprow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .home-plan__chip {
+    display: inline-block;
+    font-family: var(--font-ui);
+    font-size: var(--fs-200);
+    font-weight: var(--fw-semibold);
+    color: var(--text);
+    text-decoration: none;
+    border: 1px solid var(--rule, color-mix(in srgb, currentColor 22%, transparent));
+    border-radius: 999px;
+    padding: 0.45rem 0.8rem;
+    transition: border-color 150ms ease, background-color 150ms ease;
+  }
+  .home-plan__chip:hover,
+  .home-plan__chip:focus-visible {
+    border-color: var(--text);
+    background: color-mix(in srgb, currentColor 6%, transparent);
+  }
+
+  .home-plan__build-note {
+    margin: 0;
+    font-family: var(--font-ui);
+    font-size: var(--fs-100);
+    color: var(--soft);
   }
 
   .home-plan__head {

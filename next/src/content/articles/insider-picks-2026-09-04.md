@@ -1,12 +1,15 @@
 ---
 title: "Insider Picks: 4 September 2026"
-dek: "The Balnarring Pub's beer garden in its first real spring sun, the Baldry's Creek Track where the wattle is finishing and the orchids are starting, and the Hill & Ridge Market back for its first Saturday of the season."
+dek: "The Heritage's beer garden at Balnarring in its first real spring sun, the Baldry's Creek Track where the wattle is finishing and the orchids are starting, and the Hill & Ridge Market back for its first Saturday of the season."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-09-04
 heroImage:
   src: "/images/sourced/place-balnarring-01.webp"
-  alt: "Balnarring, Mornington Peninsula - representative image for The Balnarring Pub"
+  alt: ""
+  depicts: "a bay beach with a tideline of seaweed, curving to a wooded point under a grey sky"
+  depictionStatus: "illustrative"
+  decorative: true
   credit: "Peninsula Insider"
   license: "other-licensed"
 format: "insider-edit"
@@ -28,19 +31,19 @@ clusterLinks:
 faq:
   - question: "When does the Hill & Ridge Community Market run and where is it held?"
     answer: "The Hill & Ridge Market restarts on Saturday 5 September 2026 at Red Hill Recreation Reserve, Red Hill. Hours are 9am–2pm. Entry is free. Check hillandridgemarket.com.au for stall updates."
-  - question: "How do I get a table at the Balnarring Pub beer garden?"
-    answer: "The Balnarring Pub is at 2 Coolart Road, Balnarring. No bookings for the beer garden - arrive early on a spring Saturday to secure an outdoor table before the post-market crowd arrives. Kitchen hours at balnarringpub.com.au."
+  - question: "How do I get a table at The Heritage in Balnarring?"
+    answer: "Call 03 5983 2597 to book. The Heritage is at 3059 Frankston-Flinders Road, Balnarring, and opens Wednesday to Sunday from 11:30am. Pets are not allowed in the venue. Menus and hours are at theheritagebalnarring.com.au."
   - question: "Where does the Baldry's Creek Track start and how long does it take?"
     answer: "The main access point is off Tucks Road, Red Hill South, within the Arthurs Seat State Park boundary. Allow 1.5–2 hours return for the creek loop. No booking required. Wear waterproof boots - the track stays wet into mid-spring."
 ---
 
-## Eat & Drink - The Balnarring Pub, Balnarring
+## Eat & Drink - The Heritage, Balnarring
 
-The Balnarring Pub's shaded beer garden doesn't need a seasonal hook, but early September gives it one. The space faces north-east, catches the first genuinely warm spring sun from around 11am, and stays sheltered from the southerlies that still cut through most afternoons this time of year.
+The Heritage's beer garden doesn't need a seasonal hook, but early September gives it one. The pub is a 1930s heritage home on a two-acre block in the middle of Balnarring, with a sunny deck, a large beer garden, and a grass area and sandpit where children can play.
 
-The menu is country pub done without apology. The chicken schnitzel with house gravy is the honest choice. The beef burger is better than it needs to be. Neither dish is trying to be anything else. On a Saturday this early in spring the garden fills steadily from noon - the Red Hill market crowd makes the short drive down and the locals who have been eating inside since June come outside for the first time. Get there before 12:30 or the best tables go quickly.
+The menu is country pub done without apology. The pub favourites list is the honest choice: a chicken parma or schnitzel, pub-style fish and chips, or the cheeseburger, with a specials board that changes with what the kitchen has in. Live music plays on the deck most Sunday afternoons.
 
-The Balnarring Pub is at 2 Coolart Road, Balnarring. Allow two hours minimum - this is not a venue you leave in a hurry. Check balnarringpub.com.au for kitchen hours.
+The Heritage is at 3059 Frankston-Flinders Road, Balnarring. It opens Wednesday to Sunday from 11:30am and is closed Monday and Tuesday. Call 03 5983 2597 to book a table, and leave the dog at home: pets are not allowed in the venue.
 
 Pair it with a walk through the Balnarring conservation reserve before lunch, then finish at Elan Vineyard & Gallery five minutes up the road.
 
@@ -66,16 +69,16 @@ The stall mix skews local produce and handmade goods rather than mass-market cra
 
 Hill & Ridge Community Market runs Saturday 5 September, 9am–2pm at Red Hill Recreation Reserve, Red Hill. Entry is free. Check hillandridgemarket.com.au for the stall list. Allow 1.5 hours and bring a bag with actual structure - the produce stalls make the single-handle tote inadequate quickly.
 
-Pair the market with a late breakfast at one of the Red Hill village cafes, or continue south to the Balnarring Pub for lunch.
+Pair the market with a late breakfast at one of the Red Hill village cafes, or continue south to The Heritage at Balnarring for lunch.
 
 ---
 
 ## Quick Reference
 
-**The Balnarring Pub**
-2 Coolart Road, Balnarring
-Lunch and dinner daily (hours vary - check balnarringpub.com.au)
-No bookings for the beer garden - arrive early
+**The Heritage**
+3059 Frankston-Flinders Road, Balnarring
+Wednesday to Sunday from 11:30am, closed Monday and Tuesday
+Call 03 5983 2597 to book; no pets
 
 **Baldry's Creek Track**
 Tucks Road trailhead, Red Hill South (Arthurs Seat State Park)
@@ -86,3 +89,5 @@ Allow 1.5–2 hours return - waterproof boots essential
 Red Hill Recreation Reserve, Red Hill
 Saturday 5 September 2026, 9am–2pm
 Free entry - hillandridgemarket.com.au
+
+*Corrected 13 September 2026: this edition first named the pub as the Balnarring Pub at 2 Coolart Road, with a website that does not exist, walk-in beer-garden tables and daily opening. The pub is The Heritage at 3059 Frankston-Flinders Road, which asks guests to call to book, is closed Monday and Tuesday, and does not allow pets.*

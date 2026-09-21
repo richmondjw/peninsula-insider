@@ -1,12 +1,15 @@
 ---
 title: "Insider Picks: 10 August 2026"
-dek: "The Bay Hotel Mornington's vault dining room for a winter occasion, the Red Hill Brewery Secret Stash Weekend this Saturday and Sunday, and the Balnarring Pub for a counter meal beside an open fire."
+dek: "The Bay Hotel Mornington's vault dining room for a winter occasion, the Red Hill Brewery Secret Stash Weekend this Saturday and Sunday, and The Heritage at Balnarring for a pub lunch beside an open fire."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-08-10
 heroImage:
   src: "/images/sourced/place-balnarring-01.webp"
-  alt: "Balnarring, Mornington Peninsula - representative image for The Balnarring Pub"
+  alt: ""
+  depicts: "a bay beach with a tideline of seaweed, curving to a wooded point under a grey sky"
+  depictionStatus: "illustrative"
+  decorative: true
   credit: "Peninsula Insider"
   license: "other-licensed"
 format: "insider-edit"
@@ -30,8 +33,8 @@ faq:
     answer: "Saturday 15 and Sunday 16 August 2026, 11am–6pm at Red Hill Brewery, 88 Shoreham Road, Red Hill South. Book or check details at redhillbrewery.com.au."
   - question: "Where is The Bay Hotel Mornington's vault dining room?"
     answer: "The Bay Hotel Mornington is at 770 Esplanade, Mornington. Bookings essential for the private vault - contact the venue directly or check their website."
-  - question: "Does the Balnarring Pub take bookings?"
-    answer: "The Balnarring Pub is at 2 Coolart Road, Balnarring. Counter meals are generally walk-in; call ahead to confirm open fire availability and any weekend booking requirements."
+  - question: "Does The Heritage at Balnarring take bookings?"
+    answer: "Yes. The Heritage asks guests to call 03 5983 2597 to book a table. It is at 3059 Frankston-Flinders Road, Balnarring, and opens Wednesday to Sunday from 11:30am."
 ---
 
 ## EAT - The Bay Hotel Mornington, Mornington
@@ -50,9 +53,9 @@ Pair it with lunch at Lindenderry's terrace restaurant at Red Hill, a ten-minute
 
 ---
 
-## DISCOVERY - The Balnarring Pub, Balnarring
+## DISCOVERY - The Heritage, Balnarring
 
-The Balnarring Pub does the country local without pretending it's anything else. In August, that means an open fire in a proper pub room, counter meals that run to schnitzel and roasts rather than anything that requires a description, and the village quiet that comes from a Peninsula winter weekend away from the coastal strips. The beer garden exists but winter is not the point of it - the point is the fire, a cold-weather pint, and a meal that arrives without ceremony and delivers on the only promise a pub counter meal actually needs to make. Balnarring village is fifteen minutes from the freeway on the Red Hill side, which makes this an easy add to a Saturday that includes a cellar door or two. Walk-in is generally fine for lunch; call ahead if you're bringing a group. 2 Coolart Road, Balnarring.
+The Heritage is Balnarring's village pub, set in a 1930s heritage home on a two-acre block in the middle of the village. In August that means the original open fires, a Sunday roast served through winter until it sells out, and a pub favourites list that runs to a chicken parma or schnitzel and pub-style fish and chips alongside a changing specials board. The big beer garden is not the point in winter; the fire is. Balnarring village is fifteen minutes from the freeway on the Red Hill side, which makes this an easy add to a Saturday that includes a cellar door or two. It opens Wednesday to Sunday from 11:30am and is closed Monday and Tuesday. Call 03 5983 2597 to book a table. 3059 Frankston-Flinders Road, Balnarring.
 
 Pair it with a late-afternoon visit to Elan Vineyard & Gallery, five minutes up the road.
 
@@ -64,4 +67,6 @@ Pair it with a late-afternoon visit to Elan Vineyard & Gallery, five minutes up 
 
 **Red Hill Brewery Secret Stash Weekend** - 88 Shoreham Road, Red Hill South. Saturday 15 and Sunday 16 August, 11am–6pm. Book at redhillbrewery.com.au.
 
-**The Balnarring Pub** - 2 Coolart Road, Balnarring. Counter meals, open fire. Walk-in lunch; call ahead for groups.
+**The Heritage** - 3059 Frankston-Flinders Road, Balnarring. Open fires, winter Sunday roast. Wednesday to Sunday from 11:30am; call 03 5983 2597 to book.
+
+*Corrected 13 September 2026: this edition first named the pub as the Balnarring Pub at 2 Coolart Road, described counter meals and walk-in lunches, and did not give its opening days. The pub is The Heritage at 3059 Frankston-Flinders Road, which asks guests to call to book and is closed Monday and Tuesday.*

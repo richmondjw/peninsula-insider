@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
-import { routeSlug, isStayVenue, wineTypes } from '../lib/editorial';
+import { routeSlug, isStayVenue, wineTypes, isListableVenue } from '../lib/editorial';
 
 const [venues, experiences, places, articles, itineraries, events] = await Promise.all([
   getCollection('venues'),
@@ -15,7 +15,7 @@ const [venues, experiences, places, articles, itineraries, events] = await Promi
 
 const eatTypes = ['restaurant', 'cafe', 'bakery', 'pub', 'market', 'winery'];
 
-const activeVenues = venues.filter((v) => v.data.status !== 'permanently_closed');
+const activeVenues = venues.filter(isListableVenue);
 const eatVenues = activeVenues.filter((v) => eatTypes.includes(v.data.type)).slice(0, 40);
 const stayVenues = activeVenues.filter(isStayVenue).slice(0, 20);
 const wineVenues = activeVenues.filter((v) => wineTypes.includes(v.data.type)).slice(0, 30);
@@ -62,6 +62,31 @@ export const prerender = true;
           <li><a href="/journal/mornington-peninsula-in-autumn/">Mornington Peninsula in Autumn</a></li>
           <li><a href="/journal/mornington-peninsula-with-kids/">Mornington Peninsula with Kids</a></li>
           <li><a href="/journal/dog-friendly-mornington-peninsula/">Dog-Friendly Mornington Peninsula</a></li>
+        </ul>
+
+        <h2>Collections and guides</h2>
+        <ul>
+          <li><a href="/eat/pubs/">Pubs</a></li>
+          <li><a href="/eat/breweries/">Breweries</a></li>
+          <li><a href="/eat/distilleries/">Distilleries</a></li>
+          <li><a href="/eat/providores/">Providores</a></li>
+          <li><a href="/eat/paddock-to-plate/">Paddock to Plate</a></li>
+          <li><a href="/eat/family-friendly/">Family-Friendly Dining</a></li>
+          <li><a href="/stay/resorts/">Resorts</a></li>
+          <li><a href="/stay/luxury/">Luxury Stays</a></li>
+          <li><a href="/stay/boutique-hotels/">Boutique Hotels</a></li>
+          <li><a href="/stay/cottages/">Cottages</a></li>
+          <li><a href="/stay/glamping/">Glamping</a></li>
+          <li><a href="/guides/">Seasonal Guides</a></li>
+          <li><a href="/journal/cellar-door/">Cellar Door Journal</a></li>
+          <li><a href="/journal/local-secrets/">Local Secrets</a></li>
+          <li><a href="/quick-note/">Quick Notes</a></li>
+          <li><a href="/insiders-30/2026/">The Insider's 30, 2026</a></li>
+          <li><a href="/explore/plans/mornington-peninsula-itinerary/">Mornington Peninsula Itinerary</a></li>
+          <li><a href="/walks/easy-walks-mornington-peninsula/">Easy Walks</a></li>
+          <li><a href="/fishing/seasons/snapper-run-oct-dec/">Snapper Season</a></li>
+          <li><a href="/weddings/winery-wedding-venues-mornington-peninsula/">Winery Wedding Venues</a></li>
+          <li><a href="/corporate-events/best-corporate-retreat-venues-mornington-peninsula/">Corporate Retreat Venues</a></li>
         </ul>
 
         <h2>Places</h2>

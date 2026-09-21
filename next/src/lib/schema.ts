@@ -94,11 +94,17 @@ export function buildWinerySchema(data: any, slug: string, section = 'wine') {
     },
     ...(data.phone ? { telephone: data.phone } : {}),
     // priceRange intentionally omitted (BRAND-PI: no pricing on site).
+    // De-duplicated: the three constants below are what every Peninsula
+    // winery knows about, and most estates also list Pinot Noir and Chardonnay
+    // in wines.keyVarieties. Until 2026-09 that collision was invisible,
+    // because wines was undeclared and keyVarieties was always empty here.
     knowsAbout: [
-      'Pinot Noir',
-      'Chardonnay',
-      'Cool-climate winemaking',
-      ...(data.wines?.keyVarieties ?? []),
+      ...new Set([
+        'Pinot Noir',
+        'Chardonnay',
+        'Cool-climate winemaking',
+        ...(data.wines?.keyVarieties ?? []),
+      ]),
     ],
     ...buildKnownForProperties(data.knownFor),
   };
@@ -964,7 +970,12 @@ interface BuildBfHubInput {
   name: string;
   description: string;
   path: string;
-  dateModified: string;
+  /**
+   * PI-004: optional. A hub that cannot derive a modification date from
+   * the records it lists emits none, rather than a constant that tracks
+   * nothing. Eleven hubs used to pass the same hardcoded April date.
+   */
+  dateModified?: string;
   breadcrumbs: Array<{ name: string; path?: string }>;
   items: Array<{ name: string; path: string; description?: string; itemType?: string }>;
 }

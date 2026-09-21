@@ -1,0 +1,20 @@
+{
+  "claimId": "events/family-mystery-picnic-mornington-peninsula-2026/accessibility",
+  "claimClass": "accessibility",
+  "subject": {
+    "type": "events",
+    "slug": "family-mystery-picnic-mornington-peninsula-2026",
+    "field": "accessibilityNotes"
+  },
+  "statement": "Access at Family Mystery Picnic on the Mornington Peninsula: Self-guided across multiple venues; accessibility varies. Contact organisers for specific requirements.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "family-mystery-picnic-mornington-peninsula-2026",
+      "field": "accessibilityNotes"
+    }
+  ],
+  "createdAt": "2026-07-11",
+  "origin": "migrated",
+  "note": "Migrated by scripts/migrate-event-claims.mjs (PI-005 Stage 2) from accessibilityNotes already on next/src/content/events/family-mystery-picnic-mornington-peninsula-2026.json. No editorial judgement was applied and no content record was changed."
+}

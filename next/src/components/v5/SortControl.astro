@@ -79,11 +79,18 @@ const uid = 'v5-sort-' + Math.random().toString(36).slice(2, 8);
       announce(`Sorted ${LABELS[value]}`);
     });
 
-    // Re-sync when back/forward or another island rewrites the URL.
-    window.addEventListener('popstate', () => {
-      select.value = getSort();
-    });
   }
+
+  // Re-sync when back/forward or another island rewrites the URL.
+  //
+  // Module scope, not hydrate(). The `_piInit` guard is on the control
+  // element, which a client-router navigation replaces, while `window` is not
+  // - so inside hydrate() this gained one copy per navigation, each writing to
+  // a detached <select>. Same defect class as PI-012's original four.
+  window.addEventListener('popstate', () => {
+    document.querySelectorAll<HTMLSelectElement>('[data-v5-sortcontrol] [data-sort-select]')
+      .forEach((select) => { select.value = getSort(); });
+  });
 
   function init() {
     document.querySelectorAll<HTMLElement>('[data-v5-sortcontrol]').forEach(hydrate);

@@ -28,6 +28,15 @@ import assert from 'node:assert/strict';
 
 const {
   CASE_REF_PATTERN,
+  CORRECTIONS_EMAIL,
+  classifyOutcome,
+  isFiled,
+  promisesReply,
+  silenceIsReporterChoice,
+  outcomeMessage,
+  outcomeStatusKind,
+  shouldResetForm,
+  wantsReply,
   CORRECTION_CLASSES,
   CORRECTION_SEVERITIES,
   CORRECTION_STATUSES,
@@ -83,16 +92,39 @@ test('generateCaseRef: out-of-range indices still yield a legal reference', () =
   assert.match(generateCaseRef(new Date(2026, 8, 13), () => [-1, -33, 0, 0, 0, 0]), CASE_REF_PATTERN);
 });
 
-test('generateCaseRef: real randomness produces distinct, well-formed refs', () => {
-  const seen = new Set();
+test('generateCaseRef: every ref it mints is well formed', () => {
+  // Real randomness, format only. Drawing 2000 refs and asserting ZERO
+  // collisions is not a property of this code: the tail is six characters
+  // from a 32-letter alphabet, so 2000 draws collide about once in every
+  // 500 runs by the birthday bound alone. That assertion failed a pull
+  // request that did not touch this file. A check that can fail with no
+  // code change is exactly what this repository forbids, so distinctness is
+  // proved deterministically in the test below instead.
   for (let i = 0; i < 2000; i++) {
-    const ref = generateCaseRef();
+    assert.match(generateCaseRef(), CASE_REF_PATTERN);
+  }
+});
+
+test('generateCaseRef: distinct draws give distinct refs, deterministically', () => {
+  // generateCaseRef takes its randomness as an argument, so the property
+  // can be proved rather than sampled: feed it a counter and every ref must
+  // differ. This cannot flake, and it fails for real if the tail ever stops
+  // depending on the draw.
+  const now = new Date(2026, 8, 14);
+  const seen = new Set();
+  const total = 32 * 32;
+  for (let n = 0; n < total; n++) {
+    const ref = generateCaseRef(now, (count) => {
+      const out = [];
+      for (let k = 0; k < count; k++) {
+        out.push(k === 0 ? n % 32 : Math.floor(n / 32) % 32);
+      }
+      return out;
+    });
     assert.match(ref, CASE_REF_PATTERN);
     seen.add(ref);
   }
-  // 32^6 per day. Two thousand draws colliding even once would mean the
-  // randomness source had collapsed.
-  assert.equal(seen.size, 2000);
+  assert.equal(seen.size, total, 'two different draws must not mint the same ref');
 });
 
 test('isCaseRef: rejects near-misses', () => {
@@ -362,4 +394,176 @@ test('buildReporterRow: no contact means no personal-data row at all', () => {
     contact_email: null,
     contact_preference: 'none',
   });
+});
+
+
+/* ==========================================================================
+   Outcome: the rule, not the wording
+
+   These assert the RULE. A snapshot of the confirmation copy would not catch
+   the defect being fixed here, because in the broken version the wording was
+   IDENTICAL in the two cases that had to be told apart: a reporter who gave
+   no address, and a reporter who gave one that we then failed to store. Both
+   got "you gave no email address". So the tests below enumerate the state
+   space and assert over predicates and over what the text is allowed to
+   claim, never over the sentences themselves.
+   ========================================================================== */
+
+/** Every combination of the three facts classifyOutcome reads. */
+function stateSpace() {
+  const cells = [];
+  for (const caseInserted of [true, false]) {
+    for (const replyRequested of [true, false]) {
+      for (const contactInserted of [true, false]) {
+        const input = { caseInserted, replyRequested, contactInserted };
+        cells.push({ input, outcome: classifyOutcome(input) });
+      }
+    }
+  }
+  return cells;
+}
+
+test('outcome: a reply is promised in exactly the states where one is possible', () => {
+  // The load-bearing one. A reply is possible if and only if the case landed,
+  // the reporter asked for one, and the contact row landed too. Any other
+  // cell promising a reply is a promise we cannot keep.
+  const promising = stateSpace().filter((c) => promisesReply(c.outcome));
+
+  assert.equal(promising.length, 1, 'exactly one of the eight states may promise a reply');
+  assert.deepEqual(promising[0].input, {
+    caseInserted: true,
+    replyRequested: true,
+    contactInserted: true,
+  });
+});
+
+test('outcome: "filed" is claimed in exactly the states where the row landed', () => {
+  for (const { input, outcome } of stateSpace()) {
+    assert.equal(
+      isFiled(outcome),
+      input.caseInserted,
+      `isFiled disagreed with caseInserted for ${JSON.stringify(input)}`,
+    );
+  }
+});
+
+test('outcome: a lost contact row is never dressed up as the reporter’s choice', () => {
+  // The actual defect. These two states are different things and must not
+  // produce the same account of why no reply is coming.
+  const gaveNothing = classifyOutcome({
+    caseInserted: true, replyRequested: false, contactInserted: false,
+  });
+  const weLostIt = classifyOutcome({
+    caseInserted: true, replyRequested: true, contactInserted: false,
+  });
+
+  assert.notEqual(gaveNothing, weLostIt);
+  assert.equal(silenceIsReporterChoice(gaveNothing), true);
+  assert.equal(silenceIsReporterChoice(weLostIt), false);
+
+  // And the rule read from the other end, over the words: only the state the
+  // reporter caused may attribute it to the reporter.
+  const BLAMES_REPORTER = /you gave no email|no email address on the case|you did not/i;
+  for (const { outcome } of stateSpace()) {
+    const msg = outcomeMessage(outcome, 'PI-C-260914-ABC123');
+    if (BLAMES_REPORTER.test(msg)) {
+      assert.equal(
+        silenceIsReporterChoice(outcome),
+        true,
+        `${outcome} attributes the silence to the reporter without that being true`,
+      );
+    }
+  }
+
+  // Where we lost it, the message has to own that, or the reporter has no
+  // reason to do the one thing that recovers the case.
+  const lostMsg = outcomeMessage(weLostIt, 'PI-C-260914-ABC123');
+  assert.match(lostMsg, /did not save/i);
+  assert.doesNotMatch(lostMsg, BLAMES_REPORTER);
+});
+
+test('outcome: only a promised reply may use reply language', () => {
+  const PROMISES = /we will reply|we'll reply|we will be in touch|hear from us/i;
+  for (const { outcome } of stateSpace()) {
+    const msg = outcomeMessage(outcome, 'PI-C-260914-ABC123');
+    if (PROMISES.test(msg)) {
+      assert.equal(promisesReply(outcome), true, `${outcome} promises a reply it cannot make`);
+    }
+  }
+  // and the one that can, does - otherwise the rule is vacuously satisfied
+  // by copy that simply never says anything.
+  assert.match(outcomeMessage('filed', 'PI-C-260914-ABC123'), PROMISES);
+});
+
+test('outcome: the reference is quoted if and only if the case exists', () => {
+  const ref = 'PI-C-260914-ABC123';
+  for (const { outcome } of stateSpace()) {
+    const msg = outcomeMessage(outcome, ref);
+    assert.equal(
+      msg.includes(ref),
+      isFiled(outcome),
+      `${outcome} quotes a reference for a case that does not exist, or withholds one that does`,
+    );
+  }
+});
+
+test('outcome: every state that cannot end in a reply leaves a route out', () => {
+  for (const { outcome } of stateSpace()) {
+    if (promisesReply(outcome)) continue;
+    assert.ok(
+      outcomeMessage(outcome, 'PI-C-260914-ABC123').includes(CORRECTIONS_EMAIL),
+      `${outcome} leaves the reporter with nowhere to go`,
+    );
+  }
+});
+
+test('outcome: styling and form reset follow the rule, not the copy', () => {
+  for (const { outcome } of stateSpace()) {
+    // A success style is only for a state where nothing we were asked to do
+    // failed. 'filed-unanswerable' looks like a success and is not one.
+    assert.equal(
+      outcomeStatusKind(outcome) === 'success',
+      outcome === 'filed' || outcome === 'filed-no-reply',
+      `${outcome} is styled wrongly`,
+    );
+    // Clearing the form is only safe where the reporter has nothing left to
+    // do with what they typed.
+    assert.equal(
+      shouldResetForm(outcome),
+      outcomeStatusKind(outcome) === 'success',
+      `${outcome} clears (or keeps) the form against the rule`,
+    );
+  }
+  // Never clear a form whose correction was not recorded: that text is the
+  // only copy of it left anywhere.
+  assert.equal(shouldResetForm('failed'), false);
+});
+
+test('wantsReply: an address, not merely something typed', () => {
+  assert.equal(wantsReply({}), false);
+  assert.equal(wantsReply({ contact_email: '  ' }), false);
+  // A name alone is a credit, not a reply route, and must not raise the
+  // expectation of an answer - nor make a lost contact row look like our
+  // failure to deliver one.
+  assert.equal(wantsReply({ contact_name: 'Jo' }), false);
+  assert.equal(wantsReply({ contact_email: ' reader@example.com ' }), true);
+  assert.equal(wantsReply({ contact_name: 'Jo', contact_email: 'reader@example.com' }), true);
+});
+
+test('wantsReply agrees with buildReporterRow, so the page cannot drift from the row', () => {
+  // The page asks wantsReply() what to expect and writes buildReporterRow().
+  // If those two ever disagree about what counts as an address, the outcome
+  // is decided against a row that was never written that way.
+  const cases = [
+    {},
+    { contact_name: 'Jo' },
+    { contact_email: 'reader@example.com' },
+    { contact_name: 'Jo', contact_email: 'reader@example.com' },
+    { contact_name: '  ', contact_email: '  ' },
+  ];
+  for (const values of cases) {
+    const row = buildReporterRow(values, 'id-1');
+    const expected = row !== null && row.contact_preference === 'email';
+    assert.equal(wantsReply(values), expected, `disagreement on ${JSON.stringify(values)}`);
+  }
 });

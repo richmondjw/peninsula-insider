@@ -1,0 +1,11 @@
+{
+  "updatedAt": "2026-09-13T11:26:19.611Z",
+  "note": "Ratchet baseline, seeded from a real build. A route listed here may not name more closed venues than it already does; a route NOT listed here fails on first appearance. Tighten as each page is cleared. A closed venue own detail page is never counted - it is expected to exist and to say the venue has closed.",
+  "totals": {
+    "closedVenues": 3,
+    "pagesScanned": 996,
+    "leakingPages": 0,
+    "leakInstances": 0
+  },
+  "ceilings": {}
+}

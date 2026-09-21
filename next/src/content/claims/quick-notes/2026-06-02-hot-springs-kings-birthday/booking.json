@@ -1,0 +1,24 @@
+{
+  "claimId": "quick-notes/2026-06-02-hot-springs-kings-birthday/booking",
+  "claimClass": "booking",
+  "subject": {
+    "type": "quick-notes",
+    "slug": "2026-06-02-hot-springs-kings-birthday",
+    "field": "sources"
+  },
+  "statement": "Peninsula Hot Springs - King's Birthday Weekend confirmed, 8 June, all day. Bookings now open.",
+  "assertedBy": [
+    {
+      "type": "quick-notes",
+      "slug": "2026-06-02-hot-springs-kings-birthday",
+      "field": "sources"
+    },
+    {
+      "type": "venues",
+      "slug": "peninsula-hot-springs"
+    }
+  ],
+  "createdAt": "2026-06-02",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

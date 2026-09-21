@@ -1,0 +1,465 @@
+{
+  "note": "Live probe of the tables the application names. Read-only: GET with limit=0, publishable key only, no row ever returned. Reports; never gates a merge — see the header of scripts/probe-live-tables.mjs.",
+  "probedAt": "2026-09-14T00:17:59.625Z",
+  "endpoint": "https://tjjhpvslpysfklwpqmgz.supabase.co",
+  "keyKind": "publishable",
+  "tablesProbed": 23,
+  "counts": {
+    "present": 16,
+    "presentRestricted": 0,
+    "absent": 6,
+    "schemaUnexposed": 1,
+    "unreachable": 0
+  },
+  "ledgerContradiction": [],
+  "dynamicTableReferences": [
+    {
+      "file": "next/src/pages/admin/entry.astro",
+      "line": 435,
+      "receiver": "c"
+    }
+  ],
+  "tables": [
+    {
+      "table": "pi_image.review_decisions",
+      "httpStatus": 406,
+      "verdict": "schema-unexposed",
+      "detail": "Invalid schema: pi_image",
+      "references": [
+        "next/src/pages/admin/image-intelligence.astro:31"
+      ],
+      "createdBy": [
+        {
+          "file": "2026-08-01-pi-image-intelligence-pilot.sql",
+          "ledgerState": "unknown"
+        }
+      ]
+    },
+    {
+      "table": "pi.admin_user_allowlist",
+      "httpStatus": 200,
+      "verdict": "present",
+      "references": [
+        "next/src/lib/cms/server.ts:212",
+        "next/src/lib/inline-edit/client.ts:78",
+        "next/src/pages/admin/index.astro:237"
+      ],
+      "createdBy": [
+        {
+          "file": "2026-05-09-pi-cms-admin.sql",
+          "ledgerState": "unknown"
+        }
+      ]
+    },
+    {
+      "table": "pi.award_categories",
+      "httpStatus": 200,
+      "verdict": "present",
+      "references": [
+        "next/src/pages/awards/[slug].astro:140",
+        "next/src/pages/awards/index.astro:149"
+      ],
+      "createdBy": [
+        {
+          "file": "2026-05-05-awards.sql",
+          "ledgerState": "unknown"
+        },
+        {
+          "file": "2026-05-05-CONSOLIDATED-phases-3-and-4.sql",
+          "ledgerState": "unknown"
+        }
+      ]
+    },
+    {
+      "table": "pi.award_nominations",
+      "httpStatus": 200,
+      "verdict": "present",
+      "references": [
+        "next/src/pages/awards/nominate.astro:171"
+      ],
+      "createdBy": [
+        {
+          "file": "2026-05-05-awards.sql",
+          "ledgerState": "unknown"
+        },
+        {
+          "file": "2026-05-05-CONSOLIDATED-phases-3-and-4.sql",
+          "ledgerState": "unknown"
+        }
+      ]
+    },
+    {
+      "table": "pi.award_nominees",
+      "httpStatus": 200,
+      "verdict": "present",
+      "references": [
+        "next/src/pages/awards/[slug].astro:177"
+      ],
+      "createdBy": [
+        {
+          "file": "2026-05-05-awards.sql",
+          "ledgerState": "unknown"
+        },
+        {
+          "file": "2026-05-05-CONSOLIDATED-phases-3-and-4.sql",
+          "ledgerState": "unknown"
+        }
+      ]
+    },
+    {
+      "table": "pi.award_vote_counts",
+      "httpStatus": 200,
+      "verdict": "present",
+      "references": [
+        "next/src/pages/awards/[slug].astro:213"
+      ],
+      "createdBy": [
+        {
+          "file": "2026-05-05-awards.sql",
+          "ledgerState": "unknown"
+        },
+        {
+          "file": "2026-05-05-CONSOLIDATED-phases-3-and-4.sql",
+          "ledgerState": "unknown"
+        }
+      ]
+    },
+    {
+      "table": "pi.award_votes",
+      "httpStatus": 200,
+      "verdict": "present",
+      "references": [
+        "next/src/pages/awards/[slug].astro:200",
+        "next/src/pages/awards/[slug].astro:263"
+      ],
+      "createdBy": [
+        {
+          "file": "2026-05-05-awards.sql",
+          "ledgerState": "unknown"
+        },
+        {
+          "file": "2026-05-05-CONSOLIDATED-phases-3-and-4.sql",
+          "ledgerState": "unknown"
+        }
+      ]
+    },
+    {
+      "table": "pi.cms_image_slots",
+      "httpStatus": 200,
+      "verdict": "present",
+      "references": [
+        "next/src/lib/cms/api.ts:197",
+        "next/src/lib/cms/api.ts:303",
+        "next/src/lib/cms/api.ts:405",
+        "next/src/lib/inline-edit/client.ts:1082",
+        "next/src/lib/inline-edit/client.ts:1163",
+        "next/src/lib/inline-edit/client.ts:1185",
+        "next/src/lib/inline-edit/client.ts:1188",
+        "next/src/lib/inline-edit/client.ts:1262",
+        "next/src/lib/inline-edit/client.ts:1285",
+        "next/src/lib/inline-edit/client.ts:1289",
+        "next/src/lib/inline-edit/client.ts:1381",
+        "next/src/lib/inline-edit/client.ts:1425",
+        "next/src/lib/inline-edit/client.ts:783",
+        "next/src/lib/inline-edit/client.ts:796",
+        "next/src/lib/inline-edit/client.ts:821",
+        "next/src/lib/inline-edit/client.ts:824",
+        "next/src/lib/inline-edit/client.ts:831",
+        "next/src/lib/inline-edit/client.ts:884",
+        "next/src/lib/inline-edit/client.ts:931",
+        "next/src/lib/inline-edit/client.ts:947",
+        "next/src/lib/inline-edit/client.ts:962",
+        "next/src/lib/inline-edit/overrides.ts:106",
+        "next/src/pages/admin/entry.astro:273",
+        "next/src/pages/admin/entry.astro:386",
+        "next/src/pages/admin/entry.astro:421",
+        "next/src/pages/admin/index.astro:143",
+        "next/src/pages/admin/media.astro:208",
+        "next/src/pages/admin/media.astro:377",
+        "next/src/pages/admin/media.astro:427"
+      ],
+      "createdBy": [
+        {
+          "file": "2026-05-09-pi-cms-admin.sql",
+          "ledgerState": "unknown"
+        }
+      ]
+    },
+    {
+      "table": "pi.cms_revisions",
+      "httpStatus": 200,
+      "verdict": "present",
+      "references": [
+        "next/src/lib/cms/api.ts:217",
+        "next/src/lib/cms/api.ts:335",
+        "next/src/lib/inline-edit/client.ts:1493",
+        "next/src/pages/admin/entry.astro:278",
+        "next/src/pages/admin/entry.astro:316",
+        "next/src/pages/admin/media.astro:380",
+        "next/src/pages/admin/media.astro:429"
+      ],
+      "createdBy": [
+        {
+          "file": "2026-05-09-pi-cms-admin.sql",
+          "ledgerState": "unknown"
+        }
+      ]
+    },
+    {
+      "table": "pi.cms_text_fields",
+      "httpStatus": 200,
+      "verdict": "present",
+      "references": [
+        "next/src/lib/cms/api.ts:177",
+        "next/src/lib/cms/api.ts:257",
+        "next/src/lib/cms/api.ts:402",
+        "next/src/lib/hero-editor/hero-editor.ts:227",
+        "next/src/lib/hero-editor/hero-editor.ts:235",
+        "next/src/lib/hero-editor/hero-editor.ts:238",
+        "next/src/lib/inline-edit/client.ts:2036",
+        "next/src/lib/inline-edit/client.ts:2046",
+        "next/src/lib/inline-edit/client.ts:2049",
+        "next/src/lib/inline-edit/client.ts:455",
+        "next/src/lib/inline-edit/client.ts:465",
+        "next/src/lib/inline-edit/client.ts:468",
+        "next/src/lib/inline-edit/overrides.ts:100",
+        "next/src/pages/admin/entry.astro:268",
+        "next/src/pages/admin/entry.astro:363",
+        "next/src/pages/admin/entry.astro:404",
+        "next/src/pages/admin/index.astro:142"
+      ],
+      "createdBy": [
+        {
+          "file": "2026-05-09-pi-cms-admin.sql",
+          "ledgerState": "unknown"
+        }
+      ]
+    },
+    {
+      "table": "pi.content_registry",
+      "httpStatus": 200,
+      "verdict": "present",
+      "references": [
+        "next/src/lib/inline-edit/client.ts:1880"
+      ],
+      "createdBy": [
+        {
+          "file": "2026-05-11-pi-cms-content-registry-and-referential-integrity.sql",
+          "ledgerState": "unknown"
+        }
+      ]
+    },
+    {
+      "table": "pi.correction_reporters",
+      "httpStatus": 404,
+      "verdict": "absent",
+      "detail": "Could not find the table 'pi.correction_reporters' in the schema cache",
+      "references": [
+        "next/src/pages/corrections.astro:405"
+      ],
+      "createdBy": [
+        {
+          "file": "2026-09-13-pi-corrections-queue.sql",
+          "ledgerState": "pending"
+        }
+      ]
+    },
+    {
+      "table": "pi.corrections",
+      "httpStatus": 404,
+      "verdict": "absent",
+      "detail": "Could not find the table 'pi.corrections' in the schema cache",
+      "references": [
+        "next/src/pages/corrections.astro:390"
+      ],
+      "createdBy": [
+        {
+          "file": "2026-09-13-pi-corrections-queue.sql",
+          "ledgerState": "pending"
+        }
+      ]
+    },
+    {
+      "table": "pi.event_alerts",
+      "httpStatus": 200,
+      "verdict": "present",
+      "references": [
+        "next/src/lib/auth.ts:291",
+        "next/src/lib/auth.ts:309",
+        "next/src/lib/auth.ts:319"
+      ],
+      "createdBy": [
+        {
+          "file": "2026-05-05-CONSOLIDATED-phases-3-and-4.sql",
+          "ledgerState": "unknown"
+        },
+        {
+          "file": "2026-05-05-event-alerts.sql",
+          "ledgerState": "unknown"
+        }
+      ]
+    },
+    {
+      "table": "pi.partner_enquiries",
+      "httpStatus": 404,
+      "verdict": "absent",
+      "detail": "Could not find the table 'pi.partner_enquiries' in the schema cache",
+      "references": [
+        "next/src/pages/partners/index.astro:582"
+      ],
+      "createdBy": [
+        {
+          "file": "2026-09-14-pi-partner-enquiries.sql",
+          "ledgerState": "pending"
+        }
+      ]
+    },
+    {
+      "table": "pi.partner_enquiry_contacts",
+      "httpStatus": 404,
+      "verdict": "absent",
+      "detail": "Could not find the table 'pi.partner_enquiry_contacts' in the schema cache",
+      "references": [
+        "next/src/pages/partners/index.astro:603"
+      ],
+      "createdBy": [
+        {
+          "file": "2026-09-14-pi-partner-enquiries.sql",
+          "ledgerState": "pending"
+        }
+      ]
+    },
+    {
+      "table": "pi.pass_subscriptions",
+      "httpStatus": 404,
+      "verdict": "absent",
+      "detail": "Could not find the table 'pi.pass_subscriptions' in the schema cache",
+      "references": [
+        "next/src/pages/account/pass.astro:168"
+      ],
+      "createdBy": [
+        {
+          "file": "2026-05-05-pass-membership.sql",
+          "ledgerState": "unknown"
+        }
+      ]
+    },
+    {
+      "table": "pi.profiles",
+      "httpStatus": 200,
+      "verdict": "present",
+      "references": [
+        "next/src/lib/auth.ts:137",
+        "next/src/lib/auth.ts:145",
+        "next/src/lib/cms/server.ts:198",
+        "next/src/pages/account/pass.astro:152",
+        "next/src/pages/admin/entry.astro:565",
+        "next/src/pages/admin/index.astro:218",
+        "next/src/pages/admin/media.astro:461"
+      ],
+      "createdBy": [
+        {
+          "file": "2026-05-05-CONSOLIDATED-phases-3-and-4.sql",
+          "ledgerState": "unknown"
+        }
+      ]
+    },
+    {
+      "table": "pi.submissions",
+      "httpStatus": 200,
+      "verdict": "present",
+      "references": [
+        "next/src/pages/submit.astro:319"
+      ],
+      "createdBy": [
+        {
+          "file": "2026-05-05-community-submissions.sql",
+          "ledgerState": "unknown"
+        },
+        {
+          "file": "2026-05-05-CONSOLIDATED-phases-3-and-4.sql",
+          "ledgerState": "unknown"
+        }
+      ]
+    },
+    {
+      "table": "pi.user_itineraries",
+      "httpStatus": 200,
+      "verdict": "present",
+      "references": [
+        "next/src/lib/auth.ts:240",
+        "next/src/lib/auth.ts:263"
+      ],
+      "createdBy": [
+        {
+          "file": "2026-05-05-CONSOLIDATED-phases-3-and-4.sql",
+          "ledgerState": "unknown"
+        },
+        {
+          "file": "2026-05-05-user-saves-and-itineraries.sql",
+          "ledgerState": "unknown"
+        }
+      ]
+    },
+    {
+      "table": "pi.user_saves",
+      "httpStatus": 200,
+      "verdict": "present",
+      "references": [
+        "next/src/lib/auth.ts:164",
+        "next/src/lib/auth.ts:179",
+        "next/src/lib/auth.ts:182",
+        "next/src/lib/auth.ts:199",
+        "next/src/lib/saves/cloud.ts:121",
+        "next/src/lib/saves/cloud.ts:125",
+        "next/src/lib/saves/cloud.ts:71",
+        "next/src/lib/saves/cloud.ts:90"
+      ],
+      "createdBy": [
+        {
+          "file": "2026-05-05-CONSOLIDATED-phases-3-and-4.sql",
+          "ledgerState": "unknown"
+        },
+        {
+          "file": "2026-05-05-user-saves-and-itineraries.sql",
+          "ledgerState": "unknown"
+        }
+      ]
+    },
+    {
+      "table": "pi.venue_change_requests",
+      "httpStatus": 200,
+      "verdict": "present",
+      "references": [
+        "next/src/lib/auth.ts:389",
+        "next/src/pages/partners/update.astro:316"
+      ],
+      "createdBy": [
+        {
+          "file": "2026-05-05-CONSOLIDATED-phase-5.sql",
+          "ledgerState": "unknown"
+        },
+        {
+          "file": "2026-05-05-venue-change-requests.sql",
+          "ledgerState": "unknown"
+        }
+      ]
+    },
+    {
+      "table": "pi.venue_claims",
+      "httpStatus": 404,
+      "verdict": "absent",
+      "detail": "Could not find the table 'pi.venue_claims' in the schema cache",
+      "references": [
+        "next/src/lib/auth.ts:348",
+        "next/src/lib/auth.ts:367"
+      ],
+      "createdBy": [
+        {
+          "file": "2026-05-05-venue-claims.sql",
+          "ledgerState": "pending"
+        }
+      ]
+    }
+  ]
+}

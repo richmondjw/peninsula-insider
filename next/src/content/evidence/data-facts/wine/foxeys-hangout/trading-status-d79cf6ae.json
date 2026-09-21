@@ -1,0 +1,29 @@
+{
+  "evidenceId": "data-facts/wine/foxeys-hangout/trading-status-d79cf6ae",
+  "claim": "data-facts/wine/foxeys-hangout/trading-status",
+  "stance": "supports",
+  "publisher": {
+    "kind": "venue-site"
+  },
+  "retrievedAt": "2026-09-13",
+  "expiresAt": "2026-12-12",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/data/facts/wine.json",
+    "field": "wineries[10].source",
+    "value": "https://www.foxeys.com.au",
+    "dateField": "lastUpdated"
+  },
+  "url": "https://foxeys-hangout.com.au/",
+  "retiredSourceLinks": [
+    {
+      "field": "url",
+      "url": "https://www.foxeys.com.au",
+      "verdict": "dead",
+      "disposition": "moved",
+      "replacement": "https://foxeys-hangout.com.au/",
+      "checkedOn": "2026-09-13",
+      "note": "foxeys.com.au refuses TLS on 202.124.241.178, a NetRegistry parking address. The operator's live domain is foxeys-hangout.com.au, confirmed live and named as the official site by Wine Companion and Visit Victoria."
+    }
+  ]
+}

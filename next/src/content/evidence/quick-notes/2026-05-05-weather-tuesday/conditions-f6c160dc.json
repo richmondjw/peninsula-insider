@@ -1,0 +1,18 @@
+{
+  "evidenceId": "quick-notes/2026-05-05-weather-tuesday/conditions-f6c160dc",
+  "claim": "quick-notes/2026-05-05-weather-tuesday/conditions",
+  "stance": "supports",
+  "publisher": {
+    "kind": "gov"
+  },
+  "retrievedAt": "2026-05-05",
+  "expiresAt": "2026-05-12",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/content/quick-notes/2026-05-05-weather-tuesday.md",
+    "field": "sources[0]",
+    "value": "{\"kind\":\"gov\",\"note\":\"wttr.in / World Weather Online live feed for Red Hill, Victoria. Tuesday 5 May hourly forecast. Confirmed 13°C at 06:47 AEST, 76–100% rain chance through 1500, clearing after 1800.\",\"checkedAt\":\"2026-05-05T06:47:00+10:00\"}",
+    "dateField": "sources[0].checkedAt"
+  },
+  "note": "wttr.in / World Weather Online live feed for Red Hill, Victoria. Tuesday 5 May hourly forecast. Confirmed 13°C at 06:47 AEST, 76–100% rain chance through 1500, clearing after 1800."
+}

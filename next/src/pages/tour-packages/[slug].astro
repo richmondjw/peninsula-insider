@@ -6,6 +6,7 @@ import SubpageHero from '../../components/SubpageHero.astro';
 import TourCard from '../../components/TourCard.astro';
 import TourPackageCard from '../../components/TourPackageCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import CorrectionNote from '../../components/CorrectionNote.astro';
 import { buildTourPackageSchema } from '../../lib/schema';
 import { editableText } from '../../lib/inline-edit/attrs';
 
@@ -167,7 +168,17 @@ export const prerender = true;
               <div class="tour-cta-block">
                 <h3 class="tour-cta-block__title">{tour.data.name}</h3>
                 <p>Operated by {opData?.name ?? tour.data.operatorSlug}. Book directly with the operator.</p>
-                <a href={utmUrl} target="_blank" rel="noopener noreferrer" class="tour-cta-primary pi-btn pi-btn--solid">
+                <a
+                  href={utmUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="tour-cta-primary pi-btn pi-btn--solid"
+                  data-pi-book="booking"
+                  data-pi-entity-type="tour"
+                  data-pi-entity-slug={tourSlug}
+                  data-pi-surface="tour-package"
+                  data-pi-provider={tour.data.bookingUrl ? "operator" : "getyourguide"}
+                >
                   Book this tour &rarr;
                 </a>
               </div>
@@ -261,6 +272,10 @@ export const prerender = true;
       </div>
     </section>
   )}
+
+  <div class="container">
+    <CorrectionNote surface="tour-package" />
+  </div>
 
   <NewsletterBlock />
 </BaseLayout>

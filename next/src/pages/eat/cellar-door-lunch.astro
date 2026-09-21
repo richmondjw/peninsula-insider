@@ -5,9 +5,10 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import SubpageHero from '../../components/SubpageHero.astro';
 import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import { routeSlug } from '../../lib/editorial';
+import { routeSlug, isListableVenue } from '../../lib/editorial';
+import ProvenanceLine from '../../components/ProvenanceLine.astro';
 
-const allVenues = await getCollection('venues');
+const allVenues = (await getCollection('venues')).filter(isListableVenue);
 
 const cellarDoorSlugs = [
   'montalto', 'ten-minutes-by-tractor', 'polperro', 'pt-leo-estate',
@@ -104,7 +105,7 @@ export const prerender = true;
     <p>The cellar door lunch is the Peninsula's most distinctive food experience. A winery with a kitchen - estate wine poured from the vineyard outside, produce grown or sourced within a few kilometres, and a dining room that exists because the place earned it rather than because a marketing brief suggested it would convert tastings.</p>
         <p>The Peninsula has more serious cellar door restaurants than almost any other wine region in Australia. The best sit in the Red Hill and Main Ridge sub-regions - the coolest part of the plateau, where the pinot grows slowest and the dining rooms feel most grounded in the landscape. Montalto, Ten Minutes by Tractor, and Polperro are the landmarks. Below them, eleven more worth knowing about.</p>
         <p>The practical rule: arrive at the cellar door for a tasting first, book the restaurant for 12pm or 12:30pm, and plan nothing for the afternoon. The day will not improve by trying to fit another estate in afterwards.</p>
-        <p class="venues__sub" style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 23 April 2026</p>
+        <ProvenanceLine class="venues__sub" style="font-size:0.8rem;color:var(--soft)" records={venues} type="venues" noun="venue" />
       </div>
   </div>
 </SubpageHero>

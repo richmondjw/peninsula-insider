@@ -1,0 +1,20 @@
+{
+  "claimId": "quick-notes/2026-05-15-hot-springs-sunday-sessions/booking",
+  "claimClass": "booking",
+  "subject": {
+    "type": "quick-notes",
+    "slug": "2026-05-15-hot-springs-sunday-sessions",
+    "field": "sources"
+  },
+  "statement": "Peninsula Hot Springs - Sunday Sessions with Mich McManus, two days out. Rain forecast Sunday morning.",
+  "assertedBy": [
+    {
+      "type": "quick-notes",
+      "slug": "2026-05-15-hot-springs-sunday-sessions",
+      "field": "sources"
+    }
+  ],
+  "createdAt": "2026-05-15",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

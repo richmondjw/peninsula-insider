@@ -10,11 +10,9 @@
  * sends players across, tagged by surface so GA4 can rank the placements.
  */
 
-export const PLAY = {
-  /** Master switch. False removes every surface at build time. */
-  enabled: true,
-  url: 'https://play.peninsulainsider.com.au/',
-  case: {
+/** Every open case, oldest first. The newest is the one the site promotes. */
+const CASES = [
+  {
     id: '01',
     title: 'Took her coffee to go',
     /** Place slugs on PI's route, in order. */
@@ -23,6 +21,24 @@ export const PLAY = {
     venue: 'montalto',
     image: '/images/play/case-01-mornington.webp',
   },
+  {
+    id: '02',
+    title: 'Took the long way to dinner',
+    places: ['red-hill', 'balnarring', 'point-leo', 'flinders'],
+    venue: 'moke-dining',
+    image: '/images/play/case-02-red-hill.webp',
+  },
+] as const;
+
+export type PlayCase = (typeof CASES)[number];
+
+export const PLAY = {
+  /** Master switch. False removes every surface at build time. */
+  enabled: true,
+  url: 'https://play.peninsulainsider.com.au/',
+  cases: CASES,
+  /** The case every promo surface leads with: the newest one. */
+  case: CASES[CASES.length - 1] as PlayCase,
   draw: {
     period: '2026-10',
     partner: 'Doot Doot Doot, Jackalope',
@@ -34,12 +50,23 @@ export const PLAY = {
 
 export type PlayRole = 'found' | 'route' | 'prize';
 
-/** What, if anything, this entity has to do with the current case. */
+/** The case this entity belongs to, newest first (Red Hill is on both routes). */
+export function playCaseFor(kind: 'place' | 'venue', slug: string): PlayCase | null {
+  if (!PLAY.enabled) return null;
+  for (const c of [...CASES].reverse()) {
+    if (kind === 'venue' && slug === c.venue) return c;
+    if (kind === 'place' && (c.places as readonly string[]).includes(slug)) return c;
+  }
+  return null;
+}
+
+/** What, if anything, this entity has to do with an open case. */
 export function playRole(kind: 'place' | 'venue', slug: string): PlayRole | null {
   if (!PLAY.enabled) return null;
-  if (kind === 'venue' && slug === PLAY.case.venue) return 'found';
+  const c = playCaseFor(kind, slug);
+  if (kind === 'venue' && c) return 'found';
   if (kind === 'venue' && slug === PLAY.draw.partnerSlug) return 'prize';
-  if (kind === 'place' && (PLAY.case.places as readonly string[]).includes(slug)) return 'route';
+  if (kind === 'place' && c) return 'route';
   return null;
 }
 

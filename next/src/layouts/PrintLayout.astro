@@ -18,6 +18,12 @@ export interface Props {
 }
 
 const { title, description = 'Peninsula Insider partnership document.' } = Astro.props;
+
+// Canonical derived from the current URL, as BaseLayout does: strip any /V2/ base
+// prefix and keep the trailing slash GitHub Pages serves.
+const SITE_URL = 'https://peninsulainsider.com.au';
+const rawPathname = Astro.url.pathname.replace(/^\/V2/, '') || '/';
+const canonicalUrl = `${SITE_URL}${rawPathname === '/' ? '/' : rawPathname.replace(/\/?$/, '/')}`;
 ---
 
 <!doctype html>
@@ -27,6 +33,7 @@ const { title, description = 'Peninsula Insider partnership document.' } = Astro
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="robots" content="noindex, nofollow" />
   <title>{title}</title>
+  <link rel="canonical" href={canonicalUrl} />
   <meta name="description" content={description} />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="stylesheet" href={harbourScreenStyles} media="screen" />

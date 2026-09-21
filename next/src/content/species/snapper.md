@@ -59,6 +59,11 @@ status: published
 verified: true
 lastVerified: 2026-04-30
 publishedAt: 2026-04-30
+heroImage:
+  src: /images/species/snapper.webp
+  alt: "Illustrated natural history plate of an adult snapper, Chrysophrys auratus, in side profile"
+  credit: Peninsula Insider
+  license: original-commissioned
 ---
 
 ## What snapper actually is

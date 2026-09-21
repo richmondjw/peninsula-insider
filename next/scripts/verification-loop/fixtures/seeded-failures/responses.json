@@ -1,0 +1,38 @@
+{
+  "_note": "Canned source pages for the PI-006 seeded-failure fixtures. The operator page carries currency figures ON PURPOSE: the rate-change fixture needs something for the detector to find. This file sits under next/scripts/, outside every lint root (src/content, src/data, src/pages, src/components, src/layouts), and the loop is tested to keep those figures out of its report.",
+  "https://example-organiser.test/sorrento-lantern": {
+    "status": 200,
+    "body": "<!doctype html><html><head><title>Sorrento Winter Lantern Festival</title></head><body><main><h1>Sorrento Winter Lantern Festival</h1><p>After nineteen years, the 2026 Sorrento Winter Lantern Festival is cancelled. The committee lost its shire funding in June and will not run a lantern walk this year.</p><p>Sorrento Park will still host the winter solstice choir.</p></main></body></html>"
+  },
+  "https://example-venue.test/old-pier-kitchen": {
+    "status": 200,
+    "body": "<!doctype html><html><head><title>The Old Pier Kitchen</title></head><body><main><h1>The Old Pier Kitchen</h1><p>The Old Pier Kitchen is now open daily 08:00 - 22:00, kitchen closes at 21:00.</p><p>Walk-ins welcome on the pier deck.</p></main></body></html>"
+  },
+  "https://example-operator.test/cape-schanck-boat-hire": {
+    "status": 200,
+    "body": "<!doctype html><html><head><title>Cape Schanck Boat Hire</title></head><body><main><h1>Cape Schanck Boat Hire</h1><p>Half day hire is $140 from 1 October. Full day hire is $240.</p><p>All Cape Schanck Boat Hire craft include fuel and safety gear.</p></main></body></html>"
+  },
+  "https://example-venue.test/the-lantern-room": {
+    "status": 200,
+    "body": "<!doctype html><html><head><title>The Lantern Room</title></head><body><main><h1>The Lantern Room</h1><p>The Lantern Room pours Red Hill fruit by the glass, Thursday to Sunday.</p></main></body></html>"
+  },
+  "https://example-organiser.test/portsea-twilight-market": {
+    "status": 200,
+    "body": "<!doctype html><html><head><title>Portsea Twilight Market</title></head><body><main><h1>Portsea Twilight Market</h1><p>The next Portsea Twilight Market is on 7 November 2026 at the Portsea Foreshore.</p><p>Stallholder applications are open.</p></main></body></html>"
+  },
+  "https://example-venue.test/red-hill-cellar-door-corridor": {
+    "status": 200,
+    "body": "<!doctype html><html><head><title>Red Hill cellar door corridor</title></head><body><main><h1>Red Hill cellar door corridor</h1><p>The Red Hill cellar door corridor reopened on 10 September 2026 after the storm week.</p></main></body></html>"
+  },
+  "https://example-blocked.test/flinders-folk": {
+    "status": 403,
+    "reachability": "blocked",
+    "note": "HTTP 403",
+    "body": ""
+  },
+  "https://example-redirect.test/balnarring-races": {
+    "status": 200,
+    "finalUrl": "https://example-redirect.test/",
+    "body": "<!doctype html><html><head><title>Mornington Peninsula Shire</title></head><body><main><h1>Welcome</h1><p>Rates, waste collection and planning permits. Find a service.</p></main></body></html>"
+  }
+}

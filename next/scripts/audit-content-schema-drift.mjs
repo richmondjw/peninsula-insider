@@ -31,7 +31,7 @@
  * does not declare, at any depth.
  *
  * Report-only by default. `--assert` compares against the ratchet baseline in
- * ops/reports/content/schema-drift-baseline.json and exits 1 on regression,
+ * ops/baselines/schema-drift-baseline.json and exits 1 on regression,
  * matching the contract audit-event-safeguards.mjs and audit-link-graph.mjs
  * use. The ratchet is per collection+key rather than per total: a key already
  * in the baseline may not grow, and a key NOT in the baseline fails on its
@@ -63,7 +63,7 @@ import { parse as parseYaml } from 'yaml';
 const SCRIPTS = path.dirname(fileURLToPath(import.meta.url));
 const NEXT = path.resolve(SCRIPTS, '..');
 const REPO = path.resolve(NEXT, '..');
-const DEFAULT_BASELINE = path.join(REPO, 'ops', 'reports', 'content', 'schema-drift-baseline.json');
+const DEFAULT_BASELINE = path.join(REPO, 'ops', 'baselines', 'schema-drift-baseline.json');
 
 const args = process.argv.slice(2);
 const getArg = (flag, fallback) => {

@@ -14,6 +14,9 @@
 
 import { rotateByMelbourneHours } from '../../../lib/daily-rotation';
 import { eventIsUnqualifiedFree } from '../../../lib/event-access.mjs';
+import { USE_OCCURRENCE_MODEL } from '../../../lib/features';
+import { ruleFor, occursOnDay, addDays, isoDate } from '../../../lib/event-schedule';
+import { resolveOccurrence, recordDisposition } from '../../../lib/event-occurrence.mjs';
 export interface WeekendWindow {
   /** ISO date (YYYY-MM-DD) of the weekend's Saturday, Melbourne calendar. */
   satISO: string;
@@ -43,11 +46,7 @@ function isoOf(d: Date): string {
   return `${y}-${m}-${day}`;
 }
 
-/**
- * The weekend the homepage speaks about. Monday to Saturday point at the
- * coming (or current) Saturday; Sunday still belongs to the weekend that
- * started yesterday.
- */
+/** The homepage names Saturday–Sunday and only promotes those actual dates. */
 export function weekendWindow(now: Date = new Date()): WeekendWindow {
   const mel = melbourneNow(now);
   const day = mel.getDay(); // 0 Sun .. 6 Sat
@@ -87,7 +86,7 @@ export function clampVerdict(text: string | undefined | null, maxWords = 25): st
 const LIVE_STATUSES = new Set(['published', 'scheduled']);
 
 /** Renderable on the homepage: live, not archived, not editor-skipped. */
-export function isLiveEvent(e: any): boolean {
+export function isLiveEvent(e: any, now: Date = new Date()): boolean {
   if (!e?.data) return false;
   if (String(e.id ?? '').includes('archive')) return false;
   if (!LIVE_STATUSES.has(e.data.status ?? 'published')) return false;
@@ -96,6 +95,12 @@ export function isLiveEvent(e: any): boolean {
   // event carries the weekend-pick lens (+20 in fallbackScore). Without this
   // test the homepage rail would promote an event that is not happening.
   if (e.data.cancelled) return false;
+  // PI-008. The homepage rail is the site's strongest recommendation, so it
+  // holds to the promotable bar rather than the listable one: a postponement
+  // with no new date, an expired listing, a sold-out night, or a record whose
+  // source changed after we last verified it all stay on the hub and off the
+  // front page. Inert when the occurrence model is flagged off.
+  if (USE_OCCURRENCE_MODEL && !recordDisposition(e.data, now).promotable) return false;
   return Boolean(e.data.title);
 }
 
@@ -106,21 +111,15 @@ function endOfDay(d: Date): Date {
 const ALWAYS_ON = new Set(['weekly', 'ongoing']);
 
 /** Does this event have something happening on the given weekend? */
-export function occursOnWeekend(e: any, win: WeekendWindow): boolean {
-  const d = e.data;
-  if (ALWAYS_ON.has(d.recurrence)) {
-    return !d.endDate || d.endDate.getTime() >= win.friday.getTime();
-  }
-  const sunEnd = endOfDay(win.sunday).getTime();
-  const fri = win.friday.getTime();
-  if (d.nextOccurrence) {
-    const t = d.nextOccurrence.getTime();
-    if (t >= fri && t <= sunEnd) return true;
-  }
-  const start = d.startDate?.getTime();
-  if (start === undefined) return false;
-  const end = (d.endDate ?? d.startDate).getTime();
-  return start <= sunEnd && end >= fri;
+export function occursOnWeekend(e: any, win: WeekendWindow, now: Date = new Date()): boolean {
+  const start = new Date(`${win.satISO}T00:00:00Z`);
+  const rule = ruleFor(e, start);
+  if (!rule) return false;
+  return [start, addDays(start, 1)].some((day) => {
+    if (!occursOnDay(rule, day)) return false;
+    const state = resolveOccurrence(e.data, isoDate(day), now);
+    return state.bookable;
+  });
 }
 
 /** Still worth listing at all: not entirely in the past. */
@@ -136,10 +135,10 @@ export function isUpcomingEvent(e: any, now: Date): boolean {
   return false;
 }
 
-function fallbackScore(e: any, win: WeekendWindow): number {
+function fallbackScore(e: any, win: WeekendWindow, now: Date): number {
   const d = e.data;
   let score = 0;
-  if (occursOnWeekend(e, win)) score += 100;
+  if (occursOnWeekend(e, win, now)) score += 100;
   if (Array.isArray(d.lens) && d.lens.includes('weekend-pick')) score += 20;
   if (d.worthTheDrive) score += 5;
   score += Number(d.editorialPriority ?? 0) * 2;
@@ -185,7 +184,7 @@ export function selectWeekendPicks(
     const editorialUsed = new Set<string>();
     for (const pick of ordered) {
       const ev = bySlug.get(pick.eventSlug);
-      if (!ev || !isLiveEvent(ev) || editorialUsed.has(slugOf(ev))) continue;
+      if (!ev || !isLiveEvent(ev, now) || !occursOnWeekend(ev, win, now) || editorialUsed.has(slugOf(ev))) continue;
       editorialUsed.add(slugOf(ev));
       editorialCandidates.push({ event: ev, verdict: clampVerdict(pick.editorVerdict) });
     }
@@ -203,12 +202,12 @@ export function selectWeekendPicks(
   if (out.length < 3) {
     const mel = melbourneNow(now);
     const ranked = events
-      .filter(isLiveEvent)
+      .filter((e) => isLiveEvent(e, now))
       .filter((e) => !used.has(slugOf(e)))
-      .filter((e) => isUpcomingEvent(e, mel))
+      .filter((e) => occursOnWeekend(e, win, now))
       .sort(
         (a, b) =>
-          fallbackScore(b, win) - fallbackScore(a, win) ||
+          fallbackScore(b, win, now) - fallbackScore(a, win, now) ||
           soonestTime(a, mel) - soonestTime(b, mel),
       );
     // The ranking above is computed entirely from static event fields, so it
@@ -265,18 +264,18 @@ export function placeLabel(place: unknown): string {
 }
 
 /**
- * The date to print on a pick card. Recurring weekly/ongoing events get no
- * date block (their recurrence chip does the work); dated events show the
- * next occurrence, but never a date already in the past.
+ * The first actual occurrence within the same Saturday–Sunday window as the card.
  */
 export function pickDateISO(e: any, now: Date = new Date()): string | undefined {
-  const d = e.data;
-  if (ALWAYS_ON.has(d.recurrence)) return undefined;
-  const horizon = melbourneNow(now).getTime() - 86400000;
-  const candidate = [d.nextOccurrence, d.startDate]
-    .filter(Boolean)
-    .find((x: Date) => x.getTime() >= horizon);
-  return candidate ? candidate.toISOString() : undefined;
+  const win = weekendWindow(now);
+  const start = new Date(`${win.satISO}T00:00:00Z`);
+  const rule = ruleFor(e, now);
+  if (!rule) return undefined;
+  const day = [start, addDays(start, 1)].find((date) => {
+    const state = resolveOccurrence(e.data, isoDate(date), now);
+    return occursOnDay(rule, date) && state.bookable;
+  });
+  return day ? isoDate(day) : undefined;
 }
 
 /** "Every Saturday" style chip for weekly events. */

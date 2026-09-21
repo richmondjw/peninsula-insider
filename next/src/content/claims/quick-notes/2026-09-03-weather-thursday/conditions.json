@@ -1,0 +1,20 @@
+{
+  "claimId": "quick-notes/2026-09-03-weather-thursday/conditions",
+  "claimClass": "conditions",
+  "subject": {
+    "type": "quick-notes",
+    "slug": "2026-09-03-weather-thursday",
+    "field": "sources"
+  },
+  "statement": "Weather: a cool, windy Thursday at Main Ridge; rain is likely.",
+  "assertedBy": [
+    {
+      "type": "quick-notes",
+      "slug": "2026-09-03-weather-thursday",
+      "field": "sources"
+    }
+  ],
+  "createdAt": "2026-09-03",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

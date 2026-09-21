@@ -1,6 +1,6 @@
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
-import { routeSlug, isStayVenue } from '../lib/editorial';
+import { routeSlug, isStayVenue, isListableVenue } from '../lib/editorial';
 import { loadLiveEvents } from './whats-on/_data';
 
 // SEOMIG rebuild 2026-07-11 (seo-migration-plan.md §4.1).
@@ -11,7 +11,7 @@ import { loadLiveEvents } from './whats-on/_data';
 //   3. It owns a unique search intent (duplicate-cluster losers awaiting
 //      redirect stay out even while their pages are still live).
 //   4. It is content-complete (expired one-off events drop out at build).
-//   5. It is not internal (/admin/, /account/, /ops/, /access/, /me/, /dev/,
+//   5. It is not internal (/admin/, /account/, /ops/, /me/, /dev/,
 //      studio, tool pages) - those never enter.
 // Output is deduplicated by <loc> before serialising (fixes the historical
 // double listing of /journal/free-things-to-do-mornington-peninsula/).
@@ -45,9 +45,9 @@ const notExcluded = (e: { data: { sitemapExclude?: boolean } }) => !e.data.sitem
 // CI checkout every file's mtime is the checkout time, which reintroduces the
 // all-dates-equal bug fixed 2026-08-13.
 const SECTION_LASTMOD: Record<string, string> = {
-  eat: '2026-08-07', stay: '2026-08-13', wine: '2026-08-07', explore: '2026-08-14',
+  eat: '2026-09-16', stay: '2026-09-16', wine: '2026-09-16', explore: '2026-09-16',
   'explore/plans': '2026-08-16', journal: '2026-08-12', 'explore/places': '2026-08-14',
-  'whats-on': '2026-08-14', 'dog-friendly': '2026-08-14', weddings: '2026-08-12',
+  'whats-on': '2026-09-16', 'dog-friendly': '2026-08-14', weddings: '2026-08-12',
   'corporate-events': '2026-08-12', fishing: '2026-08-14', boating: '2026-08-14',
 };
 const HUB_LASTMOD: Record<string, string> = { tour: '2026-08-07', awards: '2026-07-25', guides: '2026-07-27' };
@@ -59,6 +59,7 @@ const PILLAR_LASTMOD: Record<string, string> = {
 };
 const TRUST_LASTMOD: Record<string, string> = {
   about: '2026-08-12', 'editorial-approach': '2026-08-14', corrections: '2026-05-25',
+  'how-we-check': '2026-09-14',
   accessibility: '2026-07-04', contact: '2026-07-04',
 };
 const UTILITY_LASTMOD: Record<string, string> = {
@@ -66,8 +67,8 @@ const UTILITY_LASTMOD: Record<string, string> = {
   careers: '2026-07-04', submit: '2026-07-27', pass: '2026-08-14',
 };
 const BEST_OF_LASTMOD: Record<string, string> = {
-  'eat/best-restaurants': '2026-08-07', 'wine/best-cellar-doors': '2026-08-07',
-  'explore/walks': '2026-08-09', 'stay/best-accommodation': '2026-08-07',
+  'eat/best-restaurants': '2026-09-16', 'wine/best-cellar-doors': '2026-09-16',
+  'explore/walks': '2026-08-09', 'stay/best-accommodation': '2026-09-16',
 };
 const SEO_JOURNAL_LASTMOD: Record<string, string> = {
   '/journal/mornington-peninsula-in-autumn': '2026-08-14',
@@ -104,13 +105,13 @@ const WINE_CATEGORY_LASTMOD: Record<string, string> = {
   'appointment-producers': '2026-08-07', balnarring: '2026-08-07', chardonnay: '2026-08-07',
   flinders: '2026-08-07', 'main-ridge': '2026-08-07', merricks: '2026-08-07',
   'moorooduc-tuerong': '2026-08-07', 'pinot-noir': '2026-08-07', 'red-hill': '2026-08-07',
-  'wine-region': '2026-08-07',
+  'wine-region': '2026-09-16',
 };
 const EXPLORE_GUIDE_LASTMOD: Record<string, string> = {
   beaches: '2026-08-14', 'day-trips': '2026-08-14', 'family-friendly': '2026-08-14',
   'getting-around': '2026-08-14', 'getting-here': '2026-08-14', 'hot-springs': '2026-08-07',
   map: '2026-08-14', markets: '2026-08-14', 'rainy-day': '2026-08-14',
-  'spas-and-wellness': '2026-08-14', 'things-to-do': '2026-08-14', walks: '2026-08-09',
+  'spas-and-wellness': '2026-08-14', 'things-to-do': '2026-09-16', walks: '2026-08-09',
   'weekend-trips': '2026-08-14',
 };
 const TOUR_CATEGORY_LASTMOD: Record<string, string> = {
@@ -199,14 +200,20 @@ export const GET: APIRoute = async () => {
   // pages/eat/[slug].astro) - they fail §4.1 rule 1 (self-canonical), so
   // wineries are emitted under /wine/ only. This removes the 41-page
   // duplicate winery tree from the sitemap (SEO plan §3.3).
-  const eatTypes = ['restaurant', 'cafe', 'bakery', 'pub', 'market', 'brewery', 'distillery', 'providore'];
+  const eatTypes = ['restaurant', 'cafe', 'bakery', 'pub', 'market', 'providore']; // producers (winery, brewery, distillery) are emitted under /wine/ only; their /eat/ alias is a Redirect stub (2026-09-21)
   const wineTypes = ['winery', 'producer', 'brewery', 'distillery'];
 
   const eatVenues = venues.filter(
-    (v) => eatTypes.includes(v.data.type) && notExcluded(v) && !EAT_STUB_SLUGS.has(routeSlug(v)),
+    (v) =>
+      isListableVenue(v) &&
+      eatTypes.includes(v.data.type) &&
+      notExcluded(v) &&
+      !EAT_STUB_SLUGS.has(routeSlug(v)),
   );
-  const stayVenues = venues.filter((v) => isStayVenue(v) && notExcluded(v));
-  const wineVenues = venues.filter((v) => wineTypes.includes(v.data.type) && notExcluded(v));
+  const stayVenues = venues.filter((v) => isListableVenue(v) && isStayVenue(v) && notExcluded(v));
+  const wineVenues = venues.filter(
+    (v) => isListableVenue(v) && wineTypes.includes(v.data.type) && notExcluded(v),
+  );
 
   const entries: string[] = [];
 
@@ -241,19 +248,23 @@ export const GET: APIRoute = async () => {
   // explanatory content and keeps indexability (§4.3); /search/ never enters.
   entries.push(url('/ask', 1.0, 'weekly', '2026-07-27'));
   entries.push(url('/map', 0.7, 'weekly', '2026-08-07'));
-  entries.push(url('/partners/apply', 0.5, 'monthly', '2026-07-18'));
 
   // Trust / editorial-standards pages. /methodology/, /our-approach/ and
   // /ethics/ removed 2026-07-11 - they are redirect stubs into
   // /editorial-approach/ (§4.1 rule 1). Utility/legal singles added.
-  for (const page of ['about', 'editorial-approach', 'corrections', 'accessibility', 'contact']) {
+  for (const page of ['about', 'contact']) {
     entries.push(url(`/${page}`, 0.4, 'monthly', TRUST_LASTMOD[page]));
   }
-  for (const page of ['site-index', 'privacy', 'terms', 'careers', 'submit', 'pass']) {
+  for (const page of ['site-index', 'privacy', 'terms', 'careers', 'submit']) {
     entries.push(url(`/${page}`, 0.3, 'monthly', UTILITY_LASTMOD[page]));
   }
-  entries.push(url('/dispatch', 0.6, 'monthly', '2026-08-12'));
-  entries.push(url('/partners', 0.5, 'monthly', '2026-07-27'));
+  entries.push(url('/dispatch', 0.6, 'monthly', '2026-09-16'));
+  // Picks is now the current, distinct archive of published Insider Picks.
+  const newestPick = articles.filter((entry) => entry.data.tags.includes('insider-picks'))
+    .map((entry) => dateStr(entry.data.publishedAt)).filter(Boolean).sort().at(-1);
+  entries.push(url('/picks', 0.6, 'weekly', newestPick && newestPick > '2026-09-16' ? newestPick : '2026-09-16'));
+  entries.push(url('/partners', 0.5, 'monthly', '2026-09-20'));
+  for (const path of ['/partners/add', '/partners/update', '/partners/enquire']) entries.push(url(path, 0.4, 'monthly', '2026-09-20'));
 
   // Best-of pages (cluster canonicals only - §3.1/§3.2/§3.6 losers such as
   // /wine/cellar-doors/, /wine/best-wineries-mornington-peninsula/,
@@ -349,7 +360,7 @@ export const GET: APIRoute = async () => {
   }
 
   // Peninsula This Weekend rolling URL
-  entries.push(url('/whats-on/this-weekend', 1.0, 'weekly', '2026-08-14'));
+  entries.push(url('/whats-on/this-weekend', 1.0, 'weekly', '2026-09-16'));
 
   // Journal articles. Exclusions:
   //  - sitemapExclude flag
@@ -471,8 +482,8 @@ export const GET: APIRoute = async () => {
     entries.push(url(live.href, 0.6, 'weekly', dateStr(live.event.data.publishedAt)));
   }
 
-  // NOTE: /events/* signature pages, /picks/, /walks/*, /itinerary/, /plan/,
-  // /search/, /saved/, /alerts/, /account/*, /me/*, /admin/, /ops/, /access/
+  // NOTE: /events/* signature pages, /walks/*, /itinerary/, /plan/,
+  // /search/, /saved/, /alerts/, /account/*, /me/*, /admin/, /ops/
   // and /explore/plans/build/ are deliberately absent (§4.1 rules 3 and 5;
   // redirect targets land at Cloudflare cutover - see ops/cloudflare-redirects.csv).
 

@@ -11,7 +11,7 @@ heroImage:
   license: "tmp-unsplash"
 format: "editors-letter"
 tags: ["winter", "weekend", "fireplace", "hot-springs", "rainy-day", "red-hill", "flinders"]
-relatedVenues: ["alba-thermal-springs", "peninsula-hot-springs", "lindenderry", "tedesca-osteria", "polperro", "flinders-hotel", "pier-street-flinders", "red-hill-brewery", "ten-minutes-by-tractor", "montalto", "paringa-estate", "merricks-general-wine-store", "bistro-elba", "mornington-peninsula-chocolates", "red-hill-cheese", "crittenden-villas", "peninsula-hot-springs-glamping"]
+relatedVenues: ["alba-thermal-springs", "peninsula-hot-springs", "lindenderry", "tedesca-osteria", "polperro", "flinders-hotel", "red-hill-brewery", "ten-minutes-by-tractor", "montalto", "paringa-estate", "merricks-general-wine-store", "bistro-elba", "mornington-peninsula-chocolates", "red-hill-cheese", "crittenden-villas", "peninsula-hot-springs-glamping"]
 relatedExperiences: ["bushrangers-bay-walk", "cape-schanck-boardwalk", "mornington-peninsula-gallery", "sorrento-back-beach"]
 readingTimeMinutes: 8
 featured: false
@@ -87,7 +87,7 @@ Let the lunch take two hours. It is winter. Nobody is hurrying you out.
 
 **3.30pm:** Thermal session. Alba or Peninsula Hot Springs, booked ahead, 4pm entry. Stay through the sunset. Alba is newer, more architectural, quieter on a weekday; Peninsula Hot Springs is bigger, more circuits, the original. Either works.
 
-**7.30pm:** A quiet dinner. The day already had two big meals if you count the cellar door and the thermal, so dinner on Saturday should be simple. **Pier Street Flinders**, the bar menu at your hotel, or a pizza from the village.
+**7.30pm:** A quiet dinner. The day already had two big meals if you count the cellar door and the thermal, so dinner on Saturday should be simple. The bar menu at your hotel, or a pizza from the village.
 
 ### Sunday
 

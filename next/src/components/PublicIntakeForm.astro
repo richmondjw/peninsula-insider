@@ -1,0 +1,117 @@
+---
+export interface Props { kind: 'general'|'correction'|'accessibility'|'listing-update'|'new-business'; venues?: {slug:string;name:string}[]; }
+const {kind, venues=[]}=Astro.props;
+const business=kind==='listing-update'||kind==='new-business';
+const adding=kind==='new-business';
+const correcting=kind==='correction';
+const fieldId=(name:string)=>`intake-${kind}-${name}`;
+---
+<form class="intake" data-public-intake={kind} aria-label={business ? (adding?'Add my business':'Manage my listing') : `${kind} enquiry`}>
+  <input type="hidden" name="enquiry_type" value={kind}/>
+  {business && <label>Business name<input name="business_name" required maxlength="200" list={fieldId('venues')} autocomplete="organization"/><datalist id={fieldId('venues')}>{venues.map(v=><option value={v.name} data-slug={v.slug}/>)}</datalist></label>}
+  {adding && <>
+    <label>Category<select name="category" required><option value="">Choose a category</option>{[['food','Food and dining'],['wine','Wineries'],['drink','Bars and drinks'],['experience','Accommodation and experiences'],['shop','Shopping'],['service','Services'],['event','Events'],['other','Other']].map(([value,label])=><option value={value}>{label}</option>)}</select></label>
+    <label>Location<input name="location" required maxlength="300" autocomplete="street-address"/></label>
+    <label>Website<input name="website" type="url" maxlength="500" placeholder="https://"/></label>
+    <label>Instagram/social<input name="social" maxlength="500"/></label>
+  </>}
+  <div class="intake__pair">
+    <label>{adding?'Contact name':'Your name'}<input name="name" required={!correcting} maxlength="200" autocomplete="name"/></label>
+    <label>{adding?'Contact email':'Email'}{correcting?' (optional)':''}<input name="email" type="email" required={!correcting} maxlength="240" autocomplete="email"/></label>
+  </div>
+  {!business && <label>Page address{correcting?'':' (optional)'}<input name="page" required={correcting} maxlength="500" placeholder="Page URL or title"/></label>}
+  <label>{adding?'Short description':business?'What would you like to update':correcting?'What needs fixing?':'Your message'}<textarea name="message" required minlength="10" maxlength="3000" rows="5"/></label>
+  {correcting && <>
+    <label>What should it say?<textarea name="proposed_correction" required maxlength="2000" rows="3"/></label>
+    <label>How do you know? Include a source or link.<textarea name="evidence" required maxlength="2000" rows="3"/></label>
+  </>}
+  {kind==='listing-update' && <>
+    <label>Website/booking link<input name="website" type="url" maxlength="500" placeholder="https://"/></label>
+    <label>Social links<textarea name="social" maxlength="1000" rows="2"/></label>
+    <label>Upload photos<input type="file" name="photos" accept="image/jpeg,image/png,image/webp" multiple/><span class="intake__hint">Up to two JPG, PNG or WebP photos, 4 MB each.</span></label>
+    <label class="intake__check"><input type="checkbox" name="photo_rights"/>I have permission to share any photos I attach.</label>
+  </>}
+  {business && <label>{adding?'Anything else':'Additional notes'}<textarea name="notes" maxlength="2000" rows="3"/></label>}
+  <div class="intake__trap" aria-hidden="true"><label>Leave this field empty<input name="company_fax" tabindex="-1" autocomplete="off"/></label></div>
+  <button type="submit" class="pi-btn pi-btn--solid">{business?'Send request':'Send message'}</button>
+  <p data-intake-status role="status" aria-live="polite" hidden/>
+  <p class="intake__hint">Your details are used to handle your request. <a href="/privacy/">Privacy policy</a>.</p>
+  <p class="intake__hint">Prefer email? <a href="mailto:hello@peninsulainsider.com.au">hello@peninsulainsider.com.au</a></p>
+</form>
+<script>
+import { getSupabase } from '../lib/auth';
+import { buildCorrectionRow, buildReporterRow, generateCaseRef } from '../lib/corrections';
+function initIntake(){
+ document.querySelectorAll<HTMLFormElement>('[data-public-intake]').forEach(form=>{
+  if(form.dataset.bound)return;form.dataset.bound='1';
+  const kind=form.dataset.publicIntake!;
+  const status=form.querySelector<HTMLElement>('[data-intake-status]')!;
+  const button=form.querySelector<HTMLButtonElement>('[type=submit]')!;
+  const venueParam=new URLSearchParams(location.search).get('venue');
+  const option=Array.from(form.querySelectorAll<HTMLOptionElement>('datalist option')).find(o=>o.dataset.slug===venueParam);
+  if(option)(form.elements.namedItem('business_name') as HTMLInputElement).value=option.value;
+  let busy=false;
+  const uploads=new Map<File,string>();
+  let filedCorrection:string|null=null;
+  function report(message:string,error=false){status.hidden=false;status.textContent=message;status.dataset.error=String(error);}
+  form.addEventListener('submit',async event=>{
+   event.preventDefault();if(busy||!form.reportValidity())return;
+   const fd=new FormData(form);const value=(name:string)=>String(fd.get(name)||'').trim();
+   if(value('company_fax')){report('Please leave the extra field empty.',true);return;}
+   const photos=fd.getAll('photos').filter((f):f is File=>f instanceof File&&f.size>0);
+   if(photos.length>2||photos.some(f=>f.size>4*1024*1024||!['image/jpeg','image/png','image/webp'].includes(f.type))){report('Choose up to two JPG, PNG or WebP photos, no larger than 4 MB each.',true);return;}
+   if(photos.length&&!fd.get('photo_rights')){report('Confirm that you have permission to share these photos.',true);return;}
+   busy=true;button.disabled=true;report('Sending…');
+   try{
+    const client=getSupabase();if(!client)throw new Error('unavailable');
+    if(filedCorrection){report(`Your correction is already filed: ${filedCorrection}. To add contact details, email us with this reference.`);return;}
+    const id=crypto.randomUUID();
+    for(const file of photos){
+     if(uploads.has(file))continue;
+     const path=`submissions/${id}/${crypto.randomUUID()}.${file.type.split('/')[1]}`;
+     const {error}=await client.storage.from('submissions').upload(path,file,{upsert:false,contentType:file.type});
+     if(error)throw new Error('photo-upload');uploads.set(file,path);
+    }
+    const photoPaths=photos.map(file=>uploads.get(file)!);
+    if(kind==='correction'){
+     const caseRef=generateCaseRef();
+     const values={affected_url:value('page'),claim:value('message'),proposed_correction:value('proposed_correction'),evidence:value('evidence'),contact_name:value('name'),contact_email:value('email')};
+     const {error}=await client.from('corrections').insert(buildCorrectionRow(values,{id,caseRef}));
+     // Older deployments may not yet expose the dedicated queue. Only that
+     // definite non-write permits fallback; ambiguous failures must never retry.
+     if(error?.code==='PGRST205'){
+      const {error:fallbackError}=await client.from('submissions').insert({id,category:'other',title:`CORRECTION: ${caseRef}`,body:`Intake type: correction\nReference: ${caseRef}\nPage: ${values.affected_url}\n\n${values.claim}\n\nProposed correction: ${values.proposed_correction}\n\nEvidence: ${values.evidence}`,submitter_name:values.contact_name,submitter_email:values.contact_email,photo_urls:[],client_token:id});
+      if(fallbackError)throw fallbackError;
+      filedCorrection=caseRef;form.reset();report(`Correction received. Your reference is ${caseRef}.`);return;
+     }
+     if(error)throw error;
+     filedCorrection=caseRef;
+     const reporter=buildReporterRow(values,id);
+     if(reporter){const {error:contactError}=await client.from('correction_reporters').insert(reporter);if(contactError){report(`Correction received: ${caseRef}. Your contact details could not be saved. Email us with this reference if you want a reply.`,true);return;}}
+     form.reset();report(`Correction received. Your reference is ${caseRef}.`);return;
+    }
+    if(kind==='listing-update'){
+     const match=Array.from(form.querySelectorAll<HTMLOptionElement>('datalist option')).find(o=>o.value.toLowerCase()===value('business_name').toLowerCase());
+     const details=[value('message'),value('social')&&`Social links: ${value('social')}`,value('notes')&&`Additional notes: ${value('notes')}`,photoPaths.length&&`Photos (submissions storage): ${photoPaths.join(', ')}`].filter(Boolean).join('\n\n');
+     const {error}=await client.from('venue_change_requests').insert({id,venue_slug:match?.dataset.slug||'__pending__',venue_name:value('business_name'),change_type:'other',proposed_change:details,reference_url:value('website'),operator_name:value('name'),operator_email:value('email'),client_token:id});if(error)throw error;
+    }else{
+     const adding=kind==='new-business';
+     const body=[`Intake type: ${kind}`,value('message'),value('page')&&`Page: ${value('page')}`,value('website')&&`Website: ${value('website')}`,value('notes')&&`Additional notes: ${value('notes')}`].filter(Boolean).join('\n\n');
+     const {error}=await client.from('submissions').insert({id,category:adding?value('category'):'other',place_name:value('location'),title:adding?`BUSINESS SUBMISSION: ${value('business_name')}`:`CONTACT (${kind}): ${value('message').slice(0,100)}`,body,submitter_name:value('name'),submitter_email:value('email'),submitter_handle:value('social'),photo_urls:[],client_token:id});if(error)throw error;
+    }
+    form.reset();uploads.clear();report(kind==='new-business'?'Business received for review. Submission does not guarantee publication.':kind==='listing-update'?'Your listing update has been received for review.':'Your message has been received. Thank you.');
+   }catch(error){report(error instanceof Error&&error.message==='photo-upload'?'A photo could not be uploaded. Your request has not been sent. Try again or email us.':"We couldn't send your request. Your entries are still here. Try again or email us.",true);}
+   finally{busy=false;button.disabled=false;}
+  });
+ });
+}
+initIntake();document.addEventListener('astro:page-load',initIntake);
+</script>
+<style>
+.intake{display:grid;gap:1.25rem;max-width:46rem;margin-top:1.5rem}
+label{display:grid;gap:.5rem;font-weight:500;line-height:1.5}
+input,select,textarea{font:inherit;color:var(--text);background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:.8rem;min-width:0;width:100%;box-sizing:border-box}
+input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+textarea{resize:vertical}.intake__pair{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}.intake__hint{font-size:.9rem;color:var(--soft);font-weight:400;line-height:1.6;margin:0}.intake__check{display:flex;align-items:flex-start;font-weight:400}.intake__check input{width:auto;margin-top:.3rem}button{justify-self:start;min-height:44px}.intake__trap{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}[data-intake-status]{padding:1rem;border:1px solid var(--border)}[data-intake-status][data-error=true]{color:var(--text);font-weight:600}
+@media(max-width:36rem){.intake__pair{grid-template-columns:1fr}}
+</style>

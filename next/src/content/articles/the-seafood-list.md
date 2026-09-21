@@ -13,7 +13,6 @@ format: "insider-edit"
 tags: ["eat", "seafood", "bayside", "hastings", "mornington", "sorrento", "flinders"]
 relatedVenues:
   - "pier-street-seafood"
-  - "pier-street-flinders"
   - "hotel-sorrento"
   - "the-baths-sorrento"
   - "the-rocks-mornington"

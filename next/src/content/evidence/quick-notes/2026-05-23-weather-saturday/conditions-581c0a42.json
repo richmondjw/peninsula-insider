@@ -1,0 +1,30 @@
+{
+  "evidenceId": "quick-notes/2026-05-23-weather-saturday/conditions-581c0a42",
+  "claim": "quick-notes/2026-05-23-weather-saturday/conditions",
+  "stance": "supports",
+  "publisher": {
+    "kind": "gov"
+  },
+  "retrievedAt": "2026-05-23",
+  "expiresAt": "2026-05-30",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/content/quick-notes/2026-05-23-weather-saturday.md",
+    "field": "sources[0]",
+    "value": "{\"kind\":\"gov\",\"url\":\"https://www.bom.gov.au/explore/places/vic/main-ridge/forecast/\",\"note\":\"Bureau of Meteorology Main Ridge (Mornington Peninsula area) forecast, issued 4:54 AM AEST Saturday 23 May 2026. Saturday rest of day: mostly sunny, light winds, 5% rain chance, 0mm possible, min 7°C max 18°C. Sunday 24 May: partly cloudy, high chance of showers in afternoon and evening, 80% rain, 0–6mm, light winds, min 7°C max 18°C. Monday 25: partly cloudy, 60% showers most likely morning, 0–4mm, winds SE 15–25 km/h afternoon. Tuesday 26: cloudy, 80% showers, 1–9mm, winds SE–E 20–30 km/h. UV index 2 (Low) through to end of week.\",\"checkedAt\":\"2026-05-23T06:48:00+10:00\"}",
+    "dateField": "sources[0].checkedAt"
+  },
+  "url": "https://www.bom.gov.au/places/vic/main-ridge/forecast/",
+  "note": "Bureau of Meteorology Main Ridge (Mornington Peninsula area) forecast, issued 4:54 AM AEST Saturday 23 May 2026. Saturday rest of day: mostly sunny, light winds, 5% rain chance, 0mm possible, min 7°C max 18°C. Sunday 24 May: partly cloudy, high chance of showers in afternoon and evening, 80% rain, 0–6mm, light winds, min 7°C max 18°C. Monday 25: partly cloudy, 60% showers most likely morning, 0–4mm, winds SE 15–25 km/h afternoon. Tuesday 26: cloudy, 80% showers, 1–9mm, winds SE–E 20–30 km/h. UV index 2 (Low) through to end of week.",
+  "retiredSourceLinks": [
+    {
+      "field": "url",
+      "url": "https://www.bom.gov.au/explore/places/vic/main-ridge/forecast/",
+      "verdict": "dead",
+      "disposition": "moved",
+      "replacement": "https://www.bom.gov.au/places/vic/main-ridge/forecast/",
+      "checkedOn": "2026-09-13",
+      "note": "BoM dropped the /explore/ path segment. The new URL returns 200 and the page title is 'Main Ridge Forecast - Bureau of Meteorology'. Same publisher, same page."
+    }
+  ]
+}

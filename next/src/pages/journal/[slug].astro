@@ -1,5 +1,8 @@
 ---
 import { getCollection, render } from 'astro:content';
+import '../../styles/journal-article.css';
+import { existsSync } from 'node:fs';
+import { resolve } from 'node:path';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
@@ -12,13 +15,16 @@ import ClusterLinks from '../../components/ClusterLinks.astro';
 import ItineraryCard from '../../components/ItineraryCard.astro';
 import PlaceCard from '../../components/PlaceCard.astro';
 import CorrectionNote from '../../components/CorrectionNote.astro';
+import MediaProvenanceNote from '../../components/MediaProvenanceNote.astro';
 import HubGuideTOC from '../../components/HubGuideTOC.astro';
-import { formatLabel, routeSlug, venueHrefPrefix, titleize, formatHeroCredit } from '../../lib/editorial';
+import { visibleArticleTags, isJournalDiscovery } from '../../lib/journal-curation.mjs';
+import { formatLabel, routeSlug, venueHrefPrefix, titleize, formatHeroCredit, isListableVenue } from '../../lib/editorial';
 import { pickRelatedArticles, resolveRefs } from '../../lib/related';
 import { isPeninsulaThisWeekend, ptwArchivePath } from '../../lib/peninsula-this-weekend';
 import { editableText, editableImage } from '../../lib/inline-edit/attrs';
 import { loadOverrides } from '../../lib/inline-edit/overrides';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
+import { altFor } from '../../lib/media-provenance';
 import { absUrl, buildBreadcrumbSchema } from '../../lib/schema';
 
 export async function getStaticPaths() {
@@ -94,11 +100,13 @@ const EDITORIAL_FORMATS = new Set([
 ]);
 const isEditorialFormat = EDITORIAL_FORMATS.has(String(article.data.format ?? ''));
 
-const allArticles = (await getCollection('articles', ({ data }) => data.status === 'published'))
+// Discovery and previous/next navigation use the editorial pool, never the Picks feed.
+// getStaticPaths above still emits every published article URL.
+const allArticles = (await getCollection('articles', ({ data }) => isJournalDiscovery(data)))
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
 
 const currentIndex = allArticles.findIndex((a) => routeSlug(a) === routeSlug(article));
-const prevArticle = currentIndex < allArticles.length - 1 ? allArticles[currentIndex + 1] : null;
+const prevArticle = currentIndex >= 0 && currentIndex < allArticles.length - 1 ? allArticles[currentIndex + 1] : null;
 const nextArticle = currentIndex > 0 ? allArticles[currentIndex - 1] : null;
 
 // Related articles: explicit relatedArticles refs lead, then format/tag
@@ -111,7 +119,7 @@ const relatedArticles = pickRelatedArticles(article, allArticles, {
   limit: 6,
 });
 
-const allVenues = await getCollection('venues');
+const allVenues = (await getCollection('venues')).filter(isListableVenue);
 const relatedVenues = resolveRefs(article.data.relatedVenues, allVenues).slice(0, 3);
 
 const allExperiences = await getCollection('experiences');
@@ -133,7 +141,7 @@ const slug = routeSlug(article);
    tolerant of hyphens, underscores and stray whitespace, because titleize()
    collapses all of those to the same rendered label. */
 const heroTagSeen = new Set<string>();
-const heroTags: string[] = ((article.data.tags ?? []) as unknown[])
+const heroTags: string[] = (visibleArticleTags(article.data) as unknown[])
   .filter((tag): tag is string => typeof tag === 'string' && tag.trim() !== '')
   .filter((tag) => {
     const key = tag.trim().toLowerCase().replace(/[\s_-]+/g, ' ');
@@ -160,7 +168,15 @@ const blockOverridesEntries = Object.entries(articleOverrides.text)
   .map(([k, v]) => [k.slice('body.block:'.length), v] as const);
 const blockOverrides = Object.fromEntries(blockOverridesEntries);
 const hero = await resolveHero('article', slug, article.data, 'hero');
-const heroAlt = hero.alt || article.data.title;
+// `hero.alt || article.data.title` was the old line. On an image marked
+// decorative that refilled the deliberately empty alt with the article's
+// headline - filler, and a claim about a photograph nobody assessed.
+const { alt: heroAlt, presentation: heroPresentation } = altFor(hero, article.data.title);
+// The article hero is the third surface to carry the illustrative
+// disclosure, after venues and places. 35 article heroes are stand-ins,
+// and an essay hero makes the same implicit promise a venue page's does
+// when the copy underneath names specific businesses.
+const heroProvenance = hero.override ? null : article.data.heroImage;
 
 const canonical = `https://peninsulainsider.com.au/journal/${slug}/`;
 const ogImage = hero.src;
@@ -251,8 +267,10 @@ const articleSchema = {
   },
 };
 
-const evergreenFormats = new Set(['service', 'hub-guide', 'trail-guide', 'venue-guide', 'long-lunch-list', 'cellar-door-dispatch', 'stay-notes']);
-const showCorrectionNote = evergreenFormats.has(String(article.data.format ?? ''));
+// Every published article can carry an error, so every published article
+// carries the way to report one. This used to be gated to seven evergreen
+// formats, which left the reader of a dispatch or a news piece with no route
+// to the desk at all (PI-014).
 
 const faqSchema = article.data.faq && article.data.faq.length > 0 ? {
   '@context': 'https://schema.org',
@@ -263,6 +281,7 @@ const faqSchema = article.data.faq && article.data.faq.length > 0 ? {
     acceptedAnswer: { '@type': 'Answer', text: answer },
   })),
 } : null;
+const heroAvailable = !hero.src.startsWith('/') || existsSync(resolve('public', hero.src.split('?')[0].slice(1)));
 export const prerender = true;
 ---
 
@@ -300,7 +319,7 @@ export const prerender = true;
   {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
   <Breadcrumbs items={breadcrumbItems} />
 
-  <article class="article">
+  <article class="article editorial-article">
     <!-- Magazine-style split hero: meta + title + dek + byline LEFT,
          hero image RIGHT, on a generous cream surface. -->
     <header class="article-hero">
@@ -344,21 +363,25 @@ export const prerender = true;
               </div>
             )}
           </div>
-          <figure class="article-hero__figure">
-            <img class="article-hero__image" src={hero.src} alt={heroAlt} fetchpriority="high" decoding="async" {...editableImage({
+          {heroAvailable && (<figure class="article-hero__figure">
+            <img class="article-hero__image" src={hero.src} data-pi-responsive="(max-width: 1360px) 100vw, 1280px" alt={heroAlt} role={heroPresentation ? 'presentation' : undefined} fetchpriority="high" decoding="async" {...editableImage({
               entityType: 'article', entitySlug: slug, fieldPath: 'hero',
               label: `${article.data.title} hero`, purpose: 'hero',
             })} />
             {article.data.heroImage.credit && (
               <figcaption class="article-hero__credit">{formatHeroCredit(article.data.heroImage.credit)}</figcaption>
             )}
-          </figure>
+            <MediaProvenanceNote
+              image={heroProvenance}
+              class="article-hero__provenance"
+            />
+          </figure>)}
         </div>
       </div>
     </header>
 
-    <div class={`container${isHubGuide ? ' article-body--hub' : ''}`}>
-      {isHubGuide && <HubGuideTOC headings={headings} />}
+    <div class={`container${headings.length ? ' article-body--hub' : ''}`}>
+      {headings.length > 0 && <HubGuideTOC headings={headings} />}
       <div class="article-body__content">
         {article.data.aiSummary && article.data.aiSummary.length > 0 && (
           <section class="article-summary" aria-label="Quick summary">
@@ -404,7 +427,7 @@ export const prerender = true;
           </>
         )}
 
-        {showCorrectionNote && <CorrectionNote />}
+        <CorrectionNote surface="journal" />
 
         {article.data.clusterLinks && article.data.clusterLinks.length > 0 && (
           <ClusterLinks links={article.data.clusterLinks} heading="Explore this hub" />

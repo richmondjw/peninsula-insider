@@ -1,9 +1,9 @@
 ---
 /**
- * /complaints/ → /corrections/ redirect
+ * /complaints/ → /contact/?type=correction redirect
  * Complaints page removed May 2026; direct readers to corrections process.
  */
 import Redirect from '../components/Redirect.astro';
 export const prerender = true;
 ---
-<Redirect to="/corrections/" consolidate />
+<Redirect to="/contact/?type=correction" consolidate />

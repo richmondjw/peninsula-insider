@@ -1,0 +1,20 @@
+{
+  "claimId": "signature-events/sailing-regattas/event-status",
+  "claimClass": "event-status",
+  "subject": {
+    "type": "signature-events",
+    "slug": "sailing-regattas",
+    "field": "officialUrl"
+  },
+  "statement": "Major sailing regattas runs as published (Seasonal / annual series).",
+  "assertedBy": [
+    {
+      "type": "signature-events",
+      "slug": "sailing-regattas",
+      "field": "officialUrl"
+    }
+  ],
+  "createdAt": "2026-05-13",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

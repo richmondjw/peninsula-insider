@@ -13,7 +13,7 @@
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
-import { resolveHeroSrc, venueHrefPrefix } from '../../lib/editorial';
+import { resolveHeroSrc, venueHrefPrefix, isListableVenue } from '../../lib/editorial';
 import '../../styles/account.css';
 export const prerender = true;
 
@@ -24,7 +24,7 @@ const piPlaces = Object.fromEntries((await getCollection('places')).map((p) => [
   p.data.slug ?? p.id,
   { title: p.data.name, href: `/places/${p.data.slug ?? p.id}/`, image: resolveHeroSrc(p.data) },
 ]));
-const piVenues = Object.fromEntries((await getCollection('venues')).map((v) => [
+const piVenues = Object.fromEntries((await getCollection('venues')).filter(isListableVenue).map((v) => [
   v.data.slug ?? v.id,
   { title: v.data.name, href: `${venueHrefPrefix(String(v.data.type ?? ''))}/${v.data.slug ?? v.id}/`, image: resolveHeroSrc(v.data) },
 ]));
@@ -153,7 +153,7 @@ const piIndex = { places: piPlaces, venues: piVenues };
     setTimeout(() => toast?.classList.remove('saved-toast--visible'), 2400);
   }
 
-  const PI_CASE_TITLES: Record<string, string> = { '01': 'Took her coffee to go' };
+  const PI_CASE_TITLES: Record<string, string> = { '01': 'Took her coffee to go', '02': 'Took the long way to dinner' };
 
   /** Resolve the game's slugs against the build-time index into shareable items, in route order. */
   function piRouteItems(params: URLSearchParams): { caseId: string; items: SharedItem[] } | null {

@@ -12,7 +12,6 @@
   "suburb": "Fingal",
   "streetAddress": "55 Peter Thomson Drive",
   "indoorOutdoor": "Outdoor",
-  "officialEventUrl": "https://www.mornpen.vic.gov.au/Events-Activities/Mothers-Day-Classic-2026",
   "bookingRequired": "Yes",
   "freePaid": "Paid",
   "priceTier": "under-50",
@@ -32,7 +31,6 @@
   "weather": "mixed",
   "weatherDependency": "Outdoor course event",
   "weatherShape": "fair-weather-only",
-  "primarySourceUrl": "https://www.mornpen.vic.gov.au/Events-Activities/Mothers-Day-Classic-2026",
   "verificationStatus": "Shire listing verified",
   "lastCheckedDate": "2026-05-07",
   "visitorAppealScore": 4,
@@ -54,5 +52,25 @@
     "credit": "Peninsula Insider",
     "license": "other-licensed"
   },
-  "nextOccurrence": "2027-05-10"
+  "nextOccurrence": "2027-05-10",
+  "retiredSourceLinks": [
+    {
+      "field": "officialEventUrl",
+      "url": "https://www.mornpen.vic.gov.au/Events-Activities/Mothers-Day-Classic-2026",
+      "verdict": "dead",
+      "disposition": "gone",
+      "checkedOn": "2026-09-13",
+      "note": "COUNCIL RESTRUCTURE, as above. Also a 2026 event that has passed."
+    },
+    {
+      "field": "primarySourceUrl",
+      "url": "https://www.mornpen.vic.gov.au/Events-Activities/Mothers-Day-Classic-2026",
+      "verdict": "dead",
+      "disposition": "gone",
+      "checkedOn": "2026-09-13",
+      "note": "COUNCIL RESTRUCTURE, as above. Also a 2026 event that has passed."
+    }
+  ],
+  "sourceStatus": "unsourced",
+  "sourceStatusNote": "COUNCIL RESTRUCTURE, as above. Also a 2026 event that has passed."
 }

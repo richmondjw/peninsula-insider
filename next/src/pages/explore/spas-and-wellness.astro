@@ -6,6 +6,8 @@ import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import PiSaveActions from '../../components/PiSaveActions.astro';
 import { editableImage } from '../../lib/inline-edit/attrs';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
+import CorrectionNote from '../../components/CorrectionNote.astro';
+import { isListableVenue } from '../../lib/editorial';
 import {
   buildCollectionPageSchema,
   buildFaqSchema,
@@ -89,7 +91,7 @@ const ranked: RankedSpa[] = [
 ];
 
 /* Join each ranked spa to its venue record for hero + save metadata. */
-const venues = await getCollection('venues');
+const venues = (await getCollection('venues')).filter(isListableVenue);
 const bySlug = new Map(venues.map((v) => [v.data.slug ?? v.id.replace(/\.json$/, ''), v]));
 
 const heroes = new Map<string, { src: string; alt: string }>();
@@ -288,7 +290,8 @@ export const prerender = true;
         genuine spa and wellness options than most Australian regions manage across a
         whole state: thermal springs, treatment-focused day spas in converted
         properties, and resort spa facilities. Every spa below is editorially reviewed
-        and re-verified on a rolling basis.
+        against the operator's published information, and the date of that
+        check is stated at the foot of this page.
       </p>
 
       {ranked.map((s) => {
@@ -417,6 +420,10 @@ export const prerender = true;
     </div>
   </section>
 
+  <div class="container">
+    <CorrectionNote surface="spa-hub" />
+  </div>
+
   <NewsletterBlock />
 </BaseLayout>
 
@@ -443,13 +450,7 @@ export const prerender = true;
   .sp-hero__scrim {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-      to top,
-      rgba(11, 46, 74, 0.94) 0%,
-      rgba(11, 46, 74, 0.78) 38%,
-      rgba(11, 46, 74, 0.3) 62%,
-      rgba(11, 46, 74, 0) 80%
-    );
+    background: var(--photo-shade-bottom);
   }
   .sp-hero__content {
     position: absolute;

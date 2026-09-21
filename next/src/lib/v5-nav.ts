@@ -14,7 +14,7 @@
  * NOTE for the budget lint: interfaces here must stay flat (no nested
  * braces) so the lint can strip types and evaluate the config, and the
  * only import permitted is the shared season helper below, which
- * scripts/lint-nav-budget.mjs strips and stubs. Voice rules per
+ * scripts/nav-config-eval.mjs strips and stubs. Voice rules per
  * BRAND-PI.md: no em-dashes, no tourism adjectives, no exclamation
  * marks, noun-phrase links.
  *
@@ -23,7 +23,7 @@
  * V5MegaPanel marks the pin fields up with editableText() so each pin
  * is CMS-editable in place (entityType 'page', entitySlug 'nav-<key>').
  */
-import { getSeasonEditionTag } from './season';
+import { getSeasonEditionTag, melbourneISODate } from './season';
 
 /**
  * The rail eyebrow. Every pillar pin used to carry a hard-coded
@@ -121,7 +121,6 @@ const configuredV5Pillars = [
     intro: 'The cellar doors we would actually send you to.',
     curated: [
       { key: 'best-cellar', label: 'Best cellar doors',         href: '/wine/best-cellar-doors/' },
-      { key: 'cellar-door', label: 'Cellar doors',              href: '/wine/best-cellar-doors/' },
       { key: 'producers',   label: 'Appointment producers',     href: '/wine/appointment-producers/' },
       { key: 'shortlist',   label: 'The cellar-door shortlist', href: '/journal/the-cellar-door-short-list/' },
       { key: 'winery-weddings', label: 'Winery wedding venues', href: '/weddings/winery-wedding-venues-mornington-peninsula/' },
@@ -148,6 +147,7 @@ const configuredV5Pillars = [
       { key: 'golf',  label: 'Golf',             href: '/explore/golf/' },
       { key: 'dog',   label: 'Dog-friendly',     href: '/dog-friendly/' },
       { key: 'tours', label: 'Tours & charters', href: '/tour/' },
+      { key: 'fishing', label: 'Fishing',        href: '/fishing/' },
     ],
     browse: [
       { key: 'all-places', label: 'All places', href: '/explore/places/' },
@@ -181,9 +181,9 @@ const configuredV5Pillars = [
     ],
     rail: {
       eyebrow: editorsPickEyebrow,
-      title: 'Ridge to Sea',
-      verdict: 'Two nights, Red Hill down to Flinders. The order matters: ridge first, coast second, and the Friday-night arrival makes the whole thing work.',
-      href: '/explore/plans/ridge-to-sea-two-night-escape/',
+      title: 'The Peninsula pub crawl',
+      verdict: 'Six pubs, three routes, and a day built around them rather than squeezed between other plans. Pick the route by which way the wind is blowing.',
+      href: '/explore/plans/the-pub-crawl/',
       cta: 'Open the plan',
     },
   },
@@ -195,12 +195,12 @@ const configuredV5Pillars = [
     hub: '/whats-on/',
     intro: 'The events calendar with an opinion attached.',
     curated: [
-      { key: 'weekend-edit', label: 'The weekend edit', href: '/journal/autumn-weekend-edit/' },
+      { key: 'weekend-edit', label: 'The weekend edit', href: '/whats-on/this-weekend/' },
       { key: 'rainy',        label: 'When it rains',    href: '/journal/rainy-day-peninsula/' },
       { key: 'kids',         label: 'With kids',        href: '/journal/mornington-peninsula-with-kids/' },
     ],
     browse: [
-      { key: 'all-whats-on', label: 'Everything on this weekend', href: '/whats-on/' },
+      { key: 'all-whats-on', label: 'The full calendar', href: '/whats-on/' },
     ],
     rail: {
       eyebrow: editorsPickEyebrow,
@@ -224,7 +224,7 @@ const configuredV5Pillars = [
     key: 'journal',
     label: 'Journal',
     hub: '/journal/',
-    intro: 'Long reads and the Shortlist, every issue, every piece.',
+    intro: 'Editorial stories, local guides and the Shortlist.',
     curated: [
       { key: 'shortlist',   label: 'The cellar-door shortlist', href: '/journal/the-cellar-door-short-list/' },
       { key: 'long-lunch',  label: 'The long lunch',            href: '/journal/the-long-lunch/' },
@@ -232,22 +232,14 @@ const configuredV5Pillars = [
       { key: 'orientation', label: 'The first-visit drive',     href: '/explore/plans/the-peninsula-orientation-drive/' },
     ],
     browse: [
-      { key: 'all-journal', label: 'Every issue, every piece', href: '/journal/' },
+      { key: 'all-journal', label: 'Explore the Journal', href: '/journal/' },
     ],
     rail: {
       eyebrow: editorsPickEyebrow,
-      title: 'Insider Picks, 12 August',
-      verdict: 'Three things worth making time for this week, chosen by the desk.',
-      href: '/journal/insider-picks-2026-08-12/',
-      cta: 'Read the picks',
-      expiresAt: '2026-08-19',
-      fallback: {
-        eyebrow: "Editor's note",
-        title: 'The Journal',
-        verdict: 'Guides and stories to help shape the next Peninsula day.',
-        href: '/journal/',
-        cta: 'Browse the Journal',
-      },
+      title: 'Stories from the Peninsula',
+      verdict: 'Explore our latest editorial stories and guides, or find a subject by theme.',
+      href: '/journal/#themes',
+      cta: 'Explore the Journal',
     },
   },
 ];
@@ -256,15 +248,25 @@ const configuredV5Pillars = [
  * Seasonal rails must fail closed. A stale recommendation is worse than an
  * evergreen one, so an expired pin is replaced at build time with its neutral
  * fallback rather than remaining visible until someone remembers to edit it.
+ *
+ * The comparison day comes from melbourneISODate, not from
+ * `new Date().toISOString()`. Expiry dates are written by an editor thinking
+ * in Melbourne time, and CI builds on a UTC runner ten to eleven hours
+ * behind, so the UTC day is still yesterday for most of the Melbourne
+ * working day. A pin set to expire on the 19th survived nearly all of the
+ * 19th in Melbourne. Both halves of this file now read the same clock.
  */
-const today = new Date().toISOString().slice(0, 10);
-export const v5Pillars: V5Pillar[] = configuredV5Pillars.map((pillar) => {
-  const { rail } = pillar;
-  if (rail.expiresAt && rail.fallback && rail.expiresAt < today) {
-    return { ...pillar, rail: rail.fallback };
+export function resolveRail(rail: V5Rail, todayISO: string): V5Rail {
+  if (rail.expiresAt && rail.fallback && rail.expiresAt < todayISO) {
+    return rail.fallback;
   }
-  return pillar;
-});
+  return rail;
+}
+
+export const v5Pillars: V5Pillar[] = configuredV5Pillars.map((pillar) => ({
+  ...pillar,
+  rail: resolveRail(pillar.rail, melbourneISODate()),
+}));
 
 /**
  * Masthead utilities. Three choices, both breakpoints (NAV-05: one
@@ -302,7 +304,6 @@ export const v5DrawerItems: V5DrawerItem[] = [
   { key: 'trip',      label: 'My Trip',            href: '/me/trip/',             group: 'mine' },
   { key: 'account',   label: 'Account',            href: '/account/',             group: 'mine' },
   { key: 'about',     label: 'About',              href: '/about/',               group: 'trust' },
-  { key: 'editorial', label: 'Editorial approach', href: '/editorial-approach/',  group: 'trust' },
   { key: 'contact',   label: 'Contact',            href: '/contact/',             group: 'trust' },
 ];
 
@@ -310,7 +311,7 @@ export const v5DrawerItems: V5DrawerItem[] = [
 export const v5DrawerCta = {
   key: 'dispatch',
   label: 'The Insider Note',
-  dek: "The Peninsula worth knowing. Weekly. What's on, where we'd go and what's worth knowing next.",
+  dek: "The Peninsula worth knowing. An occasional email. What's on, where we'd go and what's worth knowing next.",
   ctaLabel: 'Join The Insider Note',
   href: '/dispatch/',
 };
@@ -348,18 +349,23 @@ export const v5FooterSections: V5NavLink[] = [
   // future-ia.md), but it is a real hub with commercial intent, so it earns a
   // permanent site-wide internal link here alongside its home in the Plans panel.
   { key: 'weddings', label: 'Weddings',    href: '/weddings/' },
+  // Fishing and Boating are the same case and were missed. Both are full
+  // hubs with their own sub-guides, both carry real search demand (see the
+  // PI-010 note in the PR), and until now neither had a single site-wide
+  // link: the only route in was the Explore hub page, one click deeper than
+  // any other hub of comparable size. Fishing also has an Explore-panel slot;
+  // Boating's route in is here.
+  { key: 'fishing',  label: 'Fishing',     href: '/fishing/' },
+  { key: 'boating',  label: 'Boating',     href: '/boating/' },
 ];
 
 export const v5FooterAbout: V5NavLink[] = [
-  { key: 'about',     label: 'About',              href: '/about/' },
-  { key: 'editorial', label: 'Editorial approach', href: '/editorial-approach/' },
-  { key: 'partners',  label: 'Partners',           href: '/partners/' },
-  { key: 'contact',   label: 'Contact',            href: '/contact/' },
+  { key: 'about', label: 'About', href: '/about/' },
+  { key: 'contact', label: 'Contact', href: '/contact/' },
+  { key: 'partners', label: 'For Peninsula Businesses', href: '/partners/' },
 ];
 
 export const v5FooterFinePrint: V5NavLink[] = [
-  { key: 'privacy',       label: 'Privacy',       href: '/privacy/' },
-  { key: 'terms',         label: 'Terms',         href: '/terms/' },
-  { key: 'accessibility', label: 'Accessibility', href: '/accessibility/' },
-  { key: 'corrections',   label: 'Corrections',   href: '/corrections/' },
+  { key: 'privacy', label: 'Privacy', href: '/privacy/' },
+  { key: 'terms', label: 'Terms', href: '/terms/' },
 ];

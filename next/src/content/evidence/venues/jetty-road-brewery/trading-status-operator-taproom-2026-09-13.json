@@ -1,0 +1,15 @@
+{
+  "evidenceId": "venues/jetty-road-brewery/trading-status-operator-taproom-2026-09-13",
+  "claim": "venues/jetty-road-brewery/trading-status",
+  "stance": "supports",
+  "publisher": {
+    "kind": "venue-site",
+    "name": "Jetty Road Brewery"
+  },
+  "url": "https://www.jettyroad.com.au/",
+  "method": "Operator site read directly on 2026-09-13.",
+  "retrievedAt": "2026-09-13",
+  "expiresAt": "2026-12-12",
+  "note": "The operator publishes current weekly trading hours for the Dromana taproom, the street address the record carries, and a live booking link. A business publishing this week's hours is asserting that it is trading.",
+  "origin": "authored"
+}

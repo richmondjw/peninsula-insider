@@ -1,0 +1,20 @@
+{
+  "claimId": "quick-notes/2026-08-12-weather-wednesday/conditions",
+  "claimClass": "conditions",
+  "subject": {
+    "type": "quick-notes",
+    "slug": "2026-08-12-weather-wednesday",
+    "field": "sources"
+  },
+  "statement": "Weather: Wednesday is wet and windy at Main Ridge; keep the plan close to cover.",
+  "assertedBy": [
+    {
+      "type": "quick-notes",
+      "slug": "2026-08-12-weather-wednesday",
+      "field": "sources"
+    }
+  ],
+  "createdAt": "2026-08-12",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

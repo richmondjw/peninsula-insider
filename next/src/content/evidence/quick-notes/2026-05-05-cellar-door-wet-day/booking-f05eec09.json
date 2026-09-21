@@ -1,0 +1,23 @@
+{
+  "evidenceId": "quick-notes/2026-05-05-cellar-door-wet-day/booking-f05eec09",
+  "claim": "quick-notes/2026-05-05-cellar-door-wet-day/booking",
+  "stance": "supports",
+  "publisher": {
+    "kind": "venue-site"
+  },
+  "retrievedAt": "2026-05-05",
+  "expiresAt": "2026-07-04",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/content/quick-notes/2026-05-05-cellar-door-wet-day.md",
+    "field": "sources[2]",
+    "value": "{\"kind\":\"venue-site\",\"url\":\"https://www.redhellestate.com.au/\",\"note\":\"Red Hill Estate. Known Tuesday–Sunday trading. Terrace unlikely to be used today given weather - indoor space only.\",\"checkedAt\":\"2026-05-05T06:53:00+10:00\"}",
+    "dateField": "sources[2].checkedAt"
+  },
+  "url": "https://www.redhellestate.com.au/",
+  "note": "Red Hill Estate. Known Tuesday–Sunday trading. Terrace unlikely to be used today given weather - indoor space only.",
+  "sourceHealth": "dead",
+  "sourceHealthCheckedOn": "2026-09-13",
+  "sourceStatus": "unsourced",
+  "sourceStatusNote": "Domain does not resolve. It is a misspelling of Red Hill Estate, and it was cited on 5 May 2026 as the source establishing that venue's Tuesday-Sunday trading. redhillestate.com.au does resolve, but pointing this row at it would manufacture support the row never had: whatever was written on 5 May, this URL was not read."
+}

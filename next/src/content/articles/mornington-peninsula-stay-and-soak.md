@@ -1,5 +1,4 @@
 ---
-slug: "mornington-peninsula-stay-and-soak"
 title: "Mornington Peninsula Stay and Soak - Where to Stay Near the Hot Springs"
 dek: "The accommodation pairings that make each Peninsula spa weekend work. Hot springs, resort spas, and boutique treatment rooms - matched to the stays within fifteen minutes that actually fit."
 author: "editorial"

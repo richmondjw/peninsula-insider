@@ -217,6 +217,7 @@ const { kind, slug, title, href, section, dek, imageUrl, floating = true } = Ast
   import * as Saves from '../lib/saves/store';
   import type { SaveKind } from '../lib/saves/store';
   import { track } from '../lib/saves/analytics';
+  import { emit } from '../lib/analytics-events';
 
   function hydrate(el: HTMLElement) {
     if ((el as any)._piInit) return;
@@ -250,6 +251,23 @@ const { kind, slug, title, href, section, dek, imageUrl, floating = true } = Ast
       if (!result.ok) {
         // Private mode / quota: the save did not land, so do not paint it.
         showFeedback(saveBtn!, 'Not saved');
+        // PI-024: this branch was silent. A store that refuses every write
+        // looked identical to a reader who never tried to save, which is the
+        // single worst thing a save funnel can be blind to.
+        emit(
+          wasSaved ? 'unsave_failed' : 'save_failed',
+          {
+            entity_type: kind,
+            entity_id: slug,
+            section,
+            surface: 'card',
+            // The store reports ok/saved and no cause. Private-mode and quota
+            // both land here; distinguishing them needs a change to
+            // lib/saves/store.ts, which this ticket must not touch.
+            reason: 'store-rejected',
+          },
+          { component: 'PiSaveActions' },
+        );
         return;
       }
       track(wasSaved ? 'pi_unsave' : 'pi_save', {
@@ -258,6 +276,14 @@ const { kind, slug, title, href, section, dek, imageUrl, floating = true } = Ast
         section,
         surface: 'card',
       });
+      // save_succeeded is the contract event and fires only for an ADD that
+      // the store confirmed. An unsave is not a save; it gets its own name so
+      // no dashboard can quietly add the two together.
+      emit(
+        wasSaved ? 'unsave_succeeded' : 'save_succeeded',
+        { entity_type: kind, entity_id: slug, section, surface: 'card' },
+        { component: 'PiSaveActions', dedupKey: 'save:' + kind + ':' + slug },
+      );
     });
 
     shareBtn?.addEventListener('click', async (e) => {

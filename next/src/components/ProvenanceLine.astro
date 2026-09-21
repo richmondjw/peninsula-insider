@@ -1,0 +1,74 @@
+---
+/**
+ * ProvenanceLine  -  the reader-facing provenance disclosure (PI-004).
+ *
+ * Give it the records the page is actually about and it derives the line
+ * from them and from the PI-005 claim registry. It does not take a date,
+ * deliberately: a date passed in as a prop is how forty pages ended up
+ * publishing a hardcoded stamp that tracked nothing.
+ *
+ * What it will and will not say:
+ *
+ *   - "fact-checked <month>" only when every record on the page has live
+ *     supporting evidence in the registry. That is an earned check date.
+ *   - "reviewed <month> or later" otherwise, from the floor of the legacy
+ *     review dates. A review is not a check and is never worded as one.
+ *   - the expiry, when sources were on file and have since lapsed.
+ *
+ * `data-provenance` carries the basis (authored / registry / none) into the
+ * DOM so the audit can see what a page actually published without parsing
+ * prose.
+ */
+import { getCollection } from 'astro:content';
+import precedence from '../data/source-precedence.json';
+import {
+  aggregateProvenance,
+  buildProvenanceIndex,
+  disclosureLine,
+} from '../lib/provenance.mjs';
+
+interface Props {
+  /** The entries this page's factual claim is about. */
+  records?: Array<{ id?: string; data?: Record<string, unknown> }>;
+  /** Registry subject type: the directory name under src/content/. */
+  type?: string;
+  /** What to call one record in the sentence. */
+  noun?: string;
+  class?: string;
+  style?: string;
+  /** Wrap the line in <em>, matching the pages that already italicise it. */
+  emphasis?: boolean;
+}
+
+const {
+  records = [],
+  type,
+  noun = 'entry',
+  class: className,
+  style,
+  emphasis = false,
+} = Astro.props as Props;
+
+const [claims, evidence] = await Promise.all([
+  getCollection('claims'),
+  getCollection('evidence'),
+]);
+
+const derived = aggregateProvenance(records, {
+  type,
+  index: buildProvenanceIndex(claims, evidence),
+  precedence,
+});
+
+const line = disclosureLine(derived, {
+  noun,
+  scope: 'set',
+  admitMissingCheck: false,
+});
+---
+
+{line && (
+  <p class={className} style={style} data-provenance={derived.basis}>
+    {emphasis ? <em>{line}<slot /></em> : <Fragment>{line}<slot /></Fragment>}
+  </p>
+)}

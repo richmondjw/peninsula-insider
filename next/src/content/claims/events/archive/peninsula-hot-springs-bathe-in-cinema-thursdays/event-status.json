@@ -1,0 +1,18 @@
+{
+  "claimId": "events/archive/peninsula-hot-springs-bathe-in-cinema-thursdays/event-status",
+  "claimClass": "event-status",
+  "subject": {
+    "type": "events",
+    "slug": "archive/peninsula-hot-springs-bathe-in-cinema-thursdays"
+  },
+  "statement": "Peninsula Hot Springs – Bathe-in Cinema (Thursdays) is running as published.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "archive/peninsula-hot-springs-bathe-in-cinema-thursdays"
+    }
+  ],
+  "createdAt": "2026-05-04",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

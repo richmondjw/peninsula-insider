@@ -1,0 +1,18 @@
+{
+  "evidenceId": "events/pearcedale-community-market/event-schedule-onlymelbourne-com-au-2026-05-17",
+  "claim": "events/pearcedale-community-market/event-schedule",
+  "stance": "supports",
+  "publisher": {
+    "kind": "unknown"
+  },
+  "url": "https://www.onlymelbourne.com.au/pearcedale-market",
+  "retrievedAt": "2026-05-17",
+  "expiresAt": "2026-06-16",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/content/events/pearcedale-community-market.json",
+    "field": "primarySourceUrl",
+    "value": "https://www.onlymelbourne.com.au/pearcedale-market",
+    "dateField": "lastCheckedDate"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "evidenceId": "quick-notes/2026-07-28-weather-tuesday/conditions-b6eb476b",
+  "claim": "quick-notes/2026-07-28-weather-tuesday/conditions",
+  "stance": "supports",
+  "publisher": {
+    "kind": "gov"
+  },
+  "retrievedAt": "2026-07-28",
+  "expiresAt": "2026-08-04",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/content/quick-notes/2026-07-28-weather-tuesday.md",
+    "field": "sources[0]",
+    "value": "{\"kind\":\"gov\",\"url\":\"https://api.open-meteo.com/v1/forecast?latitude=-38.40&longitude=145.00&daily=precipitation_sum,precipitation_probability_max,temperature_2m_max,temperature_2m_min,windspeed_10m_max,weathercode&current_weather=true&timezone=Australia%2FMelbourne&forecast_days=7\",\"note\":\"Open-Meteo Main Ridge retrieval 2026-07-27T20:35Z. Current at 06:30 AEST 28 Jul: 10.5°C, 38.0 km/h N (345°), weathercode 0 (clear sky), is_day 0. Tue 28 Jul: max 13.5°C, min 8.4°C, 100% rain, 6.10mm, 41.2 km/h max, weathercode 95 (thunderstorm). Wed 29 Jul: 98%/7.30mm, max 11.1°C, 42.1 km/h, code 80 (showers). Thu 30 Jul: 65%/2.10mm, max 11.0°C, 18.6 km/h. Fri 31 Jul: 24%/1.20mm, max 11.9°C, 10.8 km/h. Sat 1 Aug: 2%/0mm, max 12.8°C. Sun 2 Aug: 8%/0mm, max 14.5°C.\",\"checkedAt\":\"2026-07-28T06:35:00+10:00\"}",
+    "dateField": "sources[0].checkedAt"
+  },
+  "url": "https://api.open-meteo.com/v1/forecast?latitude=-38.40&longitude=145.00&daily=precipitation_sum,precipitation_probability_max,temperature_2m_max,temperature_2m_min,windspeed_10m_max,weathercode&current_weather=true&timezone=Australia%2FMelbourne&forecast_days=7",
+  "note": "Open-Meteo Main Ridge retrieval 2026-07-27T20:35Z. Current at 06:30 AEST 28 Jul: 10.5°C, 38.0 km/h N (345°), weathercode 0 (clear sky), is_day 0. Tue 28 Jul: max 13.5°C, min 8.4°C, 100% rain, 6.10mm, 41.2 km/h max, weathercode 95 (thunderstorm). Wed 29 Jul: 98%/7.30mm, max 11.1°C, 42.1 km/h, code 80 (showers). Thu 30 Jul: 65%/2.10mm, max 11.0°C, 18.6 km/h. Fri 31 Jul: 24%/1.20mm, max 11.9°C, 10.8 km/h. Sat 1 Aug: 2%/0mm, max 12.8°C. Sun 2 Aug: 8%/0mm, max 14.5°C."
+}

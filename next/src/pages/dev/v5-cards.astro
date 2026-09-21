@@ -7,6 +7,7 @@
  * be inspected in one place. Noindexed; not linked from any nav.
  */
 import { getCollection } from 'astro:content';
+import { venueHref } from '../../lib/editorial';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Card from '../../components/v5/Card.astro';
 import CardGrid from '../../components/v5/CardGrid.astro';
@@ -14,6 +15,7 @@ import EmptyState from '../../components/v5/EmptyState.astro';
 import LoadingState from '../../components/v5/LoadingState.astro';
 import ErrorState from '../../components/v5/ErrorState.astro';
 import Alert from '../../components/v5/Alert.astro';
+import { isListableVenue } from '../../lib/editorial';
 
 const hasHero = (e: any) => !!e.data.heroImage?.src;
 const slugOf = (e: any) => e.data.slug ?? e.id;
@@ -24,7 +26,7 @@ const placeName = (v: unknown) =>
 
 const venues = (await getCollection('venues'))
   .filter(hasHero)
-  .filter((v) => v.data.status !== 'permanently_closed' && v.data.signature)
+  .filter((v) => isListableVenue(v) && v.data.signature)
   .slice(0, 3);
 
 const events = (await getCollection('events'))
@@ -46,7 +48,7 @@ const itineraries = (await getCollection('itineraries')).filter(hasHero).slice(0
 const places = (await getCollection('places')).filter(hasHero).slice(0, 3);
 
 const rowVenues = (await getCollection('venues'))
-  .filter((v) => v.data.status !== 'permanently_closed' && v.data.signature)
+  .filter((v) => isListableVenue(v) && v.data.signature)
   .slice(3, 7);
 ---
 
@@ -62,7 +64,7 @@ const rowVenues = (await getCollection('venues'))
           <Card
             variant="venue"
             title={v.data.name}
-            href={`/eat/${slugOf(v)}/`}
+            href={venueHref(v)}
             entityType="venue"
             entitySlug={slugOf(v)}
             image={{ src: v.data.heroImage.src, alt: v.data.heroImage.alt ?? v.data.name }}
@@ -96,7 +98,7 @@ const rowVenues = (await getCollection('venues'))
           <Card
             variant="venue"
             title={v.data.name}
-            href={`/eat/${slugOf(v)}/`}
+            href={venueHref(v)}
             entityType="venue"
             entitySlug={slugOf(v)}
             image={i === 0 ? { src: v.data.heroImage.src, alt: v.data.heroImage.alt ?? v.data.name } : undefined}
@@ -118,7 +120,7 @@ const rowVenues = (await getCollection('venues'))
           <Card
             variant="compact-row"
             title={v.data.name}
-            href={`/eat/${slugOf(v)}/`}
+            href={venueHref(v)}
             entityType="venue"
             entitySlug={slugOf(v)}
             image={
@@ -184,7 +186,7 @@ const rowVenues = (await getCollection('venues'))
           <Card
             variant="plan"
             title={it.data.title}
-            href={`/itineraries/${slugOf(it)}/`}
+            href={`/explore/plans/${slugOf(it)}/`}
             entityType="itinerary"
             entitySlug={slugOf(it)}
             image={{ src: it.data.heroImage.src, alt: it.data.heroImage.alt ?? it.data.title }}

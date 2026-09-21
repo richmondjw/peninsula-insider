@@ -18,7 +18,6 @@
     "lng": 145.0804
   },
   "indoorOutdoor": "Outdoor",
-  "officialEventUrl": "https://www.mornpen.vic.gov.au/Events-Activities/Emu-Plains-Market-3",
   "bookingRequired": "No",
   "freePaid": "Free entry",
   "priceTier": "free",
@@ -42,9 +41,8 @@
     "name": "Emu Plains Market committee",
     "website": "https://www.mornpen.vic.gov.au"
   },
-  "primarySourceUrl": "https://www.mornpen.vic.gov.au/Events-Activities/Emu-Plains-Market-3",
   "verificationStatus": "Recurring, next date confirmed",
-  "lastCheckedDate": "2026-05-17",
+  "lastCheckedDate": "2026-09-19",
   "visitorAppealScore": 3,
   "editorialPriority": 3,
   "nearbyAttractions": "Coolart Wetlands and Homestead (adjacent); Balnarring Beach; Womin Djeka Ngargee site",
@@ -62,11 +60,29 @@
     "locals-know"
   ],
   "place": "balnarring",
-  "nextOccurrence": "2026-09-19",
   "heroImage": {
     "src": "/images/sourced/category-market-01.webp",
     "alt": "Emu Plains community market at Balnarring",
     "credit": "Peninsula Insider",
     "license": "other-licensed"
-  }
+  },
+  "retiredSourceLinks": [
+    {
+      "field": "officialEventUrl",
+      "url": "https://www.mornpen.vic.gov.au/Events-Activities/Emu-Plains-Market-3",
+      "verdict": "dead",
+      "disposition": "gone",
+      "checkedOn": "2026-09-13",
+      "note": "COUNCIL RESTRUCTURE, as above."
+    },
+    {
+      "field": "primarySourceUrl",
+      "url": "https://www.mornpen.vic.gov.au/Events-Activities/Emu-Plains-Market-3",
+      "verdict": "dead",
+      "disposition": "gone",
+      "checkedOn": "2026-09-13",
+      "note": "COUNCIL RESTRUCTURE, as above."
+    }
+  ],
+  "nextOccurrence": "2026-10-17"
 }

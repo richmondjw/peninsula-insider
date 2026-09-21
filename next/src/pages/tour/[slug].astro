@@ -4,6 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import SubpageHero from '../../components/SubpageHero.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import CorrectionNote from '../../components/CorrectionNote.astro';
 import { buildTourSchema } from '../../lib/schema';
 import { editableText } from '../../lib/inline-edit/attrs';
 
@@ -81,7 +82,7 @@ export const prerender = true;
 ---
 
 <BaseLayout
-  title={`${data.name} · Peninsula Insider`}
+  title={`${data.name}${operatorData?.name ? ` with ${operatorData.name}` : ''} · Peninsula Insider`}
   description={data.intro}
   section="tour"
   canonical={`https://peninsulainsider.com.au/tour/${slug}/`}
@@ -166,7 +167,17 @@ export const prerender = true;
       <div class="tour-cta-block">
         <h3 class="tour-cta-block__title">Check availability{operatorData?.name ? ` - ${operatorData.name}` : ''}</h3>
         <p>Pricing and availability are managed directly by the operator. Booking through the link below confirms your place directly with {operatorData?.name ?? 'the operator'}.</p>
-        <a href={primaryBookingUrl} target="_blank" rel="noopener noreferrer" class="tour-cta-primary pi-btn pi-btn--solid">
+        <a
+          href={primaryBookingUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="tour-cta-primary pi-btn pi-btn--solid"
+          data-pi-book="booking"
+          data-pi-entity-type="tour"
+          data-pi-entity-slug={slug}
+          data-pi-surface="tour-detail"
+          data-pi-provider={data.bookingUrl ? "operator" : "getyourguide"}
+        >
           Book this tour &rarr;
         </a>
         {data.aggregatorGYG && !data.bookingUrl && (
@@ -252,6 +263,10 @@ export const prerender = true;
       </div>
     </div>
   </section>
+
+  <div class="container">
+    <CorrectionNote surface="tour" />
+  </div>
 
   <NewsletterBlock />
 </BaseLayout>

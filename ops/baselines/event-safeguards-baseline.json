@@ -1,0 +1,30 @@
+{
+  "updatedAt": "2026-09-13T07:58:13.276Z",
+  "staleAfterDays": 90,
+  "assertedMetrics": [
+    "missingVerificationDate",
+    "duplicateTitleGroups",
+    "duplicateVenueDateGroups",
+    "unresolvableRecurrence",
+    "cancelledWithoutProvenance",
+    "postponedWithoutProvenance",
+    "occurrenceQueueEntries",
+    "freeTextVerificationStatus",
+    "unboundedOccurrence"
+  ],
+  "ceilings": {
+    "liveEvents": 51,
+    "cancelledEvents": 1,
+    "missingVerificationDate": 12,
+    "staleVerificationDate": 31,
+    "duplicateTitleGroups": 0,
+    "duplicateVenueDateGroups": 0,
+    "unresolvableRecurrence": 3,
+    "cancelledWithoutProvenance": 0,
+    "postponedEvents": 0,
+    "postponedWithoutProvenance": 0,
+    "occurrenceQueueEntries": 0,
+    "freeTextVerificationStatus": 12,
+    "unboundedOccurrence": 2
+  }
+}

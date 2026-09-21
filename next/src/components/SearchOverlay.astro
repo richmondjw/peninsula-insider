@@ -129,13 +129,17 @@
         .replace(/'/g, '&#039;');
     }
 
-    // Fire-and-forget: log the search query to Supabase for analytics.
-    function logSearch(query, resultCount) {
+    // Fire-and-forget: log the OUTCOME of a search to Supabase.
+    //
+    // PRIVACY CONTRACT (A13). This function is deliberately not given the
+    // reader's query text, so it cannot send it. See the long note on the
+    // same function in src/pages/search.astro; the rule is enforced by
+    // scripts/search-query-privacy.test.mjs.
+    function logSearchOutcome(resultCount) {
       try {
         var sb = window.__PI_SB;
         if (!sb || !sb.url || !sb.key) return;
         var payload = {
-          query: query,
           result_count: resultCount,
           surface: 'overlay',
           page_path: window.location.pathname,
@@ -249,6 +253,12 @@
     }
 
     function showResults(els, results, query) {
+      // PI-024: the SHAPE of the answer set, never the query. Read back by
+      // the result_selected handler below.
+      state.lastResultCount = results.length;
+      state.lastQueryLength = window.piAnalytics
+        ? window.piAnalytics.lengthBucket(query)
+        : 'unknown';
       if (els.suggestions) els.suggestions.hidden = true;
       if (els.list) {
         els.list.hidden = false;
@@ -259,13 +269,14 @@
               '<p class="site-search-overlay__result-empty-hint">Hit Enter to try the full results page.</p>' +
             '</li>';
         } else {
-          els.list.innerHTML = results.slice(0, 6).map((item) => {
+          els.list.innerHTML = results.slice(0, 6).map((item, index) => {
             const kind = (item.meta && item.meta.kind) || (item.filters && item.filters.kind && item.filters.kind[0]) || 'Guide';
             const title = (item.meta && item.meta.title) || 'Untitled';
             const excerpt = item.excerpt || '';
             return (
               '<li class="site-search-overlay__result">' +
-                '<a href="' + escapeHtml(item.url) + '" class="site-search-overlay__result-link">' +
+                '<a href="' + escapeHtml(item.url) + '" class="site-search-overlay__result-link"' +
+                  ' data-pi-pos="' + (index + 1) + '" data-pi-kind="' + escapeHtml(kind) + '">' +
                   '<span class="site-search-overlay__result-kind">' + escapeHtml(kind) + '</span>' +
                   '<span class="site-search-overlay__result-title">' + escapeHtml(title) + '</span>' +
                   '<span class="site-search-overlay__result-excerpt">' + excerpt + '</span>' +
@@ -306,7 +317,7 @@
       return hits.map((h) => {
         const dek = h.dek || '';
         // Lightweight highlight: wrap the first query-word match in <mark>.
-        let excerpt = escapeHtml(dek.slice(0, 220));
+        let excerpt = escapeHtml(clipExcerpt(dek, 220));
         if (q && excerpt.toLowerCase().includes(q)) {
           const i = excerpt.toLowerCase().indexOf(q);
           excerpt = excerpt.slice(0, i) + '<mark>' + excerpt.slice(i, i + q.length) + '</mark>' + excerpt.slice(i + q.length);
@@ -334,7 +345,7 @@
           if (myToken !== state.searchToken) return;
           if (Array.isArray(hits) && hits.length > 0) {
             showResults(els, rpcToResults(hits, q), q);
-            logSearch(q, hits.length);
+            logSearchOutcome(hits.length);
             return;
           }
         } catch (err) {
@@ -352,14 +363,48 @@
         const data = await Promise.all(result.results.map((r) => r.data()));
         if (myToken !== state.searchToken) return;
         showResults(els, data, q);
-        logSearch(q, result.results.length);
+        logSearchOutcome(result.results.length);
       } catch (err) {
         console.warn('[search] error', err);
+        // Both engines are gone and the reader sees nothing. This event is
+        // the only record that it happened. docs/analytics-dictionary.md
+        if (window.piTrack) {
+          window.piTrack('search_failed', {
+            surface: 'overlay',
+            trigger: 'typeahead',
+            engine: 'pagefind',
+            query_length: window.piAnalytics ? window.piAnalytics.lengthBucket(q) : 'unknown',
+            reason: 'search-error',
+          }, { component: 'SearchOverlay', dedupKey: 'search-failed:overlay', dedupMs: 5000 });
+        }
         if (myToken === state.searchToken && els.cta) {
           els.cta.hidden = false;
           els.cta.href = '/search/?q=' + encodeURIComponent(q);
         }
       }
+    }
+
+    /* result_selected (overlay). On document, capture phase: the list is
+       rebuilt by innerHTML on every keystroke and a result click navigates
+       away. The overlay emits no search_submitted - it searches on an 80ms
+       debounce and its submit hands off to /search/, which records it there
+       with a real result_count. Rationale: docs/analytics-dictionary.md */
+    if (!window.__piSearchAnalyticsBound) {
+      window.__piSearchAnalyticsBound = true;
+      document.addEventListener('click', function (ev) {
+        const target = ev.target;
+        const link = target && target.closest
+          ? target.closest('.site-search-overlay__result-link')
+          : null;
+        if (!link || !window.piTrack) return;
+        window.piTrack('result_selected', {
+          surface: 'overlay',
+          position: Number(link.dataset.piPos) || 0,
+          result_count: state.lastResultCount || 0,
+          query_length: state.lastQueryLength || 'unknown',
+          entity_type: link.dataset.piKind || '',
+        }, { component: 'SearchOverlay' });
+      }, true);
     }
 
     // Per-instance handlers (input, form submit). Idempotent - guarded by
@@ -461,6 +506,7 @@
 -->
 <script>
   import { search, typeahead } from '../lib/search-client.ts';
+  import { clipExcerpt } from '../lib/editorial.ts';
 
   function isAvailable() {
     const sb = (window as any).__PI_SB;

@@ -6,7 +6,7 @@ import SectionHero from '../../components/SectionHero.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import BfAnalytics from '../../components/BfAnalytics.astro';
 import { buildBfHubSchema } from '../../lib/schema';
-import { formatVerifiedStamp } from '../../lib/bf';
+import { pageProvenance } from '../../lib/page-provenance';
 
 // /tour/ ↔ /fishing/charters/ bidirectional rail. This page is the "I want
 // to book a fishing experience as a curated tour" intent surface; it pairs
@@ -14,11 +14,16 @@ import { formatVerifiedStamp } from '../../lib/bf';
 // species, season, and departure point" intent. Both list the same operators
 // but framed differently.
 
-const lastVerifiedISO = '2026-04-30';
-const lastVerifiedStamp = formatVerifiedStamp(lastVerifiedISO);
 const path = '/tour/fishing-tours/';
 
 const allCharters = await getCollection('fishingCharters', ({ data }) => data.status === 'published');
+
+// PI-004: the stamp is derived from the records this page lists, never
+// declared. It is a fact-check date only when every record carries live
+// supporting evidence in the claim registry; otherwise it is the floor of
+// their review dates, and the page words it as a review.
+const provenance = await pageProvenance(allCharters, 'fishing-charters');
+const modifiedISO = provenance.stampISO ?? undefined;
 
 // Existing /tour/ entries with cruise-sailing, surf-water, or wildlife-nature
 // experience type that touch fishing intent - surfaced here as adjacent options.
@@ -38,7 +43,7 @@ const hubSchema = buildBfHubSchema({
   description:
     'Operator-led fishing experiences on the Mornington Peninsula. Charter sessions framed as bookable tours; for the editorial comparison by species and season, see the /fishing/charters/ hub.',
   path,
-  dateModified: lastVerifiedISO,
+  dateModified: modifiedISO,
   breadcrumbs: [
     { name: 'Home', path: '/' },
     { name: 'Tours', path: '/tour/' },
@@ -60,7 +65,7 @@ export const prerender = true;
   description="Fishing tours on the Mornington Peninsula. Operator-led charter sessions for snapper, whiting, squid, and Western Port species. The booking-first view; the editorial comparison lives at /fishing/charters/."
   section="tour"
   canonical={`https://peninsulainsider.com.au${path}`}
-  modifiedTime={lastVerifiedISO}
+  modifiedTime={modifiedISO}
 >
   <script type="application/ld+json" set:html={JSON.stringify(hubSchema)} />
   <BfAnalytics />

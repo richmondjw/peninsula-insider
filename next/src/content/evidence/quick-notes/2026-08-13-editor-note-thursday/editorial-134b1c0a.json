@@ -1,0 +1,19 @@
+{
+  "evidenceId": "quick-notes/2026-08-13-editor-note-thursday/editorial-134b1c0a",
+  "claim": "quick-notes/2026-08-13-editor-note-thursday/editorial",
+  "stance": "supports",
+  "publisher": {
+    "kind": "gov"
+  },
+  "retrievedAt": "2026-08-13",
+  "expiresAt": "2027-08-13",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/content/quick-notes/2026-08-13-editor-note-thursday.md",
+    "field": "sources[0]",
+    "value": "{\"kind\":\"gov\",\"url\":\"https://api.open-meteo.com/v1/forecast?latitude=-38.40&longitude=145.00&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,precipitation_probability_max,wind_speed_10m_max&timezone=Australia%2FMelbourne&forecast_days=3\",\"note\":\"Open-Meteo Main Ridge retrieval 2026-08-12T22:11Z. Thu 13 Aug: 57% rain probability, 1.30mm, 10.6-14.2°C and 20.3km/h maximum wind. Fri 14 Aug: 30%, 0.50mm, 8.1-13.9°C and 11.1km/h maximum wind.\",\"checkedAt\":\"2026-08-13T08:11:00+10:00\"}",
+    "dateField": "sources[0].checkedAt"
+  },
+  "url": "https://api.open-meteo.com/v1/forecast?latitude=-38.40&longitude=145.00&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,precipitation_probability_max,wind_speed_10m_max&timezone=Australia%2FMelbourne&forecast_days=3",
+  "note": "Open-Meteo Main Ridge retrieval 2026-08-12T22:11Z. Thu 13 Aug: 57% rain probability, 1.30mm, 10.6-14.2°C and 20.3km/h maximum wind. Fri 14 Aug: 30%, 0.50mm, 8.1-13.9°C and 11.1km/h maximum wind."
+}

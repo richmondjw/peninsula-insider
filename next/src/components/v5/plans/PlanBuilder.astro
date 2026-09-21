@@ -1,0 +1,69 @@
+---
+import { FACET_OPTIONS, type FacetKey } from '../../../lib/facets';
+import type { PlansModel } from './plans-data';
+export interface Props { model: PlansModel; }
+const { model } = Astro.props;
+const present = (key: FacetKey, excluded: string[] = []) => FACET_OPTIONS[key].filter(option =>
+  !excluded.includes(option.value) && model.plans.some(plan => (plan.facets[key] ?? []).includes(option.value)));
+const interests = [...present('cat', ['plan']), ...present('mood', ['rainy-day'])]
+  .filter((option, i, list) => list.findIndex(item => item.value === option.value) === i);
+const lengths = [{ value: 'one-day', label: 'One day' }, { value: 'weekend', label: 'A weekend' }, { value: 'longer', label: 'Two nights or more' }];
+const who = present('party');
+const labels = { length: Object.fromEntries(lengths.map(o => [o.value, o.label])), who: Object.fromEntries(who.map(o => [o.value, o.label])), into: Object.fromEntries(interests.map(o => [o.value, o.label])), weather: { 'rainy-day': 'Wet-weather option' } };
+---
+<section class="plan-builder" id="build" aria-labelledby="plan-builder-heading">
+  <div class="container">
+    <details class="plan-builder__panel" data-plan-matcher>
+      <summary>
+        <span><span class="plan-builder__eyebrow">A little help choosing</span><span id="plan-builder-heading" class="plan-builder__heading">Find your plan</span></span>
+        <span class="plan-builder__summary-note">Your time. Your company. Your kind of day.</span>
+        <span class="plan-builder__toggle" aria-hidden="true">+</span>
+      </summary>
+      <form class="plan-builder__form" data-plan-form>
+        <p class="plan-builder__intro">Choose what matters. We’ll show where our published itineraries fit, and where they don’t.</p>
+        <div class="plan-builder__fields">
+          <label>How long have you got?<select name="length" data-build-key="length"><option value="">Any length</option>{lengths.map(o => <option value={o.value}>{o.label}</option>)}</select></label>
+          <label>Who’s coming?<select name="who" data-build-key="who"><option value="">Anyone</option>{who.map(o => <option value={o.value}>{o.label}</option>)}</select></label>
+          <label>Weather<select name="weather" data-build-key="weather"><option value="">No preference</option><option value="rainy-day">Wet-weather option</option></select></label>
+        </div>
+        <fieldset class="plan-builder__interests"><legend>What would make the day? <span>Choose any</span></legend>
+          <div class="plan-builder__chips">{interests.map(o => <label class="plan-builder__chip"><input type="checkbox" name="into" value={o.value} /><span>{o.label}</span></label>)}</div>
+        </fieldset>
+        <label class="plan-builder__season" data-plan-season-control hidden><input type="checkbox" name="season" value="current" /> This season <span>Carried over from your shared link. Clear to search every season.</span></label>
+        <div class="plan-builder__actions"><button type="submit" class="pi-btn pi-btn--solid" data-build-go>Find my plan <span aria-hidden="true">↓</span></button><button type="reset" class="pi-btn pi-btn--text" data-build-clear>Reset choices</button><span data-plan-selection-note>All choices are optional.</span></div>
+      </form>
+    </details>
+    <noscript><p>Browse the itineraries below. Matching and copying a trip need JavaScript.</p></noscript>
+  </div>
+</section>
+<script type="application/json" id="pi-plan-builder-labels" set:html={JSON.stringify(labels).replace(/</g, '\\u003c')} />
+<style>
+  .plan-builder{padding:0 0 2rem;scroll-margin-top:8rem}
+  .plan-builder__panel{border-block:1px solid var(--border);background:var(--bg-alt)}
+  summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:1.5rem;padding:1.25rem 1.5rem;min-height:90px}
+  summary::-webkit-details-marker{display:none}
+  summary:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+  .plan-builder__eyebrow{display:block;font:600 .68rem/1.4 var(--font-ui);letter-spacing:.14em;text-transform:uppercase;color:var(--soft);margin-bottom:.2rem}
+  .plan-builder__heading{font:500 1.5rem/1.2 var(--font-display)}
+  .plan-builder__summary-note{margin-left:auto;font-size:.9rem;color:var(--soft)}
+  .plan-builder__toggle{font-size:1.8rem;line-height:1;width:2rem;text-align:center;color:var(--accent);transition:transform 150ms ease}
+  details[open] .plan-builder__toggle{transform:rotate(45deg)}
+  .plan-builder__form{padding:0 1.5rem 1.5rem}
+  .plan-builder__intro{margin:0 0 1.5rem;max-width:65ch;font-size:.95rem;color:var(--soft);line-height:1.6}
+  .plan-builder__fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.25rem}
+  .plan-builder__fields label,legend{font-size:.85rem;font-weight:600;color:var(--text)}
+  select{display:block;width:100%;margin-top:.5rem;padding:.7rem 2rem .7rem .8rem;border:1px solid var(--border);background:var(--bg);color:var(--text);font:400 .95rem/1.5 var(--font-ui);border-radius:3px;min-height:46px}
+  select:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+  .plan-builder__interests{padding:0;margin:1.5rem 0;border:0;min-width:0}
+  legend{margin-bottom:.6rem;padding:0}legend span{font-weight:400;color:var(--soft);margin-left:.4rem}
+  .plan-builder__chips{display:flex;flex-wrap:wrap;gap:.5rem}
+  .plan-builder__chip{position:relative;display:inline-flex;cursor:pointer}
+  .plan-builder__chip input{position:absolute;opacity:0;width:1px;height:1px}
+  .plan-builder__chip span{display:flex;align-items:center;border:1px solid var(--border);border-radius:999px;padding:.5rem .85rem;min-height:44px;background:var(--bg);font-size:.85rem;line-height:1.25}
+  .plan-builder__chip input:checked+span{background:var(--accent);color:var(--white);border-color:var(--accent)}
+  .plan-builder__chip input:focus-visible+span{outline:2px solid var(--accent);outline-offset:3px}
+  .plan-builder__actions{display:flex;gap:.8rem;align-items:center;flex-wrap:wrap}.plan-builder__actions>span{margin-left:auto;font-size:.8rem;color:var(--soft)}
+  .plan-builder__season{display:flex;align-items:center;gap:.5rem;margin-bottom:1rem;font-size:.85rem;min-height:44px}.plan-builder__season[hidden]{display:none}.plan-builder__season span{color:var(--soft);font-size:.75rem}
+  @media(max-width:45rem){.plan-builder__summary-note{display:none}.plan-builder__toggle{margin-left:auto}.plan-builder__fields{grid-template-columns:1fr}.plan-builder__actions>span{flex-basis:100%;margin:0}summary{padding:1rem}.plan-builder__form{padding:0 1rem 1.2rem}}
+  @media(prefers-reduced-motion:reduce){.plan-builder__toggle{transition:none}}
+</style>

@@ -73,7 +73,7 @@
      definition comes from the rule, not from a shadow. */
   --border:     #83857E;
   --sage:       var(--tide);   /* decorative */
-  --max-w:      1100px;
+  --max-w:      1280px;
   /* v5: --prose-w now tracks the ch-based measure token (68ch at 17px
      Outfit ≈ 680px - same width, but the cap survives font scaling). */
   --prose-w:    var(--measure-prose);
@@ -117,6 +117,12 @@ html {
      control below in charge, and nothing else. */
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  /* Lives here, not on body: an overflow value other than visible on body
+     turns it into its own scroll/clip container, which breaks Safari's
+     positioning of the sticky masthead during the elastic overscroll
+     bounce at the top of the page - background content shows through
+     above the header for a frame. html doesn't have this effect. */
+  overflow-x: hidden;
 }
 html[data-text-scale="2"] { font-size: 108.75%; }
 html[data-text-scale="3"] { font-size: 118%; }
@@ -153,7 +159,6 @@ body {
   font-weight: var(--fw-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
 }
 
 /* v6: film-grain overlay removed - the Evergreen Coast lift is clean and flat. */
@@ -169,9 +174,10 @@ h1, h2, h3, h4, h5 {
 }
 
 .container {
+  width: min(var(--max-w), calc(100% - 80px));
   max-width: var(--max-w);
   margin: 0 auto;
-  padding: 0 clamp(1.25rem, 4vw, 3rem);
+  padding: 0;
 }
 
 .label {
@@ -799,7 +805,8 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   position: absolute;
   bottom: 1.1rem;
   left: 1.1rem;
-  color: rgba(253,252,250,0.78);
+  color: #fff;
+  text-shadow: 0 1px 4px rgb(0 0 0 / .6);
   font-size: 0.58rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -808,7 +815,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .section-hero__visual-fog {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(245,241,235,0.12) 0%, transparent 40%, rgba(0, 54, 44,0.3) 100%);
+  background: var(--photo-shade-caption);
 }
 
 /* hero gradient variants - use background-image (not shorthand)
@@ -1628,7 +1635,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .subpage-hero__fog {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(22,14,6,0.30) 0%, transparent 52%);
+  background: none;
   pointer-events: none;
 }
 .subpage-hero__caption {
@@ -1640,7 +1647,8 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.82);
+  color: #fff;
+  text-shadow: 0 1px 4px rgb(0 0 0 / .6);
 }
 
 @media (max-width: 860px) {
@@ -1768,7 +1776,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   aspect-ratio: 4 / 5;
   background-color: var(--bg-alt);
   border-radius: var(--radius-m);
-  filter: saturate(0.92) contrast(1.02);
+  filter: none;
   object-fit: cover;
   display: block;
 }
@@ -1876,13 +1884,14 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .article__hero-fog {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0, 54, 44,0.35) 0%, transparent 55%);
+  background: var(--photo-shade-caption);
 }
 .article__hero-caption {
   position: absolute;
   bottom: 1rem;
   left: 1.1rem;
-  color: rgba(253,252,250,0.78);
+  color: #fff;
+  text-shadow: 0 1px 4px rgb(0 0 0 / .6);
   font-size: 0.62rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -2063,13 +2072,14 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .venue-detail__hero-fog {
   position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(0, 54, 44,0.45) 0%, transparent 55%);
+  background: var(--photo-shade-caption);
 }
 .venue-detail__hero-label {
   position: absolute;
   bottom: 1rem;
   left: 1.1rem;
-  color: rgba(253,252,250,0.82);
+  color: #fff;
+  text-shadow: 0 1px 4px rgb(0 0 0 / .6);
   font-size: 0.62rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -3352,12 +3362,13 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .experience-detail__hero-fog {
   position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(0, 54, 44,0.45) 0%, transparent 55%);
+  background: var(--photo-shade-caption);
 }
 .experience-detail__hero-label {
   position: absolute;
   bottom: 1rem; left: 1.1rem;
-  color: rgba(253,252,250,0.82);
+  color: #fff;
+  text-shadow: 0 1px 4px rgb(0 0 0 / .6);
   font-size: 0.62rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -3435,12 +3446,13 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .itinerary-detail__hero-fog {
   position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(0, 54, 44,0.45) 0%, transparent 55%);
+  background: var(--photo-shade-caption);
 }
 .itinerary-detail__hero-label {
   position: absolute;
   bottom: 1rem; left: 1.1rem;
-  color: rgba(253,252,250,0.82);
+  color: #fff;
+  text-shadow: 0 1px 4px rgb(0 0 0 / .6);
   font-size: 0.62rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -5132,9 +5144,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   background-position: center;
   border-radius: var(--radius-m);
   overflow: hidden;
-  /* Light editorial desaturation - keeps the image vivid but tones
-     the rare over-saturated photo so the page feels editorial. */
-  filter: saturate(0.92) contrast(1.02);
+  filter: none;
 }
 .guide-hero__credit {
   font-family: var(--font-ui);
@@ -6617,6 +6627,21 @@ p.has-drop-cap::first-letter {
   line-height: 1.7;
   color: var(--soft);
   flex: 1;
+}
+/* A route, not a mailbox. Sits above the email address on cards where the
+   site has a structured intake (/corrections/, /partners/#enquire) so the
+   faster path reads first and the mailbox stays as the fallback. */
+.contact-card__action {
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--dark);
+  border-bottom: 1px solid var(--accent);
+  align-self: flex-start;
+  margin-bottom: 0.35rem;
+}
+.contact-card__action:hover {
+  color: var(--accent);
 }
 .contact-card__email {
   font-family: var(--font-ui);
@@ -10828,3 +10853,7 @@ figcaption {
   background: color-mix(in srgb, var(--accent) 10%, var(--white));
   color: var(--accent);
 }
+
+/* Shared editorial frame, with narrow prose retained by its own measure. */
+@media(max-width:1100px){.container{width:calc(100% - 48px)}}
+@media(max-width:767px){.container{width:calc(100% - 32px);padding:0}}

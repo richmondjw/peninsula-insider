@@ -1,0 +1,29 @@
+{
+  "evidenceId": "events/archive/mornington-peninsula-regional-gallery-school-holiday-workshops/event-status-d71591ca",
+  "claim": "events/archive/mornington-peninsula-regional-gallery-school-holiday-workshops/event-status",
+  "stance": "supports",
+  "publisher": {
+    "kind": "unknown"
+  },
+  "retrievedAt": "2026-05-04",
+  "expiresAt": "2026-06-03",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/content/events/archive/mornington-peninsula-regional-gallery-school-holiday-workshops.json",
+    "field": "secondarySourceUrl",
+    "value": "https://www.imaginefrankston.com.au/mornington/mornington-peninsula-regional-gallery",
+    "dateField": "lastCheckedDate"
+  },
+  "url": "https://mprg.mornpen.vic.gov.au/",
+  "retiredSourceLinks": [
+    {
+      "field": "url",
+      "url": "https://www.imaginefrankston.com.au/mornington/mornington-peninsula-regional-gallery",
+      "verdict": "dead",
+      "disposition": "replaced",
+      "replacement": "https://mprg.mornpen.vic.gov.au/",
+      "checkedOn": "2026-09-13",
+      "note": "Frankston's tourism site dropped the page. The gallery now publishes on its own council subdomain, fetched 200 with title 'Home - Mornington Peninsula Regional Gallery'. Same subject, better publisher."
+    }
+  ]
+}

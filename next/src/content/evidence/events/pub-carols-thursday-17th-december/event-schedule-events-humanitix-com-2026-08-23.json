@@ -1,0 +1,22 @@
+{
+  "evidenceId": "events/pub-carols-thursday-17th-december/event-schedule-events-humanitix-com-2026-08-23",
+  "claim": "events/pub-carols-thursday-17th-december/event-schedule",
+  "stance": "supports",
+  "publisher": {
+    "kind": "ticketing"
+  },
+  "url": "https://events.humanitix.com/pub-carols-thursday-17th-december",
+  "retrievedAt": "2026-08-23",
+  "expiresAt": "2026-09-22",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/content/events/pub-carols-thursday-17th-december.json",
+    "field": "officialEventUrl",
+    "value": "https://events.humanitix.com/pub-carols-thursday-17th-december",
+    "dateField": "discoveredAt"
+  },
+  "sourceHealth": "dead",
+  "sourceHealthCheckedOn": "2026-09-13",
+  "sourceStatus": "unsourced",
+  "sourceStatusNote": "Humanitix answers 404 with 'This event is yet to launch'. The listing is not published."
+}

@@ -147,3 +147,22 @@ test('command-line audit verifies HTTP status, provenance, and semantic payloads
   ]);
   assert.match(stdout, /Live agent-readiness passed/);
 });
+
+test('multi-day recurrence may next run before the weekend when explicit weekend dates are supplied', () => {
+  const payloads = fixture();
+  payloads.feed.events[0].startDate = '2026-08-13';
+  payloads.feed.events[0].endDate = '2026-08-13';
+  payloads.feed.events[0].weekendOccurrences = [{ date: '2026-08-15', eventStatus: 'https://schema.org/EventScheduled' }];
+  payloads.feed.itemListElement[0].item.startDate = '2026-08-13';
+  payloads.feed.itemListElement[0].item.endDate = '2026-08-13';
+  payloads.feed.generated = '2026-08-12';
+  assert.deepEqual(validateLivePayloads(payloads, { expectedDate: '2026-08-12', expectedSha }), []);
+});
+
+test('explicit weekend occurrence contracts reject out-of-window dates and mismatched flags', () => {
+  for (const occurrences of [[{ date: '2026-08-17' }], [{ date: '2026-02-31' }], []]) {
+    const payloads = fixture();
+    payloads.feed.events[0].weekendOccurrences = occurrences;
+    assert.ok(validateLivePayloads(payloads, { expectedDate: '2026-08-15', expectedSha }).some(x => /weekend/.test(x)));
+  }
+});

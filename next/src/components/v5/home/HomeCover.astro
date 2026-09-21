@@ -6,36 +6,113 @@
  * One Editor-voice masthead statement (the page's single h1, <= 18 words,
  * carries "Mornington Peninsula" server-rendered for search) plus the date
  * context line ("Friday 11 July · winter on the Peninsula"). Date and
- * season are computed at build time on the Melbourne clock; no client JS,
- * no motion.
+ * season are computed at build time on the Melbourne clock.
  *
  * The statement is CMS-editable: override slot (page/home, cover.statement)
  * is resolved server-side so editor rewrites survive rebuilds.
  *
- * The hero photo has a slow CSS-only Ken Burns zoom (2026-08-17, James)
- * for visual "buzz" on the masthead. Still no client JS: the motion is a
- * pure transform:scale() keyframe animation, GPU-compositor only, and it
- * backs off automatically under prefers-reduced-motion.
+ * COVER SLIDESHOW (2026-09-18, James). The photograph behind the statement
+ * cross-fades through the deck in src/data/home-cover-deck.json: autoplay,
+ * arrows, dot pager, swipe. The copy block never moves - only the picture
+ * changes - so the page keeps one stable h1 and zero layout shift.
+ *
+ *   - Slide 1 is the LCP image: eager, fetchpriority high, unchanged.
+ *     Every other slide is lazy and never preloaded.
+ *   - Each slide is its own CMS image slot (cover.image, cover.image.2,
+ *     cover.image.3 …), so right-click replace in edit mode works per
+ *     photograph. Slide 1 keeps the original `cover.image` path so
+ *     replacements published before this rebuild still apply.
+ *   - Slides are `.home-cover__plate`, not `__slide` or `__frame`: those
+ *     two names already carry global rules from the retired pre-v5
+ *     HomeCover (global.css ~5000), including a saturate/contrast filter
+ *     that would silently tint every cover photograph.
+ *   - Inactive slides are visibility:hidden, not just transparent. That
+ *     keeps them out of elementsFromPoint, which is how the inline editor
+ *     resolves a right-click to a slot - without it the editor would open
+ *     the panel for whichever slide happens to sit topmost in the DOM.
+ *   - Edit mode pauses rotation and pins the controls open.
+ *   - Rotation also pauses on hover, on keyboard focus, on a hidden tab,
+ *     and when the cover scrolls out of view. prefers-reduced-motion
+ *     switches off both the autoplay and the Ken Burns zoom; the arrows
+ *     and dots still work.
+ *
+ * Carried forward from the cover as it stood before this change: the
+ * three-intent CTA nav and its analytics attributes, getAustralianSeasonLower,
+ * the data-pi-responsive="100vw" opt-in (now on every slide, so each frame
+ * gets its own srcset), the cover padding and the statement type scale.
+ *
+ * The Ken Burns zoom is back, per slide, at James's direction (18 Sep). It
+ * had been removed in favour of a static landscape; with the deck rotating,
+ * the zoom now runs only on the frame that is showing.
+ *
+ * SHOW_HOME_COVER_SLIDESHOW=false in src/lib/features.ts returns the cover
+ * to a single still photograph and no client JS.
  */
 import { editableText, editableImage } from '../../../lib/inline-edit/attrs';
 import { loadOverrides } from '../../../lib/inline-edit/overrides';
 import { getAustralianSeasonLower } from '../../../lib/season';
+import { SHOW_HOME_COVER_SLIDESHOW } from '../../../lib/features';
+import deckFile from '../../../data/home-cover-deck.json';
 
 const DEFAULT_STATEMENT = 'The Mornington Peninsula, sorted.';
 
-// Hero photograph behind the masthead statement. Swappable via the inline
-// CMS (right-click replace) and resolved through the page/home override
-// slot so an editor's replacement survives rebuilds.
+// The single cover photograph used when the deck is empty, and the first
+// frame of the deck in the shipped configuration.
 const DEFAULT_HERO_SRC = '/images/sourced/home-cover-cape-schanck-rainbow-01.webp';
 const DEFAULT_HERO_ALT =
   'A rainbow arcs over the bay at Cape Schanck on a still winter morning, Mornington Peninsula';
+const DEFAULT_FOCAL = 'center 38%';
+
+/** Rotation interval. Klook sits near 5s; 7s suits a slower editorial read. */
+const INTERVAL_MS = 7000;
+/** Hard ceiling. Past this the deck is weight the reader never sees. */
+const MAX_SLIDES = 6;
+
+interface DeckSlide {
+  id: string;
+  src: string;
+  alt: string;
+  focal?: string;
+}
 
 const overrides = await loadOverrides('page', 'home');
 const statement = overrides.text['cover.statement'] ?? DEFAULT_STATEMENT;
 
-const heroOverride = overrides.image['cover.image'];
-const heroSrc = heroOverride?.src ?? DEFAULT_HERO_SRC;
-const heroAlt = heroOverride?.alt ?? DEFAULT_HERO_ALT;
+const rawDeck = ((deckFile as { slides?: DeckSlide[] }).slides ?? []).filter(
+  (slide) => slide && typeof slide.src === 'string' && slide.src.length > 0,
+);
+
+const seenIds = new Set<string>();
+for (const slide of rawDeck) {
+  if (!slide.id) throw new Error('[HomeCover] every deck slide needs a stable id');
+  if (seenIds.has(slide.id)) {
+    throw new Error(`[HomeCover] duplicate deck slide id "${slide.id}" in home-cover-deck.json`);
+  }
+  seenIds.add(slide.id);
+}
+
+const deck: DeckSlide[] = rawDeck.length
+  ? rawDeck.slice(0, MAX_SLIDES)
+  : [{ id: 'default-cover', src: DEFAULT_HERO_SRC, alt: DEFAULT_HERO_ALT, focal: DEFAULT_FOCAL }];
+
+// The flag collapses the deck to its first frame: same markup path, no
+// controls, no script, so the flag-off cover is the pre-slideshow cover.
+const slideshow = SHOW_HOME_COVER_SLIDESHOW && deck.length > 1;
+const source = slideshow ? deck : deck.slice(0, 1);
+
+// A published CMS replacement beats the committed deck, per slot.
+const slides = source.map((slide, i) => {
+  const fieldPath = i === 0 ? 'cover.image' : `cover.image.${i + 1}`;
+  const override = overrides.image[fieldPath];
+  return {
+    id: slide.id,
+    src: override?.src ?? slide.src,
+    alt: override?.alt ?? slide.alt ?? '',
+    focal: slide.focal ?? DEFAULT_FOCAL,
+    fieldPath,
+    label: i === 0 ? 'Cover photograph' : `Cover photograph ${i + 1}`,
+  };
+});
 
 if (statement.trim().split(/\s+/).length > 18) {
   console.warn('[v5 home] cover statement over 18 words; trim it (page-redesigns.md 1.9)');
@@ -54,24 +131,64 @@ const isoDate = new Intl.DateTimeFormat('en-CA', {
 const season = getAustralianSeasonLower(now);
 ---
 
-<section class="home-cover" aria-label="Cover">
-  <img
-    class="home-cover__media"
-    src={heroSrc}
-    alt={heroAlt}
-    fetchpriority="high"
-    decoding="async"
-    width="2400"
-    height="1350"
-    {...editableImage({
-      entityType: 'page',
-      entitySlug: 'home',
-      fieldPath: 'cover.image',
-      label: 'Cover background image',
-      purpose: 'hero',
-    })}
-  />
+<section
+  class="home-cover"
+  aria-label="Cover"
+  data-cover-root={slideshow ? '' : undefined}
+  data-cover-interval={slideshow ? String(INTERVAL_MS) : undefined}
+>
+  <div
+    class="home-cover__deck"
+    role={slideshow ? 'group' : undefined}
+    aria-roledescription={slideshow ? 'carousel' : undefined}
+    aria-label={slideshow ? 'Cover photographs' : undefined}
+  >
+    {slides.map((slide, i) => (
+      <figure
+        class:list={['home-cover__plate', { 'is-active': i === 0 }]}
+        data-slide-index={i}
+        data-slide-id={slide.id}
+        aria-hidden={slideshow && i !== 0 ? 'true' : undefined}
+      >
+        <img
+          class="home-cover__media"
+          src={slide.src} data-pi-responsive="100vw"
+          alt={slide.alt}
+          style={`object-position: ${slide.focal};`}
+          fetchpriority={i === 0 ? 'high' : undefined}
+          loading={i === 0 ? 'eager' : 'lazy'}
+          decoding="async"
+          width="2400"
+          height="1350"
+          {...editableImage({
+            entityType: 'page',
+            entitySlug: 'home',
+            fieldPath: slide.fieldPath,
+            label: slide.label,
+            purpose: 'hero',
+          })}
+        />
+      </figure>
+    ))}
+  </div>
+
   <span class="home-cover__scrim" aria-hidden="true"></span>
+
+  {slideshow && (
+    <>
+      <button class="home-cover__arrow home-cover__arrow--prev" type="button" data-cover-prev aria-label="Previous photograph">
+        <svg viewBox="0 0 10 16" width="10" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M8 1.5 2 8l6 6.5" />
+        </svg>
+      </button>
+      <button class="home-cover__arrow home-cover__arrow--next" type="button" data-cover-next aria-label="Next photograph">
+        <svg viewBox="0 0 10 16" width="10" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M2 1.5 8 8l-6 6.5" />
+        </svg>
+      </button>
+    </>
+  )}
+
   <div class="container home-cover__inner">
     <p class="home-cover__eyebrow">{season} on the Peninsula</p>
     <h1
@@ -88,12 +205,217 @@ const season = getAustralianSeasonLower(now);
     <p class="home-cover__context">
       <time datetime={isoDate}>{dateLabel}</time>
     </p>
-    <div class="home-cover__actions">
-      <a class="pi-btn pi-btn--solid pi-btn--lg pi-btn--inverse" href="/whats-on/">See this weekend</a>
-      <a class="pi-btn pi-btn--ghost pi-btn--lg pi-btn--inverse" href="/search/" data-open-search data-evt="search_open">Search</a>
-    </div>
+    <nav class="home-cover__actions" aria-label="Start planning your Peninsula visit">
+      <a class="pi-btn pi-btn--solid pi-btn--lg pi-btn--inverse" href="/whats-on/this-weekend/" data-evt="card_click" data-entity-type="page" data-entity-slug="weekend" data-surface="home-intents" data-position="1" data-variant="three-intents">This weekend</a>
+      <a class="pi-btn pi-btn--ghost pi-btn--lg pi-btn--inverse" href="/explore/plans/" data-evt="card_click" data-entity-type="page" data-entity-slug="plans" data-surface="home-intents" data-position="2" data-variant="three-intents">Plan a trip</a>
+      <a class="pi-btn pi-btn--ghost pi-btn--lg pi-btn--inverse" href="/search/" data-open-search data-evt="search_open" data-surface="home-intents" data-position="3" data-variant="three-intents">Search the Peninsula</a>
+    </nav>
+
+    {slideshow && (
+      <div class="home-cover__controls">
+        <div class="home-cover__pager" role="group" aria-label="Choose cover photograph">
+          {slides.map((slide, i) => (
+            <button
+              class:list={['home-cover__dot', { 'is-active': i === 0 }]}
+              type="button"
+              data-cover-dot={i}
+              aria-current={i === 0 ? 'true' : undefined}
+              aria-label={`Show photograph ${i + 1} of ${slides.length}`}
+              title={slide.label}
+            >
+              <span class="home-cover__dot-fill" aria-hidden="true"></span>
+            </button>
+          ))}
+        </div>
+        <p class="home-cover__edit-hint" data-cover-hint aria-hidden="true">
+          Photo 1 of {slides.length} - right-click the picture to replace it
+        </p>
+      </div>
+    )}
   </div>
+
+  {slideshow && <p class="home-cover__live" aria-live="polite" data-cover-live></p>}
 </section>
+
+{slideshow && (
+  <script is:inline>
+    /* Cover deck controller. Scoped to [data-cover-root], idempotent across
+       astro:page-load, and paused whenever rotation would be unwelcome:
+       pointer over the cover, keyboard focus inside it, hidden tab, cover
+       scrolled out of view, edit mode on, or reduced motion requested. */
+    (function () {
+      function init() {
+        var root = document.querySelector('[data-cover-root]');
+        if (!root || root.dataset.coverReady === '1') return;
+
+        var slides = Array.prototype.slice.call(root.querySelectorAll('.home-cover__plate'));
+        var dots = Array.prototype.slice.call(root.querySelectorAll('[data-cover-dot]'));
+        var hint = root.querySelector('[data-cover-hint]');
+        var live = root.querySelector('[data-cover-live]');
+        if (slides.length < 2) { root.dataset.coverReady = '1'; return; }
+
+        var interval = parseInt(root.dataset.coverInterval || '7000', 10);
+        var motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+        var current = 0;
+        var timer = null;
+        var holds = Object.create(null);
+
+        function hold(reason, on) {
+          if (on) holds[reason] = true; else delete holds[reason];
+          schedule();
+        }
+
+        function paused() {
+          if (motionQuery.matches) return true;
+          for (var key in holds) if (holds[key]) return true;
+          return false;
+        }
+
+        function schedule() {
+          if (timer) { clearInterval(timer); timer = null; }
+          if (paused()) return;
+          timer = setInterval(function () { goTo(current + 1, false); }, interval);
+        }
+
+        function describe(index) {
+          var img = slides[index].querySelector('img');
+          return 'Photo ' + (index + 1) + ' of ' + slides.length +
+            (img && img.alt ? ': ' + img.alt : '');
+        }
+
+        function goTo(index, announce) {
+          var next = ((index % slides.length) + slides.length) % slides.length;
+          if (next === current) return;
+          slides[current].classList.remove('is-active');
+          slides[current].setAttribute('aria-hidden', 'true');
+          slides[next].classList.add('is-active');
+          slides[next].removeAttribute('aria-hidden');
+          if (dots[current]) {
+            dots[current].classList.remove('is-active');
+            dots[current].removeAttribute('aria-current');
+          }
+          if (dots[next]) {
+            dots[next].classList.add('is-active');
+            dots[next].setAttribute('aria-current', 'true');
+          }
+          current = next;
+          if (hint) {
+            hint.textContent = 'Photo ' + (current + 1) + ' of ' + slides.length +
+              ' - right-click the picture to replace it';
+          }
+          /* Announce only what the reader asked for. Announcing every
+             autoplay tick would make the homepage unusable with a screen
+             reader. */
+          if (announce && live) live.textContent = describe(current);
+        }
+
+        function step(delta) { goTo(current + delta, true); schedule(); }
+
+        var prevBtn = root.querySelector('[data-cover-prev]');
+        var nextBtn = root.querySelector('[data-cover-next]');
+        function onPrev() { step(-1); }
+        function onNext() { step(1); }
+        if (prevBtn) prevBtn.addEventListener('click', onPrev);
+        if (nextBtn) nextBtn.addEventListener('click', onNext);
+
+        var dotHandlers = dots.map(function (dot, i) {
+          var handler = function () { goTo(i, true); schedule(); };
+          dot.addEventListener('click', handler);
+          return handler;
+        });
+
+        function onEnter() { hold('hover', true); }
+        function onLeave() { hold('hover', false); }
+        function onFocusIn() { hold('focus', true); }
+        function onFocusOut() { hold('focus', false); }
+        root.addEventListener('mouseenter', onEnter);
+        root.addEventListener('mouseleave', onLeave);
+        root.addEventListener('focusin', onFocusIn);
+        root.addEventListener('focusout', onFocusOut);
+
+        function onVisibility() { hold('tab', document.hidden); }
+        document.addEventListener('visibilitychange', onVisibility);
+
+        var io = null;
+        if (window.IntersectionObserver) {
+          io = new IntersectionObserver(function (entries) {
+            hold('offscreen', !entries[0].isIntersecting);
+          }, { threshold: 0.25 });
+          io.observe(root);
+        }
+
+        /* Edit mode: the inline editor sets body[data-pi-edit-mode]. Stop
+           rotating so an editor can right-click the slide they mean, and
+           pin the controls open while they work. */
+        function syncEditMode() {
+          var on = document.body.dataset.piEditMode === 'on';
+          root.dataset.coverEdit = on ? 'on' : 'off';
+          hold('edit', on);
+        }
+        var editObserver = new MutationObserver(syncEditMode);
+        editObserver.observe(document.body, { attributes: true, attributeFilter: ['data-pi-edit-mode'] });
+        syncEditMode();
+
+        function onMotionChange() { schedule(); }
+        if (motionQuery.addEventListener) motionQuery.addEventListener('change', onMotionChange);
+        else if (motionQuery.addListener) motionQuery.addListener(onMotionChange);
+
+        var touchX = null, touchY = null;
+        function onTouchStart(e) { touchX = e.touches[0].clientX; touchY = e.touches[0].clientY; }
+        function onTouchEnd(e) {
+          if (touchX === null) return;
+          var dx = e.changedTouches[0].clientX - touchX;
+          var dy = e.changedTouches[0].clientY - touchY;
+          touchX = touchY = null;
+          if (Math.abs(dx) < 48 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
+          step(dx < 0 ? 1 : -1);
+        }
+        root.addEventListener('touchstart', onTouchStart, { passive: true });
+        root.addEventListener('touchend', onTouchEnd, { passive: true });
+
+        function onKeyDown(e) {
+          if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+          if (!root.contains(document.activeElement)) return;
+          e.preventDefault();
+          step(e.key === 'ArrowLeft' ? -1 : 1);
+        }
+        root.addEventListener('keydown', onKeyDown);
+
+        root.dataset.coverReady = '1';
+        schedule();
+
+        root.__coverCleanup = function () {
+          if (timer) clearInterval(timer);
+          if (prevBtn) prevBtn.removeEventListener('click', onPrev);
+          if (nextBtn) nextBtn.removeEventListener('click', onNext);
+          dots.forEach(function (dot, i) { dot.removeEventListener('click', dotHandlers[i]); });
+          root.removeEventListener('mouseenter', onEnter);
+          root.removeEventListener('mouseleave', onLeave);
+          root.removeEventListener('focusin', onFocusIn);
+          root.removeEventListener('focusout', onFocusOut);
+          root.removeEventListener('touchstart', onTouchStart);
+          root.removeEventListener('touchend', onTouchEnd);
+          root.removeEventListener('keydown', onKeyDown);
+          document.removeEventListener('visibilitychange', onVisibility);
+          if (io) io.disconnect();
+          editObserver.disconnect();
+          if (motionQuery.removeEventListener) motionQuery.removeEventListener('change', onMotionChange);
+          else if (motionQuery.removeListener) motionQuery.removeListener(onMotionChange);
+          delete root.dataset.coverReady;
+        };
+      }
+
+      function teardown() {
+        var root = document.querySelector('[data-cover-root]');
+        if (root && root.__coverCleanup) { root.__coverCleanup(); root.__coverCleanup = null; }
+      }
+
+      document.addEventListener('astro:before-swap', teardown);
+      document.addEventListener('astro:page-load', init);
+      init();
+    })();
+  </script>
+)}
 
 <style>
   /* Immersive giant-type hero over a full-bleed Peninsula landscape. The
@@ -108,18 +430,61 @@ const season = getAustralianSeasonLower(now);
     padding: clamp(2.75rem, 5.3vw, 4.75rem) 0;
   }
 
-  .home-cover__media {
+  .home-cover__deck {
     position: absolute;
     inset: 0;
     z-index: -2;
+  }
+
+  /* Inactive slides are visibility:hidden, not merely transparent. Two
+     reasons: screen readers and elementsFromPoint. The inline editor
+     resolves a right-click through the z-order at the pointer, so a
+     transparent-but-present slide would hand the editor the wrong slot. */
+  .home-cover__plate {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 900ms ease, visibility 0s linear 900ms;
+  }
+
+  .home-cover__plate.is-active {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 900ms ease, visibility 0s linear 0s;
+  }
+
+  .home-cover__media {
+    display: block;
     width: 100%;
     height: 100%;
     margin: 0;
     object-fit: cover;
-    /* Bias upward so the horizon, headland, and rainbow stay in frame
-       rather than centring on empty water. */
+    /* Per-slide framing comes from the deck's `focal`, inline on the
+       element; this is the fallback for a slide that omits it. */
     object-position: center 38%;
-    /* Static landscape: the reader controls the pace. */
+  }
+
+  /* Ken Burns: slow compositor-only zoom on whichever slide is showing.
+     Re-applied on class change, so each slide gets its own run. */
+  .home-cover__plate.is-active .home-cover__media {
+    animation: home-cover-kenburns 36s ease-in-out infinite alternate;
+    will-change: transform;
+  }
+
+  @keyframes home-cover-kenburns {
+    from { transform: scale(1); }
+    to { transform: scale(1.08); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .home-cover__plate.is-active .home-cover__media {
+      animation: none;
+    }
+    .home-cover__plate {
+      transition: none;
+    }
   }
 
   .home-cover__scrim {
@@ -127,19 +492,7 @@ const season = getAustralianSeasonLower(now);
     inset: 0;
     z-index: -1;
     pointer-events: none;
-    background:
-      linear-gradient(
-        180deg,
-        color-mix(in srgb, var(--bg-deep) 28%, transparent) 0%,
-        color-mix(in srgb, var(--bg-deep) 52%, transparent) 55%,
-        color-mix(in srgb, var(--bg-deep) 86%, transparent) 100%
-      ),
-      linear-gradient(
-        90deg,
-        color-mix(in srgb, var(--bg-deep) 62%, transparent) 0%,
-        color-mix(in srgb, var(--bg-deep) 26%, transparent) 46%,
-        transparent 78%
-      );
+    background: var(--photo-shade-cover);
   }
 
   .home-cover__inner {
@@ -153,7 +506,8 @@ const season = getAustralianSeasonLower(now);
     font-weight: var(--fw-semibold);
     letter-spacing: var(--ls-eyebrow);
     text-transform: uppercase;
-    color: var(--mint);
+    color: #fff4df;
+    text-shadow: 0 1px 4px rgb(0 0 0 / .55);
   }
 
   .home-cover__statement {
@@ -166,7 +520,7 @@ const season = getAustralianSeasonLower(now);
     letter-spacing: var(--ls-display);
     color: var(--white);
     text-wrap: balance;
-    text-shadow: 0 1px 28px color-mix(in srgb, var(--bg-deep) 55%, transparent);
+    text-shadow: 0 2px 8px rgb(0 0 0 / .3);
   }
 
   .home-cover__context {
@@ -174,7 +528,8 @@ const season = getAustralianSeasonLower(now);
     font-family: var(--font-ui);
     font-size: var(--fs-300);
     line-height: var(--lh-ui);
-    color: var(--soft-inverse);
+    color: #fff;
+    text-shadow: 0 1px 4px rgb(0 0 0 / .6);
     letter-spacing: 0.02em;
   }
 
@@ -190,6 +545,114 @@ const season = getAustralianSeasonLower(now);
     .home-cover__actions { flex-direction: column; align-items: stretch; }
   }
 
+  /* ── Deck controls ───────────────────────────────────────────────── */
+
+  .home-cover__controls {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    margin-top: var(--space-6);
+    flex-wrap: wrap;
+  }
+
+  .home-cover__pager {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2, 0.5rem);
+  }
+
+  .home-cover__dot {
+    appearance: none;
+    border: 0;
+    background: none;
+    /* 44px hit target around a small mark. */
+    padding: 1rem 0.375rem;
+    cursor: pointer;
+    line-height: 0;
+  }
+
+  .home-cover__dot-fill {
+    display: block;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--white) 45%, transparent);
+    box-shadow: 0 1px 4px rgb(0 0 0 / .5);
+    transition: width 220ms ease, background-color 220ms ease;
+  }
+
+  .home-cover__dot:hover .home-cover__dot-fill,
+  .home-cover__dot:focus-visible .home-cover__dot-fill {
+    background: color-mix(in srgb, var(--white) 75%, transparent);
+  }
+
+  .home-cover__dot.is-active .home-cover__dot-fill {
+    width: 1.5rem;
+    background: var(--white);
+  }
+
+  .home-cover__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 999px;
+    border: 1px solid color-mix(in srgb, var(--white) 35%, transparent);
+    background: rgb(20 20 18 / .32);
+    color: var(--white);
+    cursor: pointer;
+    opacity: 1;
+    transition: opacity 200ms ease, background-color 200ms ease;
+  }
+
+  .home-cover__arrow--prev { left: clamp(0.5rem, 2vw, 1.5rem); }
+  .home-cover__arrow--next { right: clamp(0.5rem, 2vw, 1.5rem); }
+
+  .home-cover__arrow:hover {
+    background: rgb(20 20 18 / .6);
+  }
+
+  @media (max-width: 47.94em) {
+    /* Phones swipe. Arrows at this width either crowd the statement or sit
+       under a thumb by accident. */
+    .home-cover__arrow { display: none; }
+  }
+
+  .home-cover__edit-hint {
+    margin: 0;
+    font-family: var(--font-ui);
+    font-size: var(--fs-100);
+    letter-spacing: 0.02em;
+    color: var(--soft-inverse);
+    display: none;
+  }
+
+  /* Edit mode, set by the inline editor on <body>: hold the arrows open and
+     say which slide is showing, so replacing a specific photograph is a
+     two-step job - step to it, right-click it. */
+  :global(body[data-pi-edit-mode='on']) .home-cover__arrow {
+    opacity: 1;
+  }
+
+  :global(body[data-pi-edit-mode='on']) .home-cover__edit-hint {
+    display: block;
+  }
+
+  .home-cover__live {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+  }
 
   @media (max-width: 47.94em) {
     .home-cover {

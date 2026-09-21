@@ -32,7 +32,7 @@ dispatch:
     where: "Peninsula Hot Springs, Springs Lane, Rye"
     summary: "The clearest call on the weekend's cold-weather calendar. Rain and a north-westerly wind at over thirty kilometres per hour make the thermal contrast sharper, not less appealing. Sound Healing Sessions and Daily Studio Yoga are both on the weekly timetable and fold into a bathing visit without requiring a separate booking sequence. Sunday is a popular day - book ahead rather than arriving speculatively."
     bookingLabel: "Book via Peninsula Hot Springs"
-    bookingUrl: "https://www.peninsulahotsprings.com/bathing"
+    bookingUrl: "https://www.peninsulahotsprings.com/bathe"
     eventRef: ""
   sunday:
     title: "Stonier Fire and Wine Winter Lunch, Merricks"
@@ -40,7 +40,7 @@ dispatch:
     where: "Stonier Wines, 2 Thompson's Lane, Merricks"
     summary: "A long winery lunch in mid-July works precisely because the weather makes it the right shape for the day. The Stonier dining room and fire make an easy argument when the alternative is trying to make the most of conditions that have already decided not to cooperate."
     bookingLabel: "Book via Stonier Wines"
-    bookingUrl: "https://www.stonier.com.au/visit/events/"
+    bookingUrl: "https://www.stonier.com.au/visit"
     eventRef: ""
   rainyDay:
     title: "National Works on Paper, Mornington Peninsula Regional Gallery"
@@ -49,7 +49,7 @@ dispatch:
     price: "Free"
     summary: "The National Works on Paper survey is MPRG's anchor winter show. It is the right indoor answer when you want something with some cultural weight rather than just a dry space to be in - a proper gallery survey, national scope, and free to enter."
     bookingLabel: "See gallery programme"
-    bookingUrl: "https://www.mornpen.vic.gov.au/Arts-Culture/Mornington-Peninsula-Regional-Gallery"
+    bookingUrl: "https://mprg.mornpen.vic.gov.au/"
     eventRef: ""
   weekendShape: "If you want the weekend to have one clear centre, book the hot springs and treat everything else as optional. If a long lunch is more your weekend shape, Stonier gives you the fire and the time to use it. If the family needs a gallery morning, MPRG is the answer that does not require a booking."
 faq:

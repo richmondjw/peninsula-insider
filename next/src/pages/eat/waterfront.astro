@@ -5,9 +5,10 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import SubpageHero from '../../components/SubpageHero.astro';
 import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import { routeSlug } from '../../lib/editorial';
+import { routeSlug, isListableVenue } from '../../lib/editorial';
+import ProvenanceLine from '../../components/ProvenanceLine.astro';
 
-const allVenues = await getCollection('venues');
+const allVenues = (await getCollection('venues')).filter(isListableVenue);
 
 const waterfrontSlugs = ['the-baths-sorrento', 'the-rocks-mornington', 'portsea-hotel', 'afloat-mornington'];
 
@@ -101,7 +102,7 @@ export const prerender = true;
     <p>The Peninsula's waterfront dining concentrates on Port Phillip Bay - the calmer, bay-facing side rather than the ocean. Three venues define the category. The Baths at Sorrento for special-occasion seafood with panoramic views. The Rocks at Mornington for casual waterfront dining at the marina. The Portsea Hotel for a pub setting with the most dramatic bay outlook of any pub on the Peninsula.</p>
         <p>None of these venues are hatted. All three have genuine waterfront positions. The choice between them is not about quality - it is about what kind of afternoon you are building.</p>
         <p>Important: waterfront dining here means Port Phillip Bay, not the ocean. If you want ocean views, you are looking at a walk, not a table.</p>
-        <p class="venues__sub" style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 23 April 2026</p>
+        <ProvenanceLine class="venues__sub" style="font-size:0.8rem;color:var(--soft)" records={venues} type="venues" noun="venue" />
       </div>
   </div>
 </SubpageHero>

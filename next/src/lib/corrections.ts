@@ -342,3 +342,140 @@ export function buildReporterRow(
     contact_preference: email ? 'email' : 'none',
   };
 }
+
+/* ==========================================================================
+   Outcome
+   ========================================================================== */
+
+export type CorrectionOutcome =
+  | 'filed'               // case landed, reply requested, contact row landed
+  | 'filed-no-reply'      // case landed, no address given, so no reply possible
+  | 'filed-unanswerable'  // case landed, address given, contact row did NOT land
+  | 'failed';             // case did not land; nothing was recorded
+
+/**
+ * Decide what the reporter is told, from what the database actually
+ * confirmed. THIS IS THE RULE PI-016 TURNS ON, and it is the one piece of
+ * the partner-enquiry shape (PI-015, PR #420) that /corrections/ never got.
+ *
+ * THE DEFECT THIS REPLACES. The page used a single boolean, `answerable`,
+ * set only when the pi.correction_reporters insert came back clean. Anything
+ * else - including a reporter who typed their address in and whose contact
+ * row then failed to write - fell to one message:
+ *
+ *     "with no email address on the case, that reference is the only way to
+ *      follow it up"
+ *
+ * For a reporter who supplied an address that is simply false, and it is the
+ * worst kind of false: it is the identical wording shown to someone who
+ * chose not to give one, so it reads as a description of their own choice
+ * rather than as our failure. They have no reason to act on it, and the one
+ * thing that would recover the case - quoting the reference at the mailbox -
+ * is the thing they will not do. The correction survives; the reply is lost
+ * silently, on a page whose entire subject is trust.
+ *
+ * Three facts, and only three, decide the message. All three are read from
+ * awaited results or from the reporter's own input - never inferred from the
+ * absence of a thrown exception, which is precisely how a form comes to
+ * congratulate someone on a write that did not happen.
+ *
+ *   caseInserted     the pi.corrections row is confirmed on the server.
+ *   replyRequested   the reporter supplied an email address. Not "supplied
+ *                    anything": a name alone is a credit, not a reply route,
+ *                    and buildReporterRow files it with preference 'none'.
+ *   contactInserted  the pi.correction_reporters row is confirmed.
+ *
+ * Note the asymmetry with partner enquiries, and that it is deliberate.
+ * There, contact is required and an enquiry nobody can answer is a lost
+ * lead. Here, contact is optional and a correction nobody can answer is
+ * still a correction, verified and fixed exactly the same way. So
+ * 'filed-no-reply' is a complete success and reads as one; only
+ * 'filed-unanswerable' - where we were asked for a reply and lost the means
+ * to give it - is a partial.
+ */
+export function classifyOutcome(input: {
+  caseInserted: boolean;
+  replyRequested: boolean;
+  contactInserted: boolean;
+}): CorrectionOutcome {
+  if (!input.caseInserted) return 'failed';
+  if (!input.replyRequested) return 'filed-no-reply';
+  return input.contactInserted ? 'filed' : 'filed-unanswerable';
+}
+
+/** True when the correction itself is on the server. */
+export function isFiled(outcome: CorrectionOutcome): boolean {
+  return outcome !== 'failed';
+}
+
+/** True only where a reply is actually possible, and so may be promised. */
+export function promisesReply(outcome: CorrectionOutcome): boolean {
+  return outcome === 'filed';
+}
+
+/**
+ * True where the reporter's own input, not a failure of ours, is why no
+ * reply is coming. Only 'filed-no-reply' may say so; saying it on
+ * 'filed-unanswerable' is the defect above.
+ */
+export function silenceIsReporterChoice(outcome: CorrectionOutcome): boolean {
+  return outcome === 'filed-no-reply';
+}
+
+/**
+ * The words for each outcome, kept beside the rule rather than in the page so
+ * a test can assert the copy against the rule rather than against itself.
+ * The failure mode being guarded is copy drifting into optimism.
+ */
+export function outcomeMessage(outcome: CorrectionOutcome, caseRef: string): string {
+  switch (outcome) {
+    case 'filed':
+      return (
+        'Filed. Your reference is ' + caseRef + '. ' +
+        'Write it down anyway, then leave it with us: we will reply when the case is resolved.'
+      );
+    case 'filed-no-reply':
+      return (
+        'Filed. Your reference is ' + caseRef + '. ' +
+        'Write it down: you gave no email address, so that reference is the only way to ' +
+        'follow the case up. Quote it to ' + CORRECTIONS_EMAIL + ' if you want an answer.'
+      );
+    case 'filed-unanswerable':
+      return (
+        'Filed, and the correction itself is safe with us - the reference is ' + caseRef + '. ' +
+        'Your contact details did not save with it, though, so as things stand we cannot reply. ' +
+        'Email ' + CORRECTIONS_EMAIL + ' quoting that reference and we will attach them to the case.'
+      );
+    case 'failed':
+    default:
+      return (
+        'That did not file, and nothing was recorded. Try once more, and if it fails again ' +
+        'email ' + CORRECTIONS_EMAIL + ' with the page URL and what is wrong.'
+      );
+  }
+}
+
+/**
+ * Which status style the page shows. 'filed-unanswerable' is deliberately not
+ * a success: something we were asked to do did not happen, and styling it as
+ * a confirmation is how a reader stops reading before the second sentence.
+ */
+export function outcomeStatusKind(outcome: CorrectionOutcome): 'success' | 'error' {
+  return outcome === 'filed' || outcome === 'filed-no-reply' ? 'success' : 'error';
+}
+
+/**
+ * Whether to clear the form. Only where nothing is outstanding. On
+ * 'filed-unanswerable' the case exists but the reporter still has something
+ * to do with what they typed, and on 'failed' clearing it would destroy the
+ * only copy of a correction that was never recorded.
+ */
+export function shouldResetForm(outcome: CorrectionOutcome): boolean {
+  return outcome === 'filed' || outcome === 'filed-no-reply';
+}
+
+/** True when the reporter asked to be replied to, i.e. gave an address. */
+export function wantsReply(values: Record<string, unknown>): boolean {
+  const row = buildReporterRow(values, 'probe');
+  return row !== null && row.contact_preference === 'email';
+}

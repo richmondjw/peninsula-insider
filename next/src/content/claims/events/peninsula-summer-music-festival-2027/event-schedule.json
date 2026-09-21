@@ -1,0 +1,25 @@
+{
+  "claimId": "events/peninsula-summer-music-festival-2027/event-schedule",
+  "claimClass": "event-schedule",
+  "subject": {
+    "type": "events",
+    "slug": "peninsula-summer-music-festival-2027",
+    "field": "endDate"
+  },
+  "statement": "Peninsula Summer Music Festival 2027 runs from 2 January 2027 to 11 January 2027.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "peninsula-summer-music-festival-2027",
+      "field": "endDate"
+    },
+    {
+      "type": "events",
+      "slug": "peninsula-summer-music-festival-2027-save-the-date",
+      "field": "endDate"
+    }
+  ],
+  "createdAt": "2026-09-13",
+  "origin": "authored",
+  "note": "Both records carry the same dates and cite the same organiser page, and each flags the other as a possible duplicate. One claim, asserted by two records: the pair is left for an editor and is not merged here."
+}

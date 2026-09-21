@@ -1,0 +1,20 @@
+{
+  "claimId": "venues/flinders-hotel/address",
+  "claimClass": "address",
+  "subject": {
+    "type": "venues",
+    "slug": "flinders-hotel",
+    "field": "address"
+  },
+  "statement": "Flinders Hotel is on the corner of Cook and Wood Streets, Flinders VIC 3929.",
+  "assertedBy": [
+    {
+      "type": "venues",
+      "slug": "flinders-hotel",
+      "field": "address"
+    }
+  ],
+  "createdAt": "2026-09-14",
+  "origin": "authored",
+  "note": "Filed to exercise an address written for a person that a machine cannot read. A junction is not a postal address, and a record carrying one cannot be geocoded to a door. Authored by hand for the PI-005 address and coordinates pilot. Sources were read on 2026-09-14; see ops/reports/claims/2026-09-14-pilot-address.md."
+}

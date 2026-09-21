@@ -43,7 +43,11 @@ export interface Props {
 }
 
 const { to, consolidate = false } = Astro.props;
-const canonical = new URL(to, 'https://peninsulainsider.com.au').href;
+const canonicalTarget = new URL(to, 'https://peninsulainsider.com.au');
+// Enquiry selectors and anchors choose a UI state, not a separate indexable page.
+canonicalTarget.search = '';
+canonicalTarget.hash = '';
+const canonical = canonicalTarget.href;
 ---
 <!doctype html>
 <html lang="en-AU">

@@ -1,0 +1,20 @@
+{
+  "claimId": "events/nancye-wynne-bolton-ola-golf-day-2026/event-schedule",
+  "claimClass": "event-schedule",
+  "subject": {
+    "type": "events",
+    "slug": "nancye-wynne-bolton-ola-golf-day-2026",
+    "field": "startDate"
+  },
+  "statement": "\"Nancye Wynne Bolton\" OLA Golf Day 2026 runs from 29 November 2026 to 30 November 2026.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "nancye-wynne-bolton-ola-golf-day-2026",
+      "field": "startDate"
+    }
+  ],
+  "createdAt": "2026-08-23",
+  "origin": "migrated",
+  "note": "Migrated by scripts/migrate-event-claims.mjs (PI-005 Stage 2) from startDate, endDate, startTime, endTime already on next/src/content/events/nancye-wynne-bolton-ola-golf-day-2026.json. No editorial judgement was applied and no content record was changed."
+}

@@ -1,9 +1,9 @@
 /**
  * plans-data - build-time model for the /plans/ decision engine (T-602).
  *
- * One plan type (P10): editorial itineraries (content/itineraries) and
- * plans-section articles (content/articles, section: plans) are merged into
- * a single PlanRecord shape. Facets come from the shared adapter
+ * Editorial itineraries and planning guides share browse metadata but keep
+ * an explicit kind: only itineraries have executable stop lists.
+ * Facets come from the shared adapter
  * (lib/facets getFacets), so the context chips are presets over the same
  * taxonomy the rest of the site filters on.
  *
@@ -21,8 +21,10 @@ import {
   type FacetKey,
 } from '../../../lib/facets';
 import { getAustralianSeasonLower } from '../../../lib/season';
-import { routeSlug, venueHref, titleize } from '../../../lib/editorial';
+import { routeSlug, venueHref, titleize, isListableVenue } from '../../../lib/editorial';
 import { loadOverrides } from '../../../lib/inline-edit/overrides';
+import { informationCheckedOn } from '../../../lib/verification-date.mjs';
+import { compareEditorialPlans, planCuration } from './plan-curation';
 
 export interface PlanStop {
   /** Save-store kind for referenced stops ('venue' | 'experience' | 'article'). */
@@ -36,10 +38,20 @@ export interface PlanStop {
 
 export interface PlanRecord {
   id: string;
+  kind: 'itinerary' | 'guide';
   /** CMS entity type: 'itinerary' or 'article'. */
   entityType: 'itinerary' | 'article';
   slug: string;
   title: string;
+  displayTitle: string;
+  editorialReason: string;
+  editorialPriority: number;
+  pace?: string;
+  bookingNote?: string;
+  /** A source-backed factual check, never inferred from publication. */
+  verifiedAt?: string;
+  /** The published editorial route estimate; not live routing. */
+  driveMins?: number;
   /** Verdict line, clipped to 25 words or fewer. */
   verdict: string;
   href: string;
@@ -118,14 +130,14 @@ async function heroFor(
   const o = ov.image['hero'] ?? ov.image['heroImage'];
   const src = o?.src ?? fallback?.src;
   if (!src) return null;
-  return { src, alt: o?.alt ?? fallback?.alt ?? title };
+  return { src, alt: o?.alt ?? (src === fallback?.src ? fallback?.alt : undefined) ?? title };
 }
 
 export async function buildPlansModel(now: Date = new Date()): Promise<PlansModel> {
   const season = getAustralianSeasonLower(now);
 
   // ---- stop resolution lookups -------------------------------------------
-  const venues = await getCollection('venues');
+  const venues = (await getCollection('venues')).filter(isListableVenue);
   const experiences = await getCollection('experiences');
   const venueBySlug = new Map(
     venues.map((v) => [
@@ -151,7 +163,9 @@ export async function buildPlansModel(now: Date = new Date()): Promise<PlansMode
   const itineraryRecords: PlanRecord[] = await Promise.all(
     itineraries.map(async (it) => {
       const slug = routeSlug(it) as string;
-      const stops: PlanStop[] = (it.data.stops ?? []).map((s: any) => {
+      const stops: PlanStop[] = [...(it.data.stops ?? [])]
+        .sort((a, b) => a.day - b.day || a.order - b.order)
+        .map((s: any) => {
         const venueSlug = refId(s.venue);
         const expSlug = refId(s.experience);
         if (venueSlug && venueBySlug.has(venueSlug)) {
@@ -162,15 +176,20 @@ export async function buildPlansModel(now: Date = new Date()): Promise<PlansMode
           const e = expBySlug.get(expSlug)!;
           return { kind: 'experience', slug: expSlug, title: e.title, href: e.href, note: s.note, day: s.day };
         }
-        return { title: s.note ? String(s.note).split(/(?<=[.?])\s+/)[0] : 'Stop', note: s.note, day: s.day };
+        throw new Error(`[plans] ${slug} day ${s.day} has an unavailable stop: ${venueSlug ?? expSlug ?? 'missing reference'}`);
       });
       const dayCount = Math.max(it.data.lengthNights + 1, ...stops.map((s) => s.day), 1);
       const facets = getFacets('itinerary', it.data);
       const base: PlanRecord = {
         id: `it-${slug}`,
+        kind: 'itinerary',
         entityType: 'itinerary',
         slug,
         title: it.data.title,
+        ...planCuration(slug, it.data.title, 'itinerary'),
+        pace: `${stops.length} stops ${dayCount === 1 ? 'in one day' : `across ${dayCount} days`}`,
+        verifiedAt: informationCheckedOn(it.data, now.getTime())?.toISOString().slice(0, 10),
+        driveMins: it.data.totalDriveMinutes,
         verdict: verdictLine(it.data.dek),
         href: `/explore/plans/${slug}/`,
         image: await heroFor('itinerary', slug, it.data.heroImage, it.data.title),
@@ -201,17 +220,19 @@ export async function buildPlansModel(now: Date = new Date()): Promise<PlansMode
       const facets = getFacets('article', a.data);
       const base: PlanRecord = {
         id: `ar-${slug}`,
+        kind: 'guide',
         entityType: 'article',
         slug,
         title,
+        ...planCuration(slug, title, 'guide'),
+        verifiedAt: informationCheckedOn(a.data, now.getTime())?.toISOString().slice(0, 10),
         verdict: verdictLine(a.data.dek),
         href,
         image: await heroFor('article', slug, a.data.heroImage, title),
         imageField: 'hero',
         meta: [],
-        // Articles have no stop list; forking adds the plan itself as the
-        // first trip entry (the reader picks stops on the detail page).
-        stops: [{ kind: 'article', slug, title, href, note: 'Read the plan, then swap in your own stops.', day: 1 }],
+        // A guide is reading material, not an executable itinerary.
+        stops: [],
         facets,
         publishedAt: a.data.publishedAt?.getTime?.() ?? 0,
       };
@@ -220,7 +241,7 @@ export async function buildPlansModel(now: Date = new Date()): Promise<PlansMode
     }),
   );
 
-  const plans = [...itineraryRecords, ...articleRecords];
+  const plans = [...itineraryRecords, ...articleRecords].sort(compareEditorialPlans);
 
   // ---- contexts ------------------------------------------------------------
   // CHIP_PRESETS.plans is the vocabulary; Weekend leads as the server default
@@ -240,13 +261,10 @@ export async function buildPlansModel(now: Date = new Date()): Promise<PlansMode
     'this-season': `What ${season} is for`,
   };
 
-  const rank = (p: PlanRecord) =>
-    (p.stops.length > 1 ? 2 : 0) + ((p.facets.date ?? []).includes('this-season') ? 1 : 0);
-
   const contexts: PlanContext[] = presets.map((chip) => {
     const matched = plans
       .filter((p) => (p.facets[chip.key] ?? []).includes(chip.value))
-      .sort((a, b) => rank(b) - rank(a) || b.publishedAt - a.publishedAt);
+      .sort(compareEditorialPlans);
     if (matched.length === 0) {
       console.warn(`[plans] context "${chip.value}" matched zero plans`);
     }

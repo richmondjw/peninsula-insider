@@ -30,19 +30,23 @@ import type { JournalItem } from '../../components/v5/hub/JournalModule.astro';
 import AskBand from '../../components/v5/hub/AskBand.astro';
 import TrustNote from '../../components/v5/hub/TrustNote.astro';
 import FilterBar from '../../components/v5/FilterBar.astro';
-import { routeSlug, resolveHeroSrc, hasOwnHeroImage, eatTypes } from '../../lib/editorial';
+import { routeSlug, resolveHeroSrc, hasOwnHeroImage, eatTypes, isListableVenue } from '../../lib/editorial';
 import { getFacets } from '../../lib/facets';
 import { loadOverrides } from '../../lib/inline-edit/overrides';
+import { loadLiveEvents } from '../whats-on/_data';
 
 // ── Data ──────────────────────────────────────────────────────────────────────
 const venuesAll = (await getCollection('venues'))
   .filter((venue) => eatTypes.includes(venue.data.type))
-  .filter((v) => v.data.status !== 'permanently_closed')
+  .filter(isListableVenue)
   .sort((a, b) => Number(b.data.authority?.hats ?? 0) - Number(a.data.authority?.hats ?? 0));
 
 // eatTypes (lib/editorial) excludes 'winery', so venuesAll holds none: this
 // is a defensive second pass, not a split (one venue, one URL; HUB-01).
 const venues = venuesAll.filter((v) => v.data.type !== 'winery');
+const viralFoodFestival = (await loadLiveEvents(new Date())).find(
+  (event) => event.slug === 'viral-food-festival-mornington-2026',
+);
 
 const placesAll = await getCollection('places');
 const placeNameBySlug = new Map<string, string>(
@@ -165,7 +169,7 @@ for (const venue of venues) {
     meta: [placeLabel(venue), typeLabel[venue.data.type] ?? venue.data.type],
     priceBand: venue.data.priceBand,
     facets: getFacets('venue', venue.data),
-    partnerLabel: venue.data.featuredPartner ? 'Partner venue' : undefined,
+    partnerLabel: venue.data.featuredPartner ? 'Sponsored placement' : undefined,
   });
 }
 
@@ -189,7 +193,11 @@ const articleJournalItem = (slug: string, verdict: string, displayTitle?: string
       ? { src: article.data.heroImage.src, alt: article.data.heroImage.alt ?? article.data.title }
       : undefined,
     verdict,
-    byline: article.data.houseByline ? 'Peninsula Insider editors' : article.data.author,
+    byline: article.data.houseByline
+      ? 'Peninsula Insider editors'
+      : typeof article.data.author === 'string'
+        ? article.data.author
+        : article.data.author?.id,
     readTime: article.data.readingTimeMinutes ? `${article.data.readingTimeMinutes} min read` : undefined,
     dateISO: article.data.publishedAt?.toISOString?.(),
   };
@@ -222,7 +230,7 @@ const pillarSchema = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
   name: 'Where to Eat on the Mornington Peninsula',
-  description: 'The best restaurants, long lunches, cellar door dining, cafes, bakeries, and fireside tables on the Mornington Peninsula.',
+  description: 'Browse places to eat on the Mornington Peninsula by area and occasion, including restaurants, winery lunches, cafes and bakeries.',
   url: 'https://peninsulainsider.com.au/eat/',
   breadcrumb: {
     '@type': 'BreadcrumbList',
@@ -240,7 +248,7 @@ const faqSchema = {
     { '@type': 'Question', name: 'What are the best restaurants on the Mornington Peninsula?',
       acceptedAnswer: { '@type': 'Answer', text: 'The Good Food Guide awarded 15 hats across 11 Peninsula venues. The four two-hat restaurants, Barragunda Dining, Laura at Pt. Leo Estate, Tedesca Osteria, and Ten Minutes by Tractor, are the clearest destination dining choices.' } },
     { '@type': 'Question', name: 'Do I need to book restaurants on the Mornington Peninsula?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Most serious restaurants require bookings, especially on weekends. Hatted venues can book out weeks or months in advance. Walk-in options exist: Montalto Piazza (daily), Foxeys Hangout (no bookings taken), Rare Hare at Willow Creek (walk-in from 2pm weekends), and most cafes and bakeries. Check seasonal hours before driving.' } },
+      acceptedAnswer: { '@type': 'Answer', text: 'Book ahead for destination restaurants and weekend lunches. Some casual venues accept walk-ins; Foxeys Hangout operates without bookings according to our venue record. Check the restaurant directly for current hours, group limits and availability before travelling.' } },
     { '@type': 'Question', name: 'What is the best area for food on the Mornington Peninsula?',
       acceptedAnswer: { '@type': 'Answer', text: 'The Red Hill plateau, including Main Ridge and Red Hill South, has the highest concentration of serious dining. Mornington town has the strongest casual eating scene. Sorrento and Portsea have the best waterfront and atmosphere-first dining. For wine-paired long lunches, stick to the ridge.' } },
     { '@type': 'Question', name: 'When is the best time to visit the Mornington Peninsula for food?',
@@ -262,7 +270,7 @@ export const prerender = true;
 
 <BaseLayout
   title="Where to Eat on the Mornington Peninsula · Peninsula Insider"
-  description="The best restaurants, long lunches, cellar door dining, cafes, and bakeries on the Mornington Peninsula, editorial picks, not a directory. Updated July 2026."
+  description="Find where to eat on the Mornington Peninsula: browse restaurants, winery lunches, cafes and bakeries by area and occasion, with links to our dining shortlists."
   section="eat"
   canonical="https://peninsulainsider.com.au/eat/"
   modifiedTime="2026-07-30"
@@ -335,7 +343,8 @@ export const prerender = true;
 
   <!-- What's On, one line + link (spec block 18: strip becomes a line) -->
   <p class="eat-whatson container">
-    Food and wine events coming up on the Peninsula:
+    Food and wine events coming up on the Peninsula:{' '}
+    {viralFoodFestival && <><a href={viralFoodFestival.href}>VIRAL Food Festival at Mornington Racecourse, 18–20 September</a>. For the wider edit,{' '}</>}
     <a href="/whats-on/">see What&rsquo;s On &rarr;</a>
   </p>
 
@@ -356,30 +365,12 @@ export const prerender = true;
         <h2 class="hub-faq__title">Six honest answers before you plan the day</h2>
       </div>
       <div class="hub-faq__list">
-        <details class="hub-faq__item">
-          <summary class="hub-faq__q">What are the best restaurants on the Peninsula?</summary>
-          <div class="hub-faq__a"><p>The Good Food Guide awarded 15 hats across 11 venues. The four two-hat restaurants, Barragunda Dining, Laura at Pt. Leo, Tedesca Osteria, and Ten Minutes by Tractor, are the clearest destination dining choices. For long lunch without the hatted commitment: Montalto, Polperro, and Paringa Estate.</p></div>
-        </details>
-        <details class="hub-faq__item">
-          <summary class="hub-faq__q">Do I need to book?</summary>
-          <div class="hub-faq__a"><p>Most serious restaurants require bookings, especially on weekends. Hatted venues book weeks or months ahead. Walk-in options: Montalto Piazza (daily), Foxeys Hangout (no bookings taken), Rare Hare at Willow Creek (from 2pm weekends), and most cafes and bakeries. Check seasonal hours before driving.</p></div>
-        </details>
-        <details class="hub-faq__item">
-          <summary class="hub-faq__q">What is the best area for food?</summary>
-          <div class="hub-faq__a"><p>The Red Hill plateau has the highest concentration of serious dining. Mornington has the strongest casual eating scene. For wine-paired long lunches, stay on the ridge, Main Ridge and Red Hill South are where the best rooms are.</p></div>
-        </details>
-        <details class="hub-faq__item">
-          <summary class="hub-faq__q">When is the best time to visit for food?</summary>
-          <div class="hub-faq__a"><p>Winter (June to August) is the insider season: fires are lit, the best tables are more bookable, and menus lean into braises, roots and slow cooking. Autumn remains the peak vintage season; spring is a close second.</p></div>
-        </details>
-        <details class="hub-faq__item">
-          <summary class="hub-faq__q">Are there dog-friendly dining options?</summary>
-          <div class="hub-faq__a"><p>Yes, outdoor seating at cafes, village pub beer gardens, and a small number of winery casual areas. Commonfolk (back courtyard), Portsea Hotel (beer garden), The Rocks Mornington (outdoor deck), and Green Olive at Red Hill (garden) are listed as dog-friendly in PI venue records. Verify before visiting.</p></div>
-        </details>
-        <details class="hub-faq__item">
-          <summary class="hub-faq__q">What is the Peninsula's signature food experience?</summary>
-          <div class="hub-faq__a"><p>The long lunch. A two-to-three-hour table at a vineyard restaurant with estate wine and unhurried service. In winter the format sharpens: wood ovens, fires, estate Pinot Noir, and menus built for cold weather.</p></div>
-        </details>
+        {faqSchema.mainEntity.map((item) => (
+          <details class="hub-faq__item">
+            <summary class="hub-faq__q">{item.name}</summary>
+            <div class="hub-faq__a"><p>{item.acceptedAnswer.text}</p></div>
+          </details>
+        ))}
       </div>
     </div>
   </section>

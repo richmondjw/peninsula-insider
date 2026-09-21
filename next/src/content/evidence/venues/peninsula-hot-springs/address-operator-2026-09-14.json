@@ -1,0 +1,14 @@
+{
+  "evidenceId": "venues/peninsula-hot-springs/address-operator-2026-09-14",
+  "claim": "venues/peninsula-hot-springs/address",
+  "stance": "supports",
+  "publisher": {
+    "kind": "venue-site",
+    "name": "Peninsula Hot Springs"
+  },
+  "url": "https://www.peninsulahotsprings.com/contact-us",
+  "retrievedAt": "2026-09-14",
+  "expiresAt": "2027-03-13",
+  "note": "The operator's contact page publishes \"140 Springs Ln, Fingal VIC 3939\", which is the record's address exactly. The same page carries a shortened Google Maps link whose target was not followed, so nothing in this row speaks to the coordinate: that is a separate claim class and it has no evidence here.",
+  "origin": "authored"
+}

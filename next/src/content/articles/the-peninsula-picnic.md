@@ -28,7 +28,7 @@ clusterLinks:
     href: "/journal/the-spring-peninsula/"
 faq:
   - question: "Where are the best picnic spots on the Mornington Peninsula?"
-    answer: "Pt Leo Estate sculpture park for the most scenic option - coastal hillside views over Western Port, free entry, maintained grounds. Montalto's sculpture trail for the hinterland vineyard setting. Arthurs Seat summit for bay views and a family-friendly option with playground. Mount Martha Beach (northern end, near the bathing boxes) for a sheltered bay picnic. Point Nepean National Park near the fort for the most dramatic setting."
+    answer: "Pt Leo Estate sculpture park for the most scenic option - coastal hillside views over Western Port, ticketed entry, maintained grounds. Montalto's sculpture trail for the hinterland vineyard setting. Arthurs Seat summit for bay views and a family-friendly option with playground. Mount Martha Beach (northern end, near the bathing boxes) for a sheltered bay picnic. Point Nepean National Park near the fort for the most dramatic setting."
   - question: "How do I assemble a Peninsula picnic from the farm gate?"
     answer: "Three stops: bread from Flinders Sourdough (walnut sourdough loaf, holds well for hours); cheese from Red Hill Cheese or Main Ridge Dairy (one washed-rind, one cheddar or halloumi); and olives, tapenade, and cured meats from Green Olive at Red Hill. Add fruit from Peninsula Fresh Organics and one bottle of local pinot from Merricks General Wine Store. One hour of shopping, and it costs about a single restaurant main and a glass of wine for two."
   - question: "What time of year is best for a Peninsula picnic?"
@@ -95,7 +95,7 @@ The location matters as much as the food, and the Peninsula has a hierarchy of p
 
 ### The sculpture parks
 
-For a more elevated picnic setting on the Peninsula, the grounds of **Pt Leo Estate** are hard to beat, specifically the sculpture park that stretches along the coastal hillside above Western Port Bay. The park is free to enter, the grass is maintained, the views run for miles, and there are enough flat spots between the sculptures that a blanket feels intentional rather than improvised.
+For a more elevated picnic setting on the Peninsula, the grounds of **Pt Leo Estate** are hard to beat, specifically the sculpture park that stretches along the coastal hillside above Western Port Bay. Entry to the park is ticketed, the grass is maintained, the views run for miles, and there are enough flat spots between the sculptures that a blanket feels intentional rather than improvised.
 
 **Montalto's sculpture trail** is the hinterland alternative: less dramatic views, but a long walk through a vineyard-edge sculpture collection with several natural clearings that work as picnic settings. Check with the cellar door before setting up; they are generally relaxed about it.
 

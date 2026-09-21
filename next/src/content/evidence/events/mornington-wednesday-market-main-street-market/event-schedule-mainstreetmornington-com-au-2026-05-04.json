@@ -1,0 +1,19 @@
+{
+  "evidenceId": "events/mornington-wednesday-market-main-street-market/event-schedule-mainstreetmornington-com-au-2026-05-04",
+  "claim": "events/mornington-wednesday-market-main-street-market/event-schedule",
+  "stance": "supports",
+  "publisher": {
+    "kind": "organiser",
+    "name": "Main Street Mornington Market Committee"
+  },
+  "url": "https://mainstreetmornington.com.au/mornington-main-street-market/",
+  "retrievedAt": "2026-05-04",
+  "expiresAt": "2026-06-03",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/content/events/mornington-wednesday-market-main-street-market.json",
+    "field": "primarySourceUrl",
+    "value": "https://mainstreetmornington.com.au/mornington-main-street-market/",
+    "dateField": "lastCheckedDate"
+  }
+}

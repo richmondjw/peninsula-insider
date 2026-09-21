@@ -56,6 +56,11 @@ status: published
 verified: true
 lastVerified: 2026-04-30
 publishedAt: 2026-04-30
+heroImage:
+  src: /images/species/king-george-whiting.webp
+  alt: "Illustrated natural history plate of a King George whiting, Sillaginodes punctatus, in side profile"
+  credit: Peninsula Insider
+  license: original-commissioned
 ---
 
 ## What King George whiting actually is

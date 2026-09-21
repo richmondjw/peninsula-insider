@@ -1,121 +1,26 @@
 ---
-/**
- * PiForkPlanButton - "Save this plan as mine" for editorial itineraries.
- *
- * Wave 5 of the Save & Share rebuild. Editorial itineraries (Sorrento
- * Off-Season Weekend, Ridge-to-Sea, etc.) are the closest thing
- * Peninsula Insider has to a template. This button takes one, plus
- * every venue / experience referenced in its stops, and forks the whole
- * lot into the reader's pi:saves:v2 store. The reader can then edit,
- * remove, share, or print as their own plan.
- *
- * The page passes a JSON-encoded array of `SavedItem`-shaped objects;
- * the script reads them out of a data attribute and calls
- * `Saves.merge(...)`. Duplicates are de-duped naturally by the unified
- * store (kind + slug uniqueness).
- */
-import type { SavedItem } from '../lib/saves/store';
-
-export interface Props {
-  /** Each fork target - typically the itinerary itself first, then every stop. */
-  items: Array<Omit<SavedItem, 'savedAt'>>;
-  /** Optional override for the button label. */
-  label?: string;
-  /**
-   * Visual variant.
-   *  - 'solid' (default): filled dark pill, for standalone placements.
-   *  - 'ghost': outlined pill, for placements where this button sits next
-   *    to a primary CTA and should defer to it visually.
-   */
-  variant?: 'solid' | 'ghost';
-}
-
-const { items, label = 'Save this plan as mine', variant = 'solid' } = Astro.props;
-const encoded = JSON.stringify(items);
+import type { EditorialPlan } from '../lib/editorial-plan-import';
+export interface Props { plan: EditorialPlan; label?: string; variant?: 'solid' | 'ghost' }
+const { plan, label = 'Use this plan', variant = 'solid' } = Astro.props;
 ---
-
-<div class={`pi-fork-plan pi-fork-plan--${variant}`}>
-  <button
-    type="button"
-    class={`pi-btn pi-btn--${variant === 'ghost' ? 'ghost' : 'solid'} pi-btn--sm`}
-    data-pi-fork-plan
-    data-pi-items={encoded}
-  >
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
-    </svg>
-    {label}
-  </button>
+<div class="pi-fork-plan">
+  <button type="button" class={`pi-btn pi-btn--${variant} pi-btn--sm`} data-pi-fork-plan data-pi-plan={JSON.stringify(plan)}>{label}</button>
 </div>
-
-<style is:global>
-  .pi-fork-plan {
-    margin: 1.5rem 0 0;
-    display: inline-flex;
-  }
-
-  /* When nested inside a CTA row (e.g. on the plan-detail page), the
-     parent row owns the spacing - drop the standalone top margin. */
-  .itinerary-detail__cta-row .pi-fork-plan { margin: 0; }
-
-  /* The ghost variant is now expressed on the control itself
-     (.pi-btn --ghost), selected from the `variant` prop above, so the
-     hierarchy reads the same way every other paired CTA does. */
+<style>
+  .pi-fork-plan { display: inline-flex; }
 </style>
-
 <script>
-  import * as Saves from '../lib/saves/store';
-  import { track } from '../lib/saves/analytics';
-
-  function bind() {
-    document.querySelectorAll<HTMLButtonElement>('[data-pi-fork-plan]').forEach((btn) => {
-      if ((btn as any)._piInit) return;
-      (btn as any)._piInit = true;
-      btn.addEventListener('click', () => {
-        let parsed: Array<Omit<Saves.SavedItem, 'savedAt'>> = [];
-        try {
-          parsed = JSON.parse(btn.dataset.piItems ?? '[]');
-        } catch { return; }
-        const now = Date.now();
-        const items: Saves.SavedItem[] = parsed.map((it) => ({ ...it, savedAt: now }));
-        const added = Saves.merge(items);
-        // The first item in the encoded list is conventionally the itinerary
-        // itself; capture its slug for the analytics payload so we know which
-        // editorial template was forked.
-        const source_slug = parsed[0]?.slug;
-        const source_kind = parsed[0]?.kind;
-        track('pi_plan_fork', {
-          source: 'editorial',
-          source_kind,
-          source_slug,
-          items_added: added,
-          items_total: items.length,
-        });
-        btn.setAttribute('data-state', 'forked');
-        showToast(
-          added > 0
-            ? `Saved ${added} ${added === 1 ? 'item' : 'items'} to your plan.`
-            : 'These are already in your plan.',
-        );
-      });
-    });
-  }
-
-  function showToast(message: string) {
-    let toast = document.querySelector<HTMLElement>('[data-pi-fork-toast]');
-    if (!toast) {
-      toast = document.createElement('div');
-      toast.className = 'saved-toast';
-      toast.setAttribute('data-pi-fork-toast', '');
-      toast.setAttribute('role', 'status');
-      document.body.appendChild(toast);
-    }
-    toast.textContent = message;
-    toast.classList.add('saved-toast--visible');
-    setTimeout(() => toast?.classList.remove('saved-toast--visible'), 2400);
-  }
-
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bind);
-  else bind();
-  document.addEventListener('astro:page-load', bind);
+  import { useEditorialPlan } from '../lib/plan-trip-client';
+  import { trackEvent } from '../lib/v5-analytics';
+  document.addEventListener('click', async (event) => {
+    const button = (event.target as Element)?.closest<HTMLButtonElement>('[data-pi-fork-plan]');
+    if (!button || button.disabled) return;
+    try {
+      const plan = JSON.parse(button.dataset.piPlan || 'null');
+      if (!plan) return;
+      button.disabled = true;
+      const outcome = await useEditorialPlan(plan, button);
+      if (outcome === 'added') trackEvent('trip_fork', { entity_type: 'itinerary', entity_slug: plan.slug, surface: 'plan-detail' });
+    } finally { button.disabled = false; }
+  });
 </script>

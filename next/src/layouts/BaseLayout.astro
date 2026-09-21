@@ -14,19 +14,16 @@ import '../styles/search.css';      // site-search overlay + /search page styles
 import '../styles/inline-edit.css'; // admin-only inline editor chrome, inert unless edit mode is on
 import '../styles/refinement.css'; // approved Harbour editorial refinement
 import '../styles/magenta-stone.css'; // Magenta Stone theme - inert unless html[data-theme="magenta-stone"]
+import '../styles/photo-headers.css'; // Natural colour with feathered contrast behind photo-header copy
 import { ClientRouter } from 'astro:transitions';
-// V5 chrome promotion (2026-07-11, redesign-v5): V4Masthead /
-// V4MobileDrawer / Footer are replaced by the v5 chrome set
-// (future-ia.md section 3). The v4 components stay in the codebase as
-// reference but are no longer mounted here. V5Breadcrumbs mounts
-// globally so every below-level-1 template carries a trail; the
-// V5BottomBar carries the mobile quick actions.
+// Shared editorial shell. Search, account, consent and saved-item controllers
+// remain mounted below; navigation and footer share the wider page frame.
 import V5Masthead from '../components/v5/chrome/V5Masthead.astro';
 // The conditions strip and issue stamp (visual design review finding #1,
 // P0-1 / P0-2). Sits above the masthead in normal flow, site-wide.
 import UtilityBar from '../components/UtilityBar.astro';
-import V5MobileDrawer from '../components/v5/chrome/V5MobileDrawer.astro';
-import V5BottomBar from '../components/v5/chrome/V5BottomBar.astro';
+
+
 import V5Breadcrumbs from '../components/v5/chrome/V5Breadcrumbs.astro';
 import V5Footer from '../components/v5/chrome/V5Footer.astro';
 import ConciergeDrawer from '../components/ConciergeDrawer.astro';
@@ -146,7 +143,10 @@ const isAskPage = rawPathname.startsWith('/ask');
 // The same component supports preview builds and the production rollout.
 // Keep the switch explicit so an emergency rollback is one environment edit.
 const newsletterPopupMode = import.meta.env.PUBLIC_NEWSLETTER_POPUP;
-const showNewsletterPopup = newsletterPopupMode === 'preview' || newsletterPopupMode === 'on';
+// Keep active planning and itinerary reading free of promotional interruptions.
+// Navigation and the footer retain their normal publication links.
+const isPlanningJourney = /^\/(?:explore\/plans|plans|me\/trip)(?:\/|$)/.test(rawPathname);
+const showNewsletterPopup = !isPlanningJourney && (newsletterPopupMode === 'preview' || newsletterPopupMode === 'on');
 ---
 
 <!doctype html>
@@ -219,7 +219,7 @@ const showNewsletterPopup = newsletterPopupMode === 'preview' || newsletterPopup
         email: 'corrections@peninsulainsider.com.au',
       },
     ],
-    publishingPrinciples: `${SITE_URL}/about/`,
+    publishingPrinciples: `${SITE_URL}/editorial-approach/`,
     correctionsPolicy: `${SITE_URL}/corrections/`,
     diversityPolicy: `${SITE_URL}/about/`,
     ethicsPolicy: `${SITE_URL}/about/`,
@@ -291,6 +291,8 @@ const showNewsletterPopup = newsletterPopupMode === 'preview' || newsletterPopup
       var KEY = 'pi-consent-v1';
 
       function loadGtag() {
+        // Preview and local QA must never enter the production property.
+        if (!['peninsulainsider.com.au', 'www.peninsulainsider.com.au'].includes(location.hostname)) return;
         if (window._piGtagLoaded) return;
         window._piGtagLoaded = true;
         window.dataLayer = window.dataLayer || [];
@@ -335,26 +337,11 @@ const showNewsletterPopup = newsletterPopupMode === 'preview' || newsletterPopup
       above: no consent, no events. */}
   <script>
     import { initV5Analytics } from '../lib/v5-analytics';
+    import { initContractAnalytics } from '../lib/analytics-events';
     initV5Analytics();
+    initContractAnalytics();
   </script>
 
-  {/* TEMPORARY PASSWORD GATE.
-      Client-side only, so it is a soft courtesy gate, not security: the
-      content ships in the HTML regardless and crawlers that run JS get
-      redirected (which is fatal for SEO while the gate is on). Controlled
-      by PUBLIC_ACCESS_GATE so launching is a one-line env change in
-      .github/workflows/build-and-deploy.yml: set PUBLIC_ACCESS_GATE=off. */}
-  {import.meta.env.PUBLIC_ACCESS_GATE !== 'off' && (
-    <script is:inline>
-      (function() {
-        var KEY  = 'pi-access-v1';
-        if (localStorage.getItem(KEY) === '1') return;
-        var path = window.location.pathname;
-        if (path === '/access/' || path === '/access') return;
-        window.location.replace('/access/?r=' + encodeURIComponent(window.location.href));
-      })();
-    </script>
-  )}
 </head>
 <body data-page={section} data-path={rawPathname} data-v4="true">
 
@@ -381,15 +368,29 @@ const showNewsletterPopup = newsletterPopupMode === 'preview' || newsletterPopup
         var h = Math.round(m.getBoundingClientRect().height);
         document.documentElement.style.setProperty('--masthead-h', h + 'px');
       }
-      setMastheadH();
-      if ('ResizeObserver' in window) {
+      var ro = null;
+      // The masthead element is replaced by every client-router navigation,
+      // so an observer pointed at the first one is watching a detached node
+      // from the second page onwards and --masthead-h silently stops tracking
+      // the utility-row collapse. Re-point it, and disconnect the old one
+      // first so re-pointing does not itself accumulate observers.
+      function watchMasthead() {
         var m = document.querySelector('.masthead');
-        if (m) new ResizeObserver(setMastheadH).observe(m);
-      } else {
-        window.addEventListener('resize', setMastheadH);
+        if (!('ResizeObserver' in window)) return;
+        if (ro) ro.disconnect();
+        ro = null;
+        if (!m) return;
+        ro = new ResizeObserver(setMastheadH);
+        ro.observe(m);
       }
+      setMastheadH();
+      if ('ResizeObserver' in window) watchMasthead();
+      else window.addEventListener('resize', setMastheadH);
       // Re-measure after page transitions (Astro view-transitions).
-      document.addEventListener('astro:page-load', setMastheadH);
+      document.addEventListener('astro:page-load', function () {
+        setMastheadH();
+        watchMasthead();
+      });
     })();
   </script>
 
@@ -429,15 +430,6 @@ const showNewsletterPopup = newsletterPopupMode === 'preview' || newsletterPopup
 
   <V5Footer />
 
-  <!-- V5 mobile drawer - wayfinding only, 13 rows + Dispatch CTA.
-       Self-binding (script lives inside the component). -->
-  <V5MobileDrawer />
-
-  <!-- V5 bottom action bar - Ask · Map · Save · Trip on mobile.
-       Self-suppressing on journal articles, form flows, open sheets,
-       and while the virtual keyboard is up. -->
-  <V5BottomBar />
-
   <!-- V2 auth phase 1, modal + profile dropdown.
        Modal hidden until any [data-open-auth] element triggers it.
        Dropdown auto-mounts into the masthead utility row when signed in. -->
@@ -471,7 +463,7 @@ const showNewsletterPopup = newsletterPopupMode === 'preview' || newsletterPopup
   <!-- Where in the Peninsula is PI? corner peek. Content pages only, once
        per week, waits for consent and stands down if the Insider Note
        popup is up. Master switch: PLAY.enabled in lib/play.ts. -->
-  <PlayPeek />
+  {!isPlanningJourney && <PlayPeek />}
 
   <!-- Save / share-list controller (Phase 2 WS2E). Site-wide; binds save
        buttons on every page, owns localStorage, exposes window.PISave. -->
@@ -568,32 +560,38 @@ const showNewsletterPopup = newsletterPopupMode === 'preview' || newsletterPopup
 
   <script is:inline>
     (function () {
-      function initSubscribePill() {
+      var threshold = 0.5; // 50% of scrollable page
+      var rafId = null;
+
+      // Reads document.body on every call rather than closing over it. That is
+      // the whole fix: the client router replaces <body> on every navigation,
+      // so a closed-over reference goes stale, and the previous shape dealt
+      // with that by clearing its own `_subPillBound` guard from an
+      // astro:page-load handler and re-running - which added one more scroll
+      // listener per navigation, for the life of the tab, each holding a
+      // detached body alive. tests/journeys measured +1 per navigation on
+      // every page of the site, this being in the layout.
+      function check() {
         var body = document.body;
-        if (body._subPillBound) return;
-        body._subPillBound = true;
-        var threshold = 0.5; // 50% of scrollable page
-        var rafId = null;
-        function check() {
-          var max = document.documentElement.scrollHeight - window.innerHeight;
-          if (max <= 0) {
-            body.classList.remove('show-subscribe-pill');
-            return;
-          }
-          var pct = window.scrollY / max;
-          body.classList.toggle('show-subscribe-pill', pct >= threshold);
+        if (!body) return;
+        var max = document.documentElement.scrollHeight - window.innerHeight;
+        if (max <= 0) {
+          body.classList.remove('show-subscribe-pill');
+          return;
         }
-        window.addEventListener('scroll', function () {
-          if (rafId) return;
-          rafId = requestAnimationFrame(function () { check(); rafId = null; });
-        }, { passive: true });
-        check();
+        var pct = window.scrollY / max;
+        body.classList.toggle('show-subscribe-pill', pct >= threshold);
       }
-      initSubscribePill();
-      document.addEventListener('astro:page-load', function () {
-        document.body._subPillBound = false;
-        initSubscribePill();
-      });
+
+      // One listener, registered once. `window` outlives every swap.
+      window.addEventListener('scroll', function () {
+        if (rafId) return;
+        rafId = requestAnimationFrame(function () { check(); rafId = null; });
+      }, { passive: true });
+      check();
+      // A navigation resets scroll position and page height, so recompute -
+      // but only recompute. Nothing is re-registered.
+      document.addEventListener('astro:page-load', check);
     })();
   </script>
 
@@ -605,18 +603,50 @@ const showNewsletterPopup = newsletterPopupMode === 'preview' || newsletterPopup
           drawer via window.openConcierge() (was previously inside V2 Masthead). -->
   <script is:inline>
     (function () {
+      // `document` outlives an Astro client-router swap, but bootAll() re-runs
+      // on every astro:page-load. The two listeners below used to sit inside
+      // initV4Mega() and initV4Drawer(), whose guards live on elements the
+      // swap replaces, so each navigation added another copy holding the
+      // previous page's nav. They are registered once at module scope here and
+      // resolve the nav from the live DOM when they fire.
+      function closeAllPillars(except) {
+        document.querySelectorAll('[data-v4-pillar]').forEach(function (n) {
+          if (n === except) return;
+          n.classList.remove('is-open');
+          var trig = n.querySelector('[data-v4-pillar-link]');
+          if (trig) trig.setAttribute('aria-expanded', 'false');
+        });
+      }
+
+      function closeV4Drawer() {
+        var burger = document.querySelector('.v4-burger');
+        var drawer = document.getElementById('v4Drawer');
+        if (!drawer) return;
+        drawer.classList.remove('is-open');
+        if (burger) burger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+        drawer.querySelectorAll('.v4-drawer__pillar.is-expanded').forEach(function (p) {
+          p.classList.remove('is-expanded');
+          var t = p.querySelector('[data-v4-drawer-pillar]');
+          if (t) t.setAttribute('aria-expanded', 'false');
+        });
+      }
+
+      document.addEventListener('click', function (e) {
+        var target = e.target;
+        var inside = target.closest && target.closest('[data-v4-pillar]');
+        if (!inside) closeAllPillars(null);
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key !== 'Escape') return;
+        var drawer = document.getElementById('v4Drawer');
+        if (drawer && drawer.classList.contains('is-open')) closeV4Drawer();
+      });
+
       function initV4Mega() {
         var items = document.querySelectorAll('[data-v4-pillar]');
         if (!items.length) return;
-
-        function closeAll(except) {
-          items.forEach(function (n) {
-            if (n === except) return;
-            n.classList.remove('is-open');
-            var trig = n.querySelector('[data-v4-pillar-link]');
-            if (trig) trig.setAttribute('aria-expanded', 'false');
-          });
-        }
 
         items.forEach(function (item) {
           if (item._v4Bound) return;
@@ -627,7 +657,7 @@ const showNewsletterPopup = newsletterPopupMode === 'preview' || newsletterPopup
           function open() {
             clearTimeout(closeTimer);
             openTimer = setTimeout(function () {
-              closeAll(item);
+              closeAllPillars(item);
               item.classList.add('is-open');
               if (link) link.setAttribute('aria-expanded', 'true');
             }, 70);
@@ -665,12 +695,6 @@ const showNewsletterPopup = newsletterPopupMode === 'preview' || newsletterPopup
             });
           }
         });
-
-        document.addEventListener('click', function (e) {
-          var target = e.target;
-          var inside = target.closest && target.closest('[data-v4-pillar]');
-          if (!inside) closeAll(null);
-        });
       }
 
       function initV4Drawer() {
@@ -688,25 +712,12 @@ const showNewsletterPopup = newsletterPopupMode === 'preview' || newsletterPopup
           burger.setAttribute('aria-expanded', 'true');
           document.body.style.overflow = 'hidden';
         }
-        function closeDrawer() {
-          drawer.classList.remove('is-open');
-          burger.setAttribute('aria-expanded', 'false');
-          document.body.style.overflow = '';
-          drawer.querySelectorAll('.v4-drawer__pillar.is-expanded').forEach(function (p) {
-            p.classList.remove('is-expanded');
-            var t = p.querySelector('[data-v4-drawer-pillar]');
-            if (t) t.setAttribute('aria-expanded', 'false');
-          });
-        }
 
         burger.addEventListener('click', function () {
           var isOpen = drawer.classList.contains('is-open');
-          if (isOpen) closeDrawer(); else openDrawer();
+          if (isOpen) closeV4Drawer(); else openDrawer();
         });
-        if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
-        document.addEventListener('keydown', function (e) {
-          if (e.key === 'Escape' && drawer.classList.contains('is-open')) closeDrawer();
-        });
+        if (closeBtn) closeBtn.addEventListener('click', closeV4Drawer);
 
         pillarTriggers.forEach(function (trig) {
           trig.addEventListener('click', function () {
@@ -726,7 +737,7 @@ const showNewsletterPopup = newsletterPopupMode === 'preview' || newsletterPopup
         });
 
         drawer.querySelectorAll('a').forEach(function (a) {
-          a.addEventListener('click', closeDrawer);
+          a.addEventListener('click', closeV4Drawer);
         });
       }
 

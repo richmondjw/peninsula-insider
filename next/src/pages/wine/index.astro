@@ -26,7 +26,7 @@ import TheSix from '../../components/v5/hub/TheSix.astro';
 import DirectoryRows from '../../components/v5/hub/DirectoryRows.astro';
 import JournalModule from '../../components/v5/hub/JournalModule.astro';
 import AskBand from '../../components/v5/hub/AskBand.astro';
-import { routeSlug } from '../../lib/editorial';
+import { routeSlug, isListableVenue } from '../../lib/editorial';
 import { getFacets, FACET_OPTIONS } from '../../lib/facets';
 
 export const prerender = true;
@@ -45,6 +45,7 @@ const hatCount = (v: any) => Number(v.data.authority?.hats ?? 0);
 // Editor's order: picks first, then authority, then name. This is the
 // server-rendered default the SortControl treats as 'editors'.
 const venues = (await getCollection('venues'))
+  .filter(isListableVenue)
   .filter((v) => wineTypes.includes(v.data.type))
   .sort(
     (a, b) =>
@@ -226,18 +227,18 @@ const journalItems = Object.keys(journalVerdicts)
 // ── Stand-first (<= 80 words, carries cellar-door SEO phrases + the
 //    walk-in/appointment orientation line) ─────────────────────────────────
 const standfirst =
-  'Pinot and chardonnay on basalt, forty cellar doors within twenty minutes of each other. The six worth a day around this month first, then every producer we rate. Check walk-in or by-appointment before you drive.';
+  'Find your way around Mornington Peninsula wine country, from Red Hill and Main Ridge to Merricks and the bayside vineyards. Explore wineries by area, wine style and the kind of visit you want. Check current tasting hours and booking requirements with each producer before you travel.';
 
 const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'Wine Country' }];
 
-// FAQ schema: UNCHANGED from v4 (protect-list, acceptance 27).
+// One FAQ source for visible answers and structured data.
 const faqSchema = {
   '@context': 'https://schema.org', '@type': 'FAQPage',
   mainEntity: [
     { '@type': 'Question', name: 'What wine is the Mornington Peninsula known for?',
       acceptedAnswer: { '@type': 'Answer', text: 'Pinot Noir and Chardonnay are the benchmark varieties, the cool maritime climate and basalt soils of the Red Hill plateau produce some of Australia\'s most consistent cool-climate examples. The region also has a growing reputation for Pinot Gris and Shiraz. Over 50 cellar doors are open to visitors, concentrated on the ridge between Red Hill and Main Ridge.' } },
     { '@type': 'Question', name: 'Do I need to book cellar door visits on the Mornington Peninsula?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Some cellar doors operate by appointment only (Ten Minutes by Tractor, Main Ridge Estate, Paringa Estate). Others welcome walk-ins (Montalto, Polperro, Red Hill Estate). Check before you drive, appointment-only cellar doors are common on the plateau and the experience is better when expected. Weekend afternoons are busiest.' } },
+      acceptedAnswer: { '@type': 'Answer', text: 'Booking arrangements differ by winery and tasting. Main Ridge Estate requires a booking. Ten Minutes by Tractor recommends reservations and accepts walk-ins subject to availability; Paringa Estate recommends bookings. Restaurant bookings are separate from cellar-door tastings. Confirm current arrangements directly before travelling.' } },
     { '@type': 'Question', name: 'How many wineries are on the Mornington Peninsula?',
       acceptedAnswer: { '@type': 'Answer', text: 'The Mornington Peninsula has over 200 vineyards and approximately 50–60 cellar doors open to visitors. Most are concentrated on the Red Hill plateau between Dromana, Red Hill, and Main Ridge. The region is compact, you can visit three cellar doors in an afternoon without rushing if you stay on the ridge.' } },
   ],
@@ -245,11 +246,10 @@ const faqSchema = {
 ---
 
 <BaseLayout
-  title="Best Cellar Doors on the Mornington Peninsula 2026 Guide"
-  description="The cellar doors worth the appointment, the Pinot worth the cellar, and the producers you should know in 2026. The Peninsula's honest wine guide."
+  title="Mornington Peninsula Wine & Wineries · Peninsula Insider"
+  description="Explore Mornington Peninsula wine country: wineries by area, Pinot Noir and Chardonnay, cellar door visits, and winery dining. Start planning your wine-country trip."
   section="wine"
-  canonical="https://peninsulainsider.com.au/wine"
-  modifiedTime="2026-05-17"
+  canonical="https://peninsulainsider.com.au/wine/"
   ogImage="/images/sourced/article-cellar-door-01.webp"
 >
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
@@ -260,7 +260,7 @@ const faqSchema = {
        EditorialSurface, CompareBlock and the 232-word essay) -->
   <HubStandfirst
     eyebrow="Wine Country"
-    title="The Peninsula's best bottles start on the ridge"
+    title="Mornington Peninsula wine country"
     standfirst={standfirst}
     image={{ src: '/images/sourced/article-cellar-door-01.webp', alt: 'A Red Hill cellar door among the vines' }}
   />
@@ -381,18 +381,12 @@ const faqSchema = {
         <h2 class="hub-faq__title">Three honest answers before you book</h2>
       </div>
       <div class="hub-faq__list">
-        <details class="hub-faq__item">
-          <summary class="hub-faq__q">What wine is the Peninsula known for?</summary>
-          <div class="hub-faq__a"><p>Pinot Noir and Chardonnay are the benchmark varieties, the cool maritime climate and basalt soils of the Red Hill plateau produce some of Australia's most consistent cool-climate examples. The region also has a growing reputation for Pinot Gris and Shiraz. Over 50 cellar doors are open to visitors, concentrated on the ridge between Red Hill and Main Ridge.</p></div>
-        </details>
-        <details class="hub-faq__item">
-          <summary class="hub-faq__q">Do I need to book cellar door visits?</summary>
-          <div class="hub-faq__a"><p>Some cellar doors operate by appointment only (Ten Minutes by Tractor, Main Ridge Estate, Paringa Estate). Others welcome walk-ins (Montalto, Polperro, Red Hill Estate). Check before you drive, appointment-only cellar doors are common on the plateau and the experience is better when expected. Weekend afternoons are busiest.</p></div>
-        </details>
-        <details class="hub-faq__item">
-          <summary class="hub-faq__q">How many wineries are on the Peninsula?</summary>
-          <div class="hub-faq__a"><p>Over 200 vineyards and approximately 50–60 cellar doors open to visitors. Most are concentrated on the Red Hill plateau between Dromana, Red Hill, and Main Ridge. The region is compact, you can visit three cellar doors in an afternoon without rushing if you stay on the ridge.</p></div>
-        </details>
+        {faqSchema.mainEntity.map((item) => (
+          <details class="hub-faq__item">
+            <summary class="hub-faq__q">{item.name}</summary>
+            <div class="hub-faq__a"><p>{item.acceptedAnswer.text}</p></div>
+          </details>
+        ))}
       </div>
     </div>
   </section>

@@ -1,0 +1,20 @@
+{
+  "claimId": "events/tootgarook-primary-school-market/rate-change",
+  "claimClass": "rate-change",
+  "subject": {
+    "type": "events",
+    "slug": "tootgarook-primary-school-market",
+    "field": "freePaid"
+  },
+  "statement": "Entry to Tootgarook Primary School Market is free.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "tootgarook-primary-school-market",
+      "field": "freePaid"
+    }
+  ],
+  "createdAt": "2026-05-04",
+  "origin": "migrated",
+  "note": "Migrated by scripts/migrate-event-claims.mjs (PI-005 Stage 2) from freePaid already on next/src/content/events/tootgarook-primary-school-market.json. No editorial judgement was applied and no content record was changed."
+}

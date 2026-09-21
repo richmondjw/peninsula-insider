@@ -60,13 +60,29 @@ function functionBody(src, name) {
   return null;
 }
 
-const GLOBAL_BIND = /\b(?:document|window)\s*\.\s*addEventListener\s*\(\s*['"]([^'"]+)['"]/g;
+const GLOBAL_BIND = /\b(?:document|window)\s*\.\s*addEventListener\s*\(\s*['"]([^'"]+)['"]([^\n]*)/g;
+const GLOBAL_UNBIND = /\b(?:document|window)\s*\.\s*removeEventListener\s*\(\s*['"]([^'"]+)['"]/g;
 const ZERO_ARG_CALL = /\b([A-Za-z_$][\w$]*)\s*\(\s*\)/g;
 
 /**
- * Every global listener registered by `handler`, or by a same-file zero-arg
- * function `handler` calls. One level of following is enough to catch the
- * `init() { bindToolbar(); }` shape that hid the /account/saved/ defect.
+ * An identifier in argument position: `forEach(hydrate)`, `map(f)`, `then(go)`.
+ *
+ * This is the hole that let six live accumulators through the 2026-09-13
+ * sweep. Every v5 island registers as `querySelectorAll(...).forEach(hydrate)`,
+ * and following only `f()` never reaches hydrate(), which is exactly where the
+ * document-level listener sits. The browser harness in tests/journeys found
+ * them by measuring; this makes the cheap scanner see them too, so the
+ * expensive one is a backstop rather than the only net.
+ */
+const CALLBACK_ARG = /[(,]\s*([A-Za-z_$][\w$]*)\s*[,)]/g;
+
+/** An observer left pointed at a replaced node is the same defect, differently spelt. */
+const GLOBAL_OBSERVE = /new\s+(MutationObserver|IntersectionObserver|ResizeObserver)\s*\(/g;
+
+/**
+ * Every global listener or observer registered by `handler`, or by a same-file
+ * function `handler` reaches - whether it calls that function by name or hands
+ * it to something else to call.
  */
 function globalBindsReachableFrom(src, handler) {
   const found = [];
@@ -78,48 +94,76 @@ function globalBindsReachableFrom(src, handler) {
     seen.add(name);
     const body = functionBody(src, name);
     if (!body) continue;
-    for (const match of body.matchAll(GLOBAL_BIND)) found.push({ fn: name, event: match[1] });
+    for (const match of body.matchAll(GLOBAL_BIND)) {
+      // A registration carrying an AbortSignal is torn down by whoever holds
+      // the controller, so it cannot accumulate.
+      if (/\bsignal\b/.test(match[2] || '')) continue;
+      found.push({ fn: name, event: match[1] });
+    }
+    for (const match of body.matchAll(GLOBAL_OBSERVE)) found.push({ fn: name, event: `new ${match[1]}` });
     for (const match of body.matchAll(ZERO_ARG_CALL)) queue.push(match[1]);
+    for (const match of body.matchAll(CALLBACK_ARG)) queue.push(match[1]);
   }
   return found;
+}
+
+/**
+ * Events this file explicitly unbinds, and observers it explicitly
+ * disconnects. A register/unregister pair inside one component is balanced -
+ * the filter sheet's focus trap binds keydown on open and removes it on close,
+ * and the bottom bar disconnects before re-pointing - and flagging those would
+ * teach people to ignore the scanner, which is how a scanner dies.
+ */
+function tornDownIn(src) {
+  const torn = new Set();
+  for (const match of src.matchAll(GLOBAL_UNBIND)) torn.add(match[1]);
+  if (/\.\s*disconnect\s*\(/.test(src)) {
+    for (const name of ['MutationObserver', 'IntersectionObserver', 'ResizeObserver']) {
+      torn.add(`new ${name}`);
+    }
+  }
+  return torn;
 }
 
 const ASTRO_FILES = walk(SRC_DIR, ['.astro']);
 const SCRIPT_FILES = walk(SRC_DIR, ['.astro', '.ts', '.tsx', '.mjs']);
 
 /**
- * Sites that still have this defect, frozen as a baseline on 2026-09-13.
+ * Sites that still have this defect.
  *
- * PI-012 fixed the four surfaces the journey audit walked. The same shape is
- * present across the site chrome and several components: an element-level
- * guard (`_piBound`, `_piMoreBound`) does NOT prevent it, because the guarded
- * element is replaced by the swap while the listener on `document` is not.
- * They are listed rather than fixed because each needs its own idempotence
- * decision; the sweep is filed separately.
+ * Empty as of 2026-09-13. The baseline was frozen at 19 entries when PI-012
+ * fixed only the four surfaces the journey audit walked; the follow-up sweep
+ * cleared all nineteen, so the ratchet below is now the whole rule and any
+ * entry added here means shipping the defect.
+ *
+ * Two shapes turned up in the sweep. Eleven of the nineteen were the real
+ * thing: an element-level guard (`_piBound`, `_piMoreBound`, `dataset.bound`)
+ * does NOT prevent accumulation, because the swap replaces the guarded element
+ * while leaving the listener on `document` attached, so the guard is fresh
+ * every navigation and the listener is not.
+ *
+ * The other eight, across four sites, were already safe for a reason this
+ * scanner cannot see: a guard on `document` itself (ProfileDropdown,
+ * V5Masthead), a flag at module scope (explore/index) - neither of which the
+ * swap touches - or an explicit removeEventListener before the next
+ * registration (InsiderNotePopup). They were hoisted anyway, so that reading
+ * the code tells you what the scanner tells you and correctness stops
+ * depending on a cleanup hook firing in the right order.
  *
  * This list may only shrink. Adding a new entry means shipping the defect.
+ *
+ * Still empty as of 2026-09-14, but for a better reason than on 2026-09-13.
+ * The scanner that declared the baseline clear could only see a function
+ * called by name, and every v5 island registers by handing a function to
+ * something else: `querySelectorAll(...).forEach(hydrate)`. Six live
+ * accumulators were sitting behind that, and the browser harness in
+ * tests/journeys measured all six. The scanner now follows a function passed
+ * as an argument, treats an observer as the same defect, and reads an
+ * anonymous astro:page-load handler - and it discounts a registration that is
+ * explicitly removed, or that carries an AbortSignal, because a balanced pair
+ * is not a leak and flagging one teaches people to ignore the scanner.
  */
-const KNOWN_UNFIXED = [
-  'src/components/CloudSyncIndicatorScript.astro: bind() -> bind() binds "pi:cloud-sync" on document/window',
-  'src/components/ConciergeDrawer.astro: bootDrawer() -> bootDrawer() binds "click" on document/window',
-  'src/components/ConciergeDrawer.astro: bootDrawer() -> bootDrawer() binds "keydown" on document/window',
-  'src/components/InsiderNotePopup.astro: init() -> init() binds "keydown" on document/window',
-  'src/components/InsiderNotePopup.astro: init() -> init() binds "resize" on document/window',
-  'src/components/InsiderNotePopup.astro: init() -> init() binds "scroll" on document/window',
-  'src/components/Masthead.astro: bindMore() -> bindMore() binds "click" on document/window',
-  'src/components/Masthead.astro: bindMore() -> bindMore() binds "keydown" on document/window',
-  'src/components/play/PlayPeek.astro: initPlayPeek() -> initPlayPeek() binds "inote_impression" on document/window',
-  'src/components/play/PlayPeek.astro: initPlayPeek() -> initPlayPeek() binds "inote_open" on document/window',
-  'src/components/v2/AuthModal.astro: init() -> init() binds "keydown" on document/window',
-  'src/components/v2/AuthModal.astro: init() -> init() binds "pi:open-auth" on document/window',
-  'src/components/v2/ProfileDropdown.astro: init() -> installGlobalCloseListeners() binds "click" on document/window',
-  'src/components/v2/ProfileDropdown.astro: init() -> installGlobalCloseListeners() binds "keydown" on document/window',
-  'src/components/v5/chrome/V5Masthead.astro: initV5Mega() -> initV5Mega() binds "click" on document/window',
-  'src/layouts/BaseLayout.astro: bootAll() -> initV4Drawer() binds "keydown" on document/window',
-  'src/layouts/BaseLayout.astro: bootAll() -> initV4Mega() binds "click" on document/window',
-  'src/pages/explore/index.astro: init() -> init() binds "click" on document/window',
-  'src/pages/explore/index.astro: init() -> init() binds "pi:filters-changed" on document/window',
-].sort();
+const KNOWN_UNFIXED = [].sort();
 
 test('no astro:page-load handler registers a document- or window-level listener', () => {
   const offences = [];
@@ -128,8 +172,19 @@ test('no astro:page-load handler registers a document- or window-level listener'
     const handlers = [
       ...src.matchAll(/addEventListener\s*\(\s*['"]astro:page-load['"]\s*,\s*([A-Za-z_$][\w$]*)\s*\)/g),
     ].map((m) => m[1]);
+    // Anonymous handlers too. The subscribe pill in BaseLayout and the v5
+    // bottom bar both hid in one: an inline astro:page-load handler that
+    // cleared its own element-level guard and re-ran an init that binds on
+    // window. Every navigation added one more, on every page of the site.
+    for (const m of src.matchAll(
+      /addEventListener\s*\(\s*['"]astro:page-load['"]\s*,\s*(?:function\s*\([^)]*\)|\([^)]*\)\s*=>)\s*\{([\s\S]{0,600}?)\n\s*\}\s*\)/g,
+    )) {
+      for (const call of m[1].matchAll(ZERO_ARG_CALL)) handlers.push(call[1]);
+    }
+    const torn = tornDownIn(src);
     for (const handler of new Set(handlers)) {
       for (const bind of globalBindsReachableFrom(src, handler)) {
+        if (torn.has(bind.event)) continue;
         offences.push(`${rel(file)}: ${handler}() -> ${bind.fn}() binds "${bind.event}" on document/window`);
       }
     }
@@ -169,10 +224,15 @@ test('the four surfaces PI-012 fixed stay fixed', () => {
  * Listeners with no dispatcher that are deliberate extension points rather
  * than defects. Each entry must say why, and must be an event a future caller
  * is expected to raise - not a typo waiting to be found.
+ *
+ * Empty as of 2026-09-13. `pi:open-auth` sat here as a presumed extension
+ * point; the reading did not hold. Nothing in src/ ever dispatched it, the two
+ * components its comment named as callers do not exist, and every one of the
+ * eight real sign-in triggers goes through the `[data-open-auth]` attribute
+ * that AuthModal already binds. It was a second, dead door onto a working one,
+ * so the listener was deleted rather than allowlisted.
  */
-const INTENTIONALLY_UNDISPATCHED = new Map([
-  ['pi:open-auth', 'AuthModal extension point: any component may raise it to open the sign-in modal'],
-]);
+const INTENTIONALLY_UNDISPATCHED = new Map([]);
 
 test('every pi: event listened for is dispatched somewhere in src/', () => {
   const listened = new Map();
@@ -209,8 +269,8 @@ test('the saved page listens for the event the saves stores actually emit', () =
 
 test('the plans fork and popstate listeners sit at module scope, not inside init()', () => {
   const src = fs.readFileSync(path.join(SRC_DIR, 'components/v5/plans/PlanContextEngine.astro'), 'utf8');
-  const initAt = src.indexOf('function init()');
-  assert.ok(initAt > 0, 'expected an init() in PlanContextEngine.astro');
+  const initAt = src.indexOf('function initPlans()');
+  assert.ok(initAt > 0, 'expected initPlans() in PlanContextEngine.astro');
   const beforeInit = src.slice(0, initAt);
   assert.match(beforeInit, /document\.addEventListener\('click'/, 'fork listener must precede init()');
   assert.match(beforeInit, /window\.addEventListener\('popstate'/, 'popstate listener must precede init()');

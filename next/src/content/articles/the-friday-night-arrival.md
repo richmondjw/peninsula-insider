@@ -6,7 +6,9 @@ houseByline: true
 publishedAt: 2026-04-10
 heroImage:
   src: "/images/sourced/article-sunset-01.webp"
-  alt: "A car pulling into a Peninsula rental property at dusk with warm interior light spilling through the windows - representative image"
+  alt: "A rocky coastal headland and an offshore sea stack at sunset, framed by twisted coastal tea-tree."
+  depicts: "a rocky headland and offshore sea stack at sunset, framed by coastal tea-tree"
+  depictionStatus: "illustrative"
   credit: "Peninsula Insider"
   license: "tmp-unsplash"
 format: "service"
@@ -44,9 +46,9 @@ clusterLinks:
     href: "/explore/plans/the-couples-weekend/"
 faq:
   - question: "What should I do on Friday night when arriving on the Mornington Peninsula?"
-    answer: "Three options depending on energy and planning: the pub (no booking needed; Balnarring Pub for hinterland stays, Flinders Hotel for the south, Hotel Sorrento front bar for the coast); the provisions stop (bread, cheese, chicken, and wine from the nearest good deli en route, eaten on the deck); or a booked dinner at Tedesca Osteria, Rare Hare, or similar if arranged a week ahead. The pub is the most reliable no-planning option."
+    answer: "Three options depending on energy and planning: the pub (The Heritage at Balnarring for hinterland stays, where it pays to call ahead; Flinders Hotel for the south; Hotel Sorrento front bar for the coast); the provisions stop (bread, cheese, chicken, and wine from the nearest good deli en route, eaten on the deck); or a booked dinner at Tedesca Osteria, Rare Hare, or similar if arranged a week ahead. The pub is the most reliable no-planning option."
   - question: "Which Peninsula pubs are best for Friday night dinner on arrival?"
-    answer: "Balnarring Pub for Red Hill hinterland stays (garden, good pub menu, call ahead). Flinders Hotel for southern Peninsula stays (a step above standard pub fare, walk-ins usually fine). Hotel Sorrento front bar for Sorrento, ordering from the bar menu rather than the bistro."
+    answer: "The Heritage at Balnarring for Red Hill hinterland stays (open fires, a big beer garden, a pub favourites menu, call ahead to book). Flinders Hotel for southern Peninsula stays (a step above standard pub fare, walk-ins usually fine). Hotel Sorrento front bar for Sorrento, ordering from the bar menu rather than the bistro."
   - question: "Can I do a provisions stop instead of eating out on Friday night on the Peninsula?"
     answer: "Yes, and it is often the better option. Stop at Epicurean Red Hill or the Red Hill Bakery strip for bread, cheese, and a roast chicken, then Merricks General Wine Store for wine. Alternatively, the Flinders General Store carries a curated range of exactly this combination. The deck dinner of bread, cheese, cold chicken, and wine is one of the simplest pleasures the Peninsula offers."
 aiSummary:
@@ -67,7 +69,7 @@ Here are the three ways to handle it.
 
 The simplest and most reliable Friday night arrival on the Peninsula is the pub. You need no booking, no planning, and no cooking. You need to know which pub is nearest to where you are staying and whether it does food on Friday nights. All of these do:
 
-**Staying in the Red Hill hinterland:** Drive to **Balnarring Pub**. The garden is sheltered and the kitchen runs a solid pub menu. Call ahead on Fridays - the room is small. Order at the counter. Sit outside. You are now on Peninsula time.
+**Staying in the Red Hill hinterland:** Drive to **The Heritage** at Balnarring. The kitchen keeps a pub favourites list alongside a specials board, and there is a big beer garden for warm evenings. Call ahead to book a table. You are now on Peninsula time.
 
 **Staying in Flinders or Shoreham:** **Flinders Hotel** bistro. Walk-ins are usually fine on a Friday. The food is a step above standard pub fare. The rooms upstairs are the backup plan if the drive back to the rental feels too far after two bottles.
 
@@ -75,7 +77,7 @@ The simplest and most reliable Friday night arrival on the Peninsula is the pub.
 
 **Staying in Mornington or Mount Martha:** **Mornington Hotel** or **The Bay Hotel**. Both are proper locals' pubs with reliable kitchens. The Mornington Hotel has the better beer garden; The Bay has the better view.
 
-**Staying in Balnarring or Somers:** **Balnarring Pub**. This is the one you book if you know you are arriving on a Friday. The kitchen is genuine and the room is small. Call ahead.
+**Staying in Balnarring or Somers:** **The Heritage**, in the middle of Balnarring village. This is the one you book if you know you are arriving on a Friday. Call ahead.
 
 The pub arrival works because it removes all decisions. You drive from Melbourne, you walk into the pub, you eat and drink, you go to the rental. The weekend starts without you having to think about it.
 

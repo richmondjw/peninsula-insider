@@ -6,7 +6,9 @@ houseByline: true
 publishedAt: 2026-04-10
 heroImage:
   src: "/images/sourced/category-pub-02.webp"
-  alt: "A beer garden at a Peninsula pub on a late autumn afternoon with locals at timber tables - representative image"
+  alt: "A plate of grilled steak and hand-cut chips scattered with parsley, a steak knife alongside on a dark timber table."
+  depicts: "a plate of grilled steak and hand-cut chips"
+  depictionStatus: "illustrative"
   credit: "Peninsula Insider"
   license: "tmp-unsplash"
 format: "insider-edit"
@@ -49,9 +51,9 @@ clusterLinks:
     href: "/journal/dog-friendly-mornington-peninsula/"
 faq:
   - question: "Which is the best pub on the Mornington Peninsula?"
-    answer: "Depends what you want. Flinders Hotel for rooms and location in a village that earns an overnight. Hotel Sorrento for heritage and atmosphere outside of peak summer. Balnarring Pub for food and local character."
+    answer: "Depends what you want. Flinders Hotel for rooms and location in a village that earns an overnight. Hotel Sorrento for heritage and atmosphere outside of peak summer. The Heritage at Balnarring for a village pub with open fires and a big beer garden."
   - question: "Are Peninsula pubs dog-friendly?"
-    answer: "Some are. Balnarring Pub beer garden and The Rocks at Mornington are confirmed dog-friendly. Portsea Hotel beer garden allows dogs on-leash outside peak season. Always confirm with the venue directly before bringing a dog."
+    answer: "Some are. The Rocks at Mornington is confirmed dog-friendly. The Heritage at Balnarring does not allow pets. Portsea Hotel beer garden allows dogs on-leash outside peak season. Always confirm with the venue directly before bringing a dog."
   - question: "Which Peninsula pubs have accommodation?"
     answer: "Flinders Hotel and Hotel Sorrento both have well-renovated rooms above the bar; current rates are on each hotel's site. Portsea Hotel also has renovated accommodation. All three are significantly better than a standard pub room."
 ---
@@ -90,15 +92,13 @@ Portsea Hotel works best as a base for beach days. The back beach is a short dri
 
 Best for families and groups. The beer garden on a Saturday after the beach. Counter meals and cold beer.
 
-## Balnarring Pub, the one the locals protect
+## The Heritage, Balnarring's village pub
 
-The **Balnarring Pub** is the pub the locals talk about when they are not talking to weekenders. Tucked away in the hinterland behind the bayside strip, [Balnarring](/explore/places/balnarring/) is the town that most visitors drive through without stopping, and the pub is the reason they should.
+**The Heritage** is the pub in the middle of [Balnarring](/explore/places/balnarring/), the town that most visitors drive through without stopping. It occupies a 1930s heritage home on a two-acre block, with the original open fires inside, a sunny deck, and a large beer garden with a grass area and sandpit for children.
 
-The food is excellent: modern pub cooking with genuine Peninsula sourcing, and a kitchen that punches above the size of the room. The beer garden is small, shaded, and personal. The wine list is short and local. The crowd is farmers, families from the village, and the occasional weekender who has been told about it by someone who lives here.
+The kitchen runs a pub favourites list (a chicken parma or schnitzel, pub-style fish and chips) alongside a specials board that changes with what has come in, and serves a Sunday roast through winter. Live music plays on the deck most Sunday afternoons.
 
-This is the pub for locals and people who want to feel like locals. It does not photograph as well as Hotel Sorrento. It eats better.
-
-Best for lunch on a Saturday after the Balnarring market. Or a midweek dinner if you are renting nearby and want to feel like part of the town. The beer garden is dog-friendly - see the [Peninsula dog guide](/journal/the-dog-friendly-peninsula/) for the full circuit.
+Best for lunch after the Emu Plains Market on its third Saturday, or a Sunday afternoon with the music on. It opens Wednesday to Sunday and is closed Monday and Tuesday, so call ahead to book. Pets are not allowed in the venue, so leave the dog out of this one.
 
 ## Dromana Hotel, the honest one
 
@@ -112,7 +112,7 @@ Best on a Tuesday or Wednesday, late afternoon, when the bay catches the last li
 
 If you wanted to do a pub day (there are worse ideas) the route that makes geographic sense is:
 
-1. **Lunch** at Balnarring Pub (12:30pm, book ahead on weekends)
+1. **Lunch** at The Heritage, Balnarring (12:30pm, Wednesday to Sunday, book ahead)
 2. **Sunset** at Hotel Sorrento (5pm, front-bar verandah)
 
 Total drive: about forty minutes. Total cost: less than a degustation at any of the hatted restaurants.

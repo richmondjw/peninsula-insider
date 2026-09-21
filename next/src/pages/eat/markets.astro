@@ -5,9 +5,10 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import SubpageHero from '../../components/SubpageHero.astro';
 import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import { routeSlug } from '../../lib/editorial';
+import { routeSlug, isListableVenue } from '../../lib/editorial';
+import ProvenanceLine from '../../components/ProvenanceLine.astro';
 
-const allVenues = await getCollection('venues');
+const allVenues = (await getCollection('venues')).filter(isListableVenue);
 const venues=allVenues.filter(v=>v.data.type==='market').sort((a,b)=>(a.data.name??'').localeCompare(b.data.name??''));
 
 const breadcrumbItems=[{label:'Home',href:'/'},{label:'Eat & Drink',href:'/eat/'},{label:'Markets'}];
@@ -29,7 +30,7 @@ export const prerender = true;
   entityType="page"
 >
   <div class="prose">
-    <p>The Peninsula has three established food markets, each with a different character. Red Hill Market is the one worth planning a morning around - a large monthly market on the first Saturday of the month at Red Hill Showgrounds, with Peninsula produce, artisan food, and a coffee and brunch scene that makes the visit feel like an event rather than a shopping errand.</p><p>Mornington Farmers' Market runs every Wednesday at Craig's Reserve and is the best option for fresh local produce during the week - smaller, more focused, and less tourist-facing than Red Hill. Balnarring Farmers' Market is the most genuinely local of the three - a village-scale market with strong produce and a relaxed pace.</p><p style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 23 April 2026</p></div>
+    <p>The Peninsula has three established food markets, each with a different character. Red Hill Market is the one worth planning a morning around - a large monthly market on the first Saturday of the month at Red Hill Showgrounds, with Peninsula produce, artisan food, and a coffee and brunch scene that makes the visit feel like an event rather than a shopping errand.</p><p>Mornington Farmers' Market runs every Wednesday at Craig's Reserve and is the best option for fresh local produce during the week - smaller, more focused, and less tourist-facing than Red Hill. Balnarring Farmers' Market is the most genuinely local of the three - a village-scale market with strong produce and a relaxed pace.</p><ProvenanceLine style="font-size:0.8rem;color:var(--soft)" records={venues} type="venues" noun="venue" /></div>
   </div>
 </SubpageHero>
   <section class="venues" id="rankings"><div class="container"><div class="venues__header"><div><p class="label label--accent">Peninsula markets</p><h2 class="venues__title">All {venues.length} Peninsula food markets</h2><p class="venues__sub">Red Hill on the first Saturday, Mornington every Wednesday, Balnarring seasonally.</p></div><a href="/eat/" class="venues__link">All dining venues →</a></div><div class="venues__grid">{venues.map(v=><VenueCard venue={v} hrefPrefix="/eat" />)}</div></div></section>

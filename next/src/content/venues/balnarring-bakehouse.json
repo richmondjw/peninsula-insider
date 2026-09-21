@@ -5,14 +5,13 @@
   "place": "balnarring",
   "zone": "red-hill",
   "coordinates": {
-    "lat": -38.377,
-    "lng": 145.1382
+    "lat": -38.3736,
+    "lng": 145.1251
   },
-  "address": "3050 Frankston-Flinders Rd, Balnarring VIC 3926",
-  "phone": "+61 3 5983 5060",
+  "address": "Balnarring Village Shopping Centre, 3050 Frankston-Flinders Rd, Balnarring VIC 3926",
   "priceBand": "$",
   "signature": "The village bakehouse for the Balnarring side of the Peninsula, pies, pastries, and the breakfast sandwich that fuels the Saturday market crowd.",
-  "editorNote": "Balnarring Bakehouse is the village bakery the Balnarring side of the Peninsula has relied on for years. The pies and pastries are proper country-bakery standard, a solid beef-and-mushroom, an honest custard tart, a vanilla slice that will not disappoint anyone over the age of eight, and the weekend breakfast sandwich has become the quiet fuel source for half the Balnarring Market crowd on a Saturday morning.\n\nThere is nothing aspirational about the room. That is exactly why it works. Go on a Saturday morning, grab a coffee and a breakfast sandwich, and walk across to the market with one hand on the paper bag. The Balnarring Pub is two minutes away for when the market is done and you want to sit down properly.\n\nA reliable anchor for any Balnarring-side weekend. The kind of bakery that holds a village together.",
+  "editorNote": "Balnarring Bakehouse is the village bakery the Balnarring side of the Peninsula has relied on for years. The pies and pastries are proper country-bakery standard, a solid beef-and-mushroom, an honest custard tart, a vanilla slice that will not disappoint anyone over the age of eight, and the weekend breakfast sandwich has become the quiet fuel source for half the Balnarring Market crowd on a Saturday morning.\n\nThere is nothing aspirational about the room. That is exactly why it works. Go on a Saturday morning, grab a coffee and a breakfast sandwich, and walk across to the market with one hand on the paper bag. The Heritage, the village pub, is a short walk up Frankston-Flinders Road for when the market is done and you want to sit down properly.\n\nA reliable anchor for any Balnarring-side weekend. The kind of bakery that holds a village together.",
   "whyWeGo": "The honest country bakery the Balnarring side relies on, exactly what it is, no more, and that is the whole point.",
   "bestFor": [
     "Morning stop",
@@ -22,7 +21,7 @@
   "ifOnlyOneThing": "Order a pie and a sweet pastry and eat at least one of them while it is still warm.",
   "pairWith": [
     "Balnarring Market",
-    "The Balnarring Pub"
+    "The Heritage Balnarring"
   ],
   "tags": {
     "mood": [
@@ -39,7 +38,10 @@
   },
   "heroImage": {
     "src": "/images/sourced/place-balnarring-01.webp",
-    "alt": "Balnarring, Mornington Peninsula - representative image for Balnarring Bakehouse",
+    "alt": "",
+    "depicts": "a bay beach with a tideline of seaweed, curving to a wooded point under a grey sky",
+    "depictionStatus": "illustrative",
+    "decorative": true,
     "credit": "Peninsula Insider",
     "license": "other-licensed"
   },
@@ -53,5 +55,7 @@
     "Saturday Breakfast Sandwich",
     "Custard Tarts",
     "Village Bakehouse"
-  ]
+  ],
+  "operatingStatus": "verify-open",
+  "closureNote": "Checked 2026-09-13. The address is not an error: 3050 Frankston-Flinders Rd is the street address of the Balnarring Village Shopping Centre (https://balnarring-vic.aussiestoresonline.com/balnarring-village-shopping-centre/), and a Balnarring Bakehouse is listed there by Tripadvisor as Balnarring Bakehouse Bakery and Cafe, Russell Street, Balnarring Village Shopping Centre (https://www.tripadvisor.com.au/Restaurant_Review-g1066997-d15767989-Reviews-Balnarring_Bakehouse_Bakery_and_Cafe-Balnarring_Mornington_Peninsula_Victoria.html) and in a centre store directory last updated 2022 (https://www.australia-shoppings.com/malls-centres/victoria/balnarring/balnarring-village-shopping-centre). Coordinates corrected to the OpenStreetMap address node for 3050 Frankston-Flinders Rd; the earlier point sat about 1.2 km east of the village. Current trading is not confirmed: the business has no operator site, the listed phone for that listing (03 5983 1494) is also carried by a Balnarring Takeaway at Shop 9 of the same centre (https://restaurantguru.com/Conroys-Bakehouse-Balnarring) whose newest reviews are about three years old, and the phone number previously recorded here (+61 3 5983 5060) could not be tied to the business, so it was removed rather than replaced. The Red Hill Baker trades at 1/3000 Frankston-Flinders Rd (https://www.redhillbaker.com.au/) and is a different business. The specific menu items in this record's copy (pies, custard tart, vanilla slice, breakfast sandwich) are not evidenced by any source found. Unresolved."
 }

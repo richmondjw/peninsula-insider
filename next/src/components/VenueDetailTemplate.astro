@@ -1,5 +1,5 @@
 ---
-import { placeLabel, typeLabel, routeSlug, titleize, venueHref, venueHrefPrefix, formatHeroCredit } from '../lib/editorial';
+import { placeLabel, typeLabel, routeSlug, titleize, venueHref, venueHrefPrefix, formatHeroCredit, isListableVenue, isPermanentlyClosed } from '../lib/editorial';
 import { resolveLiveStatusUrl, verifiedFreshnessLabel } from '../lib/venues';
 import Breadcrumbs from './Breadcrumbs.astro';
 import NewsletterBlock from './NewsletterBlock.astro';
@@ -10,8 +10,13 @@ import PiArticleActions from './PiArticleActions.astro';
 import { getCollection } from 'astro:content';
 import { resolveHero } from '../lib/inline-edit/resolve-hero';
 import PlayRibbon from './play/PlayRibbon.astro';
+import MediaProvenanceNote from './MediaProvenanceNote.astro';
+import { altFor } from '../lib/media-provenance';
+import CorrectionNote from './CorrectionNote.astro';
 import { editableImage, editableText } from '../lib/inline-edit/attrs';
 import EstateCluster from './EstateCluster.astro';
+import { approvedVisitorInformation } from '../lib/visitor-information.mjs';
+import { informationCheckedOn } from '../lib/verification-date.mjs';
 
 export interface Props {
   venue: any;
@@ -23,8 +28,11 @@ export interface Props {
 
 const { venue, section, related = [], articles = [], itineraries = [] } = Astro.props;
 const data = venue.data;
+const visitorInformation = approvedVisitorInformation(data.visitorInformation);
+const gallery = (data.gallery ?? []).filter((image) => image.rightsStatus === 'recorded' && image.provenanceReview === 'verified');
 const liveStatusUrl = resolveLiveStatusUrl(data);
-const verifiedLabel = verifiedFreshnessLabel(data.lastVerified);
+const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(data.coordinates ? `${data.coordinates.lat},${data.coordinates.lng}` : `${data.name}, ${data.address}`)}`;
+const verifiedLabel = verifiedFreshnessLabel(informationCheckedOn(data));
 
 // ── Opening hours ────────────────────────────────────────────────────────
 // data.visiting.openingHours carries the schema.org shape: full day names
@@ -128,7 +136,17 @@ const heroLabel = `${data.name} · ${placeLabel(data.place)}`;
 // hero via the inline editor, it wins over the content-JSON default.
 const venueSlug = venue.id ?? data.slug;
 const hero = await resolveHero('venue', venueSlug, data);
-const heroAlt = hero.alt || heroLabel;
+// `hero.alt || heroLabel` was the old line, and it is exactly the bug this
+// replaces: a decorative image's deliberately empty alt fell through the `||`
+// and was refilled with "<venue name> · <place>", re-asserting on a stand-in
+// photograph the very claim the empty alt existed to withdraw.
+const { alt: heroAlt, presentation: heroPresentation } = altFor(hero, heroLabel);
+// Provenance describes the image in the CONTENT record. When an editor
+// has published a CMS override the picture on screen is a different
+// file, and the record says nothing about it - so pass nothing rather
+// than let one image's disclosure stand in for another's. Capturing
+// provenance at upload is the operator flow, which is gated separately.
+const heroProvenance = hero.override ? null : data.heroImage;
 
 // Sibling venues within a multi-venue estate (EstateCluster block).
 const estateSlug = data.estateSlug as string | undefined;
@@ -136,7 +154,7 @@ let estateVenues: any[] = [];
 if (estateSlug) {
   const allEstateVenues = await getCollection('venues');
   estateVenues = allEstateVenues.filter(
-    (v) => v.data.estateSlug === estateSlug && v.data.status !== 'permanently_closed',
+    (v) => v.data.estateSlug === estateSlug && isListableVenue(v),
   );
 }
 
@@ -186,7 +204,7 @@ const hasVisiting = isWinery && data.visiting;
 const hasWines = isWinery && data.wines;
 const hasRestaurant = isWinery && data.restaurant;
 const hasAccommodation = isWinery && data.accommodation;
-const isClosed = data.status === 'closed' || data.status === 'permanently_closed';
+const isClosed = data.status === 'closed' || isPermanentlyClosed(data);
 
 // Wine-specific derived signals
 const isAppointmentOnly = isWinery && data.visiting?.bookingRequired === true;
@@ -237,7 +255,7 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
 
 <Breadcrumbs items={breadcrumbItems} />
 
-<section class="venue-detail">
+<section class="venue-detail" data-venue-view={venueSlug} data-venue-type={data.type}>
   <div class="container">
     <div class="venue-detail__meta">
       <a href={sectionHref} class="venue-detail__type">{sectionLabel}</a>
@@ -281,7 +299,17 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
     {(data.bookingUrl || data.phone) && !isClosed && (
       <div class="venue-detail__booking-bar">
         {data.bookingUrl && (
-          <a href={data.bookingUrl} target="_blank" rel="noopener noreferrer" class="pi-btn pi-btn--solid pi-btn--lg">
+          <a
+            href={data.bookingUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="pi-btn pi-btn--solid pi-btn--lg"
+            data-pi-book="booking"
+            data-pi-entity-type={data.type}
+            data-pi-entity-slug={venueSlug}
+            data-pi-surface="venue-booking-bar"
+            data-pi-provider={data.bookingProvider}
+          >
             {data.type === 'hotel' || data.type === 'villa' || data.type === 'cottage' || data.type === 'glamping' || data.type === 'farm-stay'
               ? 'Check availability'
               : data.type === 'winery'
@@ -312,9 +340,9 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
         <span class="venue-appointment-note__text">
           <strong>By appointment.</strong> This producer doesn't take walk-ins.
           {data.phone
-            ? <> Call <a href={`tel:${data.phone.replace(/\s/g,'')}`}>{data.phone}</a> to arrange a visit.</>  
+            ? <> Call <a href={`tel:${data.phone.replace(/\s/g,'')}`}>{data.phone}</a> to arrange a visit.</>
             : data.bookingUrl
-              ? <> <a href={data.bookingUrl} target="_blank" rel="noopener noreferrer">Book online</a> to arrange a visit.</>
+              ? <> <a href={data.bookingUrl} target="_blank" rel="noopener noreferrer" data-pi-book="booking" data-pi-entity-type={data.type} data-pi-entity-slug={venueSlug} data-pi-surface="venue-appointment-note" data-pi-provider={data.bookingProvider}>Book online</a> to arrange a visit.</>
               : ' Contact the winery directly to arrange a visit.'}
         </span>
       </div>
@@ -332,13 +360,18 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
         purpose: 'hero',
       })}
     >
-      <img src={hero.src} alt={heroAlt} fetchpriority="high" decoding="async" />
+      <img src={hero.src} alt={heroAlt} role={heroPresentation ? 'presentation' : undefined} fetchpriority="high" decoding="async" />
       <div class="venue-detail__hero-fog"></div>
       <span class="venue-detail__hero-label">{heroLabel}</span>
     </figure>
     {data.heroImage?.credit && (
       <p class="venue-detail__hero-credit">{formatHeroCredit(data.heroImage.credit)}</p>
     )}
+    <MediaProvenanceNote
+      image={heroProvenance}
+      subject={data.name}
+      class="venue-detail__hero-provenance"
+    />
 
     <div class="venue-detail__grid">
       <div>
@@ -553,7 +586,7 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
           {data.website && (
             <>
               <dt>Website</dt>
-              <dd><a href={data.website}>{data.website.replace(/^https?:\/\//, '').replace(/\/$/, '')}</a></dd>
+              <dd><a href={data.website} data-evt="website_click" data-entity-type="venue" data-entity-slug={venueSlug} data-surface="venue-facts">{data.website.replace(/^https?:\/\//, '').replace(/\/$/, '')}</a></dd>
             </>
           )}
 
@@ -563,6 +596,15 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
               <dd>{data.hoursNote}</dd>
             </>
           )}
+          <dt>Directions</dt>
+          <dd><a href={directionsUrl} target="_blank" rel="noopener noreferrer" data-evt="directions_click" data-entity-type="venue" data-entity-slug={venueSlug} data-surface="venue-facts">Get directions</a></dd>
+
+          {visitorInformation?.accessibility && <><dt>Accessibility</dt><dd>{visitorInformation.accessibility}</dd></>}
+          {visitorInformation?.children && <><dt>With children</dt><dd>{visitorInformation.children}</dd></>}
+          {visitorInformation?.indoorOutdoor && <><dt>Setting</dt><dd>{({ indoor: 'Indoors', outdoor: 'Outdoors', both: 'Indoors and outdoors' })[visitorInformation.indoorOutdoor]}</dd></>}
+          {visitorInformation?.menuUrl && <><dt>Menu</dt><dd><a href={visitorInformation.menuUrl} rel="noopener noreferrer" target="_blank">View the current menu</a></dd></>}
+          {visitorInformation?.socialLinks.map((link) => <><dt>{link.label}</dt><dd><a href={link.url} rel="noopener noreferrer" target="_blank">Official profile</a></dd></>)}
+          {visitorInformation?.video && <><dt>Video</dt><dd><a href={visitorInformation.video.url} rel="noopener noreferrer" target="_blank">Watch the venue video</a><small> Credit: {visitorInformation.video.credit}</small></dd></>}
 
           {hasOpeningHours && (
             <>
@@ -627,12 +669,22 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
           {data.featuredPartner && (
             <>
               <dt>Partnership</dt>
-              <dd>Featured partner - <a href="/about/">editorial standards</a></dd>
+              <dd>Sponsored partner - <a href="/about/">editorial standards</a></dd>
             </>
           )}
         </dl>
 
-        {data.bookingUrl && <a class="facts__cta pi-btn pi-btn--ghost pi-btn--block" href={data.bookingUrl}>Book now</a>}
+        {data.bookingUrl && (
+          <a
+            class="facts__cta pi-btn pi-btn--ghost pi-btn--block"
+            href={data.bookingUrl}
+            data-pi-book="booking"
+            data-pi-entity-type={data.type}
+            data-pi-entity-slug={venueSlug}
+            data-pi-surface="venue-facts-rail"
+            data-pi-provider={data.bookingProvider}
+          >Book now</a>
+        )}
         {data.affiliateNote && <p class="facts__affiliate-note">{data.affiliateNote}</p>}
       </aside>
     </div>
@@ -645,6 +697,21 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
     )}
   </div>
 </section>
+
+{gallery.length > 0 && (
+  <section class="venue-detail-section">
+    <div class="container">
+      <h2 class="venue-detail-section__title">A closer look</h2>
+      <div class="venue-gallery">
+        {gallery.map((image) => <figure>
+          <img src={image.src} alt={altFor(image, data.name)} loading="lazy" decoding="async" />
+          <figcaption>{image.caption} {formatHeroCredit(image.credit)}</figcaption>
+          <MediaProvenanceNote image={image} subject={data.name} />
+        </figure>)}
+      </div>
+    </div>
+  </section>
+)}
 
 {hasVisiting && (
   <section class="venue-detail-section">
@@ -659,7 +726,7 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
         {data.visiting.bookingRequired && (
           <p><strong>Booking required.</strong>{' '}
             {data.bookingUrl
-              ? <a href={data.bookingUrl} target="_blank" rel="noopener noreferrer">Reserve a tasting</a>
+              ? <a href={data.bookingUrl} target="_blank" rel="noopener noreferrer" data-pi-book="booking" data-pi-entity-type={data.type} data-pi-entity-slug={venueSlug} data-pi-surface="venue-visiting" data-pi-provider={data.bookingProvider}>Reserve a tasting</a>
               : 'Contact the winery directly.'}
           </p>
         )}
@@ -696,7 +763,7 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
         {data.restaurant.description && <p>{data.restaurant.description}</p>}
         {data.restaurant.cuisine && <p><strong>Cuisine:</strong> {data.restaurant.cuisine}.</p>}
         {data.restaurant.reservations !== false && data.bookingUrl && (
-          <p><a href={data.bookingUrl} target="_blank" rel="noopener noreferrer">Reserve a table →</a></p>
+          <p><a href={data.bookingUrl} target="_blank" rel="noopener noreferrer" data-pi-book="booking" data-pi-entity-type={data.type} data-pi-entity-slug={venueSlug} data-pi-surface="venue-restaurant" data-pi-provider={data.bookingProvider}>Reserve a table →</a></p>
         )}
       </div>
     </div>
@@ -894,21 +961,40 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
     <div class="venue-footnote__inner">
       {verifiedLabel && (
         <p class="venue-footnote__verified">
-          <span>{verifiedLabel} by Peninsula Insider</span>
-          <span class="venue-footnote__sep" aria-hidden="true"> · </span>
-          <a href="/editorial-approach/">How we check</a>
+          <span>{verifiedLabel}</span>
+
+
         </p>
       )}
       <p class="venue-footnote__claim">
-        Is this your venue? <a href="/partners/claim/">Claim it</a>
+        Is this your business? <a href={`/partners/update/?venue=${routeSlug(venue)}`}>Manage this listing</a>
       </p>
+      <CorrectionNote compact surface="venue" />
     </div>
   </div>
 </div>
 
 <NewsletterBlock />
 
+<script>
+  import { trackEvent, initV5Analytics } from '../lib/v5-analytics';
+  function trackVenueView() {
+    initV5Analytics();
+    document.querySelectorAll<HTMLElement>('[data-venue-view]').forEach(element => {
+      if (element.dataset.viewTracked) return;
+      element.dataset.viewTracked = '1';
+      trackEvent('venue_view', { entity_type: 'venue', entity_slug: element.dataset.venueView, surface: 'venue-detail' });
+    });
+  }
+  trackVenueView();
+  document.addEventListener('astro:page-load', trackVenueView);
+</script>
+
 <style>
+  .venue-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); gap: 1.5rem; }
+  .venue-gallery figure { margin: 0; }
+  .venue-gallery img { display: block; width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
+  .venue-gallery figcaption { margin-top: .5rem; font-size: .875rem; line-height: 1.5; }
   /* ── Worth Knowing panel ──
      Corner treatment is uniform --radius-m on all four corners and there
      is no shadow: the panel is defined by the same hairline every other

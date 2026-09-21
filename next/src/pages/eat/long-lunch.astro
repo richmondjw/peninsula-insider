@@ -5,9 +5,10 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import SubpageHero from '../../components/SubpageHero.astro';
 import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import { routeSlug } from '../../lib/editorial';
+import { routeSlug, isListableVenue } from '../../lib/editorial';
+import ProvenanceLine from '../../components/ProvenanceLine.astro';
 
-const allVenues = await getCollection('venues');
+const allVenues = (await getCollection('venues')).filter(isListableVenue);
 
 const longLunchSlugs = [
   'montalto', 'laura-pt-leo', 'polperro', 'pt-leo-estate',
@@ -105,7 +106,7 @@ export const prerender = true;
     <p>The long lunch is the Peninsula's defining dining format. A two-to-three-hour table, estate wine from the vineyard outside, produce grown within five kilometres, and an unhurried service rhythm that makes a Melbourne city restaurant feel rushed by comparison. The Peninsula does this better than almost anywhere else in Victoria.</p>
         <p>The strongest version of the long lunch here is built around a vineyard restaurant with a hatted kitchen - a room serious enough to justify the drive, with wine and food working together rather than in parallel. Montalto, Laura, Polperro, and Ten Minutes by Tractor are the obvious landmarks. Below them, a second tier of rooms doing honest, seasonal work without the fanfare: Paringa Estate's garden dining, Port Phillip Estate's panoramic rammed-earth room, and Foxeys Hangout's no-bookings, biodynamic outdoor setting.</p>
         <p>The practical advice: arrive before noon to get the full arc of the afternoon. Allow three hours at the table and plan nothing afterwards that requires energy. The day will not improve by trying to squeeze a cellar door tasting in between the dessert course and the drive home.</p>
-        <p class="venues__sub" style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 23 April 2026</p>
+        <ProvenanceLine class="venues__sub" style="font-size:0.8rem;color:var(--soft)" records={venues} type="venues" noun="venue" />
       </div>
   </div>
 </SubpageHero>

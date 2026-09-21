@@ -1,0 +1,18 @@
+{
+  "claimId": "events/peninsula-hot-springs-daily-studio-yoga/event-status",
+  "claimClass": "event-status",
+  "subject": {
+    "type": "events",
+    "slug": "peninsula-hot-springs-daily-studio-yoga"
+  },
+  "statement": "Peninsula Hot Springs Daily Studio Yoga is running as published.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "peninsula-hot-springs-daily-studio-yoga"
+    }
+  ],
+  "createdAt": "2026-05-04",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

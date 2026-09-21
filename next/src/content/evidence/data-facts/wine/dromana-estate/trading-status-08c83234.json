@@ -1,0 +1,18 @@
+{
+  "evidenceId": "data-facts/wine/dromana-estate/trading-status-08c83234",
+  "claim": "data-facts/wine/dromana-estate/trading-status",
+  "stance": "supports",
+  "publisher": {
+    "kind": "venue-site"
+  },
+  "retrievedAt": "2026-09-13",
+  "expiresAt": "2026-12-12",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/data/facts/wine.json",
+    "field": "wineries[15].source",
+    "value": "https://www.dromanaestate.com.au",
+    "dateField": "lastUpdated"
+  },
+  "url": "https://www.dromanaestate.com.au"
+}

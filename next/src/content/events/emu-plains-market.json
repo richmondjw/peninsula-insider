@@ -18,7 +18,6 @@
     "lng": 145.1417
   },
   "indoorOutdoor": "Outdoor",
-  "officialEventUrl": "https://www.mornpen.vic.gov.au/Events-Activities/Emu-Plains-Market-3",
   "bookingRequired": "No",
   "freePaid": "Free",
   "priceRange": "Free entry",
@@ -40,10 +39,9 @@
   "organiser": {
     "name": "Emu Plains Market Committee"
   },
-  "primarySourceUrl": "https://www.mornpen.vic.gov.au/Events-Activities/Emu-Plains-Market-3",
   "secondarySourceUrl": "https://www.australiantraveller.com/vic/mornington-peninsula/mornington-peninsula-markets/",
   "verificationStatus": "Tentative",
-  "lastCheckedDate": "2026-05-04",
+  "lastCheckedDate": "2026-09-19",
   "editorialPriority": 3,
   "nearbyAttractions": "Balnarring Village; Balnarring Beach; Merricks wineries",
   "suggestedItineraryPairing": "Market + Balnarring beach + winery lunch",
@@ -60,5 +58,29 @@
     "locals-know"
   ],
   "place": "balnarring",
-  "nextOccurrence": "2026-09-17"
+  "nextOccurrence": "2026-10-17",
+  "retiredSourceLinks": [
+    {
+      "field": "officialEventUrl",
+      "url": "https://www.mornpen.vic.gov.au/Events-Activities/Emu-Plains-Market-3",
+      "verdict": "dead",
+      "disposition": "gone",
+      "checkedOn": "2026-09-13",
+      "note": "COUNCIL RESTRUCTURE, as above."
+    },
+    {
+      "field": "primarySourceUrl",
+      "url": "https://www.mornpen.vic.gov.au/Events-Activities/Emu-Plains-Market-3",
+      "verdict": "dead",
+      "disposition": "gone",
+      "checkedOn": "2026-09-13",
+      "note": "COUNCIL RESTRUCTURE, as above."
+    }
+  ],
+  "heroImage": {
+    "src": "/images/event-placeholder-pi.svg",
+    "alt": "Peninsula Insider",
+    "credit": "Peninsula Insider",
+    "license": "original-commissioned"
+  }
 }

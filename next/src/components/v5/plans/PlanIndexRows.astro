@@ -1,87 +1,52 @@
 ---
-/**
- * PlanIndexRows (v5, /plans/ hub section 5) - the full plan catalogue as
- * server-rendered compact rows. An index, not a card wall (P3): every plan
- * URL stays linked and crawlable, in the DOM with zero JS.
- */
-import Card from '../Card.astro';
-import CardGrid from '../CardGrid.astro';
-import type { PlanRecord } from './plans-data';
-
-export interface Props {
-  plans: PlanRecord[];
-}
-
-const { plans } = Astro.props;
-const sorted = [...plans].sort((a, b) => a.title.localeCompare(b.title));
+import type { PlansModel } from './plans-data';
+export interface Props { model: PlansModel; }
+const { model } = Astro.props;
+const itineraries = model.plans.filter(plan => plan.kind === 'itinerary').sort((a,b) => b.editorialPriority - a.editorialPriority);
+const guides = model.plans.filter(plan => plan.kind === 'guide').sort((a,b) => a.displayTitle.localeCompare(b.displayTitle));
 ---
-
-<section class="plan-index" id="all-plans" aria-labelledby="all-plans-heading">
+<section class="plan-index" id="all-plans" aria-labelledby="all-plans-heading" data-plan-index>
   <div class="container">
-    <header class="plan-index__header">
-      <p class="plan-index__label">The full catalogue</p>
-      <h2 class="plan-index__title" id="all-plans-heading">All {sorted.length} plans</h2>
-      <p class="plan-index__sub">Every plan we publish, one line each. The chips above are the short way through this list.</p>
-    </header>
-    <div class="plan-index__cols">
-      <CardGrid label="All Peninsula plans" layout="rows">
-        {sorted.map((plan, i) => (
-          <Card
-            variant="compact-row"
-            title={plan.title}
-            href={plan.href}
-            entityType={plan.entityType}
-            entitySlug={plan.slug}
-            verdict={plan.verdict}
-            meta={plan.meta}
-            saveSection={plan.entityType === 'article' ? 'plans' : undefined}
-            surface="plans-index"
-            position={i + 1}
-          />
-        ))}
-      </CardGrid>
+    <div class="plan-index__heading"><div><p class="plan-index__eyebrow">The complete collection</p><h2 id="all-plans-heading">Ready-made itineraries</h2></div><span>{itineraries.length} itineraries</span></div>
+    <p class="plan-index__intro">Days in order, with the stops already chosen. Read the route, then make it yours.</p>
+    <div class="plan-index__rows">
+      {itineraries.map((plan,i) => <article class="plan-index__row" data-plan-row={plan.id}>
+        <span class="plan-index__number" aria-hidden="true">{String(i+1).padStart(2,'0')}</span>
+        <div class="plan-index__copy"><h3><a href={plan.href}>{plan.displayTitle}</a></h3><p>{plan.editorialReason}</p><p class="plan-index__meta">{[...plan.meta, `${plan.stops.length} stops`].join(' · ')}</p></div>
+        <div class="plan-index__actions"><a href={plan.href} class="plan-index__read">See itinerary <span aria-hidden="true">↗</span></a><button class="pi-btn pi-btn--ghost" type="button" data-plan-fork={plan.id} aria-label={`Use this itinerary: ${plan.title}`}>Use this itinerary</button></div>
+      </article>)}
     </div>
   </div>
 </section>
-
+<section class="plan-guides" id="planning-guides" aria-labelledby="plan-guides-heading">
+  <div class="container">
+    <div class="plan-index__heading"><div><p class="plan-index__eyebrow">A little more groundwork</p><h2 id="plan-guides-heading">Planning guides</h2></div><span>{guides.length} guides</span></div>
+    <p class="plan-index__intro">Advice for choosing your own stops, a place to stay, or a bigger occasion. These are reading guides, rather than day-by-day itineraries.</p>
+    <div class="plan-guides__grid">{guides.slice(0,6).map(plan => <article class="plan-guide" data-plan-guide={plan.id}><p class="plan-guide__label">Planning guide</p><h3><a href={plan.href}>{plan.displayTitle}</a></h3><p>{plan.verdict}</p><a class="plan-guide__read" href={plan.href} aria-label={`Read guide: ${plan.title}`}>Read guide <span aria-hidden="true">↗</span></a></article>)}</div>
+    {guides.length > 6 && <details class="plan-guides__more"><summary>More planning guides <span>({guides.length - 6})</span> <span aria-hidden="true">+</span></summary>    <div class="plan-guides__grid">{guides.slice(6).map(plan => <article class="plan-guide" data-plan-guide={plan.id}><p class="plan-guide__label">Planning guide</p><h3><a href={plan.href}>{plan.displayTitle}</a></h3><p>{plan.verdict}</p><a class="plan-guide__read" href={plan.href} aria-label={`Read guide: ${plan.title}`}>Read guide <span aria-hidden="true">↗</span></a></article>)}</div></details>}
+  </div>
+</section>
 <style>
-  .plan-index {
-    padding: var(--space-7, 2.5rem) 0;
-    border-top: 1px solid var(--border);
-  }
-  .plan-index__header {
-    margin-bottom: var(--space-5, 1.5rem);
-    max-width: 60ch;
-  }
-  .plan-index__label {
-    margin: 0 0 0.35rem;
-    font-family: var(--font-ui, var(--font-ui));
-    font-size: var(--fs-100, 0.75rem);
-    font-weight: var(--fw-semibold, 600);
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--accent);
-  }
-  .plan-index__title {
-    margin: 0 0 0.35rem;
-    font-family: var(--font-display, var(--font-display));
-    font-size: var(--fs-800, clamp(1.75rem, 1.4rem + 1.6vw, 2.375rem));
-    font-weight: var(--fw-display, 600);
-    line-height: var(--lh-heading, 1.15);
-  }
-  .plan-index__sub {
-    margin: 0;
-    font-family: var(--font-ui, var(--font-ui));
-    color: var(--soft);
-    line-height: var(--lh-ui, 1.5);
-  }
-
-  /* Two-column index on desktop (hub spec 23); single column below. */
-  @media (min-width: 64em) {
-    .plan-index__cols :global(.v5-card-grid--rows) {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      column-gap: var(--space-6, 2rem);
-    }
-  }
+  .plan-index{padding:3rem 0;border-top:1px solid var(--border);scroll-margin-top:8rem}
+  .plan-index__heading{display:flex;justify-content:space-between;align-items:end;gap:1rem}
+  .plan-index__heading>span{font-size:.8rem;color:var(--soft);white-space:nowrap}
+  .plan-index__eyebrow{font:600 .68rem/1.4 var(--font-ui);letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 .5rem}
+  h2{font:500 clamp(1.65rem,3vw,2.2rem)/1.2 var(--font-display);letter-spacing:-.04em;margin:0}
+  .plan-index__intro{font:.95rem/1.65 var(--font-ui);color:var(--soft);max-width:66ch;margin:1rem 0 1.8rem}
+  .plan-index__row{display:grid;grid-template-columns:3rem minmax(0,1fr) auto;gap:1.5rem;align-items:start;padding:1.5rem 0;border-top:1px solid color-mix(in srgb,var(--border) 60%,transparent)}
+  .plan-index__number{font:400 1.1rem/1.5 var(--font-display);color:var(--soft)}
+  h3{font:500 1.2rem/1.35 var(--font-display);letter-spacing:-.025em;margin:0 0 .5rem}h3 a{color:var(--text);text-decoration:none}h3 a:hover{text-decoration:underline;text-underline-offset:.15em}
+  .plan-index__copy>p{font:.9rem/1.6 var(--font-ui);max-width:60ch;margin:.45rem 0}
+  .plan-index__copy .plan-index__meta{color:var(--soft);font-size:.77rem;margin:.65rem 0 0}
+  .plan-index__actions{display:flex;align-items:center;gap:1rem;padding-top:.1rem}
+  .plan-index__read{font-size:.8rem;white-space:nowrap;text-underline-offset:.2em}.plan-index__actions .pi-btn{font-size:.8rem;min-height:44px}
+  .plan-guides{padding:3rem 0;background:var(--bg-alt);scroll-margin-top:8rem}
+  .plan-guides__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem 2rem}
+  .plan-guides__more{margin-top:1.25rem}.plan-guides__more summary{font:600 .85rem/1.5 var(--font-ui);min-height:48px;display:flex;align-items:center;gap:.5rem;cursor:pointer;list-style:none;border-top:1px solid var(--border);padding:.8rem 0}.plan-guides__more summary::-webkit-details-marker{display:none}.plan-guides__more summary span{font-weight:400;color:var(--soft)}.plan-guides__more summary span:last-child{margin-left:auto;font-size:1.4rem}.plan-guides__more summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+  .plan-guide{border-top:1px solid var(--border);padding:1.25rem 0 .75rem;display:flex;flex-direction:column;align-items:start;min-width:0}
+  .plan-guide__label{font:600 .65rem/1.5 var(--font-ui);letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin:0 0 .65rem}
+  .plan-guide>p:not(.plan-guide__label){font:.87rem/1.6 var(--font-ui);color:var(--soft);margin:.2rem 0 1rem;max-width:45ch}
+  .plan-guide__read{margin-top:auto;display:inline-flex;align-items:center;gap:.5rem;font:600 .8rem/1.5 var(--font-ui);min-height:44px;text-underline-offset:.2em}
+  @media(max-width:60rem){.plan-index__actions{flex-direction:column;align-items:end;gap:.5rem}.plan-guides__grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media(max-width:40rem){.plan-index,.plan-guides{padding:2rem 0}.plan-index__row{grid-template-columns:2rem minmax(0,1fr);gap:1rem}.plan-index__actions{grid-column:2;flex-direction:row;align-items:center;flex-wrap:wrap;gap:1rem}.plan-guides__grid{grid-template-columns:1fr;gap:1rem}.plan-index__heading{align-items:start;flex-direction:column;gap:.6rem}}
 </style>

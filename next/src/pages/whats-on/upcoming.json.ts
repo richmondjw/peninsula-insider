@@ -5,10 +5,12 @@ import {
   isoDate,
   loadLiveEvents,
   occursInWindow,
+  occursOnDay,
   startOfDay,
   weekendWindow,
   type ScopeWindow,
 } from './_data';
+import { listingEventStatus } from '../../lib/event-occurrence.mjs';
 
 // Machine-readable "what's on" feed for AI assistants and agents. The site
 // already emits rich Event JSON-LD per page and llms.txt for site structure;
@@ -42,6 +44,26 @@ export const GET: APIRoute = async () => {
         : nextOccurrence;
       const startIso = isoDate(nextOccurrence);
       const endIso = isoDate(occurrenceEnd);
+      // The feed used to stamp EventScheduled on every node, so a postponement
+      // that had been given a new date, and any single occurrence an editor had
+      // cancelled out of a series, both told an agent the event was going ahead
+      // as normal. The same resolver the pages render from answers it here, over
+      // the whole run for a range rather than over its opening day, and returns
+      // nothing at all when there is nothing true to say.
+      const eventStatus = listingEventStatus(
+        e.data as Record<string, any>,
+        startIso,
+        now,
+        endIso === startIso ? {} : { endDayIso: endIso }
+      );
+      // A series may next run on Thursday AND also run this weekend. Publish
+      // those actual occurrences independently of its next upcoming date.
+      const weekendOccurrences = [];
+      for (let day = weekend.start; day <= weekend.end; day = addDays(day, 1)) {
+        if (!occursOnDay(live.rule, day)) continue;
+        const date = isoDate(day);
+        weekendOccurrences.push({ date, eventStatus: listingEventStatus(e.data, date, now) });
+      }
       return {
         title: e.data.title,
         url: `${SITE}${live.href}`,
@@ -53,14 +75,11 @@ export const GET: APIRoute = async () => {
         venue: (e.data.venue as { id?: string } | undefined)?.id ?? null,
         freePaid: e.data.freePaid ?? null,
         summary: e.data.summary ?? '',
-        // Derive thisWeekend from the event's computed startDate/endDate so
-        // the flag is always consistent with those fields.  Calling
-        // occursInWindow(live.rule, weekend) directly could mark a weekly
-        // Friday event as "this weekend" on Saturday because the Friday falls
-        // in the Fri–Sun window, while startDate in the feed is already the
-        // *next* occurrence (the following Friday) — causing the
-        // audit-live-agent-readiness validator to reject the feed.
-        thisWeekend: startIso <= isoDate(weekend.end) && endIso >= isoDate(weekend.start),
+        // undefined rather than null: JSON.stringify drops the key, so a
+        // finished occurrence says nothing instead of saying nothing loudly.
+        eventStatus: eventStatus ?? undefined,
+        weekendOccurrences,
+        thisWeekend: weekendOccurrences.length > 0,
       };
     })
     .filter((event): event is NonNullable<typeof event> => event !== null)
@@ -94,7 +113,7 @@ export const GET: APIRoute = async () => {
         startDate: event.startDate,
         endDate: event.endDate,
         description: event.summary,
-        eventStatus: 'https://schema.org/EventScheduled',
+        ...(event.eventStatus ? { eventStatus: event.eventStatus } : {}),
       },
     })),
     count: upcoming.length,

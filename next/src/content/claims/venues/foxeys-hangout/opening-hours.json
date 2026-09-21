@@ -1,0 +1,25 @@
+{
+  "claimId": "venues/foxeys-hangout/opening-hours",
+  "claimClass": "opening-hours",
+  "subject": {
+    "type": "venues",
+    "slug": "foxeys-hangout",
+    "field": "visiting.openingHours"
+  },
+  "statement": "The cellar door at Foxeys Hangout is open seven days from 11am to 5pm.",
+  "assertedBy": [
+    {
+      "type": "venues",
+      "slug": "foxeys-hangout",
+      "field": "visiting.openingHours"
+    },
+    {
+      "type": "data-facts",
+      "slug": "wine/foxeys-hangout",
+      "field": "cellarDoorHours"
+    }
+  ],
+  "createdAt": "2026-09-13",
+  "origin": "authored",
+  "note": "Not sourced. Every direct read of the operator was refused on 2026-09-13: foxeys-hangout.com.au and its www host answer a challenge interstitial, returning HTTP 403 to one client and an HTTP 202 CAPTCHA stub with no page content to another. The state tourism body's listing was refused the same way on 2026-09-13. No evidence row was written, because a search engine's summary of a page is not a reading of it. This claim is the honest output, and it records that the corpus publishes hours for a venue nobody here has been able to read. The two records also disagree with each other: the fact layer says the kitchen runs Friday to Monday with tastings daily, the venue record says seven days flat, and the fact layer cites a third domain, foxeys.com.au, which is not the one the venue record links to and which serves a parked Netregistry placeholder rather than a site. Authored by hand for the PI-005 Stage 2 venue pilot. Sources were read on 2026-09-13; see ops/reports/claims/2026-09-13-pilot-venues.md."
+}

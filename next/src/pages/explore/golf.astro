@@ -12,6 +12,7 @@ import {
   buildBreadcrumbSchema,
 } from '../../lib/schema';
 import { routeSlug } from '../../lib/editorial';
+import ProvenanceLine from '../../components/ProvenanceLine.astro';
 
 // ── Editorial-card hero lookup ────────────────────────────────────────────────
 // Cards in section 8 ("Golf editorial") all link to journal articles. Their
@@ -281,7 +282,16 @@ export const prerender = true;
               <div class="golf-card__footer">
                 <a href={`/explore/${slug}/`} class="pi-btn pi-btn--text">Course guide →</a>
                 {g.bookingUrl && g.access !== 'private' && (
-                  <a href={g.bookingUrl} class="golf-card__book" target="_blank" rel="noopener">Book a round →</a>
+                  <a
+                    href={g.bookingUrl}
+                    class="golf-card__book"
+                    target="_blank"
+                    rel="noopener"
+                    data-pi-book="booking"
+                    data-pi-entity-type="golf-course"
+                    data-pi-entity-slug={slug}
+                    data-pi-surface="golf-card"
+                  >Book a round →</a>
                 )}
               </div>
             </article>
@@ -339,7 +349,16 @@ export const prerender = true;
               <div class="golf-card__footer">
                 <a href={`/explore/${slug}/`} class="pi-btn pi-btn--text">Course guide →</a>
                 {g.bookingUrl && g.access !== 'private' && (
-                  <a href={g.bookingUrl} class="golf-card__book" target="_blank" rel="noopener">Book a round →</a>
+                  <a
+                    href={g.bookingUrl}
+                    class="golf-card__book"
+                    target="_blank"
+                    rel="noopener"
+                    data-pi-book="booking"
+                    data-pi-entity-type="golf-course"
+                    data-pi-entity-slug={slug}
+                    data-pi-surface="golf-card"
+                  >Book a round →</a>
                 )}
               </div>
             </article>
@@ -686,7 +705,7 @@ export const prerender = true;
 
       </div>
 
-      <p class="golf-verified"><em>Last fact-verified 30 April 2026. Green fees, opening hours, and visitor access policies change - verify directly with each course before booking.</em></p>
+      <ProvenanceLine class="golf-verified" records={golfCourses} type="experiences" noun="course" emphasis> Green fees, opening hours, and visitor access policies change - verify directly with each course before booking.</ProvenanceLine>
     </div>
   </section>
 

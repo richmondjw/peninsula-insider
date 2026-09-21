@@ -1,0 +1,24 @@
+{
+  "claimId": "quick-notes/2026-05-30-hot-springs-paul-dillon-sunday/event-schedule",
+  "claimClass": "event-schedule",
+  "subject": {
+    "type": "quick-notes",
+    "slug": "2026-05-30-hot-springs-paul-dillon-sunday",
+    "field": "sources"
+  },
+  "statement": "Peninsula Hot Springs - Paul Dillon at the Bath House Café tomorrow, noon, complimentary with bathing.",
+  "assertedBy": [
+    {
+      "type": "quick-notes",
+      "slug": "2026-05-30-hot-springs-paul-dillon-sunday",
+      "field": "sources"
+    },
+    {
+      "type": "venues",
+      "slug": "peninsula-hot-springs"
+    }
+  ],
+  "createdAt": "2026-05-30",
+  "origin": "migrated",
+  "note": "Seeded by scripts/seed-claim-registry.mjs (PI-005 Stage 1) from provenance already on disk. No editorial judgement was applied."
+}

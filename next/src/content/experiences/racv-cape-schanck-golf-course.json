@@ -9,7 +9,6 @@
     "lng": 144.8764
   },
   "address": "Trent Jones Dr, Cape Schanck VIC 3939",
-  "website": "https://www.racv.com.au/travel-leisure/resorts/cape-schanck-resort.html",
   "durationMinutes": 270,
   "seasonBest": [
     "autumn",
@@ -35,7 +34,9 @@
   },
   "heroImage": {
     "src": "/images/sourced/place-cape-schanck-01.webp",
-    "alt": "Cape Schanck looking towards Pulpit Rock at dawn - representative image for RACV Cape Schanck Golf Course",
+    "alt": "A rocky coastal headland and an offshore sea stack at sunset, framed by twisted coastal tea-tree.",
+    "depicts": "a rocky headland and offshore sea stack at sunset, framed by coastal tea-tree",
+    "depictionStatus": "illustrative",
     "credit": "Marshlung",
     "license": "wikimedia-cc-by-sa"
   },
@@ -47,9 +48,28 @@
     "designers": [
       "Robert Trent Jones Jr"
     ],
-    "bookingUrl": "https://www.racv.com.au/travel-leisure/resorts/cape-schanck-resort.html",
     "approximateGreenFeeNote": "Verify current green fees directly. RACV members receive preferential rates. Resort stay-and-play packages available."
   },
   "lastVerified": "2026-04-14",
-  "publishedAt": "2026-04-14"
+  "publishedAt": "2026-04-14",
+  "retiredSourceLinks": [
+    {
+      "field": "website",
+      "url": "https://www.racv.com.au/travel-leisure/resorts/cape-schanck-resort.html",
+      "verdict": "dead",
+      "disposition": "gone",
+      "checkedOn": "2026-09-13",
+      "note": "404 on RACV's own site. Several plausible successor paths were fetched and all 404; no replacement could be confirmed."
+    },
+    {
+      "field": "golf.bookingUrl",
+      "url": "https://www.racv.com.au/travel-leisure/resorts/cape-schanck-resort.html",
+      "verdict": "dead",
+      "disposition": "gone",
+      "checkedOn": "2026-09-13",
+      "note": "404 on RACV's own site. Several plausible successor paths were fetched and all 404; no replacement could be confirmed."
+    }
+  ],
+  "sourceStatus": "unsourced",
+  "sourceStatusNote": "404 on RACV's own site. Several plausible successor paths were fetched and all 404; no replacement could be confirmed."
 }

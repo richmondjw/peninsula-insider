@@ -1,0 +1,23 @@
+{
+  "status": "published",
+  "publishedAt": "2026-01-01",
+  "lastCheckedDate": "2026-09-01",
+  "verification": "verified",
+  "recurrence": "one-off",
+  "slug": "cancelled-winter-solstice-market",
+  "title": "Winter solstice night market",
+  "summary": "A one-night market on the foreshore reserve.",
+  "category": "market",
+  "venueName": "Rosebud Foreshore Reserve",
+  "suburb": "Rosebud",
+  "startDate": "2026-06-20",
+  "endDate": "2026-06-20",
+  "startTime": "16:00",
+  "endTime": "21:00",
+  "bookingUrl": "https://example.com/solstice-market",
+  "cancelled": true,
+  "cancelledOn": "2026-06-02",
+  "cancellationNote": "The organiser withdrew the event after the foreshore permit lapsed.",
+  "cancellationSourceUrl": "https://example.com/solstice-market/notice",
+  "cancellationSourceLabel": "Read the organiser notice"
+}

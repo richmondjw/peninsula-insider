@@ -1,0 +1,18 @@
+{
+  "evidenceId": "data-facts/beaches/rye-ocean-beach/access-restriction-bf55ce40",
+  "claim": "data-facts/beaches/rye-ocean-beach/access-restriction",
+  "stance": "supports",
+  "publisher": {
+    "kind": "gov"
+  },
+  "retrievedAt": "2026-04-22",
+  "expiresAt": "2026-05-22",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/data/facts/beaches.json",
+    "field": "entities[3].source",
+    "value": "https://www.parks.vic.gov.au/places-to-see/parks/mornington-peninsula-national-park/things-to-do/ocean-beaches",
+    "dateField": "lastUpdated"
+  },
+  "url": "https://www.parks.vic.gov.au/places-to-see/parks/mornington-peninsula-national-park/things-to-do/ocean-beaches"
+}

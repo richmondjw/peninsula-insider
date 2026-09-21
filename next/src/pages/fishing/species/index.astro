@@ -6,12 +6,22 @@ import SectionHero from '../../../components/SectionHero.astro';
 import NewsletterBlock from '../../../components/NewsletterBlock.astro';
 import BfAnalytics from '../../../components/BfAnalytics.astro';
 import { buildBfHubSchema } from '../../../lib/schema';
+import { pageProvenance } from '../../../lib/page-provenance';
 import { BF_EXTERNAL, BF_SPECIES_ORDER, REGION_LABEL, formatVerifiedStamp } from '../../../lib/bf';
 
-const lastVerifiedISO = '2026-04-30';
-const lastVerifiedStamp = formatVerifiedStamp(lastVerifiedISO);
-
 const allSpecies = await getCollection('species', ({ data }) => data.status === 'published');
+
+// PI-004: the stamp is derived from the records this page is about, never
+// declared. The label is "Last fact-verified" only when every one of those
+// records carries live supporting evidence in the claim registry; otherwise
+// the floor of their review dates is published, worded as a review.
+const provenance = await pageProvenance(allSpecies, 'species');
+// The trailing space is part of the string on purpose: Astro drops a
+// whitespace-only text node between two expressions in a fragment.
+const verificationSentence = provenance.stampISO
+  ? `${provenance.stampLabel} ${formatVerifiedStamp(provenance.stampISO)}. `
+  : '';
+const modifiedISO = provenance.stampISO ?? undefined;
 // Editorial order from the pack - flagship species first, secondary later.
 const orderIdx = (slug: string) => {
   const i = (BF_SPECIES_ORDER as readonly string[]).indexOf(slug);
@@ -30,7 +40,7 @@ const hubSchema = buildBfHubSchema({
   description:
     'Twelve species pages for Peninsula fishing. VFA-verified bag and size limits, Peninsula-specific tide and season editorial, location matrix, and charter cross-links.',
   path: '/fishing/species/',
-  dateModified: lastVerifiedISO,
+  dateModified: modifiedISO,
   breadcrumbs: [
     { name: 'Home', path: '/' },
     { name: 'Fishing', path: '/fishing/' },
@@ -52,7 +62,7 @@ export const prerender = true;
   description="Twelve species pages for Peninsula fishing. VFA-verified bag limits, size limits, Peninsula-specific seasons, locations, and charter cross-links."
   section="fishing"
   canonical="https://peninsulainsider.com.au/fishing/species/"
-  modifiedTime={lastVerifiedISO}
+  modifiedTime={modifiedISO}
 >
   <script type="application/ld+json" set:html={JSON.stringify(hubSchema)} />
   <BfAnalytics />
@@ -70,7 +80,7 @@ export const prerender = true;
   <p class="affiliate-disclosure container">
     Bag and size limits sourced from the
     <a href={BF_EXTERNAL.vfa} rel="external">Victorian Fisheries Authority</a>.
-    Last fact-verified {lastVerifiedStamp}. Regulations change - confirm with
+    {verificationSentence}Regulations change - confirm with
     VFA before fishing.
   </p>
 
@@ -83,7 +93,13 @@ export const prerender = true;
       ) : (
         <div class="venues__grid venues__grid--links">
           {ordered.map((s) => (
-            <article class="pi-card"><div class="pi-card__body">
+            <article class="pi-card">
+              {s.data.heroImage && (
+                <a class="pi-card__media species-plate" href={`/fishing/species/${s.data.slug}/`}>
+                  <img src={s.data.heroImage.src} alt={s.data.heroImage.alt} width="1600" height="905" loading="lazy" decoding="async" />
+                </a>
+              )}
+              <div class="pi-card__body">
               <h2 class="venue-card__name">
                 <a href={`/fishing/species/${s.data.slug}/`}>{s.data.commonName}</a>
               </h2>
@@ -92,7 +108,8 @@ export const prerender = true;
               </p>
               <p class="pi-card__dek">{s.data.intro}</p>
               <div class="pi-card__actions"><a href={`/fishing/species/${s.data.slug}/`} class="pi-btn pi-btn--solid">Read species guide &rarr;</a></div>
-            </div></article>
+              </div>
+            </article>
           ))}
         </div>
       )}
@@ -101,3 +118,15 @@ export const prerender = true;
 
   <NewsletterBlock />
 </BaseLayout>
+
+<style>
+  /* Species plates are 16:9 and the animal runs nose to tail, so the card media must not
+     crop them the way the default 3:2 cover rule would. The plate ground is the same warm
+     paper as the card, so `contain` reads as one surface rather than a letterbox. */
+  .species-plate {
+    display: block;
+    aspect-ratio: 16 / 9;
+    background: #F2EFEA;
+  }
+  .species-plate img { object-fit: contain; }
+</style>

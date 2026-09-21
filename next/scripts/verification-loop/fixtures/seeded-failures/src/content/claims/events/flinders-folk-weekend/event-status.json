@@ -1,0 +1,18 @@
+{
+  "claimId": "events/flinders-folk-weekend/event-status",
+  "claimClass": "event-status",
+  "subject": {
+    "type": "events",
+    "slug": "flinders-folk-weekend"
+  },
+  "statement": "Flinders Folk Weekend is running as published.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "flinders-folk-weekend"
+    }
+  ],
+  "createdAt": "2026-06-01",
+  "origin": "fixture",
+  "note": "PI-006 fixture. Seeds one named failure class so the loop can be proved to catch it."
+}

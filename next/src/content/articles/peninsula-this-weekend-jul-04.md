@@ -49,7 +49,7 @@ dispatch:
     price: "Free and low-cost sessions, workshop pricing varies"
     summary: "The school-holiday indoor plan that still feels like a real outing: artist-led workshops, family activity spaces, and enough structure to carry a cold or wet day properly."
     bookingLabel: "See gallery programme"
-    bookingUrl: "https://www.mornpen.vic.gov.au/Arts-Culture/Mornington-Peninsula-Regional-Gallery"
+    bookingUrl: "https://mprg.mornpen.vic.gov.au/"
     eventRef: "mornington-peninsula-regional-gallery-school-holiday-workshops"
   weekendShape: "Book the truffle hunt if you want the weekend to feel distinctly wintry. Keep Sunday for the railway or a slower Mornington day. If the weather turns, move indoors without pretending the day is lost."
 faq:

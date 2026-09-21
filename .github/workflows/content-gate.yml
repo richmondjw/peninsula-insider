@@ -57,18 +57,238 @@ jobs:
           cd next
           npm run test:content-admission
           npm run test:firsthand-claims
+          npm run test:corrections
+          npm run test:corrections-queue
+          npm run test:partner-enquiry
           npm run test:agent-readiness
+          npm run test:verification-loop
+          npm run test:verification-proposals
+          npm run test:material-change
+          npm run test:claim-support
+          npm run test:claim-class-location
+          npm run test:how-we-check
           npm run test:event-safeguards
+          npm run test:event-occurrence
+          npm run test:media-provenance
+          npm run test:commercial-firewall
+          npm run test:link-health
+          npm run test:migration-ledger
+          npm run test:venue-reachability
+          npm run test:baseline-placement
+          npm run test:plans-experience
 
       - name: Content admission gate
         # Placeholder markers + real Astro collection-schema validation
         # (astro sync against src/content.config.ts).
+        #
+        # assert:link-health makes NO network request, on any code path. It
+        # compares the content tree against the committed probe record
+        # (ops/records/link-health/probe-ledger.json) and a ratchet baseline, so
+        # it can only fail on a change someone made in this repository. A link
+        # checker that dialled out here would go red at 3am with no code change,
+        # everyone would learn to ignore it, and the next real failure would be
+        # ignored too.
+        #
+        # Refreshing the record is a separate program and a deliberate act:
+        #   cd next && npm run probe:link-health -- --unrecorded
+        # Nothing in this file, and nothing in `npm run build`, may run it. The
+        # gate-integrity job below proves that against a real build.
         run: |
           cd next
           npm run assert:schema-drift
+          npm run assert:declared-fields
+          npm run assert:media-provenance
+          npm run assert:claim-support
+          npm run assert:link-health
           npm run validate:content
+
+      - name: Pre-build lints
+        # Every lint the build runs BEFORE `astro build`. None of them reads
+        # dist/, so none needs a build: they cost seconds and they were, until
+        # now, unreachable from a pull request.
+        #
+        # On 2026-09-14 that gap took main down for about two hours. #418 added
+        # lint:rls-editor-gate, forbidding any new migration that gates database
+        # access on a flag its own owner can set. #420 added a migration with six
+        # such policies. Both pull requests were green, because this workflow ran
+        # neither lint; the collision only surfaced on push to main, after both
+        # had merged. #422 fixed the migration. This step is why it cannot happen
+        # a third time.
+        #
+        # lint:firsthand-claims is deliberately absent: it already runs above as
+        # test:firsthand-claims. Post-build gates (no-hidden-pages,
+        # seo-architecture, filter-chips, link-graph and the assert:* set that
+        # reads dist/) stay in build-and-deploy, where a build exists.
+        #
+        # assert:migration-ledger (PI-017) fails when a .sql file under
+        # ops/migrations/ has no row in ops/reports/migrations/
+        # migration-ledger.json stating whether it has been applied. Migrations
+        # here are run by hand and, until now, nothing recorded which ones had:
+        # from the repository, a migration that ran in May and one that has
+        # never run were indistinguishable, so nobody could make the
+        # observation. That is how /partners/claim/ spent 127 days writing into
+        # a table production does not have.
+        #
+        # It makes NO network request. Whether a table really exists is a live
+        # fact that changes without a commit; asking it here would produce a
+        # build that goes red at 3am with no code change — the failure mode that
+        # got a random-draw test and a date-pinned test deleted from this
+        # repository this week. That question belongs to
+        # scripts/probe-live-tables.mjs, asked on a schedule in
+        # migration-liveness.yml, where a bad night costs an alert instead of a
+        # blocked merge.
+        #
+        # assert:baseline-placement keeps the ratchet ceilings out of
+        # ops/reports/. That directory is build output and is reverted wholesale
+        # before committing, so a ceiling filed there is a ceiling the habitual
+        # `git checkout -- ops/reports` can erase — silently, taking a deliberate
+        # ratchet-down with it and leaving the gate looser than its author
+        # intended. Ceilings live in ops/baselines/, which no build writes. It
+        # reads the tree and nothing else: no build, no network.
+        run: |
+          cd next
+          npm run lint:no-pricing
+          npm run lint:house-style
+          npm run lint:region-images
+          npm run lint:surfaces
+          npm run lint:listener-hygiene
+          npm run lint:search-privacy
+          npm run lint:licence-default
+          npm run lint:rls-editor-gate
+          npm run lint:nav-budget
+          npm run lint:css-budget
+          npm run lint:coordinates
+          npm run assert:migration-ledger
+          npm run assert:baseline-placement
+      - name: Commercial/editorial firewall
+        # PI-021. Reads source and content, not dist/, so it costs seconds and
+        # needs no build. It belongs on the branch rather than only inside
+        # `npm run build` on main: a commercial field reaching an editorial
+        # ordering decision must be refused at review, not discovered after a
+        # deploy. Ratchets against ops/baselines/
+        # commercial-firewall-baseline.json, so inherited debt never blocks a
+        # merge and any increase does.
+        run: |
+          cd next
+          npm run assert:commercial-firewall
 
       - name: Explain failure
         if: failure()
         run: |
           echo "::error title=Content gate failed::A content file is a placeholder shell or fails its collection schema. Fix or delete the file — do not merge. Reproduce locally with: cd next && npm run validate:content"
+
+  journeys:
+    name: Search, saves, trips and planning, driven end to end
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    # PI-012. The content gate above reads source and content; this one drives
+    # the built site in a headless browser, because the defect class it exists
+    # to catch only exists at runtime: Astro's client router swaps the document
+    # without re-evaluating a script it has already run, so a listener bound
+    # once is bound to a DOM that is about to be thrown away, and a listener
+    # registered from an astro:page-load handler gains a copy per navigation.
+    # Neither is visible in a unit test of the pieces, and both have shipped.
+    #
+    # It is a separate job rather than a step in the gate above so a browser
+    # run cannot slow down or flake the cheap content checks, and so a failure
+    # here reads as what it is.
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: next/package-lock.json
+
+      - name: Install dependencies
+        run: |
+          cd next
+          npm ci --prefer-offline
+
+      - name: Listener hygiene (source scan)
+        # The cheap net. It runs first because when both fail, this one names
+        # the file and the browser run names the symptom.
+        run: |
+          cd next
+          npm run lint:listener-hygiene
+
+      - name: Build the site the journeys are driven against
+        # `astro build` rather than `npm run build`: the harness needs dist/,
+        # not the twenty content and SEO ratchets the full build also runs.
+        # Those are the job above and build-and-deploy's business; duplicating
+        # them here would make a journey failure and a ratchet failure look the
+        # same.
+        run: |
+          cd next
+          npx astro build
+
+      - name: Journeys
+        run: |
+          cd next
+          npm run test:journeys
+
+      - name: Explain failure
+        if: failure()
+        run: |
+          echo "::error title=A journey broke::Search, saves, trips or planning failed end to end, or a navigation left listeners behind. The failure names the page pair and the file that registered the extra copy. Reproduce locally with: cd next && npx astro build && npm run test:journeys"
+
+  gate-integrity:
+    name: A build cannot manufacture the evidence it is judged against
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    # PI-007. The source-link gate refuses a citation nobody has fetched. That
+    # only works if the record of what was fetched is something the act of
+    # checking cannot write.
+    #
+    # It was not. Probing lived on the gate itself as `--probe`, so one command
+    # fetched the URLs, wrote the verdicts and then judged the corpus against
+    # the verdicts it had just written — and the remedy the gate printed on
+    # failure was to run that command. The record sat in ops/reports/, the
+    # directory this repo reverts wholesale as build output. On 2026-09-14 five
+    # evidence rows citing URLs nobody had ever fetched passed a local build;
+    # reverting the "build artefacts" and re-running is what exposed them.
+    #
+    # Every rule about the gate is asserted cheaply in the job above
+    # (test:link-health, fixture trees, no build). This job exists because that
+    # is precisely the shape of test the defect walked past: the gate was
+    # correct in isolation, and what went wrong happened around it, at the
+    # scale of a real build. So this one puts an unprobed URL into the real
+    # corpus, runs the real npm run build, and asserts it fails and the
+    # record is byte-identical afterwards.
+    #
+    # Separate job so a five-minute build cannot slow the cheap content checks,
+    # and so a failure here reads as what it is: the gate stopped being a gate.
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: next/package-lock.json
+
+      - name: Install dependencies
+        run: |
+          cd next
+          npm ci --prefer-offline
+
+      - name: The build must refuse an unprobed citation
+        run: |
+          cd next
+          npm run test:link-health:build
+
+      - name: Explain failure
+        if: failure()
+        run: |
+          echo "::error title=The source-link gate is no longer a gate::A full build either accepted a citation nothing has probed, or wrote to ops/records/link-health/probe-ledger.json while judging it. Nothing in a build may write that file. Reproduce locally with: cd next && npm run test:link-health:build"

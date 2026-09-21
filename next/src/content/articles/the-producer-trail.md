@@ -113,7 +113,7 @@ Close the loop with one of two options. **Mornington Peninsula Cider** is a smal
 
 ### Lunch in the southern loop
 
-The lunch on the southern producer day is the **Balnarring Pub**: twenty minutes, beer-garden seating, pub food at a level that respects the producer day. Or **Somers General**, which doubles as one of the better small-plate lunch rooms on the Peninsula.
+The lunch on the southern producer day is **The Heritage**, the Balnarring village pub: beer-garden seating and a pub favourites menu, closed Monday and Tuesday. Or **Somers General**, which doubles as one of the better small-plate lunch rooms on the Peninsula.
 
 ## The cooler-bag rule
 

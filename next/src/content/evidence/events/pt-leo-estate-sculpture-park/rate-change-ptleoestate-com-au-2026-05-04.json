@@ -1,0 +1,19 @@
+{
+  "evidenceId": "events/pt-leo-estate-sculpture-park/rate-change-ptleoestate-com-au-2026-05-04",
+  "claim": "events/pt-leo-estate-sculpture-park/rate-change",
+  "stance": "supports",
+  "publisher": {
+    "kind": "organiser",
+    "name": "Pt. Leo Estate"
+  },
+  "url": "https://www.ptleoestate.com.au/experience/sculpture-park/",
+  "retrievedAt": "2026-05-04",
+  "expiresAt": "2026-10-31",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/content/events/pt-leo-estate-sculpture-park.json",
+    "field": "officialEventUrl",
+    "value": "https://www.ptleoestate.com.au/experience/sculpture-park/",
+    "dateField": "lastCheckedDate"
+  }
+}

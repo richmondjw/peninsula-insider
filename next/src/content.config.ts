@@ -1,5 +1,6 @@
 import { defineCollection, reference, z } from 'astro:content';
 import { glob } from 'astro/loaders';
+import { visitorInformationSchema } from './lib/visitor-information.mjs';
 
 // Peninsula Insider  -  Content schema (cache-bust: 2026-05-24)
 //
@@ -57,7 +58,23 @@ const audience = z.enum([
   'first-timers',
 ]);
 
+/**
+ * The coarse licence bucket recorded against an image.
+ *
+ * `unknown` is the default and it is a real state, not a placeholder for one.
+ * Until 2026-09-14 the default was `venue-media-kit`, so every record that
+ * omitted the field was silently parsed as covered by a media-kit grant that
+ * nobody had recorded. A default must never manufacture a legal claim: a
+ * missing value means nobody has said, and "nobody has said" is not
+ * "permitted". Absence is now visible to the build - scripts/
+ * audit-media-provenance.mjs counts it as `licenceUnknown` and ratchets it,
+ * so the pool of unknown-licence images can shrink but never grow.
+ *
+ * Do not set this field from a credit string or a source filename. Neither
+ * establishes a licence; see the note on `imageUse` below.
+ */
 const imageLicense = z.enum([
+  'unknown',
   'original-commissioned',
   'venue-media-kit',
   'visit-victoria',
@@ -69,6 +86,61 @@ const imageLicense = z.enum([
   'tmp-pexels',
   'other-licensed',
 ]);
+
+/**
+ * Does the photograph show the thing the page is about, or something else?
+ *
+ * This is the field the corpus did not have. A photograph OF a venue and a
+ * photograph EVOKING the region around it are two different claims, and a
+ * sighted reader looking at a hero image has had no way to tell which one is
+ * in front of them. Alt text is not that disclosure: alt text serves
+ * screen-reader users, and a reader who can see the photograph never
+ * receives it.
+ *
+ *   actual        the photograph shows this entity. A positive claim, and
+ *                 only assertable where the record says where the image came
+ *                 from (see `creator` / `sourceUrl` / `permission`).
+ *   illustrative  the photograph shows something else: the locality, the
+ *                 category, the region. Renders a visible disclosure.
+ *   unverified    nobody has recorded which of the two it is. The default,
+ *                 and deliberately NOT a synonym for `actual`. An unrecorded
+ *                 image may never be presented as a depiction of the entity.
+ */
+const depictionStatus = z.enum(['actual', 'illustrative', 'unverified']);
+
+/**
+ * What the recorded permission actually allows. Empty means nothing has been
+ * recorded, which is not the same as "nothing is permitted" and is very much
+ * not the same as "everything is permitted". A credit string and a source
+ * filename do not establish a licence, so neither may populate this.
+ */
+const imageUse = z.enum(['website', 'social', 'print', 'derivative', 'commercial']);
+
+/** Has a human checked the provenance record below, and did it hold up? */
+const provenanceReview = z.enum(['unreviewed', 'verified', 'disputed']);
+
+/**
+ * How far the rights record has actually got.
+ *
+ * The distinction this exists to make is between "nobody has looked" and
+ * "somebody looked and could not find out". Both leave `creator`, `sourceUrl`
+ * and `permission` empty, and without this field they are indistinguishable,
+ * so a record that has already defeated one researcher looks identical to one
+ * nobody has opened. Worse, an absent field reads as an invitation to guess.
+ *
+ *   unrecorded  the default. Nobody has recorded where this image came from.
+ *   unknown     somebody tried and the rights could not be established. A
+ *               recorded fact, not an absence, and the state the media debt
+ *               of 28 July 2026 should have been able to occupy.
+ *   recorded    the fields below say where the image came from and on what
+ *               terms, and `rightsEstablishedOn` says when that was checked.
+ *
+ * Deliberately NOT a synonym for `license`. `license` is a coarse bucket with
+ * a permissive default (see A15), so a record can carry a licence value and
+ * still be `unrecorded` here. That gap is the point: it is what makes the
+ * default-value rights claim visible instead of silent.
+ */
+const rightsStatus = z.enum(['unrecorded', 'unknown', 'recorded']);
 
 const coordinates = z.object({
   lat: z.number().min(-90).max(90),
@@ -83,8 +155,78 @@ const imageRef = z.object({
   // render that sentinel as "Photograph by jem". Anything else renders
   // as "Photo · {credit}".
   credit: z.string(),
-  license: imageLicense.default('venue-media-kit'),
+  // Absence of a recorded licence reads as `unknown`, never as a grant.
+  license: imageLicense.default('unknown'),
   caption: z.string().optional(),
+
+  // Media provenance (PI-013).
+  //
+  // Every field below is optional and additive. A record carrying none of
+  // them is unchanged on disk and renders exactly as it did before.
+  //
+  // `credit` above is a DISPLAY string and `license` is a coarse bucket
+  // defaulting to `unknown`; neither is a recorded grant. The fields here are
+  // the recorded ones, and the rule for all of them is the same: never write
+  // a value that cannot be sourced from the image record itself. An inferred
+  // rights holder is worse than an absent one.
+  //
+  // Enforced by scripts/audit-media-provenance.mjs; the visible disclosure is
+  // rendered by src/components/MediaProvenanceNote.astro.
+
+  /** What the photograph actually shows, in the photographer's terms. */
+  depicts: z.string().optional(),
+  /** Actual depiction, illustrative stand-in, or nobody has said. */
+  depictionStatus: depictionStatus.default('unverified'),
+  /** Who made the image. Distinct from `credit`, which is display text. */
+  creator: z.string().optional(),
+  /** Where the image was obtained: file page, media kit, upload receipt. */
+  sourceUrl: z.string().optional(),
+  /** The permission as recorded at that source, verbatim. Never inferred. */
+  permission: z.string().optional(),
+  /** Channels that permission actually covers. Empty means unrecorded. */
+  permittedUses: z.array(imageUse).default([]),
+  /**
+   * Who holds the rights, where that is not the person who made the image.
+   * A gallery, an estate, an agency, an operator's media kit. Left empty when
+   * the creator holds them or when nobody has recorded it - never assumed
+   * from `credit`, which is display text.
+   */
+  rightsHolder: z.string().optional(),
+  /**
+   * The date the recorded permission was established, ISO `YYYY-MM-DD`.
+   *
+   * This is a record of when a human checked, not a clock the build reads.
+   * Nothing asserts on it and nothing expires because of it: a date-driven
+   * gate wires the calendar into `npm run build` and fails deploys with no
+   * content change, which audit-event-safeguards.mjs already documents as a
+   * mistake not to repeat. It is here so a rights claim can be dated, and so
+   * a stale one can be found deliberately rather than enforced accidentally.
+   */
+  rightsEstablishedOn: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
+  /** Unrecorded, actively unknown, or recorded. See `rightsStatus` above. */
+  rightsStatus: rightsStatus.default('unrecorded'),
+  /**
+   * Purely decorative: the frame carries no identifiable subject, so there is
+   * nothing to describe that is not filler.
+   *
+   * Renders `alt=""` plus `role="presentation"`, which is what tells a screen
+   * reader to skip the image entirely. That is the correct outcome for an
+   * atmosphere photograph and it is NOT what the corpus had: 152 records
+   * carried alt text announcing the image was "representative", which tells a
+   * screen-reader user the picture is filler while a sighted reader sees a
+   * specific place. Empty and marked is honest; "representative" is not.
+   *
+   * Decorative is about the frame, not about the rights. A decorative image
+   * that stands in for a named entity is still `illustrative`, still carries
+   * the visible disclosure, and still needs provenance.
+   */
+  decorative: z.boolean().default(false),
+  /** Focal point for cropping, 0..1 from the top left of the source image. */
+  focalPoint: z
+    .object({ x: z.number().min(0).max(1), y: z.number().min(0).max(1) })
+    .optional(),
+  /** Moderation state of the provenance record above. */
+  provenanceReview: provenanceReview.default('unreviewed'),
 });
 
 const tagBlock = z.object({
@@ -102,17 +244,210 @@ const authorityBlock = z
   })
   .optional();
 
+/**
+ * PI-004  -  provenance, kept apart from selection.
+ *
+ * Three dates had collapsed into one field. A record carried `lastVerified`
+ * (or `lastCheckedDate`), a publish job could advance it, a page rendered it
+ * as "Reviewed April 2026", and structured data emitted it as a modification
+ * date. So one number was answering three different questions at once:
+ *
+ *   reviewed      an editor last looked at this record and its copy
+ *   fact-checked  a source was actually read and the facts still stood
+ *   selected      the record was picked for a list this week
+ *
+ * Those move independently. A venue can be selected for this weekend's slate
+ * while the visit behind its copy happened in autumn and nothing has been
+ * rechecked since. Collapsing them means a selection refresh silently
+ * republishes a verification claim, which is the defect this block exists to
+ * make impossible.
+ *
+ * Additive by design. No legacy date field is removed: `lastVerified` and
+ * `lastCheckedDate` stay exactly where they are, and stay the fallback for
+ * the review line. Nothing here is required, and the safe answer is the
+ * default: `researched`, no check date, checked by the desk.
+ *
+ * Deliberately NOT migrated. The corpus carries bulk stamps (88 of 138
+ * venues share one date; six collections carry a single stamp applied inside
+ * 48 hours and never touched since), and a bulk stamp does not evidence a
+ * check of any particular record. Copying those dates into `checkedOn` would
+ * launder them into something stronger than they are, so `checkedOn` starts
+ * empty everywhere and fills only when a check is genuinely earned. Absent
+ * means unknown, and unknown is the honest answer today.
+ */
+const provenanceMethod = z.enum([
+  /** Desk research against published sources. The publication's normal
+   *  standard, and the default: most records are this, and it is not an
+   *  apology. */
+  'researched',
+  /** Somebody went. Requires a visit record below, always. */
+  'visited',
+  /** Assembled from other records that carry their own provenance, as a hub
+   *  page is assembled from the entries it lists. */
+  'compiled',
+]);
+
+const provenanceBlock = z
+  .object({
+    method: provenanceMethod.default('researched'),
+    /**
+     * When an editor last reviewed the record. A review is not a check: it
+     * means somebody read the copy, not that a source was re-read.
+     */
+    reviewedOn: z.coerce.date().optional(),
+    /**
+     * When a source was last actually read and the facts still stood. This
+     * is the only date a reader may be shown as a fact check, and nothing
+     * on a publish or regeneration path may advance it. Absent means no
+     * check is on file, which is a thing a reader is entitled to know.
+     */
+    checkedOn: z.coerce.date().optional(),
+    /**
+     * Who did the check, as a process rather than a person. Naming a person
+     * is a separate decision that has not been taken, so these two values
+     * are the whole enum: the desk, or the engine that ran the job.
+     */
+    checkedBy: z.enum(['desk', 'engine']).default('desk'),
+    /** Where the check was made: a URL, an authority, a phone call. */
+    source: z.string().optional(),
+    /**
+     * The visit record. Required before anything may claim a visit, which is
+     * the point of it: first-hand copy is a stronger claim than research and
+     * has to be backed by something an editor wrote down at the time.
+     */
+    visit: z
+      .object({
+        occurredOn: z.coerce.date(),
+        note: z.string().optional(),
+      })
+      .optional(),
+  })
+  .superRefine((value, ctx) => {
+    if (value.method === 'visited' && !value.visit) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ['visit'],
+        message:
+          "editorialProvenance.method 'visited' requires an editorialProvenance.visit " +
+          'record. An undocumented visit is research, so use method "researched".',
+      });
+    }
+  })
+  .optional();
+
+/**
+ * Selection is curation, not provenance: when this record was picked for a
+ * list, and which list. It sits beside provenance rather than inside it so
+ * that a selection refresh has somewhere to write that is nowhere near a
+ * check date.
+ */
+const selectionBlock = z
+  .object({
+    selectedOn: z.coerce.date().optional(),
+    /** The slate or list it was selected for. */
+    selectedFor: z.string().optional(),
+    note: z.string().optional(),
+  })
+  .optional();
+
+/**
+ * Spread into a collection schema as one line, so adding provenance to a
+ * collection is a one-line edit and the shape stays defined in one place.
+ */
+const provenanceFields = {
+  /**
+   * Named `editorialProvenance`, not `provenance`, because `provenance` is
+   * already taken on the events collection by the importer's own note: a
+   * free-text string recording which job promoted the row and from which
+   * feed. That is machine provenance, where a row came from. This is
+   * editorial provenance, how the publication knows what it is publishing.
+   * They are genuinely different facts, so they keep different names
+   * rather than one being migrated onto the other.
+   */
+  editorialProvenance: provenanceBlock,
+  selection: selectionBlock,
+};
+
+/**
+ * What a source link probe last saw. PI-007 found 45 of the corpus's 459
+ * source URLs dead, 19 of them on domains that no longer resolve, and nothing
+ * on this site could see one of them. A verification date whose source cannot
+ * be read is unfalsifiable, and the claim it stamps is unsupported without
+ * anyone ever having edited it.
+ *
+ * `blocked` is deliberately its own value and is NOT a failure. The council is
+ * this corpus's most-cited publisher and refuses most automated reads; folding
+ * that into `dead` would demand deleting a third of the site's provenance over
+ * a robots policy. An honest unknown is a legitimate state.
+ *
+ * Written from ops/records/link-health/probe-ledger.json by a probe that
+ * actually fetched the URL. Never inferred at read time. The record lives under
+ * ops/records/ rather than ops/reports/ because it is evidence, not output: no
+ * build may write it, and reverting it destroys what someone saw rather than
+ * regenerating it.
+ */
+const sourceHealth = z.enum(['ok', 'blocked', 'moved', 'dead', 'parked', 'tls-fault', 'unknown']);
+
+/**
+ * A source link that was removed from the field a reader clicks, kept here so
+ * the removal is a record rather than a disappearance.
+ *
+ * The rule PI-007 works to: a dead source is never silently deleted. Either it
+ * is replaced with one that was fetched and read, or the claim it stood behind
+ * is marked unsourced and stays visible to the registry and the blind-spot
+ * reporting. A claim that quietly loses its citation looks better and is worse.
+ */
+const retiredSourceLink = z.object({
+  /** The field this URL used to occupy: `website`, `bookingUrl`, `url`. */
+  field: z.string(),
+  url: z.string(),
+  verdict: sourceHealth,
+  /** What was decided, in the PI-007 vocabulary. */
+  disposition: z.enum(['moved', 'replaced', 'archived', 'gone']),
+  /** Only set for moved/replaced/archived, and only after fetching it. */
+  replacement: z.string().optional(),
+  /** The date the probe ran. Not a verification date: nothing was verified. */
+  checkedOn: z.coerce.date(),
+  note: z.string().optional(),
+});
+
+/**
+ * Spread into a collection schema as one line. Zod strips unknown keys
+ * silently, so a field that is not declared here vanishes from the build with
+ * no error - which is exactly how la-baracca-tgallant.json published a closed
+ * restaurant as trading.
+ */
+const sourceHealthFields = {
+  /**
+   * What the last link probe saw at this record's source, and when. A record
+   * whose source is dead is not sourced any more, and this is the field that
+   * says so out loud instead of letting a verification date imply a source
+   * that can still be read.
+   */
+  sourceHealth: sourceHealth.optional(),
+  sourceHealthCheckedOn: z.coerce.date().optional(),
+  /**
+   * Set when this record's own source no longer supports it. `unsourced`
+   * means nothing stands behind the claim any more; `disputed` means two
+   * sources that were both read disagree and neither was picked as the
+   * winner. Both are states an editor resolves, not states a script guesses.
+   */
+  sourceStatus: z.enum(['unsourced', 'disputed']).optional(),
+  /** Free text naming what needs deciding. Read by the PI-007 editor queue. */
+  sourceStatusNote: z.string().optional(),
+  retiredSourceLinks: z.array(retiredSourceLink).default([]),
+};
+
 const venues = defineCollection({
   loader: glob({ pattern: '**/*.json', base: './src/content/venues' }),
   schema: z.object({
     slug: z.string(),
     /**
-     * The slug this venue carried before it was renamed. Informational only:
-     * the route and every cross-reference resolve from the file id, so a
-     * value here changes nothing. Declared because the Stillwater record
-     * documented its rename to crittenden-restaurant in this field and the
-     * note was discarded on load, leaving the rename untraceable from the
-     * record itself.
+     * The slug this record used to publish under, kept when a venue is
+     * renamed so the old URL is a recorded fact rather than a disappearance.
+     * stillwater-crittenden.json is now `crittenden-restaurant` and carried
+     * the old name in this key; undeclared, so the rename left no trace the
+     * build could see and nothing could have built a redirect from it.
      */
     previousSlug: z.string().optional(),
     name: z.string(),
@@ -166,16 +501,49 @@ const venues = defineCollection({
     venueTier: z.enum(['destination', 'recommended', 'directory']).default('destination'),
     place: reference('places'),
     zone,
+    /**
+     * Wine-region subregion (GI sub-area), distinct from `place` and `zone`.
+     * A vineyard's subregion is frequently not its postal town: Kooyong sits
+     * in Tuerong with a Main Ridge address, Ocean Eight in Shoreham, Yabby
+     * Lake in Moorooduc with a Tuerong address.
+     *
+     * Three subregion pages - wine/flinders, wine/merricks and
+     * wine/moorooduc-tuerong - already filter on `v.data.subregion`, and every
+     * one of those tests evaluated against `undefined`, because the key was
+     * never declared and Zod stripped it from all 21 wineries carrying one.
+     */
+    subregion: z.string().optional(),
     coordinates,
     address: z.string(),
     phone: z.string().optional(),
     /**
-     * Operator contact email. One venue records it. Nothing renders it
-     * today; declared so a contact detail an editor took the trouble to find
-     * is not deleted between the disk and the template.
+     * Operator contact address. Undeclared until now, so the one venue that
+     * recorded one had it discarded on load - the worst shape this defect
+     * takes, because the corrections and partner-enquiry desks then believe
+     * they have a way to reach an operator that the build cannot see.
      */
     email: z.string().email().optional(),
     website: z.string().url().optional(),
+    /**
+     * Authoritative third-party profiles, emitted as schema.org `sameAs` and
+     * rendered as the "Region listing" and "Halliday listing" rows on the
+     * venue page.
+     *
+     * lib/schema.ts reads `data.sameAs?.mpva` and `data.sameAs?.halliday` and
+     * VenueDetailTemplate renders both; neither ever saw a value, because the
+     * key was not declared and Zod stripped it from all 21 wineries that
+     * carry one. The links were written, and no reader was ever shown one.
+     */
+    sameAs: z
+      .object({
+        /** The producer's own site, where it differs from `website`. */
+        officialSite: z.string().url().optional(),
+        /** Halliday Wine Companion profile. */
+        halliday: z.string().url().optional(),
+        /** Mornington Peninsula Vignerons Association listing. */
+        mpva: z.string().url().optional(),
+      })
+      .optional(),
     bookingUrl: z.string().url().optional(),
     bookingProvider: z
       .enum([
@@ -198,6 +566,8 @@ const venues = defineCollection({
     tags: tagBlock,
     dogFriendly: z.boolean().default(false),
     dogFriendlyNotes: z.string().optional(),
+    // Factual additions remain subject to editorial review, never a paid ranking signal.
+    visitorInformation: visitorInformationSchema(z).optional(),
     dogsAllowedOutdoorsOnly: z.boolean().optional(),
     offLeashNearby: z.boolean().optional(),
     waterAccessNearby: z.boolean().optional(),
@@ -218,6 +588,30 @@ const venues = defineCollection({
      */
     editorPick: z.boolean().default(false),
     lastVerified: z.coerce.date(),
+    /**
+     * LEGACY bulk stamp. Not a fact-check date, and never renderable as one.
+     *
+     * All 21 wine venues that carry this key carry the identical value
+     * 2026-04-01, applied to the set in one pass. That is the textbook bulk
+     * stamp the provenance block above refuses to launder: one date applied
+     * to twenty-one records evidences a batch job, not a check of any
+     * particular venue. `editorialProvenance.checkedOn` remains the ONLY date
+     * a reader may be shown as a fact check, and it stays empty here until a
+     * check is genuinely earned per record.
+     *
+     * Declared rather than deleted because this repository does not delete
+     * evidence to tidy a schema (see `verificationStatus` vs `verification`
+     * on events, and `lastVerified` / `lastCheckedDate` above). Declared
+     * rather than migrated because migrating it into `checkedOn` would turn a
+     * batch stamp into the strongest claim the publication makes. It was
+     * being silently discarded on load, which is the defect; this stops the
+     * discard without promoting the value.
+     *
+     * Do not read this field on any reader-facing surface.
+     */
+    lastFactVerified: z.coerce.date().optional(),
+    ...provenanceFields,
+    ...sourceHealthFields,
     /**
      * Free-text hours summary surfaced on the venue page (e.g.
      * "Sat–Sun 11am–5pm" or "Closed Tue–Wed"). Optional. When absent,
@@ -266,20 +660,6 @@ const venues = defineCollection({
       })
       .optional(),
     /**
-     * Legacy top-level hours map, hand-authored before `visiting` existed.
-     * Free text keyed by an ad-hoc day range ("monFri", "thuFri", "sat"), so
-     * it is NOT the schema.org shape `visiting.openingHours` carries, and it
-     * is deliberately not rendered or emitted as structured data anywhere.
-     *
-     * Two venues (georgie-bass, moke-dining) hold hours only here, with both
-     * `visiting` and `hoursNote` null, so those hours have never reached a
-     * page. Declared to stop the values being deleted on load. Normalising
-     * them into `hoursNote` or `visiting.openingHours` would publish hours to
-     * a live venue page and to its JSON-LD, which is an editorial call rather
-     * than a schema one, so it is left open. Write new hours into `visiting`.
-     */
-    openingHours: z.record(z.string(), z.string()).optional(),
-    /**
      * On-site dining room, for venues whose primary type is not a restaurant
      * (14 wineries). Drives the Winery kitchens module on the wine hub, the
      * restaurant section on the venue page, and the Restaurant JSON-LD node.
@@ -295,19 +675,16 @@ const venues = defineCollection({
       })
       .optional(),
     /**
-     * Wine-region sub-appellation, as a slug ("red-hill", "merricks-north").
-     * Rendered as a chip in the venue meta line and read by the six
-     * /wine/<subregion>/ listing pages, which match on place OR subregion.
-     * Twenty-one wineries record it and every value was discarded, so those
-     * pages have been matching on place alone.
-     */
-    subregion: z.string().optional(),
-    /**
-     * Winemaking facts for a winery record. Feeds the "The wines" section on
-     * the venue page, the winemaker row in the facts list, and the
-     * schema.org `knowsAbout` list in buildWinerySchema. `signature` is read
-     * by the template but written by no record yet; declared so the next
-     * editor who writes it is not silently ignored.
+     * The wine facts behind a producer: who makes it, what they plant, the
+     * label worth seeking out.
+     *
+     * VenueDetailTemplate renders the winemaker row, the key-varieties line
+     * and the top label, and lib/schema.ts folds `keyVarieties` into the
+     * Winery node's `knowsAbout`. All of it was dead code: 21 wineries carry
+     * this block and every one of them lost it on load.
+     *
+     * `signature` is read by the template and is not on disk anywhere yet; it
+     * is declared so the template's branch has a field to be true of.
      */
     wines: z
       .object({
@@ -318,24 +695,11 @@ const venues = defineCollection({
       })
       .optional(),
     /**
-     * External authority profiles for the venue. buildWinerySchema already
-     * emits these as schema.org `sameAs`, and VenueDetailTemplate already
-     * renders the "Region listing" and "Halliday listing" links from them.
-     * Only the schema declaration was missing, so all 21 records lost every
-     * link on load and both surfaces have been empty.
-     */
-    sameAs: z
-      .object({
-        officialSite: z.string().url().optional(),
-        halliday: z.string().url().optional(),
-        mpva: z.string().url().optional(),
-      })
-      .optional(),
-    /**
-     * On-site lodging at a venue whose primary type is not accommodation
-     * (five wineries). Drives the accommodation section on the venue page and
-     * the LodgingBusiness JSON-LD node, both already wired and both empty
-     * until now. `units` is read by the template but written by no record.
+     * On-site accommodation for a venue whose primary type is not a stay
+     * (5 wineries with villas or cottages on the estate). Drives the "Stay"
+     * section on the venue page and the Accommodation JSON-LD node that
+     * wine/[slug].astro pushes when the block is present - a node that has
+     * never once been emitted, because the key was undeclared.
      */
     accommodation: z
       .object({
@@ -345,26 +709,16 @@ const venues = defineCollection({
       })
       .optional(),
     /**
-     * Editor-written questions and answers for the venue: 21 wineries, 63
-     * pairs, all of it discarded on load. Uses `q`/`a`, not the
-     * `question`/`answer` pair the articles and itineraries collections use.
-     * These are the keys already on disk; do not "fix" them without
-     * migrating the data.
+     * Reader questions and their answers (21 wineries, 63 pairs). Rendered as
+     * the FAQ section on the venue page and emitted as FAQPage JSON-LD by
+     * wine/[slug].astro.
      *
-     * Both consumers are already wired: VenueDetailTemplate renders a visible
-     * FAQ section and wine/[slug].astro emits a schema.org FAQPage from it.
-     * Declaring the field therefore switches both on for 21 pages at once,
-     * the same way editorVerdict did in July 2026.
+     * Note `q`/`a`, not the `question`/`answer` used by articles and
+     * itineraries. These are the key names already on disk and in
+     * buildFaqSchema's signature; renaming them would be a data migration
+     * dressed up as a schema tidy.
      */
     faq: z.array(z.object({ q: z.string(), a: z.string() })).optional(),
-    /**
-     * Date the wine desk last checked the venue's facts, as the editor
-     * recorded it. Distinct from `lastVerified`, which is required on every
-     * venue; this marker sits on the 21 wineries only. wine/[slug].astro
-     * computes `isVerified` from it, so that computation has been
-     * permanently false since it was written.
-     */
-    lastFactVerified: z.coerce.date().optional(),
     /**
      * Long-form editorial verdict (21 venues). Rendered as the pull-quote
      * verdict block on the venue page and used, trimmed to its first
@@ -491,6 +845,8 @@ const experiences = defineCollection({
     gallery: z.array(imageRef).default([]),
     golf: z.any().optional(),
     lastVerified: z.coerce.date(),
+    ...provenanceFields,
+    ...sourceHealthFields,
     publishedAt: z.coerce.date(),
     sitemapExclude: z.boolean().default(false),
   }),
@@ -581,6 +937,24 @@ const regions = defineCollection({
   }),
 });
 
+/**
+ * One pick inside a weekend dispatch. Declared once and reused for every slot,
+ * so adding a slot cannot be cheaper in the content than in the schema - which
+ * is how `companion`, `localEdge` and `quieterAlt` came to be written onto
+ * thirteen dispatches and thrown away by all thirteen builds.
+ */
+const dispatchPick = z.object({
+  title: z.string(),
+  when: z.string(),                 // "Saturday 16 May, 11am–1:30pm"
+  where: z.string(),                // "Red Hill & Main Ridge forests"
+  price: z.string().optional(),     // ticketing shape, never a number (BRAND-PI)
+  who: z.string().optional(),       // "Capped at 15"
+  summary: z.string(),
+  bookingLabel: z.string().optional(), // "Book via The Kitchen"
+  bookingUrl: z.string().url().optional(),
+  eventRef: z.string().optional(),  // matching events/[slug] for venue link
+});
+
 const articles = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/articles' }),
   schema: z.object({
@@ -613,38 +987,40 @@ const articles = defineCollection({
     relatedPlaces: z.array(reference('places')).default([]),
     relatedArticles: z.array(reference('articles')).default([]),
     relatedItineraries: z.array(reference('itineraries')).default([]),
+    /**
+     * The events this article is about. Every sibling relation on this list
+     * was declared and this one was not, so the single guide that names its
+     * festival lost the link on load and the article and the event it exists
+     * to cover had no edge between them anywhere in the build.
+     */
+    relatedEvents: z.array(reference('events')).default([]),
     readingTimeMinutes: z.number().positive().optional(),
     featured: z.boolean().default(false),
     status: z.enum(['draft', 'review', 'scheduled', 'published']).default('draft'),
+    /** End active seasonal promotion; retain the dated article and archive. */
+    promotionExpiresAt: z.coerce.date().optional(),
     lastVerified: z.coerce.date().optional(),
+    ...provenanceFields,
+    ...sourceHealthFields,
     clusterLinks: z.array(z.object({ label: z.string(), href: z.string() })).optional(),
-    aiSummary: z.array(z.string()).optional(),
-    faq: z.array(z.object({ question: z.string(), answer: z.string() })).optional(),
     /**
-     * Which agent run produced this article: a date-stamped run id such as
-     * "2026-09-12-daily" or "2026-08-06-manual-recovery", written by the
-     * dispatch and orchestrator agents whose own instructions require it.
-     * Twenty-nine articles carry it and every one was discarded, so the
-     * record of what was machine-generated survived only in the file on disk
-     * and never in the loaded content. Provenance, not display: no template
-     * reads it, and declaring it labels nothing on the page by itself.
+     * Which content-factory run produced this article, e.g. "2026-09-14-daily".
+     * Written by the factory on every agent-authored piece since 2026-08.
+     *
+     * It was never declared here, so Zod stripped it from all 30 articles that
+     * carry it and the site kept no record of which run wrote what. That is the
+     * provenance this programme exists to establish, discarded silently on the
+     * way in. The schema-drift ratchet caught the count crossing its ceiling on
+     * 2026-09-14 when the daily run added the thirtieth; the ceiling was the
+     * only thing that had ever noticed.
+     *
+     * Declared rather than baselined deliberately. Raising the ceiling would
+     * have licensed the loss and then failed the build again every single day,
+     * because the factory writes one more article every morning.
      */
     agentRun: z.string().optional(),
-    /**
-     * Mirror of the route slug. The file id is authoritative, so a value here
-     * never moves a URL, and all 16 records carrying it already match their
-     * own filename. Declared so the editor's copy survives the load instead
-     * of vanishing. Rename the file to move an article, not this field.
-     */
-    slug: z.string().optional(),
-    /**
-     * Events this article is about. Plain slug strings rather than
-     * reference('events'), matching dispatch.*.eventRef below: the archive
-     * cron moves a finished event into events/archive/, which changes its
-     * collection id, and a hard reference would turn that routine move into
-     * a build failure. One article carries it; nothing renders it yet.
-     */
-    relatedEvents: z.array(z.string()).default([]),
+    aiSummary: z.array(z.string()).optional(),
+    faq: z.array(z.object({ question: z.string(), answer: z.string() })).optional(),
     sitemapExclude: z.boolean().default(false),
     /**
      * Editorial section this article belongs to. Articles tagged "plans" are
@@ -687,88 +1063,33 @@ const articles = defineCollection({
         // write "Cool, dry, autumn light" or "Rain Saturday afternoon".
         weather: z.string().optional(),
         // The marquee booking — the one thing to lock in.
-        lead: z.object({
-          title: z.string(),
-          when: z.string(),                 // "Saturday 16 May, 11am–1:30pm"
-          where: z.string(),                // "Red Hill & Main Ridge forests"
-          price: z.string().optional(),     // "$85 per person"
-          who: z.string().optional(),       // "Capped at 15"
-          summary: z.string(),
-          bookingLabel: z.string().optional(), // "Book via The Kitchen"
-          bookingUrl: z.string().url().optional(),
-          eventRef: z.string().optional(),  // matching events/[slug] for venue link
-        }),
+        lead: dispatchPick,
         // Saturday + Sunday picks if present.
-        saturday: z.object({
-          title: z.string(),
-          when: z.string(),
-          where: z.string(),
-          price: z.string().optional(),
-          summary: z.string(),
-          bookingLabel: z.string().optional(),
-          bookingUrl: z.string().url().optional(),
-          eventRef: z.string().optional(),
-        }).optional(),
-        sunday: z.object({
-          title: z.string(),
-          when: z.string(),
-          where: z.string(),
-          price: z.string().optional(),
-          summary: z.string(),
-          bookingLabel: z.string().optional(),
-          bookingUrl: z.string().url().optional(),
-          eventRef: z.string().optional(),
-        }).optional(),
+        saturday: dispatchPick.optional(),
+        sunday: dispatchPick.optional(),
         // The indoor / weather-changes backup.
-        rainyDay: z.object({
-          title: z.string(),
-          when: z.string(),
-          where: z.string(),
-          price: z.string().optional(),
-          summary: z.string(),
-          bookingLabel: z.string().optional(),
-          bookingUrl: z.string().url().optional(),
-          eventRef: z.string().optional(),
-        }).optional(),
-        // Three further picks the desk writes when a weekend has them, in
-        // the same shape as the day picks above. `companion` is the natural
-        // second booking beside the lead, `localEdge` is the one a visitor
-        // would not find alone, `quieterAlt` is the low-key substitute for
-        // anyone avoiding a crowd. Six weekend-picker articles carry
-        // companion and localEdge, one carries quieterAlt, and all of it was
-        // discarded on load. No template reads them, so declaring them
-        // changes nothing on the page; it stops the loss and leaves the
-        // decision to render them open.
-        companion: z.object({
-          title: z.string(),
-          when: z.string(),
-          where: z.string(),
-          price: z.string().optional(),
-          summary: z.string(),
-          bookingLabel: z.string().optional(),
-          bookingUrl: z.string().url().optional(),
-          eventRef: z.string().optional(),
-        }).optional(),
-        localEdge: z.object({
-          title: z.string(),
-          when: z.string(),
-          where: z.string(),
-          price: z.string().optional(),
-          summary: z.string(),
-          bookingLabel: z.string().optional(),
-          bookingUrl: z.string().url().optional(),
-          eventRef: z.string().optional(),
-        }).optional(),
-        quieterAlt: z.object({
-          title: z.string(),
-          when: z.string(),
-          where: z.string(),
-          price: z.string().optional(),
-          summary: z.string(),
-          bookingLabel: z.string().optional(),
-          bookingUrl: z.string().url().optional(),
-          eventRef: z.string().optional(),
-        }).optional(),
+        rainyDay: dispatchPick.optional(),
+        /**
+         * The three picks the desk writes when the weekend is not shaped as
+         * Saturday / Sunday / rainy day: the slower second move, the local
+         * thing a visitor would not find, and the quieter alternative to a
+         * crowded lead.
+         *
+         * Written on thirteen dispatches between May and July 2026 and
+         * discarded on every one of them, because the four slots above were
+         * declared one at a time and these three were never added. The four
+         * had identical shapes copied four times, which is the mechanism: a
+         * new pick was cheaper to write into the content than into the
+         * fifth copy of the same object. They share `dispatchPick` now.
+         *
+         * The /whats-on/this-weekend/ template renders lead, saturday, sunday
+         * and rainyDay only, so declaring these three restores the data
+         * without changing a rendered page. Surfacing them is an editorial
+         * decision, not a schema one.
+         */
+        companion: dispatchPick.optional(),
+        localEdge: dispatchPick.optional(),
+        quieterAlt: dispatchPick.optional(),
         // One-line close ("Don't add more to either day. Let the Peninsula's
         // own pace do the work.")
         weekendShape: z.string().optional(),
@@ -937,9 +1258,18 @@ const itineraries = defineCollection({
     ),
     totalDriveMinutes: z.number().nonnegative().optional(),
     heroImage: imageRef,
+    /**
+     * Supporting images, same shape as the galleries on venues and
+     * experiences. Itineraries were the one collection with a `heroImage` and
+     * no gallery beside it, so an editor adding photographs to a plan had
+     * them discarded on load. One record already carries the key.
+     */
+    gallery: z.array(imageRef).default([]),
     editorNote: z.string(),
     publishedAt: z.coerce.date(),
     lastVerified: z.coerce.date().optional(),
+    ...provenanceFields,
+    ...sourceHealthFields,
     sitemapExclude: z.boolean().default(false),
   }),
 });
@@ -972,6 +1302,24 @@ const events = defineCollection({
     endDate: z.coerce.date().optional(),
     startTime: z.string().optional(), // "11:00"
     endTime: z.string().optional(),
+    /**
+     * The timezone the wall clocks above are written in. Every record on this
+     * site is Melbourne local, and the field exists so that stays a stated
+     * fact rather than an assumption compiled into four different helpers.
+     * src/lib/event-occurrence.mjs resolves the clock through Intl, so a
+     * daylight-saving occurrence gets its real duration instead of the
+     * hardcoded +10:00 the JSON-LD used to stamp on every event all year.
+     */
+    timezone: z.string().default('Australia/Melbourne'),
+    /**
+     * Does this occurrence finish on the following calendar day.
+     *
+     * Left unset, an endTime at or before startTime is read as crossing
+     * midnight, which is right for "21:00 to 01:00" and wrong for a typo.
+     * Set it explicitly to settle the case either way; the safeguard audit
+     * reports any single-day record that leaves it ambiguous.
+     */
+    endsNextDay: z.boolean().optional(),
     season: z.enum(['spring', 'summer', 'autumn', 'winter']).optional(),
     month: z.string().optional(), // "May", "June" etc.
 
@@ -995,6 +1343,22 @@ const events = defineCollection({
     ticketingUrl: z.string().url().optional(),
     officialEventUrl: z.string().optional(), // may have multi-URL "|" separators
     bookingRequired: z.string().optional(),
+    /**
+     * Whether a reader can still get in, which is not the same question as
+     * whether the event is happening. A sold-out market is on: it appears on
+     * every listing, labelled, with its booking affordance withdrawn. Before
+     * this field the only way to express "you cannot get in" was to cancel
+     * the record, which told readers something untrue.
+     *
+     * No prices here or anywhere (BRAND-PI 2026-05-15). This maps to
+     * schema.org offer availability only.
+     */
+    bookingStatus: z
+      .enum(['open', 'sold-out', 'waitlist', 'closed', 'not-required', 'unknown'])
+      .default('unknown'),
+    bookingStatusNote: z.string().optional(),
+    bookingStatusSourceUrl: z.string().optional(),
+    bookingStatusCheckedAt: z.coerce.date().optional(),
     freePaid: z.string().optional(),
     priceRange: z.string().optional(),
     priceTier: z
@@ -1023,6 +1387,41 @@ const events = defineCollection({
       .enum(['one-off', 'weekly', 'monthly', 'annual', 'seasonal', 'ongoing'])
       .default('one-off'),
     recurrenceNote: z.string().optional(),
+    /**
+     * Exceptions to the cadence, one entry per affected occurrence.
+     *
+     * A weekly market that skips the long weekend, a monthly session moved to
+     * another hall, one sold-out night in a season: none of these are facts
+     * about the series, and recording them on the series is how a whole
+     * recurring event gets cancelled to express a single missing week.
+     * src/lib/event-occurrence.mjs applies these per day; everything else
+     * about the series is untouched.
+     */
+    occurrenceExceptions: z
+      .array(
+        z.object({
+          /** The Melbourne calendar day this exception applies to. */
+          date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+          status: z.enum([
+            'cancelled',
+            'postponed',
+            'rescheduled',
+            'sold-out',
+            'moved',
+            'as-scheduled',
+          ]),
+          /** Override the series times for this occurrence only. */
+          startTime: z.string().optional(),
+          endTime: z.string().optional(),
+          /** Where a rescheduled occurrence moved to. */
+          rescheduledTo: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
+          /** Where a moved occurrence is being held instead. */
+          venueName: z.string().optional(),
+          note: z.string().optional(),
+          sourceUrl: z.string().optional(),
+        })
+      )
+      .default([]),
 
     // ─── Audience ──────────────────────────────────────────────────────────
     suitableFor: z.string().optional(),
@@ -1085,6 +1484,37 @@ const events = defineCollection({
     sourceUrl: z.string().optional(),
     discoveredAt: z.coerce.date().optional(),
     lastCheckedDate: z.coerce.date().optional(),
+    /**
+     * The same fact as lastCheckedDate, to the minute rather than the day.
+     * Kept separate because lastCheckedDate is written by hand and by the
+     * importer across 50-odd records and must not be redefined underneath
+     * them. Readers of either should prefer this when present.
+     */
+    lastVerifiedAt: z.coerce.date().optional(),
+    /**
+     * When the source itself last changed. A source update later than the last
+     * verification is the "late source update" case: the record is not known
+     * to be wrong, it is known to be unchecked. It keeps its listing, loses
+     * its promotion, and goes on the expiry job's exception queue.
+     */
+    sourceUpdatedAt: z.coerce.date().optional(),
+    /**
+     * Verification as a value rather than as prose.
+     *
+     * verificationStatus above is free text: 22 records, a dozen distinct
+     * spellings, one of them a 280-word paragraph, and the only code that
+     * reads it does so with a /cancelled/i regex. The signature-events
+     * collection has modelled the same idea correctly as a three-value enum
+     * since it was written, so this adopts that shape. Both fields stand:
+     * the prose is real evidence and is not being deleted to make a schema
+     * tidy. New records should set this enum and put the prose in
+     * verificationNote; the safeguard audit ratchets the free-text count so
+     * it can shrink but never grow.
+     */
+    verification: z.enum(['verified', 'tentative', 'stub']).optional(),
+    verificationNote: z.string().optional(),
+    ...provenanceFields,
+    ...sourceHealthFields,
     visitorAppealScore: z.number().min(0).max(5).optional(),
     editorialPriority: z.number().min(0).max(5).optional(),
 
@@ -1150,24 +1580,53 @@ const events = defineCollection({
     cancellationSourceUrl: z.string().optional(),
     cancellationSourceLabel: z.string().optional(),
 
+    // ─── Postponement ──────────────────────────────────────────────────────
+    // Cancelled and postponed are different answers. A cancelled event will
+    // not happen; a postponed one will, on a date nobody has announced yet.
+    // Collapsing the two either tells readers an event is off when it is not,
+    // or leaves it advertised under a date that has passed. A postponed record
+    // with no rescheduledTo is withdrawn from every DATED surface (there is no
+    // date to list it under) and queued for a human; one with a rescheduledTo
+    // is rescheduled, and its structured data says so with previousStartDate.
+    postponed: z.boolean().default(false),
+    postponedOn: z.coerce.date().optional(),
+    /** The date the event was originally going to run. */
+    postponedFrom: z.coerce.date().optional(),
+    /** The announced new date, when there is one. */
+    rescheduledTo: z.coerce.date().optional(),
+    postponementNote: z.string().optional(),
+    postponementSourceUrl: z.string().optional(),
+    postponementSourceLabel: z.string().optional(),
+
     // ─── Lifecycle ─────────────────────────────────────────────────────────
     status: z
       .enum(['draft', 'review', 'scheduled', 'published', 'expired', 'past', 'archived'])
       .default('published'),
     /**
-     * When the record was archived, and why. Written by the archive cron on
-     * three records and by an editor on two more, and discarded on load every
-     * time. Nothing renders them: this is the audit trail for why an event
-     * left the live surfaces, and recompute-occurrence.py reads the reason to
-     * decide whether an archived recurring series may be restored.
+     * When the record was archived, and why.
      *
-     * Two records spelled the reason `archiveReason`. Both were migrated to
-     * `archivedReason` so there is a single spelling on disk;
-     * recompute-occurrence.py still accepts either, so a record restored from
-     * an older branch keeps working.
+     * Both keys are written by scripts/archive-expired-events.py and read back
+     * by scripts/recompute-occurrence.py, which uses the reason to decide
+     * whether a recurring series may be restored to `published` or has
+     * genuinely finished. Neither was declared, so the decision the restore
+     * job depends on existed on disk and nowhere in the build - and an editor
+     * reading the collection could not see why anything had been archived.
+     *
+     * `archivedAt` is a timestamp on machine-written records and a plain date
+     * on the two hand-archived ones; z.coerce.date takes both.
      */
     archivedAt: z.coerce.date().optional(),
     archivedReason: z.string().optional(),
+    /**
+     * When this record stops being publishable, independent of when the event
+     * finishes. The two are not the same instant: a listing whose source only
+     * guarantees the dates to the end of the month expires then, whatever its
+     * endDate says, and a record with a live recurrence never expires at all.
+     * Past this instant the record is off every reader-facing surface; the
+     * URL and the JSON on disk are untouched. Nothing here deletes or moves a
+     * record: status and this field are the only things that delist one.
+     */
+    expiresAt: z.coerce.date().optional(),
     publishedAt: z.coerce.date(),
     sitemapExclude: z.boolean().default(false),
   }),
@@ -1213,6 +1672,8 @@ const tourOperators = defineCollection({
     notSuitedFor: z.string(),
     heroImage: imageRef,
     lastVerified: z.coerce.date(),
+    ...provenanceFields,
+    ...sourceHealthFields,
     publishedAt: z.coerce.date(),
   }),
 });
@@ -1250,6 +1711,8 @@ const tours = defineCollection({
     faq: z.array(z.object({ question: z.string(), answer: z.string() })).default([]),
     heroImage: imageRef,
     lastVerified: z.coerce.date(),
+    ...provenanceFields,
+    ...sourceHealthFields,
     publishedAt: z.coerce.date(),
   }),
 });
@@ -1276,6 +1739,8 @@ const tourPackages = defineCollection({
     faq: z.array(z.object({ question: z.string(), answer: z.string() })).default([]),
     heroImage: imageRef,
     lastVerified: z.coerce.date(),
+    ...provenanceFields,
+    ...sourceHealthFields,
     publishedAt: z.coerce.date(),
   }),
 });
@@ -1344,6 +1809,8 @@ const species = defineCollection({
     status: bfStatus.default('draft'),
     verified: z.boolean().default(false),
     lastVerified: z.coerce.date(),
+    ...provenanceFields,
+    ...sourceHealthFields,
     publishedAt: z.coerce.date(),
     sitemapExclude: z.boolean().default(false),
   }),
@@ -1373,6 +1840,8 @@ const fishingLocations = defineCollection({
     status: bfStatus.default('draft'),
     verified: z.boolean().default(false),
     lastVerified: z.coerce.date(),
+    ...provenanceFields,
+    ...sourceHealthFields,
     publishedAt: z.coerce.date(),
     sitemapExclude: z.boolean().default(false),
   }),
@@ -1407,6 +1876,8 @@ const fishingCharters = defineCollection({
     status: bfStatus.default('draft'),
     verified: z.boolean().default(false),
     lastVerified: z.coerce.date(),
+    ...provenanceFields,
+    ...sourceHealthFields,
     publishedAt: z.coerce.date(),
     sitemapExclude: z.boolean().default(false),
   }),
@@ -1441,6 +1912,8 @@ const boatRamps = defineCollection({
     status: bfStatus.default('draft'),
     verified: z.boolean().default(false),
     lastVerified: z.coerce.date(),
+    ...provenanceFields,
+    ...sourceHealthFields,
     publishedAt: z.coerce.date(),
     sitemapExclude: z.boolean().default(false),
   }),
@@ -1472,6 +1945,8 @@ const boatHire = defineCollection({
     status: bfStatus.default('draft'),
     verified: z.boolean().default(false),
     lastVerified: z.coerce.date(),
+    ...provenanceFields,
+    ...sourceHealthFields,
     publishedAt: z.coerce.date(),
     sitemapExclude: z.boolean().default(false),
   }),
@@ -1486,6 +1961,7 @@ const boatHire = defineCollection({
 const quickNotes = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/quick-notes' }),
   schema: z.object({
+    ...sourceHealthFields,
     headline: z.string().max(140),
     dek: z.string().max(320).optional(),
     section: z.enum([
@@ -1539,6 +2015,8 @@ const editorial_blocks = defineCollection({
     pageHref: z.string().optional(), // canonical page this framing belongs to
     publishedAt: z.coerce.date(),
     lastVerified: z.coerce.date().optional(),
+    ...provenanceFields,
+    ...sourceHealthFields,
     status: z.enum(['draft', 'published']).default('published'),
   }),
 });
@@ -1691,6 +2169,206 @@ const signatureEvents = defineCollection({
   }),
 });
 
+/**
+ * PI-005  -  the claim and evidence registry.
+ *
+ * Stage 0 is schema only. These two collections are declared and seeded;
+ * nothing in the build reads them yet. Enforcement is Stage 3, and when it
+ * lands it extends the ratchet in scripts/audit-event-safeguards.mjs rather
+ * than introducing a second gate pattern.
+ *
+ * Why sidecar collections rather than provenance fields on each record: one
+ * claim can be asserted by many records across many collections. The trading
+ * status of a venue is asserted by the venue record, by every quick note that
+ * mentions it, and by every itinerary that routes through it. No per-record
+ * field shape represents that. Supabase was rejected for a different reason:
+ * a static build cannot read it without a credentialed CI step.
+ *
+ * The join between a claim and the corpus is a plain {type, slug} pair, and
+ * deliberately not reference(). reference() binds to exactly one collection,
+ * and the point of a claim is that it is not owned by one. The pair is
+ * validated against disk by scripts/seed-claim-registry.mjs.
+ */
+const registrySubject = z.object({
+  /**
+   * A directory name under src/content/, or 'data-facts' for the orphaned
+   * fact layer in src/data/facts/. That layer has no collection and no page;
+   * naming it here is what makes the orphan visible.
+   */
+  type: z.string(),
+  /**
+   * Entry id within that directory, which may contain '/'. When type is
+   * 'data-facts' the slug is '<file>/<entity>'.
+   */
+  slug: z.string(),
+  /**
+   * The field on that record which carries the assertion, where one field
+   * carries it. Prose assertions have no field and are out of scope: no
+   * static analysis can decide whether a sentence contains a factual claim.
+   */
+  field: z.string().optional(),
+});
+
+/**
+ * Claim classes. Each names a kind of fact that changes underneath us.
+ * src/data/source-precedence.json gives every class its source order and its
+ * expiry in days, so changing either is a data edit, not a schema migration.
+ */
+const claimClass = z.enum([
+  'trading-status',     // the business is trading at all
+  'opening-hours',      // when it is open
+  'offering',           // menu, release, programme
+  'booking',            // booking windows and requirements
+  'rate-change',        // a rate moved. PI publishes no figures; it still
+                        // needs to know that the figure changed.
+  'event-status',       // running, cancelled, postponed
+  'event-schedule',     // dates and times
+  'access-restriction', // closures, track and beach restrictions, safety
+  'conditions',         // tide, swell, fire, rainfall windows
+  'fishing-rule',       // bag limits, size limits, closed seasons
+  'address',            // where the place is, as a postal address
+  'coordinates',        // where the place is, as a point on the ground.
+                        // Deliberately NOT folded into 'address': a record can
+                        // carry a correct street address and a pin 1.4km away,
+                        // and this corpus has done exactly that. One class
+                        // cannot express both, because one supporting row
+                        // would then back both facts. See the two entries in
+                        // src/data/source-precedence.json, whose precedence
+                        // orders differ at the top for the same reason.
+  'accessibility',      // access details
+  'regional-count',     // counts and aggregates for the region
+  'editorial',          // an editor's own note, no external source
+]);
+
+/**
+ * Who published a piece of evidence. This EXTENDS the quick-note
+ * sources[].kind enum rather than replacing it: the first eight values are
+ * that enum verbatim, so the 196 existing quick-note source rows migrate with
+ * a field rename and nothing else.
+ */
+const publisherKind = z.enum([
+  // quick-note sources[].kind, unchanged
+  'venue-site',
+  'phone',
+  'email',
+  'visit',
+  'press',
+  'social',
+  'gov',
+  'partner',
+  // added for the rest of the corpus
+  'organiser',     // the party running the event
+  'ticketing',     // Humanitix, Eventbrite and other resellers
+  'regional-body', // tourism board, industry association
+  'importer',      // our own import pipeline, recording where it looked
+  'unknown',       // the honest default. The migration does not guess.
+]);
+
+/**
+ * claims  -  one row per (record, claim class): what is being asserted, and
+ * which records assert it.
+ *
+ * There is deliberately no `state` field. Supported, unsupported, disputed
+ * and retired are derived at read time from the evidence set and the calendar
+ * (src/lib/claim-state.mjs). Storing state would mean a migration every time
+ * the calendar moved, which is the exact failure the existing bulk
+ * lastVerified stamps already demonstrate: 88 of 138 venues carry the
+ * identical date and not one of them tracks its own record.
+ */
+const claims = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/claims' }),
+  schema: z.object({
+    /**
+     * Stable identity: the file path under src/content/claims/ without the
+     * extension. Declared explicitly rather than leaning on the loader's
+     * generated id, so evidence.claim keeps pointing at the right row
+     * whatever the loader does to path segments.
+     */
+    claimId: z.string(),
+    claimClass: claimClass,
+    /** The record this claim is about. */
+    subject: registrySubject,
+    /** One plain sentence: what a reader is being told. */
+    statement: z.string(),
+    /**
+     * Every record that asserts this claim. One claim, many assertions,
+     * across collections. The subject is always the first entry.
+     */
+    assertedBy: z.array(registrySubject).default([]),
+    createdAt: z.coerce.date(),
+    /**
+     * Retirement is a state transition, never a deletion. A retired claim
+     * stays on disk so the history of what we once published survives, and
+     * git is the audit trail.
+     */
+    retiredAt: z.coerce.date().optional(),
+    retiredReason: z.string().optional(),
+    /** claimId of the claim this one replaces. Superseding is additive. */
+    supersedes: z.string().optional(),
+    /** 'migrated' means a script wrote it from data already on disk. */
+    origin: z.enum(['migrated', 'authored']).default('authored'),
+    note: z.string().optional(),
+  }),
+});
+
+/**
+ * evidence  -  one row per source attached to a claim. Support and
+ * disagreement share one shape, so an editor can inspect both.
+ */
+const evidence = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/evidence' }),
+  schema: z.object({
+    /** File path under src/content/evidence/ without the extension. */
+    evidenceId: z.string(),
+    /** claimId of the claim this row supports or disputes. */
+    claim: z.string(),
+    stance: z.enum(['supports', 'disputes']).default('supports'),
+    publisher: z.object({
+      kind: publisherKind,
+      name: z.string().optional(),
+    }),
+    url: z.string().url().optional(),
+    ...sourceHealthFields,
+    /** How the source was reached when there is no URL: a call, a visit. */
+    method: z.string().optional(),
+    /**
+     * When the source was actually read. For a migrated row this is the date
+     * already carried by the record it came from, never the migration date:
+     * a migration cannot make the corpus fresher than it already was.
+     */
+    retrievedAt: z.coerce.date(),
+    /**
+     * retrievedAt plus the claim class's expiry from
+     * src/data/source-precedence.json. Stored, unlike state, because it is a
+     * property of this row at the moment it was taken: a later edit to the
+     * precedence table must not silently move a promise an existing row has
+     * already made. Recomputed on every seed run.
+     */
+    expiresAt: z.coerce.date(),
+    note: z.string().optional(),
+    origin: z.enum(['migrated', 'authored']).default('authored'),
+    /**
+     * evidenceId of the row that replaces this one. The superseded row stays
+     * on disk: superseding is additive, expiry is a state transition, and
+     * neither one is a deletion.
+     */
+    supersededBy: z.string().optional(),
+    /**
+     * Everything the migration read, so the seed is reversible and nothing is
+     * lost: the field it came from, that field's value, and the file.
+     */
+    legacy: z
+      .object({
+        file: z.string(),
+        field: z.string(),
+        value: z.string(),
+        /** Which field supplied retrievedAt. */
+        dateField: z.string().optional(),
+      })
+      .optional(),
+  }),
+});
+
 export const collections = {
   venues,
   experiences,
@@ -1714,4 +2392,6 @@ export const collections = {
   insidersThirty,
   'weekend-picks': weekendPicks,
   'signature-events': signatureEvents,
+  claims,
+  evidence,
 };

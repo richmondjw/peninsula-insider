@@ -1,0 +1,20 @@
+{
+  "claimId": "events/brunch-thyme-alba-thermal-springs-winter-2026/accessibility",
+  "claimClass": "accessibility",
+  "subject": {
+    "type": "events",
+    "slug": "brunch-thyme-alba-thermal-springs-winter-2026",
+    "field": "accessibilityNotes"
+  },
+  "statement": "Access at Brunch Thyme at Alba Thermal Springs & Spa: Alba is fully accessible; contact venue for specific requirements.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "brunch-thyme-alba-thermal-springs-winter-2026",
+      "field": "accessibilityNotes"
+    }
+  ],
+  "createdAt": "2026-07-11",
+  "origin": "migrated",
+  "note": "Migrated by scripts/migrate-event-claims.mjs (PI-005 Stage 2) from accessibilityNotes already on next/src/content/events/brunch-thyme-alba-thermal-springs-winter-2026.json. No editorial judgement was applied and no content record was changed."
+}

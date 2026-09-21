@@ -6,7 +6,10 @@ houseByline: true
 publishedAt: 2026-04-10
 heroImage:
   src: "/images/sourced/article-orientation-drive-01.webp"
-  alt: "A notebook and coffee on a table with a Peninsula map and vineyard views through the window - representative image"
+  alt: ""
+  depicts: "a bank of cumulus cloud over the sea, in black and white"
+  depictionStatus: "illustrative"
+  decorative: true
   credit: "Peninsula Insider"
   license: "tmp-unsplash"
 format: "service"
@@ -106,7 +109,7 @@ With accommodation and the anchor meal locked in, fill the remaining time. The r
 
 **Afternoon moves (after lunch):**
 - A beach walk, **Sorrento Back Beach**, **Mount Martha** (30–60 minutes)
-- **Pt Leo Sculpture Park**, free, coastal, contemplative (1 hour)
+- **Pt Leo Sculpture Park**, ticketed, coastal, contemplative (1 hour)
 - **Point Nepean National Park**, the fort walk to the tip (2 hours)
 - **Mornington Peninsula Gallery**, free, indoor, good for a rainy afternoon (45 minutes)
 - A second cellar door, only if the first one was short
@@ -126,7 +129,7 @@ The decisions that people agonise over but shouldn't.
 
 **What to pack.** Walking shoes, a jacket (the ridge is cooler than Melbourne even in summer), swimmers, a cooler bag for producer purchases, and a corkscrew. If staying in a rental, bring breakfast supplies, the nearest good café might be twenty minutes away.
 
-**How much it costs.** Accommodation and the anchor meal carry most of the weekend; activities are the smallest line, and several of the best (beaches, the gallery, Pt Leo Sculpture Park) are free. A splurge couple's weekend costs roughly double the mid-range version. A family rental with a kitchen, or a group house split between friends, is the cheapest way in per head.
+**How much it costs.** Accommodation and the anchor meal carry most of the weekend; activities are the smallest line, and several of the best (beaches, the gallery) are free. A splurge couple's weekend costs roughly double the mid-range version. A family rental with a kitchen, or a group house split between friends, is the cheapest way in per head.
 
 ## The skeleton plan
 

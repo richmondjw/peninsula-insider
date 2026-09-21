@@ -1,0 +1,20 @@
+{
+  "claimId": "events/pt-leo-estate-local-complimentary-sculpture-park-winter-2026/event-schedule",
+  "claimClass": "event-schedule",
+  "subject": {
+    "type": "events",
+    "slug": "pt-leo-estate-local-complimentary-sculpture-park-winter-2026",
+    "field": "startDate"
+  },
+  "statement": "The Pt. Leo Estate complimentary sculpture park entry offer for local residents ran on weekdays from 1 June 2026 to 31 August 2026.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "pt-leo-estate-local-complimentary-sculpture-park-winter-2026",
+      "field": "startDate"
+    }
+  ],
+  "createdAt": "2026-09-13",
+  "origin": "authored",
+  "note": "Settled. The record carried a start date of 1 July 2026; the operator and the Shire both publish 1 June. The startDate and month fields are corrected by this pilot and the correction is traceable to the two evidence rows on this claim. The record also carries nextOccurrence 2026-09-16, which falls after the offer ended; that field is cron recomputed, so it is reported rather than edited here. Authored by hand for the PI-005 Stage 2 pilot on the Pt. Leo Estate sculpture park cluster. Sources were read on 2026-09-13; see ops/reports/claims/2026-09-13-pilot-pt-leo-sculpture-park.md."
+}

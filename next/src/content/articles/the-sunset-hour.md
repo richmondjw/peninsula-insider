@@ -11,7 +11,7 @@ heroImage:
   license: "tmp-wikimedia"
 format: "service"
 tags: ["sunset", "walks", "views", "evening", "couples", "romance", "photography"]
-relatedVenues: ["hotel-sorrento", "portsea-hotel", "the-baths-sorrento", "the-continental-sorrento", "point-leo-wine-terrace", "laura-pt-leo", "montalto", "polperro", "flinders-hotel", "pier-street-flinders", "lindenderry"]
+relatedVenues: ["hotel-sorrento", "portsea-hotel", "the-baths-sorrento", "the-continental-sorrento", "point-leo-wine-terrace", "laura-pt-leo", "montalto", "polperro", "flinders-hotel", "lindenderry"]
 relatedExperiences: ["arthurs-seat-lookout", "sorrento-back-beach", "portsea-front-beach", "mount-martha-beach", "mornington-foreshore-walk", "bushrangers-bay-walk", "cape-schanck-boardwalk", "pt-leo-sculpture-park", "safety-beach-foreshore"]
 readingTimeMinutes: 6
 featured: false

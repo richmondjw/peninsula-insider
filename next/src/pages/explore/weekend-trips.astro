@@ -5,6 +5,7 @@ import ItineraryCard from '../../components/ItineraryCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { getCollection } from 'astro:content';
 import { routeSlug } from '../../lib/editorial';
+import ProvenanceLine from '../../components/ProvenanceLine.astro';
 import {
   buildCollectionPageSchema,
   buildItemListSchema,
@@ -130,7 +131,7 @@ export const prerender = true;
         <h2>When to book</h2>
         <p>Peak weekends (December–February and Easter) require 6–8 weeks' lead time for good accommodation. The shoulder seasons (autumn and spring) are 3–4 weeks for most properties. Winter midweek breaks often have availability with 1–2 weeks' notice. Peninsula Hot Springs requires its own separate booking.</p>
 
-        <p><em>Last fact-verified 23 April 2026</em></p>
+        <ProvenanceLine records={itinerariesAll} type="itineraries" noun="itinerary" emphasis />
 
         <h2>FAQ</h2>
 

@@ -1,0 +1,59 @@
+/* Neutral feathering keeps photographs true to colour. Match the falloff to
+   the copy position; these tokens are only used by photographic headers. */
+:root {
+  --photo-shade-x: calc(max(40px, (100vw - 1280px) / 2) + 245px);
+  --photo-shade-cover: radial-gradient(ellipse 730px 470px at var(--photo-shade-x) 54%,
+    rgb(15 15 14 / .63) 0%, rgb(15 15 14 / .52) 34%,
+    rgb(15 15 14 / .24) 64%, rgb(15 15 14 / 0) 100%);
+  --photo-shade-copy: radial-gradient(ellipse 980px 640px at var(--photo-shade-x) 54%,
+    rgb(15 15 14 / .72) 0%, rgb(15 15 14 / .62) 38%,
+    rgb(15 15 14 / .28) 70%, rgb(15 15 14 / 0) 100%);
+  --photo-shade-bottom: linear-gradient(to top,
+    rgb(15 15 14 / .84) 0%, rgb(15 15 14 / .66) 32%,
+    rgb(15 15 14 / .25) 60%, rgb(15 15 14 / 0) 85%);
+  --photo-shade-caption: linear-gradient(to top,
+    rgb(15 15 14 / .58) 0%, rgb(15 15 14 / .24) 18%,
+    rgb(15 15 14 / 0) 48%);
+}
+
+/* Mobile copy spans the image, so its feather runs vertically. */
+@media (max-width: 767px) {
+  :root {
+    --photo-shade-cover: linear-gradient(180deg,
+      rgb(15 15 14 / .16) 0%, rgb(15 15 14 / .45) 25%,
+      rgb(15 15 14 / .50) 66%, rgb(15 15 14 / .22) 100%);
+    --photo-shade-copy: linear-gradient(180deg,
+      rgb(15 15 14 / .25) 0%, rgb(15 15 14 / .65) 28%,
+      rgb(15 15 14 / .65) 72%, rgb(15 15 14 / .35) 100%);
+    /* Long guide headings reach higher into portrait crops. */
+    --photo-shade-bottom: linear-gradient(to top,
+      rgb(15 15 14 / .86) 0%, rgb(15 15 14 / .70) 42%,
+      rgb(15 15 14 / .52) 76%, rgb(15 15 14 / .12) 100%);
+  }
+}
+
+/* Scoped to photo headers so solid brand backgrounds keep their palette. */
+body :is(.v5-standfirst--photo, .x-head, .wo-head, .wk-hero, .sp-hero, .pdv2-hero, .region-hero) h1 {
+  text-shadow: 0 2px 8px rgb(0 0 0 / .3);
+}
+body :is(.v5-standfirst--photo .v5-standfirst__dek, .x-head__standfirst,
+  .wo-head__context, .wo-head__rule, .wk-hero__standfirst, .sp-hero__standfirst,
+  .pdv2-hero__alt, .region-hero__tagline) {
+  color: #fff;
+  text-shadow: 0 1px 4px rgb(0 0 0 / .6);
+}
+body :is(.v5-standfirst--photo .v5-standfirst__eyebrow, .x-head__eyebrow,
+  .wo-head__eyebrow, .pdv2-hero__eyebrow, .region-hero__eyebrow) {
+  color: #fff4df;
+  text-shadow: 0 1px 4px rgb(0 0 0 / .55);
+}
+
+body :is(.home-cover, .v5-standfirst--photo, .x-head, .wo-head) .pi-btn--ghost {
+  background: rgb(20 20 18 / .27);
+  color: #fff;
+  border-color: rgb(255 255 255 / .7);
+  text-shadow: 0 1px 3px rgb(0 0 0 / .3);
+}
+body :is(.home-cover, .v5-standfirst--photo, .x-head, .wo-head) .pi-btn--ghost:hover {
+  background: rgb(20 20 18 / .55);
+}

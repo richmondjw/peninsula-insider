@@ -1,0 +1,30 @@
+{
+  "evidenceId": "quick-notes/2026-05-24-hot-springs-sunday-sessions/event-schedule-ea81e73e",
+  "claim": "quick-notes/2026-05-24-hot-springs-sunday-sessions/event-schedule",
+  "stance": "supports",
+  "publisher": {
+    "kind": "gov"
+  },
+  "retrievedAt": "2026-05-24",
+  "expiresAt": "2026-06-23",
+  "origin": "migrated",
+  "legacy": {
+    "file": "next/src/content/quick-notes/2026-05-24-hot-springs-sunday-sessions.md",
+    "field": "sources[1]",
+    "value": "{\"kind\":\"gov\",\"url\":\"https://www.bom.gov.au/explore/places/vic/main-ridge/forecast/\",\"note\":\"Bureau of Meteorology Main Ridge forecast issued 6:07 AM AEST 24 May 2026. Sunday: cloudy, 90% showers most likely afternoon and evening, 1–5mm, 8–17°C.\",\"checkedAt\":\"2026-05-24T06:38:00+10:00\"}",
+    "dateField": "sources[1].checkedAt"
+  },
+  "url": "https://www.bom.gov.au/places/vic/main-ridge/forecast/",
+  "note": "Bureau of Meteorology Main Ridge forecast issued 6:07 AM AEST 24 May 2026. Sunday: cloudy, 90% showers most likely afternoon and evening, 1–5mm, 8–17°C.",
+  "retiredSourceLinks": [
+    {
+      "field": "url",
+      "url": "https://www.bom.gov.au/explore/places/vic/main-ridge/forecast/",
+      "verdict": "dead",
+      "disposition": "moved",
+      "replacement": "https://www.bom.gov.au/places/vic/main-ridge/forecast/",
+      "checkedOn": "2026-09-13",
+      "note": "BoM dropped the /explore/ path segment. The new URL returns 200 and the page title is 'Main Ridge Forecast - Bureau of Meteorology'. Same publisher, same page."
+    }
+  ]
+}

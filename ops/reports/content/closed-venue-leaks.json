@@ -1,0 +1,28 @@
+{
+  "generatedAt": "2026-09-13T11:35:12.930Z",
+  "dist": "next/dist",
+  "totals": {
+    "closedVenues": 3,
+    "pagesScanned": 996,
+    "leakingPages": 0,
+    "leakInstances": 0
+  },
+  "closedVenues": [
+    {
+      "slug": "la-baracca-tgallant",
+      "name": "La Baracca at T'Gallant",
+      "field": "operatingStatus"
+    },
+    {
+      "slug": "maxs-red-hill-estate",
+      "name": "Max's at Red Hill Estate",
+      "field": "status"
+    },
+    {
+      "slug": "ouest-france-bistro",
+      "name": "Ouest France Bistro",
+      "field": "status"
+    }
+  ],
+  "leaks": []
+}

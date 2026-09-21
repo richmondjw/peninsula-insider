@@ -2,9 +2,12 @@
   "slug": "temptation-sailing",
   "name": "Temptation Sailing",
   "operatorType": "activity-specialist",
-  "website": "https://www.temptationsailing.com",
-  "pickupPoints": ["Sorrento Pier"],
-  "languages": ["en"],
+  "pickupPoints": [
+    "Sorrento Pier"
+  ],
+  "languages": [
+    "en"
+  ],
   "maxCapacity": 18,
   "affiliateProgram": "unknown",
   "vetted": true,
@@ -18,5 +21,17 @@
     "license": "venue-media-kit"
   },
   "lastVerified": "2026-04-30",
-  "publishedAt": "2026-04-30"
+  "publishedAt": "2026-04-30",
+  "retiredSourceLinks": [
+    {
+      "field": "website",
+      "url": "https://www.temptationsailing.com",
+      "verdict": "dead",
+      "disposition": "gone",
+      "checkedOn": "2026-09-13",
+      "note": "Domain does not resolve. A Temptation Sailing operates dolphin swims from Glenelg in South Australia; it is not the Sorrento operator this record describes."
+    }
+  ],
+  "sourceStatus": "unsourced",
+  "sourceStatusNote": "Domain does not resolve. A Temptation Sailing operates dolphin swims from Glenelg in South Australia; it is not the Sorrento operator this record describes."
 }

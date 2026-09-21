@@ -1,0 +1,36 @@
+{
+  "contract": "pi.newsroom.evidence/1",
+  "plan_id": "e25b1b5d-ee97-550d-ace9-39d0b73a7bba",
+  "plan_item_ids": [
+    "19baff07-58fc-5b90-b3ad-cf97f1f8fe8b",
+    "675c0939-de9b-527a-8ac6-2cfdd5876465"
+  ],
+  "retrieved_at": "2026-09-17T00:04:47Z",
+  "sources": [
+    {
+      "url": "https://mprg.mornpen.vic.gov.au/Exhibitions/Current-exhibitions/National-Works-On-Paper-2026",
+      "http_status": 200,
+      "supports": {
+        "start_date": "2026-09-05",
+        "end_date": "2026-11-22"
+      }
+    },
+    {
+      "url": "https://mprg.mornpen.vic.gov.au/Home",
+      "http_status": 200,
+      "supports": {
+        "venue": "Mornington Peninsula Regional Gallery",
+        "address": "Civic Reserve, Dunns Road, Mornington, Victoria 3931",
+        "regular_hours": "11am-4pm, Tues-Sun",
+        "regular_closure": "Closed Mondays"
+      }
+    }
+  ],
+  "excluded_claims": [
+    "ticket price or free entry",
+    "booking availability or walk-in status",
+    "prize values",
+    "individual artwork assessment",
+    "best or quietest visit time"
+  ]
+}

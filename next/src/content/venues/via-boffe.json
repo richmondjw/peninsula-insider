@@ -10,8 +10,6 @@
   },
   "address": "200 Main Ridge Rd, Main Ridge VIC 3928",
   "phone": "+61 3 5989 6111",
-  "website": "https://viaboffe.com.au",
-  "bookingUrl": "https://viaboffe.com.au/bookings",
   "bookingProvider": "direct",
   "priceBand": "$$$",
   "authority": {
@@ -50,7 +48,9 @@
   },
   "heroImage": {
     "src": "/images/sourced/place-main-ridge-01.webp",
-    "alt": "CSIRO ScienceImage 1961 Chardonnay grapes at the Main Ridge Estate - representative image for Via Boffe",
+    "alt": "Bunches of white wine grapes hanging on the vine among broad green leaves.",
+    "depicts": "bunches of white wine grapes on the vine",
+    "depictionStatus": "illustrative",
     "credit": "CSIRO",
     "license": "wikimedia-cc-by"
   },
@@ -63,5 +63,27 @@
     "Hand-Written Weekly Menu",
     "Small Hinterland Trattoria Format",
     "Italian Small Producers Wine List"
-  ]
+  ],
+  "operatingStatus": "verify-open",
+  "closureNote": "Recorded domain viaboffe.com.au does not resolve (NXDOMAIN, checked 2026-09-13 against 1.1.1.1). A business named Via Boffe does trade, but as a cafe at 59 Main Street, Mornington (https://via-boffe.square.site/ and https://www.agfg.com.au/restaurant/via-boffe-130095), not as the Main Ridge trattoria described here. Because both the locality and the format differ, the Mornington cafe has deliberately not been recorded as this record's corrected URL. Whether the Main Ridge room described here closed, moved, or was never separate cannot be told from public sources. Unresolved.",
+  "retiredSourceLinks": [
+    {
+      "field": "website",
+      "url": "https://viaboffe.com.au",
+      "verdict": "dead",
+      "disposition": "gone",
+      "checkedOn": "2026-09-13",
+      "note": "Domain does not resolve. A 'Via Boffe' trades at via-boffe.square.site, but at 59 Main Street Mornington on (03) 5976 8158, while this record says 200 Main Ridge Rd, Main Ridge on +61 3 5989 6111. Two different addresses and two different phone numbers is not enough to assert they are the same business. EDITOR."
+    },
+    {
+      "field": "bookingUrl",
+      "url": "https://viaboffe.com.au/bookings",
+      "verdict": "dead",
+      "disposition": "gone",
+      "checkedOn": "2026-09-13",
+      "note": "Same domain, same reasoning."
+    }
+  ],
+  "sourceStatus": "unsourced",
+  "sourceStatusNote": "Same domain, same reasoning."
 }

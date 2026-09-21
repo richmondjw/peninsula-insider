@@ -1,0 +1,20 @@
+{
+  "claimId": "events/peninsula-hot-springs-sound-healing-sessions/booking",
+  "claimClass": "booking",
+  "subject": {
+    "type": "events",
+    "slug": "peninsula-hot-springs-sound-healing-sessions",
+    "field": "bookingRequired"
+  },
+  "statement": "Booking is required for Peninsula Hot Springs, Sound Healing Sessions.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "peninsula-hot-springs-sound-healing-sessions",
+      "field": "bookingRequired"
+    }
+  ],
+  "createdAt": "2026-05-04",
+  "origin": "migrated",
+  "note": "Migrated by scripts/migrate-event-claims.mjs (PI-005 Stage 2) from bookingRequired already on next/src/content/events/peninsula-hot-springs-sound-healing-sessions.json. No editorial judgement was applied and no content record was changed."
+}

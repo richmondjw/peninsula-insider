@@ -5,13 +5,14 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import SubpageHero from '../../components/SubpageHero.astro';
 import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import { routeSlug } from '../../lib/editorial';
+import { routeSlug, isListableVenue } from '../../lib/editorial';
+import ProvenanceLine from '../../components/ProvenanceLine.astro';
 
 const allVenues = await getCollection('venues');
 
 const venues = allVenues
   .filter(v => v.data.type === 'bakery')
-  .filter((v) => v.data.status !== 'permanently_closed')
+  .filter(isListableVenue)
   .sort((a, b) => (a.data.name ?? '').localeCompare(b.data.name ?? ''));
 
 const breadcrumbItems = [
@@ -93,7 +94,7 @@ export const prerender = true;
     <p>The Peninsula bakery scene is smaller than the cafe scene and better for it. There are six bakeries worth knowing about, scattered across the Peninsula from Mornington to Flinders. Each has a reason: a particular loaf, a particular morning, a particular detour that makes it worth the drive from wherever you are staying.</p>
         <p>The sell-out-by-noon problem is real across most of them. Arriving before ten on weekends is strongly advised. None of them have the inventory depth of a city bakery - they make what they make and stop when it is gone. That is largely the point.</p>
         <p>Flinders Sourdough is the benchmark. Everything else maps from there by location and what you need the stop to do for the rest of the day.</p>
-        <p class="venues__sub" style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 23 April 2026</p>
+        <ProvenanceLine class="venues__sub" style="font-size:0.8rem;color:var(--soft)" records={venues} type="venues" noun="venue" />
       </div>
   </div>
 </SubpageHero>

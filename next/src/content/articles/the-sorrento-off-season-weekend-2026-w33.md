@@ -1,5 +1,4 @@
 ---
-slug: "the-sorrento-off-season-weekend-2026-w33"
 title: "The Sorrento Off-Season Weekend"
 dek: "Two nights, one village, and nothing to book but a table."
 author: "editorial"

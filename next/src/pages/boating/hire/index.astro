@@ -6,12 +6,16 @@ import SectionHero from '../../../components/SectionHero.astro';
 import NewsletterBlock from '../../../components/NewsletterBlock.astro';
 import BfAnalytics from '../../../components/BfAnalytics.astro';
 import { buildBfHubSchema } from '../../../lib/schema';
-import { formatVerifiedStamp } from '../../../lib/bf';
-
-const lastVerifiedISO = '2026-04-30';
-const lastVerifiedStamp = formatVerifiedStamp(lastVerifiedISO);
+import { pageProvenance } from '../../../lib/page-provenance';
 
 const allHire = await getCollection('boatHire', ({ data }) => data.status === 'published');
+
+// PI-004: the stamp is derived from the records this page lists, never
+// declared. It is a fact-check date only when every record carries live
+// supporting evidence in the claim registry; otherwise it is the floor of
+// their review dates, and the page words it as a review.
+const provenance = await pageProvenance(allHire, 'boat-hire');
+const modifiedISO = provenance.stampISO ?? undefined;
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
@@ -24,7 +28,7 @@ const hubSchema = buildBfHubSchema({
   description:
     'Self-drive and skippered boat hire on the Mornington Peninsula. Operator profiles, vessel types, no-licence options, and gear-included pricing.',
   path: '/boating/hire/',
-  dateModified: lastVerifiedISO,
+  dateModified: modifiedISO,
   breadcrumbs: [
     { name: 'Home', path: '/' },
     { name: 'Boating', path: '/boating/' },
@@ -46,7 +50,7 @@ export const prerender = true;
   description="Self-drive boat hire on the Mornington Peninsula. Operator profiles, vessel types, no-licence options, and gear-included pricing - by location."
   section="boating"
   canonical="https://peninsulainsider.com.au/boating/hire/"
-  modifiedTime={lastVerifiedISO}
+  modifiedTime={modifiedISO}
 >
   <script type="application/ld+json" set:html={JSON.stringify(hubSchema)} />
   <BfAnalytics />

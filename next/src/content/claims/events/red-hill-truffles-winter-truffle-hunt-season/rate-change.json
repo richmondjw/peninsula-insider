@@ -1,0 +1,20 @@
+{
+  "claimId": "events/red-hill-truffles-winter-truffle-hunt-season/rate-change",
+  "claimClass": "rate-change",
+  "subject": {
+    "type": "events",
+    "slug": "red-hill-truffles-winter-truffle-hunt-season",
+    "field": "freePaid"
+  },
+  "statement": "Entry to Red Hill Truffles: Winter Truffle Hunt Season is ticketed.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "red-hill-truffles-winter-truffle-hunt-season",
+      "field": "freePaid"
+    }
+  ],
+  "createdAt": "2026-05-04",
+  "origin": "migrated",
+  "note": "Migrated by scripts/migrate-event-claims.mjs (PI-005 Stage 2) from freePaid already on next/src/content/events/red-hill-truffles-winter-truffle-hunt-season.json. No editorial judgement was applied and no content record was changed."
+}

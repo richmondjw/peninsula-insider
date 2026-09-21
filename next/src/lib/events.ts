@@ -8,6 +8,16 @@
 
 import type { CollectionEntry } from 'astro:content';
 import { eventAccessLabel } from './event-access.mjs';
+import { USE_OCCURRENCE_MODEL } from './features';
+import {
+  bookingAvailability,
+  dayIsoOf,
+  isoOffsetFor,
+  occurrenceBounds,
+  recordDisposition,
+  schemaEventStatus,
+  spanBounds,
+} from './event-occurrence.mjs';
 
 export type Event = CollectionEntry<'events'>;
 
@@ -225,25 +235,49 @@ export function eventJsonLd(event: Event, siteUrl: string): Record<string, unkno
   const eventStartDate = usesNextOccurrence ? nextOccurrence : data.startDate;
   const eventEndDate = usesNextOccurrence ? nextOccurrence : (data.endDate ?? data.startDate);
 
+  // PI-008: the offset used to be the literal +10:00, on every event, all
+  // year. Melbourne is +11:00 from October to April, which is most of the
+  // calendar this site sells, so every daylight-saving event has been
+  // publishing its times an hour late to search engines and assistants.
+  // occurrenceBounds resolves the wall clock through Intl instead, which also
+  // gets the two transition days right: 01:30 to 03:30 is one hour on the
+  // first Sunday in October and three on the first Sunday in April.
+  const startDayIso = dayIsoOf(eventStartDate) ?? eventStartDate.toISOString().slice(0, 10);
+  const endDayIso = dayIsoOf(eventEndDate) ?? startDayIso;
+  const stampedISO = (instant: Date, dayIso: string, clock: string) =>
+    `${dayIso}T${clock}:00${isoOffsetFor(instant)}`;
+
   const startISO = (() => {
-    if (data.startTime) {
-      const d = eventStartDate.toISOString().slice(0, 10);
-      return `${d}T${data.startTime}:00+10:00`;
-    }
-    return eventStartDate.toISOString();
+    if (!data.startTime) return eventStartDate.toISOString();
+    if (!USE_OCCURRENCE_MODEL) return `${startDayIso}T${data.startTime}:00+10:00`;
+    const bounds = occurrenceBounds(data as Record<string, unknown>, startDayIso, {
+      isFinalDay: startDayIso === endDayIso,
+    });
+    return stampedISO(bounds.startsAt, startDayIso, data.startTime);
   })();
   const endISO = (() => {
     if (data.endTime) {
-      const d = eventEndDate.toISOString().slice(0, 10);
-      return `${d}T${data.endTime}:00+10:00`;
+      if (!USE_OCCURRENCE_MODEL) return `${endDayIso}T${data.endTime}:00+10:00`;
+      // spanBounds, not occurrenceBounds: a multi-day run finishes on its own
+      // calendar day, which can sit on the other side of a daylight-saving
+      // transition from the day it opened. Resolving the end clock against
+      // the START day takes the offset from the wrong end of the run - NWOP
+      // 2026 (5 Sep AEST to 22 Nov AEDT) published its 16:00 close as
+      // 16:00+10:00, an hour late. For a single-day record, including a
+      // cross-midnight one, spanBounds delegates straight back to
+      // occurrenceBounds on the start day, so nothing else moves.
+      const bounds = spanBounds(data as Record<string, unknown>, startDayIso, endDayIso);
+      // A cross-midnight occurrence finishes on the following calendar day.
+      // Stamping the end time onto the start day produced an endDate before
+      // the startDate, which is invalid Event schema.
+      const realEndDay = dayIsoOf(bounds.endsAt) ?? endDayIso;
+      const spanEndDay = endDayIso > startDayIso ? endDayIso : realEndDay;
+      return stampedISO(bounds.endsAt, spanEndDay, data.endTime);
     }
     // A same-day record with a start time but no explicit end time is a
     // point-in-time event. Midnight on that date would precede startISO and
     // emit invalid Event schema, so use the known instant for both bounds.
-    if (
-      data.startTime &&
-      eventEndDate.toISOString().slice(0, 10) === eventStartDate.toISOString().slice(0, 10)
-    ) {
+    if (data.startTime && endDayIso === startDayIso) {
       return startISO;
     }
     return eventEndDate.toISOString();
@@ -283,11 +317,31 @@ export function eventJsonLd(event: Event, siteUrl: string): Record<string, unkno
     // its course must NOT keep advertising EventScheduled: endDate already
     // marks it historical, and a stale "scheduled" status is what
     // lint-seo-architecture's stale-event-scheduled assertion catches.
-    ...((data as Record<string, unknown>).cancelled === true
-      ? { eventStatus: 'https://schema.org/EventCancelled' }
-      : new Date(endISO) >= new Date()
-        ? { eventStatus: 'https://schema.org/EventScheduled' }
-        : {}),
+    //
+    // PI-008 adds the two states the pair could not express. A postponed event
+    // is not cancelled and is not going ahead on the date shown; a rescheduled
+    // one is going ahead on a different date, and schema.org wants the old one
+    // declared as previousStartDate so an assistant holding the stale date can
+    // reconcile it.
+    ...(() => {
+      const past = new Date(endISO) < new Date();
+      if (!USE_OCCURRENCE_MODEL) {
+        return (data as Record<string, unknown>).cancelled === true
+          ? { eventStatus: 'https://schema.org/EventCancelled' }
+          : past
+            ? {}
+            : { eventStatus: 'https://schema.org/EventScheduled' };
+      }
+      const disposition = recordDisposition(data as Record<string, unknown>);
+      const eventStatus = schemaEventStatus(disposition.status, { past });
+      const previous = (data as Record<string, unknown>).postponedFrom ?? data.startDate;
+      return {
+        ...(eventStatus ? { eventStatus } : {}),
+        ...(disposition.status === 'rescheduled' && previous
+          ? { previousStartDate: `${dayIsoOf(previous)}` }
+          : {}),
+      };
+    })(),
     eventAttendanceMode:
       data.indoorOutdoor === 'Indoor' || data.indoorOutdoor === 'Indoor / Outdoor'
         ? 'https://schema.org/MixedEventAttendanceMode'
@@ -314,11 +368,28 @@ export function eventJsonLd(event: Event, siteUrl: string): Record<string, unkno
   // site, including JSON-LD). Free-event marker stays in the data layer
   // (priceTier === 'free') so the visible "Free" label below can still
   // render, but the structured Offer with priceCurrency/price is dropped.
+  // PI-008: availability was the literal InStock on every event that had a
+  // booking link, including the cancelled ones. It now reads the bookingStatus
+  // axis, which is what that axis exists for. Still no price, no currency and
+  // no validFrom (BRAND-PI 2026-05-15).
+  //
+  // A record that says nothing keeps InStock. bookingAvailability() returns
+  // null for `unknown` because that is the honest answer inside the model, but
+  // silently dropping the field from 26 live records would be a publishing
+  // change smuggled in on the back of a status change. Records opt in to a
+  // different answer by stating one; the default stays exactly where it was.
   if (data.ticketingUrl || data.bookingUrl) {
+    const cancelled = (data as Record<string, unknown>).cancelled === true;
+    const stated = bookingAvailability(
+      String((data as Record<string, unknown>).bookingStatus ?? 'unknown')
+    );
+    const availability = USE_OCCURRENCE_MODEL
+      ? (cancelled ? 'https://schema.org/SoldOut' : (stated ?? 'https://schema.org/InStock'))
+      : 'https://schema.org/InStock';
     ld.offers = {
       '@type': 'Offer',
       url: data.ticketingUrl ?? data.bookingUrl,
-      availability: 'https://schema.org/InStock',
+      availability,
     };
   }
 
@@ -426,19 +497,40 @@ export function eventCalendarUrl(data: Event['data'], canonical: string): string
   let dates: string;
   if (data.startTime) {
     const [sh, sm] = data.startTime.split(':').map((n) => parseInt(n, 10) || 0);
-    // Treat user-entered times as Melbourne local (AEST/AEDT). We render the
-    // GCal URL in UTC. AEST is +10, AEDT is +11; we use +10 as a stable
-    // baseline since the user can edit on import. Better to be slightly off
-    // than to misrender DST.
-    const startLocal = new Date(Date.UTC(start.getFullYear(), start.getMonth(), start.getDate(), sh - 10, sm));
+    // PI-008: this used to subtract a hardcoded ten hours ("better to be
+    // slightly off than to misrender DST"), which put every event between
+    // October and April into a reader's calendar an hour late. The Melbourne
+    // offset for the actual instant is now resolved through Intl, so there is
+    // nothing left to be slightly off about.
+    let startLocal: Date;
     let endLocal: Date;
-    if (data.endTime) {
-      const [eh, em] = data.endTime.split(':').map((n) => parseInt(n, 10) || 0);
-      const endDate = end;
-      endLocal = new Date(Date.UTC(endDate.getFullYear(), endDate.getMonth(), endDate.getDate(), eh - 10, em));
+    if (USE_OCCURRENCE_MODEL) {
+      const dayIso = dayIsoOf(start) ?? start.toISOString().slice(0, 10);
+      const endDayIso = dayIsoOf(end) ?? dayIso;
+      const bounds = occurrenceBounds(data as Record<string, unknown>, dayIso, {
+        isFinalDay: dayIso === endDayIso,
+      });
+      startLocal = bounds.startsAt;
+      if (data.endTime && endDayIso > dayIso) {
+        endLocal = occurrenceBounds(data as Record<string, unknown>, endDayIso, {
+          isFirstDay: false,
+          isFinalDay: true,
+        }).endsAt;
+      } else if (data.endTime) {
+        endLocal = bounds.endsAt;
+      } else {
+        // Default to a 2-hour block when no end time is given, unchanged.
+        endLocal = new Date(startLocal.getTime() + 2 * 60 * 60 * 1000);
+      }
     } else {
-      // Default to 2-hour event when no end-time given.
-      endLocal = new Date(startLocal.getTime() + 2 * 60 * 60 * 1000);
+      startLocal = new Date(Date.UTC(start.getFullYear(), start.getMonth(), start.getDate(), sh - 10, sm));
+      if (data.endTime) {
+        const [eh, em] = data.endTime.split(':').map((n) => parseInt(n, 10) || 0);
+        const endDate = end;
+        endLocal = new Date(Date.UTC(endDate.getFullYear(), endDate.getMonth(), endDate.getDate(), eh - 10, em));
+      } else {
+        endLocal = new Date(startLocal.getTime() + 2 * 60 * 60 * 1000);
+      }
     }
     dates = `${fmtDateTime(startLocal)}/${fmtDateTime(endLocal)}`;
   } else {
@@ -465,10 +557,19 @@ export function eventCalendarUrl(data: Event['data'], canonical: string): string
  * whether the link points at a true ticket platform (vs. a generic booking
  * page). Used by the event sidebar to label the CTA correctly.
  */
-export function eventBookingTarget(data: Event['data']): { href: string; label: string } | null {
-  if (data.ticketingUrl) return { href: data.ticketingUrl, label: 'Get tickets' };
-  if (data.bookingUrl) return { href: data.bookingUrl, label: 'Book or check details' };
-  if (data.organiser?.website) return { href: data.organiser.website, label: 'Visit organiser' };
+/**
+ * `kind` was added for PI-024. The three branches below are not equivalent:
+ * a ticketing or booking URL carries reservation intent, an organiser's
+ * homepage does not. booking_outbound_clicked counts only the first two, so
+ * the caller needs to know which branch it got rather than guessing from the
+ * label string.
+ */
+export function eventBookingTarget(
+  data: Event['data'],
+): { href: string; label: string; kind: 'tickets' | 'booking' | 'organiser' } | null {
+  if (data.ticketingUrl) return { href: data.ticketingUrl, label: 'Get tickets', kind: 'tickets' };
+  if (data.bookingUrl) return { href: data.bookingUrl, label: 'Book or check details', kind: 'booking' };
+  if (data.organiser?.website) return { href: data.organiser.website, label: 'Visit organiser', kind: 'organiser' };
   return null;
 }
 

@@ -7,6 +7,7 @@
  */
 
 import { verifiedFreshnessLabel, verificationFreshness } from '../lib/venues';
+import { informationCheckedOn } from '../lib/verification-date.mjs';
 import { routeSlug, venueHref } from '../lib/editorial';
 import PiSaveActions from './PiSaveActions.astro';
 import { editableImage } from '../lib/inline-edit/attrs';
@@ -83,7 +84,7 @@ const summaryLine = [shortAddress, data.priceBand].filter(Boolean).join(' · ');
 // file specifies - so the rebuilt page renders the new image directly.
 const hero = await resolveHero('venue', slug, data);
 const hasPhoto = hero.hasPhoto;
-const verifiedLabel = verifiedFreshnessLabel(data.lastVerified);
+const verifiedLabel = verifiedFreshnessLabel(informationCheckedOn(data));
 const verifiedTier = verificationFreshness(data.lastVerified);
 ---
 
@@ -128,11 +129,21 @@ const verifiedTier = verificationFreshness(data.lastVerified);
   <div class="venue-card__actions">
     <a href={href} class="pi-btn pi-btn--solid">Read notes</a>
     {data.bookingUrl && data.bookingProvider !== 'none' && (
-      <a href={data.bookingUrl} target="_blank" rel="noopener noreferrer" class="pi-btn pi-btn--ghost" onClick={(e: any) => e.stopPropagation()}>{hrefPrefix === '/stay' ? 'View stay' : 'Book'}</a>
+      <a
+        href={data.bookingUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="pi-btn pi-btn--ghost"
+        data-pi-book="booking"
+        data-pi-entity-type={data.type}
+        data-pi-entity-slug={slug}
+        data-pi-surface="venue-card"
+        data-pi-provider={data.bookingProvider}
+      >{hrefPrefix === '/stay' ? 'View stay' : 'Book'}</a>
     )}
   </div>
   {data.featuredPartner && (
-    <p class="venue-card__partner-note">Partner venue</p>
+    <p class="venue-card__partner-note">Sponsored placement</p>
   )}
   <PiSaveActions
     kind="venue"

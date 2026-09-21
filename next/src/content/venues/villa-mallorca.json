@@ -9,8 +9,6 @@
     "lng": 145.022
   },
   "address": "Mt Martha VIC 3934",
-  "website": "https://villamallorca.com.au",
-  "bookingUrl": "https://villamallorca.com.au",
   "bookingProvider": "direct",
   "priceBand": "$$$",
   "signature": "Two suites in a Majorcan finca-style property in Mt Martha, where the hosts are named in 212 TripAdvisor reviews and are the actual product.",
@@ -44,7 +42,9 @@
   },
   "heroImage": {
     "src": "/images/sourced/place-mount-martha-01.webp",
-    "alt": "Mornington Peninsula - representative image for Villa Mallorca pending venue media",
+    "alt": "An elevated view along a curving sandy beach lined with white bathing boxes, houses and trees behind them.",
+    "depicts": "a curving bay beach lined with white bathing boxes, seen from above",
+    "depictionStatus": "illustrative",
     "credit": "Peninsula Insider",
     "license": "other-licensed"
   },
@@ -58,5 +58,27 @@
     "Majorcan Finca Architecture",
     "Spanish Guitar on the Terrace",
     "212+ Named TripAdvisor Reviews"
-  ]
+  ],
+  "operatingStatus": "verify-open",
+  "closureNote": "Recorded domain villamallorca.com.au does not resolve (NXDOMAIN, checked 2026-09-13 against 1.1.1.1). The property is still carried by third party inventory: Booking.com (https://www.booking.com/hotel/au/villa-mallorca.html) and Victoria Tourism (https://www.victoriatourism.com.au/hotel/guest-house-cottage/vic/mount-martha/villa-mallorca/7249) both list Villa Mallorca at Mount Martha. No operator page and no closure notice were found, so trading status is unresolved and no replacement URL is recorded.",
+  "retiredSourceLinks": [
+    {
+      "field": "website",
+      "url": "https://villamallorca.com.au",
+      "verdict": "dead",
+      "disposition": "gone",
+      "checkedOn": "2026-09-13",
+      "note": "Domain does not resolve. No successor found."
+    },
+    {
+      "field": "bookingUrl",
+      "url": "https://villamallorca.com.au",
+      "verdict": "dead",
+      "disposition": "gone",
+      "checkedOn": "2026-09-13",
+      "note": "Domain does not resolve. No successor found."
+    }
+  ],
+  "sourceStatus": "unsourced",
+  "sourceStatusNote": "Domain does not resolve. No successor found."
 }

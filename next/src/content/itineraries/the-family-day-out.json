@@ -1,10 +1,18 @@
 {
   "slug": "the-family-day-out",
   "title": "The Peninsula Family Day Out",
-  "dek": "A single day built around one anchor (the gondola), one lunch that works with children (the brewery), and one beach that forgives everything. No drives longer than twenty minutes, no bookings that punish a melt-down.",
+  "dek": "The gondola, a brewery lunch and a bay beach, with a final coffee stop if the family still has the energy. Four stops you can shorten to three.",
   "audience": "family",
   "mood": "mixed",
   "lengthNights": 0,
+  "duration": "day",
+  "theme": ["general", "coastal"],
+  "anchorTown": "red-hill",
+  "baseTowns": ["red-hill", "mount-martha", "mornington"],
+  "bookingChecklist": [
+    { "item": "Arthurs Seat Eagle tickets", "priority": "recommended" },
+    { "item": "Check lunch service and cafe opening hours", "priority": "recommended" }
+  ],
   "stops": [
     {
       "day": 1,
@@ -24,14 +32,14 @@
       "day": 1,
       "order": 3,
       "experience": "mount-martha-beach",
-      "note": "The default family swim. Shallow, pale, gentle, with bathing boxes at the northern end. Park at the main lot, walk south if it is busy.",
+      "note": "Make the beach the afternoon pause. Choose whether to swim after checking the day's conditions, and supervise children near the water.",
       "timeOfDay": "afternoon"
     },
     {
       "day": 1,
       "order": 4,
       "venue": "commonfolk-coffee",
-      "note": "The right way to close the day. Serious coffee for the adults, a babyccino and pastry for a tired child, and an easy freeway exit afterwards.",
+      "note": "An optional coffee stop on the way north. Check the closing time before leaving the beach; skip it if the day has run long.",
       "timeOfDay": "afternoon"
     }
   ],
@@ -42,6 +50,6 @@
     "credit": "Wikimedia Commons",
     "license": "wikimedia-cc-by-sa"
   },
-  "editorNote": "A Peninsula day with kids works when you have one anchor for the children (the gondola) and one anchor for the adults (the lunch). Four moves, ninety minutes apart, no degustation, no back-beach gambles with under-sixes. This plan does not try to be all things  -  and that is the reason it lands.",
+  "editorNote": "Give the day two anchors: the gondola and lunch. The beach can be a short wander or a longer pause, depending on the conditions and the children's energy. The final coffee is optional. Check tickets, food service and opening times before leaving home rather than treating the four stops as a fixed timetable.",
   "publishedAt": "2026-04-15"
 }

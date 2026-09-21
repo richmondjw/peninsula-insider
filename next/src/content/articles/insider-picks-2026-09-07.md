@@ -6,7 +6,9 @@ houseByline: true
 publishedAt: 2026-09-07
 heroImage:
   src: "/images/sourced/place-dromana-01.webp"
-  alt: "Mornington Peninsula landscape - representative image for Crittenden Estate"
+  alt: "A long-exposure photograph beneath a concrete pier, a black pipe running down the sand into smooth water under a clouded sky."
+  depicts: "a long exposure beneath a concrete pier, a pipe running down the sand into the water"
+  depictionStatus: "illustrative"
   credit: "Peninsula Insider"
   license: "other-licensed"
 format: "insider-edit"

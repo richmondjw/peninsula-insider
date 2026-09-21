@@ -123,7 +123,70 @@ export const prerender = true;
   </div>
 
   <script is:inline>
-    (function () {
+    /*
+      Astro's client router never re-executes a script it has already run - it
+      keys on the script's text, so an inline script runs exactly once per tab.
+      Everything below binds to elements the router REPLACES on every
+      navigation, so before PI-012 a reader who searched, opened a result and
+      came back to /search/ found a search box that did nothing at all: no
+      submit handler, no input handler, no chips, no pagination. Nothing threw,
+      and the idle copy baked into the static HTML still read "Start typing to
+      search", so it looked like it was waiting for them.
+
+      Hence initSearchPage(), re-run on astro:page-load against whatever DOM is
+      live. Every listener it registers is on a page-local element that the
+      swap discards along with the listener, so re-running rebinds rather than
+      accumulating - and the element-level guard stops the ordinary double run
+      on first load (module execution, then the initial astro:page-load) from
+      binding twice.
+    */
+    // Hoisted out of initSearchPage() deliberately. It needs nothing from the
+    // page's closure - a count and a chip name - and keeping it out means the
+    // only named function that mentions pi.site_search_queries is this one, so
+    // the rule in scripts/search-query-privacy.test.mjs stays a rule about the
+    // logger rather than about every line on the page.
+    // Fire-and-forget: log the OUTCOME of a search to Supabase. Uses
+    // keepalive so the beacon survives page navigations.
+    //
+    // PRIVACY CONTRACT (A13). This function must never be able to see the
+    // reader's query text, so it is not given it. Search boxes receive
+    // names, addresses, medical and financial terms from people who have
+    // no expectation that any of it is stored, and until 2026-09-14 every
+    // completed search POSTed the raw string to pi.site_search_queries for
+    // every reader, consented or not.
+    //
+    // What survives is the part that serves the product: how many results
+    // came back (so zero-result gaps are still countable), which chip was
+    // active, which surface fired, and the path. None of it carries what
+    // the reader was looking for. Do not add a parameter carrying the
+    // query, a hash of it, or a prefix of it - a hash is still a join key,
+    // and a prefix is still the text. scripts/search-query-privacy.test.mjs
+    // enforces this as a rule, not as a snapshot.
+    function logSearchOutcome(resultCount, kindFilter) {
+      try {
+        const sb = window.__PI_SB;
+        if (!sb || !sb.url || !sb.key) return;
+        const payload = {
+          result_count: resultCount,
+          kind_filter: kindFilter === 'all' ? null : (kindFilter || null),
+          surface: 'search_page',
+          page_path: window.location.pathname,
+        };
+        fetch(sb.url + '/rest/v1/site_search_queries', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'apikey': sb.key,
+            'Authorization': 'Bearer ' + sb.key,
+            'Prefer': 'return=minimal',
+          },
+          body: JSON.stringify(payload),
+          keepalive: true,
+        }).catch(function () {});
+      } catch (_e) {}
+    }
+
+    function initSearchPage() {
       const form = document.getElementById('searchPageForm');
       const input = document.getElementById('searchPageInput');
       const list = document.getElementById('searchResultsList');
@@ -131,6 +194,10 @@ export const prerender = true;
       const pagination = document.getElementById('searchPagination');
       const fallback = document.getElementById('searchFallback');
       const chips = Array.from(document.querySelectorAll('.search-page-v2__chip'));
+
+      if (!form || !input) return;
+      if (form.dataset.piSearchBound === '1') return;
+      form.dataset.piSearchBound = '1';
 
       const PER_PAGE = 12;
       let pagefindModule = null;
@@ -211,33 +278,6 @@ export const prerender = true;
           .replace(/>/g, '&gt;')
           .replace(/"/g, '&quot;')
           .replace(/'/g, '&#039;');
-      }
-
-      // Fire-and-forget: log the search query to Supabase for analytics.
-      // Uses keepalive so the beacon survives page navigations.
-      function logSearch(query, resultCount, kindFilter) {
-        try {
-          const sb = window.__PI_SB;
-          if (!sb || !sb.url || !sb.key) return;
-          const payload = {
-            query: query,
-            result_count: resultCount,
-            kind_filter: kindFilter === 'all' ? null : (kindFilter || null),
-            surface: 'search_page',
-            page_path: window.location.pathname,
-          };
-          fetch(sb.url + '/rest/v1/site_search_queries', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'apikey': sb.key,
-              'Authorization': 'Bearer ' + sb.key,
-              'Prefer': 'return=minimal',
-            },
-            body: JSON.stringify(payload),
-            keepalive: true,
-          }).catch(function () {});
-        } catch (_e) {}
       }
 
       async function loadPagefind() {
@@ -627,7 +667,7 @@ export const prerender = true;
       function rpcHitToHandle(hit, query) {
         const q = (query || '').toLowerCase();
         const dek = hit.dek || '';
-        let excerpt = escapeHtml(dek.slice(0, 260));
+        let excerpt = escapeHtml(clipExcerpt(dek, 260));
         if (q && excerpt.toLowerCase().includes(q)) {
           const i = excerpt.toLowerCase().indexOf(q);
           excerpt = excerpt.slice(0, i) + '<mark>' + excerpt.slice(i, i + q.length) + '</mark>' + excerpt.slice(i + q.length);
@@ -673,6 +713,51 @@ export const prerender = true;
         return [bestBetToHandle(intent), ...filtered];
       }
 
+      /* PI-024 measurement.
+         `search_submitted` records a SUBMISSION, not a keystroke. This page
+         re-runs the search on a 100ms input debounce, so firing per run would
+         report one submission per character typed and make every downstream
+         rate meaningless. `commitTrigger` is set only by an explicit commit
+         (form submit, a kind chip applied to a live query, or arriving with
+         ?q= in the URL) and is consumed by the first runSearch that follows.
+         The event is emitted once the results settle so it can carry an
+         honest result_count. The query itself never travels - only its
+         length bucket. */
+      let commitTrigger = null;
+
+      function shapeOf(text) {
+        const a = window.piAnalytics;
+        return a && a.lengthBucket ? a.lengthBucket(text) : 'unknown';
+      }
+
+      function emitSearchSubmitted(q, resultCount, engine) {
+        if (!commitTrigger) return;
+        const trigger = commitTrigger;
+        commitTrigger = null;
+        window.piTrack?.('search_submitted', {
+          surface: 'search_page',
+          trigger,
+          engine,
+          kind_filter: currentKind,
+          query_length: shapeOf(q),
+          result_count: resultCount,
+          zero_results: resultCount === 0,
+        }, { component: 'SearchPage' });
+      }
+
+      function emitSearchFailed(q, engine, reason) {
+        const trigger = commitTrigger || 'typeahead';
+        commitTrigger = null;
+        window.piTrack?.('search_failed', {
+          surface: 'search_page',
+          trigger,
+          engine,
+          kind_filter: currentKind,
+          query_length: shapeOf(q),
+          reason,
+        }, { component: 'SearchPage' });
+      }
+
       async function runSearch() {
         const q = (input?.value || '').trim();
         currentQuery = q;
@@ -703,7 +788,8 @@ export const prerender = true;
             if (Array.isArray(hits) && hits.length > 0) {
               currentResults = withBestBet(hits.map((h) => rpcHitToHandle(h, q)), q);
               await showPage(1);
-              logSearch(q, currentResults.length, currentKind);
+              logSearchOutcome(currentResults.length, currentKind);
+              emitSearchSubmitted(q, currentResults.length, 'rpc');
               updateUrl(q);
               return;
             }
@@ -733,9 +819,11 @@ export const prerender = true;
           } else {
             await showPage(1);
           }
-          logSearch(q, currentResults.length, currentKind);
+          logSearchOutcome(currentResults.length, currentKind);
+          emitSearchSubmitted(q, currentResults.length, 'pagefind');
         } catch (err) {
           console.warn('[search] error', err);
+          emitSearchFailed(q, 'pagefind', 'search-error');
           if (list) list.innerHTML = '<div class="search-page-v2__loading"><p>Search isn\'t available right now. Try again in a moment.</p></div>';
           if (fallback) fallback.hidden = true;
         }
@@ -754,8 +842,27 @@ export const prerender = true;
       // Wire form
       form?.addEventListener('submit', (e) => {
         e.preventDefault();
+        commitTrigger = 'submit';
         runSearch();
       });
+
+      /* result_selected. Capture phase, because a result click navigates
+         away immediately and a bubble-phase handler can lose the beacon.
+         Position is read from the rendered order rather than stored on the
+         element, so it stays correct after pagination re-renders the list. */
+      list?.addEventListener('click', (e) => {
+        const card = e.target.closest?.('a.search-card');
+        if (!card || !list.contains(card)) return;
+        const cards = Array.from(list.querySelectorAll('a.search-card'));
+        window.piTrack?.('result_selected', {
+          surface: 'search_page',
+          position: cards.indexOf(card) + 1,
+          result_count: currentResults.length,
+          kind_filter: currentKind,
+          query_length: shapeOf(currentQuery),
+          entity_type: card.querySelector('.search-card__kind')?.textContent?.trim() || '',
+        }, { component: 'SearchPage' });
+      }, true);
 
       // Debounced live search as the user types - Pagefind is fast enough
       // that this feels instant.
@@ -775,7 +882,15 @@ export const prerender = true;
           chip.classList.add('is-active');
           chip.setAttribute('aria-selected', 'true');
           currentKind = chip.dataset.kind || 'all';
-          if (currentQuery) runSearch();
+          window.piTrack?.('filter_applied', {
+            surface: 'search_page',
+            source: 'chip',
+            noun: 'result',
+            filter_keys: 'kind',
+            filter_count: currentKind === 'all' ? 0 : 1,
+            kind_filter: currentKind,
+          }, { component: 'SearchPage', dedupKey: 'filter:search:' + currentKind });
+          if (currentQuery) { commitTrigger = 'filter'; runSearch(); }
           else updateUrl(currentQuery);
         });
       });
@@ -830,13 +945,17 @@ export const prerender = true;
       }
       if (initialQ && input) {
         input.value = initialQ;
+        commitTrigger = 'url';
         runSearch();
       } else {
         renderIdle();
       }
 
       input?.focus();
-    })();
+    }
+
+    initSearchPage();
+    document.addEventListener('astro:page-load', initSearchPage);
   </script>
 
   <!--
@@ -848,6 +967,7 @@ export const prerender = true;
   -->
   <script>
     import { search, typeahead } from '../lib/search-client.ts';
+    import { clipExcerpt } from '../lib/editorial.ts';
     function isAvailable() {
       const sb = (window as any).__PI_SB;
       return Boolean(sb && sb.url && sb.key);

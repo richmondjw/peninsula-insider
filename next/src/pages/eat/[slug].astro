@@ -4,7 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import VenueDetailTemplate from '../../components/VenueDetailTemplate.astro';
 import EventStrip from '../../components/EventStrip.astro';
 import Redirect from '../../components/Redirect.astro';
-import { routeSlug, typeLabel, titleize, isUpcoming, placeLabel } from '../../lib/editorial';
+import { routeSlug, typeLabel, titleize, isUpcoming, placeLabel, isListableVenue } from '../../lib/editorial';
 import { buildKnownForProperties, buildBreadcrumbSchema, absUrl } from '../../lib/schema';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
 
@@ -29,7 +29,7 @@ const slug = routeSlug(venue);
 const allVenues = await getCollection('venues');
 const related = allVenues
   .filter((entry) => routeSlug(entry) !== slug)
-  .filter((entry) => entry.data.status !== 'permanently_closed')
+  .filter(isListableVenue)
   .filter((entry) => eatTypes.includes(entry.data.type))
   .filter((entry) => String(entry.data.place?.id ?? entry.data.place) === String(venue.data.place?.id ?? venue.data.place))
   .slice(0, 3);
@@ -83,7 +83,12 @@ const description = sigDesc.length >= 90 ? sigDesc : (editorLead || sigDesc).sli
 // than ~130 KB. Asserted at 0 by scripts/audit-link-graph.mjs.
 // Prior context: pre-fix data showed kerri-greens, polperro and others indexed at
 // both URLs. See ops/reports/seo/experiments.md experiment 2026-05-05-03.
-const isWineryAlias = venue.data.type === 'winery';
+// Producers live under /wine/. Their /eat/ alias exists for the food side of the
+// visit but rendered the same page under a second URL with the same title
+// (six brewery pairs in the 2026-09-21 audit), so every producer type now
+// consolidates the way wineries already did.
+const PRODUCER_TYPES = ['winery', 'brewery', 'distillery', 'producer'];
+const isWineryAlias = PRODUCER_TYPES.includes(venue.data.type);
 const canonical = isWineryAlias
   ? `https://peninsulainsider.com.au/wine/${slug}/`
   : `https://peninsulainsider.com.au/eat/${slug}/`;

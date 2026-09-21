@@ -54,6 +54,11 @@ status: published
 verified: true
 lastVerified: 2026-04-30
 publishedAt: 2026-04-30
+heroImage:
+  src: /images/species/squid.webp
+  alt: "Illustrated natural history plate of a southern calamari, Sepioteuthis australis, in side view"
+  credit: Peninsula Insider
+  license: original-commissioned
 ---
 
 ## What southern calamari actually is
