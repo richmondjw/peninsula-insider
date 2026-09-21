@@ -23,7 +23,7 @@ npm run cycle:source      # audit next/dist instead of the published build
 ### Autonomous release contract (21 September 2026)
 
 James authorised routine source improvements without individual human approval.
-The gateway foreground runner is the only scheduled executor: 05:30 Melbourne,
+The gateway foreground step runner is the only scheduled executor: 05:30 Melbourne,
 expanded Sunday, at most five patches, 2,000 JEV requests and six in flight.
 Until the ledger holds a live-verified deployment, commissioning permits one
 patch per batch. Title edits preserve existing topic words and region names.
@@ -59,6 +59,17 @@ receipts, the source inventory, provider/schema/model-separated seven-day cache,
 and ledger. It is deliberately not committed into the site's main branch each day.
 Pending releases resume before any new batch. Interrupted preparation or conflicting
 edits stop with preserved evidence. Back up this runner directory with the gateway.
+
+The scheduled agent repeatedly calls `python3 ops/geo-engine/scripts/gateway-step.py`
+in the gateway, one foreground tool call per bounded step, until its JSON says
+`terminal: true`. Collection, source build, JEV audit, post-change build and release
+are separate calls. This avoids the gateway's 15-minute blocked-tool watchdog
+without disabling it or detaching a protected JEV process. Builds/audit have a
+13-minute process limit; release polls use five-minute steps. `pipeline.json`
+binds the next step to the tracked checkout fingerprint. Interrupted, expired or
+concurrently changed checkpoints fail closed. Child process groups are stopped on
+abort/timeout and local patches receive hash-guarded recovery. The older monolithic
+`gateway-cycle.sh` remains a manual compatibility path, not the cron entry point.
 
 Only live-verified releases enter measurement and URL cooldown. Final GSC page
 rows use complete non-overlapping equal-length windows after deployment. Sparse
@@ -228,8 +239,7 @@ The daily cycle runs on the **OpenClaw gateway**, not in GitHub Actions
 and the site's Search Console identity, so it is the one place a cycle can be
 both model-scored and demand-aware. `scripts/gateway-cycle.sh` is the runner;
 the `pi-seo-daily-pull` automation (05:30 Australia/Melbourne, Sunday expanded)
-invokes it through the gateway's exec tool via
-`workspace/peninsula-seo-geo/scheduled.py`, which also keeps the site's
+invokes `scripts/gateway-step.py` through consecutive gateway exec calls. It also keeps the site's
 existing Search Console collector. Each run: syncs the checkout, refreshes the
 analytics document, builds the current source for the deploy delta, runs the
 cycle with `--apply` against the source plane, retains state on the bind mount,
