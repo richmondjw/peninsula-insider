@@ -25,7 +25,8 @@ def continuation_args(pipeline, route, report_only=False):
     key = f'pi-geo-release-{run_id}-{sequence}'
     return sequence, ['cron', 'add', '--name', key, '--declaration-key', key, '--at', '1m', '--delete-after-run',
                       '--agent', 'main', '--session', 'isolated', '--message', message,
-                      '--model', 'lm-studio/qwen/qwen3-14b', '--fallbacks', 'openai/gpt-5.6-terra',
+                      '--model', route.get('model', 'claude-cli/claude-sonnet-5'),
+                      '--fallbacks', ','.join(route.get('fallbacks', ['claude-cli/claude-opus-5', 'openai/gpt-5.6-terra'])),
                       '--thinking', 'off', '--tools', 'exec', '--light-context', '--timeout-seconds', '600',
                       '--announce', '--channel', route['channel'], '--account', route['account'],
                       '--to', route['target'], '--thread-id', str(route['threadId']), '--json']

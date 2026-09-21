@@ -20,6 +20,7 @@ class ContinuationTests(unittest.TestCase):
         self.assertIn('--release-only --release-run run-1', args[args.index('--message') + 1])
         self.assertNotIn('--every', args)
         self.assertNotIn('--cron', args)
+        self.assertEqual(args[args.index('--model') + 1], 'claude-cli/claude-sonnet-5')
 
     def test_no_analysis_or_unbounded_continuation(self):
         for pipeline in [{'stage': 'audit', 'runId': 'run'}, {'stage': 'release', 'runId': 'bad;command'},
