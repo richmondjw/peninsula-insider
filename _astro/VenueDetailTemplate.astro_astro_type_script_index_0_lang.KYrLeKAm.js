@@ -1,1 +1,0 @@
-import{i as a,t as i}from"./v5-analytics.Dtgy3oxs.js";function t(){a(),document.querySelectorAll("[data-venue-view]").forEach(e=>{e.dataset.viewTracked||(e.dataset.viewTracked="1",i("venue_view",{entity_type:"venue",entity_slug:e.dataset.venueView,surface:"venue-detail"}))})}t();document.addEventListener("astro:page-load",t);
