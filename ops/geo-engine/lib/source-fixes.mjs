@@ -11,6 +11,18 @@ export const PATCH_ACTIONS = ['rewrite_title', 'rewrite_meta_description', 'add_
   'fix_broken_internal_link', 'add_internal_link', 'fix_malformed_jsonld', 'sitemap_remove_dead_url', 'sitemap_remove_noindex'];
 const escaped = s => s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const safePath = p => typeof p === 'string' && /^\/(?:[a-z0-9-]+\/)*$/.test(p) && !/^\/(admin|dev|account|ops|me)\//.test(p);
+const TOPIC_STOP = new Set('the a an and or of on in to for with from by at best guide insider every complete ultimate our your'.split(' '));
+export function preservesTopic(before, after, minimum = 1) {
+  const words=s=>new Set(String(s).toLowerCase().replace(/\s*[·|]\s*peninsula insider\s*$/i,'').match(/[a-z0-9]+/g)?.filter(w=>w.length>2 && !TOPIC_STOP.has(w))??[]);
+  const original=words(before), proposed=words(after);
+  // These region identifiers may never disappear from an existing search title.
+  if(['mornington','peninsula'].some(w=>original.has(w) && !proposed.has(w)))return false;
+  return !original.size || [...original].filter(w=>proposed.has(w)).length/original.size>=minimum;
+}
+
+export function isSensitivePage(urlPath, page) {
+  return /\b(safety|medical|emergency|legal|privacy|terms|corrections)\b/i.test(`${urlPath.replaceAll('-',' ')} ${page?.title??''} ${page?.h1??''}`);
+}
 
 function mappedDestination(root, from, pages) {
   for(const rel of ['ops/cloudflare-redirects.csv','ops/wellness-redirects.csv']) {
@@ -69,6 +81,7 @@ export function sourceFile(root, urlPath) {
 }
 
 export function proposePatch(finding, {pages, root = REPO_ROOT}) {
+  if(isSensitivePage(finding.urlPath,pages[finding.urlPath]))return null;
   if (['sitemap_url_missing_page','noindex_in_sitemap'].includes(finding.rule) && safePath(finding.urlPath)) {
     const page=pages[finding.urlPath];
     if(finding.rule==='sitemap_url_missing_page' && page || finding.rule==='noindex_in_sitemap' && page?.indexable!==false) return null;
@@ -118,16 +131,18 @@ export function proposePatch(finding, {pages, root = REPO_ROOT}) {
     // Extractive only: existing headline, no generated or inferred claims.
     const replacement = `${h1} · Peninsula Insider`;
     if(replacement.length>65)return null;
+    if(!preservesTopic(decodeEntities(title[1]),replacement))return null;
     if (Object.values(pages).some(p => p.urlPath !== finding.urlPath && p.title?.toLowerCase() === replacement.toLowerCase())) return null;
     after = before.replace(layout, layout.replace(title[0], `title="${escaped(replacement)}"`));
     action = 'rewrite_title'; expected = {title:replacement}; evidence = {existingHeadline:h1};
   } else if (['missing_meta_description','meta_description_length','duplicate_meta_description'].includes(finding.rule) && layout) {
     const prose=before.slice(before.indexOf('<BaseLayout'));
-    const sentence = [...prose.matchAll(/<p\b[^>]*>([\s\S]*?)<\/p>/g)]
-      .filter(m=>!/[{}]/.test(m[1])).flatMap(m=>sentences(stripTags(m[1])))
-      .find(s => s.length >= 80 && s.length <= 160 && !/[{}<>]/.test(s));
+    const lead = [...prose.matchAll(/<p\b[^>]*>([\s\S]*?)<\/p>/g)]
+      .filter(m=>!/[{}]/.test(m[1])).map(m=>stripTags(m[1])).find(s=>s.length>=80);
+    const sentence = sentences(lead??'').find(s => s.length >= 80 && s.length <= 160 && !/[{}<>]/.test(s));
     if (!sentence) return null;
     const attr = layout.match(/\bdescription="([^"]*)"/);
+    if(attr && !preservesTopic(decodeEntities(attr[1]),sentence,.6))return null;
     if (!attr && /\bdescription\s*=/.test(layout)) return null;
     const updated = attr ? layout.replace(attr[0], `description="${escaped(sentence)}"`) : layout.replace('<BaseLayout', `<BaseLayout description="${escaped(sentence)}"`);
     after = before.replace(layout, updated); action = attr ? 'rewrite_meta_description' : 'add_missing_meta_description';
@@ -169,6 +184,9 @@ export async function applySourceFixes({findings,pages,service,policy,runId,root
   const changeSet = new ChangeSet({runId,root});
   const touched = new Set();
   const previousRelease = readJson(path.join(STATE_DIR,'release.json'));
+  // Prove the complete release path on one patch before enabling full-size batches.
+  const commissioned = ledger.data.interventions.some(i=>i.mode==='deployed' && i.deployedSha);
+  const batchLimit = Math.min(5,policy.maxChangesPerRun,commissioned?5:1);
   const historyDir=path.join(STATE_DIR,'releases');
   const recent=fs.existsSync(historyDir) ? fs.readdirSync(historyDir).filter(f=>f.endsWith('.json'))
     .map(f=>readJson(path.join(historyDir,f))).filter(Boolean).sort((a,b)=>Date.parse(b.createdAt)-Date.parse(a.createdAt)).slice(0,3) : [];
@@ -179,7 +197,7 @@ export async function applySourceFixes({findings,pages,service,policy,runId,root
     const candidates=findings.map(finding=>({finding,patch:proposePatch(finding,{pages,root})})).filter(c=>c.patch);
     candidates.sort((a,b)=>candidatePriority(b.finding,b.patch,pages,ledger)-candidatePriority(a.finding,a.patch,pages,ledger));
     for (const {finding,patch} of candidates) {
-      if (changes.length >= Math.min(5, policy.maxChangesPerRun)) break;
+      if (changes.length >= batchLimit) break;
       if (touched.size >= 20) break;
       if (!patch || touched.has(patch.file) || !policy.allowedActions.includes(patch.action)) continue;
       if(patch.expected.title && changes.some(c=>c.expected.title?.toLowerCase()===patch.expected.title.toLowerCase()))continue;

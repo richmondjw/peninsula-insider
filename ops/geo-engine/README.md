@@ -25,6 +25,11 @@ npm run cycle:source      # audit next/dist instead of the published build
 James authorised routine source improvements without individual human approval.
 The gateway foreground runner is the only scheduled executor: 05:30 Melbourne,
 expanded Sunday, at most five patches, 2,000 JEV requests and six in flight.
+Until the ledger holds a live-verified deployment, commissioning permits one
+patch per batch. Title edits preserve existing topic words and region names.
+Meta descriptions must come from the opening substantive paragraph and preserve
+topic coverage, not a later isolated statistic. Safety, medical, emergency,
+legal, privacy, terms and corrections surfaces are excluded from routine mutation.
 `--no-build` is no longer supported. A failed build or stale analytics fails closed.
 
 `source-fixes.mjs` performs bounded extractive edits, never generated prose:
