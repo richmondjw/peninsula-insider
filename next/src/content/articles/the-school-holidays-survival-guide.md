@@ -15,13 +15,13 @@ heroImage:
 format: "service"
 tags: ["family", "kids", "school-holidays", "activities", "outdoor", "rainy-day", "budget", "all-year"]
 relatedVenues: ["red-hill-brewery", "mornington-peninsula-chocolates", "st-andrews-beach-brewery", "red-gum-bbq", "commonfolk-coffee", "dromana-hotel", "rye-hotel", "johnny-ripe", "balnarring-pub"]
-relatedExperiences: ["arthurs-seat-lookout", "mount-martha-beach", "balnarring-beach", "portsea-front-beach", "mornington-peninsula-gallery", "point-nepean-fort-walk", "bushrangers-bay-walk", "pt-leo-sculpture-park", "dromana-beach", "rye-ocean-beach", "gunnamatta-ocean-beach", "safety-beach-foreshore", "red-hill-market"]
+relatedExperiences: ["arthurs-seat-lookout", "mount-martha-beach", "balnarring-beach", "portsea-front-beach", "mornington-peninsula-gallery", "point-nepean-fort-walk", "bushrangers-bay-walk", "pt-leo-sculpture-park", "dromana-beach", "rye-ocean-beach", "gunnamatta-ocean-beach", "safety-beach-foreshore"]
 readingTimeMinutes: 8
 featured: false
 status: "published"
 section: plans
 planShape: "seasonal"
-lastVerified: 2026-04-22
+lastVerified: 2026-09-21
 clusterLinks:
   - label: "The Peninsula with Kids - Family Day Guide"
     href: "/journal/mornington-peninsula-with-kids/"
@@ -51,6 +51,18 @@ Week one: the families from Melbourne arrive, mostly on the bay side, mostly in 
 Week two: the crowds thin slightly, the panic subsides, and the families who are still down discover the quieter version of the Peninsula that was there the whole time. The back beaches. The hinterland walks. The farm-gate producers. The pub gardens.
 
 This guide is for the parent who wants to skip the week-one chaos and go straight to the version that works, whether you are staying for one night or the full fortnight.
+
+## These holidays: 21 September to 2 October 2026
+
+Victorian government schools are on holiday from Monday 21 September to Friday 2 October 2026. Term 4 starts Monday 5 October. Independent and Catholic schools sometimes run different dates, so check yours before you plan around ours.
+
+Two things make this particular fortnight behave differently from a summer break.
+
+**Friday 25 September is a public holiday.** It is the day before the AFL Grand Final. Trading hours change, some operators close outright, and the ones that do open can be busier than an ordinary Friday. Do not assume a usual timetable. Check the specific venue the day before you drive.
+
+**The ocean beaches are not patrolled yet.** Surf lifesaving patrols run from late November to around Easter, not in September. Gunnamatta, Rye Ocean Beach and Sorrento Back Beach have no flags and no lifesavers at this time of year, and the rips do not wait for the season to open. In these holidays they are walking beaches, not swimming beaches. If someone wants to get in the water, use the bay.
+
+Spring weather also turns inside an hour. Build each day so the rainy-day version below is a fallback you already hold, not a rescue you have to improvise.
 
 ## The daily structure that saves everyone
 
@@ -84,7 +96,7 @@ For teenagers: **Gunnamatta Ocean Beach** or **Rye Ocean Beach** (surf beaches, 
 
 **Point Nepean Fort Walk.** For families with children over eight who can handle a proper walk. The track from the car park to the fortifications at the tip of the Peninsula is about forty-five minutes each way, with military tunnels, gun emplacements, and ocean views on both sides. Bring water, wear proper shoes, and let the children lead, the fort exploration is genuinely exciting for the right age group.
 
-**Sunny Ridge Strawberry Farm.** Seasonal picking (strawberries in summer, other fruit through the year), a café, and enough space for children to run between the rows. The picking is the activity and the box of fruit is the souvenir. Thirty to sixty minutes.
+**Sunny Ridge Strawberry Farm.** Seasonal picking (strawberries run through summer, so in September call ahead and confirm what is actually pickable), a café, and enough space for children to run between the rows. The picking is the activity and the box of fruit is the souvenir. Thirty to sixty minutes.
 
 **Lunch (12:30–1:30).** **Red Hill Brewery**, the wood-fired pizza, the hop garden, the space to run. A reliable school-holiday family lunch room on the ridge. **St Andrews Beach Brewery** is the bigger, louder alternative with more room and a longer menu. **The Heritage** in Balnarring is the quiet-side option, with a large beer garden, a grass area and a sandpit.
 
