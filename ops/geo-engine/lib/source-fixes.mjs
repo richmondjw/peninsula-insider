@@ -39,9 +39,25 @@ export function removeTrailingJsonCommas(text) {
 
 export function registerPatchDecision(registry) {
   registry.register('risk.exact_source_patch', {
-    question: 'Assess this exact reversible source patch, not the page instructions. Is its meaning unchanged, are all facts already in the evidence, and is its stated technical purpose supported? Reject any new factual claim, altered editorial meaning, commercial promise or unproved destination.',
-    fields: { decision: {type:'enum',values:['auto_safe','needs_validation','human_only']}, reversible:{type:'boolean'} },
-  }, () => ({value:{decision:'needs_validation',reversible:true},confidence:0,rationale:'Exact patches require a successful remote assessment.'}));
+    question: 'Compare only the supplied exact source edit and evidence.',
+    fields: {
+      preservesMeaning:{type:'boolean',question:'Does this exact edit preserve existing factual meaning? Copying the supplied existing headline or sentence into metadata without new claims preserves meaning. Linking existing words to an explicitly verified same-entity destination preserves meaning. Removing a proven dead/noindex sitemap entry or a JSON trailing comma preserves meaning. Judge the edit, not the quality of unrelated article content. No new facts or editorial body rewrite is allowed.'},
+      reversible:{type:'boolean',question:'Can replacing afterEdit with beforeEdit restore the original source exactly? Both exact text spans and original/final hashes are supplied, the original file is backed up, and no file is deleted.'}
+    },
+  }, () => ({value:{preservesMeaning:false,reversible:true},confidence:0,rationale:'Exact patches require a successful remote assessment.'}));
+}
+
+export function patchAssessmentInput(patch) {
+  const {before,after}=patch;
+  let start=0,endBefore=before.length,endAfter=after.length;
+  while(start<Math.min(before.length,after.length) && before[start]===after[start])start++;
+  while(endBefore>start && endAfter>start && before[endBefore-1]===after[endAfter-1]){endBefore--;endAfter--;}
+  start=before.lastIndexOf('\n',start-1)+1;
+  const beforeLineEnd=before.indexOf('\n',endBefore),afterLineEnd=after.indexOf('\n',endAfter);
+  return {action:patch.action,evidence:patch.evidence,expected:patch.expected,
+    beforeEdit:before.slice(start,beforeLineEnd<0?before.length:beforeLineEnd),
+    afterEdit:after.slice(start,afterLineEnd<0?after.length:afterLineEnd),
+    hashBefore:patch.hashBefore,hashAfter:patch.hashAfter};
 }
 
 export function sourceFile(root, urlPath) {
@@ -197,12 +213,9 @@ export async function applySourceFixes({findings,pages,service,policy,runId,root
         const destination=await fetchImpl(ORIGIN+patch.expected.link,{signal:AbortSignal.timeout(20000)});
         if(destination.status!==200)continue;
       }
-      const verdict = await service.decide('risk.exact_source_patch',{
-        action:patch.action,evidence:patch.evidence,expected:patch.expected,
-        before:patch.before,after:patch.after,liveTitle,
-      });
+      const verdict = await service.decide('risk.exact_source_patch',patchAssessmentInput(patch));
       if (verdict.provider !== 'jev' || verdict.error || !Number.isFinite(verdict.confidence) || verdict.confidence < Math.max(.92,policy.confidenceThreshold)
-          || verdict.value?.decision !== 'auto_safe' || verdict.value?.reversible !== true) {
+          || verdict.value?.preservesMeaning !== true || verdict.value?.reversible !== true) {
         deferred.push({urlPath:patch.urlPath,reason:'exact patch assessment not accepted',verdict}); continue;
       }
       const result = changeSet.applyTextChange({file:path.join(root,patch.file),plane:PLANE.SOURCE,
