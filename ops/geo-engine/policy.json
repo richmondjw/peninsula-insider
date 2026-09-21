@@ -1,0 +1,13 @@
+{
+  "_README": "Autonomous change policy. enabled=false keeps the engine in audit/recommendation mode: it plans changes and shows what would pass the gate, but writes nothing. Raise the tier only after reviewing a cycle's output. See README.md 'Enabling autonomous changes'.",
+  "enabled": false,
+  "confidenceThreshold": 0.92,
+  "allowedActions": [
+    "fix_broken_internal_link",
+    "sitemap_remove_dead_url",
+    "fix_malformed_jsonld"
+  ],
+  "maxChangesPerRun": 5,
+  "requireReversible": true,
+  "refuseBuildOutputEdits": true
+}

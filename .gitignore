@@ -53,3 +53,7 @@ __pycache__/
 ops/seo-automation/.tools/
 ops/seo-automation/.runs/
 .lighthouseci/
+
+# SEO/GEO engine per-run evidence and rollback backups (state/ IS committed)
+ops/geo-engine/.runs/
+ops/geo-engine/.rollback/
