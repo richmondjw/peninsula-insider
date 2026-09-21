@@ -34,7 +34,8 @@ def continuation_args(pipeline, route, report_only=False):
 def schedule(pipeline, route, report_only=False):
     sequence, args = continuation_args(pipeline, route, report_only)
     result = subprocess.run(['openclaw', *args], capture_output=True, text=True, timeout=45, check=True)
-    job = json.loads(result.stdout)
+    receipt = json.loads(result.stdout)
+    job = receipt.get('job', receipt)  # Declaration-key upserts wrap the job receipt.
     if not job.get('id'):
         raise RuntimeError('No continuation job receipt')
     pipeline.update(continuationCount=sequence, continuationJob=job['id'])
