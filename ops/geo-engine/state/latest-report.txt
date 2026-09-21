@@ -1,5 +1,5 @@
 PENINSULA INSIDER SEO/GEO
-2026-09-21 · incremental cycle · run 2026-09-21-1224-incremental
+2026-09-21 · incremental cycle · run 2026-09-21-1355-incremental
 
 STATUS
 Overall health: needs attention (65/100)
@@ -9,7 +9,7 @@ Audit target: next/dist (freshly built source)
   This is unreleased output; findings may already be fixed relative to the live site.
 
 CHANGES MADE
-None. The engine is in audit mode.
+None. The engine is in apply mode.
 0 change(s) planned, 0 would pass the safety gate if autonomous action were enabled.
 
 SEARCH
@@ -56,7 +56,7 @@ NEEDS JAMES
   Context: Jev (TypeSafe) is supported natively but no credential reached this run. All classification and scoring is rule-derived, which is honest but less discriminating than a model.
 
 SYSTEM
-Decision layer: deterministic rules only — No Jev credentials present (JEV_API_KEY, or TYPESAFE_API_KEY under gateway_exec); using deterministic rules. 16 atomic decisions registered; scores are rule-derived, not model judgements.
+Decision layer: deterministic rules only — probe failed (fetch failed); using deterministic rules. 16 atomic decisions registered; scores are rule-derived, not model judgements.
 Crawler: local corpus reader over 991 rendered pages (no outbound crawl; egress policy denies peninsulainsider.com.au)
 Analytics: Search Console rows from gateway:analytics-live.json
 CMS/source: Astro content collections: 137 venues, 106 events, 37 towns
@@ -65,4 +65,4 @@ Decisions this run: 12685 (100% without a frontier model, est. cost $0)
 Errors requiring attention: none
 
 NEXT
-Next cycle: re-check 0 newly-seen issue(s) and 1040 recurring one(s), starting with missing_alt on /explore/places/red-hill/. Sunday runs the expanded audit.
+Next cycle: re-check 0 newly-seen issue(s) and 1040 recurring one(s), starting with missing_alt on /wine/kerri-greens/. Sunday runs the expanded audit.

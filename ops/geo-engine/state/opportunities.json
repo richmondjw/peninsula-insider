@@ -1,13 +1,13 @@
 {
-  "runId": "2026-09-21-1224-incremental",
-  "updatedAt": "2026-09-21T02:24:38.343Z",
+  "runId": "2026-09-21-1355-incremental",
+  "updatedAt": "2026-09-21T03:55:45.521Z",
   "summary": {
     "total": 1040,
     "byCategory": {
-      "DRAFT": 797,
+      "DRAFT": 743,
       "STRUCTURAL PROJECT": 11,
       "RESEARCH": 20,
-      "WATCH": 212
+      "WATCH": 266
     },
     "bySeverity": {
       "minor": 1038,
@@ -15,586 +15,6 @@
     }
   },
   "opportunities": [
-    {
-      "id": "missing_alt:/explore/places/red-hill/",
-      "urlPath": "/explore/places/red-hill/",
-      "url": "https://peninsulainsider.com.au/explore/places/red-hill/",
-      "pageType": "place-or-guide",
-      "rule": "missing_alt",
-      "problem": "13 of 19 images lack alt text",
-      "occurrences": 1,
-      "proposedAction": "add_missing_alt_from_known_caption",
-      "severity": "minor",
-      "category": "DRAFT",
-      "priority": 0.4485,
-      "confidence": 0.84,
-      "safety": "auto_safe",
-      "reversible": true,
-      "provider": "deterministic",
-      "signals": {
-        "searchOpportunity": 0.476,
-        "strategicRelevance": 0.75,
-        "expectedImpact": 0.3,
-        "ease": 0.5,
-        "localContribution": 1,
-        "cooldownPenalty": 1,
-        "daysSinceLastIntervention": null
-      },
-      "target": null,
-      "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
-    },
-    {
-      "id": "missing_alt:/wine/quealy-winemakers/",
-      "urlPath": "/wine/quealy-winemakers/",
-      "url": "https://peninsulainsider.com.au/wine/quealy-winemakers/",
-      "pageType": "venue-or-guide",
-      "rule": "missing_alt",
-      "problem": "3 of 4 images lack alt text",
-      "occurrences": 1,
-      "proposedAction": "add_missing_alt_from_known_caption",
-      "severity": "minor",
-      "category": "DRAFT",
-      "priority": 0.4221,
-      "confidence": 0.84,
-      "safety": "auto_safe",
-      "reversible": true,
-      "provider": "deterministic",
-      "signals": {
-        "searchOpportunity": 0.35,
-        "strategicRelevance": 0.75,
-        "expectedImpact": 0.3,
-        "ease": 0.5,
-        "localContribution": 1,
-        "cooldownPenalty": 1,
-        "daysSinceLastIntervention": null
-      },
-      "target": null,
-      "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
-    },
-    {
-      "id": "missing_alt:/wine/pt-leo-estate/",
-      "urlPath": "/wine/pt-leo-estate/",
-      "url": "https://peninsulainsider.com.au/wine/pt-leo-estate/",
-      "pageType": "venue-or-guide",
-      "rule": "missing_alt",
-      "problem": "3 of 4 images lack alt text",
-      "occurrences": 1,
-      "proposedAction": "add_missing_alt_from_known_caption",
-      "severity": "minor",
-      "category": "DRAFT",
-      "priority": 0.4221,
-      "confidence": 0.84,
-      "safety": "auto_safe",
-      "reversible": true,
-      "provider": "deterministic",
-      "signals": {
-        "searchOpportunity": 0.35,
-        "strategicRelevance": 0.75,
-        "expectedImpact": 0.3,
-        "ease": 0.5,
-        "localContribution": 1,
-        "cooldownPenalty": 1,
-        "daysSinceLastIntervention": null
-      },
-      "target": null,
-      "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
-    },
-    {
-      "id": "missing_alt:/wine/prancing-horse-estate/",
-      "urlPath": "/wine/prancing-horse-estate/",
-      "url": "https://peninsulainsider.com.au/wine/prancing-horse-estate/",
-      "pageType": "venue-or-guide",
-      "rule": "missing_alt",
-      "problem": "3 of 4 images lack alt text",
-      "occurrences": 1,
-      "proposedAction": "add_missing_alt_from_known_caption",
-      "severity": "minor",
-      "category": "DRAFT",
-      "priority": 0.4221,
-      "confidence": 0.84,
-      "safety": "auto_safe",
-      "reversible": true,
-      "provider": "deterministic",
-      "signals": {
-        "searchOpportunity": 0.35,
-        "strategicRelevance": 0.75,
-        "expectedImpact": 0.3,
-        "ease": 0.5,
-        "localContribution": 1,
-        "cooldownPenalty": 1,
-        "daysSinceLastIntervention": null
-      },
-      "target": null,
-      "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
-    },
-    {
-      "id": "missing_alt:/wine/port-phillip-estate/",
-      "urlPath": "/wine/port-phillip-estate/",
-      "url": "https://peninsulainsider.com.au/wine/port-phillip-estate/",
-      "pageType": "venue-or-guide",
-      "rule": "missing_alt",
-      "problem": "3 of 4 images lack alt text",
-      "occurrences": 1,
-      "proposedAction": "add_missing_alt_from_known_caption",
-      "severity": "minor",
-      "category": "DRAFT",
-      "priority": 0.4221,
-      "confidence": 0.84,
-      "safety": "auto_safe",
-      "reversible": true,
-      "provider": "deterministic",
-      "signals": {
-        "searchOpportunity": 0.35,
-        "strategicRelevance": 0.75,
-        "expectedImpact": 0.3,
-        "ease": 0.5,
-        "localContribution": 1,
-        "cooldownPenalty": 1,
-        "daysSinceLastIntervention": null
-      },
-      "target": null,
-      "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
-    },
-    {
-      "id": "missing_alt:/wine/polperro/",
-      "urlPath": "/wine/polperro/",
-      "url": "https://peninsulainsider.com.au/wine/polperro/",
-      "pageType": "venue-or-guide",
-      "rule": "missing_alt",
-      "problem": "3 of 4 images lack alt text",
-      "occurrences": 1,
-      "proposedAction": "add_missing_alt_from_known_caption",
-      "severity": "minor",
-      "category": "DRAFT",
-      "priority": 0.4221,
-      "confidence": 0.84,
-      "safety": "auto_safe",
-      "reversible": true,
-      "provider": "deterministic",
-      "signals": {
-        "searchOpportunity": 0.35,
-        "strategicRelevance": 0.75,
-        "expectedImpact": 0.3,
-        "ease": 0.5,
-        "localContribution": 1,
-        "cooldownPenalty": 1,
-        "daysSinceLastIntervention": null
-      },
-      "target": null,
-      "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
-    },
-    {
-      "id": "missing_alt:/wine/phaedrus-estate/",
-      "urlPath": "/wine/phaedrus-estate/",
-      "url": "https://peninsulainsider.com.au/wine/phaedrus-estate/",
-      "pageType": "venue-or-guide",
-      "rule": "missing_alt",
-      "problem": "3 of 4 images lack alt text",
-      "occurrences": 1,
-      "proposedAction": "add_missing_alt_from_known_caption",
-      "severity": "minor",
-      "category": "DRAFT",
-      "priority": 0.4221,
-      "confidence": 0.84,
-      "safety": "auto_safe",
-      "reversible": true,
-      "provider": "deterministic",
-      "signals": {
-        "searchOpportunity": 0.35,
-        "strategicRelevance": 0.75,
-        "expectedImpact": 0.3,
-        "ease": 0.5,
-        "localContribution": 1,
-        "cooldownPenalty": 1,
-        "daysSinceLastIntervention": null
-      },
-      "target": null,
-      "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
-    },
-    {
-      "id": "missing_alt:/wine/paradigm-hill/",
-      "urlPath": "/wine/paradigm-hill/",
-      "url": "https://peninsulainsider.com.au/wine/paradigm-hill/",
-      "pageType": "venue-or-guide",
-      "rule": "missing_alt",
-      "problem": "3 of 4 images lack alt text",
-      "occurrences": 1,
-      "proposedAction": "add_missing_alt_from_known_caption",
-      "severity": "minor",
-      "category": "DRAFT",
-      "priority": 0.4221,
-      "confidence": 0.84,
-      "safety": "auto_safe",
-      "reversible": true,
-      "provider": "deterministic",
-      "signals": {
-        "searchOpportunity": 0.35,
-        "strategicRelevance": 0.75,
-        "expectedImpact": 0.3,
-        "ease": 0.5,
-        "localContribution": 1,
-        "cooldownPenalty": 1,
-        "daysSinceLastIntervention": null
-      },
-      "target": null,
-      "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
-    },
-    {
-      "id": "missing_alt:/wine/onannon/",
-      "urlPath": "/wine/onannon/",
-      "url": "https://peninsulainsider.com.au/wine/onannon/",
-      "pageType": "venue-or-guide",
-      "rule": "missing_alt",
-      "problem": "3 of 4 images lack alt text",
-      "occurrences": 1,
-      "proposedAction": "add_missing_alt_from_known_caption",
-      "severity": "minor",
-      "category": "DRAFT",
-      "priority": 0.4221,
-      "confidence": 0.84,
-      "safety": "auto_safe",
-      "reversible": true,
-      "provider": "deterministic",
-      "signals": {
-        "searchOpportunity": 0.35,
-        "strategicRelevance": 0.75,
-        "expectedImpact": 0.3,
-        "ease": 0.5,
-        "localContribution": 1,
-        "cooldownPenalty": 1,
-        "daysSinceLastIntervention": null
-      },
-      "target": null,
-      "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
-    },
-    {
-      "id": "missing_alt:/wine/ocean-eight/",
-      "urlPath": "/wine/ocean-eight/",
-      "url": "https://peninsulainsider.com.au/wine/ocean-eight/",
-      "pageType": "venue-or-guide",
-      "rule": "missing_alt",
-      "problem": "3 of 4 images lack alt text",
-      "occurrences": 1,
-      "proposedAction": "add_missing_alt_from_known_caption",
-      "severity": "minor",
-      "category": "DRAFT",
-      "priority": 0.4221,
-      "confidence": 0.84,
-      "safety": "auto_safe",
-      "reversible": true,
-      "provider": "deterministic",
-      "signals": {
-        "searchOpportunity": 0.35,
-        "strategicRelevance": 0.75,
-        "expectedImpact": 0.3,
-        "ease": 0.5,
-        "localContribution": 1,
-        "cooldownPenalty": 1,
-        "daysSinceLastIntervention": null
-      },
-      "target": null,
-      "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
-    },
-    {
-      "id": "missing_alt:/wine/nazaaray-estate/",
-      "urlPath": "/wine/nazaaray-estate/",
-      "url": "https://peninsulainsider.com.au/wine/nazaaray-estate/",
-      "pageType": "venue-or-guide",
-      "rule": "missing_alt",
-      "problem": "3 of 4 images lack alt text",
-      "occurrences": 1,
-      "proposedAction": "add_missing_alt_from_known_caption",
-      "severity": "minor",
-      "category": "DRAFT",
-      "priority": 0.4221,
-      "confidence": 0.84,
-      "safety": "auto_safe",
-      "reversible": true,
-      "provider": "deterministic",
-      "signals": {
-        "searchOpportunity": 0.35,
-        "strategicRelevance": 0.75,
-        "expectedImpact": 0.3,
-        "ease": 0.5,
-        "localContribution": 1,
-        "cooldownPenalty": 1,
-        "daysSinceLastIntervention": null
-      },
-      "target": null,
-      "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
-    },
-    {
-      "id": "missing_alt:/wine/mornington-peninsula-brewery/",
-      "urlPath": "/wine/mornington-peninsula-brewery/",
-      "url": "https://peninsulainsider.com.au/wine/mornington-peninsula-brewery/",
-      "pageType": "venue-or-guide",
-      "rule": "missing_alt",
-      "problem": "3 of 4 images lack alt text",
-      "occurrences": 1,
-      "proposedAction": "add_missing_alt_from_known_caption",
-      "severity": "minor",
-      "category": "DRAFT",
-      "priority": 0.4221,
-      "confidence": 0.84,
-      "safety": "auto_safe",
-      "reversible": true,
-      "provider": "deterministic",
-      "signals": {
-        "searchOpportunity": 0.35,
-        "strategicRelevance": 0.75,
-        "expectedImpact": 0.3,
-        "ease": 0.5,
-        "localContribution": 1,
-        "cooldownPenalty": 1,
-        "daysSinceLastIntervention": null
-      },
-      "target": null,
-      "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
-    },
-    {
-      "id": "missing_alt:/wine/morning-sun/",
-      "urlPath": "/wine/morning-sun/",
-      "url": "https://peninsulainsider.com.au/wine/morning-sun/",
-      "pageType": "venue-or-guide",
-      "rule": "missing_alt",
-      "problem": "3 of 4 images lack alt text",
-      "occurrences": 1,
-      "proposedAction": "add_missing_alt_from_known_caption",
-      "severity": "minor",
-      "category": "DRAFT",
-      "priority": 0.4221,
-      "confidence": 0.84,
-      "safety": "auto_safe",
-      "reversible": true,
-      "provider": "deterministic",
-      "signals": {
-        "searchOpportunity": 0.35,
-        "strategicRelevance": 0.75,
-        "expectedImpact": 0.3,
-        "ease": 0.5,
-        "localContribution": 1,
-        "cooldownPenalty": 1,
-        "daysSinceLastIntervention": null
-      },
-      "target": null,
-      "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
-    },
-    {
-      "id": "missing_alt:/wine/moorooduc-tuerong/",
-      "urlPath": "/wine/moorooduc-tuerong/",
-      "url": "https://peninsulainsider.com.au/wine/moorooduc-tuerong/",
-      "pageType": "venue-or-guide",
-      "rule": "missing_alt",
-      "problem": "3 of 3 images lack alt text",
-      "occurrences": 1,
-      "proposedAction": "add_missing_alt_from_known_caption",
-      "severity": "minor",
-      "category": "DRAFT",
-      "priority": 0.4221,
-      "confidence": 0.84,
-      "safety": "auto_safe",
-      "reversible": true,
-      "provider": "deterministic",
-      "signals": {
-        "searchOpportunity": 0.35,
-        "strategicRelevance": 0.75,
-        "expectedImpact": 0.3,
-        "ease": 0.5,
-        "localContribution": 1,
-        "cooldownPenalty": 1,
-        "daysSinceLastIntervention": null
-      },
-      "target": null,
-      "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
-    },
-    {
-      "id": "missing_alt:/wine/moorooduc-estate/",
-      "urlPath": "/wine/moorooduc-estate/",
-      "url": "https://peninsulainsider.com.au/wine/moorooduc-estate/",
-      "pageType": "venue-or-guide",
-      "rule": "missing_alt",
-      "problem": "3 of 4 images lack alt text",
-      "occurrences": 1,
-      "proposedAction": "add_missing_alt_from_known_caption",
-      "severity": "minor",
-      "category": "DRAFT",
-      "priority": 0.4221,
-      "confidence": 0.84,
-      "safety": "auto_safe",
-      "reversible": true,
-      "provider": "deterministic",
-      "signals": {
-        "searchOpportunity": 0.35,
-        "strategicRelevance": 0.75,
-        "expectedImpact": 0.3,
-        "ease": 0.5,
-        "localContribution": 1,
-        "cooldownPenalty": 1,
-        "daysSinceLastIntervention": null
-      },
-      "target": null,
-      "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
-    },
-    {
-      "id": "missing_alt:/wine/montalto/",
-      "urlPath": "/wine/montalto/",
-      "url": "https://peninsulainsider.com.au/wine/montalto/",
-      "pageType": "venue-or-guide",
-      "rule": "missing_alt",
-      "problem": "4 of 5 images lack alt text",
-      "occurrences": 1,
-      "proposedAction": "add_missing_alt_from_known_caption",
-      "severity": "minor",
-      "category": "DRAFT",
-      "priority": 0.4221,
-      "confidence": 0.84,
-      "safety": "auto_safe",
-      "reversible": true,
-      "provider": "deterministic",
-      "signals": {
-        "searchOpportunity": 0.35,
-        "strategicRelevance": 0.75,
-        "expectedImpact": 0.3,
-        "ease": 0.5,
-        "localContribution": 1,
-        "cooldownPenalty": 1,
-        "daysSinceLastIntervention": null
-      },
-      "target": null,
-      "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
-    },
-    {
-      "id": "missing_alt:/wine/merricks-estate/",
-      "urlPath": "/wine/merricks-estate/",
-      "url": "https://peninsulainsider.com.au/wine/merricks-estate/",
-      "pageType": "venue-or-guide",
-      "rule": "missing_alt",
-      "problem": "3 of 4 images lack alt text",
-      "occurrences": 1,
-      "proposedAction": "add_missing_alt_from_known_caption",
-      "severity": "minor",
-      "category": "DRAFT",
-      "priority": 0.4221,
-      "confidence": 0.84,
-      "safety": "auto_safe",
-      "reversible": true,
-      "provider": "deterministic",
-      "signals": {
-        "searchOpportunity": 0.35,
-        "strategicRelevance": 0.75,
-        "expectedImpact": 0.3,
-        "ease": 0.5,
-        "localContribution": 1,
-        "cooldownPenalty": 1,
-        "daysSinceLastIntervention": null
-      },
-      "target": null,
-      "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
-    },
-    {
-      "id": "missing_alt:/wine/main-ridge-estate/",
-      "urlPath": "/wine/main-ridge-estate/",
-      "url": "https://peninsulainsider.com.au/wine/main-ridge-estate/",
-      "pageType": "venue-or-guide",
-      "rule": "missing_alt",
-      "problem": "3 of 4 images lack alt text",
-      "occurrences": 1,
-      "proposedAction": "add_missing_alt_from_known_caption",
-      "severity": "minor",
-      "category": "DRAFT",
-      "priority": 0.4221,
-      "confidence": 0.84,
-      "safety": "auto_safe",
-      "reversible": true,
-      "provider": "deterministic",
-      "signals": {
-        "searchOpportunity": 0.35,
-        "strategicRelevance": 0.75,
-        "expectedImpact": 0.3,
-        "ease": 0.5,
-        "localContribution": 1,
-        "cooldownPenalty": 1,
-        "daysSinceLastIntervention": null
-      },
-      "target": null,
-      "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
-    },
-    {
-      "id": "missing_alt:/wine/lightfoot-wines/",
-      "urlPath": "/wine/lightfoot-wines/",
-      "url": "https://peninsulainsider.com.au/wine/lightfoot-wines/",
-      "pageType": "venue-or-guide",
-      "rule": "missing_alt",
-      "problem": "3 of 4 images lack alt text",
-      "occurrences": 1,
-      "proposedAction": "add_missing_alt_from_known_caption",
-      "severity": "minor",
-      "category": "DRAFT",
-      "priority": 0.4221,
-      "confidence": 0.84,
-      "safety": "auto_safe",
-      "reversible": true,
-      "provider": "deterministic",
-      "signals": {
-        "searchOpportunity": 0.35,
-        "strategicRelevance": 0.75,
-        "expectedImpact": 0.3,
-        "ease": 0.5,
-        "localContribution": 1,
-        "cooldownPenalty": 1,
-        "daysSinceLastIntervention": null
-      },
-      "target": null,
-      "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
-    },
-    {
-      "id": "missing_alt:/wine/kooyong/",
-      "urlPath": "/wine/kooyong/",
-      "url": "https://peninsulainsider.com.au/wine/kooyong/",
-      "pageType": "venue-or-guide",
-      "rule": "missing_alt",
-      "problem": "3 of 4 images lack alt text",
-      "occurrences": 1,
-      "proposedAction": "add_missing_alt_from_known_caption",
-      "severity": "minor",
-      "category": "DRAFT",
-      "priority": 0.4221,
-      "confidence": 0.84,
-      "safety": "auto_safe",
-      "reversible": true,
-      "provider": "deterministic",
-      "signals": {
-        "searchOpportunity": 0.35,
-        "strategicRelevance": 0.75,
-        "expectedImpact": 0.3,
-        "ease": 0.5,
-        "localContribution": 1,
-        "cooldownPenalty": 1,
-        "daysSinceLastIntervention": null
-      },
-      "target": null,
-      "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
-    },
     {
       "id": "missing_alt:/wine/kerri-greens/",
       "urlPath": "/wine/kerri-greens/",
@@ -622,7 +42,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/wine/jetty-road-brewery/",
@@ -651,7 +71,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/wine/hurley-vineyard/",
@@ -680,7 +100,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/wine/garagiste/",
@@ -709,7 +129,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/wine/foxeys-hangout/",
@@ -738,7 +158,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/wine/elgee-park/",
@@ -767,7 +187,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/wine/eldridge-estate/",
@@ -796,7 +216,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/wine/elan-vineyard/",
@@ -825,7 +245,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/wine/dromana-estate/",
@@ -854,7 +274,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/wine/dexter-wines/",
@@ -883,7 +303,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/wine/crittenden-estate/",
@@ -912,7 +332,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/wine/bass-and-flinders/",
@@ -941,7 +361,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/wine/barmah-park-vineyard/",
@@ -970,7 +390,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/wine/baillieu-vineyard/",
@@ -999,7 +419,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/wine/avani-wines/",
@@ -1028,7 +448,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/stay/yurt-hideaway/",
@@ -1057,7 +477,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/stay/woodman-estate/",
@@ -1086,7 +506,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/stay/villa-mallorca/",
@@ -1115,7 +535,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/stay/treetops-red-hill/",
@@ -1144,7 +564,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/stay/the-continental-sorrento/",
@@ -1173,7 +593,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/stay/sanctuary-at-alba/",
@@ -1202,7 +622,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/stay/polperro-villas/",
@@ -1231,7 +651,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/stay/point-nepean-discovery-tents/",
@@ -1260,7 +680,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/stay/point-leo-estate-villas/",
@@ -1289,7 +709,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/stay/peninsula-hot-springs-glamping/",
@@ -1318,7 +738,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/stay/peninsula-hot-springs-eco-lodges/",
@@ -1347,7 +767,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/stay/mp-beach-club-cottages/",
@@ -1376,7 +796,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/stay/mantons-creek-estate/",
@@ -1405,7 +825,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/stay/lindenderry/",
@@ -1434,7 +854,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/stay/kanasta-retro-caravans/",
@@ -1463,7 +883,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/stay/jackalope/",
@@ -1492,7 +912,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/stay/iluka-retreat/",
@@ -1521,7 +941,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/stay/hotel-sorrento/",
@@ -1550,7 +970,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/stay/hideaways-red-hill/",
@@ -1579,7 +999,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/stay/happy-glamper/",
@@ -1608,7 +1028,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/stay/flinders-hotel/",
@@ -1637,7 +1057,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/stay/crittenden-villas/",
@@ -1666,7 +1086,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/stay/cassis/",
@@ -1695,7 +1115,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/stay/cape-retreat/",
@@ -1724,7 +1144,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/stay/brewers-cottage/",
@@ -1753,7 +1173,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/stay/blue-moon-cottages/",
@@ -1782,7 +1202,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/stay/birch-creek/",
@@ -1811,7 +1231,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/stay/best-accommodation/",
@@ -1840,7 +1260,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/stay/arthurs-views/",
@@ -1869,7 +1289,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/two-bays-walking-track/",
@@ -1898,7 +1318,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/the-national-golf-club/",
@@ -1927,7 +1347,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/the-dunes-golf-links/",
@@ -1956,7 +1376,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/sunny-ridge-strawberry-farm/",
@@ -1985,7 +1405,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/summit-circuit-arthurs-seat/",
@@ -2014,7 +1434,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/st-andrews-beach-golf-course/",
@@ -2043,7 +1463,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/safety-beach-foreshore/",
@@ -2072,7 +1492,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/red-hill-truffles/",
@@ -2101,7 +1521,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/red-hill-hinterland-cycling/",
@@ -2130,7 +1550,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/pt-leo-sculpture-park/",
@@ -2159,7 +1579,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/plans/wellness-weekend/",
@@ -2188,7 +1608,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/plans/the-peninsula-golf-weekend/",
@@ -2217,7 +1637,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/plans/sorrento-off-season-weekend/",
@@ -2246,7 +1666,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/plans/ridge-to-sea-two-night-escape/",
@@ -2275,7 +1695,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/plans/flinders-and-cape-reset/",
@@ -2304,7 +1724,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/places/tuerong/",
@@ -2333,7 +1753,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/places/tootgarook/",
@@ -2362,7 +1782,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/places/st-andrews-beach/",
@@ -2391,7 +1811,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/places/sorrento/",
@@ -2420,7 +1840,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/places/shoreham/",
@@ -2449,7 +1869,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/places/safety-beach/",
@@ -2478,7 +1898,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/places/rosebud/",
@@ -2507,7 +1927,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/places/point-nepean/",
@@ -2536,7 +1956,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/places/moorooduc/",
@@ -2565,7 +1985,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/places/merricks-north/",
@@ -2594,7 +2014,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/places/mccrae/",
@@ -2623,7 +2043,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/places/main-ridge/",
@@ -2652,7 +2072,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/places/flinders/",
@@ -2681,7 +2101,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/places/dromana/",
@@ -2710,7 +2130,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/places/cape-schanck/",
@@ -2739,7 +2159,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/places/boneo/",
@@ -2768,7 +2188,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/places/balnarring/",
@@ -2797,7 +2217,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/places/arthurs-seat/",
@@ -2826,7 +2246,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/mornington-peninsula-gallery/",
@@ -2855,7 +2275,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/mornington-golf-club/",
@@ -2884,7 +2304,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/mornington-foreshore-walk/",
@@ -2913,7 +2333,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/moonah-links/",
@@ -2942,7 +2362,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/montalto-sculpture-trail/",
@@ -2971,7 +2391,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/gunnamatta-ocean-beach/",
@@ -3000,7 +2420,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/greens-bush-two-bays-section/",
@@ -3029,7 +2449,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/eagle-ridge-golf-course/",
@@ -3058,7 +2478,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/dromana-beach/",
@@ -3087,7 +2507,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/coastal-walk-cape-schanck/",
@@ -3116,7 +2536,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/cape-schanck-boardwalk/",
@@ -3145,7 +2565,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/bushrangers-bay-walk/",
@@ -3174,7 +2594,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/balnarring-beach/",
@@ -3203,7 +2623,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/ashcombe-maze/",
@@ -3232,7 +2652,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/arthurs-seat-lookout/",
@@ -3261,7 +2681,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/eat/via-boffe/",
@@ -3290,7 +2710,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/eat/the-rocks-mornington/",
@@ -3319,7 +2739,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/eat/tedesca-osteria/",
@@ -3348,7 +2768,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/eat/sourdough-kitchen/",
@@ -3377,36 +2797,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
-    },
-    {
-      "id": "missing_alt:/eat/seafood/",
-      "urlPath": "/eat/seafood/",
-      "url": "https://peninsulainsider.com.au/eat/seafood/",
-      "pageType": "venue-or-guide",
-      "rule": "missing_alt",
-      "problem": "4 of 5 images lack alt text",
-      "occurrences": 1,
-      "proposedAction": "add_missing_alt_from_known_caption",
-      "severity": "minor",
-      "category": "DRAFT",
-      "priority": 0.4221,
-      "confidence": 0.84,
-      "safety": "auto_safe",
-      "reversible": true,
-      "provider": "deterministic",
-      "signals": {
-        "searchOpportunity": 0.35,
-        "strategicRelevance": 0.75,
-        "expectedImpact": 0.3,
-        "ease": 0.5,
-        "localContribution": 1,
-        "cooldownPenalty": 1,
-        "daysSinceLastIntervention": null
-      },
-      "target": null,
-      "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/eat/rye-beachside-market/",
@@ -3435,7 +2826,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/eat/red-hill-market/",
@@ -3464,36 +2855,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
-    },
-    {
-      "id": "missing_alt:/eat/red-hill-cheese/",
-      "urlPath": "/eat/red-hill-cheese/",
-      "url": "https://peninsulainsider.com.au/eat/red-hill-cheese/",
-      "pageType": "venue-or-guide",
-      "rule": "missing_alt",
-      "problem": "3 of 4 images lack alt text",
-      "occurrences": 1,
-      "proposedAction": "add_missing_alt_from_known_caption",
-      "severity": "minor",
-      "category": "DRAFT",
-      "priority": 0.4221,
-      "confidence": 0.84,
-      "safety": "auto_safe",
-      "reversible": true,
-      "provider": "deterministic",
-      "signals": {
-        "searchOpportunity": 0.35,
-        "strategicRelevance": 0.75,
-        "expectedImpact": 0.3,
-        "ease": 0.5,
-        "localContribution": 1,
-        "cooldownPenalty": 1,
-        "daysSinceLastIntervention": null
-      },
-      "target": null,
-      "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/eat/red-hill-bakery/",
@@ -3522,7 +2884,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/eat/red-gum-bbq/",
@@ -3551,7 +2913,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/eat/rare-hare/",
@@ -3580,7 +2942,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/eat/point-leo-wine-terrace/",
@@ -3609,7 +2971,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/eat/peninsula-fresh-organics/",
@@ -3638,7 +3000,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/eat/mr-vincenzos/",
@@ -3667,7 +3029,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/eat/mornington-main-street-market/",
@@ -3696,7 +3058,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/eat/mornington-farmers-market/",
@@ -3725,7 +3087,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/eat/merricks-general-wine-store/",
@@ -3754,36 +3116,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
-    },
-    {
-      "id": "missing_alt:/eat/markets/",
-      "urlPath": "/eat/markets/",
-      "url": "https://peninsulainsider.com.au/eat/markets/",
-      "pageType": "venue-or-guide",
-      "rule": "missing_alt",
-      "problem": "6 of 7 images lack alt text",
-      "occurrences": 1,
-      "proposedAction": "add_missing_alt_from_known_caption",
-      "severity": "minor",
-      "category": "DRAFT",
-      "priority": 0.4221,
-      "confidence": 0.84,
-      "safety": "auto_safe",
-      "reversible": true,
-      "provider": "deterministic",
-      "signals": {
-        "searchOpportunity": 0.35,
-        "strategicRelevance": 0.75,
-        "expectedImpact": 0.3,
-        "ease": 0.5,
-        "localContribution": 1,
-        "cooldownPenalty": 1,
-        "daysSinceLastIntervention": null
-      },
-      "target": null,
-      "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/eat/many-little/",
@@ -3812,7 +3145,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/eat/main-ridge-dairy/",
@@ -3841,36 +3174,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
-    },
-    {
-      "id": "missing_alt:/eat/long-lunch/",
-      "urlPath": "/eat/long-lunch/",
-      "url": "https://peninsulainsider.com.au/eat/long-lunch/",
-      "pageType": "venue-or-guide",
-      "rule": "missing_alt",
-      "problem": "9 of 10 images lack alt text",
-      "occurrences": 1,
-      "proposedAction": "add_missing_alt_from_known_caption",
-      "severity": "minor",
-      "category": "DRAFT",
-      "priority": 0.4221,
-      "confidence": 0.84,
-      "safety": "auto_safe",
-      "reversible": true,
-      "provider": "deterministic",
-      "signals": {
-        "searchOpportunity": 0.35,
-        "strategicRelevance": 0.75,
-        "expectedImpact": 0.3,
-        "ease": 0.5,
-        "localContribution": 1,
-        "cooldownPenalty": 1,
-        "daysSinceLastIntervention": null
-      },
-      "target": null,
-      "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/eat/laura-pt-leo/",
@@ -3899,7 +3203,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/eat/la-baracca-tgallant/",
@@ -3928,7 +3232,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/eat/johnny-ripe/",
@@ -3957,36 +3261,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
-    },
-    {
-      "id": "missing_alt:/eat/hatted-restaurants/",
-      "urlPath": "/eat/hatted-restaurants/",
-      "url": "https://peninsulainsider.com.au/eat/hatted-restaurants/",
-      "pageType": "venue-or-guide",
-      "rule": "missing_alt",
-      "problem": "15 of 16 images lack alt text",
-      "occurrences": 1,
-      "proposedAction": "add_missing_alt_from_known_caption",
-      "severity": "minor",
-      "category": "DRAFT",
-      "priority": 0.4221,
-      "confidence": 0.84,
-      "safety": "auto_safe",
-      "reversible": true,
-      "provider": "deterministic",
-      "signals": {
-        "searchOpportunity": 0.35,
-        "strategicRelevance": 0.75,
-        "expectedImpact": 0.3,
-        "ease": 0.5,
-        "localContribution": 1,
-        "cooldownPenalty": 1,
-        "daysSinceLastIntervention": null
-      },
-      "target": null,
-      "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/eat/green-olive-red-hill/",
@@ -4015,7 +3290,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/eat/georgie-bass/",
@@ -4044,7 +3319,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/eat/flinders-sourdough/",
@@ -4073,36 +3348,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
-    },
-    {
-      "id": "missing_alt:/eat/fine-dining/",
-      "urlPath": "/eat/fine-dining/",
-      "url": "https://peninsulainsider.com.au/eat/fine-dining/",
-      "pageType": "venue-or-guide",
-      "rule": "missing_alt",
-      "problem": "9 of 10 images lack alt text",
-      "occurrences": 1,
-      "proposedAction": "add_missing_alt_from_known_caption",
-      "severity": "minor",
-      "category": "DRAFT",
-      "priority": 0.4221,
-      "confidence": 0.84,
-      "safety": "auto_safe",
-      "reversible": true,
-      "provider": "deterministic",
-      "signals": {
-        "searchOpportunity": 0.35,
-        "strategicRelevance": 0.75,
-        "expectedImpact": 0.3,
-        "ease": 0.5,
-        "localContribution": 1,
-        "cooldownPenalty": 1,
-        "daysSinceLastIntervention": null
-      },
-      "target": null,
-      "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/eat/epicurean-red-hill/",
@@ -4131,7 +3377,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/eat/doot-doot-doot/",
@@ -4160,36 +3406,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
-    },
-    {
-      "id": "missing_alt:/eat/date-night/",
-      "urlPath": "/eat/date-night/",
-      "url": "https://peninsulainsider.com.au/eat/date-night/",
-      "pageType": "venue-or-guide",
-      "rule": "missing_alt",
-      "problem": "8 of 9 images lack alt text",
-      "occurrences": 1,
-      "proposedAction": "add_missing_alt_from_known_caption",
-      "severity": "minor",
-      "category": "DRAFT",
-      "priority": 0.4221,
-      "confidence": 0.84,
-      "safety": "auto_safe",
-      "reversible": true,
-      "provider": "deterministic",
-      "signals": {
-        "searchOpportunity": 0.35,
-        "strategicRelevance": 0.75,
-        "expectedImpact": 0.3,
-        "ease": 0.5,
-        "localContribution": 1,
-        "cooldownPenalty": 1,
-        "daysSinceLastIntervention": null
-      },
-      "target": null,
-      "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/eat/commonfolk-coffee/",
@@ -4218,94 +3435,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
-    },
-    {
-      "id": "missing_alt:/eat/cellar-door-lunch/",
-      "urlPath": "/eat/cellar-door-lunch/",
-      "url": "https://peninsulainsider.com.au/eat/cellar-door-lunch/",
-      "pageType": "venue-or-guide",
-      "rule": "missing_alt",
-      "problem": "10 of 11 images lack alt text",
-      "occurrences": 1,
-      "proposedAction": "add_missing_alt_from_known_caption",
-      "severity": "minor",
-      "category": "DRAFT",
-      "priority": 0.4221,
-      "confidence": 0.84,
-      "safety": "auto_safe",
-      "reversible": true,
-      "provider": "deterministic",
-      "signals": {
-        "searchOpportunity": 0.35,
-        "strategicRelevance": 0.75,
-        "expectedImpact": 0.3,
-        "ease": 0.5,
-        "localContribution": 1,
-        "cooldownPenalty": 1,
-        "daysSinceLastIntervention": null
-      },
-      "target": null,
-      "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
-    },
-    {
-      "id": "missing_alt:/eat/cafes/",
-      "urlPath": "/eat/cafes/",
-      "url": "https://peninsulainsider.com.au/eat/cafes/",
-      "pageType": "venue-or-guide",
-      "rule": "missing_alt",
-      "problem": "5 of 6 images lack alt text",
-      "occurrences": 1,
-      "proposedAction": "add_missing_alt_from_known_caption",
-      "severity": "minor",
-      "category": "DRAFT",
-      "priority": 0.4221,
-      "confidence": 0.84,
-      "safety": "auto_safe",
-      "reversible": true,
-      "provider": "deterministic",
-      "signals": {
-        "searchOpportunity": 0.35,
-        "strategicRelevance": 0.75,
-        "expectedImpact": 0.3,
-        "ease": 0.5,
-        "localContribution": 1,
-        "cooldownPenalty": 1,
-        "daysSinceLastIntervention": null
-      },
-      "target": null,
-      "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
-    },
-    {
-      "id": "missing_alt:/eat/brunch/",
-      "urlPath": "/eat/brunch/",
-      "url": "https://peninsulainsider.com.au/eat/brunch/",
-      "pageType": "venue-or-guide",
-      "rule": "missing_alt",
-      "problem": "6 of 7 images lack alt text",
-      "occurrences": 1,
-      "proposedAction": "add_missing_alt_from_known_caption",
-      "severity": "minor",
-      "category": "DRAFT",
-      "priority": 0.4221,
-      "confidence": 0.84,
-      "safety": "auto_safe",
-      "reversible": true,
-      "provider": "deterministic",
-      "signals": {
-        "searchOpportunity": 0.35,
-        "strategicRelevance": 0.75,
-        "expectedImpact": 0.3,
-        "ease": 0.5,
-        "localContribution": 1,
-        "cooldownPenalty": 1,
-        "daysSinceLastIntervention": null
-      },
-      "target": null,
-      "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/eat/balnarring-market/",
@@ -4334,7 +3464,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/eat/balnarring-bakehouse/",
@@ -4363,36 +3493,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
-    },
-    {
-      "id": "missing_alt:/eat/bakeries/",
-      "urlPath": "/eat/bakeries/",
-      "url": "https://peninsulainsider.com.au/eat/bakeries/",
-      "pageType": "venue-or-guide",
-      "rule": "missing_alt",
-      "problem": "5 of 6 images lack alt text",
-      "occurrences": 1,
-      "proposedAction": "add_missing_alt_from_known_caption",
-      "severity": "minor",
-      "category": "DRAFT",
-      "priority": 0.4221,
-      "confidence": 0.84,
-      "safety": "auto_safe",
-      "reversible": true,
-      "provider": "deterministic",
-      "signals": {
-        "searchOpportunity": 0.35,
-        "strategicRelevance": 0.75,
-        "expectedImpact": 0.3,
-        "ease": 0.5,
-        "localContribution": 1,
-        "cooldownPenalty": 1,
-        "daysSinceLastIntervention": null
-      },
-      "target": null,
-      "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/eat/allis-wine-bar/",
@@ -4421,7 +3522,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "not_in_sitemap:/events/winter-wine-weekend/",
@@ -4450,7 +3551,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/places/",
@@ -4479,7 +3580,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/stay/plantation-house-whitecliffs/",
@@ -4508,7 +3609,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/stay/driftaway-on-dundas/",
@@ -4537,7 +3638,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/sorrento-golf-club/",
@@ -4566,7 +3667,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/portsea-front-beach/",
@@ -4595,36 +3696,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
-    },
-    {
-      "id": "missing_alt:/explore/plans/mornington-day-guide/",
-      "urlPath": "/explore/plans/mornington-day-guide/",
-      "url": "https://peninsulainsider.com.au/explore/plans/mornington-day-guide/",
-      "pageType": "place-or-guide",
-      "rule": "missing_alt",
-      "problem": "3 of 3 images lack alt text",
-      "occurrences": 1,
-      "proposedAction": "add_missing_alt_from_known_caption",
-      "severity": "minor",
-      "category": "DRAFT",
-      "priority": 0.4137,
-      "confidence": 0.84,
-      "safety": "auto_safe",
-      "reversible": true,
-      "provider": "deterministic",
-      "signals": {
-        "searchOpportunity": 0.35,
-        "strategicRelevance": 0.75,
-        "expectedImpact": 0.3,
-        "ease": 0.5,
-        "localContribution": 0.9,
-        "cooldownPenalty": 1,
-        "daysSinceLastIntervention": null
-      },
-      "target": null,
-      "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/places/tyabb/",
@@ -4653,7 +3725,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/places/somers/",
@@ -4682,7 +3754,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/places/red-hill-south/",
@@ -4711,7 +3783,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/places/portsea/",
@@ -4740,7 +3812,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/places/mount-martha/",
@@ -4769,7 +3841,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/cape-schanck-lighthouse-walk/",
@@ -4798,7 +3870,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/eat/the-bay-hotel-mornington/",
@@ -4827,7 +3899,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/eat/rye-hotel/",
@@ -4856,7 +3928,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/eat/mornington-hotel/",
@@ -4885,7 +3957,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/eat/flinders-general-store/",
@@ -4914,7 +3986,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/eat/dromana-hotel/",
@@ -4943,7 +4015,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/eat/balnarring-pub/",
@@ -4972,7 +4044,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "not_in_sitemap:/events/wine-weekends/",
@@ -5001,7 +4073,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/wine/paringa-estate/",
@@ -5030,7 +4102,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/where-to-walk-the-dog-mornington-peninsula/",
@@ -5059,7 +4131,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/where-to-stay-for-a-two-night-escape/",
@@ -5088,7 +4160,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/where-to-eat-without-a-booking/",
@@ -5117,7 +4189,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/weddings-where-guests-stay-mornington-peninsula/",
@@ -5146,7 +4218,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/waterfront-restaurants-mornington-peninsula/",
@@ -5175,7 +4247,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/walks-bushrangers-bay-walk-guide/",
@@ -5204,7 +4276,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/the-winter-long-lunch/",
@@ -5233,7 +4305,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/the-vineyard-villa-weekend/",
@@ -5262,7 +4334,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/the-sunset-hour/",
@@ -5291,7 +4363,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/the-sunset-drink/",
@@ -5320,7 +4392,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/the-spring-peninsula/",
@@ -5349,7 +4421,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/the-sorrento-weekend/",
@@ -5378,7 +4450,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/the-pub-guide/",
@@ -5407,7 +4479,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/the-peninsulas-best-late-afternoon-walks/",
@@ -5436,7 +4508,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/the-peninsula-pantry/",
@@ -5465,7 +4537,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/the-long-lunch/",
@@ -5494,7 +4566,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/the-chardonnay-case/",
@@ -5523,7 +4595,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/st-andrews-beach-golf-course/",
@@ -5552,7 +4624,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/rainy-day-peninsula/",
@@ -5581,7 +4653,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/mornington-peninsula-winery-guide/",
@@ -5610,7 +4682,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/insider-picks-2026-09-20/",
@@ -5639,7 +4711,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/insider-picks-2026-09-14/",
@@ -5668,7 +4740,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/insider-picks-2026-09-12/",
@@ -5697,7 +4769,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/insider-picks-2026-09-11/",
@@ -5726,7 +4798,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/insider-picks-2026-09-10/",
@@ -5755,7 +4827,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/insider-picks-2026-09-05/",
@@ -5784,7 +4856,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/insider-picks-2026-09-02/",
@@ -5813,7 +4885,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/insider-picks-2026-09-01/",
@@ -5842,7 +4914,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/insider-picks-2026-08-27/",
@@ -5871,7 +4943,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/insider-picks-2026-08-12/",
@@ -5900,7 +4972,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/insider-picks-2026-08-10/",
@@ -5929,7 +5001,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/insider-picks-2026-08-01/",
@@ -5958,7 +5030,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/insider-picks-2026-07-30/",
@@ -5987,7 +5059,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/insider-picks-2026-07-28/",
@@ -6016,7 +5088,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/insider-picks-2026-07-27/",
@@ -6045,7 +5117,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/first-time-peninsula/",
@@ -6074,7 +5146,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/dog-friendly-beaches-mornington-peninsula/",
@@ -6103,7 +5175,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/dog-friendly-accommodation-mornington-peninsula/",
@@ -6132,7 +5204,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/breakfast-before-the-crowds/",
@@ -6161,7 +5233,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/autumn-weekend-edit/",
@@ -6190,7 +5262,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/ashcombe-maze-visitor-guide/",
@@ -6219,7 +5291,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/arthurs-seat-eagle-visitor-guide/",
@@ -6248,7 +5320,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/area-guide-portsea/",
@@ -6277,7 +5349,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/area-guide-merricks/",
@@ -6306,7 +5378,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/area-guide-main-ridge/",
@@ -6335,7 +5407,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/area-guide-flinders/",
@@ -6364,7 +5436,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/area-guide-dromana/",
@@ -6393,7 +5465,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/a-winter-peninsula-weekend/",
@@ -6422,7 +5494,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/sorrento-ocean-baths/",
@@ -6451,7 +5523,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/sorrento-ferry/",
@@ -6480,36 +5552,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
-    },
-    {
-      "id": "missing_alt:/explore/plans/the-point-nepean-half-day/",
-      "urlPath": "/explore/plans/the-point-nepean-half-day/",
-      "url": "https://peninsulainsider.com.au/explore/plans/the-point-nepean-half-day/",
-      "pageType": "place-or-guide",
-      "rule": "missing_alt",
-      "problem": "3 of 3 images lack alt text",
-      "occurrences": 1,
-      "proposedAction": "add_missing_alt_from_known_caption",
-      "severity": "minor",
-      "category": "DRAFT",
-      "priority": 0.4053,
-      "confidence": 0.84,
-      "safety": "auto_safe",
-      "reversible": true,
-      "provider": "deterministic",
-      "signals": {
-        "searchOpportunity": 0.35,
-        "strategicRelevance": 0.75,
-        "expectedImpact": 0.3,
-        "ease": 0.5,
-        "localContribution": 0.8,
-        "cooldownPenalty": 1,
-        "daysSinceLastIntervention": null
-      },
-      "target": null,
-      "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/places/mount-eliza/",
@@ -6538,7 +5581,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/flinders-golf-club/",
@@ -6567,7 +5610,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/coppins-track/",
@@ -6596,7 +5639,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/eat/stringers-sorrento/",
@@ -6625,7 +5668,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/eat/small-stone-pantry/",
@@ -6654,7 +5697,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/eat/pier-street-seafood/",
@@ -6683,7 +5726,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/eat/mornington-peninsula-chocolates/",
@@ -6712,7 +5755,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/eat/crittenden-restaurant/",
@@ -6741,7 +5784,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/places/capel-sound/",
@@ -6770,7 +5813,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/places/fingal/",
@@ -6799,7 +5842,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "not_in_sitemap:/events/annual-festivals/",
@@ -6828,7 +5871,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/point-nepean-national-park-guide/",
@@ -6857,7 +5900,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/insider-picks-2026-09-19/",
@@ -6886,7 +5929,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/insider-picks-2026-09-15/",
@@ -6915,7 +5958,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/insider-picks-2026-09-04/",
@@ -6944,7 +5987,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/insider-picks-2026-08-09/",
@@ -6973,7 +6016,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/insider-picks-2026-07-29/",
@@ -7002,7 +6045,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/insider-picks-2026-07-05/",
@@ -7031,7 +6074,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/sorrento-back-beach/",
@@ -7060,7 +6103,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/sea-search-encounters/",
@@ -7089,7 +6132,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/places/point-leo/",
@@ -7118,7 +6161,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/places/blairgowrie/",
@@ -7147,7 +6190,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/places/bittern/",
@@ -7176,7 +6219,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/mount-martha-beach/",
@@ -7205,36 +6248,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
-    },
-    {
-      "id": "missing_alt:/eat/waterfront/",
-      "urlPath": "/eat/waterfront/",
-      "url": "https://peninsulainsider.com.au/eat/waterfront/",
-      "pageType": "venue-or-guide",
-      "rule": "missing_alt",
-      "problem": "3 of 4 images lack alt text",
-      "occurrences": 1,
-      "proposedAction": "add_missing_alt_from_known_caption",
-      "severity": "minor",
-      "category": "DRAFT",
-      "priority": 0.3969,
-      "confidence": 0.84,
-      "safety": "auto_safe",
-      "reversible": true,
-      "provider": "deterministic",
-      "signals": {
-        "searchOpportunity": 0.35,
-        "strategicRelevance": 0.75,
-        "expectedImpact": 0.3,
-        "ease": 0.5,
-        "localContribution": 0.7,
-        "cooldownPenalty": 1,
-        "daysSinceLastIntervention": null
-      },
-      "target": null,
-      "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/eat/the-baths-sorrento/",
@@ -7263,7 +6277,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/eat/sorrento-hotel/",
@@ -7292,7 +6306,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/eat/barmah-park/",
@@ -7321,7 +6335,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/eat/best-restaurants/",
@@ -7350,7 +6364,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "not_in_sitemap:/events/sorrento-writers-festival/",
@@ -7379,7 +6393,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/racv-cape-schanck-golf-course/",
@@ -7408,7 +6422,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/places/rye/",
@@ -7437,7 +6451,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/why-winter-works-on-the-peninsula/",
@@ -7466,7 +6480,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/quealy-winemakers-balnarring/",
@@ -7495,7 +6509,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/insider-picks-2026-09-13/",
@@ -7524,7 +6538,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/insider-picks-2026-09-08/",
@@ -7553,7 +6567,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/insider-picks-2026-08-17/",
@@ -7582,7 +6596,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/insider-picks-2026-07-31/",
@@ -7611,7 +6625,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/insider-picks-2026-07-24/",
@@ -7640,7 +6654,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/dog-daycare-boarding-groomers-pet-shops-mornington-peninsula/",
@@ -7669,7 +6683,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/corporate-events-red-hill-vs-sorrento/",
@@ -7698,7 +6712,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/a-flinders-weekend/",
@@ -7727,7 +6741,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/portsea-golf-club/",
@@ -7756,7 +6770,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/places/merricks-beach/",
@@ -7785,7 +6799,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/places/crib-point/",
@@ -7814,7 +6828,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/eat/moke-dining/",
@@ -7843,7 +6857,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/eat/bistro-elba/",
@@ -7872,7 +6886,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/dog-friendly-cafes-pubs-wineries-mornington-peninsula/",
@@ -7901,7 +6915,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/cape-schanck-guide/",
@@ -7930,7 +6944,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/winter-indoors-mprg-rainy-day-circuit/",
@@ -7959,7 +6973,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/the-seafood-list/",
@@ -7988,7 +7002,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/peninsula-notes-june-2026/",
@@ -8017,7 +7031,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/insider-picks-2026-09-16/",
@@ -8046,7 +7060,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/insider-picks-2026-08-06/",
@@ -8075,7 +7089,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/insider-picks-2026-07-25/",
@@ -8104,7 +7118,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/places/stony-point/",
@@ -8133,7 +7147,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/events/winter-wine-weekend/",
@@ -8162,7 +7176,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "not_in_sitemap:/events/portsea-twilight/",
@@ -8191,7 +7205,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/stay/the-orchard-red-hill/",
@@ -8220,7 +7234,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/explore/places/mornington/",
@@ -8249,7 +7263,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/stay/cape-schanck/",
@@ -8278,7 +7292,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/three-italian-dinners/",
@@ -8307,7 +7321,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/spring-school-holidays-2026/",
@@ -8336,7 +7350,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/sorrento-solstice-festival-2026-guide/",
@@ -8365,7 +7379,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/insider-picks-2026-09-17/",
@@ -8394,7 +7408,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/insider-picks-2026-09-09/",
@@ -8423,7 +7437,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/insider-picks-2026-08-02/",
@@ -8452,7 +7466,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/emergency-vet-pet-help-mornington-peninsula/",
@@ -8481,7 +7495,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/boat-moorings-berths-mornington-peninsula/",
@@ -8510,7 +7524,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/fishing/",
@@ -8539,7 +7553,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/events/wine-weekends/",
@@ -8568,7 +7582,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "missing_alt:/journal/peninsula-hot-springs-vs-alba/",
@@ -8597,7 +7611,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "not_in_sitemap:/events/portsea-polo/",
@@ -8626,7 +7640,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "not_in_sitemap:/events/peninsula-film-festival/",
@@ -8655,7 +7669,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "not_in_sitemap:/events/mornington-winter-music-festival/",
@@ -8684,7 +7698,7 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     },
     {
       "id": "not_in_sitemap:/events/main-street-mornington-festival/",
@@ -8713,7 +7727,993 @@
       },
       "target": null,
       "anchor": null,
-      "detectedAt": "2026-09-21T02:24:38.332Z"
+      "detectedAt": "2026-09-21T03:55:45.509Z"
+    },
+    {
+      "id": "missing_alt:/wine/best-cellar-doors/",
+      "urlPath": "/wine/best-cellar-doors/",
+      "url": "https://peninsulainsider.com.au/wine/best-cellar-doors/",
+      "pageType": "venue-or-guide",
+      "rule": "missing_alt",
+      "problem": "12 of 12 images lack alt text",
+      "occurrences": 1,
+      "proposedAction": "add_missing_alt_from_known_caption",
+      "severity": "minor",
+      "category": "DRAFT",
+      "priority": 0.3644,
+      "confidence": 0.84,
+      "safety": "auto_safe",
+      "reversible": true,
+      "provider": "deterministic",
+      "signals": {
+        "searchOpportunity": 0.075,
+        "strategicRelevance": 0.75,
+        "expectedImpact": 0.3,
+        "ease": 0.5,
+        "localContribution": 1,
+        "cooldownPenalty": 1,
+        "daysSinceLastIntervention": null
+      },
+      "target": null,
+      "anchor": null,
+      "detectedAt": "2026-09-21T03:55:45.509Z"
+    },
+    {
+      "id": "missing_alt:/explore/rye-ocean-beach/",
+      "urlPath": "/explore/rye-ocean-beach/",
+      "url": "https://peninsulainsider.com.au/explore/rye-ocean-beach/",
+      "pageType": "place-or-guide",
+      "rule": "missing_alt",
+      "problem": "3 of 6 images lack alt text",
+      "occurrences": 1,
+      "proposedAction": "add_missing_alt_from_known_caption",
+      "severity": "minor",
+      "category": "DRAFT",
+      "priority": 0.3644,
+      "confidence": 0.84,
+      "safety": "auto_safe",
+      "reversible": true,
+      "provider": "deterministic",
+      "signals": {
+        "searchOpportunity": 0.075,
+        "strategicRelevance": 0.75,
+        "expectedImpact": 0.3,
+        "ease": 0.5,
+        "localContribution": 1,
+        "cooldownPenalty": 1,
+        "daysSinceLastIntervention": null
+      },
+      "target": null,
+      "anchor": null,
+      "detectedAt": "2026-09-21T03:55:45.509Z"
+    },
+    {
+      "id": "missing_alt:/explore/places/merricks/",
+      "urlPath": "/explore/places/merricks/",
+      "url": "https://peninsulainsider.com.au/explore/places/merricks/",
+      "pageType": "place-or-guide",
+      "rule": "missing_alt",
+      "problem": "10 of 12 images lack alt text",
+      "occurrences": 1,
+      "proposedAction": "add_missing_alt_from_known_caption",
+      "severity": "minor",
+      "category": "DRAFT",
+      "priority": 0.3644,
+      "confidence": 0.84,
+      "safety": "auto_safe",
+      "reversible": true,
+      "provider": "deterministic",
+      "signals": {
+        "searchOpportunity": 0.075,
+        "strategicRelevance": 0.75,
+        "expectedImpact": 0.3,
+        "ease": 0.5,
+        "localContribution": 1,
+        "cooldownPenalty": 1,
+        "daysSinceLastIntervention": null
+      },
+      "target": null,
+      "anchor": null,
+      "detectedAt": "2026-09-21T03:55:45.509Z"
+    },
+    {
+      "id": "missing_alt:/journal/luxury-hotels-mornington-peninsula/",
+      "urlPath": "/journal/luxury-hotels-mornington-peninsula/",
+      "url": "https://peninsulainsider.com.au/journal/luxury-hotels-mornington-peninsula/",
+      "pageType": "article",
+      "rule": "missing_alt",
+      "problem": "1 of 2 images lack alt text",
+      "occurrences": 1,
+      "proposedAction": "add_missing_alt_from_known_caption",
+      "severity": "minor",
+      "category": "DRAFT",
+      "priority": 0.3634,
+      "confidence": 0.84,
+      "safety": "auto_safe",
+      "reversible": true,
+      "provider": "deterministic",
+      "signals": {
+        "searchOpportunity": 0.151,
+        "strategicRelevance": 0.65,
+        "expectedImpact": 0.3,
+        "ease": 0.5,
+        "localContribution": 1,
+        "cooldownPenalty": 1,
+        "daysSinceLastIntervention": null
+      },
+      "target": null,
+      "anchor": null,
+      "detectedAt": "2026-09-21T03:55:45.509Z"
+    },
+    {
+      "id": "missing_alt:/stay/sorrento/",
+      "urlPath": "/stay/sorrento/",
+      "url": "https://peninsulainsider.com.au/stay/sorrento/",
+      "pageType": "venue-or-guide",
+      "rule": "missing_alt",
+      "problem": "2 of 2 images lack alt text",
+      "occurrences": 1,
+      "proposedAction": "add_missing_alt_from_known_caption",
+      "severity": "minor",
+      "category": "DRAFT",
+      "priority": 0.3633,
+      "confidence": 0.84,
+      "safety": "auto_safe",
+      "reversible": true,
+      "provider": "deterministic",
+      "signals": {
+        "searchOpportunity": 0.35,
+        "strategicRelevance": 0.75,
+        "expectedImpact": 0.3,
+        "ease": 0.5,
+        "localContribution": 0.3,
+        "cooldownPenalty": 1,
+        "daysSinceLastIntervention": null
+      },
+      "target": null,
+      "anchor": null,
+      "detectedAt": "2026-09-21T03:55:45.509Z"
+    },
+    {
+      "id": "missing_alt:/stay/flinders/",
+      "urlPath": "/stay/flinders/",
+      "url": "https://peninsulainsider.com.au/stay/flinders/",
+      "pageType": "venue-or-guide",
+      "rule": "missing_alt",
+      "problem": "1 of 1 images lack alt text",
+      "occurrences": 1,
+      "proposedAction": "add_missing_alt_from_known_caption",
+      "severity": "minor",
+      "category": "DRAFT",
+      "priority": 0.3633,
+      "confidence": 0.84,
+      "safety": "auto_safe",
+      "reversible": true,
+      "provider": "deterministic",
+      "signals": {
+        "searchOpportunity": 0.35,
+        "strategicRelevance": 0.75,
+        "expectedImpact": 0.3,
+        "ease": 0.5,
+        "localContribution": 0.3,
+        "cooldownPenalty": 1,
+        "daysSinceLastIntervention": null
+      },
+      "target": null,
+      "anchor": null,
+      "detectedAt": "2026-09-21T03:55:45.509Z"
+    },
+    {
+      "id": "missing_alt:/journal/practical-spring-visit-national-works-on-paper/",
+      "urlPath": "/journal/practical-spring-visit-national-works-on-paper/",
+      "url": "https://peninsulainsider.com.au/journal/practical-spring-visit-national-works-on-paper/",
+      "pageType": "article",
+      "rule": "missing_alt",
+      "problem": "1 of 2 images lack alt text",
+      "occurrences": 1,
+      "proposedAction": "add_missing_alt_from_known_caption",
+      "severity": "minor",
+      "category": "DRAFT",
+      "priority": 0.3633,
+      "confidence": 0.84,
+      "safety": "auto_safe",
+      "reversible": true,
+      "provider": "deterministic",
+      "signals": {
+        "searchOpportunity": 0.35,
+        "strategicRelevance": 0.65,
+        "expectedImpact": 0.3,
+        "ease": 0.5,
+        "localContribution": 0.5,
+        "cooldownPenalty": 1,
+        "daysSinceLastIntervention": null
+      },
+      "target": null,
+      "anchor": null,
+      "detectedAt": "2026-09-21T03:55:45.509Z"
+    },
+    {
+      "id": "missing_alt:/events/annual-festivals/",
+      "urlPath": "/events/annual-festivals/",
+      "url": "https://peninsulainsider.com.au/events/annual-festivals/",
+      "pageType": "event",
+      "rule": "missing_alt",
+      "problem": "4 of 5 images lack alt text",
+      "occurrences": 1,
+      "proposedAction": "add_missing_alt_from_known_caption",
+      "severity": "minor",
+      "category": "DRAFT",
+      "priority": 0.3633,
+      "confidence": 0.84,
+      "safety": "auto_safe",
+      "reversible": true,
+      "provider": "deterministic",
+      "signals": {
+        "searchOpportunity": 0.35,
+        "strategicRelevance": 0.5,
+        "expectedImpact": 0.3,
+        "ease": 0.5,
+        "localContribution": 0.8,
+        "cooldownPenalty": 1,
+        "daysSinceLastIntervention": null
+      },
+      "target": null,
+      "anchor": null,
+      "detectedAt": "2026-09-21T03:55:45.509Z"
+    },
+    {
+      "id": "not_in_sitemap:/events/sailing-regattas/",
+      "urlPath": "/events/sailing-regattas/",
+      "url": "https://peninsulainsider.com.au/events/sailing-regattas/",
+      "pageType": "event",
+      "rule": "not_in_sitemap",
+      "problem": "indexable content page missing from sitemap.xml",
+      "occurrences": 1,
+      "proposedAction": "sitemap_include",
+      "severity": "minor",
+      "category": "STRUCTURAL PROJECT",
+      "priority": 0.3591,
+      "confidence": 0.84,
+      "safety": "auto_safe",
+      "reversible": true,
+      "provider": "deterministic",
+      "signals": {
+        "searchOpportunity": 0.35,
+        "strategicRelevance": 0.5,
+        "expectedImpact": 0.3,
+        "ease": 0.8,
+        "localContribution": 0.3,
+        "cooldownPenalty": 1,
+        "daysSinceLastIntervention": null
+      },
+      "target": null,
+      "anchor": null,
+      "detectedAt": "2026-09-21T03:55:45.509Z"
+    },
+    {
+      "id": "not_in_sitemap:/events/portsea-swim-classic/",
+      "urlPath": "/events/portsea-swim-classic/",
+      "url": "https://peninsulainsider.com.au/events/portsea-swim-classic/",
+      "pageType": "event",
+      "rule": "not_in_sitemap",
+      "problem": "indexable content page missing from sitemap.xml",
+      "occurrences": 1,
+      "proposedAction": "sitemap_include",
+      "severity": "minor",
+      "category": "STRUCTURAL PROJECT",
+      "priority": 0.3591,
+      "confidence": 0.84,
+      "safety": "auto_safe",
+      "reversible": true,
+      "provider": "deterministic",
+      "signals": {
+        "searchOpportunity": 0.35,
+        "strategicRelevance": 0.5,
+        "expectedImpact": 0.3,
+        "ease": 0.8,
+        "localContribution": 0.3,
+        "cooldownPenalty": 1,
+        "daysSinceLastIntervention": null
+      },
+      "target": null,
+      "anchor": null,
+      "detectedAt": "2026-09-21T03:55:45.509Z"
+    },
+    {
+      "id": "missing_alt:/journal/dog-friendly-wineries-mornington-peninsula/",
+      "urlPath": "/journal/dog-friendly-wineries-mornington-peninsula/",
+      "url": "https://peninsulainsider.com.au/journal/dog-friendly-wineries-mornington-peninsula/",
+      "pageType": "article",
+      "rule": "missing_alt",
+      "problem": "1 of 2 images lack alt text",
+      "occurrences": 1,
+      "proposedAction": "add_missing_alt_from_known_caption",
+      "severity": "minor",
+      "category": "DRAFT",
+      "priority": 0.3568,
+      "confidence": 0.84,
+      "safety": "auto_safe",
+      "reversible": true,
+      "provider": "deterministic",
+      "signals": {
+        "searchOpportunity": 0.119,
+        "strategicRelevance": 0.65,
+        "expectedImpact": 0.3,
+        "ease": 0.5,
+        "localContribution": 1,
+        "cooldownPenalty": 1,
+        "daysSinceLastIntervention": null
+      },
+      "target": null,
+      "anchor": null,
+      "detectedAt": "2026-09-21T03:55:45.509Z"
+    },
+    {
+      "id": "missing_alt:/journal/area-guide-red-hill/",
+      "urlPath": "/journal/area-guide-red-hill/",
+      "url": "https://peninsulainsider.com.au/journal/area-guide-red-hill/",
+      "pageType": "article",
+      "rule": "missing_alt",
+      "problem": "1 of 2 images lack alt text",
+      "occurrences": 1,
+      "proposedAction": "add_missing_alt_from_known_caption",
+      "severity": "minor",
+      "category": "DRAFT",
+      "priority": 0.3568,
+      "confidence": 0.84,
+      "safety": "auto_safe",
+      "reversible": true,
+      "provider": "deterministic",
+      "signals": {
+        "searchOpportunity": 0.119,
+        "strategicRelevance": 0.65,
+        "expectedImpact": 0.3,
+        "ease": 0.5,
+        "localContribution": 1,
+        "cooldownPenalty": 1,
+        "daysSinceLastIntervention": null
+      },
+      "target": null,
+      "anchor": null,
+      "detectedAt": "2026-09-21T03:55:45.509Z"
+    },
+    {
+      "id": "missing_alt:/boating/",
+      "urlPath": "/boating/",
+      "url": "https://peninsulainsider.com.au/boating/",
+      "pageType": "guide",
+      "rule": "missing_alt",
+      "problem": "1 of 1 images lack alt text",
+      "occurrences": 1,
+      "proposedAction": "add_missing_alt_from_known_caption",
+      "severity": "minor",
+      "category": "DRAFT",
+      "priority": 0.3568,
+      "confidence": 0.84,
+      "safety": "auto_safe",
+      "reversible": true,
+      "provider": "deterministic",
+      "signals": {
+        "searchOpportunity": 0.119,
+        "strategicRelevance": 0.8,
+        "expectedImpact": 0.3,
+        "ease": 0.5,
+        "localContribution": 0.7,
+        "cooldownPenalty": 1,
+        "daysSinceLastIntervention": null
+      },
+      "target": null,
+      "anchor": null,
+      "detectedAt": "2026-09-21T03:55:45.509Z"
+    },
+    {
+      "id": "missing_alt:/events/sorrento-writers-festival/",
+      "urlPath": "/events/sorrento-writers-festival/",
+      "url": "https://peninsulainsider.com.au/events/sorrento-writers-festival/",
+      "pageType": "event",
+      "rule": "missing_alt",
+      "problem": "2 of 3 images lack alt text",
+      "occurrences": 1,
+      "proposedAction": "add_missing_alt_from_known_caption",
+      "severity": "minor",
+      "category": "DRAFT",
+      "priority": 0.3549,
+      "confidence": 0.84,
+      "safety": "auto_safe",
+      "reversible": true,
+      "provider": "deterministic",
+      "signals": {
+        "searchOpportunity": 0.35,
+        "strategicRelevance": 0.5,
+        "expectedImpact": 0.3,
+        "ease": 0.5,
+        "localContribution": 0.7,
+        "cooldownPenalty": 1,
+        "daysSinceLastIntervention": null
+      },
+      "target": null,
+      "anchor": null,
+      "detectedAt": "2026-09-21T03:55:45.509Z"
+    },
+    {
+      "id": "duplicate_title:/journal/best-brunch-mornington-peninsula/",
+      "urlPath": "/journal/best-brunch-mornington-peninsula/",
+      "url": "https://peninsulainsider.com.au/journal/best-brunch-mornington-peninsula/",
+      "pageType": "article",
+      "rule": "duplicate_title",
+      "problem": "title shared with 1 other page(s)",
+      "occurrences": 1,
+      "proposedAction": "rewrite_title",
+      "severity": "major",
+      "category": "DRAFT",
+      "priority": 0.3536,
+      "confidence": 0.84,
+      "safety": "human_only",
+      "reversible": false,
+      "provider": "deterministic",
+      "signals": {
+        "searchOpportunity": 0.195,
+        "strategicRelevance": 0.65,
+        "expectedImpact": 0.65,
+        "ease": 0.35,
+        "localContribution": 1,
+        "cooldownPenalty": 1,
+        "daysSinceLastIntervention": null
+      },
+      "target": null,
+      "anchor": null,
+      "detectedAt": "2026-09-21T03:55:45.509Z"
+    },
+    {
+      "id": "orphan_page:/journal/cellar-door/",
+      "urlPath": "/journal/cellar-door/",
+      "url": "https://peninsulainsider.com.au/journal/cellar-door/",
+      "pageType": "article",
+      "rule": "orphan_page",
+      "problem": "no internal links point at this page",
+      "occurrences": 1,
+      "proposedAction": "add_internal_link",
+      "severity": "minor",
+      "category": "DRAFT",
+      "priority": 0.3507,
+      "confidence": 0.84,
+      "safety": "needs_validation",
+      "reversible": true,
+      "provider": "deterministic",
+      "signals": {
+        "searchOpportunity": 0.35,
+        "strategicRelevance": 0.65,
+        "expectedImpact": 0.3,
+        "ease": 0.6,
+        "localContribution": 0.2,
+        "cooldownPenalty": 1,
+        "daysSinceLastIntervention": null
+      },
+      "target": null,
+      "anchor": null,
+      "detectedAt": "2026-09-21T03:55:45.509Z"
+    },
+    {
+      "id": "missing_alt:/journal/hatted-restaurants-mornington-peninsula-2025/",
+      "urlPath": "/journal/hatted-restaurants-mornington-peninsula-2025/",
+      "url": "https://peninsulainsider.com.au/journal/hatted-restaurants-mornington-peninsula-2025/",
+      "pageType": "article",
+      "rule": "missing_alt",
+      "problem": "1 of 2 images lack alt text",
+      "occurrences": 1,
+      "proposedAction": "add_missing_alt_from_known_caption",
+      "severity": "minor",
+      "category": "DRAFT",
+      "priority": 0.3476,
+      "confidence": 0.84,
+      "safety": "auto_safe",
+      "reversible": true,
+      "provider": "deterministic",
+      "signals": {
+        "searchOpportunity": 0.075,
+        "strategicRelevance": 0.65,
+        "expectedImpact": 0.3,
+        "ease": 0.5,
+        "localContribution": 1,
+        "cooldownPenalty": 1,
+        "daysSinceLastIntervention": null
+      },
+      "target": null,
+      "anchor": null,
+      "detectedAt": "2026-09-21T03:55:45.509Z"
+    },
+    {
+      "id": "missing_alt:/tour-packages/",
+      "urlPath": "/tour-packages/",
+      "url": "https://peninsulainsider.com.au/tour-packages/",
+      "pageType": "tour",
+      "rule": "missing_alt",
+      "problem": "1 of 9 images lack alt text",
+      "occurrences": 1,
+      "proposedAction": "add_missing_alt_from_known_caption",
+      "severity": "minor",
+      "category": "DRAFT",
+      "priority": 0.3465,
+      "confidence": 0.84,
+      "safety": "auto_safe",
+      "reversible": true,
+      "provider": "deterministic",
+      "signals": {
+        "searchOpportunity": 0.35,
+        "strategicRelevance": 0.6,
+        "expectedImpact": 0.3,
+        "ease": 0.5,
+        "localContribution": 0.4,
+        "cooldownPenalty": 1,
+        "daysSinceLastIntervention": null
+      },
+      "target": null,
+      "anchor": null,
+      "detectedAt": "2026-09-21T03:55:45.509Z"
+    },
+    {
+      "id": "meta_description_length:/guides/winter/",
+      "urlPath": "/guides/winter/",
+      "url": "https://peninsulainsider.com.au/guides/winter/",
+      "pageType": "guide",
+      "rule": "meta_description_length",
+      "problem": "39 chars (target 70-165)",
+      "occurrences": 1,
+      "proposedAction": "rewrite_meta_description",
+      "severity": "minor",
+      "category": "DRAFT",
+      "priority": 0.3394,
+      "confidence": 0.84,
+      "safety": "human_only",
+      "reversible": false,
+      "provider": "deterministic",
+      "signals": {
+        "searchOpportunity": 0.35,
+        "strategicRelevance": 0.8,
+        "expectedImpact": 0.3,
+        "ease": 0.45,
+        "localContribution": 1,
+        "cooldownPenalty": 1,
+        "daysSinceLastIntervention": null
+      },
+      "target": null,
+      "anchor": null,
+      "detectedAt": "2026-09-21T03:55:45.509Z"
+    },
+    {
+      "id": "meta_description_length:/guides/summer/",
+      "urlPath": "/guides/summer/",
+      "url": "https://peninsulainsider.com.au/guides/summer/",
+      "pageType": "guide",
+      "rule": "meta_description_length",
+      "problem": "39 chars (target 70-165)",
+      "occurrences": 1,
+      "proposedAction": "rewrite_meta_description",
+      "severity": "minor",
+      "category": "DRAFT",
+      "priority": 0.3394,
+      "confidence": 0.84,
+      "safety": "human_only",
+      "reversible": false,
+      "provider": "deterministic",
+      "signals": {
+        "searchOpportunity": 0.35,
+        "strategicRelevance": 0.8,
+        "expectedImpact": 0.3,
+        "ease": 0.45,
+        "localContribution": 1,
+        "cooldownPenalty": 1,
+        "daysSinceLastIntervention": null
+      },
+      "target": null,
+      "anchor": null,
+      "detectedAt": "2026-09-21T03:55:45.509Z"
+    },
+    {
+      "id": "meta_description_length:/guides/spring/",
+      "urlPath": "/guides/spring/",
+      "url": "https://peninsulainsider.com.au/guides/spring/",
+      "pageType": "guide",
+      "rule": "meta_description_length",
+      "problem": "39 chars (target 70-165)",
+      "occurrences": 1,
+      "proposedAction": "rewrite_meta_description",
+      "severity": "minor",
+      "category": "DRAFT",
+      "priority": 0.3394,
+      "confidence": 0.84,
+      "safety": "human_only",
+      "reversible": false,
+      "provider": "deterministic",
+      "signals": {
+        "searchOpportunity": 0.35,
+        "strategicRelevance": 0.8,
+        "expectedImpact": 0.3,
+        "ease": 0.45,
+        "localContribution": 1,
+        "cooldownPenalty": 1,
+        "daysSinceLastIntervention": null
+      },
+      "target": null,
+      "anchor": null,
+      "detectedAt": "2026-09-21T03:55:45.509Z"
+    },
+    {
+      "id": "meta_description_length:/guides/easter-long-weekend/",
+      "urlPath": "/guides/easter-long-weekend/",
+      "url": "https://peninsulainsider.com.au/guides/easter-long-weekend/",
+      "pageType": "guide",
+      "rule": "meta_description_length",
+      "problem": "39 chars (target 70-165)",
+      "occurrences": 1,
+      "proposedAction": "rewrite_meta_description",
+      "severity": "minor",
+      "category": "DRAFT",
+      "priority": 0.3394,
+      "confidence": 0.84,
+      "safety": "human_only",
+      "reversible": false,
+      "provider": "deterministic",
+      "signals": {
+        "searchOpportunity": 0.35,
+        "strategicRelevance": 0.8,
+        "expectedImpact": 0.3,
+        "ease": 0.45,
+        "localContribution": 1,
+        "cooldownPenalty": 1,
+        "daysSinceLastIntervention": null
+      },
+      "target": null,
+      "anchor": null,
+      "detectedAt": "2026-09-21T03:55:45.509Z"
+    },
+    {
+      "id": "meta_description_length:/guides/autumn/",
+      "urlPath": "/guides/autumn/",
+      "url": "https://peninsulainsider.com.au/guides/autumn/",
+      "pageType": "guide",
+      "rule": "meta_description_length",
+      "problem": "39 chars (target 70-165)",
+      "occurrences": 1,
+      "proposedAction": "rewrite_meta_description",
+      "severity": "minor",
+      "category": "DRAFT",
+      "priority": 0.3394,
+      "confidence": 0.84,
+      "safety": "human_only",
+      "reversible": false,
+      "provider": "deterministic",
+      "signals": {
+        "searchOpportunity": 0.35,
+        "strategicRelevance": 0.8,
+        "expectedImpact": 0.3,
+        "ease": 0.45,
+        "localContribution": 1,
+        "cooldownPenalty": 1,
+        "daysSinceLastIntervention": null
+      },
+      "target": null,
+      "anchor": null,
+      "detectedAt": "2026-09-21T03:55:45.509Z"
+    },
+    {
+      "id": "missing_alt:/journal/two-bays-walk-mornington-peninsula/",
+      "urlPath": "/journal/two-bays-walk-mornington-peninsula/",
+      "url": "https://peninsulainsider.com.au/journal/two-bays-walk-mornington-peninsula/",
+      "pageType": "article",
+      "rule": "missing_alt",
+      "problem": "1 of 1 images lack alt text",
+      "occurrences": 1,
+      "proposedAction": "add_missing_alt_from_known_caption",
+      "severity": "minor",
+      "category": "DRAFT",
+      "priority": 0.3382,
+      "confidence": 0.84,
+      "safety": "auto_safe",
+      "reversible": true,
+      "provider": "deterministic",
+      "signals": {
+        "searchOpportunity": 0.151,
+        "strategicRelevance": 0.65,
+        "expectedImpact": 0.3,
+        "ease": 0.5,
+        "localContribution": 0.7,
+        "cooldownPenalty": 1,
+        "daysSinceLastIntervention": null
+      },
+      "target": null,
+      "anchor": null,
+      "detectedAt": "2026-09-21T03:55:45.509Z"
+    },
+    {
+      "id": "missing_alt:/tour/fishing-tours/",
+      "urlPath": "/tour/fishing-tours/",
+      "url": "https://peninsulainsider.com.au/tour/fishing-tours/",
+      "pageType": "tour",
+      "rule": "missing_alt",
+      "problem": "1 of 1 images lack alt text",
+      "occurrences": 1,
+      "proposedAction": "add_missing_alt_from_known_caption",
+      "severity": "minor",
+      "category": "DRAFT",
+      "priority": 0.3381,
+      "confidence": 0.84,
+      "safety": "auto_safe",
+      "reversible": true,
+      "provider": "deterministic",
+      "signals": {
+        "searchOpportunity": 0.35,
+        "strategicRelevance": 0.6,
+        "expectedImpact": 0.3,
+        "ease": 0.5,
+        "localContribution": 0.3,
+        "cooldownPenalty": 1,
+        "daysSinceLastIntervention": null
+      },
+      "target": null,
+      "anchor": null,
+      "detectedAt": "2026-09-21T03:55:45.509Z"
+    },
+    {
+      "id": "missing_alt:/events/portsea-twilight/",
+      "urlPath": "/events/portsea-twilight/",
+      "url": "https://peninsulainsider.com.au/events/portsea-twilight/",
+      "pageType": "event",
+      "rule": "missing_alt",
+      "problem": "3 of 4 images lack alt text",
+      "occurrences": 1,
+      "proposedAction": "add_missing_alt_from_known_caption",
+      "severity": "minor",
+      "category": "DRAFT",
+      "priority": 0.3381,
+      "confidence": 0.84,
+      "safety": "auto_safe",
+      "reversible": true,
+      "provider": "deterministic",
+      "signals": {
+        "searchOpportunity": 0.35,
+        "strategicRelevance": 0.5,
+        "expectedImpact": 0.3,
+        "ease": 0.5,
+        "localContribution": 0.5,
+        "cooldownPenalty": 1,
+        "daysSinceLastIntervention": null
+      },
+      "target": null,
+      "anchor": null,
+      "detectedAt": "2026-09-21T03:55:45.509Z"
+    },
+    {
+      "id": "title_too_long:/explore/plans/wellness-weekend/",
+      "urlPath": "/explore/plans/wellness-weekend/",
+      "url": "https://peninsulainsider.com.au/explore/plans/wellness-weekend/",
+      "pageType": "place-or-guide",
+      "rule": "title_too_long",
+      "problem": "107 chars (>65)",
+      "occurrences": 1,
+      "proposedAction": "rewrite_title",
+      "severity": "minor",
+      "category": "DRAFT",
+      "priority": 0.3377,
+      "confidence": 0.84,
+      "safety": "human_only",
+      "reversible": false,
+      "provider": "deterministic",
+      "signals": {
+        "searchOpportunity": 0.35,
+        "strategicRelevance": 0.75,
+        "expectedImpact": 0.3,
+        "ease": 0.5,
+        "localContribution": 1,
+        "cooldownPenalty": 1,
+        "daysSinceLastIntervention": null
+      },
+      "target": null,
+      "anchor": null,
+      "detectedAt": "2026-09-21T03:55:45.509Z"
+    },
+    {
+      "id": "title_too_long:/explore/plans/the-peninsula-golf-weekend/",
+      "urlPath": "/explore/plans/the-peninsula-golf-weekend/",
+      "url": "https://peninsulainsider.com.au/explore/plans/the-peninsula-golf-weekend/",
+      "pageType": "place-or-guide",
+      "rule": "title_too_long",
+      "problem": "134 chars (>65)",
+      "occurrences": 1,
+      "proposedAction": "rewrite_title",
+      "severity": "minor",
+      "category": "DRAFT",
+      "priority": 0.3377,
+      "confidence": 0.84,
+      "safety": "human_only",
+      "reversible": false,
+      "provider": "deterministic",
+      "signals": {
+        "searchOpportunity": 0.35,
+        "strategicRelevance": 0.75,
+        "expectedImpact": 0.3,
+        "ease": 0.5,
+        "localContribution": 1,
+        "cooldownPenalty": 1,
+        "daysSinceLastIntervention": null
+      },
+      "target": null,
+      "anchor": null,
+      "detectedAt": "2026-09-21T03:55:45.509Z"
+    },
+    {
+      "id": "title_too_long:/explore/plans/the-family-day-out/",
+      "urlPath": "/explore/plans/the-family-day-out/",
+      "url": "https://peninsulainsider.com.au/explore/plans/the-family-day-out/",
+      "pageType": "place-or-guide",
+      "rule": "title_too_long",
+      "problem": "86 chars (>65)",
+      "occurrences": 1,
+      "proposedAction": "rewrite_title",
+      "severity": "minor",
+      "category": "DRAFT",
+      "priority": 0.3377,
+      "confidence": 0.84,
+      "safety": "human_only",
+      "reversible": false,
+      "provider": "deterministic",
+      "signals": {
+        "searchOpportunity": 0.35,
+        "strategicRelevance": 0.75,
+        "expectedImpact": 0.3,
+        "ease": 0.5,
+        "localContribution": 1,
+        "cooldownPenalty": 1,
+        "daysSinceLastIntervention": null
+      },
+      "target": null,
+      "anchor": null,
+      "detectedAt": "2026-09-21T03:55:45.509Z"
+    },
+    {
+      "id": "title_too_long:/explore/plans/sorrento-off-season-weekend/",
+      "urlPath": "/explore/plans/sorrento-off-season-weekend/",
+      "url": "https://peninsulainsider.com.au/explore/plans/sorrento-off-season-weekend/",
+      "pageType": "place-or-guide",
+      "rule": "title_too_long",
+      "problem": "89 chars (>65)",
+      "occurrences": 1,
+      "proposedAction": "rewrite_title",
+      "severity": "minor",
+      "category": "DRAFT",
+      "priority": 0.3377,
+      "confidence": 0.84,
+      "safety": "human_only",
+      "reversible": false,
+      "provider": "deterministic",
+      "signals": {
+        "searchOpportunity": 0.35,
+        "strategicRelevance": 0.75,
+        "expectedImpact": 0.3,
+        "ease": 0.5,
+        "localContribution": 1,
+        "cooldownPenalty": 1,
+        "daysSinceLastIntervention": null
+      },
+      "target": null,
+      "anchor": null,
+      "detectedAt": "2026-09-21T03:55:45.509Z"
+    },
+    {
+      "id": "title_too_long:/explore/plans/ridge-to-sea-two-night-escape/",
+      "urlPath": "/explore/plans/ridge-to-sea-two-night-escape/",
+      "url": "https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/",
+      "pageType": "place-or-guide",
+      "rule": "title_too_long",
+      "problem": "100 chars (>65)",
+      "occurrences": 1,
+      "proposedAction": "rewrite_title",
+      "severity": "minor",
+      "category": "DRAFT",
+      "priority": 0.3377,
+      "confidence": 0.84,
+      "safety": "human_only",
+      "reversible": false,
+      "provider": "deterministic",
+      "signals": {
+        "searchOpportunity": 0.35,
+        "strategicRelevance": 0.75,
+        "expectedImpact": 0.3,
+        "ease": 0.5,
+        "localContribution": 1,
+        "cooldownPenalty": 1,
+        "daysSinceLastIntervention": null
+      },
+      "target": null,
+      "anchor": null,
+      "detectedAt": "2026-09-21T03:55:45.509Z"
+    },
+    {
+      "id": "title_too_long:/explore/plans/flinders-and-cape-reset/",
+      "urlPath": "/explore/plans/flinders-and-cape-reset/",
+      "url": "https://peninsulainsider.com.au/explore/plans/flinders-and-cape-reset/",
+      "pageType": "place-or-guide",
+      "rule": "title_too_long",
+      "problem": "98 chars (>65)",
+      "occurrences": 1,
+      "proposedAction": "rewrite_title",
+      "severity": "minor",
+      "category": "DRAFT",
+      "priority": 0.3377,
+      "confidence": 0.84,
+      "safety": "human_only",
+      "reversible": false,
+      "provider": "deterministic",
+      "signals": {
+        "searchOpportunity": 0.35,
+        "strategicRelevance": 0.75,
+        "expectedImpact": 0.3,
+        "ease": 0.5,
+        "localContribution": 1,
+        "cooldownPenalty": 1,
+        "daysSinceLastIntervention": null
+      },
+      "target": null,
+      "anchor": null,
+      "detectedAt": "2026-09-21T03:55:45.509Z"
+    },
+    {
+      "id": "title_too_long:/explore/places/st-andrews-beach/",
+      "urlPath": "/explore/places/st-andrews-beach/",
+      "url": "https://peninsulainsider.com.au/explore/places/st-andrews-beach/",
+      "pageType": "place-or-guide",
+      "rule": "title_too_long",
+      "problem": "69 chars (>65)",
+      "occurrences": 1,
+      "proposedAction": "rewrite_title",
+      "severity": "minor",
+      "category": "DRAFT",
+      "priority": 0.3377,
+      "confidence": 0.84,
+      "safety": "human_only",
+      "reversible": false,
+      "provider": "deterministic",
+      "signals": {
+        "searchOpportunity": 0.35,
+        "strategicRelevance": 0.75,
+        "expectedImpact": 0.3,
+        "ease": 0.5,
+        "localContribution": 1,
+        "cooldownPenalty": 1,
+        "daysSinceLastIntervention": null
+      },
+      "target": null,
+      "anchor": null,
+      "detectedAt": "2026-09-21T03:55:45.509Z"
+    },
+    {
+      "id": "title_too_long:/explore/places/sorrento/",
+      "urlPath": "/explore/places/sorrento/",
+      "url": "https://peninsulainsider.com.au/explore/places/sorrento/",
+      "pageType": "place-or-guide",
+      "rule": "title_too_long",
+      "problem": "82 chars (>65)",
+      "occurrences": 1,
+      "proposedAction": "rewrite_title",
+      "severity": "minor",
+      "category": "DRAFT",
+      "priority": 0.3377,
+      "confidence": 0.84,
+      "safety": "human_only",
+      "reversible": false,
+      "provider": "deterministic",
+      "signals": {
+        "searchOpportunity": 0.35,
+        "strategicRelevance": 0.75,
+        "expectedImpact": 0.3,
+        "ease": 0.5,
+        "localContribution": 1,
+        "cooldownPenalty": 1,
+        "daysSinceLastIntervention": null
+      },
+      "target": null,
+      "anchor": null,
+      "detectedAt": "2026-09-21T03:55:45.509Z"
     }
   ]
 }
