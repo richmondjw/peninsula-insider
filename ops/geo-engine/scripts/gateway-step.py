@@ -84,6 +84,9 @@ def main():
     if env.get('SSL_CERT_FILE') and not env.get('GIT_SSL_CAINFO'):
         env['GIT_SSL_CAINFO'] = env['SSL_CERT_FILE']
     p = read(PIPELINE)
+    release_only = '--release-only' in sys.argv
+    if release_only and (not p or p.get('stage') != 'release' or p.get('terminal') or not p.get('submitted')):
+        raise RuntimeError('Release-only execution cannot begin a cycle or run JEV')
     if not p or p.get('terminal'):
         p = {'started_epoch': time.time(), 'stage': 'resume', 'terminal': False,
              'cycle': 'weekly' if datetime.now(ZoneInfo('Australia/Melbourne')).weekday() == 6 else 'incremental'}
@@ -183,6 +186,17 @@ def main():
               'report_path': str(STATE / 'latest-report.txt') if current else None,
               'report': (STATE / 'latest-report.txt').read_text() if current and p['terminal'] and (STATE / 'latest-report.txt').exists() else None}
     save(STATE / 'step-latest.json', result)
+    # Only post-JEV release monitoring is detached. Protected collection/audit stays foreground.
+    if stage == 'release' and not p['terminal'] and p.get('submitted') and not release_only:
+        if not (STATE / 'release-delivery.json').exists():
+            result['release_worker'] = 'unconfigured; continue foreground steps'
+        else:
+            with (RUNS / 'release-worker.log').open('a') as worker_log:
+                worker = subprocess.Popen(['python3', str(ENGINE / 'scripts/release-worker.py'), '--run-id', p['runId']],
+                                          cwd=REPO, stdin=subprocess.DEVNULL, stdout=worker_log,
+                                          stderr=worker_log, start_new_session=True)
+            result.update(release_handed_off=True, release_worker_pid=worker.pid)
+            save(STATE / 'step-latest.json', result)
     print(json.dumps(result))
     return 0 if p['engine'] != 'degraded' else 2
 
