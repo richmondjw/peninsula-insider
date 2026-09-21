@@ -200,7 +200,7 @@ export const GET: APIRoute = async () => {
   // pages/eat/[slug].astro) - they fail §4.1 rule 1 (self-canonical), so
   // wineries are emitted under /wine/ only. This removes the 41-page
   // duplicate winery tree from the sitemap (SEO plan §3.3).
-  const eatTypes = ['restaurant', 'cafe', 'bakery', 'pub', 'market', 'brewery', 'distillery', 'providore'];
+  const eatTypes = ['restaurant', 'cafe', 'bakery', 'pub', 'market', 'providore']; // producers (winery, brewery, distillery) are emitted under /wine/ only; their /eat/ alias is a Redirect stub (2026-09-21)
   const wineTypes = ['winery', 'producer', 'brewery', 'distillery'];
 
   const eatVenues = venues.filter(
