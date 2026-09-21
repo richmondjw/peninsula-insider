@@ -85,7 +85,7 @@ export async function prioritiseFindings(findings, { pages, service, ledger, sea
 
     const strategicRelevance = STRATEGIC_WEIGHT[page?.pageType] ?? 0.5;
     const expectedImpact = SEVERITY_WEIGHT[sev] ?? 0.3;
-    const confidence = round((severity.confidence + safety.confidence) / 2, 3);
+    const confidence = round(Math.min(severity.confidence, safety.confidence), 3);
     const localContribution = clamp(((page?.towns?.length ?? 0) + (page?.venues?.length ?? 0)) / 10);
 
     // Discounts.
@@ -93,10 +93,13 @@ export async function prioritiseFindings(findings, { pages, service, ledger, sea
     const daysSinceTouched = lastTouched ? daysBetween(lastTouched.date, now) : null;
     const cooldownPenalty = daysSinceTouched !== null && daysSinceTouched < (lastTouched.measurementWindowDays ?? 28) ? 0.35 : 1;
     const riskPenalty = safety.value?.decision === 'human_only' ? 0.8 : 1;
+    const learning = ledger?.successRateFor(meta.action);
+    // Observational learning is a bounded ranking hint, never a permission grant.
+    const learningWeight = learning?.samples >= 3 ? 0.8 + 0.4 * learning.successRate : 1;
 
     const priority = round(
       (searchOpportunity * 0.25 + strategicRelevance * 0.2 + expectedImpact * 0.3 + localContribution * 0.1 + meta.ease * 0.15)
-      * confidence * cooldownPenalty * riskPenalty, 4,
+      * confidence * cooldownPenalty * riskPenalty * learningWeight, 4,
     );
 
     out.push({
@@ -122,6 +125,7 @@ export async function prioritiseFindings(findings, { pages, service, ledger, sea
         ease: meta.ease,
         localContribution: round(localContribution, 3),
         cooldownPenalty,
+        learningWeight,
         daysSinceLastIntervention: daysSinceTouched,
       },
       target: finding.target ?? null,

@@ -284,9 +284,9 @@ export class DecisionService {
     const pending = [];
 
     inputs.forEach((input, index) => {
-      const key = `${name}:${this.config.primary}:${stableHash(input)}`;
+      const key = `v2:${name}:${this.config.primary}:${this.config.model}:${stableHash(decision.schema)}:${stableHash(input)}`;
       const hit = this.cache[key];
-      if (hit) {
+      if (hit && !hit.error && hit.provider === this.config.primary && Date.parse(this.now()) - Date.parse(hit.decidedAt) < 7 * 86400000) {
         this.usage.cacheHits += 1;
         results[index] = hit;
       } else {
@@ -327,7 +327,8 @@ export class DecisionService {
       if (results[c.index]) continue;
       const rec = this.#deterministic(decision, c.input);
       results[c.index] = rec;
-      this.cache[c.key] = rec;
+      // A budget/transport fallback must never poison the remote provider cache.
+      if (this.config.primary === PROVIDERS.DETERMINISTIC && !rec.error) this.cache[c.key] = rec;
     }
 
     this.usage.byDecision[name] = (this.usage.byDecision[name] ?? 0) + inputs.length;
@@ -506,11 +507,11 @@ export class DecisionService {
 
   persist() {
     // Bound the cache so state stays reviewable in git.
-    const entries = Object.entries(this.cache);
-    const LIMIT = Number(this.env.PI_GEO_CACHE_LIMIT ?? 4000);
+    const entries = Object.entries(this.cache).filter(([k, v]) => k.startsWith('v2:') && Date.parse(this.now()) - Date.parse(v.decidedAt) < 7 * 86400000).sort((a, b) => Date.parse(a[1].decidedAt) - Date.parse(b[1].decidedAt));
+    const LIMIT = Number(this.env.PI_GEO_CACHE_LIMIT ?? 20000);
     const trimmed = entries.length > LIMIT
       ? Object.fromEntries(entries.slice(entries.length - LIMIT))
-      : this.cache;
+      : Object.fromEntries(entries);
     writeJson(this.cacheFile, trimmed);
   }
 }

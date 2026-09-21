@@ -12,13 +12,54 @@ It runs on stock Node 22 with **no third-party dependencies**.
 
 ```sh
 cd ops/geo-engine
-npm test                  # 24 unit tests
+npm test                  # engine and autonomy regression tests
 npm run cycle             # incremental cycle (Mon-Sat)
 npm run cycle:weekly      # expanded audit (Sun)
 npm run cycle:source      # audit next/dist instead of the published build
 ```
 
 ## The decision layer
+
+### Autonomous release contract (21 September 2026)
+
+James authorised routine source improvements without individual human approval.
+The gateway foreground runner is the only scheduled executor: 05:30 Melbourne,
+expanded Sunday, at most five patches, 2,000 JEV requests and six in flight.
+`--no-build` is no longer supported. A failed build or stale analytics fails closed.
+
+`source-fixes.mjs` performs bounded extractive edits, never generated prose:
+static Astro title from the existing H1; description from an existing sentence;
+literal internal links to a verified destination; links around an existing exact
+entity mention; trailing-comma repair of static JSON-LD; removal of a single
+literal sitemap entry proven dead or noindex. Dynamic templates and ambiguous
+sources are deferred, not guessed. Every exact patch requires JEV approval at
+0.92 confidence or higher plus live/source agreement. No factual/editorial rewrite,
+new spend, credential, commercial, policy, test or workflow edit is permitted.
+
+The controller opens its own PR against main, waits for content, browser,
+independent-evidence and engine checks, and merges the exact tested head without
+`--admin`. A moving main is merged into the candidate and checks run again.
+The existing production build/deploy workflow remains unchanged. Both its success
+and matching deployment.json provenance and live HTML assertions are required.
+A technical failure opens a scoped revert PR through the same checks; rollback
+never resets main or overwrites a subsequent change to the affected files.
+
+Runtime evidence lives in the bind-mounted `ops/geo-engine/.runs/state/`:
+`latest-report.txt`, `latest-outcome.txt`, `release.json`, immutable per-release
+receipts, the source inventory, provider/schema/model-separated seven-day cache,
+and ledger. It is deliberately not committed into the site's main branch each day.
+Pending releases resume before any new batch. Interrupted preparation or conflicting
+edits stop with preserved evidence. Back up this runner directory with the gateway.
+
+Only live-verified releases enter measurement and URL cooldown. Final GSC page
+rows use complete non-overlapping equal-length windows after deployment. Sparse
+data is inconclusive, and before/after movement is observational, not causal proof.
+At least three measured outcomes are needed for a bounded 0.8–1.2 priority weight.
+Learning cannot widen permissions or alter its own tests/release boundary.
+
+Commissioning evidence must separately establish unit tests, a real JEV cycle,
+CI, publication, live acceptance, and a preview rollback. Configuration alone is
+not proof of any of those stages.
 
 `lib/jev.mjs` is the fast decision service. It is provider-agnostic:
 

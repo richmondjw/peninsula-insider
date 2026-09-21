@@ -26,13 +26,14 @@ export function loadSearchData({ root = REPO_ROOT, env = process.env } = {}) {
   // with page x query rows for the current window. Pointed at by GSC_ANALYTICS_JSON.
   if (env.GSC_ANALYTICS_JSON && fs.existsSync(env.GSC_ANALYTICS_JSON)) {
     const doc = readJson(env.GSC_ANALYTICS_JSON);
+    if (!doc?.observed_at || Date.now() - Date.parse(doc.observed_at) > 36 * 3600000) return {available:false,rows:[],reason:'Gateway analytics is stale or undated',source:null};
     const block = doc?.gsc?.current?.page_queries;
     const rows = Array.isArray(block?.rows) ? block.rows : [];
     if (doc?.gsc?.status === 'observed' && rows.length) {
       const window = doc?.ranges?.current ?? {};
       // Dimensions were requested as [page, query]; the engine's row shape is query first.
       const shaped = rows.map((r) => ({ query: r.keys?.[1] ?? null, page: r.keys?.[0] ?? null, impressions: r.impressions, clicks: r.clicks, ctr: r.ctr, position: r.position }));
-      return { available: true, reason: `read from the gateway analytics pull (${window.start_date ?? '?'} to ${window.end_date ?? '?'}, ${rows.length} page x query rows${block.possibly_truncated ? ', possibly truncated' : ''})`, rows: shaped, source: 'gateway:analytics-live.json' };
+      return { available: true, window, pageRows: (doc.gsc.current.pages?.rows??[]).map(r=>({...r,page:r.keys?.[0]})), reason: `Gateway final GSC page-query rows (${window.start_date} to ${window.end_date}); query-row totals are not property totals`, rows: shaped, source: 'gateway:analytics-live.json' };
     }
   }
   if (env.GSC_ROWS_JSON) {
@@ -186,9 +187,10 @@ function bestPage(query, candidates) {
 
 /** Attach per-page search metrics to inventory records, where data exists. */
 export function attachToInventory(pages, searchData) {
+  for (const page of Object.values(pages)) page.search = null;
   if (!searchData.available) return { attached: 0 };
   const byPage = new Map();
-  for (const raw of searchData.rows) {
+  for (const raw of searchData.pageRows ?? searchData.rows) {
     const r = normalise(raw);
     if (!r.page) continue;
     let p;

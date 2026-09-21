@@ -5,7 +5,12 @@
   "allowedActions": [
     "fix_broken_internal_link",
     "sitemap_remove_dead_url",
-    "fix_malformed_jsonld"
+    "fix_malformed_jsonld",
+    "rewrite_title",
+    "rewrite_meta_description",
+    "add_missing_meta_description",
+    "add_internal_link",
+    "sitemap_remove_noindex"
   ],
   "maxChangesPerRun": 5,
   "requireReversible": true,

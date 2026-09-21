@@ -85,6 +85,9 @@ export class ChangeSet {
 
   applyTextChange({ file, transform, opportunity, plane }) {
     if (plane === PLANE.BUILD_OUTPUT) throw new Error('refusing to write to build output');
+    const realRoot = fs.realpathSync(this.root);
+    const realFile = fs.realpathSync(file);
+    if (!realFile.startsWith(realRoot + path.sep)) throw new Error('source path escapes root');
     const before = fs.readFileSync(file, 'utf8');
     const after = transform(before);
     if (after === before) return { changed: false, reason: 'transform produced no change' };
@@ -109,13 +112,14 @@ export class ChangeSet {
     const file = path.join(this.root, change.file);
     const backup = path.join(this.root, change.backup);
     if (!fs.existsSync(backup)) return { reverted: false, reason: 'backup missing' };
+    if (sha256(fs.readFileSync(file, 'utf8')) !== change.hashAfter) return { reverted: false, reason: 'file changed since application; refusing to overwrite' };
     fs.copyFileSync(backup, file);
     change.reverted = true;
     return { reverted: true };
   }
 
   revertAll() {
-    const results = this.changes.filter((c) => !c.reverted).map((c) => ({ change: c, ...this.revert(c) }));
+    const results = this.changes.filter((c) => !c.reverted).reverse().map((c) => ({ change: c, ...this.revert(c) }));
     return { reverted: results.filter((r) => r.reverted).length, results };
   }
 

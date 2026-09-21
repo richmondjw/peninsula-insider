@@ -16,6 +16,7 @@ on:
   pull_request:
     paths:
       - 'ops/geo-engine/**'
+      - 'next/src/**'
       - '.github/workflows/seo-geo-engine.yml'
   workflow_dispatch:
     inputs:

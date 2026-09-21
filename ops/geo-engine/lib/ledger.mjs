@@ -79,7 +79,10 @@ export class Ledger {
       searchAfter: null,
       geoBefore: entry.geoBefore ?? null,
       geoAfter: null,
-      result: 'awaiting_measurement',
+      deployedSha: entry.deployedSha ?? null,
+      deployedAt: entry.deployedAt ?? null,
+      searchWindowBefore: entry.searchWindowBefore ?? null,
+      result: entry.mode === 'deployed' && entry.deployedSha ? 'awaiting_measurement' : 'not_deployed',
       lesson: null,
       confidence: entry.confidence ?? null,
       provider: entry.provider ?? null,
@@ -92,7 +95,7 @@ export class Ledger {
   lastInterventionFor(urlPath) {
     let latest = null;
     for (const i of this.data.interventions) {
-      if (i.urlPath !== urlPath) continue;
+      if (i.urlPath !== urlPath || i.mode !== 'deployed' || !i.deployedSha) continue;
       if (!latest || i.date > latest.date) latest = i;
     }
     return latest;
@@ -101,8 +104,8 @@ export class Ledger {
   /** Interventions whose observation window has elapsed and can now be judged. */
   dueForMeasurement(today) {
     return this.data.interventions.filter((i) => {
-      if (i.result !== 'awaiting_measurement') return false;
-      const elapsed = daysBetween(i.date, today);
+      if (i.mode !== 'deployed' || !i.deployedSha || !i.deployedAt || i.result !== 'awaiting_measurement') return false;
+      const elapsed = daysBetween(i.deployedAt, today);
       return elapsed !== null && elapsed >= (i.measurementWindowDays ?? 28);
     });
   }
@@ -111,21 +114,28 @@ export class Ledger {
    * Close out an experiment. Sparse or missing data is recorded as
    * inconclusive rather than being talked up into a win.
    */
-  measure(interventionId, { searchAfter, geoAfter }) {
+  measure(interventionId, { searchAfter, geoAfter, window }) {
     const rec = this.data.interventions.find((i) => i.id === interventionId);
-    if (!rec) return null;
+    if (!rec || rec.mode !== 'deployed' || !rec.deployedSha || rec.result !== 'awaiting_measurement') return null;
+    // Require a complete non-overlapping, same-length post-deployment window.
+    const beforeWindow = rec.searchWindowBefore;
+    if (!beforeWindow || !window || window.start_date <= rec.deployedAt.slice(0, 10)
+      || beforeWindow.end_date >= rec.deployedAt.slice(0, 10)
+      || daysBetween(window.start_date, window.end_date) !== daysBetween(beforeWindow.start_date, beforeWindow.end_date)
+      || daysBetween(window.start_date, window.end_date) < rec.measurementWindowDays - 1) return null;
+    rec.searchWindowAfter = window;
     rec.searchAfter = searchAfter ?? null;
     rec.geoAfter = geoAfter ?? null;
 
     const before = rec.searchBefore;
-    if (!before || !searchAfter || (before.impressions ?? 0) < 50) {
+    if (!before || !searchAfter || (before.impressions ?? 0) < 50 || (searchAfter.impressions ?? 0) < 50 || before.clicks < 10 || searchAfter.clicks < 10) {
       rec.result = 'inconclusive';
       rec.lesson = 'Insufficient search volume in the observation window to judge this change.';
     } else {
       const delta = (searchAfter.clicks ?? 0) - (before.clicks ?? 0);
       const relative = before.clicks ? delta / before.clicks : 0;
-      if (relative > 0.1) { rec.result = 'improved'; rec.lesson = `Clicks up ${round(relative * 100, 1)}% over the window.`; }
-      else if (relative < -0.1) { rec.result = 'regressed'; rec.lesson = `Clicks down ${round(Math.abs(relative) * 100, 1)}% over the window.`; }
+      if (relative > 0.1) { rec.result = 'improved'; rec.lesson = `Observed clicks up ${round(relative * 100, 1)}%; association, not proof of causation.`; }
+      else if (relative < -0.1) { rec.result = 'regressed'; rec.lesson = `Observed clicks down ${round(Math.abs(relative) * 100, 1)}%; association, not proof of causation.`; }
       else { rec.result = 'no_change'; rec.lesson = 'No material movement over the window.'; }
     }
     if (rec.lesson) this.data.lessons.push({ date: new Date().toISOString().slice(0, 10), action: rec.action, result: rec.result, lesson: rec.lesson });
@@ -134,7 +144,7 @@ export class Ledger {
 
   /** Multiplier applied to future opportunities of an action that keeps failing. */
   successRateFor(action) {
-    const rows = this.data.interventions.filter((i) => i.action === action && i.result !== 'awaiting_measurement');
+    const rows = this.data.interventions.filter((i) => i.action === action && i.mode === 'deployed' && i.deployedSha && ['improved', 'regressed', 'no_change'].includes(i.result));
     if (!rows.length) return null;
     const wins = rows.filter((r) => r.result === 'improved').length;
     return { samples: rows.length, successRate: round(wins / rows.length, 3) };
@@ -151,7 +161,7 @@ export class Ledger {
   }
 
   awaitingMeasurement() {
-    return this.data.interventions.filter((i) => i.result === 'awaiting_measurement');
+    return this.data.interventions.filter((i) => i.mode === 'deployed' && i.deployedSha && i.result === 'awaiting_measurement');
   }
 
   stats() {

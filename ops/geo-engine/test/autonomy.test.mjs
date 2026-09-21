@@ -1,0 +1,90 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import {test} from 'node:test';
+import {proposePatch,removeTrailingJsonCommas,applySourceFixes} from '../lib/source-fixes.mjs';
+import {checksPassed,REQUIRED_CHECKS,validateScope,verifyHtml} from '../lib/release.mjs';
+import {Ledger} from '../lib/ledger.mjs';
+import {ChangeSet,PLANE} from '../lib/autofix.mjs';
+import {DecisionRegistry,DecisionService} from '../lib/jev.mjs';
+
+function fixture(t) {
+  const root=fs.mkdtempSync(path.join(os.tmpdir(),'pi-auto-'));
+  t.after(()=>fs.rmSync(root,{recursive:true,force:true}));
+  const file=path.join(root,'next/src/pages/journal/brunch.astro');
+  fs.mkdirSync(path.dirname(file),{recursive:true});
+  fs.writeFileSync(file,'---\nconst fact="untouched";\n---\n<BaseLayout title="Shared title"><h1>Brunch on the Mornington Peninsula</h1></BaseLayout>\n');
+  const pages={'/journal/brunch/':{urlPath:'/journal/brunch/',indexable:true,title:'Shared title',h1:'Brunch on the Mornington Peninsula'}};
+  return {root,file,pages,finding:{urlPath:'/journal/brunch/',rule:'duplicate_title'}};
+}
+test('title repair is extractive and path traversal/dynamic source mappings fail closed',t=>{
+  const f=fixture(t);const patch=proposePatch(f.finding,f);
+  assert.equal(patch.expected.title,'Brunch on the Mornington Peninsula · Peninsula Insider');
+  assert.ok(patch.after.includes('const fact="untouched"'));
+  assert.equal(proposePatch({...f.finding,urlPath:'/../../secret/'},f),null);
+  assert.equal(proposePatch({...f.finding,urlPath:'/missing/'},f),null);
+});
+test('static JSON repair preserves comma-like content inside strings',()=>{
+  const repaired=removeTrailingJsonCommas('{"text":"x,} and \\\"quotes\\\"", "a":[1,2,],}');
+  assert.deepEqual(JSON.parse(repaired),{text:'x,} and "quotes"',a:[1,2]});
+});
+test('all named checks plus every reported check must pass',()=>{
+  const good=REQUIRED_CHECKS.map(name=>({name,state:'SUCCESS'}));
+  assert.equal(checksPassed(good),true);
+  assert.equal(checksPassed([]),false);
+  assert.equal(checksPassed(good.slice(1)),false);
+  assert.equal(checksPassed([...good,{name:'extra',state:'FAILURE'}]),false);
+  assert.equal(checksPassed([...good,{name:'extra',state:'PENDING'}]),false);
+});
+test('release cannot edit policy, credentials, workflow, tests or unlisted source',()=>{
+  for(const file of ['ops/geo-engine/policy.json','.github/workflows/content-gate.yml','next/src/pages/../../x.astro','next/src/pages/admin/x.astro']) {
+    assert.throws(()=>validateScope([{file}],[file]));
+  }
+  validateScope([{file:'next/src/pages/journal/a.astro'}],['next/src/pages/journal/a.astro']);
+  assert.throws(()=>validateScope([{file:'next/src/pages/journal/a.astro'}],['next/src/pages/journal/b.astro']));
+});
+test('live assertions reject wrong title, missing links, and malformed schema',()=>{
+  assert.equal(verifyHtml('<title>A &amp; B</title>',{title:'A & B'}),true);
+  assert.equal(verifyHtml('<title>A</title>',{title:'B'}),false);
+  assert.equal(verifyHtml('<p>hello</p>',{link:'/x/'}),false);
+  assert.equal(verifyHtml('<script type="application/ld+json">{bad}</script>',{validJsonLd:true}),false);
+  assert.equal(verifyHtml('<p>no schema</p>',{validJsonLd:true}),false);
+});
+test('recommendations and locally applied patches never enter measurement or cooldown',t=>{
+  const f=fixture(t),ledger=new Ledger(path.join(f.root,'ledger.json'));
+  for(const mode of ['recommended','applied'])ledger.recordIntervention({runId:mode,date:'2026-01-01',urlPath:'/x/',action:'rewrite_title',mode});
+  assert.equal(ledger.dueForMeasurement('2026-09-01').length,0);
+  assert.equal(ledger.lastInterventionFor('/x/'),null);
+  assert.equal(ledger.successRateFor('rewrite_title'),null);
+});
+test('overlapping measurement windows are refused; sparse outcomes do not penalise learning',t=>{
+  const f=fixture(t),ledger=new Ledger(path.join(f.root,'ledger.json'));
+  const r=ledger.recordIntervention({runId:'a',date:'2026-08-01',urlPath:'/x/',action:'rewrite_title',mode:'deployed',deployedSha:'abc',deployedAt:'2026-08-01T00:00:00Z',searchBefore:{clicks:0,impressions:500},searchWindowBefore:{start_date:'2026-07-01',end_date:'2026-07-28'}});
+  assert.equal(ledger.measure(r.id,{window:{start_date:'2026-07-15',end_date:'2026-08-11'},searchAfter:{clicks:0,impressions:500}}),null);
+  ledger.measure(r.id,{window:{start_date:'2026-08-02',end_date:'2026-08-29'},searchAfter:{clicks:0,impressions:500}});
+  assert.equal(r.result,'inconclusive');assert.equal(ledger.successRateFor('rewrite_title'),null);
+});
+test('preview rollback restores exact bytes, but never overwrites a concurrent edit',t=>{
+  const f=fixture(t),original=fs.readFileSync(f.file,'utf8');
+  const set=new ChangeSet({runId:'preview',root:f.root});
+  const change=set.applyTextChange({file:f.file,plane:PLANE.SOURCE,transform:s=>s.replace('Shared title','Changed title')}).change;
+  assert.equal(set.revert(change).reverted,true);assert.equal(fs.readFileSync(f.file,'utf8'),original);
+  const next=set.applyTextChange({file:f.file,plane:PLANE.SOURCE,transform:s=>s+'\n'}).change;
+  fs.appendFileSync(f.file,'other work');
+  assert.equal(set.revert(next).reverted,false);
+});
+test('exact patch application requires live agreement and successful JEV, not fallback confidence',async t=>{
+  const f=fixture(t),policy={enabled:true,maxChangesPerRun:5,confidenceThreshold:.92,allowedActions:['rewrite_title']};
+  const service={decide:async()=>({provider:'deterministic',confidence:1,value:{decision:'auto_safe',reversible:true}})};
+  const result=await applySourceFixes({...f,findings:[f.finding],service,policy,runId:'r',fetchImpl:async()=>({status:200,text:async()=>'<title>Shared title</title>'})});
+  assert.equal(result.changes.length,0);assert.equal(result.deferred.length,1);
+});
+test('remote failure does not cache fallback under JEV identity',async t=>{
+  const f=fixture(t),registry=new DecisionRegistry();
+  registry.register('a',{question:'Which?',fields:{choice:{type:'enum',values:['yes','no']}}},()=>({value:{choice:'no'},confidence:1}));
+  let calls=0;
+  const service=new DecisionService({registry,cacheFile:path.join(f.root,'cache.json'),env:{JEV_API_KEY:'test'},fetchImpl:async()=>{calls++;return calls===1?{ok:false,status:503}:{ok:true,json:async()=>({answers:{choice:{type:'choice',choice:'yes',confidence:1}}})};}});
+  assert.equal((await service.decide('a',{x:1})).provider,'deterministic');
+  assert.equal((await service.decide('a',{x:1})).provider,'jev');assert.equal(calls,2);
+});

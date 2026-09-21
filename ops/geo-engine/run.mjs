@@ -13,6 +13,8 @@
 
 import path from 'node:path';
 import fs from 'node:fs';
+import { randomUUID } from 'node:crypto';
+import { applySourceFixes, registerPatchDecision } from './lib/source-fixes.mjs';
 import { assessCoverage, generateBenchmark, mergeBenchmark, MEASUREMENT_STATES } from './lib/benchmark.mjs';
 import { buildGraph, entityCoverage } from './lib/graph.mjs';
 import { buildInventory, loadInventory, saveInventory } from './lib/inventory.mjs';
@@ -53,7 +55,7 @@ const stage = async (name, fn, fallback) => {
 async function main() {
   const now = melbourneNow();
   const cycle = args.cycle ?? (now.weekday === 'Sun' ? 'weekly' : 'incremental');
-  const runId = `${now.date}-${now.time.replace(':', '')}-${cycle}`;
+  const runId = `${now.date}-${now.time.replace(':', '')}-${cycle}-${randomUUID().slice(0,8)}`;
   const mode = args.apply ? 'apply' : 'audit';
   const runDir = ensureDir(path.join(RUNS_DIR, runId));
 
@@ -61,6 +63,7 @@ async function main() {
 
   // ---------------------------------------------------- target resolution --
   const distRoot = path.join(REPO_ROOT, 'next', 'dist');
+  if (args.target === 'source' && !fs.existsSync(distRoot)) throw Error('Requested source build is missing');
   const useSource = args.target === 'source' && fs.existsSync(distRoot);
   const root = useSource ? distRoot : REPO_ROOT;
   const target = useSource
@@ -70,6 +73,7 @@ async function main() {
   // ------------------------------------------------------- decision layer --
   const vocab = loadVocabulary();
   const registry = buildRegistry(vocab);
+  registerPatchDecision(registry);
   const service = new DecisionService({ registry, logger });
 
   // A controlled round trip before anything depends on the provider.
@@ -77,8 +81,8 @@ async function main() {
   logger.info('decision layer', service.status());
 
   // ------------------------------------------------------------ inventory --
-  const inventoryFile = path.join(STATE_DIR, 'inventory.json');
-  const previous = useSource ? {} : loadInventory(inventoryFile);
+  const inventoryFile = path.join(STATE_DIR, useSource ? 'inventory-source.json' : 'inventory.json');
+  const previous = loadInventory(inventoryFile);
   const built = await stage('inventory', () => buildInventory({ root, previous, vocab, logger }), { pages: {}, stats: {}, sitemap: null });
   const { pages, stats, sitemap } = built;
   if (!Object.keys(pages).length) {
@@ -86,6 +90,14 @@ async function main() {
     return finish({ aborted: true });
   }
   logger.info('inventory built', stats);
+
+  // Reserve the first remote decisions for actionable, exact source patches.
+  const findings = await stage('technical-audit', () => auditAll(pages, { sitemapAvailable: stats.sitemapAvailable, sitemap }), []);
+  const policy = loadPolicy();
+  let sourceFixes = {changes:[],deferred:[]};
+  if (mode === 'apply' && policy.enabled && useSource && !errors.length) {
+    sourceFixes = await applySourceFixes({findings,pages,service,policy,runId});
+  }
 
   // -------------------------------------------------------- search console --
   const searchData = loadSearchData();
@@ -95,7 +107,6 @@ async function main() {
   });
 
   // ------------------------------------------------------ technical audit --
-  const findings = await stage('technical-audit', () => auditAll(pages, { sitemapAvailable: stats.sitemapAvailable, sitemap }), []);
   const findingSummary = summariseFindings(findings);
   logger.info('technical audit', findingSummary);
 
@@ -151,10 +162,9 @@ async function main() {
   logger.info('priorities', { ...prioritySummary, new: reconciled.isNew.length, recurring: reconciled.recurring.length, resolved: reconciled.resolved.length });
 
   // ------------------------------------------------------------ changes ---
-  const policy = loadPolicy();
   const applyRequested = mode === 'apply';
   const planned = planChanges(prioritised.filter((o) => o.category === 'AUTO-FIX').slice(0, 40), { ...policy, enabled: policy.enabled && applyRequested }, { plane: target.plane });
-  const appliedChanges = [];
+  const appliedChanges = sourceFixes.changes;
   if (applyRequested && !policy.enabled) {
     errors.push('--apply was passed but ops/geo-engine/policy.json has enabled=false; no changes were made');
   }
@@ -180,6 +190,7 @@ async function main() {
     ledger.measure(intervention.id, {
       searchAfter: pages[intervention.urlPath]?.search ?? null,
       geoAfter: pages[intervention.urlPath]?.scores?.geoScore ?? null,
+      window: searchData.window,
     });
   }
 
@@ -198,7 +209,7 @@ async function main() {
     },
     priorities: prioritySummary,
     deployDelta,
-    changes: { applied: appliedChanges, planned },
+    changes: { applied: appliedChanges, planned, deferred: sourceFixes.deferred, releaseStatus: appliedChanges.length ? 'pending_validation' : 'no_changes' },
     search: search.available
       ? { available: true, totals: search.totals, opportunities: search.opportunities }
       : { available: false, reason: search.reason ?? searchData.reason },
@@ -211,7 +222,7 @@ async function main() {
       citationTiers: distribution?.citationTiers ?? {},
       aiVisibility: {
         state: MEASUREMENT_STATES.NOT_MEASURABLE,
-        reason: 'No AI answer surface can be queried from this environment; outbound access to search and assistant endpoints is denied by the egress policy.',
+        reason: 'This cycle did not measure live AI citations; benchmark scores are inferred coverage, not observed visibility.',
       },
     },
     topOpportunities: buildTopOpportunities({ prioritised, reconciled, gaps, linkResult, search, deployDelta }),
@@ -222,7 +233,7 @@ async function main() {
     needsJames: buildNeedsJames({ prioritised, search, service, policy, target }),
     system: {
       decisionLayer: describeDecisionLayer(service, probe),
-      crawler: `local corpus reader over ${stats.total} rendered pages (no outbound crawl; egress policy denies peninsulainsider.com.au)`,
+      crawler: `local corpus reader over ${stats.total} rendered production-surface pages; candidate patches separately checked against live pages`,
       analytics: search.available ? `Search Console rows from ${search.source}` : `unavailable — ${searchData.reason}`,
       cms: `Astro content collections: ${vocab.counts.venues} venues, ${vocab.counts.events} events, ${vocab.counts.towns} towns`,
       schedule: describeSchedule(),
@@ -250,7 +261,7 @@ async function main() {
     errors: errors.length,
   });
 
-  if (!useSource) saveInventory(inventoryFile, pages, stats);
+  saveInventory(inventoryFile, pages, stats);
   writeJson(benchmarkFile, benchmark ?? { questions: [] });
   writeJson(path.join(STATE_DIR, 'knowledge-graph.json'), { updatedAt: new Date().toISOString(), stats: graph.stats, coverage, edges: graph.edges.length });
   writeJson(path.join(STATE_DIR, 'internal-link-candidates.json'), { updatedAt: new Date().toISOString(), ...linkResult });
@@ -264,7 +275,8 @@ async function main() {
   writeJson(path.join(runDir, 'changes.json'), { planned, applied: appliedChanges });
   writeText(path.join(runDir, 'report.txt'), reportText);
   writeJson(path.join(runDir, 'log.json'), logger.lines);
-  writeText(path.join(ENGINE_DIR, 'state', 'latest-report.txt'), reportText);
+  writeText(path.join(STATE_DIR, 'latest-report.txt'), reportText);
+  writeJson(path.join(STATE_DIR, 'latest-run.json'), {runId,runDir,errors,completedAt:new Date().toISOString()});
 
   process.stdout.write(`${reportText}\n`);
   logger.info('cycle complete', { runId, errors: errors.length });
@@ -296,7 +308,7 @@ function describeDecisionLayer(service, probe) {
 
 function describeSchedule() {
   const wf = path.join(REPO_ROOT, '.github', 'workflows', 'seo-geo-engine.yml');
-  return fs.existsSync(wf) ? '.github/workflows/seo-geo-engine.yml — 05:30 Australia/Melbourne daily' : 'not yet installed';
+  return 'OpenClaw pi-seo-daily-pull — 05:30 Australia/Melbourne daily; expanded Sunday. GitHub Actions validates releases, not the JEV schedule.';
 }
 
 function expectedOutcomeFor(opp) {
@@ -398,7 +410,7 @@ function describeNext(cycle, prioritised, reconciled) {
   return `Next cycle: re-check ${reconciled.isNew.length} newly-seen issue(s) and ${reconciled.recurring.length} recurring one(s)${top ? `, starting with ${top.rule} on ${top.urlPath}` : ''}. Sunday runs the expanded audit.`;
 }
 
-main().catch((err) => {
+main().then(result => { if (result?.aborted || result?.errors?.length) process.exitCode = 1; }).catch((err) => {
   process.stderr.write(`FATAL ${err.stack}\n`);
   process.exitCode = 1;
 });

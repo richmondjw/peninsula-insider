@@ -8,7 +8,7 @@ import { fileURLToPath } from 'node:url';
 
 export const ENGINE_DIR = path.resolve(fileURLToPath(new URL('..', import.meta.url)));
 export const REPO_ROOT = path.resolve(ENGINE_DIR, '..', '..');
-export const STATE_DIR = path.join(ENGINE_DIR, 'state');
+export const STATE_DIR = process.env.PI_GEO_STATE_DIR ? path.resolve(process.env.PI_GEO_STATE_DIR) : path.join(ENGINE_DIR, 'state');
 export const RUNS_DIR = path.join(ENGINE_DIR, '.runs');
 
 export const ORIGIN = 'https://peninsulainsider.com.au';
@@ -18,7 +18,7 @@ export const ORIGIN = 'https://peninsulainsider.com.au';
 // but real surfaces (/account/, /access/, /spa/) are walked so that links to
 // them resolve; page typing marks them as utility rather than content.
 export const NON_SURFACE_DIRS = new Set([
-  'next', 'docs', 'reports', 'engine', 'ops', 'admin',
+  'next', 'docs', 'reports', 'engine', 'ops', 'admin', 'dev',
   'node_modules', '.git', '.github', '.claude', '.impeccable',
   'supabase', 'tools', 'seo', 'deliverables', '_astro', 'pagefind', 'assets',
   'images', 'downloads',

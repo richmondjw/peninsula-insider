@@ -179,19 +179,21 @@ test('the ledger remembers issues instead of re-reporting them as new', () => {
 test('interventions are measured only after their observation window', () => {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'pi-m-'));
   const ledger = new Ledger(path.join(dir, 'ledger.json'));
-  ledger.recordIntervention({ runId: 'r1', date: '2026-08-01', urlPath: '/x/', action: 'rewrite_title', mode: 'applied', measurementWindowDays: 28, searchBefore: { clicks: 100, impressions: 5000 } });
+  const deployment = {mode:'deployed',deployedSha:'abc123',deployedAt:'2026-08-01T00:00:00Z',searchWindowBefore:{start_date:'2026-07-01',end_date:'2026-07-28'}};
+  const window = {start_date:'2026-08-02',end_date:'2026-08-29'};
+  ledger.recordIntervention({ ...deployment, runId: 'r1', date: '2026-08-01', urlPath: '/x/', action: 'rewrite_title', measurementWindowDays: 28, searchBefore: { clicks: 100, impressions: 5000 } });
 
   assert.equal(ledger.dueForMeasurement('2026-08-10').length, 0, 'not due yet');
   const due = ledger.dueForMeasurement('2026-09-05');
   assert.equal(due.length, 1);
 
-  ledger.measure(due[0].id, { searchAfter: { clicks: 130, impressions: 5200 } });
+  ledger.measure(due[0].id, { window, searchAfter: { clicks: 130, impressions: 5200 } });
   assert.equal(ledger.data.interventions[0].result, 'improved');
 
   // Sparse data must be recorded as inconclusive, never talked up.
-  ledger.recordIntervention({ runId: 'r2', date: '2026-08-01', urlPath: '/z/', action: 'add_internal_link', mode: 'applied', searchBefore: { clicks: 0, impressions: 3 } });
+  ledger.recordIntervention({ ...deployment, runId: 'r2', date: '2026-08-01', urlPath: '/z/', action: 'add_internal_link', searchBefore: { clicks: 0, impressions: 3 } });
   const due2 = ledger.dueForMeasurement('2026-09-05').filter((i) => i.urlPath === '/z/');
-  ledger.measure(due2[0].id, { searchAfter: { clicks: 1, impressions: 5 } });
+  ledger.measure(due2[0].id, { window, searchAfter: { clicks: 1, impressions: 5 } });
   assert.equal(ledger.data.interventions[1].result, 'inconclusive');
   fs.rmSync(dir, { recursive: true, force: true });
 });
