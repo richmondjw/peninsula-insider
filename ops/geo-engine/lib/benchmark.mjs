@@ -154,7 +154,7 @@ function countBy(items, key) {
  * observation. The benchmark is memory, not a fresh list each run.
  */
 export function mergeBenchmark(previous, next) {
-  const prior = new Map((previous?.questions ?? []).map((q) => [q.id, q]));
+  const prior = new Map([...(previous?.retiredQuestions ?? []),...(previous?.questions ?? [])].map((q) => [q.id, q]));
   const questions = next.questions.map((q) => {
     const before = prior.get(q.id);
     if (!before) return { ...q, firstSeenAt: next.generatedAt };
@@ -168,7 +168,8 @@ export function mergeBenchmark(previous, next) {
     };
   });
   const retired = [...prior.keys()].filter((id) => !next.questions.some((q) => q.id === id));
-  return { ...next, questions, retiredCount: retired.length };
+  const retiredQuestions=retired.map(id=>({...prior.get(id),retiredAt:prior.get(id).retiredAt??next.generatedAt}));
+  return { ...next, questions, retiredCount: retired.length, retiredQuestions };
 }
 
 /**

@@ -26,7 +26,7 @@ The weekly cycle attempts three rotating benchmark questions through the existin
 
 ## Remaining acceptance work
 
-Observe the new staged runner under the real protected JEV gateway. Exercise production rollback only through a separately scoped controlled drill, never by deliberately breaking the live site. Calibrate model recommendations against labelled human judgements before changing thresholds. Existing PI work-item reads and schema have been verified; a new live handoff is only demonstrated when a genuinely qualified brief exists, never by inserting a fake test story. Repair the existing search provider's HTTP500 before claiming actual AI visibility observations. Rich competitor page-format/entity-depth research remains beyond recording source domains. No paid service or credential change is silently introduced.
+Observe the new staged runner under the real protected JEV gateway. Exercise production rollback only through a separately scoped controlled drill, never by deliberately breaking the live site. Calibrate model recommendations against labelled human judgements before changing thresholds. Existing PI work-item reads and schema have been verified; a new live handoff is only demonstrated when a genuinely qualified brief exists, never by inserting a fake test story. Gateway logs at 2026-09-21T11:04 and 11:05 identify the search HTTP500 as the configured account's usage limit; wait for normal availability or obtain separate authority for paid/account changes. Rich competitor page-format/entity-depth research remains beyond recording source domains. No paid service or credential change is silently introduced.
 
 ## Verification
 
