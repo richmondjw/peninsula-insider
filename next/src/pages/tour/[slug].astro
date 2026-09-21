@@ -82,7 +82,7 @@ export const prerender = true;
 ---
 
 <BaseLayout
-  title={`${data.name} · Peninsula Insider`}
+  title={`${data.name}${operatorData?.name ? ` with ${operatorData.name}` : ''} · Peninsula Insider`}
   description={data.intro}
   section="tour"
   canonical={`https://peninsulainsider.com.au/tour/${slug}/`}

@@ -7,6 +7,7 @@
  * be inspected in one place. Noindexed; not linked from any nav.
  */
 import { getCollection } from 'astro:content';
+import { venueHref } from '../../lib/editorial';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Card from '../../components/v5/Card.astro';
 import CardGrid from '../../components/v5/CardGrid.astro';
@@ -63,7 +64,7 @@ const rowVenues = (await getCollection('venues'))
           <Card
             variant="venue"
             title={v.data.name}
-            href={`/eat/${slugOf(v)}/`}
+            href={venueHref(v)}
             entityType="venue"
             entitySlug={slugOf(v)}
             image={{ src: v.data.heroImage.src, alt: v.data.heroImage.alt ?? v.data.name }}
@@ -97,7 +98,7 @@ const rowVenues = (await getCollection('venues'))
           <Card
             variant="venue"
             title={v.data.name}
-            href={`/eat/${slugOf(v)}/`}
+            href={venueHref(v)}
             entityType="venue"
             entitySlug={slugOf(v)}
             image={i === 0 ? { src: v.data.heroImage.src, alt: v.data.heroImage.alt ?? v.data.name } : undefined}
@@ -119,7 +120,7 @@ const rowVenues = (await getCollection('venues'))
           <Card
             variant="compact-row"
             title={v.data.name}
-            href={`/eat/${slugOf(v)}/`}
+            href={venueHref(v)}
             entityType="venue"
             entitySlug={slugOf(v)}
             image={
@@ -185,7 +186,7 @@ const rowVenues = (await getCollection('venues'))
           <Card
             variant="plan"
             title={it.data.title}
-            href={`/itineraries/${slugOf(it)}/`}
+            href={`/explore/plans/${slugOf(it)}/`}
             entityType="itinerary"
             entitySlug={slugOf(it)}
             image={{ src: it.data.heroImage.src, alt: it.data.heroImage.alt ?? it.data.title }}
