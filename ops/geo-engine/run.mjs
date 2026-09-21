@@ -90,6 +90,8 @@ async function main() {
     return finish({ aborted: true });
   }
   logger.info('inventory built', stats);
+  const searchData = loadSearchData();
+  const searchAttach = attachToInventory(pages, searchData);
 
   // Reserve the first remote decisions for actionable, exact source patches.
   const findings = await stage('technical-audit', () => auditAll(pages, { sitemapAvailable: stats.sitemapAvailable, sitemap }), []);
@@ -100,8 +102,6 @@ async function main() {
   }
 
   // -------------------------------------------------------- search console --
-  const searchData = loadSearchData();
-  const searchAttach = attachToInventory(pages, searchData);
   const search = await stage('search-analysis', () => analyseSearch(searchData, pages, service), {
     available: false, reason: 'analysis stage failed', opportunities: { highImpressionLowCtr: [], striking: [], queriesWithoutGoodPage: [] }, byTerm: null, totals: null,
   });

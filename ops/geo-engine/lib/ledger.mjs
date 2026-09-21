@@ -96,7 +96,7 @@ export class Ledger {
     let latest = null;
     for (const i of this.data.interventions) {
       if (i.urlPath !== urlPath || i.mode !== 'deployed' || !i.deployedSha) continue;
-      if (!latest || i.date > latest.date) latest = i;
+      if (!latest || i.date >= latest.date) latest = i;
     }
     return latest;
   }

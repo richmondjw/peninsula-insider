@@ -3,6 +3,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { ChangeSet, PLANE } from './autofix.mjs';
+import { Ledger } from './ledger.mjs';
 import { ORIGIN, REPO_ROOT, STATE_DIR, readJson, sha256 } from './util.mjs';
 import { decodeEntities, stripTags, sentences } from './html.mjs';
 
@@ -140,21 +141,32 @@ export function proposePatch(finding, {pages, root = REPO_ROOT}) {
     action,before,after,hashBefore:sha256(before),hashAfter:sha256(after),expected,evidence};
 }
 
-export async function applySourceFixes({findings,pages,service,policy,runId,root=REPO_ROOT,fetchImpl=fetch}) {
+export function candidatePriority(finding, patch, pages, ledger) {
+  const severity={duplicate_title:3,broken_internal_link:3,invalid_jsonld:2,sitemap_url_missing_page:2,noindex_in_sitemap:2};
+  const history=ledger.successRateFor(patch.action);
+  const weight=history?.samples>=3 ? .8+.4*history.successRate : 1;
+  return ((severity[finding.rule]??1)+Math.min(1,Math.log10(1+(pages[patch.urlPath]?.search?.impressions??0))/4))*weight;
+}
+
+export async function applySourceFixes({findings,pages,service,policy,runId,root=REPO_ROOT,fetchImpl=fetch,ledger=new Ledger()}) {
   const changes = [], deferred = [];
   if(!policy.enabled)return {changes,deferred};
   const changeSet = new ChangeSet({runId,root});
   const touched = new Set();
   const previousRelease = readJson(path.join(STATE_DIR,'release.json'));
   try {
-    const rank = {duplicate_title:0,broken_internal_link:1,invalid_jsonld:2};
-    for (const finding of [...findings].sort((a,b)=>(rank[a.rule]??5)-(rank[b.rule]??5))) {
+    const candidates=findings.map(finding=>({finding,patch:proposePatch(finding,{pages,root})})).filter(c=>c.patch);
+    candidates.sort((a,b)=>candidatePriority(b.finding,b.patch,pages,ledger)-candidatePriority(a.finding,a.patch,pages,ledger));
+    for (const {finding,patch} of candidates) {
       if (changes.length >= Math.min(5, policy.maxChangesPerRun)) break;
       if (touched.size >= 20) break;
-      const patch = proposePatch(finding,{pages,root});
       if (!patch || touched.has(patch.file) || !policy.allowedActions.includes(patch.action)) continue;
       if(patch.expected.title && changes.some(c=>c.expected.title?.toLowerCase()===patch.expected.title.toLowerCase()))continue;
       touched.add(patch.file);
+      const deployed=ledger.lastInterventionFor(patch.urlPath);
+      if(deployed && (deployed.result==='awaiting_measurement' || Date.now()-Date.parse(deployed.deployedAt)<28*86400000)) {
+        deferred.push({urlPath:patch.urlPath,reason:'deployed experiment is still in its observation window'});continue;
+      }
       if(previousRelease && ['rejected','rolled_back'].includes(previousRelease.status)
           && Date.now()-Date.parse(previousRelease.updatedAt)<7*86400000
           && previousRelease.changes?.some(c=>c.file===patch.file && c.hashAfter===patch.hashAfter)) {

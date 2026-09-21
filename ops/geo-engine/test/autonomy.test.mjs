@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import {test} from 'node:test';
-import {proposePatch,removeTrailingJsonCommas,applySourceFixes} from '../lib/source-fixes.mjs';
+import {proposePatch,removeTrailingJsonCommas,applySourceFixes,candidatePriority} from '../lib/source-fixes.mjs';
 import {checksPassed,REQUIRED_CHECKS,validateScope,verifyHtml} from '../lib/release.mjs';
 import {Ledger} from '../lib/ledger.mjs';
 import {ChangeSet,PLANE} from '../lib/autofix.mjs';
@@ -87,4 +87,18 @@ test('remote failure does not cache fallback under JEV identity',async t=>{
   const service=new DecisionService({registry,cacheFile:path.join(f.root,'cache.json'),env:{JEV_API_KEY:'test'},fetchImpl:async()=>{calls++;return calls===1?{ok:false,status:503}:{ok:true,json:async()=>({answers:{choice:{type:'choice',choice:'yes',confidence:1}}})};}});
   assert.equal((await service.decide('a',{x:1})).provider,'deterministic');
   assert.equal((await service.decide('a',{x:1})).provider,'jev');assert.equal(calls,2);
+});
+
+test('actual patch selection learns only after three measured deployed outcomes',()=>{
+  const finding={rule:'duplicate_title'},patch={action:'rewrite_title',urlPath:'/x/'};
+  const score=history=>candidatePriority(finding,patch,{}, {successRateFor:()=>history});
+  assert.equal(score({samples:2,successRate:0}),3);
+  assert.equal(score({samples:3,successRate:0}),2.4000000000000004);
+  assert.ok(score({samples:3,successRate:1})>3);
+});
+test('an awaiting deployed experiment blocks another patch before any network or JEV call',async t=>{
+  const f=fixture(t),ledger=new Ledger(path.join(f.root,'ledger.json'));
+  ledger.recordIntervention({runId:'old',date:'2026-01-01',urlPath:'/journal/brunch/',action:'rewrite_title',mode:'deployed',deployedAt:'2026-01-01T00:00:00Z',deployedSha:'abc'});
+  const result=await applySourceFixes({...f,findings:[f.finding],ledger,service:{decide:()=>{throw Error('must not call');}},policy:{enabled:true,maxChangesPerRun:5,allowedActions:['rewrite_title']},runId:'new',fetchImpl:()=>{throw Error('must not fetch');}});
+  assert.equal(result.changes.length,0);assert.match(result.deferred[0].reason,/observation window/);
 });
