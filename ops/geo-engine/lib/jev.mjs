@@ -31,6 +31,8 @@ import { STATE_DIR, clamp, readJson, round, stableHash, writeJson } from './util
 
 export const PROVIDERS = { JEV: 'jev', FRONTIER: 'frontier', DETERMINISTIC: 'deterministic' };
 
+export const probeAllowsPublication = (probe, primary) => probe?.ok === true && primary === PROVIDERS.JEV;
+
 /** Public list price checked 2026-09-21 (docs.typesafe.ai/models): jev-1.13.0 input tokens; output is free. */
 export const JEV_USD_PER_MILLION_INPUT_TOKENS = 0.042;
 const SCORE_LEVELS = ['none', 'low', 'moderate', 'high', 'complete'];

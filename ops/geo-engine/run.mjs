@@ -19,7 +19,7 @@ import { assessCoverage, generateBenchmark, mergeBenchmark, MEASUREMENT_STATES }
 import { buildGraph, entityCoverage } from './lib/graph.mjs';
 import { buildInventory, loadInventory, saveInventory } from './lib/inventory.mjs';
 import { buildRegistry } from './lib/decisions.mjs';
-import { DecisionService, PROVIDERS } from './lib/jev.mjs';
+import { DecisionService, PROVIDERS, probeAllowsPublication } from './lib/jev.mjs';
 import { Ledger } from './lib/ledger.mjs';
 import { adjudicate, generateCandidates } from './lib/links.mjs';
 import { analyseSearch, attachToInventory, loadSearchData } from './lib/gsc.mjs';
@@ -79,6 +79,9 @@ async function main() {
   // A controlled round trip before anything depends on the provider.
   const probe = await stage('decision-probe', () => service.probe('query.classification', { query: 'best wineries near red hill for lunch' }), null);
   logger.info('decision layer', service.status());
+  if (mode === 'apply' && !probeAllowsPublication(probe, service.status().primary)) {
+    errors.push(`JEV publication unavailable: ${probe?.detail ?? service.status().reason}`);
+  }
 
   // ------------------------------------------------------------ inventory --
   const inventoryFile = path.join(STATE_DIR, useSource ? 'inventory-source.json' : 'inventory.json');
@@ -233,6 +236,8 @@ async function main() {
     needsJames: buildNeedsJames({ prioritised, search, service, policy, target }),
     system: {
       decisionLayer: describeDecisionLayer(service, probe),
+      decisionProvider: service.status().primary,
+      decisionProbe: probe,
       crawler: `local corpus reader over ${stats.total} rendered production-surface pages; candidate patches separately checked against live pages`,
       analytics: search.available ? `Search Console rows from ${search.source}` : `unavailable — ${searchData.reason}`,
       cms: `Astro content collections: ${vocab.counts.venues} venues, ${vocab.counts.events} events, ${vocab.counts.towns} towns`,
@@ -380,8 +385,8 @@ function buildNeedsJames({ prioritised, search, service, policy, target }) {
   const out = [];
   if (service.status().primary === PROVIDERS.DETERMINISTIC) {
     out.push({
-      decision: 'Run the engine where the protected TYPESAFE_API_KEY is available (the OpenClaw gateway exec), set JEV_API_KEY as a secret for this runner, or approve running the decision layer on deterministic rules only.',
-      context: 'Jev (TypeSafe) is supported natively but no credential reached this run. All classification and scoring is rule-derived, which is honest but less discriminating than a model.',
+      decision: 'Restore the configured JEV provider before autonomous publication; do not substitute rule-only approval.',
+      context: service.status().reason,
     });
   }
   if (!search.available) {
