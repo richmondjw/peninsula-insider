@@ -3567,36 +3567,6 @@
       ]
     },
     {
-      "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/event/red-hill-truffles-winter-truffle-hunt-season/heroImage-1785719503591.webp",
-      "originalBytes": 95928,
-      "variants": [
-        {
-          "src": "/_media/85bee12bed88e73089ac-480.webp",
-          "width": 480,
-          "height": 320,
-          "bytes": 13114
-        },
-        {
-          "src": "/_media/85bee12bed88e73089ac-800.webp",
-          "width": 800,
-          "height": 533,
-          "bytes": 25106
-        },
-        {
-          "src": "/_media/85bee12bed88e73089ac-1280.webp",
-          "width": 1280,
-          "height": 853,
-          "bytes": 47000
-        },
-        {
-          "src": "/_media/85bee12bed88e73089ac-1920.webp",
-          "width": 1920,
-          "height": 1280,
-          "bytes": 74464
-        }
-      ]
-    },
-    {
       "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/event/mt-eliza-farmers-market/heroImage-1787318367025.jpg",
       "originalBytes": 65712,
       "variants": [
@@ -3617,6 +3587,36 @@
           "width": 922,
           "height": 354,
           "bytes": 26526
+        }
+      ]
+    },
+    {
+      "source": "/images/sourced/spa-treatment-room-rose-01.webp",
+      "originalBytes": 93024,
+      "variants": [
+        {
+          "src": "/_media/8330fabd279e5c03863c-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 11936
+        },
+        {
+          "src": "/_media/8330fabd279e5c03863c-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 23706
+        },
+        {
+          "src": "/_media/8330fabd279e5c03863c-1280.webp",
+          "width": 1280,
+          "height": 853,
+          "bytes": 46834
+        },
+        {
+          "src": "/_media/8330fabd279e5c03863c-1920.webp",
+          "width": 1920,
+          "height": 1280,
+          "bytes": 88260
         }
       ]
     },
@@ -5789,36 +5789,6 @@
           "width": 1920,
           "height": 1359,
           "bytes": 286208
-        }
-      ]
-    },
-    {
-      "source": "/images/sourced/spa-treatment-room-rose-01.webp",
-      "originalBytes": 93024,
-      "variants": [
-        {
-          "src": "/_media/8330fabd279e5c03863c-480.webp",
-          "width": 480,
-          "height": 320,
-          "bytes": 11936
-        },
-        {
-          "src": "/_media/8330fabd279e5c03863c-800.webp",
-          "width": 800,
-          "height": 533,
-          "bytes": 23706
-        },
-        {
-          "src": "/_media/8330fabd279e5c03863c-1280.webp",
-          "width": 1280,
-          "height": 853,
-          "bytes": 46834
-        },
-        {
-          "src": "/_media/8330fabd279e5c03863c-1920.webp",
-          "width": 1920,
-          "height": 1280,
-          "bytes": 88260
         }
       ]
     },
