@@ -277,6 +277,8 @@ async function main() {
   writeJson(path.join(runDir, 'log.json'), logger.lines);
   writeText(path.join(STATE_DIR, 'latest-report.txt'), reportText);
   writeJson(path.join(STATE_DIR, 'latest-run.json'), {runId,runDir,errors,completedAt:new Date().toISOString()});
+  writeJson(path.join(STATE_DIR, 'latest-outcome.json'), {observedAt:new Date().toISOString(),release:{runId,status:errors.length?'audit_failed':appliedChanges.length?'pending_validation':'no_changes',changes:appliedChanges,deferred:sourceFixes.deferred,usage:service.usageSummary()}});
+  writeText(path.join(STATE_DIR, 'latest-outcome.txt'), `Peninsula Insider SEO/GEO\nRun: ${runId}\nSource patches: ${appliedChanges.length} (not yet deployed)\nDeferred: ${sourceFixes.deferred.length}\nJEV calls: ${service.usageSummary().remoteCalls}\nErrors: ${errors.length}\n${appliedChanges.length?'Release validation follows.':'No evidence-qualified source change this cycle.'}\n`);
 
   process.stdout.write(`${reportText}\n`);
   logger.info('cycle complete', { runId, errors: errors.length });

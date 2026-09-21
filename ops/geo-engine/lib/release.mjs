@@ -24,6 +24,7 @@ export function validateScope(changes, files) {
 }
 export function verifyHtml(html, expected) {
   if(expected.sitemapAbsent && html.includes(`<loc>${expected.sitemapAbsent}</loc>`))return false;
+  if(expected.sitemapPresent && !html.includes(`<loc>${expected.sitemapPresent}</loc>`))return false;
   const title = decodeEntities(html.match(/<title>([\s\S]*?)<\/title>/i)?.[1]??'');
   if (expected.title && title !== expected.title) return false;
   if (expected.description) {
@@ -105,7 +106,7 @@ function recordDeployment(r) {
 
 function startRollback(r, reason) {
   // Revert this commit only, preserving any unrelated work. Do not force-push/reset.
-  git('fetch','origin','main');
+  git('fetch','origin','main:refs/remotes/origin/main');
   for (const change of r.changes) {
     if (sha256(git('show',`origin/main:${change.file}`)+'\n') !== change.hashAfter) {
       // git output trimming is unsuitable for arbitrary EOFs; compare raw bytes instead.
@@ -179,6 +180,10 @@ export async function advanceRelease() {
     const provenance=await res.json();
     const runs=json('run','list','--workflow','build-and-deploy.yml','--commit',r.rollbackSha,'--json','status,conclusion');
     if(provenance.sourceSha===r.rollbackSha && runs[0]?.conclusion==='success') {
+      for(const change of r.changes) {
+        const page=await fetch(`${ORIGIN}${change.urlPath}?geo=${Date.now()}`,{signal:AbortSignal.timeout(20000)});
+        if(page.status!==200 || !verifyHtml(await page.text(),change.rollbackExpected??{})) throw Error('Rollback live acceptance failed');
+      }
       r.status='rolled_back';r.rollbackVerifiedAt=new Date().toISOString();return save(r);
     }
   }

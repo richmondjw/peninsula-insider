@@ -112,6 +112,8 @@ export class ChangeSet {
     const file = path.join(this.root, change.file);
     const backup = path.join(this.root, change.backup);
     if (!fs.existsSync(backup)) return { reverted: false, reason: 'backup missing' };
+    const realRoot=fs.realpathSync(this.root)+path.sep;
+    if(!fs.realpathSync(file).startsWith(realRoot) || !fs.realpathSync(backup).startsWith(realRoot)) return {reverted:false,reason:'rollback path escapes root'};
     if (sha256(fs.readFileSync(file, 'utf8')) !== change.hashAfter) return { reverted: false, reason: 'file changed since application; refusing to overwrite' };
     fs.copyFileSync(backup, file);
     change.reverted = true;

@@ -5,7 +5,7 @@ import path from 'node:path';
 import { ChangeSet, PLANE } from './autofix.mjs';
 import { Ledger } from './ledger.mjs';
 import { ORIGIN, REPO_ROOT, STATE_DIR, readJson, sha256 } from './util.mjs';
-import { decodeEntities, stripTags, sentences } from './html.mjs';
+import { decodeEntities, stripTags, sentences, metaContent } from './html.mjs';
 
 export const PATCH_ACTIONS = ['rewrite_title', 'rewrite_meta_description', 'add_missing_meta_description',
   'fix_broken_internal_link', 'add_internal_link', 'fix_malformed_jsonld', 'sitemap_remove_dead_url', 'sitemap_remove_noindex'];
@@ -179,6 +179,9 @@ export async function applySourceFixes({findings,pages,service,policy,runId,root
       if (response.status !== 200 || (!patch.expected.sitemapAbsent && liveTitle !== pages[patch.urlPath].title)) {
         deferred.push({urlPath:patch.urlPath,reason:'live/source mismatch'}); continue;
       }
+      patch.rollbackExpected=patch.expected.sitemapAbsent
+        ? {sitemapPresent:patch.expected.sitemapAbsent}
+        : {title:liveTitle,description:metaContent(html,'description')};
       if(patch.affectedPath) {
         const affected=await fetchImpl(ORIGIN+patch.affectedPath,{signal:AbortSignal.timeout(20000)});
         if(patch.action==='sitemap_remove_dead_url' && affected.status!==404)continue;
