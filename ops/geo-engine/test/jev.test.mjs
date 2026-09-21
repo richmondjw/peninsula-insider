@@ -129,3 +129,30 @@ test('a failed probe demotes the service to deterministic rules for the run', as
   assert.equal(service.status().primary, PROVIDERS.DETERMINISTIC);
   assert.equal(service.status().degraded, true);
 });
+
+test('parallel scoring groups share the remote budget and concurrency limit', async () => {
+  const log = [];
+  const reply = fakeTypeSafe(goodAnswers, log);
+  let active = 0;
+  let peak = 0;
+  const service = new DecisionService({
+    registry: registry(), cacheFile: tmpCache(),
+    env: { TYPESAFE_API_KEY: 'sentinel', JEV_MAX_DECISIONS: '7', JEV_CONCURRENCY: '2' },
+    fetchImpl: async (...args) => {
+      active += 1;
+      peak = Math.max(peak, active);
+      try {
+        await new Promise((resolve) => setTimeout(resolve, 5));
+        return await reply(...args);
+      } finally { active -= 1; }
+    },
+  });
+  const groups = await Promise.all(Array.from({ length: 8 }, (_, group) =>
+    service.decideBatch('test.mixed', Array.from({ length: 5 }, (_, item) => ({ group, item })))));
+  assert.equal(log.length, 7, 'all scoring groups share one request allowance');
+  assert.equal(peak, 2, 'concurrency is shared across groups and actually used');
+  assert.equal(groups.flat().filter((r) => r.provider === 'jev').length, 7);
+  assert.equal(groups.flat().filter((r) => r.provider === 'deterministic').length, 33);
+  assert.equal(service.usageSummary().budgetExhausted, true);
+  assert.deepEqual(service.usageSummary().providerFailures, []);
+});

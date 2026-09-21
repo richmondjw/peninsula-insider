@@ -217,6 +217,8 @@ export class DecisionService {
     this.usage = DEFAULT_LEDGER();
     this.config = resolveProviderConfig(env);
     this.probeResult = null;
+    this.activeJevCalls = 0;
+    this.jevWaiters = [];
   }
 
   /** Which provider will actually serve calls, and why. Never exposes the key. */
@@ -297,8 +299,11 @@ export class DecisionService {
       const budgetLeft = Math.max(0, this.config.maxRemoteDecisions - this.usage.remoteCalls);
       const remote = pending.slice(0, budgetLeft);
       if (remote.length < pending.length) this.usage.budgetExhausted = true;
-      for (let i = 0; i < remote.length; i += this.config.batchSize) {
-        const chunk = remote.slice(i, i + this.config.batchSize);
+      const chunkSize = this.config.primary === PROVIDERS.JEV ? this.config.concurrency : this.config.batchSize;
+      for (let i = 0; i < remote.length; i += chunkSize) {
+        const remaining = Math.max(0, this.config.maxRemoteDecisions - this.usage.remoteCalls);
+        if (!remaining) { this.usage.budgetExhausted = true; break; }
+        const chunk = remote.slice(i, i + Math.min(chunkSize, remaining));
         let records = [];
         try {
           records = await this.#callRemote(decision, chunk.map((c) => c.input), this.config.primary);
@@ -385,6 +390,27 @@ export class DecisionService {
   }
 
   async #jevOne(decision, input, questions) {
+    // Parallel page-scoring groups share one concurrency and request budget.
+    // Reserve only after admission; queued calls must recheck the live counter.
+    if (this.activeJevCalls >= this.config.concurrency) {
+      await new Promise((resolve) => this.jevWaiters.push(resolve));
+    } else {
+      this.activeJevCalls += 1;
+    }
+    try {
+      if (this.usage.remoteCalls >= this.config.maxRemoteDecisions) {
+        this.usage.budgetExhausted = true;
+        return null;
+      }
+      return await this.#jevRequest(decision, input, questions);
+    } finally {
+      const next = this.jevWaiters.shift();
+      if (next) next();
+      else this.activeJevCalls -= 1;
+    }
+  }
+
+  async #jevRequest(decision, input, questions) {
     this.usage.remoteCalls += 1;
     const res = await this.fetchImpl(`${this.config.endpoint}/v1/systemone`, {
       method: 'POST',
