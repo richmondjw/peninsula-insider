@@ -68,7 +68,18 @@ without disabling it or detaching a protected JEV process. Builds/audit have a
 13-minute process limit; release polls use five-minute steps. `pipeline.json`
 binds the next step to the tracked checkout fingerprint. Interrupted, expired or
 concurrently changed checkpoints fail closed. Child process groups are stopped on
-abort/timeout and local patches receive hash-guarded recovery. The older monolithic
+abort/timeout and local patches receive hash-guarded recovery. Once a source PR is
+submitted, `release-worker.py` owns only its remaining release checks for at most
+one hour. It cannot run collection, JEV, another pipeline, or a new cycle. A fixed
+`release-delivery.json` route in runtime state is copied from the existing cron's
+approved Telegram account/chat/topic. The worker sends the final complete report,
+retains per-part delivery receipts and refuses to retry uncertain sends. A
+`release_handed_off` response tells the orchestration model to return `NO_REPLY`;
+it is not a claim that deployment is complete. This addresses the observed model
+stopping at `deploy_pending` despite instructions to continue. No additional cron
+job is created. Worker errors are retained in `release-worker-error.json`; an
+interrupted worker preserves the release checkpoint for reconciliation.
+The older monolithic
 `gateway-cycle.sh` remains a manual compatibility path, not the cron entry point.
 
 Only live-verified releases enter measurement and URL cooldown. Final GSC page
