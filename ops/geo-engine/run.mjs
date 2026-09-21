@@ -31,6 +31,8 @@ import { loadPolicy, planChanges, PLANE } from './lib/autofix.mjs';
 import { prioritiseFindings, summarisePriorities } from './lib/prioritise.mjs';
 import { scoreDistribution, scorePages } from './lib/scoring.mjs';
 import { loadVocabulary } from './lib/vocab.mjs';
+import {searchTrends,attachEngagement,researchQueue,entityIntelligence} from './lib/intelligence.mjs';
+import {visibilitySummary} from './lib/visibility.mjs';
 import { ENGINE_DIR, Logger, REPO_ROOT, RUNS_DIR, STATE_DIR, ensureDir, melbourneNow, readJson, round, writeJson, writeText } from './lib/util.mjs';
 
 const args = Object.fromEntries(
@@ -95,6 +97,10 @@ async function main() {
   logger.info('inventory built', stats);
   const searchData = loadSearchData();
   const searchAttach = attachToInventory(pages, searchData);
+  const analyticsDoc = searchData.available && searchData.source === 'gateway:analytics-live.json'
+    ? readJson(process.env.GSC_ANALYTICS_JSON, null) : null;
+  const trends = searchTrends(analyticsDoc);
+  const engagement = attachEngagement(pages, analyticsDoc);
 
   // Reserve the first remote decisions for actionable, exact source patches.
   const findings = await stage('technical-audit', () => auditAll(pages, { sitemapAvailable: stats.sitemapAvailable, sitemap }), []);
@@ -202,8 +208,11 @@ async function main() {
   const run = {
     runId, date: now.date, cycle, mode, target,
     noMaterialAction: prioritised.filter((o) => ['critical', 'major'].includes(o.severity)).length === 0
-      && reconciled.isNew.length === 0 && gaps.summary.createCount === 0,
+      && reconciled.isNew.length === 0 && gaps.summary.createCount === 0 && appliedChanges.length === 0,
     health,
+    technicalFindings: findingSummary,
+    liveCrawl: readJson(path.join(STATE_DIR,'live-crawl.json'),{state:'unavailable'}),
+    searchIntelligence: trends,
     inventory: {
       total: stats.total,
       newOrChanged: (stats.new ?? 0) + (stats.reparsed ?? 0),
@@ -223,15 +232,12 @@ async function main() {
       uncovered: benchmark?.coverageSummary?.uncovered ?? 0,
       scoredPages: Object.keys(allScores).length,
       citationTiers: distribution?.citationTiers ?? {},
-      aiVisibility: {
-        state: MEASUREMENT_STATES.NOT_MEASURABLE,
-        reason: 'This cycle did not measure live AI citations; benchmark scores are inferred coverage, not observed visibility.',
-      },
+      aiVisibility: visibilitySummary(benchmark),
     },
     topOpportunities: buildTopOpportunities({ prioritised, reconciled, gaps, linkResult, search, deployDelta }),
     contentOpportunities: gaps.candidates.filter((c) => c.verdict === 'create').slice(0, 5).map((c) => ({
       label: c.label,
-      rationale: `No page on the site currently answers this well (best existing fit ${round(c.bestExistingFit, 2)}), and the knowledge graph already models ${c.supportingEntities} supporting local entities to write it from.`,
+      rationale: `Candidate coverage gap (best assessed fit ${round(c.bestExistingFit, 2)}); ${c.supportingEntities} modelled supporting entities. Research must verify reader need, overlap and factual support before commissioning.`,
     })),
     needsJames: buildNeedsJames({ prioritised, search, service, policy, target }),
     system: {
@@ -267,11 +273,19 @@ async function main() {
   });
 
   saveInventory(inventoryFile, pages, stats);
-  writeJson(benchmarkFile, benchmark ?? { questions: [] });
-  writeJson(path.join(STATE_DIR, 'knowledge-graph.json'), { updatedAt: new Date().toISOString(), stats: graph.stats, coverage, edges: graph.edges.length });
+  if (benchmark) writeJson(benchmarkFile, benchmark);
+  if (Object.keys(graph.nodes).length) writeJson(path.join(STATE_DIR, 'knowledge-graph.json'), { version: 2, updatedAt: new Date().toISOString(), ...graph, coverage });
   writeJson(path.join(STATE_DIR, 'internal-link-candidates.json'), { updatedAt: new Date().toISOString(), ...linkResult });
   writeJson(path.join(STATE_DIR, 'opportunities.json'), { runId, updatedAt: new Date().toISOString(), summary: prioritySummary, opportunities: prioritised.slice(0, 300) });
   writeJson(path.join(STATE_DIR, 'content-gaps.json'), { runId, updatedAt: new Date().toISOString(), ...gaps });
+  writeJson(path.join(STATE_DIR, 'search-intelligence.json'), {runId,...trends,engagement});
+  writeJson(path.join(STATE_DIR, 'entity-intelligence.json'), entityIntelligence(vocab,graph));
+  writeJson(path.join(STATE_DIR, 'dashboard.json'), {version:1,runId,observedAt:new Date().toISOString(),
+    inventory:run.inventory,search:trends,engagement,geo:run.geo,technical: findingSummary,
+    opportunities:run.topOpportunities,experiments:ledger.stats(),usage:run.system.usage,
+    limitation:'Model cost is JEV input-token estimate only; scores are not observed search or citation gains.'});
+  const researchFile=path.join(STATE_DIR,'research-queue.json');
+  writeJson(researchFile,researchQueue(gaps,readJson(researchFile,{items:[]})));
   ledger.save();
   service.persist();
 

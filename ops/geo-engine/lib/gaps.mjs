@@ -50,7 +50,7 @@ export async function findGaps({ benchmark, graph, pages, service, searchDemand 
   }
 
   // 3. Search Console queries with demand and no good landing page.
-  for (const row of searchDemand?.queriesWithoutGoodPage ?? []) {
+  for (const row of searchDemand?.opportunities?.queriesWithoutGoodPage ?? []) {
     candidates.push({
       kind: 'search_demand',
       label: row.query,
@@ -73,7 +73,8 @@ export async function findGaps({ benchmark, graph, pages, service, searchDemand 
 
   const scored = candidates.map((c, i) => ({
     ...c,
-    verdict: records[i].value?.verdict ?? 'watch',
+    verdict: records[i].provider === 'jev' && records[i].confidence >= 0.8
+      ? records[i].value?.verdict ?? 'watch' : 'watch',
     score: records[i].value?.score ?? 0,
     confidence: records[i].confidence,
     provider: records[i].provider,
@@ -96,7 +97,7 @@ export async function findGaps({ benchmark, graph, pages, service, searchDemand 
 
 /** How much modelled local substance exists behind a question. */
 function supportFor(q, graph) {
-  if (!q.town) return q.activity ? 3 : 1;
+  if (!q.town) return 0; // Unknown support is not a fabricated entity count.
   let n = 0;
   for (const edge of graph.edges) {
     if (edge.rel === 'LOCATED_IN' && edge.to === `town:${q.town}`) n += 1;

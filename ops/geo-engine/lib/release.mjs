@@ -103,7 +103,9 @@ function recordDeployment(r) {
     ledger.recordIntervention({runId:r.runId,date:r.deployedAt.slice(0,10),urlPath:change.urlPath,
       action:change.action,mode:'deployed',deployedSha:r.mergeSha,deployedAt:r.deployedAt,
       changeMade:{file:change.file,hashBefore:change.hashBefore,hashAfter:change.hashAfter},
-      searchBefore:row??null,searchWindowBefore:r.analytics?.ranges?.current??null,
+        problem:change.problem,scoresBefore:change.scoresBefore,geoBefore:change.geoBefore,
+        expectedOutcome:change.expectedOutcome,
+        searchBefore:row??null,searchWindowBefore:r.analytics?.ranges?.current??null,
       rollback:{mergeSha:r.mergeSha},confidence:change.verdict?.confidence,provider:'jev'});
   }
   ledger.save();

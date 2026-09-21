@@ -179,7 +179,10 @@ export async function assessCoverage(benchmark, pages, service, { limit = null }
   const candidates = Object.values(pages).filter(
     (p) => p.indexable && !['redirect-stub', 'utility'].includes(p.pageType) && p.wordCount > 150,
   );
-  const questions = limit ? benchmark.questions.slice(0, limit) : benchmark.questions;
+  // Oldest/unassessed first; never discard the unselected persistent questions.
+  const ordered = [...benchmark.questions].sort((a, b) =>
+    (Date.parse(a.coverage?.assessedAt) || 0) - (Date.parse(b.coverage?.assessedAt) || 0));
+  const questions = limit ? ordered.slice(0, limit) : ordered;
 
   const inputs = questions.map((q) => {
     const best = bestCandidate(q, candidates);
@@ -196,7 +199,7 @@ export async function assessCoverage(benchmark, pages, service, { limit = null }
 
   const assessed = questions.map((q, i) => ({
     ...q,
-    measurement: MEASUREMENT_STATES.INFERRED,
+    measurement: q.observations?.length ? q.measurement : MEASUREMENT_STATES.INFERRED,
     coverage: {
       bestPage: inputs[i]._urlPath,
       fit: records[i].value?.fit ?? 'none',
@@ -208,9 +211,11 @@ export async function assessCoverage(benchmark, pages, service, { limit = null }
   }));
 
   const byFit = countBy(assessed.map((q) => ({ f: q.coverage.fit })), 'f');
+  const updates = new Map(assessed.map(q => [q.id, q]));
   return {
     ...benchmark,
-    questions: assessed,
+    total: benchmark.questions.length,
+    questions: benchmark.questions.map(q => updates.get(q.id) ?? q),
     coverageSummary: {
       assessed: assessed.length,
       byFit,

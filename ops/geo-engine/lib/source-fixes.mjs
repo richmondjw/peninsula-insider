@@ -239,7 +239,11 @@ export async function applySourceFixes({findings,pages,service,policy,runId,root
       const result = changeSet.applyTextChange({file:path.join(root,patch.file),plane:PLANE.SOURCE,
         opportunity:{id:`${finding.rule}:${patch.urlPath}`,proposedAction:patch.action},
         transform:s=>{if(sha256(s)!==patch.hashBefore)throw Error('source changed during assessment');return patch.after;}});
-      if (result.changed) changes.push({...patch,before:undefined,after:undefined,...result.change,verdict});
+      if (result.changed) changes.push({...patch,before:undefined,after:undefined,...result.change,verdict,
+        problem:finding.detail, scoresBefore:pages[patch.urlPath]?.scores??null,
+        geoBefore:pages[patch.urlPath]?.scores?.geoScore??null,
+        expectedOutcome:'Remove the verified technical defect; observe search changes without claiming causation.',
+        validation:'source hash and live prerequisites verified; build, CI and production validation pending'});
     }
   } catch (error) {
     const rollback = changeSet.revertAll(); changeSet.save();

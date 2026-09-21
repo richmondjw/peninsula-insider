@@ -1,6 +1,7 @@
 import path from 'node:path';
 import {submitRelease,advanceRelease} from '../lib/release.mjs';
 import {STATE_DIR,readJson,writeJson,writeText} from '../lib/util.mjs';
+import {renderReport} from '../lib/report.mjs';
 const mode=process.argv[2]??'resume';
 let receipt;
 if(mode==='submit') {
@@ -19,6 +20,22 @@ do {
   await new Promise(resolve=>setTimeout(resolve,30000));
 }while(true);
 writeJson(path.join(STATE_DIR,'latest-outcome.json'),{observedAt:new Date().toISOString(),release:receipt??null});
+const latestRun=readJson(path.join(STATE_DIR,'latest-run.json'));
+if(receipt?.runId && receipt.runId===latestRun?.runId) {
+  const summaryFile=path.join(latestRun.runDir,'summary.json');
+  const summary=readJson(summaryFile);
+  if(summary) {
+    summary.noMaterialAction=false;
+    summary.changes.releaseStatus=receipt.status;
+    summary.changes.applied=receipt.changes.map(c=>({...c,validation:receipt.status==='verified'
+      ? `Build and CI passed; production output verified at ${receipt.deployedAt}`
+      : `Release ${receipt.status}; not a verified live change`}));
+    writeJson(summaryFile,summary);
+    const report=renderReport(summary);
+    writeText(path.join(latestRun.runDir,'report.txt'),report);
+    writeText(path.join(STATE_DIR,'latest-report.txt'),report);
+  }
+}
 writeText(path.join(STATE_DIR,'latest-outcome.txt'),`Peninsula Insider autonomous SEO\nStatus: ${receipt?.status??'no pending release'}\nChanges: ${receipt?.changes?.length??0}\nPR: ${receipt?.prUrl??'none'}\nDeployed SHA: ${receipt?.mergeSha??'not deployed'}\nLive verified: ${receipt?.deployedAt??'not yet'}\nSearch effects require a complete post-deployment measurement window.\n`);
 if(receipt && (receipt.status==='rollback_failed' || mode==='submit' && ['rejected','rolled_back'].includes(receipt.status))) process.exitCode=2;
 else if(receipt && !['verified','no_changes','rejected','rolled_back'].includes(receipt.status)) process.exitCode=10;
