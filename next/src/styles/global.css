@@ -117,6 +117,12 @@ html {
      control below in charge, and nothing else. */
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  /* Lives here, not on body: an overflow value other than visible on body
+     turns it into its own scroll/clip container, which breaks Safari's
+     positioning of the sticky masthead during the elastic overscroll
+     bounce at the top of the page - background content shows through
+     above the header for a frame. html doesn't have this effect. */
+  overflow-x: hidden;
 }
 html[data-text-scale="2"] { font-size: 108.75%; }
 html[data-text-scale="3"] { font-size: 118%; }
@@ -153,7 +159,6 @@ body {
   font-weight: var(--fw-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
 }
 
 /* v6: film-grain overlay removed - the Evergreen Coast lift is clean and flat. */
