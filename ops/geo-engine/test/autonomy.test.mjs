@@ -8,7 +8,14 @@ import {proposePatch,removeTrailingJsonCommas,applySourceFixes,candidatePriority
 import {checksPassed,REQUIRED_CHECKS,validateScope,verifyHtml} from '../lib/release.mjs';
 import {Ledger} from '../lib/ledger.mjs';
 import {ChangeSet,PLANE} from '../lib/autofix.mjs';
-import {DecisionRegistry,DecisionService} from '../lib/jev.mjs';
+import {DecisionRegistry,DecisionService,probeAllowsPublication} from '../lib/jev.mjs';
+
+test('apply cycles require a successful live JEV probe, not merely completed rule analysis',()=>{
+  assert.equal(probeAllowsPublication({ok:true},'jev'),true);
+  assert.equal(probeAllowsPublication({ok:false,detail:'timeout'},'jev'),false);
+  assert.equal(probeAllowsPublication({ok:true},'deterministic'),false);
+  assert.equal(probeAllowsPublication(null,'jev'),false);
+});
 
 function fixture(t) {
   const root=fs.mkdtempSync(path.join(os.tmpdir(),'pi-auto-'));

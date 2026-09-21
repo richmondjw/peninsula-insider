@@ -129,11 +129,14 @@ def main():
                         execute(['npx', 'astro', 'build'], env, output, cwd=REPO / 'next')
                 p['stage'] = 'audit' if stage == 'build' else 'release'
             elif stage == 'audit':
-                run(['node', str(ENGINE / 'run.mjs'), '--target=source', '--apply', '--cycle=' + p['cycle']])
+                audit_started = time.time()
+                run(['node', str(ENGINE / 'run.mjs'), '--target=source', '--apply', '--cycle=' + p['cycle']], accepted=(0, 1))
                 latest = read(STATE / 'latest-run.json')
-                if not latest or latest['errors']:
-                    raise RuntimeError('No successful audit receipt')
+                if not latest or datetime.fromisoformat(latest['completedAt'].replace('Z', '+00:00')).timestamp() < audit_started:
+                    raise RuntimeError('No fresh audit receipt')
                 p['runId'] = latest['runId']
+                if latest['errors']:
+                    raise RuntimeError('; '.join(latest['errors']))
                 p['stage'] = 'validate'
             elif stage == 'release':
                 outcome = read(STATE / 'latest-outcome.json', {}).get('release', {})
