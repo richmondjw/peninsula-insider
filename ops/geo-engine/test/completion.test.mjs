@@ -5,7 +5,7 @@ import {findGaps} from '../lib/gaps.mjs';
 import {adjudicate} from '../lib/links.mjs';
 import {searchTrends,attachEngagement,researchQueue} from '../lib/intelligence.mjs';
 import {validateObservation,importObservations,visibilitySummary} from '../lib/visibility.mjs';
-import {renderReport} from '../lib/report.mjs';
+import {renderReport,computeHealth} from '../lib/report.mjs';
 import {entityIntelligence} from '../lib/intelligence.mjs';
 
 test('entity checks flag missing evidence without inventing venue freshness or deleting events',()=>{
@@ -21,6 +21,14 @@ test('source change report renders nested JEV verdict and pending release honest
     topOpportunities:[],contentOpportunities:[],needsJames:[],system:{usage:{},errors:[]}};
   const text=renderReport(run);assert.match(text,/Confidence: 0.93 \(jev\)/);
   assert.match(text,/Validation: pending_validation/);assert.doesNotMatch(text,/Reason: undefined|Confidence: undefined|Validation: undefined/);
+});
+
+test('quiet reports retain unavailable systems and uncertain scores never claim perfect health',()=>{
+  const report=renderReport({noMaterialAction:true,discovery:{error:'Provider unavailable'},
+    engagement:{available:true,attached:35},system:{usage:{providerFailures:[{}],budgetExhausted:true},errors:[]}});
+  assert.match(report,/Discovery unavailable/);assert.match(report,/35 pages joined/);
+  assert.match(report,/Decision provider failures: 1/);assert.match(report,/allowance exhausted/);
+  assert.equal(computeHealth([{severity:'noise',confidence:.13}],100).score,null);
 });
 
 test('search results are not AI citations and valid observation imports are idempotent',()=>{

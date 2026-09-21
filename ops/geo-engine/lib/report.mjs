@@ -18,6 +18,8 @@ export function renderReport(run) {
 
   if (run.noMaterialAction) {
     p('SEO/GEO: No material action required today.');
+    if(run.discovery?.error)p(`Discovery unavailable: ${run.discovery.error}; no AI visibility result claimed.`);
+    if(run.liveCrawl?.state==='unavailable'||run.liveCrawl?.summary?.status==='failed')p('Live crawler evidence unavailable or failed; inspect retained diagnostics.');
     p('');
     p(systemBlock(run));
     return L.join('\n');
@@ -150,9 +152,13 @@ function systemBlock(run) {
   L.push(`Decision layer: ${run.system.decisionLayer}`);
   L.push(`Crawler: ${run.system.crawler}`);
   L.push(`Analytics: ${run.system.analytics}`);
+  if(run.engagement)L.push(`GA4 organic engagement: ${run.engagement.available?'observed':'unavailable'}; ${run.engagement.attached??0} pages joined.`);
   L.push(`CMS/source: ${run.system.cms}`);
   L.push(`Scheduled job: ${run.system.schedule}`);
   L.push(`Decisions this run: ${run.system.usage.totalDecisions} (${round((run.system.usage.shareWithoutFrontierModel ?? 1) * 100, 1)}% without a frontier model, est. cost $${run.system.usage.estimatedCostUsd})`);
+  L.push(`Decision provenance: ${run.system.usage.byProvider?.jev??0} JEV, ${run.system.usage.byProvider?.deterministic??0} deterministic; ${run.system.usage.remoteCalls??0} remote calls; ${run.system.usage.batchReuses??0} same-batch reuses. Cost excludes orchestration and infrastructure.`);
+  if(run.system.usage.budgetExhausted)L.push('Remote decision allowance exhausted; remaining analysis used explicitly labelled rules.');
+  if(run.system.usage.providerFailures?.length)L.push(`Decision provider failures: ${run.system.usage.providerFailures.length}; see retained logs.`);
   if (run.system.errors.length) {
     L.push('Errors requiring attention:');
     for (const e of run.system.errors) L.push(`  - ${e}`);
