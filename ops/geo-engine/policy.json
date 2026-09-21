@@ -1,6 +1,6 @@
 {
-  "_README": "Autonomous change policy. enabled=false keeps the engine in audit/recommendation mode: it plans changes and shows what would pass the gate, but writes nothing. Raise the tier only after reviewing a cycle's output. See README.md 'Enabling autonomous changes'.",
-  "enabled": false,
+  "_README": "Autonomous change policy. Tier 1 enabled 2026-09-21 (James delegated the call): the three allowed actions are deterministic, reversible and assert no new facts. A change is still applied only when the decision layer rates it auto_safe with confidence >= confidenceThreshold; the deterministic rule scores 0.88, so nothing applies until Jev is live and agrees. Applies only on the source plane (--target=source) and only when --apply is passed; the gateway runner passes it and delivers any change as a pull request, never a push to main. See README.md.",
+  "enabled": true,
   "confidenceThreshold": 0.92,
   "allowedActions": [
     "fix_broken_internal_link",

@@ -21,6 +21,20 @@ const CANDIDATE_FILES = [
  * @returns {{available: boolean, reason: string, rows: array, source: string|null}}
  */
 export function loadSearchData({ root = REPO_ROOT, env = process.env } = {}) {
+  // The OpenClaw gateway's analytics pull (peninsula-seo-geo/analytics-read.cjs) reads
+  // Search Console through the site's own MCP identity and writes one JSON document
+  // with page x query rows for the current window. Pointed at by GSC_ANALYTICS_JSON.
+  if (env.GSC_ANALYTICS_JSON && fs.existsSync(env.GSC_ANALYTICS_JSON)) {
+    const doc = readJson(env.GSC_ANALYTICS_JSON);
+    const block = doc?.gsc?.current?.page_queries;
+    const rows = Array.isArray(block?.rows) ? block.rows : [];
+    if (doc?.gsc?.status === 'observed' && rows.length) {
+      const window = doc?.ranges?.current ?? {};
+      // Dimensions were requested as [page, query]; the engine's row shape is query first.
+      const shaped = rows.map((r) => ({ query: r.keys?.[1] ?? null, page: r.keys?.[0] ?? null, impressions: r.impressions, clicks: r.clicks, ctr: r.ctr, position: r.position }));
+      return { available: true, reason: `read from the gateway analytics pull (${window.start_date ?? '?'} to ${window.end_date ?? '?'}, ${rows.length} page x query rows${block.possibly_truncated ? ', possibly truncated' : ''})`, rows: shaped, source: 'gateway:analytics-live.json' };
+    }
+  }
   if (env.GSC_ROWS_JSON) {
     const parsed = safeParse(env.GSC_ROWS_JSON);
     if (Array.isArray(parsed)) {

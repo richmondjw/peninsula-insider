@@ -134,8 +134,9 @@ Per-run evidence goes to `.runs/<runId>/` (gitignored).
 
 ## Enabling autonomous changes
 
-The engine ships in **audit/recommendation mode**. `policy.json` has
-`enabled: false`, and `--apply` without it is refused and recorded as an error.
+The first tier is **enabled** (`policy.json`, 2026-09-21). Audit runs are
+unaffected: a change is applied only when `--apply` is passed, which only the
+gateway runner does, against the source plane.
 
 A change is applied only when *all* of these hold:
 
@@ -169,9 +170,27 @@ Each stage is wrapped: a stage that throws is recorded, state is preserved, the
 remaining safe analysis continues, and the failure is reported. Missing data is
 reported as missing — the engine never invents a number to fill a gap.
 
-## Schedule
+## Schedule and runner
 
-`.github/workflows/seo-geo-engine.yml` — 05:30 Australia/Melbourne daily.
-Monday–Saturday incremental, Sunday expanded. This does not duplicate the
-existing `SEO Audit` workflow (SiteOne + Lighthouse, 07:35 Melbourne), which
-measures different things and is left untouched.
+The daily cycle runs on the **OpenClaw gateway**, not in GitHub Actions
+(decided 2026-09-21). Only the gateway can reach the protected Jev credential
+and the site's Search Console identity, so it is the one place a cycle can be
+both model-scored and demand-aware. `scripts/gateway-cycle.sh` is the runner;
+the `pi-seo-daily-pull` automation (05:30 Australia/Melbourne, Sunday expanded)
+invokes it through the gateway's exec tool via
+`workspace/peninsula-seo-geo/scheduled.py`, which also keeps the site's
+existing Search Console collector. Each run: syncs the checkout, refreshes the
+analytics document, builds the current source for the deploy delta, runs the
+cycle with `--apply` against the source plane, commits state to the branch,
+and opens a pull request for any source change (never a push to `main`).
+
+`.github/workflows/seo-geo-engine.yml` runs the tests on pull requests and
+offers a manual, credential-less audit via `workflow_dispatch`.
+
+Search demand comes from `GSC_ANALYTICS_JSON`, the gateway analytics pull
+(page x query rows for the trailing 28 days); `GSC_ROWS_JSON` and the exported
+files remain supported.
+
+The Python engine that was commissioned in `workspace/peninsula-seo-geo` on
+2026-09-21 is superseded by this one; its analytics pull is the part that
+survives.

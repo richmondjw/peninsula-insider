@@ -1,25 +1,22 @@
 name: SEO/GEO Engine
 
-# 19:30 UTC = 05:30 AEST / 06:30 AEDT. The UTC slot is fixed (as with the other
-# Peninsula Insider workflows) so the schedule does not shift twice a year; the
-# Melbourne-local time moves by an hour across daylight saving.
+# The scheduled cycle does NOT run here (decided 2026-09-21). GitHub Actions
+# cannot reach the protected Jev credential or the site's Search Console
+# identity, so a scheduled run here would only ever be the rule-based, demand-
+# blind audit. The daily cycle runs on the OpenClaw gateway instead
+# (ops/geo-engine/scripts/gateway-cycle.sh via the pi-seo-daily-pull automation,
+# 05:30 Australia/Melbourne), which has both, and commits state from there.
 #
-# UTC Sun-Fri  -> Melbourne Mon-Sat: incremental cycle
-# UTC Saturday -> Melbourne Sunday:  expanded audit
-#
-# This does not duplicate the existing `SEO Audit` workflow (SiteOne +
-# Lighthouse, 21:35 UTC), which measures crawlability and lab performance.
-# This one maintains the persistent inventory, knowledge graph, GEO benchmark,
-# optimisation ledger and daily report.
+# This workflow keeps the engine honest on pull requests (tests) and offers a
+# manual, credential-less audit through workflow_dispatch. It does not
+# duplicate the existing `SEO Audit` workflow (SiteOne + Lighthouse), which
+# measures crawlability and lab performance.
 
 on:
   pull_request:
     paths:
       - 'ops/geo-engine/**'
       - '.github/workflows/seo-geo-engine.yml'
-  schedule:
-    - cron: '30 19 * * 0-5'
-    - cron: '30 19 * * 6'
   workflow_dispatch:
     inputs:
       cycle:
@@ -60,7 +57,7 @@ jobs:
         run: npm test
 
       - name: Build current source for the deploy delta
-        if: github.event_name == 'schedule' || inputs.target == 'source'
+        if: inputs.target == 'source'
         working-directory: next
         continue-on-error: true
         env:
@@ -85,7 +82,7 @@ jobs:
           REQUESTED_CYCLE: ${{ inputs.cycle }}
           REQUESTED_TARGET: ${{ inputs.target }}
         run: |
-          if [ "$SCHEDULE" = '30 19 * * 6' ] || [ "$REQUESTED_CYCLE" = weekly ]; then
+          if [ "$REQUESTED_CYCLE" = weekly ]; then
             CYCLE=weekly
           else
             CYCLE=incremental
@@ -111,7 +108,7 @@ jobs:
       # Persistent state must outlive the runner, so it is committed. Only the
       # engine's own state directory is ever touched.
       - name: Commit persistent state
-        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        if: github.event_name == 'workflow_dispatch'
         run: |
           git config user.name "peninsula-insider-bot"
           git config user.email "bot@peninsulainsider.com.au"

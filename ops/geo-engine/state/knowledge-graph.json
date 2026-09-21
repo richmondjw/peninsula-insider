@@ -1,8 +1,8 @@
 {
-  "updatedAt": "2026-09-21T02:04:13.094Z",
+  "updatedAt": "2026-09-21T02:24:38.343Z",
   "stats": {
-    "nodes": 1070,
-    "edges": 8576,
+    "nodes": 1080,
+    "edges": 7918,
     "byType": {
       "Region": 5,
       "Town": 37,
@@ -15,22 +15,22 @@
       "Distillery": 1,
       "Accommodation": 5,
       "Brewery": 5,
-      "Event": 223,
+      "Event": 261,
       "Experience": 43,
       "Tour": 77,
       "Itinerary": 7,
       "Organisation": 1,
-      "Guide": 540
+      "Guide": 512
     },
     "byRelationship": {
       "PART_OF": 37,
       "LOCATED_IN": 137,
       "HELD_IN": 79,
       "HELD_AT": 12,
-      "COVERS": 4949,
-      "FEATURES": 3362
+      "COVERS": 4564,
+      "FEATURES": 3089
     },
-    "unconnectedNodes": 101,
+    "unconnectedNodes": 123,
     "unconnectedSample": [
       {
         "id": "event:alba-fire-and-ice-sessions",
@@ -96,18 +96,23 @@
   },
   "coverage": {
     "townsCovered": 37,
-    "venuesCovered": 136,
+    "venuesCovered": 135,
     "townCoverageRate": 1,
     "gaps": {
       "towns": [],
       "venues": [
         {
-          "slug": "balnarring-pub",
-          "name": "The Heritage Balnarring",
-          "type": "pub"
+          "slug": "maxs-red-hill-estate",
+          "name": "Max's at Red Hill Estate",
+          "type": "restaurant"
+        },
+        {
+          "slug": "ouest-france-bistro",
+          "name": "Ouest France Bistro",
+          "type": "cafe"
         }
       ]
     }
   },
-  "edges": 8576
+  "edges": 7918
 }
