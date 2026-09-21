@@ -125,6 +125,7 @@ export function proposePatch(finding, {pages, root = REPO_ROOT}) {
 
 export async function applySourceFixes({findings,pages,service,policy,runId,root=REPO_ROOT,fetchImpl=fetch}) {
   const changes = [], deferred = [];
+  if(!policy.enabled)return {changes,deferred};
   const changeSet = new ChangeSet({runId,root});
   const touched = new Set();
   try {
@@ -155,7 +156,7 @@ export async function applySourceFixes({findings,pages,service,policy,runId,root
         action:patch.action,evidence:patch.evidence,expected:patch.expected,
         before:patch.before,after:patch.after,liveTitle,
       });
-      if (verdict.provider !== 'jev' || verdict.error || verdict.confidence < policy.confidenceThreshold
+      if (verdict.provider !== 'jev' || verdict.error || !Number.isFinite(verdict.confidence) || verdict.confidence < Math.max(.92,policy.confidenceThreshold)
           || verdict.value?.decision !== 'auto_safe' || verdict.value?.reversible !== true) {
         deferred.push({urlPath:patch.urlPath,reason:'exact patch assessment not accepted',verdict}); continue;
       }

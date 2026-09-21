@@ -7,6 +7,8 @@ cd "$REPO"
 mkdir -p "$ENGINE_DIR/.runs"
 exec 9>"$ENGINE_DIR/.runs/cycle.lock"
 flock -n 9 || { echo 'cycle already active'; exit 10; }
+STARTED="$(date +%s)"
+trap 'rc=$?; node "$ENGINE_DIR/scripts/recover-local.mjs" "$STARTED" || true; exit "$rc"' ERR
 export PI_GEO_STATE_DIR="$ENGINE_DIR/.runs/state"
 mkdir -p "$PI_GEO_STATE_DIR"
 export GSC_ANALYTICS_JSON="$ENGINE_DIR/.runs/analytics-live.json"

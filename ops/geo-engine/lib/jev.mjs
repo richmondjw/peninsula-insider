@@ -528,9 +528,9 @@ export function resolveProviderConfig(env) {
       apiKey: jevKey,
       model: env.JEV_MODEL ?? 'jev-latest',
       batchSize: 1,
-      concurrency: Math.max(1, Number(env.JEV_CONCURRENCY ?? 6)),
+      concurrency: Math.min(6, Math.max(1, Number(env.JEV_CONCURRENCY ?? 6) || 6)),
       timeoutMs: Number(env.JEV_TIMEOUT_MS ?? 45000),
-      maxRemoteDecisions: Number(env.JEV_MAX_DECISIONS ?? 2000),
+      maxRemoteDecisions: Math.min(2000, Math.max(0, Number(env.JEV_MAX_DECISIONS ?? 2000) || 0)),
       usdPerMillionInputTokens: Number(env.JEV_USD_PER_MILLION_INPUT_TOKENS ?? JEV_USD_PER_MILLION_INPUT_TOKENS),
       reason: `Jev (TypeSafe) configured from ${source}; one request per decision, ${Number(env.JEV_CONCURRENCY ?? 6)} in flight, budget ${Number(env.JEV_MAX_DECISIONS ?? 2000)} remote decisions per run`,
     };
