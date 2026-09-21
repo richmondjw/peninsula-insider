@@ -25,7 +25,9 @@ export function renderReport(run) {
 
   // ---------------------------------------------------------------- STATUS --
   p('STATUS');
-  p(`Overall health: ${run.health.label} (${run.health.score}/100)`);
+  p(`Model-weighted technical health: ${run.health.label}${run.health.score===null?'':` (${run.health.score}/100)`}; not a full live-site certification`);
+  if(run.technicalFindings) p(`Raw technical findings: ${run.technicalFindings.total}; severity and materiality require evidence.`);
+  if(run.liveCrawl) p(`Live crawler evidence: ${run.liveCrawl.state}; ${run.liveCrawl.freshness??'freshness unknown'}; matches current deployment: ${run.liveCrawl.matchesCurrentDeployment??'unknown'}`);
   p(`Pages checked: ${run.inventory.total} (${run.inventory.newOrChanged} new or changed since last run)`);
   p(`Critical issues: ${run.priorities.bySeverity?.critical ?? 0} critical, ${run.priorities.bySeverity?.major ?? 0} major`);
   p(`Audit target: ${run.target.label}`);
@@ -63,9 +65,9 @@ export function renderReport(run) {
     for (const c of run.changes.applied) {
       p(`- ${c.urlPath}`);
       p(`  Change: ${c.action}`);
-      p(`  Reason: ${c.problem}`);
-      p(`  Confidence: ${c.confidence} (${c.provider})`);
-      p(`  Validation: ${c.validation}`);
+      p(`  Reason: ${c.problem ?? c.reason ?? 'Evidence-backed technical correction; see change manifest.'}`);
+      p(`  Confidence: ${c.confidence ?? c.verdict?.confidence ?? 'unavailable'} (${c.provider ?? c.verdict?.provider ?? 'unavailable'})`);
+      p(`  Validation: ${c.validation ?? run.changes.releaseStatus ?? 'pending_validation'}; not a claim of deployment until live-verified.`);
     }
   }
   p('');
@@ -75,7 +77,7 @@ export function renderReport(run) {
   if (!run.search.available) {
     p(`Not measurable this run. ${run.search.reason}`);
   } else {
-    p(`${run.search.totals.impressions} impressions, ${run.search.totals.clicks} clicks, CTR ${round(run.search.totals.ctr * 100, 2)}%`);
+    p(`${run.search.totals.impressions} impressions, ${run.search.totals.clicks} clicks, CTR ${round(run.search.totals.ctr * 100, 2)}% (available page/query rows; not whole-property totals)`);
     const hi = run.search.opportunities.highImpressionLowCtr.slice(0, 3);
     if (hi.length) {
       p('High impressions, weak CTR:');
@@ -90,11 +92,18 @@ export function renderReport(run) {
   p('');
 
   // ------------------------------------------------------------------- GEO --
+  if(run.searchIntelligence?.available) {
+    const t=run.searchIntelligence;
+    const property=t.propertyTotals?.current;
+    if(property)p(`Search Console property totals: ${property.impressions} impressions, ${property.clicks} clicks (separate from query rows).`);
+    p(`Demand signals: ${t.emerging.length} newly observed, ${t.rising.length} rising, ${t.declining.length} declining; ${t.possibleCannibalisation.length} multi-page query groups to review (not proven cannibalisation).`);
+  }
   p('GEO');
   p(`Benchmark: ${run.geo.benchmarkSize} questions, ${run.geo.assessed} assessed this cycle. ${run.geo.answeredWell} have a good answer on the site, ${run.geo.uncovered} do not.`);
   p(`Citation readiness across ${run.geo.scoredPages} scored pages: ${run.geo.citationTiers.strong ?? 0} strong, ${run.geo.citationTiers.workable ?? 0} workable, ${run.geo.citationTiers.weak ?? 0} weak.`);
   p(`AI answer surfaces: ${run.geo.aiVisibility.state}. ${run.geo.aiVisibility.reason}`);
-  p('Site coverage above is INFERRED from Peninsula Insider\'s own pages. No AI citation was OBSERVED this run.');
+  p('Site coverage above is INFERRED from Peninsula Insider\'s own pages, not an AI citation measurement.');
+  if(run.geo.aiVisibility.observations) p(`Retained AI-answer observations in the last 28 days: ${run.geo.aiVisibility.observations}; PI citation share within that sample: ${round(run.geo.aiVisibility.piCitationShare*100,1)}%.`);
   p('');
 
   // --------------------------------------------------------- OPPORTUNITIES --
@@ -154,11 +163,12 @@ function systemBlock(run) {
 
 /** Whole-site health, from findings weighted by severity against page count. */
 export function computeHealth(prioritised, pageCount) {
+  const uncertain=prioritised.filter(o=>Number.isFinite(o.confidence)&&o.confidence<0.8).length;
   const weights = { critical: 6, major: 2.5, minor: 0.4, noise: 0 };
   const penalty = prioritised.reduce((n, o) => n + (weights[o.severity] ?? 0), 0);
   // Exponential decay rather than a linear subtraction: a large site with many
   // minor findings should not floor at zero and stop carrying information.
   const score = Math.max(0, Math.round(100 * Math.exp(-penalty / Math.max(pageCount, 1))));
   const label = score >= 90 ? 'good' : score >= 75 ? 'fair' : score >= 55 ? 'needs attention' : 'poor';
-  return { score, label, penalty: round(penalty, 1) };
+  return { score: uncertain ? null : score, label: uncertain ? `uncertain (${uncertain} low-confidence findings)` : label, penalty: round(penalty, 1) };
 }

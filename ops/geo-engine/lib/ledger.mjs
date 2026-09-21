@@ -72,6 +72,8 @@ export class Ledger {
       action: entry.action,
       mode: entry.mode,                       // 'applied' | 'recommended'
       scoresBefore: entry.scoresBefore ?? null,
+      measurementEligibility: entry.searchBefore && entry.searchBefore.impressions >= 50 && entry.searchBefore.clicks >= 10
+        ? 'search_comparison' : 'technical_only_sparse_baseline',
       changeMade: entry.changeMade ?? null,
       expectedOutcome: entry.expectedOutcome ?? null,
       measurementWindowDays: entry.measurementWindowDays ?? 28,
@@ -167,7 +169,7 @@ export class Ledger {
   stats() {
     const open = Object.values(this.data.issues).filter((i) => i.status === 'open');
     const resolved = Object.values(this.data.issues).filter((i) => i.status === 'resolved');
-    const measured = this.data.interventions.filter((i) => i.result !== 'awaiting_measurement');
+    const measured = this.data.interventions.filter((i) => i.mode === 'deployed' && i.deployedSha && ['improved','regressed','no_change','inconclusive'].includes(i.result));
     return {
       runs: this.data.runs.length,
       openIssues: open.length,

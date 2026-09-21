@@ -64,6 +64,10 @@ export function generateCandidates({ graph, pages, maxPerPage = 4, maxTotal = 40
       relationship,
       anchorConcept,
       targetInboundLinks: inbound.get(to) ?? 0,
+      sourceTitle: sourcePage.title,
+      targetTitle: targetPage.title,
+      sourcePassage: (sourcePage.leadSentences ?? []).join(' ').slice(0, 1600),
+      targetPassage: (targetPage.leadSentences ?? []).join(' ').slice(0, 1600),
       alreadyLinked: false,
       sameUrl: false,
     });
@@ -115,6 +119,10 @@ export async function adjudicate(candidates, service) {
     alreadyLinked: c.alreadyLinked,
     sameUrl: c.sameUrl,
     anchorConcept: c.anchorConcept,
+    sourceTitle: c.sourceTitle,
+    targetTitle: c.targetTitle,
+    sourcePassage: c.sourcePassage,
+    targetPassage: c.targetPassage,
   })));
 
   const accepted = [];
@@ -134,7 +142,8 @@ export async function adjudicate(candidates, service) {
       outcome: null,
       decidedAt: r.decidedAt,
     };
-    if (r.value?.legitimate) accepted.push(row); else rejected.push(row);
+    if (r.value?.legitimate && r.provider === 'jev' && r.confidence >= 0.92
+        && c.sourcePassage && c.targetPassage) accepted.push(row); else rejected.push(row);
   });
 
   accepted.sort((a, b) => (b.score * b.confidence) - (a.score * a.confidence));

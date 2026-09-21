@@ -121,6 +121,9 @@ def main():
                 temporary.replace(analytics)
                 p['analytics'] = {'gsc': data['gsc']['status'], 'ga4': data.get('ga4', {}).get('status')}
                 run(['node', '--test', *map(str, (ENGINE / 'test').glob('*.test.mjs'))], timeout=90)
+                p['stage'] = 'crawl'
+            elif stage == 'crawl':
+                run(['node', str(ENGINE / 'scripts/collect-crawl.mjs')], timeout=450)
                 p['stage'] = 'build'
             elif stage in ('build', 'validate'):
                 dirty = subprocess.check_output(['git', 'diff', '--name-only', 'next/src'], cwd=REPO).strip()
@@ -169,7 +172,9 @@ def main():
               'release_status': 'local_rolled_back' if restored else outcome.get('status') if current else 'not_started',
               'pr': outcome.get('prUrl') if current else None,
               'live_verified': bool(current and outcome.get('status') == 'verified'),
-              'analytics': p.get('analytics'), 'error': p.get('error')}
+              'analytics': p.get('analytics'), 'error': p.get('error'),
+              'report_path': str(STATE / 'latest-report.txt') if current else None,
+              'report': (STATE / 'latest-report.txt').read_text() if current and p['terminal'] and (STATE / 'latest-report.txt').exists() else None}
     save(STATE / 'step-latest.json', result)
     print(json.dumps(result))
     return 0 if p['engine'] != 'degraded' else 2
