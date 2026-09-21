@@ -104,6 +104,7 @@ export function proposePatch(finding, {pages, root = REPO_ROOT}) {
     const anchor=target?.h1;
     if(!target?.indexable || target.redirectTarget || !anchor || anchor.length<8 || anchor.length>80 || /[<>&{}]/.test(anchor))return null;
     for(const source of Object.values(pages)) {
+      if(isSensitivePage(source.urlPath,source))continue;
       if(!source.indexable || source.urlPath===target.urlPath || !source.venues?.some(v=>target.venues?.includes(v)))continue;
       const file=sourceFile(root,source.urlPath);if(!file)continue;
       const before=fs.readFileSync(file,'utf8');
