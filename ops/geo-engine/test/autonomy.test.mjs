@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import {test} from 'node:test';
+import {execFileSync} from 'node:child_process';
 import {proposePatch,removeTrailingJsonCommas,applySourceFixes,candidatePriority} from '../lib/source-fixes.mjs';
 import {checksPassed,REQUIRED_CHECKS,validateScope,verifyHtml} from '../lib/release.mjs';
 import {Ledger} from '../lib/ledger.mjs';
@@ -101,4 +102,30 @@ test('an awaiting deployed experiment blocks another patch before any network or
   ledger.recordIntervention({runId:'old',date:'2026-01-01',urlPath:'/journal/brunch/',action:'rewrite_title',mode:'deployed',deployedAt:'2026-01-01T00:00:00Z',deployedSha:'abc'});
   const result=await applySourceFixes({...f,findings:[f.finding],ledger,service:{decide:()=>{throw Error('must not call');}},policy:{enabled:true,maxChangesPerRun:5,allowedActions:['rewrite_title']},runId:'new',fetchImpl:()=>{throw Error('must not fetch');}});
   assert.equal(result.changes.length,0);assert.match(result.deferred[0].reason,/observation window/);
+});
+
+test('accepted exact JEV patch changes source and its durable manifest restores exact bytes',async t=>{
+  const f=fixture(t),before=fs.readFileSync(f.file,'utf8');
+  const result=await applySourceFixes({...f,findings:[f.finding],ledger:new Ledger(path.join(f.root,'ledger.json')),
+    service:{decide:async()=>({provider:'jev',confidence:.99,value:{decision:'auto_safe',reversible:true}})},
+    policy:{enabled:true,maxChangesPerRun:5,confidenceThreshold:.92,allowedActions:['rewrite_title']},runId:'accepted',
+    fetchImpl:async()=>({status:200,text:async()=>'<title>Shared title</title>'})});
+  assert.equal(result.changes.length,1);
+  assert.notEqual(fs.readFileSync(f.file,'utf8'),before);
+  const manifest=JSON.parse(fs.readFileSync(path.join(f.root,'ops/geo-engine/.rollback/accepted/manifest.json')));
+  const set=new ChangeSet({root:f.root,runId:'accepted'});set.changes=manifest.changes;
+  assert.equal(set.revertAll().reverted,1);assert.equal(fs.readFileSync(f.file,'utf8'),before);
+});
+test('preview scoped Git revert preserves an unrelated later commit',t=>{
+  const f=fixture(t),original=fs.readFileSync(f.file,'utf8');
+  const git=(...args)=>execFileSync('git',args,{cwd:f.root,encoding:'utf8',stdio:['ignore','pipe','pipe']}).trim();
+  git('init','-b','main');git('config','user.name','Preview Test');git('config','user.email','preview@example.invalid');
+  git('add','.');git('commit','-m','baseline');
+  fs.writeFileSync(f.file,original.replace('Shared title','Changed title'));
+  git('add','.');git('commit','-m','own patch');const own=git('rev-parse','HEAD');
+  fs.writeFileSync(path.join(f.root,'unrelated.txt'),'preserve this\n');
+  git('add','.');git('commit','-m','unrelated later work');
+  git('revert','--no-edit',own);
+  assert.equal(fs.readFileSync(f.file,'utf8'),original);
+  assert.equal(fs.readFileSync(path.join(f.root,'unrelated.txt'),'utf8'),'preserve this\n');
 });
