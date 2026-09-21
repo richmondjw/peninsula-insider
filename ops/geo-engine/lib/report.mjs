@@ -102,6 +102,7 @@ export function renderReport(run) {
   p(`Benchmark: ${run.geo.benchmarkSize} questions, ${run.geo.assessed} assessed this cycle. ${run.geo.answeredWell} have a good answer on the site, ${run.geo.uncovered} do not.`);
   p(`Citation readiness across ${run.geo.scoredPages} scored pages: ${run.geo.citationTiers.strong ?? 0} strong, ${run.geo.citationTiers.workable ?? 0} workable, ${run.geo.citationTiers.weak ?? 0} weak.`);
   p(`AI answer surfaces: ${run.geo.aiVisibility.state}. ${run.geo.aiVisibility.reason}`);
+  if(run.discovery)p(`Latest discovery collector: ${run.discovery.state} at ${run.discovery.observedAt??'not run'}${run.discovery.error?`; ${run.discovery.error}`:''}.`);
   p('Site coverage above is INFERRED from Peninsula Insider\'s own pages, not an AI citation measurement.');
   if(run.geo.aiVisibility.observations) p(`Retained AI-answer observations in the last 28 days: ${run.geo.aiVisibility.observations}; PI citation share within that sample: ${round(run.geo.aiVisibility.piCitationShare*100,1)}%.`);
   p('');

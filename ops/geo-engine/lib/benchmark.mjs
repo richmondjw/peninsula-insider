@@ -164,6 +164,7 @@ export function mergeBenchmark(previous, next) {
       observations: before.observations ?? [],
       coverage: before.coverage ?? null,
       firstSeenAt: before.firstSeenAt ?? next.generatedAt,
+      lastDiscoveryAttemptAt: before.lastDiscoveryAttemptAt ?? null,
     };
   });
   const retired = [...prior.keys()].filter((id) => !next.questions.some((q) => q.id === id));
