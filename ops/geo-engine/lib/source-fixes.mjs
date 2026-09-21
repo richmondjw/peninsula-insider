@@ -3,13 +3,26 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { ChangeSet, PLANE } from './autofix.mjs';
-import { ORIGIN, REPO_ROOT, sha256 } from './util.mjs';
+import { ORIGIN, REPO_ROOT, STATE_DIR, readJson, sha256 } from './util.mjs';
 import { decodeEntities } from './html.mjs';
 
 export const PATCH_ACTIONS = ['rewrite_title', 'rewrite_meta_description', 'add_missing_meta_description',
   'fix_broken_internal_link', 'add_internal_link', 'fix_malformed_jsonld', 'sitemap_remove_dead_url', 'sitemap_remove_noindex'];
 const escaped = s => s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const safePath = p => typeof p === 'string' && /^\/(?:[a-z0-9-]+\/)*$/.test(p) && !/^\/(admin|dev|account|ops|me)\//.test(p);
+
+function mappedDestination(root, from, pages) {
+  for(const rel of ['ops/cloudflare-redirects.csv','ops/wellness-redirects.csv']) {
+    const file=path.join(root,rel);if(!fs.existsSync(file))continue;
+    for(const line of fs.readFileSync(file,'utf8').split('\n')) {
+      const [source,target,status]=line.split(',');
+      if(source?.replace(/\/?$/,'/')!==from || status!=='301' || !target?.startsWith('/'))continue;
+      const dest=target.replace(/\/?$/,'/');
+      if(safePath(dest) && pages[dest]?.indexable && !pages[dest]?.redirectTarget)return dest;
+    }
+  }
+  return null;
+}
 
 export function removeTrailingJsonCommas(text) {
   let quoted=false, escape=false, out='';
@@ -101,7 +114,7 @@ export function proposePatch(finding, {pages, root = REPO_ROOT}) {
     expected = {description:sentence}; evidence = {existingSentence:sentence};
   } else if (finding.rule === 'broken_internal_link') {
     // Only an existing rendered redirect is authoritative. Never fuzzy-match a venue.
-    const target = pages[finding.target]?.redirectTarget;
+    const target = pages[finding.target]?.redirectTarget ?? mappedDestination(root,finding.target,pages);
     if (!target || !safePath(target) || !pages[target]?.indexable || pages[target]?.redirectTarget) return null;
     const literal = `href="${finding.target}"`;
     if (!before.includes(literal)) return null;
@@ -128,6 +141,7 @@ export async function applySourceFixes({findings,pages,service,policy,runId,root
   if(!policy.enabled)return {changes,deferred};
   const changeSet = new ChangeSet({runId,root});
   const touched = new Set();
+  const previousRelease = readJson(path.join(STATE_DIR,'release.json'));
   try {
     const rank = {duplicate_title:0,broken_internal_link:1,invalid_jsonld:2};
     for (const finding of [...findings].sort((a,b)=>(rank[a.rule]??5)-(rank[b.rule]??5))) {
@@ -136,6 +150,11 @@ export async function applySourceFixes({findings,pages,service,policy,runId,root
       const patch = proposePatch(finding,{pages,root});
       if (!patch || touched.has(patch.file) || !policy.allowedActions.includes(patch.action)) continue;
       touched.add(patch.file);
+      if(previousRelease && ['rejected','rolled_back'].includes(previousRelease.status)
+          && Date.now()-Date.parse(previousRelease.updatedAt)<7*86400000
+          && previousRelease.changes?.some(c=>c.file===patch.file && c.hashAfter===patch.hashAfter)) {
+        deferred.push({urlPath:patch.urlPath,reason:'identical failed patch quarantined for seven days'});continue;
+      }
       // Live evidence must agree with the audited title before editing; no stale-build fixes.
       const response = await fetchImpl(ORIGIN + patch.urlPath,{signal:AbortSignal.timeout(20000)});
       const html = await response.text();
