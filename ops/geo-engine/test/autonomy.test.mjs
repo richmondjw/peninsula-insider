@@ -4,7 +4,7 @@ import os from 'node:os';
 import path from 'node:path';
 import {test} from 'node:test';
 import {execFileSync} from 'node:child_process';
-import {proposePatch,removeTrailingJsonCommas,applySourceFixes,candidatePriority} from '../lib/source-fixes.mjs';
+import {proposePatch,removeTrailingJsonCommas,applySourceFixes,candidatePriority,preservesTopic,isSensitivePage} from '../lib/source-fixes.mjs';
 import {checksPassed,REQUIRED_CHECKS,validateScope,verifyHtml} from '../lib/release.mjs';
 import {Ledger} from '../lib/ledger.mjs';
 import {ChangeSet,PLANE} from '../lib/autofix.mjs';
@@ -15,8 +15,8 @@ function fixture(t) {
   t.after(()=>fs.rmSync(root,{recursive:true,force:true}));
   const file=path.join(root,'next/src/pages/journal/brunch.astro');
   fs.mkdirSync(path.dirname(file),{recursive:true});
-  fs.writeFileSync(file,'---\nconst fact="untouched";\n---\n<BaseLayout title="Shared title"><h1>Brunch on the Mornington Peninsula</h1></BaseLayout>\n');
-  const pages={'/journal/brunch/':{urlPath:'/journal/brunch/',indexable:true,title:'Shared title',h1:'Brunch on the Mornington Peninsula'}};
+  fs.writeFileSync(file,'---\nconst fact="untouched";\n---\n<BaseLayout title="Brunch Mornington Peninsula"><h1>Brunch on the Mornington Peninsula</h1></BaseLayout>\n');
+  const pages={'/journal/brunch/':{urlPath:'/journal/brunch/',indexable:true,title:'Brunch Mornington Peninsula',h1:'Brunch on the Mornington Peninsula'}};
   return {root,file,pages,finding:{urlPath:'/journal/brunch/',rule:'duplicate_title'}};
 }
 test('title repair is extractive and path traversal/dynamic source mappings fail closed',t=>{
@@ -69,7 +69,7 @@ test('overlapping measurement windows are refused; sparse outcomes do not penali
 test('preview rollback restores exact bytes, but never overwrites a concurrent edit',t=>{
   const f=fixture(t),original=fs.readFileSync(f.file,'utf8');
   const set=new ChangeSet({runId:'preview',root:f.root});
-  const change=set.applyTextChange({file:f.file,plane:PLANE.SOURCE,transform:s=>s.replace('Shared title','Changed title')}).change;
+  const change=set.applyTextChange({file:f.file,plane:PLANE.SOURCE,transform:s=>s.replace('Brunch Mornington Peninsula','Changed title')}).change;
   assert.equal(set.revert(change).reverted,true);assert.equal(fs.readFileSync(f.file,'utf8'),original);
   const next=set.applyTextChange({file:f.file,plane:PLANE.SOURCE,transform:s=>s+'\n'}).change;
   fs.appendFileSync(f.file,'other work');
@@ -78,11 +78,11 @@ test('preview rollback restores exact bytes, but never overwrites a concurrent e
 test('exact patch application requires live agreement and successful JEV, not fallback confidence',async t=>{
   const f=fixture(t),policy={enabled:true,maxChangesPerRun:5,confidenceThreshold:.92,allowedActions:['rewrite_title']};
   const service={decide:async()=>({provider:'deterministic',confidence:1,value:{containsNewClaim:false}})};
-  const result=await applySourceFixes({...f,findings:[f.finding],service,policy,runId:'r',fetchImpl:async()=>({status:200,text:async()=>'<title>Shared title</title>'})});
+  const result=await applySourceFixes({...f,findings:[f.finding],service,policy,runId:'r',fetchImpl:async()=>({status:200,text:async()=>'<title>Brunch Mornington Peninsula</title>'})});
   assert.equal(result.changes.length,0);assert.equal(result.deferred.length,1);
   const unsafe=await applySourceFixes({...f,findings:[f.finding],policy,runId:'unsafe',
     service:{decide:async()=>({provider:'jev',confidence:.99,value:{containsNewClaim:true}})},
-    fetchImpl:async()=>({status:200,text:async()=>'<title>Shared title</title>'})});
+    fetchImpl:async()=>({status:200,text:async()=>'<title>Brunch Mornington Peninsula</title>'})});
   assert.equal(unsafe.changes.length,0,'A confident finding of new facts is a veto, not approval');
 });
 test('remote failure does not cache fallback under JEV identity',async t=>{
@@ -113,7 +113,7 @@ test('accepted exact JEV patch changes source and its durable manifest restores 
   const result=await applySourceFixes({...f,findings:[f.finding],ledger:new Ledger(path.join(f.root,'ledger.json')),
     service:{decide:async()=>({provider:'jev',confidence:.99,value:{containsNewClaim:false}})},
     policy:{enabled:true,maxChangesPerRun:5,confidenceThreshold:.92,allowedActions:['rewrite_title']},runId:'accepted',
-    fetchImpl:async()=>({status:200,text:async()=>'<title>Shared title</title>'})});
+    fetchImpl:async()=>({status:200,text:async()=>'<title>Brunch Mornington Peninsula</title>'})});
   assert.equal(result.changes.length,1);
   assert.notEqual(fs.readFileSync(f.file,'utf8'),before);
   const manifest=JSON.parse(fs.readFileSync(path.join(f.root,'ops/geo-engine/.rollback/accepted/manifest.json')));
@@ -125,11 +125,26 @@ test('preview scoped Git revert preserves an unrelated later commit',t=>{
   const git=(...args)=>execFileSync('git',args,{cwd:f.root,encoding:'utf8',stdio:['ignore','pipe','pipe']}).trim();
   git('init','-b','main');git('config','user.name','Preview Test');git('config','user.email','preview@example.invalid');
   git('add','.');git('commit','-m','baseline');
-  fs.writeFileSync(f.file,original.replace('Shared title','Changed title'));
+  fs.writeFileSync(f.file,original.replace('Brunch Mornington Peninsula','Changed title'));
   git('add','.');git('commit','-m','own patch');const own=git('rev-parse','HEAD');
   fs.writeFileSync(path.join(f.root,'unrelated.txt'),'preserve this\n');
   git('add','.');git('commit','-m','unrelated later work');
   git('revert','--no-edit',own);
   assert.equal(fs.readFileSync(f.file,'utf8'),original);
   assert.equal(fs.readFileSync(path.join(f.root,'unrelated.txt'),'utf8'),'preserve this\n');
+});
+
+test('title shortening cannot discard the region or existing topic',()=>{
+  assert.equal(preservesTopic('Mornington Peninsula Towns - a guide to every locality · Peninsula Insider','Peninsula destinations · Peninsula Insider'),false);
+  assert.equal(preservesTopic('Mornington Peninsula Weddings: The Insider Guide · Peninsula Insider','Mornington Peninsula Weddings · Peninsula Insider'),true);
+});
+test('safety, legal and privacy surfaces are excluded from routine source mutation',()=>{
+  assert.equal(isSensitivePage('/boating/tides-safety/',{title:'Tides, weather and safety'}),true);
+  assert.equal(isSensitivePage('/privacy/',{}),true);
+  assert.equal(isSensitivePage('/journal/brunch/',{title:'Brunch'}),false);
+});
+test('meta repair never selects a later statistic when the lead has no suitable summary',t=>{
+  const f=fixture(t);
+  fs.writeFileSync(f.file,`<BaseLayout title="Brunch Mornington Peninsula" description="${'Intro '.repeat(40)}"><p>${'This opening paragraph is deliberately long and must not be replaced by an unrelated statistic '.repeat(4)}</p><p>This later paragraph provides an unrelated statistic that should never become the page summary.</p></BaseLayout>`);
+  assert.equal(proposePatch({...f.finding,rule:'meta_description_length'},f),null);
 });
