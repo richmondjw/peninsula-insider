@@ -1,8 +1,8 @@
 # Peninsula Insider SEO/GEO engine
 
 A persistent optimisation system: it observes the site, structures what it sees,
-classifies and scores it, prioritises, recommends (and — once enabled — safely
-applies) changes, then measures and remembers the outcome.
+classifies and scores it, prioritises, applies evidence-qualified source changes,
+verifies releases, then measures and remembers the outcome.
 
 ```
 OBSERVE -> STRUCTURE -> CLASSIFY -> PRIORITISE -> REASON -> IMPLEMENT -> VERIFY -> MEASURE -> LEARN
@@ -150,25 +150,25 @@ The report labels every GEO statement:
 - **INFERRED** — derived from this site's own coverage.
 - **NOT YET MEASURABLE** — nothing in this environment can query it.
 
-AI answer surfaces are currently **not yet measurable**: outbound access to them
-is denied by the egress policy. Benchmark coverage is INFERRED and is labelled as
+AI answer surfaces are **not measured by this engine**. Benchmark coverage is INFERRED and is labelled as
 such in every report. The engine never claims a citation it did not observe.
 
 ## Persistent state
 
-`state/` is committed, because containers here are ephemeral and the memory must
-outlive them.
+The gateway sets `PI_GEO_STATE_DIR=ops/geo-engine/.runs/state` on the persistent
+workspace bind mount. The table below uses `state/` as shorthand for that location.
+The checked-in legacy `state/` is a historical audit snapshot, not live cron state.
 
 | file | contents |
 |---|---|
-| `state/inventory.json` | every URL, its metadata, scores, issues and intervention history |
+| `state/inventory-source.json` | source URLs, metadata, hashes and reusable scores (served-tree inventory is separate) |
 | `state/ledger.json` | runs, issue lifecycles, interventions, measurements, lessons |
 | `state/geo-benchmark.json` | the benchmark with every prior observation preserved |
 | `state/knowledge-graph.json` | graph statistics and entity coverage |
 | `state/opportunities.json` | the current prioritised backlog |
 | `state/content-gaps.json` | scored content gaps |
 | `state/internal-link-candidates.json` | adjudicated link candidates |
-| `state/decision-cache.json` | decision cache, keyed by decision + provider + input hash |
+| `state/decision-cache.json` | decision cache, keyed by version + schema + model + provider + input hash |
 | `state/latest-report.txt` | the most recent report |
 
 Per-run evidence goes to `.runs/<runId>/` (gitignored).
@@ -188,7 +188,7 @@ A change is applied only when *all* of these hold:
 5. the change is reversible
 6. the target is **source**, never build output
 
-Recommended first tier, after reviewing a cycle's output:
+The enabled scope is the autonomous release contract above; its technical subset is:
 
 - `fix_broken_internal_link` — deterministic, reversible, no new facts
 - `sitemap_remove_dead_url` — removes a URL with no page behind it
@@ -201,8 +201,9 @@ events, venue details) not already in the repository.
 ### Rollback
 
 Every applied change is backed up before the write and recorded in
-`.rollback/<runId>/manifest.json` with the base commit and a `git checkout`
-hint. Post-write validation re-reads the file; a failure reverts automatically.
+`.rollback/<runId>/manifest.json` with before/after hashes and exact byte backups.
+Failed local batches restore only unchanged engine-written files; failed published
+batches get a scoped revert PR. Post-write validation re-reads the file.
 A successful write is never taken as evidence that the site still renders.
 
 ## Failure behaviour
@@ -222,8 +223,9 @@ invokes it through the gateway's exec tool via
 `workspace/peninsula-seo-geo/scheduled.py`, which also keeps the site's
 existing Search Console collector. Each run: syncs the checkout, refreshes the
 analytics document, builds the current source for the deploy delta, runs the
-cycle with `--apply` against the source plane, commits state to the branch,
-and opens a pull request for any source change (never a push to `main`).
+cycle with `--apply` against the source plane, retains state on the bind mount,
+and opens, machine-validates, merges and live-verifies a bounded source PR.
+It never pushes directly to `main`.
 
 `.github/workflows/seo-geo-engine.yml` runs the tests on pull requests and
 offers a manual, credential-less audit via `workflow_dispatch`.

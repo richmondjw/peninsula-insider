@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { ChangeSet, PLANE } from './autofix.mjs';
 import { ORIGIN, REPO_ROOT, STATE_DIR, readJson, sha256 } from './util.mjs';
-import { decodeEntities } from './html.mjs';
+import { decodeEntities, stripTags, sentences } from './html.mjs';
 
 export const PATCH_ACTIONS = ['rewrite_title', 'rewrite_meta_description', 'add_missing_meta_description',
   'fix_broken_internal_link', 'add_internal_link', 'fix_malformed_jsonld', 'sitemap_remove_dead_url', 'sitemap_remove_noindex'];
@@ -101,11 +101,15 @@ export function proposePatch(finding, {pages, root = REPO_ROOT}) {
     if (!title || !h1 || h1.length < 20 || h1.length > 65 || /[{}<>]/.test(h1)) return null;
     // Extractive only: existing headline, no generated or inferred claims.
     const replacement = `${h1} · Peninsula Insider`;
-    if (Object.values(pages).some(p => p.urlPath !== finding.urlPath && p.title === replacement)) return null;
+    if(replacement.length>65)return null;
+    if (Object.values(pages).some(p => p.urlPath !== finding.urlPath && p.title?.toLowerCase() === replacement.toLowerCase())) return null;
     after = before.replace(layout, layout.replace(title[0], `title="${escaped(replacement)}"`));
     action = 'rewrite_title'; expected = {title:replacement}; evidence = {existingHeadline:h1};
   } else if (['missing_meta_description','meta_description_length','duplicate_meta_description'].includes(finding.rule) && layout) {
-    const sentence = (page.leadSentences ?? []).find(s => s.length >= 80 && s.length <= 160 && !/[{}<>]/.test(s));
+    const prose=before.slice(before.indexOf('<BaseLayout'));
+    const sentence = [...prose.matchAll(/<p\b[^>]*>([\s\S]*?)<\/p>/g)]
+      .filter(m=>!/[{}]/.test(m[1])).flatMap(m=>sentences(stripTags(m[1])))
+      .find(s => s.length >= 80 && s.length <= 160 && !/[{}<>]/.test(s));
     if (!sentence) return null;
     const attr = layout.match(/\bdescription="([^"]*)"/);
     if (!attr && /\bdescription\s*=/.test(layout)) return null;
@@ -149,6 +153,7 @@ export async function applySourceFixes({findings,pages,service,policy,runId,root
       if (touched.size >= 20) break;
       const patch = proposePatch(finding,{pages,root});
       if (!patch || touched.has(patch.file) || !policy.allowedActions.includes(patch.action)) continue;
+      if(patch.expected.title && changes.some(c=>c.expected.title?.toLowerCase()===patch.expected.title.toLowerCase()))continue;
       touched.add(patch.file);
       if(previousRelease && ['rejected','rolled_back'].includes(previousRelease.status)
           && Date.now()-Date.parse(previousRelease.updatedAt)<7*86400000

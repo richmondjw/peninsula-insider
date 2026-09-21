@@ -129,9 +129,7 @@ export class ChangeSet {
       baseCommit: this.baseCommit,
       createdAt: new Date().toISOString(),
       changes: this.changes,
-      rollbackHint: this.baseCommit
-        ? `git checkout ${this.baseCommit} -- ${[...new Set(this.changes.map((c) => c.file))].join(' ')}`
-        : 'restore each file from its recorded backup',
+      rollbackHint: 'Restore recorded backups only when the current file matches hashAfter; published changes use a scoped revert PR through the release controller.',
     };
   }
 
@@ -142,7 +140,7 @@ export class ChangeSet {
 
 function safeGitRev(root) {
   try {
-    return execFileSync('git', ['rev-parse', 'HEAD'], { cwd: root, encoding: 'utf8' }).trim();
+    return execFileSync('git', ['rev-parse', 'HEAD'], { cwd: root, encoding: 'utf8', stdio:['ignore','pipe','ignore'] }).trim();
   } catch {
     return null;
   }
