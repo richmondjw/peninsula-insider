@@ -70,9 +70,16 @@ export function researchQueue(gaps,previous={items:[]},now=new Date().toISOStrin
 }
 
 export function entityIntelligence(vocab,graph,now=new Date().toISOString()) {
-  const date=now.slice(0,10);
+  const calendar=new Intl.DateTimeFormat('en-CA',{timeZone:'Australia/Melbourne',year:'numeric',month:'2-digit',day:'2-digit'});
+  const localDay=value=>{
+    if(typeof value!=='string'||!/^\d{4}-\d{2}-\d{2}(?:T.*)?$/.test(value))return null;
+    const parsed=new Date(value);
+    return Number.isFinite(parsed.valueOf())?calendar.format(parsed):null;
+  };
+  const date=localDay(now);
   const events=(vocab.events??[]).map(e=>({slug:e.slug,title:e.title,
-    timing:!e.startDate?'unknown':String(e.endDate??e.startDate).slice(0,10)<date?'past':String(e.startDate).slice(0,10)>date?'upcoming':'current',
+    timing:!localDay(e.startDate)||!localDay(e.endDate??e.startDate)?'unknown'
+      :localDay(e.endDate??e.startDate)<date?'past':localDay(e.startDate)>date?'upcoming':'current',
     missing:['startDate','venueName','suburb','url'].filter(k=>!e[k]),
     matchedVenue:graph.edges.some(x=>x.from===`event:${e.slug}`&&x.rel==='HELD_AT'),
     action:'Verify dates, recurrence and historical value; never delete an expired URL automatically.'}));

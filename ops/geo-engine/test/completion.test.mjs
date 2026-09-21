@@ -14,6 +14,12 @@ test('entity checks flag missing evidence without inventing venue freshness or d
   assert.equal(out.venues[0].freshness,'unverified');
 });
 
+test('event expiry follows Melbourne calendar at the 05:30 cron, not the previous UTC day',()=>{
+  const out=entityIntelligence({events:[{slug:'yesterday',startDate:'2026-09-21',endDate:'2026-09-21'},
+    {slug:'unknown',startDate:'TBC'}],venues:[]},{edges:[]},'2026-09-21T19:30:00Z');
+  assert.equal(out.events[0].timing,'past');assert.equal(out.events[1].timing,'unknown');
+});
+
 test('source change report renders nested JEV verdict and pending release honestly',()=>{
   const run={runId:'x',health:{label:'fair',score:80},inventory:{total:1,newOrChanged:1},priorities:{},target:{label:'source'},
     changes:{applied:[{urlPath:'/a/',action:'rewrite_title',verdict:{confidence:.93,provider:'jev'}}],releaseStatus:'pending_validation'},
