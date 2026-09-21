@@ -62,6 +62,7 @@ test('identical inputs in one batch use one remote decision without sharing muta
   const result=await service.decideBatch('test.mixed',[{a:1},{a:1},{a:1}]);
   assert.equal(log.length,1);assert.equal(result.length,3);assert.ok(result.every(x=>x.provider==='jev'));
   assert.equal(service.usageSummary().budgetExhausted,false);
+  assert.equal(service.usageSummary().batchReuses,2);
   result[0].value.tier='weak';assert.equal(result[1].value.tier,'strong');
 });
 

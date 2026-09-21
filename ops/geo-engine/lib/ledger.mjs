@@ -176,6 +176,7 @@ export class Ledger {
       resolvedIssues: resolved.length,
       interventions: this.data.interventions.length,
       applied: this.data.interventions.filter((i) => i.mode === 'applied').length,
+      deployed: this.data.interventions.filter((i) => i.mode === 'deployed' && i.deployedSha).length,
       recommended: this.data.interventions.filter((i) => i.mode === 'recommended').length,
       awaitingMeasurement: this.awaitingMeasurement().length,
       measured: measured.length,
