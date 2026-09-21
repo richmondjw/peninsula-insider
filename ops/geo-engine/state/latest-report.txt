@@ -1,5 +1,5 @@
 PENINSULA INSIDER SEO/GEO
-2026-09-21 · incremental cycle · run 2026-09-21-1355-incremental
+2026-09-21 · incremental cycle · run 2026-09-21-1432-incremental
 
 STATUS
 Overall health: needs attention (65/100)
@@ -17,7 +17,7 @@ SEARCH
 
 GEO
 Benchmark: 554 questions, 200 assessed this cycle. 94 have a good answer on the site, 39 do not.
-Citation readiness across 991 scored pages: 3 strong, 541 workable, 447 weak.
+Citation readiness across 991 scored pages: 23 strong, 569 workable, 399 weak.
 AI answer surfaces: not_yet_measurable. No AI answer surface can be queried from this environment; outbound access to search and assistant endpoints is denied by the egress policy.
 Site coverage above is INFERRED from Peninsula Insider's own pages. No AI citation was OBSERVED this run.
 
@@ -52,17 +52,16 @@ CONTENT OPPORTUNITIES
   No page on the site currently answers this well (best existing fit 0), and the knowledge graph already models 11 supporting local entities to write it from.
 
 NEEDS JAMES
-- Run the engine where the protected TYPESAFE_API_KEY is available (the OpenClaw gateway exec), set JEV_API_KEY as a secret for this runner, or approve running the decision layer on deterministic rules only.
-  Context: Jev (TypeSafe) is supported natively but no credential reached this run. All classification and scoring is rule-derived, which is honest but less discriminating than a model.
+Nothing requiring a human decision this cycle.
 
 SYSTEM
-Decision layer: deterministic rules only — probe failed (fetch failed); using deterministic rules. 16 atomic decisions registered; scores are rule-derived, not model judgements.
+Decision layer: Jev via https://api.typesafe.ai (model jev-latest) — probe passed
 Crawler: local corpus reader over 991 rendered pages (no outbound crawl; egress policy denies peninsulainsider.com.au)
 Analytics: Search Console rows from gateway:analytics-live.json
 CMS/source: Astro content collections: 137 venues, 106 events, 37 towns
 Scheduled job: .github/workflows/seo-geo-engine.yml — 05:30 Australia/Melbourne daily
-Decisions this run: 12685 (100% without a frontier model, est. cost $0)
+Decisions this run: 12685 (100% without a frontier model, est. cost $0.1021)
 Errors requiring attention: none
 
 NEXT
-Next cycle: re-check 0 newly-seen issue(s) and 1040 recurring one(s), starting with missing_alt on /wine/kerri-greens/. Sunday runs the expanded audit.
+Next cycle: re-check 0 newly-seen issue(s) and 1040 recurring one(s), starting with missing_alt on /stay/sanctuary-at-alba/. Sunday runs the expanded audit.
