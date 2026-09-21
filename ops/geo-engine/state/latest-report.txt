@@ -1,67 +1,65 @@
 PENINSULA INSIDER SEO/GEO
-2026-09-21 · weekly cycle · run 2026-09-21-1056-weekly
+2026-09-21 · incremental cycle · run 2026-09-21-1204-incremental
 
 STATUS
-Overall health: poor (34/100)
-Pages checked: 909 (909 new or changed since last run)
-Critical issues: 42 critical, 150 major
+Overall health: poor (35/100)
+Pages checked: 909 (0 new or changed since last run)
+Critical issues: 42 critical, 142 major
 Audit target: served tree at repository root (last published build)
   The repository root is build output from the last publish. Re-check any finding against next/src (or run with --target=source) before acting on it.
 
 DEPLOY DELTA (served build vs current source)
-Current source produces 965 findings against 1077 in the published build.
+Current source produces 1002 findings against 1069 in the published build.
 Already fixed in source, awaiting deployment — do not action:
   - not_in_sitemap: 224 live -> 14 in source (210 resolved)
+  - duplicate_title: 58 live -> 2 in source (56 resolved)
+  - duplicate_meta_description: 44 live -> 0 in source (44 resolved)
   - canonical_mismatch: 41 live -> 0 in source (41 resolved)
-  - noindex_in_sitemap: 37 live -> 0 in source (37 resolved)
-  - duplicate_title: 58 live -> 22 in source (36 resolved)
-  - duplicate_meta_description: 44 live -> 12 in source (32 resolved)
-  - broken_internal_link: 6 live -> 4 in source (2 resolved)
-Introduced by unreleased source — fix before the next publish:
-  - missing_h1: 0 live -> 1 in source
-  Caveat: The source build's responsive-image pipeline did not complete here: 167 images still carry the data-pi-responsive marker it consumes (it fails in this environment because the CMS asset host is blocked by the egress policy). Image findings from source are unreliable and are excluded from the outstanding list.
+  - noindex_in_sitemap: 37 live -> 6 in source (31 resolved)
+  - orphan_page: 24 live -> 2 in source (22 resolved)
+  Caveat: The source build's responsive-image pipeline did not complete here: 211 images still carry the data-pi-responsive marker it consumes (it fails in this environment because the CMS asset host is blocked by the egress policy). Image findings from source are unreliable and are excluded from the outstanding list.
 Outstanding in both — genuine work:
   - meta_description_length: 303 page(s)
-  - title_too_long: 226 page(s)
-  - orphan_page: 23 page(s)
-  - duplicate_title: 22 page(s)
+  - title_too_long: 243 page(s)
   - thin_content: 21 page(s)
   - not_in_sitemap: 14 page(s)
+  - heading_skip: 12 page(s)
+  - noindex_in_sitemap: 6 page(s)
 
 CHANGES MADE
 None. The engine is in audit mode.
-40 change(s) planned, 0 would pass the safety gate if autonomous action were enabled.
+31 change(s) planned, 0 would pass the safety gate if autonomous action were enabled.
 
 SEARCH
 Not measurable this run. No Search Console credentials or exported rows in this environment (see ops/gsc-auth/README.md)
 
 GEO
-Benchmark: 554 questions, 554 assessed this cycle. 231 have a good answer on the site, 151 do not.
-Citation readiness across 592 scored pages: 6 strong, 500 workable, 86 weak.
+Benchmark: 554 questions, 200 assessed this cycle. 97 have a good answer on the site, 45 do not.
+Citation readiness across 909 scored pages: 6 strong, 623 workable, 280 weak.
 AI answer surfaces: not_yet_measurable. No AI answer surface can be queried from this environment; outbound access to search and assistant endpoints is denied by the egress policy.
 Site coverage above is INFERRED from Peninsula Insider's own pages. No AI citation was OBSERVED this run.
 
 TOP OPPORTUNITIES
 1. duplicate title on 58 pages
-   Why it matters: title shared with 1 other page(s). Highest-value affected page: /eat/ (hub).
+   Why it matters: title shared with 1 other page(s). Highest-value affected page: /eat/willow-creek-vineyard/ (venue-or-guide).
    Recommended action: rewrite title — category DRAFT
    Confidence: 0.84 (deterministic) · category DRAFT
-2. orphan page on 24 pages
-   Why it matters: no internal links point at this page. Highest-value affected page: /walks/easy-walks-mornington-peninsula/ (guide).
+2. noindex in sitemap on 37 pages
+   Why it matters: redirect stub to /explore/where-to-base-yourself/ is listed in sitemap.xml. Highest-value affected page: /journal/where-to-stay-mornington-peninsula/ (redirect-stub).
+   Recommended action: sitemap remove noindex — category AUTO-FIX
+   Confidence: 0.84 (deterministic) · category AUTO-FIX
+3. orphan page on 24 pages
+   Why it matters: no internal links point at this page. Highest-value affected page: /journal/local-secrets/ (article).
    Recommended action: add internal link — category DRAFT
    Confidence: 0.84 (deterministic) · category DRAFT
-3. thin content on 19 pages
+4. thin content on 19 pages
    Why it matters: 216 words (below the 250-word floor for place-or-guide). Highest-value affected page: /explore/regions/ (place-or-guide).
    Recommended action: expand or consolidate — category RESEARCH
    Confidence: 0.84 (deterministic) · category RESEARCH
-4. missing canonical on 8 pages
-   Why it matters: no canonical link. Highest-value affected page: /guides/winter/ (guide).
-   Recommended action: add canonical — category STRUCTURAL PROJECT
-   Confidence: 0.84 (deterministic) · category STRUCTURAL PROJECT
-5. broken internal link on 5 pages
-   Why it matters: links to /eat/maxs-red-hill-estate/, which is not a page in the served tree. Highest-value affected page: /wine/red-hill-estate/ (venue-or-guide).
-   Recommended action: fix broken internal link — category AUTO-FIX
-   Confidence: 0.84 (deterministic) · category AUTO-FIX
+5. Content gap: Where should we eat in Merricks?
+   Why it matters: demand=0.4, 17 supporting entities, best existing fit=0
+   Recommended action: Research and commission; do not generate
+   Confidence: 0.5 (deterministic) · category NEW CONTENT
 
 CONTENT OPPORTUNITIES
 - Where should we eat in Merricks?
@@ -76,23 +74,23 @@ CONTENT OPPORTUNITIES
   No page on the site currently answers this well (best existing fit 0), and the knowledge graph already models 11 supporting local entities to write it from.
 
 NEEDS JAMES
-- Provide Jev credentials (JEV_ENDPOINT + JEV_API_KEY), or approve running the decision layer on deterministic rules only.
-  Context: No Jev installation exists in this environment. All classification and scoring is currently rule-derived, which is honest but less discriminating than a model.
+- Run the engine where the protected TYPESAFE_API_KEY is available (the OpenClaw gateway exec), set JEV_API_KEY as a secret for this runner, or approve running the decision layer on deterministic rules only.
+  Context: Jev (TypeSafe) is supported natively but no credential reached this run. All classification and scoring is rule-derived, which is honest but less discriminating than a model.
 - Supply a Search Console export or GSC_TOKEN_JSON so the engine can see real demand.
   Context: No Search Console credentials or exported rows in this environment (see ops/gsc-auth/README.md) Without it, prioritisation uses a neutral demand prior instead of measured impressions.
 - Decide whether to enable the first tier of autonomous changes after reviewing this audit.
   Context: The mechanism, safety gate and rollback are built and tested but disabled. Recommended first tier is in ops/geo-engine/README.md.
-- Confirm the intended indexing scope: 232 pages carry structural findings.
-  Context: Largest group: not_in_sitemap starting at /insiders-30/.
+- Confirm the intended indexing scope: 166 pages carry structural findings.
+  Context: Largest group: not_in_sitemap starting at /explore/plans/the-peninsula-orientation-drive/.
 
 SYSTEM
-Decision layer: deterministic rules only — No Jev credentials present; using deterministic rules. 16 atomic decisions registered; scores are rule-derived, not model judgements.
+Decision layer: deterministic rules only — No Jev credentials present (JEV_API_KEY, or TYPESAFE_API_KEY under gateway_exec); using deterministic rules. 16 atomic decisions registered; scores are rule-derived, not model judgements.
 Crawler: local corpus reader over 909 rendered pages (no outbound crawl; egress policy denies peninsulainsider.com.au)
 Analytics: unavailable — No Search Console credentials or exported rows in this environment (see ops/gsc-auth/README.md)
 CMS/source: Astro content collections: 137 venues, 106 events, 37 towns
 Scheduled job: .github/workflows/seo-geo-engine.yml — 05:30 Australia/Melbourne daily
-Decisions this run: 9179 (100% without a frontier model, est. cost $0)
+Decisions this run: 2533 (100% without a frontier model, est. cost $0)
 Errors requiring attention: none
 
 NEXT
-Tomorrow: incremental cycle over pages that changed, plus any new Search Console data.
+Next cycle: re-check 0 newly-seen issue(s) and 1068 recurring one(s), starting with not_in_sitemap on /explore/plans/the-peninsula-orientation-drive/. Sunday runs the expanded audit.

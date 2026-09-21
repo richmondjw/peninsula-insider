@@ -24,16 +24,32 @@ npm run cycle:source      # audit next/dist instead of the published build
 
 | provider | when it is used | cost |
 |---|---|---|
-| `jev` | `JEV_ENDPOINT` **and** `JEV_API_KEY` are set | per-item, tracked |
+| `jev` | `JEV_API_KEY` is set, **or** the protected `TYPESAFE_API_KEY` is present (it is, under the OpenClaw gateway's exec) | per input token, tracked from the API's usage counts |
 | `frontier` | `PI_GEO_FRONTIER=on` with `ANTHROPIC_API_KEY` | per-item, tracked |
-| `deterministic` | otherwise — registered rule code | zero |
+| `deterministic` | otherwise, registered rule code | zero |
 
-**Jev is not installed in this environment.** There is no Jev package, binary,
-config, credential or wrapper anywhere on this filesystem. The service is built
-to accept it the moment credentials exist, and until then every decision is made
-by deterministic rules. The provider is carried on every decision record and
-printed in the daily report, so a rule-derived score is never presented as a
-model judgement.
+**Jev is TypeSafe AI's Jev** (`POST https://api.typesafe.ai/v1/systemone`, model
+`jev-latest`), called with plain `fetch`; no SDK is needed. `JEV_ENDPOINT` only
+needs setting for a non-default host. On this stack the key is the protected
+store secret `TYPESAFE_API_KEY`, which the gateway injects only into commands run
+through its own exec tool (Codex `gateway_exec`, host=gateway); a plain shell,
+a native harness shell, or GitHub Actions does not receive it, so those run on
+deterministic rules unless `JEV_API_KEY` is supplied as a secret there. Nothing
+in the repository holds a key.
+
+**One decision per request.** Measured on 2026-09-21 with 228 labelled items:
+putting 24 items in one request made every item receive near-identical answers
+(within-request spread about 0.01 against 0.1 to 0.28 overall) and cut routing
+accuracy from 70.6% to 20.6%. Jev answers a request's `state` as a whole, so
+the service sends one input per request and gets its throughput from
+concurrency (`JEV_CONCURRENCY`, default 6) instead. Each run is capped at
+`JEV_MAX_DECISIONS` remote decisions (default 2000); anything beyond the cap is
+decided by rules and the report says so. Schema fields map onto Jev's typed
+questions: enum to `choice`, boolean to `noul` (yes/no), number to a five-level
+`score` rescaled onto the field's range. A schema with a free-text field cannot
+be served by Jev and stays deterministic. Cost is estimated from the returned
+input-token count at the public list price ($0.042 per million input tokens,
+checked 2026-09-21; override with `JEV_USD_PER_MILLION_INPUT_TOKENS`).
 
 Three properties hold regardless of provider:
 

@@ -92,6 +92,22 @@ test('inventory and audit find real issues and exempt redirect stubs', () => {
   fs.rmSync(dir, { recursive: true, force: true });
 });
 
+test('a noindex page needs no canonical, and an H1 in the page header still counts', () => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'pi-geo-'));
+  fs.mkdirSync(path.join(dir, 'pack'), { recursive: true });
+  fs.writeFileSync(path.join(dir, 'pack', 'index.html'), `<!DOCTYPE html><html lang="en-AU"><head><title>Review pack</title>
+<meta name="robots" content="noindex,nofollow"><meta name="description" content="${'x'.repeat(100)}"></head>
+<body><header><h1>One walk, two lengths</h1></header><main><h2>Review week</h2><p>${'word '.repeat(300)}</p></main></body></html>`);
+  fs.writeFileSync(path.join(dir, 'sitemap.xml'), '<?xml version="1.0"?><urlset></urlset>');
+  const { pages, sitemap } = buildInventory({ root: dir, previous: {} });
+  assert.equal(pages['/pack/'].h1, 'One walk, two lengths');
+  assert.equal(pages['/pack/'].indexable, false);
+  const rules = auditAll(pages, { sitemapAvailable: true, sitemap }).filter((f) => f.urlPath === '/pack/').map((f) => f.rule);
+  assert.ok(!rules.includes('missing_h1'), 'the header H1 must count');
+  assert.ok(!rules.includes('missing_canonical'), 'noindex pages need no canonical');
+  fs.rmSync(dir, { recursive: true, force: true });
+});
+
 test('inventory reuses unchanged pages and preserves their history', () => {
   const dir = tmpSite();
   const first = buildInventory({ root: dir, previous: {} });

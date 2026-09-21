@@ -69,9 +69,14 @@ test('a provider returning an off-schema answer falls back to rules', async () =
 });
 
 test('a provider returning a valid answer is used and reported as such', async () => {
+  // TypeSafe answers one decision per request, typed per field.
   const fetchImpl = async () => ({
     ok: true,
-    json: async () => ({ results: [{ severity: 'minor', confidence: 0.95, rationale: 'model says so' }] }),
+    json: async () => ({
+      model: 'jev-1.13.0',
+      usage: { input_tokens: 500, output_tokens: 20 },
+      answers: { severity: { type: 'choice', choice: 'minor', confidence: 0.95, probabilities: { critical: 0.01, major: 0.02, minor: 0.95, noise: 0.02 } } },
+    }),
   });
   const service = new DecisionService({
     registry, cacheFile: '/dev/null', fetchImpl,

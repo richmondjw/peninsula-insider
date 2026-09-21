@@ -366,8 +366,8 @@ function buildNeedsJames({ prioritised, search, service, policy, target }) {
   const out = [];
   if (service.status().primary === PROVIDERS.DETERMINISTIC) {
     out.push({
-      decision: 'Provide Jev credentials (JEV_ENDPOINT + JEV_API_KEY), or approve running the decision layer on deterministic rules only.',
-      context: 'No Jev installation exists in this environment. All classification and scoring is currently rule-derived, which is honest but less discriminating than a model.',
+      decision: 'Run the engine where the protected TYPESAFE_API_KEY is available (the OpenClaw gateway exec), set JEV_API_KEY as a secret for this runner, or approve running the decision layer on deterministic rules only.',
+      context: 'Jev (TypeSafe) is supported natively but no credential reached this run. All classification and scoring is rule-derived, which is honest but less discriminating than a model.',
     });
   }
   if (!search.available) {

@@ -45,7 +45,8 @@ export function auditPage(page, ctx) {
     out.push(finding(urlPath, 'meta_description_length', `${page.metaDescriptionLength} chars (target ${META_MIN}-${META_MAX})`));
   }
 
-  if (!page.canonical) out.push(finding(urlPath, 'missing_canonical', 'no canonical link'));
+  // A canonical only matters where indexing can happen; noindex pages are exempt.
+  if (!page.canonical && page.indexable) out.push(finding(urlPath, 'missing_canonical', 'no canonical link'));
   else if (page.canonicalPath && page.canonicalPath !== urlPath) {
     out.push(finding(urlPath, 'canonical_mismatch', `canonical points to ${page.canonicalPath}`, { target: page.canonicalPath }));
   }

@@ -117,7 +117,13 @@ export function buildInventory({ root = REPO_ROOT, previous = {}, vocab = loadVo
       continue;
     }
 
-    const h1s = parsed.headings.filter((h) => h.level === 1);
+    // The H1 is looked for inside <main> first; a page whose only H1 sits in its own
+
+    // <header> (standalone documents) is not a page without an H1.
+
+    const mainH1s = parsed.headings.filter((h) => h.level === 1);
+
+    const h1s = mainH1s.length ? mainH1s : (parsed.bodyHeadings ?? []).filter((h) => h.level === 1);
     const towns = mentionedTowns(parsed.text, vocab);
     const venues = mentionedVenues(parsed.text, vocab);
     const internal = [];
