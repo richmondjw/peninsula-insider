@@ -1,5 +1,5 @@
 {
-  "_README": "James-authorised autonomous release scope, 2026-09-21. Extractive, reversible source patches only; no new facts. Exact patches require successful JEV auto_safe assessment at >=0.92, fresh build/live evidence, full existing CI, exact-head PR merge and live deployment verification. Failed technical acceptance triggers a scoped revert through the same gates. Maximum five changes; policy and validation code cannot be changed by this recurring mutator. See README.md autonomous release contract.",
+  "_README": "James-authorised autonomous release scope, 2026-09-21. Extractive, reversible source patches only; no new facts. Exact patches require JEV containsNewClaim=false at >=0.92 confidence, code-proven reversibility, fresh build/live evidence, full existing CI, exact-head PR merge and live deployment verification. Failed technical acceptance triggers a scoped revert through the same gates. Maximum five changes; policy and validation code cannot be changed by this recurring mutator. See README.md autonomous release contract.",
   "enabled": true,
   "confidenceThreshold": 0.92,
   "allowedActions": [

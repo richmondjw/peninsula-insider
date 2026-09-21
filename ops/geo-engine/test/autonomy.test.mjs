@@ -77,9 +77,13 @@ test('preview rollback restores exact bytes, but never overwrites a concurrent e
 });
 test('exact patch application requires live agreement and successful JEV, not fallback confidence',async t=>{
   const f=fixture(t),policy={enabled:true,maxChangesPerRun:5,confidenceThreshold:.92,allowedActions:['rewrite_title']};
-  const service={decide:async()=>({provider:'deterministic',confidence:1,value:{preservesMeaning:true,reversible:true}})};
+  const service={decide:async()=>({provider:'deterministic',confidence:1,value:{containsNewClaim:false}})};
   const result=await applySourceFixes({...f,findings:[f.finding],service,policy,runId:'r',fetchImpl:async()=>({status:200,text:async()=>'<title>Shared title</title>'})});
   assert.equal(result.changes.length,0);assert.equal(result.deferred.length,1);
+  const unsafe=await applySourceFixes({...f,findings:[f.finding],policy,runId:'unsafe',
+    service:{decide:async()=>({provider:'jev',confidence:.99,value:{containsNewClaim:true}})},
+    fetchImpl:async()=>({status:200,text:async()=>'<title>Shared title</title>'})});
+  assert.equal(unsafe.changes.length,0,'A confident finding of new facts is a veto, not approval');
 });
 test('remote failure does not cache fallback under JEV identity',async t=>{
   const f=fixture(t),registry=new DecisionRegistry();
@@ -107,7 +111,7 @@ test('an awaiting deployed experiment blocks another patch before any network or
 test('accepted exact JEV patch changes source and its durable manifest restores exact bytes',async t=>{
   const f=fixture(t),before=fs.readFileSync(f.file,'utf8');
   const result=await applySourceFixes({...f,findings:[f.finding],ledger:new Ledger(path.join(f.root,'ledger.json')),
-    service:{decide:async()=>({provider:'jev',confidence:.99,value:{preservesMeaning:true,reversible:true}})},
+    service:{decide:async()=>({provider:'jev',confidence:.99,value:{containsNewClaim:false}})},
     policy:{enabled:true,maxChangesPerRun:5,confidenceThreshold:.92,allowedActions:['rewrite_title']},runId:'accepted',
     fetchImpl:async()=>({status:200,text:async()=>'<title>Shared title</title>'})});
   assert.equal(result.changes.length,1);

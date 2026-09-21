@@ -33,7 +33,11 @@ literal internal links to a verified destination; links around an existing exact
 entity mention; trailing-comma repair of static JSON-LD; removal of a single
 literal sitemap entry proven dead or noindex. Dynamic templates and ambiguous
 sources are deferred, not guessed. Every exact patch requires JEV approval at
-0.92 confidence or higher plus live/source agreement. No factual/editorial rewrite,
+0.92 confidence or higher that no new factual claim is introduced, plus live/source
+agreement. Reversibility is proved by exact backups and hashes, not model opinion.
+The factual-risk question uses concrete yes/no criteria, following
+https://docs.typesafe.ai/primitives/noul. Commissioning included an unsupported
+free-brunch claim as a negative control; it must be rejected. No factual/editorial rewrite,
 new spend, credential, commercial, policy, test or workflow edit is permitted.
 
 The controller opens its own PR against main, waits for content, browser,
@@ -183,7 +187,7 @@ A change is applied only when *all* of these hold:
 
 1. `policy.enabled` is true and `--apply` was passed
 2. the action is on `allowedActions`
-3. the decision layer rated it `auto_safe`
+3. JEV returns `containsNewClaim=false` on the exact changed lines and source evidence
 4. confidence ≥ `confidenceThreshold` (0.92)
 5. the change is reversible
 6. the target is **source**, never build output

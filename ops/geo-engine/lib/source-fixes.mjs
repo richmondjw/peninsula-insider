@@ -41,10 +41,9 @@ export function registerPatchDecision(registry) {
   registry.register('risk.exact_source_patch', {
     question: 'Compare only the supplied exact source edit and evidence.',
     fields: {
-      preservesMeaning:{type:'boolean',question:'Does this exact edit preserve existing factual meaning? Copying the supplied existing headline or sentence into metadata without new claims preserves meaning. Linking existing words to an explicitly verified same-entity destination preserves meaning. Removing a proven dead/noindex sitemap entry or a JSON trailing comma preserves meaning. Judge the edit, not the quality of unrelated article content. No new facts or editorial body rewrite is allowed.'},
-      reversible:{type:'boolean',question:'Can replacing afterEdit with beforeEdit restore the original source exactly? Both exact text spans and original/final hashes are supplied, the original file is backed up, and no file is deleted.'}
+      containsNewClaim:{type:'boolean',question:'Does afterEdit introduce a factual claim that is absent from beforeEdit and the supplied source evidence?',criteria:{true:'The edit adds a new claim about a place, price, date, availability, quality or commercial benefit not stated in the source evidence.',false:'The edit reuses the supplied existing headline or sentence, or changes only linking, metadata presentation or syntax without a new factual claim.'}}
     },
-  }, () => ({value:{preservesMeaning:false,reversible:true},confidence:0,rationale:'Exact patches require a successful remote assessment.'}));
+  }, () => ({value:{containsNewClaim:true},confidence:0,rationale:'Exact patches require a successful remote assessment. Reversibility is proved by code and hash-checked backups, not model opinion.'}));
 }
 
 export function patchAssessmentInput(patch) {
@@ -215,7 +214,7 @@ export async function applySourceFixes({findings,pages,service,policy,runId,root
       }
       const verdict = await service.decide('risk.exact_source_patch',patchAssessmentInput(patch));
       if (verdict.provider !== 'jev' || verdict.error || !Number.isFinite(verdict.confidence) || verdict.confidence < Math.max(.92,policy.confidenceThreshold)
-          || verdict.value?.preservesMeaning !== true || verdict.value?.reversible !== true) {
+          || verdict.value?.containsNewClaim !== false) {
         deferred.push({urlPath:patch.urlPath,reason:'exact patch assessment not accepted',verdict}); continue;
       }
       const result = changeSet.applyTextChange({file:path.join(root,patch.file),plane:PLANE.SOURCE,

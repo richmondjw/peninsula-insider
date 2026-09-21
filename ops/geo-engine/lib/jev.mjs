@@ -103,7 +103,7 @@ export function buildTypeSafeQuestions(schema) {
     if (spec.type === 'enum') {
       questions[key] = { type: 'choice', instructions: lead, criteria: Object.fromEntries(spec.values.map((v) => [v, null])) };
     } else if (spec.type === 'boolean') {
-      questions[key] = { type: 'noul', instructions: `${lead} Answer yes if "${key}" is true.`, criteria: { true: `"${key}" holds.`, false: `"${key}" does not hold.` } };
+      questions[key] = { type: 'noul', instructions: `${lead} Answer yes if "${key}" is true.`, criteria: spec.criteria ?? { true: `"${key}" holds.`, false: `"${key}" does not hold.` } };
     } else if (spec.type === 'number') {
       const lo = spec.min ?? 0;
       const hi = spec.max ?? 1;
