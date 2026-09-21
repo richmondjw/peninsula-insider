@@ -140,6 +140,10 @@ def main():
                 p['runId'] = latest['runId']
                 if latest['errors']:
                     raise RuntimeError('; '.join(latest['errors']))
+                p['stage'] = 'research'
+            elif stage == 'research':
+                rc = run(['python3', str(ENGINE / 'scripts/research-handoff.py')], timeout=120, accepted=(0, 2))
+                p['research_handoff'] = 'ok' if rc == 0 else 'unavailable'
                 p['stage'] = 'validate'
             elif stage == 'release':
                 outcome = read(STATE / 'latest-outcome.json', {}).get('release', {})
@@ -172,7 +176,7 @@ def main():
               'release_status': 'local_rolled_back' if restored else outcome.get('status') if current else 'not_started',
               'pr': outcome.get('prUrl') if current else None,
               'live_verified': bool(current and outcome.get('status') == 'verified'),
-              'analytics': p.get('analytics'), 'error': p.get('error'),
+              'analytics': p.get('analytics'), 'research_handoff': p.get('research_handoff'), 'error': p.get('error'),
               'report_path': str(STATE / 'latest-report.txt') if current else None,
               'report': (STATE / 'latest-report.txt').read_text() if current and p['terminal'] and (STATE / 'latest-report.txt').exists() else None}
     save(STATE / 'step-latest.json', result)
