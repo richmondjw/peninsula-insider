@@ -1,6 +1,8 @@
 import importlib.util
 from pathlib import Path
 import unittest
+from unittest.mock import patch
+from types import SimpleNamespace
 
 spec = importlib.util.spec_from_file_location('continuation', Path(__file__).parents[1] / 'scripts/release-continuation.py')
 continuation = importlib.util.module_from_spec(spec)
@@ -18,6 +20,7 @@ class ContinuationTests(unittest.TestCase):
         self.assertIn('--release-only --release-run run-1', args[args.index('--message') + 1])
         self.assertNotIn('--every', args)
         self.assertNotIn('--cron', args)
+        self.assertEqual(args[args.index('--model') + 1], 'claude-cli/claude-sonnet-5')
 
     def test_no_analysis_or_unbounded_continuation(self):
         for pipeline in [{'stage': 'audit', 'runId': 'run'}, {'stage': 'release', 'runId': 'bad;command'},
@@ -32,6 +35,13 @@ class ContinuationTests(unittest.TestCase):
     def test_report_only_cannot_begin_new_cycle(self):
         _, args = continuation.continuation_args({'stage': 'release', 'runId': 'run'}, self.route, True)
         self.assertIn('--report-only --release-run run', args[args.index('--message') + 1])
+
+    def test_native_declaration_receipt_preserves_job_identity(self):
+        pipeline = {'stage': 'release', 'runId': 'run'}
+        with patch.object(continuation.subprocess, 'run', return_value=SimpleNamespace(stdout='{"created":true,"job":{"id":"native-id"}}')):
+            self.assertEqual(continuation.schedule(pipeline, self.route), 'native-id')
+        self.assertEqual(pipeline['continuationCount'], 1)
+        self.assertEqual(pipeline['continuationJob'], 'native-id')
 
 
 if __name__ == '__main__':
