@@ -55,6 +55,17 @@ test('the protected TYPESAFE_API_KEY alone configures the Jev provider with Type
   assert.equal(resolveProviderConfig({ JEV_ENDPOINT: 'https://x/', JEV_API_KEY: 'k' }).endpoint, 'https://x');
 });
 
+test('identical inputs in one batch use one remote decision without sharing mutable output',async()=>{
+  const log=[];
+  const service=new DecisionService({registry:registry(),cacheFile:tmpCache(),
+    env:{TYPESAFE_API_KEY:'fixture',JEV_MAX_DECISIONS:'1'},fetchImpl:fakeTypeSafe(goodAnswers,log)});
+  const result=await service.decideBatch('test.mixed',[{a:1},{a:1},{a:1}]);
+  assert.equal(log.length,1);assert.equal(result.length,3);assert.ok(result.every(x=>x.provider==='jev'));
+  assert.equal(service.usageSummary().budgetExhausted,false);
+  assert.equal(service.usageSummary().batchReuses,2);
+  result[0].value.tier='weak';assert.equal(result[1].value.tier,'strong');
+});
+
 test('schema fields become typed TypeSafe questions and answers decode back into the schema', () => {
   const schema = registry().get('test.mixed').schema;
   const questions = buildTypeSafeQuestions(schema);

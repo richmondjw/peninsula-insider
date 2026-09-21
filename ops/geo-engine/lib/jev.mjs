@@ -284,9 +284,13 @@ export class DecisionService {
     const decision = this.registry.get(name);
     const results = new Array(inputs.length);
     const pending = [];
+    const firstIndex = new Map();
+    const duplicates = [];
 
     inputs.forEach((input, index) => {
       const key = `v2:${name}:${this.config.primary}:${this.config.model}:${stableHash(decision.schema)}:${stableHash(input)}`;
+      if(firstIndex.has(key)) { duplicates.push({index,first:firstIndex.get(key)}); return; }
+      firstIndex.set(key,index);
       const hit = this.cache[key];
       if (hit && !hit.error && hit.provider === this.config.primary && Date.parse(this.now()) - Date.parse(hit.decidedAt) < 7 * 86400000) {
         this.usage.cacheHits += 1;
@@ -333,6 +337,8 @@ export class DecisionService {
       if (this.config.primary === PROVIDERS.DETERMINISTIC && !rec.error) this.cache[c.key] = rec;
     }
 
+    for(const {index,first} of duplicates)results[index]=structuredClone(results[first]);
+    this.usage.batchReuses=(this.usage.batchReuses??0)+duplicates.length;
     this.usage.byDecision[name] = (this.usage.byDecision[name] ?? 0) + inputs.length;
     for (const r of results) {
       this.usage.byProvider[r.provider] = (this.usage.byProvider[r.provider] ?? 0) + 1;
@@ -494,7 +500,8 @@ export class DecisionService {
       byProvider: this.usage.byProvider,
       byDecision: this.usage.byDecision,
       cacheHits: this.usage.cacheHits,
-      cacheMisses: this.usage.cacheMisses,
+        cacheMisses: this.usage.cacheMisses,
+        batchReuses: this.usage.batchReuses ?? 0,
       remoteCalls: this.usage.remoteCalls,
       inputTokens: this.usage.inputTokens,
       outputTokens: this.usage.outputTokens,

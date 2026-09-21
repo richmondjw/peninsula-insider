@@ -12,7 +12,8 @@ This extends the commissioned bounded publisher, not its authority. Policy, maxi
 - GA4 organic sessions and engagement join the inventory. Users are deliberately not summed across landing-page variants.
 - Existing SiteOne/Lighthouse artifacts are collected by the staged runner. Freshness, source release mismatch and failures are explicit. No duplicate crawl scheduler is installed.
 - Event timing/missing evidence and venue completeness/possible duplicates form a verification queue. No automatic URL deletion, invented recurrence or inferred opening-hour freshness.
-- Durable research briefs preserve rejected items and external work-item references; they do not publish articles.
+- Durable research briefs preserve rejected items and external work-item references; they do not publish articles. The staged runner hands at most three qualified JEV-backed briefs to the existing PI work-item table as `detected`/amber research briefs. Stable IDs prevent duplicates, existing killed work stays rejected, and no approval/publishing transition is invoked.
+- Identical inputs within a decision batch reuse one typed response, preserving output order and isolated result objects. This avoids spending the remote allowance repeatedly on identical severity/risk inputs.
 - Exact patches retain problem, before-scores and a technical hypothesis through deployment. Sparse baselines are labelled technical-only, not a potential measured search win.
 - Release completion reconciles the full executive report. The gateway terminal result contains that report for delivery.
 - Dashboard JSON exposes the dated underlying evidence without inventing a new dashboard application.
@@ -25,7 +26,7 @@ No consumer AI-answer provider or recurring competitor-research collector has be
 
 ## Remaining acceptance work
 
-Observe the new staged runner under the real protected JEV gateway. Exercise production rollback only through a separately scoped controlled drill, never by deliberately breaking the live site. Calibrate model recommendations against labelled human judgements before changing thresholds. Connect research briefs to the existing PI work-item state machine once its current intake contract is verified. Real recurring AI-surface and competitor collection requires a verified accessible source. No paid service or credential change is silently introduced.
+Observe the new staged runner under the real protected JEV gateway. Exercise production rollback only through a separately scoped controlled drill, never by deliberately breaking the live site. Calibrate model recommendations against labelled human judgements before changing thresholds. Existing PI work-item reads and schema have been verified; a new live handoff is only demonstrated when a genuinely qualified brief exists, never by inserting a fake test story. Real recurring AI-surface and competitor collection requires a verified accessible source. No paid service or credential change is silently introduced.
 
 ## Verification
 
