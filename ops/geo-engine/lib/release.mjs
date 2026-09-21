@@ -49,7 +49,12 @@ const json = (...args)=>{
   }
 };
 const receiptFile = path.join(STATE_DIR,'release.json');
-const save = r=>{r.updatedAt=new Date().toISOString();writeJson(receiptFile,r);writeJson(path.join(STATE_DIR,'releases',`${r.runId}.json`),r);return r;};
+const save = r=>{
+  r.updatedAt=new Date().toISOString();writeJson(receiptFile,r);
+  writeJson(path.join(STATE_DIR,'releases',`${r.runId}.json`),r);
+  fs.appendFileSync(path.join(STATE_DIR,'releases',`${r.runId}.events.jsonl`),JSON.stringify(r)+'\n');
+  return r;
+};
 
 export function submitRelease(run, analytics) {
   const changes = run.changes.applied;

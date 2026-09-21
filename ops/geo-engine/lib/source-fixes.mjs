@@ -154,6 +154,12 @@ export async function applySourceFixes({findings,pages,service,policy,runId,root
   const changeSet = new ChangeSet({runId,root});
   const touched = new Set();
   const previousRelease = readJson(path.join(STATE_DIR,'release.json'));
+  const historyDir=path.join(STATE_DIR,'releases');
+  const recent=fs.existsSync(historyDir) ? fs.readdirSync(historyDir).filter(f=>f.endsWith('.json'))
+    .map(f=>readJson(path.join(historyDir,f))).filter(Boolean).sort((a,b)=>Date.parse(b.createdAt)-Date.parse(a.createdAt)).slice(0,3) : [];
+  if(recent.length===3 && recent.every(r=>['rejected','rolled_back','rollback_failed'].includes(r.status) && Date.now()-Date.parse(r.createdAt)<7*86400000)) {
+    throw Error('Release circuit breaker: three failed batches in seven days; investigate before further publication');
+  }
   try {
     const candidates=findings.map(finding=>({finding,patch:proposePatch(finding,{pages,root})})).filter(c=>c.patch);
     candidates.sort((a,b)=>candidatePriority(b.finding,b.patch,pages,ledger)-candidatePriority(a.finding,a.patch,pages,ledger));

@@ -26,7 +26,8 @@ export function loadSearchData({ root = REPO_ROOT, env = process.env } = {}) {
   // with page x query rows for the current window. Pointed at by GSC_ANALYTICS_JSON.
   if (env.GSC_ANALYTICS_JSON && fs.existsSync(env.GSC_ANALYTICS_JSON)) {
     const doc = readJson(env.GSC_ANALYTICS_JSON);
-    if (!doc?.observed_at || Date.now() - Date.parse(doc.observed_at) > 36 * 3600000) return {available:false,rows:[],reason:'Gateway analytics is stale or undated',source:null};
+    const observed=Date.parse(doc?.observed_at);
+    if (!Number.isFinite(observed) || observed>Date.now()+300000 || Date.now()-observed>36*3600000) return {available:false,rows:[],reason:'Gateway analytics is stale or undated',source:null};
     const block = doc?.gsc?.current?.page_queries;
     const rows = Array.isArray(block?.rows) ? block.rows : [];
     if (doc?.gsc?.status === 'observed' && rows.length) {
