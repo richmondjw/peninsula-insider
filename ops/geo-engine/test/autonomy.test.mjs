@@ -150,6 +150,13 @@ test('safety, legal and privacy surfaces are excluded from routine source mutati
   assert.equal(isSensitivePage('/privacy/',{}),true);
   assert.equal(isSensitivePage('/journal/brunch/',{title:'Brunch'}),false);
 });
+test('internal link candidates cannot mutate a sensitive source page',t=>{
+  const f=fixture(t);
+  f.pages['/journal/brunch/'].venues=['verified-venue'];
+  f.pages['/privacy/']={urlPath:'/privacy/',indexable:true,title:'Privacy',h1:'Privacy',venues:['verified-venue']};
+  fs.writeFileSync(path.join(f.root,'next/src/pages/privacy.astro'),'<p>Brunch on the Mornington Peninsula is mentioned here without a link.</p>');
+  assert.equal(proposePatch({...f.finding,rule:'orphan_page'},f),null);
+});
 test('meta repair never selects a later statistic when the lead has no suitable summary',t=>{
   const f=fixture(t);
   fs.writeFileSync(f.file,`<BaseLayout title="Brunch Mornington Peninsula" description="${'Intro '.repeat(40)}"><p>${'This opening paragraph is deliberately long and must not be replaced by an unrelated statistic '.repeat(4)}</p><p>This later paragraph provides an unrelated statistic that should never become the page summary.</p></BaseLayout>`);
