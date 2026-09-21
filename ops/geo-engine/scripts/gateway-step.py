@@ -124,6 +124,9 @@ def main():
                 p['stage'] = 'crawl'
             elif stage == 'crawl':
                 run(['node', str(ENGINE / 'scripts/collect-crawl.mjs')], timeout=450)
+                p['stage'] = 'discovery' if p['cycle'] == 'weekly' else 'build'
+            elif stage == 'discovery':
+                run(['node', str(ENGINE / 'scripts/collect-discovery.mjs')], timeout=420)
                 p['stage'] = 'build'
             elif stage in ('build', 'validate'):
                 dirty = subprocess.check_output(['git', 'diff', '--name-only', 'next/src'], cwd=REPO).strip()

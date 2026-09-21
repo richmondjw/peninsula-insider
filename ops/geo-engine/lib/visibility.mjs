@@ -13,12 +13,12 @@ export function validateObservation(raw,benchmark,now=Date.now()) {
   const citations=raw.citations.map(c=>{
     const url=new URL(c.url);
     if(!['https:','http:'].includes(url.protocol)||!c.context||!raw.answer.includes(c.context))throw Error('Citation must have exact answer context');
-    return {url:url.href,domain:url.hostname,context:c.context,
+    return {url:url.href,domain:url.hostname,context:c.context,contextScope:c.contextScope??'passage',
       isPI:['peninsulainsider.com.au','www.peninsulainsider.com.au'].includes(url.hostname)};
   });
   const id=sha256(JSON.stringify([raw.questionId,raw.surface,raw.observedAt,raw.answer,citations]));
   return {id,questionId:raw.questionId,query:raw.query,surface:raw.surface,kind:'ai_answer',
-    observedAt:raw.observedAt,answer:raw.answer,receipt:raw.receipt,citations,
+    observedAt:raw.observedAt,answer:raw.answer,receipt:raw.receipt,citations,cached:raw.cached===true,
     piMentioned:/\bpeninsula\s+insider\b|peninsulainsider\.com\.au/i.test(raw.answer),
     piCited:citations.some(c=>c.isPI),measurement:'observed'};
 }
@@ -31,10 +31,17 @@ export function importObservations(benchmark,rows) {
   })};
 }
 export function visibilitySummary(benchmark,now=Date.now()) {
-  const observations=(benchmark?.questions??[]).flatMap(q=>q.observations??[])
+  const recent=(benchmark?.questions??[]).flatMap(q=>q.observations??[])
     .filter(o=>o.kind==='ai_answer'&&now-Date.parse(o.observedAt)<28*86400000);
+  const latest=new Map();
+  for(const o of recent) {
+    const key=JSON.stringify([o.questionId,o.surface]);
+    if(!latest.has(key)||Date.parse(o.observedAt)>Date.parse(latest.get(key).observedAt))latest.set(key,o);
+  }
+  const observations=[...latest.values()];
   return {state:observations.length?'observed':'not_yet_measurable',windowDays:28,observations:observations.length,
     questionsObserved:new Set(observations.map(o=>o.questionId)).size,
+    surfaces:[...new Set(observations.map(o=>o.surface))],
     piCitationShare:observations.length?observations.filter(o=>o.piCited).length/observations.length:null,
     uniquePIUrls:[...new Set(observations.flatMap(o=>o.citations.filter(c=>c.isPI).map(c=>c.url)))],
     competitorDomains:[...new Set(observations.flatMap(o=>o.citations.filter(c=>!c.isPI).map(c=>c.domain)))],

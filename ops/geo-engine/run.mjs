@@ -212,7 +212,9 @@ async function main() {
     health,
     technicalFindings: findingSummary,
     liveCrawl: readJson(path.join(STATE_DIR,'live-crawl.json'),{state:'unavailable'}),
+    discovery: readJson(path.join(STATE_DIR,'discovery-status.json'),{state:'not_yet_measurable'}),
     searchIntelligence: trends,
+    engagement,
     inventory: {
       total: stats.total,
       newOrChanged: (stats.new ?? 0) + (stats.reparsed ?? 0),
