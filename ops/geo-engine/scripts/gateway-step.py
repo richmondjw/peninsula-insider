@@ -18,6 +18,7 @@ ENGINE = REPO / 'ops/geo-engine'
 RUNS = ENGINE / '.runs'
 STATE = RUNS / 'state'
 PIPELINE = STATE / 'pipeline.json'
+DEPENDENCY_STAMP = STATE / 'next-dependencies.sha256'
 
 
 class Interrupted(Exception):
@@ -68,6 +69,33 @@ def assert_resumable(pipeline, actual, now):
         raise RuntimeError('Pipeline evidence expired')
     if pipeline.get('fingerprint') and pipeline['fingerprint'] != actual:
         raise RuntimeError('Tracked checkout changed between steps; preserved')
+
+
+def dependency_install_needed(repo=REPO, stamp=DEPENDENCY_STAMP):
+    """The runner must own its dependencies; a shared node_modules link can disappear."""
+    next_dir = repo / 'next'
+    modules = next_dir / 'node_modules'
+    lock_hash = hashlib.sha256((next_dir / 'package-lock.json').read_bytes()).hexdigest()
+    if modules.is_symlink() or not modules.is_dir():
+        return True, lock_hash
+    required = (modules / '.bin/astro', modules / 'astro/package.json',
+                modules / 'piccolore/package.json')
+    return not (all(path.exists() for path in required)
+                and stamp.exists() and stamp.read_text().strip() == lock_hash), lock_hash
+
+
+def ensure_dependencies(env, log):
+    needed, lock_hash = dependency_install_needed()
+    if not needed:
+        return
+    modules = REPO / 'next/node_modules'
+    if modules.is_symlink():
+        modules.unlink()
+    execute(['npm', 'ci', '--no-audit', '--no-fund'], env, log, timeout=600, cwd=REPO / 'next')
+    if not all((modules / path).exists() for path in
+               ('.bin/astro', 'astro/package.json', 'piccolore/package.json')):
+        raise RuntimeError('Locked dependency install incomplete')
+    DEPENDENCY_STAMP.write_text(lock_hash + '\n')
 
 
 def main():
@@ -145,7 +173,9 @@ def main():
                 dirty = subprocess.check_output(['git', 'diff', '--name-only', 'next/src'], cwd=REPO).strip()
                 if stage == 'build' or dirty:
                     with (RUNS / ('build.log' if stage == 'build' else 'post-change-build.log')).open('w') as output:
-                        execute(['npx', 'astro', 'build'], env, output, cwd=REPO / 'next')
+                        ensure_dependencies(env, output)
+                        execute([str(REPO / 'next/node_modules/.bin/astro'), 'build'],
+                                env, output, cwd=REPO / 'next')
                 p['stage'] = 'audit' if stage == 'build' else 'release'
             elif stage == 'audit':
                 audit_started = time.time()
