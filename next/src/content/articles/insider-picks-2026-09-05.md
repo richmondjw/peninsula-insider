@@ -29,7 +29,7 @@ faq:
   - question: "When does Red Hill Brewery open its outdoor area for spring?"
     answer: "Red Hill Brewery at 88 Shoreham Road, Red Hill South is open Thursday to Sunday from 11am. The hop garden lawn reopens for spring seating - check redhillbrewery.com.au for current hours before visiting."
   - question: "Where is the Hill & Ridge Community Market and when does it run?"
-    answer: "Hill & Ridge Community Market is at Red Hill Recreation Reserve, Red Hill. It runs today, Saturday 5 September 2026, from 9am to 2pm. Entry is free. Check hillandridgemarket.com.au for future dates."
+    answer: "For this dated 5 September 2026 issue, Hill & Ridge Community Market was listed at Red Hill Recreation Reserve from 9am to 2pm. Entry is free, but parking carries a fee. Check hillandridgemarket.com.au for current dates."
   - question: "Where is the Baldry's Creek Track and what is the best time to walk it in spring?"
     answer: "The Baldry's Creek Track runs through Arthurs Seat State Park near Dromana. Early to mid-September is the window for spider orchids and sun orchids. Park at the Seawinds Gardens carpark on Purves Road and allow 90 minutes for the full loop."
 ---
@@ -62,9 +62,9 @@ Pair a post-walk coffee with a stop at Small Stone Pantry in Dromana on the way 
 
 Hill & Ridge is a distinct market from the original Red Hill Community Market. The original market is temporarily closed; check its organiser for any reopening rather than assuming a first-Saturday date. Hill & Ridge, at Red Hill Recreation Reserve, has its own published dates and hours. Check the Hill & Ridge organiser before setting out.
 
-Today is the spring restart after the winter break, which means stallholders who have been sitting on new-season produce - Peninsula eggs, cold-climate greens, early apple varieties, handmade ceramics from a handful of makers who don't sell anywhere else - are showing up with the best of what they have been waiting to move. The food stall section near the eastern end of the reserve consistently has the strongest coffee and a Taiwanese street-food vendor whose pork bao has been the most-discussed item at this market for two seasons running. Go before noon; the produce stalls start packing down early.
+For this issue's Saturday 5 September visit, the organiser advertised local produce, artisan makers, gourmet food, art, vintage finds and live music. Stallholders can change between dates; check the [organiser's current market page](https://www.hillandridgemarket.com.au/) before planning a trip around a particular maker or food stall.
 
-Red Hill Recreation Reserve, Red Hill. Today only, 9am to 2pm. Entry is free. Check hillandridgemarket.com.au for the October date.
+Red Hill Recreation Reserve, Red Hill. This issue's 5 September 2026 date was listed for 9am to 2pm. Entry is free; parking carries a fee. Check hillandridgemarket.com.au for current dates.
 
 Pair the market with a drive up to Red Hill Brewery afterward - both sit within five minutes of each other on the ridge.
 
@@ -82,4 +82,4 @@ Allow 90 min | Free | Best orchid viewing 10am–1pm in direct sun | No booking
 
 **Hill & Ridge Community Market**
 Red Hill Recreation Reserve, Red Hill
-Today: 9am–2pm | Free entry | hillandridgemarket.com.au
+5 Sep 2026: 9am–2pm | Free entry; parking fee | hillandridgemarket.com.au
