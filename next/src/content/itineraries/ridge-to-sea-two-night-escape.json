@@ -11,8 +11,7 @@
   "baseTowns": ["red-hill", "cape-schanck", "sorrento", "point-nepean"],
   "bookingChecklist": [
     { "item": "First night at Jackalope and second night at Hotel Sorrento", "priority": "essential" },
-    { "item": "Montalto and Polperro lunch reservations", "priority": "recommended" },
-    { "item": "Check the Red Hill Market date", "priority": "optional" }
+    { "item": "Montalto and Polperro lunch reservations", "priority": "recommended" }
   ],
   "stops": [
     {
@@ -32,27 +31,20 @@
     {
       "day": 2,
       "order": 1,
-      "venue": "red-hill-market",
-      "note": "If the market is on, start here. If not, use the hour for a slower breakfast and village loop.",
-      "timeOfDay": "morning"
-    },
-    {
-      "day": 2,
-      "order": 2,
       "venue": "polperro",
       "note": "Keep lunch lighter today. Polperro Restaurant and Cellar Door are closed on Mondays and Tuesdays; check service times and book lunch before setting your itinerary.",
       "timeOfDay": "midday"
     },
     {
       "day": 2,
-      "order": 3,
+      "order": 2,
       "experience": "bushrangers-bay-walk",
       "note": "Swap the wine rhythm for ocean air before the second night.",
       "timeOfDay": "afternoon"
     },
     {
       "day": 2,
-      "order": 4,
+      "order": 3,
       "venue": "hotel-sorrento",
       "note": "Sleep at the tip with a bay-view drink before dinner downstairs or nearby.",
       "timeOfDay": "night"
@@ -72,6 +64,6 @@
     "credit": "BrooksieG / Wikimedia Commons",
     "license": "wikimedia-cc-by"
   },
-  "editorNote": "Start with lunch and a night on the ridge, then move south for the coast and a second night in Sorrento. Each day changes register: vineyards first, a coastal walk next, Point Nepean to finish. Book the two stays and lunches before arranging the rest. Day two has the most moving parts, so treat the market as optional and leave the coastal walk out if lunch runs long.",
+  "editorNote": "Start with lunch and a night on the ridge, then move south for the coast and a second night in Sorrento. Each day changes register: vineyards first, a coastal walk next, Point Nepean to finish. Book the two stays and lunches before arranging the rest. Day two has the most moving parts, so have an unhurried breakfast near your stay and leave the coastal walk out if lunch runs long.",
   "publishedAt": "2026-04-08"
 }

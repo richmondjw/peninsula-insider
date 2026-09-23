@@ -38,7 +38,7 @@ faq:
     answer: "Morning: Ashcombe Maze in light rain (covered café) or Mornington Peninsula Gallery (free, warm, 45 minutes). Mornington Peninsula Chocolates for a fully indoor factory visit. Lunch: Flinders Hotel in poor weather - fire, large dining room, tolerant of wet families. Afternoon: the rental house. Alternatively, Peninsula Hot Springs or Alba in the rain is genuinely memorable - book online as school-holiday sessions fill."
 aiSummary:
   - "A practical guide to visiting the Mornington Peninsula during school holidays - structured around where to go, when to go, and which Peninsula activities scale well with family groups."
-  - "Key insight: the Peninsula's geography means school holiday crowds concentrate in specific places (Sorrento foreshore, Red Hill Market). Moving 20 minutes in any direction usually reduces density significantly."
+  - "Key insight: the Peninsula's geography means school holiday crowds concentrate in specific places (Sorrento foreshore and the busiest market days). Moving 20 minutes in any direction usually reduces density significantly."
   - "Covers: best school holiday activities that book out early; where to find open beach space during peak periods; which restaurants can accommodate families without a booking."
   - "Suits: families with school-age children; visitors who couldn't get the off-peak dates they wanted."
   - "Planning note: book Arthurs Seat Eagle and Peninsula Hot Springs (if included) before accommodation during school holidays - they are harder to secure than most beds."

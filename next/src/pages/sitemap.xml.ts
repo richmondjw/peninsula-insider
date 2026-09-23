@@ -336,7 +336,7 @@ export const GET: APIRoute = async () => {
   for (const page of wineCategoryPages) {
     entries.push(url(`/wine/${page}`, 0.7, 'weekly', WINE_CATEGORY_LASTMOD[page]));
   }
-  const exploreGuidePages = ['beaches', 'day-trips', 'family-friendly', 'getting-around', 'getting-here', 'hot-springs', 'map', 'markets', 'rainy-day', 'spas-and-wellness', 'things-to-do', 'walks', 'weekend-trips'];
+  const exploreGuidePages = ['beaches', 'day-trips', 'family-friendly', 'getting-around', 'getting-here', 'hot-springs', 'map', 'rainy-day', 'spas-and-wellness', 'things-to-do', 'walks', 'weekend-trips'];
   for (const page of exploreGuidePages) {
     entries.push(url(`/explore/${page}`, 0.7, 'weekly', EXPLORE_GUIDE_LASTMOD[page]));
   }
