@@ -7,7 +7,7 @@ publishedAt: 2026-09-05
 heroImage:
   src: "/images/sourced/explore-arthurs-seat-lookout-01.webp"
   alt: "Panoramic view from Arthurs Seat across the Mornington Peninsula to Port Phillip Bay"
-  credit: "User:Prateek.agarwal44 / Wikimedia Commons (CC-BY-SA-4.0)"
+  credit: "User:Slyronit / Wikimedia Commons (CC-BY-SA-4.0)"
   license: "wikimedia-cc-by-sa"
 format: "insider-edit"
 tags: [insider-picks, spring, weekly]
