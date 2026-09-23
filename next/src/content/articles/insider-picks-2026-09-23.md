@@ -7,7 +7,7 @@ publishedAt: 2026-09-23
 heroImage:
   src: "/images/sourced/venue-pt-leo-sculpture-01.webp"
   alt: "Sculptures on the lawn at Pt. Leo Estate overlooking Western Port."
-  credit: "Emma White / Wikimedia Commons (CC BY-SA 4.0)"
+  credit: "BrooksieG / Wikimedia Commons (CC BY-SA 4.0)"
   license: "wikimedia-cc-by-sa"
 format: "insider-edit"
 tags: [insider-picks, spring]

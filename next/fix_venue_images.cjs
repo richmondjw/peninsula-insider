@@ -228,7 +228,7 @@ const FIXES = [
   ['laura-pt-leo',
    '/images/sourced/venue-pt-leo-sculpture-01.webp',
    'Laura at Pt. Leo Estate — sculpture park and vineyard dining, Merricks',
-   'Emma White / Wikimedia Commons (CC BY-SA 4.0)', 'wikimedia-cc-by-sa'],
+   'BrooksieG / Wikimedia Commons (CC BY-SA 4.0)', 'wikimedia-cc-by-sa'],
   ['merricks-general-wine-store',
    '/images/sourced/place-merricks-01.webp',
    'Merricks village wine country, Mornington Peninsula',
