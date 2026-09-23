@@ -178,10 +178,11 @@ for (const file of await htmlFiles(fileURLToPath(dist))) {
   const route = routeFromFile(file);
   const noindex = isNoindex(html);
   const canonical = canonicalUrl(html);
-  const sitemapUrl = canonical ?? `https://peninsulainsider.com.au${route}`;
+  const ownUrl = `https://peninsulainsider.com.au${route}`;
+  const sitemapUrl = canonical ?? ownUrl;
   if (!noindex && !canonical) fail('canonical-missing', `${file}: indexable page has no canonical`);
   if (!noindex && !sitemap.has(sitemapUrl)) fail('sitemap-absent', `${file}: indexable page absent from sitemap (${sitemapUrl})`);
-  if (noindex && sitemap.has(sitemapUrl)) fail('sitemap-noindex-present', `${file}: noindex page present in sitemap (${sitemapUrl})`);
+  if (noindex && sitemap.has(ownUrl)) fail('sitemap-noindex-present', `${file}: noindex page present in sitemap (${ownUrl})`);
 
   const nodes = jsonLdNodes(html, file, fail);
   // Only indexable pages need breadcrumbs. Asserting this on noindex utility
