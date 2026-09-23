@@ -1,6 +1,6 @@
 {
   "note": "Probe results for source URLs cited by the corpus. Written ONLY by next/scripts/probe-link-health.mjs, by a human or a scheduled job, never by a build. Read offline by next/scripts/audit-link-health.mjs. A verdict is what a probe saw, not an inference. This file is a RECORD, not a report: it does not live under ops/reports/ because nothing here is reproducible from the tree, and reverting it destroys evidence rather than regenerating it.",
-  "updatedAt": "2026-09-23T13:16:18.016Z",
+  "updatedAt": "2026-09-23T16:14:31.546Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -261,6 +261,14 @@
       "httpCode": "200",
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://dromanamarket.org.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Dromana Community Market - last Saturday every month",
+      "probedOn": "2026-09-23",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://elanvineyard.com.au",

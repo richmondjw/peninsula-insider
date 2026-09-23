@@ -6,7 +6,7 @@
     "slug": "dromana-community-market",
     "field": "startDate"
   },
-  "statement": "Dromana Community Market runs on 28 June 2026, 9am to 1pm.",
+  "statement": "The Dromana Community Market organiser lists its next market for 26 September 2026, 8:30am to 1pm.",
   "assertedBy": [
     {
       "type": "events",
@@ -15,6 +15,6 @@
     }
   ],
   "createdAt": "2026-06-03",
-  "origin": "migrated",
-  "note": "Migrated by scripts/migrate-event-claims.mjs (PI-005 Stage 2) from startDate, endDate, startTime, endTime already on next/src/content/events/dromana-community-market.json. No editorial judgement was applied and no content record was changed."
+  "origin": "authored",
+  "note": "Updated against the Rotary Club of Dromana's market homepage on 24 September 2026; see first-party evidence record."
 }
