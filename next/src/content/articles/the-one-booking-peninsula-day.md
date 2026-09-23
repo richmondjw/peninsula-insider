@@ -41,7 +41,7 @@ The best Peninsula days follow this sequence: a walk, then a table.
 
 The walk does not need to be serious - a 40-minute circuit is enough. It gives the day a physical quality that makes the lunch feel earned rather than default. It makes the first glass of wine sit differently. It gives you something to talk about at the table that is not the car park.
 
-Bushrangers Bay before a Main Ridge lunch. The Mornington Peninsula National Park coastal track before Flinders. The Red Hill market loop before a cellar door at Merricks General Wine Store.
+Bushrangers Bay before a Main Ridge lunch. The Mornington Peninsula National Park coastal track before Flinders. A Red Hill producer stop before a cellar door at Merricks General Wine Store.
 
 The structure is the point, not the specific walk.
 

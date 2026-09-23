@@ -14,7 +14,7 @@ heroImage:
 format: "service"
 tags: ["easter", "long-weekend", "seasonal", "family", "weekend", "autumn"]
 relatedVenues: ["red-hill-bakery", "balnarring-bakehouse", "flinders-sourdough", "johnny-ripe", "mornington-peninsula-chocolates", "merricks-general-wine-store", "balnarring-pub", "flinders-hotel", "red-hill-brewery", "lindenderry", "polperro-villas", "crittenden-villas", "alba-thermal-springs", "peninsula-hot-springs"]
-relatedExperiences: ["bushrangers-bay-walk", "cape-schanck-boardwalk", "mornington-foreshore-walk", "balnarring-beach", "mount-martha-beach", "red-hill-market"]
+relatedExperiences: ["bushrangers-bay-walk", "cape-schanck-boardwalk", "mornington-foreshore-walk", "balnarring-beach", "mount-martha-beach"]
 readingTimeMinutes: 7
 featured: false
 status: "published"

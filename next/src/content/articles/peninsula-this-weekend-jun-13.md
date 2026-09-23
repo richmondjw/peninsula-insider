@@ -71,7 +71,7 @@ For readers who want a table rather than a hunt: Foxeys Hangout runs its Vegetab
 
 ### Mornington Racecourse Monthly Market, Sunday 14 June
 
-Free, walk-in, 9am to 2pm at 320 Racecourse Road, Mornington. Handmade goods and local produce, reliably unhurried, the right scale for a Sunday morning before lunch. Less visible than the Red Hill market, less crowded than anything in Sorrento. For anyone already planning a Peninsula Hot Springs visit, Sunday Sessions runs 2 to 5pm with live music from the amphitheatre pool stage.
+Free, walk-in, 9am to 2pm at 320 Racecourse Road, Mornington. Handmade goods and local produce, reliably unhurried, the right scale for a Sunday morning before lunch. A local scale that suits a slow Sunday browse. For anyone already planning a Peninsula Hot Springs visit, Sunday Sessions runs 2 to 5pm with live music from the amphitheatre pool stage.
 
 ## The local edge
 

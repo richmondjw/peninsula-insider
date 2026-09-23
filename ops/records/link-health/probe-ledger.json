@@ -1,6 +1,6 @@
 {
   "note": "Probe results for source URLs cited by the corpus. Written ONLY by next/scripts/probe-link-health.mjs, by a human or a scheduled job, never by a build. Read offline by next/scripts/audit-link-health.mjs. A verdict is what a probe saw, not an inference. This file is a RECORD, not a report: it does not live under ops/reports/ because nothing here is reproducible from the tree, and reverting it destroys evidence rather than regenerating it.",
-  "updatedAt": "2026-09-19T11:50:09.950Z",
+  "updatedAt": "2026-09-23T13:16:18.016Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -2256,6 +2256,14 @@
       "pageTitle": "Hill &amp; Ridge Community Market"
     },
     {
+      "url": "https://www.hillandridgemarket.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Hill &amp; Ridge Community Market",
+      "probedOn": "2026-09-23",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://www.hillandridgemarket.com.au/faqs",
       "verdict": "ok",
       "httpCode": "200",
@@ -2902,6 +2910,14 @@
       "pageTitle": "Lunch and Learn Webinar: Electrifying Local Businesses - Mornington Peninsula Shire"
     },
     {
+      "url": "https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Rye-Foreshore-Market-1",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Rye Foreshore Market - Mornington Peninsula Shire",
+      "probedOn": "2026-09-23",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Seek-the-Heat-at-Peninsula-Hot-Springs",
       "verdict": "ok",
       "httpCode": "200",
@@ -3015,6 +3031,14 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Mornington Peninsula Wine"
+    },
+    {
+      "url": "https://www.mtelizafarmersmarket.com.au/location",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Mount Eliza Farmers' Market | Location",
+      "probedOn": "2026-09-23",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.nationalgolf.com.au/",

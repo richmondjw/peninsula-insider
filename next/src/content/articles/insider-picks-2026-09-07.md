@@ -1,6 +1,6 @@
 ---
 title: "Insider Picks: 7 September 2026"
-dek: "Crittenden Estate's amphora-aged experiments in Dromana, the Bushrangers Bay cliff track in its first real spring light, and the Balnarring Farmers Market with its September berry flush."
+dek: "A dated September edit covering Crittenden Estate, Bushrangers Bay and a Balnarring market pick whose schedule is now unverified."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-09-07
@@ -33,8 +33,10 @@ faq:
   - question: "Where does the Bushrangers Bay Track start?"
     answer: "The main trailhead is at Cape Schanck Road, Cape Schanck, near the Cape Schanck Lighthouse car park. Allow 2–3 hours return for the full clifftop loop. No booking required; Parks Victoria trail notes are at parks.vic.gov.au."
   - question: "When is the Balnarring Farmers Market on and what's there in September?"
-    answer: "Balnarring Farmers Market runs the third Saturday of each month - next date is 19 September 2026 - at Balnarring Recreation Reserve, Coolart Road, Balnarring, from 8am to 12:30pm. September brings the first strawberry and raspberry runners from local growers, plus spring greens. No booking required."
+    answer: "This 7 September 2026 pick described an unverified market date that has passed. We cannot confirm the current Balnarring Village Green market schedule from a primary source; do not use this archived pick to plan a visit."
 ---
+
+**Update, 23 September 2026:** The Balnarring market date and venue described below could not be confirmed from a current primary source. This dated pick is retained as historical context; do not use it to plan a future market visit. Emu Plains Market is a separate Balnarring event with its own organiser schedule.
 
 ## Drink: Crittenden Estate, Dromana
 
