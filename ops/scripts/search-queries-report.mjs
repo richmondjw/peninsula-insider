@@ -209,8 +209,7 @@ function renderTelegramDigest(report) {
 
 async function postTelegram(text) {
   if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
-    console.log("[telegram] not configured — skipping post");
-    return;
+    throw new Error("Telegram delivery is not configured");
   }
   const body = {
     chat_id: TELEGRAM_CHAT_ID,
@@ -226,7 +225,7 @@ async function postTelegram(text) {
   });
   const json = await res.json();
   if (!json.ok) {
-    console.error("[telegram] send failed:", JSON.stringify(json));
+    throw new Error(`[telegram] send failed: ${json.error_code || res.status} ${json.description || "unknown error"}`);
   } else {
     console.log("[telegram] posted ok, message_id:", json.result.message_id);
   }
