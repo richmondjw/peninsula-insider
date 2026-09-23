@@ -11,7 +11,7 @@ heroImage:
   license: "tmp-wikimedia"
 format: "service"
 tags: ["markets", "mornington", "red-hill", "balnarring", "weekend", "producers", "all-year"]
-relatedVenues: ["mornington-farmers-market", "balnarring-market", "red-hill-brewery", "red-hill-bakery", "merricks-general-wine-store", "commonfolk-coffee", "red-hill-cheese", "main-ridge-dairy", "peninsula-fresh-organics", "somers-general", "balnarring-bakehouse", "johnny-ripe", "mornington-peninsula-chocolates"]
+relatedVenues: ["mornington-farmers-market", "red-hill-brewery", "red-hill-bakery", "merricks-general-wine-store", "commonfolk-coffee", "red-hill-cheese", "main-ridge-dairy", "peninsula-fresh-organics", "somers-general", "balnarring-bakehouse", "johnny-ripe", "mornington-peninsula-chocolates"]
 relatedExperiences: ["mornington-foreshore-walk", "balnarring-beach"]
 readingTimeMinutes: 8
 featured: false
@@ -65,9 +65,9 @@ The original **Red Hill Community Market** says it is temporarily closed. **Hill
 
 Leave time to browse without assuming the original market's scale, parking pattern or stall mix applies to Hill & Ridge.
 
-### Balnarring Emu Plains Market
+### Emu Plains Market, Balnarring
 
-The **Balnarring Emu Plains Market** runs on the **third Saturday from September to April**, on the Balnarring Racecourse grounds. This is the locals' market: fewer tourists, more regular producers, a quieter rhythm, and a grown-up tilt toward the wine-and-produce end of the Peninsula rather than the craft-and-preserves end. It is also the only one of the four where you can walk directly from the market to **Balnarring Beach** afterwards for a short swim or a post-market picnic. That combination, an hour at the market and then an hour at the beach, is one of the quietly satisfying Saturday mornings on the Peninsula.
+Emu Plains Market is a separate event from the paused Balnarring Village Green listing. Its organiser describes a usual third-Saturday season from October to April at Emu Plains Reserve, but currently marks the 17 October 2026 event and its 2026–27 dates as cancelled. Do not plan a visit from the usual cadence alone. Check the [Emu Plains organiser](https://www.emuplainsmarket.com.au/) for a confirmed operating date.
 
 ### Somers Makers Market
 
@@ -114,7 +114,7 @@ The quiet gift is that the market itself often becomes the most memorable hour o
 - **Mornington Farmers Market**: second Saturday, Mornington Racecourse, 8am–1pm
 - **Original Red Hill Community Market**: temporarily closed; check its organiser for reopening news
 - **Hill & Ridge Community Market**: separate organiser, Red Hill Recreation Reserve; 3 October 2026 listed for 9am–2pm; confirm before travelling
-- **Balnarring Emu Plains Market**: third Saturday Sep–April, Balnarring Racecourse, 9am–2pm
+- **Emu Plains Market**: no current date confirmed; the organiser marks its listed 2026–27 dates cancelled. Check before travelling.
 - **Somers Makers Market**: first Sunday of alternate months, Somers village precinct
 
 Check each market's website the week before you come. Schedules shift around long weekends and holidays, and the outdoor markets occasionally move for weather. Bring cash, a cooler bag, and an appetite you have not spent on a service-station breakfast.

@@ -5,248 +5,77 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import GuideHero from '../../components/GuideHero.astro';
 import CompareBlock from '../../components/CompareBlock.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import {
-  buildCollectionPageSchema,
-  buildItemListSchema,
-  buildFaqSchema,
-  buildBreadcrumbSchema,
-} from '../../lib/schema';
-import { routeSlug, titleize } from '../../lib/editorial';
+import ProvenanceLine from '../../components/ProvenanceLine.astro';
+import { buildCollectionPageSchema, buildItemListSchema, buildFaqSchema, buildBreadcrumbSchema } from '../../lib/schema';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
 import { editableImage } from '../../lib/inline-edit/attrs';
-import ProvenanceLine from '../../components/ProvenanceLine.astro';
 
-// ── Editorial-card hero lookup ────────────────────────────────────────────────
-// Cards in section 6 ("Markets editorial") that link to a journal article bind
-// their background image to that article's heroImage so an editor changing the
-// hero in the article frontmatter updates the explore-page card. Cards that
-// link to hubs or place guides keep their hardcoded image.
-const allArticlesForCards = await getCollection('articles', ({ data }) => data.status === 'published');
-async function resolveArticleHero(slug: string, fallback: string): Promise<string> {
-  const local = allArticlesForCards.find((a) => routeSlug(a) === slug);
-  return (local?.data as any)?.heroImage?.src ?? fallback;
-}
-const heroRedHillSaturday = await resolveArticleHero(
-  'how-to-build-a-red-hill-saturday',
-  '/images/sourced/article-red-hill-saturday-01.webp',
-);
-
-// Cards that link to a /explore/places/<slug>/ guide bind to that place's heroImage.
-// Cards that link to a hub (/wine/) keep their hardcoded image.
-const allPlacesForCards = await getCollection('places');
-async function resolvePlaceHero(slug: string, fallback: string): Promise<string> {
-  const local = allPlacesForCards.find((p) => routeSlug(p) === slug);
-  return (local?.data as any)?.heroImage?.src ?? fallback;
-}
-async function resolveHubHero(_pathSlug: string, fallback: string): Promise<string> {
-  return fallback;
-}
-const heroWineHub = await resolveHubHero('wine', '/images/sourced/category-cottage-01.webp');
-const heroPlaceRedHill = await resolvePlaceHero('red-hill', '/images/sourced/place-red-hill-01.webp');
-const heroPlaceBalnarring = await resolvePlaceHero('balnarring', '/images/sourced/place-balnarring-01.webp');
-
-// ── Load markets in editorial order ───────────────────────────────────────────
-// Markets are records in the venues collection, not experiences. This page
-// used to read them from experiences, which matched nothing, so the guide
-// rendered with no market cards and no link to a single market page.
-//
-// The Explore route slug and the venue slug differ for Balnarring, so the
-// pairing is stated rather than inferred from either name.
-const MARKET_ROUTES: { route: string; venue: string }[] = [
-  { route: 'red-hill-market', venue: 'red-hill-market' },
-  { route: 'balnarring-farmers-market', venue: 'balnarring-market' },
-  { route: 'mornington-main-street-market', venue: 'mornington-main-street-market' },
-  { route: 'rye-beachside-market', venue: 'rye-beachside-market' },
-  { route: 'mount-eliza-farmers-market', venue: 'mount-eliza-farmers-market' },
+// Keep this guide tied to current, source-checked records. The original Red Hill
+// Community Market is closed and the Balnarring Village Green listing is paused.
+const MARKET_ROUTES = [
+  { route: 'mornington-main-street-market', venue: 'mornington-main-street-market', locality: 'Mornington' },
+  { route: 'rye-beachside-market', venue: 'rye-beachside-market', locality: 'Rye' },
+  { route: 'mount-eliza-farmers-market', venue: 'mount-eliza-farmers-market', locality: 'Mount Eliza' },
 ];
-
 const marketVenues = await getCollection('venues', ({ data }) => data.type === 'market');
-const missingMarkets = MARKET_ROUTES.filter(
-  ({ venue }) => !marketVenues.some((v) => (v.data.slug ?? v.id) === venue),
-);
-if (missingMarkets.length) {
-  // Fail the build rather than ship a market guide with missing markets.
-  throw new Error(
-    `explore/markets: no venue record for ${missingMarkets.map((m) => m.venue).join(', ')}. ` +
-      'Update MARKET_ROUTES or restore the venue file.',
-  );
-}
-
-// Cards are keyed by Explore route slug: marketMeta, the hero map and the
-// detail href are all route-keyed. venueSlug carries the CMS identity.
-const markets = MARKET_ROUTES.map(({ route, venue }) => {
-  const entry = marketVenues.find((v) => (v.data.slug ?? v.id) === venue)!;
-  return { id: route, venueSlug: venue, data: { ...entry.data, slug: route } };
+const markets = MARKET_ROUTES.map(({ route, venue, locality }) => {
+  const entry = marketVenues.find((v) => (v.data.slug ?? v.id) === venue);
+  if (!entry) throw new Error(`explore/markets: missing venue ${venue}`);
+  return { id: route, venueSlug: venue, locality, data: entry.data };
 });
-
-// Resolve CMS hero overrides for the market cards so an editor's replacement
-// (saved to venue/<slug>/heroImage) survives rebuilds instead of reverting to
-// the content file. Keyed by route slug to match the render below.
-const marketHeroBySlug = new Map<string, Awaited<ReturnType<typeof resolveHero>>>();
-await Promise.all(
-  markets.map(async (market) => {
-    marketHeroBySlug.set(
-      market.id,
-      await resolveHero('venue', market.venueSlug, market.data),
-    );
-  }),
-);
-
-// ── Editorial overlay (page-only attributes not yet in the experience schema) ──
-type MarketMeta = {
-  cadence: string;
-  cadenceShort: string;
-  day: string;
-  hours: string;
-  focus: string;
-  focusMod: 'producer' | 'mixed' | 'craft';
-  tier: 1 | 2 | 3;
-  insiderRead: string;
-  detailHref?: string;
+const marketHeroBySlug = new Map();
+await Promise.all(markets.map(async (market) => {
+  marketHeroBySlug.set(market.id, await resolveHero('venue', market.venueSlug, market.data));
+}));
+const marketMeta = {
+  'mornington-main-street-market': { cadence: 'Every Wednesday', hours: 'Check organiser for hours', focus: 'Town market', focusMod: 'mixed', insiderRead: 'Fold a browse into a Mornington town day.' },
+  'rye-beachside-market': { cadence: 'First Saturday · monthly', hours: '8.30am–2pm', focus: 'Foreshore market', focusMod: 'craft', insiderRead: 'Pair the foreshore stalls with a Rye beach walk.' },
+  'mount-eliza-farmers-market': { cadence: 'Fourth Sunday · monthly', hours: '9am–1pm', focus: 'Farmers market', focusMod: 'producer', insiderRead: 'A northern Peninsula market morning; check the organiser before travelling.' },
 };
-const marketMeta: Record<string, MarketMeta> = {
-  'red-hill-market': {
-    cadence: '1st Saturday · monthly',
-    cadenceShort: '1st Sat',
-    day: 'Saturday',
-    hours: '8am–1pm',
-    focus: 'Produce · artisan · food',
-    focusMod: 'mixed',
-    tier: 1,
-    insiderRead: 'Arrive by 8.30am in summer or accept the carpark and the best produce vendors are already gone.',
-    detailHref: '/eat/red-hill-market/',
-  },
-  'balnarring-farmers-market': {
-    cadence: '3rd Saturday · monthly',
-    cadenceShort: '3rd Sat',
-    day: 'Saturday',
-    hours: '8am–12.30pm',
-    focus: 'Food producers',
-    focusMod: 'producer',
-    tier: 1,
-    insiderRead: 'The producer-first counterpoint to Red Hill. Pair with the Merricks/Shoreham wine corridor for the afternoon.',
-  },
-  'mornington-main-street-market': {
-    cadence: '2nd & 4th Wed · fortnightly',
-    cadenceShort: '2nd & 4th Wed',
-    day: 'Wednesday',
-    hours: '9am–2pm',
-    focus: 'Town · mixed',
-    focusMod: 'mixed',
-    tier: 2,
-    insiderRead: 'The town market for the northern Peninsula. Best as a midweek add-on to a Mornington day rather than a destination round-trip.',
-  },
-  'rye-beachside-market': {
-    cadence: 'Sunday · seasonal',
-    cadenceShort: 'Sun',
-    day: 'Sunday',
-    hours: '9am–2pm',
-    focus: 'Craft · casual',
-    focusMod: 'craft',
-    tier: 3,
-    insiderRead: 'Setting does the work - bayside foreshore, summer crowds, a small craft-leaning stall row. Treat as a swim-then-browse add-on.',
-  },
-  'mount-eliza-farmers-market': {
-    cadence: 'Last Sunday · monthly',
-    cadenceShort: 'Last Sun',
-    day: 'Sunday',
-    hours: '9am–1pm',
-    focus: 'Produce · community',
-    focusMod: 'producer',
-    tier: 3,
-    insiderRead: 'Smallest of the five, useful mainly for visitors staying at the very northern end of the Peninsula who would rather skip the drive south.',
-  },
-};
-
-function focusBadgeClass(mod: MarketMeta['focusMod']) {
-  return mod === 'producer'
-    ? 'market-badge--producer'
-    : mod === 'craft'
-    ? 'market-badge--craft'
-    : 'market-badge--mixed';
-}
-function tierBadgeClass(tier: MarketMeta['tier']) {
-  return tier === 1 ? 'market-tier--1' : tier === 2 ? 'market-tier--2' : 'market-tier--3';
-}
-
-// ── Month-at-a-glance: which markets fire on each Sat/Sun/Wed of a month ─────
-type CalDay = { date: string; day: string; markets: { slug: string; name: string; mod: string }[] };
-const m = (slug: string) => ({
-  slug,
-  name: markets.find((x) => (x.data.slug ?? x.id) === slug)?.data.name ?? slug,
-  mod: focusBadgeClass(marketMeta[slug].focusMod),
-});
-const calendarRows: CalDay[] = [
-  { date: 'Wk 1', day: '1st Saturday', markets: [m('red-hill-market')] },
-  { date: 'Wk 2', day: '2nd Wednesday', markets: [m('mornington-main-street-market')] },
-  { date: 'Wk 3', day: '3rd Saturday', markets: [m('balnarring-farmers-market')] },
-  { date: 'Wk 4', day: '4th Wednesday', markets: [m('mornington-main-street-market')] },
-  { date: 'Wk 4', day: 'Last Sunday', markets: [m('mount-eliza-farmers-market')] },
-  { date: 'Summer', day: 'Sundays', markets: [m('rye-beachside-market')] },
+const focusBadgeClass = (mod) => mod === 'producer' ? 'market-badge--producer' : mod === 'craft' ? 'market-badge--craft' : 'market-badge--mixed';
+const calendarRows = [
+  { date: 'Wk 1', day: 'First Saturday', markets: [{ name: 'Hill & Ridge Community Market', mod: 'market-badge--mixed' }, { name: 'Rye Foreshore Market', mod: 'market-badge--craft' }] },
+  { date: 'Weekly', day: 'Wednesday', markets: [{ name: 'Mornington Main Street Market', mod: 'market-badge--mixed' }] },
+  { date: 'Wk 4', day: 'Fourth Sunday', markets: [{ name: 'Mount Eliza Farmers Market', mod: 'market-badge--producer' }] },
 ];
-
-// ── JSON-LD schemas ───────────────────────────────────────────────────────────
+const faqItems = [
+  { q: 'Is the original Red Hill Community Market open?', a: 'No. Its organiser says it is temporarily closed while looking for a new location. Hill & Ridge Community Market is a separate event at Red Hill Recreation Reserve.' },
+  { q: 'When is Hill & Ridge Community Market?', a: 'The organiser confirms Saturday 3 October 2026, 9am–2pm, at Red Hill Recreation Reserve. Check the organiser before travelling: unsafe weather can cause cancellation without notice.' },
+  { q: 'When are the other markets?', a: 'Mornington Main Street Market lists Wednesdays, Rye Foreshore Market lists the first Saturday of each month, and Mount Eliza Farmers Market lists the fourth Sunday. Confirm the current date with each organiser.' },
+  { q: 'Is Balnarring Village Green Market running?', a: 'We could not verify its current schedule from a primary source. Its listing is paused. Emu Plains Market is a different Balnarring event; check its organiser for current dates.' },
+];
 const collectionSchema = buildCollectionPageSchema({
-  name: 'Mornington Peninsula Markets - Ranked and Calendarised',
-  description: 'Ranked guide to the best markets on the Mornington Peninsula - Red Hill, Balnarring, Mornington, Rye, and Mount Eliza. With a month-at-a-glance calendar.',
+  name: 'Mornington Peninsula Markets - Current Guide',
+  description: 'A source-checked guide to Hill & Ridge, Mornington Main Street, Rye Foreshore and Mount Eliza markets, with a calendar and organiser links.',
   path: '/explore/markets/',
-  dateModified: '2026-05-17',
+  dateModified: '2026-09-23',
 });
 const itemListSchema = buildItemListSchema({
   name: 'Mornington Peninsula Markets',
-  description: 'Five Mornington Peninsula markets ranked by editorial value.',
+  description: 'Current market guides and a confirmed Hill & Ridge event.',
   listPath: '/explore/markets',
-  // Derived from the same records the cards render, so the names and the
-  // canonical paths cannot drift from what the page actually links to.
-  items: markets.map((m) => ({
-    name: m.data.name,
-    path: `/eat/${m.venueSlug}/`,
-    itemType: 'TouristAttraction' as const,
-    addressLocality: m.data.address?.split(',')[1]?.trim() ?? titleize(String(m.data.place ?? '')),
-  })),
+  items: [
+    { name: 'Hill & Ridge Community Market', path: '/whats-on/hill-ridge-community-market-september-2026-restart/', itemType: 'TouristAttraction', addressLocality: 'Red Hill' },
+    ...markets.map((market) => ({ name: market.data.name, path: `/eat/${market.venueSlug}/`, itemType: 'TouristAttraction', addressLocality: market.locality })),
+  ],
 });
-const faqSchema = buildFaqSchema([
-  {
-    q: 'When is the Red Hill Market?',
-    a: 'The first Saturday of every month, 8am–1pm, at Red Hill Showgrounds.',
-  },
-  {
-    q: 'What is the best market on the Mornington Peninsula?',
-    a: 'Red Hill Community Market - for variety, quality, and atmosphere. Balnarring Farmers Market if you prioritise food producers over craft and artisan goods.',
-  },
-  {
-    q: 'Are there markets on the Mornington Peninsula every week?',
-    a: 'No. The flagship markets (Red Hill, Balnarring) are monthly. Mornington Main Street Market runs fortnightly. Mount Eliza runs on the last Sunday of the month. Rye is summer-weighted.',
-  },
-  {
-    q: 'Are the markets suitable for visiting in winter?',
-    a: 'Yes. Red Hill, Balnarring, Mornington, and Mount Eliza markets run year-round. Winter attendance is lower, which many visitors prefer. Wet weather can affect stall numbers at open-air markets.',
-  },
-  {
-    q: 'Which Peninsula market is best for serious produce?',
-    a: 'Balnarring Farmers Market - the stall mix runs heavily to growers and food producers from the Western Port hinterland. Red Hill is broader; Balnarring is deeper on producers.',
-  },
-]);
+const faqSchema = buildFaqSchema(faqItems);
 const breadcrumbSchema = buildBreadcrumbSchema([
   { name: 'Home', url: 'https://peninsulainsider.com.au/' },
   { name: 'Explore', url: 'https://peninsulainsider.com.au/explore/' },
   { name: 'Markets' },
 ]);
-const breadcrumbItems = [
-  { label: 'Home', href: '/' },
-  { label: 'Explore', href: '/explore/' },
-  { label: 'Markets' },
-];
+const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'Explore', href: '/explore/' }, { label: 'Markets' }];
 export const prerender = true;
 ---
 
 <BaseLayout
-  title="Mornington Peninsula Markets - Red Hill, Balnarring & More · Peninsula Insider"
-  description="Ranked and calendarised guide to the five Mornington Peninsula markets - Red Hill, Balnarring, Mornington, Rye, and Mount Eliza. Month-at-a-glance calendar and producer-first comparison."
+  title="Mornington Peninsula Markets · Current Guide · Peninsula Insider"
+  description="Compare current Mornington Peninsula markets, check the calendar, and follow organiser links before travelling. The original Red Hill Community Market is temporarily closed."
   section="explore"
   canonical="https://peninsulainsider.com.au/explore/markets/"
-  ogImage="/images/sourced/article-red-hill-saturday-01.webp"
-  modifiedTime="2026-05-17"
+  ogImage="/images/sourced/place-red-hill-01.webp"
+  modifiedTime="2026-09-23"
 >
   <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
@@ -254,132 +83,99 @@ export const prerender = true;
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   <Breadcrumbs items={breadcrumbItems} />
 
-  <!-- 1. HERO -->
   <GuideHero
     eyebrow="Explore guide"
     title="Mornington Peninsula <em>Markets</em>"
-    dek="Genuine producers, hinterland growers, and the social calendar of the upper Peninsula. Five markets ranked, the monthly rhythm mapped, and the one-line rule for getting the best of each."
-    meta={[{ label: '6 min read' }]}
-    heroImage="/images/sourced/article-red-hill-saturday-01.webp"
-    imageAlt="Morning crowds and produce stalls at a Mornington Peninsula market"
+    dek="Choose a market by day and place, then confirm the latest details with its organiser. The original Red Hill Community Market is temporarily closed; Hill & Ridge is a separate market at the reserve."
+    meta={[{ label: 'Updated 23 Sep 2026' }]}
+    heroImage="/images/sourced/place-red-hill-01.webp"
+    imageAlt="Vineyard rows in Red Hill"
     imageCredit="Peninsula Insider"
     entitySlug="explore/markets"
   />
 
-  <!-- 2. MONTH AT A GLANCE - bespoke calendar strip -->
   <section class="experience-index" aria-label="Market calendar at a glance">
     <div class="container">
-      <div class="venues__header">
-        <div>
-          <p class="label label--accent">Month at a glance</p>
-          <h2 class="venues__title">The Peninsula's market rhythm</h2>
-          <p class="venues__sub">No two market Saturdays look the same. Here is which market fires on which week - and the colour code is producer-first / mixed / craft so you can see the shape of the month at a glance.</p>
-        </div>
-      </div>
+      <div class="venues__header"><div>
+        <p class="label label--accent">Month at a glance</p>
+        <h2 class="venues__title">The market rhythm</h2>
+        <p class="venues__sub">These are the organisers' usual days, not a guarantee of operation. Hill & Ridge is confirmed for 3 October 2026; check every organiser for changes before travelling.</p>
+      </div></div>
       <ol class="market-calendar">
         {calendarRows.map((row) => (
           <li class="market-calendar__row">
             <span class="market-calendar__week">{row.date}</span>
             <span class="market-calendar__day">{row.day}</span>
-            <span class="market-calendar__chips">
-              {row.markets.map((mk) => (
-                <span class={`market-chip ${mk.mod}`}>{mk.name}</span>
-              ))}
-            </span>
+            <span class="market-calendar__chips">{row.markets.map((mk) => <span class={`market-chip ${mk.mod}`}>{mk.name}</span>)}</span>
           </li>
         ))}
       </ol>
-      <p class="market-calendar__legend">
-        <span class="market-chip market-badge--producer">Producer-first</span>
-        <span class="market-chip market-badge--mixed">Mixed</span>
-        <span class="market-chip market-badge--craft">Craft / casual</span>
-      </p>
+      <p class="market-calendar__legend"><span class="market-chip market-badge--producer">Farmers market</span><span class="market-chip market-badge--mixed">Community / town</span><span class="market-chip market-badge--craft">Foreshore</span></p>
     </div>
   </section>
 
-  <!-- 3. COMPARE - Red Hill vs Balnarring -->
   <CompareBlock
-    eyebrow="The two flagship Saturdays"
-    heading="Red Hill or Balnarring"
-    dek="Most visitors choose between these two. They share a month and a half of difference. The frame that matters before you set the alarm."
+    eyebrow="First Saturday choices"
+    heading="Red Hill or Rye"
+    dek="Two distinct first-Saturday settings. Check the organiser before setting out, particularly when weather is uncertain."
     left={{
-      label: 'Red Hill · 1st Saturday',
-      title: 'The broad church. Variety, atmosphere, the Peninsula on a clear morning.',
+      label: 'Hill & Ridge · Red Hill',
+      title: 'A community market at Red Hill Recreation Reserve.',
       rows: [
-        { label: 'Stall mix', value: 'Produce, artisan, prepared food, ceramics, linen, very good coffee. The widest stall list on the Peninsula.' },
-        { label: 'Scale', value: 'Big. Several hundred stalls in summer. Carpark fills by 9am.' },
-        { label: 'Setting', value: 'Red Hill Showgrounds, hinterland ridge. The drive in is part of the morning.' },
-        { label: 'Best for', value: 'A first market visit. A Red Hill Saturday built around the morning. Anyone who wants the postcard.' },
-        { label: 'Combine with', value: 'Main Ridge and Red Hill wineries. Lunch at a cellar door. The Epicurean for an afternoon stop.' },
+        { label: 'Next confirmed', value: 'Saturday 3 October 2026, 9am–2pm.' },
+        { label: 'Place', value: 'Red Hill Recreation Reserve, 184 Arthurs Seat Road.' },
+        { label: 'Plan around', value: 'A hinterland morning and a Red Hill lunch.' },
+        { label: 'Check', value: 'Unsafe weather can cancel the market without notice. Check the Hill & Ridge organiser.' },
       ],
     }}
     right={{
-      label: 'Balnarring · 3rd Saturday',
-      title: 'The producer-first quiet one. Growers, beef, eggs, honey, less noise.',
+      label: 'Rye Foreshore · Rye',
+      title: 'A bayside market beside Rye Pier.',
       rows: [
-        { label: 'Stall mix', value: 'Heavily food-producer. Western Port hinterland beef, lamb, eggs, seasonal produce, a small group of bakers.' },
-        { label: 'Scale', value: 'Smaller. Easier to actually buy a week of vegetables without queueing.' },
-        { label: 'Setting', value: 'Balnarring Racecourse reserve. Pastoral, low-key, dogs and prams welcome.' },
-        { label: 'Best for', value: 'Repeat visitors. Cooks. Anyone who finds Red Hill too crowded.' },
-        { label: 'Combine with', value: 'Merricks General Wine Store, Shoreham wineries, the Western Port coast.' },
+        { label: 'Usual day', value: 'First Saturday of each month, 8.30am–2pm, per Mornington Peninsula Shire.' },
+        { label: 'Place', value: 'Rye foreshore, opposite the Rye Hotel.' },
+        { label: 'Plan around', value: 'A Rye foreshore walk or town stop.' },
+        { label: 'Check', value: 'Confirm the current date on the Shire event page.' },
       ],
     }}
   />
 
-  <!-- 4. FIVE MARKETS - proper cards, all five tracked -->
-  <section class="experience-index experience-index--plain" aria-label="All Peninsula markets">
+  <section class="experience-index experience-index--plain" aria-label="Current Peninsula markets">
     <div class="container">
-      <div class="venues__header">
-        <div>
-          <p class="label label--accent">The five markets · ranked</p>
-          <h2 class="venues__title">Every Peninsula market, side by side</h2>
-          <p class="venues__sub">Editorial ranking based on producer density, atmosphere, and how often we send first-time visitors there. Tap any card for the detail page.</p>
-        </div>
-        <a href="/explore/" class="venues__link">All explore guides →</a>
-      </div>
+      <div class="venues__header"><div>
+        <p class="label label--accent">Current market guides</p>
+        <h2 class="venues__title">Four ways to build a market day</h2>
+        <p class="venues__sub">Choose by location and organiser schedule. Each card links to details and a primary source.</p>
+      </div><a href="/explore/" class="venues__link">All explore guides →</a></div>
       <div class="market-grid">
+        <article class="market-card">
+          <div class="market-card__rank">01</div>
+          <div class="market-card__media" style="background-image: url('/images/sourced/place-red-hill-01.webp')" role="img" aria-label="Red Hill vineyard landscape"></div>
+          <div class="market-card__body">
+            <div class="market-card__badges"><span class="market-badge market-badge--mixed">Community market</span></div>
+            <h3 class="market-card__name"><a href="/whats-on/hill-ridge-community-market-september-2026-restart/">Hill &amp; Ridge Community Market</a></h3>
+            <p class="market-card__meta">Next confirmed: 3 Oct 2026 · 9am–2pm · Red Hill</p>
+            <p class="market-card__note">A separate market from the temporarily closed original Red Hill Community Market.</p>
+            <p class="market-card__insider"><span class="market-card__insider-tag">Before you go</span>Unsafe weather can cancel the event without notice.</p>
+          </div>
+          <div class="market-card__footer"><a href="/whats-on/hill-ridge-community-market-september-2026-restart/" class="pi-btn pi-btn--text">Event guide →</a><a href="https://www.hillandridgemarket.com.au/" class="market-card__site" target="_blank" rel="noopener">Official site →</a></div>
+        </article>
         {markets.map((market, idx) => {
           const d = market.data;
-          const slug = d.slug ?? market.id;
-          const meta = marketMeta[slug];
-          if (!meta) return null;
-          // /explore/<slug>/ is a redirect stub; the venue page is canonical.
+          const meta = marketMeta[market.id];
           const detailHref = `/eat/${market.venueSlug}/`;
-          const locality = d.address?.split(',')[1]?.trim() ?? '';
           return (
             <article class="market-card">
-              <div class="market-card__rank">{String(idx + 1).padStart(2, '0')}</div>
-              <div
-                class="market-card__media"
-                style={marketHeroBySlug.get(slug)?.style ?? `background-image: url('${d.heroImage.src}')`}
-                role="img"
-                aria-label={marketHeroBySlug.get(slug)?.alt ?? d.heroImage.alt}
-                {...editableImage({ entityType: 'venue', entitySlug: market.venueSlug, fieldPath: 'heroImage', label: `${d.name} hero`, purpose: 'hero' })}
-              ></div>
+              <div class="market-card__rank">{String(idx + 2).padStart(2, '0')}</div>
+              <div class="market-card__media" style={marketHeroBySlug.get(market.id)?.style ?? `background-image: url('${d.heroImage.src}')`} role="img" aria-label={marketHeroBySlug.get(market.id)?.alt ?? d.heroImage.alt} {...editableImage({ entityType: 'venue', entitySlug: market.venueSlug, fieldPath: 'heroImage', label: `${d.name} hero`, purpose: 'hero' })}></div>
               <div class="market-card__body">
-                <div class="market-card__badges">
-                  <span class={`market-badge ${focusBadgeClass(meta.focusMod)}`}>{meta.focus}</span>
-                  <span class={`market-badge market-badge--tier ${tierBadgeClass(meta.tier)}`}>Tier {meta.tier}</span>
-                </div>
+                <div class="market-card__badges"><span class={`market-badge ${focusBadgeClass(meta.focusMod)}`}>{meta.focus}</span></div>
                 <h3 class="market-card__name"><a href={detailHref}>{d.name}</a></h3>
-                <p class="market-card__meta">
-                  <span class="market-card__when">{meta.cadence}</span>
-                  <span class="market-card__sep"> · </span>
-                  <span class="market-card__hours">{meta.hours}</span>
-                  {locality && <span class="market-card__sep"> · </span>}
-                  {locality && <span class="market-card__where">{locality}</span>}
-                </p>
-                <p class="market-card__note">{d.editorNote.split('. ').slice(0, 2).join('. ').trim().replace(/\.?$/, '.')}</p>
-                <p class="market-card__insider">
-                  <span class="market-card__insider-tag">Insider read</span>{meta.insiderRead}
-                </p>
+                <p class="market-card__meta"><span class="market-card__when">{meta.cadence}</span><span class="market-card__sep"> · </span><span class="market-card__hours">{meta.hours}</span></p>
+                <p class="market-card__note">{d.editorNote}</p>
+                <p class="market-card__insider"><span class="market-card__insider-tag">Insider read</span>{meta.insiderRead}</p>
               </div>
-              <div class="market-card__footer">
-                <a href={detailHref} class="pi-btn pi-btn--text">Market guide →</a>
-                {d.website && (
-                  <a href={d.website} class="market-card__site" target="_blank" rel="noopener">Official site →</a>
-                )}
-              </div>
+              <div class="market-card__footer"><a href={detailHref} class="pi-btn pi-btn--text">Market guide →</a>{d.website && <a href={d.website} class="market-card__site" target="_blank" rel="noopener">Official site →</a>}</div>
             </article>
           );
         })}
@@ -387,187 +183,29 @@ export const prerender = true;
     </div>
   </section>
 
-  <!-- 5. PAIRING PANELS - Build the day around the market -->
   <section class="experience-index" aria-label="Pair the market with the rest of the day">
     <div class="container">
-      <div class="venues__header">
-        <div>
-          <p class="label label--accent">Build the day around it</p>
-          <h2 class="venues__title">What to do once the market closes</h2>
-          <p class="venues__sub">The market is the anchor, not the day. Three ready-made shapes for the three flagship Saturdays.</p>
-        </div>
-      </div>
+      <div class="venues__header"><div><p class="label label--accent">Build the day around it</p><h2 class="venues__title">After the market</h2><p class="venues__sub">Keep the rest of the day near the market you choose.</p></div></div>
       <div class="pairing-grid">
-        <div class="pairing-card">
-          <h3 class="pairing-card__heading">Red Hill Saturday</h3>
-          <p class="pairing-card__sub">Market 8–10.30am. Long lunch in the hinterland.</p>
-          <ul class="pairing-card__list">
-            <li><a href="/explore/plans/how-to-build-a-red-hill-saturday/">How to build a Red Hill Saturday</a> - the editorial guide to the morning-into-lunch shape.</li>
-            <li><a href="/wine/">Main Ridge and Red Hill cellar doors</a> - within 10 minutes of the showgrounds.</li>
-            <li><a href="/eat/epicurean-red-hill/">The Epicurean Red Hill</a> - long-lunch option for an afternoon that does not pretend to be brief.</li>
-          </ul>
-        </div>
-        <div class="pairing-card">
-          <h3 class="pairing-card__heading">Balnarring Saturday</h3>
-          <p class="pairing-card__sub">Market 8–11am. Wine corridor, coastal lunch.</p>
-          <ul class="pairing-card__list">
-            <li><a href="/explore/places/shoreham/">Shoreham</a> - quiet coastal village 10 minutes south.</li>
-            <li><a href="/explore/places/merricks/">Merricks General Wine Store</a> - the natural lunch continuation.</li>
-            <li><a href="/explore/balnarring-beach/">Balnarring Beach</a> - Western Port swim or a long walk on the racecourse side.</li>
-          </ul>
-        </div>
-        <div class="pairing-card">
-          <h3 class="pairing-card__heading">Mornington Wednesday</h3>
-          <p class="pairing-card__sub">Market 9am–2pm. Town day, bay-side coffee.</p>
-          <ul class="pairing-card__list">
-            <li><a href="/explore/places/mornington/">Mornington town</a> - Main Street rolls straight into the market on market Wednesdays.</li>
-            <li><a href="/explore/mornington-foreshore-walk/">Mornington foreshore walk</a> - pram-friendly, a clean way to finish the morning.</li>
-            <li><a href="/eat/">Eat &amp; Drink in Mornington</a> - lunch options once the stalls pack up.</li>
-          </ul>
-        </div>
+        <div class="pairing-card"><h3 class="pairing-card__heading">Red Hill Saturday</h3><p class="pairing-card__sub">Hill &amp; Ridge, then a hinterland lunch.</p><ul class="pairing-card__list"><li><a href="/explore/places/red-hill/">Red Hill place guide</a> for nearby stops.</li><li><a href="/wine/">Red Hill cellar doors</a> for an afternoon option.</li><li>Check the <a href="https://www.hillandridgemarket.com.au/">Hill &amp; Ridge organiser</a> before travelling.</li></ul></div>
+        <div class="pairing-card"><h3 class="pairing-card__heading">Rye Saturday</h3><p class="pairing-card__sub">Foreshore stalls, then a bayside walk.</p><ul class="pairing-card__list"><li><a href="/explore/places/rye/">Rye place guide</a> for a local plan.</li><li><a href="/eat/rye-beachside-market/">Rye Foreshore Market guide</a> for the source link.</li></ul></div>
+        <div class="pairing-card"><h3 class="pairing-card__heading">Mornington Wednesday</h3><p class="pairing-card__sub">Market and a town day.</p><ul class="pairing-card__list"><li><a href="/explore/places/mornington/">Mornington town</a> after the stalls.</li><li><a href="/explore/mornington-foreshore-walk/">Mornington foreshore walk</a> nearby.</li></ul></div>
       </div>
     </div>
   </section>
 
-  <!-- 6. EDITORIAL READS -->
-  <section class="experience-index experience-index--plain" aria-label="Markets editorial">
-    <div class="container">
-      <div class="venues__header">
-        <div>
-          <p class="label label--accent">Further reading</p>
-          <h2 class="venues__title">Markets editorial</h2>
-          <p class="venues__sub">Pieces from the PI archive that pick up where this hub stops.</p>
-        </div>
-      </div>
-      <div class="market-articles">
-        <a href="/explore/plans/how-to-build-a-red-hill-saturday/" class="market-article-card">
-          <div class="market-article-card__img" style={`background-image: url('${heroRedHillSaturday}')`} aria-hidden="true"></div>
-          <div class="market-article-card__body">
-            <p class="market-article-card__tag">Editor's perspective</p>
-            <h3 class="market-article-card__title">How to build a Red Hill Saturday</h3>
-            <p class="market-article-card__dek">Market in the morning, hinterland in the afternoon. The piece that explains why the upper Peninsula has its own weekend gravity.</p>
-            <span class="market-article-card__cta">Read →</span>
-          </div>
-        </a>
-        {/*
-          The three cards below bind to their destination's hero image:
-          /wine/ → pageHero singleton with pathSlug "wine"
-          /explore/places/red-hill/ → red-hill place doc heroImage
-          /explore/places/balnarring/ → balnarring place doc heroImage
-          Editing any of those propagates here automatically.
-        */}
-        <a href="/wine/" class="market-article-card">
-          <div class="market-article-card__img" style={`background-image: url('${heroWineHub}')`} aria-hidden="true"></div>
-          <div class="market-article-card__body">
-            <p class="market-article-card__tag">Hub</p>
-            <h3 class="market-article-card__title">Red Hill and Main Ridge cellar doors</h3>
-            <p class="market-article-card__dek">The wineries within 15 minutes of the market that turn a Saturday morning into a Saturday lunch.</p>
-            <span class="market-article-card__cta">Read →</span>
-          </div>
-        </a>
-        <a href="/explore/places/red-hill/" class="market-article-card">
-          <div class="market-article-card__img" style={`background-image: url('${heroPlaceRedHill}')`} aria-hidden="true"></div>
-          <div class="market-article-card__body">
-            <p class="market-article-card__tag">Place guide</p>
-            <h3 class="market-article-card__title">Red Hill - the village around the market</h3>
-            <p class="market-article-card__dek">What Red Hill actually is on the other 30 days of the month. A short guide to the village that the market sits inside.</p>
-            <span class="market-article-card__cta">Read →</span>
-          </div>
-        </a>
-        <a href="/explore/places/balnarring/" class="market-article-card">
-          <div class="market-article-card__img" style={`background-image: url('${heroPlaceBalnarring}')`} aria-hidden="true"></div>
-          <div class="market-article-card__body">
-            <p class="market-article-card__tag">Place guide</p>
-            <h3 class="market-article-card__title">Balnarring - the Western Port quiet half</h3>
-            <p class="market-article-card__dek">The corridor that runs from Balnarring through Merricks to Shoreham - and why the market is the easiest way in.</p>
-            <span class="market-article-card__cta">Read →</span>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
+  <section class="market-feature" aria-label="Market planning note"><div class="container"><div class="market-feature__inner"><div class="market-feature__body">
+    <p class="label label--accent">Check before you travel</p>
+    <h2 class="market-feature__heading">One calendar, different organisers</h2>
+    <p class="market-feature__dek">The first Saturday offers two different markets: Hill &amp; Ridge in Red Hill and Rye Foreshore on the bay. Mornington gives you a Wednesday option, while Mount Eliza lists the fourth Sunday. Follow each organiser's current notice before planning a drive.</p>
+    <p class="market-feature__dek">The original Red Hill Community Market is temporarily closed while its organiser looks for a new location. Hill &amp; Ridge is a separate event. The former Balnarring Village Green listing is paused because its schedule could not be confirmed. Emu Plains Market is a separate Balnarring market; check its organiser for current dates.</p>
+  </div><div class="market-feature__aside"><div class="market-feature__fact"><span class="market-feature__fact-num">4</span><span class="market-feature__fact-label">current market guides</span></div><div class="market-feature__fact"><span class="market-feature__fact-num">3 Oct</span><span class="market-feature__fact-label">next confirmed Hill &amp; Ridge date</span></div></div></div></div></section>
 
-  <!-- 7. STAT BLOCK - dark feature, mirrors golf-stayplay -->
-  <section class="market-feature" aria-label="The market morning at a glance">
-    <div class="container">
-      <div class="market-feature__inner">
-        <div class="market-feature__body">
-          <p class="label label--accent">A clean market morning</p>
-          <h2 class="market-feature__heading">The Peninsula's market morning, in numbers</h2>
-          <p class="market-feature__dek">The two flagship markets sit on opposite Saturdays of the month, which means a four-week visitor can hit Red Hill and Balnarring without overlap. The producer density at Balnarring is higher per stall; the scale and atmosphere at Red Hill are higher per visit. Both reward early arrival and a cap on what you carry - most market regret is the bag that got too heavy by 10am.</p>
-          <p class="market-feature__dek">For the rest of the month, Mornington's fortnightly Wednesday fills the midweek slot, Mount Eliza covers the northern villages, and Rye runs through summer on the bay foreshore for a casual swim-and-browse rhythm. None of these are destination rounds - they are add-ons to where you already are.</p>
-          <p class="market-feature__dek">If you have one Saturday only, it is Red Hill. If you have two and a serious kitchen interest, it is Red Hill then Balnarring. The <a href="/explore/plans/how-to-build-a-red-hill-saturday/" class="market-feature__link">Red Hill Saturday guide</a> is the next read.</p>
-        </div>
-        <div class="market-feature__aside">
-          <div class="market-feature__fact">
-            <span class="market-feature__fact-num">5</span>
-            <span class="market-feature__fact-label">Peninsula markets tracked editorially</span>
-          </div>
-          <div class="market-feature__fact">
-            <span class="market-feature__fact-num">2</span>
-            <span class="market-feature__fact-label">flagship Saturdays per month</span>
-          </div>
-          <div class="market-feature__fact">
-            <span class="market-feature__fact-num">8.30</span>
-            <span class="market-feature__fact-label">am best arrival at Red Hill in summer</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 8. FAQ - accordion -->
-  <section class="experience-index experience-index--plain" aria-label="Markets FAQ">
-    <div class="container">
-      <div class="venues__header">
-        <div>
-          <p class="label label--accent">Common questions</p>
-          <h2 class="venues__title">FAQ</h2>
-        </div>
-      </div>
-      <div class="market-faq">
-        <details class="market-faq__item">
-          <summary class="market-faq__q">When is the Red Hill Market?</summary>
-          <div class="market-faq__a">
-            <p>The first Saturday of every month, 8am–1pm, at Red Hill Showgrounds on Arthurs Seat Road. The carpark fills by 9am in summer; arrive by 8.30am for the best produce.</p>
-          </div>
-        </details>
-        <details class="market-faq__item">
-          <summary class="market-faq__q">What is the best market on the Mornington Peninsula?</summary>
-          <div class="market-faq__a">
-            <p>Red Hill Community Market - for variety, scale, and atmosphere. It is the correct answer for a first-time visitor.</p>
-            <p>If you prioritise food producers over craft and prepared food, Balnarring Farmers Market is the deeper experience. Smaller, quieter, more growers per stall.</p>
-          </div>
-        </details>
-        <details class="market-faq__item">
-          <summary class="market-faq__q">Are there markets on the Peninsula every week?</summary>
-          <div class="market-faq__a">
-            <p>No. The flagship markets (Red Hill, Balnarring) are monthly and sit on alternating Saturdays. Mornington Main Street Market runs on the 2nd and 4th Wednesdays. Mount Eliza is the last Sunday of the month. Rye is summer-weighted. There is no significant weekly market.</p>
-          </div>
-        </details>
-        <details class="market-faq__item">
-          <summary class="market-faq__q">Are the markets suitable for visiting in winter?</summary>
-          <div class="market-faq__a">
-            <p>Yes. Red Hill, Balnarring, Mornington, and Mount Eliza run year-round. Winter attendance is lower, which many visitors prefer. Wet weather can affect stall numbers at the open-air markets, but neither Red Hill nor Balnarring cancel for light rain.</p>
-          </div>
-        </details>
-        <details class="market-faq__item">
-          <summary class="market-faq__q">Which Peninsula market is best for serious produce?</summary>
-          <div class="market-faq__a">
-            <p>Balnarring Farmers Market. The stall mix runs heavily to Western Port hinterland growers - beef, lamb, eggs, honey, seasonal vegetables. Red Hill is broader; Balnarring is deeper on producers.</p>
-          </div>
-        </details>
-        <details class="market-faq__item">
-          <summary class="market-faq__q">Can I combine two markets in one weekend?</summary>
-          <div class="market-faq__a">
-            <p>Yes - if your visit straddles the right Saturdays. Red Hill (1st Saturday) and Balnarring (3rd Saturday) are two weeks apart. A weekend that lands on either is a natural anchor; a four-week visit gets both. Mornington's Wednesday market can fold into either weekend midweek.</p>
-          </div>
-        </details>
-      </div>
-      <ProvenanceLine class="market-verified" records={marketVenues} type="venues" noun="market" />
-    </div>
-  </section>
-
+  <section class="experience-index experience-index--plain" aria-label="Markets FAQ"><div class="container">
+    <div class="venues__header"><div><p class="label label--accent">Common questions</p><h2 class="venues__title">FAQ</h2></div></div>
+    <div class="market-faq">{faqItems.map((item) => <details class="market-faq__item"><summary class="market-faq__q">{item.q}</summary><div class="market-faq__a"><p>{item.a}</p></div></details>)}</div>
+    <ProvenanceLine class="market-verified" records={markets.map((m) => marketVenues.find((v) => (v.data.slug ?? v.id) === m.venueSlug)!)} type="venues" noun="market" />
+  </div></section>
   <NewsletterBlock />
 </BaseLayout>
 
@@ -762,8 +400,8 @@ export const prerender = true;
     margin: 0.85rem 0 0;
     padding: 0.65rem 0.85rem;
     background: rgba(7, 158, 165, 0.09);
-    border-left: 3px solid rgba(7, 158, 165, 0.55);
-    border-radius: 0 0.35rem 0.35rem 0;
+    border: 1px solid rgba(7, 158, 165, 0.18);
+    border-radius: 0.35rem;
     font-style: normal;
   }
   .market-card__insider-tag {

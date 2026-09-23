@@ -19,4 +19,4 @@ Spa treatments are the natural booking window for rainy days. All Peninsula spas
 
 Galleries: the Peninsula's gallery scene is modest compared with its food and wine offering. Mornington Peninsula Regional Gallery in Langwarrin is the most accessible option, a genuine regional gallery with permanent and travelling exhibitions.
 
-Markets are a partial exception. Red Hill Market runs in light rain; most stalls are covered or have gazebos. Heavy rain thins the stall count. An overcast or lightly drizzly first Saturday is better than a summer Saturday with 3,000 visitors.
+Markets are a partial exception. The original Red Hill Community Market is temporarily closed. The separate Hill and Ridge Community Market is outdoors and may cancel in unsafe weather; check its organiser before travelling.

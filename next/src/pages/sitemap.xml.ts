@@ -89,7 +89,7 @@ const EAT_CATEGORY_LASTMOD: Record<string, string> = {
   bakeries: '2026-07-27', breweries: '2026-06-11', brunch: '2026-08-14', cafes: '2026-07-27',
   'cellar-door-lunch': '2026-07-27', 'date-night': '2026-07-27', distilleries: '2026-06-11',
   'family-friendly': '2026-08-07', 'fine-dining': '2026-07-27', 'hatted-restaurants': '2026-07-27',
-  'long-lunch': '2026-07-27', markets: '2026-07-04', 'no-booking': '2026-07-04',
+  'long-lunch': '2026-07-27', markets: '2026-09-23', 'no-booking': '2026-07-04',
   'paddock-to-plate': '2026-07-27', providores: '2026-06-01', pubs: '2026-08-07',
   seafood: '2026-07-27', waterfront: '2026-08-07',
 };
@@ -110,7 +110,7 @@ const WINE_CATEGORY_LASTMOD: Record<string, string> = {
 const EXPLORE_GUIDE_LASTMOD: Record<string, string> = {
   beaches: '2026-08-14', 'day-trips': '2026-08-14', 'family-friendly': '2026-08-14',
   'getting-around': '2026-08-14', 'getting-here': '2026-08-14', 'hot-springs': '2026-08-07',
-  map: '2026-08-14', markets: '2026-08-14', 'rainy-day': '2026-08-14',
+  map: '2026-08-14', markets: '2026-09-23', 'rainy-day': '2026-08-14',
   'spas-and-wellness': '2026-08-14', 'things-to-do': '2026-09-16', walks: '2026-08-09',
   'weekend-trips': '2026-08-14',
 };

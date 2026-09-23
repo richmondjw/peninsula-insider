@@ -5,25 +5,14 @@
   "venueTier": "recommended",
   "place": "balnarring",
   "zone": "red-hill",
-  "coordinates": {
-    "lat": -38.3776,
-    "lng": 145.1415
-  },
-  "address": "Balnarring Village Green, Frankston-Flinders Rd, Balnarring VIC 3926",
+  "address": "Balnarring VIC 3926 (market location unverified)",
   "priceBand": "$",
-  "signature": "A relaxed village-scale monthly market on the Balnarring Village Green, local produce, makers, and the Peninsula's most family-friendly market morning.",
-  "editorNote": "Balnarring Market is the smaller, softer cousin of Red Hill Market, a village-scale monthly event on the Balnarring Village Green that runs on the third Saturday of each month through the warmer months. The stalls lean more toward local produce and smaller craft makers, and the whole event moves at a slower pace than the Red Hill crowd. No queues for parking, no sprint to the good stalls, the Balnarring version assumes you are not in a hurry.\n\nThis is the market to take visiting family to when you want the produce-and-craft experience without the Red Hill intensity. It is also the right warm-up for anyone who has booked a lunch at The Heritage, the village pub, or a cellar-door session at Quealy afterwards, a loose, unhurried market morning leads naturally into a loose, unhurried afternoon.\n\nGo late morning, buy what looks good, and drift into a long Balnarring afternoon.",
-  "whyWeGo": "The Red Hill Market without the parking situation, village scale, slower pace, and a perfect warm-up for a Balnarring afternoon.",
-  "bestFor": [
-    "Weekend markets",
-    "Family outings",
-    "Local produce"
-  ],
-  "ifOnlyOneThing": "Go late morning, buy what looks good, and drift into a long Balnarring afternoon.",
-  "pairWith": [
-    "Balnarring Bakehouse",
-    "Elan Vineyard & Gallery"
-  ],
+  "signature": "Paused listing: the former Balnarring Village Green market schedule and location could not be verified from a current primary source.",
+  "editorNote": "We cannot currently verify the Balnarring Village Green market schedule or organiser. This listing is paused while we check primary sources. Do not use its former dates or location to plan a visit. Emu Plains Market is a different event in Balnarring, and its dates require a separate organiser check.",
+  "whyWeGo": "Historical listing retained for transparency; do not plan a visit from this page.",
+  "bestFor": [],
+  "ifOnlyOneThing": "Check a current organiser source before planning a market visit in Balnarring.",
+  "pairWith": [],
   "tags": {
     "mood": [
       "family",
@@ -52,15 +41,9 @@
   },
   "gallery": [],
   "featuredPartner": false,
-  "lastVerified": "2026-04-09",
+  "lastVerified": "2026-09-23",
   "publishedAt": "2026-04-09",
   "bookingProvider": "none",
-  "knownFor": [
-    "Third Saturday Monthly",
-    "Balnarring Village Green",
-    "Local Produce Stalls",
-    "Low-Key Atmosphere"
-  ],
   "retiredSourceLinks": [
     {
       "field": "website",
@@ -80,5 +63,11 @@
     }
   ],
   "sourceStatus": "unsourced",
-  "sourceStatusNote": "The certificate does not match the hostname, so HTTPS fails and a reader sees a security warning. Plain HTTP answers 200. Publishing an http:// link for a market would be a downgrade this ticket is not authorised to make. EDITOR: ask the operator to fix the certificate."
+  "sourceStatusNote": "The former website has a certificate mismatch and the claimed Village Green schedule could not be confirmed from a current primary source on 23 September 2026. This listing is paused, not confirmed closed; it is excluded from current recommendations.",
+  "status": "paused",
+  "sitemapExclude": true,
+  "coordinates": {
+    "lat": -38.3723,
+    "lng": 145.1244
+  }
 }

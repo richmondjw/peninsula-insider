@@ -9,11 +9,11 @@ status: published
 
 The Mornington Peninsula is 60 to 110 km from central Melbourne. A range that makes a day trip genuinely worthwhile but requires clear pre-thinking to avoid the driving-for-driving's-sake trap.
 
-A day trip works with a car and an early start. Allow at least 5 to 6 hours of on-Peninsula time; 7 to 8 hours is better. Avoid Saturday market day without a plan; Red Hill Market is worth it but you need to arrive by 9am.
+A day trip works with a car and an early start. Allow at least 5 to 6 hours of on-Peninsula time; 7 to 8 hours is better. Avoid Saturday market day without a plan; check each current market schedule before you travel.
 
 Five distinct day-trip routes work well based on what kind of day you want.
 
-The Hinterland Loop suits first-timers, food and wine visitors, and market days. Drive to Red Hill via Moorooduc Highway. Morning at Red Hill Market (first Saturdays) or a hinterland drive through Main Ridge. Midday winery lunch at Montalto, Ten Minutes by Tractor, or Foxeys Hangout. Afternoon Arthurs Seat Eagle from Dromana for the aerial orientation. Drive home via Peninsula Link.
+The Hinterland Loop suits first-timers, food and wine visitors, and market days. Drive to Red Hill via Moorooduc Highway. Morning on a hinterland drive through Main Ridge. The separate Hill and Ridge Community Market runs at Red Hill Recreation Reserve on first Saturdays from September to May; the original Red Hill Community Market is temporarily closed. Midday winery lunch at Montalto, Ten Minutes by Tractor, or Foxeys Hangout. Afternoon Arthurs Seat Eagle from Dromana for the aerial orientation. Drive home via Peninsula Link.
 
 The Bay Coast Run suits families, beach-focused visitors, and first-timers with children. Drive to Mornington via the Nepean Highway. Morning Mornington foreshore walk and town. Midday drive to Mount Martha Beach or Safety Beach for a bay swim, lunch from Dromana food options. Afternoon Arthurs Seat Eagle.
 
