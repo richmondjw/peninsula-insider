@@ -445,14 +445,10 @@ def run_daily(log: RunLog, state: dict, today: str, now_aest: datetime):
     log.step("verify-gate", "START")
     verify_result = run_verify_gate(article_path, today)
     if verify_result == "FAIL":
-        log.error("Verify gate hard fail — checking for fallback")
-        fallback = find_latest_insider_picks(exclude=article_path)
-        if fallback:
-            log.step("verify-gate", "FALLBACK", f"Using {fallback.name} as template")
-            article_path = fallback
-        else:
-            log.step("verify-gate", "SKIP", "No fallback available — aborting daily publish")
-            return
+        # A previous day's article cannot repair today's factual failure.
+        # Keep the rejected draft for review and fail this publication loudly.
+        log.error("Verify gate hard fail — dated draft retained for review; no publish")
+        return
     else:
         log.step("verify-gate", "PASS")
 
