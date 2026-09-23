@@ -8,4 +8,4 @@
 - QA passed: content validation and `git diff --check`.
 - Diff scope: one reviewed quick note status changed from `draft` to `published`; this report and its ledger entry are operational records.
 - Build: Astro completed 998 pages; the full npm build was interrupted during the subsequent `market-guide-currentness` test and is therefore not claimed as a full-build pass.
-- Post-publish verification: pending deployment, to be run against `https://peninsulainsider.com.au/quick-note/`.
+- Post-publish verification: passed against `https://peninsulainsider.com.au/quick-note/` using `ops/scripts/post-publish-verify.mjs`; report: `ops/reports/verify/2026-09-23-quick-note.md`.
