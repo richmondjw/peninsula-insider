@@ -12,7 +12,7 @@ heroImage:
 format: "service"
 tags: ["explore", "drive", "first-timers", "red-hill", "sorrento", "day-trip", "all-year"]
 relatedVenues: ["commonfolk-coffee", "merricks-general-wine-store", "red-hill-brewery", "flinders-sourdough", "georgie-bass", "dromana-hotel", "balnarring-pub", "crittenden-estate", "yabby-lake", "red-hill-bakery", "somers-general"]
-relatedExperiences: ["arthurs-seat-lookout", "red-hill-market", "cape-schanck-boardwalk", "sorrento-back-beach", "mount-martha-beach"]
+relatedExperiences: ["arthurs-seat-lookout", "cape-schanck-boardwalk", "sorrento-back-beach", "mount-martha-beach"]
 readingTimeMinutes: 8
 featured: false
 status: "published"
@@ -68,7 +68,7 @@ From the base of Arthurs Seat, head east along Arthurs Seat Road and onto Red Hi
 
 Save the cellar door for another day. A single twenty-minute drive from Arthurs Seat to Merricks explains the geographical logic of the Peninsula's wine country: the altitude that makes pinot noir work here, the pasture that separates one estate from the next, the way the ridge tilts north toward the bay.
 
-If the **Red Hill Community Market** is on (first Saturday of the month, September to May) it is worth a detour. It is the Peninsula's strongest monthly market and the one direct window you'll get into how the producers here know each other. Otherwise, keep driving.
+If your drive falls on a Hill & Ridge Community Market date, the Red Hill Recreation Reserve makes a worthwhile detour. The organiser lists Saturday 3 October 2026, 9am–2pm; check its current calendar before setting out. Otherwise, keep driving.
 
 ## Stop 4  -  Merricks General Wine Store (11:45)
 

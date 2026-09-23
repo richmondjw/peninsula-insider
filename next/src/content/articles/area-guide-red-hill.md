@@ -50,7 +50,7 @@ Red Hill rewards appetite and discipline in equal measure. Bring both.
 
 ## How to arrive and when to come
 
-Arrive with your first booking no earlier than mid-morning unless the market is on. The Red Hill Community Market, held on the first Saturday of the month, is one of the few reasons to start the day at speed. Even then, get there early, buy selectively, drink your coffee, and leave before it becomes a circular exercise in crowd management.
+Arrive with your first booking no earlier than mid-morning unless a market date is confirmed. The original Red Hill Community Market is temporarily closed. The separate Hill & Ridge Community Market lists Saturday 3 October 2026, 9am–2pm, at Red Hill Recreation Reserve; check the organiser's current calendar before starting the day there.
 
 Autumn is the cleanest version of Red Hill: vines turning, roads dry, lunch terraces at full usefulness. Spring is close behind, with greener hills and slightly sharper air. Winter works well if your priorities are fireplaces, tasting rooms and heavier lunches. Summer is fine but not essential. This is not a beach town.
 
@@ -86,9 +86,9 @@ Staying in Dromana to save money can make sense if you accept the trade. You get
 
 ## What to do
 
-### Build a Saturday around the market if it is on
+### Build a Saturday around a confirmed market date
 
-The Red Hill Community Market gives you producers, pace and a quick sense of the district's personality. It should set the day up, not consume it.
+Hill & Ridge Community Market can start a ridge day when its organiser confirms a date. Otherwise, start with a bakery or producer stop, then leave room for lunch and a cellar door.
 
 ### Taste with intent
 

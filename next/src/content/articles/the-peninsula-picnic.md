@@ -11,8 +11,8 @@ heroImage:
   license: "tmp-wikimedia"
 format: "service"
 tags: ["picnic", "producers", "outdoor", "family", "couples", "budget", "autumn", "spring"]
-relatedVenues: ["red-hill-cheese", "main-ridge-dairy", "flinders-sourdough", "red-hill-bakery", "green-olive-red-hill", "mornington-peninsula-chocolates", "peninsula-fresh-organics", "balnarring-bakehouse", "somers-general", "johnny-ripe", "merricks-general-wine-store", "red-hill-market", "mornington-farmers-market"]
-relatedExperiences: ["montalto-sculpture-trail", "pt-leo-sculpture-park", "arthurs-seat-lookout", "mount-martha-beach", "balnarring-beach", "point-nepean-national-park", "mornington-foreshore-walk", "red-hill-market"]
+relatedVenues: ["red-hill-cheese", "main-ridge-dairy", "flinders-sourdough", "red-hill-bakery", "green-olive-red-hill", "mornington-peninsula-chocolates", "peninsula-fresh-organics", "balnarring-bakehouse", "somers-general", "johnny-ripe", "merricks-general-wine-store", "mornington-farmers-market"]
+relatedExperiences: ["montalto-sculpture-trail", "pt-leo-sculpture-park", "arthurs-seat-lookout", "mount-martha-beach", "balnarring-beach", "point-nepean-national-park", "mornington-foreshore-walk"]
 readingTimeMinutes: 7
 featured: false
 status: "published"
@@ -36,7 +36,7 @@ faq:
 aiSummary:
   - "A guide to the best picnic spots and picnic-enabling food sources on the Mornington Peninsula - structured as a half-day or full-day itinerary."
   - "The route: buy from one of the Peninsula's farm-gate or market sources, choose a location based on the season and the group, arrive before midday."
-  - "Key locations: Red Hill Market on a first Saturday (best produce selection), Arthurs Seat lookout reserve, Point Leo Estate grounds (public access), Cape Schanck clifftop."
+  - "Key locations: a market on a confirmed date, Arthurs Seat lookout reserve, Point Leo Estate grounds (public access), Cape Schanck clifftop."
   - "Suits: families; couples wanting a low-key Peninsula day; anyone who wants an alternative to restaurant lunch on a good weather day."
   - "Planning note: the Peninsula's best picnic spots are not signposted. The article provides specific GPS-level guidance for the locations that actually work."
 ---
@@ -77,7 +77,7 @@ For additional produce: **Peninsula Fresh Organics** for seasonal fruit and vege
 
 ### The market shortcut
 
-If you are visiting on a Saturday morning, the **Red Hill Market** (first Saturday of the month) or the **Mornington Farmers Market** (every Wednesday) will compress the shopping circuit into a single stop. Both have bread, cheese, cured meats, seasonal produce, and pastry stalls. The market picnic is less romantic than the farm-gate version but it is faster and equally good.
+If you are visiting on a market morning, a confirmed market can compress the shopping circuit into a single stop. The original **Red Hill Community Market** is temporarily closed; check the separate Hill & Ridge organiser's dates for Red Hill, or Mornington Farmers Market's current calendar. Stallholders vary, so confirm the market and supplement your picnic supplies at farm gates if needed. The market picnic is less romantic than the farm-gate version but often faster.
 
 ### What to bring from home
 

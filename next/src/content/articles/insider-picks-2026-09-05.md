@@ -60,7 +60,7 @@ Pair a post-walk coffee with a stop at Small Stone Pantry in Dromana on the way 
 
 ## DISCOVERY - Hill & Ridge Community Market (Season Restart), Red Hill
 
-The Hill & Ridge Market is not the Red Hill Market. That distinction matters. Red Hill Market on the first Saturday of the month draws two hundred-plus stalls and a car park queue that starts before eight. Hill & Ridge, also at Red Hill Recreation Reserve, runs on the first Saturday of a smaller monthly schedule and operates at a pace that makes it possible to actually talk to the producers.
+Hill & Ridge is a distinct market from the original Red Hill Community Market. The original market is temporarily closed; check its organiser for any reopening rather than assuming a first-Saturday date. Hill & Ridge, at Red Hill Recreation Reserve, has its own published dates and hours. Check the Hill & Ridge organiser before setting out.
 
 Today is the spring restart after the winter break, which means stallholders who have been sitting on new-season produce - Peninsula eggs, cold-climate greens, early apple varieties, handmade ceramics from a handful of makers who don't sell anywhere else - are showing up with the best of what they have been waiting to move. The food stall section near the eastern end of the reserve consistently has the strongest coffee and a Taiwanese street-food vendor whose pork bao has been the most-discussed item at this market for two seasons running. Go before noon; the produce stalls start packing down early.
 

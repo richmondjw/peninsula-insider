@@ -1,6 +1,6 @@
 ---
 title: "The Market Saturday: Two Peninsula Weekends Built Around the Right Hour at the Right Stall"
-dek: "The Mornington Farmers Market, the Red Hill Community Market, the Balnarring Emu Plains Market, the Somers makers. The Peninsula's market calendar is the region's most under-used event-utility layer  -  and the one that most obviously shapes a good weekend."
+dek: "Mornington, Hill & Ridge, Balnarring and Somers: check each organiser's current calendar, then build a Peninsula weekend around a confirmed market."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-04-13
@@ -11,8 +11,8 @@ heroImage:
   license: "tmp-wikimedia"
 format: "service"
 tags: ["markets", "mornington", "red-hill", "balnarring", "weekend", "producers", "all-year"]
-relatedVenues: ["mornington-farmers-market", "red-hill-market", "balnarring-market", "red-hill-brewery", "red-hill-bakery", "merricks-general-wine-store", "commonfolk-coffee", "red-hill-cheese", "main-ridge-dairy", "peninsula-fresh-organics", "somers-general", "balnarring-bakehouse", "johnny-ripe", "mornington-peninsula-chocolates"]
-relatedExperiences: ["red-hill-market", "mornington-foreshore-walk", "balnarring-beach"]
+relatedVenues: ["mornington-farmers-market", "balnarring-market", "red-hill-brewery", "red-hill-bakery", "merricks-general-wine-store", "commonfolk-coffee", "red-hill-cheese", "main-ridge-dairy", "peninsula-fresh-organics", "somers-general", "balnarring-bakehouse", "johnny-ripe", "mornington-peninsula-chocolates"]
+relatedExperiences: ["mornington-foreshore-walk", "balnarring-beach"]
 readingTimeMinutes: 8
 featured: false
 status: "published"
@@ -28,17 +28,17 @@ clusterLinks:
     href: "/explore/plans/how-to-plan-a-peninsula-weekend/"
 faq:
   - question: "When do the Mornington Peninsula markets run?"
-    answer: "Mornington Farmers Market - second Saturday of each month, Mornington Racecourse, 8am–1pm. Red Hill Community Market - first Saturday September to May, Red Hill Community Centre on Arthurs Seat Road, 8am–1pm. Balnarring Emu Plains Market - third Saturday September to April, Balnarring Racecourse, 9am–2pm. Somers Makers Market - first Sunday of alternate months, Somers village precinct."
+    answer: "Market calendars change. Check each organiser before travelling. The original Red Hill Community Market is temporarily closed; the separate Hill & Ridge Community Market lists Saturday 3 October 2026, 9am–2pm, at Red Hill Recreation Reserve."
   - question: "What is the best Peninsula market for food and produce?"
-    answer: "Mornington Farmers Market (second Saturday) for serious food - accredited producers, restaurant-quality protein, mussels, oysters, sourdough, eggs, cheese. Red Hill Community Market (first Saturday) is larger and more atmospheric but tips toward crafts and bric-a-brac alongside producers. If the trip is a food-shopping run, go Mornington; if the goal is a market experience, Red Hill."
-  - question: "What time should I arrive at the Red Hill Community Market?"
-    answer: "7:45am - before the crowds arrive. By 9am the market is full; by 10am the car parks are closed. The early arrival gives you the best light, the best produce, and the experience of the market before it becomes a tourist event. Arriving at 10am is not the same visit."
+    answer: "Mornington Farmers Market is a food-focused option. For a Red Hill market day, check the separate Hill & Ridge Community Market's current dates and stallholder list before travelling; the original Red Hill Community Market is temporarily closed."
+  - question: "Is the Red Hill Community Market running?"
+    answer: "The original Red Hill Community Market says it is temporarily closed. Hill & Ridge Community Market is a different organiser at Red Hill Recreation Reserve; consult its own calendar for confirmed dates."
 aiSummary:
-  - "A Peninsula Saturday structured around the Red Hill Market - the most visited single-morning event on the Peninsula - covering how to sequence the day around the market."
-  - "Covers: what time to arrive at Red Hill Market (8am is early enough, 10am is too late); what to buy (produce, not crafts); where to go after (the ridge cellar doors, not the main road back)."
-  - "The editorial framework: a good Red Hill Market Saturday has the market as the starting point, not the main event. The cellar door run afterward is what makes the day."
-  - "Suits: first-time Peninsula visitors who arrive on a first-Saturday; couples doing a market-and-wine day; anyone who wants to understand Red Hill's Saturday rhythm."
-  - "Planning note: the market runs on the first Saturday of each month. Rain does not cancel it. Parking gets difficult after 9am."
+  - "A Peninsula Saturday built around a market date confirmed by its organiser."
+  - "Covers: choosing a market, then leaving room for a ridge walk and a booked cellar-door lunch."
+  - "The original Red Hill Community Market is temporarily closed; Hill & Ridge is a separate market with its own calendar."
+  - "Suits first-time visitors and couples planning a market-and-wine day."
+  - "Planning note: verify current market dates, hours and venue before travelling."
 ---
 
 There is a quiet rhythm on the Peninsula: if you are already on the ridge on a market Saturday, building the weekend around the market is the move that pays off most.
@@ -59,11 +59,11 @@ The **Mornington Farmers Market** runs on the **second Saturday of each month** 
 
 This is a market to shop, not graze. Bring a cooler bag. Bring cash for the smaller stalls. Park on the residential streets to the north and walk in, not in the main lot.
 
-### Red Hill Community Market
+### Hill & Ridge Community Market, Red Hill
 
-The **Red Hill Community Market** runs on the **first Saturday from September to May**, in the grounds of the Red Hill Community Centre on Arthurs Seat Road. It is older, bigger, more touristed than Mornington (over three hundred stalls in peak season), and the mix tips toward makers, plants, second-hand books, and country bric-a-brac as much as it does to producers. This is the market you walk around. It has more atmosphere than any other market on the Peninsula and the most obvious hit of Peninsula-village culture. Treat it as an experience, not just a shopping trip.
+The original **Red Hill Community Market** says it is temporarily closed. **Hill & Ridge Community Market** is a separate organiser at **Red Hill Recreation Reserve**. Its published calendar includes **Saturday 3 October 2026, 9am–2pm**. Check [Hill & Ridge's current dates](https://www.hillandridgemarket.com.au/) and stallholders before building a trip around it.
 
-Arriving at 7:45am unlocks Red Hill Community Market. By nine it is full, by ten the car parks are closed, and by eleven you are queueing for a park a kilometre away. The light at seven-forty-five, the smell of bacon rolls coming off the plates, the producers still unloading their last crates: that is the version of this market people remember.
+Leave time to browse without assuming the original market's scale, parking pattern or stall mix applies to Hill & Ridge.
 
 ### Balnarring Emu Plains Market
 
@@ -75,9 +75,9 @@ The small **Somers** makers market (currently running on the first Sunday of eve
 
 ## Weekend one: the market-and-vineyards Saturday
 
-This is the weekend most people should be doing on a Red Hill Community Market day (the first Saturday of the month, September to May). The logic is simple: use the market as a breakfast-and-provisions move, then use the rest of the day for the slower ridge experience.
+Use this plan on a confirmed Hill & Ridge date, including Saturday 3 October 2026 if the organiser still lists it when you travel. The logic is simple: begin at the market, then use the rest of the day for the slower ridge experience.
 
-**7:45am: Arrive at the Red Hill Community Market.** Park while you still can. Take ninety minutes. Get a bacon roll from one of the stalls, coffee, a punnet of strawberries. Walk the whole grounds; it is bigger than it looks. Buy the honey, the olives, the bread, the cheese, one or two bottles from the small producers with stalls near the entrance. Put everything in the cooler bag in the car.
+**9am: Arrive at Hill & Ridge Community Market.** Allow an hour to browse and buy from the stallholders present that day. Bring a cooler bag if you plan to buy produce. Check the organiser's current date and opening time before leaving home.
 
 **9:30am: A ridge loop walk.** Drive ten minutes to the **Red Hill Hinterland Cycling** trailhead area or the shorter paths at **Greens Bush**, and walk twenty or thirty minutes through the eucalyptus scrub. A reset between the market and lunch. The vineyards can wait an hour and will feel better for it.
 
@@ -85,7 +85,7 @@ This is the weekend most people should be doing on a Red Hill Community Market d
 
 **12:30pm: Cellar-door lunch.** Lunch sits well at one of the producers you cannot shop at directly at the market: **Montalto**, **Ten Minutes by Tractor**, **Polperro**, or **Merricks General Wine Store**. Book in advance. Budget two hours.
 
-**3pm: Red Hill Cheese and Mornington Peninsula Chocolates.** A producer loop on the way out. The cheese you did not buy at the market, the chocolates you did not know you wanted. Both are on the drive back down.
+**3pm: Red Hill Cheese and Mornington Peninsula Chocolates.** A producer loop on the way out, subject to their current opening hours.
 
 **4pm: Home, or a late afternoon walk.** The day is complete by four. If you have come down for the day only, head home before the Sunday traffic builds. If you are staying, take one last walk somewhere on the way to the cottage and let the afternoon run down on its own.
 
@@ -112,7 +112,8 @@ The quiet gift is that the market itself often becomes the most memorable hour o
 ## Quick reference
 
 - **Mornington Farmers Market**: second Saturday, Mornington Racecourse, 8am–1pm
-- **Red Hill Community Market**: first Saturday Sep–May, Red Hill Community Centre, 8am–1pm
+- **Original Red Hill Community Market**: temporarily closed; check its organiser for reopening news
+- **Hill & Ridge Community Market**: separate organiser, Red Hill Recreation Reserve; 3 October 2026 listed for 9am–2pm; confirm before travelling
 - **Balnarring Emu Plains Market**: third Saturday Sep–April, Balnarring Racecourse, 9am–2pm
 - **Somers Makers Market**: first Sunday of alternate months, Somers village precinct
 
