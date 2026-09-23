@@ -93,7 +93,7 @@ const presets = CHIP_PRESETS[surface] ?? [];
   <p id="pi-results-status" class="v5-vh" role="status" aria-live="polite"></p>
 </div>
 
-{withSheet && <FilterSheet noun={noun} facets={facets} />}
+{withSheet && <FilterSheet noun={noun} facets={facets} surface={surface} />}
 
 <style>
   .v5-filterbar {

@@ -12,9 +12,11 @@
  * focus restored to the invoking button on close, 48px targets, safe-area
  * padding. Opened by any [data-sheet-open] button (FilterBar renders one).
  */
-import { FACET_OPTIONS, type FacetKey } from '../../lib/facets';
+import { surfaceFacetOptions, type FacetKey } from '../../lib/facets';
 
 export interface Props {
+  /** Hub whose category and mood choices should be shown. */
+  surface?: string;
   /** Plural noun for the apply button: "Show 23 places". */
   noun?: string;
   /** Sheet title. */
@@ -35,10 +37,10 @@ const GROUP_LABELS: Record<FacetKey, string> = {
 // Fixed order per mobile-strategy s5: Town, Category, Price, Mood, Party, When.
 const DEFAULT_ORDER: FacetKey[] = ['place', 'cat', 'price', 'mood', 'party', 'date'];
 
-const { noun = 'places', title = 'Filters', facets = DEFAULT_ORDER } = Astro.props;
+const { noun = 'places', title = 'Filters', facets = DEFAULT_ORDER, surface = '' } = Astro.props;
 
 const groups = facets
-  .map((key) => ({ key, label: GROUP_LABELS[key], options: FACET_OPTIONS[key] ?? [] }))
+  .map((key) => ({ key, label: GROUP_LABELS[key], options: surfaceFacetOptions(surface, key) }))
   .filter((g) => g.options.length > 0);
 ---
 

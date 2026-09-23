@@ -225,6 +225,31 @@ export const FACET_OPTIONS: Record<FacetKey, FacetOption[]> = {
   ],
 };
 
+/** Reader-facing choices on the four vertical hubs. The master taxonomy remains shared. */
+export const SURFACE_FACET_VALUES: Record<string, Partial<Record<FacetKey, string[]>>> = {
+  eat: {
+    cat: ['restaurant', 'cafe', 'bakery', 'pub', 'brewery', 'distillery', 'providore', 'market'],
+    mood: ['long-lunch', 'date-night', 'quick', 'slow', 'scenic', 'garden', 'on-the-water', 'cosy', 'worth-the-drive'],
+  },
+  stay: {
+    cat: ['hotel', 'villa', 'cottage', 'glamping', 'farm-stay'],
+  },
+  wine: {
+    cat: ['winery', 'brewery', 'distillery'],
+    mood: ['tasting-first', 'lunch-attached', 'small-quiet', 'architecture', 'scenic', 'garden', 'cosy'],
+  },
+  explore: {
+    cat: ['spa', 'walk', 'beach', 'golf', 'gallery', 'lookout', 'attraction', 'park', 'tour', 'garden', 'market'],
+  },
+};
+
+export function surfaceFacetOptions(surface: string, key: FacetKey): FacetOption[] {
+  const allowed = SURFACE_FACET_VALUES[surface]?.[key];
+  return allowed
+    ? allowed.flatMap((value) => FACET_OPTIONS[key].filter((option) => option.value === value))
+    : FACET_OPTIONS[key];
+}
+
 // Validity sets so getFacets can never emit a value outside FACET_OPTIONS.
 const VALID: Record<FacetKey, Set<string>> = {
   place: new Set(FACET_OPTIONS.place.map((o) => o.value)),

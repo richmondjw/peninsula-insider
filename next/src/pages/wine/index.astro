@@ -339,7 +339,7 @@ const faqSchema = {
         of the page 2026-07-24 per James). Slotted inside the directory so the
         sticky bar has the full list height to stick against. ONE filter
         state still governs The Six, the kitchens rows and this directory. */}
-    <FilterBar slot="before-list" surface="wine" noun="cellar doors" sticky={true}>
+    <FilterBar slot="before-list" surface="wine" noun="cellar doors" sticky={true} facets={['place', 'cat', 'price', 'mood', 'party']}>
       <SortControl />
     </FilterBar>
 

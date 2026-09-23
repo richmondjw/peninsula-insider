@@ -227,9 +227,6 @@ const season = getAustralianSeasonLower(now);
             </button>
           ))}
         </div>
-        <p class="home-cover__edit-hint" data-cover-hint aria-hidden="true">
-          Photo 1 of {slides.length} - right-click the picture to replace it
-        </p>
       </div>
     )}
   </div>
@@ -250,7 +247,6 @@ const season = getAustralianSeasonLower(now);
 
         var slides = Array.prototype.slice.call(root.querySelectorAll('.home-cover__plate'));
         var dots = Array.prototype.slice.call(root.querySelectorAll('[data-cover-dot]'));
-        var hint = root.querySelector('[data-cover-hint]');
         var live = root.querySelector('[data-cover-live]');
         if (slides.length < 2) { root.dataset.coverReady = '1'; return; }
 
@@ -299,10 +295,6 @@ const season = getAustralianSeasonLower(now);
             dots[next].setAttribute('aria-current', 'true');
           }
           current = next;
-          if (hint) {
-            hint.textContent = 'Photo ' + (current + 1) + ' of ' + slides.length +
-              ' - right-click the picture to replace it';
-          }
           /* Announce only what the reader asked for. Announcing every
              autoplay tick would make the homepage unusable with a screen
              reader. */
@@ -622,25 +614,12 @@ const season = getAustralianSeasonLower(now);
     .home-cover__arrow { display: none; }
   }
 
-  .home-cover__edit-hint {
-    margin: 0;
-    font-family: var(--font-ui);
-    font-size: var(--fs-100);
-    letter-spacing: 0.02em;
-    color: var(--soft-inverse);
-    display: none;
-  }
-
-  /* Edit mode, set by the inline editor on <body>: hold the arrows open and
-     say which slide is showing, so replacing a specific photograph is a
-     two-step job - step to it, right-click it. */
+  /* Edit mode, set by the inline editor on <body>: hold the arrows open
+     while the editor selects a photograph. */
   :global(body[data-pi-edit-mode='on']) .home-cover__arrow {
     opacity: 1;
   }
 
-  :global(body[data-pi-edit-mode='on']) .home-cover__edit-hint {
-    display: block;
-  }
 
   .home-cover__live {
     position: absolute;

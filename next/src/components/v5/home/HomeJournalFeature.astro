@@ -4,8 +4,9 @@
  * (page-redesigns.md 1.9 item 6; wireframes.html #home note 5: "Exactly
  * one Journal feature; more editorial lives behind Journal").
  *
- * The latest published editorial article wins; Picks, plans, service pages
- * and weekend-picker dispatches are excluded. Hero resolves through resolveHero so CMS image overrides
+ * The desk selects a current seasonal feature and an evergreen fallback.
+ * Picks remain discoverable at their own URLs but never fill this curated slot.
+ * Hero resolves through resolveHero so CMS image overrides
  * survive rebuilds; the img carries the editableImage slot.
  */
 import { getCollection } from 'astro:content';
@@ -14,15 +15,12 @@ import { routeSlug, formatLabel } from '../../../lib/editorial';
 import { resolveHero } from '../../../lib/inline-edit/resolve-hero';
 import { editableImage } from '../../../lib/inline-edit/attrs';
 
-// The homepage flagship feature is an editorial piece, not a weekend-picker
-// dispatch or a B2B service page (past-dated event guides are dropped by
-// clearing their `featured` flag).
-const published = (await getCollection('articles', ({ data }) => isJournalDiscovery(data)))
-  .filter((a) => a.data.format !== 'weekend-picker' && a.data.format !== 'service')
-  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
-
-// Newest editorial feature; dated Picks never fill this slot automatically.
-const lead = published[0];
+const published = await getCollection('articles', ({ data }) => isJournalDiscovery(data));
+// The spring school-holiday guide expires on 5 October. Its own
+// promotionExpiresAt controls the switch to the evergreen Red Hill guide.
+const lead = ['spring-school-holidays-2026', 'area-guide-red-hill']
+  .map((slug) => published.find((article) => routeSlug(article) === slug))
+  .find((article) => article !== undefined);
 const slug = lead ? routeSlug(lead) : '';
 const hero = lead ? await resolveHero('article', slug, lead.data, 'hero') : null;
 const kicker = lead?.data.tags.includes('insider-picks') ? 'Insider Picks' : (lead ? (formatLabel[lead.data.format] ?? 'Feature') : '');
