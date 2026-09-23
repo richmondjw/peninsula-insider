@@ -385,9 +385,9 @@ test('the page states no fixed count of its own', () => {
   assert.deepEqual(digits, [], `a count is typed into the page: ${digits.join(', ')}`);
 });
 
-test('the retired public methodology route consolidates into About', () => {
+test('the retired public methodology route forwards to About', () => {
   const copy = readerCopy();
-  assert.match(copy, /<Redirect to="\/about\/" consolidate/, 'old links must reach About');
+  assert.match(copy, /<Redirect to="\/about\/" noindex/, 'old links must reach About');
   assert.doesNotMatch(copy, /<section|<article/, 'internal checking details must not render publicly');
 });
 
