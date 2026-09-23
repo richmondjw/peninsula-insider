@@ -17,12 +17,14 @@
  *
  * - Default (`consolidate` omitted): emit `noindex`. Correct for utility hops
  *   (login, newsletter handoffs) that never held search equity.
- * - `consolidate` (URL migrations): emit canonical WITHOUT noindex. Google
+ * - `consolidate` (URL migrations): emit canonical WITHOUT noindex by default. Google
  *   treats noindex+canonical as contradictory and resolves it by dropping the
  *   page and ignoring the canonical, so the old URL's accumulated equity is
  *   discarded instead of passed to the new one. GitHub Pages cannot serve a
  *   301, so a canonical-only thin page is the strongest consolidation signal
- *   available. Verified 2026-08-08: /places/sorrento/ was "Excluded by
+ *   available. `noindex` can be added for retired pages backed by an edge 301;
+ *   the static page then becomes a deindexing fallback if the edge rule is off.
+ *   Verified 2026-08-08: /places/sorrento/ was "Excluded by
  *   'noindex' tag" with googleCanonical pointing at itself, not the target.
  *
  * Usage:
@@ -37,12 +39,14 @@ export interface Props {
   to: string;
   /**
    * Set for permanent URL migrations so search engines consolidate signals
-   * onto `to`. Suppresses the noindex tag. Leave unset for utility redirects.
+   * onto `to`. Suppresses the noindex tag unless explicitly requested.
    */
   consolidate?: boolean;
+  /** Retired public URL: suppress indexing while edge 301 rollout is pending. */
+  noindex?: boolean;
 }
 
-const { to, consolidate = false } = Astro.props;
+const { to, consolidate = false, noindex = false } = Astro.props;
 const canonicalTarget = new URL(to, 'https://peninsulainsider.com.au');
 // Enquiry selectors and anchors choose a UI state, not a separate indexable page.
 canonicalTarget.search = '';
@@ -72,7 +76,7 @@ const canonical = canonicalTarget.href;
     </script>
     <!-- No-JS fallback -->
     <meta http-equiv="refresh" content={`0;url=${to}`}>
-    {!consolidate && <meta name="robots" content="noindex" />}
+    {(!consolidate || noindex) && <meta name="robots" content="noindex" />}
     {consolidate && <link rel="canonical" href={canonical}>}
   </head>
   <body></body>
