@@ -1,5 +1,6 @@
 ---
 import PlayBeacon from '../../play/PlayBeacon.astro';
+import V5MegaPanel from './V5MegaPanel.astro';
 import { v5Pillars } from '../../../lib/v5-nav';
 import '../../../styles/editorial-shell.css';
 const { section = 'home' } = Astro.props;
@@ -33,7 +34,15 @@ const active = path.startsWith('/explore/plans') || path.startsWith('/plans') ? 
 </div>
 </div>
 <nav aria-label="Main navigation" class="site-nav" id="site-nav">
-<div class="wrap">{v5Pillars.map(p => <a href={p.hub} aria-current={active === p.key ? 'page' : undefined}>{p.label}</a>)}<details class="personal-menu">
+<div class="wrap">{v5Pillars.map(p => <div class="pillar-menu" data-pillar-menu>
+<div class="pillar-menu__trigger">
+<a href={p.hub} aria-current={active === p.key ? 'page' : undefined}>{p.label}</a>
+<button class="pillar-menu__toggle" type="button" aria-label={`Open ${p.label} menu`} aria-expanded="false" aria-controls={`v5-panel-${p.key}`} data-pillar-toggle>
+<svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14" fill="none"><path d="m3.5 6 4.5 4 4.5-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+</div>
+<V5MegaPanel pillar={p} />
+</div>)}<details class="personal-menu">
 <summary>Your Peninsula <span aria-hidden="true">⌄</span>
 </summary>
 <div class="personal-panel">
@@ -60,14 +69,69 @@ function initEditorialShell(){
  const button=header.querySelector<HTMLButtonElement>('.mobile-menu')!;
  const nav=header.querySelector<HTMLElement>('#site-nav')!;
  const personal=header.querySelector<HTMLDetailsElement>('.personal-menu')!;
+ const menus=[...header.querySelectorAll<HTMLElement>('[data-pillar-menu]')];
+ let closeTimer:number|undefined;
 
- function close(){button.setAttribute('aria-expanded','false');button.setAttribute('aria-label','Open navigation');nav.classList.remove('open');}
+ function closeMenu(menu:HTMLElement){
+   const panel=menu.querySelector<HTMLElement>('[data-v5-mega]')!;
+   const toggle=menu.querySelector<HTMLButtonElement>('[data-pillar-toggle]')!;
+   panel.hidden=true;
+   toggle.setAttribute('aria-expanded','false');
+   toggle.setAttribute('aria-label',`Open ${menu.querySelector('.pillar-menu__trigger a')?.textContent?.trim()} menu`);
+   menu.classList.remove('is-open');
+ }
+ function closePanels(except?:HTMLElement){
+  window.clearTimeout(closeTimer);
+  menus.forEach(menu=>{if(menu!==except)closeMenu(menu);});
+ }
+ function openPanel(menu:HTMLElement){
+  closePanels(menu);
+  const panel=menu.querySelector<HTMLElement>('[data-v5-mega]')!;
+  const toggle=menu.querySelector<HTMLButtonElement>('[data-pillar-toggle]')!;
+  panel.hidden=false;
+  toggle.setAttribute('aria-expanded','true');
+  toggle.setAttribute('aria-label',`Close ${menu.querySelector('.pillar-menu__trigger a')?.textContent?.trim()} menu`);
+  menu.classList.add('is-open');
+  personal.open=false;
+ }
+ menus.forEach(menu=>{
+  const toggle=menu.querySelector<HTMLButtonElement>('[data-pillar-toggle]')!;
+  menu.addEventListener('pointerenter',e=>{if(e.pointerType==='mouse' && window.matchMedia('(min-width: 1101px)').matches)openPanel(menu);});
+  menu.addEventListener('pointerleave',e=>{if(e.pointerType==='mouse' && window.matchMedia('(min-width: 1101px)').matches)closeTimer=window.setTimeout(()=>closePanels(),180);});
+  menu.addEventListener('focusout',e=>{if(!menu.contains(e.relatedTarget as Node))window.setTimeout(()=>closeMenu(menu),0);});
+  toggle.addEventListener('click',()=>{menu.classList.contains('is-open')?closePanels():openPanel(menu);});
+ });
+
+ function close(){button.setAttribute('aria-expanded','false');button.setAttribute('aria-label','Open navigation');nav.classList.remove('open');closePanels();}
  button.addEventListener('click',()=>{const open=button.getAttribute('aria-expanded')!=='true';button.setAttribute('aria-expanded',String(open));button.setAttribute('aria-label',open?'Close navigation':'Open navigation');nav.classList.toggle('open',open);});
- const onKeydown=(e:KeyboardEvent)=>{if(e.key!=='Escape')return;if(personal.open){personal.open=false;personal.querySelector('summary')?.focus();}else if(button.getAttribute('aria-expanded')==='true'){close();button.focus();}};
- const onClick=(e:MouseEvent)=>{if(!personal.contains(e.target as Node))personal.open=false;};
+ const onKeydown=(e:KeyboardEvent)=>{if(e.key!=='Escape')return;const open=menus.find(menu=>menu.classList.contains('is-open'));if(open){closePanels();open.querySelector<HTMLButtonElement>('[data-pillar-toggle]')?.focus();}else if(personal.open){personal.open=false;personal.querySelector('summary')?.focus();}else if(button.getAttribute('aria-expanded')==='true'){close();button.focus();}};
+ const onClick=(e:MouseEvent)=>{if(!personal.contains(e.target as Node))personal.open=false;if(!nav.contains(e.target as Node))closePanels();};
  document.addEventListener('keydown',onKeydown);
  document.addEventListener('click',onClick);
- shellCleanup=()=>{document.removeEventListener('keydown',onKeydown);document.removeEventListener('click',onClick);};
+ shellCleanup=()=>{window.clearTimeout(closeTimer);document.removeEventListener('keydown',onKeydown);document.removeEventListener('click',onClick);};
 }
 initEditorialShell();document.addEventListener('astro:page-load',initEditorialShell);
 </script>
+<style>
+ .site-nav{position:relative}
+ .pillar-menu__trigger{display:flex;align-items:center}
+ .pillar-menu__toggle{display:flex;align-items:center;justify-content:center;width:25px;height:44px;margin-left:-2px;padding:0;border:0;background:transparent;color:#53636d;cursor:pointer}
+ .pillar-menu__toggle svg{transition:transform .18s ease}
+ .pillar-menu.is-open .pillar-menu__toggle svg{transform:rotate(180deg)}
+ .pillar-menu.is-open .pillar-menu__trigger>a{color:#10527e}
+ .pillar-menu__toggle:focus-visible{outline:3px solid #11309c;outline-offset:2px}
+ @media(max-width:1100px){
+  .site-nav{display:none}
+  .site-nav.open{display:block}
+  .site-nav>.wrap{display:grid;grid-template-columns:1fr;gap:0;padding:10px 0 20px}
+  .mobile-menu{display:flex;align-items:center;justify-content:center;cursor:pointer}
+  .pillar-menu{border-bottom:1px solid #e4e5e3}
+  .pillar-menu__trigger{justify-content:space-between}
+  .pillar-menu__trigger>a{flex:1}
+  .pillar-menu__toggle{width:46px;height:46px;border-left:1px solid #e4e5e3}
+  .personal-menu{margin:0;border-bottom:1px solid #e4e5e3}
+  .personal-panel{position:static;box-shadow:none;border:0;padding:0 8px 10px}
+  .site-nav .mobile-search,.site-nav .mobile-note{display:flex}
+ }
+ @media(max-width:767px){.site-nav>.wrap{grid-template-columns:1fr;gap:0}}
+</style>

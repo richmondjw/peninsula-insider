@@ -238,7 +238,7 @@ const configuredV5Pillars = [
       eyebrow: editorsPickEyebrow,
       title: 'Stories from the Peninsula',
       verdict: 'Explore our latest editorial stories and guides, or find a subject by theme.',
-      href: '/journal/#themes',
+      href: '/journal/#archive',
       cta: 'Explore the Journal',
     },
   },
