@@ -96,8 +96,15 @@ function initEditorialShell(){
  }
  menus.forEach(menu=>{
   const toggle=menu.querySelector<HTMLButtonElement>('[data-pillar-toggle]')!;
-  menu.addEventListener('pointerenter',e=>{if(e.pointerType==='mouse' && window.matchMedia('(min-width: 1101px)').matches)openPanel(menu);});
-  menu.addEventListener('pointerleave',e=>{if(e.pointerType==='mouse' && window.matchMedia('(min-width: 1101px)').matches)closeTimer=window.setTimeout(()=>closePanels(),180);});
+  let hoverTimer:number|undefined;
+  menu.addEventListener('pointerenter',e=>{
+   if(e.pointerType!=='mouse' || !window.matchMedia('(min-width: 1101px)').matches)return;
+   // Give a direct chevron click priority over hover-opening the panel.
+   if(toggle.contains(document.elementFromPoint(e.clientX,e.clientY)))hoverTimer=window.setTimeout(()=>openPanel(menu),550);
+   else openPanel(menu);
+  });
+  menu.addEventListener('pointerleave',e=>{window.clearTimeout(hoverTimer);if(e.pointerType==='mouse' && window.matchMedia('(min-width: 1101px)').matches)closeTimer=window.setTimeout(()=>closePanels(),180);});
+  toggle.addEventListener('pointerdown',()=>window.clearTimeout(hoverTimer));
   menu.addEventListener('focusout',e=>{if(!menu.contains(e.relatedTarget as Node))window.setTimeout(()=>closeMenu(menu),0);});
   toggle.addEventListener('click',()=>{menu.classList.contains('is-open')?closePanels():openPanel(menu);});
  });
