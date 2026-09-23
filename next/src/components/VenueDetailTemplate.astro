@@ -205,6 +205,7 @@ const hasWines = isWinery && data.wines;
 const hasRestaurant = isWinery && data.restaurant;
 const hasAccommodation = isWinery && data.accommodation;
 const isClosed = data.status === 'closed' || isPermanentlyClosed(data);
+const isUnverifiedPaused = data.status === 'paused' && data.sourceStatus === 'unsourced';
 
 // Wine-specific derived signals
 const isAppointmentOnly = isWinery && data.visiting?.bookingRequired === true;
@@ -277,6 +278,9 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
     })}>{data.name}</h1>
     {isClosed && (
       <p class="venue-detail__closed-notice">This venue is closed. The page is preserved for historical reference.</p>
+    )}
+    {isUnverifiedPaused && (
+      <p class="venue-detail__closed-notice">Current operation, schedule and location are unverified. This listing is paused; check a primary source before planning a visit.</p>
     )}
     <p class="venue-detail__signature" {...editableText({
       entityType: 'venue', entitySlug: venueSlug, fieldPath: 'signature',
@@ -529,8 +533,8 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
 
           <dt>Location</dt>
           <dd>
-            {data.address}
-            {data.address && (
+            {isUnverifiedPaused ? "Market location unverified" : data.address}
+            {data.address && !isUnverifiedPaused && (
               <>
                 {' '}·{' '}
                 <a
@@ -596,8 +600,7 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
               <dd>{data.hoursNote}</dd>
             </>
           )}
-          <dt>Directions</dt>
-          <dd><a href={directionsUrl} target="_blank" rel="noopener noreferrer" data-evt="directions_click" data-entity-type="venue" data-entity-slug={venueSlug} data-surface="venue-facts">Get directions</a></dd>
+          {!isUnverifiedPaused && <><dt>Directions</dt><dd><a href={directionsUrl} target="_blank" rel="noopener noreferrer" data-evt="directions_click" data-entity-type="venue" data-entity-slug={venueSlug} data-surface="venue-facts">Get directions</a></dd></>}
 
           {visitorInformation?.accessibility && <><dt>Accessibility</dt><dd>{visitorInformation.accessibility}</dd></>}
           {visitorInformation?.children && <><dt>With children</dt><dd>{visitorInformation.children}</dd></>}

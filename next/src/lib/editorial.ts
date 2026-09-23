@@ -204,7 +204,9 @@ export function isPermanentlyClosed(entry: any): boolean {
  * suppresses the booking and contact actions.
  */
 export function isListableVenue(entry: any): boolean {
-  return !isPermanentlyClosed(entry);
+  const data = entry?.data ?? entry;
+  // Paused records with an unverified source must not appear as current recommendations.
+  return !isPermanentlyClosed(entry) && !(data?.status === 'paused' && data?.sourceStatus === 'unsourced');
 }
 
 export const stayTypes = ['hotel', 'villa', 'cottage', 'glamping', 'farm-stay', 'spa'];

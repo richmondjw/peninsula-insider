@@ -15,7 +15,7 @@ const ITINERARY_CURATION: Record<string, PlanCuration> = {
     displayTitle: 'Ridge to sea',
     editorialReason: 'Our starting point for a first weekend: vineyard lunches, a coastal walk and Point Nepean, with a different base each night.',
     editorialPriority: 100,
-    bookingNote: 'Book both stays and your lunches. Check the Red Hill Market date before including that stop.',
+    bookingNote: 'Book both stays and your lunches. Check the Hill & Ridge organiser for the current market date and weather before including that stop.',
   },
   'flinders-and-cape-reset': {
     displayTitle: 'Flinders and the Cape',
