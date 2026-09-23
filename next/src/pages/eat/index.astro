@@ -173,12 +173,7 @@ for (const venue of venues) {
   });
 }
 
-// ── From the Journal (3 maximum). ───────────────────────────────────────────
-//    EDITORIAL: this rail is still the winter selection. The three pieces
-//    below are real published articles and keep their winter identity, but
-//    the CURATION is seasonal and needs the desk to re-pick for the season
-//    in hand. Flagged rather than guessed: choosing which pieces lead a hub
-//    is an editorial call, not an engineering one.
+// ── From the Journal (3 maximum). Keep this seasonal selection current. ────
 const articlesAll = (await getCollection('articles', ({ data }) => data.status === 'published'))
   .sort((a, b) => (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0));
 
@@ -204,24 +199,17 @@ const articleJournalItem = (slug: string, verdict: string, displayTitle?: string
 };
 
 const journalItems = [
-  {
-    title: 'Mornington Peninsula in Winter',
-    href: '/journal/mornington-peninsula-in-winter/',
-    entitySlug: 'mornington-peninsula-in-winter',
-    image: { src: '/images/sourced/article-cellar-door-01.webp', alt: 'Cellar door season on the Red Hill plateau' },
-    verdict: 'The full winter case: cellar door fires, pub lunches, coastal walks in weather, and why July is the insider season.',
-    byline: 'Peninsula Insider editors',
-    readTime: '7 min read',
-    dateISO: '2026-04-14',
-  },
   articleJournalItem(
-    'a-winter-peninsula-weekend',
-    'A two-night winter plan that works: one thermal session, one big dinner, and enough structure without overbooking the weekend.',
+    'the-spring-peninsula',
+    'New leaf, quieter cellar doors, and the case for a slow Spring weekend before the summer rush.',
   ),
   articleJournalItem(
-    'insider-picks-2026-07-28',
-    "This week's table: Doot Doot Doot in winter, plus the closing MPRG shows to pair with lunch.",
-    'Doot Doot Doot in winter',
+    'the-long-lunch',
+    'Three hatted restaurants, a bay view, and the case for letting Sunday lunch run long.',
+  ),
+  articleJournalItem(
+    'the-seafood-list',
+    'The Peninsula seafood story, from fishmongers near the pier to the bay-view dining rooms worth booking.',
   ),
 ].filter((item): item is JournalItem => Boolean(item));
 
