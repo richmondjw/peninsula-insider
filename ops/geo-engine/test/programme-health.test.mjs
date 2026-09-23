@@ -19,10 +19,14 @@ test('programme monitor accepts only a fresh Jev run with a terminal receipt', (
     writeFileSync(path.join(run, 'summary.json'), JSON.stringify({system: {
       decisionProvider: 'jev', decisionProbe: {ok: true}, errors: []
     }}));
-    writeFileSync(path.join(state, 'latest-report.txt'), 'report');
+    writeFileSync(path.join(state, 'latest-report.txt'), 'report sample-run');
     put('step-latest.json', {runId: 'sample-run', terminal: true, engine: 'ok', release_status: 'no_changes'});
     const check = () => spawnSync('python3', [script, state], {encoding: 'utf8'});
     assert.equal(check().status, 0);
+    writeFileSync(path.join(state, 'latest-report.txt'), 'report from an earlier run');
+    assert.match(check().stdout, /executive report does not match latest run/);
+    assert.equal(check().status, 1);
+    writeFileSync(path.join(state, 'latest-report.txt'), 'report sample-run');
     put('step-latest.json', {runId: 'sample-run', terminal: false, engine: 'running', release_status: 'pending_validation'});
     assert.equal(check().status, 1);
     put('step-latest.json', {runId: 'sample-run', terminal: true, engine: 'ok', release_status: 'no_changes'});
