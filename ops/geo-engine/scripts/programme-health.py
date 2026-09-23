@@ -33,8 +33,11 @@ def assess(state, runs, now=None, max_age_hours=36):
             problems.append('latest audit has no matching terminal engine receipt')
         elif step.get('release_status') not in ('verified', 'no_changes'):
             problems.append(f"release status {step.get('release_status')} is not terminal acceptance")
-        if not (state / 'latest-report.txt').exists():
+        report_path = state / 'latest-report.txt'
+        if not report_path.exists():
             problems.append('executive report missing')
+        elif run_id not in report_path.read_text():
+            problems.append('executive report does not match latest run')
         label = f'{run_id} age={age_hours:.1f}h release={step.get("release_status")}'
     except (OSError, KeyError, ValueError, TypeError, json.JSONDecodeError) as error:
         problems.append(f'evidence unreadable: {type(error).__name__}')
