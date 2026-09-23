@@ -3567,36 +3567,6 @@
       ]
     },
     {
-      "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/event/acoustic-saturdays-peppers-moonah-links-2026/heroImage-1785724600085.jpg",
-      "originalBytes": 578785,
-      "variants": [
-        {
-          "src": "/_media/9a0f2fd0310892d22be3-480.webp",
-          "width": 480,
-          "height": 290,
-          "bytes": 23820
-        },
-        {
-          "src": "/_media/9a0f2fd0310892d22be3-800.webp",
-          "width": 800,
-          "height": 484,
-          "bytes": 63070
-        },
-        {
-          "src": "/_media/9a0f2fd0310892d22be3-1280.webp",
-          "width": 1280,
-          "height": 774,
-          "bytes": 151748
-        },
-        {
-          "src": "/_media/9a0f2fd0310892d22be3-1920.webp",
-          "width": 1920,
-          "height": 1161,
-          "bytes": 297362
-        }
-      ]
-    },
-    {
       "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/event/family-mystery-picnic-mornington-peninsula-2026/heroImage-1785585971117.jpg",
       "originalBytes": 563077,
       "variants": [
@@ -3657,32 +3627,26 @@
       ]
     },
     {
-      "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/article/the-winter-long-lunch/hero-1786625857234.jpg",
-      "originalBytes": 2935170,
+      "source": "/images/sourced/home-cover.webp",
+      "originalBytes": 129134,
       "variants": [
         {
-          "src": "/_media/206e9033c1716c88e8f5-480.webp",
+          "src": "/_media/1fd67c290d8d1bd897df-480.webp",
           "width": 480,
-          "height": 319,
-          "bytes": 28166
+          "height": 320,
+          "bytes": 20200
         },
         {
-          "src": "/_media/206e9033c1716c88e8f5-800.webp",
+          "src": "/_media/1fd67c290d8d1bd897df-800.webp",
           "width": 800,
           "height": 533,
-          "bytes": 71098
+          "bytes": 44952
         },
         {
-          "src": "/_media/206e9033c1716c88e8f5-1280.webp",
+          "src": "/_media/1fd67c290d8d1bd897df-1280.webp",
           "width": 1280,
           "height": 853,
-          "bytes": 159464
-        },
-        {
-          "src": "/_media/206e9033c1716c88e8f5-1920.webp",
-          "width": 1920,
-          "height": 1280,
-          "bytes": 312284
+          "bytes": 105674
         }
       ]
     },
@@ -4677,30 +4641,6 @@
       ]
     },
     {
-      "source": "/images/sourced/home-cover.webp",
-      "originalBytes": 129134,
-      "variants": [
-        {
-          "src": "/_media/1fd67c290d8d1bd897df-480.webp",
-          "width": 480,
-          "height": 320,
-          "bytes": 20200
-        },
-        {
-          "src": "/_media/1fd67c290d8d1bd897df-800.webp",
-          "width": 800,
-          "height": 533,
-          "bytes": 44952
-        },
-        {
-          "src": "/_media/1fd67c290d8d1bd897df-1280.webp",
-          "width": 1280,
-          "height": 853,
-          "bytes": 105674
-        }
-      ]
-    },
-    {
       "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/article/the-chardonnay-case/hero-1780484467153.jpg",
       "originalBytes": 78557,
       "variants": [
@@ -4805,6 +4745,36 @@
           "width": 1920,
           "height": 1234,
           "bytes": 155928
+        }
+      ]
+    },
+    {
+      "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/article/the-winter-long-lunch/hero-1786625857234.jpg",
+      "originalBytes": 2935170,
+      "variants": [
+        {
+          "src": "/_media/206e9033c1716c88e8f5-480.webp",
+          "width": 480,
+          "height": 319,
+          "bytes": 28166
+        },
+        {
+          "src": "/_media/206e9033c1716c88e8f5-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 71098
+        },
+        {
+          "src": "/_media/206e9033c1716c88e8f5-1280.webp",
+          "width": 1280,
+          "height": 853,
+          "bytes": 159464
+        },
+        {
+          "src": "/_media/206e9033c1716c88e8f5-1920.webp",
+          "width": 1920,
+          "height": 1280,
+          "bytes": 312284
         }
       ]
     },
@@ -6101,6 +6071,30 @@
           "width": 1920,
           "height": 1280,
           "bytes": 108626
+        }
+      ]
+    },
+    {
+      "source": "/images/sourced/whats-on-winter-wine.webp",
+      "originalBytes": 100602,
+      "variants": [
+        {
+          "src": "/_media/5b882896ca6fd113d0bb-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 23664
+        },
+        {
+          "src": "/_media/5b882896ca6fd113d0bb-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 48274
+        },
+        {
+          "src": "/_media/5b882896ca6fd113d0bb-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 91134
         }
       ]
     },
