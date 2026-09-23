@@ -104,7 +104,7 @@ With accommodation and the anchor meal locked in, fill the remaining time. The r
 - **Arthurs Seat Eagle**, gondola to the summit (1 hour)
 - A cellar door, **Polperro**, **Montalto**, or **Crittenden** (45 minutes each)
 - A producer visit, **Red Hill Cheese**, **Main Ridge Dairy** (30 minutes)
-- **Red Hill Market**, first Saturday of the month only (1–2 hours)
+- **Hill & Ridge Community Market**, only on a confirmed organiser date (allow 1–2 hours; 3 October 2026 is currently listed, 9am–2pm)
 - **Alba Thermal Springs** or **Peninsula Hot Springs**, morning session (2 hours including drive)
 
 **Afternoon moves (after lunch):**

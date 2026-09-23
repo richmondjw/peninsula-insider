@@ -13,8 +13,8 @@ heroImage:
   license: "tmp-unsplash"
 format: "editors-letter"
 tags: ["spring", "seasonal", "weekend", "red-hill", "markets", "walks"]
-relatedVenues: ["montalto", "merricks-general-wine-store", "lindenderry", "ten-minutes-by-tractor", "polperro", "crittenden-estate", "paringa-estate", "red-hill-brewery", "flinders-hotel", "tedesca-osteria", "pt-leo-estate", "mornington-farmers-market", "red-hill-market", "balnarring-market"]
-relatedExperiences: ["bushrangers-bay-walk", "red-hill-market", "arthurs-seat-lookout", "mount-martha-beach", "mornington-foreshore-walk", "red-hill-hinterland-cycling", "farnsworth-track"]
+relatedVenues: ["montalto", "merricks-general-wine-store", "lindenderry", "ten-minutes-by-tractor", "polperro", "crittenden-estate", "paringa-estate", "red-hill-brewery", "flinders-hotel", "tedesca-osteria", "pt-leo-estate", "mornington-farmers-market", "balnarring-market"]
+relatedExperiences: ["bushrangers-bay-walk", "arthurs-seat-lookout", "mount-martha-beach", "mornington-foreshore-walk", "red-hill-hinterland-cycling", "farnsworth-track"]
 readingTimeMinutes: 7
 featured: false
 status: "published"
@@ -28,7 +28,7 @@ clusterLinks:
     href: "/journal/hatted-restaurants-mornington-peninsula-2025/"
 faq:
   - question: "Is spring a good time to visit the Mornington Peninsula?"
-    answer: "September and October are among the Peninsula's best months. The vines return to leaf, wildflowers are on the coastal walks, cellar doors reopen to walk-ins after winter, and crowds are well below summer levels. The Red Hill Community Market restarts in September."
+    answer: "September and October are among the Peninsula's best months. The vines return to leaf, wildflowers are on the coastal walks, and crowds are generally below summer levels. Check individual cellar-door hours and current market calendars before travelling; the original Red Hill Community Market is temporarily closed."
   - question: "What's special about October on the Mornington Peninsula?"
     answer: "The vineyards are at their most photogenic: bare winter trellises acquiring spring leaf over about ten days. The heath walks (Bushrangers Bay, Farnsworth Track) are in full flower. Cellar doors run their first spring tastings alongside winter release flights, often with the winemakers present."
   - question: "Can you swim at the Mornington Peninsula in spring?"
@@ -49,7 +49,7 @@ If you are looking at the calendar, September and October are the answer. Here i
 
 Start with what the weather does. Melbourne gets a reputation for erratic spring, and the Peninsula follows the same basic pattern, but with two structural advantages: the bay tempers the cold fronts, and the ridge traps enough afternoon sun that by one in the afternoon the vineyards are in the high teens even when the city is still grey. A typical mid-October weekend on the Peninsula runs something like morning fog off the bay, a clear crisp morning by 9am, and blue afternoons topping out around 20–23 degrees. Evenings cool quickly, which is the right kind of weather for a dining room with a fire still in it.
 
-The calendar benefits are considerable. Most of the Peninsula's best cellar doors reopen to walk-ins seven days a week from the start of September after their winter appointment-only months. Most of the smaller producers that do not take walk-ins at all start doing tastings by appointment through October and November in preparation for their cellar-release season. The **Red Hill Community Market** restarts on the first Saturday of September after its winter break, and the spring versions are among the year's best. The gardeners are selling their seedlings, the olive producers are bringing out the pressing from the previous autumn, the cheese stalls are full, and everyone who took three months off is catching up.
+The calendar benefits are considerable. Cellar doors, producers and markets begin changing their hours as spring arrives, so check each venue's current opening days. The original **Red Hill Community Market** is temporarily closed. The separate **Hill & Ridge Community Market** publishes its own dates at Red Hill Recreation Reserve, including Saturday 3 October 2026, 9am–2pm. Check the organiser's calendar before making it part of a weekend plan.
 
 The landscape is distinctive. The Peninsula's hinterland is a patchwork of coastal scrub, vineyard rows, and remnant eucalypt bush, and all three of those layers come back into life dramatically in September. The heath on the way to Bushrangers Bay is flowering through late September. The **Greens Bush** area on the Two Bays walking track has wildflowers through October. The vineyards are at their most architectural in spring: the bare trellises from winter acquire a pale green fringe that transforms the entire plateau over about ten days.
 
@@ -67,7 +67,7 @@ Here is the weekend we would recommend for a first-time spring visitor.
 
 ### Saturday
 
-**7.45am:** The Red Hill Community Market. If you are here on the first Saturday of the month between September and May, this is the unmissable morning. The first spring market (usually early September) is the year's busiest. The mid-spring markets (second and third Saturday of October and November) are the most lush: asparagus, broad beans, flowers, early strawberries, and the community atmosphere at its peak. Arrive early. Park on the residential side streets.
+**9am:** If your Saturday matches a confirmed Hill & Ridge Community Market date, start at Red Hill Recreation Reserve. The organiser lists Saturday 3 October 2026, 9am–2pm. On other weekends, start with a booked breakfast or a producer stop on the ridge instead; check opening hours before travelling.
 
 **9.30am:** A walk. Spring rewards the walks that winter makes uncomfortable. The **Bushrangers Bay Walk** from Cape Schanck is at its best through September and October: the heath above the track is in full flower, the descent to the beach is comfortable, and the return climb is rewarded with warmer air than you would get on the same walk in July. The **Farnsworth Track** at Arthurs Seat is a shorter spring alternative with the same wildflower benefits.
 

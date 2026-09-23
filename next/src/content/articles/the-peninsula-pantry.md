@@ -54,7 +54,7 @@ aiSummary:
   - "Key stops: Red Hill Cheese, the Red Hill Bakery, Balnarring Organic Farm, Boneo Plains Alpacas, the Merricks General Wine Store produce section, and the Flinders Sourdough."
   - "The editorial argument: the Peninsula's food culture is more interesting than its restaurant list suggests. The farm gates and produce shops tell a different, more specific story."
   - "Suits: food-focused visitors; anyone interested in provenance and regional food identity; visitors who want to take something home from the Peninsula."
-  - "Planning note: most farm gates operate on limited hours or by arrangement. Red Hill Market on a first Saturday is the single best way to access most of these producers in one morning."
+  - "Planning note: most farm gates operate on limited hours or by arrangement. Check a market organiser's confirmed dates and stallholder list before relying on a single market for provisions."
 ---
 
 A weekend with a kitchen is a weekend with an unusually good larder within reach: sourdough from a wood oven on Friday night, single-origin oil from a grove you can see from the kitchen window, a rib-eye from a farmer whose paddock you drove past on the way in. If you have booked anywhere with a kitchen, Saturday morning rewards shopping over eating out.
@@ -77,7 +77,7 @@ Arrive by nine. By ten-thirty the good bread is gone, the best fish has been bou
 - **One piece of cheese.** The Main Ridge Dairy or Red Hill Cheese stalls if either is there. One good piece, not three mediocre ones.
 - **Olive oil, if the grove is at market.** The Peninsula produces some of the best extra-virgin in Australia; a bottle for home is worth the slot in the bag.
 
-If it is not the second Saturday (most weekends it won't be), the fallback is the [Red Hill Market](/explore/red-hill-market/) on the first Saturday of the month, which is broader, more craft-focused, and less serious about food, or the smaller farm gates scattered along Red Hill Road. Check the [complete Peninsula market guide](/eat/markets/) before setting out: dates and formats vary more than a single market listing suggests. The farm gates are a quietly underrated option on a non-market weekend. You will need to drive between three or four of them. Bring a map.
+If it is not the second Saturday (most weekends it won't be), check for another confirmed market date or visit the smaller farm gates scattered along Red Hill Road. The original Red Hill Community Market is temporarily closed; the separate Hill & Ridge Community Market publishes its own dates at Red Hill Recreation Reserve. Check the [complete Peninsula market guide](/eat/markets/) before setting out. The farm gates are a quietly underrated option on a non-market weekend. You will need to drive between three or four of them. Bring a map.
 
 ## Step two: the bakery (Saturday, 10:30am)
 

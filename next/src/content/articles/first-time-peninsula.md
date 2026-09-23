@@ -57,7 +57,7 @@ The geography matters because it dictates how you plan. The Peninsula is roughly
 
 The fastest way to understand the region is to accept that there are really three different Peninsulas, and a first visit should pick one.
 
-**The hinterland Peninsula.** Red Hill, Merricks, Main Ridge. This is the wine-and-food version, cellar doors, vineyard restaurants, producer trails, the Red Hill Market on the first Saturday of each month. If you are coming for a long lunch or a weekend of eating, this is where you spend your time. The landscape is rolling green hills, dirt roads, gum-lined drives, and hand-painted signs pointing to cheese rooms and olive groves.
+**The hinterland Peninsula.** Red Hill, Merricks, Main Ridge. This is the wine-and-food version: cellar doors, vineyard restaurants and producer trails. The original Red Hill Community Market is temporarily closed; check the separate Hill & Ridge Community Market's published dates if a market is part of your plan. If you are coming for a long lunch or a weekend of eating, this is where you spend your time. The landscape is rolling green hills, dirt roads, gum-lined drives, and hand-painted signs pointing to cheese rooms and olive groves.
 
 **The coastal Peninsula.** Sorrento, Portsea, Point Nepean. This is the beach-and-village version, the heritage main street at Sorrento, the ocean back beaches, the clifftop walks, the ferry to Queenscliff, and Point Nepean National Park at the very tip. If you are coming for landscape and walking and seaside atmosphere, this is the section.
 
