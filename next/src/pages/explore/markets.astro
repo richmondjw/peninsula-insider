@@ -13,15 +13,15 @@ import { editableImage } from '../../lib/inline-edit/attrs';
 // Keep this guide tied to current, source-checked records. The original Red Hill
 // Community Market is closed and the Balnarring Village Green listing is paused.
 const MARKET_ROUTES = [
-  { route: 'mornington-main-street-market', venue: 'mornington-main-street-market' },
-  { route: 'rye-beachside-market', venue: 'rye-beachside-market' },
-  { route: 'mount-eliza-farmers-market', venue: 'mount-eliza-farmers-market' },
+  { route: 'mornington-main-street-market', venue: 'mornington-main-street-market', locality: 'Mornington' },
+  { route: 'rye-beachside-market', venue: 'rye-beachside-market', locality: 'Rye' },
+  { route: 'mount-eliza-farmers-market', venue: 'mount-eliza-farmers-market', locality: 'Mount Eliza' },
 ];
 const marketVenues = await getCollection('venues', ({ data }) => data.type === 'market');
-const markets = MARKET_ROUTES.map(({ route, venue }) => {
+const markets = MARKET_ROUTES.map(({ route, venue, locality }) => {
   const entry = marketVenues.find((v) => (v.data.slug ?? v.id) === venue);
   if (!entry) throw new Error(`explore/markets: missing venue ${venue}`);
-  return { id: route, venueSlug: venue, data: entry.data };
+  return { id: route, venueSlug: venue, locality, data: entry.data };
 });
 const marketHeroBySlug = new Map();
 await Promise.all(markets.map(async (market) => {
@@ -56,7 +56,7 @@ const itemListSchema = buildItemListSchema({
   listPath: '/explore/markets',
   items: [
     { name: 'Hill & Ridge Community Market', path: '/whats-on/hill-ridge-community-market-september-2026-restart/', itemType: 'TouristAttraction', addressLocality: 'Red Hill' },
-    ...markets.map((market) => ({ name: market.data.name, path: `/eat/${market.venueSlug}/`, itemType: 'TouristAttraction', addressLocality: String(market.data.place ?? '') })),
+    ...markets.map((market) => ({ name: market.data.name, path: `/eat/${market.venueSlug}/`, itemType: 'TouristAttraction', addressLocality: market.locality })),
   ],
 });
 const faqSchema = buildFaqSchema(faqItems);
