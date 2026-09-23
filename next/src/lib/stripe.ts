@@ -80,7 +80,7 @@ export async function startPassCheckout(opts: {
   userEmail?: string;
   /** Where Stripe sends the user back on success. Default: /account/pass/?welcome=1. */
   successUrl?: string;
-  /** Where Stripe sends the user back if they bail. Default: /pass/?cancelled=1. */
+  /** Where Stripe sends the user back if they bail. Default: /dispatch/. */
   cancelUrl?: string;
 }): Promise<{ ok: true; url: string } | { ok: false; error: string }> {
   if (!isStripeEnabled()) {
@@ -93,7 +93,7 @@ export async function startPassCheckout(opts: {
 
   const origin = typeof window !== 'undefined' ? window.location.origin : 'https://peninsulainsider.com.au';
   const successUrl = opts.successUrl ?? `${origin}/account/pass/?welcome=1`;
-  const cancelUrl  = opts.cancelUrl  ?? `${origin}/pass/?cancelled=1`;
+  const cancelUrl  = opts.cancelUrl  ?? `${origin}/dispatch/`;
 
   try {
     const res = await fetch(`${SUPABASE_URL}/functions/v1/create-pass-checkout-session`, {
