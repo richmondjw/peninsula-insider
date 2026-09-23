@@ -1,5 +1,7 @@
 # Peninsula Insider SEO/GEO engine
 
+Daily operation, ownership, acceptance receipts and the outcome review cadence: [OPERATIONS.md](OPERATIONS.md).
+
 A persistent optimisation system: it observes the site, structures what it sees,
 classifies and scores it, prioritises, applies evidence-qualified source changes,
 verifies releases, then measures and remembers the outcome.
