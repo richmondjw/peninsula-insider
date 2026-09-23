@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "pages": 189,
+  "pages": 190,
   "images": [
     {
       "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/page/eat-bakeries/hero-1784719891530.jpg",
@@ -3567,36 +3567,6 @@
       ]
     },
     {
-      "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/event/tootgarook-primary-school-market/heroImage-1787084954823.png",
-      "originalBytes": 4576715,
-      "variants": [
-        {
-          "src": "/_media/5a831ae37bb0a2b62f9b-480.webp",
-          "width": 480,
-          "height": 270,
-          "bytes": 36262
-        },
-        {
-          "src": "/_media/5a831ae37bb0a2b62f9b-800.webp",
-          "width": 800,
-          "height": 450,
-          "bytes": 80676
-        },
-        {
-          "src": "/_media/5a831ae37bb0a2b62f9b-1280.webp",
-          "width": 1280,
-          "height": 720,
-          "bytes": 153426
-        },
-        {
-          "src": "/_media/5a831ae37bb0a2b62f9b-1920.webp",
-          "width": 1920,
-          "height": 1080,
-          "bytes": 270858
-        }
-      ]
-    },
-    {
       "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/event/acoustic-saturdays-peppers-moonah-links-2026/heroImage-1785724600085.jpg",
       "originalBytes": 578785,
       "variants": [
@@ -3653,6 +3623,36 @@
           "width": 1920,
           "height": 1080,
           "bytes": 260650
+        }
+      ]
+    },
+    {
+      "source": "/images/sourced/place-sorrento-01.webp",
+      "originalBytes": 351724,
+      "variants": [
+        {
+          "src": "/_media/e36de2b57a92eb7dddfa-480.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 12706
+        },
+        {
+          "src": "/_media/e36de2b57a92eb7dddfa-800.webp",
+          "width": 800,
+          "height": 600,
+          "bytes": 69734
+        },
+        {
+          "src": "/_media/e36de2b57a92eb7dddfa-1280.webp",
+          "width": 1280,
+          "height": 960,
+          "bytes": 166762
+        },
+        {
+          "src": "/_media/e36de2b57a92eb7dddfa-1600.webp",
+          "width": 1600,
+          "height": 1200,
+          "bytes": 370144
         }
       ]
     },
