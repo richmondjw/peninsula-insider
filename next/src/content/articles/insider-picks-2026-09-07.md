@@ -1,6 +1,6 @@
 ---
 title: "Insider Picks: 7 September 2026"
-dek: "Crittenden Estate's amphora-aged experiments in Dromana, the Bushrangers Bay cliff track in its first real spring light, and the Balnarring Farmers Market with its September berry flush."
+dek: "A dated September edit covering Crittenden Estate, Bushrangers Bay and a Balnarring market pick whose schedule is now unverified."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-09-07

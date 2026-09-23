@@ -20,7 +20,7 @@ const faqSchema={'@context':'https://schema.org','@type':'FAQPage',mainEntity:[
 ]};
 export const prerender = true;
 ---
-<BaseLayout title="Best Markets Mornington Peninsula · Peninsula Insider" description="A guide to current Peninsula markets, including Hill and Ridge, Mornington Farmers Market, and Balnarring." section="eat" canonical="https://peninsulainsider.com.au/eat/markets/" modifiedTime="2026-09-23">
+<BaseLayout title="Best Markets Mornington Peninsula · Peninsula Insider" description="A guide to current Peninsula markets, including Hill & Ridge, Mornington Main Street Market, Rye Foreshore Market and Mount Eliza." section="eat" canonical="https://peninsulainsider.com.au/eat/markets/" modifiedTime="2026-09-23">
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <Breadcrumbs items={breadcrumbItems} />
@@ -34,7 +34,7 @@ export const prerender = true;
   entityType="page"
 >
   <div class="prose">
-    <p>The original Red Hill Community Market is temporarily closed. The separate <a href="/whats-on/hill-ridge-community-market-september-2026-restart/">Hill &amp; Ridge Community Market</a> runs at Red Hill Recreation Reserve on first Saturdays from September to May, 9am to 2pm; check the organiser for weather cancellations. Mornington Farmers Market and Balnarring Farmers Market offer other Peninsula market options.</p><ProvenanceLine style="font-size:0.8rem;color:var(--soft)" records={venues} type="venues" noun="venue" /></div>
+    <p>The original Red Hill Community Market is temporarily closed. The separate <a href="/whats-on/hill-ridge-community-market-september-2026-restart/">Hill &amp; Ridge Community Market</a> runs at Red Hill Recreation Reserve on first Saturdays from September to May, 9am to 2pm; check the organiser for weather cancellations. Mornington Main Street, Rye Foreshore and Mount Eliza Farmers Market offer other source-checked options. The former Balnarring Village Green listing is paused because its current schedule is unverified.</p><ProvenanceLine style="font-size:0.8rem;color:var(--soft)" records={venues} type="venues" noun="venue" /></div>
   </div>
 </SubpageHero>
   <section class="venues" id="rankings"><div class="container"><div class="venues__header"><div><p class="label label--accent">Peninsula markets</p><h2 class="venues__title">All {venues.length} Peninsula food markets</h2><p class="venues__sub">Current Peninsula markets; check organiser schedules before visiting.</p></div><a href="/eat/" class="venues__link">All dining venues →</a></div><div class="venues__grid">{venues.map(v=><VenueCard venue={v} hrefPrefix="/eat" />)}</div></div></section>
