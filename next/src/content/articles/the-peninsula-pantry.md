@@ -21,7 +21,6 @@ relatedVenues:
   - "bass-and-flinders"
   - "quealy-winemakers"
   - "ocean-eight"
-  - "red-hill-market"
   - "balnarring-market"
   - "red-hill-bakery"
   - "sourdough-kitchen"
