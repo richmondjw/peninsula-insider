@@ -7,7 +7,7 @@
  * ~360px card that never spans the viewport. Consent behaviour is unchanged.
  *
  * Two-tier consent (Accept all / Manage preferences). Strictly necessary
- * cookies (concierge session) are always on; analytics (Google Analytics)
+ * storage for sign-in and consent preferences is always on; analytics (Google Analytics)
  * is opt-in.
  *
  * Persistence: localStorage key `pi-consent-v1`. Shape:
@@ -20,8 +20,8 @@
  * Re-opening: any element with `data-pi-consent="open"` will re-show the
  * banner. The footer "Cookie settings" link uses this hook.
  *
- * Mobile: the toast clears V5BottomBar (56px + safe-area) so the Ask / Map /
- * Save / Trip tab bar is never covered or trapped. Below 560px it goes
+ * Mobile: the toast clears V5BottomBar (56px + safe-area) so the Map / Saved /
+ * My Trip bar is never covered or trapped. Below 560px it goes
  * full-width-but-short inside the gutters.
  *
  * Keyboard: Escape dismisses without recording a choice (analytics stays off
@@ -42,7 +42,7 @@
     <div class="cookie-banner__copy">
       <p class="cookie-banner__title">A note on cookies</p>
       <p class="cookie-banner__body">
-        Essential cookies keep search and saved places working. Analytics cookies (optional) tell us anonymously which pages are useful. Nothing personal is sold or shared.
+        Browser storage supports sign-in and remembers your choices. With your permission, Google Analytics helps us understand site use.
         <a href="/privacy/">Privacy policy.</a>
       </p>
     </div>
@@ -61,7 +61,7 @@
         <li class="cookie-banner__row">
           <div class="cookie-banner__row-text">
             <p class="cookie-banner__row-title">Strictly necessary</p>
-            <p class="cookie-banner__row-dek">Required for the concierge chat to remember your session. Always on.</p>
+            <p class="cookie-banner__row-dek">Needed for sign-in and to remember your cookie choice. Always on.</p>
           </div>
           <span class="cookie-banner__toggle cookie-banner__toggle--locked" aria-hidden="true">
             <span class="cookie-banner__toggle-knob"></span>
@@ -71,7 +71,7 @@
         <li class="cookie-banner__row">
           <div class="cookie-banner__row-text">
             <p class="cookie-banner__row-title">Analytics</p>
-            <p class="cookie-banner__row-dek">Anonymous page-view counts via Google Analytics, used for editorial decisions.</p>
+            <p class="cookie-banner__row-dek">Google Analytics 4 helps us understand visits and interactions when you opt in.</p>
           </div>
           <label class="cookie-banner__toggle">
             <input type="checkbox" id="cookie-toggle-analytics" />
