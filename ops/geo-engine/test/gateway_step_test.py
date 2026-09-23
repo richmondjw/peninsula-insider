@@ -3,6 +3,7 @@ import os
 from pathlib import Path
 import subprocess
 import sys
+import tempfile
 import time
 import unittest
 
@@ -33,6 +34,35 @@ class GatewayStepTests(unittest.TestCase):
             with self.assertRaises(subprocess.TimeoutExpired):
                 step.execute([sys.executable, '-c', 'import time; time.sleep(10)'], os.environ.copy(), log, timeout=.05)
         self.assertLess(time.monotonic() - start, 2)
+
+    def test_missing_shared_dependency_link_requires_locked_install(self):
+        with tempfile.TemporaryDirectory() as directory:
+            repo = Path(directory)
+            next_dir = repo / 'next'
+            next_dir.mkdir()
+            (next_dir / 'package-lock.json').write_text('{"lockfileVersion":3}')
+            (next_dir / 'node_modules').symlink_to(repo / 'removed-shared-dependencies')
+            needed, _ = step.dependency_install_needed(repo, repo / 'stamp')
+            self.assertTrue(needed)
+
+    def test_dependency_stamp_detects_lock_drift(self):
+        with tempfile.TemporaryDirectory() as directory:
+            repo = Path(directory)
+            next_dir = repo / 'next'
+            next_dir.mkdir()
+            lock = next_dir / 'package-lock.json'
+            lock.write_text('{"lockfileVersion":3}')
+            for relative in ('.bin/astro', 'astro/package.json', 'piccolore/package.json'):
+                item = next_dir / 'node_modules' / relative
+                item.parent.mkdir(parents=True, exist_ok=True)
+                item.touch()
+            stamp = repo / 'stamp'
+            needed, digest = step.dependency_install_needed(repo, stamp)
+            self.assertTrue(needed)
+            stamp.write_text(digest)
+            self.assertFalse(step.dependency_install_needed(repo, stamp)[0])
+            lock.write_text('{"lockfileVersion":3,"changed":true}')
+            self.assertTrue(step.dependency_install_needed(repo, stamp)[0])
 
 
 if __name__ == '__main__':
