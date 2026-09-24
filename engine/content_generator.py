@@ -195,20 +195,13 @@ Remember: no brochure language. Specific. Local. Opinionated. Start with the thi
     if not out:
         return None
     cleaned = _clean_llm_output(out)
-    for _ in range(2):
-        revised = _repair_rotation_violations(
-            cleaned,
-            date_str=date_str,
-            prompt=prompt,
-            rotation=rotation,
-            llm_complete=llm.complete,
-        )
-        if revised == cleaned:
-            break
-        cleaned = revised
-        if not _rotation_failures(cleaned, date_str):
-            break
-    return cleaned
+    return _repair_rotation_violations(
+        cleaned,
+        date_str=date_str,
+        prompt=prompt,
+        rotation=rotation,
+        llm_complete=llm.complete,
+    )
 
 
 def _rotation_failures(text: str, date_str: str) -> list[str]:
