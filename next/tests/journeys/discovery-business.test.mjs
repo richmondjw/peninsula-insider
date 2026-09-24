@@ -6,6 +6,29 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 const site = await Site.open();
 test.after(() => site.close());
+
+test('date-led events guidance remains readable on its solid header', async () => {
+  const reader = await site.reader();
+  try {
+    await reader.load('/whats-on/');
+    const ratios = await reader.page.evaluate(() => {
+      const luminance = value => {
+        const channels = value.match(/[\d.]+/g).slice(0,3).map(Number).map(v => {
+          const c=v/255; return c<=0.04045 ? c/12.92 : ((c+0.055)/1.055)**2.4;
+        });
+        return channels[0]*0.2126+channels[1]*0.7152+channels[2]*0.0722;
+      };
+      const background=luminance(getComputedStyle(document.querySelector('.wo-head')).backgroundColor);
+      return [...document.querySelectorAll('.wo-head p')].map(el => {
+        const foreground=luminance(getComputedStyle(el).color);
+        return (Math.max(background,foreground)+0.05)/(Math.min(background,foreground)+0.05);
+      });
+    });
+    assert.ok(ratios.length>=2);
+    assert.ok(ratios.every(r=>r>=4.5),JSON.stringify(ratios));
+  } finally { await reader.close(); }
+});
+
 const routes = ['/eat/', '/eat/best-restaurants/', '/stay/', '/stay/best-accommodation/', '/wine/', '/wine/best-cellar-doors/', '/explore/', '/explore/things-to-do/'];
 test('eight hub and ranked pages expose every structured FAQ question and answer in the rendered document', async () => {
   const reader = await site.reader();
