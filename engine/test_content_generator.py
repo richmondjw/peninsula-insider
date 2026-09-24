@@ -81,6 +81,20 @@ class ContentGeneratorRotationRepairTest(unittest.TestCase):
 
         self.assertEqual(repaired, GOOD_ARTICLE)
 
+    def test_rejects_revision_that_still_violates_rotation(self):
+        def fake_complete(*_args, **_kwargs) -> str:
+            return BAD_ARTICLE
+
+        repaired = content_generator._repair_rotation_violations(
+            BAD_ARTICLE,
+            date_str="2026-09-25",
+            prompt="Base prompt",
+            rotation=self.rotation,
+            llm_complete=fake_complete,
+        )
+
+        self.assertEqual(repaired, BAD_ARTICLE)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -248,7 +248,10 @@ Previous draft:
 {text}
 """
     revised = llm_complete(revision_prompt, system=PI_VOICE_SYSTEM_PROMPT, max_tokens=2000)
-    return _clean_llm_output(revised) if revised else text
+    if not revised:
+        return text
+    cleaned = _clean_llm_output(revised)
+    return cleaned if not _rotation_failures(cleaned, date_str) else text
 
 
 def _clean_llm_output(text: str) -> str:
