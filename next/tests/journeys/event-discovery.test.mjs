@@ -119,3 +119,34 @@ test('date controls still work after leaving and returning through client naviga
     assert.ok((await snapshot(reader)).schema);
   } finally { await reader.close(); }
 });
+
+
+test('a selected weekend preserves the actual closing date and running state of an ongoing exhibition', async () => {
+  const reader = await site.reader();
+  try {
+    await reader.load('/whats-on/');
+    const expected = await reader.page.evaluate(() => {
+      const end = new Date(); end.setUTCDate(end.getUTCDate() + 90);
+      const start = new Date(); start.setUTCDate(start.getUTCDate() - 30);
+      const iso = d => d.toISOString().slice(0,10);
+      const nativeFetch = window.fetch.bind(window);
+      window.fetch = (input, init) => String(input).includes('/whats-on/feed.json')
+        ? Promise.resolve(new Response(JSON.stringify({events:[{
+          slug:'ongoing-exhibition-fixture',href:'/whats-on/ongoing-exhibition-fixture/',
+          t:'Ongoing exhibition fixture',d:'An exhibition with a published closing date.',m:['Gallery'],
+          k:'range',s:iso(start),e:iso(end),statusData:{startTime:'11:00',endTime:'16:00'},
+        }]}), {status:200,headers:{'Content-Type':'application/json'}}))
+        : nativeFetch(input,init);
+      return end.toLocaleDateString('en-AU',{weekday:'short',day:'numeric',month:'short',timeZone:'UTC'});
+    });
+    await clickScope(reader,'next-weekend');
+    await nextReady(reader);
+    const row = await reader.page.$eval('[data-wo-days] .wo-row', e => ({
+      meta:e.querySelector('.wo-row__meta').textContent,phase:e.dataset.occurrencePhase,
+    }));
+    assert.ok(row.meta.includes(expected), row.meta);
+    assert.match(row.meta,/On during your dates/);
+    assert.doesNotMatch(row.meta,/Ended/);
+    assert.equal(row.phase,'running');
+  } finally { await reader.close(); }
+});

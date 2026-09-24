@@ -26,6 +26,11 @@ import CardGrid from '../../components/v5/CardGrid.astro';
 import FilterBar from '../../components/v5/FilterBar.astro';
 import EmptyState from '../../components/v5/EmptyState.astro';
 import TrustNote from '../../components/v5/hub/TrustNote.astro';
+import HubStandfirst from '../../components/v5/hub/HubStandfirst.astro';
+import CategoryBrowse from '../../components/v5/hub/CategoryBrowse.astro';
+import PlanningHelp from '../../components/v5/hub/PlanningHelp.astro';
+import { exploreSummary, effortLabel } from '../../components/v5/hub/explore-summaries.mjs';
+import { informationCheckedOn } from '../../lib/verification-date.mjs';
 import { getFacets, type FacetKey } from '../../lib/facets';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
 import { routeSlug, seasonBlurb, placeLabel, titleize, venueHref, isListableVenue } from '../../lib/editorial';
@@ -137,11 +142,11 @@ const rows: Row[] = experiences.map((e) => {
     name: e.data.name,
     href: `/explore/${slug}/`,
     facets: getFacets('experience', e.data),
-    verdict: clipLine(e.data.editorNote, 25),
+    verdict: exploreSummary(slug, e.data),
     meta: [
       TYPE_LABEL[e.data.type] ?? titleize(e.data.type ?? ''),
       placeLabel(e.data.place),
-      durationLabel(e.data.durationMinutes),
+      [durationLabel(e.data.durationMinutes), effortLabel(e.data)].filter(Boolean).join(' · '),
     ].filter((m): m is string => Boolean(m)).slice(0, 3),
     data: e.data,
   };
@@ -164,7 +169,7 @@ const venueRows: Row[] = exploreVenues.map((v) => {
     name: v.data.name,
     href: venueHref(v),
     facets: getFacets('venue', v.data),
-    verdict: clipLine(v.data.signature ?? v.data.whyWeGo ?? v.data.editorNote, 25),
+    verdict: exploreSummary(slug, v.data),
     meta: [
       TYPE_LABEL[v.data.type] ?? titleize(v.data.type ?? ''),
       placeLabel(v.data.place),
@@ -218,7 +223,7 @@ interface Shelf {
   heading: string;
   preset: FilterPreset;
   total: number;
-  items: (Row & { hero: { src: string; alt: string } })[];
+  items: (Row & { hero: { src: string; alt: string; override?: unknown } })[];
 }
 
 async function buildShelf(
@@ -238,7 +243,7 @@ async function buildShelf(
 const shelfSeasonal = await buildShelf(
   'best-right-now',
   blurb.label,
-  'What the Peninsula is best at right now',
+  `${titleize(season)} ideas for the day`,
   [...explicitSeason, ...looseSeason],
   { date: ['this-season'] },
 );
@@ -259,7 +264,7 @@ const shelfBeaches = await buildShelf(
 const shelfGolf = await buildShelf(
   'golf',
   'Golf',
-  'Eleven courses, honestly ranked',
+  'Choose your kind of round',
   rows.filter((r) => hasCat(r, ['golf'])),
   { cat: ['golf'] },
 );
@@ -286,7 +291,7 @@ const presetHref = (preset: FilterPreset) =>
 // Shelf intro copy (<=40 words each), carrying the lane-page links the old
 // 16-tile grid held (HUB-07 folded into intros + basics line + verticals).
 const shelfIntros: Record<string, string> = {
-  'best-right-now': blurb.line,
+  'best-right-now': `${blurb.line} The seasonal filter includes experiences tagged for ${season} or all year; it is a subset of the full directory, not a new factual check.`,
   walks: `Cape Schanck, Bushrangers Bay, the Two Bays. The ranked list lives at <a href="/explore/walks/">the Peninsula's best walks</a>.`,
   beaches: `Bay calm or back-beach surf: pick the water that matches the wind, not the closest car park. The full case for each is in <a href="/explore/beaches/">the beach guide</a>.`,
   golf: `From friendly country clubs to the ranked links at Cape Schanck and St Andrews Beach. Compared properly in <a href="/explore/golf/">the golf guide</a>.`,
@@ -390,23 +395,15 @@ export const prerender = true;
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 
-  <!-- 1. Stand-first: immersive v6 hero over a Peninsula photograph -->
-  <header class="x-head x-head--photo">
-    <div class="x-head__bg" style="background-image:url(/images/sourced/explore-cape-schanck-lighthouse-01.webp)" aria-hidden="true"></div>
-    <div class="x-head__scrim" aria-hidden="true"></div>
-    <div class="container x-head__inner">
-      <p class="x-head__eyebrow">Explore</p>
-      <h1 class="x-head__title">Things to do on the Mornington Peninsula</h1>
-      <p class="x-head__standfirst">
-        The best Peninsula days are built outside the booking: a walk before lunch, the right
-        beach for the wind, thermal water when the weather turns. Everything we cover is on
-        this page once. Filter by mood, or jump to a town.
-      </p>
-    </div>
-  </header>
+  <HubStandfirst
+    compact
+    title="Things to do on the Mornington Peninsula"
+    standfirst="Choose a walk, a beach, an indoor afternoon or a longer outing. Start with the time and effort you have, then check the details for your day."
+    image={{ src: '/images/sourced/explore-cape-schanck-lighthouse-01.webp', alt: 'Cape Schanck lighthouse and the Peninsula coastline' }}
+  />
 
   <!-- 2. Filters: the page's ONE FilterBar (chips from CHIP_PRESETS.explore) -->
-  <div class="container">
+  <CategoryBrowse directory="directory" count={directoryRows.length} noun="experiences">
     <FilterBar
       surface="explore"
       noun="experiences"
@@ -414,7 +411,23 @@ export const prerender = true;
       facets={['cat', 'place', 'party', 'price']}
     />
     <TrustNote surface="explore" />
-  </div>
+    <PlanningHelp />
+  </CategoryBrowse>
+
+  <section class="x-practical container" aria-labelledby="practical-heading">
+    <h2 id="practical-heading">Choose the shape of your day</h2>
+    <nav class="x-practical__links" aria-label="Plan an activity">
+      <a href="/explore/walks/">Compare walks →</a>
+      <a href="/explore/rainy-day/">Plan for rain →</a>
+      <a href="/explore/places/">Choose an area →</a>
+      <a href="/explore/plans/">Use a ready-made day →</a>
+    </nav>
+    <p>Times below are guide estimates, not live conditions. Walking effort is shown where recorded; it is not an accessibility assessment. Terrain, step-free access, toilets, shade and dog rules need checking for your chosen stop.</p>
+    <details>
+      <summary>Check conditions and practical access before you go</summary>
+      <p>Use <a href="https://www.parks.vic.gov.au/places-to-see/parks/mornington-peninsula-national-park">Parks Victoria’s park notices and access information</a>, <a href="https://www.emergency.vic.gov.au/">VicEmergency warnings</a> and <a href="https://www.beachsafe.org.au/">Beachsafe beach and patrol information</a>. Check the operator or land manager for facilities and dog restrictions. These links do not confirm that a route or beach is suitable on your day.</p>
+    </details>
+  </section>
 
   <!-- 3-5. Browse layer: shelves, towns index, verticals. Yields to the
        filtered directory whenever any facet is active. -->
@@ -424,7 +437,6 @@ export const prerender = true;
         <div class="container">
           <div class="x-shelf__header">
             <div>
-              <p class="x-eyebrow">{shelf.eyebrow}</p>
               <h2 class="x-shelf__heading" id={`shelf-${shelf.id}`}>{shelf.heading}</h2>
               <p class="x-shelf__intro" set:html={shelfIntros[shelf.id]} />
             </div>
@@ -436,7 +448,7 @@ export const prerender = true;
               data-evt="filter_apply"
               data-shelf={shelf.id}
             >
-              All {shelf.total} →
+              {shelf.id === 'best-right-now' ? `${shelf.total} seasonal matches` : `All ${shelf.total}`} →
             </a>
           </div>
           <ul class="x-shelf__row" aria-label={shelf.heading}>
@@ -447,11 +459,12 @@ export const prerender = true;
                 href={item.href}
                 entityType="experience"
                 entitySlug={item.slug}
-                image={{ src: item.hero.src, alt: item.hero.alt }}
+                image={{ src: item.hero.src, alt: item.hero.alt, caption: !item.hero.override && item.data.heroImage?.depictionStatus === 'illustrative' ? 'Illustrative image' : !item.hero.override && item.data.heroImage?.depictionStatus === 'unverified' ? 'Image subject unverified' : undefined }}
                 typeMark={item.meta[0]}
                 verdict={item.verdict}
                 meta={item.meta.slice(1)}
-                freshness={item.data.lastVerified}
+                freshness={informationCheckedOn(item.data)?.toISOString()}
+                freshnessKind="checked"
                 surface={`explore-shelf-${shelf.id}`}
                 position={i + 1}
                 saveSection="explore"
@@ -465,11 +478,9 @@ export const prerender = true;
     <!-- Towns text index: 37 places, links not cards -->
     <section class="x-towns" aria-labelledby="towns-heading">
       <div class="container">
-        <p class="x-eyebrow">By town</p>
         <h2 class="x-towns__heading" id="towns-heading">Every town, its own page</h2>
         <p class="x-towns__intro">
-          Thirty-seven towns and localities, each sequenced into walks, beaches, and lunch by
-          people who live here. The town page is the real guide; this index is the door.
+          Browse {towns.length} towns and localities to put your day in context, with places to eat, stay and explore in each area.
         </p>
         <ul class="x-towns__list">
           {towns.map((t) => (
@@ -486,8 +497,7 @@ export const prerender = true;
     <!-- Verticals rail: 6 text links to existing URLs -->
     <section class="x-verticals" aria-labelledby="verticals-heading">
       <div class="container">
-        <p class="x-eyebrow">Specialist guides</p>
-        <h2 class="x-verticals__heading" id="verticals-heading">The deep-dive verticals</h2>
+        <h2 class="x-verticals__heading" id="verticals-heading">Go deeper into an interest</h2>
         <ul class="x-verticals__rail">
           {verticals.map((v) => (
             <li class="x-verticals__cell">
@@ -518,11 +528,9 @@ export const prerender = true;
   <!-- 6. Directory: the corpus, rendered exactly once, compact rows -->
   <section class="x-directory" id="directory" aria-labelledby="directory-heading">
     <div class="container">
-      <p class="x-eyebrow">The full list</p>
       <h2 class="x-directory__heading" id="directory-heading">All {directoryRows.length} experiences</h2>
       <p class="x-directory__intro">
-        One list, one render: every walk, beach, course, gallery, lookout, market, and
-        day spa we cover. Narrow it from the filter bar above.
+        Compare walks, beaches, golf, galleries, lookouts, markets and day spas. Use the filters above to narrow the list; seasonal matches are only part of this total.
       </p>
       <CardGrid label={`All ${directoryRows.length} experiences`} layout="rows">
         {directoryRows.map((r, i) => (
@@ -564,7 +572,6 @@ export const prerender = true;
       <div class="container">
         <div class="x-shelf__header">
           <div>
-            <p class="x-eyebrow">From the Journal</p>
             <h2 class="x-journal__heading" id="journal-heading">Further reading for the afternoon half</h2>
           </div>
           <a class="x-shelf__all" href="/journal/">All in the Journal →</a>
@@ -598,7 +605,6 @@ export const prerender = true;
   <!-- 8. FAQ (retained, schema unchanged) -->
   <section class="x-faq" aria-labelledby="faq-heading">
     <div class="container">
-      <p class="x-eyebrow">Frequently asked</p>
       <h2 class="x-faq__heading" id="faq-heading">Five honest answers about Peninsula geography and access</h2>
       <div class="x-faq__list">
         {faqSchema.mainEntity.map((item) => (
@@ -616,7 +622,6 @@ export const prerender = true;
   <section class="x-ask" aria-labelledby="ask-heading">
     <div class="container x-ask__inner">
       <div>
-        <p class="x-ask__eyebrow">Search</p>
         <h2 class="x-ask__heading" id="ask-heading">Not sure which way to point the day?</h2>
         <p class="x-ask__line">
           Every walk, beach, spring, and back road on these pages is searchable.
@@ -639,60 +644,15 @@ export const prerender = true;
     margin: 0 0 0.35rem;
   }
 
-  /* ---- immersive stand-first hero ---- */
-  .x-head {
-    position: relative;
-    isolation: isolate;
-    overflow: hidden;
-    background: var(--bg-deep);
-    color: var(--white);
-    padding: clamp(2.6rem, 8vw, 5rem) 0;
-  }
-  .x-head__bg {
-    position: absolute;
-    inset: 0;
-    z-index: -2;
-    background-size: cover;
-    background-position: center;
-  }
-  .x-head__scrim {
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    background: var(--photo-shade-copy);
-  }
-  .x-head__inner {
-    position: relative;
-    z-index: 1;
-  }
-  .x-head__eyebrow {
-    font-family: var(--font-ui);
-    font-size: var(--fs-100, 0.78rem);
-    font-weight: 600;
-    letter-spacing: var(--ls-eyebrow, 0.12em);
-    text-transform: uppercase;
-    color: var(--mint);
-    margin: 0 0 var(--space-3, 0.75rem);
-  }
-  .x-head__title {
-    font-family: var(--font-display);
-    font-size: var(--fs-900, clamp(2.5rem, 1.6rem + 4vw, 4rem));
-    font-weight: var(--fw-display, 600);
-    line-height: var(--lh-display, 1.02);
-    letter-spacing: var(--ls-display, -0.02em);
-    margin: 0 0 var(--space-4, 1rem);
-    color: var(--white);
-    max-width: 18ch;
-    text-wrap: balance;
-  }
-  .x-head__standfirst {
-    font-family: var(--font-ui);
-    font-size: var(--fs-500, 1.15rem);
-    line-height: var(--lh-dek, 1.45);
-    color: var(--soft-inverse);
-    max-width: var(--measure-dek, 52ch);
-    margin: 0;
-  }
+  .x-practical { padding-block: 1rem 2rem; }
+  .x-practical h2 { font: 600 clamp(1.5rem, 2.6vw, 2rem)/1.2 var(--font-display); margin: 0 0 0.6rem; }
+  .x-practical__links { display: flex; flex-wrap: wrap; gap: 0.3rem 1.5rem; }
+  .x-practical__links a { min-height: 44px; display: inline-flex; align-items: center; font-weight: 600; }
+  .x-practical p { max-width: 75ch; color: var(--soft); font-size: 0.9rem; line-height: 1.6; margin: 0.7rem 0; }
+  .x-practical a { color: var(--teal-text); text-underline-offset: 0.2em; }
+  .x-practical summary { padding-block: 0.7rem; min-height: 44px; cursor: pointer; font-weight: 600; }
+  .x-practical details { border-block: 1px solid var(--border); max-width: 75ch; }
+  .x-practical :is(a, summary):focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
   /* ---- shelves ---- */
   .x-shelf {

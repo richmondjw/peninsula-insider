@@ -553,7 +553,11 @@ const season = getAustralianSeasonLower(now);
     border: 0;
     background: none;
     /* 44px hit target around a small mark. */
-    padding: 1rem 0.375rem;
+    padding: 0;
+    min-width: 44px;
+    min-height: 44px;
+    display: grid;
+    place-items: center;
     cursor: pointer;
     line-height: 0;
   }
@@ -565,7 +569,7 @@ const season = getAustralianSeasonLower(now);
     border-radius: 999px;
     background: color-mix(in srgb, var(--harbour-deep) 50%, transparent);
     box-shadow: 0 1px 3px rgb(255 255 255 / .7);
-    transition: width 220ms ease, background-color 220ms ease;
+    transition: transform 220ms ease, background-color 220ms ease;
   }
 
   .home-cover__dot:hover .home-cover__dot-fill,
@@ -574,7 +578,7 @@ const season = getAustralianSeasonLower(now);
   }
 
   .home-cover__dot.is-active .home-cover__dot-fill {
-    width: 1.5rem;
+    transform: scaleX(3);
     background: var(--harbour-deep);
   }
 

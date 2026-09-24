@@ -13,9 +13,9 @@ const labels = { length: Object.fromEntries(lengths.map(o => [o.value, o.label])
 ---
 <section class="plan-builder" id="build" aria-labelledby="plan-builder-heading">
   <div class="container">
-    <details class="plan-builder__panel" data-plan-matcher>
+    <details class="plan-builder__panel" data-plan-matcher open>
       <summary>
-        <span><span class="plan-builder__eyebrow">A little help choosing</span><span id="plan-builder-heading" class="plan-builder__heading">Find your plan</span></span>
+        <span><span id="plan-builder-heading" class="plan-builder__heading">Find your plan</span></span>
         <span class="plan-builder__summary-note">Your time. Your company. Your kind of day.</span>
         <span class="plan-builder__toggle" aria-hidden="true">+</span>
       </summary>
@@ -40,7 +40,7 @@ const labels = { length: Object.fromEntries(lengths.map(o => [o.value, o.label])
 <style>
   .plan-builder{padding:0 0 2rem;scroll-margin-top:8rem}
   .plan-builder__panel{border-block:1px solid var(--border);background:var(--bg-alt)}
-  summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:1.5rem;padding:1.25rem 1.5rem;min-height:90px}
+  summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:1.5rem;padding:1.25rem 1.5rem;min-height:64px}
   summary::-webkit-details-marker{display:none}
   summary:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
   .plan-builder__eyebrow{display:block;font:600 .68rem/1.4 var(--font-ui);letter-spacing:.14em;text-transform:uppercase;color:var(--soft);margin-bottom:.2rem}

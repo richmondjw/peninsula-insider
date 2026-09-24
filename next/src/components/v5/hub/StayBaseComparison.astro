@@ -1,0 +1,42 @@
+---
+const bases = [
+  { name: 'Red Hill & Main Ridge', places: 'red-hill,main-ridge', town: 'red-hill', go: 'Vineyard lunches and a quieter hinterland weekend.', evening: 'Make dinner part of the booking plan; properties and cellar doors are spread out.', trade: 'Arrange transport between stops. A ridge address does not mean a walkable winery route.' },
+  { name: 'Sorrento & Rye', places: 'sorrento,rye', town: 'sorrento', go: 'Bay foreshore days with a coastal village base.', evening: 'Look for a property near the village if dinner on foot matters.', trade: 'Check the actual address: the bay, ocean coast and hot springs are separate outings.' },
+  { name: 'Mornington', places: 'mornington', town: 'mornington', go: 'A town base for dining, the foreshore and a shorter trip down the Peninsula.', evening: 'Choose the centre for access to the main street’s food and drink.', trade: 'The southern beaches and ridge wineries still need their own transport plan.' },
+  { name: 'Flinders', places: 'flinders', town: 'flinders', go: 'A smaller village base for the southern coast.', evening: 'Plan around the village’s opening days before choosing a dinner spot.', trade: 'Allow for transfers to the ridge and bay coast; do not assume a late return ride is available.' },
+];
+---
+<section class="base-comparison container" aria-labelledby="base-heading">
+  <div class="base-comparison__intro">
+    <h2 id="base-heading">First, choose your corner of the Peninsula</h2>
+    <p>Pick the days you want, then the bed. These are area comparisons; check each property’s address and transport before booking.</p>
+    <a href="/map/">Compare stays on the map →</a>
+  </div>
+  <div class="base-comparison__rows">
+    {bases.map((base) => (
+      <article class="base-comparison__row">
+        <h3><a href={`/explore/places/${base.town}/`}>{base.name}</a></h3>
+        <div><p>{base.go}</p><p class="base-comparison__detail"><strong>Evenings.</strong> {base.evening}</p><p class="base-comparison__detail"><strong>Getting around.</strong> {base.trade}</p></div>
+        <div class="base-comparison__actions"><a href={`/stay/?place=${base.places}#stay-directory`}>Find stays →</a><a href={`/map/?place=${base.places}`}>Area map →</a></div>
+      </article>
+    ))}
+  </div>
+  <p class="base-comparison__foot">Travelling without a car? Start with <a href="/explore/getting-around/">the transport guide</a> and check the journeys for your dates before selecting a base.</p>
+</section>
+<style>
+  .base-comparison { padding-block: 2rem 2.5rem; }
+  .base-comparison__intro { max-width: 70ch; margin-bottom: 1.5rem; }
+  h2 { font: 600 clamp(1.7rem, 3vw, 2.4rem)/1.15 var(--font-display); text-wrap: balance; margin: 0 0 0.75rem; }
+  p { margin: 0 0 0.6rem; }
+  a { color: var(--teal-text); text-underline-offset: 0.2em; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .base-comparison__row { display: grid; grid-template-columns: 1fr 2.3fr auto; gap: 1.5rem; border-top: 1px solid var(--border); padding-block: 1.4rem; }
+  h3 { font: 600 1.35rem/1.25 var(--font-display); margin: 0; }
+  h3 a { color: var(--text); }
+  .base-comparison__detail, .base-comparison__foot { color: var(--soft); font-size: 0.9rem; line-height: 1.6; }
+  strong { color: var(--text); font-weight: 600; }
+  .base-comparison__actions { display: flex; flex-direction: column; align-items: flex-start; font-size: 0.9rem; }
+  .base-comparison__actions a { display: inline-flex; align-items: center; min-height: 44px; }
+  .base-comparison__foot { border-top: 1px solid var(--border); padding-top: 1rem; max-width: 75ch; }
+  @media (max-width: 48em) { .base-comparison__row { grid-template-columns: 1fr; gap: 0.7rem; } .base-comparison__actions { flex-direction: row; gap: 1.5rem; } }
+</style>

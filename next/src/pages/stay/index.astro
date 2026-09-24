@@ -17,6 +17,8 @@
  * below the stand-first renders #pi-results-status and the paired sheet;
  */
 import { getCollection } from 'astro:content';
+import { informationCheckedOn } from '../../lib/verification-date.mjs';
+import { resolveHero } from '../../lib/inline-edit/resolve-hero';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Card from '../../components/v5/Card.astro';
@@ -27,10 +29,12 @@ import HubStandfirst from '../../components/v5/hub/HubStandfirst.astro';
 import TheSix from '../../components/v5/hub/TheSix.astro';
 import DirectoryRows from '../../components/v5/hub/DirectoryRows.astro';
 import JournalModule from '../../components/v5/hub/JournalModule.astro';
-import AskBand from '../../components/v5/hub/AskBand.astro';
+import CategoryBrowse from '../../components/v5/hub/CategoryBrowse.astro';
+import PlanningHelp from '../../components/v5/hub/PlanningHelp.astro';
+import StayBaseComparison from '../../components/v5/hub/StayBaseComparison.astro';
 import TrustNote from '../../components/v5/hub/TrustNote.astro';
 import { getFacets, type FacetKey } from '../../lib/facets';
-import { routeSlug, isStayVenue, typeLabel, titleize, resolveHeroSrc, isListableVenue } from '../../lib/editorial';
+import { routeSlug, isStayVenue, typeLabel, titleize, isListableVenue } from '../../lib/editorial';
 import { buildBreadcrumbSchema, absUrl } from '../../lib/schema';
 import CorrectionNote from '../../components/CorrectionNote.astro';
 
@@ -43,6 +47,13 @@ const stayCount = venues.length; // FULL corpus, every row server-rendered
 
 const articlesAll = (await getCollection('articles', ({ data }) => data.status === 'published'))
   .sort((a, b) => (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0));
+
+const venueImages = new Map(await Promise.all(venues.map(async (venue) => {
+  const slug = routeSlug(venue);
+  const hero = await resolveHero('venue', slug, venue.data);
+  const status = !hero.override ? venue.data.heroImage?.depictionStatus : undefined;
+  return [slug, { src: hero.src, alt: hero.alt, caption: status === 'illustrative' ? 'Illustrative image' : status === 'unverified' ? 'Image subject unverified' : undefined }] as const;
+})));
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
 const iso = (d: unknown): string | undefined =>
@@ -94,7 +105,7 @@ function stayItem(v: any, overrides: { verdict?: string } = {}) {
     href: `/stay/${slug}/`,
     entityType: 'venue' as const,
     entitySlug: slug as string,
-    image: { src: resolveHeroSrc(data), alt: data.heroImage?.alt ?? data.name },
+    image: venueImages.get(slug),
     verdict: overrides.verdict ?? rowVerdict(data),
     meta: [
       typeLabel[data.type] ?? titleize(String(data.type ?? '')),
@@ -102,9 +113,10 @@ function stayItem(v: any, overrides: { verdict?: string } = {}) {
       partyFit(facets),
     ].filter(Boolean).slice(0, 3) as string[],
     priceBand: data.priceBand as string | undefined,
-    freshness: iso(data.lastVerified),
+    freshness: iso(informationCheckedOn(data)),
+    freshnessKind: 'checked' as const,
     booking: bookingUrl
-      ? { url: bookingUrl, label: 'Book', venueName: data.name as string, partnerLabel }
+      ? { url: bookingUrl, label: 'Check availability', venueName: data.name as string, partnerLabel }
       : undefined,
     surface: 'stay',
     facets,
@@ -114,12 +126,12 @@ function stayItem(v: any, overrides: { verdict?: string } = {}) {
 // ── The Six: hand-picked spread of corridor, party and price ────────────────
 // Verdicts are Critic voice, <= 25 words, written here (editorial curation).
 const SIX: { slug: string; verdict: string }[] = [
-  { slug: 'jackalope', verdict: 'The Peninsula staged as an event: a black-steel vineyard monolith, oversized baths, and dinner under ten thousand glass orbs at Doot Doot Doot.' },
+  { slug: 'jackalope', verdict: 'A vineyard hotel for an occasion-led escape, with striking architecture and Doot Doot Doot dining. Check room and restaurant availability separately.' },
   { slug: 'polperro-villas', verdict: 'Four vineyard villas, each sleeping two with a king-size bed, indoor spa and open fireplace.' },
-  { slug: 'hotel-sorrento', verdict: 'The classic Peninsula weekend, still unbeaten: front rooms with bay balconies above a grand old limestone pub.' },
-  { slug: 'flinders-hotel', verdict: 'The southern Peninsula’s most practical base: village on the doorstep, Bass Strait ten minutes away, and a pub that earns its keep.' },
-  { slug: 'peninsula-hot-springs-glamping', verdict: 'Thirty seconds from bed to thermal pool at dawn, before the day visitors arrive. That proximity is the entire argument, and it holds.' },
-  { slug: 'blue-moon-cottages', verdict: '1940s cottages a five-minute walk from Rye bay beach, wood fires lit, dogs welcome in the fenced Sandpiper courtyard.' },
+  { slug: 'hotel-sorrento', verdict: 'A coastal hotel above a limestone pub, for a weekend centred on Sorrento. Check your room’s outlook before booking.' },
+  { slug: 'flinders-hotel', verdict: 'A village hotel for a Flinders base, with the southern coast as a separate outing. Confirm dining hours for your stay.' },
+  { slug: 'peninsula-hot-springs-glamping', verdict: 'Stay at the hot springs when bathing is the centre of the escape. Check which sessions and inclusions come with your accommodation.' },
+  { slug: 'blue-moon-cottages', verdict: 'Cottage accommodation in Rye for a bay-side base. Ask about the specific cottage and its current dog policy before booking.' },
 ];
 
 const bySlug = new Map(venues.map((v) => [(v.id ?? v.data.slug) as string, v]));
@@ -179,8 +191,7 @@ const journalItems = journalSlugs
 // ── Stand-first (<= 80 words, carries the where-to-stay + corridor phrases) ─
 const standfirst =
   'One decision shapes the weekend: ridge and hinterland, or coastal village. ' +
-  'Red Hill puts vineyard lunches and fireplaces in walking distance; Sorrento to Mornington ' +
-  'trade that for bay light and a livelier main street. Every property here is independently researched.';
+  'Compare the atmosphere, evenings and transport tradeoffs below, then find a hotel, vineyard villa or cottage that fits your party.';
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
@@ -221,16 +232,31 @@ export const prerender = true;
 
   <!-- 1. Stand-first: h1 retained, intro + CompareBlock compressed to <= 80 words -->
   <HubStandfirst
-    eyebrow="Stay"
+    compact
     title="Choose the base, and the whole weekend changes"
     standfirst={standfirst}
-    image={{ src: '/images/sourced/venue-jackalope-hotel-01.webp', alt: 'A vineyard hotel on the Mornington Peninsula at dusk' }}
   />
+
+  <CategoryBrowse directory="stay-directory" count={stayCount} noun="stays">
+    <FilterBar
+      surface="stay"
+      noun="stays"
+      label="Filter stays"
+      facets={['place', 'cat', 'price', 'party']}
+    >
+      <SortControl />
+    </FilterBar>
+    <PlanningHelp />
+  </CategoryBrowse>
+
+  <div data-category-editorial>
+  <StayBaseComparison />
 
   <!-- 2. The Six -->
   <TheSix
-    eyebrow="The Six · this month"
-    heading="Six stays worth building a weekend around"
+    eyebrow="The stay shortlist"
+    heading="Stays worth building a weekend around"
+    sub="An editorial shortlist. Dates on individual entries describe the recorded detail check, not a new stay or visit."
     surface="stay"
     items={sixItems}
   />
@@ -238,7 +264,6 @@ export const prerender = true;
   <!-- 4. Best-of rail -->
   <section class="v5-bestof" aria-labelledby="bestof-heading">
     <div class="container">
-      <p class="v5-bestof__eyebrow">Best-of guides</p>
       <h2 id="bestof-heading" class="v5-bestof__title">Start with a ranked list</h2>
       {/* "Best-of guides" is stated once, in the section eyebrow. The cards
           drop their GUIDE stamp. They are text-only by design, so no media
@@ -261,33 +286,21 @@ export const prerender = true;
     </div>
   </section>
 
-  <!-- 5. Directory: the FULL stay corpus as compact rows, Book primary +
-       Save. Party chips are slotted directly above the list they reshape
-       (moved from the top of the page 2026-07-24 per James; slotted inside
-       the directory so the sticky bar has the full list height to stick
-       against). ONE filter state still governs The Six + directory. -->
+  </div>
+
+  <!-- Full directory; the single early FilterBar owns its state and count. -->
   <div class="container">
     <TrustNote surface="stay" />
   </div>
   <DirectoryRows
+    id="stay-directory"
     eyebrow="The full list"
     heading={`All ${stayCount} places to stay`}
     surface="stay"
     noun="stays"
     items={directoryItems}
     topLink={{ label: 'Ranked: the best places to stay', href: '/stay/best-accommodation/' }}
-  >
-    <FilterBar
-      slot="before-list"
-      surface="stay"
-      noun="stays"
-      label="Filter stays"
-      sticky={true}
-      facets={['place', 'cat', 'price', 'party']}
-    >
-      <SortControl />
-    </FilterBar>
-  </DirectoryRows>
+  />
 
   <!-- 6. From the Journal (3) -->
   <JournalModule
@@ -300,7 +313,6 @@ export const prerender = true;
   <section class="hub-faq" aria-label="Frequently asked questions">
     <div class="container">
       <div class="hub-faq__intro">
-        <p class="label label--accent">Frequently asked</p>
         <h2 class="hub-faq__title">Three honest answers before you book the bed</h2>
       </div>
       <div class="hub-faq__list">

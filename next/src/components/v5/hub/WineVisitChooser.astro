@@ -1,0 +1,35 @@
+---
+const visits = [
+  { title: 'A tasting, then move on', line: 'Make one cellar door the anchor when you have only part of the day. Choose the wine interest first, then check its tasting format.', constraint: 'Walk-in labels do not promise space today. Confirm hours and availability with the producer.', label: 'Browse tasting-first visits', href: '/wine/?mood=tasting-first#wine-directory' },
+  { title: 'Lunch is the main event', line: 'Choose a winery with a kitchen, book the meal, then fit the tasting around it. Leave room for the visit itself.', constraint: 'A restaurant reservation and a tasting reservation may be separate.', label: 'Find wineries with lunch', href: '/wine/?mood=lunch-attached#wine-directory' },
+  { title: 'Wine worth an appointment', line: 'Build the day around a confirmed tasting time. Add another stop only after checking the journey and the available appointment.', constraint: 'Booking policies vary by producer; the guide is a starting point, not live availability.', label: 'Read the appointment guide', href: '/wine/appointment-producers/' },
+];
+---
+<section class="wine-choices container" aria-labelledby="wine-choices-heading">
+  <h2 id="wine-choices-heading">What kind of wine-country day?</h2>
+  <div class="wine-choices__rows">
+    {visits.map((visit) => (
+      <article class="wine-choices__row">
+        <h3>{visit.title}</h3>
+        <div><p>{visit.line}</p><p class="wine-choices__constraint">{visit.constraint}</p><a href={visit.href}>{visit.label} →</a></div>
+      </article>
+    ))}
+  </div>
+  <div class="wine-choices__foot">
+    <p><strong>Plan the return trip first.</strong> Arrange a designated driver or transport before tasting. Use <a href="/map/?cat=winery">the winery map</a> for location, then check the actual route and timing.</p>
+    <p><strong>Make wine optional.</strong> Pair the area with <a href="/explore/?cat=gallery#directory">art and galleries</a> or <a href="/explore/rainy-day/">a rainy-day plan</a>. Ask the venue about non-alcoholic options before booking.</p>
+  </div>
+</section>
+<style>
+  .wine-choices { padding-block: 2rem 2.5rem; }
+  h2 { margin: 0 0 1.5rem; font: 600 clamp(1.7rem, 3vw, 2.4rem)/1.15 var(--font-display); text-wrap: balance; }
+  .wine-choices__row { display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; border-top: 1px solid var(--border); padding-block: 1.3rem; }
+  h3 { font: 600 1.4rem/1.2 var(--font-display); margin: 0; }
+  p { margin: 0 0 0.65rem; max-width: 70ch; }
+  .wine-choices__constraint { color: var(--soft); font-size: 0.9rem; }
+  a { color: var(--teal-text); text-underline-offset: 0.2em; }
+  .wine-choices__row a { display: inline-flex; align-items: center; min-height: 44px; font-size: 0.9375rem; font-weight: 600; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .wine-choices__foot { border-top: 1px solid var(--border); padding-top: 1.2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; font-size: 0.9rem; line-height: 1.6; }
+  @media (max-width: 48em) { .wine-choices__row, .wine-choices__foot { grid-template-columns: 1fr; gap: 0.7rem; } }
+</style>

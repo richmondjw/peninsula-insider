@@ -52,7 +52,8 @@ const cards = await Promise.all(
       slug,
       title: event.data.title,
       href: `/whats-on/${slug}/`,
-      image: { src: hero.src, alt: hero.alt || event.data.title },
+      image: { src: hero.src, alt: hero.alt || event.data.title,
+        caption: !hero.override && event.data.heroImage?.depictionStatus === 'illustrative' ? 'Illustrative image' : undefined },
       verdict,
       meta,
       dateISO: pickDateISO(event, now),
@@ -96,7 +97,7 @@ const cards = await Promise.all(
       </div>
 
       <p class="home-weekend__all">
-        <a href="/whats-on/">Everything on this weekend &rarr;</a>
+        Saturday and Sunday picks. <a href="/whats-on/">See all events, including Friday &rarr;</a>
       </p>
 
       <PlayCard variant="band" />

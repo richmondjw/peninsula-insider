@@ -1,3 +1,4 @@
+import './whatson-listing.test.mjs';
 /**
  * event-occurrence tests (PI-008). Run from repo root or next/:
  *

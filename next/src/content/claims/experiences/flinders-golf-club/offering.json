@@ -1,0 +1,25 @@
+{
+  "claimId": "experiences/flinders-golf-club/offering",
+  "claimClass": "offering",
+  "subject": {
+    "type": "experiences",
+    "slug": "flinders-golf-club",
+    "field": "golf.holes"
+  },
+  "statement": "Flinders Golf Club has 18 holes.",
+  "assertedBy": [
+    {
+      "type": "experiences",
+      "slug": "flinders-golf-club",
+      "field": "golf.holes"
+    },
+    {
+      "type": "experiences",
+      "slug": "flinders-golf-club",
+      "field": "editorNote"
+    }
+  ],
+  "createdAt": "2026-09-24",
+  "origin": "authored",
+  "note": "The official course tour enumerates Hole 1 through Hole 18. Corrects golf.holes and the matching sentence in editorNote only. Does not verify the remaining editorial assessments, visitor access, duration or prices."
+}

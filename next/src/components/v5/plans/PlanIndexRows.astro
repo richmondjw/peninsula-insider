@@ -1,4 +1,5 @@
 ---
+import { routePreview } from './plan-preview';
 import type { PlansModel } from './plans-data';
 export interface Props { model: PlansModel; }
 const { model } = Astro.props;
@@ -8,11 +9,11 @@ const guides = model.plans.filter(plan => plan.kind === 'guide').sort((a,b) => a
 <section class="plan-index" id="all-plans" aria-labelledby="all-plans-heading" data-plan-index>
   <div class="container">
     <div class="plan-index__heading"><div><p class="plan-index__eyebrow">The complete collection</p><h2 id="all-plans-heading">Ready-made itineraries</h2></div><span>{itineraries.length} itineraries</span></div>
-    <p class="plan-index__intro">Days in order, with the stops already chosen. Read the route, then make it yours.</p>
+    <p class="plan-index__intro">Days in order, with the stops already chosen. Check transport between stops and booking requirements, then make it yours.</p>
     <div class="plan-index__rows">
       {itineraries.map((plan,i) => <article class="plan-index__row" data-plan-row={plan.id}>
         <span class="plan-index__number" aria-hidden="true">{String(i+1).padStart(2,'0')}</span>
-        <div class="plan-index__copy"><h3><a href={plan.href}>{plan.displayTitle}</a></h3><p>{plan.editorialReason}</p><p class="plan-index__meta">{[...plan.meta, `${plan.stops.length} stops`].join(' · ')}</p></div>
+        <div class="plan-index__copy"><h3><a href={plan.href}>{plan.displayTitle}</a></h3><p>{plan.editorialReason}</p><p class="plan-index__route">{routePreview(plan)}</p><p class="plan-index__booking">{plan.bookingNote}</p><p class="plan-index__meta">{[...plan.meta, `${plan.stops.length} stops`].join(' · ')}</p></div>
         <div class="plan-index__actions"><a href={plan.href} class="plan-index__read">See itinerary <span aria-hidden="true">↗</span></a><button class="pi-btn pi-btn--ghost" type="button" data-plan-fork={plan.id} aria-label={`Use this itinerary: ${plan.title}`}>Use this itinerary</button></div>
       </article>)}
     </div>
@@ -37,6 +38,7 @@ const guides = model.plans.filter(plan => plan.kind === 'guide').sort((a,b) => a
   .plan-index__number{font:400 1.1rem/1.5 var(--font-display);color:var(--soft)}
   h3{font:500 1.2rem/1.35 var(--font-display);letter-spacing:-.025em;margin:0 0 .5rem}h3 a{color:var(--text);text-decoration:none}h3 a:hover{text-decoration:underline;text-underline-offset:.15em}
   .plan-index__copy>p{font:.9rem/1.6 var(--font-ui);max-width:60ch;margin:.45rem 0}
+  .plan-index__copy .plan-index__route,.plan-index__copy .plan-index__booking{font-size:.8rem;color:var(--soft)}
   .plan-index__copy .plan-index__meta{color:var(--soft);font-size:.77rem;margin:.65rem 0 0}
   .plan-index__actions{display:flex;align-items:center;gap:1rem;padding-top:.1rem}
   .plan-index__read{font-size:.8rem;white-space:nowrap;text-underline-offset:.2em}.plan-index__actions .pi-btn{font-size:.8rem;min-height:44px}

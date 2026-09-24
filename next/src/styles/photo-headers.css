@@ -33,28 +33,28 @@
 }
 
 /* Scoped to photo headers so solid brand backgrounds keep their palette. */
-body :is(.v5-standfirst--photo, .x-head, .wo-head, .wk-hero, .sp-hero, .pdv2-hero, .region-hero) h1 {
+body :is(.v5-standfirst--photo, .x-head, .wk-hero, .sp-hero, .pdv2-hero, .region-hero) h1 {
   text-shadow: 0 2px 8px rgb(0 0 0 / .3);
 }
 body :is(.v5-standfirst--photo .v5-standfirst__dek, .x-head__standfirst,
-  .wo-head__context, .wo-head__rule, .wk-hero__standfirst, .sp-hero__standfirst,
+  .wk-hero__standfirst, .sp-hero__standfirst,
   .pdv2-hero__alt, .region-hero__tagline) {
   color: #fff;
   text-shadow: 0 1px 4px rgb(0 0 0 / .6);
 }
 body :is(.v5-standfirst--photo .v5-standfirst__eyebrow, .x-head__eyebrow,
-  .wo-head__eyebrow, .pdv2-hero__eyebrow, .region-hero__eyebrow) {
+  .pdv2-hero__eyebrow, .region-hero__eyebrow) {
   color: #fff4df;
   text-shadow: 0 1px 4px rgb(0 0 0 / .55);
 }
 
-body :is(.home-cover, .v5-standfirst--photo, .x-head, .wo-head) .pi-btn--ghost {
+body :is(.home-cover, .v5-standfirst--photo, .x-head) .pi-btn--ghost {
   background: rgb(20 20 18 / .27);
   color: #fff;
   border-color: rgb(255 255 255 / .7);
   text-shadow: 0 1px 3px rgb(0 0 0 / .3);
 }
-body :is(.home-cover, .v5-standfirst--photo, .x-head, .wo-head) .pi-btn--ghost:hover {
+body :is(.home-cover, .v5-standfirst--photo, .x-head) .pi-btn--ghost:hover {
   background: rgb(20 20 18 / .55);
 }
 

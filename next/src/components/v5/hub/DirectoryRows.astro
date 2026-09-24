@@ -36,6 +36,7 @@ export interface DirectoryRowItem {
   meta?: string[];
   priceBand?: string | number;
   freshness?: string;
+  freshnessKind?: 'reviewed' | 'checked';
   /** Unified facet payload from getFacets(kind, data). */
   facets?: Partial<Record<FacetKey, string[]>>;
   /** Stay surfaces: Book is the one primary row action. */
@@ -124,6 +125,7 @@ const headingId = `${id ?? `directory-${surface}`}-heading`;
             meta={item.meta}
             priceBand={item.priceBand}
             freshness={item.freshness}
+            freshnessKind={item.freshnessKind}
             booking={item.booking}
             partnerLabel={item.partnerLabel}
             surface={surface}
