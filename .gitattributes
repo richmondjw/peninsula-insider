@@ -2,3 +2,6 @@
 # (a CRLF shebang yields "/bin/sh^M: bad interpreter").
 .githooks/** text eol=lf
 *.sh text eol=lf
+
+# journal index is CRLF-native; carriage returns are line endings, not whitespace.
+next/src/pages/journal/index.astro whitespace=cr-at-eol

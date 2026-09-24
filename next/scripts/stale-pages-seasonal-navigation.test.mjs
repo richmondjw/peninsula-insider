@@ -17,13 +17,16 @@ test('businesses link directly to the retained About editorial section', () => {
   assert.doesNotMatch(page, /editorial-approach/);
 });
 
-test('seasonal navigation prioritises spring while retaining Winter winery query aliases', () => {
+test('seasonal navigation selects the current priority guide and keeps other seasons lower down', () => {
   const index = read('src/pages/site-index.astro');
   const search = read('src/pages/search.astro');
   const springWineIntent = search.match(/aliases:\s*\[([^\]]+)\],\s*title:\s*'Mornington Peninsula Wine & Wineries'/);
 
-  assert.match(index, /href="\/journal\/the-spring-peninsula\/"[^>]*>Mornington Peninsula in Spring</);
-  assert.doesNotMatch(index, /Mornington Peninsula in Autumn/);
+  assert.match(index, /getAustralianSeason/);
+  assert.match(index, /seasonalPriority/);
+  assert.match(index, /Mornington Peninsula in Autumn/);
+  assert.match(index, /href: '\/journal\/the-spring-peninsula\/'/);
+  assert.match(index, /href: '\/journal\/autumn-weekend-edit\/'/);
   assert.ok(springWineIntent, 'the retained Spring Wine result must define aliases');
   assert.match(springWineIntent[1], /'winter wineries'/);
   assert.match(springWineIntent[1], /'winter winery'/);
@@ -32,8 +35,25 @@ test('seasonal navigation prioritises spring while retaining Winter winery query
   assert.doesNotMatch(search, /"Winter wineries"/);
 });
 
-test('the Journal current edit is a September 2026 selection', () => {
+test('retired editorial references and inaccurate alert cadence are absent from public sources', () => {
+  assert.match(read('src/layouts/BaseLayout.astro'), /publishingPrinciples: `\$\{SITE_URL\}\/about\//);
+  assert.doesNotMatch(read('public/llms.txt'), /editorial-approach/);
+  assert.match(read('public/llms.txt'), /https:\/\/peninsulainsider\.com\.au\/about\//);
+  assert.doesNotMatch(read('src/pages/alerts.astro'), /weekly digest/i);
+  assert.doesNotMatch(read('src/pages/alerts.astro'), /Email digest \(weekly Sunday\)/);
+});
+
+test('Journal keeps the September lead as its fallback and otherwise selects the newest article', () => {
   const front = JSON.parse(read('src/data/journal-front.json'));
-  assert.equal(front.selectedOn, '2026-09-24');
-  assert.equal(front.lead, 'spring-school-holidays-2026');
+  const journal = read('src/pages/journal/index.astro');
+
+  assert.equal(front.leadFallback, front.lead);
+  assert.match(journal, /fresh\?\[curation\.lead,curation\.leadFallback\]:\[\]/);
+  assert.doesNotMatch(journal, /selectedOn\s*===\s*['"]2026-/);
+});
+
+test('seasonal maintenance regression is part of the CI build contract', () => {
+  const pkg = JSON.parse(read('package.json'));
+  assert.equal(pkg.scripts['test:stale-pages-seasonal-navigation'], 'node --test scripts/stale-pages-seasonal-navigation.test.mjs');
+  assert.match(pkg.scripts.build, /npm run test:stale-pages-seasonal-navigation/);
 });

@@ -22,7 +22,7 @@ function pick(slugs:string[],count:number,theme?:string){
  for(const a of [...preferred,...pool]){const slug=routeSlug(a);if(used.has(slug))continue;used.add(slug);result.push(a);if(result.length===count)break;}
  return result;
 }
-const [lead]=pick([curation.lead, curation.leadFallback],1);
+const [lead]=pick(fresh?[curation.lead,curation.leadFallback]:[],1);
 const desk=pick(curation.desk,3);
 const people=fresh?discoveryArticles.filter(a=>curation.people.includes(routeSlug(a))&&!used.has(routeSlug(a))).slice(0,1):[];
 people.forEach(a=>used.add(routeSlug(a)));

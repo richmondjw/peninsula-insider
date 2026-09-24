@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import { routeSlug, isStayVenue, wineTypes, isListableVenue } from '../lib/editorial';
+import { getAustralianSeason } from '../lib/season';
 
 const [venues, experiences, places, articles, itineraries, events] = await Promise.all([
   getCollection('venues'),
@@ -19,6 +20,12 @@ const activeVenues = venues.filter(isListableVenue);
 const eatVenues = activeVenues.filter((v) => eatTypes.includes(v.data.type)).slice(0, 40);
 const stayVenues = activeVenues.filter(isStayVenue).slice(0, 20);
 const wineVenues = activeVenues.filter((v) => wineTypes.includes(v.data.type)).slice(0, 30);
+const seasonalGuides = [
+  { season: 'Spring', href: '/journal/the-spring-peninsula/', label: 'Mornington Peninsula in Spring' },
+  { season: 'Autumn', href: '/journal/autumn-weekend-edit/', label: 'Mornington Peninsula in Autumn' },
+];
+const seasonalPriority = seasonalGuides.find((guide) => guide.season === getAustralianSeason());
+const otherSeasonalGuides = seasonalGuides.filter((guide) => guide !== seasonalPriority);
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
@@ -59,7 +66,7 @@ export const prerender = true;
           <li><a href="/explore/walks/">Best Walks</a></li>
           <li><a href="/stay/best-accommodation/">Best Accommodation</a></li>
           <li><a href="/journal/mornington-peninsula-day-trip/">Mornington Peninsula Day Trip</a></li>
-          <li><a href="/journal/the-spring-peninsula/">Mornington Peninsula in Spring</a></li>
+          {seasonalPriority && <li><a href={seasonalPriority.href}>{seasonalPriority.label}</a></li>}
           <li><a href="/journal/mornington-peninsula-with-kids/">Mornington Peninsula with Kids</a></li>
           <li><a href="/journal/dog-friendly-mornington-peninsula/">Dog-Friendly Mornington Peninsula</a></li>
         </ul>
@@ -78,6 +85,9 @@ export const prerender = true;
           <li><a href="/stay/cottages/">Cottages</a></li>
           <li><a href="/stay/glamping/">Glamping</a></li>
           <li><a href="/guides/">Seasonal Guides</a></li>
+          {otherSeasonalGuides.map((guide) => (
+            <li><a href={guide.href}>{guide.label}</a></li>
+          ))}
           <li><a href="/journal/cellar-door/">Cellar Door Journal</a></li>
           <li><a href="/journal/local-secrets/">Local Secrets</a></li>
           <li><a href="/quick-note/">Quick Notes</a></li>
