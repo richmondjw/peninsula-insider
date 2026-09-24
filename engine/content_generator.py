@@ -233,8 +233,8 @@ def _repair_rotation_violations(text: str, *, date_str: str, prompt: str,
     failures = _rotation_failures(text, date_str)
     if not failures:
         return text
-    blocked = rotation.get("blocked_names") or rotation.get("blocked") or []
-    candidates = rotation.get("candidates") or []
+    blocked = rotation.get("blocked_names", [])
+    candidates = rotation.get("candidates", [])
     revision_prompt = f"""{prompt}
 
 REVISION REQUIRED:
