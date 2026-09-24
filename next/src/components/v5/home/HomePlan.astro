@@ -55,6 +55,7 @@ const featured = eligible[rotationIndex];
 /* The plans model is the same one /explore/plans/ uses, so the alternates
    and the chip strip stay consistent with the hub they lead to. */
 const plansModel = await buildPlansModel();
+const usablePlans = plansModel.plans.filter((plan) => plan.kind === 'itinerary' && plan.stops.length > 0);
 
 const slug = featured ? (featured.data.slug ?? featured.id) : '';
 const hero = featured ? await resolveHero('itinerary', slug, featured.data) : null;
@@ -95,7 +96,7 @@ const planShape = [
 /* Alternates: the two strongest plans for the season that are not the
    featured one. Same ranking rule as the hub's default context. */
 const featuredId = `it-${slug}`;
-const alternates = plansModel.plans
+const alternates = usablePlans
   .filter((p) => p.id !== featuredId && p.image)
   .sort(
     (a, b) =>
@@ -108,14 +109,14 @@ const alternates = plansModel.plans
 /* Chip strip vocabulary, derived: a chip exists only if a published plan
    carries that shape. */
 const countOf = (key: 'party', value: string) =>
-  plansModel.plans.filter((p) => (p.facets[key] ?? []).includes(value)).length;
+  usablePlans.filter((p) => (p.facets[key] ?? []).includes(value)).length;
 
 const lengthChips = [
   { value: 'one-day', label: 'One day' },
   { value: 'weekend', label: 'Weekend' },
   { value: 'longer', label: 'Two nights +' },
 ].filter((o) =>
-  plansModel.plans.some((p) =>
+  usablePlans.some((p) =>
     o.value === 'one-day'
       ? (p.facets.date ?? []).includes('one-day') || p.dayCount === 1
       : o.value === 'weekend'

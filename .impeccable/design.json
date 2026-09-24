@@ -1,0 +1,373 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-24T03:06:51.762404+00:00",
+  "title": "Design System: Peninsula Insider",
+  "extensions": {
+    "colorMeta": {
+      "harbour": {
+        "role": "primary",
+        "displayName": "Harbour",
+        "tonalRamp": [
+          "oklch(15.00% 0.0960 244.10)",
+          "oklch(26.43% 0.0960 244.10)",
+          "oklch(37.86% 0.0960 244.10)",
+          "oklch(49.29% 0.0960 244.10)",
+          "oklch(60.71% 0.0960 244.10)",
+          "oklch(72.14% 0.0960 244.10)",
+          "oklch(83.57% 0.0960 244.10)",
+          "oklch(95.00% 0.0960 244.10)"
+        ]
+      },
+      "harbour-hover": {
+        "role": "primary",
+        "displayName": "Harbour Hover",
+        "tonalRamp": [
+          "oklch(15.00% 0.0828 244.95)",
+          "oklch(26.43% 0.0828 244.95)",
+          "oklch(37.86% 0.0828 244.95)",
+          "oklch(49.29% 0.0828 244.95)",
+          "oklch(60.71% 0.0828 244.95)",
+          "oklch(72.14% 0.0828 244.95)",
+          "oklch(83.57% 0.0828 244.95)",
+          "oklch(95.00% 0.0828 244.95)"
+        ]
+      },
+      "harbour-deep": {
+        "role": "primary",
+        "displayName": "Harbour Deep",
+        "tonalRamp": [
+          "oklch(15.00% 0.0645 246.85)",
+          "oklch(26.43% 0.0645 246.85)",
+          "oklch(37.86% 0.0645 246.85)",
+          "oklch(49.29% 0.0645 246.85)",
+          "oklch(60.71% 0.0645 246.85)",
+          "oklch(72.14% 0.0645 246.85)",
+          "oklch(83.57% 0.0645 246.85)",
+          "oklch(95.00% 0.0645 246.85)"
+        ]
+      },
+      "sand": {
+        "role": "secondary",
+        "displayName": "Sand",
+        "tonalRamp": [
+          "oklch(15.00% 0.1095 75.13)",
+          "oklch(26.43% 0.1095 75.13)",
+          "oklch(37.86% 0.1095 75.13)",
+          "oklch(49.29% 0.1095 75.13)",
+          "oklch(60.71% 0.1095 75.13)",
+          "oklch(72.14% 0.1095 75.13)",
+          "oklch(83.57% 0.1095 75.13)",
+          "oklch(95.00% 0.1095 75.13)"
+        ]
+      },
+      "sand-text": {
+        "role": "secondary",
+        "displayName": "Sand Text",
+        "tonalRamp": [
+          "oklch(15.00% 0.0967 62.96)",
+          "oklch(26.43% 0.0967 62.96)",
+          "oklch(37.86% 0.0967 62.96)",
+          "oklch(49.29% 0.0967 62.96)",
+          "oklch(60.71% 0.0967 62.96)",
+          "oklch(72.14% 0.0967 62.96)",
+          "oklch(83.57% 0.0967 62.96)",
+          "oklch(95.00% 0.0967 62.96)"
+        ]
+      },
+      "tide-text": {
+        "role": "secondary",
+        "displayName": "Tide Text",
+        "tonalRamp": [
+          "oklch(15.00% 0.0993 241.59)",
+          "oklch(26.43% 0.0993 241.59)",
+          "oklch(37.86% 0.0993 241.59)",
+          "oklch(49.29% 0.0993 241.59)",
+          "oklch(60.71% 0.0993 241.59)",
+          "oklch(72.14% 0.0993 241.59)",
+          "oklch(83.57% 0.0993 241.59)",
+          "oklch(95.00% 0.0993 241.59)"
+        ]
+      },
+      "background": {
+        "role": "neutral",
+        "displayName": "Background",
+        "tonalRamp": [
+          "oklch(15.00% 0.0000 89.88)",
+          "oklch(26.43% 0.0000 89.88)",
+          "oklch(37.86% 0.0000 89.88)",
+          "oklch(49.29% 0.0000 89.88)",
+          "oklch(60.71% 0.0000 89.88)",
+          "oklch(72.14% 0.0000 89.88)",
+          "oklch(83.57% 0.0000 89.88)",
+          "oklch(95.00% 0.0000 89.88)"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "tonalRamp": [
+          "oklch(15.00% 0.0029 84.56)",
+          "oklch(26.43% 0.0029 84.56)",
+          "oklch(37.86% 0.0029 84.56)",
+          "oklch(49.29% 0.0029 84.56)",
+          "oklch(60.71% 0.0029 84.56)",
+          "oklch(72.14% 0.0029 84.56)",
+          "oklch(83.57% 0.0029 84.56)",
+          "oklch(95.00% 0.0029 84.56)"
+        ]
+      },
+      "paper-warm": {
+        "role": "neutral",
+        "displayName": "Paper Warm",
+        "tonalRamp": [
+          "oklch(15.00% 0.0074 80.72)",
+          "oklch(26.43% 0.0074 80.72)",
+          "oklch(37.86% 0.0074 80.72)",
+          "oklch(49.29% 0.0074 80.72)",
+          "oklch(60.71% 0.0074 80.72)",
+          "oklch(72.14% 0.0074 80.72)",
+          "oklch(83.57% 0.0074 80.72)",
+          "oklch(95.00% 0.0074 80.72)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "tonalRamp": [
+          "oklch(15.00% 0.0257 244.32)",
+          "oklch(26.43% 0.0257 244.32)",
+          "oklch(37.86% 0.0257 244.32)",
+          "oklch(49.29% 0.0257 244.32)",
+          "oklch(60.71% 0.0257 244.32)",
+          "oklch(72.14% 0.0257 244.32)",
+          "oklch(83.57% 0.0257 244.32)",
+          "oklch(95.00% 0.0257 244.32)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted",
+        "tonalRamp": [
+          "oklch(15.00% 0.0231 241.18)",
+          "oklch(26.43% 0.0231 241.18)",
+          "oklch(37.86% 0.0231 241.18)",
+          "oklch(49.29% 0.0231 241.18)",
+          "oklch(60.71% 0.0231 241.18)",
+          "oklch(72.14% 0.0231 241.18)",
+          "oklch(83.57% 0.0231 241.18)",
+          "oklch(95.00% 0.0231 241.18)"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Rule",
+        "tonalRamp": [
+          "oklch(15.00% 0.0106 119.71)",
+          "oklch(26.43% 0.0106 119.71)",
+          "oklch(37.86% 0.0106 119.71)",
+          "oklch(49.29% 0.0106 119.71)",
+          "oklch(60.71% 0.0106 119.71)",
+          "oklch(72.14% 0.0106 119.71)",
+          "oklch(83.57% 0.0106 119.71)",
+          "oklch(95.00% 0.0106 119.71)"
+        ]
+      },
+      "control-rule": {
+        "role": "neutral",
+        "displayName": "Control Rule",
+        "tonalRamp": [
+          "oklch(15.00% 0.0241 237.15)",
+          "oklch(26.43% 0.0241 237.15)",
+          "oklch(37.86% 0.0241 237.15)",
+          "oklch(49.29% 0.0241 237.15)",
+          "oklch(60.71% 0.0241 237.15)",
+          "oklch(72.14% 0.0241 237.15)",
+          "oklch(83.57% 0.0241 237.15)",
+          "oklch(95.00% 0.0241 237.15)"
+        ]
+      },
+      "error": {
+        "role": "neutral",
+        "displayName": "Error",
+        "tonalRamp": [
+          "oklch(15.00% 0.1740 29.70)",
+          "oklch(26.43% 0.1740 29.70)",
+          "oklch(37.86% 0.1740 29.70)",
+          "oklch(49.29% 0.1740 29.70)",
+          "oklch(60.71% 0.1740 29.70)",
+          "oklch(72.14% 0.1740 29.70)",
+          "oklch(83.57% 0.1740 29.70)",
+          "oklch(95.00% 0.1740 29.70)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "compact-title": {
+        "displayName": "Compact category heading",
+        "purpose": "Existing Georgia fallback; no global font-editorial token or new font bundle."
+      },
+      "journal-headline": {
+        "displayName": "Journal editorial heading",
+        "purpose": "Scoped self-hosted Source Serif 4, preserved separately from Sora UI headings."
+      }
+    },
+    "shadows": [
+      {
+        "name": "elev-1",
+        "value": "0 2px 10px rgba(0, 54, 44, 0.06)",
+        "purpose": "Low utility elevation; cards themselves use no resting shadow."
+      },
+      {
+        "name": "elev-2",
+        "value": "0 14px 28px -14px rgba(0, 40, 34, 0.26)",
+        "purpose": "Raised utility surfaces."
+      },
+      {
+        "name": "elev-3",
+        "value": "0 26px 52px -18px rgba(0, 40, 34, 0.34)",
+        "purpose": "Dialogs and sheets."
+      }
+    ],
+    "motion": [
+      {
+        "name": "dur-fast",
+        "value": "120ms",
+        "purpose": "Tokenized quick feedback; reduced motion resets to zero."
+      },
+      {
+        "name": "dur-med",
+        "value": "200ms",
+        "purpose": "Tokenized controls and panels."
+      },
+      {
+        "name": "dur-slow",
+        "value": "320ms",
+        "purpose": "Tokenized larger transitions."
+      },
+      {
+        "name": "ease-enter",
+        "value": "cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+        "purpose": "Existing entry and control easing."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "frame-tablet-max",
+        "value": "1100px"
+      },
+      {
+        "name": "frame-mobile-max",
+        "value": "767px"
+      },
+      {
+        "name": "filter-wrap-max",
+        "value": "560px"
+      },
+      {
+        "name": "comparison-stack-max",
+        "value": "48em"
+      },
+      {
+        "name": "editorial-lead-min",
+        "value": "64em"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Main action, sentence case.",
+      "html": "<button class=\"ds-primary\">View the plan</button>",
+      "css": ".ds-primary{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:.5rem 1.5rem;border:1px solid transparent;border-radius:var(--radius-s,8px);cursor:pointer;font-family:var(--font-ui,Figtree,sans-serif);font-size:var(--fs-300,.9375rem);font-weight:500;line-height:1.4;transition:background-color 200ms,color 200ms,border-color 200ms;background:var(--accent,#10527E);color:var(--white,#FDFCFA)}.ds-primary:hover{background:var(--acc-h,#0C4166)}.ds-primary:focus-visible{outline:2px solid var(--accent,#10527E);outline-offset:2px;}.ds-primary:disabled{opacity:.55;cursor:not-allowed}"
+    },
+    {
+      "name": "Ghost button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Secondary action with an outlined boundary.",
+      "html": "<button class=\"ds-ghost\">Save this place</button>",
+      "css": ".ds-ghost{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:.5rem 1.5rem;border:1px solid transparent;border-radius:var(--radius-s,8px);cursor:pointer;font-family:var(--font-ui,Figtree,sans-serif);font-size:var(--fs-300,.9375rem);font-weight:500;line-height:1.4;transition:background-color 200ms,color 200ms,border-color 200ms;background:transparent;border-color:var(--border-strong,#5C6B75);color:var(--text,#14202A)}.ds-ghost:hover{border-color:var(--accent,#10527E);color:var(--accent,#10527E)}.ds-ghost:focus-visible{outline:2px solid var(--accent,#10527E);outline-offset:2px;}"
+    },
+    {
+      "name": "Text action",
+      "kind": "button",
+      "refersTo": "button-text",
+      "description": "Underlined navigation without a box.",
+      "html": "<a class=\"ds-text\" href=\"#directory\">Browse the directory</a>",
+      "css": ".ds-text{display:inline-flex;min-height:1.5rem;padding:.25rem 0;font-family:var(--font-ui,Figtree,sans-serif);font-size:var(--fs-300,.9375rem);font-weight:500;line-height:1.4;color:var(--accent,#10527E);text-decoration:underline;text-underline-offset:.28em}.ds-text:hover{color:var(--acc-h,#0C4166)}.ds-text:focus-visible{outline:2px solid var(--accent,#10527E);outline-offset:2px;}"
+    },
+    {
+      "name": "Filter chip",
+      "kind": "chip",
+      "refersTo": "filter-chip",
+      "description": "A selected example of the existing pressed-state filter.",
+      "html": "<button class=\"ds-chip\" aria-pressed=\"true\">With kids</button>",
+      "css": ".ds-chip{font-family:var(--font-ui,Figtree,sans-serif);font-size:var(--fs-300,.9375rem);font-weight:500;line-height:1.4;min-height:48px;padding:0 1rem;border:1px solid var(--border,#83857E);border-radius:999px;background:var(--white,#FDFCFA);color:var(--text,#14202A);cursor:pointer}.ds-chip[aria-pressed=true]{background:var(--accent,#10527E);color:var(--white,#FDFCFA);border-color:var(--accent,#10527E)}.ds-chip:hover{border-color:var(--acc-h,#0C4166)}.ds-chip:focus-visible{outline:2px solid var(--accent,#10527E);outline-offset:2px;}"
+    },
+    {
+      "name": "Search field",
+      "kind": "input",
+      "refersTo": "search-field",
+      "description": "The wrapper is the one focus indicator.",
+      "html": "<label class=\"ds-search-label\" for=\"ds-search\">Search places</label><div class=\"ds-search\"><input id=\"ds-search\" placeholder=\"A town or an experience\"></div>",
+      "css": ".ds-search-label{display:block;margin-bottom:.5rem;font-family:var(--font-ui,Figtree,sans-serif);font-size:var(--fs-300,.9375rem);font-weight:500;line-height:1.4;}.ds-search{display:flex;padding:.85rem 1rem;border:1px solid rgba(0,0,0,.12);border-radius:var(--radius-s,8px);background:#fff}.ds-search:focus-within{border-color:var(--accent,#10527E);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent,#10527E) 22%,transparent)}.ds-search input{width:100%;min-width:0;border:0;background:transparent;font:1rem var(--font-ui,Figtree,sans-serif);color:var(--text,#14202A)}.ds-search input:focus-visible{outline:none}.ds-search input::placeholder{color:var(--soft,#4B5862)}"
+    },
+    {
+      "name": "Editorial navigation",
+      "kind": "nav",
+      "description": "A small excerpt of the existing shell navigation.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Example\"><a href=\"#eat\" aria-current=\"page\">Eat & Drink</a><a href=\"#stay\">Stay</a><a href=\"#explore\">Explore</a></nav>",
+      "css": ".ds-nav{display:flex;flex-wrap:wrap;gap:24px;border-block:1px solid #d8d8d5}.ds-nav a{display:flex;align-items:center;min-height:49px;font:600 11px/1.5 Inter,Arial,sans-serif;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;color:#191919}.ds-nav a[aria-current=page]{color:#10527E;border-bottom:3px solid #10527E}.ds-nav a:hover{color:#10527E}.ds-nav a:focus-visible{outline:3px solid #11309c;outline-offset:4px}"
+    },
+    {
+      "name": "Text card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "A shared outlined card without invented photography.",
+      "html": "<article class=\"ds-card\"><h3><a href=\"#place\">Choose your base</a></h3><p>Compare the area, evenings and getting around before choosing a stay.</p><a class=\"ds-card-action\" href=\"#directory\">Find stays</a></article>",
+      "css": ".ds-card{max-width:28rem;background:var(--white,#FDFCFA);border:1px solid var(--border,#83857E);border-radius:var(--radius-m,16px);padding:1rem;color:var(--text,#14202A)}.ds-card h3{margin:0;font:600 clamp(1.375rem,1.2rem + .8vw,1.625rem)/1.23 var(--font-display,Sora,sans-serif)}.ds-card h3 a{color:inherit;text-decoration:none}.ds-card p{font:1.0625rem/1.6 var(--font-ui,Figtree,sans-serif);color:var(--soft,#4B5862)}.ds-card-action{font:500 .9375rem/1.4 var(--font-ui,Figtree,sans-serif);color:var(--accent,#10527E);text-underline-offset:.2em}.ds-card a:hover{text-decoration:underline}.ds-card a:focus-visible{outline:2px solid var(--accent,#10527E);outline-offset:2px;}"
+    },
+    {
+      "name": "Compact category header",
+      "kind": "custom",
+      "refersTo": "compact-header",
+      "description": "Text-led H1 with controlled measure; the example uses H2 inside the panel.",
+      "html": "<header class=\"ds-compact\"><h2>Choose the base, and the whole weekend changes</h2><p>Compare the atmosphere, evenings and transport, then find a stay that fits.</p><a href=\"#directory\">Browse all stays</a></header>",
+      "css": ".ds-compact{padding:clamp(1.5rem,3vw,2.75rem) 0;background:var(--paper,#FDFCFA);color:var(--text,#14202A)}.ds-compact h2{font:600 clamp(2rem,4vw,3.5rem)/1.08 Georgia,serif;letter-spacing:-.02em;max-width:24ch;margin:0}.ds-compact p{font:1rem/1.6 var(--font-ui,Figtree,sans-serif);max-width:70ch;color:var(--soft,#4B5862);margin:.75rem 0}.ds-compact a{display:inline-flex;align-items:center;min-height:44px;color:var(--teal-text,#8A5620);font:600 .9375rem var(--font-ui,Figtree,sans-serif);text-underline-offset:.2em}.ds-compact a:hover{color:var(--accent,#10527E)}.ds-compact a:focus-visible{outline:2px solid var(--accent,#10527E);outline-offset:2px;}"
+    },
+    {
+      "name": "More editorial choices",
+      "kind": "custom",
+      "description": "Native disclosure preserves keyboard and no-script behavior.",
+      "html": "<details class=\"ds-more\"><summary>See three more editorial choices</summary><p>Additional choices remain available here; the full directory is a separate route.</p></details>",
+      "css": ".ds-more{border-block:1px solid var(--border,#83857E);font:1rem/1.6 var(--font-ui,Figtree,sans-serif);color:var(--text,#14202A)}.ds-more summary{min-height:44px;padding:.75rem 0;cursor:pointer;font-weight:600;color:var(--teal-text,#8A5620)}.ds-more summary:hover{color:var(--accent,#10527E)}.ds-more summary:focus-visible{outline:2px solid var(--accent,#10527E);outline-offset:3px}.ds-more p{max-width:68ch}"
+    }
+  ],
+  "narrative": {
+    "northStar": "A coastal editorial guide with integrated planning tools",
+    "overview": "Preserve Peninsula Insider’s Harbour identity: recognisable place photography, a clear masthead, restrained rules and useful local judgment. Editorial openings create interest; visible directory controls and practical comparison rows make the next choice easy.\n\nThis documents the implemented public defaults on 24 September 2026, including the approved category refinement. It is a source scan, not a new identity or a claim of complete accessibility certification. Existing Journal typography is deliberately distinct from the global UI.",
+    "keyCharacteristics": [
+      "Harbour blue structure, white paper and a restrained warm accent.",
+      "Editorial hierarchy with compact practical controls.",
+      "Place-specific imagery with honest provenance and check dates.",
+      "Responsive comparison rows, visible focus and progressive disclosure."
+    ],
+    "rules": [],
+    "dos": [
+      "Do use the existing semantic CSS variables and shared components.",
+      "Do put a browse-all route and one labelled filter surface early on category pages.",
+      "Do use a full lead choice with compact alternatives, and disclose additional editorial choices with native details.",
+      "Do preserve visible focus, selected-state semantics, result announcements and reduced-motion behavior.",
+      "Do distinguish a recorded factual check, publication date, illustrative image and unknown information."
+    ],
+    "donts": [
+      "Don’t apply the dormant Magenta Stone admin palette or the superseded v5 token file as the public default.",
+      "Don’t make a photographic hero compulsory when the category decision is better served by a compact text opening.",
+      "Don’t duplicate FilterBar IDs or make a decorative selection determine the directory’s count.",
+      "Don’t turn an absent field into confirmed suitability, current availability or a new verification date.",
+      "Don’t gate reading behind animation or remove guest planning to simplify a layout."
+    ]
+  }
+}

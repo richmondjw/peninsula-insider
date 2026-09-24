@@ -34,6 +34,7 @@ export type CardVariant = 'venue' | 'compact-row' | 'event' | 'guide' | 'plan' |
 export interface CardImage {
   src: string;
   alt: string;
+  caption?: string;
 }
 
 export interface CardBooking {
@@ -65,6 +66,7 @@ export interface Props {
   priceBand?: string | number;
   /** ISO date; rendered through freshnessLabel() ("Reviewed May 2026"). */
   freshness?: string;
+  freshnessKind?: 'reviewed' | 'checked';
   /** Entity label eyebrow; defaults per variant (Venue/Event/Guide/...). */
   typeMark?: string;
   /**
@@ -120,6 +122,7 @@ const {
   meta = [],
   priceBand,
   freshness,
+  freshnessKind = 'reviewed',
   typeMark,
   showEyebrow = true,
   mediaFallback = false,
@@ -187,7 +190,8 @@ const articleDate =
     ? new Date(dateISO).toLocaleDateString('en-AU', { month: 'long', year: 'numeric' })
     : null;
 
-const freshnessText = freshness ? freshnessLabel(freshness) : null;
+const freshnessBase = freshness ? freshnessLabel(freshness) : null;
+const freshnessText = freshnessKind === 'checked' ? freshnessBase?.replace('Reviewed ', 'Details checked ') : freshnessBase;
 
 const isEditorial = variant === 'article' || variant === 'guide';
 const showMedia = !!image;
@@ -256,6 +260,7 @@ const hasActions = !!resolvedSaveKind || trip || !!booking;
   )}
 
   <div class="pi-card__body">
+    {image?.caption && <p class="pi-card__image-note">{image.caption}</p>}
     {showEyebrow && markText && <p class="pi-card__eyebrow">{markText}</p>}
 
     <h3 class="pi-card__title">
@@ -407,6 +412,7 @@ const hasActions = !!resolvedSaveKind || trip || !!booking;
 </script>
 
 <style>
+  .pi-card__image-note { margin: 0 0 0.5rem; font-size: 0.8125rem; line-height: 1.4; color: var(--soft); }
   /* Only what the shared primitive does NOT provide lives here.
      Ground, hairline, radius, body/eyebrow/title/dek/meta typography,
      the two-line dek clamp and the --compact row direction all come from

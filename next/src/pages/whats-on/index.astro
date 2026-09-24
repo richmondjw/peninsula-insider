@@ -159,21 +159,17 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
   section="whats-on"
   canonical="https://peninsulainsider.com.au/whats-on"
   modifiedTime={modifiedTime}
-  ogImage="/images/sourced/whats-on-winter-wine.webp"
 >
   <script data-wo-event-schema type="application/ld+json" set:html={JSON.stringify(itemListLd)} />
 
   <header class="wo-head">
-    <div class="wo-head__bg" style="background-image:url(/images/sourced/whats-on-winter-wine.webp)" aria-hidden="true"></div>
-    <div class="wo-head__scrim" aria-hidden="true"></div>
     <div class="container wo-head__inner">
-      <p class="wo-head__eyebrow"><span class="wo-head__live" aria-hidden="true"></span>What's On · live now</p>
       <h1 class="wo-head__title" data-wo-heading>What's on this weekend</h1>
       <p class="wo-head__context">
         <span data-wo-range>{weekend.label}</span> · {season} on the Peninsula
       </p>
       <p class="wo-head__rule">Browse events by date, then check the organiser before you go.</p>
-      <p class="wo-head__rule">For a slower Western Port detour between listings, start with <a href="/explore/places/hastings/">Hastings</a> and its working harbour.</p>
+      <p class="wo-head__rule">This calendar includes Friday to Sunday. Ongoing listings show their full run; check opening days with the organiser.</p>
     </div>
   </header>
 
@@ -320,7 +316,7 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
   import { initV5Analytics } from '../../lib/v5-analytics';
   import { tripAdd } from '../../lib/v5-store';
   import { startOfDay, addDays, rangeLabel, weekendWindow, occursOnDay, isoDate } from '../../lib/event-schedule';
-  import { resolveOccurrence } from '../../lib/event-occurrence.mjs';
+  import { resolveListingOccurrence, listingDateLabel } from '../../lib/whatson-listing.mjs';
   import { emptyDayMessage } from '../../lib/whatson-empty-state.mjs';
 
   initV5Analytics();
@@ -428,9 +424,15 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
       return feedPromise;
     };
 
-    const buildRow = (e: FeedEntry, spanLabel: string, day: Date, scopeEnd: Date): HTMLElement => {
+    const buildRow = (e: FeedEntry, spanLabel: string, day: Date): HTMLElement => {
       const frag = rowTpl.content.cloneNode(true) as DocumentFragment;
       const row = frag.querySelector<HTMLElement>('.wo-row')!;
+      const occurrence = e.statusData ? resolveListingOccurrence(e.statusData,
+        { kind: e.k, start: parseISO(e.s), end: parseISO(e.e) }, isoDate(day)) : null;
+      if (occurrence) {
+        row.dataset.occurrencePhase = occurrence.phase;
+        row.dataset.occurrenceBookable = String(occurrence.bookable);
+      }
       const link = row.querySelector<HTMLAnchorElement>('.wo-row__link')!;
       link.href = e.href;
       link.textContent = e.t;
@@ -439,7 +441,7 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
       row.querySelector<HTMLElement>('.wo-row__meta')!.textContent = [
         e.m.join(' · '),
         spanLabel,
-        e.statusData ? (resolveOccurrence(e.statusData, isoDate(day), new Date(), e.k === 'range' ? { endDayIso: isoDate(parseISO(e.e) < scopeEnd ? parseISO(e.e) : scopeEnd) } : {}).label ?? '') : (e.x ?? ''),
+        occurrence ? (occurrence.label ?? '') : (e.x ?? ''),
       ]
         .filter(Boolean)
         .join(' · ');
@@ -483,15 +485,10 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
               continue;
             }
             seenRanges.add(e.slug);
-            const ruleEnd = parseISO(e.e);
-            const runsTo = ruleEnd < end ? ruleEnd : end;
-            const span =
-              runsTo.getTime() > day.getTime()
-                ? `runs to ${fmt(runsTo, { weekday: 'short', day: 'numeric', month: 'short' })}`
-                : '';
+            const span = listingDateLabel({ kind: e.k, start: parseISO(e.s), end: parseISO(e.e) }, { start, end });
             matches.push({ e, span });
           } else {
-            matches.push({ e, span: '' });
+            matches.push({ e, span: listingDateLabel({ kind: e.k, start: parseISO(e.s), end: parseISO(e.e) }, { start, end }) });
           }
         }
         if (matches.length === 0 && !showEmptyDays) continue;
@@ -506,7 +503,7 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
           ul.className = 'wo-day__list';
           ul.setAttribute('role', 'list');
           for (const m of matches) {
-            ul.appendChild(buildRow(m.e, m.span, day, end));
+            ul.appendChild(buildRow(m.e, m.span, day));
             shown += 1;
           }
           section.appendChild(ul);
@@ -694,60 +691,7 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
   }
 
   /* ── Immersive hero: date context is the h1's job ── */
-  .wo-head {
-    position: relative;
-    isolation: isolate;
-    overflow: hidden;
-    background: var(--bg-deep);
-    color: var(--white);
-    padding: clamp(2.6rem, 8vw, 5rem) 0;
-  }
-  .wo-head__bg {
-    position: absolute;
-    inset: 0;
-    z-index: -2;
-    background-size: cover;
-    background-position: center;
-  }
-  .wo-head__scrim {
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    background: var(--photo-shade-copy);
-  }
-  .wo-head__inner {
-    position: relative;
-    z-index: 1;
-  }
-  /* The single amber signal marker on the hubs: What's On is the live/now surface. */
-  .wo-head__eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin: 0 0 var(--space-3, 0.75rem);
-    color: var(--signal);
-    font-family: var(--font-ui);
-    font-size: var(--fs-100, 0.72rem);
-    font-weight: var(--fw-semibold, 600);
-    letter-spacing: var(--ls-eyebrow, 0.12em);
-    text-transform: uppercase;
-  }
-  .wo-head__live {
-    width: 0.5rem;
-    height: 0.5rem;
-    border-radius: var(--radius-pill, 999px);
-    background: var(--signal);
-    box-shadow: 0 0 0 0 color-mix(in srgb, var(--signal) 70%, transparent);
-    animation: wo-live-pulse 2s var(--ease-enter, ease) infinite;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .wo-head__live { animation: none; }
-  }
-  @keyframes wo-live-pulse {
-    0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--signal) 55%, transparent); }
-    70% { box-shadow: 0 0 0 0.5rem color-mix(in srgb, var(--signal) 0%, transparent); }
-    100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--signal) 0%, transparent); }
-  }
+  .wo-head { padding: clamp(1.5rem, 4vw, 2.75rem) 0 1.2rem; background: var(--bg); color: var(--text); border-bottom: 1px solid var(--border); }
   .wo-head__title {
     margin: 0;
     font-family: var(--font-display);
@@ -755,22 +699,22 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
     font-weight: var(--fw-display, 600);
     line-height: var(--lh-display, 1.02);
     letter-spacing: var(--ls-display, -0.02em);
-    color: var(--white);
+    color: var(--text);
     text-wrap: balance;
   }
   .wo-head__context {
     margin: var(--space-3, 0.75rem) 0 0;
-    color: var(--white);
+    color: var(--text);
     font-size: var(--fs-400, 1rem);
   }
   .wo-head__rule {
     margin: var(--space-1, 0.25rem) 0 0;
-    color: var(--soft-inverse);
+    color: var(--soft);
     font-size: var(--fs-300, 0.9rem);
     font-style: normal;
   }
   .wo-scope-wrap {
-    padding-top: clamp(1.25rem, 3vw, 2rem);
+    padding-top: 1rem;
   }
 
   /* ── PI's picks ── */

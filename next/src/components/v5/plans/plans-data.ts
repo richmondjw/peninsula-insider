@@ -34,6 +34,7 @@ export interface PlanStop {
   href?: string;
   note?: string;
   day: number;
+  placeLabel?: string;
 }
 
 export interface PlanRecord {
@@ -137,18 +138,20 @@ export async function buildPlansModel(now: Date = new Date()): Promise<PlansMode
   const season = getAustralianSeasonLower(now);
 
   // ---- stop resolution lookups -------------------------------------------
+  const places = new Map((await getCollection('places')).map(place => [place.id, place.data.name]));
+  const placeLabel = (place: any) => places.get(typeof place === 'string' ? place : place?.id);
   const venues = (await getCollection('venues')).filter(isListableVenue);
   const experiences = await getCollection('experiences');
   const venueBySlug = new Map(
     venues.map((v) => [
       routeSlug(v) as string,
-      { title: v.data.name as string, href: venueHref(v) },
+      { title: v.data.name as string, href: venueHref(v), placeLabel: placeLabel(v.data.place) },
     ]),
   );
   const expBySlug = new Map(
     experiences.map((e) => [
       routeSlug(e) as string,
-      { title: (e.data as any).name as string, href: `/explore/${routeSlug(e)}/` },
+      { title: (e.data as any).name as string, href: `/explore/${routeSlug(e)}/`, placeLabel: placeLabel(e.data.place) },
     ]),
   );
 
@@ -170,11 +173,11 @@ export async function buildPlansModel(now: Date = new Date()): Promise<PlansMode
         const expSlug = refId(s.experience);
         if (venueSlug && venueBySlug.has(venueSlug)) {
           const v = venueBySlug.get(venueSlug)!;
-          return { kind: 'venue', slug: venueSlug, title: v.title, href: v.href, note: s.note, day: s.day };
+          return { kind: 'venue', slug: venueSlug, title: v.title, href: v.href, placeLabel: v.placeLabel, note: s.note, day: s.day };
         }
         if (expSlug && expBySlug.has(expSlug)) {
           const e = expBySlug.get(expSlug)!;
-          return { kind: 'experience', slug: expSlug, title: e.title, href: e.href, note: s.note, day: s.day };
+          return { kind: 'experience', slug: expSlug, title: e.title, href: e.href, placeLabel: e.placeLabel, note: s.note, day: s.day };
         }
         throw new Error(`[plans] ${slug} day ${s.day} has an unavailable stop: ${venueSlug ?? expSlug ?? 'missing reference'}`);
       });

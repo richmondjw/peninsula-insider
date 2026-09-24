@@ -22,8 +22,10 @@ function pick(slugs:string[],count:number,theme?:string){
  for(const a of [...preferred,...pool]){const slug=routeSlug(a);if(used.has(slug))continue;used.add(slug);result.push(a);if(result.length===count)break;}
  return result;
 }
-const [lead]=pick([curation.lead],1);
+const [lead]=pick([curation.lead, curation.leadFallback],1);
 const desk=pick(curation.desk,3);
+const people=fresh?discoveryArticles.filter(a=>curation.people.includes(routeSlug(a))&&!used.has(routeSlug(a))).slice(0,1):[];
+people.forEach(a=>used.add(routeSlug(a)));
 const food=pick(curation.food,3,'food-and-wine');
 const outdoors=pick(curation.outdoors,1,'walks-and-outdoors');
 const places=pick(curation.places,3,'towns-and-places');
@@ -33,8 +35,10 @@ const topicsFor=(a:typeof articles[number])=>themes.filter(t=>t.articles.include
 <BaseLayout title="The Journal · Peninsula Insider" description="Stories, people and places from the Mornington Peninsula. Explore the Peninsula Insider Journal." section="journal">
 <div class="journal-page" data-journal-index>
  <section class="journal-heading wrap" aria-labelledby="journal-title"><div><p class="eyebrow">Stories from the Mornington Peninsula</p><h1 id="journal-title">The Journal<span>.</span></h1></div><p class="intro">Good places. Interesting people.<br/>{' '}And a few reasons to stay a little longer.</p></section>
- <nav class="topic-nav wrap" aria-label="Journal sections"><a href="#cover">The latest edit</a>{food.length>0&&<a href="#food-wine">Food &amp; wine</a>}{outdoors.length>0&&<a href="#outdoors">Out in the open</a>}{places.length>0&&<a href="#places">Places &amp; weekends</a>}<a href="#archive">Every story ↓</a></nav>
- {lead && <section class="opening wrap" id="cover" aria-label="The latest edit"><JournalStory article={lead} display={displayFor(lead)} lead author={byline(lead)}/><aside class="editor-rail"><div class="rail-heading"><p class="eyebrow">From the editor’s desk</p><h2>Worth your time</h2><p>More ways into the Peninsula.</p></div>{desk.map((a,i)=><article class="rail-story"><span class="story-number" aria-hidden="true">{String(i+1).padStart(2,'0')}</span><div><p class="eyebrow">{a.data.tags[0]?.replaceAll('-',' ')}</p><h3><a href={`/journal/${routeSlug(a)}/`}>{displayFor(a).title || a.data.title}</a></h3><p>{displayFor(a).dek || a.data.dek}</p><p class="meta">{byline(a)} · {a.data.publishedAt.toLocaleDateString('en-AU',{day:'numeric',month:'short',year:'numeric'})}</p></div></article>)}<a href="#archive" class="text-link rail-more">Explore the Journal ↗</a></aside></section>}
+ <nav class="topic-nav wrap" aria-label="Journal sections"><a href="#cover">This edit</a>{food.length>0&&<a href="#food-wine">Food &amp; wine</a>}{outdoors.length>0&&<a href="#outdoors">Out in the open</a>}{places.length>0&&<a href="#places">Places &amp; weekends</a>}{people.length>0&&<a href="#people">Behind the wine</a>}<a href="#archive">Every story ↓</a></nav>
+ {fresh && <aside class="editor-note wrap" aria-label="About this selection"><p><strong>Selected <time datetime={curation.selectedOn}>{new Date(curation.selectedOn+'T12:00:00Z').toLocaleDateString('en-AU',{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'})}</time>.</strong> Recent practical stories sit alongside favourites from the archive. Each story keeps its original publication date; selecting it again is not a new check of every detail.</p></aside>}
+ {lead && <section class="opening wrap" id="cover" aria-label="This edit"><JournalStory article={lead} display={displayFor(lead)} lead author={byline(lead)}/><aside class="editor-rail"><div class="rail-heading"><p class="eyebrow">From the editor’s desk</p><h2>Worth your time</h2><p>More ways into the Peninsula.</p></div>{desk.map((a,i)=><article class="rail-story"><span class="story-number" aria-hidden="true">{String(i+1).padStart(2,'0')}</span><div><p class="eyebrow">{a.data.tags[0]?.replaceAll('-',' ')}</p><h3><a href={`/journal/${routeSlug(a)}/`}>{displayFor(a).title || a.data.title}</a></h3><p>{displayFor(a).dek || a.data.dek}</p><p class="meta">{byline(a)} · Published {a.data.publishedAt.toLocaleDateString('en-AU',{day:'numeric',month:'short',year:'numeric'})}</p></div></article>)}<a href="#archive" class="text-link rail-more">Explore the Journal ↗</a></aside></section>}
+ {people.length>0&&<section class="wrap section-space people-section" id="people"><header class="section-heading"><div><h2>Behind the wine</h2><p>The people who shaped what we drink, through our existing cellar-door stories.</p></div></header>{people.map(a=><JournalStory article={a} display={displayFor(a)} author={byline(a)}/>)}</section>}
  {food.length>0&&<section class="food-section section-space" id="food-wine"><div class="wrap"><header class="section-heading"><div><p class="eyebrow">At the table</p><h2>Food, wine &amp; good company</h2></div><a href="?theme=food-and-wine#archive" class="text-link" data-theme-link="food-and-wine">All food &amp; wine ↗</a></header><div class="weighted-trio">{food.map((a,i)=><JournalStory article={a} display={displayFor(a)} large={i===1} author={byline(a)}/>)}</div></div></section>}
  {outdoors.length>0&&<section class="wrap section-space" id="outdoors"><header class="section-heading"><div><p class="eyebrow">Out in the open</p><h2>A little further, a little slower</h2></div></header><div class="outdoors-feature">{outdoors.map(a=><JournalStory article={a} display={displayFor(a)} lead author={byline(a)}/>)}</div></section>}
  {places.length>0&&<section class="wrap section-space" id="places"><header class="section-heading"><div><p class="eyebrow">Make a weekend of it</p><h2>A place to settle into</h2></div></header><div class="places-grid">{places.map(a=><JournalStory article={a} display={displayFor(a)} author={byline(a)}/>)}</div></section>}
@@ -50,3 +54,9 @@ const topicsFor=(a:typeof articles[number])=>themes.filter(t=>t.articles.include
 <script>
 import '../../scripts/journal-index';
 </script>
+
+<style>
+.editor-note{padding-block:1rem;border-bottom:1px solid var(--rule);font:.82rem/1.65 var(--sans);color:var(--muted)}.editor-note p{max-width:90ch}.editor-note strong{color:var(--ink);font-weight:600}
+.people-section :global(.story){display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:2rem;align-items:center;max-width:60rem}.people-section :global(figure){margin:0}.people-section :global(.story img){aspect-ratio:3/2}.people-section :global(.section-heading p){margin-top:.75rem;max-width:65ch;font-size:.9rem;color:var(--muted)}
+@media(max-width:40rem){.people-section :global(.story){grid-template-columns:1fr;gap:1rem}}
+</style>

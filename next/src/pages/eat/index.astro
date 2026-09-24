@@ -28,7 +28,10 @@ import type { DirectoryRowItem } from '../../components/v5/hub/DirectoryRows.ast
 import JournalModule from '../../components/v5/hub/JournalModule.astro';
 import type { JournalItem } from '../../components/v5/hub/JournalModule.astro';
 import AskBand from '../../components/v5/hub/AskBand.astro';
-import TrustNote from '../../components/v5/hub/TrustNote.astro';
+import CategoryBrowse from '../../components/v5/hub/CategoryBrowse.astro';
+import PlanningHelp from '../../components/v5/hub/PlanningHelp.astro';
+import { informationCheckedOn } from '../../lib/verification-date.mjs';
+import { resolveHero } from '../../lib/inline-edit/resolve-hero';
 import FilterBar from '../../components/v5/FilterBar.astro';
 import { routeSlug, resolveHeroSrc, hasOwnHeroImage, eatTypes, isListableVenue } from '../../lib/editorial';
 import { getFacets } from '../../lib/facets';
@@ -71,15 +74,11 @@ const typeLabel: Record<string, string> = {
 
 /** Card image: CMS override first, then the venue's own hero. Text-only when
  *  the venue has no photo of its own (compact-row tolerates that). */
-async function cardImage(venue: any): Promise<{ src: string; alt: string } | undefined> {
-  const slug = routeSlug(venue);
-  const overrides = await loadOverrides('venue', slug);
-  const heroOverride = overrides.image['heroImage'];
-  if (heroOverride?.src) {
-    return { src: heroOverride.src, alt: heroOverride.alt ?? venue.data.name };
-  }
-  if (!hasOwnHeroImage(venue.data)) return undefined;
-  return { src: resolveHeroSrc(venue.data), alt: venue.data.heroImage?.alt ?? venue.data.name };
+async function cardImage(venue: any): Promise<{ src: string; alt: string; caption?: string } | undefined> {
+  const hero = await resolveHero('venue', routeSlug(venue), venue.data);
+  if (!hero.hasPhoto) return undefined;
+  const status = !hero.override ? venue.data.heroImage?.depictionStatus : undefined;
+  return { src: hero.src, alt: hero.alt, caption: status === 'illustrative' ? 'Illustrative image' : status === 'unverified' ? 'Image subject unverified' : undefined };
 }
 
 /** lastVerified arrives as a Date via z.coerce; Card wants an ISO string. */
@@ -106,24 +105,26 @@ const sixPicks: Array<{ slug: string; verdict: string }> = [
     verdict: 'The long lunch, settled: wood oven, one set menu, and a room built for a slow table. Book lunch, not dinner.',
   },
   {
+    slug: 'commonfolk-coffee',
+    verdict: 'The quick warm-up: serious coffee in a Mornington warehouse, best before ten, with the egg sandwich still the order.',
+  },
+
+  {
+    slug: 'merricks-general-wine-store',
+    verdict: 'The softer ridge lunch: cellar door, bakery, fireplace, and produce-led plates without the two-hat booking pressure.',
+  },
+
+  {
     slug: 'doot-doot-doot',
-    verdict: 'The occasion room: two hats, produce-led menus, and the glass orb chandelier earning its theatre when the ridge goes quiet.',
+    verdict: 'The occasion room at Jackalope: a tasting-menu setting for a celebration. Check the current menu and dietary options before booking.',
   },
   {
     slug: 'barragunda-dining',
     verdict: 'The farm booking: a thousand-acre estate, a weekly-changing menu, and cooking tied to what the estate has ready.',
   },
   {
-    slug: 'merricks-general-wine-store',
-    verdict: 'The softer ridge lunch: cellar door, bakery, fireplace, and produce-led plates without the two-hat booking pressure.',
-  },
-  {
     slug: 'portsea-hotel',
     verdict: 'The bay-front pub: fireplace inside, acoustic sessions on the calendar, and the view still doing the work.',
-  },
-  {
-    slug: 'commonfolk-coffee',
-    verdict: 'The quick warm-up: serious coffee in a Mornington warehouse, best before ten, with the egg sandwich still the order.',
   },
 ];
 
@@ -140,7 +141,7 @@ for (const pick of sixPicks) {
     verdict: pick.verdict,
     meta: [placeLabel(venue), typeLabel[venue.data.type] ?? venue.data.type],
     priceBand: venue.data.priceBand,
-    freshness: isoDate(venue.data.lastVerified),
+    freshness: isoDate(informationCheckedOn(venue.data)),
     facets: getFacets('venue', venue.data),
     saveSection: 'eat',
   });
@@ -248,10 +249,7 @@ const faqSchema = {
   ],
 };
 
-const standfirst =
-  'The Peninsula food scene at its most useful: cellar doors with time to talk, kitchens with a point of view, and tables you can still get. ' +
-  `Six tables worth planning around first, then all ${venues.length} places we cover, ` +
-  'filterable by occasion and town.';
+const standfirst = `Choose a destination lunch, a casual table or a coffee stop. Browse ${venues.length} places by occasion and town, or start with our editorial choices.`;
 
 export const prerender = true;
 ---
@@ -262,7 +260,7 @@ export const prerender = true;
   section="eat"
   canonical="https://peninsulainsider.com.au/eat/"
   modifiedTime="2026-07-30"
-  ogImage="/images/sourced/article-cellar-door-01.webp"
+  ogImage="/images/sourced/venue-tedesca-osteria-01.webp"
 >
   <script type="application/ld+json" set:html={JSON.stringify(pillarSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
@@ -272,14 +270,20 @@ export const prerender = true;
     eyebrow="Eat & Drink"
     title="Where to eat on the Mornington Peninsula"
     standfirst={standfirst}
-    image={{ src: '/images/sourced/article-cellar-door-01.webp', alt: 'A Peninsula cellar door set for a tasting' }}
+    compact
   />
 
+  <CategoryBrowse directory="directory" count={directoryItems.length} noun="places to eat">
+    <FilterBar surface="eat" noun="places" label="Filter places to eat" facets={['cat', 'place', 'mood', 'price', 'party']} />
+  </CategoryBrowse>
+  <div class="container"><PlanningHelp /></div>
+
+  <div data-category-editorial>
   <!-- 2. The verdict layer -->
   <TheSix
     id="the-six"
-    eyebrow="The Six · the desk edit"
-    heading="Six tables worth planning around"
+    heading="A table for the kind of day you want"
+    sub="Start with a long lunch, a coffee stop or an easy village meal. Check opening times, menus and bookings with the venue."
     surface="eat"
     items={sixItems}
   />
@@ -297,20 +301,19 @@ export const prerender = true;
     </div>
   </nav>
 
+  </div>
+
   <!-- 4. The catalogue layer: every non-winery venue, one render, in-DOM.
        Intent chips + filters are slotted directly above the list they
        reshape (moved below The Six 2026-07-24 per James; slotted inside the
        directory so the sticky bar has the full list height to stick
        against). ONE state still governs The Six AND the directory
        (URL-persisted; restoration per pi:restore:v1 contract). -->
-  <div class="container">
-    <TrustNote surface="eat" />
-  </div>
   <DirectoryRows
     id="directory"
     eyebrow="The full list"
     heading={`All ${directoryItems.length} places to eat`}
-    sub="Ordered by editorial weight. The filters reshape this list."
+    sub="Use the occasion and town filters above to make your shortlist."
     noun="places"
     surface="eat"
     items={directoryItems}
@@ -318,15 +321,6 @@ export const prerender = true;
     emptyHeading="Nothing matches those filters yet"
     emptyBody="Loosen one and the list comes back."
   >
-    <FilterBar
-      slot="before-list"
-      surface="eat"
-      noun="places"
-      label="Filter places to eat"
-      sticky
-      facets={['cat', 'place', 'mood', 'price', 'party']}
-    >
-    </FilterBar>
   </DirectoryRows>
 
   <!-- What's On, one line + link (spec block 18: strip becomes a line) -->

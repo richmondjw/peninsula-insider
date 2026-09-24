@@ -1,0 +1,26 @@
+---
+const areas = [
+  { title: 'Mornington & the bay', href: '/explore/places/mornington/', text: 'Start with town cafes and the bay foreshore. A useful first stop before heading further south.' },
+  { title: 'Red Hill & the ridge', href: '/explore/places/red-hill/', text: 'Build the day around a booked lunch or cellar door. Arrange transport between stops.' },
+  { title: 'Sorrento & the southern coast', href: '/explore/places/sorrento/', text: 'Use the town as your starting point for the southern Peninsula. Check conditions before choosing a coastal walk.' },
+];
+---
+<section class="home-orientation container" aria-labelledby="home-orientation-title">
+  <div class="home-orientation__heading">
+    <h2 id="home-orientation-title">Find your part of the Peninsula</h2>
+    <a href="/map/">Open the map →</a>
+  </div>
+  <ul>{areas.map((area) => <li><h3><a href={area.href}>{area.title}</a></h3><p>{area.text}</p></li>)}</ul>
+</section>
+<style>
+  .home-orientation { padding-block: 2rem; }
+  .home-orientation__heading { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.5rem 2rem; }
+  h2 { margin: 0; font-family: var(--font-display); font-size: var(--fs-600); line-height: 1.2; }
+  ul { list-style: none; padding: 0; margin: 1.5rem 0 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
+  li { border-top: 1px solid var(--border); padding-top: 1rem; }
+  h3 { margin: 0; font-size: 1.125rem; line-height: 1.4; }
+  p { color: var(--soft); font-size: 0.9375rem; line-height: 1.6; margin: 0.5rem 0 0; }
+  a { color: var(--teal-text); text-underline-offset: 0.2em; display: inline-flex; align-items: center; min-height: 44px; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  @media(max-width: 47.99em) { ul { grid-template-columns: 1fr; gap: 1rem; } }
+</style>

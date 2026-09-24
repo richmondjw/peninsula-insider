@@ -1,4 +1,5 @@
 import test from 'node:test';
+
 import assert from 'node:assert/strict';
 import { Site, DIST } from './harness.mjs';
 import { readFileSync } from 'node:fs';
@@ -70,4 +71,52 @@ test('high-value discovery URLs are unique sitemap entries with self-canonicals 
     assert.ok(canonical?.includes(`href="${url}"`), `${route} canonical`);
     assert.doesNotMatch(html, /<meta\b[^>]*name="robots"[^>]*content="[^"]*noindex/i, route);
   }
+});
+
+test('category filters are reachable before editorial choices and restore the matching directory', async () => {
+  const reader = await site.reader();
+  try {
+    await reader.page.setViewport({width:390,height:844});
+    for (const route of ['/eat/','/stay/','/wine/','/explore/']) {
+      await reader.load(route);
+      const geometry = await reader.page.evaluate(() => ({
+        bars:document.querySelectorAll('[data-v5-filterbar]').length,
+        top:document.querySelector('[data-v5-filterbar]').getBoundingClientRect().top,
+        overflow:document.documentElement.scrollWidth > innerWidth + 1,
+      }));
+      assert.equal(geometry.bars,1,route);
+      assert.ok(geometry.top < 750,route+' filters buried');
+      assert.equal(geometry.overflow,false,route);
+    }
+    await reader.load('/eat/');
+    await reader.page.click('[data-filter-chip][data-key="party"][data-value="family"]');
+    await reader.waitFor(()=>document.querySelector('[data-category-editorial]').hidden,'editorial did not yield to results');
+    const filtered = await reader.page.evaluate(()=>({
+      rows:[...document.querySelectorAll('[data-filter-countable]')].filter(el=>!el.hidden).length,
+      total:document.querySelectorAll('[data-filter-countable]').length,
+      url:location.search,
+    }));
+    assert.ok(filtered.rows>0 && filtered.rows<filtered.total);
+    assert.match(filtered.url,/party=family/);
+    await reader.page.reload({waitUntil:'networkidle0'});
+    assert.equal(await reader.page.$eval('[data-category-editorial]',el=>el.hidden),true);
+    await reader.page.click('[data-filter-clear]');
+    await reader.waitFor(()=>!document.querySelector('[data-category-editorial]').hidden,'clear did not restore editorial');
+    const more = await reader.page.$('.v5-six__more');
+    assert.ok(more);
+    await reader.page.click('.v5-six__more summary');
+    assert.equal(await more.evaluate(el=>el.open),true);
+  } finally { await reader.close(); }
+});
+test('homepage alternate plan actions only copy usable itineraries and cover targets are comfortable', async () => {
+  const reader = await site.reader();
+  try {
+    await reader.load('/');
+    const copiedKinds = await reader.page.$$eval('.home-plan [data-variant="fork"]',els=>els.map(el=>el.dataset.kind));
+    assert.ok(copiedKinds.length>=1);
+    assert.ok(copiedKinds.every(kind=>kind==='itinerary'));
+    const targets = await reader.page.$$eval('[data-cover-dot]',els=>els.map(el=>({w:el.getBoundingClientRect().width,h:el.getBoundingClientRect().height})));
+    assert.ok(targets.length>0);
+    assert.ok(targets.every(t=>t.w>=44 && t.h>=44));
+  } finally { await reader.close(); }
 });

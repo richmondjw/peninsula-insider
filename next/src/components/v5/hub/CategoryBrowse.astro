@@ -1,0 +1,30 @@
+---
+/** One filter state; the editorial route yields to results when a facet is selected. */
+interface Props { directory: string; count: number; noun: string; mapHref?: string; }
+const { directory, count, noun, mapHref = '/map/' } = Astro.props;
+---
+<div class="category-browse container" data-category-browse>
+  <nav class="category-browse__links" aria-label="Browse this guide">
+    <a href={`#${directory}`}>Browse all {count} {noun} <span aria-hidden="true">↓</span></a>
+    <a href={mapHref}>View the map <span aria-hidden="true">→</span></a>
+  </nav>
+  <slot />
+</div>
+<style>
+  .category-browse { padding-block: 0.5rem 1rem; }
+  .category-browse__links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; }
+  .category-browse__links a { display: inline-flex; align-items: center; min-height: 44px; color: var(--teal-text); font-size: 0.9375rem; font-weight: 600; text-underline-offset: 0.2em; }
+  .category-browse__links a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+</style>
+<script>
+  import { isEmptyState, parseFilters } from '../../../lib/v5-filter-state';
+  function syncEditorial(filters: Parameters<typeof isEmptyState>[0]) {
+    document.querySelectorAll<HTMLElement>('[data-category-editorial]').forEach((el) => {
+      el.hidden = !isEmptyState(filters);
+    });
+  }
+  function init() { syncEditorial(parseFilters(window.location.search)); }
+  document.addEventListener('pi:filters-changed', ((event: CustomEvent) => syncEditorial(event.detail?.filters ?? {})) as EventListener);
+  document.addEventListener('astro:page-load', init);
+  init();
+</script>

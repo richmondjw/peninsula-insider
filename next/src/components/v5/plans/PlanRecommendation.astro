@@ -1,5 +1,6 @@
 ---
 import { editableImage } from '../../../lib/inline-edit/attrs';
+import { routePreview } from './plan-preview';
 import type { PlanRecord } from './plans-data';
 export interface Props { plan: PlanRecord; index: number; }
 const { plan, index } = Astro.props;
@@ -16,6 +17,11 @@ const checked = plan.verifiedAt ? new Date(plan.verifiedAt).toLocaleDateString('
     <p class="plan-recommendation__facts" data-slot="facts">{facts.join(' · ')}</p>
     <div class="plan-recommendation__fit" data-slot="fit" hidden>
       <p data-slot="matched"></p><p class="plan-recommendation__missing" data-slot="missing"></p>
+    </div>
+    <div class="plan-recommendation__preview">
+      <p data-slot="route-preview">{routePreview(plan)}</p>
+      <p data-slot="booking-preview" hidden={!plan.bookingNote}>{plan.bookingNote}</p>
+      <p>Plan transport between stops, and check the route for your dates before booking.</p>
     </div>
     <div class="plan-recommendation__actions">
       <a class:list={['pi-btn', index === 0 ? 'pi-btn--solid' : 'pi-btn--ghost']} href={plan.href} data-slot="read">See the itinerary <span aria-hidden="true">↗</span></a>
@@ -49,10 +55,11 @@ const checked = plan.verifiedAt ? new Date(plan.verifiedAt).toLocaleDateString('
   .plan-recommendation__facts{font:.79rem/1.6 var(--font-ui);color:var(--soft);margin:0 0 1rem}
   .plan-recommendation__media{align-self:start;aspect-ratio:1;overflow:hidden;background:var(--bg-alt)}
   .plan-recommendation__media img{height:100%;width:100%;object-fit:cover;display:block}
+  .plan-recommendation__preview{border-block:1px solid var(--border);padding:.6rem 0;margin:0 0 1rem;font:.8rem/1.6 var(--font-ui);max-width:65ch}.plan-recommendation__preview p{margin:.35rem 0}.plan-recommendation__preview p:last-child{color:var(--soft)}
   .plan-recommendation__actions{display:flex;align-items:center;gap:.45rem .7rem;flex-wrap:wrap}
   .plan-recommendation__actions .pi-btn{font-size:.82rem;min-height:44px}
   .plan-recommendation__copy{font:.73rem/1.5 var(--font-ui);color:var(--soft);margin:.8rem 0 0}
-  .plan-recommendation__fit{margin:0 0 1rem;border-left:3px solid var(--accent);padding:.2rem 0 .2rem .7rem;font:.8rem/1.55 var(--font-ui)}
+  .plan-recommendation__fit{margin:0 0 1rem;border-left:1px solid var(--accent);padding:.2rem 0 .2rem .7rem;font:.8rem/1.55 var(--font-ui)}
   .plan-recommendation__fit p{margin:0}.plan-recommendation__missing{color:var(--soft);margin-top:.2rem!important}
   .plan-recommendation__route{grid-column:1/-1;margin-top:1.2rem;border-top:1px solid color-mix(in srgb,var(--border) 55%,transparent)}
   .plan-recommendation__route summary{display:flex;justify-content:space-between;gap:1rem;list-style:none;cursor:pointer;padding:.8rem 0;font:600 .79rem/1.5 var(--font-ui)}

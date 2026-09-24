@@ -15,6 +15,8 @@
  * shipped module APIs (each module renders its own .container).
  */
 import { getCollection } from 'astro:content';
+import { informationCheckedOn } from '../../lib/verification-date.mjs';
+import { resolveHero } from '../../lib/inline-edit/resolve-hero';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Card from '../../components/v5/Card.astro';
@@ -25,7 +27,9 @@ import HubStandfirst from '../../components/v5/hub/HubStandfirst.astro';
 import TheSix from '../../components/v5/hub/TheSix.astro';
 import DirectoryRows from '../../components/v5/hub/DirectoryRows.astro';
 import JournalModule from '../../components/v5/hub/JournalModule.astro';
-import AskBand from '../../components/v5/hub/AskBand.astro';
+import CategoryBrowse from '../../components/v5/hub/CategoryBrowse.astro';
+import PlanningHelp from '../../components/v5/hub/PlanningHelp.astro';
+import WineVisitChooser from '../../components/v5/hub/WineVisitChooser.astro';
 import { routeSlug, isListableVenue } from '../../lib/editorial';
 import { getFacets, FACET_OPTIONS } from '../../lib/facets';
 
@@ -55,6 +59,13 @@ const venues = (await getCollection('venues'))
       a.data.name.localeCompare(b.data.name),
   );
 
+const venueImages = new Map(await Promise.all(venues.map(async (venue) => {
+  const slug = routeSlug(venue);
+  const hero = await resolveHero('venue', slug, venue.data);
+  const status = !hero.override ? venue.data.heroImage?.depictionStatus : undefined;
+  return [slug, { src: hero.src, alt: hero.alt, caption: status === 'illustrative' ? 'Illustrative image' : status === 'unverified' ? 'Image subject unverified' : undefined }] as const;
+})));
+
 // ── Copy helpers (Critic verdicts <= 25 words, from existing frontmatter) ──
 const wordCount = (s: string) => s.trim().split(/\s+/).filter(Boolean).length;
 
@@ -75,12 +86,12 @@ function verdictFor(data: any): string | undefined {
   if (fit) return fit;
   const first = candidates[0];
   if (!first) return undefined;
-  return `${first.split(/\s+/).slice(0, 24).join(' ').replace(/[,;:]+$/, '')}.`;
+  return data.type === 'winery' ? 'Choose your tasting format, then check current hours and booking arrangements with the producer.' : 'Check the current visitor offering and opening days before planning a stop.';
 }
 
 const placeLabel = new Map(FACET_OPTIONS.place.map((o) => [o.value, o.label]));
 const areaOf = (data: any): string | null =>
-  typeof data.place === 'string' ? (placeLabel.get(data.place) ?? null) : null;
+  placeLabel.get(typeof data.place === 'string' ? data.place : data.place?.id) ?? null;
 
 // Walk-in / appointment badge on 100% of winery cards (acceptance 31).
 const badgeFor = (data: any): string | null => {
@@ -118,13 +129,13 @@ function venueItem(v: any) {
     href: `/wine/${slug}/`,
     entityType: 'venue' as const,
     entitySlug: slug,
-    image: data.heroImage?.src ? { src: data.heroImage.src, alt: data.heroImage.alt ?? data.name } : undefined,
+    image: venueImages.get(slug),
     verdict: verdictFor(data),
     meta,
     priceBand: typeof data.priceBand === 'string' ? data.priceBand : undefined,
-    // lastVerified is required by the venues schema, so it always wins here;
-    // publishedAt stays as the belt-and-braces fallback.
-    freshness: iso(data.lastVerified ?? data.publishedAt),
+    // A sourced factual check is distinct from a legacy review or publication date.
+    freshness: iso(informationCheckedOn(data)),
+    freshnessKind: 'checked' as const,
     facets: getFacets('venue', data),
     sortTitle: data.name as string,
   };
@@ -207,7 +218,7 @@ const articlesAll = (await getCollection('articles', ({ data }) => data.status =
 const journalVerdicts: Record<string, string> = {
   'the-chardonnay-case': 'The case for Peninsula chardonnay, argued bottle by bottle.',
   'the-cellar-door-short-list': 'The shortlist behind The Six: how we pick the rooms worth the drive.',
-  'how-to-build-a-red-hill-saturday': 'One ridge, one day: the Saturday route we actually drive.',
+  'how-to-build-a-red-hill-saturday': 'One ridge, one day: a suggested Saturday route around Red Hill.',
 };
 const journalItems = Object.keys(journalVerdicts)
   .map((slug) => articlesAll.find((a) => routeSlug(a) === slug))
@@ -227,7 +238,7 @@ const journalItems = Object.keys(journalVerdicts)
 // ── Stand-first (<= 80 words, carries cellar-door SEO phrases + the
 //    walk-in/appointment orientation line) ─────────────────────────────────
 const standfirst =
-  'Find your way around Mornington Peninsula wine country, from Red Hill and Main Ridge to Merricks and the bayside vineyards. Explore wineries by area, wine style and the kind of visit you want. Check current tasting hours and booking requirements with each producer before you travel.';
+  'Explore Mornington Peninsula wineries from Red Hill and Main Ridge to Merricks and the bay. Choose a tasting, a long lunch or an appointment, then check the producer’s current hours and bookings.';
 
 const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'Wine Country' }];
 
@@ -259,18 +270,27 @@ const faqSchema = {
   <!-- 1. Stand-first: h1 + <= 80-word Editor case (replaces hero dek,
        EditorialSurface, CompareBlock and the 232-word essay) -->
   <HubStandfirst
-    eyebrow="Wine Country"
+    compact
     title="Mornington Peninsula wine country"
     standfirst={standfirst}
-    image={{ src: '/images/sourced/article-cellar-door-01.webp', alt: 'A Red Hill cellar door among the vines' }}
   />
+
+  <CategoryBrowse directory="wine-directory" count={venues.length} noun="producers" mapHref="/map/?cat=winery">
+    <FilterBar surface="wine" noun="cellar doors" facets={['place', 'cat', 'price', 'mood', 'party']}>
+      <SortControl />
+    </FilterBar>
+    <PlanningHelp />
+  </CategoryBrowse>
+
+  <div data-category-editorial>
+  <WineVisitChooser />
 
   <!-- 2. The Six -->
   <TheSix
     id="the-six"
-    eyebrow="The Six · this month"
-    heading="Where to actually go this month"
-    sub="Six cellar doors, Critic verdicts, checked dates. Save them or add them to a trip."
+    eyebrow="The cellar-door shortlist"
+    heading="Cellar doors to build a day around"
+    sub="An editorial shortlist. Individual check dates describe the recorded research; confirm current hours and bookings with the producer."
     surface="wine"
     items={theSixItems}
   />
@@ -280,9 +300,9 @@ const faqSchema = {
        filters but does not count (countable={false}). -->
   <DirectoryRows
     id="winery-kitchens"
-    eyebrow="The bridge to Eat & Drink"
+    eyebrow="Winery dining"
     heading="Winery kitchens"
-    sub="Six wineries whose dining rooms justify the booking on their own. The wineries live here; restaurants proper live in Eat & Drink."
+    sub="Pair a tasting with a meal at the same estate. Check the dining room’s current service days and book the meal separately where required."
     surface="wine"
     noun="winery kitchens"
     items={kitchenItems}
@@ -294,7 +314,6 @@ const faqSchema = {
     <!-- 5. Best-of rail (canonical guides; cellar-doors + best-wineries
          absorb into best-cellar-doors per the sitemap, handled elsewhere) -->
     <section class="wine-rail" aria-labelledby="wine-rail-h">
-      <p class="wine-rail__eyebrow">The guides</p>
       <h2 id="wine-rail-h" class="wine-rail__heading">Read before you book</h2>
       {/* The section eyebrow already reads "The guides"; the cards drop the
           per-card GUIDE stamp. Text-only rail, so no media fallback. */}
@@ -321,6 +340,8 @@ const faqSchema = {
     </p>
   </div>
 
+  </div>
+
   <!-- 6. Directory: every wine venue as a server-rendered compact row with
        data-facets. Breweries and distilleries are type facets in the sheet,
        not separate one-card grids (HUB-13). -->
@@ -328,41 +349,13 @@ const faqSchema = {
     id="wine-directory"
     eyebrow="The full list"
     heading={`All ${venues.length} cellar doors, breweries and distilleries`}
-    sub="Every producer we track, one URL each. Narrow with the chips; sort by name or town."
+    sub="Compare places to taste, eat and explore. Narrow by the visit you want, or sort by name or town."
     surface="wine"
     noun="cellar doors"
     items={directoryItems}
     emptyHeading="Nothing matches those filters"
     emptyBody="Clear one and the ridge reopens."
-  >
-    {/* Experience chips live with the list they reshape (moved from the top
-        of the page 2026-07-24 per James). Slotted inside the directory so the
-        sticky bar has the full list height to stick against. ONE filter
-        state still governs The Six, the kitchens rows and this directory. */}
-    <FilterBar slot="before-list" surface="wine" noun="cellar doors" sticky={true} facets={['place', 'cat', 'price', 'mood', 'party']}>
-      <SortControl />
-    </FilterBar>
-
-    {/* Walk-in vs appointment: depth kept behind one interaction (P7).
-        Carries the CompareBlock's SEO-load-bearing names and phrases. */}
-    <details slot="before-list" class="wine-orientation">
-      <summary>Walk-in or appointment? How to shape the day</summary>
-      <div class="wine-orientation__body">
-        <p>
-          Walk-in rooms (Montalto, Polperro, Pt. Leo Estate, Red Hill Estate, Foxeys Hangout,
-          Paringa Estate) suit a first visit: taste at the bar, then a long lunch in the dining
-          room. Cellar doors take you as you come; the restaurants book 2 to 6 weeks ahead for
-          weekends.
-        </p>
-        <p>
-          Appointment producers (Ten Minutes by Tractor, Main Ridge Estate, Dexter Wines, Quealy
-          Winemakers, Eldridge Estate, Garagiste) pour smaller, talk longer and often open the
-          back vintages. Book 1 to 3 weeks ahead. The right call when the wine is genuinely the
-          point of the trip.
-        </p>
-      </div>
-    </details>
-  </DirectoryRows>
+  />
 
   <!-- 7. From the Journal: ONE module, <= 3 cards (down from two sections) -->
   <JournalModule
@@ -377,7 +370,6 @@ const faqSchema = {
   <section class="hub-faq" aria-label="Frequently asked questions">
     <div class="container">
       <div class="hub-faq__intro">
-        <p class="label label--accent">Frequently asked</p>
         <h2 class="hub-faq__title">Three honest answers before you book</h2>
       </div>
       <div class="hub-faq__list">
@@ -407,39 +399,6 @@ const faqSchema = {
     flex-direction: column;
     gap: var(--space-5, 1.5rem);
     padding: var(--space-6, 2rem) 0;
-  }
-
-  /* One-interaction walk-in/appointment disclosure (P7) */
-  .wine-orientation {
-    border: 1px solid var(--border);
-    border-radius: var(--radius-m, 10px);
-    background: var(--bg-alt);
-    max-width: var(--measure-prose, 68ch);
-  }
-  .wine-orientation summary {
-    cursor: pointer;
-    padding: 0.85rem 1rem;
-    font-family: var(--font-ui, var(--font-ui));
-    font-weight: var(--fw-semibold, 600);
-    font-size: var(--fs-300, 0.9375rem);
-    color: var(--text);
-  }
-  .wine-orientation summary:focus-visible {
-    outline: var(--focus-ring, 2px solid var(--accent));
-    outline-offset: 2px;
-  }
-  .wine-orientation__body {
-    padding: 0 1rem 1rem;
-  }
-  .wine-orientation__body p {
-    margin: 0 0 0.75rem;
-    font-size: var(--fs-300, 0.9375rem);
-    line-height: var(--lh-body, 1.6);
-    color: var(--text);
-    max-width: var(--measure-prose, 68ch);
-  }
-  .wine-orientation__body p:last-child {
-    margin-bottom: 0;
   }
 
   /* Best-of rail */

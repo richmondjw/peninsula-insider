@@ -24,9 +24,11 @@ export interface Props {
   eyebrow?: string;
   /** Optional full-bleed hero photograph. Omit for the forest-teal glow ground. */
   image?: { src: string; alt?: string };
+  /** Compact editorial entry for decision-led category pages. */
+  compact?: boolean;
 }
 
-const { title, standfirst, id, eyebrow, image } = Astro.props;
+const { title, standfirst, id, eyebrow, image, compact = false } = Astro.props;
 
 const words = standfirst.trim().split(/\s+/).length;
 if (words > 80) {
@@ -41,7 +43,7 @@ if (/!/.test(standfirst)) {
 }
 ---
 
-<header class:list={['v5-standfirst', { 'v5-standfirst--photo': Boolean(image) }]} id={id}>
+<header class:list={['v5-standfirst', { 'v5-standfirst--photo': Boolean(image), 'v5-standfirst--compact': compact }]} id={id}>
   {image && (
     <img class="v5-standfirst__bg" src={image.src} alt="" aria-hidden="true" loading="eager" fetchpriority="high" decoding="async" data-pi-responsive="100vw" />
   )}
@@ -132,4 +134,27 @@ if (/!/.test(standfirst)) {
   .v5-standfirst__actions:empty {
     display: none;
   }
+  .v5-standfirst--compact {
+    padding-block: clamp(1.5rem, 3vw, 2.75rem);
+    background: var(--paper, #faf8f3);
+    color: var(--text);
+  }
+  .v5-standfirst--compact:not(.v5-standfirst--photo)::before { display: none; }
+  .v5-standfirst--compact .v5-standfirst__title {
+    font-family: var(--font-editorial, Georgia, serif);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    line-height: 1.08;
+    max-width: 24ch;
+    color: var(--text);
+  }
+  .v5-standfirst--compact .v5-standfirst__dek {
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 70ch;
+    color: var(--soft);
+    margin-top: 0.75rem;
+  }
+  .v5-standfirst--compact .v5-standfirst__eyebrow { color: var(--teal-text); }
+  .v5-standfirst--compact.v5-standfirst--photo .v5-standfirst__title,
+  .v5-standfirst--compact.v5-standfirst--photo .v5-standfirst__dek { color: var(--white); }
 </style>

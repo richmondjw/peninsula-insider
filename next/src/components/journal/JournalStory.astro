@@ -18,7 +18,7 @@ const provenance=hero.override ? undefined : article.data.heroImage;
  <p class="eyebrow">{display.eyebrow || article.data.tags?.[0]?.replaceAll('-',' ') || 'The Journal'}</p>
  {lead ? <h2><a href={`/journal/${slug}/`}>{display.title || article.data.title}</a></h2> : <h3><a href={`/journal/${slug}/`}>{display.title || article.data.title}</a></h3>}
  <p class={lead?'cover-dek':'dek'}>{display.dek || article.data.dek}</p>
- <p class="meta">{author} · <time datetime={article.data.publishedAt.toISOString()}>{article.data.publishedAt.toLocaleDateString('en-AU',{day:'numeric',month:'short',year:'numeric'})}</time>{article.data.readingTimeMinutes && ` · ${article.data.readingTimeMinutes} min read`}</p>
+ <p class="meta">{author} · Published <time datetime={article.data.publishedAt.toISOString()}>{article.data.publishedAt.toLocaleDateString('en-AU',{day:'numeric',month:'short',year:'numeric'})}</time>{article.data.readingTimeMinutes && ` · ${article.data.readingTimeMinutes} min read`}</p>
  {lead && <a class="text-link" href={`/journal/${slug}/`}>Read the story <span aria-hidden="true">↗</span></a>}
  </div>
 </article>

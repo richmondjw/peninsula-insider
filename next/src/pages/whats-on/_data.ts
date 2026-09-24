@@ -18,6 +18,7 @@
  *  - the compact feed payload for /whats-on/feed.json (HUB-11: the month+
  *    horizon ships as fetch-on-demand JSON, never as hidden DOM)
  */
+import { listingDateLabel, resolveListingOccurrence } from '../../lib/whatson-listing.mjs';
 import { rotateDaily } from '../../lib/daily-rotation';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { routeSlug, eventCategoryLabel } from '../../lib/editorial';
@@ -28,7 +29,6 @@ import {
   isCancelledRecord,
   occurrenceSchemaStatus,
   recordDisposition,
-  resolveOccurrence,
 } from '../../lib/event-occurrence.mjs';
 
 export type EventEntry = CollectionEntry<'events'>;
@@ -259,13 +259,7 @@ export interface DayItem extends OccurrenceState {
  * switch.
  */
 export function occurrenceStateFor(live: LiveEvent, dayIso: string, now: Date): OccurrenceState {
-  const isRange = live.rule.kind === 'range';
-  const occurrence = resolveOccurrence(
-    live.event.data as Record<string, any>,
-    isRange ? isoDate(live.rule.start) : dayIso,
-    now,
-    isRange ? { endDayIso: isoDate(live.rule.end) } : {}
-  );
+  const occurrence = resolveListingOccurrence(live.event.data, live.rule, dayIso, now);
   const schemaStatus = occurrenceSchemaStatus(
     USE_OCCURRENCE_MODEL ? occurrence : { ...occurrence, phase: 'upcoming' }
   );
@@ -316,14 +310,10 @@ export function groupByDay(events: LiveEvent[], win: ScopeWindow, now: Date = ne
           continue;
         }
         seenRanges.add(live.slug);
-        const runsTo = startOfDay(live.rule.end) < startOfDay(win.end) ? live.rule.end : win.end;
-        const spanLabel =
-          isoDate(runsTo) > isoDate(day)
-            ? `runs to ${runsTo.toLocaleDateString('en-AU', { weekday: 'short', day: 'numeric', month: 'short', timeZone: 'UTC' })}`
-            : '';
+        const spanLabel = listingDateLabel(live.rule, win);
         items.push({ live, spanLabel, ...state });
       } else {
-        items.push({ live, spanLabel: '', ...state });
+        items.push({ live, spanLabel: listingDateLabel(live.rule, win), ...state });
       }
     }
     items.sort((a, b) => b.live.appeal - a.live.appeal || a.live.title.localeCompare(b.live.title));

@@ -34,6 +34,7 @@ const payload = { plans: Object.fromEntries(model.plans.map(plan => [plan.id, pl
 </section>
 <script type="application/json" id="pi-plans-data" set:html={JSON.stringify(payload).replace(/</g, '\\u003c')} />
 <script>
+  import { routePreview } from './plan-preview';
   import { matchPlans, assessPlan, criterionLabel, describeQuery, type MatchQuery, type PlanFit, type QueryLabels, type LengthValue } from './plan-match';
   import type { PlanRecord, PlanContext } from './plans-data';
   import { useEditorialPlan } from '../../../lib/plan-trip-client';
@@ -98,6 +99,10 @@ const payload = { plans: Object.fromEntries(model.plans.map(plan => [plan.id, pl
       const title = slot<HTMLAnchorElement>(el, 'title');
       if (title) { title.textContent = plan.displayTitle; title.href = plan.href; title.dataset.entityType = plan.entityType; title.dataset.entitySlug = plan.slug; }
       text(el, 'reason', plan.editorialReason);
+      text(el, 'route-preview', routePreview(plan));
+      text(el, 'booking-preview', plan.bookingNote ?? '');
+      const bookingPreview = slot(el, 'booking-preview');
+      if (bookingPreview) bookingPreview.hidden = !plan.bookingNote;
       text(el, 'facts', [...plan.meta, ...(plan.pace ? [plan.pace] : [])].join(' · '));
       const read = slot<HTMLAnchorElement>(el, 'read');
       if (read) read.href = plan.href;

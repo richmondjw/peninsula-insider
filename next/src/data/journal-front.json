@@ -1,9 +1,9 @@
 {
   "expires": "2026-12-01",
-  "lead": "the-spring-peninsula",
+  "lead": "spring-school-holidays-2026",
   "desk": [
     "practical-spring-visit-national-works-on-paper",
-    "quealy-winemakers-balnarring",
+    "the-spring-peninsula",
     "the-peninsula-pantry"
   ],
   "food": [
@@ -11,7 +11,9 @@
     "breakfast-before-the-crowds",
     "the-cellar-door-short-list"
   ],
-  "outdoors": ["the-peninsulas-best-late-afternoon-walks"],
+  "outdoors": [
+    "the-peninsulas-best-late-afternoon-walks"
+  ],
   "places": [
     "a-flinders-weekend",
     "where-to-stay-for-a-two-night-escape",
@@ -67,6 +69,16 @@
       "title": "A weekend beyond the summer strip",
       "dek": "Another way to spend a few days at the tip.",
       "eyebrow": "Sorrento"
+    },
+    "spring-school-holidays-2026": {
+      "title": "A little room for the school holidays",
+      "dek": "Creative workshops, outdoor days and holiday programmes. Choose one activity, then leave the rest of the day open.",
+      "eyebrow": "With kids / 19 September to 4 October"
     }
-  }
+  },
+  "selectedOn": "2026-09-24",
+  "leadFallback": "the-spring-peninsula",
+  "people": [
+    "quealy-winemakers-balnarring"
+  ]
 }

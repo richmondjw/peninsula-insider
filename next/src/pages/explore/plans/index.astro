@@ -23,7 +23,6 @@ export const prerender = true;
   <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
   <header class="plans-hero">
     <div class="container">
-      <p class="plans-hero__eyebrow">The Peninsula, already considered</p>
       <div class="plans-hero__row">
         <h1>Don’t plan.<br />Pick one of ours.</h1>
         <div class="plans-hero__intro"><p>A good day starts with a few good decisions. We’ve put the stops in order. Choose the one that suits you, then make it your own.</p><a href="#all-plans">Browse the itineraries <span aria-hidden="true">↓</span></a></div>
@@ -36,10 +35,10 @@ export const prerender = true;
   <PlanNextStep />
 </BaseLayout>
 <style>
-  .plans-hero{padding:clamp(2rem,5vw,4rem) 0 2.5rem}
+  .plans-hero{padding:clamp(1.5rem,3vw,2.5rem) 0 1.5rem}
   .plans-hero__eyebrow{font:600 .7rem/1.5 var(--font-ui);letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 1.15rem}
   .plans-hero__row{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:2rem;align-items:end}
-  h1{font:500 clamp(2.5rem,5.4vw,4.8rem)/1.05 var(--font-display);letter-spacing:-.055em;margin:0;max-width:17ch}
+  h1{font:500 clamp(2.5rem,5.4vw,4.8rem)/1.05 var(--font-display);letter-spacing:-.035em;margin:0;max-width:17ch}
   .plans-hero__intro{max-width:39ch;padding-bottom:.25rem}
   .plans-hero__intro p{font:1.05rem/1.7 var(--font-ui);margin:0 0 1rem;color:var(--soft)}
   .plans-hero__intro a{font-size:.85rem;font-weight:600;text-underline-offset:.2em}

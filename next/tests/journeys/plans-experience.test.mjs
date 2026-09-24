@@ -8,7 +8,7 @@ test('matcher retains independent constraints and explains each partial recommen
   const reader = await site.reader();
   try {
     await reader.load('/explore/plans/');
-    await reader.page.click('[data-plan-matcher] summary');
+    assert.equal(await reader.page.$eval('[data-plan-matcher]', e => e.open), true, 'chooser starts open');
     await reader.page.select('select[name="length"]','one-day');
     await reader.page.select('select[name="who"]','family');
     await reader.page.select('select[name="weather"]','rainy-day');
@@ -19,6 +19,10 @@ test('matcher retains independent constraints and explains each partial recommen
     assert.equal(await reader.page.$eval('select[name="weather"]',e=>e.value),'rainy-day');
     const first = await reader.page.$eval('[data-plan-card="0"]',e=>({ title:e.querySelector('[data-slot="title"]').textContent, matched:e.querySelector('[data-slot="matched"]').textContent, missing:e.querySelector('[data-slot="missing"]').textContent }));
     assert.match(first.title,/family/i);
+    const preview = await reader.page.$eval('[data-plan-card="0"] .plan-recommendation__preview', e => e.textContent);
+    assert.match(preview, /Day 1:/);
+    assert.match(preview, /Eagle tickets/);
+    assert.doesNotMatch(preview, /Book both stays/);
     assert.match(first.matched,/One day/);
     assert.match(first.missing,/Wet-weather/);
     assert.equal(await reader.page.evaluate(()=>document.activeElement?.id),'plan-engine-heading');
@@ -84,7 +88,7 @@ test('recommendation image swaps preserve the right original and never retain an
     assert.ok(initial[0].srcset,'featured image should have responsive build variants');
     const familyImage=initial.find(image=>image.slug==='the-family-day-out');
     assert.ok(familyImage?.srcset,'family image should be available for reuse in another card slot');
-    await reader.page.click('[data-plan-matcher] summary');
+    assert.equal(await reader.page.$eval('[data-plan-matcher]', e => e.open), true, 'chooser starts open');
     await reader.page.click('input[name="into"][value="golf"]');
     await reader.page.click('[data-build-go]');
     await reader.waitFor(()=>document.querySelector('[data-plan-card="0"] img')?.dataset.piEntitySlug==='the-peninsula-golf-weekend','golf image did not replace the default');
