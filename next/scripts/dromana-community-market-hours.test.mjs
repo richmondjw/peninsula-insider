@@ -25,7 +25,12 @@ test('Dromana Community Market attributes organiser hours and Lets Go Victoria n
   assert.match(event.editorNote, /dated Lets Go Victoria listing gives the navigation address as 359B Point Nepean Road/);
   assert.match(article, /organiser's policies list market hours as 8:00am to 1:30pm/);
   assert.match(article, /dated Lets Go Victoria listing gives the navigation address as 359B Point Nepean Road/);
+  const dromanaStart = article.indexOf('## DISCOVERY · Dromana Community Market');
+  const dromanaMarket = article.slice(dromanaStart, article.indexOf('\n---\n', dromanaStart));
   assert.doesNotMatch(article, /8:30am(?:–| to )1:00pm/);
+  assert.doesNotMatch(article, /Dromana Community Market[^\n]*(?:\bfree\b|no booking)/i);
+  assert.doesNotMatch(dromanaMarket, /\bfree\b/i);
+  assert.doesNotMatch(dromanaMarket, /no booking(?: required)?/i);
   assert.match(claim.statement, /organiser's policies list market hours as 8:00am to 1:30pm/);
   assert.match(claim.statement, /Lets Go Victoria listing gives the navigation address as 359B Point Nepean Road/);
   assert.equal(evidence.url, 'https://dromanamarket.org.au/policies-and-procedures');
