@@ -1,0 +1,1 @@
+import{j as n,p as o}from"./v5-filter-state.BIlVupsI.js";function e(t){document.querySelectorAll("[data-category-editorial]").forEach(a=>{a.hidden=!n(t)})}function i(){e(o(window.location.search))}document.addEventListener("pi:filters-changed",(t=>e(t.detail?.filters??{})));document.addEventListener("astro:page-load",i);i();
