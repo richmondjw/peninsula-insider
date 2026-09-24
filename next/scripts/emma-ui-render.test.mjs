@@ -40,5 +40,5 @@ test('Eat and Wine mood choices match their section', () => {
 test('the search page suggests Spring while retaining old query aliases', () => {
   assert.match(page('search'), /Spring cellar doors/);
   const source = readFileSync(new URL('../src/pages/search.astro', import.meta.url), 'utf8');
-  assert.match(source, /aliases: \['winter wineries'/);
+  assert.match(source, /aliases: \[[^\]]*'winter wineries'/);
 });
