@@ -1,10 +1,10 @@
-/* Neutral feathering keeps photographs true to colour. Match the falloff to
-   the copy position; these tokens are only used by photographic headers. */
+/* Photo-header overlays follow the copy position. The home cover uses a
+   coastal-blue light wash; inner-page headers retain neutral feathering. */
 :root {
   --photo-shade-x: calc(max(40px, (100vw - 1280px) / 2) + 245px);
-  --photo-shade-cover: radial-gradient(ellipse 730px 470px at var(--photo-shade-x) 54%,
-    rgb(15 15 14 / .63) 0%, rgb(15 15 14 / .52) 34%,
-    rgb(15 15 14 / .24) 64%, rgb(15 15 14 / 0) 100%);
+  --photo-shade-cover: radial-gradient(ellipse 760px 490px at var(--photo-shade-x) 54%,
+    rgb(235 246 252 / .96) 0%, rgb(235 246 252 / .92) 42%,
+    rgb(235 246 252 / .52) 72%, rgb(235 246 252 / 0) 100%);
   --photo-shade-copy: radial-gradient(ellipse 980px 640px at var(--photo-shade-x) 54%,
     rgb(15 15 14 / .72) 0%, rgb(15 15 14 / .62) 38%,
     rgb(15 15 14 / .28) 70%, rgb(15 15 14 / 0) 100%);
@@ -16,12 +16,12 @@
     rgb(15 15 14 / 0) 48%);
 }
 
-/* Mobile copy spans the image, so its feather runs vertically. */
+/* Mobile cover copy spans the image, so the light wash runs vertically. */
 @media (max-width: 767px) {
   :root {
     --photo-shade-cover: linear-gradient(180deg,
-      rgb(15 15 14 / .16) 0%, rgb(15 15 14 / .45) 25%,
-      rgb(15 15 14 / .50) 66%, rgb(15 15 14 / .22) 100%);
+      rgb(235 246 252 / .94) 0%, rgb(235 246 252 / .92) 68%,
+      rgb(235 246 252 / .68) 100%);
     --photo-shade-copy: linear-gradient(180deg,
       rgb(15 15 14 / .25) 0%, rgb(15 15 14 / .65) 28%,
       rgb(15 15 14 / .65) 72%, rgb(15 15 14 / .35) 100%);
@@ -56,4 +56,14 @@ body :is(.home-cover, .v5-standfirst--photo, .x-head, .wo-head) .pi-btn--ghost {
 }
 body :is(.home-cover, .v5-standfirst--photo, .x-head, .wo-head) .pi-btn--ghost:hover {
   background: rgb(20 20 18 / .55);
+}
+
+body .home-cover .pi-btn--ghost {
+  background: rgb(255 255 255 / .72);
+  color: var(--harbour-deep);
+  border-color: rgb(11 46 74 / .7);
+  text-shadow: none;
+}
+body .home-cover .pi-btn--ghost:hover {
+  background: var(--white);
 }
