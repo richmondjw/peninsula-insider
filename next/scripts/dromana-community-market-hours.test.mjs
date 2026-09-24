@@ -6,15 +6,17 @@ const root = new URL('..', import.meta.url);
 const read = (path) => readFile(new URL(path, root), 'utf8');
 
 test('Dromana Community Market uses the organiser hours and navigation address', async () => {
-  const [eventText, article, scheduleClaim, organiserEvidence] = await Promise.all([
+  const [eventText, article, scheduleClaim, organiserEvidence, occurrenceEvidence] = await Promise.all([
     read('src/content/events/dromana-community-market.json'),
     read('src/content/articles/insider-picks-2026-09-24.md'),
     read('src/content/claims/events/dromana-community-market/event-schedule.json'),
     read('src/content/evidence/events/dromana-community-market/event-schedule-organiser-2026-09-24.json'),
+    read('src/content/evidence/events/dromana-community-market/event-occurrence-letsgovictoria-2026-09-24.json'),
   ]);
   const event = JSON.parse(eventText);
   const claim = JSON.parse(scheduleClaim);
   const evidence = JSON.parse(organiserEvidence);
+  const occurrence = JSON.parse(occurrenceEvidence);
 
   assert.equal(event.startTime, '08:00');
   assert.equal(event.endTime, '13:30');
@@ -25,4 +27,8 @@ test('Dromana Community Market uses the organiser hours and navigation address',
   assert.match(claim.statement, /8:00am to 1:30pm/);
   assert.equal(evidence.url, 'https://dromanamarket.org.au/policies-and-procedures');
   assert.match(evidence.note, /8:00am to 1:30pm/);
+  assert.equal(occurrence.url, 'https://letsgovictoria.com/listing/dromana-community-market/');
+  assert.equal(occurrence.retrievedAt, '2026-09-24');
+  assert.match(occurrence.note, /26 September 2026/);
+  assert.match(occurrence.note, /Dromana Community Park, 359B Point Nepean Road/);
 });

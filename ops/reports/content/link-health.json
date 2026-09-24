@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-09-24T22:37:01.556Z",
+  "generatedAt": "2026-09-24T22:48:43.477Z",
   "assertedMetrics": [
     "unrecordedSourceUrl",
     "deadSourceUrlCited",
     "staleRedirectCited"
   ],
   "probeRecord": "ops/records/link-health/probe-ledger.json",
-  "citations": 1517,
-  "distinctUrls": 461,
+  "citations": 1518,
+  "distinctUrls": 462,
   "verdictCounts": {
-    "ok": 356,
+    "ok": 357,
     "moved": 16,
     "blocked": 92,
     "dead": 35,
