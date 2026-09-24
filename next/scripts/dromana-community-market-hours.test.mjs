@@ -5,7 +5,7 @@ import test from 'node:test';
 const root = new URL('..', import.meta.url);
 const read = (path) => readFile(new URL(path, root), 'utf8');
 
-test('Dromana Community Market uses the organiser hours and navigation address', async () => {
+test('Dromana Community Market attributes organiser hours and Lets Go Victoria navigation address separately', async () => {
   const [eventText, article, scheduleClaim, organiserEvidence, occurrenceEvidence] = await Promise.all([
     read('src/content/events/dromana-community-market.json'),
     read('src/content/articles/insider-picks-2026-09-24.md'),
@@ -21,12 +21,16 @@ test('Dromana Community Market uses the organiser hours and navigation address',
   assert.equal(event.startTime, '08:00');
   assert.equal(event.endTime, '13:30');
   assert.equal(event.streetAddress, '359B Point Nepean Road');
-  assert.match(event.editorNote, /8:00am–1:30pm/);
-  assert.match(article, /8:00am–1:30pm at 359B Point Nepean Road/);
+  assert.match(event.editorNote, /organiser's policies list market hours as 8:00am–1:30pm/);
+  assert.match(event.editorNote, /dated Lets Go Victoria listing gives the navigation address as 359B Point Nepean Road/);
+  assert.match(article, /organiser's policies list market hours as 8:00am to 1:30pm/);
+  assert.match(article, /dated Lets Go Victoria listing gives the navigation address as 359B Point Nepean Road/);
   assert.doesNotMatch(article, /8:30am(?:–| to )1:00pm/);
-  assert.match(claim.statement, /8:00am to 1:30pm/);
+  assert.match(claim.statement, /organiser's policies list market hours as 8:00am to 1:30pm/);
+  assert.match(claim.statement, /Lets Go Victoria listing gives the navigation address as 359B Point Nepean Road/);
   assert.equal(evidence.url, 'https://dromanamarket.org.au/policies-and-procedures');
   assert.match(evidence.note, /8:00am to 1:30pm/);
+  assert.doesNotMatch(evidence.note, /359B Point Nepean Road/);
   assert.equal(occurrence.url, 'https://letsgovictoria.com/listing/dromana-community-market/');
   assert.equal(occurrence.retrievedAt, '2026-09-24');
   assert.match(occurrence.note, /26 September 2026/);
