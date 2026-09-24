@@ -410,15 +410,13 @@ const season = getAustralianSeasonLower(now);
 )}
 
 <style>
-  /* Immersive giant-type hero over a full-bleed Peninsula landscape. The
-     photo sits under a forest-teal scrim, weighted to the lower-left where
-     the statement, date, and CTAs live, so the white type stays legible
-     while the headland and sky read through. Tokens only. */
+  /* Full-bleed Peninsula landscape with a light coastal wash behind the
+     copy. The photo remains clear to the right of the statement. */
   .home-cover {
     position: relative;
     isolation: isolate;
     overflow: hidden;
-    background: var(--bg-deep);
+    background: var(--tide);
     padding: clamp(2.75rem, 5.3vw, 4.75rem) 0;
   }
 
@@ -498,8 +496,7 @@ const season = getAustralianSeasonLower(now);
     font-weight: var(--fw-semibold);
     letter-spacing: var(--ls-eyebrow);
     text-transform: uppercase;
-    color: #fff4df;
-    text-shadow: 0 1px 4px rgb(0 0 0 / .55);
+    color: var(--harbour);
   }
 
   .home-cover__statement {
@@ -510,9 +507,8 @@ const season = getAustralianSeasonLower(now);
     font-size: clamp(2.5rem, 4.8vw, 4.25rem);
     line-height: 1.09;
     letter-spacing: var(--ls-display);
-    color: var(--white);
+    color: var(--harbour-deep);
     text-wrap: balance;
-    text-shadow: 0 2px 8px rgb(0 0 0 / .3);
   }
 
   .home-cover__context {
@@ -520,8 +516,7 @@ const season = getAustralianSeasonLower(now);
     font-family: var(--font-ui);
     font-size: var(--fs-300);
     line-height: var(--lh-ui);
-    color: #fff;
-    text-shadow: 0 1px 4px rgb(0 0 0 / .6);
+    color: var(--harbour-deep);
     letter-spacing: 0.02em;
   }
 
@@ -568,19 +563,19 @@ const season = getAustralianSeasonLower(now);
     width: 0.5rem;
     height: 0.5rem;
     border-radius: 999px;
-    background: color-mix(in srgb, var(--white) 45%, transparent);
-    box-shadow: 0 1px 4px rgb(0 0 0 / .5);
+    background: color-mix(in srgb, var(--harbour-deep) 50%, transparent);
+    box-shadow: 0 1px 3px rgb(255 255 255 / .7);
     transition: width 220ms ease, background-color 220ms ease;
   }
 
   .home-cover__dot:hover .home-cover__dot-fill,
   .home-cover__dot:focus-visible .home-cover__dot-fill {
-    background: color-mix(in srgb, var(--white) 75%, transparent);
+    background: color-mix(in srgb, var(--harbour-deep) 75%, transparent);
   }
 
   .home-cover__dot.is-active .home-cover__dot-fill {
     width: 1.5rem;
-    background: var(--white);
+    background: var(--harbour-deep);
   }
 
   .home-cover__arrow {
@@ -593,9 +588,9 @@ const season = getAustralianSeasonLower(now);
     width: 2.75rem;
     height: 2.75rem;
     border-radius: 999px;
-    border: 1px solid color-mix(in srgb, var(--white) 35%, transparent);
-    background: rgb(20 20 18 / .32);
-    color: var(--white);
+    border: 1px solid color-mix(in srgb, var(--harbour-deep) 35%, transparent);
+    background: rgb(255 255 255 / .72);
+    color: var(--harbour-deep);
     cursor: pointer;
     opacity: 1;
     transition: opacity 200ms ease, background-color 200ms ease;
@@ -605,12 +600,12 @@ const season = getAustralianSeasonLower(now);
   .home-cover__arrow--next { right: clamp(0.5rem, 2vw, 1.5rem); }
 
   .home-cover__arrow:hover {
-    background: rgb(20 20 18 / .6);
+    background: var(--white);
   }
 
-  @media (max-width: 47.94em) {
-    /* Phones swipe. Arrows at this width either crowd the statement or sit
-       under a thumb by accident. */
+  @media (max-width: 88em) {
+    /* The copy reaches the edge at narrower widths; dots remain available
+       without an arrow sitting over the date or heading. */
     .home-cover__arrow { display: none; }
   }
 
