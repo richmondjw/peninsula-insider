@@ -216,7 +216,7 @@ def _rotation_failures(text: str, date_str: str) -> list[str]:
     stay aligned."""
     try:
         import verify_gate
-    except Exception:
+    except ImportError:
         return []
     return verify_gate.check_rotation(
         Path(f"insider-picks-{date_str}.md"),
