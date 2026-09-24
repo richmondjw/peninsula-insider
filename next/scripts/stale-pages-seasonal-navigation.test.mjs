@@ -17,12 +17,19 @@ test('businesses link directly to the retained About editorial section', () => {
   assert.doesNotMatch(page, /editorial-approach/);
 });
 
-test('seasonal navigation prioritises spring and removes the winter winery prompt', () => {
+test('seasonal navigation prioritises spring while retaining Winter winery query aliases', () => {
   const index = read('src/pages/site-index.astro');
   const search = read('src/pages/search.astro');
+  const springWineIntent = search.match(/aliases:\s*\[([^\]]+)\],\s*title:\s*'Mornington Peninsula Wine & Wineries'/);
+
   assert.match(index, /href="\/journal\/the-spring-peninsula\/"[^>]*>Mornington Peninsula in Spring</);
   assert.doesNotMatch(index, /Mornington Peninsula in Autumn/);
-  assert.doesNotMatch(search, /winter wineries/i);
+  assert.ok(springWineIntent, 'the retained Spring Wine result must define aliases');
+  assert.match(springWineIntent[1], /'winter wineries'/);
+  assert.match(springWineIntent[1], /'winter winery'/);
+  assert.match(springWineIntent[1], /'winter wine'/);
+  assert.match(springWineIntent[1], /'winter wine weekend'/);
+  assert.doesNotMatch(search, /"Winter wineries"/);
 });
 
 test('the Journal current edit is a September 2026 selection', () => {
