@@ -192,7 +192,70 @@ Remember: no brochure language. Specific. Local. Opinionated. Start with the thi
     _sys.path.insert(0, str(Path(__file__).resolve().parent))
     import llm
     out = llm.complete(prompt, system=PI_VOICE_SYSTEM_PROMPT, max_tokens=2000)
-    return _clean_llm_output(out) if out else None
+    if not out:
+        return None
+    cleaned = _clean_llm_output(out)
+    for _ in range(2):
+        revised = _repair_rotation_violations(
+            cleaned,
+            date_str=date_str,
+            prompt=prompt,
+            rotation=rotation,
+            llm_complete=llm.complete,
+        )
+        if revised == cleaned:
+            break
+        cleaned = revised
+        if not _rotation_failures(cleaned, date_str):
+            break
+    return cleaned
+
+
+def _rotation_failures(text: str, date_str: str) -> list[str]:
+    """Use the publish gate's own rotation check so generation and verification
+    stay aligned."""
+    try:
+        import verify_gate
+    except Exception:
+        return []
+    return verify_gate.check_rotation(
+        Path(f"insider-picks-{date_str}.md"),
+        text,
+        Path(__file__).resolve().parent.parent,
+    )
+
+
+def _repair_rotation_violations(text: str, *, date_str: str, prompt: str,
+                                rotation: dict | None, llm_complete) -> str:
+    """Ask the model for one bounded rewrite when the draft features a blocked venue."""
+    if not rotation:
+        return text
+    failures = _rotation_failures(text, date_str)
+    if not failures:
+        return text
+    blocked = rotation.get("blocked_names") or rotation.get("blocked") or []
+    candidates = rotation.get("candidates") or []
+    revision_prompt = f"""{prompt}
+
+REVISION REQUIRED:
+Your previous draft failed the rotation gate and cannot ship as written.
+Problems:
+{chr(10).join(f"- {failure}" for failure in failures)}
+
+Do not feature any venue inside cooldown.
+If you keep an EAT/DRINK/WINE pick, choose it only from these eligible candidates:
+{json.dumps(candidates[:12], indent=2)}
+
+Blocked venues today:
+{json.dumps(blocked[:25], indent=2)}
+
+Return a full replacement article using the same YAML schema as before.
+
+Previous draft:
+{text}
+"""
+    revised = llm_complete(revision_prompt, system=PI_VOICE_SYSTEM_PROMPT, max_tokens=2000)
+    return _clean_llm_output(revised) if revised else text
 
 
 def _clean_llm_output(text: str) -> str:
