@@ -1,26 +1,33 @@
 {
-  "generatedAt": "2026-09-13T18:06:03.579Z",
+  "generatedAt": "2026-09-24T22:37:01.556Z",
   "assertedMetrics": [
-    "unledgeredSourceUrl",
+    "unrecordedSourceUrl",
     "deadSourceUrlCited",
     "staleRedirectCited"
   ],
-  "ledger": "ops/reports/content/link-health-ledger.json",
-  "citations": 1457,
-  "distinctUrls": 438,
+  "probeRecord": "ops/records/link-health/probe-ledger.json",
+  "citations": 1517,
+  "distinctUrls": 461,
   "verdictCounts": {
-    "ok": 332,
+    "ok": 356,
     "moved": 16,
-    "blocked": 91,
-    "dead": 34,
+    "blocked": 92,
+    "dead": 35,
     "tls-fault": 3
   },
+  "staleness": {
+    "oldestProbe": "2026-09-13",
+    "newestProbe": "2026-09-24",
+    "distinctProbeDates": 7,
+    "note": "Reported only. Never asserted: the calendar is not a code change."
+  },
+  "malformedRecordRows": 0,
   "totals": {
-    "unledgeredSourceUrl": 0,
+    "unrecordedSourceUrl": 0,
     "deadSourceUrlCited": 1,
     "staleRedirectCited": 0
   },
-  "unledgeredSourceUrl": [],
+  "unrecordedSourceUrl": [],
   "deadSourceUrlCited": [
     {
       "url": "https://library.mornpen.vic.gov.au/Whats-On/Events/Science-Week-TwistED-Science-Show-Rosebud-Library",

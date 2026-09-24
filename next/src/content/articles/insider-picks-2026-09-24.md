@@ -27,7 +27,7 @@ clusterLinks:
     href: "/explore/best-walks/"
 faq:
   - question: "What time does the Dromana Community Market open and where is it?"
-    answer: "The Dromana Community Market runs Saturday 26 September, 8:30am–1:00pm at Dromana Community Park, Dromana. Free entry. No booking required."
+    answer: "The Dromana Community Market runs Saturday 26 September, 8:00am–1:30pm at 359B Point Nepean Road, Dromana Community Park. Free entry. No booking required. Check the organiser before setting off."
   - question: "Where is the Greens Bush trail and how long does the main loop take?"
     answer: "Greens Bush is in Mornington Peninsula National Park, accessed via Baldry's Crossing or the Greens Bush Picnic Area off Greens Bush Road, Boneo. The main Greens Bush Loop is approximately 10km and takes 2.5–3 hours at a steady pace."
   - question: "Does the Dromana Hotel take bookings for deck tables?"
@@ -60,11 +60,11 @@ Pair with lunch at the Flinders Hotel afterwards, a 20-minute drive south.
 
 ## DISCOVERY · Dromana Community Market
 
-The Dromana Community Market runs the fourth Saturday of most months, and the September edition lands on the 26th, 8:30am to 1:00pm at Dromana Community Park. It is a proper local market - stall-holders who live on the peninsula, produce that reflects the season, a coffee van that gets busy by nine. In spring the fruit and vegetable stalls start transitioning: the last of the winter brassicas alongside the first broad beans and early strawberries from Red Hill growers.
+The Dromana Community Market runs the fourth Saturday of most months, and the September edition lands on the 26th. The organiser's policies list market hours as 8:00am to 1:30pm at 359B Point Nepean Road, Dromana Community Park. It is a proper local market - stall-holders who live on the peninsula, produce that reflects the season, a coffee van that gets busy by nine. In spring the fruit and vegetable stalls start transitioning: the last of the winter brassicas alongside the first broad beans and early strawberries from Red Hill growers.
 
 The market is free and compact enough to cover in 45 minutes, but the pace encourages longer. This is where you hear what is happening with the local growing season from people who actually grow things, not from a newsletter. The flower stalls in September are particularly good - local growers bring cut ranunculus and sweet peas that you will not find cheaper or fresher anywhere on the peninsula.
 
-Dromana Community Park, Dromana. Saturday 26 September, 8:30am–1:00pm. No booking, free entry. Allow 45–60 minutes.
+359B Point Nepean Road, Dromana Community Park. Saturday 26 September, 8:00am–1:30pm. No booking, free entry. Allow 45–60 minutes. Check the organiser before setting off.
 
 Pair with a deck table at the Dromana Hotel immediately after - it is a seven-minute walk.
 
@@ -76,4 +76,4 @@ Pair with a deck table at the Dromana Hotel immediately after - it is a seven-mi
 
 **Greens Bush, Mornington Peninsula National Park** · Greens Bush Road, Boneo (access via Browns Road) · Open daily · Parks Victoria vehicle entry fee applies · Allow 2–3 hours for the full loop
 
-**Dromana Community Market** · Dromana Community Park, Dromana · Saturday 26 September, 8:30am–1:00pm · Free entry, no booking required
+**Dromana Community Market** · 359B Point Nepean Road, Dromana Community Park · Saturday 26 September, 8:00am–1:30pm · Free entry, no booking required
