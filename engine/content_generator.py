@@ -12,7 +12,7 @@ import argparse
 import json
 import os
 import sys
-from datetime import datetime, timedelta
+from datetime import date, datetime, timedelta
 from pathlib import Path
 import zoneinfo
 import subprocess
@@ -209,13 +209,25 @@ def _rotation_failures(text: str, date_str: str) -> list[str]:
     stay aligned."""
     try:
         import verify_gate
+        return verify_gate.check_rotation(
+            Path(f"insider-picks-{date_str}.md"),
+            text,
+            Path(__file__).resolve().parent.parent,
+        )
     except ImportError:
-        return []
-    return verify_gate.check_rotation(
-        Path(f"insider-picks-{date_str}.md"),
-        text,
-        Path(__file__).resolve().parent.parent,
-    )
+        import recency
+        repo_root = Path(__file__).resolve().parent.parent
+        today = date.fromisoformat(date_str)
+        ledger = recency.build_ledger(repo_root, today - timedelta(days=1))
+        venues = {v["slug"]: v.get("name", "") for v in recency.load_venues(repo_root)}
+        low = recency._feature_text(text).lower()
+        fails = []
+        for slug in ledger["blocked"]:
+            name = venues.get(slug, "")
+            if len(name) >= 8 and name.lower() in low:
+                fails.append(f"Rotation violation: '{name}' is inside its "
+                             f"{recency.VENUE_COOLDOWN_DAYS}-day cooldown and cannot be featured again yet.")
+        return fails
 
 
 def _repair_rotation_violations(text: str, *, date_str: str, prompt: str,

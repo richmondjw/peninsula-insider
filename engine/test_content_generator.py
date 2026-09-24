@@ -4,6 +4,8 @@
 from __future__ import annotations
 
 import unittest
+from unittest.mock import patch
+import builtins
 from datetime import date
 from pathlib import Path
 
@@ -94,6 +96,19 @@ class ContentGeneratorRotationRepairTest(unittest.TestCase):
         )
 
         self.assertEqual(repaired, BAD_ARTICLE)
+
+    def test_rotation_failures_falls_back_when_verify_gate_import_is_unavailable(self):
+        original_import = builtins.__import__
+
+        def guarded_import(name, globals=None, locals=None, fromlist=(), level=0):
+            if name == "verify_gate":
+                raise ImportError("verify_gate unavailable")
+            return original_import(name, globals, locals, fromlist, level)
+
+        with patch("builtins.__import__", side_effect=guarded_import):
+            failures = content_generator._rotation_failures(BAD_ARTICLE, "2026-09-25")
+
+        self.assertTrue(any("The Continental" in failure for failure in failures))
 
 
 if __name__ == "__main__":
