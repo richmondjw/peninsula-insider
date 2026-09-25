@@ -34,7 +34,9 @@ const active = path.startsWith('/explore/plans') || path.startsWith('/plans') ? 
 </div>
 </div>
 <nav aria-label="Main navigation" class="site-nav" id="site-nav">
-<div class="wrap">{v5Pillars.map(p => <div class="pillar-menu" data-pillar-menu>
+<div class="wrap">
+<button class="mobile-menu-close" type="button" aria-label="Close navigation">Close</button>
+{v5Pillars.map(p => <div class="pillar-menu" data-pillar-menu>
 <div class="pillar-menu__trigger">
 <a href={p.hub} aria-current={active === p.key ? 'page' : undefined}>{p.label}</a>
 <button class="pillar-menu__toggle" type="button" aria-label={`Open ${p.label} menu`} aria-expanded="false" aria-controls={`v5-panel-${p.key}`} data-pillar-toggle>
@@ -69,7 +71,11 @@ function initEditorialShell(){
  const button=header.querySelector<HTMLButtonElement>('.mobile-menu')!;
  const nav=header.querySelector<HTMLElement>('#site-nav')!;
  const personal=header.querySelector<HTMLDetailsElement>('.personal-menu')!;
+ const closeButton=header.querySelector<HTMLButtonElement>('.mobile-menu-close')!;
  const menus=[...header.querySelectorAll<HTMLElement>('[data-pillar-menu]')];
+ const mobileMedia=window.matchMedia('(max-width: 1100px)');
+ const previousOverflow=document.body.style.overflow;
+ const focusable=()=>[...nav.querySelectorAll<HTMLElement>('a[href], button:not([disabled]), summary')].filter(el=>!el.closest('[hidden], [aria-hidden="true"]')&&el.getClientRects().length>0);
  let closeTimer:number|undefined;
 
  function closeMenu(menu:HTMLElement){
@@ -77,7 +83,6 @@ function initEditorialShell(){
    const toggle=menu.querySelector<HTMLButtonElement>('[data-pillar-toggle]')!;
    panel.hidden=true;
    toggle.setAttribute('aria-expanded','false');
-   toggle.setAttribute('aria-label',`Open ${menu.querySelector('.pillar-menu__trigger a')?.textContent?.trim()} menu`);
    menu.classList.remove('is-open');
  }
  function closePanels(except?:HTMLElement){
@@ -90,7 +95,6 @@ function initEditorialShell(){
   const toggle=menu.querySelector<HTMLButtonElement>('[data-pillar-toggle]')!;
   panel.hidden=false;
   toggle.setAttribute('aria-expanded','true');
-  toggle.setAttribute('aria-label',`Close ${menu.querySelector('.pillar-menu__trigger a')?.textContent?.trim()} menu`);
   menu.classList.add('is-open');
   personal.open=false;
  }
@@ -109,13 +113,18 @@ function initEditorialShell(){
   toggle.addEventListener('click',()=>{menu.classList.contains('is-open')?closePanels():openPanel(menu);});
  });
 
- function close(){button.setAttribute('aria-expanded','false');button.setAttribute('aria-label','Open navigation');nav.classList.remove('open');closePanels();}
- button.addEventListener('click',()=>{const open=button.getAttribute('aria-expanded')!=='true';button.setAttribute('aria-expanded',String(open));button.setAttribute('aria-label',open?'Close navigation':'Open navigation');nav.classList.toggle('open',open);});
- const onKeydown=(e:KeyboardEvent)=>{if(e.key!=='Escape')return;const open=menus.find(menu=>menu.classList.contains('is-open'));if(open){closePanels();open.querySelector<HTMLButtonElement>('[data-pillar-toggle]')?.focus();}else if(personal.open){personal.open=false;personal.querySelector('summary')?.focus();}else if(button.getAttribute('aria-expanded')==='true'){close();button.focus();}};
- const onClick=(e:MouseEvent)=>{if(!personal.contains(e.target as Node))personal.open=false;if(!nav.contains(e.target as Node))closePanels();};
+ function close(){button.setAttribute('aria-expanded','false');document.body.style.overflow=previousOverflow;nav.removeAttribute('role');nav.removeAttribute('aria-modal');nav.classList.remove('open');closePanels();}
+ function open(){button.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';nav.setAttribute('role','dialog');nav.setAttribute('aria-modal','true');nav.classList.add('open');window.requestAnimationFrame(()=>focusable()[0]?.focus());}
+ function trapFocus(e:KeyboardEvent){const items=focusable();const first=items[0],last=items[items.length-1];if(!first||!last)return;if(!nav.contains(document.activeElement)){e.preventDefault();(e.shiftKey?last:first).focus();return;}if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}
+ button.addEventListener('click',()=>button.getAttribute('aria-expanded')==='true'?close():open());
+ closeButton.addEventListener('click',()=>{close();button.focus();});
+ const onKeydown=(e:KeyboardEvent)=>{if(e.key==='Tab' && button.getAttribute('aria-expanded')==='true'){trapFocus(e);return;}if(e.key!=='Escape')return;const open=menus.find(menu=>menu.classList.contains('is-open'));if(open){closePanels();open.querySelector<HTMLButtonElement>('[data-pillar-toggle]')?.focus();}else if(personal.open){personal.open=false;personal.querySelector('summary')?.focus();}else if(button.getAttribute('aria-expanded')==='true'){close();button.focus();}};
+ const onClick=(e:MouseEvent)=>{if(!personal.contains(e.target as Node))personal.open=false;if(!nav.contains(e.target as Node))closePanels();if(button.getAttribute('aria-expanded')==='true'&&!nav.contains(e.target as Node)&&!button.contains(e.target as Node)){close();button.focus();}};
+ const onMediaChange=(e:MediaQueryListEvent)=>{if(!e.matches&&button.getAttribute('aria-expanded')==='true')close();};
  document.addEventListener('keydown',onKeydown);
  document.addEventListener('click',onClick);
- shellCleanup=()=>{window.clearTimeout(closeTimer);document.removeEventListener('keydown',onKeydown);document.removeEventListener('click',onClick);};
+ mobileMedia.addEventListener('change',onMediaChange);
+ shellCleanup=()=>{window.clearTimeout(closeTimer);close();document.removeEventListener('keydown',onKeydown);document.removeEventListener('click',onClick);mobileMedia.removeEventListener('change',onMediaChange);};
 }
 initEditorialShell();document.addEventListener('astro:page-load',initEditorialShell);
 </script>
@@ -124,21 +133,26 @@ initEditorialShell();document.addEventListener('astro:page-load',initEditorialSh
  .pillar-menu__trigger{display:flex;align-items:center}
  .pillar-menu__toggle{display:flex;align-items:center;justify-content:center;width:25px;height:44px;margin-left:-2px;padding:0;border:0;background:transparent;color:#53636d;cursor:pointer}
  .pillar-menu__toggle svg{transition:transform .18s ease}
+ @media(prefers-reduced-motion:reduce){.pillar-menu__toggle svg{transition:none}}
  .pillar-menu.is-open .pillar-menu__toggle svg{transform:rotate(180deg)}
  .pillar-menu.is-open .pillar-menu__trigger>a{color:#10527e}
  .pillar-menu__toggle:focus-visible{outline:3px solid #11309c;outline-offset:2px}
+ .mobile-menu-close{display:none}
  @media(max-width:1100px){
   .site-nav{display:none}
   .site-nav.open{display:block}
   .site-nav>.wrap{display:grid;grid-template-columns:1fr;gap:0;padding:10px 0 20px}
   .mobile-menu{display:flex;align-items:center;justify-content:center;cursor:pointer}
+  .mobile-menu-close{display:flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;justify-self:end;padding:0 14px;border:1px solid #53636d;background:#fff;color:#12211e;font:600 12px/1 Inter,Arial,sans-serif;cursor:pointer}
   .pillar-menu{border-bottom:1px solid #e4e5e3}
   .pillar-menu__trigger{justify-content:space-between}
-  .pillar-menu__trigger>a{flex:1}
+  .site-nav .pillar-menu__trigger>a{flex:1;min-height:44px}
   .pillar-menu__toggle{width:46px;height:46px;border-left:1px solid #e4e5e3}
   .personal-menu{margin:0;border-bottom:1px solid #e4e5e3}
   .personal-panel{position:static;box-shadow:none;border:0;padding:0 8px 10px}
   .site-nav .mobile-search,.site-nav .mobile-note{display:flex}
  }
+ .mobile-menu-close:focus-visible,
+ .mobile-menu:focus-visible{outline:3px solid #11309c;outline-offset:3px}
  @media(max-width:767px){.site-nav>.wrap{grid-template-columns:1fr;gap:0}}
 </style>
