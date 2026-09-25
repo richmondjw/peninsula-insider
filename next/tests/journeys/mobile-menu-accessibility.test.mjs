@@ -5,6 +5,7 @@ import puppeteer from 'puppeteer';
 import { Site } from './harness.mjs';
 
 const canRunBrowser = existsSync(puppeteer.executablePath());
+if (process.env.CI) assert.ok(canRunBrowser, 'CI must execute Chromium journeys; a skip is not release evidence');
 const site = canRunBrowser ? await Site.open() : null;
 test.after(() => site?.close());
 
@@ -85,5 +86,35 @@ test('desktop navigation remains non-modal and its expandable controls remain av
       expanded: menu.querySelector('[data-pillar-toggle]').getAttribute('aria-expanded'),
       hidden: menu.querySelector('[data-v5-mega]').hidden,
     })), { expanded: 'true', hidden: false });
+  } finally { await reader.close(); }
+});
+
+
+test('expanded mobile menus scroll independently and restore page scrolling on close and resize', { skip: !canRunBrowser }, async () => {
+  const reader = await site.reader();
+  try {
+    await reader.page.setViewport({ width: 390, height: 667 });
+    await reader.load('/');
+    await reader.page.click('.mobile-menu');
+    await reader.page.click('[data-pillar-toggle]');
+    const before = await reader.page.evaluate(() => ({ y: scrollY, rootOverflow: document.documentElement.style.overflow }));
+    assert.equal(before.rootOverflow, 'hidden');
+    await reader.page.mouse.move(250, 500);
+    await reader.page.mouse.wheel({ deltaY: 600 });
+    await reader.waitFor(() => document.querySelector('#site-nav').scrollTop > 0, 'expanded menu did not scroll');
+    assert.equal(await reader.page.evaluate(() => scrollY), before.y, 'background page scrolled');
+    const lastLink = await reader.page.$('#site-nav .mobile-note');
+    await lastLink.focus();
+    assert.equal(await lastLink.evaluate(el => { const r=el.getBoundingClientRect(); return r.top>=0 && r.bottom<=innerHeight; }), true);
+    // Escape first closes the expanded section, then the mobile dialog.
+    await reader.page.keyboard.press('Escape');
+    await reader.page.keyboard.press('Escape');
+    assert.equal(await reader.page.evaluate(() => document.documentElement.style.overflow), '');
+    assert.equal(await reader.page.$eval('.mobile-menu', el => el.getAttribute('aria-expanded')), 'false');
+    await reader.page.click('.mobile-menu');
+    await reader.page.setViewport({ width: 1280, height: 900 });
+    await reader.waitFor(() => !document.querySelector('#site-nav').classList.contains('open'), 'resize did not close menu');
+    assert.equal(await reader.page.evaluate(() => document.documentElement.style.overflow), '');
+    assert.equal(await reader.page.$eval('#site-nav', el => el.hasAttribute('aria-modal')), false);
   } finally { await reader.close(); }
 });

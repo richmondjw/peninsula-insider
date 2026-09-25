@@ -17,7 +17,7 @@ test('mobile menu exposes fixed control names and expandable sections without ma
 
 test('open mobile navigation locks scrolling, contains outside focus, closes on outside taps, and resets above the breakpoint', () => {
   assert.match(masthead, /const mobileMedia=window\.matchMedia\('\(max-width: 1100px\)'\)/);
-  assert.match(masthead, /const previousOverflow=document\.body\.style\.overflow/);
+  assert.match(masthead, /let previousOverflow=document\.body\.style\.overflow/);
   assert.match(masthead, /document\.body\.style\.overflow='hidden'/);
   assert.match(masthead, /document\.body\.style\.overflow=previousOverflow/);
   assert.match(masthead, /if\(!nav\.contains\(document\.activeElement\)\)\{e\.preventDefault\(\);\(e\.shiftKey\?last:first\)\.focus\(\);return;\}/);
