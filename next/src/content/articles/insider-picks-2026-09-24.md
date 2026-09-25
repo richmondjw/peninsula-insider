@@ -60,13 +60,7 @@ Pair with lunch at the Flinders Hotel afterwards, a 20-minute drive south.
 
 ## DISCOVERY · Dromana Community Market
 
-The Dromana Community Market runs the fourth Saturday of most months, and the September edition lands on the 26th. The organiser's policies list market hours as 8:00am to 1:30pm. The dated Lets Go Victoria listing gives the navigation address as 359B Point Nepean Road, Dromana Community Park. It is a proper local market - stall-holders who live on the peninsula, produce that reflects the season, a coffee van that gets busy by nine. In spring the fruit and vegetable stalls start transitioning: the last of the winter brassicas alongside the first broad beans and early strawberries from Red Hill growers.
-
-The market is compact enough to cover in 45 minutes, but the pace encourages longer. This is where you hear what is happening with the local growing season from people who actually grow things, not from a newsletter. The flower stalls in September are particularly good - local growers bring cut ranunculus and sweet peas that you will not find cheaper or fresher anywhere on the peninsula.
-
-359B Point Nepean Road, Dromana Community Park. Saturday 26 September, 8:00am–1:30pm. Allow 45–60 minutes. Check the organiser before setting off.
-
-Pair with a deck table at the Dromana Hotel immediately after - it is a seven-minute walk.
+The organiser's policies list market hours as 8:00am to 1:30pm. The dated Lets Go Victoria listing gives the navigation address as 359B Point Nepean Road, Dromana Community Park. Saturday 26 September, 8:00am–1:30pm. Check the organiser before setting off.
 
 ---
 
