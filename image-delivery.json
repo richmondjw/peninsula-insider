@@ -3519,56 +3519,56 @@
       ]
     },
     {
-      "source": "/images/sourced/home-cover.webp",
-      "originalBytes": 129134,
+      "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/event/mt-eliza-farmers-market/heroImage-1787318367025.jpg",
+      "originalBytes": 65712,
       "variants": [
         {
-          "src": "/_media/1fd67c290d8d1bd897df-480.webp",
+          "src": "/_media/66feffcd28ae4f1595fa-480.webp",
           "width": 480,
-          "height": 320,
-          "bytes": 20200
+          "height": 184,
+          "bytes": 11914
         },
         {
-          "src": "/_media/1fd67c290d8d1bd897df-800.webp",
+          "src": "/_media/66feffcd28ae4f1595fa-800.webp",
           "width": 800,
-          "height": 533,
-          "bytes": 44952
+          "height": 307,
+          "bytes": 21954
         },
         {
-          "src": "/_media/1fd67c290d8d1bd897df-1280.webp",
-          "width": 1280,
-          "height": 853,
-          "bytes": 105674
+          "src": "/_media/66feffcd28ae4f1595fa-922.webp",
+          "width": 922,
+          "height": 354,
+          "bytes": 26526
         }
       ]
     },
     {
-      "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/event/red-hill-truffles-winter-truffle-hunt-season/heroImage-1785719503591.webp",
-      "originalBytes": 95928,
+      "source": "/images/sourced/spa-treatment-room-rose-01.webp",
+      "originalBytes": 93024,
       "variants": [
         {
-          "src": "/_media/85bee12bed88e73089ac-480.webp",
+          "src": "/_media/8330fabd279e5c03863c-480.webp",
           "width": 480,
           "height": 320,
-          "bytes": 13114
+          "bytes": 11936
         },
         {
-          "src": "/_media/85bee12bed88e73089ac-800.webp",
+          "src": "/_media/8330fabd279e5c03863c-800.webp",
           "width": 800,
           "height": 533,
-          "bytes": 25106
+          "bytes": 23706
         },
         {
-          "src": "/_media/85bee12bed88e73089ac-1280.webp",
+          "src": "/_media/8330fabd279e5c03863c-1280.webp",
           "width": 1280,
           "height": 853,
-          "bytes": 47000
+          "bytes": 46834
         },
         {
-          "src": "/_media/85bee12bed88e73089ac-1920.webp",
+          "src": "/_media/8330fabd279e5c03863c-1920.webp",
           "width": 1920,
           "height": 1280,
-          "bytes": 74464
+          "bytes": 88260
         }
       ]
     },
@@ -4613,6 +4613,30 @@
           "width": 480,
           "height": 320,
           "bytes": 11426
+        }
+      ]
+    },
+    {
+      "source": "/images/sourced/home-cover.webp",
+      "originalBytes": 129134,
+      "variants": [
+        {
+          "src": "/_media/1fd67c290d8d1bd897df-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 20200
+        },
+        {
+          "src": "/_media/1fd67c290d8d1bd897df-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 44952
+        },
+        {
+          "src": "/_media/1fd67c290d8d1bd897df-1280.webp",
+          "width": 1280,
+          "height": 853,
+          "bytes": 105674
         }
       ]
     },
@@ -6315,36 +6339,6 @@
       ]
     },
     {
-      "source": "/images/sourced/spa-treatment-room-rose-01.webp",
-      "originalBytes": 93024,
-      "variants": [
-        {
-          "src": "/_media/8330fabd279e5c03863c-480.webp",
-          "width": 480,
-          "height": 320,
-          "bytes": 11936
-        },
-        {
-          "src": "/_media/8330fabd279e5c03863c-800.webp",
-          "width": 800,
-          "height": 533,
-          "bytes": 23706
-        },
-        {
-          "src": "/_media/8330fabd279e5c03863c-1280.webp",
-          "width": 1280,
-          "height": 853,
-          "bytes": 46834
-        },
-        {
-          "src": "/_media/8330fabd279e5c03863c-1920.webp",
-          "width": 1920,
-          "height": 1280,
-          "bytes": 88260
-        }
-      ]
-    },
-    {
       "source": "/images/sourced/venue-wine-tasting-01.webp",
       "originalBytes": 471796,
       "variants": [
@@ -6599,30 +6593,6 @@
           "width": 1920,
           "height": 1280,
           "bytes": 108626
-        }
-      ]
-    },
-    {
-      "source": "/images/sourced/whats-on-winter-wine.webp",
-      "originalBytes": 100602,
-      "variants": [
-        {
-          "src": "/_media/5b882896ca6fd113d0bb-480.webp",
-          "width": 480,
-          "height": 320,
-          "bytes": 23664
-        },
-        {
-          "src": "/_media/5b882896ca6fd113d0bb-800.webp",
-          "width": 800,
-          "height": 533,
-          "bytes": 48274
-        },
-        {
-          "src": "/_media/5b882896ca6fd113d0bb-1200.webp",
-          "width": 1200,
-          "height": 800,
-          "bytes": 91134
         }
       ]
     },
