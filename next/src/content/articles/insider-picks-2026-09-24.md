@@ -28,8 +28,8 @@ clusterLinks:
 faq:
   - question: "What time does the Dromana Community Market open and where is it?"
     answer: "The Dromana Community Market runs Saturday 26 September, 8:00am–1:30pm at 359B Point Nepean Road, Dromana Community Park. Check the organiser before setting off."
-  - question: "Where is the Greens Bush trail and how long does the main loop take?"
-    answer: "Greens Bush is in Mornington Peninsula National Park, accessed via Baldry's Crossing or the Greens Bush Picnic Area off Greens Bush Road, Boneo. The main Greens Bush Loop is approximately 10km and takes 2.5–3 hours at a steady pace."
+  - question: "Where is the Greens Bush trail and how long are the Baldrys circuits?"
+    answer: "Greens Bush is in Mornington Peninsula National Park. Start at Baldrys Crossing, Baldrys Road, Main Ridge. Parks Victoria lists the Baldrys Short Circuit at 1.6km and the Baldrys Long Circuit at 3.6km."
   - question: "Does the Dromana Hotel take bookings for deck tables?"
     answer: "Check the Dromana Hotel website directly for current booking availability. Deck tables on warm spring weekends fill fast; walk-ins are possible but arriving early is the smarter move."
 ---
@@ -50,9 +50,9 @@ Pair with a walk along the Dromana foreshore afterwards, or combine with the Dro
 
 Greens Bush - the largest remnant heathland on the peninsula's ocean side - peaks in late September. Right now the ground layer is carrying spider orchids, trigger plants, and heath. This is the fortnight when the bush smells of wattle and damp earth rather than dust, and when the light through the stringybarks hits at an angle that makes the whole thing look improbable.
 
-The main Greens Bush Loop runs approximately 10km through coastal scrub and heathland. You do not need to complete it. The section from Baldry's Crossing through to the creek crossing takes about 45 minutes and delivers the orchid concentration that makes the trip worthwhile. Wear shoes with grip - the clay sections hold moisture for days after rain - and go in the morning before the wind picks up off Bass Strait.
+Parks Victoria lists two short circuits from Baldrys Crossing: the Baldrys Short Circuit is 1.6km, while the Baldrys Long Circuit is 3.6km. Choose the short circuit for a quick look at the heathland, or allow more time for the longer circuit. Wear shoes with grip, the clay sections hold moisture for days after rain, and go in the morning before the wind picks up off Bass Strait.
 
-Access via Greens Bush Road, Boneo, off Browns Road. A Parks Victoria vehicle entry fee applies at the national park boundary. Allow 2–3 hours for the full loop.
+Start at Baldrys Crossing, Baldrys Road, Main Ridge. There is no entry fee for Mornington Peninsula National Park.
 
 Pair with lunch at the Flinders Hotel afterwards, a 20-minute drive south.
 
@@ -68,6 +68,6 @@ The organiser's policies list market hours as 8:00am to 1:30pm. The dated Lets G
 
 **Dromana Hotel** · Point Nepean Road, Dromana · No booking required for bar; check website for dining reservations · Best: arrive before noon for a deck table
 
-**Greens Bush, Mornington Peninsula National Park** · Greens Bush Road, Boneo (access via Browns Road) · Open daily · Parks Victoria vehicle entry fee applies · Allow 2–3 hours for the full loop
+**Greens Bush, Mornington Peninsula National Park** · Baldrys Crossing, Baldrys Road, Main Ridge · Open daily · No entry fee · Baldrys Short Circuit 1.6km or Baldrys Long Circuit 3.6km
 
 **Dromana Community Market** · 359B Point Nepean Road, Dromana Community Park · Saturday 26 September, 8:00am–1:30pm · Check the organiser before setting off
