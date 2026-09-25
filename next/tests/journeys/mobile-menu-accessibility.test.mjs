@@ -118,3 +118,26 @@ test('expanded mobile menus scroll independently and restore page scrolling on c
     assert.equal(await reader.page.$eval('#site-nav', el => el.hasAttribute('aria-modal')), false);
   } finally { await reader.close(); }
 });
+
+
+test('mobile navigation hands focus to search without competing dialogs', { skip: !canRunBrowser }, async () => {
+  const reader = await site.reader();
+  try {
+    await reader.page.setViewport({ width: 390, height: 844 });
+    await reader.load('/');
+    for (const trigger of ['link', 'shortcut']) {
+      await reader.page.click('.mobile-menu');
+      await reader.waitFor(() => document.activeElement?.classList.contains('mobile-menu-close'), 'menu focus missing');
+      if (trigger === 'link') await reader.page.click('#site-nav [data-open-search]');
+      else await reader.page.keyboard.press('/');
+      await reader.waitFor(() => document.activeElement?.id === 'siteSearchOverlayInput', 'search did not receive focus');
+      assert.equal(await reader.page.$eval('#site-nav', el => el.classList.contains('open')), false);
+      await reader.page.keyboard.press('Tab');
+      assert.equal(await reader.page.evaluate(() => document.querySelector('#siteSearchOverlay').contains(document.activeElement)), true);
+      await reader.page.keyboard.press('Escape');
+      await reader.waitFor(() => document.querySelector('#siteSearchOverlay').dataset.open !== 'true', 'search did not close');
+      assert.equal(await reader.page.evaluate(() => document.activeElement?.classList.contains('mobile-menu')), true);
+      assert.equal(await reader.page.evaluate(() => document.documentElement.style.overflow), '');
+    }
+  } finally { await reader.close(); }
+});

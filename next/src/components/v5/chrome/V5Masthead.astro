@@ -33,7 +33,7 @@ const active = path.startsWith('/explore/plans') || path.startsWith('/plans') ? 
 </button>
 </div>
 </div>
-<nav aria-label="Main navigation" class="site-nav" id="site-nav">
+<nav aria-label="Main navigation" class="site-nav" id="site-nav" data-lenis-prevent>
 <div class="wrap">
 <button class="mobile-menu-close" type="button" aria-label="Close navigation">Close</button>
 {v5Pillars.map(p => <div class="pillar-menu" data-pillar-menu>
@@ -114,18 +114,21 @@ function initEditorialShell(){
   toggle.addEventListener('click',()=>{menu.classList.contains('is-open')?closePanels():openPanel(menu);});
  });
 
- function close(){if(button.getAttribute('aria-expanded')==='true'){document.body.style.overflow=previousOverflow;document.documentElement.style.overflow=previousRootOverflow;}button.setAttribute('aria-expanded','false');nav.style.removeProperty('--mobile-nav-top');nav.removeAttribute('role');nav.removeAttribute('aria-modal');nav.classList.remove('open');closePanels();}
- function open(){previousOverflow=document.body.style.overflow;previousRootOverflow=document.documentElement.style.overflow;button.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';document.documentElement.style.overflow='hidden';nav.setAttribute('role','dialog');nav.setAttribute('aria-modal','true');nav.classList.add('open');nav.style.setProperty('--mobile-nav-top',`${Math.max(0,nav.getBoundingClientRect().top)}px`);nav.scrollTop=0;window.requestAnimationFrame(()=>focusable()[0]?.focus());}
+ function close(){if(button.getAttribute('aria-expanded')==='true'){document.body.style.overflow=previousOverflow;document.documentElement.style.overflow=previousRootOverflow;document.dispatchEvent(new Event('pi:lenis-start'));}button.setAttribute('aria-expanded','false');nav.style.removeProperty('--mobile-nav-top');nav.removeAttribute('role');nav.removeAttribute('aria-modal');nav.classList.remove('open');closePanels();}
+ function open(){previousOverflow=document.body.style.overflow;previousRootOverflow=document.documentElement.style.overflow;button.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';document.documentElement.style.overflow='hidden';document.dispatchEvent(new Event('pi:lenis-stop'));nav.setAttribute('role','dialog');nav.setAttribute('aria-modal','true');nav.classList.add('open');nav.style.setProperty('--mobile-nav-top',`${Math.max(0,nav.getBoundingClientRect().top)}px`);nav.scrollTop=0;window.requestAnimationFrame(()=>focusable()[0]?.focus());}
  function trapFocus(e:KeyboardEvent){const items=focusable();const first=items[0],last=items[items.length-1];if(!first||!last)return;if(!nav.contains(document.activeElement)){e.preventDefault();(e.shiftKey?last:first).focus();return;}if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}
  button.addEventListener('click',()=>button.getAttribute('aria-expanded')==='true'?close():open());
  closeButton.addEventListener('click',()=>{close();button.focus();});
  const onKeydown=(e:KeyboardEvent)=>{if(e.key==='Tab' && button.getAttribute('aria-expanded')==='true'){trapFocus(e);return;}if(e.key!=='Escape')return;const open=menus.find(menu=>menu.classList.contains('is-open'));if(open){closePanels();open.querySelector<HTMLButtonElement>('[data-pillar-toggle]')?.focus();}else if(personal.open){personal.open=false;personal.querySelector('summary')?.focus();}else if(button.getAttribute('aria-expanded')==='true'){close();button.focus();}};
  const onClick=(e:MouseEvent)=>{if(!personal.contains(e.target as Node))personal.open=false;if(!nav.contains(e.target as Node))closePanels();if(button.getAttribute('aria-expanded')==='true'&&!nav.contains(e.target as Node)&&!button.contains(e.target as Node)){close();button.focus();}};
+ const onSearchHandoff=(e:Event)=>{if(button.getAttribute('aria-expanded')!=='true')return;const target=e.target as HTMLElement;const key=e as KeyboardEvent;const searchClick=e.type==='click'&&target.closest('[data-open-search]');const searchShortcut=e.type==='keydown'&&key.key==='/'&&!key.metaKey&&!key.ctrlKey&&!key.altKey&&!target.matches('input,textarea')&&!target.isContentEditable;if(searchClick||searchShortcut){close();button.focus();}};
+ document.addEventListener('click',onSearchHandoff,true);
+ document.addEventListener('keydown',onSearchHandoff,true);
  const onMediaChange=(e:MediaQueryListEvent)=>{if(!e.matches&&button.getAttribute('aria-expanded')==='true')close();};
  document.addEventListener('keydown',onKeydown);
  document.addEventListener('click',onClick);
  mobileMedia.addEventListener('change',onMediaChange);
- shellCleanup=()=>{window.clearTimeout(closeTimer);close();document.removeEventListener('keydown',onKeydown);document.removeEventListener('click',onClick);mobileMedia.removeEventListener('change',onMediaChange);};
+ shellCleanup=()=>{window.clearTimeout(closeTimer);close();document.removeEventListener('click',onSearchHandoff,true);document.removeEventListener('keydown',onSearchHandoff,true);document.removeEventListener('keydown',onKeydown);document.removeEventListener('click',onClick);mobileMedia.removeEventListener('change',onMediaChange);};
 }
 initEditorialShell();document.addEventListener('astro:page-load',initEditorialShell);
 </script>

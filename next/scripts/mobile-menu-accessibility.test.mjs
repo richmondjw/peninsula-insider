@@ -7,7 +7,7 @@ const editorialShell = readFileSync(new URL('../src/styles/editorial-shell.css',
 const packageJson = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8'));
 
 test('mobile menu exposes fixed control names and expandable sections without making desktop navigation a dialog', () => {
-  assert.match(masthead, /<nav aria-label="Main navigation" class="site-nav" id="site-nav">/);
+  assert.match(masthead, /<nav aria-label="Main navigation" class="site-nav" id="site-nav" data-lenis-prevent>/);
   assert.doesNotMatch(masthead, /<nav[^>]*aria-modal=/);
   assert.match(masthead, /<button[^>]*class="mobile-menu-close"[^>]*aria-label="Close navigation"[^>]*>\s*Close\s*<\/button>/);
   assert.match(masthead, /aria-controls=\{`v5-panel-\$\{p\.key\}`\}/);
