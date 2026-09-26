@@ -1,8 +1,9 @@
 {
   "status": "stalled",
-  "checked": "2026-09-24",
+  "checked": "2026-09-27",
   "notes": [
-    "Loop stalled: 4 days since last snapshot (2026-09-20).",
+    "Loop stalled: 3 days since last snapshot (2026-09-24).",
+    "Only 2 snapshot(s) in the last 7 days \u2014 expected ~7.",
     "Actions recorded but none re-measured yet \u2014 learning signal not flowing (expected until GSC re-crawls the actioned pages)."
   ]
 }
