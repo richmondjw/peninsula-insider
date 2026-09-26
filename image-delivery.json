@@ -3519,30 +3519,6 @@
       ]
     },
     {
-      "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/event/mt-eliza-farmers-market/heroImage-1787318367025.jpg",
-      "originalBytes": 65712,
-      "variants": [
-        {
-          "src": "/_media/66feffcd28ae4f1595fa-480.webp",
-          "width": 480,
-          "height": 184,
-          "bytes": 11914
-        },
-        {
-          "src": "/_media/66feffcd28ae4f1595fa-800.webp",
-          "width": 800,
-          "height": 307,
-          "bytes": 21954
-        },
-        {
-          "src": "/_media/66feffcd28ae4f1595fa-922.webp",
-          "width": 922,
-          "height": 354,
-          "bytes": 26526
-        }
-      ]
-    },
-    {
       "source": "/images/sourced/spa-treatment-room-rose-01.webp",
       "originalBytes": 93024,
       "variants": [
@@ -3573,32 +3549,56 @@
       ]
     },
     {
-      "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/event/afl-grand-final-live-and-loud-continental-sorrento-2026/heroImage-1790210741396.jpg",
-      "originalBytes": 566883,
+      "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/event/family-mystery-picnic-mornington-peninsula-2026/heroImage-1790211682696.jpg",
+      "originalBytes": 354002,
       "variants": [
         {
-          "src": "/_media/75954e8078cdfc60cf1b-480.webp",
+          "src": "/_media/1540658e1f69674f407a-480.webp",
           "width": 480,
-          "height": 267,
-          "bytes": 33028
+          "height": 240,
+          "bytes": 32648
         },
         {
-          "src": "/_media/75954e8078cdfc60cf1b-800.webp",
+          "src": "/_media/1540658e1f69674f407a-800.webp",
           "width": 800,
-          "height": 444,
-          "bytes": 75706
+          "height": 400,
+          "bytes": 83492
         },
         {
-          "src": "/_media/75954e8078cdfc60cf1b-1280.webp",
+          "src": "/_media/1540658e1f69674f407a-1280.webp",
           "width": 1280,
-          "height": 711,
-          "bytes": 166012
+          "height": 640,
+          "bytes": 181246
         },
         {
-          "src": "/_media/75954e8078cdfc60cf1b-1800.webp",
-          "width": 1800,
-          "height": 1000,
-          "bytes": 304952
+          "src": "/_media/1540658e1f69674f407a-1500.webp",
+          "width": 1500,
+          "height": 750,
+          "bytes": 229372
+        }
+      ]
+    },
+    {
+      "source": "/images/sourced/home-cover.webp",
+      "originalBytes": 129134,
+      "variants": [
+        {
+          "src": "/_media/1fd67c290d8d1bd897df-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 20200
+        },
+        {
+          "src": "/_media/1fd67c290d8d1bd897df-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 44952
+        },
+        {
+          "src": "/_media/1fd67c290d8d1bd897df-1280.webp",
+          "width": 1280,
+          "height": 853,
+          "bytes": 105674
         }
       ]
     },
@@ -4643,30 +4643,6 @@
           "width": 480,
           "height": 320,
           "bytes": 11426
-        }
-      ]
-    },
-    {
-      "source": "/images/sourced/home-cover.webp",
-      "originalBytes": 129134,
-      "variants": [
-        {
-          "src": "/_media/1fd67c290d8d1bd897df-480.webp",
-          "width": 480,
-          "height": 320,
-          "bytes": 20200
-        },
-        {
-          "src": "/_media/1fd67c290d8d1bd897df-800.webp",
-          "width": 800,
-          "height": 533,
-          "bytes": 44952
-        },
-        {
-          "src": "/_media/1fd67c290d8d1bd897df-1280.webp",
-          "width": 1280,
-          "height": 853,
-          "bytes": 105674
         }
       ]
     },
@@ -6623,6 +6599,36 @@
           "width": 1920,
           "height": 1280,
           "bytes": 108626
+        }
+      ]
+    },
+    {
+      "source": "/images/sourced/category-producer-02.webp",
+      "originalBytes": 28034,
+      "variants": [
+        {
+          "src": "/_media/b22b2a8a5298ebe4624a-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 5178
+        },
+        {
+          "src": "/_media/b22b2a8a5298ebe4624a-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 8986
+        },
+        {
+          "src": "/_media/b22b2a8a5298ebe4624a-1280.webp",
+          "width": 1280,
+          "height": 853,
+          "bytes": 16008
+        },
+        {
+          "src": "/_media/b22b2a8a5298ebe4624a-1920.webp",
+          "width": 1920,
+          "height": 1280,
+          "bytes": 26712
         }
       ]
     },
