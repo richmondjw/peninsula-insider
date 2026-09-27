@@ -62,8 +62,7 @@
         "url": "https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/",
         "startDate": "2026-09-27",
         "endDate": "2026-09-27",
-        "description": "The only VFMA-accredited farmers market on the Mornington Peninsula. Only genuine farmers and specialty makers. Monthly on the 4th Sunday. Produce includes Flinders Sourdough, Mumma Made jams, Red Hill Apples, Blue Bay cheese. VFMA accreditation guarantees farm-gate authenticity.",
-        "eventStatus": "https://schema.org/EventScheduled"
+        "description": "The only VFMA-accredited farmers market on the Mornington Peninsula. Only genuine farmers and specialty makers. Monthly on the 4th Sunday. Produce includes Flinders Sourdough, Mumma Made jams, Red Hill Apples, Blue Bay cheese. VFMA accreditation guarantees farm-gate authenticity."
       }
     },
     {
@@ -645,11 +644,10 @@
       "venue": null,
       "freePaid": "Free",
       "summary": "The only VFMA-accredited farmers market on the Mornington Peninsula. Only genuine farmers and specialty makers. Monthly on the 4th Sunday. Produce includes Flinders Sourdough, Mumma Made jams, Red Hill Apples, Blue Bay cheese. VFMA accreditation guarantees farm-gate authenticity.",
-      "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [
         {
           "date": "2026-09-27",
-          "eventStatus": "https://schema.org/EventScheduled"
+          "eventStatus": null
         }
       ],
       "thisWeekend": true
@@ -705,7 +703,7 @@
         },
         {
           "date": "2026-09-27",
-          "eventStatus": "https://schema.org/EventScheduled"
+          "eventStatus": null
         }
       ],
       "thisWeekend": true
@@ -733,7 +731,7 @@
         },
         {
           "date": "2026-09-27",
-          "eventStatus": "https://schema.org/EventScheduled"
+          "eventStatus": null
         }
       ],
       "thisWeekend": true
