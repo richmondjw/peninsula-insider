@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "pages": 193,
+  "pages": 194,
   "images": [
     {
       "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/page/eat-bakeries/hero-1784719891530.jpg",
@@ -3519,56 +3519,50 @@
       ]
     },
     {
-      "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/event/family-mystery-picnic-mornington-peninsula-2026/heroImage-1790211682696.jpg",
-      "originalBytes": 354002,
+      "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/event/ten-minutes-by-tractor-terroir-masterclass/heroImage-1789192750030.jpg",
+      "originalBytes": 117509,
       "variants": [
         {
-          "src": "/_media/1540658e1f69674f407a-480.webp",
+          "src": "/_media/e90e49ef21f58182da21-480.webp",
           "width": 480,
-          "height": 240,
-          "bytes": 32648
+          "height": 480,
+          "bytes": 33938
         },
         {
-          "src": "/_media/1540658e1f69674f407a-800.webp",
-          "width": 800,
-          "height": 400,
-          "bytes": 83492
-        },
-        {
-          "src": "/_media/1540658e1f69674f407a-1280.webp",
-          "width": 1280,
-          "height": 640,
-          "bytes": 181246
-        },
-        {
-          "src": "/_media/1540658e1f69674f407a-1500.webp",
-          "width": 1500,
-          "height": 750,
-          "bytes": 229372
+          "src": "/_media/e90e49ef21f58182da21-752.webp",
+          "width": 752,
+          "height": 752,
+          "bytes": 70940
         }
       ]
     },
     {
-      "source": "/images/sourced/home-cover.webp",
-      "originalBytes": 129134,
+      "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/article/spring-school-holidays-2026/hero-1790559924662.jpg",
+      "originalBytes": 1090899,
       "variants": [
         {
-          "src": "/_media/1fd67c290d8d1bd897df-480.webp",
+          "src": "/_media/66f327fd8502c15085f8-480.webp",
           "width": 480,
           "height": 320,
-          "bytes": 20200
+          "bytes": 27240
         },
         {
-          "src": "/_media/1fd67c290d8d1bd897df-800.webp",
+          "src": "/_media/66f327fd8502c15085f8-800.webp",
           "width": 800,
           "height": 533,
-          "bytes": 44952
+          "bytes": 56164
         },
         {
-          "src": "/_media/1fd67c290d8d1bd897df-1280.webp",
+          "src": "/_media/66f327fd8502c15085f8-1280.webp",
           "width": 1280,
           "height": 853,
-          "bytes": 105674
+          "bytes": 105820
+        },
+        {
+          "src": "/_media/66f327fd8502c15085f8-1920.webp",
+          "width": 1920,
+          "height": 1280,
+          "bytes": 174604
         }
       ]
     },
@@ -4613,6 +4607,30 @@
           "width": 480,
           "height": 320,
           "bytes": 11426
+        }
+      ]
+    },
+    {
+      "source": "/images/sourced/home-cover.webp",
+      "originalBytes": 129134,
+      "variants": [
+        {
+          "src": "/_media/1fd67c290d8d1bd897df-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 20200
+        },
+        {
+          "src": "/_media/1fd67c290d8d1bd897df-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 44952
+        },
+        {
+          "src": "/_media/1fd67c290d8d1bd897df-1280.webp",
+          "width": 1280,
+          "height": 853,
+          "bytes": 105674
         }
       ]
     },
@@ -6599,36 +6617,6 @@
           "width": 1920,
           "height": 1280,
           "bytes": 108626
-        }
-      ]
-    },
-    {
-      "source": "/images/sourced/category-restaurant-03.webp",
-      "originalBytes": 394928,
-      "variants": [
-        {
-          "src": "/_media/3fd7356959ade989eb55-480.webp",
-          "width": 480,
-          "height": 360,
-          "bytes": 49388
-        },
-        {
-          "src": "/_media/3fd7356959ade989eb55-800.webp",
-          "width": 800,
-          "height": 600,
-          "bytes": 108266
-        },
-        {
-          "src": "/_media/3fd7356959ade989eb55-1280.webp",
-          "width": 1280,
-          "height": 960,
-          "bytes": 211322
-        },
-        {
-          "src": "/_media/3fd7356959ade989eb55-1920.webp",
-          "width": 1920,
-          "height": 1440,
-          "bytes": 383210
         }
       ]
     },
