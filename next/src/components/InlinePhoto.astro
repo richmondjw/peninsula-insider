@@ -1,0 +1,122 @@
+---
+/**
+ * InlinePhoto - a photograph set into the reading, chosen by the rule in
+ * src/lib/photo-set.ts. One photograph breaks wide across the text column; a
+ * pair sits side by side. Each carries its own description and credit, and
+ * opens the page's full-screen viewer at that photograph when a PhotoStage
+ * with the matching id is on the page.
+ */
+import { altFor } from '../lib/media-provenance';
+import { formatHeroCredit } from '../lib/editorial';
+import type { PhotoRef } from '../lib/photo-set';
+
+export interface Props {
+  photos: PhotoRef[];
+  /** Viewer indexes into `photos`: one for a single break, two for a pair. */
+  indexes: number[];
+  subject: string;
+  /** Id of the PhotoStage whose viewer these open. */
+  viewer?: string;
+}
+
+const { photos, indexes, subject, viewer = 'photos' } = Astro.props;
+const picked = indexes
+  .map((index) => ({ index, photo: photos[index] }))
+  .filter((item) => item.photo?.src);
+---
+{picked.length > 0 && (
+  <div class:list={['inline-photo', picked.length > 1 ? 'inline-photo--pair' : 'inline-photo--single']}>
+    {picked.map(({ index, photo }) => {
+      const { alt, presentation } = altFor(photo, subject);
+      const credit = formatHeroCredit(photo.credit);
+      return (
+        <figure class="inline-photo__figure">
+          <button
+            type="button"
+            class="inline-photo__open"
+            data-pi-photo-open={viewer}
+            data-pi-photo-index={index}
+            aria-label={`Open photograph ${index + 1} full screen`}
+          >
+            <img
+              src={photo.src}
+              alt={alt}
+              role={presentation ? 'presentation' : undefined}
+              loading="lazy"
+              decoding="async"
+              data-pi-responsive={picked.length > 1 ? '(max-width: 767px) 100vw, 420px' : '(max-width: 767px) 100vw, 860px'}
+            />
+          </button>
+          <figcaption>
+            {!presentation && alt && <span class="inline-photo__description" aria-hidden="true">{alt}</span>}
+            {credit && <span class="inline-photo__credit">{credit}</span>}
+          </figcaption>
+        </figure>
+      );
+    })}
+  </div>
+)}
+
+<style>
+  .inline-photo {
+    margin-block: clamp(2rem, 4vw, 2.75rem);
+  }
+  .inline-photo--pair {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(0.75rem, 2vw, 1.25rem);
+    align-items: start;
+  }
+  .inline-photo__figure { margin: 0; }
+  .inline-photo__open {
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    padding: 0;
+    border: 0;
+    border-radius: var(--radius-m);
+    overflow: hidden;
+    background: var(--paper-warm);
+    cursor: zoom-in;
+  }
+  .inline-photo__open:focus-visible { outline: var(--focus-ring); outline-offset: 3px; }
+  /* The frame holds the ratio; the image fills it, so prose image rules
+     (height: auto) cannot stretch a portrait photograph into a tall block. */
+  .inline-photo__open img {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    margin: 0;
+    object-fit: cover;
+    transition: scale var(--dur-slow) var(--ease-enter);
+  }
+  .inline-photo--pair .inline-photo__open { aspect-ratio: 4 / 5; }
+  .inline-photo__open:hover img { scale: 1.02; }
+  .inline-photo figcaption {
+    display: grid;
+    gap: 0.25rem;
+    margin-top: 0.6rem;
+  }
+  .inline-photo__description {
+    font-size: var(--fs-300);
+    line-height: 1.5;
+    color: var(--ink);
+  }
+  .inline-photo__credit {
+    font-family: var(--font-ui);
+    font-size: var(--fs-100);
+    letter-spacing: 0.02em;
+    color: var(--muted);
+  }
+  @media (max-width: 560px) {
+    .inline-photo--pair { grid-template-columns: 1fr; }
+    .inline-photo--pair .inline-photo__open { aspect-ratio: 3 / 2; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .inline-photo__open img { transition: none; }
+  }
+</style>

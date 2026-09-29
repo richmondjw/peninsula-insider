@@ -77,6 +77,13 @@ IMAGE_INTELLIGENCE_INDEX = "next/src/data/image-intelligence-search-index.json"
 # the third, and any entity match is worth more than a generic seasonal shot.
 SLOT_WEIGHT = {0: 100, 1: 60, 2: 40}
 ENTITY_MATCH = 50
+# A photograph recorded as showing the pick itself (depictionStatus "actual",
+# rights recorded and verified: the licensed Visit Victoria library, see
+# ops/records/visit-victoria/) beats the same record's illustrative stand-in.
+# A record's gallery joins the pool so a featured venue offers several real
+# photographs rather than one, which also relieves the cooldown.
+ACTUAL_DEPICTION = 20
+ILLUSTRATIVE_PENALTY = -10
 ZONE_MATCH = 15
 SEASON_MATCH = 10
 INTEL_ENTITY_MATCH = 35
@@ -166,10 +173,7 @@ def _load_entities(root: Path) -> list[dict]:
                 rec = json.loads(f.read_text())
             except Exception:
                 continue
-            hero = rec.get("heroImage") or {}
-            if not hero.get("src"):
-                continue
-            out.append({
+            base = {
                 "kind": kind,
                 "slug": rec.get("slug") or f.stem,
                 "name": rec.get("name") or rec.get("title") or f.stem,
@@ -177,9 +181,29 @@ def _load_entities(root: Path) -> list[dict]:
                 "place": rec.get("place") or "",
                 "type": rec.get("type") or "",
                 "tags": rec.get("tags") or {},
-                "hero": hero,
-            })
+            }
+            hero = rec.get("heroImage") or {}
+            if hero.get("src"):
+                out.append({**base, "hero": hero})
+            # Gallery photographs only when their rights are recorded and a
+            # person has verified them: the same bar the venue template uses
+            # before it will show a gallery image at all.
+            for image in rec.get("gallery") or []:
+                if (image.get("src") and image.get("rightsStatus") == "recorded"
+                        and image.get("provenanceReview") == "verified"):
+                    out.append({**base, "hero": image})
     return out
+
+
+def depiction_score(hero: dict) -> int:
+    """Real photograph of the pick, stand-in, or nobody has said."""
+    status = hero.get("depictionStatus")
+    verified = hero.get("rightsStatus") == "recorded" and hero.get("provenanceReview") == "verified"
+    if status == "actual" and verified:
+        return ACTUAL_DEPICTION
+    if status == "illustrative":
+        return ILLUSTRATIVE_PENALTY
+    return 0
 
 
 def _generic_assets(root: Path) -> list[dict]:
@@ -407,8 +431,11 @@ def select(article_path: Path, root: Path = REPO_ROOT, today: date | None = None
             if not n:
                 continue
             if n in p or p.startswith(n) or _norm(ent["slug"]).replace(" ", "") in p.replace(" ", ""):
-                score = SLOT_WEIGHT.get(slot, 20) + ENTITY_MATCH
+                depiction = depiction_score(ent["hero"])
+                score = SLOT_WEIGHT.get(slot, 20) + ENTITY_MATCH + depiction
                 why = f"{ent['kind']} {ent['slug']} matched pick slot {slot + 1}"
+                if depiction > 0:
+                    why += "; licensed photograph of the pick itself"
                 boost, boost_reasons = _intel_boost(ent, ent["hero"]["src"], intel, pick_text, season)
                 if boost:
                     score += boost
@@ -522,6 +549,23 @@ def _yaml_q(v: str) -> str:
     return '"' + str(v).replace('\\', '\\\\').replace('"', '\\"') + '"'
 
 
+# Carried from the owning record so a licensed photograph keeps its terms when
+# it leads a column. The caption matters most: the Visit Victoria licence
+# requires the use to name the region shown. depictionStatus is deliberately
+# not copied: "actual" was a claim about the venue page, not about a column
+# covering three picks.
+_PROVENANCE_SCALARS = ("caption", "creator", "sourceUrl", "permission", "rightsHolder",
+                       "rightsEstablishedOn", "rightsStatus", "provenanceReview")
+
+
+def _provenance_yaml(hero: dict) -> str:
+    lines = [f"  {k}: {_yaml_q(hero[k])}\n" for k in _PROVENANCE_SCALARS if hero.get(k)]
+    uses = [u for u in hero.get("permittedUses") or [] if isinstance(u, str) and u]
+    if uses:
+        lines.append("  permittedUses:\n" + "".join(f"    - {_yaml_q(u)}\n" for u in uses))
+    return "".join(lines)
+
+
 def stamp(article_path: Path, root: Path = REPO_ROOT, today: date | None = None) -> dict:
     """Rewrite the article's heroImage block with the selected asset.
 
@@ -544,6 +588,7 @@ def stamp(article_path: Path, root: Path = REPO_ROOT, today: date | None = None)
         f"  alt: {_yaml_q(alt)}\n"
         f"  credit: {_yaml_q(hero.get('credit') or 'Peninsula Insider')}\n"
         f"  license: {_yaml_q(hero.get('license') or 'other-licensed')}\n"
+        + _provenance_yaml(hero)
     )
     if _HERO_BLOCK.search(fm):
         new_fm = _HERO_BLOCK.sub(lambda _m: block, fm, count=1)
@@ -577,7 +622,9 @@ def stamp_loose_markdown(markdown_path: Path, root: Path = REPO_ROOT, today: dat
         "<!-- heroImage: "
         f"src=\"{hero['src']}\" | alt=\"{str(alt).replace(chr(34), chr(39))}\" | "
         f"credit=\"{str(hero.get('credit') or 'Peninsula Insider').replace(chr(34), chr(39))}\" | "
-        f"license=\"{hero.get('license') or 'other-licensed'}\" -->"
+        f"license=\"{hero.get('license') or 'other-licensed'}\""
+        + (f" | caption=\"{str(hero['caption']).replace(chr(34), chr(39))}\"" if hero.get("caption") else "")
+        + " -->"
     )
     lines = text.splitlines()
     insert_at = 1 if lines and lines[0].startswith("#") else 0

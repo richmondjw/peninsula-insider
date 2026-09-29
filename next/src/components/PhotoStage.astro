@@ -1,0 +1,558 @@
+---
+/**
+ * PhotoStage - the opening for a detail page with several verified
+ * photographs of the place (rule: src/lib/photo-set.ts).
+ *
+ *   variant="stage"  a large lead with its description and credit, previous /
+ *                    next, a counter, a filmstrip and a full-screen viewer.
+ *                    Venue, explore, tour and tour-operator pages.
+ *   variant="strip"  the filmstrip and viewer only, for pages whose opening is
+ *                    already a full-bleed cover with the title laid over it
+ *                    (place pages). The strip sits under the cover.
+ *
+ * Built on a native scroll-snap track: swiping, trackpads and snapping work
+ * with no script at all, and every slide carries its own caption and credit,
+ * so a credit is always beside the photograph it belongs to, even before the
+ * script runs. Script only adds the buttons, counter, filmstrip state and the
+ * viewer. Nothing moves unless the reader asks.
+ *
+ * Credits are required beside each photograph by the Visit Victoria licence
+ * (ops/records/visit-victoria/README.md).
+ */
+import { altFor } from '../lib/media-provenance';
+import { formatHeroCredit } from '../lib/editorial';
+import type { PhotoRef } from '../lib/photo-set';
+
+export interface Props {
+  photos: PhotoRef[];
+  /** The place the photographs show; used in labels and as the alt fallback. */
+  subject: string;
+  variant?: 'stage' | 'strip';
+  /** Unique on the page; in-text photographs open the viewer through it. */
+  id?: string;
+  class?: string;
+}
+
+const { photos, subject, variant = 'stage', id = 'photos', class: className } = Astro.props;
+const n = photos.length;
+const items = photos.map((photo, index) => {
+  const { alt, presentation } = altFor(photo, subject);
+  return {
+    index,
+    src: photo.src,
+    alt,
+    presentation,
+    description: presentation ? '' : alt,
+    caption: photo.caption ?? '',
+    credit: formatHeroCredit(photo.credit) || '',
+  };
+});
+const viewerData = JSON.stringify(
+  items.map(({ src, alt, description, caption, credit }) => ({ src, alt, description, caption, credit })),
+).replace(/</g, '\\u003c');
+const label = `Photographs of ${subject}`;
+---
+{n > 0 && (
+  <section
+    class:list={['pstage', `pstage--${variant}`, className]}
+    id={id}
+    data-pi-photos={variant}
+    aria-roledescription="carousel"
+    aria-label={label}
+  >
+    {variant === 'stage' && (
+      <div class="pstage__frame">
+        <ol class="pstage__track" tabindex="0" aria-label={`${label}, ${n} in all. Use the arrow keys to move between them.`}>
+          {items.map((item) => (
+            <li class="pstage__slide" id={`${id}-${item.index}`} aria-roledescription="slide" aria-label={`${item.index + 1} of ${n}`}>
+              <figure class="pstage__figure">
+                <div class="pstage__image">
+                  <img
+                    src={item.src}
+                    alt={item.alt}
+                    role={item.presentation ? 'presentation' : undefined}
+                    loading={item.index === 0 ? 'eager' : 'lazy'}
+                    fetchpriority={item.index === 0 ? 'high' : undefined}
+                    decoding="async"
+                    data-pi-responsive="(max-width: 1100px) 100vw, 1180px"
+                  />
+                </div>
+                <figcaption class="pstage__caption">
+                  {item.description && <span class="pstage__description" aria-hidden="true">{item.description}</span>}
+                  {item.credit && <span class="pstage__credit">{item.credit}</span>}
+                </figcaption>
+              </figure>
+            </li>
+          ))}
+        </ol>
+        {n > 1 && (
+          <>
+            <button type="button" class="pstage__nav pstage__nav--prev" data-pstage-step="-1" aria-label="Previous photograph" hidden>
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14.5 5.5 8 12l6.5 6.5" /></svg>
+            </button>
+            <button type="button" class="pstage__nav pstage__nav--next" data-pstage-step="1" aria-label="Next photograph" hidden>
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9.5 5.5 16 12l-6.5 6.5" /></svg>
+            </button>
+          </>
+        )}
+        <div class="pstage__meta">
+          <p class="pstage__count" aria-live="polite"><span data-pstage-current>1</span><span aria-hidden="true"> / </span><span class="visually-hidden"> of </span>{n}</p>
+          <button type="button" class="pstage__expand" data-pstage-open aria-label={`View ${n === 1 ? 'the photograph' : `all ${n} photographs`} full screen`} hidden>
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4.5 9.5v-5h5M19.5 9.5v-5h-5M4.5 14.5v5h5M19.5 14.5v5h-5" /></svg>
+          </button>
+        </div>
+      </div>
+    )}
+
+    {n > 1 && (
+      <div class="pstage__strip-wrap">
+        {variant === 'strip' && (
+          <p class="pstage__strip-title">{subject} in {n} photographs</p>
+        )}
+        <ul class="pstage__strip" aria-label={variant === 'stage' ? 'Choose a photograph' : label}>
+          {items.map((item) => (
+            <li>
+              <button
+                type="button"
+                class="pstage__thumb"
+                data-pstage-thumb={item.index}
+                aria-label={`${variant === 'stage' ? 'Show' : 'Open'} photograph ${item.index + 1} of ${n}${item.description ? `: ${item.description}` : ''}`}
+                aria-current={variant === 'stage' && item.index === 0 ? 'true' : undefined}
+              >
+                <img src={item.src} alt="" loading="lazy" decoding="async" width="160" height="107" data-pi-responsive="160px" />
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
+
+    <dialog class="pviewer" aria-label={label}>
+      <div class="pviewer__bar">
+        <p class="pviewer__count" aria-live="polite"><span data-pviewer-current>1</span> / {n}</p>
+        <button type="button" class="pviewer__close" data-pviewer-close aria-label="Close photographs">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18" /></svg>
+        </button>
+      </div>
+      <figure class="pviewer__figure">
+        <img class="pviewer__image" src={items[0]?.src} alt={items[0]?.alt} loading="lazy" decoding="async" />
+        <figcaption class="pviewer__caption">
+          <span class="pviewer__description" data-pviewer-description>{items[0]?.description}</span>
+          <span class="pviewer__place" data-pviewer-place>{items[0]?.caption}</span>
+          <span class="pviewer__credit" data-pviewer-credit>{items[0]?.credit}</span>
+        </figcaption>
+      </figure>
+      {n > 1 && (
+        <>
+          <button type="button" class="pviewer__nav pviewer__nav--prev" data-pviewer-step="-1" aria-label="Previous photograph">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14.5 5.5 8 12l6.5 6.5" /></svg>
+          </button>
+          <button type="button" class="pviewer__nav pviewer__nav--next" data-pviewer-step="1" aria-label="Next photograph">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9.5 5.5 16 12l-6.5 6.5" /></svg>
+          </button>
+        </>
+      )}
+      <script type="application/json" data-pviewer-photos set:html={viewerData} />
+    </dialog>
+  </section>
+)}
+
+<script>
+  // Every listener is registered once, at module scope: delegated clicks, keys
+  // and a capture-phase scroll listener survive Astro navigation without
+  // stacking (scripts/client-listener-hygiene.test.mjs). Per page, init() only
+  // reveals the controls and marks the first photograph.
+  type ViewerPhoto = { src: string; alt: string; description: string; caption: string; credit: string };
+
+  const reduceMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function slidesOf(root: HTMLElement) {
+    return Array.from(root.querySelectorAll<HTMLElement>('.pstage__slide'));
+  }
+
+  function setCurrent(root: HTMLElement, index: number) {
+    root.dataset.current = String(index);
+    const counter = root.querySelector('[data-pstage-current]');
+    if (counter) counter.textContent = String(index + 1);
+    const strip = root.querySelector<HTMLElement>('.pstage__strip');
+    root.querySelectorAll<HTMLElement>('[data-pstage-thumb]').forEach((thumb) => {
+      const active = Number(thumb.dataset.pstageThumb) === index;
+      if (root.dataset.piPhotos === 'stage') thumb.setAttribute('aria-current', active ? 'true' : 'false');
+      if (active && strip) {
+        const left = thumb.offsetLeft - (strip.clientWidth - thumb.offsetWidth) / 2;
+        strip.scrollTo({ left, behavior: reduceMotion() ? 'auto' : 'smooth' });
+      }
+    });
+  }
+
+  function go(root: HTMLElement, index: number) {
+    const track = root.querySelector<HTMLElement>('.pstage__track');
+    const slides = slidesOf(root);
+    if (!track || !slides.length) return;
+    const i = (index + slides.length) % slides.length;
+    // Hold the counter on the destination while a smooth scroll passes the
+    // photographs in between; released on arrival, or after 800ms if the
+    // reader takes over mid-flight.
+    root.dataset.seeking = String(i);
+    window.clearTimeout(Number(root.dataset.seekTimer || 0));
+    root.dataset.seekTimer = String(window.setTimeout(() => { delete root.dataset.seeking; }, 800));
+    track.scrollTo({ left: slides[i].offsetLeft - track.offsetLeft, behavior: reduceMotion() ? 'auto' : 'smooth' });
+    setCurrent(root, i);
+  }
+
+  function photosOf(root: HTMLElement): ViewerPhoto[] {
+    try {
+      return JSON.parse(root.querySelector('[data-pviewer-photos]')?.textContent || '[]');
+    } catch {
+      return [];
+    }
+  }
+
+  function render(root: HTMLElement, index: number) {
+    const dialog = root.querySelector<HTMLDialogElement>('.pviewer');
+    const photos = photosOf(root);
+    if (!dialog || !photos.length) return;
+    const i = (index + photos.length) % photos.length;
+    const photo = photos[i];
+    dialog.dataset.index = String(i);
+    const img = dialog.querySelector<HTMLImageElement>('.pviewer__image');
+    if (img) { img.src = photo.src; img.alt = photo.alt; }
+    const set = (sel: string, text: string) => { const el = dialog.querySelector(sel); if (el) el.textContent = text; };
+    set('[data-pviewer-current]', String(i + 1));
+    set('[data-pviewer-description]', photo.description);
+    set('[data-pviewer-place]', photo.caption);
+    set('[data-pviewer-credit]', photo.credit);
+  }
+
+  function openViewer(root: HTMLElement, index: number) {
+    const dialog = root.querySelector<HTMLDialogElement>('.pviewer');
+    if (!dialog) return;
+    render(root, index);
+    if (!dialog.open) dialog.showModal();
+  }
+
+  function closeViewer(root: HTMLElement) {
+    const dialog = root.querySelector<HTMLDialogElement>('.pviewer');
+    if (!dialog?.open) return;
+    dialog.close();
+    // Leave the stage where the reader stopped in the viewer.
+    if (root.dataset.piPhotos === 'stage') go(root, Number(dialog.dataset.index || 0));
+  }
+
+  function init() {
+    document.querySelectorAll<HTMLElement>('[data-pi-photos]').forEach((root) => {
+      root.querySelectorAll<HTMLElement>('[hidden].pstage__nav, [hidden].pstage__expand').forEach((el) => { el.hidden = false; });
+      root.classList.add('pstage--ready');
+      setCurrent(root, 0);
+    });
+  }
+
+  document.addEventListener('click', (event) => {
+    const target = event.target as HTMLElement;
+    const opener = target.closest<HTMLElement>('[data-pi-photo-open]');
+    if (opener) {
+      const root = document.getElementById(opener.dataset.piPhotoOpen || '');
+      if (root) { event.preventDefault(); openViewer(root, Number(opener.dataset.piPhotoIndex || 0)); }
+      return;
+    }
+    const root = target.closest<HTMLElement>('[data-pi-photos]');
+    if (!root) return;
+    const dialog = root.querySelector<HTMLDialogElement>('.pviewer');
+    if (dialog?.open) {
+      const step = target.closest<HTMLElement>('[data-pviewer-step]');
+      if (step) render(root, Number(dialog.dataset.index || 0) + Number(step.dataset.pviewerStep));
+      else if (target.closest('[data-pviewer-close]') || target === dialog) closeViewer(root);
+      return;
+    }
+    const step = target.closest<HTMLElement>('[data-pstage-step]');
+    if (step) { go(root, Number(root.dataset.current || 0) + Number(step.dataset.pstageStep)); return; }
+    const thumb = target.closest<HTMLElement>('[data-pstage-thumb]');
+    if (thumb) {
+      const index = Number(thumb.dataset.pstageThumb);
+      if (root.dataset.piPhotos === 'stage') go(root, index);
+      else openViewer(root, index);
+      return;
+    }
+    if (target.closest('[data-pstage-open]') || target.closest('.pstage__image')) {
+      openViewer(root, Number(root.dataset.current || 0));
+    }
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+    const target = event.target as HTMLElement;
+    const root = target.closest<HTMLElement>('[data-pi-photos]');
+    if (!root) return;
+    const delta = event.key === 'ArrowLeft' ? -1 : 1;
+    const dialog = root.querySelector<HTMLDialogElement>('.pviewer');
+    if (dialog?.open) { event.preventDefault(); render(root, Number(dialog.dataset.index || 0) + delta); return; }
+    if (target.closest('.pstage__track')) { event.preventDefault(); go(root, Number(root.dataset.current || 0) + delta); }
+  });
+
+  // Swipe in the viewer: a horizontal flick of more than 48px steps once.
+  let swipeStart: { x: number; y: number } | null = null;
+  document.addEventListener('pointerdown', (event) => {
+    swipeStart = (event.target as HTMLElement).closest('.pviewer__figure') ? { x: event.clientX, y: event.clientY } : null;
+  });
+  document.addEventListener('pointerup', (event) => {
+    if (!swipeStart) return;
+    const dx = event.clientX - swipeStart.x;
+    const dy = event.clientY - swipeStart.y;
+    swipeStart = null;
+    if (Math.abs(dx) < 48 || Math.abs(dx) < Math.abs(dy)) return;
+    const root = (event.target as HTMLElement).closest<HTMLElement>('[data-pi-photos]');
+    const dialog = root?.querySelector<HTMLDialogElement>('.pviewer');
+    if (root && dialog?.open) render(root, Number(dialog.dataset.index || 0) + (dx < 0 ? 1 : -1));
+  });
+
+  // Swiping or trackpad-scrolling the track updates the counter and filmstrip.
+  // Scroll does not bubble, so this listens in the capture phase; one frame
+  // of work per scroll burst.
+  let scrollFrame = 0;
+  document.addEventListener('scroll', (event) => {
+    const track = event.target instanceof HTMLElement && event.target.classList.contains('pstage__track') ? event.target : null;
+    if (!track || scrollFrame) return;
+    scrollFrame = requestAnimationFrame(() => {
+      scrollFrame = 0;
+      const root = track.closest<HTMLElement>('[data-pi-photos]');
+      if (!root || !track.clientWidth) return;
+      const index = Math.round(track.scrollLeft / track.clientWidth);
+      if (root.dataset.seeking !== undefined) {
+        if (String(index) !== root.dataset.seeking) return;
+        delete root.dataset.seeking;
+      }
+      if (String(index) !== root.dataset.current) setCurrent(root, index);
+    });
+  }, { capture: true, passive: true });
+
+  document.addEventListener('astro:page-load', init);
+</script>
+
+<style>
+  .pstage { --pstage-gap: clamp(0.75rem, 1.5vw, 1rem); margin-block-end: clamp(2.5rem, 5vw, 4rem); }
+  /* Across the full container a 16:9 frame fills the whole first screen and
+     pushes the filmstrip out of view; a wider frame keeps both in sight. */
+  @media (min-width: 1024px) { .pstage { --pstage-h: 0.45; } }
+
+  /* ── Stage ── */
+  .pstage__frame { position: relative; container-type: inline-size; }
+  .pstage__track {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 100%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-radius: var(--radius-m);
+  }
+  .pstage__track::-webkit-scrollbar { display: none; }
+  .pstage__track:focus-visible { outline: var(--focus-ring); outline-offset: 4px; }
+  .pstage__slide { scroll-snap-align: start; scroll-snap-stop: always; min-width: 0; }
+  .pstage__figure { margin: 0; display: grid; grid-template-rows: auto 1fr; height: 100%; }
+  .pstage__image {
+    position: relative;
+    aspect-ratio: 1 / var(--pstage-h, 0.5625); /* height as a share of width; 16:9 unless a host says otherwise */
+    overflow: hidden;
+    border-radius: var(--radius-m);
+    background: var(--paper-warm);
+    cursor: zoom-in;
+  }
+  .pstage__image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .pstage__caption {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.25rem 1.5rem;
+    padding-block: 0.75rem 0;
+    padding-inline-end: 7.5rem; /* clears the counter and expand control */
+  }
+  .pstage__description {
+    flex: 1 1 28rem;
+    max-width: 62ch;
+    font-size: var(--fs-300);
+    line-height: 1.5;
+    color: var(--ink);
+  }
+  .pstage__credit {
+    font-family: var(--font-ui);
+    font-size: var(--fs-100);
+    letter-spacing: 0.02em;
+    color: var(--muted);
+  }
+
+  .pstage__nav {
+    position: absolute;
+    top: calc(100cqw * var(--pstage-h, 0.5625) / 2); /* the middle of the image, whatever the caption height */
+    translate: 0 -50%;
+    display: grid;
+    place-items: center;
+    width: 3rem;
+    height: 3rem;
+    border: 0;
+    border-radius: var(--radius-pill);
+    background: rgb(11 46 74 / 0.55);
+    color: #fff;
+    cursor: pointer;
+    backdrop-filter: blur(6px);
+    opacity: 0;
+    transition: opacity var(--dur-med) var(--ease-enter), background-color var(--dur-fast) var(--ease-enter);
+  }
+  .pstage__nav--prev { left: 1rem; }
+  .pstage__nav--next { right: 1rem; }
+  .pstage__frame:hover .pstage__nav,
+  .pstage__nav:focus-visible { opacity: 1; }
+  .pstage__nav:hover { background: rgb(11 46 74 / 0.8); }
+  .pstage__nav:focus-visible { outline: 2px solid var(--sand); outline-offset: 2px; }
+  @media (hover: none) { .pstage__nav { display: none; } }
+  .pstage svg, .pviewer svg { width: 1.25rem; height: 1.25rem; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+
+  .pstage__meta {
+    position: absolute;
+    right: 0;
+    top: calc(100% - 2.75rem);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .pstage__count {
+    margin: 0;
+    font-family: var(--font-ui);
+    font-size: var(--fs-200);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+  }
+  .pstage__expand {
+    display: grid;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 1px solid var(--control-rule, #5C6B75);
+    border-radius: var(--radius-s);
+    background: transparent;
+    color: var(--ink);
+    cursor: pointer;
+    transition: background-color var(--dur-fast) var(--ease-enter), color var(--dur-fast) var(--ease-enter);
+  }
+  .pstage__expand:hover { background: var(--harbour); border-color: var(--harbour); color: #fff; }
+  .pstage__expand:focus-visible { outline: var(--focus-ring); outline-offset: 2px; }
+
+  /* ── Filmstrip ── */
+  .pstage__strip-wrap { margin-block-start: var(--pstage-gap); }
+  .pstage__strip-title {
+    margin: 0 0 0.75rem;
+    font-family: var(--font-display);
+    font-size: var(--fs-500);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .pstage__strip {
+    display: flex;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0.25rem 0.125rem 0.5rem;
+    list-style: none;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    scrollbar-width: thin;
+    scrollbar-color: var(--harbour) transparent;
+  }
+  .pstage__strip li { flex: 0 0 auto; scroll-snap-align: start; }
+  .pstage__thumb {
+    display: block;
+    padding: 0;
+    border: 0;
+    border-radius: var(--radius-s);
+    overflow: hidden;
+    background: var(--paper-warm);
+    cursor: pointer;
+    width: clamp(5.5rem, 12vw, 8.5rem);
+    aspect-ratio: 3 / 2;
+    opacity: 0.62;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    transition: opacity var(--dur-med) var(--ease-enter), outline-color var(--dur-med) var(--ease-enter);
+  }
+  .pstage__thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .pstage__thumb:hover { opacity: 1; }
+  .pstage__thumb[aria-current='true'] { opacity: 1; outline-color: var(--harbour); }
+  .pstage--strip .pstage__thumb { opacity: 1; }
+  .pstage__thumb:focus-visible { opacity: 1; outline: var(--focus-ring); }
+
+  /* Before the script runs the stage is a swipeable row; the controls it adds
+     stay hidden until then so nothing on the page is a dead button. */
+  .pstage:not(.pstage--ready) .pstage__caption { padding-inline-end: 0; }
+
+  .visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+  /* ── Viewer ── */
+  .pviewer {
+    width: 100vw;
+    height: 100dvh;
+    max-width: none;
+    max-height: none;
+    margin: 0;
+    padding: clamp(0.75rem, 2vw, 1.5rem);
+    border: 0;
+    background: #06192A;
+    color: #F2EFEA;
+    display: none;
+    grid-template-rows: auto 1fr;
+  }
+  .pviewer[open] { display: grid; }
+  .pviewer::backdrop { background: rgb(6 25 42 / 0.9); }
+  .pviewer__bar { display: flex; justify-content: space-between; align-items: center; }
+  .pviewer__count { margin: 0; font-family: var(--font-ui); font-size: var(--fs-200); font-variant-numeric: tabular-nums; letter-spacing: 0.04em; color: rgb(242 239 234 / 0.8); }
+  .pviewer__figure {
+    margin: 0;
+    min-height: 0;
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) auto;
+    gap: 1rem;
+    touch-action: pan-y;
+  }
+  .pviewer__image { width: 100%; height: 100%; object-fit: contain; min-height: 0; }
+  .pviewer__caption {
+    display: grid;
+    gap: 0.25rem;
+    justify-items: center;
+    text-align: center;
+    max-width: 62ch;
+    margin-inline: auto;
+    padding-block-end: 0.5rem;
+  }
+  .pviewer__description { font-size: var(--fs-400); line-height: 1.5; }
+  .pviewer__place { font-family: var(--font-ui); font-size: var(--fs-200); color: var(--sand); }
+  .pviewer__credit { font-family: var(--font-ui); font-size: var(--fs-100); letter-spacing: 0.02em; color: rgb(242 239 234 / 0.72); }
+  .pviewer__close, .pviewer__nav {
+    display: grid;
+    place-items: center;
+    width: 3rem;
+    height: 3rem;
+    border: 1px solid rgb(242 239 234 / 0.28);
+    border-radius: var(--radius-pill);
+    background: rgb(6 25 42 / 0.6);
+    color: #F2EFEA;
+    cursor: pointer;
+    transition: background-color var(--dur-fast) var(--ease-enter), border-color var(--dur-fast) var(--ease-enter);
+  }
+  .pviewer__close:hover, .pviewer__nav:hover { background: var(--harbour); border-color: var(--harbour); }
+  .pviewer__close:focus-visible, .pviewer__nav:focus-visible { outline: 2px solid var(--sand); outline-offset: 2px; }
+  .pviewer__nav { position: fixed; top: 50%; translate: 0 -50%; }
+  .pviewer__nav--prev { left: clamp(0.5rem, 2vw, 1.5rem); }
+  .pviewer__nav--next { right: clamp(0.5rem, 2vw, 1.5rem); }
+  @media (max-width: 767px) {
+    .pviewer__nav { top: auto; bottom: 1rem; translate: none; }
+    .pstage__caption { padding-inline-end: 0; padding-block-end: 3rem; }
+    .pstage__meta { top: auto; bottom: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .pstage__track, .pstage__strip { scroll-behavior: auto; }
+  }
+</style>

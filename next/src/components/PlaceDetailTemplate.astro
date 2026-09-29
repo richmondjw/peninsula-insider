@@ -33,6 +33,9 @@ import ArticleCard from './ArticleCard.astro';
 import NewsletterBlock from './NewsletterBlock.astro';
 import CorrectionNote from './CorrectionNote.astro';
 import MediaProvenanceNote from './MediaProvenanceNote.astro';
+import PhotoStage from './PhotoStage.astro';
+import InlinePhoto from './InlinePhoto.astro';
+import { photoPlan, STAGE_MIN } from '../lib/photo-set';
 import { altFor } from '../lib/media-provenance';
 import { titleize, formatHeroCredit } from '../lib/editorial';
 import { editableText, editableImage } from '../lib/inline-edit/attrs';
@@ -74,6 +77,12 @@ const heroCredit = formatHeroCredit(place.data.heroImage?.credit);
 // See the note in VenueDetailTemplate: a published CMS override is a
 // different image with no recorded provenance of its own.
 const heroProvenance = hero.override ? null : place.data.heroImage;
+// The photograph rule (src/lib/photo-set.ts). A place opens on its full-bleed
+// cover with the name laid over it, so the photographs arrive as a filmstrip
+// directly under the cover rather than replacing it, and one is set into
+// the lede.
+const photoSet = photoPlan(place.data, { paragraphs: place.data.intro ? 1 : 0 });
+const showStrip = photoSet.photos.length >= STAGE_MIN;
 // `hero.alt || place.data.name` was the old line: the third instance of the
 // refill that turns a decorative image's empty alt back into the entity's
 // own name. No place record is decorative today; the shape is.
@@ -237,6 +246,12 @@ const factual = place.data.factualLede ?? '';
   <PlayRibbon kind="place" slug={placeSlug} />
 </div>
 
+{showStrip && (
+  <div class="container pdv2-photos">
+    <PhotoStage photos={photoSet.photos} subject={place.data.name} id="photos" variant="strip" />
+  </div>
+)}
+
 <section class="pdv2-lede">
   <div class="container pdv2-lede__grid">
     <div class="pdv2-lede__main">
@@ -252,6 +267,7 @@ const factual = place.data.factualLede ?? '';
           {place.data.intro}
         </p>
       )}
+      {showStrip && photoSet.afterFirst !== null && <InlinePhoto photos={photoSet.photos} indexes={[photoSet.afterFirst]} subject={place.data.name} />}
     </div>
 
     <aside class="pdv2-card" aria-label={`${place.data.name} at a glance`}>
@@ -872,6 +888,9 @@ const factual = place.data.factualLede ?? '';
   }
 
     /* ── 2. EDITORIAL LEDE ──────────────────────────────────────────────── */
+  /* Filmstrip under the cover: the place's photographs, one tap from the viewer. */
+  .pdv2-photos { padding-block-start: clamp(1.25rem, 2.5vw, 2rem); }
+  .pdv2-photos :global(.pstage) { margin-block-end: 0; }
   .pdv2-lede {
     padding: clamp(3.5rem, 7vw, 6rem) 0 clamp(2.5rem, 5vw, 4rem);
     background: var(--bg);

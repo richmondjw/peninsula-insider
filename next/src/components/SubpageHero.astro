@@ -12,6 +12,8 @@
  */
 import { editableText, editableImage, type CmsEntityType } from '../lib/inline-edit/attrs';
 import { loadOverrides } from '../lib/inline-edit/overrides';
+import PhotoStage from './PhotoStage.astro';
+import { STAGE_MIN, type PhotoRef } from '../lib/photo-set';
 
 export interface Props {
   /** Section label shown in accent colour before the rule - e.g. "Eat & Drink" */
@@ -35,6 +37,12 @@ export interface Props {
    */
   entitySlug?: string;
   entityType?: CmsEntityType;
+  /**
+   * Verified photographs of the subject (src/lib/photo-set.ts). Three or more,
+   * and no published CMS hero override, turn the picture column into a
+   * PhotoStage with id "photos" instead of a single image.
+   */
+  photos?: PhotoRef[];
 }
 
 const {
@@ -46,6 +54,7 @@ const {
   imageCaption: _imageCaption,
   entitySlug,
   entityType = 'page',
+  photos = [],
 } = Astro.props;
 
 const editable = !!entitySlug;
@@ -61,6 +70,7 @@ const resolvedTitle = titleOverride ?? title;
 const resolvedImageSrc = imageOverride?.src ?? heroImage;
 const resolvedImageAlt = imageOverride?.alt ?? imageAlt;
 const hasHeroImage = Boolean(resolvedImageSrc && resolvedImageAlt);
+const showStage = !imageOverride && photos.length >= STAGE_MIN;
 
 const titleAttrs = editable
   ? editableText({ entityType, entitySlug: entitySlug!, fieldPath: 'hero.title', label: `${entitySlug} hero title` })
@@ -86,11 +96,25 @@ const imageAttrs = editable
         </div>
       </div>
 
-      <div class="subpage-hero__visual" aria-hidden="true">
-        {hasHeroImage && <img src={resolvedImageSrc} alt={resolvedImageAlt} loading="eager" fetchpriority="high" decoding="async" data-pi-responsive="(max-width: 767px) 100vw, 50vw" {...imageAttrs} />}
-        <div class="subpage-hero__fog"></div>
-      </div>
+      {showStage ? (
+        <div class="subpage-hero__stage" {...imageAttrs}>
+          <PhotoStage photos={photos} subject={resolvedTitle.replace(/<[^>]+>/g, '')} id="photos" />
+        </div>
+      ) : (
+        <div class="subpage-hero__visual" aria-hidden="true">
+          {hasHeroImage && <img src={resolvedImageSrc} alt={resolvedImageAlt} loading="eager" fetchpriority="high" decoding="async" data-pi-responsive="(max-width: 767px) 100vw, 50vw" {...imageAttrs} />}
+          <div class="subpage-hero__fog"></div>
+        </div>
+      )}
 
     </div>
   </div>
 </section>
+
+<style>
+  /* The stage takes the picture column; it sizes itself, so it sits centred
+     against the text rather than stretching to the column height. */
+  .subpage-hero__stage { min-width: 0; align-self: center; }
+  .subpage-hero__stage :global(.pstage) { margin-block-end: 0; }
+  .subpage-hero__stage :global(.pstage) { --pstage-h: 0.75; } /* 4:3 suits the narrower column */
+</style>

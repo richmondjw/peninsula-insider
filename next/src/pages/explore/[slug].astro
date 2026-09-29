@@ -8,7 +8,9 @@ import ItineraryCard from '../../components/ItineraryCard.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { placeLabel, routeSlug, titleize, venueHrefPrefix, isListableVenue, clipExcerpt, formatHeroCredit } from '../../lib/editorial';
-import ImageGallery from '../../components/ImageGallery.astro';
+import PhotoStage from '../../components/PhotoStage.astro';
+import InlinePhoto from '../../components/InlinePhoto.astro';
+import { photoPlan, paragraphsOf } from '../../lib/photo-set';
 import { editableText, editableImage } from '../../lib/inline-edit/attrs';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
 import MediaProvenanceNote from '../../components/MediaProvenanceNote.astro';
@@ -107,9 +109,9 @@ const heroProvenance = hero.override ? null : experience.data.heroImage;
 // Credit the photograph actually shown: an editor's upload carries no record
 // here, so only the content record's own image is credited.
 const heroCredit = heroProvenance?.credit ? formatHeroCredit(heroProvenance.credit) : '';
-const galleryCount = (experience.data.gallery ?? []).filter(
-  (image) => image.rightsStatus === 'recorded' && image.provenanceReview === 'verified',
-).length;
+// The photograph rule (src/lib/photo-set.ts).
+const editorParagraphs = paragraphsOf(experience.data.editorNote);
+const photoSet = photoPlan(experience.data, { override: Boolean(hero.override), paragraphs: editorParagraphs.length });
 
 const canonical = `https://peninsulainsider.com.au/explore/${slug}/`;
 const ogImage = hero.src;
@@ -210,27 +212,40 @@ export const prerender = true;
         label: `${experience.data.name} - name`,
       })}>{experience.data.name}</h1>
 
-      <div class={`experience-detail__hero feature__image-block ${heroClass}`} aria-hidden="true" style={heroStyle} {...editableImage({
-        entityType: 'experience', entitySlug: slug, fieldPath: 'heroImage',
-        label: `${experience.data.name} hero`, purpose: 'hero',
-      })}>
-        <div class="experience-detail__hero-fog"></div>
-        {hero.alt && (
-          <span class="experience-detail__hero-label">{hero.alt}</span>
-        )}
-      </div>
-      {heroCredit && <p class="experience-detail__hero-credit">{heroCredit}</p>}
-      <MediaProvenanceNote
-        image={heroProvenance}
-        subject={experience.data.name}
-        class="experience-detail__hero-provenance"
-      />
+      {photoSet.stage ? (
+        <div {...editableImage({ entityType: 'experience', entitySlug: slug, fieldPath: 'heroImage', label: `${experience.data.name} hero`, purpose: 'hero' })}>
+          <PhotoStage photos={photoSet.photos} subject={experience.data.name} id="photos" />
+        </div>
+      ) : (
+        <>
+          <div class={`experience-detail__hero feature__image-block ${heroClass}`} aria-hidden="true" style={heroStyle} {...editableImage({
+            entityType: 'experience', entitySlug: slug, fieldPath: 'heroImage',
+            label: `${experience.data.name} hero`, purpose: 'hero',
+          })}>
+            <div class="experience-detail__hero-fog"></div>
+            {hero.alt && (
+              <span class="experience-detail__hero-label">{hero.alt}</span>
+            )}
+          </div>
+          {heroCredit && <p class="experience-detail__hero-credit">{heroCredit}</p>}
+          <MediaProvenanceNote
+            image={heroProvenance}
+            subject={experience.data.name}
+            class="experience-detail__hero-provenance"
+          />
+          {photoSet.photos.length >= 3 && <PhotoStage photos={photoSet.photos} subject={experience.data.name} id="photos" variant="strip" />}
+        </>
+      )}
 
       <div class="experience-detail__grid">
         <div>
           <div class="prose">
-            {experience.data.editorNote.split(/\n\n+/).map((paragraph: string) => (
-              <p>{paragraph}</p>
+            {editorParagraphs.map((paragraph: string, i: number) => (
+              <>
+                <p>{paragraph}</p>
+                {i === 0 && photoSet.afterFirst !== null && <InlinePhoto photos={photoSet.photos} indexes={[photoSet.afterFirst]} subject={experience.data.name} />}
+                {i === 2 && photoSet.pair && <InlinePhoto photos={photoSet.photos} indexes={photoSet.pair} subject={experience.data.name} />}
+              </>
             ))}
           </div>
         </div>
@@ -285,20 +300,6 @@ export const prerender = true;
       </div>
     </div>
   </section>
-
-  {galleryCount > 0 && (
-    <section class="venues venues--plain">
-      <div class="container">
-        <div class="venues__header">
-          <div>
-            <p class="label label--accent">Photographs</p>
-            <h2 class="venues__title">A closer look</h2>
-          </div>
-        </div>
-        <ImageGallery images={experience.data.gallery} subject={experience.data.name} />
-      </div>
-    </section>
-  )}
 
   {nearbyVenues.length > 0 && (
     <section class="venues">

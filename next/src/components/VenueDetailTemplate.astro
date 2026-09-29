@@ -11,7 +11,9 @@ import { getCollection } from 'astro:content';
 import { resolveHero } from '../lib/inline-edit/resolve-hero';
 import PlayRibbon from './play/PlayRibbon.astro';
 import MediaProvenanceNote from './MediaProvenanceNote.astro';
-import ImageGallery from './ImageGallery.astro';
+import PhotoStage from './PhotoStage.astro';
+import InlinePhoto from './InlinePhoto.astro';
+import { photoPlan, paragraphsOf } from '../lib/photo-set';
 import { altFor } from '../lib/media-provenance';
 import CorrectionNote from './CorrectionNote.astro';
 import { editableImage, editableText } from '../lib/inline-edit/attrs';
@@ -30,7 +32,6 @@ export interface Props {
 const { venue, section, related = [], articles = [], itineraries = [] } = Astro.props;
 const data = venue.data;
 const visitorInformation = approvedVisitorInformation(data.visitorInformation);
-const gallery = (data.gallery ?? []).filter((image) => image.rightsStatus === 'recorded' && image.provenanceReview === 'verified');
 const liveStatusUrl = resolveLiveStatusUrl(data);
 const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(data.coordinates ? `${data.coordinates.lat},${data.coordinates.lng}` : `${data.name}, ${data.address}`)}`;
 const verifiedLabel = verifiedFreshnessLabel(informationCheckedOn(data));
@@ -148,6 +149,11 @@ const { alt: heroAlt, presentation: heroPresentation } = altFor(hero, heroLabel)
 // than let one image's disclosure stand in for another's. Capturing
 // provenance at upload is the operator flow, which is gated separately.
 const heroProvenance = hero.override ? null : data.heroImage;
+// The photograph rule (src/lib/photo-set.ts): a stage opens the page when
+// there are three or more verified photographs, and the rest are set into
+// the editor note rather than dumped at the foot of the page.
+const editorParagraphs = paragraphsOf(data.editorNote);
+const photoSet = photoPlan(data, { override: Boolean(hero.override), paragraphs: editorParagraphs.length });
 
 // Sibling venues within a multi-venue estate (EstateCluster block).
 const estateSlug = data.estateSlug as string | undefined;
@@ -355,28 +361,37 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
 
     <PlayRibbon kind="venue" slug={venueSlug} />
 
-    <figure
-      class="venue-detail__hero"
-      {...editableImage({
-        entityType: 'venue',
-        entitySlug: venueSlug,
-        fieldPath: 'heroImage',
-        label: `${data.name} hero`,
-        purpose: 'hero',
-      })}
-    >
-      <img src={hero.src} alt={heroAlt} role={heroPresentation ? 'presentation' : undefined} fetchpriority="high" decoding="async" />
-      <div class="venue-detail__hero-fog"></div>
-      <span class="venue-detail__hero-label">{heroLabel}</span>
-    </figure>
-    {data.heroImage?.credit && (
-      <p class="venue-detail__hero-credit">{formatHeroCredit(data.heroImage.credit)}</p>
+    {photoSet.stage ? (
+      <div {...editableImage({ entityType: 'venue', entitySlug: venueSlug, fieldPath: 'heroImage', label: `${data.name} hero`, purpose: 'hero' })}>
+        <PhotoStage photos={photoSet.photos} subject={data.name} id="photos" />
+      </div>
+    ) : (
+      <>
+        <figure
+          class="venue-detail__hero"
+          {...editableImage({
+            entityType: 'venue',
+            entitySlug: venueSlug,
+            fieldPath: 'heroImage',
+            label: `${data.name} hero`,
+            purpose: 'hero',
+          })}
+        >
+          <img src={hero.src} alt={heroAlt} role={heroPresentation ? 'presentation' : undefined} fetchpriority="high" decoding="async" />
+          <div class="venue-detail__hero-fog"></div>
+          <span class="venue-detail__hero-label">{heroLabel}</span>
+        </figure>
+        {data.heroImage?.credit && (
+          <p class="venue-detail__hero-credit">{formatHeroCredit(data.heroImage.credit)}</p>
+        )}
+        <MediaProvenanceNote
+          image={heroProvenance}
+          subject={data.name}
+          class="venue-detail__hero-provenance"
+        />
+        {photoSet.photos.length >= 3 && <PhotoStage photos={photoSet.photos} subject={data.name} id="photos" variant="strip" />}
+      </>
     )}
-    <MediaProvenanceNote
-      image={heroProvenance}
-      subject={data.name}
-      class="venue-detail__hero-provenance"
-    />
 
     <div class="venue-detail__grid">
       <div>
@@ -393,8 +408,12 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
 
         {/* ── EDITOR NOTE - context and detail ── */}
         <div class="prose">
-          {data.editorNote.split(/\n\n+/).map((paragraph: string) => (
-            <p>{paragraph}</p>
+          {editorParagraphs.map((paragraph: string, i: number) => (
+            <>
+              <p>{paragraph}</p>
+              {i === 0 && photoSet.afterFirst !== null && <InlinePhoto photos={photoSet.photos} indexes={[photoSet.afterFirst]} subject={data.name} />}
+              {i === 2 && photoSet.pair && <InlinePhoto photos={photoSet.photos} indexes={photoSet.pair} subject={data.name} />}
+            </>
           ))}
         </div>
 
@@ -701,15 +720,6 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
     )}
   </div>
 </section>
-
-{gallery.length > 0 && (
-  <section class="venue-detail-section">
-    <div class="container">
-      <h2 class="venue-detail-section__title">A closer look</h2>
-      <ImageGallery images={gallery} subject={data.name} />
-    </div>
-  </section>
-)}
 
 {hasVisiting && (
   <section class="venue-detail-section">

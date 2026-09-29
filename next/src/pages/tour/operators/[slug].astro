@@ -7,7 +7,8 @@ import TourCard from '../../../components/TourCard.astro';
 import NewsletterBlock from '../../../components/NewsletterBlock.astro';
 import CorrectionNote from '../../../components/CorrectionNote.astro';
 import { buildOperatorProfileSchema } from '../../../lib/schema';
-import ImageGallery from '../../../components/ImageGallery.astro';
+import InlinePhoto from '../../../components/InlinePhoto.astro';
+import { photoPlan } from '../../../lib/photo-set';
 import { resolveHero } from '../../../lib/inline-edit/resolve-hero';
 import { formatHeroCredit } from '../../../lib/editorial';
 
@@ -25,9 +26,9 @@ const data = operator.data;
 // replaces it and carries no credit of its own here.
 const heroResolved = await resolveHero('tour-operator', operator.id ?? data.slug, data);
 const heroCredit = !heroResolved.override && data.heroImage?.credit ? formatHeroCredit(data.heroImage.credit) : '';
-const hasGallery = (data.gallery ?? []).some(
-  (image) => image.rightsStatus === 'recorded' && image.provenanceReview === 'verified',
-);
+// The photograph rule (src/lib/photo-set.ts). The About block reads as three
+// short paragraphs: intro, strengths, limits.
+const photoSet = photoPlan(data, { override: Boolean(heroResolved.override), paragraphs: 3 });
 const slug = operator.id ?? data.slug;
 
 const allTours = await getCollection('tours');
@@ -74,12 +75,13 @@ export const prerender = true;
     imageAlt={data.heroImage.alt}
     entityType="tour-operator"
     entitySlug={slug}
+    photos={photoSet.photos}
   >
     <div class="prose">
       <p>{data.intro}</p>
     </div>
   </SubpageHero>
-  {heroCredit && (
+  {heroCredit && !photoSet.stage && (
     <div class="container"><p class="tour-operator__hero-credit">{heroCredit}</p></div>
   )}
 
@@ -88,6 +90,7 @@ export const prerender = true;
       <div class="prose">
         <h2>About {data.name}</h2>
         <p>{data.intro}</p>
+        {photoSet.stage && photoSet.afterFirst !== null && <InlinePhoto photos={photoSet.photos} indexes={[photoSet.afterFirst]} subject={data.name} />}
 
         <h3>What they are good at</h3>
         <p>{data.whatGoodAt}</p>
@@ -107,20 +110,6 @@ export const prerender = true;
       )}
     </div>
   </section>
-
-  {hasGallery && (
-    <section class="experience-index experience-index--plain">
-      <div class="container">
-        <div class="venues__header">
-          <div>
-            <p class="label label--accent">Photographs</p>
-            <h2 class="venues__title">A closer look</h2>
-          </div>
-        </div>
-        <ImageGallery images={data.gallery} subject={data.name} />
-      </div>
-    </section>
-  )}
 
   {operatorTours.length > 0 && (
     <section class="experience-index">

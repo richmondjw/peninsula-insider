@@ -7,7 +7,9 @@ import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import CorrectionNote from '../../components/CorrectionNote.astro';
 import { buildTourSchema } from '../../lib/schema';
 import { editableText } from '../../lib/inline-edit/attrs';
-import ImageGallery from '../../components/ImageGallery.astro';
+import InlinePhoto from '../../components/InlinePhoto.astro';
+import { photoPlan } from '../../lib/photo-set';
+import { loadOverrides } from '../../lib/inline-edit/overrides';
 
 export async function getStaticPaths() {
   const tours = await getCollection('tours');
@@ -19,9 +21,11 @@ export async function getStaticPaths() {
 
 const { tour } = Astro.props;
 const data = tour.data;
-const hasGallery = (data.gallery ?? []).some(
-  (image) => image.rightsStatus === 'recorded' && image.provenanceReview === 'verified',
-);
+// The photograph rule (src/lib/photo-set.ts). SubpageHero keeps the single
+// hero when an editor has published one (its "hero" slot), so the same check
+// here keeps the in-text photograph from pointing at a viewer that is absent.
+const tourOverrides = await loadOverrides('tour', tour.id ?? data.slug);
+const photoSet = photoPlan(data, { override: Boolean(tourOverrides.image['hero']), paragraphs: 1 });
 
 const allOperators = await getCollection('tourOperators');
 const operator = allOperators.find(op => op.data.slug === data.operatorSlug);
@@ -102,6 +106,7 @@ export const prerender = true;
     title={data.name}
     heroImage={data.heroImage.src}
     imageAlt={data.heroImage.alt}
+    photos={photoSet.photos}
     imageCaption={data.departsFrom ?? undefined}
     entityType="tour"
     entitySlug={slug}
@@ -196,23 +201,10 @@ export const prerender = true;
       <div class="prose">
         <h2>What happens on this tour</h2>
         <p>{data.whatHappens}</p>
+        {photoSet.stage && photoSet.afterFirst !== null && <InlinePhoto photos={photoSet.photos} indexes={[photoSet.afterFirst]} subject={data.name} />}
       </div>
     </div>
   </section>
-
-  {hasGallery && (
-    <section class="experience-index experience-index--plain">
-      <div class="container">
-        <div class="venues__header">
-          <div>
-            <p class="label label--accent">Photographs</p>
-            <h2 class="venues__title">A closer look</h2>
-          </div>
-        </div>
-        <ImageGallery images={data.gallery} subject={data.name} />
-      </div>
-    </section>
-  )}
 
   <section class="experience-index">
     <div class="container">
