@@ -44,7 +44,7 @@ export const PLAY = {
     partner: 'Doot Doot Doot, Jackalope',
     partnerSlug: 'doot-doot-doot',
     prize: '$250 to dine',
-    closes: 'Sunday 11 October 2026',
+    closes: '11:59pm AEDT Friday 30 October 2026',
   },
 } as const;
 
