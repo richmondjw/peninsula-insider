@@ -318,7 +318,10 @@ fs.writeFileSync(path.join(outDir, 'pass2.json'), JSON.stringify({ generatedAt: 
 if (WRITE) {
   const lp = path.join(REC, 'placements.json');
   const ledger = JSON.parse(fs.readFileSync(lp, 'utf8'));
-  ledger.placements = [...ledger.placements.filter((p) => p.pass !== 2), ...placements];
+  // Merge, never replace: the ledger is the record of every use for takedowns,
+  // and a later run of this pass only knows about the rows it made itself.
+  const known = new Set(ledger.placements.map((p) => `${p.surface}|${p.entity}|${p.src}`));
+  ledger.placements.push(...placements.filter((p) => !known.has(`${p.surface}|${p.entity}|${p.src}`)));
   ledger.pass2At = new Date().toISOString();
   fs.writeFileSync(lp, JSON.stringify(ledger, null, 1) + '\n');
 }
