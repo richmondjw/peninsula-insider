@@ -7,6 +7,9 @@ import TourCard from '../../../components/TourCard.astro';
 import NewsletterBlock from '../../../components/NewsletterBlock.astro';
 import CorrectionNote from '../../../components/CorrectionNote.astro';
 import { buildOperatorProfileSchema } from '../../../lib/schema';
+import ImageGallery from '../../../components/ImageGallery.astro';
+import { resolveHero } from '../../../lib/inline-edit/resolve-hero';
+import { formatHeroCredit } from '../../../lib/editorial';
 
 export async function getStaticPaths() {
   const operators = await getCollection('tourOperators');
@@ -18,6 +21,13 @@ export async function getStaticPaths() {
 
 const { operator } = Astro.props;
 const data = operator.data;
+// Credit only the content record's own photograph; an editor's CMS upload
+// replaces it and carries no credit of its own here.
+const heroResolved = await resolveHero('tour-operator', operator.id ?? data.slug, data);
+const heroCredit = !heroResolved.override && data.heroImage?.credit ? formatHeroCredit(data.heroImage.credit) : '';
+const hasGallery = (data.gallery ?? []).some(
+  (image) => image.rightsStatus === 'recorded' && image.provenanceReview === 'verified',
+);
 const slug = operator.id ?? data.slug;
 
 const allTours = await getCollection('tours');
@@ -69,6 +79,9 @@ export const prerender = true;
       <p>{data.intro}</p>
     </div>
   </SubpageHero>
+  {heroCredit && (
+    <div class="container"><p class="tour-operator__hero-credit">{heroCredit}</p></div>
+  )}
 
   <section class="experience-index experience-index--plain">
     <div class="container">
@@ -94,6 +107,20 @@ export const prerender = true;
       )}
     </div>
   </section>
+
+  {hasGallery && (
+    <section class="experience-index experience-index--plain">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Photographs</p>
+            <h2 class="venues__title">A closer look</h2>
+          </div>
+        </div>
+        <ImageGallery images={data.gallery} subject={data.name} />
+      </div>
+    </section>
+  )}
 
   {operatorTours.length > 0 && (
     <section class="experience-index">
@@ -150,3 +177,16 @@ export const prerender = true;
 
   <NewsletterBlock />
 </BaseLayout>
+
+<style>
+  /* Photo credit for the hero, required beside licensed photographs. */
+  .tour-operator__hero-credit {
+    margin: .6rem 0 0;
+    font-family: var(--font-ui);
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--soft);
+    text-align: right;
+  }
+</style>

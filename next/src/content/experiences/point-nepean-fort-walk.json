@@ -4,25 +4,84 @@
   "type": "attraction",
   "place": "point-nepean",
   "zone": "peninsula-tip",
-  "coordinates": { "lat": -38.3034, "lng": 144.6527 },
+  "coordinates": {
+    "lat": -38.3034,
+    "lng": 144.6527
+  },
   "address": "Point Nepean National Park, Defence Rd, Portsea VIC 3944",
   "website": "https://www.parks.vic.gov.au/places-to-see/parks/point-nepean-national-park",
   "durationMinutes": 120,
   "difficulty": "easy",
-  "seasonBest": ["autumn", "winter", "spring", "summer"],
+  "seasonBest": [
+    "autumn",
+    "winter",
+    "spring",
+    "summer"
+  ],
   "editorNote": "Point Nepean rewards people who are happy to walk a little further than the average Peninsula day-tripper. The road and paths out toward Fort Nepean unfold through old quarantine buildings, scrub, and cliff-edge lookouts before the whole place gives way to bunkers and artillery emplacements looking straight across the Heads. It is a history lesson, a coastline walk, and a very good excuse to leave Sorrento for the afternoon. Hire bikes if you want to cover more ground, but walking keeps the mood right.",
   "tags": {
-    "mood": ["walk", "view", "slow"],
-    "season": ["summer", "autumn", "winter", "spring"],
-    "audience": ["couples", "families", "first-timers", "locals"]
+    "mood": [
+      "walk",
+      "view",
+      "slow"
+    ],
+    "season": [
+      "summer",
+      "autumn",
+      "winter",
+      "spring"
+    ],
+    "audience": [
+      "couples",
+      "families",
+      "first-timers",
+      "locals"
+    ]
   },
   "heroImage": {
-    "src": "/images/sourced/explore-point-nepean-fort-01.webp",
-    "alt": "Historic fort ruins at Point Nepean overlooking Port Phillip Heads",
-    "credit": "Wikimedia Commons",
-    "license": "tmp-wikimedia"
+    "src": "/images/visit-victoria/vv-164539-point-nepean-fort-nepean.webp",
+    "alt": "Two walkers on the sealed road to Fort Nepean as it winds along the narrow headland between bay and ocean under a pink sky",
+    "credit": "Jesse Hisco, courtesy of Visit Victoria",
+    "license": "visit-victoria",
+    "caption": "Point Nepean Fort Walk, Mornington Peninsula.",
+    "depicts": "Point Nepean - Fort Nepean",
+    "depictionStatus": "actual",
+    "creator": "Jesse Hisco",
+    "sourceUrl": "Victoria Content Hub asset 164539, downloaded 2026-09-28",
+    "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+    "permittedUses": [
+      "website",
+      "social"
+    ],
+    "rightsHolder": "Visit Victoria",
+    "rightsEstablishedOn": "2026-09-29",
+    "rightsStatus": "recorded",
+    "decorative": false,
+    "provenanceReview": "verified"
   },
-  "gallery": [],
+  "gallery": [
+    {
+      "src": "/images/visit-victoria/vv-164537-point-nepean-fort-nepean.webp",
+      "alt": "Two walkers at a timber lookout rail gaze towards the scrub-covered headland and winding road leading to Fort Nepean",
+      "credit": "Jesse Hisco, courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Point Nepean Fort Walk, Mornington Peninsula.",
+      "depicts": "Point Nepean - Fort Nepean",
+      "depictionStatus": "actual",
+      "creator": "Jesse Hisco",
+      "sourceUrl": "Victoria Content Hub asset 164537, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    }
+  ],
   "lastVerified": "2026-04-08",
   "publishedAt": "2026-04-08"
 }

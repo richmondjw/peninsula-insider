@@ -83,7 +83,7 @@ const POLICY = {
   },
   'visit-victoria': {
     channels: SITE_AND_ORGANIC, derivative: false, paid: false, approve: false, attribution: true,
-    note: 'Tourism board asset. Confirm campaign and paid-use terms before wider use.',
+    note: 'Victoria Content Hub Work. Terms and the 2026-09-29 clarification are in ops/records/visit-victoria/: credit "Photo: Creator, courtesy of Visit Victoria", title the region shown, no derivatives, never passed to third parties. Boosting an organic post that promotes Peninsula tourism is permitted; other paid use is not.',
   },
   'tmp-unsplash': {
     channels: SITE_ONLY, derivative: false, paid: false, approve: false, attribution: true,

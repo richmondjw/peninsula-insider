@@ -11,6 +11,7 @@ import { getCollection } from 'astro:content';
 import { resolveHero } from '../lib/inline-edit/resolve-hero';
 import PlayRibbon from './play/PlayRibbon.astro';
 import MediaProvenanceNote from './MediaProvenanceNote.astro';
+import ImageGallery from './ImageGallery.astro';
 import { altFor } from '../lib/media-provenance';
 import CorrectionNote from './CorrectionNote.astro';
 import { editableImage, editableText } from '../lib/inline-edit/attrs';
@@ -705,13 +706,7 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
   <section class="venue-detail-section">
     <div class="container">
       <h2 class="venue-detail-section__title">A closer look</h2>
-      <div class="venue-gallery">
-        {gallery.map((image) => <figure>
-          <img src={image.src} alt={altFor(image, data.name)} loading="lazy" decoding="async" />
-          <figcaption>{image.caption} {formatHeroCredit(image.credit)}</figcaption>
-          <MediaProvenanceNote image={image} subject={data.name} />
-        </figure>)}
-      </div>
+      <ImageGallery images={gallery} subject={data.name} />
     </div>
   </section>
 )}
@@ -994,10 +989,6 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
 </script>
 
 <style>
-  .venue-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); gap: 1.5rem; }
-  .venue-gallery figure { margin: 0; }
-  .venue-gallery img { display: block; width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
-  .venue-gallery figcaption { margin-top: .5rem; font-size: .875rem; line-height: 1.5; }
   /* ── Worth Knowing panel ──
      Corner treatment is uniform --radius-m on all four corners and there
      is no shadow: the panel is defined by the same hairline every other

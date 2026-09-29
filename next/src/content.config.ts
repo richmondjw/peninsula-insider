@@ -876,6 +876,9 @@ const places = defineCollection({
     factualLede: z.string().optional(),
     intro: z.string(),
     heroImage: imageRef,
+    // Licensed galleries (ops/records/visit-victoria). Declared so the schema keeps
+    // them; templates that do not render a gallery yet simply ignore it.
+    gallery: z.array(imageRef).default([]),
     relatedPlaces: z.array(reference('places')).default([]),
     publishedAt: z.coerce.date(),
     tldr: z.array(z.string()).optional(),
@@ -1671,6 +1674,9 @@ const tourOperators = defineCollection({
     whatGoodAt: z.string(),
     notSuitedFor: z.string(),
     heroImage: imageRef,
+    // Licensed galleries (ops/records/visit-victoria). Declared so the schema keeps
+    // them; templates that do not render a gallery yet simply ignore it.
+    gallery: z.array(imageRef).default([]),
     lastVerified: z.coerce.date(),
     ...provenanceFields,
     ...sourceHealthFields,
@@ -1710,6 +1716,9 @@ const tours = defineCollection({
     cancellationPolicy: z.string().optional(),
     faq: z.array(z.object({ question: z.string(), answer: z.string() })).default([]),
     heroImage: imageRef,
+    // Licensed galleries (ops/records/visit-victoria). Declared so the schema keeps
+    // them; templates that do not render a gallery yet simply ignore it.
+    gallery: z.array(imageRef).default([]),
     lastVerified: z.coerce.date(),
     ...provenanceFields,
     ...sourceHealthFields,

@@ -1,0 +1,2314 @@
+{
+ "generatedAt": "2026-09-29T09:10:41.293Z",
+ "batch": "2026-09-28",
+ "catalogue": "ops/records/visit-victoria/download-2026-09-28/catalogue.json",
+ "proposals": [
+  {
+   "entity": "experiences/flinders-golf-club",
+   "name": "Flinders Golf Club",
+   "place": "flinders",
+   "currentHeroSrc": "/images/sourced/place-flinders-01.webp",
+   "currentHero": {
+    "state": "stand-in",
+    "why": "place-flinders-01.webp is a generic place image"
+   },
+   "action": "replace hero",
+   "candidates": 28,
+   "heroPick": [
+    {
+     "assetKey": "vv-157359",
+     "file": "Flinders Golf Course_157359.jpg",
+     "size": "5760x3840",
+     "credit": "Photo: Gary Lisbon, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2022-05-02",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-157369",
+     "file": "Flinders Golf Course_157369.jpg",
+     "size": "5760x3840",
+     "credit": "Photo: Gary Lisbon, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2022-05-02",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-157379",
+     "file": "Flinders Golf Course_157379.jpg",
+     "size": "5760x3840",
+     "credit": "Photo: Gary Lisbon, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2022-05-02",
+     "how": "alias"
+    }
+   ],
+   "galleryPool": [
+    "vv-157380",
+    "vv-157398",
+    "vv-157402",
+    "vv-157403",
+    "vv-157404",
+    "vv-157405"
+   ],
+   "note": "Live pages may show a CMS image override (pi.cms_image_slots) instead of this JSON hero. Check before applying."
+  },
+  {
+   "entity": "experiences/gunnamatta-ocean-beach",
+   "name": "Gunnamatta Ocean Beach",
+   "place": "cape-schanck",
+   "currentHeroSrc": "/images/sourced/explore-gunnamatta-01.webp",
+   "currentHero": {
+    "state": "stand-in",
+    "why": "explore-gunnamatta-01.webp is a generic explore image"
+   },
+   "action": "replace hero",
+   "candidates": 8,
+   "heroPick": [
+    {
+     "assetKey": "vv-25061208",
+     "file": "The Ranch - Gunnamatta Beach 25061208.jpg",
+     "size": "6000x4000",
+     "credit": "Photo: Peter Foster, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2025-06-12",
+     "how": "token-overlap 0.50"
+    },
+    {
+     "assetKey": "vv-25061205",
+     "file": "The Ranch - Gunnamatta Beach 25061205.jpg",
+     "size": "5903x3935",
+     "credit": "Photo: Peter Foster, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2025-06-12",
+     "how": "token-overlap 0.50"
+    },
+    {
+     "assetKey": "vv-25061206",
+     "file": "The Ranch - Gunnamatta Beach 25061206.jpg",
+     "size": "5859x3906",
+     "credit": "Photo: Peter Foster, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2025-06-12",
+     "how": "token-overlap 0.50"
+    }
+   ],
+   "galleryPool": [
+    "vv-25061201",
+    "vv-25061204",
+    "vv-25061207",
+    "vv-25061203",
+    "vv-25061202"
+   ],
+   "note": "Live pages may show a CMS image override (pi.cms_image_slots) instead of this JSON hero. Check before applying."
+  },
+  {
+   "entity": "experiences/moonah-links",
+   "name": "Moonah Links",
+   "place": "cape-schanck",
+   "currentHeroSrc": "/images/sourced/place-cape-schanck-01.webp",
+   "currentHero": {
+    "state": "stand-in",
+    "why": "place-cape-schanck-01.webp is a generic place image"
+   },
+   "action": "replace hero",
+   "candidates": 18,
+   "heroPick": [
+    {
+     "assetKey": "vv-157363",
+     "file": "Moonah Links Golf Course - Fingal_157363.jpg",
+     "size": "5760x3840",
+     "credit": "Photo: Gary Lisbon, courtesy of Visit Victoria",
+     "people": "yes",
+     "date": "2022-04-29",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-157364",
+     "file": "Moonah Links Golf Course - Fingal_157364.jpg",
+     "size": "5760x3840",
+     "credit": "Photo: Gary Lisbon, courtesy of Visit Victoria",
+     "people": "yes",
+     "date": "2022-04-29",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-157368",
+     "file": "Moonah Links Golf Course - Fingal_157368.jpg",
+     "size": "5760x3840",
+     "credit": "Photo: Gary Lisbon, courtesy of Visit Victoria",
+     "people": "yes",
+     "date": "2022-04-29",
+     "how": "alias"
+    }
+   ],
+   "galleryPool": [
+    "vv-157376",
+    "vv-157378",
+    "vv-157391",
+    "vv-157393",
+    "vv-157396",
+    "vv-157400"
+   ],
+   "note": "Live pages may show a CMS image override (pi.cms_image_slots) instead of this JSON hero. Check before applying."
+  },
+  {
+   "entity": "experiences/mornington-peninsula-gallery",
+   "name": "Mornington Peninsula Regional Gallery",
+   "place": "mornington",
+   "currentHeroSrc": "/images/sourced/explore-mprg-01.webp",
+   "currentHero": {
+    "state": "stand-in",
+    "why": "explore-mprg-01.webp is a generic explore image"
+   },
+   "action": "replace hero",
+   "candidates": 2,
+   "heroPick": [
+    {
+     "assetKey": "vv-143140",
+     "file": "Mornington Peninsula Regional Gallery_143140.jpg",
+     "size": "5600x3737",
+     "credit": "Photo courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2017-02-22",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-143144",
+     "file": "Mornington Peninsula Regional Gallery_143144.jpg",
+     "size": "5600x3737",
+     "credit": "Photo: Robert Blackburn, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": null,
+     "how": "alias"
+    }
+   ],
+   "galleryPool": [],
+   "note": "Live pages may show a CMS image override (pi.cms_image_slots) instead of this JSON hero. Check before applying."
+  },
+  {
+   "entity": "experiences/point-nepean-fort-walk",
+   "name": "Point Nepean Fort Walk",
+   "place": "point-nepean",
+   "currentHeroSrc": "/images/sourced/explore-point-nepean-fort-01.webp",
+   "currentHero": {
+    "state": "stand-in",
+    "why": "explore-point-nepean-fort-01.webp is a generic explore image"
+   },
+   "action": "replace hero",
+   "candidates": 2,
+   "heroPick": [
+    {
+     "assetKey": "vv-164537",
+     "file": "Point Nepean - Fort Nepean_164537.jpg",
+     "size": "8105x5403",
+     "credit": "Photo: Jesse Hisco, courtesy of Visit Victoria",
+     "people": "yes",
+     "date": "2023-03-14",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-164539",
+     "file": "Point Nepean - Fort Nepean_164539.jpg",
+     "size": "6048x4024",
+     "credit": "Photo: Jesse Hisco, courtesy of Visit Victoria",
+     "people": "yes",
+     "date": "2023-03-14",
+     "how": "alias"
+    }
+   ],
+   "galleryPool": [],
+   "note": "Live pages may show a CMS image override (pi.cms_image_slots) instead of this JSON hero. Check before applying."
+  },
+  {
+   "entity": "experiences/point-nepean-national-park",
+   "name": "Point Nepean National Park",
+   "place": "point-nepean",
+   "currentHeroSrc": "/images/sourced/place-point-nepean-01.webp",
+   "currentHero": {
+    "state": "stand-in",
+    "why": "place-point-nepean-01.webp is a generic place image"
+   },
+   "action": "replace hero",
+   "candidates": 20,
+   "heroPick": [
+    {
+     "assetKey": "vv-164529",
+     "file": "Bike Riding at Point Nepean_164529.jpg",
+     "size": "8256x5504",
+     "credit": "Photo: Jesse Hisco, courtesy of Visit Victoria",
+     "people": "yes",
+     "date": "2023-03-14",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-164530",
+     "file": "Bike Riding at Point Nepean_164530.jpg",
+     "size": "8256x5504",
+     "credit": "Photo: Jesse Hisco, courtesy of Visit Victoria",
+     "people": "yes",
+     "date": "2023-03-14",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-164533",
+     "file": "Bike Riding at Point Nepean_164533.jpg",
+     "size": "8096x5397",
+     "credit": "Photo: Jesse Hisco, courtesy of Visit Victoria",
+     "people": "yes",
+     "date": "2023-03-14",
+     "how": "alias"
+    }
+   ],
+   "galleryPool": [
+    "vv-164536",
+    "vv-164538",
+    "vv-164534",
+    "vv-164528",
+    "vv-164535",
+    "vv-26070132"
+   ],
+   "note": "Live pages may show a CMS image override (pi.cms_image_slots) instead of this JSON hero. Check before applying."
+  },
+  {
+   "entity": "experiences/sorrento-back-beach",
+   "name": "Sorrento Back Beach",
+   "place": "sorrento",
+   "currentHeroSrc": "/images/sourced/explore-sorrento-ocean-baths-01.webp",
+   "currentHero": {
+    "state": "stand-in",
+    "why": "explore-sorrento-ocean-baths-01.webp is a generic explore image"
+   },
+   "action": "replace hero",
+   "candidates": 5,
+   "heroPick": [
+    {
+     "assetKey": "vv-150965",
+     "file": "Diamond Bay - Back Beach Sorrento_150965.jpg",
+     "size": "10893x4561",
+     "credit": "Photo courtesy of Visit Victoria",
+     "people": "yes",
+     "date": "2020-06-24",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-151508",
+     "file": "Sorrento Back Beach_151508.jpg",
+     "size": "3278x2184",
+     "credit": "Photo: SHERPA Projects Pty Ltd, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2019-10-01",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-151509",
+     "file": "Sorrento Back Beach_151509.jpg",
+     "size": "3278x2184",
+     "credit": "Photo: SHERPA Projects Pty Ltd, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2019-10-01",
+     "how": "alias"
+    }
+   ],
+   "galleryPool": [
+    "vv-151510",
+    "vv-151512"
+   ],
+   "note": "Live pages may show a CMS image override (pi.cms_image_slots) instead of this JSON hero. Check before applying."
+  },
+  {
+   "entity": "experiences/sorrento-ferry",
+   "name": "Sorrento Ferry",
+   "place": "sorrento",
+   "currentHeroSrc": "/images/sourced/explore-sorrento-ferry-01.webp",
+   "currentHero": {
+    "state": "stand-in",
+    "why": "explore-sorrento-ferry-01.webp is a generic explore image"
+   },
+   "action": "replace hero",
+   "candidates": 1,
+   "heroPick": [
+    {
+     "assetKey": "vv-22100103",
+     "file": "Sorrento Ferry Terminal 22100103.tif",
+     "size": "3002x2000",
+     "credit": "Photo courtesy of Visit Victoria",
+     "people": "unknown",
+     "date": null,
+     "how": "token-overlap 0.67"
+    }
+   ],
+   "galleryPool": [],
+   "note": "Live pages may show a CMS image override (pi.cms_image_slots) instead of this JSON hero. Check before applying."
+  },
+  {
+   "entity": "experiences/st-andrews-beach-golf-course",
+   "name": "St Andrews Beach Golf Course",
+   "place": "cape-schanck",
+   "currentHeroSrc": "/images/sourced/place-cape-schanck-01.webp",
+   "currentHero": {
+    "state": "stand-in",
+    "why": "place-cape-schanck-01.webp is a generic place image"
+   },
+   "action": "replace hero",
+   "candidates": 18,
+   "heroPick": [
+    {
+     "assetKey": "vv-157350",
+     "file": "St Andrews Beach Golf Course - Fingal_157350.jpg",
+     "size": "5760x3840",
+     "credit": "Photo: Gary Lisbon, courtesy of Visit Victoria",
+     "people": "yes",
+     "date": "2022-05-02",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-157352",
+     "file": "St Andrews Beach Golf Course - Fingal_157352.jpg",
+     "size": "5760x3840",
+     "credit": "Photo: Gary Lisbon, courtesy of Visit Victoria",
+     "people": "yes",
+     "date": "2022-05-02",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-157354",
+     "file": "St Andrews Beach Golf Course - Fingal_157354.jpg",
+     "size": "5760x3840",
+     "credit": "Photo: Gary Lisbon, courtesy of Visit Victoria",
+     "people": "yes",
+     "date": "2022-05-02",
+     "how": "alias"
+    }
+   ],
+   "galleryPool": [
+    "vv-157356",
+    "vv-157357",
+    "vv-157426",
+    "vv-157418",
+    "vv-157419",
+    "vv-162240"
+   ],
+   "note": "Live pages may show a CMS image override (pi.cms_image_slots) instead of this JSON hero. Check before applying."
+  },
+  {
+   "entity": "experiences/the-dunes-golf-links",
+   "name": "The Dunes Golf Links",
+   "place": "rye",
+   "currentHeroSrc": "/images/sourced/golf-rye-sunrise-01.webp",
+   "currentHero": {
+    "state": "stand-in",
+    "why": "golf-rye-sunrise-01.webp is a generic golf image"
+   },
+   "action": "replace hero",
+   "candidates": 12,
+   "heroPick": [
+    {
+     "assetKey": "vv-157332",
+     "file": "The Dunes Golf Links - Rye_157332.jpg",
+     "size": "5760x3840",
+     "credit": "Photo: Gary Lisbon, courtesy of Visit Victoria",
+     "people": "yes",
+     "date": "2022-04-29",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-157334",
+     "file": "The Dunes Golf Links - Rye_157334.jpg",
+     "size": "5760x3840",
+     "credit": "Photo: Gary Lisbon, courtesy of Visit Victoria",
+     "people": "yes",
+     "date": "2022-04-29",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-157338",
+     "file": "The Dunes Golf Links - Rye_157338.jpg",
+     "size": "5760x3840",
+     "credit": "Photo: Gary Lisbon, courtesy of Visit Victoria",
+     "people": "yes",
+     "date": "2022-04-29",
+     "how": "alias"
+    }
+   ],
+   "galleryPool": [
+    "vv-157340",
+    "vv-157341",
+    "vv-157344",
+    "vv-157346",
+    "vv-157333",
+    "vv-157335"
+   ],
+   "note": "Live pages may show a CMS image override (pi.cms_image_slots) instead of this JSON hero. Check before applying."
+  },
+  {
+   "entity": "experiences/the-national-golf-club",
+   "name": "The National Golf Club",
+   "place": "cape-schanck",
+   "currentHeroSrc": "/images/sourced/place-cape-schanck-01.webp",
+   "currentHero": {
+    "state": "stand-in",
+    "why": "place-cape-schanck-01.webp is a generic place image"
+   },
+   "action": "replace hero",
+   "candidates": 9,
+   "heroPick": [
+    {
+     "assetKey": "vv-146902",
+     "file": "National Golf Course - 18th hole chip shot_146902.jpg",
+     "size": "8000x5333",
+     "credit": "Photo: Gary Lisbon, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2018-02-27",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-146896",
+     "file": "National Golf Course - 7th hole tee_146896.jpg",
+     "size": "8000x5333",
+     "credit": "Photo: Gary Lisbon, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2018-02-27",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-146898",
+     "file": "National Golf Course - 8th hole tee_146898.jpg",
+     "size": "8000x5333",
+     "credit": "Photo: Gary Lisbon, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2018-02-27",
+     "how": "alias"
+    }
+   ],
+   "galleryPool": [
+    "vv-146891",
+    "vv-146893",
+    "vv-146894",
+    "vv-146895",
+    "vv-146901",
+    "vv-146892"
+   ],
+   "note": "Live pages may show a CMS image override (pi.cms_image_slots) instead of this JSON hero. Check before applying."
+  },
+  {
+   "entity": "tour-operators/arthurs-seat-eagle",
+   "name": "Arthurs Seat Eagle",
+   "place": null,
+   "currentHeroSrc": "/images/sourced/explore-mprg-01.webp",
+   "currentHero": {
+    "state": "stand-in",
+    "why": "explore-mprg-01.webp is a generic explore image"
+   },
+   "action": "replace hero",
+   "candidates": 9,
+   "heroPick": [
+    {
+     "assetKey": "vv-167085",
+     "file": "Arthurs Seat Eagle_167085.jpg",
+     "size": "8401x5601",
+     "credit": "Photo courtesy of Visit Victoria",
+     "people": "unknown",
+     "date": null,
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-167058",
+     "file": "Arthurs Seat Eagle_167058.jpg",
+     "size": "7413x4942",
+     "credit": "Photo courtesy of Visit Victoria",
+     "people": "unknown",
+     "date": null,
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-143811",
+     "file": "Arthurs Seat cable car_143811.jpg",
+     "size": "5642x3762",
+     "credit": "Photo: Peter Tarasiuk, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": null,
+     "how": "alias"
+    }
+   ],
+   "galleryPool": [
+    "vv-167077",
+    "vv-167059",
+    "vv-167061",
+    "vv-167084",
+    "vv-147209",
+    "vv-167075"
+   ],
+   "note": "Live pages may show a CMS image override (pi.cms_image_slots) instead of this JSON hero. Check before applying."
+  },
+  {
+   "entity": "tour-operators/moonlit-sanctuary",
+   "name": "Moonlit Sanctuary Wildlife Conservation Park",
+   "place": null,
+   "currentHeroSrc": "/images/sourced/explore-greens-bush-01.webp",
+   "currentHero": {
+    "state": "stand-in",
+    "why": "explore-greens-bush-01.webp is a generic explore image"
+   },
+   "action": "replace hero",
+   "candidates": 36,
+   "heroPick": [
+    {
+     "assetKey": "vv-160411",
+     "file": "Moonlit Sanctuary_160411.jpg",
+     "size": "8045x5366",
+     "credit": "Photo: TWO PALMS AUSTRALIA, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2022-05-17",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-160416",
+     "file": "Moonlit Sanctuary_160416.jpg",
+     "size": "8056x5373",
+     "credit": "Photo: TWO PALMS AUSTRALIA, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2022-05-17",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-160418",
+     "file": "Moonlit Sanctuary_160418.jpg",
+     "size": "8107x5407",
+     "credit": "Photo: TWO PALMS AUSTRALIA, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2022-05-17",
+     "how": "alias"
+    }
+   ],
+   "galleryPool": [
+    "vv-160427",
+    "vv-160432",
+    "vv-160401",
+    "vv-160422",
+    "vv-160397",
+    "vv-160402"
+   ],
+   "note": "Live pages may show a CMS image override (pi.cms_image_slots) instead of this JSON hero. Check before applying."
+  },
+  {
+   "entity": "tour-operators/moonraker-charters",
+   "name": "Moonraker Charters",
+   "place": null,
+   "currentHeroSrc": "/images/sourced/explore-dromana-beach-01.webp",
+   "currentHero": {
+    "state": "stand-in",
+    "why": "explore-dromana-beach-01.webp is a generic explore image"
+   },
+   "action": "replace hero",
+   "candidates": 18,
+   "heroPick": [
+    {
+     "assetKey": "vv-167751",
+     "file": "Moonraker Dolphin Swims_167751.jpg",
+     "size": "8075x5386",
+     "credit": "Photo courtesy of Visit Victoria",
+     "people": "unknown",
+     "date": null,
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-167754",
+     "file": "Moonraker Dolphin Swims_167754.jpg",
+     "size": "8167x5447",
+     "credit": "Photo courtesy of Visit Victoria",
+     "people": "unknown",
+     "date": null,
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-167745",
+     "file": "Moonraker Dolphin Swims_167745.jpg",
+     "size": "7735x5159",
+     "credit": "Photo courtesy of Visit Victoria",
+     "people": "unknown",
+     "date": null,
+     "how": "alias"
+    }
+   ],
+   "galleryPool": [
+    "vv-167750",
+    "vv-167776",
+    "vv-167772",
+    "vv-167775",
+    "vv-167778",
+    "vv-167764"
+   ],
+   "note": "Live pages may show a CMS image override (pi.cms_image_slots) instead of this JSON hero. Check before applying."
+  },
+  {
+   "entity": "venues/bass-and-flinders",
+   "name": "Bass & Flinders Distillery",
+   "place": "mornington",
+   "currentHeroSrc": "/images/sourced/place-mornington-01.webp",
+   "currentHero": {
+    "state": "stand-in",
+    "why": "place-mornington-01.webp is a generic place image"
+   },
+   "action": "replace hero",
+   "candidates": 7,
+   "heroPick": [
+    {
+     "assetKey": "vv-159175",
+     "file": "Bass and Flinders Distillery_159175.jpg",
+     "size": "8192x5464",
+     "credit": "Photo: TWO PALMS AUSTRALIA, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2022-05-02",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-159194",
+     "file": "Bass and Flinders Distillery_159194.jpg",
+     "size": "8192x5464",
+     "credit": "Photo: TWO PALMS AUSTRALIA, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2022-05-02",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-159181",
+     "file": "Bass and Flinders Distillery_159181.jpg",
+     "size": "7565x5046",
+     "credit": "Photo: TWO PALMS AUSTRALIA, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2022-05-02",
+     "how": "alias"
+    }
+   ],
+   "galleryPool": [
+    "vv-159193",
+    "vv-159170",
+    "vv-159186",
+    "vv-159202"
+   ],
+   "note": "Live pages may show a CMS image override (pi.cms_image_slots) instead of this JSON hero. Check before applying."
+  },
+  {
+   "entity": "venues/crittenden-estate",
+   "name": "Crittenden Estate",
+   "place": "dromana",
+   "currentHeroSrc": "/images/sourced/place-dromana-01.webp",
+   "currentHero": {
+    "state": "stand-in",
+    "why": "place-dromana-01.webp is a generic place image"
+   },
+   "action": "replace hero",
+   "candidates": 29,
+   "heroPick": [
+    {
+     "assetKey": "vv-164273",
+     "file": "Crittenden Estate Cellar Door_164273.jpg",
+     "size": "8107x5407",
+     "credit": "Photo courtesy of Visit Victoria",
+     "people": "unknown",
+     "date": null,
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-164290",
+     "file": "Crittenden Estate Cellar Door_164290.jpg",
+     "size": "8113x5411",
+     "credit": "Photo courtesy of Visit Victoria",
+     "people": "unknown",
+     "date": null,
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-164672",
+     "file": "Crittenden Estate_164672.jpg",
+     "size": "8034x5359",
+     "credit": "Photo courtesy of Visit Victoria",
+     "people": "unknown",
+     "date": null,
+     "how": "alias"
+    }
+   ],
+   "galleryPool": [
+    "vv-164673",
+    "vv-164676",
+    "vv-164684",
+    "vv-164692",
+    "vv-164669",
+    "vv-164708"
+   ],
+   "note": "Live pages may show a CMS image override (pi.cms_image_slots) instead of this JSON hero. Check before applying."
+  },
+  {
+   "entity": "venues/green-olive-red-hill",
+   "name": "Green Olive at Red Hill",
+   "place": "red-hill",
+   "currentHeroSrc": "/images/sourced/place-red-hill-01.webp",
+   "currentHero": {
+    "state": "stand-in",
+    "why": "place-red-hill-01.webp is a generic place image"
+   },
+   "action": "replace hero",
+   "candidates": 14,
+   "heroPick": [
+    {
+     "assetKey": "vv-160006",
+     "file": "Green Olive at Red Hill_160006.jpg",
+     "size": "8192x5464",
+     "credit": "Photo: TWO PALMS AUSTRALIA, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2022-04-26",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-160028",
+     "file": "Green Olive at Red Hill_160028.jpg",
+     "size": "8192x5464",
+     "credit": "Photo: TWO PALMS AUSTRALIA, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2022-04-26",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-160030",
+     "file": "Green Olive at Red Hill_160030.jpg",
+     "size": "8134x5425",
+     "credit": "Photo: TWO PALMS AUSTRALIA, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2022-04-26",
+     "how": "alias"
+    }
+   ],
+   "galleryPool": [
+    "vv-160029",
+    "vv-160036",
+    "vv-160021",
+    "vv-160000",
+    "vv-160025",
+    "vv-160008"
+   ],
+   "note": "Live pages may show a CMS image override (pi.cms_image_slots) instead of this JSON hero. Check before applying."
+  },
+  {
+   "entity": "venues/jackalope",
+   "name": "Jackalope Hotel",
+   "place": "red-hill",
+   "currentHeroSrc": "/images/sourced/venue-jackalope-hotel-01.webp",
+   "currentHero": {
+    "state": "uncleared",
+    "why": "licence tmp-unsplash"
+   },
+   "action": "replace hero",
+   "candidates": 42,
+   "heroPick": [
+    {
+     "assetKey": "vv-26070117",
+     "file": "Jackalope Hotel 26070117.jpg",
+     "size": "6000x4000",
+     "credit": "Photo: Peter Foster, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2026-07-01",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-26070116",
+     "file": "Jackalope Hotel 26070116.jpg",
+     "size": "5995x3997",
+     "credit": "Photo: Peter Foster, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2026-07-01",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-26070112",
+     "file": "Jackalope Hotel 26070112.jpg",
+     "size": "5954x3970",
+     "credit": "Photo: Peter Foster, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2026-07-01",
+     "how": "alias"
+    }
+   ],
+   "galleryPool": [
+    "vv-26070114",
+    "vv-26070118",
+    "vv-26070111",
+    "vv-26070113",
+    "vv-26070110",
+    "vv-26070115"
+   ],
+   "note": "Live pages may show a CMS image override (pi.cms_image_slots) instead of this JSON hero. Check before applying."
+  },
+  {
+   "entity": "venues/lindenderry",
+   "name": "Lindenderry at Red Hill",
+   "place": "red-hill",
+   "currentHeroSrc": "/images/sourced/venue-lindenderry-01.webp",
+   "currentHero": {
+    "state": "uncleared",
+    "why": "licence tmp-unsplash"
+   },
+   "action": "replace hero",
+   "candidates": 20,
+   "heroPick": [
+    {
+     "assetKey": "vv-25061209",
+     "file": "Lancemore Lindenderry Red Hill 25061209.jpg",
+     "size": "6000x4000",
+     "credit": "Photo: Peter Foster, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2025-06-12",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-25061210",
+     "file": "Lancemore Lindenderry Red Hill 25061210.jpg",
+     "size": "6000x4000",
+     "credit": "Photo: Peter Foster, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2025-06-12",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-25061212",
+     "file": "Lancemore Lindenderry Red Hill 25061212.jpg",
+     "size": "6000x4000",
+     "credit": "Photo: Peter Foster, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2025-06-12",
+     "how": "alias"
+    }
+   ],
+   "galleryPool": [
+    "vv-25061224",
+    "vv-25061214",
+    "vv-25061218",
+    "vv-25061222",
+    "vv-25061217",
+    "vv-25061220"
+   ],
+   "note": "Live pages may show a CMS image override (pi.cms_image_slots) instead of this JSON hero. Check before applying."
+  },
+  {
+   "entity": "venues/merricks-general-wine-store",
+   "name": "Merricks General Wine Store",
+   "place": "merricks",
+   "currentHeroSrc": "/images/sourced/place-merricks-01.webp",
+   "currentHero": {
+    "state": "stand-in",
+    "why": "place-merricks-01.webp is a generic place image"
+   },
+   "action": "replace hero",
+   "candidates": 13,
+   "heroPick": [
+    {
+     "assetKey": "vv-25061243",
+     "file": "Merricks General Wine Store 25061243.jpg",
+     "size": "6000x4000",
+     "credit": "Photo: Peter Foster, courtesy of Visit Victoria",
+     "people": "yes",
+     "date": "2025-06-13",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-25061236",
+     "file": "Merricks General Wine Store 25061236.jpg",
+     "size": "5918x3945",
+     "credit": "Photo: Peter Foster, courtesy of Visit Victoria",
+     "people": "yes",
+     "date": "2025-06-13",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-25061239",
+     "file": "Merricks General Wine Store 25061239.jpg",
+     "size": "5846x3897",
+     "credit": "Photo: Peter Foster, courtesy of Visit Victoria",
+     "people": "yes",
+     "date": "2025-06-13",
+     "how": "alias"
+    }
+   ],
+   "galleryPool": [
+    "vv-25061244",
+    "vv-25061237",
+    "vv-25061238",
+    "vv-25061231",
+    "vv-25061240",
+    "vv-25061232"
+   ],
+   "note": "Live pages may show a CMS image override (pi.cms_image_slots) instead of this JSON hero. Check before applying."
+  },
+  {
+   "entity": "venues/montalto",
+   "name": "Montalto Vineyard & Olive Grove",
+   "place": "red-hill",
+   "currentHeroSrc": "/images/sourced/venue-montalto-banner-01.webp",
+   "currentHero": {
+    "state": "wrong-subject",
+    "why": "byte-identical to place-red-hill-01"
+   },
+   "action": "replace hero",
+   "candidates": 31,
+   "heroPick": [
+    {
+     "assetKey": "vv-160356",
+     "file": "Montalto_160356.jpg",
+     "size": "8000x5336",
+     "credit": "Photo: TWO PALMS AUSTRALIA, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2022-05-02",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-160358",
+     "file": "Montalto_160358.jpg",
+     "size": "8077x5387",
+     "credit": "Photo: TWO PALMS AUSTRALIA, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2022-05-02",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-160359",
+     "file": "Montalto_160359.jpg",
+     "size": "8029x5355",
+     "credit": "Photo: TWO PALMS AUSTRALIA, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2022-05-02",
+     "how": "alias"
+    }
+   ],
+   "galleryPool": [
+    "vv-160363",
+    "vv-160365",
+    "vv-160371",
+    "vv-160384",
+    "vv-160391",
+    "vv-160375"
+   ],
+   "note": "Live pages may show a CMS image override (pi.cms_image_slots) instead of this JSON hero. Check before applying."
+  },
+  {
+   "entity": "venues/mornington-farmers-market",
+   "name": "Mornington Farmers' Market",
+   "place": "mornington",
+   "currentHeroSrc": "/images/sourced/place-mornington-01.webp",
+   "currentHero": {
+    "state": "stand-in",
+    "why": "place-mornington-01.webp is a generic place image"
+   },
+   "action": "replace hero",
+   "candidates": 15,
+   "heroPick": [
+    {
+     "assetKey": "vv-143096",
+     "file": "Produce at Mornington Farmers Market_143096.jpg",
+     "size": "5600x3738",
+     "credit": "Photo courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2017-02-22",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-143098",
+     "file": "Produce at Mornington Farmers Market_143098.jpg",
+     "size": "5600x3738",
+     "credit": "Photo courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2017-02-22",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-143102",
+     "file": "Produce at Mornington Farmers Market_143102.jpg",
+     "size": "5600x3738",
+     "credit": "Photo courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2017-02-22",
+     "how": "alias"
+    }
+   ],
+   "galleryPool": [
+    "vv-143104",
+    "vv-143108",
+    "vv-143116",
+    "vv-143122",
+    "vv-143094",
+    "vv-143119"
+   ],
+   "note": "Live pages may show a CMS image override (pi.cms_image_slots) instead of this JSON hero. Check before applying."
+  },
+  {
+   "entity": "venues/ocean-eight",
+   "name": "Ocean Eight Vineyard",
+   "place": "main-ridge",
+   "currentHeroSrc": "/images/sourced/place-main-ridge-01.webp",
+   "currentHero": {
+    "state": "stand-in",
+    "why": "place-main-ridge-01.webp is a generic place image"
+   },
+   "action": "replace hero",
+   "candidates": 7,
+   "heroPick": [
+    {
+     "assetKey": "vv-159902",
+     "file": "Grape Explorations Australia - Ocean Eight Vineyard_159902.jpg",
+     "size": "8034x5359",
+     "credit": "Photo: TWO PALMS AUSTRALIA, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2022-05-02",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-159905",
+     "file": "Grape Explorations Australia - Ocean Eight Vineyard_159905.jpg",
+     "size": "7519x5015",
+     "credit": "Photo: TWO PALMS AUSTRALIA, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2022-05-02",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-159889",
+     "file": "Grape Explorations Australia - Ocean Eight_159889.jpg",
+     "size": "6000x4000",
+     "credit": "Photo: TWO PALMS AUSTRALIA, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2022-05-02",
+     "how": "alias"
+    }
+   ],
+   "galleryPool": [
+    "vv-159887",
+    "vv-159894",
+    "vv-159891",
+    "vv-159890"
+   ],
+   "note": "Live pages may show a CMS image override (pi.cms_image_slots) instead of this JSON hero. Check before applying."
+  },
+  {
+   "entity": "venues/rare-hare",
+   "name": "Rare Hare at Willow Creek",
+   "place": "merricks",
+   "currentHeroSrc": "/images/sourced/venue-jackalope-hotel-01.webp",
+   "currentHero": {
+    "state": "wrong-subject",
+    "why": "shows the Jackalope hotel, not Rare Hare"
+   },
+   "action": "replace hero",
+   "candidates": 23,
+   "heroPick": [
+    {
+     "assetKey": "vv-161950",
+     "file": "Rare Hare Wine and Foodstore_161950.jpg",
+     "size": "8010x5340",
+     "credit": "Photo courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2022-06-17",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-161952",
+     "file": "Rare Hare Wine and Foodstore_161952.jpg",
+     "size": "8278x5519",
+     "credit": "Photo courtesy of Visit Victoria",
+     "people": "yes",
+     "date": "2022-06-17",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-161953",
+     "file": "Rare Hare Wine and Foodstore_161953.jpg",
+     "size": "8531x5687",
+     "credit": "Photo courtesy of Visit Victoria",
+     "people": "yes",
+     "date": "2022-06-17",
+     "how": "alias"
+    }
+   ],
+   "galleryPool": [
+    "vv-161954",
+    "vv-161955",
+    "vv-161965",
+    "vv-161946",
+    "vv-161947",
+    "vv-161951"
+   ],
+   "note": "Live pages may show a CMS image override (pi.cms_image_slots) instead of this JSON hero. Check before applying."
+  },
+  {
+   "entity": "venues/red-gum-bbq",
+   "name": "Red Gum BBQ",
+   "place": "red-hill",
+   "currentHeroSrc": "/images/sourced/place-red-hill-01.webp",
+   "currentHero": {
+    "state": "stand-in",
+    "why": "place-red-hill-01.webp is a generic place image"
+   },
+   "action": "replace hero",
+   "candidates": 7,
+   "heroPick": [
+    {
+     "assetKey": "vv-161021",
+     "file": "Red Gum BBQ_161021.jpg",
+     "size": "8192x5464",
+     "credit": "Photo: TWO PALMS AUSTRALIA, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2022-05-05",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-161029",
+     "file": "Red Gum BBQ_161029.jpg",
+     "size": "8192x5464",
+     "credit": "Photo: TWO PALMS AUSTRALIA, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2022-05-05",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-161006",
+     "file": "Red Gum BBQ_161006.jpg",
+     "size": "7551x5036",
+     "credit": "Photo: TWO PALMS AUSTRALIA, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2022-05-05",
+     "how": "alias"
+    }
+   ],
+   "galleryPool": [
+    "vv-161024",
+    "vv-161018",
+    "vv-161007",
+    "vv-161027"
+   ],
+   "note": "Live pages may show a CMS image override (pi.cms_image_slots) instead of this JSON hero. Check before applying."
+  },
+  {
+   "entity": "venues/red-hill-brewery",
+   "name": "Red Hill Brewery",
+   "place": "red-hill",
+   "currentHeroSrc": "/images/sourced/place-red-hill-01.webp",
+   "currentHero": {
+    "state": "stand-in",
+    "why": "place-red-hill-01.webp is a generic place image"
+   },
+   "action": "replace hero",
+   "candidates": 6,
+   "heroPick": [
+    {
+     "assetKey": "vv-143785",
+     "file": "Red Hill Brewery_143785.jpg",
+     "size": "5760x3840",
+     "credit": "Photo: Peter Tarasiuk, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": null,
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-143828",
+     "file": "Red Hill Brewery_143828.jpg",
+     "size": "5730x3820",
+     "credit": "Photo: Peter Tarasiuk, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": null,
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-143823",
+     "file": "Red Hill Brewery_143823.jpg",
+     "size": "5669x3780",
+     "credit": "Photo: Peter Tarasiuk, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": null,
+     "how": "alias"
+    }
+   ],
+   "galleryPool": [
+    "vv-143824",
+    "vv-143825",
+    "vv-143827"
+   ],
+   "note": "Live pages may show a CMS image override (pi.cms_image_slots) instead of this JSON hero. Check before applying."
+  },
+  {
+   "entity": "venues/st-andrews-beach-brewery",
+   "name": "St Andrews Beach Brewery",
+   "place": "rye",
+   "currentHeroSrc": "/images/sourced/explore-rye-ocean-beach-01.webp",
+   "currentHero": {
+    "state": "stand-in",
+    "why": "explore-rye-ocean-beach-01.webp is a generic explore image"
+   },
+   "action": "replace hero",
+   "candidates": 9,
+   "heroPick": [
+    {
+     "assetKey": "vv-168568",
+     "file": "St Andrews Beach Brewery_168568.jpg",
+     "size": "8045x5366",
+     "credit": "Photo courtesy of Visit Victoria",
+     "people": "unknown",
+     "date": null,
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-168572",
+     "file": "St Andrews Beach Brewery_168572.jpg",
+     "size": "7565x5046",
+     "credit": "Photo courtesy of Visit Victoria",
+     "people": "unknown",
+     "date": null,
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-168556",
+     "file": "St Andrews Beach Brewery_168556.jpg",
+     "size": "7412x4944",
+     "credit": "Photo courtesy of Visit Victoria",
+     "people": "unknown",
+     "date": null,
+     "how": "alias"
+    }
+   ],
+   "galleryPool": [
+    "vv-168546",
+    "vv-168565",
+    "vv-168570",
+    "vv-168575",
+    "vv-168552",
+    "vv-168545"
+   ],
+   "note": "Live pages may show a CMS image override (pi.cms_image_slots) instead of this JSON hero. Check before applying."
+  },
+  {
+   "entity": "venues/trofeo-estate",
+   "name": "Trofeo Estate",
+   "place": "dromana",
+   "currentHeroSrc": "/images/sourced/place-dromana-01.webp",
+   "currentHero": {
+    "state": "stand-in",
+    "why": "place-dromana-01.webp is a generic place image"
+   },
+   "action": "replace hero",
+   "candidates": 19,
+   "heroPick": [
+    {
+     "assetKey": "vv-169287",
+     "file": "Trofeo Estate_169287.jpg",
+     "size": "8192x5464",
+     "credit": "Photo courtesy of Visit Victoria",
+     "people": "unknown",
+     "date": null,
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-169294",
+     "file": "Trofeo Estate_169294.jpg",
+     "size": "8107x5407",
+     "credit": "Photo courtesy of Visit Victoria",
+     "people": "unknown",
+     "date": null,
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-169303",
+     "file": "Trofeo Estate_169303.jpg",
+     "size": "8079x5389",
+     "credit": "Photo courtesy of Visit Victoria",
+     "people": "unknown",
+     "date": null,
+     "how": "alias"
+    }
+   ],
+   "galleryPool": [
+    "vv-169310",
+    "vv-169289",
+    "vv-169319",
+    "vv-169311",
+    "vv-169307",
+    "vv-169308"
+   ],
+   "note": "Live pages may show a CMS image override (pi.cms_image_slots) instead of this JSON hero. Check before applying."
+  },
+  {
+   "entity": "places/cape-schanck",
+   "name": "Cape Schanck",
+   "place": "Flinders & the Ocean Coast",
+   "currentHeroSrc": "/images/sourced/place-cape-schanck-01.webp",
+   "currentHero": {
+    "state": "own-image",
+    "why": "place-cape-schanck-01.webp (wikimedia-cc-by-sa)"
+   },
+   "action": "review: already has own image; offer as gallery or upgrade",
+   "candidates": 12,
+   "heroPick": [
+    {
+     "assetKey": "vv-161980",
+     "file": "Cape Schanck Boardwalk_161980.jpg",
+     "size": "8485x5657",
+     "credit": "Photo courtesy of Visit Victoria",
+     "people": "yes",
+     "date": "2022-06-18",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-161981",
+     "file": "Cape Schanck Boardwalk_161981.jpg",
+     "size": "8640x5760",
+     "credit": "Photo courtesy of Visit Victoria",
+     "people": "yes",
+     "date": "2022-06-18",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-161983",
+     "file": "Cape Schanck Boardwalk_161983.jpg",
+     "size": "8215x5477",
+     "credit": "Photo courtesy of Visit Victoria",
+     "people": "yes",
+     "date": "2022-06-18",
+     "how": "alias"
+    }
+   ],
+   "galleryPool": [
+    "vv-161977",
+    "vv-161976",
+    "vv-161978",
+    "vv-161979",
+    "vv-143808",
+    "vv-143799"
+   ],
+   "note": "Live pages may show a CMS image override (pi.cms_image_slots) instead of this JSON hero. Check before applying."
+  },
+  {
+   "entity": "places/mornington",
+   "name": "Mornington",
+   "place": "Mornington & the Bay",
+   "currentHeroSrc": "/images/sourced/place-mornington-01.webp",
+   "currentHero": {
+    "state": "own-image",
+    "why": "place-mornington-01.webp (wikimedia-cc-by)"
+   },
+   "action": "review: already has own image; offer as gallery or upgrade",
+   "candidates": 7,
+   "heroPick": [
+    {
+     "assetKey": "vv-163841",
+     "file": "Bathing Boxes at Mornington_163841.jpg",
+     "size": "8256x5504",
+     "credit": "Photo courtesy of Visit Victoria",
+     "people": "yes",
+     "date": "2023-03-14",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-163846",
+     "file": "Bathing Boxes at Mornington_163846.jpg",
+     "size": "8103x5402",
+     "credit": "Photo courtesy of Visit Victoria",
+     "people": "yes",
+     "date": "2023-03-14",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-163844",
+     "file": "Bathing Boxes at Mornington_163844.jpg",
+     "size": "7491x4994",
+     "credit": "Photo courtesy of Visit Victoria",
+     "people": "yes",
+     "date": "2023-03-14",
+     "how": "alias"
+    }
+   ],
+   "galleryPool": [
+    "vv-162001",
+    "vv-162002",
+    "vv-161999",
+    "vv-162000"
+   ],
+   "note": "Live pages may show a CMS image override (pi.cms_image_slots) instead of this JSON hero. Check before applying."
+  },
+  {
+   "entity": "places/point-nepean",
+   "name": "Point Nepean",
+   "place": "Sorrento & Portsea",
+   "currentHeroSrc": "/images/sourced/place-point-nepean-01.webp",
+   "currentHero": {
+    "state": "own-image",
+    "why": "place-point-nepean-01.webp (wikimedia-cc-by-sa)"
+   },
+   "action": "review: already has own image; offer as gallery or upgrade",
+   "candidates": 22,
+   "heroPick": [
+    {
+     "assetKey": "vv-164529",
+     "file": "Bike Riding at Point Nepean_164529.jpg",
+     "size": "8256x5504",
+     "credit": "Photo: Jesse Hisco, courtesy of Visit Victoria",
+     "people": "yes",
+     "date": "2023-03-14",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-164530",
+     "file": "Bike Riding at Point Nepean_164530.jpg",
+     "size": "8256x5504",
+     "credit": "Photo: Jesse Hisco, courtesy of Visit Victoria",
+     "people": "yes",
+     "date": "2023-03-14",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-164533",
+     "file": "Bike Riding at Point Nepean_164533.jpg",
+     "size": "8096x5397",
+     "credit": "Photo: Jesse Hisco, courtesy of Visit Victoria",
+     "people": "yes",
+     "date": "2023-03-14",
+     "how": "alias"
+    }
+   ],
+   "galleryPool": [
+    "vv-164537",
+    "vv-164536",
+    "vv-164538",
+    "vv-164534",
+    "vv-164528",
+    "vv-164535"
+   ],
+   "note": "Live pages may show a CMS image override (pi.cms_image_slots) instead of this JSON hero. Check before applying."
+  },
+  {
+   "entity": "places/portsea",
+   "name": "Portsea",
+   "place": "Sorrento & Portsea",
+   "currentHeroSrc": "/images/sourced/place-portsea-01.webp",
+   "currentHero": {
+    "state": "own-image",
+    "why": "place-portsea-01.webp (wikimedia-cc-by-sa)"
+   },
+   "action": "review: already has own image; offer as gallery or upgrade",
+   "candidates": 9,
+   "heroPick": [
+    {
+     "assetKey": "vv-131853",
+     "file": "London Bridge, Mornington Peninsula_131853.jpg",
+     "size": "6000x4004",
+     "credit": "Photo: Robert Blackburn, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": null,
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-131830",
+     "file": "Portsea Pier, Mornington Peninsula_131830.jpg",
+     "size": "6000x4004",
+     "credit": "Photo: Robert Blackburn, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": null,
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-131832",
+     "file": "Portsea Pier, Mornington Peninsula_131832.jpg",
+     "size": "6000x4004",
+     "credit": "Photo: Robert Blackburn, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": null,
+     "how": "alias"
+    }
+   ],
+   "galleryPool": [
+    "vv-131852",
+    "vv-131854",
+    "vv-131855",
+    "vv-131856",
+    "vv-131857",
+    "vv-131833"
+   ],
+   "note": "Live pages may show a CMS image override (pi.cms_image_slots) instead of this JSON hero. Check before applying."
+  },
+  {
+   "entity": "places/sorrento",
+   "name": "Sorrento",
+   "place": "Sorrento & Portsea",
+   "currentHeroSrc": "/images/sourced/place-sorrento-01.webp",
+   "currentHero": {
+    "state": "own-image",
+    "why": "place-sorrento-01.webp (wikimedia-cc0)"
+   },
+   "action": "review: already has own image; offer as gallery or upgrade",
+   "candidates": 25,
+   "heroPick": [
+    {
+     "assetKey": "vv-163880",
+     "file": "Millionaire's Walk_163880.jpg",
+     "size": "8256x5504",
+     "credit": "Photo courtesy of Visit Victoria",
+     "people": "unknown",
+     "date": "2023-03-13",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-163881",
+     "file": "Millionaire's Walk_163881.jpg",
+     "size": "8256x5504",
+     "credit": "Photo courtesy of Visit Victoria",
+     "people": "unknown",
+     "date": "2023-03-13",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-163882",
+     "file": "Millionaire's Walk_163882.jpg",
+     "size": "8256x5504",
+     "credit": "Photo courtesy of Visit Victoria",
+     "people": "unknown",
+     "date": "2023-03-13",
+     "how": "alias"
+    }
+   ],
+   "galleryPool": [
+    "vv-163884",
+    "vv-164515",
+    "vv-164522",
+    "vv-164523",
+    "vv-164526",
+    "vv-163876"
+   ],
+   "note": "Live pages may show a CMS image override (pi.cms_image_slots) instead of this JSON hero. Check before applying."
+  },
+  {
+   "entity": "tour-operators/polperro-dolphin-swims",
+   "name": "Polperro Dolphin Swims",
+   "place": null,
+   "currentHeroSrc": "/images/sourced/venue-polperro-sorrento-pier-01.webp",
+   "currentHero": {
+    "state": "own-image",
+    "why": "venue-polperro-sorrento-pier-01.webp (venue-media-kit)"
+   },
+   "action": "review: already has own image; offer as gallery or upgrade",
+   "candidates": 17,
+   "heroPick": [
+    {
+     "assetKey": "vv-160926",
+     "file": "Polperro Dolphin Swims_160926.jpg",
+     "size": "8219x5479",
+     "credit": "Photo: TWO PALMS AUSTRALIA, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2022-04-27",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-160928",
+     "file": "Polperro Dolphin Swims_160928.jpg",
+     "size": "8271x5514",
+     "credit": "Photo: TWO PALMS AUSTRALIA, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2022-04-27",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-160927",
+     "file": "Polperro Dolphin Swims_160927.jpg",
+     "size": "6985x4657",
+     "credit": "Photo: TWO PALMS AUSTRALIA, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2022-04-27",
+     "how": "alias"
+    }
+   ],
+   "galleryPool": [
+    "vv-160925",
+    "vv-160929",
+    "vv-160944",
+    "vv-160947",
+    "vv-160941",
+    "vv-160946"
+   ],
+   "note": "Live pages may show a CMS image override (pi.cms_image_slots) instead of this JSON hero. Check before applying."
+  },
+  {
+   "entity": "tours/arthurs-seat-eagle-gondola",
+   "name": "Arthurs Seat Eagle Gondola Ride",
+   "place": null,
+   "currentHeroSrc": "/images/sourced/explore-cape-schanck-boardwalk-01.webp",
+   "currentHero": {
+    "state": "own-image",
+    "why": "explore-cape-schanck-boardwalk-01.webp (venue-media-kit)"
+   },
+   "action": "review: already has own image; offer as gallery or upgrade",
+   "candidates": 9,
+   "heroPick": [
+    {
+     "assetKey": "vv-167085",
+     "file": "Arthurs Seat Eagle_167085.jpg",
+     "size": "8401x5601",
+     "credit": "Photo courtesy of Visit Victoria",
+     "people": "unknown",
+     "date": null,
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-167058",
+     "file": "Arthurs Seat Eagle_167058.jpg",
+     "size": "7413x4942",
+     "credit": "Photo courtesy of Visit Victoria",
+     "people": "unknown",
+     "date": null,
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-143811",
+     "file": "Arthurs Seat cable car_143811.jpg",
+     "size": "5642x3762",
+     "credit": "Photo: Peter Tarasiuk, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": null,
+     "how": "alias"
+    }
+   ],
+   "galleryPool": [
+    "vv-167077",
+    "vv-167059",
+    "vv-167061",
+    "vv-167084",
+    "vv-147209",
+    "vv-167075"
+   ],
+   "note": "Live pages may show a CMS image override (pi.cms_image_slots) instead of this JSON hero. Check before applying."
+  },
+  {
+   "entity": "tours/polperro-dolphin-swim",
+   "name": "Polperro Dolphin Swim",
+   "place": null,
+   "currentHeroSrc": "/images/sourced/place-sorrento-01.webp",
+   "currentHero": {
+    "state": "own-image",
+    "why": "place-sorrento-01.webp (venue-media-kit)"
+   },
+   "action": "review: already has own image; offer as gallery or upgrade",
+   "candidates": 17,
+   "heroPick": [
+    {
+     "assetKey": "vv-160926",
+     "file": "Polperro Dolphin Swims_160926.jpg",
+     "size": "8219x5479",
+     "credit": "Photo: TWO PALMS AUSTRALIA, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2022-04-27",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-160928",
+     "file": "Polperro Dolphin Swims_160928.jpg",
+     "size": "8271x5514",
+     "credit": "Photo: TWO PALMS AUSTRALIA, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2022-04-27",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-160927",
+     "file": "Polperro Dolphin Swims_160927.jpg",
+     "size": "6985x4657",
+     "credit": "Photo: TWO PALMS AUSTRALIA, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2022-04-27",
+     "how": "alias"
+    }
+   ],
+   "galleryPool": [
+    "vv-160925",
+    "vv-160929",
+    "vv-160944",
+    "vv-160947",
+    "vv-160941",
+    "vv-160946"
+   ],
+   "note": "Live pages may show a CMS image override (pi.cms_image_slots) instead of this JSON hero. Check before applying."
+  },
+  {
+   "entity": "venues/alba-thermal-springs",
+   "name": "Alba Thermal Springs & Spa",
+   "place": "fingal",
+   "currentHeroSrc": "/images/sourced/spa-alba-thermal-springs-01.webp",
+   "currentHero": {
+    "state": "own-image",
+    "why": "spa-alba-thermal-springs-01.webp (venue-media-kit)"
+   },
+   "action": "review: already has own image; offer as gallery or upgrade",
+   "candidates": 42,
+   "heroPick": [
+    {
+     "assetKey": "vv-172661",
+     "file": "Alba Thermal Springs and Spa_172661.jpg",
+     "size": "9504x5575",
+     "credit": "Photo courtesy of Visit Victoria",
+     "people": "unknown",
+     "date": "2024-07-23",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-163798",
+     "file": "Alba Thermal Springs_163798.jpg",
+     "size": "8256x5504",
+     "credit": "Photo courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2023-03-16",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-163802",
+     "file": "Alba Thermal Springs_163802.jpg",
+     "size": "8256x5504",
+     "credit": "Photo courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2023-03-16",
+     "how": "alias"
+    }
+   ],
+   "galleryPool": [
+    "vv-163803",
+    "vv-163804",
+    "vv-163805",
+    "vv-163808",
+    "vv-163810",
+    "vv-163811"
+   ],
+   "note": "Live pages may show a CMS image override (pi.cms_image_slots) instead of this JSON hero. Check before applying."
+  },
+  {
+   "entity": "venues/avani-wines",
+   "name": "Avani Wines",
+   "place": "red-hill",
+   "currentHeroSrc": "/images/sourced/venue-avani-wines-01.jpg",
+   "currentHero": {
+    "state": "own-image",
+    "why": "venue-avani-wines-01.jpg (other-licensed)"
+   },
+   "action": "review: already has own image; offer as gallery or upgrade",
+   "candidates": 5,
+   "heroPick": [
+    {
+     "assetKey": "vv-26070138",
+     "file": "Avani Winery 26070138.jpg",
+     "size": "5920x3947",
+     "credit": "Photo: Peter Foster, courtesy of Visit Victoria",
+     "people": "yes",
+     "date": "2026-07-02",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-26070140",
+     "file": "Avani Winery 26070140.jpg",
+     "size": "5882x3921",
+     "credit": "Photo: Peter Foster, courtesy of Visit Victoria",
+     "people": "yes",
+     "date": "2026-07-02",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-26070137",
+     "file": "Avani Winery 26070137.jpg",
+     "size": "5684x3789",
+     "credit": "Photo: Peter Foster, courtesy of Visit Victoria",
+     "people": "yes",
+     "date": "2026-07-02",
+     "how": "alias"
+    }
+   ],
+   "galleryPool": [
+    "vv-26070139",
+    "vv-26070136"
+   ],
+   "note": "Live pages may show a CMS image override (pi.cms_image_slots) instead of this JSON hero. Check before applying."
+  },
+  {
+   "entity": "venues/epicurean-red-hill",
+   "name": "The Epicurean",
+   "place": "red-hill",
+   "currentHeroSrc": "/images/sourced/eat-epicurean-red-hill-01.webp",
+   "currentHero": {
+    "state": "own-image",
+    "why": "eat-epicurean-red-hill-01.webp (other-licensed)"
+   },
+   "action": "review: already has own image; offer as gallery or upgrade",
+   "candidates": 5,
+   "heroPick": [
+    {
+     "assetKey": "vv-25061226",
+     "file": "The Epicurian - Red Hill 25061226.jpg",
+     "size": "6000x4000",
+     "credit": "Photo: Peter Foster, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2025-06-13",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-25061225",
+     "file": "The Epicurian - Red Hill 25061225.jpg",
+     "size": "5965x3977",
+     "credit": "Photo: Peter Foster, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2025-06-13",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-143765",
+     "file": "Epicurean - Red Hill_143765.jpg",
+     "size": "5730x3820",
+     "credit": "Photo: Peter Tarasiuk, courtesy of Visit Victoria",
+     "people": "yes",
+     "date": "2017-02-10",
+     "how": "alias"
+    }
+   ],
+   "galleryPool": [
+    "vv-143764",
+    "vv-143820"
+   ],
+   "note": "Live pages may show a CMS image override (pi.cms_image_slots) instead of this JSON hero. Check before applying."
+  },
+  {
+   "entity": "venues/paringa-estate",
+   "name": "Paringa Estate",
+   "place": "red-hill",
+   "currentHeroSrc": "/images/sourced/venue-paringa-estate-01.webp",
+   "currentHero": {
+    "state": "own-image",
+    "why": "venue-paringa-estate-01.webp (venue-media-kit)"
+   },
+   "action": "review: already has own image; offer as gallery or upgrade",
+   "candidates": 7,
+   "heroPick": [
+    {
+     "assetKey": "vv-143149",
+     "file": "Paringa Estate, Mornington Peninsula_143149.jpg",
+     "size": "5600x3738",
+     "credit": "Photo courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2017-02-22",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-143155",
+     "file": "Paringa Estate, Mornington Peninsula_143155.jpg",
+     "size": "5600x3738",
+     "credit": "Photo courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2017-02-22",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-143152",
+     "file": "Paringa Estate, Mornington Peninsula_143152.jpg",
+     "size": "5600x3738",
+     "credit": "Photo: Robert Blackburn, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": null,
+     "how": "alias"
+    }
+   ],
+   "galleryPool": [
+    "vv-143157",
+    "vv-143068",
+    "vv-143069",
+    "vv-143071"
+   ],
+   "note": "Live pages may show a CMS image override (pi.cms_image_slots) instead of this JSON hero. Check before applying."
+  },
+  {
+   "entity": "venues/peninsula-hot-springs",
+   "name": "Peninsula Hot Springs",
+   "place": "cape-schanck",
+   "currentHeroSrc": "/images/sourced/spa-peninsula-hot-springs-hilltop-01.webp",
+   "currentHero": {
+    "state": "own-image",
+    "why": "spa-peninsula-hot-springs-hilltop-01.webp (venue-media-kit)"
+   },
+   "action": "review: already has own image; offer as gallery or upgrade",
+   "candidates": 60,
+   "heroPick": [
+    {
+     "assetKey": "vv-160847",
+     "file": "Peninsula Hot Springs_160847.jpg",
+     "size": "8192x5464",
+     "credit": "Photo: TWO PALMS AUSTRALIA, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2022-05-02",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-160851",
+     "file": "Peninsula Hot Springs_160851.jpg",
+     "size": "8192x5464",
+     "credit": "Photo: TWO PALMS AUSTRALIA, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2022-05-02",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-160855",
+     "file": "Peninsula Hot Springs_160855.jpg",
+     "size": "8133x5425",
+     "credit": "Photo: TWO PALMS AUSTRALIA, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2022-05-02",
+     "how": "alias"
+    }
+   ],
+   "galleryPool": [
+    "vv-160868",
+    "vv-161940",
+    "vv-161941",
+    "vv-161942",
+    "vv-161943",
+    "vv-161945"
+   ],
+   "note": "Live pages may show a CMS image override (pi.cms_image_slots) instead of this JSON hero. Check before applying."
+  },
+  {
+   "entity": "venues/peninsula-hot-springs-eco-lodges",
+   "name": "Peninsula Hot Springs Eco Lodges",
+   "place": "fingal",
+   "currentHeroSrc": "/images/sourced/spa-peninsula-hot-springs-hilltop-01.webp",
+   "currentHero": {
+    "state": "own-image",
+    "why": "spa-peninsula-hot-springs-hilltop-01.webp (venue-media-kit)"
+   },
+   "action": "review: already has own image; offer as gallery or upgrade",
+   "candidates": 7,
+   "heroPick": [
+    {
+     "assetKey": "vv-172319",
+     "file": "Eco Lodges - Peninsula Hot Springs_172319.jpg",
+     "size": "5255x3503",
+     "credit": "Photo courtesy of Visit Victoria",
+     "people": "unknown",
+     "date": "2024-09-04",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-172320",
+     "file": "Eco Lodges - Peninsula Hot Springs_172320.jpg",
+     "size": "6660x4440",
+     "credit": "Photo courtesy of Visit Victoria",
+     "people": "unknown",
+     "date": "2020-06-03",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-172322",
+     "file": "Eco Lodges - Peninsula Hot Springs_172322.jpg",
+     "size": "6439x4293",
+     "credit": "Photo courtesy of Visit Victoria",
+     "people": "unknown",
+     "date": "2020-06-05",
+     "how": "alias"
+    }
+   ],
+   "galleryPool": [
+    "vv-172323",
+    "vv-172321",
+    "vv-172318",
+    "vv-172317"
+   ],
+   "note": "Live pages may show a CMS image override (pi.cms_image_slots) instead of this JSON hero. Check before applying."
+  },
+  {
+   "entity": "venues/polperro",
+   "name": "Polperro",
+   "place": "red-hill",
+   "currentHeroSrc": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/venue/polperro/heroImage-1780298769986.jpg",
+   "currentHero": {
+    "state": "own-image",
+    "why": "heroImage-1780298769986.jpg (venue-media-kit)"
+   },
+   "action": "review: already has own image; offer as gallery or upgrade",
+   "candidates": 4,
+   "heroPick": [
+    {
+     "assetKey": "vv-143758",
+     "file": "Polperro Winery_143758.jpg",
+     "size": "5731x3821",
+     "credit": "Photo: Peter Tarasiuk, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2017-02-10",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-143756",
+     "file": "Polperro Winery_143756.jpg",
+     "size": "5678x3785",
+     "credit": "Photo: Peter Tarasiuk, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2017-02-10",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-143752",
+     "file": "Polperro Winery_143752.jpg",
+     "size": "5731x3821",
+     "credit": "Photo: Peter Tarasiuk, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": null,
+     "how": "alias"
+    }
+   ],
+   "galleryPool": [
+    "vv-143750"
+   ],
+   "note": "Live pages may show a CMS image override (pi.cms_image_slots) instead of this JSON hero. Check before applying."
+  },
+  {
+   "entity": "venues/pt-leo-estate",
+   "name": "Pt. Leo Estate",
+   "place": "merricks",
+   "currentHeroSrc": "/images/sourced/venue-pt-leo-sculpture-01.webp",
+   "currentHero": {
+    "state": "own-image",
+    "why": "venue-pt-leo-sculpture-01.webp (wikimedia-cc-by-sa)"
+   },
+   "action": "review: already has own image; offer as gallery or upgrade",
+   "candidates": 50,
+   "heroPick": [
+    {
+     "assetKey": "vv-163847",
+     "file": "Pt. Leo Estate_163847.jpg",
+     "size": "8256x5504",
+     "credit": "Photo courtesy of Visit Victoria",
+     "people": "yes",
+     "date": "2023-03-15",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-163848",
+     "file": "Pt. Leo Estate_163848.jpg",
+     "size": "8256x5504",
+     "credit": "Photo courtesy of Visit Victoria",
+     "people": "yes",
+     "date": "2023-03-15",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-163849",
+     "file": "Pt. Leo Estate_163849.jpg",
+     "size": "8256x5504",
+     "credit": "Photo courtesy of Visit Victoria",
+     "people": "yes",
+     "date": "2023-03-15",
+     "how": "alias"
+    }
+   ],
+   "galleryPool": [
+    "vv-163850",
+    "vv-163851",
+    "vv-163852",
+    "vv-163853",
+    "vv-163855",
+    "vv-163856"
+   ],
+   "note": "Live pages may show a CMS image override (pi.cms_image_slots) instead of this JSON hero. Check before applying."
+  },
+  {
+   "entity": "venues/the-continental-sorrento",
+   "name": "The Continental",
+   "place": "sorrento",
+   "currentHeroSrc": "/images/sourced/venue-continental-sorrento-01.webp",
+   "currentHero": {
+    "state": "own-image",
+    "why": "venue-continental-sorrento-01.webp (wikimedia-cc0)"
+   },
+   "action": "review: already has own image; offer as gallery or upgrade",
+   "candidates": 21,
+   "heroPick": [
+    {
+     "assetKey": "vv-161358",
+     "file": "The Continental Sorrento - Audrey's_161358.jpg",
+     "size": "8135x5426",
+     "credit": "Photo: TWO PALMS AUSTRALIA, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2022-04-22",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-161361",
+     "file": "The Continental Sorrento - Audrey's_161361.jpg",
+     "size": "8068x5381",
+     "credit": "Photo: TWO PALMS AUSTRALIA, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2022-04-22",
+     "how": "alias"
+    },
+    {
+     "assetKey": "vv-161338",
+     "file": "The Continental Sorrento - Barlow_161338.jpg",
+     "size": "8192x5464",
+     "credit": "Photo: TWO PALMS AUSTRALIA, courtesy of Visit Victoria",
+     "people": "none-in-metadata",
+     "date": "2022-04-22",
+     "how": "alias"
+    }
+   ],
+   "galleryPool": [
+    "vv-161340",
+    "vv-161331",
+    "vv-161348",
+    "vv-161349",
+    "vv-161351",
+    "vv-161354"
+   ],
+   "note": "Live pages may show a CMS image override (pi.cms_image_slots) instead of this JSON hero. Check before applying."
+  }
+ ],
+ "unplaced": [
+  {
+   "subject": "Enchanted Adventure",
+   "works": 23
+  },
+  {
+   "subject": "Watermaarq",
+   "works": 20
+  },
+  {
+   "subject": "Jimmy Rum",
+   "works": 18
+  },
+  {
+   "subject": "WAM (Wild Adventures Melbourne)",
+   "works": 17
+  },
+  {
+   "subject": "Stand up Paddleboarding at Mornington",
+   "works": 12
+  },
+  {
+   "subject": "Cycling Vine Tours",
+   "works": 11
+  },
+  {
+   "subject": "Jimmy Rum Distillery",
+   "works": 11
+  },
+  {
+   "subject": "Escape Discovery Adventures",
+   "works": 7
+  },
+  {
+   "subject": "Wandering Wagons accommodation",
+   "works": 7
+  },
+  {
+   "subject": "Antipodes Book shop - Sorrento",
+   "works": 6
+  },
+  {
+   "subject": "Grape Explorations Australia - Pier 10",
+   "works": 6
+  },
+  {
+   "subject": "Coastal Living - Sorrento",
+   "works": 5
+  },
+  {
+   "subject": "The Verandah Coffee Window",
+   "works": 4
+  },
+  {
+   "subject": "Watermaarq Tours",
+   "works": 3
+  },
+  {
+   "subject": "Dolphins in Port Phillip Bay",
+   "works": 2
+  },
+  {
+   "subject": "Grape Explorations Australia - Jimmy Rum Distillery",
+   "works": 2
+  },
+  {
+   "subject": "Point King Beach",
+   "works": 2
+  },
+  {
+   "subject": "Sunset on the bay",
+   "works": 2
+  },
+  {
+   "subject": "Wildlife at Enchanted Adventure",
+   "works": 2
+  },
+  {
+   "subject": "Bathing Boxes on the Mornington Peninsula",
+   "works": 1
+  },
+  {
+   "subject": "Bathing Boxes, Mornington Peninsula",
+   "works": 1
+  },
+  {
+   "subject": "Bathing Boxes",
+   "works": 1
+  },
+  {
+   "subject": "Beach and pier",
+   "works": 1
+  },
+  {
+   "subject": "Boats on the Bay at sunset",
+   "works": 1
+  },
+  {
+   "subject": "Cockatoo",
+   "works": 1
+  },
+  {
+   "subject": "Grape Explorations Australia - Harts Farm Cider",
+   "works": 1
+  },
+  {
+   "subject": "Grape Explorations Australia - Harts Farm",
+   "works": 1
+  },
+  {
+   "subject": "Grape Explorations Australia - Pier 10 Vineyard, Cellar Door and Restaurant",
+   "works": 1
+  },
+  {
+   "subject": "Kayaking in the bay",
+   "works": 1
+  },
+  {
+   "subject": "Mornington Peninsula-Bathing Boxes",
+   "works": 1
+  },
+  {
+   "subject": "Paddle board",
+   "works": 1
+  },
+  {
+   "subject": "Paragliding across the bay",
+   "works": 1
+  },
+  {
+   "subject": "Sunset at the bay",
+   "works": 1
+  },
+  {
+   "subject": "Sunset on Port Phillip Bay",
+   "works": 1
+  },
+  {
+   "subject": "The Eagle Mount Martha",
+   "works": 1
+  },
+  {
+   "subject": "Weedy Sea Dragon - Watermaarq tours",
+   "works": 1
+  }
+ ],
+ "aliasMisses": []
+}

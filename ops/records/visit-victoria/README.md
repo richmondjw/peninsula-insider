@@ -1,0 +1,61 @@
+# Visit Victoria Content Hub: licence record and house rules
+
+This directory is the evidence for every image on Peninsula Insider that carries
+`license: 'visit-victoria'`. The licence is a grant made to this publication; it
+cannot be inferred from a file, a host or a credit string (see
+`next/scripts/media-rights/licences.mjs`). A `visit-victoria` licence is valid only
+for an asset whose Visit Victoria asset id appears in a catalogue record here.
+
+## Records
+
+| File | What it is | Written by / when |
+|---|---|---|
+| `content-hub-terms-2026-09-21.md` | Verbatim Content Hub Terms and Conditions (version last modified 21 Sep 2026) | Claude Code session for James, 2026-09-29 |
+| `clarification-2026-09-29.md` | Four questions put to Visit Victoria and the answer | Claude Code session for James, 2026-09-29 |
+| `download-2026-09-28/catalogue.json` | One row per downloaded Work: asset id, file hash, dimensions, embedded rights text, creator, region | `ops/scripts/visit-victoria/catalogue.mjs --write`, run deliberately against the download folder |
+| `download-2026-09-28/annotations.json` | Alt text and shot attributes for the 332 reviewed Works (vision draft, see clarification) | Claude Code session at James's request, 2026-09-29 |
+| `entity-map.json` | Approved mapping: hero and gallery per entity, plus alt text and credit per Work | `ops/scripts/visit-victoria/build-entity-map.mjs`, bulk approval by James 2026-09-29 |
+| `placements.json` | Where-used ledger: every site placement, plus the CMS image overrides retired so the new heroes show (`cmsRetired`, with the SQL to restore them) | `ops/scripts/visit-victoria/apply-entity-map.mjs --write`, then the recorded CMS step |
+
+## Operating it
+
+- **Takedown:** `node ops/scripts/visit-victoria/where-used.mjs <asset id>` lists every
+  placement. Remove the imageRef from each entity, delete the derivative from
+  `next/public/images/visit-victoria/`, record the removal here, deploy.
+- **Web derivatives** live in `next/public/images/visit-victoria/` (resize and re-encode
+  only: heroes 2000px, gallery 1280px long edge). Originals are never committed.
+- **Adding Works:** download, run `catalogue.mjs --write` for the new batch,
+  `propose-matches.mjs`, review, `build-entity-map.mjs`, `apply-entity-map.mjs --write`.
+
+## House rules (derived from the terms and the clarification)
+
+1. **Credit, every time, adjacent to the image:**
+   `Photo: {Creator}, courtesy of Visit Victoria`. When the creator is unknown:
+   `Photo courtesy of Visit Victoria`. The embedded creator wins over anything else.
+2. **Title the place truthfully.** The caption or surrounding title must identify the
+   region or destination shown. An image may only promote the region it was taken in.
+   Bellarine and Melbourne images never stand in for the Mornington Peninsula.
+3. **No derivatives.** Crop, resize, re-encode and technical correction only. No
+   Higgsfield or any generative edit, no image-to-video, no palette grading, no text
+   baked into the pixels. HTML/CSS text laid over an unaltered image on a web page is
+   permitted (clarification Q2).
+4. **Channels.** Site, email newsletter and organic social. Boosting an organic post
+   that promotes Peninsula tourism is permitted (clarification Q3). Not permitted
+   without fresh written consent: sponsored or partner-paid placements, ads that
+   promote a business rather than the destination, merchandise, anything sold.
+5. **Never pass a Work to anyone else.** Not to venues, partners, agencies,
+   contractors or press kits. The licence is non-transferable and non-sub-licensable.
+6. **AI.** Internal software, including AI-assisted tools, may use the catalogue to
+   help the editorial team choose which approved asset goes where (clarification Q1).
+   Never train, fine-tune or build a dataset from the Works or their metadata, and
+   never send a Work to a generative image or video model.
+7. **Where-used ledger.** Every placement is recorded so a takedown request (including
+   a First Nations mourning request) can be honoured the same day.
+8. **People.** Identifiable people in a Work are fine for editorial use. Paid use of a
+   Work showing identifiable people needs a release we hold ourselves.
+9. **Closed or wrong-region subjects are excluded** by the catalogue (for example
+   Max's at Red Hill, permanently closed).
+10. **Terms can change.** Re-read the live terms quarterly and before any new channel;
+    save a new dated copy here if they have changed.
+
+Contact: contenthub@visitvictoria.com.au
