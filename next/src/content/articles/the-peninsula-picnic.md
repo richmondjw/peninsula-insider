@@ -5,10 +5,24 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-10
 heroImage:
-  src: "/images/sourced/article-picnic-01.webp"
-  alt: "A picnic spread of cheese, bread, charcuterie and wine on a blanket overlooking bay views"
-  credit: "Wikimedia Commons"
-  license: "tmp-wikimedia"
+  src: "/images/visit-victoria/vv-160021-green-olive-at-red-hill.webp"
+  alt: "Two people seated at a garden table among vegetable beds, looking out over bushland at Green Olive at Red Hill"
+  credit: "Two Palms Australia, courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "Green Olive at Red Hill, Mornington Peninsula."
+  depicts: "Green Olive at Red Hill"
+  depictionStatus: "illustrative"
+  creator: "Two Palms Australia"
+  sourceUrl: "Victoria Content Hub asset 160021, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "service"
 tags: ["picnic", "producers", "outdoor", "family", "couples", "budget", "autumn", "spring"]
 relatedVenues: ["red-hill-cheese", "main-ridge-dairy", "flinders-sourdough", "red-hill-bakery", "green-olive-red-hill", "mornington-peninsula-chocolates", "peninsula-fresh-organics", "balnarring-bakehouse", "somers-general", "johnny-ripe", "merricks-general-wine-store", "mornington-farmers-market"]

@@ -31,21 +31,30 @@ const EXPECTED_PROJECT = 'mvdtkgsfuhmkioygxgge';
 const map = JSON.parse(fs.readFileSync(path.join(REPO, 'ops/records/visit-victoria/entity-map.json'), 'utf8'));
 const cat = new Map(JSON.parse(fs.readFileSync(path.join(REPO, `ops/records/visit-victoria/download-${map.batch}/catalogue.json`), 'utf8')).works.map((w) => [w.assetKey, w]));
 const ledger = JSON.parse(fs.readFileSync(path.join(REPO, 'ops/records/visit-victoria/placements.json'), 'utf8'));
-const content = (entity) => JSON.parse(fs.readFileSync(path.join(REPO, 'next/src/content', `${entity}.json`), 'utf8'));
+const contentPath = (entity) => path.join(REPO, 'next/src/content', `${entity}.json`);
+const content = (entity) => JSON.parse(fs.readFileSync(contentPath(entity), 'utf8'));
+// Annotations for Works approved after the entity map (pass 3).
+const annotations = new Map(JSON.parse(fs.readFileSync(path.join(REPO, `ops/records/visit-victoria/download-${map.batch}/annotations.json`), 'utf8')).works.map((a) => [a.assetKey, a]));
 const slugifyPath = (p) => p.replace(/^\/+/, '').replace(/[^a-zA-Z0-9]+/g, '-').replace(/-+/g, '-').toLowerCase();
 const TOD = new Set(['dawn', 'morning', 'midday', 'afternoon', 'golden', 'dusk', 'night']);
 const CHANNELS = ['site_plan', 'site_article', 'site_whats_on', 'site_home', 'email', 'ig_carousel', 'ig_story', 'facebook', 'linkedin'];
 const NOTE = 'Visit Victoria Work. No derivatives, no generative use, never passed to third parties; boosting an organic post that promotes Peninsula tourism is allowed, other paid use is not. See ops/records/visit-victoria.';
 
 const first = new Map();
-for (const p of ledger.placements) if (p.surface === 'site' && !first.has(p.assetKey)) first.set(p.assetKey, p);
+// The owning record for each Work: the first placement on a JSON entity (articles
+// are markdown and events borrow a venue's photograph, so they never own one).
+for (const p of ledger.placements) {
+  if (p.surface !== 'site' || first.has(p.assetKey) || !fs.existsSync(contentPath(p.entity))) continue;
+  if (p.entity.startsWith('events/')) continue;
+  first.set(p.assetKey, p);
+}
 
 const now = new Date().toISOString();
 const rows = [...first.values()].map((p) => {
-  const w = cat.get(p.assetKey); const a = map.assets[p.assetKey];
+  const w = cat.get(p.assetKey); const a = map.assets[p.assetKey] ?? annotations.get(p.assetKey);
   const [collection, slug] = p.entity.split('/');
   const j = content(p.entity);
-  const ref = j.heroImage?.src === p.src ? j.heroImage : j.gallery.find((g) => g.src === p.src);
+  const ref = j.heroImage?.src === p.src ? j.heroImage : (j.gallery ?? []).find((g) => g.src === p.src);
   const people = a.peopleVisible === 'prominent';
   return {
     asset_key: slugifyPath(p.src).slice(0, 180),

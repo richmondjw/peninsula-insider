@@ -5,10 +5,24 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-09
 heroImage:
-  src: "/images/sourced/article-vineyard-villa-01.webp"
-  alt: "Vineyard accommodation on the Red Hill plateau"
-  credit: "Wikimedia Commons"
-  license: "tmp-wikimedia"
+  src: "/images/visit-victoria/vv-25061220-lancemore-lindenderry-red-hill.webp"
+  alt: "Two guests stand beside a wine barrel under festoon lights near outdoor tables and the white homestead at Lindenderry at dusk"
+  credit: "Peter Foster, courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "Lindenderry at Red Hill, Mornington Peninsula."
+  depicts: "Lancemore Lindenderry Red Hill"
+  depictionStatus: "illustrative"
+  creator: "Peter Foster"
+  sourceUrl: "Victoria Content Hub asset 25061220, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "stay-notes"
 tags: ["stay", "weekend", "villa", "cottage", "red-hill", "main-ridge", "slow"]
 relatedVenues:

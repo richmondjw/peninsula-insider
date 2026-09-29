@@ -5,10 +5,24 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-13
 heroImage:
-  src: "/images/sourced/article-peninsula-pantry-01.webp"
-  alt: "A morning market stall in autumn with Peninsula apples, honey jars, and a producer unloading crates"
-  credit: "Wikimedia Commons"
-  license: "tmp-wikimedia"
+  src: "/images/visit-victoria/vv-143094-mornington-farmers-market.webp"
+  alt: "Shoppers stroll past white and red marquees and a butcher's chalkboard sign at Mornington Farmers Market"
+  credit: "Robert Blackburn, courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "Mornington Farmers' Market, Mornington Peninsula."
+  depicts: "Mornington Farmers Market"
+  depictionStatus: "illustrative"
+  creator: "Robert Blackburn"
+  sourceUrl: "Victoria Content Hub asset 143094, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026). Embedded usage terms: \"This image can only be used for the positive promotion of tourism in Victoria\""
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "service"
 tags: ["markets", "mornington", "red-hill", "balnarring", "weekend", "producers", "all-year"]
 relatedVenues: ["mornington-farmers-market", "red-hill-brewery", "red-hill-bakery", "merricks-general-wine-store", "commonfolk-coffee", "red-hill-cheese", "main-ridge-dairy", "peninsula-fresh-organics", "somers-general", "balnarring-bakehouse", "johnny-ripe", "mornington-peninsula-chocolates"]

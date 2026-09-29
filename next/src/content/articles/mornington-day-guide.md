@@ -5,12 +5,24 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-05
 heroImage:
-  src: "/images/sourced/article-peninsula-pantry-01.webp"
-  alt: "Bunches of white wine grapes hanging on the vine among broad green leaves."
-  depicts: "bunches of white wine grapes on the vine"
-  depictionStatus: "illustrative"
-  credit: "Peninsula Insider"
-  license: "tmp-unsplash"
+  src: "/images/visit-victoria/vv-159194-bass-and-flinders-distillery.webp"
+  alt: "Bass and Flinders Distillery signage on a tall grey wall beside a picket-fenced garden, planter boxes and a small bar"
+  credit: "Two Palms Australia, courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "Bass & Flinders Distillery, Mornington, Mornington Peninsula."
+  depicts: "Bass and Flinders Distillery"
+  depictionStatus: "actual"
+  creator: "Two Palms Australia"
+  sourceUrl: "Victoria Content Hub asset 159194, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "service"
 tags: ["mornington", "bayside", "day-trip", "coffee", "markets", "all-year"]
 relatedVenues: ["commonfolk-coffee", "mornington-farmers-market", "bass-and-flinders", "sourdough-kitchen", "mr-vincenzos", "the-bay-hotel-mornington", "the-rocks-mornington"]

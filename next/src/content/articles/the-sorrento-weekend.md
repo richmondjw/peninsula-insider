@@ -5,10 +5,23 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-12
 heroImage:
-  src: "/images/sourced/article-sorrento-weekend-01.webp"
-  alt: "Sorrento main street on a bright autumn morning with the bay behind the limestone buildings"
-  credit: "Wikimedia Commons"
-  license: "tmp-wikimedia"
+  src: "/images/visit-victoria/vv-163880-millionaire-s-walk.webp"
+  alt: "Clifftop lawn and weatherboard houses above a bay dotted with moored boats and jetties along Millionaire's Walk"
+  credit: "Courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "Sorrento, Mornington Peninsula."
+  depicts: "Millionaire's Walk"
+  depictionStatus: "actual"
+  sourceUrl: "Victoria Content Hub asset 163880, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "slow-peninsula"
 tags: ["sorrento", "portsea", "weekend", "stay", "bayside", "back-beaches"]
 relatedVenues: ["hotel-sorrento", "the-continental-sorrento", "sorrento-hotel", "polperro", "polperro-villas", "portsea-hotel", "the-baths-sorrento", "pt-leo-estate", "barragunda-dining"]

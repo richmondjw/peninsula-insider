@@ -6,12 +6,26 @@
   "mood": "food-wine",
   "lengthNights": 2,
   "duration": "weekend",
-  "theme": ["food+wine", "coastal"],
+  "theme": [
+    "food+wine",
+    "coastal"
+  ],
   "anchorTown": "red-hill",
-  "baseTowns": ["red-hill", "cape-schanck", "sorrento", "point-nepean"],
+  "baseTowns": [
+    "red-hill",
+    "cape-schanck",
+    "sorrento",
+    "point-nepean"
+  ],
   "bookingChecklist": [
-    { "item": "First night at Jackalope and second night at Hotel Sorrento", "priority": "essential" },
-    { "item": "Montalto and Polperro lunch reservations", "priority": "recommended" }
+    {
+      "item": "First night at Jackalope and second night at Hotel Sorrento",
+      "priority": "essential"
+    },
+    {
+      "item": "Montalto and Polperro lunch reservations",
+      "priority": "recommended"
+    }
   ],
   "stops": [
     {
@@ -65,5 +79,196 @@
     "license": "wikimedia-cc-by"
   },
   "editorNote": "Start with lunch and a night on the ridge, then move south for the coast and a second night in Sorrento. Each day changes register: vineyards first, a coastal walk next, Point Nepean to finish. Book the two stays and lunches before arranging the rest. Day two has the most moving parts, so have an unhurried breakfast near your stay and leave the coastal walk out if lunch runs long.",
-  "publishedAt": "2026-04-08"
+  "publishedAt": "2026-04-08",
+  "gallery": [
+    {
+      "src": "/images/visit-victoria/vv-160356-montalto.webp",
+      "alt": "A grassy path between vine rows leads to the glass-fronted restaurant and umbrellas at Montalto, beneath tall pine trees",
+      "credit": "Two Palms Australia, courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula.",
+      "depicts": "Montalto",
+      "depictionStatus": "actual",
+      "creator": "Two Palms Australia",
+      "sourceUrl": "Victoria Content Hub asset 160356, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-26070118-jackalope-hotel.webp",
+      "alt": "Two guests walk out of the black-framed entrance beside a red-brick building at Jackalope Hotel, with a dark sculpture in front",
+      "credit": "Peter Foster, courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Jackalope Hotel, Red Hill, Mornington Peninsula.",
+      "depicts": "Jackalope Hotel",
+      "depictionStatus": "actual",
+      "creator": "Peter Foster",
+      "sourceUrl": "Victoria Content Hub asset 26070118, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-143752-polperro-winery.webp",
+      "alt": "Large gum trees shade the lawn and covered terrace at Polperro Winery, with diners outside and vines sloping away beyond",
+      "credit": "Peter Tarasiuk, courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Polperro, Red Hill, Mornington Peninsula.",
+      "depicts": "Polperro Winery",
+      "depictionStatus": "actual",
+      "creator": "Peter Tarasiuk",
+      "sourceUrl": "Victoria Content Hub asset 143752, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026). Embedded usage terms: \"All image usage must be for the positive promotion of Melbourne and Victoria. Images can only be used to promote the region the image has been taken in. All material supplied is owned by Visit Victoria or its respective partners and can not be on sold to Third Parties.\"",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-164539-point-nepean-fort-nepean.webp",
+      "alt": "Two walkers on the sealed road to Fort Nepean as it winds along the narrow headland between bay and ocean under a pink sky",
+      "credit": "Jesse Hisco, courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Point Nepean Fort Walk, Mornington Peninsula.",
+      "depicts": "Point Nepean - Fort Nepean",
+      "depictionStatus": "actual",
+      "creator": "Jesse Hisco",
+      "sourceUrl": "Victoria Content Hub asset 164539, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-160358-montalto.webp",
+      "alt": "A patinated metal sculpture of a figure stands on the lawn in front of the Montalto restaurant and its white umbrellas",
+      "credit": "Two Palms Australia, courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula.",
+      "depicts": "Montalto",
+      "depictionStatus": "actual",
+      "creator": "Two Palms Australia",
+      "sourceUrl": "Victoria Content Hub asset 160358, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-26070114-jackalope-hotel.webp",
+      "alt": "Two silhouetted guests raise glasses of red wine above a valley of vineyard rows and bushland at Jackalope Hotel",
+      "credit": "Peter Foster, courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Jackalope Hotel, Red Hill, Mornington Peninsula.",
+      "depicts": "Jackalope Hotel",
+      "depictionStatus": "actual",
+      "creator": "Peter Foster",
+      "sourceUrl": "Victoria Content Hub asset 26070114, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-143756-polperro-winery.webp",
+      "alt": "Dining room at Polperro Winery with bentwood chairs, set tables, a pitched white ceiling and large windows onto the garden",
+      "credit": "Peter Tarasiuk, courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Polperro, Red Hill, Mornington Peninsula.",
+      "depicts": "Polperro Winery",
+      "depictionStatus": "actual",
+      "creator": "Peter Tarasiuk",
+      "sourceUrl": "Victoria Content Hub asset 143756, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-164537-point-nepean-fort-nepean.webp",
+      "alt": "Two walkers at a timber lookout rail gaze towards the scrub-covered headland and winding road leading to Fort Nepean",
+      "credit": "Jesse Hisco, courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Point Nepean Fort Walk, Mornington Peninsula.",
+      "depicts": "Point Nepean - Fort Nepean",
+      "depictionStatus": "actual",
+      "creator": "Jesse Hisco",
+      "sourceUrl": "Victoria Content Hub asset 164537, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-160359-montalto.webp",
+      "alt": "The restaurant at Montalto with white umbrellas along its deck, set above a broad sloping lawn under a blue sky with cloud",
+      "credit": "Two Palms Australia, courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula.",
+      "depicts": "Montalto",
+      "depictionStatus": "actual",
+      "creator": "Two Palms Australia",
+      "sourceUrl": "Victoria Content Hub asset 160359, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    }
+  ]
 }

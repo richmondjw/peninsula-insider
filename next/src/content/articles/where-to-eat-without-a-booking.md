@@ -5,12 +5,24 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-10
 heroImage:
-  src: "/images/sourced/category-restaurant-01.webp"
-  alt: "A dimly lit bar with pendant lamps, a chalkboard beer list, spirits on the back shelf and stools drawn up to a copper-topped counter."
-  depicts: "a dimly lit bar with a chalkboard beer list and stools at the counter"
+  src: "/images/visit-victoria/vv-143825-red-hill-brewery.webp"
+  alt: "A tasting paddle of four beers, from dark to pale, on a weathered outdoor table beside timber chairs"
+  credit: "Peter Tarasiuk, courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "Red Hill Brewery, Mornington Peninsula."
+  depicts: "Red Hill Brewery"
   depictionStatus: "illustrative"
-  credit: "Peninsula Insider"
-  license: "tmp-unsplash"
+  creator: "Peter Tarasiuk"
+  sourceUrl: "Victoria Content Hub asset 143825, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026). Embedded usage terms: \"All image usage must be for the positive promotion of Melbourne and Victoria. Images can only be used to promote the region the image has been taken in. All material supplied is owned by Visit Victoria or its respective partners and can not be on sold to Third Parties.\""
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "service"
 tags: ["dining", "walk-in", "no-booking", "pubs", "cafes", "casual", "first-timers"]
 relatedVenues: ["red-hill-brewery", "flinders-hotel", "dromana-hotel", "rye-hotel", "mornington-hotel", "portsea-hotel", "sorrento-hotel", "flinders-sourdough", "red-hill-bakery", "commonfolk-coffee", "johnny-ripe", "st-andrews-beach-brewery", "jetty-road-brewery", "two-bays-brewing", "red-gum-bbq", "balnarring-bakehouse", "somers-general", "flinders-general-store"]

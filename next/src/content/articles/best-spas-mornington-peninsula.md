@@ -5,12 +5,24 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-14
 heroImage:
-  src: "/images/sourced/spa-alba-thermal-springs-01.webp"
-  alt: "A woman in a white swimsuit sitting on the stone edge of a geothermal bathing pool at sunset."
-  depicts: "a woman sitting on the stone edge of a geothermal bathing pool at sunset"
+  src: "/images/visit-victoria/vv-160851-peninsula-hot-springs.webp"
+  alt: "Two bathers in white robes walk a timber boardwalk past a round wooden soaking tub in the bush at Peninsula Hot Springs"
+  credit: "Two Palms Australia, courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "Peninsula Hot Springs, Cape Schanck, Mornington Peninsula."
+  depicts: "Peninsula Hot Springs"
   depictionStatus: "illustrative"
-  credit: "Alba Thermal Springs"
-  license: "venue-media-kit"
+  creator: "Two Palms Australia"
+  sourceUrl: "Victoria Content Hub asset 160851, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "insider-edit"
 tags: ["spa", "wellness", "hot-springs", "mornington-peninsula", "guide", "rankings"]
 relatedVenues: ["peninsula-hot-springs", "alba-thermal-springs", "one-spa-racv-cape-schanck", "spa-by-jackalope", "endota-spa-mornington"]

@@ -5,10 +5,23 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-09
 heroImage:
-  src: "/images/sourced/article-peninsula-pantry-01.webp"
-  alt: "A canvas tote filled with Peninsula produce  -  bread, cheese, tomatoes, a bottle of pinot  -  on a farmhouse kitchen bench"
-  credit: "Wikimedia Commons"
-  license: "tmp-wikimedia"
+  src: "/images/visit-victoria/vv-143098-produce-at-mornington-farmers-market.webp"
+  alt: "Bunches of pink and white radishes stacked beside fennel bulbs with feathery fronds on a market stall"
+  credit: "Courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "Mornington Farmers' Market, Mornington Peninsula."
+  depicts: "Produce at Mornington Farmers Market"
+  depictionStatus: "illustrative"
+  sourceUrl: "Victoria Content Hub asset 143098, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "service"
 tags: ["eat", "produce", "markets", "cook-in", "weekend", "mornington", "flinders", "red-hill"]
 relatedVenues:

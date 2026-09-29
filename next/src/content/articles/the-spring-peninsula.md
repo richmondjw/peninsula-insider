@@ -5,12 +5,24 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-16
 heroImage:
-  src: "/images/sourced/article-vineyard-villa-01.webp"
-  alt: "Rows of trellised vines in early leaf running across a slope to a tall cypress windbreak."
-  depicts: "rows of trellised vines running to a cypress windbreak"
+  src: "/images/visit-victoria/vv-160391-montalto.webp"
+  alt: "Rolling rows of vines in autumn yellow and green lead to bushland on the hills at Montalto, with pink cosmos in front"
+  credit: "Two Palms Australia, courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula."
+  depicts: "Montalto"
   depictionStatus: "illustrative"
-  credit: "Peninsula Insider"
-  license: "tmp-unsplash"
+  creator: "Two Palms Australia"
+  sourceUrl: "Victoria Content Hub asset 160391, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "editors-letter"
 tags: ["spring", "seasonal", "weekend", "red-hill", "markets", "walks"]
 relatedVenues: ["montalto", "merricks-general-wine-store", "lindenderry", "ten-minutes-by-tractor", "polperro", "crittenden-estate", "paringa-estate", "red-hill-brewery", "flinders-hotel", "tedesca-osteria", "pt-leo-estate", "mornington-farmers-market"]

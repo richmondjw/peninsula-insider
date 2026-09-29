@@ -5,12 +5,23 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-09
 heroImage:
-  src: "/images/sourced/spa-alba-thermal-springs-01.webp"
-  alt: "A woman in a white swimsuit sitting on the stone edge of a geothermal bathing pool at sunset."
-  depicts: "a woman sitting on the stone edge of a geothermal bathing pool at sunset"
+  src: "/images/visit-victoria/vv-172661-alba-thermal-springs-and-spa.webp"
+  alt: "A bather wading through a turquoise pool beneath curved concrete canopies at Alba Thermal Springs and Spa"
+  credit: "Courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "Alba Thermal Springs & Spa, Fingal, Mornington Peninsula."
+  depicts: "Alba Thermal Springs and Spa"
   depictionStatus: "illustrative"
-  credit: "Peninsula Insider"
-  license: "tmp-unsplash"
+  sourceUrl: "Victoria Content Hub asset 172661, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "service"
 tags: ["wellness", "thermal-springs", "weekend", "fingal", "red-hill", "autumn", "winter"]
 relatedVenues:

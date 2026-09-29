@@ -2482,6 +2482,2553 @@
    "entity": "venues/the-continental-sorrento",
    "field": "gallery[8]",
    "src": "/images/visit-victoria/vv-161354-the-continental-sorrento.webp"
+  },
+  {
+   "assetKey": "vv-25061225",
+   "surface": "site",
+   "entity": "venues/epicurean-red-hill",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-25061225-the-epicurean-red-hill.webp",
+   "pass": 2,
+   "role": "hero-upgrade"
+  },
+  {
+   "assetKey": "vv-163850",
+   "surface": "site",
+   "entity": "venues/pt-leo-estate",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-163850-pt-leo-estate.webp",
+   "pass": 2,
+   "role": "hero-upgrade"
+  },
+  {
+   "assetKey": "vv-161358",
+   "surface": "site",
+   "entity": "venues/the-continental-sorrento",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-161358-the-continental-sorrento-audrey-s.webp",
+   "pass": 2,
+   "role": "hero-upgrade"
+  },
+  {
+   "assetKey": "vv-172661",
+   "surface": "site",
+   "entity": "places/fingal",
+   "field": "gallery[0]",
+   "src": "/images/visit-victoria/vv-172661-alba-thermal-springs-and-spa.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-172320",
+   "surface": "site",
+   "entity": "places/fingal",
+   "field": "gallery[1]",
+   "src": "/images/visit-victoria/vv-172320-eco-lodges-peninsula-hot-springs.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-163804",
+   "surface": "site",
+   "entity": "places/fingal",
+   "field": "gallery[2]",
+   "src": "/images/visit-victoria/vv-163804-alba-thermal-springs.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-172319",
+   "surface": "site",
+   "entity": "places/fingal",
+   "field": "gallery[3]",
+   "src": "/images/visit-victoria/vv-172319-eco-lodges-peninsula-hot-springs.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-163808",
+   "surface": "site",
+   "entity": "places/fingal",
+   "field": "gallery[4]",
+   "src": "/images/visit-victoria/vv-163808-alba-thermal-springs.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-172322",
+   "surface": "site",
+   "entity": "places/fingal",
+   "field": "gallery[5]",
+   "src": "/images/visit-victoria/vv-172322-eco-lodges-peninsula-hot-springs.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-163810",
+   "surface": "site",
+   "entity": "places/fingal",
+   "field": "gallery[6]",
+   "src": "/images/visit-victoria/vv-163810-alba-thermal-springs.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-172323",
+   "surface": "site",
+   "entity": "places/fingal",
+   "field": "gallery[7]",
+   "src": "/images/visit-victoria/vv-172323-eco-lodges-peninsula-hot-springs.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-163811",
+   "surface": "site",
+   "entity": "places/fingal",
+   "field": "gallery[8]",
+   "src": "/images/visit-victoria/vv-163811-alba-thermal-springs.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-172321",
+   "surface": "site",
+   "entity": "places/fingal",
+   "field": "gallery[9]",
+   "src": "/images/visit-victoria/vv-172321-eco-lodges-peninsula-hot-springs.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-163798",
+   "surface": "site",
+   "entity": "places/fingal",
+   "field": "gallery[10]",
+   "src": "/images/visit-victoria/vv-163798-alba-thermal-springs.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-172318",
+   "surface": "site",
+   "entity": "places/fingal",
+   "field": "gallery[11]",
+   "src": "/images/visit-victoria/vv-172318-eco-lodges-peninsula-hot-springs.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-160021",
+   "surface": "site",
+   "entity": "places/red-hill",
+   "field": "gallery[0]",
+   "src": "/images/visit-victoria/vv-160021-green-olive-at-red-hill.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-26070118",
+   "surface": "site",
+   "entity": "places/red-hill",
+   "field": "gallery[1]",
+   "src": "/images/visit-victoria/vv-26070118-jackalope-hotel.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-25061209",
+   "surface": "site",
+   "entity": "places/red-hill",
+   "field": "gallery[2]",
+   "src": "/images/visit-victoria/vv-25061209-lancemore-lindenderry-red-hill.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-160356",
+   "surface": "site",
+   "entity": "places/red-hill",
+   "field": "gallery[3]",
+   "src": "/images/visit-victoria/vv-160356-montalto.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-143152",
+   "surface": "site",
+   "entity": "places/red-hill",
+   "field": "gallery[4]",
+   "src": "/images/visit-victoria/vv-143152-paringa-estate-mornington-peninsula.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-161029",
+   "surface": "site",
+   "entity": "places/red-hill",
+   "field": "gallery[5]",
+   "src": "/images/visit-victoria/vv-161029-red-gum-bbq.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-143785",
+   "surface": "site",
+   "entity": "places/red-hill",
+   "field": "gallery[6]",
+   "src": "/images/visit-victoria/vv-143785-red-hill-brewery.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-26070140",
+   "surface": "site",
+   "entity": "places/red-hill",
+   "field": "gallery[7]",
+   "src": "/images/visit-victoria/vv-26070140-avani-winery.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-25061225",
+   "surface": "site",
+   "entity": "places/red-hill",
+   "field": "gallery[8]",
+   "src": "/images/visit-victoria/vv-25061225-the-epicurean-red-hill.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-143752",
+   "surface": "site",
+   "entity": "places/red-hill",
+   "field": "gallery[9]",
+   "src": "/images/visit-victoria/vv-143752-polperro-winery.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-160006",
+   "surface": "site",
+   "entity": "places/red-hill",
+   "field": "gallery[10]",
+   "src": "/images/visit-victoria/vv-160006-green-olive-at-red-hill.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-26070114",
+   "surface": "site",
+   "entity": "places/red-hill",
+   "field": "gallery[11]",
+   "src": "/images/visit-victoria/vv-26070114-jackalope-hotel.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-143094",
+   "surface": "site",
+   "entity": "places/mornington",
+   "field": "gallery[7]",
+   "src": "/images/visit-victoria/vv-143094-mornington-farmers-market.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-159194",
+   "surface": "site",
+   "entity": "places/mornington",
+   "field": "gallery[8]",
+   "src": "/images/visit-victoria/vv-159194-bass-and-flinders-distillery.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-143140",
+   "surface": "site",
+   "entity": "places/mornington",
+   "field": "gallery[9]",
+   "src": "/images/visit-victoria/vv-143140-mornington-peninsula-regional-gallery.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-143119",
+   "surface": "site",
+   "entity": "places/mornington",
+   "field": "gallery[10]",
+   "src": "/images/visit-victoria/vv-143119-mornington-farmers-market.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-159175",
+   "surface": "site",
+   "entity": "places/mornington",
+   "field": "gallery[11]",
+   "src": "/images/visit-victoria/vv-159175-bass-and-flinders-distillery.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-164273",
+   "surface": "site",
+   "entity": "places/dromana",
+   "field": "gallery[0]",
+   "src": "/images/visit-victoria/vv-164273-crittenden-estate-cellar-door.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-169287",
+   "surface": "site",
+   "entity": "places/dromana",
+   "field": "gallery[1]",
+   "src": "/images/visit-victoria/vv-169287-trofeo-estate.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-164692",
+   "surface": "site",
+   "entity": "places/dromana",
+   "field": "gallery[2]",
+   "src": "/images/visit-victoria/vv-164692-crittenden-estate.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-169289",
+   "surface": "site",
+   "entity": "places/dromana",
+   "field": "gallery[3]",
+   "src": "/images/visit-victoria/vv-169289-trofeo-estate.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-164669",
+   "surface": "site",
+   "entity": "places/dromana",
+   "field": "gallery[4]",
+   "src": "/images/visit-victoria/vv-164669-crittenden-estate.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-169308",
+   "surface": "site",
+   "entity": "places/dromana",
+   "field": "gallery[5]",
+   "src": "/images/visit-victoria/vv-169308-trofeo-estate.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-164290",
+   "surface": "site",
+   "entity": "places/dromana",
+   "field": "gallery[6]",
+   "src": "/images/visit-victoria/vv-164290-crittenden-estate-cellar-door.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-169294",
+   "surface": "site",
+   "entity": "places/dromana",
+   "field": "gallery[7]",
+   "src": "/images/visit-victoria/vv-169294-trofeo-estate.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-164684",
+   "surface": "site",
+   "entity": "places/dromana",
+   "field": "gallery[8]",
+   "src": "/images/visit-victoria/vv-164684-crittenden-estate.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-169303",
+   "surface": "site",
+   "entity": "places/dromana",
+   "field": "gallery[9]",
+   "src": "/images/visit-victoria/vv-169303-trofeo-estate.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-164676",
+   "surface": "site",
+   "entity": "places/dromana",
+   "field": "gallery[10]",
+   "src": "/images/visit-victoria/vv-164676-crittenden-estate.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-169319",
+   "surface": "site",
+   "entity": "places/dromana",
+   "field": "gallery[11]",
+   "src": "/images/visit-victoria/vv-169319-trofeo-estate.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-25061244",
+   "surface": "site",
+   "entity": "places/merricks",
+   "field": "gallery[0]",
+   "src": "/images/visit-victoria/vv-25061244-merricks-general-wine-store.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-163850",
+   "surface": "site",
+   "entity": "places/merricks",
+   "field": "gallery[1]",
+   "src": "/images/visit-victoria/vv-163850-pt-leo-estate.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-161954",
+   "surface": "site",
+   "entity": "places/merricks",
+   "field": "gallery[2]",
+   "src": "/images/visit-victoria/vv-161954-rare-hare-wine-and-foodstore.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-25061243",
+   "surface": "site",
+   "entity": "places/merricks",
+   "field": "gallery[3]",
+   "src": "/images/visit-victoria/vv-25061243-merricks-general-wine-store.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-163852",
+   "surface": "site",
+   "entity": "places/merricks",
+   "field": "gallery[4]",
+   "src": "/images/visit-victoria/vv-163852-pt-leo-estate.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-161955",
+   "surface": "site",
+   "entity": "places/merricks",
+   "field": "gallery[5]",
+   "src": "/images/visit-victoria/vv-161955-rare-hare-wine-and-foodstore.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-25061231",
+   "surface": "site",
+   "entity": "places/merricks",
+   "field": "gallery[6]",
+   "src": "/images/visit-victoria/vv-25061231-merricks-general-wine-store.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-163849",
+   "surface": "site",
+   "entity": "places/merricks",
+   "field": "gallery[7]",
+   "src": "/images/visit-victoria/vv-163849-pt-leo-estate.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-161951",
+   "surface": "site",
+   "entity": "places/merricks",
+   "field": "gallery[8]",
+   "src": "/images/visit-victoria/vv-161951-rare-hare-wine-and-foodstore.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-25061239",
+   "surface": "site",
+   "entity": "places/merricks",
+   "field": "gallery[9]",
+   "src": "/images/visit-victoria/vv-25061239-merricks-general-wine-store.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-163847",
+   "surface": "site",
+   "entity": "places/merricks",
+   "field": "gallery[10]",
+   "src": "/images/visit-victoria/vv-163847-pt-leo-estate.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-161950",
+   "surface": "site",
+   "entity": "places/merricks",
+   "field": "gallery[11]",
+   "src": "/images/visit-victoria/vv-161950-rare-hare-wine-and-foodstore.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-159902",
+   "surface": "site",
+   "entity": "places/main-ridge",
+   "field": "gallery[0]",
+   "src": "/images/visit-victoria/vv-159902-grape-explorations-australia-ocean-eight-vineyard.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-159894",
+   "surface": "site",
+   "entity": "places/main-ridge",
+   "field": "gallery[1]",
+   "src": "/images/visit-victoria/vv-159894-grape-explorations-australia-ocean-eight.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-159891",
+   "surface": "site",
+   "entity": "places/main-ridge",
+   "field": "gallery[2]",
+   "src": "/images/visit-victoria/vv-159891-grape-explorations-australia-ocean-eight.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-159905",
+   "surface": "site",
+   "entity": "places/main-ridge",
+   "field": "gallery[3]",
+   "src": "/images/visit-victoria/vv-159905-grape-explorations-australia-ocean-eight-vineyard.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-159889",
+   "surface": "site",
+   "entity": "places/main-ridge",
+   "field": "gallery[4]",
+   "src": "/images/visit-victoria/vv-159889-grape-explorations-australia-ocean-eight.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-159887",
+   "surface": "site",
+   "entity": "places/main-ridge",
+   "field": "gallery[5]",
+   "src": "/images/visit-victoria/vv-159887-grape-explorations-australia-ocean-eight.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-159890",
+   "surface": "site",
+   "entity": "places/main-ridge",
+   "field": "gallery[6]",
+   "src": "/images/visit-victoria/vv-159890-grape-explorations-australia-ocean-eight.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-160851",
+   "surface": "site",
+   "entity": "places/cape-schanck",
+   "field": "gallery[9]",
+   "src": "/images/visit-victoria/vv-160851-peninsula-hot-springs.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-157378",
+   "surface": "site",
+   "entity": "places/cape-schanck",
+   "field": "gallery[10]",
+   "src": "/images/visit-victoria/vv-157378-moonah-links-golf-course-fingal.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-157418",
+   "surface": "site",
+   "entity": "places/cape-schanck",
+   "field": "gallery[11]",
+   "src": "/images/visit-victoria/vv-157418-st-andrews-beach-golf-course-fingal.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-168568",
+   "surface": "site",
+   "entity": "places/rye",
+   "field": "gallery[0]",
+   "src": "/images/visit-victoria/vv-168568-st-andrews-beach-brewery.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-157333",
+   "surface": "site",
+   "entity": "places/rye",
+   "field": "gallery[1]",
+   "src": "/images/visit-victoria/vv-157333-the-dunes-golf-links-rye.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-168572",
+   "surface": "site",
+   "entity": "places/rye",
+   "field": "gallery[2]",
+   "src": "/images/visit-victoria/vv-168572-st-andrews-beach-brewery.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-157335",
+   "surface": "site",
+   "entity": "places/rye",
+   "field": "gallery[3]",
+   "src": "/images/visit-victoria/vv-157335-the-dunes-golf-links-rye.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-168556",
+   "surface": "site",
+   "entity": "places/rye",
+   "field": "gallery[4]",
+   "src": "/images/visit-victoria/vv-168556-st-andrews-beach-brewery.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-157334",
+   "surface": "site",
+   "entity": "places/rye",
+   "field": "gallery[5]",
+   "src": "/images/visit-victoria/vv-157334-the-dunes-golf-links-rye.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-168546",
+   "surface": "site",
+   "entity": "places/rye",
+   "field": "gallery[6]",
+   "src": "/images/visit-victoria/vv-168546-st-andrews-beach-brewery.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-157332",
+   "surface": "site",
+   "entity": "places/rye",
+   "field": "gallery[7]",
+   "src": "/images/visit-victoria/vv-157332-the-dunes-golf-links-rye.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-168570",
+   "surface": "site",
+   "entity": "places/rye",
+   "field": "gallery[8]",
+   "src": "/images/visit-victoria/vv-168570-st-andrews-beach-brewery.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-157338",
+   "surface": "site",
+   "entity": "places/rye",
+   "field": "gallery[9]",
+   "src": "/images/visit-victoria/vv-157338-the-dunes-golf-links-rye.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-168565",
+   "surface": "site",
+   "entity": "places/rye",
+   "field": "gallery[10]",
+   "src": "/images/visit-victoria/vv-168565-st-andrews-beach-brewery.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-157340",
+   "surface": "site",
+   "entity": "places/rye",
+   "field": "gallery[11]",
+   "src": "/images/visit-victoria/vv-157340-the-dunes-golf-links-rye.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-161358",
+   "surface": "site",
+   "entity": "places/sorrento",
+   "field": "gallery[9]",
+   "src": "/images/visit-victoria/vv-161358-the-continental-sorrento-audrey-s.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-151508",
+   "surface": "site",
+   "entity": "places/sorrento",
+   "field": "gallery[10]",
+   "src": "/images/visit-victoria/vv-151508-sorrento-back-beach.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-22100103",
+   "surface": "site",
+   "entity": "places/sorrento",
+   "field": "gallery[11]",
+   "src": "/images/visit-victoria/vv-22100103-sorrento-ferry-terminal.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-157359",
+   "surface": "site",
+   "entity": "places/flinders",
+   "field": "gallery[0]",
+   "src": "/images/visit-victoria/vv-157359-flinders-golf-course.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-157369",
+   "surface": "site",
+   "entity": "places/flinders",
+   "field": "gallery[1]",
+   "src": "/images/visit-victoria/vv-157369-flinders-golf-course.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-157379",
+   "surface": "site",
+   "entity": "places/flinders",
+   "field": "gallery[2]",
+   "src": "/images/visit-victoria/vv-157379-flinders-golf-course.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-157380",
+   "surface": "site",
+   "entity": "places/flinders",
+   "field": "gallery[3]",
+   "src": "/images/visit-victoria/vv-157380-flinders-golf-course.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-157398",
+   "surface": "site",
+   "entity": "places/flinders",
+   "field": "gallery[4]",
+   "src": "/images/visit-victoria/vv-157398-flinders-golf-course.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-157402",
+   "surface": "site",
+   "entity": "places/flinders",
+   "field": "gallery[5]",
+   "src": "/images/visit-victoria/vv-157402-flinders-golf-course.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-157403",
+   "surface": "site",
+   "entity": "places/flinders",
+   "field": "gallery[6]",
+   "src": "/images/visit-victoria/vv-157403-flinders-golf-course.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-157404",
+   "surface": "site",
+   "entity": "places/flinders",
+   "field": "gallery[7]",
+   "src": "/images/visit-victoria/vv-157404-flinders-golf-course.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-157405",
+   "surface": "site",
+   "entity": "places/flinders",
+   "field": "gallery[8]",
+   "src": "/images/visit-victoria/vv-157405-flinders-golf-course.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-164539",
+   "surface": "site",
+   "entity": "places/point-nepean",
+   "field": "gallery[9]",
+   "src": "/images/visit-victoria/vv-164539-point-nepean-fort-nepean.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-26070132",
+   "surface": "site",
+   "entity": "places/point-nepean",
+   "field": "gallery[10]",
+   "src": "/images/visit-victoria/vv-26070132-point-nepean-national-park.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-167059",
+   "surface": "site",
+   "entity": "places/arthurs-seat",
+   "field": "gallery[0]",
+   "src": "/images/visit-victoria/vv-167059-arthurs-seat-eagle.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-167085",
+   "surface": "site",
+   "entity": "places/arthurs-seat",
+   "field": "gallery[1]",
+   "src": "/images/visit-victoria/vv-167085-arthurs-seat-eagle.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-167077",
+   "surface": "site",
+   "entity": "places/arthurs-seat",
+   "field": "gallery[2]",
+   "src": "/images/visit-victoria/vv-167077-arthurs-seat-eagle.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-167061",
+   "surface": "site",
+   "entity": "places/arthurs-seat",
+   "field": "gallery[3]",
+   "src": "/images/visit-victoria/vv-167061-arthurs-seat-eagle.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-167084",
+   "surface": "site",
+   "entity": "places/arthurs-seat",
+   "field": "gallery[4]",
+   "src": "/images/visit-victoria/vv-167084-arthurs-seat-eagle.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-147209",
+   "surface": "site",
+   "entity": "places/arthurs-seat",
+   "field": "gallery[5]",
+   "src": "/images/visit-victoria/vv-147209-arthurs-seat-eagle.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-143811",
+   "surface": "site",
+   "entity": "places/arthurs-seat",
+   "field": "gallery[6]",
+   "src": "/images/visit-victoria/vv-143811-arthurs-seat-cable-car.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-167058",
+   "surface": "site",
+   "entity": "places/arthurs-seat",
+   "field": "gallery[7]",
+   "src": "/images/visit-victoria/vv-167058-arthurs-seat-eagle.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-167075",
+   "surface": "site",
+   "entity": "places/arthurs-seat",
+   "field": "gallery[8]",
+   "src": "/images/visit-victoria/vv-167075-arthurs-seat-eagle.webp",
+   "pass": 2,
+   "role": "place-gallery"
+  },
+  {
+   "assetKey": "vv-167059",
+   "surface": "site",
+   "entity": "places/arthurs-seat",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-167059-arthurs-seat-eagle.webp",
+   "pass": 2,
+   "role": "place-hero"
+  },
+  {
+   "assetKey": "vv-163850",
+   "surface": "site",
+   "entity": "itineraries/flinders-and-cape-reset",
+   "field": "gallery[0]",
+   "src": "/images/visit-victoria/vv-163850-pt-leo-estate.webp",
+   "pass": 2,
+   "role": "itinerary-gallery"
+  },
+  {
+   "assetKey": "vv-163852",
+   "surface": "site",
+   "entity": "itineraries/flinders-and-cape-reset",
+   "field": "gallery[1]",
+   "src": "/images/visit-victoria/vv-163852-pt-leo-estate.webp",
+   "pass": 2,
+   "role": "itinerary-gallery"
+  },
+  {
+   "assetKey": "vv-163849",
+   "surface": "site",
+   "entity": "itineraries/flinders-and-cape-reset",
+   "field": "gallery[2]",
+   "src": "/images/visit-victoria/vv-163849-pt-leo-estate.webp",
+   "pass": 2,
+   "role": "itinerary-gallery"
+  },
+  {
+   "assetKey": "vv-163847",
+   "surface": "site",
+   "entity": "itineraries/flinders-and-cape-reset",
+   "field": "gallery[3]",
+   "src": "/images/visit-victoria/vv-163847-pt-leo-estate.webp",
+   "pass": 2,
+   "role": "itinerary-gallery"
+  },
+  {
+   "assetKey": "vv-163848",
+   "surface": "site",
+   "entity": "itineraries/flinders-and-cape-reset",
+   "field": "gallery[4]",
+   "src": "/images/visit-victoria/vv-163848-pt-leo-estate.webp",
+   "pass": 2,
+   "role": "itinerary-gallery"
+  },
+  {
+   "assetKey": "vv-163851",
+   "surface": "site",
+   "entity": "itineraries/flinders-and-cape-reset",
+   "field": "gallery[5]",
+   "src": "/images/visit-victoria/vv-163851-pt-leo-estate.webp",
+   "pass": 2,
+   "role": "itinerary-gallery"
+  },
+  {
+   "assetKey": "vv-163855",
+   "surface": "site",
+   "entity": "itineraries/flinders-and-cape-reset",
+   "field": "gallery[6]",
+   "src": "/images/visit-victoria/vv-163855-pt-leo-estate.webp",
+   "pass": 2,
+   "role": "itinerary-gallery"
+  },
+  {
+   "assetKey": "vv-163856",
+   "surface": "site",
+   "entity": "itineraries/flinders-and-cape-reset",
+   "field": "gallery[7]",
+   "src": "/images/visit-victoria/vv-163856-pt-leo-estate.webp",
+   "pass": 2,
+   "role": "itinerary-gallery"
+  },
+  {
+   "assetKey": "vv-163853",
+   "surface": "site",
+   "entity": "itineraries/flinders-and-cape-reset",
+   "field": "gallery[8]",
+   "src": "/images/visit-victoria/vv-163853-pt-leo-estate.webp",
+   "pass": 2,
+   "role": "itinerary-gallery"
+  },
+  {
+   "assetKey": "vv-163850",
+   "surface": "site",
+   "entity": "itineraries/flinders-and-cape-reset",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-163850-pt-leo-estate.webp",
+   "pass": 2,
+   "role": "itinerary-hero"
+  },
+  {
+   "assetKey": "vv-160356",
+   "surface": "site",
+   "entity": "itineraries/ridge-to-sea-two-night-escape",
+   "field": "gallery[0]",
+   "src": "/images/visit-victoria/vv-160356-montalto.webp",
+   "pass": 2,
+   "role": "itinerary-gallery"
+  },
+  {
+   "assetKey": "vv-26070118",
+   "surface": "site",
+   "entity": "itineraries/ridge-to-sea-two-night-escape",
+   "field": "gallery[1]",
+   "src": "/images/visit-victoria/vv-26070118-jackalope-hotel.webp",
+   "pass": 2,
+   "role": "itinerary-gallery"
+  },
+  {
+   "assetKey": "vv-143752",
+   "surface": "site",
+   "entity": "itineraries/ridge-to-sea-two-night-escape",
+   "field": "gallery[2]",
+   "src": "/images/visit-victoria/vv-143752-polperro-winery.webp",
+   "pass": 2,
+   "role": "itinerary-gallery"
+  },
+  {
+   "assetKey": "vv-164539",
+   "surface": "site",
+   "entity": "itineraries/ridge-to-sea-two-night-escape",
+   "field": "gallery[3]",
+   "src": "/images/visit-victoria/vv-164539-point-nepean-fort-nepean.webp",
+   "pass": 2,
+   "role": "itinerary-gallery"
+  },
+  {
+   "assetKey": "vv-160358",
+   "surface": "site",
+   "entity": "itineraries/ridge-to-sea-two-night-escape",
+   "field": "gallery[4]",
+   "src": "/images/visit-victoria/vv-160358-montalto.webp",
+   "pass": 2,
+   "role": "itinerary-gallery"
+  },
+  {
+   "assetKey": "vv-26070114",
+   "surface": "site",
+   "entity": "itineraries/ridge-to-sea-two-night-escape",
+   "field": "gallery[5]",
+   "src": "/images/visit-victoria/vv-26070114-jackalope-hotel.webp",
+   "pass": 2,
+   "role": "itinerary-gallery"
+  },
+  {
+   "assetKey": "vv-143756",
+   "surface": "site",
+   "entity": "itineraries/ridge-to-sea-two-night-escape",
+   "field": "gallery[6]",
+   "src": "/images/visit-victoria/vv-143756-polperro-winery.webp",
+   "pass": 2,
+   "role": "itinerary-gallery"
+  },
+  {
+   "assetKey": "vv-164537",
+   "surface": "site",
+   "entity": "itineraries/ridge-to-sea-two-night-escape",
+   "field": "gallery[7]",
+   "src": "/images/visit-victoria/vv-164537-point-nepean-fort-nepean.webp",
+   "pass": 2,
+   "role": "itinerary-gallery"
+  },
+  {
+   "assetKey": "vv-160359",
+   "surface": "site",
+   "entity": "itineraries/ridge-to-sea-two-night-escape",
+   "field": "gallery[8]",
+   "src": "/images/visit-victoria/vv-160359-montalto.webp",
+   "pass": 2,
+   "role": "itinerary-gallery"
+  },
+  {
+   "assetKey": "vv-161358",
+   "surface": "site",
+   "entity": "itineraries/sorrento-off-season-weekend",
+   "field": "gallery[0]",
+   "src": "/images/visit-victoria/vv-161358-the-continental-sorrento-audrey-s.webp",
+   "pass": 2,
+   "role": "itinerary-gallery"
+  },
+  {
+   "assetKey": "vv-151508",
+   "surface": "site",
+   "entity": "itineraries/sorrento-off-season-weekend",
+   "field": "gallery[1]",
+   "src": "/images/visit-victoria/vv-151508-sorrento-back-beach.webp",
+   "pass": 2,
+   "role": "itinerary-gallery"
+  },
+  {
+   "assetKey": "vv-164539",
+   "surface": "site",
+   "entity": "itineraries/sorrento-off-season-weekend",
+   "field": "gallery[2]",
+   "src": "/images/visit-victoria/vv-164539-point-nepean-fort-nepean.webp",
+   "pass": 2,
+   "role": "itinerary-gallery"
+  },
+  {
+   "assetKey": "vv-163850",
+   "surface": "site",
+   "entity": "itineraries/sorrento-off-season-weekend",
+   "field": "gallery[3]",
+   "src": "/images/visit-victoria/vv-163850-pt-leo-estate.webp",
+   "pass": 2,
+   "role": "itinerary-gallery"
+  },
+  {
+   "assetKey": "vv-161361",
+   "surface": "site",
+   "entity": "itineraries/sorrento-off-season-weekend",
+   "field": "gallery[4]",
+   "src": "/images/visit-victoria/vv-161361-the-continental-sorrento-audrey-s.webp",
+   "pass": 2,
+   "role": "itinerary-gallery"
+  },
+  {
+   "assetKey": "vv-151509",
+   "surface": "site",
+   "entity": "itineraries/sorrento-off-season-weekend",
+   "field": "gallery[5]",
+   "src": "/images/visit-victoria/vv-151509-sorrento-back-beach.webp",
+   "pass": 2,
+   "role": "itinerary-gallery"
+  },
+  {
+   "assetKey": "vv-164537",
+   "surface": "site",
+   "entity": "itineraries/sorrento-off-season-weekend",
+   "field": "gallery[6]",
+   "src": "/images/visit-victoria/vv-164537-point-nepean-fort-nepean.webp",
+   "pass": 2,
+   "role": "itinerary-gallery"
+  },
+  {
+   "assetKey": "vv-163852",
+   "surface": "site",
+   "entity": "itineraries/sorrento-off-season-weekend",
+   "field": "gallery[7]",
+   "src": "/images/visit-victoria/vv-163852-pt-leo-estate.webp",
+   "pass": 2,
+   "role": "itinerary-gallery"
+  },
+  {
+   "assetKey": "vv-161338",
+   "surface": "site",
+   "entity": "itineraries/sorrento-off-season-weekend",
+   "field": "gallery[8]",
+   "src": "/images/visit-victoria/vv-161338-the-continental-sorrento-barlow.webp",
+   "pass": 2,
+   "role": "itinerary-gallery"
+  },
+  {
+   "assetKey": "vv-143785",
+   "surface": "site",
+   "entity": "itineraries/the-family-day-out",
+   "field": "gallery[0]",
+   "src": "/images/visit-victoria/vv-143785-red-hill-brewery.webp",
+   "pass": 2,
+   "role": "itinerary-gallery"
+  },
+  {
+   "assetKey": "vv-143828",
+   "surface": "site",
+   "entity": "itineraries/the-family-day-out",
+   "field": "gallery[1]",
+   "src": "/images/visit-victoria/vv-143828-red-hill-brewery.webp",
+   "pass": 2,
+   "role": "itinerary-gallery"
+  },
+  {
+   "assetKey": "vv-143823",
+   "surface": "site",
+   "entity": "itineraries/the-family-day-out",
+   "field": "gallery[2]",
+   "src": "/images/visit-victoria/vv-143823-red-hill-brewery.webp",
+   "pass": 2,
+   "role": "itinerary-gallery"
+  },
+  {
+   "assetKey": "vv-143824",
+   "surface": "site",
+   "entity": "itineraries/the-family-day-out",
+   "field": "gallery[3]",
+   "src": "/images/visit-victoria/vv-143824-red-hill-brewery.webp",
+   "pass": 2,
+   "role": "itinerary-gallery"
+  },
+  {
+   "assetKey": "vv-143825",
+   "surface": "site",
+   "entity": "itineraries/the-family-day-out",
+   "field": "gallery[4]",
+   "src": "/images/visit-victoria/vv-143825-red-hill-brewery.webp",
+   "pass": 2,
+   "role": "itinerary-gallery"
+  },
+  {
+   "assetKey": "vv-143827",
+   "surface": "site",
+   "entity": "itineraries/the-family-day-out",
+   "field": "gallery[5]",
+   "src": "/images/visit-victoria/vv-143827-red-hill-brewery.webp",
+   "pass": 2,
+   "role": "itinerary-gallery"
+  },
+  {
+   "assetKey": "vv-26070118",
+   "surface": "site",
+   "entity": "itineraries/the-peninsula-golf-weekend",
+   "field": "gallery[0]",
+   "src": "/images/visit-victoria/vv-26070118-jackalope-hotel.webp",
+   "pass": 2,
+   "role": "itinerary-gallery"
+  },
+  {
+   "assetKey": "vv-157418",
+   "surface": "site",
+   "entity": "itineraries/the-peninsula-golf-weekend",
+   "field": "gallery[1]",
+   "src": "/images/visit-victoria/vv-157418-st-andrews-beach-golf-course-fingal.webp",
+   "pass": 2,
+   "role": "itinerary-gallery"
+  },
+  {
+   "assetKey": "vv-160356",
+   "surface": "site",
+   "entity": "itineraries/the-peninsula-golf-weekend",
+   "field": "gallery[2]",
+   "src": "/images/visit-victoria/vv-160356-montalto.webp",
+   "pass": 2,
+   "role": "itinerary-gallery"
+  },
+  {
+   "assetKey": "vv-26070114",
+   "surface": "site",
+   "entity": "itineraries/the-peninsula-golf-weekend",
+   "field": "gallery[3]",
+   "src": "/images/visit-victoria/vv-26070114-jackalope-hotel.webp",
+   "pass": 2,
+   "role": "itinerary-gallery"
+  },
+  {
+   "assetKey": "vv-157419",
+   "surface": "site",
+   "entity": "itineraries/the-peninsula-golf-weekend",
+   "field": "gallery[4]",
+   "src": "/images/visit-victoria/vv-157419-st-andrews-beach-golf-course-fingal.webp",
+   "pass": 2,
+   "role": "itinerary-gallery"
+  },
+  {
+   "assetKey": "vv-160358",
+   "surface": "site",
+   "entity": "itineraries/the-peninsula-golf-weekend",
+   "field": "gallery[5]",
+   "src": "/images/visit-victoria/vv-160358-montalto.webp",
+   "pass": 2,
+   "role": "itinerary-gallery"
+  },
+  {
+   "assetKey": "vv-26070112",
+   "surface": "site",
+   "entity": "itineraries/the-peninsula-golf-weekend",
+   "field": "gallery[6]",
+   "src": "/images/visit-victoria/vv-26070112-jackalope-hotel.webp",
+   "pass": 2,
+   "role": "itinerary-gallery"
+  },
+  {
+   "assetKey": "vv-157352",
+   "surface": "site",
+   "entity": "itineraries/the-peninsula-golf-weekend",
+   "field": "gallery[7]",
+   "src": "/images/visit-victoria/vv-157352-st-andrews-beach-golf-course-fingal.webp",
+   "pass": 2,
+   "role": "itinerary-gallery"
+  },
+  {
+   "assetKey": "vv-160359",
+   "surface": "site",
+   "entity": "itineraries/the-peninsula-golf-weekend",
+   "field": "gallery[8]",
+   "src": "/images/visit-victoria/vv-160359-montalto.webp",
+   "pass": 2,
+   "role": "itinerary-gallery"
+  },
+  {
+   "assetKey": "vv-25061244",
+   "surface": "site",
+   "entity": "itineraries/wellness-weekend",
+   "field": "gallery[0]",
+   "src": "/images/visit-victoria/vv-25061244-merricks-general-wine-store.webp",
+   "pass": 2,
+   "role": "itinerary-gallery"
+  },
+  {
+   "assetKey": "vv-25061209",
+   "surface": "site",
+   "entity": "itineraries/wellness-weekend",
+   "field": "gallery[1]",
+   "src": "/images/visit-victoria/vv-25061209-lancemore-lindenderry-red-hill.webp",
+   "pass": 2,
+   "role": "itinerary-gallery"
+  },
+  {
+   "assetKey": "vv-172661",
+   "surface": "site",
+   "entity": "itineraries/wellness-weekend",
+   "field": "gallery[2]",
+   "src": "/images/visit-victoria/vv-172661-alba-thermal-springs-and-spa.webp",
+   "pass": 2,
+   "role": "itinerary-gallery"
+  },
+  {
+   "assetKey": "vv-161954",
+   "surface": "site",
+   "entity": "itineraries/wellness-weekend",
+   "field": "gallery[3]",
+   "src": "/images/visit-victoria/vv-161954-rare-hare-wine-and-foodstore.webp",
+   "pass": 2,
+   "role": "itinerary-gallery"
+  },
+  {
+   "assetKey": "vv-143140",
+   "surface": "site",
+   "entity": "itineraries/wellness-weekend",
+   "field": "gallery[4]",
+   "src": "/images/visit-victoria/vv-143140-mornington-peninsula-regional-gallery.webp",
+   "pass": 2,
+   "role": "itinerary-gallery"
+  },
+  {
+   "assetKey": "vv-25061243",
+   "surface": "site",
+   "entity": "itineraries/wellness-weekend",
+   "field": "gallery[5]",
+   "src": "/images/visit-victoria/vv-25061243-merricks-general-wine-store.webp",
+   "pass": 2,
+   "role": "itinerary-gallery"
+  },
+  {
+   "assetKey": "vv-25061224",
+   "surface": "site",
+   "entity": "itineraries/wellness-weekend",
+   "field": "gallery[6]",
+   "src": "/images/visit-victoria/vv-25061224-lancemore-lindenderry-red-hill.webp",
+   "pass": 2,
+   "role": "itinerary-gallery"
+  },
+  {
+   "assetKey": "vv-163804",
+   "surface": "site",
+   "entity": "itineraries/wellness-weekend",
+   "field": "gallery[7]",
+   "src": "/images/visit-victoria/vv-163804-alba-thermal-springs.webp",
+   "pass": 2,
+   "role": "itinerary-gallery"
+  },
+  {
+   "assetKey": "vv-161955",
+   "surface": "site",
+   "entity": "itineraries/wellness-weekend",
+   "field": "gallery[8]",
+   "src": "/images/visit-victoria/vv-161955-rare-hare-wine-and-foodstore.webp",
+   "pass": 2,
+   "role": "itinerary-gallery"
+  },
+  {
+   "assetKey": "vv-164273",
+   "surface": "site",
+   "entity": "regions/mornington-bay-coast",
+   "field": "gallery[0]",
+   "src": "/images/visit-victoria/vv-164273-crittenden-estate-cellar-door.webp",
+   "pass": 2,
+   "role": "region-gallery"
+  },
+  {
+   "assetKey": "vv-169287",
+   "surface": "site",
+   "entity": "regions/mornington-bay-coast",
+   "field": "gallery[1]",
+   "src": "/images/visit-victoria/vv-169287-trofeo-estate.webp",
+   "pass": 2,
+   "role": "region-gallery"
+  },
+  {
+   "assetKey": "vv-143094",
+   "surface": "site",
+   "entity": "regions/mornington-bay-coast",
+   "field": "gallery[2]",
+   "src": "/images/visit-victoria/vv-143094-mornington-farmers-market.webp",
+   "pass": 2,
+   "role": "region-gallery"
+  },
+  {
+   "assetKey": "vv-159194",
+   "surface": "site",
+   "entity": "regions/mornington-bay-coast",
+   "field": "gallery[3]",
+   "src": "/images/visit-victoria/vv-159194-bass-and-flinders-distillery.webp",
+   "pass": 2,
+   "role": "region-gallery"
+  },
+  {
+   "assetKey": "vv-143140",
+   "surface": "site",
+   "entity": "regions/mornington-bay-coast",
+   "field": "gallery[4]",
+   "src": "/images/visit-victoria/vv-143140-mornington-peninsula-regional-gallery.webp",
+   "pass": 2,
+   "role": "region-gallery"
+  },
+  {
+   "assetKey": "vv-164692",
+   "surface": "site",
+   "entity": "regions/mornington-bay-coast",
+   "field": "gallery[5]",
+   "src": "/images/visit-victoria/vv-164692-crittenden-estate.webp",
+   "pass": 2,
+   "role": "region-gallery"
+  },
+  {
+   "assetKey": "vv-169289",
+   "surface": "site",
+   "entity": "regions/mornington-bay-coast",
+   "field": "gallery[6]",
+   "src": "/images/visit-victoria/vv-169289-trofeo-estate.webp",
+   "pass": 2,
+   "role": "region-gallery"
+  },
+  {
+   "assetKey": "vv-143119",
+   "surface": "site",
+   "entity": "regions/mornington-bay-coast",
+   "field": "gallery[7]",
+   "src": "/images/visit-victoria/vv-143119-mornington-farmers-market.webp",
+   "pass": 2,
+   "role": "region-gallery"
+  },
+  {
+   "assetKey": "vv-159175",
+   "surface": "site",
+   "entity": "regions/mornington-bay-coast",
+   "field": "gallery[8]",
+   "src": "/images/visit-victoria/vv-159175-bass-and-flinders-distillery.webp",
+   "pass": 2,
+   "role": "region-gallery"
+  },
+  {
+   "assetKey": "vv-143144",
+   "surface": "site",
+   "entity": "regions/mornington-bay-coast",
+   "field": "gallery[9]",
+   "src": "/images/visit-victoria/vv-143144-mornington-peninsula-regional-gallery.webp",
+   "pass": 2,
+   "role": "region-gallery"
+  },
+  {
+   "assetKey": "vv-164669",
+   "surface": "site",
+   "entity": "regions/mornington-bay-coast",
+   "field": "gallery[10]",
+   "src": "/images/visit-victoria/vv-164669-crittenden-estate.webp",
+   "pass": 2,
+   "role": "region-gallery"
+  },
+  {
+   "assetKey": "vv-169308",
+   "surface": "site",
+   "entity": "regions/mornington-bay-coast",
+   "field": "gallery[11]",
+   "src": "/images/visit-victoria/vv-169308-trofeo-estate.webp",
+   "pass": 2,
+   "role": "region-gallery"
+  },
+  {
+   "assetKey": "vv-160851",
+   "surface": "site",
+   "entity": "regions/ocean-coast",
+   "field": "gallery[0]",
+   "src": "/images/visit-victoria/vv-160851-peninsula-hot-springs.webp",
+   "pass": 2,
+   "role": "region-gallery"
+  },
+  {
+   "assetKey": "vv-157378",
+   "surface": "site",
+   "entity": "regions/ocean-coast",
+   "field": "gallery[1]",
+   "src": "/images/visit-victoria/vv-157378-moonah-links-golf-course-fingal.webp",
+   "pass": 2,
+   "role": "region-gallery"
+  },
+  {
+   "assetKey": "vv-157418",
+   "surface": "site",
+   "entity": "regions/ocean-coast",
+   "field": "gallery[2]",
+   "src": "/images/visit-victoria/vv-157418-st-andrews-beach-golf-course-fingal.webp",
+   "pass": 2,
+   "role": "region-gallery"
+  },
+  {
+   "assetKey": "vv-146894",
+   "surface": "site",
+   "entity": "regions/ocean-coast",
+   "field": "gallery[3]",
+   "src": "/images/visit-victoria/vv-146894-national-golf-course-7th-hole-putting-green.webp",
+   "pass": 2,
+   "role": "region-gallery"
+  },
+  {
+   "assetKey": "vv-172661",
+   "surface": "site",
+   "entity": "regions/ocean-coast",
+   "field": "gallery[4]",
+   "src": "/images/visit-victoria/vv-172661-alba-thermal-springs-and-spa.webp",
+   "pass": 2,
+   "role": "region-gallery"
+  },
+  {
+   "assetKey": "vv-157359",
+   "surface": "site",
+   "entity": "regions/ocean-coast",
+   "field": "gallery[5]",
+   "src": "/images/visit-victoria/vv-157359-flinders-golf-course.webp",
+   "pass": 2,
+   "role": "region-gallery"
+  },
+  {
+   "assetKey": "vv-25061207",
+   "surface": "site",
+   "entity": "regions/ocean-coast",
+   "field": "gallery[6]",
+   "src": "/images/visit-victoria/vv-25061207-the-ranch-gunnamatta-beach.webp",
+   "pass": 2,
+   "role": "region-gallery"
+  },
+  {
+   "assetKey": "vv-172320",
+   "surface": "site",
+   "entity": "regions/ocean-coast",
+   "field": "gallery[7]",
+   "src": "/images/visit-victoria/vv-172320-eco-lodges-peninsula-hot-springs.webp",
+   "pass": 2,
+   "role": "region-gallery"
+  },
+  {
+   "assetKey": "vv-161941",
+   "surface": "site",
+   "entity": "regions/ocean-coast",
+   "field": "gallery[8]",
+   "src": "/images/visit-victoria/vv-161941-peninsula-hot-springs.webp",
+   "pass": 2,
+   "role": "region-gallery"
+  },
+  {
+   "assetKey": "vv-157363",
+   "surface": "site",
+   "entity": "regions/ocean-coast",
+   "field": "gallery[9]",
+   "src": "/images/visit-victoria/vv-157363-moonah-links-golf-course-fingal.webp",
+   "pass": 2,
+   "role": "region-gallery"
+  },
+  {
+   "assetKey": "vv-157419",
+   "surface": "site",
+   "entity": "regions/ocean-coast",
+   "field": "gallery[10]",
+   "src": "/images/visit-victoria/vv-157419-st-andrews-beach-golf-course-fingal.webp",
+   "pass": 2,
+   "role": "region-gallery"
+  },
+  {
+   "assetKey": "vv-146895",
+   "surface": "site",
+   "entity": "regions/ocean-coast",
+   "field": "gallery[11]",
+   "src": "/images/visit-victoria/vv-146895-national-golf-course-7th-hole-putting-green.webp",
+   "pass": 2,
+   "role": "region-gallery"
+  },
+  {
+   "assetKey": "vv-164538",
+   "surface": "site",
+   "entity": "regions/peninsula-tip",
+   "field": "gallery[0]",
+   "src": "/images/visit-victoria/vv-164538-point-nepean.webp",
+   "pass": 2,
+   "role": "region-gallery"
+  },
+  {
+   "assetKey": "vv-168568",
+   "surface": "site",
+   "entity": "regions/peninsula-tip",
+   "field": "gallery[1]",
+   "src": "/images/visit-victoria/vv-168568-st-andrews-beach-brewery.webp",
+   "pass": 2,
+   "role": "region-gallery"
+  },
+  {
+   "assetKey": "vv-157333",
+   "surface": "site",
+   "entity": "regions/peninsula-tip",
+   "field": "gallery[2]",
+   "src": "/images/visit-victoria/vv-157333-the-dunes-golf-links-rye.webp",
+   "pass": 2,
+   "role": "region-gallery"
+  },
+  {
+   "assetKey": "vv-161358",
+   "surface": "site",
+   "entity": "regions/peninsula-tip",
+   "field": "gallery[3]",
+   "src": "/images/visit-victoria/vv-161358-the-continental-sorrento-audrey-s.webp",
+   "pass": 2,
+   "role": "region-gallery"
+  },
+  {
+   "assetKey": "vv-151508",
+   "surface": "site",
+   "entity": "regions/peninsula-tip",
+   "field": "gallery[4]",
+   "src": "/images/visit-victoria/vv-151508-sorrento-back-beach.webp",
+   "pass": 2,
+   "role": "region-gallery"
+  },
+  {
+   "assetKey": "vv-164539",
+   "surface": "site",
+   "entity": "regions/peninsula-tip",
+   "field": "gallery[5]",
+   "src": "/images/visit-victoria/vv-164539-point-nepean-fort-nepean.webp",
+   "pass": 2,
+   "role": "region-gallery"
+  },
+  {
+   "assetKey": "vv-22100103",
+   "surface": "site",
+   "entity": "regions/peninsula-tip",
+   "field": "gallery[6]",
+   "src": "/images/visit-victoria/vv-22100103-sorrento-ferry-terminal.webp",
+   "pass": 2,
+   "role": "region-gallery"
+  },
+  {
+   "assetKey": "vv-164529",
+   "surface": "site",
+   "entity": "regions/peninsula-tip",
+   "field": "gallery[7]",
+   "src": "/images/visit-victoria/vv-164529-bike-riding-at-point-nepean.webp",
+   "pass": 2,
+   "role": "region-gallery"
+  },
+  {
+   "assetKey": "vv-168572",
+   "surface": "site",
+   "entity": "regions/peninsula-tip",
+   "field": "gallery[8]",
+   "src": "/images/visit-victoria/vv-168572-st-andrews-beach-brewery.webp",
+   "pass": 2,
+   "role": "region-gallery"
+  },
+  {
+   "assetKey": "vv-157335",
+   "surface": "site",
+   "entity": "regions/peninsula-tip",
+   "field": "gallery[9]",
+   "src": "/images/visit-victoria/vv-157335-the-dunes-golf-links-rye.webp",
+   "pass": 2,
+   "role": "region-gallery"
+  },
+  {
+   "assetKey": "vv-161361",
+   "surface": "site",
+   "entity": "regions/peninsula-tip",
+   "field": "gallery[10]",
+   "src": "/images/visit-victoria/vv-161361-the-continental-sorrento-audrey-s.webp",
+   "pass": 2,
+   "role": "region-gallery"
+  },
+  {
+   "assetKey": "vv-151509",
+   "surface": "site",
+   "entity": "regions/peninsula-tip",
+   "field": "gallery[11]",
+   "src": "/images/visit-victoria/vv-151509-sorrento-back-beach.webp",
+   "pass": 2,
+   "role": "region-gallery"
+  },
+  {
+   "assetKey": "vv-167059",
+   "surface": "site",
+   "entity": "regions/red-hill-wine-country",
+   "field": "gallery[0]",
+   "src": "/images/visit-victoria/vv-167059-arthurs-seat-eagle.webp",
+   "pass": 2,
+   "role": "region-gallery"
+  },
+  {
+   "assetKey": "vv-25061244",
+   "surface": "site",
+   "entity": "regions/red-hill-wine-country",
+   "field": "gallery[1]",
+   "src": "/images/visit-victoria/vv-25061244-merricks-general-wine-store.webp",
+   "pass": 2,
+   "role": "region-gallery"
+  },
+  {
+   "assetKey": "vv-163850",
+   "surface": "site",
+   "entity": "regions/red-hill-wine-country",
+   "field": "gallery[2]",
+   "src": "/images/visit-victoria/vv-163850-pt-leo-estate.webp",
+   "pass": 2,
+   "role": "region-gallery"
+  },
+  {
+   "assetKey": "vv-161954",
+   "surface": "site",
+   "entity": "regions/red-hill-wine-country",
+   "field": "gallery[3]",
+   "src": "/images/visit-victoria/vv-161954-rare-hare-wine-and-foodstore.webp",
+   "pass": 2,
+   "role": "region-gallery"
+  },
+  {
+   "assetKey": "vv-160021",
+   "surface": "site",
+   "entity": "regions/red-hill-wine-country",
+   "field": "gallery[4]",
+   "src": "/images/visit-victoria/vv-160021-green-olive-at-red-hill.webp",
+   "pass": 2,
+   "role": "region-gallery"
+  },
+  {
+   "assetKey": "vv-26070118",
+   "surface": "site",
+   "entity": "regions/red-hill-wine-country",
+   "field": "gallery[5]",
+   "src": "/images/visit-victoria/vv-26070118-jackalope-hotel.webp",
+   "pass": 2,
+   "role": "region-gallery"
+  },
+  {
+   "assetKey": "vv-25061209",
+   "surface": "site",
+   "entity": "regions/red-hill-wine-country",
+   "field": "gallery[6]",
+   "src": "/images/visit-victoria/vv-25061209-lancemore-lindenderry-red-hill.webp",
+   "pass": 2,
+   "role": "region-gallery"
+  },
+  {
+   "assetKey": "vv-160356",
+   "surface": "site",
+   "entity": "regions/red-hill-wine-country",
+   "field": "gallery[7]",
+   "src": "/images/visit-victoria/vv-160356-montalto.webp",
+   "pass": 2,
+   "role": "region-gallery"
+  },
+  {
+   "assetKey": "vv-159902",
+   "surface": "site",
+   "entity": "regions/red-hill-wine-country",
+   "field": "gallery[8]",
+   "src": "/images/visit-victoria/vv-159902-grape-explorations-australia-ocean-eight-vineyard.webp",
+   "pass": 2,
+   "role": "region-gallery"
+  },
+  {
+   "assetKey": "vv-143152",
+   "surface": "site",
+   "entity": "regions/red-hill-wine-country",
+   "field": "gallery[9]",
+   "src": "/images/visit-victoria/vv-143152-paringa-estate-mornington-peninsula.webp",
+   "pass": 2,
+   "role": "region-gallery"
+  },
+  {
+   "assetKey": "vv-161029",
+   "surface": "site",
+   "entity": "regions/red-hill-wine-country",
+   "field": "gallery[10]",
+   "src": "/images/visit-victoria/vv-161029-red-gum-bbq.webp",
+   "pass": 2,
+   "role": "region-gallery"
+  },
+  {
+   "assetKey": "vv-143785",
+   "surface": "site",
+   "entity": "regions/red-hill-wine-country",
+   "field": "gallery[11]",
+   "src": "/images/visit-victoria/vv-143785-red-hill-brewery.webp",
+   "pass": 2,
+   "role": "region-gallery"
+  },
+  {
+   "assetKey": "vv-167059",
+   "surface": "site",
+   "entity": "regions/red-hill-wine-country",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-167059-arthurs-seat-eagle.webp",
+   "pass": 2,
+   "role": "region-hero"
+  },
+  {
+   "assetKey": "vv-157359",
+   "surface": "site",
+   "entity": "articles/a-flinders-weekend",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-157359-flinders-golf-course.webp",
+   "pass": 2,
+   "role": "article-hero-actual"
+  },
+  {
+   "assetKey": "vv-164273",
+   "surface": "site",
+   "entity": "articles/area-guide-dromana",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-164273-crittenden-estate-cellar-door.webp",
+   "pass": 2,
+   "role": "article-hero-actual"
+  },
+  {
+   "assetKey": "vv-157369",
+   "surface": "site",
+   "entity": "articles/area-guide-flinders",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-157369-flinders-golf-course.webp",
+   "pass": 2,
+   "role": "article-hero-actual"
+  },
+  {
+   "assetKey": "vv-159902",
+   "surface": "site",
+   "entity": "articles/area-guide-main-ridge",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-159902-grape-explorations-australia-ocean-eight-vineyard.webp",
+   "pass": 2,
+   "role": "article-hero-actual"
+  },
+  {
+   "assetKey": "vv-25061244",
+   "surface": "site",
+   "entity": "articles/area-guide-merricks",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-25061244-merricks-general-wine-store.webp",
+   "pass": 2,
+   "role": "article-hero-actual"
+  },
+  {
+   "assetKey": "vv-131853",
+   "surface": "site",
+   "entity": "articles/area-guide-portsea",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-131853-london-bridge-mornington-peninsula.webp",
+   "pass": 2,
+   "role": "article-hero-actual"
+  },
+  {
+   "assetKey": "vv-26070118",
+   "surface": "site",
+   "entity": "articles/area-guide-red-hill",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-26070118-jackalope-hotel.webp",
+   "pass": 2,
+   "role": "article-hero-actual"
+  },
+  {
+   "assetKey": "vv-167059",
+   "surface": "site",
+   "entity": "articles/arthurs-seat-eagle-visitor-guide",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-167059-arthurs-seat-eagle.webp",
+   "pass": 2,
+   "role": "article-hero-actual"
+  },
+  {
+   "assetKey": "vv-160356",
+   "surface": "site",
+   "entity": "articles/autumn-weekend-edit",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-160356-montalto.webp",
+   "pass": 2,
+   "role": "article-hero-featured"
+  },
+  {
+   "assetKey": "vv-160851",
+   "surface": "site",
+   "entity": "articles/best-spas-mornington-peninsula",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-160851-peninsula-hot-springs.webp",
+   "pass": 2,
+   "role": "article-hero-featured"
+  },
+  {
+   "assetKey": "vv-143752",
+   "surface": "site",
+   "entity": "articles/best-wineries-red-hill",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-143752-polperro-winery.webp",
+   "pass": 2,
+   "role": "article-hero-actual"
+  },
+  {
+   "assetKey": "vv-160358",
+   "surface": "site",
+   "entity": "articles/first-time-peninsula",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-160358-montalto.webp",
+   "pass": 2,
+   "role": "article-hero-featured"
+  },
+  {
+   "assetKey": "vv-159194",
+   "surface": "site",
+   "entity": "articles/mornington-day-guide",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-159194-bass-and-flinders-distillery.webp",
+   "pass": 2,
+   "role": "article-hero-actual"
+  },
+  {
+   "assetKey": "vv-157418",
+   "surface": "site",
+   "entity": "articles/mornington-peninsula-golf-stay-and-play",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-157418-st-andrews-beach-golf-course-fingal.webp",
+   "pass": 2,
+   "role": "article-hero-featured"
+  },
+  {
+   "assetKey": "vv-161941",
+   "surface": "site",
+   "entity": "articles/mornington-peninsula-stay-and-soak",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-161941-peninsula-hot-springs.webp",
+   "pass": 2,
+   "role": "article-hero-featured"
+  },
+  {
+   "assetKey": "vv-157419",
+   "surface": "site",
+   "entity": "articles/st-andrews-beach-golf-course",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-157419-st-andrews-beach-golf-course-fingal.webp",
+   "pass": 2,
+   "role": "article-hero-actual"
+  },
+  {
+   "assetKey": "vv-26070114",
+   "surface": "site",
+   "entity": "articles/the-birthday-weekend",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-26070114-jackalope-hotel.webp",
+   "pass": 2,
+   "role": "article-hero-featured"
+  },
+  {
+   "assetKey": "vv-25061243",
+   "surface": "site",
+   "entity": "articles/the-easter-peninsula",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-25061243-merricks-general-wine-store.webp",
+   "pass": 2,
+   "role": "article-hero-featured"
+  },
+  {
+   "assetKey": "vv-25061231",
+   "surface": "site",
+   "entity": "articles/the-four-hour-peninsula",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-25061231-merricks-general-wine-store.webp",
+   "pass": 2,
+   "role": "article-hero-featured"
+  },
+  {
+   "assetKey": "vv-25061225",
+   "surface": "site",
+   "entity": "articles/the-friday-night-arrival",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-25061225-the-epicurean-red-hill.webp",
+   "pass": 2,
+   "role": "article-hero-featured"
+  },
+  {
+   "assetKey": "vv-143094",
+   "surface": "site",
+   "entity": "articles/the-market-saturday",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-143094-mornington-farmers-market.webp",
+   "pass": 2,
+   "role": "article-hero-featured"
+  },
+  {
+   "assetKey": "vv-160359",
+   "surface": "site",
+   "entity": "articles/the-one-booking-peninsula-day",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-160359-montalto.webp",
+   "pass": 2,
+   "role": "article-hero-featured"
+  },
+  {
+   "assetKey": "vv-151508",
+   "surface": "site",
+   "entity": "articles/the-peninsula-beach-swimming-guide",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-151508-sorrento-back-beach.webp",
+   "pass": 2,
+   "role": "article-hero-featured"
+  },
+  {
+   "assetKey": "vv-25061239",
+   "surface": "site",
+   "entity": "articles/the-peninsula-orientation-drive",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-25061239-merricks-general-wine-store.webp",
+   "pass": 2,
+   "role": "article-hero-featured"
+  },
+  {
+   "assetKey": "vv-143098",
+   "surface": "site",
+   "entity": "articles/the-peninsula-pantry",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-143098-produce-at-mornington-farmers-market.webp",
+   "pass": 2,
+   "role": "article-hero-featured"
+  },
+  {
+   "assetKey": "vv-160021",
+   "surface": "site",
+   "entity": "articles/the-peninsula-picnic",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-160021-green-olive-at-red-hill.webp",
+   "pass": 2,
+   "role": "article-hero-featured"
+  },
+  {
+   "assetKey": "vv-143785",
+   "surface": "site",
+   "entity": "articles/the-peninsula-with-kids",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-143785-red-hill-brewery.webp",
+   "pass": 2,
+   "role": "article-hero-featured"
+  },
+  {
+   "assetKey": "vv-160029",
+   "surface": "site",
+   "entity": "articles/the-producer-trail",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-160029-green-olive-at-red-hill.webp",
+   "pass": 2,
+   "role": "article-hero-featured"
+  },
+  {
+   "assetKey": "vv-143823",
+   "surface": "site",
+   "entity": "articles/the-pub-crawl",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-143823-red-hill-brewery.webp",
+   "pass": 2,
+   "role": "article-hero-featured"
+  },
+  {
+   "assetKey": "vv-25061237",
+   "surface": "site",
+   "entity": "articles/the-rainy-day-peninsula-without-a-booking",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-25061237-merricks-general-wine-store.webp",
+   "pass": 2,
+   "role": "article-hero-featured"
+  },
+  {
+   "assetKey": "vv-22100103",
+   "surface": "site",
+   "entity": "articles/the-seafood-list",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-22100103-sorrento-ferry-terminal.webp",
+   "pass": 2,
+   "role": "article-hero-featured"
+  },
+  {
+   "assetKey": "vv-163880",
+   "surface": "site",
+   "entity": "articles/the-sorrento-weekend",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-163880-millionaire-s-walk.webp",
+   "pass": 2,
+   "role": "article-hero-actual"
+  },
+  {
+   "assetKey": "vv-160391",
+   "surface": "site",
+   "entity": "articles/the-spring-peninsula",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-160391-montalto.webp",
+   "pass": 2,
+   "role": "article-hero-featured"
+  },
+  {
+   "assetKey": "vv-172661",
+   "surface": "site",
+   "entity": "articles/the-thermal-springs-weekend",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-172661-alba-thermal-springs-and-spa.webp",
+   "pass": 2,
+   "role": "article-hero-featured"
+  },
+  {
+   "assetKey": "vv-25061220",
+   "surface": "site",
+   "entity": "articles/the-vineyard-villa-weekend",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-25061220-lancemore-lindenderry-red-hill.webp",
+   "pass": 2,
+   "role": "article-hero-featured"
+  },
+  {
+   "assetKey": "vv-161979",
+   "surface": "site",
+   "entity": "articles/walks-cape-schanck-hot-springs-day",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-161979-cape-schanck-boardwalk.webp",
+   "pass": 2,
+   "role": "article-hero-actual"
+  },
+  {
+   "assetKey": "vv-143825",
+   "surface": "site",
+   "entity": "articles/where-to-eat-without-a-booking",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-143825-red-hill-brewery.webp",
+   "pass": 2,
+   "role": "article-hero-featured"
+  },
+  {
+   "assetKey": "vv-26070112",
+   "surface": "site",
+   "entity": "articles/where-to-stay-for-a-two-night-escape",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-26070112-jackalope-hotel.webp",
+   "pass": 2,
+   "role": "article-hero-featured"
+  },
+  {
+   "assetKey": "vv-160375",
+   "surface": "site",
+   "entity": "articles/why-winter-works-on-the-peninsula",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-160375-montalto.webp",
+   "pass": 2,
+   "role": "article-hero-featured"
+  },
+  {
+   "assetKey": "vv-143140",
+   "surface": "site",
+   "entity": "events/archibald-prize-2026-facing-modernity-mitchelton-winery-mprg-art-trip",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-143140-mornington-peninsula-regional-gallery.webp",
+   "pass": 2,
+   "role": "event-hero-venue"
+  },
+  {
+   "assetKey": "vv-143140",
+   "surface": "site",
+   "entity": "events/mprg-autumn-exhibition",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-143140-mornington-peninsula-regional-gallery.webp",
+   "pass": 2,
+   "role": "event-hero-venue"
+  },
+  {
+   "assetKey": "vv-143140",
+   "surface": "site",
+   "entity": "events/natalia-milosz-piekarska-sifted-light-mprg-2026",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-143140-mornington-peninsula-regional-gallery.webp",
+   "pass": 2,
+   "role": "event-hero-venue"
+  },
+  {
+   "assetKey": "vv-143140",
+   "surface": "site",
+   "entity": "events/new-wave-26-at-mprg",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-143140-mornington-peninsula-regional-gallery.webp",
+   "pass": 2,
+   "role": "event-hero-venue"
+  },
+  {
+   "assetKey": "vv-161358",
+   "surface": "site",
+   "entity": "events/oktoberfest-continental-sorrento-2026",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-161358-the-continental-sorrento-audrey-s.webp",
+   "pass": 2,
+   "role": "event-hero-venue"
+  },
+  {
+   "assetKey": "vv-160851",
+   "surface": "site",
+   "entity": "events/peninsula-hot-springs-sunday-sessions-spring-2026",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-160851-peninsula-hot-springs.webp",
+   "pass": 2,
+   "role": "event-hero-venue"
+  },
+  {
+   "assetKey": "vv-161358",
+   "surface": "site",
+   "entity": "events/stonier-winemaker-dinner-continental-sorrento-2026",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-161358-the-continental-sorrento-audrey-s.webp",
+   "pass": 2,
+   "role": "event-hero-venue"
+  },
+  {
+   "assetKey": "vv-163894",
+   "surface": "site",
+   "entity": "places/sorrento",
+   "field": "gallery[12]",
+   "src": "/images/visit-victoria/vv-163894-antipodes-book-shop-sorrento.webp",
+   "pass": 3,
+   "role": "gallery"
+  },
+  {
+   "assetKey": "vv-163895",
+   "surface": "site",
+   "entity": "places/sorrento",
+   "field": "gallery[13]",
+   "src": "/images/visit-victoria/vv-163895-antipodes-book-shop-sorrento.webp",
+   "pass": 3,
+   "role": "gallery"
+  },
+  {
+   "assetKey": "vv-163896",
+   "surface": "site",
+   "entity": "places/sorrento",
+   "field": "gallery[14]",
+   "src": "/images/visit-victoria/vv-163896-antipodes-book-shop-sorrento.webp",
+   "pass": 3,
+   "role": "gallery"
+  },
+  {
+   "assetKey": "vv-163897",
+   "surface": "site",
+   "entity": "places/sorrento",
+   "field": "gallery[15]",
+   "src": "/images/visit-victoria/vv-163897-antipodes-book-shop-sorrento.webp",
+   "pass": 3,
+   "role": "gallery"
+  },
+  {
+   "assetKey": "vv-163898",
+   "surface": "site",
+   "entity": "places/sorrento",
+   "field": "gallery[16]",
+   "src": "/images/visit-victoria/vv-163898-antipodes-book-shop-sorrento.webp",
+   "pass": 3,
+   "role": "gallery"
+  },
+  {
+   "assetKey": "vv-163902",
+   "surface": "site",
+   "entity": "places/sorrento",
+   "field": "gallery[17]",
+   "src": "/images/visit-victoria/vv-163902-antipodes-book-shop-sorrento.webp",
+   "pass": 3,
+   "role": "gallery"
+  },
+  {
+   "assetKey": "vv-22100101",
+   "surface": "site",
+   "entity": "venues/the-continental-sorrento",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-22100101-aerials-of-the-continental-sorrento.webp",
+   "pass": 3,
+   "role": "hero-upgrade"
+  },
+  {
+   "assetKey": "vv-22100102",
+   "surface": "site",
+   "entity": "venues/the-continental-sorrento",
+   "field": "gallery[9]",
+   "src": "/images/visit-victoria/vv-22100102-the-continental-sorrento.webp",
+   "pass": 3,
+   "role": "gallery"
+  },
+  {
+   "assetKey": "vv-161325",
+   "surface": "site",
+   "entity": "venues/the-continental-sorrento",
+   "field": "gallery[10]",
+   "src": "/images/visit-victoria/vv-161325-the-continental-sorrento.webp",
+   "pass": 3,
+   "role": "gallery"
+  },
+  {
+   "assetKey": "vv-161334",
+   "surface": "site",
+   "entity": "venues/the-continental-sorrento",
+   "field": "gallery[11]",
+   "src": "/images/visit-victoria/vv-161334-the-continental-sorrento.webp",
+   "pass": 3,
+   "role": "gallery"
+  },
+  {
+   "assetKey": "vv-164527",
+   "surface": "site",
+   "entity": "places/point-nepean",
+   "field": "gallery[11]",
+   "src": "/images/visit-victoria/vv-164527-bike-riding-at-point-nepean.webp",
+   "pass": 3,
+   "role": "gallery"
+  },
+  {
+   "assetKey": "vv-164540",
+   "surface": "site",
+   "entity": "places/point-nepean",
+   "field": "gallery[12]",
+   "src": "/images/visit-victoria/vv-164540-bike-riding-at-point-nepean.webp",
+   "pass": 3,
+   "role": "gallery"
+  },
+  {
+   "assetKey": "vv-164543",
+   "surface": "site",
+   "entity": "places/point-nepean",
+   "field": "gallery[13]",
+   "src": "/images/visit-victoria/vv-164543-bike-riding-at-point-nepean.webp",
+   "pass": 3,
+   "role": "gallery"
+  },
+  {
+   "assetKey": "vv-164545",
+   "surface": "site",
+   "entity": "places/point-nepean",
+   "field": "gallery[14]",
+   "src": "/images/visit-victoria/vv-164545-bike-riding-at-point-nepean.webp",
+   "pass": 3,
+   "role": "gallery"
+  },
+  {
+   "assetKey": "vv-26070129",
+   "surface": "site",
+   "entity": "places/point-nepean",
+   "field": "gallery[15]",
+   "src": "/images/visit-victoria/vv-26070129-point-nepean-national-park.webp",
+   "pass": 3,
+   "role": "gallery"
+  },
+  {
+   "assetKey": "vv-26070130",
+   "surface": "site",
+   "entity": "places/point-nepean",
+   "field": "gallery[16]",
+   "src": "/images/visit-victoria/vv-26070130-point-nepean-national-park.webp",
+   "pass": 3,
+   "role": "gallery"
+  },
+  {
+   "assetKey": "vv-26070131",
+   "surface": "site",
+   "entity": "places/point-nepean",
+   "field": "gallery[17]",
+   "src": "/images/visit-victoria/vv-26070131-point-nepean-national-park.webp",
+   "pass": 3,
+   "role": "gallery"
+  },
+  {
+   "assetKey": "vv-163830",
+   "surface": "site",
+   "entity": "places/mornington",
+   "field": "gallery[12]",
+   "src": "/images/visit-victoria/vv-163830-stand-up-paddleboarding-at-mornington.webp",
+   "pass": 3,
+   "role": "gallery"
+  },
+  {
+   "assetKey": "vv-163831",
+   "surface": "site",
+   "entity": "places/mornington",
+   "field": "gallery[13]",
+   "src": "/images/visit-victoria/vv-163831-stand-up-paddleboarding-at-mornington.webp",
+   "pass": 3,
+   "role": "gallery"
+  },
+  {
+   "assetKey": "vv-163832",
+   "surface": "site",
+   "entity": "places/mornington",
+   "field": "gallery[14]",
+   "src": "/images/visit-victoria/vv-163832-stand-up-paddleboarding-at-mornington.webp",
+   "pass": 3,
+   "role": "gallery"
+  },
+  {
+   "assetKey": "vv-163833",
+   "surface": "site",
+   "entity": "places/mornington",
+   "field": "gallery[15]",
+   "src": "/images/visit-victoria/vv-163833-stand-up-paddleboarding-at-mornington.webp",
+   "pass": 3,
+   "role": "gallery"
+  },
+  {
+   "assetKey": "vv-163834",
+   "surface": "site",
+   "entity": "places/mornington",
+   "field": "gallery[16]",
+   "src": "/images/visit-victoria/vv-163834-stand-up-paddleboarding-at-mornington.webp",
+   "pass": 3,
+   "role": "gallery"
+  },
+  {
+   "assetKey": "vv-163835",
+   "surface": "site",
+   "entity": "places/mornington",
+   "field": "gallery[17]",
+   "src": "/images/visit-victoria/vv-163835-stand-up-paddleboarding-at-mornington.webp",
+   "pass": 3,
+   "role": "gallery"
+  },
+  {
+   "assetKey": "vv-162242",
+   "surface": "site",
+   "entity": "places/st-andrews-beach",
+   "field": "gallery[0]",
+   "src": "/images/visit-victoria/vv-162242-st-andrews-beach-golf-course.webp",
+   "pass": 3,
+   "role": "gallery"
+  },
+  {
+   "assetKey": "vv-162243",
+   "surface": "site",
+   "entity": "places/st-andrews-beach",
+   "field": "gallery[1]",
+   "src": "/images/visit-victoria/vv-162243-st-andrews-beach-golf-course.webp",
+   "pass": 3,
+   "role": "gallery"
+  },
+  {
+   "assetKey": "vv-162247",
+   "surface": "site",
+   "entity": "places/st-andrews-beach",
+   "field": "gallery[2]",
+   "src": "/images/visit-victoria/vv-162247-st-andrews-beach-golf-course.webp",
+   "pass": 3,
+   "role": "gallery"
+  },
+  {
+   "assetKey": "vv-162249",
+   "surface": "site",
+   "entity": "places/st-andrews-beach",
+   "field": "gallery[3]",
+   "src": "/images/visit-victoria/vv-162249-st-andrews-beach-golf-course.webp",
+   "pass": 3,
+   "role": "gallery"
+  },
+  {
+   "assetKey": "vv-162253",
+   "surface": "site",
+   "entity": "places/st-andrews-beach",
+   "field": "gallery[4]",
+   "src": "/images/visit-victoria/vv-162253-st-andrews-beach-golf-course.webp",
+   "pass": 3,
+   "role": "gallery"
+  },
+  {
+   "assetKey": "vv-162268",
+   "surface": "site",
+   "entity": "places/st-andrews-beach",
+   "field": "gallery[5]",
+   "src": "/images/visit-victoria/vv-162268-st-andrews-beach-golf-course.webp",
+   "pass": 3,
+   "role": "gallery"
+  },
+  {
+   "assetKey": "vv-162269",
+   "surface": "site",
+   "entity": "places/st-andrews-beach",
+   "field": "gallery[6]",
+   "src": "/images/visit-victoria/vv-162269-st-andrews-beach-golf-course.webp",
+   "pass": 3,
+   "role": "gallery"
+  },
+  {
+   "assetKey": "vv-162271",
+   "surface": "site",
+   "entity": "places/st-andrews-beach",
+   "field": "gallery[7]",
+   "src": "/images/visit-victoria/vv-162271-st-andrews-beach-golf-course.webp",
+   "pass": 3,
+   "role": "gallery"
+  },
+  {
+   "assetKey": "vv-161984",
+   "surface": "site",
+   "entity": "places/cape-schanck",
+   "field": "gallery[12]",
+   "src": "/images/visit-victoria/vv-161984-cape-schanck-boardwalk.webp",
+   "pass": 3,
+   "role": "gallery"
+  },
+  {
+   "assetKey": "vv-162411",
+   "surface": "site",
+   "entity": "places/cape-schanck",
+   "field": "gallery[13]",
+   "src": "/images/visit-victoria/vv-162411-cape-schanck-lighthouse-reserve.webp",
+   "pass": 3,
+   "role": "gallery"
+  },
+  {
+   "assetKey": "vv-118016",
+   "surface": "site",
+   "entity": "places/cape-schanck",
+   "field": "gallery[14]",
+   "src": "/images/visit-victoria/vv-118016-cape-schanck-lighthouse.webp",
+   "pass": 3,
+   "role": "gallery"
   }
  ],
  "cmsRetired": [
@@ -2863,5 +5410,7 @@
    "reason": "Masked the licensed Visit Victoria hero; the upload had no alt text, credit or licence recorded."
   }
  ],
- "cmsRestoreSql": "update pi.cms_image_slots set status = 'published', updated_at = now() where id in ('10e9aea5-28c9-42bc-96fe-64d86d45dc48', '7648fefa-bcc8-4434-b514-0a98285872c8', 'd21dea77-5987-4cf3-9ade-692acf33ad26', 'fa2f902a-a1ba-42b3-af45-a4252e44217d', '90972e5c-db10-4db8-b64e-af918e617249', 'fc5a8044-dae5-492d-91c0-8dd4f5c10b49', '1d459008-be04-4568-abcc-65ae16fe7963', '9afb4ea7-a844-44cd-b1c9-9073087abeda', '2a9601cf-2966-45e5-943a-d3ac8222a82b', 'f1285335-0c0c-4fd1-8893-6a9bb23d73fd', '84a713b1-572e-49fb-8613-b4462698b315', 'a15fa79a-0d43-4857-a794-ed1818a5105a', '90022b41-eda7-45be-8eed-229cbab0b206', 'ba31c534-b9a0-48e5-985c-8a05f4ec8210', '17e30ffe-a238-4275-9e36-52459f4a6a7f', 'a3717681-e253-455f-a3af-15692b8e03af', 'fd8e7017-f2f5-4c97-a032-cbf95037a1c8', 'acc744ad-90a2-43c7-b5d5-1bcde316980e', '38a3a8e7-aaee-4e64-bc6c-f922ab8f1c07', 'e33b14d8-0a2d-4221-9ad0-78cc7b623c8b', '2942baa3-3784-4132-ae70-d7eeee6ecdc0', 'ad2bc4f8-5c07-43d2-bb0e-26dec9db420f', 'ad46c9ee-d53f-48d4-96ce-bedb99b13e0f', '1fa90eca-1aaf-485f-b40f-ae25e70cd626', '2180b168-fa62-42d8-b1c6-8f605e15130c', '53b1268d-8bd1-4a3d-b777-f0952f24180c', '1634be08-47e7-4006-9b99-ed85526d51eb', '57092ccb-bc00-41e7-afa9-c797bd3063b8', '191592ba-52fd-4278-a618-41b0b20f2dc1');"
+ "cmsRestoreSql": "update pi.cms_image_slots set status = 'published', updated_at = now() where id in ('10e9aea5-28c9-42bc-96fe-64d86d45dc48', '7648fefa-bcc8-4434-b514-0a98285872c8', 'd21dea77-5987-4cf3-9ade-692acf33ad26', 'fa2f902a-a1ba-42b3-af45-a4252e44217d', '90972e5c-db10-4db8-b64e-af918e617249', 'fc5a8044-dae5-492d-91c0-8dd4f5c10b49', '1d459008-be04-4568-abcc-65ae16fe7963', '9afb4ea7-a844-44cd-b1c9-9073087abeda', '2a9601cf-2966-45e5-943a-d3ac8222a82b', 'f1285335-0c0c-4fd1-8893-6a9bb23d73fd', '84a713b1-572e-49fb-8613-b4462698b315', 'a15fa79a-0d43-4857-a794-ed1818a5105a', '90022b41-eda7-45be-8eed-229cbab0b206', 'ba31c534-b9a0-48e5-985c-8a05f4ec8210', '17e30ffe-a238-4275-9e36-52459f4a6a7f', 'a3717681-e253-455f-a3af-15692b8e03af', 'fd8e7017-f2f5-4c97-a032-cbf95037a1c8', 'acc744ad-90a2-43c7-b5d5-1bcde316980e', '38a3a8e7-aaee-4e64-bc6c-f922ab8f1c07', 'e33b14d8-0a2d-4221-9ad0-78cc7b623c8b', '2942baa3-3784-4132-ae70-d7eeee6ecdc0', 'ad2bc4f8-5c07-43d2-bb0e-26dec9db420f', 'ad46c9ee-d53f-48d4-96ce-bedb99b13e0f', '1fa90eca-1aaf-485f-b40f-ae25e70cd626', '2180b168-fa62-42d8-b1c6-8f605e15130c', '53b1268d-8bd1-4a3d-b777-f0952f24180c', '1634be08-47e7-4006-9b99-ed85526d51eb', '57092ccb-bc00-41e7-afa9-c797bd3063b8', '191592ba-52fd-4278-a618-41b0b20f2dc1');",
+ "pass2At": "2026-09-29T12:25:10.539Z",
+ "pass3At": "2026-09-29T12:33:41.236Z"
 }

@@ -5,10 +5,24 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-05-02
 heroImage:
-  src: "/images/sourced/place-red-hill-01.webp"
-  alt: "Rolling vineyard rows across Red Hill on the Mornington Peninsula"
-  credit: "Peninsula Insider"
-  license: "tmp-wikimedia"
+  src: "/images/visit-victoria/vv-26070118-jackalope-hotel.webp"
+  alt: "Two guests walk out of the black-framed entrance beside a red-brick building at Jackalope Hotel, with a dark sculpture in front"
+  credit: "Peter Foster, courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "Jackalope Hotel, Red Hill, Mornington Peninsula."
+  depicts: "Jackalope Hotel"
+  depictionStatus: "actual"
+  creator: "Peter Foster"
+  sourceUrl: "Victoria Content Hub asset 26070118, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "hub-guide"
 tags: ["red-hill", "area-guide", "planning"]
 relatedVenues: []

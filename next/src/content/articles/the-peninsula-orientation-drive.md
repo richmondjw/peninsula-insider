@@ -5,10 +5,24 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-10
 heroImage:
-  src: "/images/sourced/article-orientation-drive-02.webp"
-  alt: "Aerial view across Mornington Peninsula vineyards and farmland with a country road running through the patchwork toward Port Phillip Bay"
-  credit: "Victor Lu on Unsplash"
-  license: "tmp-unsplash"
+  src: "/images/visit-victoria/vv-25061239-merricks-general-wine-store.webp"
+  alt: "Scallops on the half shell served on salt with bread and glasses of white wine, an open fire glowing behind"
+  credit: "Peter Foster, courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "Merricks General Wine Store, Mornington Peninsula."
+  depicts: "Merricks General Wine Store"
+  depictionStatus: "illustrative"
+  creator: "Peter Foster"
+  sourceUrl: "Victoria Content Hub asset 25061239, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "service"
 tags: ["explore", "drive", "first-timers", "red-hill", "sorrento", "day-trip", "all-year"]
 relatedVenues: ["commonfolk-coffee", "merricks-general-wine-store", "red-hill-brewery", "flinders-sourdough", "georgie-bass", "dromana-hotel", "balnarring-pub", "crittenden-estate", "yabby-lake", "red-hill-bakery", "somers-general"]

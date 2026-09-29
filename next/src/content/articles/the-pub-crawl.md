@@ -5,12 +5,24 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-10
 heroImage:
-  src: "/images/sourced/category-pub-01.webp"
-  alt: "A plate of grilled steak and hand-cut chips scattered with parsley, a steak knife alongside on a dark timber table."
-  depicts: "a plate of grilled steak and hand-cut chips"
+  src: "/images/visit-victoria/vv-143823-red-hill-brewery.webp"
+  alt: "A hand pulls a pale beer into a small glass from a row of worn metal taps with a Red Hill Brewery tap badge"
+  credit: "Peter Tarasiuk, courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "Red Hill Brewery, Mornington Peninsula."
+  depicts: "Red Hill Brewery"
   depictionStatus: "illustrative"
-  credit: "Peninsula Insider"
-  license: "tmp-unsplash"
+  creator: "Peter Tarasiuk"
+  sourceUrl: "Victoria Content Hub asset 143823, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026). Embedded usage terms: \"All image usage must be for the positive promotion of Melbourne and Victoria. Images can only be used to promote the region the image has been taken in. All material supplied is owned by Visit Victoria or its respective partners and can not be on sold to Third Parties.\""
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "service"
 tags: ["pubs", "beer", "dining", "walk-in", "locals", "groups", "casual", "all-year"]
 relatedVenues: ["flinders-hotel", "dromana-hotel", "rye-hotel", "balnarring-pub", "mornington-hotel", "portsea-hotel", "sorrento-hotel", "hotel-sorrento", "the-bay-hotel-mornington", "red-hill-brewery", "st-andrews-beach-brewery", "jetty-road-brewery", "two-bays-brewing", "mornington-peninsula-brewery"]

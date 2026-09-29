@@ -5,10 +5,24 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-02
 heroImage:
-  src: "/images/sourced/article-vineyard-villa-01.webp"
-  alt: "A guest room balcony looking across vineyard rows on the Mornington Peninsula"
-  credit: "Wikimedia Commons"
-  license: "tmp-wikimedia"
+  src: "/images/visit-victoria/vv-26070112-jackalope-hotel.webp"
+  alt: "Two guests in dark robes stand on a balcony at Jackalope Hotel, looking out over gum trees to vineyard rows"
+  credit: "Peter Foster, courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "Jackalope Hotel, Red Hill, Mornington Peninsula."
+  depicts: "Jackalope Hotel"
+  depictionStatus: "illustrative"
+  creator: "Peter Foster"
+  sourceUrl: "Victoria Content Hub asset 26070112, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "stay-notes"
 tags: ["stay", "weekend", "sorrento", "red-hill"]
 relatedVenues: ["jackalope", "lindenderry", "the-continental-sorrento", "hotel-sorrento", "port-phillip-estate", "crittenden-villas", "peninsula-hot-springs-glamping", "the-continental-sorrento", "point-leo-estate-villas", "polperro-villas"]

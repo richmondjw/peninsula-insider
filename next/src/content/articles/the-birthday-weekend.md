@@ -5,12 +5,24 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-16
 heroImage:
-  src: "/images/sourced/article-couples-weekend-01.webp"
-  alt: "Two children sitting in shallow water beside a weathered timber jetty, a motorboat moored offshore."
-  depicts: "two children in shallow water beside a timber jetty"
+  src: "/images/visit-victoria/vv-26070114-jackalope-hotel.webp"
+  alt: "Two silhouetted guests raise glasses of red wine above a valley of vineyard rows and bushland at Jackalope Hotel"
+  credit: "Peter Foster, courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "Jackalope Hotel, Red Hill, Mornington Peninsula."
+  depicts: "Jackalope Hotel"
   depictionStatus: "illustrative"
-  credit: "Peninsula Insider"
-  license: "tmp-unsplash"
+  creator: "Peter Foster"
+  sourceUrl: "Victoria Content Hub asset 26070114, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "service"
 tags: ["celebration", "birthday", "anniversary", "romance", "stay", "weekend", "all-year"]
 relatedVenues: ["jackalope", "lindenderry", "polperro-villas", "crittenden-villas", "point-leo-estate-villas", "hotel-sorrento", "the-continental-sorrento", "tedesca-osteria", "laura-pt-leo", "pt-leo-estate", "doot-doot-doot", "ten-minutes-by-tractor", "polperro", "montalto", "alba-thermal-springs", "peninsula-hot-springs", "peninsula-hot-springs-glamping", "barragunda-dining", "port-phillip-estate-restaurant"]

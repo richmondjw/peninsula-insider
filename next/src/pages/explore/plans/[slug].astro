@@ -11,6 +11,8 @@
  *   2. Day-N "where you sleep tonight" block at end of each day except last
  *   3. Footer rail - anchor + alt stays
  */
+import PhotoStage from '../../../components/PhotoStage.astro';
+import { photoPlan } from '../../../lib/photo-set';
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
@@ -126,6 +128,9 @@ const slug = isArticle ? '' : routeSlug(itinerary);
 // editor's uploaded image ships in the static HTML.
 const itineraryOverrides = !isArticle && slug ? await loadOverrides('itinerary', slug) : null;
 const itineraryHeroOverride = itineraryOverrides?.image['hero'];
+// The photograph rule (src/lib/photo-set.ts): the stops' licensed photographs
+// open the plan, or sit under an editor's hero as a filmstrip.
+const itineraryPhotos = data ? photoPlan(data, { override: Boolean(itineraryHeroOverride) }) : null;
 
 const allItineraries = isArticle ? [] : await getCollection('itineraries');
 const allVenues = isArticle ? allVenuesRaw : allVenuesRaw;
@@ -518,20 +523,29 @@ export const prerender = true;
         <PiForkPlanButton plan={forkPlan} variant="ghost" />
       </div>
 
-      <div
-        class="itinerary-detail__hero feature__image-block feature__image-block--sand"
-        aria-hidden="true"
-        style={itineraryHeroOverride?.src
-          ? `background-image: url('${itineraryHeroOverride.src.replace(/["\\]/g, (m: string) => `\\${m}`)}'); background-size: cover; background-position: center;`
-          : heroBackgroundStyle(data!)}
-        {...editableImage({
-          entityType: 'itinerary', entitySlug: slug, fieldPath: 'heroImage',
-          label: `${data!.title} hero`, purpose: 'hero',
-        })}
-      >
-        <div class="itinerary-detail__hero-fog"></div>
-        <span class="itinerary-detail__hero-label">{itineraryHeroOverride?.alt ?? data!.heroImage.alt}</span>
-      </div>
+      {itineraryPhotos?.stage ? (
+        <div {...editableImage({ entityType: 'itinerary', entitySlug: slug, fieldPath: 'heroImage', label: `${data!.title} hero`, purpose: 'hero' })}>
+          <PhotoStage photos={itineraryPhotos.photos} subject={data!.title} id="photos" />
+        </div>
+      ) : (
+        <>
+          <div
+            class="itinerary-detail__hero feature__image-block feature__image-block--sand"
+            aria-hidden="true"
+            style={itineraryHeroOverride?.src
+              ? `background-image: url('${itineraryHeroOverride.src.replace(/["\\]/g, (m: string) => `\\${m}`)}'); background-size: cover; background-position: center;`
+              : heroBackgroundStyle(data!)}
+            {...editableImage({
+              entityType: 'itinerary', entitySlug: slug, fieldPath: 'heroImage',
+              label: `${data!.title} hero`, purpose: 'hero',
+            })}
+          >
+            <div class="itinerary-detail__hero-fog"></div>
+            <span class="itinerary-detail__hero-label">{itineraryHeroOverride?.alt ?? data!.heroImage.alt}</span>
+          </div>
+          {(itineraryPhotos?.photos.length ?? 0) >= 3 && <PhotoStage photos={itineraryPhotos!.photos} subject={data!.title} id="photos" variant="strip" />}
+        </>
+      )}
 
       <div class="itinerary-detail__grid">
         <div>

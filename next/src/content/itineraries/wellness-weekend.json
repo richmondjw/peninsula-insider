@@ -6,13 +6,30 @@
   "mood": "wellness",
   "lengthNights": 2,
   "duration": "weekend",
-  "theme": ["wellness", "coastal"],
+  "theme": [
+    "wellness",
+    "coastal"
+  ],
   "anchorTown": "red-hill",
-  "baseTowns": ["red-hill", "merricks", "cape-schanck", "mornington"],
+  "baseTowns": [
+    "red-hill",
+    "merricks",
+    "cape-schanck",
+    "mornington"
+  ],
   "bookingChecklist": [
-    { "item": "Two nights at Lindenderry", "priority": "essential" },
-    { "item": "Alba thermal session", "priority": "essential" },
-    { "item": "Lunch reservations and in-house dinner service", "priority": "recommended" }
+    {
+      "item": "Two nights at Lindenderry",
+      "priority": "essential"
+    },
+    {
+      "item": "Alba thermal session",
+      "priority": "essential"
+    },
+    {
+      "item": "Lunch reservations and in-house dinner service",
+      "priority": "recommended"
+    }
   ],
   "stops": [
     {
@@ -73,5 +90,191 @@
     "license": "wikimedia-cc-by"
   },
   "editorNote": "Use the same stay for both nights and make the thermal session the one fixed point of Saturday. Lunch at Merricks starts the trip; the gallery finishes it. The Cape Schanck stop is optional if you would rather return to the property after lunch. Check each booking's cancellation terms before paying, especially if keeping the weekend flexible matters to you.",
-  "publishedAt": "2026-04-09"
+  "publishedAt": "2026-04-09",
+  "gallery": [
+    {
+      "src": "/images/visit-victoria/vv-25061244-merricks-general-wine-store.webp",
+      "alt": "A visitor walks past the weatherboard facade of Merricks General Store, its painted sign framed by a red flowering vine",
+      "credit": "Peter Foster, courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Merricks General Wine Store, Mornington Peninsula.",
+      "depicts": "Merricks General Wine Store",
+      "depictionStatus": "actual",
+      "creator": "Peter Foster",
+      "sourceUrl": "Victoria Content Hub asset 25061244, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-25061209-lancemore-lindenderry-red-hill.webp",
+      "alt": "Visitors cross a sunlit lawn between large tree trunks towards the white homestead building at Lindenderry at Red Hill",
+      "credit": "Peter Foster, courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Lindenderry at Red Hill, Mornington Peninsula.",
+      "depicts": "Lancemore Lindenderry Red Hill",
+      "depictionStatus": "actual",
+      "creator": "Peter Foster",
+      "sourceUrl": "Victoria Content Hub asset 25061209, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-172661-alba-thermal-springs-and-spa.webp",
+      "alt": "A bather wading through a turquoise pool beneath curved concrete canopies at Alba Thermal Springs and Spa",
+      "credit": "Courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Alba Thermal Springs & Spa, Fingal, Mornington Peninsula.",
+      "depicts": "Alba Thermal Springs and Spa",
+      "depictionStatus": "actual",
+      "sourceUrl": "Victoria Content Hub asset 172661, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-161954-rare-hare-wine-and-foodstore.webp",
+      "alt": "The red-brick Rare Hare building with its arched sign set against an ivy-covered wall and a paved forecourt",
+      "credit": "Courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Rare Hare at Willow Creek, Merricks, Mornington Peninsula.",
+      "depicts": "Rare Hare Wine and Foodstore",
+      "depictionStatus": "actual",
+      "sourceUrl": "Victoria Content Hub asset 161954, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-143140-mornington-peninsula-regional-gallery.webp",
+      "alt": "White-walled exhibition space at Mornington Peninsula Regional Gallery with paintings, wire fish sculptures and a floor installation",
+      "credit": "Courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Mornington Peninsula Regional Gallery, Mornington Peninsula.",
+      "depicts": "Mornington Peninsula Regional Gallery",
+      "depictionStatus": "actual",
+      "sourceUrl": "Victoria Content Hub asset 143140, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-25061243-merricks-general-wine-store.webp",
+      "alt": "Timber tables set for lunch before an open kitchen with hanging woven baskets and shelves of wine at Merricks General Wine Store",
+      "credit": "Peter Foster, courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Merricks General Wine Store, Mornington Peninsula.",
+      "depicts": "Merricks General Wine Store",
+      "depictionStatus": "actual",
+      "creator": "Peter Foster",
+      "sourceUrl": "Victoria Content Hub asset 25061243, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-25061224-lancemore-lindenderry-red-hill.webp",
+      "alt": "The white homestead at Lindenderry at Red Hill framed by tall cypress hedges, with a gravel drive and green lawn at dusk",
+      "credit": "Peter Foster, courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Lindenderry at Red Hill, Mornington Peninsula.",
+      "depicts": "Lancemore Lindenderry Red Hill",
+      "depictionStatus": "actual",
+      "creator": "Peter Foster",
+      "sourceUrl": "Victoria Content Hub asset 25061224, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-163804-alba-thermal-springs.webp",
+      "alt": "A single bather in a round outdoor hot pool framed by tall shrubs and yellow wildflowers at Alba Thermal Springs",
+      "credit": "Courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Alba Thermal Springs & Spa, Fingal, Mornington Peninsula.",
+      "depicts": "Alba Thermal Springs",
+      "depictionStatus": "actual",
+      "sourceUrl": "Victoria Content Hub asset 163804, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-161955-rare-hare-wine-and-foodstore.webp",
+      "alt": "Two visitors walk past the ivy wall and arched Rare Hare sign towards the red-brick entrance in sunshine",
+      "credit": "Courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Rare Hare at Willow Creek, Merricks, Mornington Peninsula.",
+      "depicts": "Rare Hare Wine and Foodstore",
+      "depictionStatus": "actual",
+      "sourceUrl": "Victoria Content Hub asset 161955, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    }
+  ]
 }

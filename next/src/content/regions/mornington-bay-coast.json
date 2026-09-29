@@ -9,10 +9,275 @@
     "credit": "Peninsula Insider",
     "license": "tmp-unsplash"
   },
-  "zones": ["mornington", "bay-coast"],
-  "places": ["mornington", "mount-martha", "safety-beach", "mccrae", "dromana", "rosebud", "capel-sound", "mount-eliza"],
-  "adjacentRegions": ["red-hill-wine-country", "western-port"],
-  "coordinates": { "lat": -38.22, "lng": 145.04 },
+  "zones": [
+    "mornington",
+    "bay-coast"
+  ],
+  "places": [
+    "mornington",
+    "mount-martha",
+    "safety-beach",
+    "mccrae",
+    "dromana",
+    "rosebud",
+    "capel-sound",
+    "mount-eliza"
+  ],
+  "adjacentRegions": [
+    "red-hill-wine-country",
+    "western-port"
+  ],
+  "coordinates": {
+    "lat": -38.22,
+    "lng": 145.04
+  },
   "publishedAt": "2026-06-01",
-  "sitemapExclude": false
+  "sitemapExclude": false,
+  "gallery": [
+    {
+      "src": "/images/visit-victoria/vv-164273-crittenden-estate-cellar-door.webp",
+      "alt": "A gravel drive leads between lawns and a row of vines to a cottage shaded by trees in yellow autumn leaf",
+      "credit": "Courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Crittenden Estate, Dromana, Mornington Peninsula.",
+      "depicts": "Crittenden Estate Cellar Door",
+      "depictionStatus": "actual",
+      "sourceUrl": "Victoria Content Hub asset 164273, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-169287-trofeo-estate.webp",
+      "alt": "Dining room at Trofeo Estate with exposed brick walls, bentwood chairs, set tables and a shelf of wine bottles",
+      "credit": "Courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Trofeo Estate, Dromana, Mornington Peninsula.",
+      "depicts": "Trofeo Estate",
+      "depictionStatus": "actual",
+      "sourceUrl": "Victoria Content Hub asset 169287, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-143094-mornington-farmers-market.webp",
+      "alt": "Shoppers stroll past white and red marquees and a butcher's chalkboard sign at Mornington Farmers Market",
+      "credit": "Robert Blackburn, courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Mornington Farmers' Market, Mornington Peninsula.",
+      "depicts": "Mornington Farmers Market",
+      "depictionStatus": "actual",
+      "creator": "Robert Blackburn",
+      "sourceUrl": "Victoria Content Hub asset 143094, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026). Embedded usage terms: \"This image can only be used for the positive promotion of tourism in Victoria\"",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-159194-bass-and-flinders-distillery.webp",
+      "alt": "Bass and Flinders Distillery signage on a tall grey wall beside a picket-fenced garden, planter boxes and a small bar",
+      "credit": "Two Palms Australia, courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Bass & Flinders Distillery, Mornington, Mornington Peninsula.",
+      "depicts": "Bass and Flinders Distillery",
+      "depictionStatus": "actual",
+      "creator": "Two Palms Australia",
+      "sourceUrl": "Victoria Content Hub asset 159194, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-143140-mornington-peninsula-regional-gallery.webp",
+      "alt": "White-walled exhibition space at Mornington Peninsula Regional Gallery with paintings, wire fish sculptures and a floor installation",
+      "credit": "Courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Mornington Peninsula Regional Gallery, Mornington Peninsula.",
+      "depicts": "Mornington Peninsula Regional Gallery",
+      "depictionStatus": "actual",
+      "sourceUrl": "Victoria Content Hub asset 143140, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-164692-crittenden-estate.webp",
+      "alt": "Two visitors walk into the Crittenden Estate wine centre past a rusted steel sign and tall cypress trees",
+      "credit": "Courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Crittenden Estate, Dromana, Mornington Peninsula.",
+      "depicts": "Crittenden Estate",
+      "depictionStatus": "actual",
+      "sourceUrl": "Victoria Content Hub asset 164692, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-169289-trofeo-estate.webp",
+      "alt": "A row of large terracotta amphorae with steel lids used for ageing wine, standing on pallets in the Trofeo Estate winery",
+      "credit": "Courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Trofeo Estate, Dromana, Mornington Peninsula.",
+      "depicts": "Trofeo Estate",
+      "depictionStatus": "actual",
+      "sourceUrl": "Victoria Content Hub asset 169289, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-143119-mornington-farmers-market.webp",
+      "alt": "Families with shopping bags browse the marquees at Mornington Farmers Market, with Norfolk pines behind",
+      "credit": "Robert Blackburn, courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Mornington Farmers' Market, Mornington Peninsula.",
+      "depicts": "Mornington Farmers Market",
+      "depictionStatus": "actual",
+      "creator": "Robert Blackburn",
+      "sourceUrl": "Victoria Content Hub asset 143119, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026). Embedded usage terms: \"This image can only be used for the positive promotion of tourism in Victoria\"",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-159175-bass-and-flinders-distillery.webp",
+      "alt": "Guests play chess and share drinks at tables in the Bass and Flinders Distillery bar, beside a wall of bottle-filled barrels",
+      "credit": "Two Palms Australia, courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Bass & Flinders Distillery, Mornington, Mornington Peninsula.",
+      "depicts": "Bass and Flinders Distillery",
+      "depictionStatus": "actual",
+      "creator": "Two Palms Australia",
+      "sourceUrl": "Victoria Content Hub asset 159175, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-143144-mornington-peninsula-regional-gallery.webp",
+      "alt": "Gallery room at Mornington Peninsula Regional Gallery with framed prints on white walls and sculptures on plinths under a vaulted ceiling",
+      "credit": "Robert Blackburn, courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Mornington Peninsula Regional Gallery, Mornington Peninsula.",
+      "depicts": "Mornington Peninsula Regional Gallery",
+      "depictionStatus": "actual",
+      "creator": "Robert Blackburn",
+      "sourceUrl": "Victoria Content Hub asset 143144, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026). Embedded usage terms: \"This image can only be used for the positive promotion of tourism in Victoria\"",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-164669-crittenden-estate.webp",
+      "alt": "A grassy row runs between vines turning yellow and red in autumn, leading towards tall gum trees under grey cloud",
+      "credit": "Courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Crittenden Estate, Dromana, Mornington Peninsula.",
+      "depicts": "Crittenden Estate",
+      "depictionStatus": "actual",
+      "sourceUrl": "Victoria Content Hub asset 164669, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-169308-trofeo-estate.webp",
+      "alt": "Overhead view of diners sharing oysters, scallops, beetroot, bread and glasses of wine at a timber table",
+      "credit": "Courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Trofeo Estate, Dromana, Mornington Peninsula.",
+      "depicts": "Trofeo Estate",
+      "depictionStatus": "actual",
+      "sourceUrl": "Victoria Content Hub asset 169308, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    }
+  ]
 }

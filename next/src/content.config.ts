@@ -927,6 +927,8 @@ const regions = defineCollection({
     /** Editorial introduction paragraph. 80 to 120 words. */
     intro: z.string(),
     heroImage: imageRef,
+    // Licensed photographs from the region's places (ops/records/visit-victoria).
+    gallery: z.array(imageRef).default([]),
     /** The zone enum values that fall within this region. */
     zones: z.array(zone),
     /** Place slugs within this region. */

@@ -5,10 +5,24 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-15
 heroImage:
-  src: "/images/sourced/home-cover-back-beach-horses-01.jpg"
-  alt: "Horses on the back beach at low light, the wide ocean coast that frames a four-hour Peninsula visit"
-  credit: "Peninsula Insider"
-  license: "tmp-unsplash"
+  src: "/images/visit-victoria/vv-25061231-merricks-general-wine-store.webp"
+  alt: "Shoppers pass through a homewares store with clothing racks, botanical prints and hanging dried foliage at Merricks General Wine Store"
+  credit: "Peter Foster, courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "Merricks General Wine Store, Mornington Peninsula."
+  depicts: "Merricks General Wine Store"
+  depictionStatus: "illustrative"
+  creator: "Peter Foster"
+  sourceUrl: "Victoria Content Hub asset 25061231, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "service"
 tags: ["day-trip", "quick", "red-hill", "mornington", "first-timers", "explore", "all-year"]
 relatedVenues: ["merricks-general-wine-store", "red-hill-brewery", "commonfolk-coffee", "montalto", "main-ridge-dairy", "red-hill-cheese", "mornington-peninsula-chocolates", "flinders-sourdough", "red-hill-bakery", "johnny-ripe", "somers-general", "allis-wine-bar", "many-little", "bistro-elba"]

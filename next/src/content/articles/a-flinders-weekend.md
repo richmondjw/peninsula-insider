@@ -5,10 +5,24 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-04
 heroImage:
-  src: "/images/sourced/article-flinders-weekend-01.webp"
-  alt: "Flinders Pier and Bass Strait at dusk, with the village behind"
-  credit: "Wikimedia Commons"
-  license: "tmp-wikimedia"
+  src: "/images/visit-victoria/vv-157359-flinders-golf-course.webp"
+  alt: "Two golfers on a clifftop green at Flinders Golf Course, with Bass Strait and a low headland beyond under late sun"
+  credit: "Gary Lisbon, courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "Flinders Golf Club, Mornington Peninsula."
+  depicts: "Flinders Golf Course"
+  depictionStatus: "actual"
+  creator: "Gary Lisbon"
+  sourceUrl: "Victoria Content Hub asset 157359, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "slow-peninsula"
 tags: ["flinders", "stay", "walks", "slow", "weekend"]
 relatedVenues: ["flinders-hotel", "georgie-bass", "flinders-sourdough", "tedesca-osteria", "flinders-general-store", "nazaaray-estate", "mornington-peninsula-chocolates"]

@@ -5,10 +5,24 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-05-02
 heroImage:
-  src: "/images/sourced/place-flinders-01.webp"
-  alt: "Flinders Pier reaching into blue water under a bright southern sky"
-  credit: "Peninsula Insider"
-  license: "tmp-wikimedia"
+  src: "/images/visit-victoria/vv-157369-flinders-golf-course.webp"
+  alt: "Two golfers carrying bags across a fairway at Flinders Golf Course towards the sea, with low sun flaring over the clubhouse"
+  credit: "Gary Lisbon, courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "Flinders Golf Club, Mornington Peninsula."
+  depicts: "Flinders Golf Course"
+  depictionStatus: "actual"
+  creator: "Gary Lisbon"
+  sourceUrl: "Victoria Content Hub asset 157369, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "hub-guide"
 tags: ["flinders", "area-guide", "planning"]
 relatedVenues: []

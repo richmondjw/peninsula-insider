@@ -5,12 +5,24 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-17
 heroImage:
-  src: "/images/sourced/article-cellar-door-01.webp"
-  alt: "A bunch of dark purple wine grapes ripening on the vine, close up among green vine leaves."
-  depicts: "a close-up of dark wine grapes ripening on the vine"
+  src: "/images/visit-victoria/vv-25061243-merricks-general-wine-store.webp"
+  alt: "Timber tables set for lunch before an open kitchen with hanging woven baskets and shelves of wine at Merricks General Wine Store"
+  credit: "Peter Foster, courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "Merricks General Wine Store, Mornington Peninsula."
+  depicts: "Merricks General Wine Store"
   depictionStatus: "illustrative"
-  credit: "Peninsula Insider"
-  license: "tmp-unsplash"
+  creator: "Peter Foster"
+  sourceUrl: "Victoria Content Hub asset 25061243, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "service"
 tags: ["easter", "long-weekend", "seasonal", "family", "weekend", "autumn"]
 relatedVenues: ["red-hill-bakery", "balnarring-bakehouse", "flinders-sourdough", "johnny-ripe", "mornington-peninsula-chocolates", "merricks-general-wine-store", "balnarring-pub", "flinders-hotel", "red-hill-brewery", "lindenderry", "polperro-villas", "crittenden-villas", "alba-thermal-springs", "peninsula-hot-springs"]

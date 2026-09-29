@@ -183,6 +183,11 @@ const ALLOWED_SORT_KEYS = new Set([
      /explore/plans/ builder, and to allow this class of editorial ordering
      key in future without a further exception. */
   'facets', 'plan',
+  /* Photography credits, 2026-09-29: /photography/ orders licensed photographs
+     by their photographer's credit line and their caption (`ref` is the
+     imageRef inside a { ref, uses } tuple). Attribution text, never a
+     commercial field; classifying both keeps the ratchet where it was. */
+  'credit', 'ref',
   /* Plans redesign, 2026-09-21: editorialPriority is the reviewed static order
      in plan-curation.ts; displayTitle is its short reader-facing name. fit and
      exact are derived only from requested duration/party/interests/weather

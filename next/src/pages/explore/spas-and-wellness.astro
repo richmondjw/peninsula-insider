@@ -2,6 +2,8 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import PhotoStage from '../../components/PhotoStage.astro';
+import { verifiedPhotos, STAGE_MIN } from '../../lib/photo-set';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import PiSaveActions from '../../components/PiSaveActions.astro';
 import { editableImage } from '../../lib/inline-edit/attrs';
@@ -333,6 +335,15 @@ export const prerender = true;
               <p class="sr__bestfor"><strong>Best for</strong> {s.bestFor}</p>
               {s.sourceUrl && <p class="sr__bestfor"><a href={s.sourceUrl} target="_blank" rel="noopener noreferrer">View the operator's treatment menu →</a></p>}
             </div>
+            {(() => {
+              // Licensed photographs of the spa itself (src/lib/photo-set.ts).
+              const spaPhotos = verifiedPhotos(bySlug.get(s.slug)?.data ?? {});
+              return spaPhotos.length >= STAGE_MIN && (
+                <div class="sr__photos">
+                  <PhotoStage photos={spaPhotos} subject={s.name} id={`photos-${s.slug}`} variant="strip" />
+                </div>
+              );
+            })()}
             <PiSaveActions
               kind="venue"
               slug={s.slug}
@@ -614,6 +625,9 @@ export const prerender = true;
     color: var(--text);
     margin: 0 0 var(--space-6);
   }
+  /* The spa's licensed photographs run the full width of its card. */
+  .sr__photos { grid-column: 1 / -1; min-width: 0; }
+  .sr__photos :global(.pstage) { margin-block-end: 0; }
   .sr {
     position: relative;
     display: grid;

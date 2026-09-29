@@ -5,10 +5,24 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-14
 heroImage:
-  src: "/images/sourced/article-beach-swimming-01.webp"
-  alt: "A swimmer pushing off from the shallow pale sand of a Peninsula bay beach on a calm morning"
-  credit: "Wikimedia Commons"
-  license: "tmp-wikimedia"
+  src: "/images/visit-victoria/vv-151508-sorrento-back-beach.webp"
+  alt: "Overhead view of surf washing over dark rock shelves and green reef along the Sorrento Back Beach shoreline"
+  credit: "SHERPA Projects Pty Ltd, courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "Sorrento Back Beach, Mornington Peninsula."
+  depicts: "Sorrento Back Beach"
+  depictionStatus: "illustrative"
+  creator: "SHERPA Projects Pty Ltd"
+  sourceUrl: "Victoria Content Hub asset 151508, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "service"
 tags: ["beach", "swim", "summer", "family", "bay", "back-beaches", "explore"]
 relatedVenues: ["the-baths-sorrento", "sorrento-hotel", "hotel-sorrento", "portsea-hotel", "dromana-hotel"]

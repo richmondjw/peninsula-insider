@@ -5,10 +5,24 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-05-02
 heroImage:
-  src: "/images/sourced/place-merricks-01.webp"
-  alt: "Vineyard landscape in Merricks under soft afternoon light"
-  credit: "Peninsula Insider"
-  license: "tmp-wikimedia"
+  src: "/images/visit-victoria/vv-25061244-merricks-general-wine-store.webp"
+  alt: "A visitor walks past the weatherboard facade of Merricks General Store, its painted sign framed by a red flowering vine"
+  credit: "Peter Foster, courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "Merricks General Wine Store, Mornington Peninsula."
+  depicts: "Merricks General Wine Store"
+  depictionStatus: "actual"
+  creator: "Peter Foster"
+  sourceUrl: "Victoria Content Hub asset 25061244, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "hub-guide"
 tags: ["merricks", "area-guide", "planning"]
 relatedVenues: []

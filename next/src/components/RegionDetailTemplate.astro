@@ -18,6 +18,9 @@ import NewsletterBlock from './NewsletterBlock.astro';
 import { venueHrefPrefix, routeSlug } from '../lib/editorial';
 import { editableImage } from '../lib/inline-edit/attrs';
 import { resolveHero } from '../lib/inline-edit/resolve-hero';
+import PhotoStage from './PhotoStage.astro';
+import { verifiedPhotos, STAGE_MIN } from '../lib/photo-set';
+import { formatHeroCredit } from '../lib/editorial';
 
 interface Props {
   region: CollectionEntry<'regions'>;
@@ -33,6 +36,10 @@ const SITE = 'https://peninsulainsider.com.au';
 const url = `${SITE}/explore/regions/${d.slug}/`;
 const hero = await resolveHero('region', d.slug, d);
 const regionHeroSrc = hero.src;
+// Credit the photograph shown when it is the record's own (an editor's upload
+// carries no record here), and gather the region's licensed photographs.
+const regionHeroCredit = !hero.override && d.heroImage?.credit ? formatHeroCredit(d.heroImage.credit) : '';
+const regionPhotos = verifiedPhotos(d);
 const regionHeroStyle = `background-image:url('${regionHeroSrc}')`;
 const heroAbs = regionHeroSrc.startsWith('http') ? regionHeroSrc : `${SITE}${regionHeroSrc}`;
 
@@ -94,6 +101,7 @@ const touristDestination = {
       {d.tagline && <p class="region-hero__tagline">{d.tagline}</p>}
     </div>
   </section>
+  {regionHeroCredit && <div class="container"><p class="region-hero__credit">{regionHeroCredit}</p></div>}
 
   <div class="container">
     <Breadcrumbs
@@ -166,6 +174,11 @@ const touristDestination = {
       </section>
     )}
   </div>
+  {regionPhotos.length >= STAGE_MIN && (
+    <div class="container region-photos">
+      <PhotoStage photos={regionPhotos} subject={d.name} id="photos" variant="strip" />
+    </div>
+  )}
 
   <NewsletterBlock />
 
@@ -194,6 +207,9 @@ const touristDestination = {
   </script>
 
   <style>
+  .region-hero__credit { margin: .6rem 0 0; font-family: var(--font-ui); font-size: .62rem; letter-spacing: .08em; text-transform: uppercase; color: var(--soft); text-align: right; }
+  .region-photos { padding-block-start: clamp(1.25rem, 2.5vw, 2rem); }
+  .region-photos :global(.pstage) { margin-block-end: 0; }
     .region-hero { position: relative; isolation: isolate; background-size: cover; background-position: center; color: var(--white); padding: clamp(64px, 12vw, 160px) 0 clamp(40px, 7vw, 90px); }
     .region-hero::before { content: ''; position: absolute; inset: 0; z-index: 0; background: var(--photo-shade-copy); pointer-events: none; }
     .region-hero > .container { position: relative; z-index: 1; }

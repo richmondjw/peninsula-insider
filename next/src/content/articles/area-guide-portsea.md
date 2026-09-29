@@ -5,10 +5,24 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-05-02
 heroImage:
-  src: "/images/sourced/place-portsea-01.webp"
-  alt: "Calm bay water and foreshore at Portsea with boats near the jetty"
-  credit: "Peninsula Insider"
-  license: "tmp-wikimedia"
+  src: "/images/visit-victoria/vv-131853-london-bridge-mornington-peninsula.webp"
+  alt: "The London Bridge rock arch standing in the shallows below a sandy clifftop track on the ocean coast near Portsea"
+  credit: "Robert Blackburn, courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "Portsea, Mornington Peninsula."
+  depicts: "London Bridge, Mornington Peninsula"
+  depictionStatus: "actual"
+  creator: "Robert Blackburn"
+  sourceUrl: "Victoria Content Hub asset 131853, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026). Embedded usage terms: \"All image usage must be for the positive promotion of Melbourne and Victoria. Images can only be used to promote the region the image has been taken in. All material supplied is owned by Visit Victoria or its respective partners and can not be on sold to Third Parties.\""
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "hub-guide"
 tags: ["portsea", "area-guide", "planning"]
 relatedVenues: []

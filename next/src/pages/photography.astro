@@ -1,0 +1,125 @@
+---
+/**
+ * /photography/ - production credits for the licensed Visit Victoria
+ * photographs used across the site.
+ *
+ * Every photograph is credited beside it wherever it is shown large. Cards,
+ * listing thumbnails and link previews have no room for a line of credit, and
+ * the licence accepts a credit "as part of the production credits", so this
+ * page names every photographer and every page each photograph appears on.
+ * Built from the content records at build time, so it cannot drift from what
+ * the site shows. Terms: ops/records/visit-victoria/README.md.
+ */
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { routeSlug, venueHref } from '../lib/editorial';
+export const prerender = true;
+
+type Ref = { src: string; alt?: string; credit?: string; caption?: string; license?: string; creator?: string; rightsStatus?: string };
+type Use = { title: string; href: string };
+
+const COLLECTIONS: Array<[string, (e: any) => string, (e: any) => string]> = [
+  // Spa venues have no page of their own; they live on the spas hub.
+  ['venues', (e) => (e.data.type === 'spa' ? `/explore/spas-and-wellness/#${routeSlug(e)}` : venueHref(e)), (e) => e.data.name],
+  ['experiences', (e) => `/explore/${routeSlug(e)}/`, (e) => e.data.name],
+  ['tourOperators', (e) => `/tour/operators/${e.id ?? e.data.slug}/`, (e) => e.data.name],
+  ['tours', (e) => `/tour/${e.id ?? e.data.slug}/`, (e) => e.data.name],
+  ['places', (e) => `/explore/places/${routeSlug(e)}/`, (e) => e.data.name],
+  ['regions', (e) => `/explore/regions/${e.data.slug}/`, (e) => e.data.name],
+  ['itineraries', (e) => `/explore/plans/${routeSlug(e)}/`, (e) => e.data.title],
+  ['articles', (e) => (e.data.section === 'plans' ? `/explore/plans/${routeSlug(e)}/` : `/journal/${routeSlug(e)}/`), (e) => e.data.title],
+  ['events', (e) => `/whats-on/${routeSlug(e)}/`, (e) => e.data.title ?? e.data.name],
+];
+
+const photos = new Map<string, { ref: Ref; uses: Use[] }>();
+for (const [name, hrefOf, titleOf] of COLLECTIONS) {
+  let entries: any[] = [];
+  try { entries = await getCollection(name as any); } catch { continue; }
+  for (const e of entries) {
+    if (e.data?.status === 'draft') continue;
+    // Only articles that are actually published have a page to link to.
+    if (name === 'articles' && e.data?.status !== 'published') continue;
+    const refs: Ref[] = [e.data?.heroImage, ...(e.data?.gallery ?? [])].filter(
+      (r: any) => r?.src && r.license === 'visit-victoria' && r.rightsStatus === 'recorded',
+    );
+    for (const ref of refs) {
+      if (!photos.has(ref.src)) photos.set(ref.src, { ref, uses: [] });
+      const uses = photos.get(ref.src)!.uses;
+      const href = hrefOf(e);
+      if (!uses.some((u) => u.href === href)) uses.push({ title: titleOf(e), href });
+    }
+  }
+}
+
+const byCredit = new Map<string, Array<{ ref: Ref; uses: Use[] }>>();
+for (const item of photos.values()) {
+  const who = item.ref.credit || 'Courtesy of Visit Victoria';
+  if (!byCredit.has(who)) byCredit.set(who, []);
+  byCredit.get(who)!.push(item);
+}
+const groups = [...byCredit.entries()]
+  .map(([credit, items]) => ({ credit, items: items.sort((a, b) => (a.ref.caption ?? '').localeCompare(b.ref.caption ?? '')) }))
+  .sort((a, b) => b.items.length - a.items.length || a.credit.localeCompare(b.credit));
+const total = photos.size;
+---
+<BaseLayout
+  title="Photography credits · Peninsula Insider"
+  description="The photographers behind the Peninsula Insider pictures, and where each photograph appears."
+  canonical="https://peninsulainsider.com.au/photography/"
+>
+  <article class="credits container">
+    <header>
+      <h1>Photography credits</h1>
+      <p class="standfirst">
+        Many of the photographs of Peninsula venues and places on this site are supplied courtesy of
+        Visit Victoria and used under licence. Each one is credited beside it wherever it appears large;
+        this page credits all {total} of them, including where they appear on cards and in previews.
+      </p>
+    </header>
+
+    {groups.map((group) => (
+      <section class="credits__group">
+        <h2>{group.credit.replace(/^Courtesy of Visit Victoria$/, 'Visit Victoria')} <span class="credits__count">{group.items.length} {group.items.length === 1 ? 'photograph' : 'photographs'}</span></h2>
+        <ul class="credits__grid">
+          {group.items.map(({ ref, uses }) => (
+            <li>
+              <a href={uses[0].href} class="credits__thumb">
+                <img src={ref.src} alt={ref.alt ?? ''} loading="lazy" decoding="async" width="240" height="160" data-pi-responsive="240px" />
+              </a>
+              <p class="credits__caption">{ref.caption}</p>
+              <p class="credits__uses">
+                {uses.slice(0, 4).map((u, i) => <>{i > 0 && ', '}<a href={u.href}>{u.title}</a></>)}
+                {uses.length > 4 && <> and {uses.length - 4} more</>}
+              </p>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))}
+
+    <section class="credits__note">
+      <h2>Something wrong or missing?</h2>
+      <p>If a credit is wrong or a photograph shows somewhere other than its caption says, tell us and we will fix it.</p>
+      <a class="pi-btn pi-btn--ghost" href="/contact/?type=correction#correction">Report a correction</a>
+    </section>
+  </article>
+</BaseLayout>
+
+<style>
+  .credits { padding-block: clamp(3rem, 6vw, 5rem); }
+  .credits header { max-width: 52rem; }
+  h1 { font: 600 clamp(2.5rem, 6vw, 4rem)/1.05 var(--font-display); letter-spacing: -0.025em; margin: 0 0 1.25rem; }
+  .standfirst { font-size: var(--fs-500); line-height: 1.55; max-width: 62ch; color: var(--ink); }
+  .credits__group { margin-top: clamp(2.5rem, 5vw, 4rem); }
+  h2 { font: 600 var(--fs-600)/1.2 var(--font-display); letter-spacing: -0.02em; margin: 0 0 1rem; }
+  .credits__count { font: 400 var(--fs-200)/1 var(--font-ui); color: var(--muted); letter-spacing: 0.02em; margin-left: 0.5rem; }
+  .credits__grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 13rem), 1fr)); gap: 1.25rem; }
+  .credits__thumb { display: block; border-radius: var(--radius-s); overflow: hidden; background: var(--paper-warm); }
+  .credits__thumb img { display: block; width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
+  .credits__thumb:focus-visible { outline: var(--focus-ring); outline-offset: 3px; }
+  .credits__caption { margin: 0.5rem 0 0.15rem; font-size: var(--fs-200); line-height: 1.45; color: var(--ink); }
+  .credits__uses { margin: 0; font-size: var(--fs-100); line-height: 1.5; color: var(--muted); }
+  .credits__uses a { color: var(--harbour); }
+  .credits__note { margin-top: clamp(3rem, 6vw, 5rem); max-width: 52rem; }
+  .credits__note p { max-width: 62ch; line-height: 1.7; }
+</style>

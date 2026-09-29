@@ -5,10 +5,24 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-14
 heroImage:
-  src: "/images/sourced/golf-rye-sunrise-01.webp"
-  alt: "Mornington Peninsula coastal golf course landscape at golden hour"
-  credit: "Peninsula Insider"
-  license: "tmp-wikimedia"
+  src: "/images/visit-victoria/vv-157418-st-andrews-beach-golf-course-fingal.webp"
+  alt: "Aerial view over St Andrews Beach Golf Course, with golfers on a tee, a cart path winding through dune grass and fairways beyond"
+  credit: "Gary Lisbon, courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "St Andrews Beach Golf Course, Cape Schanck, Mornington Peninsula."
+  depicts: "St Andrews Beach Golf Course - Fingal"
+  depictionStatus: "illustrative"
+  creator: "Gary Lisbon"
+  sourceUrl: "Victoria Content Hub asset 157418, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "service"
 tags: ["golf", "stay", "mornington-peninsula", "packages", "weekend-escape", "all-year"]
 relatedExperiences: ["st-andrews-beach-golf-course", "moonah-links", "the-dunes-golf-links", "racv-cape-schanck-golf-course"]

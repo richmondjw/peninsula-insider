@@ -5,10 +5,24 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-05-02
 heroImage:
-  src: "/images/sourced/article-red-hill-saturday-01.webp"
-  alt: "Vineyard rows and cellar-door views in Red Hill"
-  credit: "Peninsula Insider"
-  license: "tmp-wikimedia"
+  src: "/images/visit-victoria/vv-143752-polperro-winery.webp"
+  alt: "Large gum trees shade the lawn and covered terrace at Polperro Winery, with diners outside and vines sloping away beyond"
+  credit: "Peter Tarasiuk, courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "Polperro, Red Hill, Mornington Peninsula."
+  depicts: "Polperro Winery"
+  depictionStatus: "actual"
+  creator: "Peter Tarasiuk"
+  sourceUrl: "Victoria Content Hub asset 143752, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026). Embedded usage terms: \"All image usage must be for the positive promotion of Melbourne and Victoria. Images can only be used to promote the region the image has been taken in. All material supplied is owned by Visit Victoria or its respective partners and can not be on sold to Third Parties.\""
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "service"
 tags: ["red-hill", "wine", "cellar-door", "planning", "weekend"]
 relatedVenues: ["montalto", "polperro", "ten-minutes-by-tractor", "foxeys-hangout", "paringa-estate", "main-ridge-estate"]

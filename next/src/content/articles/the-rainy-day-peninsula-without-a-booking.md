@@ -5,10 +5,24 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-11
 heroImage:
-  src: "/images/sourced/article-rainy-day-01.webp"
-  alt: "A wet Peninsula high street with umbrellas, bakery windows, and low cloud over the coast"
-  credit: "Wikimedia Commons"
-  license: "tmp-wikimedia"
+  src: "/images/visit-victoria/vv-25061237-merricks-general-wine-store.webp"
+  alt: "Four scallops on the half shell with a yellow sauce, orange roe and herbs, served on salt on a timber table"
+  credit: "Peter Foster, courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "Merricks General Wine Store, Mornington Peninsula."
+  depicts: "Merricks General Wine Store"
+  depictionStatus: "illustrative"
+  creator: "Peter Foster"
+  sourceUrl: "Victoria Content Hub asset 25061237, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "service"
 tags: ["rainy-day", "winter", "local-guide", "indoor", "day-trip"]
 relatedVenues: ["commonfolk-coffee", "merricks-general-wine-store", "red-hill-brewery", "flinders-sourdough", "flinders-hotel", "stringers-sorrento", "the-bay-hotel-mornington", "balnarring-pub", "red-hill-cheese", "mornington-peninsula-chocolates", "via-boffe"]

@@ -5,10 +5,23 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-05-02
 heroImage:
-  src: "/images/sourced/place-dromana-01.webp"
-  alt: "Dromana foreshore with calm bay water and Arthurs Seat rising behind"
-  credit: "Peninsula Insider"
-  license: "tmp-wikimedia"
+  src: "/images/visit-victoria/vv-164273-crittenden-estate-cellar-door.webp"
+  alt: "A gravel drive leads between lawns and a row of vines to a cottage shaded by trees in yellow autumn leaf"
+  credit: "Courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "Crittenden Estate, Dromana, Mornington Peninsula."
+  depicts: "Crittenden Estate Cellar Door"
+  depictionStatus: "actual"
+  sourceUrl: "Victoria Content Hub asset 164273, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "hub-guide"
 tags: ["dromana", "area-guide", "planning"]
 relatedVenues: []

@@ -5,10 +5,23 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-14
 heroImage:
-  src: "/images/sourced/spa-peninsula-hot-springs-hilltop-01.webp"
-  alt: "Aerial view of the Peninsula Hot Springs hilltop pool at dusk, steam rising into autumn air"
-  credit: "Peninsula Insider"
-  license: "tmp-wikimedia"
+  src: "/images/visit-victoria/vv-161941-peninsula-hot-springs.webp"
+  alt: "Two bathers walk to a steaming hilltop pool at Peninsula Hot Springs as the low sun lights the surrounding bushland"
+  credit: "Courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "Peninsula Hot Springs, Cape Schanck, Mornington Peninsula."
+  depicts: "Peninsula Hot Springs"
+  depictionStatus: "illustrative"
+  sourceUrl: "Victoria Content Hub asset 161941, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "service"
 tags: ["spa", "hot-springs", "stay", "wellness", "mornington-peninsula", "packages", "weekend-escape", "autumn", "winter"]
 relatedVenues: ["peninsula-hot-springs", "alba-thermal-springs", "one-spa-racv-cape-schanck", "spa-by-jackalope"]

@@ -6,13 +6,29 @@
   "mood": "mixed",
   "lengthNights": 2,
   "duration": "weekend",
-  "theme": ["golf", "food+wine"],
+  "theme": [
+    "golf",
+    "food+wine"
+  ],
   "anchorTown": "red-hill",
-  "baseTowns": ["red-hill", "cape-schanck", "mornington"],
+  "baseTowns": [
+    "red-hill",
+    "cape-schanck",
+    "mornington"
+  ],
   "bookingChecklist": [
-    { "item": "St Andrews Beach tee time", "priority": "essential" },
-    { "item": "Two nights at Jackalope", "priority": "essential" },
-    { "item": "Doot Doot Doot dinner and Montalto lunch", "priority": "recommended" }
+    {
+      "item": "St Andrews Beach tee time",
+      "priority": "essential"
+    },
+    {
+      "item": "Two nights at Jackalope",
+      "priority": "essential"
+    },
+    {
+      "item": "Doot Doot Doot dinner and Montalto lunch",
+      "priority": "recommended"
+    }
   ],
   "editorNote": "One round at St Andrews Beach anchors Saturday. The rest of the weekend works around it: a ridge stay, vineyard meals and an optional coastal walk. Check the tee time before booking the meals, and allow enough time after the round to reach Montalto. The Sunday route goes north to Mornington before returning to Red Hill for the final cellar door; skip that last stop if you would rather keep heading home.",
   "stops": [
@@ -73,6 +89,196 @@
     "credit": "Peninsula Insider",
     "license": "tmp-wikimedia"
   },
-  "gallery": [],
+  "gallery": [
+    {
+      "src": "/images/visit-victoria/vv-26070118-jackalope-hotel.webp",
+      "alt": "Two guests walk out of the black-framed entrance beside a red-brick building at Jackalope Hotel, with a dark sculpture in front",
+      "credit": "Peter Foster, courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Jackalope Hotel, Red Hill, Mornington Peninsula.",
+      "depicts": "Jackalope Hotel",
+      "depictionStatus": "actual",
+      "creator": "Peter Foster",
+      "sourceUrl": "Victoria Content Hub asset 26070118, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-157418-st-andrews-beach-golf-course-fingal.webp",
+      "alt": "Aerial view over St Andrews Beach Golf Course, with golfers on a tee, a cart path winding through dune grass and fairways beyond",
+      "credit": "Gary Lisbon, courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "St Andrews Beach Golf Course, Cape Schanck, Mornington Peninsula.",
+      "depicts": "St Andrews Beach Golf Course - Fingal",
+      "depictionStatus": "actual",
+      "creator": "Gary Lisbon",
+      "sourceUrl": "Victoria Content Hub asset 157418, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-160356-montalto.webp",
+      "alt": "A grassy path between vine rows leads to the glass-fronted restaurant and umbrellas at Montalto, beneath tall pine trees",
+      "credit": "Two Palms Australia, courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula.",
+      "depicts": "Montalto",
+      "depictionStatus": "actual",
+      "creator": "Two Palms Australia",
+      "sourceUrl": "Victoria Content Hub asset 160356, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-26070114-jackalope-hotel.webp",
+      "alt": "Two silhouetted guests raise glasses of red wine above a valley of vineyard rows and bushland at Jackalope Hotel",
+      "credit": "Peter Foster, courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Jackalope Hotel, Red Hill, Mornington Peninsula.",
+      "depicts": "Jackalope Hotel",
+      "depictionStatus": "actual",
+      "creator": "Peter Foster",
+      "sourceUrl": "Victoria Content Hub asset 26070114, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-157419-st-andrews-beach-golf-course-fingal.webp",
+      "alt": "Elevated view of a golfer driving from a tee at St Andrews Beach Golf Course, a partner by the bags and the green ahead in the dunes",
+      "credit": "Gary Lisbon, courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "St Andrews Beach Golf Course, Cape Schanck, Mornington Peninsula.",
+      "depicts": "St Andrews Beach Golf Course - Fingal",
+      "depictionStatus": "actual",
+      "creator": "Gary Lisbon",
+      "sourceUrl": "Victoria Content Hub asset 157419, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-160358-montalto.webp",
+      "alt": "A patinated metal sculpture of a figure stands on the lawn in front of the Montalto restaurant and its white umbrellas",
+      "credit": "Two Palms Australia, courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula.",
+      "depicts": "Montalto",
+      "depictionStatus": "actual",
+      "creator": "Two Palms Australia",
+      "sourceUrl": "Victoria Content Hub asset 160358, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-26070112-jackalope-hotel.webp",
+      "alt": "Two guests in dark robes stand on a balcony at Jackalope Hotel, looking out over gum trees to vineyard rows",
+      "credit": "Peter Foster, courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Jackalope Hotel, Red Hill, Mornington Peninsula.",
+      "depicts": "Jackalope Hotel",
+      "depictionStatus": "actual",
+      "creator": "Peter Foster",
+      "sourceUrl": "Victoria Content Hub asset 26070112, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-157352-st-andrews-beach-golf-course-fingal.webp",
+      "alt": "Green fringed by sand bunkers and tussock grass at St Andrews Beach Golf Course, with two distant golfers near the flag",
+      "credit": "Gary Lisbon, courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "St Andrews Beach Golf Course, Cape Schanck, Mornington Peninsula.",
+      "depicts": "St Andrews Beach Golf Course - Fingal",
+      "depictionStatus": "actual",
+      "creator": "Gary Lisbon",
+      "sourceUrl": "Victoria Content Hub asset 157352, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-160359-montalto.webp",
+      "alt": "The restaurant at Montalto with white umbrellas along its deck, set above a broad sloping lawn under a blue sky with cloud",
+      "credit": "Two Palms Australia, courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula.",
+      "depicts": "Montalto",
+      "depictionStatus": "actual",
+      "creator": "Two Palms Australia",
+      "sourceUrl": "Victoria Content Hub asset 160359, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    }
+  ],
   "publishedAt": "2026-04-14"
 }

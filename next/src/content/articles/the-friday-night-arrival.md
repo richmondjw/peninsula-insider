@@ -5,12 +5,24 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-10
 heroImage:
-  src: "/images/sourced/article-sunset-01.webp"
-  alt: "A rocky coastal headland and an offshore sea stack at sunset, framed by twisted coastal tea-tree."
-  depicts: "a rocky headland and offshore sea stack at sunset, framed by coastal tea-tree"
+  src: "/images/visit-victoria/vv-25061225-the-epicurean-red-hill.webp"
+  alt: "Long dining tables set between walls of stacked wine barrels under a neon swan sign at The Epicurean, Red Hill"
+  credit: "Peter Foster, courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "The Epicurean, Red Hill, Mornington Peninsula."
+  depicts: "The Epicurean - Red Hill"
   depictionStatus: "illustrative"
-  credit: "Peninsula Insider"
-  license: "tmp-unsplash"
+  creator: "Peter Foster"
+  sourceUrl: "Victoria Content Hub asset 25061225, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "service"
 tags: ["weekend", "eat", "arrival", "mornington", "red-hill", "flinders", "sorrento", "practical", "all-year"]
 relatedVenues:
