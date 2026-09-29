@@ -62,7 +62,7 @@ faq:
   - question: "Which Peninsula pubs are best for Friday night dinner on arrival?"
     answer: "The Heritage at Balnarring for Red Hill hinterland stays (open fires, a big beer garden, a pub favourites menu, call ahead to book). Flinders Hotel for southern Peninsula stays (a step above standard pub fare, walk-ins usually fine). Hotel Sorrento front bar for Sorrento, ordering from the bar menu rather than the bistro."
   - question: "Can I do a provisions stop instead of eating out on Friday night on the Peninsula?"
-    answer: "Yes, and it is often the better option. Stop at Epicurean Red Hill or the Red Hill Bakery strip for bread, cheese, and a roast chicken, then Merricks General Wine Store for wine. Alternatively, the Flinders General Store carries a curated range of exactly this combination. The deck dinner of bread, cheese, cold chicken, and wine is one of the simplest pleasures the Peninsula offers."
+    answer: "Yes, and it is often the better option. Stop at Epicurean Red Hill for provisions, then Merricks General Wine Store for wine. Alternatively, the Flinders General Store carries a curated range of exactly this combination. The Red Hill Baker's former Red Hill shop is closed; its sole current location is in Balnarring."
 aiSummary:
   - "A planning framework for arriving at the Mornington Peninsula on a Friday evening - the most common arrival pattern and the one most likely to go wrong without a clear plan."
   - "The framework: book dinner as the first anchor (arriving hungry with no plan on a Friday evening at Sorrento or Red Hill is the most common Peninsula disaster), then get to the accommodation before 8pm."
@@ -99,7 +99,7 @@ If you would rather eat at the rental, especially if you have a good kitchen and
 
 The principle: stop once, on the way in, and buy everything you need for Friday dinner and Saturday breakfast. One stop, not two. The stop is the transition between Melbourne mode and Peninsula mode, and making it clean is the point.
 
-**The Red Hill stop:** Pull into **Epicurean Red Hill** or the **Red Hill Bakery** strip before six. Bread, cheese, olives, a roast chicken if they have one. Then swing past **Merricks General Wine Store** for a bottle of pinot and a bottle of something white. You now have a cheese board, a roast chicken, bread, and wine. Dinner is sorted in fifteen minutes.
+**The Red Hill stop:** Pull into **Epicurean Red Hill** before six. Bread, cheese, olives, a roast chicken if they have one. Then swing past **Merricks General Wine Store** for a bottle of pinot and a bottle of something white. You now have a cheese board, a roast chicken, bread, and wine. Dinner is sorted in fifteen minutes.
 
 **The Mornington stop:** **Commonfolk Coffee** closes at four, but the strip along Main Street has delis and bottle shops that run later. Or stop at the **Small Stone Pantry** in Moorooduc on the way through, which adds five minutes to the drive and delivers bread, pastries, and a few provisions.
 

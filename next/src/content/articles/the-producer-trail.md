@@ -104,7 +104,7 @@ You are now four producers in, the cooler bag is full, and it is roughly 12.30pm
 The lunch on a producer day should be light. The point is to refuel between stops. Three options that fit:
 
 - **Merricks General Wine Store** for a wood-oven pizza and a glass of pinot. Forty-five minutes, in and out.
-- **Red Hill Bakery** for a counter lunch: sourdough sandwich, pastry, coffee. Twenty minutes.
+- **The Red Hill Baker, Balnarring** for a counter lunch: bread, pastry and coffee. Twenty minutes. The former Red Hill location is closed.
 - **Epicurean Red Hill** for a slightly more leisurely sit-down with a kitchen that uses a lot of the producers you have just been visiting. An hour.
 
 Pick the one that matches the energy of the group. The producer day is the kind of day where lunch is the supporting act, not the lead.

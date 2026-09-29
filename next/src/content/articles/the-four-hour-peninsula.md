@@ -82,7 +82,7 @@ This is the version that fits about seventy per cent of four-hour visits.
 
 **11am, Leave Melbourne.** Arriving at noon is the right arrival time for a lunch-first plan.
 
-**12pm, Lunch at Merricks General Wine Store.** **Merricks General** suits a four-hour lunch because it is relaxed enough to move through in an hour and fifteen, it is on the ridge, and its kitchen does not punish speed. Order a pizza from the wood oven, a glass of Crittenden pinot, and a salad. Save the full tasting menu for a weekend visit. If Merricks General is full, the alternatives in descending order are **Red Hill Brewery** (faster, more casual, pizza-and-beer), **Red Hill Bakery** (counter lunch, in and out in forty minutes), or **Johnny Ripe** (café-level, quick, reliable).
+**12pm, Lunch at Merricks General Wine Store.** **Merricks General** suits a four-hour lunch because it is relaxed enough to move through in an hour and fifteen, it is on the ridge, and its kitchen does not punish speed. Order a pizza from the wood oven, a glass of Crittenden pinot, and a salad. Save the full tasting menu for a weekend visit. If Merricks General is full, the alternatives in descending order are **Red Hill Brewery** (faster, more casual, pizza-and-beer) or **Johnny Ripe** (café-level, quick, reliable). The Red Hill Baker no longer operates in Red Hill.
 
 **1.30pm, A short cellar door or a producer stop.** You have ninety minutes before you need to be heading back. Use forty of them at exactly one cellar door: **Montalto** for the sculpture grounds, **Polperro** for the more serious wine experience, **Ten Minutes by Tractor** for one of the Peninsula's most consistent tastings. Keep it short: four wines, one to take home, pay the tasting fee, move on.
 

@@ -29,7 +29,7 @@ faq:
   - question: "Where is the Rye Hotel and when is it open?"
     answer: "The Rye Hotel is on Point Nepean Road, Rye, on the foreshore. It opens daily for lunch and dinner; check ryehotel.com.au for current hours."
   - question: "How do I get to the Cape Schanck clifftop boardwalk?"
-    answer: "Parks Victoria manages Cape Schanck. Entry is via Cape Schanck Road, Cape Schanck. A fee applies per vehicle; pay at the entry gate or via the Parks Victoria app. The boardwalk to the lighthouse and clifftop lookout takes about 30–40 minutes return."
+    answer: "Parks Victoria manages Cape Schanck. Entry is via Cape Schanck Road, Cape Schanck, and there is no vehicle entry fee. The boardwalk to the lighthouse and clifftop lookout takes about 30–40 minutes return. Check the Parks Victoria page for changed conditions before travelling."
   - question: "When does National Works on Paper 2026 close at MPRG?"
     answer: "National Works on Paper 2026 runs until 22 November 2026 at Mornington Peninsula Regional Gallery, Civic Reserve, Dunns Road, Mornington. Open Tuesday to Sunday, 11am–4pm. Free entry."
 ---
@@ -48,7 +48,7 @@ Pair it with a loop to Ocean Eight Vineyard at Tuerong before or after for a con
 
 The boardwalk from the Cape Schanck carpark to the lighthouse takes about thirty minutes return and offers nothing subtle: basalt clifftops, Bass Strait below, and in late September the coastal scrub either side of the path thick with heath-myrtle and pink swamp heath in flower. This is the window before the school-holiday crowd finds it again. Go on a weekday morning and you may share the track with almost nobody. The wind off the Strait is still cold - bring a layer - but the light is clean and the wildflowers are at their densest now, before warm weather accelerates the bloom and thins it out. The viewing platform at the lighthouse end looks straight down to the rocks below; it is one of the Peninsula's most direct confrontations with the Southern Ocean.
 
-**Cape Schanck**, via Cape Schanck Road. Parks Victoria vehicle entry fee applies - pay at the gate or on the Parks Victoria app. Allow one hour minimum.
+**Cape Schanck**, via Cape Schanck Road. No vehicle entry fee. Allow one hour minimum and check Parks Victoria for changed conditions before travelling.
 
 Pair it with a stop at Flinders General Store on the way back for coffee and something to eat in the car.
 
@@ -69,5 +69,5 @@ Pair it with a walk down Main Street Mornington afterwards for coffee at Store T
 | Pick | Where | Key detail |
 |---|---|---|
 | Rye Hotel | Point Nepean Road, Rye | Beer garden; walk-ins welcome; book large groups ahead |
-| Cape Schanck clifftop track | Cape Schanck Road, Cape Schanck | Parks Vic vehicle fee at gate; 30–40 min return boardwalk |
+| Cape Schanck clifftop track | Cape Schanck Road, Cape Schanck | No vehicle entry fee; 30–40 min return boardwalk |
 | National Works on Paper 2026, MPRG | Dunns Road, Mornington | Free; Tue–Sun 11am–4pm; closes 22 November 2026 |

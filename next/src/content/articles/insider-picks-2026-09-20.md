@@ -27,7 +27,7 @@ clusterLinks:
     href: "/journal/where-to-eat-mornington-peninsula/"
 faq:
   - question: "When is Jetty Road Brewery open, and where is it?"
-    answer: "Jetty Road Brewery is at 270 Jetty Road, Dromana. Open Thursday to Sunday for lunch and dinner, plus public holidays. Check jetyyroadbrewery.com.au for current trading hours and tap lists."
+    answer: "Jetty Road Brewery is at 12-14 Brasser Avenue, Dromana. It currently opens Monday to Wednesday 12pm-9pm, Thursday and Friday 12pm-10pm, Saturday 11am-11pm, and Sunday 11am-7pm. Check jettyroad.com.au for current hours."
   - question: "Where is the Coolart Wetlands boardwalk, and how long does it take?"
     answer: "Coolart Wetlands and Homestead is at Lord Somers Road, Somers. The main boardwalk loop takes around 45 minutes. Open daily. No booking required. Free entry to the wetlands."
   - question: "When does National Works on Paper 2026 close at MPRG?"
@@ -38,7 +38,7 @@ faq:
 
 Jetty Road's spring seasonal taps are the reason to visit right now rather than on any other weekend. The head brewer uses the rotating list to take risks - expect a dry-hopped lager or a single-hop pale built around a new-season Australian hop variety, the kind of thing that won't appear in cans. The taproom is the most considered fit-out of the bayside breweries: polished concrete, a generous deck that catches the afternoon north-westerly, and a kitchen running wood-fired flatbreads that hold up against the hoppier pours. Ask the bar staff what came on this week specifically. The seasonals move fast and a Friday afternoon tap can be gone by Sunday. Allow two hours minimum if you want food. No booking required for walk-ins, though the deck fills by 1pm on a warm Saturday. Pair the afternoon with a stop at Small Stone Pantry in Dromana for provisions on the way home.
 
-**Jetty Road Brewery** · 270 Jetty Road, Dromana · Thu–Sun, check jetyyroadbrewery.com.au for current hours
+**Jetty Road Brewery** · 12-14 Brasser Avenue, Dromana · Open daily; check [jettyroad.com.au](https://www.jettyroad.com.au/contact) for current hours
 
 ---
 
@@ -62,6 +62,6 @@ NWOP is the longest-running acquisitive works-on-paper prize in Australia, and t
 
 | | Venue | Address | Key practical note |
 |---|---|---|---|
-| **Drink** | Jetty Road Brewery | 270 Jetty Road, Dromana | Thu–Sun; ask about rotating spring taps |
+| **Drink** | Jetty Road Brewery | 12-14 Brasser Avenue, Dromana | Open daily; ask about rotating spring taps |
 | **Walk** | Coolart Wetlands boardwalk | Lord Somers Road, Somers | Free; 45-min loop; best light at dawn |
 | **Discovery** | Mornington Peninsula Regional Gallery | Dunns Road, Mornington | Tue–Sun 11am–4pm; free; closes 22 Nov |

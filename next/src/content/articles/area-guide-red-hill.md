@@ -86,7 +86,7 @@ If you can stay overnight, do. Red Hill improves dramatically when lunch is not 
 
 ### The supporting cast that matters
 
-**Foxeys Hangout** is worth knowing for a looser tasting. **Paringa Estate** is a dependable answer if you want a benchmark producer. **Red Hill Bakery** is useful before the day gets formal. **Red Hill Cheese** and **Johnny Ripe** are the kind of supporting stops that work if you have not already over-programmed yourself.
+**Foxeys Hangout** is worth knowing for a looser tasting. **Paringa Estate** is a dependable answer if you want a benchmark producer. **Red Hill Cheese** and **Johnny Ripe** are the kind of supporting stops that work if you have not already over-programmed yourself. The Red Hill Baker's former village shop is closed; its sole current location is in Balnarring.
 
 The basic rule: one major lunch, one meaningful cellar door, one or two incidental stops. More than that and quality drops faster than quantity rises.
 

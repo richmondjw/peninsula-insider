@@ -54,7 +54,7 @@ The Bushrangers Bay Track is a different walk in the first week of September tha
 
 The track runs 3.6km return from the Cape Schanck Lighthouse Reserve car park down to the beach at Bushrangers Bay. The descent through the tea-tree is steep enough to make you work, but the bay at the bottom is worth every step. Go at low tide - the rock platforms open up completely and the blowholes are active if there is any swell running. Do not attempt the beach scramble in high heels or thongs.
 
-**Allow 90 minutes return. Trailhead: Cape Schanck Lighthouse Reserve, Boneo Road, Cape Schanck. No booking required. Parks Victoria parking fees apply - check current rates on their website.**
+**Allow 90 minutes for the longer outing. Trailhead: Cape Schanck Lighthouse Reserve, Cape Schanck Road, Cape Schanck. No booking or vehicle entry fee is required; check Parks Victoria for changed conditions.**
 
 Pair this walk with an early lunch at Barragunda Dining; book well ahead, it is ten minutes by car from the lighthouse.
 

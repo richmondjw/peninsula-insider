@@ -31,7 +31,7 @@ faq:
   - question: "When is the Balnarring Farmers' Market and how do I get there?"
     answer: "Balnarring Farmers' Market runs on the third Saturday of each month, 8am–1pm, at Balnarring Recreation Reserve, Coolart Road, Balnarring. No booking required. September's market falls on 19 September 2026."
   - question: "Where does the Greens Bush loop start and how long does it take?"
-    answer: "The main Greens Bush trailhead is off Baldry Road, Merricks North, within Mornington Peninsula National Park. The full circuit is approximately 8km and takes 2–2.5 hours at an easy pace. No booking required; Parks Victoria day-use fees may apply."
+    answer: "Use Baldry's Crossing on Baldrys Road, Main Ridge. Parks Victoria lists a 1.6 km short circuit and a 3.6 km long circuit. No booking or day-use fee is required; check current park conditions before travelling."
 ---
 
 ## Drink: The Continental Rooftop, Sorrento
@@ -62,6 +62,6 @@ Pair it with a morning walk to the Balnarring Beach foreshore, five minutes sout
 
 **The Continental Sorrento** - 21 Ocean Beach Road, Sorrento. Rooftop bar, hours vary by season; check continentalsorrento.com.au. Book ahead for evening table.
 
-**Greens Bush Loop** - Trailhead off Baldry Road, Merricks North, within Mornington Peninsula National Park. ~8km circuit, 2–2.5 hrs. No booking required. Parks Victoria day-use fee may apply.
+**Greens Bush circuits** - Baldry's Crossing, Baldrys Road, Main Ridge, within Mornington Peninsula National Park. Short circuit 1.6 km; long circuit 3.6 km. No booking or day-use fee; check current conditions.
 
 **Balnarring Farmers' Market** - Balnarring Recreation Reserve, Coolart Road, Balnarring. Third Saturday monthly, 8am–1pm. Next market: Saturday 19 September 2026. No booking required.

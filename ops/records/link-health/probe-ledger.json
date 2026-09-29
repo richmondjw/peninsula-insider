@@ -1,6 +1,6 @@
 {
   "note": "Probe results for source URLs cited by the corpus. Written ONLY by next/scripts/probe-link-health.mjs, by a human or a scheduled job, never by a build. Read offline by next/scripts/audit-link-health.mjs. A verdict is what a probe saw, not an inference. This file is a RECORD, not a report: it does not live under ops/reports/ because nothing here is reproducible from the tree, and reverting it destroys evidence rather than regenerating it.",
-  "updatedAt": "2026-09-29T21:53:47.645Z",
+  "updatedAt": "2026-09-29T23:32:23.876Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -1814,6 +1814,23 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Alba Thermal Springs &amp; Spa - Mornington Peninsula, Hot Springs"
+    },
+    {
+      "url": "https://www.amazingco.me",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "AmazingCo - Experiences you’ll love",
+      "effectiveUrl": "https://www.amazingco.me/aus",
+      "probedOn": "2026-09-29",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.amazingco.me/aus/experiences/mystery-picnics/family/mornington-peninsula",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Family Mystery Picnic - Mornington Peninsula | AmazingCo",
+      "probedOn": "2026-09-29",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.amourofthegrape.com.au",
@@ -3729,6 +3746,14 @@
       "disposition": "gone",
       "dispositionNote": "Domain does not resolve. It is a misspelling of Red Hill Estate, and it was cited on 5 May 2026 as the source establishing that venue's Tuesday-Sunday trading. redhillestate.com.au does resolve, but pointing this row at it would manufacture support the row never had: whatever was written on 5 May, this URL was not read.",
       "reviewedOn": "2026-09-13"
+    },
+    {
+      "url": "https://www.redhillbaker.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "The Red Hill Baker | Balnarring | Cafe",
+      "probedOn": "2026-09-29",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.redhillbrewery.com.au",

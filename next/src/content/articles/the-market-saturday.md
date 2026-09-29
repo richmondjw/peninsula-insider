@@ -95,7 +95,7 @@ Use this plan on a confirmed Hill & Ridge date, including Saturday 3 October 202
 
 **9:30am: A ridge loop walk.** Drive ten minutes to the **Red Hill Hinterland Cycling** trailhead area or the shorter paths at **Greens Bush**, and walk twenty or thirty minutes through the eucalyptus scrub. A reset between the market and lunch. The vineyards can wait an hour and will feel better for it.
 
-**10:30am: A second coffee and a plan.** **Red Hill Bakery** or **Johnny Ripe** for a sit-down coffee and a pastry. Look at the calendar of cellar-door tasting times.
+**10:30am: A second coffee and a plan.** **Johnny Ripe** for a sit-down coffee and a pastry. Look at the calendar of cellar-door tasting times. The Red Hill Baker now operates only in Balnarring.
 
 **12:30pm: Cellar-door lunch.** Lunch sits well at one of the producers you cannot shop at directly at the market: **Montalto**, **Ten Minutes by Tractor**, **Polperro**, or **Merricks General Wine Store**. Book in advance. Budget two hours.
 

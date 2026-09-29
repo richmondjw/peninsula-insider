@@ -29,7 +29,7 @@ faq:
   - question: "When does Ten Minutes by Tractor serve its winter menu, and do I need to book?"
     answer: "Ten Minutes by Tractor is at 1333 Mornington–Flinders Road, Main Ridge. They serve lunch and dinner Wednesday through Sunday during winter. Bookings are essential - reserve via their website well ahead for weekend sittings."
   - question: "How do I get to the Cape Schanck boardwalk, and is it accessible year-round?"
-    answer: "The Cape Schanck Coastal Park entrance and carpark are on Cape Schanck Road, Cape Schanck. The boardwalk to the lighthouse and down to Bushrangers Bay is open year-round. Parks Victoria charges a vehicle entry fee - check their site. Allow 90 minutes return for the full loop to the rock platform."
+    answer: "The Cape Schanck Coastal Park entrance and carpark are on Cape Schanck Road, Cape Schanck. There is no vehicle entry fee. Check Parks Victoria for changed conditions before travelling and allow about 90 minutes for the longer boardwalk outing."
   - question: "Where is the photography show closing soon at Mornington's gallery, and what are the opening hours?"
     answer: "Mornington Peninsula Regional Gallery is at Civic Reserve, Dunns Road, Mornington. Open Tuesday to Sunday, 10am–5pm. Entry to the permanent collection is free; check their website for ticketing on the current temporary exhibition before you go."
 ---
@@ -54,7 +54,7 @@ In July, the swell regularly stacks up at Bushrangers Bay below the lighthouse, 
 
 Arrive before 9am to have the headland to yourself. The lighthouse itself is Colonial Gothic sandstone, built 1859, and the Cape is where Port Phillip Bay meets open ocean. That geography explains the wind. Dress accordingly.
 
-**Cape Schanck Coastal Park**, Cape Schanck Road, Cape Schanck. Allow 90 minutes return for the full loop. Vehicle entry fee via Parks Victoria - check their site. Pair with coffee at Flinders Bakehouse on the way back.
+**Cape Schanck Coastal Park**, Cape Schanck Road, Cape Schanck. Allow 90 minutes for the longer boardwalk outing. There is no vehicle entry fee; check Parks Victoria for changed conditions. Pair with coffee at Flinders Bakehouse on the way back.
 
 ---
 
@@ -75,5 +75,5 @@ This is a gallery that locals treat as a standing appointment rather than a one-
 | Pick | Where | Practical |
 |---|---|---|
 | Duck & winter menu | Ten Minutes by Tractor, 1333 Mornington–Flinders Rd, Main Ridge | Wed–Sun lunch & dinner; bookings essential |
-| Cape Schanck boardwalk | Cape Schanck Coastal Park, Cape Schanck Rd, Cape Schanck | Open year-round; 90 min return; Parks Vic vehicle entry fee applies |
+| Cape Schanck boardwalk | Cape Schanck Coastal Park, Cape Schanck Rd, Cape Schanck | Open year-round; 90 min return; no vehicle entry fee; check changed conditions |
 | Photography show | Mornington Peninsula Regional Gallery, Dunns Road, Mornington | Tue–Sun 10am–5pm; confirm closing date on their website |

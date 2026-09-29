@@ -46,7 +46,7 @@ They arrive with a list of five cellar doors, two lunch possibilities, maybe a p
 
 ## The plan: start on the ridge
 
-Start with coffee at **Red Hill Bakery** or **Johnny Ripe**, or choose a market with a confirmed date. The original **Red Hill Community Market** is temporarily closed. The separate **Hill & Ridge Community Market** lists Saturday 3 October 2026, 9am–2pm, at Red Hill Recreation Reserve. Check the organiser and the [Peninsula market guide](/eat/markets/) before planning around any market.
+Start with coffee at **Johnny Ripe**, or choose a market with a confirmed date. The original **Red Hill Community Market** is temporarily closed. The separate **Hill & Ridge Community Market** lists Saturday 3 October 2026, 9am–2pm, at Red Hill Recreation Reserve. Check the organiser and the [Peninsula market guide](/eat/markets/) before planning around any market. The Red Hill Baker's former Red Hill shop is closed; its sole current location is in Balnarring.
 
 ## The plan: pick one cellar door, not a crawl
 

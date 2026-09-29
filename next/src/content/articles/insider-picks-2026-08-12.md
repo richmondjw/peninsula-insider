@@ -54,7 +54,7 @@ The Australasian gannet colony at Point Danger is resident year-round, but Augus
 
 Go mid-morning when the light is off the cliff face and the wind is coming from the west. Binoculars improve the experience considerably. The track is unsealed and can be slippery after rain - wear shoes that grip. Dogs are not permitted on the national park section.
 
-Back Beach Road, Portsea, within Point Nepean National Park. Allow 45–60 minutes return. No booking required; Parks Victoria entry fees apply if driving into the national park.
+Back Beach Road, Portsea, within Point Nepean National Park. Allow 45–60 minutes return. No booking or park entry fee is required; optional services may charge separately.
 
 Combine it with lunch at Bistro Elba in Sorrento on the way back - book ahead, the Friday and Saturday sittings are full most weeks.
 

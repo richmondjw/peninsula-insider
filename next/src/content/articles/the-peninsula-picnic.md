@@ -69,7 +69,7 @@ Start with bread because everything else sits on it.
 
 **Flinders Sourdough** is the bread to seek out on the Peninsula, and the walnut sourdough loaf is the one to buy for a picnic. It holds for hours without going stale, it stands up to cheese and olive oil, and it sets the tone for everything else.
 
-If you are starting from the northern end of the Peninsula, **Red Hill Bakery** is the closer alternative. The sourdough sits a step behind Flinders, but the pastry case is worth a morning sausage roll. **Balnarring Bakehouse** is the quieter eastern option, and its sourdough is more than good enough.
+If you are starting from the eastern side of the Peninsula, **The Red Hill Baker in Balnarring** is the practical alternative. The former Red Hill shop is closed. **Balnarring Bakehouse** is another local option, but confirm current trading before relying on it.
 
 Buy a whole loaf. You will use it.
 

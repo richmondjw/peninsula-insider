@@ -62,7 +62,7 @@ faq:
     answer: "Yes - once per trip at minimum. The region's producers are the same larder the hatted restaurants draw from, and you can access them directly for roughly a third of the restaurant cost. One weekend shopping the markets, cooking a whole chicken, and opening a bottle of pinot you bought from the winemaker is the version of the Peninsula experience the restaurants are filtering for you."
 aiSummary:
   - "A guide to the Mornington Peninsula's best food producers, farm gates, and specialty food shops - structured as a way to understand the Peninsula's agricultural identity."
-  - "Key stops: Red Hill Cheese, the Red Hill Bakery, Balnarring Organic Farm, Boneo Plains Alpacas, the Merricks General Wine Store produce section, and the Flinders Sourdough."
+  - "Key stops: Red Hill Cheese, The Red Hill Baker in Balnarring, Balnarring Organic Farm, Boneo Plains Alpacas, the Merricks General Wine Store produce section, and Flinders Sourdough."
   - "The editorial argument: the Peninsula's food culture is more interesting than its restaurant list suggests. The farm gates and produce shops tell a different, more specific story."
   - "Suits: food-focused visitors; anyone interested in provenance and regional food identity; visitors who want to take something home from the Peninsula."
   - "Planning note: most farm gates operate on limited hours or by arrangement. Check a market organiser's confirmed dates and stallholder list before relying on a single market for provisions."
