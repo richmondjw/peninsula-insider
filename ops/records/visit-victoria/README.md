@@ -43,6 +43,26 @@ Wired in (2026-09-29):
 
 Detail pages lay the photographs out by the rule in `next/src/lib/photo-set.ts`.
 
+## Enforcement and review (2026-09-30)
+
+- **Licence gate** `next/scripts/lint-visit-victoria.mjs` (`npm run lint:visit-victoria`), in
+  the build chain and the Content Gate. Fails on: a credit that does not name Visit Victoria,
+  a caption that does not name the region, a false or missing `visit-victoria` licence, an
+  excluded or out-of-region Work, a missing derivative, `derivative` or `commercial` in
+  `permittedUses`, a Visit Victoria photograph on a featured-partner venue or partner page,
+  and a placement missing from the where-used ledger.
+- **Ledger upkeep**: `engine/hero_image.py` records every placement it stamps (the orchestrator
+  commits the ledger with the article); for hand edits run
+  `node ops/scripts/visit-victoria/record-placements.mjs --write`.
+- **Upgrade scan** `node ops/scripts/visit-victoria/scan-upgrades.mjs` writes
+  `ops/reports/visit-victoria/upgrade-scan.md`: ready upgrades from photographs already on the
+  site, suggested Works for existing pages, and new-listing candidates. The OpenClaw cron
+  `pi-image-upgrade-scan` (Mondays 08:15 Melbourne, agent `main`) runs it on a clean checkout
+  of main and raises one Asana proposal when the result changes. It never applies anything.
+- **Credits page** `/photography/` gives production credits for cards and previews.
+- **One-off correction** `fix-false-claims-2026-09-30.mjs`: seven older heroes carried a false
+  `visit-victoria` label; four were relabelled to their Wikimedia records, three replaced.
+
 ## Operating it
 
 - **Takedown:** `node ops/scripts/visit-victoria/where-used.mjs <asset id>` lists every

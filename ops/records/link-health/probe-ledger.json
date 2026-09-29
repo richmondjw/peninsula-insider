@@ -1,6 +1,6 @@
 {
   "note": "Probe results for source URLs cited by the corpus. Written ONLY by next/scripts/probe-link-health.mjs, by a human or a scheduled job, never by a build. Read offline by next/scripts/audit-link-health.mjs. A verdict is what a probe saw, not an inference. This file is a RECORD, not a report: it does not live under ops/reports/ because nothing here is reproducible from the tree, and reverting it destroys evidence rather than regenerating it.",
-  "updatedAt": "2026-09-24T22:48:42.461Z",
+  "updatedAt": "2026-09-29T21:53:47.645Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -213,6 +213,46 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Commonfolk Coffee - Specialty Coffee Roaster Melbourne"
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/File:Cape_Schanck_walking_trail.jpg",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "File:Cape Schanck walking trail.jpg - Wikimedia Commons",
+      "probedOn": "2026-09-29",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1961_Chardonnay_grapes_at_the_Main_Ridge_Estate.jpg",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "File:CSIRO ScienceImage 1961 Chardonnay grapes at the Main Ridge Estate.jpg - Wikimedia Commons",
+      "probedOn": "2026-09-29",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/File:Looking_out_towards_the_waves_near_Cheviot_Hill_at_Point_Nepean_in_Portsea,_Victoria.jpg",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "File:Looking out towards the waves near Cheviot Hill at Point Nepean in Portsea, Victoria.jpg - Wikimedia Commons",
+      "probedOn": "2026-09-29",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/File:Looking_out_towards_the_waves_near_Cheviot_Hill_at_Point_Nepean_in_Portsea%2C_Victoria.jpg",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "File:Looking out towards the waves near Cheviot Hill at Point Nepean in Portsea, Victoria.jpg - Wikimedia Commons",
+      "probedOn": "2026-09-29",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/File:Portsea_beaches.jpg",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "File:Portsea beaches.jpg - Wikimedia Commons",
+      "probedOn": "2026-09-29",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://communityplate.org.au/event/wednesday-main-street-mornington-market/2026-01-14/",

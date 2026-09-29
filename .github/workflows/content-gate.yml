@@ -70,6 +70,7 @@ jobs:
           npm run test:event-safeguards
           npm run test:event-occurrence
           npm run test:media-provenance
+          npm run lint:visit-victoria
           npm run test:commercial-firewall
           npm run test:link-health
           npm run test:migration-ledger

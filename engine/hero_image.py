@@ -558,6 +558,47 @@ _PROVENANCE_SCALARS = ("caption", "creator", "sourceUrl", "permission", "rightsH
                        "rightsEstablishedOn", "rightsStatus", "provenanceReview")
 
 
+LEDGER = "ops/records/visit-victoria/placements.json"
+
+
+def record_placement(root: Path, entity: str, src: str, surface: str = "site") -> bool:
+    """Append a Visit Victoria placement to the where-used ledger.
+
+    The licence is revocable and a takedown must find every use the same day,
+    so a stamp that places a library photograph writes it down. Stamping is a
+    deliberate job, not a build, so writing this record is allowed
+    (ops/records/README.md). Idempotent: an identical placement is not repeated.
+    """
+    if not src.startswith("/images/visit-victoria/"):
+        return False
+    path = root / LEDGER
+    try:
+        ledger = json.loads(path.read_text())
+    except Exception:
+        return False
+    m = re.search(r"/(vv-\d+)-", src)
+    entry = {
+        "assetKey": m.group(1) if m else None,
+        "surface": surface,
+        "entity": entity,
+        "field": "heroImage",
+        "src": src,
+        "role": "engine-hero",
+        "recordedAt": datetime.now().isoformat(timespec="seconds"),
+    }
+    placements = ledger.setdefault("placements", [])
+    if any(p.get("entity") == entity and p.get("src") == src and p.get("surface") == surface for p in placements):
+        return False
+    placements.append(entry)
+    path.write_text(json.dumps(ledger, indent=1) + "\n")
+    return True
+
+
+def _article_entity(article_path: Path, fm: str) -> str:
+    m = re.search(r'^\s*slug:\s*["\']?([a-z0-9-]+)', fm, re.M)
+    return f"articles/{m.group(1) if m else Path(article_path).stem}"
+
+
 def _provenance_yaml(hero: dict) -> str:
     lines = [f"  {k}: {_yaml_q(hero[k])}\n" for k in _PROVENANCE_SCALARS if hero.get(k)]
     uses = [u for u in hero.get("permittedUses") or [] if isinstance(u, str) and u]
@@ -596,6 +637,7 @@ def stamp(article_path: Path, root: Path = REPO_ROOT, today: date | None = None)
         new_fm = fm.rstrip("\n") + "\n" + block
     p.write_text("---" + new_fm.rstrip("\n") + "\n---" + body)
     res["stamped"] = True
+    res["ledger"] = record_placement(root, _article_entity(p, fm), hero["src"])
     return res
 
 
@@ -631,6 +673,7 @@ def stamp_loose_markdown(markdown_path: Path, root: Path = REPO_ROOT, today: dat
     lines.insert(insert_at, comment)
     p.write_text("\n".join(lines) + "\n")
     res["stamped"] = True
+    res["ledger"] = record_placement(root, f"newsletter/{p.stem}", hero["src"], surface="email")
     return res
 
 
