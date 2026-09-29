@@ -73,7 +73,7 @@
     "test:plans-experience": "node --test src/components/v5/plans/*.test.mjs src/lib/editorial-plan-import.test.mjs src/lib/trip-import.test.mjs src/lib/v5-store.test.mjs",
     "test:trip-import": "node --test src/lib/trip-import.test.mjs",
     "lint:listener-hygiene": "node --test scripts/client-listener-hygiene.test.mjs",
-    "test:discovery-journeys": "node --test --test-concurrency=1 tests/journeys/event-discovery.test.mjs tests/journeys/discovery-business.test.mjs",
+    "test:discovery-journeys": "node --test --test-concurrency=1 tests/journeys/event-discovery.test.mjs tests/journeys/discovery-business.test.mjs tests/journeys/mobile-menu-accessibility.test.mjs",
     "test:planning-journeys": "node --test --test-concurrency=1 tests/journeys/planning.test.mjs tests/journeys/plans-experience.test.mjs",
     "test:journeys": "node --test --test-concurrency=1 tests/journeys/navigation.test.mjs tests/journeys/search.test.mjs tests/journeys/saves.test.mjs tests/journeys/trips.test.mjs tests/journeys/planning.test.mjs tests/journeys/plans-experience.test.mjs tests/journeys/site-simplification.test.mjs tests/journeys/shared-preview.test.mjs",
     "lint:search-privacy": "node --test scripts/search-query-privacy.test.mjs",
