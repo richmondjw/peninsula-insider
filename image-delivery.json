@@ -9807,24 +9807,6 @@
       ]
     },
     {
-      "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/event/ten-minutes-by-tractor-terroir-masterclass/heroImage-1789192750030.jpg",
-      "originalBytes": 117509,
-      "variants": [
-        {
-          "src": "/_media/e90e49ef21f58182da21-480.webp",
-          "width": 480,
-          "height": 480,
-          "bytes": 33938
-        },
-        {
-          "src": "/_media/e90e49ef21f58182da21-752.webp",
-          "width": 752,
-          "height": 752,
-          "bytes": 70940
-        }
-      ]
-    },
-    {
       "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/event/peninsula-hot-springs-daily-studio-yoga/heroImage-1789644775349.jpg",
       "originalBytes": 2921115,
       "variants": [
@@ -9851,6 +9833,36 @@
           "width": 1920,
           "height": 960,
           "bytes": 323664
+        }
+      ]
+    },
+    {
+      "source": "/images/sourced/spa-treatment-room-rose-01.webp",
+      "originalBytes": 93024,
+      "variants": [
+        {
+          "src": "/_media/8330fabd279e5c03863c-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 11936
+        },
+        {
+          "src": "/_media/8330fabd279e5c03863c-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 23706
+        },
+        {
+          "src": "/_media/8330fabd279e5c03863c-1280.webp",
+          "width": 1280,
+          "height": 853,
+          "bytes": 46834
+        },
+        {
+          "src": "/_media/8330fabd279e5c03863c-1920.webp",
+          "width": 1920,
+          "height": 1280,
+          "bytes": 88260
         }
       ]
     },
@@ -14535,36 +14547,6 @@
       ]
     },
     {
-      "source": "/images/sourced/spa-treatment-room-rose-01.webp",
-      "originalBytes": 93024,
-      "variants": [
-        {
-          "src": "/_media/8330fabd279e5c03863c-480.webp",
-          "width": 480,
-          "height": 320,
-          "bytes": 11936
-        },
-        {
-          "src": "/_media/8330fabd279e5c03863c-800.webp",
-          "width": 800,
-          "height": 533,
-          "bytes": 23706
-        },
-        {
-          "src": "/_media/8330fabd279e5c03863c-1280.webp",
-          "width": 1280,
-          "height": 853,
-          "bytes": 46834
-        },
-        {
-          "src": "/_media/8330fabd279e5c03863c-1920.webp",
-          "width": 1920,
-          "height": 1280,
-          "bytes": 88260
-        }
-      ]
-    },
-    {
       "source": "/images/sourced/venue-wine-tasting-01.webp",
       "originalBytes": 471796,
       "variants": [
@@ -14823,32 +14805,26 @@
       ]
     },
     {
-      "source": "/images/sourced/category-brewery-01.webp",
-      "originalBytes": 350026,
+      "source": "/images/sourced/whats-on-winter-wine.webp",
+      "originalBytes": 100602,
       "variants": [
         {
-          "src": "/_media/051697ae5be12b09a5ef-480.webp",
+          "src": "/_media/5b882896ca6fd113d0bb-480.webp",
           "width": 480,
           "height": 320,
-          "bytes": 36188
+          "bytes": 23664
         },
         {
-          "src": "/_media/051697ae5be12b09a5ef-800.webp",
+          "src": "/_media/5b882896ca6fd113d0bb-800.webp",
           "width": 800,
           "height": 533,
-          "bytes": 83526
+          "bytes": 48274
         },
         {
-          "src": "/_media/051697ae5be12b09a5ef-1280.webp",
-          "width": 1280,
-          "height": 853,
-          "bytes": 175442
-        },
-        {
-          "src": "/_media/051697ae5be12b09a5ef-1920.webp",
-          "width": 1920,
-          "height": 1280,
-          "bytes": 343658
+          "src": "/_media/5b882896ca6fd113d0bb-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 91134
         }
       ]
     },
