@@ -1581,36 +1581,6 @@
       ]
     },
     {
-      "source": "/images/sourced/venue-red-hill-general-store-01.webp",
-      "originalBytes": 136992,
-      "variants": [
-        {
-          "src": "/_media/cb792f1dac212e37c754-480.webp",
-          "width": 480,
-          "height": 309,
-          "bytes": 17034
-        },
-        {
-          "src": "/_media/cb792f1dac212e37c754-800.webp",
-          "width": 800,
-          "height": 514,
-          "bytes": 40666
-        },
-        {
-          "src": "/_media/cb792f1dac212e37c754-1280.webp",
-          "width": 1280,
-          "height": 823,
-          "bytes": 81416
-        },
-        {
-          "src": "/_media/cb792f1dac212e37c754-1400.webp",
-          "width": 1400,
-          "height": 900,
-          "bytes": 116722
-        }
-      ]
-    },
-    {
       "source": "/images/visit-victoria/vv-143785-red-hill-brewery.webp",
       "originalBytes": 455962,
       "variants": [
@@ -10817,6 +10787,30 @@
           "width": 1360,
           "height": 907,
           "bytes": 232350
+        }
+      ]
+    },
+    {
+      "source": "/images/sourced/home-cover.webp",
+      "originalBytes": 129134,
+      "variants": [
+        {
+          "src": "/_media/1fd67c290d8d1bd897df-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 20200
+        },
+        {
+          "src": "/_media/1fd67c290d8d1bd897df-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 44952
+        },
+        {
+          "src": "/_media/1fd67c290d8d1bd897df-1280.webp",
+          "width": 1280,
+          "height": 853,
+          "bytes": 105674
         }
       ]
     },
