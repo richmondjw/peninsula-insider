@@ -27,6 +27,7 @@ created: 2026-06-29
 
 **Structure**
 - [ ] Hero image field present (even if blank with flag)
+- [ ] If the licensed Visit Victoria library has a photograph of the lead pick (`node ops/scripts/visit-victoria/find-images.mjs "<slug>"`), the hero uses it rather than a town or category stand-in; its credit reads exactly as recorded ("..., courtesy of Visit Victoria")
 - [ ] All frontmatter fields populated
 - [ ] FAQ block present with 2+ questions
 - [ ] clusterLinks present with 3 internal PI URLs

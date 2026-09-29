@@ -32,6 +32,7 @@ Every issue is these modules, in this order. A module with nothing worth saying 
 ## 3. Image rules
 
 - Only rights-cleared images, cleared specifically for email use. Editorial supplies the cleared list with each issue; nothing outside that list goes in.
+- The licensed Visit Victoria library is standing-cleared for email. Look there first for every pick: `node ops/scripts/visit-victoria/find-images.mjs "<venue slug>" --channel email`. READY results may be used as given (resize to the email slot only, credit printed beside the image, place named, no text on the photograph); record the issue and slot in `ops/records/visit-victoria/placements.json`. SUGGEST results go on the cleared list only after approval.
 - No near-enough stock. If no cleared image exists for a pick, use the typographic card: navy panel, verdict line large in the display face. This is a first-class treatment, not a fallback of shame.
 - The hero must depict the lead. A wrong image under "written from inside the region" costs more than no image.
 - Alt text on every image, written as a description of what's pictured, never a filename.

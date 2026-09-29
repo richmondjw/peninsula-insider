@@ -17,6 +17,32 @@ for an asset whose Visit Victoria asset id appears in a catalogue record here.
 | `entity-map.json` | Approved mapping: hero and gallery per entity, plus alt text and credit per Work | `ops/scripts/visit-victoria/build-entity-map.mjs`, bulk approval by James 2026-09-29 |
 | `placements.json` | Where-used ledger: every site placement, plus the CMS image overrides retired so the new heroes show (`cmsRetired`, with the SQL to restore them) | `ops/scripts/visit-victoria/apply-entity-map.mjs --write`, then the recorded CMS step |
 
+## How every job and agent uses the library
+
+Any picture work, scheduled or ad hoc, starts with the finder:
+
+```
+node ops/scripts/visit-victoria/find-images.mjs "<venue slug | place | topic>" [--channel site|email|social|paid] [--json]
+```
+
+- **READY**: already on the site as a licensed web derivative. Use the `src`, `alt`,
+  `credit` and `caption` exactly as returned.
+- **SUGGEST**: in the download but not approved or placed. Report it as a suggestion; never
+  reference it until a person approves it and `apply-entity-map.mjs` makes the derivative.
+- `--channel paid` returns nothing, by design.
+
+Wired in (2026-09-29):
+- daily, weekly and monthly engine: `engine/hero_image.py`
+- the Insider Note Tuesday draft cron and its docs
+- the `pi-weekly-social-drafts` cron (library before Unsplash; type kept off the photograph
+  until the headline-tile answer is filed; never a Higgsfield source)
+- `.claude/agents/dispatch-desk.md` and `style-agent.md`
+- the editorial governance standard §2
+- the OpenClaw `peninsula-insider` and `peninsula-social-production` skills
+- Pixel's `AGENTS.md`
+
+Detail pages lay the photographs out by the rule in `next/src/lib/photo-set.ts`.
+
 ## Operating it
 
 - **Takedown:** `node ops/scripts/visit-victoria/where-used.mjs <asset id>` lists every
