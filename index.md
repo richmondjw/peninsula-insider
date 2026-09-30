@@ -25,9 +25,7 @@ The short list
 
 Swipe or scroll for all three picks
 
-- Context photo
-
-Mornington Farmers' Market, Mornington Peninsula. Context photo, not the Hill & Ridge Community Market.   Photo courtesy of Visit Victoria.
+- Mornington Farmers' Market, Mornington Peninsula. Context photo, not the Hill & Ridge Community Market.   Photo courtesy of Visit Victoria.
 
 ### [Hill & Ridge Community Market, 3 October 2026](<https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/>)
 
@@ -41,9 +39,7 @@ Free acoustic music at Moonah Links on Saturday, 5–8pm. No booking required; s
 
 Peppers Moonah Links   Every Saturday evening year-round from 5pm   Free
 
-- Context photo
-
-Mornington Peninsula Regional Gallery, Mornington Peninsula. Context photo; exhibition shown is not identified as National Works on Paper 2026.   Photo: Robert Blackburn, courtesy of Visit Victoria.
+- Mornington Peninsula Regional Gallery, Mornington Peninsula. Context photo; exhibition shown is not identified as National Works on Paper 2026.   Photo: Robert Blackburn, courtesy of Visit Victoria.
 
 ### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
 
