@@ -103,13 +103,13 @@ Service   6 min
 
 For the midweek visit, the work trip with a free morning, or the Melbourne friends who have a flight out of Tullamarine at five. Four hours, three stops, one decisive lunch, and no wasted drives. The Peninsula you can actually do in half a day.
 
-Service   8 min
+Service   5 min
 
-### [The Peninsula Thermal Springs Weekend](<https://peninsulainsider.com.au/explore/plans/the-thermal-springs-weekend/>)
+### [Mornington Peninsula Springs Weekend](<https://peninsulainsider.com.au/explore/plans/the-thermal-springs-weekend/>)
 
 9 April 2026
 
-Choose the baths first, then keep your stay, dinner and coastal walk close. A calmer two-night plan for Alba or Peninsula Hot Springs.
+One Fingal bathhouse, two nights and an unhurried Sunday.
 
 Nearby picks
 
