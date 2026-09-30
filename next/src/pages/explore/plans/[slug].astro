@@ -188,10 +188,16 @@ const slug = isArticle ? '' : routeSlug(itinerary);
 // CMS override consult for the itinerary hero - baked at SSR so the
 // editor's uploaded image ships in the static HTML.
 const itineraryOverrides = !isArticle && slug ? await loadOverrides('itinerary', slug) : null;
-const itineraryHeroOverride = itineraryOverrides?.image['heroImage'] ?? itineraryOverrides?.image['hero'];
-// The photograph rule (src/lib/photo-set.ts): the stops' licensed photographs
-// open the plan, or sit under an editor's hero as a filmstrip.
-const itineraryPhotos = data ? photoPlan(data, { override: Boolean(itineraryHeroOverride) }) : null;
+const requestedItineraryHeroOverride = itineraryOverrides?.image['heroImage'] ?? itineraryOverrides?.image['hero'];
+const incompleteItineraryOverride = requestedItineraryHeroOverride?.src &&
+  (!requestedItineraryHeroOverride.alt?.trim() || !requestedItineraryHeroOverride.credit?.trim());
+if (incompleteItineraryOverride) {
+  console.warn('[PlanItinerary] ' + slug + ' editor image lacks alt or credit; using its credited source photographs');
+}
+const itineraryHeroOverride = incompleteItineraryOverride ? undefined : requestedItineraryHeroOverride;
+// Verified source photographs open the plan unless a complete editor image
+// replaces the hero. Keep the image, alt, caption and credit together.
+const itineraryPhotos = data ? photoPlan(data, { override: Boolean(itineraryHeroOverride?.src) }) : null;
 
 const allItineraries = isArticle ? [] : await getCollection('itineraries');
 const allVenues = isArticle ? allVenuesRaw : allVenuesRaw;
@@ -230,12 +236,8 @@ const altStaySlugs: string[] = data
   ? ((data as any).altStays ?? []).map((entry: any) => String(entry?.id ?? entry ?? '')).filter(Boolean)
   : [];
 const altStays = altStaySlugs.map((s) => venueMap.get(s)).filter(Boolean) as any[];
-const inferredAltStays = altStays.length === 0
-  ? highlightedVenues
-        .filter((v: any) => isStayVenue(v) && routeSlug(v) !== routeSlug(effectiveStay ?? { data: {}, id: '' }))
-      .slice(0, 2)
-  : [];
-const stayRail = [...altStays, ...inferredAltStays].slice(0, 2);
+// The stay rail is resolved after the day groups, so a scheduled second
+// night's accommodation never appears as an alternative.
 
 // ─── Anchor town label ─────────────────────────────────────────────────────
 const anchorTownSlug = data ? String((data as any).anchorTown?.id ?? (data as any).anchorTown ?? '') : '';
@@ -272,6 +274,36 @@ const groupedStops = dayNumbers.map((day) => {
   return { day, stops };
 });
 
+// A venue can also be a dinner stop. Use the editor's explicit overnight
+// sequence when available, with the original anchor as a legacy fallback.
+if (data?.nightStays?.length && data.nightStays.length !== groupedStops.length - 1) {
+  throw new Error("[plans] " + slug + " needs one nightStays entry for every overnight day");
+}
+const overnightStays = groupedStops.slice(0, -1).map((group, index) => {
+  const ref: any = data?.nightStays?.[index];
+  const key = String(ref?.id ?? ref ?? '');
+  const explicitStay = key ? venueMap.get(key) : undefined;
+  if (key && !explicitStay) throw new Error("[plans] " + slug + " has an unavailable night stay: " + key);
+  const stay = explicitStay ?? effectiveStay;
+  return { day: group.day, stay, href: stay ? venueHref(stay) : undefined };
+});
+const scheduledStayKeys = new Set(
+  overnightStays.filter((night) => night.stay).map((night) => routeSlug(night.stay))
+);
+const scheduledOtherStays = overnightStays
+  .map((night) => night.stay)
+  .filter((stay, index, stays) => stay && routeSlug(stay) !== routeSlug(effectiveStay) &&
+    stays.findIndex((candidate) => candidate && routeSlug(candidate) === routeSlug(stay)) === index);
+const inferredAltStays = data?.nightStays?.length ? [] : highlightedVenues
+  .filter((venue: any) => isStayVenue(venue) && !scheduledStayKeys.has(routeSlug(venue)))
+  .slice(0, 2);
+const stayRail = [
+  ...scheduledOtherStays,
+  ...altStays.filter((stay: any) => !scheduledStayKeys.has(routeSlug(stay))),
+  ...inferredAltStays,
+].slice(0, 2);
+const hasMultipleStayBases = scheduledOtherStays.length > 0;
+
 // ─── Related content ──────────────────────────────────────────────────────
 const relatedArticles = articles
   .filter(
@@ -281,8 +313,20 @@ const relatedArticles = articles
   )
   .slice(0, 2);
 const relatedItineraries = allItineraries
-  .filter((entry: any) => routeSlug(entry) !== slug)
-  .slice(0, 4);
+  .filter((entry: any) =>
+    routeSlug(entry) !== slug &&
+    entry.data.audience === data?.audience &&
+    entry.data.lengthNights > 0 &&
+    data?.lengthNights > 0
+  )
+  .sort((a: any, b: any) => {
+    const relevance = (entry: any) =>
+      ((entry.data.theme ?? []).filter((theme: string) => (data?.theme ?? []).includes(theme)).length * 3) +
+      (entry.data.lengthNights === data?.lengthNights ? 2 : 0) +
+      (entry.data.mood === data?.mood ? 1 : 0);
+    return relevance(b) - relevance(a) || a.data.title.localeCompare(b.data.title, 'en-AU');
+  })
+  .slice(0, 3);
 
 // The same sequenced stop payload is used by the hub and detail import.
 const forkPlan = {
@@ -303,7 +347,7 @@ const themeText = data
   ? ((data as any).theme ?? []).map((t: string) => themeLabel[t] ?? t).filter(Boolean).join(' · ')
   : '';
 const occasionText = data ? (occasionLabel[(data as any).occasion ?? 'none'] || '') : '';
-const seasonText = data ? (seasonLabel[(data as any).season ?? 'year-round'] || '') : '';
+const seasonText = data ? ((data as any).bestSeasonNote || seasonLabel[(data as any).season ?? 'year-round'] || '') : '';
 const budgetText = data ? (budgetLabel[(data as any).budget ?? 'mixed'] || '') : '';
 const nightsLabel = data ? `${data.lengthNights} night${data.lengthNights === 1 ? '' : 's'}` : '';
 const durationText = duration ? durationLabel[duration] ?? duration : nightsLabel;
@@ -648,11 +692,13 @@ export const prerender = true;
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
 
-  <Breadcrumbs items={breadcrumbItems} />
+  <div class="itinerary-detail__breadcrumb"><Breadcrumbs items={breadcrumbItems} /></div>
 
   {/* ─── 1. Hero ──────────────────────────────────────────────────────── */}
   <section class="itinerary-detail">
     <div class="container">
+      <div class="itinerary-detail__cover">
+        <div class="itinerary-detail__intro">
       <div class="itinerary-detail__meta">
         <a href="/explore/plans/" class="itinerary-detail__back">Plans</a>
         <span class="itinerary-detail__dot" aria-hidden="true"></span>
@@ -683,34 +729,41 @@ export const prerender = true;
         {data!.totalDriveMinutes && <span>About {data!.totalDriveMinutes} min driving (editorial estimate)</span>}
       </div>
 
-      {/* Hero CTA row - anchor-stay (filled, primary) + fork-to-saves (ghost,
-          secondary). One row so the two reader actions read as a pair, not
-          a stacked pile. The utility caption that used to sit beside the
-          anchor CTA and the hint paragraph that used to sit under the fork
-          button were removed 2026-05-14 - both buttons are self-evident. */}
+      {/* The stay decision and My Trip action sit together. Multi-base
+          routes lead to the full stay sequence below. */}
       <div class="itinerary-detail__cta-row">
-        {effectiveStay && effectiveStayHref && (
+        {hasMultipleStayBases ? (
+          <a class="pi-btn pi-btn--solid" href="#where-to-stay">See both stays →</a>
+        ) : effectiveStay && effectiveStayHref && (
           <a
             href={`${effectiveStayHref}?utm_source=peninsula-insider&utm_medium=escape&utm_campaign=${slug}&utm_content=hero`}
             class="pi-btn pi-btn--solid"
             data-event="escape_hero_anchor_stay_cta_click"
             data-itinerary={slug}
           >
-            Stay at {(effectiveStay as any).data.name} →
+            {slug === 'sorrento-off-season-weekend' ? 'Stay in Sorrento →' : 'Stay at ' + (effectiveStay as any).data.name + ' →'}
           </a>
         )}
         <PiForkPlanButton plan={forkPlan} variant="ghost" />
       </div>
-
+      <nav class="itinerary-detail__jumps" aria-label="On this plan">
+        <a href="#day-by-day">Day by day</a>
+        {showChecklist && <a href="#booking-checklist">Before you book</a>}
+        {(effectiveStay || stayRail.length > 0) && <a href="#where-to-stay">Where to stay</a>}
+      </nav>
+        </div>
+        <div class="itinerary-detail__cover-media">
       {itineraryPhotos?.stage ? (
-        <div {...editableImage({ entityType: 'itinerary', entitySlug: slug, fieldPath: 'heroImage', label: `${data!.title} hero`, purpose: 'hero' })}>
-          <PhotoStage photos={itineraryPhotos.photos} subject={data!.title} id="photos" />
+        <div data-pi-no-hydrate={incompleteItineraryOverride ? 'true' : undefined} {...editableImage({ entityType: 'itinerary', entitySlug: slug, fieldPath: 'heroImage', label: `${data!.title} hero`, purpose: 'hero' })}>
+          <PhotoStage photos={itineraryPhotos.photos} subject={data!.title} id="photos" stageCaption="caption" />
         </div>
       ) : (
         <>
           <div
             class="itinerary-detail__hero feature__image-block feature__image-block--sand"
-            aria-hidden="true"
+            role="img"
+            aria-label={itineraryHeroOverride?.alt ?? data!.heroImage.alt}
+            data-pi-no-hydrate={incompleteItineraryOverride ? 'true' : undefined}
             style={itineraryHeroOverride?.src
               ? `background-image: url('${itineraryHeroOverride.src.replace(/["\\]/g, (m: string) => `\\${m}`)}'); background-size: cover; background-position: center;`
               : heroBackgroundStyle(data!)}
@@ -722,12 +775,122 @@ export const prerender = true;
             <div class="itinerary-detail__hero-fog"></div>
             <span class="itinerary-detail__hero-label">{itineraryHeroOverride?.alt ?? data!.heroImage.alt}</span>
           </div>
+          {(itineraryHeroOverride?.credit || data!.heroImage.credit) && (
+            <p class="itinerary-detail__image-credit">
+              {itineraryHeroOverride?.caption ?? data!.heroImage.caption ?? ''}
+              {' · '}
+              {itineraryHeroOverride?.credit ?? data!.heroImage.credit}
+            </p>
+          )}
           {(itineraryPhotos?.photos.length ?? 0) >= 3 && <PhotoStage photos={itineraryPhotos!.photos} subject={data!.title} id="photos" variant="strip" />}
         </>
       )}
+        </div>
+      </div>
 
       <div class="itinerary-detail__grid">
-        <div>
+        {/* ─── 2. At-a-glance facts box ────────────────────────────── */}
+        <aside class="facts">
+          <p class="facts__title">At a glance</p>
+          <p>Use this as a route, then confirm bookings, park access and weather for your dates. My Trip drive times cover mapped stops, excluding your journey here and home.</p>
+          <dl>
+            <dt>Duration</dt>
+            <dd>{durationText}</dd>
+
+            <dt>Best for</dt>
+            <dd>{audienceText}{occasionText ? ` · ${occasionText}` : ''}</dd>
+
+            {themeText && (
+              <>
+                <dt>Theme</dt>
+                <dd>{themeText}</dd>
+              </>
+            )}
+
+            {anchorTown && (
+              <>
+                <dt>{hasMultipleStayBases ? 'Starting base' : 'Base town'}</dt>
+                <dd>{(anchorTown as any).data.name}</dd>
+              </>
+            )}
+
+            {seasonText && (
+              <>
+                <dt>Best season</dt>
+                <dd>{seasonText}</dd>
+              </>
+            )}
+
+            {(data as any).walkingIntensity && (
+              <>
+                <dt>Walking</dt>
+                <dd>{titleize((data as any).walkingIntensity)}</dd>
+              </>
+            )}
+
+            {(data as any).drivingDistanceKm && (
+              <>
+                <dt>Driving</dt>
+                <dd>{(data as any).drivingDistanceKm} km on-Peninsula</dd>
+              </>
+            )}
+
+            {!(data as any).drivingDistanceKm && data!.totalDriveMinutes && (
+              <>
+                <dt>Driving</dt>
+                <dd>About {data!.totalDriveMinutes} min (editorial estimate)</dd>
+              </>
+            )}
+
+            {hasMultipleStayBases ? overnightStays.map((night) => night.stay && night.href && (
+              <>
+                <dt>Night {night.day}</dt>
+                <dd><a href={night.href}>{(night.stay as any).data.name}</a></dd>
+              </>
+            )) : effectiveStay && effectiveStayHref && (
+              <>
+                <dt>Anchor stay</dt>
+                <dd><a href={effectiveStayHref}>{(effectiveStay as any).data.name}</a></dd>
+              </>
+            )}
+
+            {(data as any).budgetRangeAud && (
+              <>
+                <dt>Budget</dt>
+                <dd>{(data as any).budgetRangeAud}</dd>
+              </>
+            )}
+
+            {!((data as any).budgetRangeAud) && budgetText && (
+              <>
+                <dt>Budget</dt>
+                <dd>{budgetText}</dd>
+              </>
+            )}
+
+            <dt>Stops</dt>
+            <dd>{data!.stops.length} sequenced stops</dd>
+          </dl>
+
+          {effectiveStayHref ? (
+            <a
+              class="facts__cta pi-btn pi-btn--ghost pi-btn--block"
+              href={`${effectiveStayHref}?utm_source=peninsula-insider&utm_medium=escape&utm_campaign=${slug}&utm_content=facts`}
+              data-event="escape_facts_anchor_stay_click"
+              data-itinerary={slug}
+            >
+              {hasMultipleStayBases ? 'See first stay →' : 'Stay here →'}
+            </a>
+          ) : (
+            <a class="facts__cta pi-btn pi-btn--ghost pi-btn--block" href="/stay/">Choose the stay</a>
+          )}
+
+          {lastVerifiedLabel && (
+            <p class="facts__verified">Information checked {lastVerifiedLabel}</p>
+          )}
+        </aside>
+
+        <div class="itinerary-detail__main">
           {/* ─── 3. Editorial frame ──────────────────────────────────── */}
           {showEditorialFrame && (
             <div class="prose itinerary-detail__editor-note">
@@ -745,12 +908,18 @@ export const prerender = true;
           </div>
 
           {/* ─── 5–6. Day-by-day plan ────────────────────────────────── */}
-          <div class="stop-list">
+          <div class="stop-list" id="day-by-day">
             {groupedStops.map((group, idx) => {
               const isLastDay = idx === groupedStops.length - 1;
+              const nightStay = overnightStays[idx];
+              const nightVenue = nightStay?.stay;
+              const nightHref = nightStay?.href;
               return (
                 <section class="stop-day">
-                  <h2 class="stop-day__heading">Day {group.day}</h2>
+                  <h2 class="stop-day__heading">
+                    <span>Day {group.day}</span>
+                    {data!.dayLabels?.[idx] && <span class="stop-day__label">{data!.dayLabels[idx]}</span>}
+                  </h2>
                   <ol class="stop-day__stops">
                     {group.stops.map((stop) => (
                       <li class="stop-item">
@@ -773,21 +942,22 @@ export const prerender = true;
                     ))}
                   </ol>
 
-                  {/* Anchor-stay 3-placement rule, slot 2: where you sleep */}
-                  {!isLastDay && effectiveStay && effectiveStayHref && (
+                  {!isLastDay && nightVenue && nightHref && (
                     <aside class="where-you-sleep">
-                      <p class="where-you-sleep__label">Where you sleep tonight</p>
+                      <p class="where-you-sleep__label">Night {group.day} · Where you sleep</p>
                       <p class="where-you-sleep__body">
-                        {(data as any).anchorStayBlurb ??
-                          `Settle into ${(effectiveStay as any).data.name} for the night. Check the room before dinner so you can step straight into the next morning without admin.`}
+                        {idx > 0 && overnightStays[idx - 1]?.stay &&
+                          routeSlug(overnightStays[idx - 1].stay) === routeSlug(nightVenue)
+                          ? 'Return to ' + (nightVenue as any).data.name + ' for your next night. Confirm dinner separately for your date.'
+                          : 'Stay at ' + (nightVenue as any).data.name + ' tonight. Confirm check-in and dinner for your date before you travel.'}
                       </p>
                       <a
-                        href={`${effectiveStayHref}?utm_source=peninsula-insider&utm_medium=escape&utm_campaign=${slug}&utm_content=inflow`}
+                        href={`${nightHref}?utm_source=peninsula-insider&utm_medium=escape&utm_campaign=${slug}&utm_content=inflow`}
                         class="pi-btn pi-btn--text"
                         data-event="escape_inflow_anchor_stay_click"
                         data-itinerary={slug}
                       >
-                        See {(effectiveStay as any).data.name} →
+                        See {(nightVenue as any).data.name} →
                       </a>
                     </aside>
                   )}
@@ -846,7 +1016,7 @@ export const prerender = true;
 
           {/* ─── 9. Booking checklist ────────────────────────────────── */}
           {showChecklist && (
-            <section class="checklist">
+            <section class="checklist" id="booking-checklist">
               <h2 class="checklist__heading">Booking checklist</h2>
               <ol class="checklist__list">
                 {(data as any).bookingChecklist.map((row: any) => (
@@ -878,109 +1048,19 @@ export const prerender = true;
           )}
         </div>
 
-        {/* ─── 2. At-a-glance facts box ────────────────────────────── */}
-        <aside class="facts">
-          <p class="facts__title">At a glance</p>
-          <p>Drive times are planning estimates. My Trip estimates only travel between mapped stops within each day, excluding your journey here, return travel, traffic and parking. Check opening times and availability directly before travelling.</p>
-          <dl>
-            <dt>Duration</dt>
-            <dd>{durationText}</dd>
 
-            <dt>Best for</dt>
-            <dd>{audienceText}{occasionText ? ` · ${occasionText}` : ''}</dd>
-
-            {themeText && (
-              <>
-                <dt>Theme</dt>
-                <dd>{themeText}</dd>
-              </>
-            )}
-
-            {anchorTown && (
-              <>
-                <dt>Base town</dt>
-                <dd>{(anchorTown as any).data.name}</dd>
-              </>
-            )}
-
-            <dt>Best season</dt>
-            <dd>{seasonText}</dd>
-
-            {(data as any).walkingIntensity && (
-              <>
-                <dt>Walking</dt>
-                <dd>{titleize((data as any).walkingIntensity)}</dd>
-              </>
-            )}
-
-            {(data as any).drivingDistanceKm && (
-              <>
-                <dt>Driving</dt>
-                <dd>{(data as any).drivingDistanceKm} km on-Peninsula</dd>
-              </>
-            )}
-
-            {!(data as any).drivingDistanceKm && data!.totalDriveMinutes && (
-              <>
-                <dt>Driving</dt>
-                <dd>About {data!.totalDriveMinutes} min (editorial estimate)</dd>
-              </>
-            )}
-
-            {effectiveStay && effectiveStayHref && (
-              <>
-                <dt>Anchor stay</dt>
-                <dd><a href={effectiveStayHref}>{(effectiveStay as any).data.name}</a></dd>
-              </>
-            )}
-
-            {(data as any).budgetRangeAud && (
-              <>
-                <dt>Budget</dt>
-                <dd>{(data as any).budgetRangeAud}</dd>
-              </>
-            )}
-
-            {!((data as any).budgetRangeAud) && budgetText && (
-              <>
-                <dt>Budget</dt>
-                <dd>{budgetText}</dd>
-              </>
-            )}
-
-            <dt>Stops</dt>
-            <dd>{data!.stops.length} sequenced stops</dd>
-          </dl>
-
-          {effectiveStayHref ? (
-            <a
-              class="facts__cta pi-btn pi-btn--ghost pi-btn--block"
-              href={`${effectiveStayHref}?utm_source=peninsula-insider&utm_medium=escape&utm_campaign=${slug}&utm_content=facts`}
-              data-event="escape_facts_anchor_stay_click"
-              data-itinerary={slug}
-            >
-              Stay here →
-            </a>
-          ) : (
-            <a class="facts__cta pi-btn pi-btn--ghost pi-btn--block" href="/stay/">Choose the stay</a>
-          )}
-
-          {lastVerifiedLabel && (
-            <p class="facts__verified">Information checked {lastVerifiedLabel}</p>
-          )}
-        </aside>
       </div>
     </div>
   </section>
 
-  {/* ─── 9b. Where to stay (anchor + alts) - also slot 3 of the 3-placement rule */}
+  {/* ─── 9b. The scheduled stay or stays, followed by any alternatives */}
   {(effectiveStay || stayRail.length > 0) && (
-    <section class="venues">
+    <section class="venues" id="where-to-stay">
       <div class="container">
         <div class="venues__header">
           <div>
             <p class="label label--accent">Sleep here</p>
-            <h2 class="venues__title">Stays that anchor this escape properly</h2>
+            <h2 class="venues__title">{hasMultipleStayBases ? 'Your two overnight bases' : 'Your base for this escape'}</h2>
           </div>
           <a href="/stay/" class="venues__link">All stays →</a>
         </div>
@@ -1035,7 +1115,7 @@ export const prerender = true;
         <div class="venues__header">
           <div>
             <p class="label label--accent">Try another shape</p>
-            <h2 class="venues__title">More escape plans from the rebuild</h2>
+            <h2 class="venues__title">More ways to explore the Peninsula</h2>
           </div>
           <a href="/explore/plans/" class="venues__link">All plans →</a>
         </div>

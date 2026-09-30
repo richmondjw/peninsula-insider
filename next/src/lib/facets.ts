@@ -20,7 +20,7 @@
  */
 
 import { eventIsUnqualifiedFree } from './event-access.mjs';
-import { getAustralianSeasonLower } from './season';
+import { getAustralianSeasonLower, melbourneCalendarParts } from './season';
 
 export type FacetKey = 'place' | 'cat' | 'mood' | 'price' | 'party' | 'date';
 
@@ -735,6 +735,12 @@ function facetsForItinerary(data: Record<string, any>, out: Facets) {
     emit(out, 'date', 'weekend');
   }
 
+  const bestSeasonMonths: number[] = Array.isArray(data.bestSeasonMonths) ? data.bestSeasonMonths : [];
+  if (bestSeasonMonths.length > 0) {
+    emit(out, 'date', 'seasonal');
+    if (bestSeasonMonths.includes(melbourneCalendarParts().month)) emit(out, 'date', 'this-season');
+    return;
+  }
   const season = typeof data.season === 'string' ? data.season : 'year-round';
   if (season === 'rainy') emit(out, 'mood', 'rainy-day');
   if (season !== 'year-round' && season !== getAustralianSeasonLower(new Date())) {

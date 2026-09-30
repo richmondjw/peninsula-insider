@@ -1203,10 +1203,14 @@ const itineraries = defineCollection({
     origin: escapeOrigin.default('melbourne'),
     budget: escapeBudget.default('mixed'),
     season: escapeSeason.default('year-round'),
+    bestSeasonNote: z.string().optional(),
+    bestSeasonMonths: z.array(z.number().int().min(1).max(12)).default([]),
 
-    // Conversion architecture — anchor stay drives the 3-placement rule
-    // (hero CTA, day-N "where you sleep" block, related rail).
+    // Explicit overnight sequence drives the night cards; anchorStay is
+    // retained for older single-base itineraries and the first stay CTA.
     anchorStay: reference('venues').optional(),
+    nightStays: z.array(reference('venues')).default([]),
+    dayLabels: z.array(z.string()).default([]),
     anchorStayBlurb: z.string().optional(),
     altStays: z.array(reference('venues')).default([]),
     anchorTown: reference('places').optional(),

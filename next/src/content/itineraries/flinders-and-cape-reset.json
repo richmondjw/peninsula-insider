@@ -14,16 +14,18 @@
   "baseTowns": [
     "flinders",
     "cape-schanck",
-    "red-hill",
     "merricks"
   ],
+  "anchorStay": "flinders-hotel",
+  "nightStays": ["flinders-hotel"],
+  "dayLabels": ["Village, cape and dinner", "Coast, art and lunch"],
   "bookingChecklist": [
     {
-      "item": "One night at Flinders Hotel",
+      "item": "One night at Quarters at Flinders Hotel",
       "priority": "essential"
     },
     {
-      "item": "Tedesca service availability and Pt. Leo lunch",
+      "item": "Moke dinner service and Pt. Leo lunch",
       "priority": "recommended"
     }
   ],
@@ -32,7 +34,7 @@
       "day": 1,
       "order": 1,
       "venue": "flinders-hotel",
-      "note": "Check in early enough to make the village feel like your own base rather than a stopover.",
+      "note": "Arrive in Flinders by midday. Confirm your Quarters check-in time and any luggage arrangements directly before leaving for the cape.",
       "timeOfDay": "midday"
     },
     {
@@ -45,15 +47,15 @@
     {
       "day": 1,
       "order": 3,
-      "venue": "tedesca-osteria",
-      "note": "Check dinner service for your chosen date before booking. Fit the afternoon walk around the reservation.",
+      "venue": "moke-dining",
+      "note": "Moke serves dinner Thursday to Saturday. Book for your date and fit the afternoon walk around the reservation; Flinders Hotel is a nearby dinner fallback.",
       "timeOfDay": "evening"
     },
     {
       "day": 2,
       "order": 1,
       "experience": "bushrangers-bay-walk",
-      "note": "Do the longer coastal walk in the morning while your legs and weather are both fresh.",
+      "note": "Bushrangers Bay is a 5.4 km return walk of about two hours, with a narrow sandy path and steep stairs. Start early; use the Cape Schanck lookouts instead if weather or lunch timing cuts the window.",
       "timeOfDay": "morning"
     },
     {
@@ -64,7 +66,6 @@
       "timeOfDay": "midday"
     }
   ],
-  "totalDriveMinutes": 48,
   "heroImage": {
     "src": "/images/visit-victoria/vv-161976-cape-schanck-lighthouse.webp",
     "alt": "Aerial view of green cliffs dropping to a rocky shore, with the Cape Schanck lighthouse and cottages on the headland",
@@ -85,7 +86,7 @@
     "decorative": false,
     "provenanceReview": "verified"
   },
-  "editorNote": "The one-night Peninsula trip only works if you resist the temptation to cram it full. This version stays south, keeps the driving short, and gives equal weight to coastline and lunch. Flinders gives you a clean village base. Cape Schanck supplies the weather and the scale. Tedesca handles dinner. By the time you are leaving Pt. Leo after lunch the next day, it feels like you were away for longer than twenty-four hours.",
+  "editorNote": "The one-night Peninsula trip only works if you resist the temptation to cram it full. This version stays south and gives equal weight to coastline and lunch. Flinders gives you a clean village base. Cape Schanck supplies the weather and the scale. Moke makes dinner a walk within the village when its Thursday to Saturday service suits your date; otherwise, book dinner at Flinders Hotel. By the time you are leaving Pt. Leo after lunch the next day, it feels like you were away for longer than twenty-four hours.",
   "publishedAt": "2026-04-08",
   "gallery": [
     {

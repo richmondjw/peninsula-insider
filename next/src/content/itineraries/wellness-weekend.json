@@ -1,7 +1,7 @@
 {
   "slug": "wellness-weekend",
-  "title": "The Wellness Reset: A Two-Night Peninsula Weekend",
-  "dek": "Thermal pools, a coastal walk, vineyard meals and two nights in the same place. For people whose weekend brief is simply to slow down.",
+  "title": "A Peninsula Wellness Weekend",
+  "dek": "Thermal pools, a coastal walk and vineyard meals, with two nights to slow down at the same Red Hill stay.",
   "audience": "couple",
   "mood": "wellness",
   "lengthNights": 2,
@@ -17,6 +17,16 @@
     "cape-schanck",
     "mornington"
   ],
+  "anchorStay": "lindenderry",
+  "nightStays": [
+    "lindenderry",
+    "lindenderry"
+  ],
+  "dayLabels": [
+    "Arrive and exhale",
+    "Thermal pools and a flexible coast",
+    "Gallery and home"
+  ],
   "bookingChecklist": [
     {
       "item": "Two nights at Lindenderry",
@@ -27,7 +37,7 @@
       "priority": "essential"
     },
     {
-      "item": "Lunch reservations and in-house dinner service",
+      "item": "Lunch reservations and Lindenderry Dining Room dinner service Thursday to Saturday",
       "priority": "recommended"
     }
   ],
@@ -43,7 +53,7 @@
       "day": 1,
       "order": 2,
       "venue": "lindenderry",
-      "note": "Check in after lunch and leave time for the garden. Arrange dinner with the property rather than assuming a late meal is available.",
+      "note": "Check in after lunch and leave time for the garden. Lindenderry Dining Room serves dinner Thursday to Saturday; book for your date rather than assuming a late meal is available.",
       "timeOfDay": "afternoon"
     },
     {
@@ -71,23 +81,37 @@
       "day": 2,
       "order": 4,
       "venue": "lindenderry",
-      "note": "Second night at the same property. Skip dinner out and let the in-house kitchen deliver the softer version.",
+      "note": "Second night at the same property. Book the Dining Room if it serves dinner for your date; otherwise plan a nearby dinner before settling in.",
       "timeOfDay": "evening"
     },
     {
       "day": 3,
       "order": 1,
       "experience": "mornington-peninsula-gallery",
-      "note": "On the way home, stop at the regional gallery for a quiet hour before the drive back.",
-      "timeOfDay": "morning"
+      "note": "On the way home, visit the regional gallery after its 11am opening for a quiet hour before the drive back.",
+      "timeOfDay": "morning",
+      "timeRange": "Late morning, after 11am"
     }
   ],
-  "totalDriveMinutes": 70,
   "heroImage": {
-    "src": "/images/sourced/place-red-hill-01.webp",
-    "alt": "Red Hill hinterland vineyard landscape",
-    "credit": "BrooksieG / Wikimedia Commons",
-    "license": "wikimedia-cc-by"
+    "src": "/images/visit-victoria/vv-172661-alba-thermal-springs-and-spa.webp",
+    "alt": "A bather wading through a turquoise pool beneath curved concrete canopies at Alba Thermal Springs and Spa",
+    "credit": "Courtesy of Visit Victoria",
+    "license": "visit-victoria",
+    "caption": "Alba Thermal Springs & Spa, Fingal, Mornington Peninsula.",
+    "depicts": "Alba Thermal Springs and Spa",
+    "depictionStatus": "actual",
+    "sourceUrl": "Victoria Content Hub asset 172661, downloaded 2026-09-28",
+    "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+    "permittedUses": [
+      "website",
+      "social"
+    ],
+    "rightsHolder": "Visit Victoria",
+    "rightsEstablishedOn": "2026-09-29",
+    "rightsStatus": "recorded",
+    "decorative": false,
+    "provenanceReview": "verified"
   },
   "editorNote": "Use the same stay for both nights and make the thermal session the one fixed point of Saturday. Lunch at Merricks starts the trip; the gallery finishes it. The Cape Schanck stop is optional if you would rather return to the property after lunch. Check each booking's cancellation terms before paying, especially if keeping the weekend flexible matters to you.",
   "publishedAt": "2026-04-09",

@@ -28,12 +28,14 @@ export interface Props {
   /** The place the photographs show; used in labels and as the alt fallback. */
   subject: string;
   variant?: 'stage' | 'strip';
+  /** Show a short editorial caption beside the photograph when available. */
+  stageCaption?: 'description' | 'caption';
   /** Unique on the page; in-text photographs open the viewer through it. */
   id?: string;
   class?: string;
 }
 
-const { photos, subject, variant = 'stage', id = 'photos', class: className } = Astro.props;
+const { photos, subject, variant = 'stage', stageCaption = 'description', id = 'photos', class: className } = Astro.props;
 const n = photos.length;
 const items = photos.map((photo, index) => {
   const { alt, presentation } = altFor(photo, subject);
@@ -78,7 +80,7 @@ const label = `Photographs of ${subject}`;
                   />
                 </div>
                 <figcaption class="pstage__caption">
-                  {item.description && <span class="pstage__description" aria-hidden="true">{item.description}</span>}
+                  {item.description && <span class="pstage__description" aria-hidden="true">{stageCaption === 'caption' ? (item.caption || item.description) : item.description}</span>}
                   {item.credit && <span class="pstage__credit">{item.credit}</span>}
                 </figcaption>
               </figure>

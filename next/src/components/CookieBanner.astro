@@ -2,7 +2,7 @@
 /**
  * CookieBanner - first-visit consent surface.
  *
- * Presented as a compact bottom-left corner toast (P0-7, review finding #7).
+ * Presented as a compact corner toast (P0-7, review finding #7).
  * It was a full-width bar that ate ~15% of every first impression; it is now a
  * ~360px card that never spans the viewport. Consent behaviour is unchanged.
  *
@@ -228,7 +228,7 @@
 
 <style>
   /* ─────────────────────────────────────────────────────────────────────
-     Corner toast. Bottom-left, ~360px, never full-bleed.
+     Corner toast. ~360px, never full-bleed.
      Local derived tokens only: no hardcoded hex.
      ───────────────────────────────────────────────────────────────────── */
   .cookie-banner {
@@ -304,6 +304,14 @@
      ───────────────────────────────────────────────────────────────────── */
   :global(html[data-pi-promo-bar='visible']) .cookie-banner {
     --cb-promo: calc(var(--pi-promo-bar-height, 4.5rem) + var(--space-3));
+  }
+
+  /* Clear desktop hero actions on the homepage and plan pages. */
+  @media (min-width: 1024px) {
+    .cookie-banner {
+      left: auto;
+      right: var(--space-5);
+    }
   }
 
   .cookie-banner__inner {
@@ -479,6 +487,20 @@
     }
     .cookie-banner__actions .cookie-banner__btn {
       flex: 1 1 auto;
+    }
+  }
+
+  /* On short phones the full heading repeats the dialog label. Collapse it
+     only for the initial choice, keeping the explanation, Privacy link and
+     both 44px actions visible above the persistent bottom chrome. The
+     heading returns when preferences are expanded. */
+  @media (max-width: 380px) and (max-height: 700px) {
+    .cookie-banner__inner {
+      padding: var(--space-2) var(--space-3);
+      gap: var(--space-2);
+    }
+    .cookie-banner:has(.cookie-banner__actions:not([hidden])) .cookie-banner__title {
+      display: none;
     }
   }
 
