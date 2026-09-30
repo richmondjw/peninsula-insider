@@ -87,9 +87,3 @@ if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1]
   if (!existsSync(join(dist, 'sitemap.xml'))) throw new Error('Run against a completed public build with --dist PATH');
   console.log(`Generated compact formats for ${generateFormats(dist).count} public pages.`);
 }
-
-
-
-
-
-

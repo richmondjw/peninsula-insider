@@ -54,5 +54,3 @@ const report = { schemaVersion: '1.0', observedAt: new Date().toISOString(), tar
 if (args.includes('--report')) { const output = resolve(args[args.indexOf('--report') + 1]); mkdirSync(dirname(output), {recursive:true}); writeFileSync(output, JSON.stringify(report,null,2)+'\n'); }
 if (failures.length) { console.error(failures.join('\n')); process.exitCode = 1; }
 else console.log(`Agent welcome acceptance passed: ${agentRoutes.length + agentResources.length} direct routes, ${catalog.count} compact pages, source hashes and event date semantics. This is a scoped deterministic gate, not a 99/100 site score.`);
-
-
