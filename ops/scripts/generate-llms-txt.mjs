@@ -30,6 +30,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join, isAbsolute, resolve } from 'node:path';
 
 import { agentRoutes, agentResources, agentCaveat } from '../../next/src/lib/agent-guide.mjs';
+import { retrievalPermission } from '../../next/src/lib/retrieval-permission.mjs';
 
 const REPO_ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const SITE = 'https://peninsulainsider.com.au';
@@ -167,7 +168,8 @@ function renderCurated() {
   for (const route of agentRoutes) out += `- [${route.title}](${SITE}${route.href}): ${route.description} (${route.format})\n`;
   out += '\n## Formats, updates and trust\n\n';
   for (const route of agentResources) out += `- [${route.title}](${SITE}${route.href}): ${route.description}\n`;
-  out += '\n## Reading this information\n\nEvent dates use Australia/Sydney. Date-only values do not imply a time. Use the feed window, explicit weekend occurrences and cancellation or rescheduling status. A generated date is a build date, not a fact check. Missing source checks and practical details remain unknown.\n\nUse the access and reuse terms. Search indexing, citation and linking are permitted under those terms; automated extraction, republication and model training require express written permission. These formats do not expand those permissions. Public text formats do not grant image rights or access to private accounts. Fetch only what the task needs and respect retry instructions.\n';
+  out += '\n## Reading this information\n\nEvent dates use Australia/Sydney. Date-only values do not imply a time. Use the feed window, explicit weekend occurrences and cancellation or rescheduling status. A generated date is a build date, not a fact check. Missing source checks and practical details remain unknown.\n\n';
+  out += retrievalPermission.guideSummary + `\n\nTerms updated: ${retrievalPermission.updatedOn}. See ${SITE}/terms/#automated-access and ${SITE}/robots.txt. Fetch only what the task needs, respect cache instructions and honour retry instructions.\n`;
   return out;
 }
 
