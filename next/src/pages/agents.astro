@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { agentRoutes, agentResources, agentCaveat } from '../lib/agent-guide.mjs';
+export const prerender = true;
+---
+<BaseLayout title="A welcome for agents · Peninsula Insider" description="The shortest routes to Peninsula Insider's public guides, events, stories and compact page formats, with clear dates, sources and permissions.">
+  <article class="agent-guide container">
+    <header class="agent-guide__opening">
+      <h1>A good Peninsula day<br />starts with good information.</h1>
+      <p class="agent-guide__intro">Welcome, agents and the people building them. If you are helping someone plan time on the Mornington Peninsula, here is the shortest route to useful local information.</p>
+      <p>Find the right place. Keep the context. Give someone a better day.</p>
+      <nav aria-label="Agent guide sections" class="agent-guide__nav">
+        <a href="#start">Find your starting point</a>
+        <a href="#formats">Choose a format</a>
+        <a href="#trust">Use it with confidence</a>
+      </nav>
+    </header>
+    <section id="start" aria-labelledby="start-title">
+      <div class="agent-guide__section-heading"><h2 id="start-title">What are you helping with?</h2><p>Start with the task, then follow through to the place or story that supports your answer.</p></div>
+      <dl class="agent-guide__routes">
+        {agentRoutes.map((route) => <div class="agent-guide__route"><dt><a href={route.href}>{route.title}</a><span>{route.format}</span></dt><dd>{route.description}{route.companion && <a class="agent-guide__companion" href={route.companion}>{route.companionLabel}</a>}</dd></div>)}
+      </dl>
+    </section>
+    <section id="formats" aria-labelledby="formats-title" class="agent-guide__split">
+      <div><h2 id="formats-title">A little less to fetch.<br />The same context to keep.</h2><p>Our compact catalogue links to text versions of 20 public pages. Each is generated from the published page's main content, with its links and caveats retained. Cite the canonical page.</p><p>On a return visit, compare the catalogue's content hashes to see which pilot pages changed. The catalogue covers this pilot only; it is not a complete history of corrections or closures.</p></div>
+      <div class="agent-guide__resources">{agentResources.filter((r) => !['/agents/', '/terms/'].includes(r.href)).map((resource) => <div><h3><a href={resource.href}>{resource.title}</a></h3><p>{resource.description}</p></div>)}</div>
+    </section>
+    <section id="trust" aria-labelledby="trust-title" class="agent-guide__split">
+      <div><h2 id="trust-title">Useful answers leave room for uncertainty.</h2><p>{agentCaveat}</p><p>Keep who a place suits, material caveats, editorial judgement and source links alongside your recommendation. Missing accessibility, dietary or dog-access information means it is unknown.</p><p>Use the specific page's title and canonical address in citations. Please do not describe an opinion as an operator-confirmed fact.</p></div>
+      <div><h3>Know what the dates mean</h3><dl class="agent-guide__dates"><dt>Generated</dt><dd>When the feed or compact catalogue was built. It is not a verification date.</dd><dt>Fact checked</dt><dd>An explicitly recorded editorial fact check. A missing date means no check date is supplied.</dd><dt>Event dates</dt><dd>Local calendar dates in Australia/Sydney. A date without a time does not imply midnight. Use explicit weekend occurrences and event status.</dd><dt>Published or modified</dt><dd>A page's publication or content change, where supplied. Neither proves all details were rechecked.</dd></dl></div>
+    </section>
+    <section class="agent-guide__closing" aria-labelledby="access-title">
+      <h2 id="access-title">A considerate visitor is always appreciated.</h2>
+      <p>Use our <a href="/terms/">access and reuse terms</a> and <a href="/robots.txt">crawler guidance</a> together. Search indexing, citation and linking are permitted under those terms. Automated extraction, republication and model training require express written permission under the current terms. These formats do not expand those permissions. Public formats do not grant rights to photographs or private account data.</p>
+      <p>Fetch only what the task needs. Reuse cached responses when appropriate and respect any retry instructions. Check the event feed's window and generated date before relying on it. A stale feed is a reason to check the operator.</p>
+      <p>Spotted a problem? <a href="/contact/?type=correction">Send a correction</a> with the page and the detail. Good information gets better when errors are easy to fix.</p>
+    </section>
+  </article>
+</BaseLayout>
+<style>
+  .agent-guide { padding-block: var(--sp-8, 4rem); color: var(--text); }
+  .agent-guide__opening { max-width: 58rem; padding-bottom: 3rem; }
+  .agent-guide h1 { font-family: var(--font-display); font-size: clamp(2.25rem, 4.5vw, 4rem); line-height: 1.12; letter-spacing: -.025em; text-wrap: balance; margin: 0 0 1.5rem; }
+  .agent-guide h2 { font-family: var(--font-display); font-size: clamp(1.6rem, 2.5vw, 2.3rem); line-height: 1.2; text-wrap: balance; margin: 0 0 1.25rem; }
+  .agent-guide h3 { font-size: 1.1rem; margin: 0 0 .35rem; }
+  .agent-guide p, .agent-guide dd { max-width: 70ch; font-size: 1.0625rem; line-height: 1.65; margin: 0 0 1rem; }
+  .agent-guide .agent-guide__intro { font-size: clamp(1.15rem, 2vw, 1.4rem); }
+  .agent-guide a { color: var(--accent); text-decoration: underline; text-underline-offset: .2em; }
+  .agent-guide a:hover { text-decoration-thickness: 2px; }
+  .agent-guide a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+  .agent-guide__nav { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; margin-top: 1.5rem; }
+  .agent-guide__nav a { padding-block: .65rem; }
+  .agent-guide section { border-top: 1px solid var(--rule); padding-block: 3rem; scroll-margin-top: 8rem; }
+  .agent-guide__section-heading { max-width: 45rem; margin-bottom: 2rem; }
+  .agent-guide__routes { margin: 0; }
+  .agent-guide__route { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: 1rem 3rem; padding-block: 1.4rem; border-top: 1px solid var(--rule); }
+  .agent-guide__route dt { font-size: 1.15rem; font-weight: 600; }
+  .agent-guide__route dt span { display: block; font-size: .85rem; font-weight: 400; color: var(--muted); margin-top: .4rem; }
+  .agent-guide__route dd { margin: 0; }
+  .agent-guide__companion { display: block; margin-top: .5rem; }
+  .agent-guide__split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2rem 5rem; }
+  .agent-guide__resources { display: grid; gap: 1.2rem; }
+  .agent-guide__resources p { font-size: 1rem; margin: 0; }
+  .agent-guide__dates { margin: 1.5rem 0 0; }
+  .agent-guide__dates dt { font-weight: 600; margin-top: 1.2rem; }
+  .agent-guide__dates dd { margin-left: 0; }
+  .agent-guide__closing { max-width: 70ch; }
+  @media (max-width: 700px) { .agent-guide { padding-block: 2rem; } .agent-guide__route, .agent-guide__split { grid-template-columns: 1fr; gap: .7rem; } .agent-guide__split { gap: 2rem; } .agent-guide section { padding-block: 2rem; } }
+</style>
+

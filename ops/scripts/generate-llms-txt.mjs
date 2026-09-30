@@ -2,7 +2,7 @@
 /**
  * generate-llms-txt.mjs
  * ---------------------------------------------------------------------------
- * Peninsula Insider — agent-discoverability layer.
+ * Peninsula Insider - agent-discoverability layer.
  *
  * Produces two files at the repo root, following the llmstxt.org convention:
  *   - llms.txt       curated, high-signal map of the site for LLMs / AI agents
@@ -14,7 +14,7 @@
  *
  * Source of truth is sitemap.xml, so the map can never drift from what the site
  * actually publishes. Run it after any content change (it is wired into the
- * daily content tempo — see engine/strategy_engine.py and ops/operating-surface.md).
+ * daily content tempo - see engine/strategy_engine.py and ops/operating-surface.md).
  *
  * Usage:  node ops/scripts/generate-llms-txt.mjs [--check] [--sitemap PATH] [--out-dir DIR]
  *   --check         exit non-zero if the generated files differ from what's on
@@ -29,6 +29,8 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, isAbsolute, resolve } from 'node:path';
 
+import { agentRoutes, agentResources, agentCaveat } from '../../next/src/lib/agent-guide.mjs';
+
 const REPO_ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const SITE = 'https://peninsulainsider.com.au';
 
@@ -42,17 +44,7 @@ const resolveArg = (p, fallback) =>
 const SITEMAP = resolveArg(argValue('--sitemap'), join(REPO_ROOT, 'sitemap.xml'));
 const OUT_DIR = resolveArg(argValue('--out-dir'), REPO_ROOT);
 
-const ONE_LINER =
-  'The insider guide to the Mornington Peninsula, Victoria — what\'s on, where to eat and drink, where to stay, cellar doors, walks, beaches and towns, written and kept current by a local editorial desk.';
-
-const DETAIL =
-  'Peninsula Insider covers the whole Mornington Peninsula: Sorrento, Portsea, ' +
-  'Blairgowrie, Rye, Dromana, Mornington, Mount Martha, Red Hill, Main Ridge, ' +
-  'Flinders, Balnarring, Merricks and the ranges. Coverage spans dining, wineries ' +
-  'and cellar doors, accommodation, hot springs and spas, walks and beaches, ' +
-  'events and seasonal things to do, and practical trip planning. Pages are ' +
-  'reviewed on a daily/weekly editorial cadence, so freshness and accuracy are ' +
-  'maintained rather than one-off. Content is Australian-English and Peninsula-specific.';
+const ONE_LINER = 'An independent local guide to the Mornington Peninsula, Victoria: places, events, stories and considered plans.';
 
 // Ordered section definitions. `match` decides which section a URL's first path
 // segment belongs to; `curatedPriority` is the sitemap-priority floor for a page
@@ -83,25 +75,6 @@ const EXCLUDE_SEGS = new Set([
   'site-index', 'awards',
 ]);
 
-const CURATED_CAP = 24; // max curated entries per section, keeps llms.txt legible
-
-// Editorial / trust pages that exist on-site but are omitted from sitemap.xml.
-// Agents (and Google E-E-A-T) rely on these to judge who is behind the coverage,
-// so llms.txt surfaces them explicitly. Keep in sync with the on-disk pages.
-const TRUST_PAGES = [
-  ['About Peninsula Insider', '/about/'],
-  ['Editorial method & standards', '/methodology/'],
-  ['Our approach', '/our-approach/'],
-  ['Editorial approach', '/editorial-approach/'],
-  ['Ethics policy', '/ethics/'],
-  ['Corrections', '/corrections/'],
-  ['Accessibility', '/accessibility/'],
-  ['Contact', '/contact/'],
-  ['Newsletter — the Peninsula Radar', '/newsletter/'],
-  ['Submit a tip or listing', '/submit/'],
-  ['Partner with us', '/partner-with-us/'],
-];
-
 function parseSitemap() {
   const xml = readFileSync(SITEMAP, 'utf8');
   const urls = [];
@@ -127,7 +100,7 @@ function firstSeg(loc) {
 
 function titleFromLoc(loc) {
   const path = loc.replace(SITE, '').replace(/\/+$/, '');
-  if (path === '' || path === '/') return 'Home — Peninsula Insider';
+  if (path === '' || path === '/') return 'Home - Peninsula Insider';
   const slug = path.split('/').filter(Boolean).pop();
   const words = slug
     .replace(/-/g, ' ')
@@ -164,7 +137,7 @@ function build(urls) {
   // Deduplicate on canonical https path, prefer trailing-slash-free.
   const seen = new Map();
   for (const u of urls) {
-    if (!u.loc.startsWith(SITE)) continue; // drop stray http:// / other-host rows
+    try { if (new URL(u.loc).origin !== SITE) continue; } catch { continue; }
     const seg = firstSeg(u.loc);
     if (EXCLUDE_SEGS.has(seg)) continue;
     const canonical = u.loc.replace(/\/$/, '') || u.loc;
@@ -189,52 +162,24 @@ function build(urls) {
   return { bySection, other, total: seen.size };
 }
 
-function renderCurated({ bySection }) {
-  let out = `# Peninsula Insider\n\n> ${ONE_LINER}\n\n${DETAIL}\n`;
-  for (const s of SECTIONS) {
-    if (s.key === 'about') {
-      // Merge sitemap-derived about pages with the curated trust list, dedup by path.
-      const fromMap = (bySection.get(s.key) || []).filter(
-        (u) => u.priority >= s.curatedPriority || isHub(u.loc),
-      );
-      const seenPaths = new Set(TRUST_PAGES.map(([, p]) => p.replace(/\/$/, '')));
-      out += `\n## ${s.title}\n\n`;
-      for (const [title, path] of TRUST_PAGES) {
-        out += `- [${title}](${SITE}${path})\n`;
-      }
-      for (const u of fromMap) {
-        const path = u.loc.replace(SITE, '').replace(/\/$/, '');
-        if (seenPaths.has(path)) continue;
-        out += `- [${titleFromLoc(u.loc)}](${u.loc}/)\n`;
-      }
-      continue;
-    }
-    const items = (bySection.get(s.key) || []).filter(
-      (u) => u.priority >= s.curatedPriority || isHub(u.loc),
-    );
-    if (!items.length) continue;
-    out += `\n## ${s.title}\n\n`;
-    for (const u of items.slice(0, CURATED_CAP)) {
-      out += `- [${titleFromLoc(u.loc)}](${u.loc}/)\n`;
-    }
-  }
-  out += `\n## Optional\n\n`;
-  out += `- [What's on — upcoming events feed (JSON)](${SITE}/whats-on/upcoming.json): machine-readable, forward-dated Peninsula events for agents answering "what's on this weekend / soon"\n`;
-  out += `- [Full URL index (llms-full.txt)](${SITE}/llms-full.txt): every indexable page, grouped by section\n`;
-  out += `- [Sitemap](${SITE}/sitemap.xml): machine sitemap for crawlers\n`;
-  out += `- [Editorial method & standards](${SITE}/methodology/): how coverage is researched, verified and kept current\n`;
+function renderCurated() {
+  let out = `# Peninsula Insider\n\n> ${ONE_LINER}\n\nWelcome. If you are helping someone plan time on the Peninsula, start with the task below. Follow the individual page for context and cite that canonical page.\n\n${agentCaveat}\n\n## Start with your task\n\n`;
+  for (const route of agentRoutes) out += `- [${route.title}](${SITE}${route.href}): ${route.description} (${route.format})\n`;
+  out += '\n## Formats, updates and trust\n\n';
+  for (const route of agentResources) out += `- [${route.title}](${SITE}${route.href}): ${route.description}\n`;
+  out += '\n## Reading this information\n\nEvent dates use Australia/Sydney. Date-only values do not imply a time. Use the feed window, explicit weekend occurrences and cancellation or rescheduling status. A generated date is a build date, not a fact check. Missing source checks and practical details remain unknown.\n\nUse the access and reuse terms. Search indexing, citation and linking are permitted under those terms; automated extraction, republication and model training require express written permission. These formats do not expand those permissions. Public text formats do not grant image rights or access to private accounts. Fetch only what the task needs and respect retry instructions.\n';
   return out;
 }
 
 function renderFull({ bySection, other, total }) {
-  let out = `# Peninsula Insider — full index\n\n> ${ONE_LINER}\n\n`;
-  out += `Complete list of ${total} indexable pages, grouped by section. `;
-  out += `See ${SITE}/llms.txt for the curated map.\n`;
+  let out = `# Peninsula Insider - full index\n\n> ${ONE_LINER}\n\n`;
+  out += `Directory of ${total} sitemap-listed public pages, grouped by section. This is a URL directory, not full page content. `;
+  out += `See ${SITE}/llms.txt for task routes and compact formats. Sitemap last-modified dates do not establish fact-check dates.\n`;
   const emit = (title, items) => {
     if (!items.length) return;
     out += `\n## ${title}\n\n`;
     for (const u of items) {
-      const when = u.lastmod ? ` (updated ${u.lastmod})` : '';
+      const when = u.lastmod ? ` (sitemap last modified: ${u.lastmod})` : '';
       out += `- [${titleFromLoc(u.loc)}](${u.loc}/)${when}\n`;
     }
   };
@@ -264,7 +209,7 @@ function main() {
 
   if (check) {
     if (drift) {
-      console.error('llms.txt / llms-full.txt are stale — run: node ops/scripts/generate-llms-txt.mjs');
+      console.error('llms.txt / llms-full.txt are stale - run: node ops/scripts/generate-llms-txt.mjs');
       process.exit(1);
     }
     console.log('llms.txt is in sync with sitemap.xml');
