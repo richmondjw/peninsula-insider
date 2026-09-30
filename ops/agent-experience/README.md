@@ -4,7 +4,7 @@ Owner: Peninsula Insider engineering and editorial. Target: at least 99/100 unde
 
 ## Publication contract
 
-The sitemap is the export allowlist. The post-build generator also rejects private route prefixes, noindex pages, redirects, invalid canonical identity, and pages without main content and a heading. It does not walk the build directory. Every eligible canonical page gets an explicit `index.md` alternate. The Markdown preserves public main text and links, omitting imagery and interactive controls. HTML remains the citation destination. Null citation dates are unknown; generated timestamps are conversion times.
+The sitemap is the export allowlist. The post-build generator also rejects private route prefixes, noindex pages, redirects, invalid canonical identity, and pages without main content and a heading. It does not walk the build directory. Every eligible canonical page gets an explicit `index.md` alternate. The Markdown preserves public main text and links, omitting imagery and interactive controls. Visible spend bands may remain as editorial indicators; they are not current prices. HTML remains the citation destination. Null citation dates are unknown; generated timestamps are conversion times.
 
 `/agents/manifest.json` advertises section catalogues, the full catalogue and the most recent representation comparison. Each record has a stable canonical identity, citation bundle and SHA-256 of its Markdown. The snapshot digest is over the ordered identity/hash pairs, without the build timestamp, so an unchanged rebuild has the same content identity.
 
