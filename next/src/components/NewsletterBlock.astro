@@ -39,7 +39,7 @@ export interface Props {
 const {
   title = 'The Insider Note',
   body = "The Peninsula worth knowing. An occasional email. What's on, where we'd go and what's worth knowing next.",
-  sub = 'Independent editorial. Unsubscribe any time.',
+  sub = 'Independent editorial. Sent when there is something worth knowing.',
   issueNumber = '',
   issueDate = '',
   previewHeadline = '',
@@ -50,6 +50,12 @@ const {
   formatPreview = false,
   hidePreview = false,
 } = Astro.props;
+
+const isPlanArticle = /^\/explore\/plans\/[^/]+\/?$/.test(Astro.url.pathname);
+const resolvedButtonLabel = isPlanArticle && !Astro.props.buttonLabel ? 'Get the Note' : buttonLabel;
+const resolvedBody = isPlanArticle && !Astro.props.body
+  ? 'More good Peninsula ideas for your next escape. Places we would go, things worth doing and selected guides, straight to your inbox.'
+  : body;
 
 // ─── Preview card data ─────────────────────────────────────────────────
 // Pulls from the most recent published weekend-picker article so the
@@ -64,6 +70,10 @@ const dispatchArticles = await getCollection(
 );
 const latestDispatch = dispatchArticles
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime())[0] ?? null;
+const pastWeekendSample = dispatchArticles.find(
+  (article) => isPeninsulaThisWeekend(article) && new Date(ptwWeekendEndIso(article)) < new Date(),
+);
+const planSampleHref = pastWeekendSample ? ptwArchivePath(pastWeekendSample) : '';
 
 // Staleness guard (2026-08-16): the editorial dispatch pipeline can miss a
 // week (or several), and this card has no other cutoff - it would otherwise
@@ -135,21 +145,23 @@ const showPreview = !hidePreview && !showFormatPreview && resolvedHeadline && re
         <p
           class="v2-newsletter__body"
           {...editableText({ entityType: 'page', entitySlug: 'home', fieldPath: 'newsletter.body', label: 'Newsletter body' })}
-        >{body}</p>
+        >{resolvedBody}</p>
         {sub && <p class="v2-newsletter__sub">{sub}</p>}
 
-        {source === 'home' && <label class="v2-newsletter__input-label" for="home-insider-note-email">Email address</label>}
+        {(source === 'home' || isPlanArticle) && (
+          <label class="v2-newsletter__input-label" for={source === 'home' ? 'home-insider-note-email' : 'plan-insider-note-email'}>Email address</label>
+        )}
 
         <form
           class="v2-newsletter__form"
           novalidate
           data-source={source}
           data-endpoint={endpoint}
-          data-button-label={buttonLabel}
+          data-button-label={resolvedButtonLabel}
         >
           <input
             class="v2-newsletter__input"
-            id={source === 'home' ? 'home-insider-note-email' : undefined}
+            id={source === 'home' ? 'home-insider-note-email' : isPlanArticle ? 'plan-insider-note-email' : undefined}
             type="email"
             name="email"
             placeholder="your@email.com"
@@ -157,7 +169,7 @@ const showPreview = !hidePreview && !showFormatPreview && resolvedHeadline && re
             autocomplete="email"
             required
           />
-          <button class="v2-newsletter__submit" type="submit">{buttonLabel}</button>
+          <button class="v2-newsletter__submit" type="submit">{resolvedButtonLabel}</button>
         </form>
 
         <div class="v2-newsletter__meta">
@@ -165,6 +177,8 @@ const showPreview = !hidePreview && !showFormatPreview && resolvedHeadline && re
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
             Unsubscribe any time
           </span>
+          {isPlanArticle && planSampleHref && <a href={planSampleHref}>Read a past weekend pick</a>}
+          <a href="/privacy/">Privacy</a>
         </div>
       </div>
 
@@ -431,14 +445,14 @@ const showPreview = !hidePreview && !showFormatPreview && resolvedHeadline && re
     outline: none;
     min-width: 0;
   }
-  .v2-newsletter__input::placeholder { color: rgba(250,247,240,0.4); }
+  .v2-newsletter__input::placeholder { color: rgba(250,247,240,0.7); }
   .v2-newsletter__submit {
     padding: 1rem 1.8rem;
-    font-family: var(--sans, 'Inter', system-ui, sans-serif);
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
+    font-family: var(--font-ui);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    letter-spacing: normal;
+    text-transform: none;
     /* Sand on the dark ground: the palette's one warm pop, 8.9:1 with
        the deep-navy label (the old bronze-on-navy pairing was 4.3:1). */
     background: var(--mint, #F5C177);
@@ -467,9 +481,19 @@ const showPreview = !hidePreview && !showFormatPreview && resolvedHeadline && re
     display: flex;
     gap: 1.2rem;
     flex-wrap: wrap;
+    align-items: center;
   }
-  .v2-newsletter__meta span { display: inline-flex; align-items: center; gap: 0.4rem; }
+  .v2-newsletter__meta > span { display: inline-flex; align-items: center; gap: 0.4rem; }
   .v2-newsletter__meta svg { color: var(--gold, #56b6a0); }
+  .v2-newsletter__meta a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    color: inherit;
+    text-underline-offset: 0.2em;
+  }
+  .v2-newsletter__meta a:hover { color: var(--paper, #FAF7F0); }
+  .v2-newsletter__meta a:focus-visible { outline: 2px solid var(--paper, #FAF7F0); outline-offset: 3px; }
 
   .v2-newsletter__format {
     justify-self: end;

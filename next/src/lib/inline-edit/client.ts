@@ -24,11 +24,13 @@
  */
 
 import { getSupabase, isAuthEnabled } from '../auth';
+import inlineEditorStylesUrl from '../../styles/inline-edit.css?url';
 
 type Tone = 'ok' | 'err' | 'info';
 
 const STORAGE_BUCKET = 'cms-assets';
 const EDIT_MODE_FLAG = 'pi.editMode';
+const EDITOR_STYLES_ID = 'pi-inline-editor-styles';
 
 let editMode = false;
 let isAdmin = false;
@@ -37,6 +39,27 @@ let themeToggleEl: HTMLButtonElement | null = null;
 let menuEl: HTMLDivElement | null = null;
 let toastEl: HTMLDivElement | null = null;
 let toastTimer: ReturnType<typeof setTimeout> | null = null;
+
+function ensureEditorStyles(): Promise<boolean> {
+  let link = document.getElementById(EDITOR_STYLES_ID) as HTMLLinkElement | null;
+  if (link?.sheet) return Promise.resolve(true);
+
+  if (!link) {
+    link = document.createElement('link');
+    link.id = EDITOR_STYLES_ID;
+    link.rel = 'stylesheet';
+    link.href = inlineEditorStylesUrl;
+  }
+
+  return new Promise((resolve) => {
+    link!.addEventListener('load', () => resolve(true), { once: true });
+    link!.addEventListener('error', () => {
+      link!.remove();
+      resolve(false);
+    }, { once: true });
+    if (!link!.isConnected) document.head.appendChild(link!);
+  });
+}
 
 // Install event delegation immediately at module load. Handlers all check
 // `editMode` and `isAdmin` internally before doing anything, so this is a
@@ -82,6 +105,12 @@ export async function bootInlineEditor(): Promise<void> {
     isAdmin = !!allowlistRow && ['editor', 'publisher', 'admin'].includes(allowlistRow.role);
   }
   if (!isAdmin) return;
+
+  // Load admin chrome before it can appear, including after view transitions.
+  if (!(await ensureEditorStyles())) {
+    console.warn('[pi-edit] editor stylesheet failed to load');
+    return;
+  }
 
   // Mount/restore the floating toggle. Astro's <ClientRouter /> swaps
   // <body> on soft navigations, so any DOM we appended is gone - we

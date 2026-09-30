@@ -10,8 +10,8 @@ import { CONCIERGE_API_URL } from '../lib/concierge-config';
 
 import '../styles/global.css';
 import '../styles/concierge.css';   // chat & drawer styles, loaded on every page
-import '../styles/search.css';      // site-search overlay + /search page styles
-import '../styles/inline-edit.css'; // admin-only inline editor chrome, inert unless edit mode is on
+import '../styles/search.css';      // masthead search and site-wide overlay only
+// Admin-only editor CSS loads after the allowlist check in inline-edit/client.ts.
 import '../styles/refinement.css'; // approved Harbour editorial refinement
 import '../styles/magenta-stone.css'; // Magenta Stone theme - inert unless html[data-theme="magenta-stone"]
 import '../styles/photo-headers.css'; // Natural colour with feathered contrast behind photo-header copy
