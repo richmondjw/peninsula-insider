@@ -70,11 +70,6 @@ const dispatchArticles = await getCollection(
 );
 const latestDispatch = dispatchArticles
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime())[0] ?? null;
-const pastWeekendSample = dispatchArticles.find(
-  (article) => isPeninsulaThisWeekend(article) && new Date(ptwWeekendEndIso(article)) < new Date(),
-);
-const planSampleHref = pastWeekendSample ? ptwArchivePath(pastWeekendSample) : '';
-
 // Staleness guard (2026-08-16): the editorial dispatch pipeline can miss a
 // week (or several), and this card has no other cutoff - it would otherwise
 // keep presenting a weeks-old "this weekend" edition as current indefinitely.
@@ -128,8 +123,9 @@ const resolvedFoot = dispatch
   ? `Read in ${readMinutes} ${readMinutes === 1 ? 'minute' : 'minutes'} · Used all weekend`
   : '';
 
-const showFormatPreview = !hidePreview && formatPreview;
-const showPreview = !hidePreview && !showFormatPreview && resolvedHeadline && resolvedPicks.length > 0;
+const hasEditorialPreview = Boolean(resolvedHeadline && resolvedPicks.length > 0);
+const showFormatPreview = !hidePreview && (formatPreview || (isPlanArticle && !hasEditorialPreview));
+const showPreview = !hidePreview && !showFormatPreview && hasEditorialPreview;
 ---
 
 <section class="v2-newsletter" id="newsletter" aria-labelledby="newsletter-title">
@@ -177,7 +173,7 @@ const showPreview = !hidePreview && !showFormatPreview && resolvedHeadline && re
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
             Unsubscribe any time
           </span>
-          {isPlanArticle && planSampleHref && <a href={planSampleHref}>Read a past weekend pick</a>}
+          {isPlanArticle && <a href="/picks/">See recent Peninsula picks</a>}
           <a href="/privacy/">Privacy</a>
         </div>
       </div>
@@ -271,7 +267,7 @@ const showPreview = !hidePreview && !showFormatPreview && resolvedHeadline && re
             form._v2nlDone = true;
             if (typeof window.piTrack === 'function') window.piTrack('newsletter_signup_succeeded', { surface: source }, { component: 'NewsletterBlock' });
             if (btn) btn.textContent = 'Done';
-            setStatus(form, "You're in. The next edition will land in your inbox soon.", 'ok');
+            setStatus(form, "You're in. The next Note will arrive when it is ready.", 'ok');
             if (input) { input.value = ''; input.disabled = true; }
           }
           function fail(msg) {
