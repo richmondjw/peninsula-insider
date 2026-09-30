@@ -1,5 +1,7 @@
 Canonical: https://peninsulainsider.com.au/stay/best-accommodation/
 Publisher: Peninsula Insider
+Published: unknown
+Modified: unknown
 Format: public main text, generated from the canonical page; imagery, controls and price indicators omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -209,7 +211,7 @@ Cottage  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
 
-Arthurs Seat VIC 3936 · $$
+10 Nestle Court, Arthurs Seat VIC 3936 · $$
 
 Five adults-only suites on Arthurs Seat ridge with panoramic Port Phillip Bay views, double spas, and electric log fires.
 

@@ -1,5 +1,7 @@
 Canonical: https://peninsulainsider.com.au/journal/a-winter-peninsula-weekend/
 Publisher: Peninsula Insider
+Published: 2026-04-13T00:00:00.000Z
+Modified: 2026-04-13T00:00:00.000Z
 Format: public main text, generated from the canonical page; imagery, controls and price indicators omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -61,9 +63,9 @@ Here is a weekend that puts all of the above together.
 
 **9am:** Breakfast slow. No pressure. No queues in winter anyway. A slow coffee in a quiet cafe, a pastry, the papers if there are any.
 
-**10.30am:** A short hard walk. Winter unlocks the best coastal walking on the Peninsula, and the right move is short and dramatic rather than a long endurance hike. **Bushrangers Bay** from Cape Schanck is the pick: about ninety minutes round trip, serious coastline, and the descent to the beach is worth the climb back up even in a drizzle. If the weather is properly ugly, walk the **Cape Schanck Boardwalk** instead: twenty minutes from car park to lookout, dramatic, and you can retreat to a heated car if the weather turns.
+**10.30am:** A short hard walk. Winter unlocks the best coastal walking on the Peninsula, and the right move is short and dramatic rather than a long endurance hike. **Bushrangers Bay** from Cape Schanck is the pick: about two hours return, with extra time for stops, serious coastline, and the descent to the beach is worth the climb back up even in a drizzle. If the weather is properly ugly, walk the **Cape Schanck Boardwalk** instead: twenty minutes from car park to lookout, dramatic, and you can retreat to a heated car if the weather turns.
 
-**12.30pm:** Lunch at a cellar door with a fire. The move that shapes the whole day. **Ten Minutes by Tractor** for the high-end version. **Montalto** if you want the sculpture grounds around you, even wet. **Polperro** for an underrated mid-winter dining room in Red Hill. **Red Hill Brewery** for the low-key version with a wood pizza oven and a hop garden behind you.
+**After the walk and travel:** Lunch at a cellar door with a fire. Reserve a time that allows for the full return walk, stops and the drive to lunch. The move that shapes the whole day. **Ten Minutes by Tractor** for the high-end version. **Montalto** if you want the sculpture grounds around you, even wet. **Polperro** for an underrated mid-winter dining room in Red Hill. **Red Hill Brewery** for the low-key version with a wood pizza oven and a hop garden behind you.
 
 Let the lunch take two hours. It is winter. Nobody is hurrying you out.
 

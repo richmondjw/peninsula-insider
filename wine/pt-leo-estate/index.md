@@ -1,5 +1,7 @@
 Canonical: https://peninsulainsider.com.au/wine/pt-leo-estate/
 Publisher: Peninsula Insider
+Published: unknown
+Modified: unknown
 Format: public main text, generated from the canonical page; imagery, controls and price indicators omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -65,7 +67,7 @@ Arrive for the sculpture walk before noon. Give yourself half a day. This is not
 
 Part of Point Leo Estate
 
-[Laura at Pt. Leo  Restaurant  A ten-course chef's counter degustation threaded through Phillip Daffara's produce garden.](<https://peninsulainsider.com.au/eat/laura-pt-leo/>)[Point Leo Wine Terrace  Restaurant  The all-day casual option at Point Leo Estate, wood-fired flatbreads, estate wines, and a terrace facing the bay and the sculpture park.](<https://peninsulainsider.com.au/eat/point-leo-wine-terrace/>)
+[Laura at Pt. Leo  Restaurant  An intimate fine-dining room at Pt. Leo Estate, with seasonal menus and an unhurried view across the grounds.](<https://peninsulainsider.com.au/eat/laura-pt-leo/>)[Point Leo Wine Terrace  Restaurant  The all-day casual option at Point Leo Estate, wood-fired flatbreads, estate wines, and a terrace facing the bay and the sculpture park.](<https://peninsulainsider.com.au/eat/point-leo-wine-terrace/>)
 
 Worth knowing
 
@@ -153,7 +155,7 @@ Editor's verdict
 
 ## Visiting
 
-Walk-ins welcome for groups up to 6. Four tasting tiers: Standard, Red, White and Premium - all include 5 wines; fee partly refundable on bottle purchase. Laura restaurant requires advance booking.
+Walk-ins welcome for groups up to 6. Four tasting tiers: Standard, Red, White and Premium - all include 5 wines; fee partly refundable on bottle purchase. The estate advises restaurant reservations and requires them on weekends, during peak periods and on public holidays.
 
 ## The wines
 
@@ -175,7 +177,7 @@ Laura holds 2 Hats from the Good Food Guide. The main Pt. Leo Restaurant offers 
 
 ### Does Pt. Leo Estate take walk-ins or do you need to book?
 
-Walk-ins are welcome at the cellar door for groups of up to 6 guests. Laura and the main restaurant require advance bookings.
+Walk-ins are welcome at the cellar door for groups of up to 6 guests. The estate advises restaurant reservations and requires them on weekends, during peak periods and on public holidays.
 
 ### Does Pt. Leo Estate have a restaurant?
 
@@ -184,6 +186,10 @@ Yes - two. Laura (2 Hats, Good Food Guide) for fine dining, and Pt. Leo Restaura
 ### Are dogs allowed at Pt. Leo Estate?
 
 No. Only on-duty Guide Dogs and certified service animals are permitted on the property.
+
+### Does Pt. Leo Estate have accommodation on site?
+
+No. Pt. Leo Estate does not provide on-site accommodation. Book a separate nearby stay and confirm availability directly with its operator.
 
 Not sure how to build a day around Pt. Leo Estate?
 
@@ -259,7 +265,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Avani Wines](<https://peninsulainsider.com.au/wine/avani-wines/>)
 
-112 Shoreham Rd, Red Hill South VIC 3937 · $$
+98 Stanleys Road, Red Hill South VIC 3937 · $$
 
 Shashi and Rohit Singh's biodynamic family estate, one of the Peninsula's only serious Syrah programs alongside the Amrit single-vineyard range.
 

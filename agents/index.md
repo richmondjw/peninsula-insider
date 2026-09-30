@@ -1,5 +1,7 @@
 Canonical: https://peninsulainsider.com.au/agents/
 Publisher: Peninsula Insider
+Published: unknown
+Modified: unknown
 Format: public main text, generated from the canonical page; imagery, controls and price indicators omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -45,13 +47,21 @@ Editorial context and local judgement. Keep opinion distinguishable from confirm
 ## A little less to fetch.
 The same context to keep.
 
-Our compact catalogue links to text versions of 20 public pages. Each is generated from the published page's main content, with its links and caveats retained. Cite the canonical page.
+Our compact catalogue links to text versions of every canonical page in the public sitemap. Each is generated from the published page's main content, with its links and caveats retained. Cite the canonical page.
 
-On a return visit, compare the catalogue's content hashes to see which pilot pages changed. The catalogue covers this pilot only; it is not a complete history of corrections or closures.
+Start with the format manifest to choose a smaller section catalogue. Fetch the page's explicit index.md link for its text; asking an HTML URL for Markdown does not change its format. On a return visit, compare content hashes or use the changes feed when its starting snapshot matches yours. A changed page needs rereading. A removed page is not proof that a venue closed.
+
+### [Formats and section indexes](<https://peninsulainsider.com.au/agents/manifest.json>)
+
+Choose a smaller section catalogue, read the format contract and find retry and caching guidance.
+
+### [Latest representation changes](<https://peninsulainsider.com.au/agents/changes.json>)
+
+Added, changed and removed representations since the named prior snapshot. A removal alone does not establish a closure.
 
 ### [Compact page catalogue](<https://peninsulainsider.com.au/agents/catalog.json>)
 
-A pilot of 20 public pages with Markdown links and content hashes. Compare hashes on a return visit.
+All sitemap pages, with canonical citations, Markdown links and content hashes.
 
 ### [Latest stories (RSS)](<https://peninsulainsider.com.au/feed.xml>)
 
@@ -111,6 +121,6 @@ A page's publication or content change, where supplied. Neither proves all detai
 
 Use our [access and reuse terms](<https://peninsulainsider.com.au/terms/>) and [crawler guidance](<https://peninsulainsider.com.au/robots.txt>) together. Search indexing, citation and linking are permitted under those terms. Automated extraction, republication and model training require express written permission under the current terms. These formats do not expand those permissions. Public formats do not grant rights to photographs or private account data.
 
-Fetch only what the task needs. Reuse cached responses when appropriate and respect any retry instructions. Check the event feed's window and generated date before relying on it. A stale feed is a reason to check the operator.
+Fetch only what the task needs, preferably one request at a time. Respect Cache-Control and reuse cached responses. If you saved an ETag, send it with If-None-Match; a 304 response means your cached copy can be reused. Honour Retry-After on a 429 or 503 response, and stop repeated retries of a 404. Check the event feed's window and generated date before relying on it. A stale feed is a reason to check the operator.
 
 Spotted a problem? [Send a correction](<https://peninsulainsider.com.au/contact/?type=correction>) with the page and the detail. Good information gets better when errors are easy to fix.

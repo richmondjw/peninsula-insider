@@ -1,5 +1,7 @@
 Canonical: https://peninsulainsider.com.au/journal/area-guide-dromana/
 Publisher: Peninsula Insider
+Published: 2026-05-02T00:00:00.000Z
+Modified: 2026-05-02T00:00:00.000Z
 Format: public main text, generated from the canonical page; imagery, controls and price indicators omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -19,7 +21,7 @@ Photo · Courtesy of Visit Victoria
 
 Dromana does not have Sorrento’s social theatre, Red Hill’s tasting-room prestige or Flinders’ cultivated quiet. What it does have is usefulness, and on the Peninsula that matters.
 
-Dromana sits where the land lifts. The beach stretches long and practical on one side, Arthurs Seat rises immediately behind, and the roads up into the hinterland begin almost as soon as the shops thin out. That geography makes Dromana one of the Peninsula’s better base towns, especially for visitors who want range without paying for a more romantic postcode.
+Dromana sits on Port Phillip Bay between Safety Beach and McCrae, at the foot of Arthurs Seat. This is where the land lifts. The beach stretches long and practical on one side, Arthurs Seat rises immediately behind, and the roads up into the hinterland begin almost as soon as the shops thin out. That geography makes Dromana one of the Peninsula’s better base towns, especially for visitors who want range without paying for a more romantic postcode.
 
 **Best for:** first-timers who value practicality, families, bay-and-wine split weekends, and anyone who wants access rather than mystique.
 

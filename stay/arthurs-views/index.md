@@ -1,5 +1,7 @@
 Canonical: https://peninsulainsider.com.au/stay/arthurs-views/
 Publisher: Peninsula Insider
+Published: unknown
+Modified: unknown
 Format: public main text, generated from the canonical page; imagery, controls and price indicators omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -51,7 +53,7 @@ Cottage
 
 **Location**
 
-Arthurs Seat VIC 3936 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Arthurs%20Views%2C%20Arthurs%20Seat%20VIC%203936>)
+10 Nestle Court, Arthurs Seat VIC 3936 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Arthurs%20Views%2C%2010%20Nestle%20Court%2C%20Arthurs%20Seat%20VIC%203936>)
 
 **Spend**
 
@@ -67,7 +69,7 @@ $$
 
 **Live status**
 
-[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Arthurs%20Views%2C%20Arthurs%20Seat%20VIC%203936%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
+[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Arthurs%20Views%2C%2010%20Nestle%20Court%2C%20Arthurs%20Seat%20VIC%203936%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
 
  [Book now](<https://arthursviews.com.au/>)
 

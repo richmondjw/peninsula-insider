@@ -1,0 +1,148 @@
+Canonical: https://peninsulainsider.com.au/explore/places/arthurs-seat/
+Publisher: Peninsula Insider
+Published: unknown
+Modified: unknown
+Format: public main text, generated from the canonical page; imagery, controls and price indicators omitted.
+Dates and caveats below retain their page meaning; this format is not a new fact check.
+
+[Red Hill & Merricks](<https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/>)
+
+# Arthurs Seat
+
+View from Arthurs Seat over bushland and bayside suburbs curving around Port Phillip Bay under broken cloud
+
+Photo · Courtesy of Visit Victoria
+
+Arthurs Seat in 9 photographs
+
+1  / 9
+
+View from Arthurs Seat over bushland and bayside suburbs curving around Port Phillip Bay under broken cloud  Arthurs Seat Eagle, Mornington Peninsula.  Photo · Courtesy of Visit Victoria
+
+Arthurs Seat is the highest point on the Mornington Peninsula, rising above Dromana with views across Port Phillip Bay and the surrounding hinterland.
+
+Arthurs Seat is the Peninsula's high point - the ridge-top lookout, gondola, gardens and hairpin road that orient the whole region in one view. It is less a village than a landmark, but for visitors it behaves like a destination: come up for the bay panorama, the Eagle, short summit walks and the first real sense of how the beaches, vineyards and villages fit together.
+
+Photo · Courtesy of Visit Victoria
+
+At a glance
+
+**From Melbourne**
+
+about 1 hour 15 minutes
+
+Arthurs Seat in brief
+
+## Arthurs Seat in four lines
+
+- 01   Arthurs Seat is the Peninsula's highest point and one of its clearest orientation stops.
+
+- 02   Best for: first-time visitors, families, view-seekers and anyone trying to understand the Peninsula's geography quickly.
+
+- 03   Signature experience: the Arthurs Seat Eagle gondola and summit lookout on a clear morning.
+
+- 04   Pair it with Dromana below or Red Hill and Main Ridge behind the hill.
+
+- 05   Go early in school holidays; the summit and Eagle can get busy.
+
+What's mapped here
+
+- [**3** journal pieces](<https://peninsulainsider.com.au/explore/places/arthurs-seat/#journal>)
+
+Read this place properly
+
+## Journal pieces connected to Arthurs Seat
+
+Long-form editorial that builds the picture of a place beyond any single visit.
+
+ [More in the Journal →](<https://peninsulainsider.com.au/journal/>)
+
+Venue Guide   6 min
+
+### [Arthurs Seat Eagle - The Complete Visitor Guide](<https://peninsulainsider.com.au/journal/arthurs-seat-eagle-visitor-guide/>)
+
+22 April 2026
+
+The gondola ride to the highest point on the Mornington Peninsula is ticketed - several travel publications still list an outdated fare, so book direct for current prices. Everything else you need to know: hours, the Enchanted Adventure Garden, accessibility, and how to combine the visit.
+
+Insider Edit   4 min
+
+### [Red Hill Brewery's hop garden, the spring wildflower window on Arthurs Seat, and Peninsula Hot Springs Sunday Sessions](<https://peninsulainsider.com.au/journal/insider-picks-2026-09-30/>)
+
+30 September 2026
+
+Red Hill Brewery pours from its own estate hop garden, Arthurs Seat's Seawinds Garden hits peak spring bloom, and Peninsula Hot Springs launches its Sunday Sessions series in Fingal.
+
+Service   7 min
+
+### [The Peninsula with Kids: A Day That Doesn't Punish Anyone](<https://peninsulainsider.com.au/journal/the-peninsula-with-kids/>)
+
+10 April 2026
+
+A working plan for parents who want the region to feel like a holiday, not a logistics problem. One lookout, one lunch with a garden, one beach, one coffee on the way home.
+
+Planning guides
+
+## Service guides for your Arthurs Seat trip
+
+Long-form editorial that helps you build a weekend, not just a list of places.
+
+ [All Peninsula guides →](<https://peninsulainsider.com.au/journal/>)
+
+[3-Day Peninsula Itinerary →](<https://peninsulainsider.com.au/journal/mornington-peninsula-itinerary/>) [Weekend Plans →](<https://peninsulainsider.com.au/explore/plans/>) [Self-Drive Winery Tour →](<https://peninsulainsider.com.au/tour/wine-tours/>) [Best Brunch Guide →](<https://peninsulainsider.com.au/journal/best-brunch-mornington-peninsula/>) [Hot Springs Guide →](<https://peninsulainsider.com.au/explore/hot-springs/>) [Winter Guide →](<https://peninsulainsider.com.au/journal/mornington-peninsula-in-winter/>) [Dog-Friendly Peninsula →](<https://peninsulainsider.com.au/dog-friendly/>)
+
+Where it sits
+
+## Arthurs Seat on the Peninsula
+
+[See the full Peninsula map →](<https://peninsulainsider.com.au/map/>)
+
+Keep going
+
+## Nearby places worth knowing next
+
+Because a Peninsula trip is always made up of two or three pockets, not one.
+
+Bay Coast · town
+
+### [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+
+Dromana is the town at the foot of Arthurs Seat, and the practical hinge between the bay road and the hinterland behind it. Look one way and the long shallow beach runs uninterrupted toward Safety Beach; look the other and the land climbs fast into pinot country. Because of that geography, Dromana has always carried more than its weight - it is where many of the Peninsula's founding wineries planted their first vines in the 1970s, where Crittenden and the Dromana Estate groundstock still sit, and where the ferry from the ocean side of the ridge puts locals back on the bay in fifteen minutes. The town itself is unpretentious: a foreshore, a pier, a post-war main drag quietly modernising. Use it as a base for Red Hill without paying Red Hill prices, swim in the morning, drive up for lunch, and come back down in time for a sunset on the beach.
+
+Red Hill · village
+
+### [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
+
+Main Ridge is the highest part of the Peninsula wine country, and the most forgiving to pinot noir. A few degrees cooler than Red Hill proper, wetter in winter, and foggy on the right mornings - if you drew the perfect place to grow cool-climate grapes in Victoria, it would look something like this. There is no real village centre, just a crossroads, a hall, and a handful of the most serious cellar doors on the Peninsula scattered through ferny side roads. Main Ridge rewards people who want to understand wine country rather than just photograph it: the single-vineyard bottles from this sub-region are consistently among the region's best, the estates are small and run by the people who own them, and nobody is trying to sell you a wedding venue. Come for a morning tasting at one of the serious producers, then drive ten minutes in any direction for lunch.
+
+Red Hill · village
+
+### [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+
+On a misty basalt plateau above the Peninsula's central ridge, Red Hill has arranged some of the strongest food and wine in Victoria into a circuit that rewards the unhurried. A village by strict measure - a general store, a monthly market, vineyard restaurants that don't advertise from the highway - it nonetheless organises the whole upper Peninsula around itself. The winery restaurant cluster here - Ten Minutes by Tractor, Montalto, Paringa Estate, Principia - has no serious peer in the state. Come on Saturday; plan lunch first.
+
+[← Explore more Peninsula destinations](<https://peninsulainsider.com.au/explore/places/>)
+
+Got a Arthurs Seat secret?
+
+If there's a Arthurs Seat corner you think we'd cover better with your help - a back-bay swimming hole, a producer's farm-gate, a local pub that hits - send it through. Editorial review, named credit if we publish it.
+
+ [Tell us about Arthurs Seat →](<https://peninsulainsider.com.au/submit/>)
+
+Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
+
+## The Insider Note
+
+The Peninsula worth knowing. An occasional email. What's on, where we'd go and what's worth knowing next.
+
+Independent editorial. Sent when there is something worth knowing.
+
+Unsubscribe any time  [Privacy](<https://peninsulainsider.com.au/privacy/>)
+
+On the map
+
+## Arthurs Seat, by location
+
+Every editorially verified pin in Arthurs Seat on one screen - toggle a category, click any marker for the editor's note.
+
+Loading map…

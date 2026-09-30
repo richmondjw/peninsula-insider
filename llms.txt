@@ -19,7 +19,9 @@ A publication date, sitemap date or new build does not mean every fact has been 
 ## Formats, updates and trust
 
 - [Agent guide](https://peninsulainsider.com.au/agents/): Welcome, retrieval routes, field meanings, citation and permissions.
-- [Compact page catalogue](https://peninsulainsider.com.au/agents/catalog.json): A pilot of 20 public pages with Markdown links and content hashes. Compare hashes on a return visit.
+- [Formats and section indexes](https://peninsulainsider.com.au/agents/manifest.json): Choose a smaller section catalogue, read the format contract and find retry and caching guidance.
+- [Latest representation changes](https://peninsulainsider.com.au/agents/changes.json): Added, changed and removed representations since the named prior snapshot. A removal alone does not establish a closure.
+- [Compact page catalogue](https://peninsulainsider.com.au/agents/catalog.json): All sitemap pages, with canonical citations, Markdown links and content hashes.
 - [Latest stories (RSS)](https://peninsulainsider.com.au/feed.xml): Recent published stories. Publication is not a new fact check.
 - [All places and stories](https://peninsulainsider.com.au/site-index/): Browse the publication by section.
 - [Full URL directory](https://peninsulainsider.com.au/llms-full.txt): Sitemap-derived URLs, not full page content. Sitemap dates are not fact-check dates.

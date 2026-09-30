@@ -1,33 +1,35 @@
 Canonical: https://peninsulainsider.com.au/eat/laura-pt-leo/
 Publisher: Peninsula Insider
+Published: unknown
+Modified: unknown
 Format: public main text, generated from the canonical page; imagery, controls and price indicators omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-[Eat & Drink](<https://peninsulainsider.com.au/eat/>)    Restaurant    [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+[Eat & Drink](<https://peninsulainsider.com.au/eat/>)    Restaurant    [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 # Laura at Pt. Leo
 
-A ten-course chef's counter degustation threaded through Phillip Daffara's produce garden.
+An intimate fine-dining room at Pt. Leo Estate, with seasonal menus and an unhurried view across the grounds.
 
-Known for   Ten-Course Chef's Counter Phillip Daffara Kitchen Two-Hat Degustation Produce Garden Menu
+Known for   Seasonal Fine Dining Pt. Leo Estate Two-Hat Dining Merricks
 
-[Reserve a table](<https://www.ptleoestate.com.au/laura-reservations>)  +61 3 5989 9011
+[Reserve a table](<https://www.ptleoestate.com.au/dine/laura/>)  +61 3 5989 9011
 
-Laura at Pt. Leo · Red Hill
+Laura at Pt. Leo · Merricks
 
 Photo · BrooksieG / Wikimedia Commons (CC BY-SA 4.0)
 
 Why we’d go
 
-Twenty seats, one sitting, ten courses, Laura is what happens when a restaurant decides the only honest way to cook from a kitchen garden is to let the garden set the menu.
+A small dining room, a seasonal menu and time to settle into the estate: Laura suits a meal that is the reason for the trip.
 
-If the main Pt. Leo restaurant is the grand dining room, Laura is the private chef's counter tucked behind it, intimate, considered, and the place where Phillip Daffara's cooking is allowed to stretch out. Ten courses, one seating of around twenty, and the kind of quiet technical precision that only a small room can deliver.
+Laura is the fine-dining restaurant at Pt. Leo Estate in Merricks, separate from Pt. Leo Restaurant and the Wine Terrace. The operator describes a room for up to 40 guests, with a four-course Signature menu and an eight-course Seasonal menu. A two-course option is also offered on weekdays. Confirm the current menu when booking.
 
-The garden and the paddocks do most of the work. There's a disciplined restraint to the cooking that feels Japanese in its sensibility, and a wine pairing that moves from estate pinot through a tight selection of Victorian and European bottles. This is the Peninsula at the far edge of what it can do.
+Lunch is served Friday to Monday from noon, with Saturday dinner from 6pm. Service can change for private events, so check your date directly with the estate.
 
-Book eight weeks ahead. Lunch over dinner, the afternoon light through the grounds is part of the experience.
+Laura is not suitable for children under eight. It does not offer a children's menu, high chairs or space for prams. Confirm suitability directly for an eight-year-old; Pt. Leo Restaurant is the estate's alternative for younger children.
 
-Part of Point Leo Estate
+Part of Pt. Leo Estate
 
 [Point Leo Wine Terrace  Restaurant  The all-day casual option at Point Leo Estate, wood-fired flatbreads, estate wines, and a terrace facing the bay and the sculpture park.](<https://peninsulainsider.com.au/eat/point-leo-wine-terrace/>)[Pt. Leo Estate  Winery  A sculpture park walk followed by a long bay-view lunch in the glass-walled restaurant.](<https://peninsulainsider.com.au/wine/pt-leo-estate/>)
 
@@ -39,7 +41,7 @@ Special occasions · Anniversary weekends · Long lunches · Food lovers
 
 If you only do one thing
 
-Book eight weeks out for a Saturday lunch sitting, add the wine pairing, and plan to be there until the light goes.
+Reserve a lunch that suits your date, confirm the current menu and leave time to enjoy the estate.
 
 Works well with
 
@@ -75,17 +77,17 @@ Good Food Guide 2024 · Chef Hat × 2
 
 **Website**
 
-[www.ptleoestate.com.au/laura](<https://www.ptleoestate.com.au/laura>)
+[www.ptleoestate.com.au/dine/laura](<https://www.ptleoestate.com.au/dine/laura/>)
 
 **Directions**
 
-[Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3992%2C145.0109>)
+[Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.4062%2C145.0748>)
 
 **Live status**
 
 [Check current hours →](<https://www.google.com/maps/search/?api=1&query=Laura%20at%20Pt.%20Leo%2C%203649%20Frankston-Flinders%20Rd%2C%20Merricks%20VIC%203916%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
 
- [Book now](<https://www.ptleoestate.com.au/laura-reservations>)
+ [Book now](<https://www.ptleoestate.com.au/dine/laura/>)
 
 Not sure how to build a day around Laura at Pt. Leo?
 
@@ -125,45 +127,45 @@ The Peninsula's evenings are its most under-scheduled hours. Where to stand, sit
 
 Nearby picks
 
-## More from Red Hill
+## More from Merricks
 
  [Back to Eat & Drink →](<https://peninsulainsider.com.au/eat/>)
 
-Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
-### [Avani Wines](<https://peninsulainsider.com.au/eat/avani-wines/>)
+### [Baillieu Vineyard](<https://peninsulainsider.com.au/eat/baillieu-vineyard/>)
 
-112 Shoreham Rd, Red Hill South VIC 3937 · $$
+51 Stanleys Rd, Merricks VIC 3916 · $$
 
-Shashi and Rohit Singh's biodynamic family estate, one of the Peninsula's only serious Syrah programs alongside the Amrit single-vineyard range.
-
-cellar door  slow
-
-[Read notes](<https://peninsulainsider.com.au/eat/avani-wines/>)
-
-Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
-
-### [Doot Doot Doot](<https://peninsulainsider.com.au/eat/doot-doot-doot/>)
-
-166 Balnarring Rd, Merricks North VIC 3926 · $$$$
-
-Two hats, a chandelier of 10,000 glass orbs, and the Peninsula's most theatrical dining room.
-
-anniversary  first date
-
-[Read notes](<https://peninsulainsider.com.au/eat/doot-doot-doot/>) [Book](<https://jackalopehotels.com/mornington-peninsula>)
-
-Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
-
-### [Eldridge Estate](<https://peninsulainsider.com.au/eat/eldridge-estate/>)
-
-120 Arthurs Seat Rd, Red Hill VIC 3937 · $$
-
-David Lloyd's tiny cult estate, single-clone Pinot Noirs from individual rows, plus Gamay, made for the Burgundy obsessives.
+A thoughtfully managed Merricks estate making elegant Chardonnay and Pinot Noir that rewards the drive to find it.
 
 cellar door  slow
 
-[Read notes](<https://peninsulainsider.com.au/eat/eldridge-estate/>) [Book](<https://www.eldridge-estate.com.au/cellar-door/>)
+[Read notes](<https://peninsulainsider.com.au/eat/baillieu-vineyard/>) [Book](<https://merricksstore.com.au/>)
+
+Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
+
+### [Elgee Park](<https://peninsulainsider.com.au/eat/elgee-park/>)
+
+89 Junction Rd, Merricks North VIC 3926 · $$
+
+The Baillieu family's 1972 vineyard, the planting that started the modern Peninsula wine region, still in family hands, still making restrained Chardonnay and Viognier.
+
+cellar door  slow
+
+[Read notes](<https://peninsulainsider.com.au/eat/elgee-park/>) [Book](<https://elgeeparkwines.com.au/>)
+
+Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
+
+### [Kerri Greens](<https://peninsulainsider.com.au/eat/kerri-greens/>)
+
+235 Stanleys Rd, Red Hill South VIC 3937 · $$
+
+Tom McCarthy and Lucas Blanck's new-school Peninsula label, lighter-style Pinot, approachable Chardonnay, and a cellar door that feels like a bar.
+
+cellar door  slow
+
+[Read notes](<https://peninsulainsider.com.au/eat/kerri-greens/>) [Book](<https://www.kerrigreens.com/>)
 
 Build a day around this
 
@@ -175,7 +177,7 @@ Peninsula Insider guides that put this stop into the context of a full day or we
 
 Keep this for later
 
-[← Part of Red Hill - view the destination guide](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+[← Part of Merricks - view the destination guide](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 Is this your business? [Manage this listing](<https://peninsulainsider.com.au/partners/update/?venue=laura-pt-leo>)
 

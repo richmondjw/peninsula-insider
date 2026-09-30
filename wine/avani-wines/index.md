@@ -1,5 +1,7 @@
 Canonical: https://peninsulainsider.com.au/wine/avani-wines/
 Publisher: Peninsula Insider
+Published: unknown
+Modified: unknown
 Format: public main text, generated from the canonical page; imagery, controls and price indicators omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -11,7 +13,7 @@ Shashi and Rohit Singh's biodynamic family estate, one of the Peninsula's only s
 
 Known for   Biodynamic Syrah Amrit Single-Vineyard Range Skin-Contact Whites Family Estate
 
-+61 418 555 941
++61 435 997 007
 
 Avani Wines · Red Hill
 
@@ -31,7 +33,7 @@ Avani is the Peninsula's quiet Syrah specialist, and that alone is reason to vis
 
 Photo · Peter Foster, courtesy of Visit Victoria
 
-The cellar door is intimate and overlooks the estate's own vines. Shashi often pours, which turns a tasting into a conversation about biodynamics, Peninsula soils, and why a cooler-than-usual block can grow a Syrah that nobody saw coming. Avani was Gourmet Traveller's Best Small Cellar Door (Mornington) in 2023 and earned every word of the citation.
+The cellar door is intimate and overlooks the estate's own vines. Shashi often pours, which turns a tasting into a conversation about biodynamics, Peninsula soils, and why a cooler-than-usual block can grow a Syrah that nobody saw coming. The operator lists a Gourmet Traveller Best Small Cellar Door award in 2022.
 
 Book ahead. Ask for the skin-contact white. Bring home a bottle of the Syrah, it ages quietly and well.
 
@@ -59,7 +61,7 @@ Winery
 
 **Location**
 
-112 Shoreham Rd, Red Hill South VIC 3937 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Avani%20Wines%2C%20112%20Shoreham%20Rd%2C%20Red%20Hill%20South%20VIC%203937>)
+98 Stanleys Road, Red Hill South VIC 3937 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Avani%20Wines%2C%2098%20Stanleys%20Road%2C%20Red%20Hill%20South%20VIC%203937>)
 
 **Spend**
 
@@ -67,19 +69,33 @@ $$
 
 **Call**
 
-+61 418 555 941
++61 435 997 007
 
 **Awards**
 
-Gourmet Traveller Best Small Cellar Door Mornington 2023 · Biodynamic Family Estate
+Gourmet Traveller Best Small Cellar Door 2022 · Biodynamic Family Estate
+
+**Website**
+
+[www.avanisyrah.com.au](<https://www.avanisyrah.com.au/>)
 
 **Directions**
 
-[Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3724%2C145.0333>)
+[Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3728225%2C145.0551953>)
+
+**Opening hours**
+
+- Mon, Thu to Sun   10am–5pm
+
+- Tue, Wed   Closed
 
 **Live status**
 
-[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Avani%20Wines%2C%20112%20Shoreham%20Rd%2C%20Red%20Hill%20South%20VIC%203937%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
+[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Avani%20Wines%2C%2098%20Stanleys%20Road%2C%20Red%20Hill%20South%20VIC%203937%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
+
+## Visiting
+
+Bookings are recommended and walk-ins are welcome. Confirm current service and group arrangements with Avani before travelling.
 
 Not sure how to build a day around Avani Wines?
 

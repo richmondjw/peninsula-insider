@@ -1,0 +1,156 @@
+Canonical: https://peninsulainsider.com.au/stay/peninsula-hot-springs-eco-lodges/
+Publisher: Peninsula Insider
+Published: unknown
+Modified: unknown
+Format: public main text, generated from the canonical page; imagery, controls and price indicators omitted.
+Dates and caveats below retain their page meaning; this format is not a new fact check.
+
+[Stay](<https://peninsulainsider.com.au/stay/>)    Glamping    [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
+
+# Peninsula Hot Springs Eco Lodges
+
+Eco lodge accommodation at Peninsula Hot Springs in Fingal, a separate option from glamping for a stay centred on geothermal bathing.
+
+Known for   Eco Lodge Accommodation Peninsula Hot Springs Precinct Geothermal Bathing Stay
+
+[Check availability](<https://www.peninsulahotsprings.com/accommodation/eco-lodges/>)  +61 3 5950 8777
+
+Peninsula Hot Springs Eco Lodges · Fingal
+
+Photo · Peninsula Hot Springs
+
+Peninsula Hot Springs Eco Lodges in 7 photographs
+
+1  / 7
+
+A guest sits on a long window seat in a Peninsula Hot Springs Eco Lodge room, looking out over bushland and a wetland  Peninsula Hot Springs Eco Lodges, Fingal, Mornington Peninsula.  Photo · Courtesy of Visit Victoria
+
+Why we’d go
+
+A lodge stay keeps the springs central while offering a different accommodation format from glamping.
+
+The Eco Lodges are Peninsula Hot Springs accommodation in Fingal. They are a separate offering from the glamping tents, so compare the room layout and the inclusions of your chosen booking rather than assuming the two stays are identical.
+
+Photo · Courtesy of Visit Victoria
+
+Choose this format when the accommodation itself matters as much as access to the springs. Private bathing facilities depend on the room or lodge selected; check the operator’s current description before reserving. Guest ages, arrival times and access arrangements also need to be checked against the booking.
+
+The practical advantage is staying with the springs operator. Allow time for bathing and meals on site, and book any treatments you want before building the rest of the trip around them.
+
+Worth knowing
+
+**Best for**
+
+Special occasions · Anniversary weekends · Couples · Weekend escapes
+
+If you only do one thing
+
+Check the room-specific bathing facilities and inclusions before booking an eco lodge.
+
+Works well with
+
+Peninsula Hot Springs · Barragunda Dining
+
+Filed under   Wellness Anniversary Romance Slow All Year Couples
+
+At a glance
+
+**Type**
+
+Glamping
+
+**Location**
+
+140 Springs Lane, Fingal VIC 3939 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Peninsula%20Hot%20Springs%20Eco%20Lodges%2C%20140%20Springs%20Lane%2C%20Fingal%20VIC%203939>)
+
+**Spend**
+
+$$$$
+
+**Call**
+
++61 3 5950 8777
+
+**Website**
+
+[www.peninsulahotsprings.com/accommodation/eco-lodges](<https://www.peninsulahotsprings.com/accommodation/eco-lodges/>)
+
+**Directions**
+
+[Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.4542%2C144.8661>)
+
+**Live status**
+
+[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Peninsula%20Hot%20Springs%20Eco%20Lodges%2C%20140%20Springs%20Lane%2C%20Fingal%20VIC%203939%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
+
+ [Book now](<https://www.peninsulahotsprings.com/accommodation/eco-lodges/>)
+
+Not sure how to build a day around Peninsula Hot Springs Eco Lodges?
+
+ [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
+
+Nearby picks
+
+## More from Fingal
+
+ [Back to Stay →](<https://peninsulainsider.com.au/stay/>)
+
+Cottage  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+
+### [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
+
+10 Nestle Court, Arthurs Seat VIC 3936 · $$
+
+Five adults-only suites on Arthurs Seat ridge with panoramic Port Phillip Bay views, double spas, and electric log fires.
+
+view  anniversary
+
+[Read notes](<https://peninsulainsider.com.au/stay/arthurs-views/>) [Book](<https://arthursviews.com.au/>)
+
+Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+
+### [Birch Creek](<https://peninsulainsider.com.au/stay/birch-creek/>)
+
+Red Hill VIC 3937 · $$
+
+Two self-contained farm cottages on 40 acres near Red Hill, open fireplaces, outdoor tubs, dog-friendly, and goats.
+
+fireplace  slow
+
+[Read notes](<https://peninsulainsider.com.au/stay/birch-creek/>) [Book](<https://www.birchcreek.com.au/>)
+
+Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
+
+### [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>)
+
+12 Blakiston Grove, Rye VIC 3941 · $$
+
+Three 1940s cottages 250 metres from Rye bay beach, Sandpiper is the dog-friendly unit with a wood fire and fenced courtyard.
+
+beach  fireplace
+
+[Read notes](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>) [Book](<https://www.bluemooncottages.com.au/>)
+
+Build a day around this
+
+## Planning guides that include Peninsula Hot Springs Eco Lodges
+
+Peninsula Insider guides that put this stop into the context of a full day or weekend.
+
+[Peninsula weekend itinerary →](<https://peninsulainsider.com.au/journal/mornington-peninsula-itinerary/>) [The one-night escape →](<https://peninsulainsider.com.au/explore/plans/the-one-night-escape/>) [Winter on the Peninsula →](<https://peninsulainsider.com.au/journal/mornington-peninsula-in-winter/>) [Weekend plans →](<https://peninsulainsider.com.au/explore/plans/>)
+
+Keep this for later
+
+[← Part of Fingal - view the destination guide](<https://peninsulainsider.com.au/explore/places/fingal/>)
+
+Is this your business? [Manage this listing](<https://peninsulainsider.com.au/partners/update/?venue=peninsula-hot-springs-eco-lodges>)
+
+Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
+
+## The Insider Note
+
+The Peninsula worth knowing. An occasional email. What's on, where we'd go and what's worth knowing next.
+
+Independent editorial. Sent when there is something worth knowing.
+
+Unsubscribe any time  [Privacy](<https://peninsulainsider.com.au/privacy/>)

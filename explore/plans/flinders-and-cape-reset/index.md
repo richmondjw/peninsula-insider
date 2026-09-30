@@ -1,5 +1,7 @@
 Canonical: https://peninsulainsider.com.au/explore/plans/flinders-and-cape-reset/
 Publisher: Peninsula Insider
+Published: unknown
+Modified: unknown
 Format: public main text, generated from the canonical page; imagery, controls and price indicators omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -149,11 +151,11 @@ The Cape Schanck boardwalk is short, obvious, and absolutely worth doing. A lot 
 
 [Walk](<https://peninsulainsider.com.au/explore/bushrangers-bay-walk/>)
 
-[Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-schanck/>)  1.5 h · Moderate
+[Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-schanck/>)  2 h · Moderate
 
 ### [Bushrangers Bay Walk](<https://peninsulainsider.com.au/explore/bushrangers-bay-walk/>)
 
-Bushrangers Bay is the walk we send people to when they say they want to see the wilder side of the Peninsula without committing to a full-day hike. The track drops from the Cape Schanck lighthouse precinct through coastal scrub and opens onto a broad crescent of basalt and sand that feels much further from Melbourne than it is. The return climb is enough to justify lunch afterwards, but not so punishing that it tips into chore. Do it in the late afternoon when the light starts to flatten across the water and the whole coastline turns silver.
+From the eastern carpark at Cape Schanck Lighthouse, this walk leads through coastal scrub to Bushrangers Bay. Parks Victoria describes a 5.4 km return trip taking about two hours. Allow more time for stops and the return climb: the sandy, narrow, unsealed path includes steep stairs. Dogs are not permitted; check Parks Victoria entry requirements for assistance dogs. Swimming is not recommended. The beach is unpatrolled, with strong currents, rips, rocky reefs and large waves, and emergency access is limited. Check Parks Victoria changed conditions and current fire advice before setting out. Stay on the track, follow signs protecting nesting shorebirds, and allow enough daylight for the return.
 
  [Open the guide →](<https://peninsulainsider.com.au/explore/bushrangers-bay-walk/>)
 

@@ -1,0 +1,408 @@
+Canonical: https://peninsulainsider.com.au/explore/regions/peninsula-tip/
+Publisher: Peninsula Insider
+Published: unknown
+Modified: unknown
+Format: public main text, generated from the canonical page; imagery, controls and price indicators omitted.
+Dates and caveats below retain their page meaning; this format is not a new fact check.
+
+Explore · Regions
+
+# Sorrento & Portsea
+
+Limestone cliffs, ocean baths, the Heads ferry, the Peninsula's most iconic edge.
+
+Photo · Courtesy of Visit Victoria
+
+The tip of the Mornington Peninsula is where the land narrows to a point and the social temperature rises. Sorrento and Portsea have been Melbourne's summer escape for generations: limestone cliffs above the bay, ocean baths carved into back-beach rock, the ferry to Queenscliff cutting across the Heads. The dining scene has quietly become something worth driving for year-round. Come in the off-season and the towns reveal their best selves: quieter, more local, more honest. The back beach at dusk is one of the best things on the Peninsula.
+
+## Places in Sorrento & Portsea
+
+Peninsula Tip · town
+
+### [Blairgowrie](<https://peninsulainsider.com.au/explore/places/blairgowrie/>)
+
+Blairgowrie is the quieter neighbour between Rye and Sorrento - the stretch of front beach that still feels like a holiday pattern most of the Peninsula gave up on. The yacht club runs a working moorings marina that defines the skyline; the foreshore is unbroken sand you can swim off without fighting a crowd; and the shops are mostly limited to a pub, a bakery, a couple of cafés and a deli, which is most of what you need. The back beach (Bridgewater Bay) is five minutes inland and quieter still. Blairgowrie rewards the kind of weekend that's built around walking the foreshore, reading on a beach towel, and not making a plan until dinner. It's the last town before the tourist-district tone of Sorrento and the first one where families still outnumber influencers.
+
+Peninsula Tip · zone
+
+### [Point Nepean](<https://peninsulainsider.com.au/explore/places/point-nepean/>)
+
+Point Nepean is the Peninsula at its most exposed and historically strange: quarantine station buildings facing the bay, old gun emplacements buried in coastal scrub, and walking tracks that keep revealing a new view across Port Phillip Heads just when you think the drama has peaked. It is less a single attraction than a whole day of edges - military ruins, tea-tree, pale water, and the sense that Melbourne has fallen clean away behind you. Go early, wear proper shoes, and give yourself time to keep stopping at the lookouts.
+
+Peninsula Tip · village
+
+### [Portsea](<https://peninsulainsider.com.au/explore/places/portsea/>)
+
+Portsea is the Peninsula's quiet trophy. Where Sorrento turns on the theatre, Portsea keeps its back to the bay and its gates closed - this is old-money country, where the holiday houses were built before anyone called them beach houses and the golf club is older than most Australian cities. The village itself is barely a village: a pub, a general store, a scattering of shops around the foreshore, and a short walk down to a jetty that still looks essentially as it did a century ago. But push past the surface and Portsea is the entry point for the whole south-western tip of the Peninsula: Point Nepean is next door, the back-beach surf is five minutes away, and the front beach is one of the most protected swims on Port Phillip. Come for a long lunch at the pub, a quiet morning walk before the day-trippers find Sorrento, or a summer weekend that stays deliberately low-key.
+
+Bay Coast · town
+
+### [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
+
+Rye is the pivot point of the lower Peninsula - the last town before Sorrento and Portsea, the first one where the landscape really opens up to the Southern Ocean. The front beach is a long bay-calm stretch with a pier and a century of summer memory behind it; the back beach is where you drive to in ten minutes to remind yourself that the ocean side is an entirely different country. In between sits a main street that has quietly improved itself over the past five years, a brewery precinct in the hills above the town, and Peninsula Hot Springs close enough to slot into an afternoon without rearranging the day. Rye is where families have always come to do nothing in particular, and that remains the right instinct.
+
+Peninsula Tip · town
+
+### [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
+
+Sorrento is where the Peninsula narrows to a point and the social temperature rises. This is old-money beach culture done with increasing sophistication - limestone cliffs, a ferry to Queenscliff across the Heads, ocean baths carved from rock at low tide - alongside a main street that has quietly evolved into something genuinely worth driving for. The summer crowd is real and relentless, but the town earns it. Off-season Sorrento is a revelation: the light changes, the restaurants empty out to their best selves, and you can walk the ocean beach from one end to the other without encountering anyone but locals. The back beach at dusk is one of the best things on the Peninsula, full stop. Stay at least two nights.
+
+Peninsula Tip · village
+
+### [Tootgarook](<https://peninsulainsider.com.au/explore/places/tootgarook/>)
+
+Tootgarook is a small, mostly residential village squeezed between Rye and Capel Sound, and its real identity lives behind the streets in the Tootgarook Wetland - the largest privately-protected freshwater wetland on the Peninsula and a quiet ecological headline most visitors do not know exists. Out front, the village sits across the road from a wide bay beach with shallow water and a long pier; out back, the wetland soaks into the dunes and the migratory bird counts each spring are among the highest on the Peninsula. The village itself has a handful of shops and an unfussy main street and is almost entirely a place locals use. Stay nearby for cheaper Peninsula accommodation than Rye or Sorrento; come to walk the wetland boardwalk and read birds in the reeds.
+
+## Where to eat, drink, stay and explore
+
+Restaurant  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
+
+### [Bistro Elba](<https://peninsulainsider.com.au/eat/bistro-elba/>)
+
+100–102 Ocean Beach Rd, Sorrento VIC 3943 · $$$
+
+A Southern French bistro on Sorrento's Ocean Beach Road, open for lunch and dinner throughout the week.
+
+anniversary  fireplace
+
+[Read notes](<https://peninsulainsider.com.au/eat/bistro-elba/>) [Book](<https://www.bistroelba.com.au/>)
+
+Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
+
+### [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>)
+
+12 Blakiston Grove, Rye VIC 3941 · $$
+
+Three 1940s cottages 250 metres from Rye bay beach, Sandpiper is the dog-friendly unit with a wood fire and fenced courtyard.
+
+beach  fireplace
+
+[Read notes](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>) [View stay](<https://www.bluemooncottages.com.au/>)
+
+Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
+
+### [Driftaway on Dundas](<https://peninsulainsider.com.au/stay/driftaway-on-dundas/>)
+
+246 Dundas St, Rye VIC 3941 · $$
+
+Three self-contained villas on 2.5 acres of tea-tree near Rye beach, breakfast hampers, oversized spa baths, one disability-accessible villa.
+
+beach  romance
+
+[Read notes](<https://peninsulainsider.com.au/stay/driftaway-on-dundas/>)
+
+Hotel  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
+
+### [Hotel Sorrento](<https://peninsulainsider.com.au/stay/hotel-sorrento/>)
+
+5-15 Hotham Rd, Sorrento VIC 3943 · $$$
+
+A grand old bay-facing pub-hotel whose best rooms still make Sorrento feel gloriously old-school.
+
+weekend escape  waterfront
+
+[Read notes](<https://peninsulainsider.com.au/stay/hotel-sorrento/>) [View stay](<https://hotelsorrento.com.au/stay>)
+
+Glamping  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
+
+### [Mornington Peninsula Retro Caravans](<https://peninsulainsider.com.au/stay/kanasta-retro-caravans/>)
+
+1-9 Sinclair Ave, Rye VIC 3941 · $$
+
+Restored 1950s–60s themed caravans 500 metres from Rye bay beach, dog-friendly in designated units, the most characterful glamping-adjacent option on the bayside.
+
+beach  slow
+
+[Read notes](<https://peninsulainsider.com.au/stay/kanasta-retro-caravans/>) [View stay](<https://kanastacaravanpark.com.au/retro-caravans/>)
+
+Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
+
+### [Mornington Peninsula Beach Club Cottages](<https://peninsulainsider.com.au/stay/mp-beach-club-cottages/>)
+
+Tootgarook VIC 3941 · $$
+
+Five two-bedroom bay-beach cottages in Tootgarook, EV charging, disability access, private yards, and eight minutes from Peninsula Hot Springs.
+
+beach  slow
+
+[Read notes](<https://peninsulainsider.com.au/stay/mp-beach-club-cottages/>) [View stay](<https://mpcottages.com/>)
+
+Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
+
+### [Plantation House at Whitecliffs](<https://peninsulainsider.com.au/stay/plantation-house-whitecliffs/>)
+
+33 Maori St, Rye VIC 3941 · $$
+
+Heritage 1932 sandstone property 150 metres from Rye's front beach, host Charles's cooked breakfasts are named in almost every recent review.
+
+beach  slow
+
+[Read notes](<https://peninsulainsider.com.au/stay/plantation-house-whitecliffs/>) [View stay](<https://www.plantationhouse.com.au/>)
+
+Glamping  [Portsea](<https://peninsulainsider.com.au/explore/places/portsea/>)
+
+### [Point Nepean Discovery Tents](<https://peninsulainsider.com.au/stay/point-nepean-discovery-tents/>)
+
+Point Nepean National Park, Portsea VIC 3944 · $
+
+Forty-six pre-pitched canvas tents inside Point Nepean National Park, September to April, inside the historic quarantine station precinct.
+
+beach  walk
+
+[Read notes](<https://peninsulainsider.com.au/stay/point-nepean-discovery-tents/>) [View stay](<https://www.parks.vic.gov.au/places-to-see/parks/point-nepean-national-park/where-to-stay/point-nepean-discovery-tents>)
+
+Pub  [Portsea](<https://peninsulainsider.com.au/explore/places/portsea/>)
+
+### [Portsea Hotel](<https://peninsulainsider.com.au/eat/portsea-hotel/>)
+
+3746 Point Nepean Rd, Portsea VIC 3944 · $$
+
+The front-row pub on Port Phillip, still the cleanest long lunch at the tip of the Peninsula.
+
+long lunch  waterfront
+
+[Read notes](<https://peninsulainsider.com.au/eat/portsea-hotel/>) [Book](<https://www.portseahotel.com.au/>)
+
+Market  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
+
+### [Rye Foreshore Market](<https://peninsulainsider.com.au/eat/rye-beachside-market/>)
+
+Point Nepean Rd, Rye VIC 3941 · $
+
+A first-Saturday market on Rye foreshore, listed by Mornington Peninsula Shire.
+
+slow  beach
+
+[Read notes](<https://peninsulainsider.com.au/eat/rye-beachside-market/>)
+
+Pub  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
+
+### [Rye Hotel](<https://peninsulainsider.com.au/eat/rye-hotel/>)
+
+2415 Point Nepean Rd, Rye VIC 3941 · $$
+
+An enormous foreshore pub a short walk from Rye's front beach, family-friendly, deck-oriented, and the right answer on a warm afternoon.
+
+family  big group
+
+[Read notes](<https://peninsulainsider.com.au/eat/rye-hotel/>) [Book](<https://ryehotel.com.au/>)
+
+Pub  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
+
+### [The Sorrento Hotel](<https://peninsulainsider.com.au/eat/sorrento-hotel/>)
+
+5-15 Hotham Rd, Sorrento VIC 3943 · $$
+
+The centre-of-the-village trading post on Ocean Beach Road, reliable parmas, a big dining room, and the default Sorrento pub for a reason.
+
+family  big group
+
+[Read notes](<https://peninsulainsider.com.au/eat/sorrento-hotel/>) [Book](<https://hotelsorrento.com.au/>)
+
+Brewery  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
+
+### [St Andrews Beach Brewery](<https://peninsulainsider.com.au/eat/st-andrews-beach-brewery/>)
+
+160 Sandy Rd, Fingal VIC 3939 · $$
+
+Former horse-training stables turned sprawling brewery destination, wood-fired kitchen, acres of lawn, and Sunday roasts all year round.
+
+big group  family
+
+[Read notes](<https://peninsulainsider.com.au/eat/st-andrews-beach-brewery/>) [Book](<https://www.standrewsbeachbrewery.com.au/>)
+
+Restaurant  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
+
+### [Stringers Sorrento](<https://peninsulainsider.com.au/eat/stringers-sorrento/>)
+
+Sorrento VIC 3943 · $$
+
+A wine bar and small-plate restaurant in Sorrento, cured kingfish, raw bar selections, and a natural-wine list built to match the food.
+
+slow  romance
+
+[Read notes](<https://peninsulainsider.com.au/eat/stringers-sorrento/>) [Book](<https://stringerssorrento.com.au/>)
+
+Restaurant  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
+
+### [The Baths Sorrento](<https://peninsulainsider.com.au/eat/the-baths-sorrento/>)
+
+3278 Point Nepean Rd, Sorrento VIC 3943 · $$$
+
+Sorrento's most enduring waterfront dining room, perched on the sand with Port Phillip Bay at your feet and a seafood-first menu.
+
+waterfront  anniversary
+
+[Read notes](<https://peninsulainsider.com.au/eat/the-baths-sorrento/>) [Book](<https://thebaths.com.au/>)
+
+Hotel  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
+
+### [InterContinental Sorrento](<https://peninsulainsider.com.au/stay/the-continental-sorrento/>)
+
+23 Constitution Hill Road, Sorrento VIC 3943 · $$$$
+
+A Sorrento hotel with heritage rooms, a guest pool deck and The Continental dining precinct close by.
+
+weekend escape  anniversary
+
+[Read notes](<https://peninsulainsider.com.au/stay/the-continental-sorrento/>) [View stay](<https://sorrento.intercontinental.com/>)
+
+Glamping  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
+
+### [Yurt Hideaway](<https://peninsulainsider.com.au/stay/yurt-hideaway/>)
+
+Tootgarook VIC 3941 · $$
+
+A traditional 6-metre Mongolian yurt in Tootgarook, five minutes from Peninsula Hot Springs, hosted by yoga instructors, 4.97 stars.
+
+wellness  romance
+
+[Read notes](<https://peninsulainsider.com.au/stay/yurt-hideaway/>) [View stay](<https://yurthideaway.com.au/>)
+
+[Walk](<https://peninsulainsider.com.au/explore/coppins-track/>)
+
+[Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)  2.5 h · Moderate
+
+### [Coppins Track](<https://peninsulainsider.com.au/explore/coppins-track/>)
+
+Coppins Track runs four kilometres from Sorrento Ocean Beach through clifftop coastal heathland to Diamond Bay, following a route threaded with a century of local history. Interpretive signage along the way reads the landscape for you: the Peninsula's quarantine era, the military history of the area, the natural history of the heath. Diamond Bay is a small, almost-always-empty beach at the far end and an excellent turnaround point for a round trip. The track is more than a walk; it is one of the best ways to understand how this stretch of the Peninsula actually came to look the way it does. Coastal erosion, endemic flora, and the old paths between bays are all visible as you move through. Allow around 2.5 hours return. Best in the cooler months - the exposed heath gets hot in summer midday.
+
+ [Open the guide →](<https://peninsulainsider.com.au/explore/coppins-track/>)
+
+[Walk](<https://peninsulainsider.com.au/explore/farnsworth-track/>)
+
+[Point Nepean](<https://peninsulainsider.com.au/explore/places/point-nepean/>)  45 min · Easy
+
+### [Farnsworth Track](<https://peninsulainsider.com.au/explore/farnsworth-track/>)
+
+The Farnsworth Track is the Peninsula's most efficient clifftop-view-to-effort ratio: 1.5 kilometres one way between Portsea Ocean Beach and London Bridge, with dramatic Bass Strait cliff views at almost every point along the walk. Walk one way and return along the beach (tide permitting) for a satisfying short circuit, or push on west to Coppins Track for a longer day. This is the walk you do when you have an hour to fill and want the ocean properly in front of you. The track is well-formed, the gradient is forgiving, and the payoff comes quickly. London Bridge itself - a weathered limestone arch in the rock - is the natural turnaround point and worth the short detour off the main track. Good in almost any weather. The clifftop is exposed, so dress for the wind.
+
+ [Open the guide →](<https://peninsulainsider.com.au/explore/farnsworth-track/>)
+
+[Attraction](<https://peninsulainsider.com.au/explore/point-nepean-fort-walk/>)
+
+[Point Nepean](<https://peninsulainsider.com.au/explore/places/point-nepean/>)  2 h · Easy
+
+### [Point Nepean Fort Walk](<https://peninsulainsider.com.au/explore/point-nepean-fort-walk/>)
+
+Point Nepean rewards people who are happy to walk a little further than the average Peninsula day-tripper. The road and paths out toward Fort Nepean unfold through old quarantine buildings, scrub, and cliff-edge lookouts before the whole place gives way to bunkers and artillery emplacements looking straight across the Heads. It is a history lesson, a coastline walk, and a very good excuse to leave Sorrento for the afternoon. Hire bikes if you want to cover more ground, but walking keeps the mood right.
+
+ [Open the guide →](<https://peninsulainsider.com.au/explore/point-nepean-fort-walk/>)
+
+[Park](<https://peninsulainsider.com.au/explore/point-nepean-national-park/>)
+
+[Point Nepean](<https://peninsulainsider.com.au/explore/places/point-nepean/>)  8 h · Moderate
+
+### [Point Nepean National Park](<https://peninsulainsider.com.au/explore/point-nepean-national-park/>)
+
+Point Nepean is the Peninsula's great historic national park - a former defence installation at the very tip of the land, now a sprawling reserve with some of the most dramatic views in Victoria back up the bay and across to Queenscliff. Fort Nepean itself sits at the far end and holds a genuinely significant military history, including the gun battery that fired the first Allied shots of both World Wars. The park can be walked in full but most people treat it as a bike or shuttle day: hire bikes at the entry point, ride the main loop through the dune scrub, stop at Fort Nepean for an hour, and come back via the ocean side if the weather and tides cooperate. The fort tunnels, the old quarantine station, and the clifftop battery positions are the highlights, and the view from the tip - Port Phillip Bay on one side, Bass Strait on the other - is unlike anywhere else on the Peninsula. Allow a full day. Bring water, layers, and something for lunch. The entry station is at Portsea; the Point Nepean shuttle runs from there.
+
+ [Open the guide →](<https://peninsulainsider.com.au/explore/point-nepean-national-park/>)
+
+[Beach](<https://peninsulainsider.com.au/explore/portsea-front-beach/>)
+
+[Portsea](<https://peninsulainsider.com.au/explore/places/portsea/>)  1.5 h
+
+### [Portsea Front Beach](<https://peninsulainsider.com.au/explore/portsea-front-beach/>)
+
+Portsea Front Beach is slightly less busy than Sorrento's equivalent and, on a clear morning, just as pretty. White sand, calm bay water, the Portsea pier running out into the channel, and a genuine Hamptons feel on a sunny autumn weekday when everyone who is not local is somewhere else. Mid-week visits in April are essentially deserted. The beach is small enough to feel private and the Portsea Hotel - which has arguably the best beer-garden view in Victoria - is a two-minute walk up the hill. Combine a swim here with lunch at the pub and you have a perfect low-tempo Peninsula afternoon. Best at low tide when the sand stretches out properly. Avoid school holidays.
+
+ [Open the guide →](<https://peninsulainsider.com.au/explore/portsea-front-beach/>)
+
+[Golf Course](<https://peninsulainsider.com.au/explore/portsea-golf-club/>)
+
+[Portsea](<https://peninsulainsider.com.au/explore/places/portsea/>)  4.5 h
+
+### [Portsea Golf Club](<https://peninsulainsider.com.au/explore/portsea-golf-club/>)
+
+Portsea Golf Club is the classic Peninsula member's club at the tip. Founded in 1924, it carries genuine Australian golf heritage and plays through some of the most spectacular clifftop terrain any Melbourne golfer will see without boarding a plane. The par-3 holes along the Bass Strait edge are the signature - visually, they are hard to beat. Access is the issue. Portsea is a members' club, and non-member play depends on reciprocal rights, member invitations, or specific corporate days. Unlike Sorrento Golf Club (which accepts more casual visitor play), Portsea maintains a tighter door policy. For the right golfer with the right connection, it is one of the most satisfying rounds on the Peninsula. For everyone else, the course matters more as part of the Peninsula golf landscape than as a bookable option. Complementary courses to consider for public-access play in the same area: The Dunes (20 minutes) or St Andrews Beach (20 minutes).
+
+ [Open the guide →](<https://peninsulainsider.com.au/explore/portsea-golf-club/>)
+
+[Beach](<https://peninsulainsider.com.au/explore/rye-ocean-beach/>)
+
+[Rye](<https://peninsulainsider.com.au/explore/places/rye/>)  1 h
+
+### [Rye Ocean Beach](<https://peninsulainsider.com.au/explore/rye-ocean-beach/>)
+
+Rye Ocean Beach is the back-beach counterpart to Rye's calmer bay side - a wide, exposed ocean beach with a dune backing, a long clean stretch of sand, and the kind of reliable Bass Strait ambience that makes a ten-minute visit feel restorative. It is close enough to Peninsula Hot Springs to be combined into a single afternoon with a bath either side of the walk. In April the beach is nearly empty, which is exactly the reason to go. Walk for thirty minutes in either direction and you will see maybe three other people. Bring wind-proof layers; the ocean-side beaches here are more exposed than most visitors expect. Best for walking and deep breathing. Not a swimming beach in the conventional sense.
+
+ [Open the guide →](<https://peninsulainsider.com.au/explore/rye-ocean-beach/>)
+
+[Tour](<https://peninsulainsider.com.au/explore/sea-search-encounters/>)
+
+[Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)  3 h
+
+### [Sea Search Encounters](<https://peninsulainsider.com.au/explore/sea-search-encounters/>)
+
+Sea Search Encounters runs snorkelling and scuba trips out of the Sorrento pier to some of the Peninsula's best-kept underwater secrets - the resident seal colony at Chinaman's Hat and the sponge-garden reef systems along the heads. The sponge gardens here are extraordinary: vivid purples, oranges, and reds that barely feel Australian. The seal swim is the photogenic one; the sponge reefs are the one that stays with you afterwards. Trips run on most fine days and are suitable for competent swimmers. Wetsuits, masks, and fins are supplied; booking is essential and the boats sell out in summer. Bookings are a few days in advance minimum if you want to pick your day. One of the Peninsula's genuinely memorable experiences. Combine it with a late lunch at The Baths or Hotel Sorrento on the way back.
+
+ [Open the guide →](<https://peninsulainsider.com.au/explore/sea-search-encounters/>)
+
+[Beach](<https://peninsulainsider.com.au/explore/sorrento-back-beach/>)
+
+[Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)  1 h · Easy
+
+### [Sorrento Back Beach](<https://peninsulainsider.com.au/explore/sorrento-back-beach/>)
+
+The back beach is where Sorrento stops performing and starts feeling elemental. The surf side has more force, more wind, and far better dusk light than the bay, which is why locals drift here late in the day even when they have spent the morning elsewhere. Swim only when conditions suit and the flags are up, but walk it in any season. The stretch from the car park toward Diamond Bay is one of the easiest ways to understand why the southern tip of the Peninsula feels like a different region entirely.
+
+ [Open the guide →](<https://peninsulainsider.com.au/explore/sorrento-back-beach/>)
+
+[Tour](<https://peninsulainsider.com.au/explore/sorrento-ferry/>)
+
+[Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)  40 min
+
+### [Sorrento Ferry](<https://peninsulainsider.com.au/explore/sorrento-ferry/>)
+
+The Sorrento ferry is the Peninsula's single most iconic water experience and one of the genuine small joys of the bayside. The car and passenger ferry runs between Sorrento and Queenscliff across Port Phillip Bay - forty minutes each way - and on a good day the crossing regularly encounters resident dolphins, seals, and the occasional fur seal lounging on the channel markers. Walk on as a foot passenger for a day trip to Queenscliff (a charming fishing village in its own right, with a good fish-and-chip shop and a small wine bar), or take the car across and use the crossing as a shortcut to the Bellarine Peninsula wine country. Either way, the ride itself is the point. Stand on the upper deck; watch the wake; look for dolphins in the bay. Check the timetable; crossings run every hour. Book ahead in summer, especially if you are taking a car.
+
+ [Open the guide →](<https://peninsulainsider.com.au/explore/sorrento-ferry/>)
+
+[Golf Course](<https://peninsulainsider.com.au/explore/sorrento-golf-club/>)
+
+[Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)  4.5 h
+
+### [Sorrento Golf Club](<https://peninsulainsider.com.au/explore/sorrento-golf-club/>)
+
+Sorrento Golf Club is a parkland course on the Peninsula's tip, more traditional and less dramatic than the nearby links courses. The layout is pleasant rather than celebrated - long-time members love it, and it has a friendly social reputation that Portsea (its more exclusive neighbour) does not. Visitor access is more relaxed than Portsea - the club takes public bookings at most times subject to member priority. For visitors staying in Sorrento who want an easy, walkable, good-conditioning round without driving to Cape Schanck or Fingal, it's the obvious choice. Not the course to cross the city for, but a genuinely pleasant round if you are already on the tip. The clubhouse has good bay views. Practice facilities are solid. A reasonable mix of difficulty - not easy, not punishing. Suits mid-handicappers and casual weekenders particularly well.
+
+ [Open the guide →](<https://peninsulainsider.com.au/explore/sorrento-golf-club/>)
+
+[Beach](<https://peninsulainsider.com.au/explore/sorrento-ocean-baths/>)
+
+[Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)  45 min · Easy
+
+### [Sorrento Ocean Baths](<https://peninsulainsider.com.au/explore/sorrento-ocean-baths/>)
+
+Treat the rock pools at Sorrento Back Beach as a coastal walk and viewing stop. Go at low tide in calm conditions, use the marked access and stay back from the water when the swell is active. Parks Victoria warns that Sorrento Back Beach has unpredictable rips, currents and large waves. If you swim at the beach, swim only between the flags when it is patrolled and stay within your limits. Outside patrol times, keep this as a walk and a look at the coastline. The lookout and short coastal paths give you a quieter way to visit. Check current conditions and local signs before you go.
+
+ [Open the guide →](<https://peninsulainsider.com.au/explore/sorrento-ocean-baths/>)
+
+[Golf Course](<https://peninsulainsider.com.au/explore/the-dunes-golf-links/>)
+
+[Rye](<https://peninsulainsider.com.au/explore/places/rye/>)  4.5 h
+
+### [The Dunes Golf Links](<https://peninsulainsider.com.au/explore/the-dunes-golf-links/>)
+
+The Dunes is the Peninsula's other world-class public-access course - Tony Cashmore's links design carved through genuine dunes near Rye. Where St Andrews Beach feels restrained and strategic, The Dunes feels more dramatic: bigger elevation changes, more visible wind cues, more heroic lines off the tee. Both belong on any serious shortlist. Public bookings are straightforward through the course website. Weekends fill 3-4 weeks ahead in peak season. The course drains well and plays through most conditions the Peninsula offers, which makes it one of the better winter rounds in Australia. The Cups Course is the main 18; the Cottage Course is a 9-hole par-3 layout that works surprisingly well as a warm-up or a mixed-group option. Pair The Dunes with St Andrews Beach for a 36-hole weekend that shows off the full range of Peninsula public golf. Accommodation in Rye is 5 minutes away; Sorrento is 10 minutes for better dining options. Pro shop is well-stocked. Practice facilities are solid.
+
+ [Open the guide →](<https://peninsulainsider.com.au/explore/the-dunes-golf-links/>)
+
+## Nearby regions
+
+[Mornington & the Bay   The Peninsula's urban edge: the main street dining strip, the bay beaches, and the easy weekend gateway.](<https://peninsulainsider.com.au/explore/regions/mornington-bay-coast/>)[Flinders & the Ocean Coast   Wild surf beaches, the best pub on the Peninsula, and a rural quiet that feels hard-won.](<https://peninsulainsider.com.au/explore/regions/ocean-coast/>)
+
+Sorrento & Portsea in 12 photographs
+
+1  / 12
+
+Aerial view of Sorrento at soft early light, with the ferry terminal pier reaching into the bay and the town and ocean beyond  Sorrento Ferry, Mornington Peninsula.  Photo · Courtesy of Visit Victoria
+
+## The Insider Note
+
+The Peninsula worth knowing. An occasional email. What's on, where we'd go and what's worth knowing next.
+
+Independent editorial. Sent when there is something worth knowing.
+
+Unsubscribe any time  [Privacy](<https://peninsulainsider.com.au/privacy/>)

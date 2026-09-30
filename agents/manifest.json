@@ -1,0 +1,175 @@
+{
+  "schemaVersion": "2.0",
+  "generatedAt": "2026-09-30T20:05:57.171Z",
+  "snapshotId": "91ed3f174999b9a9bf68ca133e53741c818f5f7a4acdce85f2abb4d4ec722257",
+  "count": 621,
+  "catalogUrl": "https://peninsulainsider.com.au/agents/catalog.json",
+  "changesUrl": "https://peninsulainsider.com.au/agents/changes.json",
+  "guideUrl": "https://peninsulainsider.com.au/agents/",
+  "termsUrl": "https://peninsulainsider.com.au/terms/",
+  "sections": [
+    {
+      "section": "home",
+      "count": 1,
+      "url": "https://peninsulainsider.com.au/agents/sections/home.json"
+    },
+    {
+      "section": "about",
+      "count": 1,
+      "url": "https://peninsulainsider.com.au/agents/sections/about.json"
+    },
+    {
+      "section": "agents",
+      "count": 1,
+      "url": "https://peninsulainsider.com.au/agents/sections/agents.json"
+    },
+    {
+      "section": "ask",
+      "count": 1,
+      "url": "https://peninsulainsider.com.au/agents/sections/ask.json"
+    },
+    {
+      "section": "awards",
+      "count": 11,
+      "url": "https://peninsulainsider.com.au/agents/sections/awards.json"
+    },
+    {
+      "section": "boating",
+      "count": 11,
+      "url": "https://peninsulainsider.com.au/agents/sections/boating.json"
+    },
+    {
+      "section": "careers",
+      "count": 1,
+      "url": "https://peninsulainsider.com.au/agents/sections/careers.json"
+    },
+    {
+      "section": "contact",
+      "count": 1,
+      "url": "https://peninsulainsider.com.au/agents/sections/contact.json"
+    },
+    {
+      "section": "corporate-events",
+      "count": 2,
+      "url": "https://peninsulainsider.com.au/agents/sections/corporate-events.json"
+    },
+    {
+      "section": "dispatch",
+      "count": 1,
+      "url": "https://peninsulainsider.com.au/agents/sections/dispatch.json"
+    },
+    {
+      "section": "dog-friendly",
+      "count": 1,
+      "url": "https://peninsulainsider.com.au/agents/sections/dog-friendly.json"
+    },
+    {
+      "section": "eat",
+      "count": 68,
+      "url": "https://peninsulainsider.com.au/agents/sections/eat.json"
+    },
+    {
+      "section": "explore",
+      "count": 132,
+      "url": "https://peninsulainsider.com.au/agents/sections/explore.json"
+    },
+    {
+      "section": "fishing",
+      "count": 34,
+      "url": "https://peninsulainsider.com.au/agents/sections/fishing.json"
+    },
+    {
+      "section": "guides",
+      "count": 1,
+      "url": "https://peninsulainsider.com.au/agents/sections/guides.json"
+    },
+    {
+      "section": "insiders-30",
+      "count": 3,
+      "url": "https://peninsulainsider.com.au/agents/sections/insiders-30.json"
+    },
+    {
+      "section": "journal",
+      "count": 112,
+      "url": "https://peninsulainsider.com.au/agents/sections/journal.json"
+    },
+    {
+      "section": "map",
+      "count": 1,
+      "url": "https://peninsulainsider.com.au/agents/sections/map.json"
+    },
+    {
+      "section": "partners",
+      "count": 4,
+      "url": "https://peninsulainsider.com.au/agents/sections/partners.json"
+    },
+    {
+      "section": "picks",
+      "count": 1,
+      "url": "https://peninsulainsider.com.au/agents/sections/picks.json"
+    },
+    {
+      "section": "privacy",
+      "count": 1,
+      "url": "https://peninsulainsider.com.au/agents/sections/privacy.json"
+    },
+    {
+      "section": "quick-note",
+      "count": 1,
+      "url": "https://peninsulainsider.com.au/agents/sections/quick-note.json"
+    },
+    {
+      "section": "site-index",
+      "count": 1,
+      "url": "https://peninsulainsider.com.au/agents/sections/site-index.json"
+    },
+    {
+      "section": "stay",
+      "count": 48,
+      "url": "https://peninsulainsider.com.au/agents/sections/stay.json"
+    },
+    {
+      "section": "submit",
+      "count": 1,
+      "url": "https://peninsulainsider.com.au/agents/sections/submit.json"
+    },
+    {
+      "section": "terms",
+      "count": 1,
+      "url": "https://peninsulainsider.com.au/agents/sections/terms.json"
+    },
+    {
+      "section": "tour-packages",
+      "count": 9,
+      "url": "https://peninsulainsider.com.au/agents/sections/tour-packages.json"
+    },
+    {
+      "section": "tour",
+      "count": 49,
+      "url": "https://peninsulainsider.com.au/agents/sections/tour.json"
+    },
+    {
+      "section": "weddings",
+      "count": 2,
+      "url": "https://peninsulainsider.com.au/agents/sections/weddings.json"
+    },
+    {
+      "section": "whats-on",
+      "count": 61,
+      "url": "https://peninsulainsider.com.au/agents/sections/whats-on.json"
+    },
+    {
+      "section": "wine",
+      "count": 59,
+      "url": "https://peninsulainsider.com.au/agents/sections/wine.json"
+    }
+  ],
+  "retrieval": {
+    "method": "GET",
+    "negotiation": "Use explicit index.md URLs; Accept: text/markdown does not negotiate HTML URLs.",
+    "cache": "Respect Cache-Control. Send If-None-Match with the last ETag; a 304 means reuse your cached body.",
+    "retries": "On 429 or 503, honour Retry-After when provided; otherwise use bounded exponential backoff. Do not repeatedly retry 404.",
+    "concurrency": "Prefer sequential requests and fetch only the pages needed. This is client guidance, not a guaranteed service limit."
+  },
+  "unknowns": "Missing or null factual fields and check dates are unknown. Generated timestamps never verify facts."
+}

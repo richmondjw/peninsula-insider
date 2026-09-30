@@ -1,0 +1,32 @@
+Canonical: https://peninsulainsider.com.au/quick-note/
+Publisher: Peninsula Insider
+Published: unknown
+Modified: unknown
+Format: public main text, generated from the canonical page; imagery, controls and price indicators omitted.
+Dates and caveats below retain their page meaning; this format is not a new fact check.
+
+Quick Note
+
+# Thursday 1 October 2026
+
+Vol 04 · No 184     1 live briefs     Refreshed every morning     Updated 5:59 am
+
+## Today
+
+Posted in the last twenty-four hours, grouped by section.
+
+Fresh notes are being assembled for this morning.
+
+If the desk is quiet, we still publish weather, one editor's note, and the strongest service update before breakfast.
+
+## This week
+
+Still useful, fading from the live feed.
+
+[What's On  23 Sept
+
+### Hill & Ridge Community Market is listed for 3 October.](<https://peninsulainsider.com.au/quick-note/2026-09-23-hill-ridge-community-market/>)
+
+Quick Note is Peninsula Insider's daily layer. Editorial briefs about openings, menu changes, booking windows, weather, and one editor's note. Refreshed every morning; older briefs auto-archive after seven days.
+
+The full [Journal](<https://peninsulainsider.com.au/journal/>) remains the long-form record.

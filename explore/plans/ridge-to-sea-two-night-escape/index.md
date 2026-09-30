@@ -1,0 +1,280 @@
+Canonical: https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/
+Publisher: Peninsula Insider
+Published: unknown
+Modified: unknown
+Format: public main text, generated from the canonical page; imagery, controls and price indicators omitted.
+Dates and caveats below retain their page meaning; this format is not a new fact check.
+
+[Plans](<https://peninsulainsider.com.au/explore/plans/>)  Weekend (2 nights)  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+
+# Ridge to Sea: A Two-Night Peninsula Escape
+
+Start in Red Hill wine country, finish at the southern tip, and let the weekend widen as it goes.
+
+Couples  Food & wine · Coastal
+
+[See both stays →](<https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/#where-to-stay>)
+
+- Photo · Two Palms Australia, courtesy of Visit Victoria
+
+- Photo · Peter Foster, courtesy of Visit Victoria
+
+- Photo · Peter Tarasiuk, courtesy of Visit Victoria
+
+- Photo · Jesse Hisco, courtesy of Visit Victoria
+
+- Photo · Two Palms Australia, courtesy of Visit Victoria
+
+- Photo · Peter Foster, courtesy of Visit Victoria
+
+- Photo · Peter Tarasiuk, courtesy of Visit Victoria
+
+- Photo · Jesse Hisco, courtesy of Visit Victoria
+
+- Photo · Two Palms Australia, courtesy of Visit Victoria
+
+1   of 9
+
+1  / 9
+
+A grassy path between vine rows leads to the glass-fronted restaurant and umbrellas at Montalto, beneath tall pine trees  Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula.  Photo · Two Palms Australia, courtesy of Visit Victoria
+
+At a glance
+
+Use this as a route, then confirm bookings, park access and weather for your dates. My Trip drive times cover mapped stops, excluding your journey here and home.
+
+**Duration**
+
+Weekend (2 nights)
+
+**Best for**
+
+Couples
+
+**Theme**
+
+Food & wine · Coastal
+
+**Starting base**
+
+Red Hill
+
+**Best season**
+
+Year-round
+
+**Night 1**
+
+[Jackalope Hotel](<https://peninsulainsider.com.au/stay/jackalope/>)
+
+**Night 2**
+
+[Hotel Sorrento](<https://peninsulainsider.com.au/stay/hotel-sorrento/>)
+
+**Budget**
+
+Flexible budget
+
+**Stops**
+
+6 sequenced stops
+
+[See first stay →](<https://peninsulainsider.com.au/stay/jackalope/?utm_source=peninsula-insider&utm_medium=escape&utm_campaign=ridge-to-sea-two-night-escape&utm_content=facts>)
+
+Start with lunch and a night on the ridge, then move south for the coast and a second night in Sorrento. Each day changes register: vineyards first, a coastal walk next, Point Nepean to finish. Book the two stays and lunches before arranging the rest. Day two has the most moving parts, so have an unhurried breakfast near your stay and leave the short coastal stop out if lunch runs long.
+
+## Day 1  Vineyards and your first stay
+
+- Midday
+
+### [Montalto Vineyard & Olive Grove](<https://peninsulainsider.com.au/wine/montalto/>)
+
+Reserve The Restaurant for Friday to Sunday lunch, or use the walk-in Piazza on another day. Confirm sculpture park hours before arriving.
+
+- Evening
+
+### [Jackalope Hotel](<https://peninsulainsider.com.au/stay/jackalope/>)
+
+Check in on the ridge and commit to the theatrical version of the Peninsula for night one.
+
+Night 1 · Where you sleep
+
+Stay at Jackalope Hotel tonight. Confirm check-in and dinner for your date before you travel.
+
+[See Jackalope Hotel →](<https://peninsulainsider.com.au/stay/jackalope/?utm_source=peninsula-insider&utm_medium=escape&utm_campaign=ridge-to-sea-two-night-escape&utm_content=inflow>)
+
+## Day 2  Coast and a second base
+
+- Midday
+
+### [Polperro](<https://peninsulainsider.com.au/wine/polperro/>)
+
+Keep lunch lighter today. Polperro Restaurant and Cellar Door are closed on Mondays and Tuesdays; check service times and book lunch before setting your itinerary.
+
+- Afternoon
+
+### [Cape Schanck Boardwalk](<https://peninsulainsider.com.au/explore/cape-schanck-boardwalk/>)
+
+Choose the shorter Cape Schanck boardwalk and lookouts if daylight, weather and park access suit after lunch. Leave the two-hour Bushrangers Bay walk for a morning start.
+
+- Night
+
+### [Hotel Sorrento](<https://peninsulainsider.com.au/stay/hotel-sorrento/>)
+
+Sleep at the tip with a bay-view drink before dinner downstairs or nearby.
+
+Night 2 · Where you sleep
+
+Stay at Hotel Sorrento tonight. Confirm check-in and dinner for your date before you travel.
+
+[See Hotel Sorrento →](<https://peninsulainsider.com.au/stay/hotel-sorrento/?utm_source=peninsula-insider&utm_medium=escape&utm_campaign=ridge-to-sea-two-night-escape&utm_content=inflow>)
+
+## Day 3  Point Nepean and home
+
+- Morning
+
+### [Point Nepean Fort Walk](<https://peninsulainsider.com.au/explore/point-nepean-fort-walk/>)
+
+Finish with the long view over the Heads before heading back to Melbourne.
+
+## Booking checklist
+
+- essential  First night at Jackalope and second night at Hotel Sorrento
+
+- recommended  Montalto Restaurant Friday to Sunday or the daily Piazza, plus Polperro lunch availability
+
+Sleep here
+
+## Your two overnight bases
+
+[All stays →](<https://peninsulainsider.com.au/stay/>)
+
+Hotel  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+
+### [Jackalope Hotel](<https://peninsulainsider.com.au/stay/jackalope/>)
+
+166 Balnarring Rd, Merricks North VIC 3926 · $$$$
+
+A dramatic art-led design hotel set inside a working vineyard, with Doot Doot Doot's eight-metre chandelier overhead.
+
+anniversary  weekend escape
+
+[Read notes](<https://peninsulainsider.com.au/stay/jackalope/>) [View stay](<https://jackalopehotels.com/mornington-peninsula>)
+
+Hotel  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
+
+### [Hotel Sorrento](<https://peninsulainsider.com.au/stay/hotel-sorrento/>)
+
+5-15 Hotham Rd, Sorrento VIC 3943 · $$$
+
+A grand old bay-facing pub-hotel whose best rooms still make Sorrento feel gloriously old-school.
+
+weekend escape  waterfront
+
+[Read notes](<https://peninsulainsider.com.au/stay/hotel-sorrento/>) [View stay](<https://hotelsorrento.com.au/stay>)
+
+Move the trip outside
+
+## Explore stops inside this plan
+
+[Explore →](<https://peninsulainsider.com.au/explore/>)
+
+[Lookout](<https://peninsulainsider.com.au/explore/cape-schanck-boardwalk/>)
+
+[Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-schanck/>)  35 min · Easy
+
+### [Cape Schanck Boardwalk](<https://peninsulainsider.com.au/explore/cape-schanck-boardwalk/>)
+
+The Cape Schanck boardwalk is short, obvious, and absolutely worth doing. A lot of Peninsula viewpoints require an act of faith before they pay off; this one gives you the basalt formations, the pounding water, and the lighthouse almost immediately. Think of it as the Southern Ocean aperitif before a longer walk or a late lunch inland. It is particularly good for visitors who want scale and coastline without needing to dedicate half the day to it.
+
+ [Open the guide →](<https://peninsulainsider.com.au/explore/cape-schanck-boardwalk/>)
+
+[Attraction](<https://peninsulainsider.com.au/explore/point-nepean-fort-walk/>)
+
+[Point Nepean](<https://peninsulainsider.com.au/explore/places/point-nepean/>)  2 h · Easy
+
+### [Point Nepean Fort Walk](<https://peninsulainsider.com.au/explore/point-nepean-fort-walk/>)
+
+Point Nepean rewards people who are happy to walk a little further than the average Peninsula day-tripper. The road and paths out toward Fort Nepean unfold through old quarantine buildings, scrub, and cliff-edge lookouts before the whole place gives way to bunkers and artillery emplacements looking straight across the Heads. It is a history lesson, a coastline walk, and a very good excuse to leave Sorrento for the afternoon. Hire bikes if you want to cover more ground, but walking keeps the mood right.
+
+ [Open the guide →](<https://peninsulainsider.com.au/explore/point-nepean-fort-walk/>)
+
+Further reading
+
+## Journal pieces that sharpen this version of the Peninsula
+
+[Journal →](<https://peninsulainsider.com.au/journal/>)
+
+Slow Peninsula   7 min
+
+### [A Flinders Weekend: The Case for the Quiet Side of the Peninsula](<https://peninsulainsider.com.au/journal/a-flinders-weekend/>)
+
+4 April 2026
+
+When Red Hill is booked out and Sorrento feels like a queue, there is another version of the Peninsula weekend that runs south of everything, closer to the ocean, and slower on purpose.
+
+Editor's Letter   8 min
+
+### [A Winter Peninsula Weekend: The Case for Coming in July](<https://peninsulainsider.com.au/journal/a-winter-peninsula-weekend/>)
+
+13 April 2026
+
+Short days, cheap rooms, empty dining rooms, a fire in every cellar door with a hearth, and a coast that looks like a different country in a southerly. Winter is the Peninsula's most underrated season and the one that gives the region back to the people who actually live here.
+
+Try another shape
+
+## More ways to explore the Peninsula
+
+[All plans →](<https://peninsulainsider.com.au/explore/plans/>)
+
+Plan
+
+### [The Sorrento Off-Season Weekend](<https://peninsulainsider.com.au/explore/plans/sorrento-off-season-weekend/>)
+
+Two nights based in Sorrento, with the back beach, Point Nepean and a village dinner. The second evening takes you out to Pt. Leo Estate.
+
+Two-night escape · Best for couple · Sorrento
+
+[View Plan →](<https://peninsulainsider.com.au/explore/plans/sorrento-off-season-weekend/>)
+
+Plan
+
+### [Flinders and the Cape: A One-Night Reset](<https://peninsulainsider.com.au/explore/plans/flinders-and-cape-reset/>)
+
+For people who want salt air, one excellent meal, and just enough structure to stop planning.
+
+One-night escape · Best for couple · Flinders
+
+[View Plan →](<https://peninsulainsider.com.au/explore/plans/flinders-and-cape-reset/>)
+
+Plan
+
+### [A Peninsula Wellness Weekend](<https://peninsulainsider.com.au/explore/plans/wellness-weekend/>)
+
+Thermal pools, a coastal walk and vineyard meals, with two nights to slow down at the same Red Hill stay.
+
+Two-night escape · Best for couple · Peninsula
+
+[View Plan →](<https://peninsulainsider.com.au/explore/plans/wellness-weekend/>)
+
+## The Insider Note
+
+More good Peninsula ideas for your next escape. Places we would go, things worth doing and selected guides, straight to your inbox.
+
+Independent editorial. Sent when there is something worth knowing.
+
+ Email address
+
+Unsubscribe any time  [See recent Peninsula picks](<https://peninsulainsider.com.au/picks/>) [Privacy](<https://peninsulainsider.com.au/privacy/>)
+
+### What lands in your inbox
+
+- **Weekend inspiration** What is worth doing and where we would go.
+
+- **Seasonal picks** Places and experiences worth knowing now.
+
+- **Local notes** Useful observations you might otherwise miss.
+
+- **From the Journal** Selected guides and stories worth reading.
+
+ [More about the Note](<https://peninsulainsider.com.au/dispatch/>)

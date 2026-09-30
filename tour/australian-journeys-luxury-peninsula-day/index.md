@@ -1,0 +1,106 @@
+Canonical: https://peninsulainsider.com.au/tour/australian-journeys-luxury-peninsula-day/
+Publisher: Peninsula Insider
+Published: unknown
+Modified: 2026-04-29
+Format: public main text, generated from the canonical page; imagery, controls and price indicators omitted.
+Dates and caveats below retain their page meaning; this format is not a new fact check.
+
+Tours     Food & Wine
+
+# Luxury Peninsula Day - Private Wine and Food Tour
+
+Australian Journeys operates exclusively private tours for groups of 2 to 11, with a fleet that scales the vehicle to the group: large SUV, 11-seater mini-bus, 24-seater bus, or private car. The gourmet food and wine focus is the operator's core positioning, with fine dining Peninsula venues forming the centrepiece of each day alongside cellar door visits. Established in 2019, the per-person entry point is one of the more accessible starting points in the premium-private category.
+
+## At a glance
+
+Duration
+
+Full day (approx. 8 hours)
+
+Departs from
+
+Melbourne CBD (door-to-door)
+
+Group size
+
+Private charter - max 11 guests
+
+Price band
+
+Premium
+
+Languages
+
+EN
+
+Cancellation
+
+Free cancellation within 24 hours. Confirm terms for your specific booking with the operator.
+
+### Check availability - Australian Journeys
+
+Pricing and availability are managed directly by the operator. Booking through the link below confirms your place directly with Australian Journeys.
+
+ [Book this tour →](<https://australianjourneys.com.au/product/mornington-peninsula-wine-tour-for-2/?utm_source=peninsula-insider&utm_medium=tour-vertical&utm_campaign=australian-journeys-luxury-peninsula-day&utm_content=hero>)
+
+## What happens on this tour
+
+Private pickup from Melbourne CBD, with the vehicle matched to the group size. Transit to the Peninsula with orientation from the guide, covering the Peninsula's geography and growing conditions. The morning opens with a private tasting at the first selected winery, where the private format allows extended time at each stop without managing a group schedule. The day's centrepiece is a gourmet Peninsula lunch at a fine dining venue, chosen by the guide to match the group's preferences and dietary requirements. An afternoon tasting stop at a second producer follows, typically sequenced to complement rather than duplicate the morning. A third stop, a scenic detour, or an artisan producer visit fills the afternoon before the door-to-door return to Melbourne CBD. Total duration is 6 to 10 hours depending on group pace.
+
+## Who this suits
+
+Couples and small groups who want complete privacy and a gourmet food focus alongside their cellar door visits. Groups of 4 to 11 where the per-person rate becomes meaningfully competitive. English-speaking guests who want the private-charter experience at a lower absolute cost than Localing. Groups celebrating an anniversary or similar occasion who want a fine dining Peninsula experience as the day's centrepiece.
+
+### Who should look elsewhere
+
+Groups wanting multilingual guiding: Australian Journeys operates in English only. Guests who want a confirmed independent review record before booking: the operator's Tripadvisor profile was not verified at the time of writing. Groups larger than 11, although the 24-seater bus within the fleet can accommodate larger private groups on request.
+
+## Booking intelligence
+
+Confirm the per-person rate for your specific group size before proceeding: the headline rate reflects a particular group configuration. Confirm whether the gourmet lunch is included in the tour fare or budgeted separately. Confirm cellar door tasting fee inclusion. Ask for the specific restaurant name for your booking date and review it independently rather than accepting a general assurance of premium quality. Free cancellation applies within 24 hours; verify this applies to your booking.
+
+## Frequently asked questions
+
+### Is every booking private, or are we sharing with other guests?
+
+Every Australian Journeys booking is exclusively private. Groups of 2 to 11 are accommodated, with the vehicle matched to the group size. There are no shared-group departures. Contact the operator directly for groups above 11, as the 24-seater bus within the fleet may be available.
+
+### What makes this tour 'luxury' rather than just 'private'?
+
+The luxury designation reflects the gourmet food and wine focus. The operator's itinerary is structured around fine dining Peninsula venues rather than a standard cellar door lunch, and the wine selection at each stop is curated for quality rather than variety. Whether the experience justifies the premium over a mid-range private operator depends on the group's priorities around food quality and venue calibre.
+
+### How does this compare to Localing at a higher price point?
+
+Localing's per-couple fare is materially higher than Australian Journeys' starting point. The practical differences: Localing offers confirmed multilingual guiding in six languages; Australian Journeys operates in English only. Localing's Tripadvisor record is verified; Australian Journeys' record was unconfirmed at the time of writing. For English-speaking guests who want a private gourmet Peninsula day at a lower absolute cost, Australian Journeys is the more accessible entry point into the premium-private category.
+
+Related planning
+
+## Build this into a longer trip
+
+### [Tour packages](<https://peninsulainsider.com.au/tour-packages/>)
+
+We pair this and similar tours with an anchor stay to create complete Peninsula weekends. Browse multi-day packages built around operator-led experiences.
+
+[Browse packages →](<https://peninsulainsider.com.au/tour-packages/>)
+
+### [Where to stay](<https://peninsulainsider.com.au/stay/>)
+
+The right base changes the whole trip. Our stay guide covers the Peninsula's best properties by location, budget, and mood.
+
+[Find a stay →](<https://peninsulainsider.com.au/stay/>)
+
+### [Australian Journeys](<https://peninsulainsider.com.au/tour/operators/australian-journeys/>)
+
+View all tours from this operator, including seasonal departures and private charter options.
+
+[All Australian Journeys tours →](<https://peninsulainsider.com.au/tour/operators/australian-journeys/>)
+
+Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
+
+## The Insider Note
+
+The Peninsula worth knowing. An occasional email. What's on, where we'd go and what's worth knowing next.
+
+Independent editorial. Sent when there is something worth knowing.
+
+Unsubscribe any time  [Privacy](<https://peninsulainsider.com.au/privacy/>)

@@ -1,5 +1,7 @@
 Canonical: https://peninsulainsider.com.au/wine/baillieu-vineyard/
 Publisher: Peninsula Insider
+Published: unknown
+Modified: unknown
 Format: public main text, generated from the canonical page; imagery, controls and price indicators omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -89,7 +91,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Avani Wines](<https://peninsulainsider.com.au/wine/avani-wines/>)
 
-112 Shoreham Rd, Red Hill South VIC 3937 · $$
+98 Stanleys Road, Red Hill South VIC 3937 · $$
 
 Shashi and Rohit Singh's biodynamic family estate, one of the Peninsula's only serious Syrah programs alongside the Amrit single-vineyard range.
 
