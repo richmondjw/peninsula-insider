@@ -2,32 +2,34 @@ Canonical: https://peninsulainsider.com.au/stay/sanctuary-at-alba/
 Publisher: Peninsula Insider
 Published: unknown
 Modified: unknown
-Format: public main text, generated from the canonical page; imagery, controls and price indicators omitted.
+Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
 [Stay](<https://peninsulainsider.com.au/stay/>)    Villa    [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
 # The Sanctuary at Alba
 
-Five standalone villas and two rooms on Alba’s Fingal estate, with hot springs entry and breakfast included in the published accommodation offer.
+Five secluded villas or two premium rooms above Alba’s springs, with daily bathing and breakfast at Thyme included.
 
-Known for   Alba Estate Accommodation Five Villas and Two Rooms Hot Springs Entry Breakfast at Thyme
+Known for   On-site Alba stay Villas and premium rooms Daily springs entry Breakfast at Thyme
 
 [Check availability](<https://albathermalsprings.com.au/alba-experiences/the-sanctuary/>)
 
 The Sanctuary at Alba · Fingal
 
-Photo · Peninsula Insider
+Photo · Courtesy of Visit Victoria
+
+Illustrative image  This photograph shows the Alba Thermal Springs estate in Fingal. It is not a photograph of The Sanctuary at Alba.
 
 Why we’d go
 
-A stay at Alba makes bathing, breakfast and your accommodation part of the same visit.
+Staying on Alba’s estate leaves more time to bathe and removes the off-site return drive.
 
-The Sanctuary is Alba’s accommodation in Fingal: five standalone villas and two rooms set above the thermal springs. Choose it when Alba is the focus of your visit and you want to stay with the same operator.
+The Sanctuary is Alba’s accommodation on its Fingal estate. Choose a standalone villa for more space, a private deck and a fireplace, or one of two premium rooms for a different layout. Villas 1–3 have stone baths; check the specific unit before booking.
 
-The published villa and room inclusions cover hot springs entry for each day of the stay, breakfast at Thyme and access to the spa lounge and private changerooms. The villas have a different layout from the rooms, and some villa bathrooms include a stone bath. Check the specific accommodation description before choosing.
+Both formats include springs entry for each day of the stay, one private-pool upgrade, access to the spa lounge and private changerooms, breakfast at Thyme each morning, and transfers to the main building. Do not assume a private pool is attached to your villa or room.
 
-Spa treatments need their own arrangements. Settle those reservations before planning the rest of the stay, and allow time to enjoy the springs without driving to another town between activities.
+Arrange spa treatments separately, and book any restaurant visit beyond the included breakfast with Alba. With accommodation and bathing on one estate, you can leave the rest of the day light.
 
 Part of Alba Thermal Springs
 
@@ -37,11 +39,11 @@ Worth knowing
 
 **Best for**
 
-Anniversary weekends · Special occasions · Couples · Luxury stays
+Anniversary weekends · Couples · Luxury stays · Bathing-led stays
 
 If you only do one thing
 
-Compare the villa and room layouts, then book any spa treatments alongside your accommodation.
+Choose the villa or room format, then reserve any spa treatment or dinner you want.
 
 Works well with
 
@@ -69,7 +71,7 @@ $$$$
 
 **Directions**
 
-[Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.444%2C144.867>)
+[Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.39219%2C144.84614>)
 
 **Live status**
 

@@ -2,7 +2,7 @@ Canonical: https://peninsulainsider.com.au/explore/plans/the-family-day-out/
 Publisher: Peninsula Insider
 Published: unknown
 Modified: unknown
-Format: public main text, generated from the canonical page; imagery, controls and price indicators omitted.
+Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
 [Plans](<https://peninsulainsider.com.au/explore/plans/>)  Day trip  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)

@@ -2,7 +2,7 @@ Canonical: https://peninsulainsider.com.au/journal/insider-picks-2026-07-24/
 Publisher: Peninsula Insider
 Published: 2026-07-24T00:00:00.000Z
 Modified: 2026-07-24T00:00:00.000Z
-Format: public main text, generated from the canonical page; imagery, controls and price indicators omitted.
+Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
 Insider Edit  24 July 2026  4 min read

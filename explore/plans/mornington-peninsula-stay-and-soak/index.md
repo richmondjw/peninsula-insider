@@ -2,7 +2,7 @@ Canonical: https://peninsulainsider.com.au/explore/plans/mornington-peninsula-st
 Publisher: Peninsula Insider
 Published: unknown
 Modified: unknown
-Format: public main text, generated from the canonical page; imagery, controls and price indicators omitted.
+Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
 Spa stay guide
@@ -117,7 +117,7 @@ Places in this plan
 
 ## Worth knowing before you go.
 
-Spa  [Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-schanck/>)
+Spa  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
 ### [Peninsula Hot Springs](<https://peninsulainsider.com.au/explore/spas-and-wellness/#peninsula-hot-springs>)
 

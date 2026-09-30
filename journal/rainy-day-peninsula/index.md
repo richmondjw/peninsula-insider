@@ -2,7 +2,7 @@ Canonical: https://peninsulainsider.com.au/journal/rainy-day-peninsula/
 Publisher: Peninsula Insider
 Published: 2026-04-03T00:00:00.000Z
 Modified: 2026-04-03T00:00:00.000Z
-Format: public main text, generated from the canonical page; imagery, controls and price indicators omitted.
+Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
 Service  3 April 2026  6 min read
@@ -189,7 +189,7 @@ wellness  rainy day
 
 [Read notes](<https://peninsulainsider.com.au/explore/spas-and-wellness/#alba-thermal-springs>) [View stay](<https://albathermalsprings.com.au/book>)
 
-Spa  [Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-schanck/>)
+Spa  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
 ### [Peninsula Hot Springs](<https://peninsulainsider.com.au/explore/spas-and-wellness/#peninsula-hot-springs>)
 

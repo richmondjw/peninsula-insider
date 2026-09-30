@@ -2,7 +2,7 @@ Canonical: https://peninsulainsider.com.au/insiders-30/2026/
 Publisher: Peninsula Insider
 Published: unknown
 Modified: unknown
-Format: public main text, generated from the canonical page; imagery, controls and price indicators omitted.
+Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
 The Insider's 30 · Archive · 2026     Annual editorial
@@ -109,7 +109,7 @@ The thermal complex that found its architectural confidence and built the day ar
 
 ## Peninsula Hot Springs
 
-$$$ · Cape Schanck
+$$$ · Fingal
 
 The category's senior - sprawling, ritual-led, and still a singular Peninsula day out.](<https://peninsulainsider.com.au/explore/spas-and-wellness/#peninsula-hot-springs>)
 

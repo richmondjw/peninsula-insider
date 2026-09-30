@@ -2,7 +2,7 @@ Canonical: https://peninsulainsider.com.au/explore/
 Publisher: Peninsula Insider
 Published: unknown
 Modified: unknown
-Format: public main text, generated from the canonical page; imagery, controls and price indicators omitted.
+Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
 # Things to do on the Mornington Peninsula
@@ -575,7 +575,7 @@ Springs & spa   Cape Schanck
 
 The original Peninsula thermal springs, still the biggest, still the most complete wellness circuit for people who want the full ritual.
 
-Springs & spa   Cape Schanck
+Springs & spa   Fingal
 
 - ### [Point Nepean Fort Walk](<https://peninsulainsider.com.au/explore/point-nepean-fort-walk/>)
 

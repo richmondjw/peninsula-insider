@@ -2,7 +2,7 @@ Canonical: https://peninsulainsider.com.au/eat/laura-pt-leo/
 Publisher: Peninsula Insider
 Published: unknown
 Modified: unknown
-Format: public main text, generated from the canonical page; imagery, controls and price indicators omitted.
+Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
 [Eat & Drink](<https://peninsulainsider.com.au/eat/>)    Restaurant    [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
@@ -25,7 +25,7 @@ A small dining room, a seasonal menu and time to settle into the estate: Laura s
 
 Laura is the fine-dining restaurant at Pt. Leo Estate in Merricks, separate from Pt. Leo Restaurant and the Wine Terrace. The operator describes a room for up to 40 guests, with a four-course Signature menu and an eight-course Seasonal menu. A two-course option is also offered on weekdays. Confirm the current menu when booking.
 
-Lunch is served Friday to Monday from noon, with Saturday dinner from 6pm. Service can change for private events, so check your date directly with the estate.
+Lunch is served Friday to Monday from noon, with Saturday dinner from 6pm. Service can change for private events, so check your date directly with the estate. The estate advises reservations, and requires them on weekends, during peak periods and on public holidays.
 
 Laura is not suitable for children under eight. It does not offer a children's menu, high chairs or space for prams. Confirm suitability directly for an eight-year-old; Pt. Leo Restaurant is the estate's alternative for younger children.
 

@@ -2,7 +2,7 @@ Canonical: https://peninsulainsider.com.au/stay/coastal-stays/
 Publisher: Peninsula Insider
 Published: unknown
 Modified: 2026-04-24
-Format: public main text, generated from the canonical page; imagery, controls and price indicators omitted.
+Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
 # Coastal Stays on the Mornington Peninsula
@@ -233,7 +233,7 @@ Villa  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
 282 Browns Road, Fingal VIC 3939 · $$$$
 
-Five standalone villas and two rooms on Alba’s Fingal estate, with hot springs entry and breakfast included in the published accommodation offer.
+Five secluded villas or two premium rooms above Alba’s springs, with daily bathing and breakfast at Thyme included.
 
 wellness  anniversary
 

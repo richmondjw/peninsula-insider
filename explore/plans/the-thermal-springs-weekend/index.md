@@ -2,7 +2,7 @@ Canonical: https://peninsulainsider.com.au/explore/plans/the-thermal-springs-wee
 Publisher: Peninsula Insider
 Published: unknown
 Modified: unknown
-Format: public main text, generated from the canonical page; imagery, controls and price indicators omitted.
+Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
 Two-night thermal plan
@@ -123,7 +123,7 @@ wellness  rainy day
 
 [Read notes](<https://peninsulainsider.com.au/explore/spas-and-wellness/#alba-thermal-springs>) [View stay](<https://albathermalsprings.com.au/book>)
 
-Spa  [Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-schanck/>)
+Spa  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
 ### [Peninsula Hot Springs](<https://peninsulainsider.com.au/explore/spas-and-wellness/#peninsula-hot-springs>)
 

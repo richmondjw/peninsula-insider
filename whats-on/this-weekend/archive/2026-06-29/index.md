@@ -2,7 +2,7 @@ Canonical: https://peninsulainsider.com.au/whats-on/this-weekend/archive/2026-06
 Publisher: Peninsula Insider
 Published: 2026-06-29T00:00:00.000Z
 Modified: 2026-06-29T00:00:00.000Z
-Format: public main text, generated from the canonical page; imagery, controls and price indicators omitted.
+Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
 Peninsula This Weekend · Archive     4–5 July

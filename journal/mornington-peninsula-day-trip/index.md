@@ -2,7 +2,7 @@ Canonical: https://peninsulainsider.com.au/journal/mornington-peninsula-day-trip
 Publisher: Peninsula Insider
 Published: unknown
 Modified: unknown
-Format: public main text, generated from the canonical page; imagery, controls and price indicators omitted.
+Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
 Service     By Peninsula Insider editors     Autumn 2026     7 min read

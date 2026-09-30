@@ -2,7 +2,7 @@ Canonical: https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/
 Publisher: Peninsula Insider
 Published: unknown
 Modified: unknown
-Format: public main text, generated from the canonical page; imagery, controls and price indicators omitted.
+Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
 [Stay](<https://peninsulainsider.com.au/stay/>)    Glamping    [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
@@ -69,7 +69,7 @@ $$$
 
 **Directions**
 
-[Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.4542%2C144.8661>)
+[Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.40693%2C144.84273>)
 
 **Live status**
 

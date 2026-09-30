@@ -2,7 +2,7 @@ Canonical: https://peninsulainsider.com.au/explore/pt-leo-sculpture-park/
 Publisher: Peninsula Insider
 Published: unknown
 Modified: unknown
-Format: public main text, generated from the canonical page; imagery, controls and price indicators omitted.
+Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
 [Gallery](<https://peninsulainsider.com.au/explore/>)   [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)    1.5 h

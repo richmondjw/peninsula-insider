@@ -2,7 +2,7 @@ Canonical: https://peninsulainsider.com.au/picks/
 Publisher: Peninsula Insider
 Published: unknown
 Modified: unknown
-Format: public main text, generated from the canonical page; imagery, controls and price indicators omitted.
+Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
 A short selection
@@ -14,6 +14,8 @@ Places and experiences worth a closer look
 Insider Picks is a short selection of places, experiences and discoveries, with a reason for each recommendation. A new edition appears when a fresh selection is ready. Each carries its publication date; check venue hours and booking details before making plans.
 
 ## Recent selections
+
+- [Moke Dining in Flinders, the Bushrangers Bay boardwalk, and the Hill & Ridge Market](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-01/>) - Michael Cole's five-course set menu in Flinders, the Bushrangers Bay boardwalk track at spring peak, and the Hill & Ridge Community Market at Red Hill Recreation Reserve on Saturday.
 
 - [Red Hill Brewery's hop garden, the spring wildflower window on Arthurs Seat, and Peninsula Hot Springs Sunday Sessions](<https://peninsulainsider.com.au/journal/insider-picks-2026-09-30/>) - Red Hill Brewery pours from its own estate hop garden, Arthurs Seat's Seawinds Garden hits peak spring bloom, and Peninsula Hot Springs launches its Sunday Sessions series in Fingal.
 
@@ -36,8 +38,6 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 - [Insider Picks: 16 September 2026](<https://peninsulainsider.com.au/journal/insider-picks-2026-09-16/>) - Barragunda Dining's spring farm menu at Cape Schanck, the clifftop wildflower walk from Bushrangers Bay to Cape Schanck, and the National Works on Paper 2026 exhibition at Mornington Peninsula Regional Gallery.
 
 - [Insider Picks: 15 September 2026](<https://peninsulainsider.com.au/journal/insider-picks-2026-09-15/>) - Two Bays' gluten-free pale ale on the Dromana deck, the Arthurs Seat wildflower circuit at peak wattle, and National Works on Paper 2026 at Mornington Peninsula Regional Gallery.
-
-- [Insider Picks: 14 September 2026](<https://peninsulainsider.com.au/journal/insider-picks-2026-09-14/>) - The Continental's rooftop at the first warm dusk of spring, the Greens Bush loop as yellow-faced honeyeaters return, and Balnarring Farmers' Market for the season's first new-season garlic.
 
 ## Planning a particular weekend?
 

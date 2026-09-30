@@ -1,95 +1,97 @@
 Canonical: https://peninsulainsider.com.au/stay/hot-springs-accommodation/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-05-08
-Format: public main text, generated from the canonical page; imagery, controls and price indicators omitted.
+Modified: 2026-10-01
+Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-# Hot Springs Accommodation on the Mornington Peninsula
+# Stay where the springs are.
 
-The thermal precinct logic on the Peninsula is simple: staying inside or directly adjacent to the springs removes the driving problem and adds the early-morning, late-evening access window that day visitors never get. Two minutes in the pools at 7am before any crowd has arrived is a qualitatively different experience from peak-period bathing.
+Three stays, two thermal operators, one useful first decision: choose the bathing experience before the room.
 
-The tightest integration is the Peninsula Hot Springs precinct itself, near Rye. [Peninsula Hot Springs Glamping](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/>) - ten canvas pods in garden, lake, and secluded pavilion settings - sits physically inside the grounds, thirty seconds from the Spa Dreaming Centre. Heated geothermal concrete floors, king beds, private decks, all-site bathing access included. The [Eco Lodges](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-eco-lodges/>) at the same site are the enclosed version: private in-room geothermal baths for when canvas is not the point. Both are 16+ only. Book a two-night package if you can - arrive mid-afternoon, bathe at dusk, eat dinner at the on-site Amphitheatre restaurant, and go back to the pools before bed.
+[Compare the stays](<https://peninsulainsider.com.au/stay/hot-springs-accommodation/#compare-stays>) [Before you book](<https://peninsulainsider.com.au/stay/hot-springs-accommodation/#booking-order>)
 
-The Alba thermal option: [Sanctuary at Alba](<https://peninsulainsider.com.au/stay/sanctuary-at-alba/>) opened June 2025 as the Peninsula's first purpose-built thermal villa stay at Alba Thermal Springs, Fingal. Five villas and two studios, each with a private heated mineral plunge pool and full all-day access to Alba's cave pools, cold plunge, and hydrotherapy circuit. The property operates on a different register to PHS - quieter, more design-conscious, adults-focused. Alba is five minutes from Peninsula Hot Springs by road, which makes a two-springs itinerary workable from this base.
+An Eco Lodge room at Peninsula Hot Springs, one of the stays compared here. Courtesy of Visit Victoria.
 
-Beyond the precinct: [Yurt Hideaway](<https://peninsulainsider.com.au/stay/yurt-hideaway/>) in Tootgarook is a single six-metre Mongolian yurt five minutes from PHS - the most affordable thermal-adjacent option, with a 4.97-star host rating. The right choice when you want proximity to the springs without the on-site premium.
+## Choose the stay that changes your day.
 
-Researched from published sources. Every venue listed was reviewed April 2026 or later.
+Each option keeps you with its springs operator. Pick the accommodation format that suits you, then check the operator’s live booking details.
 
-Hot springs stays
+Peninsula Hot Springs · Fingal
 
-## 4 places to sleep near the Peninsula's thermal springs
+### Peninsula Hot Springs Glamping
 
-Inside the PHS precinct, thermal-anchored villas at Alba, and the best nearby bases for the early-morning pool window.
+For sleeping under canvas with the springs on the same grounds.
 
- [Wellness retreats →](<https://peninsulainsider.com.au/stay/wellness-retreats/>)
+Choose a Garden View, Lake View or Secluded Pavilion setting. The operator lists bathing across its site with its glamping packages.
 
-Glamping  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
+**Check before booking**
 
-### [Peninsula Hot Springs Glamping](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/>)
+Confirm the package, guest age rules and access times for your dates. Arrange dining, private bathing and treatments separately if they are not in your booking.
 
-140 Springs Lane, Fingal VIC 3939 · $$$
+[Read our stay notes](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/>) [See operator details](<https://www.peninsulahotsprings.com/accommodation/glamping>)
 
-Glamping accommodation within Peninsula Hot Springs in Fingal, with garden-view, lake-view and secluded pavilion options for a stay built around bathing.
+Peninsula Hot Springs · Fingal
 
-wellness  anniversary
+### Peninsula Hot Springs Eco Lodges
 
-[Read notes](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/>) [View stay](<https://www.peninsulahotsprings.com/accommodation>)
+For a lodge room and a private geothermal bathing space.
 
-Glamping  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
+Rooms are booked individually within the lodges. The Springs Room and Peninsula Suite have different private bathing arrangements; the operator also lists site-wide bathing with its lodge packages.
 
-### [Peninsula Hot Springs Eco Lodges](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-eco-lodges/>)
+**Check before booking**
 
-140 Springs Lane, Fingal VIC 3939 · $$$$
+Compare the exact room type and current inclusions before reserving. A private bath is not the same thing as booking a private treatment.
 
-Eco lodge accommodation at Peninsula Hot Springs in Fingal, a separate option from glamping for a stay centred on geothermal bathing.
+[Read our stay notes](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-eco-lodges/>) [See operator details](<https://www.peninsulahotsprings.com/accommodation/eco-lodges>)
 
-wellness  anniversary
+Alba Thermal Springs · Fingal
 
-[Read notes](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-eco-lodges/>) [View stay](<https://www.peninsulahotsprings.com/accommodation/eco-lodges/>)
+### The Sanctuary at Alba
 
-Villa  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
+For a villa or room above Alba’s own thermal springs.
 
-### [The Sanctuary at Alba](<https://peninsulainsider.com.au/stay/sanctuary-at-alba/>)
+Alba lists five standalone villas and two premium rooms. Its accommodation includes bathing on each day of the stay, breakfast at Thyme and one private pool upgrade.
 
-282 Browns Road, Fingal VIC 3939 · $$$$
+**Check before booking**
 
-Five standalone villas and two rooms on Alba’s Fingal estate, with hot springs entry and breakfast included in the published accommodation offer.
+Compare a villa with a room, and reserve spa treatments separately. The private pool upgrade is an experience, not a plunge pool attached to every room.
 
-wellness  anniversary
+[Read our stay notes](<https://peninsulainsider.com.au/stay/sanctuary-at-alba/>) [See operator details](<https://albathermalsprings.com.au/alba-experiences/the-sanctuary/>)
 
-[Read notes](<https://peninsulainsider.com.au/stay/sanctuary-at-alba/>) [View stay](<https://albathermalsprings.com.au/alba-experiences/the-sanctuary/>)
+### Want a separate base?
 
-Glamping  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
+Stay in a town that suits the rest of your trip. Book bathing directly with the springs operator and plan the journey between your accommodation and Fingal.
 
-### [Yurt Hideaway](<https://peninsulainsider.com.au/stay/yurt-hideaway/>)
+ [Explore all stays](<https://peninsulainsider.com.au/stay/>)
 
-Tootgarook VIC 3941 · $$
+## Book in the right order.
 
-A traditional 6-metre Mongolian yurt in Tootgarook, five minutes from Peninsula Hot Springs, hosted by yoga instructors, 4.97 stars.
+A stay and a spa treatment are different reservations. Work from the fixed parts of the trip outward.
 
-wellness  romance
+- **Choose the operator and room.** Read the live room or package page for bathing inclusions, age rules, arrival times and cancellation terms.
 
-[Read notes](<https://peninsulainsider.com.au/stay/yurt-hideaway/>) [View stay](<https://yurthideaway.com.au/>)
+- **Reserve the extras.** Add any treatments, private bathing or dining you want when you book. Do not assume they come with the room.
 
-## Planning the stay
+- **Set the journey.** Staying on site reduces travel between room and pools. If you are staying elsewhere or visiting both operators, arrange transport and separate bathing bookings.
 
-### Can you stay at Peninsula Hot Springs?
+## The practical questions.
 
-Yes, via the glamping precinct. Peninsula Hot Springs Glamping (canvas pods) and the Eco Lodges (enclosed) both sit inside the PHS grounds. Day-visit guests require timed bookings, but overnight guests get all-site access and can use the Spa Dreaming Centre in quieter windows. Both products are 16+, not 18+.
+For bathing without an overnight stay, use our [hot springs guide](<https://peninsulainsider.com.au/explore/hot-springs/>).
 
-### What is the difference between the glamping pods and the Eco Lodges?
+### Are Peninsula Hot Springs and Alba the same place?
 
-Glamping pods are canvas-walled, which suits the experience when weather cooperates and you want the open-air atmosphere. Eco Lodges are fully enclosed with private in-room geothermal baths. Same precinct, same all-site access, different format. Both have heated floors, king beds, and private decks.
+No. They are separate operators in Fingal. Choose the springs you want to visit before choosing accommodation, and make a separate booking if you want to visit both.
 
-### What is Sanctuary at Alba?
+### Does every stay have a private pool?
 
-[Sanctuary at Alba](<https://peninsulainsider.com.au/stay/sanctuary-at-alba/>) is a villa development at Alba Thermal Springs in Fingal, opened June 2025. It sits at a separate springs property five minutes from PHS. The villas have private heated plunge pools and include full-day access to Alba's facilities. It is a different, quieter, more design-led version of the thermal-stay logic - adults-only, closer to a luxury retreat than a glamping precinct.
+No. Peninsula Hot Springs lists different private bathing features by Eco Lodge room type. Alba includes one private pool upgrade with its Sanctuary accommodation. Check the exact room and package before booking.
 
-### How early can overnight guests access the pools?
+### Can I stay elsewhere and still visit the springs?
 
-PHS glamping and eco lodge guests get access from opening, typically before day guests begin arriving. The early-morning window - particularly the Spa Dreaming Centre before 9am - is the primary reason the overnight format earns its premium over a day visit. Confirm current access terms with the property at booking.
+Yes. Choose a separate Peninsula base, reserve your bathing with the springs operator, and arrange transport for the visit. An off-site room does not imply bathing entry.
+
+Accommodation details checked on 1 October 2026 against the [Peninsula Hot Springs accommodation guide](<https://www.peninsulahotsprings.com/accommodation>) and [Alba’s Sanctuary guide](<https://albathermalsprings.com.au/alba-experiences/the-sanctuary/>). Room types, inclusions and availability can change. Confirm the final terms with the operator.
 
 ## The Insider Note
 

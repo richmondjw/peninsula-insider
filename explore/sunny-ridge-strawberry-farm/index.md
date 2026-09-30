@@ -2,7 +2,7 @@ Canonical: https://peninsulainsider.com.au/explore/sunny-ridge-strawberry-farm/
 Publisher: Peninsula Insider
 Published: unknown
 Modified: unknown
-Format: public main text, generated from the canonical page; imagery, controls and price indicators omitted.
+Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
 [Attraction](<https://peninsulainsider.com.au/explore/>)   [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)

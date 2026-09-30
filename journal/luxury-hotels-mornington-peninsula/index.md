@@ -2,7 +2,7 @@ Canonical: https://peninsulainsider.com.au/journal/luxury-hotels-mornington-peni
 Publisher: Peninsula Insider
 Published: 2026-04-22T00:00:00.000Z
 Modified: 2026-04-22T00:00:00.000Z
-Format: public main text, generated from the canonical page; imagery, controls and price indicators omitted.
+Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
 Service  22 April 2026  8 min read

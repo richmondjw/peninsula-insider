@@ -1,15 +1,15 @@
 Canonical: https://peninsulainsider.com.au/stay/luxury/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-05-08
-Format: public main text, generated from the canonical page; imagery, controls and price indicators omitted.
+Modified: 2026-10-01
+Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
 # Luxury Accommodation on the Mornington Peninsula
 
 The Peninsula does luxury best when it stops trying to impersonate an international resort strip. The strongest stays here are either rooted in the landscape - vineyard, ridge, ocean edge, village main street - or they are not especially interesting. A good Peninsula luxury stay should shape the whole weekend, not just provide a handsome room key.
 
-That usually means one of three modes. Hinterland luxury, where the trip leans into wine, long lunches, and fireplaces: [Jackalope](<https://peninsulainsider.com.au/stay/jackalope/>) and [Lindenderry](<https://peninsulainsider.com.au/stay/lindenderry/>) for hotel infrastructure on the wine ridge; [Polperro Villas](<https://peninsulainsider.com.au/stay/polperro-villas/>) and [Crittenden Estate Villas](<https://peninsulainsider.com.au/stay/crittenden-villas/>) for on-estate vineyard immersion; [Port Phillip Estate](<https://peninsulainsider.com.au/wine/port-phillip-estate/>) for the Peninsula's most architecturally serious winery stay - Wood Marsh-designed, six suites, one-hat restaurant. Thermal-anchored luxury: [Sanctuary at Alba](<https://peninsulainsider.com.au/stay/sanctuary-at-alba/>), opened June 2025, combines five private-pool villas with full access to Alba Thermal Springs, the first Peninsula property to do it properly. Villa luxury with a pools focus: [Cassis Red Hill](<https://peninsulainsider.com.au/stay/cassis/>), five adults-only villas each with a private heated mineral pool, in the heart of the Red Hill corridor. Coastal luxury: [The Continental](<https://peninsulainsider.com.au/stay/the-continental-sorrento/>) and [Hotel Sorrento](<https://peninsulainsider.com.au/stay/hotel-sorrento/>) for village atmosphere, bay and ocean access, and the walkable Sorrento base.
+That usually means one of three modes. Hinterland luxury, where the trip leans into wine, long lunches, and fireplaces: [Jackalope](<https://peninsulainsider.com.au/stay/jackalope/>) and [Lindenderry](<https://peninsulainsider.com.au/stay/lindenderry/>) for hotel infrastructure on the wine ridge; [Polperro Villas](<https://peninsulainsider.com.au/stay/polperro-villas/>) and [Crittenden Estate Villas](<https://peninsulainsider.com.au/stay/crittenden-villas/>) for on-estate vineyard immersion; [Port Phillip Estate](<https://peninsulainsider.com.au/wine/port-phillip-estate/>) for the Peninsula's most architecturally serious winery stay - Wood Marsh-designed, six suites, one-hat restaurant. Thermal-anchored luxury: [Sanctuary at Alba](<https://peninsulainsider.com.au/stay/sanctuary-at-alba/>) offers five villas and two rooms on Alba's Fingal estate, with springs entry and breakfast included in its published accommodation offer. Villa luxury with a pools focus: [Cassis Red Hill](<https://peninsulainsider.com.au/stay/cassis/>), five adults-only villas each with a private heated mineral pool, in the heart of the Red Hill corridor. Coastal luxury: [The Continental](<https://peninsulainsider.com.au/stay/the-continental-sorrento/>) and [Hotel Sorrento](<https://peninsulainsider.com.au/stay/hotel-sorrento/>) for village atmosphere, bay and ocean access, and the walkable Sorrento base.
 
 Note on Point Leo Estate: Point Leo does not operate on-estate accommodation. The Lon to Leo package pairs with Lon Retreat in Sorrento. For on-estate stays near Laura and the sculpture park, Mantons Creek Estate is the nearest vineyard-stay alternative.
 
@@ -89,7 +89,7 @@ Villa  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
 282 Browns Road, Fingal VIC 3939 · $$$$
 
-Five standalone villas and two rooms on Alba’s Fingal estate, with hot springs entry and breakfast included in the published accommodation offer.
+Five secluded villas or two premium rooms above Alba’s springs, with daily bathing and breakfast at Thyme included.
 
 wellness  anniversary
 

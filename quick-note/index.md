@@ -2,14 +2,14 @@ Canonical: https://peninsulainsider.com.au/quick-note/
 Publisher: Peninsula Insider
 Published: unknown
 Modified: unknown
-Format: public main text, generated from the canonical page; imagery, controls and price indicators omitted.
+Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
 Quick Note
 
 # Thursday 1 October 2026
 
-Vol 04 · No 184     1 live briefs     Refreshed every morning     Updated 5:59 am
+Vol 04 · No 184     1 live briefs     Refreshed every morning     Updated 6:23 am
 
 ## Today
 
