@@ -67,7 +67,7 @@ aiSummary:
 
 A Peninsula wellness weekend works when the bathing is the centre of the trip, not an errand in the middle of it.
 
-Book a bath, rush through the pools, squeeze in another reservation and drive home in a hurry: it is easy to make a restful place feel like an errand. Give the visit room instead. One bathing booking, a nearby base and an open afternoon are enough.
+Choose the bathing experience and arrival time first. That sets the day's pace and helps you choose a stay and dinner within an easy drive.
 
 ## The two springs, and which one to choose
 
@@ -83,8 +83,6 @@ Book **one** venue, not both. Compare the current session details before choosin
 
 ## Where to sleep, so the day extends
 
-Two nights let the bath sit in the middle of the weekend, with no need to drive home immediately afterwards. Choose the stay after you choose the venue.
-
 [Lindenderry at Red Hill](/stay/lindenderry/) is a country-estate base for a garden, a quiet room and a slow morning. Check your actual drive from the springs before booking.
 
 [Polperro Villas](/stay/polperro-villas/) suits a couple who want their own vineyard space afterwards. The current operator page lists a king-size bed, fireplace, spa bath and private deck in each villa, plus a two-night weekend minimum. [Check the villas directly](https://www.polperrowines.com.au/escape/villas/) for the facilities and dates that suit you.
@@ -95,10 +93,4 @@ After bathing, keep dinner close to your stay: a table you have already booked, 
 
 ## The one walk that belongs in the weekend
 
-If the weather and access suit, make the [Cape Schanck Boardwalk](/explore/cape-schanck-boardwalk/) an optional Sunday stop. Choose a signed route and allow time for the conditions you find.
-
-## The weekend, in one line
-
-Friday evening: arrive and eat simply. Saturday: bathe at your own pace, leave the afternoon open, then have dinner near your stay. Sunday: slow breakfast, perhaps a coastal walk, then home. Book the bathing and stay first; everything else is optional.
-
-That is the wellness weekend the Peninsula is good at.
+If the weather and access suit, make the [Cape Schanck Boardwalk](/explore/cape-schanck-boardwalk/) an optional Sunday stop. Choose a signed route and allow time for the conditions you find. Otherwise, leave Sunday free.

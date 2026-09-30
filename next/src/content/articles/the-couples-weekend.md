@@ -91,21 +91,15 @@ If Saturday's long lunch is the centrepiece, stay inland near Red Hill or Merric
 
 ## Friday night: arrive and do one thing
 
-Choose an arrival time that gives you room for traffic and check-in. Head to your stay rather than adding a first stop.
-
-Unpack. Open a bottle you brought. Sit somewhere and watch the light change for thirty minutes without checking your phone.
-
-Dinner follows your base:
+Allow for traffic and check-in, then head to your stay without adding a first stop. Keep dinner close to your room:
 
 - **Inland villa:** Cook something simple in the kitchen with produce you picked up on the way down, or order a cheese board from the venue and open a second bottle.
 - **Inland hotel:** Reserve **Doot Doot Doot** if you stay at Jackalope. Theatrically good, and walking back to your room afterwards is part of the appeal of staying here.
 - **Coastal village:** Walk to the pub. **Flinders Hotel** bistro or the **Hotel Sorrento** front bar. Nothing fancy. Eat, drink, sleep.
 
-Friday night is for arriving.
-
 ## Saturday: the one big meal
 
-Saturday is the day with one anchor: the long lunch. Everything before and after it is unscheduled.
+Keep the morning and afternoon flexible around the long lunch.
 
 ### Morning
 
@@ -121,11 +115,9 @@ Book one of three restaurants. Pick based on mood, not status:
 - **Tedesca Osteria** if you want to be surprised. Set menu, farmhouse kitchen, wood-oven cooking, everyone eating the same thing. The lunch for couples who would rather leave the menu to the kitchen.
 - **Montalto** if you want the full estate afternoon: sculpture garden before, olive grove beside you, kitchen garden behind, and a terrace that invites a longer lunch.
 
-Eat well. Split a dessert or don't. Leave the afternoon open.
-
 ### Afternoon
 
-Choose one afternoon move, or none. Check **Kooyong's** current tasting schedule, or book **Peninsula Hot Springs** or **Alba Thermal Springs** if bathing is the shared priority. Otherwise go back, read, nap and let the light change.
+Choose one afternoon move, or none. For Kooyong wines, check the current tastings at [Port Phillip Estate's cellar door](https://www.portphillipestate.com.au/cellar-door-tastings/). If bathing is the priority, book **Peninsula Hot Springs** or **Alba Thermal Springs**. Otherwise, go back and rest.
 
 ### Saturday night
 
@@ -142,9 +134,5 @@ On the way home, stop once:
 - **Mornington** for a browse along Main Street, then a separate stop at **Commonfolk** on Progress Street if you want coffee.
 
 Leave when you are ready, allowing for the traffic you actually find.
-
-## What makes this version work
-
-The Peninsula weekends that stay with you are the ones where you remember the light from the deck, the bread at breakfast and the walk back from the pub. Two nights. One lunch. One cellar door, maybe. No hurry.
 
 **Planning check, 30 September 2026:** [Polperro Villas](https://www.polperrowines.com.au/escape/villas/) currently lists a two-night weekend minimum; [Polperro dining](https://www.polperrowines.com.au/) lists Saturday dinner and Wednesday–Sunday lunch. Confirm hours, menus and availability for your dates with each venue.

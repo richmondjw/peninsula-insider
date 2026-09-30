@@ -57,21 +57,21 @@ aiSummary:
 
 There is a quiet rhythm on the Peninsula: if you are already on the ridge on a market Saturday, building the weekend around the market is the move that pays off most.
 
-Markets are the Peninsula's highest-value gathering point. The producers you would otherwise drive fifteen kilometres between are briefly in one location, the chefs shop there, and the weekend's pantry for the cottage rental gets filled in under an hour. A good market hour is a tasting flight, a grocery run, a walking breakfast, and a social event at the same time.
+A market can put local produce and makers in one stop, leaving the rest of the day free for a walk and a booked lunch. Stallholders change by date, so check the organiser's current list before deciding what to buy.
 
 For dates, locations and the right market for the kind of Saturday you want, start with our [complete Peninsula market guide](/eat/markets/), then use this plan to build the rest of the day around it.
 
-Here is the Peninsula's market calendar, properly ordered, with the two weekends that actually get the most out of it.
+Here are the market names to check, followed by two Saturdays built around a confirmed date.
 
-## The four markets that matter
+## Markets to check before you go
 
-There are a dozen community markets on the Peninsula on any given month. Most of them are small, pleasant, and outside the scope of this piece. The four that are worth building a weekend around are these.
+Market names and calendars can overlap. Confirm the organiser, location and date before you travel; a familiar market name may refer to a different event.
 
 ### Mornington Farmers Market
 
-The **Mornington Farmers Market** runs on the **second Saturday of each month** on the Mornington Racecourse. This is the most serious market on the Peninsula and the one the region's restaurants shop at. Expect about fifty stalls: seasonal vegetables, pastured meats, cheese from **Main Ridge Dairy**, honey from the hinterland, sourdough from the bakehouses, oysters shucked in front of you, strawberries from **Sunny Ridge**, and the organic greens from **Peninsula Fresh**. Good coffee. Reasonable queues if you arrive by 8:30. Absolute chaos if you arrive at 10:30.
+The **Mornington Farmers Market** is listed by Main Street Mornington for the **second Saturday of each month, 8am–1pm, at Mornington Park**. It is a food-focused market beside the bay. Check the current date and stallholder mix before travelling; do not confuse it with the separate Mornington Racecourse Market, usually held on the second Sunday.
 
-This is a market to shop, not graze. Bring a cooler bag. Bring cash for the smaller stalls. Park on the residential streets to the north and walk in, not in the main lot.
+Bring a bag for produce and follow the current parking and access signs at Mornington Park.
 
 ### Hill & Ridge Community Market, Red Hill
 
@@ -83,9 +83,9 @@ Leave time to browse without assuming the original market's scale, parking patte
 
 Emu Plains Market is a separate event from the paused Balnarring Village Green listing. Its organiser describes a usual third-Saturday season from October to April at Emu Plains Reserve, but currently marks the 17 October 2026 event and its 2026–27 dates as cancelled. Do not plan a visit from the usual cadence alone. Check the [Emu Plains organiser](https://www.emuplainsmarket.com.au/) for a confirmed operating date.
 
-### Somers Makers Market
+### Somers: check for a confirmed market
 
-The small **Somers** makers market (currently running on the first Sunday of every other month at the **Somers General** shopfront precinct) is the quiet one and the most locally embedded of the four. No queues. Local crafts, local preserves, a handful of food trucks, and a tiny strip of shops that are some of the Peninsula's quieter finds the rest of the week. Use it when the other markets are too busy, or when you are already down around the Balnarring-Somers corridor for the day.
+We could not verify a current organiser calendar for a recurring Somers Makers Market. Do not build a trip around the claimed first-Sunday cadence without a confirmed event notice. **The Somers General** is a separate beachside cafe and store; check its current hours if you are visiting the Balnarring–Somers corridor.
 
 ## Weekend one: the market-and-vineyards Saturday
 
@@ -93,9 +93,9 @@ Use this plan on a confirmed Hill & Ridge date, including Saturday 3 October 202
 
 **9am: Arrive at Hill & Ridge Community Market.** Allow an hour to browse and buy from the stallholders present that day. Bring a cooler bag if you plan to buy produce. Check the organiser's current date and opening time before leaving home.
 
-**9:30am: A ridge loop walk.** Drive ten minutes to the **Red Hill Hinterland Cycling** trailhead area or the shorter paths at **Greens Bush**, and walk twenty or thirty minutes through the eucalyptus scrub. A reset between the market and lunch. The vineyards can wait an hour and will feel better for it.
+**10:30am: A ridge walk.** After the market, choose a short signed walk that suits the weather and current access. Leave enough time to get to your lunch booking.
 
-**10:30am: A second coffee and a plan.** **Johnny Ripe** for a sit-down coffee and a pastry. Look at the calendar of cellar-door tasting times. The Red Hill Baker now operates only in Balnarring.
+**11:30am: A second coffee and a plan.** **Johnny Ripe** for a sit-down coffee and a pastry. Look at the calendar of cellar-door tasting times. The Red Hill Baker now operates only in Balnarring.
 
 **12:30pm: Cellar-door lunch.** Lunch sits well at one of the producers you cannot shop at directly at the market: **Montalto**, **Ten Minutes by Tractor**, **Polperro**, or **Merricks General Wine Store**. Book in advance. Budget two hours.
 
@@ -107,13 +107,13 @@ Use this plan on a confirmed Hill & Ridge date, including Saturday 3 October 202
 
 This is the weekend for a **second Saturday of the month**, when the Mornington Farmers Market is running. The day tilts bayside: market, a coastal walk, a Mornington lunch, and either home or a short back-beach afternoon.
 
-**8:15am: Arrive at the Mornington Farmers Market.** Shop properly. This is the serious-food market, and the mussels, oysters, sourdough, and pastured meat here are the centre of the weekend. Budget forty-five minutes. Coffee from the market or a short walk up to **Commonfolk Coffee** in the industrial backstreet.
+**8:15am: Arrive at the Mornington Farmers Market.** Browse the food stalls that are there on your date and bring a bag for produce. Leave time for the foreshore walk. **Commonfolk Coffee** is a separate stop on Progress Street, not beside Mornington Park.
 
-**9:30am: Walk the Mornington foreshore.** From the market grounds it is ten minutes to the bayfront. Walk south to Mills Beach and the cliff steps, then north to the Mornington Pier, stopping at the pier itself for the view. The whole loop takes about an hour.
+**9:30am: Walk the Mornington foreshore.** From Mornington Park, follow the bayfront path toward Mills Beach or Mornington Pier. Choose the direction and length that fit the weather and your lunch booking.
 
 **11am: The gallery or a bookshop hour.** **Mornington Peninsula Regional Gallery** is free entry, the rotating program is good, and forty-five minutes indoors between a market morning and a lunch sits well in the rhythm of the day.
 
-**12:30pm: Lunch in Mornington or drive out to Balnarring.** Two options. In Mornington: **Bistro Elba**, **Allis**, or **Many Little**, any of the village-centre rooms. In Balnarring: **Merricks General Wine Store** or **The Heritage**, the Balnarring village pub, which keeps the whole day on the same bayside corridor and puts you ten minutes from **Balnarring Beach** for the afternoon.
+**12:30pm: Lunch in Mornington or Balnarring.** In Mornington, check current service at **Bistro Elba**, **Allis** or **Many Little**. If continuing toward Balnarring Beach, book **The Heritage** in Balnarring. **Merricks General Wine Store** is in Merricks and needs a separate route.
 
 **3pm: A swim or a slow drive home.** In warmer months, Balnarring Beach for an hour. In cooler months, **Red Hill Cheese** and a producer loop back up the ridge. Home by five either way.
 
@@ -125,7 +125,7 @@ The quiet gift is that the market itself often becomes the most memorable hour o
 
 ## Quick reference
 
-- **Mornington Farmers Market**: second Saturday, Mornington Racecourse, 8am–1pm
+- **Mornington Farmers Market**: second Saturday, Mornington Park, 8am–1pm; confirm the current date
 - **Original Red Hill Community Market**: temporarily closed; check its organiser for reopening news
 - **Hill & Ridge Community Market**: separate organiser, Red Hill Recreation Reserve; 3 October 2026 listed for 9am–2pm; confirm before travelling
 - **Emu Plains Market**: no current date confirmed; the organiser marks its listed 2026–27 dates cancelled. Check before travelling.
