@@ -865,8 +865,10 @@ def run_verify_gate(article_path: Path, today: str) -> str:
             sitemap_path=REPO_ROOT / "sitemap.xml",
         )
     except Exception as e:
-        print(f"    Verify gate unavailable ({e}) — frontmatter-only pass")
-        return "PASS"
+        # A missing verifier is not evidence that the article is safe. Fail
+        # closed so an unavailable gate cannot silently turn into a publish.
+        print(f"    Verify gate unavailable ({e}) — blocking publication")
+        return "FAIL"
 
     for flag in report.get("flags", []):
         print(f"    [verify-flag] {flag}")

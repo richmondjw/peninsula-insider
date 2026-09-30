@@ -1,0 +1,467 @@
+{
+  "ticket": "PI-006",
+  "stage": "proposal-only",
+  "mode": "proposal-only (offline)",
+  "asAt": "2026-09-30",
+  "generator": "next/scripts/run-verification-loop.mjs",
+  "writes": {
+    "contentRecords": "none, by construction: no module in the loop opens a content file for writing",
+    "externalSystems": "none: one HTTP GET per cited source URL and nothing else leaves the process"
+  },
+  "registry": {
+    "claims": 530,
+    "evidence": 653,
+    "byState": {
+      "unsupported": 363,
+      "supported": 165,
+      "disputed": 2
+    },
+    "byConsequence": {
+      "high": 252,
+      "medium": 220,
+      "low": 58
+    }
+  },
+  "backlog": {
+    "expiredRows": 440,
+    "claimsWithExpiredEvidence": 334,
+    "unreachableSubjects": 270,
+    "unresearchableClaims": 82,
+    "byClaimClass": {
+      "event-status": 162,
+      "event-schedule": 91,
+      "booking": 78,
+      "conditions": 74,
+      "access-restriction": 27,
+      "trading-status": 4,
+      "offering": 3,
+      "rate-change": 1
+    },
+    "byAgeBand": {
+      "over 3 periods overdue": 264,
+      "1 to 3 periods overdue": 89,
+      "under 1 period overdue": 64,
+      "current": 23
+    },
+    "byConsequence": {
+      "high": 263,
+      "medium": 174,
+      "low": 3
+    }
+  },
+  "blindSpots": [],
+  "worklist": {
+    "limit": 5,
+    "selected": 5,
+    "eligible": 231
+  },
+  "adjudication": {
+    "unreachable": 5
+  },
+  "sourceHealth": {
+    "error": 5
+  },
+  "refusals": [],
+  "proposedOps": [],
+  "verdictCounts": {},
+  "escalations": [
+    {
+      "kind": "unreachable",
+      "claimId": "data-facts/beaches/mornington-peninsula-national-park/access-restriction",
+      "claimClass": "access-restriction",
+      "consequence": "high",
+      "subject": "data-facts/beaches/mornington-peninsula-national-park",
+      "source": "https://www.parks.vic.gov.au/places-to-see/parks/mornington-peninsula-national-park/things-to-do/ocean-beaches",
+      "why": "the cited source could not be read (offline run: no request was made)",
+      "quotes": [],
+      "proposedOps": [],
+      "question": "The cited source failed after bounded retries, which may be transient. Leave it for the next run, or repoint the citation now?",
+      "defaultIfNoAnswer": "no change is made and the claim stays unsupported"
+    },
+    {
+      "kind": "unreachable",
+      "claimId": "data-facts/beaches/accessible-beaches-beach-matting-program/access-restriction",
+      "claimClass": "access-restriction",
+      "consequence": "high",
+      "subject": "data-facts/beaches/accessible-beaches-beach-matting-program",
+      "source": "https://www.kiaorasafetybeach.com/explore",
+      "why": "the cited source could not be read (offline run: no request was made)",
+      "quotes": [],
+      "proposedOps": [],
+      "question": "The cited source failed after bounded retries, which may be transient. Leave it for the next run, or repoint the citation now?",
+      "defaultIfNoAnswer": "no change is made and the claim stays unsupported"
+    },
+    {
+      "kind": "unreachable",
+      "claimId": "data-facts/beaches/balnarring-beach/access-restriction",
+      "claimClass": "access-restriction",
+      "consequence": "high",
+      "subject": "data-facts/beaches/balnarring-beach",
+      "source": "https://www.tripadvisor.com.au/",
+      "why": "the cited source could not be read (offline run: no request was made)",
+      "quotes": [],
+      "proposedOps": [],
+      "question": "The cited source failed after bounded retries, which may be transient. Leave it for the next run, or repoint the citation now?",
+      "defaultIfNoAnswer": "no change is made and the claim stays unsupported"
+    },
+    {
+      "kind": "unreachable",
+      "claimId": "events/bass-flinders-gin-masterclass/event-status",
+      "claimClass": "event-status",
+      "consequence": "high",
+      "subject": "events/bass-flinders-gin-masterclass",
+      "source": "https://www.bassandflindersdistillery.com/pages/events",
+      "why": "the cited source could not be read (offline run: no request was made)",
+      "quotes": [],
+      "proposedOps": [],
+      "question": "The cited source failed after bounded retries, which may be transient. Leave it for the next run, or repoint the citation now?",
+      "defaultIfNoAnswer": "no change is made and the claim stays unsupported"
+    },
+    {
+      "kind": "unreachable",
+      "claimId": "events/crib-point-community-market/event-status",
+      "claimClass": "event-status",
+      "consequence": "high",
+      "subject": "events/crib-point-community-market",
+      "source": "https://peninsulakids.com.au/markets-3/",
+      "why": "the cited source could not be read (offline run: no request was made)",
+      "quotes": [],
+      "proposedOps": [],
+      "question": "The cited source failed after bounded retries, which may be transient. Leave it for the next run, or repoint the citation now?",
+      "defaultIfNoAnswer": "no change is made and the claim stays unsupported"
+    }
+  ],
+  "items": [
+    {
+      "claimId": "data-facts/beaches/mornington-peninsula-national-park/access-restriction",
+      "claimClass": "access-restriction",
+      "consequence": "high",
+      "riskScore": 9,
+      "state": "unsupported",
+      "overdueDays": 242,
+      "ageBand": "over 3 periods overdue",
+      "subject": "data-facts/beaches/mornington-peninsula-national-park",
+      "source": {
+        "url": "https://www.parks.vic.gov.au/places-to-see/parks/mornington-peninsula-national-park/things-to-do/ocean-beaches",
+        "publisher": "gov"
+      },
+      "artifact": {
+        "url": "https://www.parks.vic.gov.au/places-to-see/parks/mornington-peninsula-national-park/things-to-do/ocean-beaches",
+        "finalUrl": null,
+        "status": null,
+        "reachability": "error",
+        "digest": null,
+        "bytes": 0,
+        "attempts": 0,
+        "note": "offline run: no request was made"
+      },
+      "attempts": [
+        {
+          "url": "https://www.parks.vic.gov.au/places-to-see/parks/mornington-peninsula-national-park/things-to-do/ocean-beaches",
+          "reachability": "error",
+          "status": null
+        }
+      ],
+      "adjudication": {
+        "outcome": "unreachable",
+        "confidence": "n/a",
+        "code": "error",
+        "why": "the cited source could not be read (offline run: no request was made)",
+        "quotes": [],
+        "detail": null,
+        "identityScore": null
+      },
+      "patch": {
+        "ops": [],
+        "refusals": []
+      },
+      "verdicts": [],
+      "proposedEvidence": []
+    },
+    {
+      "claimId": "data-facts/beaches/accessible-beaches-beach-matting-program/access-restriction",
+      "claimClass": "access-restriction",
+      "consequence": "high",
+      "riskScore": 9,
+      "state": "unsupported",
+      "overdueDays": 131,
+      "ageBand": "over 3 periods overdue",
+      "subject": "data-facts/beaches/accessible-beaches-beach-matting-program",
+      "source": {
+        "url": "https://www.kiaorasafetybeach.com/explore",
+        "publisher": "unknown"
+      },
+      "artifact": {
+        "url": "https://www.kiaorasafetybeach.com/explore",
+        "finalUrl": null,
+        "status": null,
+        "reachability": "error",
+        "digest": null,
+        "bytes": 0,
+        "attempts": 0,
+        "note": "offline run: no request was made"
+      },
+      "attempts": [
+        {
+          "url": "https://www.kiaorasafetybeach.com/explore",
+          "reachability": "error",
+          "status": null
+        }
+      ],
+      "adjudication": {
+        "outcome": "unreachable",
+        "confidence": "n/a",
+        "code": "error",
+        "why": "the cited source could not be read (offline run: no request was made)",
+        "quotes": [],
+        "detail": null,
+        "identityScore": null
+      },
+      "patch": {
+        "ops": [],
+        "refusals": []
+      },
+      "verdicts": [],
+      "proposedEvidence": []
+    },
+    {
+      "claimId": "data-facts/beaches/balnarring-beach/access-restriction",
+      "claimClass": "access-restriction",
+      "consequence": "high",
+      "riskScore": 9,
+      "state": "unsupported",
+      "overdueDays": 131,
+      "ageBand": "over 3 periods overdue",
+      "subject": "data-facts/beaches/balnarring-beach",
+      "source": {
+        "url": "https://www.tripadvisor.com.au/",
+        "publisher": "unknown"
+      },
+      "artifact": {
+        "url": "https://www.tripadvisor.com.au/",
+        "finalUrl": null,
+        "status": null,
+        "reachability": "error",
+        "digest": null,
+        "bytes": 0,
+        "attempts": 0,
+        "note": "offline run: no request was made"
+      },
+      "attempts": [
+        {
+          "url": "https://www.tripadvisor.com.au/",
+          "reachability": "error",
+          "status": null
+        }
+      ],
+      "adjudication": {
+        "outcome": "unreachable",
+        "confidence": "n/a",
+        "code": "error",
+        "why": "the cited source could not be read (offline run: no request was made)",
+        "quotes": [],
+        "detail": null,
+        "identityScore": null
+      },
+      "patch": {
+        "ops": [],
+        "refusals": []
+      },
+      "verdicts": [],
+      "proposedEvidence": []
+    },
+    {
+      "claimId": "events/bass-flinders-gin-masterclass/event-status",
+      "claimClass": "event-status",
+      "consequence": "high",
+      "riskScore": 9,
+      "state": "unsupported",
+      "overdueDays": 119,
+      "ageBand": "over 3 periods overdue",
+      "subject": "events/bass-flinders-gin-masterclass",
+      "source": {
+        "url": "https://www.bassandflindersdistillery.com/pages/events",
+        "publisher": "unknown"
+      },
+      "artifact": {
+        "url": "https://www.bassandflindersdistillery.com/pages/events",
+        "finalUrl": null,
+        "status": null,
+        "reachability": "error",
+        "digest": null,
+        "bytes": 0,
+        "attempts": 0,
+        "note": "offline run: no request was made"
+      },
+      "attempts": [
+        {
+          "url": "https://www.bassandflindersdistillery.com/pages/events",
+          "reachability": "error",
+          "status": null
+        }
+      ],
+      "adjudication": {
+        "outcome": "unreachable",
+        "confidence": "n/a",
+        "code": "error",
+        "why": "the cited source could not be read (offline run: no request was made)",
+        "quotes": [],
+        "detail": null,
+        "identityScore": null
+      },
+      "patch": {
+        "ops": [],
+        "refusals": []
+      },
+      "verdicts": [],
+      "proposedEvidence": []
+    },
+    {
+      "claimId": "events/crib-point-community-market/event-status",
+      "claimClass": "event-status",
+      "consequence": "high",
+      "riskScore": 9,
+      "state": "unsupported",
+      "overdueDays": 119,
+      "ageBand": "over 3 periods overdue",
+      "subject": "events/crib-point-community-market",
+      "source": {
+        "url": "https://peninsulakids.com.au/markets-3/",
+        "publisher": "unknown"
+      },
+      "artifact": {
+        "url": "https://peninsulakids.com.au/markets-3/",
+        "finalUrl": null,
+        "status": null,
+        "reachability": "error",
+        "digest": null,
+        "bytes": 0,
+        "attempts": 0,
+        "note": "offline run: no request was made"
+      },
+      "attempts": [
+        {
+          "url": "https://peninsulakids.com.au/markets-3/",
+          "reachability": "error",
+          "status": null
+        }
+      ],
+      "adjudication": {
+        "outcome": "unreachable",
+        "confidence": "n/a",
+        "code": "error",
+        "why": "the cited source could not be read (offline run: no request was made)",
+        "quotes": [],
+        "detail": null,
+        "identityScore": null
+      },
+      "patch": {
+        "ops": [],
+        "refusals": []
+      },
+      "verdicts": [],
+      "proposedEvidence": []
+    }
+  ],
+  "proposals": [],
+  "proposalSummary": {
+    "total": 0,
+    "decidable": 0,
+    "note": "a proposal is a field-level change with an answer attached. An escalation is a question with no answer attached. Both reach the same person; only a proposal can be applied."
+  },
+  "checks": [
+    {
+      "id": "no-content-write",
+      "pass": true,
+      "detail": {
+        "changedFiles": [],
+        "changed": 0
+      },
+      "why": "the report-only loop must not alter a single byte of any content or data record"
+    },
+    {
+      "id": "no-check-date-refreshed",
+      "pass": true,
+      "detail": {
+        "offending": []
+      },
+      "why": "a successful fetch proves a page responded, never that a person read it and agreed, so no composed change may move a verification date"
+    },
+    {
+      "id": "no-evidence-row-recorded",
+      "pass": true,
+      "detail": {
+        "offending": 0
+      },
+      "why": "a confirmation produces a PROPOSED evidence row for a person to accept; recording one automatically is the same check-date failure wearing a different field name"
+    },
+    {
+      "id": "every-change-cites-evidence",
+      "pass": true,
+      "detail": {
+        "offending": []
+      },
+      "why": "every proposed change must cite the fetched artifact it came from, by digest"
+    },
+    {
+      "id": "every-escalation-states-a-question",
+      "pass": true,
+      "detail": {
+        "offending": 0
+      },
+      "why": "an escalation without a specific question and a default is a notification, and notifications are what a review queue dies of"
+    },
+    {
+      "id": "outbound-limited-to-cited-sources",
+      "pass": true,
+      "detail": {
+        "offending": []
+      },
+      "why": "the only outbound traffic permitted is a GET of a URL a record already cites"
+    },
+    {
+      "id": "no-verdict-without-a-readable-source",
+      "pass": true,
+      "detail": {
+        "offending": []
+      },
+      "why": "unreachable and blocked are source-health facts, never verdicts about a claim"
+    },
+    {
+      "id": "every-proposal-is-auditable",
+      "pass": true,
+      "detail": {
+        "offending": []
+      },
+      "why": "a proposal that cannot be walked back to a fetched page, by URL, fetch date and page digest, is a machine opinion wearing the clothes of a citation, and it may not reach a reviewer"
+    },
+    {
+      "id": "no-proposal-applies-itself",
+      "pass": true,
+      "detail": {
+        "offending": []
+      },
+      "why": "every proposal states on its own face that nothing applied it, so a proposal read in isolation still says what could and could not act on it"
+    },
+    {
+      "id": "every-proposal-states-its-precedence",
+      "pass": true,
+      "detail": {
+        "offending": []
+      },
+      "why": "a reviewer is owed the standing the read source held for this class of claim, because that ordering is what decided which source was believed"
+    },
+    {
+      "id": "no-figures-in-the-report",
+      "pass": true,
+      "detail": {},
+      "why": "this publication carries no prices, and a rate finding must escalate without one riding along"
+    },
+    {
+      "id": "no-em-dash-in-the-report",
+      "pass": true,
+      "detail": {},
+      "why": "BRAND-PI hard rule"
+    }
+  ]
+}
