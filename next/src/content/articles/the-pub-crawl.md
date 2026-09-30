@@ -46,7 +46,7 @@ faq:
   - question: "What is the best pub on the Mornington Peninsula?"
     answer: "Flinders Hotel - the dining room is generous, the beer garden faces the village green, the fire is real, and Flinders itself is the most underrated town on the coast. The Heritage at Balnarring for the quiet side, with open fires and a big beer garden."
   - question: "Can you do a pub crawl on the Mornington Peninsula without a car?"
-    answer: "Only on the Sorrento strip - three venues within a five-minute walk of each other on Ocean Beach Road. All other routes require driving, which means a designated driver or limiting yourself to one to two drinks per stop and spacing them across the day. The Peninsula's roads are narrow and winding. Plan the logistics before you start."
+    answer: "Only on the Sorrento strip - three venues within a five-minute walk of each other on Ocean Beach Road. All other routes require a designated driver who does not drink, or prearranged transport between stops. Drink suggestions below are for passengers only. Plan transport before you start."
 aiSummary:
   - "An editorial guide to the Mornington Peninsula's best pubs - structured as a curated shortlist rather than a comprehensive directory."
   - "Key picks: The Heritage, Balnarring (a village pub in a 1930s heritage home), Portsea Hotel (bay views, the Peninsula's most reliably good pub food), Flinders Hotel (the correct pub for a southern-edge day), Red Hill Hotel (a peninsula institution)."
@@ -61,7 +61,7 @@ The pub is where the locals eat. The pub is where you can turn up without a book
 
 This is a guide to the Peninsula's pubs  -  not a ranked list, but a set of routes. Because the point of a pub crawl is not the individual pub. It is the trajectory.
 
-**Important note on driving:** The Peninsula is a driving region. A literal pub crawl  -  walking between pubs  -  is only possible on the Sorrento strip. Every other route below requires a designated driver, a taxi, or the discipline to stop at two beers per pub and space them across the day. The Peninsula's roads are narrow, winding, and policed. Plan accordingly.
+**Important note on driving:** The Peninsula is a driving region. A literal pub crawl  -  walking between pubs  -  is only possible on the Sorrento strip. Every other route below requires a designated driver who does not drink or prearranged transport. The drink suggestions are for passengers, never the driver. Plan the journey home before you start.
 
 ## Route one: the bay-side run
 
@@ -99,7 +99,7 @@ Walk thirty seconds east along Ocean Beach Road.
 
 Walk to the foreshore. The bay is across the road.
 
-**Stop three: The Continental Sorrento (1:30pm).** Technically a hotel and restaurant rather than a pub, but the bar operates as a standalone drinking room and it is the most architecturally interesting space on the strip. The cocktail menu is competent. One drink, lunch from the bar menu, and the terrace if the weather holds.
+**Stop three: The Conti Bar at The Continental precinct (1:30pm).** This is the precinct's public bar, separate from the InterContinental hotel. Stop for a drink or a casual lunch, with the Promenade or Beer Garden if conditions suit.
 
 Walk back along the main street to whichever of the three you liked best, and stay there for the afternoon.
 

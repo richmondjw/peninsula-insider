@@ -25,7 +25,7 @@ heroImage:
   provenanceReview: "verified"
 format: "service"
 tags: ["celebration", "birthday", "anniversary", "romance", "stay", "weekend", "all-year"]
-relatedVenues: ["jackalope", "lindenderry", "polperro-villas", "crittenden-villas", "point-leo-estate-villas", "hotel-sorrento", "the-continental-sorrento", "tedesca-osteria", "laura-pt-leo", "pt-leo-estate", "doot-doot-doot", "ten-minutes-by-tractor", "polperro", "montalto", "alba-thermal-springs", "peninsula-hot-springs", "peninsula-hot-springs-glamping", "barragunda-dining", "port-phillip-estate-restaurant"]
+relatedVenues: ["jackalope", "lindenderry", "polperro-villas", "crittenden-villas", "hotel-sorrento", "the-continental-sorrento", "tedesca-osteria", "laura-pt-leo", "pt-leo-estate", "doot-doot-doot", "ten-minutes-by-tractor", "polperro", "montalto", "alba-thermal-springs", "peninsula-hot-springs", "peninsula-hot-springs-glamping", "barragunda-dining", "port-phillip-estate-restaurant"]
 relatedExperiences: ["bushrangers-bay-walk", "cape-schanck-boardwalk", "pt-leo-sculpture-park"]
 readingTimeMinutes: 7
 featured: false
@@ -44,7 +44,7 @@ faq:
   - question: "Which is the best Peninsula restaurant for a milestone birthday dinner?"
     answer: "Laura at Pt Leo Estate for the most visually spectacular setting (sculpture park and bay views, tasting menu). Tedesca Osteria in Red Hill for something more intimate and personally cooked. Doot Doot Doot at Jackalope for groups wanting theatrical atmosphere. Ten Minutes by Tractor for serious food and the Peninsula's deepest wine list."
   - question: "Where is the best place to stay for a birthday on the Mornington Peninsula?"
-    answer: "Match the stay to the dinner. Jackalope if dining at Doot Doot Doot: no driving, walk from room to table. Lindenderry at Red Hill for the country-house celebration. Point Leo Estate Villas to wake up in the same landscape as the Laura dinner. Crittenden or Polperro Villas for a private vineyard villa for two."
+    answer: "Match the stay to the dinner. Jackalope if dining at Doot Doot Doot: no driving, walk from room to table. Lindenderry at Red Hill for the country-house celebration. Crittenden or Polperro Villas for a private vineyard villa for two."
   - question: "How far in advance should I book a birthday dinner on the Mornington Peninsula?"
     answer: "Three to six months for peak-season Saturdays at Laura, Tedesca Osteria, or Ten Minutes by Tractor. Six weeks for quieter weekends. Book Doot Doot Doot at Jackalope at least four weeks out for a weekend date."
 aiSummary:
@@ -93,27 +93,25 @@ The stay is the second decision, and it needs to match the dinner.
 
 **Polperro Villas** or **Crittenden Villas** are the right stays if you want the privacy of a self-contained vineyard room and the birthday is for a couple rather than a group. Both properties let the weekend slow down around the villa itself, which is the right mood for a more intimate celebration.
 
-**The Continental Sorrento** is the right stay if the birthday leans toward the village and the bay rather than the ridge and the vineyards. The room is the most design-forward of the Sorrento options and the location means you can walk everywhere.
-
-**Point Leo Estate Villas** are the only stay on the Peninsula that let you wake up in the same landscape as the Laura dinner the night before, which is a specific kind of birthday continuity that is worth the cost.
+**InterContinental Sorrento** is a central hotel base if the birthday leans toward the village and bay. Choose the room that suits your stay, then book drinks or dinner separately in the neighbouring Continental precinct.
 
 **Peninsula Hot Springs Glamping** is the unconventional choice, and it works for a birthday where the guest's favourite gift would be a real reset rather than a grand meal. The private hot tub on the tented suite, the thermal complex at walking distance, and the less formal dining shift the whole birthday into a wellness mode that is its own kind of memorable.
 
 ## The full two-night shape
 
-Here is the complete plan assuming the anchor dinner is Saturday at Laura, with **Point Leo Estate Villas** as the base. Substitute the equivalent moves for any other anchor pair.
+Here is a two-night plan with Saturday dinner at Laura. Choose and book accommodation separately; [Pt. Leo Estate confirms it has no rooms on site](https://www.ptleoestate.com.au/faqs/). Arrange a return transfer or designated driver before booking dinner.
 
 ### Friday
 
-**3.30pm:** Check in. Take the late afternoon slow. Nothing planned for the first three hours. Arriving into a birthday weekend at a sprint is the easiest way to land off-balance.
+**3.30pm:** Check in to your chosen accommodation. Take the late afternoon slow. Arriving into a birthday weekend at a sprint is the easiest way to land off-balance.
 
-**5pm:** A short walk around the sculpture park. Arriving guests will want to stretch their legs. Entry to the Point Leo sculpture park is ticketed, and the first hour before sunset is when the light on the works is at its best.
+**5pm:** Rest at your accommodation or choose a local walk. Save the ticketed Pt. Leo sculpture park for its advertised daytime opening.
 
 **7pm:** Dinner nearby, casual. The night-one dinner should not compete with tomorrow's anchor. Good options: **Barragunda Dining** at Cape Schanck (thirty minutes away, relaxed, farm-oriented), **Merricks General Wine Store** (closer, casual, pizzas and grilled things), or **Polperro** (serious but smaller plates and a quieter tone). Save the tasting palate for Saturday.
 
 ### Saturday
 
-**9am:** Slow breakfast at the villa. The birthday guest should have a slow morning. Bring pastries from a Peninsula bakery on the Friday drive down; brew coffee at the villa.
+**9am:** Slow breakfast at your accommodation. The birthday guest should have a slow morning.
 
 **10.30am:** The surprise morning. The moment that separates a good birthday weekend from a memorable one. Surprise moves that work on the Peninsula:
 
@@ -125,15 +123,15 @@ Here is the complete plan assuming the anchor dinner is Saturday at Laura, with 
 
 **12.30pm:** A light lunch. Cheese and bread and something cold at a bayside cafe, or a short wine-and-charcuterie tasting at a cellar door. The Saturday anchor dinner is in five hours and the palate needs to be ready for it.
 
-**2pm:** A nap, a swim, or a walk. Back at the villa. The afternoon of a birthday should not be scheduled. Let the guest choose.
+**2pm:** A nap, a swim, or a walk. Back at your accommodation, leave the afternoon unscheduled. Let the guest choose.
 
 **5pm:** Get ready. Treat it seriously. The ritual of getting ready is part of the weekend.
 
-**6.30pm:** Sunset drink at Pt Leo Estate. Walk down from the villas to the terrace. One proper cocktail on the verandah as the light drops across the sculpture park. The hand-off into the dinner itself.
+**6.30pm:** Arrive at Pt. Leo Estate with enough time for your Laura reservation. Confirm any pre-dinner drink separately; the Wine Terrace is advertised as a lunch venue.
 
 **7.30pm:** Dinner at Laura. The anchor moment. The tasting menu takes about three hours. Let it. Take the pours slowly. Keep the phones away. This is the moment the weekend is about.
 
-**11pm:** Walk back to the villa. The slow end of the night.
+**After dinner:** Return to your accommodation using the transport you arranged in advance. The slow end of the night.
 
 ### Sunday
 

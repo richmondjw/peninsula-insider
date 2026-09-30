@@ -1,6 +1,6 @@
 ---
-title: "The Peninsula Orientation Drive: Six Stops That Explain the Region in Half a Day"
-dek: "The drive to make on your first visit, or the one to send a friend on when you are out of time to explain why you keep coming back. Coffee, ridge, hinterland, ocean, village, bay  -  in that order, in four hours."
+title: "The Peninsula Orientation Drive: Six Stops in One Day"
+dek: "The drive to make on your first visit, or the one to send a friend on when you are out of time to explain why you keep coming back. Coffee, ridge, hinterland, ocean, village, bay  -  in that order, with most of a day to enjoy it."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-04-10
@@ -42,24 +42,24 @@ clusterLinks:
     href: "/journal/arthurs-seat-eagle-visitor-guide/"
 faq:
   - question: "What is the best route to drive on the Mornington Peninsula for a first visit?"
-    answer: "The orientation drive: Mornington coffee → Arthurs Seat Eagle gondola → Red Hill ridge → Merricks General Wine Store for lunch → Cape Schanck boardwalk → Flinders or Mount Martha. Six stops, about four hours, and you will come away with a working mental map of all four parts of the Peninsula."
+    answer: "The orientation drive: Mornington coffee → Arthurs Seat Eagle gondola → Red Hill ridge → Merricks General Wine Store for lunch → Cape Schanck boardwalk → Flinders or Mount Martha. The sample route runs from 9am to about 3:30pm before the drive home; allow at least six to seven hours, plus traffic."
   - question: "How long does it take to drive across the Mornington Peninsula?"
-    answer: "From Mornington at the top to Point Nepean at the tip is about 60km and roughly 90 minutes at a steady pace. The Red Hill plateau runs east-west across the middle and adds 20–30 minutes to cross. The orientation drive (six stops) takes about four hours total including stops."
+    answer: "From Mornington at the top to Point Nepean at the tip is about 60km and roughly 90 minutes at a steady pace. The Red Hill plateau runs east-west across the middle and adds 20–30 minutes to cross. The six-stop sample runs from 9am to about 3:30pm before the drive home; allow at least six to seven hours, plus traffic."
   - question: "What should I do first on a first visit to the Mornington Peninsula?"
     answer: "The Arthurs Seat Eagle gondola gives the best orientation - from the summit you can see Port Phillip Bay to the north, the back beaches to the south-west, and the wine country in between. Twenty minutes each way; it gives you an aerial map of the region no other single stop can match."
 aiSummary:
-  - "A structured half-day drive designed for first-time Peninsula visitors - six stops that show the Peninsula's geographic and culinary range before committing to a base or a plan."
-  - "The route: coffee in Red Hill, the Merricks wine corridor, ocean side at Cape Schanck, Flinders village bakery, Sorrento foreshore, bay side return. Approximately four hours driving time with stops."
+  - "Start at Mornington, take in Arthurs Seat and Red Hill, then pause for lunch at Merricks General Wine Store."
+  - "Continue to Cape Schanck, then choose Flinders or Mount Martha. The sample times run from 9am to about 3:30pm before the drive home."
   - "Editorial purpose: to explain why the Peninsula is bigger and more varied than most first-time visitors expect, and to help visitors understand which part they actually want to spend time in."
   - "Suits: genuine first-timers; anyone who keeps meaning to go and has not been yet; groups planning a longer trip who want geographic orientation before choosing accommodation."
-  - "Planning note: best done on a weekday or early on a weekend morning to avoid traffic. Can be extended to a full day with a lunch stop."
+  - "Allow at least six to seven hours plus traffic; check opening hours and skip a stop if your available window is shorter."
 ---
 
 The hardest question we get from friends planning a first visit to the Peninsula is not where to eat. It is: "I have one day. What do I actually do?"
 
 One day isn't enough to see the Peninsula properly, because the region is not one landscape. It is four: the bayside towns along Port Phillip, the winery plateau through the middle, the ocean coast along the south, and the tip that runs from Sorrento to Point Nepean. First-time visitors who pick one and stay in it often leave wondering what the rest of the conversation is about.
 
-There is a better first day. It is a drive: six stops, four hours of road and stopping time, one small lunch in the middle, and it exists specifically to orient you. Not to show you the best restaurant or the prettiest beach, but to hand you the map. After this loop you'll understand why the Peninsula has four distinct weekends hiding inside it, and you'll know which one to come back for.
+There is a better first day. It is a drive: six stops across most of a day, one small lunch in the middle, and it exists specifically to orient you. Not to show you the best restaurant or the prettiest beach, but to hand you the map. After this loop you'll understand why the Peninsula has four distinct weekends hiding inside it, and you'll know which one to come back for.
 
 
 ## Stop 1  -  Commonfolk Coffee, Mornington (9:00)

@@ -110,14 +110,23 @@ const articlePhotoCaption = articleHero?.override
     : ad?.heroImage?.caption;
 const articlePhotoCredit = articleHero?.override ? articleHero.override.credit : ad?.heroImage?.credit;
 const isOneNightGuide = isArticle && ad?.planShape === 'one-night';
+const planNewsletterBody = isOneNightGuide
+  ? 'The Insider Note brings you independent picks and selected guides from across the Peninsula. An occasional email for your next trip.'
+  : articleSlug === 'the-couples-weekend'
+    ? 'Planning another weekend together? Get occasional independent Peninsula picks and selected guides for the next place you go, meal you book or event you catch.'
+    : articleSlug === 'the-thermal-springs-weekend'
+      ? 'For your next slower Peninsula weekend, get occasional independent picks and selected guides to places, food and things worth doing.'
+      : articleSlug === 'the-point-nepean-half-day'
+        ? 'Keep another Peninsula day out in mind with occasional independent weekend picks and selected guides from across the region.'
+        : undefined;
 const articleSectionLinks = articleHeadings
   .filter((heading) => heading.depth === 2)
   .slice(0, 6)
   .map((heading) => ({ label: heading.text, href: `#${heading.slug}` }));
 const oneNightBases = isOneNightGuide ? [
-  { number: '01', place: 'Sorrento', mood: 'Town life', detail: 'Walkable dinner and a slow beach morning.', prefix: 'Base one:' },
-  { number: '02', place: 'Red Hill', mood: 'Country house', detail: 'One tasting, garden time and breakfast on the ridge.', prefix: 'Base two:' },
-  { number: '03', place: 'Flinders', mood: 'Quiet coast', detail: 'Ocean air, an early night and an unhurried village morning.', prefix: 'Base three:' },
+  { number: '01', place: 'Sorrento', mood: 'Town life', stay: 'InterContinental Sorrento', stayHref: '/stay/the-continental-sorrento/', dinner: 'Book dinner near the main street', sunday: 'Breakfast and Back Beach if conditions suit', prefix: 'Base one:' },
+  { number: '02', place: 'Red Hill', mood: 'Country house', stay: 'Lindenderry', stayHref: '/stay/lindenderry/', dinner: 'Book dinner on the estate', sunday: 'Slow breakfast and garden time', prefix: 'Base two:' },
+  { number: '03', place: 'Flinders', mood: 'Quiet coast', stay: 'Flinders Hotel', stayHref: '/stay/flinders-hotel/', dinner: 'Book dinner in the village', sunday: 'Breakfast and a local walk', prefix: 'Base three:' },
 ].map((base) => ({
   ...base,
   href: `#${articleHeadings.find((heading) => heading.depth === 3 && heading.text.startsWith(base.prefix))?.slug ?? 'plan-guide'}`,
@@ -460,13 +469,20 @@ export const prerender = true;
           </div>
           <div class="pl-choices__grid">
             {oneNightBases.map((base) => (
-              <a class="pl-choices__card" href={base.href}>
+              <div class="pl-choices__card">
                 <span class="pl-choices__num">{base.number} / 03</span>
                 <span class="pl-choices__place">{base.place}</span>
                 <span class="pl-choices__mood">{base.mood}</span>
-                <span class="pl-choices__detail">{base.detail}</span>
-                <span class="pl-choices__link">See this version <span aria-hidden="true">↗</span></span>
-              </a>
+                <dl class="pl-choices__outline">
+                  <div><dt>Stay</dt><dd>{base.stay}</dd></div>
+                  <div><dt>Dinner</dt><dd>{base.dinner}</dd></div>
+                  <div><dt>Sunday</dt><dd>{base.sunday}</dd></div>
+                </dl>
+                <div class="pl-choices__actions">
+                  <a class="pl-choices__stay" href={base.stayHref}>Explore {base.stay} <span aria-hidden="true">↗</span></a>
+                  <a class="pl-choices__link" href={base.href}>See {base.place} plan <span aria-hidden="true">↗</span></a>
+                </div>
+              </div>
             ))}
           </div>
         </div>
@@ -491,6 +507,19 @@ export const prerender = true;
                 <p><strong>Book first:</strong> one room and one dinner near it. Confirm availability, Sunday breakfast hours, walk access and weather for your dates; add a thermal session only if it fits the route.</p>
                 <a href="/explore/plans/#build">Build your own trip <span aria-hidden="true">&rarr;</span></a>
               </div>
+            )}
+            {isOneNightGuide && (
+              <details class="pl-glance__more pl-glance__sources">
+                <summary>Booking and access links checked online 30 September 2026 <span aria-hidden="true">+</span></summary>
+                <p>We checked these operator and park pages for the options above:</p>
+                <ul>
+                  <li>Sorrento: <a href="https://sorrento.intercontinental.com/">InterContinental Sorrento</a>, <a href="https://thecontinentalsorrento.com.au/">The Continental precinct</a> and <a href="https://www.parks.vic.gov.au/places-to-see/sites/sorrento-back-beach">Sorrento Back Beach</a></li>
+                  <li>Red Hill: <a href="https://lancemore.com.au/hotels/lancemore-lindenderry-red-hill/">Lindenderry</a> and <a href="https://montalto.com.au/pages/cellar-door">Montalto</a></li>
+                  <li>Flinders: <a href="https://flindershotel.com.au/">Flinders Hotel</a> and <a href="https://www.flinderssourdough.com.au/">Flinders Sourdough</a></li>
+                  <li>Optional bath: <a href="https://albathermalsprings.com.au/faqs/">Alba Thermal Springs</a></li>
+                </ul>
+                <p>Hours, availability and access can change. Confirm them for your travel dates.</p>
+              </details>
             )}
             {ad.aiSummary.length > 3 && (
               <details class="pl-glance__more">
@@ -534,7 +563,7 @@ export const prerender = true;
             <p class="pl-eyebrow">Take the trip</p>
             <h2 id="pl-takeaway-title">One room. One dinner. One slow morning.</h2>
             <p>Choose your area, reserve the stay and dinner, then check the current opening hours and conditions before you leave.</p>
-            <p class="pl-takeaway__follow">Want another weekend idea later? <a href="/dispatch/">The Insider Note</a> is an occasional email from our editors.</p>
+            <p class="pl-takeaway__follow">Want another weekend idea later? <a href="#newsletter">Get The Insider Note</a>, our occasional email with picks from across the Peninsula. <a href="/whats-on/this-weekend/archive/">Read past picks</a>.</p>
           </div>
           <a class="pl-action pl-action--primary" href="/explore/plans/#build">Find a plan for your trip <span aria-hidden="true">↗</span></a>
         </div>
@@ -601,7 +630,7 @@ export const prerender = true;
     </section>
   )}
 
-  <NewsletterBlock />
+  <NewsletterBlock body={planNewsletterBody} />
 </BaseLayout>
 ) : (
 <BaseLayout
@@ -1170,6 +1199,12 @@ export const prerender = true;
   .pl-glance__more summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 44px; cursor: pointer; color: #10527E; font: 700 .84rem/1.3 var(--font-ui); list-style: none; }
   .pl-glance__more summary::-webkit-details-marker { display: none; }
   .pl-glance__more[open] summary span { transform: rotate(45deg); }
+  .pl-glance__sources p, .pl-glance__sources li { font: 400 .86rem/1.55 var(--font-ui); color: #3E5361; }
+  .pl-glance__sources p { margin: .45rem 0 .65rem; }
+  .pl-glance__sources ul { margin: 0 0 .65rem; padding-left: 1.3rem; }
+  .pl-glance__sources li { margin: .3rem 0; }
+  .pl-glance__sources a { color: #10527E; text-underline-offset: .18em; }
+  .pl-glance__sources a:focus-visible { outline: 3px solid #10527E; outline-offset: 2px; }
   .pl-glance__item {
     display: grid;
     grid-template-columns: 1fr;
@@ -1244,7 +1279,7 @@ export const prerender = true;
     color: #10527E;
     border-bottom-color: #10527E;
   }
-  .pl-prose a:focus-visible, .pl-contents a:focus-visible, .pl-choices__card:focus-visible, .pl-action:focus-visible {
+  .pl-prose a:focus-visible, .pl-contents a:focus-visible, .pl-choices__actions a:focus-visible, .pl-action:focus-visible {
     outline: 3px solid #10527E;
     outline-offset: 3px;
   }
@@ -1314,13 +1349,18 @@ export const prerender = true;
   .pl-choices__head h2 { font: 700 clamp(2rem, 3vw, 2.7rem)/1.13 var(--font-display); color: #FFFFFF; letter-spacing: -.025em; margin: 0 0 1rem; text-wrap: balance; }
   .pl-choices__head p:last-child { font: 400 1.1rem/1.55 var(--font-ui); color: #D9E6EC; max-width: 55ch; margin: 0; }
   .pl-choices__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.8rem; }
-  .pl-choices__card { display: flex; flex-direction: column; min-height: 18rem; padding: clamp(1.4rem, 2vw, 2rem); color: #14202A; background: #F2EFEA; text-decoration: none; transition: transform .2s ease, background .2s ease; }
-  .pl-choices__card:hover { transform: translateY(-4px); background: #FFFFFF; }
-  .pl-choices__num { font: 700 .68rem/1 var(--font-ui); letter-spacing: .16em; color: #10527E; margin-bottom: 1.65rem; }
+  .pl-choices__card { display: flex; flex-direction: column; min-height: 20rem; padding: clamp(1.4rem, 2vw, 2rem); color: #14202A; background: #F2EFEA; }
+  .pl-choices__num { font: 700 .68rem/1 var(--font-ui); letter-spacing: .16em; color: #10527E; margin-bottom: 1.2rem; }
   .pl-choices__place { font: 700 clamp(1.45rem, 2.2vw, 1.9rem)/1.16 var(--font-display); margin-bottom: .35rem; }
   .pl-choices__mood { font: 700 .8rem/1.3 var(--font-ui); color: #8B561C; text-transform: uppercase; letter-spacing: .1em; }
-  .pl-choices__detail { font: 400 1rem/1.5 var(--font-ui); color: #3E5361; margin: 1rem 0 1.5rem; }
-  .pl-choices__link { font: 700 .84rem/1.3 var(--font-ui); color: #10527E; margin-top: auto; }
+  .pl-choices__outline { margin: 1.15rem 0 1.25rem; border-top: 1px solid #B9C6C8; }
+  .pl-choices__outline div { display: grid; grid-template-columns: 4.2rem minmax(0, 1fr); gap: .5rem; padding: .48rem 0; border-bottom: 1px solid #D0D8D8; }
+  .pl-choices__outline dt { font: 700 .72rem/1.4 var(--font-ui); text-transform: uppercase; letter-spacing: .08em; color: #10527E; }
+  .pl-choices__outline dd { margin: 0; font: 400 .88rem/1.4 var(--font-ui); color: #243746; }
+  .pl-choices__actions { display: flex; flex-wrap: wrap; align-items: center; gap: .25rem .8rem; margin-top: auto; }
+  .pl-choices__actions a { display: inline-flex; align-items: center; min-height: 44px; gap: .3rem; font: 700 .83rem/1.3 var(--font-ui); text-underline-offset: .18em; }
+  .pl-choices__stay { color: #0B2E4A; }
+  .pl-choices__link { color: #10527E; }
   .pl-contents { max-width: 50rem; margin: 0 auto 3.5rem; border-top: 1px solid #CFD9DE; border-bottom: 1px solid #CFD9DE; padding: 1.1rem 0 1.3rem; }
   .pl-contents .pl-eyebrow { margin: 0 0 .65rem; }
   .pl-contents__links { display: flex; flex-wrap: wrap; gap: .2rem 1.3rem; }
@@ -1486,7 +1526,7 @@ export const prerender = true;
     .pl-article--one-night .pl-choices__grid { gap: .6rem; }
     .pl-article--one-night .pl-choices__card { min-height: 0; padding: 1rem 1.15rem; }
     .pl-article--one-night .pl-choices__num { margin-bottom: .55rem; }
-    .pl-article--one-night .pl-choices__detail { margin: .5rem 0 .65rem; font-size: .92rem; }
+    .pl-article--one-night .pl-choices__outline { margin: .7rem 0 .4rem; }
     .pl-article--one-night .pl-glance { padding: 2rem 0; }
     .pl-article--one-night .pl-glance__inner { gap: 1rem; }
     .pl-article--one-night .pl-glance__list { gap: .5rem; }

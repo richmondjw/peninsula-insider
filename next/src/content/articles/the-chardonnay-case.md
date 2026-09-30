@@ -29,7 +29,7 @@ featured: true
 status: "published"
 lastVerified: 2026-04-22
 clusterLinks:
-  - label: "The Cellar Door Short List - Five Producers Worth the Appointment"
+  - label: "The Cellar Door Short List - Four Producers Worth the Stop"
     href: "/journal/the-cellar-door-short-list/"
   - label: "Mornington Peninsula Winery Guide"
     href: "/journal/mornington-peninsula-winery-guide/"
@@ -60,7 +60,7 @@ The pinot has stayed excellent. The chardonnay has caught up, then edged ahead.
 
 ## The six producers to taste to understand it
 
-If you want the shortest possible introduction to the argument, taste across these six producers, ideally on the Main Ridge plateau where most of the serious work is happening. Better to pick three at a time across two visits than to chase all six in one day; our [cellar door short list discipline](/journal/the-cellar-door-short-list/) explains why.
+If you want the shortest possible introduction to the argument, compare wines from these six producers; confirm cellar-door access separately, as not all advertise public tastings. Better to pick three at a time across two visits than to chase all six in one day; our [cellar door short list discipline](/journal/the-cellar-door-short-list/) explains why.
 
 ### 1. Kooyong, the benchmark, again
 
@@ -90,9 +90,9 @@ This is a wine that needs to be drunk at the correct temperature (twelve degrees
 
 The cellar door tasting is tied to the restaurant's rhythm and tends to be quieter on weekday mornings. Book the single-vineyard chardonnay flight specifically. If you can stay for lunch, this is also the room that makes the case for chardonnay with food most clearly. (See our [review of the three serious dinners](/journal/three-italian-dinners/) for the broader context.)
 
-### 6. Dexter Wines, the quiet obsessive
+### 6. Dexter Wines, the single-vineyard producer
 
-[Dexter](/wine/dexter-wines/) makes a single chardonnay from a single block and is almost entirely by appointment. Tod Dexter has been working Peninsula fruit for long enough that the wine has a distinctive hand, a slightly riper core, a little more texture, and an ability to age that surprises even regular Dexter drinkers. This is the one to taste if you want to meet the winemaker and understand the wine as a product of one person's three decades of decisions rather than a house style.
+[Dexter](/wine/dexter-wines/) makes Pinot Noir and Chardonnay from its Tuerong vineyard. The producer sells its releases online; its current website does not advertise public cellar-door tastings. Buy a bottle if you want to compare its Chardonnay with the wines above, rather than making it a tasting stop.
 
 ## What to buy
 

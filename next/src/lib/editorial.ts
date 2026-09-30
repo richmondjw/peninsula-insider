@@ -255,6 +255,8 @@ export function routeSlug(entry: any) {
    body before navigation, so reaching it from a card can present as a blank
    page when the browser does not complete the script redirect promptly. */
 const venueRouteOverrides: Record<string, string> = {
+  // Dexter is a non-public wine producer; its information page lives under Wine.
+  'dexter-wines': '/wine/dexter-wines/',
   'port-phillip-estate-restaurant': '/wine/port-phillip-estate/',
   // Day spas: not accommodation, so stayEligible:false and no /stay/ page of
   // their own (job 5, 2026-08-29). Their canonical home is the Explore

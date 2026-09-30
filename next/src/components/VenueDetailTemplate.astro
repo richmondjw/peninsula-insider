@@ -213,6 +213,7 @@ const hasRestaurant = isWinery && data.restaurant;
 const hasAccommodation = isWinery && data.accommodation;
 const isClosed = data.status === 'closed' || isPermanentlyClosed(data);
 const isUnverifiedPaused = data.status === 'paused' && data.sourceStatus === 'unsourced';
+const isNonPublicProducer = data.type === 'producer';
 
 // Wine-specific derived signals
 const isAppointmentOnly = isWinery && data.visiting?.bookingRequired === true;
@@ -553,8 +554,8 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
 
           <dt>Location</dt>
           <dd>
-            {isUnverifiedPaused ? "Market location unverified" : data.address}
-            {data.address && !isUnverifiedPaused && (
+            {isUnverifiedPaused ? "Market location unverified" : isNonPublicProducer ? `${placeLabel(data.place)} (not open to the public)` : data.address}
+            {data.address && !isUnverifiedPaused && !isNonPublicProducer && (
               <>
                 {' '}·{' '}
                 <a
@@ -620,7 +621,7 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
               <dd>{data.hoursNote}</dd>
             </>
           )}
-          {!isUnverifiedPaused && <><dt>Directions</dt><dd><a href={directionsUrl} target="_blank" rel="noopener noreferrer" data-evt="directions_click" data-entity-type="venue" data-entity-slug={venueSlug} data-surface="venue-facts">Get directions</a></dd></>}
+          {!isUnverifiedPaused && !isNonPublicProducer && <><dt>Directions</dt><dd><a href={directionsUrl} target="_blank" rel="noopener noreferrer" data-evt="directions_click" data-entity-type="venue" data-entity-slug={venueSlug} data-surface="venue-facts">Get directions</a></dd></>}
 
           {visitorInformation?.accessibility && <><dt>Accessibility</dt><dd>{visitorInformation.accessibility}</dd></>}
           {visitorInformation?.children && <><dt>With children</dt><dd>{visitorInformation.children}</dd></>}
@@ -645,14 +646,14 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
             </>
           )}
 
-          <>
+          {!isNonPublicProducer && <>
             <dt>Live status</dt>
             <dd>
               <a href={liveStatusUrl} target="_blank" rel="noopener noreferrer">
                 Check current hours →
               </a>
             </dd>
-          </>
+          </>}
 
           {hasWines && data.wines.winemaker && (
             <>

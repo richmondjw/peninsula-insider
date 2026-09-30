@@ -70,7 +70,7 @@ The accommodation decision locks in your geography for the weekend. Make it earl
 
 **The hinterland (Red Hill, Main Ridge, Merricks).** Stay here if the weekend is about food and wine. You will be within fifteen minutes of the best restaurants, the cellar doors, and the producer trail. The mornings are misty, the evenings are quiet, and the landscape is vineyard and bushland. Options: **Lindenderry** (country house), **Jackalope** (design hotel), **Polperro Villas** or **Crittenden Villas** (vineyard cottages), or Airbnb rentals in the Red Hill area.
 
-**The coast (Sorrento, Portsea).** Stay here if the weekend is about the beach, the village atmosphere, and the view. You will be further from the wineries but closer to the ocean, the ferry, and Point Nepean. **Hotel Sorrento** for the village centre, **The Continental** for the upgrade, rental houses along the cliff for the view.
+**The coast (Sorrento, Portsea).** Stay here if the weekend is about the beach, the village atmosphere, and the view. You will be further from the wineries but closer to the ocean, the ferry, and Point Nepean. **Hotel Sorrento** for the village centre, **InterContinental Sorrento** for a hotel stay beside the Continental dining precinct, rental houses along the cliff for the view.
 
 **The bay side (Mornington, Mount Martha, Dromana).** The cheaper option and the one that works best for families. Closer to Melbourne, closer to the freeway, and the bay beaches are gentler for children. Holiday rentals in Dromana and Rosebud are significantly cheaper than the hinterland or the coast.
 
@@ -90,7 +90,7 @@ Every Peninsula weekend has one anchor meal, the lunch or dinner that the trip i
 - **Port Phillip Estate / Pt Leo Estate.** Two sister properties with serious dining rooms and coastal views. The more formal end of the Peninsula lunch.
 - **Rare Hare** at Willow Creek. A vineyard bistro that handles a group lunch with more flexibility than the fine-dining options.
 
-**For a Saturday dinner:** Fewer options than lunch, because the Peninsula's dining scene runs on daylight. **Doot Doot Doot** at Jackalope is the dedicated evening restaurant. **Hotel Sorrento** and **The Continental** serve dinner. **Paringa Estate** does Friday and Saturday evenings.
+**For a Saturday dinner:** Fewer options than lunch, because the Peninsula's dining scene runs on daylight. **Doot Doot Doot** at Jackalope is the dedicated evening restaurant. **Hotel Sorrento** serves dinner, and the Continental precinct has separate dining options such as Ember and The Conti Bar. **Paringa Estate** does Friday and Saturday evenings.
 
 **For a Sunday lunch:** The exit meal. Something relaxed on the way home. **Merricks General Wine Store** for pizza and local wine. **Commonfolk** in Mornington for coffee and a light meal. **Montalto** if you want to repeat the Saturday format at a calmer tempo.
 

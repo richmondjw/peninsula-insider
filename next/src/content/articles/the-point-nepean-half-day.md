@@ -48,66 +48,51 @@ faq:
   - question: "Is Point Nepean suitable for families with young children?"
     answer: "The shuttle can spare young children the roughly 9km return walk from the Quarantine Station. Paths include exposed sections and some slopes; check Parks Victoria accessibility advice and current conditions before choosing a route."
 aiSummary:
-  - "A planning guide for visiting Point Nepean National Park - the national park at the very end of the Peninsula, accessible by shuttle bus from the Portsea end."
-  - "Covers: walking, cycling and shuttle options; how much time to allow; and what the fort and Quarantine Station offer beyond the views."
-  - "The editorial argument: Point Nepean gives a Sorrento or Portsea weekend a memorable landscape and history stop."
-  - "Suits: first-time visitors with a half-day, walkers, history-interested visitors, anyone staying in Sorrento or Portsea who wants to understand the Peninsula's tip properly."
-  - "Planning note: check the current shuttle timetable and park alerts. Bring water; Parks Victoria says there is none beyond the Quarantine Station. Allow extra time if walking."
+  - "Shuttle-led: start at Quarantine Station, ride to Fort Nepean, allow at least an hour there, then return for the heritage precinct."
+  - "Walk-led: the direct route is about 4.5km each way from Quarantine Station; Gunners Cottage is about 3km each way."
+  - "Bring water, check shuttle and park alerts, and avoid the closed Engine House interior and walking track."
 ---
 
 **Point Nepean National Park** sits at the very tip of the Mornington Peninsula, directly west of Portsea, pointing into the narrow gap between Port Phillip and Bass Strait that sailors call the Rip. The park brings together a nineteenth-century quarantine station, defence sites used in the two world wars, and coastal walks with views toward the bay and ocean.
 
-Point Nepean is the half-day that gives a Sorrento weekend a landscape spine. Here is how to do it.
+Point Nepean is the half-day that gives a Sorrento weekend a landscape spine.
 
 **Access check, 30 September 2026:** Parks Victoria lists the Engine House interior and walking track as closed, and no drinking water beyond the Quarantine Station. Check the [latest park conditions](https://www.parks.vic.gov.au/places-to-see/parks/point-nepean-national-park/attractions/fort-nepean) before you go.
 
-## What the park is
+## Choose your half-day route
 
-Point Nepean is the very end of the Mornington Peninsula, the westernmost land before the Heads open to the sea. For most of its modern history it was military land, and the restrictions kept it out of tourist circulation until the 1990s. The remnants of that military past are still the most visible thing in the park: the Quarantine Station complex near the entrance, the defensive batteries at Fort Nepean on the tip, and the series of emplacements dug into the cliffs along the ridge between them.
+Start at the **Quarantine Station car park** if you want the visitor centre and shuttle stop together. Bring water before going further into the park.
 
-It is also the only place on the Peninsula where you can stand on land with Port Phillip Bay on one side and the open Bass Strait on the other within a hundred metres. The Rip, the notorious narrow entrance to the bay, where the tidal flow can run at seven knots in either direction, is directly beneath the fort. On a moving tide you can watch container ships threading through the gap with pilot boats in attendance. It is not a quiet landscape, but it is a dramatic one.
+- **Shuttle-led:** check the [current timetable](https://www.parks.vic.gov.au/places-to-see/parks/point-nepean-national-park/things-to-do/shuttle-service), ride to Fort Nepean, allow at least an hour there, then return to walk the Quarantine Station precinct. This keeps the day lighter on foot.
+- **Walk-led:** follow the direct road route to Fort Nepean, about 4.5km each way from the Quarantine Station. For a shorter walk, use **Gunners Cottage car park**, about 3km each way. Allow for exposed weather and stops, and check current track alerts before setting out.
 
-For a half-day, choose between two practical car parks:
+You can also cycle on Defence Road and Coles Track. Parks Victoria lists bike hire at the Quarantine Station Visitor Information Area; wear a helmet and leave the bike at the racks before the fort precinct. Fort Nepean itself is reached on foot, by bike or by shuttle, not by private car.
 
-1. **The Quarantine Station car park**, with the visitor centre, shuttle stop and walking routes.
-2. **The Gunners Cottage parking area** further along Defence Road, which gets you closer to the fort without the full walk.
+## Why this stop matters
 
-
-Start at the Quarantine Station if you want the visitor centre and shuttle stop together.
-
-## How to choose: shuttle, walk, or ride
-
-Fort Nepean is about 4.5 kilometres from the Quarantine Station car park by the direct road route, around 9 kilometres return. From the front entrance gate it is about 5.5 kilometres each way. Decide how much you want to walk before choosing the shuttle, road or bike route.
-
-**Option one: the shuttle bus.** A hop-on, hop-off shuttle serves the Quarantine Station and Fort Nepean. It is useful if you have limited time or want to save your walking for the fort. Check the [current shuttle details](https://www.parks.vic.gov.au/places-to-see/parks/point-nepean-national-park/things-to-do/shuttle-service) for operating times and fares before you leave.
-
-**Option two: the walk.** Parks Victoria puts the Quarantine Station to Fort Nepean walk at about 4.5 kilometres, around one hour and fifteen minutes one way by the direct road route. The front entrance gate is about 5.5 kilometres from the fort. Allow time for stops and exposed weather, plus at least an hour at the fort.
-
-**Option three: ride.** Cycling is permitted on Defence Road and Coles Track. Bring your own bike or check current hire options at the Quarantine Station Visitor Information Area. Helmets are required; leave your bike at the racks before entering the fort precinct.
-
-A good half-day option is to take the shuttle out and walk back, if service times and conditions suit. You can spend an hour at the fort, then return at your own pace.
+The Quarantine Station and Fort Nepean tell different parts of the Peninsula's history: nineteenth-century arrivals at one end, coastal defence at the other. Between them, the road crosses a narrow landscape with Port Phillip Bay and the ocean close on either side. At the fort, the Rip and passing ships make the geography immediate.
 
 ## What to actually see: the fort
 
-**Fort Nepean** is the reason to make the trip. It is a complex of defensive batteries, magazines and tunnels dug into the cliffs at the very western tip of the Peninsula, built progressively from the 1880s to the Second World War to defend the entrance to Port Phillip. The remains include gun emplacements, a signal station and an extensive tunnel complex. The nearby Cheviot Hill lookout overlooks Cheviot Beach, where Prime Minister Harold Holt disappeared in 1967. Parks Victoria currently lists the Engine House interior and its walking track as closed.
+**Fort Nepean** is the reason to make the trip. It is a complex of defensive batteries, magazines and tunnels dug into the cliffs at the very western tip of the Peninsula, built progressively from the 1880s to the Second World War to defend the entrance to Port Phillip. The remains include gun emplacements, a signal station and an extensive tunnel complex. The nearby Cheviot Hill lookout overlooks Cheviot Beach, where Prime Minister Harold Holt disappeared in 1967. Follow current signs around the closed Engine House interior and walking track.
 
 Take at least an hour here. The tunnels are worth walking. The view from the tip, looking directly across the Rip at the lighthouse at Queenscliff and, if the day is clear, the Otway Ranges beyond, is one of the few places on the Peninsula where the whole geography of the region finally makes sense.
 
 ## What to actually see: the quarantine station
 
-Back at the main entrance, the **Quarantine Station** precinct is a complete nineteenth-century isolation complex, used from 1852 until 1980 to house arriving migrants, and including the only surviving deep-sea boiler disinfection plant in Australia. Some of the buildings are open to the public; most are heritage-restricted. A self-guided walk through the main cluster takes thirty minutes and gives the park a human scale the fort does not.
+Back at the main entrance, the **Quarantine Station** precinct is a complete nineteenth-century isolation complex, used from 1852 until 1980 to house arriving migrants, and including the only surviving deep-sea boiler disinfection plant in Australia. Some of the buildings are open to the public; most are heritage-restricted. A self-guided walk through the main cluster gives the park a human scale the fort does not.
 
 The Gold Rush connection, thousands of prospective diggers held in quarantine here through the 1850s, is the story most visitors are not expecting, and it is the one worth reading the interpretive signs for.
 
 ## What to actually see: Cheviot Hill
 
-Between the Quarantine Station and Fort Nepean, the walking road climbs briefly to **Cheviot Hill**, a 78-metre high point with an observation platform. This is the best vantage on the whole Peninsula: Bass Strait to the south, Port Phillip to the north, the ridge line running east toward Arthurs Seat, and, on a very clear day, the outline of Melbourne forty-five kilometres across the bay. Ten minutes' detour from the main path. Worth it.
+Between the Quarantine Station and Fort Nepean, the walking road climbs briefly to **Cheviot Hill**, a 78-metre high point with an observation platform. This is the best vantage on the whole Peninsula: Bass Strait to the south, Port Phillip to the north, the ridge line running east toward Arthurs Seat, and, on a very clear day, the outline of Melbourne forty-five kilometres across the bay. Check the signed access before adding the detour.
 
 ## How to fit it into a weekend
 
 The Point Nepean half-day fits cleanly into a Sorrento or Portsea weekend in one of two ways.
 
-**Slot one: the Saturday afternoon after a late morning at the back beach.** Back beach by 9am for the walk and the light, coffee and pastry back in the village by 11, shuttle and walk at Point Nepean from about 1pm, back in the village by 4.30 for a pre-dinner drink and a short lie-down.
+**Slot one: Saturday after the back beach.** Walk the coast in the morning, then use the current shuttle timetable to plan your park arrival and return. Leave the evening free rather than relying on a fixed finish time.
 
 **Slot two: Sunday before driving home.** Have coffee in Sorrento, then use the current shuttle timetable to set your park arrival. Give the fort at least an hour and leave enough time for the return route before lunch in Portsea. Check traffic and park conditions rather than relying on a fixed departure time.
 
@@ -115,7 +100,7 @@ The Point Nepean half-day fits cleanly into a Sorrento or Portsea weekend in one
 
 Point Nepean is exposed and can be windier than the village. Bring a windproof layer, sun protection, water and snacks. Parks Victoria says there is no drinking water beyond the Quarantine Station; check current track closures and weather before setting out.
 
-Walking shoes are enough; hiking boots are overkill. The fort tunnels are dark enough that a phone torch is helpful, though the main passages are safe without one.
+Wear comfortable walking shoes. A phone torch can help you see details in the darker fort passages; follow signs and any on-site closures.
 
 ## What the park adds to the weekend
 

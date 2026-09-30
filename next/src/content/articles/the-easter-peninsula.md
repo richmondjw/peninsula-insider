@@ -44,7 +44,7 @@ faq:
   - question: "Is the Mornington Peninsula worth visiting at Easter?"
     answer: "Yes, but only with the right plan. Easter is the Peninsula's first major crowd-pressure weekend of the year. Book accommodation in February, invert the standard weekend rhythm (quiet moves on Friday and Saturday, booked lunch on Sunday), and leave Monday morning before 11am."
   - question: "Which restaurants and cellar doors are open at Easter on the Mornington Peninsula?"
-    answer: "Most Peninsula restaurants and cellar doors are open across Easter. Good Friday is the exception; many cellar doors close while bakeries and pubs tend to stay open. Book restaurant lunches for Sunday rather than Saturday; Saturday is the busiest day of the long weekend."
+    answer: "Most Peninsula restaurants and cellar doors are open across Easter. Good Friday trading varies by venue; check each bakery, pub and cellar door's holiday hours before setting out. Book restaurant lunches for Sunday rather than Saturday; Saturday is the busiest day of the long weekend."
   - question: "When is the best time to leave the Mornington Peninsula on Easter Monday?"
     answer: "Before 11.30am. The Mornington Peninsula Freeway typically slows significantly from about 1pm on Easter Monday. Leaving before midday puts you home well ahead of the worst of it."
 aiSummary:
@@ -52,7 +52,7 @@ aiSummary:
   - "The editorial argument: Easter on the Peninsula is worth doing if you book correctly and choose the right activities. The piece sequences what to book first and which parts of the Peninsula are most congested."
   - "Covers: what is worth booking 6–8 weeks ahead for Easter; where to avoid (Sorrento foreshore on Saturday); where is quieter than expected (inland hinterland, Flinders, Balnarring)."
   - "Suits: anyone committed to visiting at Easter; visitors who have flexibility about which days they go and want to minimise crowd exposure."
-  - "Planning note: the cellar doors are quieter than restaurants on Good Friday. Monday is usually the best day on the Peninsula for food - fewer day-trippers, same quality."
+  - "Planning note: check public-holiday opening and reserve the meals that matter; do not assume normal Friday or Monday service."
 ---
 
 Easter on the Mornington Peninsula is its own weekend.
@@ -88,9 +88,9 @@ One to avoid: any hotel within walking distance of a cellar door. The car park n
 
 Friday is the day everyone else uses to drive down. Either be down already or arrive as early as possible. The freeway is busy from 10am Thursday and again from about 11am Friday. Aim for an early Friday drive (out of Melbourne by 7.30am) or, better, arrive Thursday evening and use Friday morning as the actual start.
 
-Most cellar doors are closed on Good Friday. Most bakeries and cafes are open with reduced hours. Friday rewards a slow shape:
+Good Friday hours vary across cellar doors, bakeries and cafes. Confirm a breakfast stop before building the morning around it:
 
-**8.30am:** Bakery breakfast. **The Red Hill Baker in Balnarring** if you are on the eastern side, **Flinders Sourdough** if you are south. Hot cross buns are the day's organising food and most of the bakeries make them properly. Buy more than you think you need; you will eat them across all four days.
+**Morning:** Choose a bakery that confirms Good Friday opening for your date. Flinders Sourdough currently lists Saturday and Sunday, 9am–2pm, so do not rely on it for this Friday without a special-hours announcement. Bring breakfast provisions if you are arriving early.
 
 **10am:** A village walk. Friday morning on the Peninsula is the right time to walk a village without anyone else there. The Mornington foreshore from the pier to Mills Beach. The Sorrento foreshore from the village to the front beach. The Flinders pier and back along the village street.
 
@@ -148,7 +148,7 @@ Monday is the day everyone tries to drive home at 4pm and the freeway turns into
 
 ## What Easter is for
 
-The Peninsula in late April is genuinely beautiful and the long weekend gives you four days instead of two. The vintage is finishing on the ridge. The light is at its best. The autumn vegetable harvest is filling the markets. The long weekend lets the trip move at a pace that a normal two-night weekend never quite hits.
+The Peninsula at Easter gives you four days instead of two. Autumn light and seasonal produce bring a different rhythm to the ridge and villages. The long weekend lets the trip move at a pace that a normal two-night weekend never quite hits.
 
 Treat Easter as its own weekend. Different rhythm, different bookings, different moves. The four days feel like four days.
 

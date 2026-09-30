@@ -32,5 +32,4 @@ body .pi-conditions__inner,body .v5-breadcrumbs__container{width:min(1280px,calc
 @media(max-width:1100px){body .pi-conditions__inner,body .v5-breadcrumbs__container{width:calc(100% - 48px)}}
 @media(max-width:767px){body .pi-conditions__inner,body .v5-breadcrumbs__container{width:calc(100% - 32px)}}
 
-/* Navigation remains available before scripts load or when JavaScript is disabled. */
-.pi-shell.site-header:not([data-bound]) .site-nav{display:block}.pi-shell.site-header:not([data-bound]) .mobile-menu{display:none}
+/* JavaScript-disabled navigation fallback is in V5Masthead.astro. Keep the compact mobile header stable before its script binds. */

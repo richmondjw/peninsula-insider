@@ -25,7 +25,7 @@ heroImage:
   provenanceReview: "verified"
 format: "stay-notes"
 tags: ["stay", "weekend", "sorrento", "red-hill"]
-relatedVenues: ["jackalope", "lindenderry", "the-continental-sorrento", "hotel-sorrento", "port-phillip-estate", "crittenden-villas", "peninsula-hot-springs-glamping", "the-continental-sorrento", "point-leo-estate-villas", "polperro-villas"]
+relatedVenues: ["jackalope", "lindenderry", "the-continental-sorrento", "hotel-sorrento", "port-phillip-estate", "crittenden-villas", "peninsula-hot-springs-glamping", "the-continental-sorrento", "polperro-villas"]
 readingTimeMinutes: 6
 featured: false
 status: "published"
@@ -39,7 +39,7 @@ clusterLinks:
     href: "/explore/plans/the-couples-weekend/"
 faq:
   - question: "Where is the best place to stay on the Mornington Peninsula for a two-night escape?"
-    answer: "Depends on the trip. For food and wine: Jackalope (design hotel, theatrical) or Lindenderry (country house, softer, often the better choice). For coast and town life: The Continental Sorrento (walkable main street, ferry nearby) or Hotel Sorrento (looser, older, good front rooms with bay views). For quiet: Flinders Hotel - clean, comfortable, village base at the ocean end of the Peninsula."
+    answer: "Depends on the trip. For food and wine: Jackalope (design hotel, theatrical) or Lindenderry (country house, softer, often the better choice). For coast and town life: InterContinental Sorrento (central village base near the Continental dining precinct) or Hotel Sorrento (looser, older, good front rooms with bay views). For quiet: Flinders Hotel - clean, comfortable, village base at the ocean end of the Peninsula."
   - question: "What is the difference between Jackalope and Lindenderry?"
     answer: "Jackalope is theatrical - black steel architecture, designed for guests who want the stay to feel like an event. Lindenderry is softer, more like a proper country house with gardens and genuine quiet. Both are on the Red Hill hinterland and within reach of the same restaurants and cellar doors. Jackalope if the aesthetics are part of the point; Lindenderry if the rest is."
   - question: "Should I stay in Sorrento or Red Hill for a Peninsula weekend?"
@@ -60,7 +60,7 @@ Where you stay matters more here than in many regions because the Peninsula chan
 
 ## If the trip is about coast and town life, go straight to Sorrento
 
-**The Continental** makes the strongest case for sleeping in the middle of the action. Main street at your feet, ferry in walking distance, ocean beach one block away, rooftop drink when the light drops. It allows a Sorrento weekend to happen almost entirely on foot.
+**InterContinental Sorrento** makes the case for sleeping near the middle of the action, with heritage and newer rooms beside the Continental dining precinct. The Conti Bar and other precinct venues take separate dining bookings; do not count on access to an open rooftop bar. A village weekend can still happen largely on foot.
 
 **Hotel Sorrento** is older, looser, and all the better for it. Book a front room if you can. Watch the bay. Go downstairs for a drink before dinner and let the place do what it has always done.
 

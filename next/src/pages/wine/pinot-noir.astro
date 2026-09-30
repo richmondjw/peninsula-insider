@@ -22,7 +22,7 @@ const venues = pinotSlugs
 
 const itemListSchema = buildItemListSchema({
   name: 'Best Pinot Noir producers - Mornington Peninsula',
-  description: 'The Mornington Peninsula cellar doors producing the most compelling Pinot Noir.',
+  description: 'Mornington Peninsula producers making Pinot Noir; check public access before planning a visit.',
   listPath: '/wine/pinot-noir',
   items: venues.map((v) => ({ name: v.data.name, path: `/wine/${routeSlug(v)}/`, itemType: 'Winery' })),
 });

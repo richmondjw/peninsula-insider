@@ -1,6 +1,6 @@
 {
   "note": "Probe results for source URLs cited by the corpus. Written ONLY by next/scripts/probe-link-health.mjs, by a human or a scheduled job, never by a build. Read offline by next/scripts/audit-link-health.mjs. A verdict is what a probe saw, not an inference. This file is a RECORD, not a report: it does not live under ops/reports/ because nothing here is reproducible from the tree, and reverting it destroys evidence rather than regenerating it.",
-  "updatedAt": "2026-09-29T23:32:23.876Z",
+  "updatedAt": "2026-09-30T11:18:21.863Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -1368,6 +1368,14 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Portsea Twilight | Sole Motive"
+    },
+    {
+      "url": "https://sorrento.intercontinental.com/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Hotels Sorrento, Mornington Peninsula | InterContinental Sorrento",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://sorrentosolstice.com.au",

@@ -32,12 +32,10 @@ relatedVenues:
   - "peninsula-hot-springs-glamping"
   - "port-phillip-estate"
   - "crittenden-villas"
-  - "point-leo-estate-villas"
   - "bistro-elba"
 relatedExperiences:
   - "sorrento-back-beach"
   - "cape-schanck-boardwalk"
-  - "bushrangers-bay-walk"
 readingTimeMinutes: 7
 featured: false
 status: "published"
@@ -64,25 +62,17 @@ aiSummary:
   - "Sunday morning: take breakfast and one short walk before heading home. Check current hours and conditions."
 ---
 
-There is a kind of Peninsula weekend that nobody writes about, and it is the most useful one.
+A single overnight can feel like a proper break: one room, one dinner, one morning that belongs to you. Done loosely, it becomes a long drive for a hotel room and two meals you could have had at home.
 
-It is not the two-night stay. It is not the day trip. It is the single overnight: one room, one dinner, one breakfast, and enough time on the ground to feel away without giving up the whole weekend. Done well, it leaves room to slow down. Done loosely it is a long drive for a hotel room and two meals you could have had at home.
-
-The difference is almost entirely in the shape of the thing. A one-night escape is a compression exercise. You are buying a sequence, not a destination, and the sequence has to be chosen before you leave the house, not negotiated over the steering wheel on the way down.
+Choose the sequence before you leave, so the drive is not spent negotiating the next stop.
 
 ## The core idea: one arc, three moves
 
-A good overnight on the Peninsula has three moves and no more.
+Start with an arrival ritual: a coastal walk, a thermal bath if it fits your route, or a drink in town as the light goes.
 
-The first is an arrival ritual: a coastal walk, a thermal bath if it fits your route, or a drink in town as the light goes. Give it time before dinner.
+Book one good dinner close to your room. Leave the rest of the night open.
 
-The second is dinner, which should be good but not long. You want food that feeds the night, not a tasting menu that eats three hours of it.
-
-The third is the slow morning. Coffee outside. A walk. Breakfast without watching the clock. Leave enough time for it before the drive home.
-
-Three moves. That is the entire brief.
-
-If you are taking the stay after a hard month, a launch, or simply because you need a change of scene, the compression is the point. There is no time for eight activities. There is time for three right ones.
+Protect the slow morning. Coffee outside, a short walk, breakfast without watching the clock. Three moves are enough.
 
 ## The three bases that make a one-night trip work
 
@@ -90,13 +80,13 @@ The choice of base matters more on a one-night trip than a three-night one, beca
 
 ### Base one: Sorrento, for the town-life version
 
-Stay at [The Continental](/stay/the-continental-sorrento/).
+Stay at [InterContinental Sorrento](/stay/the-continental-sorrento/).
 
-The Continental puts a stay, dining and a bathhouse close to Sorrento's main street. You can settle in, then walk through town or toward the ferry for a change of light before dinner. Check the current venues and book any bathhouse session ahead.
+The hotel puts you close to Sorrento's main street and The Continental dining precinct. Settle in, then walk through town or toward the ferry before dinner. Book dinner separately and check any bathhouse session before travel.
 
 This is the town-life version: arrive Saturday afternoon, settle in, and choose a drink and dinner within walking distance. On Sunday, have coffee on the main street, walk [Sorrento back beach](/explore/sorrento-back-beach/) if conditions suit, then take breakfast before heading home. A bathhouse session can replace the pre-dinner walk if you have booked one.
 
-Sorrento works best as a base when you plan to use the main street. The point is that you don't touch the car from arrival to departure.
+Sorrento works best as a base when you plan to use the main street. With a central room and a walk that suits your party, you can leave the car parked until departure.
 
 ### Base two: Red Hill, for the country-house version
 
@@ -104,7 +94,7 @@ Stay at [Lindenderry at Red Hill](/stay/lindenderry/).
 
 This is the country-house version: a hotel set in gardens, time outdoors, and breakfast without another drive. Lindenderry gives the stay a quieter rhythm, with a restaurant on the property. Leave room to enjoy the estate instead of filling every hour.
 
-Shape: arrive Saturday by 2.30pm, park, walk the gardens for forty minutes without urgency. Book a cellar-door tasting at [Montalto](/wine/montalto/) if the current schedule fits, or keep it simple and stay on property. Dinner at Lindenderry itself, early, light. Bed. On Sunday morning, breakfast on the terrace and then one short walk on the ridge before driving out. If you want a full lunch before heading home, check [Tedesca Osteria](/eat/tedesca-osteria/) for current Sunday service and book ahead. Otherwise, leave late morning and let the overnight have done its work.
+Shape: arrive Saturday afternoon, settle in, and walk the gardens without urgency. Book a cellar-door tasting at [Montalto](/wine/montalto/) if the current schedule fits, or keep it simple and stay on property. Dinner at Lindenderry itself, early, light. Bed. On Sunday morning, breakfast at the hotel and then one short walk on the ridge before driving out. If you want a full lunch before heading home, check [Tedesca Osteria](/eat/tedesca-osteria/) for current Sunday service and book ahead. Otherwise, leave late morning and let the overnight have done its work.
 
 Red Hill on an overnight rewards restraint. One tasting, properly, and let the rest of the plateau wait.
 
@@ -114,7 +104,7 @@ Stay at [Flinders Hotel](/stay/flinders-hotel/) or a small cottage in the farmla
 
 Flinders is the quieter coastal choice. The village is small, the weather can change quickly, and the open-water light feels different from the bay towns. Choose it when a walk and an unhurried evening sound better than a packed itinerary.
 
-Shape: arrive Saturday afternoon. Choose a short coastal walk after checking current access and conditions, with the wind off the water for company. Come back to the room. Dinner at the Flinders Hotel bistro, early, nothing complicated: a piece of fish, a glass of wine, a shared dessert. Bed by 9.30. On Sunday morning, take your time, then visit [Flinders Sourdough](/eat/flinders-sourdough/) after its advertised 9am opening if current hours still suit. Take a pastry and coffee outside and watch the village wake up. Drive home slowly via [Cape Schanck](/explore/cape-schanck-boardwalk/) or [Bushrangers Bay](/explore/bushrangers-bay-walk/) if the weather holds.
+Shape: arrive Saturday afternoon. Choose a short coastal walk after checking current access and conditions, with the wind off the water for company. Come back to the room. Dinner at the Flinders Hotel bistro, early, nothing complicated: a piece of fish, a glass of wine, a shared dessert. Bed by 9.30. On Sunday morning, take your time, then visit [Flinders Sourdough](/eat/flinders-sourdough/) after its advertised 9am opening if current hours still suit. Take a pastry and coffee outside and watch the village wake up. Then head home. Keep the longer coastal walks for another trip, after checking current park access and conditions.
 
 For more on why Flinders rewards the quiet version of the weekend, see our full piece on the [quiet side of the Peninsula](/journal/a-flinders-weekend/). The one-night trip is the version that gives you an honest taste of that argument without asking for three days.
 
@@ -131,13 +121,6 @@ A one-night escape works as an exercise in subtraction.
 - **Book the anchors in advance.** Reserve the room, dinner, and any thermal session. Leave coffee and the morning walk loose; that small bit of freedom is part of the point.
 - **One booked meal, not three.** One dinner. Everything else is a coffee, a pastry, a glass of wine, or a bag from a bakery. Multiple sit-down meals turn a short trip into an errand.
 - **Stay inside one zone.** Pick Sorrento, Red Hill, or Flinders, and stay inside it. The Peninsula is varied enough that crossing it on a short trip eats the day.
-- **Leave slowly.** The drive home is best after 10.30am. The unhurried morning is what gives the trip its shape.
-- **Bring nothing that needs charging.** A book. A jumper. A pair of boots. The less of ordinary life you bring with you, the more of the overnight you will actually occupy.
+- **Leave slowly.** Give breakfast and the morning walk room before the drive home.
 
-## The deeper argument
-
-The reason the one-night Peninsula trip works as well as it does is geographic. Leave Melbourne around midday on Saturday and the first move can begin that afternoon, with Sunday morning still yours before the drive home. The exact travel time depends on your base and the traffic. What matters is the arc: depart, arrive, bathe-or-walk, eat well, sleep well, wake slowly, walk, eat simply, drive home.
-
-The Peninsula delivers that arc in a single overnight without cutting corners. The cost, the drive, and the compression all line up. Book the room and dinner in advance, then add a thermal session only if the route has room for it.
-
-Book the room and dinner. Clear Sunday morning. Leave on time.
+Book the room and dinner. Keep Sunday morning open.

@@ -113,6 +113,14 @@ const active = path.startsWith('/explore/plans') || path.startsWith('/plans') ? 
   </nav>
 </dialog>
 </header>
+<noscript>
+  <style is:inline>
+    @media (max-width: 1100px) {
+      .pi-shell.site-header .site-nav { display: block !important; }
+      .pi-shell.site-header .mobile-menu { display: none !important; }
+    }
+  </style>
+</noscript>
 <script>
 let shellCleanup:(()=>void)|undefined;
 document.addEventListener('astro:before-swap',()=>shellCleanup?.());

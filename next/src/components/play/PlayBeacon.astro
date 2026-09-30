@@ -4,10 +4,9 @@
  *
  * The site's one persistent presence for the game: 32px, on brand, and it is
  * her (the same hat-turn loop the game uses in its own header), not a badge.
- * Ships the 9KB still first and swaps in the animated WebP after window.load
- * so it never competes with the page's LCP; reduce-motion keeps the still.
- * Desktop only (the phone masthead row has no spare width); the hover/focus
- * card carries the case and the prize.
+ * Ships the still first. Hover-capable devices receive the animated WebP
+ * after window.load; touch and reduced-motion devices keep the still to avoid
+ * downloading decorative motion. The hover/focus card carries the case.
  */
 import { PLAY, playUrl, PRIZE_LINE } from '../../lib/play';
 const href = playUrl('masthead');
@@ -52,7 +51,9 @@ const href = playUrl('masthead');
   // Swap the still for the animated mark once the page has fully loaded.
   // After load, idle: the icon is decoration, the article is the point.
   function animatePlayMark() {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    // The editorial shell also shows this mark on phones. Keep its still image
+    // on touch devices instead of fetching 110 KB of decorative animation.
+    if (window.matchMedia('(prefers-reduced-motion: reduce), (pointer: coarse)').matches) return;
     document.querySelectorAll<HTMLImageElement>('.v5-play__mark[data-animated]').forEach((img) => {
       const one = img.dataset.animated!;
       const two = img.dataset.animated2x ?? one;

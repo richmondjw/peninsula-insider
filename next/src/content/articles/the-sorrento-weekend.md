@@ -41,7 +41,7 @@ faq:
   - question: "What is the best time to visit Sorrento on the Mornington Peninsula?"
     answer: "April through October for the off-season version - tables are bookable, the back beach is walkable without crowds, and the village operates at its natural pace. January is the worst month: the town is overwhelmed with Melbourne weekenders and the car parks fill by 9am."
   - question: "Is it worth staying in Sorrento rather than Red Hill for a Peninsula weekend?"
-    answer: "For a Sorrento-focused trip, yes - staying in the village eliminates the commute and turns the whole weekend walkable. The Continental Sorrento and Hotel Sorrento are the two main options. If you also want the wineries, Red Hill is the better base."
+    answer: "For a Sorrento-focused trip, yes - staying in the village eliminates the commute and turns the whole weekend walkable. InterContinental Sorrento and Hotel Sorrento are two central hotel options. If you also want the wineries, Red Hill is the better base."
   - question: "What are the best things to do in Sorrento apart from the beach?"
     answer: "The Sorrento Ocean Baths and their clifftop boardwalk, the ferry crossing to Queenscliff, and Point Nepean National Park (10 minutes west at Portsea) are the strongest non-beach moves. The main street is worth an unhurried hour - limestone buildings, a strong bakery, and walkable foreshore."
 gallery:
@@ -197,7 +197,7 @@ The single decision that separates a good Sorrento weekend from a tolerable one 
 
 Three stays do this well.
 
-**The Continental Sorrento** is the architectural anchor of the town and, since its reopening, the most complete hotel experience on the Peninsula. The bluestone-and-limestone heritage building sits at the top of the main street, a two-minute walk from the bay. The rooms are restrained rather than loud, the front lawn is a genuine pre-dinner social space, and the dining room is close enough to village standards that you could reasonably plan a weekend around it.
+**InterContinental Sorrento** is the hotel within the landmark Continental precinct. Its heritage and newer wings make a central base for the village and bay. The precinct's dining rooms and Conti Bar are separately run options nearby; reserve the meal you want rather than assuming it is part of the room.
 
 **Hotel Sorrento** is the working alternative  -  less design-forward, better value, and arguably the best bay view in the town. The bistro on the ground floor is the right place for the first night's dinner when you have come straight off the freeway and want something direct.
 
@@ -211,7 +211,7 @@ The mistake people make on a Sorrento weekend is arriving at eleven and trying t
 
 The **Sorrento Ocean Baths** are on the other side of the peninsula narrows  -  a five-minute drive or a longer walk through the heath  -  and the first afternoon is the right time to see them, because the light on the basalt reef in the last hours of the day is one of the things people come back for. The baths themselves are not a swim you will be tempted into out of season, but the boardwalk above them and the short clifftop section to the north are a better orientation to the back-beach coast than any photograph does justice to.
 
-Back in the village by five-thirty. Pre-dinner drink on the lawn of **The Continental** if you are staying there, or on the verandah of **Hotel Sorrento** with the bay going pink. Dinner should be decided by mood rather than distance  -  the hotels both cover it, and **The Baths** down on the foreshore is the other reliable option when you want the water below you while you eat. If you want the evening to feel more like a destination dinner, book **Polperro** up the ridge for night one and keep night two in the village. Either sequence works.
+Back in the village by five-thirty. Pre-dinner drink at **The Conti Bar** in the Continental precinct, or on the verandah of **Hotel Sorrento** with the bay going pink. Dinner should be decided by mood rather than distance  -  **Hotel Sorrento** and the Continental precinct both offer dining options, and **The Baths** down on the foreshore is the other reliable option when you want the water below you while you eat. If you want the evening to feel more like a destination dinner, book **Polperro** up the ridge for night one and keep night two in the village. Either sequence works.
 
 ## Day two: back beach in the morning, ferry or fort in the afternoon
 
@@ -231,7 +231,7 @@ Lunch on day two should be light and close to the activity. If you took the ferr
 
 The second night is where the weekend has to decide what it is. There are two legitimate versions.
 
-**Version one: stay in the village.** Dinner at **The Continental** is the grown-up answer and makes sense if your weekend is about stillness rather than driving. The room holds a table well, the wine list leans on the Peninsula properly, and you can walk home.
+**Version one: stay in the village.** Book dinner at **Ember** in the Continental precinct if you want a dedicated restaurant, or choose **The Conti Bar** for a casual meal. Both are separate from an InterContinental room booking, and you can walk back through the village afterwards.
 
 **Version two: drive east for a destination dinner.** **Pt Leo Estate** is twenty-five minutes away on a good road, and the sunset drive between Sorrento and the sculpture park at Merricks is one of the quiet pleasures of the Peninsula in autumn. It is the kind of dinner that justifies dressing properly and not looking at a phone. **Barragunda Dining** at Cape Schanck is the other option in the same direction and a less formal room than its reputation suggests.
 
