@@ -110,6 +110,13 @@ const articlePhotoCaption = articleHero?.override
     : ad?.heroImage?.caption;
 const articlePhotoCredit = articleHero?.override ? articleHero.override.credit : ad?.heroImage?.credit;
 const isOneNightGuide = isArticle && ad?.planShape === 'one-night';
+const articleEyebrow = ad?.planEyebrow ??
+  (isOneNightGuide ? 'One night, well spent' : ad?.planShape === 'two-night' ? 'Two-night plan' : ad?.planShape === 'day-trip' ? 'Day plan' : (formatLabel[ad?.format] ?? 'A Peninsula plan'));
+const hasPlanQuickChoices = Boolean(ad?.planQuickChoices?.length);
+const articlePrimaryHref = isOneNightGuide ? '#choose-your-base' : hasPlanQuickChoices ? '#plan-start' : '#plan-guide';
+const articlePrimaryText = isOneNightGuide ? 'Choose your base' : hasPlanQuickChoices ? (ad?.planPrimaryAction ?? 'Explore the options') : 'Read the guide';
+const articleSecondaryHref = isOneNightGuide || hasPlanQuickChoices ? '#plan-guide' : '/explore/plans/';
+const articleSecondaryText = isOneNightGuide || hasPlanQuickChoices ? 'Read the full guide' : 'Browse all plans';
 const planNewsletterBody = isOneNightGuide
   ? 'The Insider Note brings you independent picks and selected guides from across the Peninsula. An occasional email for your next trip.'
   : articleSlug === 'the-couples-weekend'
@@ -121,7 +128,6 @@ const planNewsletterBody = isOneNightGuide
         : undefined;
 const articleSectionLinks = articleHeadings
   .filter((heading) => heading.depth === 2)
-  .slice(0, 6)
   .map((heading) => ({ label: heading.text, href: `#${heading.slug}` }));
 const oneNightBases = isOneNightGuide ? [
   { number: '01', place: 'Sorrento', mood: 'Town life', stay: 'InterContinental Sorrento', stayHref: '/stay/the-continental-sorrento/', dinner: 'Book dinner near the main street', sunday: 'Breakfast and Back Beach if conditions suit', prefix: 'Base one:' },
@@ -432,12 +438,12 @@ export const prerender = true;
     <Breadcrumbs items={aBreadcrumbs} />
   </div>
 
-  <article class:list={['pl-article', isOneNightGuide && 'pl-article--one-night']}>
+  <article class:list={['pl-article', isOneNightGuide && 'pl-article--one-night', hasPlanQuickChoices && 'pl-article--quick-choices']}>
     {/* ── Cover spread ──────────────────────────────────────────────── */}
     <header class="pl-cover" aria-label="Cover">
       <div class="pl-container pl-cover__inner">
         <div class="pl-cover__type">
-          <p class="pl-eyebrow">{isOneNightGuide ? 'One night, well spent' : ad.planShape === 'two-night' ? 'Two-night plan' : ad.planShape === 'day-trip' ? 'Day plan' : (formatLabel[ad.format] ?? 'A Peninsula plan')}</p>
+          <p class="pl-eyebrow">{articleEyebrow}</p>
           <h1
             class:list={['pl-cover__headline', ad.title.length > 60 && 'pl-cover__headline--long', isOneNightGuide && 'pl-cover__headline--one-night']}
             {...editableText({
@@ -453,8 +459,8 @@ export const prerender = true;
             })}
           >{ad.dek}</p>
           <div class="pl-cover__actions">
-            <a class="pl-action pl-action--primary" href={isOneNightGuide ? '#choose-your-base' : '#plan-guide'}>{isOneNightGuide ? 'Choose your base' : 'Read the guide'} <span aria-hidden="true">↗</span></a>
-            <a class="pl-action pl-action--quiet" href={isOneNightGuide ? '#plan-guide' : '/explore/plans/'}>{isOneNightGuide ? 'Read the full guide' : 'Browse all plans'} <span aria-hidden="true">→</span></a>
+            <a class="pl-action pl-action--primary" href={articlePrimaryHref}>{articlePrimaryText} <span aria-hidden="true">↗</span></a>
+            <a class="pl-action pl-action--quiet" href={articleSecondaryHref}>{articleSecondaryText} <span aria-hidden="true">→</span></a>
           </div>
           <p class="pl-cover__byline">
             <span>Peninsula Insider</span>
@@ -503,6 +509,35 @@ export const prerender = true;
       </div>
     </header>
 
+    {ad.planQuickChoices && ad.planQuickChoices.length > 0 && (
+      <section class="pl-decision" id="plan-start" aria-labelledby="pl-decision-title">
+        <div class="pl-container">
+          <div class="pl-decision__intro">
+            <p class="pl-eyebrow">Start here</p>
+            <h2 id="pl-decision-title">Choose a starting point</h2>
+          </div>
+          <div class="pl-decision__grid">
+            {ad.planQuickChoices.map((choice, index) => (
+              <a class="pl-decision__choice" href={choice.href}>
+                <span class="pl-decision__num" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+                <span class="pl-decision__copy">
+                  <strong>{choice.label}</strong>
+                  <span>{choice.detail}</span>
+                </span>
+                <span class="pl-decision__arrow" aria-hidden="true">↗</span>
+              </a>
+            ))}
+          </div>
+          {ad.aiSummary && ad.aiSummary.length > 0 && (
+            <details class="pl-decision__notes">
+              <summary>More planning notes <span aria-hidden="true">+</span></summary>
+              <ol>{ad.aiSummary.map((note) => <li>{note}</li>)}</ol>
+            </details>
+          )}
+        </div>
+      </section>
+    )}
+
     {/* ── At-a-glance card - replaces "The short version" block ──────── */}
     {isOneNightGuide && (
       <section class="pl-choices" id="choose-your-base" aria-labelledby="pl-choices-title">
@@ -534,7 +569,7 @@ export const prerender = true;
       </section>
     )}
 
-    {ad.aiSummary && ad.aiSummary.length > 0 && (
+    {ad.aiSummary && ad.aiSummary.length > 0 && !ad.planQuickChoices?.length && (
       <section class="pl-glance" aria-label="At a glance">
         <div class="pl-container pl-glance__inner">
           <p class="pl-eyebrow pl-glance__eyebrow">At a glance</p>
@@ -1254,6 +1289,27 @@ export const prerender = true;
   .pl-action--quiet { color: #0B2E4A; border-bottom: 1px solid #0B2E4A; }
   .pl-action--quiet:hover { color: #10527E; }
 
+  /* ── A reader's first choice on service guides ────────────── */
+  .pl-decision { background: #FFFFFF; padding: clamp(2rem, 4vw, 3rem) 0; border-bottom: 1px solid #DCE3E5; scroll-margin-top: 7rem; }
+  .pl-decision__intro { margin-bottom: 1.4rem; }
+  .pl-decision__intro .pl-eyebrow { margin-bottom: .4rem; }
+  .pl-decision__intro h2 { margin: 0; font: 600 clamp(1.55rem, 2.3vw, 2rem)/1.16 var(--font-display); color: #0B2E4A; letter-spacing: -.02em; }
+  .pl-decision__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; }
+  .pl-decision__choice { display: grid; grid-template-columns: 1.6rem minmax(0, 1fr) auto; align-items: start; gap: .7rem; min-height: 7.5rem; padding: 1rem .15rem; border-top: 1px solid #BACBD1; color: #14202A; text-decoration: none; }
+  .pl-decision__choice:hover .pl-decision__arrow { transform: translate(2px, -2px); }
+  .pl-decision__choice:focus-visible, .pl-decision__notes summary:focus-visible { outline: 3px solid #10527E; outline-offset: 3px; }
+  .pl-decision__num { padding-top: .25rem; font: 700 .67rem/1.3 var(--font-ui); letter-spacing: .1em; color: #10527E; }
+  .pl-decision__copy { display: grid; gap: .4rem; }
+  .pl-decision__copy strong { font: 600 1.02rem/1.3 var(--font-display); color: #0B2E4A; }
+  .pl-decision__copy > span { font: 400 .92rem/1.48 var(--font-ui); color: #3E5361; }
+  .pl-decision__arrow { color: #10527E; font-size: 1.1rem; transition: transform .2s ease; }
+  .pl-decision__notes { margin-top: .75rem; border-top: 1px solid #DCE3E5; }
+  .pl-decision__notes summary { display: flex; align-items: center; justify-content: space-between; min-height: 44px; color: #10527E; cursor: pointer; font: 700 .85rem/1.3 var(--font-ui); list-style: none; }
+  .pl-decision__notes summary::-webkit-details-marker { display: none; }
+  .pl-decision__notes[open] summary span { transform: rotate(45deg); }
+  .pl-decision__notes ol { margin: .25rem 0 0; padding: 0 0 0 1.3rem; columns: 2; column-gap: 2rem; }
+  .pl-decision__notes li { break-inside: avoid; margin: 0 0 .65rem; font: 400 .9rem/1.5 var(--font-ui); color: #3E5361; }
+
   /* ── At-a-glance card ────────────────────────────────────────── */
   .pl-glance {
     background: #F2EFEA;
@@ -1447,6 +1503,8 @@ export const prerender = true;
   .pl-contents { max-width: 50rem; margin: 0 auto 3.5rem; border-top: 1px solid #CFD9DE; border-bottom: 1px solid #CFD9DE; padding: 1.1rem 0 1.3rem; }
   .pl-contents .pl-eyebrow { margin: 0 0 .65rem; }
   .pl-contents__links { display: flex; flex-wrap: wrap; gap: .2rem 1.3rem; }
+  .pl-article--quick-choices .pl-contents__links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .15rem 1.5rem; }
+  .pl-article--quick-choices .pl-contents__links a { border-top: 1px solid #E2E8E9; padding-block: .35rem; }
   .pl-contents a { display: inline-flex; align-items: center; min-height: 44px; gap: .25rem; font: 700 .83rem/1.3 var(--font-ui); color: #10527E; text-decoration: none; }
   .pl-contents a:hover { text-decoration: underline; }
   .pl-takeaway { background: #F2EFEA; padding: clamp(2.8rem, 5vw, 4rem) 0; }
@@ -1598,6 +1656,11 @@ export const prerender = true;
     .pl-cover__headline { font-size: clamp(2rem, 9vw, 2.7rem); }
     .pl-cover__headline--long { font-size: clamp(1.9rem, 7.6vw, 2.3rem); }
     .pl-prose { font-size: 1.07rem; line-height: 1.66; }
+    .pl-article--quick-choices .pl-contents__links { grid-template-columns: 1fr; }
+    .pl-decision { padding: 1.6rem 0; }
+    .pl-decision__grid { gap: 0; }
+    .pl-decision__choice { min-height: 0; padding: .8rem .1rem; }
+    .pl-decision__notes ol { columns: 1; }
     /* The one-night decision comes before the full reading path on phones. */
     .pl-article--one-night .pl-cover { padding: 1.5rem 0 2rem; }
     .pl-article--one-night .pl-cover__inner { gap: 1.3rem; }
@@ -1615,6 +1678,17 @@ export const prerender = true;
     .pl-article--one-night .pl-glance__list { gap: .5rem; }
     .pl-article--one-night .pl-glance__item { grid-template-columns: 2rem 1fr; gap: .7rem; padding-top: .7rem; }
     .pl-article--one-night .pl-glance__text { font-size: .95rem; line-height: 1.5; }
+  }
+  /* Short article covers lead with the reading action before long descriptive copy. */
+  @media (max-width: 420px) and (max-height: 720px) {
+    .pl-article--quick-choices .pl-cover { padding: .5rem 0 1.5rem; }
+    .pl-article--quick-choices .pl-cover__inner { gap: 1rem; }
+    .pl-article--quick-choices .pl-cover__type { display: flex; flex-direction: column; padding: 0; }
+    .pl-article--quick-choices .pl-cover__type > .pl-eyebrow { order: 0; margin: 0 0 .45rem; }
+    .pl-article--quick-choices .pl-cover__headline { order: 1; margin: 0 0 .65rem; font-size: 1.8rem; line-height: 1.04; }
+    .pl-article--quick-choices .pl-cover__actions { order: 2; margin: 0 0 .65rem; row-gap: .25rem; }
+    .pl-article--quick-choices .pl-cover__dek { order: 3; margin: 0 0 .7rem; font-size: 1rem; line-height: 1.45; }
+    .pl-article--quick-choices .pl-cover__byline { order: 4; }
   }
   /* Keep both cover actions above first-visit consent on short phones. */
   @media (max-width: 420px) and (max-height: 720px) {

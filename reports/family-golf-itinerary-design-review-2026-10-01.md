@@ -76,3 +76,7 @@ The pages have no new whole-plan factual verification stamp. Operator hours, men
 **Rollback:** The prior public source commit is 94f5a16dd865cfd4c3de4b9825f859c89b5ff4ad. Revert this bounded set if a release gate or public journey regresses.
 
 **Independent review:** A factual agent checked operator, park and image-rights sources and edited the bounded content records. A separate visual agent graded the comparable public baseline and final local build against the same 23 criteria.
+
+## Public release receipt
+
+Commit `ab54770ce4d2c148b890f81101da008e139ea4be` reached the public domain. The deployment record returned that exact `sourceSha` and run `36760034649`. Build and Deploy, Content Gate (`36760034518`) and Live Agent Readiness (`36761532893`) all concluded successfully. Both public routes returned HTTP 200, contained their intended plan text and licensed hero URLs, and both hero assets returned HTTP 200. This confirms publication of this bounded set; the scores above remain expert estimates rather than measured visitor outcomes.

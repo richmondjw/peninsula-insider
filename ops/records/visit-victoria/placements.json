@@ -6,6 +6,15 @@
  "entityMap": "ops/records/visit-victoria/entity-map.json",
  "placements": [
   {
+   "assetKey": "vv-167058",
+   "surface": "site",
+   "entity": "articles/the-school-holidays-survival-guide",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-167058-arthurs-seat-eagle.webp",
+   "managedBy": "design-review-2026-10-01",
+   "role": "article-hero"
+  },
+  {
    "assetKey": "vv-157359",
    "surface": "site",
    "entity": "experiences/flinders-golf-club",

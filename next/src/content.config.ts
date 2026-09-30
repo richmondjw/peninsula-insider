@@ -1052,6 +1052,15 @@ const articles = defineCollection({
     planShape: z
       .enum(['one-night', 'two-night', 'day-trip', 'seasonal'])
       .optional(),
+    /** Reader-facing label for a plan article; planShape stays a discovery facet. */
+    planEyebrow: z.string().trim().min(3).max(56).optional(),
+    planPrimaryAction: z.string().trim().min(3).max(48).optional(),
+    /** Linked editorial choices that orient readers before long-form guidance. */
+    planQuickChoices: z.array(z.object({
+      label: z.string().trim().min(3).max(48),
+      detail: z.string().trim().min(8).max(160),
+      href: z.string().startsWith('#'),
+    })).min(2).max(4).optional(),
     /**
      * Structured dispatch payload for weekend-picker articles. When present,
      * the /whats-on/this-weekend/ template renders the picks as scannable

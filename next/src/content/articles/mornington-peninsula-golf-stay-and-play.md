@@ -1,6 +1,6 @@
 ---
-title: "Mornington Peninsula Stay and Play Golf - Where to Stay Near Every Course"
-dek: "The accommodation that makes each Peninsula golf course walkable, driveable, or otherwise properly paired. Ten courses, stay recommendations for each, and the package combinations that actually work."
+title: "Mornington Peninsula Golf: Stay and Play"
+dek: "Peninsula golf courses, nearby stays, and the booking checks that make a trip work."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-04-14
@@ -9,9 +9,9 @@ heroImage:
   alt: "Aerial view over St Andrews Beach Golf Course, with golfers on a tee, a cart path winding through dune grass and fairways beyond"
   credit: "Gary Lisbon, courtesy of Visit Victoria"
   license: "visit-victoria"
-  caption: "St Andrews Beach Golf Course, Cape Schanck, Mornington Peninsula."
+  caption: "St Andrews Beach Golf Course, Fingal, Mornington Peninsula."
   depicts: "St Andrews Beach Golf Course - Fingal"
-  depictionStatus: "illustrative"
+  depictionStatus: "actual"
   creator: "Gary Lisbon"
   sourceUrl: "Victoria Content Hub asset 157418, downloaded 2026-09-28"
   permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
@@ -30,6 +30,18 @@ readingTimeMinutes: 9
 status: "published"
 section: plans
 planShape: "two-night"
+planEyebrow: "Golf stays, sorted"
+planPrimaryAction: "Choose your golf base"
+planQuickChoices:
+  - label: "Golf on your doorstep"
+    detail: "Stay at RACV Cape Schanck and play its on-site course; check midweek offer terms."
+    href: "#racv-cape-schanck-resort-the-easiest-pairing"
+  - label: "Two rounds, one base"
+    detail: "Stay at Moonah Links and reserve both the Open and Legends courses."
+    href: "#moonah-links-the-resort-option-with-two-courses"
+  - label: "A course and a country stay"
+    detail: "Book St Andrews Beach and Jackalope separately, then check the drive and dinner."
+    href: "#st-andrews-beach--jackalope-the-premium-pairing"
 lastVerified: 2026-04-22
 clusterLinks:
   - label: "Best Golf Courses on the Mornington Peninsula - Tier Guide"
@@ -40,76 +52,76 @@ clusterLinks:
     href: "/stay/best-accommodation/"
 faq:
   - question: "Where is the best place to stay for a Mornington Peninsula golf weekend?"
-    answer: "Match the stay to the course. RACV Cape Schanck Resort for on-property golf (walk from room to first tee). Jackalope Hotel (15 min) for St Andrews Beach with a serious dinner at Doot Doot Doot. Peppers Moonah Links Resort for a 36-hole weekend. Staying within 10 minutes of the course is the single biggest improvement you can make to a golf trip."
+    answer: "Match the stay to the course. RACV Cape Schanck and Peppers Moonah Links have golf on site. Jackalope Hotel can be paired with a separately booked round at St Andrews Beach. Portsea Golf Club also has on-site accommodation and limited public tee times. Check the drive from any other stay to your first tee before booking."
   - question: "Are there stay-and-play golf packages on the Mornington Peninsula?"
-    answer: "Yes. RACV Cape Schanck and Peppers Moonah Links both offer bundled stay, golf, and dining packages. Jackalope paired with St Andrews Beach is commonly packaged separately. Check direct with the venue - bundled packages are often cheaper than separate bookings."
+    answer: "RACV Cape Schanck currently advertises a midweek stay with breakfast and a round of golf for two. Moonah Links lists a Mid Week Golf Escape. Check each operator's current dates, inclusions and tee-time availability. A Jackalope stay paired with St Andrews Beach golf is a trip you can arrange with separate bookings, rather than an advertised joint package."
   - question: "What is the best Peninsula golf weekend for a mixed group?"
-    answer: "Jackalope Hotel paired with St Andrews Beach - the golfer gets a world-class Tom Doak course while the non-golfer has Doot Doot Doot dinner, Spa by Jackalope, and the Red Hill cellar doors 15 minutes away. Both have a full day without needing to be in the same place."
+    answer: "Jackalope Hotel paired with a separately booked St Andrews Beach round gives golfers and non-golfers different ways to spend the day. Check the drive, spa availability and Doot Doot Doot's dinner service for your dates before booking them as one trip."
 aiSummary:
-  - "A planning guide for combining a Peninsula golf course with overnight accommodation - covering which Peninsula courses suit different golfer types and how to sequence a stay-and-play weekend."
-  - "Key courses covered: Moonah Links (championship course, Fingal, the premium stay-and-play option), Flinders Golf Club (world-ranked, members guest days only on weekdays), RACV Cape Schanck (resort golf, easiest access)."
-  - "The editorial distinction: Peninsula golf courses vary significantly in access, quality and atmosphere. The piece helps golfers choose correctly based on their handicap and the experience they want."
-  - "Suits: golfers planning a dedicated Peninsula golf trip; couples where one partner golfs; anyone wanting to understand what makes the Peninsula a legitimate golf destination."
-  - "Planning note: Moonah Links and Flinders Golf Club both require advance booking. Moonah Links accommodation books out on weekends. Book golf before accommodation."
+  - "Book the round first, then choose a stay that keeps the first tee and dinner on a sensible route."
+  - "RACV and Moonah Links have golf on site; St Andrews Beach needs a separately booked stay."
+  - "Portsea and Sorrento publish limited public tee times; confirm access before booking a room."
+  - "For golfers, mixed groups and couples planning an overnight Peninsula round."
+  - "Check live tee times, package dates and dining service before you commit."
 ---
 
-The single best move a Peninsula golf weekend can make is to cut the driving. Most visitors book a random hotel in Mornington, then commute 30–40 minutes each way to the course. That is 60–80 minutes of daily lost time, multiplied across the trip. Stay within 10 minutes of the first tee and the weekend feels twice as long.
+The single best move a Peninsula golf weekend can make is to choose the course before the room. A stay that looks close on a regional map can still create an awkward drive to an early tee time. Check the route for your actual dates, then book a room that makes the round and the rest of the trip fit together.
 
-Here are the accommodation pairings that actually work for each course, and the combinations worth treating as proper packages.
+Here are practical accommodation pairings across the Peninsula, followed by three ways to shape the trip. Current package terms need checking directly with each operator.
 
 ## The southern tip: St Andrews Beach, Moonah Links, The Dunes, RACV Cape Schanck
 
-This is where the Peninsula's best golf is concentrated. Four world-class courses within a 15-minute radius of Fingal and Cape Schanck. Staying here means you can tee off at 7am without setting an alarm for 5:30am.
+The southern Peninsula has four distinct public golf options around Fingal, Rye and Cape Schanck. Choose your base after you have a tee time; the route between these courses and nearby stays varies.
 
 ### RACV Cape Schanck Resort: the easiest pairing
-The simplest stay-and-play combo on the Peninsula. <a href="/explore/racv-cape-schanck-golf-course/">RACV Cape Schanck</a> is on-property. You walk from your room to the first tee in under a minute. Resort packages often bundle rooms, meals, and tee times at a combined rate better than booking separately. Non-members welcome; RACV members get better rates. Gym, pool, restaurant all on-site. Best value stay-and-play package on the Peninsula for casual golfers.
+The simplest on-site pairing is <a href="/explore/racv-cape-schanck-golf-course/">RACV Cape Schanck</a>: the resort and golf course share a property. Its current Stay and Play offer is for Monday-to-Friday stays and includes breakfast and an 18-hole round with cart for two, subject to tee-time availability. The resort also has dining, a gym and a pool. Check the offer terms and membership conditions directly before booking.
 
 ### Moonah Links: the resort option with two courses
-<a href="/explore/moonah-links/">Moonah Links</a> has on-site accommodation at the Peppers Moonah Links Resort. Stay here and you get access to both the Open and Legends courses without driving. For a 36-hole weekend, this is the strongest play. Package deals frequently bundle green fees, accommodation, and breakfast: often cheaper than separate bookings. Non-golfers have less to do on-property than at RACV or Jackalope, which matters for mixed groups.
+<a href="/explore/moonah-links/">Moonah Links</a> has on-site accommodation at Peppers Moonah Links Resort and two courses, the Open and Legends. It is an easy base for a two-round trip, provided you reserve both tee times. The resort lists a Mid Week Golf Escape; check the current inclusions and dates rather than assuming it applies to a weekend. Confirm evening dining for your stay. At our 1 October 2026 check, Pebbles Restaurant was closed until further notice while Spike Bar was listed as open daily.
 
 ### St Andrews Beach + Jackalope: the premium pairing
-<a href="/explore/st-andrews-beach-golf-course/">St Andrews Beach</a> has no on-site accommodation. The best paired stay is <a href="/stay/jackalope/">Jackalope Hotel</a> in Merricks North: 15 minutes away, seriously designed, with Doot Doot Doot's restaurant on-site for dinner. This is the most editorially coherent Peninsula golf weekend: world-class course, world-class stay, world-class dinner, minimal driving. Budget-sensitive? <a href="/stay/hotel-sorrento/">Hotel Sorrento</a> is also 15 minutes away at a lower price point.
+<a href="/explore/st-andrews-beach-golf-course/">St Andrews Beach</a> has no on-site accommodation. <a href="/stay/jackalope/">Jackalope Hotel</a> in Merricks North can make a considered pairing, with Doot Doot Doot on site for dinner when it is serving. Book the golf and hotel separately, and check the drive and dinner availability for your dates. <a href="/stay/hotel-sorrento/">Hotel Sorrento</a> is an alternative if you prefer a village evening; allow for a different drive to the course.
 
 ### The Dunes + Sorrento village stay
-<a href="/explore/the-dunes-golf-links/">The Dunes</a> is in Rye. The best pairing is a stay in Sorrento (10 minutes) where dining options are strongest, or Rye itself (5 minutes) for shorter drives and family-friendly options. Hotel Sorrento is the obvious choice; self-contained villas in Rye work well for groups.
+<a href="/explore/the-dunes-golf-links/">The Dunes</a> is in Rye. A Rye stay keeps the course close; Sorrento adds a village evening but a longer transfer. Compare the route from <a href="/stay/hotel-sorrento/">Hotel Sorrento</a> or a self-contained Rye stay before you commit to a tee time.
 
 ## The hinterland option: Eagle Ridge
 
-<a href="/explore/eagle-ridge-golf-course/">Eagle Ridge</a> sits in Boneo, inland from Rye. For a stay, the closest practical options are in Rye itself or on the Red Hill plateau: both about 15 minutes away. If you are pairing Eagle Ridge with a cellar door day, the Red Hill stays work better. If you are pairing it with beach time, Rye or Sorrento wins.
+<a href="/explore/eagle-ridge-golf-course/">Eagle Ridge</a> sits in Boneo, inland from Rye. Rye, Red Hill and the southern villages offer different ways to build the trip. Choose a base around the rest of your day, then check its actual route to the course.
 
 ## Central Peninsula: Rosebud Country Club
 
-<a href="/explore/rosebud-country-club/">Rosebud Country Club</a> is in Rosebud: not a destination town, but accommodation there is cheap and plentiful. For visitors, staying in Mornington (25 minutes) or Dromana (10 minutes) gives better dining. Rosebud is the course you play if you are already staying bayside for another reason, not the course you plan a weekend around.
+<a href="/explore/rosebud-country-club/">Rosebud Country Club</a> is a practical round when you are staying along the bay. Rosebud and Dromana keep the golf close; Mornington gives you a different town base with a longer drive. Choose according to the rest of your trip, rather than assuming one town suits every tee time.
 
 ## Mornington: Mornington Golf Club
 
-<a href="/explore/mornington-golf-club/">Mornington Golf Club</a> is a 10-minute drive from the centre of Mornington town. Any stay in Mornington works: the main street is your dinner and brunch strip. <a href="/explore/places/mornington/">Mornington</a> also works well for non-golfers, who get the Wednesday farmers market, foreshore walk, bathing boxes, and strong dining scene. The most practical golf-and-city-town weekend on the Peninsula.
+<a href="/explore/mornington-golf-club/">Mornington Golf Club</a> pairs naturally with a stay in <a href="/explore/places/mornington/">Mornington</a>. The town has a main-street dining strip and foreshore options for non-golfers. Check the course and accommodation route before booking an early round.
 
-## The members' clubs: Portsea GC, Sorrento GC, The National
+## Check visitor access: Portsea GC, Sorrento GC, The National
 
-<a href="/explore/portsea-golf-club/">Portsea Golf Club</a>, <a href="/explore/sorrento-golf-club/">Sorrento Golf Club</a>, and <a href="/explore/the-national-golf-club/">The National</a> are private or semi-private. If you have access, the obvious stays are:
+<a href="/explore/portsea-golf-club/">Portsea Golf Club</a> and <a href="/explore/sorrento-golf-club/">Sorrento Golf Club</a> publish limited visitor tee times, while access to <a href="/explore/the-national-golf-club/">The National</a> needs direct confirmation. Arrange the round before the room. Once you have access, these stays make sense:
 
-- **Portsea GC** → <a href="/stay/hotel-sorrento/">Hotel Sorrento</a> or any Sorrento village stay (5 minutes)
-- **Sorrento GC** → walk from anywhere in Sorrento
-- **The National** → any tip or Cape Schanck stay; RACV Cape Schanck is closest at 5 minutes
+- **Portsea GC** → the club's on-site accommodation, or a Sorrento village stay
+- **Sorrento GC** → a Sorrento village stay; confirm the route and visitor tee time
+- **The National** → a Cape Schanck stay after the club confirms access
 
-## The three stay-and-play packages worth treating as products
+## Three ways to shape a golf trip
 
 ### 1. The "one serious round" weekend: two nights
-Jackalope or RACV Cape Schanck. One 18-hole round at St Andrews Beach. Long lunch on the Red Hill ridge the same day. Sunday morning hot springs. Drive home. The stay and the lunch carry most of the cost; peak season and the Jackalope option push it higher.
+Choose a southern Peninsula stay or Jackalope and book one 18-hole round at St Andrews Beach separately. Leave room for a late lunch or a hot springs session, then drive home on Sunday. Check the route and service hours before combining them.
 
 ### 2. The "full 36-hole weekend": two nights
-Peppers Moonah Links Resort. Saturday Open Course, Sunday Legends Course. Dinner on-property Saturday. Local breakfast Sunday. Typically cheaper than the Jackalope option because of bundled packages; current rates are on the resort's site.
+Peppers Moonah Links Resort. Reserve the Open Course for Saturday and the Legends Course for Sunday, or reverse them to suit availability. Confirm an evening dining option before you book. The resort's advertised golf escape is midweek, so check the terms if you want a packaged offer.
 
 ### 3. The "golf plus everything else": three nights
-Jackalope or Port Phillip Estate. One round at St Andrews Beach, one round at The Dunes. One cellar door day. One coastal walk day. Two serious dinners. This is the flagship Peninsula golf trip: high budget, maximum variety, 4-5 distinct experiences across three days. Expect it to cost roughly double either two-night version.
+Choose Jackalope or a southern Peninsula base. Book a round at St Andrews Beach and one at The Dunes, then leave separate time for a cellar door and a coastal walk across the four-day stay. Confirm tee times, dinner service and driving before locking the sequence.
 
 ## Before you book
 
-- **Book the course first, then the stay.** Tee times at St Andrews Beach and The Dunes fill 3-4 weeks out in peak season. Accommodation is more flexible. Secure the round first, then fit the room around it.
-- **Check package deals.** Moonah Links, RACV Cape Schanck, and Jackalope often run combined golf + accommodation offers. Booking separately is sometimes cheaper, but not always: get both quotes before deciding.
-- **Autumn and spring are the best seasons.** Better rates, fewer crowds, and the courses play at their best.
-- **Book midweek when you can.** Weekend premiums are real. A Tuesday-Wednesday golf trip on the Peninsula can be 30-40% cheaper than the same trip Friday-Saturday.
+- **Check tee times before choosing the room.** Busy weekends can limit your choice of course and start time. Compare both bookings before you commit.
+- **Read current offer terms.** RACV Cape Schanck and Moonah Links list midweek golf stays. A Jackalope and St Andrews Beach trip uses separate bookings unless the operators advertise an offer for your dates.
+- **Consider autumn or spring.** Milder walking conditions can suit a long round; weather, course conditions and availability still vary.
+- **Compare midweek dates.** Some current stay-and-play offers are restricted to weekdays, so check the terms and bookable tee times for your trip.
 
 ## Related guides
 
@@ -117,6 +129,3 @@ Jackalope or Port Phillip Estate. One round at St Andrews Beach, one round at Th
 - <a href="/explore/golf/">Why the Mornington Peninsula is Australia's golf country</a>
 - <a href="/explore/plans/the-peninsula-golf-weekend/">The Peninsula Golf Weekend itinerary</a>
 - <a href="/stay/best-accommodation/">Best accommodation on the Mornington Peninsula</a>
-
-
-*Prices may change. Confirm current rates directly with the venue or operator before booking.*
