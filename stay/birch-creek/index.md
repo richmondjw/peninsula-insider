@@ -17,8 +17,6 @@ Known for   Dog-Friendly Farm Cottages 40-Acre Property Open Fireplaces Friendly
 
 Birch Creek · Red Hill
 
-Photo · Peninsula Insider
-
 Why we’d go
 
 Dog-friendly on 40 acres with open fires, the most genuinely rural cottage proposition in the Red Hill hinterland, at a price that makes sense.
@@ -55,10 +53,6 @@ Cottage
 
 Red Hill VIC 3937 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Birch%20Creek%2C%20Red%20Hill%20VIC%203937>)
 
-**Spend**
-
-$$
-
 **Website**
 
 [www.birchcreek.com.au](<https://www.birchcreek.com.au/>)
@@ -87,7 +81,7 @@ Cottage  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
 
-10 Nestle Court, Arthurs Seat VIC 3936 · $$
+10 Nestle Court, Arthurs Seat VIC 3936
 
 Five adults-only suites on Arthurs Seat ridge with panoramic Port Phillip Bay views, double spas, and electric log fires.
 
@@ -99,7 +93,7 @@ Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 ### [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>)
 
-12 Blakiston Grove, Rye VIC 3941 · $$
+12 Blakiston Grove, Rye VIC 3941
 
 Three 1940s cottages 250 metres from Rye bay beach, Sandpiper is the dog-friendly unit with a wood fire and fenced courtyard.
 
@@ -111,7 +105,7 @@ Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Brewer's Cottage - Red Hill Brewery](<https://peninsulainsider.com.au/stay/brewers-cottage/>)
 
-88 Shoreham Rd, Red Hill South VIC 3937 · $$
+88 Shoreham Rd, Red Hill South VIC 3937
 
 A three-bedroom house on the Red Hill Brewery property, stocked beer fridge, open fire, ten seconds from the bar open Thursday to Sunday.
 

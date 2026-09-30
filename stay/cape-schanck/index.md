@@ -25,7 +25,7 @@ Villa  [Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-schan
 
 ### [The Cape Retreat](<https://peninsulainsider.com.au/stay/cape-retreat/>)
 
-Cape Schanck VIC 3939 · $$$$
+Cape Schanck VIC 3939
 
 Twelve luxury suites on a Cape Schanck hilltop with Bass Strait views, primarily exclusive-hire, individual suites may be available on enquiry.
 

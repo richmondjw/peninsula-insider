@@ -27,7 +27,7 @@ Restaurant  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/
 
 ### [The Baths Sorrento](<https://peninsulainsider.com.au/eat/the-baths-sorrento/>)
 
-3278 Point Nepean Rd, Sorrento VIC 3943 · $$$
+3278 Point Nepean Rd, Sorrento VIC 3943
 
 Sorrento's most enduring waterfront dining room, perched on the sand with Port Phillip Bay at your feet and a seafood-first menu.
 
@@ -39,7 +39,7 @@ Restaurant  [Mornington](<https://peninsulainsider.com.au/explore/places/morning
 
 ### [The Rocks Mornington](<https://peninsulainsider.com.au/eat/the-rocks-mornington/>)
 
-1 Schnapper Point Dr, Mornington VIC 3931 · $$$
+1 Schnapper Point Dr, Mornington VIC 3931
 
 Perched at the end of Mornington Pier with near-360° bay views, a seafood-heavy menu and one of the most romantic tables on the bayside at sunset.
 
@@ -51,7 +51,7 @@ Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/
 
 ### [Ocean Eight Vineyard](<https://peninsulainsider.com.au/eat/ocean-eight/>)
 
-271 Tucks Road, Shoreham VIC 3916 · $$$
+271 Tucks Road, Shoreham VIC 3916
 
 Mike Aylward's precise, minimal cellar door turning out some of the Peninsula's most quietly obsessive pinot noir.
 
@@ -63,7 +63,7 @@ Pub  [Portsea](<https://peninsulainsider.com.au/explore/places/portsea/>)
 
 ### [Portsea Hotel](<https://peninsulainsider.com.au/eat/portsea-hotel/>)
 
-3746 Point Nepean Rd, Portsea VIC 3944 · $$
+3746 Point Nepean Rd, Portsea VIC 3944
 
 The front-row pub on Port Phillip, still the cleanest long lunch at the tip of the Peninsula.
 

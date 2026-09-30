@@ -15,8 +15,6 @@ Known for   Italian and Rhône Varietals Family-Run Dromana Estate Off-Ridge Cel
 
 Phaedrus Estate · Dromana
 
-Photo · Peninsula Insider
-
 Why we’d go
 
 Phaedrus is one of the Peninsula's unsung cellar doors, small, family-run, and deliberately off the main ridge itinerary, with a varietal range that gives the flight real range.
@@ -53,10 +51,6 @@ Winery
 
 220 Mornington-Flinders Rd, Red Hill VIC 3937 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Phaedrus%20Estate%2C%20220%20Mornington-Flinders%20Rd%2C%20Red%20Hill%20VIC%203937>)
 
-**Spend**
-
-$$
-
 **Directions**
 
 [Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3437%2C144.981>)
@@ -79,7 +73,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Avani Wines](<https://peninsulainsider.com.au/wine/avani-wines/>)
 
-98 Stanleys Road, Red Hill South VIC 3937 · $$
+98 Stanleys Road, Red Hill South VIC 3937
 
 Shashi and Rohit Singh's biodynamic family estate, one of the Peninsula's only serious Syrah programs alongside the Amrit single-vineyard range.
 
@@ -91,7 +85,7 @@ Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Baillieu Vineyard](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>)
 
-51 Stanleys Rd, Merricks VIC 3916 · $$
+51 Stanleys Rd, Merricks VIC 3916
 
 A thoughtfully managed Merricks estate making elegant Chardonnay and Pinot Noir that rewards the drive to find it.
 
@@ -103,7 +97,7 @@ Winery  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
 ### [Barmah Park Vineyard](<https://peninsulainsider.com.au/wine/barmah-park-vineyard/>)
 
-3007 Frankston-Flinders Rd, Moorooduc VIC 3933 · $$$
+3007 Frankston-Flinders Rd, Moorooduc VIC 3933
 
 A rustic, intimate cellar door running a five-wine, five-canape pairing from a hatted-standard kitchen, the most structured tasting format on the Peninsula.
 

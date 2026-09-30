@@ -17,8 +17,6 @@ Known for   Dromana Foreshore Fishmonger Daily Fresh Catch Fish and Chips to the
 
 Pier Street Fresh Seafood · Dromana
 
-Photo · Peninsula Insider
-
 Why we’d go
 
 Pier Street Fresh Seafood is the Peninsula fish-and-chips ritual in one address, buy at the counter, eat on the Dromana foreshore with your feet in the sand.
@@ -54,10 +52,6 @@ Providore
 **Location**
 
 34 Pier St, Dromana VIC 3936 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Pier%20Street%20Fresh%20Seafood%2C%2034%20Pier%20St%2C%20Dromana%20VIC%203936>)
-
-**Spend**
-
-$$
 
 **Call**
 
@@ -109,7 +103,7 @@ Winery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Crittenden Estate](<https://peninsulainsider.com.au/eat/crittenden-estate/>)
 
-25 Harrisons Rd, Dromana VIC 3936 · $$
+25 Harrisons Rd, Dromana VIC 3936
 
 The Peninsula's pioneering estate, four decades of Crittenden family winemaking, Pinot, Chardonnay, and the Spanish-Italian Los Hermanos range from a new lakeside wine centre.
 
@@ -121,7 +115,7 @@ Restaurant  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Crittenden Restaurant](<https://peninsulainsider.com.au/eat/crittenden-restaurant/>)
 
-25 Harrisons Rd, Dromana VIC 3936 · $$
+25 Harrisons Rd, Dromana VIC 3936
 
 Lakeside dining under a vine-strung pergola at one of the Peninsula's founding wineries, now Crittenden Restaurant under Head Chef Brunno Melo.
 
@@ -133,7 +127,7 @@ Pub  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Dromana Hotel](<https://peninsulainsider.com.au/eat/dromana-hotel/>)
 
-121 Point Nepean Rd, Dromana VIC 3936 · $$
+121 Point Nepean Rd, Dromana VIC 3936
 
 Sprawling beachfront pub with an enormous deck and bay views, the straightforward bayside pub day done correctly.
 

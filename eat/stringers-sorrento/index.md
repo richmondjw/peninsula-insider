@@ -17,8 +17,6 @@ Known for   Natural and minimal-intervention wine list as the lead focus Raw bar
 
 Stringers Sorrento · Sorrento
 
-Photo · Alan Travers
-
 Why we’d go
 
 Sorrento has plenty of places to eat. Stringers is the one that feels like it belongs in a laneway in Fitzroy, which, at the Tip, is not nothing.
@@ -54,10 +52,6 @@ Restaurant
 **Location**
 
 Sorrento VIC 3943 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Stringers%20Sorrento%2C%20Sorrento%20VIC%203943>)
-
-**Spend**
-
-$$
 
 **Website**
 
@@ -137,7 +131,7 @@ Restaurant  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/
 
 ### [Bistro Elba](<https://peninsulainsider.com.au/eat/bistro-elba/>)
 
-100–102 Ocean Beach Rd, Sorrento VIC 3943 · $$$
+100–102 Ocean Beach Rd, Sorrento VIC 3943
 
 A Southern French bistro on Sorrento's Ocean Beach Road, open for lunch and dinner throughout the week.
 
@@ -149,7 +143,7 @@ Pub  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 
 ### [The Sorrento Hotel](<https://peninsulainsider.com.au/eat/sorrento-hotel/>)
 
-5-15 Hotham Rd, Sorrento VIC 3943 · $$
+5-15 Hotham Rd, Sorrento VIC 3943
 
 The centre-of-the-village trading post on Ocean Beach Road, reliable parmas, a big dining room, and the default Sorrento pub for a reason.
 
@@ -161,7 +155,7 @@ Restaurant  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/
 
 ### [The Baths Sorrento](<https://peninsulainsider.com.au/eat/the-baths-sorrento/>)
 
-3278 Point Nepean Rd, Sorrento VIC 3943 · $$$
+3278 Point Nepean Rd, Sorrento VIC 3943
 
 Sorrento's most enduring waterfront dining room, perched on the sand with Port Phillip Bay at your feet and a seafood-first menu.
 

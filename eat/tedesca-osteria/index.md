@@ -17,8 +17,6 @@ Known for   Brigitte Hafner Wood Oven Kitchen Single Set Menu Red Hill Farmhouse
 
 Tedesca Osteria · Red Hill
 
-Photo · Peninsula Insider
-
 Why we’d go
 
 Brigitte Hafner's wood-fired farmhouse lunch gives the day a clear centre without a crowded itinerary.
@@ -52,10 +50,6 @@ Restaurant
 **Location**
 
 1175 Mornington-Flinders Road, Red Hill VIC 3937 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Tedesca%20Osteria%2C%201175%20Mornington-Flinders%20Road%2C%20Red%20Hill%20VIC%203937>)
-
-**Spend**
-
-$$$
 
 **Call**
 
@@ -129,7 +123,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Avani Wines](<https://peninsulainsider.com.au/eat/avani-wines/>)
 
-98 Stanleys Road, Red Hill South VIC 3937 · $$
+98 Stanleys Road, Red Hill South VIC 3937
 
 Shashi and Rohit Singh's biodynamic family estate, one of the Peninsula's only serious Syrah programs alongside the Amrit single-vineyard range.
 
@@ -141,7 +135,7 @@ Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/
 
 ### [Doot Doot Doot](<https://peninsulainsider.com.au/eat/doot-doot-doot/>)
 
-166 Balnarring Rd, Merricks North VIC 3926 · $$$$
+166 Balnarring Rd, Merricks North VIC 3926
 
 Two hats, a chandelier of 10,000 glass orbs, and the Peninsula's most theatrical dining room.
 
@@ -153,7 +147,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Eldridge Estate](<https://peninsulainsider.com.au/eat/eldridge-estate/>)
 
-120 Arthurs Seat Rd, Red Hill VIC 3937 · $$
+120 Arthurs Seat Rd, Red Hill VIC 3937
 
 David Lloyd's tiny cult estate, single-clone Pinot Noirs from individual rows, plus Gamay, made for the Burgundy obsessives.
 

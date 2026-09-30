@@ -121,7 +121,7 @@ Spa  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
 ### [Peninsula Hot Springs](<https://peninsulainsider.com.au/explore/spas-and-wellness/#peninsula-hot-springs>)
 
-140 Springs Ln, Fingal VIC 3939 · $$$
+140 Springs Ln, Fingal VIC 3939
 
 The original Peninsula thermal springs, still the biggest, still the most complete wellness circuit for people who want the full ritual.
 
@@ -133,7 +133,7 @@ Spa  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
 ### [Alba Thermal Springs & Spa](<https://peninsulainsider.com.au/explore/spas-and-wellness/#alba-thermal-springs>)
 
-282 Browns Road, Fingal VIC 3939 · $$$
+282 Browns Road, Fingal VIC 3939
 
 Contemporary geothermal bathing and spa treatments in a landscaped Fingal setting.
 
@@ -145,7 +145,7 @@ Spa  [Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-schanck
 
 ### [One Spa at RACV Cape Schanck Resort](<https://peninsulainsider.com.au/explore/spas-and-wellness/#one-spa-racv-cape-schanck>)
 
-Trent Jones Dr, Cape Schanck VIC 3939 · $$$
+Trent Jones Dr, Cape Schanck VIC 3939
 
 The Peninsula's best resort-style day spa, proper scale, serious treatment menu, and a cliff-edge location that nobody else on the Peninsula can match.
 

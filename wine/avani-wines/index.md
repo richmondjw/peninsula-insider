@@ -17,8 +17,6 @@ Known for   Biodynamic Syrah Amrit Single-Vineyard Range Skin-Contact Whites Fam
 
 Avani Wines · Red Hill
 
-Photo · C McConville for Avani Wines
-
 Avani Wines in 5 photographs
 
 1  / 5
@@ -62,10 +60,6 @@ Winery
 **Location**
 
 98 Stanleys Road, Red Hill South VIC 3937 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Avani%20Wines%2C%2098%20Stanleys%20Road%2C%20Red%20Hill%20South%20VIC%203937>)
-
-**Spend**
-
-$$
 
 **Call**
 
@@ -127,7 +121,7 @@ Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Baillieu Vineyard](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>)
 
-51 Stanleys Rd, Merricks VIC 3916 · $$
+51 Stanleys Rd, Merricks VIC 3916
 
 A thoughtfully managed Merricks estate making elegant Chardonnay and Pinot Noir that rewards the drive to find it.
 
@@ -139,7 +133,7 @@ Winery  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
 ### [Barmah Park Vineyard](<https://peninsulainsider.com.au/wine/barmah-park-vineyard/>)
 
-3007 Frankston-Flinders Rd, Moorooduc VIC 3933 · $$$
+3007 Frankston-Flinders Rd, Moorooduc VIC 3933
 
 A rustic, intimate cellar door running a five-wine, five-canape pairing from a hatted-standard kitchen, the most structured tasting format on the Peninsula.
 
@@ -151,7 +145,7 @@ Distillery  [Mornington](<https://peninsulainsider.com.au/explore/places/morning
 
 ### [Bass & Flinders Distillery](<https://peninsulainsider.com.au/wine/bass-and-flinders/>)
 
-232 Balnarring Rd, Tuerong VIC 3915 · $$
+232 Balnarring Rd, Tuerong VIC 3915
 
 A Peninsula gin distillery with a gin-school blending session that has quietly become one of the region's best wet-weather plans.
 

@@ -17,8 +17,6 @@ Known for   Halliday Top Winery Australia Named Single-Block Vineyard Program Ha
 
 Kooyong · Main Ridge
 
-Photo · CSIRO
-
 Why we’d go
 
 The single-block tasting is a practical education in why micro-terroir matters, side-by-side pinot noirs from adjacent slopes that actually taste different from each other.
@@ -60,10 +58,6 @@ Winery
 **Location**
 
 263 Red Hill Rd, Red Hill South VIC 3937 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Kooyong%2C%20263%20Red%20Hill%20Rd%2C%20Red%20Hill%20South%20VIC%203937>)
-
-**Spend**
-
-$$$
 
 **Call**
 
@@ -187,7 +181,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Avani Wines](<https://peninsulainsider.com.au/wine/avani-wines/>)
 
-98 Stanleys Road, Red Hill South VIC 3937 · $$
+98 Stanleys Road, Red Hill South VIC 3937
 
 Shashi and Rohit Singh's biodynamic family estate, one of the Peninsula's only serious Syrah programs alongside the Amrit single-vineyard range.
 
@@ -199,7 +193,7 @@ Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Baillieu Vineyard](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>)
 
-51 Stanleys Rd, Merricks VIC 3916 · $$
+51 Stanleys Rd, Merricks VIC 3916
 
 A thoughtfully managed Merricks estate making elegant Chardonnay and Pinot Noir that rewards the drive to find it.
 
@@ -211,7 +205,7 @@ Winery  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
 ### [Barmah Park Vineyard](<https://peninsulainsider.com.au/wine/barmah-park-vineyard/>)
 
-3007 Frankston-Flinders Rd, Moorooduc VIC 3933 · $$$
+3007 Frankston-Flinders Rd, Moorooduc VIC 3933
 
 A rustic, intimate cellar door running a five-wine, five-canape pairing from a hatted-standard kitchen, the most structured tasting format on the Peninsula.
 

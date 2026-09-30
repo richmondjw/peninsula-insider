@@ -51,7 +51,7 @@ Glamping  [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
 
 ### [Iluka Retreat & Camp](<https://peninsulainsider.com.au/stay/iluka-retreat/>)
 
-Red Hill South VIC 3937 · $$
+Red Hill South VIC 3937
 
 Thirty structures on 36 acres near Shoreham, the Peninsula's only fixed-site multi-tent group glamping venue, with a private freshwater lake.
 
@@ -63,7 +63,7 @@ Villa  [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
 
 ### [Mantons Creek Estate](<https://peninsulainsider.com.au/stay/mantons-creek-estate/>)
 
-240 Tucks Rd, Shoreham VIC 3916 · $$$
+240 Tucks Rd, Shoreham VIC 3916
 
 Four adults-only vineyard suites with on-estate Italian dining, two minutes from Ten Minutes by Tractor, the most under-indexed southern Red Hill base.
 

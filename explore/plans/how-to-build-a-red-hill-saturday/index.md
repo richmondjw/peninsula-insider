@@ -85,7 +85,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Montalto Vineyard & Olive Grove](<https://peninsulainsider.com.au/wine/montalto/>)
 
-33 Shoreham Rd, Red Hill South VIC 3937 · $$$
+33 Shoreham Rd, Red Hill South VIC 3937
 
 Single Vineyard Pinot Noir and a Sunday lunch beneath the olive grove canopy.
 
@@ -97,7 +97,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Polperro](<https://peninsulainsider.com.au/wine/polperro/>)
 
-150 Red Hill Road, Red Hill VIC 3937 · $$$
+150 Red Hill Road, Red Hill VIC 3937
 
 Small-production cool-climate pinot and chardonnay poured in one of the prettiest tasting rooms on the ridge.
 
@@ -109,7 +109,7 @@ Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/
 
 ### [Ten Minutes by Tractor](<https://peninsulainsider.com.au/wine/ten-minutes-by-tractor/>)
 
-1333 Mornington-Flinders Rd, Main Ridge VIC 3928 · $$$$
+1333 Mornington-Flinders Rd, Main Ridge VIC 3928
 
 Estate-grown pinot noir alongside a seasonal degustation rooted in the Ridge vineyard.
 

@@ -17,8 +17,6 @@ Known for   In-House Roastery Warehouse Cafe Single-Origin Filter Bar Best Egg S
 
 Commonfolk Coffee · Mornington
 
-Photo · Simon Yeo
-
 Why we’d go
 
 Commonfolk is the Peninsula's best case for treating coffee as infrastructure rather than a product, and the egg sandwich is the quiet achievement.
@@ -54,10 +52,6 @@ Café
 **Location**
 
 16 Progress St, Mornington VIC 3931 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Commonfolk%20Coffee%2C%2016%20Progress%20St%2C%20Mornington%20VIC%203931>)
-
-**Spend**
-
-$$
 
 **Call**
 
@@ -151,7 +145,7 @@ Distillery  [Mornington](<https://peninsulainsider.com.au/explore/places/morning
 
 ### [Bass & Flinders Distillery](<https://peninsulainsider.com.au/eat/bass-and-flinders/>)
 
-232 Balnarring Rd, Tuerong VIC 3915 · $$
+232 Balnarring Rd, Tuerong VIC 3915
 
 A Peninsula gin distillery with a gin-school blending session that has quietly become one of the region's best wet-weather plans.
 
@@ -163,7 +157,7 @@ Winery  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/
 
 ### [Garagiste](<https://peninsulainsider.com.au/eat/garagiste/>)
 
-20 Longview Crescent, Mount Eliza VIC 3930 · $$$
+20 Longview Crescent, Mount Eliza VIC 3930
 
 Barnaby Flanders' micro-production Chardonnay and Pinot project, rigour, restraint, and regular appearances in the Halliday Top 100.
 
@@ -175,7 +169,7 @@ Market  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/
 
 ### [Mornington Farmers' Market](<https://peninsulainsider.com.au/eat/mornington-farmers-market/>)
 
-The Esplanade, Mornington VIC 3931 · $
+The Esplanade, Mornington VIC 3931
 
 A monthly bayfront produce market that knows what it is and stays close to its growers.
 

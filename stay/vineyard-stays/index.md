@@ -29,7 +29,7 @@ Hotel  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Jackalope Hotel](<https://peninsulainsider.com.au/stay/jackalope/>)
 
-166 Balnarring Rd, Merricks North VIC 3926 · $$$$
+166 Balnarring Rd, Merricks North VIC 3926
 
 A dramatic art-led design hotel set inside a working vineyard, with Doot Doot Doot's eight-metre chandelier overhead.
 
@@ -41,7 +41,7 @@ Villa  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Polperro Villas](<https://peninsulainsider.com.au/stay/polperro-villas/>)
 
-150 Red Hill Road, Red Hill VIC 3937 · $$$$
+150 Red Hill Road, Red Hill VIC 3937
 
 Four vineyard villas, each sleeping two with a king-size bed, indoor spa and open fireplace.
 
@@ -53,7 +53,7 @@ Villa  [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
 
 ### [Mantons Creek Estate](<https://peninsulainsider.com.au/stay/mantons-creek-estate/>)
 
-240 Tucks Rd, Shoreham VIC 3916 · $$$
+240 Tucks Rd, Shoreham VIC 3916
 
 Four adults-only vineyard suites with on-estate Italian dining, two minutes from Ten Minutes by Tractor, the most under-indexed southern Red Hill base.
 
@@ -65,7 +65,7 @@ Hotel  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Lindenderry at Red Hill](<https://peninsulainsider.com.au/stay/lindenderry/>)
 
-142 Arthurs Seat Rd, Red Hill VIC 3937 · $$$
+142 Arthurs Seat Rd, Red Hill VIC 3937
 
 A Red Hill hotel set on 34 acres of gardens and vines, with an on-site dining room and a weekend cellar door.
 
@@ -77,7 +77,7 @@ Villa  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Crittenden Estate Villas](<https://peninsulainsider.com.au/stay/crittenden-villas/>)
 
-25 Harrisons Rd, Dromana VIC 3936 · $$$
+25 Harrisons Rd, Dromana VIC 3936
 
 Self-contained lakeside villas at Crittenden Estate, with a cellar door and restaurant on the property.
 
@@ -89,7 +89,7 @@ Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Birch Creek](<https://peninsulainsider.com.au/stay/birch-creek/>)
 
-Red Hill VIC 3937 · $$
+Red Hill VIC 3937
 
 Two self-contained farm cottages on 40 acres near Red Hill, open fireplaces, outdoor tubs, dog-friendly, and goats.
 
@@ -101,7 +101,7 @@ Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Brewer's Cottage - Red Hill Brewery](<https://peninsulainsider.com.au/stay/brewers-cottage/>)
 
-88 Shoreham Rd, Red Hill South VIC 3937 · $$
+88 Shoreham Rd, Red Hill South VIC 3937
 
 A three-bedroom house on the Red Hill Brewery property, stocked beer fridge, open fire, ten seconds from the bar open Thursday to Sunday.
 
@@ -113,7 +113,7 @@ Villa  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Cassis Red Hill](<https://peninsulainsider.com.au/stay/cassis/>)
 
-Red Hill VIC 3937 · $$$
+Red Hill VIC 3937
 
 Five adults-only villas with private heated mineral plunge pools, on the edge of Red Hill wine country with views over Western Port Bay.
 
@@ -125,7 +125,7 @@ Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Hideaways at Red Hill](<https://peninsulainsider.com.au/stay/hideaways-red-hill/>)
 
-Red Hill VIC 3937 · $$
+Red Hill VIC 3937
 
 Spa cottages for two with gas fires and in-room spa baths, walking distance from Red Hill village and the weekend market.
 
@@ -137,7 +137,7 @@ Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [The Orchard Luxury Accommodation](<https://peninsulainsider.com.au/stay/the-orchard-red-hill/>)
 
-Red Hill South VIC 3937 · $$
+Red Hill South VIC 3937
 
 Three rammed-earth self-contained apartments on ten acres of Red Hill South wine country, in-room spa baths, infrared sauna, and valley views.
 
@@ -149,7 +149,7 @@ Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Treetops at Red Hill](<https://peninsulainsider.com.au/stay/treetops-red-hill/>)
 
-80 McIlroys Rd, Red Hill South VIC 3937 · $$
+80 McIlroys Rd, Red Hill South VIC 3937
 
 Two quiet self-contained cottages opposite a micro-vineyard, local breakfast provisions included, and Port Phillip Estate under a kilometre away.
 
@@ -161,7 +161,7 @@ Villa  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
 ### [Woodman Estate](<https://peninsulainsider.com.au/stay/woodman-estate/>)
 
-Moorooduc VIC 3931 · $$$$
+Moorooduc VIC 3931
 
 Three lakeside chalets over a private five-acre lake on a 50-acre English country estate, the Peninsula's most pastoral villa option.
 
@@ -201,9 +201,9 @@ The best winery restaurants where kitchen and cellar door are the same experienc
 
 ### [Best Accommodation](<https://peninsulainsider.com.au/stay/best-accommodation/>)
 
-All Peninsula stays ranked by editorial authority across every price band.
+Start with the type and location of stay that fits your trip, then compare individual properties.
 
-[See the list →](<https://peninsulainsider.com.au/stay/best-accommodation/>)
+[Open the guide →](<https://peninsulainsider.com.au/stay/best-accommodation/>)
 
 ## The Insider Note
 

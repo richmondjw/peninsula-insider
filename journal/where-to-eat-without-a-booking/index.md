@@ -225,7 +225,7 @@ Brewery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Red Hill Brewery](<https://peninsulainsider.com.au/eat/red-hill-brewery/>)
 
-88 Shoreham Rd, Red Hill South VIC 3937 · $$
+88 Shoreham Rd, Red Hill South VIC 3937
 
 The Peninsula's original craft brewery, Belgian-style ales from the only estate hop farm in Victoria.
 
@@ -237,7 +237,7 @@ Hotel  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
 ### [Quarters at Flinders Hotel](<https://peninsulainsider.com.au/stay/flinders-hotel/>)
 
-Corner of Cook & Wood St, Flinders VIC 3929 · $$$
+Corner of Cook & Wood St, Flinders VIC 3929
 
 Quarters is a quiet village stay behind Flinders Hotel, with pub dining and the coast close at hand.
 
@@ -249,7 +249,7 @@ Pub  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Dromana Hotel](<https://peninsulainsider.com.au/eat/dromana-hotel/>)
 
-121 Point Nepean Rd, Dromana VIC 3936 · $$
+121 Point Nepean Rd, Dromana VIC 3936
 
 Sprawling beachfront pub with an enormous deck and bay views, the straightforward bayside pub day done correctly.
 

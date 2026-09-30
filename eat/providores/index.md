@@ -21,7 +21,7 @@ providore  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-rid
 
 ### [Main Ridge Dairy](<https://peninsulainsider.com.au/eat/main-ridge-dairy/>)
 
-295 Main Creek Rd, Main Ridge VIC 3928 · $$
+295 Main Creek Rd, Main Ridge VIC 3928
 
 A working farmhouse goat dairy on the Main Ridge, farm-made cheeses, goat-milk gelato, and a café with views across the paddocks to the herd.
 
@@ -33,7 +33,7 @@ providore  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>
 
 ### [Mornington Peninsula Chocolates](<https://peninsulainsider.com.au/eat/mornington-peninsula-chocolates/>)
 
-50 Cook St, Flinders VIC 3929 · $$
+50 Cook St, Flinders VIC 3929
 
 Handmade chocolates, rich hot chocolates, and a small café, a reliable family stop with enough seasonal stock to justify the detour.
 
@@ -45,7 +45,7 @@ providore  [Mornington](<https://peninsulainsider.com.au/explore/places/morningt
 
 ### [Peninsula Fresh Organics](<https://peninsulainsider.com.au/eat/peninsula-fresh-organics/>)
 
-170 Baxter-Tooradin Rd, Baxter VIC 3911 · $$
+170 Baxter-Tooradin Rd, Baxter VIC 3911
 
 A working certified-organic market garden with a farm-gate shop, straight-out-of-the-ground vegetables and the best salad of your week.
 
@@ -57,7 +57,7 @@ providore  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Pier Street Fresh Seafood](<https://peninsulainsider.com.au/eat/pier-street-seafood/>)
 
-34 Pier St, Dromana VIC 3936 · $$
+34 Pier St, Dromana VIC 3936
 
 A proper old-school fishmonger and takeaway on the Dromana foreshore, point, pay, and walk the parcel across to the sand.
 
@@ -69,7 +69,7 @@ providore  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>
 
 ### [Red Hill Cheese](<https://peninsulainsider.com.au/eat/red-hill-cheese/>)
 
-81 William Rd, Red Hill VIC 3937 · $$
+81 William Rd, Red Hill VIC 3937
 
 Small-batch cheesemaker with a tasting room, hard sheep's milk styles, washed rinds, and a rotating seasonal list.
 

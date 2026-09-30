@@ -17,8 +17,6 @@ Known for   On-Brewery-Property Stay Stocked Beer Fridge Open Fire Ten Seconds f
 
 Brewer's Cottage - Red Hill Brewery · Red Hill
 
-Photo · Peninsula Insider
-
 Why we’d go
 
 You are not just sleeping near a drinks producer, you are sleeping on the producer's property, with the bar ten seconds from the front door.
@@ -55,10 +53,6 @@ Cottage
 
 88 Shoreham Rd, Red Hill South VIC 3937 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Brewer%27s%20Cottage%20-%20Red%20Hill%20Brewery%2C%2088%20Shoreham%20Rd%2C%20Red%20Hill%20South%20VIC%203937>)
 
-**Spend**
-
-$$
-
 **Website**
 
 [www.redhillbrewery.com.au/brewers-cottage](<https://www.redhillbrewery.com.au/brewers-cottage/>)
@@ -87,7 +81,7 @@ Cottage  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
 
-10 Nestle Court, Arthurs Seat VIC 3936 · $$
+10 Nestle Court, Arthurs Seat VIC 3936
 
 Five adults-only suites on Arthurs Seat ridge with panoramic Port Phillip Bay views, double spas, and electric log fires.
 
@@ -99,7 +93,7 @@ Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Birch Creek](<https://peninsulainsider.com.au/stay/birch-creek/>)
 
-Red Hill VIC 3937 · $$
+Red Hill VIC 3937
 
 Two self-contained farm cottages on 40 acres near Red Hill, open fireplaces, outdoor tubs, dog-friendly, and goats.
 
@@ -111,7 +105,7 @@ Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 ### [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>)
 
-12 Blakiston Grove, Rye VIC 3941 · $$
+12 Blakiston Grove, Rye VIC 3941
 
 Three 1940s cottages 250 metres from Rye bay beach, Sandpiper is the dog-friendly unit with a wood fire and fenced courtyard.
 

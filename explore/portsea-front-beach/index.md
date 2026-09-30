@@ -47,7 +47,7 @@ Glamping  [Portsea](<https://peninsulainsider.com.au/explore/places/portsea/>)
 
 ### [Point Nepean Discovery Tents](<https://peninsulainsider.com.au/stay/point-nepean-discovery-tents/>)
 
-Point Nepean National Park, Portsea VIC 3944 · $
+Point Nepean National Park, Portsea VIC 3944
 
 Forty-six pre-pitched canvas tents inside Point Nepean National Park, September to April, inside the historic quarantine station precinct.
 
@@ -59,7 +59,7 @@ Pub  [Portsea](<https://peninsulainsider.com.au/explore/places/portsea/>)
 
 ### [Portsea Hotel](<https://peninsulainsider.com.au/eat/portsea-hotel/>)
 
-3746 Point Nepean Rd, Portsea VIC 3944 · $$
+3746 Point Nepean Rd, Portsea VIC 3944
 
 The front-row pub on Port Phillip, still the cleanest long lunch at the tip of the Peninsula.
 

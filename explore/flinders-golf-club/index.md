@@ -101,7 +101,7 @@ Café  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
 ### [Flinders General Store](<https://peninsulainsider.com.au/eat/flinders-general-store/>)
 
-45 Cook St, Flinders VIC 3929 · $$
+45 Cook St, Flinders VIC 3929
 
 The village general store on Flinders' main street, slow-drip coffee, fresh bread, and pick-your-own picnics for the Blowhole walk.
 
@@ -113,7 +113,7 @@ Hotel  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
 ### [Quarters at Flinders Hotel](<https://peninsulainsider.com.au/stay/flinders-hotel/>)
 
-Corner of Cook & Wood St, Flinders VIC 3929 · $$$
+Corner of Cook & Wood St, Flinders VIC 3929
 
 Quarters is a quiet village stay behind Flinders Hotel, with pub dining and the coast close at hand.
 
@@ -125,7 +125,7 @@ Bakery  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
 ### [Flinders Sourdough](<https://peninsulainsider.com.au/eat/flinders-sourdough/>)
 
-58 Cook Street, Flinders VIC 3929 · $
+58 Cook Street, Flinders VIC 3929
 
 A small Flinders bakery using its original wood-fired oven for naturally fermented sourdough.
 

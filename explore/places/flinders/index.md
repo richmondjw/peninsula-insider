@@ -135,7 +135,7 @@ Café  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
 ### [Flinders General Store](<https://peninsulainsider.com.au/eat/flinders-general-store/>)
 
-45 Cook St, Flinders VIC 3929 · $$
+45 Cook St, Flinders VIC 3929
 
 The village general store on Flinders' main street, slow-drip coffee, fresh bread, and pick-your-own picnics for the Blowhole walk.
 
@@ -147,7 +147,7 @@ Bakery  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
 ### [Flinders Sourdough](<https://peninsulainsider.com.au/eat/flinders-sourdough/>)
 
-58 Cook Street, Flinders VIC 3929 · $
+58 Cook Street, Flinders VIC 3929
 
 A small Flinders bakery using its original wood-fired oven for naturally fermented sourdough.
 
@@ -159,7 +159,7 @@ Café  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
 ### [Georgie Bass Cafe & Cookery](<https://peninsulainsider.com.au/eat/georgie-bass/>)
 
-30 Cook St, Flinders VIC 3929 · $$
+30 Cook St, Flinders VIC 3929
 
 All-day cafe on Cook Street built around produce from their own farm, the natural anchor for a Flinders morning or a post-cliff-walk lunch.
 
@@ -181,7 +181,7 @@ Winery  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
 ### [Nazaaray Estate](<https://peninsulainsider.com.au/wine/nazaaray-estate/>)
 
-266 Meakins Rd, Flinders VIC 3929 · $$
+266 Meakins Rd, Flinders VIC 3929
 
 A tiny Flinders estate with naturally fermented wines and guesthouses inside reconverted 1930s railway carriages.
 
@@ -203,7 +203,7 @@ Hotel  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
 ### [Quarters at Flinders Hotel](<https://peninsulainsider.com.au/stay/flinders-hotel/>)
 
-Corner of Cook & Wood St, Flinders VIC 3929 · $$$
+Corner of Cook & Wood St, Flinders VIC 3929
 
 Quarters is a quiet village stay behind Flinders Hotel, with pub dining and the coast close at hand.
 

@@ -1,135 +1,111 @@
 Canonical: https://peninsulainsider.com.au/stay/glamping/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-05-08
+Modified: 2026-10-01
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-# Glamping on the Mornington Peninsula
+# The Peninsula, under canvas.
 
-Glamping on the Mornington Peninsula is a small category, and that is useful information. There are not ten interchangeable operators - there is a handful of genuine products, anchored almost entirely to the Fingal thermal precinct on the back-beach side of the Peninsula.
+Find your stay by setting: hot springs, hinterland, a campsite you choose or Point Nepean.
 
-The category's structural logic runs through Peninsula Hot Springs. The right way to think about glamping here is not "find the best tent" - it is to build a slower, more sealed-off thermal weekend around Fingal, and let the canvas be part of how the trip is shaped. Access to the bathing precinct at 5am, the Hilltop Pool before the day visitors arrive, the Spa Dreaming Centre in the evening. If you want a wide market, this is not one. If you want the right sequence, this is the page.
+ [Compare the stays](<https://peninsulainsider.com.au/stay/glamping/#compare-glamping>)
 
-Beyond the thermal anchor: Iluka near Shoreham is the Peninsula's only fixed-site group glamping venue. Retro Caravans at Rye and Yurt Hideaway in Tootgarook cover the dog-friendly and couples-compact brackets. Happy Glamper is the mobile option. Point Nepean Discovery Tents are the budget gateway inside the national park.
+## Four formats, four different trips.
 
-Note: The Sanctuary at Alba (five villas, Alba Thermal Springs, Fingal) is not glamping - it is fully enclosed villa accommodation on the same Fingal precinct. It belongs on the [villas page](<https://peninsulainsider.com.au/stay/villas/>).
+These are alternatives, not a ranking. The right stay depends on whether you want bathing on site, a hosted rural tent, a chosen campsite or a simple park base.
 
-Researched from published sources. Every venue listed was reviewed April 2026 or later.
+Fingal   Styled tent on the springs grounds
 
-Glamping
+### Peninsula Hot Springs Glamping
 
-## Peninsula glamping - thermal anchor and beyond
+Choose this when bathing is the centre of the stay.
 
-From PHS tents at 5am to a yurt in Tootgarook - a small category with a clear hierarchy.
+Garden-view, lake-view and secluded pavilion settings are listed. Current glamping packages include bathing across the Peninsula Hot Springs site.
 
- [Peninsula Hot Springs guide →](<https://peninsulainsider.com.au/explore/hot-springs/>)
+**Before you reserve**
 
-Glamping  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
+Compare the exact package and guest rules for your dates. Treatments, private bathing and dining are separate choices unless your booking includes them.
 
-### [Peninsula Hot Springs Glamping](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/>)
+[See operator details](<https://www.peninsulahotsprings.com/accommodation/glamping>) [Read our stay notes](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/>)
 
-140 Springs Lane, Fingal VIC 3939 · $$$
+Shoreham   Bell tent in a rural retreat
 
-Glamping accommodation within Peninsula Hot Springs in Fingal, with garden-view, lake-view and secluded pavilion options for a stay built around bathing.
+### Iluka Retreat Glamping
 
-wellness  anniversary
+Choose this for an outdoor country stay.
 
-[Read notes](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/>) [View stay](<https://www.peninsulahotsprings.com/accommodation>)
+Iluka sets up canvas bell tents among its hills and wetlands. Its current page welcomes couples and families. Tents are unpowered, with a shared powered kitchen and bathrooms.
 
-Glamping  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
+**Before you reserve**
 
-### [Peninsula Hot Springs Eco Lodges](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-eco-lodges/>)
+Confirm your tent and shared facilities. Activities and any visit to Peninsula Hot Springs need their own arrangements.
 
-140 Springs Lane, Fingal VIC 3939 · $$$$
+[See operator details](<https://ilukaretreat.com.au/accommodation/glamping/>)
 
-Eco lodge accommodation at Peninsula Hot Springs in Fingal, a separate option from glamping for a stay centred on geothermal bathing.
+Peninsula campsites and private land   Mobile styled bell tent
 
-wellness  anniversary
+### Happy Glamper
 
-[Read notes](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-eco-lodges/>) [View stay](<https://www.peninsulahotsprings.com/accommodation/eco-lodges/>)
+Choose this when the campsite is part of the plan.
 
-Glamping  [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
+Happy Glamper pitches and furnishes a tent before arrival, then packs it down after your stay. Its usual hire flow requires a separate campsite reservation.
 
-### [Iluka Retreat & Camp](<https://peninsulainsider.com.au/stay/iluka-retreat/>)
+**Before you reserve**
 
-Red Hill South VIC 3937 · $$
+Ask the operator to approve your dates and tent first, then reserve a suitable campsite. Its Balnarring Deluxe offering has a dedicated site arrangement, so check that package directly.
 
-Thirty structures on 36 acres near Shoreham, the Peninsula's only fixed-site multi-tent group glamping venue, with a private freshwater lake.
+[See operator details](<https://www.happyglamper.com.au/faqs-1>)
 
-wellness  slow
+Portsea   Pre-pitched park camping
 
-[Read notes](<https://peninsulainsider.com.au/stay/iluka-retreat/>) [View stay](<https://www.ilukaretreat.com.au/>)
+### Point Nepean Discovery Tents
 
-Glamping  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
+Choose this for a national park night with the tent already up.
 
-### [Mornington Peninsula Retro Caravans](<https://peninsulainsider.com.au/stay/kanasta-retro-caravans/>)
+Parks Victoria provides standing-height two- and four-person tents at the Quarantine Station from September to April. This is simpler camping with shared facilities, rather than a furnished retreat tent.
 
-1-9 Sinclair Ave, Rye VIC 3941 · $$
+**Before you reserve**
 
-Restored 1950s–60s themed caravans 500 metres from Rye bay beach, dog-friendly in designated units, the most characterful glamping-adjacent option on the bayside.
+Bring bedding, a torch, food and eating utensils. Check park rules and accessible-tent suitability before booking.
 
-beach  slow
+[See operator details](<https://www.parks.vic.gov.au/places-to-see/parks/point-nepean-national-park/where-to-stay/point-nepean-discovery-tents>)
 
-[Read notes](<https://peninsulainsider.com.au/stay/kanasta-retro-caravans/>) [View stay](<https://kanastacaravanpark.com.au/retro-caravans/>)
+## Looking for a room instead?
 
-Glamping  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
+Several appealing overnight stays sit beside this category. Their buildings and booking arrangements make them different choices.
 
-### [Yurt Hideaway](<https://peninsulainsider.com.au/stay/yurt-hideaway/>)
+### Peninsula Hot Springs Eco Lodges
 
-Tootgarook VIC 3941 · $$
+Enclosed lodge rooms on the same grounds as the glamping tents. Private bathing facilities vary by room type.
 
-A traditional 6-metre Mongolian yurt in Tootgarook, five minutes from Peninsula Hot Springs, hosted by yoga instructors, 4.97 stars.
+### The Sanctuary at Alba
 
-wellness  romance
+Villas and rooms with the separate Alba Thermal Springs operator. It is a thermal stay, not canvas accommodation.
 
-[Read notes](<https://peninsulainsider.com.au/stay/yurt-hideaway/>) [View stay](<https://yurthideaway.com.au/>)
+### Retro caravans
 
-Glamping  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
+A characterful alternative in Rye, but a caravan stay rather than glamping under canvas.
 
-### [Happy Glamper](<https://peninsulainsider.com.au/stay/happy-glamper/>)
+ [Compare the on-site hot springs stays](<https://peninsulainsider.com.au/stay/hot-springs-accommodation/>)
 
-Peninsula-wide, based Point Leo VIC 3916 · $$
+## The booking details that matter.
 
-Mobile bell-tent glamping that pitches styled tents at nominated Peninsula foreshore campsites, setup and packdown handled, children welcome.
+Check the operator's live terms before payment. Tents, campsites, bathing and treatments are not always part of one reservation.
 
-beach  slow
+### Are Peninsula Hot Springs Eco Lodges glamping?
 
-[Read notes](<https://peninsulainsider.com.au/stay/happy-glamper/>) [View stay](<https://www.happyglamper.com.au/>)
+No. The operator lists Eco Lodges separately from its glamping tents. Choose the lodges for an enclosed room and check the room-specific bathing facilities.
 
-Glamping  [Portsea](<https://peninsulainsider.com.au/explore/places/portsea/>)
+### Is bathing included with every glamping stay?
 
-### [Point Nepean Discovery Tents](<https://peninsulainsider.com.au/stay/point-nepean-discovery-tents/>)
+No. Peninsula Hot Springs lists site bathing with its glamping packages. Iluka, Happy Glamper and Point Nepean are separate from the springs; reserve any bathing visit separately.
 
-Point Nepean National Park, Portsea VIC 3944 · $
+### Do I need my own campsite for Happy Glamper?
 
-Forty-six pre-pitched canvas tents inside Point Nepean National Park, September to April, inside the historic quarantine station precinct.
+Usually, yes. Submit a tent request, wait for approval and then book a suitable site. Ask about the separate Balnarring Deluxe arrangement if it suits your trip.
 
-beach  walk
-
-[Read notes](<https://peninsulainsider.com.au/stay/point-nepean-discovery-tents/>) [View stay](<https://www.parks.vic.gov.au/places-to-see/parks/point-nepean-national-park/where-to-stay/point-nepean-discovery-tents>)
-
-Related guides
-
-## Plan the overnight thermal stay
-
-### [Hot Springs Accommodation](<https://peninsulainsider.com.au/stay/hot-springs-accommodation/>)
-
-Every overnight option in and around the Peninsula's thermal springs precincts - PHS glamping, eco lodges, and Sanctuary at Alba.
-
-[See the guide →](<https://peninsulainsider.com.au/stay/hot-springs-accommodation/>)
-
-### [Wellness Retreats](<https://peninsulainsider.com.au/stay/wellness-retreats/>)
-
-Spa stays, thermal springs, and the restorative layer of the Peninsula.
-
-[Explore →](<https://peninsulainsider.com.au/stay/wellness-retreats/>)
-
-### [Peninsula Hot Springs Guide](<https://peninsulainsider.com.au/explore/hot-springs/>)
-
-The day-visit guide to the PHS precinct, pools, and Spa Dreaming Centre.
-
-[Read the guide →](<https://peninsulainsider.com.au/explore/hot-springs/>)
+Details checked on 1 October 2026 against [Peninsula Hot Springs](<https://www.peninsulahotsprings.com/accommodation/glamping>), [Iluka Retreat](<https://ilukaretreat.com.au/accommodation/glamping/>), [Happy Glamper](<https://www.happyglamper.com.au/faqs-1>) and [Parks Victoria](<https://www.parks.vic.gov.au/places-to-see/parks/point-nepean-national-park/where-to-stay/point-nepean-discovery-tents>). Availability, inclusions and visitor rules can change.
 
 ## The Insider Note
 

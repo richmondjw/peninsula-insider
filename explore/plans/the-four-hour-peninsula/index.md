@@ -157,7 +157,7 @@ Restaurant  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/
 
 ### [Merricks General Wine Store](<https://peninsulainsider.com.au/eat/merricks-general-wine-store/>)
 
-3460 Frankston-Flinders Rd, Merricks VIC 3916 · $$$
+3460 Frankston-Flinders Rd, Merricks VIC 3916
 
 The old Merricks general store reborn as a cellar door, bakery, and produce-forward lunch room.
 
@@ -169,7 +169,7 @@ Brewery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Red Hill Brewery](<https://peninsulainsider.com.au/eat/red-hill-brewery/>)
 
-88 Shoreham Rd, Red Hill South VIC 3937 · $$
+88 Shoreham Rd, Red Hill South VIC 3937
 
 The Peninsula's original craft brewery, Belgian-style ales from the only estate hop farm in Victoria.
 
@@ -181,7 +181,7 @@ Café  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>
 
 ### [Commonfolk Coffee](<https://peninsulainsider.com.au/eat/commonfolk-coffee/>)
 
-16 Progress St, Mornington VIC 3931 · $$
+16 Progress St, Mornington VIC 3931
 
 The Peninsula's most serious roaster, hidden in a Mornington warehouse with a cafe out the front.
 

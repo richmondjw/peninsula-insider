@@ -17,8 +17,6 @@ Known for   Main Street Corner Location Reliable Bistro Parma Big Dining Room Mo
 
 The Mornington Hotel · Mornington
 
-Photo · Simon Yeo
-
 Why we’d go
 
 The Mornington Hotel is not the meal you tell visitors about. It is the meal you end up at when the plan falls through, the kids are hungry, and everyone is about to start arguing, and it delivers.
@@ -54,10 +52,6 @@ Pub
 **Location**
 
 1 Main St, Mornington VIC 3931 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=The%20Mornington%20Hotel%2C%201%20Main%20St%2C%20Mornington%20VIC%203931>)
-
-**Spend**
-
-$$
 
 **Call**
 
@@ -123,7 +117,7 @@ Distillery  [Mornington](<https://peninsulainsider.com.au/explore/places/morning
 
 ### [Bass & Flinders Distillery](<https://peninsulainsider.com.au/eat/bass-and-flinders/>)
 
-232 Balnarring Rd, Tuerong VIC 3915 · $$
+232 Balnarring Rd, Tuerong VIC 3915
 
 A Peninsula gin distillery with a gin-school blending session that has quietly become one of the region's best wet-weather plans.
 
@@ -135,7 +129,7 @@ Café  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>
 
 ### [Commonfolk Coffee](<https://peninsulainsider.com.au/eat/commonfolk-coffee/>)
 
-16 Progress St, Mornington VIC 3931 · $$
+16 Progress St, Mornington VIC 3931
 
 The Peninsula's most serious roaster, hidden in a Mornington warehouse with a cafe out the front.
 
@@ -147,7 +141,7 @@ Winery  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/
 
 ### [Garagiste](<https://peninsulainsider.com.au/eat/garagiste/>)
 
-20 Longview Crescent, Mount Eliza VIC 3930 · $$$
+20 Longview Crescent, Mount Eliza VIC 3930
 
 Barnaby Flanders' micro-production Chardonnay and Pinot project, rigour, restraint, and regular appearances in the Halliday Top 100.
 

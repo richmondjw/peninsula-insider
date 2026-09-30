@@ -151,7 +151,7 @@ Stays where the dog is a guest, not a problem.
 
 The full list
 
-## All 30 places to stay
+## All 29 places to stay
 
  [Ranked: the best places to stay →](<https://peninsulainsider.com.au/stay/best-accommodation/>)
 
@@ -233,7 +233,7 @@ Villa   Dromana   Couples
 
 Eco lodge accommodation at Peninsula Hot Springs in Fingal, a separate option from glamping for a stay centred on geothermal bathing.
 
-Glamping   Fingal   Couples
+Lodge   Fingal   Couples
 
 [Check availability](<https://www.peninsulahotsprings.com/accommodation/eco-lodges/>)
 
@@ -360,14 +360,6 @@ Heritage 1932 sandstone property 150 metres from Rye's front beach, host Charles
 Cottage   Rye   Couples
 
 [Check availability](<https://www.plantationhouse.com.au/>)  Books via Booking.com
-
-- ### [Yurt Hideaway](<https://peninsulainsider.com.au/stay/yurt-hideaway/>)
-
-A traditional 6-metre Mongolian yurt in Tootgarook, five minutes from Peninsula Hot Springs, hosted by yoga instructors, 4.97 stars.
-
-Glamping   Rye   Couples
-
-[Check availability](<https://yurthideaway.com.au/>)  Books via Airbnb
 
 - ### [Iluka Retreat & Camp](<https://peninsulainsider.com.au/stay/iluka-retreat/>)
 

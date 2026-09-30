@@ -171,7 +171,7 @@ providore  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-rid
 
 ### [Main Ridge Dairy](<https://peninsulainsider.com.au/eat/main-ridge-dairy/>)
 
-295 Main Creek Rd, Main Ridge VIC 3928 · $$
+295 Main Creek Rd, Main Ridge VIC 3928
 
 A working farmhouse goat dairy on the Main Ridge, farm-made cheeses, goat-milk gelato, and a café with views across the paddocks to the herd.
 
@@ -183,7 +183,7 @@ providore  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>
 
 ### [Red Hill Cheese](<https://peninsulainsider.com.au/eat/red-hill-cheese/>)
 
-81 William Rd, Red Hill VIC 3937 · $$
+81 William Rd, Red Hill VIC 3937
 
 Small-batch cheesemaker with a tasting room, hard sheep's milk styles, washed rinds, and a rotating seasonal list.
 
@@ -195,7 +195,7 @@ providore  [Mornington](<https://peninsulainsider.com.au/explore/places/morningt
 
 ### [Peninsula Fresh Organics](<https://peninsulainsider.com.au/eat/peninsula-fresh-organics/>)
 
-170 Baxter-Tooradin Rd, Baxter VIC 3911 · $$
+170 Baxter-Tooradin Rd, Baxter VIC 3911
 
 A working certified-organic market garden with a farm-gate shop, straight-out-of-the-ground vegetables and the best salad of your week.
 

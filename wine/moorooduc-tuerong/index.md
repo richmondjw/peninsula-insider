@@ -27,7 +27,7 @@ Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/
 
 ### [Kooyong](<https://peninsulainsider.com.au/wine/kooyong/>)
 
-263 Red Hill Rd, Red Hill South VIC 3937 · $$$
+263 Red Hill Rd, Red Hill South VIC 3937
 
 Single-vineyard pinot noir and chardonnay from one of the Peninsula's most decorated estates.
 
@@ -39,7 +39,7 @@ Winery  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
 ### [Moorooduc Estate](<https://peninsulainsider.com.au/wine/moorooduc-estate/>)
 
-501 Derril Rd, Moorooduc VIC 3933 · $$$
+501 Derril Rd, Moorooduc VIC 3933
 
 Richard McIntyre's pioneering low-intervention estate, home to the Robinson Chardonnay, one of Australia's genuine Chardonnay reference points.
 
@@ -51,7 +51,7 @@ Winery  [Tuerong](<https://peninsulainsider.com.au/explore/places/tuerong/>)
 
 ### [Yabby Lake Vineyard](<https://peninsulainsider.com.au/wine/yabby-lake/>)
 
-86-112 Tuerong Rd, Tuerong VIC 3933 · $$$
+86-112 Tuerong Rd, Tuerong VIC 3933
 
 Tom Carson's single-block Chardonnay and Pinot Noir program, poured from a relaxed cellar door with one of the Peninsula's loveliest lunch decks.
 

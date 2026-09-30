@@ -13,8 +13,6 @@ A smaller community farmers market in Mount Eliza village, producers drawn from 
 
 Mount Eliza Farmers Market · Mount Eliza
 
-Photo · Simon Yeo
-
 Mount Eliza Farmers Market lists the fourth Sunday of each month, 9am–1pm, at Mount Eliza Village. Check the organiser for the current date and any changes before making the trip.
 
 Filed under   Slow Garden Quick Bite Spring Summer Autumn Winter Locals Families Couples
@@ -28,10 +26,6 @@ Market
 **Location**
 
 Mount Eliza Village, Mt Eliza VIC 3930 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Mount%20Eliza%20Farmers%20Market%2C%20Mount%20Eliza%20Village%2C%20Mt%20Eliza%20VIC%203930>)
-
-**Spend**
-
-$
 
 **Website**
 

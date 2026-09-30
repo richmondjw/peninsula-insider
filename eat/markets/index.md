@@ -25,7 +25,7 @@ Market  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/
 
 ### [Mornington Farmers' Market](<https://peninsulainsider.com.au/eat/mornington-farmers-market/>)
 
-The Esplanade, Mornington VIC 3931 · $
+The Esplanade, Mornington VIC 3931
 
 A monthly bayfront produce market that knows what it is and stays close to its growers.
 
@@ -37,7 +37,7 @@ Market  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/
 
 ### [Mornington Main Street Market](<https://peninsulainsider.com.au/eat/mornington-main-street-market/>)
 
-Main St, Mornington VIC 3931 · $
+Main St, Mornington VIC 3931
 
 The northern Peninsula's midweek town market, a broad mix that folds easily into a Mornington visit.
 
@@ -49,7 +49,7 @@ Market  [Mount Eliza](<https://peninsulainsider.com.au/explore/places/mount-eliz
 
 ### [Mount Eliza Farmers Market](<https://peninsulainsider.com.au/eat/mount-eliza-farmers-market/>)
 
-Mount Eliza Village, Mt Eliza VIC 3930 · $
+Mount Eliza Village, Mt Eliza VIC 3930
 
 A smaller community farmers market in Mount Eliza village, producers drawn from the Mornington corridor.
 
@@ -61,7 +61,7 @@ Market  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 ### [Rye Foreshore Market](<https://peninsulainsider.com.au/eat/rye-beachside-market/>)
 
-Point Nepean Rd, Rye VIC 3941 · $
+Point Nepean Rd, Rye VIC 3941
 
 A first-Saturday market on Rye foreshore, listed by Mornington Peninsula Shire.
 

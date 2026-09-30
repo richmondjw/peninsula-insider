@@ -47,7 +47,7 @@ Cottage  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
 
-10 Nestle Court, Arthurs Seat VIC 3936 · $$
+10 Nestle Court, Arthurs Seat VIC 3936
 
 Five adults-only suites on Arthurs Seat ridge with panoramic Port Phillip Bay views, double spas, and electric log fires.
 
@@ -59,7 +59,7 @@ Winery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Crittenden Estate](<https://peninsulainsider.com.au/wine/crittenden-estate/>)
 
-25 Harrisons Rd, Dromana VIC 3936 · $$
+25 Harrisons Rd, Dromana VIC 3936
 
 The Peninsula's pioneering estate, four decades of Crittenden family winemaking, Pinot, Chardonnay, and the Spanish-Italian Los Hermanos range from a new lakeside wine centre.
 
@@ -71,7 +71,7 @@ Restaurant  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Crittenden Restaurant](<https://peninsulainsider.com.au/eat/crittenden-restaurant/>)
 
-25 Harrisons Rd, Dromana VIC 3936 · $$
+25 Harrisons Rd, Dromana VIC 3936
 
 Lakeside dining under a vine-strung pergola at one of the Peninsula's founding wineries, now Crittenden Restaurant under Head Chef Brunno Melo.
 

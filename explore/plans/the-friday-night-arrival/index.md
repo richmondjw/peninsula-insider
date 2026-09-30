@@ -123,7 +123,7 @@ Bakery  [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/
 
 ### [The Red Hill Baker](<https://peninsulainsider.com.au/eat/red-hill-bakery/>)
 
-1/3000 Frankston-Flinders Rd, Balnarring VIC 3926 · $
+1/3000 Frankston-Flinders Rd, Balnarring VIC 3926
 
 Artisan bread, pies and pastries from the bakery's sole current shop in Balnarring.
 
@@ -135,7 +135,7 @@ Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/
 
 ### [The Epicurean](<https://peninsulainsider.com.au/eat/epicurean-red-hill/>)
 
-165 Purves Rd, Red Hill South VIC 3937 · $$$
+165 Purves Rd, Red Hill South VIC 3937
 
 A Red Hill institution that has turned long lunch into a civic duty.
 
@@ -147,7 +147,7 @@ Café  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>
 
 ### [Commonfolk Coffee](<https://peninsulainsider.com.au/eat/commonfolk-coffee/>)
 
-16 Progress St, Mornington VIC 3931 · $$
+16 Progress St, Mornington VIC 3931
 
 The Peninsula's most serious roaster, hidden in a Mornington warehouse with a cafe out the front.
 

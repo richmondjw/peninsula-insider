@@ -53,10 +53,6 @@ Hotel
 
 Corner of Cook & Wood St, Flinders VIC 3929 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Quarters%20at%20Flinders%20Hotel%2C%20Corner%20of%20Cook%20%26%20Wood%20St%2C%20Flinders%20VIC%203929>)
 
-**Spend**
-
-$$$
-
 **Call**
 
 +61 3 5989 0201
@@ -139,7 +135,7 @@ Cottage  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
 
-10 Nestle Court, Arthurs Seat VIC 3936 · $$
+10 Nestle Court, Arthurs Seat VIC 3936
 
 Five adults-only suites on Arthurs Seat ridge with panoramic Port Phillip Bay views, double spas, and electric log fires.
 
@@ -151,7 +147,7 @@ Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Birch Creek](<https://peninsulainsider.com.au/stay/birch-creek/>)
 
-Red Hill VIC 3937 · $$
+Red Hill VIC 3937
 
 Two self-contained farm cottages on 40 acres near Red Hill, open fireplaces, outdoor tubs, dog-friendly, and goats.
 
@@ -163,7 +159,7 @@ Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 ### [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>)
 
-12 Blakiston Grove, Rye VIC 3941 · $$
+12 Blakiston Grove, Rye VIC 3941
 
 Three 1940s cottages 250 metres from Rye bay beach, Sandpiper is the dog-friendly unit with a wood fire and fenced courtyard.
 

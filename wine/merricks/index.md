@@ -99,7 +99,7 @@ Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Baillieu Vineyard](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>)
 
-51 Stanleys Rd, Merricks VIC 3916 · $$
+51 Stanleys Rd, Merricks VIC 3916
 
 A thoughtfully managed Merricks estate making elegant Chardonnay and Pinot Noir that rewards the drive to find it.
 
@@ -111,7 +111,7 @@ Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Elgee Park](<https://peninsulainsider.com.au/wine/elgee-park/>)
 
-89 Junction Rd, Merricks North VIC 3926 · $$
+89 Junction Rd, Merricks North VIC 3926
 
 The Baillieu family's 1972 vineyard, the planting that started the modern Peninsula wine region, still in family hands, still making restrained Chardonnay and Viognier.
 
@@ -123,7 +123,7 @@ Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Kerri Greens](<https://peninsulainsider.com.au/wine/kerri-greens/>)
 
-235 Stanleys Rd, Red Hill South VIC 3937 · $$
+235 Stanleys Rd, Red Hill South VIC 3937
 
 Tom McCarthy and Lucas Blanck's new-school Peninsula label, lighter-style Pinot, approachable Chardonnay, and a cellar door that feels like a bar.
 
@@ -135,7 +135,7 @@ Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Merricks Estate](<https://peninsulainsider.com.au/wine/merricks-estate/>)
 
-1 Merricks-Frankston Rd, Merricks VIC 3916 · $$
+1 Merricks-Frankston Rd, Merricks VIC 3916
 
 A small, long-standing Merricks estate making one of the Peninsula's rare serious Shiraz programs alongside Chardonnay and Pinot Noir.
 
@@ -147,7 +147,7 @@ Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Paradigm Hill](<https://peninsulainsider.com.au/wine/paradigm-hill/>)
 
-26 Merricks Rd, Merricks VIC 3916 · $$$
+26 Merricks Rd, Merricks VIC 3916
 
 George Mihaly's fastidiously farmed single-site Pinot Noir estate, appointment-only tastings, often led by George himself.
 
@@ -159,7 +159,7 @@ Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Pt. Leo Estate](<https://peninsulainsider.com.au/wine/pt-leo-estate/>)
 
-3649 Frankston-Flinders Rd, Merricks VIC 3916 · $$$
+3649 Frankston-Flinders Rd, Merricks VIC 3916
 
 A sculpture park walk followed by a long bay-view lunch in the glass-walled restaurant.
 
@@ -171,7 +171,7 @@ Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Scorpo Wines](<https://peninsulainsider.com.au/wine/scorpo-wines/>)
 
-23 Old Bittern-Dromana Rd, Merricks North VIC 3926 · $$$
+23 Old Bittern-Dromana Rd, Merricks North VIC 3926
 
 Paul Scorpo's tightly focused family estate, one of the Peninsula's most acclaimed Pinot Gris alongside elegant Chardonnay and Pinot Noir.
 
@@ -183,7 +183,7 @@ Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Stonier Wines](<https://peninsulainsider.com.au/wine/stonier-wines/>)
 
-2 Thompsons Lane, Merricks VIC 3916 · $$
+2 Thompsons Lane, Merricks VIC 3916
 
 One of the Peninsula's founding estates, planted in 1978, grown-up, unflashy, with some of the oldest Chardonnay vines in the region.
 
@@ -195,7 +195,7 @@ Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Willow Creek Vineyard](<https://peninsulainsider.com.au/wine/willow-creek-vineyard/>)
 
-166 Balnarring Rd, Merricks North VIC 3926 · $$$$
+166 Balnarring Rd, Merricks North VIC 3926
 
 The vineyard at the heart of Jackalope Hotel, a showpiece single-site program and the home of both Rare Hare and Doot Doot Doot.
 

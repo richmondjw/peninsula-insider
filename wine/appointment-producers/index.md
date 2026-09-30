@@ -27,7 +27,7 @@ Winery  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/
 
 ### [Garagiste](<https://peninsulainsider.com.au/wine/garagiste/>)
 
-20 Longview Crescent, Mount Eliza VIC 3930 · $$$
+20 Longview Crescent, Mount Eliza VIC 3930
 
 Barnaby Flanders' micro-production Chardonnay and Pinot project, rigour, restraint, and regular appearances in the Halliday Top 100.
 
@@ -39,7 +39,7 @@ Winery  [Tuerong](<https://peninsulainsider.com.au/explore/places/tuerong/>)
 
 ### [Onannon](<https://peninsulainsider.com.au/wine/onannon/>)
 
-110 Tuerong Rd, Tuerong VIC 3933 · $$$
+110 Tuerong Rd, Tuerong VIC 3933
 
 Three winemakers, small-batch Pinot Noir and Chardonnay, and cult-favourite status among Australia's best sommeliers.
 
@@ -51,7 +51,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Eldridge Estate](<https://peninsulainsider.com.au/wine/eldridge-estate/>)
 
-120 Arthurs Seat Rd, Red Hill VIC 3937 · $$
+120 Arthurs Seat Rd, Red Hill VIC 3937
 
 David Lloyd's tiny cult estate, single-clone Pinot Noirs from individual rows, plus Gamay, made for the Burgundy obsessives.
 
@@ -63,7 +63,7 @@ Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Paradigm Hill](<https://peninsulainsider.com.au/wine/paradigm-hill/>)
 
-26 Merricks Rd, Merricks VIC 3916 · $$$
+26 Merricks Rd, Merricks VIC 3916
 
 George Mihaly's fastidiously farmed single-site Pinot Noir estate, appointment-only tastings, often led by George himself.
 
@@ -75,7 +75,7 @@ Winery  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
 ### [Nazaaray Estate](<https://peninsulainsider.com.au/wine/nazaaray-estate/>)
 
-266 Meakins Rd, Flinders VIC 3929 · $$
+266 Meakins Rd, Flinders VIC 3929
 
 A tiny Flinders estate with naturally fermented wines and guesthouses inside reconverted 1930s railway carriages.
 
@@ -87,7 +87,7 @@ Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Baillieu Vineyard](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>)
 
-51 Stanleys Rd, Merricks VIC 3916 · $$
+51 Stanleys Rd, Merricks VIC 3916
 
 A thoughtfully managed Merricks estate making elegant Chardonnay and Pinot Noir that rewards the drive to find it.
 
@@ -99,7 +99,7 @@ Winery  [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/
 
 ### [Elan Vineyard & Gallery](<https://peninsulainsider.com.au/wine/elan-vineyard/>)
 
-17 Turners Rd, Bittern VIC 3918 · $$
+17 Turners Rd, Bittern VIC 3918
 
 Selma and Jonathan Lowther's 1981 planting, one of the oldest on the Peninsula, with a cellar door that doubles as a small contemporary art gallery.
 
@@ -111,7 +111,7 @@ Winery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Phaedrus Estate](<https://peninsulainsider.com.au/wine/phaedrus-estate/>)
 
-220 Mornington-Flinders Rd, Red Hill VIC 3937 · $$
+220 Mornington-Flinders Rd, Red Hill VIC 3937
 
 A quieter Dromana-side estate making honest, characterful wines, Viognier, Sangiovese, and Pinot alongside the Peninsula classics.
 
@@ -123,7 +123,7 @@ Winery  [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/
 
 ### [Hurley Vineyard](<https://peninsulainsider.com.au/wine/hurley-vineyard/>)
 
-101 Balnarring Rd, Balnarring VIC 3926 · $$$
+101 Balnarring Rd, Balnarring VIC 3926
 
 Kevin Bell's boutique single-vineyard Pinot project, three tiny blocks (Lodestone, Garamond, Hommage) and some of the Peninsula's most sought-after bottles.
 

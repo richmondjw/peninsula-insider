@@ -175,7 +175,7 @@ Brewery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Red Hill Brewery](<https://peninsulainsider.com.au/eat/red-hill-brewery/>)
 
-88 Shoreham Rd, Red Hill South VIC 3937 · $$
+88 Shoreham Rd, Red Hill South VIC 3937
 
 The Peninsula's original craft brewery, Belgian-style ales from the only estate hop farm in Victoria.
 
@@ -187,7 +187,7 @@ providore  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>
 
 ### [Mornington Peninsula Chocolates](<https://peninsulainsider.com.au/eat/mornington-peninsula-chocolates/>)
 
-50 Cook St, Flinders VIC 3929 · $$
+50 Cook St, Flinders VIC 3929
 
 Handmade chocolates, rich hot chocolates, and a small café, a reliable family stop with enough seasonal stock to justify the detour.
 
@@ -199,7 +199,7 @@ Brewery  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 ### [St Andrews Beach Brewery](<https://peninsulainsider.com.au/eat/st-andrews-beach-brewery/>)
 
-160 Sandy Rd, Fingal VIC 3939 · $$
+160 Sandy Rd, Fingal VIC 3939
 
 Former horse-training stables turned sprawling brewery destination, wood-fired kitchen, acres of lawn, and Sunday roasts all year round.
 

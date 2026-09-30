@@ -47,7 +47,7 @@ Restaurant  [Safety Beach](<https://peninsulainsider.com.au/explore/places/safet
 
 ### [Martha's Table](<https://peninsulainsider.com.au/eat/martha-s-table/>)
 
-15 Marine Dr, Safety Beach VIC 3936 · $$
+15 Marine Dr, Safety Beach VIC 3936
 
 Bayside all-day bistro across from Safety Beach, modern Australian plates, a bay-facing deck, and one of the best post-swim lunches on the Peninsula.
 

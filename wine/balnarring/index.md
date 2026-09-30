@@ -97,7 +97,7 @@ Winery  [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/
 
 ### [Quealy Winemakers](<https://peninsulainsider.com.au/wine/quealy-winemakers/>)
 
-62 Bittern-Dromana Rd, Balnarring VIC 3926 · $$
+62 Bittern-Dromana Rd, Balnarring VIC 3926
 
 A foundational Peninsula producer best known for pinot gris, friulano, and a cellar door with real local soul.
 
@@ -109,7 +109,7 @@ Winery  [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/
 
 ### [Elan Vineyard & Gallery](<https://peninsulainsider.com.au/wine/elan-vineyard/>)
 
-17 Turners Rd, Bittern VIC 3918 · $$
+17 Turners Rd, Bittern VIC 3918
 
 Selma and Jonathan Lowther's 1981 planting, one of the oldest on the Peninsula, with a cellar door that doubles as a small contemporary art gallery.
 
@@ -121,7 +121,7 @@ Winery  [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/
 
 ### [Hurley Vineyard](<https://peninsulainsider.com.au/wine/hurley-vineyard/>)
 
-101 Balnarring Rd, Balnarring VIC 3926 · $$$
+101 Balnarring Rd, Balnarring VIC 3926
 
 Kevin Bell's boutique single-vineyard Pinot project, three tiny blocks (Lodestone, Garamond, Hommage) and some of the Peninsula's most sought-after bottles.
 

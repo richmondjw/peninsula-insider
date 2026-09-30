@@ -155,7 +155,7 @@ Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/
 
 ### [Kooyong](<https://peninsulainsider.com.au/wine/kooyong/>)
 
-263 Red Hill Rd, Red Hill South VIC 3937 · $$$
+263 Red Hill Rd, Red Hill South VIC 3937
 
 Single-vineyard pinot noir and chardonnay from one of the Peninsula's most decorated estates.
 
@@ -167,7 +167,7 @@ Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/
 
 ### [Ocean Eight Vineyard](<https://peninsulainsider.com.au/wine/ocean-eight/>)
 
-271 Tucks Road, Shoreham VIC 3916 · $$$
+271 Tucks Road, Shoreham VIC 3916
 
 Mike Aylward's precise, minimal cellar door turning out some of the Peninsula's most quietly obsessive pinot noir.
 
@@ -179,7 +179,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Polperro](<https://peninsulainsider.com.au/wine/polperro/>)
 
-150 Red Hill Road, Red Hill VIC 3937 · $$$
+150 Red Hill Road, Red Hill VIC 3937
 
 Small-production cool-climate pinot and chardonnay poured in one of the prettiest tasting rooms on the ridge.
 

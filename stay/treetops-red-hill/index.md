@@ -17,8 +17,6 @@ Known for   Two self-contained cottages directly opposite a micro-vineyard on Mc
 
 Treetops at Red Hill · Red Hill
 
-Photo · Peninsula Insider
-
 Why we’d go
 
 Proximity to Port Phillip Estate alone makes this address worth knowing. The included breakfast provisions and the micro-vineyard view are a bonus at a price point where most options make you work harder for less.
@@ -55,10 +53,6 @@ Cottage
 
 80 McIlroys Rd, Red Hill South VIC 3937 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Treetops%20at%20Red%20Hill%2C%2080%20McIlroys%20Rd%2C%20Red%20Hill%20South%20VIC%203937>)
 
-**Spend**
-
-$$
-
 **Website**
 
 [treetopsatredhill.com.au](<https://treetopsatredhill.com.au/>)
@@ -87,7 +81,7 @@ Cottage  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
 
-10 Nestle Court, Arthurs Seat VIC 3936 · $$
+10 Nestle Court, Arthurs Seat VIC 3936
 
 Five adults-only suites on Arthurs Seat ridge with panoramic Port Phillip Bay views, double spas, and electric log fires.
 
@@ -99,7 +93,7 @@ Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Birch Creek](<https://peninsulainsider.com.au/stay/birch-creek/>)
 
-Red Hill VIC 3937 · $$
+Red Hill VIC 3937
 
 Two self-contained farm cottages on 40 acres near Red Hill, open fireplaces, outdoor tubs, dog-friendly, and goats.
 
@@ -111,7 +105,7 @@ Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 ### [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>)
 
-12 Blakiston Grove, Rye VIC 3941 · $$
+12 Blakiston Grove, Rye VIC 3941
 
 Three 1940s cottages 250 metres from Rye bay beach, Sandpiper is the dog-friendly unit with a wood fire and fenced courtyard.
 

@@ -17,8 +17,6 @@ Known for   Peninsula Founding Estate Italian-Leaning Bottlings Quieter Hinterla
 
 Dromana Estate · Tuerong
 
-Photo · Peninsula Insider
-
 Why we’d go
 
 The right stop when the Red Hill cellar doors are at long-weekend capacity, quieter, equally good, and slightly easier on the wallet.
@@ -54,10 +52,6 @@ Winery
 **Location**
 
 555 Old Moorooduc Rd, Tuerong VIC 3933 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Dromana%20Estate%2C%20555%20Old%20Moorooduc%20Rd%2C%20Tuerong%20VIC%203933>)
-
-**Spend**
-
-$$
 
 **Call**
 
@@ -95,7 +89,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Avani Wines](<https://peninsulainsider.com.au/wine/avani-wines/>)
 
-98 Stanleys Road, Red Hill South VIC 3937 · $$
+98 Stanleys Road, Red Hill South VIC 3937
 
 Shashi and Rohit Singh's biodynamic family estate, one of the Peninsula's only serious Syrah programs alongside the Amrit single-vineyard range.
 
@@ -107,7 +101,7 @@ Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Baillieu Vineyard](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>)
 
-51 Stanleys Rd, Merricks VIC 3916 · $$
+51 Stanleys Rd, Merricks VIC 3916
 
 A thoughtfully managed Merricks estate making elegant Chardonnay and Pinot Noir that rewards the drive to find it.
 
@@ -119,7 +113,7 @@ Winery  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
 ### [Barmah Park Vineyard](<https://peninsulainsider.com.au/wine/barmah-park-vineyard/>)
 
-3007 Frankston-Flinders Rd, Moorooduc VIC 3933 · $$$
+3007 Frankston-Flinders Rd, Moorooduc VIC 3933
 
 A rustic, intimate cellar door running a five-wine, five-canape pairing from a hatted-standard kitchen, the most structured tasting format on the Peninsula.
 

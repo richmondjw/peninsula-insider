@@ -147,7 +147,7 @@ Winery  [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/
 
 ### [Quealy Winemakers](<https://peninsulainsider.com.au/wine/quealy-winemakers/>)
 
-62 Bittern-Dromana Rd, Balnarring VIC 3926 · $$
+62 Bittern-Dromana Rd, Balnarring VIC 3926
 
 A foundational Peninsula producer best known for pinot gris, friulano, and a cellar door with real local soul.
 

@@ -17,8 +17,6 @@ Known for   Goat Cheese Goat Milk Gelato Farmgate Experience Working Dairy
 
 Main Ridge Dairy · Main Ridge
 
-Photo · CSIRO
-
 Why we’d go
 
 The Peninsula's most legible farm-to-table stop, you see the animals, you eat the cheese, and the kids understand the whole thing in thirty seconds.
@@ -78,10 +76,6 @@ Providore
 **Location**
 
 295 Main Creek Rd, Main Ridge VIC 3928 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Main%20Ridge%20Dairy%2C%20295%20Main%20Creek%20Rd%2C%20Main%20Ridge%20VIC%203928>)
-
-**Spend**
-
-$$
 
 **Call**
 
@@ -171,7 +165,7 @@ Restaurant  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ri
 
 ### [Allis Wine Bar](<https://peninsulainsider.com.au/eat/allis-wine-bar/>)
 
-1333 Mornington-Flinders Rd, Main Ridge VIC 3928 · $$$
+1333 Mornington-Flinders Rd, Main Ridge VIC 3928
 
 The low-waste, low-key sibling of Ten Minutes by Tractor's fine dining room, small plates, garden-harvested produce, and a thoughtful wine list.
 
@@ -183,7 +177,7 @@ Bakery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/
 
 ### [Johnny Ripe](<https://peninsulainsider.com.au/eat/johnny-ripe/>)
 
-1180 Mornington-Flinders Rd, Main Ridge VIC 3928 · $$
+1180 Mornington-Flinders Rd, Main Ridge VIC 3928
 
 The Peninsula's hinterland pie stop, proper beef pies, a sweets cabinet worth detouring for, and a garden café out the back.
 
@@ -195,7 +189,7 @@ Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/
 
 ### [Kooyong](<https://peninsulainsider.com.au/eat/kooyong/>)
 
-263 Red Hill Rd, Red Hill South VIC 3937 · $$$
+263 Red Hill Rd, Red Hill South VIC 3937
 
 Single-vineyard pinot noir and chardonnay from one of the Peninsula's most decorated estates.
 

@@ -145,7 +145,7 @@ Hotel  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
 ### [Quarters at Flinders Hotel](<https://peninsulainsider.com.au/stay/flinders-hotel/>)
 
-Corner of Cook & Wood St, Flinders VIC 3929 · $$$
+Corner of Cook & Wood St, Flinders VIC 3929
 
 Quarters is a quiet village stay behind Flinders Hotel, with pub dining and the coast close at hand.
 
@@ -157,7 +157,7 @@ Pub  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Dromana Hotel](<https://peninsulainsider.com.au/eat/dromana-hotel/>)
 
-121 Point Nepean Rd, Dromana VIC 3936 · $$
+121 Point Nepean Rd, Dromana VIC 3936
 
 Sprawling beachfront pub with an enormous deck and bay views, the straightforward bayside pub day done correctly.
 
@@ -169,7 +169,7 @@ Pub  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 ### [Rye Hotel](<https://peninsulainsider.com.au/eat/rye-hotel/>)
 
-2415 Point Nepean Rd, Rye VIC 3941 · $$
+2415 Point Nepean Rd, Rye VIC 3941
 
 An enormous foreshore pub a short walk from Rye's front beach, family-friendly, deck-oriented, and the right answer on a warm afternoon.
 

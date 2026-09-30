@@ -85,7 +85,7 @@ Winery  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
 ### [Nazaaray Estate](<https://peninsulainsider.com.au/wine/nazaaray-estate/>)
 
-266 Meakins Rd, Flinders VIC 3929 · $$
+266 Meakins Rd, Flinders VIC 3929
 
 A tiny Flinders estate with naturally fermented wines and guesthouses inside reconverted 1930s railway carriages.
 

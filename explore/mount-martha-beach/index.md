@@ -57,7 +57,7 @@ Cottage  [Mount Martha](<https://peninsulainsider.com.au/explore/places/mount-ma
 
 ### [Villa Mallorca](<https://peninsulainsider.com.au/stay/villa-mallorca/>)
 
-Mt Martha VIC 3934 · $$$
+Mt Martha VIC 3934
 
 Two suites in a Majorcan finca-style property in Mt Martha, where the hosts are named in 212 TripAdvisor reviews and are the actual product.
 

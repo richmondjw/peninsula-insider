@@ -17,8 +17,6 @@ Known for   Lakeside Pergola Dining Room Crittenden Los Hermanos Wine Range Head
 
 Crittenden Restaurant · Dromana
 
-Photo · Peninsula Insider
-
 Why we’d go
 
 The room beside the still lake has been here longer than most of the Peninsula's celebrated cellar doors, Crittenden Restaurant earns its confidence.
@@ -58,10 +56,6 @@ Restaurant
 **Location**
 
 25 Harrisons Rd, Dromana VIC 3936 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Crittenden%20Restaurant%2C%2025%20Harrisons%20Rd%2C%20Dromana%20VIC%203936>)
-
-**Spend**
-
-$$
 
 **Call**
 
@@ -103,7 +97,7 @@ Winery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Crittenden Estate](<https://peninsulainsider.com.au/eat/crittenden-estate/>)
 
-25 Harrisons Rd, Dromana VIC 3936 · $$
+25 Harrisons Rd, Dromana VIC 3936
 
 The Peninsula's pioneering estate, four decades of Crittenden family winemaking, Pinot, Chardonnay, and the Spanish-Italian Los Hermanos range from a new lakeside wine centre.
 
@@ -115,7 +109,7 @@ Pub  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Dromana Hotel](<https://peninsulainsider.com.au/eat/dromana-hotel/>)
 
-121 Point Nepean Rd, Dromana VIC 3936 · $$
+121 Point Nepean Rd, Dromana VIC 3936
 
 Sprawling beachfront pub with an enormous deck and bay views, the straightforward bayside pub day done correctly.
 
@@ -127,7 +121,7 @@ Brewery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Jetty Road Brewery](<https://peninsulainsider.com.au/eat/jetty-road-brewery/>)
 
-12-14 Brasser Ave, Dromana VIC 3936 · $$
+12-14 Brasser Ave, Dromana VIC 3936
 
 A polished industrial taproom next door to the Dromana drive-in, core beers, rolling seasonals, and the easiest bayside brewery stop on the Peninsula.
 

@@ -55,10 +55,6 @@ Pub
 
 121 Point Nepean Rd, Dromana VIC 3936 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Dromana%20Hotel%2C%20121%20Point%20Nepean%20Rd%2C%20Dromana%20VIC%203936>)
 
-**Spend**
-
-$$
-
 **Call**
 
 +61 3 5987 2029
@@ -123,7 +119,7 @@ Winery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Crittenden Estate](<https://peninsulainsider.com.au/eat/crittenden-estate/>)
 
-25 Harrisons Rd, Dromana VIC 3936 · $$
+25 Harrisons Rd, Dromana VIC 3936
 
 The Peninsula's pioneering estate, four decades of Crittenden family winemaking, Pinot, Chardonnay, and the Spanish-Italian Los Hermanos range from a new lakeside wine centre.
 
@@ -135,7 +131,7 @@ Restaurant  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Crittenden Restaurant](<https://peninsulainsider.com.au/eat/crittenden-restaurant/>)
 
-25 Harrisons Rd, Dromana VIC 3936 · $$
+25 Harrisons Rd, Dromana VIC 3936
 
 Lakeside dining under a vine-strung pergola at one of the Peninsula's founding wineries, now Crittenden Restaurant under Head Chef Brunno Melo.
 
@@ -147,7 +143,7 @@ Brewery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Jetty Road Brewery](<https://peninsulainsider.com.au/eat/jetty-road-brewery/>)
 
-12-14 Brasser Ave, Dromana VIC 3936 · $$
+12-14 Brasser Ave, Dromana VIC 3936
 
 A polished industrial taproom next door to the Dromana drive-in, core beers, rolling seasonals, and the easiest bayside brewery stop on the Peninsula.
 

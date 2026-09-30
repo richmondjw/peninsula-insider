@@ -25,7 +25,7 @@ Hotel  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
 ### [Quarters at Flinders Hotel](<https://peninsulainsider.com.au/stay/flinders-hotel/>)
 
-Corner of Cook & Wood St, Flinders VIC 3929 · $$$
+Corner of Cook & Wood St, Flinders VIC 3929
 
 Quarters is a quiet village stay behind Flinders Hotel, with pub dining and the coast close at hand.
 

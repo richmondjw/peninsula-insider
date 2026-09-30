@@ -17,8 +17,6 @@ Known for   Arthurs Seat Ridge Views Double Spa Suites Adults-Only Stay Port Phi
 
 Arthurs Views · Dromana
 
-Photo · Peninsula Insider
-
 Why we’d go
 
 The Peninsula's most panoramic B&B position, sitting on the ridge that divides bay from hinterland, halfway between everything.
@@ -55,10 +53,6 @@ Cottage
 
 10 Nestle Court, Arthurs Seat VIC 3936 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Arthurs%20Views%2C%2010%20Nestle%20Court%2C%20Arthurs%20Seat%20VIC%203936>)
 
-**Spend**
-
-$$
-
 **Website**
 
 [arthursviews.com.au](<https://arthursviews.com.au/>)
@@ -87,7 +81,7 @@ Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Birch Creek](<https://peninsulainsider.com.au/stay/birch-creek/>)
 
-Red Hill VIC 3937 · $$
+Red Hill VIC 3937
 
 Two self-contained farm cottages on 40 acres near Red Hill, open fireplaces, outdoor tubs, dog-friendly, and goats.
 
@@ -99,7 +93,7 @@ Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 ### [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>)
 
-12 Blakiston Grove, Rye VIC 3941 · $$
+12 Blakiston Grove, Rye VIC 3941
 
 Three 1940s cottages 250 metres from Rye bay beach, Sandpiper is the dog-friendly unit with a wood fire and fenced courtyard.
 
@@ -111,7 +105,7 @@ Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Brewer's Cottage - Red Hill Brewery](<https://peninsulainsider.com.au/stay/brewers-cottage/>)
 
-88 Shoreham Rd, Red Hill South VIC 3937 · $$
+88 Shoreham Rd, Red Hill South VIC 3937
 
 A three-bedroom house on the Red Hill Brewery property, stocked beer fridge, open fire, ten seconds from the bar open Thursday to Sunday.
 

@@ -25,7 +25,7 @@ Hotel  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Jackalope Hotel](<https://peninsulainsider.com.au/stay/jackalope/>)
 
-166 Balnarring Rd, Merricks North VIC 3926 · $$$$
+166 Balnarring Rd, Merricks North VIC 3926
 
 A dramatic art-led design hotel set inside a working vineyard, with Doot Doot Doot's eight-metre chandelier overhead.
 
@@ -37,7 +37,7 @@ Hotel  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Lindenderry at Red Hill](<https://peninsulainsider.com.au/stay/lindenderry/>)
 
-142 Arthurs Seat Rd, Red Hill VIC 3937 · $$$
+142 Arthurs Seat Rd, Red Hill VIC 3937
 
 A Red Hill hotel set on 34 acres of gardens and vines, with an on-site dining room and a weekend cellar door.
 
@@ -49,7 +49,7 @@ Villa  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Polperro Villas](<https://peninsulainsider.com.au/stay/polperro-villas/>)
 
-150 Red Hill Road, Red Hill VIC 3937 · $$$$
+150 Red Hill Road, Red Hill VIC 3937
 
 Four vineyard villas, each sleeping two with a king-size bed, indoor spa and open fireplace.
 
@@ -61,7 +61,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Port Phillip Estate](<https://peninsulainsider.com.au/stay/port-phillip-estate/>)
 
-263 Red Hill Rd, Red Hill South VIC 3937 · $$$$
+263 Red Hill Rd, Red Hill South VIC 3937
 
 Rammed-earth architecture, an estate dining room and six vineyard suites in Red Hill South.
 
@@ -73,7 +73,7 @@ Glamping  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
 ### [Peninsula Hot Springs Glamping](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/>)
 
-140 Springs Lane, Fingal VIC 3939 · $$$
+140 Springs Lane, Fingal VIC 3939
 
 Glamping accommodation within Peninsula Hot Springs in Fingal, with garden-view, lake-view and secluded pavilion options for a stay built around bathing.
 

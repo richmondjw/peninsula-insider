@@ -21,7 +21,7 @@ Distillery  [Mornington](<https://peninsulainsider.com.au/explore/places/morning
 
 ### [Bass & Flinders Distillery](<https://peninsulainsider.com.au/wine/bass-and-flinders/>)
 
-232 Balnarring Rd, Tuerong VIC 3915 · $$
+232 Balnarring Rd, Tuerong VIC 3915
 
 A Peninsula gin distillery with a gin-school blending session that has quietly become one of the region's best wet-weather plans.
 

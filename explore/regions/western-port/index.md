@@ -59,7 +59,7 @@ Café  [Somers](<https://peninsulainsider.com.au/explore/places/somers/>)
 
 ### [Somers General](<https://peninsulainsider.com.au/eat/somers-general/>)
 
-1049 Frankston-Flinders Rd, Somers VIC 3927 · $$
+1049 Frankston-Flinders Rd, Somers VIC 3927
 
 A tiny, perfectly curated general store and café in sleepy Somers, sourdough, pastries, cheese, Peninsula wines, and a weekend brunch menu.
 

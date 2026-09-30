@@ -17,8 +17,6 @@ Known for   Five-Wine Canape Pairing Italian-Variety Plantings Communal Tasting 
 
 Barmah Park Vineyard · Moorooduc
 
-Photo · Peninsula Insider
-
 Why we’d go
 
 The only cellar door on the Peninsula that turns a flight into a small meal by design, not as an add-on.
@@ -55,10 +53,6 @@ Winery
 
 3007 Frankston-Flinders Rd, Moorooduc VIC 3933 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Barmah%20Park%20Vineyard%2C%203007%20Frankston-Flinders%20Rd%2C%20Moorooduc%20VIC%203933>)
 
-**Spend**
-
-$$$
-
 **Call**
 
 +61 3 5978 8049
@@ -89,7 +83,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Avani Wines](<https://peninsulainsider.com.au/wine/avani-wines/>)
 
-98 Stanleys Road, Red Hill South VIC 3937 · $$
+98 Stanleys Road, Red Hill South VIC 3937
 
 Shashi and Rohit Singh's biodynamic family estate, one of the Peninsula's only serious Syrah programs alongside the Amrit single-vineyard range.
 
@@ -101,7 +95,7 @@ Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Baillieu Vineyard](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>)
 
-51 Stanleys Rd, Merricks VIC 3916 · $$
+51 Stanleys Rd, Merricks VIC 3916
 
 A thoughtfully managed Merricks estate making elegant Chardonnay and Pinot Noir that rewards the drive to find it.
 
@@ -113,7 +107,7 @@ Distillery  [Mornington](<https://peninsulainsider.com.au/explore/places/morning
 
 ### [Bass & Flinders Distillery](<https://peninsulainsider.com.au/wine/bass-and-flinders/>)
 
-232 Balnarring Rd, Tuerong VIC 3915 · $$
+232 Balnarring Rd, Tuerong VIC 3915
 
 A Peninsula gin distillery with a gin-school blending session that has quietly become one of the region's best wet-weather plans.
 

@@ -17,8 +17,6 @@ Known for   Lodestone, Garamond, Hommage Blocks Allocation-Only Pinot Noir Kevin
 
 Hurley Vineyard · Balnarring
 
-Photo · Peninsula Insider
-
 Why we’d go
 
 The cellar door where the wines are already sold out and the conversation with Kevin is the product.
@@ -60,10 +58,6 @@ Winery
 **Location**
 
 101 Balnarring Rd, Balnarring VIC 3926 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Hurley%20Vineyard%2C%20101%20Balnarring%20Rd%2C%20Balnarring%20VIC%203926>)
-
-**Spend**
-
-$$$
 
 **Call**
 
@@ -159,7 +153,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Avani Wines](<https://peninsulainsider.com.au/wine/avani-wines/>)
 
-98 Stanleys Road, Red Hill South VIC 3937 · $$
+98 Stanleys Road, Red Hill South VIC 3937
 
 Shashi and Rohit Singh's biodynamic family estate, one of the Peninsula's only serious Syrah programs alongside the Amrit single-vineyard range.
 
@@ -171,7 +165,7 @@ Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Baillieu Vineyard](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>)
 
-51 Stanleys Rd, Merricks VIC 3916 · $$
+51 Stanleys Rd, Merricks VIC 3916
 
 A thoughtfully managed Merricks estate making elegant Chardonnay and Pinot Noir that rewards the drive to find it.
 
@@ -183,7 +177,7 @@ Winery  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
 ### [Barmah Park Vineyard](<https://peninsulainsider.com.au/wine/barmah-park-vineyard/>)
 
-3007 Frankston-Flinders Rd, Moorooduc VIC 3933 · $$$
+3007 Frankston-Flinders Rd, Moorooduc VIC 3933
 
 A rustic, intimate cellar door running a five-wine, five-canape pairing from a hatted-standard kitchen, the most structured tasting format on the Peninsula.
 

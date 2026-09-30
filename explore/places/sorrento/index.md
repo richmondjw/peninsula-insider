@@ -121,7 +121,7 @@ Restaurant  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/
 
 ### [Bistro Elba](<https://peninsulainsider.com.au/eat/bistro-elba/>)
 
-100–102 Ocean Beach Rd, Sorrento VIC 3943 · $$$
+100–102 Ocean Beach Rd, Sorrento VIC 3943
 
 A Southern French bistro on Sorrento's Ocean Beach Road, open for lunch and dinner throughout the week.
 
@@ -133,7 +133,7 @@ Pub  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 
 ### [The Sorrento Hotel](<https://peninsulainsider.com.au/eat/sorrento-hotel/>)
 
-5-15 Hotham Rd, Sorrento VIC 3943 · $$
+5-15 Hotham Rd, Sorrento VIC 3943
 
 The centre-of-the-village trading post on Ocean Beach Road, reliable parmas, a big dining room, and the default Sorrento pub for a reason.
 
@@ -145,7 +145,7 @@ Restaurant  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/
 
 ### [Stringers Sorrento](<https://peninsulainsider.com.au/eat/stringers-sorrento/>)
 
-Sorrento VIC 3943 · $$
+Sorrento VIC 3943
 
 A wine bar and small-plate restaurant in Sorrento, cured kingfish, raw bar selections, and a natural-wine list built to match the food.
 
@@ -167,7 +167,7 @@ Hotel  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 
 ### [Hotel Sorrento](<https://peninsulainsider.com.au/stay/hotel-sorrento/>)
 
-5-15 Hotham Rd, Sorrento VIC 3943 · $$$
+5-15 Hotham Rd, Sorrento VIC 3943
 
 A grand old bay-facing pub-hotel whose best rooms still make Sorrento feel gloriously old-school.
 
@@ -179,7 +179,7 @@ Hotel  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 
 ### [InterContinental Sorrento](<https://peninsulainsider.com.au/stay/the-continental-sorrento/>)
 
-23 Constitution Hill Road, Sorrento VIC 3943 · $$$$
+23 Constitution Hill Road, Sorrento VIC 3943
 
 A Sorrento hotel with heritage rooms, a guest pool deck and The Continental dining precinct close by.
 

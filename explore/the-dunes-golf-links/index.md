@@ -83,7 +83,7 @@ Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 ### [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>)
 
-12 Blakiston Grove, Rye VIC 3941 · $$
+12 Blakiston Grove, Rye VIC 3941
 
 Three 1940s cottages 250 metres from Rye bay beach, Sandpiper is the dog-friendly unit with a wood fire and fenced courtyard.
 
@@ -95,7 +95,7 @@ Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 ### [Driftaway on Dundas](<https://peninsulainsider.com.au/stay/driftaway-on-dundas/>)
 
-246 Dundas St, Rye VIC 3941 · $$
+246 Dundas St, Rye VIC 3941
 
 Three self-contained villas on 2.5 acres of tea-tree near Rye beach, breakfast hampers, oversized spa baths, one disability-accessible villa.
 
@@ -107,7 +107,7 @@ Glamping  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 ### [Mornington Peninsula Retro Caravans](<https://peninsulainsider.com.au/stay/kanasta-retro-caravans/>)
 
-1-9 Sinclair Ave, Rye VIC 3941 · $$
+1-9 Sinclair Ave, Rye VIC 3941
 
 Restored 1950s–60s themed caravans 500 metres from Rye bay beach, dog-friendly in designated units, the most characterful glamping-adjacent option on the bayside.
 

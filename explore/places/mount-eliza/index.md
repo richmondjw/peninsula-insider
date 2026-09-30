@@ -105,7 +105,7 @@ Market  [Mount Eliza](<https://peninsulainsider.com.au/explore/places/mount-eliz
 
 ### [Mount Eliza Farmers Market](<https://peninsulainsider.com.au/eat/mount-eliza-farmers-market/>)
 
-Mount Eliza Village, Mt Eliza VIC 3930 · $
+Mount Eliza Village, Mt Eliza VIC 3930
 
 A smaller community farmers market in Mount Eliza village, producers drawn from the Mornington corridor.
 

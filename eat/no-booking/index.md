@@ -27,7 +27,7 @@ Restaurant  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/
 
 ### [Rare Hare at Willow Creek](<https://peninsulainsider.com.au/eat/rare-hare/>)
 
-166 Balnarring Rd, Merricks North VIC 3926 · $$$
+166 Balnarring Rd, Merricks North VIC 3926
 
 Jackalope's relaxed lunch room, wood fire, vineyard views, and plates built for sharing over most of an afternoon.
 
@@ -39,7 +39,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Foxeys Hangout](<https://peninsulainsider.com.au/eat/foxeys-hangout/>)
 
-795 White Hill Rd, Red Hill VIC 3937 · $$
+795 White Hill Rd, Red Hill VIC 3937
 
 Biodynamic Red Hill estate with an all-day deck, sunny long lunches, and a sparkling program that holds its own against anything French.
 
@@ -51,7 +51,7 @@ Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/
 
 ### [Many Little](<https://peninsulainsider.com.au/eat/many-little/>)
 
-166 Red Hill Rd, Red Hill South VIC 3937 · $$$
+166 Red Hill Rd, Red Hill South VIC 3937
 
 Sri Lankan flavours in a European wine-bar setting, from the Polperro team, paired with natural wines and small Peninsula producers.
 
@@ -63,7 +63,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Montalto Vineyard & Olive Grove](<https://peninsulainsider.com.au/eat/montalto/>)
 
-33 Shoreham Rd, Red Hill South VIC 3937 · $$$
+33 Shoreham Rd, Red Hill South VIC 3937
 
 Single Vineyard Pinot Noir and a Sunday lunch beneath the olive grove canopy.
 
@@ -75,7 +75,7 @@ Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/
 
 ### [Green Olive at Red Hill](<https://peninsulainsider.com.au/eat/green-olive-red-hill/>)
 
-1180 Mornington-Flinders Rd, Red Hill VIC 3937 · $$$
+1180 Mornington-Flinders Rd, Red Hill VIC 3937
 
 A working olive grove and produce kitchen on the Red Hill ridge, grazing boards, wood-fired mains, and oils pressed from the estate's own trees.
 
@@ -87,7 +87,7 @@ Café  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>
 
 ### [Commonfolk Coffee](<https://peninsulainsider.com.au/eat/commonfolk-coffee/>)
 
-16 Progress St, Mornington VIC 3931 · $$
+16 Progress St, Mornington VIC 3931
 
 The Peninsula's most serious roaster, hidden in a Mornington warehouse with a cafe out the front.
 
@@ -99,7 +99,7 @@ Café  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
 ### [Flinders General Store](<https://peninsulainsider.com.au/eat/flinders-general-store/>)
 
-45 Cook St, Flinders VIC 3929 · $$
+45 Cook St, Flinders VIC 3929
 
 The village general store on Flinders' main street, slow-drip coffee, fresh bread, and pick-your-own picnics for the Blowhole walk.
 
@@ -111,7 +111,7 @@ Café  [Somers](<https://peninsulainsider.com.au/explore/places/somers/>)
 
 ### [Somers General](<https://peninsulainsider.com.au/eat/somers-general/>)
 
-1049 Frankston-Flinders Rd, Somers VIC 3927 · $$
+1049 Frankston-Flinders Rd, Somers VIC 3927
 
 A tiny, perfectly curated general store and café in sleepy Somers, sourdough, pastries, cheese, Peninsula wines, and a weekend brunch menu.
 

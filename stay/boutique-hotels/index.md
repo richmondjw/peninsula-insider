@@ -23,7 +23,7 @@ Hotel  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
 ### [Quarters at Flinders Hotel](<https://peninsulainsider.com.au/stay/flinders-hotel/>)
 
-Corner of Cook & Wood St, Flinders VIC 3929 · $$$
+Corner of Cook & Wood St, Flinders VIC 3929
 
 Quarters is a quiet village stay behind Flinders Hotel, with pub dining and the coast close at hand.
 
@@ -35,7 +35,7 @@ Hotel  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 
 ### [Hotel Sorrento](<https://peninsulainsider.com.au/stay/hotel-sorrento/>)
 
-5-15 Hotham Rd, Sorrento VIC 3943 · $$$
+5-15 Hotham Rd, Sorrento VIC 3943
 
 A grand old bay-facing pub-hotel whose best rooms still make Sorrento feel gloriously old-school.
 
@@ -47,7 +47,7 @@ Hotel  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Lindenderry at Red Hill](<https://peninsulainsider.com.au/stay/lindenderry/>)
 
-142 Arthurs Seat Rd, Red Hill VIC 3937 · $$$
+142 Arthurs Seat Rd, Red Hill VIC 3937
 
 A Red Hill hotel set on 34 acres of gardens and vines, with an on-site dining room and a weekend cellar door.
 
@@ -59,7 +59,7 @@ Hotel  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Jackalope Hotel](<https://peninsulainsider.com.au/stay/jackalope/>)
 
-166 Balnarring Rd, Merricks North VIC 3926 · $$$$
+166 Balnarring Rd, Merricks North VIC 3926
 
 A dramatic art-led design hotel set inside a working vineyard, with Doot Doot Doot's eight-metre chandelier overhead.
 
@@ -71,7 +71,7 @@ Hotel  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 
 ### [InterContinental Sorrento](<https://peninsulainsider.com.au/stay/the-continental-sorrento/>)
 
-23 Constitution Hill Road, Sorrento VIC 3943 · $$$$
+23 Constitution Hill Road, Sorrento VIC 3943
 
 A Sorrento hotel with heritage rooms, a guest pool deck and The Continental dining precinct close by.
 

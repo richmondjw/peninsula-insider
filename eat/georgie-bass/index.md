@@ -17,8 +17,6 @@ Known for   Own-Farm Produce Cookery School All-Day Breakfast to 3pm Commonfolk 
 
 Georgie Bass Cafe & Cookery · Flinders
 
-Photo · Daniel Kabel
-
 Why we’d go
 
 All-day breakfast until 3pm, own-farm produce, a cookery school on-site, the best reason to base a Flinders visit around lunch rather than dinner.
@@ -54,10 +52,6 @@ Café
 **Location**
 
 30 Cook St, Flinders VIC 3929 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Georgie%20Bass%20Cafe%20%26%20Cookery%2C%2030%20Cook%20St%2C%20Flinders%20VIC%203929>)
-
-**Spend**
-
-$$
 
 **Call**
 
@@ -119,7 +113,7 @@ Café  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
 ### [Flinders General Store](<https://peninsulainsider.com.au/eat/flinders-general-store/>)
 
-45 Cook St, Flinders VIC 3929 · $$
+45 Cook St, Flinders VIC 3929
 
 The village general store on Flinders' main street, slow-drip coffee, fresh bread, and pick-your-own picnics for the Blowhole walk.
 
@@ -131,7 +125,7 @@ Bakery  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
 ### [Flinders Sourdough](<https://peninsulainsider.com.au/eat/flinders-sourdough/>)
 
-58 Cook Street, Flinders VIC 3929 · $
+58 Cook Street, Flinders VIC 3929
 
 A small Flinders bakery using its original wood-fired oven for naturally fermented sourdough.
 
@@ -143,7 +137,7 @@ Restaurant  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/
 
 ### [Moke Dining](<https://peninsulainsider.com.au/eat/moke-dining/>)
 
-60 Cook St, Flinders VIC 3929 · $$$$
+60 Cook St, Flinders VIC 3929
 
 Family-run fine dining on Cook Street, a weekly-changing set menu built on Peninsula produce, led by a chef who represented Australia at Bocuse d'Or.
 

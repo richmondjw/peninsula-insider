@@ -17,8 +17,6 @@ Known for   Heritage 1932 Sandstone Property Host Charles's Cooked Breakfasts 15
 
 Plantation House at Whitecliffs · Rye
 
-Photo · Peninsula Insider
-
 Why we’d go
 
 150 metres from the front beach, a 9.7 Booking.com score, and a host whose breakfasts have become a structural feature of the stay, not a variable.
@@ -55,10 +53,6 @@ Cottage
 
 33 Maori St, Rye VIC 3941 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Plantation%20House%20at%20Whitecliffs%2C%2033%20Maori%20St%2C%20Rye%20VIC%203941>)
 
-**Spend**
-
-$$
-
 **Website**
 
 [www.plantationhouse.com.au](<https://www.plantationhouse.com.au/>)
@@ -87,7 +81,7 @@ Cottage  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
 
-10 Nestle Court, Arthurs Seat VIC 3936 · $$
+10 Nestle Court, Arthurs Seat VIC 3936
 
 Five adults-only suites on Arthurs Seat ridge with panoramic Port Phillip Bay views, double spas, and electric log fires.
 
@@ -99,7 +93,7 @@ Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Birch Creek](<https://peninsulainsider.com.au/stay/birch-creek/>)
 
-Red Hill VIC 3937 · $$
+Red Hill VIC 3937
 
 Two self-contained farm cottages on 40 acres near Red Hill, open fireplaces, outdoor tubs, dog-friendly, and goats.
 
@@ -111,7 +105,7 @@ Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 ### [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>)
 
-12 Blakiston Grove, Rye VIC 3941 · $$
+12 Blakiston Grove, Rye VIC 3941
 
 Three 1940s cottages 250 metres from Rye bay beach, Sandpiper is the dog-friendly unit with a wood fire and fenced courtyard.
 

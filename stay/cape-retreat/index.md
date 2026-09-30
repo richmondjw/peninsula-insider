@@ -17,8 +17,6 @@ Known for   Hilltop Bass Strait Views Twelve Luxury Suites Exclusive Hire Venue 
 
 The Cape Retreat · Cape Schanck
 
-Photo · Peninsula Insider
-
 Why we’d go
 
 One of the most commanding positions on the entire Peninsula, a hilltop perch with unbroken Bass Strait views that works best when the whole property is yours.
@@ -55,10 +53,6 @@ Villa
 
 Cape Schanck VIC 3939 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=The%20Cape%20Retreat%2C%20Cape%20Schanck%20VIC%203939>)
 
-**Spend**
-
-$$$$
-
 **Website**
 
 [thecaperetreat.com.au](<https://thecaperetreat.com.au/>)
@@ -87,7 +81,7 @@ Cottage  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
 
-10 Nestle Court, Arthurs Seat VIC 3936 · $$
+10 Nestle Court, Arthurs Seat VIC 3936
 
 Five adults-only suites on Arthurs Seat ridge with panoramic Port Phillip Bay views, double spas, and electric log fires.
 
@@ -99,7 +93,7 @@ Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Birch Creek](<https://peninsulainsider.com.au/stay/birch-creek/>)
 
-Red Hill VIC 3937 · $$
+Red Hill VIC 3937
 
 Two self-contained farm cottages on 40 acres near Red Hill, open fireplaces, outdoor tubs, dog-friendly, and goats.
 
@@ -111,7 +105,7 @@ Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 ### [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>)
 
-12 Blakiston Grove, Rye VIC 3941 · $$
+12 Blakiston Grove, Rye VIC 3941
 
 Three 1940s cottages 250 metres from Rye bay beach, Sandpiper is the dog-friendly unit with a wood fire and fenced courtyard.
 

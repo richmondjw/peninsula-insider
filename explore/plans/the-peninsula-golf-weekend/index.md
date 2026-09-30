@@ -161,7 +161,7 @@ Hotel  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Jackalope Hotel](<https://peninsulainsider.com.au/stay/jackalope/>)
 
-166 Balnarring Rd, Merricks North VIC 3926 · $$$$
+166 Balnarring Rd, Merricks North VIC 3926
 
 A dramatic art-led design hotel set inside a working vineyard, with Doot Doot Doot's eight-metre chandelier overhead.
 

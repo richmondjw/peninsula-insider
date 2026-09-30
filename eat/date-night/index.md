@@ -27,7 +27,7 @@ Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/
 
 ### [Tedesca Osteria](<https://peninsulainsider.com.au/eat/tedesca-osteria/>)
 
-1175 Mornington-Flinders Road, Red Hill VIC 3937 · $$$
+1175 Mornington-Flinders Road, Red Hill VIC 3937
 
 Brigitte Hafner's single-set-menu osteria inside a restored Red Hill farmhouse with the wood oven running all service.
 
@@ -39,7 +39,7 @@ Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/
 
 ### [Doot Doot Doot](<https://peninsulainsider.com.au/eat/doot-doot-doot/>)
 
-166 Balnarring Rd, Merricks North VIC 3926 · $$$$
+166 Balnarring Rd, Merricks North VIC 3926
 
 Two hats, a chandelier of 10,000 glass orbs, and the Peninsula's most theatrical dining room.
 
@@ -51,7 +51,7 @@ Restaurant  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/
 
 ### [Laura at Pt. Leo](<https://peninsulainsider.com.au/eat/laura-pt-leo/>)
 
-3649 Frankston-Flinders Rd, Merricks VIC 3916 · $$$$
+3649 Frankston-Flinders Rd, Merricks VIC 3916
 
 An intimate fine-dining room at Pt. Leo Estate, with seasonal menus and an unhurried view across the grounds.
 
@@ -63,7 +63,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Polperro](<https://peninsulainsider.com.au/eat/polperro/>)
 
-150 Red Hill Road, Red Hill VIC 3937 · $$$
+150 Red Hill Road, Red Hill VIC 3937
 
 Small-production cool-climate pinot and chardonnay poured in one of the prettiest tasting rooms on the ridge.
 
@@ -75,7 +75,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Montalto Vineyard & Olive Grove](<https://peninsulainsider.com.au/eat/montalto/>)
 
-33 Shoreham Rd, Red Hill South VIC 3937 · $$$
+33 Shoreham Rd, Red Hill South VIC 3937
 
 Single Vineyard Pinot Noir and a Sunday lunch beneath the olive grove canopy.
 
@@ -87,7 +87,7 @@ Restaurant  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/
 
 ### [Bistro Elba](<https://peninsulainsider.com.au/eat/bistro-elba/>)
 
-100–102 Ocean Beach Rd, Sorrento VIC 3943 · $$$
+100–102 Ocean Beach Rd, Sorrento VIC 3943
 
 A Southern French bistro on Sorrento's Ocean Beach Road, open for lunch and dinner throughout the week.
 
@@ -99,7 +99,7 @@ Restaurant  [Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-
 
 ### [Barragunda Dining](<https://peninsulainsider.com.au/eat/barragunda-dining/>)
 
-165 Boneo Rd, Cape Schanck VIC 3939 · $$$$
+165 Boneo Rd, Cape Schanck VIC 3939
 
 Chef Simone Watts's farm dining room on a 1000-acre regenerative estate at Cape Schanck, one of the Peninsula's most compelling new voices.
 
@@ -111,7 +111,7 @@ Restaurant  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/
 
 ### [The Baths Sorrento](<https://peninsulainsider.com.au/eat/the-baths-sorrento/>)
 
-3278 Point Nepean Rd, Sorrento VIC 3943 · $$$
+3278 Point Nepean Rd, Sorrento VIC 3943
 
 Sorrento's most enduring waterfront dining room, perched on the sand with Port Phillip Bay at your feet and a seafood-first menu.
 

@@ -17,8 +17,6 @@ Known for   Handmade Chocolates Hot Chocolate Bar Seasonal Gift Boxes Family Caf
 
 Mornington Peninsula Chocolates · Flinders
 
-Photo · Daniel Kabel
-
 Why we’d go
 
 The sweet stop you slot into a Flinders loop without planning to and somehow spend forty minutes in, handmade chocolates, proper mocha, seasonal gift stock.
@@ -54,10 +52,6 @@ Providore
 **Location**
 
 50 Cook St, Flinders VIC 3929 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Mornington%20Peninsula%20Chocolates%2C%2050%20Cook%20St%2C%20Flinders%20VIC%203929>)
-
-**Spend**
-
-$$
 
 **Call**
 
@@ -123,7 +117,7 @@ Café  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
 ### [Flinders General Store](<https://peninsulainsider.com.au/eat/flinders-general-store/>)
 
-45 Cook St, Flinders VIC 3929 · $$
+45 Cook St, Flinders VIC 3929
 
 The village general store on Flinders' main street, slow-drip coffee, fresh bread, and pick-your-own picnics for the Blowhole walk.
 
@@ -135,7 +129,7 @@ Bakery  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
 ### [Flinders Sourdough](<https://peninsulainsider.com.au/eat/flinders-sourdough/>)
 
-58 Cook Street, Flinders VIC 3929 · $
+58 Cook Street, Flinders VIC 3929
 
 A small Flinders bakery using its original wood-fired oven for naturally fermented sourdough.
 
@@ -147,7 +141,7 @@ Café  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
 ### [Georgie Bass Cafe & Cookery](<https://peninsulainsider.com.au/eat/georgie-bass/>)
 
-30 Cook St, Flinders VIC 3929 · $$
+30 Cook St, Flinders VIC 3929
 
 All-day cafe on Cook Street built around produce from their own farm, the natural anchor for a Flinders morning or a post-cliff-walk lunch.
 

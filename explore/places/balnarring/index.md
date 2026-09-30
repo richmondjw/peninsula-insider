@@ -123,7 +123,7 @@ Bakery  [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/
 
 ### [Balnarring Bakehouse](<https://peninsulainsider.com.au/eat/balnarring-bakehouse/>)
 
-3050 Frankston-Flinders Rd, Balnarring VIC 3926 · $
+3050 Frankston-Flinders Rd, Balnarring VIC 3926
 
 The village bakehouse for the Balnarring side of the Peninsula, pies, pastries, and the breakfast sandwich that fuels the Saturday market crowd.
 
@@ -135,7 +135,7 @@ Pub  [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/>)
 
 ### [The Heritage Balnarring](<https://peninsulainsider.com.au/eat/balnarring-pub/>)
 
-3059 Frankston-Flinders Rd, Balnarring VIC 3926 · $$
+3059 Frankston-Flinders Rd, Balnarring VIC 3926
 
 Balnarring's village pub, in a 1930s heritage home on a two-acre block, with open fires, a sunny deck and a large beer garden.
 
@@ -147,7 +147,7 @@ Bakery  [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/
 
 ### [The Red Hill Baker](<https://peninsulainsider.com.au/eat/red-hill-bakery/>)
 
-1/3000 Frankston-Flinders Rd, Balnarring VIC 3926 · $
+1/3000 Frankston-Flinders Rd, Balnarring VIC 3926
 
 Artisan bread, pies and pastries from the bakery's sole current shop in Balnarring.
 
@@ -169,7 +169,7 @@ Winery  [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/
 
 ### [Elan Vineyard & Gallery](<https://peninsulainsider.com.au/wine/elan-vineyard/>)
 
-17 Turners Rd, Bittern VIC 3918 · $$
+17 Turners Rd, Bittern VIC 3918
 
 Selma and Jonathan Lowther's 1981 planting, one of the oldest on the Peninsula, with a cellar door that doubles as a small contemporary art gallery.
 
@@ -181,7 +181,7 @@ Winery  [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/
 
 ### [Hurley Vineyard](<https://peninsulainsider.com.au/wine/hurley-vineyard/>)
 
-101 Balnarring Rd, Balnarring VIC 3926 · $$$
+101 Balnarring Rd, Balnarring VIC 3926
 
 Kevin Bell's boutique single-vineyard Pinot project, three tiny blocks (Lodestone, Garamond, Hommage) and some of the Peninsula's most sought-after bottles.
 
@@ -193,7 +193,7 @@ Winery  [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/
 
 ### [Quealy Winemakers](<https://peninsulainsider.com.au/wine/quealy-winemakers/>)
 
-62 Bittern-Dromana Rd, Balnarring VIC 3926 · $$
+62 Bittern-Dromana Rd, Balnarring VIC 3926
 
 A foundational Peninsula producer best known for pinot gris, friulano, and a cellar door with real local soul.
 

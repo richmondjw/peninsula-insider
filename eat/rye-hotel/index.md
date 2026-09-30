@@ -17,8 +17,6 @@ Known for   Sprawling Foreshore Location Enormous Beer Garden Family-Friendly Pu
 
 Rye Hotel · Rye
 
-Photo · Peninsula Insider
-
 Why we’d go
 
 The Rye Hotel is enormous in the best possible sense, a pub that absorbs families, locals, and long-weekend crowds without anybody noticing the place has filled up.
@@ -54,10 +52,6 @@ Pub
 **Location**
 
 2415 Point Nepean Rd, Rye VIC 3941 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Rye%20Hotel%2C%202415%20Point%20Nepean%20Rd%2C%20Rye%20VIC%203941>)
-
-**Spend**
-
-$$
 
 **Call**
 
@@ -123,7 +117,7 @@ Market  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 ### [Rye Foreshore Market](<https://peninsulainsider.com.au/eat/rye-beachside-market/>)
 
-Point Nepean Rd, Rye VIC 3941 · $
+Point Nepean Rd, Rye VIC 3941
 
 A first-Saturday market on Rye foreshore, listed by Mornington Peninsula Shire.
 
@@ -135,7 +129,7 @@ Brewery  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 ### [St Andrews Beach Brewery](<https://peninsulainsider.com.au/eat/st-andrews-beach-brewery/>)
 
-160 Sandy Rd, Fingal VIC 3939 · $$
+160 Sandy Rd, Fingal VIC 3939
 
 Former horse-training stables turned sprawling brewery destination, wood-fired kitchen, acres of lawn, and Sunday roasts all year round.
 

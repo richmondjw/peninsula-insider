@@ -17,8 +17,6 @@ Known for   Mornington Pier End Location Near-360° Bay Views Seafood-First Menu
 
 The Rocks Mornington · Mornington
 
-Photo · Simon Yeo
-
 Why we’d go
 
 The window table at sunset in autumn is the single most romantic dinner seat on Mornington's waterfront, and the bay view earns the booking on its own.
@@ -54,10 +52,6 @@ Restaurant
 **Location**
 
 1 Schnapper Point Dr, Mornington VIC 3931 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=The%20Rocks%20Mornington%2C%201%20Schnapper%20Point%20Dr%2C%20Mornington%20VIC%203931>)
-
-**Spend**
-
-$$$
 
 **Call**
 
@@ -115,7 +109,7 @@ Distillery  [Mornington](<https://peninsulainsider.com.au/explore/places/morning
 
 ### [Bass & Flinders Distillery](<https://peninsulainsider.com.au/eat/bass-and-flinders/>)
 
-232 Balnarring Rd, Tuerong VIC 3915 · $$
+232 Balnarring Rd, Tuerong VIC 3915
 
 A Peninsula gin distillery with a gin-school blending session that has quietly become one of the region's best wet-weather plans.
 
@@ -127,7 +121,7 @@ Café  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>
 
 ### [Commonfolk Coffee](<https://peninsulainsider.com.au/eat/commonfolk-coffee/>)
 
-16 Progress St, Mornington VIC 3931 · $$
+16 Progress St, Mornington VIC 3931
 
 The Peninsula's most serious roaster, hidden in a Mornington warehouse with a cafe out the front.
 
@@ -139,7 +133,7 @@ Winery  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/
 
 ### [Garagiste](<https://peninsulainsider.com.au/eat/garagiste/>)
 
-20 Longview Crescent, Mount Eliza VIC 3930 · $$$
+20 Longview Crescent, Mount Eliza VIC 3930
 
 Barnaby Flanders' micro-production Chardonnay and Pinot project, rigour, restraint, and regular appearances in the Halliday Top 100.
 

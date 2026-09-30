@@ -105,7 +105,7 @@ Producer  [Tuerong](<https://peninsulainsider.com.au/explore/places/tuerong/>)
 
 ### [Dexter Wines](<https://peninsulainsider.com.au/wine/dexter-wines/>)
 
-210 Foxeys Road, Tuerong VIC 3915 · $$$
+210 Foxeys Road, Tuerong VIC 3915
 
 Tod and Debbie Dexter produce single-vineyard Pinot Noir and Chardonnay in Tuerong. The vineyard is not open to the public.
 
@@ -127,7 +127,7 @@ Winery  [Tuerong](<https://peninsulainsider.com.au/explore/places/tuerong/>)
 
 ### [Dromana Estate](<https://peninsulainsider.com.au/wine/dromana-estate/>)
 
-555 Old Moorooduc Rd, Tuerong VIC 3933 · $$
+555 Old Moorooduc Rd, Tuerong VIC 3933
 
 One of the Peninsula's founding names, cool-climate Chardonnay and Pinot Noir alongside a small run of Italian-leaning bottlings on the quieter hinterland side.
 
@@ -139,7 +139,7 @@ Winery  [Tuerong](<https://peninsulainsider.com.au/explore/places/tuerong/>)
 
 ### [Onannon](<https://peninsulainsider.com.au/wine/onannon/>)
 
-110 Tuerong Rd, Tuerong VIC 3933 · $$$
+110 Tuerong Rd, Tuerong VIC 3933
 
 Three winemakers, small-batch Pinot Noir and Chardonnay, and cult-favourite status among Australia's best sommeliers.
 
@@ -151,7 +151,7 @@ Winery  [Tuerong](<https://peninsulainsider.com.au/explore/places/tuerong/>)
 
 ### [Yabby Lake Vineyard](<https://peninsulainsider.com.au/wine/yabby-lake/>)
 
-86-112 Tuerong Rd, Tuerong VIC 3933 · $$$
+86-112 Tuerong Rd, Tuerong VIC 3933
 
 Tom Carson's single-block Chardonnay and Pinot Noir program, poured from a relaxed cellar door with one of the Peninsula's loveliest lunch decks.
 

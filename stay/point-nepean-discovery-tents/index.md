@@ -17,8 +17,6 @@ Known for   Inside Point Nepean National Park Historic Quarantine Station Settin
 
 Point Nepean Discovery Tents · Portsea
 
-Photo · Essiewingrove
-
 Why we’d go
 
 The Peninsula's most atmospheric glamping setting, sleeping inside a national park quarantine station at the southernmost tip, at the budget end of the Peninsula market.
@@ -55,10 +53,6 @@ Glamping
 
 Point Nepean National Park, Portsea VIC 3944 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Point%20Nepean%20Discovery%20Tents%2C%20Point%20Nepean%20National%20Park%2C%20Portsea%20VIC%203944>)
 
-**Spend**
-
-$
-
 **Website**
 
 [www.parks.vic.gov.au/places-to-see/parks/point-nepean-national-park/where-to-stay/point-nepean-discovery-tents](<https://www.parks.vic.gov.au/places-to-see/parks/point-nepean-national-park/where-to-stay/point-nepean-discovery-tents>)
@@ -87,7 +81,7 @@ Cottage  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
 
-10 Nestle Court, Arthurs Seat VIC 3936 · $$
+10 Nestle Court, Arthurs Seat VIC 3936
 
 Five adults-only suites on Arthurs Seat ridge with panoramic Port Phillip Bay views, double spas, and electric log fires.
 
@@ -99,7 +93,7 @@ Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Birch Creek](<https://peninsulainsider.com.au/stay/birch-creek/>)
 
-Red Hill VIC 3937 · $$
+Red Hill VIC 3937
 
 Two self-contained farm cottages on 40 acres near Red Hill, open fireplaces, outdoor tubs, dog-friendly, and goats.
 
@@ -111,7 +105,7 @@ Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 ### [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>)
 
-12 Blakiston Grove, Rye VIC 3941 · $$
+12 Blakiston Grove, Rye VIC 3941
 
 Three 1940s cottages 250 metres from Rye bay beach, Sandpiper is the dog-friendly unit with a wood fire and fenced courtyard.
 

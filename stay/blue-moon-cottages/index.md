@@ -17,8 +17,6 @@ Known for   1940s Character Cottages 250m from Rye Bay Beach Dog-Friendly Sandpi
 
 Blue Moon Cottages · Rye
 
-Photo · Peninsula Insider
-
 Why we’d go
 
 The clearest fireplace-and-beach cottage combination on the bayside, 1940s character, dogs welcome, and a five-minute walk to the water.
@@ -55,10 +53,6 @@ Cottage
 
 12 Blakiston Grove, Rye VIC 3941 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Blue%20Moon%20Cottages%2C%2012%20Blakiston%20Grove%2C%20Rye%20VIC%203941>)
 
-**Spend**
-
-$$
-
 **Website**
 
 [www.bluemooncottages.com.au](<https://www.bluemooncottages.com.au/>)
@@ -87,7 +81,7 @@ Cottage  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
 
-10 Nestle Court, Arthurs Seat VIC 3936 · $$
+10 Nestle Court, Arthurs Seat VIC 3936
 
 Five adults-only suites on Arthurs Seat ridge with panoramic Port Phillip Bay views, double spas, and electric log fires.
 
@@ -99,7 +93,7 @@ Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Birch Creek](<https://peninsulainsider.com.au/stay/birch-creek/>)
 
-Red Hill VIC 3937 · $$
+Red Hill VIC 3937
 
 Two self-contained farm cottages on 40 acres near Red Hill, open fireplaces, outdoor tubs, dog-friendly, and goats.
 
@@ -111,7 +105,7 @@ Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Brewer's Cottage - Red Hill Brewery](<https://peninsulainsider.com.au/stay/brewers-cottage/>)
 
-88 Shoreham Rd, Red Hill South VIC 3937 · $$
+88 Shoreham Rd, Red Hill South VIC 3937
 
 A three-bedroom house on the Red Hill Brewery property, stocked beer fridge, open fire, ten seconds from the bar open Thursday to Sunday.
 

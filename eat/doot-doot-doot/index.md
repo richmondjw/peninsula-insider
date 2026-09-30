@@ -23,8 +23,6 @@ This month’s prize. Find PI before sunset and go in the draw for $250 to dine 
 
 Doot Doot Doot · Red Hill
 
-Photo · Peninsula Insider
-
 Why we’d go
 
 The room alone justifies the booking, but the cooking from Michael Demagistris matches it, which is rarer than it sounds.
@@ -64,10 +62,6 @@ Restaurant
 **Location**
 
 166 Balnarring Rd, Merricks North VIC 3926 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Doot%20Doot%20Doot%2C%20166%20Balnarring%20Rd%2C%20Merricks%20North%20VIC%203926>)
-
-**Spend**
-
-$$$$
 
 **Call**
 
@@ -159,7 +153,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Avani Wines](<https://peninsulainsider.com.au/eat/avani-wines/>)
 
-98 Stanleys Road, Red Hill South VIC 3937 · $$
+98 Stanleys Road, Red Hill South VIC 3937
 
 Shashi and Rohit Singh's biodynamic family estate, one of the Peninsula's only serious Syrah programs alongside the Amrit single-vineyard range.
 
@@ -171,7 +165,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Eldridge Estate](<https://peninsulainsider.com.au/eat/eldridge-estate/>)
 
-120 Arthurs Seat Rd, Red Hill VIC 3937 · $$
+120 Arthurs Seat Rd, Red Hill VIC 3937
 
 David Lloyd's tiny cult estate, single-clone Pinot Noirs from individual rows, plus Gamay, made for the Burgundy obsessives.
 
@@ -183,7 +177,7 @@ Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/
 
 ### [The Epicurean](<https://peninsulainsider.com.au/eat/epicurean-red-hill/>)
 
-165 Purves Rd, Red Hill South VIC 3937 · $$$
+165 Purves Rd, Red Hill South VIC 3937
 
 A Red Hill institution that has turned long lunch into a civic duty.
 

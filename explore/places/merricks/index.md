@@ -129,7 +129,7 @@ Restaurant  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/
 
 ### [Laura at Pt. Leo](<https://peninsulainsider.com.au/eat/laura-pt-leo/>)
 
-3649 Frankston-Flinders Rd, Merricks VIC 3916 · $$$$
+3649 Frankston-Flinders Rd, Merricks VIC 3916
 
 An intimate fine-dining room at Pt. Leo Estate, with seasonal menus and an unhurried view across the grounds.
 
@@ -141,7 +141,7 @@ Restaurant  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/
 
 ### [Merricks General Wine Store](<https://peninsulainsider.com.au/eat/merricks-general-wine-store/>)
 
-3460 Frankston-Flinders Rd, Merricks VIC 3916 · $$$
+3460 Frankston-Flinders Rd, Merricks VIC 3916
 
 The old Merricks general store reborn as a cellar door, bakery, and produce-forward lunch room.
 
@@ -153,7 +153,7 @@ Restaurant  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/
 
 ### [Point Leo Wine Terrace](<https://peninsulainsider.com.au/eat/point-leo-wine-terrace/>)
 
-3649 Frankston-Flinders Rd, Merricks VIC 3916 · $$$
+3649 Frankston-Flinders Rd, Merricks VIC 3916
 
 The all-day casual option at Point Leo Estate, wood-fired flatbreads, estate wines, and a terrace facing the bay and the sculpture park.
 
@@ -175,7 +175,7 @@ Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Baillieu Vineyard](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>)
 
-51 Stanleys Rd, Merricks VIC 3916 · $$
+51 Stanleys Rd, Merricks VIC 3916
 
 A thoughtfully managed Merricks estate making elegant Chardonnay and Pinot Noir that rewards the drive to find it.
 
@@ -187,7 +187,7 @@ Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Elgee Park](<https://peninsulainsider.com.au/wine/elgee-park/>)
 
-89 Junction Rd, Merricks North VIC 3926 · $$
+89 Junction Rd, Merricks North VIC 3926
 
 The Baillieu family's 1972 vineyard, the planting that started the modern Peninsula wine region, still in family hands, still making restrained Chardonnay and Viognier.
 
@@ -199,7 +199,7 @@ Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Kerri Greens](<https://peninsulainsider.com.au/wine/kerri-greens/>)
 
-235 Stanleys Rd, Red Hill South VIC 3937 · $$
+235 Stanleys Rd, Red Hill South VIC 3937
 
 Tom McCarthy and Lucas Blanck's new-school Peninsula label, lighter-style Pinot, approachable Chardonnay, and a cellar door that feels like a bar.
 
@@ -221,7 +221,7 @@ Glamping  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Happy Glamper](<https://peninsulainsider.com.au/stay/happy-glamper/>)
 
-Peninsula-wide, based Point Leo VIC 3916 · $$
+Peninsula-wide, based Point Leo VIC 3916
 
 Mobile bell-tent glamping that pitches styled tents at nominated Peninsula foreshore campsites, setup and packdown handled, children welcome.
 

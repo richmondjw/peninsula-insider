@@ -17,8 +17,6 @@ Known for   Safety Beach Foreshore Location Raw Bar and Oysters Bay-Facing Deck 
 
 Martha's Table · Safety Beach
 
-Photo · Peninsula Insider
-
 Why we’d go
 
 The easy, undersold answer to where to eat on the bayside when you have been at the beach all morning.
@@ -54,10 +52,6 @@ Restaurant
 **Location**
 
 15 Marine Dr, Safety Beach VIC 3936 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Martha%27s%20Table%2C%2015%20Marine%20Dr%2C%20Safety%20Beach%20VIC%203936>)
-
-**Spend**
-
-$$
 
 **Call**
 

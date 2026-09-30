@@ -163,7 +163,7 @@ Hotel  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 
 ### [InterContinental Sorrento](<https://peninsulainsider.com.au/stay/the-continental-sorrento/>)
 
-23 Constitution Hill Road, Sorrento VIC 3943 · $$$$
+23 Constitution Hill Road, Sorrento VIC 3943
 
 A Sorrento hotel with heritage rooms, a guest pool deck and The Continental dining precinct close by.
 

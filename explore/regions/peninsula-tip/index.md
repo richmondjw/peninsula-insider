@@ -59,7 +59,7 @@ Restaurant  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/
 
 ### [Bistro Elba](<https://peninsulainsider.com.au/eat/bistro-elba/>)
 
-100–102 Ocean Beach Rd, Sorrento VIC 3943 · $$$
+100–102 Ocean Beach Rd, Sorrento VIC 3943
 
 A Southern French bistro on Sorrento's Ocean Beach Road, open for lunch and dinner throughout the week.
 
@@ -71,7 +71,7 @@ Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 ### [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>)
 
-12 Blakiston Grove, Rye VIC 3941 · $$
+12 Blakiston Grove, Rye VIC 3941
 
 Three 1940s cottages 250 metres from Rye bay beach, Sandpiper is the dog-friendly unit with a wood fire and fenced courtyard.
 
@@ -83,7 +83,7 @@ Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 ### [Driftaway on Dundas](<https://peninsulainsider.com.au/stay/driftaway-on-dundas/>)
 
-246 Dundas St, Rye VIC 3941 · $$
+246 Dundas St, Rye VIC 3941
 
 Three self-contained villas on 2.5 acres of tea-tree near Rye beach, breakfast hampers, oversized spa baths, one disability-accessible villa.
 
@@ -95,7 +95,7 @@ Hotel  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 
 ### [Hotel Sorrento](<https://peninsulainsider.com.au/stay/hotel-sorrento/>)
 
-5-15 Hotham Rd, Sorrento VIC 3943 · $$$
+5-15 Hotham Rd, Sorrento VIC 3943
 
 A grand old bay-facing pub-hotel whose best rooms still make Sorrento feel gloriously old-school.
 
@@ -107,7 +107,7 @@ Glamping  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 ### [Mornington Peninsula Retro Caravans](<https://peninsulainsider.com.au/stay/kanasta-retro-caravans/>)
 
-1-9 Sinclair Ave, Rye VIC 3941 · $$
+1-9 Sinclair Ave, Rye VIC 3941
 
 Restored 1950s–60s themed caravans 500 metres from Rye bay beach, dog-friendly in designated units, the most characterful glamping-adjacent option on the bayside.
 
@@ -119,7 +119,7 @@ Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 ### [Mornington Peninsula Beach Club Cottages](<https://peninsulainsider.com.au/stay/mp-beach-club-cottages/>)
 
-Tootgarook VIC 3941 · $$
+Tootgarook VIC 3941
 
 Five two-bedroom bay-beach cottages in Tootgarook, EV charging, disability access, private yards, and eight minutes from Peninsula Hot Springs.
 
@@ -131,7 +131,7 @@ Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 ### [Plantation House at Whitecliffs](<https://peninsulainsider.com.au/stay/plantation-house-whitecliffs/>)
 
-33 Maori St, Rye VIC 3941 · $$
+33 Maori St, Rye VIC 3941
 
 Heritage 1932 sandstone property 150 metres from Rye's front beach, host Charles's cooked breakfasts are named in almost every recent review.
 
@@ -143,7 +143,7 @@ Glamping  [Portsea](<https://peninsulainsider.com.au/explore/places/portsea/>)
 
 ### [Point Nepean Discovery Tents](<https://peninsulainsider.com.au/stay/point-nepean-discovery-tents/>)
 
-Point Nepean National Park, Portsea VIC 3944 · $
+Point Nepean National Park, Portsea VIC 3944
 
 Forty-six pre-pitched canvas tents inside Point Nepean National Park, September to April, inside the historic quarantine station precinct.
 
@@ -155,7 +155,7 @@ Pub  [Portsea](<https://peninsulainsider.com.au/explore/places/portsea/>)
 
 ### [Portsea Hotel](<https://peninsulainsider.com.au/eat/portsea-hotel/>)
 
-3746 Point Nepean Rd, Portsea VIC 3944 · $$
+3746 Point Nepean Rd, Portsea VIC 3944
 
 The front-row pub on Port Phillip, still the cleanest long lunch at the tip of the Peninsula.
 
@@ -167,7 +167,7 @@ Market  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 ### [Rye Foreshore Market](<https://peninsulainsider.com.au/eat/rye-beachside-market/>)
 
-Point Nepean Rd, Rye VIC 3941 · $
+Point Nepean Rd, Rye VIC 3941
 
 A first-Saturday market on Rye foreshore, listed by Mornington Peninsula Shire.
 
@@ -179,7 +179,7 @@ Pub  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 ### [Rye Hotel](<https://peninsulainsider.com.au/eat/rye-hotel/>)
 
-2415 Point Nepean Rd, Rye VIC 3941 · $$
+2415 Point Nepean Rd, Rye VIC 3941
 
 An enormous foreshore pub a short walk from Rye's front beach, family-friendly, deck-oriented, and the right answer on a warm afternoon.
 
@@ -191,7 +191,7 @@ Pub  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 
 ### [The Sorrento Hotel](<https://peninsulainsider.com.au/eat/sorrento-hotel/>)
 
-5-15 Hotham Rd, Sorrento VIC 3943 · $$
+5-15 Hotham Rd, Sorrento VIC 3943
 
 The centre-of-the-village trading post on Ocean Beach Road, reliable parmas, a big dining room, and the default Sorrento pub for a reason.
 
@@ -203,7 +203,7 @@ Brewery  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 ### [St Andrews Beach Brewery](<https://peninsulainsider.com.au/eat/st-andrews-beach-brewery/>)
 
-160 Sandy Rd, Fingal VIC 3939 · $$
+160 Sandy Rd, Fingal VIC 3939
 
 Former horse-training stables turned sprawling brewery destination, wood-fired kitchen, acres of lawn, and Sunday roasts all year round.
 
@@ -215,7 +215,7 @@ Restaurant  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/
 
 ### [Stringers Sorrento](<https://peninsulainsider.com.au/eat/stringers-sorrento/>)
 
-Sorrento VIC 3943 · $$
+Sorrento VIC 3943
 
 A wine bar and small-plate restaurant in Sorrento, cured kingfish, raw bar selections, and a natural-wine list built to match the food.
 
@@ -227,7 +227,7 @@ Restaurant  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/
 
 ### [The Baths Sorrento](<https://peninsulainsider.com.au/eat/the-baths-sorrento/>)
 
-3278 Point Nepean Rd, Sorrento VIC 3943 · $$$
+3278 Point Nepean Rd, Sorrento VIC 3943
 
 Sorrento's most enduring waterfront dining room, perched on the sand with Port Phillip Bay at your feet and a seafood-first menu.
 
@@ -239,25 +239,13 @@ Hotel  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 
 ### [InterContinental Sorrento](<https://peninsulainsider.com.au/stay/the-continental-sorrento/>)
 
-23 Constitution Hill Road, Sorrento VIC 3943 · $$$$
+23 Constitution Hill Road, Sorrento VIC 3943
 
 A Sorrento hotel with heritage rooms, a guest pool deck and The Continental dining precinct close by.
 
 weekend escape  anniversary
 
 [Read notes](<https://peninsulainsider.com.au/stay/the-continental-sorrento/>) [View stay](<https://sorrento.intercontinental.com/>)
-
-Glamping  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
-
-### [Yurt Hideaway](<https://peninsulainsider.com.au/stay/yurt-hideaway/>)
-
-Tootgarook VIC 3941 · $$
-
-A traditional 6-metre Mongolian yurt in Tootgarook, five minutes from Peninsula Hot Springs, hosted by yoga instructors, 4.97 stars.
-
-wellness  romance
-
-[Read notes](<https://peninsulainsider.com.au/stay/yurt-hideaway/>) [View stay](<https://yurthideaway.com.au/>)
 
 [Walk](<https://peninsulainsider.com.au/explore/coppins-track/>)
 

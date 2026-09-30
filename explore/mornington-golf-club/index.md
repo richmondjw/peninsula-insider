@@ -51,7 +51,7 @@ Distillery  [Mornington](<https://peninsulainsider.com.au/explore/places/morning
 
 ### [Bass & Flinders Distillery](<https://peninsulainsider.com.au/eat/bass-and-flinders/>)
 
-232 Balnarring Rd, Tuerong VIC 3915 · $$
+232 Balnarring Rd, Tuerong VIC 3915
 
 A Peninsula gin distillery with a gin-school blending session that has quietly become one of the region's best wet-weather plans.
 
@@ -63,7 +63,7 @@ Café  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>
 
 ### [Commonfolk Coffee](<https://peninsulainsider.com.au/eat/commonfolk-coffee/>)
 
-16 Progress St, Mornington VIC 3931 · $$
+16 Progress St, Mornington VIC 3931
 
 The Peninsula's most serious roaster, hidden in a Mornington warehouse with a cafe out the front.
 
@@ -75,7 +75,7 @@ Spa  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 
 ### [Endota Spa Mornington](<https://peninsulainsider.com.au/explore/spas-and-wellness/#endota-spa-mornington>)
 
-Main Street, Mornington VIC 3931 · $$
+Main Street, Mornington VIC 3931
 
 The Mornington town-centre day spa, reliable treatments, sensible pricing, and the sixty-minute option that fits before lunch on Main Street.
 

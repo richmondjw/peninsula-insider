@@ -13,8 +13,6 @@ The northern Peninsula's midweek town market, a broad mix that folds easily into
 
 Mornington Main Street Market · Mornington
 
-Photo · Peninsula Insider
-
 Mornington Main Street Market is held each Wednesday on Main Street. Browse the stalls as part of a Mornington town day; check the organiser for this week’s hours and any changes before travelling.
 
 Filed under   Slow Quick Bite Waterfront Spring Summer Autumn Winter Locals Families First Timers Couples
@@ -28,10 +26,6 @@ Market
 **Location**
 
 Main St, Mornington VIC 3931 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Mornington%20Main%20Street%20Market%2C%20Main%20St%2C%20Mornington%20VIC%203931>)
-
-**Spend**
-
-$
 
 **Website**
 
@@ -59,7 +53,7 @@ Distillery  [Mornington](<https://peninsulainsider.com.au/explore/places/morning
 
 ### [Bass & Flinders Distillery](<https://peninsulainsider.com.au/eat/bass-and-flinders/>)
 
-232 Balnarring Rd, Tuerong VIC 3915 · $$
+232 Balnarring Rd, Tuerong VIC 3915
 
 A Peninsula gin distillery with a gin-school blending session that has quietly become one of the region's best wet-weather plans.
 
@@ -71,7 +65,7 @@ Café  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>
 
 ### [Commonfolk Coffee](<https://peninsulainsider.com.au/eat/commonfolk-coffee/>)
 
-16 Progress St, Mornington VIC 3931 · $$
+16 Progress St, Mornington VIC 3931
 
 The Peninsula's most serious roaster, hidden in a Mornington warehouse with a cafe out the front.
 
@@ -83,7 +77,7 @@ Winery  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/
 
 ### [Garagiste](<https://peninsulainsider.com.au/eat/garagiste/>)
 
-20 Longview Crescent, Mount Eliza VIC 3930 · $$$
+20 Longview Crescent, Mount Eliza VIC 3930
 
 Barnaby Flanders' micro-production Chardonnay and Pinot project, rigour, restraint, and regular appearances in the Halliday Top 100.
 

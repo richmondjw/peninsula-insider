@@ -17,8 +17,6 @@ Known for   Handmade Pasta Daily Hand-Written Weekly Menu Small Hinterland Tratt
 
 Via Boffe · Main Ridge
 
-Photo · CSIRO
-
 Why we’d go
 
 The Peninsula trattoria that deserves much more attention than it gets, a room that could hold its own in any Melbourne inner suburb and instead sits quietly on the ridge.
@@ -54,10 +52,6 @@ Restaurant
 **Location**
 
 200 Main Ridge Rd, Main Ridge VIC 3928 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Via%20Boffe%2C%20200%20Main%20Ridge%20Rd%2C%20Main%20Ridge%20VIC%203928>)
-
-**Spend**
-
-$$$
 
 **Call**
 
@@ -121,7 +115,7 @@ Restaurant  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ri
 
 ### [Allis Wine Bar](<https://peninsulainsider.com.au/eat/allis-wine-bar/>)
 
-1333 Mornington-Flinders Rd, Main Ridge VIC 3928 · $$$
+1333 Mornington-Flinders Rd, Main Ridge VIC 3928
 
 The low-waste, low-key sibling of Ten Minutes by Tractor's fine dining room, small plates, garden-harvested produce, and a thoughtful wine list.
 
@@ -133,7 +127,7 @@ Bakery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/
 
 ### [Johnny Ripe](<https://peninsulainsider.com.au/eat/johnny-ripe/>)
 
-1180 Mornington-Flinders Rd, Main Ridge VIC 3928 · $$
+1180 Mornington-Flinders Rd, Main Ridge VIC 3928
 
 The Peninsula's hinterland pie stop, proper beef pies, a sweets cabinet worth detouring for, and a garden café out the back.
 
@@ -145,7 +139,7 @@ Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/
 
 ### [Kooyong](<https://peninsulainsider.com.au/eat/kooyong/>)
 
-263 Red Hill Rd, Red Hill South VIC 3937 · $$$
+263 Red Hill Rd, Red Hill South VIC 3937
 
 Single-vineyard pinot noir and chardonnay from one of the Peninsula's most decorated estates.
 

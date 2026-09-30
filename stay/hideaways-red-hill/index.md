@@ -17,8 +17,6 @@ Known for   In-Room Spa Baths Gas Fireplace Cottages Walk to Red Hill Village Wi
 
 Hideaways at Red Hill · Red Hill
 
-Photo · Peninsula Insider
-
 Why we’d go
 
 The hinterland wine-country cottage position at a price below the estate villas, spa bath, gas fire, and the Saturday market on foot.
@@ -55,10 +53,6 @@ Cottage
 
 Red Hill VIC 3937 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Hideaways%20at%20Red%20Hill%2C%20Red%20Hill%20VIC%203937>)
 
-**Spend**
-
-$$
-
 **Call**
 
 +61 3 5989 2288
@@ -89,7 +83,7 @@ Cottage  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
 
-10 Nestle Court, Arthurs Seat VIC 3936 · $$
+10 Nestle Court, Arthurs Seat VIC 3936
 
 Five adults-only suites on Arthurs Seat ridge with panoramic Port Phillip Bay views, double spas, and electric log fires.
 
@@ -101,7 +95,7 @@ Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Birch Creek](<https://peninsulainsider.com.au/stay/birch-creek/>)
 
-Red Hill VIC 3937 · $$
+Red Hill VIC 3937
 
 Two self-contained farm cottages on 40 acres near Red Hill, open fireplaces, outdoor tubs, dog-friendly, and goats.
 
@@ -113,7 +107,7 @@ Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 ### [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>)
 
-12 Blakiston Grove, Rye VIC 3941 · $$
+12 Blakiston Grove, Rye VIC 3941
 
 Three 1940s cottages 250 metres from Rye bay beach, Sandpiper is the dog-friendly unit with a wood fire and fenced courtyard.
 

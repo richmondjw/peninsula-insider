@@ -59,7 +59,7 @@ Spa  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
 ### [Alba Thermal Springs & Spa](<https://peninsulainsider.com.au/explore/spas-and-wellness/#alba-thermal-springs>)
 
-282 Browns Road, Fingal VIC 3939 · $$$
+282 Browns Road, Fingal VIC 3939
 
 Contemporary geothermal bathing and spa treatments in a landscaped Fingal setting.
 
@@ -71,7 +71,7 @@ Restaurant  [Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-
 
 ### [Barragunda Dining](<https://peninsulainsider.com.au/eat/barragunda-dining/>)
 
-165 Boneo Rd, Cape Schanck VIC 3939 · $$$$
+165 Boneo Rd, Cape Schanck VIC 3939
 
 Chef Simone Watts's farm dining room on a 1000-acre regenerative estate at Cape Schanck, one of the Peninsula's most compelling new voices.
 
@@ -83,7 +83,7 @@ Villa  [Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-schan
 
 ### [The Cape Retreat](<https://peninsulainsider.com.au/stay/cape-retreat/>)
 
-Cape Schanck VIC 3939 · $$$$
+Cape Schanck VIC 3939
 
 Twelve luxury suites on a Cape Schanck hilltop with Bass Strait views, primarily exclusive-hire, individual suites may be available on enquiry.
 
@@ -95,7 +95,7 @@ Café  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
 ### [Flinders General Store](<https://peninsulainsider.com.au/eat/flinders-general-store/>)
 
-45 Cook St, Flinders VIC 3929 · $$
+45 Cook St, Flinders VIC 3929
 
 The village general store on Flinders' main street, slow-drip coffee, fresh bread, and pick-your-own picnics for the Blowhole walk.
 
@@ -107,7 +107,7 @@ Hotel  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
 ### [Quarters at Flinders Hotel](<https://peninsulainsider.com.au/stay/flinders-hotel/>)
 
-Corner of Cook & Wood St, Flinders VIC 3929 · $$$
+Corner of Cook & Wood St, Flinders VIC 3929
 
 Quarters is a quiet village stay behind Flinders Hotel, with pub dining and the coast close at hand.
 
@@ -119,7 +119,7 @@ Bakery  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
 ### [Flinders Sourdough](<https://peninsulainsider.com.au/eat/flinders-sourdough/>)
 
-58 Cook Street, Flinders VIC 3929 · $
+58 Cook Street, Flinders VIC 3929
 
 A small Flinders bakery using its original wood-fired oven for naturally fermented sourdough.
 
@@ -131,7 +131,7 @@ Café  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
 ### [Georgie Bass Cafe & Cookery](<https://peninsulainsider.com.au/eat/georgie-bass/>)
 
-30 Cook St, Flinders VIC 3929 · $$
+30 Cook St, Flinders VIC 3929
 
 All-day cafe on Cook Street built around produce from their own farm, the natural anchor for a Flinders morning or a post-cliff-walk lunch.
 
@@ -143,7 +143,7 @@ Glamping  [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
 
 ### [Iluka Retreat & Camp](<https://peninsulainsider.com.au/stay/iluka-retreat/>)
 
-Red Hill South VIC 3937 · $$
+Red Hill South VIC 3937
 
 Thirty structures on 36 acres near Shoreham, the Peninsula's only fixed-site multi-tent group glamping venue, with a private freshwater lake.
 
@@ -155,7 +155,7 @@ Villa  [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
 
 ### [Mantons Creek Estate](<https://peninsulainsider.com.au/stay/mantons-creek-estate/>)
 
-240 Tucks Rd, Shoreham VIC 3916 · $$$
+240 Tucks Rd, Shoreham VIC 3916
 
 Four adults-only vineyard suites with on-estate Italian dining, two minutes from Ten Minutes by Tractor, the most under-indexed southern Red Hill base.
 
@@ -167,7 +167,7 @@ Restaurant  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/
 
 ### [Moke Dining](<https://peninsulainsider.com.au/eat/moke-dining/>)
 
-60 Cook St, Flinders VIC 3929 · $$$$
+60 Cook St, Flinders VIC 3929
 
 Family-run fine dining on Cook Street, a weekly-changing set menu built on Peninsula produce, led by a chef who represented Australia at Bocuse d'Or.
 
@@ -179,7 +179,7 @@ providore  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>
 
 ### [Mornington Peninsula Chocolates](<https://peninsulainsider.com.au/eat/mornington-peninsula-chocolates/>)
 
-50 Cook St, Flinders VIC 3929 · $$
+50 Cook St, Flinders VIC 3929
 
 Handmade chocolates, rich hot chocolates, and a small café, a reliable family stop with enough seasonal stock to justify the detour.
 
@@ -191,7 +191,7 @@ Winery  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
 ### [Nazaaray Estate](<https://peninsulainsider.com.au/wine/nazaaray-estate/>)
 
-266 Meakins Rd, Flinders VIC 3929 · $$
+266 Meakins Rd, Flinders VIC 3929
 
 A tiny Flinders estate with naturally fermented wines and guesthouses inside reconverted 1930s railway carriages.
 
@@ -203,7 +203,7 @@ Spa  [Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-schanck
 
 ### [One Spa at RACV Cape Schanck Resort](<https://peninsulainsider.com.au/explore/spas-and-wellness/#one-spa-racv-cape-schanck>)
 
-Trent Jones Dr, Cape Schanck VIC 3939 · $$$
+Trent Jones Dr, Cape Schanck VIC 3939
 
 The Peninsula's best resort-style day spa, proper scale, serious treatment menu, and a cliff-edge location that nobody else on the Peninsula can match.
 
@@ -215,7 +215,7 @@ Spa  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
 ### [Peninsula Hot Springs](<https://peninsulainsider.com.au/explore/spas-and-wellness/#peninsula-hot-springs>)
 
-140 Springs Ln, Fingal VIC 3939 · $$$
+140 Springs Ln, Fingal VIC 3939
 
 The original Peninsula thermal springs, still the biggest, still the most complete wellness circuit for people who want the full ritual.
 
@@ -223,11 +223,11 @@ wellness  rainy day
 
 [Read notes](<https://peninsulainsider.com.au/explore/spas-and-wellness/#peninsula-hot-springs>) [View stay](<https://www.peninsulahotsprings.com/bathe>)
 
-Glamping  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
+Lodge  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
 ### [Peninsula Hot Springs Eco Lodges](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-eco-lodges/>)
 
-140 Springs Lane, Fingal VIC 3939 · $$$$
+140 Springs Lane, Fingal VIC 3939
 
 Eco lodge accommodation at Peninsula Hot Springs in Fingal, a separate option from glamping for a stay centred on geothermal bathing.
 
@@ -239,7 +239,7 @@ Glamping  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
 ### [Peninsula Hot Springs Glamping](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/>)
 
-140 Springs Lane, Fingal VIC 3939 · $$$
+140 Springs Lane, Fingal VIC 3939
 
 Glamping accommodation within Peninsula Hot Springs in Fingal, with garden-view, lake-view and secluded pavilion options for a stay built around bathing.
 
@@ -251,7 +251,7 @@ Villa  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
 ### [The Sanctuary at Alba](<https://peninsulainsider.com.au/stay/sanctuary-at-alba/>)
 
-282 Browns Road, Fingal VIC 3939 · $$$$
+282 Browns Road, Fingal VIC 3939
 
 Five secluded villas or two premium rooms above Alba’s springs, with daily bathing and breakfast at Thyme included.
 

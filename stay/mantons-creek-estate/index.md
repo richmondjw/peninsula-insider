@@ -17,8 +17,6 @@ Known for   Adults-Only Vineyard Suites Quattro On-Estate Italian Restaurant Sou
 
 Mantons Creek Estate · Shoreham
 
-Photo · Peninsula Insider
-
 Why we’d go
 
 The only southern Red Hill stay where the on-estate restaurant removes the need to choose between dinner and a second glass of wine.
@@ -55,10 +53,6 @@ Villa
 
 240 Tucks Rd, Shoreham VIC 3916 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Mantons%20Creek%20Estate%2C%20240%20Tucks%20Rd%2C%20Shoreham%20VIC%203916>)
 
-**Spend**
-
-$$$
-
 **Website**
 
 [mantonscreekestate.com.au](<https://mantonscreekestate.com.au/>)
@@ -87,7 +81,7 @@ Cottage  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
 
-10 Nestle Court, Arthurs Seat VIC 3936 · $$
+10 Nestle Court, Arthurs Seat VIC 3936
 
 Five adults-only suites on Arthurs Seat ridge with panoramic Port Phillip Bay views, double spas, and electric log fires.
 
@@ -99,7 +93,7 @@ Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Birch Creek](<https://peninsulainsider.com.au/stay/birch-creek/>)
 
-Red Hill VIC 3937 · $$
+Red Hill VIC 3937
 
 Two self-contained farm cottages on 40 acres near Red Hill, open fireplaces, outdoor tubs, dog-friendly, and goats.
 
@@ -111,7 +105,7 @@ Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 ### [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>)
 
-12 Blakiston Grove, Rye VIC 3941 · $$
+12 Blakiston Grove, Rye VIC 3941
 
 Three 1940s cottages 250 metres from Rye bay beach, Sandpiper is the dog-friendly unit with a wood fire and fenced courtyard.
 

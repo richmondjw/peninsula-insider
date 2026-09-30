@@ -53,7 +53,7 @@ Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Baillieu Vineyard](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>)
 
-51 Stanleys Rd, Merricks VIC 3916 · $$
+51 Stanleys Rd, Merricks VIC 3916
 
 A thoughtfully managed Merricks estate making elegant Chardonnay and Pinot Noir that rewards the drive to find it.
 
@@ -65,7 +65,7 @@ Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Elgee Park](<https://peninsulainsider.com.au/wine/elgee-park/>)
 
-89 Junction Rd, Merricks North VIC 3926 · $$
+89 Junction Rd, Merricks North VIC 3926
 
 The Baillieu family's 1972 vineyard, the planting that started the modern Peninsula wine region, still in family hands, still making restrained Chardonnay and Viognier.
 
@@ -77,7 +77,7 @@ Glamping  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Happy Glamper](<https://peninsulainsider.com.au/stay/happy-glamper/>)
 
-Peninsula-wide, based Point Leo VIC 3916 · $$
+Peninsula-wide, based Point Leo VIC 3916
 
 Mobile bell-tent glamping that pitches styled tents at nominated Peninsula foreshore campsites, setup and packdown handled, children welcome.
 

@@ -115,7 +115,7 @@ Spa  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
 ### [Alba Thermal Springs & Spa](<https://peninsulainsider.com.au/explore/spas-and-wellness/#alba-thermal-springs>)
 
-282 Browns Road, Fingal VIC 3939 · $$$
+282 Browns Road, Fingal VIC 3939
 
 Contemporary geothermal bathing and spa treatments in a landscaped Fingal setting.
 
@@ -127,7 +127,7 @@ Spa  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
 ### [Peninsula Hot Springs](<https://peninsulainsider.com.au/explore/spas-and-wellness/#peninsula-hot-springs>)
 
-140 Springs Ln, Fingal VIC 3939 · $$$
+140 Springs Ln, Fingal VIC 3939
 
 The original Peninsula thermal springs, still the biggest, still the most complete wellness circuit for people who want the full ritual.
 
@@ -139,7 +139,7 @@ Hotel  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Lindenderry at Red Hill](<https://peninsulainsider.com.au/stay/lindenderry/>)
 
-142 Arthurs Seat Rd, Red Hill VIC 3937 · $$$
+142 Arthurs Seat Rd, Red Hill VIC 3937
 
 A Red Hill hotel set on 34 acres of gardens and vines, with an on-site dining room and a weekend cellar door.
 

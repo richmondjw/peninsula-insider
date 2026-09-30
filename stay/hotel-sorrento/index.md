@@ -17,8 +17,6 @@ Known for   Bay-Facing Heritage Hotel Front Balcony Rooms Sorrento Village Pub E
 
 Hotel Sorrento · Sorrento
 
-Photo · Biatch / Wikimedia Commons (Public Domain)
-
 Why we’d go
 
 The front rooms with bay balconies are a convincing argument that the classic Peninsula weekend hasn't been superseded by anything that came after.
@@ -54,10 +52,6 @@ Hotel
 **Location**
 
 5-15 Hotham Rd, Sorrento VIC 3943 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Hotel%20Sorrento%2C%205-15%20Hotham%20Rd%2C%20Sorrento%20VIC%203943>)
-
-**Spend**
-
-$$$
 
 **Call**
 
@@ -151,7 +145,7 @@ Cottage  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
 
-10 Nestle Court, Arthurs Seat VIC 3936 · $$
+10 Nestle Court, Arthurs Seat VIC 3936
 
 Five adults-only suites on Arthurs Seat ridge with panoramic Port Phillip Bay views, double spas, and electric log fires.
 
@@ -163,7 +157,7 @@ Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Birch Creek](<https://peninsulainsider.com.au/stay/birch-creek/>)
 
-Red Hill VIC 3937 · $$
+Red Hill VIC 3937
 
 Two self-contained farm cottages on 40 acres near Red Hill, open fireplaces, outdoor tubs, dog-friendly, and goats.
 
@@ -175,7 +169,7 @@ Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 ### [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>)
 
-12 Blakiston Grove, Rye VIC 3941 · $$
+12 Blakiston Grove, Rye VIC 3941
 
 Three 1940s cottages 250 metres from Rye bay beach, Sandpiper is the dog-friendly unit with a wood fire and fenced courtyard.
 

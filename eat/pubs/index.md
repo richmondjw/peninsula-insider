@@ -27,7 +27,7 @@ Pub  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Dromana Hotel](<https://peninsulainsider.com.au/eat/dromana-hotel/>)
 
-121 Point Nepean Rd, Dromana VIC 3936 · $$
+121 Point Nepean Rd, Dromana VIC 3936
 
 Sprawling beachfront pub with an enormous deck and bay views, the straightforward bayside pub day done correctly.
 
@@ -39,7 +39,7 @@ Pub  [Portsea](<https://peninsulainsider.com.au/explore/places/portsea/>)
 
 ### [Portsea Hotel](<https://peninsulainsider.com.au/eat/portsea-hotel/>)
 
-3746 Point Nepean Rd, Portsea VIC 3944 · $$
+3746 Point Nepean Rd, Portsea VIC 3944
 
 The front-row pub on Port Phillip, still the cleanest long lunch at the tip of the Peninsula.
 
@@ -51,7 +51,7 @@ Pub  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 ### [Rye Hotel](<https://peninsulainsider.com.au/eat/rye-hotel/>)
 
-2415 Point Nepean Rd, Rye VIC 3941 · $$
+2415 Point Nepean Rd, Rye VIC 3941
 
 An enormous foreshore pub a short walk from Rye's front beach, family-friendly, deck-oriented, and the right answer on a warm afternoon.
 
@@ -63,7 +63,7 @@ Pub  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 
 ### [The Bay Hotel Mornington](<https://peninsulainsider.com.au/eat/the-bay-hotel-mornington/>)
 
-40 Main St, Mornington VIC 3931 · $$$
+40 Main St, Mornington VIC 3931
 
 A heritage-listed former bank on Mornington's main street, main bar, upstairs bandroom, and the Peninsula's most characterful private dining room in the old vault.
 
@@ -75,7 +75,7 @@ Pub  [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/>)
 
 ### [The Heritage Balnarring](<https://peninsulainsider.com.au/eat/balnarring-pub/>)
 
-3059 Frankston-Flinders Rd, Balnarring VIC 3926 · $$
+3059 Frankston-Flinders Rd, Balnarring VIC 3926
 
 Balnarring's village pub, in a 1930s heritage home on a two-acre block, with open fires, a sunny deck and a large beer garden.
 
@@ -87,7 +87,7 @@ Pub  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 
 ### [The Mornington Hotel](<https://peninsulainsider.com.au/eat/mornington-hotel/>)
 
-1 Main St, Mornington VIC 3931 · $$
+1 Main St, Mornington VIC 3931
 
 The big Main Street corner pub, reliable bistro, lively bar, and the default unfussy meeting point in the middle of Mornington.
 
@@ -99,7 +99,7 @@ Pub  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 
 ### [The Sorrento Hotel](<https://peninsulainsider.com.au/eat/sorrento-hotel/>)
 
-5-15 Hotham Rd, Sorrento VIC 3943 · $$
+5-15 Hotham Rd, Sorrento VIC 3943
 
 The centre-of-the-village trading post on Ocean Beach Road, reliable parmas, a big dining room, and the default Sorrento pub for a reason.
 

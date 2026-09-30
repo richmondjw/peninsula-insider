@@ -147,7 +147,7 @@ Market  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/
 
 ### [Mornington Farmers' Market](<https://peninsulainsider.com.au/eat/mornington-farmers-market/>)
 
-The Esplanade, Mornington VIC 3931 · $
+The Esplanade, Mornington VIC 3931
 
 A monthly bayfront produce market that knows what it is and stays close to its growers.
 
@@ -159,7 +159,7 @@ Brewery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Red Hill Brewery](<https://peninsulainsider.com.au/eat/red-hill-brewery/>)
 
-88 Shoreham Rd, Red Hill South VIC 3937 · $$
+88 Shoreham Rd, Red Hill South VIC 3937
 
 The Peninsula's original craft brewery, Belgian-style ales from the only estate hop farm in Victoria.
 
@@ -171,7 +171,7 @@ Bakery  [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/
 
 ### [The Red Hill Baker](<https://peninsulainsider.com.au/eat/red-hill-bakery/>)
 
-1/3000 Frankston-Flinders Rd, Balnarring VIC 3926 · $
+1/3000 Frankston-Flinders Rd, Balnarring VIC 3926
 
 Artisan bread, pies and pastries from the bakery's sole current shop in Balnarring.
 

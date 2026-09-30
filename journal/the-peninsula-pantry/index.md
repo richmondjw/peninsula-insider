@@ -219,7 +219,7 @@ Market  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/
 
 ### [Mornington Farmers' Market](<https://peninsulainsider.com.au/eat/mornington-farmers-market/>)
 
-The Esplanade, Mornington VIC 3931 · $
+The Esplanade, Mornington VIC 3931
 
 A monthly bayfront produce market that knows what it is and stays close to its growers.
 
@@ -231,7 +231,7 @@ Bakery  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
 ### [Flinders Sourdough](<https://peninsulainsider.com.au/eat/flinders-sourdough/>)
 
-58 Cook Street, Flinders VIC 3929 · $
+58 Cook Street, Flinders VIC 3929
 
 A small Flinders bakery using its original wood-fired oven for naturally fermented sourdough.
 
@@ -243,7 +243,7 @@ Restaurant  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/
 
 ### [Merricks General Wine Store](<https://peninsulainsider.com.au/eat/merricks-general-wine-store/>)
 
-3460 Frankston-Flinders Rd, Merricks VIC 3916 · $$$
+3460 Frankston-Flinders Rd, Merricks VIC 3916
 
 The old Merricks general store reborn as a cellar door, bakery, and produce-forward lunch room.
 

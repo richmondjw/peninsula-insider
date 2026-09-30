@@ -17,8 +17,6 @@ Known for   Australia's first dedicated gluten-free brewery Pale ale, lager, and
 
 Two Bays Brewing Co · Dromana
 
-Photo · Peninsula Insider
-
 Why we’d go
 
 The gluten-free claim gets people in the door. The pale ale and session IPA keep them there, the beer stands on its own without the qualifier.
@@ -54,10 +52,6 @@ Brewery
 **Location**
 
 2/4 Brasser Ave, Dromana VIC 3936 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Two%20Bays%20Brewing%20Co%2C%202%2F4%20Brasser%20Ave%2C%20Dromana%20VIC%203936>)
-
-**Spend**
-
-$$
 
 **Call**
 
@@ -127,7 +121,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Avani Wines](<https://peninsulainsider.com.au/wine/avani-wines/>)
 
-98 Stanleys Road, Red Hill South VIC 3937 · $$
+98 Stanleys Road, Red Hill South VIC 3937
 
 Shashi and Rohit Singh's biodynamic family estate, one of the Peninsula's only serious Syrah programs alongside the Amrit single-vineyard range.
 
@@ -139,7 +133,7 @@ Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Baillieu Vineyard](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>)
 
-51 Stanleys Rd, Merricks VIC 3916 · $$
+51 Stanleys Rd, Merricks VIC 3916
 
 A thoughtfully managed Merricks estate making elegant Chardonnay and Pinot Noir that rewards the drive to find it.
 
@@ -151,7 +145,7 @@ Winery  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
 ### [Barmah Park Vineyard](<https://peninsulainsider.com.au/wine/barmah-park-vineyard/>)
 
-3007 Frankston-Flinders Rd, Moorooduc VIC 3933 · $$$
+3007 Frankston-Flinders Rd, Moorooduc VIC 3933
 
 A rustic, intimate cellar door running a five-wine, five-canape pairing from a hatted-standard kitchen, the most structured tasting format on the Peninsula.
 

@@ -17,8 +17,6 @@ Known for   Wood-Fired Sourdough Loaves Beach Buns Little Rebel Coffee Weekend B
 
 Flinders Sourdough · Flinders
 
-Photo · Daniel Kabel
-
 Why we’d go
 
 Wood-fired sourdough, Beach Buns and coffee make the bakery a simple Flinders morning stop.
@@ -52,10 +50,6 @@ Bakery
 **Location**
 
 58 Cook Street, Flinders VIC 3929 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Flinders%20Sourdough%2C%2058%20Cook%20Street%2C%20Flinders%20VIC%203929>)
-
-**Spend**
-
-$
 
 **Call**
 
@@ -119,7 +113,7 @@ Café  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
 ### [Flinders General Store](<https://peninsulainsider.com.au/eat/flinders-general-store/>)
 
-45 Cook St, Flinders VIC 3929 · $$
+45 Cook St, Flinders VIC 3929
 
 The village general store on Flinders' main street, slow-drip coffee, fresh bread, and pick-your-own picnics for the Blowhole walk.
 
@@ -131,7 +125,7 @@ Café  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
 ### [Georgie Bass Cafe & Cookery](<https://peninsulainsider.com.au/eat/georgie-bass/>)
 
-30 Cook St, Flinders VIC 3929 · $$
+30 Cook St, Flinders VIC 3929
 
 All-day cafe on Cook Street built around produce from their own farm, the natural anchor for a Flinders morning or a post-cliff-walk lunch.
 
@@ -143,7 +137,7 @@ Restaurant  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/
 
 ### [Moke Dining](<https://peninsulainsider.com.au/eat/moke-dining/>)
 
-60 Cook St, Flinders VIC 3929 · $$$$
+60 Cook St, Flinders VIC 3929
 
 Family-run fine dining on Cook Street, a weekly-changing set menu built on Peninsula produce, led by a chef who represented Australia at Bocuse d'Or.
 

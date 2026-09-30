@@ -117,7 +117,7 @@ Market  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 ### [Rye Foreshore Market](<https://peninsulainsider.com.au/eat/rye-beachside-market/>)
 
-Point Nepean Rd, Rye VIC 3941 · $
+Point Nepean Rd, Rye VIC 3941
 
 A first-Saturday market on Rye foreshore, listed by Mornington Peninsula Shire.
 
@@ -129,7 +129,7 @@ Pub  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 ### [Rye Hotel](<https://peninsulainsider.com.au/eat/rye-hotel/>)
 
-2415 Point Nepean Rd, Rye VIC 3941 · $$
+2415 Point Nepean Rd, Rye VIC 3941
 
 An enormous foreshore pub a short walk from Rye's front beach, family-friendly, deck-oriented, and the right answer on a warm afternoon.
 
@@ -141,7 +141,7 @@ Brewery  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 ### [St Andrews Beach Brewery](<https://peninsulainsider.com.au/eat/st-andrews-beach-brewery/>)
 
-160 Sandy Rd, Fingal VIC 3939 · $$
+160 Sandy Rd, Fingal VIC 3939
 
 Former horse-training stables turned sprawling brewery destination, wood-fired kitchen, acres of lawn, and Sunday roasts all year round.
 
@@ -163,7 +163,7 @@ Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 ### [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>)
 
-12 Blakiston Grove, Rye VIC 3941 · $$
+12 Blakiston Grove, Rye VIC 3941
 
 Three 1940s cottages 250 metres from Rye bay beach, Sandpiper is the dog-friendly unit with a wood fire and fenced courtyard.
 
@@ -175,7 +175,7 @@ Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 ### [Driftaway on Dundas](<https://peninsulainsider.com.au/stay/driftaway-on-dundas/>)
 
-246 Dundas St, Rye VIC 3941 · $$
+246 Dundas St, Rye VIC 3941
 
 Three self-contained villas on 2.5 acres of tea-tree near Rye beach, breakfast hampers, oversized spa baths, one disability-accessible villa.
 
@@ -187,7 +187,7 @@ Glamping  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 ### [Mornington Peninsula Retro Caravans](<https://peninsulainsider.com.au/stay/kanasta-retro-caravans/>)
 
-1-9 Sinclair Ave, Rye VIC 3941 · $$
+1-9 Sinclair Ave, Rye VIC 3941
 
 Restored 1950s–60s themed caravans 500 metres from Rye bay beach, dog-friendly in designated units, the most characterful glamping-adjacent option on the bayside.
 

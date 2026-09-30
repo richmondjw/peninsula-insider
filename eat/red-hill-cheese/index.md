@@ -17,8 +17,6 @@ Known for   Small-Batch Sheep's Milk Cheese Washed Rind Styles Tasting Room Hint
 
 Red Hill Cheese · Red Hill
 
-Photo · CSIRO
-
 Why we’d go
 
 Red Hill Cheese is one of the Peninsula's quietest food landmarks, the tasting room where the cheesemaker talks through milk sourcing, ageing, and why Peninsula terroir matters in the fromagerie.
@@ -54,10 +52,6 @@ Providore
 **Location**
 
 81 William Rd, Red Hill VIC 3937 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Red%20Hill%20Cheese%2C%2081%20William%20Rd%2C%20Red%20Hill%20VIC%203937>)
-
-**Spend**
-
-$$
 
 **Call**
 
@@ -127,7 +121,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Avani Wines](<https://peninsulainsider.com.au/eat/avani-wines/>)
 
-98 Stanleys Road, Red Hill South VIC 3937 · $$
+98 Stanleys Road, Red Hill South VIC 3937
 
 Shashi and Rohit Singh's biodynamic family estate, one of the Peninsula's only serious Syrah programs alongside the Amrit single-vineyard range.
 
@@ -139,7 +133,7 @@ Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/
 
 ### [Doot Doot Doot](<https://peninsulainsider.com.au/eat/doot-doot-doot/>)
 
-166 Balnarring Rd, Merricks North VIC 3926 · $$$$
+166 Balnarring Rd, Merricks North VIC 3926
 
 Two hats, a chandelier of 10,000 glass orbs, and the Peninsula's most theatrical dining room.
 
@@ -151,7 +145,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Eldridge Estate](<https://peninsulainsider.com.au/eat/eldridge-estate/>)
 
-120 Arthurs Seat Rd, Red Hill VIC 3937 · $$
+120 Arthurs Seat Rd, Red Hill VIC 3937
 
 David Lloyd's tiny cult estate, single-clone Pinot Noirs from individual rows, plus Gamay, made for the Burgundy obsessives.
 

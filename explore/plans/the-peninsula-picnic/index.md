@@ -165,7 +165,7 @@ providore  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>
 
 ### [Red Hill Cheese](<https://peninsulainsider.com.au/eat/red-hill-cheese/>)
 
-81 William Rd, Red Hill VIC 3937 · $$
+81 William Rd, Red Hill VIC 3937
 
 Small-batch cheesemaker with a tasting room, hard sheep's milk styles, washed rinds, and a rotating seasonal list.
 
@@ -177,7 +177,7 @@ providore  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-rid
 
 ### [Main Ridge Dairy](<https://peninsulainsider.com.au/eat/main-ridge-dairy/>)
 
-295 Main Creek Rd, Main Ridge VIC 3928 · $$
+295 Main Creek Rd, Main Ridge VIC 3928
 
 A working farmhouse goat dairy on the Main Ridge, farm-made cheeses, goat-milk gelato, and a café with views across the paddocks to the herd.
 
@@ -189,7 +189,7 @@ Bakery  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
 ### [Flinders Sourdough](<https://peninsulainsider.com.au/eat/flinders-sourdough/>)
 
-58 Cook Street, Flinders VIC 3929 · $
+58 Cook Street, Flinders VIC 3929
 
 A small Flinders bakery using its original wood-fired oven for naturally fermented sourdough.
 

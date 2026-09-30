@@ -15,8 +15,6 @@ Known for   Beef-and-Mushroom Pie Saturday Breakfast Sandwich Custard Tarts Vill
 
 Balnarring Bakehouse · Balnarring
 
-Photo · Peninsula Insider
-
 Why we’d go
 
 The honest country bakery the Balnarring side relies on, exactly what it is, no more, and that is the whole point.
@@ -52,10 +50,6 @@ Bakery
 **Location**
 
 Balnarring Village Shopping Centre, 3050 Frankston-Flinders Rd, Balnarring VIC 3926 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Balnarring%20Bakehouse%2C%20Balnarring%20Village%20Shopping%20Centre%2C%203050%20Frankston-Flinders%20Rd%2C%20Balnarring%20VIC%203926>)
-
-**Spend**
-
-$
 
 **Directions**
 
@@ -111,7 +105,7 @@ Pub  [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/>)
 
 ### [The Heritage Balnarring](<https://peninsulainsider.com.au/eat/balnarring-pub/>)
 
-3059 Frankston-Flinders Rd, Balnarring VIC 3926 · $$
+3059 Frankston-Flinders Rd, Balnarring VIC 3926
 
 Balnarring's village pub, in a 1930s heritage home on a two-acre block, with open fires, a sunny deck and a large beer garden.
 
@@ -123,7 +117,7 @@ Winery  [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/
 
 ### [Elan Vineyard & Gallery](<https://peninsulainsider.com.au/eat/elan-vineyard/>)
 
-17 Turners Rd, Bittern VIC 3918 · $$
+17 Turners Rd, Bittern VIC 3918
 
 Selma and Jonathan Lowther's 1981 planting, one of the oldest on the Peninsula, with a cellar door that doubles as a small contemporary art gallery.
 
@@ -135,7 +129,7 @@ Winery  [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/
 
 ### [Hurley Vineyard](<https://peninsulainsider.com.au/eat/hurley-vineyard/>)
 
-101 Balnarring Rd, Balnarring VIC 3926 · $$$
+101 Balnarring Rd, Balnarring VIC 3926
 
 Kevin Bell's boutique single-vineyard Pinot project, three tiny blocks (Lodestone, Garamond, Hommage) and some of the Peninsula's most sought-after bottles.
 

@@ -13,8 +13,6 @@ A first-Saturday market on Rye foreshore, listed by Mornington Peninsula Shire.
 
 Rye Foreshore Market · Rye
 
-Photo · Peninsula Insider
-
 Rye Foreshore Market is listed by Mornington Peninsula Shire for the first Saturday of each month, 8.30am–2pm, on the Rye foreshore opposite the Rye Hotel. Check the Shire event page before travelling for the current date and any changes.
 
 Filed under   Slow Beach Waterfront Quick Bite Summer Spring Autumn Families Couples First Timers
@@ -28,10 +26,6 @@ Market
 **Location**
 
 Rye Foreshore, Point Nepean Rd, Rye VIC 3941 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Rye%20Foreshore%20Market%2C%20Rye%20Foreshore%2C%20Point%20Nepean%20Rd%2C%20Rye%20VIC%203941>)
-
-**Spend**
-
-$
 
 **Website**
 
@@ -59,7 +53,7 @@ Pub  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 ### [Rye Hotel](<https://peninsulainsider.com.au/eat/rye-hotel/>)
 
-2415 Point Nepean Rd, Rye VIC 3941 · $$
+2415 Point Nepean Rd, Rye VIC 3941
 
 An enormous foreshore pub a short walk from Rye's front beach, family-friendly, deck-oriented, and the right answer on a warm afternoon.
 
@@ -71,7 +65,7 @@ Brewery  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 ### [St Andrews Beach Brewery](<https://peninsulainsider.com.au/eat/st-andrews-beach-brewery/>)
 
-160 Sandy Rd, Fingal VIC 3939 · $$
+160 Sandy Rd, Fingal VIC 3939
 
 Former horse-training stables turned sprawling brewery destination, wood-fired kitchen, acres of lawn, and Sunday roasts all year round.
 

@@ -17,8 +17,6 @@ Known for   Slow-Cooked Beef Pie Lamb and Rosemary Sausage Roll Seasonal Fruit T
 
 Johnny Ripe · Main Ridge
 
-Photo · CSIRO
-
 Why we’d go
 
 The pie stop the Peninsula has needed for years, and the one visitors end up returning to on every subsequent trip.
@@ -54,10 +52,6 @@ Bakery
 **Location**
 
 1180 Mornington-Flinders Rd, Main Ridge VIC 3928 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Johnny%20Ripe%2C%201180%20Mornington-Flinders%20Rd%2C%20Main%20Ridge%20VIC%203928>)
-
-**Spend**
-
-$$
 
 **Call**
 
@@ -123,7 +117,7 @@ Restaurant  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ri
 
 ### [Allis Wine Bar](<https://peninsulainsider.com.au/eat/allis-wine-bar/>)
 
-1333 Mornington-Flinders Rd, Main Ridge VIC 3928 · $$$
+1333 Mornington-Flinders Rd, Main Ridge VIC 3928
 
 The low-waste, low-key sibling of Ten Minutes by Tractor's fine dining room, small plates, garden-harvested produce, and a thoughtful wine list.
 
@@ -135,7 +129,7 @@ Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/
 
 ### [Kooyong](<https://peninsulainsider.com.au/eat/kooyong/>)
 
-263 Red Hill Rd, Red Hill South VIC 3937 · $$$
+263 Red Hill Rd, Red Hill South VIC 3937
 
 Single-vineyard pinot noir and chardonnay from one of the Peninsula's most decorated estates.
 
@@ -147,7 +141,7 @@ Restaurant  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ri
 
 ### [La Baracca at T'Gallant](<https://peninsulainsider.com.au/eat/la-baracca-tgallant/>)
 
-1385 Mornington-Flinders Rd, Main Ridge VIC 3928 · $$
+1385 Mornington-Flinders Rd, Main Ridge VIC 3928
 
 The Peninsula's original winery pizza barn, wood-fired margheritas, handmade pasta, and T'Gallant's Pinot Grigio by the carafe.
 

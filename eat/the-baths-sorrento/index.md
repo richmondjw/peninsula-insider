@@ -17,8 +17,6 @@ Known for   Heritage Bathing Pavilion Site Direct Foreshore Location Raw Bar and
 
 The Baths Sorrento · Sorrento
 
-Photo · Peninsula Insider
-
 Why we’d go
 
 The position, directly on the sand at Sorrento, open to the bay, is the kind that anywhere else in the world would be roped off for a hotel group.
@@ -54,10 +52,6 @@ Restaurant
 **Location**
 
 3278 Point Nepean Rd, Sorrento VIC 3943 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=The%20Baths%20Sorrento%2C%203278%20Point%20Nepean%20Rd%2C%20Sorrento%20VIC%203943>)
-
-**Spend**
-
-$$$
 
 **Call**
 
@@ -123,7 +117,7 @@ Restaurant  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/
 
 ### [Bistro Elba](<https://peninsulainsider.com.au/eat/bistro-elba/>)
 
-100–102 Ocean Beach Rd, Sorrento VIC 3943 · $$$
+100–102 Ocean Beach Rd, Sorrento VIC 3943
 
 A Southern French bistro on Sorrento's Ocean Beach Road, open for lunch and dinner throughout the week.
 
@@ -135,7 +129,7 @@ Pub  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 
 ### [The Sorrento Hotel](<https://peninsulainsider.com.au/eat/sorrento-hotel/>)
 
-5-15 Hotham Rd, Sorrento VIC 3943 · $$
+5-15 Hotham Rd, Sorrento VIC 3943
 
 The centre-of-the-village trading post on Ocean Beach Road, reliable parmas, a big dining room, and the default Sorrento pub for a reason.
 
@@ -147,7 +141,7 @@ Restaurant  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/
 
 ### [Stringers Sorrento](<https://peninsulainsider.com.au/eat/stringers-sorrento/>)
 
-Sorrento VIC 3943 · $$
+Sorrento VIC 3943
 
 A wine bar and small-plate restaurant in Sorrento, cured kingfish, raw bar selections, and a natural-wine list built to match the food.
 

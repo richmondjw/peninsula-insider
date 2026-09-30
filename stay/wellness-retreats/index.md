@@ -23,7 +23,7 @@ Glamping  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
 ### [Peninsula Hot Springs Glamping](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/>)
 
-140 Springs Lane, Fingal VIC 3939 · $$$
+140 Springs Lane, Fingal VIC 3939
 
 Glamping accommodation within Peninsula Hot Springs in Fingal, with garden-view, lake-view and secluded pavilion options for a stay built around bathing.
 
@@ -31,11 +31,11 @@ wellness  anniversary
 
 [Read notes](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/>) [View stay](<https://www.peninsulahotsprings.com/accommodation>)
 
-Glamping  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
+Lodge  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
 ### [Peninsula Hot Springs Eco Lodges](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-eco-lodges/>)
 
-140 Springs Lane, Fingal VIC 3939 · $$$$
+140 Springs Lane, Fingal VIC 3939
 
 Eco lodge accommodation at Peninsula Hot Springs in Fingal, a separate option from glamping for a stay centred on geothermal bathing.
 
@@ -47,7 +47,7 @@ Villa  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
 ### [The Sanctuary at Alba](<https://peninsulainsider.com.au/stay/sanctuary-at-alba/>)
 
-282 Browns Road, Fingal VIC 3939 · $$$$
+282 Browns Road, Fingal VIC 3939
 
 Five secluded villas or two premium rooms above Alba’s springs, with daily bathing and breakfast at Thyme included.
 
@@ -65,7 +65,7 @@ Hotel  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Jackalope Hotel](<https://peninsulainsider.com.au/stay/jackalope/>)
 
-166 Balnarring Rd, Merricks North VIC 3926 · $$$$
+166 Balnarring Rd, Merricks North VIC 3926
 
 A dramatic art-led design hotel set inside a working vineyard, with Doot Doot Doot's eight-metre chandelier overhead.
 
@@ -83,7 +83,7 @@ Hotel  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
 ### [Quarters at Flinders Hotel](<https://peninsulainsider.com.au/stay/flinders-hotel/>)
 
-Corner of Cook & Wood St, Flinders VIC 3929 · $$$
+Corner of Cook & Wood St, Flinders VIC 3929
 
 Quarters is a quiet village stay behind Flinders Hotel, with pub dining and the coast close at hand.
 
@@ -103,7 +103,7 @@ Hotel  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Lindenderry at Red Hill](<https://peninsulainsider.com.au/stay/lindenderry/>)
 
-142 Arthurs Seat Rd, Red Hill VIC 3937 · $$$
+142 Arthurs Seat Rd, Red Hill VIC 3937
 
 A Red Hill hotel set on 34 acres of gardens and vines, with an on-site dining room and a weekend cellar door.
 

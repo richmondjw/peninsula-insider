@@ -115,7 +115,7 @@ Café  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
 ### [Barmah Park Farm Kitchen](<https://peninsulainsider.com.au/eat/barmah-park/>)
 
-3007 Frankston-Flinders Rd, Moorooduc VIC 3933 · $$
+3007 Frankston-Flinders Rd, Moorooduc VIC 3933
 
 All-day farm kitchen and courtyard, brunches, cheese plates, and an easy Peninsula midweek lunch without the wine-country theatre.
 
@@ -137,7 +137,7 @@ Winery  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
 ### [Barmah Park Vineyard](<https://peninsulainsider.com.au/wine/barmah-park-vineyard/>)
 
-3007 Frankston-Flinders Rd, Moorooduc VIC 3933 · $$$
+3007 Frankston-Flinders Rd, Moorooduc VIC 3933
 
 A rustic, intimate cellar door running a five-wine, five-canape pairing from a hatted-standard kitchen, the most structured tasting format on the Peninsula.
 
@@ -149,7 +149,7 @@ Winery  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
 ### [Moorooduc Estate](<https://peninsulainsider.com.au/wine/moorooduc-estate/>)
 
-501 Derril Rd, Moorooduc VIC 3933 · $$$
+501 Derril Rd, Moorooduc VIC 3933
 
 Richard McIntyre's pioneering low-intervention estate, home to the Robinson Chardonnay, one of Australia's genuine Chardonnay reference points.
 
@@ -161,7 +161,7 @@ Winery  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
 ### [Stumpy Gully Vineyard](<https://peninsulainsider.com.au/wine/stumpy-gully-vineyard/>)
 
-1247 Stumpy Gully Rd, Moorooduc VIC 3933 · $$
+1247 Stumpy Gully Rd, Moorooduc VIC 3933
 
 A family-run estate with one of the Peninsula's broadest varietal ranges, Sangiovese, Marzemino, and Picolit alongside cool-climate classics.
 
@@ -183,7 +183,7 @@ Villa  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
 ### [Woodman Estate](<https://peninsulainsider.com.au/stay/woodman-estate/>)
 
-Moorooduc VIC 3931 · $$$$
+Moorooduc VIC 3931
 
 Three lakeside chalets over a private five-acre lake on a 50-acre English country estate, the Peninsula's most pastoral villa option.
 

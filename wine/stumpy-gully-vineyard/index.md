@@ -17,8 +17,6 @@ Known for   Zuber family estate, among the Peninsula's most genuinely family-run
 
 Stumpy Gully Vineyard · Moorooduc
 
-Photo · Peninsula Insider
-
 Why we’d go
 
 Every other cellar door on the Peninsula is built around Chardonnay and Pinot Noir. Stumpy Gully is the one that went somewhere else entirely, and got there with a genuine welcome.
@@ -54,10 +52,6 @@ Winery
 **Location**
 
 1247 Stumpy Gully Rd, Moorooduc VIC 3933 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Stumpy%20Gully%20Vineyard%2C%201247%20Stumpy%20Gully%20Rd%2C%20Moorooduc%20VIC%203933>)
-
-**Spend**
-
-$$
 
 **Call**
 
@@ -95,7 +89,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Avani Wines](<https://peninsulainsider.com.au/wine/avani-wines/>)
 
-98 Stanleys Road, Red Hill South VIC 3937 · $$
+98 Stanleys Road, Red Hill South VIC 3937
 
 Shashi and Rohit Singh's biodynamic family estate, one of the Peninsula's only serious Syrah programs alongside the Amrit single-vineyard range.
 
@@ -107,7 +101,7 @@ Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Baillieu Vineyard](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>)
 
-51 Stanleys Rd, Merricks VIC 3916 · $$
+51 Stanleys Rd, Merricks VIC 3916
 
 A thoughtfully managed Merricks estate making elegant Chardonnay and Pinot Noir that rewards the drive to find it.
 
@@ -119,7 +113,7 @@ Winery  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
 ### [Barmah Park Vineyard](<https://peninsulainsider.com.au/wine/barmah-park-vineyard/>)
 
-3007 Frankston-Flinders Rd, Moorooduc VIC 3933 · $$$
+3007 Frankston-Flinders Rd, Moorooduc VIC 3933
 
 A rustic, intimate cellar door running a five-wine, five-canape pairing from a hatted-standard kitchen, the most structured tasting format on the Peninsula.
 

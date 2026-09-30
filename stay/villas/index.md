@@ -29,7 +29,7 @@ Villa  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Polperro Villas](<https://peninsulainsider.com.au/stay/polperro-villas/>)
 
-150 Red Hill Road, Red Hill VIC 3937 · $$$$
+150 Red Hill Road, Red Hill VIC 3937
 
 Four vineyard villas, each sleeping two with a king-size bed, indoor spa and open fireplace.
 
@@ -41,7 +41,7 @@ Villa  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
 ### [The Sanctuary at Alba](<https://peninsulainsider.com.au/stay/sanctuary-at-alba/>)
 
-282 Browns Road, Fingal VIC 3939 · $$$$
+282 Browns Road, Fingal VIC 3939
 
 Five secluded villas or two premium rooms above Alba’s springs, with daily bathing and breakfast at Thyme included.
 
@@ -53,7 +53,7 @@ Villa  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Crittenden Estate Villas](<https://peninsulainsider.com.au/stay/crittenden-villas/>)
 
-25 Harrisons Rd, Dromana VIC 3936 · $$$
+25 Harrisons Rd, Dromana VIC 3936
 
 Self-contained lakeside villas at Crittenden Estate, with a cellar door and restaurant on the property.
 
@@ -65,7 +65,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Port Phillip Estate](<https://peninsulainsider.com.au/stay/port-phillip-estate/>)
 
-263 Red Hill Rd, Red Hill South VIC 3937 · $$$$
+263 Red Hill Rd, Red Hill South VIC 3937
 
 Rammed-earth architecture, an estate dining room and six vineyard suites in Red Hill South.
 
@@ -77,7 +77,7 @@ Villa  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Cassis Red Hill](<https://peninsulainsider.com.au/stay/cassis/>)
 
-Red Hill VIC 3937 · $$$
+Red Hill VIC 3937
 
 Five adults-only villas with private heated mineral plunge pools, on the edge of Red Hill wine country with views over Western Port Bay.
 
@@ -89,7 +89,7 @@ Villa  [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
 
 ### [Mantons Creek Estate](<https://peninsulainsider.com.au/stay/mantons-creek-estate/>)
 
-240 Tucks Rd, Shoreham VIC 3916 · $$$
+240 Tucks Rd, Shoreham VIC 3916
 
 Four adults-only vineyard suites with on-estate Italian dining, two minutes from Ten Minutes by Tractor, the most under-indexed southern Red Hill base.
 
@@ -101,7 +101,7 @@ Villa  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
 ### [Woodman Estate](<https://peninsulainsider.com.au/stay/woodman-estate/>)
 
-Moorooduc VIC 3931 · $$$$
+Moorooduc VIC 3931
 
 Three lakeside chalets over a private five-acre lake on a 50-acre English country estate, the Peninsula's most pastoral villa option.
 
@@ -113,7 +113,7 @@ Villa  [Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-schan
 
 ### [The Cape Retreat](<https://peninsulainsider.com.au/stay/cape-retreat/>)
 
-Cape Schanck VIC 3939 · $$$$
+Cape Schanck VIC 3939
 
 Twelve luxury suites on a Cape Schanck hilltop with Bass Strait views, primarily exclusive-hire, individual suites may be available on enquiry.
 

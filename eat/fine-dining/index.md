@@ -29,7 +29,7 @@ Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/
 
 ### [Tedesca Osteria](<https://peninsulainsider.com.au/eat/tedesca-osteria/>)
 
-1175 Mornington-Flinders Road, Red Hill VIC 3937 · $$$
+1175 Mornington-Flinders Road, Red Hill VIC 3937
 
 Brigitte Hafner's single-set-menu osteria inside a restored Red Hill farmhouse with the wood oven running all service.
 
@@ -41,7 +41,7 @@ Restaurant  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/
 
 ### [Laura at Pt. Leo](<https://peninsulainsider.com.au/eat/laura-pt-leo/>)
 
-3649 Frankston-Flinders Rd, Merricks VIC 3916 · $$$$
+3649 Frankston-Flinders Rd, Merricks VIC 3916
 
 An intimate fine-dining room at Pt. Leo Estate, with seasonal menus and an unhurried view across the grounds.
 
@@ -53,7 +53,7 @@ Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/
 
 ### [Doot Doot Doot](<https://peninsulainsider.com.au/eat/doot-doot-doot/>)
 
-166 Balnarring Rd, Merricks North VIC 3926 · $$$$
+166 Balnarring Rd, Merricks North VIC 3926
 
 Two hats, a chandelier of 10,000 glass orbs, and the Peninsula's most theatrical dining room.
 
@@ -65,7 +65,7 @@ Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/
 
 ### [Ten Minutes by Tractor](<https://peninsulainsider.com.au/eat/ten-minutes-by-tractor/>)
 
-1333 Mornington-Flinders Rd, Main Ridge VIC 3928 · $$$$
+1333 Mornington-Flinders Rd, Main Ridge VIC 3928
 
 Estate-grown pinot noir alongside a seasonal degustation rooted in the Ridge vineyard.
 
@@ -77,7 +77,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Polperro](<https://peninsulainsider.com.au/eat/polperro/>)
 
-150 Red Hill Road, Red Hill VIC 3937 · $$$
+150 Red Hill Road, Red Hill VIC 3937
 
 Small-production cool-climate pinot and chardonnay poured in one of the prettiest tasting rooms on the ridge.
 
@@ -89,7 +89,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Montalto Vineyard & Olive Grove](<https://peninsulainsider.com.au/eat/montalto/>)
 
-33 Shoreham Rd, Red Hill South VIC 3937 · $$$
+33 Shoreham Rd, Red Hill South VIC 3937
 
 Single Vineyard Pinot Noir and a Sunday lunch beneath the olive grove canopy.
 
@@ -101,7 +101,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Paringa Estate](<https://peninsulainsider.com.au/eat/paringa-estate/>)
 
-44 Paringa Rd, Red Hill South VIC 3937 · $$$
+44 Paringa Rd, Red Hill South VIC 3937
 
 A serious single-vineyard producer with one of the Peninsula's most dependable restaurant terraces.
 
@@ -113,7 +113,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Port Phillip Estate](<https://peninsulainsider.com.au/eat/port-phillip-estate/>)
 
-263 Red Hill Rd, Red Hill South VIC 3937 · $$$$
+263 Red Hill Rd, Red Hill South VIC 3937
 
 Rammed-earth architecture, an estate dining room and six vineyard suites in Red Hill South.
 
@@ -125,7 +125,7 @@ Restaurant  [Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-
 
 ### [Barragunda Dining](<https://peninsulainsider.com.au/eat/barragunda-dining/>)
 
-165 Boneo Rd, Cape Schanck VIC 3939 · $$$$
+165 Boneo Rd, Cape Schanck VIC 3939
 
 Chef Simone Watts's farm dining room on a 1000-acre regenerative estate at Cape Schanck, one of the Peninsula's most compelling new voices.
 

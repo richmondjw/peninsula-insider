@@ -17,8 +17,6 @@ Known for   Polished Industrial Taproom Seasonal Rotating Taps Next to Dromana D
 
 Jetty Road Brewery · Dromana
 
-Photo · Peninsula Insider
-
 Why we’d go
 
 The most polished of the bayside breweries, deliberate fit-out, generous deck, and a rotating list that rewards repeat visits.
@@ -54,10 +52,6 @@ Brewery
 **Location**
 
 12-14 Brasser Ave, Dromana VIC 3936 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Jetty%20Road%20Brewery%2C%2012-14%20Brasser%20Ave%2C%20Dromana%20VIC%203936>)
-
-**Spend**
-
-$$
 
 **Call**
 
@@ -131,7 +125,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Avani Wines](<https://peninsulainsider.com.au/wine/avani-wines/>)
 
-98 Stanleys Road, Red Hill South VIC 3937 · $$
+98 Stanleys Road, Red Hill South VIC 3937
 
 Shashi and Rohit Singh's biodynamic family estate, one of the Peninsula's only serious Syrah programs alongside the Amrit single-vineyard range.
 
@@ -143,7 +137,7 @@ Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Baillieu Vineyard](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>)
 
-51 Stanleys Rd, Merricks VIC 3916 · $$
+51 Stanleys Rd, Merricks VIC 3916
 
 A thoughtfully managed Merricks estate making elegant Chardonnay and Pinot Noir that rewards the drive to find it.
 
@@ -155,7 +149,7 @@ Winery  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
 ### [Barmah Park Vineyard](<https://peninsulainsider.com.au/wine/barmah-park-vineyard/>)
 
-3007 Frankston-Flinders Rd, Moorooduc VIC 3933 · $$$
+3007 Frankston-Flinders Rd, Moorooduc VIC 3933
 
 A rustic, intimate cellar door running a five-wine, five-canape pairing from a hatted-standard kitchen, the most structured tasting format on the Peninsula.
 

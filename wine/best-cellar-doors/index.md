@@ -25,7 +25,7 @@ Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/
 
 ### [Kooyong](<https://peninsulainsider.com.au/wine/kooyong/>)
 
-263 Red Hill Rd, Red Hill South VIC 3937 · $$$
+263 Red Hill Rd, Red Hill South VIC 3937
 
 Single-vineyard pinot noir and chardonnay from one of the Peninsula's most decorated estates.
 
@@ -37,7 +37,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Paringa Estate](<https://peninsulainsider.com.au/wine/paringa-estate/>)
 
-44 Paringa Rd, Red Hill South VIC 3937 · $$$
+44 Paringa Rd, Red Hill South VIC 3937
 
 A serious single-vineyard producer with one of the Peninsula's most dependable restaurant terraces.
 
@@ -49,7 +49,7 @@ Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/
 
 ### [Ocean Eight Vineyard](<https://peninsulainsider.com.au/wine/ocean-eight/>)
 
-271 Tucks Road, Shoreham VIC 3916 · $$$
+271 Tucks Road, Shoreham VIC 3916
 
 Mike Aylward's precise, minimal cellar door turning out some of the Peninsula's most quietly obsessive pinot noir.
 
@@ -61,7 +61,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Polperro](<https://peninsulainsider.com.au/wine/polperro/>)
 
-150 Red Hill Road, Red Hill VIC 3937 · $$$
+150 Red Hill Road, Red Hill VIC 3937
 
 Small-production cool-climate pinot and chardonnay poured in one of the prettiest tasting rooms on the ridge.
 
@@ -73,7 +73,7 @@ Producer  [Tuerong](<https://peninsulainsider.com.au/explore/places/tuerong/>)
 
 ### [Dexter Wines](<https://peninsulainsider.com.au/wine/dexter-wines/>)
 
-210 Foxeys Road, Tuerong VIC 3915 · $$$
+210 Foxeys Road, Tuerong VIC 3915
 
 Tod and Debbie Dexter produce single-vineyard Pinot Noir and Chardonnay in Tuerong. The vineyard is not open to the public.
 
@@ -85,7 +85,7 @@ Winery  [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/
 
 ### [Quealy Winemakers](<https://peninsulainsider.com.au/wine/quealy-winemakers/>)
 
-62 Bittern-Dromana Rd, Balnarring VIC 3926 · $$
+62 Bittern-Dromana Rd, Balnarring VIC 3926
 
 A foundational Peninsula producer best known for pinot gris, friulano, and a cellar door with real local soul.
 
@@ -97,7 +97,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Avani Wines](<https://peninsulainsider.com.au/wine/avani-wines/>)
 
-98 Stanleys Road, Red Hill South VIC 3937 · $$
+98 Stanleys Road, Red Hill South VIC 3937
 
 Shashi and Rohit Singh's biodynamic family estate, one of the Peninsula's only serious Syrah programs alongside the Amrit single-vineyard range.
 
@@ -109,7 +109,7 @@ Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Baillieu Vineyard](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>)
 
-51 Stanleys Rd, Merricks VIC 3916 · $$
+51 Stanleys Rd, Merricks VIC 3916
 
 A thoughtfully managed Merricks estate making elegant Chardonnay and Pinot Noir that rewards the drive to find it.
 
@@ -121,7 +121,7 @@ Winery  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
 ### [Barmah Park Vineyard](<https://peninsulainsider.com.au/wine/barmah-park-vineyard/>)
 
-3007 Frankston-Flinders Rd, Moorooduc VIC 3933 · $$$
+3007 Frankston-Flinders Rd, Moorooduc VIC 3933
 
 A rustic, intimate cellar door running a five-wine, five-canape pairing from a hatted-standard kitchen, the most structured tasting format on the Peninsula.
 
@@ -133,7 +133,7 @@ Winery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Crittenden Estate](<https://peninsulainsider.com.au/wine/crittenden-estate/>)
 
-25 Harrisons Rd, Dromana VIC 3936 · $$
+25 Harrisons Rd, Dromana VIC 3936
 
 The Peninsula's pioneering estate, four decades of Crittenden family winemaking, Pinot, Chardonnay, and the Spanish-Italian Los Hermanos range from a new lakeside wine centre.
 
@@ -145,7 +145,7 @@ Winery  [Tuerong](<https://peninsulainsider.com.au/explore/places/tuerong/>)
 
 ### [Dromana Estate](<https://peninsulainsider.com.au/wine/dromana-estate/>)
 
-555 Old Moorooduc Rd, Tuerong VIC 3933 · $$
+555 Old Moorooduc Rd, Tuerong VIC 3933
 
 One of the Peninsula's founding names, cool-climate Chardonnay and Pinot Noir alongside a small run of Italian-leaning bottlings on the quieter hinterland side.
 
@@ -157,7 +157,7 @@ Winery  [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/
 
 ### [Elan Vineyard & Gallery](<https://peninsulainsider.com.au/wine/elan-vineyard/>)
 
-17 Turners Rd, Bittern VIC 3918 · $$
+17 Turners Rd, Bittern VIC 3918
 
 Selma and Jonathan Lowther's 1981 planting, one of the oldest on the Peninsula, with a cellar door that doubles as a small contemporary art gallery.
 

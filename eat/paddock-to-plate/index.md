@@ -27,7 +27,7 @@ Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/
 
 ### [Tedesca Osteria](<https://peninsulainsider.com.au/eat/tedesca-osteria/>)
 
-1175 Mornington-Flinders Road, Red Hill VIC 3937 · $$$
+1175 Mornington-Flinders Road, Red Hill VIC 3937
 
 Brigitte Hafner's single-set-menu osteria inside a restored Red Hill farmhouse with the wood oven running all service.
 
@@ -39,7 +39,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Montalto Vineyard & Olive Grove](<https://peninsulainsider.com.au/eat/montalto/>)
 
-33 Shoreham Rd, Red Hill South VIC 3937 · $$$
+33 Shoreham Rd, Red Hill South VIC 3937
 
 Single Vineyard Pinot Noir and a Sunday lunch beneath the olive grove canopy.
 
@@ -51,7 +51,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Paringa Estate](<https://peninsulainsider.com.au/eat/paringa-estate/>)
 
-44 Paringa Rd, Red Hill South VIC 3937 · $$$
+44 Paringa Rd, Red Hill South VIC 3937
 
 A serious single-vineyard producer with one of the Peninsula's most dependable restaurant terraces.
 
@@ -63,7 +63,7 @@ Restaurant  [Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-
 
 ### [Barragunda Dining](<https://peninsulainsider.com.au/eat/barragunda-dining/>)
 
-165 Boneo Rd, Cape Schanck VIC 3939 · $$$$
+165 Boneo Rd, Cape Schanck VIC 3939
 
 Chef Simone Watts's farm dining room on a 1000-acre regenerative estate at Cape Schanck, one of the Peninsula's most compelling new voices.
 
@@ -75,7 +75,7 @@ Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/
 
 ### [Green Olive at Red Hill](<https://peninsulainsider.com.au/eat/green-olive-red-hill/>)
 
-1180 Mornington-Flinders Rd, Red Hill VIC 3937 · $$$
+1180 Mornington-Flinders Rd, Red Hill VIC 3937
 
 A working olive grove and produce kitchen on the Red Hill ridge, grazing boards, wood-fired mains, and oils pressed from the estate's own trees.
 
@@ -87,7 +87,7 @@ Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Kerri Greens](<https://peninsulainsider.com.au/eat/kerri-greens/>)
 
-235 Stanleys Rd, Red Hill South VIC 3937 · $$
+235 Stanleys Rd, Red Hill South VIC 3937
 
 Tom McCarthy and Lucas Blanck's new-school Peninsula label, lighter-style Pinot, approachable Chardonnay, and a cellar door that feels like a bar.
 
@@ -99,7 +99,7 @@ Restaurant  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ri
 
 ### [La Baracca at T'Gallant](<https://peninsulainsider.com.au/eat/la-baracca-tgallant/>)
 
-1385 Mornington-Flinders Rd, Main Ridge VIC 3928 · $$
+1385 Mornington-Flinders Rd, Main Ridge VIC 3928
 
 The Peninsula's original winery pizza barn, wood-fired margheritas, handmade pasta, and T'Gallant's Pinot Grigio by the carafe.
 
@@ -111,7 +111,7 @@ Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/
 
 ### [Red Gum BBQ](<https://peninsulainsider.com.au/eat/red-gum-bbq/>)
 
-51 Shoreham Rd, Red Hill South VIC 3937 · $$
+51 Shoreham Rd, Red Hill South VIC 3937
 
 Airy warehouse, picnic tables, and low-and-slow American barbecue, pulled pork, brisket, smoked chicken, the family-friendly antidote to the winery-restaurant circuit.
 
@@ -123,7 +123,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Foxeys Hangout](<https://peninsulainsider.com.au/eat/foxeys-hangout/>)
 
-795 White Hill Rd, Red Hill VIC 3937 · $$
+795 White Hill Rd, Red Hill VIC 3937
 
 Biodynamic Red Hill estate with an all-day deck, sunny long lunches, and a sparkling program that holds its own against anything French.
 
@@ -135,7 +135,7 @@ Restaurant  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/
 
 ### [Merricks General Wine Store](<https://peninsulainsider.com.au/eat/merricks-general-wine-store/>)
 
-3460 Frankston-Flinders Rd, Merricks VIC 3916 · $$$
+3460 Frankston-Flinders Rd, Merricks VIC 3916
 
 The old Merricks general store reborn as a cellar door, bakery, and produce-forward lunch room.
 
@@ -147,7 +147,7 @@ Café  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
 ### [Barmah Park Farm Kitchen](<https://peninsulainsider.com.au/eat/barmah-park/>)
 
-3007 Frankston-Flinders Rd, Moorooduc VIC 3933 · $$
+3007 Frankston-Flinders Rd, Moorooduc VIC 3933
 
 All-day farm kitchen and courtyard, brunches, cheese plates, and an easy Peninsula midweek lunch without the wine-country theatre.
 

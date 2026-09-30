@@ -17,8 +17,6 @@ Known for   Regenerative Farm Dining Simone Watts Kitchen Weekly Changing Menu 1
 
 Barragunda Dining · Cape Schanck
 
-Photo · Marshlung
-
 Why we’d go
 
 When the menu is built entirely around what the farm produced that week, you're not choosing a restaurant, you're handing yourself over to the land.
@@ -54,10 +52,6 @@ Restaurant
 **Location**
 
 165 Boneo Rd, Cape Schanck VIC 3939 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Barragunda%20Dining%2C%20165%20Boneo%20Rd%2C%20Cape%20Schanck%20VIC%203939>)
-
-**Spend**
-
-$$$$
 
 **Call**
 

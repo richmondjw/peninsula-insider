@@ -17,8 +17,6 @@ Known for   Low-Waste Kitchen Ten Minutes Kitchen Garden Small-Plate Format Natu
 
 Allis Wine Bar · Main Ridge
 
-Photo · CSIRO
-
 Why we’d go
 
 The room that lets you eat as well as next door, for less ceremony and fewer weeks of planning ahead.
@@ -54,10 +52,6 @@ Restaurant
 **Location**
 
 1333 Mornington-Flinders Rd, Main Ridge VIC 3928 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Allis%20Wine%20Bar%2C%201333%20Mornington-Flinders%20Rd%2C%20Main%20Ridge%20VIC%203928>)
-
-**Spend**
-
-$$$
 
 **Call**
 
@@ -123,7 +117,7 @@ Bakery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/
 
 ### [Johnny Ripe](<https://peninsulainsider.com.au/eat/johnny-ripe/>)
 
-1180 Mornington-Flinders Rd, Main Ridge VIC 3928 · $$
+1180 Mornington-Flinders Rd, Main Ridge VIC 3928
 
 The Peninsula's hinterland pie stop, proper beef pies, a sweets cabinet worth detouring for, and a garden café out the back.
 
@@ -135,7 +129,7 @@ Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/
 
 ### [Kooyong](<https://peninsulainsider.com.au/eat/kooyong/>)
 
-263 Red Hill Rd, Red Hill South VIC 3937 · $$$
+263 Red Hill Rd, Red Hill South VIC 3937
 
 Single-vineyard pinot noir and chardonnay from one of the Peninsula's most decorated estates.
 
@@ -147,7 +141,7 @@ Restaurant  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ri
 
 ### [La Baracca at T'Gallant](<https://peninsulainsider.com.au/eat/la-baracca-tgallant/>)
 
-1385 Mornington-Flinders Rd, Main Ridge VIC 3928 · $$
+1385 Mornington-Flinders Rd, Main Ridge VIC 3928
 
 The Peninsula's original winery pizza barn, wood-fired margheritas, handmade pasta, and T'Gallant's Pinot Grigio by the carafe.
 

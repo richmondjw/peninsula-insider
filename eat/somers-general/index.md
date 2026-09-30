@@ -17,8 +17,6 @@ Known for   Curated General Store Format Peninsula Wine Shelf Weekend Brunch Men
 
 Somers General · Somers
 
-Photo · Peninsula Insider
-
 Why we’d go
 
 Somers General is the Peninsula's best-kept secret in retail form, a genuinely good general store in a village that has no business having one this good.
@@ -54,10 +52,6 @@ Café
 **Location**
 
 1049 Frankston-Flinders Rd, Somers VIC 3927 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Somers%20General%2C%201049%20Frankston-Flinders%20Rd%2C%20Somers%20VIC%203927>)
-
-**Spend**
-
-$$
 
 **Call**
 

@@ -27,7 +27,7 @@ Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/
 
 ### [Red Gum BBQ](<https://peninsulainsider.com.au/eat/red-gum-bbq/>)
 
-51 Shoreham Rd, Red Hill South VIC 3937 · $$
+51 Shoreham Rd, Red Hill South VIC 3937
 
 Airy warehouse, picnic tables, and low-and-slow American barbecue, pulled pork, brisket, smoked chicken, the family-friendly antidote to the winery-restaurant circuit.
 
@@ -39,7 +39,7 @@ Restaurant  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/
 
 ### [Merricks General Wine Store](<https://peninsulainsider.com.au/eat/merricks-general-wine-store/>)
 
-3460 Frankston-Flinders Rd, Merricks VIC 3916 · $$$
+3460 Frankston-Flinders Rd, Merricks VIC 3916
 
 The old Merricks general store reborn as a cellar door, bakery, and produce-forward lunch room.
 
@@ -51,7 +51,7 @@ Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/
 
 ### [Green Olive at Red Hill](<https://peninsulainsider.com.au/eat/green-olive-red-hill/>)
 
-1180 Mornington-Flinders Rd, Red Hill VIC 3937 · $$$
+1180 Mornington-Flinders Rd, Red Hill VIC 3937
 
 A working olive grove and produce kitchen on the Red Hill ridge, grazing boards, wood-fired mains, and oils pressed from the estate's own trees.
 
@@ -63,7 +63,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Montalto Vineyard & Olive Grove](<https://peninsulainsider.com.au/eat/montalto/>)
 
-33 Shoreham Rd, Red Hill South VIC 3937 · $$$
+33 Shoreham Rd, Red Hill South VIC 3937
 
 Single Vineyard Pinot Noir and a Sunday lunch beneath the olive grove canopy.
 
@@ -75,7 +75,7 @@ Bakery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/
 
 ### [Johnny Ripe](<https://peninsulainsider.com.au/eat/johnny-ripe/>)
 
-1180 Mornington-Flinders Rd, Main Ridge VIC 3928 · $$
+1180 Mornington-Flinders Rd, Main Ridge VIC 3928
 
 The Peninsula's hinterland pie stop, proper beef pies, a sweets cabinet worth detouring for, and a garden café out the back.
 
@@ -87,7 +87,7 @@ Pub  [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/>)
 
 ### [The Heritage Balnarring](<https://peninsulainsider.com.au/eat/balnarring-pub/>)
 
-3059 Frankston-Flinders Rd, Balnarring VIC 3926 · $$
+3059 Frankston-Flinders Rd, Balnarring VIC 3926
 
 Balnarring's village pub, in a 1930s heritage home on a two-acre block, with open fires, a sunny deck and a large beer garden.
 
@@ -99,7 +99,7 @@ Pub  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 ### [Rye Hotel](<https://peninsulainsider.com.au/eat/rye-hotel/>)
 
-2415 Point Nepean Rd, Rye VIC 3941 · $$
+2415 Point Nepean Rd, Rye VIC 3941
 
 An enormous foreshore pub a short walk from Rye's front beach, family-friendly, deck-oriented, and the right answer on a warm afternoon.
 
@@ -111,7 +111,7 @@ Café  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>
 
 ### [Commonfolk Coffee](<https://peninsulainsider.com.au/eat/commonfolk-coffee/>)
 
-16 Progress St, Mornington VIC 3931 · $$
+16 Progress St, Mornington VIC 3931
 
 The Peninsula's most serious roaster, hidden in a Mornington warehouse with a cafe out the front.
 
@@ -123,7 +123,7 @@ Café  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
 ### [Flinders General Store](<https://peninsulainsider.com.au/eat/flinders-general-store/>)
 
-45 Cook St, Flinders VIC 3929 · $$
+45 Cook St, Flinders VIC 3929
 
 The village general store on Flinders' main street, slow-drip coffee, fresh bread, and pick-your-own picnics for the Blowhole walk.
 

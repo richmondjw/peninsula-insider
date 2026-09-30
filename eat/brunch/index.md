@@ -29,7 +29,7 @@ Café  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>
 
 ### [Commonfolk Coffee](<https://peninsulainsider.com.au/eat/commonfolk-coffee/>)
 
-16 Progress St, Mornington VIC 3931 · $$
+16 Progress St, Mornington VIC 3931
 
 The Peninsula's most serious roaster, hidden in a Mornington warehouse with a cafe out the front.
 
@@ -41,7 +41,7 @@ Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/
 
 ### [Many Little](<https://peninsulainsider.com.au/eat/many-little/>)
 
-166 Red Hill Rd, Red Hill South VIC 3937 · $$$
+166 Red Hill Rd, Red Hill South VIC 3937
 
 Sri Lankan flavours in a European wine-bar setting, from the Polperro team, paired with natural wines and small Peninsula producers.
 
@@ -53,7 +53,7 @@ Restaurant  [Safety Beach](<https://peninsulainsider.com.au/explore/places/safet
 
 ### [Martha's Table](<https://peninsulainsider.com.au/eat/martha-s-table/>)
 
-15 Marine Dr, Safety Beach VIC 3936 · $$
+15 Marine Dr, Safety Beach VIC 3936
 
 Bayside all-day bistro across from Safety Beach, modern Australian plates, a bay-facing deck, and one of the best post-swim lunches on the Peninsula.
 
@@ -65,7 +65,7 @@ Restaurant  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/
 
 ### [Merricks General Wine Store](<https://peninsulainsider.com.au/eat/merricks-general-wine-store/>)
 
-3460 Frankston-Flinders Rd, Merricks VIC 3916 · $$$
+3460 Frankston-Flinders Rd, Merricks VIC 3916
 
 The old Merricks general store reborn as a cellar door, bakery, and produce-forward lunch room.
 
@@ -77,7 +77,7 @@ Café  [Somers](<https://peninsulainsider.com.au/explore/places/somers/>)
 
 ### [Somers General](<https://peninsulainsider.com.au/eat/somers-general/>)
 
-1049 Frankston-Flinders Rd, Somers VIC 3927 · $$
+1049 Frankston-Flinders Rd, Somers VIC 3927
 
 A tiny, perfectly curated general store and café in sleepy Somers, sourdough, pastries, cheese, Peninsula wines, and a weekend brunch menu.
 
@@ -89,7 +89,7 @@ Café  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
 ### [Flinders General Store](<https://peninsulainsider.com.au/eat/flinders-general-store/>)
 
-45 Cook St, Flinders VIC 3929 · $$
+45 Cook St, Flinders VIC 3929
 
 The village general store on Flinders' main street, slow-drip coffee, fresh bread, and pick-your-own picnics for the Blowhole walk.
 

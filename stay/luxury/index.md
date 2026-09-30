@@ -27,7 +27,7 @@ Hotel  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Jackalope Hotel](<https://peninsulainsider.com.au/stay/jackalope/>)
 
-166 Balnarring Rd, Merricks North VIC 3926 · $$$$
+166 Balnarring Rd, Merricks North VIC 3926
 
 A dramatic art-led design hotel set inside a working vineyard, with Doot Doot Doot's eight-metre chandelier overhead.
 
@@ -39,7 +39,7 @@ Hotel  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Lindenderry at Red Hill](<https://peninsulainsider.com.au/stay/lindenderry/>)
 
-142 Arthurs Seat Rd, Red Hill VIC 3937 · $$$
+142 Arthurs Seat Rd, Red Hill VIC 3937
 
 A Red Hill hotel set on 34 acres of gardens and vines, with an on-site dining room and a weekend cellar door.
 
@@ -51,7 +51,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Port Phillip Estate](<https://peninsulainsider.com.au/stay/port-phillip-estate/>)
 
-263 Red Hill Rd, Red Hill South VIC 3937 · $$$$
+263 Red Hill Rd, Red Hill South VIC 3937
 
 Rammed-earth architecture, an estate dining room and six vineyard suites in Red Hill South.
 
@@ -63,7 +63,7 @@ Villa  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Polperro Villas](<https://peninsulainsider.com.au/stay/polperro-villas/>)
 
-150 Red Hill Road, Red Hill VIC 3937 · $$$$
+150 Red Hill Road, Red Hill VIC 3937
 
 Four vineyard villas, each sleeping two with a king-size bed, indoor spa and open fireplace.
 
@@ -75,7 +75,7 @@ Villa  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Crittenden Estate Villas](<https://peninsulainsider.com.au/stay/crittenden-villas/>)
 
-25 Harrisons Rd, Dromana VIC 3936 · $$$
+25 Harrisons Rd, Dromana VIC 3936
 
 Self-contained lakeside villas at Crittenden Estate, with a cellar door and restaurant on the property.
 
@@ -87,7 +87,7 @@ Villa  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
 ### [The Sanctuary at Alba](<https://peninsulainsider.com.au/stay/sanctuary-at-alba/>)
 
-282 Browns Road, Fingal VIC 3939 · $$$$
+282 Browns Road, Fingal VIC 3939
 
 Five secluded villas or two premium rooms above Alba’s springs, with daily bathing and breakfast at Thyme included.
 
@@ -99,7 +99,7 @@ Villa  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Cassis Red Hill](<https://peninsulainsider.com.au/stay/cassis/>)
 
-Red Hill VIC 3937 · $$$
+Red Hill VIC 3937
 
 Five adults-only villas with private heated mineral plunge pools, on the edge of Red Hill wine country with views over Western Port Bay.
 
@@ -111,7 +111,7 @@ Hotel  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 
 ### [InterContinental Sorrento](<https://peninsulainsider.com.au/stay/the-continental-sorrento/>)
 
-23 Constitution Hill Road, Sorrento VIC 3943 · $$$$
+23 Constitution Hill Road, Sorrento VIC 3943
 
 A Sorrento hotel with heritage rooms, a guest pool deck and The Continental dining precinct close by.
 
@@ -123,7 +123,7 @@ Hotel  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 
 ### [Hotel Sorrento](<https://peninsulainsider.com.au/stay/hotel-sorrento/>)
 
-5-15 Hotham Rd, Sorrento VIC 3943 · $$$
+5-15 Hotham Rd, Sorrento VIC 3943
 
 A grand old bay-facing pub-hotel whose best rooms still make Sorrento feel gloriously old-school.
 

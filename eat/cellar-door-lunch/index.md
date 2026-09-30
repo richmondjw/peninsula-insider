@@ -29,7 +29,7 @@ Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/
 
 ### [Ten Minutes by Tractor](<https://peninsulainsider.com.au/eat/ten-minutes-by-tractor/>)
 
-1333 Mornington-Flinders Rd, Main Ridge VIC 3928 · $$$$
+1333 Mornington-Flinders Rd, Main Ridge VIC 3928
 
 Estate-grown pinot noir alongside a seasonal degustation rooted in the Ridge vineyard.
 
@@ -41,7 +41,7 @@ Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Pt. Leo Estate](<https://peninsulainsider.com.au/eat/pt-leo-estate/>)
 
-3649 Frankston-Flinders Rd, Merricks VIC 3916 · $$$
+3649 Frankston-Flinders Rd, Merricks VIC 3916
 
 A sculpture park walk followed by a long bay-view lunch in the glass-walled restaurant.
 
@@ -53,7 +53,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Montalto Vineyard & Olive Grove](<https://peninsulainsider.com.au/eat/montalto/>)
 
-33 Shoreham Rd, Red Hill South VIC 3937 · $$$
+33 Shoreham Rd, Red Hill South VIC 3937
 
 Single Vineyard Pinot Noir and a Sunday lunch beneath the olive grove canopy.
 
@@ -65,7 +65,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Polperro](<https://peninsulainsider.com.au/eat/polperro/>)
 
-150 Red Hill Road, Red Hill VIC 3937 · $$$
+150 Red Hill Road, Red Hill VIC 3937
 
 Small-production cool-climate pinot and chardonnay poured in one of the prettiest tasting rooms on the ridge.
 
@@ -77,7 +77,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Paringa Estate](<https://peninsulainsider.com.au/eat/paringa-estate/>)
 
-44 Paringa Rd, Red Hill South VIC 3937 · $$$
+44 Paringa Rd, Red Hill South VIC 3937
 
 A serious single-vineyard producer with one of the Peninsula's most dependable restaurant terraces.
 
@@ -89,7 +89,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Port Phillip Estate](<https://peninsulainsider.com.au/eat/port-phillip-estate/>)
 
-263 Red Hill Rd, Red Hill South VIC 3937 · $$$$
+263 Red Hill Rd, Red Hill South VIC 3937
 
 Rammed-earth architecture, an estate dining room and six vineyard suites in Red Hill South.
 
@@ -101,7 +101,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Foxeys Hangout](<https://peninsulainsider.com.au/eat/foxeys-hangout/>)
 
-795 White Hill Rd, Red Hill VIC 3937 · $$
+795 White Hill Rd, Red Hill VIC 3937
 
 Biodynamic Red Hill estate with an all-day deck, sunny long lunches, and a sparkling program that holds its own against anything French.
 
@@ -113,7 +113,7 @@ Restaurant  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/
 
 ### [Rare Hare at Willow Creek](<https://peninsulainsider.com.au/eat/rare-hare/>)
 
-166 Balnarring Rd, Merricks North VIC 3926 · $$$
+166 Balnarring Rd, Merricks North VIC 3926
 
 Jackalope's relaxed lunch room, wood fire, vineyard views, and plates built for sharing over most of an afternoon.
 
@@ -125,7 +125,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Red Hill Estate](<https://peninsulainsider.com.au/eat/red-hill-estate/>)
 
-1208 Mornington-Flinders Road, Main Ridge VIC 3928 · $$$
+1208 Mornington-Flinders Road, Main Ridge VIC 3928
 
 One of the Peninsula's most photographed cellar-door positions, sweeping Western Port views and a serious traditional-method sparkling program.
 
@@ -137,7 +137,7 @@ Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/
 
 ### [T'Gallant](<https://peninsulainsider.com.au/eat/t-gallant/>)
 
-1385 Mornington-Flinders Rd, Main Ridge VIC 3928 · $$
+1385 Mornington-Flinders Rd, Main Ridge VIC 3928
 
 The Peninsula's Pinot Grigio pioneer, a family-friendly cellar door on Main Ridge with Italian-inspired food and the estate's Prosecco by the glass.
 
@@ -149,7 +149,7 @@ Café  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
 ### [Barmah Park Farm Kitchen](<https://peninsulainsider.com.au/eat/barmah-park/>)
 
-3007 Frankston-Flinders Rd, Moorooduc VIC 3933 · $$
+3007 Frankston-Flinders Rd, Moorooduc VIC 3933
 
 All-day farm kitchen and courtyard, brunches, cheese plates, and an easy Peninsula midweek lunch without the wine-country theatre.
 

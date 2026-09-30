@@ -9,7 +9,7 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 Everything we cover, on one screen, filtered exactly like the list you came from.
 
-212 on the map
+211 on the map
 
 - [View : Arthurs Seat](<https://peninsulainsider.com.au/explore/places/arthurs-seat/>)
 
@@ -346,8 +346,6 @@ Everything we cover, on one screen, filtered exactly like the list you came from
 - [View : Woodman Estate](<https://peninsulainsider.com.au/stay/woodman-estate/>)
 
 - [View : Yabby Lake Vineyard](<https://peninsulainsider.com.au/wine/yabby-lake/>)
-
-- [View : Yurt Hideaway](<https://peninsulainsider.com.au/stay/yurt-hideaway/>)
 
 - [View : Arthurs Seat Eagle](<https://peninsulainsider.com.au/explore/arthurs-seat-lookout/>)
 

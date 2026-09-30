@@ -107,7 +107,7 @@ Café  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>
 
 ### [Commonfolk Coffee](<https://peninsulainsider.com.au/eat/commonfolk-coffee/>)
 
-16 Progress St, Mornington VIC 3931 · $$
+16 Progress St, Mornington VIC 3931
 
 The Peninsula's most serious roaster, hidden in a Mornington warehouse with a cafe out the front.
 
@@ -119,7 +119,7 @@ Market  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/
 
 ### [Mornington Farmers' Market](<https://peninsulainsider.com.au/eat/mornington-farmers-market/>)
 
-The Esplanade, Mornington VIC 3931 · $
+The Esplanade, Mornington VIC 3931
 
 A monthly bayfront produce market that knows what it is and stays close to its growers.
 
@@ -131,7 +131,7 @@ Distillery  [Mornington](<https://peninsulainsider.com.au/explore/places/morning
 
 ### [Bass & Flinders Distillery](<https://peninsulainsider.com.au/eat/bass-and-flinders/>)
 
-232 Balnarring Rd, Tuerong VIC 3915 · $$
+232 Balnarring Rd, Tuerong VIC 3915
 
 A Peninsula gin distillery with a gin-school blending session that has quietly become one of the region's best wet-weather plans.
 

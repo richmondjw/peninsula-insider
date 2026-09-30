@@ -17,8 +17,6 @@ Known for   Farm Kitchen Courtyard All-Day Brunch Menu Canape Cellar Door Progra
 
 Barmah Park Farm Kitchen · Moorooduc
 
-Photo · Peninsula Insider
-
 Why we’d go
 
 A winery that runs its farm kitchen at café pace, the right call when you want vines visible and nobody pressuring you through a formal tasting.
@@ -55,10 +53,6 @@ Café
 
 3007 Frankston-Flinders Rd, Moorooduc VIC 3933 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Barmah%20Park%20Farm%20Kitchen%2C%203007%20Frankston-Flinders%20Rd%2C%20Moorooduc%20VIC%203933>)
 
-**Spend**
-
-$$
-
 **Call**
 
 +61 3 5978 8049
@@ -85,7 +79,7 @@ Winery  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
 ### [Barmah Park Vineyard](<https://peninsulainsider.com.au/eat/barmah-park-vineyard/>)
 
-3007 Frankston-Flinders Rd, Moorooduc VIC 3933 · $$$
+3007 Frankston-Flinders Rd, Moorooduc VIC 3933
 
 A rustic, intimate cellar door running a five-wine, five-canape pairing from a hatted-standard kitchen, the most structured tasting format on the Peninsula.
 
@@ -97,7 +91,7 @@ Winery  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
 ### [Moorooduc Estate](<https://peninsulainsider.com.au/eat/moorooduc-estate/>)
 
-501 Derril Rd, Moorooduc VIC 3933 · $$$
+501 Derril Rd, Moorooduc VIC 3933
 
 Richard McIntyre's pioneering low-intervention estate, home to the Robinson Chardonnay, one of Australia's genuine Chardonnay reference points.
 
@@ -109,7 +103,7 @@ Winery  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
 ### [Stumpy Gully Vineyard](<https://peninsulainsider.com.au/eat/stumpy-gully-vineyard/>)
 
-1247 Stumpy Gully Rd, Moorooduc VIC 3933 · $$
+1247 Stumpy Gully Rd, Moorooduc VIC 3933
 
 A family-run estate with one of the Peninsula's broadest varietal ranges, Sangiovese, Marzemino, and Picolit alongside cool-climate classics.
 

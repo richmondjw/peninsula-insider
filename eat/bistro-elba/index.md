@@ -17,8 +17,6 @@ Known for   Southern French Cooking French Bistro Format Prix Fixe Lunch Ocean B
 
 Bistro Elba · Sorrento
 
-Photo · Alan Travers
-
 Why we’d go
 
 Southern French cooking makes this a useful dinner choice when you are staying in Sorrento and keeping the evening close to your room.
@@ -52,10 +50,6 @@ Restaurant
 **Location**
 
 100–102 Ocean Beach Rd, Sorrento VIC 3943 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Bistro%20Elba%2C%20100%E2%80%93102%20Ocean%20Beach%20Rd%2C%20Sorrento%20VIC%203943>)
-
-**Spend**
-
-$$$
 
 **Call**
 
@@ -129,7 +123,7 @@ Pub  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 
 ### [The Sorrento Hotel](<https://peninsulainsider.com.au/eat/sorrento-hotel/>)
 
-5-15 Hotham Rd, Sorrento VIC 3943 · $$
+5-15 Hotham Rd, Sorrento VIC 3943
 
 The centre-of-the-village trading post on Ocean Beach Road, reliable parmas, a big dining room, and the default Sorrento pub for a reason.
 
@@ -141,7 +135,7 @@ Restaurant  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/
 
 ### [Stringers Sorrento](<https://peninsulainsider.com.au/eat/stringers-sorrento/>)
 
-Sorrento VIC 3943 · $$
+Sorrento VIC 3943
 
 A wine bar and small-plate restaurant in Sorrento, cured kingfish, raw bar selections, and a natural-wine list built to match the food.
 
@@ -153,7 +147,7 @@ Restaurant  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/
 
 ### [The Baths Sorrento](<https://peninsulainsider.com.au/eat/the-baths-sorrento/>)
 
-3278 Point Nepean Rd, Sorrento VIC 3943 · $$$
+3278 Point Nepean Rd, Sorrento VIC 3943
 
 Sorrento's most enduring waterfront dining room, perched on the sand with Port Phillip Bay at your feet and a seafood-first menu.
 

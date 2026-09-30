@@ -103,7 +103,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Paringa Estate](<https://peninsulainsider.com.au/wine/paringa-estate/>)
 
-44 Paringa Rd, Red Hill South VIC 3937 · $$$
+44 Paringa Rd, Red Hill South VIC 3937
 
 A serious single-vineyard producer with one of the Peninsula's most dependable restaurant terraces.
 
@@ -115,7 +115,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Polperro](<https://peninsulainsider.com.au/wine/polperro/>)
 
-150 Red Hill Road, Red Hill VIC 3937 · $$$
+150 Red Hill Road, Red Hill VIC 3937
 
 Small-production cool-climate pinot and chardonnay poured in one of the prettiest tasting rooms on the ridge.
 
@@ -127,7 +127,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Avani Wines](<https://peninsulainsider.com.au/wine/avani-wines/>)
 
-98 Stanleys Road, Red Hill South VIC 3937 · $$
+98 Stanleys Road, Red Hill South VIC 3937
 
 Shashi and Rohit Singh's biodynamic family estate, one of the Peninsula's only serious Syrah programs alongside the Amrit single-vineyard range.
 
@@ -139,7 +139,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Eldridge Estate](<https://peninsulainsider.com.au/wine/eldridge-estate/>)
 
-120 Arthurs Seat Rd, Red Hill VIC 3937 · $$
+120 Arthurs Seat Rd, Red Hill VIC 3937
 
 David Lloyd's tiny cult estate, single-clone Pinot Noirs from individual rows, plus Gamay, made for the Burgundy obsessives.
 
@@ -151,7 +151,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Foxeys Hangout](<https://peninsulainsider.com.au/wine/foxeys-hangout/>)
 
-795 White Hill Rd, Red Hill VIC 3937 · $$
+795 White Hill Rd, Red Hill VIC 3937
 
 Biodynamic Red Hill estate with an all-day deck, sunny long lunches, and a sparkling program that holds its own against anything French.
 
@@ -163,7 +163,7 @@ Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/
 
 ### [Main Ridge Estate](<https://peninsulainsider.com.au/wine/main-ridge-estate/>)
 
-80 William Rd, Red Hill VIC 3937 · $$
+80 William Rd, Red Hill VIC 3937
 
 Planted in 1975 by Nat and Rosalie White, the Peninsula's founding vineyard, still making restrained Pinot and Chardonnay from the original blocks.
 
@@ -175,7 +175,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Montalto Vineyard & Olive Grove](<https://peninsulainsider.com.au/wine/montalto/>)
 
-33 Shoreham Rd, Red Hill South VIC 3937 · $$$
+33 Shoreham Rd, Red Hill South VIC 3937
 
 Single Vineyard Pinot Noir and a Sunday lunch beneath the olive grove canopy.
 
@@ -187,7 +187,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Port Phillip Estate](<https://peninsulainsider.com.au/wine/port-phillip-estate/>)
 
-263 Red Hill Rd, Red Hill South VIC 3937 · $$$$
+263 Red Hill Rd, Red Hill South VIC 3937
 
 Rammed-earth architecture, an estate dining room and six vineyard suites in Red Hill South.
 
@@ -199,7 +199,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Prancing Horse Estate](<https://peninsulainsider.com.au/wine/prancing-horse-estate/>)
 
-12 Arthurs Seat Rd, Red Hill VIC 3937 · $$$
+12 Arthurs Seat Rd, Red Hill VIC 3937
 
 Organic and biodynamic estate pouring its own Pinot alongside imported Chablis and Burgundy, the Peninsula's most direct Old World–New World comparison tasting.
 
@@ -211,7 +211,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Red Hill Estate](<https://peninsulainsider.com.au/wine/red-hill-estate/>)
 
-1208 Mornington-Flinders Road, Main Ridge VIC 3928 · $$$
+1208 Mornington-Flinders Road, Main Ridge VIC 3928
 
 One of the Peninsula's most photographed cellar-door positions, sweeping Western Port views and a serious traditional-method sparkling program.
 
@@ -223,7 +223,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Tuck's Ridge](<https://peninsulainsider.com.au/wine/tucks-ridge/>)
 
-37 Red Hill-Shoreham Rd, Red Hill South VIC 3937 · $$
+37 Red Hill-Shoreham Rd, Red Hill South VIC 3937
 
 A founding Red Hill estate, mid-1980s, renewed focus on single-vineyard Pinot Noir and a deck view to Western Port that earns the drive.
 

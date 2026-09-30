@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-[Stay](<https://peninsulainsider.com.au/stay/>)    Glamping    [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
+[Stay](<https://peninsulainsider.com.au/stay/>)    Lodge    [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
 # Peninsula Hot Springs Eco Lodges
 
@@ -17,13 +17,11 @@ Known for   Eco Lodge Accommodation Peninsula Hot Springs Precinct Geothermal Ba
 
 Peninsula Hot Springs Eco Lodges · Fingal
 
-Photo · Peninsula Hot Springs
-
 Peninsula Hot Springs Eco Lodges in 7 photographs
 
 1  / 7
 
-A guest sits on a long window seat in a Peninsula Hot Springs Eco Lodge room, looking out over bushland and a wetland  Peninsula Hot Springs Eco Lodges, Fingal, Mornington Peninsula.  Photo · Courtesy of Visit Victoria
+Eco Lodge bedroom at Peninsula Hot Springs with a made bed, bush-view window seat and a deck holding an outdoor bath  Peninsula Hot Springs Eco Lodges, Fingal, Mornington Peninsula.  Photo · Courtesy of Visit Victoria
 
 Why we’d go
 
@@ -57,15 +55,11 @@ At a glance
 
 **Type**
 
-Glamping
+Lodge
 
 **Location**
 
 140 Springs Lane, Fingal VIC 3939 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Peninsula%20Hot%20Springs%20Eco%20Lodges%2C%20140%20Springs%20Lane%2C%20Fingal%20VIC%203939>)
-
-**Spend**
-
-$$$$
 
 **Call**
 
@@ -99,7 +93,7 @@ Cottage  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
 
-10 Nestle Court, Arthurs Seat VIC 3936 · $$
+10 Nestle Court, Arthurs Seat VIC 3936
 
 Five adults-only suites on Arthurs Seat ridge with panoramic Port Phillip Bay views, double spas, and electric log fires.
 
@@ -111,7 +105,7 @@ Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Birch Creek](<https://peninsulainsider.com.au/stay/birch-creek/>)
 
-Red Hill VIC 3937 · $$
+Red Hill VIC 3937
 
 Two self-contained farm cottages on 40 acres near Red Hill, open fireplaces, outdoor tubs, dog-friendly, and goats.
 
@@ -123,7 +117,7 @@ Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 ### [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>)
 
-12 Blakiston Grove, Rye VIC 3941 · $$
+12 Blakiston Grove, Rye VIC 3941
 
 Three 1940s cottages 250 metres from Rye bay beach, Sandpiper is the dog-friendly unit with a wood fire and fenced courtyard.
 

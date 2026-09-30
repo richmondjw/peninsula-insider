@@ -17,8 +17,6 @@ Known for   Four Villas for Two King-Size Beds Indoor Spas Open Fireplaces Viney
 
 Polperro Villas · Red Hill
 
-Photo · Polperro
-
 Why we’d go
 
 A vineyard stay for two, with a king-size bed, indoor spa and open fireplace in each of the four villas.
@@ -54,10 +52,6 @@ Villa
 **Location**
 
 150 Red Hill Road, Red Hill VIC 3937 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Polperro%20Villas%2C%20150%20Red%20Hill%20Road%2C%20Red%20Hill%20VIC%203937>)
-
-**Spend**
-
-$$$$
 
 **Call**
 
@@ -123,7 +117,7 @@ Cottage  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
 
-10 Nestle Court, Arthurs Seat VIC 3936 · $$
+10 Nestle Court, Arthurs Seat VIC 3936
 
 Five adults-only suites on Arthurs Seat ridge with panoramic Port Phillip Bay views, double spas, and electric log fires.
 
@@ -135,7 +129,7 @@ Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Birch Creek](<https://peninsulainsider.com.au/stay/birch-creek/>)
 
-Red Hill VIC 3937 · $$
+Red Hill VIC 3937
 
 Two self-contained farm cottages on 40 acres near Red Hill, open fireplaces, outdoor tubs, dog-friendly, and goats.
 
@@ -147,7 +141,7 @@ Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 ### [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>)
 
-12 Blakiston Grove, Rye VIC 3941 · $$
+12 Blakiston Grove, Rye VIC 3941
 
 Three 1940s cottages 250 metres from Rye bay beach, Sandpiper is the dog-friendly unit with a wood fire and fenced courtyard.
 

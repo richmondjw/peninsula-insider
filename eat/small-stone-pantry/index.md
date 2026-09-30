@@ -55,10 +55,6 @@ Café
 
 180 Point Nepean Rd, Dromana VIC 3936 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Small%20Stone%20Pantry%2C%20180%20Point%20Nepean%20Rd%2C%20Dromana%20VIC%203936>)
 
-**Spend**
-
-$$
-
 **Directions**
 
 [Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3365%2C144.9638>)
@@ -81,7 +77,7 @@ Winery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Crittenden Estate](<https://peninsulainsider.com.au/eat/crittenden-estate/>)
 
-25 Harrisons Rd, Dromana VIC 3936 · $$
+25 Harrisons Rd, Dromana VIC 3936
 
 The Peninsula's pioneering estate, four decades of Crittenden family winemaking, Pinot, Chardonnay, and the Spanish-Italian Los Hermanos range from a new lakeside wine centre.
 
@@ -93,7 +89,7 @@ Restaurant  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Crittenden Restaurant](<https://peninsulainsider.com.au/eat/crittenden-restaurant/>)
 
-25 Harrisons Rd, Dromana VIC 3936 · $$
+25 Harrisons Rd, Dromana VIC 3936
 
 Lakeside dining under a vine-strung pergola at one of the Peninsula's founding wineries, now Crittenden Restaurant under Head Chef Brunno Melo.
 
@@ -105,7 +101,7 @@ Pub  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Dromana Hotel](<https://peninsulainsider.com.au/eat/dromana-hotel/>)
 
-121 Point Nepean Rd, Dromana VIC 3936 · $$
+121 Point Nepean Rd, Dromana VIC 3936
 
 Sprawling beachfront pub with an enormous deck and bay views, the straightforward bayside pub day done correctly.
 

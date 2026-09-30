@@ -17,8 +17,6 @@ Known for   1930s Heritage Home Open Fires Large Beer Garden Winter Sunday Roast
 
 The Heritage Balnarring · Balnarring
 
-Photo · Peninsula Insider
-
 Why we’d go
 
 A village pub with room to move: open fires for winter, a deck and a big beer garden for the warmer months, and a kitchen that keeps the pub classics alongside a changing specials board.
@@ -54,10 +52,6 @@ Pub
 **Location**
 
 3059 Frankston-Flinders Rd, Balnarring VIC 3926 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=The%20Heritage%20Balnarring%2C%203059%20Frankston-Flinders%20Rd%2C%20Balnarring%20VIC%203926>)
-
-**Spend**
-
-$$
 
 **Call**
 
@@ -123,7 +117,7 @@ Bakery  [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/
 
 ### [Balnarring Bakehouse](<https://peninsulainsider.com.au/eat/balnarring-bakehouse/>)
 
-3050 Frankston-Flinders Rd, Balnarring VIC 3926 · $
+3050 Frankston-Flinders Rd, Balnarring VIC 3926
 
 The village bakehouse for the Balnarring side of the Peninsula, pies, pastries, and the breakfast sandwich that fuels the Saturday market crowd.
 
@@ -135,7 +129,7 @@ Winery  [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/
 
 ### [Elan Vineyard & Gallery](<https://peninsulainsider.com.au/eat/elan-vineyard/>)
 
-17 Turners Rd, Bittern VIC 3918 · $$
+17 Turners Rd, Bittern VIC 3918
 
 Selma and Jonathan Lowther's 1981 planting, one of the oldest on the Peninsula, with a cellar door that doubles as a small contemporary art gallery.
 
@@ -147,7 +141,7 @@ Winery  [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/
 
 ### [Hurley Vineyard](<https://peninsulainsider.com.au/eat/hurley-vineyard/>)
 
-101 Balnarring Rd, Balnarring VIC 3926 · $$$
+101 Balnarring Rd, Balnarring VIC 3926
 
 Kevin Bell's boutique single-vineyard Pinot project, three tiny blocks (Lodestone, Garamond, Hommage) and some of the Peninsula's most sought-after bottles.
 

@@ -133,7 +133,7 @@ Restaurant  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ri
 
 ### [Allis Wine Bar](<https://peninsulainsider.com.au/eat/allis-wine-bar/>)
 
-1333 Mornington-Flinders Rd, Main Ridge VIC 3928 · $$$
+1333 Mornington-Flinders Rd, Main Ridge VIC 3928
 
 The low-waste, low-key sibling of Ten Minutes by Tractor's fine dining room, small plates, garden-harvested produce, and a thoughtful wine list.
 
@@ -145,7 +145,7 @@ Bakery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/
 
 ### [Johnny Ripe](<https://peninsulainsider.com.au/eat/johnny-ripe/>)
 
-1180 Mornington-Flinders Rd, Main Ridge VIC 3928 · $$
+1180 Mornington-Flinders Rd, Main Ridge VIC 3928
 
 The Peninsula's hinterland pie stop, proper beef pies, a sweets cabinet worth detouring for, and a garden café out the back.
 
@@ -157,7 +157,7 @@ Restaurant  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ri
 
 ### [La Baracca at T'Gallant](<https://peninsulainsider.com.au/eat/la-baracca-tgallant/>)
 
-1385 Mornington-Flinders Rd, Main Ridge VIC 3928 · $$
+1385 Mornington-Flinders Rd, Main Ridge VIC 3928
 
 The Peninsula's original winery pizza barn, wood-fired margheritas, handmade pasta, and T'Gallant's Pinot Grigio by the carafe.
 
@@ -179,7 +179,7 @@ Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/
 
 ### [Kooyong](<https://peninsulainsider.com.au/wine/kooyong/>)
 
-263 Red Hill Rd, Red Hill South VIC 3937 · $$$
+263 Red Hill Rd, Red Hill South VIC 3937
 
 Single-vineyard pinot noir and chardonnay from one of the Peninsula's most decorated estates.
 
@@ -191,7 +191,7 @@ Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/
 
 ### [Lightfoot Wines](<https://peninsulainsider.com.au/wine/lightfoot-wines/>)
 
-110 Myers Rd, Main Ridge VIC 3928 · $$
+110 Myers Rd, Main Ridge VIC 3928
 
 A small Main Ridge estate with a focused Pinot and Chardonnay range and one of the ridge's most peaceful tasting rooms.
 
@@ -203,7 +203,7 @@ Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/
 
 ### [Main Ridge Estate](<https://peninsulainsider.com.au/wine/main-ridge-estate/>)
 
-80 William Rd, Red Hill VIC 3937 · $$
+80 William Rd, Red Hill VIC 3937
 
 Planted in 1975 by Nat and Rosalie White, the Peninsula's founding vineyard, still making restrained Pinot and Chardonnay from the original blocks.
 

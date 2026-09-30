@@ -17,8 +17,6 @@ Known for   Certified Organic Market Garden Farm-Gate Shop Restaurant Supply Pro
 
 Peninsula Fresh Organics · Mornington
 
-Photo · Simon Yeo
-
 Why we’d go
 
 The producer behind a lot of what ends up on Peninsula restaurant plates, the farm-gate shop is open for anyone who wants to source the same ingredients directly.
@@ -54,10 +52,6 @@ Providore
 **Location**
 
 170 Baxter-Tooradin Rd, Baxter VIC 3911 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Peninsula%20Fresh%20Organics%2C%20170%20Baxter-Tooradin%20Rd%2C%20Baxter%20VIC%203911>)
-
-**Spend**
-
-$$
 
 **Awards**
 
@@ -123,7 +117,7 @@ Distillery  [Mornington](<https://peninsulainsider.com.au/explore/places/morning
 
 ### [Bass & Flinders Distillery](<https://peninsulainsider.com.au/eat/bass-and-flinders/>)
 
-232 Balnarring Rd, Tuerong VIC 3915 · $$
+232 Balnarring Rd, Tuerong VIC 3915
 
 A Peninsula gin distillery with a gin-school blending session that has quietly become one of the region's best wet-weather plans.
 
@@ -135,7 +129,7 @@ Café  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>
 
 ### [Commonfolk Coffee](<https://peninsulainsider.com.au/eat/commonfolk-coffee/>)
 
-16 Progress St, Mornington VIC 3931 · $$
+16 Progress St, Mornington VIC 3931
 
 The Peninsula's most serious roaster, hidden in a Mornington warehouse with a cafe out the front.
 
@@ -147,7 +141,7 @@ Winery  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/
 
 ### [Garagiste](<https://peninsulainsider.com.au/eat/garagiste/>)
 
-20 Longview Crescent, Mount Eliza VIC 3930 · $$$
+20 Longview Crescent, Mount Eliza VIC 3930
 
 Barnaby Flanders' micro-production Chardonnay and Pinot project, rigour, restraint, and regular appearances in the Halliday Top 100.
 

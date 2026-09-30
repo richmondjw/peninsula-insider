@@ -89,7 +89,7 @@ Restaurant  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ri
 
 ### [Allis Wine Bar](<https://peninsulainsider.com.au/eat/allis-wine-bar/>)
 
-1333 Mornington-Flinders Rd, Main Ridge VIC 3928 · $$$
+1333 Mornington-Flinders Rd, Main Ridge VIC 3928
 
 The low-waste, low-key sibling of Ten Minutes by Tractor's fine dining room, small plates, garden-harvested produce, and a thoughtful wine list.
 
@@ -101,7 +101,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Avani Wines](<https://peninsulainsider.com.au/wine/avani-wines/>)
 
-98 Stanleys Road, Red Hill South VIC 3937 · $$
+98 Stanleys Road, Red Hill South VIC 3937
 
 Shashi and Rohit Singh's biodynamic family estate, one of the Peninsula's only serious Syrah programs alongside the Amrit single-vineyard range.
 
@@ -113,7 +113,7 @@ Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Baillieu Vineyard](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>)
 
-51 Stanleys Rd, Merricks VIC 3916 · $$
+51 Stanleys Rd, Merricks VIC 3916
 
 A thoughtfully managed Merricks estate making elegant Chardonnay and Pinot Noir that rewards the drive to find it.
 
@@ -125,7 +125,7 @@ Bakery  [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/
 
 ### [Balnarring Bakehouse](<https://peninsulainsider.com.au/eat/balnarring-bakehouse/>)
 
-3050 Frankston-Flinders Rd, Balnarring VIC 3926 · $
+3050 Frankston-Flinders Rd, Balnarring VIC 3926
 
 The village bakehouse for the Balnarring side of the Peninsula, pies, pastries, and the breakfast sandwich that fuels the Saturday market crowd.
 
@@ -137,7 +137,7 @@ Pub  [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/>)
 
 ### [The Heritage Balnarring](<https://peninsulainsider.com.au/eat/balnarring-pub/>)
 
-3059 Frankston-Flinders Rd, Balnarring VIC 3926 · $$
+3059 Frankston-Flinders Rd, Balnarring VIC 3926
 
 Balnarring's village pub, in a 1930s heritage home on a two-acre block, with open fires, a sunny deck and a large beer garden.
 
@@ -149,7 +149,7 @@ Café  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
 ### [Barmah Park Farm Kitchen](<https://peninsulainsider.com.au/eat/barmah-park/>)
 
-3007 Frankston-Flinders Rd, Moorooduc VIC 3933 · $$
+3007 Frankston-Flinders Rd, Moorooduc VIC 3933
 
 All-day farm kitchen and courtyard, brunches, cheese plates, and an easy Peninsula midweek lunch without the wine-country theatre.
 
@@ -161,7 +161,7 @@ Winery  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
 ### [Barmah Park Vineyard](<https://peninsulainsider.com.au/wine/barmah-park-vineyard/>)
 
-3007 Frankston-Flinders Rd, Moorooduc VIC 3933 · $$$
+3007 Frankston-Flinders Rd, Moorooduc VIC 3933
 
 A rustic, intimate cellar door running a five-wine, five-canape pairing from a hatted-standard kitchen, the most structured tasting format on the Peninsula.
 
@@ -173,7 +173,7 @@ Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Birch Creek](<https://peninsulainsider.com.au/stay/birch-creek/>)
 
-Red Hill VIC 3937 · $$
+Red Hill VIC 3937
 
 Two self-contained farm cottages on 40 acres near Red Hill, open fireplaces, outdoor tubs, dog-friendly, and goats.
 
@@ -185,7 +185,7 @@ Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Brewer's Cottage - Red Hill Brewery](<https://peninsulainsider.com.au/stay/brewers-cottage/>)
 
-88 Shoreham Rd, Red Hill South VIC 3937 · $$
+88 Shoreham Rd, Red Hill South VIC 3937
 
 A three-bedroom house on the Red Hill Brewery property, stocked beer fridge, open fire, ten seconds from the bar open Thursday to Sunday.
 
@@ -197,7 +197,7 @@ Villa  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Cassis Red Hill](<https://peninsulainsider.com.au/stay/cassis/>)
 
-Red Hill VIC 3937 · $$$
+Red Hill VIC 3937
 
 Five adults-only villas with private heated mineral plunge pools, on the edge of Red Hill wine country with views over Western Port Bay.
 
@@ -209,7 +209,7 @@ Producer  [Tuerong](<https://peninsulainsider.com.au/explore/places/tuerong/>)
 
 ### [Dexter Wines](<https://peninsulainsider.com.au/wine/dexter-wines/>)
 
-210 Foxeys Road, Tuerong VIC 3915 · $$$
+210 Foxeys Road, Tuerong VIC 3915
 
 Tod and Debbie Dexter produce single-vineyard Pinot Noir and Chardonnay in Tuerong. The vineyard is not open to the public.
 
@@ -221,7 +221,7 @@ Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/
 
 ### [Doot Doot Doot](<https://peninsulainsider.com.au/eat/doot-doot-doot/>)
 
-166 Balnarring Rd, Merricks North VIC 3926 · $$$$
+166 Balnarring Rd, Merricks North VIC 3926
 
 Two hats, a chandelier of 10,000 glass orbs, and the Peninsula's most theatrical dining room.
 
@@ -233,7 +233,7 @@ Winery  [Tuerong](<https://peninsulainsider.com.au/explore/places/tuerong/>)
 
 ### [Dromana Estate](<https://peninsulainsider.com.au/wine/dromana-estate/>)
 
-555 Old Moorooduc Rd, Tuerong VIC 3933 · $$
+555 Old Moorooduc Rd, Tuerong VIC 3933
 
 One of the Peninsula's founding names, cool-climate Chardonnay and Pinot Noir alongside a small run of Italian-leaning bottlings on the quieter hinterland side.
 
@@ -245,7 +245,7 @@ Winery  [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/
 
 ### [Elan Vineyard & Gallery](<https://peninsulainsider.com.au/wine/elan-vineyard/>)
 
-17 Turners Rd, Bittern VIC 3918 · $$
+17 Turners Rd, Bittern VIC 3918
 
 Selma and Jonathan Lowther's 1981 planting, one of the oldest on the Peninsula, with a cellar door that doubles as a small contemporary art gallery.
 
@@ -257,7 +257,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Eldridge Estate](<https://peninsulainsider.com.au/wine/eldridge-estate/>)
 
-120 Arthurs Seat Rd, Red Hill VIC 3937 · $$
+120 Arthurs Seat Rd, Red Hill VIC 3937
 
 David Lloyd's tiny cult estate, single-clone Pinot Noirs from individual rows, plus Gamay, made for the Burgundy obsessives.
 
@@ -269,7 +269,7 @@ Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Elgee Park](<https://peninsulainsider.com.au/wine/elgee-park/>)
 
-89 Junction Rd, Merricks North VIC 3926 · $$
+89 Junction Rd, Merricks North VIC 3926
 
 The Baillieu family's 1972 vineyard, the planting that started the modern Peninsula wine region, still in family hands, still making restrained Chardonnay and Viognier.
 
@@ -281,7 +281,7 @@ Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/
 
 ### [The Epicurean](<https://peninsulainsider.com.au/eat/epicurean-red-hill/>)
 
-165 Purves Rd, Red Hill South VIC 3937 · $$$
+165 Purves Rd, Red Hill South VIC 3937
 
 A Red Hill institution that has turned long lunch into a civic duty.
 
@@ -293,7 +293,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Foxeys Hangout](<https://peninsulainsider.com.au/wine/foxeys-hangout/>)
 
-795 White Hill Rd, Red Hill VIC 3937 · $$
+795 White Hill Rd, Red Hill VIC 3937
 
 Biodynamic Red Hill estate with an all-day deck, sunny long lunches, and a sparkling program that holds its own against anything French.
 
@@ -305,7 +305,7 @@ Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/
 
 ### [Green Olive at Red Hill](<https://peninsulainsider.com.au/eat/green-olive-red-hill/>)
 
-1180 Mornington-Flinders Rd, Red Hill VIC 3937 · $$$
+1180 Mornington-Flinders Rd, Red Hill VIC 3937
 
 A working olive grove and produce kitchen on the Red Hill ridge, grazing boards, wood-fired mains, and oils pressed from the estate's own trees.
 
@@ -317,7 +317,7 @@ Glamping  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Happy Glamper](<https://peninsulainsider.com.au/stay/happy-glamper/>)
 
-Peninsula-wide, based Point Leo VIC 3916 · $$
+Peninsula-wide, based Point Leo VIC 3916
 
 Mobile bell-tent glamping that pitches styled tents at nominated Peninsula foreshore campsites, setup and packdown handled, children welcome.
 
@@ -329,7 +329,7 @@ Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Hideaways at Red Hill](<https://peninsulainsider.com.au/stay/hideaways-red-hill/>)
 
-Red Hill VIC 3937 · $$
+Red Hill VIC 3937
 
 Spa cottages for two with gas fires and in-room spa baths, walking distance from Red Hill village and the weekend market.
 
@@ -341,7 +341,7 @@ Winery  [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/
 
 ### [Hurley Vineyard](<https://peninsulainsider.com.au/wine/hurley-vineyard/>)
 
-101 Balnarring Rd, Balnarring VIC 3926 · $$$
+101 Balnarring Rd, Balnarring VIC 3926
 
 Kevin Bell's boutique single-vineyard Pinot project, three tiny blocks (Lodestone, Garamond, Hommage) and some of the Peninsula's most sought-after bottles.
 
@@ -353,7 +353,7 @@ Hotel  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Jackalope Hotel](<https://peninsulainsider.com.au/stay/jackalope/>)
 
-166 Balnarring Rd, Merricks North VIC 3926 · $$$$
+166 Balnarring Rd, Merricks North VIC 3926
 
 A dramatic art-led design hotel set inside a working vineyard, with Doot Doot Doot's eight-metre chandelier overhead.
 
@@ -365,7 +365,7 @@ Bakery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/
 
 ### [Johnny Ripe](<https://peninsulainsider.com.au/eat/johnny-ripe/>)
 
-1180 Mornington-Flinders Rd, Main Ridge VIC 3928 · $$
+1180 Mornington-Flinders Rd, Main Ridge VIC 3928
 
 The Peninsula's hinterland pie stop, proper beef pies, a sweets cabinet worth detouring for, and a garden café out the back.
 
@@ -377,7 +377,7 @@ Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Kerri Greens](<https://peninsulainsider.com.au/wine/kerri-greens/>)
 
-235 Stanleys Rd, Red Hill South VIC 3937 · $$
+235 Stanleys Rd, Red Hill South VIC 3937
 
 Tom McCarthy and Lucas Blanck's new-school Peninsula label, lighter-style Pinot, approachable Chardonnay, and a cellar door that feels like a bar.
 
@@ -389,7 +389,7 @@ Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/
 
 ### [Kooyong](<https://peninsulainsider.com.au/wine/kooyong/>)
 
-263 Red Hill Rd, Red Hill South VIC 3937 · $$$
+263 Red Hill Rd, Red Hill South VIC 3937
 
 Single-vineyard pinot noir and chardonnay from one of the Peninsula's most decorated estates.
 
@@ -401,7 +401,7 @@ Restaurant  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ri
 
 ### [La Baracca at T'Gallant](<https://peninsulainsider.com.au/eat/la-baracca-tgallant/>)
 
-1385 Mornington-Flinders Rd, Main Ridge VIC 3928 · $$
+1385 Mornington-Flinders Rd, Main Ridge VIC 3928
 
 The Peninsula's original winery pizza barn, wood-fired margheritas, handmade pasta, and T'Gallant's Pinot Grigio by the carafe.
 
@@ -413,7 +413,7 @@ Restaurant  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/
 
 ### [Laura at Pt. Leo](<https://peninsulainsider.com.au/eat/laura-pt-leo/>)
 
-3649 Frankston-Flinders Rd, Merricks VIC 3916 · $$$$
+3649 Frankston-Flinders Rd, Merricks VIC 3916
 
 An intimate fine-dining room at Pt. Leo Estate, with seasonal menus and an unhurried view across the grounds.
 
@@ -425,7 +425,7 @@ Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/
 
 ### [Lightfoot Wines](<https://peninsulainsider.com.au/wine/lightfoot-wines/>)
 
-110 Myers Rd, Main Ridge VIC 3928 · $$
+110 Myers Rd, Main Ridge VIC 3928
 
 A small Main Ridge estate with a focused Pinot and Chardonnay range and one of the ridge's most peaceful tasting rooms.
 
@@ -437,7 +437,7 @@ Hotel  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Lindenderry at Red Hill](<https://peninsulainsider.com.au/stay/lindenderry/>)
 
-142 Arthurs Seat Rd, Red Hill VIC 3937 · $$$
+142 Arthurs Seat Rd, Red Hill VIC 3937
 
 A Red Hill hotel set on 34 acres of gardens and vines, with an on-site dining room and a weekend cellar door.
 
@@ -449,7 +449,7 @@ providore  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-rid
 
 ### [Main Ridge Dairy](<https://peninsulainsider.com.au/eat/main-ridge-dairy/>)
 
-295 Main Creek Rd, Main Ridge VIC 3928 · $$
+295 Main Creek Rd, Main Ridge VIC 3928
 
 A working farmhouse goat dairy on the Main Ridge, farm-made cheeses, goat-milk gelato, and a café with views across the paddocks to the herd.
 
@@ -461,7 +461,7 @@ Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/
 
 ### [Main Ridge Estate](<https://peninsulainsider.com.au/wine/main-ridge-estate/>)
 
-80 William Rd, Red Hill VIC 3937 · $$
+80 William Rd, Red Hill VIC 3937
 
 Planted in 1975 by Nat and Rosalie White, the Peninsula's founding vineyard, still making restrained Pinot and Chardonnay from the original blocks.
 
@@ -473,7 +473,7 @@ Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/
 
 ### [Many Little](<https://peninsulainsider.com.au/eat/many-little/>)
 
-166 Red Hill Rd, Red Hill South VIC 3937 · $$$
+166 Red Hill Rd, Red Hill South VIC 3937
 
 Sri Lankan flavours in a European wine-bar setting, from the Polperro team, paired with natural wines and small Peninsula producers.
 
@@ -485,7 +485,7 @@ Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Merricks Estate](<https://peninsulainsider.com.au/wine/merricks-estate/>)
 
-1 Merricks-Frankston Rd, Merricks VIC 3916 · $$
+1 Merricks-Frankston Rd, Merricks VIC 3916
 
 A small, long-standing Merricks estate making one of the Peninsula's rare serious Shiraz programs alongside Chardonnay and Pinot Noir.
 
@@ -497,7 +497,7 @@ Restaurant  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/
 
 ### [Merricks General Wine Store](<https://peninsulainsider.com.au/eat/merricks-general-wine-store/>)
 
-3460 Frankston-Flinders Rd, Merricks VIC 3916 · $$$
+3460 Frankston-Flinders Rd, Merricks VIC 3916
 
 The old Merricks general store reborn as a cellar door, bakery, and produce-forward lunch room.
 
@@ -509,7 +509,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Montalto Vineyard & Olive Grove](<https://peninsulainsider.com.au/wine/montalto/>)
 
-33 Shoreham Rd, Red Hill South VIC 3937 · $$$
+33 Shoreham Rd, Red Hill South VIC 3937
 
 Single Vineyard Pinot Noir and a Sunday lunch beneath the olive grove canopy.
 
@@ -521,7 +521,7 @@ Winery  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
 ### [Moorooduc Estate](<https://peninsulainsider.com.au/wine/moorooduc-estate/>)
 
-501 Derril Rd, Moorooduc VIC 3933 · $$$
+501 Derril Rd, Moorooduc VIC 3933
 
 Richard McIntyre's pioneering low-intervention estate, home to the Robinson Chardonnay, one of Australia's genuine Chardonnay reference points.
 
@@ -533,7 +533,7 @@ Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/
 
 ### [Morning Sun Vineyard](<https://peninsulainsider.com.au/wine/morning-sun/>)
 
-337 Main Creek Rd, Main Ridge VIC 3928 · $$
+337 Main Creek Rd, Main Ridge VIC 3928
 
 Foxeys' second, quieter Main Ridge site, Italian-feeling long lunches, valley views, and a Pinot Gris program that rewards attention.
 
@@ -545,7 +545,7 @@ Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/
 
 ### [Ocean Eight Vineyard](<https://peninsulainsider.com.au/wine/ocean-eight/>)
 
-271 Tucks Road, Shoreham VIC 3916 · $$$
+271 Tucks Road, Shoreham VIC 3916
 
 Mike Aylward's precise, minimal cellar door turning out some of the Peninsula's most quietly obsessive pinot noir.
 
@@ -557,7 +557,7 @@ Winery  [Tuerong](<https://peninsulainsider.com.au/explore/places/tuerong/>)
 
 ### [Onannon](<https://peninsulainsider.com.au/wine/onannon/>)
 
-110 Tuerong Rd, Tuerong VIC 3933 · $$$
+110 Tuerong Rd, Tuerong VIC 3933
 
 Three winemakers, small-batch Pinot Noir and Chardonnay, and cult-favourite status among Australia's best sommeliers.
 
@@ -569,7 +569,7 @@ Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Paradigm Hill](<https://peninsulainsider.com.au/wine/paradigm-hill/>)
 
-26 Merricks Rd, Merricks VIC 3916 · $$$
+26 Merricks Rd, Merricks VIC 3916
 
 George Mihaly's fastidiously farmed single-site Pinot Noir estate, appointment-only tastings, often led by George himself.
 
@@ -581,7 +581,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Paringa Estate](<https://peninsulainsider.com.au/wine/paringa-estate/>)
 
-44 Paringa Rd, Red Hill South VIC 3937 · $$$
+44 Paringa Rd, Red Hill South VIC 3937
 
 A serious single-vineyard producer with one of the Peninsula's most dependable restaurant terraces.
 
@@ -593,7 +593,7 @@ Restaurant  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/
 
 ### [Point Leo Wine Terrace](<https://peninsulainsider.com.au/eat/point-leo-wine-terrace/>)
 
-3649 Frankston-Flinders Rd, Merricks VIC 3916 · $$$
+3649 Frankston-Flinders Rd, Merricks VIC 3916
 
 The all-day casual option at Point Leo Estate, wood-fired flatbreads, estate wines, and a terrace facing the bay and the sculpture park.
 
@@ -605,7 +605,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Polperro](<https://peninsulainsider.com.au/wine/polperro/>)
 
-150 Red Hill Road, Red Hill VIC 3937 · $$$
+150 Red Hill Road, Red Hill VIC 3937
 
 Small-production cool-climate pinot and chardonnay poured in one of the prettiest tasting rooms on the ridge.
 
@@ -617,7 +617,7 @@ Villa  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Polperro Villas](<https://peninsulainsider.com.au/stay/polperro-villas/>)
 
-150 Red Hill Road, Red Hill VIC 3937 · $$$$
+150 Red Hill Road, Red Hill VIC 3937
 
 Four vineyard villas, each sleeping two with a king-size bed, indoor spa and open fireplace.
 
@@ -629,7 +629,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Port Phillip Estate](<https://peninsulainsider.com.au/wine/port-phillip-estate/>)
 
-263 Red Hill Rd, Red Hill South VIC 3937 · $$$$
+263 Red Hill Rd, Red Hill South VIC 3937
 
 Rammed-earth architecture, an estate dining room and six vineyard suites in Red Hill South.
 
@@ -641,7 +641,7 @@ Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/
 
 ### [Port Phillip Estate Restaurant](<https://peninsulainsider.com.au/wine/port-phillip-estate/>)
 
-263 Red Hill Rd, Red Hill South VIC 3937 · $$$$
+263 Red Hill Rd, Red Hill South VIC 3937
 
 The dining room inside Wood Marsh's rammed-earth building at Port Phillip Estate, architecturally serious, one-hat kitchen, six estate suites.
 
@@ -653,7 +653,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Prancing Horse Estate](<https://peninsulainsider.com.au/wine/prancing-horse-estate/>)
 
-12 Arthurs Seat Rd, Red Hill VIC 3937 · $$$
+12 Arthurs Seat Rd, Red Hill VIC 3937
 
 Organic and biodynamic estate pouring its own Pinot alongside imported Chablis and Burgundy, the Peninsula's most direct Old World–New World comparison tasting.
 
@@ -665,7 +665,7 @@ Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Pt. Leo Estate](<https://peninsulainsider.com.au/wine/pt-leo-estate/>)
 
-3649 Frankston-Flinders Rd, Merricks VIC 3916 · $$$
+3649 Frankston-Flinders Rd, Merricks VIC 3916
 
 A sculpture park walk followed by a long bay-view lunch in the glass-walled restaurant.
 
@@ -677,7 +677,7 @@ Winery  [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/
 
 ### [Quealy Winemakers](<https://peninsulainsider.com.au/wine/quealy-winemakers/>)
 
-62 Bittern-Dromana Rd, Balnarring VIC 3926 · $$
+62 Bittern-Dromana Rd, Balnarring VIC 3926
 
 A foundational Peninsula producer best known for pinot gris, friulano, and a cellar door with real local soul.
 
@@ -689,7 +689,7 @@ Restaurant  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/
 
 ### [Rare Hare at Willow Creek](<https://peninsulainsider.com.au/eat/rare-hare/>)
 
-166 Balnarring Rd, Merricks North VIC 3926 · $$$
+166 Balnarring Rd, Merricks North VIC 3926
 
 Jackalope's relaxed lunch room, wood fire, vineyard views, and plates built for sharing over most of an afternoon.
 
@@ -701,7 +701,7 @@ Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/
 
 ### [Red Gum BBQ](<https://peninsulainsider.com.au/eat/red-gum-bbq/>)
 
-51 Shoreham Rd, Red Hill South VIC 3937 · $$
+51 Shoreham Rd, Red Hill South VIC 3937
 
 Airy warehouse, picnic tables, and low-and-slow American barbecue, pulled pork, brisket, smoked chicken, the family-friendly antidote to the winery-restaurant circuit.
 
@@ -713,7 +713,7 @@ Bakery  [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/
 
 ### [The Red Hill Baker](<https://peninsulainsider.com.au/eat/red-hill-bakery/>)
 
-1/3000 Frankston-Flinders Rd, Balnarring VIC 3926 · $
+1/3000 Frankston-Flinders Rd, Balnarring VIC 3926
 
 Artisan bread, pies and pastries from the bakery's sole current shop in Balnarring.
 
@@ -725,7 +725,7 @@ Brewery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Red Hill Brewery](<https://peninsulainsider.com.au/eat/red-hill-brewery/>)
 
-88 Shoreham Rd, Red Hill South VIC 3937 · $$
+88 Shoreham Rd, Red Hill South VIC 3937
 
 The Peninsula's original craft brewery, Belgian-style ales from the only estate hop farm in Victoria.
 
@@ -737,7 +737,7 @@ providore  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>
 
 ### [Red Hill Cheese](<https://peninsulainsider.com.au/eat/red-hill-cheese/>)
 
-81 William Rd, Red Hill VIC 3937 · $$
+81 William Rd, Red Hill VIC 3937
 
 Small-batch cheesemaker with a tasting room, hard sheep's milk styles, washed rinds, and a rotating seasonal list.
 
@@ -749,7 +749,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Red Hill Estate](<https://peninsulainsider.com.au/wine/red-hill-estate/>)
 
-1208 Mornington-Flinders Road, Main Ridge VIC 3928 · $$$
+1208 Mornington-Flinders Road, Main Ridge VIC 3928
 
 One of the Peninsula's most photographed cellar-door positions, sweeping Western Port views and a serious traditional-method sparkling program.
 
@@ -761,7 +761,7 @@ Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Scorpo Wines](<https://peninsulainsider.com.au/wine/scorpo-wines/>)
 
-23 Old Bittern-Dromana Rd, Merricks North VIC 3926 · $$$
+23 Old Bittern-Dromana Rd, Merricks North VIC 3926
 
 Paul Scorpo's tightly focused family estate, one of the Peninsula's most acclaimed Pinot Gris alongside elegant Chardonnay and Pinot Noir.
 
@@ -773,7 +773,7 @@ Spa  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Spa by Jackalope](<https://peninsulainsider.com.au/explore/spas-and-wellness/#spa-by-jackalope>)
 
-166 Balnarring Rd, Merricks North VIC 3926 · $$$$
+166 Balnarring Rd, Merricks North VIC 3926
 
 The Peninsula's most design-led boutique spa, small, precise, and the natural pairing with a Jackalope stay or a Doot Doot Doot dinner.
 
@@ -785,7 +785,7 @@ Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Stonier Wines](<https://peninsulainsider.com.au/wine/stonier-wines/>)
 
-2 Thompsons Lane, Merricks VIC 3916 · $$
+2 Thompsons Lane, Merricks VIC 3916
 
 One of the Peninsula's founding estates, planted in 1978, grown-up, unflashy, with some of the oldest Chardonnay vines in the region.
 
@@ -797,7 +797,7 @@ Winery  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
 ### [Stumpy Gully Vineyard](<https://peninsulainsider.com.au/wine/stumpy-gully-vineyard/>)
 
-1247 Stumpy Gully Rd, Moorooduc VIC 3933 · $$
+1247 Stumpy Gully Rd, Moorooduc VIC 3933
 
 A family-run estate with one of the Peninsula's broadest varietal ranges, Sangiovese, Marzemino, and Picolit alongside cool-climate classics.
 
@@ -809,7 +809,7 @@ Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/
 
 ### [T'Gallant](<https://peninsulainsider.com.au/wine/t-gallant/>)
 
-1385 Mornington-Flinders Rd, Main Ridge VIC 3928 · $$
+1385 Mornington-Flinders Rd, Main Ridge VIC 3928
 
 The Peninsula's Pinot Grigio pioneer, a family-friendly cellar door on Main Ridge with Italian-inspired food and the estate's Prosecco by the glass.
 
@@ -821,7 +821,7 @@ Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/
 
 ### [Tedesca Osteria](<https://peninsulainsider.com.au/eat/tedesca-osteria/>)
 
-1175 Mornington-Flinders Road, Red Hill VIC 3937 · $$$
+1175 Mornington-Flinders Road, Red Hill VIC 3937
 
 Brigitte Hafner's single-set-menu osteria inside a restored Red Hill farmhouse with the wood oven running all service.
 
@@ -833,7 +833,7 @@ Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/
 
 ### [Ten Minutes by Tractor](<https://peninsulainsider.com.au/wine/ten-minutes-by-tractor/>)
 
-1333 Mornington-Flinders Rd, Main Ridge VIC 3928 · $$$$
+1333 Mornington-Flinders Rd, Main Ridge VIC 3928
 
 Estate-grown pinot noir alongside a seasonal degustation rooted in the Ridge vineyard.
 
@@ -845,7 +845,7 @@ Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [The Orchard Luxury Accommodation](<https://peninsulainsider.com.au/stay/the-orchard-red-hill/>)
 
-Red Hill South VIC 3937 · $$
+Red Hill South VIC 3937
 
 Three rammed-earth self-contained apartments on ten acres of Red Hill South wine country, in-room spa baths, infrared sauna, and valley views.
 
@@ -857,7 +857,7 @@ Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Treetops at Red Hill](<https://peninsulainsider.com.au/stay/treetops-red-hill/>)
 
-80 McIlroys Rd, Red Hill South VIC 3937 · $$
+80 McIlroys Rd, Red Hill South VIC 3937
 
 Two quiet self-contained cottages opposite a micro-vineyard, local breakfast provisions included, and Port Phillip Estate under a kilometre away.
 
@@ -869,7 +869,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Tuck's Ridge](<https://peninsulainsider.com.au/wine/tucks-ridge/>)
 
-37 Red Hill-Shoreham Rd, Red Hill South VIC 3937 · $$
+37 Red Hill-Shoreham Rd, Red Hill South VIC 3937
 
 A founding Red Hill estate, mid-1980s, renewed focus on single-vineyard Pinot Noir and a deck view to Western Port that earns the drive.
 
@@ -881,7 +881,7 @@ Restaurant  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ri
 
 ### [Via Boffe](<https://peninsulainsider.com.au/eat/via-boffe/>)
 
-200 Main Ridge Rd, Main Ridge VIC 3928 · $$$
+200 Main Ridge Rd, Main Ridge VIC 3928
 
 A small, warm Italian room tucked into the hinterland, handmade pasta, a hand-written weekly menu, and the Peninsula's best neighbourhood trattoria.
 
@@ -893,7 +893,7 @@ Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Willow Creek Vineyard](<https://peninsulainsider.com.au/wine/willow-creek-vineyard/>)
 
-166 Balnarring Rd, Merricks North VIC 3926 · $$$$
+166 Balnarring Rd, Merricks North VIC 3926
 
 The vineyard at the heart of Jackalope Hotel, a showpiece single-site program and the home of both Rare Hare and Doot Doot Doot.
 
@@ -905,7 +905,7 @@ Villa  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
 ### [Woodman Estate](<https://peninsulainsider.com.au/stay/woodman-estate/>)
 
-Moorooduc VIC 3931 · $$$$
+Moorooduc VIC 3931
 
 Three lakeside chalets over a private five-acre lake on a 50-acre English country estate, the Peninsula's most pastoral villa option.
 
@@ -917,7 +917,7 @@ Winery  [Tuerong](<https://peninsulainsider.com.au/explore/places/tuerong/>)
 
 ### [Yabby Lake Vineyard](<https://peninsulainsider.com.au/wine/yabby-lake/>)
 
-86-112 Tuerong Rd, Tuerong VIC 3933 · $$$
+86-112 Tuerong Rd, Tuerong VIC 3933
 
 Tom Carson's single-block Chardonnay and Pinot Noir program, poured from a relaxed cellar door with one of the Peninsula's loveliest lunch decks.
 

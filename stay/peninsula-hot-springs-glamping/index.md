@@ -17,8 +17,6 @@ Known for   On-Site Glamping Garden and Lake View Options Secluded Pavilion Acco
 
 Peninsula Hot Springs Glamping · Fingal
 
-Photo · Peninsula Hot Springs
-
 Why we’d go
 
 Accommodation within the hot springs grounds keeps bathing at the centre of the stay.
@@ -54,10 +52,6 @@ Glamping
 **Location**
 
 140 Springs Lane, Fingal VIC 3939 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Peninsula%20Hot%20Springs%20Glamping%2C%20140%20Springs%20Lane%2C%20Fingal%20VIC%203939>)
-
-**Spend**
-
-$$$
 
 **Call**
 
@@ -123,7 +117,7 @@ Cottage  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
 
-10 Nestle Court, Arthurs Seat VIC 3936 · $$
+10 Nestle Court, Arthurs Seat VIC 3936
 
 Five adults-only suites on Arthurs Seat ridge with panoramic Port Phillip Bay views, double spas, and electric log fires.
 
@@ -135,7 +129,7 @@ Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Birch Creek](<https://peninsulainsider.com.au/stay/birch-creek/>)
 
-Red Hill VIC 3937 · $$
+Red Hill VIC 3937
 
 Two self-contained farm cottages on 40 acres near Red Hill, open fireplaces, outdoor tubs, dog-friendly, and goats.
 
@@ -147,7 +141,7 @@ Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 ### [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>)
 
-12 Blakiston Grove, Rye VIC 3941 · $$
+12 Blakiston Grove, Rye VIC 3941
 
 Three 1940s cottages 250 metres from Rye bay beach, Sandpiper is the dog-friendly unit with a wood fire and fenced courtyard.
 

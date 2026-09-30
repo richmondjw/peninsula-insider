@@ -47,7 +47,7 @@ Restaurant  [Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-
 
 ### [Barragunda Dining](<https://peninsulainsider.com.au/eat/barragunda-dining/>)
 
-165 Boneo Rd, Cape Schanck VIC 3939 · $$$$
+165 Boneo Rd, Cape Schanck VIC 3939
 
 Chef Simone Watts's farm dining room on a 1000-acre regenerative estate at Cape Schanck, one of the Peninsula's most compelling new voices.
 
@@ -59,7 +59,7 @@ Villa  [Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-schan
 
 ### [The Cape Retreat](<https://peninsulainsider.com.au/stay/cape-retreat/>)
 
-Cape Schanck VIC 3939 · $$$$
+Cape Schanck VIC 3939
 
 Twelve luxury suites on a Cape Schanck hilltop with Bass Strait views, primarily exclusive-hire, individual suites may be available on enquiry.
 
@@ -71,7 +71,7 @@ Spa  [Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-schanck
 
 ### [One Spa at RACV Cape Schanck Resort](<https://peninsulainsider.com.au/explore/spas-and-wellness/#one-spa-racv-cape-schanck>)
 
-Trent Jones Dr, Cape Schanck VIC 3939 · $$$
+Trent Jones Dr, Cape Schanck VIC 3939
 
 The Peninsula's best resort-style day spa, proper scale, serious treatment menu, and a cliff-edge location that nobody else on the Peninsula can match.
 

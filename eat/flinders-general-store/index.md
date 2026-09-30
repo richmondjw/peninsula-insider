@@ -17,8 +17,6 @@ Known for   Village General Store Format Daily Baked Loaves Picnic Outfitter Fli
 
 Flinders General Store · Flinders
 
-Photo · Daniel Kabel
-
 Why we’d go
 
 Flinders General Store is the reason Flinders Village still feels like a village, a working general store that earns its place on the main street.
@@ -54,10 +52,6 @@ Café
 **Location**
 
 45 Cook St, Flinders VIC 3929 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Flinders%20General%20Store%2C%2045%20Cook%20St%2C%20Flinders%20VIC%203929>)
-
-**Spend**
-
-$$
 
 **Call**
 
@@ -123,7 +117,7 @@ Bakery  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
 ### [Flinders Sourdough](<https://peninsulainsider.com.au/eat/flinders-sourdough/>)
 
-58 Cook Street, Flinders VIC 3929 · $
+58 Cook Street, Flinders VIC 3929
 
 A small Flinders bakery using its original wood-fired oven for naturally fermented sourdough.
 
@@ -135,7 +129,7 @@ Café  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
 ### [Georgie Bass Cafe & Cookery](<https://peninsulainsider.com.au/eat/georgie-bass/>)
 
-30 Cook St, Flinders VIC 3929 · $$
+30 Cook St, Flinders VIC 3929
 
 All-day cafe on Cook Street built around produce from their own farm, the natural anchor for a Flinders morning or a post-cliff-walk lunch.
 
@@ -147,7 +141,7 @@ Restaurant  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/
 
 ### [Moke Dining](<https://peninsulainsider.com.au/eat/moke-dining/>)
 
-60 Cook St, Flinders VIC 3929 · $$$$
+60 Cook St, Flinders VIC 3929
 
 Family-run fine dining on Cook Street, a weekly-changing set menu built on Peninsula produce, led by a chef who represented Australia at Bocuse d'Or.
 

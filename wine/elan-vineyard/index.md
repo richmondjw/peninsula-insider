@@ -17,8 +17,6 @@ Known for   Planted 1981 Cellar Door Art Gallery Selma and Jonathan Lowther West
 
 Elan Vineyard & Gallery · Balnarring
 
-Photo · Peninsula Insider
-
 Why we’d go
 
 Forty years of the same two people farming the same vines, a cellar door that runs at the pace of the winemakers, not the weekend crowd.
@@ -54,10 +52,6 @@ Winery
 **Location**
 
 17 Turners Rd, Bittern VIC 3918 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Elan%20Vineyard%20%26%20Gallery%2C%2017%20Turners%20Rd%2C%20Bittern%20VIC%203918>)
-
-**Spend**
-
-$$
 
 **Call**
 
@@ -95,7 +89,7 @@ Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Avani Wines](<https://peninsulainsider.com.au/wine/avani-wines/>)
 
-98 Stanleys Road, Red Hill South VIC 3937 · $$
+98 Stanleys Road, Red Hill South VIC 3937
 
 Shashi and Rohit Singh's biodynamic family estate, one of the Peninsula's only serious Syrah programs alongside the Amrit single-vineyard range.
 
@@ -107,7 +101,7 @@ Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Baillieu Vineyard](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>)
 
-51 Stanleys Rd, Merricks VIC 3916 · $$
+51 Stanleys Rd, Merricks VIC 3916
 
 A thoughtfully managed Merricks estate making elegant Chardonnay and Pinot Noir that rewards the drive to find it.
 
@@ -119,7 +113,7 @@ Winery  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
 ### [Barmah Park Vineyard](<https://peninsulainsider.com.au/wine/barmah-park-vineyard/>)
 
-3007 Frankston-Flinders Rd, Moorooduc VIC 3933 · $$$
+3007 Frankston-Flinders Rd, Moorooduc VIC 3933
 
 A rustic, intimate cellar door running a five-wine, five-canape pairing from a hatted-standard kitchen, the most structured tasting format on the Peninsula.
 

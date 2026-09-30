@@ -181,7 +181,7 @@ Spa  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
 ### [Alba Thermal Springs & Spa](<https://peninsulainsider.com.au/explore/spas-and-wellness/#alba-thermal-springs>)
 
-282 Browns Road, Fingal VIC 3939 · $$$
+282 Browns Road, Fingal VIC 3939
 
 Contemporary geothermal bathing and spa treatments in a landscaped Fingal setting.
 
@@ -193,7 +193,7 @@ Spa  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
 ### [Peninsula Hot Springs](<https://peninsulainsider.com.au/explore/spas-and-wellness/#peninsula-hot-springs>)
 
-140 Springs Ln, Fingal VIC 3939 · $$$
+140 Springs Ln, Fingal VIC 3939
 
 The original Peninsula thermal springs, still the biggest, still the most complete wellness circuit for people who want the full ritual.
 
@@ -205,7 +205,7 @@ Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/
 
 ### [Tedesca Osteria](<https://peninsulainsider.com.au/eat/tedesca-osteria/>)
 
-1175 Mornington-Flinders Road, Red Hill VIC 3937 · $$$
+1175 Mornington-Flinders Road, Red Hill VIC 3937
 
 Brigitte Hafner's single-set-menu osteria inside a restored Red Hill farmhouse with the wood oven running all service.
 

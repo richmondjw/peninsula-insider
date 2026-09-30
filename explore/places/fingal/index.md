@@ -111,11 +111,11 @@ When a place has a workable bed attached, it stops being a stop and starts becom
 
  [All stays →](<https://peninsulainsider.com.au/stay/>)
 
-Glamping  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
+Lodge  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
 ### [Peninsula Hot Springs Eco Lodges](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-eco-lodges/>)
 
-140 Springs Lane, Fingal VIC 3939 · $$$$
+140 Springs Lane, Fingal VIC 3939
 
 Eco lodge accommodation at Peninsula Hot Springs in Fingal, a separate option from glamping for a stay centred on geothermal bathing.
 
@@ -127,7 +127,7 @@ Glamping  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
 ### [Peninsula Hot Springs Glamping](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/>)
 
-140 Springs Lane, Fingal VIC 3939 · $$$
+140 Springs Lane, Fingal VIC 3939
 
 Glamping accommodation within Peninsula Hot Springs in Fingal, with garden-view, lake-view and secluded pavilion options for a stay built around bathing.
 
@@ -139,7 +139,7 @@ Villa  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
 ### [The Sanctuary at Alba](<https://peninsulainsider.com.au/stay/sanctuary-at-alba/>)
 
-282 Browns Road, Fingal VIC 3939 · $$$$
+282 Browns Road, Fingal VIC 3939
 
 Five secluded villas or two premium rooms above Alba’s springs, with daily bathing and breakfast at Thyme included.
 

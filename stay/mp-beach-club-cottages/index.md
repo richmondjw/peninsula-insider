@@ -17,8 +17,6 @@ Known for   200m from Bay Beach EV Charging Installed Disability-Access Features
 
 Mornington Peninsula Beach Club Cottages · Rye
 
-Photo · Peninsula Insider
-
 Why we’d go
 
 Bay beach, EV charging, disability access, the most practically equipped family and accessibility-friendly cottage option on the bayside.
@@ -55,10 +53,6 @@ Cottage
 
 Tootgarook VIC 3941 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Mornington%20Peninsula%20Beach%20Club%20Cottages%2C%20Tootgarook%20VIC%203941>)
 
-**Spend**
-
-$$
-
 **Website**
 
 [mpcottages.com](<https://mpcottages.com/>)
@@ -87,7 +81,7 @@ Cottage  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
 
-10 Nestle Court, Arthurs Seat VIC 3936 · $$
+10 Nestle Court, Arthurs Seat VIC 3936
 
 Five adults-only suites on Arthurs Seat ridge with panoramic Port Phillip Bay views, double spas, and electric log fires.
 
@@ -99,7 +93,7 @@ Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Birch Creek](<https://peninsulainsider.com.au/stay/birch-creek/>)
 
-Red Hill VIC 3937 · $$
+Red Hill VIC 3937
 
 Two self-contained farm cottages on 40 acres near Red Hill, open fireplaces, outdoor tubs, dog-friendly, and goats.
 
@@ -111,7 +105,7 @@ Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 ### [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>)
 
-12 Blakiston Grove, Rye VIC 3941 · $$
+12 Blakiston Grove, Rye VIC 3941
 
 Three 1940s cottages 250 metres from Rye bay beach, Sandpiper is the dog-friendly unit with a wood fire and fenced courtyard.
 

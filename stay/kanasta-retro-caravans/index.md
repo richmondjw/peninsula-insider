@@ -17,8 +17,6 @@ Known for   1950s–60s Styled Caravans 500m from Rye Bay Beach Dog-Friendly Uni
 
 Mornington Peninsula Retro Caravans · Rye
 
-Photo · Peninsula Insider
-
 Why we’d go
 
 Retro caravans, 500 metres from the bay beach, dogs welcome, the most accessible and characterful overnight option on the bay side.
@@ -55,10 +53,6 @@ Glamping
 
 1-9 Sinclair Ave, Rye VIC 3941 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Mornington%20Peninsula%20Retro%20Caravans%2C%201-9%20Sinclair%20Ave%2C%20Rye%20VIC%203941>)
 
-**Spend**
-
-$$
-
 **Website**
 
 [kanastacaravanpark.com.au/retro-caravans](<https://kanastacaravanpark.com.au/retro-caravans/>)
@@ -87,7 +81,7 @@ Cottage  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
 
-10 Nestle Court, Arthurs Seat VIC 3936 · $$
+10 Nestle Court, Arthurs Seat VIC 3936
 
 Five adults-only suites on Arthurs Seat ridge with panoramic Port Phillip Bay views, double spas, and electric log fires.
 
@@ -99,7 +93,7 @@ Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Birch Creek](<https://peninsulainsider.com.au/stay/birch-creek/>)
 
-Red Hill VIC 3937 · $$
+Red Hill VIC 3937
 
 Two self-contained farm cottages on 40 acres near Red Hill, open fireplaces, outdoor tubs, dog-friendly, and goats.
 
@@ -111,7 +105,7 @@ Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 ### [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>)
 
-12 Blakiston Grove, Rye VIC 3941 · $$
+12 Blakiston Grove, Rye VIC 3941
 
 Three 1940s cottages 250 metres from Rye bay beach, Sandpiper is the dog-friendly unit with a wood fire and fenced courtyard.
 

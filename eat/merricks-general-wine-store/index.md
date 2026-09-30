@@ -77,10 +77,6 @@ Restaurant
 
 3460 Frankston-Flinders Rd, Merricks VIC 3916 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Merricks%20General%20Wine%20Store%2C%203460%20Frankston-Flinders%20Rd%2C%20Merricks%20VIC%203916>)
 
-**Spend**
-
-$$$
-
 **Call**
 
 +61 3 5989 8088
@@ -163,7 +159,7 @@ Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Baillieu Vineyard](<https://peninsulainsider.com.au/eat/baillieu-vineyard/>)
 
-51 Stanleys Rd, Merricks VIC 3916 · $$
+51 Stanleys Rd, Merricks VIC 3916
 
 A thoughtfully managed Merricks estate making elegant Chardonnay and Pinot Noir that rewards the drive to find it.
 
@@ -175,7 +171,7 @@ Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Elgee Park](<https://peninsulainsider.com.au/eat/elgee-park/>)
 
-89 Junction Rd, Merricks North VIC 3926 · $$
+89 Junction Rd, Merricks North VIC 3926
 
 The Baillieu family's 1972 vineyard, the planting that started the modern Peninsula wine region, still in family hands, still making restrained Chardonnay and Viognier.
 
@@ -187,7 +183,7 @@ Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Kerri Greens](<https://peninsulainsider.com.au/eat/kerri-greens/>)
 
-235 Stanleys Rd, Red Hill South VIC 3937 · $$
+235 Stanleys Rd, Red Hill South VIC 3937
 
 Tom McCarthy and Lucas Blanck's new-school Peninsula label, lighter-style Pinot, approachable Chardonnay, and a cellar door that feels like a bar.
 

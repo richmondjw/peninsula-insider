@@ -51,10 +51,6 @@ Bakery
 
 1/3000 Frankston-Flinders Rd, Balnarring VIC 3926 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=The%20Red%20Hill%20Baker%2C%201%2F3000%20Frankston-Flinders%20Rd%2C%20Balnarring%20VIC%203926>)
 
-**Spend**
-
-$
-
 **Website**
 
 [www.redhillbaker.com.au](<https://www.redhillbaker.com.au/>)
@@ -113,7 +109,7 @@ Bakery  [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/
 
 ### [Balnarring Bakehouse](<https://peninsulainsider.com.au/eat/balnarring-bakehouse/>)
 
-3050 Frankston-Flinders Rd, Balnarring VIC 3926 · $
+3050 Frankston-Flinders Rd, Balnarring VIC 3926
 
 The village bakehouse for the Balnarring side of the Peninsula, pies, pastries, and the breakfast sandwich that fuels the Saturday market crowd.
 
@@ -125,7 +121,7 @@ Pub  [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/>)
 
 ### [The Heritage Balnarring](<https://peninsulainsider.com.au/eat/balnarring-pub/>)
 
-3059 Frankston-Flinders Rd, Balnarring VIC 3926 · $$
+3059 Frankston-Flinders Rd, Balnarring VIC 3926
 
 Balnarring's village pub, in a 1930s heritage home on a two-acre block, with open fires, a sunny deck and a large beer garden.
 
@@ -137,7 +133,7 @@ Winery  [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/
 
 ### [Elan Vineyard & Gallery](<https://peninsulainsider.com.au/eat/elan-vineyard/>)
 
-17 Turners Rd, Bittern VIC 3918 · $$
+17 Turners Rd, Bittern VIC 3918
 
 Selma and Jonathan Lowther's 1981 planting, one of the oldest on the Peninsula, with a cellar door that doubles as a small contemporary art gallery.
 

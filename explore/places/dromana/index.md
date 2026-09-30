@@ -119,7 +119,7 @@ Restaurant  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Crittenden Restaurant](<https://peninsulainsider.com.au/eat/crittenden-restaurant/>)
 
-25 Harrisons Rd, Dromana VIC 3936 · $$
+25 Harrisons Rd, Dromana VIC 3936
 
 Lakeside dining under a vine-strung pergola at one of the Peninsula's founding wineries, now Crittenden Restaurant under Head Chef Brunno Melo.
 
@@ -131,7 +131,7 @@ Pub  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Dromana Hotel](<https://peninsulainsider.com.au/eat/dromana-hotel/>)
 
-121 Point Nepean Rd, Dromana VIC 3936 · $$
+121 Point Nepean Rd, Dromana VIC 3936
 
 Sprawling beachfront pub with an enormous deck and bay views, the straightforward bayside pub day done correctly.
 
@@ -143,7 +143,7 @@ Brewery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Jetty Road Brewery](<https://peninsulainsider.com.au/eat/jetty-road-brewery/>)
 
-12-14 Brasser Ave, Dromana VIC 3936 · $$
+12-14 Brasser Ave, Dromana VIC 3936
 
 A polished industrial taproom next door to the Dromana drive-in, core beers, rolling seasonals, and the easiest bayside brewery stop on the Peninsula.
 
@@ -165,7 +165,7 @@ Winery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Crittenden Estate](<https://peninsulainsider.com.au/wine/crittenden-estate/>)
 
-25 Harrisons Rd, Dromana VIC 3936 · $$
+25 Harrisons Rd, Dromana VIC 3936
 
 The Peninsula's pioneering estate, four decades of Crittenden family winemaking, Pinot, Chardonnay, and the Spanish-Italian Los Hermanos range from a new lakeside wine centre.
 
@@ -177,7 +177,7 @@ Winery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Phaedrus Estate](<https://peninsulainsider.com.au/wine/phaedrus-estate/>)
 
-220 Mornington-Flinders Rd, Red Hill VIC 3937 · $$
+220 Mornington-Flinders Rd, Red Hill VIC 3937
 
 A quieter Dromana-side estate making honest, characterful wines, Viognier, Sangiovese, and Pinot alongside the Peninsula classics.
 
@@ -189,7 +189,7 @@ Winery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Trofeo Estate](<https://peninsulainsider.com.au/wine/trofeo-estate/>)
 
-420 Old Moorooduc Rd, Dromana VIC 3936 · $$$
+420 Old Moorooduc Rd, Dromana VIC 3936
 
 The Peninsula's only amphora winery, terracotta-aged Sangiovese, Fiano, and Nebbiolo, and a cellar worth visiting on its own terms.
 
@@ -211,7 +211,7 @@ Cottage  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
 
-10 Nestle Court, Arthurs Seat VIC 3936 · $$
+10 Nestle Court, Arthurs Seat VIC 3936
 
 Five adults-only suites on Arthurs Seat ridge with panoramic Port Phillip Bay views, double spas, and electric log fires.
 
@@ -223,7 +223,7 @@ Villa  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Crittenden Estate Villas](<https://peninsulainsider.com.au/stay/crittenden-villas/>)
 
-25 Harrisons Rd, Dromana VIC 3936 · $$$
+25 Harrisons Rd, Dromana VIC 3936
 
 Self-contained lakeside villas at Crittenden Estate, with a cellar door and restaurant on the property.
 

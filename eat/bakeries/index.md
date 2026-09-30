@@ -29,7 +29,7 @@ Bakery  [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/
 
 ### [Balnarring Bakehouse](<https://peninsulainsider.com.au/eat/balnarring-bakehouse/>)
 
-3050 Frankston-Flinders Rd, Balnarring VIC 3926 · $
+3050 Frankston-Flinders Rd, Balnarring VIC 3926
 
 The village bakehouse for the Balnarring side of the Peninsula, pies, pastries, and the breakfast sandwich that fuels the Saturday market crowd.
 
@@ -41,7 +41,7 @@ Bakery  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
 ### [Flinders Sourdough](<https://peninsulainsider.com.au/eat/flinders-sourdough/>)
 
-58 Cook Street, Flinders VIC 3929 · $
+58 Cook Street, Flinders VIC 3929
 
 A small Flinders bakery using its original wood-fired oven for naturally fermented sourdough.
 
@@ -53,7 +53,7 @@ Bakery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/
 
 ### [Johnny Ripe](<https://peninsulainsider.com.au/eat/johnny-ripe/>)
 
-1180 Mornington-Flinders Rd, Main Ridge VIC 3928 · $$
+1180 Mornington-Flinders Rd, Main Ridge VIC 3928
 
 The Peninsula's hinterland pie stop, proper beef pies, a sweets cabinet worth detouring for, and a garden café out the back.
 
@@ -65,7 +65,7 @@ Bakery  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/
 
 ### [Sourdough Kitchen](<https://peninsulainsider.com.au/eat/sourdough-kitchen/>)
 
-231 Main St, Mornington VIC 3931 · $$
+231 Main St, Mornington VIC 3931
 
 A small-batch sourdough baker at the top of Mornington's Main Street, long-fermented loaves, a tight pastry line, and the best bread in town.
 
@@ -77,7 +77,7 @@ Bakery  [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/
 
 ### [The Red Hill Baker](<https://peninsulainsider.com.au/eat/red-hill-bakery/>)
 
-1/3000 Frankston-Flinders Rd, Balnarring VIC 3926 · $
+1/3000 Frankston-Flinders Rd, Balnarring VIC 3926
 
 Artisan bread, pies and pastries from the bakery's sole current shop in Balnarring.
 

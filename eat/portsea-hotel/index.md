@@ -17,8 +17,6 @@ Known for   Front-Row Port Phillip Views Portsea Front Beach Location Fish and C
 
 Portsea Hotel · Portsea
 
-Photo · Chris Olszewski (Kgbo) / Wikimedia Commons (CC BY-SA 4.0)
-
 Why we’d go
 
 The Portsea Hotel has one of the best views of any pub in Victoria and, more impressively, has mostly avoided ruining the experience.
@@ -54,10 +52,6 @@ Pub
 **Location**
 
 3746 Point Nepean Rd, Portsea VIC 3944 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Portsea%20Hotel%2C%203746%20Point%20Nepean%20Rd%2C%20Portsea%20VIC%203944>)
-
-**Spend**
-
-$$
 
 **Call**
 

@@ -219,7 +219,7 @@ Hotel  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 
 ### [Hotel Sorrento](<https://peninsulainsider.com.au/stay/hotel-sorrento/>)
 
-5-15 Hotham Rd, Sorrento VIC 3943 · $$$
+5-15 Hotham Rd, Sorrento VIC 3943
 
 A grand old bay-facing pub-hotel whose best rooms still make Sorrento feel gloriously old-school.
 
@@ -231,7 +231,7 @@ Pub  [Portsea](<https://peninsulainsider.com.au/explore/places/portsea/>)
 
 ### [Portsea Hotel](<https://peninsulainsider.com.au/eat/portsea-hotel/>)
 
-3746 Point Nepean Rd, Portsea VIC 3944 · $$
+3746 Point Nepean Rd, Portsea VIC 3944
 
 The front-row pub on Port Phillip, still the cleanest long lunch at the tip of the Peninsula.
 
@@ -243,7 +243,7 @@ Restaurant  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/
 
 ### [The Baths Sorrento](<https://peninsulainsider.com.au/eat/the-baths-sorrento/>)
 
-3278 Point Nepean Rd, Sorrento VIC 3943 · $$$
+3278 Point Nepean Rd, Sorrento VIC 3943
 
 Sorrento's most enduring waterfront dining room, perched on the sand with Port Phillip Bay at your feet and a seafood-first menu.
 
