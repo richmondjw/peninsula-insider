@@ -90,7 +90,7 @@ body[data-v4] .submit-grid :is(input,textarea,select) { max-width: 100%; }
 @media (max-width:47.94em) {
   body[data-v4] .breadcrumbs__list { flex-wrap: nowrap; overflow: hidden; }
   body[data-v4] .breadcrumbs__item:last-child { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  body[data-v4] .breadcrumbs__item:last-child span { display: inline; }
+  body[data-v4] .breadcrumbs__item:last-child span { display: block; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 }
 /* Component display rules must not expose inactive form, account or trip states. */
 body[data-v4] [hidden]:not([hidden="until-found"]) { display: none !important; }

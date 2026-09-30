@@ -64,15 +64,6 @@ aiSummary:
 
 A single overnight can feel like a proper break: one room, one dinner, one morning that belongs to you. Done loosely, it becomes a long drive for a hotel room and two meals you could have had at home.
 
-Choose the sequence before you leave, so the drive is not spent negotiating the next stop.
-
-## The core idea: one arc, three moves
-
-Start with an arrival ritual: a coastal walk, a thermal bath if it fits your route, or a drink in town as the light goes.
-
-Book one good dinner close to your room. Leave the rest of the night open.
-
-Protect the slow morning. Coffee outside, a short walk, breakfast without watching the clock. Three moves are enough.
 
 ## The three bases that make a one-night trip work
 

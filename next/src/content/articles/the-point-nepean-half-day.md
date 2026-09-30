@@ -74,7 +74,7 @@ Allow at least an hour for the open tunnels. From the fort, watch ships thread t
 
 ## What to actually see: the quarantine station
 
-Back at the **Quarantine Station**, explore the nineteenth-century isolation complex used from 1852 until 1980 to house arriving migrants. It includes the only surviving deep-sea boiler disinfection plant in Australia. Selected buildings are open to visitors; follow signed access on a self-guided walk through the precinct.
+Back at the **Quarantine Station**, explore the nineteenth-century isolation complex used from 1852 until 1980 to house arriving migrants. Its historic disinfection and boiler buildings became models for quarantine centres elsewhere in Australia. Selected buildings are open to visitors; follow signed access on a self-guided walk through the precinct.
 
 The Gold Rush connection, thousands of prospective diggers held in quarantine here through the 1850s, is the story most visitors are not expecting, and it is the one worth reading the interpretive signs for.
 

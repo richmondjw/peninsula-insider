@@ -93,7 +93,7 @@ If Saturday's long lunch is the centrepiece, stay inland near Red Hill or Merric
 
 Allow for traffic and check-in, then head to your stay without adding a first stop. Keep dinner close to your room:
 
-- **Inland villa:** Cook something simple in the kitchen with produce you picked up on the way down, or order a cheese board from the venue and open a second bottle.
+- **Inland villa:** Cook something simple in the kitchen with produce you picked up on the way down, or bring a cheese board. Ask your accommodation about any food add-ons.
 - **Inland hotel:** Reserve **Doot Doot Doot** if you stay at Jackalope. Theatrically good, and walking back to your room afterwards is part of the appeal of staying here.
 - **Coastal village:** Walk to the pub. **Flinders Hotel** bistro or the **Hotel Sorrento** front bar. Nothing fancy. Eat, drink, sleep.
 

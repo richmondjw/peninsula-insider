@@ -42,7 +42,7 @@
     <div class="cookie-banner__copy">
       <p class="cookie-banner__title">A note on cookies</p>
       <p class="cookie-banner__body">
-        Browser storage supports sign-in and remembers your choices. With your permission, Google Analytics helps us understand site use.
+        Sign-in storage is essential. Analytics is optional.
         <a href="/privacy/">Privacy policy.</a>
       </p>
     </div>
@@ -344,6 +344,9 @@
     justify-content: flex-start;
     align-items: center;
   }
+
+  .cookie-banner__actions .pi-btn,
+  .cookie-banner__manage-actions .pi-btn { min-height: 44px; }
 
   .cookie-banner__manage {
     border-top: 1px solid var(--border-strong);
