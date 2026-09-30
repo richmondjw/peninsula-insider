@@ -84,7 +84,6 @@ const cards = await Promise.all(
       badge: 'Editorial image',
     } : contextPhotos[slug] ? {
       ...contextPhotos[slug],
-      badge: 'Context photo',
     } : !hero.override && hero.hasPhoto && recorded?.alt && recorded?.credit && status !== 'unverified' ? {
       src: hero.src,
       alt: recorded.alt,
