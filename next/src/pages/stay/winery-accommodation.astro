@@ -160,6 +160,7 @@ export const prerender = true;
 
   <NewsletterBlock />
   <style>
+    #rankings, #choose-your-base { scroll-margin-top: 9rem; }
     .wine-hero {
       background: radial-gradient(circle at 90% 15%, #f9f6ef 0, #f2efe9 58%, #ebe7df 100%);
       color: #0b2e4a;
@@ -235,6 +236,7 @@ export const prerender = true;
       .wine-chooser__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     @media (max-width: 700px) {
+      #rankings, #choose-your-base { scroll-margin-top: 5rem; }
       .wine-hero__inner { display: block; padding-block: 30px 34px; }
       .wine-hero__copy .label { margin-bottom: 12px; }
       .wine-hero h1 { font-size: clamp(2.55rem, 10vw, 3.8rem); max-width: 12ch; }
