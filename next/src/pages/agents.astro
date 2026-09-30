@@ -50,10 +50,10 @@ export const prerender = true;
   .agent-guide a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
   .agent-guide__nav { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; margin-top: 1.5rem; }
   .agent-guide__nav a { padding-block: .65rem; }
-  .agent-guide section { border-top: 1px solid var(--rule); padding-block: 3rem; scroll-margin-top: 8rem; }
+  .agent-guide section { border-top: 1px solid var(--border); padding-block: 3rem; scroll-margin-top: 8rem; }
   .agent-guide__section-heading { max-width: 45rem; margin-bottom: 2rem; }
   .agent-guide__routes { margin: 0; }
-  .agent-guide__route { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: 1rem 3rem; padding-block: 1.4rem; border-top: 1px solid var(--rule); }
+  .agent-guide__route { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: 1rem 3rem; padding-block: 1.4rem; border-top: 1px solid var(--border); }
   .agent-guide__route dt { font-size: 1.15rem; font-weight: 600; }
   .agent-guide__route dt span { display: block; font-size: .85rem; font-weight: 400; color: var(--muted); margin-top: .4rem; }
   .agent-guide__route dd { margin: 0; }
@@ -67,4 +67,3 @@ export const prerender = true;
   .agent-guide__closing { max-width: 70ch; }
   @media (max-width: 700px) { .agent-guide { padding-block: 2rem; } .agent-guide__route, .agent-guide__split { grid-template-columns: 1fr; gap: .7rem; } .agent-guide__split { gap: 2rem; } .agent-guide section { padding-block: 2rem; } }
 </style>
-
