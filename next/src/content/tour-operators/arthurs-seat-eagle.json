@@ -4,8 +4,8 @@
   "operatorType": "activity-specialist",
   "website": "https://aseagle.com.au/",
   "pickupPoints": [
-    "Dromana Terminal, Arthurs Seat State Park",
-    "Arthurs Seat Summit Terminal"
+    "Base Station, 1085 Arthurs Seat Road, Dromana VIC 3936",
+    "Summit Station, 795 Arthurs Seat Road, Arthurs Seat VIC 3936"
   ],
   "languages": [
     "en"
@@ -13,8 +13,8 @@
   "maxCapacity": 240,
   "affiliateProgram": "unknown",
   "vetted": true,
-  "intro": "Arthurs Seat Eagle is a gondola lift connecting the Dromana foreshore at sea level to the 305-metre summit of Arthurs Seat, delivering panoramic views over Port Phillip Bay and the Peninsula hinterland in a 15-minute one-way journey. The system reopened in 2016 following a major infrastructure rebuild and is fully accessible, accommodating wheelchairs and prams with no minimum age or fitness requirement. The summit has a cafe (Eagles Nest) and access to marked walking tracks.",
-  "whatGoodAt": "Making Peninsula panoramic views accessible to guests of all ages and mobility levels without any physical effort required. The gondola ride is the experience in itself, and the enclosed cabins make this a viable outing even when weather at ground level is uninviting. The summit cafe means a complete half-day without additional logistics.",
+  "intro": "Arthurs Seat Eagle is a gondola lift connecting its Base Station on Arthurs Seat Road in Dromana to the 305-metre summit of Arthurs Seat, delivering panoramic views over Port Phillip Bay and the Peninsula hinterland in a 15-minute one-way journey. The system reopened in 2016 following a major infrastructure rebuild and offers level boarding for wheelchairs and prams that fit the 80cm cabin doorway. Oversized equipment may not fit, and mobility scooters cannot enter the cabins. The summit has a cafe (Eagles Nest) and access to marked walking tracks.",
+  "whatGoodAt": "Reaching Peninsula panoramic views without a hike. Check cabin access before visiting: the doorway is 80cm wide, oversized wheelchairs and double prams may not fit, and mobility scooters are not accommodated. The gondola ride is the experience in itself, and the enclosed cabins make this a viable outing even when weather at ground level is uninviting. The summit cafe means a complete half-day without additional logistics.",
   "notSuitedFor": "Guests with severe vertigo or a genuine fear of heights, as the cabins are enclosed but the elevation is real. Those seeking a physically challenging or adventurous experience will find this deliberately gentle. Groups wanting something private or exclusive should note this is a public attraction with significant weekend crowds during summer and school holidays.",
   "heroImage": {
     "src": "/images/visit-victoria/vv-167085-arthurs-seat-eagle.webp",
@@ -201,5 +201,11 @@
       "decorative": false,
       "provenanceReview": "verified"
     }
-  ]
+  ],
+  "editorialProvenance": {
+    "method": "researched",
+    "reviewedOn": "2026-10-01",
+    "checkedBy": "desk",
+    "source": "Bounded desk review: station addresses and cabin accessibility qualifications. Official sources: https://aseagle.com.au/getting-here/ ; https://aseagle.com.au/accessibility/. Other record fields were not reverified by this review."
+  }
 }

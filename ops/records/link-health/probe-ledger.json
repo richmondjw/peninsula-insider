@@ -1,6 +1,6 @@
 {
   "note": "Probe results for source URLs cited by the corpus. Written ONLY by next/scripts/probe-link-health.mjs, by a human or a scheduled job, never by a build. Read offline by next/scripts/audit-link-health.mjs. A verdict is what a probe saw, not an inference. This file is a RECORD, not a report: it does not live under ops/reports/ because nothing here is reproducible from the tree, and reverting it destroys evidence rather than regenerating it.",
-  "updatedAt": "2026-09-30T19:40:07.641Z",
+  "updatedAt": "2026-09-30T22:01:12.829Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -124,6 +124,14 @@
       "pageTitle": "Arthurs Seat Eagle | Cable Car - Gondola Rides in Mornington Peninsula"
     },
     {
+      "url": "https://aseagle.com.au/accessibility/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Enjoy Easy Accessibility at Arthurs Seat Eagle",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://aseagle.com.au/book",
       "verdict": "moved",
       "httpCode": "404",
@@ -134,6 +142,14 @@
       "dispositionNote": "Operator renamed the booking path. /tickets/ returns 200, title 'Eagle Cable Car Tickets | Soar Above Arthurs Seat'.",
       "reviewedOn": "2026-09-13",
       "replacement": "https://aseagle.com.au/tickets/"
+    },
+    {
+      "url": "https://aseagle.com.au/getting-here/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Find Your Way to Arthurs Seat Eagle",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://aseagle.com.au/tickets/",
@@ -940,11 +956,19 @@
       "pageTitle": "Moonlit Sanctuary - The best place to see Aussie animals!"
     },
     {
+      "url": "https://moonlitsanctuary.com.au/contact/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Contact - Moonlit Sanctuary",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://moonlitsanctuary.com.au/night-tours/",
       "verdict": "ok",
       "httpCode": "200",
-      "probedOn": "2026-09-13",
-      "probedBy": "audit-link-health.mjs --probe",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs",
       "pageTitle": "NIGHT TOURS - Moonlit Sanctuary Wildlife Park"
     },
     {
@@ -3313,8 +3337,8 @@
       "url": "https://www.parks.vic.gov.au/places-to-see/parks/point-nepean-national-park",
       "verdict": "ok",
       "httpCode": "200",
-      "probedOn": "2026-09-13",
-      "probedBy": "audit-link-health.mjs --probe",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs",
       "pageTitle": "Point Nepean National Park"
     },
     {
@@ -3329,8 +3353,8 @@
       "url": "https://www.parks.vic.gov.au/places-to-see/sites/bushrangers-bay-walk",
       "verdict": "ok",
       "httpCode": "200",
-      "probedOn": "2026-09-13",
-      "probedBy": "audit-link-health.mjs --probe",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs",
       "pageTitle": "Bushrangers Bay Walk (Mornington Peninsula National Park)"
     },
     {
@@ -3340,6 +3364,14 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Greens Bush Access - Greens Road (Mornington Peninsula National Park)"
+    },
+    {
+      "url": "https://www.parks.vic.gov.au/projects/greater-melbourne/Cape-Schanck-boardwalk-improvements",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Cape Schanck boardwalk improvements",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.peninsulafestival.com.au",
