@@ -50,7 +50,7 @@
     ],
     "tastingFee": "Charged",
     "bookingRequired": false,
-    "tastingNote": "Walk-ins welcome for groups up to 6. Four tasting tiers: Standard, Red, White and Premium - all include 5 wines; fee partly refundable on bottle purchase. Laura restaurant requires advance booking."
+    "tastingNote": "Walk-ins welcome for groups up to 6. Four tasting tiers: Standard, Red, White and Premium - all include 5 wines; fee partly refundable on bottle purchase. The estate advises restaurant reservations and requires them on weekends, during peak periods and on public holidays."
   },
   "wines": {
     "winemaker": "Tod Dexter",
@@ -93,7 +93,7 @@
   "faq": [
     {
       "q": "Does Pt. Leo Estate take walk-ins or do you need to book?",
-      "a": "Walk-ins are welcome at the cellar door for groups of up to 6 guests. Laura and the main restaurant require advance bookings."
+      "a": "Walk-ins are welcome at the cellar door for groups of up to 6 guests. The estate advises restaurant reservations and requires them on weekends, during peak periods and on public holidays."
     },
     {
       "q": "Does Pt. Leo Estate have a restaurant?",
@@ -102,6 +102,10 @@
     {
       "q": "Are dogs allowed at Pt. Leo Estate?",
       "a": "No. Only on-duty Guide Dogs and certified service animals are permitted on the property."
+    },
+    {
+      "q": "Does Pt. Leo Estate have accommodation on site?",
+      "a": "No. Pt. Leo Estate does not provide on-site accommodation. Book a separate nearby stay and confirm availability directly with its operator."
     }
   ],
   "sameAs": {
@@ -456,5 +460,11 @@
   "lastVerified": "2026-04-01",
   "publishedAt": "2026-04-01",
   "sitemapExclude": false,
-  "editorPick": true
+  "editorPick": true,
+  "editorialProvenance": {
+    "method": "researched",
+    "reviewedOn": "2026-10-01",
+    "checkedBy": "desk",
+    "source": "Limited correction on 2026-10-01: the absence of on-site accommodation and qualified restaurant booking guidance checked against https://www.ptleoestate.com.au/faqs/. Other fields were not reverified; no whole-record fact-check date assigned."
+  }
 }

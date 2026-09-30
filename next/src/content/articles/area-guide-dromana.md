@@ -39,11 +39,16 @@ faq:
     answer: "Spring through autumn, when the chairlift, beach and hill roads all align. Clear winter days also suit it if you are using Dromana as a base rather than a swim destination."
   - question: "How far is Dromana from Melbourne?"
     answer: "Usually about 70 to 90 minutes by car via Peninsula Link, often making it one of the easiest substantial Peninsula towns to reach."
+editorialProvenance:
+  method: researched
+  reviewedOn: 2026-10-01
+  checkedBy: desk
+  source: "Limited correction on 2026-10-01: Dromana bay, adjacent towns and position beneath Arthurs Seat checked against https://www.visitmorningtonpeninsula.org/Places-To-See/Towns-Villages/Dromana/common. Other fields were not reverified; no whole-record fact-check date assigned."
 ---
 
 Dromana does not have Sorrento's social theatre, Red Hill's tasting-room prestige or Flinders' cultivated quiet. What it does have is usefulness, and on the Peninsula that matters.
 
-Dromana sits where the land lifts. The beach stretches long and practical on one side, Arthurs Seat rises immediately behind, and the roads up into the hinterland begin almost as soon as the shops thin out. That geography makes Dromana one of the Peninsula's better base towns, especially for visitors who want range without paying for a more romantic postcode.
+Dromana sits on Port Phillip Bay between Safety Beach and McCrae, at the foot of Arthurs Seat. This is where the land lifts. The beach stretches long and practical on one side, Arthurs Seat rises immediately behind, and the roads up into the hinterland begin almost as soon as the shops thin out. That geography makes Dromana one of the Peninsula's better base towns, especially for visitors who want range without paying for a more romantic postcode.
 
 **Best for:** first-timers who value practicality, families, bay-and-wine split weekends, and anyone who wants access rather than mystique.
 

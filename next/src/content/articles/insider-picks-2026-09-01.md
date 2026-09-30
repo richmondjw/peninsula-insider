@@ -33,7 +33,12 @@ faq:
   - question: "When does the Hill & Ridge Community Market run and where exactly is it?"
     answer: "The Hill & Ridge Market returns Saturday 5 September 2026, 9am–2pm, at Red Hill Recreation Reserve, Arthurs Seat Road, Red Hill. Entry is free. It runs monthly from September through to its summer schedule."
   - question: "Is the Bushrangers Bay Track accessible from Cape Schanck in winter and early spring?"
-    answer: "The track is open year-round but the first half of September is prime timing: whipstick wattle is flowering along the ridgeline, the coastal heath is low after winter, and offshore swell tends to be cleanest early in the week. Allow 90 minutes return. The trailhead is at Cape Schanck Lighthouse Reserve, Boneo Road, Cape Schanck."
+    answer: "The track is open year-round but the first half of September is prime timing: whipstick wattle is flowering along the ridgeline, the coastal heath is low after winter, and offshore swell tends to be cleanest early in the week. Allow about two hours return, with extra time for stops. The trailhead is at Cape Schanck eastern carpark, Cape Schanck Road."
+editorialProvenance:
+  method: researched
+  reviewedOn: 2026-10-01
+  checkedBy: desk
+  source: "Limited correction on 2026-10-01: Bushrangers Bay Cape Schanck route duration/distance and, where changed, wave hazard caveats only checked against https://www.parks.vic.gov.au/places-to-see/sites/bushrangers-bay-walk. Other fields were not reverified; no whole-record fact-check date assigned."
 ---
 
 ## Eat: Green Olive at Red Hill
@@ -52,9 +57,9 @@ Pair it with a walk through the grove before the meal; the morning light through
 
 The Bushrangers Bay Track is a different walk in the first week of September than it is at any other point in the year. Whipstick wattle is in full flower along the ridgeline between the lighthouse car park and the bay, and the coastal heath - matted flat by winter southerlies - is just beginning to lift. The light over the basalt platforms comes in low and sharp before midday.
 
-The track runs 3.6km return from the Cape Schanck Lighthouse Reserve car park down to the beach at Bushrangers Bay. The descent through the tea-tree is steep enough to make you work, but the bay at the bottom is worth every step. Go at low tide - the rock platforms open up completely and the blowholes are active if there is any swell running. Do not attempt the beach scramble in high heels or thongs.
+The track runs 5.4km return from the Cape Schanck Lighthouse Reserve car park down to the beach at Bushrangers Bay. The descent through the tea-tree is steep enough to make you work, but the bay at the bottom is worth every step. The unpatrolled beach has strong currents, rips, reefs and large waves; swimming is not recommended. Stay clear of wave-washed rocks and follow current Parks Victoria advice.
 
-**Allow 90 minutes for the longer outing. Trailhead: Cape Schanck Lighthouse Reserve, Cape Schanck Road, Cape Schanck. No booking or vehicle entry fee is required; check Parks Victoria for changed conditions.**
+**Allow about two hours for the 5.4 km return walk, plus stops. Trailhead: Cape Schanck Lighthouse Reserve, Cape Schanck Road, Cape Schanck. No booking or vehicle entry fee is required; check Parks Victoria for changed conditions.**
 
 Pair this walk with an early lunch at Barragunda Dining; book well ahead, it is ten minutes by car from the lighthouse.
 
@@ -77,5 +82,5 @@ Pair the market with a coffee at the Red Hill kiosk and a drive along Shoreham R
 | | Name | Location | Practical |
 |---|---|---|---|
 | **Eat** | Green Olive at Red Hill | 65 Red Hill–Shoreham Road, Red Hill | Lunch Thu–Sun; book ahead |
-| **Walk** | Bushrangers Bay Track | Cape Schanck Lighthouse Reserve, Boneo Road, Cape Schanck | Open daily; 90 min return; no booking |
+| **Walk** | Bushrangers Bay Track | Cape Schanck eastern carpark, Cape Schanck Road | Check current access; about two hours return, plus stops |
 | **Discovery** | Hill & Ridge Community Market | Red Hill Recreation Reserve, Arthurs Seat Road, Red Hill | Sat 5 Sep, 9am–2pm; free entry |

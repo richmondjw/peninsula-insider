@@ -58,6 +58,7 @@ jobs:
     timeout-minutes: 35
     env:
       TZ: Australia/Sydney
+      AGENT_PREVIOUS_CATALOG: /tmp/pi-agent-previous.json
 
     steps:
       - name: Checkout
@@ -92,11 +93,14 @@ jobs:
           npm run test:corrections-queue
           npm run test:partner-enquiry
           npm run test:agent-readiness
-          node --test scripts/agent-formats.test.mjs
+          node --test scripts/agent-formats.test.mjs scripts/agent-scorecard.test.mjs
           npm run test:event-safeguards
           npm run test:event-occurrence
           npm run test:material-change
           npm run validate:content
+
+      - name: Retain previous public catalogue
+        run: node next/scripts/prepare-agent-baseline.mjs --out /tmp/pi-agent-previous.json
 
       - name: Build
         run: |

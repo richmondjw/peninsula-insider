@@ -27,7 +27,7 @@ faq:
   - question: "What is the best late-afternoon walk on the Mornington Peninsula?"
     answer: "Bushrangers Bay Walk for a full reset - enough descent and coastline to feel like an event, best in autumn or winter when the light is slanting. Cape Schanck Boardwalk when time is short - basalt, lighthouse, crashing water in forty minutes. Sorrento Back Beach for mood rather than route - the surf side catches dusk better than the bay, and it works as a pre-dinner ritual."
   - question: "How long does the Bushrangers Bay Walk take?"
-    answer: "Allow 90 minutes return at an unhurried pace. The walk descends through coastal scrub to a secluded bay, with a return climb that gives the outing a proper shape. Best in cooler months - autumn through spring - when the light is low and the air has some bite. Check conditions before attempting in strong wind or after heavy rain."
+    answer: "Allow about two hours return, with extra time for stops at an unhurried pace. The walk descends through coastal scrub to a secluded bay, with a return climb that gives the outing a proper shape. Best in cooler months - autumn through spring - when the light is low and the air has some bite. Check conditions before attempting in strong wind or after heavy rain."
   - question: "Is Cape Schanck worth visiting for a short walk?"
     answer: "Yes - it has the best reward-to-effort ratio on the Peninsula. The boardwalk to the lighthouse and the basalt cliff edge takes about 40 minutes return and delivers dramatic ocean views without requiring a long warm-up. The right choice for first-timers, anyone who has already spent energy on a long lunch, or a late afternoon when you want something memorable without a full hike."
 aiSummary:
@@ -35,14 +35,19 @@ aiSummary:
   - "Key walks: Sorrento back beach coastal path (west-facing, good sunset light), Bushrangers Bay (from Cape Schanck, off-peak, wild), Arthurs Seat fire road (hinterland view toward the bay)."
   - "The editorial distinction: afternoon walks on the Peninsula require different choices than morning walks - the light direction, the crowd levels, and the proximity to dinner all change."
   - "Suits: visitors who want to end a Peninsula day with a walk rather than in a car or a bar. Pairs well with a post-walk sunset drink on the ridge."
-  - "Planning note: the article includes estimated walking times for each option. Most are 45–90 minutes. Bushrangers Bay requires fitness and appropriate footwear."
+  - "Planning note: the article includes estimated walking times for each option. Bushrangers Bay takes about two hours return, plus stops, and requires appropriate footwear and enough daylight."
+editorialProvenance:
+  method: researched
+  reviewedOn: 2026-10-01
+  checkedBy: desk
+  source: "Limited correction on 2026-10-01: Bushrangers Bay Cape Schanck route duration/distance and, where changed, wave hazard caveats only checked against https://www.parks.vic.gov.au/places-to-see/sites/bushrangers-bay-walk. Other fields were not reverified; no whole-record fact-check date assigned."
 ---
 
 There is a precise hour on the Mornington Peninsula when the region starts making its strongest argument for being more than a lunch destination. The winery terraces empty a little, the wind drops or turns interesting, and the coast begins doing the thing the inland roads only promise. If you are still here at four-thirty, you should not be driving straight back to Melbourne.
 
 ## Bushrangers Bay for the full reset
 
-**Bushrangers Bay Walk** is the best late-afternoon choice when you want your walk to feel like an event. It has enough descent and enough coastline to justify the extra effort, and the return climb gives the whole outing a proper shape. Go in autumn, winter, or spring if you can. Summer can be beautiful, but the route feels best when the light is slanting and the air has some bite.
+**Bushrangers Bay Walk** is the best late-afternoon choice when you want your walk to feel like an event. It has enough descent and enough coastline to justify the extra effort, and the return climb gives the whole outing a proper shape. Go in autumn, winter, or spring if you can. Summer can be beautiful, but the route feels best when the light is slanting and the air has some bite. Allow about two hours for the 5.4 km return walk, plus stops, and begin only when enough daylight remains for the whole route. In winter, that may mean an earlier afternoon start. Check current park access and weather before leaving.
 
 ## Cape Schanck when time is short
 

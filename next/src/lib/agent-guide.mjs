@@ -10,7 +10,9 @@ export const agentRoutes = [
 ];
 export const agentResources = [
   { title: 'Agent guide', href: '/agents/', description: 'Welcome, retrieval routes, field meanings, citation and permissions.' },
-  { title: 'Compact page catalogue', href: '/agents/catalog.json', description: 'A pilot of 20 public pages with Markdown links and content hashes. Compare hashes on a return visit.' },
+  { title: 'Formats and section indexes', href: '/agents/manifest.json', description: 'Choose a smaller section catalogue, read the format contract and find retry and caching guidance.' },
+  { title: 'Latest representation changes', href: '/agents/changes.json', description: 'Added, changed and removed representations since the named prior snapshot. A removal alone does not establish a closure.' },
+  { title: 'Compact page catalogue', href: '/agents/catalog.json', description: 'All sitemap pages, with canonical citations, Markdown links and content hashes.' },
   { title: 'Latest stories (RSS)', href: '/feed.xml', description: 'Recent published stories. Publication is not a new fact check.' },
   { title: 'All places and stories', href: '/site-index/', description: 'Browse the publication by section.' },
   { title: 'Full URL directory', href: '/llms-full.txt', description: 'Sitemap-derived URLs, not full page content. Sitemap dates are not fact-check dates.' },
