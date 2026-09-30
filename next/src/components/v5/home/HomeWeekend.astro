@@ -21,6 +21,7 @@ import Card from '../Card.astro';
 import CardGrid from '../CardGrid.astro';
 import PlayCard from '../../play/PlayCard.astro';
 import { resolveHero } from '../../../lib/inline-edit/resolve-hero';
+import { depictionStatusOf } from '../../../lib/media-provenance';
 import {
   selectWeekendPicks,
   categoryLabel,
@@ -37,6 +38,24 @@ const { picks, window: weekend } = selectWeekendPicks(picksEntries, events, now)
 
 const slugOf = (e: any) => e.data.slug ?? e.id;
 
+// These library photographs show a different market and an unidentified gallery
+// installation. Keep that distinction next to the image, never in alt alone.
+// They are fallback artwork for this dated shortlist, not event hero records.
+const contextPhotos: Record<string, { src: string; alt: string; caption: string; credit: string }> = {
+  'hill-ridge-community-market-september-2026-restart': {
+    src: '/images/visit-victoria/vv-143096-produce-at-mornington-farmers-market.webp',
+    alt: 'A stallholder holds out a bunch of freshly pulled beetroot with leaves attached at Mornington Farmers Market',
+    caption: "Mornington Farmers' Market, Mornington Peninsula. Context photo, not the Hill & Ridge Community Market.",
+    credit: 'Courtesy of Visit Victoria',
+  },
+  'national-works-on-paper-2026-nwop': {
+    src: '/images/visit-victoria/vv-143144-mornington-peninsula-regional-gallery.webp',
+    alt: 'Gallery room at Mornington Peninsula Regional Gallery with framed prints on white walls and sculptures on plinths under a vaulted ceiling',
+    caption: 'Mornington Peninsula Regional Gallery, Mornington Peninsula. Context photo; exhibition shown is not identified as National Works on Paper 2026.',
+    credit: 'Robert Blackburn, courtesy of Visit Victoria',
+  },
+};
+
 const cards = await Promise.all(
   picks.map(async ({ event, verdict }) => {
     const slug = slugOf(event);
@@ -48,12 +67,39 @@ const cards = await Promise.all(
       recurrenceChip(event) ?? categoryLabel(event.data.category),
       isFreeEvent(event) ? 'Free' : '',
     ].filter(Boolean);
+    const recorded = event.data.heroImage;
+    const status = depictionStatusOf(recorded);
+    const subcategory = String(event.data.subcategory ?? '').trim();
+    const plateLabel = subcategory && subcategory.length <= 20 && !subcategory.includes('/')
+      ? subcategory : categoryLabel(event.data.category);
+    const overrideReady = Boolean(hero.override?.alt?.trim() && hero.override?.credit?.trim());
+    // The CMS slot remains authoritative when its published replacement has
+    // the minimum descriptive and credit fields. CMS has no depiction-status
+    // field yet, so disclose the uncertainty rather than claim event coverage.
+    const image = overrideReady ? {
+      src: hero.src,
+      alt: hero.override!.alt!,
+      caption: [hero.override!.caption, 'Event depiction not verified.'].filter(Boolean).join(' '),
+      credit: hero.override!.credit!,
+      badge: 'Editorial image',
+    } : contextPhotos[slug] ? {
+      ...contextPhotos[slug],
+      badge: 'Context photo',
+    } : !hero.override && hero.hasPhoto && recorded?.alt && recorded?.credit && status !== 'unverified' ? {
+      src: hero.src,
+      alt: recorded.alt,
+      caption: status === 'illustrative'
+        ? [recorded.caption, 'Illustrative image, not this event.'].filter(Boolean).join(' ')
+        : recorded.caption ?? '',
+      credit: recorded.credit,
+      badge: status === 'illustrative' ? 'Illustrative image' : '',
+    } : undefined;
     return {
       slug,
       title: event.data.title,
       href: `/whats-on/${slug}/`,
-      image: { src: hero.src, alt: hero.alt || event.data.title,
-        caption: !hero.override && event.data.heroImage?.depictionStatus === 'illustrative' ? 'Illustrative image' : undefined },
+      image,
+      plateLabel,
       verdict,
       meta,
       dateISO: pickDateISO(event, now),
@@ -73,6 +119,8 @@ const cards = await Promise.all(
         <p class="home-weekend__window">{weekend.label}</p>
       </div>
 
+      <p class="home-weekend__scroll-hint">Swipe or scroll for all three picks <span aria-hidden="true">&rarr;</span></p>
+
       <div class="home-weekend__scroller">
         <CardGrid label="This weekend's picks">
           {cards.map((card, i) => (
@@ -83,15 +131,20 @@ const cards = await Promise.all(
               entityType="event"
               entitySlug={card.slug}
               image={card.image}
+              suppressImageHydration={true}
+              requireImageMetadata={true}
               verdict={card.verdict}
               meta={card.meta}
               dateISO={card.dateISO}
               showEyebrow={false}
               mediaFallback={true}
+              mediaFallbackLabel={card.plateLabel}
               trip={true}
               surface="home-weekend"
               position={i}
-            />
+            >
+              {card.image?.badge && <span slot="badges" class="home-weekend__media-badge">{card.image.badge}</span>}
+            </Card>
           ))}
         </CardGrid>
       </div>
@@ -106,6 +159,18 @@ const cards = await Promise.all(
 )}
 
 <style>
+  :global(.home-weekend__media-badge) {
+    position: absolute;
+    right: var(--space-3);
+    bottom: var(--space-3);
+    z-index: 1;
+    max-width: calc(100% - 2 * var(--space-3));
+    padding: .3rem .55rem;
+    border-radius: var(--radius-s);
+    background: var(--bg-dark);
+    color: var(--white);
+    font: var(--fw-semibold) var(--fs-100)/var(--lh-ui) var(--font-ui);
+  }
   .home-weekend { scroll-margin-top: 9rem; }
   @media (min-width: 64em) {
     .home-weekend__scroller :global(.v5-card-grid--grid) { grid-template-columns: 1.5fr 1fr 1fr; }
@@ -169,6 +234,15 @@ const cards = await Promise.all(
     color: var(--signal-text);
   }
 
+  .home-weekend__scroll-hint {
+    display: none;
+    margin: calc(-1 * var(--space-3)) 0 var(--space-3);
+    color: var(--soft);
+    font: var(--fw-semibold) var(--fs-200)/var(--lh-ui) var(--font-ui);
+  }
+
+  .home-weekend__scroll-hint span { color: var(--accent); }
+
   .home-weekend__all {
     margin: var(--space-5) 0 0;
     font-family: var(--font-ui);
@@ -193,10 +267,11 @@ const cards = await Promise.all(
      override targets CardGrid's ul from this wrapper; scroll is
      reader-driven, never automated. */
   @media (max-width: 63.94em) {
+    .home-weekend__scroll-hint { display: block; }
     .home-weekend__scroller :global(.v5-card-grid--grid) {
       grid-template-columns: none;
       grid-auto-flow: column;
-      grid-auto-columns: min(20rem, 78vw);
+      grid-auto-columns: min(19rem, 72vw);
       overflow-x: auto;
       scroll-snap-type: x proximity;
       padding-bottom: var(--space-2, 0.5rem);

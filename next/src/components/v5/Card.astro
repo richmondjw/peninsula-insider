@@ -35,6 +35,7 @@ export interface CardImage {
   src: string;
   alt: string;
   caption?: string;
+  credit?: string;
 }
 
 export interface CardBooking {
@@ -56,6 +57,12 @@ export interface Props {
   entitySlug: string;
   /** Defaults to 'heroImage', the live convention across card surfaces. */
   fieldPath?: string;
+  /** A page-specific media slot can differ from the card's save/link identity. */
+  imageEdit?: { entityType: CmsEntityType; entitySlug: string; fieldPath: string };
+  /** Keep a curated image when an incomplete CMS row exists at this slot. */
+  suppressImageHydration?: boolean;
+  /** Client CMS replacement must have descriptive alt text and a credit. */
+  requireImageMetadata?: boolean;
   /** Omit for text-only compact rows (enforcer HERO_EXEMPT case). */
   image?: CardImage;
   /** Verdict line <= 25 words. The named slot `verdict` overrides this. */
@@ -83,6 +90,8 @@ export interface Props {
    * by design (guide rails, compact rows), where a plate would be noise.
    */
   mediaFallback?: boolean;
+  /** Short category label for a text plate when this placement has no photo. */
+  mediaFallbackLabel?: string;
   /** Region eyebrow for the place variant (replaces typeMark when set). */
   eyebrow?: string;
   /** Article variant: byline (falls back to "Peninsula Insider"). */
@@ -117,6 +126,9 @@ const {
   entityType,
   entitySlug,
   fieldPath = 'heroImage',
+  imageEdit,
+  suppressImageHydration = false,
+  requireImageMetadata = false,
   image,
   verdict,
   meta = [],
@@ -126,6 +138,7 @@ const {
   typeMark,
   showEyebrow = true,
   mediaFallback = false,
+  mediaFallbackLabel,
   eyebrow,
   byline,
   readTime,
@@ -206,6 +219,14 @@ const resolvedSaveKind: SaveKind | null =
   saveKind ?? (entityType !== 'page' && entityType !== 'region' ? (entityType as SaveKind) : null);
 
 const hasActions = !!resolvedSaveKind || trip || !!booking;
+const creditLine = (credit: string) => {
+  const clean = credit.trim().replace(/\.$/, '');
+  return /^Courtesy of /i.test(clean)
+    ? `Photo courtesy of ${clean.slice('Courtesy of '.length)}.`
+    : /^Photo /i.test(clean) ? `${clean}.` : `Photo: ${clean}.`;
+};
+const imageCaption = image?.caption ?? '';
+const imageCredit = image?.credit ? creditLine(image.credit) : '';
 ---
 
 {/* `compact-row` is the primitive's `--compact` variant; the other six are
@@ -222,13 +243,15 @@ const hasActions = !!resolvedSaveKind || trip || !!booking;
     <div class="pi-card__media">
       <img
         src={image!.src} data-pi-responsive="(max-width: 767px) 100vw, (max-width: 1100px) 50vw, 33vw"
+        data-pi-no-hydrate={suppressImageHydration ? 'true' : undefined}
+        data-pi-requires-image-metadata={requireImageMetadata ? 'true' : undefined}
         alt={image!.alt}
         loading="lazy"
         decoding="async"
         {...editableImage({
-          entityType,
-          entitySlug,
-          fieldPath,
+          entityType: imageEdit?.entityType ?? entityType,
+          entitySlug: imageEdit?.entitySlug ?? entitySlug,
+          fieldPath: imageEdit?.fieldPath ?? fieldPath,
           label: `${title} image`,
           purpose: 'card',
         })}
@@ -247,7 +270,12 @@ const hasActions = !!resolvedSaveKind || trip || !!booking;
     <div class="pi-card__media pi-card__media--plate">
       <span class="pi-card__plate" aria-hidden="true">
         <span class="pi-card__plate-rule"></span>
-        <span class="pi-card__plate-mark">Peninsula Insider</span>
+        {mediaFallbackLabel ? (
+          <>
+            <span class="pi-card__plate-topic">{mediaFallbackLabel}</span>
+            <span class="pi-card__plate-brand">Peninsula Insider</span>
+          </>
+        ) : <span class="pi-card__plate-mark">Peninsula Insider</span>}
       </span>
       {eventDate && (
         <span class="pi-card__date-block" aria-hidden="true">
@@ -260,7 +288,13 @@ const hasActions = !!resolvedSaveKind || trip || !!booking;
   )}
 
   <div class="pi-card__body">
-    {image?.caption && <p class="pi-card__image-note">{image.caption}</p>}
+    {(imageCaption || imageCredit) && (
+      <p class="pi-card__image-note">
+        {imageCaption && <span>{imageCaption}</span>}
+        {imageCaption && imageCredit && ' '}
+        {imageCredit && <span class="pi-card__image-credit">{imageCredit}</span>}
+      </p>
+    )}
     {showEyebrow && markText && <p class="pi-card__eyebrow">{markText}</p>}
 
     <h3 class="pi-card__title">
@@ -413,6 +447,7 @@ const hasActions = !!resolvedSaveKind || trip || !!booking;
 
 <style>
   .pi-card__image-note { margin: 0 0 0.5rem; font-size: 0.8125rem; line-height: 1.4; color: var(--soft); }
+  .pi-card__image-credit { display: block; }
   /* Only what the shared primitive does NOT provide lives here.
      Ground, hairline, radius, body/eyebrow/title/dek/meta typography,
      the two-line dek clamp and the --compact row direction all come from
@@ -481,6 +516,21 @@ const hasActions = !!resolvedSaveKind || trip || !!booking;
     line-height: var(--lh-heading);
     letter-spacing: var(--ls-display);
     color: var(--white);
+  }
+
+  .pi-card__plate-topic {
+    max-width: 11ch;
+    color: var(--white);
+    font: var(--fw-display) clamp(1.5rem, 2.5vw, 2.25rem)/1.08 var(--font-display);
+    letter-spacing: var(--ls-display);
+    text-wrap: balance;
+  }
+
+  .pi-card__plate-brand {
+    color: var(--white);
+    font: var(--fw-semibold) var(--fs-100)/var(--lh-ui) var(--font-ui);
+    letter-spacing: var(--ls-eyebrow);
+    text-transform: uppercase;
   }
 
   .pi-card__date-block {

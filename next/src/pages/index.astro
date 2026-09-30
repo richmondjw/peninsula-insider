@@ -2,22 +2,22 @@
 /**
  * Homepage - v5 "Edition cover" rebuild (T-401).
  *
- * Eight blocks, four front doors, one temporal module, one Dispatch
- * instance (page-redesigns.md section 1; wireframes.html #home). The v5
- * chrome in BaseLayout is block 1 (masthead); this page renders blocks
- * 2 to 8:
+ * The v5 masthead lives in BaseLayout. This page renders the cover, one
+ * temporal weekend module, three editorial plans, four interest doors,
+ * three place starting points, one Journal feature and the Insider Note:
  *
- *   2. Cover statement (the single h1, Editor voice) + date context
- *   3. This Weekend - 3 PI picks with Save and "+ Trip"
- *   4. Four doors - Eat & Drink / Stay / Wine / Explore, verdict-count lines
- *   5. Featured plan
- *   6. One flagship Journal feature
- *   7. Ask PI band (prefills /ask/?q=)
- *   8. The Dispatch + trust row
+ *   Cover statement (the single h1) and trip entry points
+ *   This Weekend - three PI picks with Save and "+ Trip"
+ *   Three plans to start with, plus a route preview and builder shortcuts
+ *   Interest doors - Eat & Drink / Stay / Wine / Explore
+ *   Place starting points - Mornington / Red Hill / Sorrento
+ *   One flagship Journal feature
+ *   The Insider Note
  *
  * Everything server-renders at build time, deterministic against the
- * content tree. No reveal animations, and no carousel of editorial
- * content: blocks 3 to 8 stay static and complete on the page.
+ * content tree and published CMS image overrides. No reveal animations,
+ * and no carousel of editorial content: the downstream modules stay static
+ * and complete on the page.
  *
  * The one sanctioned exception is the cover photograph (block 2). It
  * cross-fades through a deck of Peninsula frames, with autoplay, arrows
@@ -52,10 +52,10 @@ export const prerender = true;
 >
   <HomeCover />
   <HomeWeekend />
-  <HomeJournalFeature />
+  <HomePlan />
   <HomeDoors />
   <HomeOrientation />
-  <HomePlan />
+  <HomeJournalFeature />
   {/* TEMP (2026-07): Ask PI chat band hidden from the main screen per request.
       Code is preserved (HomeAsk.astro + import above are untouched); re-enable
       by restoring the <HomeAsk /> line below. */}

@@ -8,9 +8,9 @@
  * each hub's GuideHero (page/<hub>, fieldPath "hero"), so an editor's hub
  * hero replacement updates the door too.
  *
- * 4-across desktop, 2x2 from tablet down. Verdict lines are always
- * visible (spec 1.22 allows hover reveal; content must be visible by
- * default on touch, so we show it everywhere - no motion, no surprises).
+ * 4-across desktop, 2x2 on tablet, horizontal image-and-copy cards on
+ * phones. Every verdict line sits on a solid paper surface so CMS image
+ * changes cannot reduce text contrast.
  */
 import { pageImage } from '../../../lib/page-images';
 import { resolveHero } from '../../../lib/inline-edit/resolve-hero';
@@ -102,9 +102,13 @@ const resolved = await Promise.all(
                 })}
               />
             </span>
-            <span class="home-doors__scrim" aria-hidden="true"></span>
-            <span class="home-doors__label">{door.label}</span>
-            <span class="home-doors__line">{door.line}</span>
+            <span class="home-doors__copy">
+              <span class="home-doors__heading">
+                <span class="home-doors__label">{door.label}</span>
+                <span class="home-doors__arrow" aria-hidden="true">↗</span>
+              </span>
+              <span class="home-doors__line">{door.line}</span>
+            </span>
           </a>
         </li>
       ))}
@@ -123,18 +127,11 @@ const resolved = await Promise.all(
     background: var(--bg-alt);
   }
 
-  /* Module heading is visually hidden (wireframe: "Four doors, h2 visually
-     hidden") but stays in the document outline for AT users. */
   .home-doors__title {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
-    white-space: nowrap;
-    border: 0;
+    margin: 0 0 var(--space-5);
+    color: var(--text);
+    font: var(--fw-display) var(--fs-700)/var(--lh-heading) var(--font-display);
+    letter-spacing: var(--ls-display);
   }
 
   .home-doors__grid {
@@ -146,35 +143,34 @@ const resolved = await Promise.all(
     gap: var(--space-5);
   }
 
-  /* Tall rounded photo tile: image fills, dark scrim, text overlaid. */
+  /* Photography and copy have distinct surfaces. Editors can replace any
+     image without changing the readability of the title or verdict line. */
   .home-doors__card {
-    position: relative;
-    isolation: isolate;
-    display: flex;
-    flex-direction: column;
-    /* aspect-ratio sets the preferred height; min-height:auto lets the card
-       grow when the verdict line wraps, so overlaid text can never collide. */
-    aspect-ratio: 3 / 4;
-    padding: var(--space-5);
+    display: grid;
+    grid-template-rows: auto 1fr;
+    height: 100%;
     overflow: hidden;
     border-radius: var(--radius-l);
     text-decoration: none;
-    color: var(--white);
+    color: var(--text);
+    background: var(--white);
   }
   .home-doors__card:focus-visible {
-    outline: 2px solid var(--focus-ring-color-inverse);
+    outline: 2px solid var(--focus-ring-color);
     outline-offset: 3px;
   }
 
   .home-doors__media {
-    position: absolute;
-    inset: 0;
-    z-index: -2;
+    position: relative;
     display: block;
-    background: var(--bg-deep);
+    aspect-ratio: 5 / 4;
+    overflow: hidden;
+    background: var(--bg-alt);
   }
 
   .home-doors__media img {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -186,29 +182,19 @@ const resolved = await Promise.all(
     transform: scale(1.04);
   }
 
-  .home-doors__scrim {
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    background: linear-gradient(
-      to top,
-      color-mix(in srgb, var(--bg-deep) 88%, transparent) 0%,
-      color-mix(in srgb, var(--bg-deep) 32%, transparent) 46%,
-      transparent 100%
-    );
+  .home-doors__copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 8.5rem;
+    padding: var(--space-4) var(--space-5) var(--space-5);
   }
 
-  /* Verdict-count eyebrow, mint, top-left. In flow (not absolute) with
-     margin-bottom:auto pinning label + line to the card's bottom edge:
-     the text blocks share one flex column, so they can never overlap. */
-  .home-doors__count {
-    margin-bottom: auto;
-    font-family: var(--font-ui);
-    font-size: var(--fs-100);
-    font-weight: var(--fw-semibold);
-    letter-spacing: var(--ls-eyebrow);
-    text-transform: uppercase;
-    color: var(--mint);
+  .home-doors__heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-2);
   }
 
   .home-doors__label {
@@ -217,11 +203,19 @@ const resolved = await Promise.all(
     font-size: var(--fs-600);
     line-height: var(--lh-heading);
     letter-spacing: var(--ls-display);
-    color: var(--white);
+    color: var(--text);
   }
 
-  .home-doors__card:hover .home-doors__label {
-    color: var(--mint);
+  .home-doors__arrow {
+    flex: none;
+    font: var(--fw-medium) var(--fs-300)/1 var(--font-ui);
+    color: var(--accent);
+    transition: transform var(--dur-med) var(--ease-enter);
+  }
+
+  .home-doors__card:hover .home-doors__arrow,
+  .home-doors__card:focus-visible .home-doors__arrow {
+    transform: translate(2px, -2px);
   }
 
   .home-doors__line {
@@ -229,7 +223,7 @@ const resolved = await Promise.all(
     font-family: var(--font-ui);
     font-size: var(--fs-300);
     line-height: var(--lh-dek);
-    color: var(--soft-inverse);
+    color: var(--soft);
     max-width: 30ch;
   }
 
@@ -246,51 +240,39 @@ const resolved = await Promise.all(
     }
   }
 
-  /* Phones. Two things happen here.
-
-     Ordering: these max-width blocks must run largest to smallest. This
-     block previously sat ABOVE the 63.94em one, so at 375px both matched
-     and the later (2-column) rule won. Phones rendered two narrow tiles at
-     the 16/10 ratio intended for one wide tile, which clipped the verdict
-     line mid-sentence.
-
-     No photography: at tile size the images sat behind the eyebrow and made
-     it unreadable, and they were carrying no information the copy did not
-     already give. The tiles become typographic on a solid ground.
-
-     Height is content-driven rather than a fixed ratio, so a long verdict
-     line lengthens the tile instead of being cut off. */
+  /* Phone cards read like compact editorial postcards: image to the left,
+     text on paper to the right, with no photo-dependent scrim. */
   @media (max-width: 35.94em) {
     .home-doors__grid {
       grid-template-columns: 1fr;
       gap: var(--space-3);
     }
     .home-doors__card {
+      grid-template-columns: 44% minmax(0, 1fr);
+      grid-template-rows: auto;
+    }
+    .home-doors__media {
       aspect-ratio: auto;
-      gap: var(--space-1);
-      padding: var(--space-5) var(--space-4);
-      background: var(--bg-deep);
+      min-height: 10.5rem;
     }
-    .home-doors__media,
-    .home-doors__scrim {
-      display: none;
-    }
-    /* margin-bottom:auto exists to pin the label to the foot of a
-       fixed-height tile. With content-driven height it would add dead
-       space, so it becomes a plain gap. */
-    .home-doors__count {
-      margin-bottom: var(--space-2);
+    .home-doors__copy {
+      min-height: 10.5rem;
+      padding: var(--space-4);
     }
     .home-doors__line {
-      max-width: none;
+      font-size: var(--fs-300);
+      line-height: var(--lh-dek);
     }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .home-doors__media img {
+    .home-doors__media img,
+    .home-doors__arrow {
       transition: none;
     }
-    .home-doors__card:hover .home-doors__media img {
+    .home-doors__card:hover .home-doors__media img,
+    .home-doors__card:hover .home-doors__arrow,
+    .home-doors__card:focus-visible .home-doors__arrow {
       transform: none;
     }
   }

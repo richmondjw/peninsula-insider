@@ -6572,6 +6572,102 @@
    "src": "/images/visit-victoria/vv-161977-cape-schanck-lighthouse.webp",
    "role": "recorded-from-tree",
    "recordedAt": "2026-09-30T05:10:05.147Z"
+  },
+  {
+   "assetKey": "vv-143799",
+   "surface": "site",
+   "entity": "page/home",
+   "field": "cover.image",
+   "src": "/images/visit-victoria/vv-143799-cape-schanck.webp",
+   "managedBy": "homepage",
+   "fallback": true
+  },
+  {
+   "assetKey": "vv-163876",
+   "surface": "site",
+   "entity": "page/home",
+   "field": "cover.image.2",
+   "src": "/images/visit-victoria/vv-163876-sorrento-pier.webp",
+   "managedBy": "homepage",
+   "fallback": true
+  },
+  {
+   "assetKey": "vv-25061205",
+   "surface": "site",
+   "entity": "page/home",
+   "field": "cover.image.3",
+   "src": "/images/visit-victoria/vv-25061205-the-ranch-gunnamatta-beach.webp",
+   "managedBy": "homepage",
+   "fallback": true
+  },
+  {
+   "assetKey": "vv-160356",
+   "surface": "site",
+   "entity": "page/home",
+   "field": "cover.image.4",
+   "src": "/images/visit-victoria/vv-160356-montalto.webp",
+   "managedBy": "homepage",
+   "fallback": true
+  },
+  {
+   "assetKey": "vv-163841",
+   "surface": "site",
+   "entity": "page/home",
+   "field": "orientation.mornington",
+   "src": "/images/visit-victoria/vv-163841-bathing-boxes-at-mornington.webp",
+   "managedBy": "homepage"
+  },
+  {
+   "assetKey": "vv-160356",
+   "surface": "site",
+   "entity": "page/home",
+   "field": "orientation.red-hill",
+   "src": "/images/visit-victoria/vv-160356-montalto.webp",
+   "managedBy": "homepage"
+  },
+  {
+   "assetKey": "vv-163884",
+   "surface": "site",
+   "entity": "page/home",
+   "field": "orientation.sorrento",
+   "src": "/images/visit-victoria/vv-163884-millionaire-s-walk.webp",
+   "managedBy": "homepage"
+  },
+  {
+   "assetKey": "vv-167058",
+   "surface": "site",
+   "entity": "page/home",
+   "field": "plan.family.image",
+   "src": "/images/visit-victoria/vv-167058-arthurs-seat-eagle.webp",
+   "managedBy": "homepage",
+   "fallback": true
+  },
+  {
+   "assetKey": "vv-143096",
+   "surface": "site",
+   "entity": "page/home",
+   "field": "weekend.hill-ridge-community-market-september-2026-restart.context",
+   "src": "/images/visit-victoria/vv-143096-produce-at-mornington-farmers-market.webp",
+   "managedBy": "homepage",
+   "fallback": true
+  },
+  {
+   "assetKey": "vv-143144",
+   "surface": "site",
+   "entity": "page/home",
+   "field": "weekend.national-works-on-paper-2026-nwop.context",
+   "src": "/images/visit-victoria/vv-143144-mornington-peninsula-regional-gallery.webp",
+   "managedBy": "homepage",
+   "fallback": true
+  },
+  {
+   "assetKey": "vv-167061",
+   "surface": "site",
+   "entity": "articles/spring-school-holidays-2026",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-167061-arthurs-seat-eagle.webp",
+   "managedBy": "editorial",
+   "fallback": true
   }
  ],
  "cmsRetired": [

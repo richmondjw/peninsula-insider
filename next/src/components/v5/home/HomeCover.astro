@@ -58,10 +58,12 @@ const DEFAULT_STATEMENT = 'The Mornington Peninsula, sorted.';
 
 // The single cover photograph used when the deck is empty, and the first
 // frame of the deck in the shipped configuration.
-const DEFAULT_HERO_SRC = '/images/sourced/home-cover-cape-schanck-rainbow-01.webp';
+const DEFAULT_HERO_SRC = '/images/visit-victoria/vv-143799-cape-schanck.webp';
 const DEFAULT_HERO_ALT =
-  'A rainbow arcs over the bay at Cape Schanck on a still winter morning, Mornington Peninsula';
-const DEFAULT_FOCAL = 'center 38%';
+  'Scrubby cliffs at Cape Schanck falling to a rocky shore and sunlit sea, with the lighthouse on the headland above';
+const DEFAULT_HERO_CAPTION = 'Cape Schanck, Mornington Peninsula.';
+const DEFAULT_HERO_CREDIT = 'Peter Tarasiuk, courtesy of Visit Victoria';
+const DEFAULT_FOCAL = 'center 15%';
 
 /** Rotation interval. Klook sits near 5s; 7s suits a slower editorial read. */
 const INTERVAL_MS = 7000;
@@ -73,6 +75,8 @@ interface DeckSlide {
   src: string;
   alt: string;
   focal?: string;
+  caption?: string;
+  credit?: string;
 }
 
 const overrides = await loadOverrides('page', 'home');
@@ -93,22 +97,36 @@ for (const slide of rawDeck) {
 
 const deck: DeckSlide[] = rawDeck.length
   ? rawDeck.slice(0, MAX_SLIDES)
-  : [{ id: 'default-cover', src: DEFAULT_HERO_SRC, alt: DEFAULT_HERO_ALT, focal: DEFAULT_FOCAL }];
+  : [{ id: 'default-cover', src: DEFAULT_HERO_SRC, alt: DEFAULT_HERO_ALT, focal: DEFAULT_FOCAL, caption: DEFAULT_HERO_CAPTION, credit: DEFAULT_HERO_CREDIT }];
 
 // The flag collapses the deck to its first frame: same markup path, no
 // controls, no script, so the flag-off cover is the pre-slideshow cover.
 const slideshow = SHOW_HOME_COVER_SLIDESHOW && deck.length > 1;
 const source = slideshow ? deck : deck.slice(0, 1);
 
-// A published CMS replacement beats the committed deck, per slot.
+// A published CMS replacement with its own alt and credit beats the deck.
 const slides = source.map((slide, i) => {
   const fieldPath = i === 0 ? 'cover.image' : `cover.image.${i + 1}`;
-  const override = overrides.image[fieldPath];
+  const published = overrides.image[fieldPath];
+  // An uploaded photograph cannot enter this public cover without enough
+  // information to describe and credit that particular file. A published
+  // row with incomplete metadata stays editable, while the known licensed
+  // deck frame remains the visible fallback.
+  const override = published?.src && published.alt?.trim() && published.credit?.trim()
+    ? published
+    : undefined;
+  if (published && !override) {
+    console.warn(`[HomeCover] ${fieldPath} has no alt or credit; using the credited deck photograph`);
+  }
   return {
     id: slide.id,
     src: override?.src ?? slide.src,
-    alt: override?.alt ?? slide.alt ?? '',
+    alt: override ? override.alt ?? '' : slide.alt ?? '',
     focal: slide.focal ?? DEFAULT_FOCAL,
+    // A CMS replacement is a different photograph. Never inherit the
+    // committed image's caption or credit across that boundary.
+    caption: (override ? override.caption : slide.caption)?.trim() ?? '',
+    credit: (override ? override.credit : slide.credit)?.trim() ?? '',
     fieldPath,
     label: i === 0 ? 'Cover photograph' : `Cover photograph ${i + 1}`,
   };
@@ -129,6 +147,12 @@ const isoDate = new Intl.DateTimeFormat('en-CA', {
   timeZone: 'Australia/Melbourne',
 }).format(now);
 const season = getAustralianSeasonLower(now);
+const creditLine = (credit: string) => {
+  const clean = credit.trim().replace(/\.$/, '');
+  return /^Courtesy of /i.test(clean)
+    ? `Photo courtesy of ${clean.slice('Courtesy of '.length)}.`
+    : `Photo: ${clean}.`;
+};
 ---
 
 <section
@@ -160,6 +184,8 @@ const season = getAustralianSeasonLower(now);
           decoding="async"
           width="2400"
           height="1350"
+          data-pi-no-hydrate="true"
+          data-pi-requires-image-metadata="true"
           {...editableImage({
             entityType: 'page',
             entitySlug: 'home',
@@ -202,14 +228,16 @@ const season = getAustralianSeasonLower(now);
     >
       {statement}
     </h1>
-    <p class="home-cover__context">
-      <time datetime={isoDate}>{dateLabel}</time>
-    </p>
     <nav class="home-cover__actions" aria-label="Start planning your Peninsula visit">
       <a class="pi-btn pi-btn--solid pi-btn--lg pi-btn--inverse" href="/whats-on/this-weekend/" data-evt="card_click" data-entity-type="page" data-entity-slug="weekend" data-surface="home-intents" data-position="1" data-variant="three-intents">This weekend</a>
       <a class="pi-btn pi-btn--ghost pi-btn--lg pi-btn--inverse" href="/explore/plans/" data-evt="card_click" data-entity-type="page" data-entity-slug="plans" data-surface="home-intents" data-position="2" data-variant="three-intents">Plan a trip</a>
       <a class="pi-btn pi-btn--ghost pi-btn--lg pi-btn--inverse" href="/search/" data-open-search data-evt="search_open" data-surface="home-intents" data-position="3" data-variant="three-intents">Search the Peninsula</a>
     </nav>
+    <p class="home-cover__promise">Independent local picks for where to eat, stay and explore. Every recommendation has a reason.</p>
+    <a class="home-cover__method" href="/about/#how-we-choose">How we choose our picks <span aria-hidden="true">&rarr;</span></a>
+    <p class="home-cover__context">
+      <time datetime={isoDate}>{dateLabel}</time>
+    </p>
 
     {slideshow && (
       <div class="home-cover__controls">
@@ -227,8 +255,22 @@ const season = getAustralianSeasonLower(now);
             </button>
           ))}
         </div>
+        <button class="home-cover__pause" type="button" data-cover-pause aria-pressed="false">Pause photos</button>
       </div>
     )}
+    <div class="home-cover__attributions" aria-label="Cover photograph credit">
+      {slides.map((slide, i) => (
+        <p
+          class="home-cover__attribution"
+          data-cover-attribution={i}
+          data-credit-empty={!slide.caption && !slide.credit ? 'true' : undefined}
+          hidden={i !== 0 || (!slide.caption && !slide.credit)}
+        >
+          {slide.caption && <span>{slide.caption}</span>}
+          {slide.credit && <span> {creditLine(slide.credit)}</span>}
+        </p>
+      ))}
+    </div>
   </div>
 
   {slideshow && <p class="home-cover__live" aria-live="polite" data-cover-live></p>}
@@ -247,6 +289,7 @@ const season = getAustralianSeasonLower(now);
 
         var slides = Array.prototype.slice.call(root.querySelectorAll('.home-cover__plate'));
         var dots = Array.prototype.slice.call(root.querySelectorAll('[data-cover-dot]'));
+        var attributions = Array.prototype.slice.call(root.querySelectorAll('[data-cover-attribution]'));
         var live = root.querySelector('[data-cover-live]');
         if (slides.length < 2) { root.dataset.coverReady = '1'; return; }
 
@@ -284,8 +327,10 @@ const season = getAustralianSeasonLower(now);
           if (next === current) return;
           slides[current].classList.remove('is-active');
           slides[current].setAttribute('aria-hidden', 'true');
+          if (attributions[current]) attributions[current].hidden = true;
           slides[next].classList.add('is-active');
           slides[next].removeAttribute('aria-hidden');
+          if (attributions[next] && attributions[next].dataset.creditEmpty !== 'true') attributions[next].hidden = false;
           if (dots[current]) {
             dots[current].classList.remove('is-active');
             dots[current].removeAttribute('aria-current');
@@ -305,6 +350,14 @@ const season = getAustralianSeasonLower(now);
 
         var prevBtn = root.querySelector('[data-cover-prev]');
         var nextBtn = root.querySelector('[data-cover-next]');
+        var pauseBtn = root.querySelector('[data-cover-pause]');
+        function onPause() {
+          var stopped = !holds.user;
+          pauseBtn.setAttribute('aria-pressed', stopped ? 'true' : 'false');
+          pauseBtn.textContent = stopped ? 'Play photos' : 'Pause photos';
+          hold('user', stopped);
+        }
+        if (pauseBtn) pauseBtn.addEventListener('click', onPause);
         function onPrev() { step(-1); }
         function onNext() { step(1); }
         if (prevBtn) prevBtn.addEventListener('click', onPrev);
@@ -367,7 +420,9 @@ const season = getAustralianSeasonLower(now);
 
         function onKeyDown(e) {
           if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
-          if (!root.contains(document.activeElement)) return;
+          /* The arrows belong to the photograph controls, not to links in
+             the cover's planning navigation. */
+          if (!document.activeElement?.matches('[data-cover-dot], [data-cover-prev], [data-cover-next]')) return;
           e.preventDefault();
           step(e.key === 'ArrowLeft' ? -1 : 1);
         }
@@ -380,6 +435,7 @@ const season = getAustralianSeasonLower(now);
           if (timer) clearInterval(timer);
           if (prevBtn) prevBtn.removeEventListener('click', onPrev);
           if (nextBtn) nextBtn.removeEventListener('click', onNext);
+          if (pauseBtn) pauseBtn.removeEventListener('click', onPause);
           dots.forEach(function (dot, i) { dot.removeEventListener('click', dotHandlers[i]); });
           root.removeEventListener('mouseenter', onEnter);
           root.removeEventListener('mouseleave', onLeave);
@@ -410,14 +466,15 @@ const season = getAustralianSeasonLower(now);
 )}
 
 <style>
-  /* Full-bleed Peninsula landscape with a light coastal wash behind the
-     copy. The photo remains clear to the right of the statement. */
+  /* Keep the photograph legible as a place, with a deep harbour edge for
+     editorial copy. The transparent right side holds the landscape. */
   .home-cover {
     position: relative;
     isolation: isolate;
     overflow: hidden;
-    background: var(--tide);
-    padding: clamp(2.75rem, 5.3vw, 4.75rem) 0;
+    background: var(--harbour-deep);
+    min-height: clamp(26rem, 37vw, 36rem);
+    padding: clamp(2.75rem, 4vw, 4.25rem) 0;
   }
 
   .home-cover__deck {
@@ -482,7 +539,12 @@ const season = getAustralianSeasonLower(now);
     inset: 0;
     z-index: -1;
     pointer-events: none;
-    background: var(--photo-shade-cover);
+    background: linear-gradient(90deg,
+      rgb(4 28 46 / .92) 0%,
+      rgb(4 28 46 / .84) 22%,
+      rgb(4 28 46 / .63) 42%,
+      rgb(4 28 46 / .20) 69%,
+      rgb(4 28 46 / .06) 100%);
   }
 
   .home-cover__inner {
@@ -496,7 +558,7 @@ const season = getAustralianSeasonLower(now);
     font-weight: var(--fw-semibold);
     letter-spacing: var(--ls-eyebrow);
     text-transform: uppercase;
-    color: var(--harbour);
+    color: var(--sand);
   }
 
   .home-cover__statement {
@@ -507,24 +569,57 @@ const season = getAustralianSeasonLower(now);
     font-size: clamp(2.5rem, 4.8vw, 4.25rem);
     line-height: 1.09;
     letter-spacing: var(--ls-display);
-    color: var(--harbour-deep);
+    color: var(--white);
+    text-shadow: 0 2px 18px rgb(0 0 0 / .22);
     text-wrap: balance;
   }
 
   .home-cover__context {
-    margin: var(--space-5) 0 0;
+    margin: var(--space-4) 0 0;
     font-family: var(--font-ui);
     font-size: var(--fs-300);
     line-height: var(--lh-ui);
-    color: var(--harbour-deep);
+    color: rgb(255 255 255 / .88);
     letter-spacing: 0.02em;
   }
+
+  .home-cover__promise {
+    max-width: 48ch;
+    margin: var(--space-6) 0 0;
+    font-size: clamp(1rem, 1.35vw, 1.25rem);
+    line-height: 1.5;
+    font-weight: var(--fw-semibold);
+    color: var(--white);
+  }
+
+  .home-cover__method {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    margin-top: var(--space-2);
+    color: var(--white);
+    font-size: var(--fs-300);
+    font-weight: var(--fw-semibold);
+    text-decoration-color: var(--sand);
+    text-underline-offset: .22em;
+  }
+  .home-cover__method span { margin-left: .3em; }
 
   .home-cover__actions {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-3);
     margin-top: var(--space-6);
+  }
+  .home-cover .home-cover__actions .pi-btn--ghost {
+    background: rgb(4 28 46 / .42);
+    border-color: rgb(255 255 255 / .86);
+    color: var(--white);
+    text-shadow: none;
+  }
+  .home-cover .home-cover__actions .pi-btn--ghost:hover {
+    background: rgb(4 28 46 / .72);
+    border-color: var(--white);
   }
   /* Narrow phones: stack the hero CTAs full-width so they are easy thumb
      targets instead of two half-stranded pills. */
@@ -548,6 +643,35 @@ const season = getAustralianSeasonLower(now);
     gap: var(--space-2, 0.5rem);
   }
 
+  .home-cover__pause {
+    min-height: 44px;
+    padding: 0 var(--space-3);
+    border: 1px solid rgb(255 255 255 / .75);
+    border-radius: var(--radius-pill);
+    background: rgb(4 28 46 / .48);
+    color: var(--white);
+    font: var(--fw-semibold) var(--fs-200)/1 var(--font-ui);
+    cursor: pointer;
+  }
+  .home-cover__pause:hover,
+  .home-cover__pause:focus-visible { background: rgb(4 28 46 / .78); }
+
+  .home-cover__attributions {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    max-width: 26rem;
+    text-align: right;
+  }
+
+  .home-cover__attribution {
+    margin: 0;
+    color: var(--white);
+    font: 500 .6875rem/1.4 var(--font-ui);
+    text-shadow: 0 1px 3px rgb(0 0 0 / .8);
+  }
+  .home-cover__attribution[hidden] { display: none; }
+
   .home-cover__dot {
     appearance: none;
     border: 0;
@@ -567,19 +691,19 @@ const season = getAustralianSeasonLower(now);
     width: 0.5rem;
     height: 0.5rem;
     border-radius: 999px;
-    background: color-mix(in srgb, var(--harbour-deep) 50%, transparent);
-    box-shadow: 0 1px 3px rgb(255 255 255 / .7);
+    background: rgb(255 255 255 / .68);
+    box-shadow: 0 1px 3px rgb(0 0 0 / .35);
     transition: transform 220ms ease, background-color 220ms ease;
   }
 
   .home-cover__dot:hover .home-cover__dot-fill,
   .home-cover__dot:focus-visible .home-cover__dot-fill {
-    background: color-mix(in srgb, var(--harbour-deep) 75%, transparent);
+    background: var(--white);
   }
 
   .home-cover__dot.is-active .home-cover__dot-fill {
     transform: scaleX(3);
-    background: var(--harbour-deep);
+    background: var(--sand);
   }
 
   .home-cover__arrow {
@@ -592,9 +716,9 @@ const season = getAustralianSeasonLower(now);
     width: 2.75rem;
     height: 2.75rem;
     border-radius: 999px;
-    border: 1px solid color-mix(in srgb, var(--harbour-deep) 35%, transparent);
-    background: rgb(255 255 255 / .72);
-    color: var(--harbour-deep);
+    border: 1px solid rgb(255 255 255 / .75);
+    background: rgb(4 28 46 / .45);
+    color: var(--white);
     cursor: pointer;
     opacity: 1;
     transition: opacity 200ms ease, background-color 200ms ease;
@@ -604,10 +728,10 @@ const season = getAustralianSeasonLower(now);
   .home-cover__arrow--next { right: clamp(0.5rem, 2vw, 1.5rem); }
 
   .home-cover__arrow:hover {
-    background: var(--white);
+    background: rgb(4 28 46 / .75);
   }
 
-  @media (max-width: 88em) {
+  @media (max-width: 100em) {
     /* The copy reaches the edge at narrower widths; dots remain available
        without an arrow sitting over the date or heading. */
     .home-cover__arrow { display: none; }
@@ -634,7 +758,32 @@ const season = getAustralianSeasonLower(now);
 
   @media (max-width: 47.94em) {
     .home-cover {
-      padding: clamp(2.5rem, 12vw, 4rem) 0;
+      padding: 1.5rem 0 1.25rem;
     }
+    .home-cover__scrim {
+      background: linear-gradient(180deg,
+        rgb(4 28 46 / .72) 0%,
+        rgb(4 28 46 / .64) 35%,
+        rgb(4 28 46 / .66) 73%,
+        rgb(4 28 46 / .68) 100%);
+    }
+    .home-cover__eyebrow { display: none; }
+    .home-cover__statement { max-width: none; font-size: 2rem; line-height: 1.12; text-wrap: balance; }
+    /* The header already carries search on phones. Keep the two planning
+       choices together so the cover opens onto the weekend sooner. */
+    .home-cover__actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 1.25rem; gap: .5rem; }
+    .home-cover__actions .pi-btn { width: 100%; justify-content: center; }
+    .home-cover__actions [data-open-search] { display: none; }
+    .home-cover__promise { margin-top: 1.25rem; font-size: 1rem; line-height: 1.45; }
+    .home-cover__method { margin-top: .25rem; }
+    .home-cover__context { margin-top: .5rem; font-size: .875rem; }
+    .home-cover__controls { flex-wrap: nowrap; gap: .25rem; margin-top: .5rem; }
+    .home-cover__pager { gap: 0; }
+    .home-cover__pause { padding-inline: .5rem; }
+    .home-cover__attributions { position: static; max-width: none; margin-top: .25rem; text-align: left; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .home-cover__pause { display: none; }
   }
 </style>

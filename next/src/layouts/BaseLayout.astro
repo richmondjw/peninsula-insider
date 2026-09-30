@@ -491,7 +491,7 @@ const showNewsletterPopup = !isPlanningJourney && (newsletterPopupMode === 'prev
       if (!__SB_URL || !__SB_ANON) return;
       function applySlots() {
         var url = new URL('/rest/v1/cms_image_slots', __SB_URL);
-        url.searchParams.set('select', 'entity_type,entity_slug,field_path,public_url');
+        url.searchParams.set('select', 'entity_type,entity_slug,field_path,public_url,alt_text,credit');
         url.searchParams.set('status', 'eq.published');
         fetch(url.toString(), {
           headers: {
@@ -510,6 +510,12 @@ const showNewsletterPopup = !isPlanningJourney && (newsletterPopupMode === 'prev
               '[data-pi-entity-type="' + slot.entity_type + '"][data-pi-entity-slug="' + slot.entity_slug + '"][data-pi-field-path="' + slot.field_path + '"]'
             );
             if (!el) return;
+            // Some editorial surfaces deliberately retain a credited,
+            // source-verified image when a published upload lacks the
+            // metadata needed to describe or credit that replacement.
+            if (el.hasAttribute('data-pi-no-hydrate')) return;
+            if (el.hasAttribute('data-pi-requires-image-metadata') &&
+                !(slot.alt_text && slot.alt_text.trim() && slot.credit && slot.credit.trim())) return;
             if (el instanceof HTMLImageElement) {
               el.src = slot.public_url;
             } else {
@@ -547,7 +553,7 @@ const showNewsletterPopup = !isPlanningJourney && (newsletterPopupMode === 'prev
   </script>
 
   <!-- Sticky Subscribe pill, fades in once the reader passes the 50%
-       scroll mark. Mobile-only. Hidden on /newsletter, /ask, /account
+       scroll mark. Mobile-only. Hidden on home, /newsletter, /ask, /account
        via CSS rules keyed on body[data-path]. Bottom-LEFT so it sits
        opposite the concierge FAB (bottom-right) and they don't collide. -->
   <a href="/dispatch/" class="subscribe-pill" aria-label="Join The Insider Note">

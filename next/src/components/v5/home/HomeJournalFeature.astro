@@ -22,8 +22,28 @@ const lead = ['spring-school-holidays-2026', 'area-guide-red-hill']
   .map((slug) => published.find((article) => routeSlug(article) === slug))
   .find((article) => article !== undefined);
 const slug = lead ? routeSlug(lead) : '';
-const hero = lead ? await resolveHero('article', slug, lead.data, 'hero') : null;
+const resolvedHero = lead ? await resolveHero('article', slug, lead.data, 'hero') : null;
+// The public feature needs alt text and a credit for the photograph actually
+// shown. If an editor's published upload is missing those, keep the original
+// credited artwork until its own metadata is completed.
+const incompleteOverride = resolvedHero?.override &&
+  (!resolvedHero.override.alt?.trim() || !resolvedHero.override.credit?.trim());
+if (incompleteOverride) {
+  console.warn(`[HomeJournalFeature] ${slug} hero upload has no alt or credit; using the credited article artwork`);
+}
+const hero = incompleteOverride && lead?.data.heroImage?.src && resolvedHero
+  ? { ...resolvedHero, src: lead.data.heroImage.src, alt: lead.data.heroImage.alt, override: undefined }
+  : resolvedHero;
 const kicker = lead?.data.tags.includes('insider-picks') ? 'Insider Picks' : (lead ? (formatLabel[lead.data.format] ?? 'Feature') : '');
+// An editor's replacement is a different image. Its caption and credit must
+// come from the override, never from the frontmatter image it replaced.
+const caption = hero?.override ? hero.override.caption : lead?.data.heroImage?.caption;
+const credit = hero?.override ? hero.override.credit : lead?.data.heroImage?.credit;
+const creditLabel = credit === 'Courtesy of Visit Victoria'
+  ? 'Photo courtesy of Visit Victoria'
+  : credit
+    ? `${!hero?.override && lead?.data.heroImage?.depictionStatus === 'illustrative' ? 'Artwork' : 'Photo'}: ${credit}`
+    : '';
 ---
 
 {lead && hero && (
@@ -35,6 +55,8 @@ const kicker = lead?.data.tags.includes('insider-picks') ? 'Insider Picks' : (le
         alt={hero.alt || lead.data.title}
         loading="lazy"
         decoding="async"
+        data-pi-no-hydrate="true"
+        data-pi-requires-image-metadata="true"
         {...editableImage({
           entityType: 'article',
           entitySlug: slug,
@@ -43,6 +65,7 @@ const kicker = lead?.data.tags.includes('insider-picks') ? 'Insider Picks' : (le
           purpose: 'hero',
         })}
       />
+      {(caption || creditLabel) && <figcaption>{caption && <span>{caption}</span>} {creditLabel && <span>{creditLabel}</span>}</figcaption>}
     </figure>
     <div class="home-journal__body">
       <p class="home-journal__kicker">From the Journal <span aria-hidden="true">&middot;</span> {kicker}</p>
@@ -72,10 +95,13 @@ const kicker = lead?.data.tags.includes('insider-picks') ? 'Insider Picks' : (le
 </script>
 
 <style>
-  .home-journal { background: var(--paper, var(--bg-alt)); padding-block: clamp(2rem, 4vw, 3.5rem); border-block: 1px solid var(--border); }
-  .home-journal__layout { display: grid; grid-template-columns: 1.15fr 1fr; gap: clamp(2rem, 4vw, 4rem); align-items: center; }
+  .home-journal { background: var(--paper, var(--bg-alt)); padding-block: clamp(2.5rem, 5vw, 4rem); border-block: 1px solid var(--border); }
+  .home-journal__layout { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 4vw, 4rem); align-items: center; }
   .home-journal__media { margin: 0; min-width: 0; }
-  .home-journal__media img { display: block; width: 100%; aspect-ratio: 1.3; object-fit: cover; border-radius: var(--radius-m); }
+  /* The responsive-image pass adds HTML width/height attributes. Explicitly
+     clear their presentational height so the image follows this layout ratio. */
+  .home-journal__media img { display: block; width: 100%; height: auto; aspect-ratio: 8 / 5; object-fit: cover; border-radius: var(--radius-m); }
+  .home-journal__media figcaption { color: var(--soft); font-size: .75rem; line-height: 1.45; margin-top: .45rem; }
   .home-journal__body { min-width: 0; }
   .home-journal__kicker { font: var(--fw-semibold) var(--fs-100)/var(--lh-ui) var(--font-ui); letter-spacing: var(--ls-eyebrow); text-transform: uppercase; color: var(--accent); margin: 0 0 var(--space-4); }
   .home-journal__headline { font: var(--fw-display) clamp(2rem, 3vw, 3rem)/1.12 var(--font-display); letter-spacing: -.035em; text-wrap: balance; margin: 0; }

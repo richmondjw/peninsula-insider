@@ -169,7 +169,15 @@ const blockOverridesEntries = Object.entries(articleOverrides.text)
   .filter(([k]) => k.startsWith('body.block:'))
   .map(([k, v]) => [k.slice('body.block:'.length), v] as const);
 const blockOverrides = Object.fromEntries(blockOverridesEntries);
-const hero = await resolveHero('article', slug, article.data, 'hero');
+const resolvedHero = await resolveHero('article', slug, article.data, 'hero');
+// This homepage-linked guide has a published photograph without its own alt
+// text or credit. Keep the credited original artwork through the linked page
+// as well as the homepage until the replacement's metadata is complete.
+const incompleteHolidayOverride = slug === 'spring-school-holidays-2026' && resolvedHero.override &&
+  (!resolvedHero.override.alt?.trim() || !resolvedHero.override.credit?.trim());
+const hero = incompleteHolidayOverride && article.data.heroImage?.src
+  ? { ...resolvedHero, src: article.data.heroImage.src, alt: article.data.heroImage.alt, override: undefined }
+  : resolvedHero;
 // `hero.alt || article.data.title` was the old line. On an image marked
 // decorative that refilled the deliberately empty alt with the article's
 // headline - filler, and a claim about a photograph nobody assessed.
@@ -182,6 +190,7 @@ const heroProvenance = hero.override ? null : article.data.heroImage;
 // Licensed photographs of the places the article covers, as a filmstrip under
 // the hero. The hero itself stays the article's own choice.
 const articlePhotos = verifiedPhotos({ gallery: (article.data as any).gallery ?? [] });
+const heroCredit = hero.override ? hero.override.credit : article.data.heroImage.credit;
 
 const canonical = `https://peninsulainsider.com.au/journal/${slug}/`;
 const ogImage = hero.src;
@@ -369,12 +378,12 @@ export const prerender = true;
             )}
           </div>
           {heroAvailable && (<figure class="article-hero__figure">
-            <img class="article-hero__image" src={hero.src} data-pi-responsive="(max-width: 1360px) 100vw, 1280px" alt={heroAlt} role={heroPresentation ? 'presentation' : undefined} fetchpriority="high" decoding="async" {...editableImage({
+            <img class="article-hero__image" src={hero.src} data-pi-responsive="(max-width: 1360px) 100vw, 1280px" alt={heroAlt} role={heroPresentation ? 'presentation' : undefined} fetchpriority="high" decoding="async" data-pi-no-hydrate={incompleteHolidayOverride ? 'true' : undefined} {...editableImage({
               entityType: 'article', entitySlug: slug, fieldPath: 'hero',
               label: `${article.data.title} hero`, purpose: 'hero',
             })} />
-            {article.data.heroImage.credit && (
-              <figcaption class="article-hero__credit">{formatHeroCredit(article.data.heroImage.credit)}</figcaption>
+            {heroCredit && (
+              <figcaption class="article-hero__credit">{formatHeroCredit(heroCredit)}</figcaption>
             )}
             <MediaProvenanceNote
               image={heroProvenance}

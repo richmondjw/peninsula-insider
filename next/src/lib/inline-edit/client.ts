@@ -1382,17 +1382,20 @@ async function applyOverridesOnLoad() {
   await Promise.all(Array.from(groups.values()).map(async (group) => {
     const { data } = await supa
       .from('cms_image_slots')
-      .select('field_path, public_url, alt_text')
+      .select('field_path, public_url, alt_text, credit')
       .eq('entity_type', group.entityType)
       .eq('entity_slug', group.entitySlug)
       .eq('status', 'published');
-    const rows = (data as Array<{ field_path: string; public_url: string | null; alt_text: string | null }> | null) ?? [];
+    const rows = (data as Array<{ field_path: string; public_url: string | null; alt_text: string | null; credit: string | null }> | null) ?? [];
     const byPath = new Map(rows.map((r) => [r.field_path, r]));
     for (const el of group.els) {
+      if (el.hasAttribute('data-pi-no-hydrate')) continue;
       const fieldPath = el.dataset.piFieldPath;
       if (!fieldPath) continue;
       const row = byPath.get(fieldPath);
       if (!row?.public_url) continue;
+      if (el.hasAttribute('data-pi-requires-image-metadata') &&
+          !(row.alt_text?.trim() && row.credit?.trim())) continue;
       if (currentImageSrc(el) === row.public_url) continue;
       setImageSrc(el, row.public_url);
       // A placeholder card has no inline bg-image at build time; once a real
@@ -1448,11 +1451,13 @@ async function applyImplicitPageOverrides(supa: NonNullable<ReturnType<typeof ge
   // resolved data-pi-field-path and have just been patched above.
   const candidates: HTMLElement[] = [];
   document.querySelectorAll<HTMLImageElement>('img').forEach((img) => {
+    if (img.hasAttribute('data-pi-no-hydrate')) return;
     if (img.closest('[data-pi-edit="image"][data-pi-entity-slug][data-pi-field-path]')) return;
     if (img.closest('[data-pi-hero-managed]')) return; // hero owns its own deck
     candidates.push(img);
   });
   document.querySelectorAll<HTMLElement>('[style*="background-image"]').forEach((el) => {
+    if (el.hasAttribute('data-pi-no-hydrate')) return;
     if (el.closest('[data-pi-edit="image"][data-pi-entity-slug][data-pi-field-path]')) return;
     if (el.closest('[data-pi-hero-managed]')) return; // hero owns its own deck
     if (!isImageLike(el)) return;
