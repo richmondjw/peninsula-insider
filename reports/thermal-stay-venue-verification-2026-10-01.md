@@ -46,3 +46,8 @@ By **8 October 2026**, verify live map-link destinations, reader corrections, im
 ## Independent integrated check
 
 The final integrated build exited 0. Independent artifact review found no route, image or map-interaction blocker at 320, 390 or 1365 px. The five corrected map rows had the intended coordinates, and row-to-pin peeks worked on phone and desktop. The Sanctuary page scored **86.6/100** on applicable independent expert lenses. Its mobile action remains below the first fold at 320 px, the estate image is illustrative and disclosed, the venue-level lastVerified value remains older than this scoped source check, and generic related cards dilute the detail page. This set does not treat the scoped address and accommodation check as a full venue re-verification. Public deployment and visitor outcomes remain unverified here.
+
+
+## Public destination receipt
+
+The public deployment receipt identified c14e52bb760af9c96448b9b73f56eb2e8a61ca0e. The Sanctuary page and both new licensed image files returned HTTP 200. The public map rendered Alba Thermal Springs and The Sanctuary at Alba at -38.39219, 144.84614; Peninsula Hot Springs, its Eco Lodges and its Glamping at -38.40693, 144.84273. These are the intended address-level visitor points. The Eco Lodges row still bears the inherited Glamping label, which is the next bounded category correction.

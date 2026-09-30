@@ -465,6 +465,7 @@ const venues = defineCollection({
       'hotel',
       'villa',
       'cottage',
+      'lodge',
       'glamping',
       'farm-stay',
       'spa',

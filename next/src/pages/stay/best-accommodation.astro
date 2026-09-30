@@ -1,50 +1,99 @@
 ---
-import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import { routeSlug, isStayVenue, titleize, isListableVenue } from '../../lib/editorial';
 import { buildBreadcrumbSchema, absUrl } from '../../lib/schema';
 
-const venues = (await getCollection('venues'))
-  .filter((v) => isListableVenue(v) && isStayVenue(v) && v.data.type !== 'spa')
-  .sort((a, b) => Number(b.data.authority?.hats ?? 0) - Number(a.data.authority?.hats ?? 0));
+const stayDecisions = [
+  {
+    label: 'A room-based stay',
+    title: 'Hotels',
+    description: 'Compare the town, room layout and included services.',
+    href: '/stay/boutique-hotels/',
+    action: 'Explore hotels',
+  },
+  {
+    label: 'Room to settle in',
+    title: 'Cottages',
+    description: 'Choose the space you need, then check facilities and access.',
+    href: '/stay/cottages/',
+    action: 'Explore cottages',
+  },
+  {
+    label: 'Food and wine',
+    title: 'Vineyard stays',
+    description: 'Plan food and wine visits from the exact stay address.',
+    href: '/stay/vineyard-stays/',
+    action: 'Explore vineyard stays',
+  },
+  {
+    label: 'A coastal base',
+    title: 'Coastal stays',
+    description: 'Choose your village or beach base before comparing stays.',
+    href: '/stay/coastal-stays/',
+    action: 'Explore coastal stays',
+  },
+];
 
-// Segment by price band
-const luxury = venues.filter((v) => v.data.priceBand === '$$$$');
-const midRange = venues.filter((v) => v.data.priceBand === '$$$');
-const affordable = venues.filter((v) => ['$', '$$'].includes(v.data.priceBand));
+const thermalOptions = [
+  {
+    label: 'Peninsula Hot Springs',
+    title: 'Eco Lodges',
+    description: 'Rooms in shared lodges, separate from tented glamping.',
+    href: '/stay/peninsula-hot-springs-eco-lodges/',
+    source: 'https://www.peninsulahotsprings.com/accommodation/eco-lodges',
+    image: '/images/visit-victoria/vv-172319-eco-lodges-peninsula-hot-springs.webp',
+    imageAlt: 'A guest sits beside a bushland-view window in a Peninsula Hot Springs Eco Lodge room.',
+    imageNote: 'Eco Lodge room. Photo courtesy of Visit Victoria.',
+    illustrative: false,
+  },
+  {
+    label: 'Peninsula Hot Springs',
+    title: 'Glamping',
+    description: 'Tented stays on site. Check bathing inclusions.',
+    href: '/stay/peninsula-hot-springs-glamping/',
+    source: 'https://www.peninsulahotsprings.com/accommodation/glamping',
+    image: '/images/visit-victoria/vv-161940-peninsula-hot-springs.webp',
+    imageAlt: 'A bather beside a hilltop pool at Peninsula Hot Springs, with farmland beyond.',
+    imageNote: 'Illustrative: Peninsula Hot Springs bathing grounds, not a glamping tent. Photo courtesy of Visit Victoria.',
+    illustrative: true,
+  },
+  {
+    label: 'Alba Thermal Springs',
+    title: 'The Sanctuary',
+    description: 'Villas and rooms at Alba. Check stay type and bathing inclusions.',
+    href: '/stay/sanctuary-at-alba/',
+    source: 'https://albathermalsprings.com.au/alba-experiences/the-sanctuary/',
+    image: '/images/visit-victoria/vv-172661-alba-thermal-springs-and-spa.webp',
+    imageAlt: 'A bather in a pool beneath curved concrete canopies at Alba Thermal Springs.',
+    imageNote: 'Illustrative: Alba bathing grounds, not Sanctuary accommodation. Photo courtesy of Visit Victoria.',
+    illustrative: true,
+  },
+];
+
+const faqs = [
+  {
+    question: 'Where should I stay on the Mornington Peninsula?',
+    answer: 'Start with the main purpose of your trip: a coastal town, a wine-country base, or a stay centred on thermal bathing. Then check the exact address and journey to the places you plan to visit.',
+  },
+  {
+    question: 'Are Peninsula Hot Springs Eco Lodges the same as glamping?',
+    answer: 'No. Peninsula Hot Springs describes the Eco Lodges as private rooms in shared lodges and glamping as tented accommodation. Compare the current inclusions for the specific stay you choose.',
+  },
+  {
+    question: 'What should I check before reserving?',
+    answer: 'Confirm the current room or accommodation format, bathing and meal inclusions, guest conditions, accessibility and cancellation terms with the operator for your chosen dates.',
+  },
+];
 
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'Where is the best place to stay on the Mornington Peninsula?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Red Hill and Main Ridge suit cellar-door weekends and vineyard lunches. Check distances and transport from your chosen accommodation. Sorrento is the best base for atmosphere, village dining, and ocean beach access. Mornington town is the most accessible from Melbourne, ideal for single-night escapes. The right answer depends on the kind of weekend you want.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'How much does it cost to stay on the Mornington Peninsula?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'A good mid-range self-contained villa or cottage is the sensible baseline. Luxury vineyard stays (Jackalope, Lindenderry) sit a clear tier above that. Cheaper options exist in Rosebud, Dromana, and Rye, though these are further from the cellar door cluster. Prices peak in summer and over long weekends - autumn midweek is the best value.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Should I stay in Sorrento or Red Hill?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Sorrento for a coastal village weekend with ocean swimming, main-street restaurants, and the ferry to Queenscliff. Red Hill for a wine-country weekend with cellar doors, vineyard lunches, and quiet ridge-top stays. Allow for travel time between the coast and hinterland; check your route before booking. The choice is about where you want to wake up.',
-      },
-    },
-  ],
+  mainEntity: faqs.map(({ question, answer }) => ({
+    '@type': 'Question',
+    name: question,
+    acceptedAnswer: { '@type': 'Answer', text: answer },
+  })),
 };
 
 const breadcrumbItems = [
@@ -62,7 +111,7 @@ export const prerender = true;
 
 <BaseLayout
   title="Best Accommodation Mornington Peninsula · Peninsula Insider"
-  description="The best places to stay on the Mornington Peninsula - hotels, vineyard villas, and coastal cottages. Honest editorial picks across every price band."
+  description="Choose where to stay on the Mornington Peninsula by accommodation format and trip purpose, with clear routes to hotels, cottages, coast, wine country and thermal stays."
   section="stay"
   canonical="https://peninsulainsider.com.au/stay/best-accommodation"
 >
@@ -72,93 +121,112 @@ export const prerender = true;
 
   <article class="article">
     <div class="container">
+      <p class="label label--accent">Find your base</p>
       <h1 class="article__title">The Best Places to Stay on the Mornington Peninsula</h1>
-
+      <a href="/stay/" class="pi-btn pi-btn--solid">Browse all stays</a>
       <div class="prose">
-        <p>Where you sleep shapes the whole Peninsula weekend. A ridge stay puts you within walking distance of cellar doors and positions lunch as a walk rather than a drive. A Sorrento or Portsea base gives you the village atmosphere and easy access to the ocean beaches. The bayside properties in Mornington and Mount Martha are the most accessible from Melbourne, good for a single-night escape that doesn't require the full commitment.</p>
-
-        <p>The best Peninsula stays are not hotels in the traditional sense - they're more often vineyard villas, converted farm buildings, and coastal properties that borrow character from the landscape. Jackalope on the Red Hill plateau is the benchmark: a serious room in a serious location, price calibrated to match. Below it, a strong mid-range layer of self-contained villas and cottages that work well for couples and small groups.</p>
+        <p>Choose by format and location, then confirm the exact room, inclusions, guest conditions and travel time with the operator.</p>
       </div>
     </div>
   </article>
 
-  {luxury.length > 0 && (
-    <section class="venues">
-      <div class="container">
-        <div class="venues__header">
-          <div>
-            <p class="label label--accent">Luxury · $$$$</p>
-            <h2 class="venues__title">The benchmark stays</h2>
-            <p class="venues__sub">The properties at the top of the Peninsula's accommodation offer - for occasions that justify the spend.</p>
-          </div>
+  <section class="venues venues--plain" aria-labelledby="choose-stay-title">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Choose your direction</p>
+          <h2 class="venues__title" id="choose-stay-title">Start with the shape of your stay</h2>
+          <p class="venues__sub">Four useful ways into the accommodation guide.</p>
         </div>
-        <div class="venues__grid">
-          {luxury.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}
-        </div>
+        <a href="/stay/" class="venues__link">All stays →</a>
       </div>
-    </section>
-  )}
+      <div class="venues__grid stay-decisions__grid">
+        {stayDecisions.map((decision) => (
+          <div class="pi-card">
+            <div class="pi-card__body">
+              <p class="label label--accent">{decision.label}</p>
+              <h3 class="pi-card__title"><a href={decision.href}>{decision.title}</a></h3>
+              <p class="pi-card__dek">{decision.description}</p>
+              <div class="pi-card__actions">
+                <a href={decision.href} class="pi-btn pi-btn--solid">{decision.action} →</a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
 
-  {midRange.length > 0 && (
-    <section class="venues venues--plain">
-      <div class="container">
-        <div class="venues__header">
-          <div>
-            <p class="label label--accent">Mid-range · $$$</p>
-            <h2 class="venues__title">Strong rooms, calibrated price</h2>
-            <p class="venues__sub">The deepest category on the Peninsula - vineyard villas, coastal properties, and stays with enough character to anchor a weekend without requiring a special occasion.</p>
-          </div>
-        </div>
-        <div class="venues__grid">
-          {midRange.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}
+  <section class="venues thermal-stay" aria-labelledby="thermal-stay-title">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">A stay built around bathing</p>
+          <h2 class="venues__title" id="thermal-stay-title">Three distinct thermal stays</h2>
+          <p class="venues__sub">These operators describe different accommodation formats. Check the booking you choose for current inclusions and conditions.</p>
         </div>
       </div>
-    </section>
-  )}
-
-  {affordable.length > 0 && (
-    <section class="venues">
-      <div class="container">
-        <div class="venues__header">
-          <div>
-            <p class="label label--accent">Accessible · $ – $$</p>
-            <h2 class="venues__title">Honest stays that don't require a justification</h2>
+      <div class="venues__grid">
+        {thermalOptions.map((option) => (
+          <div class="pi-card">
+            <a href={option.href} class="pi-card__media">
+              <img src={option.image} alt={option.imageAlt} loading="lazy" decoding="async" />
+            </a>
+            <p class="thermal-card__image-note" data-pi-media-disclosure={option.illustrative ? 'illustrative' : undefined}>{option.imageNote}</p>
+            <div class="pi-card__body">
+              <p class="label label--accent">{option.label}</p>
+              <h3 class="pi-card__title"><a href={option.href}>{option.title}</a></h3>
+              <p class="pi-card__dek">{option.description}</p>
+              <div class="pi-card__actions">
+                <a href={option.href} class="pi-btn pi-btn--solid">Read stay notes →</a>
+                <a href={option.source} class="pi-btn pi-btn--ghost" target="_blank" rel="noopener noreferrer">Operator details ↗</a>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="venues__grid">
-          {affordable.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}
-        </div>
+        ))}
       </div>
-    </section>
-  )}
-
-  {luxury.length === 0 && midRange.length === 0 && affordable.length === 0 && (
-    <section class="venues">
-      <div class="container">
-        <div class="venues__header">
-          <div>
-            <p class="label label--accent">All accommodation · {venues.length} properties</p>
-            <h2 class="venues__title">Every stay on the Peninsula</h2>
-          </div>
-          <a href="/stay/" class="venues__link">Browse all stays →</a>
-        </div>
-        <div class="venues__grid">
-          {venues.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}
-        </div>
-      </div>
-    </section>
-  )}
+    </div>
+  </section>
 
   <section class="faq-section">
     <div class="container">
       <div class="prose">
         <h2>How to choose where to stay</h2>
-        {faqSchema.mainEntity.map((item) => (
-          <><h3>{item.name}</h3><p>{item.acceptedAnswer.text}</p></>
+        {faqs.map(({ question, answer }) => (
+          <><h3>{question}</h3><p>{answer}</p></>
         ))}
+        <p><a href="/stay/">Browse all stays</a> when you are ready to compare individual properties.</p>
       </div>
     </div>
   </section>
 
   <NewsletterBlock />
 </BaseLayout>
+
+<style>
+  .venues__grid.stay-decisions__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media (max-width: 768px) {
+    .venues__grid.stay-decisions__grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+
+  .thermal-stay .pi-card__dek {
+    display: block;
+    -webkit-line-clamp: unset;
+    line-clamp: unset;
+    overflow: visible;
+    min-height: 0;
+  }
+
+  .thermal-card__image-note {
+    margin: 0;
+    padding: 0.5rem 1rem 0;
+    color: var(--ink-soft, #433d39);
+    font-size: 0.8125rem;
+    line-height: 1.45;
+  }
+</style>

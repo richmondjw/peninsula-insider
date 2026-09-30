@@ -1,32 +1,58 @@
 ---
-import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import { routeSlug, isListableVenue } from '../../lib/editorial';
-import { buildBreadcrumbSchema, absUrl } from '../../lib/schema';
-import ProvenanceLine from '../../components/ProvenanceLine.astro';
+import { buildBreadcrumbSchema, buildFaqSchema, absUrl } from '../../lib/schema';
 
-const allVenues = (await getCollection('venues')).filter(isListableVenue);
-const slugs = [
-  'peninsula-hot-springs-glamping',
-  'peninsula-hot-springs-eco-lodges',
-  'iluka-retreat',
-  'kanasta-retro-caravans',
-  'yurt-hideaway',
-  'happy-glamper',
-  'point-nepean-discovery-tents',
+const stays = [
+  {
+    id: 'springs',
+    name: 'Peninsula Hot Springs Glamping',
+    place: 'Fingal',
+    format: 'Styled tent on the springs grounds',
+    decision: 'Choose this when bathing is the centre of the stay.',
+    reality: 'Garden-view, lake-view and secluded pavilion settings are listed. Current glamping packages include bathing across the Peninsula Hot Springs site.',
+    check: 'Compare the exact package and guest rules for your dates. Treatments, private bathing and dining are separate choices unless your booking includes them.',
+    operator: 'https://www.peninsulahotsprings.com/accommodation/glamping',
+    notes: '/stay/peninsula-hot-springs-glamping/',
+  },
+  {
+    id: 'retreat',
+    name: 'Iluka Retreat Glamping',
+    place: 'Shoreham',
+    format: 'Bell tent in a rural retreat',
+    decision: 'Choose this for an outdoor country stay.',
+    reality: 'Iluka sets up canvas bell tents among its hills and wetlands. Its current page welcomes couples and families. Tents are unpowered, with a shared powered kitchen and bathrooms.',
+    check: 'Confirm your tent and shared facilities. Activities and any visit to Peninsula Hot Springs need their own arrangements.',
+    operator: 'https://ilukaretreat.com.au/accommodation/glamping/',
+  },
+  {
+    id: 'mobile',
+    name: 'Happy Glamper',
+    place: 'Peninsula campsites and private land',
+    format: 'Mobile styled bell tent',
+    decision: 'Choose this when the campsite is part of the plan.',
+    reality: 'Happy Glamper pitches and furnishes a tent before arrival, then packs it down after your stay. Its usual hire flow requires a separate campsite reservation.',
+    check: 'Ask the operator to approve your dates and tent first, then reserve a suitable campsite. Its Balnarring Deluxe offering has a dedicated site arrangement, so check that package directly.',
+    operator: 'https://www.happyglamper.com.au/faqs-1',
+  },
+  {
+    id: 'national-park',
+    name: 'Point Nepean Discovery Tents',
+    place: 'Portsea',
+    format: 'Pre-pitched park camping',
+    decision: 'Choose this for a national park night with the tent already up.',
+    reality: 'Parks Victoria provides standing-height two- and four-person tents at the Quarantine Station from September to April. This is simpler camping with shared facilities, rather than a furnished retreat tent.',
+    check: 'Bring bedding, a torch, food and eating utensils. Check park rules and accessible-tent suitability before booking.',
+    operator: 'https://www.parks.vic.gov.au/places-to-see/parks/point-nepean-national-park/where-to-stay/point-nepean-discovery-tents',
+  },
 ];
-const venues = slugs
-  .map((slug) => allVenues.find((venue) => routeSlug(venue) === slug))
-  .filter((venue): venue is NonNullable<typeof venue> => Boolean(venue));
-
-const breadcrumbItems = [
-  { label: 'Home', href: '/' },
-  { label: 'Stay', href: '/stay/' },
-  { label: 'Glamping' },
+const faqs = [
+  { q: 'Are Peninsula Hot Springs Eco Lodges glamping?', a: 'No. The operator lists Eco Lodges separately from its glamping tents. Choose the lodges for an enclosed room and check the room-specific bathing facilities.' },
+  { q: 'Is bathing included with every glamping stay?', a: 'No. Peninsula Hot Springs lists site bathing with its glamping packages. Iluka, Happy Glamper and Point Nepean are separate from the springs; reserve any bathing visit separately.' },
+  { q: 'Do I need my own campsite for Happy Glamper?', a: 'Usually, yes. Submit a tent request, wait for approval and then book a suitable site. Ask about the separate Balnarring Deluxe arrangement if it suits your trip.' },
 ];
+const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'Stay', href: '/stay/' }, { label: 'Glamping' }];
 const breadcrumbSchema = buildBreadcrumbSchema([
   { name: 'Home', url: absUrl('/') },
   { name: 'Stay', url: absUrl('/stay/') },
@@ -34,54 +60,135 @@ const breadcrumbSchema = buildBreadcrumbSchema([
 ]);
 export const prerender = true;
 ---
-<BaseLayout
-  title="Glamping Mornington Peninsula · Peninsula Insider"
-  description="Glamping on the Mornington Peninsula - anchored to the Fingal thermal precinct, with options from Peninsula Hot Springs to Point Nepean Discovery Tents."
-  section="stay"
-  canonical="https://peninsulainsider.com.au/stay/glamping/"
-  modifiedTime="2026-05-08"
->
+<BaseLayout title="Glamping on the Mornington Peninsula · Peninsula Insider"
+  description="Compare on-site hot springs glamping, rural bell tents, a mobile styled tent and pre-pitched Point Nepean camping. Know what each stay includes before booking."
+  section="stay" canonical="https://peninsulainsider.com.au/stay/glamping/" modifiedTime="2026-10-01">
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(buildFaqSchema(faqs))} />
   <Breadcrumbs items={breadcrumbItems} />
-  <article class="article">
-    <div class="container">
-      <h1 class="article__title">Glamping on the Mornington Peninsula</h1>
-      <div class="prose">
-        <p>Glamping on the Mornington Peninsula is a small category, and that is useful information. There are not ten interchangeable operators - there is a handful of genuine products, anchored almost entirely to the Fingal thermal precinct on the back-beach side of the Peninsula.</p>
-        <p>The category's structural logic runs through Peninsula Hot Springs. The right way to think about glamping here is not "find the best tent" - it is to build a slower, more sealed-off thermal weekend around Fingal, and let the canvas be part of how the trip is shaped. Access to the bathing precinct at 5am, the Hilltop Pool before the day visitors arrive, the Spa Dreaming Centre in the evening. If you want a wide market, this is not one. If you want the right sequence, this is the page.</p>
-        <p>Beyond the thermal anchor: Iluka near Shoreham is the Peninsula's only fixed-site group glamping venue. Retro Caravans at Rye and Yurt Hideaway in Tootgarook cover the dog-friendly and couples-compact brackets. Happy Glamper is the mobile option. Point Nepean Discovery Tents are the budget gateway inside the national park.</p>
-        <p>Note: The Sanctuary at Alba (five villas, Alba Thermal Springs, Fingal) is not glamping - it is fully enclosed villa accommodation on the same Fingal precinct. It belongs on the <a href="/stay/villas/">villas page</a>.</p>
-        <ProvenanceLine style="font-size:0.8rem;color:var(--soft)" records={venues} type="venues" noun="venue" />
+
+  <section class="glamp-hero" aria-labelledby="glamp-title">
+    <div class="container glamp-hero__grid">
+      <div>
+        <h1 id="glamp-title">The Peninsula, under canvas.</h1>
+        <p>Find your stay by setting: hot springs, hinterland, a campsite you choose or Point Nepean.</p>
+        <a class="pi-btn pi-btn--solid" href="#compare-glamping">Compare the stays</a>
       </div>
-    </div>
-  </article>
-  <section class="venues" id="rankings">
-    <div class="container">
-      <div class="venues__header">
-        <div>
-          <p class="label label--accent">Glamping</p>
-          <h2 class="venues__title">Peninsula glamping - thermal anchor and beyond</h2>
-          <p class="venues__sub">From PHS tents at 5am to a yurt in Tootgarook - a small category with a clear hierarchy.</p>
-        </div>
-        <a href="/explore/hot-springs/" class="venues__link">Peninsula Hot Springs guide →</a>
-      </div>
-      <div class="venues__grid">{venues.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}</div>
+      <nav class="glamp-paths" aria-label="Choose a glamping format">
+        {stays.map((stay) => <a href={'#' + stay.id}>
+          <span>{stay.format}</span><strong>{stay.name}</strong><svg class="glamp-paths__arrow" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2 8h11M9 4l4 4-4 4" /></svg>
+        </a>)}
+      </nav>
     </div>
   </section>
-  <section class="venues venues--plain">
+
+  <section class="glamp-compare" id="compare-glamping" aria-labelledby="compare-title">
     <div class="container">
-      <div class="venues__header">
-        <div>
-          <p class="label label--accent">Related guides</p>
-          <h2 class="venues__title">Plan the overnight thermal stay</h2>
-        </div>
+      <div class="glamp-heading">
+        <h2 id="compare-title">Four formats, four different trips.</h2>
+        <p>These are alternatives, not a ranking. The right stay depends on whether you want bathing on site, a hosted rural tent, a chosen campsite or a simple park base.</p>
       </div>
-      <div class="venues__grid venues__grid--links">
-        <div class="pi-card"><div class="pi-card__body"><h3 class="pi-card__title"><a href="/stay/hot-springs-accommodation/">Hot Springs Accommodation</a></h3><p class="pi-card__dek">Every overnight option in and around the Peninsula's thermal springs precincts - PHS glamping, eco lodges, and Sanctuary at Alba.</p><div class="pi-card__actions"><a href="/stay/hot-springs-accommodation/" class="pi-btn pi-btn--solid">See the guide →</a></div></div></div>
-        <div class="pi-card"><div class="pi-card__body"><h3 class="pi-card__title"><a href="/stay/wellness-retreats/">Wellness Retreats</a></h3><p class="pi-card__dek">Spa stays, thermal springs, and the restorative layer of the Peninsula.</p><div class="pi-card__actions"><a href="/stay/wellness-retreats/" class="pi-btn pi-btn--solid">Explore →</a></div></div></div>
-        <div class="pi-card"><div class="pi-card__body"><h3 class="pi-card__title"><a href="/explore/hot-springs/">Peninsula Hot Springs Guide</a></h3><p class="pi-card__dek">The day-visit guide to the PHS precinct, pools, and Spa Dreaming Centre.</p><div class="pi-card__actions"><a href="/explore/hot-springs/" class="pi-btn pi-btn--solid">Read the guide →</a></div></div></div>
+      {stays.map((stay) => <article class="glamp-stay" id={stay.id} aria-labelledby={stay.id + '-title'}>
+        <div>
+          <p class="glamp-stay__place">{stay.place} <span aria-hidden="true">·</span> {stay.format}</p>
+          <h3 id={stay.id + '-title'}>{stay.name}</h3>
+          <p class="glamp-stay__decision">{stay.decision}</p>
+        </div>
+        <div class="glamp-stay__body">
+          <p>{stay.reality}</p>
+          <div class="glamp-stay__check"><strong>Before you reserve</strong><p>{stay.check}</p></div>
+          <div class="glamp-stay__links">
+            <a href={stay.operator} target="_blank" rel="noopener noreferrer">See operator details</a>
+            {stay.notes && <a href={stay.notes}>Read our stay notes</a>}
+          </div>
+        </div>
+      </article>)}
+    </div>
+  </section>
+
+  <section class="glamp-boundary" aria-labelledby="boundary-title">
+    <div class="container glamp-boundary__grid">
+      <div>
+        <h2 id="boundary-title">Looking for a room instead?</h2>
+        <p>Several appealing overnight stays sit beside this category. Their buildings and booking arrangements make them different choices.</p>
+      </div>
+      <div class="glamp-boundary__list">
+        <div><h3>Peninsula Hot Springs Eco Lodges</h3><p>Enclosed lodge rooms on the same grounds as the glamping tents. Private bathing facilities vary by room type.</p></div>
+        <div><h3>The Sanctuary at Alba</h3><p>Villas and rooms with the separate Alba Thermal Springs operator. It is a thermal stay, not canvas accommodation.</p></div>
+        <div><h3>Retro caravans</h3><p>A characterful alternative in Rye, but a caravan stay rather than glamping under canvas.</p></div>
+        <a href="/stay/hot-springs-accommodation/">Compare the on-site hot springs stays</a>
       </div>
     </div>
   </section>
+
+  <section class="glamp-faq" aria-labelledby="faq-title">
+    <div class="container glamp-faq__grid">
+      <div><h2 id="faq-title">The booking details that matter.</h2><p>Check the operator's live terms before payment. Tents, campsites, bathing and treatments are not always part of one reservation.</p></div>
+      <div class="glamp-faq__answers">{faqs.map((faq) => <div><h3>{faq.q}</h3><p>{faq.a}</p></div>)}</div>
+    </div>
+  </section>
+
+  <div class="glamp-source"><div class="container"><p>Details checked on 1 October 2026 against <a href="https://www.peninsulahotsprings.com/accommodation/glamping" target="_blank" rel="noopener noreferrer">Peninsula Hot Springs</a>, <a href="https://ilukaretreat.com.au/accommodation/glamping/" target="_blank" rel="noopener noreferrer">Iluka Retreat</a>, <a href="https://www.happyglamper.com.au/faqs-1" target="_blank" rel="noopener noreferrer">Happy Glamper</a> and <a href="https://www.parks.vic.gov.au/places-to-see/parks/point-nepean-national-park/where-to-stay/point-nepean-discovery-tents" target="_blank" rel="noopener noreferrer">Parks Victoria</a>. Availability, inclusions and visitor rules can change.</p></div></div>
   <NewsletterBlock />
 </BaseLayout>
+
+<style>
+  .glamp-hero { background: var(--bg-alt); border-bottom: 1px solid var(--border); padding: clamp(2.25rem, 5vw, 5rem) 0; }
+  .glamp-hero__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .85fr); align-items: center; gap: clamp(2rem, 6vw, 6rem); }
+  .glamp-hero h1 { color: var(--dark); font-family: var(--font-display); font-size: clamp(2.45rem, 5vw, 4.4rem); font-weight: 600; line-height: 1.05; letter-spacing: -.028em; text-wrap: balance; max-width: 15ch; margin: 0 0 1.35rem; }
+  .glamp-hero p { color: var(--text); font-size: clamp(1.05rem, 1.5vw, 1.22rem); line-height: 1.55; max-width: 50ch; margin: 0 0 1.65rem; }
+  .glamp-hero .pi-btn { min-height: 44px; }
+  .glamp-paths { background: var(--harbour-deep); color: #fff; border-radius: var(--radius-m); padding: .5rem clamp(1.15rem, 2.3vw, 2rem); }
+  .glamp-paths a { color: #fff; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .15rem 1rem; text-decoration: none; padding: 1.05rem 0; border-bottom: 1px solid rgb(255 255 255 / .3); min-height: 68px; }
+  .glamp-paths a:last-child { border-bottom: 0; }
+  .glamp-paths a:hover strong { text-decoration: underline; text-underline-offset: .25em; }
+  .glamp-paths a:focus-visible { outline: 2px solid var(--sand); outline-offset: 3px; }
+  .glamp-paths a > span:first-child { grid-column: 1; color: #dce8ef; font-size: .76rem; line-height: 1.35; }
+  .glamp-paths strong { grid-column: 1; font-family: var(--font-display); font-size: clamp(1rem, 1.4vw, 1.1rem); line-height: 1.35; }
+  .glamp-paths__arrow { grid-column: 2; grid-row: 1 / span 2; align-self: center; width: 1rem; height: 1rem; fill: none; stroke: var(--sand); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+  .glamp-compare { padding: clamp(3.25rem, 6vw, 6rem) 0; }
+  .glamp-heading { display: flex; align-items: end; justify-content: space-between; gap: 2.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
+  .glamp-heading h2, .glamp-boundary h2, .glamp-faq h2 { color: var(--dark); font-family: var(--font-display); font-weight: 600; font-size: clamp(1.8rem, 3vw, 2.75rem); line-height: 1.16; letter-spacing: -.02em; text-wrap: balance; max-width: 22ch; margin: 0; }
+  .glamp-heading p { color: var(--soft); line-height: 1.65; max-width: 46ch; margin: 0; }
+  .glamp-stay { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(2rem, 5vw, 5.5rem); padding: clamp(2rem, 3.5vw, 3.5rem) 0; border-bottom: 1px solid var(--border); scroll-margin-top: 8rem; }
+  .glamp-stay__place { color: var(--soft); font-size: .8rem; font-weight: 600; line-height: 1.5; margin: 0 0 .75rem; }
+  .glamp-stay h3 { color: var(--dark); font-family: var(--font-display); font-size: clamp(1.4rem, 2.1vw, 2rem); font-weight: 600; line-height: 1.2; letter-spacing: -.015em; max-width: 24ch; margin: 0 0 1rem; }
+  .glamp-stay__decision { color: var(--text); font-size: 1.1rem; line-height: 1.55; max-width: 34ch; margin: 0; }
+  .glamp-stay__body > p { color: var(--text); line-height: 1.7; max-width: 68ch; margin: 0 0 1.4rem; }
+  .glamp-stay__check { border-top: 1px solid var(--border); padding-top: 1rem; }
+  .glamp-stay__check strong { color: var(--dark); font-size: .88rem; }
+  .glamp-stay__check p { color: var(--soft); line-height: 1.65; max-width: 68ch; margin: .4rem 0 0; }
+  .glamp-stay__links { display: flex; gap: .35rem 2rem; flex-wrap: wrap; margin-top: 1.25rem; }
+  .glamp-stay__links a, .glamp-boundary__list > a { display: inline-flex; align-items: center; min-height: 44px; color: var(--accent); font-weight: 600; text-decoration: underline; text-underline-offset: .25em; }
+  .glamp-boundary { background: var(--harbour-deep); color: #fff; padding: clamp(3.25rem, 6vw, 5.75rem) 0; }
+  .glamp-boundary__grid, .glamp-faq__grid { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(2rem, 6vw, 6rem); }
+  .glamp-boundary h2 { color: #fff; }
+  .glamp-boundary__grid > div > p { color: #e0ebf2; line-height: 1.65; max-width: 39ch; }
+  .glamp-boundary__list > div { padding: 1rem 0; border-top: 1px solid rgb(255 255 255 / .35); }
+  .glamp-boundary__list h3 { color: #fff; font-family: var(--font-display); font-weight: 600; font-size: 1.1rem; line-height: 1.4; margin: 0 0 .35rem; }
+  .glamp-boundary__list p { color: #e0ebf2; line-height: 1.6; margin: 0; }
+  .glamp-boundary__list > a { color: var(--sand); margin-top: 1rem; }
+  .glamp-boundary__list > a:focus-visible { outline-color: var(--sand); }
+  .glamp-faq { padding: clamp(3.25rem, 6vw, 5.5rem) 0; }
+  .glamp-faq__grid > div > p { color: var(--soft); line-height: 1.65; max-width: 40ch; }
+  .glamp-faq__answers > div { padding: 1.25rem 0; border-top: 1px solid var(--border); }
+  .glamp-faq__answers h3 { color: var(--dark); font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; line-height: 1.4; margin: 0 0 .55rem; }
+  .glamp-faq__answers p { color: var(--soft); line-height: 1.65; margin: 0; }
+  .glamp-source { background: var(--bg-alt); padding: 1.75rem 0; }
+  .glamp-source p { color: var(--soft); font-size: .82rem; line-height: 1.65; max-width: 94ch; margin: 0; }
+  .glamp-source a { color: var(--accent); text-decoration: underline; text-underline-offset: .25em; }
+  #compare-glamping { scroll-margin-top: 8rem; }
+  @media (max-width: 800px) {
+    .glamp-hero__grid, .glamp-stay, .glamp-boundary__grid, .glamp-faq__grid { grid-template-columns: 1fr; }
+    .glamp-heading { display: block; }
+    .glamp-heading p { margin-top: 1rem; }
+  }
+  @media (max-width: 560px) {
+    .glamp-hero { padding: 2rem 0 2.5rem; }
+    .glamp-hero h1 { font-size: clamp(2.25rem, 10vw, 3rem); }
+    .glamp-hero p { margin-bottom: 1.35rem; }
+    .glamp-paths { padding: .25rem 1.1rem; }
+    .glamp-stay { gap: 1.2rem; scroll-margin-top: 6rem; }
+    #compare-glamping { scroll-margin-top: 6rem; }
+  }
+</style>

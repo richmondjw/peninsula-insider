@@ -6,7 +6,7 @@ This directory is the **source of truth** for every atomic entity on Peninsula I
 
 | Directory | Entity | Schema |
 |---|---|---|
-| `venues/` | Restaurants, wineries, cafes, bakeries, pubs, breweries, distilleries, producers, markets, hotels, villas, cottages, glamping, farm-stays, spas | `venues` |
+| `venues/` | Restaurants, wineries, cafes, bakeries, pubs, breweries, distilleries, producers, markets, hotels, villas, cottages, lodges, glamping, farm-stays, spas | `venues` |
 | `experiences/` | Walks, beaches, wellness, tours, attractions, galleries, parks, lookouts, markets, workshops | `experiences` |
 | `places/` | Towns, villages, zones, ridges, beaches, capes | `places` |
 | `articles/` | The Insider's Journal long-form pieces | `articles` |

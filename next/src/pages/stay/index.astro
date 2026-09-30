@@ -113,7 +113,6 @@ function stayItem(v: any, overrides: { verdict?: string } = {}) {
       titleize(String(data.place?.id ?? data.place ?? '')),
       partyFit(facets),
     ].filter(Boolean).slice(0, 3) as string[],
-    priceBand: data.priceBand as string | undefined,
     freshness: iso(informationCheckedOn(data)),
     freshnessKind: 'checked' as const,
     booking: bookingUrl

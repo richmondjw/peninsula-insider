@@ -20,6 +20,7 @@ export async function getStaticPaths() {
 
 const { venue } = Astro.props;
 const slug = routeSlug(venue);
+const isUnverifiedPaused = venue.data.status === 'paused' && venue.data.sourceStatus === 'unsourced';
 
 const allVenues = (await getCollection('venues')).filter(isListableVenue);
 const related = allVenues
@@ -70,7 +71,7 @@ const breadcrumbSchema = buildBreadcrumbSchema([
   { name: venue.data.name, url: canonical },
 ]);
 
-const venueSchema = {
+const venueSchema = isUnverifiedPaused ? null : {
   '@context': 'https://schema.org',
   '@type': 'LodgingBusiness',
   '@id': `${canonical}#LodgingBusiness`,
@@ -113,9 +114,10 @@ export const prerender = true;
   canonical={canonical}
   ogImage={ogImage}
   searchImage={ogImage}
-  noindex={venue.data.sitemapExclude === true}
+  noindex={venue.data.sitemapExclude === true || isUnverifiedPaused}
+  searchExclude={isUnverifiedPaused}
 >
-  <script type="application/ld+json" set:html={JSON.stringify(venueSchema)} />
+  {venueSchema && <script type="application/ld+json" set:html={JSON.stringify(venueSchema)} />}
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   <VenueDetailTemplate venue={venue} section="stay" related={related} articles={articles} itineraries={itineraries} />
 

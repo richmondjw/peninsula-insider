@@ -17,14 +17,24 @@ import { readFile, readdir } from 'node:fs/promises';
 import { join, resolve, dirname, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parse as parseYaml } from 'yaml';
+import { build } from 'esbuild';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const NEXT_ROOT = resolve(__dirname, '..');
 const CONTENT = resolve(NEXT_ROOT, 'src/content');
 
-const { FACET_OPTIONS, CHIP_PRESETS, getFacets, CANONICAL_PLACES } = await import(
-  new URL('../src/lib/facets.ts', import.meta.url).href
-);
+// Bundle the app module for this standalone Node test: facets.ts imports
+// extensionless TypeScript files that Node cannot resolve directly.
+const facetsBundle = await build({
+  entryPoints: [resolve(NEXT_ROOT, 'src/lib/facets.ts')],
+  bundle: true,
+  platform: 'node',
+  format: 'esm',
+  write: false,
+  logLevel: 'silent',
+});
+const facetsUrl = `data:text/javascript;base64,${Buffer.from(facetsBundle.outputFiles[0].contents).toString('base64')}`;
+const { FACET_OPTIONS, CHIP_PRESETS, getFacets, surfaceFacetOptions, CANONICAL_PLACES } = await import(facetsUrl);
 const { freshnessLabel } = await import(
   new URL('../src/lib/freshness.ts', import.meta.url).href
 );
@@ -79,7 +89,7 @@ const pick = (list, pred) => list.find(pred) ?? list[0];
 const sample = [
   ['venue', pick(venues, (v) => v.data.type === 'winery')],
   ['venue', pick(venues, (v) => v.data.type === 'restaurant')],
-  ['venue', pick(venues, (v) => ['hotel', 'villa', 'cottage', 'glamping'].includes(v.data.type))],
+  ['venue', pick(venues, (v) => ['hotel', 'villa', 'cottage', 'lodge', 'glamping'].includes(v.data.type))],
   ['venue', pick(venues, (v) => v.data.dogFriendly === true)],
   ['experience', pick(experiences, (e) => e.data.type === 'walk')],
   ['experience', pick(experiences, (e) => e.data.type === 'beach')],
@@ -122,6 +132,15 @@ for (const key of ['place', 'cat', 'mood', 'price', 'party', 'date']) {
   assert(Array.isArray(FACET_OPTIONS[key]) && FACET_OPTIONS[key].length > 0, `FACET_OPTIONS.${key} present`);
 }
 assert(CANONICAL_PLACES.length === 37, `canonical place list has 37 towns (got ${CANONICAL_PLACES.length})`);
+
+// The two Peninsula Hot Springs stay formats must remain separate in visitor filters.
+const ecoLodges = venues.find((v) => v.data.slug === 'peninsula-hot-springs-eco-lodges');
+const springsGlamping = venues.find((v) => v.data.slug === 'peninsula-hot-springs-glamping');
+assert(ecoLodges?.data.type === 'lodge', 'Eco Lodges have lodge type');
+assert(getFacets('venue', ecoLodges?.data ?? {}).cat?.includes('lodge'), 'Eco Lodges resolve to the lodge category');
+assert(!getFacets('venue', ecoLodges?.data ?? {}).cat?.includes('glamping'), 'Eco Lodges do not resolve to glamping');
+assert(springsGlamping?.data.type === 'glamping', 'the canvas stay retains its glamping type');
+assert(surfaceFacetOptions('stay', 'cat').some((option) => option.value === 'lodge'), 'Stay filter offers Lodges');
 
 // Canonical places match the places collection on disk
 const placeFiles = (await readdir(join(CONTENT, 'places')))

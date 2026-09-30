@@ -8,6 +8,7 @@
  */
 
 import { createClient } from '@supabase/supabase-js';
+import yurtRecord from '../content/venues/yurt-hideaway.json';
 // `pi` is a non-default schema, so the inferred client type does not match
 // the public-default SupabaseClient. Treat the client opaquely.
 type SupabaseClient = ReturnType<typeof createClient<any, 'pi'>>;
@@ -46,6 +47,13 @@ export interface SearchParams {
   limit?:           number;
   weights?:         { lexical?: number; vector?: number; facet?: number };
 }
+
+// The live RPC index refresh is separate from the static site deployment.
+// Keep this paused venue out of search immediately when its source record is
+// unsourced, even if pi.entity_index still holds a row from an older refresh.
+const pausedUnsourcedVenueSlugs = new Set<string>(
+  yurtRecord.status === 'paused' && yurtRecord.sourceStatus === 'unsourced' ? [yurtRecord.slug] : [],
+);
 
 let _client: SupabaseClient | null = null;
 
@@ -97,7 +105,9 @@ export async function search(params: SearchParams): Promise<SearchHit[]> {
     if (typeof console !== 'undefined') console.warn('[pi.search] RPC error, falling back', error);
     return [];
   }
-  return (data as SearchHit[]) ?? [];
+  return ((data as SearchHit[]) ?? []).filter((hit) =>
+    !(hit.entity_type === 'venue' && pausedUnsourcedVenueSlugs.has(hit.entity_slug))
+  );
 }
 
 /**

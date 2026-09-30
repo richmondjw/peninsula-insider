@@ -164,6 +164,7 @@ export const typeLabel: Record<string, string> = {
   hotel: 'Hotel',
   villa: 'Villa',
   cottage: 'Cottage',
+  lodge: 'Lodge',
   glamping: 'Glamping',
   'farm-stay': 'Farm Stay',
   spa: 'Spa',
@@ -209,7 +210,7 @@ export function isListableVenue(entry: any): boolean {
   return !isPermanentlyClosed(entry) && !(data?.status === 'paused' && data?.sourceStatus === 'unsourced');
 }
 
-export const stayTypes = ['hotel', 'villa', 'cottage', 'glamping', 'farm-stay', 'spa'];
+export const stayTypes = ['hotel', 'villa', 'cottage', 'lodge', 'glamping', 'farm-stay', 'spa'];
 export function isStayVenue(entry: any) {
   const data = entry?.data ?? entry;
   const type = data?.type ?? entry;
@@ -301,7 +302,7 @@ export const placesWithHero = new Set<string>([
  *
  * `distillery` borrows brewery variants where we don't have native imagery.
  *
- * Stay-related types (hotel/cottage/villa/glamping/farm-stay) intentionally
+ * Stay-related types (hotel/cottage/villa/lodge/glamping/farm-stay) intentionally
  * use thematic Peninsula `article-*` scenes (vineyard rows, bay water) rather
  * than the original `category-*` files, which were stock images of tropical
  * resorts/overwater bungalows/sports cars that didn't read as Peninsula. The
@@ -388,6 +389,10 @@ const categoryVariantsByType: Record<string, string[]> = {
     'article-vineyard-villa-01.webp', 'article-couples-weekend-01.webp',
     'article-sunset-01.webp', 'journal-late-afternoon-walks-01.webp',
     'explore-greens-bush-01.webp', 'explore-sorrento-ocean-baths-01.webp',
+  ],
+  lodge: [
+    'explore-greens-bush-01.webp', 'explore-farnsworth-track-01.webp',
+    'article-couples-weekend-01.webp',
   ],
   glamping: [
     'explore-greens-bush-01.webp', 'explore-farnsworth-track-01.webp',

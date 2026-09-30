@@ -49,3 +49,8 @@ If integrated or public verification finds a regression, revert only the two-fil
 ## Independent integrated check
 
 The final integrated build exited 0. An independent reviewer exercised the generated artifact on Home, One Night, Spa Stays, Thermal and Hot Springs Stays at 320 × 568, 390 × 667, 1024 × 768 and 1365 × 768. All 20 page/width combinations returned 200, kept the notice in flow, exposed 44 px choices and left the tested hero actions pointer-clear. Accept and reload, Manage with analytics off and on, Reject, Escape without storing, and footer reopening/focus return passed. No horizontal overflow, page errors or pre-consent analytics requests appeared. The reviewer scored the interaction **96/100 provisionally**, with the remaining 13 px first-fold shortfall on One Night at 320 px and production analytics gating still to check. This score uses the consent-specific criteria, not the 23 page lenses.
+
+
+## Public first-visit receipt
+
+On the exact published Set 5 commit, a fresh 320 × 568 browser visit had no stored consent and no Google Analytics or Tag Manager request before choice. The in-flow note did not cover the accommodation hub action, and the page had no horizontal overflow. Accept stored analytics=true and then attempted one analytics request. The test intercepted that request before transmission to avoid recording a synthetic visit. This supports production consent gating for the tested path; other devices and assistive-technology sessions remain to be evaluated.

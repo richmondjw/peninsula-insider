@@ -149,6 +149,7 @@ const { alt: heroAlt, presentation: heroPresentation } = altFor(hero, heroLabel)
 // than let one image's disclosure stand in for another's. Capturing
 // provenance at upload is the operator flow, which is gated separately.
 const heroProvenance = hero.override ? null : data.heroImage;
+const heroCredit = hero.override ? hero.override.credit : data.heroImage?.credit;
 // The photograph rule (src/lib/photo-set.ts): a stage opens the page when
 // there are three or more verified photographs, and the rest are set into
 // the editor note rather than dumped at the foot of the page.
@@ -244,7 +245,7 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
 // gap, and only on the venue's own canonical surface, so a venue is never
 // described by two competing hours nodes.
 const isCanonicalSurface = venueHrefPrefix(data.type).endsWith(`/${section}`);
-const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
+const hoursSchema = hasOpeningHours && !isUnverifiedPaused && isCanonicalSurface && section !== 'wine'
   ? {
       '@context': 'https://schema.org',
       '@type': 'LocalBusiness',
@@ -276,8 +277,7 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
         <><span class="venue-detail__dot" aria-hidden="true"></span>
         <span class="venue-detail__subregion">{subregionLabel}</span></>
       )}
-      <span class="venue-detail__dot" aria-hidden="true"></span>
-      <span class="venue-detail__price-band">{data.priceBand}</span>
+
     </div>
 
     <h1 class="venue-detail__title" {...editableText({
@@ -288,7 +288,7 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
       <p class="venue-detail__closed-notice">This venue is closed. The page is preserved for historical reference.</p>
     )}
     {isUnverifiedPaused && (
-      <p class="venue-detail__closed-notice">Current operation, schedule and location are unverified. This listing is paused; check a primary source before planning a visit.</p>
+      <p class="venue-detail__closed-notice">Key visitor details are unverified. This listing is paused; check a primary source before planning a visit.</p>
     )}
     <p class="venue-detail__signature" {...editableText({
       entityType: 'venue', entitySlug: venueSlug, fieldPath: 'signature',
@@ -308,7 +308,7 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
       </p>
     )}
 
-    {(data.bookingUrl || data.phone) && !isClosed && (
+    {(data.bookingUrl || data.phone) && !isClosed && !isUnverifiedPaused && (
       <div class="venue-detail__booking-bar">
         {data.bookingUrl && (
           <a
@@ -322,7 +322,7 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
             data-pi-surface="venue-booking-bar"
             data-pi-provider={data.bookingProvider}
           >
-            {data.type === 'hotel' || data.type === 'villa' || data.type === 'cottage' || data.type === 'glamping' || data.type === 'farm-stay'
+            {data.type === 'hotel' || data.type === 'villa' || data.type === 'cottage' || data.type === 'lodge' || data.type === 'glamping' || data.type === 'farm-stay'
               ? 'Check availability'
               : data.type === 'winery'
                 ? 'Book a tasting'
@@ -346,7 +346,7 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
     {/* Appointment-only planning signal - wine venues only.
         Positioned before the hero so it's seen before the reader
         commits to the page. Not a warning, a planning note. */}
-    {isAppointmentOnly && (
+    {isAppointmentOnly && !isUnverifiedPaused && (
       <div class="venue-appointment-note" role="note">
         <span class="venue-appointment-note__icon" aria-hidden="true"> - </span>
         <span class="venue-appointment-note__text">
@@ -380,10 +380,10 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
         >
           <img src={hero.src} alt={heroAlt} role={heroPresentation ? 'presentation' : undefined} fetchpriority="high" decoding="async" />
           <div class="venue-detail__hero-fog"></div>
-          <span class="venue-detail__hero-label">{heroLabel}</span>
+          {!isUnverifiedPaused && <span class="venue-detail__hero-label">{heroLabel}</span>}
         </figure>
-        {data.heroImage?.credit && (
-          <p class="venue-detail__hero-credit">{formatHeroCredit(data.heroImage.credit)}</p>
+        {heroCredit && (
+          <p class="venue-detail__hero-credit">{formatHeroCredit(heroCredit)}</p>
         )}
         <MediaProvenanceNote
           image={heroProvenance}
@@ -401,7 +401,7 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
         {venue.data.venueTier === 'destination' && data.whyWeGo && (
           <div class="venue-verdict">
             <blockquote class="venue-verdict__why">
-              <span class="venue-verdict__label">Why we&rsquo;d go</span>
+              <span class="venue-verdict__label">{isUnverifiedPaused ? "About this listing" : "Why we’d go"}</span>
               <p class="venue-verdict__text">{data.whyWeGo}</p>
             </blockquote>
           </div>
@@ -554,7 +554,7 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
 
           <dt>Location</dt>
           <dd>
-            {isUnverifiedPaused ? "Market location unverified" : isNonPublicProducer ? `${placeLabel(data.place)} (not open to the public)` : data.address}
+            {isUnverifiedPaused ? "Details withheld while listing is paused" : isNonPublicProducer ? `${placeLabel(data.place)} (not open to the public)` : data.address}
             {data.address && !isUnverifiedPaused && !isNonPublicProducer && (
               <>
                 {' '}·{' '}
@@ -567,8 +567,7 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
             )}
           </dd>
 
-          <dt>Spend</dt>
-          <dd>{data.priceBand}</dd>
+
 
           {data.phone && (
             <>
@@ -615,7 +614,7 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
             </>
           )}
 
-          {data.hoursNote && (
+          {data.hoursNote && !isUnverifiedPaused && (
             <>
               <dt>Hours</dt>
               <dd>{data.hoursNote}</dd>
@@ -630,7 +629,7 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
           {visitorInformation?.socialLinks.map((link) => <><dt>{link.label}</dt><dd><a href={link.url} rel="noopener noreferrer" target="_blank">Official profile</a></dd></>)}
           {visitorInformation?.video && <><dt>Video</dt><dd><a href={visitorInformation.video.url} rel="noopener noreferrer" target="_blank">Watch the venue video</a><small> Credit: {visitorInformation.video.credit}</small></dd></>}
 
-          {hasOpeningHours && (
+          {hasOpeningHours && !isUnverifiedPaused && (
             <>
               <dt>Opening hours</dt>
               <dd>
@@ -646,7 +645,7 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
             </>
           )}
 
-          {!isNonPublicProducer && <>
+          {!isNonPublicProducer && !isUnverifiedPaused && <>
             <dt>Live status</dt>
             <dd>
               <a href={liveStatusUrl} target="_blank" rel="noopener noreferrer">
@@ -662,14 +661,14 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
             </>
           )}
 
-          {hasVisiting && data.visiting.tastingFee && (
+          {hasVisiting && !isUnverifiedPaused && data.visiting.tastingFee && (
             <>
               <dt>Tasting fee</dt>
               <dd>{data.visiting.tastingFee}</dd>
             </>
           )}
 
-          {hasVisiting && data.visiting.bookingRequired && (
+          {hasVisiting && !isUnverifiedPaused && data.visiting.bookingRequired && (
             <>
               <dt>Booking</dt>
               <dd>Required</dd>
@@ -698,7 +697,7 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
           )}
         </dl>
 
-        {data.bookingUrl && (
+        {data.bookingUrl && !isUnverifiedPaused && (
           <a
             class="facts__cta pi-btn pi-btn--ghost pi-btn--block"
             href={data.bookingUrl}
@@ -722,7 +721,7 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
   </div>
 </section>
 
-{hasVisiting && (
+{hasVisiting && !isUnverifiedPaused && (
   <section class="venue-detail-section">
     <div class="container">
       <h2 class="venue-detail-section__title">Visiting</h2>
@@ -761,7 +760,7 @@ const hoursSchema = hasOpeningHours && isCanonicalSurface && section !== 'wine'
   </section>
 )}
 
-{hasRestaurant && (
+{hasRestaurant && !isUnverifiedPaused && (
   <section class="venue-detail-section" id="restaurant">
     <div class="container">
       <h2 class="venue-detail-section__title">{data.restaurant.name ?? 'Restaurant'}</h2>

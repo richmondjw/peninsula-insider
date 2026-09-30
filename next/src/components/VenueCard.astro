@@ -26,6 +26,7 @@ const typeLabel: Record<string, string> = {
   hotel:       'Hotel',
   villa:       'Villa',
   cottage:     'Cottage',
+  lodge:       'Lodge',
   glamping:    'Glamping',
   'farm-stay': 'Farm Stay',
   spa:         'Spa',
@@ -77,7 +78,7 @@ const moodTags: string[] = (Array.isArray(data.tags?.mood) ? data.tags.mood : []
     return true;
   })
   .slice(0, 2);
-const summaryLine = [shortAddress, data.priceBand].filter(Boolean).join(' · ');
+const summaryLine = shortAddress;
 
 // Resolve CMS image override at SSR. When an editor has replaced this venue's
 // hero via the inline editor, the published row overrides whatever the content

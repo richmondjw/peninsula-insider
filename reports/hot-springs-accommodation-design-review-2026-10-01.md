@@ -66,3 +66,8 @@ After publication, inspect first-fold comparison clicks, onward operator and sta
 ## Integrated artifact review
 
 The final integrated local build exited 0. An independent reviewer checked the generated page at 320 × 568, 390 × 844 and 1365 × 768: all routes returned 200, with no page errors or horizontal overflow. The 44 px comparison action worked, and both in-page links landed below the sticky header. The licensed hero loaded with its visible credit. The independent 23-lens expert score was **93.2/100**, still below the 99 target. The first-fold comparison, image truth and link integrity improved most; newsletter fit and keyboard/focus polish remain lower-scoring. This is a local expert judgement, not a field outcome. Public deployment remains a separate gate.
+
+
+## Public release receipt
+
+The bounded set reached main at c14e52bb760af9c96448b9b73f56eb2e8a61ca0e. Build and Deploy run 36771878878, Content Gate run 36771879279, and post-deploy Live Agent Readiness run 36773140138 succeeded. The public deployment.json identified that exact source SHA and build run. The hub, Sanctuary and luxury routes returned HTTP 200; both licensed Visit Victoria images returned HTTP 200 as image/webp. At 320 × 568 on the public hub, the in-flow privacy notice sat at y103–210 and the 44 px comparison action at y488–532 had a clear pointer hit target. Five public thermal map rows carried the corrected site-level coordinates. This confirms publication and initial smoke checks; reader outcomes and field performance remain unmeasured.

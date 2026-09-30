@@ -151,6 +151,7 @@ export const FACET_OPTIONS: Record<FacetKey, FacetOption[]> = {
     { value: 'hotel', label: 'Hotels' },
     { value: 'villa', label: 'Villas' },
     { value: 'cottage', label: 'Cottages' },
+    { value: 'lodge', label: 'Lodges' },
     { value: 'glamping', label: 'Glamping' },
     { value: 'farm-stay', label: 'Farm stays' },
     // Explore
@@ -232,7 +233,7 @@ export const SURFACE_FACET_VALUES: Record<string, Partial<Record<FacetKey, strin
     mood: ['long-lunch', 'date-night', 'quick', 'slow', 'scenic', 'garden', 'on-the-water', 'cosy', 'worth-the-drive'],
   },
   stay: {
-    cat: ['hotel', 'villa', 'cottage', 'glamping', 'farm-stay'],
+    cat: ['hotel', 'villa', 'cottage', 'lodge', 'glamping', 'farm-stay'],
   },
   wine: {
     cat: ['winery', 'brewery', 'distillery'],

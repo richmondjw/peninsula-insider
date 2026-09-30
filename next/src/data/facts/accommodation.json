@@ -13,7 +13,7 @@
     },
     "glamping": {
       "label": "Tier 3 - Glamping / Unique Stays",
-      "properties": ["Peninsula Hot Springs Glamping & Eco Lodges", "Iluka Retreat & Camp", "Yurt Hideaway"]
+      "properties": ["Peninsula Hot Springs Glamping & Eco Lodges", "Iluka Retreat & Camp"]
     }
   },
   "properties": [
@@ -289,18 +289,20 @@
       "id": "F013",
       "name": "Yurt Hideaway",
       "town": "Tootgarook",
-      "address": "1929 Point Nepean Road, Tootgarook (adjacent)",
+      "address": "Tootgarook VIC 3941",
       "type": "Glamping (yurt)",
       "rooms": 1,
-      "roomsNote": "Single yurt - exclusive property booking",
+      "roomsNote": "One yurt in the operator's published description; current stays unconfirmed",
       "petFriendly": false,
       "pool": false,
-      "dining": ["Self-catering - yurt with kitchen setup"],
-      "bestFor": ["romantic couples", "unique stay seekers"],
-      "operatingStatus": "open",
-      "confidence": "medium",
-      "notes": "800m walk to Capel Sound beach. 1hr from Melbourne. Described as 'romantic feel'.",
-      "needsVerify": ["pricing", "kitchen and bathroom details"]
+      "dining": ["Covered outdoor kitchenette described by the operator"],
+      "bestFor": [],
+      "operatingStatus": "availability-unverified",
+      "editorialStatus": "paused",
+      "availabilityCheckedOn": "2026-10-01",
+      "confidence": "low",
+      "notes": "Paused from current stay recommendations. The operator's booking page returned HTTP 503 on 1 October 2026; a recently indexed copy said bookings were closed until further notice. The former Airbnb listing returned HTTP 410 in a direct check. These responses do not establish permanent closure. Preserve the historic format record and recheck with the host before restoring active status.",
+      "needsVerify": ["whether stays are being accepted", "working booking and contact route", "current amenities and house rules"]
     },
     {
       "id": "F014",
