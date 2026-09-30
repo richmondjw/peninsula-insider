@@ -31,6 +31,14 @@ const USES = {
   'golf-hub': ['/explore/golf/', 'hero and link preview', 'experiences/flinders-golf-club', null],
   'best-restaurants': ['/eat/best-restaurants/', 'hero', 'venues/merricks-general-wine-store', null],
   'home-door-stay': ['/', 'homepage Stay door', 'venues/jackalope', null],
+  // Batch 4: hubs whose on-page hero is a published CMS override, so only the
+  // link preview (and the Pagefind result image that mirrors it) changes.
+  'whats-on-hub': ['/whats-on/', 'link preview', 'venues/mornington-farmers-market', 'vv-143094'],
+  'explore-hub': ['/explore/', 'link preview', 'places/cape-schanck', 'vv-161977'],
+  'places-hub': ['/explore/places/', 'link preview', 'places/mornington', 'vv-163846'],
+  'hot-springs-hub': ['/explore/hot-springs/', 'link preview', 'venues/peninsula-hot-springs', 'vv-161941'],
+  'boating-hub': ['/boating/', 'link preview', 'places/sorrento', 'vv-22100103'],
+  'plans-hub': ['/explore/plans/', 'link preview', 'experiences/gunnamatta-ocean-beach', 'vv-25061207'],
 };
 
 const out = { record: 'Visit Victoria photographs used by page files', writtenBy: 'ops/scripts/visit-victoria/page-images.mjs', images: {} };

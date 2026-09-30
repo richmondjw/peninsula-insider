@@ -1,4 +1,5 @@
 ---
+import { pageImage } from '../../lib/page-images';
 /**
  * /whats-on/ - the canonical When front door (v5 rebuild, T-601).
  *
@@ -158,6 +159,7 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
   description={pageDescription}
   section="whats-on"
   canonical="https://peninsulainsider.com.au/whats-on"
+  ogImage={pageImage('whats-on-hub').src}
   modifiedTime={modifiedTime}
 >
   <script data-wo-event-schema type="application/ld+json" set:html={JSON.stringify(itemListLd)} />

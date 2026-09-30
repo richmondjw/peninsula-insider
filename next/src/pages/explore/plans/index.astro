@@ -1,4 +1,5 @@
 ---
+import { pageImage } from '../../../lib/page-images';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import PlanContextEngine from '../../../components/v5/plans/PlanContextEngine.astro';
 import PlanBuilder from '../../../components/v5/plans/PlanBuilder.astro';
@@ -19,7 +20,7 @@ const itemListSchema = {
 };
 export const prerender = true;
 ---
-<BaseLayout title="Mornington Peninsula Plans · Peninsula Insider" description="Choose a Peninsula day or weekend, with editorial itineraries, clear routes and practical planning guides. Use an itinerary in My Trip and make it yours." section="explore" canonical="https://peninsulainsider.com.au/explore/plans/" ogImage="/images/sourced/article-sunset-01.webp">
+<BaseLayout title="Mornington Peninsula Plans · Peninsula Insider" description="Choose a Peninsula day or weekend, with editorial itineraries, clear routes and practical planning guides. Use an itinerary in My Trip and make it yours." section="explore" canonical="https://peninsulainsider.com.au/explore/plans/" ogImage={pageImage('plans-hub').src}>
   <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
   <header class="plans-hero">
     <div class="container">

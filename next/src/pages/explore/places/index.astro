@@ -1,4 +1,5 @@
 ---
+import { pageImage } from '../../../lib/page-images';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
@@ -90,7 +91,7 @@ export const prerender = true;
   section="explore"
   canonical="https://peninsulainsider.com.au/explore/places/"
   modifiedTime="2026-04-30"
-  ogImage="/images/sourced/places-hub-hero-01.webp"
+  ogImage={pageImage('places-hub').src}
 >
   <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />

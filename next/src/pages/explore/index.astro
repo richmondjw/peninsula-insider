@@ -1,4 +1,5 @@
 ---
+import { pageImage } from '../../lib/page-images';
 /**
  * Explore hub (v5 redesign, T-504) - page-redesigns-hubs.md section 5.
  *
@@ -389,7 +390,7 @@ export const prerender = true;
   description="Explore the Mornington Peninsula by activity and area: coastal walks, beaches, hot springs, golf and cultural places. Find an experience and plan your visit."
   section="explore"
   canonical="https://peninsulainsider.com.au/explore/"
-  ogImage="/images/sourced/explore-cape-schanck-lighthouse-01.webp"
+  ogImage={pageImage('explore-hub').src}
 >
   <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
