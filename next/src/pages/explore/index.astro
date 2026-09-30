@@ -27,7 +27,6 @@ import CardGrid from '../../components/v5/CardGrid.astro';
 import FilterBar from '../../components/v5/FilterBar.astro';
 import EmptyState from '../../components/v5/EmptyState.astro';
 import TrustNote from '../../components/v5/hub/TrustNote.astro';
-import HubStandfirst from '../../components/v5/hub/HubStandfirst.astro';
 import CategoryBrowse from '../../components/v5/hub/CategoryBrowse.astro';
 import PlanningHelp from '../../components/v5/hub/PlanningHelp.astro';
 import { exploreSummary, effortLabel } from '../../components/v5/hub/explore-summaries.mjs';
@@ -204,7 +203,7 @@ const countLive = (preset: FilterPreset) =>
 // Shelf assembly: an experience appears in at most ONE shelf (plus its single
 // directory row), enforcing the corpus <=2x-per-entry acceptance (spec 30).
 const shelved = new Set<string>();
-function pickShelf(pool: Row[], n = 6): Row[] {
+function pickShelf(pool: Row[], n = 3): Row[] {
   const picked = pool.filter((r) => !shelved.has(r.slug)).slice(0, n);
   for (const r of picked) shelved.add(r.slug);
   return picked;
@@ -278,7 +277,7 @@ const shelfCulture = await buildShelf(
 );
 
 // HUB-13 guard: a shelf renders only when it holds at least 3 items.
-const shelves = [shelfSeasonal, shelfWalks, shelfBeaches, shelfGolf, shelfCulture].filter(
+const shelves = [shelfSeasonal, shelfWalks, shelfBeaches, shelfCulture, shelfGolf].filter(
   (s) => s.items.length >= 3,
 );
 
@@ -365,6 +364,7 @@ const collectionSchema = buildCollectionPageSchema({
   name: 'Explore the Mornington Peninsula, Peninsula Insider',
   description: 'Browse Mornington Peninsula activities and places by category and area, with links to walks, beaches, hot springs, golf and cultural experiences.',
   path: '/explore/',
+  dateModified: '2026-10-01',
 });
 const faqSchema = buildFaqSchema([
   { q: 'What is the Mornington Peninsula?',
@@ -396,38 +396,58 @@ export const prerender = true;
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 
-  <HubStandfirst
-    compact
-    title="Things to do on the Mornington Peninsula"
-    standfirst="Choose a walk, a beach, an indoor afternoon or a longer outing. Start with the time and effort you have, then check the details for your day."
-    image={{ src: '/images/sourced/explore-cape-schanck-lighthouse-01.webp', alt: 'Cape Schanck lighthouse and the Peninsula coastline' }}
-  />
+  <header class="x-hero" aria-labelledby="explore-title">
+    <div class="container x-hero__grid">
+      <div class="x-hero__copy">
+        <h1 id="explore-title">Things to do on the Mornington Peninsula</h1>
+        <p>Choose a walk, a beach, an indoor afternoon or a longer outing. Start with the time and effort you have, then check the details for your day.</p>
+        <nav class="x-hero__actions" aria-label="Start exploring">
+          <a class="x-hero__primary" href="#choose-day">Choose your day <span class="x-hero__arrow" aria-hidden="true"></span></a>
+          <a class="x-hero__secondary" href="#directory" data-open-directory>Browse every experience <span class="x-hero__arrow x-hero__arrow--down" aria-hidden="true"></span></a>
+        </nav>
+      </div>
+      <figure class="x-hero__media">
+        <img src="/images/sourced/explore-cape-schanck-lighthouse-01.webp" alt="Cape Schanck lighthouse above coastal scrub at dusk" width="800" height="1200" loading="eager" fetchpriority="high" decoding="async" data-pi-responsive="50vw" />
+        <figcaption>Cape Schanck lighthouse</figcaption>
+      </figure>
+    </div>
+  </header>
 
-  <!-- 2. Filters: the page's ONE FilterBar (chips from CHIP_PRESETS.explore) -->
-  <CategoryBrowse directory="directory" count={directoryRows.length} noun="experiences">
-    <FilterBar
-      surface="explore"
-      noun="experiences"
-      label="Filter experiences"
-      facets={['cat', 'place', 'party', 'price']}
-    />
-    <TrustNote surface="explore" />
-    <PlanningHelp />
-  </CategoryBrowse>
+  <section class="x-choices" id="choose-day" data-browse-layer aria-labelledby="choose-day-heading">
+    <div class="container">
+      <div class="x-choices__head">
+        <h2 id="choose-day-heading">What kind of day are you after?</h2>
+        <p>Start with an idea, then compare the practical details.</p>
+      </div>
+      <nav class="x-choices__grid" aria-label="Choose an outing">
+        <a href="/explore/walks/"><span class="x-choices__name">Take a walk</span><span class="x-choices__line">Coastal tracks and longer routes</span><span class="x-choices__arrow" aria-hidden="true"></span></a>
+        <a href="/explore/beaches/"><span class="x-choices__name">Find a beach</span><span class="x-choices__line">Bay calm or open coast</span><span class="x-choices__arrow" aria-hidden="true"></span></a>
+        <a href="/explore/rainy-day/"><span class="x-choices__name">Go indoors</span><span class="x-choices__line">Galleries and rainy-day ideas</span><span class="x-choices__arrow" aria-hidden="true"></span></a>
+        <a href="/explore/places/"><span class="x-choices__name">Pick a town</span><span class="x-choices__line">Find a base for the day</span><span class="x-choices__arrow" aria-hidden="true"></span></a>
+      </nav>
+      <details class="x-choices__advice">
+        <summary>Before you go: times, access and conditions</summary>
+        <p>Times are guide estimates, not live conditions. Walking effort is shown where recorded; it is not an accessibility assessment. Check terrain, step-free access, toilets, shade and dog rules for your chosen stop.</p>
+        <p>Use <a href="https://www.parks.vic.gov.au/places-to-see/parks/mornington-peninsula-national-park">Parks Victoria’s park notices</a>, <a href="https://www.emergency.vic.gov.au/">VicEmergency warnings</a> and <a href="https://www.beachsafe.org.au/">Beachsafe beach and patrol information</a>. These links do not confirm that a route or beach is suitable on your day.</p>
+      </details>
+    </div>
+  </section>
 
-  <section class="x-practical container" aria-labelledby="practical-heading">
-    <h2 id="practical-heading">Choose the shape of your day</h2>
-    <nav class="x-practical__links" aria-label="Plan an activity">
-      <a href="/explore/walks/">Compare walks →</a>
-      <a href="/explore/rainy-day/">Plan for rain →</a>
-      <a href="/explore/places/">Choose an area →</a>
-      <a href="/explore/plans/">Use a ready-made day →</a>
-    </nav>
-    <p>Times below are guide estimates, not live conditions. Walking effort is shown where recorded; it is not an accessibility assessment. Terrain, step-free access, toilets, shade and dog rules need checking for your chosen stop.</p>
-    <details>
-      <summary>Check conditions and practical access before you go</summary>
-      <p>Use <a href="https://www.parks.vic.gov.au/places-to-see/parks/mornington-peninsula-national-park">Parks Victoria’s park notices and access information</a>, <a href="https://www.emergency.vic.gov.au/">VicEmergency warnings</a> and <a href="https://www.beachsafe.org.au/">Beachsafe beach and patrol information</a>. Check the operator or land manager for facilities and dog restrictions. These links do not confirm that a route or beach is suitable on your day.</p>
-    </details>
+  <section class="x-discovery" aria-labelledby="explore-filter-heading">
+    <div class="container x-discovery__head">
+      <h2 id="explore-filter-heading">Find a specific outing</h2>
+      <p>Filter the complete guide, or open the map and choose a place.</p>
+    </div>
+    <CategoryBrowse directory="directory" count={directoryRows.length} noun="experiences">
+      <FilterBar
+        surface="explore"
+        noun="experiences"
+        label="Filter experiences"
+        facets={['cat', 'place', 'party', 'price']}
+      />
+      <TrustNote surface="explore" />
+      <PlanningHelp />
+    </CategoryBrowse>
   </section>
 
   <!-- 3-5. Browse layer: shelves, towns index, verticals. Yields to the
@@ -476,22 +496,25 @@ export const prerender = true;
       </section>
     ))}
 
-    <!-- Towns text index: 37 places, links not cards -->
+    <!-- Every place URL remains in the server-rendered town index. -->
     <section class="x-towns" aria-labelledby="towns-heading">
-      <div class="container">
-        <h2 class="x-towns__heading" id="towns-heading">Every town, its own page</h2>
-        <p class="x-towns__intro">
-          Browse {towns.length} towns and localities to put your day in context, with places to eat, stay and explore in each area.
-        </p>
-        <ul class="x-towns__list">
-          {towns.map((t) => (
-            <li class="x-towns__item">
-              <a href={`/explore/places/${t.slug}/`}>{t.name}</a>
-              {t.line && <span class="x-towns__line">{t.line}</span>}
-            </li>
-          ))}
-        </ul>
-        <p class="x-towns__more"><a href="/explore/places/">All towns →</a></p>
+      <div class="container x-towns__layout">
+        <div class="x-towns__intro-block">
+          <h2 class="x-towns__heading" id="towns-heading">Find your part of the Peninsula</h2>
+          <p class="x-towns__intro">Browse {towns.length} towns and localities, with places to eat, stay and explore in each area.</p>
+          <a class="x-towns__map" href="/explore/places/">Explore all towns <span aria-hidden="true">→</span></a>
+        </div>
+        <details class="x-towns__details">
+          <summary>Open the town index <span aria-hidden="true">+</span></summary>
+          <ul class="x-towns__list">
+            {towns.map((t) => (
+              <li class="x-towns__item">
+                <a href={`/explore/places/${t.slug}/`}>{t.name}</a>
+                {t.line && <span class="x-towns__line">{t.line}</span>}
+              </li>
+            ))}
+          </ul>
+        </details>
       </div>
     </section>
 
@@ -526,40 +549,43 @@ export const prerender = true;
     </section>
   </div>
 
-  <!-- 6. Directory: the corpus, rendered exactly once, compact rows -->
+  <!-- The complete corpus stays server-rendered and countable, with a concise arrival state. -->
   <section class="x-directory" id="directory" aria-labelledby="directory-heading">
     <div class="container">
-      <h2 class="x-directory__heading" id="directory-heading">All {directoryRows.length} experiences</h2>
-      <p class="x-directory__intro">
-        Compare walks, beaches, golf, galleries, lookouts, markets and day spas. Use the filters above to narrow the list; seasonal matches are only part of this total.
-      </p>
-      <CardGrid label={`All ${directoryRows.length} experiences`} layout="rows">
-        {directoryRows.map((r, i) => (
-          <li
-            data-facets={JSON.stringify(r.facets)}
-            data-filter-countable
-            data-title={r.name}
-            class="x-directory__row"
-          >
-            <Card
-              as="div"
-              variant="compact-row"
-              title={r.name}
-              href={r.href}
-              entityType={EXPLORE_VENUE_TYPES.includes(r.data.type) ? 'venue' : 'experience'}
-              entitySlug={r.slug}
-              verdict={r.verdict}
-              meta={r.meta}
-              surface="explore-directory"
-              position={i + 1}
-              saveSection="explore"
-            />
-          </li>
-        ))}
-      </CardGrid>
-      <div data-filter-empty hidden>
-        <EmptyState variant="filter-zero" surface="explore" />
+      <div class="x-directory__head">
+        <h2 class="x-directory__heading" id="directory-heading">All {directoryRows.length} experiences</h2>
+        <p class="x-directory__intro">Walks, beaches, golf, galleries, lookouts, markets and day spas. Filter the guide above or open the full list.</p>
       </div>
+      <details class="x-directory__disclosure" data-directory-disclosure>
+        <summary>Browse the complete directory <span aria-hidden="true">+</span></summary>
+        <CardGrid label={`All ${directoryRows.length} experiences`} layout="rows">
+          {directoryRows.map((r, i) => (
+            <li
+              data-facets={JSON.stringify(r.facets)}
+              data-filter-countable
+              data-title={r.name}
+              class="x-directory__row"
+            >
+              <Card
+                as="div"
+                variant="compact-row"
+                title={r.name}
+                href={r.href}
+                entityType={EXPLORE_VENUE_TYPES.includes(r.data.type) ? 'venue' : 'experience'}
+                entitySlug={r.slug}
+                verdict={r.verdict}
+                meta={r.meta}
+                surface="explore-directory"
+                position={i + 1}
+                saveSection="explore"
+              />
+            </li>
+          ))}
+        </CardGrid>
+        <div data-filter-empty hidden>
+          <EmptyState variant="filter-zero" surface="explore" />
+        </div>
+      </details>
       <p class="x-basics x-directory__plans">
         Turn it into a weekend: our <a href="/explore/plans/">escape plans</a> sequence these
         with the right lunch and the right bed.
@@ -573,7 +599,7 @@ export const prerender = true;
       <div class="container">
         <div class="x-shelf__header">
           <div>
-            <h2 class="x-journal__heading" id="journal-heading">Further reading for the afternoon half</h2>
+            <h2 class="x-journal__heading" id="journal-heading">Stories for the day ahead</h2>
           </div>
           <a class="x-shelf__all" href="/journal/">All in the Journal →</a>
         </div>
@@ -635,329 +661,157 @@ export const prerender = true;
 </BaseLayout>
 
 <style>
-  .x-eyebrow {
-    font-family: var(--font-ui);
-    font-size: var(--fs-100, 0.78rem);
-    font-weight: 600;
-    letter-spacing: var(--ls-eyebrow, 0.12em);
-    text-transform: uppercase;
-    color: var(--teal-text);
-    margin: 0 0 0.35rem;
-  }
+  .x-hero { background: var(--paper, #f2efea); }
+  .x-hero__grid { display: grid; grid-template-columns: minmax(0, 0.93fr) minmax(0, 1.07fr); gap: clamp(2rem, 5vw, 5rem); height: clamp(32rem, 42vw, 39rem); }
+  .x-hero__copy { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: clamp(3rem, 6vw, 6rem) 0; }
+  .x-hero h1 { max-width: 16ch; margin: 0; color: var(--text); font: 600 clamp(3rem, 4.5vw, 4.85rem)/1.04 var(--font-editorial, Georgia, serif); letter-spacing: -0.03em; text-wrap: balance; }
+  .x-hero__copy > p { max-width: 47ch; margin: 1.5rem 0 0; color: var(--soft); font: 400 clamp(1.05rem, 1.35vw, 1.2rem)/1.55 var(--font-ui); }
+  .x-hero__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.5rem; margin-top: 2rem; }
+  .x-hero__actions a { display: inline-flex; align-items: center; justify-content: center; gap: 0.85rem; min-height: 48px; font-family: var(--font-ui); font-weight: 700; text-decoration: none; }
+  .x-hero__primary { padding: 0.75rem 1.25rem; background: var(--accent); color: var(--white); border-radius: var(--radius-s); }
+  .x-hero__primary:hover { background: var(--harbour-hover, #0c4166); }
+  .x-hero__secondary { color: var(--accent); text-decoration: underline !important; text-underline-offset: 0.25em; }
+  .x-hero__actions a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .x-hero__arrow { position: relative; display: inline-block; width: 1rem; height: 1rem; flex: 0 0 1rem; }
+  .x-hero__arrow::before { content: ''; position: absolute; left: 0; top: calc(50% - 1px); width: 0.82rem; height: 2px; background: currentColor; }
+  .x-hero__arrow::after { content: ''; position: absolute; right: 0.08rem; top: 0.24rem; width: 0.48rem; height: 0.48rem; border-top: 2px solid currentColor; border-right: 2px solid currentColor; transform: rotate(45deg); }
+  .x-hero__arrow--down { transform: rotate(90deg); }
+  .x-hero__media { position: relative; height: 100%; min-height: 0; margin: 0; overflow: hidden; background: var(--bg-dark); }
+  .x-hero__media img { display: block; position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; }
+  .x-hero__media figcaption { position: absolute; right: 1rem; bottom: 1rem; padding: 0.35rem 0.6rem; color: var(--white); background: rgba(11, 46, 74, 0.88); font: 600 0.75rem/1.3 var(--font-ui); }
 
-  .x-practical { padding-block: 1rem 2rem; }
-  .x-practical h2 { font: 600 clamp(1.5rem, 2.6vw, 2rem)/1.2 var(--font-display); margin: 0 0 0.6rem; }
-  .x-practical__links { display: flex; flex-wrap: wrap; gap: 0.3rem 1.5rem; }
-  .x-practical__links a { min-height: 44px; display: inline-flex; align-items: center; font-weight: 600; }
-  .x-practical p { max-width: 75ch; color: var(--soft); font-size: 0.9rem; line-height: 1.6; margin: 0.7rem 0; }
-  .x-practical a { color: var(--teal-text); text-underline-offset: 0.2em; }
-  .x-practical summary { padding-block: 0.7rem; min-height: 44px; cursor: pointer; font-weight: 600; }
-  .x-practical details { border-block: 1px solid var(--border); max-width: 75ch; }
-  .x-practical :is(a, summary):focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .x-choices { padding: clamp(3rem, 5vw, 5rem) 0 2.25rem; scroll-margin-top: 5rem; }
+  .x-choices__head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem 3rem; margin-bottom: 1.5rem; }
+  .x-choices__head h2, .x-discovery__head h2, .x-shelf__heading, .x-towns__heading, .x-verticals__heading, .x-directory__heading, .x-journal__heading, .x-faq__heading { margin: 0; color: var(--text); font: 600 clamp(2rem, 3vw, 3rem)/1.12 var(--font-editorial, Georgia, serif); letter-spacing: -0.025em; text-wrap: balance; }
+  .x-choices__head p, .x-discovery__head p { max-width: 30ch; margin: 0; color: var(--soft); font-size: 1rem; line-height: 1.5; }
+  .x-choices__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-block: 1px solid var(--border); }
+  .x-choices__grid a { position: relative; display: flex; flex-direction: column; gap: 0.35rem; min-height: 9rem; padding: 1.35rem 2rem 1.35rem 1rem; color: var(--text); text-decoration: none; border-right: 1px solid var(--border); transition: background var(--dur-fast, 120ms) ease; }
+  .x-choices__grid a:first-child { padding-left: 0; }
+  .x-choices__grid a:last-child { border-right: 0; }
+  .x-choices__grid a:hover { background: var(--paper, #f2efea); }
+  .x-choices__name { font: 600 clamp(1.25rem, 1.8vw, 1.6rem)/1.2 var(--font-display); }
+  .x-choices__line { max-width: 19ch; color: var(--soft); font: 400 0.9rem/1.45 var(--font-ui); }
+  .x-choices__arrow { position: absolute; top: 1.25rem; right: 0.85rem; width: 0.85rem; height: 0.85rem; color: var(--accent); }
+  .x-choices__arrow::before { content: ''; position: absolute; right: 0; top: 0; width: 0.5rem; height: 0.5rem; border-top: 2px solid currentColor; border-right: 2px solid currentColor; }
+  .x-choices__arrow::after { content: ''; position: absolute; right: 0.08rem; top: 0.38rem; width: 0.82rem; height: 2px; background: currentColor; transform: rotate(-45deg); transform-origin: right center; }
+  .x-choices__advice { max-width: 72ch; margin-top: 1rem; color: var(--soft); font-size: 0.9rem; line-height: 1.6; }
+  .x-choices__advice summary { display: list-item; min-height: 44px; padding-block: 0.75rem; color: var(--accent); cursor: pointer; font-weight: 700; }
+  .x-choices__advice p { margin: 0 0 0.75rem; }
+  .x-choices__advice a { color: var(--accent); text-underline-offset: 0.2em; }
+  .x-choices :is(a, summary):focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
-  /* ---- shelves ---- */
-  .x-shelf {
-    padding: var(--space-7, 2.5rem) 0;
-  }
-  .x-shelf:nth-of-type(even) {
-    background: var(--bg-alt);
-  }
-  .x-shelf__header {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: var(--space-4, 1rem);
-    margin-bottom: var(--space-5, 1.5rem);
-  }
-  .x-shelf__heading,
-  .x-towns__heading,
-  .x-verticals__heading,
-  .x-directory__heading,
-  .x-journal__heading,
-  .x-faq__heading {
-    font-family: var(--font-display, var(--font-display));
-    font-size: var(--fs-700, clamp(1.6rem, 3vw, 2.2rem));
-    line-height: 1.15;
-    margin: 0;
-    color: var(--text);
-  }
-  .x-shelf__intro,
-  .x-towns__intro,
-  .x-directory__intro {
-    font-size: var(--fs-300, 0.95rem);
-    color: var(--soft);
-    max-width: 44em;
-    margin: 0.5rem 0 0;
-  }
-  .x-shelf__all {
-    font-family: var(--font-ui, var(--font-ui));
-    font-size: var(--fs-200, 0.88rem);
-    font-weight: 600;
-    color: var(--accent);
-    text-decoration: none;
-    white-space: nowrap;
-    min-height: 48px;
-    display: inline-flex;
-    align-items: center;
-  }
-  .x-shelf__all:hover,
-  .x-shelf__all:focus-visible {
-    text-decoration: underline;
-  }
-  .x-shelf__all:focus-visible {
-    outline: var(--focus-ring, 2px solid var(--accent));
-    outline-offset: 2px;
-  }
+  .x-discovery { padding: clamp(2.5rem, 4vw, 4rem) 0 2.5rem; background: var(--paper, #f2efea); border-block: 1px solid var(--border); }
+  .x-discovery__head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem 3rem; margin-bottom: 0.5rem; }
+  .x-discovery :global(.category-browse__links) { margin-bottom: 0.5rem; }
+  .x-discovery :global(.v5-filterbar) { background: transparent; }
 
-  /* Mobile: horizontal scroll with peek; tablet 2-up; desktop 3x2. */
-  .x-shelf__row {
-    list-style: none;
-    margin: 0;
-    padding: 2px;
-    display: flex;
-    gap: var(--space-4, 1rem);
-    overflow-x: auto;
-    scroll-snap-type: x proximity;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-  }
-  .x-shelf__row::-webkit-scrollbar {
-    display: none;
-  }
-  .x-shelf__row > :global(li) {
-    flex: 0 0 min(78%, 20rem);
-    scroll-snap-align: start;
-  }
-  @media (min-width: 48em) {
-    .x-shelf__row {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      overflow-x: visible;
-    }
-    .x-shelf__row > :global(li) {
-      flex: initial;
-    }
-  }
+  .x-shelf { padding: clamp(3.5rem, 6vw, 5.5rem) 0; scroll-margin-top: 4rem; border-bottom: 1px solid var(--border); }
+  .x-shelf:nth-of-type(even) { background: var(--paper, #f2efea); }
+  .x-shelf__header { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem 2rem; margin-bottom: 1.75rem; }
+  .x-shelf__heading { max-width: 25ch; }
+  .x-shelf__intro, .x-towns__intro, .x-directory__intro { max-width: 65ch; margin: 0.75rem 0 0; color: var(--soft); font-size: 1rem; line-height: 1.6; }
+  .x-shelf__intro a { color: var(--accent); text-underline-offset: 0.2em; }
+  .x-shelf__all { flex: 0 0 auto; display: inline-flex; align-items: center; min-height: 44px; color: var(--accent); font: 700 0.9rem/1.3 var(--font-ui); text-decoration: underline; text-underline-offset: 0.25em; white-space: nowrap; }
+  .x-shelf__all:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .x-shelf__row { display: flex; gap: 1.25rem; overflow-x: auto; list-style: none; margin: 0; padding: 2px 1.5rem 0.5rem 2px; scroll-snap-type: x proximity; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  .x-shelf__row::-webkit-scrollbar { display: none; }
+  .x-shelf__row > :global(li) { flex: 0 0 min(82vw, 21rem); min-width: 0; scroll-snap-align: start; }
+  .x-shelf__row :global(.pi-card__media) { aspect-ratio: 16 / 10; }
   @media (min-width: 64em) {
-    .x-shelf__row {
-      grid-template-columns: repeat(3, 1fr);
-    }
+    .x-shelf__row { display: grid; grid-template-columns: 1.16fr 1fr 1fr; overflow: visible; padding-right: 2px; }
+    .x-shelf__row > :global(li) { flex: initial; }
   }
 
-  /* ---- towns index ---- */
-  .x-towns {
-    padding: var(--space-7, 2.5rem) 0;
-    border-top: 1px solid var(--border);
-  }
-  .x-towns__list {
-    list-style: none;
-    margin: var(--space-5, 1.5rem) 0 0;
-    padding: 0;
-    columns: 1;
-    column-gap: var(--space-6, 2rem);
-  }
-  @media (min-width: 48em) {
-    .x-towns__list {
-      columns: 2;
-    }
-  }
-  .x-towns__item {
-    break-inside: avoid;
-    padding: 0.45rem 0;
-    border-bottom: 1px solid var(--border);
-    font-size: var(--fs-300, 0.95rem);
-  }
-  .x-towns__item a {
-    font-family: var(--font-ui, var(--font-ui));
-    font-weight: 600;
-    color: var(--text);
-    text-decoration: none;
-  }
-  .x-towns__item a:hover,
-  .x-towns__item a:focus-visible {
-    color: var(--accent);
-    text-decoration: underline;
-  }
-  .x-towns__line {
-    display: block;
-    color: var(--soft);
-    font-size: var(--fs-200, 0.88rem);
-  }
-  .x-towns__more {
-    margin: var(--space-5, 1.5rem) 0 0;
-    font-family: var(--font-ui, var(--font-ui));
-    font-weight: 600;
-  }
+  .x-towns { padding: clamp(3.5rem, 6vw, 5.5rem) 0; background: var(--bg-deep); color: var(--white); }
+  .x-towns__layout { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); gap: clamp(2rem, 6vw, 6rem); align-items: start; }
+  .x-towns__heading { color: var(--white); }
+  .x-towns__intro { color: var(--soft-inverse); }
+  .x-towns__map { display: inline-flex; align-items: center; min-height: 44px; margin-top: 1.5rem; color: var(--sand, #f5c177); font-weight: 700; text-underline-offset: 0.25em; }
+  .x-towns__details { border-block: 1px solid rgba(255,255,255,0.4); }
+  .x-towns__details summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 4rem; cursor: pointer; list-style: none; color: var(--white); font: 700 1.05rem/1.35 var(--font-ui); }
+  .x-towns__details summary::-webkit-details-marker { display: none; }
+  .x-towns__details[open] summary span { transform: rotate(45deg); }
+  .x-towns__details summary span { color: var(--sand, #f5c177); font-size: 1.7rem; font-weight: 400; line-height: 1; }
+  .x-towns__list { list-style: none; columns: 2; column-gap: 2rem; margin: 0 0 1rem; padding: 0; }
+  .x-towns__item { break-inside: avoid; padding: 0.75rem 0; border-top: 1px solid rgba(255,255,255,0.2); }
+  .x-towns__item a { color: var(--white); font-weight: 700; text-decoration: none; }
+  .x-towns__item a:hover { text-decoration: underline; }
+  .x-towns__line { display: block; margin-top: 0.2rem; color: var(--soft-inverse); font-size: 0.85rem; line-height: 1.4; }
+  .x-towns :is(a, summary):focus-visible { outline: 2px solid var(--sand, #f5c177); outline-offset: 3px; }
 
-  /* ---- verticals ---- */
-  .x-verticals {
-    padding: var(--space-7, 2.5rem) 0;
-    background: var(--bg-alt);
-  }
-  .x-verticals__rail {
-    list-style: none;
-    margin: var(--space-5, 1.5rem) 0 0;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-4, 1rem);
-  }
-  @media (min-width: 48em) {
-    .x-verticals__rail {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-  @media (min-width: 64em) {
-    .x-verticals__rail {
-      grid-template-columns: repeat(6, 1fr);
-    }
-  }
-  .x-verticals__link {
-    display: block;
-    padding: var(--space-4, 1rem);
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-m, 10px);
-    text-decoration: none;
-    min-height: 48px;
-    transition: box-shadow var(--dur-fast, 120ms) var(--ease, ease);
-  }
-  .x-verticals__link:hover {
-    box-shadow: var(--elev-2, 0 12px 24px -12px rgba(14, 40, 34, 0.28));
-  }
-  .x-verticals__link:focus-visible {
-    outline: var(--focus-ring, 2px solid var(--accent));
-    outline-offset: 2px;
-  }
-  .x-verticals__label {
-    display: block;
-    font-family: var(--font-ui, var(--font-ui));
-    font-weight: 600;
-    color: var(--text);
-  }
-  .x-verticals__sub {
-    display: block;
-    font-size: var(--fs-200, 0.88rem);
-    color: var(--soft);
-    margin-top: 0.2rem;
-  }
-  .x-basics {
-    margin: var(--space-5, 1.5rem) 0 0;
-    font-size: var(--fs-300, 0.95rem);
-    color: var(--soft);
-    max-width: 60em;
-  }
-  .x-basics a {
-    color: var(--accent);
-  }
+  .x-verticals { padding: clamp(3.5rem, 6vw, 5.5rem) 0; }
+  .x-verticals__rail { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 2rem; list-style: none; margin: 1.75rem 0 0; padding: 0; border-top: 1px solid var(--border); }
+  .x-verticals__cell { border-bottom: 1px solid var(--border); }
+  .x-verticals__link { display: block; min-height: 6.5rem; padding: 1.2rem 0; text-decoration: none; }
+  .x-verticals__label { display: block; color: var(--text); font: 600 1.2rem/1.25 var(--font-display); }
+  .x-verticals__sub { display: block; margin-top: 0.35rem; color: var(--soft); font-size: 0.88rem; }
+  .x-verticals__link:hover .x-verticals__label { color: var(--accent); }
+  .x-verticals__link:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .x-basics { max-width: 75ch; margin: 1.25rem 0 0; color: var(--soft); font-size: 0.9rem; line-height: 1.6; }
+  .x-basics a { color: var(--accent); text-underline-offset: 0.2em; }
 
-  /* ---- directory ---- */
-  .x-directory {
-    padding: var(--space-7, 2.5rem) 0;
-    border-top: 1px solid var(--border);
-    scroll-margin-top: 4rem;
-  }
-  .x-directory :global(.v5-card-grid--rows) {
-    margin-top: var(--space-5, 1.5rem);
-  }
-  .x-directory__row {
-    list-style: none;
-  }
-  .x-directory__row + .x-directory__row {
-    margin-top: var(--space-3, 0.6rem);
-  }
-  .x-directory__plans {
-    margin-top: var(--space-6, 2rem);
-  }
+  .x-directory { padding: clamp(3.5rem, 6vw, 5.5rem) 0; background: var(--paper, #f2efea); scroll-margin-top: 4rem; }
+  .x-directory__head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem 3rem; margin-bottom: 1.5rem; }
+  .x-directory__intro { max-width: 38ch; margin: 0; }
+  .x-directory__disclosure { background: var(--white); border: 1px solid var(--border); }
+  .x-directory__disclosure summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 4.25rem; padding: 0.9rem 1.25rem; color: var(--text); cursor: pointer; list-style: none; font: 700 1rem/1.4 var(--font-ui); }
+  .x-directory__disclosure summary::-webkit-details-marker { display: none; }
+  .x-directory__disclosure summary span { color: var(--accent); font-size: 1.5rem; font-weight: 400; }
+  .x-directory__disclosure[open] summary span { transform: rotate(45deg); }
+  .x-directory__disclosure summary:focus-visible { outline: 2px solid var(--accent); outline-offset: -4px; }
+  .x-directory :global(.v5-card-grid--rows) { display: grid; grid-template-columns: 1fr; gap: 0 2.5rem; margin: 0; padding: 0 1.25rem 1rem; }
+  .x-directory__row { list-style: none; min-width: 0; }
+  .x-directory__plans { margin-top: 1.5rem; }
+  @media (min-width: 64em) { .x-directory :global(.v5-card-grid--rows) { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
-  /* ---- journal ---- */
-  .x-journal {
-    padding: var(--space-7, 2.5rem) 0;
-    background: var(--bg-alt);
-  }
+  .x-journal { padding: clamp(3.5rem, 6vw, 5.5rem) 0; }
+  .x-faq { padding: clamp(3.5rem, 6vw, 5.5rem) 0; background: var(--paper, #f2efea); }
+  .x-faq__list { max-width: 55rem; margin-top: 1.5rem; border-top: 1px solid var(--border); }
+  .x-faq__item { border-bottom: 1px solid var(--border); }
+  .x-faq__q { min-height: 48px; padding: 1rem 0; color: var(--text); cursor: pointer; font: 700 1rem/1.45 var(--font-ui); }
+  .x-faq__q:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .x-faq__a { max-width: 70ch; padding-bottom: 1rem; color: var(--soft); }
 
-  /* ---- FAQ ---- */
-  .x-faq {
-    padding: var(--space-7, 2.5rem) 0;
-  }
-  .x-faq__list {
-    margin-top: var(--space-5, 1.5rem);
-    border-top: 1px solid var(--border);
-  }
-  .x-faq__item {
-    border-bottom: 1px solid var(--border);
-  }
-  .x-faq__q {
-    font-family: var(--font-ui, var(--font-ui));
-    font-weight: 600;
-    font-size: var(--fs-400, 1rem);
-    color: var(--text);
-    padding: 0.9rem 0;
-    cursor: pointer;
-    min-height: 48px;
-  }
-  .x-faq__q:focus-visible {
-    outline: var(--focus-ring, 2px solid var(--accent));
-    outline-offset: 2px;
-  }
-  .x-faq__a {
-    padding: 0 0 1rem;
-    color: var(--soft);
-    max-width: 48em;
-  }
-  .x-faq__a a {
-    color: var(--accent);
-  }
+  .x-ask { padding: clamp(3.5rem, 6vw, 5.5rem) 0; background: var(--bg-deep); color: var(--white); }
+  .x-ask__inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 2rem; }
+  .x-ask__heading { max-width: 20ch; margin: 0 0 0.75rem; color: var(--white); font: 600 clamp(2rem, 3vw, 3rem)/1.12 var(--font-editorial, Georgia, serif); letter-spacing: -0.025em; }
+  .x-ask__line { max-width: 50ch; margin: 0; color: var(--soft-inverse); line-height: 1.6; }
 
-  /* ---- ask band: forest-teal feature, mint accents ---- */
-  .x-ask {
-    position: relative;
-    isolation: isolate;
-    overflow: hidden;
-    padding: clamp(2.6rem, 7vw, 4.5rem) 0;
-    background: var(--bg-deep);
-    color: var(--white);
+  @media (max-width: 63.99em) {
+    .x-choices__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .x-choices__grid a:nth-child(2) { border-right: 0; }
+    .x-choices__grid a:nth-child(-n+2) { border-bottom: 1px solid var(--border); }
+    .x-choices__grid a:nth-child(3) { padding-left: 0; }
+    .x-verticals__rail { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
-  .x-ask::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    background:
-      radial-gradient(90% 120% at 100% 0%, color-mix(in srgb, var(--teal) 26%, transparent), transparent 55%),
-      radial-gradient(80% 120% at 0% 100%, color-mix(in srgb, var(--mint) 14%, transparent), transparent 60%);
+  @media (max-width: 47.99em) {
+    .x-hero { position: relative; isolation: isolate; overflow: hidden; background: var(--bg-deep); }
+    .x-hero__grid { display: block; height: auto; min-height: 29rem; }
+    .x-hero__copy { position: relative; z-index: 1; min-height: 29rem; padding: 3.5rem 0 2.5rem; justify-content: flex-end; }
+    .x-hero h1 { max-width: 13ch; color: var(--white); font-size: clamp(2.5rem, 8.6vw, 3.65rem); }
+    .x-hero__copy > p { margin-top: 1.1rem; color: var(--white); font-size: 1rem; line-height: 1.5; }
+    .x-hero__media { position: absolute; inset: 0; z-index: 0; min-height: 0; }
+    .x-hero__media::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(11, 31, 47, 0.96) 8%, rgba(11, 31, 47, 0.69) 62%, rgba(11, 31, 47, 0.25)); }
+    .x-hero__media img { object-position: 50% 36%; }
+    .x-hero__media figcaption { display: none; }
+    .x-hero__primary { background: var(--sand, #f5c177); color: var(--bg-deep); }
+    .x-hero__primary:hover { background: var(--white); }
+    .x-hero__secondary { color: var(--white); }
+    .x-hero__actions a:focus-visible { outline-color: var(--sand, #f5c177); }
+    .x-choices__head, .x-discovery__head, .x-shelf__header, .x-directory__head { display: block; }
+    .x-choices__head p, .x-discovery__head p { margin-top: 0.65rem; }
+    .x-shelf__all { margin-top: 0.8rem; }
+    .x-towns__layout { grid-template-columns: 1fr; }
+    .x-towns__list { columns: 1; }
+    .x-directory__intro { margin-top: 0.65rem; }
   }
-  .x-ask__inner {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--space-6, 2rem);
-  }
-  .x-ask__eyebrow {
-    font-family: var(--font-ui);
-    font-size: var(--fs-100, 0.78rem);
-    font-weight: 600;
-    letter-spacing: var(--ls-eyebrow, 0.12em);
-    text-transform: uppercase;
-    color: var(--mint);
-    margin: 0 0 var(--space-3, 0.75rem);
-  }
-  .x-ask__heading {
-    font-family: var(--font-display);
-    font-size: var(--fs-700, clamp(1.6rem, 1.35rem + 1.2vw, 2.1rem));
-    font-weight: var(--fw-display, 600);
-    line-height: var(--lh-heading, 1.14);
-    letter-spacing: -0.01em;
-    margin: 0 0 var(--space-2, 0.5rem);
-    color: var(--white);
-    text-wrap: balance;
-  }
-  .x-ask__line {
-    margin: 0;
-    font-family: var(--font-ui);
-    color: var(--soft-inverse);
-    max-width: var(--measure-dek, 40ch);
+  @media (max-width: 24em) {
+    .x-hero__copy { min-height: 31rem; }
+    .x-hero__actions { display: block; }
+    .x-hero__actions a { margin: 0 0 0.35rem; }
+    .x-choices__grid, .x-verticals__rail { grid-template-columns: 1fr; }
+    .x-choices__grid a { min-height: 6.5rem; padding-left: 0 !important; border-right: 0; border-bottom: 1px solid var(--border); }
+    .x-choices__grid a:last-child { border-bottom: 0; }
   }
 </style>
 
@@ -970,6 +824,8 @@ export const prerender = true;
     document
       .querySelectorAll<HTMLElement>('[data-browse-layer]')
       .forEach((el) => el.toggleAttribute('hidden', hide));
+    const directory = document.querySelector<HTMLDetailsElement>('[data-directory-disclosure]');
+    if (directory) directory.open = hide;
   }
 
   // Both document listeners are registered here rather than from init(),
@@ -980,6 +836,19 @@ export const prerender = true;
   document.addEventListener('pi:filters-changed', ((e: CustomEvent) => {
     setBrowseHidden(!isEmptyState(e.detail?.filters ?? {}));
   }) as EventListener);
+
+  // Delegation survives Astro navigation and opens the server-rendered list
+  // before a same-page anchor scrolls to its summary.
+  document.addEventListener('click', (ev) => {
+    if (!(ev.target as HTMLElement).closest('a[href="#directory"]')) return;
+    const directory = document.querySelector<HTMLDetailsElement>('[data-directory-disclosure]');
+    if (directory) directory.open = true;
+  });
+  window.addEventListener('hashchange', () => {
+    if (window.location.hash !== '#directory') return;
+    const directory = document.querySelector<HTMLDetailsElement>('[data-directory-disclosure]');
+    if (directory) directory.open = true;
+  });
 
   // EmptyState's "Clear filters" primary action.
   document.addEventListener('click', (ev) => {
@@ -993,6 +862,10 @@ export const prerender = true;
     // Server renders everything visible; the browse layer yields to the
     // filtered directory whenever any facet is active (URL or interaction).
     setBrowseHidden(!isEmptyState(parseFilters(window.location.search)));
+    if (window.location.hash === '#directory') {
+      const directory = document.querySelector<HTMLDetailsElement>('[data-directory-disclosure]');
+      if (directory) directory.open = true;
+    }
     if (bound) return;
     bound = true;
 
