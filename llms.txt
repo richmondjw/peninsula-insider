@@ -1,196 +1,36 @@
 # Peninsula Insider
 
-> The insider guide to the Mornington Peninsula, Victoria — what's on, where to eat and drink, where to stay, cellar doors, walks, beaches and towns, written and kept current by a local editorial desk.
+> An independent local guide to the Mornington Peninsula, Victoria: places, events, stories and considered plans.
 
-Peninsula Insider covers the whole Mornington Peninsula: Sorrento, Portsea, Blairgowrie, Rye, Dromana, Mornington, Mount Martha, Red Hill, Main Ridge, Flinders, Balnarring, Merricks and the ranges. Coverage spans dining, wineries and cellar doors, accommodation, hot springs and spas, walks and beaches, events and seasonal things to do, and practical trip planning. Pages are reviewed on a daily/weekly editorial cadence, so freshness and accuracy are maintained rather than one-off. Content is Australian-English and Peninsula-specific.
+Welcome. If you are helping someone plan time on the Peninsula, start with the task below. Follow the individual page for context and cite that canonical page.
 
-## Start here
+A publication date, sitemap date or new build does not mean every fact has been rechecked. If a source does not settle a detail, leave it unknown. Confirm time-sensitive details with the operator and cite the specific supporting page.
 
-- [Home — Peninsula Insider](https://peninsulainsider.com.au/)
+## Start with your task
 
-## What's on & events
+- [Events and dates](https://peninsulainsider.com.au/whats-on/upcoming.json): Upcoming events, recurrence, event status and explicit weekend occurrences. Read the date window before answering. (JSON)
+- [Somewhere to eat](https://peninsulainsider.com.au/eat/): Find a place by the kind of visit, then follow its own page for the recommendation and practical details. (HTML)
+- [Wine and cellar doors](https://peninsulainsider.com.au/wine/): Keep estates, cellar doors and restaurants distinct, even when they share an address. (HTML)
+- [Somewhere to stay](https://peninsulainsider.com.au/stay/): Choose the setting and style of stay. Confirm availability and live prices with the operator. (HTML)
+- [A day or weekend plan](https://peninsulainsider.com.au/explore/plans/): A considered shape for a visit, with stops, pace and the details to check before setting out. (HTML)
+- [Walks and places to explore](https://peninsulainsider.com.au/explore/): Find walks, beaches and local experiences. Check official advice for changing conditions. (HTML)
+- [The stories behind a recommendation](https://peninsulainsider.com.au/journal/): Editorial context and local judgement. Keep opinion distinguishable from confirmed practical facts. (HTML)
 
-- [Whats on](https://peninsulainsider.com.au/whats-on/)
-- [This Weekend](https://peninsulainsider.com.au/whats-on/this-weekend/)
-- [Dispatch](https://peninsulainsider.com.au/dispatch/)
-- [Acoustic Saturdays Peppers Moonah Links 2026](https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/)
-- [Arj Barker Live at Barlow](https://peninsulainsider.com.au/whats-on/arj-barker-live-at-barlow/)
-- [Bass Flinders Gin Masterclass](https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/)
-- [Boneo Community Market](https://peninsulainsider.com.au/whats-on/boneo-community-market/)
-- [Breast Foot Forward Annual Community Walk and Run 2026](https://peninsulainsider.com.au/whats-on/breast-foot-forward-annual-community-walk-and-run-2026/)
-- [Crib Point Community Market](https://peninsulainsider.com.au/whats-on/crib-point-community-market/)
-- [Doggy Day Out Mornington Peninsula 2026](https://peninsulainsider.com.au/whats-on/doggy-day-out-mornington-peninsula-2026/)
-- [Emu Plains Market](https://peninsulainsider.com.au/whats-on/emu-plains-market/)
-- [Emu Plains Market Balnarring](https://peninsulainsider.com.au/whats-on/emu-plains-market-balnarring/)
-- [Enchanting Kirtan Sacred Music Meditation Experience Mornington](https://peninsulainsider.com.au/whats-on/enchanting-kirtan-sacred-music-meditation-experience-mornington/)
-- [Family Mystery Picnic Mornington Peninsula 2026](https://peninsulainsider.com.au/whats-on/family-mystery-picnic-mornington-peninsula-2026/)
-- [Foxeys Hangout Vegetable Feast Morning Sun Vineyard](https://peninsulainsider.com.au/whats-on/foxeys-hangout-vegetable-feast-morning-sun-vineyard/)
-- [Glamping Tents Horror Movie Campout Back From the Dead Tour 2026](https://peninsulainsider.com.au/whats-on/glamping-tents-horror-movie-campout-back-from-the-dead-tour-2026/)
-- [Hastings Thursday Street Market](https://peninsulainsider.com.au/whats-on/hastings-thursday-street-market/)
-- [Heart of the Community Market Rosebud](https://peninsulainsider.com.au/whats-on/heart-of-the-community-market-rosebud/)
-- [High Tea at Mornington Botanical Rose Gardens](https://peninsulainsider.com.au/whats-on/high-tea-at-mornington-botanical-rose-gardens/)
-- [Hill Ridge Community Market September 2026 Restart](https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/)
-- [Main Street Mornington Festival 2026](https://peninsulainsider.com.au/whats-on/main-street-mornington-festival-2026/)
-- [Mornington Christmas Festival Main Street Christmas Parade](https://peninsulainsider.com.au/whats-on/mornington-christmas-festival-main-street-christmas-parade/)
-- [Mornington Racecourse Market](https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/)
-- [Mornington Tourist Railway Santa Specials](https://peninsulainsider.com.au/whats-on/mornington-tourist-railway-santa-specials/)
+## Formats, updates and trust
 
-## Eat & drink
+- [Agent guide](https://peninsulainsider.com.au/agents/): Welcome, retrieval routes, field meanings, citation and permissions.
+- [Compact page catalogue](https://peninsulainsider.com.au/agents/catalog.json): A pilot of 20 public pages with Markdown links and content hashes. Compare hashes on a return visit.
+- [Latest stories (RSS)](https://peninsulainsider.com.au/feed.xml): Recent published stories. Publication is not a new fact check.
+- [All places and stories](https://peninsulainsider.com.au/site-index/): Browse the publication by section.
+- [Full URL directory](https://peninsulainsider.com.au/llms-full.txt): Sitemap-derived URLs, not full page content. Sitemap dates are not fact-check dates.
+- [Sitemap](https://peninsulainsider.com.au/sitemap.xml): Canonical indexable pages for discovery.
+- [About and editorial approach](https://peninsulainsider.com.au/about/): How the publication approaches recommendations and independence.
+- [Corrections and contact](https://peninsulainsider.com.au/contact/?type=correction): Report the specific page and the detail that needs attention.
+- [The Insider Note](https://peninsulainsider.com.au/dispatch/): Our newsletter.
+- [Access and reuse terms](https://peninsulainsider.com.au/terms/): Read the permitted uses before collecting or reusing content.
 
-- [Eat](https://peninsulainsider.com.au/eat/)
-- [Best Restaurants](https://peninsulainsider.com.au/eat/best-restaurants/)
-- [Allis Wine Bar](https://peninsulainsider.com.au/eat/allis-wine-bar/)
-- [Balnarring Bakehouse](https://peninsulainsider.com.au/eat/balnarring-bakehouse/)
-- [Balnarring Pub](https://peninsulainsider.com.au/eat/balnarring-pub/)
-- [Barmah Park](https://peninsulainsider.com.au/eat/barmah-park/)
-- [Barragunda Dining](https://peninsulainsider.com.au/eat/barragunda-dining/)
-- [Bistro Elba](https://peninsulainsider.com.au/eat/bistro-elba/)
-- [Commonfolk Coffee](https://peninsulainsider.com.au/eat/commonfolk-coffee/)
-- [Crittenden Restaurant](https://peninsulainsider.com.au/eat/crittenden-restaurant/)
-- [Doot Doot Doot](https://peninsulainsider.com.au/eat/doot-doot-doot/)
-- [Dromana Hotel](https://peninsulainsider.com.au/eat/dromana-hotel/)
-- [Epicurean Red Hill](https://peninsulainsider.com.au/eat/epicurean-red-hill/)
-- [Flinders General Store](https://peninsulainsider.com.au/eat/flinders-general-store/)
-- [Flinders Sourdough](https://peninsulainsider.com.au/eat/flinders-sourdough/)
-- [Georgie Bass](https://peninsulainsider.com.au/eat/georgie-bass/)
-- [Green Olive Red Hill](https://peninsulainsider.com.au/eat/green-olive-red-hill/)
-- [Johnny Ripe](https://peninsulainsider.com.au/eat/johnny-ripe/)
-- [Laura Pt Leo](https://peninsulainsider.com.au/eat/laura-pt-leo/)
-- [Main Ridge Dairy](https://peninsulainsider.com.au/eat/main-ridge-dairy/)
-- [Many Little](https://peninsulainsider.com.au/eat/many-little/)
-- [Martha S Table](https://peninsulainsider.com.au/eat/martha-s-table/)
-- [Merricks General Wine Store](https://peninsulainsider.com.au/eat/merricks-general-wine-store/)
-- [Moke Dining](https://peninsulainsider.com.au/eat/moke-dining/)
+## Reading this information
 
-## Wine & cellar doors
+Event dates use Australia/Sydney. Date-only values do not imply a time. Use the feed window, explicit weekend occurrences and cancellation or rescheduling status. A generated date is a build date, not a fact check. Missing source checks and practical details remain unknown.
 
-- [Wine](https://peninsulainsider.com.au/wine/)
-- [Best Cellar Doors](https://peninsulainsider.com.au/wine/best-cellar-doors/)
-- [Avani Wines](https://peninsulainsider.com.au/wine/avani-wines/)
-- [Baillieu Vineyard](https://peninsulainsider.com.au/wine/baillieu-vineyard/)
-- [Barmah Park Vineyard](https://peninsulainsider.com.au/wine/barmah-park-vineyard/)
-- [Bass and Flinders](https://peninsulainsider.com.au/wine/bass-and-flinders/)
-- [Crittenden Estate](https://peninsulainsider.com.au/wine/crittenden-estate/)
-- [Dexter Wines](https://peninsulainsider.com.au/wine/dexter-wines/)
-- [Dromana Estate](https://peninsulainsider.com.au/wine/dromana-estate/)
-- [Elan Vineyard](https://peninsulainsider.com.au/wine/elan-vineyard/)
-- [Eldridge Estate](https://peninsulainsider.com.au/wine/eldridge-estate/)
-- [Elgee Park](https://peninsulainsider.com.au/wine/elgee-park/)
-- [Foxeys Hangout](https://peninsulainsider.com.au/wine/foxeys-hangout/)
-- [Garagiste](https://peninsulainsider.com.au/wine/garagiste/)
-- [Hurley Vineyard](https://peninsulainsider.com.au/wine/hurley-vineyard/)
-- [Jetty Road Brewery](https://peninsulainsider.com.au/wine/jetty-road-brewery/)
-- [Kerri Greens](https://peninsulainsider.com.au/wine/kerri-greens/)
-- [Kooyong](https://peninsulainsider.com.au/wine/kooyong/)
-- [Lightfoot Wines](https://peninsulainsider.com.au/wine/lightfoot-wines/)
-- [Main Ridge Estate](https://peninsulainsider.com.au/wine/main-ridge-estate/)
-- [Merricks Estate](https://peninsulainsider.com.au/wine/merricks-estate/)
-- [Montalto](https://peninsulainsider.com.au/wine/montalto/)
-- [Moorooduc Estate](https://peninsulainsider.com.au/wine/moorooduc-estate/)
-- [Morning Sun](https://peninsulainsider.com.au/wine/morning-sun/)
-
-## Where to stay
-
-- [Stay](https://peninsulainsider.com.au/stay/)
-- [Arthurs Views](https://peninsulainsider.com.au/stay/arthurs-views/)
-- [Best Accommodation](https://peninsulainsider.com.au/stay/best-accommodation/)
-- [Birch Creek](https://peninsulainsider.com.au/stay/birch-creek/)
-- [Blue Moon Cottages](https://peninsulainsider.com.au/stay/blue-moon-cottages/)
-- [Brewers Cottage](https://peninsulainsider.com.au/stay/brewers-cottage/)
-- [Cape Retreat](https://peninsulainsider.com.au/stay/cape-retreat/)
-- [Cassis](https://peninsulainsider.com.au/stay/cassis/)
-- [Crittenden Villas](https://peninsulainsider.com.au/stay/crittenden-villas/)
-- [Driftaway on Dundas](https://peninsulainsider.com.au/stay/driftaway-on-dundas/)
-- [Flinders Hotel](https://peninsulainsider.com.au/stay/flinders-hotel/)
-- [Happy Glamper](https://peninsulainsider.com.au/stay/happy-glamper/)
-- [Hideaways Red Hill](https://peninsulainsider.com.au/stay/hideaways-red-hill/)
-- [Hotel Sorrento](https://peninsulainsider.com.au/stay/hotel-sorrento/)
-- [Iluka Retreat](https://peninsulainsider.com.au/stay/iluka-retreat/)
-- [Jackalope](https://peninsulainsider.com.au/stay/jackalope/)
-- [Kanasta Retro Caravans](https://peninsulainsider.com.au/stay/kanasta-retro-caravans/)
-- [Lindenderry](https://peninsulainsider.com.au/stay/lindenderry/)
-- [Mantons Creek Estate](https://peninsulainsider.com.au/stay/mantons-creek-estate/)
-- [Mp Beach Club Cottages](https://peninsulainsider.com.au/stay/mp-beach-club-cottages/)
-- [Peninsula Hot Springs Eco Lodges](https://peninsulainsider.com.au/stay/peninsula-hot-springs-eco-lodges/)
-- [Peninsula Hot Springs Glamping](https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/)
-- [Plantation House Whitecliffs](https://peninsulainsider.com.au/stay/plantation-house-whitecliffs/)
-- [Point Nepean Discovery Tents](https://peninsulainsider.com.au/stay/point-nepean-discovery-tents/)
-
-## Explore & do
-
-- [Corporate Events](https://peninsulainsider.com.au/corporate-events/)
-- [Dog Friendly](https://peninsulainsider.com.au/dog-friendly/)
-- [Golf](https://peninsulainsider.com.au/explore/golf/)
-- [Fishing](https://peninsulainsider.com.au/fishing/)
-- [Boating](https://peninsulainsider.com.au/boating/)
-- [Explore](https://peninsulainsider.com.au/explore/)
-- [Places](https://peninsulainsider.com.au/explore/places/)
-- [Plans](https://peninsulainsider.com.au/explore/plans/)
-- [Weddings](https://peninsulainsider.com.au/weddings/)
-- [Hire](https://peninsulainsider.com.au/boating/hire/)
-- [Ramps](https://peninsulainsider.com.au/boating/ramps/)
-- [Arthurs Seat](https://peninsulainsider.com.au/explore/places/arthurs-seat/)
-- [Balnarring](https://peninsulainsider.com.au/explore/places/balnarring/)
-- [Bittern](https://peninsulainsider.com.au/explore/places/bittern/)
-- [Blairgowrie](https://peninsulainsider.com.au/explore/places/blairgowrie/)
-- [Boneo](https://peninsulainsider.com.au/explore/places/boneo/)
-- [Cape Schanck](https://peninsulainsider.com.au/explore/places/cape-schanck/)
-- [Capel Sound](https://peninsulainsider.com.au/explore/places/capel-sound/)
-- [Crib Point](https://peninsulainsider.com.au/explore/places/crib-point/)
-- [Dromana](https://peninsulainsider.com.au/explore/places/dromana/)
-- [Fingal](https://peninsulainsider.com.au/explore/places/fingal/)
-- [Flinders](https://peninsulainsider.com.au/explore/places/flinders/)
-- [Hastings](https://peninsulainsider.com.au/explore/places/hastings/)
-- [Main Ridge](https://peninsulainsider.com.au/explore/places/main-ridge/)
-
-## Guides & journal
-
-- [Journal](https://peninsulainsider.com.au/journal/)
-- [Guides](https://peninsulainsider.com.au/guides/)
-- [Best Brunch Mornington Peninsula](https://peninsulainsider.com.au/journal/best-brunch-mornington-peninsula/)
-- [Best Towns to Base Yourself with a Dog Mornington Peninsula](https://peninsulainsider.com.au/journal/best-towns-to-base-yourself-with-a-dog-mornington-peninsula/)
-- [Dog Friendly Mornington Peninsula](https://peninsulainsider.com.au/journal/dog-friendly-mornington-peninsula/)
-- [Free Things to Do Mornington Peninsula](https://peninsulainsider.com.au/journal/free-things-to-do-mornington-peninsula/)
-- [Mornington Peninsula Day Trip](https://peninsulainsider.com.au/journal/mornington-peninsula-day-trip/)
-- [Mornington Peninsula in Autumn](https://peninsulainsider.com.au/journal/mornington-peninsula-in-autumn/)
-- [Mornington Peninsula in Winter](https://peninsulainsider.com.au/journal/mornington-peninsula-in-winter/)
-- [Mornington Peninsula Itinerary](https://peninsulainsider.com.au/journal/mornington-peninsula-itinerary/)
-- [Mornington Peninsula Wedding Venues](https://peninsulainsider.com.au/journal/mornington-peninsula-wedding-venues/)
-- [Mornington Peninsula with Kids](https://peninsulainsider.com.au/journal/mornington-peninsula-with-kids/)
-- [What to Do on the Peninsula with a Dog When Its Wet or Busy](https://peninsulainsider.com.au/journal/what-to-do-on-the-peninsula-with-a-dog-when-its-wet-or-busy/)
-- [A Flinders Weekend](https://peninsulainsider.com.au/journal/a-flinders-weekend/)
-- [A Winter Peninsula Weekend](https://peninsulainsider.com.au/journal/a-winter-peninsula-weekend/)
-- [Area Guide Dromana](https://peninsulainsider.com.au/journal/area-guide-dromana/)
-- [Area Guide Flinders](https://peninsulainsider.com.au/journal/area-guide-flinders/)
-- [Area Guide Main Ridge](https://peninsulainsider.com.au/journal/area-guide-main-ridge/)
-- [Area Guide Merricks](https://peninsulainsider.com.au/journal/area-guide-merricks/)
-- [Area Guide Portsea](https://peninsulainsider.com.au/journal/area-guide-portsea/)
-- [Area Guide Red Hill](https://peninsulainsider.com.au/journal/area-guide-red-hill/)
-- [Arthurs Seat Eagle Visitor Guide](https://peninsulainsider.com.au/journal/arthurs-seat-eagle-visitor-guide/)
-- [Ashcombe Maze Visitor Guide](https://peninsulainsider.com.au/journal/ashcombe-maze-visitor-guide/)
-- [Autumn Weekend Edit](https://peninsulainsider.com.au/journal/autumn-weekend-edit/)
-
-## About & editorial standards
-
-- [About Peninsula Insider](https://peninsulainsider.com.au/about/)
-- [Editorial method & standards](https://peninsulainsider.com.au/methodology/)
-- [Our approach](https://peninsulainsider.com.au/our-approach/)
-- [Editorial approach](https://peninsulainsider.com.au/editorial-approach/)
-- [Ethics policy](https://peninsulainsider.com.au/ethics/)
-- [Corrections](https://peninsulainsider.com.au/corrections/)
-- [Accessibility](https://peninsulainsider.com.au/accessibility/)
-- [Contact](https://peninsulainsider.com.au/contact/)
-- [Newsletter — the Peninsula Radar](https://peninsulainsider.com.au/newsletter/)
-- [Submit a tip or listing](https://peninsulainsider.com.au/submit/)
-- [Partner with us](https://peninsulainsider.com.au/partner-with-us/)
-- [Partners](https://peninsulainsider.com.au/partners/)
-- [Add](https://peninsulainsider.com.au/partners/add/)
-- [Enquire](https://peninsulainsider.com.au/partners/enquire/)
-- [Update](https://peninsulainsider.com.au/partners/update/)
-
-## Optional
-
-- [What's on — upcoming events feed (JSON)](https://peninsulainsider.com.au/whats-on/upcoming.json): machine-readable, forward-dated Peninsula events for agents answering "what's on this weekend / soon"
-- [Full URL index (llms-full.txt)](https://peninsulainsider.com.au/llms-full.txt): every indexable page, grouped by section
-- [Sitemap](https://peninsulainsider.com.au/sitemap.xml): machine sitemap for crawlers
-- [Editorial method & standards](https://peninsulainsider.com.au/methodology/): how coverage is researched, verified and kept current
+Use the access and reuse terms. Search indexing, citation and linking are permitted under those terms; automated extraction, republication and model training require express written permission. These formats do not expand those permissions. Public text formats do not grant image rights or access to private accounts. Fetch only what the task needs and respect retry instructions.
