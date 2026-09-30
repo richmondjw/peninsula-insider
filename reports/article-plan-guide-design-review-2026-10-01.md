@@ -66,3 +66,7 @@ At 390 px, Golf is about 12,237 px tall and School Holidays about 16,583 px. The
 ## Evaluation and rollback
 
 By **8 October 2026**, inspect field LCP/CLS/INP where available, hero-to-choice clicks, choice-to-guide and stay transitions, reader corrections, and complete source freshness. Repeat independent grading with real devices and assistive technology before asserting 99%. Revert this bounded set to prior public revision `ab54770ce4d2c148b890f81101da008e139ea4be` if release or live reading journeys regress.
+
+## Public release receipt
+
+The approved guide changes were committed as `edaac86f3e6f52c8e572b9ec93430e1dca45717a`. A scheduled content-freshness commit then advanced the deployment revision to `267d6e2c6fb7bbcb7fce0429aec5d800b3eadf4f`, which contains the guide changes. [Build and Deploy](https://github.com/richmondjw/peninsula-insider/actions/runs/36764433047), [Content Gate](https://github.com/richmondjw/peninsula-insider/actions/runs/36764433010) and [Live Agent Readiness](https://github.com/richmondjw/peninsula-insider/actions/runs/36765834712) all succeeded. The public `/deployment.json` identified that same source SHA. Both public guide routes returned HTTP 200 with the three-choice decision module and `#plan-start` target. The School Holidays licensed hero returned image/webp HTTP 200 and appeared in the public HTML. This proves publication and basic route integrity, not reader outcomes or a 99% quality score.
