@@ -109,11 +109,11 @@ The Farnsworth Track is the Peninsula's most efficient clifftop-view-to-effort r
 
 [Attraction](<https://peninsulainsider.com.au/explore/point-nepean-fort-walk/>)
 
-[Point Nepean](<https://peninsulainsider.com.au/explore/places/point-nepean/>)  2 h · Easy
+[Point Nepean](<https://peninsulainsider.com.au/explore/places/point-nepean/>)
 
 ### [Point Nepean Fort Walk](<https://peninsulainsider.com.au/explore/point-nepean-fort-walk/>)
 
-Point Nepean rewards people who are happy to walk a little further than the average Peninsula day-tripper. The road and paths out toward Fort Nepean unfold through old quarantine buildings, scrub, and cliff-edge lookouts before the whole place gives way to bunkers and artillery emplacements looking straight across the Heads. It is a history lesson, a coastline walk, and a very good excuse to leave Sorrento for the afternoon. Hire bikes if you want to cover more ground, but walking keeps the mood right.
+Point Nepean rewards people who are happy to walk a little further than the average Peninsula day-tripper. The road and paths out toward Fort Nepean unfold through old quarantine buildings, scrub, and cliff-edge lookouts before the whole place gives way to bunkers and artillery emplacements looking straight across the Heads. It is a history lesson, a coastline walk, and a very good excuse to leave Sorrento for the afternoon. Hire bikes if you want to cover more ground, but walking keeps the mood right. Choose your starting point and route before estimating the time needed, including the return journey. This listing does not define one fixed circuit. Fort paths and interiors include steps and uneven surfaces; do not assume that every section is accessible. Check Parks Victoria's current conditions before visiting, as individual tracks, beach access points and fort interiors can be restricted. Notices checked on 1 October 2026 reported a closed section of the Engine House walking track and no entry inside the Engine House; access to its exterior was via stairs from the Parade Ground. The Bend beach access steps and track were also closed, with Bay Beach Walk visitors continuing to Fort Nepean directed onto Coles Track at Observatory Point. These are restrictions on specific sections, not a whole-park closure. Follow the latest official advice and on-site signs.
 
  [Open the guide →](<https://peninsulainsider.com.au/explore/point-nepean-fort-walk/>)
 

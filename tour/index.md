@@ -23,7 +23,7 @@ Under 2 hours   Families   Moderate
 
 by [Arthurs Seat Eagle](<https://peninsulainsider.com.au/tour/operators/arthurs-seat-eagle/>)
 
-The Arthurs Seat Eagle gondola connects the Dromana foreshore to the 305-metre summit of Arthurs Seat in a 15-minute ...
+The Arthurs Seat Eagle gondola connects its Base Station on Arthurs Seat Road in Dromana to the 305-metre summit of A...
 
  [Read notes →](<https://peninsulainsider.com.au/tour/arthurs-seat-eagle-gondola/>)
 
@@ -127,7 +127,7 @@ Activity Specialist   Assessed
 
 ### [Arthurs Seat Eagle](<https://peninsulainsider.com.au/tour/operators/arthurs-seat-eagle/>)
 
-Arthurs Seat Eagle is a gondola lift connecting the Dromana foreshore at sea level to the 305-metre summit of Arthurs...
+Arthurs Seat Eagle is a gondola lift connecting its Base Station on Arthurs Seat Road in Dromana to the 305-metre sum...
 
  [View operator →](<https://peninsulainsider.com.au/tour/operators/arthurs-seat-eagle/>)
 
@@ -143,7 +143,7 @@ Activity Specialist   Assessed
 
 ### [Moonlit Sanctuary Wildlife Conservation Park](<https://peninsulainsider.com.au/tour/operators/moonlit-sanctuary/>)
 
-Moonlit Sanctuary is a conservation wildlife park at Tyabb on the northern Mornington Peninsula, specialising in thre...
+Moonlit Sanctuary is a conservation wildlife park at Pearcedale, specialising in threatened Australian native species...
 
  [View operator →](<https://peninsulainsider.com.au/tour/operators/moonlit-sanctuary/>)
 

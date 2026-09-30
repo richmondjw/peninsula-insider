@@ -151,11 +151,11 @@ From the eastern carpark at Cape Schanck Lighthouse, this walk leads through coa
 
 [Lookout](<https://peninsulainsider.com.au/explore/cape-schanck-boardwalk/>)
 
-[Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-schanck/>)  35 min · Easy
+[Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-schanck/>)
 
 ### [Cape Schanck Boardwalk](<https://peninsulainsider.com.au/explore/cape-schanck-boardwalk/>)
 
-The Cape Schanck boardwalk is short, obvious, and absolutely worth doing. A lot of Peninsula viewpoints require an act of faith before they pay off; this one gives you the basalt formations, the pounding water, and the lighthouse almost immediately. Think of it as the Southern Ocean aperitif before a longer walk or a late lunch inland. It is particularly good for visitors who want scale and coastline without needing to dedicate half the day to it.
+Cape Schanck gives you basalt formations, pounding water and lighthouse views within a compact coastal precinct. Several lookouts offer views over the geological formations, while the wooden staircase and boardwalk descend to the beach and rock platform. The descent includes stairs, so distinguish a lookout visit from the full route down and back when planning around mobility. Choose your route and allow time for the return climb, pauses and conditions. Check Parks Victoria's current visitor advice and follow on-site signs before setting out.
 
  [Open the guide →](<https://peninsulainsider.com.au/explore/cape-schanck-boardwalk/>)
 

@@ -9,7 +9,7 @@ Tours     Scenic Sightseeing
 
 # Arthurs Seat Eagle Gondola Ride
 
-The Arthurs Seat Eagle gondola connects the Dromana foreshore to the 305-metre summit of Arthurs Seat in a 15-minute one-way ride, delivering panoramic views over Port Phillip Bay and the Peninsula hinterland along the way. The gondola system is fully accessible, with cabins that accommodate wheelchairs and prams, and there is no minimum age or fitness requirement. Return tickets are standard; one-way tickets are available for those who want to walk one leg.
+The Arthurs Seat Eagle gondola connects its Base Station on Arthurs Seat Road in Dromana to the 305-metre summit of Arthurs Seat in a 15-minute one-way ride, delivering panoramic views over Port Phillip Bay and the Peninsula hinterland along the way. Level boarding accommodates wheelchairs and prams that fit the 80cm cabin doorway; oversized equipment may not fit, and mobility scooters cannot enter the cabins. Return tickets are standard; one-way tickets are available for those who want to walk one leg.
 
 Arthurs Seat Eagle Gondola Ride in 9 photographs
 
@@ -25,7 +25,7 @@ Under 2 hours (approx. 1.5 hours)
 
 Departs from
 
-Dromana Terminal, Arthurs Seat State Park
+Base Station, 1085 Arthurs Seat Road, Dromana VIC 3936, or Summit Station, 795 Arthurs Seat Road, Arthurs Seat VIC 3936
 
 Group size
 
@@ -38,6 +38,10 @@ Moderate
 Languages
 
 EN
+
+Accessibility
+
+Gondolas provide level boarding for wheelchairs, walkers and prams. Doors open to 80cm, so oversized wheelchairs and double prams may not fit. Mobility scooters cannot enter the cabins; scooter parking is available at the Base Station. Both stations have ramped access and accessible facilities. Contact the operator before travelling if you need to confirm that your equipment will fit.
 
 Cancellation
 
@@ -55,7 +59,7 @@ Gondola cabins depart from the base terminal in Dromana on a continuous loop, cl
 
 ## Who this suits
 
-Families with children of any age, including infants in prams. Guests with limited mobility who want genuine Peninsula views without a physical hike. Visitors looking for a reliable, weather-resilient activity, since the enclosed cabins and the summit cafe make this viable on overcast or cool days when beach activities are less appealing. Also suits travellers who want a quick, high-impact Peninsula experience without a full-day commitment.
+Families with children of any age, including infants in prams that fit the cabin doorway. Guests with limited mobility whose equipment fits the cabins and who want Peninsula views without a physical hike; check the accessibility limits before booking. Visitors looking for a reliable, weather-resilient activity, since the enclosed cabins and the summit cafe make this viable on overcast or cool days when beach activities are less appealing. Also suits travellers who want a quick, high-impact Peninsula experience without a full-day commitment.
 
 ### Who should look elsewhere
 
@@ -69,7 +73,7 @@ Advance booking is strongly recommended on weekends between November and April a
 
 ### Is the gondola accessible for wheelchairs and prams?
 
-Yes, the gondola cabins are designed to accommodate standard wheelchairs and prams. The base terminal at Dromana and the summit terminal both have accessible facilities. The operator recommends calling ahead for groups with multiple wheelchairs to confirm loading logistics on the day.
+Gondolas provide level boarding for wheelchairs, walkers and prams. Doors open to 80cm, so oversized wheelchairs and double prams may not fit. Mobility scooters cannot enter the cabins; scooter parking is available at the Base Station. Both stations have ramped access and accessible facilities. Contact the operator before travelling if you need to confirm that your equipment will fit.
 
 ### What is at the summit once we arrive?
 

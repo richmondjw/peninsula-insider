@@ -23,7 +23,7 @@ Under 2 hours   Families   Moderate
 
 by [Arthurs Seat Eagle](<https://peninsulainsider.com.au/tour/operators/arthurs-seat-eagle/>)
 
-The Arthurs Seat Eagle gondola connects the Dromana foreshore to the 305-metre summit of Arthurs Seat in a 15-minute ...
+The Arthurs Seat Eagle gondola connects its Base Station on Arthurs Seat Road in Dromana to the 305-metre summit of A...
 
  [Read notes →](<https://peninsulainsider.com.au/tour/arthurs-seat-eagle-gondola/>)
 

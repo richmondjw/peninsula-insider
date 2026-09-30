@@ -167,11 +167,11 @@ Walks, beaches, lookouts, and markets worth scheduling around the meals.
 
 [Beach](<https://peninsulainsider.com.au/explore/bushrangers-bay/>)
 
-[Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-schanck/>)  3 h · Moderate
+[Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-schanck/>)  2 h · Moderate
 
 ### [Bushrangers Bay](<https://peninsulainsider.com.au/explore/bushrangers-bay/>)
 
-Bushrangers Bay is a hidden ocean beach accessed via a 2.5-kilometre walk through coastal heathland from Cape Schanck - and, remarkably, almost nobody goes here even in summer. In April it is completely deserted. Dramatic rock formations, sea caves along the cliffs, and the raw power of the Southern Ocean breaking against the headlands at the far end of the beach. The walk in from Cape Schanck is straightforward and well-marked, descending gradually through the heath to the back of the beach. Once you arrive, the scale of the place - cliffs, caves, ocean, almost no human presence - is the reason to come. Walk the sand, look at the rock formations, turn around. One of the Peninsula's genuinely remote-feeling experiences, hiding in plain sight. Bring water; there are no facilities at the beach itself.
+Bushrangers Bay is an ocean beach reached through coastal heathland from the eastern carpark at Cape Schanck Lighthouse. Parks Victoria describes this route as a 5.4-kilometre return walk taking about two hours, before extra time for stops. The sandy, narrow, unsealed paths include steep stairs. The dramatic rock formations and Southern Ocean views are the reason to come. This is an unpatrolled beach with unpredictable rips, strong currents, rocky reefs and large waves; Parks Victoria does not recommend swimming, and emergency access is limited. Stay on established paths and keep out of signed Hooded Plover habitat. Bring water and check Parks Victoria's current conditions and fire advice before setting out. Dogs are not permitted; assistance dogs are subject to Parks Victoria's entry requirements.
 
  [Open the guide →](<https://peninsulainsider.com.au/explore/bushrangers-bay/>)
 
@@ -187,11 +187,11 @@ From the eastern carpark at Cape Schanck Lighthouse, this walk leads through coa
 
 [Lookout](<https://peninsulainsider.com.au/explore/cape-schanck-boardwalk/>)
 
-[Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-schanck/>)  35 min · Easy
+[Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-schanck/>)
 
 ### [Cape Schanck Boardwalk](<https://peninsulainsider.com.au/explore/cape-schanck-boardwalk/>)
 
-The Cape Schanck boardwalk is short, obvious, and absolutely worth doing. A lot of Peninsula viewpoints require an act of faith before they pay off; this one gives you the basalt formations, the pounding water, and the lighthouse almost immediately. Think of it as the Southern Ocean aperitif before a longer walk or a late lunch inland. It is particularly good for visitors who want scale and coastline without needing to dedicate half the day to it.
+Cape Schanck gives you basalt formations, pounding water and lighthouse views within a compact coastal precinct. Several lookouts offer views over the geological formations, while the wooden staircase and boardwalk descend to the beach and rock platform. The descent includes stairs, so distinguish a lookout visit from the full route down and back when planning around mobility. Choose your route and allow time for the return climb, pauses and conditions. Check Parks Victoria's current visitor advice and follow on-site signs before setting out.
 
  [Open the guide →](<https://peninsulainsider.com.au/explore/cape-schanck-boardwalk/>)
 

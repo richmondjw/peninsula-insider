@@ -19,7 +19,7 @@ Under 2 hours (approx. 1.5 hours)
 
 Departs from
 
-Moonlit Sanctuary, 550 Tyabb-Tooradin Road, Tyabb
+Moonlit Sanctuary, 550 Tyabb-Tooradin Road, Pearcedale VIC 3912
 
 Group size
 
@@ -57,7 +57,7 @@ Guests expecting a large, varied zoo experience with dozens of species: the sanc
 
 ## Booking intelligence
 
-The Twilight Tour runs on specific evenings, not every night. Before booking, check the online calendar carefully, as dates are scheduled in advance and vary by season. School holiday periods, particularly summer and Easter, book out weeks ahead, and this is not an experience where you can rely on turning up and getting a spot. The tour is mostly outdoors on paved and gravel paths, so bring a light jacket even in summer as park temperatures drop after dark. Parking is available on-site. The park is a self-drive destination with no public transport connections, located approximately 45 minutes from central Melbourne via the Peninsula Link.
+The operator advertises Night Tours every evening, with bookings essential. Check the booking calendar for your date, availability and the seasonal start time before travelling. School holiday periods, particularly summer and Easter, book out weeks ahead, and this is not an experience where you can rely on turning up and getting a spot. The tour is mostly outdoors on paved and gravel paths, so bring a light jacket even in summer as park temperatures drop after dark. Parking is available on-site. The park is a self-drive destination with no public transport connections, located approximately 45 minutes from central Melbourne via the Peninsula Link.
 
 ## Frequently asked questions
 

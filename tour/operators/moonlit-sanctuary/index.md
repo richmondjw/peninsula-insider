@@ -9,7 +9,7 @@ Tours     Activity Specialist
 
 # Moonlit Sanctuary Wildlife Conservation Park
 
-Moonlit Sanctuary is a conservation wildlife park at Tyabb on the northern Mornington Peninsula, specialising in threatened Australian native species including eastern quolls, bettongs, brush-tailed phascogales, koalas, and little penguins. The park operates a captive breeding programme for several species listed under the EPBC Act. Its flagship offering is the guided Twilight Tour, a nocturnal walk held after dark when the resident animals are most active and accessible.
+Moonlit Sanctuary is a conservation wildlife park at Pearcedale, specialising in threatened Australian native species including eastern quolls, bettongs, brush-tailed phascogales, koalas, and little penguins. The park operates a captive breeding programme for several species listed under the EPBC Act. Its flagship offering is the guided Twilight Tour, a nocturnal walk held after dark when the resident animals are most active and accessible.
 
 - Photo · Two Palms Australia, courtesy of Visit Victoria
 
@@ -37,7 +37,7 @@ A Moonlit Sanctuary keeper in a red vest points skyward as a pink and white gala
 
 ## About Moonlit Sanctuary Wildlife Conservation Park
 
-Moonlit Sanctuary is a conservation wildlife park at Tyabb on the northern Mornington Peninsula, specialising in threatened Australian native species including eastern quolls, bettongs, brush-tailed phascogales, koalas, and little penguins. The park operates a captive breeding programme for several species listed under the EPBC Act. Its flagship offering is the guided Twilight Tour, a nocturnal walk held after dark when the resident animals are most active and accessible.
+Moonlit Sanctuary is a conservation wildlife park at Pearcedale, specialising in threatened Australian native species including eastern quolls, bettongs, brush-tailed phascogales, koalas, and little penguins. The park operates a captive breeding programme for several species listed under the EPBC Act. Its flagship offering is the guided Twilight Tour, a nocturnal walk held after dark when the resident animals are most active and accessible.
 
 Photo · Two Palms Australia, courtesy of Visit Victoria
 

@@ -9,7 +9,7 @@ Terms
 
 # Terms of Use
 
-Last updated: 23 September 2026
+Last updated: 1 October 2026
 
 Peninsula Insider is an independent editorial publication about the Mornington Peninsula. By accessing or using this site, you agree to these terms. If you don't agree, please don't use the site.
 
@@ -51,13 +51,17 @@ Some pages may include affiliate or referral links. Where Peninsula Insider earn
 
 ## Intellectual property
 
-Unless otherwise stated, all editorial copy, curation logic, original graphics, site structure, compiled guides, and branding on Peninsula Insider are protected by copyright. You may read, share, and link to content for personal or non-commercial reference. You may not republish, systematically reproduce, or commercially exploit material from the site without written permission.
+Unless otherwise stated, all editorial copy, curation logic, original graphics, site structure, compiled guides, and branding on Peninsula Insider are protected by copyright. You may read, share, and link to content for personal or non-commercial reference. Except for the limited permission under Automated access and extraction below, you may not republish, systematically reproduce, or commercially exploit material from the site without written permission.
 
 ## Automated access and extraction
 
-You may not use bots, scrapers, crawlers, bulk collection tools, or other automated methods to extract, reproduce, mirror, republish, or train AI models on Peninsula Insider content without express written permission. This includes building derivative destination or directory products from our editorial corpus.
+Peninsula Insider expressly permits assistants acting on a person's request to retrieve text from our public pages and feeds as needed to answer that person's question, and to provide relevant summaries with citations and links to the supporting canonical Peninsula Insider pages. This limited permission applies to free and paid assistant services, solely for that question-answering use, and only to rights Peninsula Insider controls.
 
-Reasonable search-engine indexing, citation, and linking are permitted where consistent with our robots policy and normal web use.
+Follow our robots policy, fetch only what the task needs, respect cache instructions and honour retry instructions. Cached responses may be reused for this permitted purpose; this does not authorise building a reusable content corpus. Preserve material caveats and distinguish editorial opinion from confirmed facts.
+
+This permission does not cover bulk collection, mirroring, full-article republication, model training, or building derivative destination or directory products from our content. It grants no rights to photographs, other third-party material or private account data, and does not authorise bypassing access restrictions. Separately stated licences and rights provided by law remain unchanged.
+
+Reasonable search-engine indexing, citation, and linking remain permitted where consistent with our robots policy and normal web use. Other automated extraction or reuse requires separate express written permission.
 
 ## External links and third parties
 

@@ -119,7 +119,9 @@ A page's publication or content change, where supplied. Neither proves all detai
 
 ## A considerate visitor is always appreciated.
 
-Use our [access and reuse terms](<https://peninsulainsider.com.au/terms/>) and [crawler guidance](<https://peninsulainsider.com.au/robots.txt>) together. Search indexing, citation and linking are permitted under those terms. Automated extraction, republication and model training require express written permission under the current terms. These formats do not expand those permissions. Public formats do not grant rights to photographs or private account data.
+Our [access and reuse terms](<https://peninsulainsider.com.au/terms/#automated-access>) expressly permit assistants, including paid services, to retrieve public text as needed to answer a person's question and provide relevant summaries with canonical citations. Follow those terms and our [crawler guidance](<https://peninsulainsider.com.au/robots.txt>) together. This limited permission covers only rights Peninsula Insider controls. It does not cover bulk collection, full-article republication, model training, derivative destination or directory products, photographs, other third-party material or private account data. Other uses require separate permission or an applicable independent right.
+
+Terms updated: 1 October 2026.
 
 Fetch only what the task needs, preferably one request at a time. Respect Cache-Control and reuse cached responses. If you saved an ETag, send it with If-None-Match; a 304 response means your cached copy can be reused. Honour Retry-After on a 429 or 503 response, and stop repeated retries of a 404. Check the event feed's window and generated date before relying on it. A stale feed is a reason to check the operator.
 

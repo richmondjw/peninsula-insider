@@ -53,7 +53,7 @@ Balnarring   1 hr
 
 An ocean-coast outing reached on foot. Plan the return walk and check park notices before heading to the beach.
 
-Cape Schanck   3 hr
+Cape Schanck   2 hr
 
 - Image subject unverified
 
@@ -273,7 +273,7 @@ Red Hill   1.5 hr
 
 A shorter coastal stop for basalt formations and lighthouse views. Check current access before choosing the boardwalk.
 
-Cape Schanck   35 min
+Cape Schanck
 
 - Gallery
 
@@ -297,7 +297,7 @@ Mornington   1.3 hr
 
 Combine coastal views with the fort’s military history. Choose your route and check park access before leaving Sorrento.
 
-Point Nepean   2 hr
+Point Nepean
 
 - Park
 
@@ -437,7 +437,7 @@ Beach   Balnarring   1 hr
 
 An ocean-coast outing reached on foot. Plan the return walk and check park notices before heading to the beach.
 
-Beach   Cape Schanck   3 hr
+Beach   Cape Schanck   2 hr
 
 - ### [Bushrangers Bay Walk](<https://peninsulainsider.com.au/explore/bushrangers-bay-walk/>)
 
@@ -449,7 +449,7 @@ Walk   Cape Schanck   2 hr · Moderate walk
 
 A shorter coastal stop for basalt formations and lighthouse views. Check current access before choosing the boardwalk.
 
-Lookout   Cape Schanck   35 min
+Lookout   Cape Schanck
 
 - ### [Cape Schanck Lighthouse Walk](<https://peninsulainsider.com.au/explore/cape-schanck-lighthouse-walk/>)
 
@@ -581,7 +581,7 @@ Springs & spa   Fingal
 
 Combine coastal views with the fort’s military history. Choose your route and check park access before leaving Sorrento.
 
-Attraction   Point Nepean   2 hr
+Attraction   Point Nepean
 
 - ### [Point Nepean National Park](<https://peninsulainsider.com.au/explore/point-nepean-national-park/>)
 

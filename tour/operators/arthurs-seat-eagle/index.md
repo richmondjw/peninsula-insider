@@ -9,7 +9,7 @@ Tours     Activity Specialist
 
 # Arthurs Seat Eagle
 
-Arthurs Seat Eagle is a gondola lift connecting the Dromana foreshore at sea level to the 305-metre summit of Arthurs Seat, delivering panoramic views over Port Phillip Bay and the Peninsula hinterland in a 15-minute one-way journey. The system reopened in 2016 following a major infrastructure rebuild and is fully accessible, accommodating wheelchairs and prams with no minimum age or fitness requirement. The summit has a cafe (Eagles Nest) and access to marked walking tracks.
+Arthurs Seat Eagle is a gondola lift connecting its Base Station on Arthurs Seat Road in Dromana to the 305-metre summit of Arthurs Seat, delivering panoramic views over Port Phillip Bay and the Peninsula hinterland in a 15-minute one-way journey. The system reopened in 2016 following a major infrastructure rebuild and offers level boarding for wheelchairs and prams that fit the 80cm cabin doorway. Oversized equipment may not fit, and mobility scooters cannot enter the cabins. The summit has a cafe (Eagles Nest) and access to marked walking tracks.
 
 - Photo · Courtesy of Visit Victoria
 
@@ -37,13 +37,13 @@ Arthurs Seat Eagle gondolas pass a support tower above the bay as a pale band of
 
 ## About Arthurs Seat Eagle
 
-Arthurs Seat Eagle is a gondola lift connecting the Dromana foreshore at sea level to the 305-metre summit of Arthurs Seat, delivering panoramic views over Port Phillip Bay and the Peninsula hinterland in a 15-minute one-way journey. The system reopened in 2016 following a major infrastructure rebuild and is fully accessible, accommodating wheelchairs and prams with no minimum age or fitness requirement. The summit has a cafe (Eagles Nest) and access to marked walking tracks.
+Arthurs Seat Eagle is a gondola lift connecting its Base Station on Arthurs Seat Road in Dromana to the 305-metre summit of Arthurs Seat, delivering panoramic views over Port Phillip Bay and the Peninsula hinterland in a 15-minute one-way journey. The system reopened in 2016 following a major infrastructure rebuild and offers level boarding for wheelchairs and prams that fit the 80cm cabin doorway. Oversized equipment may not fit, and mobility scooters cannot enter the cabins. The summit has a cafe (Eagles Nest) and access to marked walking tracks.
 
 Photo · Peter Tarasiuk, courtesy of Visit Victoria
 
 ### What they are good at
 
-Making Peninsula panoramic views accessible to guests of all ages and mobility levels without any physical effort required. The gondola ride is the experience in itself, and the enclosed cabins make this a viable outing even when weather at ground level is uninviting. The summit cafe means a complete half-day without additional logistics.
+Reaching Peninsula panoramic views without a hike. Check cabin access before visiting: the doorway is 80cm wide, oversized wheelchairs and double prams may not fit, and mobility scooters are not accommodated. The gondola ride is the experience in itself, and the enclosed cabins make this a viable outing even when weather at ground level is uninviting. The summit cafe means a complete half-day without additional logistics.
 
 ### Not suited for
 
@@ -65,7 +65,7 @@ Under 2 hours   Families   Moderate
 
 by [Arthurs Seat Eagle](<https://peninsulainsider.com.au/tour/operators/arthurs-seat-eagle/>)
 
-The Arthurs Seat Eagle gondola connects the Dromana foreshore to the 305-metre summit of Arthurs Seat in a 15-minute ...
+The Arthurs Seat Eagle gondola connects its Base Station on Arthurs Seat Road in Dromana to the 305-metre summit of A...
 
  [Read notes →](<https://peninsulainsider.com.au/tour/arthurs-seat-eagle-gondola/>)
 
