@@ -9,7 +9,7 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 Everything we cover, on one screen, filtered exactly like the list you came from.
 
-211 on the map
+210 on the map
 
 - [View : Arthurs Seat](<https://peninsulainsider.com.au/explore/places/arthurs-seat/>)
 
@@ -338,8 +338,6 @@ Everything we cover, on one screen, filtered exactly like the list you came from
 - [View : Two Bays Brewing Co](<https://peninsulainsider.com.au/eat/two-bays-brewing/>)
 
 - [View : Via Boffe](<https://peninsulainsider.com.au/eat/via-boffe/>)
-
-- [View : Villa Mallorca](<https://peninsulainsider.com.au/stay/villa-mallorca/>)
 
 - [View : Willow Creek Vineyard](<https://peninsulainsider.com.au/wine/willow-creek-vineyard/>)
 

@@ -5,23 +5,29 @@ Modified: 2026-10-01
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-# Luxury Accommodation on the Mornington Peninsula
+The stay guide · luxury
 
-The Peninsula does luxury best when it stops trying to impersonate an international resort strip. The strongest stays here are either rooted in the landscape - vineyard, ridge, ocean edge, village main street - or they are not especially interesting. A good Peninsula luxury stay should shape the whole weekend, not just provide a handsome room key.
+# Luxury stays, shaped by the Peninsula.
 
-That usually means one of three modes. Hinterland luxury, where the trip leans into wine, long lunches, and fireplaces: [Jackalope](<https://peninsulainsider.com.au/stay/jackalope/>) and [Lindenderry](<https://peninsulainsider.com.au/stay/lindenderry/>) for hotel infrastructure on the wine ridge; [Polperro Villas](<https://peninsulainsider.com.au/stay/polperro-villas/>) and [Crittenden Estate Villas](<https://peninsulainsider.com.au/stay/crittenden-villas/>) for on-estate vineyard immersion; [Port Phillip Estate](<https://peninsulainsider.com.au/wine/port-phillip-estate/>) for the Peninsula's most architecturally serious winery stay - Wood Marsh-designed, six suites, one-hat restaurant. Thermal-anchored luxury: [Sanctuary at Alba](<https://peninsulainsider.com.au/stay/sanctuary-at-alba/>) offers five villas and two rooms on Alba's Fingal estate, with springs entry and breakfast included in its published accommodation offer. Villa luxury with a pools focus: [Cassis Red Hill](<https://peninsulainsider.com.au/stay/cassis/>), five adults-only villas each with a private heated mineral pool, in the heart of the Red Hill corridor. Coastal luxury: [The Continental](<https://peninsulainsider.com.au/stay/the-continental-sorrento/>) and [Hotel Sorrento](<https://peninsulainsider.com.au/stay/hotel-sorrento/>) for village atmosphere, bay and ocean access, and the walkable Sorrento base.
+[Find your setting](<https://peninsulainsider.com.au/stay/luxury/#choose-setting>) [Compare stay types](<https://peninsulainsider.com.au/stay/best-accommodation/>)
 
-Note on Point Leo Estate: Point Leo does not operate on-estate accommodation. The Lon to Leo package pairs with Lon Retreat in Sorrento. For on-estate stays near Laura and the sculpture park, Mantons Creek Estate is the nearest vineyard-stay alternative.
+The right stay starts with the setting. Compare nine places across wine country, thermal bathing and the Sorrento coast, then choose the exact room or villa.
 
-Researched from published sources. Every venue listed was reviewed April 2026 or later.
+Check room features, dining, bathing inclusions and guest conditions with the operator for your dates.
 
-Luxury stays
+Jackalope Hotel vineyard. Peter Foster, courtesy of Visit Victoria.
 
-## 9 luxury stays worth prioritising
+The first decision
 
-Design hotels, vineyard villas, thermal-anchored suites, and the coastal properties that genuinely shape a Peninsula weekend well.
+## What should the stay feel like?
 
- [All stays →](<https://peninsulainsider.com.au/stay/>)
+[01 / The full-service stay  **A hotel that sets the tone.**  See stays](<https://peninsulainsider.com.au/stay/luxury/#hotel>)[02 / Among the vines  **Make the estate your base.**  See stays](<https://peninsulainsider.com.au/stay/luxury/#vineyard>)[03 / Bathing at the centre  **Choose the water, then the room.**  See stays](<https://peninsulainsider.com.au/stay/luxury/#thermal>)[04 / At the Sorrento end  **Stay close to the village.**  See stays](<https://peninsulainsider.com.au/stay/luxury/#coast>)
+
+01 / The full-service stay
+
+## A hotel that sets the tone.
+
+Choose the room, dining and service together. Confirm restaurant reservations separately.
 
 Hotel  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -33,7 +39,7 @@ A dramatic art-led design hotel set inside a working vineyard, with Doot Doot Do
 
 anniversary  weekend escape
 
-[Read notes](<https://peninsulainsider.com.au/stay/jackalope/>) [View stay](<https://jackalopehotels.com/mornington-peninsula>)
+[Read notes](<https://peninsulainsider.com.au/stay/jackalope/>) [View stay](<https://jackalopehotels.com/stay/>)
 
 Hotel  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -47,9 +53,15 @@ weekend escape  garden
 
 [Read notes](<https://peninsulainsider.com.au/stay/lindenderry/>) [View stay](<https://lancemore.com.au/properties-2/lancemore-lindenderry-red-hill>)
 
+02 / Among the vines
+
+## Make the estate your base.
+
+Compare a vineyard suite with a villa. Room layout and cooking facilities change the weekend.
+
 Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
-### [Port Phillip Estate](<https://peninsulainsider.com.au/stay/port-phillip-estate/>)
+### [Port Phillip Estate](<https://peninsulainsider.com.au/wine/port-phillip-estate/>)
 
 263 Red Hill Rd, Red Hill South VIC 3937
 
@@ -57,7 +69,7 @@ Rammed-earth architecture, an estate dining room and six vineyard suites in Red 
 
 anniversary  long lunch
 
-[Read notes](<https://peninsulainsider.com.au/stay/port-phillip-estate/>) [View stay](<https://www.portphillipestate.com.au/accommodation>)
+[Read notes](<https://peninsulainsider.com.au/wine/port-phillip-estate/>) [View stay](<https://www.portphillipestate.com.au/book-accommodation/>)
 
 Villa  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -81,7 +93,13 @@ Self-contained lakeside villas at Crittenden Estate, with a cellar door and rest
 
 anniversary  waterfront
 
-[Read notes](<https://peninsulainsider.com.au/stay/crittenden-villas/>) [View stay](<https://www.lakesidevillas.com.au/book>)
+[Read notes](<https://peninsulainsider.com.au/stay/crittenden-villas/>) [View stay](<https://www.lakesidevillas.com.au/rates-bookings/>)
+
+03 / Bathing at the centre
+
+## Choose the water, then the room.
+
+Alba offers on-site thermal bathing. At Cassis, two villas have mineral plunge pools and three have outdoor baths.
 
 Villa  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
@@ -99,13 +117,19 @@ Villa  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Cassis Red Hill](<https://peninsulainsider.com.au/stay/cassis/>)
 
-Red Hill VIC 3937
+164 Arthurs Seat Road, Red Hill VIC 3937
 
-Five adults-only villas with private heated mineral plunge pools, on the edge of Red Hill wine country with views over Western Port Bay.
+Five adults-only villas overlooking the vines: two with mineral plunge pools, three with outdoor baths.
 
 anniversary  romance
 
-[Read notes](<https://peninsulainsider.com.au/stay/cassis/>) [View stay](<https://cassisredhill.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/stay/cassis/>) [View stay](<https://book-directonline.com/cassis-redhill/properties/cassisredhilldirect>)
+
+04 / At the Sorrento end
+
+## Stay close to the village.
+
+A Sorrento hotel gives a different pace from the wine-country estates.
 
 Hotel  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 
@@ -131,41 +155,23 @@ weekend escape  waterfront
 
 [Read notes](<https://peninsulainsider.com.au/stay/hotel-sorrento/>) [View stay](<https://hotelsorrento.com.au/stay>)
 
-## How to choose well
+## Choose with confidence
 
-### Red Hill or Sorrento?
+### Should I choose Red Hill or Sorrento?
 
-**Red Hill** is the right base when the weekend is about wine, long lunches, and a slower food-led Peninsula. **Sorrento** is the right base when the weekend is about village atmosphere, walking, bay and ocean access, and a stronger sense of arrival.
+Choose the Red Hill area when estate dining, wineries and a hinterland base shape the trip. Choose Sorrento when a village and coastal base is the priority. Check the exact address and travel time for your plans.
 
-### Hotel or villa?
+### Are these all villas?
 
-Choose a hotel if you want service, restaurant access, and easier flow. Choose a villa if privacy, vineyard setting, thermal access, and a more self-contained long-weekend rhythm matter more than formal hotel infrastructure.
+No. This guide includes hotels, vineyard suites and self-contained villas. Port Phillip Estate has suites rather than villas. Compare the room format before reserving.
 
-### The publication's view
+### Does every Cassis villa have a pool?
 
-[Jackalope](<https://peninsulainsider.com.au/stay/jackalope/>) is still the Peninsula's most singular luxury hotel expression. [Port Phillip Estate](<https://peninsulainsider.com.au/wine/port-phillip-estate/>) is the most architecturally considered winery stay. [Polperro Villas](<https://peninsulainsider.com.au/stay/polperro-villas/>) and [Sanctuary at Alba](<https://peninsulainsider.com.au/stay/sanctuary-at-alba/>) make the strongest case for luxury through place rather than spectacle.
+No. Cassis lists heated mineral plunge pools for the Retreat and Cottage, and outdoor baths for the Lodge, Terrace and Studio.
 
-Related stay guides
+[Compare winery accommodation](<https://peninsulainsider.com.au/stay/winery-accommodation/>) or [plan a stay for two](<https://peninsulainsider.com.au/stay/couples-retreats/>).
 
-## Build the weekend properly
-
-### [Couples Accommodation](<https://peninsulainsider.com.au/stay/couples-retreats/>)
-
-The stays that work best for two-night escapes, anniversaries, and slower Peninsula weekends.
-
-[See the list →](<https://peninsulainsider.com.au/stay/couples-retreats/>)
-
-### [Winery Accommodation](<https://peninsulainsider.com.au/stay/winery-accommodation/>)
-
-Where to stay when the trip is built around cellar doors, lunch, and the hinterland.
-
-[See the list →](<https://peninsulainsider.com.au/stay/winery-accommodation/>)
-
-### [Where to Base Yourself](<https://peninsulainsider.com.au/stay/best-accommodation/>)
-
-The practical Peninsula logic behind Sorrento, Red Hill, Flinders, Mornington, and beyond.
-
-[Read the guide →](<https://peninsulainsider.com.au/stay/best-accommodation/>)
+Researched from published sources. Every venue listed was reviewed April 2026 or later.
 
 ## The Insider Note
 

@@ -5,37 +5,35 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-[Stay](<https://peninsulainsider.com.au/stay/>)    Villa    [Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-schanck/>)
+[Stay](<https://peninsulainsider.com.au/stay/>)    Suite    [Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-schanck/>)
 
 # The Cape Retreat
 
-Twelve luxury suites on a Cape Schanck hilltop with Bass Strait views, primarily exclusive-hire, individual suites may be available on enquiry.
+Twelve guest suites and shared living spaces at a Cape Schanck retreat with Bass Strait and nearby golf-course outlooks.
 
-Known for   Hilltop Bass Strait Views Twelve Luxury Suites Exclusive Hire Venue RACV Golf Course Outlook
+Known for   Twelve Guest Suites Shared Group Spaces Cape Schanck Outlook
 
-[Check availability](<https://thecaperetreat.com.au/>)
+[Check availability](<https://www.thecaperetreat.com.au/book>)
 
 The Cape Retreat · Cape Schanck
 
 Why we’d go
 
-One of the most commanding positions on the entire Peninsula, a hilltop perch with unbroken Bass Strait views that works best when the whole property is yours.
+A Cape Schanck retreat with suite accommodation and shared spaces suited to a group stay.
 
-The Cape Retreat sits on a Cape Schanck hilltop with panoramic views across Bass Strait and the RACV golf course. Twelve luxury suites, primarily operated as an exclusive-hire venue for group stays, wellness retreats, and weddings. Individual suite bookings may be available on enquiry, but this is not a standard hotel-style booking.
+The Cape Retreat presents twelve guest suites and shared living areas at Cape Schanck. The operator positions the property for group stays, wellness retreats, meetings and celebrations. Confirm the booking arrangement for your dates and party directly; do not assume that an individual suite can be reserved independently.
 
-If the appeal is the architectural statement rather than group hire, the nearby RAIA award-winning Cape Schanck House (featured in Gourmet Traveller's best Mornington Peninsula Airbnbs) is a separately bookable property sleeping four to six guests, and the more accessible option for couples or small groups.
-
-Confirm the operating model, exclusive hire vs individual suite booking, directly before planning around this property.
+The coastal outlook includes Bass Strait and nearby golf courses. This is a suite-led group property, not a self-contained villa. Ask the operator about room layout, booking terms and availability before making it the base for a trip.
 
 Worth knowing
 
 **Best for**
 
-Luxury stays · Weekend escapes · Scenic views · Big groups
+Group stays · Wellness retreats · Meetings · Celebrations
 
 If you only do one thing
 
-Confirm individual suite availability directly before building a trip around this property, the exclusive-hire model means standard booking windows don't apply.
+Confirm the booking arrangement and room layout with the operator before planning around this property.
 
 Works well with
 
@@ -47,15 +45,15 @@ At a glance
 
 **Type**
 
-Villa
+Suite
 
 **Location**
 
-Cape Schanck VIC 3939 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=The%20Cape%20Retreat%2C%20Cape%20Schanck%20VIC%203939>)
+41 Trent Jones Drive, Cape Schanck VIC 3939 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=The%20Cape%20Retreat%2C%2041%20Trent%20Jones%20Drive%2C%20Cape%20Schanck%20VIC%203939>)
 
 **Website**
 
-[thecaperetreat.com.au](<https://thecaperetreat.com.au/>)
+[www.thecaperetreat.com.au](<https://www.thecaperetreat.com.au/>)
 
 **Directions**
 
@@ -63,9 +61,9 @@ Cape Schanck VIC 3939 · [Directions](<https://www.google.com/maps/dir/?api=1&de
 
 **Live status**
 
-[Check current hours →](<https://www.google.com/maps/search/?api=1&query=The%20Cape%20Retreat%2C%20Cape%20Schanck%20VIC%203939%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
+[Check current hours →](<https://www.google.com/maps/search/?api=1&query=The%20Cape%20Retreat%2C%2041%20Trent%20Jones%20Drive%2C%20Cape%20Schanck%20VIC%203939%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
 
- [Book now](<https://thecaperetreat.com.au/>)
+ [Check availability](<https://www.thecaperetreat.com.au/book>)
 
 Not sure how to build a day around The Cape Retreat?
 

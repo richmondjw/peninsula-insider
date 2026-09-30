@@ -11,7 +11,7 @@ Cape Schanck is not a town-base choice in the same way Sorrento or Mornington ar
 
 The category is therefore narrow but clear. If Cape Schanck is the right answer, it is because the weekend is about reset, not browsing.
 
-Researched from published sources. Every venue listed was reviewed May 2026 or later.
+Researched from published sources. Every venue listed was reviewed October 2026 or later.
 
 Cape Schanck stays
 
@@ -21,17 +21,17 @@ For golf, spa, weather, and a more sealed-off southern Peninsula weekend.
 
 [Cape Schanck guide →](<https://peninsulainsider.com.au/explore/places/cape-schanck/>)
 
-Villa  [Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-schanck/>)
+Suite  [Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-schanck/>)
 
 ### [The Cape Retreat](<https://peninsulainsider.com.au/stay/cape-retreat/>)
 
-Cape Schanck VIC 3939
+41 Trent Jones Drive, Cape Schanck VIC 3939
 
-Twelve luxury suites on a Cape Schanck hilltop with Bass Strait views, primarily exclusive-hire, individual suites may be available on enquiry.
+Twelve guest suites and shared living spaces at a Cape Schanck retreat with Bass Strait and nearby golf-course outlooks.
 
 view  wellness
 
-[Read notes](<https://peninsulainsider.com.au/stay/cape-retreat/>) [View stay](<https://thecaperetreat.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/stay/cape-retreat/>) [View stay](<https://www.thecaperetreat.com.au/book>)
 
 ## The Insider Note
 

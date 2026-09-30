@@ -197,13 +197,13 @@ Villa  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Cassis Red Hill](<https://peninsulainsider.com.au/stay/cassis/>)
 
-Red Hill VIC 3937
+164 Arthurs Seat Road, Red Hill VIC 3937
 
-Five adults-only villas with private heated mineral plunge pools, on the edge of Red Hill wine country with views over Western Port Bay.
+Five adults-only villas overlooking the vines: two with mineral plunge pools, three with outdoor baths.
 
 anniversary  romance
 
-[Read notes](<https://peninsulainsider.com.au/stay/cassis/>) [View stay](<https://cassisredhill.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/stay/cassis/>) [View stay](<https://book-directonline.com/cassis-redhill/properties/cassisredhilldirect>)
 
 Producer  [Tuerong](<https://peninsulainsider.com.au/explore/places/tuerong/>)
 
@@ -359,7 +359,7 @@ A dramatic art-led design hotel set inside a working vineyard, with Doot Doot Do
 
 anniversary  weekend escape
 
-[Read notes](<https://peninsulainsider.com.au/stay/jackalope/>) [View stay](<https://jackalopehotels.com/mornington-peninsula>)
+[Read notes](<https://peninsulainsider.com.au/stay/jackalope/>) [View stay](<https://jackalopehotels.com/stay/>)
 
 Bakery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
@@ -635,7 +635,7 @@ Rammed-earth architecture, an estate dining room and six vineyard suites in Red 
 
 anniversary  long lunch
 
-[Read notes](<https://peninsulainsider.com.au/wine/port-phillip-estate/>) [Book](<https://www.portphillipestate.com.au/accommodation>)
+[Read notes](<https://peninsulainsider.com.au/wine/port-phillip-estate/>) [Book](<https://www.portphillipestate.com.au/book-accommodation/>)
 
 Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 

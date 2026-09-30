@@ -59,7 +59,7 @@ Most of the Peninsula’s luxury and boutique hotels do not confirm pet-friendly
 
 - **RACV Cape Schanck Resort** - pet policy not confirmed
 
-- **Alba Sanctuary** - adults-only (18+), pet policy not confirmed
+- **Alba Sanctuary** - no pets; [Alba’s FAQ](<https://albathermalsprings.com.au/faqs/>) welcomes service dogs on a leash or harness
 
 - **Flinders Hotel Quarters** - pet policy not confirmed
 
@@ -117,7 +117,7 @@ Fenced yard or enclosed outdoor space (essential for off-leash safety at the pro
 
 Is there dog-friendly accommodation near Peninsula Hot Springs?
 
-The main hot springs accommodation options (Peninsula Hot Springs Glamping, Alba Sanctuary) do not confirm dogs. For a Peninsula hot springs weekend with a dog, self-contained holiday accommodation in the Safety Beach, Dromana, or Fingal area puts you close to both Tassells Cove (year-round off-leash beach) and the hot springs precinct within 10–15 minutes.
+Alba Sanctuary does not permit pets (service dogs are welcome on a leash or harness). Confirm Peninsula Hot Springs Glamping's current dog rules directly. For a Peninsula hot springs weekend with a dog, self-contained holiday accommodation in the Safety Beach, Dromana, or Fingal area puts you close to both Tassells Cove (year-round off-leash beach) and the hot springs precinct within 10–15 minutes.
 
 Or let PI plan your day
 

@@ -119,7 +119,7 @@ Rammed-earth architecture, an estate dining room and six vineyard suites in Red 
 
 anniversary  long lunch
 
-[Read notes](<https://peninsulainsider.com.au/eat/port-phillip-estate/>) [Book](<https://www.portphillipestate.com.au/accommodation>)
+[Read notes](<https://peninsulainsider.com.au/eat/port-phillip-estate/>) [Book](<https://www.portphillipestate.com.au/book-accommodation/>)
 
 Restaurant  [Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-schanck/>)
 

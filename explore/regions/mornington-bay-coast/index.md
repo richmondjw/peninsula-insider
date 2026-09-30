@@ -137,7 +137,7 @@ Self-contained lakeside villas at Crittenden Estate, with a cellar door and rest
 
 anniversary  waterfront
 
-[Read notes](<https://peninsulainsider.com.au/stay/crittenden-villas/>) [View stay](<https://www.lakesidevillas.com.au/book>)
+[Read notes](<https://peninsulainsider.com.au/stay/crittenden-villas/>) [View stay](<https://www.lakesidevillas.com.au/rates-bookings/>)
 
 Pub  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
@@ -378,18 +378,6 @@ Australia's first dedicated gluten-free brewery, unexpectedly good beer, a small
 slow
 
 [Read notes](<https://peninsulainsider.com.au/eat/two-bays-brewing/>) [Book](<https://www.twobays.beer/>)
-
-Cottage  [Mount Martha](<https://peninsulainsider.com.au/explore/places/mount-martha/>)
-
-### [Villa Mallorca](<https://peninsulainsider.com.au/stay/villa-mallorca/>)
-
-Mt Martha VIC 3934
-
-Two suites in a Majorcan finca-style property in Mt Martha, where the hosts are named in 212 TripAdvisor reviews and are the actual product.
-
-anniversary  romance
-
-[Read notes](<https://peninsulainsider.com.au/stay/villa-mallorca/>)
 
 [Beach](<https://peninsulainsider.com.au/explore/dromana-beach/>)
 

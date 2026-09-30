@@ -71,7 +71,7 @@ A dramatic art-led design hotel set inside a working vineyard, with Doot Doot Do
 
 anniversary  weekend escape
 
-[Read notes](<https://peninsulainsider.com.au/stay/jackalope/>) [View stay](<https://jackalopehotels.com/mornington-peninsula>)
+[Read notes](<https://peninsulainsider.com.au/stay/jackalope/>) [View stay](<https://jackalopehotels.com/stay/>)
 
 External bathing package
 

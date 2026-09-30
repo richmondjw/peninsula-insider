@@ -89,7 +89,7 @@ Note: completely separate from InterContinental Sorrento at 23 Constitution Hill
 
 ### Alba Sanctuary, Fingal
 
-The accommodation arm of Alba Thermal Springs. Five hilltop villas plus two premium rooms, all adults-only (minimum age 18). Access to the 22-pool geothermal complex on-site. Slippers, robes, complimentary minibar included. Priced at the top of the Peninsula’s range. Five minutes from Peninsula Hot Springs.
+The accommodation arm of Alba Thermal Springs. Five hilltop villas plus two studio rooms, with springs access during the stay. [Alba’s FAQ](<https://albathermalsprings.com.au/faqs/>) says a cot or roll-away bed can be arranged through reservations. Under-16s need an adult in the general springs; private springs and spa treatments have separate age conditions.
 
 282 Browns Road, Fingal. [albathermalsprings.com.au](<https://www.albathermalsprings.com.au/>)
 
@@ -125,7 +125,7 @@ They are completely separate properties - different buildings, different streets
 
 Are there luxury hotels near Peninsula Hot Springs?
 
-The closest luxury option to Peninsula Hot Springs is the Alba Sanctuary at 282 Browns Road, Fingal - five hilltop villas plus two premium rooms, adults-only (18+), priced at the top of the Peninsula's range, with access to the 22 geothermal pools at Alba Thermal Springs. On the same site as Peninsula Hot Springs itself, the Glamping & Eco Lodges include premium eco lodges with geothermal floor heating and full spa complex access.
+The closest luxury option to Peninsula Hot Springs is The Sanctuary at Alba, 282 Browns Road, Fingal: five hilltop villas plus two studio rooms with access to Alba's springs. Alba's FAQ says a cot or roll-away bed can be arranged through reservations; springs guests under 16 need an adult, and private springs and spa experiences have separate age rules. On the same site as Peninsula Hot Springs itself, the Glamping & Eco Lodges include premium eco lodges with geothermal floor heating and full spa complex access.
 
 Does Jackalope Hotel allow children?
 

@@ -143,17 +143,17 @@ When a place has a workable bed attached, it stops being a stop and starts becom
 
  [Cape Schanck stays →](<https://peninsulainsider.com.au/stay/cape-schanck/>)
 
-Villa  [Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-schanck/>)
+Suite  [Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-schanck/>)
 
 ### [The Cape Retreat](<https://peninsulainsider.com.au/stay/cape-retreat/>)
 
-Cape Schanck VIC 3939
+41 Trent Jones Drive, Cape Schanck VIC 3939
 
-Twelve luxury suites on a Cape Schanck hilltop with Bass Strait views, primarily exclusive-hire, individual suites may be available on enquiry.
+Twelve guest suites and shared living spaces at a Cape Schanck retreat with Bass Strait and nearby golf-course outlooks.
 
 view  wellness
 
-[Read notes](<https://peninsulainsider.com.au/stay/cape-retreat/>) [View stay](<https://thecaperetreat.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/stay/cape-retreat/>) [View stay](<https://www.thecaperetreat.com.au/book>)
 
 [See the editorial rankings → Best Places to Stay on the Peninsula](<https://peninsulainsider.com.au/stay/best-accommodation/>)
 

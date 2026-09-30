@@ -1,15 +1,15 @@
 Canonical: https://peninsulainsider.com.au/stay/vineyard-stays/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-05-08
+Modified: 2026-10-01
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
 # Vineyard Stays on the Mornington Peninsula
 
-The Peninsula's wine country is a 20-kilometre belt of plateau running through Red Hill, Main Ridge, and Merricks North. Staying in this zone changes what the weekend is - cellar doors become a morning walk rather than a drive, vineyard lunches are the main event rather than a detour, and the ridge light at dusk is what you came for.
+The Peninsula's wine country is a 20-kilometre belt of plateau running through Red Hill, Main Ridge, and Merricks North. Staying in this zone changes what the weekend is - cellar doors become a planned part of the day, vineyard lunches are the main event rather than a detour, and the ridge light at dusk is what you came for.
 
-Jackalope is the design-hotel benchmark: a black-steel structure set inside a working vineyard with one of Victoria's most ambitious dining rooms. Polperro, Port Phillip Estate, and Mantons Creek Estate offer the more private version - self-contained on working estates, close to serious winemaking. Port Phillip Estate (Wood Marsh-designed, one-hat restaurant, six suites) is the Peninsula's most architecturally serious winery stay. Mantons Creek near Shoreham is the under-indexed option - four vineyard suites, Quattro Restaurant on-site, two minutes from Ten Minutes by Tractor. Lindenderry gives the boutique-hotel register that suits those who want character over spectacle.
+Jackalope is the design-hotel benchmark: a black-steel structure set inside a working vineyard with one of Victoria's most ambitious dining rooms. Polperro's villas, Port Phillip Estate's suites and Mantons Creek Estate's guest suites offer different ways to stay among vineyards. Port Phillip Estate (Wood Marsh-designed, one-hat restaurant, six suites) is the Peninsula's most architecturally serious winery stay. Mantons Creek Estate in Shoreham offers vineyard-view guest suites and an on-estate restaurant with regular lunch service Friday to Sunday. Lindenderry gives the boutique-hotel register that suits those who want character over spectacle.
 
 Polperro has four villas, each sleeping two with a king-size bed, indoor spa, open fireplace and vineyard views. Cooking facilities are a convection oven and microwave, with no hotplates. There are no outdoor baths. Polperro Restaurant and Cellar Door are closed on Mondays and Tuesdays.
 
@@ -21,7 +21,7 @@ Vineyard & winery stays
 
 ## 12 properties on or near the ridge
 
-Estate villas and boutique hotels where the cellar door is either on site or within a short walk along vineyard rows.
+Vineyard guest suites, estate villas and boutique hotels for a wine country base.
 
  [Wine country →](<https://peninsulainsider.com.au/wine/>)
 
@@ -35,7 +35,7 @@ A dramatic art-led design hotel set inside a working vineyard, with Doot Doot Do
 
 anniversary  weekend escape
 
-[Read notes](<https://peninsulainsider.com.au/stay/jackalope/>) [View stay](<https://jackalopehotels.com/mornington-peninsula>)
+[Read notes](<https://peninsulainsider.com.au/stay/jackalope/>) [View stay](<https://jackalopehotels.com/stay/>)
 
 Villa  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -49,17 +49,17 @@ anniversary  slow
 
 [Read notes](<https://peninsulainsider.com.au/stay/polperro-villas/>) [View stay](<https://www.polperrowines.com.au/escape/>)
 
-Villa  [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
+Suite  [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
 
 ### [Mantons Creek Estate](<https://peninsulainsider.com.au/stay/mantons-creek-estate/>)
 
 240 Tucks Rd, Shoreham VIC 3916
 
-Four adults-only vineyard suites with on-estate Italian dining, two minutes from Ten Minutes by Tractor, the most under-indexed southern Red Hill base.
+Vineyard-view guest suites at Mantons Creek Estate in Shoreham, with a restaurant and cellar door on the property.
 
 anniversary  cellar door
 
-[Read notes](<https://peninsulainsider.com.au/stay/mantons-creek-estate/>) [View stay](<https://mantonscreekestate.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/stay/mantons-creek-estate/>) [View stay](<https://mantonscreekestate.com.au/accommodation>)
 
 Hotel  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -83,7 +83,7 @@ Self-contained lakeside villas at Crittenden Estate, with a cellar door and rest
 
 anniversary  waterfront
 
-[Read notes](<https://peninsulainsider.com.au/stay/crittenden-villas/>) [View stay](<https://www.lakesidevillas.com.au/book>)
+[Read notes](<https://peninsulainsider.com.au/stay/crittenden-villas/>) [View stay](<https://www.lakesidevillas.com.au/rates-bookings/>)
 
 Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -113,13 +113,13 @@ Villa  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Cassis Red Hill](<https://peninsulainsider.com.au/stay/cassis/>)
 
-Red Hill VIC 3937
+164 Arthurs Seat Road, Red Hill VIC 3937
 
-Five adults-only villas with private heated mineral plunge pools, on the edge of Red Hill wine country with views over Western Port Bay.
+Five adults-only villas overlooking the vines: two with mineral plunge pools, three with outdoor baths.
 
 anniversary  romance
 
-[Read notes](<https://peninsulainsider.com.au/stay/cassis/>) [View stay](<https://cassisredhill.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/stay/cassis/>) [View stay](<https://book-directonline.com/cassis-redhill/properties/cassisredhilldirect>)
 
 Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -173,7 +173,7 @@ anniversary  waterfront
 
 ### Which winery has accommodation on the Peninsula?
 
-Jackalope Hotel (Merricks North vineyard), Polperro Villas (Red Hill estate), Port Phillip Estate (Red Hill South - one-hat restaurant, six suites), Mantons Creek Estate (Shoreham - four suites, Quattro Restaurant on-site), Lindenderry at Red Hill (boutique vineyard hotel), and Crittenden Estate (self-contained villas on the estate). Note: Point Leo Estate does not operate on-estate accommodation.
+Jackalope Hotel (Merricks North vineyard), Polperro Villas (Red Hill estate), Port Phillip Estate (Red Hill South - one-hat restaurant, six suites), Lindenderry at Red Hill (boutique vineyard hotel), and Crittenden Estate (self-contained villas on the estate). Mantons Creek Estate in Shoreham offers vineyard-view guest suites and an on-estate restaurant with regular lunch service Friday to Sunday. Note: Point Leo Estate does not operate on-estate accommodation.
 
 ### Which part of the Peninsula is wine country?
 
@@ -181,7 +181,7 @@ Red Hill, Main Ridge, and Merricks North on the central plateau. The elevation a
 
 ### How long do I need?
 
-Two nights. Day one: arrive, afternoon cellar door session, dinner on the property. Day two: morning walk, two or three cellar doors, a long vineyard lunch (book ahead). Drive home Sunday evening. One night is doable but leaves most of Saturday dedicated to travel.
+Two nights. Day one: arrive, visit a cellar door, then dine where service is confirmed. Day two: morning walk, two or three cellar doors, a long vineyard lunch (book ahead). Drive home Sunday evening. One night is doable but leaves most of Saturday dedicated to travel.
 
 Related guides
 

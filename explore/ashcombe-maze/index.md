@@ -59,17 +59,17 @@ wellness  slow
 
 [Read notes](<https://peninsulainsider.com.au/stay/iluka-retreat/>) [View stay](<https://www.ilukaretreat.com.au/>)
 
-Villa  [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
+Suite  [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
 
 ### [Mantons Creek Estate](<https://peninsulainsider.com.au/stay/mantons-creek-estate/>)
 
 240 Tucks Rd, Shoreham VIC 3916
 
-Four adults-only vineyard suites with on-estate Italian dining, two minutes from Ten Minutes by Tractor, the most under-indexed southern Red Hill base.
+Vineyard-view guest suites at Mantons Creek Estate in Shoreham, with a restaurant and cellar door on the property.
 
 anniversary  cellar door
 
-[Read notes](<https://peninsulainsider.com.au/stay/mantons-creek-estate/>) [View stay](<https://mantonscreekestate.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/stay/mantons-creek-estate/>) [View stay](<https://mantonscreekestate.com.au/accommodation>)
 
 Keep going
 

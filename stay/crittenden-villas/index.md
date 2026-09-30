@@ -13,7 +13,7 @@ Self-contained lakeside villas at Crittenden Estate, with a cellar door and rest
 
 Known for   Lakeside Villas On-Estate Restaurant Crittenden Cellar Door Self-Contained Villas
 
-[Check availability](<https://www.lakesidevillas.com.au/book>)  +61 400 339 995
+[Check availability](<https://www.lakesidevillas.com.au/rates-bookings/>)  +61 400 339 995
 
 Crittenden Estate Villas · Dromana
 
@@ -71,7 +71,7 @@ Villa
 
 [Check current hours →](<https://www.google.com/maps/search/?api=1&query=Crittenden%20Estate%20Villas%2C%2025%20Harrisons%20Rd%2C%20Dromana%20VIC%203936%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
 
- [Book now](<https://www.lakesidevillas.com.au/book>)
+ [Book now](<https://www.lakesidevillas.com.au/rates-bookings/>)
 
 Not sure how to build a day around Crittenden Estate Villas?
 

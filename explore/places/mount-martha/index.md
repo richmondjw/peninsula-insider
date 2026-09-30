@@ -89,35 +89,11 @@ South Beach is the smarter choice when the main foreshore starts filling up by m
 
 What's mapped here
 
-- [**1** stays](<https://peninsulainsider.com.au/explore/places/mount-martha/#stay>)
-
 - [**1** ways to explore](<https://peninsulainsider.com.au/explore/places/mount-martha/#explore>)
 
 - [**1** escape plans](<https://peninsulainsider.com.au/explore/places/mount-martha/#escapes>)
 
 - [**4** journal pieces](<https://peninsulainsider.com.au/explore/places/mount-martha/#journal>)
-
-Stay
-
-## Sleep in Mount Martha
-
-When a place has a workable bed attached, it stops being a stop and starts becoming a base.
-
- [All stays →](<https://peninsulainsider.com.au/stay/>)
-
-Cottage  [Mount Martha](<https://peninsulainsider.com.au/explore/places/mount-martha/>)
-
-### [Villa Mallorca](<https://peninsulainsider.com.au/stay/villa-mallorca/>)
-
-Mt Martha VIC 3934
-
-Two suites in a Majorcan finca-style property in Mt Martha, where the hosts are named in 212 TripAdvisor reviews and are the actual product.
-
-anniversary  romance
-
-[Read notes](<https://peninsulainsider.com.au/stay/villa-mallorca/>)
-
-[See the editorial rankings → Best Places to Stay on the Peninsula](<https://peninsulainsider.com.au/stay/best-accommodation/>)
 
 Get outside
 

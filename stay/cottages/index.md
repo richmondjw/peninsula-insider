@@ -1,7 +1,7 @@
 Canonical: https://peninsulainsider.com.au/stay/cottages/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-05-08
+Modified: 2026-10-01
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -11,7 +11,7 @@ The two formats answer different briefs. A cottage is self-contained: you arrive
 
 The winter wood-fire weekend is the strongest use case for cottages. Properties across Main Ridge, Red Hill, and Rye with confirmed fireplaces draw the highest proportion of repeat visitors in the category. For a first-Saturday visit between September and May, check the separate Hill & Ridge Community Market schedule before planning the morning. The dog weekend is the second clear use case: Blue Moon, MP Beach Club, and Birch Creek are the most explicitly dog-welcoming.
 
-The named-host B&B pattern: at a cottage, the owner is largely invisible after key handover. At a B&B, the host is the reason the format works. Paul and Sheree at Villa Mallorca, Charles at Plantation House, Helen and Frank at The Orchard - the host is not incidental to the stay, it is the product.
+The named-host B&B pattern: at a cottage, the owner is largely invisible after key handover. At a B&B, the host is the reason the format works. The relationship with the host can shape the stay, but breakfast and hosted service differ by property. Check the current inclusions with the operator before booking.
 
 Researched from published sources. Every venue listed was reviewed May 2026 or later.
 
@@ -87,21 +87,9 @@ B&Bs
 
 ## Named-host Peninsula B&Bs
 
-Breakfast included, host-led, four rooms or fewer - at their best midweek when you get the full attention of someone who has thought about your morning.
+Guesthouses and hosted stays with different room formats and inclusions. Check breakfast and host availability for your chosen property.
 
  [Wine-country stays →](<https://peninsulainsider.com.au/stay/winery-accommodation/>)
-
-Cottage  [Mount Martha](<https://peninsulainsider.com.au/explore/places/mount-martha/>)
-
-### [Villa Mallorca](<https://peninsulainsider.com.au/stay/villa-mallorca/>)
-
-Mt Martha VIC 3934
-
-Two suites in a Majorcan finca-style property in Mt Martha, where the hosts are named in 212 TripAdvisor reviews and are the actual product.
-
-anniversary  romance
-
-[Read notes](<https://peninsulainsider.com.au/stay/villa-mallorca/>)
 
 Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
@@ -151,17 +139,17 @@ view  anniversary
 
 [Read notes](<https://peninsulainsider.com.au/stay/arthurs-views/>) [View stay](<https://arthursviews.com.au/>)
 
-Villa  [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
+Suite  [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
 
 ### [Mantons Creek Estate](<https://peninsulainsider.com.au/stay/mantons-creek-estate/>)
 
 240 Tucks Rd, Shoreham VIC 3916
 
-Four adults-only vineyard suites with on-estate Italian dining, two minutes from Ten Minutes by Tractor, the most under-indexed southern Red Hill base.
+Vineyard-view guest suites at Mantons Creek Estate in Shoreham, with a restaurant and cellar door on the property.
 
 anniversary  cellar door
 
-[Read notes](<https://peninsulainsider.com.au/stay/mantons-creek-estate/>) [View stay](<https://mantonscreekestate.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/stay/mantons-creek-estate/>) [View stay](<https://mantonscreekestate.com.au/accommodation>)
 
 Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 

@@ -77,7 +77,7 @@ A vineyard hotel for an occasion-led escape, with striking architecture and Doot
 
 Hotel   Red Hill   Couples
 
-[Check availability](<https://jackalopehotels.com/mornington-peninsula>)
+[Check availability](<https://jackalopehotels.com/stay/>)
 
 - ### [Polperro Villas](<https://peninsulainsider.com.au/stay/polperro-villas/>)
 
@@ -127,11 +127,11 @@ Cottage   Rye   Dog-friendly
 
 - ### [The best places to stay](<https://peninsulainsider.com.au/stay/best-accommodation/>)
 
-The full ranking, hotel to cottage, with the reasoning shown.
+Choose a coast, wine-country or thermal base, then compare stay formats.
 
 - ### [Couples’ retreats](<https://peninsulainsider.com.au/stay/couples-retreats/>)
 
-Rooms built for two, from outdoor baths to village balconies.
+Choose a vineyard, thermal or Sorrento stay for a weekend together.
 
 - ### [Vineyard stays](<https://peninsulainsider.com.au/stay/vineyard-stays/>)
 
@@ -143,7 +143,7 @@ Bases within earshot of the water, Sorrento to Flinders.
 
 - ### [Hot springs stays](<https://peninsulainsider.com.au/stay/hot-springs-accommodation/>)
 
-Stay inside the thermal precinct and beat the day queue.
+Compare accommodation at the Peninsula thermal estates.
 
 - ### [Dog-friendly stays](<https://peninsulainsider.com.au/journal/dog-friendly-accommodation-mornington-peninsula/>)
 
@@ -151,7 +151,7 @@ Stays where the dog is a guest, not a problem.
 
 The full list
 
-## All 29 places to stay
+## All 28 places to stay
 
  [Ranked: the best places to stay →](<https://peninsulainsider.com.au/stay/best-accommodation/>)
 
@@ -161,7 +161,7 @@ A dramatic art-led design hotel set inside a working vineyard, with Doot Doot Do
 
 Hotel   Red Hill   Couples
 
-[Check availability](<https://jackalopehotels.com/mornington-peninsula>)
+[Check availability](<https://jackalopehotels.com/stay/>)
 
 - ### [Polperro Villas](<https://peninsulainsider.com.au/stay/polperro-villas/>)
 
@@ -207,11 +207,11 @@ Cottage   Rye   Dog-friendly
 
 - ### [The Cape Retreat](<https://peninsulainsider.com.au/stay/cape-retreat/>)
 
-Twelve luxury suites on a Cape Schanck hilltop with Bass Strait views, primarily exclusive-hire, individual suites may be available on enquiry.
+Twelve guest suites and shared living spaces at a Cape Schanck retreat with Bass Strait and nearby golf-course outlooks.
 
-Villa   Cape Schanck   Couples
+Suite   Cape Schanck   Couples
 
-[Check availability](<https://thecaperetreat.com.au/>)
+[Check availability](<https://www.thecaperetreat.com.au/book>)
 
 - ### [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
 
@@ -227,7 +227,7 @@ Self-contained lakeside villas at Crittenden Estate, with a cellar door and rest
 
 Villa   Dromana   Couples
 
-[Check availability](<https://www.lakesidevillas.com.au/book>)
+[Check availability](<https://www.lakesidevillas.com.au/rates-bookings/>)
 
 - ### [Peninsula Hot Springs Eco Lodges](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-eco-lodges/>)
 
@@ -263,12 +263,6 @@ Villa   Moorooduc   Couples
 
 [Check availability](<https://woodmanestate.com.au/>)
 
-- ### [Villa Mallorca](<https://peninsulainsider.com.au/stay/villa-mallorca/>)
-
-Two suites in a Majorcan finca-style property in Mt Martha, where the hosts are named in 212 TripAdvisor reviews and are the actual product.
-
-Cottage   Mount Martha   Couples
-
 - ### [Point Nepean Discovery Tents](<https://peninsulainsider.com.au/stay/point-nepean-discovery-tents/>)
 
 Forty-six pre-pitched canvas tents inside Point Nepean National Park, September to April, inside the historic quarantine station precinct.
@@ -295,11 +289,11 @@ Cottage   Red Hill   Couples
 
 - ### [Cassis Red Hill](<https://peninsulainsider.com.au/stay/cassis/>)
 
-Five adults-only villas with private heated mineral plunge pools, on the edge of Red Hill wine country with views over Western Port Bay.
+Five adults-only villas overlooking the vines: two with mineral plunge pools, three with outdoor baths.
 
 Villa   Red Hill   Couples
 
-[Check availability](<https://cassisredhill.com.au/>)
+[Check availability](<https://book-directonline.com/cassis-redhill/properties/cassisredhilldirect>)
 
 - ### [Hideaways at Red Hill](<https://peninsulainsider.com.au/stay/hideaways-red-hill/>)
 
@@ -371,11 +365,11 @@ Glamping   Shoreham   Couples
 
 - ### [Mantons Creek Estate](<https://peninsulainsider.com.au/stay/mantons-creek-estate/>)
 
-Four adults-only vineyard suites with on-estate Italian dining, two minutes from Ten Minutes by Tractor, the most under-indexed southern Red Hill base.
+Vineyard-view guest suites at Mantons Creek Estate in Shoreham, with a restaurant and cellar door on the property.
 
-Villa   Shoreham   Couples
+Suite   Shoreham   Couples
 
-[Check availability](<https://mantonscreekestate.com.au/>)
+[Check availability](<https://mantonscreekestate.com.au/accommodation>)
 
 - ### [InterContinental Sorrento](<https://peninsulainsider.com.au/stay/the-continental-sorrento/>)
 

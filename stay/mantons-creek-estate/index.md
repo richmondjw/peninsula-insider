@@ -5,37 +5,37 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-[Stay](<https://peninsulainsider.com.au/stay/>)    Villa    [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
+[Stay](<https://peninsulainsider.com.au/stay/>)    Suite    [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
 
 # Mantons Creek Estate
 
-Four adults-only vineyard suites with on-estate Italian dining, two minutes from Ten Minutes by Tractor, the most under-indexed southern Red Hill base.
+Vineyard-view guest suites at Mantons Creek Estate in Shoreham, with a restaurant and cellar door on the property.
 
-Known for   Adults-Only Vineyard Suites Quattro On-Estate Italian Restaurant Southern Red Hill Winery Circuit Access Mediterranean-Style Balcony Rooms
+Known for   Vineyard Guest Suites On-Estate Restaurant Shoreham Vineyard Setting
 
-[Check availability](<https://mantonscreekestate.com.au/>)
+[Check availability](<https://mantonscreekestate.com.au/accommodation>)
 
 Mantons Creek Estate · Shoreham
 
 Why we’d go
 
-The only southern Red Hill stay where the on-estate restaurant removes the need to choose between dinner and a second glass of wine.
+A Shoreham vineyard stay with an on-estate restaurant for a planned lunch.
 
-Mantons Creek is positioned two minutes from Ten Minutes by Tractor and three minutes from Montalto, which makes it the strongest base for the southern Red Hill winery circuit that does not require driving between your bed and your glass. The four adults-only suites are Mediterranean-style with private balconies over the vineyard, espresso machines, and designer toiletries.
+Mantons Creek Estate offers boutique accommodation overlooking its Shoreham vineyard. The operator calls its rooms guest suites. Check the current room layout, guest policy and inclusions for your dates through its accommodation booking page.
 
-The decisive feature is Quattro Restaurant on site, Italian, breakfast through dinner, which means the stay has the same on-estate logic as Polperro or Crittenden without requiring you to leave the property for a meal. It is the most under-indexed entry in the Peninsula villa category: consistently appearing in accommodation data but almost invisible in editorial coverage. That gap is worth correcting.
+The restaurant is on the estate, but its published regular service is lunch from 11:45 am Friday to Sunday. Cellar door hours are separate. Reserve dining and tastings directly; do not assume on-site dinner is available.
 
-Book midweek, fewer day-trippers at the adjacent cellar doors and more table availability at Quattro. It suits the stay better than a Saturday night when the roads and tasting rooms are full.
+Choose this for a vineyard base with accommodation, food and wine on one property. Confirm the stay and lunch bookings separately before planning the day.
 
 Worth knowing
 
 **Best for**
 
-Anniversary weekends · Cellar door visits · Long lunches · Couples
+Vineyard weekends · Cellar door visits · Long lunches · Couples
 
 If you only do one thing
 
-Book a midweek stay, walk to Ten Minutes by Tractor for a long lunch the day you arrive, and eat at Quattro that evening, the same quality of meal without getting back in the car.
+Check accommodation availability first, then reserve restaurant lunch or a cellar door tasting separately.
 
 Works well with
 
@@ -47,7 +47,7 @@ At a glance
 
 **Type**
 
-Villa
+Suite
 
 **Location**
 
@@ -55,7 +55,7 @@ Villa
 
 **Website**
 
-[mantonscreekestate.com.au](<https://mantonscreekestate.com.au/>)
+[mantonscreekestate.com.au/accommodation](<https://mantonscreekestate.com.au/accommodation>)
 
 **Directions**
 
@@ -65,7 +65,7 @@ Villa
 
 [Check current hours →](<https://www.google.com/maps/search/?api=1&query=Mantons%20Creek%20Estate%2C%20240%20Tucks%20Rd%2C%20Shoreham%20VIC%203916%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
 
- [Book now](<https://mantonscreekestate.com.au/>)
+ [Check availability](<https://mantonscreekestate.com.au/accommodation>)
 
 Not sure how to build a day around Mantons Creek Estate?
 

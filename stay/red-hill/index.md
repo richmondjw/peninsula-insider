@@ -31,7 +31,7 @@ A dramatic art-led design hotel set inside a working vineyard, with Doot Doot Do
 
 anniversary  weekend escape
 
-[Read notes](<https://peninsulainsider.com.au/stay/jackalope/>) [View stay](<https://jackalopehotels.com/mornington-peninsula>)
+[Read notes](<https://peninsulainsider.com.au/stay/jackalope/>) [View stay](<https://jackalopehotels.com/stay/>)
 
 Hotel  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -67,7 +67,7 @@ Rammed-earth architecture, an estate dining room and six vineyard suites in Red 
 
 anniversary  long lunch
 
-[Read notes](<https://peninsulainsider.com.au/stay/port-phillip-estate/>) [View stay](<https://www.portphillipestate.com.au/accommodation>)
+[Read notes](<https://peninsulainsider.com.au/stay/port-phillip-estate/>) [View stay](<https://www.portphillipestate.com.au/book-accommodation/>)
 
 Glamping  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 

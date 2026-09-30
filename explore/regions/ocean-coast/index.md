@@ -79,17 +79,17 @@ anniversary  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/eat/barragunda-dining/>) [Book](<https://www.barragunda.com.au/>)
 
-Villa  [Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-schanck/>)
+Suite  [Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-schanck/>)
 
 ### [The Cape Retreat](<https://peninsulainsider.com.au/stay/cape-retreat/>)
 
-Cape Schanck VIC 3939
+41 Trent Jones Drive, Cape Schanck VIC 3939
 
-Twelve luxury suites on a Cape Schanck hilltop with Bass Strait views, primarily exclusive-hire, individual suites may be available on enquiry.
+Twelve guest suites and shared living spaces at a Cape Schanck retreat with Bass Strait and nearby golf-course outlooks.
 
 view  wellness
 
-[Read notes](<https://peninsulainsider.com.au/stay/cape-retreat/>) [View stay](<https://thecaperetreat.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/stay/cape-retreat/>) [View stay](<https://www.thecaperetreat.com.au/book>)
 
 Café  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
@@ -151,17 +151,17 @@ wellness  slow
 
 [Read notes](<https://peninsulainsider.com.au/stay/iluka-retreat/>) [View stay](<https://www.ilukaretreat.com.au/>)
 
-Villa  [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
+Suite  [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
 
 ### [Mantons Creek Estate](<https://peninsulainsider.com.au/stay/mantons-creek-estate/>)
 
 240 Tucks Rd, Shoreham VIC 3916
 
-Four adults-only vineyard suites with on-estate Italian dining, two minutes from Ten Minutes by Tractor, the most under-indexed southern Red Hill base.
+Vineyard-view guest suites at Mantons Creek Estate in Shoreham, with a restaurant and cellar door on the property.
 
 anniversary  cellar door
 
-[Read notes](<https://peninsulainsider.com.au/stay/mantons-creek-estate/>) [View stay](<https://mantonscreekestate.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/stay/mantons-creek-estate/>) [View stay](<https://mantonscreekestate.com.au/accommodation>)
 
 Restaurant  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 

@@ -1,29 +1,33 @@
 Canonical: https://peninsulainsider.com.au/stay/villas/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-05-08
+Modified: 2026-10-01
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-# Villa Stays on the Mornington Peninsula
+The stay guide · villas
 
-The Peninsula's villa market is dominated by working-vineyard estates. The on-estate format lets you sleep where you drink, walk to the cellar door before day-trippers arrive, and eat dinner 200 metres from your bed. The variables that separate a worthwhile villa weekend from an expensive one are privacy, setting, on-estate access, and how well the format carries a full Friday-to-Sunday. The mistake is treating a villa as a hotel substitute - it isn't.
+# Villa stays with room to slow down.
 
-Three patterns make the format a clear choice. The on-estate weekend: Polperro, Crittenden, and Mantons Creek all operate on the same principle - you sleep on the estate, walk to the cellar door, and never need to drive between your bed and your glass. The architectural set-piece: Port Phillip Estate, Polperro, and Cassis are three completely different interpretations of the adults-only vineyard villa within five kilometres of each other. The thermal-anchored stay: The Sanctuary at Alba, opened June 2025, is the first Peninsula property to combine a genuinely luxurious villa with all-day thermal bathing access.
+[Compare villas](<https://peninsulainsider.com.au/stay/villas/#compare-villas>) [Explore wine-country stays](<https://peninsulainsider.com.au/stay/winery-accommodation/>)
 
-Polperro has four villas, each sleeping two with a king-size bed, indoor spa, open fireplace and vineyard views. Cooking facilities are a convection oven and microwave, with no hotplates. There are no outdoor baths. Polperro Restaurant and Cellar Door are closed on Mondays and Tuesdays.
+Start with the setting, then compare what is actually included. A vineyard villa, an Alba stay and a Cassis villa make different weekends.
 
-Note on Point Leo Estate: Point Leo does not operate on-estate accommodation. The Lon to Leo package partners with Lon Retreat in Sorrento. For on-estate stays near Laura and the sculpture park, Mantons Creek Estate is the closest vineyard-stay alternative.
+Choose the individual villa before booking. Pool, bath, cooking facilities and dining access vary by property and room.
 
-Researched from published sources. Every venue listed was reviewed April 2026 or later.
+Inside a Polperro villa. Image courtesy of Polperro.
 
-Villa stays
+The first decision
 
-## 8 villa bases worth booking well ahead
+## Where do you want to wake up?
 
-Vineyard estates, thermal-anchored villas, and architectural standalones - private formats for trips that want more than a room and a lobby.
+[01 / On a vineyard  **Let the estate set the pace.**  See villas](<https://peninsulainsider.com.au/stay/villas/#vineyard-villas>)[02 / Bathing-led  **Choose the exact water feature.**  See villas](<https://peninsulainsider.com.au/stay/villas/#bathing-villas>)
 
- [Wine-country stays →](<https://peninsulainsider.com.au/stay/winery-accommodation/>)
+01 / On a vineyard
+
+## Let the estate set the pace.
+
+Polperro and Crittenden offer different villa formats on wine estates. Check each unit’s cooking facilities and the estate’s dining hours.
 
 Villa  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -37,6 +41,24 @@ anniversary  slow
 
 [Read notes](<https://peninsulainsider.com.au/stay/polperro-villas/>) [View stay](<https://www.polperrowines.com.au/escape/>)
 
+Villa  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+
+### [Crittenden Estate Villas](<https://peninsulainsider.com.au/stay/crittenden-villas/>)
+
+25 Harrisons Rd, Dromana VIC 3936
+
+Self-contained lakeside villas at Crittenden Estate, with a cellar door and restaurant on the property.
+
+anniversary  waterfront
+
+[Read notes](<https://peninsulainsider.com.au/stay/crittenden-villas/>) [View stay](<https://www.lakesidevillas.com.au/rates-bookings/>)
+
+02 / Bathing-led
+
+## Choose the exact water feature.
+
+Alba’s villas pair a stay with the thermal springs. At Cassis, only the Retreat and Cottage list mineral plunge pools; the other three villas list outdoor baths.
+
 Villa  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
 ### [The Sanctuary at Alba](<https://peninsulainsider.com.au/stay/sanctuary-at-alba/>)
@@ -49,77 +71,43 @@ wellness  anniversary
 
 [Read notes](<https://peninsulainsider.com.au/stay/sanctuary-at-alba/>) [View stay](<https://albathermalsprings.com.au/alba-experiences/the-sanctuary/>)
 
-Villa  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
-
-### [Crittenden Estate Villas](<https://peninsulainsider.com.au/stay/crittenden-villas/>)
-
-25 Harrisons Rd, Dromana VIC 3936
-
-Self-contained lakeside villas at Crittenden Estate, with a cellar door and restaurant on the property.
-
-anniversary  waterfront
-
-[Read notes](<https://peninsulainsider.com.au/stay/crittenden-villas/>) [View stay](<https://www.lakesidevillas.com.au/book>)
-
-Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
-
-### [Port Phillip Estate](<https://peninsulainsider.com.au/stay/port-phillip-estate/>)
-
-263 Red Hill Rd, Red Hill South VIC 3937
-
-Rammed-earth architecture, an estate dining room and six vineyard suites in Red Hill South.
-
-anniversary  long lunch
-
-[Read notes](<https://peninsulainsider.com.au/stay/port-phillip-estate/>) [View stay](<https://www.portphillipestate.com.au/accommodation>)
-
 Villa  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Cassis Red Hill](<https://peninsulainsider.com.au/stay/cassis/>)
 
-Red Hill VIC 3937
+164 Arthurs Seat Road, Red Hill VIC 3937
 
-Five adults-only villas with private heated mineral plunge pools, on the edge of Red Hill wine country with views over Western Port Bay.
+Five adults-only villas overlooking the vines: two with mineral plunge pools, three with outdoor baths.
 
 anniversary  romance
 
-[Read notes](<https://peninsulainsider.com.au/stay/cassis/>) [View stay](<https://cassisredhill.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/stay/cassis/>) [View stay](<https://book-directonline.com/cassis-redhill/properties/cassisredhilldirect>)
 
-Villa  [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
+A different format
 
-### [Mantons Creek Estate](<https://peninsulainsider.com.au/stay/mantons-creek-estate/>)
+## Suites and chalets nearby.
 
-240 Tucks Rd, Shoreham VIC 3916
+These stay options appeared alongside villas in earlier guides. They are useful alternatives, with their accommodation type made clear.
 
-Four adults-only vineyard suites with on-estate Italian dining, two minutes from Ten Minutes by Tractor, the most under-indexed southern Red Hill base.
+[Vineyard suites  **Port Phillip Estate**  Six suites at an architectural wine estate.   Read stay notes](<https://peninsulainsider.com.au/wine/port-phillip-estate/>)[Vineyard suites  **Mantons Creek Estate**  Compare the operator’s current suite and dining offer.   Read stay notes](<https://peninsulainsider.com.au/stay/mantons-creek-estate/>)[Lakeside chalets  **Woodman Estate**  A separate chalet format on an estate.   Read stay notes](<https://peninsulainsider.com.au/stay/woodman-estate/>)[Hilltop suites  **The Cape Retreat**  Check whether individual stays are available.   Read stay notes](<https://peninsulainsider.com.au/stay/cape-retreat/>)
 
-anniversary  cellar door
+## Before you reserve
 
-[Read notes](<https://peninsulainsider.com.au/stay/mantons-creek-estate/>) [View stay](<https://mantonscreekestate.com.au/>)
+### What counts as a villa in this guide?
 
-Villa  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
+The main list is limited to properties presented as villas by their operators or in their current accommodation offer. Nearby suites and chalets appear separately so you can compare formats without confusing them.
 
-### [Woodman Estate](<https://peninsulainsider.com.au/stay/woodman-estate/>)
+### Does every Cassis villa have a mineral pool?
 
-Moorooduc VIC 3931
+No. Cassis lists heated mineral plunge pools for the Retreat and Cottage. The Lodge, Terrace and Studio list private outdoor baths.
 
-Three lakeside chalets over a private five-acre lake on a 50-acre English country estate, the Peninsula's most pastoral villa option.
+### Is private bathing included in an Alba villa booking?
 
-anniversary  waterfront
+Alba describes bathing on each day of a Sanctuary stay and one upgrade to a separate private-pool experience. Check the exact villa and chosen package before reserving.
 
-[Read notes](<https://peninsulainsider.com.au/stay/woodman-estate/>) [View stay](<https://woodmanestate.com.au/>)
+[Compare all accommodation formats](<https://peninsulainsider.com.au/stay/best-accommodation/>) if a villa is only one option for your trip.
 
-Villa  [Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-schanck/>)
-
-### [The Cape Retreat](<https://peninsulainsider.com.au/stay/cape-retreat/>)
-
-Cape Schanck VIC 3939
-
-Twelve luxury suites on a Cape Schanck hilltop with Bass Strait views, primarily exclusive-hire, individual suites may be available on enquiry.
-
-view  wellness
-
-[Read notes](<https://peninsulainsider.com.au/stay/cape-retreat/>) [View stay](<https://thecaperetreat.com.au/>)
+Researched from published sources. Every venue listed was reviewed April 2026 or later.
 
 ## The Insider Note
 

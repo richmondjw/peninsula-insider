@@ -13,7 +13,7 @@ A dramatic art-led design hotel set inside a working vineyard, with Doot Doot Do
 
 Known for   Carr Design Group Interiors Doot Doot Doot Restaurant Flaggerdoot Cocktail Bar Merricks North Vineyard Setting
 
-[Check availability](<https://jackalopehotels.com/mornington-peninsula>)  +61 3 5931 2500
+[Check availability](<https://jackalopehotels.com/stay/>)  +61 3 5931 2500
 
 - Photo · Peter Foster, courtesy of Visit Victoria
 
@@ -115,7 +115,7 @@ Condé Nast Hot List · AHA Hotel of the Year Victoria
 
 [Check current hours →](<https://www.google.com/maps/search/?api=1&query=Jackalope%20Hotel%2C%20166%20Balnarring%20Rd%2C%20Merricks%20North%20VIC%203926%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
 
- [Book now](<https://jackalopehotels.com/mornington-peninsula>)
+ [Book now](<https://jackalopehotels.com/stay/>)
 
 Not sure how to build a day around Jackalope Hotel?
 

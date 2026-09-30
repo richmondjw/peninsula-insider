@@ -13,7 +13,7 @@ Rammed-earth architecture, an estate dining room and six vineyard suites in Red 
 
 Known for   Wood Marsh Architecture Vineyard Suites Kooyong Sister Estate Rammed-Earth Cellar Door
 
-[Book a tasting](<https://www.portphillipestate.com.au/accommodation>)  +61 3 5989 4444
+[Check suite availability](<https://www.portphillipestate.com.au/book-accommodation/>) [Explore tastings](<https://www.portphillipestate.com.au/cellar-door-tastings/>)  +61 3 5989 4444
 
 Port Phillip Estate · Red Hill
 
@@ -83,7 +83,9 @@ AHA Hotel of the Year nominee · Good Food Guide 2025
 
 **Opening hours**
 
-- Every day   11am–5pm
+- Mon, Wed to Sun   11am–5pm
+
+- Tue   Closed
 
 **Live status**
 
@@ -101,7 +103,7 @@ Charged
 
 [Halliday listing](<https://winecompanion.com.au/wineries/victoria/mornington-peninsula/port-phillip-estate>)
 
- [Book now](<https://www.portphillipestate.com.au/accommodation>)
+ [Check suite availability](<https://www.portphillipestate.com.au/book-accommodation/>)
 
 Editor's verdict
 
@@ -125,7 +127,7 @@ Walk-ins welcomed. Standard tasting charged per person (non-refundable); Wine Ta
 
 **Cuisine:** European-influenced.
 
-[Reserve a table →](<https://www.portphillipestate.com.au/accommodation>)
+[Reserve a table →](<https://www.portphillipestate.com.au/reservations/>)
 
 ## Port Phillip Estate Vineyard Suites
 

@@ -253,13 +253,13 @@ Villa  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Cassis Red Hill](<https://peninsulainsider.com.au/stay/cassis/>)
 
-Red Hill VIC 3937
+164 Arthurs Seat Road, Red Hill VIC 3937
 
-Five adults-only villas with private heated mineral plunge pools, on the edge of Red Hill wine country with views over Western Port Bay.
+Five adults-only villas overlooking the vines: two with mineral plunge pools, three with outdoor baths.
 
 anniversary  romance
 
-[Read notes](<https://peninsulainsider.com.au/stay/cassis/>) [View stay](<https://cassisredhill.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/stay/cassis/>) [View stay](<https://book-directonline.com/cassis-redhill/properties/cassisredhilldirect>)
 
 [See the editorial rankings → Best Places to Stay on the Peninsula](<https://peninsulainsider.com.au/stay/best-accommodation/>)
 

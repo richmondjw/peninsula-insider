@@ -1,25 +1,57 @@
 Canonical: https://peninsulainsider.com.au/stay/winery-accommodation/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-05-08
+Modified: 2026-10-01
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-# Winery Accommodation on the Mornington Peninsula
+Winery accommodation
 
-The best Peninsula wine weekends improve when you stop treating accommodation as an afterthought. The right base means you drink once, eat properly, and wake up where the trip actually happens, instead of spending the whole weekend running transfers between Sorrento beds and Red Hill lunches.
+# Stay in wine country.
 
-The good options are limited, distinct, and easy to choose between once you know what sort of weekend you are building. [Polperro Villas](<https://peninsulainsider.com.au/stay/polperro-villas/>) and [Crittenden Estate Villas](<https://peninsulainsider.com.au/stay/crittenden-villas/>) are for couples who want to stay embedded in the vineyard experience. [Port Phillip Estate](<https://peninsulainsider.com.au/wine/port-phillip-estate/>) is the Peninsula's most architecturally serious winery stay: Wood Marsh-designed, one-hat restaurant, six suites. [Mantons Creek Estate](<https://peninsulainsider.com.au/stay/mantons-creek-estate/>) is the under-indexed option near Shoreham, two minutes from Ten Minutes by Tractor with on-estate Italian dining. [Cassis Red Hill](<https://peninsulainsider.com.au/stay/cassis/>) is not on a working winery but sits adjacent to one, and every villa has a private heated plunge pool. [Jackalope](<https://peninsulainsider.com.au/stay/jackalope/>) and [Lindenderry](<https://peninsulainsider.com.au/stay/lindenderry/>) are the hotel-format alternatives for those who want service infrastructure alongside the wine-country position.
+Choose an estate villa, winery suite or hotel base. Compare seven stays, then check the exact address and inclusions.
 
-Note on Point Leo Estate: Point Leo does not operate on-estate accommodation. The Lon to Leo package pairs with Lon Retreat in Sorrento. For stays near Laura and the sculpture park, Mantons Creek Estate is the nearest vineyard-stay alternative.
+[Compare seven stays ↓](<https://peninsulainsider.com.au/stay/winery-accommodation/#rankings>) [Choose by format →](<https://peninsulainsider.com.au/stay/winery-accommodation/#choose-your-base>)
 
-Researched from published sources. Every venue listed was reviewed April 2026 or later.
+A good first decision
+
+Pick the stay format first. Then look at the cellar doors and meals you can reach from its actual address.
+
+If tasting is part of the plan, arrange a driver or transport before you go.
+
+Choose your base
+
+## Four ways to do a wine weekend
+
+01 / Vineyard villas
+
+Stay among the vines, with the vineyard as part of the trip.
+
+[Polperro Villas →](<https://peninsulainsider.com.au/stay/polperro-villas/>)[Crittenden Estate Villas →](<https://peninsulainsider.com.au/stay/crittenden-villas/>)
+
+02 / Winery suites
+
+Choose an estate room and build the stay around food and place.
+
+[Port Phillip Estate →](<https://peninsulainsider.com.au/wine/port-phillip-estate/>)[Mantons Creek Estate →](<https://peninsulainsider.com.au/stay/mantons-creek-estate/>)
+
+03 / Hotel base
+
+Keep hotel service close to the Peninsula's wine-country circuit.
+
+[Jackalope →](<https://peninsulainsider.com.au/stay/jackalope/>)[Lindenderry →](<https://peninsulainsider.com.au/stay/lindenderry/>)
+
+04 / Red Hill villa
+
+Cassis is a villa base near wineries, not an on-estate winery stay. Pool and outdoor-bath options differ by villa.
+
+[Cassis Red Hill →](<https://peninsulainsider.com.au/stay/cassis/>)
 
 Wine-country stays
 
-## 7 stays that work best for a Peninsula wine weekend
+## Compare the seven stays
 
-On-estate villas, architectural winery hotels, and the wine-country positions that collapse the gap between your bed and the next glass.
+Look at the stay itself, then confirm current dining, tasting and room details with the operator.
 
  [Wine country →](<https://peninsulainsider.com.au/wine/>)
 
@@ -45,11 +77,11 @@ Self-contained lakeside villas at Crittenden Estate, with a cellar door and rest
 
 anniversary  waterfront
 
-[Read notes](<https://peninsulainsider.com.au/stay/crittenden-villas/>) [View stay](<https://www.lakesidevillas.com.au/book>)
+[Read notes](<https://peninsulainsider.com.au/stay/crittenden-villas/>) [View stay](<https://www.lakesidevillas.com.au/rates-bookings/>)
 
 Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
-### [Port Phillip Estate](<https://peninsulainsider.com.au/stay/port-phillip-estate/>)
+### [Port Phillip Estate](<https://peninsulainsider.com.au/wine/port-phillip-estate/>)
 
 263 Red Hill Rd, Red Hill South VIC 3937
 
@@ -57,31 +89,31 @@ Rammed-earth architecture, an estate dining room and six vineyard suites in Red 
 
 anniversary  long lunch
 
-[Read notes](<https://peninsulainsider.com.au/stay/port-phillip-estate/>) [View stay](<https://www.portphillipestate.com.au/accommodation>)
+[Read notes](<https://peninsulainsider.com.au/wine/port-phillip-estate/>) [View stay](<https://www.portphillipestate.com.au/book-accommodation/>)
 
-Villa  [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
+Suite  [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
 
 ### [Mantons Creek Estate](<https://peninsulainsider.com.au/stay/mantons-creek-estate/>)
 
 240 Tucks Rd, Shoreham VIC 3916
 
-Four adults-only vineyard suites with on-estate Italian dining, two minutes from Ten Minutes by Tractor, the most under-indexed southern Red Hill base.
+Vineyard accommodation with an on-estate restaurant in Shoreham.
 
 anniversary  cellar door
 
-[Read notes](<https://peninsulainsider.com.au/stay/mantons-creek-estate/>) [View stay](<https://mantonscreekestate.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/stay/mantons-creek-estate/>) [View stay](<https://mantonscreekestate.com.au/accommodation>)
 
 Villa  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Cassis Red Hill](<https://peninsulainsider.com.au/stay/cassis/>)
 
-Red Hill VIC 3937
+164 Arthurs Seat Road, Red Hill VIC 3937
 
-Five adults-only villas with private heated mineral plunge pools, on the edge of Red Hill wine country with views over Western Port Bay.
+Five adults-only villas overlooking the vines: two with mineral plunge pools, three with outdoor baths.
 
 anniversary  romance
 
-[Read notes](<https://peninsulainsider.com.au/stay/cassis/>) [View stay](<https://cassisredhill.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/stay/cassis/>) [View stay](<https://book-directonline.com/cassis-redhill/properties/cassisredhilldirect>)
 
 Hotel  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -93,7 +125,7 @@ A dramatic art-led design hotel set inside a working vineyard, with Doot Doot Do
 
 anniversary  weekend escape
 
-[Read notes](<https://peninsulainsider.com.au/stay/jackalope/>) [View stay](<https://jackalopehotels.com/mornington-peninsula>)
+[Read notes](<https://peninsulainsider.com.au/stay/jackalope/>) [View stay](<https://jackalopehotels.com/stay/>)
 
 Hotel  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -107,23 +139,13 @@ weekend escape  garden
 
 [Read notes](<https://peninsulainsider.com.au/stay/lindenderry/>) [View stay](<https://lancemore.com.au/properties-2/lancemore-lindenderry-red-hill>)
 
-## How to use this category
+Researched from published sources. Every venue listed was reviewed April 2026 or later.
 
-### Best for a one-night wine weekend?
+## Before you reserve
 
-[Jackalope](<https://peninsulainsider.com.au/stay/jackalope/>) if you want drama and a stronger hotel experience. [Polperro Villas](<https://peninsulainsider.com.au/stay/polperro-villas/>) for a quieter vineyard stay; check minimum-stay conditions for your dates. The restaurant and cellar door are closed on Mondays and Tuesdays.
+Check the exact room or villa format, current dining hours, minimum nights and tasting access for your dates. These can differ even within the same estate.
 
-### Best for a slower two-night stay?
-
-[Port Phillip Estate](<https://peninsulainsider.com.au/wine/port-phillip-estate/>) (architecture, one-hat restaurant, six suites on the estate), [Lindenderry](<https://peninsulainsider.com.au/stay/lindenderry/>), and [Crittenden Estate Villas](<https://peninsulainsider.com.au/stay/crittenden-villas/>) all work well when the weekend is less about ticking off cellar doors and more about pace, meals, and place.
-
-### Best for the southern Red Hill circuit?
-
-[Mantons Creek Estate](<https://peninsulainsider.com.au/stay/mantons-creek-estate/>) - two minutes from Ten Minutes by Tractor, Quattro Restaurant on-site. The most under-indexed winery stay on the Peninsula.
-
-### Why this matters
-
-The Peninsula's wine-country roads are beautiful but narrow and badly lit at night. The more you can collapse dining, tasting, and sleeping into the same zone, the better the weekend becomes.
+**Plan the trip home from tastings.** If you intend to drink, choose a driver or arrange transport in advance. A wine-country address alone does not make every cellar door walkable.
 
 Related guides
 

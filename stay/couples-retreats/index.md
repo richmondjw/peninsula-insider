@@ -1,185 +1,153 @@
 Canonical: https://peninsulainsider.com.au/stay/couples-retreats/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-05-08
+Modified: 2026-10-01
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-# Couples Retreats on the Mornington Peninsula
+The stay guide · for two
 
-The Peninsula doesn't try to be a resort destination. The best couples' stays here work because they remove planning pressure - the cellar door is next to the bedroom, the vineyard restaurant is downstairs, the thermal springs are thirty seconds away, and the itinerary largely arranges itself once you're in the right place.
+# A weekend for two, your way.
 
-Jackalope is the cinematic choice: a design hotel that operates at an event register, best when the trip needs to feel like an occasion. Polperro and Crittenden Estate Villas are more private - self-contained on working estates, with vineyard views and no shared corridors to navigate. Sanctuary at Alba opened June 2025 as the Peninsula's first thermal-anchored villa stay: private plunge pools on the Fingal precinct, full access to Alba Thermal Springs, quietly removed from the main tourist circuit. Cassis Red Hill delivers the same private-pool logic in the Red Hill corridor. Villa Mallorca in Mt Martha is the most intimate option - two suites, a Majorcan finca feel, and hosts who have been running couples' weekends for long enough to have built something with genuine character.
+[Find your setting](<https://peninsulainsider.com.au/stay/couples-retreats/#choose-setting>) [Browse all stays](<https://peninsulainsider.com.au/stay/>)
 
-Polperro has four villas, each sleeping two with a king-size bed, indoor spa, open fireplace and vineyard views. Cooking facilities are a convection oven and microwave, with no hotplates. There are no outdoor baths. Polperro Restaurant and Cellar Door are closed on Mondays and Tuesdays.
+Start with the mood of the trip. A vineyard table, time at the springs, a Sorrento evening or somewhere smaller each leads to a different stay.
 
-Lindenderry runs at a slightly warmer frequency: a boutique hotel on a small vineyard that works for couples who want a room with character rather than spectacle. For coast-focused weekends, Hotel Sorrento and The Continental are the main-street village hotel options - walkable dining, bay access, and a proper sense of arrival.
+At Jackalope Hotel’s Merricks North vineyard. Peter Foster, courtesy of Visit Victoria.
 
-Researched from published sources. Every venue listed was reviewed April 2026 or later.
+The first decision
 
-Romantic stays
+## Choose your setting.
 
-## 10 Peninsula stays for couples
+[01 / Vineyard  **Wine and dinner, together.**  See stays](<https://peninsulainsider.com.au/stay/couples-retreats/#vineyard>)[02 / Thermal  **Bathing sets the pace.**  See stays](<https://peninsulainsider.com.au/stay/couples-retreats/#thermal>)[03 / Coast  **Sorrento after dark.**  See stays](<https://peninsulainsider.com.au/stay/couples-retreats/#coast>)[04 / A different pace  **Room first, plans later.**  See stays](<https://peninsulainsider.com.au/stay/couples-retreats/#other-stays>)
 
-From vineyard estate villas to thermal-anchored suites and coastal heritage hotels - ordered by privacy and self-contained depth.
+Places to compare
 
- [All stays →](<https://peninsulainsider.com.au/stay/>)
+## Choose the room after the setting.
 
-Hotel  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+ [Browse all stays](<https://peninsulainsider.com.au/stay/>)
 
-### [Jackalope Hotel](<https://peninsulainsider.com.au/stay/jackalope/>)
+01 / Vineyard
 
-166 Balnarring Rd, Merricks North VIC 3926
+### Make dinner part of the stay.
 
-A dramatic art-led design hotel set inside a working vineyard, with Doot Doot Doot's eight-metre chandelier overhead.
+Choose this setting when wine, a long meal and a slower Red Hill morning are the point of the trip.
 
-anniversary  weekend escape
+#### [Jackalope Hotel](<https://peninsulainsider.com.au/stay/jackalope/>)
 
-[Read notes](<https://peninsulainsider.com.au/stay/jackalope/>) [View stay](<https://jackalopehotels.com/mornington-peninsula>)
+Design hotel in a Merricks North vineyard.
 
-Villa  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+ [Stay notes](<https://peninsulainsider.com.au/stay/jackalope/>)
 
-### [Polperro Villas](<https://peninsulainsider.com.au/stay/polperro-villas/>)
+#### [Polperro Villas](<https://peninsulainsider.com.au/stay/polperro-villas/>)
 
-150 Red Hill Road, Red Hill VIC 3937
+Estate villas for two in Red Hill.
 
-Four vineyard villas, each sleeping two with a king-size bed, indoor spa and open fireplace.
+ [Stay notes](<https://peninsulainsider.com.au/stay/polperro-villas/>)
 
-anniversary  slow
+#### [Crittenden Estate Villas](<https://peninsulainsider.com.au/stay/crittenden-villas/>)
 
-[Read notes](<https://peninsulainsider.com.au/stay/polperro-villas/>) [View stay](<https://www.polperrowines.com.au/escape/>)
+Villas on the Crittenden estate.
 
-Villa  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
+ [Stay notes](<https://peninsulainsider.com.au/stay/crittenden-villas/>)
 
-### [The Sanctuary at Alba](<https://peninsulainsider.com.au/stay/sanctuary-at-alba/>)
+#### [Lindenderry at Red Hill](<https://peninsulainsider.com.au/stay/lindenderry/>)
 
-282 Browns Road, Fingal VIC 3939
+Hotel in a Red Hill vineyard setting.
 
-Five secluded villas or two premium rooms above Alba’s springs, with daily bathing and breakfast at Thyme included.
+ [Stay notes](<https://peninsulainsider.com.au/stay/lindenderry/>)
 
-wellness  anniversary
+**Before booking**
+Ask whether dining or a tasting needs its own reservation.
 
-[Read notes](<https://peninsulainsider.com.au/stay/sanctuary-at-alba/>) [View stay](<https://albathermalsprings.com.au/alba-experiences/the-sanctuary/>)
+02 / Thermal
 
-Villa  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+### Put bathing at the centre.
 
-### [Crittenden Estate Villas](<https://peninsulainsider.com.au/stay/crittenden-villas/>)
+Alba and Peninsula Hot Springs are separate operators in Fingal. Choose the bathing venue first, then compare its accommodation.
 
-25 Harrisons Rd, Dromana VIC 3936
+Alba Thermal Springs estate, shown as setting context rather than a Sanctuary room. Courtesy of Visit Victoria.
 
-Self-contained lakeside villas at Crittenden Estate, with a cellar door and restaurant on the property.
+#### [The Sanctuary at Alba](<https://peninsulainsider.com.au/stay/sanctuary-at-alba/>)
 
-anniversary  waterfront
+Five standalone villas or two rooms. The operator lists daily bathing and one private-pool upgrade with the stay.
 
-[Read notes](<https://peninsulainsider.com.au/stay/crittenden-villas/>) [View stay](<https://www.lakesidevillas.com.au/book>)
+ [Stay notes](<https://peninsulainsider.com.au/stay/sanctuary-at-alba/>)
 
-Villa  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+#### [Peninsula Hot Springs Glamping](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/>)
 
-### [Cassis Red Hill](<https://peninsulainsider.com.au/stay/cassis/>)
+Tented stays on the Peninsula Hot Springs grounds. Check the chosen package; private bathing is not a standard inclusion across all offers.
 
-Red Hill VIC 3937
+ [Stay notes](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/>)
 
-Five adults-only villas with private heated mineral plunge pools, on the edge of Red Hill wine country with views over Western Port Bay.
+**Before booking**
+Check the exact room, bathing package and any separate treatments before booking.
 
-anniversary  romance
+[Alba’s accommodation details](<https://albathermalsprings.com.au/alba-experiences/the-sanctuary/>) [Peninsula Hot Springs glamping details](<https://www.peninsulahotsprings.com/accommodation/glamping>)
 
-[Read notes](<https://peninsulainsider.com.au/stay/cassis/>) [View stay](<https://cassisredhill.com.au/>)
+03 / Coast
 
-Cottage  [Mount Martha](<https://peninsulainsider.com.au/explore/places/mount-martha/>)
+### Let Sorrento set the pace.
 
-### [Villa Mallorca](<https://peninsulainsider.com.au/stay/villa-mallorca/>)
+A village base suits a weekend built around dining, the bay and an ocean-side walk.
 
-Mt Martha VIC 3934
+Sorrento Back Beach, shown as coastal context rather than a hotel view. SHERPA Projects Pty Ltd, courtesy of Visit Victoria.
 
-Two suites in a Majorcan finca-style property in Mt Martha, where the hosts are named in 212 TripAdvisor reviews and are the actual product.
+#### [InterContinental Sorrento](<https://peninsulainsider.com.au/stay/the-continental-sorrento/>)
 
-anniversary  romance
+Hotel in central Sorrento.
 
-[Read notes](<https://peninsulainsider.com.au/stay/villa-mallorca/>)
+ [Stay notes](<https://peninsulainsider.com.au/stay/the-continental-sorrento/>)
 
-Hotel  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
+#### [Hotel Sorrento](<https://peninsulainsider.com.au/stay/hotel-sorrento/>)
 
-### [InterContinental Sorrento](<https://peninsulainsider.com.au/stay/the-continental-sorrento/>)
+Hotel beside Sorrento village.
 
-23 Constitution Hill Road, Sorrento VIC 3943
+ [Stay notes](<https://peninsulainsider.com.au/stay/hotel-sorrento/>)
 
-A Sorrento hotel with heritage rooms, a guest pool deck and The Continental dining precinct close by.
+**Before booking**
+Check your preferred room and dining availability with the hotel.
 
-weekend escape  anniversary
+04 / A different pace
 
-[Read notes](<https://peninsulainsider.com.au/stay/the-continental-sorrento/>) [View stay](<https://sorrento.intercontinental.com/>)
+### Compare a smaller stay.
 
-Hotel  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+These are further places to investigate when you would rather choose the room and location before planning the rest of the weekend.
 
-### [Lindenderry at Red Hill](<https://peninsulainsider.com.au/stay/lindenderry/>)
+#### [Cassis Red Hill](<https://peninsulainsider.com.au/stay/cassis/>)
 
-142 Arthurs Seat Rd, Red Hill VIC 3937
+Read the stay notes and current operator details.
 
-A Red Hill hotel set on 34 acres of gardens and vines, with an on-site dining room and a weekend cellar door.
+ [Stay notes](<https://peninsulainsider.com.au/stay/cassis/>)
 
-weekend escape  garden
+**Before booking**
+Compare the actual room and amenities for your dates; a name or photograph does not establish private bathing.
 
-[Read notes](<https://peninsulainsider.com.au/stay/lindenderry/>) [View stay](<https://lancemore.com.au/properties-2/lancemore-lindenderry-red-hill>)
+Before you commit
 
-Glamping  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
+## A few details change the weekend.
 
-### [Peninsula Hot Springs Glamping](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/>)
+Room types and inclusions can change. Check the operator’s live booking page for your exact dates.
 
-140 Springs Lane, Fingal VIC 3939
+### Does every Alba Sanctuary villa have a private pool?
 
-Glamping accommodation within Peninsula Hot Springs in Fingal, with garden-view, lake-view and secluded pavilion options for a stay built around bathing.
+No. Alba lists five standalone villas and two rooms, with bathing on each day of the stay and one private-pool upgrade. Its villas have different features. Compare the exact unit and booking inclusions before reserving.
 
-wellness  anniversary
+### Is private bathing included with Peninsula Hot Springs glamping?
 
-[Read notes](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/>) [View stay](<https://www.peninsulahotsprings.com/accommodation>)
+No blanket inclusion. When checked on 1 October 2026, the operator listed private bathing as an optional add-on for its time-limited The Block offer. Check your chosen package and reserve extras separately.
 
-Hotel  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
+### Where should we start if we have not chosen a property?
 
-### [Hotel Sorrento](<https://peninsulainsider.com.au/stay/hotel-sorrento/>)
+Choose the setting first: vineyard dining, on-site thermal bathing, a Sorrento coast base or a smaller stay. Then compare the specific room, dates and any separate dining or spa reservations.
 
-5-15 Hotham Rd, Sorrento VIC 3943
+Keep planning
 
-A grand old bay-facing pub-hotel whose best rooms still make Sorrento feel gloriously old-school.
+## Make the rest of the trip fit.
 
-weekend escape  waterfront
+[Date night **Choose dinner**](<https://peninsulainsider.com.au/eat/date-night/>) [Thermal stays **Compare the springs**](<https://peninsulainsider.com.au/stay/hot-springs-accommodation/>) [Wine country **Explore vineyard stays**](<https://peninsulainsider.com.au/stay/vineyard-stays/>)
 
-[Read notes](<https://peninsulainsider.com.au/stay/hotel-sorrento/>) [View stay](<https://hotelsorrento.com.au/stay>)
-
-## Frequently asked questions
-
-### Most romantic place to stay?
-
-Jackalope (Red Hill) for dramatic design and on-site dining. Polperro Villas for private estate-villa seclusion. Sanctuary at Alba for thermal-anchored intimacy - private plunge pool, Alba Thermal Springs access, and the quieter Fingal end of the Peninsula.
-
-### Best for an anniversary?
-
-Jackalope if the trip needs to feel like an event - book Doot Doot Doot well ahead. Sanctuary at Alba for something warmer and more personal. Villa Mallorca for an intimate host-led stay where the hosts are genuinely part of the experience.
-
-### Properties with private pools or baths?
-
-Cassis Red Hill - each of five villas has a private heated mineral pool. Sanctuary at Alba - each villa has a private heated plunge pool with geothermal water. Jackalope rooms feature oversized freestanding baths. Peninsula Hot Springs Glamping includes private thermal bathing access for overnight guests.
-
-Related guides
-
-## Complete the couples' weekend
-
-### [Date Night Restaurants](<https://peninsulainsider.com.au/eat/date-night/>)
-
-The intimate hatted rooms and vineyard settings best suited to a couple's dinner.
-
-[See the list →](<https://peninsulainsider.com.au/eat/date-night/>)
-
-### [Hot Springs Accommodation](<https://peninsulainsider.com.au/stay/hot-springs-accommodation/>)
-
-Sleep inside the thermal precinct - PHS glamping, eco lodges, and Sanctuary at Alba.
-
-[See the guide →](<https://peninsulainsider.com.au/stay/hot-springs-accommodation/>)
-
-### [Vineyard Stays](<https://peninsulainsider.com.au/stay/vineyard-stays/>)
-
-Estate accommodation on or near the Red Hill plateau wine ridge.
-
-[Explore →](<https://peninsulainsider.com.au/stay/vineyard-stays/>)
+Thermal accommodation details checked on 1 October 2026 against [Alba’s Sanctuary guide](<https://albathermalsprings.com.au/alba-experiences/the-sanctuary/>), [Alba’s villa details](<https://albathermalsprings.com.au/alba-experiences/the-sanctuary/villas/>), [Peninsula Hot Springs glamping](<https://www.peninsulahotsprings.com/accommodation/glamping>) and [The Block package](<https://www.peninsulahotsprings.com/accommodation/glamping/the-block-glamping-and-bathe>). Other stay links are discovery paths, not a live room inventory. Confirm current rooms, inclusions and availability with each operator.
 
 ## The Insider Note
 

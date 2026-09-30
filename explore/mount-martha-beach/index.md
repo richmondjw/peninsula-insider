@@ -45,26 +45,6 @@ The Esplanade, Mount Martha VIC 3934
 
  [Open place hub](<https://peninsulainsider.com.au/explore/places/mount-martha/>)
 
-Pair it with a booking
-
-## Where to eat, drink, or stay nearby
-
-The best explore pages should lead somewhere next.
-
- [See Mount Martha →](<https://peninsulainsider.com.au/explore/places/mount-martha/>)
-
-Cottage  [Mount Martha](<https://peninsulainsider.com.au/explore/places/mount-martha/>)
-
-### [Villa Mallorca](<https://peninsulainsider.com.au/stay/villa-mallorca/>)
-
-Mt Martha VIC 3934
-
-Two suites in a Majorcan finca-style property in Mt Martha, where the hosts are named in 212 TripAdvisor reviews and are the actual product.
-
-anniversary  romance
-
-[Read notes](<https://peninsulainsider.com.au/stay/villa-mallorca/>)
-
 Use it in a weekend
 
 ## Plans that already sequence this stop properly

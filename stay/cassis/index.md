@@ -9,23 +9,19 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Cassis Red Hill
 
-Five adults-only villas with private heated mineral plunge pools, on the edge of Red Hill wine country with views over Western Port Bay.
+Five adults-only villas overlooking the vines: two with mineral plunge pools, three with outdoor baths.
 
-Known for   Private Mineral Plunge Pools Adults-Only Villas Western Port Bay Views French Farmhouse Architecture
-
-[Check availability](<https://cassisredhill.com.au/>)
+[Check availability](<https://book-directonline.com/cassis-redhill/properties/cassisredhilldirect>)  +61 3 5927 5027
 
 Cassis Red Hill · Red Hill
 
 Why we’d go
 
-Every villa has a private heated plunge pool on its deck, the clearest argument for Cassis over any other villa stay in the Red Hill cluster.
+Private outdoor bathing and vineyard views across five villas, with a choice between a mineral plunge pool and an outdoor bath.
 
-Cassis is a converted French farmhouse property and the most structurally distinct option in the Red Hill villa cluster. Where Polperro is intimate studio-scale with open fires and Crittenden is estate-on-a-lake, Cassis gives every villa a private heated mineral plunge pool or outdoor concrete bath on its deck. The views run over the Lancemore Lindenderry vineyard and, past that, Western Port Bay, you are not looking at vines so much as looking past them.
+Cassis occupies a former restaurant and residence overlooking a neighbouring vineyard in Red Hill. Its five villas have different outdoor bathing setups: the Retreat and Cottage list heated mineral plunge pools; the Lodge, Terrace and Studio list outdoor baths. Compare the individual villa before you book, especially if a pool is why you came.
 
-The in-room wine is made with Foxeys Hangout fruit under the Cassis label. Continental breakfast hampers with local artisan produce are included. Lancemore Lindenderry's hatted dining room is walking distance when you need a restaurant rather than your own deck.
-
-Note: the property was listed for sale in early 2026. Confirm current ownership and operating status directly at booking. The villa experience itself remains one of the strongest in the Red Hill accommodation category.
+The layouts differ too. The Lodge and Retreat are split over two levels; the Terrace is single-level and has a separate study. Cassis lists a local continental breakfast hamper on the first day of a stay. Check current inclusions and access details with the operator when choosing a villa.
 
 Worth knowing
 
@@ -35,7 +31,7 @@ Anniversary weekends · Weekend escapes · Couples · Luxury stays
 
 If you only do one thing
 
-Book the Lodge or Retreat villa for the largest pool configuration, confirm ownership status before arrival, and plan to eat at Lindenderry one evening rather than leaving the hilltop.
+Choose by outdoor bathing feature: Retreat or Cottage for a mineral plunge pool; Lodge, Terrace or Studio for an outdoor bath.
 
 Works well with
 
@@ -51,21 +47,21 @@ Villa
 
 **Location**
 
-Red Hill VIC 3937 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Cassis%20Red%20Hill%2C%20Red%20Hill%20VIC%203937>)
+164 Arthurs Seat Road, Red Hill VIC 3937 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Cassis%20Red%20Hill%2C%20164%20Arthurs%20Seat%20Road%2C%20Red%20Hill%20VIC%203937>)
+
+**Call**
+
++61 3 5927 5027
 
 **Website**
 
-[cassisredhill.com.au](<https://cassisredhill.com.au/>)
+[www.cassisredhill.com.au](<https://www.cassisredhill.com.au/>)
 
 **Directions**
 
 [Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.375%2C145.032>)
 
-**Live status**
-
-[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Cassis%20Red%20Hill%2C%20Red%20Hill%20VIC%203937%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
-
- [Book now](<https://cassisredhill.com.au/>)
+ [Book now](<https://book-directonline.com/cassis-redhill/properties/cassisredhilldirect>)
 
 Not sure how to build a day around Cassis Red Hill?
 
