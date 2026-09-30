@@ -4,146 +4,222 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import { routeSlug, isListableVenue } from '../../lib/editorial';
 import ProvenanceLine from '../../components/ProvenanceLine.astro';
+import { routeSlug, isListableVenue } from '../../lib/editorial';
+import { buildBreadcrumbSchema, buildFaqSchema, absUrl } from '../../lib/schema';
 
 const allVenues = (await getCollection('venues')).filter(isListableVenue);
-const slugs = ['jackalope','lindenderry','port-phillip-estate','polperro-villas','crittenden-villas','sanctuary-at-alba','cassis','the-continental-sorrento','hotel-sorrento'];
-const venues = slugs.map((slug) => allVenues.find((venue) => routeSlug(venue) === slug)).filter((venue): venue is NonNullable<typeof venue> => Boolean(venue));
-
+const bySlug = new Map(allVenues.map((venue) => [routeSlug(venue), venue]));
+const groups = [
+  {
+    id: 'hotel',
+    number: '01',
+    label: 'The full-service stay',
+    title: 'A hotel that sets the tone.',
+    lead: 'Choose the room, dining and service together. Confirm restaurant reservations separately.',
+    slugs: ['jackalope', 'lindenderry'],
+  },
+  {
+    id: 'vineyard',
+    number: '02',
+    label: 'Among the vines',
+    title: 'Make the estate your base.',
+    lead: 'Compare a vineyard suite with a villa. Room layout and cooking facilities change the weekend.',
+    slugs: ['port-phillip-estate', 'polperro-villas', 'crittenden-villas'],
+  },
+  {
+    id: 'thermal',
+    number: '03',
+    label: 'Bathing at the centre',
+    title: 'Choose the water, then the room.',
+    lead: 'Alba offers on-site thermal bathing. At Cassis, two villas have mineral plunge pools and three have outdoor baths.',
+    slugs: ['sanctuary-at-alba', 'cassis'],
+  },
+  {
+    id: 'coast',
+    number: '04',
+    label: 'At the Sorrento end',
+    title: 'Stay close to the village.',
+    lead: 'A Sorrento hotel gives a different pace from the wine-country estates.',
+    slugs: ['the-continental-sorrento', 'hotel-sorrento'],
+  },
+];
+const visibleGroups = groups.map((group) => ({
+  ...group,
+  venues: group.slugs.map((slug) => bySlug.get(slug)).filter((venue): venue is NonNullable<typeof venue> => Boolean(venue)),
+})).filter((group) => group.venues.length > 0);
+const venues = visibleGroups.flatMap((group) => group.venues);
+const faqs = [
+  {
+    q: 'Should I choose Red Hill or Sorrento?',
+    a: 'Choose the Red Hill area when estate dining, wineries and a hinterland base shape the trip. Choose Sorrento when a village and coastal base is the priority. Check the exact address and travel time for your plans.',
+  },
+  {
+    q: 'Are these all villas?',
+    a: 'No. This guide includes hotels, vineyard suites and self-contained villas. Port Phillip Estate has suites rather than villas. Compare the room format before reserving.',
+  },
+  {
+    q: 'Does every Cassis villa have a pool?',
+    a: 'No. Cassis lists heated mineral plunge pools for the Retreat and Cottage, and outdoor baths for the Lodge, Terrace and Studio.',
+  },
+];
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
   { label: 'Stay', href: '/stay/' },
-  { label: 'Luxury' },
+  { label: 'Luxury stays' },
 ];
-
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
-  name: 'Luxury Accommodation Mornington Peninsula',
-  description: 'The best luxury accommodation on the Mornington Peninsula, from design hotels and vineyard villas to refined coastal stays.',
-  url: 'https://peninsulainsider.com.au/stay/luxury/',
-  breadcrumb: {
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { position: 1, name: 'Home', item: 'https://peninsulainsider.com.au/' },
-      { position: 2, name: 'Stay', item: 'https://peninsulainsider.com.au/stay/' },
-      { position: 3, name: 'Luxury', item: 'https://peninsulainsider.com.au/stay/luxury/' },
-    ].map((item) => ({ '@type': 'ListItem', ...item })),
-  },
+  name: 'Luxury stays on the Mornington Peninsula',
+  description: 'Compare hotels, vineyard suites, villas, thermal stays and coastal hotels by the setting and accommodation format that suits your trip.',
+  url: absUrl('/stay/luxury/'),
   mainEntity: {
     '@type': 'ItemList',
-    itemListOrder: 'https://schema.org/ItemListOrderDescending',
+    itemListOrder: 'https://schema.org/ItemListUnordered',
     numberOfItems: venues.length,
     itemListElement: venues.map((venue, index) => ({
       '@type': 'ListItem',
       position: index + 1,
       name: venue.data.name,
-      url: `https://peninsulainsider.com.au/stay/${routeSlug(venue)}/`,
+      url: absUrl((routeSlug(venue) === 'port-phillip-estate' ? '/wine/' : '/stay/') + routeSlug(venue) + '/'),
     })),
   },
 };
-
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'What is the best luxury stay on the Mornington Peninsula?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Jackalope is the Peninsula\'s most distinct luxury hotel if you want design, drama, and a wine-country base. Port Phillip Estate is the most architecturally serious winery stay - Wood Marsh-designed, six suites, one-hat restaurant. Lindenderry is the quieter classic for a slower Red Hill weekend. The Continental and Hotel Sorrento are the strongest options if you want refined coastal access at the tip.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Should I stay in Red Hill or Sorrento for a luxury Peninsula weekend?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Stay in Red Hill if the weekend is built around wine, lunches, and hinterland pace. Stay in Sorrento if you want village atmosphere, bay and ocean access, and the strongest walkable coastal base. The right answer depends on what the trip is for, not which postcode sounds grander.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Are the Peninsula\'s best luxury stays hotels or villas?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Both. Hotels like Jackalope, Lindenderry, Hotel Sorrento, and The Continental work best when service, dining, and easy flow matter. Villas like Polperro Villas, Crittenden Estate Villas, Port Phillip Estate, Cassis, and Sanctuary at Alba work better when privacy, vineyard setting, or a thermal-anchored self-contained rhythm matters more.',
-      },
-    },
-  ],
-};
 export const prerender = true;
 ---
+
 <BaseLayout
-  title="Luxury Accommodation Mornington Peninsula · Peninsula Insider"
-  description="The best luxury accommodation on the Mornington Peninsula, from Jackalope and Port Phillip Estate to Cassis, Sanctuary at Alba, and refined coastal stays in Sorrento."
+  title="Luxury stays on the Mornington Peninsula · Peninsula Insider"
+  description="Find the right luxury stay on the Mornington Peninsula. Compare vineyard hotels and suites, private villas, thermal stays and Sorrento hotels."
   section="stay"
   canonical="https://peninsulainsider.com.au/stay/luxury/"
   modifiedTime="2026-10-01"
 >
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
-  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(buildBreadcrumbSchema([
+    { name: 'Home', url: absUrl('/') },
+    { name: 'Stay', url: absUrl('/stay/') },
+    { name: 'Luxury stays', url: absUrl('/stay/luxury/') },
+  ]))} />
+  <script type="application/ld+json" set:html={JSON.stringify(buildFaqSchema(faqs))} />
   <Breadcrumbs items={breadcrumbItems} />
 
-  <article class="article">
-    <div class="container">
-      <h1 class="article__title">Luxury Accommodation on the Mornington Peninsula</h1>
-      <div class="prose">
-        <p>The Peninsula does luxury best when it stops trying to impersonate an international resort strip. The strongest stays here are either rooted in the landscape - vineyard, ridge, ocean edge, village main street - or they are not especially interesting. A good Peninsula luxury stay should shape the whole weekend, not just provide a handsome room key.</p>
-        <p>That usually means one of three modes. Hinterland luxury, where the trip leans into wine, long lunches, and fireplaces: <a href="/stay/jackalope/">Jackalope</a> and <a href="/stay/lindenderry/">Lindenderry</a> for hotel infrastructure on the wine ridge; <a href="/stay/polperro-villas/">Polperro Villas</a> and <a href="/stay/crittenden-villas/">Crittenden Estate Villas</a> for on-estate vineyard immersion; <a href="/wine/port-phillip-estate/">Port Phillip Estate</a> for the Peninsula's most architecturally serious winery stay - Wood Marsh-designed, six suites, one-hat restaurant. Thermal-anchored luxury: <a href="/stay/sanctuary-at-alba/">Sanctuary at Alba</a> offers five villas and two rooms on Alba's Fingal estate, with springs entry and breakfast included in its published accommodation offer. Villa luxury with a pools focus: <a href="/stay/cassis/">Cassis Red Hill</a>, five adults-only villas each with a private heated mineral pool, in the heart of the Red Hill corridor. Coastal luxury: <a href="/stay/the-continental-sorrento/">The Continental</a> and <a href="/stay/hotel-sorrento/">Hotel Sorrento</a> for village atmosphere, bay and ocean access, and the walkable Sorrento base.</p>
-        <p>Note on Point Leo Estate: Point Leo does not operate on-estate accommodation. The Lon to Leo package pairs with Lon Retreat in Sorrento. For on-estate stays near Laura and the sculpture park, Mantons Creek Estate is the nearest vineyard-stay alternative.</p>
-        <ProvenanceLine style="font-size:0.8rem;color:var(--soft)" records={venues} type="venues" noun="venue" />
-      </div>
-    </div>
-  </article>
-
-  <section class="venues" id="rankings">
-    <div class="container">
-      <div class="venues__header">
-        <div>
-          <p class="label label--accent">Luxury stays</p>
-          <h2 class="venues__title">{venues.length} luxury stays worth prioritising</h2>
-          <p class="venues__sub">Design hotels, vineyard villas, thermal-anchored suites, and the coastal properties that genuinely shape a Peninsula weekend well.</p>
+  <section class="stay-guide-hero" aria-labelledby="luxury-title">
+    <div class="container stay-guide-hero__grid">
+      <div class="stay-guide-hero__copy">
+        <p class="stay-guide-eyebrow">The stay guide · luxury</p>
+        <h1 id="luxury-title">Luxury stays, shaped by the Peninsula.</h1>
+        <div class="stay-guide-hero__actions">
+          <a class="pi-btn pi-btn--solid" href="#choose-setting">Find your setting</a>
+          <a class="stay-guide-link" href="/stay/best-accommodation/">Compare stay types <span aria-hidden="true">↗</span></a>
         </div>
-        <a href="/stay/" class="venues__link">All stays →</a>
+        <p class="stay-guide-hero__lead">The right stay starts with the setting. Compare nine places across wine country, thermal bathing and the Sorrento coast, then choose the exact room or villa.</p>
+        <p class="stay-guide-hero__note">Check room features, dining, bathing inclusions and guest conditions with the operator for your dates.</p>
       </div>
-      <div class="venues__grid">
-        {venues.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}
+      <figure class="stay-guide-hero__image">
+        <img src="/images/visit-victoria/vv-26070114-jackalope-hotel.webp"
+          alt="Two guests raise glasses of wine over vineyard rows at Jackalope Hotel"
+          width="2000" height="1333" fetchpriority="high" decoding="async"
+          data-pi-responsive="(max-width: 800px) calc(100vw - 2rem), 620px" />
+        <figcaption>Jackalope Hotel vineyard. Peter Foster, courtesy of Visit Victoria.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="stay-guide-choices" id="choose-setting" aria-labelledby="choose-title">
+    <div class="container">
+      <div class="stay-guide-section-head">
+        <p class="stay-guide-eyebrow">The first decision</p>
+        <h2 id="choose-title">What should the stay feel like?</h2>
+      </div>
+      <div class="stay-guide-choices__grid">
+        {visibleGroups.map((group) => (
+          <a class="stay-guide-choice" href={'#' + group.id}>
+            <span class="stay-guide-choice__number">{group.number} / {group.label}</span>
+            <strong>{group.title}</strong>
+            <span class="stay-guide-choice__action">See stays <span aria-hidden="true">↗</span></span>
+          </a>
+        ))}
       </div>
     </div>
   </section>
 
-  <section class="faq-section">
-    <div class="container">
-      <div class="prose">
-        <h2>How to choose well</h2>
-        <h3>Red Hill or Sorrento?</h3>
-        <p><strong>Red Hill</strong> is the right base when the weekend is about wine, long lunches, and a slower food-led Peninsula. <strong>Sorrento</strong> is the right base when the weekend is about village atmosphere, walking, bay and ocean access, and a stronger sense of arrival.</p>
-        <h3>Hotel or villa?</h3>
-        <p>Choose a hotel if you want service, restaurant access, and easier flow. Choose a villa if privacy, vineyard setting, thermal access, and a more self-contained long-weekend rhythm matter more than formal hotel infrastructure.</p>
-        <h3>The publication's view</h3>
-        <p><a href="/stay/jackalope/">Jackalope</a> is still the Peninsula's most singular luxury hotel expression. <a href="/wine/port-phillip-estate/">Port Phillip Estate</a> is the most architecturally considered winery stay. <a href="/stay/polperro-villas/">Polperro Villas</a> and <a href="/stay/sanctuary-at-alba/">Sanctuary at Alba</a> make the strongest case for luxury through place rather than spectacle.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="venues venues--plain">
-    <div class="container">
-      <div class="venues__header">
-        <div>
-          <p class="label label--accent">Related stay guides</p>
-          <h2 class="venues__title">Build the weekend properly</h2>
+  {visibleGroups.map((group) => (
+    <section class="venues stay-guide-group" id={group.id} aria-labelledby={group.id + '-title'}>
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">{group.number} / {group.label}</p>
+            <h2 class="venues__title" id={group.id + '-title'}>{group.title}</h2>
+            <p class="venues__sub">{group.lead}</p>
+          </div>
+        </div>
+        <div class="venues__grid">
+          {group.venues.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" href={routeSlug(venue) === "port-phillip-estate" ? "/wine/port-phillip-estate/" : undefined} />)}
         </div>
       </div>
-      <div class="venues__grid venues__grid--links">
-        <div class="pi-card"><div class="pi-card__body"><h3 class="pi-card__title"><a href="/stay/couples-retreats/">Couples Accommodation</a></h3><p class="pi-card__dek">The stays that work best for two-night escapes, anniversaries, and slower Peninsula weekends.</p><div class="pi-card__actions"><a href="/stay/couples-retreats/" class="pi-btn pi-btn--solid">See the list →</a></div></div></div>
-        <div class="pi-card"><div class="pi-card__body"><h3 class="pi-card__title"><a href="/stay/winery-accommodation/">Winery Accommodation</a></h3><p class="pi-card__dek">Where to stay when the trip is built around cellar doors, lunch, and the hinterland.</p><div class="pi-card__actions"><a href="/stay/winery-accommodation/" class="pi-btn pi-btn--solid">See the list →</a></div></div></div>
-        <div class="pi-card"><div class="pi-card__body"><h3 class="pi-card__title"><a href="/stay/best-accommodation/">Where to Base Yourself</a></h3><p class="pi-card__dek">The practical Peninsula logic behind Sorrento, Red Hill, Flinders, Mornington, and beyond.</p><div class="pi-card__actions"><a href="/stay/best-accommodation/" class="pi-btn pi-btn--solid">Read the guide →</a></div></div></div>
+    </section>
+  ))}
+
+  <section class="faq-section" aria-labelledby="luxury-faq-title">
+    <div class="container">
+      <div class="prose">
+        <h2 id="luxury-faq-title">Choose with confidence</h2>
+        {faqs.map(({ q, a }) => <><h3>{q}</h3><p>{a}</p></>)}
+        <p><a href="/stay/winery-accommodation/">Compare winery accommodation</a> or <a href="/stay/couples-retreats/">plan a stay for two</a>.</p>
+        <ProvenanceLine records={venues} type="venues" noun="venue" />
       </div>
     </div>
   </section>
 
   <NewsletterBlock />
 </BaseLayout>
+
+<style>
+  .stay-guide-hero { padding: clamp(2rem, 5vw, 5rem) 0; background: var(--bg-alt); }
+  .stay-guide-hero__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr); gap: clamp(2rem, 5vw, 5rem); align-items: start; }
+  .stay-guide-eyebrow { margin: 0 0 0.8rem; color: var(--accent); font-size: 0.75rem; font-weight: 750; letter-spacing: 0.12em; text-transform: uppercase; }
+  .stay-guide-hero h1 { max-width: 12ch; margin: 0; color: var(--text); font-size: clamp(2.75rem, 5.7vw, 5.8rem); line-height: 0.99; letter-spacing: -0.055em; text-wrap: balance; }
+  .stay-guide-hero__lead { max-width: 44rem; margin: 1.45rem 0 0; font-size: clamp(1.08rem, 1.6vw, 1.32rem); line-height: 1.55; }
+  .stay-guide-hero__actions { display: flex; flex-wrap: wrap; gap: 0.85rem 1.3rem; align-items: center; margin-top: 1.6rem; }
+  .stay-guide-hero__actions .pi-btn { min-height: 48px; }
+  .stay-guide-link { color: var(--accent); font-weight: 700; text-underline-offset: 0.2em; }
+  .stay-guide-link:focus-visible, .stay-guide-choice:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+  .stay-guide-hero__note { max-width: 38rem; margin: 1.1rem 0 0; color: var(--soft); font-size: 0.875rem; line-height: 1.5; }
+  .stay-guide-hero__image { margin: 0; }
+  .stay-guide-hero__image img { display: block; width: 100%; height: min(38vw, 540px); object-fit: cover; border-radius: 0.75rem; }
+  .stay-guide-hero__image figcaption { margin-top: 0.55rem; color: var(--soft); font-size: 0.76rem; line-height: 1.4; }
+  .stay-guide-choices { padding: clamp(2.4rem, 5vw, 4rem) 0; scroll-margin-top: 13rem; }
+  .stay-guide-section-head h2 { max-width: 18ch; margin: 0; color: var(--text); font-size: clamp(2rem, 3.7vw, 3.3rem); line-height: 1.08; letter-spacing: -0.045em; }
+  .stay-guide-choices__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.85rem; margin-top: 1.6rem; }
+  .stay-guide-choice { display: flex; flex-direction: column; min-height: 12rem; gap: 0.75rem; padding: 1.25rem; border: 1px solid var(--border); border-radius: 0.65rem; color: var(--text); background: var(--white); text-decoration: none; transition: border-color 160ms ease, transform 160ms ease; }
+  .stay-guide-choice:hover { transform: translateY(-2px); border-color: var(--accent); }
+  .stay-guide-choice__number { color: var(--accent); font-size: 0.7rem; font-weight: 750; letter-spacing: 0.09em; text-transform: uppercase; }
+  .stay-guide-choice strong { max-width: 16ch; font-size: clamp(1.25rem, 1.7vw, 1.65rem); line-height: 1.13; letter-spacing: -0.03em; }
+  .stay-guide-choice__action { margin-top: auto; color: var(--accent); font-size: 0.85rem; font-weight: 700; }
+  .stay-guide-group { scroll-margin-top: 13rem; }
+  .stay-guide-group:nth-of-type(even) { background: var(--bg-alt); }
+  .stay-guide-group .venues__sub { max-width: 46rem; }
+  @media (max-width: 900px) {
+    .stay-guide-hero__grid { grid-template-columns: 1fr; }
+    .stay-guide-hero h1 { max-width: 16ch; }
+    .stay-guide-hero__image img { height: min(55vw, 430px); }
+    .stay-guide-choices__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 560px) {
+    .stay-guide-hero { padding: 2rem 0 1.5rem; }
+    .stay-guide-hero h1 { font-size: clamp(2.65rem, 13vw, 3.9rem); }
+    .stay-guide-hero__lead { margin-top: 1rem; }
+    .stay-guide-hero__image img { height: min(74vw, 330px); }
+    .stay-guide-choices__grid { grid-template-columns: 1fr 1fr; gap: 0.55rem; }
+    .stay-guide-choice { min-height: 10.5rem; padding: 0.85rem; }
+    .stay-guide-choice strong { font-size: 1.16rem; }
+    .stay-guide-choices, .stay-guide-group { scroll-margin-top: 9rem; }
+    .stay-guide-choice__number { font-size: 0.64rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .stay-guide-choice { transition: none; }
+    .stay-guide-choice:hover { transform: none; }
+  }
+</style>

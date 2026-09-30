@@ -137,6 +137,7 @@ const heroLabel = `${data.name} · ${placeLabel(data.place)}`;
 // Per-venue CMS override consult. If an editor has uploaded a venue-specific
 // hero via the inline editor, it wins over the content-JSON default.
 const venueSlug = venue.id ?? data.slug;
+const isPortPhillipEstate = section === 'wine' && venueSlug === 'port-phillip-estate';
 const hero = await resolveHero('venue', venueSlug, data);
 // `hero.alt || heroLabel` was the old line, and it is exactly the bug this
 // replaces: a decorative image's deliberately empty alt fell through the `||`
@@ -322,14 +323,17 @@ const hoursSchema = hasOpeningHours && !isUnverifiedPaused && isCanonicalSurface
             data-pi-surface="venue-booking-bar"
             data-pi-provider={data.bookingProvider}
           >
-            {data.type === 'hotel' || data.type === 'villa' || data.type === 'cottage' || data.type === 'lodge' || data.type === 'glamping' || data.type === 'farm-stay'
+            {data.type === 'hotel' || data.type === 'villa' || data.type === 'suite' || data.type === 'cottage' || data.type === 'lodge' || data.type === 'glamping' || data.type === 'farm-stay'
               ? 'Check availability'
               : data.type === 'winery'
-                ? 'Book a tasting'
+                ? (isPortPhillipEstate ? 'Check suite availability' : 'Book a tasting')
                 : data.type === 'spa'
                   ? 'Book a treatment'
                   : 'Reserve a table'}
           </a>
+        )}
+        {isPortPhillipEstate && (
+          <a href="https://www.portphillipestate.com.au/cellar-door-tastings/" target="_blank" rel="noopener noreferrer" class="pi-btn pi-btn--ghost pi-btn--lg">Explore tastings</a>
         )}
         {data.phone && (
           <a
@@ -645,7 +649,8 @@ const hoursSchema = hasOpeningHours && !isUnverifiedPaused && isCanonicalSurface
             </>
           )}
 
-          {!isNonPublicProducer && !isUnverifiedPaused && <>
+          {/* Cassis is a stay with no public operating hours; its official website is linked above. */}
+          {!isNonPublicProducer && !isUnverifiedPaused && venueSlug !== 'cassis' && <>
             <dt>Live status</dt>
             <dd>
               <a href={liveStatusUrl} target="_blank" rel="noopener noreferrer">
@@ -706,7 +711,7 @@ const hoursSchema = hasOpeningHours && !isUnverifiedPaused && isCanonicalSurface
             data-pi-entity-slug={venueSlug}
             data-pi-surface="venue-facts-rail"
             data-pi-provider={data.bookingProvider}
-          >Book now</a>
+          >{data.type === 'suite' ? 'Check availability' : isPortPhillipEstate ? 'Check suite availability' : 'Book now'}</a>
         )}
         {data.affiliateNote && <p class="facts__affiliate-note">{data.affiliateNote}</p>}
       </aside>
@@ -734,7 +739,7 @@ const hoursSchema = hasOpeningHours && !isUnverifiedPaused && isCanonicalSurface
         {data.visiting.bookingRequired && (
           <p><strong>Booking required.</strong>{' '}
             {data.bookingUrl
-              ? <a href={data.bookingUrl} target="_blank" rel="noopener noreferrer" data-pi-book="booking" data-pi-entity-type={data.type} data-pi-entity-slug={venueSlug} data-pi-surface="venue-visiting" data-pi-provider={data.bookingProvider}>Reserve a tasting</a>
+              ? <a href={isPortPhillipEstate ? 'https://www.portphillipestate.com.au/cellar-door-tastings/' : data.bookingUrl} target="_blank" rel="noopener noreferrer" data-pi-book="booking" data-pi-entity-type={data.type} data-pi-entity-slug={venueSlug} data-pi-surface="venue-visiting" data-pi-provider={data.bookingProvider}>Reserve a tasting</a>
               : 'Contact the winery directly.'}
           </p>
         )}
@@ -771,7 +776,7 @@ const hoursSchema = hasOpeningHours && !isUnverifiedPaused && isCanonicalSurface
         {data.restaurant.description && <p>{data.restaurant.description}</p>}
         {data.restaurant.cuisine && <p><strong>Cuisine:</strong> {data.restaurant.cuisine}.</p>}
         {data.restaurant.reservations !== false && data.bookingUrl && (
-          <p><a href={data.bookingUrl} target="_blank" rel="noopener noreferrer" data-pi-book="booking" data-pi-entity-type={data.type} data-pi-entity-slug={venueSlug} data-pi-surface="venue-restaurant" data-pi-provider={data.bookingProvider}>Reserve a table →</a></p>
+          <p><a href={isPortPhillipEstate ? 'https://www.portphillipestate.com.au/reservations/' : data.bookingUrl} target="_blank" rel="noopener noreferrer" data-pi-book="booking" data-pi-entity-type={data.type} data-pi-entity-slug={venueSlug} data-pi-surface="venue-restaurant" data-pi-provider={data.bookingProvider}>Reserve a table →</a></p>
         )}
       </div>
     </div>
@@ -999,6 +1004,18 @@ const hoursSchema = hasOpeningHours && !isUnverifiedPaused && isCanonicalSurface
 </script>
 
 <style>
+  /* Keep the subject and pool visible in Cassis's portrait CMS hero. */
+  .venue-detail[data-venue-view="cassis"] .venue-detail__hero > img {
+    object-position: center bottom;
+  }
+
+  /* Keep the primary stay action within a 320 x 568 first-visit viewport. */
+  @media (max-width: 480px) {
+    .venue-detail[data-venue-view="cassis"] { padding-top: 2rem; }
+    .venue-detail[data-venue-view="cassis"] .venue-detail__meta { margin-bottom: 1rem; }
+    .venue-detail[data-venue-view="cassis"] .venue-detail__signature { margin-bottom: 1.5rem; }
+  }
+
   /* ── Worth Knowing panel ──
      Corner treatment is uniform --radius-m on all four corners and there
      is no shadow: the panel is defined by the same hairline every other

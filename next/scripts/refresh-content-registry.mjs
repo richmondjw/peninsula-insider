@@ -45,7 +45,7 @@ if (!SUPABASE_KEY) {
 // type. Mirrors next/src/lib/editorial.ts venueHrefPrefix(). Hardcoding
 // '/stay/' for all venues produces 404 links for restaurants/cafes/wineries
 // (the largest source of "this result isn't on the website" reports).
-const STAY_TYPES = ['hotel', 'villa', 'cottage', 'lodge', 'glamping', 'farm-stay', 'spa'];
+const STAY_TYPES = ['hotel', 'villa', 'suite', 'cottage', 'lodge', 'glamping', 'farm-stay', 'spa'];
 const WINE_TYPES = ['winery', 'producer', 'brewery', 'distillery'];
 // All other venue types (restaurant, cafe, bakery, pub, market) → /eat/.
 

@@ -38,7 +38,7 @@ type MapPin = {
 
 function venueCategory(t: string): MapPin['category'] {
   if (['winery', 'brewery', 'distillery', 'producer'].includes(t)) return 'wine';
-  if (['hotel', 'villa', 'cottage', 'lodge', 'glamping', 'farm-stay', 'spa'].includes(t)) return 'stay';
+  if (['hotel', 'villa', 'suite', 'cottage', 'lodge', 'glamping', 'farm-stay', 'spa'].includes(t)) return 'stay';
   return 'eat';
 }
 

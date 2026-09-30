@@ -2,174 +2,362 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { routeSlug, isStayVenue, isListableVenue } from '../../lib/editorial';
-import ProvenanceLine from '../../components/ProvenanceLine.astro';
+import { buildBreadcrumbSchema, buildFaqSchema, absUrl } from '../../lib/schema';
 
-const allVenues = (await getCollection('venues')).filter(isListableVenue);
+const available = new Map(
+  (await getCollection('venues'))
+    .filter((venue) => isListableVenue(venue) && isStayVenue(venue))
+    .map((venue) => [routeSlug(venue), venue]),
+);
 
-// Romantic / couples stays: anniversary, romance, slow mood tags + audience: couples
-const romanticSlugs = [
-  'jackalope',
-  'polperro-villas',
-  'sanctuary-at-alba',
-  'crittenden-villas',
-  'cassis',
-  'villa-mallorca',
-  'the-continental-sorrento',
-  'lindenderry',
-  'peninsula-hot-springs-glamping',
-  'hotel-sorrento',
+const groups = [
+  {
+    id: 'vineyard',
+    number: '01',
+    label: 'Vineyard',
+    heading: 'Make dinner part of the stay.',
+    lead: 'Choose this setting when wine, a long meal and a slower Red Hill morning are the point of the trip.',
+    prompt: 'Ask whether dining or a tasting needs its own reservation.',
+    stays: [
+      { slug: 'jackalope', note: 'Design hotel in a Merricks North vineyard.' },
+      { slug: 'polperro-villas', note: 'Estate villas for two in Red Hill.' },
+      { slug: 'crittenden-villas', note: 'Villas on the Crittenden estate.' },
+      { slug: 'lindenderry', note: 'Hotel in a Red Hill vineyard setting.' },
+    ],
+  },
+  {
+    id: 'thermal',
+    number: '02',
+    label: 'Thermal',
+    heading: 'Put bathing at the centre.',
+    lead: 'Alba and Peninsula Hot Springs are separate operators in Fingal. Choose the bathing venue first, then compare its accommodation.',
+    prompt: 'Check the exact room, bathing package and any separate treatments before booking.',
+    image: {
+      src: '/images/visit-victoria/vv-163821-alba-thermal-springs.webp',
+      alt: 'Aerial view of paths and round thermal pools at Alba Thermal Springs in Fingal',
+      caption: 'Alba Thermal Springs estate, shown as setting context rather than a Sanctuary room. Courtesy of Visit Victoria.',
+    },
+    stays: [
+      { slug: 'sanctuary-at-alba', note: 'Five standalone villas or two rooms. The operator lists daily bathing and one private-pool upgrade with the stay.' },
+      { slug: 'peninsula-hot-springs-glamping', note: 'Tented stays on the Peninsula Hot Springs grounds. Check the chosen package; private bathing is not a standard inclusion across all offers.' },
+    ],
+  },
+  {
+    id: 'coast',
+    number: '03',
+    label: 'Coast',
+    heading: 'Let Sorrento set the pace.',
+    lead: 'A village base suits a weekend built around dining, the bay and an ocean-side walk.',
+    prompt: 'Check your preferred room and dining availability with the hotel.',
+    image: {
+      src: '/images/visit-victoria/vv-151508-sorrento-back-beach.webp',
+      alt: 'Aerial view of turquoise surf breaking over rocks at Sorrento Back Beach',
+      caption: 'Sorrento Back Beach, shown as coastal context rather than a hotel view. SHERPA Projects Pty Ltd, courtesy of Visit Victoria.',
+    },
+    stays: [
+      { slug: 'the-continental-sorrento', note: 'Hotel in central Sorrento.' },
+      { slug: 'hotel-sorrento', note: 'Hotel beside Sorrento village.' },
+    ],
+  },
+  {
+    id: 'other-stays',
+    number: '04',
+    label: 'A different pace',
+    heading: 'Compare a smaller stay.',
+    lead: 'These are further places to investigate when you would rather choose the room and location before planning the rest of the weekend.',
+    prompt: 'Compare the actual room and amenities for your dates; a name or photograph does not establish private bathing.',
+    stays: [
+      { slug: 'cassis', note: 'Read the stay notes and current operator details.' },
+    ],
+  },
 ];
 
-const venues = romanticSlugs
-  .map((s) => allVenues.find((v) => routeSlug(v) === s))
-  .filter((v): v is NonNullable<typeof v> => Boolean(v) && isStayVenue(v));
+const visibleGroups = groups
+  .map((group) => ({ ...group, stays: group.stays.filter((stay) => available.has(stay.slug)) }))
+  .filter((group) => group.stays.length > 0);
+const visibleStays = visibleGroups.flatMap((group) => group.stays);
+
+const choices = [
+  { id: 'vineyard', number: '01', label: 'Vineyard', cue: 'Wine and dinner, together.' },
+  { id: 'thermal', number: '02', label: 'Thermal', cue: 'Bathing sets the pace.' },
+  { id: 'coast', number: '03', label: 'Coast', cue: 'Sorrento after dark.' },
+  { id: 'other-stays', number: '04', label: 'A different pace', cue: 'Room first, plans later.' },
+];
+
+const faqs = [
+  {
+    q: 'Does every Alba Sanctuary villa have a private pool?',
+    a: 'No. Alba lists five standalone villas and two rooms, with bathing on each day of the stay and one private-pool upgrade. Its villas have different features. Compare the exact unit and booking inclusions before reserving.',
+  },
+  {
+    q: 'Is private bathing included with Peninsula Hot Springs glamping?',
+    a: 'No blanket inclusion. When checked on 1 October 2026, the operator listed private bathing as an optional add-on for its time-limited The Block offer. Check your chosen package and reserve extras separately.',
+  },
+  {
+    q: 'Where should we start if we have not chosen a property?',
+    a: 'Choose the setting first: vineyard dining, on-site thermal bathing, a Sorrento coast base or a smaller stay. Then compare the specific room, dates and any separate dining or spa reservations.',
+  },
+];
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
   { label: 'Stay', href: '/stay/' },
-  { label: 'Couples Retreats' },
+  { label: 'Couples retreats' },
 ];
 
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
-  name: 'Couples Retreats Mornington Peninsula',
-  description: 'Romantic accommodation and couples retreats on the Mornington Peninsula - vineyard villas, thermal-anchored suites, and heritage hotels for anniversaries, honeymoons, and weekends for two.',
-  url: 'https://peninsulainsider.com.au/stay/couples-retreats/',
-  breadcrumb: {
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://peninsulainsider.com.au/' },
-      { '@type': 'ListItem', position: 2, name: 'Stay', item: 'https://peninsulainsider.com.au/stay/' },
-      { '@type': 'ListItem', position: 3, name: 'Couples Retreats', item: 'https://peninsulainsider.com.au/stay/couples-retreats/' },
-    ],
-  },
+  name: 'Couples retreats on the Mornington Peninsula',
+  description: 'Choose a vineyard, thermal, coastal or smaller stay for a Mornington Peninsula weekend for two.',
+  url: absUrl('/stay/couples-retreats/'),
   mainEntity: {
     '@type': 'ItemList',
-    itemListOrder: 'https://schema.org/ItemListOrderDescending',
-    numberOfItems: venues.length,
-    itemListElement: venues.map((v, i) => ({
+    itemListOrder: 'https://schema.org/ItemListUnordered',
+    numberOfItems: visibleStays.length,
+    itemListElement: visibleStays.map((stay, index) => ({
       '@type': 'ListItem',
-      position: i + 1,
-      name: v.data.name,
-      url: `https://peninsulainsider.com.au/stay/${routeSlug(v)}/`,
+      position: index + 1,
+      name: available.get(stay.slug)?.data.name,
+      url: absUrl('/stay/' + stay.slug + '/'),
     })),
   },
 };
 
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'What is the most romantic place to stay on the Mornington Peninsula?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Jackalope Hotel (Red Hill) is the most dramatic option - a design-hotel set inside a working vineyard with a one-hat dining room. Polperro Villas and Crittenden Estate Villas offer privacy over spectacle: self-contained estate villas with vineyard views and no shared corridors. Sanctuary at Alba (opened June 2025) is the Peninsula\'s first thermal-anchored villa stay - private plunge pools with geothermal water and full access to Alba Thermal Springs. Cassis Red Hill delivers the same private-pool logic in the Red Hill corridor. Villa Mallorca in Mt Martha is the most intimate: two suites, host-led, with a Majorcan finca feel.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Where should I take my partner for a weekend on the Mornington Peninsula?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Polperro Restaurant and Cellar Door are closed on Mondays and Tuesdays. Two nights at a Red Hill vineyard stay (Jackalope, Polperro Villas, or Lindenderry) is the classic Peninsula couple\'s weekend - cellar door afternoon, long vineyard lunch, thermal springs on the second morning. For a thermal-focused version: Sanctuary at Alba or Peninsula Hot Springs Glamping gives the most immersive bathing experience. For coast: base in Sorrento, swim at the back beach, and book dinner at Hotel Sorrento. Match the stay to the weekend shape you want rather than picking a property and working backwards.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'What is the best Peninsula stay for an anniversary?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'For a significant anniversary, Jackalope is the answer - it was built to feel like an occasion. Book Doot Doot Doot (one hat) for dinner. For a more personal anniversary, Sanctuary at Alba - private plunge pool, thermal springs access, the quieter Fingal end of the Peninsula - has a warmer quality. Villa Mallorca in Mt Martha works for couples who want an intimate host-led stay over a hotel experience.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Do Mornington Peninsula stays include hot tubs or private pools?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Several do. Cassis Red Hill has five villas each with a private heated mineral pool. Sanctuary at Alba villas all include private heated plunge pools with geothermal water. Jackalope Hotel rooms are known for oversized freestanding baths. Peninsula Hot Springs Glamping gives overnight guests access to private thermal bathing sessions. Check individual properties for specifics - bath and pool details vary by room type.',
-      },
-    },
-  ],
-};
 export const prerender = true;
 ---
 
 <BaseLayout
-  title="Couples Retreats Mornington Peninsula · Peninsula Insider"
-  description="Romantic accommodation and couples retreats on the Mornington Peninsula - vineyard villas, thermal-anchored suites, boutique hotels, and coastal stays for anniversaries and weekends away."
+  title="Couples retreats on the Mornington Peninsula · Peninsula Insider"
+  description="Choose the setting for a weekend for two: vineyard dining, on-site thermal bathing, Sorrento coast or a smaller stay. Compare what is included before booking."
   section="stay"
   canonical="https://peninsulainsider.com.au/stay/couples-retreats/"
-  modifiedTime="2026-05-08"
+  modifiedTime="2026-10-01"
 >
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
-  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(buildBreadcrumbSchema([
+    { name: 'Home', url: absUrl('/') },
+    { name: 'Stay', url: absUrl('/stay/') },
+    { name: 'Couples retreats', url: absUrl('/stay/couples-retreats/') },
+  ]))} />
+  <script type="application/ld+json" set:html={JSON.stringify(buildFaqSchema(faqs))} />
   <Breadcrumbs items={breadcrumbItems} />
 
-  <article class="article">
-    <div class="container">
-      <h1 class="article__title">Couples Retreats on the Mornington Peninsula</h1>
-      <div class="prose">
-        <p>The Peninsula doesn't try to be a resort destination. The best couples' stays here work because they remove planning pressure - the cellar door is next to the bedroom, the vineyard restaurant is downstairs, the thermal springs are thirty seconds away, and the itinerary largely arranges itself once you're in the right place.</p>
-        <p>Jackalope is the cinematic choice: a design hotel that operates at an event register, best when the trip needs to feel like an occasion. Polperro and Crittenden Estate Villas are more private - self-contained on working estates, with vineyard views and no shared corridors to navigate. Sanctuary at Alba opened June 2025 as the Peninsula's first thermal-anchored villa stay: private plunge pools on the Fingal precinct, full access to Alba Thermal Springs, quietly removed from the main tourist circuit. Cassis Red Hill delivers the same private-pool logic in the Red Hill corridor. Villa Mallorca in Mt Martha is the most intimate option - two suites, a Majorcan finca feel, and hosts who have been running couples' weekends for long enough to have built something with genuine character.</p>
-        <p>Polperro has four villas, each sleeping two with a king-size bed, indoor spa, open fireplace and vineyard views. Cooking facilities are a convection oven and microwave, with no hotplates. There are no outdoor baths. Polperro Restaurant and Cellar Door are closed on Mondays and Tuesdays.</p>
-        <p>Lindenderry runs at a slightly warmer frequency: a boutique hotel on a small vineyard that works for couples who want a room with character rather than spectacle. For coast-focused weekends, Hotel Sorrento and The Continental are the main-street village hotel options - walkable dining, bay access, and a proper sense of arrival.</p>
-        <ProvenanceLine class="venues__sub" style="font-size:0.8rem;color:var(--soft)" records={venues} type="venues" noun="venue" />
-      </div>
-    </div>
-  </article>
-
-  <section class="venues" id="couples-stays">
-    <div class="container">
-      <div class="venues__header">
-        <div>
-          <p class="label label--accent">Romantic stays</p>
-          <h2 class="venues__title">{venues.length} Peninsula stays for couples</h2>
-          <p class="venues__sub">From vineyard estate villas to thermal-anchored suites and coastal heritage hotels - ordered by privacy and self-contained depth.</p>
+  <section class="couples-hero" aria-labelledby="couples-title">
+    <div class="container couples-hero__grid">
+      <div class="couples-hero__copy">
+        <p class="couples-eyebrow">The stay guide · for two</p>
+        <h1 id="couples-title">A weekend for two, your way.</h1>
+        <div class="couples-hero__actions">
+          <a class="pi-btn pi-btn--solid" href="#choose-setting">Find your setting</a>
+          <a class="couples-text-link" href="/stay/">Browse all stays</a>
         </div>
-        <a href="/stay/" class="venues__link">All stays →</a>
+        <p class="couples-hero__lead">Start with the mood of the trip. A vineyard table, time at the springs, a Sorrento evening or somewhere smaller each leads to a different stay.</p>
       </div>
-      <div class="venues__grid">
-        {venues.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}
-      </div>
+      <figure class="couples-hero__image">
+        <img
+          src="/images/visit-victoria/vv-26070114-jackalope-hotel.webp"
+          alt="Two guests raise glasses of red wine above vineyard rows at Jackalope Hotel"
+          width="2000"
+          height="1333"
+          data-pi-responsive="(max-width: 800px) calc(100vw - 2rem), 620px"
+          fetchpriority="high"
+          decoding="async"
+        />
+        <figcaption>At Jackalope Hotel’s Merricks North vineyard. Peter Foster, courtesy of Visit Victoria.</figcaption>
+      </figure>
+      <section class="couples-choices" id="choose-setting" aria-labelledby="choose-title">
+          <div class="couples-section-head">
+            <p class="couples-eyebrow">The first decision</p>
+            <h2 id="choose-title">Choose your setting.</h2>
+          </div>
+          <div class="couples-choices__grid">
+            {choices.filter((choice) => visibleGroups.some((group) => group.id === choice.id)).map((choice) => (
+              <a class="couples-choice" href={'#' + choice.id}>
+                <span class="couples-choice__number">{choice.number} / {choice.label}</span>
+                <strong>{choice.cue}</strong>
+                <span class="couples-choice__action">See stays <span aria-hidden="true">↗</span></span>
+              </a>
+            ))}
+          </div>
+      </section>
     </div>
   </section>
 
-  <section class="faq-section">
+  <section class="couples-options" aria-labelledby="stays-title">
     <div class="container">
-      <div class="prose">
-        <h2>Frequently asked questions</h2>
-        <h3>Most romantic place to stay?</h3>
-        <p>Jackalope (Red Hill) for dramatic design and on-site dining. Polperro Villas for private estate-villa seclusion. Sanctuary at Alba for thermal-anchored intimacy - private plunge pool, Alba Thermal Springs access, and the quieter Fingal end of the Peninsula.</p>
-        <h3>Best for an anniversary?</h3>
-        <p>Jackalope if the trip needs to feel like an event - book Doot Doot Doot well ahead. Sanctuary at Alba for something warmer and more personal. Villa Mallorca for an intimate host-led stay where the hosts are genuinely part of the experience.</p>
-        <h3>Properties with private pools or baths?</h3>
-        <p>Cassis Red Hill - each of five villas has a private heated mineral pool. Sanctuary at Alba - each villa has a private heated plunge pool with geothermal water. Jackalope rooms feature oversized freestanding baths. Peninsula Hot Springs Glamping includes private thermal bathing access for overnight guests.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="venues venues--plain">
-    <div class="container">
-      <div class="venues__header">
+      <div class="couples-options__top">
         <div>
-          <p class="label label--accent">Related guides</p>
-          <h2 class="venues__title">Complete the couples' weekend</h2>
+          <p class="couples-eyebrow">Places to compare</p>
+          <h2 id="stays-title">Choose the room after the setting.</h2>
         </div>
+        <a href="/stay/" class="couples-text-link">Browse all stays</a>
       </div>
-      <div class="venues__grid venues__grid--links">
-        <div class="pi-card"><div class="pi-card__body"><h3 class="pi-card__title"><a href="/eat/date-night/">Date Night Restaurants</a></h3><p class="pi-card__dek">The intimate hatted rooms and vineyard settings best suited to a couple's dinner.</p><div class="pi-card__actions"><a href="/eat/date-night/" class="pi-btn pi-btn--solid">See the list →</a></div></div></div>
-        <div class="pi-card"><div class="pi-card__body"><h3 class="pi-card__title"><a href="/stay/hot-springs-accommodation/">Hot Springs Accommodation</a></h3><p class="pi-card__dek">Sleep inside the thermal precinct - PHS glamping, eco lodges, and Sanctuary at Alba.</p><div class="pi-card__actions"><a href="/stay/hot-springs-accommodation/" class="pi-btn pi-btn--solid">See the guide →</a></div></div></div>
-        <div class="pi-card"><div class="pi-card__body"><h3 class="pi-card__title"><a href="/stay/vineyard-stays/">Vineyard Stays</a></h3><p class="pi-card__dek">Estate accommodation on or near the Red Hill plateau wine ridge.</p><div class="pi-card__actions"><a href="/stay/vineyard-stays/" class="pi-btn pi-btn--solid">Explore →</a></div></div></div>
+
+      {visibleGroups.map((group) => (
+        <section class="couples-group" id={group.id} aria-labelledby={group.id + '-title'}>
+          <div class="couples-group__intro">
+            <p class="couples-group__number">{group.number} / {group.label}</p>
+            <h3 id={group.id + '-title'}>{group.heading}</h3>
+            <p>{group.lead}</p>
+            {group.image && (
+              <figure class="couples-group__image">
+                <img src={group.image.src} alt={group.image.alt} width="1280" height="853" loading="lazy" decoding="async" data-pi-responsive="(max-width: 800px) calc(100vw - 2rem), 410px" />
+                <figcaption>{group.image.caption}</figcaption>
+              </figure>
+            )}
+          </div>
+          <div class="couples-group__body">
+            {group.stays.map((stay) => (
+              <article class="couples-stay">
+                <div>
+                  <h4><a href={'/stay/' + stay.slug + '/'}>{available.get(stay.slug)?.data.name}</a></h4>
+                  <p>{stay.note}</p>
+                </div>
+                <a class="couples-stay__action" href={'/stay/' + stay.slug + '/'} aria-label={'Read stay notes for ' + available.get(stay.slug)?.data.name}>Stay notes <span aria-hidden="true">↗</span></a>
+              </article>
+            ))}
+            <p class="couples-group__check"><strong>Before booking</strong><br />{group.prompt}</p>
+            {group.id === 'thermal' && (
+              <div class="couples-group__sources">
+                <a href="https://albathermalsprings.com.au/alba-experiences/the-sanctuary/" target="_blank" rel="noopener noreferrer">Alba’s accommodation details</a>
+                <a href="https://www.peninsulahotsprings.com/accommodation/glamping" target="_blank" rel="noopener noreferrer">Peninsula Hot Springs glamping details</a>
+              </div>
+            )}
+          </div>
+        </section>
+      ))}
+    </div>
+  </section>
+
+  <section class="couples-faq" aria-labelledby="faq-title">
+    <div class="container couples-faq__grid">
+      <div>
+        <p class="couples-eyebrow">Before you commit</p>
+        <h2 id="faq-title">A few details change the weekend.</h2>
+        <p>Room types and inclusions can change. Check the operator’s live booking page for your exact dates.</p>
+      </div>
+      <div class="couples-faq__answers">
+        {faqs.map((faq) => (
+          <div>
+            <h3>{faq.q}</h3>
+            <p>{faq.a}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>
+
+  <section class="couples-related" aria-labelledby="related-title">
+    <div class="container">
+      <p class="couples-eyebrow">Keep planning</p>
+      <h2 id="related-title">Make the rest of the trip fit.</h2>
+      <div class="couples-related__grid">
+        <a href="/eat/date-night/"><span>Date night</span><strong>Choose dinner</strong><span aria-hidden="true">↗</span></a>
+        <a href="/stay/hot-springs-accommodation/"><span>Thermal stays</span><strong>Compare the springs</strong><span aria-hidden="true">↗</span></a>
+        <a href="/stay/vineyard-stays/"><span>Wine country</span><strong>Explore vineyard stays</strong><span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </section>
+
+  <div class="couples-source">
+    <div class="container">
+      <p>Thermal accommodation details checked on 1 October 2026 against <a href="https://albathermalsprings.com.au/alba-experiences/the-sanctuary/" target="_blank" rel="noopener noreferrer">Alba’s Sanctuary guide</a>, <a href="https://albathermalsprings.com.au/alba-experiences/the-sanctuary/villas/" target="_blank" rel="noopener noreferrer">Alba’s villa details</a>, <a href="https://www.peninsulahotsprings.com/accommodation/glamping" target="_blank" rel="noopener noreferrer">Peninsula Hot Springs glamping</a> and <a href="https://www.peninsulahotsprings.com/accommodation/glamping/the-block-glamping-and-bathe" target="_blank" rel="noopener noreferrer">The Block package</a>. Other stay links are discovery paths, not a live room inventory. Confirm current rooms, inclusions and availability with each operator.</p>
+    </div>
+  </div>
 
   <NewsletterBlock />
 </BaseLayout>
+
+<style>
+  .couples-hero { padding: clamp(1.75rem, 4.5vw, 4.75rem) 0 clamp(3rem, 5vw, 5rem); background: var(--bg-alt); border-bottom: 1px solid var(--border); }
+  .couples-hero__grid { display: grid; grid-template-columns: minmax(0, .94fr) minmax(0, 1.06fr); align-items: center; gap: clamp(2rem, 5vw, 5.5rem); }
+  .couples-hero__copy { max-width: 39rem; }
+  .couples-eyebrow, .couples-group__number { margin: 0 0 1rem; color: var(--accent); font-size: .73rem; line-height: 1.4; letter-spacing: .16em; font-weight: 700; text-transform: uppercase; }
+  .couples-hero h1 { margin: 0; max-width: 11ch; color: var(--dark); font-family: var(--font-display); font-weight: 600; font-size: clamp(2.65rem, 5.4vw, 5.1rem); line-height: 1.01; letter-spacing: -.04em; text-wrap: balance; }
+  .couples-hero__actions { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem 1.4rem; margin-top: 1.55rem; }
+  .couples-hero__actions .pi-btn { min-height: 44px; }
+  .couples-text-link { display: inline-flex; align-items: center; min-height: 44px; color: var(--accent); font-weight: 700; text-decoration: underline; text-underline-offset: .26em; }
+  .couples-hero__lead { margin: 1.45rem 0 0; max-width: 45ch; color: var(--text); font-size: clamp(1.03rem, 1.35vw, 1.2rem); line-height: 1.62; }
+  .couples-hero__image { min-width: 0; margin: 0; }
+  .couples-hero__image img { display: block; width: 100%; aspect-ratio: 5 / 4; height: auto; object-fit: cover; object-position: center; border-radius: var(--radius-m); }
+  .couples-hero__image figcaption, .couples-group__image figcaption { padding-top: .6rem; color: var(--soft); font-size: .75rem; line-height: 1.5; }
+  .couples-choices { grid-column: 1 / -1; padding: 1.8rem 0 0; scroll-margin-top: 7rem; }
+  .couples-section-head { margin-bottom: 1.2rem; }
+  .couples-section-head .couples-eyebrow { margin-bottom: .4rem; }
+  .couples-section-head h2, .couples-options__top h2, .couples-faq h2, .couples-related h2 { margin: 0; color: var(--dark); font-family: var(--font-display); font-size: clamp(1.9rem, 3.2vw, 3.1rem); font-weight: 600; line-height: 1.13; letter-spacing: -.027em; text-wrap: balance; }
+  .couples-choices__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .8rem; }
+  .couples-choice { display: flex; flex-direction: column; min-height: 10.5rem; gap: .8rem; padding: 1.15rem; border: 1px solid var(--border); border-radius: var(--radius-m); background: #fff; color: var(--dark); text-decoration: none; transition: border-color .18s ease, transform .18s ease; }
+  .couples-choice:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .couples-choice__number { color: var(--accent); font-size: .71rem; font-weight: 700; letter-spacing: .11em; text-transform: uppercase; }
+  .couples-choice strong { font-family: var(--font-display); font-size: clamp(1.15rem, 1.55vw, 1.5rem); line-height: 1.22; font-weight: 600; }
+  .couples-choice__action { margin-top: auto; color: var(--accent); font-size: .86rem; font-weight: 700; }
+  .couples-options { padding: clamp(3.5rem, 6vw, 6rem) 0; background: var(--bg-alt); }
+  .couples-options__top { display: flex; justify-content: space-between; align-items: end; gap: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+  .couples-options__top h2 { max-width: 21ch; }
+  .couples-group { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: clamp(2rem, 5vw, 6rem); padding: clamp(2.8rem, 5vw, 5rem) 0; border-bottom: 1px solid var(--border); scroll-margin-top: 7rem; }
+  .couples-group__intro h3 { margin: 0 0 1rem; max-width: 16ch; color: var(--dark); font-family: var(--font-display); font-size: clamp(1.8rem, 2.9vw, 2.7rem); font-weight: 600; line-height: 1.14; letter-spacing: -.025em; text-wrap: balance; }
+  .couples-group__intro > p:not(.couples-group__number) { margin: 0; max-width: 43ch; color: var(--text); line-height: 1.67; }
+  .couples-group__image { margin: 1.6rem 0 0; }
+  .couples-group__image img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: var(--radius-m); }
+  .couples-stay { display: flex; align-items: start; justify-content: space-between; gap: 1rem 2rem; padding: 1.3rem 0; border-bottom: 1px solid var(--border); }
+  .couples-stay:first-child { padding-top: 0; }
+  .couples-stay h4 { margin: 0 0 .3rem; font-family: var(--font-display); font-size: clamp(1.17rem, 1.6vw, 1.45rem); line-height: 1.25; font-weight: 600; }
+  .couples-stay h4 a { color: var(--dark); text-decoration-thickness: 1px; text-decoration-color: transparent; text-underline-offset: .2em; }
+  .couples-stay h4 a:hover { text-decoration-color: currentColor; }
+  .couples-stay p { color: var(--soft); margin: 0; line-height: 1.58; max-width: 46ch; }
+  .couples-stay__action { display: inline-flex; align-items: center; min-height: 44px; flex: none; color: var(--accent); font-size: .83rem; font-weight: 700; text-decoration: underline; text-underline-offset: .22em; }
+  .couples-group__check { margin: 1.35rem 0 0; max-width: 60ch; color: var(--text); line-height: 1.6; }
+  .couples-group__check strong { color: var(--dark); }
+  .couples-group__sources { display: flex; flex-wrap: wrap; gap: .4rem 1.5rem; margin-top: 1rem; }
+  .couples-group__sources a { color: var(--accent); min-height: 44px; display: inline-flex; align-items: center; font-weight: 700; font-size: .86rem; text-decoration: underline; text-underline-offset: .2em; }
+  .couples-faq { padding: clamp(3.5rem, 6vw, 6rem) 0; }
+  .couples-faq__grid { display: grid; grid-template-columns: minmax(0, .75fr) minmax(0, 1.25fr); gap: clamp(2rem, 6vw, 7rem); }
+  .couples-faq__grid > div > p:last-child { color: var(--soft); max-width: 37ch; line-height: 1.65; }
+  .couples-faq__answers > div { border-bottom: 1px solid var(--border); padding: 0 0 1.35rem; margin-bottom: 1.35rem; }
+  .couples-faq__answers h3 { color: var(--dark); font-size: 1.1rem; line-height: 1.35; margin: 0 0 .45rem; }
+  .couples-faq__answers p { color: var(--text); line-height: 1.65; margin: 0; max-width: 66ch; }
+  .couples-related { background: var(--dark); color: #fff; padding: clamp(3.4rem, 5vw, 5.5rem) 0; }
+  .couples-related .couples-eyebrow { color: var(--sand); }
+  .couples-related h2 { color: #fff; }
+  .couples-related__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .8rem; margin-top: 2rem; }
+  .couples-related__grid a { display: flex; flex-direction: column; gap: .8rem; min-height: 8.8rem; padding: 1.25rem; border: 1px solid rgba(255,255,255,.25); border-radius: var(--radius-m); color: #fff; text-decoration: none; }
+  .couples-related__grid a:hover { border-color: var(--sand); }
+  .couples-related__grid a span:first-child { color: var(--sand); font-size: .73rem; text-transform: uppercase; letter-spacing: .12em; font-weight: 700; }
+  .couples-related__grid a strong { font-family: var(--font-display); font-weight: 600; font-size: 1.22rem; }
+  .couples-related__grid a span:last-child { margin-top: auto; }
+  .couples-source { padding: 1.4rem 0; border-bottom: 1px solid var(--border); }
+  .couples-source p { color: var(--soft); font-size: .8rem; line-height: 1.65; max-width: 100ch; margin: 0; }
+  .couples-source a { color: var(--accent); text-decoration: underline; text-underline-offset: .2em; }
+  @media (max-width: 900px) {
+    .couples-choices__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .couples-hero__grid { gap: 2rem; }
+  }
+  @media (max-width: 700px) {
+    .couples-hero__grid, .couples-group, .couples-faq__grid { grid-template-columns: 1fr; }
+    .couples-hero__grid { gap: 2rem; }
+    .couples-hero h1 { font-size: clamp(2.4rem, 11vw, 3.8rem); max-width: 12ch; }
+    .couples-hero__lead { margin-top: 1.2rem; }
+    .couples-hero__image img { aspect-ratio: 3 / 2; }
+    .couples-hero__copy { order: 1; }
+    .couples-choices { order: 2; padding: .5rem 0 0; }
+    .couples-hero__image { order: 3; }
+    .couples-section-head h2 { font-size: 1.65rem; }
+    .couples-options__top { align-items: start; flex-direction: column; gap: .5rem; }
+    .couples-group { gap: 1.8rem; }
+    .couples-stay { flex-direction: column; gap: .35rem; }
+    .couples-stay__action { min-height: 44px; }
+  }
+  @media (max-width: 420px) {
+    .couples-choices__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .55rem; }
+    .couples-choice { min-height: 9.5rem; gap: .5rem; padding: .85rem; }
+    .couples-choice strong { font-size: 1.02rem; }
+    .couples-related__grid { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .couples-choice { transition: none; }
+    .couples-choice:hover { transform: none; }
+  }
+</style>

@@ -27,7 +27,7 @@ const newest = (list: any[], n = 2) =>
 
 const EAT = new Set(['restaurant', 'cafe', 'bakery', 'pub', 'market']);
 const WINE = new Set(['winery', 'producer', 'brewery', 'distillery']);
-const STAY = new Set(['hotel', 'villa', 'cottage', 'lodge', 'glamping', 'farm-stay', 'spa']);
+const STAY = new Set(['hotel', 'villa', 'suite', 'cottage', 'lodge', 'glamping', 'farm-stay', 'spa']);
 
 const venueLinks = (types: Set<string>) =>
   newest(venues.filter((v) => isListableVenue(v) && types.has(v.data.type))).map((v) => ({

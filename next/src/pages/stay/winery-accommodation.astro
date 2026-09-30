@@ -20,6 +20,10 @@ const slugs = [
 const venues = slugs
   .map((slug) => allVenues.find((venue) => routeSlug(venue) === slug))
   .filter((venue): venue is NonNullable<typeof venue> => Boolean(venue));
+// This guide does not repeat an unverified drive time or ranking from the shared record.
+const displayVenues = venues.map((venue) => routeSlug(venue) === 'mantons-creek-estate'
+  ? { ...venue, data: { ...venue.data, signature: 'Vineyard accommodation with an on-estate restaurant in Shoreham.' } }
+  : venue);
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
@@ -31,7 +35,7 @@ const schema = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
   name: 'Winery Accommodation Mornington Peninsula',
-  description: 'The best winery accommodation on the Mornington Peninsula, from vineyard villas to design-led wine-country hotels.',
+  description: 'Compare seven wine-country stays on the Mornington Peninsula by accommodation format and location.',
   url: 'https://peninsulainsider.com.au/stay/winery-accommodation/',
   breadcrumb: {
     '@type': 'BreadcrumbList',
@@ -43,13 +47,13 @@ const schema = {
   },
   mainEntity: {
     '@type': 'ItemList',
-    itemListOrder: 'https://schema.org/ItemListOrderDescending',
+    itemListOrder: 'https://schema.org/ItemListUnordered',
     numberOfItems: venues.length,
     itemListElement: venues.map((venue, index) => ({
       '@type': 'ListItem',
       position: index + 1,
       name: venue.data.name,
-      url: `https://peninsulainsider.com.au/stay/${routeSlug(venue)}/`,
+      url: `https://peninsulainsider.com.au/${routeSlug(venue) === 'port-phillip-estate' ? 'wine' : 'stay'}/${routeSlug(venue)}/`,
     })),
   },
 };
@@ -57,54 +61,88 @@ export const prerender = true;
 ---
 <BaseLayout
   title="Winery Accommodation Mornington Peninsula · Peninsula Insider"
-  description="The best winery accommodation on the Mornington Peninsula, from vineyard villas to design-led wine-country hotels in Red Hill and beyond."
+  description="Compare seven wine-country stays on the Mornington Peninsula: vineyard villas, winery suites and hotels, with clear routes to each venue."
   section="stay"
   canonical="https://peninsulainsider.com.au/stay/winery-accommodation/"
-  modifiedTime="2026-05-08"
+  modifiedTime="2026-10-01"
 >
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   <Breadcrumbs items={breadcrumbItems} />
 
-  <article class="article">
-    <div class="container">
-      <h1 class="article__title">Winery Accommodation on the Mornington Peninsula</h1>
-      <div class="prose">
-        <p>The best Peninsula wine weekends improve when you stop treating accommodation as an afterthought. The right base means you drink once, eat properly, and wake up where the trip actually happens, instead of spending the whole weekend running transfers between Sorrento beds and Red Hill lunches.</p>
-        <p>The good options are limited, distinct, and easy to choose between once you know what sort of weekend you are building. <a href="/stay/polperro-villas/">Polperro Villas</a> and <a href="/stay/crittenden-villas/">Crittenden Estate Villas</a> are for couples who want to stay embedded in the vineyard experience. <a href="/wine/port-phillip-estate/">Port Phillip Estate</a> is the Peninsula's most architecturally serious winery stay: Wood Marsh-designed, one-hat restaurant, six suites. <a href="/stay/mantons-creek-estate/">Mantons Creek Estate</a> is the under-indexed option near Shoreham, two minutes from Ten Minutes by Tractor with on-estate Italian dining. <a href="/stay/cassis/">Cassis Red Hill</a> is not on a working winery but sits adjacent to one, and every villa has a private heated plunge pool. <a href="/stay/jackalope/">Jackalope</a> and <a href="/stay/lindenderry/">Lindenderry</a> are the hotel-format alternatives for those who want service infrastructure alongside the wine-country position.</p>
-        <p>Note on Point Leo Estate: Point Leo does not operate on-estate accommodation. The Lon to Leo package pairs with Lon Retreat in Sorrento. For stays near Laura and the sculpture park, Mantons Creek Estate is the nearest vineyard-stay alternative.</p>
-        <ProvenanceLine style="font-size:0.8rem;color:var(--soft)" records={venues} type="venues" noun="venue" />
+  <section class="wine-hero" aria-labelledby="wine-hero-title">
+    <div class="container wine-hero__inner">
+      <div class="wine-hero__copy">
+        <p class="label label--accent">Winery accommodation</p>
+        <h1 id="wine-hero-title">Stay in wine country.</h1>
+        <p class="wine-hero__lede">Choose an estate villa, winery suite or hotel base. Compare seven stays, then check the exact address and inclusions.</p>
+        <div class="wine-hero__actions">
+          <a href="#rankings" class="pi-btn pi-btn--solid">Compare seven stays ↓</a>
+          <a href="#choose-your-base" class="wine-hero__quiet-link">Choose by format →</a>
+        </div>
+      </div>
+      <div class="wine-hero__note" aria-label="How to choose a wine-country stay">
+        <span class="wine-hero__note-label">A good first decision</span>
+        <p>Pick the stay format first. Then look at the cellar doors and meals you can reach from its actual address.</p>
+        <span class="wine-hero__note-rule" aria-hidden="true"></span>
+        <p class="wine-hero__note-foot">If tasting is part of the plan, arrange a driver or transport before you go.</p>
       </div>
     </div>
-  </article>
+  </section>
+
+  <section class="wine-chooser" id="choose-your-base" aria-labelledby="wine-chooser-title">
+    <div class="container">
+      <div class="wine-chooser__heading">
+        <p class="label label--accent">Choose your base</p>
+        <h2 id="wine-chooser-title">Four ways to do a wine weekend</h2>
+      </div>
+      <div class="wine-chooser__grid">
+        <div class="wine-chooser__option">
+          <span class="wine-chooser__number">01 / Vineyard villas</span>
+          <p>Stay among the vines, with the vineyard as part of the trip.</p>
+          <div class="wine-chooser__links"><a href="/stay/polperro-villas/">Polperro Villas →</a><a href="/stay/crittenden-villas/">Crittenden Estate Villas →</a></div>
+        </div>
+        <div class="wine-chooser__option">
+          <span class="wine-chooser__number">02 / Winery suites</span>
+          <p>Choose an estate room and build the stay around food and place.</p>
+          <div class="wine-chooser__links"><a href="/wine/port-phillip-estate/">Port Phillip Estate →</a><a href="/stay/mantons-creek-estate/">Mantons Creek Estate →</a></div>
+        </div>
+        <div class="wine-chooser__option">
+          <span class="wine-chooser__number">03 / Hotel base</span>
+          <p>Keep hotel service close to the Peninsula's wine-country circuit.</p>
+          <div class="wine-chooser__links"><a href="/stay/jackalope/">Jackalope →</a><a href="/stay/lindenderry/">Lindenderry →</a></div>
+        </div>
+        <div class="wine-chooser__option">
+          <span class="wine-chooser__number">04 / Red Hill villa</span>
+          <p>Cassis is a villa base near wineries, not an on-estate winery stay. Pool and outdoor-bath options differ by villa.</p>
+          <div class="wine-chooser__links"><a href="/stay/cassis/">Cassis Red Hill →</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section class="venues" id="rankings">
     <div class="container">
       <div class="venues__header">
         <div>
           <p class="label label--accent">Wine-country stays</p>
-          <h2 class="venues__title">{venues.length} stays that work best for a Peninsula wine weekend</h2>
-          <p class="venues__sub">On-estate villas, architectural winery hotels, and the wine-country positions that collapse the gap between your bed and the next glass.</p>
+          <h2 class="venues__title">Compare the seven stays</h2>
+          <p class="venues__sub">Look at the stay itself, then confirm current dining, tasting and room details with the operator.</p>
         </div>
         <a href="/wine/" class="venues__link">Wine country →</a>
       </div>
       <div class="venues__grid">
-        {venues.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}
+        {displayVenues.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" href={routeSlug(venue) === "port-phillip-estate" ? "/wine/port-phillip-estate/" : undefined} />)}
       </div>
+      <ProvenanceLine style="font-size:0.8rem;color:var(--soft);display:block;margin-top:1rem" records={venues} type="venues" noun="venue" />
     </div>
   </section>
 
   <section class="faq-section">
     <div class="container">
       <div class="prose">
-        <h2>How to use this category</h2>
-        <h3>Best for a one-night wine weekend?</h3>
-        <p><a href="/stay/jackalope/">Jackalope</a> if you want drama and a stronger hotel experience. <a href="/stay/polperro-villas/">Polperro Villas</a> for a quieter vineyard stay; check minimum-stay conditions for your dates. The restaurant and cellar door are closed on Mondays and Tuesdays.</p>
-        <h3>Best for a slower two-night stay?</h3>
-        <p><a href="/wine/port-phillip-estate/">Port Phillip Estate</a> (architecture, one-hat restaurant, six suites on the estate), <a href="/stay/lindenderry/">Lindenderry</a>, and <a href="/stay/crittenden-villas/">Crittenden Estate Villas</a> all work well when the weekend is less about ticking off cellar doors and more about pace, meals, and place.</p>
-        <h3>Best for the southern Red Hill circuit?</h3>
-        <p><a href="/stay/mantons-creek-estate/">Mantons Creek Estate</a> - two minutes from Ten Minutes by Tractor, Quattro Restaurant on-site. The most under-indexed winery stay on the Peninsula.</p>
-        <h3>Why this matters</h3>
-        <p>The Peninsula's wine-country roads are beautiful but narrow and badly lit at night. The more you can collapse dining, tasting, and sleeping into the same zone, the better the weekend becomes.</p>
+        <h2>Before you reserve</h2>
+        <p>Check the exact room or villa format, current dining hours, minimum nights and tasting access for your dates. These can differ even within the same estate.</p>
+        <p><strong>Plan the trip home from tastings.</strong> If you intend to drink, choose a driver or arrange transport in advance. A wine-country address alone does not make every cellar door walkable.</p>
       </div>
     </div>
   </section>
@@ -121,4 +159,94 @@ export const prerender = true;
   </section>
 
   <NewsletterBlock />
+  <style>
+    .wine-hero {
+      background: radial-gradient(circle at 90% 15%, #f9f6ef 0, #f2efe9 58%, #ebe7df 100%);
+      color: #0b2e4a;
+      border-bottom: 1px solid rgba(11, 46, 74, .12);
+    }
+    .wine-hero__inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(260px, .6fr);
+      align-items: center;
+      gap: clamp(28px, 6vw, 88px);
+      padding-block: clamp(40px, 6vw, 86px);
+    }
+    .wine-hero__copy { min-width: 0; max-width: 770px; }
+    .wine-hero__copy .label { margin: 0 0 16px; }
+    .wine-hero h1 {
+      max-width: 13ch;
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: clamp(2.75rem, 5.3vw, 5.4rem);
+      font-weight: 700;
+      line-height: 1.02;
+      letter-spacing: -.055em;
+      text-wrap: balance;
+    }
+    .wine-hero__lede {
+      max-width: 58ch;
+      margin: clamp(18px, 2.5vw, 28px) 0 0;
+      font-size: clamp(1rem, 1.4vw, 1.18rem);
+      line-height: 1.56;
+      color: #36566b;
+    }
+    .wine-hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px 20px;
+      margin-top: clamp(20px, 2.5vw, 30px);
+    }
+    .wine-hero__actions .pi-btn { min-height: 46px; display: inline-flex; align-items: center; }
+    .wine-hero__quiet-link { color: #10527e; font-weight: 700; text-underline-offset: .25em; }
+    .wine-hero__quiet-link:hover, .wine-hero__quiet-link:focus-visible { text-decoration: underline; }
+    .wine-hero__note {
+      padding: clamp(22px, 2.8vw, 34px);
+      border: 1px solid rgba(11, 46, 74, .14);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, .72);
+      box-shadow: 0 20px 55px rgba(11, 46, 74, .06);
+    }
+    .wine-hero__note-label, .wine-chooser__number {
+      display: block;
+      color: #98672a;
+      font-family: var(--font-ui);
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      line-height: 1.3;
+      text-transform: uppercase;
+    }
+    .wine-hero__note p { margin: 12px 0 0; font-size: clamp(1.05rem, 1.5vw, 1.3rem); font-weight: 600; line-height: 1.4; }
+    .wine-hero__note-rule { display: block; width: 36px; height: 2px; margin-top: 24px; background: #d7a64e; }
+    .wine-hero__note .wine-hero__note-foot { font-size: .91rem; font-weight: 500; color: #496172; line-height: 1.5; }
+    .wine-chooser { padding-block: clamp(34px, 5vw, 70px); }
+    .wine-chooser__heading { margin-bottom: clamp(20px, 3vw, 32px); }
+    .wine-chooser__heading .label { margin: 0 0 8px; }
+    .wine-chooser h2 { max-width: 22ch; margin: 0; font-family: var(--font-display); font-size: clamp(1.75rem, 3vw, 2.65rem); line-height: 1.12; letter-spacing: -.035em; }
+    .wine-chooser__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; border: 1px solid rgba(11, 46, 74, .16); background: rgba(11, 46, 74, .16); border-radius: 12px; overflow: hidden; }
+    .wine-chooser__option { display: flex; flex-direction: column; min-width: 0; padding: clamp(18px, 2.2vw, 28px); background: #fff; }
+    .wine-chooser__option p { margin: 13px 0 20px; line-height: 1.5; color: #36566b; }
+    .wine-chooser__links { display: flex; flex-direction: column; gap: 9px; margin-top: auto; }
+    .wine-chooser__links a { width: fit-content; color: #10527e; font-weight: 700; text-underline-offset: .22em; }
+    .wine-chooser__links a:hover, .wine-chooser__links a:focus-visible { text-decoration: underline; }
+    @media (max-width: 960px) {
+      .wine-chooser__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 700px) {
+      .wine-hero__inner { display: block; padding-block: 30px 34px; }
+      .wine-hero__copy .label { margin-bottom: 12px; }
+      .wine-hero h1 { font-size: clamp(2.55rem, 10vw, 3.8rem); max-width: 12ch; }
+      .wine-hero__lede { margin-top: 14px; font-size: 1rem; line-height: 1.48; }
+      .wine-hero__actions { margin-top: 18px; }
+      .wine-hero__note { margin-top: 30px; padding: 20px; }
+      .wine-chooser__grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 360px) {
+      .wine-hero__inner { padding-top: 22px; }
+      .wine-hero h1 { font-size: 2.45rem; }
+      .wine-hero__actions { gap: 12px; }
+    }
+  </style>
 </BaseLayout>

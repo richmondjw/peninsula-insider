@@ -27,7 +27,7 @@ faq:
   - question: "What should I look for in a dog-friendly Peninsula stay?"
     answer: "Fenced yard or enclosed outdoor space (essential for off-leash safety at the property), proximity to a confirmed off-leash beach, ground-floor access (no stairs or lifts between the room and grass), and clear written confirmation of the pet policy including any fees. Self-catering properties work better than hotel rooms because the dog has more downtime space."
   - question: "Is there dog-friendly accommodation near Peninsula Hot Springs?"
-    answer: "The main hot springs accommodation options (Peninsula Hot Springs Glamping, Alba Sanctuary) do not confirm dogs. For a Peninsula hot springs weekend with a dog, self-contained holiday accommodation in the Safety Beach, Dromana, or Fingal area puts you close to both Tassells Cove (year-round off-leash beach) and the hot springs precinct within 10–15 minutes."
+    answer: "Alba Sanctuary does not permit pets (service dogs are welcome on a leash or harness). Confirm Peninsula Hot Springs Glamping's current dog rules directly. For a Peninsula hot springs weekend with a dog, self-contained holiday accommodation in the Safety Beach, Dromana, or Fingal area puts you close to both Tassells Cove (year-round off-leash beach) and the hot springs precinct within 10–15 minutes."
 readingTimeMinutes: 5
 featured: false
 status: "published"
@@ -69,7 +69,7 @@ Most of the Peninsula's luxury and boutique hotels do not confirm pet-friendly p
 - **InterContinental Sorrento**   -   minimum age 18, pet policy not confirmed
 - **Lancemore Lindenderry**   -   pet policy not confirmed
 - **RACV Cape Schanck Resort**   -   pet policy not confirmed
-- **Alba Sanctuary**   -   adults-only (18+), pet policy not confirmed
+- **Alba Sanctuary**   -   no pets; [Alba's FAQ](https://albathermalsprings.com.au/faqs/) welcomes service dogs on a leash or harness
 - **Flinders Hotel Quarters**   -   pet policy not confirmed
 
 The exception category is **boutique pub stays**   -   Portsea Hotel and the Flinders Hotel itself allow dogs in their beer gardens, and some pub accommodation rooms confirm pets. Call directly and ask specifically about outdoor access from your room.

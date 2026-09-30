@@ -142,6 +142,14 @@ assert(!getFacets('venue', ecoLodges?.data ?? {}).cat?.includes('glamping'), 'Ec
 assert(springsGlamping?.data.type === 'glamping', 'the canvas stay retains its glamping type');
 assert(surfaceFacetOptions('stay', 'cat').some((option) => option.value === 'lodge'), 'Stay filter offers Lodges');
 
+// Verified guest-suite properties must resolve as stays, not villas.
+for (const slug of ['mantons-creek-estate', 'cape-retreat']) {
+  const entry = venues.find((venue) => venue.data.slug === slug);
+  assert(entry?.data.type === 'suite', slug + ' uses the guest-suite type');
+  assert(getFacets('venue', entry?.data ?? {}).cat?.includes('suite'), slug + ' resolves to the Suites facet');
+}
+assert(surfaceFacetOptions('stay', 'cat').some((option) => option.value === 'suite'), 'Stay filter offers Suites');
+
 // Canonical places match the places collection on disk
 const placeFiles = (await readdir(join(CONTENT, 'places')))
   .filter((n) => n.endsWith('.json'))
