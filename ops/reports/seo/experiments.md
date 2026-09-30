@@ -115,3 +115,16 @@ Every shipped SEO change is logged here as a hypothesis-driven experiment. Wins 
 - Rollback: revert this bounded release through the normal source pipeline. Remove generated alternatives and catalogue on rebuild; existing HTML canonicals, content and feeds remain the source of truth. No account or training permissions changed.
 - Independent reviewer: impeccable_finish_reviewer; source and capture review, with final disposition retained in the release handoff.
 - Outcome: INVESTIGATE until deployed verification and held-out task evidence are complete. Preserve negative results; expand the pilot only when it demonstrates a useful improvement without caveat loss.
+
+
+### 2026-10-01-agent-experience-expansion - Complete formats and independent evaluation
+
+- Owner: Remy; James approved continuing the existing programme toward99 after the live foundation release. Reuses the 30 September experiment and original rubric weights.
+- Baseline:20 compact pages; independent frozen30-task answerability sample found17 supported,3 contradicted,6 absent and4 partial answers. This was content inspection, not autonomous task success. Five live format/cache probes returned200 then304 with validators. Exact public source SHA is retained with the private baseline receipt.
+- Hypothesis: whole-sitemap text coverage, section catalogues, stable snapshot comparison and corrected source facts remove demonstrated retrieval and answerability failures without inventing confidence.
+- Change: all eligible sitemap pages receive compact text, citation bundles and section indexes; prior-public-snapshot changes are explicit; source corrections follow official operator/authority evidence; frozen rubric/receipt validator refuses incomplete or simulated99-point claims.
+- Gates: unit regressions, complete-sitemap build audit, release CI, independent source review, exact deployed SHA and full live audit. The broader target additionally requires the original two independent real-stack evaluations and held-out tasks; structural passes alone remain insufficient.
+- Evaluation: on this release and at the existing weekly review on7 October. Retain failed provider calls and factual findings. Do not count bytes as input tokens or catalogue absence as a venue closure.
+- Review: independent factual/implementation reviewers, with receipts retained outside the public corpus. No author approves their own corrections.
+- Rollback: normal source revert/rebuild for formats; review verified factual corrections separately. Existing HTML citation destinations and private account protections remain in force.
+- Outcome: INVESTIGATE pending real agent evaluation and release evidence. Do not claim99 until the frozen scorecard accepts independently reviewed receipts.

@@ -1,6 +1,6 @@
 {
   "note": "Probe results for source URLs cited by the corpus. Written ONLY by next/scripts/probe-link-health.mjs, by a human or a scheduled job, never by a build. Read offline by next/scripts/audit-link-health.mjs. A verdict is what a probe saw, not an inference. This file is a RECORD, not a report: it does not live under ops/reports/ because nothing here is reproducible from the tree, and reverting it destroys evidence rather than regenerating it.",
-  "updatedAt": "2026-09-30T11:18:21.863Z",
+  "updatedAt": "2026-09-30T19:40:07.641Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -89,6 +89,14 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Exclusive Retreat | P. +613 5981 8400 | E. info@arthursviews.com.au"
+    },
+    {
+      "url": "https://arthursviews.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Exclusive Retreat | P. +613 5981 8400 | E. info@arthursviews.com.au",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://artsandculture.mornpen.vic.gov.au/Galleries/Community-Art-Spaces/Current-Exhibitions/Hastings-Glenn-Walker",
@@ -1912,6 +1920,22 @@
       "pageTitle": "The best Mornington Peninsula markets for local treasures"
     },
     {
+      "url": "https://www.avanisyrah.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Avani Wines - Mornington Peninsula Cellar Door &amp; Winery",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.avanisyrah.com.au/contact-avani/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Contact Avani Wines - Cellar Door, Red Hill South",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://www.balnarringmarket.com.au",
       "verdict": "tls-fault",
       "httpCode": "000",
@@ -3662,11 +3686,27 @@
       "probedBy": "audit-link-health.mjs --probe"
     },
     {
+      "url": "https://www.ptleoestate.com.au/dine/laura/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Laura",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://www.ptleoestate.com.au/experience/sculpture-park/",
       "verdict": "blocked",
       "httpCode": "202",
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://www.ptleoestate.com.au/faqs/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "FAQs",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.ptleoestate.com.au/laura",
@@ -3823,6 +3863,14 @@
       "disposition": "gone",
       "dispositionNote": "The domain resolves to a NetRegistry redirector that answers 200 with the two-word body 'Not found'. EDITOR, and this is the important one: the Red Hill Community Market's own site now reads 'The Red Hill Community Market is temporarily closed' and serves only a history archive. The market trading at Red Hill Recreation Reserve on the first Saturday September-May is the Hill & Ridge Community Market, run by the Red Hill Agricultural & Horticultural Society. This site holds them as two separate things and says so in prose.",
       "reviewedOn": "2026-09-13"
+    },
+    {
+      "url": "https://www.relaischateaux.com/us/details/laura/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Laura at Pt Leo Estate Restaurant | Fine dining restaurant Merricks | Relais &amp; Châteaux",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.rosebudcountryclub.com.au/",
@@ -4232,6 +4280,14 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Beaches + Coastline &mdash; Visit Mornington Peninsula."
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/Places-To-See/Towns-Villages/Dromana/common",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Dromana &mdash; Visit Mornington Peninsula.",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.visitmorningtonpeninsula.org/Places-To-See/Trips-Itineraries/Accessible-Beaches",

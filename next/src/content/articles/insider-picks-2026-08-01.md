@@ -31,9 +31,14 @@ faq:
   - question: "When does St Andrews Beach Brewery serve their Sunday roast?"
     answer: "St Andrews Beach Brewery is at 65 Sandy Track, Rye. The Sunday roast runs weekly from midday. Book ahead via their website - it fills quickly in winter when the heritage stables fill up fast."
   - question: "How do I get to Bushrangers Bay for the winter low-tide walk?"
-    answer: "The Bushrangers Bay trail starts from the Cape Schanck car park off Cape Schanck Road. Allow 90 minutes return. Check tide times before you go - the rock platform is best at low tide. No booking needed."
+    answer: "The Bushrangers Bay trail starts from the Cape Schanck car park off Cape Schanck Road. Allow about two hours return, with extra time for stops. Check tide times before you go - the rock platform is best at low tide. No booking needed."
   - question: "Is Two Bays Brewing gluten-free for people with coeliac disease?"
     answer: "Yes. Two Bays Brewing Co at 4/3 Collins Road, Dromana is Australia's first dedicated gluten-free brewery. All beers on tap are gluten-free. Open daily from 11am. No booking needed for walk-ins, though weekends fill up."
+editorialProvenance:
+  method: researched
+  reviewedOn: 2026-10-01
+  checkedBy: desk
+  source: "Limited correction on 2026-10-01: Bushrangers Bay Cape Schanck route duration/distance and, where changed, wave hazard caveats only checked against https://www.parks.vic.gov.au/places-to-see/sites/bushrangers-bay-walk. Other fields were not reverified; no whole-record fact-check date assigned."
 ---
 
 **St Andrews Beach Brewery, Rye - Sunday Roast in the Old Stables**
@@ -52,9 +57,9 @@ Pair it with a slow drive back along Browns Road past the horse studs as the lig
 
 Most people who walk to Bushrangers Bay do it in summer and get there at high tide. The rock platform south of the bay - exposed basalt columns running into the Southern Ocean - is a different experience at low tide on a grey August morning when nobody else is there.
 
-The trail drops from the Cape Schanck car park through coastal scrub, past the lighthouse reserve fence, and out onto the beach in about 35 minutes. At low tide the platform extends another 80 metres toward the water. You can walk it. Blowhole activity is higher in winter swells; stand clear of the surge channels, which fill without warning. The kelp forest visible in the rock pools runs to species you won't find on the bay side of the Peninsula. Bring a jacket that blocks wind, not just repels it.
+The 5.4 km return trail starts at the eastern carpark at Cape Schanck Lighthouse. The path is sandy and narrow, with steep stairs in places. Allow about two hours plus stops, and enough daylight for the return. The unpatrolled beach has strong currents, rips, reefs and large waves; swimming is not recommended. Keep clear of wave-washed rocks and follow current Parks Victoria advice.
 
-Check tide times before leaving - Bureau of Meteorology has the Cape Schanck station listed. No entry fee. Allow 90 minutes return from the car park.
+Check tide times before leaving - Bureau of Meteorology has the Cape Schanck station listed. No entry fee. Allow about two hours return, with extra time for stops from the car park.
 
 Pair it with a coffee at the Cape Schanck Lighthouse kiosk before the walk if they're open, or drive back through Fingal for a late breakfast.
 

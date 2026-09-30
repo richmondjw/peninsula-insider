@@ -22,7 +22,7 @@ jobs:
   verify-live-agent-readiness:
     if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 15
     env:
       TZ: Australia/Sydney
       EXPECTED_SHA: ${{ github.event.workflow_run.head_sha }}

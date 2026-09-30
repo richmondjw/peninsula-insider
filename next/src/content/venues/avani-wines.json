@@ -5,22 +5,22 @@
   "place": "red-hill",
   "zone": "red-hill",
   "coordinates": {
-    "lat": -38.3724,
-    "lng": 145.0333
+    "lat": -38.3728225,
+    "lng": 145.0551953
   },
-  "address": "112 Shoreham Rd, Red Hill South VIC 3937",
-  "phone": "+61 418 555 941",
+  "address": "98 Stanleys Road, Red Hill South VIC 3937",
+  "phone": "+61 435 997 007",
   "bookingProvider": "direct",
   "priceBand": "$$",
   "authority": {
     "awards": [
-      "Gourmet Traveller Best Small Cellar Door Mornington 2023",
+      "Gourmet Traveller Best Small Cellar Door 2022",
       "Biodynamic Family Estate"
     ],
     "hats": 0
   },
   "signature": "Shashi and Rohit Singh's biodynamic family estate, one of the Peninsula's only serious Syrah programs alongside the Amrit single-vineyard range.",
-  "editorNote": "Avani is the Peninsula's quiet Syrah specialist, and that alone is reason to visit. Shashi and Rohit Singh run the estate as a genuinely small family operation, biodynamically farmed, hand-worked, and unusually focused on Syrah at a time when nearly every other cellar door on the ridge has all-in on Pinot Noir. The Amrit single-vineyard wines, Syrah, Chardonnay, Pinot Noir and a skin-contact white, are quietly among the most interesting bottles coming out of the region.\n\nThe cellar door is intimate and overlooks the estate's own vines. Shashi often pours, which turns a tasting into a conversation about biodynamics, Peninsula soils, and why a cooler-than-usual block can grow a Syrah that nobody saw coming. Avani was Gourmet Traveller's Best Small Cellar Door (Mornington) in 2023 and earned every word of the citation.\n\nBook ahead. Ask for the skin-contact white. Bring home a bottle of the Syrah, it ages quietly and well.",
+  "editorNote": "Avani is the Peninsula's quiet Syrah specialist, and that alone is reason to visit. Shashi and Rohit Singh run the estate as a genuinely small family operation, biodynamically farmed, hand-worked, and unusually focused on Syrah at a time when nearly every other cellar door on the ridge has all-in on Pinot Noir. The Amrit single-vineyard wines, Syrah, Chardonnay, Pinot Noir and a skin-contact white, are quietly among the most interesting bottles coming out of the region.\n\nThe cellar door is intimate and overlooks the estate's own vines. Shashi often pours, which turns a tasting into a conversation about biodynamics, Peninsula soils, and why a cooler-than-usual block can grow a Syrah that nobody saw coming. The operator lists a Gourmet Traveller Best Small Cellar Door award in 2022.\n\nBook ahead. Ask for the skin-contact white. Bring home a bottle of the Syrah, it ages quietly and well.",
   "whyWeGo": "Avani is the Peninsula's quiet Syrah specialist, and that alone is reason enough to drive here.",
   "bestFor": [
     "Cellar door visits",
@@ -166,5 +166,29 @@
     "Amrit Single-Vineyard Range",
     "Skin-Contact Whites",
     "Family Estate"
-  ]
+  ],
+  "website": "https://www.avanisyrah.com.au/",
+  "visiting": {
+    "openingHours": [
+      {
+        "days": [
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday",
+          "Monday"
+        ],
+        "opens": "10:00",
+        "closes": "17:00"
+      }
+    ],
+    "bookingRequired": false,
+    "bookingNotes": "Bookings are recommended and walk-ins are welcome. Confirm current service and group arrangements with Avani before travelling."
+  },
+  "editorialProvenance": {
+    "method": "researched",
+    "reviewedOn": "2026-10-01",
+    "checkedBy": "desk",
+    "source": "Limited correction on 2026-10-01: address, phone and map pin from https://www.avanisyrah.com.au/contact-avani/ (operator Google Maps venue pin); website, trading days, booking guidance and award year from https://www.avanisyrah.com.au/. Other editorial and wine claims were not reverified; no whole-record fact-check date assigned."
+  }
 }

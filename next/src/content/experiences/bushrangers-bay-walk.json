@@ -4,17 +4,36 @@
   "type": "walk",
   "place": "cape-schanck",
   "zone": "ocean-coast",
-  "coordinates": { "lat": -38.4909, "lng": 144.8856 },
+  "coordinates": {
+    "lat": -38.4909,
+    "lng": 144.8856
+  },
   "address": "Cape Schanck Rd, Cape Schanck VIC 3939",
-  "website": "https://www.parks.vic.gov.au/places-to-see/parks/mornington-peninsula-national-park",
-  "durationMinutes": 90,
+  "website": "https://www.parks.vic.gov.au/places-to-see/sites/bushrangers-bay-walk",
+  "durationMinutes": 120,
   "difficulty": "moderate",
-  "seasonBest": ["autumn", "winter", "spring"],
-  "editorNote": "Bushrangers Bay is the walk we send people to when they say they want to see the wilder side of the Peninsula without committing to a full-day hike. The track drops from the Cape Schanck lighthouse precinct through coastal scrub and opens onto a broad crescent of basalt and sand that feels much further from Melbourne than it is. The return climb is enough to justify lunch afterwards, but not so punishing that it tips into chore. Do it in the late afternoon when the light starts to flatten across the water and the whole coastline turns silver.",
+  "seasonBest": [
+    "autumn",
+    "winter",
+    "spring"
+  ],
+  "editorNote": "From the eastern carpark at Cape Schanck Lighthouse, this walk leads through coastal scrub to Bushrangers Bay. Parks Victoria describes a 5.4 km return trip taking about two hours. Allow more time for stops and the return climb: the sandy, narrow, unsealed path includes steep stairs.\n\nDogs are not permitted; check Parks Victoria entry requirements for assistance dogs. Swimming is not recommended. The beach is unpatrolled, with strong currents, rips, rocky reefs and large waves, and emergency access is limited.\n\nCheck Parks Victoria changed conditions and current fire advice before setting out. Stay on the track, follow signs protecting nesting shorebirds, and allow enough daylight for the return.",
   "tags": {
-    "mood": ["walk", "view", "slow"],
-    "season": ["autumn", "winter", "spring"],
-    "audience": ["couples", "locals", "first-timers"]
+    "mood": [
+      "walk",
+      "view",
+      "slow"
+    ],
+    "season": [
+      "autumn",
+      "winter",
+      "spring"
+    ],
+    "audience": [
+      "couples",
+      "locals",
+      "first-timers"
+    ]
   },
   "heroImage": {
     "src": "/images/sourced/explore-bushrangers-bay-walk-01.webp",
@@ -24,5 +43,13 @@
   },
   "gallery": [],
   "lastVerified": "2026-04-08",
-  "publishedAt": "2026-04-08"
+  "publishedAt": "2026-04-08",
+  "dogFriendly": false,
+  "dogFriendlyNotes": "Dogs are not permitted. Check Parks Victoria entry requirements for assistance dogs.",
+  "editorialProvenance": {
+    "method": "researched",
+    "reviewedOn": "2026-10-01",
+    "checkedBy": "desk",
+    "source": "Limited correction on 2026-10-01: Cape Schanck start point, return distance, approximate duration, terrain, dog restrictions, swimming hazards and current-conditions guidance checked at https://www.parks.vic.gov.au/places-to-see/sites/bushrangers-bay-walk. Image rights, coordinates and other fields were not reverified; no whole-record fact-check date assigned."
+  }
 }
