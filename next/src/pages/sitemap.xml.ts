@@ -249,6 +249,8 @@ export const GET: APIRoute = async () => {
   entries.push(url('/ask', 1.0, 'weekly', '2026-07-27'));
   entries.push(url('/map', 0.7, 'weekly', '2026-08-07'));
 
+  entries.push(url('/agents', 0.4, 'monthly', '2026-09-30'));
+
   // Trust / editorial-standards pages. /methodology/, /our-approach/ and
   // /ethics/ removed 2026-07-11 - they are redirect stubs into
   // /editorial-approach/ (§4.1 rule 1). Utility/legal singles added.

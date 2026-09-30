@@ -20,6 +20,7 @@ on:
       # no run at all is the same defect d442813 hit.
       - 'next/scripts/**'
       - 'ops/scripts/seo/**'
+      - 'ops/scripts/generate-llms-txt.mjs'
       - 'ops/seo-automation/**'
       - 'ops/baselines/**'
       - '.github/workflows/build-and-deploy.yml'
@@ -91,6 +92,7 @@ jobs:
           npm run test:corrections-queue
           npm run test:partner-enquiry
           npm run test:agent-readiness
+          node --test scripts/agent-formats.test.mjs
           npm run test:event-safeguards
           npm run test:event-occurrence
           npm run test:material-change
@@ -125,6 +127,15 @@ jobs:
           node ops/scripts/generate-llms-txt.mjs \
             --sitemap next/dist/sitemap.xml \
             --out-dir next/dist
+          node next/scripts/generate-agent-formats.mjs --dist next/dist
+          node next/scripts/audit-agent-welcome.mjs --dist next/dist --report ops/reports/seo/agent-welcome.json
+
+      - name: Retain agent experience acceptance
+        uses: actions/upload-artifact@v4
+        with:
+          name: agent-experience-${{ github.run_id }}
+          path: ops/reports/seo/agent-welcome.json
+          retention-days: 90
 
       - name: Write deployment provenance
         env:

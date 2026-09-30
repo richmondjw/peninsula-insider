@@ -146,7 +146,7 @@ const newsletterPopupMode = import.meta.env.PUBLIC_NEWSLETTER_POPUP;
 // Keep active planning and itinerary reading free of promotional interruptions.
 // Navigation and the footer retain their normal publication links.
 const isPlanningJourney = /^\/(?:explore\/plans|plans|me\/trip)(?:\/|$)/.test(rawPathname);
-const showNewsletterPopup = !isPlanningJourney && (newsletterPopupMode === 'preview' || newsletterPopupMode === 'on');
+const showNewsletterPopup = !isPlanningJourney && normalizedPath !== '/agents/' && (newsletterPopupMode === 'preview' || newsletterPopupMode === 'on');
 ---
 
 <!doctype html>
@@ -163,6 +163,8 @@ const showNewsletterPopup = !isPlanningJourney && (newsletterPopupMode === 'prev
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <meta name="description" content={description} />
   <link rel="canonical" href={canonicalUrl} />
+  {!noindex && <link rel="describedby" href="/llms.txt" type="text/plain" title="Peninsula Insider agent guide" />}
+  <link rel="alternate" type="application/rss+xml" title="Peninsula Insider stories" href="/feed.xml" />
   <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large'} />
 
   <!-- Open Graph -->

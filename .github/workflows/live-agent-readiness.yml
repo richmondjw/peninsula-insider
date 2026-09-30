@@ -40,7 +40,18 @@ jobs:
           node-version: '22'
 
       - name: Verify deployed provenance and agent-facing surfaces
-        run: node next/scripts/audit-live-agent-readiness.mjs
+        run: |
+          node next/scripts/audit-live-agent-readiness.mjs
+          node next/scripts/audit-agent-welcome.mjs --base https://peninsulainsider.com.au --report ops/reports/seo/agent-welcome-live.json
+
+      - name: Retain live agent acceptance
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: agent-experience-live-${{ github.run_id }}
+          path: ops/reports/seo/agent-welcome-live.json
+          retention-days: 90
+          if-no-files-found: warn
 
       - name: Alert on stale, incomplete, or unsafe live output
         if: failure()
