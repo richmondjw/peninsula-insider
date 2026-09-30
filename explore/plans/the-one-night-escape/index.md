@@ -99,16 +99,6 @@ Hours, availability and access can change. Confirm them for your travel dates.
 
 A single overnight can feel like a proper break: one room, one dinner, one morning that belongs to you. Done loosely, it becomes a long drive for a hotel room and two meals you could have had at home.
 
-Choose the sequence before you leave, so the drive is not spent negotiating the next stop.
-
-## The core idea: one arc, three moves
-
-Start with an arrival ritual: a coastal walk, a thermal bath if it fits your route, or a drink in town as the light goes.
-
-Book one good dinner close to your room. Leave the rest of the night open.
-
-Protect the slow morning. Coffee outside, a short walk, breakfast without watching the clock. Three moves are enough.
-
 ## The three bases that make a one-night trip work
 
 The choice of base matters more on a one-night trip than a three-night one, because there is no time to travel between zones. Pick the zone that fits the mood, and book the room inside the zone, not adjacent to it.
@@ -158,6 +148,28 @@ Choose your area, reserve the stay and dinner, then check the current opening ho
 Want another weekend idea later? [Get The Insider Note](<https://peninsulainsider.com.au/explore/plans/the-one-night-escape/#newsletter>), our occasional email with picks from across the Peninsula. [Read past picks](<https://peninsulainsider.com.au/whats-on/this-weekend/archive/>).
 
 [Find a plan for your trip](<https://peninsulainsider.com.au/explore/plans/#build>)
+
+## The Insider Note
+
+The Insider Note brings you independent picks and selected guides from across the Peninsula. An occasional email for your next trip.
+
+Independent editorial. Sent when there is something worth knowing.
+
+ Email address
+
+Unsubscribe any time  [See recent Peninsula picks](<https://peninsulainsider.com.au/picks/>) [Privacy](<https://peninsulainsider.com.au/privacy/>)
+
+### What lands in your inbox
+
+- **Weekend inspiration** What is worth doing and where we would go.
+
+- **Seasonal picks** Places and experiences worth knowing now.
+
+- **Local notes** Useful observations you might otherwise miss.
+
+- **From the Journal** Selected guides and stories worth reading.
+
+ [More about the Note](<https://peninsulainsider.com.au/dispatch/>)
 
 Questions readers actually ask
 
@@ -222,25 +234,3 @@ A polished village-base stay with proper pub energy downstairs and Bass Strait w
 weekend escape  slow
 
 [Read notes](<https://peninsulainsider.com.au/stay/flinders-hotel/>) [View stay](<https://flindershotel.com.au/accommodation>)
-
-## The Insider Note
-
-The Insider Note brings you independent picks and selected guides from across the Peninsula. An occasional email for your next trip.
-
-Independent editorial. Sent when there is something worth knowing.
-
- Email address
-
-Unsubscribe any time  [See recent Peninsula picks](<https://peninsulainsider.com.au/picks/>) [Privacy](<https://peninsulainsider.com.au/privacy/>)
-
-### What lands in your inbox
-
-- **Weekend inspiration** What is worth doing and where we would go.
-
-- **Seasonal picks** Places and experiences worth knowing now.
-
-- **Local notes** Useful observations you might otherwise miss.
-
-- **From the Journal** Selected guides and stories worth reading.
-
- [More about the Note](<https://peninsulainsider.com.au/dispatch/>)
