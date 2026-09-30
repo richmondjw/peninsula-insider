@@ -111,4 +111,16 @@ Independent editorial. Sent when there is something worth knowing.
 
  Email address
 
-Unsubscribe any time  [Read a past weekend pick](<https://peninsulainsider.com.au/whats-on/this-weekend/archive/2026-07-13/>) [Privacy](<https://peninsulainsider.com.au/privacy/>)
+Unsubscribe any time  [See recent Peninsula picks](<https://peninsulainsider.com.au/picks/>) [Privacy](<https://peninsulainsider.com.au/privacy/>)
+
+### What lands in your inbox
+
+- **Weekend inspiration** What is worth doing and where we would go.
+
+- **Seasonal picks** Places and experiences worth knowing now.
+
+- **Local notes** Useful observations you might otherwise miss.
+
+- **From the Journal** Selected guides and stories worth reading.
+
+ [More about the Note](<https://peninsulainsider.com.au/dispatch/>)
