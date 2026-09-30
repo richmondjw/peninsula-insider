@@ -14,6 +14,7 @@
  * AskBand) are the EAT agent's, at components/v5/hub/; props here match the
  * shipped module APIs (each module renders its own .container).
  */
+import { pageImage } from '../../lib/page-images';
 import { getCollection } from 'astro:content';
 import { informationCheckedOn } from '../../lib/verification-date.mjs';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
@@ -261,7 +262,7 @@ const faqSchema = {
   description="Explore Mornington Peninsula wine country: wineries by area, Pinot Noir and Chardonnay, cellar door visits, and winery dining. Start planning your wine-country trip."
   section="wine"
   canonical="https://peninsulainsider.com.au/wine/"
-  ogImage="/images/sourced/article-cellar-door-01.webp"
+  ogImage={pageImage('wine-hub').src}
 >
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 

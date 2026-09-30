@@ -13,6 +13,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { routeSlug, venueHref } from '../lib/editorial';
+import { allPageImages } from '../lib/page-images';
 export const prerender = true;
 
 type Ref = { src: string; alt?: string; credit?: string; caption?: string; license?: string; creator?: string; rightsStatus?: string };
@@ -49,6 +50,14 @@ for (const [name, hrefOf, titleOf] of COLLECTIONS) {
       if (!uses.some((u) => u.href === href)) uses.push({ title: titleOf(e), href });
     }
   }
+}
+
+// Hub heroes, link previews and homepage doors.
+const PAGE_TITLES: Record<string, string> = { '/': 'Home', '/eat/': 'Eat & Drink', '/wine/': 'Wine', '/stay/': 'Stay', '/explore/golf/': 'Golf', '/explore/spas-and-wellness/': 'Spas and wellness', '/eat/best-restaurants/': 'Best restaurants' };
+for (const image of allPageImages()) {
+  if (!photos.has(image.src)) photos.set(image.src, { ref: image as Ref, uses: [] });
+  const uses = photos.get(image.src)!.uses;
+  if (!uses.some((u) => u.href === image.page)) uses.push({ title: `${PAGE_TITLES[image.page] ?? image.page} (${image.role})`, href: image.page });
 }
 
 const byCredit = new Map<string, Array<{ ref: Ref; uses: Use[] }>>();

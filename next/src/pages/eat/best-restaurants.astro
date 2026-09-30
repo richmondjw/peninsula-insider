@@ -1,4 +1,5 @@
 ---
+import { pageImage } from '../../lib/page-images';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
@@ -83,6 +84,7 @@ export const prerender = true;
   description="The Peninsula Insider guide to the best restaurants on the Mornington Peninsula - vineyard dining rooms, cellar-door lunches, and the hatted kitchens worth booking weeks ahead."
   section="eat"
   canonical="https://peninsulainsider.com.au/eat/best-restaurants"
+  ogImage={pageImage('best-restaurants').src}
 >
   <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
@@ -92,9 +94,10 @@ export const prerender = true;
   <SubpageHero
   title="The Best Restaurants on the Mornington Peninsula"
   category="Best Restaurants"
-  heroImage="/images/sourced/article-hatted-restaurants-01.webp"
-  imageAlt="Open kitchen at a Peninsula fine dining restaurant - hatted dining on the Mornington Peninsula"
-  imageCaption="Peninsula fine dining"
+  heroImage={pageImage('best-restaurants').src}
+  imageAlt={pageImage('best-restaurants').alt}
+  imageCaption={pageImage('best-restaurants').caption}
+  imageCredit={pageImage('best-restaurants').credit}
   entitySlug="eat/best-restaurants"
   entityType="page"
 >

@@ -109,6 +109,25 @@ for (const file of files(CONTENT)) {
   }
 }
 
+// Page-level uses (hub heroes, link previews, homepage doors) live in one data
+// file; the same rules apply, keyed as pages/<key> in the ledger.
+const PAGE_IMAGES = path.join(NEXT, 'src/data/visit-victoria-page-images.json');
+if (fs.existsSync(PAGE_IMAGES)) {
+  for (const [key, ref] of Object.entries(JSON.parse(fs.readFileSync(PAGE_IMAGES, 'utf8')).images ?? {})) {
+    checked++;
+    const where = `src/data/visit-victoria-page-images.json ${key}`;
+    if (!ref.src?.startsWith(VV_DIR) || ref.license !== 'visit-victoria' || ref.rightsStatus !== 'recorded') fail(where, 'licence', 'must be a recorded visit-victoria photograph served from ' + VV_DIR);
+    if (!/courtesy of Visit Victoria/i.test(ref.credit ?? '')) fail(where, 'credit', `credit must name Visit Victoria, got "${ref.credit ?? ''}"`);
+    if (!/Mornington Peninsula/i.test(ref.caption ?? '')) fail(where, 'caption', `caption must name the region, got "${ref.caption ?? ''}"`);
+    const k = (ref.src?.match(/\/(vv-\d+)-/) || [])[1];
+    const w = k && works.get(k);
+    if (!w) fail(where, 'work', `${k ?? ref.src} is in no download catalogue`);
+    else if (w.status !== 'available') fail(where, 'work', `${k} is ${w.status}`);
+    if (!fs.existsSync(path.join(PUBLIC, (ref.src ?? '').split('?')[0]))) fail(where, 'file', `missing derivative ${ref.src}`);
+    if (!placed.has(`pages/${key}|${ref.src}`)) fail(where, 'ledger', 'not in ops/records/visit-victoria/placements.json (run ops/scripts/visit-victoria/record-placements.mjs)');
+  }
+}
+
 // Paid surfaces must not carry library photographs at all.
 for (const dir of ['src/pages/partners', 'src/pages/partner-with-us', 'src/components/partners']) {
   const abs = path.join(NEXT, dir);

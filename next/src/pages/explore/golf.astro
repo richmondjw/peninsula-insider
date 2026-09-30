@@ -1,4 +1,5 @@
 ---
+import { pageImage } from '../../lib/page-images';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
@@ -179,7 +180,7 @@ export const prerender = true;
   description="All 11 Mornington Peninsula golf courses assessed - Cape Schanck cluster, bay corridor, public green fees, stay-and-play options, and which course suits your game."
   section="explore"
   canonical="https://peninsulainsider.com.au/explore/golf/"
-  ogImage="/images/sourced/golf-rye-sunrise-01.webp"
+  ogImage={pageImage('golf-hub').src}
   modifiedTime="2026-04-30"
 >
   <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
@@ -197,9 +198,9 @@ export const prerender = true;
     title="Mornington Peninsula <em>Golf</em>"
     dek="Australia's most concentrated cluster of serious public-access golf. Three world-ranked courses within 10 minutes of each other, all within 90 minutes of Melbourne."
     meta={[{ label: '3 world-ranked' }, { label: '12 min read' }]}
-    heroImage="/images/sourced/golf-rye-sunrise-01.webp"
-    imageAlt="Coastal golf landscape on the Mornington Peninsula at sunrise"
-    imageCredit="Peninsula Insider"
+    heroImage={pageImage('golf-hub').src}
+    imageAlt={pageImage('golf-hub').alt}
+    imageCredit={pageImage('golf-hub').credit}
     entitySlug="explore/golf"
   />
 

@@ -18,6 +18,7 @@
  * div carried data-facets and inflated the result count by one. The
  * reciprocal module on /wine/ still points here.
  */
+import { pageImage } from '../../lib/page-images';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import HubStandfirst from '../../components/v5/hub/HubStandfirst.astro';
@@ -260,7 +261,7 @@ export const prerender = true;
   section="eat"
   canonical="https://peninsulainsider.com.au/eat/"
   modifiedTime="2026-07-30"
-  ogImage="/images/sourced/venue-tedesca-osteria-01.webp"
+  ogImage={pageImage('eat-hub').src}
 >
   <script type="application/ld+json" set:html={JSON.stringify(pillarSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />

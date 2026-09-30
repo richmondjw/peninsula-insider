@@ -50,10 +50,9 @@ const map = JSON.parse(fs.readFileSync(path.join(REC, 'entity-map.json'), 'utf8'
 const works = JSON.parse(fs.readFileSync(path.join(REC, `download-${map.batch}`, 'catalogue.json'), 'utf8')).works;
 const ledger = JSON.parse(fs.readFileSync(path.join(REC, 'placements.json'), 'utf8'));
 const placed = new Set(ledger.placements.map((p) => p.assetKey));
-const rejected = new Set([
-  ...map.rejected?.map((r) => r.assetKey) ?? [],
-  ...(fs.existsSync(path.join(REC, 'pass3-map.json')) ? JSON.parse(fs.readFileSync(path.join(REC, 'pass3-map.json'), 'utf8')).rejected.map((r) => r.assetKey) : []),
-]);
+// Rejections from every approval record (entity-map.json and each *-map.json).
+const rejected = new Set(fs.readdirSync(REC).filter((f) => f.endsWith('map.json'))
+  .flatMap((f) => (JSON.parse(fs.readFileSync(path.join(REC, f), 'utf8')).rejected ?? []).map((r) => r.assetKey)));
 const STOP = new Set(['the', 'at', 'and', 'of', 'a', 'in', 'on', 'mornington', 'peninsula', 'estate', 'golf', 'course', 'winery', 'hotel', 'club', 'links']);
 const toks = (s) => String(s || '').toLowerCase().replace(/[^a-z0-9 ]+/g, ' ').split(/\s+/).filter((t) => t && !STOP.has(t));
 const pages = [];

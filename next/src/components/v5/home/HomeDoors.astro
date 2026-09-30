@@ -12,6 +12,7 @@
  * visible (spec 1.22 allows hover reveal; content must be visible by
  * default on touch, so we show it everywhere - no motion, no surprises).
  */
+import { pageImage } from '../../../lib/page-images';
 import { resolveHero } from '../../../lib/inline-edit/resolve-hero';
 import { editableImage } from '../../../lib/inline-edit/attrs';
 
@@ -32,8 +33,8 @@ const doors = [
     href: '/stay/',
     line: 'From a weekend shack to a cliff house',
     fallback: {
-      src: '/images/sourced/venue-jackalope-hotel-01.webp',
-      alt: 'Jackalope Hotel, Merricks North vineyard at dusk',
+      src: pageImage('home-door-stay').src,
+      alt: pageImage('home-door-stay').alt,
     },
   },
   {

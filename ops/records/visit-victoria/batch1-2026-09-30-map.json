@@ -1,0 +1,230 @@
+{
+ "record": "Visit Victoria approvals (batch1-2026-09-30-map.json)",
+ "approvedBy": "james (comprehensive implementation approved 2026-09-29: \"go for it\")",
+ "approvedAt": "2026-09-30T00:07:40.800Z",
+ "altBy": "claude-vision-draft",
+ "writtenBy": "ops/scripts/visit-victoria/apply-pass3.mjs",
+ "approved": [
+  {
+   "assetKey": "vv-165111",
+   "entity": "venues/jackalope"
+  },
+  {
+   "assetKey": "vv-165119",
+   "entity": "venues/jackalope"
+  },
+  {
+   "assetKey": "vv-165121",
+   "entity": "venues/jackalope"
+  },
+  {
+   "assetKey": "vv-165126",
+   "entity": "venues/jackalope"
+  },
+  {
+   "assetKey": "vv-165131",
+   "entity": "venues/jackalope"
+  },
+  {
+   "assetKey": "vv-165134",
+   "entity": "venues/jackalope"
+  },
+  {
+   "assetKey": "vv-165140",
+   "entity": "venues/jackalope"
+  },
+  {
+   "assetKey": "vv-25061211",
+   "entity": "venues/lindenderry"
+  },
+  {
+   "assetKey": "vv-25061213",
+   "entity": "venues/lindenderry"
+  },
+  {
+   "assetKey": "vv-25061215",
+   "entity": "venues/lindenderry"
+  },
+  {
+   "assetKey": "vv-25061216",
+   "entity": "venues/lindenderry"
+  },
+  {
+   "assetKey": "vv-25061221",
+   "entity": "venues/lindenderry"
+  },
+  {
+   "assetKey": "vv-25061223",
+   "entity": "venues/lindenderry"
+  },
+  {
+   "assetKey": "vv-164276",
+   "entity": "venues/crittenden-estate"
+  },
+  {
+   "assetKey": "vv-164295",
+   "entity": "venues/crittenden-estate"
+  },
+  {
+   "assetKey": "vv-164306",
+   "entity": "venues/crittenden-estate"
+  },
+  {
+   "assetKey": "vv-164675",
+   "entity": "venues/crittenden-estate"
+  },
+  {
+   "assetKey": "vv-164690",
+   "entity": "venues/crittenden-estate"
+  },
+  {
+   "assetKey": "vv-164699",
+   "entity": "venues/crittenden-estate"
+  },
+  {
+   "assetKey": "vv-164702",
+   "entity": "venues/crittenden-estate"
+  },
+  {
+   "assetKey": "vv-143806",
+   "entity": "venues/trofeo-estate"
+  },
+  {
+   "assetKey": "vv-143812",
+   "entity": "venues/trofeo-estate"
+  },
+  {
+   "assetKey": "vv-169296",
+   "entity": "venues/trofeo-estate"
+  },
+  {
+   "assetKey": "vv-169297",
+   "entity": "venues/trofeo-estate"
+  },
+  {
+   "assetKey": "vv-169315",
+   "entity": "venues/trofeo-estate"
+  },
+  {
+   "assetKey": "vv-169320",
+   "entity": "venues/trofeo-estate"
+  },
+  {
+   "assetKey": "vv-169322",
+   "entity": "venues/trofeo-estate"
+  },
+  {
+   "assetKey": "vv-160357",
+   "entity": "venues/montalto"
+  },
+  {
+   "assetKey": "vv-160362",
+   "entity": "venues/montalto"
+  },
+  {
+   "assetKey": "vv-160372",
+   "entity": "venues/montalto"
+  },
+  {
+   "assetKey": "vv-160383",
+   "entity": "venues/montalto"
+  },
+  {
+   "assetKey": "vv-26070101",
+   "entity": "venues/montalto"
+  },
+  {
+   "assetKey": "vv-26070104",
+   "entity": "venues/montalto"
+  },
+  {
+   "assetKey": "vv-26070107",
+   "entity": "venues/montalto"
+  },
+  {
+   "assetKey": "vv-162200",
+   "entity": "venues/pt-leo-estate"
+  },
+  {
+   "assetKey": "vv-162210",
+   "entity": "venues/pt-leo-estate"
+  },
+  {
+   "assetKey": "vv-162221",
+   "entity": "venues/pt-leo-estate"
+  },
+  {
+   "assetKey": "vv-162229",
+   "entity": "venues/pt-leo-estate"
+  },
+  {
+   "assetKey": "vv-162239",
+   "entity": "venues/pt-leo-estate"
+  },
+  {
+   "assetKey": "vv-163865",
+   "entity": "venues/pt-leo-estate"
+  },
+  {
+   "assetKey": "vv-164958",
+   "entity": "venues/pt-leo-estate"
+  },
+  {
+   "assetKey": "vv-148987",
+   "entity": "venues/peninsula-hot-springs"
+  },
+  {
+   "assetKey": "vv-149017",
+   "entity": "venues/peninsula-hot-springs"
+  },
+  {
+   "assetKey": "vv-149040",
+   "entity": "venues/peninsula-hot-springs"
+  },
+  {
+   "assetKey": "vv-160845",
+   "entity": "venues/peninsula-hot-springs"
+  },
+  {
+   "assetKey": "vv-160866",
+   "entity": "venues/peninsula-hot-springs"
+  },
+  {
+   "assetKey": "vv-161935",
+   "entity": "venues/peninsula-hot-springs"
+  },
+  {
+   "assetKey": "vv-26070121",
+   "entity": "venues/peninsula-hot-springs"
+  },
+  {
+   "assetKey": "vv-161279",
+   "entity": "venues/alba-thermal-springs"
+  },
+  {
+   "assetKey": "vv-163799",
+   "entity": "venues/alba-thermal-springs"
+  },
+  {
+   "assetKey": "vv-163806",
+   "entity": "venues/alba-thermal-springs"
+  },
+  {
+   "assetKey": "vv-163813",
+   "entity": "venues/alba-thermal-springs"
+  },
+  {
+   "assetKey": "vv-163821",
+   "entity": "venues/alba-thermal-springs"
+  },
+  {
+   "assetKey": "vv-163824",
+   "entity": "venues/alba-thermal-springs"
+  },
+  {
+   "assetKey": "vv-163827",
+   "entity": "venues/alba-thermal-springs"
+  }
+ ],
+ "rejected": []
+}

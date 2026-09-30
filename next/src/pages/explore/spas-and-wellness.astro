@@ -1,4 +1,5 @@
 ---
+import { pageImage } from '../../lib/page-images';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
@@ -215,7 +216,7 @@ export const prerender = true;
   description="Ranked editorial guide to day spas and wellness experiences on the Mornington Peninsula - Jackalope, Endota, Peninsula Hot Springs treatments, and more."
   section="explore"
   canonical="https://peninsulainsider.com.au/explore/spas-and-wellness/"
-  ogImage="/images/sourced/spa-dark-boutique-room-01.webp"
+  ogImage={pageImage('spas-hub').src}
 >
   <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />

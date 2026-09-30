@@ -16,6 +16,8 @@ import ItineraryCard from '../../components/ItineraryCard.astro';
 import PlaceCard from '../../components/PlaceCard.astro';
 import CorrectionNote from '../../components/CorrectionNote.astro';
 import MediaProvenanceNote from '../../components/MediaProvenanceNote.astro';
+import PhotoStage from '../../components/PhotoStage.astro';
+import { verifiedPhotos, STAGE_MIN } from '../../lib/photo-set';
 import HubGuideTOC from '../../components/HubGuideTOC.astro';
 import { visibleArticleTags, isJournalDiscovery } from '../../lib/journal-curation.mjs';
 import { formatLabel, routeSlug, venueHrefPrefix, titleize, formatHeroCredit, isListableVenue } from '../../lib/editorial';
@@ -177,6 +179,9 @@ const { alt: heroAlt, presentation: heroPresentation } = altFor(hero, article.da
 // and an essay hero makes the same implicit promise a venue page's does
 // when the copy underneath names specific businesses.
 const heroProvenance = hero.override ? null : article.data.heroImage;
+// Licensed photographs of the places the article covers, as a filmstrip under
+// the hero. The hero itself stays the article's own choice.
+const articlePhotos = verifiedPhotos({ gallery: (article.data as any).gallery ?? [] });
 
 const canonical = `https://peninsulainsider.com.au/journal/${slug}/`;
 const ogImage = hero.src;
@@ -378,6 +383,11 @@ export const prerender = true;
           </figure>)}
         </div>
       </div>
+      {articlePhotos.length >= STAGE_MIN && (
+        <div class="container article-photos">
+          <PhotoStage photos={articlePhotos} subject={article.data.title} id="photos" variant="strip" />
+        </div>
+      )}
     </header>
 
     <div class={`container${headings.length ? ' article-body--hub' : ''}`}>
@@ -665,4 +675,10 @@ export const prerender = true;
     color: var(--text);
     line-height: var(--lh-body);
   }
+</style>
+
+<style>
+  /* Filmstrip of the places an article covers, under the hero. */
+  .article-photos { padding-block-start: clamp(1rem, 2vw, 1.5rem); }
+  .article-photos :global(.pstage) { margin-block-end: 0; }
 </style>

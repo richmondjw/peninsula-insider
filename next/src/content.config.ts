@@ -970,6 +970,9 @@ const articles = defineCollection({
     publishedAt: z.coerce.date(),
     updatedAt: z.coerce.date().optional(),
     heroImage: imageRef,
+    // Licensed photographs of the places an article covers, shown as a
+    // filmstrip under the hero (ops/records/visit-victoria, src/lib/photo-set.ts).
+    gallery: z.array(imageRef).default([]),
     format: z.enum([
       'editors-letter',
       'long-lunch-list',

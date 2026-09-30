@@ -63,6 +63,14 @@ for (const file of files(CONTENT)) {
     if (!have.has(k)) missing.push({ assetKey: (ref.src.match(/\/(vv-\d+)-/) || [])[1] ?? null, surface: 'site', entity, field, src: ref.src, role: 'recorded-from-tree', recordedAt: new Date().toISOString() });
   }
 }
+const pageImagesFile = path.join(REPO, 'next/src/data/visit-victoria-page-images.json');
+if (fs.existsSync(pageImagesFile)) {
+  for (const [key, ref] of Object.entries(JSON.parse(fs.readFileSync(pageImagesFile, 'utf8')).images ?? {})) {
+    const k = `pages/${key}|${ref.src}`;
+    seen.add(k);
+    if (!have.has(k)) missing.push({ assetKey: (ref.src.match(/\/(vv-\d+)-/) || [])[1] ?? null, surface: 'site', entity: `pages/${key}`, field: ref.role, src: ref.src, page: ref.page, role: 'page-image', recordedAt: new Date().toISOString() });
+  }
+}
 const gone = ledger.placements.filter((p) => p.surface === 'site' && !seen.has(`${p.entity}|${p.src}`) && !p.removedFromTree);
 
 console.log(`missing from ledger: ${missing.length}`);

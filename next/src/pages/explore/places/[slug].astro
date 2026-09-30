@@ -1,4 +1,5 @@
 ---
+import { schemaImage } from '../../../lib/photo-set';
 import { getCollection } from 'astro:content';
 import { isCancelledEvent } from '../../whats-on/_data';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
@@ -315,6 +316,7 @@ const placeSchema = {
   '@type': 'TouristDestination',
   '@id': `${canonical}#TouristDestination`,
   name: place.data.name,
+  ...schemaImage(place.data),
   // Prefer the factual lede for JSON-LD description (schema-friendly, AI-extractable);
   // fall back to the editorial intro for places that haven't been given a lede yet.
   description: place.data.factualLede ?? place.data.intro,

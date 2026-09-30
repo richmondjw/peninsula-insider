@@ -23,9 +23,13 @@ const require = createRequire(path.join(REPO, 'next/package.json'));
 const args = process.argv.slice(2);
 const arg = (n) => { const i = args.indexOf(n); return i >= 0 ? args[i + 1] : null; };
 const WRITE = args.includes('--write');
+// --no-hero: add to galleries only; never change an entity's hero.
+const NO_HERO = args.includes('--no-hero');
 const PICKED = JSON.parse(fs.readFileSync(arg('--picked'), 'utf8'));
 const ANN = new Map(JSON.parse(fs.readFileSync(arg('--annotations'), 'utf8')).map((a) => [a.assetKey, a]));
 const SOURCE = arg('--source');
+// Each batch writes its own approval record; never overwrite an earlier one.
+const MAP_NAME = arg('--map') ?? 'pass3-map.json';
 const REC = path.join(REPO, 'ops/records/visit-victoria');
 const C = path.join(REPO, 'next/src/content');
 const map = JSON.parse(fs.readFileSync(path.join(REC, 'entity-map.json'), 'utf8'));
@@ -95,7 +99,7 @@ for (const [target, works] of byTarget) {
   const gallery = d.gallery ?? [];
   // A venue whose new Works include an aerial or establishing landscape leads with it.
   let heroSet = false;
-  if (target.startsWith('venues/')) {
+  if (target.startsWith('venues/') && !NO_HERO) {
     const lead = refs.find((r) => ['aerial', 'establishing'].includes(r.a.shotType) && r.w.orientation === 'landscape');
     if (lead) {
       if (d.heroImage?.src) gallery.unshift(d.heroImage);
@@ -144,8 +148,9 @@ const annRec = JSON.parse(fs.readFileSync(annPath, 'utf8'));
 const known = new Set(annRec.works.map((a) => a.assetKey));
 for (const p of PICKED) { const a = ANN.get(p.assetKey); if (a && !known.has(a.assetKey)) annRec.works.push({ ...a, pass: 3 }); }
 fs.writeFileSync(annPath, JSON.stringify(annRec, null, 1) + '\n');
-fs.writeFileSync(path.join(REC, 'pass3-map.json'), JSON.stringify({
-  record: 'Visit Victoria pass 3 approvals',
+if (fs.existsSync(path.join(REC, MAP_NAME))) throw new Error(`${MAP_NAME} already exists; pass --map <new-name>`);
+fs.writeFileSync(path.join(REC, MAP_NAME), JSON.stringify({
+  record: `Visit Victoria approvals (${MAP_NAME})`,
   approvedBy: 'james (comprehensive implementation approved 2026-09-29: "go for it")',
   approvedAt: new Date().toISOString(),
   altBy: 'claude-vision-draft',
@@ -155,9 +160,9 @@ fs.writeFileSync(path.join(REC, 'pass3-map.json'), JSON.stringify({
 const lp = path.join(REC, 'placements.json');
 const ledger = JSON.parse(fs.readFileSync(lp, 'utf8'));
 // Merge, never replace: the ledger is the record of every use for takedowns,
-  // and a later run of this pass only knows about the rows it made itself.
-  const known = new Set(ledger.placements.map((p) => `${p.surface}|${p.entity}|${p.src}`));
-  ledger.placements.push(...placements.filter((p) => !known.has(`${p.surface}|${p.entity}|${p.src}`)));
+// and a later run of this pass only knows about the rows it made itself.
+const recorded = new Set(ledger.placements.map((p) => `${p.surface}|${p.entity}|${p.src}`));
+ledger.placements.push(...placements.filter((p) => !recorded.has(`${p.surface}|${p.entity}|${p.src}`)));
 ledger.pass3At = new Date().toISOString();
 fs.writeFileSync(lp, JSON.stringify(ledger, null, 1) + '\n');
 console.log(`derivatives made ${made}; placements ${placements.length}; rejected ${rejected.length}`);

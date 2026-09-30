@@ -16,6 +16,7 @@
  * ONE filter state governs The Six and the directory: the single FilterBar
  * below the stand-first renders #pi-results-status and the paired sheet;
  */
+import { pageImage } from '../../lib/page-images';
 import { getCollection } from 'astro:content';
 import { informationCheckedOn } from '../../lib/verification-date.mjs';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
@@ -223,7 +224,7 @@ export const prerender = true;
   section="stay"
   canonical="https://peninsulainsider.com.au/stay"
   modifiedTime="2026-04-30"
-  ogImage="/images/sourced/venue-jackalope-hotel-01.webp"
+  ogImage={pageImage('stay-hub').src}
 >
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
