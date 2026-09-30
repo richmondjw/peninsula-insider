@@ -1,0 +1,159 @@
+{
+ "record": "Visit Victoria approvals (batch2-2026-09-30-map.json)",
+ "approvedBy": "james (comprehensive implementation approved 2026-09-29: \"go for it\")",
+ "approvedAt": "2026-09-30T01:48:43.245Z",
+ "altBy": "claude-vision-draft",
+ "writtenBy": "ops/scripts/visit-victoria/apply-pass3.mjs",
+ "approved": [
+  {
+   "assetKey": "vv-157365",
+   "entity": "experiences/flinders-golf-club"
+  },
+  {
+   "assetKey": "vv-157374",
+   "entity": "experiences/flinders-golf-club"
+  },
+  {
+   "assetKey": "vv-157395",
+   "entity": "experiences/flinders-golf-club"
+  },
+  {
+   "assetKey": "vv-157401",
+   "entity": "experiences/flinders-golf-club"
+  },
+  {
+   "assetKey": "vv-157417",
+   "entity": "experiences/flinders-golf-club"
+  },
+  {
+   "assetKey": "vv-157424",
+   "entity": "experiences/flinders-golf-club"
+  },
+  {
+   "assetKey": "vv-157428",
+   "entity": "experiences/flinders-golf-club"
+  },
+  {
+   "assetKey": "vv-157431",
+   "entity": "experiences/flinders-golf-club"
+  },
+  {
+   "assetKey": "vv-157432",
+   "entity": "experiences/flinders-golf-club"
+  },
+  {
+   "assetKey": "vv-157438",
+   "entity": "experiences/flinders-golf-club"
+  },
+  {
+   "assetKey": "vv-157439",
+   "entity": "experiences/flinders-golf-club"
+  },
+  {
+   "assetKey": "vv-157445",
+   "entity": "experiences/flinders-golf-club"
+  },
+  {
+   "assetKey": "vv-157362",
+   "entity": "experiences/moonah-links"
+  },
+  {
+   "assetKey": "vv-157386",
+   "entity": "experiences/moonah-links"
+  },
+  {
+   "assetKey": "vv-157392",
+   "entity": "experiences/moonah-links"
+  },
+  {
+   "assetKey": "vv-157408",
+   "entity": "experiences/moonah-links"
+  },
+  {
+   "assetKey": "vv-157411",
+   "entity": "experiences/moonah-links"
+  },
+  {
+   "assetKey": "vv-157436",
+   "entity": "experiences/moonah-links"
+  },
+  {
+   "assetKey": "vv-157443",
+   "entity": "experiences/moonah-links"
+  },
+  {
+   "assetKey": "vv-157444",
+   "entity": "experiences/moonah-links"
+  },
+  {
+   "assetKey": "vv-157447",
+   "entity": "experiences/moonah-links"
+  },
+  {
+   "assetKey": "vv-161339",
+   "entity": "venues/the-continental-sorrento"
+  },
+  {
+   "assetKey": "vv-161330",
+   "entity": "venues/the-continental-sorrento"
+  },
+  {
+   "assetKey": "vv-161336",
+   "entity": "venues/the-continental-sorrento"
+  },
+  {
+   "assetKey": "vv-161344",
+   "entity": "venues/the-continental-sorrento"
+  },
+  {
+   "assetKey": "vv-161346",
+   "entity": "venues/the-continental-sorrento"
+  },
+  {
+   "assetKey": "vv-161356",
+   "entity": "venues/the-continental-sorrento"
+  },
+  {
+   "assetKey": "vv-161357",
+   "entity": "venues/the-continental-sorrento"
+  },
+  {
+   "assetKey": "vv-161360",
+   "entity": "venues/the-continental-sorrento"
+  },
+  {
+   "assetKey": "vv-26070133",
+   "entity": "experiences/point-nepean-national-park"
+  },
+  {
+   "assetKey": "vv-26070134",
+   "entity": "experiences/point-nepean-national-park"
+  },
+  {
+   "assetKey": "vv-26070135",
+   "entity": "experiences/point-nepean-national-park"
+  },
+  {
+   "assetKey": "vv-164542",
+   "entity": "experiences/point-nepean-national-park"
+  },
+  {
+   "assetKey": "vv-157336",
+   "entity": "experiences/the-dunes-golf-links"
+  },
+  {
+   "assetKey": "vv-157342",
+   "entity": "experiences/the-dunes-golf-links"
+  },
+  {
+   "assetKey": "vv-157345",
+   "entity": "experiences/the-dunes-golf-links"
+  }
+ ],
+ "rejected": [
+  {
+   "assetKey": "vv-159672",
+   "why": "Shows the Arthurs Seat Eagle gondola over Dromana and Port Phillip Bay; subject title places it at Mount Martha, so confirm the page fits."
+  }
+ ]
+}

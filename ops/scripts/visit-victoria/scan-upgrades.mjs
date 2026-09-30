@@ -101,7 +101,7 @@ for (const w of works) {
   bucket.get(k).subjects.add(w.subject);
   bucket.get(k).works.push(w.assetKey);
 }
-const toList = (m) => [...m].map(([k, v]) => ({ key: k, page: v.page, subjects: [...v.subjects], count: v.works.length, sample: v.works.slice(0, 5) }))
+const toList = (m) => [...m].map(([k, v]) => ({ key: k, page: v.page, subjects: [...v.subjects], count: v.works.length, sample: v.works.slice(0, 5), works: v.works }))
   .sort((a, b) => b.count - a.count);
 const suggestList = toList(suggest);
 const listingList = toList(listings);

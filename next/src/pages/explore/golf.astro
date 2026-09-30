@@ -4,6 +4,8 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import GuideHero from '../../components/GuideHero.astro';
+import PhotoStage from '../../components/PhotoStage.astro';
+import { verifiedPhotos } from '../../lib/photo-set';
 import CompareBlock from '../../components/CompareBlock.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import {
@@ -45,6 +47,12 @@ const heroStAndrews = await resolveArticleHero(
 // ── Load golf courses from experiences collection ─────────────────────────────
 const allExperiences = await getCollection('experiences');
 const golfCourses = allExperiences.filter(e => e.data.type === 'golf-course');
+
+// The hub's filmstrip: verified photographs of the courses themselves, two per
+// course taken in turn so no one course fills the strip, never the hero again.
+const golfHeroSrc = pageImage('golf-hub').src;
+const golfPhotoSets = golfCourses.map(c => verifiedPhotos(c.data).filter(p => p.src !== golfHeroSrc).slice(0, 2)).filter(set => set.length);
+const golfPhotos = [0, 1].flatMap(i => golfPhotoSets.map(set => set[i]).filter(Boolean)).slice(0, 12);
 
 // Cape Schanck / Fingal cluster - editorial order
 const capeOrder = [
@@ -203,6 +211,12 @@ export const prerender = true;
     imageCredit={pageImage('golf-hub').credit}
     entitySlug="explore/golf"
   />
+
+  {golfPhotos.length >= 3 && (
+    <div class="container golf-photos">
+      <PhotoStage photos={golfPhotos} subject="Mornington Peninsula golf courses" id="golf-photos" variant="strip" />
+    </div>
+  )}
 
   <!-- ═══════════════════════════════════════════════════════════════
        2. ORIENTATION: Cape Schanck vs Bay Corridor
@@ -714,7 +728,9 @@ export const prerender = true;
 </BaseLayout>
 
 <style>
-  /* ─────────────────────────────────────────────────────────────────
+  .golf-photos { padding-block-start: clamp(1rem, 2vw, 1.5rem); }
+  .golf-photos :global(.pstage) { margin-block-end: 0; }
+  /*─────────────────────────────────────────────────────────────────
      GOLF CARD GRID
      ───────────────────────────────────────────────────────────────── */
   .golf-grid {
