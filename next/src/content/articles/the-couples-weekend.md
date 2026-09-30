@@ -1,6 +1,6 @@
 ---
-title: "The Couples' Weekend: A Two-Night Peninsula Itinerary for People Who Don't Need Activities"
-dek: "One proper dinner, one long lunch, one afternoon doing nothing useful. The Peninsula couples' weekend that respects the fact that you came here to slow down, not to optimise."
+title: "A Two-Night Peninsula Weekend for Two"
+dek: "One memorable dinner, a long lunch and an afternoon with no agenda. A slower Mornington Peninsula weekend for two."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-04-10

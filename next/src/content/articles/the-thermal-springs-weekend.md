@@ -1,6 +1,6 @@
 ---
-title: "The Thermal Springs Weekend: How to Do Wellness on the Peninsula Without Wasting It"
-dek: "Most people arrive at the Peninsula's thermal baths with a ticket and no plan. That is why most people leave faintly disappointed. Here is the version that actually works."
+title: "The Peninsula Thermal Springs Weekend"
+dek: "Choose the baths first, then keep your stay, dinner and coastal walk close. A calmer two-night plan for Alba or Peninsula Hot Springs."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-04-09

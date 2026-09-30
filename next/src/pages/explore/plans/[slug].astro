@@ -379,7 +379,7 @@ export const prerender = true;
     <Breadcrumbs items={aBreadcrumbs} />
   </div>
 
-  <article class="pl-article">
+  <article class:list={['pl-article', isOneNightGuide && 'pl-article--one-night']}>
     {/* ── Cover spread ──────────────────────────────────────────────── */}
     <header class="pl-cover" aria-label="Cover">
       <div class="pl-container pl-cover__inner">
@@ -450,37 +450,6 @@ export const prerender = true;
     </header>
 
     {/* ── At-a-glance card - replaces "The short version" block ──────── */}
-    {ad.aiSummary && ad.aiSummary.length > 0 && (
-      <section class="pl-glance" aria-label="At a glance">
-        <div class="pl-container pl-glance__inner">
-          <p class="pl-eyebrow pl-glance__eyebrow">At a glance</p>
-          <div class="pl-glance__body">
-            <ol class="pl-glance__list">
-              {ad.aiSummary.slice(0, 3).map((item: string, i: number) => (
-                <li class="pl-glance__item">
-                  <span class="pl-glance__num">{String(i + 1).padStart(2, '0')}</span>
-                  <span class="pl-glance__text">{item}</span>
-                </li>
-              ))}
-            </ol>
-            {ad.aiSummary.length > 3 && (
-              <details class="pl-glance__more">
-                <summary>More planning notes <span aria-hidden="true">+</span></summary>
-                <ol class="pl-glance__list pl-glance__list--more" start="4">
-                  {ad.aiSummary.slice(3, 5).map((item: string, i: number) => (
-                    <li class="pl-glance__item">
-                      <span class="pl-glance__num">{String(i + 4).padStart(2, '0')}</span>
-                      <span class="pl-glance__text">{item}</span>
-                    </li>
-                  ))}
-                </ol>
-              </details>
-            )}
-          </div>
-        </div>
-      </section>
-    )}
-
     {isOneNightGuide && (
       <section class="pl-choices" id="choose-your-base" aria-labelledby="pl-choices-title">
         <div class="pl-container">
@@ -499,6 +468,43 @@ export const prerender = true;
                 <span class="pl-choices__link">See this version <span aria-hidden="true">↗</span></span>
               </a>
             ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    {ad.aiSummary && ad.aiSummary.length > 0 && (
+      <section class="pl-glance" aria-label="At a glance">
+        <div class="pl-container pl-glance__inner">
+          <p class="pl-eyebrow pl-glance__eyebrow">At a glance</p>
+          <div class="pl-glance__body">
+            <ol class="pl-glance__list">
+              {ad.aiSummary.slice(0, 3).map((item: string, i: number) => (
+                <li class="pl-glance__item">
+                  <span class="pl-glance__num">{String(i + 1).padStart(2, '0')}</span>
+                  <span class="pl-glance__text">{item}</span>
+                </li>
+              ))}
+            </ol>
+            {isOneNightGuide && (
+              <div class="pl-glance__next">
+                <p><strong>Book first:</strong> one room and one dinner near it. Confirm availability, Sunday breakfast hours, walk access and weather for your dates; add a thermal session only if it fits the route.</p>
+                <a href="/explore/plans/#build">Build your own trip <span aria-hidden="true">&rarr;</span></a>
+              </div>
+            )}
+            {ad.aiSummary.length > 3 && (
+              <details class="pl-glance__more">
+                <summary>More planning notes <span aria-hidden="true">+</span></summary>
+                <ol class="pl-glance__list pl-glance__list--more" start="4">
+                  {ad.aiSummary.slice(3, 5).map((item: string, i: number) => (
+                    <li class="pl-glance__item">
+                      <span class="pl-glance__num">{String(i + 4).padStart(2, '0')}</span>
+                      <span class="pl-glance__text">{item}</span>
+                    </li>
+                  ))}
+                </ol>
+              </details>
+            )}
           </div>
         </div>
       </section>
@@ -528,6 +534,7 @@ export const prerender = true;
             <p class="pl-eyebrow">Take the trip</p>
             <h2 id="pl-takeaway-title">One room. One dinner. One slow morning.</h2>
             <p>Choose your area, reserve the stay and dinner, then check the current opening hours and conditions before you leave.</p>
+            <p class="pl-takeaway__follow">Want another weekend idea later? <a href="/dispatch/">The Insider Note</a> is an occasional email from our editors.</p>
           </div>
           <a class="pl-action pl-action--primary" href="/explore/plans/#build">Find a plan for your trip <span aria-hidden="true">↗</span></a>
         </div>
@@ -1186,6 +1193,10 @@ export const prerender = true;
   }
 
   /* ── Essay typography ────────────────────────────────────────── */
+  .pl-glance__next { margin-top: 1.5rem; border-top: 1px solid rgba(20, 32, 42, 0.18); padding-top: 1rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .6rem 1.5rem; }
+  .pl-glance__next p { margin: 0; max-width: 55ch; font: 400 .92rem/1.5 var(--font-ui); color: #243746; }
+  .pl-glance__next strong { color: #0B2E4A; }
+  .pl-glance__next a { display: inline-flex; align-items: center; min-height: 44px; gap: .35rem; color: #10527E; font: 700 .84rem/1.3 var(--font-ui); text-underline-offset: .2em; }
   .pl-essay {
     background: #FFFFFF;
     padding: clamp(3rem, 6vw, 5rem) 0 clamp(3rem, 6vw, 5rem);
@@ -1319,7 +1330,9 @@ export const prerender = true;
   .pl-takeaway__inner { display: flex; align-items: end; justify-content: space-between; gap: 1.5rem 3rem; }
   .pl-takeaway .pl-eyebrow { margin-bottom: .7rem; color: #10527E; }
   .pl-takeaway h2 { font: 700 clamp(1.7rem, 2.5vw, 2.25rem)/1.15 var(--font-display); color: #0B2E4A; letter-spacing: -.02em; margin: 0 0 .65rem; max-width: 24ch; }
-  .pl-takeaway p:last-child { font: 400 1rem/1.55 var(--font-ui); color: #3E5361; margin: 0; max-width: 58ch; }
+  .pl-takeaway p:not(.pl-eyebrow) { font: 400 1rem/1.55 var(--font-ui); color: #3E5361; margin: 0; max-width: 58ch; }
+  .pl-takeaway__follow { margin-top: .8rem !important; }
+  .pl-takeaway__follow a { color: #10527E; font-weight: 700; text-underline-offset: .2em; }
   .pl-takeaway .pl-action { flex: 0 0 auto; }
 
   /* ── FAQ ─────────────────────────────────────────────────────── */
@@ -1462,5 +1475,22 @@ export const prerender = true;
     .pl-cover__headline { font-size: clamp(2rem, 9vw, 2.7rem); }
     .pl-cover__headline--long { font-size: clamp(1.9rem, 7.6vw, 2.3rem); }
     .pl-prose { font-size: 1.07rem; line-height: 1.66; }
+    /* The one-night decision comes before the full reading path on phones. */
+    .pl-article--one-night .pl-cover { padding: 1.5rem 0 2rem; }
+    .pl-article--one-night .pl-cover__inner { gap: 1.3rem; }
+    .pl-article--one-night .pl-cover__frame { aspect-ratio: 16 / 10; }
+    .pl-article--one-night .pl-choices { padding: 2rem 0; }
+    .pl-article--one-night .pl-choices__head { margin-bottom: 1.25rem; }
+    .pl-article--one-night .pl-choices__head h2 { font-size: 1.8rem; margin-bottom: .55rem; }
+    .pl-article--one-night .pl-choices__head p:last-child { font-size: .95rem; }
+    .pl-article--one-night .pl-choices__grid { gap: .6rem; }
+    .pl-article--one-night .pl-choices__card { min-height: 0; padding: 1rem 1.15rem; }
+    .pl-article--one-night .pl-choices__num { margin-bottom: .55rem; }
+    .pl-article--one-night .pl-choices__detail { margin: .5rem 0 .65rem; font-size: .92rem; }
+    .pl-article--one-night .pl-glance { padding: 2rem 0; }
+    .pl-article--one-night .pl-glance__inner { gap: 1rem; }
+    .pl-article--one-night .pl-glance__list { gap: .5rem; }
+    .pl-article--one-night .pl-glance__item { grid-template-columns: 2rem 1fr; gap: .7rem; padding-top: .7rem; }
+    .pl-article--one-night .pl-glance__text { font-size: .95rem; line-height: 1.5; }
   }
 </style>
