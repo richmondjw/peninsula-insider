@@ -8424,6 +8424,7 @@ body[data-path^="/ask"] .concierge-fab {
   z-index: 90; /* local value: below every tier in the layering scale */
   box-shadow: 0 8px 24px rgba(0, 40, 34, 0.22);
   opacity: 0;
+  visibility: hidden;
   transform: translateY(8px);
   pointer-events: none;
   transition: opacity 0.28s var(--ease),
@@ -8440,6 +8441,7 @@ body[data-path^="/ask"] .concierge-fab {
    scroll script in BaseLayout toggles past the 50% mark. */
 body.show-subscribe-pill .subscribe-pill {
   opacity: 1;
+  visibility: visible;
   transform: translateY(0);
   pointer-events: auto;
 }
@@ -8453,10 +8455,12 @@ body[data-path^="/account"] .subscribe-pill {
   display: none !important;
 }
 
-/* When the mobile menu is open, hide the pill so it doesn't show
+/* When the mobile menu or concierge is open, hide the pill so it doesn't show
    through the overlay. body.menu-open is toggled by the burger. */
-body.menu-open .subscribe-pill {
+body.menu-open .subscribe-pill,
+body.concierge-open .subscribe-pill {
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
 }
 

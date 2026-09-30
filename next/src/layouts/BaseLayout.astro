@@ -549,7 +549,8 @@ const showNewsletterPopup = !isPlanningJourney && normalizedPath !== '/agents/' 
   </script>
 
   <!-- Sticky Subscribe pill, fades in once the reader passes the 50%
-       scroll mark. Mobile-only. Hidden on home, /newsletter, /ask, /account
+       scroll mark and hides once the inline newsletter is reached. Mobile-only.
+       Hidden on home, /newsletter, /ask, /account
        via CSS rules keyed on body[data-path]. Bottom-LEFT so it sits
        opposite the concierge FAB (bottom-right) and they don't collide. -->
   <a href="/dispatch/" class="subscribe-pill" aria-label="Join The Insider Note">
@@ -582,7 +583,9 @@ const showNewsletterPopup = !isPlanningJourney && normalizedPath !== '/agents/' 
           return;
         }
         var pct = window.scrollY / max;
-        body.classList.toggle('show-subscribe-pill', pct >= threshold);
+        var newsletter = document.getElementById('newsletter');
+        var reachedNewsletter = newsletter && newsletter.getBoundingClientRect().top <= window.innerHeight;
+        body.classList.toggle('show-subscribe-pill', pct >= threshold && !reachedNewsletter);
       }
 
       // One listener, registered once. `window` outlives every swap.
