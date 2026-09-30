@@ -117,11 +117,9 @@ The choice of base matters more on a one-night trip than a three-night one, beca
 
 Stay at [InterContinental Sorrento](<https://peninsulainsider.com.au/stay/the-continental-sorrento/>).
 
-The hotel puts you close to Sorrento’s main street and The Continental dining precinct. Settle in, then walk through town or toward the ferry before dinner. Book dinner separately and check any bathhouse session before travel.
+The hotel is close to Sorrento’s main street and The Continental dining precinct. Arrive Saturday afternoon, then walk through town or toward the ferry before a separately booked dinner. If you would rather bathe, book an Aurora Spa & Bathhouse session before travel.
 
-This is the town-life version: arrive Saturday afternoon, settle in, and choose a drink and dinner within walking distance. On Sunday, have coffee on the main street, walk [Sorrento back beach](<https://peninsulainsider.com.au/explore/sorrento-back-beach/>) if conditions suit, then take breakfast before heading home. A bathhouse session can replace the pre-dinner walk if you have booked one.
-
-Sorrento works best as a base when you plan to use the main street. With a central room and a walk that suits your party, you can leave the car parked until departure.
+On Sunday, take breakfast and walk [Sorrento back beach](<https://peninsulainsider.com.au/explore/sorrento-back-beach/>) if conditions suit before heading home.
 
 ### Base two: Red Hill, for the country-house version
 
@@ -129,9 +127,7 @@ Stay at [Lindenderry at Red Hill](<https://peninsulainsider.com.au/stay/lindende
 
 This is the country-house version: a hotel set in gardens, time outdoors, and breakfast without another drive. Lindenderry gives the stay a quieter rhythm, with a restaurant on the property. Leave room to enjoy the estate instead of filling every hour.
 
-Shape: arrive Saturday afternoon, settle in, and walk the gardens without urgency. Book a cellar-door tasting at [Montalto](<https://peninsulainsider.com.au/wine/montalto/>) if the current schedule fits, or keep it simple and stay on property. Dinner at Lindenderry itself, early, light. Bed. On Sunday morning, breakfast at the hotel and then one short walk on the ridge before driving out. If you want a full lunch before heading home, check [Tedesca Osteria](<https://peninsulainsider.com.au/eat/tedesca-osteria/>) for current Sunday service and book ahead. Otherwise, leave late morning and let the overnight have done its work.
-
-Red Hill on an overnight rewards restraint. One tasting, properly, and let the rest of the plateau wait.
+Arrive Saturday afternoon and walk the gardens. If you want a tasting, book [Montalto](<https://peninsulainsider.com.au/wine/montalto/>) before dinner; otherwise stay on the property. Dine at Lindenderry, then take breakfast and one short ridge walk on Sunday. For a longer departure, check [Tedesca Osteria](<https://peninsulainsider.com.au/eat/tedesca-osteria/>) for current Sunday service and reserve lunch ahead.
 
 ### Base three: Flinders, for the quiet-coast version
 
@@ -139,29 +135,19 @@ Stay at [Flinders Hotel](<https://peninsulainsider.com.au/stay/flinders-hotel/>)
 
 Flinders is the quieter coastal choice. The village is small, the weather can change quickly, and the open-water light feels different from the bay towns. Choose it when a walk and an unhurried evening sound better than a packed itinerary.
 
-Shape: arrive Saturday afternoon. Choose a short coastal walk after checking current access and conditions, with the wind off the water for company. Come back to the room. Dinner at the Flinders Hotel bistro, early, nothing complicated: a piece of fish, a glass of wine, a shared dessert. Bed by 9.30. On Sunday morning, take your time, then visit [Flinders Sourdough](<https://peninsulainsider.com.au/eat/flinders-sourdough/>) after its advertised 9am opening if current hours still suit. Take a pastry and coffee outside and watch the village wake up. Then head home. Keep the longer coastal walks for another trip, after checking current park access and conditions.
+Arrive Saturday afternoon for a short coastal walk after checking access and conditions, then return for dinner at the Flinders Hotel bistro. On Sunday, visit [Flinders Sourdough](<https://peninsulainsider.com.au/eat/flinders-sourdough/>) after its advertised 9am opening if current hours suit. Take coffee outside, then head home; save the longer walks for a trip with more time.
 
-For more on why Flinders rewards the quiet version of the weekend, see our full piece on the [quiet side of the Peninsula](<https://peninsulainsider.com.au/journal/a-flinders-weekend/>). The one-night trip is the version that gives you an honest taste of that argument without asking for three days.
+For a longer Flinders itinerary, see our piece on the [quiet side of the Peninsula](<https://peninsulainsider.com.au/journal/a-flinders-weekend/>).
 
 ## One optional upgrade: the thermal arrival
 
-The Sorrento and Red Hill versions can absorb one add-on if the route and check-in time allow it: a short arrival session at [Alba Thermal Springs](<https://peninsulainsider.com.au/explore/spas-and-wellness/#alba-thermal-springs>). Done well it gives the overnight a clear beginning: by the time you get to the room, the trip already feels underway. Check session availability and allow for the drive to your base. On the Flinders version, skip it and leave more time for the coast.
+The Sorrento and Red Hill versions can fit a short arrival session at [Alba Thermal Springs](<https://peninsulainsider.com.au/explore/spas-and-wellness/#alba-thermal-springs>) if the route and check-in time allow it. Book ahead and allow for the drive to your base. For Flinders, give that time to the coast.
 
 If you want to make the bath the centre of the trip instead of the warm-up, a full [thermal springs weekend](<https://peninsulainsider.com.au/explore/plans/the-thermal-springs-weekend/>) is the better shape. Different trip, different sequence, different length.
 
-## The rules of compression
+## Before you go
 
-A one-night escape works as an exercise in subtraction.
-
-- **Book the anchors in advance.** Reserve the room, dinner, and any thermal session. Leave coffee and the morning walk loose; that small bit of freedom is part of the point.
-
-- **One booked meal, not three.** One dinner. Everything else is a coffee, a pastry, a glass of wine, or a bag from a bakery. Multiple sit-down meals turn a short trip into an errand.
-
-- **Stay inside one zone.** Pick Sorrento, Red Hill, or Flinders, and stay inside it. The Peninsula is varied enough that crossing it on a short trip eats the day.
-
-- **Leave slowly.** Give breakfast and the morning walk room before the drive home.
-
-Book the room and dinner. Keep Sunday morning open.
+Reserve the room, dinner and any bathing session. Keep coffee and the morning walk flexible, and stay within the base you chose; crossing the Peninsula will take the time you came to enjoy.
 
 Take the trip
 
