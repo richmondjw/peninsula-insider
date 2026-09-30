@@ -445,7 +445,7 @@ export const prerender = true;
         <div class="pl-cover__type">
           <p class="pl-eyebrow">{articleEyebrow}</p>
           <h1
-            class:list={['pl-cover__headline', ad.title.length > 60 && 'pl-cover__headline--long', isOneNightGuide && 'pl-cover__headline--one-night']}
+            class:list={['pl-cover__headline', ad.title.length > 60 && 'pl-cover__headline--long', isOneNightGuide && 'pl-cover__headline--one-night', articleSlug === 'the-thermal-springs-weekend' && 'pl-cover__headline--springs-weekend']}
             {...editableText({
               entityType: 'article', entitySlug: articleSlug!, fieldPath: 'title',
               label: `${ad.title} - title`,
@@ -1222,6 +1222,7 @@ export const prerender = true;
   }
   .pl-cover__headline--long { font-size: clamp(2.2rem, 3.35vw, 3.3rem); max-width: 23ch; }
   @media (min-width: 821px) { .pl-cover__headline.pl-cover__headline--one-night { font-size: clamp(2.5rem, 4vw, 3.75rem); } }
+  @media (min-width: 821px) { .pl-cover__headline.pl-cover__headline--springs-weekend { font-size: clamp(2.5rem, 4.15vw, 3.5rem); } }
   .pl-cover__headline em { font-style: normal; font-weight: 500; }
   .pl-cover__dek {
     font-family: var(--font-ui);
