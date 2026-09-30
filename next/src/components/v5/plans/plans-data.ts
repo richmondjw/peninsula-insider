@@ -123,14 +123,20 @@ function metaFor(record: {
 async function heroFor(
   entityType: 'itinerary' | 'article',
   slug: string,
-  fallback: { src?: string; alt?: string; caption?: string; credit?: string } | undefined,
+  fallback: { src?: string; alt?: string; caption?: string; credit?: string; rightsStatus?: string } | undefined,
   title: string,
 ): Promise<{ src: string; alt: string; caption?: string; credit?: string } | null> {
   // Same override chain the current hub uses so editor-uploaded heroes ship.
   const ov = await loadOverrides(entityType, slug);
-  const o = entityType === 'itinerary'
+  const override = entityType === 'itinerary'
     ? ov.image['heroImage'] ?? ov.image['hero']
     : ov.image['hero'] ?? ov.image['heroImage'];
+  // The article detail page falls back to its credited source when an editor
+  // upload lacks either alt text or credit. Keep the listing in step with it.
+  const creditedArticleSource = entityType === 'article' && fallback?.rightsStatus === 'recorded' &&
+    Boolean(fallback.src?.trim() && fallback.alt?.trim() && fallback.credit?.trim());
+  const incompleteArticleOverride = override && (!override.alt?.trim() || !override.credit?.trim());
+  const o = creditedArticleSource && incompleteArticleOverride ? undefined : override;
   const src = o?.src ?? fallback?.src;
   if (!src) return null;
   // An uploaded replacement must carry its own words. The content record's

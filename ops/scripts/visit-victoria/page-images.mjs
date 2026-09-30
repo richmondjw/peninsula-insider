@@ -39,6 +39,8 @@ const USES = {
   'hot-springs-hub': ['/explore/hot-springs/', 'link preview', 'venues/peninsula-hot-springs', 'vv-161941'],
   'boating-hub': ['/boating/', 'link preview', 'places/sorrento', 'vv-22100103'],
   'plans-hub': ['/explore/plans/', 'link preview', 'experiences/gunnamatta-ocean-beach', 'vv-25061207'],
+  'about-hero': ['/about/', 'hero', 'places/cape-schanck', 'vv-161977'],
+  'about-bay': ['/about/', 'supporting photograph', 'places/sorrento', 'vv-22100103'],
 };
 
 const out = { record: 'Visit Victoria photographs used by page files', writtenBy: 'ops/scripts/visit-victoria/page-images.mjs', images: {} };

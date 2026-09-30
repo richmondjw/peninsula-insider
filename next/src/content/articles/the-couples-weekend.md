@@ -5,10 +5,24 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-10
 heroImage:
-  src: "/images/sourced/article-couples-weekend-01.webp"
-  alt: "Two wine glasses on a villa deck overlooking Peninsula vineyards at late afternoon"
-  credit: "Wikimedia Commons"
-  license: "tmp-wikimedia"
+  src: "/images/visit-victoria/vv-26070114-jackalope-hotel.webp"
+  alt: "Two silhouetted guests raise glasses of red wine above a valley of vineyard rows and bushland at Jackalope Hotel"
+  credit: "Photo: Peter Foster, courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "Jackalope Hotel, Mornington Peninsula, one of the suggested stays."
+  depicts: "Jackalope Hotel"
+  depictionStatus: "illustrative"
+  creator: "Peter Foster"
+  sourceUrl: "Victoria Content Hub asset 26070114, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "slow-peninsula"
 section: plans
 planShape: "two-night"

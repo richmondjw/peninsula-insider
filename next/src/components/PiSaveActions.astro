@@ -64,7 +64,7 @@ const { kind, slug, title, href, section, dek, imageUrl, floating = true } = Ast
     aria-label={`Save ${title}`}
     data-pi-save
   >
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
     </svg>
     <span class="pi-actions__label">Save</span>
@@ -75,7 +75,7 @@ const { kind, slug, title, href, section, dek, imageUrl, floating = true } = Ast
     aria-label={`Share ${title}`}
     data-pi-share
   >
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
       <polyline points="16 6 12 2 8 6" />
       <line x1="12" y1="2" x2="12" y2="15" />
@@ -100,6 +100,15 @@ const { kind, slug, title, href, section, dek, imageUrl, floating = true } = Ast
     z-index: 3;
   }
 
+  /* Floating controls need their own footer space. The shared cards used to
+     reserve about 3.25rem for 32px buttons; 44px targets need 4rem so they
+     clear the last link even when the card's actions wrap on narrow phones. */
+  .venue-card:has(> .pi-actions--floating) { padding-bottom: 4rem; }
+  .experience-card:has(> .pi-actions--floating) .experience-card__body,
+  .tour-card:has(> .pi-actions--floating) .tour-card__body,
+  .place-card:has(> .pi-actions--floating) .place-card__body { padding-bottom: 4rem; }
+  .event-card:has(.pi-actions--floating) .event-card__cta { padding-bottom: 4rem; }
+
   .pi-actions__btn {
     appearance: none;
     background: rgba(255, 255, 255, 0.92);
@@ -111,13 +120,13 @@ const { kind, slug, title, href, section, dek, imageUrl, floating = true } = Ast
 
     /* Height is fixed; width is controlled by max-width so CSS can
        transition smoothly between collapsed (circle) and expanded (pill).
-       `width: auto` + `max-width: 2rem` starts as a circle; expanding
+       `width: auto` + `max-width: 2.75rem` starts as a circle; expanding
        max-width to a concrete value gives the browser a fully transitionable
-       range - unlike `width: 2rem → width: auto` which snaps and flickers. */
-    height: 2rem;
-    min-width: 2rem;
-    max-width: 2rem;
-    width: 2rem;
+       range - unlike `width: 2.75rem → width: auto` which snaps and flickers. */
+    height: 2.75rem;
+    min-width: 2.75rem;
+    max-width: 2.75rem;
+    width: 2.75rem;
 
     padding: 0;
     display: inline-flex;
@@ -162,7 +171,7 @@ const { kind, slug, title, href, section, dek, imageUrl, floating = true } = Ast
      expanding so text never appears clipped mid-animation.
      `max-width: 0` is critical: `opacity: 0` alone does not remove the
      element from the flex layout, so the label would still claim its
-     natural text width and shove the icon off-centre inside the 2rem
+     natural text width and shove the icon off-centre inside the 2.75rem
      collapsed circle. Zeroing max-width + overflow:hidden makes the
      label contribute zero width when collapsed; the icon then sits
      truly centred. */

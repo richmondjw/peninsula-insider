@@ -21,6 +21,7 @@ import ExperienceCard from '../../../components/ExperienceCard.astro';
 import ItineraryCard from '../../../components/ItineraryCard.astro';
 import ArticleCard from '../../../components/ArticleCard.astro';
 import NewsletterBlock from '../../../components/NewsletterBlock.astro';
+import PiArticleActions from '../../../components/PiArticleActions.astro';
 import PiForkPlanButton from '../../../components/PiForkPlanButton.astro';
 import { informationCheckedOn } from '../../../lib/verification-date.mjs';
 import {
@@ -45,6 +46,7 @@ import {
 import { editableText, editableImage } from '../../../lib/inline-edit/attrs';
 import { isListableVenue } from '../../../lib/editorial';
 import { loadOverrides } from '../../../lib/inline-edit/overrides';
+import { resolveHero } from '../../../lib/inline-edit/resolve-hero';
 
 const timeOfDayLabel: Record<string, string> = {
   morning: 'Morning',
@@ -84,10 +86,42 @@ const { itinerary, articleData } = Astro.props;
 
 // ─── Plans-article branch data ─────────────────────────────────────────────
 const isArticle = articleData != null;
-const ArticleContent = isArticle ? (await render(articleData)).Content : (null as any);
+const renderedArticle = isArticle ? await render(articleData) : null;
+const ArticleContent = renderedArticle?.Content ?? (null as any);
+const articleHeadings = renderedArticle?.headings ?? [];
 
 const ad = isArticle ? articleData.data : null;
 const articleSlug = isArticle ? routeSlug(articleData) : null;
+const resolvedArticleHero = isArticle ? await resolveHero('article', articleSlug!, ad, 'heroImage') : null;
+const incompleteArticleOverride = resolvedArticleHero?.override &&
+  (!resolvedArticleHero.override.alt?.trim() || !resolvedArticleHero.override.credit?.trim());
+const creditedArticleSource = ad?.heroImage?.src && ad?.heroImage?.alt?.trim() &&
+  ad?.heroImage?.credit?.trim() && ad?.heroImage?.rightsStatus === 'recorded';
+if (incompleteArticleOverride && creditedArticleSource) {
+  console.warn(`[PlanArticle] ${articleSlug} editor image lacks alt or credit; using its credited source photograph`);
+}
+const articleHero = incompleteArticleOverride && creditedArticleSource && resolvedArticleHero
+  ? { ...resolvedArticleHero, src: ad.heroImage.src, alt: ad.heroImage.alt, style: heroBackgroundStyle(ad), override: undefined }
+  : resolvedArticleHero;
+const articlePhotoCaption = articleHero?.override
+  ? articleHero.override.caption
+  : ad?.planShape === 'one-night' && ad?.heroImage?.depictionStatus === 'illustrative' && ad?.heroImage?.caption
+    ? `${ad.heroImage.caption} One of three suggested bases.`
+    : ad?.heroImage?.caption;
+const articlePhotoCredit = articleHero?.override ? articleHero.override.credit : ad?.heroImage?.credit;
+const isOneNightGuide = isArticle && ad?.planShape === 'one-night';
+const articleSectionLinks = articleHeadings
+  .filter((heading) => heading.depth === 2)
+  .slice(0, 6)
+  .map((heading) => ({ label: heading.text, href: `#${heading.slug}` }));
+const oneNightBases = isOneNightGuide ? [
+  { number: '01', place: 'Sorrento', mood: 'Town life', detail: 'Walkable dinner and a slow beach morning.', prefix: 'Base one:' },
+  { number: '02', place: 'Red Hill', mood: 'Country house', detail: 'One tasting, garden time and breakfast on the ridge.', prefix: 'Base two:' },
+  { number: '03', place: 'Flinders', mood: 'Quiet coast', detail: 'Ocean air, an early night and an unhurried village morning.', prefix: 'Base three:' },
+].map((base) => ({
+  ...base,
+  href: `#${articleHeadings.find((heading) => heading.depth === 3 && heading.text.startsWith(base.prefix))?.slug ?? 'plan-guide'}`,
+})) : [];
 
 // Resolve related venues/experiences for article branch
 const allVenuesRaw = (await getCollection('venues')).filter(isListableVenue);
@@ -113,12 +147,30 @@ const articleFaqSchema = isArticle && ad.faq && ad.faq.length > 0 ? {
 } : null;
 
 const aCanonical = isArticle ? `https://peninsulainsider.com.au/explore/plans/${articleSlug}/` : '';
-const aOgImage = isArticle
-  ? (ad.heroImage?.src && !ad.heroImage.src.includes('placeholder') ? ad.heroImage.src : '/images/sourced/home-cover.webp')
-  : '';
+const aOgImage = isArticle ? (articleHero?.src ?? '/images/sourced/home-cover.webp') : '';
 const aBreadcrumbs = isArticle
   ? [{ label: 'Home', href: '/' }, { label: 'Plans', href: '/explore/plans/' }, { label: ad.title }]
   : [];
+const articleSchema = isArticle ? {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: ad.title,
+  description: ad.dek,
+  mainEntityOfPage: aCanonical,
+  datePublished: ad.publishedAt.toISOString().slice(0, 10),
+  author: { '@type': 'Organization', name: 'Peninsula Insider' },
+  publisher: { '@type': 'Organization', name: 'Peninsula Insider' },
+  image: aOgImage.startsWith('http') ? aOgImage : `https://peninsulainsider.com.au${aOgImage}`,
+} : null;
+const articleBreadcrumbSchema = isArticle ? {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://peninsulainsider.com.au/' },
+    { '@type': 'ListItem', position: 2, name: 'Plans', item: 'https://peninsulainsider.com.au/explore/plans/' },
+    { '@type': 'ListItem', position: 3, name: ad.title, item: aCanonical },
+  ],
+} : null;
 
 // ─── Itinerary branch data ─────────────────────────────────────────────────
 const data = isArticle ? null : itinerary.data;
@@ -310,6 +362,8 @@ export const prerender = true;
   canonical={aCanonical}
   ogImage={aOgImage}
 >
+  {articleSchema && <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />}
+  {articleBreadcrumbSchema && <script type="application/ld+json" set:html={JSON.stringify(articleBreadcrumbSchema)} />}
   {articleFaqSchema && <script type="application/ld+json" set:html={JSON.stringify(articleFaqSchema)} />}
 
   {/* ── 2026-05-17: Sunday-magazine redesign for section=plans articles.
@@ -330,9 +384,9 @@ export const prerender = true;
     <header class="pl-cover" aria-label="Cover">
       <div class="pl-container pl-cover__inner">
         <div class="pl-cover__type">
-          <p class="pl-eyebrow">{formatLabel[ad.format] ?? 'A Peninsula plan'}</p>
+          <p class="pl-eyebrow">{isOneNightGuide ? 'One night, well spent' : ad.planShape === 'two-night' ? 'Two-night plan' : ad.planShape === 'day-trip' ? 'Day plan' : (formatLabel[ad.format] ?? 'A Peninsula plan')}</p>
           <h1
-            class="pl-cover__headline"
+            class:list={['pl-cover__headline', ad.title.length > 60 && 'pl-cover__headline--long', isOneNightGuide && 'pl-cover__headline--one-night']}
             {...editableText({
               entityType: 'article', entitySlug: articleSlug!, fieldPath: 'title',
               label: `${ad.title} - title`,
@@ -345,6 +399,10 @@ export const prerender = true;
               label: `${ad.title} - dek`,
             })}
           >{ad.dek}</p>
+          <div class="pl-cover__actions">
+            <a class="pl-action pl-action--primary" href={isOneNightGuide ? '#choose-your-base' : '#plan-guide'}>{isOneNightGuide ? 'Choose your base' : 'Read the guide'} <span aria-hidden="true">↗</span></a>
+            <a class="pl-action pl-action--quiet" href={isOneNightGuide ? '#plan-guide' : '/explore/plans/'}>{isOneNightGuide ? 'Read the full guide' : 'Browse all plans'} <span aria-hidden="true">→</span></a>
+          </div>
           <p class="pl-cover__byline">
             <span>Peninsula Insider</span>
             <span class="pl-cover__sep" aria-hidden="true">·</span>
@@ -352,17 +410,42 @@ export const prerender = true;
           </p>
         </div>
         <figure class="pl-cover__visual">
-          <div
-            class="pl-cover__image"
-            role="img"
-            aria-label={ad.heroImage.alt}
-            style={heroBackgroundStyle(ad)}
-            {...editableImage({
-              entityType: 'article', entitySlug: articleSlug!, fieldPath: 'heroImage',
-              label: `${ad.title} hero`, purpose: 'hero',
-            })}
-          ></div>
+          <div class="pl-cover__frame">
+            <img
+              class="pl-cover__image"
+              src={articleHero?.src ?? ad.heroImage.src}
+              alt={articleHero?.alt ?? ad.heroImage.alt}
+              width="1200"
+              height="960"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+              data-pi-requires-image-metadata="true"
+              data-pi-no-hydrate={incompleteArticleOverride && creditedArticleSource ? 'true' : undefined}
+              {...editableImage({
+                entityType: 'article', entitySlug: articleSlug!, fieldPath: 'heroImage',
+                label: `${ad.title} hero`, purpose: 'hero',
+              })}
+            />
+          </div>
+          {(articlePhotoCaption || articlePhotoCredit) && (
+            <figcaption class="pl-cover__caption">
+              {articlePhotoCaption && <span>{articlePhotoCaption}</span>}
+              {articlePhotoCredit && <span>{articlePhotoCredit}</span>}
+            </figcaption>
+          )}
         </figure>
+          <div class="pl-cover__reader-tools">
+            <PiArticleActions
+              kind="article"
+              slug={articleSlug!}
+              section="plans"
+              title={ad.title}
+              href={`/explore/plans/${articleSlug}/`}
+              dek={ad.dek}
+              imageUrl={articleHero?.src ?? ad.heroImage?.src}
+            />
+          </div>
       </div>
     </header>
 
@@ -371,28 +454,85 @@ export const prerender = true;
       <section class="pl-glance" aria-label="At a glance">
         <div class="pl-container pl-glance__inner">
           <p class="pl-eyebrow pl-glance__eyebrow">At a glance</p>
-          <ol class="pl-glance__list">
-            {ad.aiSummary.slice(0, 5).map((item: string, i: number) => (
-              <li class="pl-glance__item">
-                <span class="pl-glance__num">{String(i + 1).padStart(2, '0')}</span>
-                <span class="pl-glance__text">{item}</span>
-              </li>
-            ))}
-          </ol>
+          <div class="pl-glance__body">
+            <ol class="pl-glance__list">
+              {ad.aiSummary.slice(0, 3).map((item: string, i: number) => (
+                <li class="pl-glance__item">
+                  <span class="pl-glance__num">{String(i + 1).padStart(2, '0')}</span>
+                  <span class="pl-glance__text">{item}</span>
+                </li>
+              ))}
+            </ol>
+            {ad.aiSummary.length > 3 && (
+              <details class="pl-glance__more">
+                <summary>More planning notes <span aria-hidden="true">+</span></summary>
+                <ol class="pl-glance__list pl-glance__list--more" start="4">
+                  {ad.aiSummary.slice(3, 5).map((item: string, i: number) => (
+                    <li class="pl-glance__item">
+                      <span class="pl-glance__num">{String(i + 4).padStart(2, '0')}</span>
+                      <span class="pl-glance__text">{item}</span>
+                    </li>
+                  ))}
+                </ol>
+              </details>
+            )}
+          </div>
         </div>
       </section>
     )}
 
-    {/* ── Long-form essay - markdown content rendered in the prose
-         container, with .pl-prose scoping the typography upgrades
-         without touching the global .prose used by other surfaces. */}
-    <section class="pl-essay">
+    {isOneNightGuide && (
+      <section class="pl-choices" id="choose-your-base" aria-labelledby="pl-choices-title">
+        <div class="pl-container">
+          <div class="pl-choices__head">
+            <p class="pl-eyebrow">Make one choice first</p>
+            <h2 id="pl-choices-title">Which one-night escape feels like yours?</h2>
+            <p>Keep the room, dinner and next morning in one area. The rest of the Peninsula can wait.</p>
+          </div>
+          <div class="pl-choices__grid">
+            {oneNightBases.map((base) => (
+              <a class="pl-choices__card" href={base.href}>
+                <span class="pl-choices__num">{base.number} / 03</span>
+                <span class="pl-choices__place">{base.place}</span>
+                <span class="pl-choices__mood">{base.mood}</span>
+                <span class="pl-choices__detail">{base.detail}</span>
+                <span class="pl-choices__link">See this version <span aria-hidden="true">↗</span></span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    {/* The article keeps its editorial voice, with quick section links for readers planning on the move. */}
+    <section class="pl-essay" id="plan-guide">
       <div class="pl-container pl-essay__inner">
+        {articleSectionLinks.length > 2 && (
+          <nav class="pl-contents" aria-label="In this guide">
+            <p class="pl-eyebrow">In this guide</p>
+            <div class="pl-contents__links">
+              {articleSectionLinks.map((item) => <a href={item.href}>{item.label} <span aria-hidden="true">↗</span></a>)}
+            </div>
+          </nav>
+        )}
         <div class="prose pl-prose has-drop-cap">
           <ArticleContent />
         </div>
       </div>
     </section>
+
+    {isOneNightGuide && (
+      <section class="pl-takeaway" aria-labelledby="pl-takeaway-title">
+        <div class="pl-container pl-takeaway__inner">
+          <div>
+            <p class="pl-eyebrow">Take the trip</p>
+            <h2 id="pl-takeaway-title">One room. One dinner. One slow morning.</h2>
+            <p>Choose your area, reserve the stay and dinner, then check the current opening hours and conditions before you leave.</p>
+          </div>
+          <a class="pl-action pl-action--primary" href="/explore/plans/#build">Find a plan for your trip <span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+    )}
 
     {/* ── FAQ - hairline-separated open Q/A. No <details> by default;
          every question is visible because they are short and answer
@@ -899,42 +1039,44 @@ export const prerender = true;
     font-weight: 600;
     letter-spacing: 0.28em;
     text-transform: uppercase;
-    color: rgba(23, 20, 19, 0.7);
+    color: rgba(20, 32, 42, 0.7);
     margin: 0 0 1.5rem;
   }
 
   /* ── Cover spread ─────────────────────────────────────────────── */
   .pl-cover {
-    background: #FFFFFF;
-    padding: clamp(2rem, 4vw, 3.5rem) 0 clamp(4rem, 8vw, 7.5rem);
+    background: #F2EFEA;
+    padding: clamp(2.25rem, 4vw, 3.5rem) 0 clamp(3rem, 6vw, 5.5rem);
   }
   .pl-cover__inner {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: clamp(3rem, 7vw, 7rem);
-    align-items: start;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: clamp(2.5rem, 5vw, 5.25rem);
+    align-items: center;
   }
-  .pl-cover__type { padding-top: clamp(0.5rem, 2vw, 2rem); }
+  .pl-cover__type { padding-block: clamp(0.5rem, 2vw, 2rem); }
   .pl-cover__headline {
     font-family: var(--font-display);
-    font-size: clamp(2.4rem, 5.2vw, 4.6rem);
-    font-weight: 500;
-    line-height: 1.02;
-    letter-spacing: -0.018em;
-    color: #171413;
-    margin: 0 0 1.75rem;
-    max-width: 16ch;
+    font-size: clamp(2.45rem, 4.5vw, 4.35rem);
+    font-weight: 700;
+    line-height: 1.06;
+    letter-spacing: -0.035em;
+    color: #0B2E4A;
+    margin: 0 0 1.25rem;
+    max-width: 18ch;
     text-wrap: balance;
   }
+  .pl-cover__headline--long { font-size: clamp(2.2rem, 3.35vw, 3.3rem); max-width: 23ch; }
+  @media (min-width: 821px) { .pl-cover__headline.pl-cover__headline--one-night { font-size: clamp(2.5rem, 4vw, 3.75rem); } }
   .pl-cover__headline em { font-style: normal; font-weight: 500; }
   .pl-cover__dek {
-    font-family: var(--font-display);
+    font-family: var(--font-ui);
     font-style: normal;
-    font-size: clamp(1.15rem, 1.5vw, 1.35rem);
-    line-height: 1.55;
-    color: rgba(23, 20, 19, 0.78);
-    margin: 0 0 2rem;
-    max-width: 42ch;
+    font-size: clamp(1.12rem, 1.45vw, 1.3rem);
+    line-height: 1.5;
+    color: #314858;
+    margin: 0 0 1.65rem;
+    max-width: 43ch;
   }
   .pl-cover__byline {
     font-family: var(--font-ui);
@@ -942,36 +1084,63 @@ export const prerender = true;
     font-weight: 500;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: rgba(23, 20, 19, 0.55);
+    color: #455965;
     margin: 0;
     display: flex;
     align-items: center;
     gap: 0.6rem;
     flex-wrap: wrap;
   }
-  .pl-cover__sep { color: rgba(23, 20, 19, 0.3); }
-  .pl-cover__visual {
-    margin: 0;
-    aspect-ratio: 4 / 5;
-    overflow: hidden;
-  }
+  .pl-cover__sep { color: rgba(20, 32, 42, 0.3); }
+  .pl-cover__reader-tools { grid-column: 2; margin-top: 0.2rem; padding-top: 0.65rem; border-top: 1px solid rgba(11, 46, 74, 0.18); }
+  .pl-cover__reader-tools .pi-article-actions { display: flex; flex-wrap: wrap; gap: 0.55rem; width: 100%; }
+  .pl-cover__reader-tools .pi-article-actions__hint { margin-right: auto; white-space: nowrap; color: #455965; }
+  .pl-cover__reader-tools .text-scale { padding-left: 0.4rem; border-left: 1px solid rgba(11, 46, 74, 0.18); }
+  .pl-cover__visual { margin: 0; }
+  .pl-cover__frame { aspect-ratio: 5 / 4; overflow: hidden; background: #D7E3E9; }
   .pl-cover__image {
+    display: block;
     width: 100%;
     height: 100%;
-    background-size: cover;
-    background-position: center;
-    background-color: #d8ece7;
+    object-fit: cover;
+    object-position: center;
     transform: scale(1.01);
     transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
   }
   .pl-cover__visual:hover .pl-cover__image { transform: scale(1.04); }
+  .pl-cover__caption {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.35rem 1.5rem;
+    flex-wrap: wrap;
+    padding-top: 0.65rem;
+    font: 500 0.72rem/1.4 var(--font-ui);
+    color: #49606D;
+  }
+  .pl-cover__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.7rem 1.2rem; margin: 0 0 1.6rem; }
+  .pl-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7rem;
+    min-height: 44px;
+    padding: 0.75rem 1rem;
+    font: 700 0.86rem/1.2 var(--font-ui);
+    text-decoration: none;
+    transition: background .2s ease, color .2s ease, transform .2s ease;
+  }
+  .pl-action:hover { transform: translateY(-2px); }
+  .pl-action--primary { background: #0B2E4A; color: #FFFFFF; border: 1px solid #0B2E4A; border-radius: 5px; }
+  .pl-action--primary:hover { background: #10527E; color: #FFFFFF; }
+  .pl-action--quiet { color: #0B2E4A; border-bottom: 1px solid #0B2E4A; }
+  .pl-action--quiet:hover { color: #10527E; }
 
   /* ── At-a-glance card ────────────────────────────────────────── */
   .pl-glance {
-    background: #F6F1E8;
+    background: #F2EFEA;
     padding: clamp(3rem, 6vw, 5.5rem) 0;
-    border-top: 1px solid rgba(23, 20, 19, 0.08);
-    border-bottom: 1px solid rgba(23, 20, 19, 0.08);
+    border-top: 1px solid rgba(20, 32, 42, 0.08);
+    border-bottom: 1px solid rgba(20, 32, 42, 0.08);
   }
   .pl-glance__inner {
     display: grid;
@@ -980,56 +1149,66 @@ export const prerender = true;
     align-items: start;
   }
   .pl-glance__eyebrow { margin: 0; padding-top: 0.4rem; }
+  .pl-glance__body { min-width: 0; }
   .pl-glance__list {
     margin: 0;
     padding: 0;
     list-style: none;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: clamp(1.5rem, 3vw, 2.5rem) clamp(2rem, 4vw, 3.5rem);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.2rem;
   }
+  .pl-glance__list--more { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 1.2rem; }
+  .pl-glance__more { margin-top: 1.4rem; border-top: 1px solid rgba(20, 32, 42, 0.18); }
+  .pl-glance__more summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 44px; cursor: pointer; color: #10527E; font: 700 .84rem/1.3 var(--font-ui); list-style: none; }
+  .pl-glance__more summary::-webkit-details-marker { display: none; }
+  .pl-glance__more[open] summary span { transform: rotate(45deg); }
   .pl-glance__item {
     display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 1.25rem;
-    align-items: baseline;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    align-content: start;
+    border-top: 1px solid rgba(20, 32, 42, 0.18);
+    padding-top: 1rem;
   }
   .pl-glance__num {
     font-family: var(--font-ui);
     font-size: 0.66rem;
     font-weight: 600;
     letter-spacing: 0.16em;
-    color: #26997e;
+    color: #10527E;
   }
   .pl-glance__text {
-    font-family: var(--font-display);
-    font-size: clamp(1.02rem, 1.15vw, 1.12rem);
+    font-family: var(--font-ui);
+    font-size: clamp(1.02rem, 1.12vw, 1.1rem);
     line-height: 1.55;
-    color: rgba(23, 20, 19, 0.82);
+    color: rgba(20, 32, 42, 0.82);
   }
 
   /* ── Essay typography ────────────────────────────────────────── */
   .pl-essay {
     background: #FFFFFF;
-    padding: clamp(4rem, 8vw, 7rem) 0 clamp(3rem, 6vw, 5rem);
+    padding: clamp(3rem, 6vw, 5rem) 0 clamp(3rem, 6vw, 5rem);
+    scroll-margin-top: 7rem;
   }
   .pl-essay__inner { display: block; }
   .pl-prose {
     max-width: 36rem;
     margin: 0 auto;
-    font-family: var(--font-display);
-    font-size: clamp(1.15rem, 1.25vw, 1.22rem);
-    line-height: 1.7;
-    color: #2A211B;
+    font-family: var(--font-ui);
+    font-size: clamp(1.08rem, 1.2vw, 1.18rem);
+    line-height: 1.72;
+    color: #243746;
     font-weight: 400;
   }
+  .pl-prose h2[id], .pl-prose h3[id] { scroll-margin-top: 7rem; }
   .pl-prose p { margin: 0 0 1.25rem; }
   .pl-prose h2 {
     font-family: var(--font-display);
     font-size: clamp(1.85rem, 2.8vw, 2.4rem);
     font-weight: 500;
     line-height: 1.1;
-    color: #171413;
+    color: #14202A;
     letter-spacing: -0.012em;
     margin: clamp(3rem, 5vw, 4.5rem) 0 1.25rem;
     max-width: 24ch;
@@ -1039,20 +1218,24 @@ export const prerender = true;
     font-family: var(--font-display);
     font-size: clamp(1.4rem, 1.8vw, 1.6rem);
     font-weight: 500;
-    color: #171413;
+    color: #14202A;
     margin: 2.5rem 0 1rem;
   }
-  .pl-prose strong { font-weight: 600; color: #171413; }
+  .pl-prose strong { font-weight: 600; color: #14202A; }
   .pl-prose em { font-style: normal; }
   .pl-prose a {
-    color: #171413;
+    color: #14202A;
     text-decoration: none;
-    border-bottom: 1px solid rgba(23, 20, 19, 0.35);
+    border-bottom: 1px solid rgba(20, 32, 42, 0.35);
     transition: color 0.2s ease, border-color 0.2s ease;
   }
   .pl-prose a:hover {
-    color: #26997e;
-    border-bottom-color: #26997e;
+    color: #10527E;
+    border-bottom-color: #10527E;
+  }
+  .pl-prose a:focus-visible, .pl-contents a:focus-visible, .pl-choices__card:focus-visible, .pl-action:focus-visible {
+    outline: 3px solid #10527E;
+    outline-offset: 3px;
   }
   .pl-prose blockquote {
     border-left: none;
@@ -1062,7 +1245,7 @@ export const prerender = true;
     font-style: normal;
     font-size: clamp(1.4rem, 2vw, 1.65rem);
     line-height: 1.45;
-    color: rgba(23, 20, 19, 0.78);
+    color: rgba(20, 32, 42, 0.78);
     text-align: center;
     max-width: 28ch;
     margin-inline: auto;
@@ -1079,7 +1262,7 @@ export const prerender = true;
   /* Drop cap upgrade - slightly larger to match the heavier serif body */
   .pl-prose.has-drop-cap > p:first-of-type::first-letter {
     font-size: 5.4em;
-    color: #171413;
+    color: #14202A;
     font-weight: 500;
     padding: 0.14em 0.18em 0 0;
   }
@@ -1089,7 +1272,7 @@ export const prerender = true;
     font-family: var(--font-ui);
     font-size: 0.95rem;
     line-height: 1.55;
-    color: #2A211B;
+    color: #243746;
     margin: 2rem 0 2.75rem;
     border-collapse: collapse;
     width: 100%;
@@ -1100,13 +1283,13 @@ export const prerender = true;
     font-size: 0.66rem;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: rgba(23, 20, 19, 0.65);
+    color: rgba(20, 32, 42, 0.65);
     padding: 0.4rem 1rem 0.85rem;
-    border-bottom: 1.5px solid #171413;
+    border-bottom: 1.5px solid #14202A;
   }
   .pl-prose table tbody td {
     padding: 0.95rem 1rem;
-    border-bottom: 1px solid rgba(23, 20, 19, 0.1);
+    border-bottom: 1px solid rgba(20, 32, 42, 0.1);
     vertical-align: top;
   }
   .pl-prose table thead th:first-child,
@@ -1114,11 +1297,36 @@ export const prerender = true;
   .pl-prose table thead th:last-child,
   .pl-prose table tbody td:last-child { padding-right: 0; }
 
+  .pl-choices { background: #0B2E4A; color: #FFFFFF; padding: clamp(3.5rem, 6vw, 5rem) 0; scroll-margin-top: 7rem; }
+  .pl-choices .pl-eyebrow { color: #F5C177; margin-bottom: 0.85rem; }
+  .pl-choices__head { max-width: 42rem; margin-bottom: 2rem; }
+  .pl-choices__head h2 { font: 700 clamp(2rem, 3vw, 2.7rem)/1.13 var(--font-display); color: #FFFFFF; letter-spacing: -.025em; margin: 0 0 1rem; text-wrap: balance; }
+  .pl-choices__head p:last-child { font: 400 1.1rem/1.55 var(--font-ui); color: #D9E6EC; max-width: 55ch; margin: 0; }
+  .pl-choices__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.8rem; }
+  .pl-choices__card { display: flex; flex-direction: column; min-height: 18rem; padding: clamp(1.4rem, 2vw, 2rem); color: #14202A; background: #F2EFEA; text-decoration: none; transition: transform .2s ease, background .2s ease; }
+  .pl-choices__card:hover { transform: translateY(-4px); background: #FFFFFF; }
+  .pl-choices__num { font: 700 .68rem/1 var(--font-ui); letter-spacing: .16em; color: #10527E; margin-bottom: 1.65rem; }
+  .pl-choices__place { font: 700 clamp(1.45rem, 2.2vw, 1.9rem)/1.16 var(--font-display); margin-bottom: .35rem; }
+  .pl-choices__mood { font: 700 .8rem/1.3 var(--font-ui); color: #8B561C; text-transform: uppercase; letter-spacing: .1em; }
+  .pl-choices__detail { font: 400 1rem/1.5 var(--font-ui); color: #3E5361; margin: 1rem 0 1.5rem; }
+  .pl-choices__link { font: 700 .84rem/1.3 var(--font-ui); color: #10527E; margin-top: auto; }
+  .pl-contents { max-width: 50rem; margin: 0 auto 3.5rem; border-top: 1px solid #CFD9DE; border-bottom: 1px solid #CFD9DE; padding: 1.1rem 0 1.3rem; }
+  .pl-contents .pl-eyebrow { margin: 0 0 .65rem; }
+  .pl-contents__links { display: flex; flex-wrap: wrap; gap: .2rem 1.3rem; }
+  .pl-contents a { display: inline-flex; align-items: center; min-height: 44px; gap: .25rem; font: 700 .83rem/1.3 var(--font-ui); color: #10527E; text-decoration: none; }
+  .pl-contents a:hover { text-decoration: underline; }
+  .pl-takeaway { background: #F2EFEA; padding: clamp(2.8rem, 5vw, 4rem) 0; }
+  .pl-takeaway__inner { display: flex; align-items: end; justify-content: space-between; gap: 1.5rem 3rem; }
+  .pl-takeaway .pl-eyebrow { margin-bottom: .7rem; color: #10527E; }
+  .pl-takeaway h2 { font: 700 clamp(1.7rem, 2.5vw, 2.25rem)/1.15 var(--font-display); color: #0B2E4A; letter-spacing: -.02em; margin: 0 0 .65rem; max-width: 24ch; }
+  .pl-takeaway p:last-child { font: 400 1rem/1.55 var(--font-ui); color: #3E5361; margin: 0; max-width: 58ch; }
+  .pl-takeaway .pl-action { flex: 0 0 auto; }
+
   /* ── FAQ ─────────────────────────────────────────────────────── */
   .pl-faq {
     background: #FFFFFF;
     padding: clamp(3.5rem, 7vw, 6.5rem) 0 clamp(4rem, 8vw, 7rem);
-    border-top: 1px solid rgba(23, 20, 19, 0.08);
+    border-top: 1px solid rgba(20, 32, 42, 0.08);
   }
   .pl-faq__inner {
     display: grid;
@@ -1132,7 +1340,7 @@ export const prerender = true;
     font-size: clamp(1.85rem, 2.6vw, 2.4rem);
     font-weight: 500;
     line-height: 1.1;
-    color: #171413;
+    color: #14202A;
     letter-spacing: -0.012em;
     margin: 0;
     max-width: 14ch;
@@ -1140,31 +1348,31 @@ export const prerender = true;
   .pl-faq__list { margin: 0; padding: 0; }
   .pl-faq__item {
     padding: clamp(1.5rem, 2.5vw, 2rem) 0;
-    border-bottom: 1px solid rgba(23, 20, 19, 0.1);
+    border-bottom: 1px solid rgba(20, 32, 42, 0.1);
   }
-  .pl-faq__item:first-child { border-top: 1px solid rgba(23, 20, 19, 0.1); }
+  .pl-faq__item:first-child { border-top: 1px solid rgba(20, 32, 42, 0.1); }
   .pl-faq__q {
     font-family: var(--font-display);
     font-size: clamp(1.2rem, 1.5vw, 1.4rem);
     font-weight: 500;
     line-height: 1.25;
-    color: #171413;
+    color: #14202A;
     margin: 0 0 0.85rem;
   }
   .pl-faq__a {
     font-family: var(--font-display);
     font-size: clamp(1.05rem, 1.15vw, 1.12rem);
     line-height: 1.6;
-    color: rgba(23, 20, 19, 0.78);
+    color: rgba(20, 32, 42, 0.78);
     margin: 0;
     max-width: 56ch;
   }
 
   /* ── Cluster rail ────────────────────────────────────────────── */
   .pl-cluster {
-    background: #F6F1E8;
+    background: #F2EFEA;
     padding: clamp(3rem, 6vw, 5.5rem) 0;
-    border-top: 1px solid rgba(23, 20, 19, 0.08);
+    border-top: 1px solid rgba(20, 32, 42, 0.08);
   }
   .pl-cluster__inner {
     display: grid;
@@ -1175,9 +1383,9 @@ export const prerender = true;
   .pl-cluster__list { margin: 0; padding: 0; list-style: none; }
   .pl-cluster__item {
     padding: 0;
-    border-top: 1px solid rgba(23, 20, 19, 0.12);
+    border-top: 1px solid rgba(20, 32, 42, 0.12);
   }
-  .pl-cluster__item:last-child { border-bottom: 1px solid rgba(23, 20, 19, 0.12); }
+  .pl-cluster__item:last-child { border-bottom: 1px solid rgba(20, 32, 42, 0.12); }
   .pl-cluster__link {
     display: flex;
     align-items: baseline;
@@ -1187,23 +1395,23 @@ export const prerender = true;
     font-family: var(--font-display);
     font-size: clamp(1.15rem, 1.4vw, 1.3rem);
     font-weight: 500;
-    color: #171413;
+    color: #14202A;
     text-decoration: none;
-    transition: color 0.2s ease, padding-left 0.25s ease;
-  }
-  .pl-cluster__link:hover { color: #26997e; padding-left: 0.4rem; }
-  .pl-cluster__arrow {
-    font-family: var(--font-ui);
-    color: rgba(23, 20, 19, 0.45);
     transition: color 0.2s ease, transform 0.25s ease;
   }
-  .pl-cluster__link:hover .pl-cluster__arrow { color: #26997e; transform: translateX(3px); }
+  .pl-cluster__link:hover { color: #10527E; transform: translateX(0.25rem); }
+  .pl-cluster__arrow {
+    font-family: var(--font-ui);
+    color: rgba(20, 32, 42, 0.45);
+    transition: color 0.2s ease, transform 0.25s ease;
+  }
+  .pl-cluster__link:hover .pl-cluster__arrow { color: #10527E; transform: translateX(3px); }
 
   /* ── Venues ──────────────────────────────────────────────────── */
   .pl-venues {
     background: #FFFFFF;
     padding: clamp(4rem, 7vw, 6rem) 0 clamp(4rem, 8vw, 7rem);
-    border-top: 1px solid rgba(23, 20, 19, 0.08);
+    border-top: 1px solid rgba(20, 32, 42, 0.08);
   }
   .pl-venues__head {
     text-align: center;
@@ -1215,7 +1423,7 @@ export const prerender = true;
     font-size: clamp(1.85rem, 2.6vw, 2.4rem);
     font-weight: 500;
     line-height: 1.1;
-    color: #171413;
+    color: #14202A;
     letter-spacing: -0.012em;
     margin: 0 auto;
     max-width: 22ch;
@@ -1231,16 +1439,28 @@ export const prerender = true;
     .pl-glance__inner,
     .pl-faq__inner,
     .pl-cluster__inner { grid-template-columns: 1fr; gap: 1.5rem; }
-    .pl-glance__list { grid-template-columns: 1fr; }
+    .pl-glance__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .pl-choices__grid { grid-template-columns: 1fr; }
+    .pl-choices__card { min-height: 0; }
+    .pl-takeaway__inner { display: block; }
+    .pl-takeaway .pl-action { margin-top: 1.4rem; }
     .pl-venues__grid { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 820px) {
     .pl-cover__inner { grid-template-columns: 1fr; gap: 2rem; }
-    .pl-cover__visual { aspect-ratio: 4 / 3; }
+    .pl-cover__reader-tools { grid-column: 1; margin-top: -1rem; }
+    .pl-cover__frame { aspect-ratio: 4 / 3; }
     .pl-cover__headline { font-size: clamp(2rem, 7.5vw, 2.6rem); max-width: none; }
   }
   @media (max-width: 600px) {
     .pl-venues__grid { grid-template-columns: 1fr; }
-    .pl-prose { font-size: 1.08rem; line-height: 1.65; }
+    .pl-glance__list { grid-template-columns: 1fr; }
+    .pl-cover__actions { align-items: stretch; }
+    .pl-cover__actions .pl-action--primary { width: 100%; }
+    .pl-cover__reader-tools .pi-article-actions { justify-content: space-between; flex-wrap: nowrap; }
+    .pl-cover__reader-tools .pi-article-actions__hint { display: none; }
+    .pl-cover__headline { font-size: clamp(2rem, 9vw, 2.7rem); }
+    .pl-cover__headline--long { font-size: clamp(1.9rem, 7.6vw, 2.3rem); }
+    .pl-prose { font-size: 1.07rem; line-height: 1.66; }
   }
 </style>

@@ -5,10 +5,24 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-14
 heroImage:
-  src: "/images/sourced/article-point-nepean-01.webp"
-  alt: "Defensive batteries at Point Nepean with the Rip and the Bellarine Peninsula in the distance"
-  credit: "Wikimedia Commons"
-  license: "tmp-wikimedia"
+  src: "/images/visit-victoria/vv-164539-point-nepean-fort-nepean.webp"
+  alt: "Two walkers on the sealed road to Fort Nepean as it winds along the narrow headland between bay and ocean under a pink sky"
+  credit: "Jesse Hisco, courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "Point Nepean Fort Walk, Mornington Peninsula, one of the routes covered in this guide."
+  depicts: "Point Nepean - Fort Nepean"
+  depictionStatus: "illustrative"
+  creator: "Jesse Hisco"
+  sourceUrl: "Victoria Content Hub asset 164539, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "service"
 tags: ["point-nepean", "sorrento", "portsea", "walks", "history", "explore", "families", "all-year"]
 relatedVenues: ["portsea-hotel", "hotel-sorrento", "the-continental-sorrento"]

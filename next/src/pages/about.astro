@@ -1,23 +1,258 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { editableText } from '../lib/inline-edit/attrs';
+import { pageImage } from '../lib/page-images';
+
 export const prerender = true;
+
+const coast = pageImage('about-hero');
+const bay = pageImage('about-bay');
+const questions = [
+  {
+    number: '01',
+    title: 'Is it worth your time?',
+    copy: 'We look for the experience that makes a place worth choosing over the other options for your day.',
+  },
+  {
+    number: '02',
+    title: 'Who is it right for?',
+    copy: 'A great place still needs the right person and the right mood. We say who will get the most from it.',
+  },
+  {
+    number: '03',
+    title: 'When does it work best?',
+    copy: 'Season, weather, opening details and the pace of a visit can change the recommendation.',
+  },
+  {
+    number: '04',
+    title: 'What is the reason?',
+    copy: 'Every verdict should give you something useful to decide with, beyond a flattering description.',
+  },
+];
 ---
-<BaseLayout title="About Peninsula Insider" description="The opinionated guide to the Mornington Peninsula. Specific, considered and current." canonical="https://peninsulainsider.com.au/about/">
-  <article class="about-page container">
-    <header><h1 {...editableText({entityType:'page',entitySlug:'about',fieldPath:'hero.title',label:'About title'})}>About Peninsula Insider</h1><p class="standfirst" {...editableText({entityType:'page',entitySlug:'about',fieldPath:'hero.dek',label:'About introduction'})}>The opinionated guide to the Mornington Peninsula. Specific, considered and current.</p></header>
-    <section><h2>A point of view, not a directory</h2><p>We curate the places worth knowing on the Mornington Peninsula. Every pick earns its place. Every verdict has a reason.</p></section>
-    <section id="how-we-choose"><h2>How we choose</h2><p>Research, local knowledge and editorial judgement guide our choices. We consider whether a place is worth your time, who it suits, the value and experience it offers, and when to go.</p></section>
-    <section id="independent-editorial"><h2>Independent editorial</h2><p>Businesses cannot pay for a recommendation, ranking or Insider Pick. We may work commercially through advertising, sponsored content and partnerships. Commercial content is clearly identified and kept separate from our editorial choices.</p></section>
-    <section><h2>Keeping things current</h2><p>Places change. If something is inaccurate or out of date, tell us what needs fixing.</p><a class="pi-btn pi-btn--ghost" href="/contact/?type=correction#correction">Report a correction</a></section>
-    <section><h2>The Peninsula worth knowing.</h2><a class="pi-btn pi-btn--solid" href="/dispatch/">Join The Insider Note</a></section>
+
+<BaseLayout
+  title="About Peninsula Insider"
+  description="Meet the independent local guide to the Mornington Peninsula. See how we choose our picks, keep editorial judgement separate from commercial work and correct what changes."
+  canonical="https://peninsulainsider.com.au/about/"
+  ogImage={coast.src}
+>
+  <article class="pi-about">
+    <header class="pi-about__hero">
+      <div class="container">
+        <p class="pi-about__eyebrow"><span aria-hidden="true"></span> About Peninsula Insider</p>
+        <div class="pi-about__hero-grid">
+          <h1 {...editableText({entityType:'page',entitySlug:'about',fieldPath:'hero.title',label:'About title'})}>The Peninsula, with a point of view.</h1>
+          <div class="pi-about__intro">
+            <p class="pi-about__standfirst" {...editableText({entityType:'page',entitySlug:'about',fieldPath:'hero.dek',label:'About introduction'})}>We live here. We choose places worth your time, say who they suit and explain why they make the cut.</p>
+            <p>Peninsula Insider is an independent guide shaped by real visits, local knowledge and ongoing checks.</p>
+          </div>
+        </div>
+        <nav class="pi-about__jump" aria-label="On this page">
+          <span>On this page</span>
+          <a href="#how-we-choose">How we choose <span aria-hidden="true">↗</span></a>
+          <a href="#independent-editorial">Our independence <span aria-hidden="true">↗</span></a>
+          <a href="#keeping-current">Keeping current <span aria-hidden="true">↗</span></a>
+        </nav>
+        <figure class="pi-about__hero-photo">
+          <img src={coast.src} alt={coast.alt} width="1280" height="710" loading="eager" decoding="async" fetchpriority="high" />
+          <figcaption><span>{coast.caption}</span><span>Photography: {coast.credit}</span></figcaption>
+        </figure>
+      </div>
+    </header>
+
+    <section class="pi-about__promise" aria-labelledby="about-promise-title">
+      <div class="container pi-about__promise-grid">
+        <p class="pi-about__eyebrow pi-about__eyebrow--light">Our point of view</p>
+        <div>
+          <h2 id="about-promise-title">Every pick earns its place.<br />Every verdict has a reason.</h2>
+          <p>You should know what makes a place right for your day before you leave home.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="pi-about__method" id="how-we-choose" aria-labelledby="about-method-title">
+      <div class="container">
+        <div class="pi-about__section-head">
+          <p class="pi-about__eyebrow">The method</p>
+          <div>
+            <h2 id="about-method-title">How we choose</h2>
+            <p>Research, real visits, local knowledge and editorial judgement guide our choices. These are the questions behind a useful recommendation.</p>
+          </div>
+        </div>
+        <ol class="pi-about__questions">
+          {questions.map((question) => (
+            <li>
+              <span class="pi-about__number" aria-hidden="true">{question.number}</span>
+              <h3>{question.title}</h3>
+              <p>{question.copy}</p>
+            </li>
+          ))}
+        </ol>
+        <div class="pi-about__example">
+          <p class="pi-about__eyebrow">A verdict in practice</p>
+          <blockquote>
+            <p>A properly wild coast walk with a steep descent and a real payoff. Check conditions before you go, then allow enough time for the climb back.</p>
+            <footer><a class="pi-about__text-link" href="/journal/walks-bushrangers-bay-walk-guide/">Read the Bushrangers Bay walk guide <span aria-hidden="true">↗</span></a></footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section class="pi-about__independence" id="independent-editorial" aria-labelledby="about-independence-title">
+      <div class="container pi-about__independence-grid">
+        <div>
+          <p class="pi-about__eyebrow pi-about__eyebrow--light">Independent editorial</p>
+          <h2 id="about-independence-title">Our judgement stays ours.</h2>
+        </div>
+        <div class="pi-about__independence-points">
+          <div>
+            <h3>Recommendations</h3>
+            <p>Businesses cannot pay for a recommendation, ranking or Insider Pick.</p>
+          </div>
+          <div>
+            <h3>Commercial work</h3>
+            <p>We may work through advertising, sponsored content and partnerships. We identify that work clearly and keep it separate from our editorial choices.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pi-about__current" id="keeping-current" aria-labelledby="about-current-title">
+      <div class="container pi-about__current-grid">
+        <figure>
+          <img src={bay.src} alt={bay.alt} width="2000" height="1332" loading="lazy" decoding="async" />
+          <figcaption><span>{bay.caption}</span><span>Photography: {bay.credit}</span></figcaption>
+        </figure>
+        <div class="pi-about__current-copy">
+          <p class="pi-about__eyebrow">Keeping things current</p>
+          <h2 id="about-current-title">Places change. We keep checking.</h2>
+          <p>We recheck details on a rolling basis and correct errors in public. If something is inaccurate or out of date, tell us what needs fixing.</p>
+          <a class="pi-about__text-link" href="/contact/?type=correction#correction">Report a correction <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="pi-about__next" aria-labelledby="about-next-title">
+      <div class="container pi-about__next-grid">
+        <div>
+          <p class="pi-about__eyebrow">The Peninsula worth knowing</p>
+          <h2 id="about-next-title">Go somewhere good next.</h2>
+        </div>
+        <div>
+          <p>Find a place for your next day out, or let The Insider Note bring our latest picks to you.</p>
+          <div class="pi-about__next-actions">
+            <a class="pi-btn pi-btn--solid" href="/explore/places/">Explore places</a>
+            <a class="pi-about__text-link" href="/dispatch/">Join The Insider Note <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
   </article>
 </BaseLayout>
+
 <style>
-  .about-page { max-width: 52rem; padding-block: clamp(3rem, 6vw, 5rem); }
-  h1 { font: 500 clamp(2.5rem, 6vw, 4.2rem)/1.08 var(--font-display); letter-spacing: -.025em; margin: 0 0 1.5rem; }
-  .standfirst { font: 500 1.4rem/1.5 var(--font-display); }
-  section { margin-top: 3rem; }
-  h2 { font: 500 1.8rem/1.2 var(--font-display); margin: 0 0 .8rem; }
-  p { max-width: 68ch; line-height: 1.7; }
+  .pi-about { color: var(--text); }
+  .pi-about__hero { background: var(--bg-alt); padding: clamp(3.5rem, 6vw, 6rem) 0 clamp(3.5rem, 5vw, 5rem); }
+  .pi-about__eyebrow { display: flex; align-items: center; gap: .85rem; margin: 0; color: var(--accent); font: 700 .76rem/1.4 var(--font-ui); letter-spacing: .16em; text-transform: uppercase; }
+  .pi-about__eyebrow > span { width: 2rem; height: 2px; background: var(--gold-text); flex: none; }
+  .pi-about__eyebrow--light { color: #c6dce9; }
+  .pi-about__hero-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(19rem, .6fr); gap: clamp(2rem, 5vw, 5.5rem); align-items: end; margin-top: 2rem; }
+  .pi-about__hero h1 { max-width: 12ch; margin: 0; font: 600 clamp(3.5rem, 6.5vw, 6.8rem)/1.04 var(--font-display); letter-spacing: -.065em; text-wrap: balance; }
+  .pi-about__intro { padding: 0 0 .4rem clamp(1.5rem, 2.5vw, 2.75rem); border-left: 1px solid #b8c4c8; }
+  .pi-about__intro p { max-width: 36ch; margin: 0; font: 400 1rem/1.65 var(--font-ui); color: var(--soft); }
+  .pi-about__intro .pi-about__standfirst { margin-bottom: 1rem; color: var(--text); font: 600 clamp(1.2rem, 1.65vw, 1.55rem)/1.45 var(--font-display); letter-spacing: -.025em; }
+  .pi-about__jump { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem clamp(1.3rem, 3vw, 3rem); margin-top: clamp(3rem, 5vw, 5.5rem); padding: 1.15rem 0; border-block: 1px solid #c8d0d0; }
+  .pi-about__jump > span { margin-right: auto; font: 700 .72rem/1.4 var(--font-ui); letter-spacing: .14em; text-transform: uppercase; color: var(--soft); }
+  .pi-about__jump a, .pi-about__text-link { color: var(--accent); font: 700 .95rem/1.4 var(--font-ui); text-decoration: none; text-underline-offset: .25em; display: inline-flex; align-items: center; min-height: 44px; }
+  .pi-about__jump a:hover, .pi-about__text-link:hover { text-decoration: underline; }
+  .pi-about__jump a span, .pi-about__text-link span { display: inline-block; margin-left: .15rem; }
+  .pi-about__hero-photo { margin: clamp(1.5rem, 3vw, 2.5rem) 0 0; }
+  .pi-about__hero-photo img { display: block; width: 100%; height: auto; aspect-ratio: 2.15; object-fit: cover; object-position: center 55%; border-radius: .35rem; }
+  .pi-about figcaption { display: flex; justify-content: space-between; gap: .5rem 1rem; margin-top: .7rem; color: var(--soft); font: 500 .78rem/1.45 var(--font-ui); }
+
+  .pi-about__promise { background: #0b2e4a; color: #fff; padding: clamp(4rem, 6vw, 6rem) 0; }
+  .pi-about__promise-grid { display: grid; grid-template-columns: minmax(12rem, .55fr) minmax(0, 1.45fr); gap: 3rem; }
+  .pi-about__promise .pi-about__eyebrow { padding-top: .55rem; }
+  .pi-about__promise h2 { max-width: 18ch; margin: 0; color: #fff; font: 600 clamp(2.4rem, 4.1vw, 4.7rem)/1.13 var(--font-display); letter-spacing: -.055em; text-wrap: balance; }
+  .pi-about__promise p:last-child { max-width: 43ch; margin: 1.5rem 0 0; color: #d4e3ed; font: 400 clamp(1.05rem, 1.5vw, 1.3rem)/1.55 var(--font-ui); }
+
+  .pi-about__method { padding: clamp(5rem, 8vw, 8.5rem) 0; scroll-margin-top: 8.25rem; }
+  .pi-about__section-head { display: grid; grid-template-columns: minmax(12rem, .55fr) minmax(0, 1.45fr); gap: 3rem; align-items: start; }
+  .pi-about__section-head .pi-about__eyebrow { padding-top: .5rem; }
+  .pi-about__section-head h2, .pi-about__current h2, .pi-about__next h2 { margin: 0; font: 600 clamp(2.5rem, 4vw, 4.5rem)/1.13 var(--font-display); letter-spacing: -.055em; text-wrap: balance; }
+  .pi-about__section-head p:last-child { max-width: 58ch; margin: 1.25rem 0 0; color: var(--soft); font: 400 clamp(1.1rem, 1.4vw, 1.3rem)/1.62 var(--font-ui); }
+  .pi-about__questions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(3rem, 8vw, 9rem); margin: clamp(3.5rem, 6vw, 6rem) 0 0; padding: 0; list-style: none; border-bottom: 1px solid #ccd6d9; }
+  .pi-about__questions li { display: grid; grid-template-columns: 3.5rem minmax(0, 1fr); column-gap: 1rem; align-content: start; padding: 1.8rem 0 2.5rem; border-top: 1px solid #ccd6d9; }
+  .pi-about__number { grid-row: span 2; padding-top: .22rem; color: var(--gold-text); font: 700 .82rem/1.5 var(--font-ui); letter-spacing: .12em; }
+  .pi-about__questions h3 { margin: 0; font: 600 clamp(1.3rem, 2vw, 1.8rem)/1.25 var(--font-display); letter-spacing: -.035em; }
+  .pi-about__questions p { grid-column: 2; max-width: 40ch; margin: .7rem 0 0; color: var(--soft); font: 400 1.03rem/1.62 var(--font-ui); }
+
+  .pi-about__example { display: grid; grid-template-columns: minmax(12rem, .55fr) minmax(0, 1.45fr); gap: 3rem; margin-top: clamp(3rem, 5vw, 5rem); padding: clamp(2rem, 4vw, 3rem); background: var(--bg-alt); border-radius: .35rem; }
+  .pi-about__example .pi-about__eyebrow { align-self: start; padding-top: .4rem; }
+  .pi-about__example blockquote { margin: 0; }
+  .pi-about__example blockquote p { max-width: 40ch; margin: 0; font: 500 clamp(1.3rem, 2vw, 1.8rem)/1.42 var(--font-display); letter-spacing: -.035em; }
+  .pi-about__example blockquote footer { margin-top: 1rem; }
+
+  .pi-about__independence { background: #123b56; color: #fff; padding: clamp(4.5rem, 7vw, 7rem) 0; scroll-margin-top: 8.25rem; }
+  .pi-about__independence-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .9fr); gap: clamp(3rem, 7vw, 8rem); }
+  .pi-about__independence h2 { max-width: 13ch; margin: 1.6rem 0 0; color: #fff; font: 600 clamp(2.5rem, 4.2vw, 4.8rem)/1.1 var(--font-display); letter-spacing: -.055em; text-wrap: balance; }
+  .pi-about__independence-points { border-top: 1px solid #67879b; }
+  .pi-about__independence-points > div { padding: 1.3rem 0 1.6rem; border-bottom: 1px solid #67879b; }
+  .pi-about__independence-points h3 { margin: 0 0 .6rem; color: #f2c177; font: 700 .78rem/1.4 var(--font-ui); letter-spacing: .14em; text-transform: uppercase; }
+  .pi-about__independence-points p { max-width: 47ch; margin: 0; color: #e8f0f3; font: 400 clamp(1.05rem, 1.4vw, 1.25rem)/1.6 var(--font-ui); }
+
+  .pi-about__current { background: var(--bg-alt); padding: clamp(5rem, 8vw, 8rem) 0; scroll-margin-top: 8.25rem; }
+  .pi-about__current-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: clamp(3rem, 6vw, 7rem); align-items: center; }
+  .pi-about__current figure { margin: 0; }
+  .pi-about__current img { display: block; width: 100%; height: auto; aspect-ratio: 1.35; object-fit: cover; object-position: center; border-radius: .35rem; }
+  .pi-about__current figcaption { display: block; }
+  .pi-about__current figcaption span + span { display: block; }
+  .pi-about__current h2 { max-width: 13ch; margin-top: 1.3rem; }
+  .pi-about__current-copy > p:not(.pi-about__eyebrow) { max-width: 47ch; margin: 1.3rem 0 1.6rem; color: var(--soft); font: 400 clamp(1.1rem, 1.4vw, 1.3rem)/1.62 var(--font-ui); }
+
+  .pi-about__next { padding: clamp(4.5rem, 7vw, 7rem) 0; }
+  .pi-about__next-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .8fr); gap: clamp(3rem, 7vw, 8rem); align-items: end; }
+  .pi-about__next h2 { max-width: 13ch; margin-top: 1.25rem; }
+  .pi-about__next-grid > div:last-child > p { max-width: 43ch; margin: 0 0 1.6rem; color: var(--soft); font: 400 1.15rem/1.6 var(--font-ui); }
+  .pi-about__next-actions { display: flex; flex-wrap: wrap; gap: 1.2rem 1.5rem; align-items: center; }
+  .pi-about__next-actions .pi-btn { min-height: 44px; }
+  .pi-about a:focus-visible { outline: 3px solid #11309c; outline-offset: 4px; }
+
+  @media (max-width: 900px) {
+    .pi-about__hero-grid, .pi-about__promise-grid, .pi-about__section-head, .pi-about__independence-grid, .pi-about__current-grid, .pi-about__next-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .pi-about__hero h1 { max-width: 14ch; }
+    .pi-about__intro { max-width: 38rem; }
+    .pi-about__hero-photo img { aspect-ratio: 1.65; }
+    .pi-about__promise .pi-about__eyebrow, .pi-about__section-head .pi-about__eyebrow { padding-top: 0; }
+    .pi-about__current figure { max-width: 42rem; }
+  }
+  @media (max-width: 640px) {
+    .pi-about__hero { padding: 2.5rem 0 3.5rem; }
+    .pi-about__hero-grid { gap: 1.6rem; margin-top: 1.25rem; }
+    .pi-about__hero h1 { max-width: 12ch; font-size: clamp(2.8rem, 11.8vw, 4.2rem); letter-spacing: -.06em; }
+    .pi-about__intro { padding: 0; border-left: 0; }
+    .pi-about__intro .pi-about__standfirst { font-size: 1.2rem; }
+    .pi-about__jump { gap: .9rem 1.2rem; margin-top: 2.25rem; }
+    .pi-about__jump > span { flex-basis: 100%; }
+    .pi-about__jump a { font-size: .88rem; }
+    .pi-about__hero-photo { margin-top: 1.35rem; }
+    .pi-about__hero-photo img { aspect-ratio: 1.18; object-position: 60% center; }
+    .pi-about figcaption { display: block; font-size: .75rem; }
+    .pi-about figcaption span + span { display: block; margin-top: .15rem; }
+    .pi-about__promise { padding: 4rem 0; }
+    .pi-about__promise h2 { font-size: clamp(2.15rem, 8.7vw, 3rem); }
+    .pi-about__method { padding: 4.5rem 0; }
+    .pi-about__method, .pi-about__independence, .pi-about__current { scroll-margin-top: 4.25rem; }
+    .pi-about__section-head h2, .pi-about__current h2, .pi-about__next h2 { font-size: clamp(2.35rem, 9vw, 3.2rem); }
+    .pi-about__questions { grid-template-columns: 1fr; margin-top: 3rem; }
+    .pi-about__example { grid-template-columns: 1fr; gap: 1rem; padding: 1.7rem; }
+    .pi-about__questions li { grid-template-columns: 2.5rem minmax(0, 1fr); padding: 1.45rem 0 1.7rem; }
+    .pi-about__questions p { font-size: 1rem; }
+    .pi-about__independence { padding: 4.5rem 0; }
+    .pi-about__independence h2 { font-size: clamp(2.4rem, 9vw, 3.3rem); }
+    .pi-about__current { padding: 4.5rem 0; }
+    .pi-about__current img { aspect-ratio: 1.2; }
+    .pi-about__next { padding: 4.5rem 0; }
+  }
 </style>
