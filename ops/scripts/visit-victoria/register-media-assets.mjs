@@ -37,6 +37,11 @@ const content = (entity) => JSON.parse(fs.readFileSync(contentPath(entity), 'utf
 const annotations = new Map(JSON.parse(fs.readFileSync(path.join(REPO, `ops/records/visit-victoria/download-${map.batch}/annotations.json`), 'utf8')).works.map((a) => [a.assetKey, a]));
 const slugifyPath = (p) => p.replace(/^\/+/, '').replace(/[^a-zA-Z0-9]+/g, '-').replace(/-+/g, '-').toLowerCase();
 const TOD = new Set(['dawn', 'morning', 'midday', 'afternoon', 'golden', 'dusk', 'night']);
+// pi_media_assets.shot_type accepts wide, establishing, detail, portrait, interior,
+// aerial, food, map, graphic. Annotation vocabularies are wider; map the rest in.
+const SHOT = { people: 'portrait', drink: 'food' };
+const SHOT_OK = new Set(['wide', 'establishing', 'detail', 'portrait', 'interior', 'aerial', 'food', 'map', 'graphic']);
+const shotType = (s) => { const t = SHOT[s] ?? s; return SHOT_OK.has(t) ? t : null; };
 const CHANNELS = ['site_plan', 'site_article', 'site_whats_on', 'site_home', 'email', 'ig_carousel', 'ig_story', 'facebook', 'linkedin'];
 const NOTE = 'Visit Victoria Work. No derivatives, no generative use, never passed to third parties; boosting an organic post that promotes Peninsula tourism is allowed, other paid use is not. See ops/records/visit-victoria.';
 
@@ -65,7 +70,7 @@ const rows = [...first.values()].map((p) => {
     place_slug: collection === 'places' ? slug : (j.place ?? null),
     orientation: w.orientation,
     aspect_ratio: w.width && w.height ? `${w.width}:${w.height}` : null,
-    shot_type: a.shotType,
+    shot_type: shotType(a.shotType),
     time_of_day: TOD.has(a.timeOfDay) ? a.timeOfDay : null,
     people_present: people,
     people_released: false,
@@ -99,7 +104,7 @@ for (let i = 0; i < rows.length; i += 100) {
     headers: { apikey: key, Authorization: `Bearer ${key}`, 'Content-Type': 'application/json', Prefer: 'resolution=merge-duplicates,return=minimal' },
     body: JSON.stringify(chunk),
   });
-  if (!res.ok) { console.error(`upsert failed at ${i}: ${res.status} ${(await res.text()).slice(0, 300)}`); process.exit(1); }
+  if (!res.ok) { console.error(`upsert failed at ${i}: ${res.status} ${(await res.text()).slice(-400)}`); process.exit(1); }
   written += chunk.length;
 }
 console.log(`upserted ${written}/${rows.length} into pi_media_assets`);
