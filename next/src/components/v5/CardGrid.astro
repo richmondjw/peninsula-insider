@@ -46,11 +46,13 @@ const { label, layout = 'grid', maxCols = 3 } = Astro.props;
   /* Equal-height cells (C24). A card that is itself the grid item already
      stretches to its row. A wrapper item (an li holding the card, as in
      TheSix) becomes a flex box so its card fills the cell too, and the
-     card's pinned foot line lands on one baseline across the row. */
-  .v5-card-grid--grid > :global(:not(.pi-card)) {
+     card's pinned foot line lands on one baseline across the row.
+     Scoped to li: Astro emits component module scripts inside the list at
+     first render, and a broader selector turned them into empty grid cells. */
+  .v5-card-grid--grid > :global(li:not(.pi-card)) {
     display: flex;
   }
-  .v5-card-grid--grid > :global(:not(.pi-card)) > :global(.pi-card) {
+  .v5-card-grid--grid > :global(li:not(.pi-card)) > :global(.pi-card) {
     flex: 1 1 auto;
     min-width: 0;
   }
