@@ -1,6 +1,6 @@
 {
   "note": "Probe results for source URLs cited by the corpus. Written ONLY by next/scripts/probe-link-health.mjs, by a human or a scheduled job, never by a build. Read offline by next/scripts/audit-link-health.mjs. A verdict is what a probe saw, not an inference. This file is a RECORD, not a report: it does not live under ops/reports/ because nothing here is reproducible from the tree, and reverting it destroys evidence rather than regenerating it.",
-  "updatedAt": "2026-09-30T22:40:47.431Z",
+  "updatedAt": "2026-09-30T23:36:07.963Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -95,6 +95,22 @@
       "verdict": "ok",
       "httpCode": "200",
       "pageTitle": "Exclusive Retreat | P. +613 5981 8400 | E. info@arthursviews.com.au",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://arthursviews.com.au/contact-us/faq/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "FAQ | Exclusive Retreat",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://arthursviews.com.au/suite-decriptions/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Suites | Exclusive Retreat",
       "probedOn": "2026-09-30",
       "probedBy": "scripts/probe-link-health.mjs"
     },
@@ -247,14 +263,6 @@
       "pageTitle": "Commonfolk Coffee - Specialty Coffee Roaster Melbourne"
     },
     {
-      "url": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1961_Chardonnay_grapes_at_the_Main_Ridge_Estate.jpg",
-      "verdict": "ok",
-      "httpCode": "200",
-      "pageTitle": "File:CSIRO ScienceImage 1961 Chardonnay grapes at the Main Ridge Estate.jpg - Wikimedia Commons",
-      "probedOn": "2026-09-29",
-      "probedBy": "scripts/probe-link-health.mjs"
-    },
-    {
       "url": "https://commons.wikimedia.org/wiki/File:Cape_Schanck_walking_trail.jpg",
       "verdict": "ok",
       "httpCode": "200",
@@ -263,7 +271,15 @@
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {
-      "url": "https://commons.wikimedia.org/wiki/File:Looking_out_towards_the_waves_near_Cheviot_Hill_at_Point_Nepean_in_Portsea%2C_Victoria.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1961_Chardonnay_grapes_at_the_Main_Ridge_Estate.jpg",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "File:CSIRO ScienceImage 1961 Chardonnay grapes at the Main Ridge Estate.jpg - Wikimedia Commons",
+      "probedOn": "2026-09-29",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/File:Looking_out_towards_the_waves_near_Cheviot_Hill_at_Point_Nepean_in_Portsea,_Victoria.jpg",
       "verdict": "ok",
       "httpCode": "200",
       "pageTitle": "File:Looking out towards the waves near Cheviot Hill at Point Nepean in Portsea, Victoria.jpg - Wikimedia Commons",
@@ -271,7 +287,7 @@
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {
-      "url": "https://commons.wikimedia.org/wiki/File:Looking_out_towards_the_waves_near_Cheviot_Hill_at_Point_Nepean_in_Portsea,_Victoria.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Looking_out_towards_the_waves_near_Cheviot_Hill_at_Point_Nepean_in_Portsea%2C_Victoria.jpg",
       "verdict": "ok",
       "httpCode": "200",
       "pageTitle": "File:Looking out towards the waves near Cheviot Hill at Point Nepean in Portsea, Victoria.jpg - Wikimedia Commons",
@@ -1105,6 +1121,38 @@
       "pageTitle": "429 Too Many Requests"
     },
     {
+      "url": "https://mpcottages.com/",
+      "verdict": "blocked",
+      "httpCode": "429",
+      "pageTitle": "429 Too Many Requests",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://mpcottages.com/accommodation/mp-beach-club-unit-1-2/",
+      "verdict": "blocked",
+      "httpCode": "429",
+      "pageTitle": "429 Too Many Requests",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://mpcottages.com/accommodation/mp-beach-club-unit-3-4/",
+      "verdict": "blocked",
+      "httpCode": "429",
+      "pageTitle": "429 Too Many Requests",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://mpcottages.com/accommodation/mp-beach-club-unit-5/",
+      "verdict": "blocked",
+      "httpCode": "429",
+      "pageTitle": "429 Too Many Requests",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://mpfm.com.au",
       "verdict": "dead",
       "httpCode": "000",
@@ -1301,6 +1349,22 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Events at Pier 10 | Mornington Peninsula"
+    },
+    {
+      "url": "https://plantationhouse.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Homepage - Plantation House",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://plantationhouse.com.au/accommodation/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Accommodation - Plantation House",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://ptleoestate.com.au",
@@ -1647,6 +1711,14 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Treetops at Red Hill: Peppercorn Cottage and The Winemakers Cottage"
+    },
+    {
+      "url": "https://treetopsatredhill.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Treetops at Red Hill: Peppercorn Cottage and The Winemakers Cottage",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://trofeoestate.com",
@@ -2055,6 +2127,14 @@
       "pageTitle": "Birch Creek"
     },
     {
+      "url": "https://www.birchcreek.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Birch Creek",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://www.bistroelba.com.au",
       "verdict": "ok",
       "httpCode": "200",
@@ -2085,6 +2165,30 @@
       "effectiveUrl": "https://www.bluemooncottages.com.au/",
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://www.bluemooncottages.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Home - Blue Moon Cottages",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.bluemooncottages.com.au/faq/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Faq - Blue Moon Cottages",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.bluemooncottages.com.au/property/?property_id=15",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Property - Blue Moon Cottages",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.bom.gov.au/explore/places/vic/main-ridge/forecast/",
@@ -2312,27 +2416,19 @@
       "pageTitle": "Enchanting Kirtan: Sacred Music &amp; Meditation Experience - Mornington Tickets, Friday 30 October • Starts at 7 PM | Eventbrite"
     },
     {
-      "url": "https://www.facebook.com/MorningtonPeninsulaRegionalGallery/videos/call-for-entries-national-works-on-paper-2026up-to-50000-acquisitions-and-awards/1292875862662549/",
-      "verdict": "ok",
-      "httpCode": "200",
-      "probedOn": "2026-09-13",
-      "probedBy": "audit-link-health.mjs --probe"
-    },
-    {
-      "url": "https://www.facebook.com/PolperroWines/posts/introducing-soil-cellar-a-truffle-hunt-and-dinner-collaboration-between-flinders/1743941566857063/",
-      "verdict": "blocked",
-      "httpCode": "400",
-      "probedOn": "2026-09-13",
-      "probedBy": "audit-link-health.mjs --probe",
-      "pageTitle": "Error"
-    },
-    {
       "url": "https://www.facebook.com/flinderstruffles/",
       "verdict": "blocked",
       "httpCode": "400",
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Error"
+    },
+    {
+      "url": "https://www.facebook.com/MorningtonPeninsulaRegionalGallery/videos/call-for-entries-national-works-on-paper-2026up-to-50000-acquisitions-and-awards/1292875862662549/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe"
     },
     {
       "url": "https://www.facebook.com/ourartsandculture/posts/school-holidays-at-mornington-peninsula-regional-gallery/1198531805698616/",
@@ -2344,6 +2440,14 @@
     },
     {
       "url": "https://www.facebook.com/p/Pearcedale-Market-100064719966925/",
+      "verdict": "blocked",
+      "httpCode": "400",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "Error"
+    },
+    {
+      "url": "https://www.facebook.com/PolperroWines/posts/introducing-soil-cellar-a-truffle-hunt-and-dinner-collaboration-between-flinders/1743941566857063/",
       "verdict": "blocked",
       "httpCode": "400",
       "probedOn": "2026-09-13",
@@ -3953,6 +4057,22 @@
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {
+      "url": "https://www.riparide.com/listings/1569-the-june-at-birch-creek",
+      "verdict": "blocked",
+      "httpCode": "403",
+      "pageTitle": "Just a moment...",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.riparide.com/listings/2104-the-frances-farm-cottage",
+      "verdict": "blocked",
+      "httpCode": "403",
+      "pageTitle": "Just a moment...",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://www.rosebudcountryclub.com.au/",
       "verdict": "blocked",
       "httpCode": "200",
@@ -4148,19 +4268,19 @@
       "pageTitle": "Ten Minutes by Tractor | Homepage"
     },
     {
-      "url": "https://www.tenminutesbytractor.com.au/Experiences/Terroir-Masterclass",
+      "url": "https://www.tenminutesbytractor.com.au/cellar-door",
       "verdict": "ok",
       "httpCode": "200",
-      "effectiveUrl": "https://www.tenminutesbytractor.com.au/visit-us#terroir-masterclass",
+      "effectiveUrl": "https://www.tenminutesbytractor.com.au/visit-us#cellar-door-tastings-section",
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Ten Minutes by Tractor | Cellar Door &amp; Wine Experiences | Ten Minutes…"
     },
     {
-      "url": "https://www.tenminutesbytractor.com.au/cellar-door",
+      "url": "https://www.tenminutesbytractor.com.au/Experiences/Terroir-Masterclass",
       "verdict": "ok",
       "httpCode": "200",
-      "effectiveUrl": "https://www.tenminutesbytractor.com.au/visit-us#cellar-door-tastings-section",
+      "effectiveUrl": "https://www.tenminutesbytractor.com.au/visit-us#terroir-masterclass",
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Ten Minutes by Tractor | Cellar Door &amp; Wine Experiences | Ten Minutes…"
@@ -4290,7 +4410,7 @@
       "pageTitle": "tripadvisor.com.au"
     },
     {
-      "url": "https://www.tripadvisor.com/AttractionProductReview-g2055778-d25356559",
+      "url": "https://www.tripadvisor.com/Attraction_Review-g552161-d7735933-Reviews-Bass_and_Flinders_Distillery",
       "verdict": "blocked",
       "httpCode": "403",
       "probedOn": "2026-09-13",
@@ -4298,7 +4418,7 @@
       "pageTitle": "tripadvisor.com"
     },
     {
-      "url": "https://www.tripadvisor.com/Attraction_Review-g552161-d7735933-Reviews-Bass_and_Flinders_Distillery",
+      "url": "https://www.tripadvisor.com/AttractionProductReview-g2055778-d25356559",
       "verdict": "blocked",
       "httpCode": "403",
       "probedOn": "2026-09-13",
@@ -4434,6 +4554,14 @@
       "pageTitle": "Markets &mdash; Visit Mornington Peninsula."
     },
     {
+      "url": "https://www.visitmorningtonpeninsula.org/whats-on",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "What's On &mdash; Visit Mornington Peninsula."
+    },
+    {
       "url": "https://www.visitmorningtonpeninsula.org/Whats-On",
       "verdict": "ok",
       "httpCode": "200",
@@ -4467,6 +4595,14 @@
     },
     {
       "url": "https://www.visitmorningtonpeninsula.org/Whats-On/View/17566/wild-mushroom-forage-lunch-with-the-kitchen",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-09-13",
+      "probedBy": "audit-link-health.mjs --probe",
+      "pageTitle": "What's On &mdash; Visit Mornington Peninsula."
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/Whats-On/view/17635/southern-peninsula-sleepout-at-the-ranch-adventure-park",
       "verdict": "ok",
       "httpCode": "200",
       "probedOn": "2026-09-13",
@@ -4522,36 +4658,20 @@
       "pageTitle": "What's On &mdash; Visit Mornington Peninsula."
     },
     {
-      "url": "https://www.visitmorningtonpeninsula.org/Whats-On/View/18370/viral-food-festival-at-mornington-racecourse",
-      "verdict": "ok",
-      "httpCode": "200",
-      "pageTitle": "What's On &mdash; Visit Mornington Peninsula.",
-      "probedOn": "2026-09-16",
-      "probedBy": "scripts/probe-link-health.mjs"
-    },
-    {
-      "url": "https://www.visitmorningtonpeninsula.org/Whats-On/view/17635/southern-peninsula-sleepout-at-the-ranch-adventure-park",
-      "verdict": "ok",
-      "httpCode": "200",
-      "probedOn": "2026-09-13",
-      "probedBy": "audit-link-health.mjs --probe",
-      "pageTitle": "What's On &mdash; Visit Mornington Peninsula."
-    },
-    {
-      "url": "https://www.visitmorningtonpeninsula.org/whats-on",
-      "verdict": "ok",
-      "httpCode": "200",
-      "probedOn": "2026-09-13",
-      "probedBy": "audit-link-health.mjs --probe",
-      "pageTitle": "What's On &mdash; Visit Mornington Peninsula."
-    },
-    {
       "url": "https://www.visitmorningtonpeninsula.org/whats-on/view/18001/country-day-at-tar-barrel",
       "verdict": "ok",
       "httpCode": "200",
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "What's On &mdash; Visit Mornington Peninsula."
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/Whats-On/View/18370/viral-food-festival-at-mornington-racecourse",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "What's On &mdash; Visit Mornington Peninsula.",
+      "probedOn": "2026-09-16",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.yabbylake.com",

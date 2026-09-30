@@ -2,170 +2,366 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import { routeSlug, isStayVenue, isListableVenue } from '../../lib/editorial';
 import ProvenanceLine from '../../components/ProvenanceLine.astro';
+import { isListableVenue, isStayVenue, routeSlug, venueHref } from '../../lib/editorial';
+import { absUrl, buildBreadcrumbSchema, buildFaqSchema } from '../../lib/schema';
 
-const allVenues = (await getCollection('venues')).filter(isListableVenue);
+const allStays = (await getCollection('venues')).filter((venue) => isListableVenue(venue) && isStayVenue(venue));
+const bySlug = new Map(allStays.map((venue) => [routeSlug(venue), venue]));
 
-// Coastal stays: peninsula-tip, ocean-coast, bay-coast zones
-const coastalZones = ['peninsula-tip', 'ocean-coast', 'bay-coast'];
-const coastalStays = allVenues.filter((v) =>
-  isStayVenue(v) &&
-  v.data.type !== 'spa' &&
-  coastalZones.includes(v.data.zone)
-);
-
-// Preferred order: tip/Sorrento properties first
-const preferredOrder = [
-  'the-continental-sorrento',
-  'hotel-sorrento',
-  'flinders-hotel',
-  'peninsula-hot-springs-glamping',
-  'peninsula-hot-springs',
-  'one-spa-racv-cape-schanck',
+const definitions = [
+  {
+    id: 'sorrento',
+    title: 'Sorrento, for a village by the bay',
+    cue: 'Hotel rooms · village dining · bay beach',
+    summary: 'Stay in town for restaurants and the bay beach. The ocean-facing Sorrento Back Beach is a separate outing, so check your route before booking.',
+    image: {
+      src: '/images/sourced/place-sorrento-01.webp',
+      alt: 'Small boats on calm water off the Sorrento bay coast at sunset.',
+      caption: 'Sorrento bay coast. Area photograph, not a view from a listed room. Peninsula Insider.',
+      width: 1600,
+      height: 1200,
+    },
+    entries: [
+      {
+        slug: 'the-continental-sorrento',
+        format: 'Hotel · Sorrento village',
+        note: 'A heritage hotel in the Continental precinct. The operator places Sorrento Front Beach and the village a few minutes away on foot.',
+      },
+      {
+        slug: 'hotel-sorrento',
+        format: 'Hotel · Sorrento village',
+        note: 'Rooms and studios at the clifftop pub-hotel. The operator describes the township and bay beach as a short stroll.',
+      },
+    ],
+  },
+  {
+    id: 'rye',
+    title: 'Rye and Capel Sound, for a cottage',
+    cue: 'Self-contained stays · bay-side days',
+    summary: 'Choose this stretch when a cottage and easy access to the calm bay matter more than a hotel dining room. Check the exact unit layout and pet terms.',
+    image: {
+      src: '/images/sourced/place-rye-01.webp',
+      alt: 'A quiet bay beach near Rye with boats offshore and a curving sandy shoreline.',
+      caption: 'Rye bay coast. Area photograph, not a view from either cottage. Peninsula Insider.',
+      width: 1600,
+      height: 1200,
+    },
+    entries: [
+      {
+        slug: 'blue-moon-cottages',
+        format: 'Cottages · Rye',
+        note: 'The operator places its cottages near Rye bay beach and says pets are welcome across the cottages, subject to its terms.',
+      },
+      {
+        slug: 'mp-beach-club-cottages',
+        format: 'Cottages · Capel Sound',
+        note: 'A small group of cottages near Capel Sound bay beach. Studio, one-bedroom and two-bedroom formats are listed by the operator.',
+      },
+    ],
+  },
+  {
+    id: 'south-coast',
+    title: 'Flinders and Cape Schanck, for the south coast',
+    cue: 'Village rooms · headland outlook',
+    summary: 'These are bases for a different coast, not promises of a room on the sand. Compare a Flinders village hotel with a group-oriented Cape Schanck retreat and plan beach access separately.',
+    image: {
+      src: '/images/sourced/place-cape-schanck-01.webp',
+      alt: 'A rocky Cape Schanck headland and sea stack at sunset through coastal tea-tree.',
+      caption: 'Cape Schanck coastline. Area photograph, not a property or room view. Peninsula Insider.',
+      width: 1600,
+      height: 1067,
+    },
+    entries: [
+      {
+        slug: 'flinders-hotel',
+        format: 'Hotel rooms · Flinders village',
+        note: 'Quarters sits behind Flinders Hotel on Cook Street, with hotel dining nearby. The pier and coast are outings from this village base.',
+      },
+      {
+        slug: 'cape-retreat',
+        format: 'Suites · Cape Schanck',
+        note: 'A group-oriented retreat with suites and shared spaces at Cape Schanck. Confirm the booking arrangement, room format and view with the operator.',
+      },
+    ],
+  },
+  {
+    id: 'point-nepean',
+    title: 'Point Nepean, for a night in the park',
+    cue: 'Pre-pitched tents · national park',
+    summary: 'Parks Victoria offers pre-pitched Discovery Tents in the Quarantine Station precinct. This is a coastal camping stay with park rules, not a hotel or a swimming-beach promise.',
+    image: {
+      src: '/images/sourced/place-point-nepean-01.webp',
+      alt: 'Coastal scrub and surf seen from Point Nepean National Park.',
+      caption: 'Point Nepean National Park. Area photograph, not the Discovery Tents. Peninsula Insider.',
+      width: 1600,
+      height: 1067,
+    },
+    entries: [
+      {
+        slug: 'point-nepean-discovery-tents',
+        format: 'Pre-pitched tents · Portsea',
+        note: 'Two- and four-person tents in coastal or woodland campground areas. Parks Victoria lists a September to April season; check current conditions and dates.',
+      },
+    ],
+  },
 ];
 
-const sortedCoastalStays = [
-  ...preferredOrder.map((s) => coastalStays.find((v) => routeSlug(v) === s)).filter((v): v is NonNullable<typeof v> => Boolean(v)),
-  ...coastalStays.filter((v) => !preferredOrder.includes(routeSlug(v))),
+const groups = definitions.map((group) => ({
+  ...group,
+  stays: group.entries.map((entry) => {
+    const venue = bySlug.get(entry.slug);
+    return venue ? { ...entry, venue, href: venueHref(venue, '/stay') } : null;
+  }).filter((item): item is NonNullable<typeof item> => Boolean(item)),
+})).filter((group) => group.stays.length > 0);
+const selectedStays = groups.flatMap((group) => group.stays.map((item) => item.venue));
+
+const faqs = [
+  {
+    q: 'Which coastal stays put a bay beach within walking reach?',
+    a: 'InterContinental Sorrento and Hotel Sorrento describe the Sorrento bay beach as a short walk. Blue Moon Cottages and Mornington Peninsula Beach Club Cottages describe nearby bay beaches around Rye and Capel Sound. Confirm the route and the exact property address for your stay.',
+  },
+  {
+    q: 'Does a coastal stay mean an oceanfront room?',
+    a: 'No. Sorrento village hotels are near the bay, while Sorrento Back Beach is on the ocean side of town. Quarters at Flinders Hotel is behind the hotel on Cook Street. The Cape Retreat is a Cape Schanck base with outlooks described by its operator. Confirm any room view and beach access before booking.',
+  },
+  {
+    q: 'Can I swim beside the Point Nepean Discovery Tents?',
+    a: 'Do not assume the nearby bay beach is a swimming beach. Parks Victoria advises that swimming is not recommended at Point Nepean bay beaches and is not permitted along its ocean coastline. Check park advice and current conditions.',
+  },
+  {
+    q: 'Are thermal stays included here?',
+    a: 'No. The Fingal thermal stays are inland experiences and are covered in the wellness stays guide. This page focuses on bay villages, the south coast and Point Nepean National Park.',
+  },
 ];
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
   { label: 'Stay', href: '/stay/' },
-  { label: 'Coastal Stays' },
+  { label: 'Coastal stays' },
 ];
-
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
-  name: 'Coastal Stays Mornington Peninsula',
-  description: 'Coastal accommodation on the Mornington Peninsula - ocean-side hotels, boutique village stays, and back-beach properties in Sorrento, Flinders, and Cape Schanck.',
-  url: 'https://peninsulainsider.com.au/stay/coastal-stays/',
-  breadcrumb: {
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://peninsulainsider.com.au/' },
-      { '@type': 'ListItem', position: 2, name: 'Stay', item: 'https://peninsulainsider.com.au/stay/' },
-      { '@type': 'ListItem', position: 3, name: 'Coastal Stays', item: 'https://peninsulainsider.com.au/stay/coastal-stays/' },
-    ],
-  },
+  name: 'Coastal stays on the Mornington Peninsula',
+  description: 'Choose between Sorrento hotels, Rye and Capel Sound cottages, Flinders and Cape Schanck bases, and Point Nepean camping.',
+  url: absUrl('/stay/coastal-stays/'),
   mainEntity: {
     '@type': 'ItemList',
-    itemListOrder: 'https://schema.org/ItemListOrderDescending',
-    numberOfItems: sortedCoastalStays.length,
-    itemListElement: sortedCoastalStays.map((v, i) => ({
+    itemListOrder: 'https://schema.org/ItemListUnordered',
+    numberOfItems: selectedStays.length,
+    itemListElement: selectedStays.map((venue, index) => ({
       '@type': 'ListItem',
-      position: i + 1,
-      name: v.data.name,
-      url: `https://peninsulainsider.com.au/stay/${routeSlug(v)}/`,
+      position: index + 1,
+      name: venue.data.name,
+      url: absUrl(venueHref(venue, '/stay')),
     })),
   },
-};
-
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'Where is the best place to stay near the ocean on the Mornington Peninsula?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Sorrento is the strongest base for a coastal stay - The Continental Sorrento and Hotel Sorrento both sit on the main street with the ocean baths a short walk away. The back beach (ocean surf beach) is 10 minutes by car. Sorrento Coastal Retreat adds a more private option close to the bay. Flinders Hotel is the south coast alternative - quieter, less tourist infrastructure, directly above the Flinders pier and fishing boats.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Can you walk to the beach from the Peninsula hotels?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Hotel Sorrento and The Continental Sorrento are both within easy walking distance of the Sorrento ocean baths (bay beach). The back ocean beach is a short drive. Flinders Hotel is directly opposite the Flinders pier and a short walk to the back beach at Flinders Point. Peninsula Hot Springs Glamping is not walking distance to the beach - it is an inland thermal springs experience.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Is Sorrento or Portsea better for a coastal stay?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Sorrento has more dining options, accommodation variety, and village infrastructure - better for a first visit or when you want dinner options without driving. Portsea is quieter and more private - the Portsea Hotel overlooks the bay, and the area suits those who want less activity and more seclusion. The two are 8 minutes apart and you can easily use both on the same trip.',
-      },
-    },
-  ],
 };
 export const prerender = true;
 ---
 
 <BaseLayout
-  title="Coastal Stays Mornington Peninsula · Peninsula Insider"
-  description="Coastal accommodation on the Mornington Peninsula - hotel stays in Sorrento, south coast options at Flinders and Cape Schanck, and back-beach properties for ocean weekends."
+  title="Coastal stays on the Mornington Peninsula · Peninsula Insider"
+  description="Choose a coastal base with the right setting: Sorrento hotels, bay-side cottages, Flinders and Cape Schanck stays, or Point Nepean tents."
   section="stay"
   canonical="https://peninsulainsider.com.au/stay/coastal-stays/"
-  modifiedTime="2026-04-24"
+  modifiedTime="2026-10-01"
 >
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
-  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(buildBreadcrumbSchema([
+    { name: 'Home', url: absUrl('/') },
+    { name: 'Stay', url: absUrl('/stay/') },
+    { name: 'Coastal stays', url: absUrl('/stay/coastal-stays/') },
+  ]))} />
+  <script type="application/ld+json" set:html={JSON.stringify(buildFaqSchema(faqs))} />
   <Breadcrumbs items={breadcrumbItems} />
 
-  <article class="article">
+  <section class="coast-hero" aria-labelledby="coast-title">
+    <div class="container coast-hero__grid">
+      <div class="coast-hero__copy">
+        <h1 id="coast-title">Choose the coast that fits your stay.</h1>
+        <div class="coast-hero__actions">
+          <a class="pi-btn pi-btn--solid" href="#choose-coast">Find a coastal base</a>
+          <a class="coast-text-link" href="/stay/best-accommodation/">Compare all stay types</a>
+        </div>
+        <p class="coast-hero__lead">Sorrento hotels, bay-side cottages, a Flinders or Cape Schanck base, or canvas at Point Nepean. Start with the setting, then check the exact room or unit.</p>
+        <p class="coast-hero__truth">A coastal address does not guarantee a beachfront room or a safe swimming beach.</p>
+      </div>
+      <figure class="coast-hero__photo">
+        <img src="/images/sourced/explore-cape-schanck-boardwalk-01.webp" alt="A timber boardwalk above the rocky Cape Schanck shore, with a sea stack offshore." width="2400" height="1800" fetchpriority="high" decoding="async" data-pi-responsive="(max-width: 800px) calc(100vw - 2rem), 620px" />
+        <figcaption>Cape Schanck boardwalk and coast. Destination view, not a view from a listed stay. Peninsula Insider.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <nav class="coast-chooser" id="choose-coast" aria-label="Choose a coastal setting">
     <div class="container">
-      <h1 class="article__title">Coastal Stays on the Mornington Peninsula</h1>
-      <div class="prose">
-        <p>The Peninsula has two distinct coasts, and they produce quite different trips. The bay coast (Port Phillip side) is calm water, limestone cliffs, and village dining - Sorrento is the centre of this version. The ocean coast (Bass Strait side) is surf beaches, strong prevailing winds, and working fishing villages - Flinders is the centre here, Cape Schanck at the southern tip is the most dramatic.</p>
-        <p>The Continental Sorrento and Hotel Sorrento sit at the village end of Sorrento's main street, with the ocean baths a short walk away. Both suit couples who want a proper hotel stay with easy restaurant access. For a quieter coastal experience, the Sorrento Coastal Retreat gives bay views without the main-street activity.</p>
-        <p>Flinders Hotel is the south coast benchmark: a proper country pub with good rooms, directly opposite the pier, in a village that has resisted the temptation to become a weekend destination. That resistance is the point.</p>
-        <ProvenanceLine class="venues__sub" style="font-size:0.8rem;color:var(--soft)" records={sortedCoastalStays} type="venues" noun="venue" />
+      <h2>Find your kind of coast</h2>
+      <div class="coast-chooser__grid">
+        {groups.map((group) => (
+          <a href={'#' + group.id} class="coast-chooser__choice">
+            <strong>{group.title.split(',')[0]}</strong>
+            <span>{group.cue}</span>
+            <span class="coast-chooser__action">See stays <span aria-hidden="true">↗</span></span>
+          </a>
+        ))}
       </div>
     </div>
-  </article>
+  </nav>
 
-  <section class="venues" id="sorrento-tip">
-    <div class="container">
-      <div class="venues__header">
-        <div>
-          <p class="label label--accent">Sorrento · tip · bay coast</p>
-          <h2 class="venues__title">{sortedCoastalStays.length} coastal stays across the Peninsula</h2>
-          <p class="venues__sub">Village hotels, coastal retreats, and south-coast properties - Sorrento-tip properties first, then the south coast at Flinders and Cape Schanck.</p>
+  {groups.map((group) => (
+    <section id={group.id} class="coast-group" aria-labelledby={group.id + '-title'}>
+      <div class="container">
+        <div class="coast-group__header">
+          <h2 id={group.id + '-title'}>{group.title}</h2>
+          <p>{group.summary}</p>
         </div>
-        <a href="/explore/places/sorrento/" class="venues__link">Sorrento guide →</a>
+        <div class="coast-group__layout">
+          <div class="coast-group__stays">
+            {group.stays.map(({ venue, href, format, note }) => (
+              <article class="coast-stay">
+                <p class="coast-stay__format">{format}</p>
+                <h3><a href={href}>{venue.data.name}</a></h3>
+                <p>{note}</p>
+                {routeSlug(venue) === 'hotel-sorrento' && (
+                  <p class="coast-stay__notice"><strong>Stay notice, checked 1 October 2026:</strong> Hotel Sorrento reports daytime midweek construction and possible movement changes ahead of its 1 December expansion. <a href="https://hotelsorrento.com.au/stay/" target="_blank" rel="noopener noreferrer">Read the current notice</a> before reserving.</p>
+                )}
+                <div class="coast-stay__actions">
+                  <a href={href}>Read stay notes</a>
+                  {venue.data.bookingUrl && venue.data.bookingProvider !== 'none' && (
+                    <a href={venue.data.bookingUrl} target="_blank" rel="noopener noreferrer" data-pi-book="booking" data-pi-entity-type={venue.data.type} data-pi-entity-slug={routeSlug(venue)} data-pi-surface="coastal-guide" data-pi-provider={venue.data.bookingProvider}>Check with operator</a>
+                  )}
+                </div>
+              </article>
+            ))}
+          </div>
+          <figure class="coast-group__photo">
+            <img src={group.image.src} alt={group.image.alt} width={group.image.width} height={group.image.height} loading="lazy" decoding="async" data-pi-responsive="(max-width: 800px) calc(100vw - 2rem), 540px" />
+            <figcaption>{group.image.caption}</figcaption>
+          </figure>
+        </div>
       </div>
-      <div class="venues__grid">
-        {sortedCoastalStays.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}
+    </section>
+  ))}
+
+  <section class="coast-next" aria-labelledby="coast-next-title">
+    <div class="container coast-next__grid">
+      <div>
+        <h2 id="coast-next-title">Still choosing?</h2>
+        <p>Thermal stays around Fingal are a different trip from staying by the water. Compare those separately, or return to the full stay guide.</p>
+      </div>
+      <div class="coast-next__links">
+        <a href="/stay/wellness-retreats/">Explore wellness stays <span aria-hidden="true">↗</span></a>
+        <a href="/stay/best-accommodation/">Compare accommodation <span aria-hidden="true">↗</span></a>
       </div>
     </div>
   </section>
 
-  <section class="faq-section">
+  <section class="coast-faq" aria-labelledby="coast-faq-title">
     <div class="container">
-      <div class="prose">
-        <h2>Frequently asked questions</h2>
-        <h3>Best coastal stay near the ocean?</h3>
-        <p>Sorrento for dining, village atmosphere, and easy beach access - The Continental and Hotel Sorrento both work well. Flinders Hotel for the south coast version: quieter, directly above the pier, working fishing village that hasn't been completely polished for tourism.</p>
-        <h3>Can you walk to the beach from the hotels?</h3>
-        <p>Hotel Sorrento and The Continental are walking distance to the Sorrento ocean baths (bay side). The back ocean beach is a 10-minute drive. Flinders Hotel is a short walk to the Flinders pier and back beach at Flinders Point.</p>
-        <h3>Sorrento or Portsea?</h3>
-        <p>Sorrento for more dining options and village infrastructure - better for a first visit. Portsea for quieter and more private. The two are 8 minutes apart; use Sorrento as a base and Portsea as an excursion.</p>
+      <div class="coast-faq__intro">
+        <h2 id="coast-faq-title">Before you choose a room</h2>
+        <p>Water access, room views and park conditions are different questions. Check each one for your dates.</p>
       </div>
-    </div>
-  </section>
-
-  <section class="venues venues--plain">
-    <div class="container">
-      <div class="venues__header">
-        <div>
-          <p class="label label--accent">Related guides</p>
-          <h2 class="venues__title">More for the coastal weekend</h2>
-        </div>
+      <div class="coast-faq__list">
+        {faqs.map(({ q, a }) => (
+          <div class="coast-faq__item">
+            <h3>{q}</h3>
+            <p>{a}</p>
+          </div>
+        ))}
       </div>
-      <div class="venues__grid venues__grid--links">
-        <div class="pi-card"><div class="pi-card__body"><h3 class="pi-card__title"><a href="/explore/places/sorrento/">Sorrento Guide</a></h3><p class="pi-card__dek">The complete Sorrento hub - beaches, restaurants, walks, and where to stay.</p><div class="pi-card__actions"><a href="/explore/places/sorrento/" class="pi-btn pi-btn--solid">Read the guide →</a></div></div></div>
-        <div class="pi-card"><div class="pi-card__body"><h3 class="pi-card__title"><a href="/explore/">Walks & Exploration</a></h3><p class="pi-card__dek">The best walking tracks, coastal paths, and lookouts across the Peninsula.</p><div class="pi-card__actions"><a href="/explore/" class="pi-btn pi-btn--solid">Explore →</a></div></div></div>
-        <div class="pi-card"><div class="pi-card__body"><h3 class="pi-card__title"><a href="/stay/best-accommodation/">Best Accommodation</a></h3><p class="pi-card__dek">Choose between hotels, cottages, coastal bases, wine-country stays and thermal accommodation.</p><div class="pi-card__actions"><a href="/stay/best-accommodation/" class="pi-btn pi-btn--solid">Open the guide →</a></div></div></div>
-      </div>
+      <ProvenanceLine records={selectedStays} type="venues" noun="venue" />
     </div>
   </section>
 
   <NewsletterBlock />
 </BaseLayout>
+
+<style>
+  .coast-hero { padding: clamp(1.8rem, 4.5vw, 4.6rem) 0; background: var(--bg-alt); }
+  .coast-hero__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .93fr); gap: clamp(2rem, 4.5vw, 5rem); align-items: start; }
+  .coast-hero h1 { max-width: 12ch; margin: 0; color: var(--text); font-size: clamp(2.7rem, 5.6vw, 5.6rem); line-height: 1.02; letter-spacing: -.035em; text-wrap: balance; }
+  .coast-hero__actions { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1.25rem; margin-top: 1.45rem; }
+  .coast-hero__actions .pi-btn { min-height: 48px; }
+  .coast-text-link { color: var(--accent); font-weight: 700; text-underline-offset: .2em; }
+  .coast-hero__lead { max-width: 43rem; margin: 1.5rem 0 0; font-size: clamp(1.05rem, 1.4vw, 1.24rem); line-height: 1.57; }
+  .coast-hero__truth { max-width: 38rem; margin: .9rem 0 0; color: var(--soft); font-size: .91rem; line-height: 1.5; }
+  .coast-hero__photo, .coast-group__photo { margin: 0; }
+  .coast-hero__photo img { display: block; width: 100%; height: min(38vw, 490px); object-fit: cover; border-radius: .75rem; }
+  .coast-hero figcaption, .coast-group figcaption { margin-top: .5rem; color: var(--soft); font-size: .78rem; line-height: 1.45; }
+  .coast-chooser { padding: clamp(2.6rem, 5vw, 4.5rem) 0; scroll-margin-top: 13rem; }
+  .coast-chooser h2, .coast-group h2, .coast-next h2, .coast-faq h2 { margin: 0; color: var(--text); font-size: clamp(2rem, 3.3vw, 3.1rem); line-height: 1.1; letter-spacing: -.03em; text-wrap: balance; }
+  .coast-chooser__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 1.5rem; border-block: 1px solid var(--border); }
+  .coast-chooser__choice { display: flex; flex-direction: column; gap: .7rem; min-height: 11rem; padding: 1.25rem; color: var(--text); text-decoration: none; border-right: 1px solid var(--border); }
+  .coast-chooser__choice:last-child { border-right: 0; }
+  .coast-chooser__choice:hover { background: var(--bg-alt); }
+  .coast-chooser__choice strong { font-size: 1.28rem; line-height: 1.16; letter-spacing: -.02em; }
+  .coast-chooser__choice > span:nth-child(2) { color: var(--soft); font-size: .91rem; line-height: 1.42; }
+  .coast-chooser__action { margin-top: auto; color: var(--accent); font-weight: 750; font-size: .9rem; }
+  .coast-group { padding: clamp(3rem, 6vw, 5.5rem) 0; border-top: 1px solid var(--border); scroll-margin-top: 13rem; }
+  .coast-group:nth-of-type(even) { background: var(--bg-alt); }
+  .coast-group__header { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1fr); gap: 2rem; align-items: end; padding-bottom: 1.7rem; }
+  .coast-group__header p { max-width: 43rem; margin: 0; font-size: 1.08rem; line-height: 1.6; }
+  .coast-group__layout { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1fr); grid-template-areas: "photo stays"; gap: clamp(1.5rem, 4vw, 3.5rem); align-items: start; }
+  .coast-group__photo { grid-area: photo; }
+  .coast-group__stays { grid-area: stays; }
+  .coast-group__photo img { display: block; width: 100%; height: min(35vw, 420px); object-fit: cover; border-radius: .65rem; }
+  .coast-group__stays { border-top: 1px solid var(--border); }
+  .coast-stay { padding: 1.2rem 0 1.4rem; border-bottom: 1px solid var(--border); }
+  .coast-stay__format { margin: 0 0 .45rem; color: var(--accent); font-size: .79rem; font-weight: 750; }
+  .coast-stay h3 { margin: 0; color: var(--text); font-size: clamp(1.35rem, 2vw, 1.75rem); line-height: 1.18; letter-spacing: -.025em; }
+  .coast-stay h3 a { color: inherit; text-decoration-color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: .14em; }
+  .coast-stay > p:not(.coast-stay__format) { margin: .65rem 0 0; max-width: 43rem; line-height: 1.55; }
+  .coast-stay__notice { padding: .75rem .85rem; background: var(--bg-alt); border: 1px solid var(--border); border-radius: .5rem; color: var(--soft); font-size: .89rem; }
+  .coast-stay__notice strong { color: var(--text); }
+  .coast-stay__notice a { color: var(--accent); font-weight: 700; text-underline-offset: .2em; }
+  .coast-stay__actions { display: flex; flex-wrap: wrap; gap: .65rem 1.4rem; margin-top: 1rem; }
+  .coast-stay__actions a { display: inline-flex; align-items: center; min-height: 44px; color: var(--accent); font-weight: 750; text-underline-offset: .2em; }
+  .coast-next { padding: clamp(2.8rem, 5vw, 4.5rem) 0; background: var(--bg-alt); border-top: 1px solid var(--border); }
+  .coast-next__grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(14rem, .7fr); gap: 2rem; align-items: center; }
+  .coast-next p { max-width: 44rem; margin: .8rem 0 0; line-height: 1.6; }
+  .coast-next__links { display: grid; gap: .5rem; }
+  .coast-next__links a { display: flex; justify-content: space-between; gap: 1rem; padding: .8rem 0; color: var(--accent); font-weight: 750; border-bottom: 1px solid var(--border); text-decoration: none; }
+  .coast-faq { padding: clamp(3rem, 6vw, 5.5rem) 0; }
+  .coast-faq__intro { max-width: 50rem; }
+  .coast-faq__intro p { margin: .8rem 0 0; line-height: 1.6; }
+  .coast-faq__list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 2.5rem; margin: 2rem 0; border-top: 1px solid var(--border); }
+  .coast-faq__item { padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+  .coast-faq__item h3 { margin: 0; color: var(--text); font-size: 1.16rem; line-height: 1.32; }
+  .coast-faq__item p { margin: .65rem 0 0; line-height: 1.6; }
+  .coast-hero a:focus-visible, .coast-chooser a:focus-visible, .coast-group a:focus-visible, .coast-next a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+  @media (max-width: 900px) {
+    .coast-hero__grid { grid-template-columns: 1fr; }
+    .coast-hero h1 { max-width: 17ch; }
+    .coast-hero__photo img { height: min(55vw, 430px); }
+    .coast-chooser__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .coast-chooser__choice:nth-child(2) { border-right: 0; }
+    .coast-chooser__choice:nth-child(-n+2) { border-bottom: 1px solid var(--border); }
+  }
+  @media (max-width: 720px) {
+    .coast-group__header, .coast-group__layout, .coast-next__grid, .coast-faq__list { grid-template-columns: 1fr; }
+    .coast-group__layout { grid-template-areas: "stays" "photo"; }
+    .coast-group__photo { margin-top: .6rem; }
+    .coast-group__header { gap: .8rem; }
+    .coast-group__photo img { height: min(66vw, 360px); }
+    .coast-faq__list { gap: 0; }
+  }
+  @media (max-width: 560px) {
+    .coast-hero { padding: 1.6rem 0 2rem; }
+    .coast-hero h1 { font-size: clamp(2.55rem, 12.7vw, 3.5rem); }
+    .coast-hero__actions { margin-top: 1.1rem; }
+    .coast-hero__lead { margin-top: 1.1rem; }
+    .coast-hero__photo img { height: 66vw; }
+    .coast-chooser, .coast-group { scroll-margin-top: 9rem; }
+    .coast-chooser__grid { gap: 0; }
+    .coast-chooser__choice { min-height: 10.5rem; padding: .9rem .75rem; }
+    .coast-chooser__choice strong { font-size: 1.15rem; }
+    .coast-chooser__choice > span:nth-child(2) { font-size: .84rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .coast-chooser__choice { scroll-behavior: auto; }
+  }
+</style>

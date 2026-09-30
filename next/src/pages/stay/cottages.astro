@@ -2,107 +2,309 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import { routeSlug, isListableVenue } from '../../lib/editorial';
-import { buildBreadcrumbSchema, absUrl } from '../../lib/schema';
 import ProvenanceLine from '../../components/ProvenanceLine.astro';
+import PiSaveActions from '../../components/PiSaveActions.astro';
+import { routeSlug, venueHref, isListableVenue } from '../../lib/editorial';
+import { buildBreadcrumbSchema, buildFaqSchema, absUrl } from '../../lib/schema';
 
 const allVenues = (await getCollection('venues')).filter(isListableVenue);
+const bySlug = new Map(allVenues.map((venue) => [routeSlug(venue), venue]));
 
-// Cottages - self-contained, mostly hinterland, dog-friendly winter-fireplace format
-const cottageSlugs = [
-  'blue-moon-cottages',
-  'mp-beach-club-cottages',
-  'hideaways-red-hill',
-  'birch-creek',
-  'brewers-cottage',
+const cottageChoices = [
+  {
+    slug: 'blue-moon-cottages',
+    cue: 'For the dog and the bay',
+    distinction: 'All Blue Moon cottages accept pets. Sandpiper has a log fire and a compact, enclosed courtyard.',
+    check: 'Choose the exact cottage and read the pet conditions.',
+  },
+  {
+    slug: 'mp-beach-club-cottages',
+    cue: 'For a flexible beach base',
+    distinction: 'Five pet-friendly units near Capel Sound: a studio, one-bedroom units and two-bedroom units.',
+    check: 'Unit 1 has published access features. EV charging is communal.',
+  },
+  {
+    slug: 'birch-creek',
+    cue: 'For a farm weekend',
+    distinction: 'The Mavis sleeps two; The June sleeps four. Both have open fires on a working farm.',
+    check: 'Birch Creek has a strict no-pets policy.',
+  },
+  {
+    slug: 'brewers-cottage',
+    cue: 'For a whole house',
+    distinction: 'A three-bedroom house on the Red Hill Brewery grounds, with a kitchen and an open fire.',
+    check: 'Brewery activity and taproom hours change the feel of the stay.',
+  },
+  {
+    slug: 'treetops-red-hill',
+    cue: 'For wine country',
+    distinction: 'Two private-entry cottages at an artisan vineyard. Peppercorn and Winemakers have different layouts.',
+    check: 'Breakfast provisions are described for Peppercorn; confirm inclusions for your cottage.',
+  },
 ];
 
-// B&Bs - host-led, breakfast-included, named-host format
-const bnbSlugs = [
-  'villa-mallorca',
-  'plantation-house-whitecliffs',
-  'the-orchard-red-hill',
-  'driftaway-on-dundas',
-  'arthurs-views',
-  'mantons-creek-estate',
-  'treetops-red-hill',
+const bnbChoices = [
+  {
+    slug: 'plantation-house-whitecliffs',
+    cue: 'For a hosted breakfast',
+    distinction: 'Five named rooms and suites near Rye foreshore, with a cooked breakfast included.',
+    check: 'Kitchen facilities vary by room. Flag dietary needs in advance.',
+  },
+  {
+    slug: 'arthurs-views',
+    cue: 'For a view and privacy',
+    distinction: 'Five couples-only suites on Arthurs Seat. Breakfast provisions are optional.',
+    check: 'Spa, kitchen and view features differ by suite; children and pets are not accepted.',
+  },
 ];
 
-const allSlugs = [...cottageSlugs, ...bnbSlugs];
-const venues = allSlugs
-  .map((slug) => allVenues.find((venue) => routeSlug(venue) === slug))
-  .filter((venue): venue is NonNullable<typeof venue> => Boolean(venue));
+const withVenues = (choices) => choices
+  .map((choice) => ({ ...choice, venue: bySlug.get(choice.slug) }))
+  .filter((choice): choice is typeof choice & { venue: NonNullable<typeof choice.venue> } => Boolean(choice.venue));
+const cottages = withVenues(cottageChoices);
+const bnbs = withVenues(bnbChoices);
+const venues = [...cottages, ...bnbs].map(({ venue }) => venue);
 
-const cottageVenues = cottageSlugs
-  .map((slug) => allVenues.find((venue) => routeSlug(venue) === slug))
-  .filter((venue): venue is NonNullable<typeof venue> => Boolean(venue));
-
-const bnbVenues = bnbSlugs
-  .map((slug) => allVenues.find((venue) => routeSlug(venue) === slug))
-  .filter((venue): venue is NonNullable<typeof venue> => Boolean(venue));
+const faqs = [
+  {
+    q: 'Are all Peninsula cottages dog friendly?',
+    a: 'No. Blue Moon says all its cottages accept pets, and Mornington Peninsula Beach Club says all five units are pet friendly. Birch Creek has a strict no-pets policy. Check the exact operator conditions before booking.',
+  },
+  {
+    q: 'Does a B&B always include breakfast?',
+    a: 'No. Plantation House includes a cooked breakfast. Arthurs Views offers optional breakfast provisions. Confirm what is included for your chosen room and dates.',
+  },
+  {
+    q: 'Is every cottage fully self-contained?',
+    a: 'Facilities depend on the unit. Mornington Peninsula Beach Club has studio, one-bedroom and two-bedroom layouts; its studio has a microwave kitchenette and a separate bathroom within the enclosed courtyard. Check the exact unit before reserving.',
+  },
+];
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
   { label: 'Stay', href: '/stay/' },
-  { label: 'B&Bs & Cottages' },
+  { label: 'Cottages & B&Bs' },
 ];
 const breadcrumbSchema = buildBreadcrumbSchema([
   { name: 'Home', url: absUrl('/') },
   { name: 'Stay', url: absUrl('/stay/') },
-  { name: 'B&Bs & Cottages', url: absUrl('/stay/cottages/') },
+  { name: 'Cottages & B&Bs', url: absUrl('/stay/cottages/') },
 ]);
+const collectionSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Cottages and B&Bs on the Mornington Peninsula',
+  description: 'Compare self-contained cottages with B&B rooms and suites by format, breakfast, pets and access needs.',
+  url: absUrl('/stay/cottages/'),
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListOrder: 'https://schema.org/ItemListUnordered',
+    numberOfItems: venues.length,
+    itemListElement: venues.map((venue, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: venue.data.name,
+      url: absUrl(venueHref(venue, '/stay')),
+    })),
+  },
+};
 export const prerender = true;
 ---
+
 <BaseLayout
-  title="B&Bs and Cottages Mornington Peninsula · Peninsula Insider"
-  description="The best cottages and B&Bs on the Mornington Peninsula - self-contained hinterland cottages with fireplaces, and named-host B&Bs where the host is the reason to go."
+  title="Cottages and B&Bs Mornington Peninsula · Peninsula Insider"
+  description="Choose between self-contained Peninsula cottages and B&B suites. Compare bay or hinterland settings, breakfast, pet rules and exact room features."
   section="stay"
   canonical="https://peninsulainsider.com.au/stay/cottages/"
   modifiedTime="2026-10-01"
 >
+  <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(buildFaqSchema(faqs))} />
   <Breadcrumbs items={breadcrumbItems} />
-  <article class="article">
-    <div class="container">
-      <h1 class="article__title">B&Bs and Cottages on the Mornington Peninsula</h1>
-      <div class="prose">
-        <p>The two formats answer different briefs. A cottage is self-contained: you arrive with groceries, the dog, and no obligations - a wood fire, a kitchen, a fenced garden, and the door closing behind you. A B&B runs on a different logic, built around a host, a breakfast, and a small house where someone has thought about the day ahead of you. Both formats outperform the hotel in shoulder season. Both are mostly hinterland, not coast.</p>
-        <p>The winter wood-fire weekend is the strongest use case for cottages. Properties across Main Ridge, Red Hill, and Rye with confirmed fireplaces draw the highest proportion of repeat visitors in the category. For a first-Saturday visit between September and May, check the separate Hill &amp; Ridge Community Market schedule before planning the morning. The dog weekend is the second clear use case: Blue Moon, MP Beach Club, and Birch Creek are the most explicitly dog-welcoming.</p>
-        <p>The named-host B&B pattern: at a cottage, the owner is largely invisible after key handover. At a B&B, the host is the reason the format works. The relationship with the host can shape the stay, but breakfast and hosted service differ by property. Check the current inclusions with the operator before booking.</p>
-        <ProvenanceLine style="font-size:0.8rem;color:var(--soft)" records={venues} type="venues" noun="venue" />
-      </div>
-    </div>
-  </article>
 
-  <section class="venues" id="cottages">
-    <div class="container">
-      <div class="venues__header">
-        <div>
-          <p class="label label--accent">Cottages</p>
-          <h2 class="venues__title">Self-contained Peninsula cottages</h2>
-          <p class="venues__sub">Fireplaces, kitchens, dog-friendly yards - strongest in autumn and winter when the hinterland earns its keep.</p>
-        </div>
-        <a href="/journal/dog-friendly-accommodation-mornington-peninsula/" class="venues__link">Dog-friendly stays →</a>
+  <section class="cottage-hero" aria-labelledby="cottage-title">
+    <div class="container cottage-hero__grid">
+      <div class="cottage-hero__copy">
+        <p class="cottage-eyebrow">The stay guide · cottages &amp; B&amp;Bs</p>
+        <h1 id="cottage-title">Cottage or B&amp;B? Find your Peninsula base.</h1>
+        <a class="pi-btn pi-btn--solid cottage-hero__cta" href="#choose-format">Choose your stay</a>
+        <p class="cottage-hero__lead">Start with the format, then the exact room. A cottage gives you your own front door; a B&amp;B can add a hosted breakfast or optional provisions. Pet, kitchen and access details change by property.</p>
       </div>
-      <div class="venues__grid">{cottageVenues.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}</div>
+      <figure class="cottage-hero__visual">
+        <div class="cottage-hero__image-grid">
+          <img src="/images/sourced/place-red-hill-01.webp" alt="Vineyard rows in Red Hill with paddocks beyond" width="1200" height="600" fetchpriority="high" decoding="async" data-pi-responsive="(max-width: 800px) calc(100vw - 2rem), 360px" />
+          <img src="/images/sourced/place-rye-01.webp" alt="Rye bay beach with moored boats and a wooded shoreline" width="1600" height="1200" loading="lazy" decoding="async" data-pi-responsive="(max-width: 800px) calc(100vw - 2rem), 360px" />
+        </div>
+        <figcaption>Red Hill and Rye area views, not photographs of the accommodation. Images: Peninsula Insider.</figcaption>
+      </figure>
     </div>
   </section>
 
-  <section class="venues" id="bnbs">
+  <section class="cottage-choices" id="choose-format" aria-labelledby="choice-title">
     <div class="container">
-      <div class="venues__header">
-        <div>
-          <p class="label label--accent">B&Bs</p>
-          <h2 class="venues__title">Named-host Peninsula B&Bs</h2>
-          <p class="venues__sub">Guesthouses and hosted stays with different room formats and inclusions. Check breakfast and host availability for your chosen property.</p>
-        </div>
-        <a href="/stay/winery-accommodation/" class="venues__link">Wine-country stays →</a>
+      <p class="cottage-eyebrow">The first decision</p>
+      <h2 id="choice-title">How do you want to stay?</h2>
+      <div class="cottage-choices__grid">
+        <a href="#cottages" class="cottage-choice">
+          <span class="cottage-choice__number">01 / Your own place</span>
+          <strong>Choose a cottage.</strong>
+          <span>Bring the groceries, pick the setting, and check the exact unit for pets, cooking and access.</span>
+          <span class="cottage-choice__action">Compare cottages <span aria-hidden="true">↗</span></span>
+        </a>
+        <a href="#bnbs" class="cottage-choice">
+          <span class="cottage-choice__number">02 / A room or suite</span>
+          <strong>Choose a B&amp;B.</strong>
+          <span>Decide whether included breakfast, optional provisions, a spa or a bay view matters most.</span>
+          <span class="cottage-choice__action">Compare B&amp;Bs <span aria-hidden="true">↗</span></span>
+        </a>
       </div>
-      <div class="venues__grid">{bnbVenues.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}</div>
+      <p class="cottage-choices__aside">Planning around a cellar door instead? <a href="/stay/winery-accommodation/">Compare winery accommodation</a>.</p>
+    </div>
+  </section>
+
+  <section class="cottage-group" id="cottages" aria-labelledby="cottages-title">
+    <div class="container">
+      <div class="cottage-group__head">
+        <p class="cottage-eyebrow">01 / Self-contained stays</p>
+        <h2 id="cottages-title">A place of your own.</h2>
+        <p>Bay beach, working farm, brewery or vineyard: choose the setting first. Then check the specific cottage or unit, since features vary even within one property.</p>
+      </div>
+      <div class="cottage-grid">
+        {cottages.map((entry, index) => (
+          <article class="cottage-card" aria-labelledby={'cottage-card-' + entry.slug}>
+            <div class="cottage-card__top">
+              <span>{String(index + 1).padStart(2, '0')} / Cottage</span>
+              <span>{entry.cue}</span>
+            </div>
+            <h3 id={'cottage-card-' + entry.slug}><a href={venueHref(entry.venue, '/stay')}>{entry.venue.data.name}</a></h3>
+            <p class="cottage-card__distinction">{entry.distinction}</p>
+            <p class="cottage-card__check"><strong>Check before booking</strong> {entry.check}</p>
+            <div class="cottage-card__actions">
+              <a href={venueHref(entry.venue, '/stay')} aria-label={'Read our notes on ' + entry.venue.data.name}>Read our notes <span aria-hidden="true">↗</span></a>
+              {entry.venue.data.bookingUrl && <a href={entry.venue.data.bookingUrl} aria-label={'Check availability with ' + entry.venue.data.name + ' (opens a new tab)'} target="_blank" rel="noopener noreferrer" data-pi-book="booking" data-pi-entity-type={entry.venue.data.type} data-pi-entity-slug={entry.slug} data-pi-surface="cottages-guide" data-pi-provider={entry.venue.data.bookingProvider}>Check with operator <span aria-hidden="true">↗</span></a>}
+              <PiSaveActions kind="venue" slug={entry.slug} title={entry.venue.data.name} href={venueHref(entry.venue, '/stay')} dek={entry.distinction} floating={false} />
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cottage-group cottage-group--alt" id="bnbs" aria-labelledby="bnbs-title">
+    <div class="container">
+      <div class="cottage-group__head">
+        <p class="cottage-eyebrow">02 / B&amp;B rooms and suites</p>
+        <h2 id="bnbs-title">Breakfast changes the brief.</h2>
+        <p>These are rooms and suites, not stand-alone cottages. Plantation House includes a cooked breakfast. Arthurs Views offers optional provisions and different suite layouts.</p>
+      </div>
+      <div class="cottage-grid cottage-grid--two">
+        {bnbs.map((entry, index) => (
+          <article class="cottage-card" aria-labelledby={'bnb-card-' + entry.slug}>
+            <div class="cottage-card__top">
+              <span>{String(index + 1).padStart(2, '0')} / B&amp;B</span>
+              <span>{entry.cue}</span>
+            </div>
+            <h3 id={'bnb-card-' + entry.slug}><a href={venueHref(entry.venue, '/stay')}>{entry.venue.data.name}</a></h3>
+            <p class="cottage-card__distinction">{entry.distinction}</p>
+            <p class="cottage-card__check"><strong>Check before booking</strong> {entry.check}</p>
+            <div class="cottage-card__actions">
+              <a href={venueHref(entry.venue, '/stay')} aria-label={'Read our notes on ' + entry.venue.data.name}>Read our notes <span aria-hidden="true">↗</span></a>
+              {entry.venue.data.bookingUrl && <a href={entry.venue.data.bookingUrl} aria-label={'Check availability with ' + entry.venue.data.name + ' (opens a new tab)'} target="_blank" rel="noopener noreferrer" data-pi-book="booking" data-pi-entity-type={entry.venue.data.type} data-pi-entity-slug={entry.slug} data-pi-surface="cottages-guide" data-pi-provider={entry.venue.data.bookingProvider}>Check with operator <span aria-hidden="true">↗</span></a>}
+              <PiSaveActions kind="venue" slug={entry.slug} title={entry.venue.data.name} href={venueHref(entry.venue, '/stay')} dek={entry.distinction} floating={false} />
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cottage-questions" aria-labelledby="cottage-questions-title">
+    <div class="container cottage-questions__grid">
+      <div>
+        <p class="cottage-eyebrow">Before you reserve</p>
+        <h2 id="cottage-questions-title">The detail that matters.</h2>
+        <p>These notes use current operator information. Availability, pet terms, accessibility and inclusions can change; confirm the exact unit and dates with the operator.</p>
+        <ProvenanceLine records={venues} type="venues" noun="venue" />
+      </div>
+      <div class="cottage-questions__list">
+        {faqs.map(({ q, a }) => <div class="cottage-questions__item"><h3>{q}</h3><p>{a}</p></div>)}
+      </div>
     </div>
   </section>
 
   <NewsletterBlock />
 </BaseLayout>
+
+<style>
+  .cottage-eyebrow { margin: 0 0 0.8rem; color: var(--accent); font-size: 0.76rem; font-weight: 750; letter-spacing: 0.12em; text-transform: uppercase; }
+  .cottage-hero { padding: clamp(2rem, 5vw, 5rem) 0; background: var(--bg-alt); }
+  .cottage-hero__grid { display: grid; grid-template-columns: minmax(0, 1.03fr) minmax(0, 0.97fr); align-items: start; gap: clamp(2rem, 5vw, 5rem); }
+  .cottage-hero h1 { max-width: 12ch; margin: 0; color: var(--text); font-size: clamp(2.8rem, 5.4vw, 5.55rem); line-height: 1.02; letter-spacing: -0.055em; text-wrap: balance; }
+  .cottage-hero__cta { display: inline-flex; align-items: center; min-height: 48px; margin-top: 1.5rem; }
+  .cottage-hero__lead { max-width: 43rem; margin: 1.45rem 0 0; font-size: clamp(1.04rem, 1.6vw, 1.28rem); line-height: 1.52; }
+  .cottage-hero__visual { margin: 0; }
+  .cottage-hero__image-grid { display: grid; grid-template-columns: 1.12fr 0.88fr; gap: 0.6rem; height: clamp(18rem, 34vw, 30rem); }
+  .cottage-hero__image-grid img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 0.6rem; }
+  .cottage-hero__image-grid img:first-child { object-position: 52% center; }
+  .cottage-hero__visual figcaption { margin-top: 0.65rem; color: var(--soft); font-size: 0.82rem; line-height: 1.45; }
+  .cottage-choices, .cottage-group { scroll-margin-top: 13rem; }
+  .cottage-choices { padding: clamp(2.6rem, 5vw, 4.5rem) 0; }
+  .cottage-choices h2, .cottage-group h2, .cottage-questions h2 { max-width: 17ch; margin: 0; color: var(--text); font-size: clamp(2rem, 3.7vw, 3.35rem); line-height: 1.08; letter-spacing: -0.045em; text-wrap: balance; }
+  .cottage-choices__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-top: 1.7rem; }
+  .cottage-choice { display: flex; flex-direction: column; gap: 0.75rem; min-height: 12rem; padding: clamp(1.2rem, 2.6vw, 2rem); border: 1px solid var(--border); border-radius: 0.7rem; background: var(--white); color: var(--text); text-decoration: none; transition: border-color 160ms ease, transform 160ms ease; }
+  .cottage-choice:hover { transform: translateY(-2px); border-color: var(--accent); }
+  .cottage-choice:focus-visible, .cottage-card a:focus-visible, .cottage-choices__aside a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+  .cottage-choice__number { color: var(--accent); font-size: 0.75rem; font-weight: 750; letter-spacing: 0.1em; text-transform: uppercase; }
+  .cottage-choice strong { font-size: clamp(1.45rem, 2.2vw, 2rem); line-height: 1.1; letter-spacing: -0.035em; }
+  .cottage-choice > span:nth-child(3) { max-width: 38ch; line-height: 1.5; color: var(--soft); }
+  .cottage-choice__action { margin-top: auto; color: var(--accent); font-weight: 750; }
+  .cottage-choices__aside { margin: 1.4rem 0 0; color: var(--soft); }
+  .cottage-choices__aside a { color: var(--accent); font-weight: 700; text-underline-offset: 0.2em; }
+  .cottage-group { padding: clamp(3.5rem, 6vw, 5.5rem) 0; border-top: 1px solid var(--border); }
+  .cottage-group--alt { background: var(--bg-alt); }
+  .cottage-group__head { max-width: 50rem; margin-bottom: 2rem; }
+  .cottage-group__head > p:last-child { max-width: 48rem; margin: 1rem 0 0; font-size: 1.05rem; line-height: 1.6; }
+  .cottage-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+  .cottage-grid--two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cottage-card { display: flex; flex-direction: column; min-height: 19rem; padding: clamp(1.25rem, 2.5vw, 1.8rem); border: 1px solid var(--border); border-top: 4px solid var(--accent); border-radius: 0.7rem; background: var(--white); }
+  .cottage-card__top { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.4rem 1rem; color: var(--accent); font-size: 0.75rem; font-weight: 750; letter-spacing: 0.08em; text-transform: uppercase; }
+  .cottage-card h3 { margin: 1.25rem 0 0.8rem; color: var(--text); font-size: clamp(1.35rem, 2.1vw, 1.8rem); line-height: 1.14; letter-spacing: -0.03em; }
+  .cottage-card h3 a { color: inherit; text-decoration: none; }
+  .cottage-card h3 a:hover { color: var(--accent); }
+  .cottage-card__distinction { margin: 0; line-height: 1.55; }
+  .cottage-card__check { margin: 1rem 0 1.35rem; padding-top: 0.95rem; border-top: 1px solid var(--border); color: var(--soft); font-size: 0.91rem; line-height: 1.5; }
+  .cottage-card__check strong { display: block; color: var(--text); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  .cottage-card__actions { display: flex; flex-wrap: wrap; gap: 0.85rem 1.2rem; margin-top: auto; }
+  .cottage-card__actions a { display: inline-flex; align-items: center; min-height: 44px; color: var(--accent); font-size: 0.91rem; font-weight: 750; text-underline-offset: 0.2em; }
+  .cottage-card__actions :global(.pi-actions) { margin-left: auto; }
+  .cottage-questions { padding: clamp(3.5rem, 6vw, 5.5rem) 0; }
+  .cottage-questions__grid { display: grid; grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr); gap: clamp(2rem, 5vw, 5rem); }
+  .cottage-questions__grid > div:first-child > p:not(.cottage-eyebrow) { margin: 1rem 0 0; line-height: 1.6; }
+  .cottage-questions__item { padding: 1.2rem 0; border-bottom: 1px solid var(--border); }
+  .cottage-questions__item:first-child { padding-top: 0; }
+  .cottage-questions__item h3 { margin: 0 0 0.5rem; font-size: 1.13rem; line-height: 1.3; }
+  .cottage-questions__item p { margin: 0; color: var(--soft); line-height: 1.55; }
+  @media (max-width: 900px) {
+    .cottage-hero__grid, .cottage-questions__grid { grid-template-columns: 1fr; }
+    .cottage-hero h1 { max-width: 16ch; }
+    .cottage-hero__image-grid { height: min(48vw, 24rem); }
+    .cottage-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 560px) {
+    .cottage-hero { padding: 1.75rem 0 2rem; }
+    .cottage-hero h1 { font-size: clamp(2.55rem, 12.8vw, 3.65rem); }
+    .cottage-hero__cta { margin-top: 1.25rem; }
+    .cottage-hero__lead { margin-top: 1.1rem; font-size: 1rem; }
+    .cottage-hero__image-grid { height: 12rem; gap: 0.4rem; }
+    .cottage-choices, .cottage-group { scroll-margin-top: 9rem; }
+    .cottage-choices__grid, .cottage-grid, .cottage-grid--two { grid-template-columns: 1fr; }
+    .cottage-choice { min-height: 0; }
+    .cottage-card { min-height: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .cottage-choice { transition: none; }
+    .cottage-choice:hover { transform: none; }
+  }
+</style>
