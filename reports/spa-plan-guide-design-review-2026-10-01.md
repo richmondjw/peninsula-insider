@@ -69,3 +69,7 @@ At 390 px, the pages remain about 12,179 px (Stay) and 11,432 px (Thermal) long.
 ## Evaluation and rollback
 
 By **8 October 2026**, inspect field LCP, CLS and INP where available, cover-to-choice clicks, choice-to-guide and stay transitions, reader corrections and operator changes. Repeat independent grading with real devices and assistive technology before asserting 99%. If the public release regresses, revert this bounded spa set while preserving the earlier Golf and School guides.
+
+## Public release receipt
+
+The spa set was committed as a4bde50907d8f2683e81f55f937cc8023bb48526. [Build and Deploy](https://github.com/richmondjw/peninsula-insider/actions/runs/36767418266), [Content Gate](https://github.com/richmondjw/peninsula-insider/actions/runs/36767418273), and [Live Agent Readiness](https://github.com/richmondjw/peninsula-insider/actions/runs/36768833917) succeeded. The public /deployment.json identified the same source SHA. Both public plan routes returned HTTP 200 with three choice links and the updated titles; both licensed hero images returned image/webp HTTP 200. This verifies publication and basic route integrity, not reader outcomes or a 99% grade.

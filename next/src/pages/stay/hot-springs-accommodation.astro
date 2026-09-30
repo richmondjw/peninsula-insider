@@ -1,84 +1,249 @@
 ---
-import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import { routeSlug, isListableVenue } from '../../lib/editorial';
-import { buildBreadcrumbSchema, absUrl } from '../../lib/schema';
-import ProvenanceLine from '../../components/ProvenanceLine.astro';
+import { buildBreadcrumbSchema, buildFaqSchema, absUrl } from '../../lib/schema';
 
-const allVenues = (await getCollection('venues')).filter(isListableVenue);
-const slugs = [
-  'peninsula-hot-springs-glamping',
-  'peninsula-hot-springs-eco-lodges',
-  'sanctuary-at-alba',
-  'yurt-hideaway',
+const stays = [
+  {
+    id: 'glamping',
+    name: 'Peninsula Hot Springs Glamping',
+    setting: 'Peninsula Hot Springs · Fingal',
+    choice: 'For sleeping under canvas with the springs on the same grounds.',
+    detail: 'Choose a Garden View, Lake View or Secluded Pavilion setting. The operator lists bathing across its site with its glamping packages.',
+    check: 'Confirm the package, guest age rules and access times for your dates. Arrange dining, private bathing and treatments separately if they are not in your booking.',
+    notes: '/stay/peninsula-hot-springs-glamping/',
+    operator: 'https://www.peninsulahotsprings.com/accommodation/glamping',
+  },
+  {
+    id: 'eco-lodges',
+    name: 'Peninsula Hot Springs Eco Lodges',
+    setting: 'Peninsula Hot Springs · Fingal',
+    choice: 'For a lodge room and a private geothermal bathing space.',
+    detail: 'Rooms are booked individually within the lodges. The Springs Room and Peninsula Suite have different private bathing arrangements; the operator also lists site-wide bathing with its lodge packages.',
+    check: 'Compare the exact room type and current inclusions before reserving. A private bath is not the same thing as booking a private treatment.',
+    notes: '/stay/peninsula-hot-springs-eco-lodges/',
+    operator: 'https://www.peninsulahotsprings.com/accommodation/eco-lodges',
+  },
+  {
+    id: 'sanctuary',
+    name: 'The Sanctuary at Alba',
+    setting: 'Alba Thermal Springs · Fingal',
+    choice: 'For a villa or room above Alba’s own thermal springs.',
+    detail: 'Alba lists five standalone villas and two premium rooms. Its accommodation includes bathing on each day of the stay, breakfast at Thyme and one private pool upgrade.',
+    check: 'Compare a villa with a room, and reserve spa treatments separately. The private pool upgrade is an experience, not a plunge pool attached to every room.',
+    notes: '/stay/sanctuary-at-alba/',
+    operator: 'https://albathermalsprings.com.au/alba-experiences/the-sanctuary/',
+  },
 ];
-const venues = slugs
-  .map((slug) => allVenues.find((venue) => routeSlug(venue) === slug))
-  .filter((venue): venue is NonNullable<typeof venue> => Boolean(venue));
+
+const faqs = [
+  {
+    q: 'Are Peninsula Hot Springs and Alba the same place?',
+    a: 'No. They are separate operators in Fingal. Choose the springs you want to visit before choosing accommodation, and make a separate booking if you want to visit both.',
+  },
+  {
+    q: 'Does every stay have a private pool?',
+    a: 'No. Peninsula Hot Springs lists different private bathing features by Eco Lodge room type. Alba includes one private pool upgrade with its Sanctuary accommodation. Check the exact room and package before booking.',
+  },
+  {
+    q: 'Can I stay elsewhere and still visit the springs?',
+    a: 'Yes. Choose a separate Peninsula base, reserve your bathing with the springs operator, and arrange transport for the visit. An off-site room does not imply bathing entry.',
+  },
+];
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
   { label: 'Stay', href: '/stay/' },
-  { label: 'Hot Springs Accommodation' },
+  { label: 'Hot springs stays' },
 ];
 const breadcrumbSchema = buildBreadcrumbSchema([
   { name: 'Home', url: absUrl('/') },
   { name: 'Stay', url: absUrl('/stay/') },
-  { name: 'Hot Springs Accommodation', url: absUrl('/stay/hot-springs-accommodation/') },
+  { name: 'Hot springs stays', url: absUrl('/stay/hot-springs-accommodation/') },
 ]);
+
 export const prerender = true;
 ---
 <BaseLayout
-  title="Hot Springs Accommodation Mornington Peninsula · Peninsula Insider"
-  description="Accommodation near Peninsula Hot Springs and Alba Thermal Springs on the Mornington Peninsula - from glamping inside the PHS precinct to thermal-anchored villas at Alba."
+  title="Hot springs stays on the Mornington Peninsula · Peninsula Insider"
+  description="Compare Peninsula Hot Springs glamping and Eco Lodges with The Sanctuary at Alba. Know what is on-site, what bathing includes and what to confirm before booking."
   section="stay"
   canonical="https://peninsulainsider.com.au/stay/hot-springs-accommodation/"
-  modifiedTime="2026-05-08"
+  modifiedTime="2026-10-01"
 >
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(buildFaqSchema(faqs))} />
   <Breadcrumbs items={breadcrumbItems} />
-  <article class="article">
-    <div class="container">
-      <h1 class="article__title">Hot Springs Accommodation on the Mornington Peninsula</h1>
-      <div class="prose">
-        <p>The thermal precinct logic on the Peninsula is simple: staying inside or directly adjacent to the springs removes the driving problem and adds the early-morning, late-evening access window that day visitors never get. Two minutes in the pools at 7am before any crowd has arrived is a qualitatively different experience from peak-period bathing.</p>
-        <p>The tightest integration is the Peninsula Hot Springs precinct itself, near Rye. <a href="/stay/peninsula-hot-springs-glamping/">Peninsula Hot Springs Glamping</a> - ten canvas pods in garden, lake, and secluded pavilion settings - sits physically inside the grounds, thirty seconds from the Spa Dreaming Centre. Heated geothermal concrete floors, king beds, private decks, all-site bathing access included. The <a href="/stay/peninsula-hot-springs-eco-lodges/">Eco Lodges</a> at the same site are the enclosed version: private in-room geothermal baths for when canvas is not the point. Both are 16+ only. Book a two-night package if you can - arrive mid-afternoon, bathe at dusk, eat dinner at the on-site Amphitheatre restaurant, and go back to the pools before bed.</p>
-        <p>The Alba thermal option: <a href="/stay/sanctuary-at-alba/">Sanctuary at Alba</a> opened June 2025 as the Peninsula's first purpose-built thermal villa stay at Alba Thermal Springs, Fingal. Five villas and two studios, each with a private heated mineral plunge pool and full all-day access to Alba's cave pools, cold plunge, and hydrotherapy circuit. The property operates on a different register to PHS - quieter, more design-conscious, adults-focused. Alba is five minutes from Peninsula Hot Springs by road, which makes a two-springs itinerary workable from this base.</p>
-        <p>Beyond the precinct: <a href="/stay/yurt-hideaway/">Yurt Hideaway</a> in Tootgarook is a single six-metre Mongolian yurt five minutes from PHS - the most affordable thermal-adjacent option, with a 4.97-star host rating. The right choice when you want proximity to the springs without the on-site premium.</p>
-        <ProvenanceLine style="font-size:0.8rem;color:var(--soft)" records={venues} type="venues" noun="venue" />
-      </div>
-    </div>
-  </article>
-  <section class="venues" id="rankings">
-    <div class="container">
-      <div class="venues__header">
-        <div>
-          <p class="label label--accent">Hot springs stays</p>
-          <h2 class="venues__title">{venues.length} places to sleep near the Peninsula's thermal springs</h2>
-          <p class="venues__sub">Inside the PHS precinct, thermal-anchored villas at Alba, and the best nearby bases for the early-morning pool window.</p>
+
+  <section class="springs-hero" aria-labelledby="springs-title">
+    <div class="container springs-hero__grid">
+      <div class="springs-hero__copy">
+        <h1 id="springs-title">Stay where the springs are.</h1>
+        <p class="springs-hero__lead">Three stays, two thermal operators, one useful first decision: choose the bathing experience before the room.</p>
+        <div class="springs-hero__actions">
+          <a class="pi-btn pi-btn--solid" href="#compare-stays">Compare the stays</a>
+          <a class="springs-text-link" href="#booking-order">Before you book</a>
         </div>
-        <a href="/stay/wellness-retreats/" class="venues__link">Wellness retreats →</a>
       </div>
-      <div class="venues__grid">{venues.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}</div>
+      <figure class="springs-hero__image">
+        <img
+          src="/images/visit-victoria/vv-172319-eco-lodges-peninsula-hot-springs.webp"
+          alt="A guest sits beside a bush-view window in an Eco Lodge room at Peninsula Hot Springs"
+          width="1280"
+          height="853"
+          data-pi-responsive="(max-width: 800px) calc(100vw - 2rem), 550px"
+          fetchpriority="high"
+          decoding="async"
+        />
+        <figcaption>An Eco Lodge room at Peninsula Hot Springs, one of the stays compared here. Courtesy of Visit Victoria.</figcaption>
+      </figure>
     </div>
   </section>
-  <section class="faq-section">
+
+  <section class="springs-compare" id="compare-stays" aria-labelledby="compare-title">
     <div class="container">
-      <div class="prose">
-        <h2>Planning the stay</h2>
-        <h3>Can you stay at Peninsula Hot Springs?</h3>
-        <p>Yes, via the glamping precinct. Peninsula Hot Springs Glamping (canvas pods) and the Eco Lodges (enclosed) both sit inside the PHS grounds. Day-visit guests require timed bookings, but overnight guests get all-site access and can use the Spa Dreaming Centre in quieter windows. Both products are 16+, not 18+.</p>
-        <h3>What is the difference between the glamping pods and the Eco Lodges?</h3>
-        <p>Glamping pods are canvas-walled, which suits the experience when weather cooperates and you want the open-air atmosphere. Eco Lodges are fully enclosed with private in-room geothermal baths. Same precinct, same all-site access, different format. Both have heated floors, king beds, and private decks.</p>
-        <h3>What is Sanctuary at Alba?</h3>
-        <p><a href="/stay/sanctuary-at-alba/">Sanctuary at Alba</a> is a villa development at Alba Thermal Springs in Fingal, opened June 2025. It sits at a separate springs property five minutes from PHS. The villas have private heated plunge pools and include full-day access to Alba's facilities. It is a different, quieter, more design-led version of the thermal-stay logic - adults-only, closer to a luxury retreat than a glamping precinct.</p>
-        <h3>How early can overnight guests access the pools?</h3>
-        <p>PHS glamping and eco lodge guests get access from opening, typically before day guests begin arriving. The early-morning window - particularly the Spa Dreaming Centre before 9am - is the primary reason the overnight format earns its premium over a day visit. Confirm current access terms with the property at booking.</p>
+      <div class="springs-section-head">
+        <h2 id="compare-title">Choose the stay that changes your day.</h2>
+        <p>Each option keeps you with its springs operator. Pick the accommodation format that suits you, then check the operator’s live booking details.</p>
+      </div>
+      <div class="springs-options">
+        {stays.map((stay) => (
+          <article class="springs-option" id={stay.id} aria-labelledby={stay.id + '-title'}>
+            <div class="springs-option__identity">
+              <p class="springs-option__setting">{stay.setting}</p>
+              <h3 id={stay.id + '-title'}>{stay.name}</h3>
+              <p class="springs-option__choice">{stay.choice}</p>
+            </div>
+            <div class="springs-option__detail">
+              <p>{stay.detail}</p>
+              <div class="springs-option__check">
+                <strong>Check before booking</strong>
+                <p>{stay.check}</p>
+              </div>
+              <div class="springs-option__links">
+                <a href={stay.notes}>Read our stay notes</a>
+                <a href={stay.operator} target="_blank" rel="noopener noreferrer">See operator details</a>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+      <aside class="springs-offsite" aria-labelledby="offsite-title">
+        <div>
+          <h3 id="offsite-title">Want a separate base?</h3>
+          <p>Stay in a town that suits the rest of your trip. Book bathing directly with the springs operator and plan the journey between your accommodation and Fingal.</p>
+        </div>
+        <a href="/stay/">Explore all stays</a>
+      </aside>
+    </div>
+  </section>
+
+  <section class="springs-booking" id="booking-order" aria-labelledby="booking-title">
+    <div class="container springs-booking__grid">
+      <div>
+        <h2 id="booking-title">Book in the right order.</h2>
+        <p>A stay and a spa treatment are different reservations. Work from the fixed parts of the trip outward.</p>
+      </div>
+      <ol>
+        <li><span><strong>Choose the operator and room.</strong> Read the live room or package page for bathing inclusions, age rules, arrival times and cancellation terms.</span></li>
+        <li><span><strong>Reserve the extras.</strong> Add any treatments, private bathing or dining you want when you book. Do not assume they come with the room.</span></li>
+        <li><span><strong>Set the journey.</strong> Staying on site reduces travel between room and pools. If you are staying elsewhere or visiting both operators, arrange transport and separate bathing bookings.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="springs-faq" aria-labelledby="faq-title">
+    <div class="container springs-faq__grid">
+      <div>
+        <h2 id="faq-title">The practical questions.</h2>
+        <p>For bathing without an overnight stay, use our <a href="/explore/hot-springs/">hot springs guide</a>.</p>
+      </div>
+      <div class="springs-faq__answers">
+        {faqs.map((faq) => (
+          <div>
+            <h3>{faq.q}</h3>
+            <p>{faq.a}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>
+
+  <div class="springs-source">
+    <div class="container">
+      <p>Accommodation details checked on 1 October 2026 against the <a href="https://www.peninsulahotsprings.com/accommodation" target="_blank" rel="noopener noreferrer">Peninsula Hot Springs accommodation guide</a> and <a href="https://albathermalsprings.com.au/alba-experiences/the-sanctuary/" target="_blank" rel="noopener noreferrer">Alba’s Sanctuary guide</a>. Room types, inclusions and availability can change. Confirm the final terms with the operator.</p>
+    </div>
+  </div>
+
   <NewsletterBlock />
 </BaseLayout>
+
+<style>
+  .springs-hero { padding: clamp(2.5rem, 5vw, 4.75rem) 0; background: var(--bg-alt); border-bottom: 1px solid var(--border); }
+  .springs-hero__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.92fr); gap: clamp(2rem, 5vw, 5rem); align-items: center; }
+  .springs-hero__copy { max-width: 39rem; }
+  .springs-hero h1 { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4.45rem); font-weight: 600; line-height: 1.04; letter-spacing: -0.028em; color: var(--dark); max-width: 14ch; margin: 0 0 1.4rem; text-wrap: balance; }
+  .springs-hero p { color: var(--soft); max-width: 58ch; line-height: 1.65; margin: 0 0 1rem; }
+  .springs-hero .springs-hero__lead { color: var(--text); font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.5; max-width: 42ch; }
+  .springs-hero__actions { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; margin-top: 1.75rem; }
+  .springs-hero__actions .pi-btn { min-height: 44px; }
+  .springs-text-link { color: var(--accent); font-weight: 600; min-height: 44px; display: inline-flex; align-items: center; text-decoration: underline; text-underline-offset: .25em; }
+  .springs-hero__image { margin: 0; min-width: 0; }
+  .springs-hero__image img { display: block; width: 100%; height: auto; aspect-ratio: 6 / 5; object-fit: cover; object-position: center; border-radius: var(--radius-m); }
+  .springs-hero__image figcaption { color: var(--soft); font-size: .75rem; line-height: 1.45; padding-top: .65rem; }
+  .springs-compare { padding: clamp(3.5rem, 6vw, 6rem) 0; }
+  .springs-section-head { display: flex; align-items: end; justify-content: space-between; gap: 2.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
+  .springs-section-head h2, .springs-booking h2, .springs-faq h2 { font-family: var(--font-display); font-size: clamp(1.85rem, 3vw, 2.75rem); line-height: 1.16; letter-spacing: -.02em; color: var(--dark); font-weight: 600; max-width: 22ch; margin: 0; text-wrap: balance; }
+  .springs-section-head p { max-width: 42ch; color: var(--soft); line-height: 1.65; margin: 0; }
+  .springs-option { display: grid; grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr); gap: clamp(2rem, 5vw, 6rem); padding: clamp(2rem, 3.5vw, 3.5rem) 0; border-bottom: 1px solid var(--border); scroll-margin-top: 8rem; }
+  .springs-option__setting { color: var(--soft); font-size: .78rem; font-weight: 600; margin: 0 0 .8rem; }
+  .springs-option h3 { color: var(--dark); font-family: var(--font-display); font-size: clamp(1.45rem, 2.1vw, 2rem); line-height: 1.2; letter-spacing: -.015em; margin: 0 0 1rem; max-width: 21ch; }
+  .springs-option__choice { color: var(--text); font-size: 1.125rem; line-height: 1.55; max-width: 38ch; margin: 0; }
+  .springs-option__detail > p { color: var(--text); line-height: 1.7; max-width: 67ch; margin: 0 0 1.4rem; }
+  .springs-option__check { border-top: 1px solid var(--border); padding-top: 1rem; }
+  .springs-option__check strong { color: var(--dark); font-size: .85rem; }
+  .springs-option__check p { color: var(--soft); line-height: 1.65; max-width: 67ch; margin: .35rem 0 0; }
+  .springs-option__links { display: flex; gap: 1rem 2rem; flex-wrap: wrap; margin-top: 1.25rem; }
+  .springs-option__links a, .springs-offsite a { color: var(--accent); font-weight: 600; display: inline-flex; min-height: 44px; align-items: center; text-decoration: underline; text-underline-offset: .25em; }
+  .springs-offsite { display: flex; justify-content: space-between; align-items: center; gap: 2rem; background: var(--bg-alt); border-radius: var(--radius-m); padding: clamp(1.25rem, 2.5vw, 2rem); margin-top: clamp(2rem, 4vw, 3rem); }
+  .springs-offsite h3 { color: var(--dark); font-family: var(--font-display); font-size: 1.25rem; margin: 0 0 .4rem; }
+  .springs-offsite p { color: var(--soft); line-height: 1.6; max-width: 68ch; margin: 0; }
+  .springs-offsite a { flex: none; }
+  .springs-booking { color: #fff; background: var(--dark); padding: clamp(3.5rem, 6vw, 6rem) 0; }
+  .springs-booking__grid { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(2rem, 6vw, 6rem); }
+  .springs-booking h2 { color: #fff; }
+  .springs-booking p { color: #e5edf2; max-width: 40ch; line-height: 1.65; }
+  .springs-booking ol { list-style: none; counter-reset: book; margin: 0; padding: 0; }
+  .springs-booking li { counter-increment: book; display: grid; grid-template-columns: 2.2rem minmax(0, 1fr); gap: 1.1rem; padding: 1rem 0; border-top: 1px solid rgb(255 255 255 / .35); color: #e5edf2; line-height: 1.65; }
+  .springs-booking li::before { content: counter(book, decimal-leading-zero); color: var(--sand, #F5C177); font-family: var(--font-display); font-size: 1rem; font-weight: 600; }
+  .springs-booking li strong { color: #fff; }
+  .springs-faq { padding: clamp(3.5rem, 6vw, 5rem) 0; border-bottom: 1px solid var(--border); }
+  .springs-faq__grid { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(2rem, 6vw, 6rem); }
+  .springs-faq__grid > div > p { color: var(--soft); line-height: 1.65; max-width: 35ch; }
+  .springs-faq a, .springs-source a { color: var(--accent); text-decoration: underline; text-underline-offset: .25em; }
+  .springs-faq__answers > div { padding: 1.3rem 0; border-top: 1px solid var(--border); }
+  .springs-faq__answers h3 { color: var(--dark); font-family: var(--font-display); font-size: 1.05rem; line-height: 1.4; margin: 0 0 .55rem; }
+  .springs-faq__answers p { color: var(--soft); line-height: 1.65; margin: 0; }
+  .springs-source { background: var(--bg-alt); padding: 1.75rem 0; }
+  .springs-source p { color: var(--soft); font-size: .82rem; line-height: 1.6; max-width: 92ch; margin: 0; }
+  #compare-stays, #booking-order { scroll-margin-top: 8rem; }
+  @media (max-width: 800px) {
+    .springs-hero__grid, .springs-booking__grid, .springs-faq__grid { grid-template-columns: 1fr; }
+    .springs-hero__copy { max-width: 42rem; }
+    .springs-hero__image img { aspect-ratio: 16 / 9; }
+    .springs-section-head { display: block; }
+    .springs-section-head p { margin-top: 1rem; }
+    .springs-option { grid-template-columns: 1fr; gap: 1.3rem; }
+  }
+  @media (max-width: 560px) {
+    .springs-hero { padding: 2rem 0 2.5rem; }
+    .springs-hero h1 { font-size: clamp(2.2rem, 10vw, 3rem); }
+    .springs-hero__actions { margin-top: 1.35rem; gap: .5rem 1.25rem; }
+    .springs-hero__image { margin-top: .5rem; }
+    .springs-offsite { align-items: start; flex-direction: column; gap: .5rem; }
+    .springs-booking li { grid-template-columns: 1.8rem minmax(0, 1fr); gap: .7rem; }
+    #compare-stays, #booking-order, .springs-option { scroll-margin-top: 6rem; }
+  }
+  @media (prefers-reduced-motion: reduce) { .springs-hero *, .springs-compare *, .springs-booking * { scroll-behavior: auto; } }
+</style>

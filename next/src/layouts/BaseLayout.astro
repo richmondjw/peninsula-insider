@@ -398,6 +398,9 @@ const showNewsletterPopup = !isPlanningJourney && normalizedPath !== '/agents/' 
       data-pagefind-ignore opts the page out of the search index entirely. */}
   {/* Auto breadcrumbs on every below-level-1 template (future-ia §3.1).
       Defers to any page-authored <Breadcrumbs> inside main. */}
+  {/* Consent stays in flow on first visit, ahead of every page hero. */}
+  <CookieBanner />
+
   {!noindex && <V5Breadcrumbs pageTitle={title} />}
 
   <main
@@ -451,10 +454,6 @@ const showNewsletterPopup = !isPlanningJourney && normalizedPath !== '/agents/' 
   <!-- Site search overlay - instant Pagefind dropdown, opened by any
        [data-open-search] trigger or the `/` keyboard shortcut. -->
   <SearchOverlay />
-
-  <!-- Cookie consent banner. Shows on first visit only; gates the
-       gtag.js loader above via the 'pi:consent-changed' event. -->
-  <CookieBanner />
 
   <!-- Where in the Peninsula is PI? corner peek. Content pages only, once
        per week, waits for consent and stands down if the Insider Note
