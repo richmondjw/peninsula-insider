@@ -235,7 +235,7 @@ Plan
 
 For people who want salt air, one excellent meal, and just enough structure to stop planning.
 
-One-night escape · Best for couple · Flinders · 48 min drive
+One-night escape · Best for couple · Flinders
 
 [View Plan →](<https://peninsulainsider.com.au/explore/plans/flinders-and-cape-reset/>)
 
@@ -245,7 +245,7 @@ Plan
 
 Two nights based in Sorrento, with the back beach, Point Nepean and a village dinner. The second evening takes you out to Pt. Leo Estate.
 
-Two-night escape · Best for couple · Sorrento · 55 min drive
+Two-night escape · Best for couple · Sorrento
 
 [View Plan →](<https://peninsulainsider.com.au/explore/plans/sorrento-off-season-weekend/>)
 

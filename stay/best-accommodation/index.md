@@ -131,11 +131,11 @@ anniversary  waterfront
 
 Hotel  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
-### [Flinders Hotel](<https://peninsulainsider.com.au/stay/flinders-hotel/>)
+### [Quarters at Flinders Hotel](<https://peninsulainsider.com.au/stay/flinders-hotel/>)
 
 Corner of Cook & Wood St, Flinders VIC 3929 · $$$
 
-A polished village-base stay with proper pub energy downstairs and Bass Strait within easy reach.
+Quarters is a quiet village stay behind Flinders Hotel, with pub dining and the coast close at hand.
 
 weekend escape  slow
 

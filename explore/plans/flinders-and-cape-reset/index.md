@@ -9,9 +9,9 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 For people who want salt air, one excellent meal, and just enough structure to stop planning.
 
-Couples  Coastal · Food & wine  About 48 min driving (editorial estimate)
+Couples  Coastal · Food & wine
 
-[Stay at Flinders Hotel →](<https://peninsulainsider.com.au/stay/flinders-hotel/?utm_source=peninsula-insider&utm_medium=escape&utm_campaign=flinders-and-cape-reset&utm_content=hero>)
+[Stay at Quarters at Flinders Hotel →](<https://peninsulainsider.com.au/stay/flinders-hotel/?utm_source=peninsula-insider&utm_medium=escape&utm_campaign=flinders-and-cape-reset&utm_content=hero>)
 
 - Photo · Courtesy of Visit Victoria
 
@@ -27,57 +27,9 @@ Couples  Coastal · Food & wine  About 48 min driving (editorial estimate)
 
 Aerial view of green cliffs dropping to a rocky shore, with the Cape Schanck lighthouse and cottages on the headland  Cape Schanck, Mornington Peninsula.  Photo · Courtesy of Visit Victoria
 
-The one-night Peninsula trip only works if you resist the temptation to cram it full. This version stays south, keeps the driving short, and gives equal weight to coastline and lunch. Flinders gives you a clean village base. Cape Schanck supplies the weather and the scale. Tedesca handles dinner. By the time you are leaving Pt. Leo after lunch the next day, it feels like you were away for longer than twenty-four hours.
-
-## Day 1
-
-- Midday
-
-### [Flinders Hotel](<https://peninsulainsider.com.au/stay/flinders-hotel/>)
-
-Check in early enough to make the village feel like your own base rather than a stopover.
-
-- Afternoon
-
-### [Cape Schanck Boardwalk](<https://peninsulainsider.com.au/explore/cape-schanck-boardwalk/>)
-
-Make the boardwalk your first coastal stop. Check park access and the weather before leaving Flinders.
-
-- Evening
-
-### [Tedesca Osteria](<https://peninsulainsider.com.au/eat/tedesca-osteria/>)
-
-Check dinner service for your chosen date before booking. Fit the afternoon walk around the reservation.
-
-Where you sleep tonight
-
-Settle into Flinders Hotel for the night. Check the room before dinner so you can step straight into the next morning without admin.
-
-[See Flinders Hotel →](<https://peninsulainsider.com.au/stay/flinders-hotel/?utm_source=peninsula-insider&utm_medium=escape&utm_campaign=flinders-and-cape-reset&utm_content=inflow>)
-
-## Day 2
-
-- Morning
-
-### [Bushrangers Bay Walk](<https://peninsulainsider.com.au/explore/bushrangers-bay-walk/>)
-
-Do the longer coastal walk in the morning while your legs and weather are both fresh.
-
-- Midday
-
-### [Pt. Leo Estate](<https://peninsulainsider.com.au/wine/pt-leo-estate/>)
-
-Finish with a late lunch and art before heading home.
-
-## Booking checklist
-
-- essential  One night at Flinders Hotel
-
-- recommended  Tedesca service availability and Pt. Leo lunch
-
 At a glance
 
-Drive times are planning estimates. My Trip estimates only travel between mapped stops within each day, excluding your journey here, return travel, traffic and parking. Check opening times and availability directly before travelling.
+Use this as a route, then confirm bookings, park access and weather for your dates. My Trip drive times cover mapped stops, excluding your journey here and home.
 
 **Duration**
 
@@ -99,13 +51,9 @@ Flinders
 
 Year-round
 
-**Driving**
-
-About 48 min (editorial estimate)
-
 **Anchor stay**
 
-[Flinders Hotel](<https://peninsulainsider.com.au/stay/flinders-hotel/>)
+[Quarters at Flinders Hotel](<https://peninsulainsider.com.au/stay/flinders-hotel/>)
 
 **Budget**
 
@@ -117,19 +65,67 @@ Flexible budget
 
 [Stay here →](<https://peninsulainsider.com.au/stay/flinders-hotel/?utm_source=peninsula-insider&utm_medium=escape&utm_campaign=flinders-and-cape-reset&utm_content=facts>)
 
+The one-night Peninsula trip only works if you resist the temptation to cram it full. This version stays south and gives equal weight to coastline and lunch. Flinders gives you a clean village base. Cape Schanck supplies the weather and the scale. Moke makes dinner a walk within the village when its Thursday to Saturday service suits your date; otherwise, book dinner at Flinders Hotel. By the time you are leaving Pt. Leo after lunch the next day, it feels like you were away for longer than twenty-four hours.
+
+## Day 1  Village, cape and dinner
+
+- Midday
+
+### [Quarters at Flinders Hotel](<https://peninsulainsider.com.au/stay/flinders-hotel/>)
+
+Arrive in Flinders by midday. Confirm your Quarters check-in time and any luggage arrangements directly before leaving for the cape.
+
+- Afternoon
+
+### [Cape Schanck Boardwalk](<https://peninsulainsider.com.au/explore/cape-schanck-boardwalk/>)
+
+Make the boardwalk your first coastal stop. Check park access and the weather before leaving Flinders.
+
+- Evening
+
+### [Moke Dining](<https://peninsulainsider.com.au/eat/moke-dining/>)
+
+Moke serves dinner Thursday to Saturday. Book for your date and fit the afternoon walk around the reservation; Flinders Hotel is a nearby dinner fallback.
+
+Night 1 · Where you sleep
+
+Stay at Quarters at Flinders Hotel tonight. Confirm check-in and dinner for your date before you travel.
+
+[See Quarters at Flinders Hotel →](<https://peninsulainsider.com.au/stay/flinders-hotel/?utm_source=peninsula-insider&utm_medium=escape&utm_campaign=flinders-and-cape-reset&utm_content=inflow>)
+
+## Day 2  Coast, art and lunch
+
+- Morning
+
+### [Bushrangers Bay Walk](<https://peninsulainsider.com.au/explore/bushrangers-bay-walk/>)
+
+Bushrangers Bay is a 5.4 km return walk of about two hours, with a narrow sandy path and steep stairs. Start early; use the Cape Schanck lookouts instead if weather or lunch timing cuts the window.
+
+- Midday
+
+### [Pt. Leo Estate](<https://peninsulainsider.com.au/wine/pt-leo-estate/>)
+
+Finish with a late lunch and art before heading home.
+
+## Booking checklist
+
+- essential  One night at Quarters at Flinders Hotel
+
+- recommended  Moke dinner service and Pt. Leo lunch
+
 Sleep here
 
-## Stays that anchor this escape properly
+## Your base for this escape
 
 [All stays →](<https://peninsulainsider.com.au/stay/>)
 
 Hotel  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
-### [Flinders Hotel](<https://peninsulainsider.com.au/stay/flinders-hotel/>)
+### [Quarters at Flinders Hotel](<https://peninsulainsider.com.au/stay/flinders-hotel/>)
 
 Corner of Cook & Wood St, Flinders VIC 3929 · $$$
 
-A polished village-base stay with proper pub energy downstairs and Bass Strait within easy reach.
+Quarters is a quiet village stay behind Flinders Hotel, with pub dining and the coast close at hand.
 
 weekend escape  slow
 
@@ -185,19 +181,9 @@ Short days, cheap rooms, empty dining rooms, a fire in every cellar door with a 
 
 Try another shape
 
-## More escape plans from the rebuild
+## More ways to explore the Peninsula
 
 [All plans →](<https://peninsulainsider.com.au/explore/plans/>)
-
-Plan
-
-### [Ridge to Sea: A Two-Night Peninsula Escape](<https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/>)
-
-Start in Red Hill wine country, finish at the southern tip, and let the weekend widen as it goes.
-
-Two-night escape · Best for couple · Red Hill · 95 min drive
-
-[View Plan →](<https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/>)
 
 Plan
 
@@ -205,29 +191,29 @@ Plan
 
 Two nights based in Sorrento, with the back beach, Point Nepean and a village dinner. The second evening takes you out to Pt. Leo Estate.
 
-Two-night escape · Best for couple · Sorrento · 55 min drive
+Two-night escape · Best for couple · Sorrento
 
 [View Plan →](<https://peninsulainsider.com.au/explore/plans/sorrento-off-season-weekend/>)
 
 Plan
 
-### [The Peninsula Family Day Out](<https://peninsulainsider.com.au/explore/plans/the-family-day-out/>)
+### [Ridge to Sea: A Two-Night Peninsula Escape](<https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/>)
 
-The gondola, a brewery lunch and a bay beach, with a final coffee stop if the family still has the energy. Four stops you can shorten to three.
+Start in Red Hill wine country, finish at the southern tip, and let the weekend widen as it goes.
 
-Day trip · Best for family · Mornington · 60 min drive
+Two-night escape · Best for couple · Red Hill
 
-[View Plan →](<https://peninsulainsider.com.au/explore/plans/the-family-day-out/>)
+[View Plan →](<https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/>)
 
 Plan
 
-### [The Peninsula Golf Weekend: Two Nights, One Serious Round, Room for the Rest](<https://peninsulainsider.com.au/explore/plans/the-peninsula-golf-weekend/>)
+### [A Peninsula Wellness Weekend](<https://peninsulainsider.com.au/explore/plans/wellness-weekend/>)
 
-One round at St Andrews Beach, vineyard meals, an optional coastal walk and two nights on the ridge. For groups where not everyone plays.
+Thermal pools, a coastal walk and vineyard meals, with two nights to slow down at the same Red Hill stay.
 
-Two-night escape · Best for friends · Rye · 120 min drive
+Two-night escape · Best for couple · Peninsula
 
-[View Plan →](<https://peninsulainsider.com.au/explore/plans/the-peninsula-golf-weekend/>)
+[View Plan →](<https://peninsulainsider.com.au/explore/plans/wellness-weekend/>)
 
 ## The Insider Note
 
