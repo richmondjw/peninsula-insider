@@ -59,7 +59,7 @@ export function extractPage(html, canonical) {
   const body = render(main, canonical).replace(/[ \t]+\n/g, '\n').replace(/\n{3,}/g, '\n\n').trim();
   const meta = (name) => attr(find(tree, n => n.tagName === 'meta' && (attr(n, 'property') === name || attr(n, 'name') === name)) || {}, 'content') || null;
   const citation = { title, publisher: 'Peninsula Insider', url: canonical, publishedAt: citationDate(meta('article:published_time')), modifiedAt: citationDate(meta('article:modified_time')) };
-  const markdown = `Canonical: ${canonical}\nPublisher: Peninsula Insider\nPublished: ${citation.publishedAt || 'unknown'}\nModified: ${citation.modifiedAt || 'unknown'}\nFormat: public main text, generated from the canonical page; imagery, controls and price indicators omitted.\nDates and caveats below retain their page meaning; this format is not a new fact check.\n\n${body}\n`;
+  const markdown = `Canonical: ${canonical}\nPublisher: Peninsula Insider\nPublished: ${citation.publishedAt || 'unknown'}\nModified: ${citation.modifiedAt || 'unknown'}\nFormat: public main text, generated from the canonical page; imagery and interactive controls omitted.\nDates and caveats below retain their page meaning; this format is not a new fact check.\n\n${body}\n`;
   return { title, markdown, citation, contentSha256: digest(markdown) };
 }
 
