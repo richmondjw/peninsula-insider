@@ -1,7 +1,7 @@
 {
   "slug": "the-family-day-out",
   "title": "The Peninsula Family Day Out",
-  "dek": "The gondola, a brewery lunch and a bay beach, with a final coffee stop if the family still has the energy. Four stops you can shorten to three.",
+  "dek": "A gondola ride, a brewery lunch and a bay beach, with a coffee stop only if the day runs early.",
   "audience": "family",
   "mood": "mixed",
   "lengthNights": 0,
@@ -18,11 +18,15 @@
   ],
   "bookingChecklist": [
     {
-      "item": "Arthurs Seat Eagle tickets",
+      "item": "Check Arthurs Seat Eagle operating conditions and ticket options",
       "priority": "recommended"
     },
     {
-      "item": "Check lunch service and cafe opening hours",
+      "item": "Confirm Red Hill Brewery is serving lunch on your chosen day",
+      "priority": "essential"
+    },
+    {
+      "item": "Check Commonfolk Mornington's closing time if you want the optional coffee stop",
       "priority": "recommended"
     }
   ],
@@ -31,14 +35,14 @@
       "day": 1,
       "order": 1,
       "experience": "arthurs-seat-lookout",
-      "note": "Start high. The Arthurs Seat Eagle gondola is the anchor of the day  -  twenty minutes of gently dangling flight and the best orientation to the whole Peninsula.",
+      "note": "Start with a return gondola ride, about 15 minutes each way, and pause at the summit lookout. You can board at the base or summit station; check conditions and choose your starting car park before you travel.",
       "timeOfDay": "morning"
     },
     {
       "day": 1,
       "order": 2,
       "venue": "red-hill-brewery",
-      "note": "The right family lunch room: grass, picnic tables, a wood-fired pizza oven, and a tasting flight for the adults. Do not try to upgrade to a cellar door.",
+      "note": "The deck and beer garden make this a relaxed family lunch. The bar and kitchen are usually open Thursday to Sunday, with food from midday; menus vary, so check today's service before setting out.",
       "timeOfDay": "midday"
     },
     {
@@ -52,20 +56,73 @@
       "day": 1,
       "order": 4,
       "venue": "commonfolk-coffee",
-      "note": "An optional coffee stop on the way north. Check the closing time before leaving the beach; skip it if the day has run long.",
+      "note": "Only add this Mornington coffee stop if you can reach it before closing. Commonfolk's weekend cafe service ends at 3 pm, and weekday service at 3:30 pm. Otherwise, let the beach be the finish.",
       "timeOfDay": "afternoon"
     }
   ],
-  "totalDriveMinutes": 60,
   "heroImage": {
-    "src": "/images/sourced/explore-arthurs-seat-lookout-01.webp",
-    "alt": "Arthurs Seat lookout over the bay",
-    "credit": "Wikimedia Commons",
-    "license": "wikimedia-cc-by-sa"
+    "src": "/images/visit-victoria/vv-167058-arthurs-seat-eagle.webp",
+    "alt": "A family looks out from inside an Arthurs Seat Eagle gondola over the bayside suburbs and Port Phillip below",
+    "credit": "Courtesy of Visit Victoria",
+    "license": "visit-victoria",
+    "caption": "Arthurs Seat Eagle Gondola Ride, Mornington Peninsula.",
+    "depicts": "Arthurs Seat Eagle",
+    "depictionStatus": "actual",
+    "sourceUrl": "Victoria Content Hub asset 167058, downloaded 2026-09-28",
+    "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+    "permittedUses": [
+      "website",
+      "social"
+    ],
+    "rightsHolder": "Visit Victoria",
+    "rightsEstablishedOn": "2026-09-29",
+    "rightsStatus": "recorded",
+    "decorative": false,
+    "provenanceReview": "verified"
   },
-  "editorNote": "Give the day two anchors: the gondola and lunch. The beach can be a short wander or a longer pause, depending on the conditions and the children's energy. The final coffee is optional. Check tickets, food service and opening times before leaving home rather than treating the four stops as a fixed timetable.",
+  "editorNote": "Keep the Eagle, brewery lunch and beach as the three anchors. This route works best Thursday to Sunday when the brewery bar and kitchen usually serve lunch; confirm current hours and menu, including public holiday changes. The Eagle can close in extreme weather, and its flexi tickets do not require a reserved time. The final coffee is optional, because Commonfolk Mornington closes at 3 pm on weekends.",
   "publishedAt": "2026-04-15",
   "gallery": [
+    {
+      "src": "/images/visit-victoria/vv-167085-arthurs-seat-eagle.webp",
+      "alt": "Arthurs Seat Eagle gondolas pass a support tower above the bay as a pale band of light sits on the horizon",
+      "credit": "Courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Arthurs Seat Eagle Gondola Ride, Mornington Peninsula.",
+      "depicts": "Arthurs Seat Eagle",
+      "depictionStatus": "actual",
+      "sourceUrl": "Victoria Content Hub asset 167085, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-167077-arthurs-seat-eagle.webp",
+      "alt": "Visitors at a timber railing watch an Arthurs Seat Eagle gondola pass overhead, with the bay and coastal suburbs below",
+      "credit": "Courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Arthurs Seat Eagle Gondola Ride, Mornington Peninsula.",
+      "depicts": "Arthurs Seat Eagle",
+      "depictionStatus": "actual",
+      "sourceUrl": "Victoria Content Hub asset 167077, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
     {
       "src": "/images/visit-victoria/vv-143785-red-hill-brewery.webp",
       "alt": "Visitors walk past the open doors of the weathered timber Brewhouse shed, with brewing tanks visible inside",
@@ -97,90 +154,6 @@
       "depictionStatus": "actual",
       "creator": "Peter Tarasiuk",
       "sourceUrl": "Victoria Content Hub asset 143828, downloaded 2026-09-28",
-      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026). Embedded usage terms: \"All image usage must be for the positive promotion of Melbourne and Victoria. Images can only be used to promote the region the image has been taken in. All material supplied is owned by Visit Victoria or its respective partners and can not be on sold to Third Parties.\"",
-      "permittedUses": [
-        "website",
-        "social"
-      ],
-      "rightsHolder": "Visit Victoria",
-      "rightsEstablishedOn": "2026-09-29",
-      "rightsStatus": "recorded",
-      "decorative": false,
-      "provenanceReview": "verified"
-    },
-    {
-      "src": "/images/visit-victoria/vv-143823-red-hill-brewery.webp",
-      "alt": "A hand pulls a pale beer into a small glass from a row of worn metal taps with a Red Hill Brewery tap badge",
-      "credit": "Peter Tarasiuk, courtesy of Visit Victoria",
-      "license": "visit-victoria",
-      "caption": "Red Hill Brewery, Mornington Peninsula.",
-      "depicts": "Red Hill Brewery",
-      "depictionStatus": "actual",
-      "creator": "Peter Tarasiuk",
-      "sourceUrl": "Victoria Content Hub asset 143823, downloaded 2026-09-28",
-      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026). Embedded usage terms: \"All image usage must be for the positive promotion of Melbourne and Victoria. Images can only be used to promote the region the image has been taken in. All material supplied is owned by Visit Victoria or its respective partners and can not be on sold to Third Parties.\"",
-      "permittedUses": [
-        "website",
-        "social"
-      ],
-      "rightsHolder": "Visit Victoria",
-      "rightsEstablishedOn": "2026-09-29",
-      "rightsStatus": "recorded",
-      "decorative": false,
-      "provenanceReview": "verified"
-    },
-    {
-      "src": "/images/visit-victoria/vv-143824-red-hill-brewery.webp",
-      "alt": "A small glass fills with frothy beer from a curved chrome spout beside a brass and timber beer engine",
-      "credit": "Peter Tarasiuk, courtesy of Visit Victoria",
-      "license": "visit-victoria",
-      "caption": "Red Hill Brewery, Mornington Peninsula.",
-      "depicts": "Red Hill Brewery",
-      "depictionStatus": "actual",
-      "creator": "Peter Tarasiuk",
-      "sourceUrl": "Victoria Content Hub asset 143824, downloaded 2026-09-28",
-      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026). Embedded usage terms: \"All image usage must be for the positive promotion of Melbourne and Victoria. Images can only be used to promote the region the image has been taken in. All material supplied is owned by Visit Victoria or its respective partners and can not be on sold to Third Parties.\"",
-      "permittedUses": [
-        "website",
-        "social"
-      ],
-      "rightsHolder": "Visit Victoria",
-      "rightsEstablishedOn": "2026-09-29",
-      "rightsStatus": "recorded",
-      "decorative": false,
-      "provenanceReview": "verified"
-    },
-    {
-      "src": "/images/visit-victoria/vv-143825-red-hill-brewery.webp",
-      "alt": "A tasting paddle of four beers, from dark to pale, on a weathered outdoor table beside timber chairs",
-      "credit": "Peter Tarasiuk, courtesy of Visit Victoria",
-      "license": "visit-victoria",
-      "caption": "Red Hill Brewery, Mornington Peninsula.",
-      "depicts": "Red Hill Brewery",
-      "depictionStatus": "actual",
-      "creator": "Peter Tarasiuk",
-      "sourceUrl": "Victoria Content Hub asset 143825, downloaded 2026-09-28",
-      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026). Embedded usage terms: \"All image usage must be for the positive promotion of Melbourne and Victoria. Images can only be used to promote the region the image has been taken in. All material supplied is owned by Visit Victoria or its respective partners and can not be on sold to Third Parties.\"",
-      "permittedUses": [
-        "website",
-        "social"
-      ],
-      "rightsHolder": "Visit Victoria",
-      "rightsEstablishedOn": "2026-09-29",
-      "rightsStatus": "recorded",
-      "decorative": false,
-      "provenanceReview": "verified"
-    },
-    {
-      "src": "/images/visit-victoria/vv-143827-red-hill-brewery.webp",
-      "alt": "Clusters of green hop cones hang from a leafy bine against a weathered grey timber fence",
-      "credit": "Peter Tarasiuk, courtesy of Visit Victoria",
-      "license": "visit-victoria",
-      "caption": "Red Hill Brewery, Mornington Peninsula.",
-      "depicts": "Red Hill Brewery",
-      "depictionStatus": "actual",
-      "creator": "Peter Tarasiuk",
-      "sourceUrl": "Victoria Content Hub asset 143827, downloaded 2026-09-28",
       "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026). Embedded usage terms: \"All image usage must be for the positive promotion of Melbourne and Victoria. Images can only be used to promote the region the image has been taken in. All material supplied is owned by Visit Victoria or its respective partners and can not be on sold to Third Parties.\"",
       "permittedUses": [
         "website",

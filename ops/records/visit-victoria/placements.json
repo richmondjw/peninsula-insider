@@ -3600,10 +3600,37 @@
    "role": "itinerary-gallery"
   },
   {
-   "assetKey": "vv-143785",
+   "assetKey": "vv-167058",
+   "surface": "site",
+   "entity": "itineraries/the-family-day-out",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-167058-arthurs-seat-eagle.webp",
+   "pass": 2,
+   "role": "itinerary-hero"
+  },
+  {
+   "assetKey": "vv-167085",
    "surface": "site",
    "entity": "itineraries/the-family-day-out",
    "field": "gallery[0]",
+   "src": "/images/visit-victoria/vv-167085-arthurs-seat-eagle.webp",
+   "pass": 2,
+   "role": "itinerary-gallery"
+  },
+  {
+   "assetKey": "vv-167077",
+   "surface": "site",
+   "entity": "itineraries/the-family-day-out",
+   "field": "gallery[1]",
+   "src": "/images/visit-victoria/vv-167077-arthurs-seat-eagle.webp",
+   "pass": 2,
+   "role": "itinerary-gallery"
+  },
+  {
+   "assetKey": "vv-143785",
+   "surface": "site",
+   "entity": "itineraries/the-family-day-out",
+   "field": "gallery[2]",
    "src": "/images/visit-victoria/vv-143785-red-hill-brewery.webp",
    "pass": 2,
    "role": "itinerary-gallery"
@@ -3612,46 +3639,19 @@
    "assetKey": "vv-143828",
    "surface": "site",
    "entity": "itineraries/the-family-day-out",
-   "field": "gallery[1]",
+   "field": "gallery[3]",
    "src": "/images/visit-victoria/vv-143828-red-hill-brewery.webp",
    "pass": 2,
    "role": "itinerary-gallery"
   },
   {
-   "assetKey": "vv-143823",
+   "assetKey": "vv-157426",
    "surface": "site",
-   "entity": "itineraries/the-family-day-out",
-   "field": "gallery[2]",
-   "src": "/images/visit-victoria/vv-143823-red-hill-brewery.webp",
+   "entity": "itineraries/the-peninsula-golf-weekend",
+   "field": "heroImage",
+   "src": "/images/visit-victoria/vv-157426-st-andrews-beach-golf-course-fingal.webp",
    "pass": 2,
-   "role": "itinerary-gallery"
-  },
-  {
-   "assetKey": "vv-143824",
-   "surface": "site",
-   "entity": "itineraries/the-family-day-out",
-   "field": "gallery[3]",
-   "src": "/images/visit-victoria/vv-143824-red-hill-brewery.webp",
-   "pass": 2,
-   "role": "itinerary-gallery"
-  },
-  {
-   "assetKey": "vv-143825",
-   "surface": "site",
-   "entity": "itineraries/the-family-day-out",
-   "field": "gallery[4]",
-   "src": "/images/visit-victoria/vv-143825-red-hill-brewery.webp",
-   "pass": 2,
-   "role": "itinerary-gallery"
-  },
-  {
-   "assetKey": "vv-143827",
-   "surface": "site",
-   "entity": "itineraries/the-family-day-out",
-   "field": "gallery[5]",
-   "src": "/images/visit-victoria/vv-143827-red-hill-brewery.webp",
-   "pass": 2,
-   "role": "itinerary-gallery"
+   "role": "itinerary-hero"
   },
   {
    "assetKey": "vv-26070118",

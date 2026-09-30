@@ -67,7 +67,8 @@ test('six current itineraries provide short labels, useful booking advice and va
 test('golf summary describes its stops and wellness begins with a lunch service', () => {
   const golf = itineraries.find((plan) => plan.slug === 'the-peninsula-golf-weekend');
   assert.doesNotMatch(golf.dek, /hot springs|ten minutes|ranking/i);
-  assert.doesNotMatch(golf.heroImage.alt, /golf course/i, 'the photograph shows coast, not a golf course');
+  assert.match(golf.heroImage.alt, /St Andrews Beach Golf Course/i, 'the hero must depict the course in the plan');
+  assert.equal(golf.heroImage.license, 'visit-victoria', 'the course hero must retain its recorded licence');
   const wellness = itineraries.find((plan) => plan.slug === 'wellness-weekend');
   const merricks = wellness.stops.find((stop) => stop.venue === 'merricks-general-wine-store');
   assert.equal(merricks.timeOfDay, 'midday');
