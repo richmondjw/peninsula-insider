@@ -120,7 +120,9 @@ jobs:
             --concurrency 3 \
             $EXTRA \
             --json "ops/reports/verification/verification-loop.json" \
-            --md "ops/reports/verification/verification-loop-$(date -u +%Y-%m-%d).md" \n            --proposals "ops/reports/verification/proposals.json" \n            --proposals-md "ops/reports/verification/proposals-$(date -u +%Y-%m-%d).md"
+            --md "ops/reports/verification/verification-loop-$(date -u +%Y-%m-%d).md" \
+            --proposals "ops/reports/verification/proposals.json" \
+            --proposals-md "ops/reports/verification/proposals-$(date -u +%Y-%m-%d).md"
 
       - name: Upload the report
         if: always()
@@ -131,16 +133,48 @@ jobs:
           if-no-files-found: warn
           retention-days: 90
 
-      # NO ALERT STEP, DELIBERATELY, AND THIS IS A GAP WORTH KNOWING ABOUT.
-      #
-      # Every other scheduled workflow here finishes with `engine/alert.py`,
-      # which opens a GitHub issue on failure so a cron cannot die quietly.
-      # That is a write to an external system, and this stage of PI-006 is
-      # bounded to exactly one outbound action: a GET of a URL the corpus
-      # already cites. Wiring the alert would be the first exception to that
-      # boundary, and the first exception is the one worth refusing.
-      #
-      # The cost is real: a red run here is visible only in the Actions tab.
-      # Turning the alert on is a small, sensible decision, and it belongs with
-      # whoever takes the write-scope decision (D5) rather than being taken
-      # quietly inside a workflow file.
+      - name: Count proposals and preserve the run receipt
+        id: queue
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          path = Path('next/ops/reports/verification/proposals.json')
+          count = 'unknown'
+          if path.exists():
+              try:
+                  data = json.loads(path.read_text())
+                  count = str(len(data.get('proposals', [])))
+              except (OSError, ValueError, AttributeError):
+                  count = 'unreadable'
+          with open(os.environ['GITHUB_OUTPUT'], 'a', encoding='utf-8') as out:
+              out.write(f'count={count}\n')
+          print(f'proposal_count={count}')
+          PY
+
+      - name: Alert on failed checks or proposed correction
+        if: failure() || steps.queue.outputs.count != '0'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          PI_REPO_ROOT: ${{ github.workspace }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          COUNT="${{ steps.queue.outputs.count }}"
+          if [ "$COUNT" != "0" ] && [ "$COUNT" != "unknown" ] && [ "$COUNT" != "unreadable" ]; then
+            python3 engine/alert.py \
+              --title "Claim verification produced ${COUNT} correction proposal(s)" \
+              --body "The nightly proposal-only verification loop produced ${COUNT} reviewable proposal(s). No content was changed. Review the attached run receipt and apply nothing until the required approved slate, source coverage, independent final-artifact verification, build, release handoff and production verification are present. Run: ${RUN_URL}" \
+              --dedup claim-verification-proposals --severity warning
+          elif [ "$COUNT" = "unknown" ] || [ "$COUNT" = "unreadable" ]; then
+            python3 engine/alert.py \
+              --title "Claim verification receipt could not be read" \
+              --body "The nightly proposal-only verification loop did not produce a readable proposal receipt. No content was changed. Run: ${RUN_URL}" \
+              --dedup claim-verification-receipt --severity fatal
+          else
+            python3 engine/alert.py \
+              --title "Claim verification loop failed" \
+              --body "The nightly proposal-only verification loop failed before producing a clean receipt. No content was changed. Run: ${RUN_URL}" \
+              --dedup claim-verification-failure --severity fatal
+          fi
