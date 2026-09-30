@@ -1,6 +1,6 @@
 ---
-title: "The Cellar Door Short List: Five Producers Worth the Appointment"
-dek: "Not the biggest estates, not the flashiest rooms. The five Peninsula cellar doors where the wines  -  and the people pouring them  -  actually change how you think about the region."
+title: "The cellar door short list: five producers worth the appointment"
+dek: "Not the biggest estates, not the flashiest rooms. The five Peninsula cellar doors where the wines (and the people pouring them) actually change how you think about the region."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-04-06

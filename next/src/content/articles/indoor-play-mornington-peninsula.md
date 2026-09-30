@@ -1,5 +1,5 @@
 ---
-title: "Indoor Play on the Mornington Peninsula: The Four Worth Driving To"
+title: "Indoor play on the Mornington Peninsula: the four worth driving to"
 dek: "When the weather turns and the kids need to run, there are four indoor play venues on the Peninsula that actually hold up. Here is what each one is good for, and the five things to check before you leave the house."
 author: "editorial"
 houseByline: true

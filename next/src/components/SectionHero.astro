@@ -51,6 +51,11 @@ const resolvedDek = dekOverride ?? dek;
 const resolvedHeroImage = imageOverride?.src ?? heroImage;
 
 const gradClass = `section-hero__visual hero-grad--${gradient}`;
+// No image: collapse to a single text column (the empty panel is hidden).
+// A class, not a nested :has(), because browsers drop nested :has().
+const innerClass = resolvedHeroImage
+  ? 'section-hero__inner'
+  : 'section-hero__inner section-hero__inner--text-only';
 
 const titleAttrs = editable
   ? editableText({ entityType, entitySlug: entitySlug!, fieldPath: 'hero.title', label: `${entitySlug} hero title` })
@@ -65,8 +70,8 @@ const imageAttrs = editable
 
 <section class="section-hero">
   <div class="container">
-    <div class="section-hero__inner">
-      <div>
+    <div class={innerClass}>
+      <div class="section-hero__text">
         <div class="section-hero__eyebrow">
           <span class="label label--accent">{eyebrow}</span>
           <span class="section-hero__rule" aria-hidden="true"></span>
@@ -86,7 +91,7 @@ const imageAttrs = editable
             decoding="async"
           />
         )}
-        <div class="section-hero__visual-fog"></div>
+        {visualLabel && <div class="section-hero__visual-fog"></div>}
         {visualLabel && <span class="section-hero__visual-label">{visualLabel}</span>}
       </div>
     </div>

@@ -38,6 +38,12 @@ interface Props {
   style?: string;
   /** Wrap the line in <em>, matching the pages that already italicise it. */
   emphasis?: boolean;
+  /**
+   * Set the line as a separated foot caption: a hairline and space above,
+   * small muted type. For a line that follows a list or a block of links,
+   * where an unstyled paragraph would read as one more item.
+   */
+  caption?: boolean;
 }
 
 const {
@@ -47,6 +53,7 @@ const {
   class: className,
   style,
   emphasis = false,
+  caption = false,
 } = Astro.props as Props;
 
 const [claims, evidence] = await Promise.all([
@@ -68,7 +75,25 @@ const line = disclosureLine(derived, {
 ---
 
 {line && (
-  <p class={className} style={style} data-provenance={derived.basis}>
+  <p
+    class:list={['provenance-line', caption && 'provenance-line--caption', className]}
+    style={style}
+    data-provenance={derived.basis}
+  >
     {emphasis ? <em>{line}<slot /></em> : <Fragment>{line}<slot /></Fragment>}
   </p>
 )}
+
+<style>
+  .provenance-line--caption {
+    margin: var(--space-5) 0 0;
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--border);
+    font-family: var(--font-ui);
+    font-size: var(--fs-200);
+    line-height: var(--lh-ui, 1.5);
+    color: var(--soft);
+    max-width: var(--measure-prose);
+    text-wrap: pretty;
+  }
+</style>

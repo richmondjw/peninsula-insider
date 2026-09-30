@@ -188,9 +188,31 @@ h1, h2, h3, h4, h5 {
   text-transform: uppercase;
   color: var(--soft);
 }
-.label--accent { color: var(--accent); }
+/* Legacy eyebrows follow the canonical section eyebrow: sand-text on light
+   grounds (design-perfection G1). Dark-ground variants below re-point it. */
+.label--accent { color: var(--sand-text); }
 
 hr.rule { border: none; border-top: 1px solid var(--border); }
+
+/* SECTION HEAD (design-perfection G1, 2026-09-29). The one section opener:
+   .pi-section-head > .pi-section-head__text > .pi-eyebrow + .pi-h2 [+ .pi-section-dek],
+   then an optional .pi-section-link (internal links end in →; ↗ is for external
+   links only). Legacy heads (.venues__*, .prose h2, .hub-faq__title) share the
+   same declarations. Tokens: --section-space, --section-head-gap, --h2-size. */
+.pi-section { padding-block: var(--section-space); }
+.pi-section > .container > :last-child { margin-bottom: 0; }
+.pi-section-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--space-3) var(--space-6); margin-bottom: var(--section-head-gap); }
+.pi-section-head__text { flex: 1 1 32rem; min-width: 0; }
+.pi-eyebrow { font-family: var(--font-ui); font-size: var(--fs-100); font-weight: 600; line-height: var(--lh-label); letter-spacing: var(--ls-eyebrow); text-transform: uppercase; color: var(--sand-text); margin: 0 0 var(--space-3); }
+.pi-h2, .venues__title, .prose h2, .hub-faq__title { font-family: var(--font-display); font-weight: 600; font-size: var(--h2-size); line-height: var(--lh-heading); letter-spacing: var(--ls-display); color: var(--text); text-wrap: balance; margin: 0; }
+.pi-section-dek, .venues__sub { font-family: var(--font-ui); font-size: var(--fs-400); line-height: var(--lh-body); font-style: normal; color: var(--soft); max-width: 60ch; text-wrap: pretty; margin: var(--space-4) 0 0; }
+.pi-section-link, .venues__link { display: inline-flex; align-items: center; gap: 0.3em; min-height: 44px; font-family: var(--font-ui); font-size: var(--fs-300); font-weight: 600; line-height: var(--lh-ui); letter-spacing: 0; text-transform: none; color: var(--harbour); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; white-space: nowrap; transition: color var(--dur-fast) var(--ease); }
+.pi-section-link:hover, .venues__link:hover { color: var(--harbour-h); }
+.is-dark .pi-eyebrow { color: var(--sand); }
+.is-dark .pi-h2 { color: var(--white); }
+.is-dark .pi-section-dek { color: var(--soft-inverse); }
+.is-dark .pi-section-link { color: var(--sand); }
+.is-dark .pi-section-link:hover { color: var(--white); }
 
 /* =========================================================
    MASTHEAD V3 - three-row editorial flag.
@@ -744,24 +766,38 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 /* =========================================================
    SECTION HERO (eat / stay / wine / places / journal)
    ========================================================= */
+/* G3: the hero rule lives on the 1280 frame (the container), not the full
+   bleed, so it runs x=80 to 1360 at 1440 like every other rule. The bottom
+   padding moves inside the container so the rule still closes the hero. */
 .section-hero {
-  padding: clamp(3.5rem, 7vw, 5.5rem) 0 clamp(3rem, 6vw, 4.5rem);
-  border-bottom: 1px solid var(--border);
+  padding: clamp(3.5rem, 7vw, 5.5rem) 0 0;
   background: var(--bg);
 }
+.section-hero > .container {
+  padding-bottom: clamp(3rem, 6vw, 4.5rem);
+  border-bottom: 1px solid var(--border);
+}
+/* G3: top-aligned, so a short text column no longer sinks to the foot of
+   the 4:3 image; the eyebrow top meets the image top. */
 .section-hero__inner {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
   gap: clamp(3rem, 6vw, 6rem);
-  align-items: end;
+  align-items: start;
 }
+.section-hero__text { padding-top: 0; min-width: 0; }
+/* No hero image: one text column across the frame, no empty right track. */
+.section-hero__inner--text-only { grid-template-columns: minmax(0, 1fr); }
+.section-hero__inner--text-only .section-hero__visual { display: none; }
+.section-hero__inner--text-only .section-hero__dek { max-width: 60ch; }
 .section-hero__eyebrow {
   display: flex;
   align-items: center;
   gap: 1rem;
   margin-bottom: 1.5rem;
 }
-.section-hero__eyebrow .label { color: var(--accent); }
+.section-hero__eyebrow .label { color: var(--soft); }
+.section-hero__eyebrow .label--accent { color: var(--sand-text); }
 .section-hero__rule { flex: 1; height: 1px; background: var(--border); }
 .section-hero__title {
   font-size: clamp(2.6rem, 5.2vw, 4.4rem);
@@ -778,6 +814,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   color: var(--soft);
   max-width: 50ch;
   font-weight: 400;
+  text-wrap: pretty;
 }
 .section-hero__visual {
   position: relative;
@@ -1133,7 +1170,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
    VENUES STRIP & GRID
    ========================================================= */
 .venues {
-  padding: clamp(4rem, 8vw, 6rem) 0;
+  padding: var(--section-space) 0;
   background: var(--bg-alt);
   border-bottom: 1px solid var(--border);
 }
@@ -1142,32 +1179,12 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  margin-bottom: 2.5rem;
-  gap: 1rem;
+  margin-bottom: var(--section-head-gap);
+  gap: var(--space-3) var(--space-6);
   flex-wrap: wrap;
 }
-.venues__title {
-  font-size: clamp(1.6rem, 2.8vw, 2.1rem);
-  font-weight: 600;
-  letter-spacing: -0.01em;
-}
-.venues__sub {
-  font-size: 0.9rem;
-  color: var(--soft);
-  max-width: 45ch;
-  margin-top: 0.4rem;
-  font-style: normal;
-}
-.venues__link {
-  font-size: var(--fs-100);
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--accent);
-  white-space: nowrap;
-  transition: color .2s var(--ease);
-}
-.venues__link:hover { color: var(--acc-h); }
+/* G1: .venues__title/__sub/__link take the section-head values (top of file). */
+.venues__header .label { display: block; letter-spacing: var(--ls-eyebrow); line-height: var(--lh-label); margin-bottom: var(--space-3); }
 .venues__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1415,7 +1432,15 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
    sit behind the hero) and stops the CTA from stretching to
    full card width because the card is a column flexbox.
    --------------------------------------------------------- */
-.venues__grid--links { gap: 1rem; }
+/* G9: link-card grids ("Go deeper"). Four link cards sit in one row at
+   1100px and up (a set of three keeps three columns), a 2x2 grid from
+   640px, one column below. Roomier 24px card padding and gutters. */
+.venues__grid--links { gap: var(--space-5); }
+.venues__grid--links > .pi-card { height: 100%; }
+.venues__grid--links .pi-card__body { gap: var(--space-3); padding: var(--space-5); }
+@media (min-width: 1100px) { .venues__grid--links:has(> :nth-child(4)) { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (min-width: 640px) and (max-width: 1099.98px) { .venues__grid.venues__grid--links { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 639.98px) { .venues__grid.venues__grid--links { grid-template-columns: minmax(0, 1fr); } }
 .venues__grid--links .venue-card {
   padding: 1.75rem 1.75rem 1.5rem;
   gap: 0.6rem;
@@ -1593,7 +1618,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   gap: 0.75rem;
   margin-bottom: 1.25rem;
 }
-.subpage-hero__eyebrow .label--accent { color: var(--accent); }
+.subpage-hero__eyebrow .label--accent { color: var(--sand-text); }
 .subpage-hero__rule {
   flex: 1;
   height: 1px;
@@ -1613,8 +1638,12 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   font-size: 0.975rem;
   color: var(--body);
 }
-.subpage-hero__prose p {
-  line-height: 1.72;
+/* G3: lede leading 1.5 (was 1.72, which beat the refinement lede size and
+   read as body copy), with pretty wrapping so no line ends on one word. */
+.subpage-hero__prose p,
+.subpage-hero__dek {
+  line-height: 1.5;
+  text-wrap: pretty;
   margin-bottom: 1em;
 }
 .subpage-hero__prose p:last-child { margin-bottom: 0; }
@@ -1656,11 +1685,14 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
     grid-template-columns: 1fr;
     gap: 0;
   }
+  /* G3: the eyebrow and H1 lead on narrow screens; the image follows as a
+     short 16:9 band instead of pushing the heading below the fold. */
   .subpage-hero__visual {
     aspect-ratio: 16 / 9;
     min-height: unset;
-    margin-bottom: 1.75rem;
-    order: -1;
+    max-height: 220px;
+    margin-top: var(--space-5);
+    margin-bottom: 0;
   }
   .subpage-hero__visual img {
     position: static;
@@ -1898,9 +1930,13 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   font-weight: 500;
 }
 
+/* G2: prose hangs from the frame's left edge (x=80 at 1440, the 16px
+   gutter on phones) instead of centring inside .container, so a page has
+   one left edge. The 68ch measure is unchanged. */
 .prose {
   max-width: var(--prose-w);
-  margin: 0 auto;
+  margin-block: 0;
+  margin-inline: 0;
   font-size: var(--fs-400);
   /* v5: 1.85 was over-leaded for a 68ch measure - --lh-body 1.7. */
   line-height: var(--lh-body);
@@ -1911,14 +1947,8 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   margin-bottom: 1.5rem;
 }
 .prose p + p { margin-top: 0; }
-.prose h2 {
-  font-family: var(--font-display);
-  font-size: 1.85rem;
-  font-weight: 600;
-  color: var(--dark);
-  letter-spacing: -0.015em;
-  margin: 3rem 0 1rem;
-}
+/* G1: prose H2s take the .pi-h2 values (grouped at the top of the file). */
+.prose h2 { margin: 3rem 0 1rem; }
 .prose h3 {
   font-family: var(--font-display);
   font-size: 1.35rem;
@@ -1926,12 +1956,23 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   color: var(--dark);
   margin: 2rem 0 0.75rem;
 }
-.prose strong { font-weight: 600; color: var(--dark); }
+/* G2: .container.prose keeps the frame's left edge (the container gutter)
+   and caps the measure from there. Emphasis is ink, never harbour. Lists
+   carry a short sand-text dash marker at every width. */
+.container.prose { max-width: min(var(--prose-w), 100%); margin-left: max(40px, calc((100% - var(--max-w)) / 2)); margin-right: auto; }
+@media (max-width: 1100px) { .container.prose { margin-left: 24px; } }
+@media (max-width: 767px)  { .container.prose { margin-left: 16px; } }
+.prose strong { font-weight: 600; color: var(--text); }
+.prose ul { list-style: none; padding-left: 0; margin: 0 0 1em; }
+.prose ul > li { position: relative; padding-left: 1.25rem; }
+.prose ul > li + li { margin-top: 0.5em; }
+.prose ul > li::before { content: ''; position: absolute; left: 0; top: 0.8em; width: 0.5rem; height: 1px; background: var(--sand-text); }
 .prose em { font-style: normal; }
+/* One underline only: refinement.css draws the 1px text-decoration, so the
+   old green-tinted border-bottom (a second rule under every link) is gone. */
 .prose a {
   color: var(--accent);
-  border-bottom: 1px solid rgba(11, 90, 72, 0.35);
-  transition: color .2s var(--ease), border-color .2s var(--ease);
+  transition: color .2s var(--ease);
 }
 .prose a:hover { color: var(--acc-h); border-color: var(--acc-h); }
 .prose blockquote {
@@ -3064,7 +3105,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
    EXPERIENCE INDEX SECTION
    ========================================================= */
 .experience-index {
-  padding: clamp(4rem, 8vw, 6rem) 0;
+  padding: var(--section-space) 0;
   border-bottom: 1px solid var(--border);
   background: var(--bg);
 }
@@ -5627,14 +5668,13 @@ p.has-drop-cap::first-letter {
   max-width: 60ch;
   margin-bottom: clamp(1.5rem, 3vw, 2.2rem);
 }
-.hub-faq__title {
-  font-family: var(--font-display);
-  font-size: clamp(1.85rem, 3.4vw, 2.4rem);
-  font-weight: 600;
-  line-height: 1.12;
-  letter-spacing: -0.012em;
-  color: var(--dark);
-  margin-top: 0.5rem;
+/* G7: .hub-faq__title takes the .pi-h2 values (top of file). From 64em the
+   heading takes the left third and the accordion the right two-thirds. */
+.hub-faq__intro .label { display: block; margin-bottom: var(--space-3); }
+@media (min-width: 64em) {
+  .hub-faq > .container { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: var(--space-8); align-items: start; }
+  .hub-faq .hub-faq__intro { margin-bottom: 0; }
+  .hub-faq .hub-faq__list { max-width: none; }
 }
 .hub-faq__list {
   max-width: 760px;
@@ -5650,10 +5690,11 @@ p.has-drop-cap::first-letter {
   transition: background 0.18s var(--ease);
 }
 .hub-faq__item:last-child { border-bottom: none; }
-.hub-faq__item[open] { background: rgba(11, 90, 72, 0.03); }
+.hub-faq__item[open] { background: color-mix(in srgb, var(--harbour) 3%, var(--white)); }
 .hub-faq__q {
   cursor: pointer;
   list-style: none;
+  min-height: 48px;
   padding: 1.15rem 1.5rem;
   font-weight: 600;
   font-size: 0.95rem;
@@ -5678,7 +5719,7 @@ p.has-drop-cap::first-letter {
 .hub-faq__a {
   padding: 0 1.5rem 1.25rem;
   font-size: 0.92rem;
-  color: #2b443e;
+  color: var(--text);
   line-height: 1.65;
 }
 .hub-faq__a p { margin: 0; }
@@ -7501,7 +7542,10 @@ p.has-drop-cap::first-letter {
   .section-hero__title {
     font-size: clamp(1.8rem, 5vw, 2.8rem);
   }
+  /* G3: the image leads the first viewport on phones, H1 follows. The grid
+     gap supplies the 24px step between them. */
   .section-hero__visual {
+    order: -1;
     aspect-ratio: 16 / 9;
   }
 
@@ -8152,15 +8196,25 @@ p.has-drop-cap::first-letter {
 .tour-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
 .operator-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.25rem; }
 .package-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
-.tour-filter-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; }
-.tour-filter-chip { font-family: var(--font-ui); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.4em 1em; border: 1px solid var(--border); border-radius: var(--radius-s); color: var(--body); text-decoration: none; background: var(--bg); transition: background 0.15s, color 0.15s; }
+/* G10: filter chips are 48px pills in sentence case. Twelve chips form two
+   even rows of six on desktop; plain wrapping below 1100px. */
+.tour-filter-chips { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: 2rem; }
+@media (min-width: 1100px) {
+  .tour-filter-chips:has(> :nth-child(12):last-child) { display: grid; grid-template-columns: repeat(6, max-content); }
+}
+.tour-filter-chip { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; font-family: var(--font-ui); font-size: var(--fs-300); font-weight: 600; line-height: 1.2; letter-spacing: 0; text-transform: none; padding: 0 var(--space-4); border: 1px solid var(--border); border-radius: var(--radius-pill); color: var(--body); text-decoration: none; background: var(--bg); transition: background 0.15s, color 0.15s; }
 .tour-filter-chip:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
 .at-a-glance { border: 1px solid var(--border); border-radius: var(--radius-m); overflow: hidden; margin: 2rem 0; }
 .at-a-glance__row { display: flex; border-bottom: 1px solid var(--border); }
 .at-a-glance__row:last-child { border-bottom: none; }
 .at-a-glance__label { padding: 0.75rem 1rem; font-size: 0.8rem; font-weight: 600; color: var(--body); background: var(--bg-alt); min-width: 160px; text-transform: uppercase; letter-spacing: 0.06em; font-family: var(--font-ui); }
 .at-a-glance__value { padding: 0.75rem 1rem; font-size: 0.9rem; color: var(--dark); flex: 1; }
-.affiliate-disclosure { font-size: 0.8rem; color: var(--body-light, #888); font-style: normal; margin: 1.5rem 0; padding: 0.75rem 1rem; border-left: 3px solid var(--border); background: var(--bg-alt); }
+/* G10: the provenance strip stays on the frame (margin-inline:auto keeps
+   .container's centring when the two classes share an element) and is a
+   quiet hairline box, not a 3px side-tab. */
+.affiliate-disclosure { font-family: var(--font-ui); font-size: var(--fs-200); line-height: 1.55; color: var(--soft); font-style: normal; margin-block: var(--space-5); margin-inline: auto; padding: var(--space-4); border: 1px solid var(--border); border-radius: var(--radius-s); background: var(--bg-alt); text-wrap: pretty; }
+.affiliate-disclosure a { color: var(--harbour); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+.affiliate-disclosure a:hover { color: var(--harbour-h); }
 .tour-cta-block { background: var(--bg-alt); border: 1px solid var(--border); border-radius: var(--radius-m); padding: 1.5rem; margin: 2rem 0; }
 .tour-cta-block__title { font-family: var(--font-display); font-size: 1.4rem; margin-bottom: 0.5rem; }
 /* P3-2: .pi-btn --solid owns everything except the stack gap. */
@@ -10304,21 +10358,22 @@ body.menu-open .subscribe-pill {
    /guides/ index page - newsletter-gated PDF download cards.
    ============================================================================ */
 
-.guides-page { padding: clamp(1.5rem, 3vw, 2.5rem) 0 clamp(2rem, 4vw, 3rem); }
-.guides-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: clamp(1.25rem, 2.5vw, 2rem);
+/* G11: one flat paper-warm ground for the whole grid section, down to the
+   closing note, so no partial tinted layer shows behind the first row. An
+   odd last card (Easter) spans both columns from 880px as a horizontal
+   card: image left at full card height, body and form right. */
+.guides-page { position: relative; isolation: isolate; background: var(--paper-warm, #FAF7F0); padding: var(--section-space) 0; }
+.guides-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-5); }
+@media (min-width: 880px) {
+  .guides-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-6); }
+  .guides-grid > .guide-card:last-child:nth-child(odd) { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .guides-grid > .guide-card:last-child:nth-child(odd) .guide-card__hero { aspect-ratio: auto; height: 100%; min-height: 20rem; }
 }
-@media (min-width: 880px) { .guides-grid { grid-template-columns: 1fr 1fr; } }
 
-/* P3-4: fully absorbed by .pi-card. */
-.guide-card__hero {
-  aspect-ratio: 16 / 9;
-  background-size: cover;
-  background-position: center;
-  background-color: var(--bg, #fff);
-}
+/* P3-4: fully absorbed by .pi-card. G11: a missing image reads as a
+   designed harbour-deep panel with the short sand rule, never a white void. */
+.guide-card__hero { position: relative; aspect-ratio: 16 / 9; background-size: cover; background-position: center; background-color: var(--harbour-deep); }
+.guide-card__hero::after { content: ''; position: absolute; left: var(--space-5); bottom: var(--space-5); width: 2.25rem; height: 2px; background: var(--sand); pointer-events: none; }
 .guide-card__body {
   padding: clamp(1rem, 2vw, 1.5rem);
   display: flex;
@@ -10364,38 +10419,25 @@ body.menu-open .subscribe-pill {
   flex-direction: column;
   gap: 0.45rem;
 }
-.guide-card__form-label {
-  font-family: var(--font-ui);
-  font-size: 0.78rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  color: var(--dark);
-}
-.guide-card__form-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-}
-.guide-card__form-input {
-  flex: 1;
-  min-width: 12rem;
-  font-family: var(--font-ui);
-  font-size: 0.92rem;
-  padding: 0.55rem 0.7rem;
-  background: var(--bg, #fff);
-  border: 1px solid var(--border);
-  color: var(--dark);
-}
+.guide-card__form-label { font-family: var(--font-ui); font-size: var(--fs-300); font-weight: 600; letter-spacing: 0; color: var(--text); }
+/* G11: one field spec on every card. Below 1100px the field and button
+   stack at full width with a 12px gap; from 1100px they share one row with
+   a fixed-width button track sized to the longest label ("Get the Easter
+   long-weekend guide"), so every card splits at the same x and no label
+   clips. Both are 48px tall with the 8px control radius. */
+.guide-card__form-row { display: flex; flex-direction: column; gap: var(--space-3); }
+.guide-card__form-input { width: 100%; min-width: 0; min-height: 48px; font-family: var(--font-ui); font-size: max(1rem, var(--fs-300)); padding: 0 var(--space-4); background: var(--bg, #fff); border: 1px solid var(--border-strong); border-radius: var(--radius-s); color: var(--dark); }
 .guide-card__form-input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.guide-card .guide-card__form-button { width: 100%; min-height: 48px; border-radius: var(--radius-s); justify-content: center; text-align: center; white-space: normal; }
+@media (min-width: 1100px) {
+  .guide-card__form-row { flex-direction: row; align-items: stretch; }
+  .guide-card__form-input { flex: 1 1 auto; width: auto; }
+  .guide-card .guide-card__form-button { flex: 0 0 18rem; width: 18rem; padding-inline: var(--space-3); }
+}
 /* P3-2: .pi-btn --solid --sm owns the control.
    KEPT: the progress cursor while the form is submitting. */
 .guide-card__form-button:disabled { cursor: progress; }
-.guide-card__form-fineprint {
-  font-family: var(--font-ui);
-  font-size: 0.78rem;
-  color: var(--soft);
-  margin: 0;
-}
+.guide-card__form-fineprint { font-family: var(--font-ui); font-size: var(--fs-200); line-height: 1.5; color: var(--soft); margin: 0; }
 .guide-card__form-status {
   font-family: var(--font-ui);
   font-size: 0.85rem;
@@ -10429,13 +10471,15 @@ body.menu-open .subscribe-pill {
 .guide-card__success-link:hover { background: var(--text, #1a1a1a); border-color: var(--text, #1a1a1a); }
 
 .guides-coming {
-  margin-top: clamp(1.5rem, 3vw, 2.5rem);
-  padding-top: 1.5rem;
-  border-top: 1px dashed var(--border);
+  margin-top: var(--space-7);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--border);
   font-family: var(--font-ui);
-  font-size: 0.92rem;
+  font-size: var(--fs-300);
+  line-height: 1.55;
   color: var(--soft);
-  text-align: center;
+  text-align: left;
+  max-width: none;
 }
 
 
@@ -10769,15 +10813,16 @@ figcaption {
    ========================================================= */
 
 /* ── 1. Two-line dek clamp ───────────────────────────────────────────── */
-.v5-card .v5-card__verdict,
+/* G8 (design-perfection): .v5-card__verdict, .guide-card__dek and
+   .wo-row__dek are no longer clamped. The clamp cut them mid-word and put
+   an ellipsis after full stops; they now wrap in full (WhatsOnRow owns
+   its own row styling, WO2). The legacy card families below keep it. */
 .venue-card .venue-card__signature,
 .event-card .event-card__summary,
 .itinerary-card .itinerary-card__dek,
 .experience-card .experience-card__summary,
 .place-card .place-card__intro,
-.tour-card .tour-card__excerpt,
-.guide-card .guide-card__dek,
-.wo-row .wo-row__dek {
+.tour-card .tour-card__excerpt {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
@@ -10796,10 +10841,6 @@ figcaption {
 .experience-card .experience-card__summary { min-height: 3.3em; }
 .place-card .place-card__intro        { min-height: 3.3em; }
 .tour-card .tour-card__excerpt        { min-height: 3.3em; }
-.guide-card .guide-card__dek          { min-height: 3.1em; }  /* 2 x 1.55 */
-
-/* The What's On rows are a list, not a grid, so they clamp without
-   reserving - an empty reservation would only add air between rows. */
 
 /* ── 2. Metadata rows: consistent height, pinned to the card bottom ──── */
 

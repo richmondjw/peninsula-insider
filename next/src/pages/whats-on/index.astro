@@ -7,10 +7,13 @@
  *   2. Scope controls: This weekend (default, in-DOM) / Next weekend /
  *      Pick dates / School holidays
  *   3. PI's picks: exactly 3, Local voice verdicts
- *   4. Day-grouped compact rows for the current scope (weekend is fully
- *      server-rendered; other scopes render client-side from feed.json)
+ *   4. Compact rows for the current scope, each event once: an "On all
+ *      weekend" group for runs and multi-day series, then day groups for
+ *      what is tied to one day (weekend is fully server-rendered; other
+ *      scopes render client-side from feed.json)
  *   5. Shelf anchor links + category shelves (Markets, Live music,
- *      Food & wine, Openings, Major events)
+ *      Food & wine, Exhibitions & arts, Major events), minus anything the
+ *      weekend already showed
  *   6. Month+ on demand via the JSON island at /whats-on/feed.json
  *      (HUB-11 closed: zero hidden pre-rendered cards)
  *
@@ -27,7 +30,7 @@ import {
   loadLiveEvents,
   weekendWindow,
   schoolHolidayWindow,
-  groupByDay,
+  groupWeekend,
   getPicks,
   getShelves,
   isoDate,
@@ -48,10 +51,18 @@ const holidays = schoolHolidayWindow(now);
 const picks = await getPicks(events, weekend, now);
 const pickSlugs = new Set(picks.map((p) => p.live.slug));
 
-const dayGroups = groupByDay(events, weekend, now);
-const weekendCount = dayGroups.reduce((n, g) => n + g.items.length, 0);
+// WO1: every event once. Picks are left out of the lists below them; runs
+// and multi-day series sit once in "On all weekend"; a day group holds only
+// what is tied to that day; the shelves then skip everything already shown.
+const { ongoing, days: dayGroups } = groupWeekend(events, weekend, now, pickSlugs);
+const weekendCount = ongoing.length + dayGroups.reduce((n, g) => n + g.items.length, 0);
 
-const shelves = getShelves(events, now, pickSlugs).filter((s) => s.items.length > 0);
+const shownSlugs = new Set([
+  ...pickSlugs,
+  ...ongoing.map((it) => it.live.slug),
+  ...dayGroups.flatMap((g) => g.items.map((it) => it.live.slug)),
+]);
+const shelves = getShelves(events, now, shownSlugs).filter((s) => s.items.length > 0);
 
 // ── JSON-LD: Event nodes for everything server-rendered (picks + weekend
 // rows), deduped. Deliberately no offers: pricing never ships in schema
@@ -113,6 +124,7 @@ const pushLd = (
   });
 };
 for (const p of picks) pushLd(p.live, p.dateISO, p.occurrence);
+for (const it of ongoing) pushLd(it.live, it.dayIso, it);
 for (const g of dayGroups) {
   for (const it of g.items) {
     pushLd(it.live, g.iso, it);
@@ -139,10 +151,14 @@ const pickCards = picks.map((p, i) => {
       ? { src: data.heroImage.src as string, alt: (data.heroImage.alt ?? p.live.title) as string }
       : undefined,
     verdict: p.verdict,
-    meta: [p.dayLabel, p.live.placeLabel, p.live.accessLabel ?? p.live.categoryLabel]
+    // A dated pick leads with its day; an ongoing or recurring one carries
+    // its "Ongoing" / "Every Sun" tag on the image instead, so its meta does
+    // not claim the Friday it happens to include.
+    meta: [p.showDate ? p.dayLabel : p.live.timeLabel, ...p.live.details]
       .filter(Boolean)
       .slice(0, 3),
-    dateISO: p.dateISO,
+    dateISO: p.showDate ? p.dateISO : undefined,
+    badge: p.badge,
     position: i + 1,
   };
 });
@@ -164,12 +180,11 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
 
   <header class="wo-head">
     <div class="container wo-head__inner">
-      <h1 class="wo-head__title" data-wo-heading>What's on this weekend</h1>
+      <h1 class="wo-head__title" data-wo-heading>What’s on this weekend</h1>
       <p class="wo-head__context">
         <span data-wo-range>{weekend.label}</span> · {season} on the Peninsula
       </p>
-      <p class="wo-head__rule">Browse events by date, then check the organiser before you go.</p>
-      <p class="wo-head__rule">This calendar includes Friday to Sunday. Ongoing listings show their full run; check opening days with the organiser.</p>
+      <p class="wo-head__note">Browse events by date, then check the organiser before you go.</p>
     </div>
   </header>
 
@@ -192,15 +207,17 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
   </div>
 
   {picks.length > 0 && (
-    <section class="wo-picks" aria-labelledby="wo-picks-h">
+    <section class="wo-picks pi-section" aria-labelledby="wo-picks-h">
       <div class="container">
-        <div class="wo-picks__head">
-          <h2 class="wo-picks__title" id="wo-picks-h">PI's picks</h2>
-          <p class="wo-picks__dek">Selected events for this weekend. Check the organiser for the latest details.</p>
+        <div class="pi-section-head">
+          <div class="pi-section-head__text">
+            <h2 class="pi-h2" id="wo-picks-h">PI’s picks</h2>
+            <p class="pi-section-dek">Selected events for this weekend.</p>
+          </div>
         </div>
         {/* Every card here is an event on the What's On page, under a heading
             that says so: the per-card EVENT stamp is dropped. */}
-        <CardGrid label="PI's picks for this weekend">
+        <CardGrid label="PI’s picks for this weekend">
           {pickCards.map((c) => (
             <Card
               variant="event"
@@ -217,20 +234,45 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
               trip={true}
               surface="whatson"
               position={c.position}
-            />
+            >
+              {c.badge && <span slot="badges" class="wo-pick-tag">{c.badge}</span>}
+            </Card>
           ))}
         </CardGrid>
       </div>
     </section>
   )}
 
-  <section class="wo-days" aria-label="Everything on for the selected dates">
+  <section class="wo-days pi-section" aria-labelledby="wo-days-h">
     <div class="container">
-      <div class="wo-days__head">
-        <h2 class="wo-days__title">Everything on, by day</h2>
+      <div class="pi-section-head">
+        <div class="pi-section-head__text">
+          <h2 class="pi-h2" id="wo-days-h">Everything on, by day</h2>
+        </div>
         <p id="pi-results-status" class="wo-vh" role="status" aria-live="polite"></p>
       </div>
-      <div data-wo-days data-wo-default-count={weekendCount}>
+      <div class="wo-days__groups" data-wo-days data-wo-default-count={weekendCount}>
+        {ongoing.length > 0 && (
+          <section class="wo-day wo-day--ongoing" aria-labelledby="wo-day-ongoing-h">
+            <h3 class="wo-day__h" id="wo-day-ongoing-h">On all weekend</h3>
+            <ul class="wo-day__list" role="list">
+              {ongoing.map((it) => (
+                <WhatsOnRow
+                  title={it.live.title}
+                  href={it.live.href}
+                  slug={it.live.slug}
+                  oneLiner={it.live.oneLiner}
+                  when={it.spanLabel}
+                  meta={[it.live.timeLabel, ...it.live.details]}
+                  statusLabel={it.statusLabel}
+                  phase={it.phase}
+                  bookable={it.bookable}
+                  compact
+                />
+              ))}
+            </ul>
+          </section>
+        )}
         {dayGroups.map((g) => (
           <section class="wo-day">
             <h3 class="wo-day__h">{g.heading}</h3>
@@ -242,11 +284,12 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
                     href={it.live.href}
                     slug={it.live.slug}
                     oneLiner={it.live.oneLiner}
-                    meta={it.live.meta}
-                    spanLabel={it.spanLabel}
+                    when={it.live.timeLabel}
+                    meta={[it.spanLabel, ...it.live.details]}
                     statusLabel={it.statusLabel}
                     phase={it.phase}
                     bookable={it.bookable}
+                    compact
                   />
                 ))}
               </ul>
@@ -256,39 +299,36 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
           </section>
         ))}
       </div>
-      <p class="wo-more">
-        <button type="button" class="pi-btn pi-btn--ghost" data-wo-month data-evt="wo_date_change" hidden>
-          Load the month ahead
-        </button>
-        <noscript>
-          <span class="wo-more__noscript">
-            Longer horizons load with JavaScript on; the weekend above is the complete current edit.
-          </span>
-        </noscript>
-      </p>
     </div>
   </section>
 
   {shelves.length > 0 && (
-    <section class="wo-shelves" aria-labelledby="wo-shelves-h">
+    <section class="wo-shelves pi-section" aria-labelledby="wo-shelves-h">
       <div class="container">
-        <h2 class="wo-shelves__title" id="wo-shelves-h">Browse the next two months</h2>
+        <div class="pi-section-head wo-shelves__head">
+          <div class="pi-section-head__text">
+            <h2 class="pi-h2" id="wo-shelves-h">Browse the next two months</h2>
+          </div>
+        </div>
         <nav class="wo-shelfnav" aria-label="Jump to a category">
-          {shelves.map((s) => (
-            <a class="wo-shelfnav__link" href={`#${s.id}`}>{s.label}</a>
-          ))}
+          <div class="wo-shelfnav__row">
+            {shelves.map((s) => (
+              <a class="wo-shelfnav__link" href={`#${s.id}`}>{s.label}</a>
+            ))}
+          </div>
         </nav>
         {shelves.map((s) => (
           <section class="wo-shelf" id={s.id} aria-labelledby={`${s.id}-h`}>
             <h3 class="wo-shelf__h" id={`${s.id}-h`}>{s.label}</h3>
             <ul class="wo-shelf__list" role="list">
-              {s.items.map((live) => (
+              {s.items.map(({ live, when }) => (
                 <WhatsOnRow
                   title={live.title}
                   href={live.href}
                   slug={live.slug}
                   oneLiner={live.oneLiner}
-                  meta={live.meta}
+                  when={when}
+                  meta={[live.timeLabel, ...live.details]}
                 />
               ))}
             </ul>
@@ -298,13 +338,26 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
     </section>
   )}
 
+  {/* The one route to a longer horizon, after the shelves rather than
+      competing with them. */}
+  <div class="container wo-more">
+    <button type="button" class="pi-btn pi-btn--ghost wo-more__btn" data-wo-month data-evt="wo_date_change" hidden>
+      See the month ahead
+    </button>
+    <noscript>
+      <p class="wo-more__noscript">
+        Longer horizons load with JavaScript on; the weekend above is the complete current edit.
+      </p>
+    </noscript>
+  </div>
+
   <NewsletterBlock />
 
   {/* Row template for client-side scope rendering: cloned by the script
       below, never displayed. Template content is inert (not hidden DOM
       weight in the HUB-11 sense: one empty row, no event content). */}
   <template data-wo-row-template>
-    <WhatsOnRow title="" href="" slug="" />
+    <WhatsOnRow title="" href="" slug="" compact />
   </template>
 </BaseLayout>
 
@@ -316,13 +369,15 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
   import { initV5Analytics } from '../../lib/v5-analytics';
   import { tripAdd } from '../../lib/v5-store';
   import { startOfDay, addDays, rangeLabel, weekendWindow, occursOnDay, isoDate } from '../../lib/event-schedule';
-  import { resolveListingOccurrence, listingDateLabel } from '../../lib/whatson-listing.mjs';
+  import { resolveListingOccurrence, listingDateLabel, partitionWindow } from '../../lib/whatson-listing.mjs';
   import { emptyDayMessage } from '../../lib/whatson-empty-state.mjs';
 
   initV5Analytics();
 
-  // "+ Trip" wiring (rows + pick cards). data-evt="trip_add" analytics fires
-  // via the delegated v5-analytics listener; this adds the store behaviour.
+  // "Add to trip" wiring (list rows; pick cards wire their own). The
+  // data-evt="trip_add" analytics fires via the delegated v5-analytics
+  // listener; this adds the store behaviour. Only the visible label changes,
+  // so the icon the row shows on a phone survives the confirmation.
   document.addEventListener('click', (ev) => {
     const btn = (ev.target as HTMLElement).closest<HTMLButtonElement>('[data-evt="trip_add"]:not([data-card-trip])');
     if (!btn || btn.dataset.added === 'true') return;
@@ -330,15 +385,22 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
     if (!slug) return;
     const title = btn.dataset.entityTitle || slug;
     const href = btn.dataset.entityHref || `/whats-on/${slug}/`;
+    const label = btn.querySelector<HTMLElement>('.wo-row__trip-label') ?? btn;
     if (!tripAdd({ kind: 'event', slug, title, href })) {
       // The write did not land; say so rather than painting "In trip".
-      const previous = btn.textContent;
-      btn.textContent = 'Not added';
-      setTimeout(() => { btn.textContent = previous; }, 2000);
+      const previous = label.textContent;
+      const previousName = btn.getAttribute('aria-label');
+      label.textContent = 'Not added';
+      btn.setAttribute('aria-label', `${title} was not added to your trip`);
+      setTimeout(() => {
+        label.textContent = previous;
+        if (previousName) btn.setAttribute('aria-label', previousName);
+      }, 2000);
       return;
     }
     btn.dataset.added = 'true';
-    btn.textContent = 'In trip';
+    label.textContent = 'In trip';
+    btn.setAttribute('aria-label', `${title} is in your trip`);
   });
 
   interface FeedEntry {
@@ -347,6 +409,8 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
     t: string;
     d: string;
     m: string[];
+    tm?: string;
+    dt?: string[];
     k: 'range' | 'weekly' | 'monthly';
     s: string;
     e: string;
@@ -390,10 +454,11 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
     // Calendar dates use Melbourne's day and UTC date-only arithmetic in all surfaces.
     const parseISO = (s: string) => new Date(`${s}T00:00:00Z`);
     const fmt = (d: Date, opts: Intl.DateTimeFormatOptions) => d.toLocaleDateString('en-AU', { ...opts, timeZone: 'UTC' });
-    const occursOn = (e: FeedEntry, d: Date) => occursOnDay({
+    const ruleOf = (e: FeedEntry) => ({
       kind: e.k, start: parseISO(e.s), end: parseISO(e.e), day: e.wd,
       days: e.wds, nth: e.nth, months: e.months,
-    }, d);
+    });
+    const occursOn = (e: FeedEntry, d: Date) => occursOnDay(ruleOf(e), d);
 
     // This editorial shortlist and its Event schema belong to the default
     // window. Detach both for other dates; restore both together on return.
@@ -424,11 +489,20 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
       return feedPromise;
     };
 
-    const buildRow = (e: FeedEntry, spanLabel: string, day: Date): HTMLElement => {
+    // Same markup and token order as the server rows (WhatsOnRow): the lead
+    // token fills column 1 and opens the meta list; the rest follow as
+    // unbreakable list items.
+    const buildRow = (e: FeedEntry, when: string, tokens: string[], days: Date[]): HTMLElement => {
       const frag = rowTpl.content.cloneNode(true) as DocumentFragment;
       const row = frag.querySelector<HTMLElement>('.wo-row')!;
-      const occurrence = e.statusData ? resolveListingOccurrence(e.statusData,
-        { kind: e.k, start: parseISO(e.s), end: parseISO(e.e) }, isoDate(day)) : null;
+      // An ongoing row reads its state on its first day that has not finished.
+      let occurrence: ReturnType<typeof resolveListingOccurrence> | null = null;
+      if (e.statusData) {
+        for (const day of days) {
+          occurrence = resolveListingOccurrence(e.statusData, ruleOf(e), isoDate(day));
+          if (occurrence.phase !== 'past') break;
+        }
+      }
       if (occurrence) {
         row.dataset.occurrencePhase = occurrence.phase;
         row.dataset.occurrenceBookable = String(occurrence.bookable);
@@ -438,13 +512,21 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
       link.textContent = e.t;
       link.dataset.entitySlug = e.slug;
       row.querySelector<HTMLElement>('.wo-row__dek')!.textContent = e.d;
-      row.querySelector<HTMLElement>('.wo-row__meta')!.textContent = [
-        e.m.join(' · '),
-        spanLabel,
-        occurrence ? (occurrence.label ?? '') : (e.x ?? ''),
-      ]
-        .filter(Boolean)
-        .join(' · ');
+      row.querySelector<HTMLElement>('.wo-row__when')!.textContent = when;
+      const metaEl = row.querySelector<HTMLElement>('.wo-row__meta')!;
+      metaEl.textContent = '';
+      const status = occurrence ? (occurrence.label ?? '') : (e.x ?? '');
+      if (when) {
+        const li = document.createElement('li');
+        li.className = 'wo-row__meta-when';
+        li.textContent = when;
+        metaEl.appendChild(li);
+      }
+      for (const token of [...tokens, status].filter(Boolean)) {
+        const li = document.createElement('li');
+        li.textContent = token;
+        metaEl.appendChild(li);
+      }
       const save = row.querySelector<HTMLElement>('[data-v5-save-control]');
       if (save) {
         save.dataset.slug = e.slug;
@@ -464,61 +546,63 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
       return row;
     };
 
+    const groupSection = (heading: string, rows: HTMLElement[]): HTMLElement => {
+      const section = document.createElement('section');
+      section.className = 'wo-day';
+      const h = document.createElement('h3');
+      h.className = 'wo-day__h';
+      h.textContent = heading;
+      section.appendChild(h);
+      if (rows.length > 0) {
+        const ul = document.createElement('ul');
+        ul.className = 'wo-day__list';
+        ul.setAttribute('role', 'list');
+        rows.forEach((row) => ul.appendChild(row));
+        section.appendChild(ul);
+      } else {
+        const p = document.createElement('p');
+        p.className = 'wo-day__empty';
+        p.textContent = emptyDayMessage(0);
+        section.appendChild(p);
+      }
+      return section;
+    };
+
+    // Each listing once (WO1): anything on across more than one day of the
+    // window is listed once at the top with its date token; a day group holds
+    // only what is tied to that day. A day covered only by the ongoing group
+    // is left out; a short window keeps a truly empty day with its message.
     const renderWindow = (entries: FeedEntry[], start: Date, end: Date): number => {
       const dayCount = Math.min(
         62,
         Math.round((startOfDay(end).getTime() - startOfDay(start).getTime()) / 86400000) + 1
       );
       const showEmptyDays = dayCount <= 4;
-      const seenRanges = new Set<string>();
+      const dayDates = Array.from({ length: dayCount }, (_, i) => addDays(start, i));
+      const win = { start, end };
+      const split = partitionWindow(entries, dayDates, occursOn);
+      const details = (e: FeedEntry) => e.dt ?? e.m;
       daysEl.textContent = '';
       let shown = 0;
-      for (let i = 0; i < dayCount; i += 1) {
-        const day = addDays(start, i);
-        const matches: { e: FeedEntry; span: string }[] = [];
-        let continuingCount = 0;
-        for (const e of entries) {
-          if (!occursOn(e, day)) continue;
-          if (e.k === 'range') {
-            if (seenRanges.has(e.slug)) {
-              continuingCount += 1;
-              continue;
-            }
-            seenRanges.add(e.slug);
-            const span = listingDateLabel({ kind: e.k, start: parseISO(e.s), end: parseISO(e.e) }, { start, end });
-            matches.push({ e, span });
-          } else {
-            matches.push({ e, span: listingDateLabel({ kind: e.k, start: parseISO(e.s), end: parseISO(e.e) }, { start, end }) });
-          }
-        }
-        if (matches.length === 0 && !showEmptyDays) continue;
-        const section = document.createElement('section');
-        section.className = 'wo-day';
-        const h = document.createElement('h3');
-        h.className = 'wo-day__h';
-        h.textContent = fmt(day, { weekday: 'long', day: 'numeric', month: 'long' });
-        section.appendChild(h);
-        if (matches.length > 0) {
-          const ul = document.createElement('ul');
-          ul.className = 'wo-day__list';
-          ul.setAttribute('role', 'list');
-          for (const m of matches) {
-            ul.appendChild(buildRow(m.e, m.span, day));
-            shown += 1;
-          }
-          section.appendChild(ul);
-        } else {
-          const p = document.createElement('p');
-          p.className = 'wo-day__empty';
-          p.textContent = emptyDayMessage(continuingCount);
-          section.appendChild(p);
-        }
+      if (split.ongoing.length > 0) {
+        const rows = split.ongoing.map(({ item: e, dayIndexes }: { item: FeedEntry; dayIndexes: number[] }) =>
+          buildRow(e, listingDateLabel(ruleOf(e), win), [e.tm ?? '', ...details(e)], dayIndexes.map((i) => dayDates[i])));
+        const section = groupSection(dayCount <= 3 ? 'On all weekend' : 'On across these dates', rows);
+        section.classList.add('wo-day--ongoing');
         daysEl.appendChild(section);
+        shown += rows.length;
       }
+      split.days.forEach(({ day, items, ongoingCount }: { day: Date; items: FeedEntry[]; ongoingCount: number }) => {
+        if (items.length === 0 && (ongoingCount > 0 || !showEmptyDays)) return;
+        const rows = items.map((e) =>
+          buildRow(e, e.tm ?? '', [listingDateLabel(ruleOf(e), win), ...details(e)], [day]));
+        daysEl.appendChild(groupSection(fmt(day, { weekday: 'long', day: 'numeric', month: 'long' }), rows));
+        shown += rows.length;
+      });
       if (shown === 0) {
         const p = document.createElement('p');
         p.className = 'wo-day__empty';
-        p.textContent = 'Nothing in the registry for those dates yet. Try the month ahead.';
+        p.textContent = 'Nothing listed for those dates yet. Try the month ahead.';
         daysEl.appendChild(p);
       }
       // Re-run SaveControl hydration for the cloned rows (its init listens
@@ -558,7 +642,7 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
       showDefaultContent(true);
       daysEl.innerHTML = defaultHTML;
       setPressed('weekend');
-      setHeading("What's on this weekend", defaultRange);
+      setHeading('What’s on this weekend', defaultRange);
       syncUrl(null);
       announce(Number(daysEl.dataset.woDefaultCount ?? 0), 'this weekend');
       document.dispatchEvent(new Event('astro:page-load'));
@@ -599,7 +683,7 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
       }
       if (scope === 'next-weekend') {
         const w = weekendWindow(new Date(), 1);
-        applyWindow(scope, w.start, w.end, "What's on next weekend", 'next-weekend', 'next weekend');
+        applyWindow(scope, w.start, w.end, 'What’s on next weekend', 'next-weekend', 'next weekend');
         return;
       }
       if (scope === 'school-holidays' && scopeNav.dataset.holidayStart) {
@@ -607,12 +691,12 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
         const today = startOfDay(new Date());
         const start = hs > today ? hs : today;
         const end = parseISO(scopeNav.dataset.holidayEnd || scopeNav.dataset.holidayStart);
-        applyWindow(scope, start, end, "What's on these school holidays", 'school-holidays', 'the school holidays');
+        applyWindow(scope, start, end, 'What’s on these school holidays', 'school-holidays', 'the school holidays');
         return;
       }
       if (scope === 'month') {
         const today = startOfDay(new Date());
-        applyWindow(scope, today, addDays(today, 31), "What's on this month", 'this-month', 'the month ahead');
+        applyWindow(scope, today, addDays(today, 31), 'What’s on this month', 'this-month', 'the month ahead');
         return;
       }
       if (scope === 'custom' && from && to) {
@@ -621,7 +705,7 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
         if (!Number.isFinite(a.getTime()) || !Number.isFinite(b.getTime()) || isoDate(a) !== from || isoDate(b) !== to) { applyDefault(); return; }
         if (b < a) [a, b] = [b, a];
         if ((b.getTime() - a.getTime()) / 86400000 > 61) b = addDays(a, 61);
-        applyWindow(scope, a, b, "What's on for your dates", `${isoDate(a)}..${isoDate(b)}`, 'your dates');
+        applyWindow(scope, a, b, 'What’s on for your dates', `${isoDate(a)}..${isoDate(b)}`, 'your dates');
       }
     };
 
@@ -690,8 +774,18 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
     border: 0;
   }
 
-  /* ── Immersive hero: date context is the h1's job ── */
-  .wo-head { padding: clamp(1.5rem, 4vw, 2.75rem) 0 1.2rem; background: var(--bg); color: var(--text); border-bottom: 1px solid var(--border); }
+  /* ── Hero: H1, then two tiers (the dateline in ink, one muted line 8px
+     below), then a frame-width rule 24px under them and 24px above the
+     chips (WO3). The rule sits on the container so it stops at the frame. ── */
+  .wo-head {
+    padding-top: clamp(1.5rem, 4vw, 2.75rem);
+    background: var(--bg);
+    color: var(--text);
+  }
+  .wo-head__inner {
+    padding-bottom: var(--space-5, 1.5rem);
+    border-bottom: 1px solid var(--border);
+  }
   .wo-head__title {
     margin: 0;
     font-family: var(--font-display);
@@ -703,63 +797,78 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
     text-wrap: balance;
   }
   .wo-head__context {
-    margin: var(--space-3, 0.75rem) 0 0;
+    margin: var(--space-4, 1rem) 0 0;
     color: var(--text);
-    font-size: var(--fs-400, 1rem);
+    font-family: var(--font-ui, inherit);
+    font-size: var(--fs-500, 1.25rem);
+    line-height: 1.35;
   }
-  .wo-head__rule {
-    margin: var(--space-1, 0.25rem) 0 0;
+  .wo-head__note {
+    margin: var(--space-2, 0.5rem) 0 0;
     color: var(--soft);
-    font-size: var(--fs-300, 0.9rem);
+    font-size: var(--fs-300, 0.9375rem);
+    line-height: 1.5;
     font-style: normal;
   }
   .wo-scope-wrap {
-    padding-top: 1rem;
+    padding-top: var(--space-5, 1.5rem);
   }
 
-  /* ── PI's picks ── */
-  .wo-picks {
-    padding: clamp(1.75rem, 4vw, 3rem) 0 clamp(1rem, 2vw, 1.5rem);
+  /* ── Section rhythm: one --section-space between sections, not two.
+     The picks follow the scope controls a step closer (48px), because they
+     answer the dates just chosen. When another scope removes the picks, the
+     day list takes that same 48px. ── */
+  .pi-section.wo-picks,
+  .pi-section.wo-days,
+  .pi-section.wo-shelves {
+    padding-block: var(--section-space, 4rem);
   }
-  .wo-picks__head {
-    margin-bottom: var(--space-5, 1.5rem);
-    max-width: 48rem;
+  .pi-section.wo-picks,
+  .pi-section.wo-days {
+    padding-top: var(--space-7, 3rem);
   }
-  .wo-picks__title {
-    margin: 0;
-    font-family: var(--font-display);
-    font-size: var(--fs-700, clamp(1.6rem, 3vw, 2.4rem));
-    line-height: var(--lh-heading, 1.2);
+  .wo-picks + .pi-section.wo-days,
+  .pi-section.wo-shelves {
+    padding-top: 0;
   }
-  .wo-picks__dek {
-    margin: var(--space-1, 0.25rem) 0 0;
-    color: var(--soft);
-    font-size: var(--fs-300, 0.9rem);
-    line-height: var(--lh-dek, 1.45);
+  .pi-section.wo-shelves {
+    padding-bottom: var(--space-7, 3rem);
   }
 
-  /* ── Day groups ── */
-  .wo-days {
-    padding: clamp(1.5rem, 3vw, 2.5rem) 0;
+  /* Picks that run all weekend or recur carry a sand tag in place of the
+     calendar block, in the same corner. */
+  .wo-pick-tag {
+    position: absolute;
+    top: var(--space-3, 0.75rem);
+    left: var(--space-3, 0.75rem);
+    z-index: 1;
+    padding: 0.4rem 0.6rem;
+    background: var(--sand);
+    color: var(--harbour-deep, var(--text));
+    border-radius: var(--radius-s, 8px);
+    font-family: var(--font-ui, inherit);
+    font-size: var(--fs-100, 0.75rem);
+    font-weight: var(--fw-semibold, 600);
+    line-height: 1.2;
+    letter-spacing: var(--ls-eyebrow, 0.08em);
+    text-transform: uppercase;
   }
-  .wo-days__head {
-    max-width: 48rem;
-  }
-  .wo-days__title {
-    margin: 0 0 var(--space-4, 1rem);
-    font-family: var(--font-display);
-    font-size: var(--fs-700, clamp(1.6rem, 3vw, 2.4rem));
-    line-height: var(--lh-heading, 1.2);
-  }
-  .wo-day {
-    margin-top: var(--space-5, 1.5rem);
+
+  /* ── Day groups: an eyebrow with one rule under it, then rows that carry
+     only a bottom rule (the last row none), so every group heading has
+     exactly one rule beside it (WO2). ── */
+  .wo-day + .wo-day {
+    margin-top: var(--space-7, 3rem);
   }
   .wo-day__h {
-    margin: 0 0 var(--space-2, 0.5rem);
-    color: var(--teal-text);
+    margin: 0;
+    padding-bottom: var(--space-3, 0.75rem);
+    border-bottom: 1px solid var(--border);
+    color: var(--sand-text, var(--teal-text));
     font-family: var(--font-ui, inherit);
-    font-size: var(--fs-200, 0.8rem);
+    font-size: var(--fs-200, 0.8125rem);
     font-weight: var(--fw-semibold, 600);
+    line-height: 1.3;
     letter-spacing: var(--ls-eyebrow, 0.12em);
     text-transform: uppercase;
   }
@@ -767,75 +876,126 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
     list-style: none;
     margin: 0;
     padding: 0;
-    border-bottom: 1px solid var(--border);
   }
   .wo-day__empty {
     margin: 0;
-    padding: var(--space-2, 0.5rem) 0 var(--space-3, 0.75rem);
-    border-top: 1px solid var(--border);
+    padding: var(--space-4, 1rem) 0 0;
     color: var(--soft);
     font-style: normal;
-    font-size: var(--fs-300, 0.9rem);
+    font-size: var(--fs-300, 0.9375rem);
   }
+
+  /* ── The month ahead: one route to more, after the shelves ── */
   .wo-more {
-    margin: var(--space-6, 2rem) 0 0;
+    padding-bottom: var(--section-space, 4rem);
+  }
+  .pi-btn.wo-more__btn {
+    min-height: 48px;
+    color: var(--harbour);
+    border-color: var(--border);
+  }
+  .pi-btn.wo-more__btn:hover {
+    border-color: var(--harbour);
   }
   .wo-more__noscript {
+    margin: 0;
     color: var(--soft);
-    font-size: var(--fs-300, 0.9rem);
+    font-size: var(--fs-300, 0.9375rem);
     font-style: normal;
   }
 
-  /* ── Shelves ── */
-  .wo-shelves {
-    padding: clamp(1.5rem, 3vw, 2.5rem) 0 clamp(2rem, 4vw, 3rem);
-  }
-  .wo-shelves__title {
-    margin: 0 0 var(--space-3, 0.75rem);
-    font-family: var(--font-display);
-    font-size: var(--fs-700, clamp(1.6rem, 3vw, 2.4rem));
-    line-height: var(--lh-heading, 1.2);
+  /* ── Shelves: H2, 24px, a sticky chip bar, 64px, then the first shelf.
+     The bar's own 12px padding is counted inside both intervals so the
+     chips keep clear space when they pin under the masthead. ── */
+  .pi-section-head.wo-shelves__head {
+    margin-bottom: calc(var(--space-5, 1.5rem) - var(--space-3, 0.75rem));
   }
   .wo-shelfnav {
+    position: sticky;
+    top: var(--masthead-h, 0px);
+    z-index: 5;
+    margin-bottom: calc(var(--space-8, 4rem) - var(--space-3, 0.75rem));
+    padding-block: var(--space-3, 0.75rem);
+    background: var(--bg);
+  }
+  .wo-shelfnav__row {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-2, 0.5rem);
-    margin-bottom: var(--space-5, 1.5rem);
   }
+  /* One chip spec with the scope bar: 48px pill, hairline, Harbour on
+     hover (these are jump links, so they have no selected state). */
   .wo-shelfnav__link {
     display: inline-flex;
     align-items: center;
-    min-height: 44px;
+    min-height: 48px;
     padding: 0 var(--space-4, 1rem);
+    background: var(--bg);
     border: 1px solid var(--border);
-    border-radius: 999px;
+    border-radius: var(--radius-pill, 999px);
     color: var(--text);
     text-decoration: none;
-    font-size: var(--fs-200, 0.8rem);
+    font-family: var(--font-ui, inherit);
+    font-size: var(--fs-300, 0.9375rem);
     font-weight: var(--fw-semibold, 600);
+    line-height: 1.2;
+    white-space: nowrap;
+    transition:
+      border-color var(--dur-fast, 120ms) var(--ease-enter, ease),
+      color var(--dur-fast, 120ms) var(--ease-enter, ease);
   }
   .wo-shelfnav__link:hover {
-    border-color: var(--accent);
-    color: var(--accent);
+    border-color: var(--harbour);
+    color: var(--harbour);
   }
   .wo-shelfnav__link:focus-visible {
     outline: var(--focus-ring, 2px solid var(--accent));
     outline-offset: 2px;
   }
   .wo-shelf {
-    margin-top: var(--space-6, 2rem);
-    scroll-margin-top: 80px;
+    scroll-margin-top: calc(var(--masthead-h, 0px) + 6rem);
+  }
+  .wo-shelf + .wo-shelf {
+    margin-top: var(--space-8, 4rem);
   }
   .wo-shelf__h {
-    margin: 0 0 var(--space-2, 0.5rem);
+    margin: 0;
+    padding-bottom: var(--space-3, 0.75rem);
+    border-bottom: 1px solid var(--border);
     font-family: var(--font-display);
-    font-size: var(--fs-600, 1.35rem);
-    line-height: var(--lh-heading, 1.2);
+    font-size: var(--fs-600, 1.5rem);
+    font-weight: var(--fw-display, 600);
+    line-height: 1.2;
+    color: var(--text);
   }
   .wo-shelf__list {
     list-style: none;
     margin: 0;
     padding: 0;
-    border-bottom: 1px solid var(--border);
+  }
+
+  /* Phones: the chip bar scrolls sideways in one row, with an end fade,
+     rather than wrapping into a tall sticky block. */
+  @media (max-width: 47.9375em) {
+    .wo-shelfnav::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 2rem;
+      background: linear-gradient(to right, transparent, var(--bg));
+      pointer-events: none;
+    }
+    .wo-shelfnav__row {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      padding: 3px 2rem 3px 3px;
+      margin: -3px;
+      scrollbar-width: none;
+    }
+    .wo-shelfnav__row::-webkit-scrollbar {
+      display: none;
+    }
   }
 </style>

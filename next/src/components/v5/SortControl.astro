@@ -22,7 +22,7 @@ const uid = 'v5-sort-' + Math.random().toString(36).slice(2, 8);
 <div class="v5-sort" data-v5-sortcontrol>
   <label class="v5-sort__label" for={uid}>{label}</label>
   <select class="v5-sort__select" id={uid} data-sort-select data-evt="sort_change">
-    <option value="editors" selected>Editor's order</option>
+    <option value="editors" selected>Editor’s order</option>
     <option value="az">A to Z</option>
     <option value="town">By town</option>
   </select>
@@ -36,19 +36,36 @@ const uid = 'v5-sort-' + Math.random().toString(36).slice(2, 8);
     font-family: var(--font-ui);
   }
   .v5-sort__label {
-    font-size: 0.8rem;
+    font-size: var(--fs-200, 0.8125rem);
+    font-weight: 600;
     color: var(--soft);
   }
+  /* A field, not a filter: 8px radius like every other control, the chips'
+     type size on desktop, a harbour chevron in place of the UA arrow. */
   .v5-sort__select {
+    appearance: none;
+    -webkit-appearance: none;
     font-family: inherit;
-    font-size: var(--fs-400); /* 17px: >=16px prevents iOS focus-zoom on native select */
+    font-size: 16px; /* >=16px prevents iOS focus-zoom on a native select */
+    font-weight: 500;
+    line-height: var(--lh-ui, 1.4);
     color: var(--text);
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 999px;
+    background-color: var(--white);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath d='M4 6l4 4 4-4' fill='none' stroke='%2310527E' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 16px 16px;
+    border: 1px solid var(--border-strong, #5C6B75);
+    border-radius: var(--radius-s, 8px);
     min-height: 48px;
-    padding: 0 0.9rem;
+    padding: 0 calc(16px + 16px + 0.5rem) 0 1rem;
     cursor: pointer;
+  }
+  .v5-sort__select:hover {
+    border-color: var(--harbour, #10527E);
+  }
+  @media (min-width: 768px) {
+    .v5-sort__select { font-size: var(--fs-300, 0.9375rem); }
   }
   .v5-sort__select:focus-visible {
     outline: 2px solid var(--accent);
@@ -60,7 +77,7 @@ const uid = 'v5-sort-' + Math.random().toString(36).slice(2, 8);
   import { getSort, setSort, announce, type SortValue } from '../../lib/v5-filter-state';
 
   const LABELS: Record<SortValue, string> = {
-    editors: "Editor's order",
+    editors: 'Editor’s order',
     az: 'A to Z',
     town: 'by town',
   };

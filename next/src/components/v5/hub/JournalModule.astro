@@ -62,7 +62,22 @@ const {
 if (items.length > 3) {
   console.warn(`[v5 JournalModule] more than 3 items (${items.length}); rendering the first 3`);
 }
-const shown = items.slice(0, 3);
+/* One photograph per row: a piece whose hero repeats an earlier card's in
+   this module loses the image and takes the house plate instead. */
+const seenSrc = new Map<string, string>();
+const shown = items.slice(0, 3).map((item) => {
+  const src = item.image?.src;
+  if (!src) return item;
+  const firstSlug = seenSrc.get(src);
+  if (firstSlug) {
+    console.warn(
+      `[v5 JournalModule] "${item.entitySlug}" repeats the image of "${firstSlug}" (${src}); rendering the house plate instead`,
+    );
+    return { ...item, image: undefined };
+  }
+  seenSrc.set(src, item.entitySlug);
+  return item;
+});
 const headingId = `${id ?? `journal-${surface ?? 'hub'}`}-heading`;
 
 /* Image-bearing row: a piece without a hero takes the Card house plate so
@@ -71,16 +86,16 @@ const anyImage = shown.some((item) => Boolean(item.image?.src));
 ---
 
 {shown.length > 0 && (
-  <section class="v5-journal" id={id} aria-labelledby={headingId}>
+  <section class="v5-journal pi-section" id={id} aria-labelledby={headingId}>
     <div class="container">
-      <div class="v5-journal__header">
-        <div>
-          {eyebrow && <p class="v5-journal__eyebrow">{eyebrow}</p>}
-          <h2 class="v5-journal__heading" id={headingId}>{heading}</h2>
-          {sub && <p class="v5-journal__sub">{sub}</p>}
+      <div class="pi-section-head">
+        <div class="pi-section-head__text">
+          {eyebrow && <p class="pi-eyebrow">{eyebrow}</p>}
+          <h2 class="pi-h2" id={headingId}>{heading}</h2>
+          {sub && <p class="pi-section-dek">{sub}</p>}
         </div>
         {moreHref && (
-          <a href={moreHref} class="v5-journal__more">{moreLabel} &rarr;</a>
+          <a href={moreHref} class="pi-section-link">{moreLabel} <span aria-hidden="true">&rarr;</span></a>
         )}
       </div>
       <CardGrid label={heading}>
@@ -108,61 +123,10 @@ const anyImage = shown.some((item) => Boolean(item.image?.src));
 )}
 
 <style>
+  /* Head, link and vertical rhythm come from the shared .pi-section /
+     .pi-section-head canon (global.css, G1). The band is the paper-warm
+     ground; the cards on it are white with a hairline (Card editorial). */
   .v5-journal {
-    padding: var(--space-8, 4rem) 0;
     background: var(--bg-alt);
-  }
-  .v5-journal__header {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: var(--space-4, 1rem);
-    flex-wrap: wrap;
-    margin-bottom: var(--space-5, 1.5rem);
-  }
-  .v5-journal__eyebrow {
-    margin: 0 0 var(--space-2, 0.5rem);
-    font-family: var(--font-ui);
-    font-size: var(--fs-100, 0.75rem);
-    font-weight: 600;
-    letter-spacing: var(--ls-eyebrow, 0.12em);
-    text-transform: uppercase;
-    color: var(--teal-text);
-  }
-  .v5-journal__heading {
-    margin: 0;
-    font-family: var(--font-display);
-    font-size: var(--fs-700, clamp(1.6rem, 1.35rem + 1.2vw, 2.1rem));
-    font-weight: var(--fw-display, 600);
-    line-height: var(--lh-heading, 1.14);
-    letter-spacing: -0.01em;
-    color: var(--text);
-    text-wrap: balance;
-  }
-  .v5-journal__sub {
-    margin: var(--space-3, 0.75rem) 0 0;
-    font-family: var(--font-ui);
-    font-size: var(--fs-300, 0.9375rem);
-    color: var(--soft);
-  }
-  .v5-journal__more {
-    display: inline-flex;
-    align-items: center;
-    min-height: 44px;
-    font-family: var(--font-ui);
-    font-size: var(--fs-200, 0.8125rem);
-    font-weight: var(--fw-semibold, 600);
-    color: var(--accent);
-    text-decoration: none;
-    white-space: nowrap;
-    border-bottom: 1.5px solid color-mix(in srgb, var(--accent) 40%, transparent);
-    padding-bottom: 2px;
-  }
-  .v5-journal__more:hover {
-    text-decoration: underline;
-  }
-  .v5-journal__more:focus-visible {
-    outline: var(--focus-ring, 2px solid var(--accent));
-    outline-offset: 2px;
   }
 </style>

@@ -15,8 +15,8 @@ import {
   buildBreadcrumbSchema,
 } from '../../lib/schema';
 
-/* The ranking is the page. Each entry is the editorial call - rank, tier,
-   facts, verdict - and joins its experience record (by slug) for the photo,
+/* The ranking is the page. Each entry is the editorial call (rank, tier,
+   facts, verdict) and joins its experience record (by slug) for the photo,
    the detail link, and Save/Share. The experience collection supplies
    imagery; the ranking stays the single source of truth for what we say
    about each walk on this page. */
@@ -81,7 +81,7 @@ const tiers: Tier[] = [
         effort: 'Moderate',
         start: 'Greens Bush picnic area',
         verdict:
-          'The best standalone section of the Two Bays track. Old-growth manna gum, wallabies in numbers, and quiet - genuinely quiet - for a place this close to Melbourne. Do this before the full track commitment.',
+          'The best standalone section of the Two Bays track. Old-growth manna gum, wallabies in numbers, and quiet, genuinely quiet, for a place this close to Melbourne. Do this before the full track commitment.',
         bestFor: 'Those wanting a longer walk with bush character.',
       },
       {
@@ -126,7 +126,7 @@ const tiers: Tier[] = [
         effort: 'Demanding',
         start: 'Dromana',
         verdict:
-          "The Peninsula's flagship long walk - from Port Phillip Bay to Bass Strait, crossing the hinterland through Greens Bush. Most visitors tackle the 8–10 km sections near either end.",
+          "The Peninsula's flagship long walk: from Port Phillip Bay to Bass Strait, crossing the hinterland through Greens Bush. Most visitors tackle the 8–10 km sections near either end.",
         bestFor: 'Experienced day-walkers; multi-section visits.',
       },
       {
@@ -139,7 +139,7 @@ const tiers: Tier[] = [
         effort: 'Moderate',
         start: 'Arthurs Seat State Park summit car park',
         verdict:
-          'If you drive to the summit (or take the gondola), this circuit delivers the full 360-degree view sequence - bay, hinterland, ocean. Short but steep in places.',
+          'If you drive to the summit (or take the gondola), this circuit delivers the full 360-degree view sequence: bay, hinterland, ocean. Short but steep in places.',
         bestFor: 'Those combining with the Arthurs Seat Eagle; families.',
       },
       {
@@ -197,7 +197,7 @@ const tiers: Tier[] = [
         effort: 'Moderate',
         start: 'Cape Schanck lighthouse car park',
         verdict:
-          'The longer coastal walk north from Cape Schanck toward Rye - a section of the full 26 km Cape Schanck to London Bridge coastal route. Good cliff scenery, less visited than the boardwalk sections, requires transport coordination at the far end.',
+          'The longer coastal walk north from Cape Schanck toward Rye, a section of the full 26 km Cape Schanck to London Bridge coastal route. Good cliff scenery, less visited than the boardwalk sections, requires transport coordination at the far end.',
         bestFor: 'Experienced walkers; those wanting a full coastal half-day.',
       },
     ],
@@ -217,6 +217,26 @@ for (const w of allRanked) {
   if (hero) heroes.set(w.slug, { src: hero.src, alt: hero.alt });
 }
 
+/* Duplicate-photo guard. Two ranked walks resolving to one hero file print
+   the same photograph twice on this page (coastal-walk-cape-schanck reuses
+   the boardwalk frame). The fix is a new image in the record, so the build
+   names both slugs rather than silently choosing between them. */
+const heroOwner = new Map<string, string>();
+for (const [slug, hero] of heroes) {
+  const first = heroOwner.get(hero.src);
+  if (first) {
+    console.warn(`[walks] ${first} and ${slug} share the hero image ${hero.src}; give one of them its own photograph.`);
+  } else {
+    heroOwner.set(hero.src, slug);
+  }
+}
+
+/* The provenance foot describes the eleven ranked walks, not the whole
+   experiences collection, so its date is the date of what this page ranks. */
+const rankedRecords = allRanked
+  .map((w) => bySlug.get(w.slug))
+  .filter((e): e is NonNullable<typeof e> => Boolean(e));
+
 /* Cover art: the Cape Schanck storm-light shot. Static art direction for
    this page (the per-walk imagery below stays CMS-editable per entry). */
 const cover = {
@@ -233,7 +253,7 @@ const faqs = [
   },
   {
     q: 'Is the Two Bays Walking Track a full day?',
-    a: 'The complete 26 km route is a full day for fit walkers. Most visitors do one of the standalone sections - Greens Bush at the Dromana end, or the Cape Schanck sections at the ocean end. Each section can be done in 2–4 hours.',
+    a: 'The complete 26 km route is a full day for fit walkers. Most visitors do one of the standalone sections: Greens Bush at the Dromana end, or the Cape Schanck sections at the ocean end. Each section can be done in 2–4 hours.',
   },
   {
     q: 'Do I need to pay to walk at Point Nepean?',
@@ -251,14 +271,14 @@ const faqs = [
 
 const collectionSchema = buildCollectionPageSchema({
   name: 'Best Walks on the Mornington Peninsula',
-  description: "Ranked editorial guide to the Peninsula's best walks - coastal, hinterland, and national park. Effort, distance, and payoff rated.",
+  description: "Ranked editorial guide to the Peninsula's best walks: coastal, hinterland, and national park. Effort, distance, and payoff rated.",
   path: '/explore/walks/',
   dateModified: '2026-08-09',
 });
 
 const itemListSchema = buildItemListSchema({
   name: 'Best Walks on the Mornington Peninsula',
-  description: "Ranked editorial guide to the Peninsula's best walks - coastal, hinterland, and national park.",
+  description: "Ranked editorial guide to the Peninsula's best walks: coastal, hinterland, and national park.",
   listPath: '/explore/walks',
   items: allRanked.map((w) => ({
     name: w.name,
@@ -286,7 +306,7 @@ export const prerender = true;
 
 <BaseLayout
   title="Best Walks on the Mornington Peninsula · Peninsula Insider"
-  description="Ranked editorial guide to the Peninsula's best walks - coastal, hinterland, and national park. Effort, distance, and payoff rated for 11 walks."
+  description="Ranked editorial guide to the Peninsula's best walks: coastal, hinterland, and national park. Effort, distance, and payoff rated for 11 walks."
   section="explore"
   canonical="https://peninsulainsider.com.au/explore/walks/"
 >
@@ -307,12 +327,11 @@ export const prerender = true;
           fetchpriority="high"
           decoding="async"
         />
-        <div class="wk-hero__scrim" aria-hidden="true"></div>
         <div class="wk-hero__content">
           <h1 class="wk-hero__title">The best walks on the Mornington Peninsula</h1>
           <p class="wk-hero__standfirst">
             Bay-side foreshore paths, clifftop boardwalks over Bass Strait, national-park
-            bush and a 26 km coast-to-coast route. Eleven walks, ranked by what they
+            bush and a 26&nbsp;km coast-to-coast route. Eleven walks, ranked by what they
             demand and what they give back.
           </p>
         </div>
@@ -320,40 +339,44 @@ export const prerender = true;
     </div>
   </header>
 
-  <section class="wk-calls" aria-label="The short version">
+  <section class="wk-calls" id="ranking-index" aria-label="The short version">
     <div class="container">
-      <div class="wk-calls__panel">
+      <div class="wk-calls__panel is-dark">
         <div class="wk-calls__lead">
           <h2 class="wk-calls__title">The short version</h2>
+          <p class="pi-eyebrow wk-calls__eyebrow">Three to know, by rank</p>
           <ul class="wk-calls__list">
             <li>
-              <span class="wk-calls__num" aria-hidden="true">1</span>
+              <span class="wk-calls__num"><span class="wk-calls__no">No.</span>1</span>
               <p><a href="#cape-schanck-boardwalk">Cape Schanck boardwalk</a> is the best effort-to-payoff ratio on the Peninsula. Forty minutes, fully accessible.</p>
             </li>
             <li>
-              <span class="wk-calls__num" aria-hidden="true">2</span>
+              <span class="wk-calls__num"><span class="wk-calls__no">No.</span>2</span>
               <p><a href="#bushrangers-bay-walk">Bushrangers Bay</a> has the best coastal scenery with the least foot traffic of any good walk here.</p>
             </li>
             <li>
-              <span class="wk-calls__num" aria-hidden="true">6</span>
-              <p><a href="#two-bays-walking-track">Two Bays Walking Track</a> is the flagship: 26 km, bay to ocean. Most people walk it in sections.</p>
+              <span class="wk-calls__num"><span class="wk-calls__no">No.</span>6</span>
+              <p><a href="#two-bays-walking-track">Two Bays Walking Track</a> is the flagship: 26&nbsp;km, bay to ocean. Most people walk it in sections.</p>
             </li>
           </ul>
-          <p class="wk-calls__note">No permits, no specialist gear, walkable all year. Prams or limited mobility: start with the boardwalk or the Mornington foreshore.</p>
+          <p class="wk-calls__note"><span>No permits, no specialist gear, walkable all year. Prams or limited mobility: start with the boardwalk or the Mornington foreshore.</span></p>
         </div>
         <nav class="wk-calls__index" aria-label="The full ranking">
           <p class="wk-calls__index-title">The full ranking</p>
-          {tiers.map((tier) => (
-            <ol class="wk-index__list" start={tier.walks[0].rank}>
-              {tier.walks.map((w) => (
-                <li>
-                  <a href={`#${w.slug}`}>
-                    <span class="wk-index__name">{w.name}</span>
-                    <span class="wk-index__time">{w.time}</span>
-                  </a>
-                </li>
-              ))}
-            </ol>
+          {tiers.map((tier, t) => (
+            <div class="wk-index__group">
+              <p class="pi-eyebrow wk-index__tier" id={`ranking-tier-${t + 1}`}>{tier.title}</p>
+              <ol class="wk-index__list" start={tier.walks[0].rank} aria-labelledby={`ranking-tier-${t + 1}`}>
+                {tier.walks.map((w) => (
+                  <li>
+                    <a href={`#${w.slug}`}>
+                      <span class="wk-index__name">{w.name}</span>
+                      <span class="wk-index__time">{w.time}</span>
+                    </a>
+                  </li>
+                ))}
+              </ol>
+            </div>
           ))}
         </nav>
       </div>
@@ -367,9 +390,8 @@ export const prerender = true;
         region in Victoria: foreshore paths on the bay, boardwalks over Bass Strait,
         national park bush trails, and hinterland ridge-tops through old-growth manna gum
         that see almost nobody outside school holidays. Every walk below is editorially
-        reviewed, and the date it was last checked is stated at the foot of this
-        page. The ranking weighs effort against payoff - what a walk asks of you,
-        against what it gives back.
+        reviewed, and the review date is stated at the foot of this
+        page.
       </p>
 
       {tiers.map((tier) => (
@@ -418,22 +440,25 @@ export const prerender = true;
                   </ul>
                   <p class="wr__verdict">{w.verdict}</p>
                   <p class="wr__bestfor"><strong>Best for</strong> {w.bestFor}</p>
-                  <p class="wr__start">Start: {w.start}</p>
+                  <div class="wr__start">
+                    <p><strong>Start</strong> {w.start}</p>
+                    <PiSaveActions
+                      placement="inline"
+                      kind="experience"
+                      slug={w.slug}
+                      title={w.name}
+                      href={`/explore/${w.slug}/`}
+                      dek={w.verdict}
+                      imageUrl={hero?.src}
+                    />
+                  </div>
                 </div>
-                <PiSaveActions
-                  kind="experience"
-                  slug={w.slug}
-                  title={w.name}
-                  href={`/explore/${w.slug}/`}
-                  dek={w.verdict}
-                  imageUrl={hero?.src}
-                />
               </article>
             );
           })}
         </section>
       ))}
-      <p class="wk-ranking__return"><a href="#top">Back to the top of the ranking</a></p>
+      <p class="wk-ranking__return"><a href="#ranking-index"><span aria-hidden="true">↑</span> Back to the top of the ranking</a></p>
     </div>
   </section>
 
@@ -441,7 +466,7 @@ export const prerender = true;
     <div class="container">
       <div class="prose">
         <h2>What to bring</h2>
-        <p>No walk on this list requires specialist equipment. For any walk over 5 km: water (1 L minimum), sunscreen, a hat, and footwear with grip. Ocean-side tracks can be slippery when wet.</p>
+        <p>No walk on this list requires specialist equipment. For any walk over 5&nbsp;km: water (1 L minimum), sunscreen, a hat, and footwear with grip. Ocean-side tracks can be slippery when wet.</p>
 
         <h2>FAQ</h2>
         <div class="wk-faq">
@@ -454,14 +479,14 @@ export const prerender = true;
         </div>
 
         <h2>Further reading</h2>
-        <ul>
+        <ul class="wk-further">
           <li><a href="/journal/two-bays-walk-mornington-peninsula/">Two Bays Walk deep guide</a></li>
           <li><a href="/journal/walks-bushrangers-bay-walk-guide/">Bushrangers Bay walk guide</a></li>
           <li><a href="/journal/the-peninsulas-best-late-afternoon-walks/">Best late-afternoon walks on the Peninsula</a></li>
           <li><a href="/explore/">All Peninsula experiences</a></li>
         </ul>
 
-        <ProvenanceLine records={experiences} type="experiences" noun="walk" emphasis />
+        <ProvenanceLine records={rankedRecords} type="experiences" noun="walk" caption />
       </div>
     </div>
   </section>
@@ -479,10 +504,14 @@ export const prerender = true;
   .wk-hero {
     padding: var(--space-4) 0 var(--space-6);
   }
+  /* The cover is a grid whose content sits in flow at the bottom, so a
+     long title grows the cover instead of being clipped by it. No
+     overflow:hidden: the image and the text band carry the radius. */
   .wk-hero__cover {
     position: relative;
+    display: grid;
+    align-content: end;
     border-radius: var(--radius-l);
-    overflow: hidden;
     aspect-ratio: 16 / 7;
     background: var(--bg-dark, #0B2E4A);
   }
@@ -493,19 +522,27 @@ export const prerender = true;
     height: 100%;
     object-fit: cover;
     display: block;
+    border-radius: inherit;
   }
-  .wk-hero__scrim {
-    position: absolute;
-    inset: 0;
-    background: var(--photo-shade-bottom);
-  }
+  /* The scrim belongs to the text, not to the photograph: a harbour-deep
+     band that holds at least .82 from the standfirst to 24px above the
+     H1 cap height, however many lines the title takes, then fades out
+     across --fade. The sky and headland above it stay clear. */
   .wk-hero__content {
-    position: absolute;
-    inset: auto 0 0 0;
-    padding: clamp(1.5rem, 3.5vw, 3rem);
+    --fade: 7rem;
+    position: relative;
+    padding: var(--fade) clamp(1.5rem, 3.5vw, 3rem) clamp(1.5rem, 3.5vw, 3rem);
     display: flex;
     flex-direction: column;
     gap: var(--space-3);
+    border-radius: 0 0 var(--radius-l) var(--radius-l);
+    background: linear-gradient(
+      to top,
+      rgb(11 46 74 / 0.9) 0%,
+      rgb(11 46 74 / 0.82) calc(100% - var(--fade) + 1.5rem),
+      rgb(11 46 74 / 0.3) calc(100% - var(--fade) * 0.45),
+      rgb(11 46 74 / 0) 100%
+    );
   }
   .wk-hero__title {
     margin: 0;
@@ -524,10 +561,33 @@ export const prerender = true;
     line-height: var(--lh-dek);
     color: rgba(237, 241, 245, 0.92);
     max-width: var(--measure-dek);
+    text-wrap: pretty;
   }
+  /* Phones: a 4:5 crop over a landscape frame left fog and a sliver of
+     headland. The photograph now takes its own 4:3 frame, set right so the
+     headland stays in shot, and the text band sits beneath it on the
+     harbour-deep ground, fading up into the bottom of the image. */
   @media (max-width: 760px) {
-    .wk-hero__cover { aspect-ratio: 4 / 5; }
+    .wk-hero__cover {
+      aspect-ratio: auto;
+      align-content: start;
+    }
+    .wk-hero__image {
+      position: relative;
+      inset: auto;
+      height: auto;
+      aspect-ratio: 4 / 3;
+      object-position: 80% 50%;
+      border-radius: var(--radius-l) var(--radius-l) 0 0;
+    }
+    .wk-hero__content {
+      --fade: 4.5rem;
+      margin-top: calc(-1 * var(--fade));
+      padding-inline: var(--space-5);
+      padding-bottom: var(--space-6);
+    }
     .wk-hero__title { font-size: var(--fs-800); }
+    .wk-hero__standfirst { font-size: var(--fs-400); }
   }
 
   /* ── The short version: verdict panel + full-ranking index ── */
@@ -542,6 +602,12 @@ export const prerender = true;
     border-radius: var(--radius-l);
     padding: clamp(1.75rem, 3.5vw, 3rem);
     color: var(--white);
+  }
+  /* Left column is a flex column so its practical note settles on the same
+     baseline as the last line of the full ranking beside it. */
+  .wk-calls__lead {
+    display: flex;
+    flex-direction: column;
   }
   .wk-calls__title {
     margin: 0 0 var(--space-5);
@@ -559,21 +625,33 @@ export const prerender = true;
     flex-direction: column;
     gap: var(--space-4);
   }
+  .wk-calls__eyebrow { margin-bottom: var(--space-4); }
   .wk-calls__list li {
     display: flex;
     gap: var(--space-4);
     align-items: baseline;
   }
+  /* The numerals are ranks, not a sequence: "No." says so, and a fixed
+     right-aligned column keeps every call's text on one left edge. */
   .wk-calls__num {
-    flex-shrink: 0;
+    flex: 0 0 3.25rem;
+    display: inline-flex;
+    align-items: baseline;
+    justify-content: flex-end;
+    gap: 0.2em;
     font-family: var(--font-display);
     font-size: var(--fs-600);
     font-weight: var(--fw-bold);
     line-height: 1;
     color: var(--mint, #F5C177);
     font-variant-numeric: tabular-nums;
-    min-width: 1.4ch;
-    text-align: right;
+    white-space: nowrap;
+  }
+  .wk-calls__no {
+    font-family: var(--font-ui);
+    font-size: var(--fs-200);
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.02em;
   }
   .wk-calls__list p {
     margin: 0;
@@ -592,28 +670,34 @@ export const prerender = true;
   }
   .wk-calls__list a:hover { text-decoration-color: var(--mint, #F5C177); }
   .wk-calls__note {
-    margin: 0;
+    margin: auto 0 0;
     padding-top: var(--space-4);
     border-top: 1px solid rgba(237, 241, 245, 0.18);
     font-size: var(--fs-300);
     line-height: var(--lh-dek);
     color: var(--soft-inverse);
+  }
+  .wk-calls__note > span {
+    display: block;
     max-width: 52ch;
+    text-wrap: pretty;
   }
 
   .wk-calls__index-title {
-    margin: 0 0 var(--space-3);
+    margin: 0 0 var(--space-4);
     font-family: var(--font-display);
     font-size: var(--fs-300);
     font-weight: var(--fw-semibold);
     color: var(--white);
   }
+  /* Three labelled tier groups: items sit close, groups separate. */
+  .wk-index__group + .wk-index__group { margin-top: var(--space-5); }
+  .wk-index__tier { margin: 0 0 var(--space-2); }
   .wk-index__list {
-    margin: 0 0 var(--space-3);
+    margin: 0;
     padding-left: 1.6rem;
   }
-  .wk-index__list:last-child { margin-bottom: 0; }
-  .wk-index__list li + li { margin-top: 0.15rem; }
+  .wk-index__list li + li { margin-top: 0.25rem; }
   .wk-index__list li::marker {
     font-family: var(--font-ui);
     font-size: var(--fs-300);
@@ -631,16 +715,22 @@ export const prerender = true;
     color: rgba(237, 241, 245, 0.92);
     text-decoration: none;
   }
+  /* Underline the text itself, so a wrapped name underlines each line
+     rather than the full width of its flex box. */
   .wk-index__name {
-    border-bottom: 1px solid rgba(237, 241, 245, 0.25);
-    transition: color var(--dur-fast) var(--ease-enter), border-color var(--dur-fast) var(--ease-enter);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-decoration-color: rgb(237 241 245 / 0.35);
+    text-underline-offset: 0.2em;
+    transition: color var(--dur-fast) var(--ease-enter), text-decoration-color var(--dur-fast) var(--ease-enter);
   }
   .wk-index__list a:hover .wk-index__name {
     color: var(--mint, #F5C177);
-    border-color: var(--mint, #F5C177);
+    text-decoration-color: var(--mint, #F5C177);
   }
   .wk-index__time {
     flex-shrink: 0;
+    white-space: nowrap;
     font-size: var(--fs-200);
     color: var(--soft-inverse);
     font-variant-numeric: tabular-nums;
@@ -656,13 +746,17 @@ export const prerender = true;
     font-size: var(--fs-400);
     line-height: var(--lh-body);
     color: var(--text);
-    margin: 0 0 var(--space-6);
+    text-wrap: pretty;
+    margin: 0;
+    padding-bottom: var(--space-6);
   }
+  /* One interval before every tier head. The intro pads 32px below itself
+     and each card closes 32px after its last line, so a 64px margin gives
+     the same 96px from text to sand rule for all three tiers. */
   .wk-tier__head {
     margin: var(--space-8) 0 var(--space-5);
     max-width: var(--measure-prose);
   }
-  .wk-tier:first-of-type .wk-tier__head { margin-top: var(--space-6); }
   .wk-tier__rule {
     display: block;
     width: 3rem;
@@ -685,15 +779,16 @@ export const prerender = true;
     line-height: var(--lh-dek);
     color: var(--soft);
     max-width: var(--measure-dek);
+    text-wrap: pretty;
     margin: 0;
   }
 
   .wr {
     position: relative;
     display: grid;
-    grid-template-columns: minmax(260px, 420px) 1fr;
+    grid-template-columns: minmax(260px, 420px) minmax(0, 1fr);
     gap: var(--space-5) clamp(1.5rem, 3vw, 3rem);
-    padding: var(--space-6) 0 var(--space-7);
+    padding: var(--space-6) 0;
     border-top: 1px solid var(--border);
     scroll-margin-top: 6rem;
   }
@@ -716,7 +811,7 @@ export const prerender = true;
   .wr__fog {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(11, 46, 74, 0.55) 0%, rgba(11, 46, 74, 0) 45%);
+    background: linear-gradient(to top, rgb(11 46 74 / 0.72) 0%, rgb(11 46 74 / 0) 35%);
   }
   .wr__tag {
     position: absolute;
@@ -730,14 +825,17 @@ export const prerender = true;
     color: rgba(253, 252, 250, 0.95);
   }
 
+  /* The text column is capped near 62 characters of Figtree body (68ch on
+     the '0' glyph ran ~90). The spare width beside it is deliberate, and
+     the save pair closes the column at its right edge, not the frame's. */
   .wr__body {
-    max-width: var(--measure-prose);
-    padding-bottom: var(--space-2);
+    max-width: min(100%, 32rem);
   }
   .wr__name {
     display: flex;
     align-items: baseline;
     gap: var(--space-3);
+    text-wrap: balance;
     font-family: var(--font-display);
     font-size: var(--fs-600);
     font-weight: var(--fw-display);
@@ -748,8 +846,12 @@ export const prerender = true;
   }
   .wr__name a { color: inherit; text-decoration: none; }
   .wr__name a:hover { color: var(--accent); }
+  /* Fixed numeral column: one- and two-digit ranks leave every title, and
+     every wrapped title line, on the same left edge. */
   .wr__rank {
     flex-shrink: 0;
+    min-width: 2ch;
+    text-align: right;
     font-family: var(--font-display);
     font-size: var(--fs-700);
     font-weight: var(--fw-bold);
@@ -766,6 +868,7 @@ export const prerender = true;
     padding: 0;
   }
   .wr__meta li {
+    white-space: nowrap;
     font-family: var(--font-ui);
     font-size: var(--fs-200);
     font-weight: var(--fw-medium);
@@ -779,15 +882,20 @@ export const prerender = true;
     font-size: var(--fs-400);
     line-height: var(--lh-body);
     color: var(--text);
+    text-wrap: pretty;
     margin: 0 0 var(--space-4);
   }
-  .wr__bestfor {
+  .wr__bestfor,
+  .wr__start p {
     font-size: var(--fs-300);
     line-height: var(--lh-ui);
     color: var(--text);
-    margin: 0 0 var(--space-2);
+    margin: 0;
   }
-  .wr__bestfor strong {
+  .wr__bestfor { margin-bottom: var(--space-2); }
+  /* 'Best for' and 'Start' are equivalent metadata: one label style. */
+  .wr__bestfor strong,
+  .wr__start strong {
     font-weight: var(--fw-semibold);
     color: var(--tide-text, #1D6491);
     text-transform: uppercase;
@@ -795,17 +903,61 @@ export const prerender = true;
     letter-spacing: 0.08em;
     margin-right: 0.35rem;
   }
+  /* The save pair sits in flow on the Start line, right-aligned to the
+     text column, so no card ends in an empty band reserved for it. */
   .wr__start {
-    font-size: var(--fs-300);
-    line-height: var(--lh-ui);
-    color: var(--soft);
-    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
   }
+  .wr__start p { min-width: 0; }
+  .wr__start :global(.pi-actions) { flex-shrink: 0; }
+
+  /* Closing rule for the ranking: a hairline like the cards', with the
+     return link on the card text column. */
   .wk-ranking__return {
-    margin-top: var(--space-6);
+    display: grid;
+    grid-template-columns: minmax(260px, 420px) minmax(0, 1fr);
+    column-gap: clamp(1.5rem, 3vw, 3rem);
+    margin: 0;
+    padding-top: var(--space-5);
+    border-top: 1px solid var(--border);
     font-size: var(--fs-300);
   }
-  .wk-ranking__return a { color: var(--accent); }
+  .wk-ranking__return a {
+    grid-column: 2;
+    justify-self: start;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    min-height: 44px;
+    font-weight: var(--fw-semibold);
+    color: var(--accent);
+    text-underline-offset: 0.2em;
+  }
+
+  /* Further reading: one marker style on every viewport. */
+  .wk-further {
+    list-style: none;
+    margin: var(--space-4) 0 0;
+    padding: 0;
+  }
+  .wk-further li {
+    position: relative;
+    padding-left: var(--space-5);
+  }
+  .wk-further li + li { margin-top: var(--space-2); }
+  .wk-further li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.8em;
+    width: 0.75rem;
+    height: 2px;
+    border-radius: 1px;
+    background: var(--sand-text, #8A5620);
+  }
 
   /* ── Notes: alt ground for rhythm before the dark newsletter close ── */
   .wk-notes {
@@ -851,7 +1003,9 @@ export const prerender = true;
 
   /* ── Responsive ── */
   @media (max-width: 900px) {
-    .wr { grid-template-columns: minmax(220px, 300px) 1fr; gap: var(--space-4) var(--space-5); }
+    .wr,
+    .wk-ranking__return { grid-template-columns: minmax(220px, 300px) minmax(0, 1fr); column-gap: var(--space-5); }
+    .wr { row-gap: var(--space-4); }
   }
   @media (max-width: 760px) {
     .wr {
@@ -859,7 +1013,8 @@ export const prerender = true;
       padding-top: var(--space-5);
       padding-bottom: var(--space-6);
     }
-    .wr__body { padding-bottom: var(--space-6); }
+    .wk-ranking__return { grid-template-columns: 1fr; }
+    .wk-ranking__return a { grid-column: 1; }
   }
   @media (prefers-reduced-motion: reduce) {
     .wr:hover .wr__media img { transform: none; }

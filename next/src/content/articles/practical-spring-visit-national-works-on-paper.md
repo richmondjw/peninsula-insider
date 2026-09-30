@@ -1,5 +1,5 @@
 ---
-title: "A Practical Spring Visit to National Works on Paper"
+title: "A practical spring visit to National Works on Paper"
 dek: "The confirmed dates, regular opening hours and location for a straightforward gallery visit in Mornington."
 author: "editorial"
 houseByline: true

@@ -71,7 +71,7 @@ const resolved = await Promise.all(
 );
 ---
 
-<section class="home-doors" aria-labelledby="home-doors-title">
+<section class="home-doors pi-section" aria-labelledby="home-doors-title">
   <div class="container">
     <h2 id="home-doors-title" class="home-doors__title">Explore by interest</h2>
     <ul class="home-doors__grid">
@@ -117,8 +117,8 @@ const resolved = await Promise.all(
 </script>
 
 <style>
+  /* Vertical rhythm comes from the shared .pi-section spacing token. */
   .home-doors {
-    padding: var(--space-7) 0;
     background: var(--bg-alt);
   }
 
@@ -145,12 +145,15 @@ const resolved = await Promise.all(
     gap: var(--space-5);
   }
 
-  /* Tall rounded photo tile: image fills, dark scrim, text overlaid. */
+  /* Tall rounded photo tile: image fills, dark scrim, text overlaid.
+     justify-content:flex-end pins the label and line to the foot of the
+     tile, inside the densest part of the bottom-up scrim. */
   .home-doors__card {
     position: relative;
     isolation: isolate;
     display: flex;
     flex-direction: column;
+    justify-content: flex-end;
     /* aspect-ratio sets the preferred height; min-height:auto lets the card
        grow when the verdict line wraps, so overlaid text can never collide. */
     aspect-ratio: 3 / 4;
@@ -185,29 +188,20 @@ const resolved = await Promise.all(
     transform: scale(1.04);
   }
 
+  /* Cover scrim canon: harbour-deep, bottom-up, at least .82 alpha across
+     the whole text zone, so the label and line hold 4.5:1 on any photo
+     (bright sky, vine leaves, the white lighthouse) without text-shadow. */
   .home-doors__scrim {
     position: absolute;
     inset: 0;
     z-index: -1;
     background: linear-gradient(
       to top,
-      color-mix(in srgb, var(--bg-deep) 88%, transparent) 0%,
-      color-mix(in srgb, var(--bg-deep) 32%, transparent) 46%,
+      rgb(11 46 74 / .88) 0%,
+      rgb(11 46 74 / .82) 38%,
+      rgb(11 46 74 / .25) 70%,
       transparent 100%
     );
-  }
-
-  /* Verdict-count eyebrow, mint, top-left. In flow (not absolute) with
-     margin-bottom:auto pinning label + line to the card's bottom edge:
-     the text blocks share one flex column, so they can never overlap. */
-  .home-doors__count {
-    margin-bottom: auto;
-    font-family: var(--font-ui);
-    font-size: var(--fs-100);
-    font-weight: var(--fw-semibold);
-    letter-spacing: var(--ls-eyebrow);
-    text-transform: uppercase;
-    color: var(--mint);
   }
 
   .home-doors__label {
@@ -228,8 +222,11 @@ const resolved = await Promise.all(
     font-family: var(--font-ui);
     font-size: var(--fs-300);
     line-height: var(--lh-dek);
-    color: var(--soft-inverse);
+    /* Brighter than --soft-inverse: over a photo the scrim floor is .82,
+       not the solid ground that token was cut for. */
+    color: rgb(237 241 245 / .92);
     max-width: 30ch;
+    text-wrap: pretty;
   }
 
   @media (max-width: 63.94em) {
@@ -245,42 +242,40 @@ const resolved = await Promise.all(
     }
   }
 
-  /* Phones. Two things happen here.
+  /* Phones. Ordering: these max-width blocks must run largest to
+     smallest, or the 2-column tablet rule wins at 375px.
 
-     Ordering: these max-width blocks must run largest to smallest. This
-     block previously sat ABOVE the 63.94em one, so at 375px both matched
-     and the later (2-column) rule won. Phones rendered two narrow tiles at
-     the 16/10 ratio intended for one wide tile, which clipped the verdict
-     line mid-sentence.
-
-     No photography: at tile size the images sat behind the eyebrow and made
-     it unreadable, and they were carrying no information the copy did not
-     already give. The tiles become typographic on a solid ground.
-
-     Height is content-driven rather than a fixed ratio, so a long verdict
-     line lengthens the tile instead of being cut off. */
+     The doors stay photographic: a 2x2 grid of 4:5 photo tiles on the
+     16px card radius, text bottom-anchored over the same harbour scrim.
+     The label and line wrap to more lines in a narrow tile, so the scrim
+     holds its .82 floor higher up the tile. aspect-ratio is a preferred
+     height only (min-height stays auto), so a long line grows the tile
+     instead of being cut off. */
   @media (max-width: 35.94em) {
     .home-doors__grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr 1fr;
       gap: var(--space-3);
     }
     .home-doors__card {
-      aspect-ratio: auto;
-      gap: var(--space-1);
-      padding: var(--space-5) var(--space-4);
-      background: var(--bg-deep);
+      aspect-ratio: 4 / 5;
+      padding: var(--space-4);
+      border-radius: var(--radius-m);
     }
-    .home-doors__media,
     .home-doors__scrim {
-      display: none;
+      background: linear-gradient(
+        to top,
+        rgb(11 46 74 / .9) 0%,
+        rgb(11 46 74 / .84) 58%,
+        rgb(11 46 74 / .3) 82%,
+        transparent 100%
+      );
     }
-    /* margin-bottom:auto exists to pin the label to the foot of a
-       fixed-height tile. With content-driven height it would add dead
-       space, so it becomes a plain gap. */
-    .home-doors__count {
-      margin-bottom: var(--space-2);
+    .home-doors__label {
+      font-size: var(--fs-500);
     }
     .home-doors__line {
+      font-size: var(--fs-200);
+      line-height: var(--lh-ui);
       max-width: none;
     }
   }

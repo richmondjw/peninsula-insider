@@ -1,9 +1,13 @@
 /* September 2026: approved Harbour refinement. Keep the brand; clarify composition. */
 body[data-v4] { --refine-section: clamp(2rem, 4.5vw, 3.5rem); --refine-gap: clamp(1.5rem, 3vw, 3rem); }
 body[data-v4] :is(.guide-hero,.section-hero,.subpage-hero) { padding-block: var(--refine-section); }
+/* G3: the section-hero rule sits on the 1280 frame, so its bottom padding lives inside the container. */
+body[data-v4] .section-hero { padding-bottom: 0; }
+body[data-v4] .section-hero > .container { padding-bottom: var(--refine-section); }
 body[data-v4] :is(.guide-hero__inner,.section-hero__inner,.subpage-hero__inner) { gap: var(--refine-gap); }
 body[data-v4] :is(.guide-hero__title,.section-hero__title,.subpage-hero__title) { font-size: clamp(2.25rem,4.3vw,3.75rem); line-height: 1.1; letter-spacing: -.035em; text-wrap: balance; overflow-wrap: anywhere; }
-body[data-v4] :is(.guide-hero__dek,.section-hero__dek,.subpage-hero__prose) { font-family: var(--font-ui); font-size: var(--fs-500); line-height: var(--lh-body); max-width: var(--measure-dek); }
+body[data-v4] :is(.guide-hero__dek,.section-hero__dek,.subpage-hero__prose) { font-family: var(--font-ui); font-size: var(--fs-500); line-height: var(--lh-body); max-width: var(--measure-dek); text-wrap: pretty; }
+body[data-v4] .subpage-hero__prose { line-height: 1.5; }
 body[data-v4] :is(.guide-hero__image,.section-hero__visual-image,.subpage-hero__visual img) { filter: none; }
 /* Long headlines receive more width. Reading remains in the existing prose column. */
 body[data-v4] .article-hero__frame { grid-template-columns: minmax(0,1.25fr) minmax(0,1fr); gap: var(--refine-gap); }
@@ -15,14 +19,22 @@ body[data-v4] .article-hero__tag { background: transparent; border: 0; padding: 
 body[data-v4] .article-hero__tags { gap: .5rem 1rem; }
 body[data-v4] .article-hero__image { aspect-ratio: 1; filter: none; }
 body[data-v4] :is(.article-hero__credit,.guide-hero__credit,.venue-detail__hero-credit) { font-size: var(--fs-100); line-height: 1.5; letter-spacing: .02em; text-transform: none; }
-body[data-v4] .prose { max-width: var(--measure-prose); line-height: 1.75; overflow-wrap: break-word; }
+/* G2: 1.6 leading at 17px (1.55 on phones) and 1em paragraph steps; 1.75 plus 1.5rem margins read loose. */
+body[data-v4] .prose { max-width: var(--measure-prose); line-height: 1.6; overflow-wrap: break-word; }
+body[data-v4] .prose p { margin-bottom: 1em; }
 body[data-v4] .prose :is(h2,h3) { line-height: 1.22; text-wrap: balance; scroll-margin-top: 9rem; }
-body[data-v4] .prose h2 { margin-top: var(--space-heading-above); margin-bottom: var(--space-heading-below); }
+body[data-v4] .prose h2 { line-height: var(--lh-heading); margin-top: var(--space-heading-above); margin-bottom: var(--space-heading-below); }
+/* G1: an eyebrow directly above a prose H2 sits 12px above it, not 44px. */
+body[data-v4] .prose p.label { margin-bottom: var(--space-3); }
+body[data-v4] .prose .label + h2 { margin-top: 0; }
+body[data-v4] .prose > :is(h2,h3,p):first-child { margin-top: 0; }
+body[data-v4] .prose > :is(p,ul,ol,table,div,blockquote):last-child { margin-bottom: 0; }
 body[data-v4] .prose a { text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1px; }
 body[data-v4] .prose a.pi-btn { text-decoration: none; }
 body[data-v4] .prose a.pi-btn--solid:not(.pi-btn--inverse) { color: var(--white); }
 body[data-v4] .prose.has-drop-cap > p:first-of-type::first-letter { float: none; font: inherit; color: inherit; margin: 0; padding: 0; }
-body[data-v4] .prose blockquote { font-family: var(--font-ui); border-left: 3px solid var(--accent); padding-left: var(--space-5); }
+/* G2: pull quotes are framed by hairlines above and below, not a side-tab. */
+body[data-v4] .prose blockquote { font-family: var(--font-display); font-size: var(--fs-500); line-height: 1.4; color: var(--text); border-left: 0; padding-left: 0; border-block: 1px solid var(--border); padding-block: var(--space-4); }
 /* Listings retain booking and practical facts while reducing promotional bulk. */
 body[data-v4] :is(.venue-detail__title,.itinerary-detail__title) { font-size: clamp(2rem,4vw,3.75rem); line-height: 1.1; letter-spacing: -.035em; text-wrap: balance; }
 body[data-v4] .venue-detail__signature { font-family: var(--font-ui); font-size: var(--fs-500); line-height: var(--lh-body); max-width: var(--measure-dek); }
@@ -33,15 +45,21 @@ body[data-v4] .venue-detail__grid { gap: var(--refine-gap); }
 body[data-v4] .facts { align-self: start; }
 body[data-v4] .facts :is(dt,dd) { overflow-wrap: anywhere; }
 body[data-v4] .facts__title { font-size: var(--fs-300); }
-body[data-v4] :is(.venue-detail-section,.venues,.experience-index) { padding-block: var(--refine-section); }
+/* G1: content bands share one rhythm, --section-space (64 to 96px), with no trailing child
+   margin, so top and bottom padding stay symmetric. Heroes keep the tighter --refine-section. */
+body[data-v4] :is(.venue-detail-section,.venues,.experience-index) { padding-block: var(--section-space); }
+body[data-v4] :is(.venues,.experience-index) > .container > :last-child { margin-bottom: 0; }
 /* Shared card hierarchy: title, useful explanation, factual metadata. */
 body[data-v4] .pi-card:not(.pi-card--compact) .pi-card__title { font-size: var(--fs-600); line-height: 1.23; letter-spacing: -.025em; }
+/* G8: editorial (article and guide) card titles step down to ~21px so they sit clearly below the section H2. */
+body[data-v4] .pi-card--editorial:not(.pi-card--compact) .pi-card__title { font-size: var(--fs-500); line-height: 1.28; }
 body[data-v4] .pi-card:not(.pi-card--compact) .pi-card__dek { font-size: var(--fs-400); line-height: 1.6; font-weight: var(--fw-body); }
 body[data-v4] .pi-card__meta { font-size: var(--fs-200); line-height: 1.55; }
 body[data-v4] .pi-card__link:focus-visible::after { outline: 3px solid var(--accent); outline-offset: -3px; border-radius: inherit; }
 body[data-v4] :is(.venue-card__verdict,.article-card__excerpt,.experience-card__verdict) { font-family: var(--font-ui); font-size: var(--fs-400); line-height: 1.6; }
-body[data-v4] :is(.v5-directory__row,.wo-row) { padding-block: var(--space-5); }
-body[data-v4] :is(.wo-row__dek,.v5-directory__sub) { font-size: var(--fs-400); line-height: 1.6; }
+/* G8: WhatsOnRow owns its own spacing and dek leading (WO2); only the directory row is set here. */
+body[data-v4] .v5-directory__row { padding-block: var(--space-5); }
+body[data-v4] .v5-directory__sub { font-size: var(--fs-400); line-height: 1.6; }
 body[data-v4] .wo-row__meta { font-size: var(--fs-200); line-height: 1.5; }
 /* Search, account and form surfaces share the same rhythm. */
 body[data-v4] :is(.search-page-v2__hero,.me-shell) { padding-block: var(--refine-section); }
@@ -60,7 +78,6 @@ body[data-v4] :is(button,input,textarea,select):disabled { cursor: not-allowed; 
   body[data-v4] :is(.pi-card,.venue-card,.article-card):hover img { transform: none; }
   body[data-v4] :is(.pi-btn,.v5-save__btn) { transition: background-color 160ms ease,color 160ms ease,border-color 160ms ease; }
 }
-@media (min-width:64em) { body[data-v4] .home-weekend .pi-card:first-child .pi-card__title { font-size: 1.875rem; } }
 @media (max-width:47.94em) {
   body[data-v4] .article-hero__frame { grid-template-columns: 1fr; gap: var(--space-5); }
   body[data-v4] .article-hero__title { font-size: clamp(2rem,7.5vw,2.6rem); }
@@ -68,6 +85,7 @@ body[data-v4] :is(button,input,textarea,select):disabled { cursor: not-allowed; 
   body[data-v4] :is(.guide-hero__dek,.section-hero__dek,.article-hero__dek,.venue-detail__signature) { font-size: var(--fs-400); }
   body[data-v4] :is(.guide-hero__inner,.subpage-hero__inner) { gap: var(--space-5); }
   body[data-v4] .venue-detail__hero { max-height: 22rem; }
+  body[data-v4] .prose { line-height: 1.55; }
   body[data-v4] :is(input:not([type=checkbox]):not([type=radio]),textarea,select) { font-size: max(1rem,1em); }
 }
 @media (prefers-reduced-motion:reduce) {
@@ -76,10 +94,12 @@ body[data-v4] :is(button,input,textarea,select):disabled { cursor: not-allowed; 
 }
 /* Empty decorative panels become a compact text-led opening. CMS targets remain
    in the DOM and regain their layout automatically when a real image arrives. */
-body[data-v4] .section-hero__inner:has(> .section-hero__visual:not(:has(img))) { grid-template-columns: minmax(0,1fr); }
+/* G3: SectionHero adds .section-hero__inner--text-only (styled in global.css). The old nested
+   :has() rules were dropped by browsers; these single-level forms cover the admin case where
+   a CMS image is removed after build. */
 body[data-v4] .section-hero__visual:not(:has(img)) { display: none; }
-body[data-v4] .section-hero__inner:has(> .section-hero__visual:not(:has(img))) .section-hero__title { max-width: 24ch; }
-body[data-v4] .subpage-hero__inner:has(> .subpage-hero__visual:not(:has(img))) { grid-template-columns: minmax(0,1fr); }
+body[data-v4] .section-hero__inner:not(:has(> .section-hero__visual img)) { grid-template-columns: minmax(0,1fr); }
+body[data-v4] .subpage-hero__inner:not(:has(> .subpage-hero__visual img)) { grid-template-columns: minmax(0,1fr); }
 body[data-v4] .subpage-hero__visual:not(:has(img)) { display: none; }
 body[data-v4] .article:has(> .article-hero) { padding-top: 0; }
 body[data-v4] .article-hero { padding-block: var(--refine-section); }

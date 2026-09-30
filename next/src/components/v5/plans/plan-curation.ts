@@ -8,6 +8,8 @@ export interface PlanCuration {
   editorialPriority: number;
   pace?: string;
   bookingNote?: string;
+  /** Guide card dek: one complete sentence, 110 characters or fewer. */
+  cardDek?: string;
 }
 
 const ITINERARY_CURATION: Record<string, PlanCuration> = {
@@ -76,6 +78,20 @@ const GUIDE_TITLES: Record<string, string> = {
   'weddings-mornington-peninsula-weekend-planning': 'Plan a wedding weekend',
 };
 
+/** Card deks for the guides shown first on the plans hub. A card shows one
+ * complete sentence rather than a clipped opening line.
+ * TODO(James): placeholders. Each is a complete sentence taken from the
+ * guide's own dek; replace with purpose-written lines of 110 characters or fewer.
+ */
+const GUIDE_CARD_DEKS: Record<string, string> = {
+  'mornington-day-guide': 'A well-built day in Mornington is one of the cleanest Peninsula visits you can make.',
+  'how-to-build-a-red-hill-saturday': 'A ridge morning, one properly chosen cellar door, and a lunch that earns the drive.',
+  'the-friday-night-arrival': 'Here is what to do with the first three hours, the ones that set the tone for everything that follows.',
+  'walks-cape-schanck-hot-springs-day': 'Bushrangers Bay in the morning, lunch on the drive north, and a long afternoon at Peninsula Hot Springs.',
+  'the-four-hour-peninsula': 'Four hours, three stops, one decisive lunch, and no wasted drives.',
+  'the-point-nepean-half-day': 'Three hours well spent, and the single best landscape move in Sorrento on a weekend.',
+};
+
 export function planCuration(slug: string, title: string, kind: 'itinerary' | 'guide'): PlanCuration {
   if (kind === 'itinerary' && ITINERARY_CURATION[slug]) return { ...ITINERARY_CURATION[slug] };
   return {
@@ -84,6 +100,7 @@ export function planCuration(slug: string, title: string, kind: 'itinerary' | 'g
       ? 'Planning advice to read and adapt. This guide does not include a ready-made stop list.'
       : 'A published itinerary with its stops arranged by day.',
     editorialPriority: 0,
+    ...(kind === 'guide' && GUIDE_CARD_DEKS[slug] ? { cardDek: GUIDE_CARD_DEKS[slug] } : {}),
   };
 }
 

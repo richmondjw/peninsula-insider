@@ -118,15 +118,16 @@ export const BF_CHARTERS_P5 = [
 export const BF_TIDE_DEPENDENT_RAMPS = ['warneet-boat-ramp', 'tooradin-boat-ramp', 'safety-beach-boat-ramp'] as const;
 
 /**
- * Format an ISO date as the on-page "Last fact-verified" stamp. Matches the
- * stamp shape used across the pack content drafts.
+ * Format an ISO date as the on-page "Last fact-verified" stamp, in reader
+ * form: "30 April 2026". No weekday and no abbreviated month; the shorter
+ * "Thu, 30 Apr 2026" shape read as system output. Only the shape changed:
+ * the date itself resolves exactly as before.
  */
 export function formatVerifiedStamp(date: Date | string): string {
   const d = typeof date === 'string' ? new Date(date) : date;
   return d.toLocaleDateString('en-AU', {
-    weekday: 'short',
     day: 'numeric',
-    month: 'short',
+    month: 'long',
     year: 'numeric',
   });
 }

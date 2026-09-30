@@ -4,7 +4,7 @@
  * (page-redesigns.md 1.9 item 3; wireframes.html #home note 2).
  *
  * Three PI picks for the upcoming weekend, each a v5 event Card with Save
- * and "+ Trip", closed by "Everything on this weekend" into /whats-on/.
+ * and "+ Trip", with an "All events" section link into /whats-on/.
  * The cards run without the type eyebrow: "This weekend" plus a date window
  * already declares that these are events, and three stacked EVENT stamps
  * read as machine output rather than an edited page.
@@ -63,15 +63,18 @@ const cards = await Promise.all(
 ---
 
 {cards.length > 0 && (
-  <section id="home-weekend" class="home-weekend" aria-labelledby="home-weekend-title">
+  <section id="home-weekend" class="home-weekend pi-section" aria-labelledby="home-weekend-title">
     <div class="container">
-      <div class="home-weekend__head">
-        <div class="home-weekend__heading">
-          <p class="home-weekend__eyebrow">The short list</p>
-          <h2 id="home-weekend-title" class="home-weekend__title">This weekend</h2>
+      <header class="pi-section-head">
+        <div class="pi-section-head__text">
+          <p class="pi-eyebrow">The short list</p>
+          <div class="home-weekend__titlerow">
+            <h2 id="home-weekend-title" class="pi-h2">This weekend</h2>
+            <p class="home-weekend__window">{weekend.label}</p>
+          </div>
         </div>
-        <p class="home-weekend__window">{weekend.label}</p>
-      </div>
+        <a class="pi-section-link" href="/whats-on/">All events <span aria-hidden="true">&rarr;</span></a>
+      </header>
 
       <div class="home-weekend__scroller">
         <CardGrid label="This weekend's picks">
@@ -96,67 +99,38 @@ const cards = await Promise.all(
         </CardGrid>
       </div>
 
-      <p class="home-weekend__all">
-        Saturday and Sunday picks. <a href="/whats-on/">See all events, including Friday &rarr;</a>
-      </p>
-
       <PlayCard variant="band" />
     </div>
   </section>
 )}
 
 <style>
+  /* Section head, link and vertical spacing come from the shared
+     .pi-section-head / .pi-section canon (G1). Only the date pill and
+     the card rail are local. */
   .home-weekend { scroll-margin-top: 9rem; }
+
+  /* Three equal picks. The cards carry identical content and treatment,
+     so an uneven 1.5fr lead read as a grid error, not a lead story. */
   @media (min-width: 64em) {
-    .home-weekend__scroller :global(.v5-card-grid--grid) { grid-template-columns: 1.5fr 1fr 1fr; }
-    .home-weekend__scroller :global(.pi-card:first-child .pi-card__title) { font-size: 1.875rem; }
+    .home-weekend__scroller :global(.v5-card-grid--grid) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--space-5);
+    }
   }
   .home-weekend__scroller :global(.pi-card__media) { height: 14.375rem; aspect-ratio: auto; }
   .home-weekend__scroller :global(.pi-card__dek) { font-size: var(--fs-400); line-height: var(--lh-body); display: block; overflow: visible; -webkit-line-clamp: unset; }
 
-  .home-weekend {
-    padding: var(--space-7) 0;
-  }
-
-  .home-weekend__head {
+  .home-weekend__titlerow {
     display: flex;
-    align-items: baseline;
-    justify-content: space-between;
     flex-wrap: wrap;
-    gap: var(--space-3);
-    margin-bottom: var(--space-5);
+    align-items: center;
+    gap: var(--space-2) var(--space-4);
   }
 
-  .home-weekend__heading {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-  }
-
-  .home-weekend__eyebrow {
-    margin: 0;
-    font-family: var(--font-ui);
-    font-size: var(--fs-100);
-    font-weight: var(--fw-semibold);
-    letter-spacing: var(--ls-eyebrow);
-    text-transform: uppercase;
-    color: var(--teal-text);
-  }
-
-  .home-weekend__title {
-    margin: 0;
-    font-family: var(--font-display);
-    font-weight: var(--fw-display);
-    font-size: var(--fs-700);
-    line-height: var(--lh-heading);
-    letter-spacing: var(--ls-display);
-    color: var(--text);
-  }
-
-  /* The single live/now marker: a restrained amber pill. */
+  /* The single live/now marker: a restrained amber pill beside the H2. */
   .home-weekend__window {
     margin: 0;
-    align-self: center;
     display: inline-flex;
     align-items: center;
     padding: 0.3rem 0.75rem;
@@ -167,25 +141,7 @@ const cards = await Promise.all(
     font-weight: var(--fw-semibold);
     letter-spacing: 0.02em;
     color: var(--signal-text);
-  }
-
-  .home-weekend__all {
-    margin: var(--space-5) 0 0;
-    font-family: var(--font-ui);
-    font-weight: var(--fw-bold);
-    font-size: var(--fs-400);
-  }
-
-  .home-weekend__all a {
-    color: var(--text);
-    text-decoration: none;
-    border-bottom: 1.5px solid var(--accent);
-    padding-bottom: 2px;
-    transition: color var(--dur-fast) var(--ease-enter);
-  }
-
-  .home-weekend__all a:hover {
-    color: var(--accent);
+    white-space: nowrap;
   }
 
   /* Below the desktop grid breakpoint the picks row scrolls horizontally

@@ -41,13 +41,21 @@ export interface Props {
    * false to render inline inside an existing actions row.
    */
   floating?: boolean;
+  /**
+   * 'floating' pins the pair to the card corner (the default above).
+   * 'inline' renders it statically in the flow, for a layout that places
+   * the pair on a line of its own text, e.g. the ranked walk cards.
+   * When given, it wins over `floating`.
+   */
+  placement?: 'floating' | 'inline';
 }
 
-const { kind, slug, title, href, section, dek, imageUrl, floating = true } = Astro.props;
+const { kind, slug, title, href, section, dek, imageUrl, floating = true, placement } = Astro.props;
+const isFloating = placement ? placement === 'floating' : floating;
 ---
 
 <div
-  class:list={['pi-actions', floating && 'pi-actions--floating']}
+  class:list={['pi-actions', isFloating && 'pi-actions--floating', placement === 'inline' && 'pi-actions--inline']}
   data-pi-actions
   data-pi-kind={kind}
   data-pi-slug={slug}
@@ -85,10 +93,16 @@ const { kind, slug, title, href, section, dek, imageUrl, floating = true } = Ast
 </div>
 
 <style is:global>
+  /* 8px between the two controls, so each keeps a clear target. */
   .pi-actions {
     display: inline-flex;
     align-items: center;
-    gap: 0.3rem;
+    gap: var(--space-2, 0.5rem);
+  }
+
+  /* Inline placement: static, in the flow of the surrounding line. */
+  .pi-actions--inline {
+    position: static;
   }
 
   /* Floating placement: bottom-right of the nearest positioned ancestor.
@@ -114,10 +128,13 @@ const { kind, slug, title, href, section, dek, imageUrl, floating = true } = Ast
        `width: auto` + `max-width: 2rem` starts as a circle; expanding
        max-width to a concrete value gives the browser a fully transitionable
        range - unlike `width: 2rem → width: auto` which snaps and flickers. */
-    height: 2rem;
-    min-width: 2rem;
-    max-width: 2rem;
-    width: 2rem;
+    /* Visible circle 36px; the ::before below extends the hit area to
+       44x44 without growing the mark. */
+    position: relative;
+    height: 2.25rem;
+    min-width: 2.25rem;
+    max-width: 2.25rem;
+    width: 2.25rem;
 
     padding: 0;
     display: inline-flex;
@@ -128,7 +145,8 @@ const { kind, slug, title, href, section, dek, imageUrl, floating = true } = Ast
        becomes visible. */
     gap: 0;
     cursor: pointer;
-    overflow: hidden;
+    /* No overflow:hidden here: it would clip the ::before hit area. The
+       label clips itself (max-width + overflow on .pi-actions__label). */
     white-space: nowrap;
 
     transition:
@@ -144,6 +162,14 @@ const { kind, slug, title, href, section, dek, imageUrl, floating = true } = Ast
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
+  }
+
+  /* 44x44 touch target around the 36px circle. */
+  .pi-actions__btn::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 999px;
   }
 
   /* Keep the icon from shrinking when the label appears */

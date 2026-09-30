@@ -1,17 +1,60 @@
 ---
-/** Optional explanation alongside discovery; no storage or account requirement added. */
+/**
+ * Optional explanation alongside discovery; no storage or account requirement
+ * added. Styled as a small inline help link with a harbour chevron, not a
+ * ruled strip: it sits directly under the FilterBar, and a bordered
+ * disclosure there doubled the rule between the hero controls and content.
+ */
 ---
 <details class="planning-help">
-  <summary>Save a possibility or plan a visit?</summary>
-  <div>
+  <summary>
+    <span>Saving places for a trip? Here’s how</span>
+    <svg class="planning-help__chevron" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+      <path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  </summary>
+  <div class="planning-help__body">
     <p><strong>Save</strong> keeps a shortlist in <a href="/me/saved/">Saved places</a>. <strong>Add to trip</strong> puts a chosen stop into <a href="/me/trip/">My trip</a>, where you can arrange your day.</p>
     <p>You can start as a guest on this device. Saving or adding a stop does not reserve a table, room or ticket. Check opening times and bookings with the operator before travelling.</p>
   </div>
 </details>
 <style>
-  .planning-help { border-block: 1px solid var(--border); margin-block: 1rem; font-size: 0.9375rem; color: var(--soft); }
-  summary { min-height: 44px; padding-block: 0.75rem; cursor: pointer; color: var(--text); font-weight: 600; }
+  .planning-help {
+    margin-block: var(--space-3, 0.75rem) 0;
+    font-family: var(--font-ui);
+    font-size: var(--fs-300, 0.9375rem);
+    color: var(--soft);
+  }
+  summary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    min-height: 48px;
+    list-style: none;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--harbour, #10527E);
+  }
+  summary > span {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::marker { content: ''; }
+  summary:hover { color: var(--harbour-h, #0C4166); }
   summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-  p { max-width: 75ch; margin: 0 0 1rem; line-height: 1.6; }
-  a { color: var(--teal-text); text-underline-offset: 0.2em; }
+  .planning-help__chevron {
+    flex: 0 0 auto;
+    transition: transform var(--dur-fast, 120ms) var(--ease, ease);
+  }
+  .planning-help[open] .planning-help__chevron { transform: rotate(180deg); }
+  @media (prefers-reduced-motion: reduce) {
+    .planning-help__chevron { transition: none; }
+  }
+  .planning-help__body { padding-block: var(--space-2, 0.5rem) var(--space-3, 0.75rem); }
+  p { max-width: 75ch; margin: 0 0 var(--space-3, 0.75rem); line-height: 1.6; }
+  p:last-child { margin-bottom: 0; }
+  a { color: var(--harbour, #10527E); text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+  strong { color: var(--text); font-weight: 600; }
 </style>

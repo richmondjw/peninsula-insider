@@ -1,5 +1,5 @@
 ---
-title: "The Peninsula's Best Late-Afternoon Walks"
+title: "The Peninsula’s best late-afternoon walks"
 dek: "When lunch is over and the light starts improving, these are the walks that make the region feel larger, wilder, and worth staying for."
 author: "editorial"
 houseByline: true

@@ -11,9 +11,10 @@
  */
 import { getCollection } from 'astro:content';
 import { isJournalDiscovery } from '../../../lib/journal-curation.mjs';
-import { routeSlug, formatLabel } from '../../../lib/editorial';
+import { routeSlug } from '../../../lib/editorial';
 import { resolveHero } from '../../../lib/inline-edit/resolve-hero';
 import { editableImage } from '../../../lib/inline-edit/attrs';
+import curation from '../../../data/journal-front.json';
 
 const published = await getCollection('articles', ({ data }) => isJournalDiscovery(data));
 // The spring school-holiday guide expires on 5 October. Its own
@@ -23,11 +24,30 @@ const lead = ['spring-school-holidays-2026', 'area-guide-red-hill']
   .find((article) => article !== undefined);
 const slug = lead ? routeSlug(lead) : '';
 const hero = lead ? await resolveHero('article', slug, lead.data, 'hero') : null;
-const kicker = lead?.data.tags.includes('insider-picks') ? 'Insider Picks' : (lead ? (formatLabel[lead.data.format] ?? 'Feature') : '');
+// Reader-facing kicker only. The raw format label ('Service', 'Hub Guide')
+// is an internal content type and never surfaces here. A theme is added
+// only when the desk has given the article one: the first segment of its
+// curated Journal eyebrow ("With kids / 19 September to 4 October" gives
+// "With kids"), or the Insider Picks series tag.
+const curatedEyebrow = lead
+  ? String((curation.cards as Record<string, { eyebrow?: string }>)[slug]?.eyebrow ?? '')
+  : '';
+const theme = curatedEyebrow.split(' / ')[0].trim()
+  || (lead?.data.tags.includes('insider-picks') ? 'Insider Picks' : '');
+const kicker = ['From the Journal', theme].filter(Boolean).join(' · ');
+// Keep day, month and year together so a date never splits across lines.
+const NBSP = String.fromCharCode(160);
+const MONTHS = 'January|February|March|April|May|June|July|August|September|October|November|December';
+const dek = lead?.data.dek
+  ? String(lead.data.dek).replace(
+      new RegExp(`\\b(\\d{1,2}) (${MONTHS})(?: (\\d{4}))?`, 'g'),
+      (_m: string, d: string, m: string, y?: string) => [d, m, y].filter(Boolean).join(NBSP),
+    )
+  : '';
 ---
 
 {lead && hero && (
-  <section class="home-journal" aria-labelledby="home-journal-title">
+  <section class="home-journal pi-section" aria-labelledby="home-journal-title">
     <div class="container home-journal__layout">
     <figure class="home-journal__media">
       <img
@@ -45,8 +65,8 @@ const kicker = lead?.data.tags.includes('insider-picks') ? 'Insider Picks' : (le
       />
     </figure>
     <div class="home-journal__body">
-      <p class="home-journal__kicker">From the Journal <span aria-hidden="true">&middot;</span> {kicker}</p>
-      <h2 id="home-journal-title" class="home-journal__headline">
+      <p class="pi-eyebrow">{kicker}</p>
+      <h2 id="home-journal-title" class="pi-h2 home-journal__headline">
         <a
           href={`/journal/${slug}/`}
           data-evt="card_click"
@@ -57,9 +77,9 @@ const kicker = lead?.data.tags.includes('insider-picks') ? 'Insider Picks' : (le
           {lead.data.title}
         </a>
       </h2>
-      {lead.data.dek && <p class="home-journal__dek">{lead.data.dek}</p>}
+      {dek && <p class="home-journal__dek">{dek}</p>}
       <p class="home-journal__cta">
-        <a href={`/journal/${slug}/`} tabindex="-1" aria-hidden="true">Read the story &rarr;</a>
+        <a class="pi-section-link" href={`/journal/${slug}/`} tabindex="-1" aria-hidden="true">Read the story <span aria-hidden="true">&rarr;</span></a>
       </p>
     </div>
     </div>
@@ -72,17 +92,25 @@ const kicker = lead?.data.tags.includes('insider-picks') ? 'Insider Picks' : (le
 </script>
 
 <style>
-  .home-journal { background: var(--paper, var(--bg-alt)); padding-block: clamp(2rem, 4vw, 3.5rem); border-block: 1px solid var(--border); }
-  .home-journal__layout { display: grid; grid-template-columns: 1.15fr 1fr; gap: clamp(2rem, 4vw, 4rem); align-items: center; }
-  .home-journal__media { margin: 0; min-width: 0; }
-  .home-journal__media img { display: block; width: 100%; aspect-ratio: 1.3; object-fit: cover; border-radius: var(--radius-m); }
+  /* Vertical rhythm from .pi-section; no full-bleed hairlines, sections
+     separate by spacing. Eyebrow, H2 and link follow the G1 canon; the
+     headline is the one permitted larger lead-feature variant, in the
+     same ink and weight as every other section H2. */
+  .home-journal { background: var(--paper, var(--bg-alt)); }
+  .home-journal__layout { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: clamp(2rem, 4vw, 4rem); align-items: start; }
+  .home-journal__media { margin: 0; min-width: 0; aspect-ratio: 3 / 2; overflow: hidden; border-radius: var(--radius-m); }
+  .home-journal__media img { display: block; width: 100%; height: 100%; object-fit: cover; }
   .home-journal__body { min-width: 0; }
-  .home-journal__kicker { font: var(--fw-semibold) var(--fs-100)/var(--lh-ui) var(--font-ui); letter-spacing: var(--ls-eyebrow); text-transform: uppercase; color: var(--accent); margin: 0 0 var(--space-4); }
-  .home-journal__headline { font: var(--fw-display) clamp(2rem, 3vw, 3rem)/1.12 var(--font-display); letter-spacing: -.035em; text-wrap: balance; margin: 0; }
-  .home-journal__headline a { color: var(--accent); text-decoration: none; }
+  .home-journal__headline { font-size: clamp(2.25rem, 1.6rem + 2vw, 3rem); }
+  .home-journal__headline a { color: inherit; text-decoration: none; }
   .home-journal__headline a:hover { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .15em; }
-  .home-journal__dek { font-size: var(--fs-500); line-height: var(--lh-body); margin: var(--space-5) 0; max-width: 40ch; }
-  .home-journal__cta { font-weight: var(--fw-semibold); margin-top: var(--space-5); }
-  .home-journal__cta a { color: var(--accent); text-decoration: underline; text-underline-offset: .2em; }
-  @media (max-width: 47.94em) { .home-journal__layout { grid-template-columns: 1fr; gap: var(--space-5); } .home-journal__dek { font-size: var(--fs-400); } }
+  .home-journal__headline a:focus-visible { outline: 2px solid var(--focus-ring-color); outline-offset: 3px; border-radius: 2px; }
+  .home-journal__dek { font-size: var(--fs-500); line-height: 1.5; margin: var(--space-4) 0 0; max-width: 52ch; text-wrap: pretty; color: var(--soft); }
+  .home-journal__cta { margin: var(--space-4) 0 0; }
+  @media (max-width: 47.94em) {
+    .home-journal__layout { grid-template-columns: 1fr; gap: var(--space-5); }
+    .home-journal__media { aspect-ratio: 4 / 3; }
+    .home-journal__media img { object-position: 50% 60%; }
+    .home-journal__dek { font-size: var(--fs-400); }
+  }
 </style>

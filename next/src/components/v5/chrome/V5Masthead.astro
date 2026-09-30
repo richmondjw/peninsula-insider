@@ -11,7 +11,7 @@ const active = path.startsWith('/explore/plans') || path.startsWith('/plans') ? 
 <div class="masthead-row wrap">
 <a aria-label="Peninsula Insider home" class="brand" href="/">Peninsula <span>Insider</span>
 </a>
-<p class="brand-note">A local point of view.<br/>A Peninsula worth knowing.</p>
+<p class="brand-note">Every pick earns its place.</p>
 <div class="header-actions">
 <a class="search-link" data-open-search data-evt="search_open" href="/search/">
 <svg aria-hidden="true" fill="none" height="17" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" width="17">
@@ -43,7 +43,7 @@ const active = path.startsWith('/explore/plans') || path.startsWith('/plans') ? 
 </div>
 <V5MegaPanel pillar={p} />
 </div>)}<details class="personal-menu">
-<summary>Your Peninsula <span aria-hidden="true">⌄</span>
+<summary>Your Peninsula <svg class="personal-menu__chevron" aria-hidden="true" viewBox="0 0 16 16" width="14" height="14" fill="none"><path d="m3.5 6 4.5 4 4.5-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
 </summary>
 <div class="personal-panel">
 <span class="v2-util__links">
@@ -126,7 +126,11 @@ initEditorialShell();document.addEventListener('astro:page-load',initEditorialSh
  .pillar-menu__toggle svg{transition:transform .18s ease}
  .pillar-menu.is-open .pillar-menu__toggle svg{transform:rotate(180deg)}
  .pillar-menu.is-open .pillar-menu__trigger>a{color:#10527e}
- .pillar-menu__toggle:focus-visible{outline:3px solid #11309c;outline-offset:2px}
+ .pillar-menu__toggle:focus-visible{outline:3px solid var(--harbour);outline-offset:2px}
+ /* G6: the personal menu uses the same SVG chevron as the pillar toggles. */
+ .personal-menu__chevron{flex:none;color:#53636d;transition:transform .18s ease}
+ .personal-menu[open] .personal-menu__chevron{transform:rotate(180deg)}
+ @media (prefers-reduced-motion:reduce){.pillar-menu__toggle svg,.personal-menu__chevron{transition:none}}
  @media(max-width:1100px){
   .site-nav{display:none}
   .site-nav.open{display:block}

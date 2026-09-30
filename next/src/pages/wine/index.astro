@@ -147,10 +147,13 @@ const sixSource = [
   ...venues.filter((v) => v.data.type === 'winery' && v.data.editorPick !== true),
 ].slice(0, 6);
 const theSixItems = sixSource.map((v) => venueItem(v));
+const sixSlugs = new Set(sixSource.map((v) => routeSlug(v)));
 
 // ── Winery kitchens: reciprocal module, the HUB-01 bridge with /eat/ ──────
+// A winery already pinned in The Six is not shown again here: the same card
+// twice in two adjacent modules read as repetition, not curation.
 const kitchens = venues
-  .filter((v) => v.data.type === 'winery' && hasKitchen(v.data))
+  .filter((v) => v.data.type === 'winery' && hasKitchen(v.data) && !sixSlugs.has(routeSlug(v)))
   .sort(
     (a, b) =>
       Number(b.data.restaurant?.hats ?? 0) - Number(a.data.restaurant?.hats ?? 0) ||
@@ -169,6 +172,19 @@ const kitchenItems = kitchens.map((v) => {
 
 // ── Directory: every wine venue, one row each, server-rendered ────────────
 const directoryItems = venues.map((v) => venueItem(v));
+
+// One noun for the page ("producers"), stated with its count once, in the
+// directory heading. The kinds are read from the corpus so the heading stays
+// true as venues are added ("a distillery" becomes "distilleries").
+const typeCount = (type: string) => venues.filter((v) => v.data.type === type).length;
+const kindPhrase = (n: number, one: string, many: string) => (n === 1 ? `a ${one}` : many);
+const kinds = [
+  typeCount('winery') ? 'cellar doors' : null,
+  typeCount('brewery') ? kindPhrase(typeCount('brewery'), 'brewery', 'breweries') : null,
+  typeCount('distillery') ? kindPhrase(typeCount('distillery'), 'distillery', 'distilleries') : null,
+].filter((k): k is string => Boolean(k));
+const kindList = kinds.length > 1 ? `${kinds.slice(0, -1).join(', ')} and ${kinds[kinds.length - 1]}` : kinds[0];
+const directoryHeading = `All ${venues.length} producers${kindList ? `: ${kindList}` : ''}`;
 
 // ── Best-of rail (canonical guides only; absorbed dupes not linked) ───────
 const bestOfRail = [
@@ -237,8 +253,10 @@ const journalItems = Object.keys(journalVerdicts)
 
 // ── Stand-first (<= 80 words, carries cellar-door SEO phrases + the
 //    walk-in/appointment orientation line) ─────────────────────────────────
+//    The "check with the producer" caveat is stated once, under the
+//    directory heading, so the stand-first no longer repeats it. ──────────
 const standfirst =
-  'Explore Mornington Peninsula wineries from Red Hill and Main Ridge to Merricks and the bay. Choose a tasting, a long lunch or an appointment, then check the producer’s current hours and bookings.';
+  'Explore Mornington Peninsula wineries from Red Hill and Main Ridge to Merricks and the bay. Choose a tasting, a long lunch or an appointment.';
 
 const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'Wine Country' }];
 
@@ -267,30 +285,32 @@ const faqSchema = {
 
   <Breadcrumbs items={breadcrumbItems} />
 
-  <!-- 1. Stand-first: h1 + <= 80-word Editor case (replaces hero dek,
-       EditorialSurface, CompareBlock and the 232-word essay) -->
+  <!-- 1. Stand-first: h1 + <= 80-word Editor case, run as the documented
+       photo cover (bottom-up harbour scrim, white Sora title) so the hub no
+       longer opens on a flat band with an empty right half. The image is
+       the section's existing wine hub hero, interim until James confirms or
+       replaces it. -->
   <HubStandfirst
-    compact
     title="Mornington Peninsula wine country"
     standfirst={standfirst}
+    image={{ src: '/images/sourced/wine-hub-hero-01.webp', alt: 'Pinot noir grapes ripening on the vine' }}
+    imagePosition="50% 45%"
   />
 
-  <CategoryBrowse directory="wine-directory" count={venues.length} noun="producers" mapHref="/map/?cat=winery">
-    <FilterBar surface="wine" noun="cellar doors" facets={['place', 'cat', 'price', 'mood', 'party']}>
-      <SortControl />
-    </FilterBar>
+  <CategoryBrowse directory="wine-directory" noun="producers" mapHref="/map/?cat=winery">
+    <FilterBar surface="wine" noun="producers" label="Filter producers" facets={['place', 'cat', 'price', 'mood', 'party']} />
     <PlanningHelp />
   </CategoryBrowse>
 
   <div data-category-editorial>
   <WineVisitChooser />
 
-  <!-- 2. The Six -->
+  <!-- 2. The Six. The eyebrow names the shortlist; the caveat the old sub
+       carried now appears once, under the directory heading. -->
   <TheSix
     id="the-six"
     eyebrow="The cellar-door shortlist"
     heading="Cellar doors to build a day around"
-    sub="An editorial shortlist. Individual check dates describe the recorded research; confirm current hours and bookings with the producer."
     surface="wine"
     items={theSixItems}
   />
@@ -306,16 +326,21 @@ const faqSchema = {
     surface="wine"
     noun="winery kitchens"
     items={kitchenItems}
-    topLink={{ label: 'Restaurants, in Eat & Drink', href: '/eat/' }}
+    topLink={{ label: 'More winery restaurants in Eat & Drink', href: '/eat/' }}
     countable={false}
   />
 
-  <div class="wine-mid container">
-    <!-- 5. Best-of rail (canonical guides; cellar-doors + best-wineries
-         absorb into best-cellar-doors per the sitemap, handled elsewhere) -->
-    <section class="wine-rail" aria-labelledby="wine-rail-h">
-      <h2 id="wine-rail-h" class="wine-rail__heading">Read before you book</h2>
-      {/* The section eyebrow already reads "The guides"; the cards drop the
+  <!-- 5. Best-of rail (canonical guides; cellar-doors + best-wineries
+       absorb into best-cellar-doors per the sitemap, handled elsewhere) -->
+  <section class="wine-rail pi-section" aria-labelledby="wine-rail-h">
+    <div class="container">
+      <div class="pi-section-head">
+        <div class="pi-section-head__text">
+          <p class="pi-eyebrow">The guides</p>
+          <h2 id="wine-rail-h" class="pi-h2">Read before you book</h2>
+        </div>
+      </div>
+      {/* The section eyebrow reads "The guides"; the cards drop the
           per-card GUIDE stamp. Text-only rail, so no media fallback. */}
       <CardGrid label="Wine guides" layout="grid" maxCols={3}>
         {bestOfRail.map((guide, i) => (
@@ -332,30 +357,36 @@ const faqSchema = {
           />
         ))}
       </CardGrid>
-    </section>
 
-    <!-- Events: one line + link, not a strip (spec point 17) -->
-    <p class="wine-events-line">
-      Release weekends and winemaker dinners live in <a href="/whats-on/">What&rsquo;s On</a>.
-    </p>
-  </div>
+      <!-- Events: one line + link, not a strip (spec point 17) -->
+      <p class="wine-events-line">
+        Release weekends and winemaker dinners live in
+        <a class="pi-section-link" href="/whats-on/">What&rsquo;s On <span aria-hidden="true">→</span></a>
+      </p>
+    </div>
+  </section>
 
   </div>
 
   <!-- 6. Directory: every wine venue as a server-rendered compact row with
        data-facets. Breweries and distilleries are type facets in the sheet,
-       not separate one-card grids (HUB-13). -->
+       not separate one-card grids (HUB-13). Sort sits under the heading of
+       the list it reorders. -->
   <DirectoryRows
     id="wine-directory"
     eyebrow="The full list"
-    heading={`All ${venues.length} cellar doors, breweries and distilleries`}
-    sub="Compare places to taste, eat and explore. Narrow by the visit you want, or sort by name or town."
+    heading={directoryHeading}
+    sub="Hours and bookings change; check with the producer before you go."
     surface="wine"
-    noun="cellar doors"
+    noun="producers"
     items={directoryItems}
     emptyHeading="Nothing matches those filters"
     emptyBody="Clear one and the ridge reopens."
-  />
+  >
+    <div slot="before-list" class="wine-list-tools">
+      <SortControl />
+    </div>
+  </DirectoryRows>
 
   <!-- 7. From the Journal: ONE module, <= 3 cards (down from two sections) -->
   <JournalModule
@@ -367,10 +398,13 @@ const faqSchema = {
   />
 
   <!-- 8. FAQ: retained in-DOM, copy unchanged (protect-list) -->
-  <section class="hub-faq" aria-label="Frequently asked questions">
+  <section class="hub-faq pi-section" aria-labelledby="wine-faq-heading">
     <div class="container">
-      <div class="hub-faq__intro">
-        <h2 class="hub-faq__title">Three honest answers before you book</h2>
+      <div class="pi-section-head">
+        <div class="pi-section-head__text">
+          <p class="pi-eyebrow">Frequently asked</p>
+          <h2 class="pi-h2" id="wine-faq-heading">Three honest answers before you book</h2>
+        </div>
       </div>
       <div class="hub-faq__list">
         {faqSchema.mainEntity.map((item) => (
@@ -387,53 +421,27 @@ const faqSchema = {
 </BaseLayout>
 
 <style>
-  .wine-controls {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4, 1rem);
-    padding-top: var(--space-3, 0.75rem);
-  }
-
-  .wine-mid {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-5, 1.5rem);
-    padding: var(--space-6, 2rem) 0;
-  }
-
-  /* Best-of rail */
-  .wine-rail__eyebrow {
-    margin: 0 0 var(--space-2, 0.5rem);
-    font-family: var(--font-ui);
-    font-size: var(--fs-100, 0.75rem);
-    font-weight: var(--fw-semibold, 600);
-    letter-spacing: var(--ls-eyebrow, 0.12em);
-    text-transform: uppercase;
-    color: var(--teal-text);
-  }
-  .wine-rail__heading {
-    margin: 0 0 var(--space-5, 1.5rem);
-    font-family: var(--font-display);
-    font-size: var(--fs-700, clamp(1.75rem, 1.5rem + 1.2vw, 2.25rem));
-    font-weight: var(--fw-display, 600);
-    line-height: var(--lh-heading, 1.14);
-    letter-spacing: -0.01em;
-    color: var(--text);
-  }
-
-  /* Events one-liner */
+  /* Events one-liner, closing the guides band. The link is the shared
+     .pi-section-link, so "What's On", "All in the Journal" and the kitchens
+     link read as one harbour text-link style. */
   .wine-events-line {
-    margin: 0;
-    font-family: var(--font-ui, var(--font-ui));
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: 0.35em;
+    margin: var(--space-6, 2rem) 0 0;
+    font-family: var(--font-ui);
     font-size: var(--fs-300, 0.9375rem);
     color: var(--soft);
-  }
-  .wine-events-line a {
-    color: var(--accent);
-    text-underline-offset: 2px;
   }
   .wine-events-line a:focus-visible {
     outline: var(--focus-ring, 2px solid var(--accent));
     outline-offset: 2px;
+  }
+  /* Sort acts on the list, so it sits under the list heading it reorders. */
+  .wine-list-tools {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: var(--space-4, 1rem);
   }
 </style>

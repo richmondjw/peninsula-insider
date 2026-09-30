@@ -4,7 +4,8 @@
  * around this month (page-redesigns section 2 block 9.3; wireframes #eat
  * note 3). Editorially pinned, never algorithmic; each card is a Card(venue)
  * with a Critic verdict of 25 words or fewer, freshness label, Save and
- * "+ Trip".
+ * "Add to trip". The first three are framed photographic venue cards; the
+ * other three sit in a native disclosure as directory rows.
  *
  * One filter state governs the whole page: every item here carries a
  * `data-facets` payload (values from lib/facets getFacets) on its `li`, so
@@ -76,88 +77,186 @@ const six = items.slice(0, 6);
    stays level. If the whole set is image-free the module simply runs
    text-only rather than printing six identical plates. */
 const anyImage = six.some((item) => Boolean(item.image?.src));
+/* Any pick that can book: every pick in the group holds the booking slot. */
+const anyBooking = six.some((item) => Boolean(item.booking));
+const headingId = `${id ?? `six-${surface}`}-heading`;
 ---
 
-<section class="v5-six" id={id} aria-labelledby={`${id ?? `six-${surface}`}-heading`}>
+<section class="v5-six pi-section" id={id} aria-labelledby={headingId}>
   <div class="container">
-    <div class="v5-six__header">
-      {eyebrow && <p class="v5-six__eyebrow">{eyebrow}</p>}
-      <h2 class="v5-six__heading" id={`${id ?? `six-${surface}`}-heading`}>{heading}</h2>
-      {sub && <p class="v5-six__sub">{sub}</p>}
+    <div class="pi-section-head">
+      <div class="pi-section-head__text">
+        {eyebrow && <p class="pi-eyebrow">{eyebrow}</p>}
+        <h2 class="pi-h2" id={headingId}>{heading}</h2>
+        {sub && <p class="pi-section-dek">{sub}</p>}
+      </div>
     </div>
     {[six.slice(0, 3), six.slice(3)].map((group, groupIndex) => {
+      const lead = groupIndex === 0;
       const Content = (
-        <CardGrid label={groupIndex === 0 ? heading : 'More editorial choices'}>
+        <CardGrid label={lead ? heading : 'More editorial choices'}>
           {group.map((item, i) => (
-            <li class="v5-six__item" data-facets={item.facets ? JSON.stringify(item.facets) : undefined} data-title={item.title}>
-              <Card as="div" variant={groupIndex === 0 && i === 0 ? 'venue' : 'compact-row'}
+            <li
+              class:list={['v5-six__item', lead && i > 0 && 'v5-six__item--side']}
+              data-facets={item.facets ? JSON.stringify(item.facets) : undefined}
+              data-title={item.title}
+            >
+              {/* The three lead picks share one card treatment (venue, framed,
+                  photographic); the three in the disclosure are directory rows. */}
+              <Card as="div" variant={lead ? 'venue' : 'compact-row'}
                 title={item.title} href={item.href} entityType={item.entityType} entitySlug={item.entitySlug}
-                image={item.image} mediaFallback={anyImage && groupIndex === 0 && i === 0}
+                image={item.image} mediaFallback={anyImage}
                 showEyebrow={showEyebrow} verdict={item.verdict} meta={item.meta}
                 priceBand={item.priceBand} freshness={item.freshness} freshnessKind="checked"
-                booking={item.booking} partnerLabel={item.partnerLabel} saveSection={item.saveSection}
+                booking={item.booking} reserveBooking={!lead && anyBooking}
+                partnerLabel={item.partnerLabel} saveSection={item.saveSection}
                 trip={true} surface={surface} position={groupIndex * 3 + i + 1} />
             </li>
           ))}
         </CardGrid>
       );
-      return groupIndex === 0
+      return lead
         ? <div class="v5-six__lead">{Content}</div>
-        : group.length > 0 && <details class="v5-six__more"><summary>See {group.length} more editorial choices</summary>{Content}</details>;
+        : group.length > 0 && (
+          <details class="v5-six__more">
+            <summary>
+              <span>See {group.length} more editorial choices</span>
+              <svg class="v5-six__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </summary>
+            {Content}
+          </details>
+        );
     })}
   </div>
 </section>
 
 <style>
-  .v5-six {
-    padding: var(--space-5, 1.5rem) 0 var(--space-6, 2rem);
-  }
-  .v5-six__lead :global(.v5-card-grid) { grid-template-columns: 1fr; }
-  .v5-six__more { margin-top: 1rem; border-block: 1px solid var(--border); }
-  .v5-six__more summary { padding-block: 0.75rem; min-height: 44px; cursor: pointer; font-weight: 600; color: var(--teal-text); }
-  .v5-six__more summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-  .v5-six__more :global(.v5-card-grid) { grid-template-columns: 1fr; padding-block: 1rem; }
-  @media (min-width: 64em) {
-    .v5-six__lead :global(.v5-card-grid) { grid-template-columns: 1.2fr 1fr; }
-    .v5-six__lead .v5-six__item:first-child { grid-row: span 2; }
-    .v5-six__lead :global(.pi-card--venue .pi-card__media) { aspect-ratio: 16 / 9; }
-  }
-  .v5-six__header {
-    margin-bottom: var(--space-5, 1.5rem);
-  }
-  .v5-six__eyebrow {
-    margin: 0 0 var(--space-2, 0.5rem);
-    font-family: var(--font-ui);
-    font-size: var(--fs-100, 0.75rem);
-    font-weight: 600;
-    letter-spacing: var(--ls-eyebrow, 0.12em);
-    text-transform: uppercase;
-    color: var(--teal-text);
-  }
-  .v5-six__heading {
-    margin: 0;
-    font-family: var(--font-display);
-    font-size: var(--fs-700, clamp(1.6rem, 1.35rem + 1.2vw, 2.1rem));
-    font-weight: var(--fw-display, 600);
-    line-height: var(--lh-heading, 1.14);
-    letter-spacing: -0.01em;
-    color: var(--text);
-    max-width: 22ch;
-    text-wrap: balance;
-  }
-  .v5-six__sub {
-    margin: var(--space-3, 0.75rem) 0 0;
-    font-family: var(--font-ui);
-    font-size: var(--fs-300, 0.9375rem);
-    line-height: var(--lh-ui, 1.4);
-    color: var(--soft);
-    max-width: var(--measure-dek, 52ch);
-  }
+  /* Section head and vertical rhythm come from the shared .pi-section /
+     .pi-section-head canon (global.css, G1). */
   .v5-six__item {
     list-style: none;
     display: flex;
   }
   .v5-six__item > :global(.pi-card) {
     flex: 1;
+  }
+
+  /* ---- the lead group: three picks, one card treatment ----
+     Phone: three identical vertical venue cards with 16:10 photos.
+     Tablet: the lead across the top, the other two side by side under it.
+     Desktop: the lead on the left; the other two stacked on the right as
+     horizontal cards (40% photo at full card height, text top-aligned),
+     whose combined height plus the 24px gap sets the lead's height. */
+  .v5-six__lead :global(.v5-card-grid) {
+    grid-template-columns: 1fr;
+    gap: var(--space-5, 1.5rem);
+  }
+  .v5-six__lead :global(.pi-card__media) {
+    aspect-ratio: 16 / 10;
+  }
+  @media (min-width: 48em) and (max-width: 63.99em) {
+    .v5-six__lead :global(.v5-card-grid) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .v5-six__lead .v5-six__item:first-child {
+      grid-column: 1 / -1;
+    }
+  }
+  @media (min-width: 64em) {
+    .v5-six__lead :global(.v5-card-grid) {
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      grid-template-rows: auto auto;
+    }
+    .v5-six__lead .v5-six__item:first-child {
+      grid-row: 1 / span 2;
+    }
+    /* The lead photo takes whatever height the two side cards set. The
+       image is lifted out of flow so its intrinsic size never drives it. */
+    .v5-six__lead .v5-six__item:first-child :global(.pi-card__media) {
+      flex: 1 1 auto;
+      aspect-ratio: auto;
+      min-height: 16rem;
+    }
+    .v5-six__lead .v5-six__item:first-child :global(.pi-card__body) {
+      flex: 0 0 auto;
+    }
+    .v5-six__lead .v5-six__item:first-child :global(.pi-card__media img),
+    .v5-six__item--side :global(.pi-card__media img) {
+      position: absolute;
+      inset: 0;
+    }
+    .v5-six__item--side > :global(.pi-card) {
+      display: grid;
+      grid-template-columns: 40% minmax(0, 1fr);
+      grid-template-rows: auto 1fr;
+    }
+    .v5-six__item--side :global(.pi-card__media) {
+      grid-column: 1;
+      grid-row: 1 / -1;
+      aspect-ratio: auto;
+      height: 100%;
+      min-height: 10rem;
+    }
+    .v5-six__item--side :global(.pi-card__body) {
+      grid-column: 2;
+      grid-row: 1;
+    }
+    /* Actions directly under the meta, never floated to the card foot. */
+    .v5-six__item--side :global(.pi-card__actions) {
+      grid-column: 2;
+      grid-row: 2;
+      align-self: start;
+      margin-top: 0;
+    }
+  }
+
+  /* ---- the disclosure: three more picks as directory rows ---- */
+  .v5-six__more {
+    margin-top: var(--space-6, 2rem);
+    border-block: 1px solid var(--border);
+  }
+  .v5-six__more summary {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2, 0.5rem);
+    min-height: 48px;
+    list-style: none;
+    cursor: pointer;
+    font-family: var(--font-ui);
+    font-size: var(--fs-300, 0.9375rem);
+    font-weight: var(--fw-semibold, 600);
+    color: var(--harbour);
+  }
+  .v5-six__more summary::-webkit-details-marker {
+    display: none;
+  }
+  .v5-six__more summary:hover {
+    color: var(--harbour-h);
+  }
+  .v5-six__more summary:focus-visible {
+    outline: var(--focus-ring, 2px solid var(--accent));
+    outline-offset: 3px;
+  }
+  .v5-six__chevron {
+    flex: none;
+    transition: transform var(--dur-fast, 120ms) var(--ease-enter, ease);
+  }
+  .v5-six__more[open] .v5-six__chevron {
+    transform: rotate(180deg);
+  }
+  .v5-six__more :global(.v5-card-grid) {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .v5-six__more .v5-six__item {
+    padding-block: var(--space-5, 1.5rem);
+    border-top: 1px solid var(--border);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .v5-six__chevron {
+      transition: none;
+    }
   }
 </style>

@@ -23,11 +23,9 @@ const allCharters = await getCollection('fishingCharters', ({ data }) => data.st
 // records carries live supporting evidence in the claim registry; otherwise
 // the floor of their review dates is published, worded as a review.
 const provenance = await pageProvenance(allSpecies, 'species');
-// The trailing space is part of the string on purpose: Astro drops a
-// whitespace-only text node between two expressions in a fragment.
-const verificationSentence = provenance.stampISO
-  ? `${provenance.stampLabel} ${formatVerifiedStamp(provenance.stampISO)}. `
-  : '';
+// The page states its verification once, in Licensing, beside the rules it
+// covers. The disclosure strip under the hero keeps the source and the
+// "confirm with VFA" caution but no longer repeats the stamp.
 const verificationStamp = provenance.stampISO ? formatVerifiedStamp(provenance.stampISO) : null;
 const modifiedISO = provenance.stampISO ?? undefined;
 
@@ -39,7 +37,7 @@ const breadcrumbItems = [
 const hubSchema = buildBfHubSchema({
   name: 'Fishing the Mornington Peninsula',
   description:
-    "Peninsula Insider's fishing hub: 12 species, three water bodies, charter selection, and the editorial layer the Victorian Fisheries Authority does not publish.",
+    "Peninsula Insider's fishing guide: 12 species, three water bodies and charter selection.",
   path: '/fishing/',
   dateModified: modifiedISO,
   breadcrumbs: [
@@ -68,7 +66,7 @@ const seasonalityRows = [
   { month: 'May', primary: 'Calamari', secondary: 'Gummy shark', notes: 'Quieter on piers; good boat fishing' },
   { month: 'June', primary: 'Gummy shark', secondary: 'Flathead', notes: 'Western Port productive; bay quieter' },
   { month: 'July', primary: 'Flathead (Western Port)', secondary: 'Salmon (surf)', notes: 'Gunnamatta and Cape Schanck salmon' },
-  { month: 'August', primary: 'Salmon', secondary: 'Flathead', notes: 'Off-season; dedicated anglers rewarded' },
+  { month: 'August', primary: 'Salmon', secondary: 'Flathead', notes: 'Quietest month; dedicated anglers rewarded' },
 ];
 export const prerender = true;
 ---
@@ -88,7 +86,7 @@ export const prerender = true;
   <SectionHero
     eyebrow="Fishing"
     title="Fishing the <em>Mornington Peninsula</em>"
-    dek="Three overlapping fisheries, Port Phillip Bay, Western Port, the Bass Strait fringe, twelve species, and a calendar that runs year-round. The editorial layer above the VFA data and below the operator brochures."
+    dek="Three overlapping fisheries (Port Phillip Bay, Western Port, the Bass Strait fringe), twelve species, and a calendar that runs year-round."
     gradient="vineyard"
     heroImage="/images/sourced/explore-portsea-front-beach-01.webp"
   entitySlug="fishing"
@@ -97,8 +95,7 @@ export const prerender = true;
   <p class="affiliate-disclosure container">
     Bag and size limits are sourced from the
     <a href={BF_EXTERNAL.vfa} rel="external">Victorian Fisheries Authority</a>.
-    {verificationSentence}Regulations change, confirm with
-    VFA before fishing.
+    Regulations change, confirm with VFA before fishing.
   </p>
 
   <section class="experience-index" data-bf-article>
@@ -107,8 +104,8 @@ export const prerender = true;
       <h2>The Peninsula is three fisheries, not one</h2>
       <p>
         The Mornington Peninsula sits at the convergence of two large coastal
-        embayments. <strong>Port Phillip Bay</strong>, Australia's largest bay
-       , enters through the Rip at Portsea on the Peninsula's western tip.
+        embayments. <strong>Port Phillip Bay</strong>, Australia's largest bay,
+        enters through the Rip at Portsea on the Peninsula's western tip.
         <strong>Western Port</strong>, shallower and more tidal, wraps the
         Peninsula's eastern flank. <strong>Bass Strait</strong> runs along the
         southern coast. No other recreational fishing destination in Victoria
@@ -130,18 +127,18 @@ export const prerender = true;
 
   <section class="experience-index experience-index--plain">
     <div class="container">
-      <div class="venues__header">
-        <div>
-          <p class="label label--accent">The 12 species</p>
-          <h2 class="venues__title">Every species page is VFA-verified</h2>
-          <p class="venues__sub">Bag limits, size limits, and seasonal closures cite VFA verbatim. The editorial layer covers Peninsula-specific tide windows, locations, and which charters target which species.</p>
+      <div class="pi-section-head">
+        <div class="pi-section-head__text">
+          <p class="pi-eyebrow">The 12 species</p>
+          <h2 class="pi-h2">Every species page is VFA-verified</h2>
+          <p class="pi-section-dek">Bag limits, size limits, and seasonal closures cite VFA verbatim.</p>
         </div>
-        <a href="/fishing/species/" class="venues__link">All species &rarr;</a>
+        <a href="/fishing/species/" class="pi-section-link">All species &rarr;</a>
       </div>
       <div class="tour-filter-chips">
         <a href="/fishing/species/snapper/" class="tour-filter-chip">Snapper</a>
         <a href="/fishing/species/king-george-whiting/" class="tour-filter-chip">King George Whiting</a>
-        <a href="/fishing/species/squid/" class="tour-filter-chip">Squid</a>
+        <a href="/fishing/species/squid/" class="tour-filter-chip">Calamari</a>
         <a href="/fishing/species/australian-salmon/" class="tour-filter-chip">Australian Salmon</a>
         <a href="/fishing/species/flathead/" class="tour-filter-chip">Flathead</a>
         <a href="/fishing/species/gummy-shark/" class="tour-filter-chip">Gummy Shark</a>
@@ -157,21 +154,29 @@ export const prerender = true;
 
   <section class="experience-index">
     <div class="container">
-      <div class="venues__header">
-        <div>
-          <p class="label label--accent">Seasonality</p>
-          <h2 class="venues__title">The Peninsula has no off-season</h2>
-          <p class="venues__sub">An editorial summary. Species seasonality varies by location, cross-check the relevant species page for the specific timing.</p>
+      <div class="pi-section-head">
+        <div class="pi-section-head__text">
+          <p class="pi-eyebrow">Seasonality</p>
+          <h2 class="pi-h2">The Peninsula has no off-season</h2>
+          <p class="pi-section-dek">Species seasonality varies by location; cross-check the relevant species page for the specific timing.</p>
         </div>
       </div>
-      <div class="prose">
-        <table>
+      {/* Hung on the section's own left edge (the heading's), not centred as
+          a narrow prose column. Below 768px each month becomes a labelled
+          block instead of a four-column table that clips off-screen. */}
+      <div class="prose season-table-wrap">
+        <table class="season-table">
           <thead>
-            <tr><th>Month</th><th>Primary target</th><th>Secondary target</th><th>Notes</th></tr>
+            <tr><th scope="col">Month</th><th scope="col">Primary target</th><th scope="col">Secondary target</th><th scope="col">Notes</th></tr>
           </thead>
           <tbody>
             {seasonalityRows.map((r) => (
-              <tr><td>{r.month}</td><td>{r.primary}</td><td>{r.secondary}</td><td>{r.notes}</td></tr>
+              <tr>
+                <td class="season-table__month">{r.month}</td>
+                <td data-label="Primary target">{r.primary}</td>
+                <td data-label="Secondary target">{r.secondary}</td>
+                <td data-label="Notes">{r.notes}</td>
+              </tr>
             ))}
           </tbody>
         </table>
@@ -181,34 +186,37 @@ export const prerender = true;
 
   <section class="experience-index experience-index--plain">
     <div class="container">
-      <div class="venues__header">
-        <div>
-          <p class="label label--accent">Sub-hubs</p>
-          <h2 class="venues__title">Go deeper</h2>
+      <div class="pi-section-head">
+        <div class="pi-section-head__text">
+          <p class="pi-eyebrow">Where next</p>
+          <h2 class="pi-h2">Go deeper</h2>
         </div>
       </div>
-      <div class="venues__grid venues__grid--links">
-        <div class="pi-card"><div class="pi-card__body">
-          <h3 class="pi-card__title"><a href="/fishing/species/">Species</a></h3>
+      {/* Whole-card links: the title anchor is the only link and its ::after
+          covers the card, so the CTA is a quiet harbour text cue rather than
+          four competing filled buttons. */}
+      <ul class="venues__grid venues__grid--links bf-links" role="list">
+        <li class="pi-card bf-link-card"><div class="pi-card__body">
+          <h3 class="pi-card__title"><a class="pi-card__link" href="/fishing/species/">Species</a></h3>
           <p class="pi-card__dek">Twelve species pages, each with VFA-verified bag and size limits, Peninsula-specific tide and season guidance, and charter cross-links.</p>
-          <div class="pi-card__actions"><a href="/fishing/species/" class="pi-btn pi-btn--solid">Browse species &rarr;</a></div>
-        </div></div>
-        <div class="pi-card"><div class="pi-card__body">
-          <h3 class="pi-card__title"><a href="/fishing/locations/">Locations</a></h3>
+          <span class="pi-section-link bf-link-card__cta" aria-hidden="true">Browse species &rarr;</span>
+        </div></li>
+        <li class="pi-card bf-link-card"><div class="pi-card__body">
+          <h3 class="pi-card__title"><a class="pi-card__link" href="/fishing/locations/">Locations</a></h3>
           <p class="pi-card__dek">Piers, jetties, surf beaches and headlands. Access details, parking reality, crowd pressure, and safety information.</p>
-          <div class="pi-card__actions"><a href="/fishing/locations/" class="pi-btn pi-btn--solid">Browse locations &rarr;</a></div>
-        </div></div>
-        <div class="pi-card"><div class="pi-card__body">
-          <h3 class="pi-card__title"><a href="/fishing/charters/">Charters</a></h3>
+          <span class="pi-section-link bf-link-card__cta" aria-hidden="true">Browse locations &rarr;</span>
+        </div></li>
+        <li class="pi-card bf-link-card"><div class="pi-card__body">
+          <h3 class="pi-card__title"><a class="pi-card__link" href="/fishing/charters/">Charters</a></h3>
           <p class="pi-card__dek">A buyer's guide to Peninsula fishing charters. Operator profiles, share vs private, snapper-season booking intelligence.</p>
-          <div class="pi-card__actions"><a href="/fishing/charters/" class="pi-btn pi-btn--solid">Compare charters &rarr;</a></div>
-        </div></div>
-        <div class="pi-card"><div class="pi-card__body">
-          <h3 class="pi-card__title"><a href="/boating/">Boating</a></h3>
+          <span class="pi-section-link bf-link-card__cta" aria-hidden="true">Compare charters &rarr;</span>
+        </div></li>
+        <li class="pi-card bf-link-card"><div class="pi-card__body">
+          <h3 class="pi-card__title"><a class="pi-card__link" href="/boating/">Boating</a></h3>
           <p class="pi-card__dek">Bringing your own boat or hiring? The boating side of the operation: ramps, tides, hire, and marine licensing.</p>
-          <div class="pi-card__actions"><a href="/boating/" class="pi-btn pi-btn--solid">Boating hub &rarr;</a></div>
-        </div></div>
-      </div>
+          <span class="pi-section-link bf-link-card__cta" aria-hidden="true">Read the boating guide &rarr;</span>
+        </div></li>
+      </ul>
     </div>
   </section>
 
@@ -239,3 +247,104 @@ export const prerender = true;
 
   <NewsletterBlock />
 </BaseLayout>
+
+<style>
+  /* 'Go deeper' link cards: whole-card links (BF1). */
+  .bf-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .bf-link-card .pi-card__link::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+  }
+  .bf-link-card .pi-card__link:focus-visible {
+    outline: none;
+  }
+  .bf-link-card .pi-card__link:focus-visible::after {
+    outline: var(--focus-ring);
+    outline-offset: -4px;
+  }
+  .bf-link-card__cta {
+    margin-top: auto;
+    padding-top: var(--space-2);
+    align-self: flex-start;
+  }
+  .bf-link-card:hover .bf-link-card__cta {
+    color: var(--harbour-h);
+  }
+
+  /* The verification stamp is metadata, not body copy: a small grey caption
+     under a hairline. It is the page's single statement of the check. */
+  .prose .prose__verified {
+    margin-top: var(--space-6);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--border);
+    font-size: var(--fs-200);
+    line-height: var(--lh-ui);
+    color: var(--soft);
+  }
+
+  /* Seasonality table (BF2). It hangs from the same left edge as its
+     section head. At 767px and below the global .prose table rule would
+     turn it into a silent horizontal scroller with nowrap cells, clipping
+     two of the four columns at 390px; instead each month becomes a block
+     with Primary, Secondary and Notes as labelled lines. */
+  .season-table-wrap {
+    margin-inline: 0;
+  }
+  @media (max-width: 767px) {
+    .prose table.season-table {
+      display: block;
+      overflow: visible;
+      margin-top: 0;
+      font-size: var(--fs-300);
+      border-top: 1.5px solid var(--dark);
+    }
+    .season-table thead {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+    }
+    .season-table tbody {
+      display: block;
+    }
+    .season-table tr {
+      display: block;
+      padding-block: var(--space-4);
+      border-bottom: 1px solid var(--border);
+    }
+    .prose table.season-table tbody td {
+      display: grid;
+      grid-template-columns: 8rem minmax(0, 1fr);
+      column-gap: var(--space-3);
+      padding: var(--space-1) 0;
+      border-bottom: 0;
+      white-space: normal;
+      font-weight: var(--fw-body);
+      color: var(--text);
+    }
+    .season-table td[data-label]::before {
+      content: attr(data-label);
+      font-size: var(--fs-200);
+      line-height: var(--lh-body);
+      color: var(--soft);
+    }
+    .prose table.season-table tbody td.season-table__month {
+      display: block;
+      padding: 0 0 var(--space-2);
+      font-family: var(--font-display);
+      font-size: var(--fs-500);
+      font-weight: var(--fw-display);
+      line-height: var(--lh-heading);
+      color: var(--text);
+    }
+  }
+</style>

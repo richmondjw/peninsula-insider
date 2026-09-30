@@ -1,5 +1,5 @@
 ---
-title: "What to Do in Red Hill This Weekend: The Saturday Plan"
+title: "What to do in Red Hill this weekend: the Saturday plan"
 dek: "A ridge morning, one properly chosen cellar door, and a lunch that earns the drive. The clearest version of a Red Hill Saturday."
 author: "editorial"
 houseByline: true

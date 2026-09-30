@@ -76,6 +76,13 @@ const { weekendStartISO, weekendLabel, nextWeekendLabel, holidays, todayISO } = 
     <details class="wo-scope__custom" data-wo-custom>
       <summary class="wo-scope__btn wo-scope__btn--summary" data-wo-custom-summary>
         Pick dates
+        <span class="wo-scope__dates">
+          <svg class="wo-scope__cal" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <rect x="3" y="5" width="18" height="16" rx="2" />
+            <path d="M3 10h18M8 3v4M16 3v4" />
+          </svg>
+          Your dates
+        </span>
       </summary>
       <form class="wo-scope__form" data-wo-custom-form>
         <label class="wo-scope__field">
@@ -95,13 +102,18 @@ const { weekendStartISO, weekendLabel, nextWeekendLabel, holidays, todayISO } = 
 </nav>
 
 <style>
+  /* One filter-chip spec for the page (WO3, DESIGN.md "Filters and
+     search"): 48px pills with a hairline at rest and a Harbour fill when
+     selected, shared with the category jump chips further down. Every chip
+     carries a two-line label, so the row lines up top and bottom. */
   .wo-scope {
-    margin: var(--space-4, 1rem) 0 0;
+    position: relative;
+    margin: 0;
   }
   .wo-scope__row {
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-start;
+    align-items: stretch;
     gap: var(--space-2, 0.5rem);
   }
   .wo-scope__btn {
@@ -109,17 +121,20 @@ const { weekendStartISO, weekendLabel, nextWeekendLabel, holidays, todayISO } = 
     display: inline-flex;
     flex-direction: column;
     align-items: flex-start;
+    justify-content: center;
     gap: 2px;
+    height: 100%;
     min-height: 48px;
-    padding: var(--space-2, 0.5rem) var(--space-4, 1rem);
-    background: var(--surface, var(--bg));
+    padding: var(--space-2, 0.5rem) var(--space-5, 1.5rem);
+    background: var(--bg);
     color: var(--text);
     border: 1px solid var(--border);
-    border-radius: var(--radius-m, 10px);
+    border-radius: var(--radius-pill, 999px);
     font-family: var(--font-ui, inherit);
-    font-size: var(--fs-300, 0.9rem);
+    font-size: var(--fs-300, 0.9375rem);
     font-weight: var(--fw-semibold, 600);
-    line-height: var(--lh-ui, 1.4);
+    line-height: 1.25;
+    white-space: nowrap;
     cursor: pointer;
     transition:
       border-color var(--dur-fast, 120ms) var(--ease-enter, ease),
@@ -127,25 +142,33 @@ const { weekendStartISO, weekendLabel, nextWeekendLabel, holidays, todayISO } = 
       color var(--dur-fast, 120ms) var(--ease-enter, ease);
   }
   .wo-scope__btn:hover {
-    border-color: var(--accent);
-    color: var(--accent);
+    border-color: var(--harbour);
+    color: var(--harbour);
   }
   .wo-scope__btn:focus-visible {
     outline: var(--focus-ring, 2px solid var(--accent));
     outline-offset: 2px;
   }
   .wo-scope__btn[aria-pressed='true'] {
-    background: var(--text);
-    border-color: var(--text);
+    background: var(--harbour);
+    border-color: var(--harbour);
     color: var(--white, #fff);
   }
   .wo-scope__dates {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35em;
     font-size: var(--fs-100, 0.75rem);
     font-weight: var(--fw-body, 400);
     color: var(--soft);
   }
-  .wo-scope__btn[aria-pressed='true'] .wo-scope__dates {
-    color: var(--soft-inverse, rgba(250, 247, 240, 0.72));
+  .wo-scope__cal {
+    flex: none;
+  }
+  .wo-scope__btn[aria-pressed='true'] .wo-scope__dates,
+  .wo-scope__custom[data-active='true'] .wo-scope__dates {
+    color: var(--white, #fff);
+    opacity: 0.85;
   }
 
   /* Pick dates disclosure */
@@ -154,18 +177,17 @@ const { weekendStartISO, weekendLabel, nextWeekendLabel, holidays, todayISO } = 
   }
   .wo-scope__btn--summary {
     list-style: none;
-    justify-content: center;
   }
   .wo-scope__btn--summary::-webkit-details-marker {
     display: none;
   }
   .wo-scope__custom[open] .wo-scope__btn--summary {
-    border-color: var(--accent);
-    color: var(--accent);
+    border-color: var(--harbour);
+    color: var(--harbour);
   }
   .wo-scope__custom[data-active='true'] .wo-scope__btn--summary {
-    background: var(--text);
-    border-color: var(--text);
+    background: var(--harbour);
+    border-color: var(--harbour);
     color: var(--white, #fff);
   }
   .wo-scope__form {
@@ -191,15 +213,16 @@ const { weekendStartISO, weekendLabel, nextWeekendLabel, holidays, todayISO } = 
     font-size: var(--fs-200, 0.8rem);
     color: var(--soft);
   }
+  /* Fields and buttons: 48px, 8px radius (the house control spec). */
   .wo-scope__field input {
-    min-height: 44px;
-    padding: 0 var(--space-2, 0.5rem);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-s, 4px);
+    min-height: 48px;
+    padding: 0 var(--space-3, 0.75rem);
+    border: 1px solid var(--border-strong, var(--border));
+    border-radius: var(--radius-s, 8px);
     background: var(--bg);
     color: var(--text);
     font-family: var(--font-ui, inherit);
-    font-size: var(--fs-300, 0.9rem);
+    font-size: 1rem;
   }
   .wo-scope__field input:focus-visible {
     outline: var(--focus-ring, 2px solid var(--accent));
@@ -207,33 +230,61 @@ const { weekendStartISO, weekendLabel, nextWeekendLabel, holidays, todayISO } = 
   }
   .wo-scope__apply {
     appearance: none;
-    min-height: 44px;
-    padding: 0 var(--space-4, 1rem);
-    background: var(--accent);
+    min-height: 48px;
+    padding: 0 var(--space-5, 1.5rem);
+    background: var(--harbour);
     color: var(--white, #fff);
-    border: 1px solid var(--accent);
-    border-radius: var(--radius-m, 10px);
+    border: 1px solid var(--harbour);
+    border-radius: var(--radius-s, 8px);
     font-family: var(--font-ui, inherit);
-    font-size: var(--fs-300, 0.9rem);
+    font-size: var(--fs-300, 0.9375rem);
     font-weight: var(--fw-semibold, 600);
     cursor: pointer;
+    transition: background var(--dur-fast, 120ms) var(--ease-enter, ease);
+  }
+  .wo-scope__apply:hover {
+    background: var(--harbour-h, var(--harbour));
   }
   .wo-scope__apply:focus-visible {
     outline: var(--focus-ring, 2px solid var(--accent));
     outline-offset: 2px;
   }
 
+  /* Phones: keep every date sub-line and let the chips scroll sideways in
+     one row, with an end fade as the cue that more sits off-screen. The
+     date panel anchors to the whole bar, outside the scroller, so the
+     scroller cannot clip it. */
   @media (max-width: 47.9375em) {
-    .wo-scope__dates {
+    .wo-scope::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 2rem;
+      background: linear-gradient(to right, transparent, var(--bg));
+      pointer-events: none;
+    }
+    .wo-scope__row {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      margin: -3px;
+      padding: 3px 2rem 3px 3px;
+      scrollbar-width: none;
+    }
+    .wo-scope__row::-webkit-scrollbar {
       display: none;
     }
     .wo-scope__btn {
-      flex-direction: row;
-      align-items: center;
+      padding-inline: var(--space-4, 1rem);
+    }
+    .wo-scope__custom {
+      position: static;
     }
     .wo-scope__form {
-      left: auto;
+      left: 0;
       right: 0;
+      min-width: 0;
     }
   }
 </style>

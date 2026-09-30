@@ -8,33 +8,36 @@ const initial = matchPlans(model.plans, {});
 const recommended = initial.ids.map(id => model.plans.find(plan => plan.id === id)!);
 const payload = { plans: Object.fromEntries(model.plans.map(plan => [plan.id, plan])), contexts: model.contexts };
 ---
-<section class="plan-engine" aria-labelledby="plan-engine-heading">
+<section class="plan-engine pi-section" aria-labelledby="plan-engine-heading">
   <div class="container">
-    <div class="plan-engine__intro">
-      <div><p class="plan-engine__eyebrow">Chosen by Peninsula Insider</p><h2 id="plan-engine-heading" tabindex="-1" data-plan-results-heading>A good place to start</h2></div>
-      <a href="#all-plans">See every itinerary <span aria-hidden="true">↓</span></a>
-    </div>
-    <p class="plan-engine__explanation" data-plan-results-note>A weekend with a bit of everything, plus two other ways to spend your time.</p>
+    <header class="pi-section-head plan-engine__intro">
+      <div class="pi-section-head__text">
+        <p class="pi-eyebrow">Chosen by Peninsula Insider</p>
+        <h2 class="pi-h2" id="plan-engine-heading" tabindex="-1" data-plan-results-heading>A good place to start</h2>
+        <p class="pi-section-dek plan-engine__explanation" data-plan-results-note>A weekend with a bit of everything, plus two other ways to spend your time.</p>
+        <p class="plan-engine__caveat">Plan transport between stops and check the route for your dates before booking.</p>
+      </div>
+    </header>
     <p id="pi-results-status" class="plan-engine__sr" role="status" aria-live="polite" aria-atomic="true"></p>
     <div class="plan-engine__answer" data-plan-answer>
       {recommended.map((plan, index) => <PlanRecommendation plan={plan} index={index} />)}
     </div>
     <div class="plan-engine__empty" data-plan-empty hidden>
-      <p class="plan-engine__eyebrow">No ready-made match yet</p>
+      <p class="plan-engine__label">No ready-made match yet</p>
       <h3>We don’t have an itinerary that fits that choice.</h3>
       <p>Try a different combination, or use our planning guides to choose your own stops.</p>
       <a class="pi-btn pi-btn--ghost" href="#planning-guides">Browse planning guides</a>
     </div>
     <aside class="plan-engine__guide-suggestion" data-plan-guide-suggestion hidden>
-      <div><p class="plan-engine__eyebrow">A planning guide, to help you choose</p><h3><a data-guide-title></a></h3><p>Wet-weather ideas to read and adapt. This guide does not include a ready-made itinerary.</p></div>
-      <a class="pi-btn pi-btn--ghost" data-guide-link>Read guide <span aria-hidden="true">↗</span></a>
+      <div><p class="plan-engine__label">A planning guide, to help you choose</p><h3><a data-guide-title></a></h3><p>Wet-weather ideas to read and adapt. This guide does not include a ready-made itinerary.</p></div>
+      <a class="pi-btn pi-btn--ghost" data-guide-link>Read the guide <span aria-hidden="true">→</span></a>
     </aside>
     <p class="plan-engine__assurance">Editorial choices. No sign-in needed to use an itinerary. <a href="/me/trip/">Open My Trip</a></p>
   </div>
 </section>
 <script type="application/json" id="pi-plans-data" set:html={JSON.stringify(payload).replace(/</g, '\\u003c')} />
 <script>
-  import { routePreview } from './plan-preview';
+  import { routePreviewParts, planFacts } from './plan-preview';
   import { matchPlans, assessPlan, criterionLabel, describeQuery, type MatchQuery, type PlanFit, type QueryLabels, type LengthValue } from './plan-match';
   import type { PlanRecord, PlanContext } from './plans-data';
   import { useEditorialPlan } from '../../../lib/plan-trip-client';
@@ -77,7 +80,6 @@ const payload = { plans: Object.fromEntries(model.plans.map(plan => [plan.id, pl
     activePayload = payload;
     const plans = Object.values(payload.plans);
     const form = document.querySelector<HTMLFormElement>('[data-plan-form]');
-    const matcher = document.querySelector<HTMLDetailsElement>('[data-plan-matcher]');
     const cards = [...root.querySelectorAll<HTMLElement>('[data-plan-card]')];
     const responsiveImages = new Map<string, { src: string; srcset: string; sizes: string }>();
     root.querySelectorAll<HTMLImageElement>('[data-slot="image"]').forEach(image => {
@@ -99,11 +101,25 @@ const payload = { plans: Object.fromEntries(model.plans.map(plan => [plan.id, pl
       const title = slot<HTMLAnchorElement>(el, 'title');
       if (title) { title.textContent = plan.displayTitle; title.href = plan.href; title.dataset.entityType = plan.entityType; title.dataset.entitySlug = plan.slug; }
       text(el, 'reason', plan.editorialReason);
-      text(el, 'route-preview', routePreview(plan));
+      const routeLine = slot(el, 'route-preview');
+      if (routeLine) {
+        routeLine.replaceChildren();
+        routePreviewParts(plan).forEach((part, n) => {
+          if (n > 0) routeLine.append(' · ');
+          const segment = document.createElement('span');
+          segment.className = 'nowrap-seg';
+          const label = document.createElement('span');
+          label.className = 'plan-day-label';
+          label.textContent = part.label;
+          segment.append(label, part.route);
+          routeLine.append(segment);
+        });
+      }
       text(el, 'booking-preview', plan.bookingNote ?? '');
       const bookingPreview = slot(el, 'booking-preview');
       if (bookingPreview) bookingPreview.hidden = !plan.bookingNote;
-      text(el, 'facts', [...plan.meta, ...(plan.pace ? [plan.pace] : [])].join(' · '));
+      const facts = slot(el, 'facts');
+      if (facts) facts.replaceChildren(...planFacts(plan).map(fact => { const item = document.createElement('li'); item.textContent = fact; return item; }));
       const read = slot<HTMLAnchorElement>(el, 'read');
       if (read) read.href = plan.href;
       const button = el.querySelector<HTMLButtonElement>('[data-plan-fork]');
@@ -114,7 +130,6 @@ const payload = { plans: Object.fromEntries(model.plans.map(plan => [plan.id, pl
         button.textContent = 'Use this itinerary';
         button.setAttribute('aria-label', `Use this itinerary: ${plan.title}`);
       }
-      text(el, 'copy', `${plan.stops.length} stops across ${plan.dayCount === 1 ? 'one day' : `${plan.dayCount} days`}. Yours to adjust in My Trip.`);
       const image = slot<HTMLImageElement>(el, 'image');
       if (image) {
         const media = image.parentElement!;
@@ -151,7 +166,6 @@ const payload = { plans: Object.fromEntries(model.plans.map(plan => [plan.id, pl
       }
       const route = slot<HTMLDetailsElement>(el, 'route');
       if (route) route.open = false;
-      text(el, 'route-count', `${plan.stops.length} stops +`);
       const days = slot<HTMLOListElement>(el, 'days');
       if (days) {
         days.replaceChildren();
@@ -163,7 +177,6 @@ const payload = { plans: Object.fromEntries(model.plans.map(plan => [plan.id, pl
         }
       }
       const practical: Record<string, string> = {
-        booking: plan.bookingNote ?? '',
         driving: plan.driveMins ? `Editorial route estimate: ${plan.driveMins} minutes driving. My Trip recalculates from your selected stops; allow extra time for traffic and parking.` : '',
         verified: plan.verifiedAt ? `Information checked ${new Date(plan.verifiedAt).toLocaleDateString('en-AU', {day:'numeric',month:'short',year:'numeric',timeZone:'UTC'})}. Confirm current hours and booking requirements with each operator.` : '',
       };
@@ -229,7 +242,6 @@ const payload = { plans: Object.fromEntries(model.plans.map(plan => [plan.id, pl
         if (context.value === 'this-season') query.season = true;
       }
       syncControls();
-      if (matcher && (query.length || query.who || query.weather || query.into?.length || query.season || location.hash === '#build')) matcher.open = true;
       render();
     }
     function saveUrl() {
@@ -258,22 +270,23 @@ const payload = { plans: Object.fromEntries(model.plans.map(plan => [plan.id, pl
   document.addEventListener('astro:page-load', initPlans);
 </script>
 <style>
-  .plan-engine{padding:0 0 3.5rem}
-  .plan-engine__intro{display:flex;align-items:end;justify-content:space-between;gap:1rem}
-  .plan-engine__eyebrow{font:600 .68rem/1.4 var(--font-ui);letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 .5rem}
-  h2{font:500 clamp(1.65rem,3vw,2.2rem)/1.2 var(--font-display);letter-spacing:-.04em;margin:0;scroll-margin-top:8rem}
-  h2:focus{outline:none}h2:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
-  .plan-engine__intro>a{font-size:.85rem;white-space:nowrap;text-underline-offset:.2em}
-  .plan-engine__explanation{font:.95rem/1.65 var(--font-ui);color:var(--soft);max-width:78ch;margin:.9rem 0 1.8rem}
-  .plan-engine__answer{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2rem}
-  .plan-engine__assurance{font:.8rem/1.6 var(--font-ui);color:var(--soft);margin:1.5rem 0 0}.plan-engine__assurance a{margin-left:.25rem}
-  .plan-engine__guide-suggestion{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;padding:1.5rem;border:1px solid var(--border);margin-top:1.5rem}
+  .plan-engine h2{scroll-margin-top:8rem}
+  .plan-engine h2:focus{outline:none}.plan-engine h2:focus-visible{outline:var(--focus-ring);outline-offset:4px}
+  .plan-engine__caveat{font:var(--fs-300)/1.6 var(--font-ui);color:var(--soft);max-width:60ch;margin:var(--space-2) 0 0}
+  .plan-engine__label{font:600 var(--fs-100)/1.4 var(--font-ui);letter-spacing:var(--ls-eyebrow);text-transform:uppercase;color:var(--sand-text);margin:0 0 var(--space-3)}
+  .plan-engine__answer{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-7) var(--space-6);align-items:stretch}
+  .plan-engine__assurance{font:var(--fs-300)/1.6 var(--font-ui);color:var(--soft);margin:var(--space-6) 0 0}
+  .plan-engine__assurance a{display:inline-block;margin-left:.25rem;color:var(--harbour);font-weight:600;white-space:nowrap;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.2em}
+  .plan-engine__assurance a:hover{color:var(--harbour-h)}
+  .plan-engine__guide-suggestion{display:flex;align-items:center;justify-content:space-between;gap:var(--space-5);padding:var(--space-5);border:1px solid var(--border);border-radius:var(--radius-m);margin-top:var(--space-6)}
   .plan-engine__guide-suggestion[hidden]{display:none}
-  .plan-engine__guide-suggestion h3{font:500 1.15rem/1.4 var(--font-display);margin:.5rem 0}.plan-engine__guide-suggestion h3 a{color:var(--text)}
-  .plan-engine__guide-suggestion div>p:last-child{font-size:.85rem;color:var(--soft);margin:0;max-width:60ch}.plan-engine__guide-suggestion>a{flex-shrink:0}
-  .plan-engine__empty{padding:2rem;background:var(--bg-alt);border-block:1px solid var(--border)}
-  .plan-engine__empty h3{font:500 1.5rem/1.3 var(--font-display);max-width:30ch;margin:0 0 .8rem}
+  .plan-engine__guide-suggestion h3{font:600 var(--fs-500)/1.3 var(--font-display);letter-spacing:var(--ls-display);margin:0 0 var(--space-2)}.plan-engine__guide-suggestion h3 a{color:var(--text)}
+  .plan-engine__guide-suggestion div>p:last-child{font-size:var(--fs-300);color:var(--soft);margin:0;max-width:60ch}.plan-engine__guide-suggestion>a{flex-shrink:0;min-height:48px;gap:.35em}
+  .plan-engine__empty{padding:var(--space-6);background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--radius-l)}
+  .plan-engine__empty[hidden]{display:none}
+  .plan-engine__empty h3{font:600 var(--fs-600)/1.25 var(--font-display);letter-spacing:var(--ls-display);max-width:30ch;margin:0 0 var(--space-3)}
   .plan-engine__empty p{max-width:55ch}
+  .plan-engine__empty .pi-btn{min-height:48px}
   .plan-engine__sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
-  @media(max-width:45rem){.plan-engine__answer{grid-template-columns:1fr;gap:1.5rem}.plan-engine__intro{align-items:start;flex-direction:column;gap:.7rem}.plan-engine__explanation{margin-bottom:1.25rem}.plan-engine{padding-bottom:2rem}.plan-engine__guide-suggestion{align-items:start;flex-direction:column}}
+  @media(max-width:45rem){.plan-engine__answer{grid-template-columns:1fr;gap:var(--space-7)}.plan-engine__guide-suggestion{align-items:start;flex-direction:column}}
 </style>

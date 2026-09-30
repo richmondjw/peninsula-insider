@@ -6,6 +6,10 @@
  * with an accessible name and the responsive grid: 1 column to bp-sm,
  * 2 at bp-md (768), 3 at bp-lg (1024) and up. `layout="rows"` stacks
  * compact-row cards as a single-column list (search results, agendas).
+ *
+ * One card gutter sitewide: 24px between columns, 32px between grid rows.
+ * In `rows` the list owns the single divider between rows (compact rows draw
+ * no rule of their own), with 24px either side of it.
  */
 export interface Props {
   /** Accessible name for the list, e.g. "Wineries in Red Hill". */
@@ -34,6 +38,9 @@ const { label, layout = 'grid', maxCols = 3 } = Astro.props;
     gap: var(--space-5, 1.5rem);
     grid-template-columns: 1fr;
   }
+  .v5-card-grid--grid {
+    row-gap: var(--space-6, 2rem);
+  }
 
   @media (min-width: 48em) {
     .v5-card-grid--grid {
@@ -54,5 +61,12 @@ const { label, layout = 'grid', maxCols = 3 } = Astro.props;
     display: flex;
     flex-direction: column;
     gap: 0;
+  }
+  .v5-card-grid--rows > :global(li) {
+    padding-block: var(--space-5, 1.5rem);
+    border-bottom: 1px solid var(--border);
+  }
+  .v5-card-grid--rows > :global(li:last-child) {
+    border-bottom: 0;
   }
 </style>

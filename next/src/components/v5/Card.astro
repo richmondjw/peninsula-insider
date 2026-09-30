@@ -8,8 +8,9 @@
  * pages migrate (page agents do the swapping; this file is the target).
  *
  * Content rules enforced here (spec 0.1): title <= 60 chars, verdict <= 25
- * words, meta <= 3 chips, priceBand chips only (never dollar figures),
- * no em-dashes. Violations warn at build time so page agents catch them.
+ * words, meta <= 3 chips, no prices of any kind (no dollar figures, no
+ * price-band glyphs), no em-dashes. Violations warn at build time so page
+ * agents catch them.
  *
  * A11y contract:
  *  - Root is an `li` by default (cards live in labelled lists); use
@@ -20,9 +21,14 @@
  *  - Verdict is a <p> in the Critic voice style, never a heading.
  *  - Save target >= 48px; focus-visible ring on the link.
  *
+ * Actions (one pair everywhere): a 48px circular Save bookmark, then a 48px,
+ * 8px-radius "Add to trip" ghost button, then any booking CTA at the same
+ * height. The row starts on the body's text inset. Article and guide cards
+ * carry only the bookmark, on the meta line, never on a row of its own.
+ *
  * Analytics: link carries data-evt="card_click" plus entity attrs; the
- * "+ Trip" affordance carries data-evt="trip_add" and writes to the shared
- * trip store on every surface, with visible confirmation.
+ * "Add to trip" affordance carries data-evt="trip_add" and writes to the
+ * shared trip store on every surface, with visible confirmation.
  */
 import { editableImage, type CmsEntityType } from '../../lib/inline-edit/attrs';
 import { freshnessLabel } from '../../lib/freshness';
@@ -34,6 +40,12 @@ export type CardVariant = 'venue' | 'compact-row' | 'event' | 'guide' | 'plan' |
 export interface CardImage {
   src: string;
   alt: string;
+  /**
+   * Image note. Never printed above the title. The reader disclosure
+   * ('Illustrative image') joins the provenance line under the meta; the
+   * internal QA status ('Image subject unverified') is never shown, because
+   * lib/media-provenance renders silence for an unverified image.
+   */
   caption?: string;
 }
 
@@ -62,7 +74,7 @@ export interface Props {
   verdict?: string;
   /** Up to 3 plain-text chips, joined with a middot separator. */
   meta?: string[];
-  /** '$'..'$$$$' or 1..4. Rendered as a band chip, never a dollar figure. */
+  /** Accepted for facets; never rendered (no prices anywhere). */
   priceBand?: string | number;
   /** ISO date; rendered through freshnessLabel() ("Reviewed May 2026"). */
   freshness?: string;
@@ -79,8 +91,10 @@ export interface Props {
   /**
    * Render a typographic plate in place of the media block when no image is
    * supplied. Set true from image-bearing grids so one entry missing a photo
-   * does not open a hole in the row. Leave false for grids that are text-only
-   * by design (guide rails, compact rows), where a plate would be noise.
+   * does not open a hole in the row. Compact rows take a small paper tile
+   * with the PI monogram instead, so their titles stay on the list's text
+   * line. Leave false for sets that are text-only by design (guide rails, an
+   * all-text directory), where a plate would be noise.
    */
   mediaFallback?: boolean;
   /** Region eyebrow for the place variant (replaces typeMark when set). */
@@ -97,7 +111,13 @@ export interface Props {
   partnerLabel?: string;
   /** Secondary booking action (card-action weight). */
   booking?: CardBooking;
-  /** Render the "+ Trip" affordance backed by the shared trip store. */
+  /**
+   * Hold an empty booking-width slot when `booking` is absent. Set from a
+   * list whose other rows carry booking, so the bookmark and trip button
+   * never change position from row to row.
+   */
+  reserveBooking?: boolean;
+  /** Render the "Add to trip" affordance backed by the shared trip store. */
   trip?: boolean;
   /** Save metadata overrides. saveKind defaults from entityType. */
   saveKind?: SaveKind;
@@ -120,7 +140,6 @@ const {
   image,
   verdict,
   meta = [],
-  priceBand,
   freshness,
   freshnessKind = 'reviewed',
   typeMark,
@@ -133,6 +152,7 @@ const {
   dayCount,
   partnerLabel,
   booking,
+  reserveBooking = false,
   trip = false,
   saveKind,
   saveSection,
@@ -167,13 +187,26 @@ const defaultMarks: Record<CardVariant, string> = {
 };
 const markText = eyebrow ?? typeMark ?? defaultMarks[variant];
 
-/* priceBand -> band 1..4, rendered as glyph chip with accessible name */
-const band =
-  priceBand === undefined
-    ? 0
-    : Math.min(4, Math.max(1, typeof priceBand === 'number' ? priceBand : String(priceBand).trim().length));
+/* priceBand is deliberately not read: pages pass it for facets, and the card
+   never renders a price signal of any kind. */
 
 const metaChips = meta.slice(0, 3);
+
+/* Plan duration chip. Built as one string so the number and unit can never
+   render as "3days", and skipped when a chip already states the length. */
+const durationChip =
+  variant === 'plan' && dayCount && !metaChips.some((chip) => /\b(day|night)s?\b/i.test(chip))
+    ? `${dayCount} ${dayCount === 1 ? 'day' : 'days'}`
+    : null;
+
+/* Guide cards also carry the read time as a chip. */
+const trailingChip = variant === 'guide' && readTime ? readTime : null;
+
+/* Image note: the reader disclosure only. The QA status is internal and
+   stays out of the render (lib/media-provenance: unverified renders
+   silence). The disclosure sits in the provenance line, not above the
+   eyebrow, so every card in a row starts its text at the same offset. */
+const imageNote = image?.caption && !/unverified/i.test(image.caption) ? image.caption : null;
 
 /* Event date block (day + short month) */
 const eventDate =
@@ -194,18 +227,47 @@ const freshnessBase = freshness ? freshnessLabel(freshness) : null;
 const freshnessText = freshnessKind === 'checked' ? freshnessBase?.replace('Reviewed ', 'Details checked ') : freshnessBase;
 
 const isEditorial = variant === 'article' || variant === 'guide';
+const isCompact = variant === 'compact-row';
 const showMedia = !!image;
 /* No photo, but the row around this card has them: draw the house plate so
-   the card keeps its media height and the grid stays level. compact-row is
-   text-only by contract (HUB-11) and never takes a plate. */
-const showPlate = !image && mediaFallback && variant !== 'compact-row';
+   the card keeps its media height and the grid stays level. A compact row
+   takes the small paper monogram tile instead of the full plate. */
+const showPlate = !image && mediaFallback && !isCompact;
+const showTile = !image && mediaFallback && isCompact;
+const hasMediaSlot = showMedia || showPlate || showTile;
 const hasVerdictSlot = Astro.slots.has('verdict');
 
 /* Save kind: entityType maps 1:1 except page/region, which are not saveable. */
 const resolvedSaveKind: SaveKind | null =
   saveKind ?? (entityType !== 'page' && entityType !== 'region' ? (entityType as SaveKind) : null);
 
-const hasActions = !!resolvedSaveKind || trip || !!booking;
+/* Editorial cards keep the bookmark on the meta line: a lone 48px circle on
+   a row of its own read as an orphaned control under every journal card. */
+const inlineSave = isEditorial && !!resolvedSaveKind && !trip && !booking;
+const showBookingSlot = !booking && reserveBooking;
+const hasActions = (!inlineSave && !!resolvedSaveKind) || trip || !!booking || showBookingSlot;
+
+/* Guide cards without a picture are text links on a band; the trailing
+   arrow is their link affordance. */
+const showGuideArrow = variant === 'guide' && !hasMediaSlot;
+
+const hasMeta =
+  variant === 'article' || metaChips.length > 0 || !!durationChip || !!trailingChip || inlineSave;
+const hasProvenance = !!(freshnessText || imageNote || partnerLabel);
+
+const saveProps = resolvedSaveKind
+  ? {
+      kind: resolvedSaveKind,
+      slug: entitySlug,
+      title,
+      href,
+      section: saveSection,
+      dek: saveDek ?? verdict,
+      imageUrl: image?.src,
+      variant: variant === 'plan' ? ('fork' as const) : ('save' as const),
+      labelled: variant === 'plan',
+    }
+  : null;
 ---
 
 {/* `compact-row` is the primitive's `--compact` variant; the other six are
@@ -215,13 +277,15 @@ const hasActions = !!resolvedSaveKind || trip || !!booking;
     'pi-card',
     variant === 'compact-row' ? 'pi-card--compact' : `pi-card--${variant}`,
     isEditorial && 'pi-card--editorial',
+    !hasMediaSlot && 'pi-card--no-media',
   ]}
   data-variant={variant}
 >
   {showMedia && (
     <div class="pi-card__media">
       <img
-        src={image!.src} data-pi-responsive="(max-width: 767px) 100vw, (max-width: 1100px) 50vw, 33vw"
+        src={image!.src}
+        data-pi-responsive={isCompact ? '(max-width: 767px) 88px, 120px' : '(max-width: 767px) 100vw, (max-width: 1100px) 50vw, 33vw'}
         alt={image!.alt}
         loading="lazy"
         decoding="async"
@@ -259,8 +323,14 @@ const hasActions = !!resolvedSaveKind || trip || !!booking;
     </div>
   )}
 
+  {showTile && (
+    <div class="pi-card__media pi-card__media--tile" aria-hidden="true">
+      <span class="pi-card__tile-rule"></span>
+      <span class="pi-card__tile-mark">PI</span>
+    </div>
+  )}
+
   <div class="pi-card__body">
-    {image?.caption && <p class="pi-card__image-note">{image.caption}</p>}
     {showEyebrow && markText && <p class="pi-card__eyebrow">{markText}</p>}
 
     <h3 class="pi-card__title">
@@ -274,7 +344,7 @@ const hasActions = !!resolvedSaveKind || trip || !!booking;
         data-surface={surface}
         data-position={position}
       >
-        {title}
+        {title}{showGuideArrow && <span class="pi-card__arrow" aria-hidden="true">&nbsp;&rarr;</span>}
       </a>
     </h3>
 
@@ -284,81 +354,46 @@ const hasActions = !!resolvedSaveKind || trip || !!booking;
       </p>
     )}
 
-    {variant === 'article' ? (
-      <p class="pi-card__meta">
-        <span class="pi-card__byline">{byline ?? 'Peninsula Insider'}</span>
-        {articleDate && (
+    {/* Meta: one list, every token a non-breaking li whose separator is its
+        own ::before, so a line can never start or end on a stranded dot. */}
+    {hasMeta && (
+      <ul class="pi-card__meta" role="list">
+        {variant === 'article' ? (
           <>
-            <span class="pi-card__sep" aria-hidden="true">&middot;</span>
-            <span>{articleDate}</span>
+            <li class="pi-card__chip pi-card__byline">{byline ?? 'Peninsula Insider'}</li>
+            {articleDate && <li class="pi-card__chip">{articleDate}</li>}
+            {readTime && <li class="pi-card__chip">{readTime}</li>}
+          </>
+        ) : (
+          <>
+            {durationChip && <li class="pi-card__chip">{durationChip}</li>}
+            {metaChips.map((chip) => <li class="pi-card__chip">{chip}</li>)}
+            {trailingChip && <li class="pi-card__chip">{trailingChip}</li>}
           </>
         )}
-        {readTime && (
-          <>
-            <span class="pi-card__sep" aria-hidden="true">&middot;</span>
-            <span>{readTime}</span>
-          </>
+        {inlineSave && saveProps && (
+          <li class="pi-card__meta-save">
+            <SaveControl {...saveProps} />
+          </li>
         )}
-      </p>
-    ) : (
-      (metaChips.length > 0 || band > 0 || (variant === 'guide' && readTime) || (variant === 'plan' && dayCount)) && (
-        <p class="pi-card__meta">
-          {variant === 'plan' && dayCount && (
-            <>
-              <span class="pi-card__chip">{dayCount} {dayCount === 1 ? 'day' : 'days'}</span>
-              <span class="pi-card__sep" aria-hidden="true">&middot;</span>
-            </>
-          )}
-          {metaChips.map((chip, i) => (
-            <>
-              {i > 0 && <span class="pi-card__sep" aria-hidden="true">&middot;</span>}
-              <span class="pi-card__chip">{chip}</span>
-            </>
-          ))}
-          {band > 0 && (
-            <>
-              {metaChips.length > 0 && <span class="pi-card__sep" aria-hidden="true">&middot;</span>}
-              <span class="pi-card__chip pi-card__chip--price" aria-label={`price band ${band} of 4`}>
-                <span aria-hidden="true">{'$'.repeat(band)}</span>
-              </span>
-            </>
-          )}
-          {variant === 'guide' && readTime && (
-            <>
-              {(metaChips.length > 0 || band > 0) && <span class="pi-card__sep" aria-hidden="true">&middot;</span>}
-              <span class="pi-card__chip">{readTime}</span>
-            </>
-          )}
-        </p>
-      )
+      </ul>
     )}
 
-    {(freshnessText || partnerLabel) && (
-      <p class="pi-card__provenance">
-        {freshnessText && <span>{freshnessText}</span>}
-        {freshnessText && partnerLabel && <span class="pi-card__sep" aria-hidden="true">&middot;</span>}
-        {partnerLabel && <span class="pi-card__partner">{partnerLabel}</span>}
-      </p>
+    {hasProvenance && (
+      <ul class="pi-card__provenance" role="list">
+        {freshnessText && <li class="pi-card__chip">{freshnessText}</li>}
+        {imageNote && <li class="pi-card__chip">{imageNote}</li>}
+        {partnerLabel && <li class="pi-card__chip pi-card__partner">{partnerLabel}</li>}
+      </ul>
     )}
   </div>
 
   {hasActions && <div class="pi-card__actions">
-    {resolvedSaveKind && (
-      <SaveControl
-        kind={resolvedSaveKind}
-        slug={entitySlug}
-        title={title}
-        href={href}
-        section={saveSection}
-        dek={saveDek ?? verdict}
-        imageUrl={image?.src}
-        variant={variant === 'plan' ? 'fork' : 'save'}
-      />
-    )}
+    {!inlineSave && saveProps && <SaveControl {...saveProps} />}
     {trip && (
       <button
         type="button"
-        class="pi-btn pi-btn--ghost pi-btn--sm"
+        class="pi-card__trip"
         data-evt="trip_add"
         data-card-trip
         data-save-kind={resolvedSaveKind}
@@ -367,9 +402,9 @@ const hasActions = !!resolvedSaveKind || trip || !!booking;
         data-entity-slug={entitySlug}
         data-entity-title={title}
         data-surface={surface}
-        aria-label={`Add ${title} to trip`}
+        aria-label={`Add to trip: ${title}`}
       >
-        + Trip
+        Add to trip
       </button>
     )}
     {booking && (
@@ -384,6 +419,7 @@ const hasActions = !!resolvedSaveKind || trip || !!booking;
         surface={surface}
       />
     )}
+    {showBookingSlot && <span class="pi-card__booking-slot" aria-hidden="true"></span>}
   </div>}
 </Tag>
 
@@ -407,12 +443,11 @@ const hasActions = !!resolvedSaveKind || trip || !!booking;
       }
     }
     button.textContent = 'In trip';
-    button.setAttribute('aria-label', `${title} is in your trip`);
+    button.setAttribute('aria-label', `In trip: ${title}`);
   });
 </script>
 
 <style>
-  .pi-card__image-note { margin: 0 0 0.5rem; font-size: 0.8125rem; line-height: 1.4; color: var(--soft); }
   /* Only what the shared primitive does NOT provide lives here.
      Ground, hairline, radius, body/eyebrow/title/dek/meta typography,
      the two-line dek clamp and the --compact row direction all come from
@@ -533,6 +568,12 @@ const hasActions = !!resolvedSaveKind || trip || !!booking;
        the focus outline at the card edge. Draw it just inside instead. */
     outline-offset: -3px;
   }
+  /* Guide cards with no picture: the arrow is the link affordance. It
+     travels with the last word, so it never wraps onto a line alone. */
+  .pi-card__arrow {
+    color: var(--sand-text);
+    white-space: nowrap;
+  }
 
   /* The verdict is this masthead's product line, so it runs one step up
      from the primitive's dek and in the UI face at medium weight. */
@@ -541,81 +582,252 @@ const hasActions = !!resolvedSaveKind || trip || !!booking;
     font-weight: var(--fw-medium);
   }
 
-  /* Provenance is a second metadata row (freshness + partner) that the
-     primitive has no element for. It matches __meta but never pins. */
+  /* ---- meta line: the canonical token list (C4) ----
+     Every token is an li that never breaks internally; the separator is the
+     token's own ::before, so it wraps with its token and a line can never
+     start or end on a stranded dot. A dot with 0.5em either side, fs-200,
+     --soft text. WhatsOnRow draws the same tokens. The line sits a fixed
+     12px under the dek (the body's 8px gap plus 4px) instead of the
+     primitive's margin-top:auto, so equal-height cards collect spare height
+     below the meta, never in a hollow above it. */
+  .pi-card__meta,
   .pi-card__provenance {
-    margin: 0;
     display: flex;
     flex-wrap: wrap;
-    align-items: baseline;
-    gap: 0.35rem;
+    align-items: center;
+    gap: 0 0.5em;
+    list-style: none;
+    padding: 0;
+    margin: 0;
     font-family: var(--font-ui);
     font-size: var(--fs-200);
     line-height: var(--lh-ui);
     color: var(--soft);
   }
-  .pi-card__sep {
+  .pi-card__meta {
+    margin-top: var(--space-1);
+  }
+  .pi-card__chip {
+    white-space: nowrap;
+  }
+  .pi-card__chip + .pi-card__chip::before {
+    content: '\00B7';
+    content: '\00B7' / '';
+    margin-right: 0.5em;
     color: var(--border-strong);
   }
-  .pi-card__chip--price {
-    letter-spacing: 0.08em;
-  }
+  /* Provenance (check date, image disclosure, partner) is a second token
+     line with the same grammar; it never pins. */
   .pi-card__partner {
     text-transform: uppercase;
     font-size: var(--fs-100);
     letter-spacing: var(--ls-eyebrow);
     color: var(--teal-text);
   }
+  /* Editorial cards: the bookmark closes the meta line, right-aligned, and
+     sits above the stretched link like the actions row does. */
+  .pi-card__meta-save {
+    position: relative;
+    z-index: 2;
+    margin-left: auto;
+    padding-left: var(--space-3);
+  }
 
-  /* Actions sit outside __body, above the stretched link, so they need the
-     body's horizontal gutter restored and a stacking context of their own. */
+  /* ---- actions: the one card action pair (C5) ----
+     Actions sit outside __body, above the stretched link, so they take the
+     body's 16px inset (the bookmark's left edge lands on the text edge) and
+     a stacking context of their own. Buttons are top-aligned, so a booking
+     note under one button never lifts it off its neighbours' line. */
   .pi-card__actions {
     position: relative;
     z-index: 2;
-    padding: 0 var(--space-5) var(--space-5);
+    align-items: flex-start;
+    gap: var(--space-3);
+    padding: 0 var(--space-4) var(--space-4);
+  }
+  .pi-card__trip {
+    appearance: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0 var(--space-4);
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-s);
+    font-family: var(--font-ui);
+    font-size: var(--fs-300);
+    font-weight: var(--fw-semibold);
+    line-height: var(--lh-ui);
+    color: var(--harbour);
+    white-space: nowrap;
+    cursor: pointer;
+    transition:
+      border-color var(--dur-fast) var(--ease-enter),
+      color var(--dur-fast) var(--ease-enter);
+  }
+  .pi-card__trip:hover {
+    border-color: var(--harbour);
+    color: var(--harbour-h);
+  }
+  .pi-card__trip:focus-visible {
+    outline: var(--focus-ring);
+    outline-offset: 2px;
+  }
+  /* Held open when a sibling row has a booking link and this one does not,
+     so the bookmark and trip button keep their x position. Matches the
+     card-action BookingControl width (--booking-slot). */
+  .pi-card__booking-slot {
+    display: block;
+    min-width: var(--booking-slot, 13rem);
+    min-height: 48px;
   }
 
-  /* ---- variant: compact ----
+  /* ---- variant: compact (directory row) ----
      The primitive's --compact is a horizontal media card. This surface uses
-     it as a directory list row: no frame, a square thumb, a bottom rule.
+     it as a directory list row, read left to right as
+       thumb (120x90) | text (up to 62ch) | actions
+     with the actions directly after the text rather than pinned to the far
+     edge of the frame. The row draws no frame and no rule of its own: the
+     list that holds it owns the single divider (DirectoryRows, CardGrid
+     rows), which is what ended the doubled hairline between rows.
      Selectors repeat the block class so they beat the primitive regardless
      of bundle order. */
   .pi-card.pi-card--compact {
-    align-items: center;
-    gap: var(--space-3);
-    border: none;
-    border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 120px minmax(0, 62ch) auto;
+    justify-content: start;
+    align-items: start;
+    column-gap: var(--space-5);
+    border: 0;
     border-radius: 0;
     overflow: visible;
-    padding: var(--space-3) 0;
+    padding: 0;
+    background: none;
   }
-  .pi-card.pi-card--compact:hover {
-    background: var(--bg-alt);
+  .pi-card.pi-card--compact.pi-card--no-media {
+    grid-template-columns: minmax(0, 62ch) auto;
   }
   .pi-card.pi-card--compact .pi-card__media {
-    flex: 0 0 56px;
-    max-width: 56px;
-    width: 56px;
-    height: 56px;
-    aspect-ratio: 1;
-    border-radius: var(--radius-s);
+    grid-column: 1;
+    grid-row: 1;
+    width: 120px;
+    height: 90px;
+    max-width: none;
+    aspect-ratio: 4 / 3;
+    border-radius: var(--radius-m);
   }
   .pi-card.pi-card--compact .pi-card__body {
+    grid-column: 2;
+    grid-row: 1;
+    gap: var(--space-1);
     padding: 0;
+  }
+  .pi-card.pi-card--compact.pi-card--no-media .pi-card__body {
+    grid-column: 1;
   }
   .pi-card.pi-card--compact .pi-card__title {
-    font-size: var(--fs-400);
+    font-size: var(--fs-500);
+    line-height: 1.25;
   }
+  /* The whole verdict, no clamp: a row has the width to show it. */
   .pi-card.pi-card--compact .pi-card__dek {
+    display: block;
+    -webkit-line-clamp: unset;
+    line-clamp: none;
+    overflow: visible;
+    min-height: 0;
+    max-width: 62ch;
     font-size: var(--fs-300);
+    font-weight: var(--fw-body);
+    line-height: var(--lh-dek);
+    text-wrap: pretty;
+  }
+  .pi-card.pi-card--compact .pi-card__meta {
+    margin-top: var(--space-1);
   }
   .pi-card.pi-card--compact .pi-card__actions {
-    padding: 0;
-    margin-left: auto;
+    grid-column: 3;
+    grid-row: 1;
+    align-self: start;
+    margin: 0;
+    padding: 2px 0 0;
+    flex-wrap: nowrap;
   }
-  @media (max-width: 22.5em) {
-    /* thumb hides below 360px per spec 2.15 responsive rules */
+  .pi-card.pi-card--compact.pi-card--no-media .pi-card__actions {
+    grid-column: 2;
+  }
+
+  /* No photo in a list that has them: a paper tile with the PI monogram
+     holds the thumb slot, so this row's title stays on the list's text line. */
+  .pi-card__media--tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    background: var(--paper-warm);
+    border: 1px solid var(--border);
+  }
+  .pi-card__tile-rule {
+    display: block;
+    width: 1.25rem;
+    height: 2px;
+    background: var(--bronze);
+  }
+  .pi-card__tile-mark {
+    font-family: var(--font-display);
+    font-size: var(--fs-400);
+    font-weight: var(--fw-display);
+    line-height: 1;
+    letter-spacing: var(--ls-display);
+    color: var(--harbour-deep);
+  }
+
+  /* Tablet: the text keeps its width and the actions move under it. */
+  @media (max-width: 63.99em) {
+    .pi-card.pi-card--compact {
+      grid-template-columns: 120px minmax(0, 1fr);
+    }
+    .pi-card.pi-card--compact.pi-card--no-media {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .pi-card.pi-card--compact .pi-card__actions,
+    .pi-card.pi-card--compact.pi-card--no-media .pi-card__actions {
+      grid-column: 2;
+      grid-row: 2;
+      flex-wrap: wrap;
+      padding-top: var(--space-3);
+    }
+    .pi-card.pi-card--compact.pi-card--no-media .pi-card__actions {
+      grid-column: 1;
+    }
+  }
+
+  /* Phone: an 88x66 thumb beside the text, then a full-width action bar
+     (bookmark on the left, a booking button flexed to fill). */
+  @media (max-width: 47.99em) {
+    .pi-card.pi-card--compact {
+      grid-template-columns: 88px minmax(0, 1fr);
+      column-gap: var(--space-4);
+    }
     .pi-card.pi-card--compact .pi-card__media {
+      width: 88px;
+      height: 66px;
+    }
+    .pi-card.pi-card--compact .pi-card__title {
+      font-size: var(--fs-400);
+    }
+    .pi-card.pi-card--compact .pi-card__actions {
+      grid-column: 1 / -1;
+      padding-top: var(--space-3);
+    }
+    /* Fills the bar when it fits beside the pair; on a narrow phone it takes
+       its own full-width line under them rather than squeezing its label. */
+    .pi-card.pi-card--compact .pi-card__actions > :global(.v5-booking) {
+      flex: 1 1 var(--booking-slot, 13rem);
+    }
+    .pi-card.pi-card--compact .pi-card__booking-slot {
       display: none;
     }
   }
@@ -626,11 +838,14 @@ const hasActions = !!resolvedSaveKind || trip || !!booking;
   }
 
   /* ---- variants: article + guide (editorial surface, HUB-08 fix) ----
-     Distinct at a glance: sea-fog surface, no venue chip cosmetics.
-     Titles already render in Sora. An article never wears venue clothing. */
+     Paper card, hairline and 16px radius on any band. The old sea-fog
+     surface matched the bands these cards sit on (JournalModule, the
+     best-of rails), so the card vanished while its 16px padding stayed,
+     leaving titles floating inset from the section edge. An article still
+     never wears venue clothing: no chips, no trip or booking actions. */
   .pi-card--editorial {
-    background: var(--bg-alt);
-    border-color: transparent;
+    background: var(--white);
+    border-color: var(--border);
   }
   .pi-card--article .pi-card__byline {
     font-weight: var(--fw-semibold);

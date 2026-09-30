@@ -1,6 +1,6 @@
 ---
-title: "The Winter Long Lunch: Vineyard Dining Room or Coastal Pub"
-dek: "Two very different versions of the same afternoon. Here's how to pick the right one for the day you're actually having."
+title: "The winter long lunch: vineyard dining room or coastal pub"
+dek: "Two very different versions of the same afternoon. Here’s how to pick the right one for the day you’re actually having."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-08-13

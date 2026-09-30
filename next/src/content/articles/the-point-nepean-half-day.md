@@ -1,6 +1,6 @@
 ---
-title: "The Point Nepean Half-Day: The Peninsula's Most Underused National Park"
-dek: "Quarantine station, fort batteries, the westernmost point of the Mornington Peninsula, and a coastal walk with Port Phillip on one side and Bass Strait on the other. Three hours well spent  -  and the single best landscape move in Sorrento on a weekend."
+title: "The Point Nepean half-day: the Peninsula’s most underused national park"
+dek: "Quarantine station, fort batteries, the westernmost point of the Mornington Peninsula, and a coastal walk with Port Phillip on one side and Bass Strait on the other. Three hours well spent, and the single best landscape move in Sorrento on a weekend."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-04-14

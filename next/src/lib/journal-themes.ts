@@ -210,3 +210,18 @@ export const themeDefs: ThemeDef[] = [
     formats: ["weekend-picker", "stay-notes"],
   },
 ];
+
+/**
+ * The single theme label a story wears in lists. Theme membership (filters,
+ * section pools) is unchanged; this only chooses which matching theme names
+ * the story. Weekend round-ups read as "Stays & weekends" even when they also
+ * carry food tags, instead of whichever theme happens to be listed first.
+ */
+export function primaryTheme<T extends { key: string }>(
+  matching: T[],
+  data: { tags?: string[]; format?: string },
+): T | undefined {
+  const weekend =
+    (data.tags ?? []).includes("weekend-picker") || data.format === "weekend-picker";
+  return (weekend && matching.find((t) => t.key === "stays-and-weekends")) || matching[0];
+}

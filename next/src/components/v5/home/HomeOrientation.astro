@@ -5,22 +5,27 @@ const areas = [
   { title: 'Sorrento & the southern coast', href: '/explore/places/sorrento/', text: 'Use the town as your starting point for the southern Peninsula. Check conditions before choosing a coastal walk.' },
 ];
 ---
-<section class="home-orientation container" aria-labelledby="home-orientation-title">
-  <div class="home-orientation__heading">
-    <h2 id="home-orientation-title">Find your part of the Peninsula</h2>
-    <a href="/map/">Open the map →</a>
+<section class="home-orientation pi-section" aria-labelledby="home-orientation-title">
+  <div class="container">
+    <header class="pi-section-head">
+      <div class="pi-section-head__text">
+        <p class="pi-eyebrow">Where to start</p>
+        <h2 id="home-orientation-title" class="pi-h2">Find your part of the Peninsula</h2>
+      </div>
+      <a class="pi-section-link" href="/map/">Open the map <span aria-hidden="true">&rarr;</span></a>
+    </header>
+    <ul class="home-orientation__list">{areas.map((area) => <li><h3><a href={area.href}>{area.title}</a></h3><p>{area.text}</p></li>)}</ul>
   </div>
-  <ul>{areas.map((area) => <li><h3><a href={area.href}>{area.title}</a></h3><p>{area.text}</p></li>)}</ul>
 </section>
 <style>
-  .home-orientation { padding-block: 2rem; }
-  .home-orientation__heading { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.5rem 2rem; }
-  h2 { margin: 0; font-family: var(--font-display); font-size: var(--fs-600); line-height: 1.2; }
-  ul { list-style: none; padding: 0; margin: 1.5rem 0 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
-  li { border-top: 1px solid var(--border); padding-top: 1rem; }
-  h3 { margin: 0; font-size: 1.125rem; line-height: 1.4; }
-  p { color: var(--soft); font-size: 0.9375rem; line-height: 1.6; margin: 0.5rem 0 0; }
-  a { color: var(--teal-text); text-underline-offset: 0.2em; display: inline-flex; align-items: center; min-height: 44px; }
-  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-  @media(max-width: 47.99em) { ul { grid-template-columns: 1fr; gap: 1rem; } }
+  /* Head, link and vertical spacing come from the shared .pi-section-head
+     and .pi-section canon (G1); the region list is local. */
+  .home-orientation__list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-5); }
+  .home-orientation__list li { border-top: 1px solid var(--border); padding-top: var(--space-4); }
+  .home-orientation__list h3 { margin: 0; font-family: var(--font-display); font-weight: var(--fw-display); font-size: var(--fs-500); line-height: var(--lh-heading); letter-spacing: var(--ls-display); text-wrap: balance; }
+  .home-orientation__list h3 a { color: var(--text); text-decoration: none; display: inline-flex; align-items: center; min-height: 44px; transition: color var(--dur-fast) var(--ease-enter); }
+  .home-orientation__list h3 a:hover { color: var(--harbour); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+  .home-orientation__list h3 a:focus-visible { outline: 2px solid var(--focus-ring-color); outline-offset: 3px; border-radius: 2px; }
+  .home-orientation__list p { color: var(--soft); font-size: var(--fs-300); line-height: 1.6; margin: var(--space-1) 0 0; max-width: 48ch; text-wrap: pretty; }
+  @media (max-width: 47.99em) { .home-orientation__list { grid-template-columns: 1fr; gap: var(--space-4); } }
 </style>

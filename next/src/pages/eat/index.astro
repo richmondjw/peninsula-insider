@@ -4,10 +4,10 @@
  *
  * Verdict first, catalogue underneath, one job: a confident shortlist for a
  * specific occasion in under a minute. Structure: breadcrumbless h1 + Editor
- * stand-first, intent chips + FilterBar (ONE filter state governs The Six
- * AND the directory), The Six, best-of rail, the full directory as compact
- * rows (server-rendered, SEO), From the Journal, FAQ (in-DOM, mirrors
- * schema), Ask band.
+ * stand-first in a compact band that also holds the intent chips + FilterBar
+ * (ONE filter state governs The Six AND the directory), The Six, the full
+ * directory as compact rows (server-rendered, SEO), the shorter guide lists
+ * beside a What's On callout, From the Journal, FAQ (in-DOM, mirrors schema).
  *
  * SEO: URL, title, meta, canonical and both schemas unchanged (protect
  * list). Wineries are excluded from this surface entirely (HUB-01): eatTypes
@@ -97,35 +97,16 @@ function verdictLine(signature?: string): string | undefined {
   return first.split(/\s+/).length <= 25 ? first : undefined;
 }
 
-// ── The Six: editorially pinned by the desk. Verdicts are Critic
-//    voice, 25 words maximum, distilled from each venue's own editorial copy.
-const sixPicks: Array<{ slug: string; verdict: string }> = [
-  {
-    slug: 'tedesca-osteria',
-    verdict: 'The long lunch, settled: wood oven, one set menu, and a room built for a slow table. Book lunch, not dinner.',
-  },
-  {
-    slug: 'commonfolk-coffee',
-    verdict: 'The quick warm-up: serious coffee in a Mornington warehouse, best before ten, with the egg sandwich still the order.',
-  },
-
-  {
-    slug: 'merricks-general-wine-store',
-    verdict: 'The softer ridge lunch: cellar door, bakery, fireplace, and produce-led plates without the two-hat booking pressure.',
-  },
-
-  {
-    slug: 'doot-doot-doot',
-    verdict: 'The occasion room at Jackalope: a tasting-menu setting for a celebration. Check the current menu and dietary options before booking.',
-  },
-  {
-    slug: 'barragunda-dining',
-    verdict: 'The farm booking: a thousand-acre estate, a weekly-changing menu, and cooking tied to what the estate has ready.',
-  },
-  {
-    slug: 'portsea-hotel',
-    verdict: 'The bay-front pub: fireplace inside, acoustic sessions on the calendar, and the view still doing the work.',
-  },
+// ── The Six: editorially pinned by the desk. Each pick shows the venue's
+//    one canonical line, the same verdictLine(signature) its directory row
+//    below carries, so a venue never reads two different blurbs on one page.
+const sixPicks: Array<{ slug: string }> = [
+  { slug: 'tedesca-osteria' },
+  { slug: 'commonfolk-coffee' },
+  { slug: 'merricks-general-wine-store' },
+  { slug: 'doot-doot-doot' },
+  { slug: 'barragunda-dining' },
+  { slug: 'portsea-hotel' },
 ];
 
 const sixItems: SixItem[] = [];
@@ -138,7 +119,7 @@ for (const pick of sixPicks) {
     entityType: 'venue',
     entitySlug: routeSlug(venue),
     image: await cardImage(venue),
-    verdict: pick.verdict,
+    verdict: verdictLine(venue.data.signature),
     meta: [placeLabel(venue), typeLabel[venue.data.type] ?? venue.data.type],
     priceBand: venue.data.priceBand,
     freshness: isoDate(informationCheckedOn(venue.data)),
@@ -249,7 +230,13 @@ const faqSchema = {
   ],
 };
 
-const standfirst = `Choose a destination lunch, a casual table or a coffee stop. Browse ${venues.length} places by occasion and town, or start with our editorial choices.`;
+// The count is stated once, in the directory heading. 'Town' is not a
+// visible chip (it lives behind More filters), so the copy does not promise it.
+const standfirst = 'Choose a destination lunch, a casual table or a coffee stop. Browse places by occasion, or start with our editorial choices.';
+
+// The visible accordion drops the place name every question repeats (the
+// page is already about the Peninsula); the JSON-LD keeps the full question.
+const faqShort = (q: string): string => q.replace(/ on the Mornington Peninsula(?=\?)/, '');
 
 export const prerender = true;
 ---
@@ -265,70 +252,76 @@ export const prerender = true;
   <script type="application/ld+json" set:html={JSON.stringify(pillarSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
-  <!-- 1. Orient: h1 + Editor stand-first (content-guidelines example 1) -->
+  <!-- 1. Orient: h1 + Editor stand-first (content-guidelines example 1).
+       The compact band contains the page's one filter strip: jump links, the
+       FilterBar and the planning help link, so hero to first pick is one
+       bounded block with no stacked rules. -->
   <HubStandfirst
     eyebrow="Eat & Drink"
     title="Where to eat on the Mornington Peninsula"
     standfirst={standfirst}
     compact
-  />
-
-  <CategoryBrowse directory="directory" count={directoryItems.length} noun="places to eat">
-    <FilterBar surface="eat" noun="places" label="Filter places to eat" facets={['cat', 'place', 'mood', 'price', 'party']} />
-  </CategoryBrowse>
-  <div class="container"><PlanningHelp /></div>
+  >
+    <CategoryBrowse directory="directory" noun="places to eat" contained={false}>
+      <FilterBar surface="eat" noun="places" label="Filter places to eat" facets={['cat', 'place', 'mood', 'price', 'party']} />
+      <PlanningHelp />
+    </CategoryBrowse>
+  </HubStandfirst>
 
   <div data-category-editorial>
   <!-- 2. The verdict layer -->
   <TheSix
     id="the-six"
+    eyebrow="The dining shortlist"
     heading="A table for the kind of day you want"
     sub="Start with a long lunch, a coffee stop or an easy village meal. Check opening times, menus and bookings with the venue."
     surface="eat"
     items={sixItems}
   />
-
-  <!-- Best-of rail: the strongest guide lanes, 6 maximum -->
-  <nav class="eat-rail" aria-label="Best-of guides">
-    <div class="container">
-      <ul class="eat-rail__list">
-        {bestOfRail.map((item) => (
-          <li>
-            <a href={item.href} class="eat-rail__link">{item.label} &rarr;</a>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </nav>
-
   </div>
 
-  <!-- 4. The catalogue layer: every non-winery venue, one render, in-DOM.
-       Intent chips + filters are slotted directly above the list they
-       reshape (moved below The Six 2026-07-24 per James; slotted inside the
-       directory so the sticky bar has the full list height to stick
-       against). ONE state still governs The Six AND the directory
-       (URL-persisted; restoration per pi:restore:v1 contract). -->
+  <!-- 3. The catalogue layer: every non-winery venue, one render, in-DOM.
+       ONE state governs The Six AND the directory (URL-persisted;
+       restoration per pi:restore:v1 contract); the FilterBar lives in the
+       hero band and the editorial layer yields to this list when filtering. -->
   <DirectoryRows
     id="directory"
     eyebrow="The full list"
     heading={`All ${directoryItems.length} places to eat`}
-    sub="Use the occasion and town filters above to make your shortlist."
+    sub="Use the occasion filters above to make your shortlist."
     noun="places"
     surface="eat"
     items={directoryItems}
-    topLink={{ label: 'Ranked top 15', href: '/eat/best-restaurants/' }}
+    topLink={{ label: 'Our fifteen best tables', href: '/eat/best-restaurants/' }}
     emptyHeading="Nothing matches those filters yet"
     emptyBody="Loosen one and the list comes back."
   >
   </DirectoryRows>
 
-  <!-- What's On, one line + link (spec block 18: strip becomes a line) -->
-  <p class="eat-whatson container">
-    Food and wine events coming up on the Peninsula:{' '}
-    {viralFoodFestival && <><a href={viralFoodFestival.href}>VIRAL Food Festival at Mornington Racecourse, 18–20 September</a>. For the wider edit,{' '}</>}
-    <a href="/whats-on/">see What&rsquo;s On &rarr;</a>
-  </p>
+  <!-- 4. After the list: the shorter guide lists as plain text links (pills
+       are for filters only) beside a slim What's On callout. -->
+  <section class="eat-more" aria-label="Shorter lists and events">
+    <div class="container eat-more__inner">
+      <nav class="eat-rail" aria-labelledby="eat-rail-heading">
+        <p class="pi-eyebrow" id="eat-rail-heading">Shorter lists</p>
+        <ul class="eat-rail__list">
+          {bestOfRail.map((item) => (
+            <li>
+              <a href={item.href} class="eat-rail__link">{item.label} <span aria-hidden="true">→</span></a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+      <aside class="eat-whatson" aria-labelledby="eat-whatson-heading">
+        <p class="pi-eyebrow" id="eat-whatson-heading">Also this month</p>
+        <p class="eat-whatson__line">
+          Food and wine events coming up on the Peninsula.
+          {viralFoodFestival && <> <a href={viralFoodFestival.href}>VIRAL Food Festival at Mornington Racecourse, 18–20 September</a>.</>}
+        </p>
+        <a class="pi-section-link" href="/whats-on/">See What&rsquo;s On <span aria-hidden="true">→</span></a>
+      </aside>
+    </div>
+  </section>
 
   <!-- 5. From the Journal (3 maximum) -->
   <JournalModule
@@ -339,17 +332,20 @@ export const prerender = true;
     surface="eat"
   />
 
-  <!-- 6. FAQ: in-DOM, mirrors faqSchema -->
-  <section class="hub-faq" aria-label="Frequently asked questions">
+  <!-- 6. FAQ: in-DOM, mirrors faqSchema (visible questions drop the
+       repeated place name; the schema keeps it) -->
+  <section class="hub-faq pi-section" aria-labelledby="eat-faq-heading">
     <div class="container">
-      <div class="hub-faq__intro">
-        <p class="label label--accent">Frequently asked</p>
-        <h2 class="hub-faq__title">Six honest answers before you plan the day</h2>
+      <div class="pi-section-head">
+        <div class="pi-section-head__text">
+          <p class="pi-eyebrow">Frequently asked</p>
+          <h2 class="pi-h2" id="eat-faq-heading">Six honest answers before you plan the day</h2>
+        </div>
       </div>
       <div class="hub-faq__list">
         {faqSchema.mainEntity.map((item) => (
           <details class="hub-faq__item">
-            <summary class="hub-faq__q">{item.name}</summary>
+            <summary class="hub-faq__q">{faqShort(item.name)}</summary>
             <div class="hub-faq__a"><p>{item.acceptedAnswer.text}</p></div>
           </details>
         ))}
@@ -361,36 +357,43 @@ export const prerender = true;
 </BaseLayout>
 
 <style>
-  .eat-rail {
-    padding: var(--space-4, 1rem) 0 var(--space-6, 2rem);
+  /* A quiet band between the list and the Journal: one full-frame rule, the
+     guide links on the left, the What's On callout on the right. */
+  .eat-more {
+    padding-block: var(--space-6, 2rem);
+  }
+  .eat-more__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    gap: var(--space-6, 2rem) var(--space-8, 4rem);
+    align-items: start;
+    border-top: 1px solid var(--border);
+    padding-top: var(--space-6, 2rem);
   }
   .eat-rail__list {
     list-style: none;
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-2, 0.5rem) var(--space-3, 0.75rem);
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, max-content));
+    gap: 0 var(--space-6, 2rem);
   }
   .eat-rail__link {
     display: inline-flex;
     align-items: center;
-    min-height: 48px;
-    padding: 0 var(--space-4, 1rem);
-    border: 1.5px solid var(--border);
-    border-radius: var(--radius-pill, 999px);
-    background: var(--white);
+    gap: 0.35em;
+    min-height: 44px;
     font-family: var(--font-ui);
-    font-size: var(--fs-300, 0.9375rem);
-    font-weight: var(--fw-semibold, 600);
-    color: var(--text);
-    text-decoration: none;
-    transition: border-color var(--dur-fast, 120ms) var(--ease-enter, ease),
-      color var(--dur-fast, 120ms) var(--ease-enter, ease);
+    font-size: var(--fs-400, 1.0625rem);
+    font-weight: 600;
+    color: var(--harbour, #10527E);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+    transition: color var(--dur-fast, 120ms) var(--ease, ease);
   }
   .eat-rail__link:hover {
-    border-color: var(--accent);
-    color: var(--accent);
+    color: var(--harbour-h, #0C4166);
   }
   .eat-rail__link:focus-visible {
     outline: var(--focus-ring, 2px solid var(--accent));
@@ -398,12 +401,26 @@ export const prerender = true;
   }
 
   .eat-whatson {
-    margin: 0 auto var(--space-5, 1.5rem);
-    font-family: var(--font-ui, var(--font-ui));
-    font-size: var(--fs-300, 0.9375rem);
-    color: var(--soft);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-s, 8px);
+    padding: var(--space-4, 1rem);
+    background: var(--white);
   }
-  .eat-whatson a {
-    color: var(--accent);
+  .eat-whatson__line {
+    margin: 0;
+    font-family: var(--font-ui);
+    font-size: var(--fs-300, 0.9375rem);
+    line-height: 1.6;
+    color: var(--soft);
+    text-wrap: pretty;
+  }
+  .eat-whatson__line a {
+    color: var(--harbour, #10527E);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+  }
+  @media (max-width: 767px) {
+    .eat-more__inner { grid-template-columns: minmax(0, 1fr); }
+    .eat-rail__list { grid-template-columns: minmax(0, 1fr); }
   }
 </style>

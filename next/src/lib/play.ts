@@ -43,7 +43,9 @@ export const PLAY = {
     period: '2026-10',
     partner: 'Doot Doot Doot, Jackalope',
     partnerSlug: 'doot-doot-doot',
-    prize: '$250 to dine',
+    /* Worded without a figure (house rule: no prices or dollar amounts on
+       the page). Must still match the partner agreement. */
+    prize: 'dinner',
     closes: '11:59pm AEDT Friday 30 October 2026',
   },
 } as const;

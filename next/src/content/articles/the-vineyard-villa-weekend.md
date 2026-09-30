@@ -1,5 +1,5 @@
 ---
-title: "The Vineyard Villa Weekend: The Peninsula's Quietest Luxury"
+title: "The vineyard villa weekend: the Peninsula’s quietest luxury"
 dek: "The best Peninsula stay right now is not a design hotel. It is a cottage on a working farm with a fire, a kitchen, and nobody checking on you. Here is the case, and the short list."
 author: "editorial"
 houseByline: true

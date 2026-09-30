@@ -1,6 +1,6 @@
 ---
-title: "Peninsula This Weekend - 11 to 12 July"
-dek: "A proper wet winter weekend concentrates everything. The answer on a day like this is one indoor booking with some real weight to it - truffle country, a long lunch, or the pools when the air outside is genuinely cold."
+title: "Peninsula This Weekend: 11 to 12 July"
+dek: "A proper wet winter weekend concentrates everything. The answer on a day like this is one indoor booking with some real weight to it: truffle country, a long lunch, or the pools when the air outside is genuinely cold."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-07-10

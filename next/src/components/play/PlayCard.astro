@@ -26,7 +26,7 @@ const href = playUrl(surface);
     </a>
     <div class="play-card__body">
       <p class="play-card__eyebrow">{variant === 'band' ? 'Play this weekend’s case' : 'Or let PI plan your day'}</p>
-      <h2 class="play-card__title" id={`play-card-${variant}-title`}>Where in the Peninsula is PI?</h2>
+      <h2 class="play-card__title" id={`play-card-${variant}-title`}>Where in the Peninsula is&nbsp;PI?</h2>
       <p class="play-card__dek">
         {variant === 'band'
           ? 'She took her coffee to go from Mornington pier and was gone. Ask the locals, search the scenes, read the land. Find her before sunset and the route you solved is a real day out you can save to your trip.'
@@ -78,6 +78,7 @@ const href = playUrl(surface);
     margin: 0 0 var(--space-3);
     font-family: var(--font-display); font-weight: 700;
     font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2.125rem); line-height: 1.05; letter-spacing: -0.02em;
+    text-wrap: balance;
   }
   .play-card__dek { margin: 0 0 var(--space-3); font-size: var(--fs-400); line-height: 1.5; }
   .play-card__prize { margin: 0 0 var(--space-4); font-size: var(--fs-300); font-weight: var(--fw-semibold); }

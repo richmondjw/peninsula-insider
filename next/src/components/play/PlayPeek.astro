@@ -6,9 +6,14 @@
  * pages only. Rules, all enforced in the script below:
  *   - detail pages only (journal, eat, wine, stay, explore, whats-on);
  *     never the homepage, account, plan, pass, partner or admin surfaces
+ *   - never the ranked editorial guides (/explore/walks/, golf, beaches,
+ *     plans), nor any page that marks <body> or <main> with data-no-peek:
+ *     a toast over a ranking covers the page's most important fold
  *   - waits for the cookie banner to be answered, and stands down for the
  *     session if the Insider Note popup has already shown itself
- *   - fires after 45s on the page or 50% scroll, whichever is first
+ *   - fires only once the reader has scrolled past 70% of the page, and
+ *     never within 4s of load, so it lands after the reading, not on it
+ *   - docks 24px from the viewport corner on desktop
  *   - once per 7 days per browser; dismiss remembered for 30 days
  *   - reduce-motion: no slide, just appears
  *   - mobile: a slim bar above the bottom quick-actions bar
@@ -34,6 +39,14 @@ const href = playUrl('peek');
   const SHOW_EVERY = 7 * 24 * 3600 * 1000;
   const DISMISS_FOR = 30 * 24 * 3600 * 1000;
   const CONTENT = /^\/(journal|eat|wine|stay|explore|whats-on)\/[^/]+\/?/;
+  // Ranked editorial guides: the ranking is the page, so nothing floats on it.
+  const GUIDES = /^\/explore\/(walks|golf|beaches|plans)\/?$/;
+  const SCROLL_AT = 0.7;
+  const QUIET_MS = 4000;
+
+  function optedOut() {
+    return document.body?.hasAttribute('data-no-peek') || !!document.querySelector('main[data-no-peek]');
+  }
 
   function read(): { shown?: number; dismissed?: number } {
     try { return JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch { return {}; }
@@ -56,6 +69,7 @@ const href = playUrl('peek');
   let noteShown = false;
   let fired = false;
   let timer = 0;
+  let loadedAt = 0;
 
   function stopTimer() {
     if (timer) { clearTimeout(timer); timer = 0; }
@@ -64,6 +78,12 @@ const href = playUrl('peek');
   function show() {
     const el = activeEl;
     if (!el || fired) return;
+    const quietLeft = QUIET_MS - (Date.now() - loadedAt);
+    if (quietLeft > 0) {
+      stopTimer();
+      timer = window.setTimeout(show, quietLeft);
+      return;
+    }
     if (noteShown || !consentAnswered() || document.querySelector('#inote:not([hidden])')) {
       stopTimer();
       timer = window.setTimeout(show, 5000);
@@ -83,7 +103,7 @@ const href = playUrl('peek');
   window.addEventListener('scroll', () => {
     if (!activeEl || fired) return;
     const max = document.documentElement.scrollHeight - window.innerHeight;
-    if (max > 0 && window.scrollY / max >= 0.5) show();
+    if (max > 0 && window.scrollY / max >= SCROLL_AT) show();
   }, { passive: true });
 
   function initPlayPeek() {
@@ -97,15 +117,17 @@ const href = playUrl('peek');
     fired = false;
     if (!el) return;
     el.dataset.bound = '1';
-    if (!CONTENT.test(location.pathname)) return;
+    if (!CONTENT.test(location.pathname) || GUIDES.test(location.pathname) || optedOut()) return;
     const s = read();
     const now = Date.now();
     if (s.dismissed && now - s.dismissed < DISMISS_FOR) return;
     if (s.shown && now - s.shown < SHOW_EVERY) return;
 
+    // No time-based trigger: the scroll listener above is the only way in,
+    // and show() holds anything that arrives inside the quiet window.
     activeEl = el;
     activeState = s;
-    timer = window.setTimeout(show, 45000);
+    loadedAt = now;
 
     el.querySelector('[data-play-peek-close]')?.addEventListener('click', () => {
       el.dataset.in = 'false';
@@ -121,14 +143,15 @@ const href = playUrl('peek');
 <style>
   .play-peek {
     position: fixed;
-    right: var(--space-4);
-    bottom: var(--space-4);
+    right: var(--space-5);
+    bottom: var(--space-5);
     z-index: 60;
     display: flex;
     align-items: center;
     gap: var(--space-3);
-    width: min(380px, calc(100vw - 2 * var(--space-4)));
-    padding: var(--space-3) var(--space-4);
+    width: min(22rem, calc(100vw - 2 * var(--space-5)));
+    max-width: 22rem;
+    padding: var(--space-3) 3rem var(--space-3) var(--space-4);
     background: var(--white);
     color: var(--text);
     border: 1px solid var(--border);
@@ -146,16 +169,16 @@ const href = playUrl('peek');
   .play-peek__copy { margin: 0; font-size: var(--fs-200); line-height: 1.4; color: var(--soft, #5B6770); }
   .play-peek__cta { flex: none; }
   .play-peek__close {
-    position: absolute; top: 4px; right: 6px;
-    width: 32px; height: 32px; border: 0; background: transparent; color: var(--soft);
+    position: absolute; top: 2px; right: 2px;
+    width: 44px; height: 44px; border: 0; background: transparent; color: var(--soft);
     font-size: 20px; line-height: 1; cursor: pointer; border-radius: 50%;
   }
   .play-peek__close:hover { background: var(--bg-alt, #F7F4EE); color: var(--text); }
   @media (max-width: 767px) {
     .play-peek {
-      right: var(--space-3); left: var(--space-3); width: auto;
+      right: var(--space-3); left: var(--space-3); width: auto; max-width: none;
       bottom: calc(56px + env(safe-area-inset-bottom) + var(--space-3));
-      padding: var(--space-2) var(--space-3);
+      padding: var(--space-2) 3rem var(--space-2) var(--space-3);
     }
     .play-peek__mark { width: 40px; }
     .play-peek__copy { display: none; }

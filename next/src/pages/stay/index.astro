@@ -154,6 +154,12 @@ const restVenues = venues
   });
 const directoryItems = [...sixVenues, ...restVenues].map((v) => stayItem(v));
 
+// The directory's header action opens the map on the stays alone. The ranked
+// list it used to link to is already the first best-of card above, and the
+// category values are read from the stays themselves so none drop off the map.
+const stayCats = [...new Set(directoryItems.flatMap((item) => item.facets.cat ?? []))].sort();
+const STAY_MAP_HREF = stayCats.length ? `/map/?cat=${stayCats.join(',')}` : '/map/';
+
 // ── Best-of rail (guide cards to existing /stay/ list pages) ────────────────
 const bestOfGuides = [
   { slug: 'best-accommodation', title: 'The best places to stay', verdict: 'The full ranking, hotel to cottage, with the reasoning shown.' },
@@ -230,41 +236,46 @@ export const prerender = true;
 
   <Breadcrumbs items={breadcrumbItems} />
 
-  <!-- 1. Stand-first: h1 retained, intro + CompareBlock compressed to <= 80 words -->
+  <!-- 1. Stand-first: h1 retained, intro + CompareBlock compressed to <= 80
+       words. The compact band contains its controls (jump links, the one
+       FilterBar, the planning help), so its bottom edge sits below them. -->
   <HubStandfirst
     compact
     title="Choose the base, and the whole weekend changes"
     standfirst={standfirst}
-  />
-
-  <CategoryBrowse directory="stay-directory" count={stayCount} noun="stays">
-    <FilterBar
-      surface="stay"
-      noun="stays"
-      label="Filter stays"
-      facets={['place', 'cat', 'price', 'party']}
-    >
-      <SortControl />
-    </FilterBar>
-    <PlanningHelp />
-  </CategoryBrowse>
+  >
+    <CategoryBrowse directory="stay-directory" noun="stays" contained={false}>
+      <FilterBar
+        surface="stay"
+        noun="stays"
+        label="Filter stays"
+        facets={['place', 'cat', 'price', 'party']}
+      />
+      <PlanningHelp />
+    </CategoryBrowse>
+  </HubStandfirst>
 
   <div data-category-editorial>
   <StayBaseComparison />
 
-  <!-- 2. The Six -->
+  <!-- 2. The Six. The eyebrow names the shortlist; the old sub explained
+       check dates the cards no longer show, so it is gone. -->
   <TheSix
     eyebrow="The stay shortlist"
     heading="Stays worth building a weekend around"
-    sub="An editorial shortlist. Dates on individual entries describe the recorded detail check, not a new stay or visit."
     surface="stay"
     items={sixItems}
   />
 
   <!-- 4. Best-of rail -->
-  <section class="v5-bestof" aria-labelledby="bestof-heading">
+  <section class="v5-bestof pi-section" aria-labelledby="bestof-heading">
     <div class="container">
-      <h2 id="bestof-heading" class="v5-bestof__title">Start with a ranked list</h2>
+      <div class="pi-section-head">
+        <div class="pi-section-head__text">
+          <p class="pi-eyebrow">Best-of guides</p>
+          <h2 id="bestof-heading" class="pi-h2">Start with a ranked list</h2>
+        </div>
+      </div>
       {/* "Best-of guides" is stated once, in the section eyebrow. The cards
           drop their GUIDE stamp. They are text-only by design, so no media
           fallback either: a plate on all three would be noise, not repair. */}
@@ -299,8 +310,12 @@ export const prerender = true;
     surface="stay"
     noun="stays"
     items={directoryItems}
-    topLink={{ label: 'Ranked: the best places to stay', href: '/stay/best-accommodation/' }}
-  />
+    topLink={{ label: 'Open the map', href: STAY_MAP_HREF }}
+  >
+    <div slot="before-list" class="stay-list-tools">
+      <SortControl />
+    </div>
+  </DirectoryRows>
 
   <!-- 6. From the Journal (3) -->
   <JournalModule
@@ -310,10 +325,13 @@ export const prerender = true;
   />
 
   <!-- 7. FAQ: retained from v4, in-DOM, schema above -->
-  <section class="hub-faq" aria-label="Frequently asked questions">
+  <section class="hub-faq pi-section" aria-labelledby="stay-faq-heading">
     <div class="container">
-      <div class="hub-faq__intro">
-        <h2 class="hub-faq__title">Three honest answers before you book the bed</h2>
+      <div class="pi-section-head">
+        <div class="pi-section-head__text">
+          <p class="pi-eyebrow">Frequently asked</p>
+          <h2 class="pi-h2" id="stay-faq-heading">Three honest answers before you book the bed</h2>
+        </div>
       </div>
       <div class="hub-faq__list">
         {faqSchema.mainEntity.map((item) => (
@@ -334,25 +352,12 @@ export const prerender = true;
 
 <style>
   .v5-bestof {
-    padding: var(--space-8, 4rem) 0;
     background: var(--bg-alt, var(--bg));
   }
-  .v5-bestof__eyebrow {
-    margin: 0 0 var(--space-2, 0.5rem);
-    font-family: var(--font-ui);
-    font-size: var(--fs-100, 0.75rem);
-    font-weight: 600;
-    letter-spacing: var(--ls-eyebrow, 0.12em);
-    text-transform: uppercase;
-    color: var(--teal-text);
-  }
-  .v5-bestof__title {
-    margin: 0 0 var(--space-5, 1.5rem);
-    font-family: var(--font-display);
-    font-size: var(--fs-700, clamp(1.6rem, 1.35rem + 1.2vw, 2.1rem));
-    font-weight: var(--fw-display, 600);
-    line-height: var(--lh-heading, 1.14);
-    letter-spacing: -0.01em;
-    color: var(--text);
+  /* Sort acts on the list, so it sits under the list heading it reorders. */
+  .stay-list-tools {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: var(--space-4, 1rem);
   }
 </style>

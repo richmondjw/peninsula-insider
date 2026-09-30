@@ -28,11 +28,14 @@ function parseIsoLocal(s: string): Date {
   return new Date(Date.UTC(y, m - 1, d));
 }
 
-/** "Fri 11 - Sun 13 July" (en dash; em dashes are banned house-wide). */
+/** "Fri 11 – Sun 13 Jul" (en dash; em dashes are banned house-wide). Short
+ * months, so every scope chip and the dateline share one compact format. */
 export function rangeLabel(start: Date, end: Date): string {
   const dow = (d: Date) => d.toLocaleDateString('en-AU', { weekday: 'short', timeZone: 'UTC' });
   const day = (d: Date) => d.getUTCDate();
-  const month = (d: Date) => d.toLocaleDateString('en-AU', { month: 'long', timeZone: 'UTC' });
+  // Spelled out rather than Intl: en-AU abbreviates September to "Sept",
+  // which breaks the three-letter rhythm of every other month.
+  const month = (d: Date) => ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][d.getUTCMonth()];
   if (isoDate(start) === isoDate(end)) return `${dow(start)} ${day(start)} ${month(start)}`;
   if (start.getUTCMonth() === end.getUTCMonth()) {
     return `${dow(start)} ${day(start)} – ${dow(end)} ${day(end)} ${month(end)}`;

@@ -1,54 +1,135 @@
 ---
-import { routePreview } from './plan-preview';
-import type { PlansModel } from './plans-data';
-export interface Props { model: PlansModel; }
-const { model } = Astro.props;
-const itineraries = model.plans.filter(plan => plan.kind === 'itinerary').sort((a,b) => b.editorialPriority - a.editorialPriority);
+import { editableImage } from '../../../lib/inline-edit/attrs';
+import { routePreviewParts, planFacts } from './plan-preview';
+import { planCuration } from './plan-curation';
+import type { PlansModel, PlanRecord } from './plans-data';
+export interface Props { model: PlansModel; excludeIds?: string[]; }
+const { model, excludeIds = [] } = Astro.props;
+// The featured trio is rendered above by PlanContextEngine; list only the rest here.
+const excluded = new Set(excludeIds);
+const itineraries = model.plans.filter(plan => plan.kind === 'itinerary' && !excluded.has(plan.id)).sort((a,b) => b.editorialPriority - a.editorialPriority);
 const guides = model.plans.filter(plan => plan.kind === 'guide').sort((a,b) => a.displayTitle.localeCompare(b.displayTitle));
+const heading = itineraries.length === 3 ? 'Three more ways to spend it' : 'More ways to spend it';
+// Facet line from plan data (time needed, then area). Omitted when the guide carries neither.
+const guideLabel = (plan: PlanRecord) => plan.meta.slice(0, 2).join(' · ');
+// A card never shows a clipped opening line: the curated card dek, else a complete verdict, else nothing.
+const guideDek = (plan: PlanRecord) => planCuration(plan.slug, plan.title, 'guide').cardDek ?? (/(\.\.\.|…)$/.test(plan.verdict) ? '' : plan.verdict);
+const SEP = ' · ';
 ---
-<section class="plan-index" id="all-plans" aria-labelledby="all-plans-heading" data-plan-index>
+{itineraries.length > 0 && <section class="plan-index pi-section" id="all-plans" aria-labelledby="all-plans-heading" data-plan-index>
   <div class="container">
-    <div class="plan-index__heading"><div><p class="plan-index__eyebrow">The complete collection</p><h2 id="all-plans-heading">Ready-made itineraries</h2></div><span>{itineraries.length} itineraries</span></div>
-    <p class="plan-index__intro">Days in order, with the stops already chosen. Check transport between stops and booking requirements, then make it yours.</p>
+    <header class="pi-section-head">
+      <div class="pi-section-head__text">
+        <p class="pi-eyebrow">Ready-made itineraries</p>
+        <h2 class="pi-h2" id="all-plans-heading">{heading}</h2>
+        <p class="pi-section-dek">Days in order, with the stops already chosen.</p>
+      </div>
+    </header>
     <div class="plan-index__rows">
       {itineraries.map((plan,i) => <article class="plan-index__row" data-plan-row={plan.id}>
         <span class="plan-index__number" aria-hidden="true">{String(i+1).padStart(2,'0')}</span>
-        <div class="plan-index__copy"><h3><a href={plan.href}>{plan.displayTitle}</a></h3><p>{plan.editorialReason}</p><p class="plan-index__route">{routePreview(plan)}</p><p class="plan-index__booking">{plan.bookingNote}</p><p class="plan-index__meta">{[...plan.meta, `${plan.stops.length} stops`].join(' · ')}</p></div>
-        <div class="plan-index__actions"><a href={plan.href} class="plan-index__read">See itinerary <span aria-hidden="true">↗</span></a><button class="pi-btn pi-btn--ghost" type="button" data-plan-fork={plan.id} aria-label={`Use this itinerary: ${plan.title}`}>Use this itinerary</button></div>
+        {plan.image && <a class="plan-index__thumb" href={plan.href} tabindex="-1" aria-hidden="true"><img src={plan.image.src} alt="" loading="lazy" decoding="async" width="480" height="360" data-pi-responsive="(max-width: 640px) 100vw, (max-width: 1024px) 160px, 192px"
+          {...editableImage({entityType:plan.entityType,entitySlug:plan.slug,fieldPath:plan.imageField,label:`${plan.title} image`,purpose:'card'})} /></a>}
+        <div class="plan-index__copy">
+          <h3><a href={plan.href}>{plan.displayTitle}</a></h3>
+          <p class="plan-index__dek">{plan.editorialReason}</p>
+          <p class="plan-index__route">{routePreviewParts(plan).map((part, n) => <>{n > 0 && SEP}<span class="nowrap-seg"><span class="plan-index__day">{part.label}</span>{part.route}</span></>)}</p>
+          {plan.bookingNote && <p class="plan-index__booking">{plan.bookingNote}</p>}
+          <ul class="plan-index__meta" role="list">{planFacts(plan).map(fact => <li>{fact}</li>)}</ul>
+        </div>
+        <div class="plan-index__actions">
+          <a href={plan.href} class="pi-btn pi-btn--solid">See the itinerary <span aria-hidden="true">→</span></a>
+          <button class="pi-btn pi-btn--text" type="button" data-plan-fork={plan.id} aria-label={`Use this itinerary: ${plan.title}`}>Use this itinerary</button>
+        </div>
       </article>)}
     </div>
   </div>
-</section>
-<section class="plan-guides" id="planning-guides" aria-labelledby="plan-guides-heading">
+</section>}
+<section class="plan-guides pi-section" id={itineraries.length > 0 ? 'planning-guides' : 'all-plans'} aria-labelledby="plan-guides-heading">
   <div class="container">
-    <div class="plan-index__heading"><div><p class="plan-index__eyebrow">A little more groundwork</p><h2 id="plan-guides-heading">Planning guides</h2></div><span>{guides.length} guides</span></div>
-    <p class="plan-index__intro">Advice for choosing your own stops, a place to stay, or a bigger occasion. These are reading guides, rather than day-by-day itineraries.</p>
-    <div class="plan-guides__grid">{guides.slice(0,6).map(plan => <article class="plan-guide" data-plan-guide={plan.id}><p class="plan-guide__label">Planning guide</p><h3><a href={plan.href}>{plan.displayTitle}</a></h3><p>{plan.verdict}</p><a class="plan-guide__read" href={plan.href} aria-label={`Read guide: ${plan.title}`}>Read guide <span aria-hidden="true">↗</span></a></article>)}</div>
-    {guides.length > 6 && <details class="plan-guides__more"><summary>More planning guides <span>({guides.length - 6})</span> <span aria-hidden="true">+</span></summary>    <div class="plan-guides__grid">{guides.slice(6).map(plan => <article class="plan-guide" data-plan-guide={plan.id}><p class="plan-guide__label">Planning guide</p><h3><a href={plan.href}>{plan.displayTitle}</a></h3><p>{plan.verdict}</p><a class="plan-guide__read" href={plan.href} aria-label={`Read guide: ${plan.title}`}>Read guide <span aria-hidden="true">↗</span></a></article>)}</div></details>}
+    <header class="pi-section-head">
+      <div class="pi-section-head__text">
+        <p class="pi-eyebrow">A little more groundwork</p>
+        <h2 class="pi-h2" id="plan-guides-heading">Planning guides</h2>
+        <p class="pi-section-dek">Advice for choosing your own stops, a place to stay, or a bigger occasion. These are reading guides, rather than day-by-day itineraries.</p>
+      </div>
+    </header>
+    <div class="plan-guides__grid">{guides.slice(0,6).map(plan => <article class="plan-guide" data-plan-guide={plan.id}>
+      {plan.image && <a class="plan-guide__media" href={plan.href} tabindex="-1" aria-hidden="true"><img src={plan.image.src} alt="" loading="lazy" decoding="async" width="480" height="360" data-pi-responsive="(max-width: 640px) 120px, (max-width: 960px) 45vw, 400px"
+        {...editableImage({entityType:plan.entityType,entitySlug:plan.slug,fieldPath:plan.imageField,label:`${plan.title} image`,purpose:'card'})} /></a>}
+      <div class="plan-guide__body">
+        {guideLabel(plan) && <p class="plan-guide__label">{guideLabel(plan)}</p>}
+        <h3><a href={plan.href}>{plan.displayTitle}</a></h3>
+        {guideDek(plan) && <p class="plan-guide__dek">{guideDek(plan)}</p>}
+        <a class="plan-guide__read" href={plan.href} aria-label={`Read the guide: ${plan.title}`}>Read the guide <span aria-hidden="true">→</span></a>
+      </div>
+    </article>)}</div>
+    {guides.length > 6 && <details class="plan-guides__more"><summary><span>More planning guides</span><span class="plan-guides__chevron" aria-hidden="true"></span></summary>
+      <div class="plan-guides__grid">{guides.slice(6).map(plan => <article class="plan-guide" data-plan-guide={plan.id}>
+        {plan.image && <a class="plan-guide__media" href={plan.href} tabindex="-1" aria-hidden="true"><img src={plan.image.src} alt="" loading="lazy" decoding="async" width="480" height="360" data-pi-responsive="(max-width: 640px) 120px, (max-width: 960px) 45vw, 400px"
+          {...editableImage({entityType:plan.entityType,entitySlug:plan.slug,fieldPath:plan.imageField,label:`${plan.title} image`,purpose:'card'})} /></a>}
+        <div class="plan-guide__body">
+          {guideLabel(plan) && <p class="plan-guide__label">{guideLabel(plan)}</p>}
+          <h3><a href={plan.href}>{plan.displayTitle}</a></h3>
+          {guideDek(plan) && <p class="plan-guide__dek">{guideDek(plan)}</p>}
+          <a class="plan-guide__read" href={plan.href} aria-label={`Read the guide: ${plan.title}`}>Read the guide <span aria-hidden="true">→</span></a>
+        </div>
+      </article>)}</div>
+    </details>}
   </div>
 </section>
 <style>
-  .plan-index{padding:3rem 0;border-top:1px solid var(--border);scroll-margin-top:8rem}
-  .plan-index__heading{display:flex;justify-content:space-between;align-items:end;gap:1rem}
-  .plan-index__heading>span{font-size:.8rem;color:var(--soft);white-space:nowrap}
-  .plan-index__eyebrow{font:600 .68rem/1.4 var(--font-ui);letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 .5rem}
-  h2{font:500 clamp(1.65rem,3vw,2.2rem)/1.2 var(--font-display);letter-spacing:-.04em;margin:0}
-  .plan-index__intro{font:.95rem/1.65 var(--font-ui);color:var(--soft);max-width:66ch;margin:1rem 0 1.8rem}
-  .plan-index__row{display:grid;grid-template-columns:3rem minmax(0,1fr) auto;gap:1.5rem;align-items:start;padding:1.5rem 0;border-top:1px solid color-mix(in srgb,var(--border) 60%,transparent)}
-  .plan-index__number{font:400 1.1rem/1.5 var(--font-display);color:var(--soft)}
-  h3{font:500 1.2rem/1.35 var(--font-display);letter-spacing:-.025em;margin:0 0 .5rem}h3 a{color:var(--text);text-decoration:none}h3 a:hover{text-decoration:underline;text-underline-offset:.15em}
-  .plan-index__copy>p{font:.9rem/1.6 var(--font-ui);max-width:60ch;margin:.45rem 0}
-  .plan-index__copy .plan-index__route,.plan-index__copy .plan-index__booking{font-size:.8rem;color:var(--soft)}
-  .plan-index__copy .plan-index__meta{color:var(--soft);font-size:.77rem;margin:.65rem 0 0}
-  .plan-index__actions{display:flex;align-items:center;gap:1rem;padding-top:.1rem}
-  .plan-index__read{font-size:.8rem;white-space:nowrap;text-underline-offset:.2em}.plan-index__actions .pi-btn{font-size:.8rem;min-height:44px}
-  .plan-guides{padding:3rem 0;background:var(--bg-alt);scroll-margin-top:8rem}
-  .plan-guides__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem 2rem}
-  .plan-guides__more{margin-top:1.25rem}.plan-guides__more summary{font:600 .85rem/1.5 var(--font-ui);min-height:48px;display:flex;align-items:center;gap:.5rem;cursor:pointer;list-style:none;border-top:1px solid var(--border);padding:.8rem 0}.plan-guides__more summary::-webkit-details-marker{display:none}.plan-guides__more summary span{font-weight:400;color:var(--soft)}.plan-guides__more summary span:last-child{margin-left:auto;font-size:1.4rem}.plan-guides__more summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-  .plan-guide{border-top:1px solid var(--border);padding:1.25rem 0 .75rem;display:flex;flex-direction:column;align-items:start;min-width:0}
-  .plan-guide__label{font:600 .65rem/1.5 var(--font-ui);letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin:0 0 .65rem}
-  .plan-guide>p:not(.plan-guide__label){font:.87rem/1.6 var(--font-ui);color:var(--soft);margin:.2rem 0 1rem;max-width:45ch}
-  .plan-guide__read{margin-top:auto;display:inline-flex;align-items:center;gap:.5rem;font:600 .8rem/1.5 var(--font-ui);min-height:44px;text-underline-offset:.2em}
-  @media(max-width:60rem){.plan-index__actions{flex-direction:column;align-items:end;gap:.5rem}.plan-guides__grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-  @media(max-width:40rem){.plan-index,.plan-guides{padding:2rem 0}.plan-index__row{grid-template-columns:2rem minmax(0,1fr);gap:1rem}.plan-index__actions{grid-column:2;flex-direction:row;align-items:center;flex-wrap:wrap;gap:1rem}.plan-guides__grid{grid-template-columns:1fr;gap:1rem}.plan-index__heading{align-items:start;flex-direction:column;gap:.6rem}}
+  .plan-index,.plan-guides{scroll-margin-top:8rem}
+  .plan-index__rows{border-bottom:1px solid var(--border)}
+  .plan-index__row{display:grid;grid-template-columns:4.5rem 12rem minmax(0,68ch) 17.5rem;grid-template-areas:"num thumb copy actions";justify-content:start;column-gap:var(--space-6);row-gap:var(--space-4);align-items:start;padding:var(--space-6) 0;border-top:1px solid var(--border)}
+  .plan-index__number{grid-area:num;font:400 var(--fs-500)/1.3 var(--font-display);color:var(--soft);font-variant-numeric:tabular-nums}
+  .plan-index__thumb{grid-area:thumb;display:block;aspect-ratio:4/3;overflow:hidden;border-radius:var(--radius-m);background:var(--bg-alt)}
+  .plan-index__thumb img{display:block;width:100%;height:100%;object-fit:cover}
+  .plan-index__copy{grid-area:copy;min-width:0}
+  h3{font:600 var(--fs-500)/1.25 var(--font-display);letter-spacing:var(--ls-display);color:var(--text);margin:0 0 var(--space-2);text-wrap:balance}
+  h3 a{color:inherit;text-decoration:none}
+  h3 a:hover{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.15em}
+  .plan-index__copy>p{font:var(--fs-300)/1.6 var(--font-ui);max-width:68ch;margin:var(--space-2) 0 0;text-wrap:pretty}
+  .plan-index__dek{color:var(--text)}
+  .plan-index__route,.plan-index__booking{color:var(--soft)}
+  .plan-index__day{white-space:nowrap}
+  .plan-index__meta{display:flex;flex-wrap:wrap;gap:0 .5em;list-style:none;padding:0;margin:var(--space-3) 0 0;font:var(--fs-200)/1.5 var(--font-ui);color:var(--soft)}
+  .plan-index__meta li{white-space:nowrap}
+  .plan-index__meta li+li::before{content:'·';margin-right:.5em;color:var(--border-strong)}
+  .plan-index__actions{grid-area:actions;display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-2) var(--space-4)}
+  .plan-index__actions .pi-btn--solid{min-height:48px;border-radius:var(--radius-s);gap:.35em}
+  .plan-index__actions .pi-btn--text{min-height:44px;padding-inline:0;font-weight:600}
+  .plan-guides{background:var(--bg-alt)}
+  .plan-guides__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-6)}
+  .plan-guide{display:flex;flex-direction:column;min-width:0;border-top:1px solid var(--border);padding-block:var(--space-5)}
+  .plan-guide__media{display:block;aspect-ratio:4/3;overflow:hidden;border-radius:var(--radius-m);background:var(--white);margin-bottom:var(--space-4)}
+  .plan-guide__media img{display:block;width:100%;height:100%;object-fit:cover}
+  .plan-guide__body{display:flex;flex-direction:column;align-items:start;min-width:0}
+  .plan-guide__label{font:600 var(--fs-100)/1.4 var(--font-ui);letter-spacing:var(--ls-eyebrow);text-transform:uppercase;color:var(--sand-text);margin:0 0 var(--space-2)}
+  .plan-guide__dek{font:var(--fs-300)/1.6 var(--font-ui);color:var(--soft);margin:var(--space-2) 0 0;max-width:45ch;text-wrap:pretty}
+  .plan-guide__read{display:inline-flex;align-items:center;gap:.35em;min-height:44px;margin-top:var(--space-4);font:600 var(--fs-300)/1.4 var(--font-ui);color:var(--harbour);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.2em}
+  .plan-guide__read:hover{color:var(--harbour-h)}
+  .plan-guides__more{margin-top:var(--space-6)}
+  .plan-guides__more summary{display:flex;align-items:center;justify-content:space-between;gap:var(--space-4);min-height:48px;padding:var(--space-3) 0;border-top:1px solid var(--border);font:600 var(--fs-300)/1.4 var(--font-ui);color:var(--text);cursor:pointer;list-style:none}
+  .plan-guides__more summary::-webkit-details-marker{display:none}
+  .plan-guides__more summary:focus-visible{outline:var(--focus-ring);outline-offset:3px}
+  .plan-guides__chevron{width:.6rem;height:.6rem;margin-right:.3rem;border-right:2px solid var(--harbour);border-bottom:2px solid var(--harbour);transform:translateY(-25%) rotate(45deg);transition:transform var(--dur-fast) var(--ease-enter)}
+  .plan-guides__more[open] .plan-guides__chevron{transform:translateY(25%) rotate(-135deg)}
+  .plan-guides__more[open]>.plan-guides__grid{margin-top:var(--space-4)}
+  @media(min-width:75.01em){.plan-index__route .nowrap-seg{white-space:nowrap}}
+  @media(prefers-reduced-motion:reduce){.plan-guides__chevron{transition:none}}
+  @media(max-width:75em){
+    .plan-index__row{grid-template-columns:3.5rem 10rem minmax(0,1fr);grid-template-areas:"num thumb copy" "num thumb actions"}
+  }
+  @media(max-width:60rem){.plan-guides__grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media(max-width:40rem){
+    .plan-index__row{grid-template-columns:minmax(0,1fr);grid-template-areas:"thumb" "num" "copy" "actions";row-gap:0}
+    .plan-index__thumb{margin-bottom:var(--space-4)}
+    .plan-index__number{font:600 var(--fs-200)/1.4 var(--font-ui);letter-spacing:.04em;margin-bottom:var(--space-2)}
+    .plan-index__actions{margin-top:var(--space-4)}
+    .plan-guides__grid{grid-template-columns:1fr;gap:0}
+    .plan-guide{display:grid;grid-template-columns:7.5rem minmax(0,1fr);column-gap:var(--space-4);align-items:start}
+    .plan-guide__media{margin-bottom:0}
+    .plan-guide__read{margin-top:var(--space-2)}
+  }
 </style>

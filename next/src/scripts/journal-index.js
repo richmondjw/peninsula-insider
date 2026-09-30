@@ -23,7 +23,14 @@ function initJournal() {
     );
     rows.forEach((r) => (r.hidden = true));
     matches.slice(0, limit).forEach((r) => (r.hidden = false));
-    count.textContent = `${matches.length} ${matches.length === 1 ? "story" : "stories"}${matches.length > limit ? ` · showing ${limit}` : ""}`;
+    // One count, and only while a filter or search is active.
+    const filtering = Boolean(q || topic.value || month.value);
+    const shown = Math.min(limit, matches.length);
+    count.textContent = !filtering
+      ? ""
+      : shown < matches.length
+        ? `Showing ${shown} of ${matches.length}`
+        : `${matches.length} ${matches.length === 1 ? "story" : "stories"}`;
     more.hidden = matches.length <= limit;
     root.querySelector("#empty-state").hidden = matches.length !== 0;
     clear.hidden = !(q || topic.value || month.value);

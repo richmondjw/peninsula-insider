@@ -1,5 +1,5 @@
 ---
-title: "Where to Stay for a Two-Night Peninsula Escape"
+title: "Where to stay for a two-night Peninsula escape"
 dek: "If you only have one weekend, choose your base carefully. These are the stays that shape the trip rather than merely host it."
 author: "editorial"
 houseByline: true

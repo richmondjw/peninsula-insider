@@ -52,6 +52,34 @@
  */
 export const COUNTABLE_ATTR = 'data-filter-countable';
 
+/**
+ * Marks a `[data-filter-count]` element that speaks only while a filter is
+ * active. The page states its total once, in the directory heading; a
+ * second "Showing all 52 places" under the chips read as debug output. A
+ * quiet count is emptied and hidden in the empty state and reads "12 places"
+ * while filtering. Unmarked count elements (the map) keep a running total.
+ */
+export const QUIET_COUNT_ATTR = 'data-filter-count-quiet';
+
+/**
+ * Singular of a plural count noun: "places" -> "place", "cellar doors" ->
+ * "cellar door", "places to eat" -> "place to eat", "breweries" -> "brewery".
+ * Only the head phrase before a trailing preposition is changed.
+ */
+export function singularNoun(noun: string): string {
+  const [head, ...rest] = noun.split(/(?= (?:to|for|in|on|at|with|near) )/);
+  const one = head
+    .replace(/ies$/, 'y')
+    .replace(/(ch|sh|ss|x)es$/, '$1')
+    .replace(/([^s])s$/, '$1');
+  return one + rest.join('');
+}
+
+/** "1 place", "12 places". */
+export function countLabel(n: number, noun: string): string {
+  return `${n} ${n === 1 ? singularNoun(noun) : noun}`;
+}
+
 export const FILTER_KEYS = ['place', 'cat', 'mood', 'price', 'party', 'date'] as const;
 export type FilterKey = (typeof FILTER_KEYS)[number];
 
@@ -321,14 +349,19 @@ export function applyToDom(
   for (const it of counted) if (itemMatches(it.facets, state)) shown += 1;
   const total = counted.length;
   const anyActive = !isEmptyState(state);
-  const countText = anyActive ? `Showing ${shown} of ${total} ${noun}` : `Showing all ${total} ${noun}`;
+  const resultText = countLabel(shown, noun);
   root.querySelectorAll<HTMLElement>('[data-filter-count]').forEach((el) => {
-    el.textContent = countText;
+    if (el.hasAttribute(QUIET_COUNT_ATTR)) {
+      el.textContent = anyActive ? resultText : '';
+      el.toggleAttribute('hidden', !anyActive);
+    } else {
+      el.textContent = anyActive ? `${shown} of ${total} ${noun}` : countLabel(total, noun);
+    }
   });
   root.querySelectorAll<HTMLElement>('[data-filter-empty]').forEach((el) => {
     el.toggleAttribute('hidden', shown !== 0);
   });
-  announce(countText);
+  announce(anyActive ? resultText : `All ${countLabel(total, noun)}`);
   return { shown, total };
 }
 

@@ -3,7 +3,8 @@
  * HomePlan - block 5, the featured plan (page-redesigns.md 1.9 item 5;
  * wireframes.html #home note 4: "The Decide door, one plan only").
  *
- * One plan Card (v5 plan variant: day-count chip, fork SaveControl) chosen
+ * One plan Card (v5 plan variant: duration as the first meta chip, fork
+ * SaveControl) chosen
  * deterministically at build time: in-season plans first, year-round next
  * form the eligible pool; within that pool the pick rotates on a fixed
  * calendar window (ROTATION_WINDOW_DAYS) rather than always favoring the
@@ -14,7 +15,8 @@
  * cadence that makes the rotation actually reach the live site. Closes
  * with "All plans" into the hub.
  *
- * Two alternates sit beneath the featured plan (2026-09-19), and the rail
+ * Two alternates follow the featured plan (2026-09-19; in the rail column
+ * on wide screens since the 2026-09-29 design pass), and the rail
  * now carries a chip strip instead of three fixed links. The chips do not
  * match anything here: they carry the reader's answers to the builder on
  * /explore/plans/ as query params, which is where the matching lives. Chip
@@ -25,7 +27,7 @@ import { getCollection } from 'astro:content';
 import Card from '../Card.astro';
 import { resolveHero } from '../../../lib/inline-edit/resolve-hero';
 import { getAustralianSeasonLower } from '../../../lib/season';
-import { buildPlansModel } from '../plans/plans-data';
+import { buildPlansModel, durationLabel } from '../plans/plans-data';
 import { FACET_OPTIONS } from '../../../lib/facets';
 
 const ROTATION_WINDOW_DAYS = 5;
@@ -79,6 +81,12 @@ const seasonLabel = featured
   : '';
 
 const dayCount = featured ? (featured.data.lengthNights ?? 0) + 1 : 0;
+/* One humanised duration, phrased the way plan titles are ("Two nights",
+   "One day"). The card meta and the rail's shape line both use it, so the
+   featured card never reads "3 days" under a "Two-Night" title. */
+const featuredDuration = featured
+  ? durationLabel({ dayCount, nights: featured.data.lengthNights ?? 0 })
+  : '';
 const firstStop = featured
   ? [...(featured.data.stops ?? [])].sort((a: any, b: any) => a.day - b.day || a.order - b.order)[0]
   : null;
@@ -88,7 +96,7 @@ const firstStopDetail = firstStop?.note
     ? String(featured.data.editorNote).split(/(?<=[.!?])\s+/)[0]
     : '';
 const planShape = [
-  dayCount ? `${dayCount} ${dayCount === 1 ? 'day' : 'days'}` : '',
+  featuredDuration,
   audienceLabel,
   seasonLabel === 'Year round' ? '' : seasonLabel,
 ].filter(Boolean);
@@ -135,21 +143,21 @@ const buildHref = (key: 'length' | 'who', value: string) =>
 ---
 
 {featured && hero && (
-  <section class="home-plan" aria-labelledby="home-plan-title">
+  <section class="home-plan pi-section" aria-labelledby="home-plan-title">
     <div class="container">
-      <div class="home-plan__head">
-        <div class="home-plan__heading">
-          <p class="home-plan__eyebrow">Plan it</p>
-          <h2 id="home-plan-title" class="home-plan__title">Featured plan</h2>
+      <header class="pi-section-head">
+        <div class="pi-section-head__text">
+          <p class="pi-eyebrow">Plan it</p>
+          <h2 id="home-plan-title" class="pi-h2">Featured plan</h2>
         </div>
-        <p class="home-plan__all">
-          <a href="/explore/plans/">All plans &rarr;</a>
-        </p>
-      </div>
+        <a class="pi-section-link" href="/explore/plans/">All plans <span aria-hidden="true">&rarr;</span></a>
+      </header>
 
       <div class="home-plan__layout">
         {/* showEyebrow is off: the section heading is already "Featured plan",
-            so a PLAN stamp on the single card below it says nothing new. */}
+            so a PLAN stamp on the single card below it says nothing new.
+            No dayCount: the duration travels as the first meta chip, so it
+            renders once and in the same words as the rail. */}
         <div class="home-plan__card">
           <Card
             as="article"
@@ -161,15 +169,14 @@ const buildHref = (key: 'length' | 'who', value: string) =>
             image={{ src: hero.src, alt: hero.alt || featured.data.title }}
             verdict={featured.data.dek}
             showEyebrow={false}
-            dayCount={dayCount}
-            meta={[moodLabel].filter(Boolean)}
+            meta={[featuredDuration, moodLabel].filter(Boolean)}
             freshness={featured.data.lastVerified ? String(featured.data.lastVerified) : undefined}
             surface="home-plan"
             position={0}
           />
         </div>
 
-        <aside class="home-plan__rail" aria-label="Plan details and alternatives">
+        <aside class="home-plan__rail" aria-label="Plan details">
           <div class="home-plan__shape">
             <p class="home-plan__rail-label">This plan's shape</p>
             {planShape.length > 0 && <p class="home-plan__shape-list">{planShape.join(' · ')}</p>}
@@ -212,157 +219,116 @@ const buildHref = (key: 'length' | 'who', value: string) =>
                 ))}
               </div>
             )}
-            <p class="home-plan__build-note">
-              Pick one and the plans page does the matching.
-            </p>
           </div>
         </aside>
-      </div>
 
-      {alternates.length > 0 && (
-        <div class="home-plan__alts">
-          {alternates.map((alt, i) => (
-            <Card
-              as="article"
-              variant="plan"
-              title={alt.title}
-              href={alt.href}
-              entityType={alt.entityType}
-              entitySlug={alt.slug}
-              image={alt.image ? { src: alt.image.src, alt: alt.image.alt } : undefined}
-              verdict={alt.verdict}
-              showEyebrow={false}
-              dayCount={alt.dayCount}
-              meta={alt.meta}
-              surface="home-plan-alt"
-              position={i + 1}
-            />
-          ))}
-        </div>
-      )}
+        {alternates.length > 0 && (
+          <div class="home-plan__alts">
+            <p class="home-plan__rail-label" id="home-plan-alts-label">Other plans</p>
+            <ul class="home-plan__alts-list" aria-labelledby="home-plan-alts-label">
+              {alternates.map((alt, i) => (
+                <Card
+                  variant="plan"
+                  title={alt.title}
+                  href={alt.href}
+                  entityType={alt.entityType}
+                  entitySlug={alt.slug}
+                  image={alt.image ? { src: alt.image.src, alt: alt.image.alt } : undefined}
+                  verdict={alt.verdict}
+                  showEyebrow={false}
+                  meta={alt.meta}
+                  surface="home-plan-alt"
+                  position={i + 1}
+                />
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
     </div>
   </section>
 )}
 
 <style>
-  .home-plan {
-    padding: var(--space-7) 0;
-  }
+  /* Section head, link and vertical spacing come from the shared
+     .pi-section-head / .pi-section canon (G1); nothing local pads the
+     section, so it keeps the page's one section rhythm.
 
-  .home-plan__alts {
-    display: grid;
-    gap: var(--space-4);
-    grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
-    margin-top: var(--space-5);
-  }
-
-  /* Chip strip: links, not controls. They carry the answer to the builder
-     on the plans page rather than matching anything here. */
-  .home-plan__chiprow {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .home-plan__chip {
-    display: inline-block;
-    font-family: var(--font-ui);
-    font-size: var(--fs-200);
-    font-weight: var(--fw-semibold);
-    color: var(--text);
-    text-decoration: none;
-    border: 1px solid var(--rule, color-mix(in srgb, currentColor 22%, transparent));
-    border-radius: 999px;
-    padding: 0.45rem 0.8rem;
-    transition: border-color 150ms ease, background-color 150ms ease;
-  }
-  .home-plan__chip:hover,
-  .home-plan__chip:focus-visible {
-    border-color: var(--text);
-    background: color-mix(in srgb, currentColor 6%, transparent);
-  }
-
-  .home-plan__build-note {
-    margin: 0;
-    font-family: var(--font-ui);
-    font-size: var(--fs-100);
-    color: var(--soft);
-  }
-
-  .home-plan__head {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: var(--space-3);
-    margin-bottom: var(--space-5);
-  }
-
-  .home-plan__heading {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-  }
-
-  .home-plan__eyebrow {
-    margin: 0;
-    font-family: var(--font-ui);
-    font-size: var(--fs-100);
-    font-weight: var(--fw-semibold);
-    letter-spacing: var(--ls-eyebrow);
-    text-transform: uppercase;
-    color: var(--teal-text);
-  }
-
-  .home-plan__title {
-    margin: 0;
-    font-family: var(--font-display);
-    font-weight: var(--fw-display);
-    font-size: var(--fs-700);
-    line-height: var(--lh-heading);
-    letter-spacing: var(--ls-display);
-    color: var(--text);
-  }
-
-  .home-plan__all {
-    margin: 0;
-    font-family: var(--font-ui);
-    font-weight: var(--fw-bold);
-    font-size: var(--fs-300);
-  }
-
-  .home-plan__all a {
-    color: var(--text);
-    text-decoration: none;
-    border-bottom: 1.5px solid var(--accent);
-    padding-bottom: 2px;
-    transition: color var(--dur-fast) var(--ease-enter);
-  }
-
-  .home-plan__all a:hover {
-    color: var(--accent);
-  }
-
+     Layout, with one 24px gutter token throughout:
+     - Narrow: one column. Featured card, then the rail groups 24px apart
+       (every group, including Build your own), then the alternates.
+     - 48em to 75em: the featured plan is a horizontal card across the
+       frame (image left, text right), the rail runs as three columns
+       under a frame-width rule, and the two alternates sit as two equal
+       cards.
+     - 75em and up: the featured plan leads the left two thirds. The right
+       column holds the plan's shape, where to start, the chips and then
+       the two alternates as compact rows, so both columns finish close
+       together and the rail's rule ends where its content ends. */
   .home-plan__layout {
     display: grid;
-    grid-template-columns: minmax(0, 2fr) minmax(15rem, 1fr);
-    align-items: stretch;
-    border-top: 1px solid var(--border, color-mix(in srgb, var(--text) 16%, transparent));
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-5);
   }
 
-  .home-plan__card {
+  .home-plan__card,
+  .home-plan__rail,
+  .home-plan__alts {
     min-width: 0;
-    padding: var(--space-5) var(--space-6) var(--space-5) 0;
   }
 
   .home-plan__rail {
     display: flex;
     flex-direction: column;
     gap: var(--space-5);
-    padding: var(--space-5) 0 var(--space-5) var(--space-6);
-    border-left: 1px solid var(--border, color-mix(in srgb, var(--text) 16%, transparent));
+    padding-top: var(--space-5);
+    border-top: 1px solid var(--border);
     color: var(--text);
+  }
+
+  .home-plan__alts-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-5);
+  }
+
+  /* Chip strip: links, not controls. They carry the answer to the builder
+     on the plans page rather than matching anything here. Filter-chip
+     standard: 48px tall, pill, outlined at rest. */
+  .home-plan__chiprow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+  .home-plan__chiprow + .home-plan__chiprow {
+    margin-top: var(--space-2);
+  }
+
+  .home-plan__chip {
+    display: inline-flex;
+    align-items: center;
+    min-height: 48px;
+    padding: 0 var(--space-4);
+    font-family: var(--font-ui);
+    font-size: var(--fs-300);
+    font-weight: var(--fw-semibold);
+    line-height: var(--lh-label);
+    color: var(--text);
+    text-decoration: none;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-pill);
+    transition: border-color var(--dur-fast) ease, background-color var(--dur-fast) ease, color var(--dur-fast) ease;
+  }
+  .home-plan__chip:hover {
+    border-color: var(--harbour);
+    color: var(--harbour);
+  }
+  .home-plan__chip:focus-visible {
+    outline: 2px solid var(--focus-ring-color);
+    outline-offset: 2px;
   }
 
   .home-plan__rail-label {
@@ -384,81 +350,115 @@ const buildHref = (key: 'length' | 'who', value: string) =>
     letter-spacing: var(--ls-display);
   }
 
-  .home-plan__alternatives {
-    margin-top: auto;
-    padding-top: var(--space-5);
-    border-top: 1px solid var(--border, color-mix(in srgb, var(--text) 16%, transparent));
-  }
-
-  .home-plan__alternatives ul {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  .home-plan__alternatives a {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    min-height: 44px;
-    color: var(--text);
-    font-family: var(--font-ui);
-    font-size: var(--fs-300);
-    font-weight: var(--fw-semibold);
-    text-decoration: none;
-    border-bottom: 1px solid color-mix(in srgb, var(--text) 18%, transparent);
-  }
-
-  .home-plan__alternatives a:hover {
-    color: var(--accent);
-  }
-
-  @media (max-width: 63.99rem) {
-    .home-plan__layout {
-      grid-template-columns: 1fr;
-    }
-
-    .home-plan__card {
-      padding-right: 0;
-    }
-
+  /* ---- 48em to 75em ---- */
+  @media (min-width: 48em) {
     .home-plan__rail {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: var(--space-4);
-      padding: var(--space-5) 0 0;
-      border-top: 1px solid var(--border, color-mix(in srgb, var(--text) 16%, transparent));
-      border-left: 0;
+      gap: var(--space-5);
     }
-
-    .home-plan__alternatives {
-      margin-top: 0;
-      padding-top: 0;
-      border-top: 0;
+    .home-plan__alts-list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
 
-  @media (max-width: 39.99rem) {
-    .home-plan__card {
-      padding: var(--space-4) 0;
+  @media (min-width: 48em) and (max-width: 74.99em) {
+    /* Featured plan as a horizontal card: image left, text right. The
+       selectors reach into the shared Card only for placement; its type,
+       meta and actions stay the card's own. */
+    .home-plan__card :global(.pi-card) {
+      display: grid;
+      grid-template-columns: minmax(0, 11fr) minmax(0, 9fr);
+      grid-template-rows: 1fr auto;
     }
+    .home-plan__card :global(.pi-card__media) {
+      grid-column: 1;
+      grid-row: 1 / span 2;
+      aspect-ratio: auto;
+      height: 100%;
+      min-height: 20rem;
+    }
+    .home-plan__card :global(.pi-card__body) {
+      grid-column: 2;
+      grid-row: 1;
+      padding: var(--space-5);
+    }
+    .home-plan__card :global(.pi-card__actions) {
+      grid-column: 2;
+      grid-row: 2;
+      padding: 0 var(--space-5) var(--space-5);
+    }
+  }
 
+  /* ---- 75em and up ---- */
+  @media (min-width: 75em) {
+    .home-plan__layout {
+      grid-template-columns: minmax(0, 2fr) minmax(18rem, 1fr);
+      grid-template-rows: auto 1fr;
+      grid-template-areas:
+        'card rail'
+        'card alts';
+      column-gap: var(--space-5);
+      row-gap: 0;
+      align-items: start;
+    }
+    .home-plan__card { grid-area: card; }
+
+    /* The rule belongs to the right column's content box, rail and
+       alternates together, so it ends where the content ends. */
     .home-plan__rail {
-      display: block;
-      padding-top: var(--space-4);
+      grid-area: rail;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-5);
+      padding: 0 0 0 var(--space-5);
+      border-top: 0;
+      border-left: 1px solid var(--border);
+    }
+    .home-plan__alts {
+      grid-area: alts;
+      padding: var(--space-5) 0 0 var(--space-5);
+      border-left: 1px solid var(--border);
+    }
+    .home-plan__alts-list {
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--space-3);
     }
 
-    .home-plan__start,
-    .home-plan__alternatives {
-      margin-top: var(--space-4);
+    /* Alternates as compact rows: square thumb left, text right. */
+    .home-plan__alts :global(.pi-card) {
+      display: grid;
+      grid-template-columns: 6rem minmax(0, 1fr);
+      grid-template-rows: auto 1fr;
+      column-gap: var(--space-4);
+      padding: var(--space-3);
     }
-
-    .home-plan__alternatives {
-      padding-top: var(--space-4);
-      border-top: 1px solid var(--border, color-mix(in srgb, var(--text) 16%, transparent));
+    .home-plan__alts :global(.pi-card__media) {
+      grid-column: 1;
+      grid-row: 1 / span 2;
+      align-self: start;
+      aspect-ratio: 1 / 1;
+      border-radius: var(--radius-s);
+    }
+    .home-plan__alts :global(.pi-card__body) {
+      grid-column: 2;
+      grid-row: 1;
+      padding: 0;
+      gap: var(--space-1);
+    }
+    .home-plan__alts :global(.pi-card__title) {
+      font-size: var(--fs-400);
+      text-wrap: balance;
+    }
+    .home-plan__alts :global(.pi-card__dek) {
+      font-size: var(--fs-300);
+      font-weight: var(--fw-body);
+      line-height: var(--lh-dek);
+    }
+    .home-plan__alts :global(.pi-card__actions) {
+      grid-column: 2;
+      grid-row: 2;
+      padding: var(--space-3) 0 0;
     }
   }
 </style>

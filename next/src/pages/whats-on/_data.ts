@@ -13,12 +13,19 @@
  *    holidays, custom range, month ahead
  *  - PI's picks: the weekend-picks collection entry for the current
  *    weekend, falling back to lens/appeal scoring (exactly 3)
- *  - category shelves (Markets, Live music, Food & wine, Openings,
- *    Major events)
+ *  - category shelves (Markets, Live music, Food & wine, Exhibitions &
+ *    arts, Major events)
  *  - the compact feed payload for /whats-on/feed.json (HUB-11: the month+
  *    horizon ships as fetch-on-demand JSON, never as hidden DOM)
  */
-import { listingDateLabel, resolveListingOccurrence } from '../../lib/whatson-listing.mjs';
+import {
+  listingDateLabel,
+  partitionWindow,
+  recurrenceLabel,
+  resolveListingOccurrence,
+  spanLabel,
+  untilLabel,
+} from '../../lib/whatson-listing.mjs';
 import { rotateDaily } from '../../lib/daily-rotation';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { routeSlug, eventCategoryLabel } from '../../lib/editorial';
@@ -57,6 +64,12 @@ export interface LiveEvent {
   timeLabel: string;
   categoryLabel: string;
   placeLabel: string;
+  /**
+   * The row meta without the time: place, then access where it says more
+   * than the category does. A row puts the time (or its date token) first,
+   * so the two never repeat each other.
+   */
+  details: string[];
   free: boolean;
   accessLabel: string | null;
   appeal: number;
@@ -95,10 +108,76 @@ export function isCurrentEvent(event: EventEntry, now: Date): boolean {
   return rule !== null && startOfDay(rule.end) >= startOfDay(now);
 }
 
+// Abbreviations whose full stop does not end a sentence ("Pt. Leo", "St. Andrews").
+const NOT_A_SENTENCE_END = /(?:^|\s)(?:Pt|St|Mt|Dr|Mr|Mrs|Ms|No|Rd|Ave|Hwy|approx|vs|e\.g|i\.e)\.$/i;
+
+/**
+ * Shorten a blurb to at most `maxWords` words without cutting a thought.
+ *
+ * Text that fits is returned whole. Otherwise the cut falls at the last
+ * sentence end inside the limit, with no ellipsis, as long as that leaves a
+ * real sentence. Failing that, it cuts at a word boundary, strips trailing
+ * punctuation and appends a single ellipsis, so a blurb never ends ".…".
+ */
 export function truncateWords(text: unknown, maxWords: number): string {
-  const words = String(text ?? '').replace(/\s+/g, ' ').trim().split(' ').filter(Boolean);
-  if (words.length <= maxWords) return words.join(' ');
-  return `${words.slice(0, maxWords).join(' ')}…`;
+  const clean = String(text ?? '').replace(/\s+/g, ' ').trim();
+  const words = clean.split(' ').filter(Boolean);
+  if (words.length <= maxWords) return clean;
+  const head = words.slice(0, maxWords);
+  for (let i = head.length - 1; i >= 4; i -= 1) {
+    const upTo = head.slice(0, i + 1).join(' ');
+    if (/[.!?]["”’)]?$/.test(head[i]) && !NOT_A_SENTENCE_END.test(upTo)) return upTo;
+  }
+  return `${head.join(' ').replace(/[\s.,;:!?\-–]+$/, '')}…`;
+}
+
+/**
+ * Typographic finish at render: curly quotes and apostrophes. Records arrive
+ * from several feeds with straight quotes; the listing should not show them.
+ */
+export function smarten(text: unknown): string {
+  return String(text ?? '')
+    .replace(/(^|[\s([{])"/g, '$1“')
+    .replace(/"/g, '”')
+    .replace(/(^|[\s([{])'/g, '$1‘')
+    .replace(/'/g, '’');
+}
+
+/**
+ * A title or venue name, finished: curly quotes, and a spaced hyphen or dash
+ * used as a separator ("Experience - Mornington") becomes a comma, per the
+ * no-dash house voice. Number ranges ("5 - 7") are left alone.
+ */
+export function finishName(text: unknown): string {
+  return smarten(String(text ?? '').replace(/(\D)\s+[-–]\s+(?=\D)/g, '$1, '));
+}
+
+const normaliseForCompare = (s: unknown) =>
+  String(s ?? '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
+
+/**
+ * The blurb a listing row may show, or '' when there is nothing in PI's voice
+ * to say.
+ *
+ * Editorial copy leads (verdict, then why-we-care). A plain summary follows,
+ * except when it is feed copy nobody has rewritten (organiser marketing) or a
+ * feed stub that only restates the title ("<title> at <venue>."). In those
+ * cases the first paragraph of the editor's note stands in if there is one,
+ * and otherwise the row carries no blurb until copy is written.
+ */
+function listingDek(data: Record<string, any>): string {
+  const editorial = data.editorVerdict ?? data.whyWeCare;
+  if (editorial) return String(editorial);
+  const summary = String(data.summary ?? '').trim();
+  const unrewrittenFeed = /not editorially rewritten/i.test(String(data.provenance ?? ''));
+  const restatesTitle =
+    summary !== '' && normaliseForCompare(summary).startsWith(normaliseForCompare(data.title));
+  if (summary && !unrewrittenFeed && !restatesTitle) return summary;
+  const note = String(data.editorNote ?? '').split(/\n\s*\n/)[0]?.trim() ?? '';
+  return note;
 }
 
 function timeLabelFor(startTime: unknown): string {
@@ -164,7 +243,7 @@ export async function loadLiveEvents(
 
     const slug = routeSlug(event);
     const categoryLabel = eventCategoryLabel[data.category] ?? '';
-    const placeLabel = data.suburb || data.venueName || '';
+    const placeLabel = finishName(data.suburb || data.venueName || '');
     const timeLabel = timeLabelFor(data.startTime);
     const free = eventIsUnqualifiedFree(data);
     const accessLabel = eventAccessLabel(data);
@@ -173,6 +252,7 @@ export async function loadLiveEvents(
       if (meta.length === 3) meta[2] = accessLabel;
       else meta.push(accessLabel);
     }
+    const details = [placeLabel, accessLabel ?? categoryLabel].filter(Boolean);
     const appeal =
       (data.visitorAppealScore ?? 0) +
       (data.editorialPriority ?? 0) * 0.5 +
@@ -184,12 +264,13 @@ export async function loadLiveEvents(
       rule,
       slug,
       href: `/whats-on/${slug}/`,
-      title: data.title,
-      oneLiner: truncateWords(data.editorVerdict ?? data.whyWeCare ?? data.summary, 20),
+      title: finishName(data.title),
+      oneLiner: smarten(truncateWords(listingDek(data), 20)),
       meta,
       timeLabel,
       categoryLabel,
       placeLabel,
+      details,
       free,
       accessLabel,
       appeal,
@@ -281,51 +362,90 @@ export function occurrenceStateFor(live: LiveEvent, dayIso: string, now: Date): 
   };
 }
 
+export interface WeekendGroups {
+  /** Everything on across more than one day of the window, listed once. */
+  ongoing: OngoingItem[];
+  /**
+   * One group per day that has something tied to that day alone. A day whose
+   * only listings are already in `ongoing` is left out rather than shown
+   * empty; a day with nothing on at all keeps its heading and the quiet
+   * message, so the reader can see it was checked.
+   */
+  days: DayGroup[];
+}
+
+export interface OngoingItem extends DayItem {
+  /** The day this row's occurrence state (and its JSON-LD date) is read on. */
+  dayIso: string;
+}
+
 /**
- * Group events by day across a window. Multi-day ranges appear once, on
- * their first active day, with a "runs to" span label; weekly/monthly
- * series appear on each matching day (each is a distinct occurrence).
+ * Group a window's events so each one shows once (WO1).
+ *
+ * The previous grouping pushed a weekly or multi-weekday series onto every
+ * day it ran, so a Thursday-to-Sunday trail appeared three times in one
+ * weekend. Now anything that runs on more than one day of the window goes
+ * into `ongoing` with its date token ("Until 30 Apr 2027", "Every Thu to
+ * Sun"); a day group holds only what is tied to that day. `exclude` drops
+ * listings already shown higher on the page (PI's picks).
+ *
+ * A range row stands for its whole run, so its phase is measured over the
+ * run, not over one day of it. A series in `ongoing` reads its state on the
+ * first day in the window that has not already finished, so a Friday session
+ * that has ended does not mark the weekend's series Ended.
  */
-export function groupByDay(events: LiveEvent[], win: ScopeWindow, now: Date = new Date()): DayGroup[] {
-  const dayCount =
-    Math.round((startOfDay(win.end).getTime() - startOfDay(win.start).getTime()) / 86400000) + 1;
-  const seenRanges = new Set<string>();
-  const groups: DayGroup[] = [];
-  for (let i = 0; i < Math.min(dayCount, 62); i += 1) {
-    const day = addDays(win.start, i);
-    const items: DayGroup['items'] = [];
-    let continuingCount = 0;
-    for (const live of events) {
-      if (!occursOnDay(live.rule, day)) continue;
-      const dayIso = isoDate(day);
-      // A weekly or monthly row is one occurrence on this day. A range row
-      // stands for the whole run: it is pushed once, on its first active day,
-      // with a "runs to" label, so its phase has to be measured over the run.
-      // Measuring it over `dayIso` alone marked a festival that opened on
-      // Friday and finishes on Wednesday as Ended from Friday midnight.
-      const state = occurrenceStateFor(live, dayIso, now);
-      if (live.rule.kind === 'range') {
-        if (seenRanges.has(live.slug)) {
-          continuingCount += 1;
-          continue;
-        }
-        seenRanges.add(live.slug);
-        const spanLabel = listingDateLabel(live.rule, win);
-        items.push({ live, spanLabel, ...state });
-      } else {
-        items.push({ live, spanLabel: listingDateLabel(live.rule, win), ...state });
-      }
-    }
-    items.sort((a, b) => b.live.appeal - a.live.appeal || a.live.title.localeCompare(b.live.title));
-    groups.push({
-      iso: isoDate(day),
-      heading: dayHeading(day),
-      continuingCount,
-      emptyMessage: emptyDayMessage(continuingCount),
-      items,
+export function groupWeekend(
+  events: LiveEvent[],
+  win: ScopeWindow,
+  now: Date = new Date(),
+  exclude: Set<string> = new Set()
+): WeekendGroups {
+  const dayCount = Math.min(
+    62,
+    Math.round((startOfDay(win.end).getTime() - startOfDay(win.start).getTime()) / 86400000) + 1
+  );
+  const dayDates = Array.from({ length: dayCount }, (_, i) => addDays(win.start, i));
+  const listed = events.filter((live) => !exclude.has(live.slug));
+  const split = partitionWindow(listed, dayDates, (live: LiveEvent, day: Date) =>
+    occursOnDay(live.rule, day)
+  );
+  const byAppeal = (a: DayItem, b: DayItem) =>
+    b.live.appeal - a.live.appeal || a.live.title.localeCompare(b.live.title);
+
+  const ongoing: OngoingItem[] = split.ongoing.map(({ item: live, dayIndexes }) => {
+    const states = dayIndexes.map((i) => {
+      const dayIso = isoDate(dayDates[i]);
+      return { dayIso, state: occurrenceStateFor(live, dayIso, now) };
     });
-  }
-  return groups;
+    const chosen = states.find((s) => s.state.phase !== 'past') ?? states[states.length - 1];
+    return {
+      live,
+      spanLabel: listingDateLabel(live.rule, win),
+      dayIso: chosen.dayIso,
+      ...chosen.state,
+    };
+  });
+  ongoing.sort(byAppeal);
+
+  const days: DayGroup[] = [];
+  split.days.forEach(({ day, items, ongoingCount }) => {
+    if (items.length === 0 && ongoingCount > 0) return;
+    const dayIso = isoDate(day);
+    const dayItems: DayItem[] = items.map((live: LiveEvent) => ({
+      live,
+      spanLabel: listingDateLabel(live.rule, win),
+      ...occurrenceStateFor(live, dayIso, now),
+    }));
+    dayItems.sort(byAppeal);
+    days.push({
+      iso: dayIso,
+      heading: dayHeading(day),
+      continuingCount: ongoingCount,
+      emptyMessage: emptyDayMessage(0),
+      items: dayItems,
+    });
+  });
+  return { ongoing, days };
 }
 
 // ---------------------------------------------------------------------------
@@ -335,8 +455,17 @@ export function groupByDay(events: LiveEvent[], win: ScopeWindow, now: Date = ne
 export interface Pick {
   live: LiveEvent;
   verdict: string;
+  /** First day in the window the pick runs; the JSON-LD startDate. */
   dateISO: string;
   dayLabel: string;
+  /**
+   * Whether the card may show the calendar date block. Only a dated event
+   * held inside the window earns one; an ongoing run or a series would
+   * otherwise read as a one-off on the Friday it happens to include.
+   */
+  showDate: boolean;
+  /** For picks without a date block: "Ongoing", "Every Sun", "Monthly". */
+  badge: string;
   /**
    * The pick's own occurrence on `dateISO`, resolved exactly as a weekend row
    * is. A pick is a listing too, and its JSON-LD node has to answer the same
@@ -367,11 +496,23 @@ export async function getPicks(
   const toPick = (live: LiveEvent, verdict: string, scope: ScopeWindow = win): Pick => {
     const day = firstDayInWindow(live.rule, scope) ?? scope.start;
     const dateISO = isoDate(day);
+    const { rule } = live;
+    const showDate =
+      rule.kind === 'range' &&
+      startOfDay(rule.start) >= startOfDay(scope.start) &&
+      startOfDay(rule.end) <= startOfDay(scope.end);
+    const badge = showDate
+      ? ''
+      : rule.kind === 'range'
+        ? 'Ongoing'
+        : recurrenceLabel(rule, { short: true });
     return {
       live,
-      verdict: truncateWords(verdict, 25),
+      verdict: smarten(truncateWords(verdict, 25)),
       dateISO,
-      dayLabel: day.toLocaleDateString('en-AU', { weekday: 'short', day: 'numeric', month: 'short', timeZone: 'UTC' }),
+      dayLabel: spanLabel(day, day),
+      showDate,
+      badge,
       occurrence: occurrenceStateFor(live, dateISO, now),
     };
   };
@@ -429,20 +570,57 @@ export async function getPicks(
 // Shelves - category entry points, anchor-linked
 // ---------------------------------------------------------------------------
 
+export interface ShelfItem {
+  live: LiveEvent;
+  /** The next date this listing is on ("Sat 17 Oct", "Until 22 Nov"). */
+  when: string;
+}
+
 export interface Shelf {
   id: string;
   label: string;
-  items: LiveEvent[];
+  items: ShelfItem[];
 }
 
+// The arts shelf keeps its #openings anchor for existing links, but it is
+// labelled for what it holds: exhibitions and permanent arts attractions are
+// not openings. An "Openings" shelf needs a record-level flag for genuinely
+// new venues or shows, which the events schema does not carry yet.
 const SHELF_DEFS: { id: string; label: string; cats: string[] }[] = [
   { id: 'markets', label: 'Markets', cats: ['market'] },
   { id: 'live-music', label: 'Live music', cats: ['live-music'] },
   { id: 'food-wine', label: 'Food & wine', cats: ['food-wine', 'cellar-door'] },
-  { id: 'openings', label: 'Openings', cats: ['exhibition', 'arts'] },
+  { id: 'openings', label: 'Exhibitions & arts', cats: ['exhibition', 'arts'] },
   { id: 'major-events', label: 'Major events', cats: ['festival', 'racing-sport'] },
 ];
 
+/**
+ * When a shelf listing is next on, as its lead token. A running range gives
+ * its closing date, a future range its dates, a weekly series already under
+ * way its cadence, and anything else the next date it occurs.
+ */
+export function nextDateLabel(rule: OccurrenceRule, now: Date, horizonDays = 62): string {
+  const today = startOfDay(now);
+  if (rule.kind === 'range') {
+    const start = startOfDay(rule.start);
+    const end = startOfDay(rule.end);
+    if (start.getTime() === end.getTime()) return spanLabel(start, start);
+    if (start <= today) return untilLabel(end, today);
+    return spanLabel(start, end);
+  }
+  if (rule.kind === 'weekly' && startOfDay(rule.start) <= today) return recurrenceLabel(rule);
+  for (let i = 0; i <= horizonDays; i += 1) {
+    const d = addDays(today, i);
+    if (occursOnDay(rule, d)) return spanLabel(d, d);
+  }
+  return recurrenceLabel(rule);
+}
+
+/**
+ * Category shelves for the next two months. `exclude` carries every listing
+ * already on the page above (picks, the ongoing strip and the day groups), so
+ * a shelf only adds what the weekend did not show.
+ */
 export function getShelves(events: LiveEvent[], now: Date, exclude: Set<string>): Shelf[] {
   const horizon: ScopeWindow = {
     start: startOfDay(now),
@@ -459,7 +637,8 @@ export function getShelves(events: LiveEvent[], now: Date, exclude: Set<string>)
           !exclude.has(e.slug) &&
           occursInWindow(e.rule, horizon)
       )
-      .slice(0, 4),
+      .slice(0, 4)
+      .map((live) => ({ live, when: nextDateLabel(live.rule, now) })),
   }));
 }
 
@@ -473,6 +652,8 @@ export interface FeedEntry {
   t: string; // title
   d: string; // one-liner
   m: string[]; // meta chips
+  tm?: string; // time label, when the record has one
+  dt?: string[]; // meta without the time (place, access or category)
   k: 'range' | 'weekly' | 'monthly';
   s: string; // rule start ISO date
   e: string; // rule end ISO date
@@ -498,6 +679,8 @@ export function feedFor(events: LiveEvent[]): FeedEntry[] {
       t: live.title,
       d: live.oneLiner,
       m: live.meta,
+      ...(live.timeLabel ? { tm: live.timeLabel } : {}),
+      dt: live.details,
       k: live.rule.kind,
       s: isoDate(live.rule.start),
       e: isoDate(live.rule.end),

@@ -174,21 +174,6 @@ const season = getAustralianSeasonLower(now);
 
   <span class="home-cover__scrim" aria-hidden="true"></span>
 
-  {slideshow && (
-    <>
-      <button class="home-cover__arrow home-cover__arrow--prev" type="button" data-cover-prev aria-label="Previous photograph">
-        <svg viewBox="0 0 10 16" width="10" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M8 1.5 2 8l6 6.5" />
-        </svg>
-      </button>
-      <button class="home-cover__arrow home-cover__arrow--next" type="button" data-cover-next aria-label="Next photograph">
-        <svg viewBox="0 0 10 16" width="10" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M2 1.5 8 8l-6 6.5" />
-        </svg>
-      </button>
-    </>
-  )}
-
   <div class="container home-cover__inner">
     <p class="home-cover__eyebrow">{season} on the Peninsula</p>
     <h1
@@ -208,7 +193,10 @@ const season = getAustralianSeasonLower(now);
     <nav class="home-cover__actions" aria-label="Start planning your Peninsula visit">
       <a class="pi-btn pi-btn--solid pi-btn--lg pi-btn--inverse" href="/whats-on/this-weekend/" data-evt="card_click" data-entity-type="page" data-entity-slug="weekend" data-surface="home-intents" data-position="1" data-variant="three-intents">This weekend</a>
       <a class="pi-btn pi-btn--ghost pi-btn--lg pi-btn--inverse" href="/explore/plans/" data-evt="card_click" data-entity-type="page" data-entity-slug="plans" data-surface="home-intents" data-position="2" data-variant="three-intents">Plan a trip</a>
-      <a class="pi-btn pi-btn--ghost pi-btn--lg pi-btn--inverse" href="/search/" data-open-search data-evt="search_open" data-surface="home-intents" data-position="3" data-variant="three-intents">Search the Peninsula</a>
+      {/* On phones this third intent restyles as a text link under the two
+          primary buttons (see .home-cover__search), so the first screen
+          keeps its photograph. One element, so the three intents stay three. */}
+      <a class="pi-btn pi-btn--ghost pi-btn--lg pi-btn--inverse home-cover__search" href="/search/" data-open-search data-evt="search_open" data-surface="home-intents" data-position="3" data-variant="three-intents">Search the Peninsula</a>
     </nav>
 
     {slideshow && (
@@ -226,6 +214,20 @@ const season = getAustralianSeasonLower(now);
               <span class="home-cover__dot-fill" aria-hidden="true"></span>
             </button>
           ))}
+        </div>
+        {/* Paired previous/next control, on the frame's right edge in the
+            same row as the dots, clear of the copy at every width. */}
+        <div class="home-cover__arrows">
+          <button class="home-cover__arrow" type="button" data-cover-prev aria-label="Previous photograph">
+            <svg viewBox="0 0 10 16" width="10" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M8 1.5 2 8l6 6.5" />
+            </svg>
+          </button>
+          <button class="home-cover__arrow" type="button" data-cover-next aria-label="Next photograph">
+            <svg viewBox="0 0 10 16" width="10" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M2 1.5 8 8l-6 6.5" />
+            </svg>
+          </button>
         </div>
       </div>
     )}
@@ -418,6 +420,10 @@ const season = getAustralianSeasonLower(now);
     overflow: hidden;
     background: var(--tide);
     padding: clamp(2.75rem, 5.3vw, 4.75rem) 0;
+    /* The retired pre-v5 cover rule in global.css (~5076) still draws a
+       full-bleed hairline under this section; the photograph's own edge
+       is the separation. */
+    border-bottom: 0;
   }
 
   .home-cover__deck {
@@ -526,40 +532,97 @@ const season = getAustralianSeasonLower(now);
     gap: var(--space-3);
     margin-top: var(--space-6);
   }
-  /* Narrow phones: stack the hero CTAs full-width so they are easy thumb
-     targets instead of two half-stranded pills. */
-  @media (max-width: 26em) {
-    .home-cover__actions { flex-direction: column; align-items: stretch; }
+  /* Phones: the two primary intents share one row and Search becomes a
+     text link beneath them, so three full-width buttons no longer fill
+     the first screen. Selectors carry the actions class so they beat the
+     shared button and photo-header rules without !important. */
+  @media (max-width: 47.94em) {
+    .home-cover__actions {
+      gap: var(--space-3);
+    }
+    .home-cover__actions > .pi-btn:not(.home-cover__search) {
+      flex: 1 1 auto;
+    }
+    .home-cover__actions .home-cover__search {
+      flex: 0 0 100%;
+      justify-content: flex-start;
+      align-self: flex-start;
+      width: auto;
+      min-height: 44px;
+      margin-top: calc(var(--space-1) * -1);
+      padding: 0;
+      background: none;
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+      color: var(--harbour);
+      font-family: var(--font-ui);
+      font-size: var(--fs-300);
+      font-weight: var(--fw-semibold);
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.2em;
+    }
+    .home-cover__actions .home-cover__search::after {
+      content: '\2192';
+      display: inline-block;
+      margin-left: 0.3em;
+      text-decoration: none;
+    }
+    .home-cover__actions .home-cover__search:hover {
+      background: none;
+      color: var(--harbour-h);
+    }
   }
 
   /* ── Deck controls ───────────────────────────────────────────────── */
 
+  /* One row: the dot pager starts on the copy's left edge, the paired
+     previous/next arrows sit on the frame's right edge. */
   .home-cover__controls {
     display: flex;
     align-items: center;
     gap: var(--space-4);
     margin-top: var(--space-6);
-    flex-wrap: wrap;
   }
 
+  /* Visible marks 16px apart, first mark on the text edge. Each button is
+     only as wide as its mark; a centred ::before gives it a 44px hit area
+     that overlaps its neighbours' spare space rather than spacing the
+     marks out. */
   .home-cover__pager {
     display: flex;
     align-items: center;
-    gap: var(--space-2, 0.5rem);
+    gap: var(--space-4);
   }
 
   .home-cover__dot {
+    position: relative;
     appearance: none;
     border: 0;
     background: none;
-    /* 44px hit target around a small mark. */
     padding: 0;
-    min-width: 44px;
     min-height: 44px;
-    display: grid;
-    place-items: center;
+    display: flex;
+    align-items: center;
     cursor: pointer;
     line-height: 0;
+  }
+  .home-cover__dot::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 44px;
+    transform: translateX(-50%);
+  }
+  .home-cover__dot:focus-visible {
+    outline: none;
+  }
+  .home-cover__dot:focus-visible .home-cover__dot-fill {
+    outline: 2px solid var(--focus-ring-color);
+    outline-offset: 3px;
   }
 
   .home-cover__dot-fill {
@@ -569,54 +632,53 @@ const season = getAustralianSeasonLower(now);
     border-radius: 999px;
     background: color-mix(in srgb, var(--harbour-deep) 50%, transparent);
     box-shadow: 0 1px 3px rgb(255 255 255 / .7);
-    transition: transform 220ms ease, background-color 220ms ease;
+    transition: width 220ms ease, background-color 220ms ease;
   }
 
-  .home-cover__dot:hover .home-cover__dot-fill,
-  .home-cover__dot:focus-visible .home-cover__dot-fill {
+  .home-cover__dot:hover .home-cover__dot-fill {
     background: color-mix(in srgb, var(--harbour-deep) 75%, transparent);
   }
 
   .home-cover__dot.is-active .home-cover__dot-fill {
-    transform: scaleX(3);
+    width: 1.5rem;
     background: var(--harbour-deep);
   }
 
+  .home-cover__arrows {
+    display: flex;
+    gap: var(--space-2);
+    margin-left: auto;
+  }
+
   .home-cover__arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 2;
     display: grid;
     place-items: center;
     width: 2.75rem;
     height: 2.75rem;
+    padding: 0;
     border-radius: 999px;
     border: 1px solid color-mix(in srgb, var(--harbour-deep) 35%, transparent);
     background: rgb(255 255 255 / .72);
     color: var(--harbour-deep);
     cursor: pointer;
-    opacity: 1;
-    transition: opacity 200ms ease, background-color 200ms ease;
+    transition: background-color 200ms ease, border-color 200ms ease;
   }
-
-  .home-cover__arrow--prev { left: clamp(0.5rem, 2vw, 1.5rem); }
-  .home-cover__arrow--next { right: clamp(0.5rem, 2vw, 1.5rem); }
 
   .home-cover__arrow:hover {
     background: var(--white);
+    border-color: color-mix(in srgb, var(--harbour-deep) 60%, transparent);
   }
 
-  @media (max-width: 88em) {
-    /* The copy reaches the edge at narrower widths; dots remain available
-       without an arrow sitting over the date or heading. */
-    .home-cover__arrow { display: none; }
+  .home-cover__arrow:focus-visible {
+    outline: 2px solid var(--focus-ring-color);
+    outline-offset: 2px;
   }
 
-  /* Edit mode, set by the inline editor on <body>: hold the arrows open
-     while the editor selects a photograph. */
-  :global(body[data-pi-edit-mode='on']) .home-cover__arrow {
-    opacity: 1;
+  @media (prefers-reduced-motion: reduce) {
+    .home-cover__dot-fill,
+    .home-cover__arrow {
+      transition: none;
+    }
   }
 
 
@@ -632,9 +694,18 @@ const season = getAustralianSeasonLower(now);
     border: 0;
   }
 
+  /* Phones: the copy spans the image, so the light wash sits behind the
+     text only and fades out below it. The extra bottom padding is the
+     band where the coast shows through clear, instead of the whole photo
+     reading as grey fog. Overrides photo-headers.css's full-height mobile
+     wash on this element only. */
   @media (max-width: 47.94em) {
     .home-cover {
-      padding: clamp(2.5rem, 12vw, 4rem) 0;
+      --photo-shade-cover: linear-gradient(to bottom,
+        rgb(235 246 252 / .92) 0%,
+        rgb(235 246 252 / .85) calc(100% - 8rem),
+        rgb(235 246 252 / 0) calc(100% - 2rem));
+      padding: clamp(2.5rem, 12vw, 4rem) 0 clamp(8rem, 36vw, 10rem);
     }
   }
 </style>

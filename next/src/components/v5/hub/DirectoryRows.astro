@@ -16,6 +16,16 @@
  * Generic and prop-driven for the Eat / Wine / Stay / Explore hub agents.
  * Slots: `before-list` (e.g. a cross-link module such as Eat's "Winery
  * kitchens") and `after-list`.
+ *
+ * Rows: every row carries the same action pair (Save + Add to trip), a
+ * thumb slot (a paper PI tile when the venue has no photo and its siblings
+ * do) and, on lists where any row can book, a reserved booking slot so the
+ * actions never shift. The li draws the one divider between rows.
+ *
+ * Long lists (more than 20 rows) open on the first `initialCount` (12) with
+ * a "Show all N {noun}" button. The remaining rows stay server-rendered in
+ * the DOM for crawlers and are only hidden by CSS; any active filter reveals
+ * every row, so filtering always searches the full set.
  */
 import Card from '../Card.astro';
 import EmptyState from '../EmptyState.astro';
@@ -71,7 +81,11 @@ export interface Props {
    * them again would report more results than the page holds.
    */
   countable?: boolean;
+  /** Rows shown before "Show all" on lists longer than 20. Default 12. */
+  initialCount?: number;
 }
+
+const COLLAPSE_THRESHOLD = 20;
 
 const {
   heading,
@@ -85,33 +99,52 @@ const {
   emptyHeading,
   emptyBody,
   countable = true,
+  initialCount = 12,
 } = Astro.props;
 
-const headingId = `${id ?? `directory-${surface}`}-heading`;
+const baseId = id ?? `directory-${surface}`;
+const headingId = `${baseId}-heading`;
+const listId = `${baseId}-list`;
+
+/* Photographic list: a row without a photo takes the paper PI tile so its
+   title stays on the list's text line. An all-text list stays all-text. */
+const anyImage = items.some((item) => Boolean(item.image?.src));
+/* Any row that can book: every row holds the booking slot. */
+const anyBooking = items.some((item) => Boolean(item.booking));
+const collapsible = items.length > COLLAPSE_THRESHOLD && initialCount < items.length;
 ---
 
-<section class="v5-directory" id={id} aria-labelledby={headingId} data-directory-rows data-noun={noun}>
+<section class="v5-directory pi-section" id={id} aria-labelledby={headingId} data-directory-rows data-noun={noun}>
   <div class="container">
-    <div class="v5-directory__header">
-      <div>
-        {eyebrow && <p class="v5-directory__eyebrow">{eyebrow}</p>}
-        <h2 class="v5-directory__heading" id={headingId}>{heading}</h2>
-        {sub && <p class="v5-directory__sub">{sub}</p>}
+    <div class="pi-section-head">
+      <div class="pi-section-head__text">
+        {eyebrow && <p class="pi-eyebrow">{eyebrow}</p>}
+        <h2 class="pi-h2" id={headingId}>{heading}</h2>
+        {sub && <p class="pi-section-dek">{sub}</p>}
       </div>
       {topLink && (
-        <a href={topLink.href} class="v5-directory__toplink">{topLink.label} &rarr;</a>
+        <a href={topLink.href} class="pi-section-link">{topLink.label} <span aria-hidden="true">&rarr;</span></a>
       )}
     </div>
 
     <slot name="before-list" />
 
-    <ul class="v5-directory__list" aria-label={heading} data-sort-container>
+    <ul
+      class="v5-directory__list"
+      id={listId}
+      aria-label={heading}
+      data-sort-container
+      data-directory-list
+      data-directory-collapsed={collapsible ? '' : undefined}
+      data-initial-count={collapsible ? initialCount : undefined}
+    >
       {items.map((item, i) => (
         <li
           class="v5-directory__row"
           data-facets={item.facets ? JSON.stringify(item.facets) : undefined}
           data-filter-countable={countable && item.facets ? 'true' : undefined}
           data-title={item.sortTitle ?? item.title}
+          data-directory-overflow={collapsible && i >= initialCount ? '' : undefined}
         >
           <Card
             as="div"
@@ -121,12 +154,15 @@ const headingId = `${id ?? `directory-${surface}`}-heading`;
             entityType={item.entityType}
             entitySlug={item.entitySlug}
             image={item.image}
+            mediaFallback={anyImage}
             verdict={item.verdict}
             meta={item.meta}
             priceBand={item.priceBand}
             freshness={item.freshness}
             freshnessKind={item.freshnessKind}
             booking={item.booking}
+            reserveBooking={anyBooking}
+            trip={true}
             partnerLabel={item.partnerLabel}
             surface={surface}
             position={i + 1}
@@ -134,6 +170,28 @@ const headingId = `${id ?? `directory-${surface}`}-heading`;
         </li>
       ))}
     </ul>
+
+    {collapsible && (
+      <div class="v5-directory__more" data-directory-more>
+        <button
+          type="button"
+          class="v5-directory__show-all"
+          aria-controls={listId}
+          aria-expanded="false"
+          data-directory-show-all
+        >
+          Show all {items.length} {noun}
+        </button>
+      </div>
+    )}
+    {collapsible && (
+      <noscript>
+        <style is:inline>
+          [data-directory-collapsed] > [data-directory-overflow] { display: list-item !important; }
+          [data-directory-more] { display: none !important; }
+        </style>
+      </noscript>
+    )}
 
     <div data-filter-empty hidden>
       <EmptyState
@@ -149,69 +207,8 @@ const headingId = `${id ?? `directory-${surface}`}-heading`;
 </section>
 
 <style>
-  .v5-directory {
-    padding: var(--space-6, 2rem) 0;
-  }
-  .v5-directory__header {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: var(--space-4, 1rem);
-    flex-wrap: wrap;
-    margin-bottom: var(--space-5, 1.5rem);
-  }
-  .v5-directory__eyebrow {
-    margin: 0 0 var(--space-2, 0.5rem);
-    font-family: var(--font-ui);
-    font-size: var(--fs-100, 0.75rem);
-    font-weight: 600;
-    letter-spacing: var(--ls-eyebrow, 0.12em);
-    text-transform: uppercase;
-    color: var(--teal-text);
-  }
-  .v5-directory__heading {
-    margin: 0;
-    font-family: var(--font-display);
-    font-size: var(--fs-700, clamp(1.6rem, 1.35rem + 1.2vw, 2.1rem));
-    font-weight: var(--fw-display, 600);
-    line-height: var(--lh-heading, 1.14);
-    letter-spacing: -0.01em;
-    color: var(--text);
-    text-wrap: balance;
-  }
-  .v5-directory__sub {
-    margin: var(--space-3, 0.75rem) 0 0;
-    font-family: var(--font-ui);
-    font-size: var(--fs-300, 0.9375rem);
-    line-height: var(--lh-ui, 1.4);
-    color: var(--soft);
-    max-width: var(--measure-dek, 52ch);
-  }
-  .v5-directory__toplink {
-    display: inline-flex;
-    align-items: center;
-    min-height: 44px;
-    gap: 0.4rem;
-    padding: 0.6rem 1.1rem;
-    border: 1.5px solid var(--accent);
-    border-radius: var(--radius-pill, 999px);
-    font-family: var(--font-ui);
-    font-size: var(--fs-200, 0.8125rem);
-    font-weight: var(--fw-semibold, 600);
-    color: var(--accent);
-    text-decoration: none;
-    white-space: nowrap;
-    transition: background var(--dur-fast, 120ms) var(--ease-enter, ease),
-      color var(--dur-fast, 120ms) var(--ease-enter, ease);
-  }
-  .v5-directory__toplink:hover {
-    background: var(--accent);
-    color: var(--white);
-  }
-  .v5-directory__toplink:focus-visible {
-    outline: var(--focus-ring, 2px solid var(--accent));
-    outline-offset: 2px;
-  }
+  /* Section head, link and vertical rhythm come from the shared
+     .pi-section / .pi-section-head canon (global.css, G1). */
   .v5-directory__list {
     list-style: none;
     margin: 0;
@@ -219,30 +216,105 @@ const headingId = `${id ?? `directory-${surface}`}-heading`;
     display: flex;
     flex-direction: column;
   }
+  /* The one divider between rows, with 24px either side (refinement.css
+     states the same padding). The compact card draws no rule of its own.
+     Hover is the title's colour change, not a tint band. */
   .v5-directory__row {
+    padding-block: var(--space-5, 1.5rem);
     border-bottom: 1px solid var(--border);
   }
   .v5-directory__row:last-child {
     border-bottom: none;
   }
-  /* Rows sit flush in the list; the Card compact-row brings its own layout. */
-  .v5-directory__row > :global(.pi-card) {
-    border: none;
-    border-radius: 0;
+
+  /* Show the first rows only; the rest stay in the DOM. */
+  .v5-directory__list[data-directory-collapsed] > [data-directory-overflow] {
+    display: none;
   }
-  .v5-directory__row > :global(.pi-card:hover) {
-    box-shadow: none;
-    background: var(--bg-alt);
+  .v5-directory__more {
+    margin-top: var(--space-5, 1.5rem);
+  }
+  .v5-directory__more[hidden] {
+    display: none;
+  }
+  .v5-directory__show-all {
+    appearance: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0 var(--space-5, 1.5rem);
+    background: transparent;
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-s, 8px);
+    font-family: var(--font-ui);
+    font-size: var(--fs-300, 0.9375rem);
+    font-weight: var(--fw-semibold, 600);
+    line-height: var(--lh-ui, 1.4);
+    color: var(--harbour);
+    cursor: pointer;
+    transition:
+      border-color var(--dur-fast, 120ms) var(--ease-enter, ease),
+      color var(--dur-fast, 120ms) var(--ease-enter, ease);
+  }
+  .v5-directory__show-all:hover {
+    border-color: var(--harbour);
+    color: var(--harbour-h);
+  }
+  .v5-directory__show-all:focus-visible {
+    outline: var(--focus-ring, 2px solid var(--accent));
+    outline-offset: 2px;
   }
 </style>
 
 <script>
   // EmptyState's "Clear filters" button carries data-action="clear-filters";
   // wire it to the shared filter state so one tap restores a working list.
-  import { commit } from '../../../lib/v5-filter-state';
+  import { commit, isEmptyState, parseFilters } from '../../../lib/v5-filter-state';
+
+  /* Collapsed lists show the first N rows in their CURRENT order, so a sort
+     that reorders the list re-marks which rows overflow. One observer per
+     live list; the set is disconnected before every re-init, so a
+     client-router swap never leaves one watching a discarded node. */
+  const observers: MutationObserver[] = [];
+
+  function markOverflow(list: HTMLElement) {
+    const limit = Number(list.dataset.initialCount || 0);
+    Array.from(list.children).forEach((row, i) => {
+      row.toggleAttribute('data-directory-overflow', i >= limit);
+    });
+  }
+
+  function expand(section: HTMLElement, moveFocus = false) {
+    const list = section.querySelector<HTMLElement>('[data-directory-list]');
+    if (!list || !list.hasAttribute('data-directory-collapsed')) return;
+    list.removeAttribute('data-directory-collapsed');
+    const more = section.querySelector<HTMLElement>('[data-directory-more]');
+    if (more) more.hidden = true;
+    section.querySelector('[data-directory-show-all]')?.setAttribute('aria-expanded', 'true');
+    if (moveFocus) {
+      // The button is gone; land keyboard users on the first revealed row.
+      const limit = Number(list.dataset.initialCount || 0);
+      const first = list.children[limit]?.querySelector<HTMLElement>('a[href]');
+      first?.focus();
+    }
+  }
 
   function init() {
+    observers.splice(0).forEach((observer) => observer.disconnect());
+    const filtering = !isEmptyState(parseFilters(window.location.search));
     document.querySelectorAll<HTMLElement>('[data-directory-rows]').forEach((section) => {
+      const list = section.querySelector<HTMLElement>('[data-directory-list][data-directory-collapsed]');
+      if (list) {
+        if (filtering) {
+          expand(section);
+        } else {
+          markOverflow(list);
+          const observer = new MutationObserver(() => markOverflow(list));
+          observer.observe(list, { childList: true });
+          observers.push(observer);
+        }
+      }
       if ((section as any)._piDirInit) return;
       (section as any)._piDirInit = true;
       const noun = section.dataset.noun || 'results';
@@ -251,9 +323,22 @@ const headingId = `${id ?? `directory-${surface}`}-heading`;
         if (target && target.closest('[data-action="clear-filters"]')) {
           commit({}, { source: 'clear', noun });
         }
+        if (target && target.closest('[data-directory-show-all]')) {
+          expand(section, true);
+        }
       });
     });
   }
+
+  /* Any active filter searches the whole list: reveal every row. Registered
+     once at module scope (listener hygiene), never inside page-load. */
+  function onFiltersChanged(event: Event) {
+    const detail = (event as CustomEvent<{ filters?: Parameters<typeof isEmptyState>[0] }>).detail;
+    if (!detail || !detail.filters || isEmptyState(detail.filters)) return;
+    document.querySelectorAll<HTMLElement>('[data-directory-rows]').forEach((section) => expand(section));
+  }
+  document.addEventListener('pi:filters-changed', onFiltersChanged);
+
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
   document.addEventListener('astro:page-load', init);

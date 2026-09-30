@@ -17,23 +17,29 @@ const { compact = false, surface = 'article-note' } = Astro.props;
 </p>
 
 <style>
+  /* A strip with room on both sides: 24px above and below its text, and
+     48px of clearance from whatever band follows (the footer, the Insider
+     Note band), so it never sits jammed in the seam between two grounds. */
   .correction-note {
-    margin: 2rem 0 0;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    font-size: 0.92rem;
+    margin: var(--space-7, 3rem) 0;
+    padding-block: var(--space-5, 1.5rem);
+    border-top: 1px solid var(--border, rgba(0, 0, 0, 0.1));
+    font-size: var(--fs-300, 0.9375rem);
     line-height: 1.6;
-    color: var(--ink-soft, #433d39);
+    color: var(--soft, #4B5862);
+    text-wrap: pretty;
   }
 
   .correction-note--compact {
-    margin-top: 1.5rem;
-    font-size: 0.88rem;
+    margin-top: var(--space-5, 1.5rem);
+    font-size: 0.875rem;
   }
 
   .correction-note a {
-    color: var(--accent, #3e7a6c);
+    color: var(--harbour, #10527E);
     text-decoration: underline;
-    text-underline-offset: 2px;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+    overflow-wrap: anywhere;
   }
 </style>

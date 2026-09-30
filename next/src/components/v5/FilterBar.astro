@@ -2,10 +2,12 @@
 /**
  * FilterBar (v5, spec 2.16) - the single top-of-list filtering surface.
  *
- * Intent preset chips first (from CHIP_PRESETS[surface]), a "More filters"
- * trigger that opens FilterSheet, an always-visible count line, a Clear
- * control, and slots for SortControl / MapToggle. One per listing surface,
- * rendered directly above the first result.
+ * Intent preset chips first (from CHIP_PRESETS[surface]), then a "More
+ * filters" trigger that opens FilterSheet. The trigger sits outside the chip
+ * scroller so it is never scrolled off-screen, and below 768px the chips wrap
+ * instead of scrolling. A result line ("12 places") and Clear appear only
+ * while a filter is active: the page's total lives in its directory heading.
+ * The default slot takes SortControl / MapToggle. One per listing surface.
  *
  * One filter state governs the whole page: every element carrying a
  * `data-facets` JSON attribute (curated grid AND directory) is shown/hidden
@@ -19,7 +21,7 @@ import FilterSheet from './FilterSheet.astro';
 export interface Props {
   /** CHIP_PRESETS surface key (eat, stay, wine, explore, whats-on, ...). */
   surface: string;
-  /** Plural noun for count copy: "Showing 12 of 87 places". */
+  /** Plural noun for count copy: "12 places". */
   noun?: string;
   /** Accessible name for the group. */
   label?: string;
@@ -46,6 +48,7 @@ const {
 } = Astro.props;
 
 const presets = CHIP_PRESETS[surface] ?? [];
+const hasTools = Astro.slots.has('default');
 ---
 
 <div
@@ -70,6 +73,8 @@ const presets = CHIP_PRESETS[surface] ?? [];
           {chip.label}
         </button>
       ))}
+    </div>
+    <div class="v5-filterbar__end">
       <button
         type="button"
         class="v5-filterbar__chip v5-filterbar__chip--more"
@@ -77,15 +82,16 @@ const presets = CHIP_PRESETS[surface] ?? [];
         data-evt="filter_open"
         aria-haspopup="dialog"
       >
+        <svg class="v5-filterbar__more-icon" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+          <path d="M2 4h12M4.5 8h7M6.5 12h3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+        </svg>
         More filters<span class="v5-filterbar__more-count" data-filter-active-count hidden></span>
       </button>
-    </div>
-    <div class="v5-filterbar__end">
-      <slot />
+      {hasTools && <div class="v5-filterbar__tools"><slot /></div>}
     </div>
   </div>
   <p class="v5-filterbar__meta">
-    <span class="v5-filterbar__count" data-filter-count></span>
+    <span class="v5-filterbar__count" data-filter-count data-filter-count-quiet hidden></span>
     <button type="button" class="v5-filterbar__clear" data-filter-clear data-evt="filter_clear" hidden>
       Clear filters
     </button>
@@ -96,10 +102,12 @@ const presets = CHIP_PRESETS[surface] ?? [];
 {withSheet && <FilterSheet noun={noun} facets={facets} surface={surface} />}
 
 <style>
+  /* The bar sits on whatever ground it is placed on (the compact hero band
+     on the hubs), so it carries no panel of its own and no rule: one rule at
+     most between the hero controls and the content. */
   .v5-filterbar {
-    background: var(--bg);
-    border-bottom: 1px solid var(--border);
-    padding: 0.5rem 0 0.35rem;
+    background: transparent;
+    padding: var(--space-2, 0.5rem) 0 0;
   }
   .v5-filterbar--sticky {
     position: sticky;
@@ -107,24 +115,29 @@ const presets = CHIP_PRESETS[surface] ?? [];
        --masthead-h on <html> by BaseLayout) rather than jamming under it. */
     top: var(--masthead-h, 0px);
     z-index: 40;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: var(--space-2, 0.5rem);
   }
   .v5-filterbar__row {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: var(--space-2, 0.5rem);
   }
   /* Horizontally scrollable chip row with a fade affordance on the right
-     edge while more chips remain off-screen. */
+     edge while more chips remain off-screen. "More filters" lives outside
+     it, so the one control that opens every facet is never faded out. */
   .v5-filterbar__scroll {
     display: flex;
-    gap: 0.5rem;
+    gap: var(--space-2, 0.5rem);
     overflow-x: auto;
-    flex: 1 1 auto;
+    flex: 0 1 auto;
     min-width: 0;
-    padding: 2px 2px 6px;
+    padding: 2px;
+    scroll-padding-inline: 16px;
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
-    mask-image: linear-gradient(to right, black calc(100% - 2.5rem), transparent);
+    mask-image: linear-gradient(to right, black calc(100% - 3rem), transparent);
   }
   .v5-filterbar__scroll::-webkit-scrollbar {
     display: none;
@@ -135,20 +148,33 @@ const presets = CHIP_PRESETS[surface] ?? [];
   .v5-filterbar__end {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    flex: 0 0 auto;
+    gap: var(--space-2, 0.5rem) var(--space-4, 1rem);
+    flex: 1 0 auto;
   }
-  /* Mobile: give the intent-chip scroller the full row width by dropping the
-     sort/utility controls onto their own line instead of crushing the chips. */
-  @media (max-width: 560px) {
-    .v5-filterbar__row { flex-wrap: wrap; }
-    .v5-filterbar__scroll { order: 1; flex-basis: 100%; }
-    .v5-filterbar__end { order: 2; flex-basis: 100%; justify-content: flex-end; }
+  .v5-filterbar__tools {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3, 0.75rem);
+    margin-left: auto;
+  }
+  /* Phones: no hidden chips. The chips, "More filters" and any tools wrap
+     as one set of rows (display: contents lifts them into the row), so every
+     option is visible without a horizontal scroll, and tools sit left. */
+  @media (max-width: 767px) {
+    .v5-filterbar__row { flex-wrap: wrap; align-items: flex-start; }
+    .v5-filterbar__scroll,
+    .v5-filterbar__end { display: contents; }
+    .v5-filterbar__tools { margin-left: 0; }
   }
   .v5-filterbar__chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
     font-family: var(--font-ui);
-    font-size: 0.85rem;
+    font-size: var(--fs-300, 0.9375rem);
     font-weight: 500;
+    line-height: var(--lh-ui, 1.4);
     color: var(--text);
     background: var(--white);
     border: 1px solid var(--border);
@@ -175,11 +201,21 @@ const presets = CHIP_PRESETS[surface] ?? [];
     border-color: var(--accent);
     color: var(--white);
   }
-  .v5-filterbar__chip--more {
-    border-style: dashed;
+  @media (max-width: 767px) {
+    .v5-filterbar__chip {
+      font-size: 0.875rem;
+      padding: 0 0.875rem;
+    }
   }
+  .v5-filterbar__more-icon {
+    flex: 0 0 auto;
+    width: 16px;
+    height: 16px;
+    color: var(--harbour, #10527E);
+  }
+  .v5-filterbar__chip:hover .v5-filterbar__more-icon { color: currentColor; }
   .v5-filterbar__more-count {
-    margin-left: 0.35rem;
+    margin-left: 0.1rem;
     background: var(--accent);
     color: var(--white);
     border-radius: 999px;
@@ -191,25 +227,38 @@ const presets = CHIP_PRESETS[surface] ?? [];
     background: var(--white);
     color: var(--accent);
   }
+  /* Result line: silent until a filter is active, then "12 places" and
+     Clear sit directly under the chips they answer. */
   .v5-filterbar__meta {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    margin: 0.15rem 0 0;
+    gap: var(--space-4, 1rem);
+    margin: var(--space-1, 0.25rem) 0 0;
     font-family: var(--font-ui);
-    font-size: 0.8rem;
+    font-size: var(--fs-300, 0.9375rem);
     color: var(--soft);
+  }
+  .v5-filterbar__meta:not(:has(> :not([hidden]))) {
+    display: none;
+  }
+  .v5-filterbar__count {
+    font-weight: 600;
+    color: var(--text);
   }
   .v5-filterbar__clear {
     background: none;
     border: none;
-    color: var(--accent);
+    color: var(--harbour, #10527E);
     font: inherit;
+    font-weight: 600;
     text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
     cursor: pointer;
-    min-height: 48px;
+    min-height: 44px;
     padding: 0 0.25rem;
   }
+  .v5-filterbar__clear:hover { color: var(--harbour-h, #0C4166); }
   .v5-filterbar__clear:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 2px;

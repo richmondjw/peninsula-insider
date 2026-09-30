@@ -1,6 +1,6 @@
 ---
-title: "Boat Moorings and Berths on the Mornington Peninsula"
-dek: "Annual mooring waiting lists, seasonal moorings you can actually book this season, and the one short-stay berth at Mornington Pier itself - the honest picture of where to put a boat on the Peninsula, and who to actually contact."
+title: "Boat moorings and berths on the Mornington Peninsula"
+dek: "Annual mooring waiting lists, seasonal moorings you can actually book this season, and the one short-stay berth at Mornington Pier itself: the honest picture of where to put a boat on the Peninsula, and who to actually contact."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-08-21

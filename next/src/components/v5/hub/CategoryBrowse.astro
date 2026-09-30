@@ -1,19 +1,46 @@
 ---
-/** One filter state; the editorial route yields to results when a facet is selected. */
-interface Props { directory: string; count: number; noun: string; mapHref?: string; }
-const { directory, count, noun, mapHref = '/map/' } = Astro.props;
+/**
+ * One filter state; the editorial route yields to results when a facet is selected.
+ *
+ * The page's result count is stated once, in the directory heading, so the
+ * jump link reads "Browse every place to eat" rather than repeating it
+ * (`count` is still accepted so callers need not change). Pass
+ * `contained={false}` when the block renders inside another .container,
+ * such as HubStandfirst's compact band.
+ */
+import { singularNoun } from '../../../lib/v5-filter-state';
+
+interface Props { directory: string; count?: number; noun: string; mapHref?: string; contained?: boolean; }
+const { directory, noun, mapHref = '/map/', contained = true } = Astro.props;
 ---
-<div class="category-browse container" data-category-browse>
+<div class:list={['category-browse', { container: contained, 'category-browse--inset': !contained }]} data-category-browse>
   <nav class="category-browse__links" aria-label="Browse this guide">
-    <a href={`#${directory}`}>Browse all {count} {noun} <span aria-hidden="true">↓</span></a>
-    <a href={mapHref}>View the map <span aria-hidden="true">→</span></a>
+    <a class="pi-section-link" href={`#${directory}`}>Browse every {singularNoun(noun)} <span aria-hidden="true">↓</span></a>
+    <a class="pi-section-link" href={mapHref}>View the map <span aria-hidden="true">→</span></a>
   </nav>
   <slot />
 </div>
 <style>
-  .category-browse { padding-block: 0.5rem 1rem; }
-  .category-browse__links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; }
-  .category-browse__links a { display: inline-flex; align-items: center; min-height: 44px; color: var(--teal-text); font-size: 0.9375rem; font-weight: 600; text-underline-offset: 0.2em; }
+  .category-browse { padding-block: var(--space-4, 1rem) 0; }
+  .category-browse--inset { padding-block: 0; }
+  .category-browse__links { display: flex; flex-wrap: wrap; gap: 0 var(--space-6, 2rem); margin-bottom: var(--space-2, 0.5rem); }
+  /* Matches the shared .pi-section-link (global.css) so the page has one
+     link treatment; restated here for the gap before the arrow, which an
+     inline-flex link otherwise collapses. */
+  .category-browse__links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35em;
+    min-height: 44px;
+    font-family: var(--font-ui);
+    font-size: var(--fs-300, 0.9375rem);
+    font-weight: 600;
+    color: var(--harbour, #10527E);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+  }
+  .category-browse__links a:hover { color: var(--harbour-h, #0C4166); }
   .category-browse__links a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 </style>
 <script>

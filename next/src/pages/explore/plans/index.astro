@@ -5,7 +5,10 @@ import PlanBuilder from '../../../components/v5/plans/PlanBuilder.astro';
 import PlanIndexRows from '../../../components/v5/plans/PlanIndexRows.astro';
 import PlanNextStep from '../../../components/v5/plans/PlanNextStep.astro';
 import { buildPlansModel } from '../../../components/v5/plans/plans-data';
+import { matchPlans } from '../../../components/v5/plans/plan-match';
 const model = await buildPlansModel();
+// The same default match PlanContextEngine server-renders, so the collection below never repeats the featured trio.
+const featuredIds = matchPlans(model.plans, {}).ids;
 const catalogue = [
   ...model.plans.filter(plan => plan.kind === 'itinerary').sort((a,b) => b.editorialPriority - a.editorialPriority),
   ...model.plans.filter(plan => plan.kind === 'guide').sort((a,b) => a.displayTitle.localeCompare(b.displayTitle)),
@@ -25,22 +28,30 @@ export const prerender = true;
     <div class="container">
       <div class="plans-hero__row">
         <h1>Don’t plan.<br />Pick one of ours.</h1>
-        <div class="plans-hero__intro"><p>A good day starts with a few good decisions. We’ve put the stops in order. Choose the one that suits you, then make it your own.</p><a href="#all-plans">Browse the itineraries <span aria-hidden="true">↓</span></a></div>
+        <div class="plans-hero__intro"><p>A good day starts with a few good decisions. We’ve put the stops in order. Choose the one that suits you, then make it your own.</p><a class="pi-section-link" href="#all-plans">Browse the itineraries <span aria-hidden="true">↓</span></a></div>
       </div>
     </div>
   </header>
   <PlanBuilder model={model} />
   <PlanContextEngine model={model} />
-  <PlanIndexRows model={model} />
+  <PlanIndexRows model={model} excludeIds={featuredIds} />
   <PlanNextStep />
 </BaseLayout>
 <style>
-  .plans-hero{padding:clamp(1.5rem,3vw,2.5rem) 0 1.5rem}
-  .plans-hero__eyebrow{font:600 .7rem/1.5 var(--font-ui);letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 1.15rem}
-  .plans-hero__row{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:2rem;align-items:end}
+  .plans-hero{padding:clamp(1.5rem,3vw,2.5rem) 0 0}
+  .plans-hero__row{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:var(--space-6);align-items:end}
   h1{font:500 clamp(2.5rem,5.4vw,4.8rem)/1.05 var(--font-display);letter-spacing:-.035em;margin:0;max-width:17ch}
-  .plans-hero__intro{max-width:39ch;padding-bottom:.25rem}
-  .plans-hero__intro p{font:1.05rem/1.7 var(--font-ui);margin:0 0 1rem;color:var(--soft)}
-  .plans-hero__intro a{font-size:.85rem;font-weight:600;text-underline-offset:.2em}
-  @media(max-width:45rem){.plans-hero{padding:1.6rem 0 1.7rem}.plans-hero__row{grid-template-columns:1fr;gap:1.1rem}.plans-hero__eyebrow{font-size:.62rem;margin-bottom:.8rem}h1{font-size:2.65rem}.plans-hero__intro{max-width:43ch}.plans-hero__intro p{font-size:.95rem;margin-bottom:.8rem}}
+  .plans-hero__intro{max-width:39ch}
+  .plans-hero__intro p{font:var(--fs-400)/1.65 var(--font-ui);margin:0 0 var(--space-2);color:var(--soft)}
+  .plans-hero__intro a{display:inline-flex;align-items:center;gap:.3em;min-height:44px;font:600 var(--fs-300)/1.4 var(--font-ui);color:var(--harbour);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.2em;white-space:nowrap}
+  .plans-hero__intro a:hover{color:var(--harbour-h)}
+  /* One section rhythm for the page. Adjacent white sections share a single
+     --section-space gap (the later one drops its top padding); the guides band
+     and the section after it keep both, so every gap between sections is equal. */
+  :global(:root .pi-section.plan-builder){padding:var(--section-space) 0}
+  :global(:root .pi-section.plan-engine){padding:0 0 var(--section-space)}
+  :global(:root .pi-section.plan-index){padding:0 0 var(--section-space)}
+  :global(:root .pi-section.plan-guides){padding:var(--section-space) 0}
+  :global(:root .pi-section.plan-next){padding:var(--section-space) 0}
+  @media(max-width:45rem){.plans-hero__row{grid-template-columns:1fr;gap:var(--space-4)}h1{font-size:2.65rem}.plans-hero__intro{max-width:43ch}}
 </style>

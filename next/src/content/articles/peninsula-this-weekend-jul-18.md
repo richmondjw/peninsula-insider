@@ -1,5 +1,5 @@
 ---
-title: "Peninsula This Weekend - 18 to 19 July"
+title: "Peninsula This Weekend: 18 to 19 July"
 dek: "July sits in the quieter stretch of Peninsula winter, and that is the point. The lead booking is a truffle hunt at Red Hill. Sunday is for the sculpture park at Pt. Leo."
 author: "editorial"
 houseByline: true

@@ -1,6 +1,6 @@
 ---
-title: "The Mornington Day: How to Treat the Gateway Town as the Destination"
-dek: "Forget pressing on to the vineyards. A well-built day in Mornington  -  market, coffee, gallery, foreshore  -  is one of the cleanest Peninsula visits you can make."
+title: "The Mornington day: how to treat the gateway town as the destination"
+dek: "Forget pressing on to the vineyards. A well-built day in Mornington (market, coffee, gallery, foreshore) is one of the cleanest Peninsula visits you can make."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-04-05

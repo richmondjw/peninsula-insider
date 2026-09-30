@@ -2,12 +2,14 @@
 /**
  * /guides/ - seasonal guide downloads (Phase 4 WS4C).
  *
- * Lists every available seasonal PDF guide. Each download gates on a
- * newsletter signup via the existing Beehiiv endpoint
- * (/components/SubscribeForm.astro pattern). Once the user submits an
- * email, the static URL to the PDF is revealed and the email is added
+ * Lists every available seasonal PDF guide. Downloads gate on a single
+ * newsletter signup below the grid, via the existing Beehiiv endpoint
+ * (/components/SubscribeForm.astro pattern): the reader picks a season
+ * (from a card or from the form's own season chips) and gives one email.
+ * On success the static URL to that PDF is revealed and the email is added
  * to the Peninsula This Weekend dispatch with a `seasonal-guide-<slug>`
- * tag.
+ * tag. One form, not one per card: the page used to ask for an email five
+ * times over.
  *
  * v1 ships: Winter and Autumn guides. Adding more is a matter of adding
  * an entry to GUIDES below, dropping a printable Astro page under
@@ -16,11 +18,12 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import SectionHero from '../../components/SectionHero.astro';
-import NewsletterBlock from '../../components/NewsletterBlock.astro';
 
 interface Guide {
   slug: string;
+  /** Display name of the season, used for the form chips and success label. */
   season: string;
+  /** Card title. Leads with the season; the PDF keeps its own cover title. */
   title: string;
   dek: string;
   pages: number;
@@ -37,8 +40,8 @@ const GUIDES: Guide[] = [
   {
     slug: 'winter',
     season: 'Winter',
-    title: 'A Mornington Peninsula Winter',
-    dek: "Cellar doors with fires lit, hot springs steaming, and the back-bay walks that win when the bay is grey. Eight pages, six venues, one sample weekend.",
+    title: 'Winter',
+    dek: "Cellar doors with fires lit, hot springs steaming, and the back-bay walks that win when the bay is grey.",
     pages: 8,
     ready: true,
     pdf: '/downloads/peninsula-insider-winter-guide.pdf',
@@ -48,8 +51,8 @@ const GUIDES: Guide[] = [
   {
     slug: 'autumn',
     season: 'Autumn',
-    title: 'A Mornington Peninsula Autumn',
-    dek: "Vintage running on the ridge, warm Saturdays at the markets, the season the Peninsula is at its most editorial. Eight pages, six venues, one sample weekend.",
+    title: 'Autumn',
+    dek: "Vintage running on the ridge, warm Saturdays at the markets, the season the Peninsula is at its most editorial.",
     pages: 8,
     ready: true,
     pdf: '/downloads/peninsula-insider-autumn-guide.pdf',
@@ -59,8 +62,8 @@ const GUIDES: Guide[] = [
   {
     slug: 'spring',
     season: 'Spring',
-    title: 'A Mornington Peninsula Spring',
-    dek: "Ridge afternoons soft with new growth, market season opening on the bay, and the weeks before the summer crowds arrive - the underrated Peninsula.",
+    title: 'Spring',
+    dek: "Ridge afternoons soft with new growth, market season opening on the bay, and the weeks before the summer crowds arrive: the underrated Peninsula.",
     pages: 8,
     ready: true,
     pdf: '/downloads/peninsula-insider-spring-guide.pdf',
@@ -70,8 +73,8 @@ const GUIDES: Guide[] = [
   {
     slug: 'summer',
     season: 'Summer',
-    title: 'A Mornington Peninsula Summer',
-    dek: "Bay swims at 7 am, long lunches with the doors open, rooms above the water at the tip - the Peninsula at its loudest and most loved.",
+    title: 'Summer',
+    dek: "Bay swims at 7 am, long lunches with the doors open, rooms above the water at the tip: the Peninsula at its loudest and most loved.",
     pages: 8,
     ready: true,
     pdf: '/downloads/peninsula-insider-summer-guide.pdf',
@@ -80,8 +83,8 @@ const GUIDES: Guide[] = [
   },
   {
     slug: 'easter-long-weekend',
-    season: 'Easter long-weekend',
-    title: 'A Mornington Peninsula Easter Long-Weekend',
+    season: 'Easter long weekend',
+    title: 'Easter long weekend',
     dek: "Four days, the vintage on the ridge, the markets at full programme, the season tipping. The four-day pacing the rest of the year doesn't allow.",
     pages: 8,
     ready: true,
@@ -108,9 +111,8 @@ export const prerender = true;
 
   <SectionHero
     eyebrow="Seasonal guides"
-    subEyebrow="Editorial PDFs"
     title="The Peninsula, <em>by season</em>."
-    dek="Eight-page editorial guides - venues, walks, and a sample weekend, shaped for the time of year. Print one for the glove box, keep one in the kitchen drawer, forward one to the friend who is asking what to do."
+    dek="Eight-page editorial guides: venues, walks, and a sample weekend, shaped for the time of year. Print one for the glove box, keep one in the kitchen drawer, forward one to the friend who is asking what to do."
     gradient="journal"
     visualLabel="Peninsula Insider · seasonal guides"
   entitySlug="guides"
@@ -120,76 +122,365 @@ export const prerender = true;
     <div class="container">
       <div class="guides-grid">
         {GUIDES.map((g) => (
-          <article class={`guide-card guide-card--${g.slug}`}>
+          <article class={`guide-card guide-card--${g.slug}`} data-guide-card={g.slug}>
             <div class="guide-card__hero" style={`background-image:url(${g.heroImage})`} aria-hidden="true"></div>
             <div class="guide-card__body">
-              <p class="guide-card__season">{g.season}</p>
               <h2 class="guide-card__title">{g.title}</h2>
               <p class="guide-card__dek">{g.dek}</p>
-              <p class="guide-card__meta">{g.pages}-page PDF · No charge · No tracking</p>
-
               {g.ready ? (
-                <form class="guide-card__form" data-guide-form data-guide-slug={g.slug} data-guide-pdf={g.pdf}>
-                  <label class="guide-card__form-label" for={`guide-email-${g.slug}`}>Where should we send it?</label>
-                  <div class="guide-card__form-row">
-                    <input
-                      id={`guide-email-${g.slug}`}
-                      type="email"
-                      name="email"
-                      required
-                      placeholder="you@example.com"
-                      class="guide-card__form-input"
-                    />
-                    <button type="submit" class="guide-card__form-button pi-btn pi-btn--solid">Get the {g.season} guide</button>
-                  </div>
-                  <p class="guide-card__form-fineprint">You'll join the Peninsula This Weekend dispatch. Unsubscribe any time.</p>
-                  <p class="guide-card__form-status" data-guide-status hidden></p>
-                </form>
+                <a class="guide-pick" href="#guides-signup" data-guide-pick={g.slug}>
+                  Send me this one<span class="visually-hidden">: the {g.season} guide</span>
+                </a>
               ) : (
-                <p class="guide-card__form-fineprint">Coming soon.</p>
+                <p class="guide-card__soon">Coming soon.</p>
               )}
             </div>
           </article>
         ))}
       </div>
 
+      {/* The page's one sign-up. data-newsletter-surface tells the footer
+          not to repeat its own letter promo underneath. */}
+      <div class="guides-signup" id="guides-signup" data-newsletter-surface>
+        <form class="guides-signup__form" data-guide-form>
+          <div class="guides-signup__intro">
+            <p class="pi-eyebrow">Your guide</p>
+            <h2 class="pi-h2">Where should we send it?</h2>
+          </div>
+          <div class="guides-signup__fields" data-guide-fields>
+            <fieldset class="guides-signup__seasons">
+              <legend class="guides-signup__label">Guide</legend>
+              <div class="guides-signup__chips">
+                {GUIDES.filter((g) => g.ready).map((g) => (
+                  <label class="guides-signup__chip">
+                    <input
+                      type="radio"
+                      name="guide"
+                      value={g.slug}
+                      data-pdf={g.pdf}
+                      data-season={g.season}
+                      required
+                    />
+                    <span>{g.season}</span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+            <label class="guides-signup__label" for="guide-email">Email address</label>
+            <div class="guides-signup__row">
+              <input
+                id="guide-email"
+                type="email"
+                name="email"
+                required
+                autocomplete="email"
+                placeholder="you@example.com"
+                class="guides-signup__input"
+              />
+              <button type="submit" class="guides-signup__button pi-btn pi-btn--solid">Send my guide</button>
+            </div>
+            <p class="guides-signup__fineprint">You'll join the Peninsula This Weekend dispatch. Unsubscribe any time.</p>
+            <p class="guides-signup__status" data-guide-status role="status" hidden></p>
+          </div>
+        </form>
+      </div>
+
       <p class="guides-coming">
-        Spring and Summer guides land before the season they're named after. The Easter long-weekend special drops a fortnight ahead.
+        Spring and Summer guides land before the season they're named after. The Easter long weekend special drops a fortnight ahead.
       </p>
     </div>
   </section>
-
-  <NewsletterBlock />
 </BaseLayout>
+
+<style>
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* ── Guide cards: image, season title, dek, one pick chip (GD1) ── */
+  .guide-card__body {
+    flex: 1;
+  }
+  .guide-card__title {
+    text-wrap: balance;
+  }
+  .guide-card__dek {
+    margin-bottom: var(--space-3);
+    text-wrap: pretty;
+  }
+  .guide-pick {
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    min-height: 48px;
+    margin-top: auto;
+    padding: 0 var(--space-5);
+    font-family: var(--font-ui);
+    font-size: var(--fs-300);
+    font-weight: var(--fw-semibold);
+    line-height: var(--lh-ui);
+    color: var(--harbour);
+    text-decoration: none;
+    background: var(--white);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-pill);
+    transition:
+      background-color var(--dur-fast) var(--ease-enter),
+      border-color var(--dur-fast) var(--ease-enter),
+      color var(--dur-fast) var(--ease-enter);
+  }
+  .guide-pick:hover {
+    border-color: var(--harbour);
+    color: var(--harbour-h);
+  }
+  .guide-pick:focus-visible {
+    outline: var(--focus-ring);
+    outline-offset: 2px;
+  }
+  .guide-card[data-picked] {
+    border-color: var(--harbour);
+  }
+  .guide-card[data-picked] .guide-pick {
+    background: var(--harbour);
+    border-color: var(--harbour);
+    color: var(--white);
+  }
+  .guide-card__soon {
+    margin: auto 0 0;
+    font-family: var(--font-ui);
+    font-size: var(--fs-200);
+    color: var(--soft);
+  }
+
+  /* ── The one sign-up: guide chips, one email field, one button ── */
+  .guides-signup {
+    margin-top: var(--section-space);
+    padding: clamp(var(--space-5), 4vw, var(--space-7));
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-l);
+    scroll-margin-top: 8rem;
+  }
+  .guides-signup__form {
+    display: grid;
+    gap: var(--space-6);
+  }
+  @media (min-width: 900px) {
+    .guides-signup__form {
+      grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+      gap: var(--space-8);
+      align-items: start;
+    }
+  }
+  .guides-signup__seasons {
+    min-width: 0;
+    margin: 0 0 var(--space-5);
+    padding: 0;
+    border: 0;
+  }
+  .guides-signup__label {
+    display: block;
+    margin: 0 0 var(--space-2);
+    padding: 0;
+    font-family: var(--font-ui);
+    font-size: var(--fs-200);
+    font-weight: var(--fw-semibold);
+    line-height: var(--lh-ui);
+    color: var(--text);
+  }
+  .guides-signup__chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+  .guides-signup__chip {
+    position: relative;
+    display: inline-flex;
+  }
+  /* The native radio stays in place, invisible, over the chip: it keeps
+     keyboard, validation and click behaviour without a custom widget. */
+  .guides-signup__chip input {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+  .guides-signup__chip span {
+    display: inline-flex;
+    align-items: center;
+    min-height: 48px;
+    padding: 0 var(--space-4);
+    font-family: var(--font-ui);
+    font-size: var(--fs-300);
+    font-weight: var(--fw-medium);
+    line-height: var(--lh-ui);
+    color: var(--text);
+    background: var(--white);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-pill);
+    transition:
+      background-color var(--dur-fast) var(--ease-enter),
+      border-color var(--dur-fast) var(--ease-enter),
+      color var(--dur-fast) var(--ease-enter);
+  }
+  .guides-signup__chip:hover span {
+    border-color: var(--harbour);
+  }
+  .guides-signup__chip input:checked + span {
+    background: var(--harbour);
+    border-color: var(--harbour);
+    color: var(--white);
+  }
+  .guides-signup__chip input:focus-visible + span {
+    outline: var(--focus-ring);
+    outline-offset: 2px;
+  }
+  .guides-signup__row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+  .guides-signup__input {
+    flex: 1 1 16rem;
+    min-width: 0;
+    min-height: 48px;
+    padding: 0 var(--space-4);
+    font-family: var(--font-ui);
+    font-size: 1rem;
+    color: var(--text);
+    background: var(--white);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-s);
+  }
+  .guides-signup__input:focus-visible {
+    outline: var(--focus-ring);
+    outline-offset: 2px;
+  }
+  .guides-signup__button {
+    flex: 0 0 auto;
+    min-height: 48px;
+  }
+  .guides-signup__button[disabled] {
+    cursor: progress;
+  }
+  @media (max-width: 640px) {
+    .guides-signup__input,
+    .guides-signup__button {
+      flex-basis: 100%;
+    }
+  }
+  .guides-signup__fineprint {
+    margin: var(--space-3) 0 0;
+    font-family: var(--font-ui);
+    font-size: var(--fs-200);
+    line-height: var(--lh-ui);
+    color: var(--soft);
+  }
+  .guides-signup__status {
+    margin: var(--space-2) 0 0;
+    font-family: var(--font-ui);
+    font-size: var(--fs-300);
+    color: var(--soft);
+  }
+  .guides-signup__status[data-status-kind='info'] { color: var(--harbour); }
+  .guides-signup__status[data-status-kind='error'] { color: var(--error-text); }
+
+  /* Success state, built by the script (so unscoped). */
+  .guides-signup :global(.guides-signup__success-label) {
+    margin: 0 0 var(--space-4);
+    font-family: var(--font-display);
+    font-size: var(--fs-500);
+    font-weight: var(--fw-display);
+    line-height: var(--lh-heading);
+    color: var(--text);
+  }
+  .guides-signup :global(.guides-signup__success-link) {
+    min-height: 48px;
+  }
+  .guides-signup :global(.guides-signup__success-note) {
+    margin: var(--space-3) 0 0;
+    font-family: var(--font-ui);
+    font-size: var(--fs-200);
+    color: var(--soft);
+  }
+</style>
 
 <script is:inline>
   /* Newsletter-gate controller for seasonal-guide downloads.
-     POSTs to the existing Beehiiv subscribe edge function with a tag
-     'seasonal-guide-<slug>'; on success, swaps the form for a
-     download link to the static PDF. */
+     One form for every guide. A card's "Send me this one" link selects that
+     guide's radio in the form and moves focus to the email field (without
+     script it is a plain jump link to the form). POSTs to the existing
+     Beehiiv subscribe edge function with a tag 'seasonal-guide-<slug>'; on
+     success, swaps the fields for a download link to the chosen PDF.
+     Listeners attach to elements only; the page-load hook is registered
+     once, at module scope. */
   (function () {
     var ENDPOINT = 'https://tjjhpvslpysfklwpqmgz.supabase.co/functions/v1/pi-newsletter-subscribe';
 
+    function markPicked(slug) {
+      document.querySelectorAll('[data-guide-card]').forEach(function (card) {
+        if (card.getAttribute('data-guide-card') === slug) card.setAttribute('data-picked', '');
+        else card.removeAttribute('data-picked');
+      });
+    }
+
     function init() {
-      document.querySelectorAll('[data-guide-form]').forEach(function (form) {
-        if (form._piGuideBound) return;
-        form._piGuideBound = true;
-        var slug = form.getAttribute('data-guide-slug') || '';
-        var pdf = form.getAttribute('data-guide-pdf') || '';
-        var status = form.querySelector('[data-guide-status]');
+      var form = document.querySelector('[data-guide-form]');
+      if (!form || form._piGuideBound) return;
+      form._piGuideBound = true;
+      var fields = form.querySelector('[data-guide-fields]');
+      var status = form.querySelector('[data-guide-status]');
+      var emailInput = form.querySelector('input[name="email"]');
+      var signup = document.getElementById('guides-signup') || form;
 
-        function setStatus(kind, msg) {
-          if (!status) return;
-          status.textContent = msg;
-          status.setAttribute('data-status-kind', kind);
-          status.removeAttribute('hidden');
-        }
-
-        form.addEventListener('submit', function (e) {
+      document.querySelectorAll('[data-guide-pick]').forEach(function (pick) {
+        pick.addEventListener('click', function (e) {
+          var slug = pick.getAttribute('data-guide-pick');
+          var radio = form.querySelector('input[name="guide"][value="' + slug + '"]');
+          if (!radio) return;
           e.preventDefault();
-          var emailInput = form.querySelector('input[name="email"]');
+          radio.checked = true;
+          markPicked(slug);
+          var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+          signup.scrollIntoView({ behavior: still ? 'auto' : 'smooth', block: 'start' });
+          if (emailInput) emailInput.focus({ preventScroll: true });
+        });
+      });
+
+      form.addEventListener('change', function (e) {
+        var t = e.target;
+        if (t && t.name === 'guide') markPicked(t.value);
+      });
+
+      function setStatus(kind, msg) {
+        if (!status) return;
+        status.textContent = msg;
+        status.setAttribute('data-status-kind', kind);
+        status.removeAttribute('hidden');
+      }
+
+      form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var choice = form.querySelector('input[name="guide"]:checked');
           var email = emailInput && emailInput.value && emailInput.value.trim();
-          if (!email) return;
+          if (!choice || !email) {
+            if (form.reportValidity) form.reportValidity();
+            return;
+          }
+          var slug = choice.value;
+          var pdf = choice.getAttribute('data-pdf') || '';
+          var season = choice.getAttribute('data-season') || '';
           var btn = form.querySelector('button[type="submit"]');
           if (btn) btn.setAttribute('disabled', '');
           setStatus('info', 'Sending the link…');
@@ -208,18 +499,27 @@ export const prerender = true;
               return r.json().catch(function () { return {}; });
             })
             .then(function () {
-              // Swap the form contents for a thank-you + download link.
-              form.innerHTML = ''
-                + '<p class="guide-card__success-label">Thanks. Your guide is ready.</p>'
-                + '<a class="guide-card__success-link" href="' + pdf + '" download>Download the ' + slug.charAt(0).toUpperCase() + slug.slice(1) + ' guide (PDF)</a>'
-                + '<p class="guide-card__form-fineprint">We just added you to the Peninsula This Weekend dispatch.</p>';
+              // Swap the fields for a thank-you + download link. The label
+              // comes from the guide's display name, never its slug.
+              var label = document.createElement('p');
+              label.className = 'guides-signup__success-label';
+              label.textContent = 'Thanks. Your guide is ready.';
+              var link = document.createElement('a');
+              link.className = 'guides-signup__success-link pi-btn pi-btn--solid';
+              link.href = pdf;
+              link.setAttribute('download', '');
+              link.textContent = 'Download the ' + season + ' guide (PDF)';
+              var note = document.createElement('p');
+              note.className = 'guides-signup__success-note';
+              note.textContent = 'We just added you to the Peninsula This Weekend dispatch.';
+              (fields || form).replaceChildren(label, link, note);
+              link.focus();
             })
             .catch(function (err) {
               console.warn('[guides] subscribe failed:', err);
               setStatus('error', "Couldn't send the guide. Try again or email hello@peninsulainsider.com.au.");
               if (btn) btn.removeAttribute('disabled');
             });
-        });
       });
     }
 

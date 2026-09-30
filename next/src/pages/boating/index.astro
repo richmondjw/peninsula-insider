@@ -107,34 +107,37 @@ export const prerender = true;
 
   <section class="experience-index experience-index--plain">
     <div class="container">
-      <div class="venues__header">
-        <div>
-          <p class="label label--accent">Sub-hubs</p>
-          <h2 class="venues__title">Go deeper</h2>
+      <div class="pi-section-head">
+        <div class="pi-section-head__text">
+          <p class="pi-eyebrow">Where next</p>
+          <h2 class="pi-h2">Go deeper</h2>
         </div>
       </div>
-      <div class="venues__grid venues__grid--links">
-        <div class="pi-card"><div class="pi-card__body">
-          <h3 class="pi-card__title"><a href="/boating/ramps/">Boat ramps</a></h3>
+      {/* Whole-card links: the title anchor is the only link and its ::after
+          covers the card, so the CTA is a quiet harbour text cue rather than
+          four competing filled buttons. */}
+      <ul class="venues__grid venues__grid--links bf-links" role="list">
+        <li class="pi-card bf-link-card"><div class="pi-card__body">
+          <h3 class="pi-card__title"><a class="pi-card__link" href="/boating/ramps/">Boat ramps</a></h3>
           <p class="pi-card__dek">Schnapper Point, Sorrento, Safety Beach, Rye, Hastings, Warneet, Tooradin. Tide dependence, parking pressure, and the alternative when this one's full.</p>
-          <div class="pi-card__actions"><a href="/boating/ramps/" class="pi-btn pi-btn--solid">Browse ramps &rarr;</a></div>
-        </div></div>
-        <div class="pi-card"><div class="pi-card__body">
-          <h3 class="pi-card__title"><a href="/boating/hire/">Boat hire</a></h3>
+          <span class="pi-section-link bf-link-card__cta" aria-hidden="true">Browse ramps &rarr;</span>
+        </div></li>
+        <li class="pi-card bf-link-card"><div class="pi-card__body">
+          <h3 class="pi-card__title"><a class="pi-card__link" href="/boating/hire/">Boat hire</a></h3>
           <p class="pi-card__dek">Self-drive hire by location: Mornington, Sorrento, Rye, Safety Beach. Polycraft and tinnies for the bay, no-licence options, gear-included rates.</p>
-          <div class="pi-card__actions"><a href="/boating/hire/" class="pi-btn pi-btn--solid">Browse hire &rarr;</a></div>
-        </div></div>
-        <div class="pi-card"><div class="pi-card__body">
-          <h3 class="pi-card__title"><a href="/fishing/charters/">Fishing charters</a></h3>
-          <p class="pi-card__dek">Want to fish without managing a vessel? The charter side lives in /fishing/. Skippered, licence-covered, gear-included.</p>
-          <div class="pi-card__actions"><a href="/fishing/charters/" class="pi-btn pi-btn--solid">Compare charters &rarr;</a></div>
-        </div></div>
-        <div class="pi-card"><div class="pi-card__body">
-          <h3 class="pi-card__title"><a href="/fishing/">Fishing</a></h3>
+          <span class="pi-section-link bf-link-card__cta" aria-hidden="true">Browse hire &rarr;</span>
+        </div></li>
+        <li class="pi-card bf-link-card"><div class="pi-card__body">
+          <h3 class="pi-card__title"><a class="pi-card__link" href="/fishing/charters/">Fishing charters</a></h3>
+          <p class="pi-card__dek">Want to fish without managing a vessel? Skippered, licence-covered, gear-included.</p>
+          <span class="pi-section-link bf-link-card__cta" aria-hidden="true">Compare charters &rarr;</span>
+        </div></li>
+        <li class="pi-card bf-link-card"><div class="pi-card__body">
+          <h3 class="pi-card__title"><a class="pi-card__link" href="/fishing/">Fishing</a></h3>
           <p class="pi-card__dek">Once you've sorted your access, the fishing decisions: which species, which tide, which technique, which target.</p>
-          <div class="pi-card__actions"><a href="/fishing/" class="pi-btn pi-btn--solid">Fishing hub &rarr;</a></div>
-        </div></div>
-      </div>
+          <span class="pi-section-link bf-link-card__cta" aria-hidden="true">Read the fishing guide &rarr;</span>
+        </div></li>
+      </ul>
     </div>
   </section>
 
@@ -176,3 +179,44 @@ export const prerender = true;
 
   <NewsletterBlock />
 </BaseLayout>
+
+<style>
+  /* 'Go deeper' link cards: whole-card links (BF1). */
+  .bf-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .bf-link-card .pi-card__link::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+  }
+  .bf-link-card .pi-card__link:focus-visible {
+    outline: none;
+  }
+  .bf-link-card .pi-card__link:focus-visible::after {
+    outline: var(--focus-ring);
+    outline-offset: -4px;
+  }
+  .bf-link-card__cta {
+    margin-top: auto;
+    padding-top: var(--space-2);
+    align-self: flex-start;
+  }
+  .bf-link-card:hover .bf-link-card__cta {
+    color: var(--harbour-h);
+  }
+
+  /* The review stamp is metadata, not body copy: a small grey caption under
+     a hairline, set apart from the safety advice above it. */
+  .prose .prose__verified {
+    margin-top: var(--space-6);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--border);
+    font-size: var(--fs-200);
+    line-height: var(--lh-ui);
+    color: var(--soft);
+  }
+</style>

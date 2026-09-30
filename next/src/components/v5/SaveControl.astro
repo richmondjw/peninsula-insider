@@ -28,9 +28,13 @@ export interface Props {
   dek?: string;
   /** Cover image; carried into the saved-plan view. */
   imageUrl?: string;
-  /** Show the text label next to the icon (detail pages). */
+  /** Show the text label next to the icon (detail pages, plan cards). */
   labelled?: boolean;
-  /** 'save' (default) or 'fork' ("Copy this plan", plan entities only). */
+  /**
+   * 'save' (default) or 'fork' (plan entities only). Both save to the same
+   * list and wear the same bookmark; fork reads "Save plan" and reports
+   * plan_fork. The old copy glyph gave no clue what it did.
+   */
   variant?: 'save' | 'fork';
 }
 
@@ -47,7 +51,9 @@ const {
 } = Astro.props;
 
 const isFork = variant === 'fork';
-const accessibleName = isFork ? `Copy this plan: ${title}` : `Save ${title}`;
+const restLabel = isFork ? 'Save plan' : 'Save';
+/* The visible label leads the accessible name (WCAG 2.5.3, label in name). */
+const accessibleName = isFork ? `Save plan: ${title}` : `Save ${title}`;
 ---
 
 <div
@@ -80,17 +86,10 @@ const accessibleName = isFork ? `Copy this plan: ${title}` : `Save ${title}`;
       stroke-linejoin="round"
       aria-hidden="true"
     >
-      {isFork ? (
-        <>
-          <rect x="8" y="8" width="12" height="12" rx="2" />
-          <path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" />
-        </>
-      ) : (
-        <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
-      )}
+      <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
     </svg>
     <span class:list={['v5-save__label', !labelled && 'v5-save__label--sr']} data-v5-save-label>
-      {isFork ? 'Copy this plan' : 'Save'}
+      {restLabel}
     </span>
   </button>
 </div>
@@ -145,8 +144,15 @@ const accessibleName = isFork ? `Copy this plan: ${title}` : `Save ${title}`;
     fill: currentColor;
   }
 
-  .v5-save__btn--fork {
-    border-radius: var(--radius-s, 4px);
+  /* With a visible label the control is a button, not an icon: 8px radius
+     and the button inset, like the "Add to trip" button beside it. The
+     icon-only bookmark stays the 48px circle. */
+  .v5-save__btn--labelled {
+    gap: var(--space-2, 0.5rem);
+    padding: 0 var(--space-4, 1rem);
+    border-radius: var(--radius-s, 8px);
+    font-size: var(--fs-300, 0.9375rem);
+    color: var(--harbour);
   }
 
   /* Icon-only mode keeps the label for screen readers. */
@@ -188,10 +194,12 @@ const accessibleName = isFork ? `Copy this plan: ${title}` : `Save ${title}`;
     if (!btn) return;
     const label = btn.querySelector<HTMLElement>('[data-v5-save-label]');
 
+    const restLabel = el.dataset.restLabel || 'Save';
+
     function paint() {
       const saved = Saves.isSaved(kind, slug!);
       btn!.setAttribute('aria-pressed', saved ? 'true' : 'false');
-      if (label && variant === 'save') label.textContent = saved ? 'Saved' : 'Save';
+      if (label) label.textContent = saved ? 'Saved' : restLabel;
     }
 
     btn.addEventListener('click', (e) => {
@@ -203,7 +211,7 @@ const accessibleName = isFork ? `Copy this plan: ${title}` : `Save ${title}`;
         // Private mode / quota: nothing changed and no repaint fires. Do not
         // paint "Saved", and do not report an event that did not happen.
         btn!.setAttribute('title', 'Saving is unavailable in this browser');
-        if (label && variant === 'save') {
+        if (label) {
           const previous = label.textContent;
           label.textContent = 'Not saved';
           setTimeout(() => { label.textContent = previous; }, 1600);

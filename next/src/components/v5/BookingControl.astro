@@ -3,14 +3,19 @@
  * BookingControl (v5) - the revenue action (spec 2.27).
  *
  * Outbound "Book direct" / "Reserve" / "Buy tickets" link with partner
- * disclosure. No prices, ever: priceBand chips on the Card carry the only
- * permitted price signal. Fires book_out through the delegated
- * v5-analytics listener before navigation (capture phase).
+ * disclosure. No prices, ever, and no price-band glyphs either. Fires
+ * book_out through the delegated v5-analytics listener before navigation
+ * (capture phase).
  *
  * Variants:
  *   inline       detail pages (primary weight)
  *   card-action  inside Card actions (secondary weight, spec: card primary
- *                is the card link itself)
+ *                is the card link itself). Same 48px, 8px-radius spec as the
+ *                card's "Add to trip" button, at a fixed width
+ *                (--booking-slot) that Card also reserves for rows without a
+ *                booking link. The partner note is a caption under the
+ *                button, and the Card top-aligns its actions, so the note
+ *                never lifts the button off its neighbours' line.
  * The mobile sticky bar wrapper belongs to the venue page agent; it wraps
  * this component rather than re-implementing it.
  */
@@ -117,17 +122,25 @@ const accessibleName = venueName ? `${label}, opens ${venueName} website` : `${l
   }
 
   /* card-action = secondary weight (the card link is the primary) */
+  .v5-booking--card-action {
+    align-items: stretch;
+    gap: var(--space-1, 0.25rem);
+    min-width: var(--booking-slot, 13rem);
+  }
   .v5-booking--card-action .v5-booking__link {
     background: transparent;
     border: 1px solid var(--border);
-    color: var(--text);
+    color: var(--harbour);
     min-height: 48px;
-    font-size: var(--fs-200, 0.8125rem);
-    padding: 0 0.75rem;
+    font-size: var(--fs-300, 0.9375rem);
+    font-weight: var(--fw-semibold, 600);
+    letter-spacing: normal;
+    padding: 0 var(--space-4, 1rem);
+    white-space: nowrap;
   }
   .v5-booking--card-action .v5-booking__link:hover {
-    border-color: var(--accent);
-    color: var(--accent);
+    border-color: var(--harbour);
+    color: var(--harbour-h);
   }
 
   .v5-booking__disclosure {
@@ -135,6 +148,11 @@ const accessibleName = venueName ? `${label}, opens ${venueName} website` : `${l
     font-size: var(--fs-100, 0.75rem);
     line-height: var(--lh-label, 1.2);
     color: var(--soft);
+  }
+  /* One fixed caption line under the button. */
+  .v5-booking--card-action .v5-booking__disclosure {
+    min-height: calc(1em * var(--lh-ui, 1.4));
+    line-height: var(--lh-ui, 1.4);
   }
 </style>
 

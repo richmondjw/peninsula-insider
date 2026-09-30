@@ -237,8 +237,21 @@ async function buildShelf(
   const items = await Promise.all(
     picked.map(async (r) => ({ ...r, hero: await resolveHero('experience', r.slug, r.data) })),
   );
+  // Duplicate-photo guard. Two shelved experiences resolving to one image
+  // file print the same photograph twice on the page. The fix belongs in
+  // the records, so the build names both slugs rather than silently
+  // reshuffling the curation.
+  for (const item of items) {
+    const first = shelfImageOwner.get(item.hero.src);
+    if (first && first !== item.slug) {
+      console.warn(`[explore] ${first} and ${item.slug} share the image ${item.hero.src}; give one of them its own photograph.`);
+    } else {
+      shelfImageOwner.set(item.hero.src, item.slug);
+    }
+  }
   return { id, eyebrow, heading, preset, total: countLive(preset), items };
 }
+const shelfImageOwner = new Map<string, string>();
 
 const shelfSeasonal = await buildShelf(
   'best-right-now',
@@ -290,28 +303,48 @@ const presetHref = (preset: FilterPreset) =>
 
 // Shelf intro copy (<=40 words each), carrying the lane-page links the old
 // 16-tile grid held (HUB-07 folded into intros + basics line + verticals).
+// Intros are editorial lines only: how the filter works is not reader copy.
 const shelfIntros: Record<string, string> = {
-  'best-right-now': `${blurb.line} The seasonal filter includes experiences tagged for ${season} or all year; it is a subset of the full directory, not a new factual check.`,
+  'best-right-now': blurb.line,
   walks: `Cape Schanck, Bushrangers Bay, the Two Bays. The ranked list lives at <a href="/explore/walks/">the Peninsula's best walks</a>.`,
   beaches: `Bay calm or back-beach surf: pick the water that matches the wind, not the closest car park. The full case for each is in <a href="/explore/beaches/">the beach guide</a>.`,
   golf: `From friendly country clubs to the ranked links at Cape Schanck and St Andrews Beach. Compared properly in <a href="/explore/golf/">the golf guide</a>.`,
   culture: `Galleries, sculpture parks, gardens, and the national park at the tip. When the forecast turns, start with <a href="/explore/rainy-day/">rainy-day plans</a> or <a href="/explore/hot-springs/">the hot springs</a>.`,
 };
 
+// Shelf links name where they lead (the directory, filtered to the shelf's
+// lane), never a bare count.
+const shelfLinkLabel: Record<string, string> = {
+  'best-right-now': `More ${season} ideas`,
+  walks: 'All walks',
+  beaches: 'All beaches',
+  golf: 'All golf courses',
+  culture: 'All galleries and attractions',
+};
+
 // ── Towns index (37 places, links not cards) ─────────────────────────────────
+// Each line is the record's own first sentence, whole. A line is never cut
+// mid-clause; a record with no short sentence to offer shows its name only.
+const firstSentence = (text: string | undefined | null) =>
+  text ? (text.trim().split(/(?<=[.!?])\s+/)[0] ?? '').trim() : '';
+const wordCount = (text: string) => text.split(/\s+/).filter(Boolean).length;
 const places = (await getCollection('places')).sort((a, b) =>
   a.data.name.localeCompare(b.data.name),
 );
-const towns = places.map((p) => ({
-  slug: routeSlug(p),
-  name: p.data.name,
-  line: clipLine(p.data.signature ?? p.data.factualLede ?? '', 14),
-}));
+const towns = places.map((p) => {
+  const candidates = [firstSentence(p.data.signature), firstSentence(p.data.factualLede)];
+  const line = candidates.find((s) => s && wordCount(s) <= 25);
+  return { slug: routeSlug(p), name: p.data.name, line };
+});
+// The list opens on its first dozen; the rest stay in the page (and in the
+// crawl) behind "Show all".
+const TOWNS_OPEN = 12;
+const DIRECTORY_OPEN = 12;
 
 // ── Verticals rail (6 text links to existing URLs) ───────────────────────────
 const verticals = [
   { href: '/explore/golf/', label: 'Golf', sub: 'All courses, ranked' },
-  { href: '/explore/spas-and-wellness/', label: 'Spa & springs', sub: 'Treatments and thermal water' },
+  { href: '/explore/spas-and-wellness/', label: 'Spa & springs', sub: 'Thermal water, treatments' },
   { href: '/dog-friendly/', label: 'Dog-friendly', sub: 'Beaches, walks, cafes' },
   { href: '/fishing/', label: 'Fishing', sub: 'Jetties, charters, seasons' },
   { href: '/boating/', label: 'Boating', sub: 'Ramps, hire, moorings' },
@@ -319,16 +352,16 @@ const verticals = [
 ];
 
 const basics = [
-  { href: '/explore/getting-here/', label: 'getting here' },
-  { href: '/explore/getting-around/', label: 'getting around' },
-  { href: '/stay/best-accommodation/', label: 'where to base yourself' },
-  { href: '/explore/things-to-do/', label: 'things to do, ranked' },
-  { href: '/explore/day-trips/', label: 'day trips' },
-  { href: '/explore/weekend-trips/', label: 'weekend trips' },
-  { href: '/explore/family-friendly/', label: 'with kids' },
-  { href: '/journal/free-things-to-do-mornington-peninsula/', label: 'free things to do' },
-  { href: '/explore/markets/', label: 'markets' },
-  { href: '/explore/rainy-day/', label: 'rainy day' },
+  { href: '/explore/getting-here/', label: 'Getting here' },
+  { href: '/explore/getting-around/', label: 'Getting around' },
+  { href: '/stay/best-accommodation/', label: 'Where to base yourself' },
+  { href: '/explore/things-to-do/', label: 'Things to do, ranked' },
+  { href: '/explore/day-trips/', label: 'Day trips' },
+  { href: '/explore/weekend-trips/', label: 'Weekend trips' },
+  { href: '/explore/family-friendly/', label: 'With kids' },
+  { href: '/journal/free-things-to-do-mornington-peninsula/', label: 'Free things to do' },
+  { href: '/explore/markets/', label: 'Markets' },
+  { href: '/explore/rainy-day/', label: 'Rainy day' },
 ];
 
 // ── From the Journal (<=3) ───────────────────────────────────────────────────
@@ -400,6 +433,7 @@ export const prerender = true;
     title="Things to do on the Mornington Peninsula"
     standfirst="Choose a walk, a beach, an indoor afternoon or a longer outing. Start with the time and effort you have, then check the details for your day."
     image={{ src: '/images/sourced/explore-cape-schanck-lighthouse-01.webp', alt: 'Cape Schanck lighthouse and the Peninsula coastline' }}
+    imagePosition="50% 25%"
   />
 
   <!-- 2. Filters: the page's ONE FilterBar (chips from CHIP_PRESETS.explore) -->
@@ -422,9 +456,9 @@ export const prerender = true;
       <a href="/explore/places/">Choose an area →</a>
       <a href="/explore/plans/">Use a ready-made day →</a>
     </nav>
-    <p>Times below are guide estimates, not live conditions. Walking effort is shown where recorded; it is not an accessibility assessment. Terrain, step-free access, toilets, shade and dog rules need checking for your chosen stop.</p>
     <details>
-      <summary>Check conditions and practical access before you go</summary>
+      <summary class="x-disclosure">Check conditions and practical access before you go</summary>
+      <p>Times below are guide estimates, not live conditions. Walking effort is shown where recorded; it is not an accessibility assessment. Terrain, step-free access, toilets, shade and dog rules need checking for your chosen stop.</p>
       <p>Use <a href="https://www.parks.vic.gov.au/places-to-see/parks/mornington-peninsula-national-park">Parks Victoria’s park notices and access information</a>, <a href="https://www.emergency.vic.gov.au/">VicEmergency warnings</a> and <a href="https://www.beachsafe.org.au/">Beachsafe beach and patrol information</a>. Check the operator or land manager for facilities and dog restrictions. These links do not confirm that a route or beach is suitable on your day.</p>
     </details>
   </section>
@@ -433,22 +467,22 @@ export const prerender = true;
        filtered directory whenever any facet is active. -->
   <div data-browse-layer>
     {shelves.map((shelf) => (
-      <section class="x-shelf" aria-labelledby={`shelf-${shelf.id}`}>
+      <section class="x-shelf pi-section" aria-labelledby={`shelf-${shelf.id}`}>
         <div class="container">
-          <div class="x-shelf__header">
-            <div>
-              <h2 class="x-shelf__heading" id={`shelf-${shelf.id}`}>{shelf.heading}</h2>
-              <p class="x-shelf__intro" set:html={shelfIntros[shelf.id]} />
+          <div class="pi-section-head x-head">
+            <div class="pi-section-head__text">
+              <h2 class="pi-h2" id={`shelf-${shelf.id}`}>{shelf.heading}</h2>
+              <p class="pi-section-dek x-shelf__intro" set:html={shelfIntros[shelf.id]} />
             </div>
             <a
-              class="x-shelf__all"
+              class="pi-section-link"
               href={presetHref(shelf.preset)}
               data-shelf-all
               data-filters={JSON.stringify(shelf.preset)}
               data-evt="filter_apply"
               data-shelf={shelf.id}
             >
-              {shelf.id === 'best-right-now' ? `${shelf.total} seasonal matches` : `All ${shelf.total}`} →
+              {shelfLinkLabel[shelf.id] ?? 'See all'} <span aria-hidden="true">→</span>
             </a>
           </div>
           <ul class="x-shelf__row" aria-label={shelf.heading}>
@@ -478,26 +512,41 @@ export const prerender = true;
     <!-- Towns text index: 37 places, links not cards -->
     <section class="x-towns" aria-labelledby="towns-heading">
       <div class="container">
-        <h2 class="x-towns__heading" id="towns-heading">Every town, its own page</h2>
-        <p class="x-towns__intro">
-          Browse {towns.length} towns and localities to put your day in context, with places to eat, stay and explore in each area.
-        </p>
-        <ul class="x-towns__list">
-          {towns.map((t) => (
-            <li class="x-towns__item">
-              <a href={`/explore/places/${t.slug}/`}>{t.name}</a>
-              {t.line && <span class="x-towns__line">{t.line}</span>}
-            </li>
-          ))}
-        </ul>
-        <p class="x-towns__more"><a href="/explore/places/">All towns →</a></p>
+        <div class="pi-section-head x-head">
+          <div class="pi-section-head__text">
+            <h2 class="pi-h2" id="towns-heading">Every town, its own page</h2>
+            <p class="pi-section-dek">
+              Browse {towns.length} towns and localities to put your day in context, with places to eat, stay and explore in each area.
+            </p>
+          </div>
+          <a class="pi-section-link" href="/explore/places/">All towns <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="x-expandable" data-collapsed>
+          <ul class="x-towns__list" id="towns-list">
+            {towns.map((t, i) => (
+              <li class="x-towns__item" data-overflow={i >= TOWNS_OPEN ? '' : undefined}>
+                <a href={`/explore/places/${t.slug}/`}>{t.name}</a>
+                {t.line && <span class="x-towns__line">{t.line}</span>}
+              </li>
+            ))}
+          </ul>
+          {towns.length > TOWNS_OPEN && (
+            <button type="button" class="pi-btn pi-btn--ghost x-expand" data-expand aria-controls="towns-list" aria-expanded="false">
+              Show all {towns.length} towns
+            </button>
+          )}
+        </div>
       </div>
     </section>
 
     <!-- Verticals rail: 6 text links to existing URLs -->
-    <section class="x-verticals" aria-labelledby="verticals-heading">
+    <section class="x-verticals pi-section" aria-labelledby="verticals-heading">
       <div class="container">
-        <h2 class="x-verticals__heading" id="verticals-heading">Go deeper into an interest</h2>
+        <div class="pi-section-head x-head">
+          <div class="pi-section-head__text">
+            <h2 class="pi-h2" id="verticals-heading">Go deeper into an interest</h2>
+          </div>
+        </div>
         <ul class="x-verticals__rail">
           {verticals.map((v) => (
             <li class="x-verticals__cell">
@@ -508,16 +557,15 @@ export const prerender = true;
             </li>
           ))}
         </ul>
-        <p class="x-basics">
-          Planning basics:
-          {basics.map((b, i) => (
-            <>
-              {i > 0 && <span aria-hidden="true"> · </span>}
-              <a href={b.href}>{b.label}</a>
-            </>
-          ))}
-        </p>
-        <p class="x-basics">
+        <nav class="x-basics" aria-labelledby="basics-heading">
+          <p class="pi-eyebrow" id="basics-heading">Planning basics</p>
+          <ul class="x-basics__list">
+            {basics.map((b) => (
+              <li><a href={b.href}>{b.label}</a></li>
+            ))}
+          </ul>
+        </nav>
+        <p class="x-note">
           Markets, exhibitions, and family programs run most weekends. The live calendar is at
           <a href="/whats-on/">What's On</a>.
         </p>
@@ -526,18 +574,27 @@ export const prerender = true;
   </div>
 
   <!-- 6. Directory: the corpus, rendered exactly once, compact rows -->
-  <section class="x-directory" id="directory" aria-labelledby="directory-heading">
+  <section class="x-directory pi-section" id="directory" aria-labelledby="directory-heading">
     <div class="container">
-      <h2 class="x-directory__heading" id="directory-heading">All {directoryRows.length} experiences</h2>
-      <p class="x-directory__intro">
-        Compare walks, beaches, golf, galleries, lookouts, markets and day spas. Use the filters above to narrow the list; seasonal matches are only part of this total.
-      </p>
+      <div class="pi-section-head x-head">
+        <div class="pi-section-head__text">
+          <h2 class="pi-h2" id="directory-heading">All {directoryRows.length} experiences</h2>
+          <p class="pi-section-dek">
+            Compare walks, beaches, golf, galleries, lookouts, markets and day spas. Use the filters above to narrow the list.
+          </p>
+        </div>
+      </div>
+      <noscript>
+        <style is:inline>.x-expandable [data-overflow]{display:revert !important}.x-expand{display:none !important}</style>
+      </noscript>
+      <div class="x-expandable x-directory__list" id="directory-list" data-collapsed data-collapse-on-filter>
       <CardGrid label={`All ${directoryRows.length} experiences`} layout="rows">
         {directoryRows.map((r, i) => (
           <li
             data-facets={JSON.stringify(r.facets)}
             data-filter-countable
             data-title={r.name}
+            data-overflow={i >= DIRECTORY_OPEN ? '' : undefined}
             class="x-directory__row"
           >
             <Card
@@ -556,10 +613,16 @@ export const prerender = true;
           </li>
         ))}
       </CardGrid>
+      {directoryRows.length > DIRECTORY_OPEN && (
+        <button type="button" class="pi-btn pi-btn--ghost x-expand" data-expand aria-controls="directory-list" aria-expanded="false">
+          Show all {directoryRows.length} experiences
+        </button>
+      )}
+      </div>
       <div data-filter-empty hidden>
         <EmptyState variant="filter-zero" surface="explore" />
       </div>
-      <p class="x-basics x-directory__plans">
+      <p class="x-note x-directory__plans">
         Turn it into a weekend: our <a href="/explore/plans/">escape plans</a> sequence these
         with the right lunch and the right bed.
       </p>
@@ -568,13 +631,13 @@ export const prerender = true;
 
   <!-- 7. From the Journal (<=3) -->
   {journal.length > 0 && (
-    <section class="x-journal" aria-labelledby="journal-heading">
+    <section class="x-journal pi-section" aria-labelledby="journal-heading">
       <div class="container">
-        <div class="x-shelf__header">
-          <div>
-            <h2 class="x-journal__heading" id="journal-heading">Further reading for the afternoon half</h2>
+        <div class="pi-section-head x-head">
+          <div class="pi-section-head__text">
+            <h2 class="pi-h2" id="journal-heading">Further reading for the afternoon half</h2>
           </div>
-          <a class="x-shelf__all" href="/journal/">All in the Journal →</a>
+          <a class="pi-section-link" href="/journal/">All in the Journal <span aria-hidden="true">→</span></a>
         </div>
         {/* Section eyebrow already reads "From the Journal"; the per-card
             ARTICLE stamp is redundant, so showEyebrow is off below. */}
@@ -603,13 +666,17 @@ export const prerender = true;
   )}
 
   <!-- 8. FAQ (retained, schema unchanged) -->
-  <section class="x-faq" aria-labelledby="faq-heading">
+  <section class="x-faq pi-section" aria-labelledby="faq-heading">
     <div class="container">
-      <h2 class="x-faq__heading" id="faq-heading">Five honest answers about Peninsula geography and access</h2>
+      <div class="pi-section-head x-head">
+        <div class="pi-section-head__text">
+          <h2 class="pi-h2" id="faq-heading">Five honest answers about Peninsula geography and access</h2>
+        </div>
+      </div>
       <div class="x-faq__list">
         {faqSchema.mainEntity.map((item) => (
           <details class="x-faq__item">
-            <summary class="x-faq__q">{item.name}</summary>
+            <summary class="x-faq__q x-disclosure">{item.name}</summary>
             <div class="x-faq__a"><p>{item.acceptedAnswer.text}</p></div>
           </details>
         ))}
@@ -617,7 +684,7 @@ export const prerender = true;
     </div>
   </section>
 
-  <!-- 9. Search band: the one forest-teal feature band, mint accents
+  <!-- 9. Search band: the one harbour-deep feature band
        (was the Ask PI band; Ask PI replaced with search 2026-07-24) -->
   <section class="x-ask" aria-labelledby="ask-heading">
     <div class="container x-ask__inner">
@@ -634,98 +701,130 @@ export const prerender = true;
 </BaseLayout>
 
 <style>
-  .x-eyebrow {
+  /* Section heads use the site canon (.pi-section-head, .pi-h2,
+     .pi-section-dek, .pi-section-link in global.css). On phones the head
+     stacks: heading, dek, then the link at the gutter, each at full width. */
+  @media (max-width: 47.99em) {
+    .x-head {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-2);
+    }
+  }
+  .x-shelf__intro :global(a),
+  .x-note a,
+  .x-faq__a a {
+    color: var(--harbour);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+  }
+
+  /* ---- disclosures: one marker for every <summary> on the page ----
+     The native triangle is replaced by a harbour chevron in its own
+     column, so wrapped text hangs clear of it and it turns when open. */
+  .x-disclosure {
+    list-style: none;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 1.5rem;
+    column-gap: var(--space-4);
+    align-items: start;
+    min-height: 48px;
+    padding-block: var(--space-3);
+    cursor: pointer;
     font-family: var(--font-ui);
-    font-size: var(--fs-100, 0.78rem);
     font-weight: 600;
-    letter-spacing: var(--ls-eyebrow, 0.12em);
-    text-transform: uppercase;
-    color: var(--teal-text);
-    margin: 0 0 0.35rem;
-  }
-
-  .x-practical { padding-block: 1rem 2rem; }
-  .x-practical h2 { font: 600 clamp(1.5rem, 2.6vw, 2rem)/1.2 var(--font-display); margin: 0 0 0.6rem; }
-  .x-practical__links { display: flex; flex-wrap: wrap; gap: 0.3rem 1.5rem; }
-  .x-practical__links a { min-height: 44px; display: inline-flex; align-items: center; font-weight: 600; }
-  .x-practical p { max-width: 75ch; color: var(--soft); font-size: 0.9rem; line-height: 1.6; margin: 0.7rem 0; }
-  .x-practical a { color: var(--teal-text); text-underline-offset: 0.2em; }
-  .x-practical summary { padding-block: 0.7rem; min-height: 44px; cursor: pointer; font-weight: 600; }
-  .x-practical details { border-block: 1px solid var(--border); max-width: 75ch; }
-  .x-practical :is(a, summary):focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-
-  /* ---- shelves ---- */
-  .x-shelf {
-    padding: var(--space-7, 2.5rem) 0;
-  }
-  .x-shelf:nth-of-type(even) {
-    background: var(--bg-alt);
-  }
-  .x-shelf__header {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: var(--space-4, 1rem);
-    margin-bottom: var(--space-5, 1.5rem);
-  }
-  .x-shelf__heading,
-  .x-towns__heading,
-  .x-verticals__heading,
-  .x-directory__heading,
-  .x-journal__heading,
-  .x-faq__heading {
-    font-family: var(--font-display, var(--font-display));
-    font-size: var(--fs-700, clamp(1.6rem, 3vw, 2.2rem));
-    line-height: 1.15;
-    margin: 0;
     color: var(--text);
   }
-  .x-shelf__intro,
-  .x-towns__intro,
-  .x-directory__intro {
-    font-size: var(--fs-300, 0.95rem);
-    color: var(--soft);
-    max-width: 44em;
-    margin: 0.5rem 0 0;
+  .x-disclosure::-webkit-details-marker { display: none; }
+  .x-disclosure::after {
+    content: '';
+    justify-self: center;
+    width: 0.55rem;
+    height: 0.55rem;
+    margin-top: 0.45em;
+    border-right: 2px solid var(--harbour);
+    border-bottom: 2px solid var(--harbour);
+    transform: rotate(45deg);
+    transition: transform var(--dur-fast, 120ms) var(--ease, ease);
   }
-  .x-shelf__all {
-    font-family: var(--font-ui, var(--font-ui));
-    font-size: var(--fs-200, 0.88rem);
-    font-weight: 600;
-    color: var(--accent);
-    text-decoration: none;
-    white-space: nowrap;
-    min-height: 48px;
-    display: inline-flex;
-    align-items: center;
-  }
-  .x-shelf__all:hover,
-  .x-shelf__all:focus-visible {
-    text-decoration: underline;
-  }
-  .x-shelf__all:focus-visible {
+  details[open] > .x-disclosure::after { transform: rotate(-135deg); }
+  .x-disclosure:hover { color: var(--harbour); }
+  .x-disclosure:focus-visible {
     outline: var(--focus-ring, 2px solid var(--accent));
     outline-offset: 2px;
   }
+  @media (prefers-reduced-motion: reduce) {
+    .x-disclosure::after { transition: none; }
+  }
 
-  /* Mobile: horizontal scroll with peek; tablet 2-up; desktop 3x2. */
+  /* ---- practical block: a utility block, so an H3-sized heading ---- */
+  .x-practical { padding-block: var(--space-6) 0; }
+  .x-practical h2 {
+    font-family: var(--font-display);
+    font-size: var(--fs-600);
+    font-weight: 600;
+    line-height: 1.23;
+    letter-spacing: -0.01em;
+    color: var(--text);
+    text-wrap: balance;
+    margin: 0 0 var(--space-2);
+  }
+  .x-practical__links { display: flex; flex-wrap: wrap; gap: 0 var(--space-6); }
+  .x-practical__links a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    font-weight: 600;
+    color: var(--harbour);
+    text-underline-offset: 0.2em;
+  }
+  .x-practical__links a:hover { color: var(--harbour-h); }
+  .x-practical details {
+    margin-top: var(--space-3);
+    border-block: 1px solid var(--border);
+  }
+  .x-practical details p {
+    max-width: 75ch;
+    color: var(--soft);
+    font-size: var(--fs-300);
+    line-height: 1.6;
+    margin: 0 0 var(--space-4);
+  }
+  .x-practical details a { color: var(--harbour); text-underline-offset: 0.2em; }
+  .x-practical a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  /* ---- shelves ---- */
+  .x-shelf:nth-of-type(even) { background: var(--bg-alt); }
+  /* The practical block already opens this run of content; the first
+     shelf follows it at a smaller interval so the first photographs land
+     inside the first screen. */
+  .x-shelf:first-of-type { padding-top: var(--space-7); }
+
+  /* Phones: a horizontal scroller whose track bleeds to the viewport edge,
+     so the peeking card runs cleanly off-screen instead of being cut at
+     the gutter. Tablet 2-up; desktop 3x2. */
   .x-shelf__row {
     list-style: none;
     margin: 0;
     padding: 2px;
     display: flex;
-    gap: var(--space-4, 1rem);
+    gap: var(--space-5);
     overflow-x: auto;
-    scroll-snap-type: x proximity;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline-start: 2px;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
   }
-  .x-shelf__row::-webkit-scrollbar {
-    display: none;
-  }
+  .x-shelf__row::-webkit-scrollbar { display: none; }
   .x-shelf__row > :global(li) {
-    flex: 0 0 min(78%, 20rem);
+    flex: 0 0 min(80%, 20rem);
     scroll-snap-align: start;
+  }
+  @media (max-width: 47.99em) {
+    .x-shelf__row {
+      margin-inline-end: -16px;
+      padding-inline-end: 16px;
+    }
   }
   @media (min-width: 48em) {
     .x-shelf__row {
@@ -733,182 +832,199 @@ export const prerender = true;
       grid-template-columns: repeat(2, 1fr);
       overflow-x: visible;
     }
-    .x-shelf__row > :global(li) {
-      flex: initial;
-    }
+    .x-shelf__row > :global(li) { flex: initial; }
   }
   @media (min-width: 64em) {
-    .x-shelf__row {
-      grid-template-columns: repeat(3, 1fr);
-    }
+    .x-shelf__row { grid-template-columns: repeat(3, 1fr); }
   }
 
-  /* ---- towns index ---- */
-  .x-towns {
-    padding: var(--space-7, 2.5rem) 0;
+  /* ---- progressive lists: towns and the directory open on 12 ---- */
+  .x-expandable[data-collapsed] [data-overflow] { display: none; }
+  .x-expandable:not([data-collapsed]) .x-expand { display: none; }
+  .x-expand {
+    margin-top: var(--space-5);
+    min-height: 48px;
+    border-radius: var(--radius-s, 8px);
+  }
+
+  /* ---- towns index: a frame-width rule inside the section, not a
+     viewport-wide one on it ---- */
+  .x-towns { padding-bottom: var(--section-space); }
+  .x-towns > .container {
     border-top: 1px solid var(--border);
+    padding-top: var(--section-space);
   }
   .x-towns__list {
     list-style: none;
-    margin: var(--space-5, 1.5rem) 0 0;
+    margin: 0;
     padding: 0;
     columns: 1;
-    column-gap: var(--space-6, 2rem);
+    column-gap: var(--space-6);
   }
   @media (min-width: 48em) {
-    .x-towns__list {
-      columns: 2;
-    }
+    .x-towns__list { columns: 2; }
+  }
+  @media (min-width: 64em) {
+    .x-towns__list { columns: 3; }
   }
   .x-towns__item {
     break-inside: avoid;
-    padding: 0.45rem 0;
+    padding: var(--space-3) 0;
     border-bottom: 1px solid var(--border);
-    font-size: var(--fs-300, 0.95rem);
+    font-size: var(--fs-300);
   }
   .x-towns__item a {
-    font-family: var(--font-ui, var(--font-ui));
+    display: inline-flex;
+    align-items: center;
+    min-height: 32px;
+    font-family: var(--font-ui);
     font-weight: 600;
     color: var(--text);
     text-decoration: none;
   }
   .x-towns__item a:hover,
   .x-towns__item a:focus-visible {
-    color: var(--accent);
+    color: var(--harbour);
     text-decoration: underline;
+    text-underline-offset: 0.2em;
   }
   .x-towns__line {
     display: block;
     color: var(--soft);
-    font-size: var(--fs-200, 0.88rem);
-  }
-  .x-towns__more {
-    margin: var(--space-5, 1.5rem) 0 0;
-    font-family: var(--font-ui, var(--font-ui));
-    font-weight: 600;
+    font-size: var(--fs-200);
+    line-height: 1.5;
+    text-wrap: pretty;
   }
 
   /* ---- verticals ---- */
-  .x-verticals {
-    padding: var(--space-7, 2.5rem) 0;
-    background: var(--bg-alt);
-  }
+  .x-verticals { background: var(--bg-alt); }
   .x-verticals__rail {
     list-style: none;
-    margin: var(--space-5, 1.5rem) 0 0;
+    margin: 0;
     padding: 0;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-4, 1rem);
+    gap: var(--space-4);
   }
   @media (min-width: 48em) {
-    .x-verticals__rail {
-      grid-template-columns: repeat(3, 1fr);
-    }
+    .x-verticals__rail { grid-template-columns: repeat(3, 1fr); }
   }
   @media (min-width: 64em) {
-    .x-verticals__rail {
-      grid-template-columns: repeat(6, 1fr);
-    }
+    .x-verticals__rail { grid-template-columns: repeat(6, 1fr); }
   }
+  /* The tile fills its stretched cell, so every tile in a row shares one
+     height whatever its subline does. */
+  .x-verticals__rail > li { display: flex; }
   .x-verticals__link {
+    flex: 1;
     display: block;
-    padding: var(--space-4, 1rem);
+    height: 100%;
+    padding: var(--space-4);
     background: var(--white);
     border: 1px solid var(--border);
-    border-radius: var(--radius-m, 10px);
+    border-radius: var(--radius-m, 16px);
     text-decoration: none;
     min-height: 48px;
-    transition: box-shadow var(--dur-fast, 120ms) var(--ease, ease);
+    transition: border-color var(--dur-fast, 120ms) var(--ease, ease);
   }
-  .x-verticals__link:hover {
-    box-shadow: var(--elev-2, 0 12px 24px -12px rgba(14, 40, 34, 0.28));
-  }
+  .x-verticals__link:hover { border-color: var(--harbour); }
   .x-verticals__link:focus-visible {
     outline: var(--focus-ring, 2px solid var(--accent));
     outline-offset: 2px;
   }
   .x-verticals__label {
     display: block;
-    font-family: var(--font-ui, var(--font-ui));
+    font-family: var(--font-ui);
     font-weight: 600;
     color: var(--text);
   }
+  .x-verticals__link:hover .x-verticals__label { color: var(--harbour); }
   .x-verticals__sub {
     display: block;
-    font-size: var(--fs-200, 0.88rem);
+    font-size: var(--fs-200);
     color: var(--soft);
-    margin-top: 0.2rem;
+    margin-top: var(--space-1);
   }
-  .x-basics {
-    margin: var(--space-5, 1.5rem) 0 0;
-    font-size: var(--fs-300, 0.95rem);
+
+  /* Planning basics: a labelled link list, not a dot-joined run. */
+  .x-basics { margin-top: var(--space-7); }
+  .x-basics__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 var(--space-5);
+  }
+  @media (min-width: 48em) {
+    .x-basics__list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+  .x-basics__list a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-family: var(--font-ui);
+    font-size: var(--fs-300);
+    font-weight: 600;
+    color: var(--harbour);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-decoration-color: rgb(16 82 126 / 0.35);
+    text-underline-offset: 0.2em;
+  }
+  .x-basics__list a:hover {
+    color: var(--harbour-h);
+    text-decoration-color: currentColor;
+  }
+  .x-note {
+    margin: var(--space-5) 0 0;
+    font-size: var(--fs-300);
     color: var(--soft);
-    max-width: 60em;
-  }
-  .x-basics a {
-    color: var(--accent);
+    max-width: 60ch;
+    text-wrap: pretty;
   }
 
   /* ---- directory ---- */
-  .x-directory {
-    padding: var(--space-7, 2.5rem) 0;
+  .x-directory { scroll-margin-top: 4rem; }
+  /* With the browse layer gone (a filter is active) the directory follows
+     the practical block on the same white ground, so it takes a frame
+     rule; otherwise the band change above already separates it. */
+  [data-browse-layer][hidden] + .x-directory > .container {
     border-top: 1px solid var(--border);
-    scroll-margin-top: 4rem;
+    padding-top: var(--space-6);
   }
-  .x-directory :global(.v5-card-grid--rows) {
-    margin-top: var(--space-5, 1.5rem);
+  @media (min-width: 64em) {
+    .x-directory :global(.v5-card-grid--rows) {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: var(--space-7);
+    }
   }
   .x-directory__row {
     list-style: none;
-  }
-  .x-directory__row + .x-directory__row {
-    margin-top: var(--space-3, 0.6rem);
-  }
-  .x-directory__plans {
-    margin-top: var(--space-6, 2rem);
-  }
-
-  /* ---- journal ---- */
-  .x-journal {
-    padding: var(--space-7, 2.5rem) 0;
-    background: var(--bg-alt);
-  }
-
-  /* ---- FAQ ---- */
-  .x-faq {
-    padding: var(--space-7, 2.5rem) 0;
-  }
-  .x-faq__list {
-    margin-top: var(--space-5, 1.5rem);
-    border-top: 1px solid var(--border);
-  }
-  .x-faq__item {
+    padding-block: var(--space-5);
     border-bottom: 1px solid var(--border);
   }
+  .x-directory__plans { margin-top: var(--space-6); }
+
+  /* ---- journal ---- */
+  .x-journal { background: var(--bg-alt); }
+
+  /* ---- FAQ ---- */
+  .x-faq__list { border-top: 1px solid var(--border); }
+  .x-faq__item { border-bottom: 1px solid var(--border); }
   .x-faq__q {
-    font-family: var(--font-ui, var(--font-ui));
-    font-weight: 600;
-    font-size: var(--fs-400, 1rem);
-    color: var(--text);
-    padding: 0.9rem 0;
-    cursor: pointer;
-    min-height: 48px;
-  }
-  .x-faq__q:focus-visible {
-    outline: var(--focus-ring, 2px solid var(--accent));
-    outline-offset: 2px;
+    font-size: var(--fs-400);
+    padding-block: var(--space-4);
   }
   .x-faq__a {
-    padding: 0 0 1rem;
+    padding: 0 0 var(--space-4);
     color: var(--soft);
     max-width: 48em;
   }
-  .x-faq__a a {
-    color: var(--accent);
-  }
+  .x-faq__a p { margin: 0; }
 
-  /* ---- ask band: forest-teal feature, mint accents ---- */
+  /* ---- search band: harbour-deep ground, harbour-only lift ---- */
   .x-ask {
     position: relative;
     isolation: isolate;
@@ -922,9 +1038,7 @@ export const prerender = true;
     position: absolute;
     inset: 0;
     z-index: -1;
-    background:
-      radial-gradient(90% 120% at 100% 0%, color-mix(in srgb, var(--teal) 26%, transparent), transparent 55%),
-      radial-gradient(80% 120% at 0% 100%, color-mix(in srgb, var(--mint) 14%, transparent), transparent 60%);
+    background: radial-gradient(90% 120% at 100% 0%, rgb(16 82 126 / 0.35), transparent 60%);
   }
   .x-ask__inner {
     display: flex;
@@ -932,15 +1046,6 @@ export const prerender = true;
     align-items: center;
     justify-content: space-between;
     gap: var(--space-6, 2rem);
-  }
-  .x-ask__eyebrow {
-    font-family: var(--font-ui);
-    font-size: var(--fs-100, 0.78rem);
-    font-weight: 600;
-    letter-spacing: var(--ls-eyebrow, 0.12em);
-    text-transform: uppercase;
-    color: var(--mint);
-    margin: 0 0 var(--space-3, 0.75rem);
   }
   .x-ask__heading {
     font-family: var(--font-display);
@@ -957,6 +1062,7 @@ export const prerender = true;
     font-family: var(--font-ui);
     color: var(--soft-inverse);
     max-width: var(--measure-dek, 40ch);
+    text-wrap: pretty;
   }
 </style>
 
@@ -976,14 +1082,40 @@ export const prerender = true;
   // that line; module scope runs exactly once, so it no longer has to. Both
   // handlers resolve their targets at fire time and so need nothing from the
   // page that was current when they were registered.
+  // Towns and the directory open on their first dozen rows. Opening one
+  // reveals every row in place and hands focus to the first new one.
+  function expand(list: HTMLElement, moveFocus: boolean) {
+    if (!list.hasAttribute('data-collapsed')) return;
+    const firstHidden = list.querySelector<HTMLElement>('[data-overflow]');
+    list.removeAttribute('data-collapsed');
+    list.querySelectorAll('[data-expand]').forEach((b) => b.setAttribute('aria-expanded', 'true'));
+    if (moveFocus) firstHidden?.querySelector<HTMLElement>('a[href]')?.focus();
+  }
+
+  // A filter always searches the full directory, so any active facet opens it.
+  function openDirectoryForFilters(filters: Record<string, unknown>) {
+    if (isEmptyState(filters as any)) return;
+    document
+      .querySelectorAll<HTMLElement>('[data-collapse-on-filter]')
+      .forEach((list) => expand(list, false));
+  }
+
   document.addEventListener('pi:filters-changed', ((e: CustomEvent) => {
-    setBrowseHidden(!isEmptyState(e.detail?.filters ?? {}));
+    const filters = e.detail?.filters ?? {};
+    setBrowseHidden(!isEmptyState(filters));
+    openDirectoryForFilters(filters);
   }) as EventListener);
 
-  // EmptyState's "Clear filters" primary action.
   document.addEventListener('click', (ev) => {
-    const btn = (ev.target as HTMLElement).closest('[data-action="clear-filters"]');
-    if (btn) commit({}, { source: 'clear', noun: NOUN });
+    const target = ev.target as HTMLElement;
+    // EmptyState's "Clear filters" primary action.
+    if (target.closest('[data-action="clear-filters"]')) {
+      commit({}, { source: 'clear', noun: NOUN });
+      return;
+    }
+    const more = target.closest<HTMLElement>('[data-expand]');
+    const list = more?.closest<HTMLElement>('.x-expandable');
+    if (list) expand(list, true);
   });
 
   let bound = false;
@@ -991,7 +1123,9 @@ export const prerender = true;
   function init() {
     // Server renders everything visible; the browse layer yields to the
     // filtered directory whenever any facet is active (URL or interaction).
-    setBrowseHidden(!isEmptyState(parseFilters(window.location.search)));
+    const initial = parseFilters(window.location.search);
+    setBrowseHidden(!isEmptyState(initial));
+    openDirectoryForFilters(initial as Record<string, unknown>);
     if (bound) return;
     bound = true;
 

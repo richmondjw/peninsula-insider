@@ -170,10 +170,20 @@ const crumbs: Crumb[] = show
     background: var(--bg);
     border-bottom: 1px solid var(--border);
   }
+  /* The shared 1280 frame (as .container / .wrap), with no inner inline
+     padding, so the trail starts on the same x as the wordmark and H1.
+     Only the safe-area insets are added. */
   .v5-breadcrumbs__container {
+    width: min(var(--max-w), calc(100% - 80px));
     max-width: var(--max-w);
     margin: 0 auto;
-    padding: var(--space-2) var(--space-5);
+    padding: var(--space-2) env(safe-area-inset-right) var(--space-2) env(safe-area-inset-left);
+  }
+  @media (max-width: 1100px) {
+    .v5-breadcrumbs__container { width: calc(100% - 48px); }
+  }
+  @media (max-width: 767px) {
+    .v5-breadcrumbs__container { width: calc(100% - 32px); }
   }
   .v5-breadcrumbs__list {
     list-style: none;

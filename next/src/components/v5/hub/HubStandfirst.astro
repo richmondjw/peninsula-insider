@@ -4,10 +4,12 @@
  *
  * The orientation layer of every hub: one uppercase eyebrow, one giant Sora
  * h1 and one Editor-voice stand-first of at most 80 words carrying the page's
- * load-bearing search phrases. Rendered full-bleed over the forest-teal ground
- * (var(--bg-deep)); pass a Peninsula photograph to run it under a dark scrim,
- * otherwise a subtle teal/mint glow stands in (no fake photo). Wayfinding still
- * belongs to chrome's V5Breadcrumbs, not here.
+ * load-bearing search phrases. Three modes: `compact` is the paper band
+ * (its default slot carries the page's CategoryBrowse so the band contains
+ * its controls); a Peninsula photograph gives the cover pattern (a band of at
+ * least 360px under a bottom-up harbour-deep scrim); neither gives the
+ * harbour-deep ground (no fake photo). Wayfinding still belongs to chrome's
+ * V5Breadcrumbs, not here.
  *
  * Generic and prop-driven: Eat / Wine / Stay / Explore agents pass their own
  * copy. Content rules (content-guidelines 3.1/3.2) warn at build time and
@@ -24,11 +26,20 @@ export interface Props {
   eyebrow?: string;
   /** Optional full-bleed hero photograph. Omit for the forest-teal glow ground. */
   image?: { src: string; alt?: string };
-  /** Compact editorial entry for decision-led category pages. */
+  /** CSS object-position for the photograph, to keep its subject in frame. */
+  imagePosition?: string;
+  /**
+   * Compact editorial entry for decision-led category pages (paper band).
+   * A photograph always wins: with `image` the header renders the cover
+   * pattern whatever this says, because a 180px sliver of photo is neither.
+   */
   compact?: boolean;
 }
 
-const { title, standfirst, id, eyebrow, image, compact = false } = Astro.props;
+const { title, standfirst, id, eyebrow, image, imagePosition = '50% 40%', compact = false } = Astro.props;
+const isPhoto = Boolean(image);
+const isCompact = compact && !isPhoto;
+const hasActions = Astro.slots.has('default');
 
 const words = standfirst.trim().split(/\s+/).length;
 if (words > 80) {
@@ -43,16 +54,22 @@ if (/!/.test(standfirst)) {
 }
 ---
 
-<header class:list={['v5-standfirst', { 'v5-standfirst--photo': Boolean(image), 'v5-standfirst--compact': compact }]} id={id}>
+<header
+  class:list={['v5-standfirst', {
+    'v5-standfirst--photo': isPhoto,
+    'v5-standfirst--compact': isCompact,
+    'v5-standfirst--has-actions': hasActions,
+  }]}
+  id={id}
+>
   {image && (
-    <img class="v5-standfirst__bg" src={image.src} alt="" aria-hidden="true" loading="eager" fetchpriority="high" decoding="async" data-pi-responsive="100vw" />
+    <img class="v5-standfirst__bg" src={image.src} alt="" aria-hidden="true" loading="eager" fetchpriority="high" decoding="async" data-pi-responsive="100vw" style={`object-position:${imagePosition}`} />
   )}
-  <div class="v5-standfirst__scrim" aria-hidden="true"></div>
   <div class="container v5-standfirst__inner">
     {eyebrow && <p class="v5-standfirst__eyebrow">{eyebrow}</p>}
     <h1 class="v5-standfirst__title">{title}</h1>
     <p class="v5-standfirst__dek">{standfirst}</p>
-    <div class="v5-standfirst__actions"><slot /></div>
+    {hasActions && <div class="v5-standfirst__actions"><slot /></div>}
   </div>
 </header>
 
@@ -82,21 +99,50 @@ if (/!/.test(standfirst)) {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
-  }
-  .v5-standfirst__scrim {
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-  }
-  /* Photo hero: dark scrim anchored bottom-left so the copy stays legible. */
-  .v5-standfirst--photo .v5-standfirst__scrim {
-    background: var(--photo-shade-copy);
+    object-position: 50% 40%;
   }
   .v5-standfirst__inner {
     position: relative;
     z-index: 1;
   }
+
+  /* ── Photo mode: the documented cover pattern. A band tall enough to show
+     the subject, copy anchored to the foot, and a bottom-up harbour-deep
+     scrim that holds at least .82 alpha behind every line of text. The
+     scrim is drawn from the text block rather than the band, so it keeps
+     that alpha however many lines the title wraps to at 390px, then
+     feathers out above the eyebrow so the top of the photograph stays
+     clean. No text-shadow: the scrim does the work. ── */
+  .v5-standfirst--photo {
+    display: grid;
+    align-content: end;
+    min-height: clamp(22.5rem, 40vw, 30rem);
+    padding-block: clamp(3rem, 6vw, var(--space-8, 4rem));
+    background: var(--harbour-deep, #0B2E4A);
+  }
+  .v5-standfirst--photo .v5-standfirst__inner::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: -6rem;
+    bottom: calc(-1 * clamp(3rem, 6vw, var(--space-8, 4rem)));
+    left: -50vw;
+    right: -50vw;
+    background: linear-gradient(to top,
+      rgb(11 46 74 / .88) 0%,
+      rgb(11 46 74 / .82) calc(100% - 6rem),
+      rgb(11 46 74 / .35) calc(100% - 2.5rem),
+      rgb(11 46 74 / 0) 100%);
+    pointer-events: none;
+  }
+  .v5-standfirst.v5-standfirst--photo .v5-standfirst__title,
+  .v5-standfirst.v5-standfirst--photo .v5-standfirst__dek,
+  .v5-standfirst.v5-standfirst--photo .v5-standfirst__eyebrow {
+    text-shadow: none;
+  }
+  .v5-standfirst.v5-standfirst--photo .v5-standfirst__eyebrow { color: var(--sand); }
+  .v5-standfirst.v5-standfirst--photo .v5-standfirst__title { color: var(--white); }
+  .v5-standfirst.v5-standfirst--photo .v5-standfirst__dek { color: rgb(255 255 255 / .9); }
   .v5-standfirst__eyebrow {
     margin: 0 0 var(--space-3, 0.75rem);
     font-family: var(--font-ui);
@@ -124,22 +170,24 @@ if (/!/.test(standfirst)) {
     line-height: var(--lh-dek, 1.45);
     color: var(--soft-inverse);
     max-width: var(--measure-dek, 52ch);
+    text-wrap: pretty;
   }
+  /* The actions slot holds whatever belongs to the header's decision: on the
+     compact band that is the page's CategoryBrowse (jump links, the one
+     FilterBar and the planning help), so the paper band visibly contains its
+     own controls instead of closing at the dek. */
   .v5-standfirst__actions {
     margin-top: var(--space-5, 1.5rem);
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-3, 0.75rem);
-  }
-  .v5-standfirst__actions:empty {
-    display: none;
   }
   .v5-standfirst--compact {
     padding-block: clamp(1.5rem, 3vw, 2.75rem);
     background: var(--paper, #faf8f3);
     color: var(--text);
   }
-  .v5-standfirst--compact:not(.v5-standfirst--photo)::before { display: none; }
+  .v5-standfirst--compact.v5-standfirst--has-actions {
+    padding-bottom: var(--space-5, 1.5rem);
+  }
+  .v5-standfirst--compact::before { display: none; }
   .v5-standfirst--compact .v5-standfirst__title {
     font-family: var(--font-editorial, Georgia, serif);
     font-size: clamp(2rem, 4vw, 3.5rem);
@@ -154,7 +202,5 @@ if (/!/.test(standfirst)) {
     color: var(--soft);
     margin-top: 0.75rem;
   }
-  .v5-standfirst--compact .v5-standfirst__eyebrow { color: var(--teal-text); }
-  .v5-standfirst--compact.v5-standfirst--photo .v5-standfirst__title,
-  .v5-standfirst--compact.v5-standfirst--photo .v5-standfirst__dek { color: var(--white); }
+  .v5-standfirst--compact .v5-standfirst__eyebrow { color: var(--sand-text, #8A5620); }
 </style>

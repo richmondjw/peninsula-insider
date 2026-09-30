@@ -1,93 +1,93 @@
 ---
 import { editableImage } from '../../../lib/inline-edit/attrs';
-import { routePreview } from './plan-preview';
+import { routePreviewParts, planFacts } from './plan-preview';
 import type { PlanRecord } from './plans-data';
 export interface Props { plan: PlanRecord; index: number; }
 const { plan, index } = Astro.props;
+const featured = index === 0;
 const days = [...new Set(plan.stops.map(stop => stop.day))].sort((a,b) => a-b);
-const facts = [...plan.meta];
-if (plan.pace) facts.push(plan.pace);
+const facts = planFacts(plan);
+const SEP = ' · ';
 const checked = plan.verifiedAt ? new Date(plan.verifiedAt).toLocaleDateString('en-AU', { day:'numeric',month:'short',year:'numeric',timeZone:'UTC' }) : '';
 ---
-<article class:list={['plan-recommendation', { 'plan-recommendation--featured': index === 0 }]} data-plan-card={index}>
+<article class:list={['plan-recommendation', { 'plan-recommendation--featured': featured }]} data-plan-card={index}>
+  <div class="plan-recommendation__media" hidden={!plan.image}>
+    <img src={plan.image?.src} alt={plan.image?.alt ?? ''} loading={featured ? 'eager' : 'lazy'} decoding="async" width="720" height="480" data-slot="image" data-pi-responsive={plan.image ? (featured ? '(max-width: 720px) calc(100vw - 72px), (max-width: 1280px) 42vw, 520px' : '(max-width: 767px) 100vw, 40vw') : undefined}
+      {...editableImage({entityType:plan.entityType,entitySlug:plan.slug,fieldPath:plan.imageField,label:`${plan.title} image`,purpose:'card'})} />
+  </div>
   <div class="plan-recommendation__body">
-    <p class="plan-recommendation__mark" data-slot="label">{index === 0 ? 'Editor’s pick' : 'Another way to spend it'}</p>
+    <p class="plan-recommendation__mark" data-slot="label">{featured ? 'Editor’s pick' : 'Another way to spend it'}</p>
     <h3><a href={plan.href} data-slot="title" data-evt="card_click" data-entity-type={plan.entityType} data-entity-slug={plan.slug} data-surface="plans-recommendation">{plan.displayTitle}</a></h3>
     <p class="plan-recommendation__reason" data-slot="reason">{plan.editorialReason}</p>
-    <p class="plan-recommendation__facts" data-slot="facts">{facts.join(' · ')}</p>
+    <ul class="plan-recommendation__facts" data-slot="facts" role="list">{facts.map(fact => <li>{fact}</li>)}</ul>
     <div class="plan-recommendation__fit" data-slot="fit" hidden>
       <p data-slot="matched"></p><p class="plan-recommendation__missing" data-slot="missing"></p>
     </div>
     <div class="plan-recommendation__preview">
-      <p data-slot="route-preview">{routePreview(plan)}</p>
+      <p class="plan-recommendation__route-line" data-slot="route-preview">{routePreviewParts(plan).map((part, n) => <>{n > 0 && SEP}<span class="nowrap-seg"><span class="plan-day-label">{part.label}</span>{part.route}</span></>)}</p>
       <p data-slot="booking-preview" hidden={!plan.bookingNote}>{plan.bookingNote}</p>
-      <p>Plan transport between stops, and check the route for your dates before booking.</p>
     </div>
     <div class="plan-recommendation__actions">
-      <a class:list={['pi-btn', index === 0 ? 'pi-btn--solid' : 'pi-btn--ghost']} href={plan.href} data-slot="read">See the itinerary <span aria-hidden="true">↗</span></a>
+      <a class="pi-btn pi-btn--solid" href={plan.href} data-slot="read">See the itinerary <span aria-hidden="true">→</span></a>
       <button type="button" class="pi-btn pi-btn--text" data-plan-fork={plan.id} aria-label={`Use this itinerary: ${plan.title}`}>Use this itinerary</button>
     </div>
-    <p class="plan-recommendation__copy" data-slot="copy">{plan.stops.length} stops across {plan.dayCount === 1 ? 'one day' : `${plan.dayCount} days`}. Yours to adjust in My Trip.</p>
-  </div>
-  <div class="plan-recommendation__media" hidden={!plan.image}>
-    <img src={plan.image?.src} alt={plan.image?.alt ?? ''} loading={index === 0 ? 'eager' : 'lazy'} decoding="async" width="720" height="520" data-slot="image" data-pi-responsive={plan.image ? (index === 0 ? '(max-width: 720px) calc(100vw - 72px), (max-width: 1280px) 42vw, 520px' : '(max-width: 720px) 82px, 112px') : undefined}
-      {...editableImage({entityType:plan.entityType,entitySlug:plan.slug,fieldPath:plan.imageField,label:`${plan.title} image`,purpose:'card'})} />
   </div>
   <details class="plan-recommendation__route" data-slot="route">
-    <summary><span>At a glance</span><span data-slot="route-count">{plan.stops.length} stops <span aria-hidden="true">+</span></span></summary>
+    <summary><span>See the stops</span><span class="plan-recommendation__chevron" aria-hidden="true"></span></summary>
     <div class="plan-recommendation__route-inner">
       <ol class="plan-recommendation__days" data-slot="days">{days.map(day => <li><span>Day {day}</span><p>{plan.stops.filter(stop => stop.day === day).map(stop => stop.title).join(' → ')}</p></li>)}</ol>
-      <p class="plan-recommendation__practical" data-slot="booking" hidden={!plan.bookingNote}>{plan.bookingNote}</p>
       <p class="plan-recommendation__practical" data-slot="driving" hidden={!plan.driveMins}>{plan.driveMins ? `Editorial route estimate: ${plan.driveMins} minutes driving. My Trip recalculates from your selected stops; allow extra time for traffic and parking.` : ''}</p>
       <p class="plan-recommendation__practical" data-slot="verified" hidden={!checked}>{checked ? `Information checked ${checked}. Confirm current hours and booking requirements with each operator.` : ''}</p>
     </div>
   </details>
 </article>
 <style is:global>
-  .plan-recommendation{display:grid;grid-template-columns:minmax(0,1fr) 112px;column-gap:1.1rem;align-content:start;border-top:1px solid var(--border);padding:1.5rem 0 0;min-width:0}
+  .plan-recommendation{display:flex;flex-direction:column;height:100%;min-width:0}
   .plan-recommendation[hidden]{display:none}
-  .plan-recommendation__body{min-width:0}
-  .plan-recommendation__mark{font:600 .68rem/1.4 var(--font-ui);text-transform:uppercase;letter-spacing:.13em;color:var(--accent);margin:0 0 .7rem}
-  .plan-recommendation h3{font:500 clamp(1.35rem,2vw,1.7rem)/1.25 var(--font-display);letter-spacing:-.035em;margin:0 0 .75rem;max-width:23ch}
-  .plan-recommendation h3 a{color:var(--text);text-decoration:none}
-  .plan-recommendation h3 a:hover{text-decoration:underline;text-underline-offset:.15em}
-  .plan-recommendation__reason{font:.96rem/1.65 var(--font-ui);margin:0 0 .9rem;color:var(--text);max-width:58ch}
-  .plan-recommendation__facts{font:.79rem/1.6 var(--font-ui);color:var(--soft);margin:0 0 1rem}
-  .plan-recommendation__media{align-self:start;aspect-ratio:1;overflow:hidden;background:var(--bg-alt)}
-  .plan-recommendation__media img{height:100%;width:100%;object-fit:cover;display:block}
-  .plan-recommendation__preview{border-block:1px solid var(--border);padding:.6rem 0;margin:0 0 1rem;font:.8rem/1.6 var(--font-ui);max-width:65ch}.plan-recommendation__preview p{margin:.35rem 0}.plan-recommendation__preview p:last-child{color:var(--soft)}
-  .plan-recommendation__actions{display:flex;align-items:center;gap:.45rem .7rem;flex-wrap:wrap}
-  .plan-recommendation__actions .pi-btn{font-size:.82rem;min-height:44px}
-  .plan-recommendation__copy{font:.73rem/1.5 var(--font-ui);color:var(--soft);margin:.8rem 0 0}
-  .plan-recommendation__fit{margin:0 0 1rem;border-left:1px solid var(--accent);padding:.2rem 0 .2rem .7rem;font:.8rem/1.55 var(--font-ui)}
-  .plan-recommendation__fit p{margin:0}.plan-recommendation__missing{color:var(--soft);margin-top:.2rem!important}
-  .plan-recommendation__route{grid-column:1/-1;margin-top:1.2rem;border-top:1px solid color-mix(in srgb,var(--border) 55%,transparent)}
-  .plan-recommendation__route summary{display:flex;justify-content:space-between;gap:1rem;list-style:none;cursor:pointer;padding:.8rem 0;font:600 .79rem/1.5 var(--font-ui)}
+  .plan-recommendation__media{aspect-ratio:3/2;overflow:hidden;border-radius:var(--radius-m);background:var(--bg-alt);margin:0 0 var(--space-5)}
+  .plan-recommendation__media[hidden]{display:none}
+  .plan-recommendation__media img{display:block;width:100%;height:100%;object-fit:cover}
+  .plan-recommendation__body{display:flex;flex-direction:column;flex:1 1 auto;min-width:0}
+  .plan-recommendation__mark{font:600 var(--fs-100)/1.4 var(--font-ui);text-transform:uppercase;letter-spacing:var(--ls-eyebrow);color:var(--sand-text);margin:0 0 var(--space-3)}
+  .plan-recommendation h3{font:600 var(--fs-600)/1.2 var(--font-display);letter-spacing:var(--ls-display);color:var(--text);margin:0 0 var(--space-3);text-wrap:balance}
+  .plan-recommendation h3 a{color:inherit;text-decoration:none}
+  .plan-recommendation h3 a:hover{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.15em}
+  .plan-recommendation__reason{font:var(--fs-400)/1.6 var(--font-ui);margin:0 0 var(--space-3);color:var(--text);max-width:62ch;text-wrap:pretty}
+  .plan-recommendation__facts{display:flex;flex-wrap:wrap;gap:0 .5em;list-style:none;padding:0;margin:0 0 var(--space-5);font:var(--fs-200)/1.5 var(--font-ui);color:var(--soft)}
+  .plan-recommendation__facts li{white-space:nowrap}
+  .plan-recommendation__facts li+li::before{content:'·';margin-right:.5em;color:var(--border-strong)}
+  .plan-recommendation__preview{border-block:1px solid var(--border);padding:var(--space-3) 0;margin:0 0 var(--space-5);font:var(--fs-300)/1.6 var(--font-ui)}
+  .plan-recommendation__preview p{margin:var(--space-1) 0;max-width:68ch;text-wrap:pretty}
+  .plan-recommendation__preview p+p{color:var(--soft)}
+  .plan-recommendation__preview .plan-day-label{white-space:nowrap}
+  .plan-recommendation__actions{display:flex;align-items:center;flex-wrap:wrap;gap:var(--space-2) var(--space-5);margin-top:auto}
+  .plan-recommendation__actions .pi-btn--solid{min-height:48px;gap:.35em}
+  .plan-recommendation__actions .pi-btn--text{padding-inline:0;min-height:44px;font-weight:600}
+  .plan-recommendation__fit{margin:0 0 var(--space-5);border-left:1px solid var(--harbour);padding:var(--space-1) 0 var(--space-1) var(--space-3);font:var(--fs-300)/1.55 var(--font-ui)}
+  .plan-recommendation__fit[hidden]{display:none}
+  .plan-recommendation__fit p{margin:0}.plan-recommendation__missing{color:var(--soft);margin-top:var(--space-1)!important}
+  .plan-recommendation__route{margin-top:var(--space-5);border-top:1px solid var(--border)}
+  .plan-recommendation__route summary{display:flex;align-items:center;justify-content:space-between;gap:var(--space-4);min-height:48px;padding:var(--space-2) 0;list-style:none;cursor:pointer;font:600 var(--fs-300)/1.4 var(--font-ui);color:var(--text)}
   .plan-recommendation__route summary::-webkit-details-marker{display:none}
-  .plan-recommendation__route summary>span:last-child{font-weight:400;color:var(--soft)}
-  .plan-recommendation__route summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-  .plan-recommendation__route-inner{padding:.25rem 0 1rem}
-  .plan-recommendation__days{list-style:none;padding:0;margin:0;display:grid;gap:.7rem}
-  .plan-recommendation__days li{display:grid;grid-template-columns:3.4rem minmax(0,1fr);gap:.4rem;font:.82rem/1.6 var(--font-ui)}
-  .plan-recommendation__days li>span{font-weight:600;color:var(--accent)}
+  .plan-recommendation__route summary:focus-visible{outline:var(--focus-ring);outline-offset:2px}
+  .plan-recommendation__chevron{flex:none;width:.6rem;height:.6rem;margin-right:.3rem;border-right:2px solid var(--harbour);border-bottom:2px solid var(--harbour);transform:translateY(-25%) rotate(45deg);transition:transform var(--dur-fast) var(--ease-enter)}
+  .plan-recommendation__route[open] .plan-recommendation__chevron{transform:translateY(25%) rotate(-135deg)}
+  .plan-recommendation__route-inner{padding:var(--space-2) 0 var(--space-4)}
+  .plan-recommendation__days{list-style:none;padding:0;margin:0;display:grid;gap:var(--space-3)}
+  .plan-recommendation__days li{display:grid;grid-template-columns:3.5rem minmax(0,1fr);gap:var(--space-2);font:var(--fs-300)/1.6 var(--font-ui)}
+  .plan-recommendation__days li>span{font-weight:600;color:var(--harbour);white-space:nowrap}
   .plan-recommendation__days p{margin:0;color:var(--soft)}
-  .plan-recommendation__practical{font:.78rem/1.6 var(--font-ui);color:var(--soft);margin:.9rem 0 0}
-  .plan-recommendation--featured{grid-column:1/-1;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:0 2.5rem;border:0;background:var(--bg-alt);padding:2rem}
-  .plan-recommendation--featured h3{font-size:clamp(1.9rem,3.5vw,2.85rem);max-width:17ch;line-height:1.13;margin-bottom:1rem}
-  .plan-recommendation--featured .plan-recommendation__reason{font-size:1rem}
-  .plan-recommendation--featured .plan-recommendation__media{aspect-ratio:4/3;align-self:center}
-  .plan-recommendation--featured .plan-recommendation__facts{font-size:.85rem}
-  .plan-recommendation--featured .plan-recommendation__route{margin-top:1.5rem}
-  .plan-recommendation--featured .plan-recommendation__route summary{padding-bottom:0}
-  .plan-recommendation--featured .plan-recommendation__route[open] summary{padding-bottom:1rem}
-  @media(max-width:65rem){.plan-recommendation{grid-template-columns:minmax(0,1fr) 86px}.plan-recommendation--featured{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);column-gap:1.5rem;padding:1.5rem}}
-  @media(max-width:45rem){
-    .plan-recommendation{grid-template-columns:minmax(0,1fr) 82px;padding-top:1.2rem;column-gap:.8rem}
-    .plan-recommendation--featured{grid-template-columns:1fr;padding:1.2rem}
-    .plan-recommendation--featured .plan-recommendation__body{order:1}
-    .plan-recommendation--featured .plan-recommendation__media{order:0;margin-bottom:1.2rem;aspect-ratio:2.3}
-    .plan-recommendation--featured .plan-recommendation__route{order:2}
-    .plan-recommendation--featured h3{font-size:1.85rem;max-width:22ch}
-    .plan-recommendation__actions .pi-btn{padding-inline:.8rem}
+  .plan-recommendation__practical{font:var(--fs-200)/1.6 var(--font-ui);color:var(--soft);margin:var(--space-3) 0 0;max-width:68ch}
+  .plan-recommendation--featured{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);grid-template-areas:"body media" "route route";column-gap:var(--space-7);height:auto;padding:var(--space-6) var(--space-6) var(--space-5);border:1px solid var(--border);border-radius:var(--radius-l);background:var(--paper-warm,#F2EFEA)}
+  .plan-recommendation--featured:has(>.plan-recommendation__media[hidden]){grid-template-columns:minmax(0,1fr);grid-template-areas:"body" "route"}
+  .plan-recommendation--featured .plan-recommendation__media{grid-area:media;margin:0;aspect-ratio:4/3;align-self:start}
+  .plan-recommendation--featured .plan-recommendation__body{grid-area:body}
+  .plan-recommendation--featured .plan-recommendation__route{grid-area:route}
+  .plan-recommendation--featured h3{font-size:clamp(1.5rem,1.2rem + 1.2vw,2.25rem);line-height:1.12;margin-bottom:var(--space-4)}
+  @media(min-width:64em){.plan-recommendation__route-line .nowrap-seg{white-space:nowrap}}
+  @media(max-width:56rem){
+    .plan-recommendation--featured{grid-template-columns:minmax(0,1fr);grid-template-areas:"media" "body" "route";padding:var(--space-5)}
+    .plan-recommendation--featured .plan-recommendation__media{margin-bottom:var(--space-5);aspect-ratio:3/2}
   }
+  @media(prefers-reduced-motion:reduce){.plan-recommendation__chevron{transition:none}}
 </style>

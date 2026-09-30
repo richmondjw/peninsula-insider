@@ -96,6 +96,15 @@
   --space-heading-above: 2.75rem;
   --space-heading-below: 1rem;
 
+  /* ── Section rhythm (design-perfection G1, 2026-09-29).
+     One section opener for the whole site: .pi-section-head in global.css
+     reads these. --section-space is the vertical band padding (64 to 96px),
+     --section-head-gap the step from a section head to its content, and
+     --h2-size the single section H2 size (30 to 40px). ── */
+  --section-space:    clamp(4rem, 2.8rem + 4vw, 6rem);
+  --section-head-gap: var(--space-6);
+  --h2-size:          clamp(1.875rem, 1.35rem + 1.6vw, 2.5rem);
+
   /* ── Named palette tokens: HARBOUR (adopted 2026-07-25).
      Blue does the structural work; a single sand pop carries the warm
      signal. Replaces Evergreen Coast, whose forest greens read alpine

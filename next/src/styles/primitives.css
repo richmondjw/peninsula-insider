@@ -556,6 +556,7 @@
   line-height: var(--lh-heading);
   letter-spacing: var(--ls-display);
   color: var(--text);
+  text-wrap: balance;
 }
 .pi-card__title a {
   color: inherit;
@@ -566,19 +567,16 @@
 }
 
 /* --- __dek ------------------------------------------------
-   Two-line clamp. The height reservation is in em, not px or
-   rem, so it tracks the element's own font-size and therefore
-   still scales with the reader text-size control
-   (html[data-text-scale]). A px floor would freeze the box
-   while the type grew and clip the second line. */
+   Unclamped (design-perfection G8). The old two-line clamp cut
+   deks mid-word, put an ellipsis after full stops and capped
+   copy at 38ch inside 800px rows. Deks now wrap in full to a
+   62ch measure; copy length is an editorial job, not a CSS one.
+   A surface that genuinely needs a clamp opts in with
+   .pi-card--clamp (three lines, below). */
 .pi-card__dek {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
-  overflow: hidden;
-  min-height: calc(2em * var(--lh-dek));
-  max-width: var(--measure-card);
+  min-height: 0;
+  max-width: min(100%, 62ch);
+  text-wrap: pretty;
   /* --fs-300 matches .venue-card__signature (0.96rem), which is what the
      284 converted page cards used. v5/Card.astro's verdict line ran at
      --fs-500 and restores that in its own scoped block: the two card
@@ -587,6 +585,14 @@
   font-size: var(--fs-300);
   line-height: var(--lh-dek);
   color: var(--soft);
+}
+/* Opt-in clamp for the rare surface that must hold a fixed height. */
+.pi-card--clamp .pi-card__dek {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
 }
 
 /* --- __meta -----------------------------------------------

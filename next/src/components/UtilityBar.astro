@@ -44,6 +44,10 @@ const c = getConditionsStrip(now);
 const placeLabel = c.place && c.temperature
   ? `${c.place} ${c.temperature}°`
   : c.place ?? null;
+
+// Home already promotes the case in the header beacon and the This-weekend
+// panel, so the dateline drops its Play line there (design-perfection G6).
+const showPlay = PLAY.enabled && Astro.url.pathname !== '/';
 ---
 
 <div class="pi-conditions">
@@ -59,7 +63,7 @@ const placeLabel = c.place && c.temperature
         {c.sea && (
           <span class="pi-conditions__item pi-conditions__item--sea">{c.sea}</span>
         )}
-        {PLAY.enabled && (
+        {showPlay && (
           <a class="pi-conditions__item pi-conditions__item--play" href={playUrl('ticker')} data-evt="pi_play_promo" data-surface="ticker">
             Case {PLAY.case.id} is open<span class="pi-conditions__play-cta"> · Play</span>
           </a>
@@ -95,10 +99,20 @@ const placeLabel = c.place && c.temperature
     justify-content: space-between;
     gap: var(--space-4);
     min-height: 34px;
+    /* The shared 1280 frame, exactly as .container / .wrap: 40px gutters,
+       24px below 1100px, 16px below 767px. No extra inner padding, so the
+       dateline starts on the same x as the wordmark, nav and H1. Only the
+       safe-area insets are added. */
+    width: min(var(--max-w), calc(100% - 80px));
     max-width: var(--max-w);
     margin: 0 auto;
-    padding: 0 calc(var(--space-5) + env(safe-area-inset-right)) 0
-             calc(var(--space-5) + env(safe-area-inset-left));
+    padding: 0 env(safe-area-inset-right) 0 env(safe-area-inset-left);
+  }
+  @media (max-width: 1100px) {
+    .pi-conditions__inner { width: calc(100% - 48px); }
+  }
+  @media (max-width: 767px) {
+    .pi-conditions__inner { width: calc(100% - 32px); }
   }
 
   .pi-conditions__now,
@@ -171,8 +185,6 @@ const placeLabel = c.place && c.temperature
     .pi-conditions__issue-short { display: inline; }
     .pi-conditions__inner {
       gap: var(--space-3);
-      padding: 0 calc(var(--space-4) + env(safe-area-inset-right)) 0
-               calc(var(--space-4) + env(safe-area-inset-left));
     }
   }
 

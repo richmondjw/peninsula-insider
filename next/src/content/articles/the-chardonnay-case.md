@@ -1,5 +1,5 @@
 ---
-title: "The Chardonnay Case: Why the Peninsula's Second Wine Deserves Top Billing"
+title: "The chardonnay case: why the Peninsula’s second wine deserves top billing"
 dek: "Everyone sells the Mornington Peninsula as a pinot noir region. They are half right. The quiet argument of the last three vintages is that the chardonnay is now the more interesting bottle on the table, and the one worth cellaring."
 author: "editorial"
 houseByline: true

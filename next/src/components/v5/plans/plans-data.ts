@@ -53,7 +53,7 @@ export interface PlanRecord {
   verifiedAt?: string;
   /** The published editorial route estimate; not live routing. */
   driveMins?: number;
-  /** Verdict line, clipped to 25 words or fewer. */
+  /** Verdict line: the dek's first sentence, whole (see verdictLine). */
   verdict: string;
   href: string;
   image: { src: string; alt: string } | null;
@@ -61,6 +61,8 @@ export interface PlanRecord {
   imageField: string;
   meta: string[];
   dayCount?: number;
+  /** Nights as published on the itinerary (lengthNights); guides omit it. */
+  nights?: number;
   stops: PlanStop[];
   facets: Partial<Record<FacetKey, string[]>>;
   publishedAt: number;
@@ -90,24 +92,54 @@ const REGION_LABELS = new Map(
 );
 const PARTY_LABELS = new Map(FACET_OPTIONS.party.map((o) => [o.value, o.label]));
 
-/** First sentence, clamped to 25 words (Card verdict rule). */
+/**
+ * Verdict line: the dek's first sentence, whole. A sentence over 30 words
+ * is cut back at its last comma inside the first 30 words and closed as a
+ * clause. Never truncated mid-thought with an appended ellipsis.
+ */
 function verdictLine(text: string | undefined): string {
   const src = (text ?? '').trim();
   if (!src) return '';
-  const sentence = src.split(/(?<=[.?])\s+/)[0] ?? src;
+  const sentence = src.split(/(?<=[.?!])\s+/)[0] ?? src;
   const words = sentence.split(/\s+/);
-  if (words.length <= 25) return sentence;
-  return `${words.slice(0, 22).join(' ')}...`;
+  if (words.length <= 30) return sentence;
+  const head = words.slice(0, 30).join(' ');
+  const cut = head.lastIndexOf(',');
+  if (cut <= 0) return sentence;
+  return `${head.slice(0, cut).trim()}.`;
+}
+
+const NUMBER_WORDS = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'];
+
+function countWord(n: number): string {
+  const word = NUMBER_WORDS[n] ?? String(n);
+  return word.charAt(0).toUpperCase() + word.slice(1);
+}
+
+/**
+ * One humanised duration, phrased the way plan titles are: 'One day' for
+ * a day plan, otherwise nights ('One night', 'Two nights', ... up to ten
+ * in words). A multi-day plan with no published night count falls back to
+ * days ('Two days').
+ */
+export function durationLabel(plan: { dayCount?: number; nights?: number }): string {
+  const days = plan.dayCount ?? 0;
+  const nights = plan.nights ?? 0;
+  if (nights > 0) return `${countWord(nights)} ${nights === 1 ? 'night' : 'nights'}`;
+  if (days > 1) return `${countWord(days)} days`;
+  if (days === 1) return 'One day';
+  return '';
 }
 
 function metaFor(record: {
   facets: Partial<Record<FacetKey, string[]>>;
   dayCount?: number;
+  nights?: number;
 }): string[] {
   const chips: string[] = [];
   const dates = record.facets.date ?? [];
   if (record.dayCount) {
-    chips.push(record.dayCount === 1 ? 'One day' : `${record.dayCount} days`);
+    chips.push(durationLabel(record));
   } else if (dates.includes('one-day')) {
     chips.push('One day');
   } else if (dates.includes('weekend')) {
@@ -199,6 +231,7 @@ export async function buildPlansModel(now: Date = new Date()): Promise<PlansMode
         imageField: 'heroImage',
         meta: [],
         dayCount,
+        nights: it.data.lengthNights,
         stops,
         facets,
         publishedAt: it.data.publishedAt?.getTime?.() ?? 0,
