@@ -1,5 +1,5 @@
 ---
-title: "Peninsula This Weekend - 6 to 7 June"
+title: "Peninsula This Weekend: 6 to 7 June"
 dek: "King's Birthday is the loudest winter weekend on the Peninsula. Two clear moves, and the rest of the weekend kept open."
 author: "editorial"
 houseByline: true

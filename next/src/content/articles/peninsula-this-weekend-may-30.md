@@ -1,5 +1,5 @@
 ---
-title: "Peninsula This Weekend - 30 to 31 May"
+title: "Peninsula This Weekend: 30 to 31 May"
 dek: "Autumn closes and winter opens on the same patch of Main Ridge on Saturday: the Peninsula marking its own calendar."
 author: "editorial"
 houseByline: true

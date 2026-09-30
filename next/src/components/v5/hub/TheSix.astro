@@ -203,7 +203,9 @@ const headingId = `${id ?? `six-${surface}`}-heading`;
       grid-column: 2;
       grid-row: 1;
     }
-    /* Actions directly under the meta, never floated to the card foot. */
+    /* Placement only: the actions sit in the text column directly under
+       the meta. Their layout ([Save][Add to trip], then a full-width
+       booking line) is the Card rule, identical on all three picks. */
     .v5-six__item--side :global(.pi-card__actions) {
       grid-column: 2;
       grid-row: 2;
@@ -253,6 +255,12 @@ const headingId = `${id ?? `six-${surface}`}-heading`;
   .v5-six__more .v5-six__item {
     padding-block: var(--space-5, 1.5rem);
     border-top: 1px solid var(--border);
+  }
+  /* Phones: the same 16px row inset as the directory list below. */
+  @media (max-width: 47.99em) {
+    .v5-six__more .v5-six__item {
+      padding-block: var(--space-4, 1rem);
+    }
   }
   @media (prefers-reduced-motion: reduce) {
     .v5-six__chevron {

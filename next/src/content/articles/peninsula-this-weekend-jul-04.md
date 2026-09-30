@@ -1,5 +1,5 @@
 ---
-title: "Peninsula This Weekend - 4 to 5 July"
+title: "Peninsula This Weekend: 4 to 5 July"
 dek: "The first full school-holiday weekend of winter is simple: one booked truffle hunt, one Sunday heritage train run, and one indoor family plan that does not feel like a fallback."
 author: "editorial"
 houseByline: true

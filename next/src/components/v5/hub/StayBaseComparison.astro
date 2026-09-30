@@ -21,7 +21,7 @@ const bases = [
         <article class="base-comparison__row">
           <h3><a href={`/explore/places/${base.town}/`}>{base.name}</a></h3>
           <div><p>{base.go}</p><p class="base-comparison__detail"><strong>Evenings.</strong> {base.evening}</p><p class="base-comparison__detail"><strong>Getting around.</strong> {base.trade}</p></div>
-          <div class="base-comparison__actions"><a href={`/stay/?place=${base.places}#stay-directory`}>Find stays <span aria-hidden="true">→</span></a><a href={`/map/?place=${base.places}`}>Area map <span aria-hidden="true">→</span></a></div>
+          <div class="base-comparison__actions"><a href={`/stay/?place=${base.places}#stay-directory`}><span class="base-comparison__label">Find stays</span> <span aria-hidden="true">→</span></a><a href={`/map/?place=${base.places}`}><span class="base-comparison__label">Area map</span> <span aria-hidden="true">→</span></a></div>
         </article>
       ))}
     </div>
@@ -31,7 +31,11 @@ const bases = [
   </div>
 </section>
 <style>
-  p { margin: 0 0 var(--space-2, 0.5rem); }
+  /* Row copy only: a bare `p` rule here would outrank the section head's
+     canonical eyebrow and dek margins. */
+  .base-comparison__row p { margin: 0 0 var(--space-2, 0.5rem); text-wrap: pretty; }
+  /* The two-sentence intro balances rather than ragging on a short line. */
+  .pi-section-dek { text-wrap: balance; }
   a { color: var(--harbour, #10527E); text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
   a:hover { color: var(--harbour-h, #0C4166); }
   a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
@@ -41,14 +45,23 @@ const bases = [
   h3 a { color: var(--text); text-decoration: none; }
   h3 a:hover { color: var(--harbour, #10527E); text-decoration: underline; }
   .base-comparison__row p:last-child { margin-bottom: 0; }
-  .base-comparison__detail, .base-comparison__foot p { color: var(--soft); font-size: var(--fs-300, 0.9375rem); line-height: 1.6; }
+  .base-comparison__detail, .base-comparison__foot p { color: var(--soft); font-size: var(--fs-300, 0.9375rem); line-height: 1.6; text-wrap: pretty; }
   strong { color: var(--text); font-weight: 600; }
-  .base-comparison__actions { display: flex; flex-direction: column; align-items: flex-start; font-size: var(--fs-300, 0.9375rem); font-weight: 600; }
+  /* The link stack ends on the frame's right edge, so both arrows line up,
+     and the first link's text sits on the lead sentence's first baseline:
+     its 44px box centres a 15px line about 7px lower than the 17px lead's
+     baseline, so it rises by that much. The hit area stays 44px. */
+  .base-comparison__actions { display: flex; flex-direction: column; align-items: flex-end; font-size: var(--fs-300, 0.9375rem); font-weight: 600; }
   .base-comparison__actions a { display: inline-flex; align-items: center; gap: 0.3em; min-height: 44px; white-space: nowrap; }
+  .base-comparison__actions a:first-child { margin-block-start: -7px; }
+  /* Links read as links, like the section link above: the label carries the
+     underline and the arrow sits clean beside it. */
+  .base-comparison__label, .base-comparison__foot a { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
   .base-comparison__foot { border-top: 1px solid var(--border); padding-top: var(--space-5, 1.5rem); }
   .base-comparison__foot p { max-width: 75ch; margin: 0; }
   @media (max-width: 48em) {
     .base-comparison__row { grid-template-columns: 1fr; gap: var(--space-3, 0.75rem); }
-    .base-comparison__actions { flex-direction: row; gap: var(--space-5, 1.5rem); }
+    .base-comparison__actions { flex-direction: row; align-items: center; gap: var(--space-5, 1.5rem); }
+    .base-comparison__actions a:first-child { margin-block-start: 0; }
   }
 </style>

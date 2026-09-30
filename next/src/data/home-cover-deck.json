@@ -23,6 +23,10 @@
     "   focal - optional object-position. The statement sits lower-left, so",
     "           bias upward ('center 30%') on photographs with a busy or",
     "           bright bottom edge. Defaults to 'center 38%'.",
+    "   mobilePosition - optional object-position used on phones only. The",
+    "           phone cover is a portrait box, so the photograph fills its",
+    "           height and only the first (horizontal) value moves it. Pick",
+    "           the value that keeps the subject in frame. Defaults to focal.",
     "",
     "RULES",
     "   • Slide 1 is the LCP image: keep the lightest, calmest frame first.",
@@ -40,25 +44,29 @@
       "id": "cape-schanck-rainbow",
       "src": "/images/sourced/home-cover-cape-schanck-rainbow-01.webp",
       "alt": "A rainbow arcs over the bay at Cape Schanck on a still winter morning, Mornington Peninsula",
-      "focal": "center 38%"
+      "focal": "center 38%",
+      "mobilePosition": "50% 50%"
     },
     {
       "id": "sorrento-pier",
       "src": "/images/sourced/home-cover-sorrento-pier-01.webp",
       "alt": "A long pier reaching into calm water past moored boats on a clear Peninsula morning",
-      "focal": "center 30%"
+      "focal": "center 30%",
+      "mobilePosition": "47% 50%"
     },
     {
       "id": "back-beach-horses",
       "src": "/images/sourced/home-cover-back-beach-horses-01.webp",
       "alt": "Riders on horseback along the wet sand of a Mornington Peninsula back beach",
-      "focal": "center 42%"
+      "focal": "center 42%",
+      "mobilePosition": "45% 50%"
     },
     {
       "id": "sunset-bay",
       "src": "/images/sourced/home-cover-sunset-bay-01.webp",
       "alt": "Sunset over a bay beach and boatsheds on the Mornington Peninsula",
-      "focal": "center 34%"
+      "focal": "center 34%",
+      "mobilePosition": "40% 50%"
     }
   ]
 }

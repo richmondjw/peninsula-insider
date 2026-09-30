@@ -1,5 +1,5 @@
 ---
-title: "Peninsula This Weekend - 16 to 17 May"
+title: "Peninsula This Weekend: 16 to 17 May"
 dek: "Mid-May gives the Peninsula back to itself. One forest morning, one market Sunday, nothing that needs to be organised beyond that."
 author: "editorial"
 houseByline: true

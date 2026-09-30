@@ -253,9 +253,9 @@ export const prerender = true;
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
   <!-- 1. Orient: h1 + Editor stand-first (content-guidelines example 1).
-       The compact band contains the page's one filter strip: jump links, the
-       FilterBar and the planning help link, so hero to first pick is one
-       bounded block with no stacked rules. -->
+       The compact band contains the page's one filter strip: jump links and
+       the FilterBar, so hero to first pick is one bounded block with no
+       stacked rules. The planning help is a note under the full list. -->
   <HubStandfirst
     eyebrow="Eat & Drink"
     title="Where to eat on the Mornington Peninsula"
@@ -264,7 +264,6 @@ export const prerender = true;
   >
     <CategoryBrowse directory="directory" noun="places to eat" contained={false}>
       <FilterBar surface="eat" noun="places" label="Filter places to eat" facets={['cat', 'place', 'mood', 'price', 'party']} />
-      <PlanningHelp />
     </CategoryBrowse>
   </HubStandfirst>
 
@@ -296,6 +295,9 @@ export const prerender = true;
     emptyHeading="Nothing matches those filters yet"
     emptyBody="Loosen one and the list comes back."
   >
+    <div slot="after-list" class="eat-list-help">
+      <PlanningHelp />
+    </div>
   </DirectoryRows>
 
   <!-- 4. After the list: the shorter guide lists as plain text links (pills
@@ -357,26 +359,36 @@ export const prerender = true;
 </BaseLayout>
 
 <style>
-  /* A quiet band between the list and the Journal: one full-frame rule, the
-     guide links on the left, the What's On callout on the right. */
+  /* A quiet strip between the list and the Journal band: the guide links on
+     the left, the What's On callout on the right. It always follows the
+     padded directory section, so it adds no top padding of its own: the
+     break is exactly one --section-space. Its columns sit on TheSix's lines
+     (two equal tracks, then 1.4fr/1fr from 64em, 24px gutter), so the
+     callout's left edge meets the shortlist's right column. */
   .eat-more {
-    padding-block: var(--space-6, 2rem);
+    padding-block: 0 var(--section-space, 6rem);
   }
   .eat-more__inner {
     display: grid;
-    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-    gap: var(--space-6, 2rem) var(--space-8, 4rem);
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-6, 2rem) var(--space-5, 1.5rem);
     align-items: start;
-    border-top: 1px solid var(--border);
-    padding-top: var(--space-6, 2rem);
   }
+  @media (min-width: 48em) {
+    .eat-more__inner { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (min-width: 64em) {
+    .eat-more__inner { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); }
+  }
+  /* The links fill their track: three columns at 1440, two where a label
+     would otherwise wrap, one on phones. */
   .eat-rail__list {
     list-style: none;
     margin: 0;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, max-content));
-    gap: 0 var(--space-6, 2rem);
+    grid-template-columns: repeat(auto-fill, minmax(min(11.5rem, 100%), 1fr));
+    gap: 0 var(--space-5, 1.5rem);
   }
   .eat-rail__link {
     display: inline-flex;
@@ -419,8 +431,8 @@ export const prerender = true;
     text-decoration-thickness: 1px;
     text-underline-offset: 0.2em;
   }
-  @media (max-width: 767px) {
-    .eat-more__inner { grid-template-columns: minmax(0, 1fr); }
-    .eat-rail__list { grid-template-columns: minmax(0, 1fr); }
+  /* The planning note closes the full list. */
+  .eat-list-help {
+    margin-top: var(--space-3, 0.75rem);
   }
 </style>

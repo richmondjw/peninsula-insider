@@ -1,6 +1,6 @@
 ---
-title: "The Rainy-Day Peninsula Without a Booking"
-dek: "For the grey Saturday when the forecast turns, the hot springs are full, and you still want the region to feel worth the drive. Coffee, gallery, bakery, brewery, coast  -  in the right order."
+title: "The rainy-day Peninsula without a booking"
+dek: "For the grey Saturday when the forecast turns, the hot springs are full, and you still want the region to feel worth the drive. Coffee, gallery, bakery, brewery, coast, in the right order."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-04-11

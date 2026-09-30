@@ -29,17 +29,57 @@ export function spanLabel(start, end) {
   return `${dayToken(start)} – ${dayToken(end)}`;
 }
 
-/** "Until 22 Nov", with the year only when it differs from `reference`. */
+/** "To 22 Nov", with the year only when it differs from `reference`. */
 export function untilLabel(end, reference) {
   const parts = [end.getUTCDate(), MONTH_SHORT[end.getUTCMonth()]];
   if (end.getUTCFullYear() !== reference.getUTCFullYear()) parts.push(end.getUTCFullYear());
-  return `Until ${parts.join(NBSP)}`;
+  return `To ${parts.join(NBSP)}`;
+}
+
+const DOW_PLURAL = ['Sundays', 'Mondays', 'Tuesdays', 'Wednesdays', 'Thursdays', 'Fridays', 'Saturdays'];
+const DAY_MS = 86400000;
+/** A run that closes this long after the window is "on all weekend", not news. */
+const NEAR_CLOSE_DAYS = 30;
+
+/**
+ * The one cadence vocabulary for the page (WO22). Pick badges, row lead
+ * tokens and shelf tokens all read from here, so one rule never gets two
+ * names: "Daily", "Saturdays", "Thu to Sun", "Fri and Sun", "Monthly",
+ * "To 22 Nov", "All weekend".
+ *
+ * A series gives its cadence. A range needs the window it is read against:
+ * a one-day event gives nothing (its day heading says when), a run held
+ * inside the window gives its own dates, and a run that covers a whole
+ * weekend window and closes more than a month later reads "All weekend"
+ * (its season end belongs on the detail page). Otherwise the closing date.
+ */
+export function cadenceLabel(rule, window) {
+  if (rule.kind === 'monthly') return 'Monthly';
+  if (rule.kind === 'weekly') {
+    const days = rule.days && rule.days.length ? rule.days : rule.day !== undefined ? [rule.day] : [];
+    if (days.length === 0) return 'Weekly';
+    if (days.length >= 7) return 'Daily';
+    if (days.length === 1) return DOW_PLURAL[days[0]];
+    const consecutive = days.every((d, i) => i === 0 || d === (days[i - 1] + 1) % 7);
+    if (consecutive && days.length >= 3) return `${DOW_SHORT[days[0]]} to ${DOW_SHORT[days[days.length - 1]]}`;
+    const names = days.map((d) => DOW_SHORT[d]);
+    return `${names.slice(0, -1).join(', ')} and ${names[names.length - 1]}`;
+  }
+  if (!window) return '';
+  if (sameDay(rule.start, rule.end)) return '';
+  if (rule.start >= window.start && rule.end <= window.end) return spanLabel(rule.start, rule.end);
+  const windowDays = Math.round((window.end.getTime() - window.start.getTime()) / DAY_MS) + 1;
+  const coversWindow = rule.start <= window.start && rule.end >= window.end;
+  const closesLater = rule.end.getTime() - window.end.getTime() > NEAR_CLOSE_DAYS * DAY_MS;
+  if (windowDays <= 3 && coversWindow && closesLater) return 'All weekend';
+  return untilLabel(rule.end, window.start);
 }
 
 /**
- * The cadence of a weekly or monthly series: "Every Saturday", "Every Thu to
- * Sun", "Every Fri and Sun", "Monthly". `short` abbreviates a single weekday
- * too ("Every Sun"), for tight spaces such as an image tag.
+ * The long-form cadence of a weekly or monthly series: "Every Saturday",
+ * "Every Thu to Sun", "Every Fri and Sun", "Monthly". `short` abbreviates a
+ * single weekday too ("Every Sun"). The listing itself now speaks
+ * cadenceLabel() below; this form is kept for callers outside the listing.
  */
 export function recurrenceLabel(rule, { short = false } = {}) {
   if (rule.kind === 'monthly') return 'Monthly';
@@ -56,18 +96,17 @@ export function recurrenceLabel(rule, { short = false } = {}) {
 }
 
 /**
- * The date token a listing row carries for a selected window.
+ * The date token a listing row carries for a selected window: the shared
+ * cadence vocabulary above, read against that window.
  *
  * Calendar selection is not an event closing date: a range that runs past the
- * window says when it really closes ("Until 30 Apr 2027"), a range contained in
- * the window gives its own dates, a one-day event needs no token at all (the
- * day heading above it already says when), and a series gives its cadence.
+ * window says when it closes ("To 22 Nov") unless the close is far off, a
+ * range contained in the window gives its own dates, a one-day event needs no
+ * token at all (the day heading above it already says when), and a series
+ * gives its cadence.
  */
 export function listingDateLabel(rule, window) {
-  if (rule.kind === 'weekly' || rule.kind === 'monthly') return recurrenceLabel(rule);
-  if (sameDay(rule.start, rule.end)) return '';
-  if (rule.start >= window.start && rule.end <= window.end) return spanLabel(rule.start, rule.end);
-  return untilLabel(rule.end, window.start);
+  return cadenceLabel(rule, window);
 }
 
 /**

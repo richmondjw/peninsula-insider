@@ -15,6 +15,8 @@
  * an entry to GUIDES below, dropping a printable Astro page under
  * /guides/<slug>/, and registering it in scripts/render-pdfs.mjs.
  */
+import { existsSync } from 'node:fs';
+import { resolve } from 'node:path';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import SectionHero from '../../components/SectionHero.astro';
@@ -94,6 +96,10 @@ const GUIDES: Guide[] = [
   },
 ];
 
+// A heroImage whose file is missing from public/ renders a designed
+// typographic cover instead of a bare navy block (the JournalStory check).
+const hasPhoto = (src: string) => !src.startsWith('/') || existsSync(resolve('public', src.slice(1)));
+
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
   { label: 'Guides' },
@@ -123,13 +129,20 @@ export const prerender = true;
       <div class="guides-grid">
         {GUIDES.map((g) => (
           <article class={`guide-card guide-card--${g.slug}`} data-guide-card={g.slug}>
-            <div class="guide-card__hero" style={`background-image:url(${g.heroImage})`} aria-hidden="true"></div>
+            {hasPhoto(g.heroImage) ? (
+              <div class="guide-card__hero guide-card__hero--photo" style={`background-image:url(${g.heroImage})`} aria-hidden="true"></div>
+            ) : (
+              <div class="guide-card__hero guide-card__hero--cover" aria-hidden="true">
+                <span class="guide-card__cover-name">{g.season}</span>
+              </div>
+            )}
             <div class="guide-card__body">
               <h2 class="guide-card__title">{g.title}</h2>
               <p class="guide-card__dek">{g.dek}</p>
               {g.ready ? (
                 <a class="guide-pick" href="#guides-signup" data-guide-pick={g.slug}>
-                  Send me this one<span class="visually-hidden">: the {g.season} guide</span>
+                  <svg class="guide-pick__check" aria-hidden="true" viewBox="0 0 16 16" width="16" height="16" fill="none"><path d="m3 8.5 3.2 3L13 4.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  Send me the {g.season} guide
                 </a>
               ) : (
                 <p class="guide-card__soon">Coming soon.</p>
@@ -180,32 +193,19 @@ export const prerender = true;
               <button type="submit" class="guides-signup__button pi-btn pi-btn--solid">Send my guide</button>
             </div>
             <p class="guides-signup__fineprint">You'll join the Peninsula This Weekend dispatch. Unsubscribe any time.</p>
+            <p class="guides-coming">
+              Spring and Summer guides land before the season they're named after. The Easter long weekend special drops a fortnight ahead.
+            </p>
             <p class="guides-signup__status" data-guide-status role="status" hidden></p>
           </div>
         </form>
       </div>
-
-      <p class="guides-coming">
-        Spring and Summer guides land before the season they're named after. The Easter long weekend special drops a fortnight ahead.
-      </p>
     </div>
   </section>
 </BaseLayout>
 
 <style>
-  .visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    padding: 0;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
-    white-space: nowrap;
-    border: 0;
-  }
-
-  /* ── Guide cards: image, season title, dek, one pick chip (GD1) ── */
+  /* ── Guide cards: image, season title, dek, one pick button (GD1, G27) ── */
   .guide-card__body {
     flex: 1;
   }
@@ -216,9 +216,12 @@ export const prerender = true;
     margin-bottom: var(--space-3);
     text-wrap: pretty;
   }
+  /* G27: an outlined secondary button on the 8px button radius, the same
+     shape as the form's "Send my guide". Pills stay with the Guide chips. */
   .guide-pick {
     display: inline-flex;
     align-items: center;
+    gap: var(--space-2);
     align-self: flex-start;
     min-height: 48px;
     margin-top: auto;
@@ -230,28 +233,47 @@ export const prerender = true;
     color: var(--harbour);
     text-decoration: none;
     background: var(--white);
-    border: 1px solid var(--border-strong);
-    border-radius: var(--radius-pill);
+    border: 1px solid var(--harbour);
+    border-radius: var(--radius-s);
     transition:
       background-color var(--dur-fast) var(--ease-enter),
       border-color var(--dur-fast) var(--ease-enter),
       color var(--dur-fast) var(--ease-enter);
   }
   .guide-pick:hover {
-    border-color: var(--harbour);
+    border-color: var(--harbour-h);
     color: var(--harbour-h);
+    background: color-mix(in srgb, var(--harbour) 6%, var(--white));
   }
   .guide-pick:focus-visible {
     outline: var(--focus-ring);
     outline-offset: 2px;
   }
+  .guide-pick__check {
+    display: none;
+    flex: none;
+  }
+  /* Picked: the card and its button take a harbour edge and a check mark;
+     the filled state belongs to the matching chip in the form. */
   .guide-card[data-picked] {
     border-color: var(--harbour);
   }
   .guide-card[data-picked] .guide-pick {
-    background: var(--harbour);
-    border-color: var(--harbour);
-    color: var(--white);
+    border-width: 2px;
+    padding-inline: calc(var(--space-5) - 1px);
+  }
+  .guide-card[data-picked] .guide-pick__check {
+    display: block;
+  }
+  /* The horizontal (odd last) card: the button follows the dek at 24px,
+     not pinned to the foot, so the text group reads as one block. */
+  @media (min-width: 880px) {
+    .guides-grid > .guide-card:last-child:nth-child(odd) .guide-card__dek {
+      margin-bottom: 0;
+    }
+    .guides-grid > .guide-card:last-child:nth-child(odd) .guide-pick {
+      margin-top: var(--space-4);
+    }
   }
   .guide-card__soon {
     margin: auto 0 0;
@@ -275,9 +297,9 @@ export const prerender = true;
   }
   @media (min-width: 900px) {
     .guides-signup__form {
-      grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+      grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
       gap: var(--space-8);
-      align-items: start;
+      align-items: center;
     }
   }
   .guides-signup__seasons {
@@ -418,7 +440,7 @@ export const prerender = true;
 
 <script is:inline>
   /* Newsletter-gate controller for seasonal-guide downloads.
-     One form for every guide. A card's "Send me this one" link selects that
+     One form for every guide. A card's "Send me the ... guide" link selects that
      guide's radio in the form and moves focus to the email field (without
      script it is a plain jump link to the form). POSTs to the existing
      Beehiiv subscribe edge function with a tag 'seasonal-guide-<slug>'; on

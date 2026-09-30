@@ -216,6 +216,23 @@ const isFloating = placement ? placement === 'floating' : floating;
     }
   }
 
+  /* Inline placement (a pair on a line of text, e.g. the ranked walk
+     cards): the visible circle is the full 44px target, 8px apart, so it
+     needs no enlarged hit area. Floating card corners keep the 36px mark. */
+  .pi-actions--inline .pi-actions__btn {
+    height: 2.75rem;
+    min-width: 2.75rem;
+    max-width: 2.75rem;
+    width: 2.75rem;
+  }
+  .pi-actions--inline .pi-actions__btn::before { inset: 0; }
+  @media (hover: hover) and (pointer: fine) {
+    .pi-actions--inline .pi-actions__btn:hover {
+      width: auto;
+      max-width: 8rem;
+    }
+  }
+
   /* Saved state - solid ink fill, paper text */
   .pi-actions__btn--save[aria-pressed="true"] {
     background: var(--ink, #171413);

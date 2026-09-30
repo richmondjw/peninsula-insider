@@ -13,11 +13,15 @@ const labels = { length: Object.fromEntries(lengths.map(o => [o.value, o.label])
 ---
 <section class="plan-builder pi-section" id="build" aria-labelledby="plan-builder-heading">
   <div class="container">
-    <div class="plan-builder__panel" data-plan-matcher>
+    <div class="plan-builder__panel">
       <header class="plan-builder__head">
         <h2 class="pi-h2" id="plan-builder-heading">Find your plan</h2>
         <p class="pi-section-dek">Choose what matters. We’ll show where our published itineraries fit, and where they don’t. <span data-plan-selection-note>All choices are optional.</span></p>
       </header>
+      {/* Phones: the finder folds behind one control so the Editor's pick is reached quickly. From 45rem it is always open and the summary is hidden. */}
+      <details class="plan-builder__sheet" data-plan-matcher open>
+      <summary class="plan-builder__toggle"><span>Filter plans</span><span class="plan-builder__chevron" aria-hidden="true"></span></summary>
+      <script is:inline>(function(){var s=document.currentScript,d=s&&s.parentElement;if(d&&d.matches('details[data-plan-matcher]')&&window.matchMedia('(max-width: 45rem)').matches&&!/[?&](length|who|weather|into|season|context)=/.test(location.search))d.open=false;})();</script>
       <form class="plan-builder__form" data-plan-form>
         <div class="plan-builder__fields">
           <label>How long have you got?<select name="length" data-build-key="length"><option value="">Any length</option>{lengths.map(o => <option value={o.value}>{o.label}</option>)}</select></label>
@@ -30,11 +34,20 @@ const labels = { length: Object.fromEntries(lengths.map(o => [o.value, o.label])
         <label class="plan-builder__season" data-plan-season-control hidden><input type="checkbox" name="season" value="current" /> This season <span>Carried over from your shared link. Clear to search every season.</span></label>
         <div class="plan-builder__actions"><button type="submit" class="pi-btn pi-btn--solid" data-build-go>Find my plan <span aria-hidden="true">↓</span></button><button type="reset" class="pi-btn pi-btn--text" data-build-clear>Reset choices</button></div>
       </form>
+      </details>
     </div>
     <noscript><p>Browse the itineraries below. Matching and copying a trip need JavaScript.</p></noscript>
   </div>
 </section>
 <script type="application/json" id="pi-plan-builder-labels" set:html={JSON.stringify(labels).replace(/</g, '\\u003c')} />
+<script>
+  // Installed once (not per navigation): crossing to 45rem and wider reopens a folded finder,
+  // since its summary is hidden there. The inline script above folds it on phones before paint.
+  const wide = window.matchMedia('(min-width: 45.0625rem)');
+  wide.addEventListener('change', event => {
+    if (event.matches) document.querySelectorAll<HTMLDetailsElement>('details[data-plan-matcher]').forEach(sheet => { sheet.open = true; });
+  });
+</script>
 <style>
   .plan-builder{scroll-margin-top:8rem}
   .plan-builder__panel{border:1px solid var(--border);border-radius:var(--radius-l);background:var(--paper-warm,#F2EFEA);padding:var(--space-6)}
@@ -57,5 +70,18 @@ const labels = { length: Object.fromEntries(lengths.map(o => [o.value, o.label])
   .plan-builder__actions .pi-btn--solid{min-height:48px;gap:.35em}
   .plan-builder__actions .pi-btn--text{min-height:44px;padding-inline:0;font-weight:600}
   .plan-builder__season{display:flex;align-items:center;flex-wrap:wrap;gap:var(--space-2);margin-bottom:var(--space-4);font-size:var(--fs-300);min-height:44px}.plan-builder__season[hidden]{display:none}.plan-builder__season span{color:var(--soft);font-size:var(--fs-200)}
-  @media(max-width:45rem){.plan-builder__panel{padding:var(--space-5)}.plan-builder__fields{grid-template-columns:1fr;gap:var(--space-4)}}
+  .plan-builder__toggle{display:none}
+  .plan-builder__chevron{flex:none;width:.6rem;height:.6rem;margin-right:.3rem;border-right:2px solid var(--harbour);border-bottom:2px solid var(--harbour);transform:translateY(-25%) rotate(45deg);transition:transform var(--dur-fast) var(--ease-enter)}
+  .plan-builder__sheet[open] .plan-builder__chevron{transform:translateY(25%) rotate(-135deg)}
+  @media(prefers-reduced-motion:reduce){.plan-builder__chevron{transition:none}}
+  @media(max-width:45rem){
+    .plan-builder__panel{padding:var(--space-5)}
+    .plan-builder__fields{grid-template-columns:1fr;gap:var(--space-4)}
+    .plan-builder__head{margin-bottom:var(--space-4)}
+    .plan-builder__toggle{display:flex;align-items:center;justify-content:space-between;gap:var(--space-4);width:100%;min-height:48px;padding:0 var(--space-4);border:1px solid var(--border-strong);border-radius:var(--radius-s);background:var(--white);font:600 var(--fs-300)/1.4 var(--font-ui);color:var(--text);list-style:none;cursor:pointer}
+    .plan-builder__toggle::-webkit-details-marker{display:none}
+    .plan-builder__toggle:hover{border-color:var(--harbour)}
+    .plan-builder__toggle:focus-visible{outline:var(--focus-ring);outline-offset:2px}
+    .plan-builder__sheet[open]>.plan-builder__form{margin-top:var(--space-5)}
+  }
 </style>

@@ -1,13 +1,12 @@
 ---
 import { editableImage } from '../../../lib/inline-edit/attrs';
-import { routePreviewParts, planFacts } from './plan-preview';
+import { routePreviewParts, planFacts, stopsSummary } from './plan-preview';
 import type { PlanRecord } from './plans-data';
 export interface Props { plan: PlanRecord; index: number; }
 const { plan, index } = Astro.props;
 const featured = index === 0;
 const days = [...new Set(plan.stops.map(stop => stop.day))].sort((a,b) => a-b);
 const facts = planFacts(plan);
-const SEP = ' · ';
 const checked = plan.verifiedAt ? new Date(plan.verifiedAt).toLocaleDateString('en-AU', { day:'numeric',month:'short',year:'numeric',timeZone:'UTC' }) : '';
 ---
 <article class:list={['plan-recommendation', { 'plan-recommendation--featured': featured }]} data-plan-card={index}>
@@ -24,8 +23,7 @@ const checked = plan.verifiedAt ? new Date(plan.verifiedAt).toLocaleDateString('
       <p data-slot="matched"></p><p class="plan-recommendation__missing" data-slot="missing"></p>
     </div>
     <div class="plan-recommendation__preview">
-      <p class="plan-recommendation__route-line" data-slot="route-preview">{routePreviewParts(plan).map((part, n) => <>{n > 0 && SEP}<span class="nowrap-seg"><span class="plan-day-label">{part.label}</span>{part.route}</span></>)}</p>
-      <p data-slot="booking-preview" hidden={!plan.bookingNote}>{plan.bookingNote}</p>
+      <ol class="plan-route plan-recommendation__route-line" data-slot="route-preview" role="list">{routePreviewParts(plan).map(part => <li><span class="plan-day-label">{part.label}</span>{part.route}</li>)}</ol>
     </div>
     <div class="plan-recommendation__actions">
       <a class="pi-btn pi-btn--solid" href={plan.href} data-slot="read">See the itinerary <span aria-hidden="true">→</span></a>
@@ -33,9 +31,10 @@ const checked = plan.verifiedAt ? new Date(plan.verifiedAt).toLocaleDateString('
     </div>
   </div>
   <details class="plan-recommendation__route" data-slot="route">
-    <summary><span>See the stops</span><span class="plan-recommendation__chevron" aria-hidden="true"></span></summary>
+    <summary><span data-slot="route-summary">{stopsSummary(plan.stops.length)}</span><span class="plan-recommendation__chevron" aria-hidden="true"></span></summary>
     <div class="plan-recommendation__route-inner">
       <ol class="plan-recommendation__days" data-slot="days">{days.map(day => <li><span>Day {day}</span><p>{plan.stops.filter(stop => stop.day === day).map(stop => stop.title).join(' → ')}</p></li>)}</ol>
+      <p class="plan-recommendation__practical" data-slot="booking" hidden={!plan.bookingNote}>{plan.bookingNote}</p>
       <p class="plan-recommendation__practical" data-slot="driving" hidden={!plan.driveMins}>{plan.driveMins ? `Editorial route estimate: ${plan.driveMins} minutes driving. My Trip recalculates from your selected stops; allow extra time for traffic and parking.` : ''}</p>
       <p class="plan-recommendation__practical" data-slot="verified" hidden={!checked}>{checked ? `Information checked ${checked}. Confirm current hours and booking requirements with each operator.` : ''}</p>
     </div>
@@ -55,11 +54,11 @@ const checked = plan.verifiedAt ? new Date(plan.verifiedAt).toLocaleDateString('
   .plan-recommendation__reason{font:var(--fs-400)/1.6 var(--font-ui);margin:0 0 var(--space-3);color:var(--text);max-width:62ch;text-wrap:pretty}
   .plan-recommendation__facts{display:flex;flex-wrap:wrap;gap:0 .5em;list-style:none;padding:0;margin:0 0 var(--space-5);font:var(--fs-200)/1.5 var(--font-ui);color:var(--soft)}
   .plan-recommendation__facts li{white-space:nowrap}
-  .plan-recommendation__facts li+li::before{content:'·';margin-right:.5em;color:var(--border-strong)}
+  .plan-recommendation__facts li:not(:last-child)::after{content:'\00B7';content:'\00B7' / '';margin-left:.5em;color:var(--border-strong)}
   .plan-recommendation__preview{border-block:1px solid var(--border);padding:var(--space-3) 0;margin:0 0 var(--space-5);font:var(--fs-300)/1.6 var(--font-ui)}
-  .plan-recommendation__preview p{margin:var(--space-1) 0;max-width:68ch;text-wrap:pretty}
-  .plan-recommendation__preview p+p{color:var(--soft)}
-  .plan-recommendation__preview .plan-day-label{white-space:nowrap}
+  .plan-route{list-style:none;padding:0;margin:0;max-width:68ch}
+  .plan-route li{display:block;margin:var(--space-1) 0;text-wrap:pretty}
+  .plan-route .plan-day-label{white-space:nowrap;font-weight:600;color:var(--text)}
   .plan-recommendation__actions{display:flex;align-items:center;flex-wrap:wrap;gap:var(--space-2) var(--space-5);margin-top:auto}
   .plan-recommendation__actions .pi-btn--solid{min-height:48px;gap:.35em}
   .plan-recommendation__actions .pi-btn--text{padding-inline:0;min-height:44px;font-weight:600}
@@ -80,14 +79,20 @@ const checked = plan.verifiedAt ? new Date(plan.verifiedAt).toLocaleDateString('
   .plan-recommendation__practical{font:var(--fs-200)/1.6 var(--font-ui);color:var(--soft);margin:var(--space-3) 0 0;max-width:68ch}
   .plan-recommendation--featured{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);grid-template-areas:"body media" "route route";column-gap:var(--space-7);height:auto;padding:var(--space-6) var(--space-6) var(--space-5);border:1px solid var(--border);border-radius:var(--radius-l);background:var(--paper-warm,#F2EFEA)}
   .plan-recommendation--featured:has(>.plan-recommendation__media[hidden]){grid-template-columns:minmax(0,1fr);grid-template-areas:"body" "route"}
-  .plan-recommendation--featured .plan-recommendation__media{grid-area:media;margin:0;aspect-ratio:4/3;align-self:start}
-  .plan-recommendation--featured .plan-recommendation__body{grid-area:body}
+  .plan-recommendation--featured .plan-recommendation__media{grid-area:media;margin:0;aspect-ratio:3/2;align-self:start}
+  /* The featured body is composed, not stretched: its actions sit one step under the route rule and the
+     column centres against the image, instead of margin-top:auto opening a void above the button. */
+  .plan-recommendation--featured .plan-recommendation__body{grid-area:body;align-self:center}
+  .plan-recommendation--featured .plan-recommendation__actions{margin-top:0}
   .plan-recommendation--featured .plan-recommendation__route{grid-area:route}
   .plan-recommendation--featured h3{font-size:clamp(1.5rem,1.2rem + 1.2vw,2.25rem);line-height:1.12;margin-bottom:var(--space-4)}
-  @media(min-width:64em){.plan-recommendation__route-line .nowrap-seg{white-space:nowrap}}
   @media(max-width:56rem){
     .plan-recommendation--featured{grid-template-columns:minmax(0,1fr);grid-template-areas:"media" "body" "route";padding:var(--space-5)}
-    .plan-recommendation--featured .plan-recommendation__media{margin-bottom:var(--space-5);aspect-ratio:3/2}
+    .plan-recommendation--featured .plan-recommendation__media{margin-bottom:var(--space-5)}
+  }
+  /* Every card stacks its action pair the same way on phones, whatever its padding. */
+  @media(max-width:45rem){
+    .plan-recommendation__actions{flex-direction:column;align-items:flex-start;gap:var(--space-3)}
   }
   @media(prefers-reduced-motion:reduce){.plan-recommendation__chevron{transition:none}}
 </style>

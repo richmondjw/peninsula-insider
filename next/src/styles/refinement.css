@@ -4,6 +4,9 @@ body[data-v4] :is(.guide-hero,.section-hero,.subpage-hero) { padding-block: var(
 /* G3: the section-hero rule sits on the 1280 frame, so its bottom padding lives inside the container. */
 body[data-v4] .section-hero { padding-bottom: 0; }
 body[data-v4] .section-hero > .container { padding-bottom: var(--refine-section); }
+/* G27: a text-only hero is a compact opening, 48px above and below at most, so its open right side reads as margin. */
+body[data-v4] .section-hero:has(.section-hero__inner--text-only) { padding-top: min(var(--space-7), var(--refine-section)); }
+body[data-v4] .section-hero:has(.section-hero__inner--text-only) > .container { padding-bottom: min(var(--space-7), var(--refine-section)); }
 body[data-v4] :is(.guide-hero__inner,.section-hero__inner,.subpage-hero__inner) { gap: var(--refine-gap); }
 body[data-v4] :is(.guide-hero__title,.section-hero__title,.subpage-hero__title) { font-size: clamp(2.25rem,4.3vw,3.75rem); line-height: 1.1; letter-spacing: -.035em; text-wrap: balance; overflow-wrap: anywhere; }
 body[data-v4] :is(.guide-hero__dek,.section-hero__dek,.subpage-hero__prose) { font-family: var(--font-ui); font-size: var(--fs-500); line-height: var(--lh-body); max-width: var(--measure-dek); text-wrap: pretty; }
@@ -20,7 +23,9 @@ body[data-v4] .article-hero__tags { gap: .5rem 1rem; }
 body[data-v4] .article-hero__image { aspect-ratio: 1; filter: none; }
 body[data-v4] :is(.article-hero__credit,.guide-hero__credit,.venue-detail__hero-credit) { font-size: var(--fs-100); line-height: 1.5; letter-spacing: .02em; text-transform: none; }
 /* G2: 1.6 leading at 17px (1.55 on phones) and 1em paragraph steps; 1.75 plus 1.5rem margins read loose. */
-body[data-v4] .prose { max-width: var(--measure-prose); line-height: 1.6; overflow-wrap: break-word; }
+/* G25: the frame stays ~740px so H2s and tables may run wider; paragraphs and lists take the 38rem measure. */
+body[data-v4] .prose { max-width: max(var(--prose-w), var(--measure-prose)); line-height: 1.6; overflow-wrap: break-word; }
+body[data-v4] .prose > :is(p,ul,ol,dl,blockquote) { max-width: var(--measure-prose); }
 body[data-v4] .prose p { margin-bottom: 1em; }
 body[data-v4] .prose :is(h2,h3) { line-height: 1.22; text-wrap: balance; scroll-margin-top: 9rem; }
 body[data-v4] .prose h2 { line-height: var(--lh-heading); margin-top: var(--space-heading-above); margin-bottom: var(--space-heading-below); }
@@ -83,6 +88,7 @@ body[data-v4] :is(button,input,textarea,select):disabled { cursor: not-allowed; 
   body[data-v4] .article-hero__title { font-size: clamp(2rem,7.5vw,2.6rem); }
   body[data-v4] .article-hero__image { aspect-ratio: 1.4; }
   body[data-v4] :is(.guide-hero__dek,.section-hero__dek,.article-hero__dek,.venue-detail__signature) { font-size: var(--fs-400); }
+  body[data-v4] .section-hero__dek { text-wrap: wrap; max-width: none; }
   body[data-v4] :is(.guide-hero__inner,.subpage-hero__inner) { gap: var(--space-5); }
   body[data-v4] .venue-detail__hero { max-height: 22rem; }
   body[data-v4] .prose { line-height: 1.55; }

@@ -60,6 +60,8 @@ export interface PlanRecord {
   /** editableImage fieldPath ('heroImage' for itineraries, 'hero' for articles). */
   imageField: string;
   meta: string[];
+  /** The area token of meta, when there is one (guide eyebrows show it alone on phones). */
+  area?: string;
   dayCount?: number;
   /** Nights as published on the itinerary (lengthNights); guides omit it. */
   nights?: number;
@@ -131,22 +133,40 @@ export function durationLabel(plan: { dayCount?: number; nights?: number }): str
   return '';
 }
 
+/** The region label a plan is filed under, if any. */
+function areaFor(record: { facets: Partial<Record<FacetKey, string[]>> }): string | undefined {
+  const region = (record.facets.place ?? []).find((p) => REGION_LABELS.has(p));
+  return region ? REGION_LABELS.get(region) : undefined;
+}
+
+/**
+ * A guide's own shape, when it is shorter than a day. planShape 'half-day'
+ * still files the guide under the 'one-day' facet (see lib/facets), so the
+ * finder selects it exactly as before; only the label is truer.
+ */
+function guideDuration(data: { planShape?: unknown }): string | undefined {
+  return String(data.planShape ?? '') === 'half-day' ? 'Half day' : undefined;
+}
+
 function metaFor(record: {
   facets: Partial<Record<FacetKey, string[]>>;
   dayCount?: number;
   nights?: number;
+  duration?: string;
 }): string[] {
   const chips: string[] = [];
   const dates = record.facets.date ?? [];
   if (record.dayCount) {
     chips.push(durationLabel(record));
+  } else if (record.duration) {
+    chips.push(record.duration);
   } else if (dates.includes('one-day')) {
     chips.push('One day');
   } else if (dates.includes('weekend')) {
     chips.push('Weekend');
   }
-  const region = (record.facets.place ?? []).find((p) => REGION_LABELS.has(p));
-  if (region) chips.push(REGION_LABELS.get(region)!);
+  const area = areaFor(record);
+  if (area) chips.push(area);
   const party = (record.facets.party ?? [])[0];
   if (party && PARTY_LABELS.has(party)) chips.push(PARTY_LABELS.get(party)!);
   return chips.slice(0, 3);
@@ -272,7 +292,8 @@ export async function buildPlansModel(now: Date = new Date()): Promise<PlansMode
         facets,
         publishedAt: a.data.publishedAt?.getTime?.() ?? 0,
       };
-      base.meta = metaFor(base);
+      base.meta = metaFor({ ...base, duration: guideDuration(a.data) });
+      base.area = areaFor(base);
       return base;
     }),
   );

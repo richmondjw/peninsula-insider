@@ -33,9 +33,9 @@ const ITINERARY_CURATION: Record<string, PlanCuration> = {
   },
   'sorrento-off-season-weekend': {
     displayTitle: 'Sorrento, off season',
-    editorialReason: 'Use Sorrento as your base for the back beach and Point Nepean. The second dinner is a drive out to Pt. Leo.',
+    editorialReason: 'Use Sorrento as your base for the back beach and Point Nepean. The second dinner is a drive out to Point Leo.',
     editorialPriority: 80,
-    bookingNote: 'Book the stay and both dinners. Allow for the Pt. Leo return drive and check park access before setting out.',
+    bookingNote: 'Book the stay and both dinners. Allow for the Point Leo return drive and check park access before setting out.',
   },
   'wellness-weekend': {
     displayTitle: 'The wellness weekend',

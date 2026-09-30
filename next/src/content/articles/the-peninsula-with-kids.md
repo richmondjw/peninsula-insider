@@ -1,5 +1,5 @@
 ---
-title: "The Peninsula with Kids: A Day That Doesn't Punish Anyone"
+title: "The Peninsula with kids: a day that doesn’t punish anyone"
 dek: "A working plan for parents who want the region to feel like a holiday, not a logistics problem. One lookout, one lunch with a garden, one beach, one coffee on the way home."
 author: "editorial"
 houseByline: true

@@ -1,5 +1,5 @@
 ---
-title: "The Spring Peninsula: Why September and October Are the Region's Most Underrated Weekends"
+title: "The Spring Peninsula: why September and October are the region’s most underrated weekends"
 dek: "The vines coming back into leaf, the back beaches at their cleanest, the cellar doors quiet enough to actually talk to the winemakers, and the first warm afternoons of the year. The case for coming down in spring, before everyone else remembers to."
 author: "editorial"
 houseByline: true

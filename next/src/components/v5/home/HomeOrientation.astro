@@ -14,16 +14,27 @@ const areas = [
       </div>
       <a class="pi-section-link" href="/map/">Open the map <span aria-hidden="true">&rarr;</span></a>
     </header>
-    <ul class="home-orientation__list">{areas.map((area) => <li><h3><a href={area.href}>{area.title}</a></h3><p>{area.text}</p></li>)}</ul>
+    <ul class="home-orientation__list">{areas.map((area) => <li><h3><a href={area.href}>{area.title}<span class="home-orientation__arrow" aria-hidden="true">&nbsp;&rarr;</span></a></h3><p>{area.text}</p></li>)}</ul>
   </div>
 </section>
 <style>
   /* Head, link and vertical spacing come from the shared .pi-section-head
      and .pi-section canon (G1); the region list is local. */
+  /* After the warm doors band this section starts on a new ground, so it
+     keeps its full top padding even where same-ground sections collapse
+     theirs (G23). */
+  :global(body .home-doors.pi-section) + .home-orientation.pi-section { padding-top: var(--section-space); }
   .home-orientation__list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-5); }
   .home-orientation__list li { border-top: 1px solid var(--border); padding-top: var(--space-4); }
   .home-orientation__list h3 { margin: 0; font-family: var(--font-display); font-weight: var(--fw-display); font-size: var(--fs-500); line-height: var(--lh-heading); letter-spacing: var(--ls-display); text-wrap: balance; }
-  .home-orientation__list h3 a { color: var(--text); text-decoration: none; display: inline-flex; align-items: center; min-height: 44px; transition: color var(--dur-fast) var(--ease-enter); }
+  /* Region titles are links: a harbour arrow at rest says so. The link is
+     inline text (not a flex box), so on hover one underline runs under the
+     name and the arrow together; the arrow is joined to the last word by a
+     no-break space so it never wraps alone. 10px of block padding lifts
+     the hit area to 44px without moving the layout. */
+  .home-orientation__list h3 a { display: inline; padding-block: 0.625rem; color: var(--text); text-decoration: none; transition: color var(--dur-fast) var(--ease-enter); }
+  .home-orientation__list h3 { padding-block: 0.625rem; }
+  .home-orientation__arrow { color: var(--harbour); }
   .home-orientation__list h3 a:hover { color: var(--harbour); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
   .home-orientation__list h3 a:focus-visible { outline: 2px solid var(--focus-ring-color); outline-offset: 3px; border-radius: 2px; }
   .home-orientation__list p { color: var(--soft); font-size: var(--fs-300); line-height: 1.6; margin: var(--space-1) 0 0; max-width: 48ch; text-wrap: pretty; }

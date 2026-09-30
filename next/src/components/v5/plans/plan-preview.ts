@@ -15,11 +15,11 @@ export function routePreview(plan: Pick<PlanRecord, 'stops'>): string {
 }
 
 /**
- * The same route as one segment per day, set for display. The label ('Day 1:')
- * is rendered as its own unbreakable unit and joined to the first place by a
- * non-breaking space; each place name is kept whole and every arrow is bound
- * to the place before it. A line can then only break after an arrow or between
- * days, never inside a token.
+ * The same route as one part per day, left unjoined so each day renders as its
+ * own line (no separator between days). The label ('Day 1:') is rendered as
+ * its own unbreakable unit and joined to the first place by a non-breaking
+ * space; each place name is kept whole and every arrow is bound to the place
+ * before it, so a day can only wrap after an arrow, never inside a token.
  */
 export function routePreviewParts(plan: Pick<PlanRecord, 'stops'>): Array<{ label: string; route: string }> {
   const keep = (text: string) => text.replace(/ /g, NBSP);
@@ -27,6 +27,12 @@ export function routePreviewParts(plan: Pick<PlanRecord, 'stops'>): Array<{ labe
     label: `Day ${day}:`,
     route: `${NBSP}${route.map(keep).join(`${NBSP}→ `)}`,
   }));
+}
+
+/** The label of the stops disclosure, which also holds the practical notes. */
+export function stopsSummary(count: number): string {
+  if (count > 1) return `All ${count} stops and notes`;
+  return count === 1 ? 'The stop and notes' : 'Stops and notes';
 }
 
 /** One facts line per itinerary: duration, stop count, area and company, each stated once. */

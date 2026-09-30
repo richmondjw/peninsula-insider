@@ -1,6 +1,6 @@
 ---
-title: "The Seafood List: Where the Fish Comes Off the Boat and Onto the Plate"
-dek: "The Peninsula is a wine region that happens to be surrounded by water. The seafood story is quieter than the pinot story, but it is arguably the more honest one  -  and the best of it is very, very good."
+title: "The seafood list: where the fish comes off the boat and onto the plate"
+dek: "The Peninsula is a wine region that happens to be surrounded by water. The seafood story is quieter than the pinot story, but it is arguably the more honest one, and the best of it is very, very good."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-04-10

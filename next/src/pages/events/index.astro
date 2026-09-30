@@ -19,7 +19,7 @@ type SignatureKind = 'event' | 'roundup';
 const canonicalOrder: Array<{ slug: string; name: string; location: string; monthAnchor: string; kind: SignatureKind }> = [
   { slug: 'portsea-polo', name: 'Portsea Polo', location: 'Portsea', monthAnchor: 'Mid-summer', kind: 'event' },
   { slug: 'sorrento-writers-festival', name: 'Sorrento Writers Festival', location: 'Sorrento', monthAnchor: 'Late April', kind: 'event' },
-  { slug: 'winter-wine-weekend', name: 'Winter Wine Weekend', location: 'Red Hill plateau', monthAnchor: "June (King's Birthday weekend)", kind: 'event' },
+  { slug: 'winter-wine-weekend', name: 'Winter Wine Weekend', location: 'Red Hill plateau', monthAnchor: 'June (King’s Birthday weekend)', kind: 'event' },
   { slug: 'portsea-swim-classic', name: 'Portsea Swim Classic', location: 'Portsea', monthAnchor: 'January', kind: 'event' },
   { slug: 'peninsula-film-festival', name: 'Peninsula Film Festival', location: 'Mornington Peninsula', monthAnchor: 'Dates vary', kind: 'event' },
   { slug: 'portsea-twilight', name: 'Portsea Twilight', location: 'Portsea', monthAnchor: 'Early January', kind: 'event' },
@@ -64,13 +64,40 @@ const cards = canonicalOrder.map((item) => {
 const namedEvents = cards.filter((c) => c.kind === 'event');
 const roundups = cards.filter((c) => c.kind === 'roundup');
 
-// Two groups, one card markup. On phones the named events keep their first
-// two cards full size and set the rest as compact rows; the round-ups are
-// compact rows until there is room for all three side by side.
+// Two groups, one card markup, each under a visible section head. On phones
+// every named event is a compact row; the round-ups are compact rows until
+// there is room for all three side by side.
 const groups = [
-  { key: 'events', cards: namedEvents, heading: 'Signature events', eyebrow: null, visibleHead: false },
-  { key: 'roundups', cards: roundups, heading: 'Round-ups', eyebrow: 'Across the year', visibleHead: true },
+  { key: 'events', cards: namedEvents, heading: 'Signature events', eyebrow: 'Named events' },
+  { key: 'roundups', cards: roundups, heading: 'Round-ups', eyebrow: 'Across the year' },
 ];
+
+// The typographic plate stands in for a missing or repeated photograph. It
+// carries the card's own month and name, never the site wordmark. The 96px
+// compact thumbnail uses a short form of each: a three-letter month when the
+// anchor names one, and the last two words of the event name.
+const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+function plateMonth(anchor: string): string {
+  const month = MONTHS.find((name) => anchor.includes(name));
+  // An anchor that names no month ('Year-round', 'Dates vary') is too long
+  // for the thumbnail; the short plate then carries the name alone.
+  return month ? month.slice(0, 3) : '';
+}
+function plateName(name: string): string {
+  return name.split(/\s+/).slice(-2).join(' ');
+}
+
+// Hyphenated compounds ('cool-climate', 'short-film') travel as one unit, so
+// a narrow compact column never breaks them at the hyphen. Same split as the
+// shared card titles; no U+2011, which Sora and Figtree do not carry.
+// Record text can carry typewriter apostrophes; the page sets them as ’.
+function compoundParts(text: string): Array<{ text: string; compound: boolean }> {
+  return text
+    .replace(/(?<=\w)'(?=\w)/g, '’')
+    .split(/(\S+-\S+)/)
+    .filter((part) => part !== '')
+    .map((part) => ({ text: part, compound: /\S+-\S+/.test(part) }));
+}
 
 const canonical = 'https://peninsulainsider.com.au/events/';
 const description = "Editorial guides to the Mornington Peninsula's most recognisable annual events: the Peninsula calendar's anchor moments.";
@@ -93,14 +120,14 @@ export const prerender = true;
   <Breadcrumbs items={breadcrumbItems} />
 
   <SubpageHero
-    eyebrow="What's On"
-    title={`Signature Events: the Peninsula calendar's <em>anchor moments</em>`}
+    eyebrow="What’s On"
+    title={`Signature Events: the Peninsula calendar’s <em>anchor moments</em>`}
     heroImage="/images/sourced/wine-hub-hero-01.webp"
     imageAlt="Mornington Peninsula vineyard in winter, the cool-climate wine country where many of the Peninsula's biggest annual events run."
     entitySlug="events"
   >
     <p class="subpage-hero__dek">
-      Editorial guides to the Mornington Peninsula's most recognisable annual events: the dates locals plan their year around and the ones that define a season.
+      Editorial guides to the Mornington Peninsula’s most recognisable annual events: the dates locals plan their year around and the ones that define a season.
     </p>
   </SubpageHero>
 
@@ -108,25 +135,19 @@ export const prerender = true;
     <div class="container">
       {groups.map((group) => (
         <div class={`signature-group signature-group--${group.key}`}>
-          {group.visibleHead ? (
-            <div class="pi-section-head">
-              <div class="pi-section-head__text">
-                {group.eyebrow && <p class="pi-eyebrow">{group.eyebrow}</p>}
-                <h2 class="pi-h2" id={`signature-group-${group.key}`}>{group.heading}</h2>
-              </div>
+          <div class="pi-section-head">
+            <div class="pi-section-head__text">
+              <p class="pi-eyebrow">{group.eyebrow}</p>
+              <h2 class="pi-h2" id={`signature-group-${group.key}`}>{group.heading}</h2>
             </div>
-          ) : (
-            <h2 class="visually-hidden" id={`signature-group-${group.key}`}>{group.heading}</h2>
-          )}
+          </div>
           <ul class={`signature-events-grid signature-events-grid--${group.key}`} role="list">
-            {group.cards.map((card, i) => {
-              const rowClass = group.key === 'roundups'
-                ? 'signature-card--row-md'
-                : i >= 2 ? 'signature-card--row-sm' : '';
+            {group.cards.map((card) => {
+              const rowClass = group.key === 'roundups' ? 'signature-card--row-md' : 'signature-card--row-sm';
               return (
                 <li class:list={['signature-card', rowClass, { 'signature-card--placeholder': !card.published }]}>
-                  {/* An unpublished card keeps the same anatomy as a placeholder
-                      link: an <a> with no href is not focusable or clickable. */}
+                  {/* The whole card is the link. An unpublished card keeps the
+                      same anatomy: an <a> with no href is not focusable. */}
                   <a
                     class:list={['signature-card__link', { 'signature-card__link--placeholder': !card.published }]}
                     href={card.published ? `/events/${card.slug}/` : undefined}
@@ -139,23 +160,34 @@ export const prerender = true;
                     ) : (
                       <div class="signature-card__image signature-card__image--plate" aria-hidden="true">
                         <span class="signature-card__plate-rule"></span>
-                        <span class="signature-card__plate-mark">Peninsula Insider</span>
+                        <span class="signature-card__plate-when signature-card__plate-when--full">{card.monthAnchor}</span>
+                        {plateMonth(card.monthAnchor) && <span class="signature-card__plate-when signature-card__plate-when--short">{plateMonth(card.monthAnchor)}</span>}
+                        <span class="signature-card__plate-name signature-card__plate-name--full">{card.name}</span>
+                        <span class="signature-card__plate-name signature-card__plate-name--short">{plateName(card.name)}</span>
                       </div>
                     )}
                     <div class="signature-card__body">
+                      {/* The dot lives in the location token's leading gap. On a
+                          wrapped chip that gap falls outside the clip, so a dot
+                          never opens or closes a line on its own. */}
                       <p class="signature-card__chip">
-                        {card.monthAnchor}<span class="signature-card__sep"> · </span><span class="signature-card__where">{card.location}</span>
+                        <span class="signature-card__when">{card.monthAnchor}</span>
+                        <span class="signature-card__where"><span class="signature-card__sep" aria-hidden="true">·</span><span class="visually-hidden">, </span>{card.location}</span>
                       </p>
                       <h3 class="signature-card__title">{card.name}</h3>
                       {card.published ? (
-                        card.summary && <p class="signature-card__summary">{card.summary}</p>
+                        card.summary && (
+                          <p class="signature-card__summary">
+                            {compoundParts(card.summary).map((part) => part.compound ? <span class="signature-card__nb">{part.text}</span> : part.text)}
+                          </p>
+                        )
                       ) : (
-                        <p class="signature-card__summary">We're working through the Signature Events series.</p>
+                        <p class="signature-card__summary">We’re working through the Signature Events series.</p>
                       )}
                       {card.published ? (
-                        <p class="signature-card__cta">Read the guide &rarr;</p>
+                        <span class="visually-hidden">Read the guide to {card.name}</span>
                       ) : (
-                        <p class="signature-card__cta signature-card__cta--muted">Coming soon</p>
+                        <p class="signature-card__status">Coming soon</p>
                       )}
                     </div>
                   </a>
@@ -173,14 +205,16 @@ export const prerender = true;
 
 <style>
   /* Signature-event cards on the Harbour system: one hairline, 16px radius,
-     sand-text chip, Sora title, a harbour text CTA. The named events and the
-     round-ups sit in separate grids sized to their counts (8 = 2 x 4,
-     3 = 1 x 3), so neither grid ends on an empty cell. */
+     sand-text chip, Sora title. The whole card is the link, so there is no
+     per-card text CTA. The named events and the round-ups sit in separate
+     grids sized to their counts (8 = 2 x 4, 3 = 1 x 3), so neither grid ends
+     on an empty cell. Both grids share one card rhythm; only the column
+     count differs. */
   .signature-events-index {
-    padding-block: var(--space-7) var(--section-space);
+    padding-block: var(--section-space);
   }
   .signature-group + .signature-group {
-    margin-top: var(--space-8);
+    margin-top: var(--section-space);
   }
   .visually-hidden {
     position: absolute;
@@ -201,6 +235,13 @@ export const prerender = true;
     grid-template-columns: minmax(0, 1fr);
     gap: var(--space-5);
   }
+  /* Compact rows sit closer together than full cards. */
+  @media (max-width: 639px) {
+    .signature-events-grid--events { gap: var(--space-3); }
+  }
+  @media (max-width: 899px) {
+    .signature-events-grid--roundups { gap: var(--space-3); }
+  }
   @media (min-width: 640px) {
     .signature-events-grid--events { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
@@ -212,6 +253,7 @@ export const prerender = true;
   }
 
   .signature-card {
+    position: relative;
     border: 1px solid var(--border);
     background: var(--white);
     border-radius: var(--radius-m);
@@ -255,31 +297,57 @@ export const prerender = true;
     object-fit: cover;
     display: block;
   }
-  /* House plate: a card whose photograph would repeat another card's. */
+  /* Typographic plate: stands in for a missing or repeated photograph with
+     the card's own month and name on harbour-deep, under a sand rule. The
+     full card uses the full month anchor and name; the 96px compact
+     thumbnail swaps in the short forms so the text stays legible. */
   .signature-card__image--plate {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: var(--space-3);
+    justify-content: flex-end;
+    gap: var(--space-2);
     padding: var(--space-4) var(--space-5);
-    background: var(--bg-dark);
+    background: var(--harbour-deep);
   }
   .signature-card__plate-rule {
     display: block;
+    flex: none;
     width: 2.25rem;
     height: 2px;
+    margin-bottom: var(--space-1);
     background: var(--sand);
   }
-  .signature-card__plate-mark {
-    display: block;
-    max-width: 7ch;
+  .signature-card__plate-when {
+    font-family: var(--font-ui);
+    font-size: var(--fs-100);
+    font-weight: var(--fw-semibold);
+    line-height: var(--lh-label);
+    letter-spacing: var(--ls-eyebrow);
+    text-transform: uppercase;
+    color: var(--sand);
+  }
+  .signature-card__plate-name {
     font-family: var(--font-display);
     font-size: var(--fs-600);
     font-weight: var(--fw-display);
     line-height: var(--lh-heading);
     letter-spacing: var(--ls-display);
     color: var(--white);
+    text-wrap: balance;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    overflow: hidden;
   }
+  .signature-card__plate-when--short,
+  .signature-card__plate-name--short {
+    display: none;
+  }
+
+  /* Card body: a plain flex column with one rhythm (chip, title, summary),
+     independent of the neighbouring cards. The grid stretches every card to
+     its row, so any slack falls below the text, not between it. */
   .signature-card__body {
     padding: var(--space-4) var(--space-5) var(--space-5);
     display: flex;
@@ -287,18 +355,37 @@ export const prerender = true;
     gap: var(--space-2);
     flex: 1;
   }
+  /* The chip wraps as whole tokens. Each token carries a leading gap and the
+     row is pulled left by the same amount and clipped there, so the dot in
+     a token that starts a new line sits in the clipped strip. */
   .signature-card__chip {
+    --chip-gap: 1.25em;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 0 0 calc(var(--chip-gap) * -1);
+    clip-path: inset(0 0 0 var(--chip-gap));
     font-family: var(--font-ui);
     font-size: var(--fs-100);
     line-height: var(--lh-ui);
     text-transform: uppercase;
     letter-spacing: var(--ls-eyebrow);
     color: var(--sand-text);
-    margin: 0;
     font-weight: var(--fw-semibold);
+  }
+  .signature-card__when,
+  .signature-card__where {
+    position: relative;
+    margin-left: var(--chip-gap);
   }
   .signature-card__where {
     white-space: nowrap;
+  }
+  .signature-card__sep {
+    position: absolute;
+    right: 100%;
+    width: var(--chip-gap);
+    text-align: center;
+    letter-spacing: 0;
   }
   .signature-card__title {
     font-family: var(--font-display);
@@ -310,6 +397,11 @@ export const prerender = true;
     letter-spacing: var(--ls-display);
     text-wrap: balance;
   }
+  .signature-card__link[href]:hover .signature-card__title {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.14em;
+  }
   .signature-card__summary {
     margin: 0;
     font-family: var(--font-ui);
@@ -318,97 +410,59 @@ export const prerender = true;
     line-height: var(--lh-dek);
     text-wrap: pretty;
   }
-  .signature-card__cta {
+  .signature-card__nb {
+    white-space: nowrap;
+  }
+  .signature-card__status {
     margin: 0;
-    margin-top: auto;
-    padding-top: var(--space-2);
     font-family: var(--font-ui);
     font-size: var(--fs-300);
     font-weight: var(--fw-semibold);
     line-height: var(--lh-ui);
-    color: var(--harbour);
-  }
-  .signature-card__link:hover .signature-card__cta {
-    color: var(--harbour-h);
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 0.2em;
-  }
-  .signature-card__cta--muted {
     color: var(--soft);
   }
 
-  /* Level titles across a row. Each card spans five shared row tracks
-     (image, chip, title, summary, CTA), so a chip that wraps to two lines
-     pushes every title in that row down together instead of only its own.
-     Vertical spacing between card rows moves from row-gap to a margin,
-     because the gap would otherwise open inside each card as well. */
-  @supports (grid-template-rows: subgrid) {
-    .signature-events-grid {
-      row-gap: 0;
-      margin-bottom: calc(var(--space-5) * -1);
-    }
-    .signature-card {
-      display: grid;
-      grid-row: span 5;
-      grid-template-rows: subgrid;
-      row-gap: 0;
-      margin-bottom: var(--space-5);
-    }
-    .signature-card__link {
-      display: grid;
-      grid-row: span 5;
-      grid-template-rows: subgrid;
-      row-gap: 0;
-      height: auto;
-    }
-    .signature-card__body {
-      display: grid;
-      grid-row: span 4;
-      grid-template-rows: subgrid;
-      row-gap: var(--space-2);
-      align-content: start;
-    }
-    .signature-card__cta {
-      align-self: end;
-    }
-  }
-
-  /* Compact rows: a 96px 4:3 thumbnail with the chip, title and deck beside
-     it. The named events switch after their first two cards on phones; the
-     round-ups stay rows until three fit side by side. The two blocks are
-     identical apart from the breakpoint. */
+  /* Compact rows: a 96px 4:3 thumbnail with the chip, title and summary
+     beside it. Every named event is a row on phones, and the round-ups stay
+     rows until three fit side by side. The two blocks are identical apart
+     from the breakpoint. */
   @media (max-width: 639px) {
-    .signature-card--row-sm {
-      display: block;
-      grid-row: auto;
-      margin-bottom: var(--space-3);
-    }
     .signature-card--row-sm .signature-card__link {
       display: grid;
-      grid-row: auto;
-      grid-template-rows: none;
       grid-template-columns: 96px minmax(0, 1fr);
       column-gap: var(--space-4);
       align-items: start;
       padding: var(--space-3);
-      height: auto;
     }
     .signature-card--row-sm .signature-card__image {
       aspect-ratio: 4 / 3;
       border-radius: var(--radius-s);
     }
     .signature-card--row-sm .signature-card__image--plate {
-      padding: var(--space-3);
+      justify-content: center;
+      gap: 2px;
+      padding: var(--space-2) var(--space-2) var(--space-2) 10px;
     }
-    .signature-card--row-sm .signature-card__plate-mark,
-    .signature-card--row-sm .signature-card__cta {
+    .signature-card--row-sm .signature-card__plate-rule {
+      width: 1.25rem;
+      margin-bottom: 2px;
+    }
+    .signature-card--row-sm :is(.signature-card__plate-when--full, .signature-card__plate-name--full) {
       display: none;
     }
+    .signature-card--row-sm .signature-card__plate-when--short {
+      display: block;
+      letter-spacing: 0.06em;
+    }
+    .signature-card--row-sm .signature-card__plate-name--short {
+      display: -webkit-box;
+      font-size: var(--fs-200);
+      line-height: 1.15;
+      letter-spacing: 0;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+    }
     .signature-card--row-sm .signature-card__body {
-      display: flex;
-      grid-row: auto;
-      grid-template-rows: none;
       gap: var(--space-1);
       padding: 0;
     }
@@ -417,36 +471,42 @@ export const prerender = true;
     }
   }
   @media (max-width: 899px) {
-    .signature-card--row-md {
-      display: block;
-      grid-row: auto;
-      margin-bottom: var(--space-3);
-    }
     .signature-card--row-md .signature-card__link {
       display: grid;
-      grid-row: auto;
-      grid-template-rows: none;
       grid-template-columns: 96px minmax(0, 1fr);
       column-gap: var(--space-4);
       align-items: start;
       padding: var(--space-3);
-      height: auto;
     }
     .signature-card--row-md .signature-card__image {
       aspect-ratio: 4 / 3;
       border-radius: var(--radius-s);
     }
     .signature-card--row-md .signature-card__image--plate {
-      padding: var(--space-3);
+      justify-content: center;
+      gap: 2px;
+      padding: var(--space-2) var(--space-2) var(--space-2) 10px;
     }
-    .signature-card--row-md .signature-card__plate-mark,
-    .signature-card--row-md .signature-card__cta {
+    .signature-card--row-md .signature-card__plate-rule {
+      width: 1.25rem;
+      margin-bottom: 2px;
+    }
+    .signature-card--row-md :is(.signature-card__plate-when--full, .signature-card__plate-name--full) {
       display: none;
     }
+    .signature-card--row-md .signature-card__plate-when--short {
+      display: block;
+      letter-spacing: 0.06em;
+    }
+    .signature-card--row-md .signature-card__plate-name--short {
+      display: -webkit-box;
+      font-size: var(--fs-200);
+      line-height: 1.15;
+      letter-spacing: 0;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+    }
     .signature-card--row-md .signature-card__body {
-      display: flex;
-      grid-row: auto;
-      grid-template-rows: none;
       gap: var(--space-1);
       padding: 0;
     }

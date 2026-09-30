@@ -73,6 +73,9 @@ interface DeckSlide {
   src: string;
   alt: string;
   focal?: string;
+  /** Phone framing: an object-position read only below 48em, where the
+      picture fills a portrait box and only its horizontal focus moves. */
+  mobilePosition?: string;
 }
 
 const overrides = await loadOverrides('page', 'home');
@@ -109,6 +112,7 @@ const slides = source.map((slide, i) => {
     src: override?.src ?? slide.src,
     alt: override?.alt ?? slide.alt ?? '',
     focal: slide.focal ?? DEFAULT_FOCAL,
+    mobilePosition: slide.mobilePosition ?? slide.focal ?? DEFAULT_FOCAL,
     fieldPath,
     label: i === 0 ? 'Cover photograph' : `Cover photograph ${i + 1}`,
   };
@@ -154,7 +158,7 @@ const season = getAustralianSeasonLower(now);
           class="home-cover__media"
           src={slide.src} data-pi-responsive="100vw"
           alt={slide.alt}
-          style={`object-position: ${slide.focal};`}
+          style={`--cover-focal: ${slide.focal}; --cover-focal-mobile: ${slide.mobilePosition};`}
           fetchpriority={i === 0 ? 'high' : undefined}
           loading={i === 0 ? 'eager' : 'lazy'}
           decoding="async"
@@ -193,9 +197,9 @@ const season = getAustralianSeasonLower(now);
     <nav class="home-cover__actions" aria-label="Start planning your Peninsula visit">
       <a class="pi-btn pi-btn--solid pi-btn--lg pi-btn--inverse" href="/whats-on/this-weekend/" data-evt="card_click" data-entity-type="page" data-entity-slug="weekend" data-surface="home-intents" data-position="1" data-variant="three-intents">This weekend</a>
       <a class="pi-btn pi-btn--ghost pi-btn--lg pi-btn--inverse" href="/explore/plans/" data-evt="card_click" data-entity-type="page" data-entity-slug="plans" data-surface="home-intents" data-position="2" data-variant="three-intents">Plan a trip</a>
-      {/* On phones this third intent restyles as a text link under the two
-          primary buttons (see .home-cover__search), so the first screen
-          keeps its photograph. One element, so the three intents stay three. */}
+      {/* This third intent restyles as a text link after the two buttons at
+          every width (see .home-cover__search); on phones it drops to its
+          own line. One element, so the three intents stay three. */}
       <a class="pi-btn pi-btn--ghost pi-btn--lg pi-btn--inverse home-cover__search" href="/search/" data-open-search data-evt="search_open" data-surface="home-intents" data-position="3" data-variant="three-intents">Search the Peninsula</a>
     </nav>
 
@@ -457,9 +461,10 @@ const season = getAustralianSeasonLower(now);
     height: 100%;
     margin: 0;
     object-fit: cover;
-    /* Per-slide framing comes from the deck's `focal`, inline on the
-       element; this is the fallback for a slide that omits it. */
-    object-position: center 38%;
+    /* Per-slide framing comes from the deck's `focal` (and, on phones,
+       `mobilePosition`), set inline as custom properties on the element;
+       centre 38% is the fallback for a slide that omits both. */
+    object-position: var(--cover-focal, center 38%);
   }
 
   /* Ken Burns: slow compositor-only zoom on whichever slide is showing.
@@ -526,52 +531,69 @@ const season = getAustralianSeasonLower(now);
     letter-spacing: 0.02em;
   }
 
+  /* Two buttons, then Search as a text link, at every width: one solid
+     primary, one secondary, and a quieter third intent, since the
+     masthead already carries a Search control just above the cover.
+     Selectors carry the actions class so they beat the shared button and
+     photo-header rules without !important. */
   .home-cover__actions {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-3);
+    align-items: center;
+    gap: var(--space-3) var(--space-3);
     margin-top: var(--space-6);
   }
-  /* Phones: the two primary intents share one row and Search becomes a
-     text link beneath them, so three full-width buttons no longer fill
-     the first screen. Selectors carry the actions class so they beat the
-     shared button and photo-header rules without !important. */
+  /* The link is a plain block of text, not the button's flex box: in a
+     flex box the arrow becomes a block-level item and inherits the
+     underline as a separate segment. As an inline-block inside a text run
+     the arrow is an atomic inline, which takes no underline, so the rule
+     runs under the label only and stops before the arrow. */
+  .home-cover__actions .home-cover__search {
+    display: inline-block;
+    width: auto;
+    min-height: 44px;
+    margin-left: var(--space-3);
+    padding: 0.75rem 0;
+    background: none;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    color: var(--harbour);
+    font-family: var(--font-ui);
+    font-size: var(--fs-300);
+    font-weight: var(--fw-semibold);
+    line-height: var(--lh-ui);
+    letter-spacing: 0;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+    white-space: nowrap;
+  }
+  .home-cover__actions .home-cover__search::after {
+    content: '\2192';
+    content: '\2192' / '';
+    display: inline-block;
+    margin-left: 0.3em;
+    text-decoration: none;
+  }
+  .home-cover__actions .home-cover__search:hover {
+    background: none;
+    color: var(--harbour-h);
+  }
+  .home-cover__actions .home-cover__search:focus-visible {
+    outline: 2px solid var(--focus-ring-color);
+    outline-offset: 2px;
+  }
+  /* Phones: the two primary intents share one row and Search sits on its
+     own line beneath them, on the buttons' left edge. */
   @media (max-width: 47.94em) {
-    .home-cover__actions {
-      gap: var(--space-3);
-    }
     .home-cover__actions > .pi-btn:not(.home-cover__search) {
       flex: 1 1 auto;
     }
     .home-cover__actions .home-cover__search {
       flex: 0 0 100%;
-      justify-content: flex-start;
-      align-self: flex-start;
-      width: auto;
-      min-height: 44px;
       margin-top: calc(var(--space-1) * -1);
-      padding: 0;
-      background: none;
-      border: 0;
-      border-radius: 0;
-      box-shadow: none;
-      color: var(--harbour);
-      font-family: var(--font-ui);
-      font-size: var(--fs-300);
-      font-weight: var(--fw-semibold);
-      text-decoration: underline;
-      text-decoration-thickness: 1px;
-      text-underline-offset: 0.2em;
-    }
-    .home-cover__actions .home-cover__search::after {
-      content: '\2192';
-      display: inline-block;
-      margin-left: 0.3em;
-      text-decoration: none;
-    }
-    .home-cover__actions .home-cover__search:hover {
-      background: none;
-      color: var(--harbour-h);
+      margin-left: 0;
     }
   }
 
@@ -586,10 +608,10 @@ const season = getAustralianSeasonLower(now);
     margin-top: var(--space-6);
   }
 
-  /* Visible marks 16px apart, first mark on the text edge. Each button is
-     only as wide as its mark; a centred ::before gives it a 44px hit area
-     that overlaps its neighbours' spare space rather than spacing the
-     marks out. */
+  /* Visible marks 16px apart, first mark on the text edge. Each button is a
+     real 44px box: side padding tops the mark up to 44px and an equal
+     negative margin gives the space back, so the layout footprint is the
+     mark alone while the hit area (and the measured button) is 44 by 44. */
   .home-cover__pager {
     display: flex;
     align-items: center;
@@ -597,25 +619,24 @@ const season = getAustralianSeasonLower(now);
   }
 
   .home-cover__dot {
+    --mark: 0.5rem;
     position: relative;
     appearance: none;
     border: 0;
     background: none;
-    padding: 0;
+    min-width: 44px;
     min-height: 44px;
+    padding: 0 calc((44px - var(--mark)) / 2);
+    margin: 0 calc((var(--mark) - 44px) / 2);
     display: flex;
     align-items: center;
+    justify-content: center;
     cursor: pointer;
     line-height: 0;
+    transition: padding 220ms ease, margin 220ms ease;
   }
-  .home-cover__dot::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    width: 44px;
-    transform: translateX(-50%);
+  .home-cover__dot.is-active {
+    --mark: 1.5rem;
   }
   .home-cover__dot:focus-visible {
     outline: none;
@@ -627,7 +648,8 @@ const season = getAustralianSeasonLower(now);
 
   .home-cover__dot-fill {
     display: block;
-    width: 0.5rem;
+    flex: none;
+    width: var(--mark);
     height: 0.5rem;
     border-radius: 999px;
     background: color-mix(in srgb, var(--harbour-deep) 50%, transparent);
@@ -640,7 +662,6 @@ const season = getAustralianSeasonLower(now);
   }
 
   .home-cover__dot.is-active .home-cover__dot-fill {
-    width: 1.5rem;
     background: var(--harbour-deep);
   }
 
@@ -675,6 +696,7 @@ const season = getAustralianSeasonLower(now);
   }
 
   @media (prefers-reduced-motion: reduce) {
+    .home-cover__dot,
     .home-cover__dot-fill,
     .home-cover__arrow {
       transition: none;
@@ -695,17 +717,24 @@ const season = getAustralianSeasonLower(now);
   }
 
   /* Phones: the copy spans the image, so the light wash sits behind the
-     text only and fades out below it. The extra bottom padding is the
-     band where the coast shows through clear, instead of the whole photo
-     reading as grey fog. Overrides photo-headers.css's full-height mobile
-     wash on this element only. */
+     eyebrow, statement, date and intents only, and is gone before the
+     bottom 11rem. The stops are measured from the foot because the
+     bottom padding is fixed: 10rem of clear photograph, plus the 4.75rem
+     controls row (32px margin, 44px buttons). The wash holds .9 to the
+     Search link's foot (15rem up), fades across the controls row, which
+     carries its own contrast (white-backed arrows, haloed marks), and
+     leaves at least 176px of the picture at full colour. Overrides
+     photo-headers.css's full-height mobile wash on this element only. */
   @media (max-width: 47.94em) {
     .home-cover {
       --photo-shade-cover: linear-gradient(to bottom,
         rgb(235 246 252 / .92) 0%,
-        rgb(235 246 252 / .85) calc(100% - 8rem),
-        rgb(235 246 252 / 0) calc(100% - 2rem));
-      padding: clamp(2.5rem, 12vw, 4rem) 0 clamp(8rem, 36vw, 10rem);
+        rgb(235 246 252 / .9) calc(100% - 15rem),
+        rgb(235 246 252 / 0) calc(100% - 11rem));
+      padding: clamp(2.5rem, 12vw, 4rem) 0 10rem;
+    }
+    .home-cover__media {
+      object-position: var(--cover-focal-mobile, var(--cover-focal, center 38%));
     }
   }
 </style>

@@ -80,28 +80,44 @@ export const prerender = true;
   entitySlug="boating"
   />
 
+  {/* Prose on the left, a quiet panel on the right (BF21). Each panel holds
+      facts moved out of its prose, in the same words; it adds none. */}
   <section class="experience-index" data-bf-article>
-    <div class="container prose">
-      <p class="label label--accent">What to read first</p>
-      <h2>Hiring versus bringing your own boat</h2>
-      <p>
-        No-licence self-drive hire is available at several Peninsula locations.
-        It suits visiting anglers, day-trippers, and families who want time on
-        the water without the logistical overhead of trailering a boat from
-        Melbourne. Hire vessels are typically small tinnies or polycraft rated
-        for protected bay waters, not offshore use. Most hire sessions are
-        half-day or full-day. Gear and licence cover are sometimes included,
-        confirm at booking.
-      </p>
-      <p>
-        Trailer-boat owners have multiple ramp options along both Port Phillip
-        Bay and Western Port. The two things that catch people out are
-        <strong>tide dependence</strong> and <strong>weekend parking</strong>.
-        Western Port ramps at Warneet and Tooradin cannot be safely launched
-        at low water, the channel shallows on the ebb. Schnapper Point and
-        Sorrento fill their trailer parking by 8am on fine Saturdays during
-        snapper season. Plan accordingly.
-      </p>
+    <div class="container bf-split">
+      <div class="prose">
+        <p class="label label--accent">What to read first</p>
+        <h2>Hiring versus bringing your own boat</h2>
+        <p>
+          No-licence self-drive hire is available at several Peninsula locations.
+          It suits visiting anglers, day-trippers, and families who want time on
+          the water without the logistical overhead of trailering a boat from
+          Melbourne. Hire vessels are typically small tinnies or polycraft rated
+          for protected bay waters, not offshore use. Most hire sessions are
+          half-day or full-day. Gear and licence cover are sometimes included;
+          confirm at booking.
+        </p>
+        <p>
+          Trailer-boat owners have multiple ramp options along both Port Phillip
+          Bay and Western Port. The two things that catch people out are
+          <strong>tide dependence</strong> and <strong>weekend parking</strong>.
+          Plan accordingly.
+        </p>
+      </div>
+      {/* The two ramp details moved out of the paragraph above into this
+          panel, word for word, so they are stated once. */}
+      <aside class="bf-aside" aria-labelledby="bf-aside-launch">
+        <p class="bf-aside__label" id="bf-aside-launch">Boat ramps</p>
+        <dl class="bf-facts">
+          <div class="bf-facts__row">
+            <dt>Tide dependence</dt>
+            <dd>Western Port ramps at Warneet and Tooradin cannot be safely launched at low water: the channel shallows on the ebb.</dd>
+          </div>
+          <div class="bf-facts__row">
+            <dt>Weekend parking</dt>
+            <dd>Schnapper Point and Sorrento fill their trailer parking by 8am on fine Saturdays during snapper season.</dd>
+          </div>
+        </dl>
+      </aside>
     </div>
   </section>
 
@@ -119,7 +135,7 @@ export const prerender = true;
       <ul class="venues__grid venues__grid--links bf-links" role="list">
         <li class="pi-card bf-link-card"><div class="pi-card__body">
           <h3 class="pi-card__title"><a class="pi-card__link" href="/boating/ramps/">Boat ramps</a></h3>
-          <p class="pi-card__dek">Schnapper Point, Sorrento, Safety Beach, Rye, Hastings, Warneet, Tooradin. Tide dependence, parking pressure, and the alternative when this one's full.</p>
+          <p class="pi-card__dek">Schnapper Point, Sorrento, Safety Beach, Rye, Hastings, Warneet, Tooradin. Tide dependence, parking pressure, and the alternative when this one’s full.</p>
           <span class="pi-section-link bf-link-card__cta" aria-hidden="true">Browse ramps &rarr;</span>
         </div></li>
         <li class="pi-card bf-link-card"><div class="pi-card__body">
@@ -134,7 +150,7 @@ export const prerender = true;
         </div></li>
         <li class="pi-card bf-link-card"><div class="pi-card__body">
           <h3 class="pi-card__title"><a class="pi-card__link" href="/fishing/">Fishing</a></h3>
-          <p class="pi-card__dek">Once you've sorted your access, the fishing decisions: which species, which tide, which technique, which target.</p>
+          <p class="pi-card__dek">Once you’ve sorted your access, the fishing decisions: which species, which tide, which technique, which target.</p>
           <span class="pi-section-link bf-link-card__cta" aria-hidden="true">Read the fishing guide &rarr;</span>
         </div></li>
       </ul>
@@ -142,34 +158,55 @@ export const prerender = true;
   </section>
 
   <section class="experience-index">
-    <div class="container prose">
-      <p class="label label--accent">Tides and safety</p>
-      <h2>Pre-trip checks that actually matter</h2>
-      <p>
-        Tides on the Peninsula operate on an approximately 12.4-hour cycle.
-        Tidal range in Port Phillip Bay is modest, typically 0.6 to 1.0m at
-        Port Melbourne. Western Port is significantly more tidal at
-        approximately 2.5 to 2.8m, which directly affects channel depth, ramp
-        access, and fish behaviour.
-      </p>
-      <p>
-        Use <a href={BF_EXTERNAL.willyweather} rel="external" data-bf-event="bf_tide_lookup" data-bf-source="hub-boating">Willyweather tide tables</a>
-        or the <a href={BF_EXTERNAL.bom} rel="external" data-bf-event="bf_tide_lookup" data-bf-source="hub-boating">Bureau of Meteorology tidal predictions</a>
-        for the reference station relevant to your launch point. Port Phillip
-        Bay southern ramps: use Portsea reference station. Western Port ramps:
-        use Stony Point reference station. Northern Port Phillip Bay: use
-        Port Melbourne reference station.
-      </p>
-      <p>
-        <strong>The Rip at Port Phillip Heads requires particular respect.</strong>
-        South and south-westerly swell entering the Heads creates dangerous
-        standing waves. Do not attempt to cross the Rip in unsuitable
-        conditions regardless of vessel size or experience. Marine forecasts
-        from <a href={BF_EXTERNAL.bom} rel="external">BOM</a> the night before
-        and morning of every trip. Identify your nearest alternative ramp
-        before you launch. This is not hypothetical.
-      </p>
-      <p class="prose__verified">
+    <div class="container bf-split">
+      <div class="prose">
+        <p class="label label--accent">Tides and safety</p>
+        <h2>Pre-trip checks that actually matter</h2>
+        <p>
+          Tides on the Peninsula operate on an approximately 12.4-hour cycle.
+          Tidal range in Port Phillip Bay is modest, typically 0.6 to 1.0m at
+          Port Melbourne. Western Port is significantly more tidal at
+          approximately 2.5 to 2.8m, which directly affects channel depth, ramp
+          access, and fish behaviour.
+        </p>
+        <p>
+          Use <a href={BF_EXTERNAL.willyweather} rel="external" data-bf-event="bf_tide_lookup" data-bf-source="hub-boating">Willyweather tide tables</a>
+          or the <a href={BF_EXTERNAL.bom} rel="external" data-bf-event="bf_tide_lookup" data-bf-source="hub-boating">Bureau of Meteorology tidal predictions</a>
+          for the reference station relevant to your launch point.
+        </p>
+        <p>
+          <strong>The Rip at Port Phillip Heads requires particular respect.</strong>
+          South and south-westerly swell entering the Heads creates dangerous
+          standing waves. Do not attempt to cross the Rip in unsuitable
+          conditions regardless of vessel size or experience. Marine forecasts
+          from <a href={BF_EXTERNAL.bom} rel="external">BOM</a> the night before
+          and morning of every trip. Identify your nearest alternative ramp
+          before you launch. This is not hypothetical.
+        </p>
+      </div>
+      {/* The station mapping, once run into a paragraph, is three rows here:
+          launch area, then the reference station to read. */}
+      <aside class="bf-aside" aria-labelledby="bf-aside-tides">
+        <p class="bf-aside__label" id="bf-aside-tides">Reference stations</p>
+        <div class="bf-stations">
+          <p class="bf-stations__head"><span>Launch area</span><span>Station</span></p>
+          <dl class="bf-stations__list">
+            <div class="bf-stations__row">
+              <dt>Port Phillip Bay southern ramps</dt>
+              <dd>Portsea</dd>
+            </div>
+            <div class="bf-stations__row">
+              <dt>Western Port ramps</dt>
+              <dd>Stony Point</dd>
+            </div>
+            <div class="bf-stations__row">
+              <dt>Northern Port Phillip Bay</dt>
+              <dd>Port Melbourne</dd>
+            </div>
+          </dl>
+        </div>
+      </aside>
+      <p class="bf-verified">
         {provenance.stampLabel} {verificationStamp} against
         <a href={BF_EXTERNAL.betterBoating} rel="external">Better Boating Victoria</a>
         and <a href={BF_EXTERNAL.mornpenShire} rel="external">Mornington Peninsula Shire</a>.
@@ -208,15 +245,182 @@ export const prerender = true;
   .bf-link-card:hover .bf-link-card__cta {
     color: var(--harbour-h);
   }
+  /* Deks wrap plainly: 'pretty' pulled words down and left short first
+     lines on these three and four line deks. */
+  .bf-link-card .pi-card__dek {
+    text-wrap: wrap;
+  }
+  /* Phones: one compact column, not stacked desktop cards. The CTA is an
+     aria-hidden cue inside a whole-card link, so it drops the 44px box the
+     real section links carry. body[data-v4] outranks refinement.css. */
+  @media (max-width: 639px) {
+    .bf-links {
+      gap: var(--space-4);
+    }
+    .bf-link-card .pi-card__body {
+      padding: 20px;
+      gap: var(--space-2);
+    }
+    :global(body[data-v4]) .bf-link-card .pi-card__dek {
+      line-height: 1.5;
+    }
+    .bf-link-card__cta {
+      min-height: 0;
+      padding-top: 0;
+      margin-top: var(--space-2);
+    }
+  }
 
-  /* The review stamp is metadata, not body copy: a small grey caption under
-     a hairline, set apart from the safety advice above it. */
-  .prose .prose__verified {
-    margin-top: var(--space-6);
-    padding-top: var(--space-4);
+  /* Prose with a right-hand panel (BF21). From 68.75em the prose takes the
+     left track at its own measure and a sticky paper-warm panel fills the
+     right of the 1280 frame, so the section carries the hero's weight.
+     Below that the panel follows the prose. The check line sits under the
+     prose; the second row absorbs any extra panel height. */
+  .bf-split {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: var(--space-6);
+  }
+  .bf-aside {
+    max-width: var(--prose-w);
+    padding: var(--space-6);
+    border-radius: var(--radius-l);
+    background: var(--bg-alt);
+  }
+  @media (min-width: 68.75em) {
+    .bf-split {
+      grid-template-columns: minmax(0, 1fr) clamp(20rem, 37.5%, 30rem);
+      column-gap: var(--space-8);
+      align-items: start;
+    }
+    .bf-split > .prose {
+      grid-column: 1;
+      grid-row: 1;
+    }
+    .bf-aside {
+      grid-column: 2;
+      grid-row: 1;
+      position: sticky;
+      top: calc(var(--masthead-h, 6rem) + var(--space-8));
+      max-width: none;
+    }
+    .bf-split:has(> .bf-verified) {
+      grid-template-rows: auto 1fr;
+    }
+    .bf-split:has(> .bf-verified) > .bf-aside {
+      grid-row: 1 / span 2;
+    }
+    .bf-verified {
+      grid-column: 1;
+      grid-row: 2;
+    }
+  }
+  @media (max-width: 767px) {
+    .bf-aside {
+      padding: var(--space-5);
+    }
+  }
+  .bf-aside__label {
+    margin: 0 0 var(--space-4);
+    font-family: var(--font-ui);
+    font-size: var(--fs-100);
+    font-weight: var(--fw-semibold);
+    line-height: var(--lh-label);
+    letter-spacing: var(--ls-eyebrow);
+    text-transform: uppercase;
+    color: var(--sand-text);
+  }
+  .bf-facts {
+    margin: 0;
+  }
+  .bf-facts__row {
+    padding-block: var(--space-4);
     border-top: 1px solid var(--border);
+  }
+  .bf-facts__row:last-child {
+    padding-bottom: 0;
+  }
+  .bf-facts dt {
+    font-family: var(--font-display);
+    font-size: var(--fs-400);
+    font-weight: var(--fw-display);
+    line-height: var(--lh-heading);
+    color: var(--text);
+  }
+  .bf-facts dd {
+    margin: var(--space-2) 0 0;
+    font-family: var(--font-ui);
+    font-size: var(--fs-300);
+    line-height: var(--lh-dek);
+    color: var(--text);
+    text-wrap: pretty;
+  }
+  /* Tide stations: launch area left, station right, on hairline rows. */
+  .bf-stations__head {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-4);
+    margin: 0;
+    padding-bottom: var(--space-2);
+    border-bottom: 1px solid var(--border);
+    font-family: var(--font-ui);
     font-size: var(--fs-200);
+    font-weight: var(--fw-semibold);
     line-height: var(--lh-ui);
     color: var(--soft);
+  }
+  .bf-stations__list {
+    margin: 0;
+  }
+  .bf-stations__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--space-4);
+    padding-block: var(--space-3);
+    border-bottom: 1px solid var(--border);
+  }
+  .bf-stations__row:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+  .bf-stations__row dt {
+    font-family: var(--font-ui);
+    font-size: var(--fs-300);
+    line-height: var(--lh-ui);
+    color: var(--text);
+  }
+  .bf-stations__row dd {
+    margin: 0;
+    font-family: var(--font-ui);
+    font-size: var(--fs-300);
+    font-weight: var(--fw-semibold);
+    line-height: var(--lh-ui);
+    color: var(--text);
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  /* The review stamp is metadata, set apart from the safety advice above it
+     by a hairline, but readable: 15px ink at the prose measure. */
+  .bf-verified {
+    max-width: var(--measure-prose);
+    margin: 0;
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--border);
+    font-family: var(--font-ui);
+    font-size: var(--fs-300);
+    line-height: var(--lh-dek);
+    color: var(--text);
+    text-wrap: pretty;
+  }
+  .bf-verified a {
+    color: var(--harbour);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+  }
+  .bf-verified a:hover {
+    color: var(--harbour-h);
   }
 </style>

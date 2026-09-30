@@ -74,9 +74,9 @@
   --border:     #83857E;
   --sage:       var(--tide);   /* decorative */
   --max-w:      1280px;
-  /* v5: --prose-w now tracks the ch-based measure token (68ch at 17px
-     Outfit ≈ 680px - same width, but the cap survives font scaling). */
-  --prose-w:    var(--measure-prose);
+  /* G25: --prose-w is the prose FRAME (headings, tables, figures), 46rem, the
+     old ~740px. Running text inside it takes the 38rem --measure-prose. */
+  --prose-w:    46rem;
   --ease:       cubic-bezier(0.25, 0.46, 0.45, 0.94);
   /* v5: legacy radius names alias onto the 3-token radius scale
      (--radius-s/m/l in v5-tokens.css). Old names keep working. */
@@ -200,14 +200,31 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
    links only). Legacy heads (.venues__*, .prose h2, .hub-faq__title) share the
    same declarations. Tokens: --section-space, --section-head-gap, --h2-size. */
 .pi-section { padding-block: var(--section-space); }
+/* G23: two sections on the same ground meet at ONE --section-space, not bottom plus top. The list names every
+   section that paints its own band (or keeps its own padding): a band keeps full padding on both sides. Any new
+   band section must be added to BOTH lists. [hidden] skips the editorial layer while filters are on. */
+:is(.pi-section,[data-category-editorial]):not([hidden],.x-verticals,.x-journal,.x-shelf,.v5-journal,.v5-bestof,.plan-guides,.home-journal,.home-doors,.home-play,.hub-faq,.is-dark)
+  + .pi-section:not(.x-verticals,.x-journal,.x-shelf,.v5-journal,.v5-bestof,.plan-guides,.home-journal,.home-doors,.home-play,.hub-faq,.is-dark),
+.v5-directory.pi-section + .eat-more { padding-top: 0; }
 .pi-section > .container > :last-child { margin-bottom: 0; }
-.pi-section-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--space-3) var(--space-6); margin-bottom: var(--section-head-gap); }
+/* G24: the link sits on the head's LAST line (dek or H2), not the eyebrow. Phones stack the head, and the text
+   block's 32rem basis must not become a height when the head runs in a column. */
+.pi-section-head { display: flex; flex-wrap: wrap; align-items: baseline; align-items: last baseline; justify-content: space-between; gap: var(--space-3) var(--space-6); margin-bottom: var(--section-head-gap); }
 .pi-section-head__text { flex: 1 1 32rem; min-width: 0; }
+@media (max-width: 47.99em) {
+  .pi-section-head { flex-direction: column; align-items: flex-start; gap: var(--space-3); }
+  .pi-section-head__text { flex: 0 0 auto; width: 100%; }
+}
 .pi-eyebrow { font-family: var(--font-ui); font-size: var(--fs-100); font-weight: 600; line-height: var(--lh-label); letter-spacing: var(--ls-eyebrow); text-transform: uppercase; color: var(--sand-text); margin: 0 0 var(--space-3); }
 .pi-h2, .venues__title, .prose h2, .hub-faq__title { font-family: var(--font-display); font-weight: 600; font-size: var(--h2-size); line-height: var(--lh-heading); letter-spacing: var(--ls-display); color: var(--text); text-wrap: balance; margin: 0; }
 .pi-section-dek, .venues__sub { font-family: var(--font-ui); font-size: var(--fs-400); line-height: var(--lh-body); font-style: normal; color: var(--soft); max-width: 60ch; text-wrap: pretty; margin: var(--space-4) 0 0; }
 .pi-section-link, .venues__link { display: inline-flex; align-items: center; gap: 0.3em; min-height: 44px; font-family: var(--font-ui); font-size: var(--fs-300); font-weight: 600; line-height: var(--lh-ui); letter-spacing: 0; text-transform: none; color: var(--harbour); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; white-space: nowrap; transition: color var(--dur-fast) var(--ease); }
 .pi-section-link:hover, .venues__link:hover { color: var(--harbour-h); }
+/* G24: flex items each carry the link's underline, so a separate arrow span drew a second, gapped underline.
+   Out-of-flow boxes take no propagated decoration: the arrow is positioned in the link's own padding, and the
+   label's single underline ends at the last letter. */
+:is(.pi-section-link, .venues__link):has(> [aria-hidden]) { position: relative; padding-right: 1.2em; }
+:is(.pi-section-link, .venues__link) > [aria-hidden] { position: absolute; top: 50%; right: 0; transform: translateY(-50%); line-height: 1; text-decoration: none; }
 .is-dark .pi-eyebrow { color: var(--sand); }
 .is-dark .pi-h2 { color: var(--white); }
 .is-dark .pi-section-dek { color: var(--soft-inverse); }
@@ -790,6 +807,16 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .section-hero__inner--text-only { grid-template-columns: minmax(0, 1fr); }
 .section-hero__inner--text-only .section-hero__visual { display: none; }
 .section-hero__inner--text-only .section-hero__dek { max-width: 60ch; }
+.section-hero__inner--text-only .section-hero__title { max-width: 20ch; }
+/* G25: from 1100px an image hero centres its text on a 3:2 image, so both columns end together (no dead zone
+   under a short dek). Phones let the dek fill its measure: `pretty` pulled words down into short middle lines. */
+@media (min-width: 68.75em) {
+  .section-hero__inner:not(.section-hero__inner--text-only) { align-items: center; }
+  .section-hero__visual { aspect-ratio: 3 / 2; }
+}
+@media (max-width: 47.99em) { .section-hero__dek { text-wrap: wrap; max-width: none; } }
+/* G27: a hero followed by its own band draws no closing rule on the band edge. */
+.section-hero:has(+ .guides-page) > .container { border-bottom: 0; }
 .section-hero__eyebrow {
   display: flex;
   align-items: center;
@@ -981,13 +1008,20 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   text-decoration: none;
   color: var(--text);
   position: relative;
-  transition: background-color .25s var(--ease), padding-left .25s var(--ease);
+  transition: background-color .25s var(--ease);
 }
 .pillar-row__link:hover,
 .pillar-row__link:focus-visible {
   background-color: rgba(11, 90, 72, 0.04);
-  padding-left: clamp(0.8rem, 1.6vw, 1.4rem);
   outline: none;
+}
+/* G22: the hover nudge moves the row's content with transform, never padding, so nothing reflows. */
+.pillar-row__link > *, .mobile-nav__link > span:first-child, .mobile-nav__split-link > span, .mobile-nav__submenu-link, .sl-item > * { transition: transform .2s var(--ease), color .2s var(--ease); }
+.pillar-row__link:is(:hover, :focus-visible) > :not(.pillar-row__arrow) { transform: translateX(clamp(0.4rem, 0.4vw, 0.6rem)); }
+.mobile-nav__link:is(:hover, :active) > span:first-child, .mobile-nav__split-link:is(:hover, :active) > span, .sl-item:hover > * { transform: translateX(0.35rem); }
+.mobile-nav__submenu-link:is(:hover, :active) { transform: translateX(0.5rem); }
+@media (prefers-reduced-motion: reduce) {
+  .pillar-row__link > *, .mobile-nav__link > span:first-child, .mobile-nav__split-link > span, .mobile-nav__submenu-link, .sl-item > * { transition: none; transform: none !important; }
 }
 .pillar-row__num {
   font-family: var(--font-ui);
@@ -3021,12 +3055,13 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 /* =========================================================
    BREADCRUMBS
    ========================================================= */
+/* G26: the rule sits on the 1280 frame (the container), like the hero rule, not the full bleed. */
+.breadcrumbs > .container { border-bottom: 1px solid var(--border); padding-bottom: 0.85rem; }
 .breadcrumbs {
-  border-bottom: 1px solid var(--border);
   background: var(--bg);
   /* Generous top padding so the breadcrumb never reads as "tucked under"
      the sticky masthead - visible breathing room is the whole point. */
-  padding: 1.0rem 0 0.85rem;
+  padding: 1.0rem 0 0;
   /* Sticky under the masthead so the reader can always see where they
      are in the hierarchy on long pages. `--masthead-h` is set in JS by
      BaseLayout (ResizeObserver on .masthead); the fallback covers SSR
@@ -3045,7 +3080,8 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   align-items: center;
   gap: 0.5rem;
   list-style: none;
-  font-size: 0.72rem;
+  font-family: var(--font-ui);
+  font-size: var(--fs-200);
   color: var(--soft);
   flex-wrap: wrap;
 }
@@ -3104,9 +3140,9 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 /* =========================================================
    EXPERIENCE INDEX SECTION
    ========================================================= */
+/* G26: no full-bleed rule; section spacing and band edges already separate these. */
 .experience-index {
   padding: var(--section-space) 0;
-  border-bottom: 1px solid var(--border);
   background: var(--bg);
 }
 .experience-index--plain { background: var(--bg-alt); }
@@ -4706,11 +4742,9 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   padding: 1.8rem 0;
   border-top: 1px solid rgba(74, 90, 87, 0.18);
   align-items: start;
-  transition: padding-left .3s var(--ease);
 }
 .sl-item:first-child { border-top: 1px solid var(--dark); }
 .sl-item:last-child  { border-bottom: 1px solid var(--dark); }
-.sl-item:hover { padding-left: 0.25rem; }
 .sl-item--unnumbered { grid-template-columns: 1fr; }
 .sl-item__num {
   font-family: var(--font-display);
@@ -5662,7 +5696,6 @@ p.has-drop-cap::first-letter {
 .hub-faq {
   padding: clamp(3rem, 6vw, 4.5rem) 0;
   background: var(--bg);
-  border-top: 1px solid var(--border);
 }
 .hub-faq__intro {
   max-width: 60ch;
@@ -7268,7 +7301,7 @@ p.has-drop-cap::first-letter {
   padding: clamp(0.7rem, 1.8vh, 0.95rem) 0;
   border-bottom: 1px solid var(--border);
   text-decoration: none;
-  transition: color .2s var(--ease), padding-left .2s var(--ease);
+  transition: color .2s var(--ease);
 }
 .mobile-nav__link[aria-current="page"] {
   color: var(--accent);
@@ -7276,7 +7309,6 @@ p.has-drop-cap::first-letter {
 .mobile-nav__link:active,
 .mobile-nav__link:hover {
   color: var(--accent);
-  padding-left: 0.35rem;
 }
 .mobile-nav__arrow {
   font-family: Outfit, system-ui, sans-serif;
@@ -7328,7 +7360,7 @@ p.has-drop-cap::first-letter {
   padding: clamp(0.7rem, 1.8vh, 0.95rem) 0;
   text-decoration: none;
   flex: 1;
-  transition: color .2s var(--ease), padding-left .2s var(--ease);
+  transition: color .2s var(--ease);
 }
 .mobile-nav__split-link[aria-current="page"],
 .mobile-nav__split--current .mobile-nav__split-link {
@@ -7337,7 +7369,6 @@ p.has-drop-cap::first-letter {
 .mobile-nav__split-link:hover,
 .mobile-nav__split-link:active {
   color: var(--accent);
-  padding-left: 0.35rem;
 }
 .mobile-nav__split > .mobile-nav__split-link {
   /* sits alongside the toggle button in a flex row */
@@ -7393,7 +7424,7 @@ p.has-drop-cap::first-letter {
   padding: 0.6rem 0.5rem;
   border-bottom: 1px solid rgba(0,0,0,0.05);
   text-decoration: none;
-  transition: color .15s var(--ease), padding-left .15s var(--ease);
+  transition: color .15s var(--ease);
 }
 .mobile-nav__submenu li:last-child .mobile-nav__submenu-link {
   border-bottom: 0;
@@ -7401,7 +7432,6 @@ p.has-drop-cap::first-letter {
 .mobile-nav__submenu-link:hover,
 .mobile-nav__submenu-link:active {
   color: var(--accent);
-  padding-left: 0.5rem;
 }
 
 .mobile-nav__footer {
@@ -8196,12 +8226,8 @@ p.has-drop-cap::first-letter {
 .tour-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
 .operator-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.25rem; }
 .package-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
-/* G10: filter chips are 48px pills in sentence case. Twelve chips form two
-   even rows of six on desktop; plain wrapping below 1100px. */
+/* G10/G24: filter chips are 48px pills in sentence case at their natural width, wrapping with an 8px gap. */
 .tour-filter-chips { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: 2rem; }
-@media (min-width: 1100px) {
-  .tour-filter-chips:has(> :nth-child(12):last-child) { display: grid; grid-template-columns: repeat(6, max-content); }
-}
 .tour-filter-chip { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; font-family: var(--font-ui); font-size: var(--fs-300); font-weight: 600; line-height: 1.2; letter-spacing: 0; text-transform: none; padding: 0 var(--space-4); border: 1px solid var(--border); border-radius: var(--radius-pill); color: var(--body); text-decoration: none; background: var(--bg); transition: background 0.15s, color 0.15s; }
 .tour-filter-chip:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
 .at-a-glance { border: 1px solid var(--border); border-radius: var(--radius-m); overflow: hidden; margin: 2rem 0; }
@@ -10366,14 +10392,19 @@ body.menu-open .subscribe-pill {
 .guides-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-5); }
 @media (min-width: 880px) {
   .guides-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-6); }
-  .guides-grid > .guide-card:last-child:nth-child(odd) { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
-  .guides-grid > .guide-card:last-child:nth-child(odd) .guide-card__hero { aspect-ratio: auto; height: 100%; min-height: 20rem; }
+  /* G27: the image spans exactly one outer column (its edge on the 704/736 gutter) and the text starts on the
+     second column, so the Easter title lines up with the Summer title. The text group centres on the image. */
+  .guides-grid > .guide-card:last-child:nth-child(odd) { grid-column: 1 / -1; display: grid; grid-template-columns: calc(50% - var(--space-6) / 2) minmax(0, 1fr); column-gap: var(--space-6); }
+  .guides-grid > .guide-card:last-child:nth-child(odd) .guide-card__hero { aspect-ratio: auto; height: 100%; min-height: 16rem; }
+  .guides-grid > .guide-card:last-child:nth-child(odd) .guide-card__body { justify-content: center; }
 }
 
-/* P3-4: fully absorbed by .pi-card. G11: a missing image reads as a
-   designed harbour-deep panel with the short sand rule, never a white void. */
+/* P3-4: fully absorbed by .pi-card. G27: a photograph carries nothing on it. A guide whose photo file is
+   missing gets a designed typographic cover: harbour-deep, a short sand rule, the season in Sora. */
 .guide-card__hero { position: relative; aspect-ratio: 16 / 9; background-size: cover; background-position: center; background-color: var(--harbour-deep); }
-.guide-card__hero::after { content: ''; position: absolute; left: var(--space-5); bottom: var(--space-5); width: 2.25rem; height: 2px; background: var(--sand); pointer-events: none; }
+.guide-card__hero--cover { display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-start; gap: var(--space-3); padding: var(--space-5); }
+.guide-card__hero--cover::before { content: ''; width: 2.25rem; height: 2px; background: var(--sand); }
+.guide-card__cover-name { font-family: var(--font-display); font-size: var(--fs-700); font-weight: var(--fw-display); line-height: 1.1; letter-spacing: var(--ls-display); color: var(--white); }
 .guide-card__body {
   padding: clamp(1rem, 2vw, 1.5rem);
   display: flex;
@@ -10392,7 +10423,7 @@ body.menu-open .subscribe-pill {
 .guide-card__title {
   font-family: var(--font-display);
   font-size: clamp(1.4rem, 2.5vw, 1.85rem);
-  font-weight: 500;
+  font-weight: var(--fw-display);
   line-height: 1.15;
   letter-spacing: -0.01em;
   color: var(--text);
@@ -10470,12 +10501,11 @@ body.menu-open .subscribe-pill {
 }
 .guide-card__success-link:hover { background: var(--text, #1a1a1a); border-color: var(--text, #1a1a1a); }
 
+/* G27: release timing is helper text inside the sign-up panel, under the fine print. */
 .guides-coming {
-  margin-top: var(--space-7);
-  padding-top: var(--space-5);
-  border-top: 1px solid var(--border);
+  margin: var(--space-4) 0 0;
   font-family: var(--font-ui);
-  font-size: var(--fs-300);
+  font-size: var(--fs-200);
   line-height: 1.55;
   color: var(--soft);
   text-align: left;

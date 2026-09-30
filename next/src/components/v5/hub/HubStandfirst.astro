@@ -63,7 +63,7 @@ if (/!/.test(standfirst)) {
   id={id}
 >
   {image && (
-    <img class="v5-standfirst__bg" src={image.src} alt="" aria-hidden="true" loading="eager" fetchpriority="high" decoding="async" data-pi-responsive="100vw" style={`object-position:${imagePosition}`} />
+    <img class="v5-standfirst__bg" src={image.src} alt="" aria-hidden="true" loading="eager" fetchpriority="high" decoding="async" data-pi-responsive="100vw" style={`--pos:${imagePosition}`} />
   )}
   <div class="container v5-standfirst__inner">
     {eyebrow && <p class="v5-standfirst__eyebrow">{eyebrow}</p>}
@@ -99,7 +99,10 @@ if (/!/.test(standfirst)) {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: 50% 40%;
+    /* The page's position arrives as a custom property (not an inline
+       object-position), so a later rule, such as a phone crop, can still
+       override it. */
+    object-position: var(--pos, 50% 40%);
   }
   .v5-standfirst__inner {
     position: relative;
@@ -110,9 +113,16 @@ if (/!/.test(standfirst)) {
      the subject, copy anchored to the foot, and a bottom-up harbour-deep
      scrim that holds at least .82 alpha behind every line of text. The
      scrim is drawn from the text block rather than the band, so it keeps
-     that alpha however many lines the title wraps to at 390px, then
-     feathers out above the eyebrow so the top of the photograph stays
-     clean. No text-shadow: the scrim does the work. ── */
+     that alpha however many lines the title wraps to at 390px. It holds
+     .86 from a rem above the first title line (or the eyebrow) down to the
+     foot, then feathers out, so the top of the photograph stays clean.
+     No text-shadow: the scrim does the work.
+
+     The inner is also a .container, and public/assets/mobile-fixes.css
+     clips every .container on the x axis. That cut the -50vw scrim to the
+     frame and left unscrimmed photo strips in the gutters. The scoped
+     overflow:visible below lets it span the whole band; the header's own
+     overflow:hidden still contains it. ── */
   .v5-standfirst--photo {
     display: grid;
     align-content: end;
@@ -120,20 +130,39 @@ if (/!/.test(standfirst)) {
     padding-block: clamp(3rem, 6vw, var(--space-8, 4rem));
     background: var(--harbour-deep, #0B2E4A);
   }
+  .v5-standfirst--photo .v5-standfirst__inner {
+    overflow: visible;
+  }
   .v5-standfirst--photo .v5-standfirst__inner::before {
     content: '';
     position: absolute;
     z-index: -1;
-    top: -6rem;
+    top: -8.5rem;
     bottom: calc(-1 * clamp(3rem, 6vw, var(--space-8, 4rem)));
     left: -50vw;
     right: -50vw;
     background: linear-gradient(to top,
       rgb(11 46 74 / .88) 0%,
-      rgb(11 46 74 / .82) calc(100% - 6rem),
-      rgb(11 46 74 / .35) calc(100% - 2.5rem),
+      rgb(11 46 74 / .86) calc(100% - 7.5rem),
+      rgb(11 46 74 / .35) calc(100% - 3rem),
       rgb(11 46 74 / 0) 100%);
     pointer-events: none;
+  }
+  /* Phones: the copy fills most of the band, so the band grows to keep
+     the photograph's subject visible above the feather, and the feather is
+     shorter. The .86 hold still starts a rem above the first title line. */
+  @media (max-width: 47.99em) {
+    .v5-standfirst--photo {
+      min-height: 30rem;
+    }
+    .v5-standfirst--photo .v5-standfirst__inner::before {
+      top: -6.5rem;
+      background: linear-gradient(to top,
+        rgb(11 46 74 / .88) 0%,
+        rgb(11 46 74 / .86) calc(100% - 5.5rem),
+        rgb(11 46 74 / .35) calc(100% - 2.25rem),
+        rgb(11 46 74 / 0) 100%);
+    }
   }
   .v5-standfirst.v5-standfirst--photo .v5-standfirst__title,
   .v5-standfirst.v5-standfirst--photo .v5-standfirst__dek,
@@ -195,12 +224,15 @@ if (/!/.test(standfirst)) {
     max-width: 24ch;
     color: var(--text);
   }
+  /* Balanced at a 60ch measure, so a two-sentence lede never ends on a
+     one- or two-word last line. */
   .v5-standfirst--compact .v5-standfirst__dek {
     font-size: 1rem;
     line-height: 1.6;
-    max-width: 70ch;
+    max-width: 60ch;
     color: var(--soft);
     margin-top: 0.75rem;
+    text-wrap: balance;
   }
   .v5-standfirst--compact .v5-standfirst__eyebrow { color: var(--sand-text, #8A5620); }
 </style>

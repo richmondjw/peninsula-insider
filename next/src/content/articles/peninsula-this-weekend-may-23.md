@@ -1,5 +1,5 @@
 ---
-title: "Peninsula This Weekend - 23 to 24 May"
+title: "Peninsula This Weekend: 23 to 24 May"
 dek: "The Saturday markets are dark and truffle season is a week away: what's left is the Peninsula in its most deliberate register."
 author: "editorial"
 houseByline: true

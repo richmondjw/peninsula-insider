@@ -1,5 +1,5 @@
 ---
-title: "Peninsula This Weekend - 9 to 10 May"
+title: "Peninsula This Weekend: 9 to 10 May"
 dek: "Mother's Day is the organising principle. Book lunch first, then let the rest of the weekend behave."
 author: "editorial"
 houseByline: true

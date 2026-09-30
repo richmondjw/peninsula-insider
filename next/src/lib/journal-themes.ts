@@ -212,6 +212,28 @@ export const themeDefs: ThemeDef[] = [
 ];
 
 /**
+ * The one name a theme goes by on the Journal: topic tabs, section links,
+ * the theme select and the archive column all read it from themeDefs, so a
+ * reader can map a tab to a label. Returns undefined for an unknown key.
+ */
+export function themeTitle(key: string): string | undefined {
+  return themeDefs.find((t) => t.key === key)?.title;
+}
+
+const HOUSE_MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+/**
+ * The house date: '17 Sep 2026', with fixed three-letter months. en-AU's
+ * toLocaleDateString short months drift ('Sept', 'June', 'July' beside
+ * 'Apr', 'Aug'). { short: true } drops the year ('17 Sep'). Read in UTC:
+ * publication dates are calendar dates, stored at UTC midnight.
+ */
+export function formatDate(d: Date, opts: { short?: boolean } = {}): string {
+  const day = `${d.getUTCDate()} ${HOUSE_MONTHS[d.getUTCMonth()]}`;
+  return opts.short ? day : `${day} ${d.getUTCFullYear()}`;
+}
+
+/**
  * The single theme label a story wears in lists. Theme membership (filters,
  * section pools) is unchanged; this only chooses which matching theme names
  * the story. Weekend round-ups read as "Stays & weekends" even when they also

@@ -4,13 +4,14 @@
  *
  * Structure per page-redesigns-hubs.md section 7 + wireframes #whatson:
  *   1. h1 date context + selection rule (one line)
- *   2. Scope controls: This weekend (default, in-DOM) / Next weekend /
- *      Pick dates / School holidays
+ *   2. Scope controls: This weekend (default, in-DOM) / Pick dates /
+ *      Next weekend / School holidays
  *   3. PI's picks: exactly 3, Local voice verdicts
- *   4. Compact rows for the current scope, each event once: an "On all
- *      weekend" group for runs and multi-day series, then day groups for
- *      what is tied to one day (weekend is fully server-rendered; other
- *      scopes render client-side from feed.json)
+ *   4. Rows for the current scope, each event once: an "On all weekend"
+ *      strip for runs and multi-day series (three rows, the rest behind
+ *      "Show all"), then day groups for what is tied to one day, each led
+ *      where possible by one thumbnail feature row (weekend is fully
+ *      server-rendered; other scopes render client-side from feed.json)
  *   5. Shelf anchor links + category shelves (Markets, Live music,
  *      Food & wine, Exhibitions & arts, Major events), minus anything the
  *      weekend already showed
@@ -63,6 +64,18 @@ const shownSlugs = new Set([
   ...dayGroups.flatMap((g) => g.items.map((it) => it.live.slug)),
 ]);
 const shelves = getShelves(events, now, shownSlugs).filter((s) => s.items.length > 0);
+
+// WO23: the "On all weekend" group is a compact strip. Three rows show; the
+// rest stay in the DOM behind "Show all". Order is untouched.
+const STRIP_VISIBLE = 3;
+
+// WO23: one feature row per day group and shelf. Items arrive highest
+// appeal first, so the first that may show its own photograph is the one.
+// Nothing moves; the chosen row simply carries its thumbnail.
+const featureIndex = (lives: { thumb: { src: string; alt: string } | null }[]) =>
+  lives.findIndex((live) => live.thumb !== null);
+const dayFeature = dayGroups.map((g) => featureIndex(g.items.map((it) => it.live)));
+const shelfFeature = shelves.map((s) => featureIndex(s.items.map((it) => it.live)));
 
 // ── JSON-LD: Event nodes for everything server-rendered (picks + weekend
 // rows), deduped. Deliberately no offers: pricing never ships in schema
@@ -151,10 +164,12 @@ const pickCards = picks.map((p, i) => {
       ? { src: data.heroImage.src as string, alt: (data.heroImage.alt ?? p.live.title) as string }
       : undefined,
     verdict: p.verdict,
-    // A dated pick leads with its day; an ongoing or recurring one carries
-    // its "Ongoing" / "Every Sun" tag on the image instead, so its meta does
-    // not claim the Friday it happens to include.
-    meta: [p.showDate ? p.dayLabel : p.live.timeLabel, ...p.live.details]
+    // One meta schema for every pick (WO22): when, where, then category or
+    // access. A dated pick's "when" is its day; an ongoing or recurring one
+    // gives its time, or failing that its cadence, so the first slot is never
+    // skipped and the three cards' meta lines read alike. Its tag on the
+    // image uses the same cadence vocabulary as the rows.
+    meta: [p.showDate ? p.dayLabel : p.live.timeLabel || p.badge, ...p.live.details]
       .filter(Boolean)
       .slice(0, 3),
     dateISO: p.showDate ? p.dateISO : undefined,
@@ -256,7 +271,7 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
           <section class="wo-day wo-day--ongoing" aria-labelledby="wo-day-ongoing-h">
             <h3 class="wo-day__h" id="wo-day-ongoing-h">On all weekend</h3>
             <ul class="wo-day__list" role="list">
-              {ongoing.map((it) => (
+              {ongoing.map((it, i) => (
                 <WhatsOnRow
                   title={it.live.title}
                   href={it.live.href}
@@ -267,29 +282,35 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
                   statusLabel={it.statusLabel}
                   phase={it.phase}
                   bookable={it.bookable}
-                  compact
+                  strip
+                  collapsed={i >= STRIP_VISIBLE}
                 />
               ))}
             </ul>
+            {ongoing.length > STRIP_VISIBLE && (
+              <button type="button" class="wo-day__more" data-wo-more>
+                Show all {ongoing.length}
+              </button>
+            )}
           </section>
         )}
-        {dayGroups.map((g) => (
+        {dayGroups.map((g, gi) => (
           <section class="wo-day">
             <h3 class="wo-day__h">{g.heading}</h3>
             {g.items.length > 0 ? (
               <ul class="wo-day__list" role="list">
-                {g.items.map((it) => (
+                {g.items.map((it, i) => (
                   <WhatsOnRow
                     title={it.live.title}
                     href={it.live.href}
                     slug={it.live.slug}
                     oneLiner={it.live.oneLiner}
-                    when={it.live.timeLabel}
-                    meta={[it.spanLabel, ...it.live.details]}
+                    when={it.live.timeLabel || it.spanLabel}
+                    meta={[it.live.timeLabel ? it.spanLabel : '', ...it.live.details]}
                     statusLabel={it.statusLabel}
                     phase={it.phase}
                     bookable={it.bookable}
-                    compact
+                    image={i === dayFeature[gi] ? it.live.thumb : null}
                   />
                 ))}
               </ul>
@@ -317,11 +338,11 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
             ))}
           </div>
         </nav>
-        {shelves.map((s) => (
+        {shelves.map((s, si) => (
           <section class="wo-shelf" id={s.id} aria-labelledby={`${s.id}-h`}>
             <h3 class="wo-shelf__h" id={`${s.id}-h`}>{s.label}</h3>
             <ul class="wo-shelf__list" role="list">
-              {s.items.map(({ live, when }) => (
+              {s.items.map(({ live, when }, i) => (
                 <WhatsOnRow
                   title={live.title}
                   href={live.href}
@@ -329,6 +350,7 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
                   oneLiner={live.oneLiner}
                   when={when}
                   meta={[live.timeLabel, ...live.details]}
+                  image={i === shelfFeature[si] ? live.thumb : null}
                 />
               ))}
             </ul>
@@ -357,8 +379,16 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
       below, never displayed. Template content is inert (not hidden DOM
       weight in the HUB-11 sense: one empty row, no event content). */}
   <template data-wo-row-template>
-    <WhatsOnRow title="" href="" slug="" compact />
+    <WhatsOnRow title="" href="" slug="" />
   </template>
+  {/* Without JavaScript the "Show all" control cannot run, so every strip
+      row shows and the control goes. */}
+  <noscript>
+    <style is:inline>
+      .wo-row[data-wo-more-row] { display: grid !important; }
+      [data-wo-more] { display: none !important; }
+    </style>
+  </noscript>
 </BaseLayout>
 
 <script>
@@ -377,7 +407,7 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
   // "Add to trip" wiring (list rows; pick cards wire their own). The
   // data-evt="trip_add" analytics fires via the delegated v5-analytics
   // listener; this adds the store behaviour. Only the visible label changes,
-  // so the icon the row shows on a phone survives the confirmation.
+  // and the button's minimum width holds it steady between the two labels.
   document.addEventListener('click', (ev) => {
     const btn = (ev.target as HTMLElement).closest<HTMLButtonElement>('[data-evt="trip_add"]:not([data-card-trip])');
     if (!btn || btn.dataset.added === 'true') return;
@@ -420,7 +450,11 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
     months?: number[];
     x?: string;
     statusData?: Record<string, any>;
+    im?: { src: string; alt: string };
   }
+
+  // WO23: the ongoing strip shows this many rows before "Show all".
+  const STRIP_VISIBLE = 3;
 
   let scopeHistoryHandler: ((event: PopStateEvent) => void) | null = null;
   let disposeScope: (() => void) | null = null;
@@ -450,6 +484,22 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
     const defaultHTML = daysEl.innerHTML;
     const defaultRange = rangeEl?.textContent ?? '';
     if (monthBtn) monthBtn.hidden = false;
+
+    // "Show all" on the ongoing strip (WO23): reveal the rows held back,
+    // retire the control, and move focus to the first revealed title. One
+    // delegated listener on the list container, so rows restored from
+    // defaultHTML or drawn for another scope need no rewiring.
+    daysEl.addEventListener('click', (ev) => {
+      const more = (ev.target as HTMLElement).closest<HTMLButtonElement>('[data-wo-more]');
+      if (!more) return;
+      const held = Array.from(more.closest('.wo-day')?.querySelectorAll<HTMLElement>('[data-wo-more-row]') ?? []);
+      held.forEach((row) => {
+        row.hidden = false;
+        delete row.dataset.woMoreRow;
+      });
+      more.remove();
+      held[0]?.querySelector<HTMLElement>('.wo-row__link')?.focus();
+    });
 
     // Calendar dates use Melbourne's day and UTC date-only arithmetic in all surfaces.
     const parseISO = (s: string) => new Date(`${s}T00:00:00Z`);
@@ -491,10 +541,32 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
 
     // Same markup and token order as the server rows (WhatsOnRow): the lead
     // token fills column 1 and opens the meta list; the rest follow as
-    // unbreakable list items.
-    const buildRow = (e: FeedEntry, when: string, tokens: string[], days: Date[]): HTMLElement => {
+    // unbreakable list items. A strip row drops its dek; a feature row
+    // carries the event's own thumbnail (only sent when it may show one).
+    const buildRow = (
+      e: FeedEntry,
+      when: string,
+      tokens: string[],
+      days: Date[],
+      opts: { strip?: boolean; feature?: boolean } = {}
+    ): HTMLElement => {
       const frag = rowTpl.content.cloneNode(true) as DocumentFragment;
       const row = frag.querySelector<HTMLElement>('.wo-row')!;
+      if (opts.strip) row.classList.add('wo-row--strip');
+      if (opts.feature && e.im) {
+        row.classList.add('wo-row--feature');
+        const thumb = document.createElement('div');
+        thumb.className = 'wo-row__thumb';
+        const img = document.createElement('img');
+        img.src = e.im.src;
+        img.alt = '';
+        img.width = 120;
+        img.height = 90;
+        img.loading = 'lazy';
+        img.decoding = 'async';
+        thumb.appendChild(img);
+        row.querySelector<HTMLElement>('.wo-row__when')!.after(thumb);
+      }
       // An ongoing row reads its state on its first day that has not finished.
       let occurrence: ReturnType<typeof resolveListingOccurrence> | null = null;
       if (e.statusData) {
@@ -511,7 +583,7 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
       link.href = e.href;
       link.textContent = e.t;
       link.dataset.entitySlug = e.slug;
-      row.querySelector<HTMLElement>('.wo-row__dek')!.textContent = e.d;
+      row.querySelector<HTMLElement>('.wo-row__dek')!.textContent = opts.strip ? '' : e.d;
       row.querySelector<HTMLElement>('.wo-row__when')!.textContent = when;
       const metaEl = row.querySelector<HTMLElement>('.wo-row__meta')!;
       metaEl.textContent = '';
@@ -585,17 +657,37 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
       daysEl.textContent = '';
       let shown = 0;
       if (split.ongoing.length > 0) {
+        // The same compact strip as the server render (WO23).
         const rows = split.ongoing.map(({ item: e, dayIndexes }: { item: FeedEntry; dayIndexes: number[] }) =>
-          buildRow(e, listingDateLabel(ruleOf(e), win), [e.tm ?? '', ...details(e)], dayIndexes.map((i) => dayDates[i])));
+          buildRow(e, listingDateLabel(ruleOf(e), win), [e.tm ?? '', ...details(e)], dayIndexes.map((i) => dayDates[i]), { strip: true }));
+        rows.slice(STRIP_VISIBLE).forEach((row) => {
+          row.hidden = true;
+          row.dataset.woMoreRow = '';
+        });
         const section = groupSection(dayCount <= 3 ? 'On all weekend' : 'On across these dates', rows);
         section.classList.add('wo-day--ongoing');
+        if (rows.length > STRIP_VISIBLE) {
+          const more = document.createElement('button');
+          more.type = 'button';
+          more.className = 'wo-day__more';
+          more.dataset.woMore = '';
+          more.textContent = `Show all ${rows.length}`;
+          section.appendChild(more);
+        }
         daysEl.appendChild(section);
         shown += rows.length;
       }
       split.days.forEach(({ day, items, ongoingCount }: { day: Date; items: FeedEntry[]; ongoingCount: number }) => {
         if (items.length === 0 && (ongoingCount > 0 || !showEmptyDays)) return;
-        const rows = items.map((e) =>
-          buildRow(e, e.tm ?? '', [listingDateLabel(ruleOf(e), win), ...details(e)], [day]));
+        // Entries arrive highest appeal first: the first with a thumbnail
+        // leads the group as its feature row, in place (WO23).
+        const feature = items.findIndex((e) => !!e.im);
+        const rows = items.map((e, i) => {
+          // A row with no time leads with its cadence instead (WO22), so
+          // column 1 is never blank; the cadence then leaves the meta line.
+          const cadence = listingDateLabel(ruleOf(e), win);
+          return buildRow(e, e.tm || cadence, [e.tm ? cadence : '', ...details(e)], [day], { feature: i === feature });
+        });
         daysEl.appendChild(groupSection(fmt(day, { weekday: 'long', day: 'numeric', month: 'long' }), rows));
         shown += rows.length;
       });
@@ -854,35 +946,94 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
     text-transform: uppercase;
   }
 
-  /* ── Day groups: an eyebrow with one rule under it, then rows that carry
-     only a bottom rule (the last row none), so every group heading has
-     exactly one rule beside it (WO2). ── */
-  .wo-day + .wo-day {
-    margin-top: var(--space-7, 3rem);
+  /* ── Group rhythm (WO23): one gap between groups in both lists, 64px
+     (48px on phones), measured from the hairline that closes one list to
+     the next heading. Every row carries its bottom rule, so each list
+     closes on the same hairline that separates its rows. ── */
+  .wo-days,
+  .wo-shelves {
+    --wo-group-gap: var(--space-8, 4rem);
   }
-  .wo-day__h {
+  @media (max-width: 47.9375em) {
+    .wo-days,
+    .wo-shelves {
+      --wo-group-gap: var(--space-7, 3rem);
+    }
+  }
+
+  /* ── Day groups. The client script draws other date scopes with plain
+     DOM, whose nodes carry no scope attribute, so these selectors are
+     :global() under the scoped container. ── */
+  .wo-days__groups :global(.wo-day + .wo-day) {
+    margin-top: var(--wo-group-gap);
+  }
+  /* One subhead style for day groups and category shelves (WO23): a Sora
+     600 heading over a hairline, so the weekend's days read at the same
+     rank as the two-month categories below them. */
+  .wo-days__groups :global(.wo-day__h),
+  .wo-shelf__h {
     margin: 0;
     padding-bottom: var(--space-3, 0.75rem);
     border-bottom: 1px solid var(--border);
-    color: var(--sand-text, var(--teal-text));
-    font-family: var(--font-ui, inherit);
-    font-size: var(--fs-200, 0.8125rem);
-    font-weight: var(--fw-semibold, 600);
-    line-height: 1.3;
-    letter-spacing: var(--ls-eyebrow, 0.12em);
-    text-transform: uppercase;
+    color: var(--text);
+    font-family: var(--font-display);
+    font-size: var(--fs-600, 1.5rem);
+    font-weight: var(--fw-display, 600);
+    line-height: 1.2;
+    letter-spacing: normal;
+    text-transform: none;
+    text-wrap: balance;
   }
-  .wo-day__list {
+  .wo-days__groups :global(.wo-day__list) {
     list-style: none;
     margin: 0;
     padding: 0;
   }
-  .wo-day__empty {
+  .wo-days__groups :global(.wo-day__empty) {
     margin: 0;
     padding: var(--space-4, 1rem) 0 0;
     color: var(--soft);
     font-style: normal;
     font-size: var(--fs-300, 0.9375rem);
+  }
+  /* "Show all" under the ongoing strip: the house 48px, 8px-radius
+     secondary control (44px on phones), the same hairline and Harbour
+     label as the row actions. */
+  .wo-days__groups :global(.wo-day__more) {
+    appearance: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    margin-top: var(--space-4, 1rem);
+    padding: 0 var(--space-5, 1.5rem);
+    background: transparent;
+    color: var(--harbour);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-s, 8px);
+    font-family: var(--font-ui, inherit);
+    font-size: var(--fs-300, 0.9375rem);
+    font-weight: var(--fw-semibold, 600);
+    line-height: var(--lh-ui, 1.4);
+    white-space: nowrap;
+    cursor: pointer;
+    transition:
+      border-color var(--dur-fast, 120ms) var(--ease-enter, ease),
+      color var(--dur-fast, 120ms) var(--ease-enter, ease);
+  }
+  .wo-days__groups :global(.wo-day__more:hover) {
+    border-color: var(--harbour);
+    color: var(--harbour-h, var(--harbour));
+  }
+  .wo-days__groups :global(.wo-day__more:focus-visible) {
+    outline: var(--focus-ring, 2px solid var(--accent));
+    outline-offset: 2px;
+  }
+  @media (max-width: 47.9375em) {
+    .wo-days__groups :global(.wo-day__more) {
+      min-height: 44px;
+      padding: 0 var(--space-4, 1rem);
+    }
   }
 
   /* ── The month ahead: one route to more, after the shelves ── */
@@ -914,7 +1065,7 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
     position: sticky;
     top: var(--masthead-h, 0px);
     z-index: 5;
-    margin-bottom: calc(var(--space-8, 4rem) - var(--space-3, 0.75rem));
+    margin-bottom: calc(var(--wo-group-gap, 4rem) - var(--space-3, 0.75rem));
     padding-block: var(--space-3, 0.75rem);
     background: var(--bg);
   }
@@ -956,46 +1107,26 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
     scroll-margin-top: calc(var(--masthead-h, 0px) + 6rem);
   }
   .wo-shelf + .wo-shelf {
-    margin-top: var(--space-8, 4rem);
+    margin-top: var(--wo-group-gap);
   }
-  .wo-shelf__h {
-    margin: 0;
-    padding-bottom: var(--space-3, 0.75rem);
-    border-bottom: 1px solid var(--border);
-    font-family: var(--font-display);
-    font-size: var(--fs-600, 1.5rem);
-    font-weight: var(--fw-display, 600);
-    line-height: 1.2;
-    color: var(--text);
-  }
+  /* .wo-shelf__h shares the day-group subhead rule above. */
   .wo-shelf__list {
     list-style: none;
     margin: 0;
     padding: 0;
   }
 
-  /* Phones: the chip bar scrolls sideways in one row, with an end fade,
-     rather than wrapping into a tall sticky block. */
+  /* Phones (WO23): the five category chips wrap onto two full rows, each
+     chip growing to share its row, so every label is whole and nothing
+     hides behind a fade. Two rows of chips would make a tall sticky block
+     on a phone, so the bar scrolls with the page there. */
   @media (max-width: 47.9375em) {
-    .wo-shelfnav::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      width: 2rem;
-      background: linear-gradient(to right, transparent, var(--bg));
-      pointer-events: none;
+    .wo-shelfnav {
+      position: static;
     }
-    .wo-shelfnav__row {
-      flex-wrap: nowrap;
-      overflow-x: auto;
-      padding: 3px 2rem 3px 3px;
-      margin: -3px;
-      scrollbar-width: none;
-    }
-    .wo-shelfnav__row::-webkit-scrollbar {
-      display: none;
+    .wo-shelfnav__link {
+      flex: 1 1 auto;
+      justify-content: center;
     }
   }
 </style>

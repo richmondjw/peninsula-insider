@@ -29,7 +29,7 @@ import TrustNote from '../../components/v5/hub/TrustNote.astro';
 import HubStandfirst from '../../components/v5/hub/HubStandfirst.astro';
 import CategoryBrowse from '../../components/v5/hub/CategoryBrowse.astro';
 import PlanningHelp from '../../components/v5/hub/PlanningHelp.astro';
-import { exploreSummary, effortLabel } from '../../components/v5/hub/explore-summaries.mjs';
+import { exploreSummary, effortLabel, durationLabel } from '../../components/v5/hub/explore-summaries.mjs';
 import { informationCheckedOn } from '../../lib/verification-date.mjs';
 import { getFacets, type FacetKey } from '../../lib/facets';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
@@ -99,13 +99,6 @@ function clipLine(text: string | undefined | null, maxWords = 25): string | unde
   return cut.join(' ').replace(/[.!?]+$/, '').replace(TRAILING_PUNCT, '').trimEnd() + '…';
 }
 
-function durationLabel(minutes: unknown): string | null {
-  if (typeof minutes !== 'number' || minutes <= 0) return null;
-  if (minutes < 60) return `${minutes} min`;
-  const h = minutes / 60;
-  return Number.isInteger(h) ? `${h} hr` : `${h.toFixed(1)} hr`;
-}
-
 const TYPE_LABEL: Record<string, string> = {
   walk: 'Walk',
   beach: 'Beach',
@@ -131,6 +124,11 @@ type Row = {
   href: string;
   facets: Partial<Record<FacetKey, string[]>>;
   verdict: string | undefined;
+  /** The type label ('Walk', 'Beach'), rendered as the card's type mark. */
+  type: string;
+  /** Meta tokens after the type: place, duration, effort. Each is its own
+      token, so the card draws every separator the same way (never a
+      literal ' · ' inside one token). At most 3, the Card limit. */
   meta: string[];
   data: any;
 };
@@ -143,10 +141,11 @@ const rows: Row[] = experiences.map((e) => {
     href: `/explore/${slug}/`,
     facets: getFacets('experience', e.data),
     verdict: exploreSummary(slug, e.data),
+    type: TYPE_LABEL[e.data.type] ?? titleize(e.data.type ?? ''),
     meta: [
-      TYPE_LABEL[e.data.type] ?? titleize(e.data.type ?? ''),
       placeLabel(e.data.place),
-      [durationLabel(e.data.durationMinutes), effortLabel(e.data)].filter(Boolean).join(' · '),
+      durationLabel(e.data.durationMinutes),
+      effortLabel(e.data),
     ].filter((m): m is string => Boolean(m)).slice(0, 3),
     data: e.data,
   };
@@ -170,10 +169,8 @@ const venueRows: Row[] = exploreVenues.map((v) => {
     href: venueHref(v),
     facets: getFacets('venue', v.data),
     verdict: exploreSummary(slug, v.data),
-    meta: [
-      TYPE_LABEL[v.data.type] ?? titleize(v.data.type ?? ''),
-      placeLabel(v.data.place),
-    ].filter((m): m is string => Boolean(m)).slice(0, 3),
+    type: TYPE_LABEL[v.data.type] ?? titleize(v.data.type ?? ''),
+    meta: [placeLabel(v.data.place)].filter((m): m is string => Boolean(m)),
     data: v.data,
   };
 });
@@ -449,7 +446,7 @@ export const prerender = true;
   </CategoryBrowse>
 
   <section class="x-practical container" aria-labelledby="practical-heading">
-    <h2 id="practical-heading">Choose the shape of your day</h2>
+    <h2 class="pi-eyebrow x-practical__label" id="practical-heading">Choose the shape of your day</h2>
     <nav class="x-practical__links" aria-label="Plan an activity">
       <a href="/explore/walks/">Compare walks →</a>
       <a href="/explore/rainy-day/">Plan for rain →</a>
@@ -494,9 +491,9 @@ export const prerender = true;
                 entityType="experience"
                 entitySlug={item.slug}
                 image={{ src: item.hero.src, alt: item.hero.alt, caption: !item.hero.override && item.data.heroImage?.depictionStatus === 'illustrative' ? 'Illustrative image' : !item.hero.override && item.data.heroImage?.depictionStatus === 'unverified' ? 'Image subject unverified' : undefined }}
-                typeMark={item.meta[0]}
+                typeMark={item.type}
                 verdict={item.verdict}
-                meta={item.meta.slice(1)}
+                meta={item.meta}
                 freshness={informationCheckedOn(item.data)?.toISOString()}
                 freshnessKind="checked"
                 surface={`explore-shelf-${shelf.id}`}
@@ -563,12 +560,12 @@ export const prerender = true;
             {basics.map((b) => (
               <li><a href={b.href}>{b.label}</a></li>
             ))}
+            <li class="x-basics__note">
+              Markets, exhibitions, and family programs run most weekends. The live calendar is at
+              <a href="/whats-on/">What's On</a>.
+            </li>
           </ul>
         </nav>
-        <p class="x-note">
-          Markets, exhibitions, and family programs run most weekends. The live calendar is at
-          <a href="/whats-on/">What's On</a>.
-        </p>
       </div>
     </section>
   </div>
@@ -604,6 +601,7 @@ export const prerender = true;
               href={r.href}
               entityType={EXPLORE_VENUE_TYPES.includes(r.data.type) ? 'venue' : 'experience'}
               entitySlug={r.slug}
+              typeMark={r.type}
               verdict={r.verdict}
               meta={r.meta}
               surface="explore-directory"
@@ -695,7 +693,7 @@ export const prerender = true;
           Start with a place, a mood, or the time you have.
         </p>
       </div>
-      <a class="pi-btn pi-btn--solid" href="/search/" data-open-search data-evt="search_open" data-surface="explore">Search Peninsula Insider</a>
+      <a class="pi-btn pi-btn--inverse pi-btn--solid" href="/search/" data-open-search data-evt="search_open" data-surface="explore">Search Peninsula Insider</a>
     </div>
   </section>
 </BaseLayout>
@@ -757,18 +755,11 @@ export const prerender = true;
     .x-disclosure::after { transition: none; }
   }
 
-  /* ---- practical block: a utility block, so an H3-sized heading ---- */
+  /* ---- practical block: a utility row, so its heading is a label ----
+     It stays an h2 for the outline, set as the canonical sand eyebrow
+     above the link row rather than a third, smaller section-H2 size. */
   .x-practical { padding-block: var(--space-6) 0; }
-  .x-practical h2 {
-    font-family: var(--font-display);
-    font-size: var(--fs-600);
-    font-weight: 600;
-    line-height: 1.23;
-    letter-spacing: -0.01em;
-    color: var(--text);
-    text-wrap: balance;
-    margin: 0 0 var(--space-2);
-  }
+  .x-practical .x-practical__label { margin: 0 0 var(--space-1); }
   .x-practical__links { display: flex; flex-wrap: wrap; gap: 0 var(--space-6); }
   .x-practical__links a {
     min-height: 44px;
@@ -777,6 +768,19 @@ export const prerender = true;
     font-weight: 600;
     color: var(--harbour);
     text-underline-offset: 0.2em;
+  }
+  /* Phones: an even 2x2 grid of 44px rows instead of a ragged wrap. */
+  @media (max-width: 47.99em) {
+    .x-practical__links {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0 var(--space-4);
+    }
+    .x-practical__links a {
+      font-size: var(--fs-300);
+      line-height: 1.3;
+      text-wrap: balance;
+    }
   }
   .x-practical__links a:hover { color: var(--harbour-h); }
   .x-practical details {
@@ -802,35 +806,49 @@ export const prerender = true;
 
   /* Phones: a horizontal scroller whose track bleeds to the viewport edge,
      so the peeking card runs cleanly off-screen instead of being cut at
-     the gutter. Tablet 2-up; desktop 3x2. */
+     the gutter. The shelves and the Journal row share this one pattern.
+     public/assets/mobile-fixes.css clips every .container (overflow-x:
+     clip), which cut the bleed off at the 16px gutter; these containers
+     let it through, and the full-width section still clips the page.
+     Tablet 2-up; desktop 3x2, with the cards on the frame edges. */
   .x-shelf__row {
     list-style: none;
     margin: 0;
-    padding: 2px;
+    padding: 0;
     display: flex;
     gap: var(--space-5);
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-padding-inline-start: 2px;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
   }
-  .x-shelf__row::-webkit-scrollbar { display: none; }
   .x-shelf__row > :global(li) {
     flex: 0 0 min(80%, 20rem);
     scroll-snap-align: start;
   }
   @media (max-width: 47.99em) {
-    .x-shelf__row {
+    .x-shelf > .container,
+    .x-journal > .container { overflow-x: visible; }
+    .x-shelf__row,
+    .x-journal :global(.v5-card-grid) {
+      display: flex;
+      gap: var(--space-5);
       margin-inline-end: -16px;
-      padding-inline-end: 16px;
+      padding: 2px 16px 2px 2px;
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      scroll-snap-type: x mandatory;
+      scroll-padding-inline-start: 2px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .x-shelf__row::-webkit-scrollbar,
+    .x-journal :global(.v5-card-grid::-webkit-scrollbar) { display: none; }
+    .x-journal :global(.v5-card-grid > li) {
+      flex: 0 0 min(80%, 20rem);
+      scroll-snap-align: start;
     }
   }
   @media (min-width: 48em) {
     .x-shelf__row {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      overflow-x: visible;
     }
     .x-shelf__row > :global(li) { flex: initial; }
   }
@@ -854,21 +872,24 @@ export const prerender = true;
     border-top: 1px solid var(--border);
     padding-top: var(--section-space);
   }
+  /* A row-major grid, not CSS columns: each row of towns shares one track,
+     so the hairlines line up across the columns and the columns end
+     together, however long one blurb runs. */
   .x-towns__list {
     list-style: none;
     margin: 0;
     padding: 0;
-    columns: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
     column-gap: var(--space-6);
   }
   @media (min-width: 48em) {
-    .x-towns__list { columns: 2; }
+    .x-towns__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
   @media (min-width: 64em) {
-    .x-towns__list { columns: 3; }
+    .x-towns__list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   }
   .x-towns__item {
-    break-inside: avoid;
     padding: var(--space-3) 0;
     border-bottom: 1px solid var(--border);
     font-size: var(--fs-300);
@@ -891,7 +912,7 @@ export const prerender = true;
   .x-towns__line {
     display: block;
     color: var(--soft);
-    font-size: var(--fs-200);
+    font-size: var(--fs-300);
     line-height: 1.5;
     text-wrap: pretty;
   }
@@ -946,7 +967,10 @@ export const prerender = true;
     margin-top: var(--space-1);
   }
 
-  /* Planning basics: a labelled link list, not a dot-joined run. */
+  /* Planning basics: a labelled link list, not a dot-joined run. The grid
+     is sized to the ten links (two full rows of five on desktop, five rows
+     of two below), and the What's On line closes the list as its own
+     full-width row, tied to it by a hairline instead of floating under it. */
   .x-basics { margin-top: var(--space-7); }
   .x-basics__list {
     list-style: none;
@@ -956,9 +980,24 @@ export const prerender = true;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0 var(--space-5);
   }
-  @media (min-width: 48em) {
-    .x-basics__list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  @media (min-width: 64em) {
+    .x-basics__list { grid-template-columns: repeat(5, minmax(0, 1fr)); }
   }
+  .x-basics__list > .x-basics__note {
+    grid-column: 1 / -1;
+    margin-top: var(--space-3);
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--border);
+    font-family: var(--font-ui);
+    font-size: var(--fs-300);
+    line-height: var(--lh-ui, 1.5);
+    color: var(--soft);
+    max-width: none;
+    text-wrap: pretty;
+  }
+  /* The note's link sits in its sentence (as before), styled like the
+     sibling links but inline rather than a 44px cell. */
+  .x-basics__list .x-basics__note a { display: inline; min-height: 0; }
   .x-basics__list a {
     display: inline-flex;
     align-items: center;
@@ -1057,10 +1096,13 @@ export const prerender = true;
     color: var(--white);
     text-wrap: balance;
   }
+  /* Dek at about 80% white; the CTA is the inverse solid (sand fill, ink
+     label), which separates from the harbour-deep ground where the harbour
+     solid did not (about 1.7:1). */
   .x-ask__line {
     margin: 0;
     font-family: var(--font-ui);
-    color: var(--soft-inverse);
+    color: rgb(255 255 255 / 0.82);
     max-width: var(--measure-dek, 40ch);
     text-wrap: pretty;
   }

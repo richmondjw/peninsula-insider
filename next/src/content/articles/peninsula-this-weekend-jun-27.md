@@ -1,5 +1,5 @@
 ---
-title: "Peninsula This Weekend - 27 to 28 June"
+title: "Peninsula This Weekend: 27 to 28 June"
 dek: "The solstice crowd has gone home. This is the quiet winter weekend of truffle hunts, local markets, and the final Sunday Sessions at the springs."
 author: "editorial"
 houseByline: true

@@ -2,8 +2,8 @@
 /**
  * PlayCard - the editorial placements.
  *
- *   variant="band"   Homepage, under the This Weekend picks: the case as a
- *                    weekly item, with the painted Mornington scene.
+ *   variant="band"   Homepage, in its own band after the This Weekend picks:
+ *                    the case as a weekly item, with the painted scene.
  *   variant="inline" End of a Journal article: "Or let PI plan your day."
  *
  * Both are plain markup (not a v5 Card) so the CMS editable-coverage gate
@@ -53,7 +53,11 @@ const href = playUrl(surface);
     overflow: hidden;
     font-family: var(--font-ui);
   }
-  .play-card--band { margin-top: var(--space-6); }
+  /* The band placement sits in its own paper-warm band on the homepage
+     (pages/index.astro .home-play), which supplies the spacing. The card
+     turns white there so it reads as a panel on the warm ground rather
+     than a hole in it. */
+  .play-card--band { margin-top: 0; background: var(--white); }
   .play-card--inline { margin: var(--space-7) auto; max-width: 62rem; padding-right: var(--space-5); }
   .play-card__media { position: relative; display: block; height: 100%; min-height: 220px; }
   .play-card__media img { display: block; width: 100%; height: 100%; object-fit: cover; }

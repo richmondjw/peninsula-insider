@@ -14,7 +14,7 @@ const visits = [
     <div class="pi-section-head">
       <div class="pi-section-head__text">
         <p class="pi-eyebrow">Choose your visit</p>
-        <h2 class="pi-h2" id="wine-choices-heading">What kind of wine-country day?</h2>
+        <h2 class="pi-h2" id="wine-choices-heading">What kind of <span class="nowrap">wine-country</span> day?</h2>
       </div>
     </div>
     <div class="wine-choices__rows">
@@ -37,11 +37,17 @@ const visits = [
 <style>
   .wine-choices__row { display: grid; grid-template-columns: 1fr 2fr; gap: var(--space-6, 2rem); border-top: 1px solid var(--border); padding-block: var(--space-5, 1.5rem); }
   h3 { font: 600 var(--fs-600, 1.375rem)/1.25 var(--font-display); color: var(--text); margin: 0; text-wrap: balance; }
-  p { margin: 0 0 var(--space-2, 0.5rem); max-width: 70ch; }
-  a { color: var(--harbour, #10527E); text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+  /* Row and foot copy only: a bare `p` rule here would outrank the section
+     head's canonical eyebrow margin. */
+  .wine-choices__row p, .wine-choices__foot p { margin: 0 0 var(--space-2, 0.5rem); max-width: 70ch; }
+  /* The compound stays whole: .pi-h2 balances, and a plain hyphen is a
+     legal break (U+2011 is not an option; Sora has no glyph for it). */
+  .nowrap { white-space: nowrap; }
+  a { color: var(--harbour, #10527E); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
   a:hover { color: var(--harbour-h, #0C4166); }
   a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-  .wine-choices__foot { border-top: 1px solid var(--border); padding-top: var(--space-5, 1.5rem); display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6, 2rem); font-size: var(--fs-300, 0.9375rem); line-height: 1.6; color: var(--soft); }
+  /* The practical tips read at body size, like the rows above them. */
+  .wine-choices__foot { border-top: 1px solid var(--border); padding-top: var(--space-5, 1.5rem); display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6, 2rem); font-size: var(--fs-400, 1.0625rem); line-height: var(--lh-body, 1.65); color: var(--text); text-wrap: pretty; }
   .wine-choices__foot p { margin: 0; }
   strong { color: var(--text); font-weight: 600; }
   @media (max-width: 48em) {

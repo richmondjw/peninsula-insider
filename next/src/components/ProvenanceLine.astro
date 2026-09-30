@@ -80,11 +80,22 @@ const line = disclosureLine(derived, {
     style={style}
     data-provenance={derived.basis}
   >
-    {emphasis ? <em>{line}<slot /></em> : <Fragment>{line}<slot /></Fragment>}
+    {caption ? (
+      <span class="provenance-line__text">
+        {emphasis ? <em>{line}<slot /></em> : <Fragment>{line}<slot /></Fragment>}
+      </span>
+    ) : emphasis ? (
+      <em>{line}<slot /></em>
+    ) : (
+      <Fragment>{line}<slot /></Fragment>
+    )}
   </p>
 )}
 
 <style>
+  /* The caption's hairline spans its column, like the FAQ and list rules
+     above it; only the small text is held to a reading measure (68ch in
+     the caption's own 13px face would stop the rule at an arbitrary x). */
   .provenance-line--caption {
     margin: var(--space-5) 0 0;
     padding-top: var(--space-4);
@@ -93,7 +104,11 @@ const line = disclosureLine(derived, {
     font-size: var(--fs-200);
     line-height: var(--lh-ui, 1.5);
     color: var(--soft);
-    max-width: var(--measure-prose);
+    max-width: none;
+  }
+  .provenance-line__text {
+    display: block;
+    max-width: 68ch;
     text-wrap: pretty;
   }
 </style>

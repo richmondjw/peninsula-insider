@@ -4,7 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import JournalStory from '../../components/journal/JournalStory.astro';
 import { routeSlug } from '../../lib/editorial';
 import { isJournalEditorial, isJournalDiscovery } from '../../lib/journal-curation.mjs';
-import { themeDefs, primaryTheme } from '../../lib/journal-themes';
+import { themeDefs, primaryTheme, themeTitle, formatDate } from '../../lib/journal-themes';
 import curation from '../../data/journal-front.json';
 import '../../styles/journal-editorial.css';
 const articles=(await getCollection('articles',({data})=>isJournalEditorial(data))).sort((a,b)=>b.data.publishedAt.getTime()-a.data.publishedAt.getTime());
@@ -37,27 +37,32 @@ const themeLabel=(a:typeof articles[number])=>primaryTheme(themes.filter(t=>t.ar
 // Stories already featured above sit after the rest, so the first page of the archive never repeats them.
 const archive=[...articles.filter(a=>!used.has(routeSlug(a))),...articles.filter(a=>used.has(routeSlug(a)))];
 const titleFor=(a:typeof articles[number])=>displayFor(a).title||a.data.title;
-const shortDate=(d:Date)=>d.toLocaleDateString('en-AU',{day:'numeric',month:'short',year:'numeric'});
+const shortDate=(d:Date)=>formatDate(d);
+// Keep a trailing date run ('18 to 19 July') together so the month never sits alone on a line.
+const DATE_RUN=/\d{1,2} to \d{1,2} [A-Z][a-z]+$/;
+const splitDateRun=(title:string)=>{const m=title.match(DATE_RUN);return m?[title.slice(0,m.index),m[0]]:[title,''];};
+// Tabs name each themed section by its theme title, the same words as the section links, the select and the archive.
+const tabLabel=(key:string,fallback:string)=>themeTitle(key)??fallback;
 const themeLink=(key:string)=>{const t=themes.find(x=>x.key===key);return t?{key:t.key,label:`All ${t.title.toLowerCase()}`}:undefined;};
 const foodLink=themeLink('food-and-wine');
 const outdoorsLink=themeLink('walks-and-outdoors');
 const placesLink=themeLink('towns-and-places');
-const selectedOn=new Date(curation.selectedOn+'T12:00:00Z').toLocaleDateString('en-AU',{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'});
+const selectedOn=formatDate(new Date(curation.selectedOn+'T12:00:00Z'));
 ---
 <BaseLayout title="The Journal · Peninsula Insider" description="Stories, people and places from the Mornington Peninsula. Explore the Peninsula Insider Journal." section="journal">
 <div class="journal-page" data-journal-index>
  <section class="journal-heading wrap" aria-labelledby="journal-title"><div><p class="eyebrow">Stories from the Mornington Peninsula</p><h1 id="journal-title">The Journal<span>.</span></h1></div><p class="intro">Good places. Interesting people.<br/>{' '}And a few reasons to stay a little longer.</p></section>
- <nav class="topic-nav wrap" aria-label="Journal sections"><div class="topic-nav-scroll"><a href="#cover">This edit</a>{people.length>0&&<a href="#people">Behind the wine</a>}{food.length>0&&<a href="#food-wine">Food &amp; wine</a>}{outdoors.length>0&&<a href="#outdoors">Out in the open</a>}{places.length>0&&<a href="#places">Places &amp; weekends</a>}<a href="#archive">Every story <span aria-hidden="true">↓</span></a></div></nav>
- {lead && <section class="opening wrap" id="cover" aria-label="This edit"><JournalStory article={lead} display={displayFor(lead)} lead author={byline(lead)}/><aside class="editor-rail"><div class="rail-heading"><p class="eyebrow">From the editor’s desk</p><h2>Worth your time</h2>{fresh && <p class="rail-note">Selected <time datetime={curation.selectedOn}>{selectedOn}</time>. Stories keep their original publication dates.</p>}</div>{desk.map((a,i)=><article class="rail-story"><span class="story-number" aria-hidden="true">{String(i+1).padStart(2,'0')}</span><div><p class="eyebrow">{displayFor(a).eyebrow || a.data.tags[0]?.replaceAll('-',' ')}</p><h3><a href={`/journal/${routeSlug(a)}/`}>{titleFor(a)}</a></h3><p>{displayFor(a).dek || a.data.dek}</p><p class="meta">{byline(a) && <span class="meta-item">{byline(a)}</span>}<span class="meta-item">Published <time datetime={a.data.publishedAt.toISOString()}>{shortDate(a.data.publishedAt)}</time></span>{a.data.readingTimeMinutes && <span class="meta-item">{a.data.readingTimeMinutes} min read</span>}</p></div></article>)}<a href="#archive" class="text-link rail-more">Every story <span aria-hidden="true">↓</span></a></aside></section>}
- {people.length>0&&<section class="wrap section-space people-section" id="people" aria-labelledby="people-title"><header class="section-heading"><div><p class="eyebrow">People</p><h2 id="people-title">Behind the wine</h2><p class="section-dek">The people who shaped what we drink.</p></div></header><div class:list={[people.length===1?'people-feature':'people-grid',`people-grid--${people.length}`]}>{people.map(a=><JournalStory article={a} display={displayFor(a)} author={byline(a)}/>)}</div></section>}
- {food.length>0&&<section class="food-section section-space" id="food-wine" aria-labelledby="food-title"><div class="wrap"><header class="section-heading"><div><p class="eyebrow">At the table</p><h2 id="food-title">Food, wine &amp; good company</h2></div>{foodLink&&<a href={`?theme=${foodLink.key}#archive`} class="text-link" data-theme-link={foodLink.key}>{foodLink.label} <span aria-hidden="true">→</span></a>}</header><div class="weighted-trio">{food.map((a,i)=><JournalStory article={a} display={displayFor(a)} large={i===0} author={byline(a)}/>)}</div></div></section>}
- {outdoors.length>0&&<section class="wrap section-space" id="outdoors" aria-labelledby="outdoors-title"><header class="section-heading"><div><p class="eyebrow">Out in the open</p><h2 id="outdoors-title">A little further, a little slower</h2></div>{outdoorsLink&&<a href={`?theme=${outdoorsLink.key}#archive`} class="text-link" data-theme-link={outdoorsLink.key}>{outdoorsLink.label} <span aria-hidden="true">→</span></a>}</header><div class="outdoors-feature">{outdoors.map(a=><JournalStory article={a} display={displayFor(a)} lead author={byline(a)}/>)}</div></section>}
+ <nav class="topic-nav wrap" aria-label="Journal sections"><div class="topic-nav-scroll"><a href="#cover" aria-current="true">This edit</a>{people.length>0&&<a href="#people">Behind the wine</a>}{food.length>0&&<a href="#food-wine">{tabLabel('food-and-wine','Food & wine')}</a>}{outdoors.length>0&&<a href="#outdoors">{tabLabel('walks-and-outdoors','Walks & outdoors')}</a>}{places.length>0&&<a href="#places">{tabLabel('towns-and-places','Towns & places')}</a>}<a href="#archive">Every story <span aria-hidden="true">↓</span></a></div></nav>
+ {lead && <section class="opening wrap" id="cover" aria-label="This edit"><JournalStory article={lead} display={displayFor(lead)} lead feature author={byline(lead)}/><aside class="editor-rail"><div class="rail-heading"><p class="eyebrow">From the editor’s desk</p><h2>Worth your time</h2>{fresh && <p class="rail-note">Selected <time datetime={curation.selectedOn}>{selectedOn}</time>. Stories keep their original publication dates.</p>}</div>{desk.map((a,i)=><article class="rail-story"><span class="story-number" aria-hidden="true">{String(i+1).padStart(2,'0')}</span><div><p class="eyebrow">{displayFor(a).eyebrow || a.data.tags[0]?.replaceAll('-',' ')}</p><h3><a href={`/journal/${routeSlug(a)}/`}>{titleFor(a)}</a></h3><p>{displayFor(a).dek || a.data.dek}</p><p class="meta">{byline(a) && <span class="meta-item">{byline(a)}</span>}<span class="meta-item">Published <time datetime={a.data.publishedAt.toISOString()}>{shortDate(a.data.publishedAt)}</time></span>{a.data.readingTimeMinutes && <span class="meta-item">{a.data.readingTimeMinutes} min read</span>}</p></div></article>)}</aside></section>}
+ {people.length>0&&<section class="wrap section-space people-section" id="people" aria-labelledby="people-title"><header class="section-heading"><div><p class="eyebrow">People</p><h2 id="people-title">Behind the wine</h2></div></header><div class:list={[people.length===1?'people-feature':'people-grid',`people-grid--${people.length}`]}>{people.map(a=><JournalStory article={a} display={displayFor(a)} author={byline(a)}/>)}</div></section>}
+ {food.length>0&&<section class="food-section section-space" id="food-wine" aria-labelledby="food-title"><div class="wrap"><header class="section-heading"><div><p class="eyebrow">At the table</p><h2 id="food-title">Food, wine &amp; good company</h2></div>{foodLink&&<a href={`?theme=${foodLink.key}#archive`} class="text-link" data-theme-link={foodLink.key}>{foodLink.label} <span aria-hidden="true">→</span></a>}</header><div class="weighted-trio">{food.map((a,i)=><JournalStory article={a} display={displayFor(a)} large={i===0} feature={i===0} author={byline(a)}/>)}</div></div></section>}
+ {outdoors.length>0&&<section class="wrap section-space" id="outdoors" aria-labelledby="outdoors-title"><header class="section-heading"><div><p class="eyebrow">Out in the open</p><h2 id="outdoors-title">A little further, a little slower</h2></div>{outdoorsLink&&<a href={`?theme=${outdoorsLink.key}#archive`} class="text-link" data-theme-link={outdoorsLink.key}>{outdoorsLink.label} <span aria-hidden="true">→</span></a>}</header><div class="outdoors-feature">{outdoors.map(a=><JournalStory article={a} display={displayFor(a)} feature sizes="(max-width: 767px) 100vw, (max-width: 1100px) 55vw, 840px" author={byline(a)}/>)}</div></section>}
  {places.length>0&&<section class="wrap section-space" id="places" aria-labelledby="places-title"><header class="section-heading"><div><p class="eyebrow">Make a weekend of it</p><h2 id="places-title">A place to settle into</h2></div>{placesLink&&<a href={`?theme=${placesLink.key}#archive`} class="text-link" data-theme-link={placesLink.key}>{placesLink.label} <span aria-hidden="true">→</span></a>}</header><div class="places-grid">{places.map(a=><JournalStory article={a} display={displayFor(a)} author={byline(a)}/>)}</div></section>}
  <section class="newsletter section-space"><div class="wrap newsletter-inner"><div class="note-mark" aria-hidden="true">PI<span>The Insider Note</span></div><div><p class="eyebrow">A note from the Peninsula</p><h2>The Insider Note</h2><p>The Peninsula worth knowing. An occasional email.</p></div><div class="newsletter-action"><a class="button" href="/dispatch/">Join The Insider Note <span aria-hidden="true">→</span></a><p>Independent editorial. Unsubscribe any time.</p></div></div></section>
  <section class="archive wrap section-space" id="archive" aria-labelledby="archive-title"><header class="section-heading"><div><p class="eyebrow">The complete collection</p><h2 id="archive-title">Find your next read</h2></div></header>
  <div class="archive-tools"><div class="search-field"><label for="story-search">Search the Journal</label><div class="search-input"><svg class="search-icon" aria-hidden="true" focusable="false" viewBox="0 0 20 20" width="18" height="18"><circle cx="8.5" cy="8.5" r="5.75" fill="none" stroke="currentColor" stroke-width="1.75"/><path d="M13 13l4.25 4.25" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg><input id="story-search" type="search" placeholder="Search stories" /></div></div><div><label for="topic-filter">Browse by theme</label><select id="topic-filter"><option value="">Every theme</option>{themes.map(t=><option value={t.key}>{t.title}</option>)}</select></div><div><label for="month-filter">Publication month</label><select id="month-filter"><option value="">Any month</option>{months.map(m=><option value={m}>{new Date(m+'-01T12:00:00Z').toLocaleDateString('en-AU',{month:'long',year:'numeric'})}</option>)}</select></div></div>
  <div class="archive-status"><p id="result-count" role="status" aria-live="polite"></p><button id="clear-filters" hidden>Clear filters</button></div>
- <div class="archive-list">{archive.map(a=><article class="archive-row" data-title={`${titleFor(a)} ${a.data.title} ${a.data.dek}`.toLowerCase()} data-topics={JSON.stringify(topicsFor(a))} data-month={a.data.publishedAt.toISOString().slice(0,7)}><time class="archive-date" datetime={a.data.publishedAt.toISOString()}>{shortDate(a.data.publishedAt)}</time><h3><a href={`/journal/${routeSlug(a)}/`}>{titleFor(a)}</a></h3><span class="archive-topic">{themeLabel(a)}</span></article>)}</div>
+ <div class="archive-list">{archive.map(a=><article class="archive-row" data-title={`${titleFor(a)} ${a.data.title} ${a.data.dek}`.toLowerCase()} data-topics={JSON.stringify(topicsFor(a))} data-month={a.data.publishedAt.toISOString().slice(0,7)}><time class="archive-date" datetime={a.data.publishedAt.toISOString()}>{shortDate(a.data.publishedAt)}</time><h3><a href={`/journal/${routeSlug(a)}/`}>{splitDateRun(titleFor(a))[0]}{splitDateRun(titleFor(a))[1] && <span class="nowrap">{splitDateRun(titleFor(a))[1]}</span>}</a></h3><span class="archive-topic">{themeLabel(a)}</span></article>)}</div>
  <p id="empty-state" hidden>No stories match those filters. Try another theme or clear your search.</p><button id="load-more" class="load-more" hidden>Show more stories <span aria-hidden="true">↓</span></button><p class="picks-note">Looking for previous <a href="/picks/">Insider Picks</a>? You’ll find them in their own archive.</p>
  </section>
 </div>
@@ -67,16 +72,18 @@ import '../../scripts/journal-index';
 </script>
 
 <style>
-.people-section .section-dek{margin-top:12px;max-width:60ch;font-size:15px;line-height:1.6;color:var(--muted)}
-.people-feature :global(.story){display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center}
-.people-feature :global(.story > figure){margin:0}
+/* One story: on the page's shared 12-column frame (tokens in journal-editorial.css), media or title in
+   columns 1 to 8 and the copy in 9 to 12, so its side column shares the opening's and food's edge. */
+.people-feature :global(.story){display:grid;grid-template-columns:var(--j-cols);column-gap:var(--j-gap);align-items:start}
+.people-feature :global(.story > figure){margin:0;grid-column:1 / span var(--j-main)}
+.people-feature :global(.story > .story-body){grid-column:span var(--j-side) / -1}
 .people-feature :global(.story .eyebrow){margin-top:0}
 .people-feature :global(.story.no-photo){display:block;border-block:1px solid var(--rule);padding:32px 0}
-.people-feature :global(.story.no-photo .story-body){display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);grid-template-areas:"eyebrow eyebrow" "title dek" "title meta";column-gap:40px;align-items:start}
-.people-feature :global(.story.no-photo .eyebrow){grid-area:eyebrow;margin:0 0 12px}
-.people-feature :global(.story.no-photo h3){grid-area:title;font-size:34px;line-height:1.12;margin:0}
-.people-feature :global(.story.no-photo .dek){grid-area:dek;margin:0;font-size:15px;line-height:1.65}
-.people-feature :global(.story.no-photo .meta){grid-area:meta;margin-top:12px}
+.people-feature :global(.story.no-photo .story-body){display:grid;grid-template-columns:var(--j-cols);grid-template-areas:none;column-gap:var(--j-gap);align-items:start}
+.people-feature :global(.story.no-photo .eyebrow){grid-column:1 / -1;grid-row:1;margin:0 0 12px}
+.people-feature :global(.story.no-photo h3){grid-column:1 / span var(--j-main);grid-row:2 / span 2;font-size:34px;line-height:1.12;margin:0}
+.people-feature :global(.story.no-photo .dek){grid-column:span var(--j-side) / -1;grid-row:2;margin:0;font-size:15px;line-height:1.65}
+.people-feature :global(.story.no-photo .story-foot){grid-column:span var(--j-side) / -1;grid-row:3;margin-top:12px}
 .people-grid{display:grid;gap:28px}
 .people-grid--2{grid-template-columns:repeat(2,minmax(0,1fr))}
 .people-grid--3{grid-template-columns:repeat(3,minmax(0,1fr))}
@@ -84,7 +91,7 @@ import '../../scripts/journal-index';
 .people-feature :global(.story){display:block}
 .people-feature :global(.story > figure + .story-body .eyebrow){margin-top:16px}
 .people-feature :global(.story.no-photo){padding:24px 0}
-.people-feature :global(.story.no-photo .story-body){grid-template-columns:1fr;grid-template-areas:"eyebrow" "title" "dek" "meta"}
+.people-feature :global(.story.no-photo .story-body){display:block}
 .people-feature :global(.story.no-photo h3){font-size:28px}
 .people-feature :global(.story.no-photo .dek){margin-top:12px}
 .people-grid--2,.people-grid--3{grid-template-columns:1fr;gap:32px}

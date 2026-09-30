@@ -2,7 +2,7 @@
 /**
  * PlayBeacon - PI's mark in the masthead utility row.
  *
- * The site's one persistent presence for the game: 32px, on brand, and it is
+ * The site's one persistent presence for the game: 20px, on brand, and it is
  * her (the same hat-turn loop the game uses in its own header), not a badge.
  * Ships the 9KB still first and swaps in the animated WebP after window.load
  * so it never competes with the page's LCP; reduce-motion keeps the still.
@@ -30,8 +30,8 @@ const href = playUrl('masthead');
         srcset="/images/play/pi-mark-still-96.png 1x, /images/play/pi-mark-still-192.png 2x"
         data-animated="/images/play/pi-mark-turn-80.webp"
         data-animated-2x="/images/play/pi-mark-turn-160.webp"
-        width="32"
-        height="30"
+        width="20"
+        height="20"
         alt=""
         decoding="async"
       />
@@ -77,10 +77,14 @@ const href = playUrl('masthead');
     gap: var(--space-2);
     min-height: 44px;
   }
+  /* G22: in the utility row the mark sits in the same 20px box as the
+     Search icon, centred on the text line; the illustrated mark itself is
+     unchanged, and the Play surfaces keep their own sizes. */
   .v5-play__mark {
     display: block;
-    width: 32px;
-    height: auto;
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
     flex: none;
   }
   .v5-play__label { line-height: 1; }

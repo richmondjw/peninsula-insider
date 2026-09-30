@@ -30,6 +30,18 @@ const { compact = false, surface = 'article-note' } = Astro.props;
     text-wrap: pretty;
   }
 
+  /* G23: after a padded section (the hub FAQ) the section's own bottom
+     padding is the gap; a second 48px on top would double it. As the last
+     thing on the page the strip closes on its own 24px padding, meeting
+     the footer's top rule as a matched pair of hairlines. */
+  :global(.pi-section) + .correction-note,
+  :global(.pi-section + .container) > .correction-note:first-child {
+    margin-top: 0;
+  }
+  :global(main > .container:last-child) > .correction-note:last-child {
+    margin-bottom: 0;
+  }
+
   .correction-note--compact {
     margin-top: var(--space-5, 1.5rem);
     font-size: 0.875rem;

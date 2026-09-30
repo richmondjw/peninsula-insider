@@ -59,6 +59,20 @@ export function exploreSummary(slug, data) {
 
 export function effortLabel(data) {
   // A walk grading is not a mobility-access claim and should not label a gallery or beach.
+  // The grade stands alone ('Moderate'): the type token beside it already says 'Walk'.
   if (data.type !== 'walk' || !['easy', 'moderate', 'hard'].includes(data.difficulty)) return undefined;
-  return `${data.difficulty[0].toUpperCase()}${data.difficulty.slice(1)} walk`;
+  return `${data.difficulty[0].toUpperCase()}${data.difficulty.slice(1)}`;
+}
+
+/**
+ * A guide estimate reads as a person's estimate, not computed data: under
+ * 90 minutes it is rounded to the nearest 15 ('45 min', '75 min'); from 90
+ * minutes it is the nearest half hour ('About 2 hr', 'About 2.5 hr').
+ * Never '1.3 hr'.
+ */
+export function durationLabel(minutes) {
+  if (typeof minutes !== 'number' || !Number.isFinite(minutes) || minutes <= 0) return undefined;
+  if (minutes < 90) return `${Math.max(15, Math.round(minutes / 15) * 15)} min`;
+  const hours = Math.round(minutes / 30) / 2;
+  return `About ${hours} hr`;
 }

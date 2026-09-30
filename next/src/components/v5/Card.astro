@@ -19,12 +19,14 @@
  *    card. SaveControl / trip / booking sit in an actions layer ABOVE the
  *    stretched link and are never nested inside it.
  *  - Verdict is a <p> in the Critic voice style, never a heading.
- *  - Save target >= 48px; focus-visible ring on the link.
+ *  - Action targets 48px (44px on phones); focus-visible ring on the link.
  *
- * Actions (one pair everywhere): a 48px circular Save bookmark, then a 48px,
- * 8px-radius "Add to trip" ghost button, then any booking CTA at the same
- * height. The row starts on the body's text inset. Article and guide cards
- * carry only the bookmark, on the meta line, never on a row of its own.
+ * Actions (one pair everywhere): a labelled "Save" button, then the
+ * "Add to trip" button, both 48px (44px on phones) with the 8px radius, then
+ * any booking CTA (a full-width second line in framed cards, the end of the
+ * cluster in a desktop directory row). The row starts on the body's
+ * text inset. A card whose only action is Save carries the icon-only
+ * bookmark at the right end of its meta line, never on a row of its own.
  *
  * Analytics: link carries data-evt="card_click" plus entity attrs; the
  * "Add to trip" affordance carries data-evt="trip_add" and writes to the
@@ -241,11 +243,25 @@ const hasVerdictSlot = Astro.slots.has('verdict');
 const resolvedSaveKind: SaveKind | null =
   saveKind ?? (entityType !== 'page' && entityType !== 'region' ? (entityType as SaveKind) : null);
 
-/* Editorial cards keep the bookmark on the meta line: a lone 48px circle on
-   a row of its own read as an orphaned control under every journal card. */
-const inlineSave = isEditorial && !!resolvedSaveKind && !trip && !booking;
 const showBookingSlot = !booking && reserveBooking;
+/* One save grammar (C23). When Save is the card's only action, the
+   icon-only bookmark closes the meta line instead of standing alone on a
+   padded row of its own (an orphaned control under the card). That holds
+   for every framed card except the plan, whose "Save plan" is its primary
+   action and keeps its labelled button. A compact directory row with only
+   a bookmark carries it in the row's top-right corner (solo save, C22).
+   Anywhere Save sits beside "Add to trip" or a booking link, it is the
+   labelled "Save" button, the same shape as its neighbours. */
+const saveOnly = !!resolvedSaveKind && !trip && !booking && !showBookingSlot;
+const inlineSave = saveOnly && !isCompact && variant !== 'plan';
+const soloSave = saveOnly && isCompact;
 const hasActions = (!inlineSave && !!resolvedSaveKind) || trip || !!booking || showBookingSlot;
+
+/* Hyphenated compounds ("two-night") travel as one unit: the ASCII hyphen
+   is a break opportunity, and the Sora and Figtree files have no U+2011
+   glyph, so each compound sits in a nowrap span. Odd indices are the
+   compounds captured by the split. */
+const titleParts = title.split(/(\S+-\S+)/);
 
 /* Guide cards without a picture are text links on a band; the trailing
    arrow is their link affordance. */
@@ -265,7 +281,7 @@ const saveProps = resolvedSaveKind
       dek: saveDek ?? verdict,
       imageUrl: image?.src,
       variant: variant === 'plan' ? ('fork' as const) : ('save' as const),
-      labelled: variant === 'plan',
+      labelled: !inlineSave && !soloSave,
     }
   : null;
 ---
@@ -278,6 +294,7 @@ const saveProps = resolvedSaveKind
     variant === 'compact-row' ? 'pi-card--compact' : `pi-card--${variant}`,
     isEditorial && 'pi-card--editorial',
     !hasMediaSlot && 'pi-card--no-media',
+    soloSave && 'pi-card--solo-save',
   ]}
   data-variant={variant}
 >
@@ -344,7 +361,7 @@ const saveProps = resolvedSaveKind
         data-surface={surface}
         data-position={position}
       >
-        {title}{showGuideArrow && <span class="pi-card__arrow" aria-hidden="true">&nbsp;&rarr;</span>}
+        {titleParts.map((part, i) => (i % 2 === 1 ? <span class="pi-card__nb">{part}</span> : part))}{showGuideArrow && <span class="pi-card__arrow" aria-hidden="true">&nbsp;&rarr;</span>}
       </a>
     </h3>
 
@@ -354,8 +371,8 @@ const saveProps = resolvedSaveKind
       </p>
     )}
 
-    {/* Meta: one list, every token a non-breaking li whose separator is its
-        own ::before, so a line can never start or end on a stranded dot. */}
+    {/* Meta: one list, every token a non-breaking li whose separator trails
+        it (::after), so a wrapped line can never start on a stranded dot. */}
     {hasMeta && (
       <ul class="pi-card__meta" role="list">
         {variant === 'article' ? (
@@ -571,25 +588,42 @@ const saveProps = resolvedSaveKind
   /* Guide cards with no picture: the arrow is the link affordance. It
      travels with the last word, so it never wraps onto a line alone. */
   .pi-card__arrow {
-    color: var(--sand-text);
+    color: var(--harbour);
+    white-space: nowrap;
+  }
+  /* A hyphenated compound in a title never splits at its hyphen. */
+  .pi-card__nb {
     white-space: nowrap;
   }
 
-  /* The verdict is this masthead's product line, so it runs one step up
-     from the primitive's dek and in the UI face at medium weight. */
-  .pi-card__dek {
-    font-size: var(--fs-500);
-    font-weight: var(--fw-medium);
+  /* Editorial titles run 12 to 15 words: balance pulled them into narrow
+     four-line stacks inside a wide card, so they fill the measure instead
+     and only the last line runs short. */
+  .pi-card--editorial .pi-card__title {
+    text-wrap: pretty;
   }
 
-  /* ---- meta line: the canonical token list (C4) ----
-     Every token is an li that never breaks internally; the separator is the
-     token's own ::before, so it wraps with its token and a line can never
-     start or end on a stranded dot. A dot with 0.5em either side, fs-200,
-     --soft text. WhatsOnRow draws the same tokens. The line sits a fixed
-     12px under the dek (the body's 8px gap plus 4px) instead of the
-     primitive's margin-top:auto, so equal-height cards collect spare height
-     below the meta, never in a hollow above it. */
+  /* One dek for every framed card (C25): body size, body weight, 1.6
+     leading. Journal, guide, venue, event and experience cards on one page
+     read at the same size. The body[data-v4] prefix and the repeated
+     classes outrank refinement.css (body[data-v4] .pi-card:not(...)
+     .pi-card__dek), so this is the rule that computes. Compact directory
+     rows keep their own fs-300 dek below. */
+  :global(body[data-v4]) .pi-card:not(.pi-card--compact) .pi-card__dek {
+    font-size: var(--fs-400);
+    font-weight: var(--fw-body);
+    line-height: 1.6;
+  }
+
+  /* ---- meta line: the canonical token list (C4, C25) ----
+     Every token is an li that never breaks internally; the separator trails
+     the token it follows (::after), so a wrapped line may end on a dot but
+     can never start with one. A dot with 0.5em either side, fs-200, --soft
+     text. WhatsOnRow draws the same tokens. On venue cards with an actions
+     row the line sits a fixed 12px under the dek (the body's 8px gap plus
+     4px). Editorial, event and inline-save cards pin it to the card foot
+     instead (below), so meta lines and bookmarks share one line across an
+     equal-height row. */
   .pi-card__meta,
   .pi-card__provenance {
     display: flex;
@@ -610,11 +644,32 @@ const saveProps = resolvedSaveKind
   .pi-card__chip {
     white-space: nowrap;
   }
-  .pi-card__chip + .pi-card__chip::before {
+  /* The meta-save li is not a chip, so the last chip before the bookmark
+     carries no dot. */
+  .pi-card__chip:has(+ .pi-card__chip)::after {
     content: '\00B7';
     content: '\00B7' / '';
-    margin-right: 0.5em;
+    margin-left: 0.5em;
     color: var(--border-strong);
+  }
+
+  /* ---- equal-height cards: the foot line (C24) ----
+     In a row of equal-height editorial, event or inline-save cards the meta
+     line (and the bookmark that closes it) is pinned to the card foot, so
+     every card in the row shares one meta baseline and spare height
+     collects above the meta, not in a hollow band under the footer. The
+     12px padding keeps the dek clear of the meta on the tallest card. */
+  .pi-card--editorial .pi-card__body,
+  .pi-card--event .pi-card__body {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+  }
+  .pi-card--editorial .pi-card__meta,
+  .pi-card--event .pi-card__meta,
+  .pi-card:not(.pi-card--compact) .pi-card__meta:has(.pi-card__meta-save) {
+    margin-top: auto;
+    padding-top: var(--space-3);
   }
   /* Provenance (check date, image disclosure, partner) is a second token
      line with the same grammar; it never pins. */
@@ -624,7 +679,7 @@ const saveProps = resolvedSaveKind
     letter-spacing: var(--ls-eyebrow);
     color: var(--teal-text);
   }
-  /* Editorial cards: the bookmark closes the meta line, right-aligned, and
+  /* Save-only cards: the bookmark closes the meta line, right-aligned, and
      sits above the stretched link like the actions row does. */
   .pi-card__meta-save {
     position: relative;
@@ -645,11 +700,24 @@ const saveProps = resolvedSaveKind
     gap: var(--space-3);
     padding: 0 var(--space-4) var(--space-4);
   }
+  /* A booking link in a framed card always takes its own full-width second
+     line, whatever the column width: [Save][Add to trip] on line 1, then
+     "Check availability" across the card's text width. Before this, the
+     wide lead card kept three controls on one line while narrow side cards
+     wrapped the booking by accident. Compact rows set their own layout. */
+  .pi-card:not(.pi-card--compact) .pi-card__actions > :global(.v5-booking) {
+    --booking-min: 0;
+    flex: 1 1 100%;
+    min-width: 0;
+  }
   .pi-card__trip {
     appearance: none;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    /* Holds the "Add to trip" width when the label becomes "In trip", so
+       the controls beside it never shift. */
+    min-width: 7.5rem;
     min-height: 48px;
     padding: 0 var(--space-4);
     background: transparent;
@@ -683,20 +751,34 @@ const saveProps = resolvedSaveKind
     min-height: 48px;
   }
 
+  /* Phones: the pair steps down to 44px and the small label size so it
+     fits one line of the text column (SaveControl does the same for the
+     labelled Save). 44px stays above the touch-target floor. */
+  @media (max-width: 47.99em) {
+    .pi-card__trip {
+      min-width: 6.75rem;
+      min-height: 44px;
+      font-size: var(--fs-200);
+    }
+  }
+
   /* ---- variant: compact (directory row) ----
      The primitive's --compact is a horizontal media card. This surface uses
      it as a directory list row, read left to right as
-       thumb (120x90) | text (up to 62ch) | actions
-     with the actions directly after the text rather than pinned to the far
-     edge of the frame. The row draws no frame and no rule of its own: the
-     list that holds it owns the single divider (DirectoryRows, CardGrid
-     rows), which is what ended the doubled hairline between rows.
+       thumb (120x90) | text (flexes; title and dek capped at 62ch) | actions
+     The text track takes the spare width and the action cluster sits flush
+     against the frame's right edge (C21), on the same line as the row rules
+     and the section-head link. The reserved booking slot keeps the cluster
+     one fixed width, so Save and "Add to trip" hold the same x on every row.
+     The row draws no frame and no rule of its own: the list that holds it
+     owns the single divider (DirectoryRows, CardGrid rows), which is what
+     ended the doubled hairline between rows.
      Selectors repeat the block class so they beat the primitive regardless
      of bundle order. */
   .pi-card.pi-card--compact {
     display: grid;
-    grid-template-columns: 120px minmax(0, 62ch) auto;
-    justify-content: start;
+    grid-template-columns: 120px minmax(0, 1fr) auto;
+    justify-content: normal;
     align-items: start;
     column-gap: var(--space-5);
     border: 0;
@@ -706,7 +788,7 @@ const saveProps = resolvedSaveKind
     background: none;
   }
   .pi-card.pi-card--compact.pi-card--no-media {
-    grid-template-columns: minmax(0, 62ch) auto;
+    grid-template-columns: minmax(0, 1fr) auto;
   }
   .pi-card.pi-card--compact .pi-card__media {
     grid-column: 1;
@@ -727,6 +809,7 @@ const saveProps = resolvedSaveKind
     grid-column: 1;
   }
   .pi-card.pi-card--compact .pi-card__title {
+    max-width: 62ch;
     font-size: var(--fs-500);
     line-height: 1.25;
   }
@@ -750,6 +833,7 @@ const saveProps = resolvedSaveKind
     grid-column: 3;
     grid-row: 1;
     align-self: start;
+    justify-self: end;
     margin: 0;
     padding: 2px 0 0;
     flex-wrap: nowrap;
@@ -796,6 +880,7 @@ const saveProps = resolvedSaveKind
     .pi-card.pi-card--compact.pi-card--no-media .pi-card__actions {
       grid-column: 2;
       grid-row: 2;
+      justify-self: start;
       flex-wrap: wrap;
       padding-top: var(--space-3);
     }
@@ -804,8 +889,10 @@ const saveProps = resolvedSaveKind
     }
   }
 
-  /* Phone: an 88x66 thumb beside the text, then a full-width action bar
-     (bookmark on the left, a booking button flexed to fill). */
+  /* Phone (C22): an 88x66 thumb beside the text, and the actions stay in
+     the text column, so every row has one left text edge. [Save][Add to
+     trip] sit on one line starting at the title's x, both 44px; a booking
+     link takes its own line across the text column under them. */
   @media (max-width: 47.99em) {
     .pi-card.pi-card--compact {
       grid-template-columns: 88px minmax(0, 1fr);
@@ -819,16 +906,62 @@ const saveProps = resolvedSaveKind
       font-size: var(--fs-400);
     }
     .pi-card.pi-card--compact .pi-card__actions {
-      grid-column: 1 / -1;
+      grid-column: 2;
+      grid-row: 2;
+      justify-self: stretch;
+      flex-wrap: wrap;
+      gap: var(--space-2);
       padding-top: var(--space-3);
     }
-    /* Fills the bar when it fits beside the pair; on a narrow phone it takes
-       its own full-width line under them rather than squeezing its label. */
+    .pi-card.pi-card--compact.pi-card--no-media .pi-card__actions {
+      justify-self: stretch;
+    }
     .pi-card.pi-card--compact .pi-card__actions > :global(.v5-booking) {
-      flex: 1 1 var(--booking-slot, 13rem);
+      --booking-min: 0;
+      flex: 1 1 100%;
+      min-width: 0;
     }
     .pi-card.pi-card--compact .pi-card__booking-slot {
       display: none;
+    }
+  }
+
+  /* ---- compact row whose only action is Save (C22) ----
+     No trip, no booking, no reserved slot (the Explore directory): the
+     icon-only bookmark sits in the row's top-right corner, top-aligned with
+     the title, at every width. No second action row. */
+  .pi-card.pi-card--compact.pi-card--solo-save .pi-card__actions,
+  .pi-card.pi-card--compact.pi-card--solo-save.pi-card--no-media .pi-card__actions {
+    grid-row: 1;
+    align-self: start;
+    justify-self: end;
+    padding: 0;
+    flex-wrap: nowrap;
+  }
+  @media (max-width: 63.99em) {
+    .pi-card.pi-card--compact.pi-card--solo-save {
+      grid-template-columns: 120px minmax(0, 1fr) auto;
+    }
+    .pi-card.pi-card--compact.pi-card--solo-save.pi-card--no-media {
+      grid-template-columns: minmax(0, 1fr) auto;
+    }
+    .pi-card.pi-card--compact.pi-card--solo-save .pi-card__actions {
+      grid-column: 3;
+    }
+    .pi-card.pi-card--compact.pi-card--solo-save.pi-card--no-media .pi-card__actions {
+      grid-column: 2;
+    }
+  }
+  @media (max-width: 47.99em) {
+    .pi-card.pi-card--compact.pi-card--solo-save {
+      grid-template-columns: 88px minmax(0, 1fr) auto;
+    }
+    .pi-card.pi-card--compact.pi-card--solo-save.pi-card--no-media {
+      grid-template-columns: minmax(0, 1fr) auto;
+    }
+    .pi-card.pi-card--compact.pi-card--solo-save .pi-card__actions :global(.v5-save__btn) {
+      min-width: 44px;
+      min-height: 44px;
     }
   }
 

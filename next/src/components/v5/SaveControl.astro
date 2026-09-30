@@ -28,7 +28,11 @@ export interface Props {
   dek?: string;
   /** Cover image; carried into the saved-plan view. */
   imageUrl?: string;
-  /** Show the text label next to the icon (detail pages, plan cards). */
+  /**
+   * Show the text label next to the icon. Card sets it whenever Save sits
+   * in an actions row beside "Add to trip" or a booking link; the icon-only
+   * circle is for inline use (a card's meta line, a directory row corner).
+   */
   labelled?: boolean;
   /**
    * 'save' (default) or 'fork' (plan entities only). Both save to the same
@@ -67,6 +71,7 @@ const accessibleName = isFork ? `Save plan: ${title}` : `Save ${title}`;
   data-dek={dek}
   data-image={imageUrl}
   data-variant={variant}
+  data-rest-label={restLabel}
 >
   <button
     type="button"
@@ -144,15 +149,35 @@ const accessibleName = isFork ? `Save plan: ${title}` : `Save ${title}`;
     fill: currentColor;
   }
 
-  /* With a visible label the control is a button, not an icon: 8px radius
-     and the button inset, like the "Add to trip" button beside it. The
-     icon-only bookmark stays the 48px circle. */
+  /* With a visible label the control is a button, not an icon (C23): the
+     exact shape of the card's "Add to trip" button beside it. 48px high
+     (44px on phones), 8px radius, 1px hairline, harbour Figtree 600 at
+     fs-300 (fs-200 on phones), 16px inset. The minimum width holds the
+     "Saved" label too, so saving never shifts the controls beside it.
+     The icon-only bookmark stays the 48px circle, for inline use (the end
+     of a card's meta line, a directory row's corner). */
   .v5-save__btn--labelled {
     gap: var(--space-2, 0.5rem);
+    min-width: 6.25rem;
+    min-height: 48px;
     padding: 0 var(--space-4, 1rem);
     border-radius: var(--radius-s, 8px);
+    font-family: var(--font-ui);
     font-size: var(--fs-300, 0.9375rem);
+    font-weight: var(--fw-semibold, 600);
+    white-space: nowrap;
     color: var(--harbour);
+  }
+  .v5-save__btn--labelled:not([aria-pressed='true']):hover {
+    border-color: var(--harbour);
+    color: var(--harbour-h);
+  }
+  @media (max-width: 47.99em) {
+    .v5-save__btn--labelled {
+      min-width: 6rem;
+      min-height: 44px;
+      font-size: var(--fs-200, 0.8125rem);
+    }
   }
 
   /* Icon-only mode keeps the label for screen readers. */

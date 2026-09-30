@@ -1,5 +1,5 @@
 ---
-title: "Peninsula This Weekend - 2 to 3 May"
+title: "Peninsula This Weekend: 2 to 3 May"
 dek: "A historical 2–3 May weekend plan, retained with a correction: the original Red Hill Community Market is temporarily closed."
 author: "editorial"
 houseByline: true

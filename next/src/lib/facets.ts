@@ -751,7 +751,9 @@ function facetsForArticle(data: Record<string, any>, out: Facets) {
   if (data.section === 'plans') emit(out, 'cat', 'plan');
 
   const shape = typeof data.planShape === 'string' ? data.planShape : null;
-  if (shape === 'day-trip') emit(out, 'date', 'one-day');
+  // A half-day guide files under 'one-day' like a day trip, so filters select it as before;
+  // plans-data labels it 'Half day'. No new facet chip: every FACET_OPTIONS value renders in FilterSheet.
+  if (shape === 'day-trip' || shape === 'half-day') emit(out, 'date', 'one-day');
   if (shape === 'one-night' || shape === 'two-night') emit(out, 'date', 'weekend');
   if (shape === 'seasonal') emit(out, 'date', 'seasonal');
 

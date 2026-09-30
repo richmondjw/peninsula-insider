@@ -30,7 +30,10 @@ export interface JournalItem {
 export interface Props {
   /** h2; defaults to the cross-hub convention. */
   heading?: string;
-  /** Uppercase eyebrow above the heading (teal). */
+  /**
+   * Uppercase eyebrow above the heading. Defaults to "The Journal", or to
+   * none when the heading already names the Journal. Pass '' for none.
+   */
   eyebrow?: string;
   sub?: string;
   /** At most 3 (build warns and slices). */
@@ -40,16 +43,16 @@ export interface Props {
   surface?: string;
   id?: string;
   /**
-   * Type eyebrow on each card. Off by default: the module eyebrow reads
-   * "The Journal" and the heading "From the Journal", so a GUIDE stamp on
-   * every card below repeats what the section has already said.
+   * Type eyebrow on each card. Off by default: the section head already
+   * names the Journal, so a GUIDE stamp on every card below repeats what
+   * the section has already said.
    */
   showEyebrow?: boolean;
 }
 
 const {
   heading = 'From the Journal',
-  eyebrow = 'The Journal',
+  eyebrow: eyebrowProp,
   sub,
   items,
   moreHref,
@@ -58,6 +61,11 @@ const {
   id,
   showEyebrow = false,
 } = Astro.props;
+
+/* No echoed eyebrow (C26): "The Journal" over "From the Journal" says the
+   same thing twice, so the default eyebrow shows only when the heading
+   does not already name the Journal. A page may still pass its own. */
+const eyebrow = eyebrowProp ?? (/journal/i.test(heading) ? '' : 'The Journal');
 
 if (items.length > 3) {
   console.warn(`[v5 JournalModule] more than 3 items (${items.length}); rendering the first 3`);

@@ -1,5 +1,5 @@
 ---
-title: "Peninsula This Weekend  -  24 to 26 April"
+title: "Peninsula This Weekend: 24 to 26 April"
 dek: "ANZAC dawn is the weekend's clearest call. Around it, the Peninsula is offering a reflective long-weekend mix of writers, walks, warm water, and a few better decisions than the obvious crowd-chase."
 author: "editorial"
 houseByline: true

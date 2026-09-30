@@ -1,5 +1,5 @@
 ---
-title: "The Long Lunch: Why the Mornington Peninsula Does Sunday Better Than Anywhere in Victoria"
+title: "The long lunch: why the Mornington Peninsula does Sunday better than anywhere in Victoria"
 dek: "Three hatted restaurants, a bay view, and nowhere you need to be until Monday. This is the case for staying the whole weekend."
 author: "editorial"
 houseByline: true

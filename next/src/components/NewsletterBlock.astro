@@ -35,10 +35,10 @@ export interface Props {
 
 const {
   title = 'The Insider Note',
-  body = "The Peninsula worth knowing. An occasional email. What's on, where we'd go and what's worth knowing next.",
-  // The tick line under the form carries the single "Unsubscribe any time"
-  // reassurance, so the default sub no longer repeats it.
-  sub = 'Independent editorial.',
+  body = 'The Peninsula worth knowing. An occasional email. What’s on, where we’d go and what’s worth knowing next.',
+  // A short sub is a reassurance, so it renders as a second tick item beside
+  // "Unsubscribe any time" under the form (see subAsTick below).
+  sub = 'Independent editorial',
   issueNumber = '',
   issueDate = '',
   previewHeadline = '',
@@ -116,6 +116,15 @@ const resolvedFoot = dispatch
   : '';
 
 const showPreview = !hidePreview && resolvedHeadline && resolvedPicks.length > 0;
+
+// A short, single-phrase sub ("Independent editorial") is a reassurance and
+// joins the tick row under the form, matching "Unsubscribe any time". A few
+// older callers still pass a full sentence as the sub; that stays a
+// paragraph under the body, where a sentence belongs.
+const subText = (sub ?? '').trim().replace(/'/g, '’');
+const subAsTick = subText !== '' && subText.length <= 40 && !/[.!?]\s+\S/.test(subText);
+const tickSub = subAsTick ? subText.replace(/\.$/, '') : '';
+const paraSub = subAsTick ? '' : subText;
 ---
 
 <section class="v2-newsletter" id="newsletter" aria-labelledby="newsletter-title">
@@ -132,7 +141,7 @@ const showPreview = !hidePreview && resolvedHeadline && resolvedPicks.length > 0
           class="v2-newsletter__body"
           {...editableText({ entityType: 'page', entitySlug: 'home', fieldPath: 'newsletter.body', label: 'Newsletter body' })}
         >{body}</p>
-        {sub && <p class="v2-newsletter__sub">{sub}</p>}
+        {paraSub && <p class="v2-newsletter__sub">{paraSub}</p>}
       </div>
 
       <div class="v2-newsletter__action">
@@ -154,12 +163,18 @@ const showPreview = !hidePreview && resolvedHeadline && resolvedPicks.length > 0
           <button class="v2-newsletter__submit" type="submit">Join</button>
         </form>
 
-        <div class="v2-newsletter__meta">
-          <span>
+        <ul class="v2-newsletter__meta" role="list">
+          <li>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
             Unsubscribe any time
-          </span>
-        </div>
+          </li>
+          {tickSub && (
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+              {tickSub}
+            </li>
+          )}
+        </ul>
       </div>
 
       {showPreview && (
@@ -225,7 +240,7 @@ const showPreview = !hidePreview && resolvedHeadline && resolvedPicks.length > 0
             form._v2nlDone = true;
             if (typeof window.piTrack === 'function') window.piTrack('newsletter_signup_succeeded', { surface: source }, { component: 'NewsletterBlock' });
             if (btn) btn.textContent = 'Done';
-            setStatus(form, "You're in. The next edition will land in your inbox soon.", 'ok');
+            setStatus(form, 'You’re in. The next edition will land in your inbox soon.', 'ok');
             if (input) { input.value = ''; input.disabled = true; }
           }
           function fail(msg) {
@@ -342,6 +357,8 @@ const showPreview = !hidePreview && resolvedHeadline && resolvedPicks.length > 0
     text-wrap: pretty;
     margin: 0;
   }
+  /* Only a sentence-length sub from an older caller renders here; the
+     default short sub is a tick item under the form. */
   .v2-newsletter__sub {
     font-family: var(--font-ui);
     font-size: var(--fs-300);
@@ -415,16 +432,21 @@ const showPreview = !hidePreview && resolvedHeadline && resolvedPicks.length > 0
   .v2-newsletter__status:empty { display: none; }
   .v2-newsletter__status--err { color: var(--error-text-inverse, #FF9A8F); }
   .v2-newsletter__status--ok  { color: var(--sand, #F5C177); }
+  /* Reassurance row: matching tick items under the form ("Unsubscribe any
+     time", plus a short sub such as "Independent editorial"). */
   .v2-newsletter__meta {
-    margin-top: var(--space-4);
+    list-style: none;
+    margin: var(--space-4) 0 0;
+    padding: 0;
     font-size: var(--fs-200);
     line-height: var(--lh-ui, 1.4);
     color: rgb(250 247 240 / .85);
     display: flex;
-    gap: var(--space-4);
+    gap: var(--space-2) var(--space-5);
     flex-wrap: wrap;
   }
-  .v2-newsletter__meta span { display: inline-flex; align-items: center; gap: var(--space-2); }
+  .v2-newsletter__meta li { display: inline-flex; align-items: center; gap: var(--space-2); margin: 0; padding: 0; white-space: nowrap; }
+  .v2-newsletter__meta li::before { content: none; }
   .v2-newsletter__meta svg { color: var(--sand, #F5C177); flex: none; }
 
   @media (max-width: 640px) {

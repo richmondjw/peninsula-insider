@@ -27,12 +27,13 @@ const hero = lead ? await resolveHero('article', slug, lead.data, 'hero') : null
 // Reader-facing kicker only. The raw format label ('Service', 'Hub Guide')
 // is an internal content type and never surfaces here. A theme is added
 // only when the desk has given the article one: the first segment of its
-// curated Journal eyebrow ("With kids / 19 September to 4 October" gives
-// "With kids"), or the Insider Picks series tag.
+// curated Journal eyebrow, split on a spaced middot or slash ("With kids ·
+// 19 September to 4 October" gives "With kids"; the dates stay in the dek),
+// or the Insider Picks series tag.
 const curatedEyebrow = lead
   ? String((curation.cards as Record<string, { eyebrow?: string }>)[slug]?.eyebrow ?? '')
   : '';
-const theme = curatedEyebrow.split(' / ')[0].trim()
+const theme = curatedEyebrow.split(/\s[·/]\s/)[0].trim()
   || (lead?.data.tags.includes('insider-picks') ? 'Insider Picks' : '');
 const kicker = ['From the Journal', theme].filter(Boolean).join(' · ');
 // Keep day, month and year together so a date never splits across lines.
@@ -96,8 +97,19 @@ const dek = lead?.data.dek
      separate by spacing. Eyebrow, H2 and link follow the G1 canon; the
      headline is the one permitted larger lead-feature variant, in the
      same ink and weight as every other section H2. */
-  .home-journal { background: var(--paper, var(--bg-alt)); }
-  .home-journal__layout { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: clamp(2rem, 4vw, 4rem); align-items: start; }
+  /* Ground: the page's own white, deliberately. The near-white --paper
+     read as an accidental seam, and paper-warm would fuse this section
+     with the warm Play band above and the warm doors band below into one
+     long undivided block. On white it alternates cleanly: white picks,
+     warm Play, white Journal, warm doors. It keeps full padding on both
+     sides because both neighbours are on a different ground. */
+  .home-journal { background: var(--bg, #fff); }
+  /* Held against any same-ground padding collapse (G23): the doubled
+     class outranks a `.pi-section + .pi-section` rule. */
+  :global(body) .home-journal.home-journal.pi-section { padding-block: var(--section-space); }
+  /* The text block is centred against the 3:2 picture, so the story ends
+     with the picture rather than 150px above it. */
+  .home-journal__layout { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: clamp(2rem, 4vw, 4rem); align-items: center; }
   .home-journal__media { margin: 0; min-width: 0; aspect-ratio: 3 / 2; overflow: hidden; border-radius: var(--radius-m); }
   .home-journal__media img { display: block; width: 100%; height: 100%; object-fit: cover; }
   .home-journal__body { min-width: 0; }

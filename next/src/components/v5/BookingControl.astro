@@ -10,10 +10,12 @@
  * Variants:
  *   inline       detail pages (primary weight)
  *   card-action  inside Card actions (secondary weight, spec: card primary
- *                is the card link itself). Same 48px, 8px-radius spec as the
- *                card's "Add to trip" button, at a fixed width
+ *                is the card link itself). Same 48px (44px on phones),
+ *                8px-radius spec as the card's "Add to trip" button. In a
+ *                desktop directory row it holds a fixed width
  *                (--booking-slot) that Card also reserves for rows without a
- *                booking link. The partner note is a caption under the
+ *                booking link; in a framed card it takes its own full-width
+ *                line (Card sets --booking-min: 0). The partner note is a caption under the
  *                button, and the Card top-aligns its actions, so the note
  *                never lifts the button off its neighbours' line.
  * The mobile sticky bar wrapper belongs to the venue page agent; it wraps
@@ -122,12 +124,17 @@ const accessibleName = venueName ? `${label}, opens ${venueName} website` : `${l
   }
 
   /* card-action = secondary weight (the card link is the primary) */
+  /* The slot width is a floor only where the card holds it (a desktop
+     directory row). A card that gives the booking its own full-width line
+     sets --booking-min: 0 on it, and the button stretches to the line. */
   .v5-booking--card-action {
     align-items: stretch;
     gap: var(--space-1, 0.25rem);
-    min-width: var(--booking-slot, 13rem);
+    min-width: var(--booking-min, var(--booking-slot, 13rem));
   }
   .v5-booking--card-action .v5-booking__link {
+    box-sizing: border-box;
+    width: 100%;
     background: transparent;
     border: 1px solid var(--border);
     color: var(--harbour);
@@ -137,6 +144,13 @@ const accessibleName = venueName ? `${label}, opens ${venueName} website` : `${l
     letter-spacing: normal;
     padding: 0 var(--space-4, 1rem);
     white-space: nowrap;
+  }
+  /* Phones: 44px and the small label size, matching Save and "Add to trip". */
+  @media (max-width: 47.99em) {
+    .v5-booking--card-action .v5-booking__link {
+      min-height: 44px;
+      font-size: var(--fs-200, 0.8125rem);
+    }
   }
   .v5-booking--card-action .v5-booking__link:hover {
     border-color: var(--harbour);

@@ -1,5 +1,5 @@
 ---
-title: "The One-Night Peninsula Escape: How to Make 26 Hours Feel Like Three Days"
+title: "The one-night Peninsula escape: how to make 26 hours feel like three days"
 dek: "A weekend away does not need to be a weekend. Done properly, a single overnight on the Peninsula resets more than a three-day itinerary. Here is the exact shape."
 author: "editorial"
 houseByline: true

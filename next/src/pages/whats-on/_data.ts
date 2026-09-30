@@ -19,13 +19,14 @@
  *    horizon ships as fetch-on-demand JSON, never as hidden DOM)
  */
 import {
+  cadenceLabel,
   listingDateLabel,
   partitionWindow,
-  recurrenceLabel,
   resolveListingOccurrence,
   spanLabel,
   untilLabel,
 } from '../../lib/whatson-listing.mjs';
+import { isIllustrative } from '../../lib/media-provenance';
 import { rotateDaily } from '../../lib/daily-rotation';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { routeSlug, eventCategoryLabel } from '../../lib/editorial';
@@ -82,6 +83,13 @@ export interface LiveEvent {
    */
   statusLabel: string | null;
   promotable: boolean;
+  /**
+   * The record's own hero image, when a listing row may show it as a feature
+   * thumbnail (WO23). Null when there is no image, or when the image is
+   * illustrative: a 120px thumbnail cannot carry the visible disclosure that
+   * such an image needs, so it is never promoted into a row.
+   */
+  thumb: { src: string; alt: string } | null;
 }
 
 /**
@@ -131,6 +139,39 @@ export function truncateWords(text: unknown, maxWords: number): string {
   return `${head.join(' ').replace(/[\s.,;:!?\-–]+$/, '')}…`;
 }
 
+const endsSentence = (words: string[], i: number): boolean =>
+  /[.!?]["”’)]?$/.test(words[i]) && !NOT_A_SENTENCE_END.test(words.slice(0, i + 1).join(' '));
+
+/**
+ * A listing one-liner that is always whole sentences (WO22).
+ *
+ * Text of `maxWords` words or fewer is returned as it is. Longer text is cut
+ * at the last sentence end inside the limit; when no sentence ends inside
+ * it, the whole first sentence is kept. Never a mid-sentence cut and never
+ * an ellipsis, so a row cannot end "earns…" or "it.…".
+ */
+export function wholeSentences(text: unknown, maxWords: number): string {
+  const clean = String(text ?? '').replace(/\s+/g, ' ').trim();
+  const words = clean.split(' ').filter(Boolean);
+  if (words.length <= maxWords) return clean;
+  // A stub of under five words is not a one-liner; keep reading instead.
+  for (let i = maxWords - 1; i >= 4; i -= 1) {
+    if (endsSentence(words, i)) return words.slice(0, i + 1).join(' ');
+  }
+  for (let i = maxWords; i < words.length; i += 1) {
+    if (endsSentence(words, i)) return words.slice(0, i + 1).join(' ');
+  }
+  return clean;
+}
+
+/** House time format in running copy: "8:30am" and "8:30 am" read "8.30am". */
+export function houseTimes(text: unknown): string {
+  return String(text ?? '').replace(
+    /\b(\d{1,2}):(\d{2})\s?(am|pm)\b/gi,
+    (_m, h: string, mins: string, suffix: string) => `${h}.${mins}${suffix.toLowerCase()}`
+  );
+}
+
 /**
  * Typographic finish at render: curly quotes and apostrophes. Records arrive
  * from several feeds with straight quotes; the listing should not show them.
@@ -170,14 +211,14 @@ const normaliseForCompare = (s: unknown) =>
  */
 function listingDek(data: Record<string, any>): string {
   const editorial = data.editorVerdict ?? data.whyWeCare;
-  if (editorial) return String(editorial);
+  if (editorial) return houseTimes(editorial);
   const summary = String(data.summary ?? '').trim();
   const unrewrittenFeed = /not editorially rewritten/i.test(String(data.provenance ?? ''));
   const restatesTitle =
     summary !== '' && normaliseForCompare(summary).startsWith(normaliseForCompare(data.title));
-  if (summary && !unrewrittenFeed && !restatesTitle) return summary;
+  if (summary && !unrewrittenFeed && !restatesTitle) return houseTimes(summary);
   const note = String(data.editorNote ?? '').split(/\n\s*\n/)[0]?.trim() ?? '';
-  return note;
+  return houseTimes(note);
 }
 
 function timeLabelFor(startTime: unknown): string {
@@ -259,13 +300,20 @@ export async function loadLiveEvents(
       (data.worthTheDrive ? 0.5 : 0) +
       (data.standoutOfMonth ? 0.5 : 0);
 
+    const hero = data.heroImage as Record<string, any> | undefined;
+    const thumb =
+      hero?.src && !isIllustrative(hero)
+        ? { src: String(hero.src), alt: String(hero.alt ?? '') }
+        : null;
+
     out.push({
       event,
       rule,
       slug,
       href: `/whats-on/${slug}/`,
       title: finishName(data.title),
-      oneLiner: smarten(truncateWords(listingDek(data), 20)),
+      // WO22: whole sentences only, up to about 30 words, never an ellipsis.
+      oneLiner: smarten(wholeSentences(listingDek(data), 30)),
       meta,
       timeLabel,
       categoryLabel,
@@ -276,6 +324,7 @@ export async function loadLiveEvents(
       appeal,
       statusLabel: disposition.label,
       promotable: disposition.promotable,
+      thumb,
     });
   }
   return out.sort((a, b) => b.appeal - a.appeal || a.title.localeCompare(b.title));
@@ -385,8 +434,8 @@ export interface OngoingItem extends DayItem {
  * The previous grouping pushed a weekly or multi-weekday series onto every
  * day it ran, so a Thursday-to-Sunday trail appeared three times in one
  * weekend. Now anything that runs on more than one day of the window goes
- * into `ongoing` with its date token ("Until 30 Apr 2027", "Every Thu to
- * Sun"); a day group holds only what is tied to that day. `exclude` drops
+ * into `ongoing` with its date token ("All weekend", "Thu to Sun"); a day
+ * group holds only what is tied to that day. `exclude` drops
  * listings already shown higher on the page (PI's picks).
  *
  * A range row stands for its whole run, so its phase is measured over the
@@ -464,7 +513,7 @@ export interface Pick {
    * otherwise read as a one-off on the Friday it happens to include.
    */
   showDate: boolean;
-  /** For picks without a date block: "Ongoing", "Every Sun", "Monthly". */
+  /** For picks without a date block: "All weekend", "Sundays", "Monthly". */
   badge: string;
   /**
    * The pick's own occurrence on `dateISO`, resolved exactly as a weekend row
@@ -501,14 +550,12 @@ export async function getPicks(
       rule.kind === 'range' &&
       startOfDay(rule.start) >= startOfDay(scope.start) &&
       startOfDay(rule.end) <= startOfDay(scope.end);
-    const badge = showDate
-      ? ''
-      : rule.kind === 'range'
-        ? 'Ongoing'
-        : recurrenceLabel(rule, { short: true });
+    // WO22: the badge is the same token the row beneath would carry for this
+    // window ("All weekend", "Saturdays", "Daily"), not a second vocabulary.
+    const badge = showDate ? '' : cadenceLabel(rule, scope);
     return {
       live,
-      verdict: smarten(truncateWords(verdict, 25)),
+      verdict: smarten(houseTimes(wholeSentences(verdict, 30))),
       dateISO,
       dayLabel: spanLabel(day, day),
       showDate,
@@ -572,7 +619,7 @@ export async function getPicks(
 
 export interface ShelfItem {
   live: LiveEvent;
-  /** The next date this listing is on ("Sat 17 Oct", "Until 22 Nov"). */
+  /** The next date this listing is on ("Sat 17 Oct", "To 22 Nov"). */
   when: string;
 }
 
@@ -595,9 +642,10 @@ const SHELF_DEFS: { id: string; label: string; cats: string[] }[] = [
 ];
 
 /**
- * When a shelf listing is next on, as its lead token. A running range gives
- * its closing date, a future range its dates, a weekly series already under
- * way its cadence, and anything else the next date it occurs.
+ * When a shelf listing is next on, as its lead token, in the page's one
+ * cadence vocabulary. A running range gives its closing date ("To 22 Nov"),
+ * a future range its dates, a weekly series already under way its cadence
+ * ("Thursdays"), and anything else the next date it occurs.
  */
 export function nextDateLabel(rule: OccurrenceRule, now: Date, horizonDays = 62): string {
   const today = startOfDay(now);
@@ -608,12 +656,12 @@ export function nextDateLabel(rule: OccurrenceRule, now: Date, horizonDays = 62)
     if (start <= today) return untilLabel(end, today);
     return spanLabel(start, end);
   }
-  if (rule.kind === 'weekly' && startOfDay(rule.start) <= today) return recurrenceLabel(rule);
+  if (rule.kind === 'weekly' && startOfDay(rule.start) <= today) return cadenceLabel(rule);
   for (let i = 0; i <= horizonDays; i += 1) {
     const d = addDays(today, i);
     if (occursOnDay(rule, d)) return spanLabel(d, d);
   }
-  return recurrenceLabel(rule);
+  return cadenceLabel(rule);
 }
 
 /**
@@ -669,6 +717,8 @@ export interface FeedEntry {
    */
   x?: string;
   statusData?: Record<string, any>;
+  /** Feature thumbnail (WO23), only when the row may show one. */
+  im?: { src: string; alt: string };
 }
 
 export function feedFor(events: LiveEvent[]): FeedEntry[] {
@@ -695,6 +745,7 @@ export function feedFor(events: LiveEvent[]): FeedEntry[] {
     if (live.rule.nth !== undefined) entry.nth = live.rule.nth;
     if (live.rule.months) entry.months = live.rule.months;
     if (live.statusLabel) entry.x = live.statusLabel;
+    if (live.thumb) entry.im = live.thumb;
     return entry;
   });
 }

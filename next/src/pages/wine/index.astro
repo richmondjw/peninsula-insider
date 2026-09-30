@@ -297,9 +297,10 @@ const faqSchema = {
     imagePosition="50% 45%"
   />
 
+  <!-- One toolbar under the cover: jump links and the chip row. The
+       planning help is a note under the full list, where saving starts. -->
   <CategoryBrowse directory="wine-directory" noun="producers" mapHref="/map/?cat=winery">
     <FilterBar surface="wine" noun="producers" label="Filter producers" facets={['place', 'cat', 'price', 'mood', 'party']} />
-    <PlanningHelp />
   </CategoryBrowse>
 
   <div data-category-editorial>
@@ -360,8 +361,7 @@ const faqSchema = {
 
       <!-- Events: one line + link, not a strip (spec point 17) -->
       <p class="wine-events-line">
-        Release weekends and winemaker dinners live in
-        <a class="pi-section-link" href="/whats-on/">What&rsquo;s On <span aria-hidden="true">→</span></a>
+        Release weekends and winemaker dinners <span class="nowrap">live in <a class="pi-section-link" href="/whats-on/">What&rsquo;s On<span aria-hidden="true">→</span></a></span>
       </p>
     </div>
   </section>
@@ -385,6 +385,9 @@ const faqSchema = {
   >
     <div slot="before-list" class="wine-list-tools">
       <SortControl />
+    </div>
+    <div slot="after-list" class="wine-list-help">
+      <PlanningHelp />
     </div>
   </DirectoryRows>
 
@@ -424,19 +427,38 @@ const faqSchema = {
   /* Events one-liner, closing the guides band. The link is the shared
      .pi-section-link, so "What's On", "All in the Journal" and the kitchens
      link read as one harbour text-link style. */
+  /* A plain sentence: the link runs inline, and "live in What's On →"
+     travels as one unit, so the link never lands alone on a line. Inline
+     padding keeps its 44px hit area without opening the line box. */
   .wine-events-line {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    column-gap: 0.35em;
+    display: block;
     margin: var(--space-6, 2rem) 0 0;
     font-family: var(--font-ui);
     font-size: var(--fs-300, 0.9375rem);
+    line-height: var(--lh-body, 1.65);
     color: var(--soft);
+    text-wrap: pretty;
+  }
+  .wine-events-line .nowrap {
+    white-space: nowrap;
+  }
+  .wine-events-line .pi-section-link {
+    display: inline;
+    padding-block: 0.75rem;
+  }
+  /* Only the label is underlined; the arrow sits clean beside it. */
+  .wine-events-line .pi-section-link > [aria-hidden] {
+    display: inline-block;
+    margin-left: 0.3em;
+    text-decoration: none;
   }
   .wine-events-line a:focus-visible {
     outline: var(--focus-ring, 2px solid var(--accent));
     outline-offset: 2px;
+  }
+  /* The planning note closes the full list. */
+  .wine-list-help {
+    margin-top: var(--space-3, 0.75rem);
   }
   /* Sort acts on the list, so it sits under the list heading it reorders. */
   .wine-list-tools {

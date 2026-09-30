@@ -23,7 +23,8 @@
  * actions never shift. The li draws the one divider between rows.
  *
  * Long lists (more than 20 rows) open on the first `initialCount` (12) with
- * a "Show all N {noun}" button. The remaining rows stay server-rendered in
+ * a "Show N more {noun}" button, N being the rows still hidden (the heading
+ * already states the full count). The remaining rows stay server-rendered in
  * the DOM for crawlers and are only hidden by CSS; any active filter reveals
  * every row, so filtering always searches the full set.
  */
@@ -180,7 +181,7 @@ const collapsible = items.length > COLLAPSE_THRESHOLD && initialCount < items.le
           aria-expanded="false"
           data-directory-show-all
         >
-          Show all {items.length} {noun}
+          Show {items.length - initialCount} more {noun}
         </button>
       </div>
     )}
@@ -225,6 +226,14 @@ const collapsible = items.length > COLLAPSE_THRESHOLD && initialCount < items.le
   }
   .v5-directory__row:last-child {
     border-bottom: none;
+  }
+  /* Phones: a 16px inset each side of the rule. The body[data-v4] prefix
+     outranks refinement.css (body[data-v4] .v5-directory__row), which
+     would otherwise hold the 24px. */
+  @media (max-width: 47.99em) {
+    :global(body[data-v4]) .v5-directory__row {
+      padding-block: var(--space-4, 1rem);
+    }
   }
 
   /* Show the first rows only; the rest stay in the DOM. */

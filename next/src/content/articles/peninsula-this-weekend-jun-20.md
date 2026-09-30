@@ -1,5 +1,5 @@
 ---
-title: "Peninsula This Weekend - 20 to 21 June"
+title: "Peninsula This Weekend: 20 to 21 June"
 dek: "The solstice weekend moves from Sorrento's festival foreshore on Saturday to the stillness of the springs and the forest on Sunday."
 author: "editorial"
 houseByline: true

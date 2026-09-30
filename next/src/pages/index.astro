@@ -39,6 +39,8 @@ import HomePlan from '../components/v5/home/HomePlan.astro';
 import HomeJournalFeature from '../components/v5/home/HomeJournalFeature.astro';
 import HomeAsk from '../components/v5/home/HomeAsk.astro';
 import HomeDispatch from '../components/v5/home/HomeDispatch.astro';
+import PlayCard from '../components/play/PlayCard.astro';
+import { PLAY } from '../lib/play';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 export const prerender = true;
@@ -52,6 +54,18 @@ export const prerender = true;
 >
   <HomeCover />
   <HomeWeekend />
+  {/* The weekly Play case as its own warm band, not a fourth card under
+      the weekend picks. PlayCard is itself the labelled section, so the
+      band is a plain wrapper. It paints its own ground and padding, so it
+      is not a .pi-section and the same-ground padding collapse never
+      touches it. */}
+  {PLAY.enabled && (
+    <div class="home-play">
+      <div class="container">
+        <PlayCard variant="band" />
+      </div>
+    </div>
+  )}
   <HomeJournalFeature />
   <HomeDoors />
   <HomeOrientation />
@@ -62,3 +76,12 @@ export const prerender = true;
   {/* <HomeAsk /> */}
   <HomeDispatch />
 </BaseLayout>
+
+<style>
+  /* Play band: the paper-warm ground with one full section-space above
+     and below, the same rhythm as every other band on the page. */
+  .home-play {
+    padding-block: var(--section-space);
+    background: var(--paper-warm);
+  }
+</style>

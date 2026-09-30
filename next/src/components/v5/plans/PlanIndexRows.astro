@@ -11,10 +11,10 @@ const itineraries = model.plans.filter(plan => plan.kind === 'itinerary' && !exc
 const guides = model.plans.filter(plan => plan.kind === 'guide').sort((a,b) => a.displayTitle.localeCompare(b.displayTitle));
 const heading = itineraries.length === 3 ? 'Three more ways to spend it' : 'More ways to spend it';
 // Facet line from plan data (time needed, then area). Omitted when the guide carries neither.
-const guideLabel = (plan: PlanRecord) => plan.meta.slice(0, 2).join(' · ');
+// Each token is its own span so phones can keep the area alone on one line.
+const guideLabel = (plan: PlanRecord) => plan.meta.slice(0, 2).map(text => ({ text, time: Boolean(plan.area) && text !== plan.area }));
 // A card never shows a clipped opening line: the curated card dek, else a complete verdict, else nothing.
 const guideDek = (plan: PlanRecord) => planCuration(plan.slug, plan.title, 'guide').cardDek ?? (/(\.\.\.|…)$/.test(plan.verdict) ? '' : plan.verdict);
-const SEP = ' · ';
 ---
 {itineraries.length > 0 && <section class="plan-index pi-section" id="all-plans" aria-labelledby="all-plans-heading" data-plan-index>
   <div class="container">
@@ -33,9 +33,8 @@ const SEP = ' · ';
         <div class="plan-index__copy">
           <h3><a href={plan.href}>{plan.displayTitle}</a></h3>
           <p class="plan-index__dek">{plan.editorialReason}</p>
-          <p class="plan-index__route">{routePreviewParts(plan).map((part, n) => <>{n > 0 && SEP}<span class="nowrap-seg"><span class="plan-index__day">{part.label}</span>{part.route}</span></>)}</p>
-          {plan.bookingNote && <p class="plan-index__booking">{plan.bookingNote}</p>}
           <ul class="plan-index__meta" role="list">{planFacts(plan).map(fact => <li>{fact}</li>)}</ul>
+          <ol class="plan-route plan-index__route" role="list">{routePreviewParts(plan).map(part => <li><span class="plan-index__day">{part.label}</span>{part.route}</li>)}</ol>
         </div>
         <div class="plan-index__actions">
           <a href={plan.href} class="pi-btn pi-btn--solid">See the itinerary <span aria-hidden="true">→</span></a>
@@ -58,7 +57,7 @@ const SEP = ' · ';
       {plan.image && <a class="plan-guide__media" href={plan.href} tabindex="-1" aria-hidden="true"><img src={plan.image.src} alt="" loading="lazy" decoding="async" width="480" height="360" data-pi-responsive="(max-width: 640px) 120px, (max-width: 960px) 45vw, 400px"
         {...editableImage({entityType:plan.entityType,entitySlug:plan.slug,fieldPath:plan.imageField,label:`${plan.title} image`,purpose:'card'})} /></a>}
       <div class="plan-guide__body">
-        {guideLabel(plan) && <p class="plan-guide__label">{guideLabel(plan)}</p>}
+        {guideLabel(plan).length > 0 && <p class="plan-guide__label">{guideLabel(plan).map(token => <span class:list={['plan-guide__token', token.time && 'plan-guide__token--time']}>{token.text}</span>)}</p>}
         <h3><a href={plan.href}>{plan.displayTitle}</a></h3>
         {guideDek(plan) && <p class="plan-guide__dek">{guideDek(plan)}</p>}
         <a class="plan-guide__read" href={plan.href} aria-label={`Read the guide: ${plan.title}`}>Read the guide <span aria-hidden="true">→</span></a>
@@ -69,7 +68,7 @@ const SEP = ' · ';
         {plan.image && <a class="plan-guide__media" href={plan.href} tabindex="-1" aria-hidden="true"><img src={plan.image.src} alt="" loading="lazy" decoding="async" width="480" height="360" data-pi-responsive="(max-width: 640px) 120px, (max-width: 960px) 45vw, 400px"
           {...editableImage({entityType:plan.entityType,entitySlug:plan.slug,fieldPath:plan.imageField,label:`${plan.title} image`,purpose:'card'})} /></a>}
         <div class="plan-guide__body">
-          {guideLabel(plan) && <p class="plan-guide__label">{guideLabel(plan)}</p>}
+          {guideLabel(plan).length > 0 && <p class="plan-guide__label">{guideLabel(plan).map(token => <span class:list={['plan-guide__token', token.time && 'plan-guide__token--time']}>{token.text}</span>)}</p>}
           <h3><a href={plan.href}>{plan.displayTitle}</a></h3>
           {guideDek(plan) && <p class="plan-guide__dek">{guideDek(plan)}</p>}
           <a class="plan-guide__read" href={plan.href} aria-label={`Read the guide: ${plan.title}`}>Read the guide <span aria-hidden="true">→</span></a>
@@ -81,7 +80,9 @@ const SEP = ' · ';
 <style>
   .plan-index,.plan-guides{scroll-margin-top:8rem}
   .plan-index__rows{border-bottom:1px solid var(--border)}
-  .plan-index__row{display:grid;grid-template-columns:4.5rem 12rem minmax(0,68ch) 17.5rem;grid-template-areas:"num thumb copy actions";justify-content:start;column-gap:var(--space-6);row-gap:var(--space-4);align-items:start;padding:var(--space-6) 0;border-top:1px solid var(--border)}
+  /* The row fills the frame: a flexible copy track (its text children keep a 68ch measure) and the
+     action pair pinned to the right edge, so the actions line up with the row rules and the cards above. */
+  .plan-index__row{display:grid;grid-template-columns:3.5rem 12rem minmax(0,1fr) auto;grid-template-areas:"num thumb copy actions";column-gap:var(--space-6);row-gap:var(--space-4);align-items:start;padding:var(--space-6) 0;border-top:1px solid var(--border)}
   .plan-index__number{grid-area:num;font:400 var(--fs-500)/1.3 var(--font-display);color:var(--soft);font-variant-numeric:tabular-nums}
   .plan-index__thumb{grid-area:thumb;display:block;aspect-ratio:4/3;overflow:hidden;border-radius:var(--radius-m);background:var(--bg-alt)}
   .plan-index__thumb img{display:block;width:100%;height:100%;object-fit:cover}
@@ -89,14 +90,16 @@ const SEP = ' · ';
   h3{font:600 var(--fs-500)/1.25 var(--font-display);letter-spacing:var(--ls-display);color:var(--text);margin:0 0 var(--space-2);text-wrap:balance}
   h3 a{color:inherit;text-decoration:none}
   h3 a:hover{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.15em}
-  .plan-index__copy>p{font:var(--fs-300)/1.6 var(--font-ui);max-width:68ch;margin:var(--space-2) 0 0;text-wrap:pretty}
+  .plan-index__copy>p{font:var(--fs-300)/1.6 var(--font-ui);max-width:68ch;margin:var(--space-2) 0 0;text-wrap:wrap}
   .plan-index__dek{color:var(--text)}
-  .plan-index__route,.plan-index__booking{color:var(--soft)}
-  .plan-index__day{white-space:nowrap}
-  .plan-index__meta{display:flex;flex-wrap:wrap;gap:0 .5em;list-style:none;padding:0;margin:var(--space-3) 0 0;font:var(--fs-200)/1.5 var(--font-ui);color:var(--soft)}
+  .plan-index__day{white-space:nowrap;font-weight:600;color:var(--text)}
+  /* Same itinerary anatomy as the featured cards: title, summary, facts, then the route between hairlines. */
+  .plan-index__meta{display:flex;flex-wrap:wrap;gap:0 .5em;list-style:none;padding:0;margin:var(--space-3) 0 0;max-width:68ch;font:var(--fs-200)/1.5 var(--font-ui);color:var(--soft)}
   .plan-index__meta li{white-space:nowrap}
-  .plan-index__meta li+li::before{content:'·';margin-right:.5em;color:var(--border-strong)}
-  .plan-index__actions{grid-area:actions;display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-2) var(--space-4)}
+  .plan-index__meta li:not(:last-child)::after{content:'\00B7';content:'\00B7' / '';margin-left:.5em;color:var(--border-strong)}
+  .plan-index__route{list-style:none;max-width:68ch;margin:var(--space-4) 0 0;padding:var(--space-3) 0;border-block:1px solid var(--border);font:var(--fs-300)/1.6 var(--font-ui);color:var(--soft)}
+  .plan-index__route li{display:block;margin:var(--space-1) 0;text-wrap:pretty}
+  .plan-index__actions{grid-area:actions;justify-self:end;display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-2) var(--space-4)}
   .plan-index__actions .pi-btn--solid{min-height:48px;border-radius:var(--radius-s);gap:.35em}
   .plan-index__actions .pi-btn--text{min-height:44px;padding-inline:0;font-weight:600}
   .plan-guides{background:var(--bg-alt)}
@@ -106,6 +109,8 @@ const SEP = ' · ';
   .plan-guide__media img{display:block;width:100%;height:100%;object-fit:cover}
   .plan-guide__body{display:flex;flex-direction:column;align-items:start;min-width:0}
   .plan-guide__label{font:600 var(--fs-100)/1.4 var(--font-ui);letter-spacing:var(--ls-eyebrow);text-transform:uppercase;color:var(--sand-text);margin:0 0 var(--space-2)}
+  .plan-guide__token{white-space:nowrap}
+  .plan-guide__token:not(:last-child)::after{content:'\00B7';content:'\00B7' / '';margin-inline:.5em}
   .plan-guide__dek{font:var(--fs-300)/1.6 var(--font-ui);color:var(--soft);margin:var(--space-2) 0 0;max-width:45ch;text-wrap:pretty}
   .plan-guide__read{display:inline-flex;align-items:center;gap:.35em;min-height:44px;margin-top:var(--space-4);font:600 var(--fs-300)/1.4 var(--font-ui);color:var(--harbour);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.2em}
   .plan-guide__read:hover{color:var(--harbour-h)}
@@ -116,12 +121,14 @@ const SEP = ' · ';
   .plan-guides__chevron{width:.6rem;height:.6rem;margin-right:.3rem;border-right:2px solid var(--harbour);border-bottom:2px solid var(--harbour);transform:translateY(-25%) rotate(45deg);transition:transform var(--dur-fast) var(--ease-enter)}
   .plan-guides__more[open] .plan-guides__chevron{transform:translateY(25%) rotate(-135deg)}
   .plan-guides__more[open]>.plan-guides__grid{margin-top:var(--space-4)}
-  @media(min-width:75.01em){.plan-index__route .nowrap-seg{white-space:nowrap}}
   @media(prefers-reduced-motion:reduce){.plan-guides__chevron{transition:none}}
   @media(max-width:75em){
     .plan-index__row{grid-template-columns:3.5rem 10rem minmax(0,1fr);grid-template-areas:"num thumb copy" "num thumb actions"}
+    .plan-index__actions{justify-self:start}
   }
   @media(max-width:60rem){.plan-guides__grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  /* Phones: the action pair stacks exactly as it does on the recommendation cards above. */
+  @media(max-width:45rem){.plan-index__actions{flex-direction:column;align-items:flex-start;gap:var(--space-3)}}
   @media(max-width:40rem){
     .plan-index__row{grid-template-columns:minmax(0,1fr);grid-template-areas:"thumb" "num" "copy" "actions";row-gap:0}
     .plan-index__thumb{margin-bottom:var(--space-4)}
@@ -129,7 +136,10 @@ const SEP = ' · ';
     .plan-index__actions{margin-top:var(--space-4)}
     .plan-guides__grid{grid-template-columns:1fr;gap:0}
     .plan-guide{display:grid;grid-template-columns:7.5rem minmax(0,1fr);column-gap:var(--space-4);align-items:start}
-    .plan-guide__media{margin-bottom:0}
+    .plan-guide__media{margin-bottom:0;border-radius:var(--radius-s)}
     .plan-guide__read{margin-top:var(--space-2)}
+    /* Beside a 7.5rem thumbnail the eyebrow keeps to one line: the area alone, tracked tighter. */
+    .plan-guide__label{letter-spacing:.06em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+    .plan-guide__token--time{display:none}
   }
 </style>

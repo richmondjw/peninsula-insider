@@ -206,6 +206,12 @@ const tiers: Tier[] = [
 
 const allRanked = tiers.flatMap((t) => t.walks);
 
+/* Hyphenated compounds ('360-degree', 'military-heritage') travel as one
+   unit, so a line never ends on a bare hyphen. Odd indexes of the split
+   are the compounds, rendered in a nowrap span. Not U+2011: Sora and
+   Figtree have no glyph for it. */
+const compounds = (text: string) => text.split(/(\S+-\S+)/);
+
 /* Join each ranked walk to its experience record for hero + save metadata. */
 const experiences = await getCollection('experiences');
 const bySlug = new Map(experiences.map((e) => [e.data.slug ?? e.id.replace(/\.json$/, ''), e]));
@@ -330,8 +336,8 @@ export const prerender = true;
         <div class="wk-hero__content">
           <h1 class="wk-hero__title">The best walks on the Mornington Peninsula</h1>
           <p class="wk-hero__standfirst">
-            Bay-side foreshore paths, clifftop boardwalks over Bass Strait, national-park
-            bush and a 26&nbsp;km coast-to-coast route. Eleven walks, ranked by what they
+            <span class="nowrap">Bay-side</span> foreshore paths, clifftop boardwalks over Bass Strait, <span class="nowrap">national-park</span>
+            bush and a 26&nbsp;km <span class="nowrap">coast-to-coast</span> route. Eleven walks, ranked by what they
             demand and what they give back.
           </p>
         </div>
@@ -342,13 +348,13 @@ export const prerender = true;
   <section class="wk-calls" id="ranking-index" aria-label="The short version">
     <div class="container">
       <div class="wk-calls__panel is-dark">
+        <h2 class="wk-calls__title">The short version</h2>
         <div class="wk-calls__lead">
-          <h2 class="wk-calls__title">The short version</h2>
           <p class="pi-eyebrow wk-calls__eyebrow">Three to know, by rank</p>
           <ul class="wk-calls__list">
             <li>
               <span class="wk-calls__num"><span class="wk-calls__no">No.</span>1</span>
-              <p><a href="#cape-schanck-boardwalk">Cape Schanck boardwalk</a> is the best effort-to-payoff ratio on the Peninsula. Forty minutes, fully accessible.</p>
+              <p><a href="#cape-schanck-boardwalk">Cape Schanck boardwalk</a> is the best <span class="nowrap">effort-to-payoff</span> ratio on the Peninsula. Forty minutes, fully accessible.</p>
             </li>
             <li>
               <span class="wk-calls__num"><span class="wk-calls__no">No.</span>2</span>
@@ -359,26 +365,40 @@ export const prerender = true;
               <p><a href="#two-bays-walking-track">Two Bays Walking Track</a> is the flagship: 26&nbsp;km, bay to ocean. Most people walk it in sections.</p>
             </li>
           </ul>
-          <p class="wk-calls__note"><span>No permits, no specialist gear, walkable all year. Prams or limited mobility: start with the boardwalk or the Mornington foreshore.</span></p>
         </div>
-        <nav class="wk-calls__index" aria-label="The full ranking">
-          <p class="wk-calls__index-title">The full ranking</p>
-          {tiers.map((tier, t) => (
-            <div class="wk-index__group">
-              <p class="pi-eyebrow wk-index__tier" id={`ranking-tier-${t + 1}`}>{tier.title}</p>
-              <ol class="wk-index__list" start={tier.walks[0].rank} aria-labelledby={`ranking-tier-${t + 1}`}>
-                {tier.walks.map((w) => (
-                  <li>
-                    <a href={`#${w.slug}`}>
-                      <span class="wk-index__name">{w.name}</span>
-                      <span class="wk-index__time">{w.time}</span>
-                    </a>
-                  </li>
-                ))}
-              </ol>
-            </div>
-          ))}
+        <nav class="wk-calls__index" aria-labelledby="ranking-index-title">
+          <p class="pi-eyebrow wk-calls__index-title" id="ranking-index-title">The full ranking</p>
+          {/* Desktop shows the whole ranking. Phones get it folded behind one
+              summary so the panel stays about a screen tall; every link stays
+              in the DOM either way. The details renders open, and the inline
+              script below folds it before first paint on narrow screens. */}
+          <details class="wk-calls__more" open>
+            <summary class="wk-calls__more-toggle">See all {allRanked.length} walks</summary>
+            {tiers.map((tier, t) => (
+              <div class="wk-index__group">
+                <p class="pi-eyebrow wk-index__tier" id={`ranking-tier-${t + 1}`}>{tier.title}</p>
+                <ol class="wk-index__list" start={tier.walks[0].rank} aria-labelledby={`ranking-tier-${t + 1}`}>
+                  {tier.walks.map((w) => (
+                    <li>
+                      <a href={`#${w.slug}`}>
+                        <span class="wk-index__name">{w.name}</span>
+                        <span class="wk-index__time">{w.time}</span>
+                      </a>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            ))}
+          </details>
+          <script is:inline>
+            (function () {
+              var s = document.currentScript;
+              var d = s && s.previousElementSibling;
+              if (d && d.tagName === 'DETAILS' && window.matchMedia('(max-width: 900px)').matches) d.open = false;
+            })();
+          </script>
         </nav>
+        <p class="wk-calls__note"><span>No permits, no specialist gear, walkable all year. Prams or limited mobility: start with the boardwalk or the Mornington foreshore.</span></p>
       </div>
     </div>
   </section>
@@ -388,7 +408,7 @@ export const prerender = true;
       <p class="wk-ranking__intro">
         The Mornington Peninsula has one of the most varied walking menus of any coastal
         region in Victoria: foreshore paths on the bay, boardwalks over Bass Strait,
-        national park bush trails, and hinterland ridge-tops through old-growth manna gum
+        national park bush trails, and hinterland <span class="nowrap">ridge-tops</span> through <span class="nowrap">old-growth</span> manna gum
         that see almost nobody outside school holidays. Every walk below is editorially
         reviewed, and the review date is stated at the foot of this
         page.
@@ -396,10 +416,13 @@ export const prerender = true;
 
       {tiers.map((tier) => (
         <section class="wk-tier">
-          <header class="wk-tier__head">
-            <span class="wk-tier__rule" aria-hidden="true"></span>
-            <h2 class="wk-tier__title">{tier.title}</h2>
-            <p class="wk-tier__standfirst">{tier.standfirst}</p>
+          <header class="pi-section-head wk-tier__head">
+            <div class="pi-section-head__text">
+              <h2 class="pi-h2 wk-h2">{tier.title}</h2>
+              <p class="pi-section-dek wk-tier__standfirst">
+                {compounds(tier.standfirst).map((part, i) => (i % 2 ? <span class="nowrap">{part}</span> : part))}
+              </p>
+            </div>
           </header>
 
           {tier.walks.map((w) => {
@@ -438,10 +461,15 @@ export const prerender = true;
                     <li>{w.time}</li>
                     <li>{w.effort}</li>
                   </ul>
-                  <p class="wr__verdict">{w.verdict}</p>
-                  <p class="wr__bestfor"><strong>Best for</strong> {w.bestFor}</p>
+                  <p class="wr__verdict">
+                    {compounds(w.verdict).map((part, i) => (i % 2 ? <span class="nowrap">{part}</span> : part))}
+                  </p>
+                  <p class="wr__pair wr__bestfor">
+                    <strong>Best for</strong>
+                    <span>{compounds(w.bestFor).map((part, i) => (i % 2 ? <span class="nowrap">{part}</span> : part))}</span>
+                  </p>
                   <div class="wr__start">
-                    <p><strong>Start</strong> {w.start}</p>
+                    <p class="wr__pair"><strong>Start</strong> <span>{w.start}</span></p>
                     <PiSaveActions
                       placement="inline"
                       kind="experience"
@@ -465,24 +493,24 @@ export const prerender = true;
   <section class="wk-notes">
     <div class="container">
       <div class="prose">
-        <h2>What to bring</h2>
-        <p>No walk on this list requires specialist equipment. For any walk over 5&nbsp;km: water (1 L minimum), sunscreen, a hat, and footwear with grip. Ocean-side tracks can be slippery when wet.</p>
+        <h2 class="pi-h2 wk-h2">What to bring</h2>
+        <p>No walk on this list requires specialist equipment. For any walk over 5&nbsp;km: water (1 L minimum), sunscreen, a hat, and footwear with grip. <span class="nowrap">Ocean-side</span> tracks can be slippery when wet.</p>
 
-        <h2>FAQ</h2>
+        <h2 class="pi-h2 wk-h2">FAQ</h2>
         <div class="wk-faq">
           {faqs.map((f) => (
             <details class="wk-faq__item">
               <summary class="wk-faq__q">{f.q}</summary>
-              <p class="wk-faq__a">{f.a}</p>
+              <p class="wk-faq__a">{compounds(f.a).map((part, i) => (i % 2 ? <span class="nowrap">{part}</span> : part))}</p>
             </details>
           ))}
         </div>
 
-        <h2>Further reading</h2>
+        <h2 class="pi-h2 wk-h2">Further reading</h2>
         <ul class="wk-further">
           <li><a href="/journal/two-bays-walk-mornington-peninsula/">Two Bays Walk deep guide</a></li>
           <li><a href="/journal/walks-bushrangers-bay-walk-guide/">Bushrangers Bay walk guide</a></li>
-          <li><a href="/journal/the-peninsulas-best-late-afternoon-walks/">Best late-afternoon walks on the Peninsula</a></li>
+          <li><a href="/journal/the-peninsulas-best-late-afternoon-walks/">Best <span class="nowrap">late-afternoon</span> walks on the Peninsula</a></li>
           <li><a href="/explore/">All Peninsula experiences</a></li>
         </ul>
 
@@ -500,10 +528,13 @@ export const prerender = true;
 
 <style>
   /* ── Cover hero: the photograph opens the page; harbour-deep scrim
-     guarantees the reversed type over any crop. ── */
+     guarantees the reversed type over any crop. The cover and the
+     short-version panel are two large blocks, so they are separated by
+     the section interval, not jammed 32px apart. ── */
   .wk-hero {
-    padding: var(--space-4) 0 var(--space-6);
+    padding: var(--space-4) 0 var(--section-space);
   }
+  .nowrap { white-space: nowrap; }
   /* The cover is a grid whose content sits in flow at the bottom, so a
      long title grows the cover instead of being clipped by it. No
      overflow:hidden: the image and the text band carry the radius. */
@@ -564,9 +595,12 @@ export const prerender = true;
     text-wrap: pretty;
   }
   /* Phones: a 4:5 crop over a landscape frame left fog and a sliver of
-     headland. The photograph now takes its own 4:3 frame, set right so the
-     headland stays in shot, and the text band sits beneath it on the
-     harbour-deep ground, fading up into the bottom of the image. */
+     headland. The photograph takes its own 4:3 frame, set right so the
+     headland stays in shot. Its lower third dissolves (mask) into the
+     harbour-deep ground, and the text band overlaps that dissolve by
+     --fade, climbing 0 to .45 to .82 across it. The H1 starts 24px below
+     the .82 point, so every line of type sits on at least .82 and the
+     photograph never ends on a hard horizontal edge. */
   @media (max-width: 760px) {
     .wk-hero__cover {
       aspect-ratio: auto;
@@ -579,12 +613,20 @@ export const prerender = true;
       aspect-ratio: 4 / 3;
       object-position: 80% 50%;
       border-radius: var(--radius-l) var(--radius-l) 0 0;
+      -webkit-mask-image: linear-gradient(to bottom, #000 65%, transparent);
+      mask-image: linear-gradient(to bottom, #000 65%, transparent);
     }
     .wk-hero__content {
-      --fade: 4.5rem;
+      --fade: 8rem;
       margin-top: calc(-1 * var(--fade));
-      padding-inline: var(--space-5);
-      padding-bottom: var(--space-6);
+      padding: calc(var(--fade) + var(--space-5)) var(--space-5) var(--space-6);
+      background: linear-gradient(
+        to bottom,
+        rgb(11 46 74 / 0) 0,
+        rgb(11 46 74 / 0.45) calc(var(--fade) * 0.5),
+        rgb(11 46 74 / 0.82) var(--fade),
+        rgb(11 46 74 / 0.9) 100%
+      );
     }
     .wk-hero__title { font-size: var(--fs-800); }
     .wk-hero__standfirst { font-size: var(--fs-400); }
@@ -592,47 +634,52 @@ export const prerender = true;
 
   /* ── The short version: verdict panel + full-ranking index ── */
   .wk-calls {
-    padding: 0 0 var(--space-7);
+    padding: 0 0 var(--section-space);
   }
+  /* The panel reads as one block: its title spans both columns, the two
+     column heads (sand eyebrows) start on one line beneath it, and the
+     practical note closes the panel across its full width. Nothing is
+     pushed down by auto margins, so no column ends in an empty hole. */
   .wk-calls__panel {
     display: grid;
-    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
-    gap: clamp(2rem, 4vw, 4rem);
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    column-gap: clamp(2rem, 4vw, 4rem);
+    align-items: start;
     background: var(--bg-dark, #0B2E4A);
     border-radius: var(--radius-l);
     padding: clamp(1.75rem, 3.5vw, 3rem);
     color: var(--white);
   }
-  /* Left column is a flex column so its practical note settles on the same
-     baseline as the last line of the full ranking beside it. */
-  .wk-calls__lead {
-    display: flex;
-    flex-direction: column;
-  }
   .wk-calls__title {
+    grid-column: 1 / -1;
     margin: 0 0 var(--space-5);
     font-family: var(--font-display);
     font-size: var(--fs-700);
     font-weight: var(--fw-display);
+    line-height: var(--lh-heading);
     letter-spacing: var(--ls-display);
     color: var(--white);
   }
   .wk-calls__list {
     list-style: none;
-    margin: 0 0 var(--space-5);
+    margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
     gap: var(--space-4);
   }
-  .wk-calls__eyebrow { margin-bottom: var(--space-4); }
+  .wk-calls__eyebrow,
+  .wk-calls__index-title { margin: 0 0 var(--space-4); }
   .wk-calls__list li {
     display: flex;
     gap: var(--space-4);
     align-items: baseline;
   }
   /* The numerals are ranks, not a sequence: "No." says so, and a fixed
-     right-aligned column keeps every call's text on one left edge. */
+     right-aligned column keeps every call's text on one left edge.
+     One rank style across the page (here, the index markers and the
+     cards): Sora 600, sand on the dark panel, sand-text on paper, varying
+     only in size. */
   .wk-calls__num {
     flex: 0 0 3.25rem;
     display: inline-flex;
@@ -641,9 +688,9 @@ export const prerender = true;
     gap: 0.2em;
     font-family: var(--font-display);
     font-size: var(--fs-600);
-    font-weight: var(--fw-bold);
+    font-weight: 600;
     line-height: 1;
-    color: var(--mint, #F5C177);
+    color: var(--sand, #F5C177);
     font-variant-numeric: tabular-nums;
     white-space: nowrap;
   }
@@ -669,8 +716,10 @@ export const prerender = true;
     transition: text-decoration-color var(--dur-fast) var(--ease-enter);
   }
   .wk-calls__list a:hover { text-decoration-color: var(--mint, #F5C177); }
+  /* The closing row: a hairline across both columns, then the note. */
   .wk-calls__note {
-    margin: auto 0 0;
+    grid-column: 1 / -1;
+    margin: var(--space-6) 0 0;
     padding-top: var(--space-4);
     border-top: 1px solid rgba(237, 241, 245, 0.18);
     font-size: var(--fs-300);
@@ -679,16 +728,54 @@ export const prerender = true;
   }
   .wk-calls__note > span {
     display: block;
-    max-width: 52ch;
+    max-width: 68ch;
     text-wrap: pretty;
   }
 
-  .wk-calls__index-title {
-    margin: 0 0 var(--space-4);
-    font-family: var(--font-display);
-    font-size: var(--fs-300);
-    font-weight: var(--fw-semibold);
+  /* 'The full ranking' is the right column's head: the same sand eyebrow
+     as 'Three to know, by rank', on the same line. On desktop the ranking
+     is open and its toggle is hidden; the toggle shows whenever the list
+     is folded (phones, or a closed list after a rotation), so a folded
+     list is never unreachable. */
+  .wk-calls__more-toggle {
+    list-style: none;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 1.5rem;
+    align-items: center;
+    column-gap: var(--space-4);
+    min-height: 48px;
+    padding-block: var(--space-2);
+    border-block: 1px solid rgba(237, 241, 245, 0.18);
+    cursor: pointer;
+    font-family: var(--font-ui);
+    font-size: var(--fs-400);
+    font-weight: 600;
     color: var(--white);
+  }
+  .wk-calls__more-toggle::-webkit-details-marker { display: none; }
+  .wk-calls__more-toggle::after {
+    content: '';
+    justify-self: center;
+    width: 0.55rem;
+    height: 0.55rem;
+    margin-top: -0.25rem;
+    border-right: 2px solid var(--sand, #F5C177);
+    border-bottom: 2px solid var(--sand, #F5C177);
+    transform: rotate(45deg);
+    transition: transform var(--dur-fast, 120ms) var(--ease-enter, ease);
+  }
+  .wk-calls__more[open] > .wk-calls__more-toggle { margin-bottom: var(--space-4); }
+  .wk-calls__more[open] > .wk-calls__more-toggle::after { transform: rotate(-135deg); margin-top: 0.25rem; }
+  .wk-calls__more-toggle:hover { color: var(--sand, #F5C177); }
+  .wk-calls__more-toggle:focus-visible {
+    outline: 2px solid var(--focus-ring-color-inverse, #F5C177);
+    outline-offset: 2px;
+  }
+  @media (min-width: 901px) {
+    .wk-calls__more[open] > .wk-calls__more-toggle { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .wk-calls__more-toggle::after { transition: none; }
   }
   /* Three labelled tier groups: items sit close, groups separate. */
   .wk-index__group + .wk-index__group { margin-top: var(--space-5); }
@@ -699,10 +786,11 @@ export const prerender = true;
   }
   .wk-index__list li + li { margin-top: 0.25rem; }
   .wk-index__list li::marker {
-    font-family: var(--font-ui);
+    font-family: var(--font-display);
     font-size: var(--fs-300);
-    font-weight: var(--fw-semibold);
-    color: var(--mint, #F5C177);
+    font-weight: 600;
+    color: var(--sand, #F5C177);
+    font-variant-numeric: tabular-nums;
   }
   .wk-index__list a {
     display: flex;
@@ -735,12 +823,19 @@ export const prerender = true;
     color: var(--soft-inverse);
     font-variant-numeric: tabular-nums;
   }
+  /* Below 900px the panel stacks: title, the three picks, the folded full
+     ranking, then the note closing the panel. */
   @media (max-width: 900px) {
-    .wk-calls__panel { grid-template-columns: 1fr; }
+    .wk-calls__panel { grid-template-columns: minmax(0, 1fr); }
+    .wk-calls__index { margin-top: var(--space-6); }
   }
 
   /* ── The ranking ── */
-  .wk-ranking { padding-bottom: var(--space-8); }
+  /* Section rhythm runs on the shared token: --section-space (64 to 96px)
+     between tiers, one step less between the intro and the first tier
+     (the intro belongs to the ranking), and 32px from the closing link to
+     the notes band. */
+  .wk-ranking { padding-bottom: var(--space-6); }
   .wk-ranking__intro {
     max-width: var(--measure-prose);
     font-size: var(--fs-400);
@@ -748,50 +843,34 @@ export const prerender = true;
     color: var(--text);
     text-wrap: pretty;
     margin: 0;
-    padding-bottom: var(--space-6);
   }
-  /* One interval before every tier head. The intro pads 32px below itself
-     and each card closes 32px after its last line, so a 64px margin gives
-     the same 96px from text to sand rule for all three tiers. */
-  .wk-tier__head {
-    margin: var(--space-8) 0 var(--space-5);
-    max-width: var(--measure-prose);
-  }
-  .wk-tier__rule {
+  .wk-tier { padding-top: var(--space-8); }
+  .wk-tier + .wk-tier { padding-top: var(--section-space); }
+
+  /* Every section H2 on the page (tier heads and the notes band) is the
+     canonical .pi-h2 with the same short sand rule above it. */
+  .wk-h2::before {
+    content: '';
     display: block;
     width: 3rem;
     height: 3px;
     border-radius: 2px;
-    background: var(--mint, #F5C177);
+    background: var(--sand, #F5C177);
     margin-bottom: var(--space-4);
-  }
-  .wk-tier__title {
-    font-family: var(--font-display);
-    font-size: var(--fs-700);
-    font-weight: var(--fw-display);
-    letter-spacing: var(--ls-display);
-    line-height: var(--lh-heading);
-    color: var(--dark);
-    margin: 0 0 var(--space-2);
-  }
-  .wk-tier__standfirst {
-    font-size: var(--fs-500);
-    line-height: var(--lh-dek);
-    color: var(--soft);
-    max-width: var(--measure-dek);
-    text-wrap: pretty;
-    margin: 0;
   }
 
   .wr {
     position: relative;
     display: grid;
-    grid-template-columns: minmax(260px, 420px) minmax(0, 1fr);
-    gap: var(--space-5) clamp(1.5rem, 3vw, 3rem);
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: var(--space-5) clamp(3.5rem, 5vw, 4.5rem);
     padding: var(--space-6) 0;
     border-top: 1px solid var(--border);
     scroll-margin-top: 6rem;
   }
+  /* The next tier's interval starts at the last card's final line, not
+     32px below it. */
+  .wr:last-child { padding-bottom: 0; }
   .wr__media {
     display: block;
     position: relative;
@@ -825,16 +904,18 @@ export const prerender = true;
     color: rgba(253, 252, 250, 0.95);
   }
 
-  /* The text column is capped near 62 characters of Figtree body (68ch on
-     the '0' glyph ran ~90). The spare width beside it is deliberate, and
-     the save pair closes the column at its right edge, not the frame's. */
+  /* The text column runs to the frame edge, so the row is balanced to the
+     frame and the save pair closes it at the right edge. Only the verdict,
+     the one long passage, is held to a reading measure. */
   .wr__body {
-    max-width: min(100%, 32rem);
+    min-width: 0;
   }
+  /* The title starts on the chips' and body's left edge. The rank numeral
+     hangs to its left in the image/text gutter, set in the title's own
+     face, size and line-height so the two share one baseline. */
   .wr__name {
-    display: flex;
-    align-items: baseline;
-    gap: var(--space-3);
+    position: relative;
+    display: block;
     text-wrap: balance;
     font-family: var(--font-display);
     font-size: var(--fs-600);
@@ -846,18 +927,17 @@ export const prerender = true;
   }
   .wr__name a { color: inherit; text-decoration: none; }
   .wr__name a:hover { color: var(--accent); }
-  /* Fixed numeral column: one- and two-digit ranks leave every title, and
-     every wrapped title line, on the same left edge. */
   .wr__rank {
-    flex-shrink: 0;
-    min-width: 2ch;
-    text-align: right;
+    position: absolute;
+    top: 0;
+    right: calc(100% + var(--space-3));
     font-family: var(--font-display);
-    font-size: var(--fs-700);
-    font-weight: var(--fw-bold);
-    line-height: 1;
-    color: var(--accent);
+    font-size: inherit;
+    font-weight: 600;
+    line-height: inherit;
+    color: var(--sand-text, #8A5620);
     font-variant-numeric: tabular-nums;
+    white-space: nowrap;
   }
   .wr__meta {
     list-style: none;
@@ -879,55 +959,56 @@ export const prerender = true;
     padding: 0.35rem 0.85rem;
   }
   .wr__verdict {
+    max-width: 62ch;
     font-size: var(--fs-400);
     line-height: var(--lh-body);
     color: var(--text);
     text-wrap: pretty;
     margin: 0 0 var(--space-4);
   }
-  .wr__bestfor,
-  .wr__start p {
+  /* 'Best for' and 'Start' are label and value pairs on one two-column
+     grid: the labels share a column, the values share one left edge, and
+     a wrapped value hangs under its own first line, not under the label. */
+  .wr__pair {
+    display: grid;
+    grid-template-columns: 4.5rem minmax(0, 1fr);
+    column-gap: var(--space-3);
+    align-items: baseline;
     font-size: var(--fs-300);
     line-height: var(--lh-ui);
     color: var(--text);
     margin: 0;
   }
+  .wr__pair > span { max-width: 62ch; text-wrap: pretty; }
   .wr__bestfor { margin-bottom: var(--space-2); }
-  /* 'Best for' and 'Start' are equivalent metadata: one label style. */
-  .wr__bestfor strong,
-  .wr__start strong {
+  .wr__pair strong {
     font-weight: var(--fw-semibold);
     color: var(--tide-text, #1D6491);
     text-transform: uppercase;
     font-size: var(--fs-100);
     letter-spacing: 0.08em;
-    margin-right: 0.35rem;
+    white-space: nowrap;
   }
-  /* The save pair sits in flow on the Start line, right-aligned to the
-     text column, so no card ends in an empty band reserved for it. */
+  /* The save pair sits in flow on the Start line and closes the row at the
+     frame's right edge, so no card ends in an empty band reserved for it. */
   .wr__start {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: var(--space-4);
   }
-  .wr__start p { min-width: 0; }
+  .wr__start p { flex: 1 1 auto; min-width: 0; }
   .wr__start :global(.pi-actions) { flex-shrink: 0; }
 
   /* Closing rule for the ranking: a hairline like the cards', with the
-     return link on the card text column. */
+     return link on the frame's left edge. */
   .wk-ranking__return {
-    display: grid;
-    grid-template-columns: minmax(260px, 420px) minmax(0, 1fr);
-    column-gap: clamp(1.5rem, 3vw, 3rem);
-    margin: 0;
-    padding-top: var(--space-5);
+    margin: var(--space-6) 0 0;
+    padding-top: var(--space-4);
     border-top: 1px solid var(--border);
     font-size: var(--fs-300);
   }
   .wk-ranking__return a {
-    grid-column: 2;
-    justify-self: start;
     display: inline-flex;
     align-items: center;
     gap: 0.4em;
@@ -937,7 +1018,8 @@ export const prerender = true;
     text-underline-offset: 0.2em;
   }
 
-  /* Further reading: one marker style on every viewport. */
+  /* Further reading: a small sand-text square, centred on the first line.
+     A square cannot be read as a dash. */
   .wk-further {
     list-style: none;
     margin: var(--space-4) 0 0;
@@ -952,9 +1034,9 @@ export const prerender = true;
     content: '';
     position: absolute;
     left: 0;
-    top: 0.8em;
-    width: 0.75rem;
-    height: 2px;
+    top: calc(0.8em - 3px);
+    width: 6px;
+    height: 6px;
     border-radius: 1px;
     background: var(--sand-text, #8A5620);
   }
@@ -963,7 +1045,7 @@ export const prerender = true;
   .wk-notes {
     background: var(--bg-alt);
     border-top: 1px solid var(--border);
-    padding: var(--space-7) 0;
+    padding-block: var(--section-space);
   }
 
   .wk-faq { margin: var(--space-4) 0 var(--space-6); }
@@ -1003,18 +1085,35 @@ export const prerender = true;
 
   /* ── Responsive ── */
   @media (max-width: 900px) {
-    .wr,
-    .wk-ranking__return { grid-template-columns: minmax(220px, 300px) minmax(0, 1fr); column-gap: var(--space-5); }
     .wr { row-gap: var(--space-4); }
   }
+  /* Phones: one column. The rank sits on its own line at the gutter above
+     the title, so one- and two-digit ranks start at the same x; the label
+     sits above its value; the save pair takes its own row, right-aligned,
+     and the Start text gets the full measure. */
   @media (max-width: 760px) {
+    .wk-tier:first-of-type { padding-top: var(--space-7); }
     .wr {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
       padding-top: var(--space-5);
-      padding-bottom: var(--space-6);
     }
-    .wk-ranking__return { grid-template-columns: 1fr; }
-    .wk-ranking__return a { grid-column: 1; }
+    .wr__rank {
+      position: static;
+      display: block;
+      margin-bottom: var(--space-1);
+      font-size: var(--fs-500);
+      line-height: 1;
+    }
+    .wr__pair {
+      grid-template-columns: minmax(0, 1fr);
+      row-gap: 0.15rem;
+    }
+    .wr__start {
+      flex-direction: column;
+      align-items: stretch;
+      gap: var(--space-3);
+    }
+    .wr__start :global(.pi-actions) { align-self: flex-end; }
   }
   @media (prefers-reduced-motion: reduce) {
     .wr:hover .wr__media img { transform: none; }

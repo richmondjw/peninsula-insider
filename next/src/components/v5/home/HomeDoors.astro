@@ -73,7 +73,12 @@ const resolved = await Promise.all(
 
 <section class="home-doors pi-section" aria-labelledby="home-doors-title">
   <div class="container">
-    <h2 id="home-doors-title" class="home-doors__title">Explore by interest</h2>
+    <header class="pi-section-head">
+      <div class="pi-section-head__text">
+        <p class="pi-eyebrow">The guide</p>
+        <h2 id="home-doors-title" class="pi-h2">Explore by interest</h2>
+      </div>
+    </header>
     <ul class="home-doors__grid">
       {resolved.map((door, i) => (
         <li class="home-doors__item">
@@ -121,20 +126,16 @@ const resolved = await Promise.all(
   .home-doors {
     background: var(--bg-alt);
   }
-
-  /* Module heading is visually hidden (wireframe: "Four doors, h2 visually
-     hidden") but stays in the document outline for AT users. */
-  .home-doors__title {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
-    white-space: nowrap;
-    border: 0;
+  /* A band paints its own ground, so it keeps a full section-space inside
+     its colour on both sides. The doubled class outranks any same-ground
+     `.pi-section + .pi-section` padding collapse (G23). */
+  :global(body) .home-doors.home-doors.pi-section {
+    padding-block: var(--section-space);
   }
+
+  /* The module heading is the shared .pi-section-head (eyebrow plus Sora
+     H2), like every other section on the page. The old visually hidden
+     h2 left this band as the only one with no visible title. */
 
   .home-doors__grid {
     list-style: none;
@@ -159,7 +160,9 @@ const resolved = await Promise.all(
     aspect-ratio: 3 / 4;
     padding: var(--space-5);
     overflow: hidden;
-    border-radius: var(--radius-l);
+    /* The 16px card radius, the same corner as the event cards, the
+       journal picture and the plan cards. */
+    border-radius: var(--radius-m);
     text-decoration: none;
     color: var(--white);
   }
@@ -190,7 +193,13 @@ const resolved = await Promise.all(
 
   /* Cover scrim canon: harbour-deep, bottom-up, at least .82 alpha across
      the whole text zone, so the label and line hold 4.5:1 on any photo
-     (bright sky, vine leaves, the white lighthouse) without text-shadow. */
+     (bright sky, vine leaves, the white lighthouse) without text-shadow.
+     The zone is confined to the text: the label and its reserved two-line
+     line fill the bottom ~25% of a 3:4 tile, the .82 floor holds to 32%,
+     and the tint is gone by 54%, so the top half of every photograph
+     shows in natural colour. Worst case, white paper under .82
+     harbour-deep composites to about rgb(55 84 107): 7.9:1 for white
+     label text and about 6:1 for the .92 line. */
   .home-doors__scrim {
     position: absolute;
     inset: 0;
@@ -198,9 +207,8 @@ const resolved = await Promise.all(
     background: linear-gradient(
       to top,
       rgb(11 46 74 / .88) 0%,
-      rgb(11 46 74 / .82) 38%,
-      rgb(11 46 74 / .25) 70%,
-      transparent 100%
+      rgb(11 46 74 / .82) 32%,
+      rgb(11 46 74 / 0) 54%
     );
   }
 
@@ -227,6 +235,11 @@ const resolved = await Promise.all(
     color: rgb(237 241 245 / .92);
     max-width: 30ch;
     text-wrap: pretty;
+    /* Two lines reserved on every tile, so a one-line line and a two-line
+       line leave their labels on the same baseline across the row. Written
+       in em times the line-height token rather than lh units so it holds
+       in every browser. */
+    min-height: calc(2em * var(--lh-dek));
   }
 
   @media (max-width: 63.94em) {
@@ -247,10 +260,12 @@ const resolved = await Promise.all(
 
      The doors stay photographic: a 2x2 grid of 4:5 photo tiles on the
      16px card radius, text bottom-anchored over the same harbour scrim.
-     The label and line wrap to more lines in a narrow tile, so the scrim
-     holds its .82 floor higher up the tile. aspect-ratio is a preferred
-     height only (min-height stays auto), so a long line grows the tile
-     instead of being cut off. */
+     In a tile this narrow the longest line runs to three lines, so three
+     are reserved on every tile, and the label, the reserved line block
+     and the padding fill the bottom ~45%. The scrim holds its .84 floor
+     to 50% and is gone by 74%, which keeps the top quarter of each
+     photograph clear. aspect-ratio is a preferred height only (min-height
+     stays auto), so a long line grows the tile instead of being cut off. */
   @media (max-width: 35.94em) {
     .home-doors__grid {
       grid-template-columns: 1fr 1fr;
@@ -259,15 +274,13 @@ const resolved = await Promise.all(
     .home-doors__card {
       aspect-ratio: 4 / 5;
       padding: var(--space-4);
-      border-radius: var(--radius-m);
     }
     .home-doors__scrim {
       background: linear-gradient(
         to top,
         rgb(11 46 74 / .9) 0%,
-        rgb(11 46 74 / .84) 58%,
-        rgb(11 46 74 / .3) 82%,
-        transparent 100%
+        rgb(11 46 74 / .84) 50%,
+        rgb(11 46 74 / 0) 74%
       );
     }
     .home-doors__label {
@@ -277,6 +290,7 @@ const resolved = await Promise.all(
       font-size: var(--fs-200);
       line-height: var(--lh-ui);
       max-width: none;
+      min-height: calc(3em * var(--lh-ui));
     }
   }
 

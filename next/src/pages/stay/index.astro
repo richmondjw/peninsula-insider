@@ -152,7 +152,12 @@ const restVenues = venues
     const townB = String(b.data.place?.id ?? b.data.place ?? '');
     return townA.localeCompare(townB) || String(a.data.name).localeCompare(String(b.data.name));
   });
-const directoryItems = [...sixVenues, ...restVenues].map((v) => stayItem(v));
+// A shortlisted venue carries the same line in its directory row as in The
+// Six: one canonical description per venue on the page, no new wording.
+const sixVerdictBySlug = new Map(SIX.map(({ slug, verdict }) => [slug, verdict]));
+const directoryItems = [...sixVenues, ...restVenues].map((v) =>
+  stayItem(v, { verdict: sixVerdictBySlug.get((v!.id ?? v!.data.slug) as string) }),
+);
 
 // The directory's header action opens the map on the stays alone. The ranked
 // list it used to link to is already the first best-of card above, and the
@@ -237,8 +242,9 @@ export const prerender = true;
   <Breadcrumbs items={breadcrumbItems} />
 
   <!-- 1. Stand-first: h1 retained, intro + CompareBlock compressed to <= 80
-       words. The compact band contains its controls (jump links, the one
-       FilterBar, the planning help), so its bottom edge sits below them. -->
+       words. The compact band contains its controls (jump links and the one
+       FilterBar), so its bottom edge sits below them. The planning help is
+       a note under the full list. -->
   <HubStandfirst
     compact
     title="Choose the base, and the whole weekend changes"
@@ -251,7 +257,6 @@ export const prerender = true;
         label="Filter stays"
         facets={['place', 'cat', 'price', 'party']}
       />
-      <PlanningHelp />
     </CategoryBrowse>
   </HubStandfirst>
 
@@ -315,6 +320,9 @@ export const prerender = true;
     <div slot="before-list" class="stay-list-tools">
       <SortControl />
     </div>
+    <div slot="after-list" class="stay-list-help">
+      <PlanningHelp />
+    </div>
   </DirectoryRows>
 
   <!-- 6. From the Journal (3) -->
@@ -359,5 +367,9 @@ export const prerender = true;
     display: flex;
     justify-content: flex-start;
     margin-bottom: var(--space-4, 1rem);
+  }
+  /* The planning note closes the full list. */
+  .stay-list-help {
+    margin-top: var(--space-3, 0.75rem);
   }
 </style>

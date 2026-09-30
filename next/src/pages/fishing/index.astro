@@ -68,6 +68,11 @@ const seasonalityRows = [
   { month: 'July', primary: 'Flathead (Western Port)', secondary: 'Salmon (surf)', notes: 'Gunnamatta and Cape Schanck salmon' },
   { month: 'August', primary: 'Salmon', secondary: 'Flathead', notes: 'Quietest month; dedicated anglers rewarded' },
 ];
+
+// The first section's side panel shows the calendar row for the month the
+// page was built in (Melbourne time), labelled with that month's name.
+const buildMonth = new Intl.DateTimeFormat('en-AU', { month: 'long', timeZone: 'Australia/Melbourne' }).format(new Date());
+const thisMonth = seasonalityRows.find((r) => r.month === buildMonth) ?? seasonalityRows[0];
 export const prerender = true;
 ---
 
@@ -95,33 +100,55 @@ export const prerender = true;
   <p class="affiliate-disclosure container">
     Bag and size limits are sourced from the
     <a href={BF_EXTERNAL.vfa} rel="external">Victorian Fisheries Authority</a>.
-    Regulations change, confirm with VFA before fishing.
+    Regulations change. Confirm with VFA before fishing.
   </p>
 
+  {/* Prose on the left, a quiet panel on the right (F21, the BF21 pattern).
+      The panel shows this month's row of the seasonality calendar below. */}
   <section class="experience-index" data-bf-article>
-    <div class="container prose">
-      <p class="label label--accent">What to read first</p>
-      <h2>The Peninsula is three fisheries, not one</h2>
-      <p>
-        The Mornington Peninsula sits at the convergence of two large coastal
-        embayments. <strong>Port Phillip Bay</strong>, Australia's largest bay,
-        enters through the Rip at Portsea on the Peninsula's western tip.
-        <strong>Western Port</strong>, shallower and more tidal, wraps the
-        Peninsula's eastern flank. <strong>Bass Strait</strong> runs along the
-        southern coast. No other recreational fishing destination in Victoria
-        offers this three-way overlap.
-      </p>
-      <p>
-        The same 50km of coastline produces snapper, King George whiting,
-        calamari, gummy shark, flathead, garfish, trevally, kingfish, and
-        Australian salmon, species that in other states require separate
-        trips to separate regions. Port Phillip Bay has a modest tidal range
-        of 0.6 to 1.0m at Port Melbourne. Western Port has approximately 2.5
-        to 2.8m, and is among the most tide-sensitive fisheries in Victoria.
-        Anglers crossing from one bay to the other without adjusting their
-        thinking about tides, ramp access, and fish behaviour will make
-        avoidable mistakes.
-      </p>
+    <div class="container bf-split">
+      <div class="prose">
+        <p class="label label--accent">What to read first</p>
+        <h2>The Peninsula is three fisheries, not one</h2>
+        <p>
+          The Mornington Peninsula sits at the convergence of two large coastal
+          embayments. <strong>Port Phillip Bay</strong>, Australia’s largest bay,
+          enters through the Rip at Portsea on the Peninsula’s western tip.
+          <strong>Western Port</strong>, shallower and more tidal, wraps the
+          Peninsula’s eastern flank. <strong>Bass Strait</strong> runs along the
+          southern coast. No other recreational fishing destination in Victoria
+          offers this three-way overlap.
+        </p>
+        <p>
+          The same 50km of coastline produces snapper, King George whiting,
+          calamari, gummy shark, flathead, garfish, trevally, kingfish, and
+          Australian salmon, species that in other states require separate
+          trips to separate regions. Port Phillip Bay has a modest tidal range
+          of 0.6 to 1.0m at Port Melbourne. Western Port has approximately 2.5
+          to 2.8m, and is among the most tide-sensitive fisheries in Victoria.
+          Anglers crossing from one bay to the other without adjusting their
+          thinking about tides, ramp access, and fish behaviour will make
+          avoidable mistakes.
+        </p>
+      </div>
+      <aside class="bf-aside" aria-labelledby="fishing-aside-month">
+        <p class="bf-aside__label">Seasonality</p>
+        <p class="bf-aside__title" id="fishing-aside-month">{thisMonth.month}</p>
+        <dl class="bf-facts bf-facts--pairs">
+          <div class="bf-facts__row">
+            <dt>Primary target</dt>
+            <dd>{thisMonth.primary}</dd>
+          </div>
+          <div class="bf-facts__row">
+            <dt>Secondary target</dt>
+            <dd>{thisMonth.secondary}</dd>
+          </div>
+          <div class="bf-facts__row">
+            <dt>Notes</dt>
+            <dd>{thisMonth.notes}</dd>
+          </div>
+        </dl>
+      </aside>
     </div>
   </section>
 
@@ -161,9 +188,10 @@ export const prerender = true;
           <p class="pi-section-dek">Species seasonality varies by location; cross-check the relevant species page for the specific timing.</p>
         </div>
       </div>
-      {/* Hung on the section's own left edge (the heading's), not centred as
-          a narrow prose column. Below 768px each month becomes a labelled
-          block instead of a four-column table that clips off-screen. */}
+      {/* Spans the full 1280 frame from the heading's left edge, so Notes
+          stays on one line. Below 768px each month becomes a compact block:
+          the month, 'Primary · Secondary' on one line, then the notes. The
+          column headers stay in the table for screen readers only. */}
       <div class="prose season-table-wrap">
         <table class="season-table">
           <thead>
@@ -172,10 +200,10 @@ export const prerender = true;
           <tbody>
             {seasonalityRows.map((r) => (
               <tr>
-                <td class="season-table__month">{r.month}</td>
-                <td data-label="Primary target">{r.primary}</td>
-                <td data-label="Secondary target">{r.secondary}</td>
-                <td data-label="Notes">{r.notes}</td>
+                <th scope="row" class="season-table__month">{r.month}</th>
+                <td class="season-table__primary">{r.primary}</td>
+                <td class="season-table__secondary">{r.secondary}</td>
+                <td class="season-table__notes">{r.notes}</td>
               </tr>
             ))}
           </tbody>
@@ -208,7 +236,7 @@ export const prerender = true;
         </div></li>
         <li class="pi-card bf-link-card"><div class="pi-card__body">
           <h3 class="pi-card__title"><a class="pi-card__link" href="/fishing/charters/">Charters</a></h3>
-          <p class="pi-card__dek">A buyer's guide to Peninsula fishing charters. Operator profiles, share vs private, snapper-season booking intelligence.</p>
+          <p class="pi-card__dek">A buyer’s guide to Peninsula fishing charters. Operator profiles, share vs private, snapper-season booking intelligence.</p>
           <span class="pi-section-link bf-link-card__cta" aria-hidden="true">Compare charters &rarr;</span>
         </div></li>
         <li class="pi-card bf-link-card"><div class="pi-card__body">
@@ -220,28 +248,38 @@ export const prerender = true;
     </div>
   </section>
 
+  {/* Licensing prose with its check record as the side panel: the page's
+      single statement of verification, restyled as a readable panel, plus
+      the licence link. */}
   <section class="experience-index">
-    <div class="container prose">
-      <p class="label label--accent">Licensing</p>
-      <h2>Fishing licences</h2>
-      <p>
-        A <a href={BF_EXTERNAL.vfaLicence} rel="external" data-bf-event="bf_licence_click" data-bf-source="hub-fishing">Victorian Recreational Fishing Licence</a>
-        is required to fish in Victorian waters if you are 18 or over.
-        Licences are available via the VFA website, Service Victoria, or
-        authorised agents across the Peninsula. Confirm current pricing on the
-        VFA site rather than from this page, fees are subject to change.
-      </p>
-      <p>
-        <strong>Charter exception.</strong> When fishing from a licensed
-        charter vessel, guests are typically covered by the operator's licence
-        for the duration of the trip. Confirm this with your operator at the
-        time of booking. Do not assume.
-      </p>
-      <p class="prose__verified">{provenance.stampLabel} {verificationStamp} against
-        <a href={BF_EXTERNAL.vfa} rel="external">Victorian Fisheries Authority</a>.
-        If any bag limit, size limit, or licence requirement on this page
-        differs from current VFA advice, VFA's current guidance takes precedence.
-      </p>
+    <div class="container bf-split">
+      <div class="prose">
+        <p class="label label--accent">Licensing</p>
+        <h2>Fishing licences</h2>
+        <p>
+          A <a href={BF_EXTERNAL.vfaLicence} rel="external" data-bf-event="bf_licence_click" data-bf-source="hub-fishing">Victorian Recreational Fishing Licence</a>
+          is required to fish in Victorian waters if you are 18 or over.
+          Licences are available via the VFA website, Service Victoria, or
+          authorised agents across the Peninsula. Confirm current pricing on the
+          VFA site rather than from this page. Fees are subject to change.
+        </p>
+        <p>
+          <strong>Charter exception.</strong> When fishing from a licensed
+          charter vessel, guests are typically covered by the operator’s licence
+          for the duration of the trip. Confirm this with your operator at the
+          time of booking. Do not assume.
+        </p>
+      </div>
+      <aside class="bf-aside" aria-labelledby="fishing-aside-check">
+        <p class="bf-aside__label" id="fishing-aside-check">{provenance.stampLabel}</p>
+        {verificationStamp && <p class="bf-aside__title">{verificationStamp}</p>}
+        <p class="bf-aside__text">
+          Against the <a href={BF_EXTERNAL.vfa} rel="external">Victorian Fisheries Authority</a>.
+          If any bag limit, size limit, or licence requirement on this page
+          differs from current VFA advice, VFA’s current guidance takes precedence.
+        </p>
+        <a class="pi-section-link bf-aside__link" href={BF_EXTERNAL.vfaLicence} rel="external" data-bf-event="bf_licence_click" data-bf-source="hub-fishing">Victorian Recreational Fishing Licence <span aria-hidden="true">&#8599;</span></a>
+      </aside>
     </div>
   </section>
 
@@ -276,26 +314,193 @@ export const prerender = true;
   .bf-link-card:hover .bf-link-card__cta {
     color: var(--harbour-h);
   }
+  /* Deks wrap plainly: 'pretty' pulled words down and left short first
+     lines on these three and four line deks. */
+  .bf-link-card .pi-card__dek {
+    text-wrap: wrap;
+  }
+  /* Phones: one compact column, not stacked desktop cards. The CTA is an
+     aria-hidden cue inside a whole-card link, so it drops the 44px box the
+     real section links carry. body[data-v4] outranks refinement.css. */
+  @media (max-width: 639px) {
+    .bf-links {
+      gap: var(--space-4);
+    }
+    .bf-link-card .pi-card__body {
+      padding: 20px;
+      gap: var(--space-2);
+    }
+    :global(body[data-v4]) .bf-link-card .pi-card__dek {
+      line-height: 1.5;
+    }
+    .bf-link-card__cta {
+      min-height: 0;
+      padding-top: 0;
+      margin-top: var(--space-2);
+    }
+  }
 
-  /* The verification stamp is metadata, not body copy: a small grey caption
-     under a hairline. It is the page's single statement of the check. */
-  .prose .prose__verified {
-    margin-top: var(--space-6);
-    padding-top: var(--space-4);
+  /* Source notice (F21). The global phone rule `.container{padding:0}`
+     shares this element, so the box padding is restated at a higher
+     specificity. The notice closes the hero: the hero's own rule and
+     bottom padding go, and it sits 48px from the hero and 48px from the
+     first section, which drops its top padding. Trust copy reads at 15px
+     ink, not 13px grey. */
+  .affiliate-disclosure.container {
+    padding: var(--space-3) var(--space-4);
+    margin-block: var(--space-7);
+    font-size: var(--fs-300);
+    color: var(--text);
+  }
+  :global(body[data-v4] .section-hero:has(+ .affiliate-disclosure)) {
+    padding-bottom: 0;
+  }
+  :global(body[data-v4] .section-hero:has(+ .affiliate-disclosure) > .container) {
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+  :global(body[data-v4]) .affiliate-disclosure + .experience-index {
+    padding-top: 0;
+  }
+
+  /* Prose with a right-hand panel (F21, the boating BF21 pattern). From
+     68.75em the prose keeps its measure in the left track and a sticky
+     paper-warm panel fills the right of the 1280 frame. Below that the
+     panel follows the prose. */
+  .bf-split {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: var(--space-6);
+  }
+  .bf-aside {
+    max-width: var(--prose-w);
+    padding: var(--space-6);
+    border-radius: var(--radius-l);
+    background: var(--bg-alt);
+  }
+  @media (min-width: 68.75em) {
+    .bf-split {
+      grid-template-columns: minmax(0, 1fr) clamp(20rem, 37.5%, 30rem);
+      column-gap: var(--space-8);
+      align-items: start;
+    }
+    .bf-split > .prose {
+      grid-column: 1;
+      grid-row: 1;
+    }
+    .bf-aside {
+      grid-column: 2;
+      grid-row: 1;
+      position: sticky;
+      top: calc(var(--masthead-h, 6rem) + var(--space-8));
+      max-width: none;
+    }
+  }
+  @media (max-width: 767px) {
+    .bf-aside {
+      padding: var(--space-5);
+    }
+  }
+  .bf-aside__label {
+    margin: 0 0 var(--space-3);
+    font-family: var(--font-ui);
+    font-size: var(--fs-100);
+    font-weight: var(--fw-semibold);
+    line-height: var(--lh-label);
+    letter-spacing: var(--ls-eyebrow);
+    text-transform: uppercase;
+    color: var(--sand-text);
+  }
+  .bf-aside__title {
+    margin: 0 0 var(--space-4);
+    font-family: var(--font-display);
+    font-size: var(--fs-600);
+    font-weight: var(--fw-display);
+    line-height: var(--lh-heading);
+    letter-spacing: var(--ls-display);
+    color: var(--text);
+  }
+  .bf-aside__text {
+    margin: 0;
+    font-family: var(--font-ui);
+    font-size: var(--fs-300);
+    line-height: var(--lh-dek);
+    color: var(--text);
+    text-wrap: pretty;
+  }
+  .bf-aside__text a {
+    color: var(--harbour);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+  }
+  .bf-aside__text a:hover {
+    color: var(--harbour-h);
+  }
+  .bf-aside__link {
+    margin-top: var(--space-3);
+    white-space: normal;
+  }
+  .bf-facts {
+    margin: 0;
+  }
+  .bf-facts__row {
+    padding-block: var(--space-3);
     border-top: 1px solid var(--border);
+  }
+  .bf-facts__row:last-child {
+    padding-bottom: 0;
+  }
+  .bf-facts dt {
+    font-family: var(--font-ui);
     font-size: var(--fs-200);
+    font-weight: var(--fw-semibold);
     line-height: var(--lh-ui);
     color: var(--soft);
   }
+  .bf-facts dd {
+    margin: 2px 0 0;
+    font-family: var(--font-ui);
+    font-size: var(--fs-400);
+    line-height: var(--lh-dek);
+    color: var(--text);
+  }
 
-  /* Seasonality table (BF2). It hangs from the same left edge as its
-     section head. At 767px and below the global .prose table rule would
-     turn it into a silent horizontal scroller with nowrap cells, clipping
-     two of the four columns at 390px; instead each month becomes a block
-     with Primary, Secondary and Notes as labelled lines. */
+  /* Seasonality table (F21). It hangs from the section head's left edge
+     and spans the whole 1280 frame, so Notes runs on one line. The wrapper
+     keeps .prose for the table styling but not its measure cap. A mobile
+     rule elsewhere sets every table to display:block, which would shrink
+     this one to its content, so the desktop table is restated. */
   .season-table-wrap {
     margin-inline: 0;
   }
+  :global(body[data-v4]) .season-table-wrap {
+    max-width: none;
+  }
+  .prose table.season-table {
+    display: table;
+    width: 100%;
+  }
+  .prose table.season-table tbody th {
+    padding: 0.85rem 1rem 0.85rem 0;
+    border-bottom: 1px solid rgba(11, 90, 72, 0.15);
+    font-family: var(--font-ui);
+    font-weight: var(--fw-semibold);
+    color: var(--text);
+    text-align: left;
+    vertical-align: top;
+    white-space: nowrap;
+  }
+  .prose table.season-table tbody tr:last-child th {
+    border-bottom: 1.5px solid var(--dark);
+  }
+
+  /* Phones: each month is a compact block. Month name, then 'Primary ·
+     Secondary' on one line (primary in ink, secondary soft), then one soft
+     notes line. No per-row labels; the column headers stay in the table,
+     visually hidden, for screen readers. The dot sits in the secondary
+     token's leading gap, which a clip hides when that token wraps to a
+     new line, so a dot never starts a line. */
   @media (max-width: 767px) {
     .prose table.season-table {
       display: block;
@@ -317,34 +522,54 @@ export const prerender = true;
       display: block;
     }
     .season-table tr {
-      display: block;
-      padding-block: var(--space-4);
+      --row-gap: 1.25em;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      margin-left: calc(var(--row-gap) * -1);
+      padding-block: var(--space-3);
       border-bottom: 1px solid var(--border);
+      clip-path: inset(0 0 0 var(--row-gap));
     }
-    .prose table.season-table tbody td {
-      display: grid;
-      grid-template-columns: 8rem minmax(0, 1fr);
-      column-gap: var(--space-3);
-      padding: var(--space-1) 0;
-      border-bottom: 0;
+    .prose table.season-table tbody :is(th, td) {
+      position: relative;
+      margin-left: var(--row-gap);
+      padding: 0;
+      border: 0;
       white-space: normal;
+      font-family: var(--font-ui);
+      font-size: var(--fs-300);
       font-weight: var(--fw-body);
-      color: var(--text);
+      line-height: var(--lh-dek);
+      text-align: left;
     }
-    .season-table td[data-label]::before {
-      content: attr(data-label);
-      font-size: var(--fs-200);
-      line-height: var(--lh-body);
-      color: var(--soft);
-    }
-    .prose table.season-table tbody td.season-table__month {
-      display: block;
-      padding: 0 0 var(--space-2);
+    .prose table.season-table tbody th.season-table__month {
+      flex: 0 0 calc(100% - var(--row-gap));
+      margin-bottom: var(--space-1);
       font-family: var(--font-display);
-      font-size: var(--fs-500);
+      font-size: var(--fs-400);
       font-weight: var(--fw-display);
       line-height: var(--lh-heading);
       color: var(--text);
+    }
+    .prose table.season-table tbody td.season-table__primary {
+      color: var(--text);
+    }
+    .prose table.season-table tbody td.season-table__secondary {
+      color: var(--soft);
+    }
+    .season-table__secondary::before {
+      content: '\00B7';
+      content: '\00B7' / '';
+      position: absolute;
+      right: 100%;
+      width: var(--row-gap);
+      text-align: center;
+      color: var(--border-strong);
+    }
+    .prose table.season-table tbody td.season-table__notes {
+      flex: 0 0 calc(100% - var(--row-gap));
+      color: var(--soft);
     }
   }
 </style>

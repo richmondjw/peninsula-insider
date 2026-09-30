@@ -2,7 +2,9 @@
 /**
  * WhatsOnScopeBar (v5 What's On, T-601) - the date-scope controls that sit
  * directly under the h1: This weekend (default, server-rendered content) /
- * Next weekend / School holidays / Pick dates.
+ * Pick dates / Next weekend / School holidays. "Pick dates" sits second
+ * (WO23) so the custom-date control is in view on a phone before the row
+ * scrolls.
  *
  * Presentational + declarative only: the page script owns behaviour. Scope
  * buttons are real <button aria-pressed>; "Pick dates" is a <details> with
@@ -49,30 +51,6 @@ const { weekendStartISO, weekendLabel, nextWeekendLabel, holidays, todayISO } = 
       This weekend
       <span class="wo-scope__dates">{weekendLabel}</span>
     </button>
-    <button
-      type="button"
-      class="wo-scope__btn"
-      data-wo-scope-btn
-      data-scope="next-weekend"
-      aria-pressed="false"
-      data-evt="wo_date_change"
-    >
-      Next weekend
-      <span class="wo-scope__dates">{nextWeekendLabel}</span>
-    </button>
-    {holidays && (
-      <button
-        type="button"
-        class="wo-scope__btn"
-        data-wo-scope-btn
-        data-scope="school-holidays"
-        aria-pressed="false"
-        data-evt="wo_date_change"
-      >
-        School holidays
-        <span class="wo-scope__dates">{holidays.label}</span>
-      </button>
-    )}
     <details class="wo-scope__custom" data-wo-custom>
       <summary class="wo-scope__btn wo-scope__btn--summary" data-wo-custom-summary>
         Pick dates
@@ -98,6 +76,30 @@ const { weekendStartISO, weekendLabel, nextWeekendLabel, holidays, todayISO } = 
         </button>
       </form>
     </details>
+    <button
+      type="button"
+      class="wo-scope__btn"
+      data-wo-scope-btn
+      data-scope="next-weekend"
+      aria-pressed="false"
+      data-evt="wo_date_change"
+    >
+      Next weekend
+      <span class="wo-scope__dates">{nextWeekendLabel}</span>
+    </button>
+    {holidays && (
+      <button
+        type="button"
+        class="wo-scope__btn"
+        data-wo-scope-btn
+        data-scope="school-holidays"
+        aria-pressed="false"
+        data-evt="wo_date_change"
+      >
+        School holidays
+        <span class="wo-scope__dates">{holidays.label}</span>
+      </button>
+    )}
   </div>
 </nav>
 
@@ -251,7 +253,9 @@ const { weekendStartISO, weekendLabel, nextWeekendLabel, holidays, todayISO } = 
   }
 
   /* Phones: keep every date sub-line and let the chips scroll sideways in
-     one row, with an end fade as the cue that more sits off-screen. The
+     one row, with an end fade as the cue that more sits off-screen (the
+     documented filter-chip behaviour). "Pick dates" is second, so the two
+     controls a reader most needs are both in view on arrival. The
      date panel anchors to the whole bar, outside the scroller, so the
      scroller cannot clip it. */
   @media (max-width: 47.9375em) {

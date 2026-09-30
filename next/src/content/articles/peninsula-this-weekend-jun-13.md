@@ -1,5 +1,5 @@
 ---
-title: "Peninsula This Weekend - 13 to 14 June"
+title: "Peninsula This Weekend: 13 to 14 June"
 dek: "The week after King's Birthday: truffle season at its most available, cellar doors open and unhurried, and the Peninsula genuinely itself again."
 author: "editorial"
 houseByline: true

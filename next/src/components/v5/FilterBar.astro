@@ -4,8 +4,10 @@
  *
  * Intent preset chips first (from CHIP_PRESETS[surface]), then a "More
  * filters" trigger that opens FilterSheet. The trigger sits outside the chip
- * scroller so it is never scrolled off-screen, and below 768px the chips wrap
- * instead of scrolling. A result line ("12 places") and Clear appear only
+ * scroller so it is never scrolled off-screen. Below 768px it is pinned first
+ * and the chips form one scrolling row beside it, so the whole toolbar is a
+ * single 48px row with a fade cue at the scrolled edges. A result line
+ * ("12 places") and Clear appear only
  * while a filter is active: the page's total lives in its directory heading.
  * The default slot takes SortControl / MapToggle. One per listing surface.
  *
@@ -124,11 +126,15 @@ const hasTools = Astro.slots.has('default');
     align-items: center;
     gap: var(--space-2, 0.5rem);
   }
-  /* Horizontally scrollable chip row with a fade affordance on the right
-     edge while more chips remain off-screen. "More filters" lives outside
-     it, so the one control that opens every facet is never faded out. */
+  /* Horizontally scrollable chip row with a fade affordance on each edge
+     that still has chips beyond it (the script sets data-scroll-start and
+     data-scroll-end). "More filters" lives outside it, so the one control
+     that opens every facet is never faded out. */
   .v5-filterbar__scroll {
+    --fade-start: 0px;
+    --fade-end: 3rem;
     display: flex;
+    flex-wrap: nowrap;
     gap: var(--space-2, 0.5rem);
     overflow-x: auto;
     flex: 0 1 auto;
@@ -137,12 +143,22 @@ const hasTools = Astro.slots.has('default');
     scroll-padding-inline: 16px;
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
-    mask-image: linear-gradient(to right, black calc(100% - 3rem), transparent);
+    mask-image: linear-gradient(to right,
+      transparent 0,
+      black var(--fade-start),
+      black calc(100% - var(--fade-end)),
+      transparent 100%);
   }
   .v5-filterbar__scroll::-webkit-scrollbar {
     display: none;
   }
+  .v5-filterbar__scroll[data-scroll-start='false'] {
+    --fade-start: 1.5rem;
+  }
   .v5-filterbar__scroll[data-scroll-end='true'] {
+    --fade-end: 0px;
+  }
+  .v5-filterbar__scroll[data-scroll-start='true'][data-scroll-end='true'] {
     mask-image: none;
   }
   .v5-filterbar__end {
@@ -157,14 +173,24 @@ const hasTools = Astro.slots.has('default');
     gap: var(--space-3, 0.75rem);
     margin-left: auto;
   }
-  /* Phones: no hidden chips. The chips, "More filters" and any tools wrap
-     as one set of rows (display: contents lifts them into the row), so every
-     option is visible without a horizontal scroll, and tools sit left. */
+  /* Phones: one 48px toolbar row. "More filters" is pinned first as a fixed
+     chip (display: contents lifts it out of __end into the row), the chips
+     scroll horizontally beside it with snap and an edge fade, and any tools
+     (sort, map toggle) take their own line underneath. The scroller's 4px
+     padding keeps each chip's focus ring inside its clip box; the matching
+     negative margins keep the row 48px tall and the gap at 8px. */
   @media (max-width: 767px) {
-    .v5-filterbar__row { flex-wrap: wrap; align-items: flex-start; }
-    .v5-filterbar__scroll,
+    .v5-filterbar__row { flex-wrap: wrap; align-items: center; }
     .v5-filterbar__end { display: contents; }
-    .v5-filterbar__tools { margin-left: 0; }
+    .v5-filterbar__chip--more { order: -1; flex: 0 0 auto; }
+    .v5-filterbar__scroll {
+      flex: 1 1 0;
+      padding: 4px;
+      margin: -4px 0 -4px -4px;
+      scroll-snap-type: x proximity;
+    }
+    .v5-filterbar__scroll > .v5-filterbar__chip { scroll-snap-align: start; }
+    .v5-filterbar__tools { order: 1; flex: 1 0 100%; margin-left: 0; }
   }
   .v5-filterbar__chip {
     display: inline-flex;
@@ -326,12 +352,13 @@ const hasTools = Astro.slots.has('default');
       commit({}, { source: 'clear', noun });
     });
 
-    // Fade affordance: drop the mask once the row is scrolled to its end.
+    // Fade affordance: each edge fades only while chips remain beyond it.
     const scroller = bar.querySelector<HTMLElement>('[data-chip-scroll]');
     if (scroller) {
       const update = () => {
         const atEnd = scroller.scrollLeft + scroller.clientWidth >= scroller.scrollWidth - 4;
         scroller.dataset.scrollEnd = atEnd ? 'true' : 'false';
+        scroller.dataset.scrollStart = scroller.scrollLeft <= 4 ? 'true' : 'false';
       };
       scroller.addEventListener('scroll', update, { passive: true });
       update();

@@ -7,7 +7,7 @@
  * 2 at bp-md (768), 3 at bp-lg (1024) and up. `layout="rows"` stacks
  * compact-row cards as a single-column list (search results, agendas).
  *
- * One card gutter sitewide: 24px between columns, 32px between grid rows.
+ * One card gutter sitewide: 24px between columns and between grid rows.
  * In `rows` the list owns the single divider between rows (compact rows draw
  * no rule of their own), with 24px either side of it.
  */
@@ -38,8 +38,24 @@ const { label, layout = 'grid', maxCols = 3 } = Astro.props;
     gap: var(--space-5, 1.5rem);
     grid-template-columns: 1fr;
   }
+  /* Square gutters (C26): the row gap equals the column gap, so a grid
+     reads as one block rather than loose rows. */
   .v5-card-grid--grid {
-    row-gap: var(--space-6, 2rem);
+    row-gap: var(--space-5, 1.5rem);
+  }
+  /* Equal-height cells (C24). A card that is itself the grid item already
+     stretches to its row. A wrapper item (an li holding the card, as in
+     TheSix) becomes a flex box so its card fills the cell too, and the
+     card's pinned foot line lands on one baseline across the row. */
+  .v5-card-grid--grid > :global(:not(.pi-card)) {
+    display: flex;
+  }
+  .v5-card-grid--grid > :global(:not(.pi-card)) > :global(.pi-card) {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+  .v5-card-grid--grid > :global(.pi-card) {
+    height: 100%;
   }
 
   @media (min-width: 48em) {

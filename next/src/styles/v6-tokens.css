@@ -77,7 +77,7 @@
   --ls-eyebrow:  0.12em; /* uppercase eyebrows */
 
   /* ── Measure ── */
-  --measure-prose: 68ch;
+  --measure-prose: 38rem; /* G25: ~608px, 65 to 72 Figtree characters at 17px. 68ch measured Figtree's wide '0' and ran ~740px (90 to 105). */
   --measure-dek:   52ch;
   --measure-card:  38ch;
 
