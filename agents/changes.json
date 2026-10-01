@@ -1,12 +1,12 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-01T03:06:07.027Z",
+  "generatedAt": "2026-10-01T03:16:16.162Z",
   "baselineAvailable": true,
   "fromSnapshot": "956f9de34c9fe576d3d1489569f23f3172ef96f91df9f2946c7334f257fc9ce6",
-  "toSnapshot": "03cc3d0b83c413ef33e1bced5d23d057d7a211a50ec2e2f3f1a36bacf360a7dc",
+  "toSnapshot": "e9b6ca97c715cf13a0e8c06446bb2fa3e3c2c84a1efc1a6980dbbd693058a533",
   "previousGeneratedAt": "2026-10-01T02:15:24.260Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 3,
+  "count": 23,
   "changes": [
     {
       "id": "https://peninsulainsider.com.au/explore/",
@@ -17,19 +17,179 @@
       "previousContentSha256": "af1d57f075746e6e931de000198721aca160e910764eb39115f52203edb7b97d"
     },
     {
+      "id": "https://peninsulainsider.com.au/explore/places/hastings/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/hastings/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/hastings/index.md",
+      "contentSha256": "2c13b198da9d2939cbab9eabeedd3ce034970d5d82a19da06a74c7db983a5e16",
+      "previousContentSha256": "17504e295d7617f56035ed72bb779464d7ff1ec6d22038f7dc9ed06aaa9a39db"
+    },
+    {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "3573b6b1dd613e114bc88267f9909e7fccc1014f19f5a67047d1dbceab43f193",
+      "contentSha256": "041f37335792d02f349cc45fe7aedab341868bcc30dae036c448a004bb102917",
       "previousContentSha256": "0af0f02f3274b990c3a46854038c89dd0b6d5b355f47cf6b281d36c872054b48"
     },
     {
-      "id": "https://peninsulainsider.com.au/whats-on/hastings-thursday-street-market/",
+      "id": "https://peninsulainsider.com.au/whats-on/",
       "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
+      "contentSha256": "8ed51377f8670fe47b8b45a07e46eb1231507e3fe956d90fc07efc9a8b8a0ca5",
+      "previousContentSha256": "76642f0a84d995920262b38de24c3423daeebc8cf99e7cd750237ee083e48eb9"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/boneo-community-market/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/boneo-community-market/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/boneo-community-market/index.md",
+      "contentSha256": "fe09286cc8678fd42fc264cda0e76ecbe8ca57836f021f13a58c28132be9ea5c",
+      "previousContentSha256": "4cb53e8b10b0319094560ce6e6050f6a0ef5c889b31638402f0b9470d9a4c9a8"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/by-mood/worth-the-drive/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/worth-the-drive/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/worth-the-drive/index.md",
+      "contentSha256": "efb19ba366807a0a3c2365b30511c599fb64262824822ab03f6b24f0e81fb164",
+      "previousContentSha256": "c79e9b090bd4a30b9b2c11379d838b7ab567123fcebc7c4278e774c1ba4a5014"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/crib-point-community-market/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/crib-point-community-market/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/crib-point-community-market/index.md",
+      "contentSha256": "94cb6742337107395ce26e6b2f51cb0207cd2d2631df589271d5426f5b89b688",
+      "previousContentSha256": "333474c3d9a221a6c1f8271fd8a20213d962f31c3710ff05fbe5859e10b4eba8"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/emu-plains-market-balnarring/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/emu-plains-market-balnarring/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/emu-plains-market-balnarring/index.md",
+      "contentSha256": "be9178b1db4418fb03a68aa10ff587e5537c6fffea46b04a8765b104d76dff7e",
+      "previousContentSha256": "097cba7acb99988137c4db90234dcd0daec49328e554e195e4eb8c62e6e5b7e4"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/emu-plains-market/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/emu-plains-market/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/emu-plains-market/index.md",
+      "contentSha256": "e75a11513da1c07c0d0e831c055f483721416ba3f4d3aa9c3902f7a1b3df3ff0",
+      "previousContentSha256": "7815409d5e2427b23426fae4cae4f8839e67024920e03b2809b007fe36d74339"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/heart-of-the-community-market-rosebud/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/heart-of-the-community-market-rosebud/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/heart-of-the-community-market-rosebud/index.md",
+      "contentSha256": "d6190cdf641657a6e6b8a9d9573dcd36cdd5ce7822375d724338efbc1251ea89",
+      "previousContentSha256": "3bf04bebb1e63627f5a862379fe1284d08738b95435123a7eda533416370a073"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/index.md",
+      "contentSha256": "864d8eb2fc0d846649558fce1efdc2830895c253f1510e2ede9bee6a5edcb609",
+      "previousContentSha256": "6bfdde3722015e473acead7fb79dff668861e7192d19760dbbb9dbaafc3ceb5a"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/main-street-mornington-festival-2026/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/main-street-mornington-festival-2026/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/main-street-mornington-festival-2026/index.md",
+      "contentSha256": "e247a2cf918e00c3468a6a17a1d444cfaff0d2e2680d1b25bb81fdb743a83bd9",
+      "previousContentSha256": "22b7b3701e4100b659aab54e33fe54dbd4b943cffa0e1625caf6a5df6209691d"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/mornington-christmas-festival-main-street-christmas-parade/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/mornington-christmas-festival-main-street-christmas-parade/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/mornington-christmas-festival-main-street-christmas-parade/index.md",
+      "contentSha256": "b93c7fa91083c748a4322209819ec3d19e7881aca6aeaf82fa9fdcf1961da22c",
+      "previousContentSha256": "e41ef0f6a177d42670698cf452db9c42311eaed137687e8d4c38a4df0f15b98d"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/index.md",
+      "contentSha256": "92f611fc14e9cebd3fbafe046829a6ac79ae8e7e6d92fa4058f86a28c52f53bf",
+      "previousContentSha256": "d139ab372ff4a22a66efd2bb51f215d8351a98ee3f955548c22b436144043108"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/index.md",
+      "contentSha256": "199a6854c790b9cb2e7da0db9cafd350207f9244469eb144d6cab2faf5ab234f",
+      "previousContentSha256": "4384778ec34daed988cfc039a5a5b7e6f8250e0b72c1db34b3651f801ce09bd4"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/index.md",
+      "contentSha256": "f41ab04e518c6e3f51958eef1703abd698fe14ef154b978153f913dd467b7674",
+      "previousContentSha256": "8484490feb74052e77ccc3f332ac9ad05a10ad725f6f83716335f745ce94090c"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/index.md",
+      "contentSha256": "39f0acc22d903e1189a0d6da2142548d357a344cbdd16137ec01bb4968769881",
+      "previousContentSha256": "4ca86d30024ff2d15c5c3c4f3d7a1b23b2899cab513193165ce951be937c5ad6"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/pearcedale-community-market/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/pearcedale-community-market/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/pearcedale-community-market/index.md",
+      "contentSha256": "bc1df8f2605da4731732a7154100634caa4c8450897754ac0b078c4b5c806456",
+      "previousContentSha256": "100f03fc218b59f7449059f0d93fa3b9628d33bbc5e26fce270b61dc3a0c471a"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/index.md",
+      "contentSha256": "bc644a37b758245c1bc9bdff6320b26e8f1070aa8f9e837f6cfb8e9f6f37f793",
+      "previousContentSha256": "01798c49bab2c272e45cec31797265880d9dd09a7786997b26e0ea78f91fc7de"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/index.md",
+      "contentSha256": "80f63c57dff279f4280b54b4dbb9da099cb26d440603bfa1cb9da180e4d18cf2",
+      "previousContentSha256": "aa09b6dd6c734b7c453a9e809c7e3165d40143019b99c5549f80fa6f3497f3b7"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/saturday-pottery-class/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/saturday-pottery-class/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/saturday-pottery-class/index.md",
+      "contentSha256": "5686ac7c8faa1ee4fa07178e992f1a12af753e12bbfd0f9aaf26879fb636a3f4",
+      "previousContentSha256": "268d71c71fa7c22aa9874b2361b7a0a0994fc10b6b74edccb995bbf5d81f1781"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/tootgarook-primary-school-market/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/tootgarook-primary-school-market/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/tootgarook-primary-school-market/index.md",
+      "contentSha256": "5ad89b6ab12a44da8245532920082a3363f726108792ff617ccca54de04919f9",
+      "previousContentSha256": "9935f89c5805bd05f8b998e4fe11c0e3b432c092926d79ebba1a05d53fb7057c"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/hastings-thursday-street-market/",
+      "kind": "representation-removed",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/hastings-thursday-street-market/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/hastings-thursday-street-market/index.md",
-      "contentSha256": "2e6e2ecfa7c862f8e59dc4ee3b539e60d4fecdbbb05f6b5c26ae4508fc6aac9c",
+      "markdownUrl": null,
+      "contentSha256": null,
       "previousContentSha256": "fd6bc202e5dcf197bd5c99f4548d6c44effea300cf62cba62109379d4a509fbb"
     }
   ]

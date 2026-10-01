@@ -19,16 +19,6 @@ Peninsula Summer Music Festival returns 2 to 11 January 2027.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-summer-music-festival-2027-save-the-date/>)
 
-Markets   Weekly – every Thursday year-round
-
-### [Hastings Thursday Street Market](<https://peninsulainsider.com.au/whats-on/hastings-thursday-street-market/>)
-
-[Hastings](<https://peninsulainsider.com.au/explore/places/hastings/>)
-
-Weekly outdoor street market on High Street Hastings every Thursday.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/hastings-thursday-street-market/>)
-
 Markets   Monthly – 4th Saturday of every month
 
 ### [Tootgarook Primary School Market](<https://peninsulainsider.com.au/whats-on/tootgarook-primary-school-market/>)

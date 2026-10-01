@@ -172,21 +172,3 @@ On the map
 Every editorially verified pin in Hastings on one screen - toggle a category, click any marker for the editor's note.
 
 Loading map…
-
-On the calendar in this place
-
-## Events in Hastings
-
-Coming up in Hastings, pulled from the events registry.
-
-[All events →](<https://peninsulainsider.com.au/whats-on/>)
-
-- [Every Thursday
-
-### ✦ Hastings Thursday Street Market
-
-Hastings
-
-Weekly outdoor street market on High Street Hastings every Thursday. 40+ stalls featuring homemade, homegrown and craft goods. Fresh produce, handmade goods, plants. Local food options available on the street.
-
- Markets](<https://peninsulainsider.com.au/whats-on/hastings-thursday-street-market/>)

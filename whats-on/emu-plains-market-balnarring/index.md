@@ -83,16 +83,6 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
-Markets   Weekly – every Thursday year-round
-
-### [Hastings Thursday Street Market](<https://peninsulainsider.com.au/whats-on/hastings-thursday-street-market/>)
-
-[Hastings](<https://peninsulainsider.com.au/explore/places/hastings/>)
-
-Weekly outdoor street market on High Street Hastings every Thursday.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/hastings-thursday-street-market/>)
-
 Markets   Monthly – 4th Saturday of every month
 
 ### [Tootgarook Primary School Market](<https://peninsulainsider.com.au/whats-on/tootgarook-primary-school-market/>)
@@ -108,6 +98,14 @@ Markets   Monthly – 2nd Saturday of every month
 Community market at Crib Point every second Saturday of the month.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
+
+Markets   Monthly – 4th Sunday of every month (year-round)
+
+### [Mt Eliza Farmers Market](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
+
+The only VFMA-accredited farmers market on the Mornington Peninsula.
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
 
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
 
