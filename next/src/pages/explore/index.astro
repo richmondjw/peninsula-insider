@@ -418,13 +418,15 @@ export const prerender = true;
       <h2 id="explore-filter-heading">Find a specific outing</h2>
       <p>Filter the complete guide, or open the map and choose a place.</p>
     </div>
-    <CategoryBrowse directory="directory" count={directoryRows.length} noun="experiences">
+    <div class="container x-discovery__filter">
       <FilterBar
         surface="explore"
         noun="experiences"
         label="Filter experiences"
         facets={['cat', 'place', 'party', 'price']}
       />
+    </div>
+    <CategoryBrowse directory="directory" count={directoryRows.length} noun="experiences">
       <TrustNote surface="explore" />
       <PlanningHelp />
     </CategoryBrowse>
@@ -799,8 +801,9 @@ export const prerender = true;
     .x-hero__secondary { color: var(--white); }
     .x-hero__actions a:focus-visible { outline-color: var(--sand, #f5c177); }
     .x-choices__head, .x-discovery__head, .x-shelf__header, .x-directory__head { display: block; }
-    .x-discovery { padding-top: 1.25rem; }
-    .x-discovery__head { margin-bottom: 0; }
+    .x-discovery { padding-top: 0.5rem; }
+    .x-discovery__head { margin-bottom: 0.5rem; }
+    .x-discovery__head h2 { font-size: 1.5rem; line-height: 1.2; }
     .x-discovery__head p { display: none; }
     .x-choices__head p, .x-discovery__head p { margin-top: 0.65rem; }
     .x-shelf__all { margin-top: 0.8rem; }
