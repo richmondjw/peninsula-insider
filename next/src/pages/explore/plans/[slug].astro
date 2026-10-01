@@ -279,6 +279,19 @@ const groupedStops = dayNumbers.map((day) => {
     });
   return { day, stops };
 });
+const routePreview = groupedStops.length > 1
+  ? groupedStops.map((group, index) => ({
+      number: String(index + 1).padStart(2, '0'),
+      title: data?.dayLabels?.[index] ?? `Day ${group.day}`,
+      detail: group.stops.slice(0, 2).map((stop) => stop.label).join(' · '),
+      href: `#day-${group.day}`,
+    }))
+  : (groupedStops[0]?.stops.slice(0, 3).map((stop, index) => ({
+      number: String(index + 1).padStart(2, '0'),
+      title: stop.label,
+      detail: timeOfDayLabel[stop.timeOfDay] ?? titleize(stop.timeOfDay),
+      href: `#stop-${groupedStops[0].day}-${stop.order}`,
+    })) ?? []);
 
 // A venue can also be a dinner stop. Use the editor's explicit overnight
 // sequence when available, with the original anchor as a legacy fallback.
@@ -779,7 +792,7 @@ export const prerender = true;
             {slug === 'sorrento-off-season-weekend' ? 'Stay in Sorrento →' : 'Stay at ' + (effectiveStay as any).data.name + ' →'}
           </a>
         )}
-        <PiForkPlanButton plan={forkPlan} variant="ghost" />
+        <PiForkPlanButton plan={forkPlan} variant={effectiveStay && effectiveStayHref ? "ghost" : "solid"} />
       </div>
       <nav class="itinerary-detail__jumps" aria-label="On this plan">
         <a href="#day-by-day">Day by day</a>
@@ -822,6 +835,24 @@ export const prerender = true;
       )}
         </div>
       </div>
+
+      <nav class="itinerary-route" id="route-overview" aria-label="Route overview">
+        <div class="itinerary-route__heading">
+          <p class="itinerary-route__eyebrow">Your route</p>
+          <h2>{groupedStops.length === 1 ? 'A day in sequence' : `${groupedStops.length} days, one connected journey`}</h2>
+        </div>
+        <ol class="itinerary-route__list">
+          {routePreview.map((step) => (
+            <li>
+              <a href={step.href}>
+                <span class="itinerary-route__number">{step.number}</span>
+                <span class="itinerary-route__copy"><strong>{step.title}</strong><small>{step.detail}</small></span>
+                <span class="itinerary-route__arrow" aria-hidden="true">↓</span>
+              </a>
+            </li>
+          ))}
+        </ol>
+      </nav>
 
       <div class="itinerary-detail__grid">
         {/* ─── 2. At-a-glance facts box ────────────────────────────── */}
@@ -917,7 +948,7 @@ export const prerender = true;
               {hasMultipleStayBases ? 'See first stay →' : 'Stay here →'}
             </a>
           ) : (
-            <a class="facts__cta pi-btn pi-btn--ghost pi-btn--block" href="/stay/">Choose the stay</a>
+            <a class="facts__cta pi-btn pi-btn--ghost pi-btn--block" href="#day-by-day">Follow the route →</a>
           )}
 
           {lastVerifiedLabel && (
@@ -950,14 +981,14 @@ export const prerender = true;
               const nightVenue = nightStay?.stay;
               const nightHref = nightStay?.href;
               return (
-                <section class="stop-day">
+                <section class="stop-day" id={`day-${group.day}`}>
                   <h2 class="stop-day__heading">
                     <span>Day {group.day}</span>
                     {data!.dayLabels?.[idx] && <span class="stop-day__label">{data!.dayLabels[idx]}</span>}
                   </h2>
                   <ol class="stop-day__stops">
                     {group.stops.map((stop) => (
-                      <li class="stop-item">
+                      <li class="stop-item" id={`stop-${group.day}-${stop.order}`}>
                         <div class="stop-item__time">
                           {stop.timeRange ?? (timeOfDayLabel[stop.timeOfDay] ?? titleize(stop.timeOfDay))}
                         </div>
@@ -1773,5 +1804,75 @@ export const prerender = true;
   }
   @media (prefers-reduced-motion: reduce) {
     .pl-cover__image, .pl-cluster__link, .pl-cluster__arrow { transition: none; }
+  }
+
+  /* Itinerary branch: connect the photographic cover to the route itself. */
+  .itinerary-detail__cover {
+    background: #0B2E4A;
+    padding: clamp(1.5rem, 3.5vw, 3rem);
+    align-items: center;
+    margin-bottom: 0;
+  }
+  .itinerary-detail__intro { align-self: center; }
+  .itinerary-detail__meta { color: #D8E5E9; }
+  .itinerary-detail__back { color: #F5C177; }
+  .itinerary-detail__back:hover { color: #FFD697; }
+  .itinerary-detail__nights { color: #D8E5E9; }
+  .itinerary-detail__dot { background: #F5C177; }
+  .itinerary-detail__title { color: #FFFFFF; letter-spacing: -.04em; }
+  .itinerary-detail__dek { color: #D8E5E9; }
+  .itinerary-detail__chips span { color: #E6EFF1; border-color: rgba(255,255,255,.4); }
+  .itinerary-detail__jumps a { color: #F5C177; }
+  .itinerary-detail__jumps a:hover { color: #FFD697; }
+  .itinerary-detail__cta-row .pi-btn--solid { background: #F5C177; border-color: #F5C177; color: #0B2E4A; }
+  .itinerary-detail__cta-row .pi-btn--solid:hover { background: #FFD697; border-color: #FFD697; color: #0B2E4A; }
+  .itinerary-detail__cta-row .pi-btn--ghost { background: transparent; border-color: rgba(255,255,255,.75); color: #FFFFFF; }
+  .itinerary-detail__cta-row .pi-btn--ghost:hover { background: rgba(255,255,255,.12); color: #FFFFFF; }
+  .itinerary-detail__cover-media .pstage__description,
+  .itinerary-detail__cover-media .pstage__credit,
+  .itinerary-detail__image-credit { color: #D8E5E9; }
+  .itinerary-detail__cover-media .pstage__strip-title { color: #D8E5E9; }
+  .itinerary-route { scroll-margin-top: 8rem;
+    display: grid;
+    grid-template-columns: minmax(10rem, 15rem) minmax(0, 1fr);
+    gap: clamp(1.5rem, 3vw, 3rem);
+    background: #E8EFF0;
+    padding: clamp(1.5rem, 3vw, 2.25rem);
+    margin-bottom: clamp(2.25rem, 5vw, 4rem);
+  }
+  .itinerary-route__eyebrow { margin: 0 0 .6rem; color: #10527E; font: 700 .68rem/1.3 var(--font-ui); letter-spacing: .2em; text-transform: uppercase; }
+  .itinerary-route__heading h2 { margin: 0; max-width: 13ch; color: #0B2E4A; font: 700 clamp(1.45rem, 2.1vw, 2rem)/1.16 var(--font-display); letter-spacing: -.025em; }
+  .itinerary-route__list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .65rem; padding: 0; margin: 0; list-style: none; }
+  .itinerary-route__list li { min-width: 0; }
+  .itinerary-route__list a { display: flex; flex-direction: column; gap: .55rem; min-height: 100%; padding: 1rem; background: #FFFFFF; border-top: 3px solid #10527E; color: #0B2E4A; text-decoration: none; }
+  .itinerary-route__list a:hover { background: #F7FAFA; }
+  .itinerary-route__list a:focus-visible { outline: 3px solid #10527E; outline-offset: 3px; }
+  .itinerary-route__number { font: 700 .68rem/1 var(--font-ui); letter-spacing: .16em; color: #10527E; }
+  .itinerary-route__copy { display: grid; gap: .4rem; margin-top: auto; }
+  .itinerary-route__copy strong { font: 700 1rem/1.25 var(--font-display); }
+  .itinerary-route__copy small { color: #3E5361; font: 400 .8rem/1.45 var(--font-ui); }
+  .itinerary-route__arrow { align-self: flex-end; color: #10527E; font-size: 1rem; }
+  .itinerary-detail__grid > .facts { position: sticky; top: 8rem; }
+  .itinerary-detail .stop-day { scroll-margin-top: 8rem; }
+  .itinerary-detail .stop-item { scroll-margin-top: 8rem; }
+  @media (max-width: 900px) {
+    .itinerary-route { scroll-margin-top: 8rem; grid-template-columns: 1fr; }
+    .itinerary-route__heading h2 { max-width: none; }
+    .itinerary-detail__grid > .itinerary-detail__main { grid-row: 1; }
+    .itinerary-detail__grid > .facts { grid-row: 2; position: static; }
+  }
+  @media (max-width: 600px) {
+    .itinerary-detail__cover { width: calc(100% + 32px); margin-inline: -16px; padding: 1.5rem 16px 1.2rem; }
+    .itinerary-detail__title { color: #FFFFFF; font-size: clamp(2.15rem, 8.8vw, 2.8rem); }
+    .itinerary-detail__chips { display: flex; gap: .35rem; margin-bottom: .8rem; }
+    .itinerary-detail__chips span { font-size: .65rem; padding: .2rem .45rem; }
+    .itinerary-detail__cta-row { flex-wrap: wrap; }
+    .itinerary-detail__cta-row .pi-btn { min-height: 44px; }
+    .itinerary-detail__cover-media .pstage__strip-wrap { display: none; }
+    .itinerary-route { scroll-margin-top: 8rem; width: calc(100% + 32px); margin-inline: -16px; padding: 1.4rem 16px; gap: 1rem; }
+    .itinerary-route__list { grid-template-columns: 1fr; gap: .4rem; }
+    .itinerary-route__list a { display: grid; grid-template-columns: 2rem minmax(0, 1fr) auto; align-items: center; min-height: 68px; padding: .7rem .8rem; }
+    .itinerary-route__copy { margin: 0; }
+    .itinerary-route__arrow { align-self: center; }
   }
 </style>
