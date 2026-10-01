@@ -100,7 +100,7 @@ test('category filters are reachable before editorial choices and restore the ma
   const reader = await site.reader();
   try {
     await reader.page.setViewport({width:390,height:844});
-    for (const route of ['/eat/','/stay/','/wine/','/explore/']) {
+    for (const route of ['/eat/','/stay/','/explore/']) {
       await reader.load(route);
       const geometry = await reader.page.evaluate(() => ({
         bars:document.querySelectorAll('[data-v5-filterbar]').length,
@@ -131,6 +131,51 @@ test('category filters are reachable before editorial choices and restore the ma
     assert.equal(await more.evaluate(el=>el.open),true);
   } finally { await reader.close(); }
 });
+
+test('wine visitors can choose a day or reach filtered places on a first visit', async () => {
+  const reader = await site.reader();
+  try {
+    await reader.page.evaluateOnNewDocument(() => localStorage.removeItem('pi-consent-v1'));
+    await reader.page.setViewport({ width: 320, height: 568 });
+    await reader.load('/wine/');
+    await reader.waitFor(() => document.querySelector('.wine-hero__visual img')?.naturalWidth > 0, 'wine hero photo did not load');
+    const firstFold = await reader.page.evaluate(() => ({
+      cookie: document.querySelector('#cookie-banner')?.dataset.state,
+      actionBottom: document.querySelector('.wine-hero__primary')?.getBoundingClientRect().bottom,
+      overflow: document.documentElement.scrollWidth > innerWidth + 1,
+      title: document.querySelector('main h1')?.textContent.trim(),
+    }));
+    assert.equal(firstFold.cookie, 'visible');
+    assert.equal(firstFold.title, 'Mornington Peninsula wine country');
+    assert.ok(firstFold.actionBottom <= 568, 'first-screen wine choice is below the 320px fold');
+    assert.equal(firstFold.overflow, false);
+    await reader.page.setViewport({ width: 390, height: 844 });
+    await reader.page.click('.wine-hero__secondary');
+    await reader.waitFor(() => location.hash === '#browse-wine', 'browse link did not reach the directory controls');
+    const browse = await reader.page.evaluate(() => ({
+      top: document.querySelector('#browse-wine')?.getBoundingClientRect().top,
+      filters: document.querySelectorAll('[data-v5-filterbar]').length,
+      overflow: document.documentElement.scrollWidth > innerWidth + 1,
+    }));
+    assert.ok(browse.top >= 100 && browse.top < 300, 'browse controls are obscured by the sticky header');
+    assert.equal(browse.filters, 1);
+    assert.equal(browse.overflow, false);
+    await reader.load('/wine/?mood=lunch-attached#browse-wine');
+    await reader.waitFor(() => document.querySelector('[data-category-editorial]')?.hidden, 'filtered wine directory did not replace editorial');
+    const filtered = await reader.page.evaluate(() => ({
+      selected: document.querySelector('[data-filter-chip][data-key="mood"][data-value="lunch-attached"]')?.getAttribute('aria-pressed'),
+      visible: [...document.querySelectorAll('[data-filter-countable]')].filter(el => !el.hidden).length,
+      all: document.querySelectorAll('[data-filter-countable]').length,
+      top: document.querySelector('#browse-wine')?.getBoundingClientRect().top,
+      overflow: document.documentElement.scrollWidth > innerWidth + 1,
+    }));
+    assert.equal(filtered.selected, 'true');
+    assert.ok(filtered.visible > 0 && filtered.visible < filtered.all);
+    assert.ok(filtered.top >= 100 && filtered.top < 300, 'filtered controls are obscured by the sticky header');
+    assert.equal(filtered.overflow, false);
+  } finally { await reader.close(); }
+});
+
 test('homepage alternate plan actions only copy usable itineraries and cover targets are comfortable', async () => {
   const reader = await site.reader();
   try {

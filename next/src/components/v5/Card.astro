@@ -208,10 +208,9 @@ const freshnessText = freshnessKind === 'checked' ? freshnessBase?.replace('Revi
 
 const isEditorial = variant === 'article' || variant === 'guide';
 const showMedia = !!image;
-/* No photo, but the row around this card has them: draw the house plate so
-   the card keeps its media height and the grid stays level. compact-row is
-   text-only by contract (HUB-11) and never takes a plate. */
-const showPlate = !image && mediaFallback && variant !== 'compact-row';
+/* A parent can request the house plate when a photo is unavailable, keeping
+   media height consistent within image-bearing card rows. */
+const showPlate = !image && mediaFallback;
 const hasVerdictSlot = Astro.slots.has('verdict');
 
 /* Save kind: entityType maps 1:1 except page/region, which are not saveable. */
@@ -270,7 +269,7 @@ const imageCredit = image?.credit ? creditLine(image.credit) : '';
     <div class="pi-card__media pi-card__media--plate">
       <span class="pi-card__plate" aria-hidden="true">
         <span class="pi-card__plate-rule"></span>
-        {mediaFallbackLabel ? (
+        {variant === "compact-row" ? <span class="pi-card__plate-monogram">PI</span> : mediaFallbackLabel ? (
           <>
             <span class="pi-card__plate-topic">{mediaFallbackLabel}</span>
             <span class="pi-card__plate-brand">Peninsula Insider</span>
@@ -650,6 +649,10 @@ const imageCredit = image?.credit ? creditLine(image.credit) : '';
     aspect-ratio: 1;
     border-radius: var(--radius-s);
   }
+  .pi-card.pi-card--compact .pi-card__media--plate { background: #e9eef0; border: 1px solid #ced9dd; }
+  .pi-card.pi-card--compact .pi-card__media--plate .pi-card__plate { align-items: center; justify-content: center; width: 100%; padding: 0; }
+  .pi-card.pi-card--compact .pi-card__plate-rule { display: none; }
+  .pi-card__plate-monogram { color: #174861; font-family: var(--font-display); font-size: 1rem; font-weight: 750; letter-spacing: -.04em; }
   .pi-card.pi-card--compact .pi-card__body {
     padding: 0;
   }

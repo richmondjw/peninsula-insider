@@ -71,6 +71,9 @@ export interface Props {
    * them again would report more results than the page holds.
    */
   countable?: boolean;
+  missingImagePlate?: boolean;
+  desktopColumns?: 1 | 2;
+  fullVerdicts?: boolean;
 }
 
 const {
@@ -85,12 +88,15 @@ const {
   emptyHeading,
   emptyBody,
   countable = true,
+  missingImagePlate = false,
+  desktopColumns = 1,
+  fullVerdicts = false,
 } = Astro.props;
 
 const headingId = `${id ?? `directory-${surface}`}-heading`;
 ---
 
-<section class="v5-directory" id={id} aria-labelledby={headingId} data-directory-rows data-noun={noun}>
+<section class:list={["v5-directory", { "v5-directory--columns-2": desktopColumns === 2, "v5-directory--full-verdicts": fullVerdicts }]} id={id} aria-labelledby={headingId} data-directory-rows data-noun={noun}>
   <div class="container">
     <div class="v5-directory__header">
       <div>
@@ -121,6 +127,7 @@ const headingId = `${id ?? `directory-${surface}`}-heading`;
             entityType={item.entityType}
             entitySlug={item.entitySlug}
             image={item.image}
+            mediaFallback={missingImagePlate && !item.image}
             verdict={item.verdict}
             meta={item.meta}
             priceBand={item.priceBand}
@@ -221,6 +228,11 @@ const headingId = `${id ?? `directory-${surface}`}-heading`;
   }
   .v5-directory__row {
     border-bottom: 1px solid var(--border);
+  }
+  .v5-directory--full-verdicts :global(.pi-card__dek) { display: block; overflow: visible; -webkit-line-clamp: unset; line-clamp: unset; min-height: 0; }
+  @media (min-width: 900px) {
+    .v5-directory--columns-2 .v5-directory__list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 2rem; }
+    .v5-directory--columns-2 .v5-directory__row > :global(.pi-card) { height: 100%; }
   }
   .v5-directory__row:last-child {
     border-bottom: none;

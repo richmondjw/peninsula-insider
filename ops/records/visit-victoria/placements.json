@@ -5,6 +5,10 @@
  "writtenAt": "2026-09-29T09:23:06.418Z",
  "entityMap": "ops/records/visit-victoria/entity-map.json",
  "placements": [
+  {"assetKey":"vv-160356","surface":"site","entity":"pages/wine","field":"hero.image","src":"/images/visit-victoria/vv-160356-montalto.webp","page":"/wine/","role":"editorial-hero-actual-montalto","recordedAt":"2026-10-01T06:30:00Z"},
+  {"assetKey":"vv-143071","surface":"site","entity":"pages/wine","field":"theSix.paringa.image","src":"/images/visit-victoria/vv-143071-paringa-estate-mornington-peninsula.webp","page":"/wine/","role":"editorial-shortlist-actual-paringa","recordedAt":"2026-10-01T06:30:00Z"},
+  {"assetKey":"vv-143752","surface":"site","entity":"pages/wine","field":"journal.redHillSaturday.image","src":"/images/visit-victoria/vv-143752-polperro-winery.webp","page":"/wine/","role":"editorial-card-actual-polperro","recordedAt":"2026-10-01T07:05:00Z"},
+  {"assetKey":"vv-161950","surface":"site","entity":"pages/wine","field":"directory.willowCreek.image","src":"/images/visit-victoria/vv-161950-rare-hare-wine-and-foodstore.webp","page":"/wine/","role":"editorial-row-actual-rare-hare","recordedAt":"2026-10-01T07:15:00Z"},
   {
    "assetKey": "vv-167058",
    "surface": "site",

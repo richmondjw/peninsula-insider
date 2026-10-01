@@ -18,6 +18,8 @@ export interface JournalItem {
   href: string;
   entitySlug: string;
   image?: CardImage;
+  /** Keep a deliberately curated card image when the live CMS has another hero. */
+  suppressImageHydration?: boolean;
   /** 25 words maximum (Card warns over). */
   verdict?: string;
   byline?: string;
@@ -92,6 +94,7 @@ const anyImage = shown.some((item) => Boolean(item.image?.src));
             entityType="article"
             entitySlug={item.entitySlug}
             image={item.image}
+            suppressImageHydration={item.suppressImageHydration ?? false}
             mediaFallback={anyImage}
             showEyebrow={showEyebrow}
             verdict={item.verdict}

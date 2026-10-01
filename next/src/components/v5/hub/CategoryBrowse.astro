@@ -1,13 +1,15 @@
 ---
 /** One filter state; the editorial route yields to results when a facet is selected. */
-interface Props { directory: string; count: number; noun: string; mapHref?: string; }
-const { directory, count, noun, mapHref = '/map/' } = Astro.props;
+interface Props { directory: string; count: number; noun: string; mapHref?: string; showLinks?: boolean; }
+const { directory, count, noun, mapHref = '/map/', showLinks = true } = Astro.props;
 ---
 <div class="category-browse container" data-category-browse>
+  {showLinks && (
   <nav class="category-browse__links" aria-label="Browse this guide">
     <a href={`#${directory}`}>Browse all {count} {noun} <span aria-hidden="true">↓</span></a>
     <a href={mapHref}>View the map <span aria-hidden="true">→</span></a>
   </nav>
+  )}
   <slot />
 </div>
 <style>
