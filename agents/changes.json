@@ -1,20 +1,36 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-01T02:15:24.260Z",
+  "generatedAt": "2026-10-01T03:06:07.027Z",
   "baselineAvailable": true,
-  "fromSnapshot": "bf14a339d72f339c4df2fdb7274f2c1d6f23fef265512cd48e90b3afa3db07e9",
-  "toSnapshot": "956f9de34c9fe576d3d1489569f23f3172ef96f91df9f2946c7334f257fc9ce6",
-  "previousGeneratedAt": "2026-10-01T00:35:30.141Z",
+  "fromSnapshot": "956f9de34c9fe576d3d1489569f23f3172ef96f91df9f2946c7334f257fc9ce6",
+  "toSnapshot": "03cc3d0b83c413ef33e1bced5d23d057d7a211a50ec2e2f3f1a36bacf360a7dc",
+  "previousGeneratedAt": "2026-10-01T02:15:24.260Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 1,
+  "count": 3,
   "changes": [
+    {
+      "id": "https://peninsulainsider.com.au/explore/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/index.md",
+      "contentSha256": "2c4492c0206cfc8774c2f635721eb376b27cd45a76da5d4cb53ae48ad45180e7",
+      "previousContentSha256": "af1d57f075746e6e931de000198721aca160e910764eb39115f52203edb7b97d"
+    },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "0af0f02f3274b990c3a46854038c89dd0b6d5b355f47cf6b281d36c872054b48",
-      "previousContentSha256": "d5ee201bf34bae150d8d2cc233967968f1d28516cd93874a11bec51edc25639d"
+      "contentSha256": "3573b6b1dd613e114bc88267f9909e7fccc1014f19f5a67047d1dbceab43f193",
+      "previousContentSha256": "0af0f02f3274b990c3a46854038c89dd0b6d5b355f47cf6b281d36c872054b48"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/hastings-thursday-street-market/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/hastings-thursday-street-market/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/hastings-thursday-street-market/index.md",
+      "contentSha256": "2e6e2ecfa7c862f8e59dc4ee3b539e60d4fecdbbb05f6b5c26ae4508fc6aac9c",
+      "previousContentSha256": "fd6bc202e5dcf197bd5c99f4548d6c44effea300cf62cba62109379d4a509fbb"
     }
   ]
 }

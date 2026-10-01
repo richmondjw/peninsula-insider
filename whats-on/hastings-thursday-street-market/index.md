@@ -53,7 +53,7 @@ Free
 
 Weather flexible
 
-[Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Hastings+Thursday+Street+Market&dates=20260930T230000Z%2F20261001T030000Z&details=Weekly+outdoor+street+market+on+High+Street+Hastings+every+Thursday.+40%2B+stalls+featuring+homemade%2C+homegrown+and+craft+goods.+Fresh+produce%2C+handmade+goods%2C+plants.+Local+food+options+available+on+the+street.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fhastings-thursday-street-market%2F&location=High+Street%2C+Hastings%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+Booking and calendar links are withdrawn; this session has finished.
 
 Filed under
 
