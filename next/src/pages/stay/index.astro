@@ -157,10 +157,13 @@ const directoryItems = [...sixVenues, ...restVenues].map((v) => stayItem(v));
 // ── Best-of rail (guide cards to existing /stay/ list pages) ────────────────
 const bestOfGuides = [
   { slug: 'best-accommodation', title: 'The best places to stay', verdict: 'Choose a coast, wine-country or thermal base, then compare stay formats.' },
+  { slug: 'boutique-hotels', title: 'Boutique hotels', verdict: 'Compare a village hotel, vineyard estate and design-led stay.' },
+  { slug: 'cottages', title: 'Cottages and B&Bs', verdict: 'Choose a self-contained cottage or a hosted room or suite.' },
   { slug: 'couples-retreats', title: 'Couples’ retreats', verdict: 'Choose a vineyard, thermal or Sorrento stay for a weekend together.' },
   { slug: 'vineyard-stays', title: 'Vineyard stays', verdict: 'Sleep between the rows and walk to the cellar door.' },
   { slug: 'coastal-stays', title: 'Coastal stays', verdict: 'Bay villages, south-coast bases and a night inside Point Nepean.' },
   { slug: 'hot-springs-accommodation', title: 'Hot springs stays', verdict: 'Compare accommodation at the Peninsula thermal estates.' },
+  { slug: 'wellness-retreats', title: 'Wellness stays', verdict: 'Choose on-site bathing, a hotel spa or an off-site springs package.' },
   { slug: 'dog-friendly', href: '/journal/dog-friendly-accommodation-mornington-peninsula/', title: 'Dog-friendly stays', verdict: 'Stays where the dog is a guest, not a problem.' },
 ];
 
@@ -264,7 +267,7 @@ export const prerender = true;
   <!-- 4. Best-of rail -->
   <section class="v5-bestof" aria-labelledby="bestof-heading">
     <div class="container">
-      <h2 id="bestof-heading" class="v5-bestof__title">Start with a ranked list</h2>
+      <h2 id="bestof-heading" class="v5-bestof__title">Choose a stay guide</h2>
       {/* "Best-of guides" is stated once, in the section eyebrow. The cards
           drop their GUIDE stamp. They are text-only by design, so no media
           fallback either: a plate on all three would be noise, not repair. */}

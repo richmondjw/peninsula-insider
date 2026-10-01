@@ -9,7 +9,7 @@ heroImage:
   alt: "Two guests walk out of the black-framed entrance beside a red-brick building at Jackalope Hotel, with a dark sculpture in front"
   credit: "Peter Foster, courtesy of Visit Victoria"
   license: "visit-victoria"
-  caption: "Jackalope Hotel, Red Hill, Mornington Peninsula."
+  caption: "Jackalope Hotel, Merricks North, Mornington Peninsula."
   depicts: "Jackalope Hotel"
   depictionStatus: "actual"
   creator: "Peter Foster"

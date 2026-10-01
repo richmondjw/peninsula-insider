@@ -1,6 +1,6 @@
 {
   "note": "Probe results for source URLs cited by the corpus. Written ONLY by next/scripts/probe-link-health.mjs, by a human or a scheduled job, never by a build. Read offline by next/scripts/audit-link-health.mjs. A verdict is what a probe saw, not an inference. This file is a RECORD, not a report: it does not live under ops/reports/ because nothing here is reproducible from the tree, and reverting it destroys evidence rather than regenerating it.",
-  "updatedAt": "2026-09-30T23:36:07.963Z",
+  "updatedAt": "2026-10-01T02:57:51.731Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -671,6 +671,14 @@
       "pageTitle": "Stay | Hotel Sorrento | | Boutique Beach Hotel"
     },
     {
+      "url": "https://hotelsorrento.com.au/stay/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Stay | Hotel Sorrento | | Boutique Beach Hotel",
+      "probedOn": "2026-10-01",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://humanitix.com/au/events/au--mornington--3931",
       "verdict": "blocked",
       "httpCode": "200",
@@ -702,6 +710,14 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Luxury Mornington Peninsula Accommodation | Jackalope Hotel"
+    },
+    {
+      "url": "https://jackalopehotels.com/",
+      "verdict": "blocked",
+      "httpCode": "200",
+      "pageTitle": "Luxury Mornington Peninsula Accommodation | Jackalope Hotel",
+      "probedOn": "2026-10-01",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://jackalopehotels.com/mornington-peninsula",

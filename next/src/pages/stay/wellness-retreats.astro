@@ -2,74 +2,266 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import { routeSlug, isStayVenue, venueHref, isListableVenue } from '../../lib/editorial';
-import { buildFaqSchema } from '../../lib/schema';
+import { isListableVenue, isStayVenue, routeSlug, venueHref } from '../../lib/editorial';
+import { absUrl, buildBreadcrumbSchema, buildFaqSchema } from '../../lib/schema';
 
-const allVenues = (await getCollection('venues')).filter(isListableVenue);
-const groups = [
-  { id: 'stay-at-the-springs', label: 'On-site bathing', title: 'Stay at the springs',
-    note: 'Choose these when bathing is the main reason to stay. Glamping and eco lodges are at Peninsula Hot Springs; The Sanctuary is at Alba. Both operators are in Fingal. Check the inclusions of your chosen accommodation package.',
-    slugs: ['peninsula-hot-springs-glamping', 'peninsula-hot-springs-eco-lodges', 'sanctuary-at-alba'] },
-  { id: 'hotel-and-spa', label: 'Hotel and treatments', title: 'Build the stay around a hotel spa',
-    note: 'Jackalope in Merricks North pairs accommodation with its spa and restaurants. Arrange treatments separately and check what your room booking includes.',
-    slugs: ['jackalope'] },
-  { id: 'stay-and-bathe', label: 'External bathing package', title: 'Stay in Flinders, bathe in Fingal',
-    note: 'The Stay and Bathe package at Quarters at Flinders Hotel combines accommodation with Peninsula Hot Springs Bath House entry. Bathing is off-site; arrange transport between Flinders and Fingal and check package availability and blackout dates.',
-    slugs: ['flinders-hotel'] },
-  { id: 'stay-nearby', label: 'A separate accommodation base', title: 'Stay on the wine ridge',
-    note: 'Lindenderry at Red Hill is a base for a Peninsula break. Book your chosen spa or springs separately; inclusion here does not indicate an on-site treatment spa or a bathing package.',
-    slugs: ['lindenderry'] },
-].map(group => ({ ...group, venues: group.slugs.map(slug => {
-  const venue = allVenues.find(v => routeSlug(v) === slug);
-  if (!venue || !isStayVenue(venue)) throw new Error(`Wellness stay is missing or not accommodation: ${slug}`);
-  return venue;
-}) }));
-const stays = groups.flatMap(group => group.venues);
-const faqs = [
-  { q: 'Can you stay at Peninsula Hot Springs?', a: 'Yes. Peninsula Hot Springs offers glamping and eco lodge accommodation in Fingal. They are different accommodation formats at the same operator. Check the room type, guest age policy and bathing inclusions before booking.' },
-  { q: 'Where is Alba, and can you stay there?', a: 'Alba Thermal Springs & Spa is at 282 Browns Road, Fingal. Its accommodation, The Sanctuary, includes five standalone villas and two rooms. Book accommodation and any spa treatments through Alba.' },
-  { q: 'Does Flinders Hotel have an on-site hot spring?', a: 'The Stay and Bathe package combines a stay at Quarters at Flinders Hotel with bathing at Peninsula Hot Springs in Fingal. These are separate locations, so you need to arrange travel between them.' },
-  { q: 'Is a day-spa booking the same as a wellness retreat stay?', a: 'No. A day-spa booking is a treatment or bathing visit. An overnight stay includes accommodation; a facilitated retreat also needs a confirmed program and dates. Check each booking for what is included.' },
-  { q: 'Can I plan a wellness stay without a car?', a: 'Plan transport before booking. Staying at the springs reduces travel during your visit, but you still need to get there and home. Check current operator transport options and arrange any taxis or transfers in advance.' },
+const allStays = (await getCollection('venues')).filter((venue) => isListableVenue(venue) && isStayVenue(venue));
+const bySlug = new Map(allStays.map((venue) => [routeSlug(venue), venue]));
+const definitions = [
+  {
+    id: 'stay-at-the-springs', number: '01', label: 'On-site bathing', title: 'Sleep where you bathe.',
+    summary: 'Peninsula Hot Springs and Alba are different operators in Fingal. Choose the springs first, then compare the accommodation format and inclusions for your dates.',
+    image: { src: '/images/visit-victoria/vv-172320-eco-lodges-peninsula-hot-springs.webp', width: 1280, height: 853,
+      alt: 'An Eco Lodge bedroom at Peninsula Hot Springs with a bush-view window seat and outdoor bath on its deck.',
+      caption: 'An Eco Lodge room at Peninsula Hot Springs. One of the stays here, not every room type. Courtesy of Visit Victoria.' },
+    entries: [
+      { slug: 'peninsula-hot-springs-glamping', format: 'Canvas stay · Peninsula Hot Springs',
+        note: 'Garden View, Lake View and Secluded Pavilion glamping settings keep the springs on the same grounds.',
+        check: 'Check the exact tent package, bathing access, guest age rules and arrival times. Reserve treatments or dining separately unless included.',
+        operator: 'https://www.peninsulahotsprings.com/accommodation/glamping', operatorLabel: 'See glamping packages' },
+      { slug: 'peninsula-hot-springs-eco-lodges', format: 'Lodge room · Peninsula Hot Springs',
+        note: 'Individual rooms in the Eco Lodges offer a different stay from glamping. Private bathing features vary by room type.',
+        check: 'Compare the Springs Room and Peninsula Suite, then read the current package inclusions. A private bath is not a spa treatment booking.',
+        operator: 'https://www.peninsulahotsprings.com/accommodation/eco-lodges', operatorLabel: 'See Eco Lodge rooms' },
+      { slug: 'sanctuary-at-alba', format: 'Villa or room · Alba',
+        note: 'The Sanctuary has five standalone villas and two premium rooms above Alba’s thermal springs.',
+        check: 'Alba currently lists daily bathing, Thyme breakfast and one private-pool upgrade for both formats. Reserve spa treatments separately.',
+        operator: 'https://albathermalsprings.com.au/alba-experiences/the-sanctuary/', operatorLabel: 'See Alba accommodation' },
+    ],
+  },
+  {
+    id: 'hotel-and-spa', number: '02', label: 'Hotel and treatments', title: 'Make the hotel the occasion.',
+    summary: 'Jackalope is a hotel and treatment-spa stay in Merricks North. Its spa is at the hotel; it is not one of the Fingal thermal-springs operators.',
+    image: { src: '/images/visit-victoria/vv-26070114-jackalope-hotel.webp', width: 2000, height: 1333,
+      alt: 'Guests raise wine glasses over vineyard rows and bushland at Jackalope Hotel.',
+      caption: 'Jackalope Hotel in Merricks North. The photograph shows its vineyard setting, not a treatment room. Peter Foster, courtesy of Visit Victoria.' },
+    entries: [
+      { slug: 'jackalope', format: 'Hotel spa · Merricks North',
+        note: 'Stay at the design hotel and build in a treatment, dining or time by the guest-only pool.',
+        check: 'Check whether your room package includes a treatment. Otherwise reserve the spa separately. Pool and hot-and-cold facilities are for hotel guests.',
+        operator: 'https://jackalopehotels.com/spa/', operatorLabel: 'See Jackalope spa' },
+    ],
+  },
+  {
+    id: 'stay-and-bathe', number: '03', label: 'Optional off-site packages', title: 'Stay elsewhere. Bathe in Fingal.',
+    summary: 'These hotels are outside the springs precincts. Each operator lists a package pairing accommodation with bathing at a Fingal venue. A room-only booking does not imply bathing entry.',
+    image: { src: '/images/visit-victoria/vv-25061209-lancemore-lindenderry-red-hill.webp', width: 2000, height: 1333,
+      alt: 'Visitors walk across the lawn towards the white homestead building at Lindenderry at Red Hill.',
+      caption: 'Lindenderry at Red Hill, one of two off-site hotel bases. Flinders Hotel is a separate property. Peter Foster, courtesy of Visit Victoria.' },
+    entries: [
+      { slug: 'flinders-hotel', format: 'Flinders hotel · Peninsula Hot Springs package',
+        note: 'The Stay and Bathe package pairs Quarters at Flinders Hotel with Peninsula Hot Springs Bath House bathing in Fingal.',
+        check: 'Check package availability, blackout dates and bathing entry. Arrange your own journey between Flinders and Fingal.',
+        operator: 'https://www.peninsulahotsprings.com/accommodation/stay-local/flinders-hotel-stay-and-bathe', operatorLabel: 'See Flinders package' },
+      { slug: 'lindenderry', format: 'Red Hill hotel · Alba package',
+        note: 'Lindenderry lists an Alba Thermal Springs & Spa package with its Red Hill accommodation and bathing at Alba in Fingal.',
+        check: 'Select the Alba package if you want bathing included, then confirm its terms and transport. A standard room booking is a separate choice.',
+        operator: 'https://lancemore.com.au/hotels/lancemore-lindenderry-red-hill/experiences/packages/alba-package/', operatorLabel: 'See Lindenderry package' },
+    ],
+  },
 ];
+const groups = definitions.map((group) => ({
+  ...group,
+  stays: group.entries.map((entry) => {
+    const venue = bySlug.get(entry.slug);
+    if (!venue) throw new Error('Wellness stay missing or not listable: ' + entry.slug);
+    return { ...entry, venue, href: venueHref(venue, '/stay') };
+  }),
+}));
+const stays = groups.flatMap((group) => group.stays.map((stay) => stay.venue));
+const faqs = [
+  { q: 'Can I stay at Peninsula Hot Springs or Alba?', a: 'Yes. Peninsula Hot Springs has glamping and Eco Lodges; Alba has The Sanctuary’s villas and rooms. They are separate operators in Fingal. Check your room and bathing inclusions.' },
+  { q: 'Do the Flinders and Red Hill packages include the same springs?', a: 'No. The Quarters at Flinders Hotel package is linked to Peninsula Hot Springs. Lindenderry at Red Hill lists a package linked to Alba. Both involve travel to Fingal. Check availability and inclusions with the operator.' },
+  { q: 'Does a Jackalope room include a spa treatment?', a: 'Do not assume it does. Jackalope has an on-site treatment spa and offers different room packages. Check your package and reserve a treatment separately when it is not included.' },
+  { q: 'Is a day-spa visit the same as a wellness retreat stay?', a: 'No. A day-spa visit does not include accommodation. An overnight stay includes a room; a facilitated retreat also needs a confirmed program and dates. Check what your booking includes.' },
+  { q: 'Can I plan a wellness stay without a car?', a: 'Plan transport before booking. Staying at the springs reduces travel between room and bathing, but you still need to reach Fingal. For a Flinders or Red Hill package, arrange the journey to the separate springs venue.' },
+];
+const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'Stay', href: '/stay/' }, { label: 'Wellness stays' }];
 const schema = {
   '@context': 'https://schema.org', '@type': 'CollectionPage',
   name: 'Wellness stays on the Mornington Peninsula',
-  description: 'Accommodation at the springs, hotel spa stays, an external bathing package and a separate Red Hill base.',
-  url: 'https://peninsulainsider.com.au/stay/wellness-retreats/',
-  dateModified: '2026-09-07',
-  mainEntity: {
-    '@type': 'ItemList', itemListOrder: 'https://schema.org/ItemListUnordered', numberOfItems: stays.length,
-    itemListElement: stays.map((venue, i) => ({ '@type': 'ListItem', position: i + 1, name: venue.data.name, url: new URL(venueHref(venue, '/stay'), 'https://peninsulainsider.com.au').href })),
-  },
+  description: 'Compare on-site thermal accommodation, a hotel treatment spa and optional off-site bathing packages.',
+  url: absUrl('/stay/wellness-retreats/'), dateModified: '2026-10-01',
+  mainEntity: { '@type': 'ItemList', itemListOrder: 'https://schema.org/ItemListUnordered', numberOfItems: stays.length,
+    itemListElement: stays.map((venue, i) => ({ '@type': 'ListItem', position: i + 1, name: venue.data.name, url: absUrl(venueHref(venue, '/stay')) })) },
 };
-const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'Stay', href: '/stay/' }, { label: 'Wellness stays' }];
 export const prerender = true;
 ---
-<BaseLayout title="Wellness stays and retreats on the Mornington Peninsula · Peninsula Insider"
-  description="Choose accommodation at the springs, a hotel spa stay or a verified Stay and Bathe package. Clear guidance on what is on-site and what needs a separate booking."
-  section="stay" canonical="https://peninsulainsider.com.au/stay/wellness-retreats/" modifiedTime="2026-09-07">
+<BaseLayout title="Wellness stays on the Mornington Peninsula · Peninsula Insider"
+  description="Compare stays at the springs, a Merricks North hotel spa and optional packages from Flinders or Red Hill. Know what is on-site and what needs another booking."
+  section="stay" canonical="https://peninsulainsider.com.au/stay/wellness-retreats/" modifiedTime="2026-10-01">
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(buildBreadcrumbSchema([
+    { name: 'Home', url: absUrl('/') }, { name: 'Stay', url: absUrl('/stay/') }, { name: 'Wellness stays', url: absUrl('/stay/wellness-retreats/') },
+  ]))} />
   <script type="application/ld+json" set:html={JSON.stringify(buildFaqSchema(faqs))} />
   <Breadcrumbs items={breadcrumbItems} />
-  <article class="article"><div class="container"><h1 class="article__title">Wellness stays on the Mornington Peninsula</h1><div class="prose">
-    <p>If the springs are the reason for your trip, stay in Fingal at Peninsula Hot Springs or Alba. If you want a hotel and restaurant weekend with a treatment added, start with Jackalope. Flinders Hotel offers a different arrangement: stay in the village and travel to Peninsula Hot Springs for bathing.</p>
-    <p>These {stays.length} accommodation options are grouped by what the stay actually offers. A day spa is not accommodation, and a quiet hotel is not automatically a facilitated retreat.</p>
-    <p><a href="/explore/spas-and-wellness/">Choosing a day spa instead? Read the spa guide →</a></p>
-  </div></div></article>
-  {groups.map(group => <section class="venues" id={group.id}><div class="container"><div class="venues__header"><div>
-    <p class="label label--accent">{group.label}</p><h2 class="venues__title">{group.title}</h2><p class="venues__sub">{group.note}</p>
-  </div></div><div class="venues__grid">{group.venues.map(venue => <VenueCard venue={venue} hrefPrefix="/stay" />)}</div>
-  {group.id === 'stay-and-bathe' && <p class="prose"><a href="https://www.peninsulahotsprings.com/accommodation/stay-local/flinders-hotel-stay-and-bathe" target="_blank" rel="noopener noreferrer">Check the official Flinders Stay and Bathe package →</a></p>}
-  </div></section>)}
-  <section class="faq-section"><div class="container"><div class="prose"><h2>Frequently asked questions</h2>{faqs.map(faq => <><h3>{faq.q}</h3><p>{faq.a}</p></>)}</div></div></section>
-  <section class="venues venues--plain"><div class="container"><div class="prose"><h2>Plan the rest of the stay</h2><ul>
-    <li><a href="/explore/hot-springs/">Compare Peninsula Hot Springs and Alba</a></li>
-    <li><a href="/stay/hot-springs-accommodation/">Accommodation inside the thermal precincts</a></li>
-    <li><a href="/explore/plans/wellness-weekend/">The wellness weekend plan</a></li>
-    <li><a href="/stay/best-accommodation/">The wider accommodation shortlist</a></li>
-  </ul><h2>Sources and booking details</h2><p>Accommodation formats, locations and the Flinders partnership checked on 7 September 2026 against <a href="https://www.peninsulahotsprings.com/accommodation">Peninsula Hot Springs accommodation</a>, <a href="https://albathermalsprings.com.au/alba-experiences/the-sanctuary/">The Sanctuary at Alba</a> and the <a href="https://www.peninsulahotsprings.com/accommodation/stay-local/flinders-hotel-stay-and-bathe">official Flinders package</a>. Check current availability, age requirements and inclusions with the operator before booking.</p></div></div></section>
+
+  <section class="wellness-hero" aria-labelledby="wellness-title">
+    <div class="container wellness-hero__grid">
+      <div class="wellness-hero__copy">
+        <p class="wellness-eyebrow">Stay / wellness</p>
+        <h1 id="wellness-title">Choose your wellness stay.</h1>
+        <nav class="wellness-choice" aria-label="Choose a wellness stay type">
+          <a href="#stay-at-the-springs"><span>At the springs</span><small>Fingal</small></a>
+          <a href="#hotel-and-spa"><span>Hotel + spa</span><small>Merricks North</small></a>
+          <a href="#stay-and-bathe"><span>Stay + bathe</span><small>Flinders / Red Hill</small></a>
+        </nav>
+        <p class="wellness-hero__lead">Sleep at the springs, add a hotel treatment, or stay elsewhere with bathing in Fingal.</p>
+      </div>
+      <figure class="wellness-hero__photo">
+        <img src="/images/visit-victoria/vv-163821-alba-thermal-springs.webp"
+          alt="Aerial view of Alba Thermal Springs in Fingal, showing pools and paths among native bushland."
+          width="1280" height="719" fetchpriority="high" decoding="async"
+          data-pi-responsive="(max-width: 800px) calc(100vw - 2rem), 550px" />
+        <figcaption>Alba’s thermal estate in Fingal. The image shows bathing, not a Sanctuary room. Courtesy of Visit Victoria.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  {groups.map((group) => (
+    <section class="wellness-group" id={group.id} aria-labelledby={group.id + '-title'}>
+      <div class="container">
+        <div class="wellness-group__heading">
+          <div><p class="wellness-eyebrow">{group.number} / {group.label}</p><h2 id={group.id + '-title'}>{group.title}</h2></div>
+          <p>{group.summary}</p>
+        </div>
+        <div class="wellness-group__layout">
+          <div class="wellness-group__stays">
+            {group.stays.map((stay) => (
+              <article class="wellness-stay" id={stay.slug === 'lindenderry' ? 'stay-nearby' : undefined}>
+                <p class="wellness-stay__format">{stay.format}</p>
+                <h3><a href={stay.href}>{stay.venue.data.name}</a></h3>
+                <p class="wellness-stay__note">{stay.note}</p>
+                <p class="wellness-stay__check"><strong>Check before booking.</strong> {stay.check}</p>
+                <div class="wellness-stay__links"><a href={stay.href} aria-label={"Read stay notes for " + stay.venue.data.name}>Read stay notes</a><a href={stay.operator} target="_blank" rel="noopener noreferrer">{stay.operatorLabel}</a></div>
+              </article>
+            ))}
+          </div>
+          <figure class="wellness-group__photo">
+            <img src={group.image.src} alt={group.image.alt} width={group.image.width} height={group.image.height}
+              loading="lazy" decoding="async" data-pi-responsive="(max-width: 800px) calc(100vw - 2rem), 480px" />
+            <figcaption>{group.image.caption}</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section class="wellness-booking" aria-labelledby="booking-title">
+    <div class="container wellness-booking__grid">
+      <div><p class="wellness-eyebrow">Before you reserve</p><h2 id="booking-title">Book the parts that matter.</h2></div>
+      <ol>
+        <li><strong>Choose the place.</strong> Peninsula Hot Springs and Alba are separate Fingal operators. Jackalope is in Merricks North. Package hotels are in Flinders and Red Hill.</li>
+        <li><strong>Read the inclusions.</strong> Bathing, breakfast, treatments and private bathing differ by room and package. Reserve anything outside your booking separately.</li>
+        <li><strong>Plan the journey.</strong> An off-site package links a hotel stay with a springs visit; it does not put pools at the hotel. Confirm transport and times before paying.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="wellness-faq" aria-labelledby="faq-title">
+    <div class="container wellness-faq__grid">
+      <div><h2 id="faq-title">The practical questions.</h2><p>Looking for a visit without accommodation? Use the <a href="/explore/spas-and-wellness/">day-spa guide</a>.</p></div>
+      <div class="wellness-faq__answers">{faqs.map((faq) => <div><h3>{faq.q}</h3><p>{faq.a}</p></div>)}</div>
+    </div>
+  </section>
+
+  <section class="wellness-next" aria-labelledby="next-title">
+    <div class="container wellness-next__grid">
+      <div><h2 id="next-title">Build the rest of the break.</h2><p>Compare the two springs, use a weekend plan, or return to the wider stay shortlist.</p></div>
+      <div class="wellness-next__links">
+        <a href="/explore/hot-springs/">Compare the springs</a>
+        <a href="/stay/hot-springs-accommodation/">See only on-site thermal stays</a>
+        <a href="/explore/plans/wellness-weekend/">Plan a wellness weekend</a>
+        <a href="/stay/best-accommodation/">Browse more stays</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="wellness-source"><div class="container"><p>Accommodation formats and package links checked on 1 October 2026 against <a href="https://www.peninsulahotsprings.com/accommodation">Peninsula Hot Springs</a>, <a href="https://albathermalsprings.com.au/alba-experiences/the-sanctuary/">Alba’s Sanctuary</a>, <a href="https://jackalopehotels.com/spa/">Jackalope’s spa</a>, the <a href="https://www.peninsulahotsprings.com/accommodation/stay-local/flinders-hotel-stay-and-bathe">Flinders package</a> and <a href="https://lancemore.com.au/hotels/lancemore-lindenderry-red-hill/experiences/packages/alba-package/">Lindenderry’s Alba package</a>. Check live availability, age rules, inclusions and travel details with the operator.</p></div></div>
   <NewsletterBlock />
 </BaseLayout>
+
+<style>
+  .wellness-hero { background: var(--bg-alt); padding: clamp(2.4rem, 5vw, 5rem) 0; border-bottom: 1px solid var(--border); }
+  .wellness-hero__grid { display: grid; grid-template-columns: minmax(0, 1.07fr) minmax(0, .93fr); gap: clamp(2rem, 5vw, 5rem); align-items: start; }
+  .wellness-hero__copy { min-width: 0; }
+  .wellness-eyebrow { color: var(--accent); font-size: .7rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; margin: 0 0 1rem; }
+  .wellness-hero h1 { color: var(--dark); font-family: var(--font-display); font-size: clamp(2.6rem, 4.9vw, 4.9rem); font-weight: 600; line-height: 1.05; letter-spacing: -.035em; max-width: 12ch; text-wrap: balance; margin: 0 0 1.25rem; }
+  .wellness-hero__lead { color: var(--text); font-size: clamp(1.07rem, 1.6vw, 1.27rem); line-height: 1.52; max-width: 47ch; margin: 1.25rem 0 0; }
+  .wellness-choice { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .65rem; margin-top: 1.65rem; }
+  .wellness-choice a { color: var(--dark); background: #fff; border: 1px solid var(--border); border-radius: var(--radius-m); min-height: 108px; padding: .9rem .85rem; display: flex; flex-direction: column; justify-content: space-between; gap: .5rem; text-decoration: none; transition: border-color .18s ease, transform .18s ease; }
+  .wellness-choice a:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .wellness-choice a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+  .wellness-choice span { font-family: var(--font-display); font-size: clamp(.88rem, 1.3vw, 1.02rem); font-weight: 600; line-height: 1.25; }
+  .wellness-choice small { color: var(--soft); font-size: .75rem; line-height: 1.3; }
+  .wellness-hero__photo, .wellness-group__photo { min-width: 0; margin: 0; }
+  .wellness-hero__photo img, .wellness-group__photo img { display: block; width: 100%; height: auto; object-fit: cover; border-radius: var(--radius-m); }
+  .wellness-hero__photo img { aspect-ratio: 5 / 4; }
+  .wellness-hero figcaption, .wellness-group figcaption { color: var(--soft); font-size: .75rem; line-height: 1.45; padding-top: .65rem; }
+  .wellness-group { padding: clamp(3.5rem, 6vw, 6rem) 0; border-bottom: 1px solid var(--border); scroll-margin-top: 8rem; }
+  .wellness-group__heading { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .75fr); gap: 2rem; align-items: end; border-bottom: 1px solid var(--border); padding-bottom: 1.5rem; margin-bottom: 1.5rem; }
+  .wellness-group h2, .wellness-booking h2, .wellness-faq h2, .wellness-next h2 { color: var(--dark); font-family: var(--font-display); font-size: clamp(2rem, 3.2vw, 3rem); font-weight: 600; line-height: 1.12; letter-spacing: -.025em; text-wrap: balance; margin: 0; }
+  .wellness-group__heading .wellness-eyebrow { margin-bottom: .7rem; }
+  .wellness-group__heading > p { color: var(--soft); line-height: 1.65; max-width: 55ch; margin: 0; }
+  .wellness-group__layout { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: clamp(2rem, 5vw, 5rem); align-items: start; }
+  .wellness-group__stays { display: grid; }
+  .wellness-stay { padding: 1.65rem 0; border-bottom: 1px solid var(--border); scroll-margin-top: 8rem; }
+  .wellness-stay:first-child { padding-top: .3rem; }
+  .wellness-stay:last-child { border-bottom: 0; padding-bottom: 0; }
+  .wellness-stay__format { color: var(--accent); font-size: .73rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; margin: 0 0 .55rem; }
+  .wellness-stay h3 { color: var(--dark); font-family: var(--font-display); font-size: clamp(1.35rem, 2vw, 1.85rem); line-height: 1.2; letter-spacing: -.015em; margin: 0 0 .65rem; }
+  .wellness-stay h3 a { color: inherit; text-decoration: none; }
+  .wellness-stay h3 a:hover { color: var(--accent); text-decoration: underline; text-underline-offset: .18em; }
+  .wellness-stay__note { color: var(--text); line-height: 1.6; margin: 0 0 .8rem; }
+  .wellness-stay__check { color: var(--soft); line-height: 1.6; margin: 0; }
+  .wellness-stay__check strong { color: var(--dark); }
+  .wellness-stay__links { display: flex; flex-wrap: wrap; gap: .25rem 1.5rem; margin-top: 1rem; }
+  .wellness-stay__links a { color: var(--accent); font-weight: 600; min-height: 44px; display: inline-flex; align-items: center; text-decoration: underline; text-underline-offset: .24em; }
+  .wellness-group__photo { position: sticky; top: 8.5rem; }
+  .wellness-group__photo img { aspect-ratio: 5 / 4; }
+  .wellness-booking { color: #fff; background: var(--dark); padding: clamp(3.5rem, 6vw, 6rem) 0; }
+  .wellness-booking__grid { display: grid; grid-template-columns: minmax(0, .7fr) minmax(0, 1.3fr); gap: clamp(2rem, 6vw, 6rem); }
+  .wellness-booking h2 { color: #fff; max-width: 12ch; }
+  .wellness-booking .wellness-eyebrow { color: var(--sand, #F5C177); }
+  .wellness-booking ol { list-style: none; counter-reset: steps; margin: 0; padding: 0; }
+  .wellness-booking li { counter-increment: steps; display: grid; grid-template-columns: 2rem minmax(0, 1fr); gap: 1.2rem; border-top: 1px solid rgb(255 255 255 / .32); padding: 1.2rem 0; color: #e5edf2; line-height: 1.6; }
+  .wellness-booking li::before { content: counter(steps, decimal-leading-zero); color: var(--sand, #F5C177); font-family: var(--font-display); font-weight: 600; }
+  .wellness-booking li strong { color: #fff; }
+  .wellness-faq { padding: clamp(3.5rem, 6vw, 5rem) 0; border-bottom: 1px solid var(--border); }
+  .wellness-faq__grid { display: grid; grid-template-columns: minmax(0, .75fr) minmax(0, 1.25fr); gap: clamp(2rem, 6vw, 6rem); }
+  .wellness-faq__grid > div > p { color: var(--soft); line-height: 1.6; max-width: 35ch; }
+  .wellness-faq a, .wellness-source a { color: var(--accent); text-decoration: underline; text-underline-offset: .2em; }
+  .wellness-faq__answers > div { border-top: 1px solid var(--border); padding: 1.25rem 0; }
+  .wellness-faq__answers h3 { color: var(--dark); font-family: var(--font-display); font-size: 1.05rem; line-height: 1.4; margin: 0 0 .5rem; }
+  .wellness-faq__answers p { color: var(--soft); line-height: 1.65; margin: 0; }
+  .wellness-next { background: var(--bg-alt); padding: clamp(3rem, 5vw, 5rem) 0; }
+  .wellness-next__grid { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: clamp(2rem, 6vw, 6rem); }
+  .wellness-next p { color: var(--soft); line-height: 1.6; max-width: 40ch; }
+  .wellness-next__links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .5rem 1rem; }
+  .wellness-next__links a { color: var(--accent); font-weight: 600; border-top: 1px solid var(--border); padding: .85rem 0; min-height: 44px; text-decoration: underline; text-underline-offset: .2em; }
+  .wellness-source { padding: 1.65rem 0; }
+  .wellness-source p { color: var(--soft); font-size: .82rem; line-height: 1.6; max-width: 100ch; margin: 0; }
+  @media (max-width: 800px) {
+    .wellness-hero__grid, .wellness-group__heading, .wellness-group__layout, .wellness-booking__grid, .wellness-faq__grid, .wellness-next__grid { grid-template-columns: 1fr; }
+    .wellness-hero__photo { margin-top: 1rem; }
+    .wellness-hero__photo img { aspect-ratio: 16 / 9; }
+    .wellness-group__heading { gap: 1rem; }
+    .wellness-group__photo { position: static; margin-top: 1.5rem; }
+  }
+  @media (max-width: 560px) {
+    .wellness-hero { padding: 1.15rem 0 2.75rem; }
+    .wellness-hero h1 { font-size: clamp(2.15rem, 10.5vw, 3rem); margin-bottom: .8rem; }
+    .wellness-hero__lead { font-size: 1rem; line-height: 1.45; }
+    .wellness-eyebrow { margin-bottom: .5rem; }
+    .wellness-choice { gap: .4rem; margin-top: .85rem; }
+    .wellness-choice a { padding: .7rem .5rem; min-height: 108px; }
+    .wellness-choice span { font-size: .82rem; }
+    .wellness-choice small { font-size: .75rem; line-height: 1.25; }
+    .wellness-group, .wellness-stay { scroll-margin-top: 6.5rem; }
+    .wellness-next__links { grid-template-columns: 1fr; }
+    .wellness-booking li { gap: .75rem; }
+  }
+  @media (prefers-reduced-motion: reduce) { .wellness-choice a { transition: none; } }
+</style>

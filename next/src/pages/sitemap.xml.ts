@@ -94,11 +94,11 @@ const EAT_CATEGORY_LASTMOD: Record<string, string> = {
   seafood: '2026-07-27', waterfront: '2026-08-07',
 };
 const STAY_CATEGORY_LASTMOD: Record<string, string> = {
-  'boutique-hotels': '2026-05-27', 'cape-schanck': '2026-06-01', 'coastal-stays': '2026-10-01',
+  'boutique-hotels': '2026-10-01', 'cape-schanck': '2026-06-01', 'coastal-stays': '2026-10-01',
   cottages: '2026-10-01', 'couples-retreats': '2026-10-01', flinders: '2026-06-01',
   glamping: '2026-10-01', 'hot-springs-accommodation': '2026-07-04', luxury: '2026-10-01',
   mornington: '2026-06-01', 'red-hill': '2026-07-04', resorts: '2026-05-27', sorrento: '2026-06-01',
-  villas: '2026-10-01', 'vineyard-stays': '2026-10-01', 'wellness-retreats': '2026-07-27',
+  villas: '2026-10-01', 'vineyard-stays': '2026-10-01', 'wellness-retreats': '2026-10-01',
   'winery-accommodation': '2026-10-01',
 };
 const WINE_CATEGORY_LASTMOD: Record<string, string> = {

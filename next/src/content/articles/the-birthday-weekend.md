@@ -9,7 +9,7 @@ heroImage:
   alt: "Two silhouetted guests raise glasses of red wine above a valley of vineyard rows and bushland at Jackalope Hotel"
   credit: "Peter Foster, courtesy of Visit Victoria"
   license: "visit-victoria"
-  caption: "Jackalope Hotel, Red Hill, Mornington Peninsula."
+  caption: "Jackalope Hotel, Merricks North, Mornington Peninsula."
   depicts: "Jackalope Hotel"
   depictionStatus: "illustrative"
   creator: "Peter Foster"
