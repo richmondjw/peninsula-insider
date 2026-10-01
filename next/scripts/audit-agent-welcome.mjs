@@ -1,7 +1,7 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { resolve, join, dirname } from 'node:path';
 import { createHash } from 'node:crypto';
-import { createAuditTransport } from './agent-audit-transport.mjs';
+import { createAuditTransport, forEachAuditItem } from './agent-audit-transport.mjs';
 import { agentRoutes, agentResources, SITE } from '../src/lib/agent-guide.mjs';
 const args = process.argv.slice(2);
 const base = args.includes('--base') ? args[args.indexOf('--base')+1].replace(/\/$/,'') : null;
@@ -21,7 +21,7 @@ async function read(path) {
  })());
  return cache.get(path);
 }
-async function pool(items,fn) {for(const item of items){try{await fn(item);}catch(e){check(false,e.message);}}}
+const pool=(items,fn)=>forEachAuditItem(items,fn,error=>check(false,error.message));
 async function audit() {
 const deploymentBefore=base?JSON.parse(await read('/deployment.json')):null;
 const llms=await read('/llms.txt');

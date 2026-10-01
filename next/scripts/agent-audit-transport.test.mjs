@@ -1,7 +1,7 @@
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
 import assert from 'node:assert/strict';
-import { createAuditTransport, retryAfterMs } from './agent-audit-transport.mjs';
+import { createAuditTransport, retryAfterMs, forEachAuditItem } from './agent-audit-transport.mjs';
 function harness(responses) {
   let clock = Date.UTC(2026, 9, 1); const waits=[]; const calls=[];
   const client=createAuditTransport({now:()=>clock,wait:async(ms)=>{waits.push(ms);clock+=ms;},
@@ -76,4 +76,22 @@ test('conditional200 with body failure cannot retry into a304 pass',async()=>{
  const {client,calls}=harness([{status:200,headers:new Headers(),text:async()=>{throw new Error('body interrupted');}},new Response(null,{status:304})]);
  await assert.rejects(client.request('https://example.test/',{headers:{'If-None-Match':'old'}}),/body interrupted/);
  assert.equal(calls.length,1);assert.equal(client.attempts[0].status,200);
+});
+
+test('operational deadline stops new requests with a distinct error',async()=>{
+ let clock=0,calls=0;
+ const client=createAuditTransport({deadlineMs:5,now:()=>clock,wait:async(ms)=>{clock+=ms;},fetchImpl:async()=>{calls++;return new Response('ok');}});
+ await client.request('https://example.test/a');
+ await assert.rejects(client.request('https://example.test/b'),{code:'AUDIT_DEADLINE'});
+ assert.equal(calls,1);assert.equal(client.attempts.length,1);
+});
+
+test('audit pool aborts once on deadline while retaining ordinary failures',async()=>{
+ const visited=[],failures=[];
+ await assert.rejects(forEachAuditItem([1,2,3],async(item)=>{
+  visited.push(item);
+  if(item===1)throw new Error('HTTP503 exhausted');
+  throw Object.assign(new Error('deadline'),{code:'AUDIT_DEADLINE'});
+ },error=>failures.push(error.message)),{code:'AUDIT_DEADLINE'});
+ assert.deepEqual(visited,[1,2]);assert.deepEqual(failures,['HTTP503 exhausted']);
 });

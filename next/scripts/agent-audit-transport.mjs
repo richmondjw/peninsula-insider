@@ -12,14 +12,14 @@ export function retryAfterMs(value, now = Date.now()) {
 // Operational audit transport only. Retries never become autonomous task credit.
 export function createAuditTransport({ fetchImpl = fetch, wait = sleep,
   now = Date.now, spacingMs = 250, maxAttempts = 3, maxWaitMs = 30000,
-  deadlineMs = 600000 } = {}) {
+  deadlineMs = 900000 } = {}) {
   const attempts = [];
   const started = now();
   let lastEnd = null;
   async function perform(url, { headers = {} } = {}) {
     for (let attempt = 1; attempt <= maxAttempts; attempt++) {
       if (lastEnd !== null) await wait(Math.max(0, spacingMs - (now() - lastEnd)));
-      if (now() - started >= deadlineMs) throw new Error('Live audit transport deadline exceeded');
+      if (now() - started >= deadlineMs) throw Object.assign(new Error('Live audit transport deadline exceeded'), { code: 'AUDIT_DEADLINE' });
       const at = now();
       const receipt = { url, attempt, startedAt: new Date(at).toISOString(),
         requestedEtag: headers['If-None-Match'] ?? null };
@@ -70,4 +70,14 @@ export function createAuditTransport({ fetchImpl = fetch, wait = sleep,
   };
   return { request, attempts, policy: { concurrency: 1, spacingMs, maxAttempts, maxWaitMs, deadlineMs,
     retryStatuses: [429, 503], bytes: 'Decoded UTF-8 body bytes; excludes HTTP headers and compressed wire bytes' } };
+}
+
+export async function forEachAuditItem(items, visit, recordFailure) {
+  for (const item of items) {
+    try { await visit(item); }
+    catch (error) {
+      if (error.code === 'AUDIT_DEADLINE') throw error;
+      recordFailure(error);
+    }
+  }
 }
