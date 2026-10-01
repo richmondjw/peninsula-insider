@@ -26,7 +26,7 @@ const definitions = [
         slug: 'polperro-villas',
         cue: 'For a couples retreat',
         description: 'Four studio villas on Polperro’s Red Hill vineyard, with a fireplace and indoor spa bath in each villa.',
-        check: 'Each villa has its own inclusions. Check the restaurant and cellar door service for your dates.',
+        check: "Polperro says its villas are not suitable for infants or children under 16. Confirm each villa's inclusions, restaurant and cellar door service for your dates.",
         operator: 'https://www.polperrowines.com.au/escape/villas/',
       },
       {
@@ -49,7 +49,7 @@ const definitions = [
         slug: 'port-phillip-estate',
         cue: 'For architecture and wine',
         description: 'Six accommodation suites at Port Phillip Estate in Red Hill South, above the vineyard and on the same estate as the cellar door.',
-        check: 'The suites are accommodation at a winery. Check room availability and Dining Room bookings separately.',
+        check: 'Accommodation guests must be 16 or older; under-18s need adult supervision. Check suite availability and Dining Room bookings separately.',
         operator: 'https://www.portphillipestate.com.au/book-accommodation/',
       },
       {
@@ -271,7 +271,7 @@ export const prerender = true;
       <div class="vine-faq__grid">
         {faqs.map((faq) => <div class="vine-faq__item"><h3>{faq.q}</h3><p>{faq.a}</p></div>)}
       </div>
-      <p class="vine-faq__sources">Property details checked with the operators on 1 October 2026: <a href="https://www.polperrowines.com.au/escape/villas/">Polperro</a>, <a href="https://www.lakesidevillas.com.au/">Crittenden</a>, <a href="https://www.portphillipestate.com.au/quiet-luxury/">Port Phillip Estate</a>, <a href="https://mantonscreekestate.com.au/accommodation">Mantons Creek</a>, <a href="https://jackalopehotels.com/stay/">Jackalope</a>, <a href="https://lancemore.com.au/hotels/lancemore-lindenderry-red-hill/accommodation/">Lindenderry</a> and <a href="https://www.cassisredhill.com.au/accommodation">Cassis</a>. Confirm details for your dates.</p>
+      <p class="vine-faq__sources">Property details checked with the operators on 1 October 2026: <a href="https://www.polperrowines.com.au/escape/villas/">Polperro</a>, <a href="https://www.lakesidevillas.com.au/">Crittenden</a>, <a href="https://www.portphillipestate.com.au/quiet-luxury/">Port Phillip Estate</a> (<a href="https://www.portphillipestate.com.au/accommodation-terms-and-conditions/">guest terms</a>), <a href="https://mantonscreekestate.com.au/accommodation">Mantons Creek</a>, <a href="https://jackalopehotels.com/stay/">Jackalope</a>, <a href="https://lancemore.com.au/hotels/lancemore-lindenderry-red-hill/accommodation/">Lindenderry</a> and <a href="https://www.cassisredhill.com.au/accommodation">Cassis</a>. Confirm details for your dates.</p>
     </div>
   </section>
 
@@ -291,7 +291,7 @@ export const prerender = true;
 </BaseLayout>
 
 <style>
-  .vine-eyebrow { margin: 0 0 .85rem; color: #9c643b; font-size: .68rem; font-weight: 800; letter-spacing: .17em; text-transform: uppercase; }
+  .vine-eyebrow { margin: 0 0 .85rem; color: #80502f; font-size: .68rem; font-weight: 800; letter-spacing: .17em; text-transform: uppercase; }
   .vine-hero { background: #f5f1e9; color: #18394b; padding: clamp(2rem, 5vw, 5.3rem) 0 clamp(2.8rem, 5vw, 5rem); }
   .vine-hero__grid { display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); gap: clamp(2rem, 5vw, 5.5rem); align-items: center; }
   .vine-hero__copy { min-width: 0; }
@@ -314,7 +314,7 @@ export const prerender = true;
   .vine-chooser__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .75rem; }
   .vine-choice { display: flex; flex-direction: column; gap: 1rem; min-height: 17rem; padding: 1.4rem; background: #f3eee4; color: #163c4f; border-radius: 6px; text-decoration: none; transition: transform .2s, background .2s; }
   .vine-choice:hover { transform: translateY(-3px); background: #fffaf1; }
-  .vine-choice__number { color: #92603d; font-size: .68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+  .vine-choice__number { color: #80502f; font-size: .68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
   .vine-choice strong { font-family: Georgia, 'Times New Roman', serif; font-size: clamp(1.5rem, 2.6vw, 2.15rem); font-weight: 500; line-height: 1.08; }
   .vine-choice > span:nth-of-type(2) { font-size: .85rem; line-height: 1.52; }
   .vine-choice__action { margin-top: auto; padding-top: 1.15rem; border-top: 1px solid #d9d2c6; font-size: .8rem; font-weight: 800; }
@@ -325,7 +325,7 @@ export const prerender = true;
   .vine-group__head > p:last-child { max-width: 37rem; margin: .2rem 0 0; color: #4c6169; line-height: 1.65; }
   .vine-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .9rem; }
   .vine-card { display: flex; flex-direction: column; min-width: 0; padding: clamp(1.3rem, 2.4vw, 2rem); background: #fff; border: 1px solid #d7dcd8; border-radius: 7px; box-shadow: 0 10px 30px rgba(18, 48, 55, .04); }
-  .vine-card__top { display: flex; justify-content: space-between; gap: 1rem; padding-bottom: 1.1rem; border-bottom: 1px solid #e7e7e0; color: #9c643b; font-size: .69rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+  .vine-card__top { display: flex; justify-content: space-between; gap: 1rem; padding-bottom: 1.1rem; border-bottom: 1px solid #e7e7e0; color: #80502f; font-size: .69rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
   .vine-card__top span:last-child { text-align: right; color: #456773; }
   .vine-card h3 { margin: 1.5rem 0 .9rem; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(1.55rem, 2.4vw, 2.2rem); font-weight: 500; line-height: 1.08; letter-spacing: -.025em; }
   .vine-card h3 a { color: #153d53; text-decoration: none; }
@@ -361,7 +361,9 @@ export const prerender = true;
   .vine-more__links { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .7rem; margin-top: 1.5rem; }
   .vine-more__links a { display: flex; align-items: center; justify-content: space-between; min-height: 64px; padding: .9rem 1.1rem; background: #fffdf9; border: 1px solid #d8d7cd; border-radius: 4px; color: #153e55; font-size: .81rem; font-weight: 800; text-decoration: none; }
   .vine-more__links a:hover { border-color: #ad794f; }
-  :is(.vine-hero, .vine-chooser, .vine-group, .vine-nearby, .vine-plan, .vine-faq, .vine-more) a:focus-visible { outline: 3px solid #db9a4e; outline-offset: 3px; }
+  :is(.vine-hero, .vine-chooser, .vine-group, .vine-nearby, .vine-plan, .vine-faq, .vine-more) a:focus-visible { outline: 3px solid #754623; outline-offset: 3px; }
+  :is(.vine-chooser, .vine-plan) a:focus-visible { outline-color: #f3be7c; }
+  .vine-chooser .vine-choice:focus-visible { outline-color: #754623; }
   @media (max-width: 800px) {
     .vine-hero__grid, .vine-group__head, .vine-nearby__grid, .vine-plan__grid { grid-template-columns: 1fr; }
     .vine-hero__grid { gap: 2rem; }

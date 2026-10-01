@@ -1,6 +1,6 @@
 {
   "note": "Probe results for source URLs cited by the corpus. Written ONLY by next/scripts/probe-link-health.mjs, by a human or a scheduled job, never by a build. Read offline by next/scripts/audit-link-health.mjs. A verdict is what a probe saw, not an inference. This file is a RECORD, not a report: it does not live under ops/reports/ because nothing here is reproducible from the tree, and reverting it destroys evidence rather than regenerating it.",
-  "updatedAt": "2026-10-01T02:57:51.731Z",
+  "updatedAt": "2026-10-01T04:00:46.020Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -3808,6 +3808,14 @@
       "pageTitle": "Accommodation Terms and Conditions - Port Phillip Estate"
     },
     {
+      "url": "https://www.portphillipestate.com.au/accommodation-terms-and-conditions/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Accommodation Terms and Conditions - Port Phillip Estate",
+      "probedOn": "2026-10-01",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://www.portphillipestate.com.au/book-accommodation/",
       "verdict": "ok",
       "httpCode": "200",
@@ -3834,6 +3842,14 @@
       "pageTitle": "Dining Room - Port Phillip Estate",
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://www.portphillipestate.com.au/quiet-luxury/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Quiet Luxury - Port Phillip Estate",
+      "probedOn": "2026-10-01",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.portseagolf.com.au/",
@@ -3963,6 +3979,14 @@
       "httpCode": "202",
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://www.racv.com.au/travel-experiences/resorts/cape-schanck/accommodation.html",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Mornington Peninsula Hotel Accommodation | RACV Cape Schanck",
+      "probedOn": "2026-10-01",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.racv.com.au/travel-leisure/racv-resorts/our-destinations/cape-schanck-resort.html",

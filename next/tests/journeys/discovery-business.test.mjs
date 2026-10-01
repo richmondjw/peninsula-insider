@@ -190,3 +190,42 @@ test('boutique and wellness stay choices remain visible on a first visit', async
     }
   } finally { await reader.close(); }
 });
+
+
+test('vineyard and resort stay choices remain visible on a first visit', async () => {
+  const reader = await site.reader();
+  try {
+    await reader.page.evaluateOnNewDocument(() => localStorage.removeItem('pi-consent-v1'));
+    await reader.page.setViewport({width:320,height:568});
+    for (const [route, selector, expected] of [
+      ['/stay/vineyard-stays/', '.vine-hero__cta', 1],
+      ['/stay/resorts/', '.resorts-choice a', 3],
+    ]) {
+      await reader.load(route);
+      const bounds = await reader.page.evaluate(target => ({
+        cookie: document.querySelector('#cookie-banner')?.dataset.state,
+        bottoms: [...document.querySelectorAll(target)].map(el => el.getBoundingClientRect().bottom),
+        overflow: document.documentElement.scrollWidth > innerWidth + 1,
+      }), selector);
+      assert.equal(bounds.cookie, 'visible', route);
+      assert.equal(bounds.bottoms.length, expected, route + ' choice count');
+      assert.ok(bounds.bottoms.every(bottom => bottom <= 568), route + ' first-screen choice');
+      assert.equal(bounds.overflow, false, route);
+    }
+  } finally { await reader.close(); }
+});
+
+test('stay guide booking checks and secondary actions remain usable', async () => {
+  const reader = await site.reader();
+  try {
+    await reader.page.setViewport({width:320,height:700});
+    await reader.load('/stay/vineyard-stays/');
+    const checks = await reader.page.$$eval('.vine-card__check', elements => elements.map(el => el.textContent));
+    assert.ok(checks.some(text => text.includes('not suitable for infants or children under 16')));
+    assert.ok(checks.some(text => text.includes('Accommodation guests must be 16 or older')));
+    await reader.load('/stay/resorts/');
+    const links = await reader.page.$$eval('.resorts-text-link', elements => elements.map(el => el.getBoundingClientRect().height));
+    assert.equal(links.length, 2);
+    assert.ok(links.every(height => height >= 44), 'resort secondary links need a 44px target');
+  } finally { await reader.close(); }
+});
