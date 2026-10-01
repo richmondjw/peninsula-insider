@@ -143,3 +143,28 @@ test('homepage alternate plan actions only copy usable itineraries and cover tar
     assert.ok(targets.every(t=>t.w>=44 && t.h>=44));
   } finally { await reader.close(); }
 });
+
+
+test('first-visit Explore actions and filters stay in view with the cookie note', async () => {
+  const reader = await site.reader();
+  try {
+    await reader.page.evaluateOnNewDocument(() => localStorage.removeItem('pi-consent-v1'));
+    await reader.page.setViewport({width:320,height:568});
+    await reader.load('/explore/');
+    const narrow = await reader.page.evaluate(() => ({
+      cookie: document.querySelector('#cookie-banner')?.getAttribute('data-state'),
+      actionBottom: document.querySelector('.x-hero__primary')?.getBoundingClientRect().bottom,
+      overflow: document.documentElement.scrollWidth > innerWidth + 1,
+    }));
+    assert.equal(narrow.cookie, 'visible');
+    assert.ok(narrow.actionBottom <= 568, 'first-visit primary action is below the 320px fold');
+    assert.equal(narrow.overflow, false);
+    await reader.page.setViewport({width:390,height:844});
+    const wider = await reader.page.evaluate(() => ({
+      filterTop: document.querySelector('[data-v5-filterbar]')?.getBoundingClientRect().top,
+      overflow: document.documentElement.scrollWidth > innerWidth + 1,
+    }));
+    assert.ok(wider.filterTop < 750, 'first-visit filters are buried at 390px');
+    assert.equal(wider.overflow, false);
+  } finally { await reader.close(); }
+});
