@@ -1,44 +1,28 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-01T04:25:53.772Z",
+  "generatedAt": "2026-10-01T04:44:21.756Z",
   "baselineAvailable": true,
-  "fromSnapshot": "69d0b477891959c53e565a9d136422acfd61f00d6cd08ff86e25b64c07e9717d",
-  "toSnapshot": "207e03c37619d889bd2ee3205d16e0f50a86ba6664f7622382e79663414be36a",
-  "previousGeneratedAt": "2026-10-01T03:49:06.918Z",
+  "fromSnapshot": "207e03c37619d889bd2ee3205d16e0f50a86ba6664f7622382e79663414be36a",
+  "toSnapshot": "e6c9e7d5950082924e4043bcc8acf19afb4761ce7d71625ebb8089cfc1318931",
+  "previousGeneratedAt": "2026-10-01T04:25:53.772Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 4,
+  "count": 2,
   "changes": [
+    {
+      "id": "https://peninsulainsider.com.au/explore/plans/the-family-day-out/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/plans/the-family-day-out/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/plans/the-family-day-out/index.md",
+      "contentSha256": "eda8f5610f1377a5fc9be069dd6b628051a3c070b8feca329677e28e468397b3",
+      "previousContentSha256": "4894ae06b0b7c54ce01b40239c7a38f06923446ec2c5424ea9173387df8e872c"
+    },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "7a223aa747df77e26289b02661fbd06bc85c4bf4c07a3659cf16921791620ebd",
-      "previousContentSha256": "92d2fa55d013a6a03105f7dc2321e42be11ab5f0550e7a8a88aad35686e9bbc5"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/stay/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/stay/",
-      "markdownUrl": "https://peninsulainsider.com.au/stay/index.md",
-      "contentSha256": "d9d28430d0c0a6d199da8eb53e9529f9cf73092d43f1d49ea869899f9df13b32",
-      "previousContentSha256": "3db028faf978b8f1354aa8e17eb9e0958ceac680c4d795932fb13ac8831c78b6"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/stay/resorts/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/stay/resorts/",
-      "markdownUrl": "https://peninsulainsider.com.au/stay/resorts/index.md",
-      "contentSha256": "4549b630f10cc4b335f2347c1becb7ff2a7c7e608de6195eda79e1b69f2e9b91",
-      "previousContentSha256": "a857db40454f9451517a650ba82abad0139d0333071daabd6e5cdc9ee1a04dd9"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/stay/vineyard-stays/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/stay/vineyard-stays/",
-      "markdownUrl": "https://peninsulainsider.com.au/stay/vineyard-stays/index.md",
-      "contentSha256": "fc7691bb2569c36fffeee64d1335fc7ff92729b23a8660886fecf720146249fe",
-      "previousContentSha256": "1618f43f7bf38e8bf675976eba21358cbd937e5fac83620fa2dc8820ef7bbd36"
+      "contentSha256": "8d3654fcc843a7a9f85d2579a77db5678dfabb295b7bd67961e8c36d758eac64",
+      "previousContentSha256": "7a223aa747df77e26289b02661fbd06bc85c4bf4c07a3659cf16921791620ebd"
     }
   ]
 }

@@ -61,7 +61,7 @@ Flexible budget
 
 4 sequenced stops
 
-[Choose the stay](<https://peninsulainsider.com.au/stay/>)
+[Follow the route →](<https://peninsulainsider.com.au/explore/plans/the-family-day-out/#day-by-day>)
 
 Keep the Eagle, brewery lunch and beach as the three anchors. This route works best Thursday to Sunday when the brewery bar and kitchen usually serve lunch; confirm current hours and menu, including public holiday changes. The Eagle can close in extreme weather, and its flexi tickets do not require a reserved time. The final coffee is optional, because Commonfolk Mornington closes at 3 pm on weekends.
 
