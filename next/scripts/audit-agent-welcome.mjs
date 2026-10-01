@@ -1,10 +1,12 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { resolve, join, dirname } from 'node:path';
 import { createHash } from 'node:crypto';
+import { createAuditTransport } from './agent-audit-transport.mjs';
 import { agentRoutes, agentResources, SITE } from '../src/lib/agent-guide.mjs';
 const args = process.argv.slice(2);
 const base = args.includes('--base') ? args[args.indexOf('--base')+1].replace(/\/$/,'') : null;
 const dist = resolve(args.includes('--dist') ? args[args.indexOf('--dist')+1] : 'dist');
+const transport=createAuditTransport();
 const failures=[]; let checks=0; const cache=new Map(); const http=[];
 const check=(ok,message)=>{checks++;if(!ok)failures.push(message);};
 async function read(path) {
@@ -12,14 +14,16 @@ async function read(path) {
  if(!cache.has(path)) cache.set(path,(async()=>{
   if(!base)return readFileSync(join(dist,pathname,pathname.endsWith('/')?'index.html':''),'utf8');
   const at=performance.now();
-  const response=await fetch(`${base}${path}`,{redirect:'manual',signal:AbortSignal.timeout(20000),headers:{'user-agent':'PI-agent-welcome-audit/2.0'}});
+  const response=await transport.request(`${base}${path}`);
   if(response.status!==200)throw new Error(`${path}: expected 200, got ${response.status}`);
-  const body=await response.text(); http.push({path,status:response.status,bytes:Buffer.byteLength(body),elapsedMs:Math.round(performance.now()-at),contentType:response.headers.get('content-type'),etag:response.headers.get('etag'),cacheControl:response.headers.get('cache-control')});
+  const body=response.body; http.push({path,status:response.status,bytes:Buffer.byteLength(body),elapsedMs:Math.round(performance.now()-at),contentType:response.headers.get('content-type'),etag:response.headers.get('etag'),cacheControl:response.headers.get('cache-control'),bodySha256:response.bodySha256});
   return body;
  })());
  return cache.get(path);
 }
-async function pool(items,fn) {let next=0;await Promise.all(Array.from({length:base?4:1},async()=>{while(next<items.length){const item=items[next++];try{await fn(item);}catch(e){check(false,e.message);}}}));}
+async function pool(items,fn) {for(const item of items){try{await fn(item);}catch(e){check(false,e.message);}}}
+async function audit() {
+const deploymentBefore=base?JSON.parse(await read('/deployment.json')):null;
 const llms=await read('/llms.txt');
 check(Buffer.byteLength(llms)<6500,'Agent entry point exceeds the 6.5KB budget');
 check(!/Peninsula Radar|reviewed on a daily\/weekly|—/.test(llms),'Outdated branding, unearned cadence claim or house-style violation');
@@ -72,15 +76,37 @@ if(base) {
  for(const path of ['/agents/manifest.json','/agents/catalog.json','/llms.txt','/agents/index.md']) {
   await read(path);const headers=http.find(r=>r.path===path);
   check(Boolean(headers?.etag)&&Boolean(headers?.cacheControl),`Missing cache validators: ${path}`);
-  const response=await fetch(base+path,{headers:{'If-None-Match':headers.etag},redirect:'manual',signal:AbortSignal.timeout(20000)});
-  conditional.push({path,status:response.status});check(response.status===304,`Unchanged representation did not return 304: ${path}`);
+  const paired=await transport.request(base+path);
+  check(paired.status===200&&paired.bodySha256===headers.bodySha256,`Representation changed during audit: ${path}`);
+  const pairedEtag=paired.headers.get('etag');
+  check(Boolean(pairedEtag),`Missing paired cache validator: ${path}`);
+  if(!pairedEtag)continue;
+  const response=await transport.request(base+path,{headers:{'If-None-Match':pairedEtag}});
+  conditional.push({path,status:response.status,initialEtag:headers.etag,requestedEtag:pairedEtag,responseEtag:response.headers.get('etag'),originalBodySha256:headers.bodySha256,pairedBodySha256:paired.bodySha256,responseBodySha256:response.bodySha256,bytes:response.bytes});check(response.status===304&&response.bytes===0,`Unchanged representation did not return bodyless 304: ${path}`);
   check(headers.contentType?.includes(path.endsWith('.json')?'application/json':path.endsWith('.md')?'text/markdown':'text/plain'),`Unexpected content type: ${path}`);
  }
  for(const path of ['/admin/index.md','/account/index.md','/agents/not-a-real-record.json']) {
-  const response=await fetch(base+path,{redirect:'manual',signal:AbortSignal.timeout(20000)});check(response.status===404,`Private/unknown compact route must be 404: ${path}`);
+  const response=await transport.request(base+path);check(response.status===404,`Private/unknown compact route must be 404: ${path}`);
  }
 } else for(const path of ['admin/index.md','account/index.md'])check(!existsSync(join(dist,path)),`Private compact file exists: ${path}`);
+let deploymentAfter=null;
+if(base) {
+ const response=await transport.request(base+'/deployment.json');
+ check(response.status===200,'Deployment provenance unavailable after audit');
+ deploymentAfter=JSON.parse(response.body);
+ check(Boolean(deploymentBefore?.sourceSha)&&['sourceSha','runId','generatedAt'].every(key=>deploymentBefore[key]===deploymentAfter[key]),'Deployment changed during audit; no single-release acceptance');
+}
 savings.sort((a,b)=>a-b);const mid=Math.floor(savings.length/2);const median=savings.length%2?savings[mid]:(savings[mid-1]+savings[mid])/2;
-const report={schemaVersion:'2.0',observedAt:new Date().toISOString(),target:base||dist,scope:'All canonical sitemap pages, compact/citation parity, section catalogues, snapshot changes, event date contract and live cache probes',checks,passed:checks-failures.length,failures,metrics:{indexBytes:Buffer.byteLength(llms),compactPages:catalog.count,coveredPages:savings.length,sitemapPages:sitemap.length,medianByteReduction:median},snapshotId:snapshot,conditional,fullRubricScore:null,unmeasured:['Independent factual accuracy of the corpus','30-task evaluation across three agent stacks and unseen questions','Actual throttling response under load','Search visibility and repeat retrieval outcomes']};
+const report={complete:true,schemaVersion:'2.1',observedAt:new Date().toISOString(),target:base||dist,scope:'All canonical sitemap pages, compact/citation parity, section catalogues, snapshot changes, event date contract and live cache probes',checks,passed:checks-failures.length,failures,metrics:{indexBytes:Buffer.byteLength(llms),compactPages:catalog.count,coveredPages:savings.length,sitemapPages:sitemap.length,medianByteReduction:median},snapshotId:snapshot,deploymentBefore,deploymentAfter,conditional,transport:base?{policy:transport.policy,attempts:transport.attempts,firstAttemptFailures:transport.attempts.filter(r=>r.attempt===1&&(r.error||[429,503].includes(r.status))).length,retries:transport.attempts.filter(r=>r.attempt>1).length}:null,fullRubricScore:null,unmeasured:['Independent factual accuracy of the corpus','30-task evaluation across three agent stacks and unseen questions','Actual throttling response under load','Search visibility and repeat retrieval outcomes']};
+return report;
+}
+let report;
+try { report=await audit(); }
+catch(error) {
+ check(false,error.message);
+ report={schemaVersion:'2.1',complete:false,observedAt:new Date().toISOString(),target:base||dist,
+  scope:'Incomplete structural audit; no acceptance established',checks,passed:checks-failures.length,failures,
+  transport:{policy:transport.policy,attempts:transport.attempts},fullRubricScore:null};
+}
 if(args.includes('--report')){const output=resolve(args[args.indexOf('--report')+1]);mkdirSync(dirname(output),{recursive:true});writeFileSync(output,JSON.stringify(report,null,2)+'\n');}
-if(failures.length){console.error(failures.join('\n'));process.exitCode=1;}else console.log(`Agent acceptance passed: ${checks} checks, ${catalog.count} compact pages, full sitemap coverage. This structural gate alone is not a 99/100 site score.`);
+if(failures.length){console.error(failures.join('\n'));process.exitCode=1;}else console.log(`Agent acceptance passed: ${checks} checks, ${report.metrics.compactPages} compact pages, full sitemap coverage. This structural gate alone is not a 99/100 site score.`);
